@@ -4,17 +4,19 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v8.0.0
+- **Version:** v8.0.2
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js` → `patches/v7.9.0.js` → `patches/v7.9.1.js` → `patches/v7.9.2.js` → `patches/v8.0.0.js`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js` → `patches/v7.9.0.js` → `patches/v7.9.1.js` → `patches/v7.9.2.js` → `patches/v8.0.0.js` → `patches/v8.0.1.js` → `patches/v8.0.2.js`
 - **v7.8.8 runtime assets:** `patches/v7.8.8.runtime.js`, `patches/v7.8.8.css`
 - **v7.8.9 runtime assets:** `patches/v7.8.9.runtime.js`, `patches/v7.8.9.css`
 - **v7.9.0 runtime assets:** `patches/v7.9.0.runtime.js`, `patches/v7.9.0.css`
 - **v7.9.1 runtime assets:** `patches/v7.9.1.runtime.js`, `patches/v7.9.1.css`
 - **v7.9.2 runtime assets:** `patches/v7.9.2.runtime.js`, `patches/v7.9.2.css`
 - **v8.0.0 runtime assets:** `patches/v8.0.0.runtime.js`, `patches/v8.0.0.css`
-- **Latest QA:** `qa/v8.0.0_DUNYAM_FINAL_QA.md`
+- **v8.0.1 runtime asset:** `patches/v8.0.1.runtime.js`
+- **v8.0.2 runtime assets:** `patches/v8.0.2.runtime.js`, `patches/v8.0.2.css`
+- **Latest QA:** `qa/v8.0.2_DUNYAM_PROGRESS_CARD_STABILITY_QA.md`
 
 ## Current focus — Dünyam
 
@@ -75,7 +77,7 @@ v7.9.2 Dünyam ekonomisini ve progression hızını dengeler:
 
 NUR yalnızca Dünyam kozmetik ilerleme puanıdır; dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.
 
-GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip runtime patch'lerini sırayla uygular. v7.8.8, v7.8.9, v7.9.0, v7.9.1 ve v7.9.2 patch loader'ları kendi küçük CSS/runtime dosyalarını son belgeye ekler.
+GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip runtime patch'lerini sırayla uygular.
 
 v8.0.0 Dünyam final stabilizasyon turudur:
 
@@ -88,3 +90,21 @@ v8.0.0 Dünyam final stabilizasyon turudur:
 - v8.0.0 ekonomi, NUR anlamı, dekor fiyatları, ownership veya dini içerik kurallarını değiştirmez.
 
 Bu sürümle **Dünyam modülünün planlanan ana geliştirme hattı tamamlanmıştır**; sonraki Dünyam değişiklikleri yeni özellik turundan çok bugfix/ürün geri bildirimi odaklı ilerlemelidir.
+
+v8.0.1 Dünyam giriş donması hotfix'idir:
+
+- Dünyam scroll alanının önceki aşağı konumunu koruması ve eski interaction/busy kilitlerinin girişte kalması düzeltilir.
+- Alt menüden `Dünyam` seçildiğinde oda görünümüne dönülür ve `worldScreenBody.scrollTop = 0` uygulanır.
+- `v776-busy`, `v777-interacting`, movement/dragging/action kalıntıları temizlenir.
+- `worldScreenBody` üzerinde yanlışlıkla kalmış pointer/visibility/inert kilitleri kaldırılır.
+- Görünmeyen stale preview/sheet node'ları temizlenir.
+- Ekonomi, NUR, dekor ownership/equip, presetler ve avatar verisi değiştirilmez.
+
+v8.0.2 Dünyam progression kartındaki periyodik sıçrama/flicker için hotfix'tir:
+
+- Ekran görüntüsünde görülen `13 / 30 NUR` metni, eski v7.8.4 renderer'ın yeni v7.9.2 denge renderer'ının üzerine tekrar yazabildiğini gösteriyordu. Güncel Lv2 eşiği **25 NUR**'dur.
+- Eski `.v784-progress-strip` DOM'da uyumluluk için korunur ancak görünmez hale getirilir; böylece eski observer çalışsa bile kullanıcıya yansımaz.
+- Görünen kart artık bağımsız `.v802-progress-strip` tarafından çizilir ve yalnızca `level / NUR / görev / pending reward` imzası gerçekten değiştiğinde DOM'a yazılır.
+- Normal durumda kartta `animation`, `transform` ve `transition` yoktur; boşta sabit durur.
+- Kart mevcut `DEEN_WORLD_PROGRESSION.open()` panelini açmaya devam eder; ekonomi ve claim kuralları değiştirilmez.
+- v8.0.2 mevcut Altın, NUR, owned/equipped dekor, preset veya avatar state'ini değiştirmez.
