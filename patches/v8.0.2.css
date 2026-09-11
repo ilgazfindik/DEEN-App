@@ -1,0 +1,14 @@
+/* DEEN v8.0.2 — stable progression card */
+#worldScreenBody .v784-progress-strip{display:none!important}
+#worldScreenBody .v802-progress-strip{width:100%;min-height:52px;margin:0 0 9px;padding:7px 9px;border:1px solid rgba(118,199,183,.18);border-radius:14px;background:linear-gradient(180deg,#0d2931,#0a2229);color:#dcece9;display:grid;grid-template-columns:38px minmax(0,1fr) auto;grid-template-rows:auto 4px;column-gap:9px;row-gap:5px;align-items:center;text-align:left;box-shadow:0 8px 18px rgba(0,0,0,.07);transform:none!important;animation:none!important;transition:none!important}
+#worldScreenBody .v802-progress-strip *{animation:none!important;transition:none!important}
+#worldScreenBody .v802-level-badge{grid-row:1/3;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(180deg,#214c46,#163a37);border:1px solid rgba(129,222,201,.2);color:#9be7d4;font-size:7px;font-weight:950;line-height:1.05;text-align:center;letter-spacing:.3px;box-sizing:border-box}
+#worldScreenBody .v802-level-badge b{font:inherit;color:inherit}
+#worldScreenBody .v802-progress-copy{min-width:0;display:flex;flex-direction:column;gap:1px}
+#worldScreenBody .v802-progress-copy>b{font-size:8.5px;color:#ecf8f5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v802-progress-copy>small{font-size:6.3px;color:#839da2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v802-progress-side{font-size:6.4px;font-weight:950;color:#8fdccb;white-space:nowrap;padding-left:4px}
+#worldScreenBody .v802-progress-side.reward{color:#eed58d}
+#worldScreenBody .v802-progress-bar{grid-column:2/4;height:4px;border-radius:9px;background:#19353c;overflow:hidden}
+#worldScreenBody .v802-progress-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#5fcab2,#91e2cd)}
+@media(max-width:390px){#worldScreenBody .v802-progress-strip{grid-template-columns:35px minmax(0,1fr) auto;padding:7px;column-gap:7px}#worldScreenBody .v802-level-badge{width:35px;height:35px}}
