@@ -4,11 +4,11 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.8.4
+- **Version:** v7.8.5
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js`
-- **Latest QA:** `qa/v7.8.4_DUNYAM_PROGRESSION_QA.md`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js`
+- **Latest QA:** `qa/v7.8.5_DUNYAM_LEVELUP_QA.md`
 
 ## Current focus — Dünyam
 
@@ -30,17 +30,19 @@ v7.8.2 doğrudan etkileşimleri kısa bağlamsal karakter aksiyonlarına dönü�
 
 v7.8.3 karaktere boşta yaşayan ambient davranışlar ekledi.
 
-v7.8.4 Dünyam'a sade bir progression loop ekler:
+v7.8.4 sade progression loop ekledi: Oda Seviyesi, NUR, günlük 3 görev, tek seferlik seviye Altın ödülleri ve seviye bazlı dekor kilitleri.
 
-- Ana oda ekranında yalnızca kompakt **Oda Seviyesi / NUR / günlük görev** şeridi görünür; ekran yeniden kalabalıklaştırılmaz.
-- Günlük 3 görev: Dünyam'a uğra, 3 farklı eşyayla etkileş, 1 ders tamamla.
-- Günlük görevlerin toplam ödülü **30 NUR + 10 Altın**dır.
-- NUR yalnızca Dünyam kozmetik seviye puanıdır.
-- Oda seviyeleri yeni dekorların mağazada satın alınabilir hale gelmesini sağlar.
-- Seviye 2–7 arasında Zeytin Saksısı, Meşe Kitaplık, Gün Doğumu Halısı, Kum Çalışma Masası, Gece Penceresi ve NUR · Yıldız Işığı sırayla açılır.
-- Her yeni seviyede bir defalık Altın bonusu vardır; aynı bonus ikinci kez alınamaz.
-- Günlük görev ödülleri de idempotenttir; aynı ödül aynı gün ikinci kez alınamaz.
-- Daha önce sahip olunan dekorlar kilitlenmez.
-- Mevcut Dünyam kullanıcılarına sahip olunan dekor/alanlara göre sınırlı tek seferlik NUR migration seed uygulanır.
+v7.8.5 seviye atlama anını görünür ve ödüllendirici hale getirir:
+
+- Yeni oda seviyesinde tek seferlik premium level-up overlay gösterilir.
+- Açılan dekor gerçek ürün adıyla reveal kartında gösterilir.
+- Odadaki ilgili mevcut obje kısa glow/reveal efekti alır.
+- Yeni dekor otomatik satın alınmaz; yalnızca mağazada satın alınabilir hale geldiği açıkça belirtilir.
+- `Mağazada Gör` düğmesi kullanıcıyı doğrudan Dünyam mağazasına götürür.
+- Aynı seviye için kutlama ikinci kez gösterilmez; görülen seviyeler progression celebration state'inde tutulur.
+- Önceki sürümlerden gelen mevcut seviyeler ilk açılışta görülmüş sayılır; migration sonrası yanlış/stale kutlama çıkmaz.
+- Reduced-motion tercihinde confetti ve ağır hareketler devre dışı kalır.
+
+NUR yalnızca Dünyam kozmetik ilerleme puanıdır; dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.
 
 GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip küçük runtime patch'lerini sırasıyla uygular. Böylece sonraki Dünyam güncellemeleri büyük HTML'i tekrar manuel yüklemeden yayınlanabilir.
