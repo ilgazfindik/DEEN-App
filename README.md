@@ -4,11 +4,11 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.8.5
+- **Version:** v7.8.6
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js`
-- **Latest QA:** `qa/v7.8.5_DUNYAM_LEVELUP_QA.md`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js`
+- **Latest QA:** `qa/v7.8.6_DUNYAM_ROOM_EVOLUTION_QA.md`
 
 ## Current focus — Dünyam
 
@@ -32,16 +32,21 @@ v7.8.3 karaktere boşta yaşayan ambient davranışlar ekledi.
 
 v7.8.4 sade progression loop ekledi: Oda Seviyesi, NUR, günlük 3 görev, tek seferlik seviye Altın ödülleri ve seviye bazlı dekor kilitleri.
 
-v7.8.5 seviye atlama anını görünür ve ödüllendirici hale getirir:
+v7.8.5 seviye atlama anını premium level-up overlay, dekor reveal ve mağaza yönlendirmesiyle görünür hale getirdi.
 
-- Yeni oda seviyesinde tek seferlik premium level-up overlay gösterilir.
-- Açılan dekor gerçek ürün adıyla reveal kartında gösterilir.
-- Odadaki ilgili mevcut obje kısa glow/reveal efekti alır.
-- Yeni dekor otomatik satın alınmaz; yalnızca mağazada satın alınabilir hale geldiği açıkça belirtilir.
-- `Mağazada Gör` düğmesi kullanıcıyı doğrudan Dünyam mağazasına götürür.
-- Aynı seviye için kutlama ikinci kez gösterilmez; görülen seviyeler progression celebration state'inde tutulur.
-- Önceki sürümlerden gelen mevcut seviyeler ilk açılışta görülmüş sayılır; migration sonrası yanlış/stale kutlama çıkmaz.
-- Reduced-motion tercihinde confetti ve ağır hareketler devre dışı kalır.
+v7.8.6 oda seviyesini doğrudan görsel evrime bağlar:
+
+- Lv1 oda temel ve sade görünür.
+- Lv2 duvar çerçevesi / küçük mimari detay kazanır.
+- Lv3 duvar hattı ve katman hissi eklenir.
+- Lv4 zemin inlay detayı ile oda daha tamamlanmış görünür.
+- Lv5 odak/çalışma bölgesinde kontrollü ambient ışık artar.
+- Lv6 pencere/gece atmosferi, küçük yıldız detayları ve çevresel derinlik gelişir.
+- Lv7 NUR ve tavan çevresinde premium ambient glow kullanılır.
+- Çalışma, Okuma ve Bahçe alanlarında detayların tonu mevcut alan temasına uyarlanır.
+- Görsel evrim yeni buton eklemez; mevcut sade Dünyam navigasyonu korunur.
+- Oda seviyesi mevcut v7.8.4 progression state'inden okunur; v7.8.6 ödül, satın alma, görev veya avatar state'ini değiştirmez.
+- Reduced-motion tercihinde seviye geçiş animasyonu devre dışıdır.
 
 NUR yalnızca Dünyam kozmetik ilerleme puanıdır; dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.
 
