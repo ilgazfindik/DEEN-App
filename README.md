@@ -4,11 +4,11 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.7.9
+- **Version:** v7.8.0
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js`
-- **Latest QA:** `qa/v7.7.9_DUNYAM_ASSET_QA.md`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js`
+- **Latest QA:** `qa/v7.8.0_DUNYAM_SIMPLIFIED_QA.md`
 
 ## Current focus — Dünyam
 
@@ -20,15 +20,17 @@ v7.7.7 oda objelerini gerçek ve stabil etkileşimlere dönüştürdü; canonica
 
 v7.7.8 görsel hiyerarşi ve oda kompozisyonunu yeniledi.
 
-v7.7.9 oda asset kalitesini yükseltir:
+v7.7.9 oda asset kalitesini yükseltti.
 
-- Masa katmanlı ahşap materyal, çekmece ve kitap detayı aldı.
-- Lamba daha sıcak metal/ışık görünümüne ve living-state ile senkron glow'a kavuştu.
-- Halı merkez madalyon ve tekstil katmanlarıyla daha oyun asset'i gibi görünür.
-- Bitki ek gövde/yapraklar ve daha hacimli bir saksı aldı.
-- Kitaplık artık sembol yerine gerçek raf ve kitap sırtları gösterir.
-- Pencere iç sahnesi, bölmeleri, ay/ışık detayı ve pencere eşiğiyle derinleştirildi.
-- NUR ve koleksiyon hatırası daha kontrollü premium glow/material katmanına sahip.
-- v7.7.9 görsel-only patch'tir; avatar, hareket ve obje interaction motorlarını override etmez.
+v7.8.0 Dünyam navigasyonunu sadeleştirir:
+
+- Eski 5 büyük üst sekme kullanıcı arayüzünden kaldırıldı; uyumluluk için DOM'da gizli tutulur.
+- Çalışma / Okuma / Bahçe kartları yerine tek bir kompakt alan seçici kullanılır.
+- Sürekli görünen 4 hareket butonu kaldırıldı; **Hareket** butonu kısa bir bottom sheet açar.
+- Ana odada yalnızca **Hareket** ve **Düzenle** ana aksiyonları görünür.
+- **Dünyam Menüsü** Gardırop, Mağaza, Avatar, Koleksiyon, Alanlar ve Oda Düzeni için tek giriş noktasıdır.
+- Gardırop ve Mağaza gibi alt sayfalarda **Odaya Dön** kontrolü gösterilir.
+- Yürüyüş geçişi, kısa bob animasyonu, poz pop ve masa/pencere varış vurguları eklendi.
+- v7.8.0 mevcut canonical avatar, reward, room layout ve object interaction motorlarını değiştirmez.
 
 GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip küçük runtime patch'lerini sırasıyla uygular. Böylece sonraki Dünyam güncellemeleri büyük HTML'i tekrar manuel yüklemeden yayınlanabilir.
