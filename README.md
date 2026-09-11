@@ -4,11 +4,11 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.8.6
+- **Version:** v7.8.7
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js`
-- **Latest QA:** `qa/v7.8.6_DUNYAM_ROOM_EVOLUTION_QA.md`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js`
+- **Latest QA:** `qa/v7.8.7_DUNYAM_ROOM_PERSONALIZATION_QA.md`
 
 ## Current focus — Dünyam
 
@@ -34,19 +34,18 @@ v7.8.4 sade progression loop ekledi: Oda Seviyesi, NUR, günlük 3 görev, tek s
 
 v7.8.5 seviye atlama anını premium level-up overlay, dekor reveal ve mağaza yönlendirmesiyle görünür hale getirdi.
 
-v7.8.6 oda seviyesini doğrudan görsel evrime bağlar:
+v7.8.6 oda seviyesini görsel evrime bağladı: duvar, zemin, ışık, pencere atmosferi ve NUR glow seviyeyle birlikte gelişir.
 
-- Lv1 oda temel ve sade görünür.
-- Lv2 duvar çerçevesi / küçük mimari detay kazanır.
-- Lv3 duvar hattı ve katman hissi eklenir.
-- Lv4 zemin inlay detayı ile oda daha tamamlanmış görünür.
-- Lv5 odak/çalışma bölgesinde kontrollü ambient ışık artar.
-- Lv6 pencere/gece atmosferi, küçük yıldız detayları ve çevresel derinlik gelişir.
-- Lv7 NUR ve tavan çevresinde premium ambient glow kullanılır.
-- Çalışma, Okuma ve Bahçe alanlarında detayların tonu mevcut alan temasına uyarlanır.
-- Görsel evrim yeni buton eklemez; mevcut sade Dünyam navigasyonu korunur.
-- Oda seviyesi mevcut v7.8.4 progression state'inden okunur; v7.8.6 ödül, satın alma, görev veya avatar state'ini değiştirmez.
-- Reduced-motion tercihinde seviye geçiş animasyonu devre dışıdır.
+v7.8.7 oda kişiselleştirmesini gerçek equip sistemine dönüştürür:
+
+- `Oda Düzeni` modunda kompakt **Dekor Stili** seçicisi gösterilir.
+- Sahip olunan masa, halı, bitki, kitaplık, pencere ve NUR varyantları tek dokunuşla aktif edilir.
+- Satın alma (`owned`) ile odada kullanma (`equipped`) artık ayrı state'lerdir.
+- Masa için Standart / Kum Çalışma Masası, halı için Teal / Gün Doğumu, pencere için Standart / Gece, NUR için Standart / Yıldız Işığı seçimleri desteklenir.
+- Bitki ve kitaplık istenirse tamamen kaldırılabilir ve daha sonra tekrar yerleştirilebilir.
+- Seçim anında odada uygulanır, otomatik kaydolur ve küçük equip feedback animasyonu oynar.
+- `Mağaza` kısayolu Oda Düzeni içinden erişilebilir; ana Dünyam ekranına yeni kalıcı buton eklenmez.
+- Equip işlemleri avatar state'ine, NUR miktarına veya Altın bakiyesine dokunmaz.
 
 NUR yalnızca Dünyam kozmetik ilerleme puanıdır; dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.
 
