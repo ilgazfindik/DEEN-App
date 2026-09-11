@@ -4,14 +4,15 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.9.0
+- **Version:** v7.9.1
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js` → `patches/v7.9.0.js`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js` → `patches/v7.9.0.js` → `patches/v7.9.1.js`
 - **v7.8.8 runtime assets:** `patches/v7.8.8.runtime.js`, `patches/v7.8.8.css`
 - **v7.8.9 runtime assets:** `patches/v7.8.9.runtime.js`, `patches/v7.8.9.css`
 - **v7.9.0 runtime assets:** `patches/v7.9.0.runtime.js`, `patches/v7.9.0.css`
-- **Latest QA:** `qa/v7.9.0_DUNYAM_ROOM_PRESETS_QA.md`
+- **v7.9.1 runtime assets:** `patches/v7.9.1.runtime.js`, `patches/v7.9.1.css`
+- **Latest QA:** `qa/v7.9.1_DUNYAM_SHOP_COLLECTION_POLISH_QA.md`
 
 ## Current focus — Dünyam
 
@@ -48,6 +49,18 @@ v7.9.0 oda kombinasyonlarını preset olarak saklar:
 - Oda yeniden render edilse bile preset bölümü tek kopya olarak geri kurulur ve kayıtlar korunur.
 - Ana Dünyam ekranına yeni kalıcı kontrol eklenmez; presetler yalnızca Oda Düzeni içinde görünür.
 
+v7.9.1 mağaza ve koleksiyon akışını son polish turuna taşır:
+
+- Mağaza başlığının altına koleksiyon ilerlemesi, Oda Seviyesi ve güncel Altın bakiyesini tek yerde gösteren kompakt özet eklenir.
+- `Tümü / Alınabilir / Sahip / Odada` durum filtreleri kategori filtreleriyle birlikte çalışır.
+- Kategori chip'leri kendi dekor adetlerini gösterir.
+- Her dekor kartı açık `ODADA / SAHİPSİN / ALINABİLİR / KİLİTLİ` durum etiketi taşır.
+- Satın alma ve kullanma metinleri standartlaştırılır; `ODADA DENE` önizleme aksiyonu korunur.
+- Kartın boş alanına dokunmak da güvenli şekilde mevcut v7.8.9 önizlemesini açar; buton tıklamaları kart önizlemesini yanlışlıkla tetiklemez.
+- Durum filtresinde sonuç yoksa sade boş durum mesajı gösterilir.
+- Mağaza DOM'u yeniden render edildiğinde polish katmanı tek kopya halinde geri kurulur; observer kendi eklediği node'larla döngü oluşturmaz.
+- v7.9.1 satın alma fiyatlarına, NUR'a, preset kayıtlarına, avatar state'ine veya dekor ownership kurallarına yeni ekonomi mantığı eklemez.
+
 NUR yalnızca Dünyam kozmetik ilerleme puanıdır; dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.
 
-GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip runtime patch'lerini sırayla uygular. v7.8.8, v7.8.9 ve v7.9.0 patch loader'ları kendi küçük CSS/runtime dosyalarını son belgeye ekler.
+GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip runtime patch'lerini sırayla uygular. v7.8.8, v7.8.9, v7.9.0 ve v7.9.1 patch loader'ları kendi küçük CSS/runtime dosyalarını son belgeye ekler.
