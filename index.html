@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>DEEN v7.8.3</title>
+<title>DEEN v7.8.4</title>
 <style>
 html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100%}.boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}.box{max-width:320px}.logo{font-size:26px;font-weight:900;letter-spacing:5px;color:#91e2ca}.sub{margin-top:12px;color:#9db4b8;font-size:13px;line-height:1.5}.err{color:#f1b0b4}
 </style>
@@ -16,14 +16,15 @@ html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,Bl
 <script src="./patches/v7.8.1.js?v=781"></script>
 <script src="./patches/v7.8.2.js?v=782"></script>
 <script src="./patches/v7.8.3.js?v=783"></script>
+<script src="./patches/v7.8.4.js?v=784"></script>
 </head>
 <body>
-<div class="boot"><div class="box"><div class="logo">DEEN</div><div class="sub" id="status">v7.8.3 Dünyam güncellemesi yükleniyor…</div></div></div>
+<div class="boot"><div class="box"><div class="logo">DEEN</div><div class="sub" id="status">v7.8.4 Dünyam güncellemesi yükleniyor…</div></div></div>
 <script>
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const r=await fetch('./DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html?v=783',{cache:'no-store'});
+   const r=await fetch('./DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html?v=784',{cache:'no-store'});
    if(!r.ok)throw new Error('Ana DEEN dosyası yüklenemedi.');
    let html=await r.text();
    if(typeof window.DEEN_PATCH_V775!=='function')throw new Error('v7.7.5 yaması yüklenemedi.');
@@ -35,6 +36,7 @@ html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,Bl
    if(typeof window.DEEN_PATCH_V781!=='function')throw new Error('v7.8.1 yaması yüklenemedi.');
    if(typeof window.DEEN_PATCH_V782!=='function')throw new Error('v7.8.2 yaması yüklenemedi.');
    if(typeof window.DEEN_PATCH_V783!=='function')throw new Error('v7.8.3 yaması yüklenemedi.');
+   if(typeof window.DEEN_PATCH_V784!=='function')throw new Error('v7.8.4 yaması yüklenemedi.');
    const p775=window.DEEN_PATCH_V775(html);html=p775.html;
    const p776=window.DEEN_PATCH_V776(html);html=p776.html;
    const p777=window.DEEN_PATCH_V777(html);html=p777.html;
@@ -44,6 +46,7 @@ html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,Bl
    const p781=window.DEEN_PATCH_V781(html);html=p781.html;
    const p782=window.DEEN_PATCH_V782(html);html=p782.html;
    const p783=window.DEEN_PATCH_V783(html);html=p783.html;
+   const p784=window.DEEN_PATCH_V784(html);html=p784.html;
    if(p775.applied<5)console.warn('DEEN v7.7.5: expected 5 patch targets, applied',p775.applied);
    if(p776.applied<1)console.warn('DEEN v7.7.6 patch already present or not applied');
    if(p777.applied<1)console.warn('DEEN v7.7.7 patch already present or not applied');
@@ -53,6 +56,7 @@ html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,Bl
    if(p781.applied<1)console.warn('DEEN v7.8.1 patch already present or not applied');
    if(p782.applied<1)console.warn('DEEN v7.8.2 patch already present or not applied');
    if(p783.applied<1)console.warn('DEEN v7.8.3 patch already present or not applied');
+   if(p784.applied<1)console.warn('DEEN v7.8.4 patch already present or not applied');
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
