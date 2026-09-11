@@ -1,0 +1,32 @@
+/* DEEN v7.8.9 — Try Before Buy / Oda Önizleme */
+#worldScreenBody .v788-card .v789-try{width:100%;min-height:32px;margin-top:7px;border:1px solid rgba(113,210,190,.28);border-radius:10px;background:rgba(20,61,61,.54);color:#9fe4d5;font-size:6.4px;font-weight:1000;letter-spacing:.25px}
+#worldScreenBody .v788-card .v789-try:active{transform:scale(.98)}
+#worldScreenBody .v788-card.locked .v789-try{opacity:1;border-style:dashed;background:rgba(21,48,52,.7);color:#91aaa9}
+#worldScreenBody .v789-preview{position:fixed;inset:0;z-index:10140;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:linear-gradient(180deg,rgba(4,18,23,.97),rgba(5,20,25,.985));backdrop-filter:blur(9px);padding:max(14px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));box-sizing:border-box;animation:v789Fade .18s ease both;overflow:hidden}
+#worldScreenBody .v789-preview-top{width:min(390px,100%);margin:0 auto 10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+#worldScreenBody .v789-preview-title{min-width:0}#worldScreenBody .v789-preview-title small{display:block;font-size:6.2px;font-weight:950;letter-spacing:1px;color:#72cdb9}#worldScreenBody .v789-preview-title b{display:block;margin-top:3px;font-size:13px;color:#eef9f6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v789-preview-close{width:35px;height:35px;border-radius:12px;border:1px solid #315059;background:#102b32;color:#a8c0c1;font-size:14px;font-weight:900;flex:0 0 auto}
+#worldScreenBody .v789-preview-stage{width:min(390px,100%);min-height:0;margin:auto;display:grid;place-items:center;position:relative}
+#worldScreenBody .v789-preview-room-shell{width:100%;border:1px solid rgba(127,221,199,.18);border-radius:20px;padding:7px;box-sizing:border-box;background:linear-gradient(180deg,rgba(18,48,55,.92),rgba(9,32,38,.94));box-shadow:0 24px 60px rgba(0,0,0,.32);position:relative}
+#worldScreenBody .v789-preview-room-shell:before{content:'CANLI ODA ÖNİZLEMESİ';position:absolute;left:13px;top:13px;z-index:120;padding:4px 7px;border:1px solid rgba(125,219,198,.18);border-radius:999px;background:rgba(6,29,34,.86);color:#8edcca;font-size:5.4px;font-weight:1000;letter-spacing:.55px;pointer-events:none}
+#worldScreenBody .v789-preview-room{width:100%!important;max-width:none!important;margin:0!important;pointer-events:none!important;transform:none!important;box-sizing:border-box}
+#worldScreenBody .v789-preview-room [id]{pointer-events:none!important}
+#worldScreenBody .v789-preview-room.v789-preview-plant .v750-obj-plant,#worldScreenBody .v789-preview-room.v789-preview-shelf .v750-obj-shelf{display:block!important;visibility:visible!important;opacity:1!important}
+#worldScreenBody .v789-preview-room.v789-preview-desk .v750-obj-desk,#worldScreenBody .v789-preview-room.v789-preview-rug .v750-obj-rug,#worldScreenBody .v789-preview-room.v789-preview-plant .v750-obj-plant,#worldScreenBody .v789-preview-room.v789-preview-shelf .v750-obj-shelf,#worldScreenBody .v789-preview-room.v789-preview-window .v779-window-scene,#worldScreenBody .v789-preview-room.v789-preview-nur .v750-obj-nur{animation:v789Target 1.25s ease-in-out infinite alternate!important}
+#worldScreenBody .v789-preview-info{width:min(390px,100%);margin:10px auto 0;padding:11px;border:1px solid rgba(127,216,197,.17);border-radius:17px;background:linear-gradient(180deg,#102d34,#0b252c);box-sizing:border-box;box-shadow:0 12px 28px rgba(0,0,0,.18)}
+#worldScreenBody .v789-preview-meta{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:9px;align-items:center}
+#worldScreenBody .v789-preview-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#17383e;border:1px solid rgba(130,213,196,.14);color:#a0e5d5;font-size:18px}
+#worldScreenBody .v789-preview-copy{min-width:0}#worldScreenBody .v789-preview-copy b{display:block;color:#edf8f5;font-size:9.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#worldScreenBody .v789-preview-copy small{display:block;margin-top:3px;color:#829a9e;font-size:6.2px;line-height:1.35}
+#worldScreenBody .v789-preview-price{text-align:right;color:#dec47d;font-size:7px;font-weight:1000;white-space:nowrap}
+#worldScreenBody .v789-preview-actions{display:grid;grid-template-columns:.82fr 1.18fr;gap:8px;margin-top:10px}
+#worldScreenBody .v789-preview-actions button{min-height:43px;border-radius:12px;font-size:7px;font-weight:1000}
+#worldScreenBody .v789-cancel{border:1px solid #34525a;background:#102b33;color:#9db6b8}
+#worldScreenBody .v789-confirm{border:1px solid #81dec7;background:linear-gradient(180deg,#75dbc3,#48b7a2);color:#072821;box-shadow:0 9px 20px rgba(52,174,149,.13)}
+#worldScreenBody .v789-confirm.buy{border-color:#dfc774;background:linear-gradient(180deg,#ddc16c,#af873e);color:#2d2109}
+#worldScreenBody .v789-confirm:disabled{border-color:#3a4c4d;background:#1c3032;color:#788d8d;box-shadow:none}
+#worldScreenBody .v789-preview-note{margin-top:7px;text-align:center;color:#6f888d;font-size:5.8px;line-height:1.35}#worldScreenBody .v789-preview-note b{color:#9ebcb7}
+body.v789-preview-open{overflow:hidden!important;touch-action:none}
+@keyframes v789Fade{from{opacity:0}to{opacity:1}}@keyframes v789Target{from{filter:brightness(1)}to{filter:brightness(1.12) drop-shadow(0 0 12px rgba(127,225,202,.24))}}
+html.v5-reduce #worldScreenBody .v789-preview,html.v625-motion-off #worldScreenBody .v789-preview,html.v5-reduce #worldScreenBody .v789-preview-room[class*="v789-preview-"] .v750-object,html.v625-motion-off #worldScreenBody .v789-preview-room[class*="v789-preview-"] .v750-object{animation:none!important}
+@media(prefers-reduced-motion:reduce){#worldScreenBody .v789-preview,#worldScreenBody .v789-preview-room[class*="v789-preview-"] .v750-object,#worldScreenBody .v789-preview-room .v779-window-scene{animation:none!important}}
+@media(max-width:390px){#worldScreenBody .v789-preview{padding-left:8px;padding-right:8px}#worldScreenBody .v789-preview-room-shell{padding:5px;border-radius:18px}#worldScreenBody .v789-preview-info{padding:9px}.v789-preview-actions button{min-height:41px!important}}
