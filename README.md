@@ -4,15 +4,16 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.9.1
+- **Version:** v7.9.2
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js` → `patches/v7.9.0.js` → `patches/v7.9.1.js`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js` → `patches/v7.9.0.js` → `patches/v7.9.1.js` → `patches/v7.9.2.js`
 - **v7.8.8 runtime assets:** `patches/v7.8.8.runtime.js`, `patches/v7.8.8.css`
 - **v7.8.9 runtime assets:** `patches/v7.8.9.runtime.js`, `patches/v7.8.9.css`
 - **v7.9.0 runtime assets:** `patches/v7.9.0.runtime.js`, `patches/v7.9.0.css`
 - **v7.9.1 runtime assets:** `patches/v7.9.1.runtime.js`, `patches/v7.9.1.css`
-- **Latest QA:** `qa/v7.9.1_DUNYAM_SHOP_COLLECTION_POLISH_QA.md`
+- **v7.9.2 runtime assets:** `patches/v7.9.2.runtime.js`, `patches/v7.9.2.css`
+- **Latest QA:** `qa/v7.9.2_DUNYAM_ECONOMY_BALANCE_QA.md`
 
 ## Current focus — Dünyam
 
@@ -61,6 +62,16 @@ v7.9.1 mağaza ve koleksiyon akışını son polish turuna taşır:
 - Mağaza DOM'u yeniden render edildiğinde polish katmanı tek kopya halinde geri kurulur; observer kendi eklediği node'larla döngü oluşturmaz.
 - v7.9.1 satın alma fiyatlarına, NUR'a, preset kayıtlarına, avatar state'ine veya dekor ownership kurallarına yeni ekonomi mantığı eklemez.
 
+v7.9.2 Dünyam ekonomisini ve progression hızını dengeler:
+
+- Günlük 3 görevin toplam ödülü **25 NUR + 18 Altın** olarak standardize edilir: ziyaret `+5/+4`, üç farklı eşya `+8/+6`, bir ders `+12/+8`.
+- Oda seviye eşikleri `0 / 25 / 70 / 130 / 205 / 295 / 400 NUR` olarak ayarlanır; üç görevin her gün tamamlandığı senaryoda Lv7 yaklaşık **16 aktif gün** sürer.
+- Seviye Altın bonusları `6 / 10 / 15 / 20 / 25 / 30` olarak dengelenir ve her seviye için yalnızca bir kez alınabilir.
+- Mevcut kullanıcıların NUR'u, alınmış görevleri, seviye claim'leri, owned/equipped dekorları ve presetleri sıfırlanmaz; yeni denge yalnızca sonraki claim'lerde uygulanır.
+- Common / Rare / Epic dekor fiyat aralıkları mevcut katalog için sırasıyla `35–75 / 55–120 / 130–170 Altın` hedef ritmine göre audit edilmiştir; v7.9.2 mevcut satın alma fiyatlarını yeniden yazmaz.
+- Progression paneli yeni günlük toplamı, yeni seviye eşiklerini ve fiyat ritmini gösterir.
+- v7.9.2 NUR'un yalnızca Dünyam kozmetik ilerleme puanı olduğu kuralını korur.
+
 NUR yalnızca Dünyam kozmetik ilerleme puanıdır; dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.
 
-GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip runtime patch'lerini sırayla uygular. v7.8.8, v7.8.9, v7.9.0 ve v7.9.1 patch loader'ları kendi küçük CSS/runtime dosyalarını son belgeye ekler.
+GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip runtime patch'lerini sırayla uygular. v7.8.8, v7.8.9, v7.9.0, v7.9.1 ve v7.9.2 patch loader'ları kendi küçük CSS/runtime dosyalarını son belgeye ekler.
