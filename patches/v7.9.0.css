@@ -1,0 +1,29 @@
+/* DEEN v7.9.0 — Room Presets */
+#worldScreenBody .v790-presets{margin:9px 0 8px;padding:10px;border:1px solid rgba(123,205,187,.17);border-radius:15px;background:linear-gradient(180deg,#0e2b32,#0a232a);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+#worldScreenBody .v790-presets-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:9px}
+#worldScreenBody .v790-presets-head b{display:block;font-size:9px;color:#edf8f5}
+#worldScreenBody .v790-presets-head small{display:block;margin-top:2px;font-size:6.2px;line-height:1.35;color:#81999e}
+#worldScreenBody .v790-presets-count{flex:0 0 auto;min-width:42px;padding:5px 7px;border-radius:10px;border:1px solid rgba(127,214,195,.14);background:#102d34;color:#88d8c6;font-size:6px;font-weight:950;text-align:center;line-height:1.2}
+#worldScreenBody .v790-preset-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+#worldScreenBody .v790-preset-card{min-width:0;padding:8px;border:1px solid #315058;border-radius:13px;background:#102a31;display:grid;gap:7px;position:relative;overflow:hidden}
+#worldScreenBody .v790-preset-card.saved{border-color:rgba(108,205,184,.26);background:linear-gradient(180deg,#123330,#10292f)}
+#worldScreenBody .v790-preset-card.active{border-color:#76dac2;box-shadow:inset 0 0 0 1px rgba(126,224,201,.08),0 7px 18px rgba(39,155,133,.08)}
+#worldScreenBody .v790-preset-top{display:flex;align-items:center;gap:6px;min-width:0}
+#worldScreenBody .v790-preset-icon{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#17383e;border:1px solid rgba(130,213,196,.13);font-size:12px;color:#9de4d4;flex:0 0 auto}
+#worldScreenBody .v790-preset-copy{min-width:0}.v790-preset-copy b{display:block;font-size:7.4px;color:#eaf6f3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v790-preset-copy small{display:block;margin-top:2px;font-size:5.5px;color:#779095;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v790-preset-card.active .v790-preset-copy small{color:#8edbc9}
+#worldScreenBody .v790-preset-actions{display:grid;grid-template-columns:1fr;gap:5px}
+#worldScreenBody .v790-preset-actions.two{grid-template-columns:1.22fr .78fr}
+#worldScreenBody .v790-preset-actions button{min-height:31px;border-radius:9px;font-size:5.8px;font-weight:1000;padding:0 5px;white-space:nowrap}
+#worldScreenBody .v790-save{border:1px solid #3b5b62;background:#13313a;color:#9ab5b7}
+#worldScreenBody .v790-apply{border:1px solid #78dcc4;background:linear-gradient(180deg,#69d3bb,#43ad99);color:#062821;box-shadow:0 6px 13px rgba(53,166,143,.1)}
+#worldScreenBody .v790-update{border:1px solid #3c555b;background:#172e34;color:#91a9ab}
+#worldScreenBody .v790-preset-foot{font-size:5.3px;line-height:1.25;color:#6f888d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v790-preset-card.active .v790-preset-foot{color:#85c9ba}
+#worldScreenBody .v790-preset-chip{position:absolute;z-index:125;left:50%;top:13px;transform:translateX(-50%);padding:5px 9px;border-radius:999px;border:1px solid rgba(134,224,203,.25);background:rgba(7,31,36,.92);color:#a9eadb;font-size:6px;font-weight:1000;letter-spacing:.4px;pointer-events:none;animation:v790Chip 1.15s ease both}
+#worldScreenBody .v750-room.v790-preset-shift{animation:v790RoomShift .62s ease both}
+@keyframes v790RoomShift{0%{filter:brightness(1)}40%{filter:brightness(1.18) saturate(1.04)}100%{filter:brightness(1)}}
+@keyframes v790Chip{0%{opacity:0;transform:translate(-50%,-5px)}18%,70%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-5px)}}
+html.v5-reduce #worldScreenBody .v750-room.v790-preset-shift,html.v625-motion-off #worldScreenBody .v750-room.v790-preset-shift,html.v5-reduce #worldScreenBody .v790-preset-chip,html.v625-motion-off #worldScreenBody .v790-preset-chip{animation:none!important}
+@media(prefers-reduced-motion:reduce){#worldScreenBody .v750-room.v790-preset-shift,#worldScreenBody .v790-preset-chip{animation:none!important}}
+@media(max-width:390px){#worldScreenBody .v790-presets{padding:8px}#worldScreenBody .v790-preset-grid{gap:5px}#worldScreenBody .v790-preset-card{padding:7px 6px}#worldScreenBody .v790-preset-icon{width:25px;height:25px}.v790-preset-actions button{min-height:30px!important;font-size:5.4px!important}}
