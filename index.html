@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>DEEN v8.3.0</title>
+<title>DEEN v8.3.2</title>
 <style>
-html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100%}.boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}.box{max-width:320px}.logo{font-size:26px;font-weight:900;letter-spacing:5px;color:#91e2ca}.sub{margin-top:12px;color:#9db4b8;font-size:13px;line-height:1.5}.err{color:#f1b0b4}
+html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100%}.boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}.box{max-width:340px}.logo{font-size:26px;font-weight:900;letter-spacing:5px;color:#91e2ca}.sub{margin-top:12px;color:#9db4b8;font-size:13px;line-height:1.5}.err{color:#f1b0b4}
 </style>
 <script src="./patches/v7.7.5.js?v=775"></script>
 <script src="./patches/v7.7.6.js?v=776"></script>
@@ -32,95 +32,22 @@ html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,Bl
 <script src="./patches/v8.2.0.js?v=820"></script>
 <script src="./patches/v8.2.1.js?v=821"></script>
 <script src="./patches/v8.3.0.js?v=830"></script>
+<script src="./patches/v8.3.1.js?v=831"></script>
+<script src="./patches/v8.3.2.js?v=832"></script>
 </head>
 <body>
-<div class="boot"><div class="box"><div class="logo">DEEN</div><div class="sub" id="status">v8.3.0 Dünyam final birleşim ve polish yükleniyor…</div></div></div>
+<div class="boot"><div class="box"><div class="logo">DEEN</div><div class="sub" id="status">v8.3.2 gerçek avatar, kıyafet ve oda assetleri yükleniyor…</div></div></div>
 <script>
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const r=await fetch('./DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html?v=830',{cache:'no-store'});
+   const r=await fetch('./DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html?v=832',{cache:'no-store'});
    if(!r.ok)throw new Error('Ana DEEN dosyası yüklenemedi.');
    let html=await r.text();
-   if(typeof window.DEEN_PATCH_V775!=='function')throw new Error('v7.7.5 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V776!=='function')throw new Error('v7.7.6 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V777!=='function')throw new Error('v7.7.7 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V778!=='function')throw new Error('v7.7.8 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V779!=='function')throw new Error('v7.7.9 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V780!=='function')throw new Error('v7.8.0 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V781!=='function')throw new Error('v7.8.1 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V782!=='function')throw new Error('v7.8.2 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V783!=='function')throw new Error('v7.8.3 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V784!=='function')throw new Error('v7.8.4 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V785!=='function')throw new Error('v7.8.5 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V786!=='function')throw new Error('v7.8.6 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V787!=='function')throw new Error('v7.8.7 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V788!=='function')throw new Error('v7.8.8 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V789!=='function')throw new Error('v7.8.9 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V790!=='function')throw new Error('v7.9.0 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V791!=='function')throw new Error('v7.9.1 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V792!=='function')throw new Error('v7.9.2 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V800!=='function')throw new Error('v8.0.0 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V801!=='function')throw new Error('v8.0.1 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V802!=='function')throw new Error('v8.0.2 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V813!=='function')throw new Error('v8.1.3 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V820!=='function')throw new Error('v8.2.0 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V821!=='function')throw new Error('v8.2.1 yaması yüklenemedi.');
-   if(typeof window.DEEN_PATCH_V830!=='function')throw new Error('v8.3.0 yaması yüklenemedi.');
-   const p775=window.DEEN_PATCH_V775(html);html=p775.html;
-   const p776=window.DEEN_PATCH_V776(html);html=p776.html;
-   const p777=window.DEEN_PATCH_V777(html);html=p777.html;
-   const p778=window.DEEN_PATCH_V778(html);html=p778.html;
-   const p779=window.DEEN_PATCH_V779(html);html=p779.html;
-   const p780=window.DEEN_PATCH_V780(html);html=p780.html;
-   const p781=window.DEEN_PATCH_V781(html);html=p781.html;
-   const p782=window.DEEN_PATCH_V782(html);html=p782.html;
-   const p783=window.DEEN_PATCH_V783(html);html=p783.html;
-   const p784=window.DEEN_PATCH_V784(html);html=p784.html;
-   const p785=window.DEEN_PATCH_V785(html);html=p785.html;
-   const p786=window.DEEN_PATCH_V786(html);html=p786.html;
-   const p787=window.DEEN_PATCH_V787(html);html=p787.html;
-   const p788=window.DEEN_PATCH_V788(html);html=p788.html;
-   const p789=window.DEEN_PATCH_V789(html);html=p789.html;
-   const p790=window.DEEN_PATCH_V790(html);html=p790.html;
-   const p791=window.DEEN_PATCH_V791(html);html=p791.html;
-   const p792=window.DEEN_PATCH_V792(html);html=p792.html;
-   const p800=window.DEEN_PATCH_V800(html);html=p800.html;
-   const p801=window.DEEN_PATCH_V801(html);html=p801.html;
-   const p802=window.DEEN_PATCH_V802(html);html=p802.html;
-   const p813=window.DEEN_PATCH_V813(html);html=p813.html;
-   const p820=window.DEEN_PATCH_V820(html);html=p820.html;
-   const p821=window.DEEN_PATCH_V821(html);html=p821.html;
-   const p830=window.DEEN_PATCH_V830(html);html=p830.html;
-   if(p775.applied<5)console.warn('DEEN v7.7.5: expected 5 patch targets, applied',p775.applied);
-   if(p776.applied<1)console.warn('DEEN v7.7.6 patch already present or not applied');
-   if(p777.applied<1)console.warn('DEEN v7.7.7 patch already present or not applied');
-   if(p778.applied<1)console.warn('DEEN v7.7.8 patch already present or not applied');
-   if(p779.applied<1)console.warn('DEEN v7.7.9 patch already present or not applied');
-   if(p780.applied<1)console.warn('DEEN v7.8.0 patch already present or not applied');
-   if(p781.applied<1)console.warn('DEEN v7.8.1 patch already present or not applied');
-   if(p782.applied<1)console.warn('DEEN v7.8.2 patch already present or not applied');
-   if(p783.applied<1)console.warn('DEEN v7.8.3 patch already present or not applied');
-   if(p784.applied<1)console.warn('DEEN v7.8.4 patch already present or not applied');
-   if(p785.applied<1)console.warn('DEEN v7.8.5 patch already present or not applied');
-   if(p786.applied<1)console.warn('DEEN v7.8.6 patch already present or not applied');
-   if(p787.applied<1)console.warn('DEEN v7.8.7 patch already present or not applied');
-   if(p788.applied<1)console.warn('DEEN v7.8.8 patch already present or not applied');
-   if(p789.applied<1)console.warn('DEEN v7.8.9 patch already present or not applied');
-   if(p790.applied<1)console.warn('DEEN v7.9.0 patch already present or not applied');
-   if(p791.applied<1)console.warn('DEEN v7.9.1 patch already present or not applied');
-   if(p792.applied<1)console.warn('DEEN v7.9.2 patch already present or not applied');
-   if(p800.applied<1)console.warn('DEEN v8.0.0 patch already present or not applied');
-   if(p801.applied<1)console.warn('DEEN v8.0.1 patch already present or not applied');
-   if(p802.applied<1)console.warn('DEEN v8.0.2 patch already present or not applied');
-   if(p813.applied<1)console.warn('DEEN v8.1.3 patch already present or not applied');
-   if(p820.applied<1)console.warn('DEEN v8.2.0 patch already present or not applied');
-   if(p821.applied<1)console.warn('DEEN v8.2.1 patch already present or not applied');
-   if(p830.applied<1)console.warn('DEEN v8.3.0 patch already present or not applied');
+   const patches=[['775',window.DEEN_PATCH_V775],['776',window.DEEN_PATCH_V776],['777',window.DEEN_PATCH_V777],['778',window.DEEN_PATCH_V778],['779',window.DEEN_PATCH_V779],['780',window.DEEN_PATCH_V780],['781',window.DEEN_PATCH_V781],['782',window.DEEN_PATCH_V782],['783',window.DEEN_PATCH_V783],['784',window.DEEN_PATCH_V784],['785',window.DEEN_PATCH_V785],['786',window.DEEN_PATCH_V786],['787',window.DEEN_PATCH_V787],['788',window.DEEN_PATCH_V788],['789',window.DEEN_PATCH_V789],['790',window.DEEN_PATCH_V790],['791',window.DEEN_PATCH_V791],['792',window.DEEN_PATCH_V792],['800',window.DEEN_PATCH_V800],['801',window.DEEN_PATCH_V801],['802',window.DEEN_PATCH_V802],['813',window.DEEN_PATCH_V813],['820',window.DEEN_PATCH_V820],['821',window.DEEN_PATCH_V821],['830',window.DEEN_PATCH_V830],['831',window.DEEN_PATCH_V831],['832',window.DEEN_PATCH_V832]];
+   for(const [v,fn] of patches){if(typeof fn!=='function')throw new Error('v'+v[0]+'.'+v[1]+'.'+v[2]+' yaması yüklenemedi.');const p=fn(html);html=p.html;}
    document.open();document.write(html);document.close();
- }catch(err){
-   console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
- }
+ }catch(err){console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);}
 })();
 </script>
 </body>
