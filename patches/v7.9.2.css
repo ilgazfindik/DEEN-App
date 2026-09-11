@@ -1,0 +1,6 @@
+#worldScreenBody .v792-balance-note{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 9px;border:1px solid rgba(117,207,186,.16);border-radius:12px;background:linear-gradient(180deg,#102d32,#0c262c);color:#8ea8aa;font-size:6.2px;line-height:1.35}
+#worldScreenBody .v792-balance-note b{color:#8fe0cd;font-size:6.1px;letter-spacing:.3px}#worldScreenBody .v792-balance-note span:last-child{white-space:nowrap;color:#b7cac7}
+#worldScreenBody .v792-price-note{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;padding:8px 9px;border:1px solid rgba(221,193,123,.15);border-radius:12px;background:#24251f;color:#918b72;font-size:6.1px;line-height:1.35}
+#worldScreenBody .v792-price-note b{color:#dfc985;font-size:6.3px}#worldScreenBody .v792-price-note span{text-align:right}
+#worldScreenBody .v784-progress-strip[data-v792="1"] .v784-progress-bar i{background:linear-gradient(90deg,#63cdb6,#91e3ce,#d4c175)}
+@media(max-width:390px){#worldScreenBody .v792-balance-note{align-items:flex-start;flex-direction:column;gap:3px}#worldScreenBody .v792-price-note{grid-template-columns:1fr;gap:3px}#worldScreenBody .v792-price-note span{text-align:left}}
