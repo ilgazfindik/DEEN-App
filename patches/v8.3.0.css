@@ -1,0 +1,36 @@
+/* DEEN v8.3.0 — Dünyam Final Hub & Polish */
+:root{--v830-mint:#91e2ca;--v830-bg:#071c24;--v830-panel:#0d2932;--v830-line:rgba(123,211,193,.14);--v830-gold:#f0cf78}
+.v830-hubbar{display:flex;gap:7px;padding:8px 12px 10px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(117,207,190,.08);background:rgba(7,27,34,.78);-webkit-overflow-scrolling:touch}
+.v830-hubbar::-webkit-scrollbar{display:none}
+.v830-hubbar button{flex:0 0 auto;min-height:36px;padding:0 11px;border-radius:12px;border:1px solid rgba(117,207,190,.12);background:#102d35;color:#a9c5c6;font-size:10px;font-weight:950;letter-spacing:.1px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.v830-hubbar button .ico{font-size:12px;color:#71c9b5}
+.v830-hubbar button.active{border-color:rgba(145,226,202,.32);background:linear-gradient(180deg,#1a4542,#133733);color:#ddf9f1;box-shadow:0 0 0 1px rgba(145,226,202,.06),0 7px 18px rgba(0,0,0,.12)}
+.v830-hubbar button.active .ico{color:#a5f1dc}
+.v830-hubbar button:active{transform:scale(.98)}
+#v812Wardrobe .v830-hubbar{flex:0 0 auto}
+#v820RoomOverlay .v830-hubbar,#v820ShopOverlay .v830-hubbar,#v821AreasOverlay .v830-hubbar,#v821MemoriesOverlay .v830-hubbar{flex:0 0 auto}
+#v820RoomOverlay.open,#v820ShopOverlay.open,#v821AreasOverlay.open,#v821MemoriesOverlay.open{animation:v830Fade .16s ease-out both}
+#v820RoomOverlay.open .v820-sheet,#v820ShopOverlay.open .v820-sheet,#v821AreasOverlay.open .v821-sheet,#v821MemoriesOverlay.open .v821-sheet{animation:v830SheetIn .22s cubic-bezier(.2,.8,.2,1) both}
+#v812Wardrobe.open{animation:v830FullIn .18s ease-out both}
+@keyframes v830Fade{from{background:rgba(2,13,18,0)}to{background:rgba(2,13,18,.80)}}
+@keyframes v830SheetIn{from{opacity:.45;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes v830FullIn{from{opacity:.5;transform:scale(.995)}to{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){#v820RoomOverlay.open,#v820ShopOverlay.open,#v821AreasOverlay.open,#v821MemoriesOverlay.open,#v820RoomOverlay.open .v820-sheet,#v820ShopOverlay.open .v820-sheet,#v821AreasOverlay.open .v821-sheet,#v821MemoriesOverlay.open .v821-sheet,#v812Wardrobe.open{animation:none!important}.v830-hubbar button:active{transform:none}}
+.v830-unsaved{position:fixed;inset:0;z-index:10420;display:none;align-items:flex-end;justify-content:center;background:rgba(1,10,14,.72);backdrop-filter:blur(8px)}
+.v830-unsaved.open{display:flex;animation:v830Fade .14s ease-out both}
+.v830-unsaved-card{width:min(calc(100% - 24px),420px);margin-bottom:max(12px,env(safe-area-inset-bottom));padding:16px;border-radius:24px;border:1px solid rgba(135,221,202,.18);background:linear-gradient(180deg,#12313a,#0a222a);box-shadow:0 24px 70px rgba(0,0,0,.42)}
+.v830-unsaved-card .mark{width:42px;height:42px;border-radius:15px;display:grid;place-items:center;background:rgba(237,201,111,.10);border:1px solid rgba(237,201,111,.18);color:#f0d17f;font-size:20px;margin-bottom:10px}
+.v830-unsaved-card h3{margin:0;color:#f5fbfa;font-size:17px}.v830-unsaved-card p{margin:7px 0 14px;color:#91adb0;font-size:11px;line-height:1.5}
+.v830-unsaved-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.v830-unsaved-actions button{min-height:44px;border-radius:14px;border:1px solid rgba(124,210,193,.14);background:#102d35;color:#dcefeb;font-size:11px;font-weight:950}.v830-unsaved-actions .save{grid-column:1/-1;background:linear-gradient(180deg,#1b4943,#143a36);color:#bdf5e5;border-color:rgba(147,229,209,.24)}.v830-unsaved-actions .discard{color:#e4c879}
+#worldScreenBody .v810-pop{padding:8px!important;gap:6px!important}
+#worldScreenBody .v810-pop button{display:flex!important;align-items:center!important;gap:9px!important;text-align:left!important}
+#worldScreenBody .v810-pop button:before{width:21px;height:21px;border-radius:8px;display:grid;place-items:center;background:rgba(128,215,197,.07);color:#7ad0bc;font-size:11px;flex:0 0 auto}
+#worldScreenBody .v810-pop [data-v810-open-wardrobe]:before{content:'◒'}
+#worldScreenBody .v810-pop [data-v810-toggle-edit]:before{content:'▣'}
+#worldScreenBody .v810-pop [data-v810-open-shop]:before{content:'◇'}
+#worldScreenBody .v810-pop [data-v810-area-open]:before{content:'⌂'}
+#worldScreenBody .v810-pop [data-v821-open-memories]:before{content:'✦'}
+#worldScreenBody .v810-pop [data-v810-open-avatar]:before{content:'◉'}
+.v830-version{display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:4px 7px;border-radius:999px;border:1px solid rgba(119,207,190,.12);background:rgba(119,207,190,.05);color:#739fa3;font-size:8px;font-weight:900;vertical-align:middle}
+body.v830-module-open{overscroll-behavior:none}
+@media(max-width:390px){.v830-hubbar{padding-left:10px;padding-right:10px}.v830-hubbar button{padding:0 9px;font-size:9px}.v830-unsaved-card{width:calc(100% - 18px);padding:14px}}
