@@ -4,53 +4,38 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.8.8
+- **Version:** v7.8.9
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js`
 - **v7.8.8 runtime assets:** `patches/v7.8.8.runtime.js`, `patches/v7.8.8.css`
-- **Latest QA:** `qa/v7.8.8_DUNYAM_DECOR_COLLECTION_QA.md`
+- **v7.8.9 runtime assets:** `patches/v7.8.9.runtime.js`, `patches/v7.8.9.css`
+- **Latest QA:** `qa/v7.8.9_DUNYAM_TRY_BEFORE_BUY_QA.md`
 
 ## Current focus — Dünyam
 
-v7.7.5 canonical avatar state ve karakter oluşturma sonrası donma sorunlarını hedefledi.
+v7.7.5–v7.7.9 canonical avatar stabilitesi, oda etkileşimi, görsel hiyerarşi ve asset polish temelini oluşturdu.
 
-v7.7.6 oda hareketlerini açık kontrollere taşıdı ve hızlı art arda tıklamalardaki interaction race durumlarını sınırlandırdı.
+v7.8.0–v7.8.3 Dünyam navigasyonunu sadeleştirdi; doğrudan obje etkileşimi, bağlamsal karakter aksiyonları ve idle life davranışları ekledi.
 
-v7.7.7 oda objelerini gerçek ve stabil etkileşimlere dönüştürdü; canonical avatar snapshot korumasını güçlendirdi.
+v7.8.4–v7.8.6 Oda Seviyesi / NUR progression, level-up reveal ve seviyeye göre oda görsel evrimini ekledi.
 
-v7.7.8 görsel hiyerarşi ve oda kompozisyonunu yeniledi.
+v7.8.7 satın alma (`owned`) ile odada kullanmayı (`equipped`) ayıran gerçek dekor equip sistemini ekledi.
 
-v7.7.9 oda asset kalitesini yükseltti.
+v7.8.8 mağazayı 24 satın alınabilir oda dekoruna genişletti; kategori filtreleri ve yalnızca kozmetik Common / Rare / Epic nadirlik sistemi ekledi.
 
-v7.8.0 Dünyam navigasyonunu sadeleştirdi.
+v7.8.9 satın alma öncesi oda önizlemesi ekler:
 
-v7.8.1 odanın kendisini ana kontrol yüzeyine dönüştürdü.
-
-v7.8.2 doğrudan etkileşimleri kısa bağlamsal karakter aksiyonlarına dönüştürdü.
-
-v7.8.3 karaktere boşta yaşayan ambient davranışlar ekledi.
-
-v7.8.4 sade progression loop ekledi: Oda Seviyesi, NUR, günlük 3 görev, tek seferlik seviye Altın ödülleri ve seviye bazlı dekor kilitleri.
-
-v7.8.5 seviye atlama anını premium level-up overlay, dekor reveal ve mağaza yönlendirmesiyle görünür hale getirdi.
-
-v7.8.6 oda seviyesini görsel evrime bağladı: duvar, zemin, ışık, pencere atmosferi ve NUR glow seviyeyle birlikte gelişir.
-
-v7.8.7 satın alma ile odada kullanmayı ayıran kalıcı `equipped` dekor state'ini ekledi.
-
-v7.8.8 dekor koleksiyonunu ve mağazayı genişletir:
-
-- Masa, halı, bitki, kitaplık, pencere ve NUR kategorilerinin her birine **3 yeni dekor** eklenmiştir; toplam **18 yeni kozmetik** vardır.
-- Mevcut seviye dekorlarıyla birlikte yeni mağazada **24 satın alınabilir oda dekoru** bulunur.
-- Mağaza `Tüm / Masa / Halı / Bitki / Kitaplık / Pencere / NUR` filtreleriyle daha pratik hale getirilmiştir.
-- Dekorlar **Common / Rare / Epic** kozmetik nadirlik etiketi taşır.
-- Nadirlik herhangi bir ders, enerji, Altın, NUR, dinî içerik veya öğrenme avantajı sağlamaz.
-- Yeni dekorlar mevcut Oda Seviyesi progression'ına uygun seviyelerde açılır.
-- `Oda Düzeni` içindeki eski kompakt seçici, sahip olunan tüm dekorları kategori bazlı yatay koleksiyon seçicisine dönüştürür.
-- Yeni dekorlar mevcut `state.myWorld.equipped` state'ini kullanır; ikinci bir equip sistemi oluşturulmaz.
-- Satın alma Altın bakiyesini ve `owned` koleksiyonunu günceller; equip işlemi tek başına bakiye veya NUR değiştirmez.
+- Mağaza kartlarında `ODADA DENE` / `ÖNİZLE` aksiyonu bulunur.
+- Dekor, kullanıcının mevcut odasının etkileşimsiz clone'u üzerinde canlı gösterilir.
+- Önizleme sırasında Altın, `owned` ve `equipped` state'i değiştirilmez.
+- `Vazgeç` ile mevcut oda hiçbir değişiklik olmadan korunur.
+- Sahip olunan dekor preview içinden doğrudan `ODADA KULLAN` ile aktif edilebilir.
+- Satın alınabilir dekor preview içinden mevcut güvenli `WORLD.buy()` akışıyla satın alınır; başarılı satın almada gerçek odaya uygulanır.
+- Oda Seviyesi kilitli dekorlar önizlenebilir fakat satın alma butonu gerekli seviyeyi göstererek disabled kalır.
+- Preview DOM'u ana oda ID'lerini kopyalamaz; clone içindeki ID'ler temizlenir.
+- Preview sistemi avatar, NUR veya progression state'ine yazmaz.
 
 NUR yalnızca Dünyam kozmetik ilerleme puanıdır; dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.
 
-GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip runtime patch'lerini sırasıyla uygular. v7.8.8 küçük patch loader üzerinden kendi CSS/runtime dosyalarını son belgeye ekler.
+GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip runtime patch'lerini sırayla uygular. v7.8.8 ve v7.8.9 patch loader'ları kendi küçük CSS/runtime dosyalarını son belgeye ekler.
