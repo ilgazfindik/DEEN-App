@@ -4,11 +4,11 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.8.2
+- **Version:** v7.8.3
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js`
-- **Latest QA:** `qa/v7.8.2_DUNYAM_CONTEXT_ACTIONS_QA.md`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js`
+- **Latest QA:** `qa/v7.8.3_DUNYAM_IDLE_LIFE_QA.md`
 
 ## Current focus — Dünyam
 
@@ -26,18 +26,18 @@ v7.8.0 Dünyam navigasyonunu sadeleştirdi: büyük üst sekmeler, üç alan kar
 
 v7.8.1 odanın kendisini ana kontrol yüzeyine dönüştürdü: ana Hareket butonu kaldırıldı, objeler ve pencere doğrudan dokunulabilir hale geldi.
 
-v7.8.2 bu doğrudan etkileşimleri kısa karakter aksiyonlarına dönüştürür:
+v7.8.2 doğrudan etkileşimleri kısa bağlamsal karakter aksiyonlarına dönüştürdü: masa, halı, kitaplık, bitki, lamba, NUR, hatıra ve pencere için farklı hareket/poz tepkileri eklendi.
 
-- Masa: karakter çalışma/düşünme hareketi yapar.
-- Lamba: ışığı ayarlama tepkisi oynar.
-- Halı: karakter kısa mola/oturma hareketi yapar.
-- Bitki: eğilip bitkiyle ilgilenir; yapraklar tepki verir.
-- Kitaplık: karakter kitaba uzanır / kitap seçer.
-- NUR: kısa yükselme ve glow tepkisi gösterir.
-- Hatıra: karakter objeyi inceleme tepkisi verir.
-- Pencere: karakter daha uzun bir dışarı bakma pozu yapar.
-- Aksiyonlar tekil ve geçicidir; yeni aksiyon, düzenleme modu veya ekran değişimi eski aksiyonu temizler.
-- Aksiyon bitince canonical avatar görünümü ve mevcut dünya pozu geri yüklenir.
-- Reduced-motion tercihi desteklenir.
+v7.8.3 Dünyam'ın boşta da canlı görünmesini sağlar:
+
+- Karakter boşta çok hafif nefes alma animasyonu yapar.
+- Rastgele ve seyrek göz kırpma davranışı bulunur.
+- Karakter bazen kısa şekilde sağa/sola bakar.
+- Uygun odalarda bazen NUR'a veya pencereye yönelir.
+- NUR bakışında küçük, sade bir ambient sparkle gösterilir.
+- Kullanıcı dokunur dokunmaz idle animasyonu kesilir ve sayaç sıfırlanır.
+- Hareket, v7.8.2 aksiyonu, oda düzenleme modu, bottom sheet veya Avatar Studio açıkken idle davranışı çalışmaz.
+- Reduced-motion tercihinde ambient animasyonlar devre dışı kalır.
+- v7.8.3 canonical avatar görünüm alanlarına veya room movement state'ine yazmaz; sadece geçici DOM class/timer katmanı kullanır.
 
 GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip küçük runtime patch'lerini sırasıyla uygular. Böylece sonraki Dünyam güncellemeleri büyük HTML'i tekrar manuel yüklemeden yayınlanabilir.
