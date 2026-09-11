@@ -4,16 +4,17 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.9.2
+- **Version:** v8.0.0
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js` → `patches/v7.9.0.js` → `patches/v7.9.1.js` → `patches/v7.9.2.js`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js` → `patches/v7.9.0.js` → `patches/v7.9.1.js` → `patches/v7.9.2.js` → `patches/v8.0.0.js`
 - **v7.8.8 runtime assets:** `patches/v7.8.8.runtime.js`, `patches/v7.8.8.css`
 - **v7.8.9 runtime assets:** `patches/v7.8.9.runtime.js`, `patches/v7.8.9.css`
 - **v7.9.0 runtime assets:** `patches/v7.9.0.runtime.js`, `patches/v7.9.0.css`
 - **v7.9.1 runtime assets:** `patches/v7.9.1.runtime.js`, `patches/v7.9.1.css`
 - **v7.9.2 runtime assets:** `patches/v7.9.2.runtime.js`, `patches/v7.9.2.css`
-- **Latest QA:** `qa/v7.9.2_DUNYAM_ECONOMY_BALANCE_QA.md`
+- **v8.0.0 runtime assets:** `patches/v8.0.0.runtime.js`, `patches/v8.0.0.css`
+- **Latest QA:** `qa/v8.0.0_DUNYAM_FINAL_QA.md`
 
 ## Current focus — Dünyam
 
@@ -75,3 +76,15 @@ v7.9.2 Dünyam ekonomisini ve progression hızını dengeler:
 NUR yalnızca Dünyam kozmetik ilerleme puanıdır; dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.
 
 GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip runtime patch'lerini sırayla uygular. v7.8.8, v7.8.9, v7.9.0, v7.9.1 ve v7.9.2 patch loader'ları kendi küçük CSS/runtime dosyalarını son belgeye ekler.
+
+v8.0.0 Dünyam final stabilizasyon turudur:
+
+- Yeni özellik eklemek yerine mevcut Dünyam sistemleri tek stabilite katmanında birleştirilir.
+- `equipped`, progression, günlük claim ve preset snapshot state'leri eksik/bozuk anahtarlar için normalize edilir; mevcut kullanıcı değerleri sıfırlanmaz.
+- Pageshow, focus ve visibility dönüşlerinde stale hareket/busy sınıfları temizlenir ve idle sisteminin güvenli yeniden planlanması sağlanır.
+- Preview, preset, mağaza polish ve shop node'larının yanlışlıkla çoğalmasına karşı duplicate guard eklenir.
+- Mağaza sekmesinde oda DOM'u bulunmadığında `ODADA DENE` artık güvenli biçimde geçici olarak oda görünümünü kurup preview açar; preview kapanınca kullanıcı mağazaya geri döner.
+- `DEEN_WORLD_FINAL.check()` ile API bütünlüğü, duplicate DOM id, yatay taşma, preview/preset/shop node sayıları ve temel progression özeti denetlenebilir.
+- v8.0.0 ekonomi, NUR anlamı, dekor fiyatları, ownership veya dini içerik kurallarını değiştirmez.
+
+Bu sürümle **Dünyam modülünün planlanan ana geliştirme hattı tamamlanmıştır**; sonraki Dünyam değişiklikleri yeni özellik turundan çok bugfix/ürün geri bildirimi odaklı ilerlemelidir.
