@@ -4,20 +4,24 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v7.7.5
+- **Version:** v7.7.6
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
-- **Runtime patch:** `patches/v7.7.5.js`
-- **QA notes:** `qa/v7.7.5_DUNYAM_QA.md`
+- **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js`
+- **Latest QA:** `qa/v7.7.6_DUNYAM_QA.md`
 
-## v7.7.5 odak
+## Current focus — Dünyam
 
-Bu sürüm tamamen **Dünyam** stabilitesine odaklanır:
+v7.7.5 canonical avatar state ve karakter oluşturma sonrası donma sorunlarını hedefledi.
 
-- Karakter oluşturucuda seçilen özellikler tek bir canonical avatar state'ine kaydedilir.
-- Eski avatar renderer'larının yeni saç, sakal, kıyafet, gözlük ve ekstra seçimlerini ezmesi engellenir.
-- İlk karakter oluşturma sonrasında oluşan çift/global render döngüsü kaldırılır.
-- Dünyam hareketlerinde her dokunuşta tüm sahneyi yeniden render eden ağır akış kaldırılır.
-- Çakışan ambient hotspot noktaları devre dışı bırakılır; mobilyalar ve açık kontroller etkileşimli kalır.
+v7.7.6 bunun üzerine oda kullanımını sadeleştirir ve etkileşim yarışlarını engeller:
 
-GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, mevcut büyük base HTML'i yükleyip v7.7.5 patch'ini uygulayarak güncel build'i açar. Böylece sonraki Dünyam hotfix'leri büyük HTML'i her seferinde manuel yüklemeden yayınlanabilir.
+- Gizli ambient hotspot noktaları kullanılmaz.
+- Hareket için dört açık kontrol vardır: **Ortaya Gel / Masaya Git / Pencereye Git / Poz Değiştir**.
+- Okuma Köşesi ve Bahçe açıldığında kontrol etiketleri alana göre değişir.
+- Hızlı art arda dokunmalar sırasında çakışan hareket/obje animasyonları kilitlenir ve otomatik serbest bırakılır.
+- Sayfaya geri dönüldüğünde stale `moving/dragging` sınıfları temizlenir.
+- `Düzeni Sıfırla` normal hareket çubuğundan kaldırılıp yalnız düzenleme moduna taşınır.
+- v7.7.5'te oluşturulan canonical avatar state değiştirilmez.
+
+GitHub Pages `main` branch `/root` üzerinden yayınlanır. `index.html`, büyük v7.7.4 base HTML'i yükleyip küçük runtime patch'lerini sırasıyla uygular. Böylece sonraki Dünyam güncellemeleri büyük HTML'i tekrar manuel yüklemeden yayınlanabilir.
