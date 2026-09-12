@@ -1,6 +1,7 @@
 /* DEEN v8.3.2 HF2E — real outfit closet */
 #v812Wardrobe .v831-outfit-thumb{display:none!important}
-#v812Wardrobe .v832e-legacy-img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 8px rgba(0,0,0,.2))}
+#v812Wardrobe .v831-thumb{position:relative;overflow:hidden}
+#v812Wardrobe .v832e-legacy-sprite{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;filter:drop-shadow(0 5px 8px rgba(0,0,0,.2))}
 #v812Wardrobe .v832e-closet{padding:4px 12px 14px;background:linear-gradient(180deg,#081e26,#071a21);border-top:1px solid rgba(133,215,197,.08)}
 #v812Wardrobe .v832e-closet-head{display:flex;align-items:end;justify-content:space-between;gap:12px;padding:9px 2px 6px}
 #v812Wardrobe .v832e-closet-head>div{display:flex;flex-direction:column;gap:3px}#v812Wardrobe .v832e-closet-head b{font-size:10px;color:#edf8f6}#v812Wardrobe .v832e-closet-head small,#v812Wardrobe .v832e-closet-head em{font-size:7px;color:#77999d;font-style:normal}#v812Wardrobe .v832e-closet-head em{text-align:right;max-width:150px}
@@ -8,9 +9,10 @@
 #v812Wardrobe .v832e-grid::-webkit-scrollbar{display:none}
 #v812Wardrobe .v832e-card{flex:0 0 102px;min-height:126px;border-radius:19px;border:1px solid rgba(119,207,190,.12);background:linear-gradient(180deg,#12333b,#102a31);padding:7px;display:flex;flex-direction:column;align-items:center;gap:5px;color:#eaf7f4;scroll-snap-align:center}
 #v812Wardrobe .v832e-card.active{border-color:rgba(151,230,210,.52);box-shadow:0 0 0 1px rgba(151,230,210,.08),0 10px 24px rgba(0,0,0,.16);transform:translateY(-1px)}
-#v812Wardrobe .v832e-card-img{width:76px;height:76px;border-radius:15px;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.06),rgba(255,255,255,.015));display:grid;place-items:center;overflow:hidden}#v812Wardrobe .v832e-card-img img{width:100%;height:100%;object-fit:contain;display:block}
+#v812Wardrobe .v832e-card-img{position:relative;width:76px;height:76px;border-radius:15px;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.06),rgba(255,255,255,.015));display:block;overflow:hidden}
+#v812Wardrobe .v832e-card-img>.v831-sprite{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important}
 #v812Wardrobe .v832e-card b{font-size:8px;line-height:1.2;text-align:center}#v812Wardrobe .v832e-card small{font-size:6.8px;font-weight:950;color:#85d9c5}
-.v831-stack>.v832e-worn-outfit{pointer-events:none!important;user-select:none!important;-webkit-user-drag:none!important}
+.v831-stack>.v832e-worn-outfit{pointer-events:none!important;user-select:none!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:auto!important}
 #v812Wardrobe .v831-selector{overflow-y:auto!important}
 @media(min-width:900px){#v812Wardrobe .v831-body{width:min(100%,1180px);margin-inline:auto}#v812Wardrobe .v832e-grid{padding-right:18px}}
 @media(max-width:390px){#v812Wardrobe .v832e-card{flex-basis:94px;min-height:118px}#v812Wardrobe .v832e-card-img{width:70px;height:70px}}
