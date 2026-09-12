@@ -1,0 +1,28 @@
+/* DEEN v8.3.2 HF2S — real outfit fit over locked head/body mannequin */
+#v812Wardrobe .v832k-body-svg{z-index:1!important}
+#v812Wardrobe .v832s-garment{
+  position:absolute!important;
+  left:50%!important;
+  top:70px!important;
+  width:248px!important;
+  height:248px!important;
+  transform:translateX(-50%)!important;
+  display:block!important;
+  z-index:4!important;
+  pointer-events:none!important;
+  background-repeat:no-repeat!important;
+  filter:drop-shadow(0 5px 8px rgba(0,0,0,.10));
+}
+#v812Wardrobe .v832k-mannequin[data-gender="male"] .v832s-garment{top:72px!important}
+#v812Wardrobe .v832k-head-slot{z-index:8!important}
+#v812Wardrobe .v832s-step-badge{
+  position:absolute;left:50%;bottom:7px;transform:translateX(-50%);z-index:10;
+  padding:5px 9px;border-radius:999px;border:1px solid rgba(145,226,202,.28);
+  background:rgba(5,28,34,.88);color:#95ead4;font-size:8px;font-weight:900;
+  letter-spacing:.05em;white-space:nowrap;pointer-events:none
+}
+#v812Wardrobe .v832s-garment-loading{opacity:.55}
+@media(max-width:430px){
+ #v812Wardrobe .v832s-garment{top:64px!important;width:224px!important;height:224px!important}
+ #v812Wardrobe .v832k-mannequin[data-gender="male"] .v832s-garment{top:66px!important}
+}
