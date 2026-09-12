@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>DEEN v8.3.2 HF2J</title>
+<title>DEEN v8.3.2 HF2K</title>
 <style>
 html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100%}.boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}.box{max-width:340px}.logo{font-size:26px;font-weight:900;letter-spacing:5px;color:#91e2ca}.sub{margin-top:12px;color:#9db4b8;font-size:13px;line-height:1.5}.err{color:#f1b0b4}
 </style>
@@ -32,20 +32,20 @@ html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,Bl
 <script src="./patches/v8.2.0.js?v=820"></script>
 <script src="./patches/v8.2.1.js?v=821"></script>
 <script src="./patches/v8.3.0.js?v=830"></script>
-<script src="./patches/v8.3.2.hf2j.release.js?v=832hf2j1"></script>
+<script src="./patches/v8.3.2.hf2k.release.js?v=832hf2k1"></script>
 </head>
 <body>
-<div class="boot"><div class="box"><div class="logo">DEEN</div><div class="sub" id="status">v8.3.2 HF2J gerçek kıyafet kartları ve güvenli giyme katmanı yükleniyor…</div></div></div>
+<div class="boot"><div class="box"><div class="logo">DEEN</div><div class="sub" id="status">v8.3.2 HF2K kıyafet uyumlu tam gövde prototipi yükleniyor…</div></div></div>
 <script>
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const r=await fetch('./DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html?v=832hf2j1',{cache:'no-store'});
+   const r=await fetch('./DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html?v=832hf2k1',{cache:'no-store'});
    if(!r.ok)throw new Error('Ana DEEN dosyası yüklenemedi.');
    let html=await r.text();
-   const patches=[['775',window.DEEN_PATCH_V775],['776',window.DEEN_PATCH_V776],['777',window.DEEN_PATCH_V777],['778',window.DEEN_PATCH_V778],['779',window.DEEN_PATCH_V779],['780',window.DEEN_PATCH_V780],['781',window.DEEN_PATCH_V781],['782',window.DEEN_PATCH_V782],['783',window.DEEN_PATCH_V783],['784',window.DEEN_PATCH_V784],['785',window.DEEN_PATCH_V785],['786',window.DEEN_PATCH_V786],['787',window.DEEN_PATCH_V787],['788',window.DEEN_PATCH_V788],['789',window.DEEN_PATCH_V789],['790',window.DEEN_PATCH_V790],['791',window.DEEN_PATCH_V791],['792',window.DEEN_PATCH_V792],['800',window.DEEN_PATCH_V800],['801',window.DEEN_PATCH_V801],['802',window.DEEN_PATCH_V802],['813',window.DEEN_PATCH_V813],['820',window.DEEN_PATCH_V820],['821',window.DEEN_PATCH_V821],['830',window.DEEN_PATCH_V830],['832HF2J',window.DEEN_PATCH_V832HF2J]];
+   const patches=[['775',window.DEEN_PATCH_V775],['776',window.DEEN_PATCH_V776],['777',window.DEEN_PATCH_V777],['778',window.DEEN_PATCH_V778],['779',window.DEEN_PATCH_V779],['780',window.DEEN_PATCH_V780],['781',window.DEEN_PATCH_V781],['782',window.DEEN_PATCH_V782],['783',window.DEEN_PATCH_V783],['784',window.DEEN_PATCH_V784],['785',window.DEEN_PATCH_V785],['786',window.DEEN_PATCH_V786],['787',window.DEEN_PATCH_V787],['788',window.DEEN_PATCH_V788],['789',window.DEEN_PATCH_V789],['790',window.DEEN_PATCH_V790],['791',window.DEEN_PATCH_V791],['792',window.DEEN_PATCH_V792],['800',window.DEEN_PATCH_V800],['801',window.DEEN_PATCH_V801],['802',window.DEEN_PATCH_V802],['813',window.DEEN_PATCH_V813],['820',window.DEEN_PATCH_V820],['821',window.DEEN_PATCH_V821],['830',window.DEEN_PATCH_V830],['832HF2K',window.DEEN_PATCH_V832HF2K]];
    for(const [v,fn] of patches){if(typeof fn!=='function')throw new Error(v+' yaması yüklenemedi.');const p=fn(html);html=p.html;}
-   html+='\n<script>window.DEEN_RELEASE_VERSION="8.3.2-HF2J";document.title="DEEN v8.3.2 HF2J";<\/script>\n';
+   html+='\n<script>window.DEEN_RELEASE_VERSION="8.3.2-HF2K";document.title="DEEN v8.3.2 HF2K";<\/script>\n';
    document.open();document.write(html);document.close();
  }catch(err){console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);}
 })();
