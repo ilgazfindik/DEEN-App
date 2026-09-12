@@ -1,0 +1,42 @@
+/* DEEN v8.3.2 HF2P — use the live v8.3.1 avatar stack as head, crop at body neck */
+#v812Wardrobe .v832k-head-slot{
+  position:absolute!important;
+  left:50%!important;
+  top:0!important;
+  width:170px!important;
+  height:100px!important;
+  transform:translateX(-50%)!important;
+  z-index:7!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+}
+#v812Wardrobe .v832k-head-slot>.v832p-head-stack{
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  width:170px!important;
+  height:170px!important;
+  overflow:visible!important;
+  filter:drop-shadow(0 5px 6px rgba(0,0,0,.10));
+}
+#v812Wardrobe .v832k-head-slot>.v832p-head-stack>.v831-sprite{
+  position:absolute!important;
+  inset:0!important;
+  width:170px!important;
+  height:170px!important;
+  display:block!important;
+}
+/* The base avatar source includes shoulders/chest. Keep only head + a narrow neck. */
+#v812Wardrobe .v832p-head-stack>.layer-base_avatar{
+  clip-path:polygon(10% 0,90% 0,90% 59%,58% 59%,58% 64%,42% 64%,42% 59%,10% 59%)!important;
+}
+#v812Wardrobe .v832p-wait{
+  position:absolute;left:50%;top:42px;transform:translateX(-50%);
+  padding:5px 7px;border-radius:8px;background:rgba(4,24,30,.88);
+  color:#95ead4;font-size:7px;font-weight:900;white-space:nowrap
+}
+@media(max-width:430px){
+  #v812Wardrobe .v832k-head-slot{width:154px!important;height:91px!important}
+  #v812Wardrobe .v832k-head-slot>.v832p-head-stack,
+  #v812Wardrobe .v832k-head-slot>.v832p-head-stack>.v831-sprite{width:154px!important;height:154px!important}
+}
