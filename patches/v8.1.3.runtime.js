@@ -65,7 +65,7 @@
  document.addEventListener('keydown',e=>{if((e.key==='ArrowRight'||e.key==='ArrowLeft')&&root()?.classList.contains('open')){const r=root(),cards=$$('.v812-card',r);if(!cards.length)return;const idx=Math.max(0,cards.findIndex(x=>x.classList.contains('active')));const n=e.key==='ArrowRight'?Math.min(cards.length-1,idx+1):Math.max(0,idx-1);cards[n]?.click()}},true);
  state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);try{saveState?.()}catch(e){}
  patchPro();
- const timer=setInterval(()=>{patchPro();if(root()?.classList.contains('open'))decorateState()},800);
+ [120,500,1200].forEach(ms=>setTimeout(()=>{patchPro();if(root()?.classList.contains('open'))decorateState()},ms));
  window.DEEN_WARDROBE_FINAL={version:VERSION,stateVersion:STATE_VERSION,decorate:decorateState,snapshot:()=>{const r=root();return {version:VERSION,dirty,open:!!r?.classList.contains('open'),zoom:false,...snap()}}};
  setTimeout(()=>{patchPro();decorateState();window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.1.3 — Giyinme Odası Final Polish'},900);
 })();
