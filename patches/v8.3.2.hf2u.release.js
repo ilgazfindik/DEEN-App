@@ -1,5 +1,5 @@
 (()=>{
- const VERSION='8.3.2-HF2U',REV='832hf2u2';
+ const VERSION='8.3.2-HF2U',REV='832hf2u3';
  const tags=`
 <link rel="stylesheet" href="./patches/v8.3.2.hf2u.css?v=${REV}" data-deen-hf2u-css>
 <script src="./patches/v8.3.2.hf2u.runtime.js?v=${REV}" data-deen-hf2u-runtime><\/script>

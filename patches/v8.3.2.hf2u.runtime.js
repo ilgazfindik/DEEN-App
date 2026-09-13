@@ -1,6 +1,7 @@
 (()=>{
  if(window.__deenV832HF2U)return;window.__deenV832HF2U=true;
  const VERSION='8.3.2-HF2U';
+ const FOOT='<b>Giyinme Odası</b><small>Stilini seç; kombin avatarının üzerinde anında önizlenir.</small>';
  const $=(s,r=document)=>r?.querySelector?.(s)||null;
  const FACE={
   female_01:[93,29,114,55],female_02:[90,28,111,54],female_03:[78,28,98,54],female_04:[79,29,100,54],female_05:[77,30,98,55],female_06:[78,31,100,56],female_07:[79,29,101,54],female_08:[77,30,98,54],female_09:[74,30,94,55],female_10:[69,30,90,55],female_11:[67,30,87,54]
@@ -33,7 +34,7 @@
  }
  function clean(r,c){
    $('.v832u-status',c)?.remove?.();
-   const f=$('.v831-footcopy,.v812-footcopy',r);if(f)f.innerHTML='<b>Giyinme Odası</b><small>Stilini seç; kombin avatarının üzerinde anında önizlenir.</small>';
+   const f=$('.v831-footcopy,.v812-footcopy',r);if(f&&f.innerHTML!==FOOT)f.innerHTML=FOOT;
  }
  function tick(){
    const r=root();if(!r?.classList?.contains('open'))return;const m=mannequin();if(!m)return;const g=gender(),id=activeId();if(!id)return;
