@@ -63,7 +63,7 @@
    const m=e.target.closest?.('[data-v821-open-memories]');if(m){e.preventDefault();e.stopImmediatePropagation();openMemories();return}
  },true);
  ['v821AreasOverlay','v821MemoriesOverlay'].forEach(id=>document.getElementById(id)?.addEventListener('click',e=>{if(e.target.id===id)closeAll()}));
- const observer=new MutationObserver(()=>decorateMain());observer.observe(document.documentElement,{subtree:true,childList:true});
+ let decorateTimer=0;document.addEventListener('click',()=>{clearTimeout(decorateTimer);decorateTimer=setTimeout(decorateMain,60)},true);
  setTimeout(decorateMain,500);setTimeout(decorateMain,1200);
  window.DEEN_WORLD_AREAS_UI={version:VERSION,open:openAreas,close:closeAll,render:renderAreas,snapshot:()=>({current:areaSnap().currentArea,unlocked:[...(areaSnap().unlocked||[])],gold:gold(),areas:areas().length})};
  window.DEEN_WORLD_MEMORIES_UI={version:VERSION,open:openMemories,close:closeAll,render:renderMemories,snapshot:()=>{const r=memoryRows();return{owned:r.filter(x=>x.claimed).length,ready:r.filter(x=>x.ready&&!x.claimed).length,equipped:r.find(x=>x.equipped)?.unit||null,total:r.length}}};
