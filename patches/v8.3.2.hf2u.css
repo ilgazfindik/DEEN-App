@@ -1,0 +1,26 @@
+/* DEEN v8.3.2 HF2U — responsive outfit canvas + selected avatar face/head anchor */
+#v812Wardrobe .v831-stage{height:360px!important;min-height:360px!important}
+#v812Wardrobe .v812-avatar.v832k-body-preview{width:360px!important;height:350px!important;bottom:0!important;overflow:visible!important;filter:drop-shadow(0 18px 22px rgba(0,0,0,.20))!important}
+#v812Wardrobe .v832k-mannequin{position:relative!important;width:360px!important;height:350px!important;margin:0 auto!important;transform:none!important;overflow:visible!important}
+/* Old test layers keep their state logic, but no longer paint the stage. */
+#v812Wardrobe .v832k-body-svg,#v812Wardrobe .v832s-garment,#v812Wardrobe .v832k-head-slot,#v812Wardrobe .v832t-fit-label,#v812Wardrobe .v832k-body-note,#v812Wardrobe .v832s-step-badge,#v812Wardrobe .v832k-runtime-badge{display:none!important}
+#v812Wardrobe .v832u-canvas{
+ --u-size:360px;
+ position:absolute!important;left:50%!important;top:-12px!important;width:var(--u-size)!important;height:var(--u-size)!important;
+ transform:translateX(-50%)!important;z-index:5!important;overflow:visible!important;pointer-events:none!important
+}
+#v812Wardrobe .v832u-outfit{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;z-index:4!important;background-repeat:no-repeat!important;filter:drop-shadow(0 7px 10px rgba(0,0,0,.14))}
+#v812Wardrobe .v832u-avatar-slot{position:absolute!important;display:block!important;overflow:hidden!important;pointer-events:none!important}
+/* Female full outfits own the hijab frame. The selected face sits behind the transparent face opening. */
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot{z-index:3!important;border-radius:48% 48% 44% 44%!important}
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot>.v831-stack{position:absolute!important;left:50%!important;top:-42%!important;width:225%!important;height:225%!important;transform:translateX(-50%)!important;overflow:visible!important}
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-hair,#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-hijabs,#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-bangs,#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-bows_ribbons,#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-floral_accessories,#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-clips,#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-special_accessories{display:none!important}
+/* Male outfits are headless; selected modular head is anchored above the collar. */
+#v812Wardrobe .v832u-canvas[data-gender="male"] .v832u-avatar-slot{left:35%!important;top:-4%!important;width:30%!important;height:34%!important;z-index:6!important;border-radius:45% 45% 34% 34%!important}
+#v812Wardrobe .v832u-canvas[data-gender="male"] .v832u-avatar-slot>.v831-stack{position:absolute!important;left:50%!important;top:-7%!important;width:112%!important;height:112%!important;transform:translateX(-50%)!important;overflow:visible!important}
+#v812Wardrobe .v832u-avatar-slot .v831-sprite{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important}
+#v812Wardrobe .v832u-status{position:absolute!important;left:50%!important;bottom:7px!important;transform:translateX(-50%)!important;z-index:9!important;padding:5px 9px!important;border-radius:999px!important;border:1px solid rgba(145,226,202,.16)!important;background:rgba(5,28,34,.70)!important;color:#a7ead8!important;font-size:7px!important;font-weight:900!important;letter-spacing:.04em!important;white-space:nowrap!important;opacity:.66!important}
+@media(max-width:700px){#v812Wardrobe .v831-stage{height:270px!important;min-height:270px!important}#v812Wardrobe .v812-avatar.v832k-body-preview{width:270px!important;height:260px!important}#v812Wardrobe .v832k-mannequin{width:270px!important;height:260px!important}#v812Wardrobe .v832u-canvas{--u-size:268px;top:-4px!important}}
+@media(max-width:430px){#v812Wardrobe .v831-stage{height:252px!important;min-height:252px!important}#v812Wardrobe .v812-avatar.v832k-body-preview{width:248px!important;height:244px!important}#v812Wardrobe .v832k-mannequin{width:248px!important;height:244px!important}#v812Wardrobe .v832u-canvas{--u-size:250px;top:-2px!important}}
+@media(max-height:760px){#v812Wardrobe .v831-stage{height:220px!important;min-height:220px!important}#v812Wardrobe .v812-avatar.v832k-body-preview{width:214px!important;height:212px!important}#v812Wardrobe .v832k-mannequin{width:214px!important;height:212px!important}#v812Wardrobe .v832u-canvas{--u-size:218px;top:-1px!important}}
+@media(max-width:390px) and (max-height:760px){#v812Wardrobe .v831-stage{height:204px!important;min-height:204px!important}#v812Wardrobe .v832u-canvas{--u-size:202px}}
