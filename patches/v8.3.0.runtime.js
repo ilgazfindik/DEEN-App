@@ -121,7 +121,7 @@
  },true);
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#v830Unsaved.open')){e.preventDefault();e.stopImmediatePropagation();$('#v830Unsaved').classList.remove('open');setBodyLock()}},true);
  document.addEventListener('click',e=>{if(e.target.closest?.('.navbtn[data-screen="worldScreen"]'))setTimeout(()=>{scrollWorldTop();decorateMain()},180)},true);
- observer=new MutationObserver(()=>{clearTimeout(observer._t);observer._t=setTimeout(reconcile,18)});observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+ let eventReconcileTimer=0;document.addEventListener('click',()=>{clearTimeout(eventReconcileTimer);eventReconcileTimer=setTimeout(reconcile,40)},true);
  try{state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);saveState?.()}catch(e){}
  window.DEEN_WORLD_HUB={version:VERSION,stateVersion:STATE_VERSION,open,close:closeCurrent,current,decorate,recover,check,snapshot:()=>({version:VERSION,current:current(),open:openNames(),lastModule,gold:window.DEEN_WORLD?.gold?.(),area:window.DEEN_INTERACTIVE_WORLD?.snapshot?.().currentArea||null})};
  [40,180,600].forEach(ms=>setTimeout(ensureRoomShop,ms));
