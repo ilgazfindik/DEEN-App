@@ -1,0 +1,11 @@
+/* DEEN v8.3.4 — HQ composite wardrobe renderer */
+#v812Wardrobe .v832u-canvas{overflow:visible!important}
+#v812Wardrobe .v834-composite-canvas{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  display:block!important;z-index:20!important;pointer-events:none!important;
+  image-rendering:auto!important;filter:drop-shadow(0 8px 12px rgba(0,0,0,.16))
+}
+#v812Wardrobe .v832u-canvas.v834-hq-ready>.v832u-outfit,
+#v812Wardrobe .v832u-canvas.v834-hq-ready>.v832u-avatar-slot{
+  opacity:0!important;visibility:hidden!important
+}
