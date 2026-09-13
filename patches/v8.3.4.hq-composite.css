@@ -1,17 +1,12 @@
-/* DEEN v8.3.4 HQ rev4 — native sprite + real face arbitration */
+/* DEEN v8.3.4 HQ5 — authoritative female composite canvas */
 #v812Wardrobe .v832u-canvas{overflow:visible!important}
-/* The old HQ composite canvas re-rasterized the outfit and caused blur. Keep it out of the paint path. */
-#v812Wardrobe .v834-composite-canvas{display:none!important}
-/* Real wardrobe sprite remains the authoritative outfit layer. */
-#v812Wardrobe .v832u-canvas.v834-hq-ready>.v832u-outfit{
-  opacity:1!important;visibility:visible!important;display:block!important;z-index:4!important;
-  image-rendering:auto!important;filter:drop-shadow(0 8px 14px rgba(0,0,0,.16))!important
+#v812Wardrobe .v834-composite-canvas{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ display:block!important;z-index:20!important;pointer-events:none!important;
+ image-rendering:auto!important;filter:drop-shadow(0 8px 12px rgba(0,0,0,.16))
 }
-/* Real v8.3.3 face engine remains visible above the garment. */
-#v812Wardrobe .v832u-canvas.v834-hq-ready>.v832u-avatar-slot{
-  opacity:1!important;visibility:visible!important;display:block!important;z-index:7!important
+#v812Wardrobe .v832u-canvas.v834-hq-ready[data-gender="female"]>.v832u-outfit,
+#v812Wardrobe .v832u-canvas.v834-hq-ready[data-gender="female"]>.v832u-avatar-slot{
+ opacity:0!important;visibility:hidden!important
 }
-#v812Wardrobe .v832u-canvas.v834-hq-ready .v833-face-canvas{
-  display:block!important;opacity:1!important;visibility:visible!important;z-index:8!important;
-  image-rendering:auto!important;filter:none!important
-}
+#v812Wardrobe .v832u-canvas:not(.v834-hq-ready)>.v834-composite-canvas{display:none!important}
