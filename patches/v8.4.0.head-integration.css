@@ -1,0 +1,11 @@
+/* DEEN v8.4.0 — head integration / single final composite */
+#v812Wardrobe .v832u-canvas.v840-ready[data-gender="female"]>.v832u-avatar-slot{
+ display:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important
+}
+#v812Wardrobe .v832u-canvas.v840-ready[data-gender="female"]>.v837-final-canvas{
+ display:block!important;opacity:1!important;visibility:visible!important;z-index:82!important;
+ image-rendering:auto!important;filter:drop-shadow(0 10px 16px rgba(0,0,0,.18))!important
+}
+#v812Wardrobe .v832u-canvas.v840-ready[data-gender="female"]{
+ overflow:visible!important
+}
