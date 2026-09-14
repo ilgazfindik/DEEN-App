@@ -1,0 +1,17 @@
+/* DEEN v8.3.9 — deterministic wardrobe + face composition */
+#v812Wardrobe .v832u-canvas[data-gender="female"]>.v832u-avatar-slot{
+ background:transparent!important;background-color:transparent!important;box-shadow:none!important;
+}
+#v812Wardrobe .v832u-canvas[data-gender="female"]>.v832u-avatar-slot:empty{
+ background:transparent!important;background-color:transparent!important;
+}
+#v812Wardrobe .v832u-canvas.v839-ready[data-gender="female"]>.v832u-avatar-slot{
+ display:block!important;opacity:1!important;visibility:visible!important;z-index:79!important;pointer-events:none!important;
+}
+#v812Wardrobe .v832u-canvas.v839-ready[data-gender="female"]>.v832u-avatar-slot>.v833-face-canvas{
+ display:block!important;opacity:1!important;visibility:visible!important;background:transparent!important;
+}
+#v812Wardrobe .v832u-canvas.v839-ready>.v837-final-canvas{z-index:80!important}
+#v812Wardrobe .v832u-canvas.v839-waiting-face[data-gender="female"]>.v832u-avatar-slot{
+ background:transparent!important;background-color:transparent!important;
+}
