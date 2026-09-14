@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v8.4.0 — Head Integration</title>
+<title>DEEN v8.4.0 — Direct Head Integration</title>
 <style>
 html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100%}.boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}.box{max-width:340px}.logo{font-size:26px;font-weight:900;letter-spacing:5px;color:#91e2ca}.sub{margin-top:12px;color:#9db4b8;font-size:13px;line-height:1.5}.err{color:#f1b0b4}
 </style>
@@ -31,29 +31,29 @@ html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,Bl
 <script src="./patches/v8.0.0.js?v=800"></script>
 <script src="./patches/v8.0.1.js?v=801"></script>
 <script src="./patches/v8.0.2.js?v=802"></script>
-<script src="./patches/v8.1.3.js?v=840head3"></script>
+<script src="./patches/v8.1.3.js?v=840head4"></script>
 <script src="./patches/v8.2.0.js?v=820"></script>
-<script src="./patches/v8.2.1.js?v=840head3"></script>
-<script src="./patches/v8.3.0.js?v=840head3"></script>
+<script src="./patches/v8.2.1.js?v=840head4"></script>
+<script src="./patches/v8.3.0.js?v=840head4"></script>
 <script src="./patches/v8.3.2.hf2t.release.js?v=839c1"></script>
 <script src="./patches/v8.3.2.hf2u.release.js?v=839u1"></script>
 <script src="./patches/v8.3.7.wardrobe-stable.release.js?v=839stable1"></script>
 <script src="./patches/v8.3.8.face-sync.release.js?v=839safe1"></script>
 <script src="./patches/v8.3.9.wardrobe-face-stability.release.js?v=839stable1"></script>
-<script src="./patches/v8.4.0.head-integration.release.js?v=840head3"></script>
+<script src="./patches/v8.4.0.head-integration.release.js?v=840head4"></script>
 </head>
 <body>
-<div class="boot"><div class="box"><div class="logo">DEEN</div><div class="sub" id="status">v8.4.0 yüz + başörtüsü entegrasyonu hazırlanıyor…</div></div></div>
+<div class="boot"><div class="box"><div class="logo">DEEN</div><div class="sub" id="status">v8.4.0 doğrudan yüz parçaları entegrasyonu hazırlanıyor…</div></div></div>
 <script>
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const r=await fetch('./DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html?v=840head3',{cache:'no-store'});
+   const r=await fetch('./DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html?v=840head4',{cache:'no-store'});
    if(!r.ok)throw new Error('Ana DEEN dosyası yüklenemedi.');
    let html=await r.text();
    const patches=[['775',window.DEEN_PATCH_V775],['776',window.DEEN_PATCH_V776],['777',window.DEEN_PATCH_V777],['778',window.DEEN_PATCH_V778],['779',window.DEEN_PATCH_V779],['780',window.DEEN_PATCH_V780],['781',window.DEEN_PATCH_V781],['782',window.DEEN_PATCH_V782],['783',window.DEEN_PATCH_V783],['784',window.DEEN_PATCH_V784],['785',window.DEEN_PATCH_V785],['786',window.DEEN_PATCH_V786],['787',window.DEEN_PATCH_V787],['788',window.DEEN_PATCH_V788],['789',window.DEEN_PATCH_V789],['790',window.DEEN_PATCH_V790],['791',window.DEEN_PATCH_V791],['792',window.DEEN_PATCH_V792],['800',window.DEEN_PATCH_V800],['801',window.DEEN_PATCH_V801],['802',window.DEEN_PATCH_V802],['813',window.DEEN_PATCH_V813],['820',window.DEEN_PATCH_V820],['821',window.DEEN_PATCH_V821],['830',window.DEEN_PATCH_V830],['839BASE',window.DEEN_PATCH_V832HF2T],['839HOST',window.DEEN_PATCH_V832HF2U],['839WARDROBE',window.DEEN_PATCH_V837],['839FACESAFE',window.DEEN_PATCH_V838],['839STABILITY',window.DEEN_PATCH_V839],['840HEAD',window.DEEN_PATCH_V840]];
    for(const [v,fn] of patches){if(typeof fn!=='function')throw new Error(v+' yaması yüklenemedi.');html=fn(html).html;}
-   html+='\n<script id="deen-release-guard">(()=>{const TITLE="DEEN v8.4.0 — Head Integration",VERSION="8.4.0-HEAD-INTEGRATION",ARB="V840_HEAD_ALPHA_CROP_COMPOSITE",BUILD="840head3";const apply=()=>{document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_RENDER_ARBITRATION=ARB;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION};apply();if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",apply,{once:true});window.addEventListener("load",apply,{once:true});[100,300,700,1200,2000,3500].forEach(ms=>setTimeout(apply,ms));window.DEEN_RELEASE_GUARD={version:VERSION,build:BUILD,check:()=>({title:document.title,version:window.DEEN_RELEASE_VERSION,arbitration:window.DEEN_RENDER_ARBITRATION,build:window.DEEN_BUILD_ID,closet:window.DEEN_REAL_CLOSET?.check?.()||null,wardrobe:window.DEEN_V837_WARDROBE?.check?.()||null,face:window.DEEN_V833_FACE_ENGINE?.check?.()||null,faceSafe:window.DEEN_V838_FACE_SYNC?.check?.()||null,stability:window.DEEN_V839_WARDROBE?.check?.()||null,headIntegration:window.DEEN_V840_HEAD?.check?.()||null})}})();<\/script>\n';
+   html+='\n<script id="deen-release-guard">(()=>{const TITLE="DEEN v8.4.0 — Direct Head Integration",VERSION="8.4.0-HEAD-INTEGRATION-DIRECT-PARTS",ARB="V840_DIRECT_FACE_PARTS",BUILD="840head4";const apply=()=>{document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_RENDER_ARBITRATION=ARB;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION};apply();if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",apply,{once:true});window.addEventListener("load",apply,{once:true});[100,300,700,1200,2000,3500].forEach(ms=>setTimeout(apply,ms));window.DEEN_RELEASE_GUARD={version:VERSION,build:BUILD,check:()=>({title:document.title,version:window.DEEN_RELEASE_VERSION,arbitration:window.DEEN_RENDER_ARBITRATION,build:window.DEEN_BUILD_ID,closet:window.DEEN_REAL_CLOSET?.check?.()||null,wardrobe:window.DEEN_V837_WARDROBE?.check?.()||null,face:window.DEEN_V833_FACE_ENGINE?.check?.()||null,faceSafe:window.DEEN_V838_FACE_SYNC?.check?.()||null,stability:window.DEEN_V839_WARDROBE?.check?.()||null,headIntegration:window.DEEN_V840_HEAD?.check?.()||null})}})();<\/script>\n';
    document.open();document.write(html);document.close();
  }catch(err){console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);}
 })();
