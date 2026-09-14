@@ -1,7 +1,7 @@
 (()=>{
  if(window.__deenV838FaceSync)return;
  window.__deenV838FaceSync=true;
- const VERSION='8.3.8-FACE-SYNC',REV='838sync1';
+ const VERSION='8.3.8-FACE-SYNC-SAFE',REV='838sync3';
  const $=(s,r=document)=>r?.querySelector?.(s)||null;
  const CELL=224;
  const HOLES=[
@@ -13,11 +13,13 @@
  let raf=0,lastError=null,lastSig='';
  function root(){return $('#v812Wardrobe')}
  function croot(){return $('.v832u-canvas',root())}
+ function slot(){return $('.v832u-avatar-slot',croot())}
+ function faceCanvas(){return $('.v833-face-canvas',slot())}
  function gender(){return $('.v832k-mannequin',root())?.dataset?.gender==='male'?'male':'female'}
  function activeId(){return $('.v832k-card.active',root())?.dataset?.v832kReal||null}
  function femaleIndex(id){const m=String(id||'').match(/^female_(\d{2})$/);if(!m)return-1;const n=Number(m[1]);return n>=1&&n<=11?n-1:-1}
  function clearStaticFace(){
-  const r=root(),cr=croot();if(!r?.classList?.contains('open')||!cr||gender()!=='female')return false;
+  const r=root(),cr=croot(),fc=faceCanvas();if(!r?.classList?.contains('open')||!cr||!fc||gender()!=='female')return false;
   const idx=femaleIndex(activeId()),cv=$('.v837-final-canvas',cr);if(idx<0||!cv)return false;
   const ctx=cv.getContext?.('2d');if(!ctx)return false;
   const h=HOLES[idx],kx=cv.width/CELL,ky=cv.height/CELL;
@@ -27,8 +29,13 @@
  }
  function sync(){
   try{
+   if(window.DEEN_V839_ACTIVE)return false;
    if(gender()!=='female'){croot()?.classList?.remove('v838-face-sync');return false}
-   window.DEEN_V833_FACE_ENGINE?.refresh?.();
+   if(!faceCanvas()){
+    window.DEEN_V833_FACE_ENGINE?.refresh?.();
+    document.documentElement.dataset.deenV838='waiting-face';
+    return false;
+   }
    const ok=clearStaticFace();
    const st=window.DEEN_AVATAR_ASSETS?.state?.();
    lastSig=(activeId()||'')+'|'+JSON.stringify(st?.selected?.female||{});
@@ -44,9 +51,9 @@
    [0,40,100,190].forEach(schedule);
   }
  },true);
- const obs=new MutationObserver(()=>{if(root()?.classList?.contains('open'))schedule(0)});
+ const obs=new MutationObserver(()=>{if(!window.DEEN_V839_ACTIVE&&root()?.classList?.contains('open'))schedule(0)});
  setTimeout(()=>{const r=root();if(r)obs.observe(r,{subtree:true,childList:true,attributes:true,attributeFilter:['class','data-v837id','data-gender']})},300);
  [0,160,420,900,1600].forEach(schedule);
- window.DEEN_V838_FACE_SYNC={version:VERSION,revision:REV,refresh:()=>{window.DEEN_V833_FACE_ENGINE?.refresh?.();[0,50,140].forEach(schedule)},check:()=>({version:VERSION,revision:REV,gender:gender(),active:activeId(),ready:!!croot()?.classList?.contains('v838-face-sync'),faceCanvas:!!$('.v833-face-canvas',croot()),outfitCanvas:!!$('.v837-final-canvas',croot()),signature:lastSig,error:lastError})};
+ window.DEEN_V838_FACE_SYNC={version:VERSION,revision:REV,refresh:()=>{if(window.DEEN_V839_ACTIVE)return false;window.DEEN_V833_FACE_ENGINE?.refresh?.();[0,50,140].forEach(schedule)},check:()=>({version:VERSION,revision:REV,gender:gender(),active:activeId(),ready:!!croot()?.classList?.contains('v838-face-sync')&&!!faceCanvas(),faceCanvas:!!faceCanvas(),outfitCanvas:!!$('.v837-final-canvas',croot()),signature:lastSig,error:lastError})};
  window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_RENDER_ARBITRATION='V838_OUTFIT_PLUS_STATE_FACE';
 })();
