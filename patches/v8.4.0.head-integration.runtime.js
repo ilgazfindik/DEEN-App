@@ -1,0 +1,101 @@
+(()=>{
+ if(window.__deenV840HeadIntegration)return;
+ window.__deenV840HeadIntegration=true;
+ const VERSION='8.4.0-HEAD-INTEGRATION',REV='840head1';
+ const $=(s,r=document)=>r?.querySelector?.(s)||null;
+ const CELL=224;
+ const ASSET_ROOT='./assets/avatar-runtime/v7/';
+ const ATLAS_PARTS=[
+  'female_hq224_c01.b64',
+  'female_hq224_s02a.b64','female_hq224_s02b.b64','female_hq224_s02c.b64','female_hq224_s02d.b64','female_hq224_s02e.b64',
+  'female_hq224_c03.b64','female_hq224_c04.b64','female_hq224_c05.b64',
+  'female_hq224_s06a.b64','female_hq224_s06b.b64','female_hq224_s06c.b64','female_hq224_s06d.b64'
+ ];
+ const HOLES=[
+  {x:113,y:19,w:21,h:25},{x:99,y:18,w:21,h:26},{x:104,y:18,w:20,h:25},
+  {x:102,y:18,w:21,h:25},{x:101,y:20,w:22,h:25},{x:101,y:20,w:22,h:25},
+  {x:100,y:19,w:22,h:25},{x:103,y:19,w:21,h:23},{x:103,y:19,w:21,h:25},
+  {x:100,y:19,w:21,h:25},{x:96,y:19,w:20,h:24}
+ ];
+ /* Outfit-specific face calibration in 224px atlas-space. The atlas is painted
+    AFTER the face, so the real hijab/head frame naturally masks the edges. */
+ const HEAD_FIT={
+  female_01:{scale:1.13,dx:0.10,dy:0.75},
+  female_02:{scale:1.14,dx:0.00,dy:0.85},
+  female_03:{scale:1.14,dx:0.05,dy:0.75},
+  female_04:{scale:1.14,dx:0.00,dy:0.80},
+  female_05:{scale:1.17,dx:0.00,dy:1.05},
+  female_06:{scale:1.16,dx:0.05,dy:0.95},
+  female_07:{scale:1.15,dx:0.00,dy:0.85},
+  female_08:{scale:1.14,dx:0.00,dy:0.70},
+  female_09:{scale:1.16,dx:0.00,dy:0.90},
+  female_10:{scale:1.16,dx:0.05,dy:0.90},
+  female_11:{scale:1.15,dx:0.00,dy:0.80}
+ };
+ let atlas=null,atlasPromise=null,renderToken=0,lastError=null,lastReadyAt=0,lastSig='',boundRoot=null,observer=null,lastObservedKey='';
+ function root(){return $('#v812Wardrobe')}
+ function croot(){return $('.v832u-canvas',root())}
+ function slot(){return $('.v832u-avatar-slot',croot())}
+ function faceCanvas(){return $('.v833-face-canvas',slot())}
+ function finalCanvas(){return $('.v837-final-canvas',croot())}
+ function gender(){return $('.v832k-mannequin',root())?.dataset?.gender==='male'?'male':'female'}
+ function activeId(){return $('.v832k-card.active',root())?.dataset?.v832kReal||null}
+ function femaleIndex(id){const m=String(id||'').match(/^female_(\d{2})$/);if(!m)return-1;const n=Number(m[1]);return n>=1&&n<=11?n-1:-1}
+ function frame(){return new Promise(ok=>requestAnimationFrame(()=>ok()))}
+ async function waitFor(test,my,maxFrames=150){for(let i=0;i<maxFrames;i++){if(my!==renderToken)return false;try{if(test())return true}catch(_){}await frame()}return false}
+ async function text(url){const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(url+' HTTP '+r.status);return(await r.text()).replace(/\s+/g,'')}
+ function imageFromB64(b64){return new Promise((ok,bad)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=()=>bad(new Error('v8.4.0 female atlas decode failed'));im.src='data:image/webp;base64,'+b64})}
+ async function loadAtlas(){
+  if(atlas)return atlas;if(atlasPromise)return atlasPromise;
+  atlasPromise=(async()=>{const parts=await Promise.all(ATLAS_PARTS.map(n=>text(ASSET_ROOT+n+'?v='+REV)));const b64=parts.join('');if(!b64.startsWith('UklGR'))throw new Error('v8.4.0 female atlas invalid');const im=await imageFromB64(b64);if(im.naturalWidth!==1344||im.naturalHeight!==448)throw new Error(`v8.4.0 atlas dimensions ${im.naturalWidth}x${im.naturalHeight}`);atlas=im;return im})();
+  return atlasPromise;
+ }
+ function faceStateSig(){try{return JSON.stringify(window.DEEN_AVATAR_ASSETS?.state?.()?.selected?.female||{})}catch(_){return '{}'}}
+ function v839Ready(id){const ck=window.DEEN_V839_WARDROBE?.check?.();return !!(ck?.ready&&ck?.stage==='ready'&&ck?.active===id&&faceCanvas()&&finalCanvas())}
+ function paint(cv,fc,im,id,idx){
+  const ctx=cv.getContext('2d',{alpha:true});if(!ctx)return false;
+  const S=cv.width,k=S/CELL,h=HOLES[idx],fit=HEAD_FIT[id]||{scale:1.15,dx:0,dy:.8};
+  const destW=h.w*fit.scale*k;
+  const destH=destW*(fc.height/fc.width);
+  const cx=(h.x+h.w/2+fit.dx)*k;
+  const cy=(h.y+h.h/2+fit.dy)*k;
+  const destX=cx-destW/2,destY=cy-destH/2;
+  ctx.clearRect(0,0,cv.width,cv.height);
+  ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+  ctx.save();ctx.globalAlpha=.995;ctx.drawImage(fc,destX,destY,destW,destH);ctx.restore();
+  const col=idx<6?idx:idx-6,row=idx<6?0:1;
+  ctx.drawImage(im,col*CELL,row*CELL,CELL,CELL,0,0,S,S);
+  return true;
+ }
+ async function render(){
+  const r=root();if(!r?.classList?.contains('open'))return false;
+  const id=activeId(),g=gender(),idx=femaleIndex(id),my=++renderToken;
+  if(g!=='female'||idx<0){const cr=croot();cr?.classList?.remove('v840-ready');cr?.removeAttribute('data-v840id');document.documentElement.dataset.deenV840='male-fallback';return false}
+  document.documentElement.dataset.deenV840='waiting-base';
+  window.DEEN_V839_WARDROBE?.refresh?.();
+  const [im,ready]=await Promise.all([loadAtlas(),waitFor(()=>v839Ready(id),my)]);
+  if(!ready||my!==renderToken||activeId()!==id||gender()!=='female')return false;
+  const cv=finalCanvas(),fc=faceCanvas(),cr=croot();if(!cv||!fc||!cr)return false;
+  document.documentElement.dataset.deenV840='composing';
+  if(!paint(cv,fc,im,id,idx)){lastError='2d context unavailable';document.documentElement.dataset.deenV840='error';return false}
+  if(my!==renderToken||activeId()!==id)return false;
+  cr.classList.add('v840-ready');cr.dataset.v840id=id;
+  lastSig=id+'|'+faceStateSig();lastReadyAt=Date.now();lastError=null;
+  document.documentElement.dataset.deenV840='ready';
+  return true;
+ }
+ function refresh(){render().catch(err=>{lastError=String(err?.message||err);window.DEEN_V840_ERROR=lastError;document.documentElement.dataset.deenV840='error';console.error('DEEN v8.4.0 head integration:',err)});return true}
+ function observeCanvas(){
+  const cr=croot();if(!cr||cr===boundRoot)return false;
+  observer?.disconnect?.();boundRoot=cr;lastObservedKey='';
+  observer=new MutationObserver(()=>{const live=croot();if(!live)return;const key=`${live.dataset.v839id||''}|${live.dataset.v837id||''}|${live.classList.contains('v839-ready')?'1':'0'}|${activeId()||''}`;if(key===lastObservedKey)return;lastObservedKey=key;if(live.classList.contains('v839-ready'))queueMicrotask(refresh)});
+  observer.observe(cr,{attributes:true,attributeFilter:['class','data-v839id','data-v837id']});
+  return true;
+ }
+ function bind(){observeCanvas();if(root()?.classList?.contains('open'))refresh();if(!boundRoot)requestAnimationFrame(bind)}
+ document.addEventListener('click',e=>{if(e.target.closest?.('#v812Wardrobe [data-v832k-real],#v812Wardrobe [data-v831-asset],#v812Wardrobe [data-v831-gender],#v812Wardrobe [data-v812-cat],#v812Wardrobe [data-v812-sub],[data-v810-open-wardrobe]'))queueMicrotask(()=>{observeCanvas();refresh()})},true);
+ document.addEventListener('keydown',e=>{if((e.key==='ArrowLeft'||e.key==='ArrowRight')&&root()?.classList?.contains('open'))queueMicrotask(refresh)},true);
+ requestAnimationFrame(bind);
+ window.DEEN_V840_HEAD={version:VERSION,revision:REV,refresh,compose:refresh,fit:id=>HEAD_FIT[id]||null,check:()=>({version:VERSION,revision:REV,active:activeId(),gender:gender(),ready:!!croot()?.classList?.contains('v840-ready')&&croot()?.dataset?.v840id===activeId(),faceCanvas:!!faceCanvas(),finalCanvas:!!finalCanvas(),atlasLoaded:!!atlas,signature:lastSig,readyAt:lastReadyAt,error:lastError})};
+ window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_RENDER_ARBITRATION='V840_HEAD_INTEGRATED_COMPOSITE';
+})();
