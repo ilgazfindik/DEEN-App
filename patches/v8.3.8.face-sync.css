@@ -3,6 +3,17 @@
  display:block!important;opacity:1!important;visibility:visible!important;z-index:79!important;pointer-events:none!important
 }
 #v812Wardrobe .v832u-canvas.v837-ready[data-gender="female"]>.v832u-avatar-slot>.v833-face-canvas{
- display:block!important;opacity:1!important;visibility:visible!important
+ display:block!important;opacity:1!important;visibility:visible!important;
+ transform:translateY(-4.5%) scale(.89)!important;
+ transform-origin:50% 50%!important
+}
+/* Small per-outfit optical corrections. The anchor box itself remains authoritative. */
+#v812Wardrobe .v832u-canvas.v838-face-sync[data-v838id="female_01"]>.v832u-avatar-slot>.v833-face-canvas,
+#v812Wardrobe .v832u-canvas.v838-face-sync[data-v838id="female_04"]>.v832u-avatar-slot>.v833-face-canvas{
+ transform:translateY(-5.5%) scale(.88)!important
+}
+#v812Wardrobe .v832u-canvas.v838-face-sync[data-v838id="female_03"]>.v832u-avatar-slot>.v833-face-canvas,
+#v812Wardrobe .v832u-canvas.v838-face-sync[data-v838id="female_10"]>.v832u-avatar-slot>.v833-face-canvas{
+ transform:translateY(-3.5%) scale(.90)!important
 }
 #v812Wardrobe .v832u-canvas.v838-face-sync>.v837-final-canvas{z-index:80!important}
