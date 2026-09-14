@@ -1,12 +1,7 @@
-/* DEEN v8.4.4 — clothing feature removed */
+/* DEEN v8.4.5 — clothing UI hidden without touching shared avatar render surfaces */
 #v812Wardrobe [data-v812-cat="outfit"],
 #v812Wardrobe [data-v812-sub="outfit"],
 #v812Wardrobe [data-v812-sub="worldOutfit"],
-#v812Wardrobe .v812-outfit,
-#v812Wardrobe .v832k-card,
-#v812Wardrobe .v832u-outfit,
-#v812Wardrobe .v832u-canvas,
-#v812Wardrobe .v832k-mannequin,
-#v812Wardrobe .v832k-body-preview{
+#v812Wardrobe .v812-outfit{
  display:none!important;
 }
