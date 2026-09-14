@@ -1,4 +1,4 @@
-(()=>{const VERSION='8.3.8-FACE-SYNC',REV='838sync1';const tags=`
+(()=>{const VERSION='8.3.8-FACE-SYNC',REV='838sync2';const tags=`
 <link rel="stylesheet" href="./patches/v8.3.3.face-engine.css?v=${REV}" data-deen-v838-facebase-css>
 <script src="./patches/v8.3.3.face-engine.runtime.js?v=${REV}" data-deen-v838-facebase-runtime><\/script>
 <link rel="stylesheet" href="./patches/v8.3.8.face-sync.css?v=${REV}" data-deen-v838-css>
