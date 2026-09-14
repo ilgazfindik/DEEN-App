@@ -78,11 +78,9 @@
   }
   return out.map(x=>x.q);
  }
+ function getSession(){let s=null;try{s=session}catch(_){try{s=window.session}catch(__){}}return s}
  function prepareSession(){
-  try{
-   if(!window.session&&!globalThis.session)return false;
-  }catch(_){ }
-  let s;try{s=session}catch(_){s=window.session}
+  const s=getSession();
   if(!s||!Array.isArray(s.questions)||s.questions.length<2||s.index!==0||s.__v862Planned)return false;
   const before=analyze(s.questions),ordered=plan(s.questions,{final:!!s.final,review:!!s.review,macro:!!s.macroStage});
   s.questions.splice(0,s.questions.length,...ordered);s.__v862Planned=true;
