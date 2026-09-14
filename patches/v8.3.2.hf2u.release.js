@@ -1,5 +1,5 @@
 (()=>{
- const VERSION='8.3.6-HF2U-EVENT',REV='836u1';
+ const VERSION='8.3.9-HF2U-FACE-SAFE',REV='839u1';
  const tags=`
 <link rel="stylesheet" href="./patches/v8.3.2.hf2u.css?v=${REV}" data-deen-hf2u-css>
 <script src="./patches/v8.3.2.hf2u.runtime.js?v=${REV}" data-deen-hf2u-runtime><\/script>
