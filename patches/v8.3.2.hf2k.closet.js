@@ -1,6 +1,6 @@
 (()=>{
  if(window.__deenV832HF2KCloset)return;window.__deenV832HF2KCloset=true;
- const VERSION='8.3.6-CLOSET-EVENT',REV='836c1';
+ const VERSION='8.3.8-CLOSET-SYNC',REV='838c2';
  const $=(s,r=document)=>r?.querySelector?.(s)||null,$$=(s,r=document)=>[...(r?.querySelectorAll?.(s)||[])];
  const LEGACY=['outfit_teal','outfit_lavender','outfit_navy','outfit_cream'];
  const NAMES=['Teal Tunik','Lavanta Tunik','Lacivert Tunik','Krem Tunik'];
@@ -22,8 +22,12 @@
  function bodySvg(g){const skin='#efb28f',line='#263b40',cloth='#34434a',cloth2='#26353b';if(g==='male')return `<svg class="v832k-body-svg" viewBox="0 0 260 344" aria-hidden="true"><g stroke="${line}" stroke-width="4" stroke-linejoin="round"><path fill="${skin}" d="M112 101h36v35h-36z"/><path fill="${cloth}" d="M75 125q55-27 110 0l18 101-28 16-10-87v112H95V155l-10 87-28-16z"/><path fill="${cloth2}" d="M96 260h29v67H87l5-64zm39 0h29l4 64h-38z"/></g></svg>`;return `<svg class="v832k-body-svg" viewBox="0 0 260 344" aria-hidden="true"><g stroke="${line}" stroke-width="4" stroke-linejoin="round"><path fill="${skin}" d="M113 101h34v34h-34z"/><path fill="${cloth}" d="M83 126q47-26 94 0l18 105-27 13-11-88 9 100h-72l9-100-11 88-27-13z"/><path fill="${cloth2}" d="M101 255h25v70H91l7-68zm33 0h25l7 68h-35z"/></g></svg>`}
  function ensureMannequin(){const root=$('#v812Wardrobe'),box=$('.v812-avatar',root);if(!root||!box||!outfitMode())return null;const g=gender();let m=$('.v832k-mannequin',box);if(!m||m.dataset.gender!==g){box.innerHTML=`<div class="v832k-mannequin" data-gender="${g}">${bodySvg(g)}<div class="v832k-head-slot"></div></div>`;box.classList.add('v832k-body-preview');m=$('.v832k-mannequin',box)}return m}
  function render(){const root=$('#v812Wardrobe');if(!loaded||!root?.classList?.contains('open')||!outfitMode())return false;const g=gender(),grid=$('.v812-grid',root);if(!grid||!URLS[g])return false;if(!initial[g])initial[g]=saved(g);if(preview[g]==null)preview[g]=initial[g];grid.innerHTML=cards(g);grid.classList.add('v832k-real-grid');ensureMannequin();document.documentElement.dataset.deenCloset='ready';return true}
- function choose(id){const g=gender();if(idx(g,id)===null)return;preview[g]=id;render();window.DEEN_HF2U?.refresh?.();window.DEEN_V834_HQ_COMPOSITE?.refresh?.();window.DEEN_V836_WARDROBE?.refresh?.()}
+ function refreshVisuals(){
+  const kick=()=>{window.DEEN_HF2U?.refresh?.();window.DEEN_V834_HQ_COMPOSITE?.refresh?.();window.DEEN_V836_WARDROBE?.refresh?.();window.DEEN_V837_WARDROBE?.refresh?.();window.DEEN_V838_FACE_SYNC?.refresh?.()};
+  kick();[24,70,150].forEach(ms=>setTimeout(kick,ms));
+ }
+ function choose(id){const g=gender();if(idx(g,id)===null)return;preview[g]=id;render();refreshVisuals()}
  function schedule(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;render()})}
  document.addEventListener('click',e=>{const c=e.target.closest?.('[data-v832k-real]');if(c){e.preventDefault();e.stopImmediatePropagation();choose(c.dataset.v832kReal);return}if(e.target.closest?.('#v812Wardrobe [data-v812-save]')&&outfitMode()){e.preventDefault();e.stopImmediatePropagation();return}if(e.target.closest?.('#v812Wardrobe [data-v812-cat],#v812Wardrobe [data-v812-sub],#v812Wardrobe [data-v831-gender],[data-v810-open-wardrobe]')){schedule();setTimeout(schedule,60);setTimeout(schedule,180)}},true);
- Promise.all([load('male'),load('female')]).then(()=>{loaded=true;for(const g of ['male','female'])preview[g]=saved(g);[0,100,350].forEach(ms=>setTimeout(schedule,ms));window.DEEN_REAL_CLOSET={version:VERSION,refresh:schedule,check:()=>({version:VERSION,gender:gender(),cards:$$('#v812Wardrobe .v832k-card').length,body:!!$('#v812Wardrobe .v832k-mannequin'),eventDriven:true,counts:{female:11,male:12}})}}).catch(err=>{window.DEEN_HF2K_ERROR=String(err?.message||err);console.error(err)});
+ Promise.all([load('male'),load('female')]).then(()=>{loaded=true;for(const g of ['male','female'])preview[g]=saved(g);[0,100,350].forEach(ms=>setTimeout(schedule,ms));window.DEEN_REAL_CLOSET={version:VERSION,refresh:schedule,current:()=>current(),choose,check:()=>({version:VERSION,gender:gender(),current:current(),cards:$$('#v812Wardrobe .v832k-card').length,body:!!$('#v812Wardrobe .v832k-mannequin'),eventDriven:true,counts:{female:11,male:12}})}}).catch(err=>{window.DEEN_HF2K_ERROR=String(err?.message||err);console.error(err)});
 })();
