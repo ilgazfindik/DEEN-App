@@ -1,7 +1,7 @@
 (()=>{
  if(window.__deenV840HeadIntegration)return;
  window.__deenV840HeadIntegration=true;
- const VERSION='8.4.0-HEAD-INTEGRATION',REV='840head1';
+ const VERSION='8.4.0-HEAD-INTEGRATION',REV='840head2';
  const $=(s,r=document)=>r?.querySelector?.(s)||null;
  const CELL=224;
  const ASSET_ROOT='./assets/avatar-runtime/v7/';
@@ -17,8 +17,6 @@
   {x:100,y:19,w:22,h:25},{x:103,y:19,w:21,h:23},{x:103,y:19,w:21,h:25},
   {x:100,y:19,w:21,h:25},{x:96,y:19,w:20,h:24}
  ];
- /* Outfit-specific face calibration in 224px atlas-space. The atlas is painted
-    AFTER the face, so the real hijab/head frame naturally masks the edges. */
  const HEAD_FIT={
   female_01:{scale:1.13,dx:0.10,dy:0.75},
   female_02:{scale:1.14,dx:0.00,dy:0.85},
@@ -72,7 +70,6 @@
   const id=activeId(),g=gender(),idx=femaleIndex(id),my=++renderToken;
   if(g!=='female'||idx<0){const cr=croot();cr?.classList?.remove('v840-ready');cr?.removeAttribute('data-v840id');document.documentElement.dataset.deenV840='male-fallback';return false}
   document.documentElement.dataset.deenV840='waiting-base';
-  window.DEEN_V839_WARDROBE?.refresh?.();
   const [im,ready]=await Promise.all([loadAtlas(),waitFor(()=>v839Ready(id),my)]);
   if(!ready||my!==renderToken||activeId()!==id||gender()!=='female')return false;
   const cv=finalCanvas(),fc=faceCanvas(),cr=croot();if(!cv||!fc||!cr)return false;
