@@ -5,6 +5,12 @@
 (()=>{
  if(window.__deenV868U01S02)return;window.__deenV868U01S02=true;
  const VERSION='8.6.8-U01-S02-CONTENT-ENRICHMENT',BUILD='868u01s02',TARGET='U01-S02';
+ const BASE_FIX={
+  id:'DEEN-U01-S02-006',
+  question_tr:'Boşluğu tamamla: İbadetin amacı Allah’a ___ ve O’nun rızasını kazanmaktır.',
+  options_tr:['yakınlaşmak','uzaklaşmak','gösteriş yapmak','başkalarını etkilemek'],
+  correct_answer:'yakınlaşmak'
+ };
  const ITEMS=[
   {
    id:'DEEN-U01-S02-015',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:2,
@@ -97,23 +103,31 @@
    terminology_note:'Mevcut U01 içeriğini karşılaştırır; yeni dinî hüküm eklemez.'
   }
  ];
- let installed=false,added=0,beforeCount=0,afterCount=0,attempts=0;
+ let installed=false,added=0,beforeCount=0,afterCount=0,attempts=0,baseFixed=0;
  function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){};if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:null}
+ function repairBase(q){
+  const item=q.find(x=>String(x?.id||'')===BASE_FIX.id);if(!item)return false;
+  const changed=String(item.question_tr||'')!==BASE_FIX.question_tr||String(item.correct_answer||'')!==BASE_FIX.correct_answer||!Array.isArray(item.options_tr)||item.options_tr.length!==BASE_FIX.options_tr.length||item.options_tr.some((v,i)=>String(v)!==BASE_FIX.options_tr[i]);
+  item.question_tr=BASE_FIX.question_tr;item.options_tr=[...BASE_FIX.options_tr];item.correct_answer=BASE_FIX.correct_answer;
+  if(changed)baseFixed++;
+  return true;
+ }
  function install(){
   attempts++;const q=bank();if(!q)return false;
+  repairBase(q);
   beforeCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;
   const ids=new Set(q.map(x=>String(x?.id||'')));
   ITEMS.forEach(item=>{if(!ids.has(item.id)){q.push({...item,options_tr:Array.isArray(item.options_tr)?[...item.options_tr]:item.options_tr,source_urls:Array.isArray(item.source_urls)?[...item.source_urls]:[]});ids.add(item.id);added++}});
   afterCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;installed=true;
   document.documentElement.dataset.deenU01S02Enrichment='ready';
-  try{document.dispatchEvent(new CustomEvent('deen:content:enriched',{detail:{version:VERSION,build:BUILD,target:TARGET,added,ids:ITEMS.map(x=>x.id)}}))}catch(_){}
+  try{document.dispatchEvent(new CustomEvent('deen:content:enriched',{detail:{version:VERSION,build:BUILD,target:TARGET,added,baseFixed,ids:ITEMS.map(x=>x.id)}}))}catch(_){}
   setTimeout(()=>{try{window.DEEN_QUESTION_COVERAGE?.scan?.()}catch(_){}},0);
   return true;
  }
  [0,120,420,1000,2200].forEach(ms=>setTimeout(()=>{if(!installed)install()},ms));
  window.DEEN_CONTENT_ENRICHMENT_V868={
   version:VERSION,build:BUILD,target:TARGET,ids:ITEMS.map(x=>x.id),install,
-  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,beforeCount,afterCount,formats:['card','scenario','odd_one_out'],conceptPairs:['u01-s02-muslim-identity','u01-s02-core-concepts','u01-s02-guidance']})
+  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,baseFixed,beforeCount,afterCount,formats:['card','scenario','odd_one_out'],conceptPairs:['u01-s02-muslim-identity','u01-s02-core-concepts','u01-s02-guidance']})
  };
 })();
 <\/script>`;
