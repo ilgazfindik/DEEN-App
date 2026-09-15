@@ -1,0 +1,104 @@
+(()=>{
+ const VERSION='8.7.4-ADMIN-QUESTION-INSPECTOR',BUILD='874admin1';
+ const addition=`<!-- DEEN v8.7.4 — Admin Question Inspector -->
+<script id="deen-v874-admin-question-inspector-runtime">
+(()=>{
+ if(window.__deenV874AdminQuestionInspector)return;window.__deenV874AdminQuestionInspector=true;
+ const VERSION='8.7.4-ADMIN-QUESTION-INSPECTOR',BUILD='874admin1',KEY='deen_admin_question_inspector';
+ const params=new URLSearchParams(location.search);
+ try{if(params.get('admin')==='1')localStorage.setItem(KEY,'1');if(params.get('admin')==='0')localStorage.removeItem(KEY)}catch(_){}
+ const enabled=()=>{try{return params.get('admin')==='1'||localStorage.getItem(KEY)==='1'}catch(_){return params.get('admin')==='1'}};
+ const esc=s=>String(s??'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));
+ const norm=s=>String(s||'').toLocaleLowerCase('tr-TR').replace(/\s+/g,' ').trim();
+ function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){}if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:[]}
+ function type(q){try{return window.DEEN_LESSON_ORCHESTRATOR?.classify?.(q)||String(q?.type||q?.question_type||q?.activity_type||'unknown')}catch(_){return String(q?.type||q?.question_type||q?.activity_type||'unknown')}}
+ const stage=q=>String(q?.stage_id||q?.stageId||'—');
+ const prompt=q=>String(q?.question_tr||q?.prompt||q?.question||'');
+ const options=q=>Array.isArray(q?.options_tr)?q.options_tr:Array.isArray(q?.options)?q.options:[];
+ const answer=q=>String(q?.correct_answer??q?.answer??'');
+ function qaIssues(q){
+  try{
+   const r=window.DEEN_U01_FINAL_QA?.report?.();const row=r?.itemIssues?.find(x=>String(x?.id)===String(q?.id));
+   const extra=[];
+   (r?.critical||[]).concat(r?.warnings||[]).forEach(x=>{if(String(x?.id||'')===String(q?.id||''))extra.push(x.code)});
+   return [...new Set([...(row?.issues||[]),...extra])];
+  }catch(_){return[]}
+ }
+ function css(){
+  if(document.getElementById('deen-admin-question-style'))return;
+  const s=document.createElement('style');s.id='deen-admin-question-style';s.textContent=`
+  #deen-admin-question-button{position:fixed;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:2147482998;border:1px solid rgba(147,229,204,.35);background:#0b252d;color:#9ce8d1;border-radius:16px;padding:10px 13px;font:800 11px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.7px;box-shadow:0 10px 30px rgba(0,0,0,.34)}
+  #deen-admin-question-panel{position:fixed;inset:0;z-index:2147483000;background:#061218;color:#edf8f5;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:none;overflow:hidden}
+  #deen-admin-question-panel.open{display:flex;flex-direction:column}#deen-admin-question-panel *{box-sizing:border-box}
+  .daq-top{height:64px;flex:0 0 auto;display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid #183039;background:#081920}.daq-title{font-size:17px;font-weight:900;flex:1}.daq-title small{display:block;color:#78989b;font-size:10px;font-weight:700;margin-top:3px}.daq-close,.daq-copy{border:1px solid #28434a;background:#0d2229;color:#dff3ee;border-radius:11px;padding:9px 11px;font-weight:800}
+  .daq-toolbar{flex:0 0 auto;display:grid;grid-template-columns:minmax(0,1fr) 120px 140px;gap:8px;padding:10px 12px;border-bottom:1px solid #183039;background:#09171d}.daq-toolbar input,.daq-toolbar select{width:100%;border:1px solid #244049;background:#0b2128;color:#eef8f5;border-radius:11px;padding:11px 12px;font-size:13px;outline:none}.daq-toolbar input:focus,.daq-toolbar select:focus{border-color:#63cfb0}
+  .daq-main{min-height:0;flex:1;display:grid;grid-template-columns:minmax(260px,34%) 1fr}.daq-list-wrap{min-height:0;border-right:1px solid #183039;display:flex;flex-direction:column;background:#07151b}.daq-count{padding:8px 12px;color:#87a2a4;font-size:11px;border-bottom:1px solid #142a31}.daq-list{min-height:0;overflow:auto;padding:7px}.daq-row{width:100%;display:block;text-align:left;border:1px solid transparent;background:transparent;color:#dcefed;border-radius:12px;padding:10px;margin:0 0 5px;cursor:pointer}.daq-row:hover{background:#0a2027}.daq-row.active{border-color:#3d8f7c;background:#0c282f}.daq-row-id{font-size:10px;color:#6fcdb3;font-weight:900}.daq-row-q{font-size:12px;font-weight:750;line-height:1.35;margin-top:5px}.daq-row-meta{font-size:10px;color:#78999d;margin-top:6px;display:flex;gap:7px;flex-wrap:wrap}
+  .daq-detail{min-height:0;overflow:auto;padding:16px 18px 28px}.daq-empty{height:100%;display:grid;place-items:center;color:#6f8b8f;text-align:center}.daq-badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.daq-badge{border:1px solid #28434a;background:#0d2229;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;color:#acdcd0}.daq-badge.warn{border-color:#735d2e;color:#f0c96d;background:#2b2513}.daq-h{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:#709397;font-weight:900;margin:18px 0 7px}.daq-question{font-size:20px;font-weight:900;line-height:1.35}.daq-option{border:1px solid #203b43;background:#0b2027;border-radius:13px;padding:11px 12px;margin:7px 0;font-size:13px;line-height:1.35}.daq-option.correct{border-color:#48aa8f;background:#0d302a}.daq-option.correct:after{content:'DOĞRU';float:right;color:#79dec1;font-size:9px;font-weight:950;letter-spacing:.5px}.daq-answer{border-left:3px solid #5bc5a7;background:#0b2625;padding:10px 12px;border-radius:0 10px 10px 0;font-size:13px;font-weight:850}.daq-note{font-size:13px;line-height:1.5;color:#b8cfcd}.daq-grid{display:grid;grid-template-columns:130px 1fr;gap:7px 12px;font-size:12px}.daq-key{color:#6f9296;font-weight:800}.daq-val{color:#d5e7e5;word-break:break-word}.daq-pair{display:grid;grid-template-columns:1fr 26px 1fr;gap:7px;align-items:center;border:1px solid #203b43;border-radius:10px;padding:9px 10px;margin:6px 0;font-size:12px}.daq-arrow{text-align:center;color:#5fc6aa}.daq-raw{white-space:pre-wrap;word-break:break-word;background:#041015;border:1px solid #193038;border-radius:11px;padding:11px;color:#a9c6c3;font:11px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}
+  @media(max-width:720px){.daq-toolbar{grid-template-columns:1fr 1fr}.daq-toolbar input{grid-column:1/-1}.daq-main{grid-template-columns:1fr}.daq-list-wrap{max-height:39vh;border-right:0;border-bottom:1px solid #183039}.daq-detail{padding:14px}.daq-question{font-size:17px}.daq-grid{grid-template-columns:105px 1fr}}
+  `;document.head.appendChild(s);
+ }
+ let root=null,selectedId='',search='',stageFilter='all',typeFilter='all';
+ function ensure(){
+  if(!enabled())return false;css();
+  if(!document.getElementById('deen-admin-question-button')){const b=document.createElement('button');b.id='deen-admin-question-button';b.textContent='ADMIN · SORULAR';b.addEventListener('click',open);document.body.appendChild(b)}
+  if(root)return true;
+  root=document.createElement('div');root.id='deen-admin-question-panel';root.innerHTML=`
+   <div class="daq-top"><div class="daq-title">Soru Admin Paneli<small>Gerçek runtime soru havuzu · salt okunur inspector</small></div><button class="daq-copy" id="daq-copy">JSON Kopyala</button><button class="daq-close" id="daq-close">Kapat</button></div>
+   <div class="daq-toolbar"><input id="daq-search" placeholder="ID, soru, concept veya konu ara…" autocomplete="off"><select id="daq-stage"><option value="all">Tüm aşamalar</option></select><select id="daq-type"><option value="all">Tüm tipler</option></select></div>
+   <div class="daq-main"><div class="daq-list-wrap"><div class="daq-count" id="daq-count">Yükleniyor…</div><div class="daq-list" id="daq-list"></div></div><div class="daq-detail" id="daq-detail"><div class="daq-empty">Soldan bir soru seç.<br><small>Panel oyunda kullanılan son runtime verisini gösterir.</small></div></div></div>`;
+  document.body.appendChild(root);
+  root.querySelector('#daq-close').addEventListener('click',close);
+  root.querySelector('#daq-copy').addEventListener('click',copySelected);
+  root.querySelector('#daq-search').addEventListener('input',e=>{search=e.target.value;renderList()});
+  root.querySelector('#daq-stage').addEventListener('change',e=>{stageFilter=e.target.value;renderList()});
+  root.querySelector('#daq-type').addEventListener('change',e=>{typeFilter=e.target.value;renderList()});
+  root.addEventListener('click',e=>{const row=e.target.closest('.daq-row');if(row){selectedId=row.dataset.id;renderList();renderDetail()}});
+  refreshFilters();return true;
+ }
+ function refreshFilters(){
+  if(!root)return;const qs=bank();const stages=[...new Set(qs.map(stage).filter(Boolean))].sort();const types=[...new Set(qs.map(type).filter(Boolean))].sort();
+  const ss=root.querySelector('#daq-stage'),ts=root.querySelector('#daq-type');
+  ss.innerHTML='<option value="all">Tüm aşamalar</option>'+stages.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');
+  ts.innerHTML='<option value="all">Tüm tipler</option>'+types.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');ss.value=stages.includes(stageFilter)?stageFilter:'all';ts.value=types.includes(typeFilter)?typeFilter:'all';
+ }
+ function filtered(){
+  const needle=norm(search);return bank().filter(q=>{
+   if(stageFilter!=='all'&&stage(q)!==stageFilter)return false;if(typeFilter!=='all'&&type(q)!==typeFilter)return false;if(!needle)return true;
+   const hay=norm([q?.id,prompt(q),q?.concept_id,q?.knowledgeKey,q?.topic,q?.skill,answer(q)].join(' '));return hay.includes(needle);
+  });
+ }
+ function renderList(){
+  if(!root)return;const all=bank(),rows=filtered();const list=root.querySelector('#daq-list');root.querySelector('#daq-count').textContent=`${rows.length} eşleşme · toplam ${all.length} runtime soru${rows.length>250?' · ilk 250 gösteriliyor':''}`;
+  const show=rows.slice(0,250);list.innerHTML=show.map(q=>`<button class="daq-row ${String(q?.id)===selectedId?'active':''}" data-id="${esc(q?.id)}"><div class="daq-row-id">${esc(q?.id||'ID YOK')}</div><div class="daq-row-q">${esc(prompt(q)||'(Soru metni yok)')}</div><div class="daq-row-meta"><span>${esc(stage(q))}</span><span>${esc(type(q))}</span>${q?.difficulty!=null?`<span>Zorluk ${esc(q.difficulty)}</span>`:''}</div></button>`).join('')||'<div class="daq-empty" style="height:160px">Eşleşen soru yok.</div>';
+ }
+ function metaRows(q){
+  const rows=[['ID',q?.id],['Aşama',stage(q)],['Ünite',q?.unit_id||q?.unitId],['Tip',type(q)],['activity_type',q?.activity_type],['Zorluk',q?.difficulty],['Concept',q?.concept_id||q?.knowledgeKey||q?.skill||q?.objective],['Konu',q?.topic],['Kaynak',q?.source_reference],['Kaynak notu',q?.source_evidence_note],['Terminoloji notu',q?.terminology_note],['Playful version',q?.playful_version]];
+  return rows.filter(x=>x[1]!==undefined&&x[1]!==null&&String(x[1])!=='').map(([k,v])=>`<div class="daq-key">${esc(k)}</div><div class="daq-val">${esc(v)}</div>`).join('');
+ }
+ function renderDetail(){
+  if(!root)return;const q=bank().find(x=>String(x?.id||'')===selectedId),el=root.querySelector('#daq-detail');if(!q){el.innerHTML='<div class="daq-empty">Soldan bir soru seç.</div>';return}
+  const o=options(q),correct=answer(q),issues=qaIssues(q);let interaction='';
+  if(Array.isArray(q?.pairs)&&q.pairs.length)interaction=q.pairs.map(p=>`<div class="daq-pair"><div>${esc(p?.left)}</div><div class="daq-arrow">→</div><div>${esc(p?.right)}</div></div>`).join('');
+  else if(o.length)interaction=o.map(x=>`<div class="daq-option ${norm(x)===norm(correct)?'correct':''}">${esc(x)}</div>`).join('');
+  else {const seq=Array.isArray(q?.correct_order)?q.correct_order:Array.isArray(q?.items)?q.items:[];if(seq.length)interaction=seq.map((x,i)=>`<div class="daq-option">${i+1}. ${esc(typeof x==='object'?JSON.stringify(x):x)}</div>`).join('')}
+  el.innerHTML=`<div class="daq-badges"><span class="daq-badge">${esc(stage(q))}</span><span class="daq-badge">${esc(type(q))}</span><span class="daq-badge">${esc(q?.id||'')}</span>${issues.map(x=>`<span class="daq-badge warn">${esc(x)}</span>`).join('')}</div>
+   <div class="daq-h">Soru</div><div class="daq-question">${esc(prompt(q)||'(metin yok)')}</div>
+   ${interaction?`<div class="daq-h">Oyun içeriği / seçenekler</div>${interaction}`:''}
+   ${correct?`<div class="daq-h">Doğru cevap</div><div class="daq-answer">${esc(correct)}</div>`:''}
+   ${q?.explanation_tr?`<div class="daq-h">Açıklama</div><div class="daq-note">${esc(q.explanation_tr)}</div>`:''}
+   <div class="daq-h">Metadata</div><div class="daq-grid">${metaRows(q)}</div>
+   <div class="daq-h">Ham runtime JSON</div><div class="daq-raw">${esc(JSON.stringify(q,null,2))}</div>`;
+ }
+ async function copySelected(){
+  const q=bank().find(x=>String(x?.id||'')===selectedId);if(!q)return;const btn=root?.querySelector('#daq-copy');try{await navigator.clipboard.writeText(JSON.stringify(q,null,2));if(btn){const old=btn.textContent;btn.textContent='Kopyalandı';setTimeout(()=>btn.textContent=old,900)}}catch(_){if(btn)btn.textContent='Kopyalanamadı'}
+ }
+ function open(){if(!ensure())return;refreshFilters();renderList();root.classList.add('open');document.documentElement.dataset.deenAdminQuestionPanel='open';try{document.body.dataset.daqOverflow=document.body.style.overflow||'';document.body.style.overflow='hidden'}catch(_){}if(!selectedId){const first=filtered()[0];if(first){selectedId=String(first.id||'');renderList();renderDetail()}}else renderDetail()}
+ function close(){if(!root)return;root.classList.remove('open');document.documentElement.dataset.deenAdminQuestionPanel='closed';try{document.body.style.overflow=document.body.dataset.daqOverflow||''}catch(_){}}
+ function install(){if(!enabled())return false;if(!document.body)return false;ensure();document.documentElement.dataset.deenAdminQuestionInspector='ready';return true}
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&root?.classList.contains('open'))close();if(e.ctrlKey&&e.shiftKey&&String(e.key).toLowerCase()==='a'){try{localStorage.setItem(KEY,'1')}catch(_){}ensure();open()}});
+ [0,250,800,1600,3000].forEach(ms=>setTimeout(install,ms));
+ window.DEEN_ADMIN_QUESTION_INSPECTOR={version:VERSION,build:BUILD,install,open,close,refresh:()=>{refreshFilters();renderList();renderDetail()},check:()=>({version:VERSION,build:BUILD,enabled:enabled(),ready:document.documentElement.dataset.deenAdminQuestionInspector==='ready',questionCount:bank().length,selectedId})};
+})();
+<\/script>`;
+ window.DEEN_PATCH_V874=function(html){let out=String(html);if(out.includes('deen-v874-admin-question-inspector-runtime'))return{html:out,version:VERSION,applied:0};out+='\n'+addition+'\n';return{html:out,version:VERSION,applied:1}};
+})();
