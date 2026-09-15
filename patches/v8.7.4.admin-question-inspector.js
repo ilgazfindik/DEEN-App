@@ -1,8 +1,8 @@
 (()=>{
- const VERSION='8.7.4-ADMIN-QUESTION-INSPECTOR',BUILD='874admin2';
+ const VERSION='8.7.4-ADMIN-QUESTION-INSPECTOR',BUILD='874admin3';
  function adminRuntime(){
   if(window.__deenV874AdminQuestionInspector)return;window.__deenV874AdminQuestionInspector=true;
-  const VERSION='8.7.4-ADMIN-QUESTION-INSPECTOR',BUILD='874admin2',KEY='deen_admin_question_inspector';
+  const VERSION='8.7.4-ADMIN-QUESTION-INSPECTOR',BUILD='874admin3',KEY='deen_admin_question_inspector';
   const params=new URLSearchParams(location.search);
   try{if(params.get('admin')==='1')localStorage.setItem(KEY,'1');if(params.get('admin')==='0')localStorage.removeItem(KEY)}catch(_){}
   const enabled=()=>{try{return params.get('admin')==='1'||localStorage.getItem(KEY)==='1'}catch(_){return params.get('admin')==='1'}};
@@ -54,6 +54,6 @@
   [0,250,800,1600,3000].forEach(ms=>setTimeout(install,ms));
   window.DEEN_ADMIN_QUESTION_INSPECTOR={version:VERSION,build:BUILD,install,open,close,refresh:()=>{refreshFilters();renderList();renderDetail()},check:()=>({version:VERSION,build:BUILD,enabled:enabled(),ready:document.documentElement.dataset.deenAdminQuestionInspector==='ready',questionCount:bank().length,selectedId})}
  }
- const addition='<!-- DEEN v8.7.4 — Admin Question Inspector -->\n<script id="deen-v874-admin-question-inspector-runtime">('+adminRuntime.toString()+')();<\\/script>';
+ const addition='<!-- DEEN v8.7.4 — Admin Question Inspector -->\n<script id="deen-v874-admin-question-inspector-runtime">('+adminRuntime.toString()+')();<\/script>';
  window.DEEN_PATCH_V874=function(html){let out=String(html);if(out.includes('deen-v874-admin-question-inspector-runtime'))return{html:out,version:VERSION,applied:0};out+='\n'+addition+'\n';return{html:out,version:VERSION,applied:1}};
 })();
