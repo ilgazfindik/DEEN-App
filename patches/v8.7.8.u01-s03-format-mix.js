@@ -1,8 +1,8 @@
 (()=>{
- const VERSION='8.7.8-U01-S03-FORMAT-MIX',BUILD='878s03mix1';
+ const VERSION='8.7.8-U01-S03-FORMAT-MIX',BUILD='878s03mix2';
  function runtime(){
   if(window.__deenV878U01S03FormatMix)return;window.__deenV878U01S03FormatMix=true;
-  const VERSION='8.7.8-U01-S03-FORMAT-MIX',BUILD='878s03mix1',TARGET='U01-S03';
+  const VERSION='8.7.8-U01-S03-FORMAT-MIX',BUILD='878s03mix2',TARGET='U01-S03';
   const CHANGES={
    'DEEN-U01-S03-004':{
     type:'card',question_type:'card',activity_type:'card_choice',
@@ -37,6 +37,6 @@
   [0,120,420,1000,2200].forEach(ms=>setTimeout(install,ms));
   window.DEEN_U01_S03_FORMAT_MIX={version:VERSION,build:BUILD,target:TARGET,changedIds:Object.keys(CHANGES),install,audit,check:()=>({version:VERSION,build:BUILD,attempts,applied,audit:audit()})};
  }
- const addition='<!-- DEEN v8.7.8 — U01 S03 Format Mix -->\n<script id="deen-v878-u01-s03-format-mix-runtime">('+runtime.toString()+')();<\\/script>';
+ const addition='<!-- DEEN v8.7.8 — U01 S03 Format Mix -->\n<script id="deen-v878-u01-s03-format-mix-runtime">('+runtime.toString()+')();'+'</'+'script>';
  window.DEEN_PATCH_V878=function(html){let out=String(html);if(out.includes('deen-v878-u01-s03-format-mix-runtime'))return{html:out,version:VERSION,applied:0};out+='\n'+addition+'\n';return{html:out,version:VERSION,applied:1}};
 })();
