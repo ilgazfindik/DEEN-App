@@ -60,13 +60,19 @@
    terminology_note:'Mevcut ünite ilişkisini karşılaştırır; yeni hüküm eklemez.'
   },
   {
-   id:'DEEN-U01-S07-019',stage_id:TARGET,unit_id:'U01',type:'true_false',question_type:'true_false',activity_type:'true_false',difficulty:2,
+   id:'DEEN-U01-S07-019',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:2,
    topic:'Kur’an ve ahlak',concept_id:'u01-final-guidance',
-   question_tr:'Kur’an, ahlaki konularda da rehberlik eder.',
-   options_tr:['Doğru','Yanlış'],correct_answer:'Doğru',
-   explanation_tr:'Final bölümünde Kur’an’ın yalnızca bilgi veren bir metin değil, ahlaki konularda da rehber olduğu tekrar ediliyor.',
-   source_reference:'DEEN U01-S07 mevcut içerik',source_evidence_note:'U01-S07-011 mevcut doğru/yanlış kazanımını final havuzunda korur.',source_urls:[],
-   terminology_note:'Mevcut final bilgisini tekrar ölçer; yeni dinî hüküm eklemez.'
+   question_tr:'Kur’an’ın ahlaki rehberliğinin günlük hayata yansımasını en iyi hangi kart anlatır?',
+   options_tr:[
+    'Rehberlik, davranış ve tutumlara da yön verebilir.',
+    'Kur’an ahlakla ilgili hiçbir rehberlik sunmaz.',
+    'Rehberlik yalnızca geçmiş olayları öğrenmek içindir.',
+    'Ahlakın günlük davranışlarla hiçbir ilişkisi yoktur.'
+   ],
+   correct_answer:'Rehberlik, davranış ve tutumlara da yön verebilir.',
+   explanation_tr:'Kur’an’ın rehberliği yalnızca bilgi düzeyinde değil, ahlaki davranış ve tutumları anlamada da yol gösterici bir çerçevede ele alınır.',
+   source_reference:'DEEN U01-S07 mevcut içerik',source_evidence_note:'U01-S07-011 ile near-duplicate oluşturan eski doğru/yanlış ifadesi, aynı kazanımı farklı ve uygulamalı bir kart formatında ölçmek için ayrıştırıldı.',source_urls:[],
+   terminology_note:'Yeni dinî hüküm eklemez; mevcut U01 rehberlik kazanımını farklı formatta ölçer.'
   },
   {
    id:'DEEN-U01-S07-020',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:3,
@@ -100,7 +106,7 @@
  [0,120,420,1000,2200].forEach(ms=>setTimeout(()=>{if(!installed)install()},ms));
  window.DEEN_CONTENT_ENRICHMENT_V867={
   version:VERSION,build:BUILD,target:TARGET,ids:ITEMS.map(x=>x.id),install,
-  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,beforeCount,afterCount,formats:['fill_blank','match','scenario','odd_one_out','true_false','card'],concepts:['u01-final-ethics','u01-final-core-map','u01-final-faith-worship-ethics','u01-final-guidance','u01-final-summary']})
+  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,beforeCount,afterCount,formats:['fill_blank','match','scenario','odd_one_out','card'],concepts:['u01-final-ethics','u01-final-core-map','u01-final-faith-worship-ethics','u01-final-guidance','u01-final-summary']})
  };
 })();
 <\/script>`;
