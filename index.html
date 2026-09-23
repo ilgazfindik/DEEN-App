@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.9.8</title>
+<title>DEEN v9.9.9</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -20,7 +20,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const paths=Array.from({length:25},(_,i)=>'./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt?v=998premiumonboarding1');
+   const paths=Array.from({length:25},(_,i)=>'./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt?v=999referenceart1');
    const responses=await Promise.all(paths.map(p=>fetch(p,{cache:'no-store'})));
    responses.forEach((r,i)=>{if(!r.ok)throw new Error('Release segment '+i+' yüklenemedi');});
    const s=await Promise.all(responses.map(r=>r.text()));
@@ -39,7 +39,9 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    if(!html.includes('deen-v996-onboarding-flow-js'))throw new Error('Onboarding akış düzeltmesi eksik');
    if(!html.includes('deen-v997-profile-companion-sync-js'))throw new Error('Profil hayvan senkronizasyonu eksik');
    if(!html.includes('deen-v998-premium-onboarding-js'))throw new Error('Premium onboarding paketi eksik');
-   window.__DEEN_DEPLOY_ID__='998premiumonboarding1';
+   if(!html.includes('deen-v999-reference-hero-css'))throw new Error('Referans onboarding görseli eksik');
+   if(!html.includes('deen-v999-animal-art-css'))throw new Error('Hayvan görsel paketi eksik');
+   window.__DEEN_DEPLOY_ID__='999referenceart1';
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
