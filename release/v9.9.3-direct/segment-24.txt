@@ -962,4 +962,88 @@
 })();
 </script>
 
+
+<!-- DEEN v9.9.7 — Profile companion authoritative sync -->
+<style id="deen-v997-profile-companion-sync-css">
+#profileScreenBody .v997-companion-avatar{display:grid!important;place-items:center!important;overflow:visible!important;cursor:pointer!important;background:linear-gradient(145deg,#173b3e,#0c252d)!important;border:1px solid #5d8e84!important;position:relative!important}
+#profileScreenBody .v997-companion-avatar svg{display:none!important}
+#profileScreenBody .v997-companion-avatar .v997-animal{display:block!important;font-size:42px!important;line-height:1!important;filter:drop-shadow(0 6px 10px rgba(0,0,0,.28));font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+#profileScreenBody .v997-companion-avatar:after{content:"değiştir";position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);font-size:8px;line-height:1;letter-spacing:.55px;text-transform:uppercase;color:#86aaa4;white-space:nowrap}
+#profileScreenBody .v760-profile-cta{display:none!important}
+</style>
+<script id="deen-v997-profile-companion-sync-js">
+(()=>{
+ if(window.__deenV997ProfileCompanionSync)return;window.__deenV997ProfileCompanionSync=true;
+ const VERSION='9.9.7-PROFILE-COMPANION';
+ let observer=null,busy=false;
+ function companion(){
+  try{
+   const c=window.DEEN_COMPANION?.current?.();
+   if(c?.emoji)return c;
+  }catch(e){}
+  const id=String(state?.profile?.companion||'');
+  const all=window.DEEN_COMPANION?.animals||{};
+  return all[id]?{id,...all[id]}:null;
+ }
+ function candidates(root){
+  return [
+   root.querySelector('.v5-profilehead .v5-avatar.large'),
+   root.querySelector('.v5-profilehead .v742-profile-avatar'),
+   root.querySelector('.v742-profile-avatar'),
+   root.querySelector('[data-profile-avatar]'),
+   root.querySelector('.v5-profilehead > span:first-child')
+  ].filter(Boolean);
+ }
+ function apply(){
+  if(busy)return false;busy=true;
+  try{
+   const a=companion(),root=document.getElementById('profileScreenBody');
+   if(!a||!root)return false;
+   root.querySelectorAll('.v760-profile-cta').forEach(x=>x.remove());
+   const seen=new Set(),els=candidates(root).filter(el=>!seen.has(el)&&(seen.add(el),true));
+   if(!els.length)return false;
+   for(const el of els){
+    el.classList.add('v997-companion-avatar','v994-companion-avatar');
+    el.innerHTML='<span class="v997-animal" aria-hidden="true">'+a.emoji+'</span>';
+    el.title=a.name+' · '+a.trait;
+    el.setAttribute('aria-label','Yol arkadaşın '+a.name+'. Değiştirmek için dokun.');
+    el.onclick=e=>{e.preventDefault();e.stopPropagation();try{window.DEEN_COMPANION?.open?.('profile')}catch(_){}};
+   }
+   return true;
+  }finally{busy=false}
+ }
+ function schedule(){
+  [0,30,90,160,300].forEach(ms=>setTimeout(()=>{try{apply()}catch(e){}},ms));
+ }
+ const BASE_PROFILE=typeof window.profileView==='function'?window.profileView:null;
+ if(BASE_PROFILE){
+  window.profileView=function(...args){const r=BASE_PROFILE.apply(this,args);schedule();return r};
+  try{profileView=window.profileView}catch(e){}
+ }
+ const BASE_UPDATE=typeof window.updateUI==='function'?window.updateUI:null;
+ if(BASE_UPDATE){
+  window.updateUI=function(...args){const r=BASE_UPDATE.apply(this,args);schedule();return r};
+  try{updateUI=window.updateUI}catch(e){}
+ }
+ document.addEventListener('click',e=>{
+  const nav=e.target?.closest?.('.navbtn[data-screen="profileScreen"]');
+  if(nav)schedule();
+ },true);
+ function watch(){
+  const root=document.getElementById('profileScreenBody');if(!root||observer)return;
+  observer=new MutationObserver(()=>{if(!busy)setTimeout(()=>{try{apply()}catch(e){}},0)});
+  observer.observe(root,{childList:true,subtree:true});
+ }
+ window.DEEN_PROFILE_COMPANION_SYNC={version:VERSION,apply,snapshot:()=>({
+  companion:companion()?.id||null,
+  visibleEmoji:document.querySelector('#profileScreenBody .v997-animal')?.textContent||null,
+  oldAvatarSvgCount:document.querySelectorAll('#profileScreenBody .v997-companion-avatar svg').length,
+  legacyProfileCtaCount:document.querySelectorAll('#profileScreenBody .v760-profile-cta').length
+ })};
+ schedule();watch();
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{watch();schedule()},{once:true});
+ setTimeout(()=>{watch();schedule()},700);
+})();
+</script>
+
 <script id="deen-v993-production-guard">(()=>{const VERSION='9.9.6-PRODUCTION',BUILD='996onboarding1',TITLE='DEEN v9.9.6';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
