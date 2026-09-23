@@ -20,7 +20,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const paths=Array.from({length:25},(_,i)=>'./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt?v=993direct2');
+   const paths=Array.from({length:25},(_,i)=>'./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt?v=993prod1');
    const responses=await Promise.all(paths.map(p=>fetch(p,{cache:'no-store'})));
    responses.forEach((r,i)=>{if(!r.ok)throw new Error('Release segment '+i+' yüklenemedi');});
    const s=await Promise.all(responses.map(r=>r.text()));
@@ -30,7 +30,11 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    for(let i=9;i<s.length;i++) html+=s[i]+(i<s.length-1?'\n':'');
    if(!html.startsWith('<!doctype html>'))throw new Error('Kaynak başlığı doğrulanamadı');
    if(!html.includes('deen-v993-stage-intro-css'))throw new Error('v9.9.3 bölüm giriş paketi eksik');
-   window.__DEEN_DEPLOY_ID__='993direct2';
+   const forbidden=['deen-v874-admin-question-inspector-runtime','deen-v875-admin-control-runtime','deen-v980-content-audit-js','DEEN_CONTENT_AUDIT','deen-v990-beta-js','DEEN_BETA_TEST','deen-beta-open','deen_admin_unlimited_money','deen_admin_unlock_all'];
+   const leaked=forbidden.find(marker=>html.includes(marker));
+   if(leaked)throw new Error('Production güvenlik kontrolü başarısız: '+leaked);
+   if(!html.includes('deen-v993-production-guard'))throw new Error('Production guard eksik');
+   window.__DEEN_DEPLOY_ID__='993prod1';
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
