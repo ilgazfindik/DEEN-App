@@ -1,0 +1,1000 @@
+.v852-burst{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit;z-index:6}
+.v852-burst i{position:absolute;left:50%;top:49%;width:5px;height:5px;border-radius:50%;background:#a6efd6;box-shadow:0 0 8px rgba(166,239,214,.72);animation:v852Spark var(--d,520ms) ease-out both;transform:translate(-50%,-50%) rotate(var(--r,0deg)) translateY(-8px)}
+.v852-burst i:nth-child(2){--r:45deg;--d:460ms}.v852-burst i:nth-child(3){--r:90deg;--d:560ms}.v852-burst i:nth-child(4){--r:135deg;--d:490ms}.v852-burst i:nth-child(5){--r:180deg;--d:540ms}.v852-burst i:nth-child(6){--r:225deg;--d:470ms}.v852-burst i:nth-child(7){--r:270deg;--d:570ms}.v852-burst i:nth-child(8){--r:315deg;--d:500ms}
+.v852-combo-chip{position:absolute;z-index:18;left:50%;top:92px;transform:translate(-50%,-7px) scale(.92);opacity:0;pointer-events:none;min-width:92px;padding:7px 12px;border-radius:999px;border:1px solid rgba(235,207,124,.3);background:linear-gradient(180deg,rgba(47,42,25,.96),rgba(25,32,31,.96));box-shadow:0 9px 24px rgba(0,0,0,.24);color:#f0d88b;font:950 9px/1 Inter,system-ui,sans-serif;letter-spacing:.7px;text-align:center;animation:v852Combo 760ms ease both}
+.question-frame.v852-card-mode .feedback.show .feedback-box:not(.bad){border-color:rgba(104,214,180,.36)}
+@keyframes v852Correct{0%{transform:scale(.96)}48%{transform:scale(1.045)}100%{transform:scale(1)}}
+@keyframes v852Wrong{0%,100%{transform:translateX(0)}30%{transform:translateX(-4px)}65%{transform:translateX(4px)}}
+@keyframes v852Spark{0%{opacity:0;transform:translate(-50%,-50%) rotate(var(--r)) translateY(-7px) scale(.5)}22%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--r)) translateY(-54px) scale(1.15)}}
+@keyframes v852Combo{0%{opacity:0;transform:translate(-50%,-8px) scale(.9)}25%,70%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-4px) scale(.98)}}
+@media(max-width:390px){.options.grid.premium-grid.v852-card-grid{gap:9px}.options.grid.premium-grid.v852-card-grid .option{min-height:116px;padding:13px 9px 12px;border-radius:20px}.options.grid.premium-grid.v852-card-grid .option-icon{width:42px;height:42px;border-radius:14px;font-size:21px}.options.grid.premium-grid.v852-card-grid .option-label{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.options.grid.premium-grid.v852-card-grid .option,.options.grid.premium-grid.v852-card-grid .option.correct,.options.grid.premium-grid.v852-card-grid .option.wrong,.v852-combo-chip,.v852-burst i{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v852-card-choice-runtime">
+(()=>{
+ if(window.__deenV852CardChoice)return;window.__deenV852CardChoice=true;
+ const VERSION='8.5.2-CARD-CHOICE-UI',BUILD='852card1';
+ let autoTimer=0,answered=0,autoAdvanced=0;
+ const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
+ const oldShould=typeof shouldUseCardGrid==='function'?shouldUseCardGrid:null;
+ function explicitCard(q){return !!q&&(q.type==='card'||q.question_type==='card'||q.activity_type==='card_select'||q.activity_type==='card_choice')}
+ function eligible(q){
+  if(!q||!Array.isArray(q.options_tr)||q.options_tr.length!==4)return false;
+  if(explicitCard(q))return true;
+  try{return !!oldShould?.(q)}catch(_){return false}
+ }
+ const patchedShould=function(q){return eligible(q)};
+ try{window.shouldUseCardGrid=patchedShould;shouldUseCardGrid=patchedShould}catch(_){window.shouldUseCardGrid=patchedShould}
+ function currentQuestion(){try{return session?.questions?.[session.index]||null}catch(_){return null}}
+ function burst(card){
+  const b=document.createElement('span');b.className='v852-burst';b.innerHTML='<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>';card.append(b);setTimeout(()=>b.remove(),650)
+ }
+ function comboChip(streak){
+  if(streak<2)return;const frame=document.querySelector('.question-frame');if(!frame)return;frame.querySelector('.v852-combo-chip')?.remove();const c=document.createElement('div');c.className='v852-combo-chip';c.textContent=streak>=5?'🔥 '+streak+' SERİ · MUHTEŞEM':streak+' SERİ ✦';frame.append(c);setTimeout(()=>c.remove(),820)
+ }
+ function haptic(correct){try{if(navigator.vibrate)navigator.vibrate(correct?18:[12,28,12])}catch(_){}}
+ function decorate(){
+  clearTimeout(autoTimer);
+  const q=currentQuestion(),frame=document.querySelector('.question-frame'),area=document.getElementById('answerArea');
+  frame?.classList.remove('v852-card-mode');
+  if(!q||!eligible(q)||!area)return false;
+  const grid=area.querySelector('.options.grid.premium-grid');if(!grid)return false;
+  frame?.classList.add('v852-card-mode');grid.classList.add('v852-card-grid');grid.dataset.v852='1';
+  const hint=document.getElementById('qType');if(hint)hint.textContent='Bir kart seç · cevabın anında değerlendirilsin.';
+  const cta=area.querySelector('.template-action');if(cta){cta.classList.add('v852-hidden-confirm');cta.tabIndex=-1;cta.setAttribute('aria-hidden','true')}
+  let locked=false;
+  [...grid.querySelectorAll('.option')].forEach(card=>{
+   card.dataset.v852Bound='1';
+   card.setAttribute('aria-describedby','qType');
+   card.onclick=e=>{
+    e.preventDefault();e.stopPropagation();
+    if(locked||document.getElementById('feedback')?.classList.contains('show'))return;
+    locked=true;answered++;
+    const value=(card.querySelector('.option-label')||card).textContent.trim();
+    const correct=norm(value)===norm(q.correct_answer);
+    grid.querySelectorAll('.option').forEach(x=>x.classList.remove('selected','v852-tap'));
+    card.classList.add('selected','v852-tap');
+    haptic(correct);
+    setTimeout(()=>{
+      try{submitAnswer(value,card)}catch(err){locked=false;console.error('DEEN card submit',err);return}
+      grid.classList.add('v852-resolved');
+      if(correct){burst(card);let streak=0;try{streak=Number(session?.combo)||0}catch(_){}comboChip(streak);const t=document.getElementById('feedbackTitle');if(t)t.textContent=streak>=3?'🔥 '+streak+' SERİ':'✓ HARİKA!';
+        autoTimer=setTimeout(()=>{const btn=document.getElementById('continueBtn');if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;btn.click()}},1050);
+      }else{
+        const t=document.getElementById('feedbackTitle');if(t)t.textContent='Birlikte düzeltelim';
+      }
+      try{document.dispatchEvent(new CustomEvent('deen:card-choice:answered',{detail:{version:VERSION,id:q.id||'',correct,streak:(typeof session!=='undefined'&&session?session.combo:0)}}))}catch(_){}
+    },70);
+   };
+  });
+  return true;
+ }
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender){
+  const wrapped=function(...args){clearTimeout(autoTimer);const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
+  wrapped.__v852=true;
+  try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.DEEN_CARD_CHOICE_UI={version:VERSION,build:BUILD,decorate,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,answered,autoAdvanced,active:!!document.querySelector('.v852-card-grid')})};
+ document.documentElement.dataset.deenCardChoice='ready';
+})();
+</script>
+
+<!-- DEEN v8.5.3 — Premium Matching Mini-game -->
+<style id="deen-v853-matching-css">
+.question-frame.v853-match-mode{padding-top:44px}
+.question-frame.v853-match-mode .qtype{margin-bottom:10px;color:#9fb9bd}
+.v853-match-wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);gap:7px;align-items:stretch;margin-top:3px}
+.v853-match-col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.v853-match-rail{position:relative;display:flex;align-items:center;justify-content:center}
+.v853-match-rail:before{content:"";position:absolute;top:12px;bottom:12px;width:1px;background:linear-gradient(180deg,transparent,rgba(91,196,177,.28) 18%,rgba(91,196,177,.28) 82%,transparent)}
+.v853-match-rail i{position:relative;width:8px;height:8px;border-radius:50%;background:#28565b;border:1px solid rgba(125,226,202,.32);box-shadow:0 0 0 4px rgba(87,197,174,.035)}
+.v853-match-card{position:relative;width:100%;min-height:72px;padding:11px 9px;border-radius:18px;border:1px solid rgba(87,137,150,.48);background:linear-gradient(180deg,rgba(9,38,48,.98),rgba(6,28,36,.99));color:#edf7f4;box-shadow:inset 0 1px rgba(255,255,255,.025),0 8px 17px rgba(0,0,0,.14);font:750 12px/1.25 Inter,system-ui,sans-serif;text-align:center;display:grid;place-items:center;cursor:pointer;transition:transform 130ms ease,border-color 170ms ease,background 170ms ease,opacity 220ms ease,box-shadow 170ms ease;overflow:hidden}
+.v853-match-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 10%,rgba(94,218,190,.06),transparent 58%);pointer-events:none}
+.v853-match-card:not(:disabled):active{transform:scale(.97)}
+.v853-match-card.selected{border-color:#70d9bf;background:linear-gradient(180deg,rgba(17,67,67,.99),rgba(8,42,47,.99));box-shadow:0 0 0 2px rgba(112,217,191,.10),0 9px 19px rgba(0,0,0,.17);transform:translateY(-1px)}
+.v853-match-card.selected:after{content:"SEÇİLDİ";position:absolute;right:7px;top:6px;font:950 5px/1 Inter,system-ui,sans-serif;letter-spacing:.8px;color:#9ae8d2}
+.v853-match-card.matched{border-color:rgba(111,224,190,.78);background:linear-gradient(180deg,rgba(18,78,64,.98),rgba(8,48,42,.99));color:#dffff4;animation:v853Pair 430ms cubic-bezier(.2,.75,.25,1)}
+.v853-match-card.matched:after{content:"✓";position:absolute;right:8px;top:7px;color:#a8efd9;font:950 11px/1 Inter,system-ui,sans-serif}
+.v853-match-card.settled{opacity:.34;transform:scale(.965);filter:saturate(.65)}
+.v853-match-card.wrong{border-color:#d68091;background:linear-gradient(180deg,rgba(77,39,49,.98),rgba(45,27,34,.99));animation:v853Wrong 300ms ease}
+.v853-match-status{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px;padding:8px 10px;border:1px solid rgba(75,132,141,.32);border-radius:14px;background:rgba(6,29,37,.62);color:#91adb1;font:800 8px/1.2 Inter,system-ui,sans-serif;letter-spacing:.25px}
+.v853-match-status b{color:#dff4ef;font-size:9px}
+.v853-match-pop{position:absolute;z-index:8;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;padding:7px 11px;border-radius:999px;border:1px solid rgba(122,225,195,.3);background:rgba(11,55,51,.96);box-shadow:0 9px 25px rgba(0,0,0,.25);color:#a8efd8;font:950 8px/1 Inter,system-ui,sans-serif;letter-spacing:.7px;animation:v853Pop 650ms ease both}
+.v853-match-pop.bad{border-color:rgba(220,132,148,.3);background:rgba(68,34,42,.96);color:#efb0bb}
+.v853-match-finish{animation:v853Finish 520ms ease both}
+@keyframes v853Pair{0%{transform:scale(.94)}48%{transform:scale(1.035)}100%{transform:scale(1)}}
+@keyframes v853Wrong{0%,100%{transform:translateX(0)}28%{transform:translateX(-4px)}62%{transform:translateX(4px)}}
+@keyframes v853Pop{0%{opacity:0;transform:translate(-50%,-38%) scale(.88)}24%,68%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-62%) scale(.96)}}
+@keyframes v853Finish{0%{filter:brightness(1)}45%{filter:brightness(1.16)}100%{filter:brightness(1)}}
+@media(max-width:390px){.v853-match-wrap{grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);gap:6px}.v853-match-card{min-height:66px;padding:9px 7px;border-radius:16px;font-size:11px}.v853-match-col{gap:7px}}
+@media(prefers-reduced-motion:reduce){.v853-match-card,.v853-match-card.matched,.v853-match-card.wrong,.v853-match-pop,.v853-match-finish{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v853-matching-runtime">
+(()=>{
+ if(window.__deenV853Matching)return;window.__deenV853Matching=true;
+ const VERSION='8.5.3-MATCHING-MINIGAME',BUILD='853match1';
+ const oldMatching=typeof renderMatching==='function'?renderMatching:null;
+ let rounds=0,pairHits=0,pairMisses=0,autoAdvanced=0,advanceTimer=0;
+ const shuffle=a=>{const out=[...a];for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]]}return out};
+ function haptic(ok){try{if(navigator.vibrate)navigator.vibrate(ok?14:[10,22,10])}catch(_){}}
+ function pop(host,text,bad=false){const p=document.createElement('div');p.className='v853-match-pop'+(bad?' bad':'');p.textContent=text;host.append(p);setTimeout(()=>p.remove(),690)}
+ function premiumMatching(q,area){
+  if(!q||!Array.isArray(q.pairs)||q.pairs.length<2){return oldMatching?.(q,area)}
+  clearTimeout(advanceTimer);rounds++;
+  const frame=document.querySelector('.question-frame');frame?.classList.add('v853-match-mode');
+  const hint=document.getElementById('qType');if(hint)hint.textContent='Soldan bir kart seç · sağdaki doğru eşini bul.';
+  const pairs=q.pairs.map((p,i)=>({id:i,left:String(p?.left??''),right:String(p?.right??'')}));
+  const left=shuffle(pairs.map(p=>({pair:p.id,text:p.left}))),right=shuffle(pairs.map(p=>({pair:p.id,text:p.right})));
+  const wrap=document.createElement('div');wrap.className='v853-match-wrap';
+  const lcol=document.createElement('div');lcol.className='v853-match-col';
+  const rail=document.createElement('div');rail.className='v853-match-rail';rail.innerHTML='<i></i>';
+  const rcol=document.createElement('div');rcol.className='v853-match-col';
+  const status=document.createElement('div');status.className='v853-match-status';
+  wrap.append(lcol,rail,rcol,status);area.append(wrap);
+  let selected=null,matched=0,errors=0,resolving=false,finished=false;
+  try{matchState={left:null,matched:new Set(),errors:0}}catch(_){}
+  const update=()=>{status.innerHTML='<span>Bağlantıları tamamla</span><b>'+matched+' / '+pairs.length+' EŞLEŞME</b>'};
+  const buttons=[];
+  function make(side,item){
+   const b=document.createElement('button');b.type='button';b.className='v853-match-card';b.textContent=item.text;b.dataset.pair=String(item.pair);b.dataset.side=side;b.setAttribute('aria-label',(side==='left'?'Kavram: ':'Eş: ')+item.text);
+   b.onclick=()=>pick(b);buttons.push(b);return b;
+  }
+  left.forEach(x=>lcol.append(make('left',x)));right.forEach(x=>rcol.append(make('right',x)));update();
+  function finish(){
+   if(finished)return;finished=true;wrap.classList.add('v853-match-finish');
+   const ok=errors===0;
+   setTimeout(()=>{
+    try{completeQuestion(ok,q)}catch(err){console.error('DEEN matching complete',err);return}
+    const title=document.getElementById('feedbackTitle');
+    if(title)title.textContent=ok?'✓ TÜM EŞLEŞMELER DOĞRU':'Eşleştirme tamamlandı';
+    try{document.dispatchEvent(new CustomEvent('deen:matching:complete',{detail:{version:VERSION,id:q.id||'',correct:ok,errors,pairs:pairs.length}}))}catch(_){}
+    if(ok){advanceTimer=setTimeout(()=>{const btn=document.getElementById('continueBtn');if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;btn.click()}},1100)}
+   },430);
+  }
+  function good(a,b){
+   resolving=true;pairHits++;matched++;haptic(true);
+   a.classList.remove('selected');b.classList.remove('selected');a.classList.add('matched');b.classList.add('matched');
+   a.disabled=true;b.disabled=true;pop(wrap,'✓ EŞLEŞTİ');
+   try{matchState?.matched?.add?.(Number(a.dataset.pair));if(matchState)matchState.left=null}catch(_){}
+   selected=null;update();
+   setTimeout(()=>{a.classList.add('settled');b.classList.add('settled');resolving=false;if(matched>=pairs.length)finish()},330);
+  }
+  function bad(a,b){
+   resolving=true;errors++;pairMisses++;haptic(false);a.classList.add('wrong');b.classList.add('wrong');pop(wrap,'BİR DAHA DENE',true);
+   try{if(matchState)matchState.errors=errors}catch(_){}
+   setTimeout(()=>{a.classList.remove('wrong','selected');b.classList.remove('wrong','selected');selected=null;resolving=false;try{if(matchState)matchState.left=null}catch(_){ }},310);
+  }
+  function pick(b){
+   if(finished||resolving||b.disabled)return;
+   if(!selected){selected=b;b.classList.add('selected');try{if(matchState)matchState.left=b}catch(_){};return}
+   if(selected===b){b.classList.remove('selected');selected=null;try{if(matchState)matchState.left=null}catch(_){};return}
+   if(selected.dataset.side===b.dataset.side){selected.classList.remove('selected');selected=b;b.classList.add('selected');try{if(matchState)matchState.left=b}catch(_){};return}
+   b.classList.add('selected');
+   const a=selected;pairs[Number(a.dataset.pair)].right===pairs[Number(b.dataset.pair)].right?good(a,b):bad(a,b);
+  }
+  return true;
+ }
+ try{window.renderMatching=premiumMatching;renderMatching=premiumMatching}catch(_){window.renderMatching=premiumMatching}
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v853){
+  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v853-match-mode');return oldRender.apply(this,args)};
+  wrapped.__v853=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.DEEN_MATCHING_MINIGAME={version:VERSION,build:BUILD,render:premiumMatching,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,pairHits,pairMisses,autoAdvanced,active:!!document.querySelector('.v853-match-wrap')})};
+ document.documentElement.dataset.deenMatching='ready';
+})();
+</script>
+
+<!-- DEEN v8.5.4 — Sequence Drag Mini-game -->
+<style id="deen-v854-sequence-css">
+.question-frame.v854-sequence-mode{padding-top:44px}
+.question-frame.v854-sequence-mode .qtype{margin-bottom:10px;color:#9fb9bd}
+.v854-seq-wrap{display:flex;flex-direction:column;gap:9px;margin-top:3px}
+.v854-seq-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid rgba(80,137,145,.3);border-radius:14px;background:rgba(6,29,37,.58);font:800 8px/1.2 Inter,system-ui,sans-serif;color:#8fa9ae;letter-spacing:.25px}
+.v854-seq-head b{color:#dff3ef;font-size:9px}
+.v854-seq-list{display:flex;flex-direction:column;gap:8px;min-height:160px;padding:3px 0;touch-action:none}
+.v854-seq-card{position:relative;width:100%;min-height:62px;padding:11px 42px 11px 50px;border-radius:18px;border:1px solid rgba(88,139,151,.48);background:linear-gradient(180deg,rgba(9,38,48,.98),rgba(6,28,36,.99));color:#edf6f4;box-shadow:inset 0 1px rgba(255,255,255,.025),0 8px 17px rgba(0,0,0,.14);font:780 12px/1.26 Inter,system-ui,sans-serif;text-align:left;display:flex;align-items:center;cursor:grab;user-select:none;-webkit-user-select:none;transition:transform 140ms ease,border-color 170ms ease,background 170ms ease,box-shadow 170ms ease,opacity 170ms ease}
+.v854-seq-card:active{cursor:grabbing}
+.v854-seq-num{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(101,218,190,.25);background:linear-gradient(180deg,rgba(24,84,78,.75),rgba(10,52,58,.8));color:#a8ead6;font:950 10px/1 Inter,system-ui,sans-serif}
+.v854-seq-grip{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#63868b;font:900 18px/1 Inter,system-ui,sans-serif;letter-spacing:-3px}
+.v854-seq-card.dragging{opacity:.72;transform:scale(1.02);border-color:#77ddc2;box-shadow:0 13px 27px rgba(0,0,0,.26),0 0 0 2px rgba(119,221,194,.09);z-index:8}
+.v854-seq-card.drop-target{border-color:#65cbb4;background:linear-gradient(180deg,rgba(14,63,62,.98),rgba(7,39,45,.99))}
+.v854-seq-card.correct-pos{border-color:rgba(111,224,190,.7);background:linear-gradient(180deg,rgba(18,76,64,.98),rgba(8,47,42,.99));box-shadow:0 0 0 2px rgba(111,224,190,.08),0 8px 20px rgba(0,0,0,.15)}
+.v854-seq-card.correct-pos .v854-seq-num{background:linear-gradient(180deg,#2d806d,#155b52);color:#eafff8}
+.v854-seq-list.wrong{animation:v854Wrong 310ms ease}
+.v854-seq-list.correct{animation:v854Correct 520ms cubic-bezier(.2,.75,.25,1)}
+.v854-seq-pop{align-self:center;min-width:116px;padding:7px 12px;border-radius:999px;border:1px solid rgba(121,225,194,.3);background:rgba(10,54,50,.96);color:#a7efd8;text-align:center;font:950 8px/1 Inter,system-ui,sans-serif;letter-spacing:.6px;animation:v854Pop 620ms ease both}
+.v854-seq-pop.bad{border-color:rgba(219,132,148,.3);background:rgba(67,34,42,.96);color:#efb0bc}
+.v854-seq-check{min-height:48px;border:1px solid rgba(101,201,180,.34);border-radius:15px;background:linear-gradient(180deg,#185b57,#104746);color:#eafff8;font:900 11px/1 Inter,system-ui,sans-serif;letter-spacing:.4px;box-shadow:0 9px 18px rgba(0,0,0,.16)}
+.v854-seq-check:disabled{opacity:.48}
+@keyframes v854Wrong{0%,100%{transform:translateX(0)}28%{transform:translateX(-4px)}62%{transform:translateX(4px)}}
+@keyframes v854Correct{0%{transform:scale(.99)}45%{transform:scale(1.012);filter:brightness(1.12)}100%{transform:scale(1);filter:brightness(1)}}
+@keyframes v854Pop{0%{opacity:0;transform:translateY(5px) scale(.9)}25%,72%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-4px) scale(.97)}}
+@media(max-width:390px){.v854-seq-card{min-height:58px;padding:10px 38px 10px 45px;border-radius:16px;font-size:11px}.v854-seq-num{width:26px;height:26px}.v854-seq-list{gap:7px}}
+@media(prefers-reduced-motion:reduce){.v854-seq-card,.v854-seq-list,.v854-seq-pop{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v854-sequence-runtime">
+(()=>{
+ if(window.__deenV854Sequence)return;window.__deenV854Sequence=true;
+ const VERSION='8.5.4-SEQUENCE-MINIGAME',BUILD='854seq1';
+ const oldSequence=typeof renderSequence==='function'?renderSequence:null;
+ let rounds=0,checks=0,misses=0,autoAdvanced=0,advanceTimer=0;
+ const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
+ const shuffle=a=>{const out=[...a];for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]]}return out};
+ function haptic(ok){try{if(navigator.vibrate)navigator.vibrate(ok?16:[10,24,10])}catch(_){}}
+ function eligible(q){return !!q&&Array.isArray(q.items)&&Array.isArray(q.correct_order)&&q.correct_order.length>1&&(q.activity_type==='build_sequence'||q.type==='sequence'||q.question_type==='sequence')}
+ function premiumSequence(q,area){
+  if(!eligible(q))return oldSequence?.(q,area);
+  clearTimeout(advanceTimer);rounds++;
+  const frame=document.querySelector('.question-frame');frame?.classList.add('v854-sequence-mode');
+  const hint=document.getElementById('qType');if(hint)hint.textContent='Kartları tutup sürükle · doğru sıraya yerleştir.';
+  const expected=q.correct_order.map(String);
+  let values=shuffle((q.items||expected).map(String));
+  if(values.length===expected.length&&values.every((v,i)=>norm(v)===norm(expected[i]))&&values.length>1)[values[0],values[1]]=[values[1],values[0]];
+  const wrap=document.createElement('div');wrap.className='v854-seq-wrap';
+  const head=document.createElement('div');head.className='v854-seq-head';
+  const list=document.createElement('div');list.className='v854-seq-list';
+  const check=document.createElement('button');check.type='button';check.className='v854-seq-check';check.textContent='SIRAYI KONTROL ET';
+  head.innerHTML='<span>Sürükleyerek sırala</span><b>'+values.length+' ADIM</b>';
+  wrap.append(head,list,check);area.append(wrap);
+  let finished=false,errors=0,dragEl=null,pointerId=null,startY=0,lastY=0;
+  function current(){return [...list.querySelectorAll('.v854-seq-card')].map(x=>x.dataset.value||'')}
+  function updateNums(){[...list.children].forEach((el,i)=>{el.querySelector('.v854-seq-num').textContent=String(i+1);el.classList.toggle('correct-pos',norm(el.dataset.value)===norm(expected[i]))})}
+  function make(text){
+   const b=document.createElement('button');b.type='button';b.className='v854-seq-card';b.dataset.value=text;b.draggable=true;
+   const n=document.createElement('span');n.className='v854-seq-num';
+   const t=document.createElement('span');t.textContent=text;
+   const g=document.createElement('span');g.className='v854-seq-grip';g.textContent='≡';
+   b.append(n,t,g);
+   b.addEventListener('dragstart',e=>{if(finished)return e.preventDefault();dragEl=b;b.classList.add('dragging');try{e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',text)}catch(_){}});
+   b.addEventListener('dragend',()=>{b.classList.remove('dragging');dragEl=null;list.querySelectorAll('.drop-target').forEach(x=>x.classList.remove('drop-target'));updateNums()});
+   b.addEventListener('dragover',e=>{if(!dragEl||dragEl===b)return;e.preventDefault();b.classList.add('drop-target');const r=b.getBoundingClientRect(),after=e.clientY>r.top+r.height/2;list.insertBefore(dragEl,after?b.nextSibling:b);updateNums()});
+   b.addEventListener('dragleave',()=>b.classList.remove('drop-target'));
+   b.addEventListener('pointerdown',e=>{if(finished||e.pointerType==='mouse')return;pointerId=e.pointerId;dragEl=b;startY=lastY=e.clientY;b.classList.add('dragging');try{b.setPointerCapture(pointerId)}catch(_){};e.preventDefault()});
+   b.addEventListener('pointermove',e=>{if(pointerId!==e.pointerId||dragEl!==b)return;lastY=e.clientY;const over=document.elementFromPoint(e.clientX,e.clientY)?.closest?.('.v854-seq-card');if(over&&over!==b&&over.parentElement===list){const r=over.getBoundingClientRect(),after=e.clientY>r.top+r.height/2;list.insertBefore(b,after?over.nextSibling:over);updateNums()}e.preventDefault()});
+   const end=e=>{if(pointerId!==e.pointerId||dragEl!==b)return;try{b.releasePointerCapture(pointerId)}catch(_){};pointerId=null;dragEl=null;b.classList.remove('dragging');updateNums();if(Math.abs(lastY-startY)>6)try{navigator.vibrate?.(7)}catch(_){};e.preventDefault()};
+   b.addEventListener('pointerup',end);b.addEventListener('pointercancel',end);
+   return b;
+  }
+  values.forEach(v=>list.append(make(v)));updateNums();
+  function pop(text,bad=false){wrap.querySelector('.v854-seq-pop')?.remove();const p=document.createElement('div');p.className='v854-seq-pop'+(bad?' bad':'');p.textContent=text;wrap.insertBefore(p,check);setTimeout(()=>p.remove(),650)}
+  function finish(ok){
+   if(finished)return;finished=true;list.querySelectorAll('button').forEach(b=>b.disabled=true);check.disabled=true;list.classList.add('correct');haptic(true);pop('✓ SIRA TAMAM');
+   setTimeout(()=>{
+    try{completeQuestion(ok,q)}catch(err){console.error('DEEN sequence complete',err);return}
+    const title=document.getElementById('feedbackTitle');if(title)title.textContent=ok?'✓ SIRALAMA KUSURSUZ':'Sıralama tamamlandı';
+    try{document.dispatchEvent(new CustomEvent('deen:sequence:complete',{detail:{version:VERSION,id:q.id||'',correct:ok,errors,steps:expected.length}}))}catch(_){}
+    if(ok)advanceTimer=setTimeout(()=>{const btn=document.getElementById('continueBtn');if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;btn.click()}},1050);
+   },430)
+  }
+  check.onclick=()=>{
+   if(finished)return;checks++;
+   const got=current(),ok=got.length===expected.length&&expected.every((x,i)=>norm(x)===norm(got[i]));
+   if(ok)return finish(errors===0);
+   errors++;misses++;haptic(false);list.classList.remove('wrong');void list.offsetWidth;list.classList.add('wrong');pop('SIRA HENÜZ DOĞRU DEĞİL',true);setTimeout(()=>list.classList.remove('wrong'),340);
+   try{document.dispatchEvent(new CustomEvent('deen:sequence:miss',{detail:{version:VERSION,id:q.id||'',errors}}))}catch(_){}
+  };
+  return true;
+ }
+ try{window.renderSequence=premiumSequence;renderSequence=premiumSequence}catch(_){window.renderSequence=premiumSequence}
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v854){
+  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v854-sequence-mode');return oldRender.apply(this,args)};
+  wrapped.__v854=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.DEEN_SEQUENCE_MINIGAME={version:VERSION,build:BUILD,render:premiumSequence,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,checks,misses,autoAdvanced,active:!!document.querySelector('.v854-seq-wrap')})};
+ document.documentElement.dataset.deenSequence='ready';
+})();
+</script>
+
+<!-- DEEN v8.5.5 — Fill Blank Chip Mini-game -->
+<style id="deen-v855-fill-css">
+.question-frame.v855-fill-mode{padding-top:44px}
+.question-frame.v855-fill-mode .qtype{margin-bottom:10px;color:#9fb9bd}
+.v855-fill-wrap{display:flex;flex-direction:column;gap:11px;margin-top:3px}
+.v855-fill-slot{position:relative;min-height:78px;border:1.5px dashed rgba(105,197,180,.45);border-radius:20px;background:linear-gradient(180deg,rgba(8,38,47,.86),rgba(5,27,35,.94));display:flex;align-items:center;justify-content:center;padding:13px 16px;color:#76969b;font:850 11px/1.25 Inter,system-ui,sans-serif;letter-spacing:.25px;transition:border-color 170ms ease,background 170ms ease,box-shadow 170ms ease,transform 170ms ease}
+.v855-fill-slot:before{content:"BOŞLUĞA YERLEŞTİR";position:absolute;top:8px;left:50%;transform:translateX(-50%);font:950 5px/1 Inter,system-ui,sans-serif;letter-spacing:1.2px;color:#597b80}
+.v855-fill-slot.drag-over{border-style:solid;border-color:#73ddc1;background:linear-gradient(180deg,rgba(13,64,62,.92),rgba(6,38,44,.96));box-shadow:0 0 0 3px rgba(115,221,193,.08);transform:scale(1.01)}
+.v855-fill-slot.correct{border-style:solid;border-color:#76dfc0;background:linear-gradient(180deg,rgba(18,78,65,.98),rgba(8,48,42,.99));box-shadow:0 0 0 2px rgba(118,223,192,.09),0 12px 26px rgba(28,145,118,.13);animation:v855Correct 460ms cubic-bezier(.2,.75,.25,1)}
+.v855-fill-answer{margin-top:8px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 14px;border-radius:14px;background:rgba(18,84,69,.66);border:1px solid rgba(143,233,205,.27);color:#eafff7;font:900 14px/1.1 Inter,system-ui,sans-serif}
+.v855-fill-answer:before{content:"✓";color:#9ce8cf}
+.v855-fill-bank{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:3px 0}
+.v855-fill-chip{min-height:45px;padding:10px 14px;border-radius:15px;border:1px solid rgba(88,142,151,.5);background:linear-gradient(180deg,rgba(10,42,51,.98),rgba(6,29,37,.99));color:#edf7f4;box-shadow:inset 0 1px rgba(255,255,255,.025),0 7px 15px rgba(0,0,0,.13);font:820 12px/1.1 Inter,system-ui,sans-serif;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;transition:transform 130ms ease,border-color 170ms ease,background 170ms ease,opacity 170ms ease,box-shadow 170ms ease}
+.v855-fill-chip:not(:disabled):active{transform:scale(.96);cursor:grabbing}
+.v855-fill-chip.dragging{opacity:.68;transform:scale(1.035);border-color:#75dec2;box-shadow:0 11px 22px rgba(0,0,0,.22),0 0 0 2px rgba(117,222,194,.08)}
+.v855-fill-chip.wrong{border-color:#d98292;background:linear-gradient(180deg,rgba(76,39,48,.98),rgba(46,27,34,.99));animation:v855Wrong 300ms ease;color:#ffeef1}
+.v855-fill-chip.correct-chip{border-color:#78dfbf;background:linear-gradient(180deg,rgba(20,79,66,.98),rgba(9,48,42,.99));color:#eafff7}
+.v855-fill-help{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid rgba(78,133,142,.3);border-radius:14px;background:rgba(6,29,37,.58);font:800 8px/1.2 Inter,system-ui,sans-serif;color:#8fa9ae}
+.v855-fill-help b{color:#dcefeb;font-size:8px}
+.v855-fill-pop{align-self:center;min-width:112px;padding:7px 12px;border-radius:999px;border:1px solid rgba(121,225,194,.3);background:rgba(10,54,50,.96);color:#a7efd8;text-align:center;font:950 8px/1 Inter,system-ui,sans-serif;letter-spacing:.6px;animation:v855Pop 620ms ease both}
+.v855-fill-pop.bad{border-color:rgba(219,132,148,.3);background:rgba(67,34,42,.96);color:#efb0bc}
+@keyframes v855Correct{0%{transform:scale(.985)}45%{transform:scale(1.02);filter:brightness(1.13)}100%{transform:scale(1);filter:brightness(1)}}
+@keyframes v855Wrong{0%,100%{transform:translateX(0)}28%{transform:translateX(-4px)}62%{transform:translateX(4px)}}
+@keyframes v855Pop{0%{opacity:0;transform:translateY(5px) scale(.9)}25%,72%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-4px) scale(.97)}}
+@media(max-width:390px){.v855-fill-slot{min-height:72px;border-radius:18px}.v855-fill-chip{min-height:42px;padding:9px 12px;border-radius:14px;font-size:11px}.v855-fill-bank{gap:7px}}
+@media(prefers-reduced-motion:reduce){.v855-fill-slot,.v855-fill-chip,.v855-fill-pop{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v855-fill-runtime">
+(()=>{
+ if(window.__deenV855Fill)return;window.__deenV855Fill=true;
+ const VERSION='8.5.5-FILL-BLANK-MINIGAME',BUILD='855fill1';
+ const oldFill=typeof renderFillBlank==='function'?renderFillBlank:null;
+ let rounds=0,attempts=0,misses=0,autoAdvanced=0,advanceTimer=0;
+ const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
+ function eligible(q){
+  if(!q||!Array.isArray(q.options_tr)||q.options_tr.length<2)return false;
+  try{if(typeof isFillBlankQuestion==='function'&&isFillBlankQuestion(q))return true}catch(_){}
+  return q.type==='fill_blank'||q.question_type==='fill_blank'||['fill_blank','missing_word','cloze','gap_fill'].includes(q.activity_type);
+ }
+ function answers(q){const raw=q.correct_answer??q.answer??q.correct;return (Array.isArray(raw)?raw:[raw]).filter(x=>x!==undefined&&x!==null).map(String)}
+ function isCorrect(q,value){const a=answers(q);return a.some(x=>norm(x)===norm(value))}
+ function haptic(ok){try{if(navigator.vibrate)navigator.vibrate(ok?16:[10,22,10])}catch(_){}}
+ function premiumFill(q,area){
+  if(!eligible(q))return oldFill?.(q,area);
+  clearTimeout(advanceTimer);rounds++;
+  const frame=document.querySelector('.question-frame');frame?.classList.add('v855-fill-mode');
+  const hint=document.getElementById('qType');if(hint)hint.textContent='Kelimeyi boşluğa sürükle ya da dokun.';
+  const wrap=document.createElement('div');wrap.className='v855-fill-wrap';
+  const slot=document.createElement('div');slot.className='v855-fill-slot';slot.setAttribute('role','button');slot.setAttribute('aria-label','Cevap boşluğu');slot.textContent='Doğru kelimeyi buraya getir';
+  const bank=document.createElement('div');bank.className='v855-fill-bank';
+  const help=document.createElement('div');help.className='v855-fill-help';help.innerHTML='<span>Dokun veya sürükle</span><b>'+q.options_tr.length+' SEÇENEK</b>';
+  wrap.append(slot,bank,help);area.append(wrap);
+  let finished=false,errors=0,dragChip=null,pointerChip=null;
+  function pop(text,bad=false){wrap.querySelector('.v855-fill-pop')?.remove();const p=document.createElement('div');p.className='v855-fill-pop'+(bad?' bad':'');p.textContent=text;wrap.insertBefore(p,help);setTimeout(()=>p.remove(),650)}
+  function finish(chip,value){
+   if(finished)return;finished=true;chip.classList.add('correct-chip');slot.classList.add('correct');slot.textContent='';const a=document.createElement('span');a.className='v855-fill-answer';a.textContent=value;slot.append(a);bank.querySelectorAll('button').forEach(b=>b.disabled=true);haptic(true);pop('✓ BOŞLUK TAMAMLANDI');
+   const perfect=errors===0;
+   setTimeout(()=>{
+    try{completeQuestion(perfect,q)}catch(err){console.error('DEEN fill complete',err);return}
+    const title=document.getElementById('feedbackTitle');if(title)title.textContent=perfect?'✓ TEK SEFERDE DOĞRU':'Doğru kelimeyi buldun';
+    try{document.dispatchEvent(new CustomEvent('deen:fill-blank:complete',{detail:{version:VERSION,id:q.id||'',correct:perfect,errors,answer:value}}))}catch(_){}
+    if(perfect)advanceTimer=setTimeout(()=>{const btn=document.getElementById('continueBtn');if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;btn.click()}},1050);
+   },430);
+  }
+  function tryValue(chip){
+   if(finished||!chip||chip.disabled)return;attempts++;const value=chip.dataset.value||chip.textContent.trim();
+   if(isCorrect(q,value))return finish(chip,value);
+   errors++;misses++;haptic(false);chip.classList.remove('wrong');void chip.offsetWidth;chip.classList.add('wrong');slot.classList.remove('drag-over');pop('BİR DAHA DENE',true);setTimeout(()=>chip.classList.remove('wrong'),330);
+   try{document.dispatchEvent(new CustomEvent('deen:fill-blank:miss',{detail:{version:VERSION,id:q.id||'',errors,value}}))}catch(_){}
+  }
+  q.options_tr.forEach((value,idx)=>{
+   const chip=document.createElement('button');chip.type='button';chip.className='v855-fill-chip';chip.textContent=String(value);chip.dataset.value=String(value);chip.draggable=true;chip.setAttribute('aria-label','Seçenek: '+String(value));
+   chip.onclick=()=>tryValue(chip);
+   chip.addEventListener('dragstart',e=>{if(finished)return e.preventDefault();dragChip=chip;chip.classList.add('dragging');try{e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(idx))}catch(_){}});
+   chip.addEventListener('dragend',()=>{chip.classList.remove('dragging');slot.classList.remove('drag-over');dragChip=null});
+   chip.addEventListener('pointerdown',e=>{if(finished||e.pointerType==='mouse')return;pointerChip=chip;chip.classList.add('dragging');try{chip.setPointerCapture(e.pointerId)}catch(_){};e.preventDefault()});
+   chip.addEventListener('pointermove',e=>{if(pointerChip!==chip)return;const r=slot.getBoundingClientRect(),inside=e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;slot.classList.toggle('drag-over',inside);e.preventDefault()});
+   const end=e=>{if(pointerChip!==chip)return;const r=slot.getBoundingClientRect(),inside=e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;try{chip.releasePointerCapture(e.pointerId)}catch(_){};pointerChip=null;chip.classList.remove('dragging');slot.classList.remove('drag-over');if(inside)tryValue(chip);e.preventDefault()};
+   chip.addEventListener('pointerup',end);chip.addEventListener('pointercancel',e=>{if(pointerChip===chip){pointerChip=null;chip.classList.remove('dragging');slot.classList.remove('drag-over')}});
+   bank.append(chip);
+  });
+  slot.addEventListener('dragover',e=>{if(!dragChip||finished)return;e.preventDefault();slot.classList.add('drag-over')});
+  slot.addEventListener('dragleave',()=>slot.classList.remove('drag-over'));
+  slot.addEventListener('drop',e=>{e.preventDefault();slot.classList.remove('drag-over');if(dragChip)tryValue(dragChip)});
+  return true;
+ }
+ try{window.renderFillBlank=premiumFill;renderFillBlank=premiumFill}catch(_){window.renderFillBlank=premiumFill}
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v855){
+  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v855-fill-mode');return oldRender.apply(this,args)};
+  wrapped.__v855=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.DEEN_FILL_BLANK_MINIGAME={version:VERSION,build:BUILD,render:premiumFill,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,attempts,misses,autoAdvanced,active:!!document.querySelector('.v855-fill-wrap')})};
+ document.documentElement.dataset.deenFillBlank='ready';
+})();
+</script>
+
+<!-- DEEN v8.5.6 — True / False Swipe Mini-game -->
+<style id="deen-v856-true-false-css">
+.question-frame.v856-tf-mode{padding-top:44px}
+.question-frame.v856-tf-mode #questionText{display:none}
+.question-frame.v856-tf-mode .qtype{margin:0 auto 11px;color:#96b2b7}
+.question-frame.v856-tf-mode .tf-options,.question-frame.v856-tf-mode .template-action{display:none!important}
+.v856-tf-wrap{display:flex;flex-direction:column;gap:12px;margin-top:2px}
+.v856-swipe-stage{position:relative;min-height:240px;display:grid;place-items:center;perspective:900px;touch-action:pan-y}
+.v856-swipe-card{position:relative;width:min(100%,330px);min-height:205px;padding:28px 24px;border-radius:28px;border:1px solid rgba(96,155,164,.46);background:radial-gradient(circle at 50% 12%,rgba(67,198,176,.10),transparent 44%),linear-gradient(180deg,rgba(10,43,53,.99),rgba(5,27,36,.99));box-shadow:inset 0 1px rgba(255,255,255,.04),0 18px 38px rgba(0,0,0,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:grab;user-select:none;-webkit-user-select:none;will-change:transform,opacity;transition:transform 210ms cubic-bezier(.2,.75,.25,1),border-color 180ms ease,box-shadow 180ms ease,background 180ms ease,opacity 180ms ease}
+.v856-swipe-card:active{cursor:grabbing}
+.v856-swipe-mark{width:44px;height:44px;border-radius:16px;border:1px solid rgba(108,220,196,.26);background:linear-gradient(180deg,rgba(25,84,80,.82),rgba(9,51,59,.86));display:grid;place-items:center;color:#a6ead7;font:950 18px/1 Inter,system-ui,sans-serif;margin-bottom:16px;box-shadow:inset 0 1px rgba(255,255,255,.035)}
+.v856-swipe-text{font:800 clamp(18px,4.8vw,24px)/1.24 Georgia,serif;color:#f3efe6;letter-spacing:-.25px;max-width:96%}
+.v856-swipe-sub{margin-top:16px;color:#66898f;font:850 7px/1 Inter,system-ui,sans-serif;letter-spacing:1.3px;text-transform:uppercase}
+.v856-swipe-label{position:absolute;top:18px;z-index:4;padding:8px 11px;border-radius:11px;border:1px solid;font:950 9px/1 Inter,system-ui,sans-serif;letter-spacing:.8px;opacity:0;transition:opacity 90ms ease,transform 90ms ease;pointer-events:none}
+.v856-swipe-label.yes{left:18px;color:#a3efd7;border-color:rgba(111,226,191,.45);background:rgba(12,71,59,.88);transform:rotate(-7deg) scale(.9)}
+.v856-swipe-label.no{right:18px;color:#efb0bc;border-color:rgba(224,128,146,.45);background:rgba(74,35,44,.9);transform:rotate(7deg) scale(.9)}
+.v856-swipe-card.toward-yes .v856-swipe-label.yes,.v856-swipe-card.toward-no .v856-swipe-label.no{opacity:1;transform:rotate(0) scale(1)}
+.v856-swipe-card.toward-yes{border-color:rgba(106,222,188,.66);box-shadow:0 18px 38px rgba(0,0,0,.26),0 0 0 2px rgba(106,222,188,.08)}
+.v856-swipe-card.toward-no{border-color:rgba(220,127,145,.65);box-shadow:0 18px 38px rgba(0,0,0,.26),0 0 0 2px rgba(220,127,145,.07)}
+.v856-swipe-card.resolved-correct{border-color:#79dfbf;background:radial-gradient(circle at 50% 12%,rgba(103,229,194,.16),transparent 48%),linear-gradient(180deg,rgba(17,74,64,.99),rgba(7,44,41,.99));box-shadow:0 0 0 2px rgba(121,223,191,.10),0 18px 40px rgba(26,147,118,.15)}
+.v856-swipe-card.resolved-wrong{border-color:#d98798;background:radial-gradient(circle at 50% 12%,rgba(222,128,147,.11),transparent 48%),linear-gradient(180deg,rgba(73,38,47,.99),rgba(43,26,33,.99));animation:v856Wrong 300ms ease}
+.v856-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.v856-action{min-height:58px;border-radius:18px;border:1px solid rgba(91,140,151,.42);background:linear-gradient(180deg,rgba(9,38,48,.98),rgba(6,28,36,.99));color:#edf6f4;font:900 12px/1 Inter,system-ui,sans-serif;letter-spacing:.25px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:inset 0 1px rgba(255,255,255,.025),0 8px 18px rgba(0,0,0,.15);transition:transform 120ms ease,border-color 160ms ease,background 160ms ease}
+.v856-action:not(:disabled):active{transform:scale(.97)}
+.v856-action.true{border-color:rgba(93,197,170,.42);color:#baf1df}.v856-action.false{border-color:rgba(190,109,127,.36);color:#efbdc6}
+.v856-action span{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.035);font-size:13px}
+.v856-action:disabled{opacity:.45}
+.v856-tf-tip{text-align:center;color:#698a90;font:800 7px/1.2 Inter,system-ui,sans-serif;letter-spacing:.7px}
+.v856-combo{align-self:center;margin-top:-2px;padding:7px 12px;border-radius:999px;border:1px solid rgba(232,203,118,.30);background:linear-gradient(180deg,rgba(48,42,24,.95),rgba(27,31,29,.96));color:#ead58d;font:950 8px/1 Inter,system-ui,sans-serif;letter-spacing:.65px;animation:v856Pop 760ms ease both}
+@keyframes v856Wrong{0%,100%{transform:translateX(0)}28%{transform:translateX(-4px)}62%{transform:translateX(4px)}}
+@keyframes v856Pop{0%{opacity:0;transform:translateY(5px) scale(.9)}25%,72%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-4px) scale(.98)}}
+@media(max-width:390px){.v856-swipe-stage{min-height:220px}.v856-swipe-card{min-height:188px;padding:24px 18px;border-radius:24px}.v856-action{min-height:54px;border-radius:16px}}
+@media(prefers-reduced-motion:reduce){.v856-swipe-card,.v856-action,.v856-combo{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v856-true-false-runtime">
+(()=>{
+ if(window.__deenV856TrueFalse)return;window.__deenV856TrueFalse=true;
+ const VERSION='8.5.6-TRUE-FALSE-SWIPE',BUILD='856tf1';
+ let rounds=0,swipes=0,taps=0,correctAnswers=0,wrongAnswers=0,autoAdvanced=0,advanceTimer=0;
+ const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
+ const truthy=v=>/^(doğru|dogru|true|evet|yes)$/.test(norm(v));
+ const falsy=v=>/^(yanlış|yanlis|false|hayır|hayir|no)$/.test(norm(v));
+ function currentQuestion(){try{return session?.questions?.[session.index]||null}catch(_){return null}}
+ function isTF(q){
+  if(!q||!Array.isArray(q.options_tr)||q.options_tr.length!==2)return false;
+  let old=false;try{old=typeof shouldUseTrueFalseTemplate==='function'&&shouldUseTrueFalseTemplate(q)}catch(_){}
+  if(!(old||q.type==='true_false'||q.question_type==='true_false'||q.activity_type==='true_false'))return false;
+  const vals=q.options_tr.map(String);return vals.some(truthy)&&vals.some(falsy);
+ }
+ function haptic(ok){try{navigator.vibrate?.(ok?16:[10,24,10])}catch(_){}}
+ function decorate(){
+  clearTimeout(advanceTimer);
+  const q=currentQuestion(),frame=document.querySelector('.question-frame'),area=document.getElementById('answerArea');
+  frame?.classList.remove('v856-tf-mode');
+  if(!q||!area||!isTF(q))return false;
+  const oldWrap=area.querySelector('.tf-options');if(!oldWrap)return false;
+  const oldButtons=[...oldWrap.querySelectorAll('.option')];
+  const trueBtn=oldButtons.find(b=>truthy((b.querySelector('.option-label')||b).textContent));
+  const falseBtn=oldButtons.find(b=>falsy((b.querySelector('.option-label')||b).textContent));
+  if(!trueBtn||!falseBtn)return false;
+  rounds++;frame?.classList.add('v856-tf-mode');
+  const hint=document.getElementById('qType');if(hint)hint.textContent='Sağa kaydır: Doğru · Sola kaydır: Yanlış';
+  const wrap=document.createElement('div');wrap.className='v856-tf-wrap';
+  const stage=document.createElement('div');stage.className='v856-swipe-stage';
+  const card=document.createElement('div');card.className='v856-swipe-card';card.tabIndex=0;card.setAttribute('role','group');card.setAttribute('aria-label','Doğru veya yanlış karar kartı');
+  const mark=document.createElement('div');mark.className='v856-swipe-mark';mark.textContent='?';
+  const text=document.createElement('div');text.className='v856-swipe-text';text.textContent=document.getElementById('questionText')?.textContent||q.question_tr||q.prompt||q.question||'';
+  const sub=document.createElement('div');sub.className='v856-swipe-sub';sub.textContent='KARTI KAYDIR VEYA AŞAĞIDAN SEÇ';
+  const yes=document.createElement('div');yes.className='v856-swipe-label yes';yes.textContent='DOĞRU ✓';
+  const no=document.createElement('div');no.className='v856-swipe-label no';no.textContent='YANLIŞ ×';
+  card.append(yes,no,mark,text,sub);stage.append(card);
+  const actions=document.createElement('div');actions.className='v856-actions';
+  const yesBtn=document.createElement('button');yesBtn.type='button';yesBtn.className='v856-action true';yesBtn.innerHTML='<span>✓</span> DOĞRU';
+  const noBtn=document.createElement('button');noBtn.type='button';noBtn.className='v856-action false';noBtn.innerHTML='<span>×</span> YANLIŞ';
+  actions.append(noBtn,yesBtn);
+  const tip=document.createElement('div');tip.className='v856-tf-tip';tip.textContent='Kaydırma eşiği kısa tutuldu; tek elle rahat kullanılabilir.';
+  wrap.append(stage,actions,tip);area.append(wrap);
+  const cta=area.querySelector('.template-action');if(cta){cta.style.display='none';cta.tabIndex=-1;cta.setAttribute('aria-hidden','true')}
+  let locked=false,pointerId=null,startX=0,currentX=0;
+  function answer(value,source){
+   if(locked||document.getElementById('feedback')?.classList.contains('show'))return;locked=true;
+   if(source==='swipe')swipes++;else taps++;
+   yesBtn.disabled=noBtn.disabled=true;card.style.pointerEvents='none';
+   const hidden=truthy(value)?trueBtn:falseBtn;
+   const correct=norm(value)===norm(q.correct_answer);correct?correctAnswers++:wrongAnswers++;haptic(correct);
+   const dir=truthy(value)?1:-1;
+   if(correct){card.classList.add('resolved-correct');card.style.transform='translateX('+(dir*38)+'px) rotate('+(dir*4)+'deg) scale(1.015)'}
+   else{card.classList.add('resolved-wrong');card.style.transform='translateX('+(dir*18)+'px) rotate('+(dir*2)+'deg)'}
+   setTimeout(()=>{
+    try{submitAnswer(value,hidden)}catch(err){console.error('DEEN true/false submit',err);return}
+    let streak=0;try{streak=Number(session?.combo)||0}catch(_){}
+    const title=document.getElementById('feedbackTitle');if(title)title.textContent=correct?(streak>=3?'🔥 '+streak+' SERİ':'✓ DOĞRU KARAR'):'Birlikte düzeltelim';
+    if(correct&&streak>=2){const c=document.createElement('div');c.className='v856-combo';c.textContent=streak+' SERİ ✦';wrap.append(c);setTimeout(()=>c.remove(),800)}
+    try{document.dispatchEvent(new CustomEvent('deen:true-false:answered',{detail:{version:VERSION,id:q.id||'',correct,value,source,streak}}))}catch(_){}
+    if(correct)advanceTimer=setTimeout(()=>{const b=document.getElementById('continueBtn');if(b&&!b.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;b.click()}},980);
+   },210);
+  }
+  yesBtn.onclick=()=>answer((trueBtn.querySelector('.option-label')||trueBtn).textContent.trim(),'tap');
+  noBtn.onclick=()=>answer((falseBtn.querySelector('.option-label')||falseBtn).textContent.trim(),'tap');
+  card.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();yesBtn.click()}else if(e.key==='ArrowLeft'){e.preventDefault();noBtn.click()}});
+  card.addEventListener('pointerdown',e=>{if(locked)return;pointerId=e.pointerId;startX=currentX=e.clientX;card.style.transition='none';try{card.setPointerCapture(pointerId)}catch(_){};e.preventDefault()});
+  card.addEventListener('pointermove',e=>{if(pointerId!==e.pointerId||locked)return;currentX=e.clientX;const dx=Math.max(-125,Math.min(125,currentX-startX)),rot=dx/18;card.style.transform='translateX('+dx+'px) rotate('+rot+'deg)';card.classList.toggle('toward-yes',dx>24);card.classList.toggle('toward-no',dx<-24);e.preventDefault()});
+  function release(e){if(pointerId!==e.pointerId||locked)return;const dx=currentX-startX;try{card.releasePointerCapture(pointerId)}catch(_){};pointerId=null;card.style.transition='';card.classList.remove('toward-yes','toward-no');if(dx>68)return yesBtn.click();if(dx<-68)return noBtn.click();card.style.transform='';e.preventDefault()}
+  card.addEventListener('pointerup',release);card.addEventListener('pointercancel',e=>{if(pointerId===e.pointerId){pointerId=null;card.style.transition='';card.classList.remove('toward-yes','toward-no');card.style.transform=''}});
+  return true;
+ }
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v856){
+  const wrapped=function(...args){clearTimeout(advanceTimer);const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
+  wrapped.__v856=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.DEEN_TRUE_FALSE_SWIPE={version:VERSION,build:BUILD,decorate,isTF,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,swipes,taps,correctAnswers,wrongAnswers,autoAdvanced,active:!!document.querySelector('.v856-tf-wrap')})};
+ document.documentElement.dataset.deenTrueFalse='ready';
+})();
+</script>
+
+<!-- DEEN v8.5.7 — Scenario Decision Mini-game -->
+<style id="deen-v857-scenario-css">
+.question-frame.v857-scenario-mode{padding-top:42px}
+.question-frame.v857-scenario-mode .qtype{margin-bottom:10px;color:#9fb9bd}
+.question-frame.v857-scenario-mode .template-action{display:none!important}
+.v857-scene{position:relative;padding:15px 15px 14px;margin:3px 0 12px;border:1px solid rgba(103,174,166,.34);border-radius:22px;background:linear-gradient(145deg,rgba(11,49,56,.98),rgba(7,31,40,.99));box-shadow:inset 0 1px rgba(255,255,255,.03),0 12px 25px rgba(0,0,0,.16);overflow:hidden}
+.v857-scene:before{content:"";position:absolute;right:-36px;top:-42px;width:130px;height:130px;border-radius:50%;border:1px solid rgba(221,193,109,.12);box-shadow:0 0 42px rgba(221,193,109,.03)}
+.v857-scene-top{position:relative;display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.v857-scene-mark{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;border:1px solid rgba(213,188,108,.28);background:linear-gradient(180deg,rgba(80,69,36,.66),rgba(35,47,43,.72));color:#e5cf8a;font:900 16px/1 Inter,system-ui,sans-serif}
+.v857-scene-meta{min-width:0}.v857-scene-meta b{display:block;color:#f0d993;font:950 8px/1 Inter,system-ui,sans-serif;letter-spacing:1.1px}.v857-scene-meta span{display:block;color:#82a8aa;font:700 8px/1.25 Inter,system-ui,sans-serif;margin-top:4px}
+.v857-scene-body{position:relative;color:#eef5f2;font:720 13px/1.48 Inter,system-ui,sans-serif;letter-spacing:-.05px}
+.v857-decisions{display:flex;flex-direction:column;gap:9px}
+.v857-scenario-choice.option{position:relative;min-height:64px;padding:11px 40px 11px 50px;border-radius:18px;border:1px solid rgba(86,137,149,.46);background:linear-gradient(180deg,rgba(9,38,48,.98),rgba(6,28,36,.99));color:#edf6f3;box-shadow:inset 0 1px rgba(255,255,255,.025),0 8px 17px rgba(0,0,0,.14);text-align:left;font:760 12px/1.3 Inter,system-ui,sans-serif;transition:transform 130ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease,opacity 180ms ease}
+.v857-scenario-choice.option:not(:disabled):active{transform:scale(.985)}
+.v857-choice-num{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(96,208,183,.25);background:rgba(17,65,67,.72);color:#a7e8d5;font:950 9px/1 Inter,system-ui,sans-serif}
+.v857-choice-arrow{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:#587d83;font:900 15px/1 Inter,system-ui,sans-serif}
+.v857-scenario-choice.option.v857-picked{border-color:#73d8bd;box-shadow:0 0 0 2px rgba(115,216,189,.08),0 10px 22px rgba(0,0,0,.17);transform:translateY(-1px)}
+.v857-scenario-choice.option.correct{border-color:#79dfc0!important;background:linear-gradient(180deg,rgba(18,77,65,.98),rgba(8,48,43,.99))!important;animation:v857Good 420ms cubic-bezier(.2,.75,.25,1)}
+.v857-scenario-choice.option.wrong{border-color:#d88695!important;background:linear-gradient(180deg,rgba(76,40,49,.98),rgba(46,27,34,.99))!important;animation:v857Wrong 300ms ease}
+.v857-decisions.v857-resolved .v857-scenario-choice.option:not(.correct):not(.wrong){opacity:.52}
+.v857-decision-tag{display:flex;align-items:center;justify-content:center;gap:6px;margin:9px 0 2px;color:#708e93;font:800 7px/1 Inter,system-ui,sans-serif;letter-spacing:.55px}
+.v857-decision-tag:before,.v857-decision-tag:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(91,139,145,.28))}.v857-decision-tag:after{background:linear-gradient(90deg,rgba(91,139,145,.28),transparent)}
+.v857-scenario-mode #feedbackBox{border-color:rgba(102,179,166,.3)}
+.v857-scenario-mode #feedbackText{line-height:1.45}
+.v857-burst{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit}.v857-burst i{position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;background:#a9efd9;box-shadow:0 0 7px rgba(169,239,217,.7);animation:v857Spark 520ms ease-out both}.v857-burst i:nth-child(2){transform:rotate(60deg)}.v857-burst i:nth-child(3){transform:rotate(120deg)}.v857-burst i:nth-child(4){transform:rotate(180deg)}.v857-burst i:nth-child(5){transform:rotate(240deg)}.v857-burst i:nth-child(6){transform:rotate(300deg)}
+@keyframes v857Good{0%{transform:scale(.98)}48%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes v857Wrong{0%,100%{transform:translateX(0)}28%{transform:translateX(-4px)}62%{transform:translateX(4px)}}
+@keyframes v857Spark{0%{opacity:0;translate:0 0}20%{opacity:1}100%{opacity:0;translate:0 -42px}}
+@media(max-width:390px){.v857-scene{padding:13px 13px 12px;border-radius:19px}.v857-scene-body{font-size:12px}.v857-scenario-choice.option{min-height:60px;padding:10px 36px 10px 46px;border-radius:16px;font-size:11px}.v857-choice-num{width:26px;height:26px}}
+@media(prefers-reduced-motion:reduce){.v857-scenario-choice.option,.v857-scenario-choice.option.correct,.v857-scenario-choice.option.wrong,.v857-burst i{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v857-scenario-runtime">
+(()=>{
+ if(window.__deenV857Scenario)return;window.__deenV857Scenario=true;
+ const VERSION='8.5.7-SCENARIO-MINIGAME',BUILD='857scenario1';
+ let rounds=0,decisions=0,correctDecisions=0;
+ const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
+ function eligible(q){return !!q&&Array.isArray(q.options_tr)&&q.options_tr.length>=2&&(q.activity_type==='scenario'||q.type==='scenario'||q.question_type==='scenario')}
+ function currentQuestion(){try{return session?.questions?.[session.index]||null}catch(_){return null}}
+ function haptic(ok){try{navigator.vibrate?.(ok?18:[10,24,10])}catch(_){}}
+ function burst(card){const b=document.createElement('span');b.className='v857-burst';b.innerHTML='<i></i><i></i><i></i><i></i><i></i><i></i>';card.append(b);setTimeout(()=>b.remove(),600)}
+ function decorate(){
+  const q=currentQuestion(),area=document.getElementById('answerArea'),frame=document.querySelector('.question-frame');
+  frame?.classList.remove('v857-scenario-mode');
+  if(!eligible(q)||!area)return false;
+  rounds++;
+  frame?.classList.remove('v852-card-mode');frame?.classList.add('v857-scenario-mode');
+  const questionEl=document.getElementById('questionText'),hint=document.getElementById('qType');
+  const original=String(questionEl?.textContent||q.question_tr||q.prompt_tr||q.question||'').trim();
+  const story=String(q.scenario_tr||q.context_tr||q.story_tr||q.case_tr||original).trim();
+  const decisionPrompt=String(q.decision_prompt_tr||q.prompt_after_scenario_tr||(story!==original?original:'Bu durumda en doğru karar hangisi?')).trim();
+  if(questionEl)questionEl.textContent=decisionPrompt;
+  if(hint)hint.textContent='Durumu değerlendir · en doğru davranışı seç.';
+  area.innerHTML='';
+  const scene=document.createElement('div');scene.className='v857-scene';
+  const actor=String(q.actor_tr||q.character_tr||q.person_tr||'Günlük hayat').trim();
+  scene.innerHTML='<div class="v857-scene-top"><div class="v857-scene-mark">✦</div><div class="v857-scene-meta"><b>GÜNLÜK KARAR</b><span></span></div></div><div class="v857-scene-body"></div>';
+  scene.querySelector('.v857-scene-meta span').textContent=actor;
+  scene.querySelector('.v857-scene-body').textContent=story;
+  const tag=document.createElement('div');tag.className='v857-decision-tag';tag.textContent='NASIL DAVRANIRSIN?';
+  const decisionsEl=document.createElement('div');decisionsEl.className='v857-decisions';
+  area.append(scene,tag,decisionsEl);
+  let locked=false;
+  q.options_tr.forEach((opt,idx)=>{
+   const b=document.createElement('button');b.type='button';b.className='option v857-scenario-choice';
+   const num=document.createElement('span');num.className='v857-choice-num';num.textContent=String(idx+1);
+   const label=document.createElement('span');label.className='option-label';label.textContent=opt;
+   const arrow=document.createElement('span');arrow.className='v857-choice-arrow';arrow.textContent='›';
+   b.append(num,label,arrow);decisionsEl.append(b);
+   b.onclick=e=>{
+    e.preventDefault();e.stopPropagation();if(locked||document.getElementById('feedback')?.classList.contains('show'))return;locked=true;decisions++;
+    const correct=norm(opt)===norm(q.correct_answer);if(correct)correctDecisions++;
+    b.classList.add('v857-picked');haptic(correct);
+    try{submitAnswer(opt,b)}catch(err){locked=false;console.error('DEEN scenario submit',err);return}
+    decisionsEl.classList.add('v857-resolved');if(correct)burst(b);
+    const title=document.getElementById('feedbackTitle'),text=document.getElementById('feedbackText');
+    if(title)title.textContent=correct?'✓ İYİ KARAR':'BU SEÇİMİ BİRLİKTE DÜŞÜNELİM';
+    const why=String(q.explanation_tr||q.feedback_tr||'Bu kararın dayandığı bilgiyi tekrar gözden geçir.').trim();
+    if(text)text.textContent=correct?('Neden? '+why):('En doğru seçenek: '+String(q.correct_answer||'')+'. Neden? '+why);
+    try{document.dispatchEvent(new CustomEvent('deen:scenario:decision',{detail:{version:VERSION,id:q.id||'',correct,choice:String(opt)}}))}catch(_){}
+   };
+  });
+  return true;
+ }
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v857){
+  const wrapped=function(...args){document.querySelector('.question-frame')?.classList.remove('v857-scenario-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
+  wrapped.__v857=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.DEEN_SCENARIO_MINIGAME={version:VERSION,build:BUILD,eligible,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,decisions,correctDecisions,active:!!document.querySelector('.v857-scenario-mode')})};
+ document.documentElement.dataset.deenScenario='ready';
+})();
+</script>
+
+<!-- DEEN v8.5.8 — Odd One Out Mini-game -->
+<style id="deen-v858-odd-css">
+.question-frame.v858-odd-mode{padding-top:44px}
+.question-frame.v858-odd-mode .qtype{margin-bottom:10px;color:#9fb9bd}
+.v858-odd-wrap{display:flex;flex-direction:column;gap:10px;margin-top:3px}
+.v858-odd-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;border:1px solid rgba(80,137,145,.32);border-radius:15px;background:rgba(6,29,37,.62);color:#91adb1;font:800 8px/1.25 Inter,system-ui,sans-serif;letter-spacing:.24px}
+.v858-odd-head b{color:#dff4ef;font-size:9px}
+.v858-odd-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.v858-odd-card{position:relative;min-height:105px;padding:16px 12px 14px;border-radius:20px;border:1px solid rgba(88,139,151,.48);background:linear-gradient(180deg,rgba(9,38,48,.98),rgba(6,28,36,.99));color:#edf7f4;box-shadow:inset 0 1px rgba(255,255,255,.025),0 9px 19px rgba(0,0,0,.15);font:800 12px/1.3 Inter,system-ui,sans-serif;text-align:center;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:transform 130ms ease,border-color 170ms ease,background 170ms ease,box-shadow 170ms ease,opacity 170ms ease}
+.v858-odd-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 12%,rgba(92,216,190,.065),transparent 57%);pointer-events:none}
+.v858-odd-card:not(:disabled):active{transform:scale(.965)}
+.v858-odd-card:after{content:"DOKUN";position:absolute;left:0;right:0;bottom:8px;color:#63868b;font:950 6px/1 Inter,system-ui,sans-serif;letter-spacing:1.15px}
+.v858-odd-card.wrong-pick{border-color:#d88393;background:linear-gradient(180deg,rgba(75,39,48,.98),rgba(45,27,34,.99));animation:v858Miss 300ms ease}
+.v858-odd-card.wrong-pick:after{content:"BU DEĞİL";color:#e8a3af}
+.v858-odd-card.target{border-color:#78dfbf;background:linear-gradient(180deg,rgba(19,77,66,.98),rgba(8,48,44,.99));box-shadow:0 0 0 2px rgba(117,225,191,.1),0 12px 28px rgba(42,199,159,.17);animation:v858Hit 430ms cubic-bezier(.2,.75,.25,1)}
+.v858-odd-card.target:after{content:"YAKALANDI ✓";color:#9ae8d2}
+.v858-odd-card.dim{opacity:.45;transform:scale(.985)}
+.v858-odd-pop{align-self:center;min-width:120px;padding:7px 12px;border-radius:999px;border:1px solid rgba(121,225,194,.3);background:rgba(10,54,50,.96);color:#a7efd8;text-align:center;font:950 8px/1 Inter,system-ui,sans-serif;letter-spacing:.65px;animation:v858Pop 620ms ease both}
+.v858-odd-pop.bad{border-color:rgba(219,132,148,.3);background:rgba(67,34,42,.96);color:#efb0bc}
+@keyframes v858Miss{0%,100%{transform:translateX(0)}28%{transform:translateX(-4px)}62%{transform:translateX(4px)}}
+@keyframes v858Hit{0%{transform:scale(.95)}48%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes v858Pop{0%{opacity:0;transform:translateY(5px) scale(.9)}25%,72%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-4px) scale(.97)}}
+@media(max-width:390px){.v858-odd-grid{gap:8px}.v858-odd-card{min-height:96px;padding:14px 9px 13px;border-radius:18px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.v858-odd-card,.v858-odd-pop{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v858-odd-runtime">
+(()=>{
+ if(window.__deenV858Odd)return;window.__deenV858Odd=true;
+ const VERSION='8.5.8-ODD-ONE-OUT-MINIGAME',BUILD='858odd1';
+ let rounds=0,perfect=0,misses=0,autoAdvanced=0,advanceTimer=0;
+ const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
+ const value=o=>o&&typeof o==='object'?String(o.text??o.label??o.value??o.id??''):String(o??'');
+ function eligible(q){
+  const t=String(q?.type||q?.question_type||'').toLowerCase(),a=String(q?.activity_type||'').toLowerCase();
+  return t==='odd_one_out'||['odd_one_out','find_wrong','find_incorrect','wrong_one','spot_error'].includes(a);
+ }
+ function options(q){const a=Array.isArray(q?.options_tr)?q.options_tr:(Array.isArray(q?.options)?q.options:[]);return a.map(value).filter(Boolean)}
+ function correctValue(q,opts){
+  let a=q?.correct_answer??q?.answer??q?.correctAnswer??q?.odd_answer??q?.wrong_answer;
+  if(typeof a==='number'){
+   if(opts[a]!==undefined)return opts[a];
+   if(a>0&&opts[a-1]!==undefined)return opts[a-1];
+  }
+  return value(a);
+ }
+ function haptic(ok){try{navigator.vibrate?.(ok?18:[10,22,10])}catch(_){}}
+ function pop(wrap,text,bad=false){wrap.querySelector('.v858-odd-pop')?.remove();const p=document.createElement('div');p.className='v858-odd-pop'+(bad?' bad':'');p.textContent=text;wrap.append(p);setTimeout(()=>p.remove(),650)}
+ function currentQuestion(){try{return session?.questions?.[session.index]||null}catch(_){return null}}
+ function decorate(){
+  clearTimeout(advanceTimer);
+  const q=currentQuestion(),area=document.getElementById('answerArea'),frame=document.querySelector('.question-frame');
+  frame?.classList.remove('v858-odd-mode');
+  if(!q||!eligible(q)||!area)return false;
+  const opts=options(q),answer=correctValue(q,opts);if(opts.length<3||!answer)return false;
+  rounds++;frame?.classList.add('v858-odd-mode');
+  const hint=document.getElementById('qType');if(hint)hint.textContent='Aykırı veya hatalı olan ifadeyi yakala.';
+  area.innerHTML='';
+  const wrap=document.createElement('div');wrap.className='v858-odd-wrap';
+  const head=document.createElement('div');head.className='v858-odd-head';head.innerHTML='<span>Yanlışı bul</span><b>1 HEDEF</b>';
+  const grid=document.createElement('div');grid.className='v858-odd-grid';wrap.append(head,grid);area.append(wrap);
+  let errors=0,finished=false;
+  opts.forEach((text,i)=>{
+   const b=document.createElement('button');b.type='button';b.className='v858-odd-card';b.textContent=text;b.dataset.value=text;b.setAttribute('aria-label','İfade '+(i+1)+': '+text);
+   b.onclick=()=>{
+    if(finished||b.disabled||document.getElementById('feedback')?.classList.contains('show'))return;
+    const ok=norm(text)===norm(answer);
+    if(!ok){errors++;misses++;haptic(false);b.classList.remove('wrong-pick');void b.offsetWidth;b.classList.add('wrong-pick');pop(wrap,'BU İFADE DOĞRU · DEVAM ET',true);setTimeout(()=>b.classList.remove('wrong-pick'),360);try{document.dispatchEvent(new CustomEvent('deen:odd-one-out:miss',{detail:{version:VERSION,id:q.id||'',errors}}))}catch(_){};return}
+    finished=true;haptic(true);b.classList.add('target');grid.querySelectorAll('.v858-odd-card').forEach(x=>{x.disabled=true;if(x!==b)x.classList.add('dim')});pop(wrap,errors===0?'✓ İLK SEFERDE YAKALADIN':'✓ HEDEFİ BULDUN');
+    const clean=errors===0;if(clean)perfect++;
+    setTimeout(()=>{
+     try{completeQuestion(clean,q)}catch(err){console.error('DEEN odd-one-out complete',err);return}
+     const title=document.getElementById('feedbackTitle');if(title)title.textContent=clean?'✓ YAKALADIN!':'Doğru ifadeyi ayırt ettik';
+     try{document.dispatchEvent(new CustomEvent('deen:odd-one-out:complete',{detail:{version:VERSION,id:q.id||'',correct:clean,errors}}))}catch(_){}
+     if(clean)advanceTimer=setTimeout(()=>{const btn=document.getElementById('continueBtn');if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;btn.click()}},1100);
+    },430);
+   };
+   grid.append(b);
+  });
+  return true;
+ }
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v858){
+  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v858-odd-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
+  wrapped.__v858=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.DEEN_ODD_ONE_OUT_MINIGAME={version:VERSION,build:BUILD,eligible,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,perfect,misses,autoAdvanced,active:!!document.querySelector('.v858-odd-wrap')})};
+ document.documentElement.dataset.deenOddOneOut='ready';
+})();
+</script>
+
+<!-- DEEN v8.5.9 — Rapid Choice MCQ -->
+<style id="deen-v859-mcq-css">
+.question-frame.v859-mcq-mode{padding-top:42px}
+.question-frame.v859-mcq-mode .qtype{margin-bottom:10px;color:#9fb9bd}
+.question-frame.v859-mcq-mode .template-action{display:none!important}
+.v859-choice-list{display:flex!important;flex-direction:column!important;gap:9px!important;margin-top:4px!important}
+.v859-choice-list .option{position:relative!important;min-height:62px!important;padding:11px 42px 11px 52px!important;border-radius:18px!important;border:1px solid rgba(86,137,149,.46)!important;background:linear-gradient(180deg,rgba(9,38,48,.98),rgba(6,28,36,.99))!important;color:#edf7f4!important;box-shadow:inset 0 1px rgba(255,255,255,.025),0 8px 17px rgba(0,0,0,.14)!important;text-align:left!important;display:flex!important;align-items:center!important;transition:transform 130ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease,opacity 180ms ease!important;overflow:hidden!important}
+.v859-choice-list .option:not(:disabled):active,.v859-choice-list .option.v859-tap{transform:scale(.985)!important}
+.v859-choice-list .option-badge{display:none!important}
+.v859-choice-list .option-icon{display:none!important}
+.v859-choice-list .option-label{font:780 12px/1.3 Inter,system-ui,sans-serif!important;color:#eef7f4!important;letter-spacing:-.05px!important}
+.v859-choice-num{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:29px;height:29px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(98,207,183,.24);background:linear-gradient(180deg,rgba(23,81,77,.78),rgba(11,53,59,.82));color:#a8ead6;font:950 9px/1 Inter,system-ui,sans-serif}
+.v859-choice-arrow{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:#587d83;font:900 15px/1 Inter,system-ui,sans-serif}
+.v859-choice-list .option.v859-picked{border-color:#71d8bd!important;box-shadow:0 0 0 2px rgba(113,216,189,.08),0 10px 22px rgba(0,0,0,.17)!important;transform:translateY(-1px)}
+.v859-choice-list .option.correct{border-color:#79dfc0!important;background:linear-gradient(180deg,rgba(18,77,65,.98),rgba(8,48,43,.99))!important;box-shadow:0 0 0 2px rgba(121,223,192,.09),0 11px 25px rgba(26,152,119,.13)!important;animation:v859Good 420ms cubic-bezier(.2,.75,.25,1)!important}
+.v859-choice-list .option.correct .v859-choice-num{background:linear-gradient(180deg,#2d806d,#155b52);color:#eafff8;border-color:rgba(157,238,214,.55)}
+.v859-choice-list .option.wrong{border-color:#d88695!important;background:linear-gradient(180deg,rgba(76,40,49,.98),rgba(46,27,34,.99))!important;animation:v859Wrong 300ms ease!important}
+.v859-choice-list .option.wrong .v859-choice-num{background:linear-gradient(180deg,#6d3d49,#492b35);color:#ffe9ed;border-color:rgba(227,139,153,.38)}
+.v859-choice-list.v859-resolved .option:not(.correct):not(.wrong){opacity:.5!important;transform:scale(.992)!important}
+.v859-speed-tag{display:flex;align-items:center;justify-content:center;gap:7px;margin:8px 0 2px;color:#718f93;font:850 7px/1 Inter,system-ui,sans-serif;letter-spacing:.6px}
+.v859-speed-tag:before,.v859-speed-tag:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(91,139,145,.28))}.v859-speed-tag:after{background:linear-gradient(90deg,rgba(91,139,145,.28),transparent)}
+.v859-pop{position:absolute;z-index:18;left:50%;top:91px;transform:translate(-50%,-6px);pointer-events:none;min-width:96px;padding:7px 12px;border-radius:999px;border:1px solid rgba(124,225,196,.3);background:rgba(10,55,51,.96);box-shadow:0 9px 24px rgba(0,0,0,.23);color:#a8efd8;font:950 8px/1 Inter,system-ui,sans-serif;letter-spacing:.55px;text-align:center;animation:v859Pop 760ms ease both}
+.v859-pop.gold{border-color:rgba(230,200,112,.3);background:rgba(49,43,25,.96);color:#f0d88b}
+@keyframes v859Good{0%{transform:scale(.985)}48%{transform:scale(1.018)}100%{transform:scale(1)}}
+@keyframes v859Wrong{0%,100%{transform:translateX(0)}28%{transform:translateX(-4px)}62%{transform:translateX(4px)}}
+@keyframes v859Pop{0%{opacity:0;transform:translate(-50%,-7px) scale(.9)}25%,72%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-4px) scale(.97)}}
+@media(max-width:390px){.v859-choice-list{gap:8px!important}.v859-choice-list .option{min-height:58px!important;padding:10px 38px 10px 47px!important;border-radius:16px!important}.v859-choice-list .option-label{font-size:11px!important}.v859-choice-num{width:27px;height:27px}}
+@media(prefers-reduced-motion:reduce){.v859-choice-list .option,.v859-choice-list .option.correct,.v859-choice-list .option.wrong,.v859-pop{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v859-mcq-runtime">
+(()=>{
+ if(window.__deenV859MCQ)return;window.__deenV859MCQ=true;
+ const VERSION='8.5.9-RAPID-CHOICE-MCQ',BUILD='859mcq1';
+ let rounds=0,answers=0,correctAnswers=0,autoAdvanced=0,advanceTimer=0;
+ const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
+ const excluded=new Set(['card','scenario','odd_one_out','listen_select','pronunciation','true_false','fill_blank','match','sequence']);
+ function eligible(q){
+  if(!q||!Array.isArray(q.options_tr)||q.options_tr.length!==4)return false;
+  const kind=String(q.type||q.question_type||q.activity_type||'').toLowerCase();
+  if(excluded.has(kind))return false;
+  if(q.pairs||q.correct_order||q.items&&kind==='sequence')return false;
+  return true;
+ }
+ function currentQuestion(){try{return session?.questions?.[session.index]||null}catch(_){return null}}
+ function haptic(ok){try{navigator.vibrate?.(ok?16:[10,22,10])}catch(_){}}
+ function pop(text,gold=false){const frame=document.querySelector('.question-frame');if(!frame)return;frame.querySelector('.v859-pop')?.remove();const p=document.createElement('div');p.className='v859-pop'+(gold?' gold':'');p.textContent=text;frame.append(p);setTimeout(()=>p.remove(),800)}
+ const previousGrid=typeof shouldUseCardGrid==='function'?shouldUseCardGrid:null;
+ const gridGuard=function(q){if(eligible(q))return false;try{return previousGrid?previousGrid(q):false}catch(_){return false}};
+ try{window.shouldUseCardGrid=gridGuard;shouldUseCardGrid=gridGuard}catch(_){window.shouldUseCardGrid=gridGuard}
+ function decorate(){
+  clearTimeout(advanceTimer);
+  const q=currentQuestion(),area=document.getElementById('answerArea'),frame=document.querySelector('.question-frame');
+  frame?.classList.remove('v859-mcq-mode');
+  if(!eligible(q)||!area)return false;
+  const optionsHost=area.querySelector('.options');if(!optionsHost)return false;
+  rounds++;frame?.classList.remove('v852-card-mode');frame?.classList.add('v859-mcq-mode');
+  optionsHost.classList.remove('grid','premium-grid','v852-card-grid');optionsHost.classList.add('v859-choice-list');
+  const hint=document.getElementById('qType');if(hint)hint.textContent='Hızlı karar · doğru olduğunu düşündüğün seçeneğe dokun.';
+  const cta=area.querySelector('.template-action');if(cta){cta.style.display='none';cta.tabIndex=-1;cta.setAttribute('aria-hidden','true')}
+  if(!area.querySelector('.v859-speed-tag')){const tag=document.createElement('div');tag.className='v859-speed-tag';tag.textContent='TEK DOKUNUŞTA CEVAPLA';optionsHost.before(tag)}
+  let locked=false;
+  [...optionsHost.querySelectorAll('.option')].forEach((b,idx)=>{
+   b.querySelector('.v859-choice-num')?.remove();b.querySelector('.v859-choice-arrow')?.remove();
+   const num=document.createElement('span');num.className='v859-choice-num';num.textContent=String(idx+1);
+   const arrow=document.createElement('span');arrow.className='v859-choice-arrow';arrow.textContent='›';
+   b.prepend(num);b.append(arrow);b.dataset.v859='1';
+   b.onclick=e=>{
+    e.preventDefault();e.stopPropagation();if(locked||document.getElementById('feedback')?.classList.contains('show'))return;
+    locked=true;answers++;
+    const label=b.querySelector('.option-label');const value=String(label?.textContent||q.options_tr[idx]||'').trim();
+    const correct=norm(value)===norm(q.correct_answer);if(correct)correctAnswers++;
+    optionsHost.querySelectorAll('.option').forEach(x=>x.classList.remove('selected','v859-picked'));b.classList.add('selected','v859-picked');haptic(correct);
+    setTimeout(()=>{
+      try{submitAnswer(value,b)}catch(err){locked=false;console.error('DEEN mcq submit',err);return}
+      optionsHost.classList.add('v859-resolved');
+      let streak=0;try{streak=Number(session?.combo)||0}catch(_){}
+      const title=document.getElementById('feedbackTitle');
+      if(correct){
+       if(title)title.textContent=streak>=3?'🔥 '+streak+' SERİ':'✓ DOĞRU!';
+       pop(streak>=5?'🔥 '+streak+' SERİ · DEVAM!':streak>=3?streak+' SERİ ✦':['GÜZEL!','TAM İSABET!','DEVAM!'][correctAnswers%3],streak>=3);
+       advanceTimer=setTimeout(()=>{const btn=document.getElementById('continueBtn');if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;btn.click()}},1000);
+      }else if(title)title.textContent='Birlikte düzeltelim';
+      try{document.dispatchEvent(new CustomEvent('deen:mcq:answered',{detail:{version:VERSION,id:q.id||'',correct,choice:value,streak}}))}catch(_){}
+    },65);
+   };
+  });
+  return true;
+ }
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v859){
+  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v859-mcq-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
+  wrapped.__v859=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.DEEN_RAPID_CHOICE_MCQ={version:VERSION,build:BUILD,eligible,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,answers,correctAnswers,autoAdvanced,active:!!document.querySelector('.v859-mcq-mode')})};
+ document.documentElement.dataset.deenRapidChoice='ready';
+})();
+</script>
+
+<!-- DEEN v8.6.0 — Listen & Select Mini-game -->
+<style id="deen-v860-listen-css">
+.question-frame.v860-listen-mode{padding-top:42px}
+.question-frame.v860-listen-mode .qtype{margin-bottom:10px;color:#9fb9bd}
+.question-frame.v860-listen-mode .template-action{display:none!important}
+.v860-audio-card{position:relative;margin:3px 0 13px;padding:16px 14px 14px;border:1px solid rgba(92,164,161,.34);border-radius:23px;background:linear-gradient(150deg,rgba(10,47,56,.99),rgba(6,29,38,.99));box-shadow:inset 0 1px rgba(255,255,255,.03),0 12px 25px rgba(0,0,0,.17);overflow:hidden}
+.v860-audio-card:before{content:"";position:absolute;right:-32px;top:-40px;width:126px;height:126px;border-radius:50%;border:1px solid rgba(222,195,111,.11);box-shadow:0 0 45px rgba(222,195,111,.035)}
+.v860-audio-top{position:relative;display:flex;align-items:center;gap:12px}
+.v860-play{flex:0 0 58px;width:58px;height:58px;border-radius:19px;border:1px solid rgba(125,227,201,.38);background:linear-gradient(180deg,rgba(37,112,99,.96),rgba(18,72,72,.98));color:#eafff8;box-shadow:0 10px 22px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.06);display:grid;place-items:center;font:950 21px/1 Inter,system-ui,sans-serif;transition:transform 130ms ease,box-shadow 180ms ease,border-color 180ms ease}
+.v860-play:not(:disabled):active{transform:scale(.95)}
+.v860-play.playing{border-color:#92ead2;box-shadow:0 0 0 3px rgba(128,229,202,.09),0 12px 25px rgba(0,0,0,.2)}
+.v860-play:disabled{opacity:.42}
+.v860-audio-info{min-width:0;flex:1}.v860-audio-info b{display:block;color:#eef8f5;font:900 12px/1.2 Inter,system-ui,sans-serif}.v860-audio-info span{display:block;margin-top:5px;color:#88a8ac;font:720 8px/1.35 Inter,system-ui,sans-serif;letter-spacing:.2px}
+.v860-wave{position:relative;height:42px;margin-top:13px;display:flex;align-items:center;justify-content:center;gap:4px;padding:0 8px;border-radius:15px;border:1px solid rgba(76,129,139,.26);background:rgba(5,27,35,.48);overflow:hidden}
+.v860-wave i{display:block;width:3px;height:11px;border-radius:999px;background:#477f82;opacity:.72;transform-origin:center;transition:height 180ms ease,background 180ms ease,opacity 180ms ease}
+.v860-wave.playing i{background:#7bdec5;opacity:1;animation:v860Wave 740ms ease-in-out infinite alternate}
+.v860-wave.playing i:nth-child(2n){animation-delay:-180ms}.v860-wave.playing i:nth-child(3n){animation-delay:-360ms}.v860-wave.playing i:nth-child(5n){animation-delay:-520ms}
+.v860-audio-state{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px;color:#718f94;font:800 7px/1.25 Inter,system-ui,sans-serif;letter-spacing:.45px}.v860-audio-state b{color:#b8ddd4;font-size:8px}.v860-audio-state.ready b{color:#8be2c9}.v860-audio-state.error b{color:#e7a8b3}
+.v860-list{display:flex;flex-direction:column;gap:9px}.v860-list.locked{opacity:.62}.v860-list.locked .v860-choice{cursor:not-allowed}
+.v860-choice.option{position:relative;min-height:61px;padding:11px 42px 11px 50px;border-radius:18px;border:1px solid rgba(86,137,149,.45);background:linear-gradient(180deg,rgba(9,38,48,.98),rgba(6,28,36,.99));color:#edf6f3;box-shadow:inset 0 1px rgba(255,255,255,.025),0 8px 17px rgba(0,0,0,.14);text-align:left;font:770 12px/1.3 Inter,system-ui,sans-serif;display:flex;align-items:center;transition:transform 130ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease,opacity 180ms ease}
+.v860-choice.option:not(:disabled):active{transform:scale(.985)}
+.v860-choice-num{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(98,207,183,.24);background:rgba(18,67,68,.76);color:#a8ead6;font:950 9px/1 Inter,system-ui,sans-serif}
+.v860-choice-arrow{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:#587d83;font:900 15px/1 Inter,system-ui,sans-serif}
+.v860-choice.option.correct{border-color:#79dfc0!important;background:linear-gradient(180deg,rgba(18,77,65,.98),rgba(8,48,43,.99))!important;animation:v860Good 420ms cubic-bezier(.2,.75,.25,1)}
+.v860-choice.option.wrong{border-color:#d88695!important;background:linear-gradient(180deg,rgba(76,40,49,.98),rgba(46,27,34,.99))!important;animation:v860Wrong 300ms ease}
+.v860-list.resolved .v860-choice.option:not(.correct):not(.wrong){opacity:.5}
+.v860-hear-first{margin:8px 0 2px;text-align:center;color:#6e8c91;font:850 7px/1 Inter,system-ui,sans-serif;letter-spacing:.6px}
+@keyframes v860Wave{0%{height:8px}50%{height:28px}100%{height:14px}}
+@keyframes v860Good{0%{transform:scale(.985)}48%{transform:scale(1.018)}100%{transform:scale(1)}}
+@keyframes v860Wrong{0%,100%{transform:translateX(0)}28%{transform:translateX(-4px)}62%{transform:translateX(4px)}}
+@media(max-width:390px){.v860-audio-card{padding:14px 12px 12px;border-radius:20px}.v860-play{width:54px;height:54px;flex-basis:54px;border-radius:17px}.v860-choice.option{min-height:57px;padding:10px 38px 10px 46px;border-radius:16px;font-size:11px}.v860-choice-num{width:26px;height:26px}.v860-wave{height:38px}}
+@media(prefers-reduced-motion:reduce){.v860-wave.playing i,.v860-choice.option,.v860-choice.option.correct,.v860-choice.option.wrong{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v860-listen-runtime">
+(()=>{
+ if(window.__deenV860Listen)return;window.__deenV860Listen=true;
+ const VERSION='8.6.0-LISTEN-SELECT-MINIGAME',BUILD='860listen1';
+ let rounds=0,plays=0,answers=0,correctAnswers=0,autoAdvanced=0,advanceTimer=0,audio=null,unlockTimer=0;
+ const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
+ function kind(q){return String(q?.type||q?.question_type||q?.activity_type||'').toLowerCase()}
+ function eligible(q){return !!q&&['listen_select','listen-and-select','audio_select','audio_choice'].includes(kind(q))&&Array.isArray(q.options_tr)&&q.options_tr.length>=2&&q.options_tr.length<=4}
+ function currentQuestion(){try{return session?.questions?.[session.index]||null}catch(_){return null}}
+ function audioSource(q){return String(q?.audio_url||q?.audio_src||q?.audio_source||q?.voice_url||q?.media_url||q?.audio||'').trim()}
+ function stopAudio(){clearTimeout(unlockTimer);if(audio){try{audio.pause();audio.currentTime=0}catch(_){}audio=null}}
+ function haptic(ok){try{navigator.vibrate?.(ok?16:[10,22,10])}catch(_){}}
+ function decorate(){
+  clearTimeout(advanceTimer);stopAudio();
+  const q=currentQuestion(),area=document.getElementById('answerArea'),frame=document.querySelector('.question-frame');
+  frame?.classList.remove('v860-listen-mode');
+  if(!eligible(q)||!area)return false;
+  rounds++;frame?.classList.remove('v852-card-mode','v859-mcq-mode');frame?.classList.add('v860-listen-mode');
+  const hint=document.getElementById('qType');if(hint)hint.textContent='Önce dinle · sonra doğru cevabı seç.';
+  const src=audioSource(q);area.innerHTML='';
+  const card=document.createElement('div');card.className='v860-audio-card';
+  const top=document.createElement('div');top.className='v860-audio-top';
+  const play=document.createElement('button');play.type='button';play.className='v860-play';play.setAttribute('aria-label','Ses kaydını oynat');play.textContent='▶';
+  const info=document.createElement('div');info.className='v860-audio-info';
+  const title=document.createElement('b');title.textContent=String(q.audio_title_tr||q.audio_label_tr||'Ses kaydını dinle');
+  const sub=document.createElement('span');sub.textContent=String(q.audio_hint_tr||'Kaydı istediğin kadar tekrar dinleyebilirsin.');info.append(title,sub);top.append(play,info);
+  const wave=document.createElement('div');wave.className='v860-wave';wave.setAttribute('aria-hidden','true');for(let i=0;i<18;i++)wave.append(document.createElement('i'));
+  const state=document.createElement('div');state.className='v860-audio-state';state.innerHTML='<span>DİNLEME DURUMU</span><b>ÖNCE SESİ DİNLE</b>';
+  card.append(top,wave,state);
+  const hear=document.createElement('div');hear.className='v860-hear-first';hear.textContent='SEÇENEKLER DİNLEDİKTEN SONRA AÇILIR';
+  const list=document.createElement('div');list.className='v860-list locked';
+  area.append(card,hear,list);
+  let heard=false,locked=false;
+  const setPlaying=on=>{play.classList.toggle('playing',on);wave.classList.toggle('playing',on);play.textContent=on?'Ⅱ':'▶';play.setAttribute('aria-label',on?'Ses kaydını duraklat':'Ses kaydını oynat')};
+  const unlock=()=>{if(heard)return;heard=true;list.classList.remove('locked');list.querySelectorAll('button').forEach(b=>b.disabled=false);state.classList.add('ready');state.querySelector('b').textContent='DİNLENDİ · SEÇEBİLİRSİN';hear.textContent='ŞİMDİ DOĞRU CEVABI SEÇ';try{document.dispatchEvent(new CustomEvent('deen:listen:unlocked',{detail:{version:VERSION,id:q.id||''}}))}catch(_){}};
+  if(!src){play.disabled=true;state.classList.add('error');state.querySelector('b').textContent='SES KAYDI BAĞLI DEĞİL';sub.textContent='Bu soru yayınlanmadan önce onaylı bir ses dosyası bağlanmalı.'}
+  else{
+   audio=new Audio();audio.preload='metadata';audio.src=src;
+   audio.addEventListener('playing',()=>{setPlaying(true);plays++;clearTimeout(unlockTimer);unlockTimer=setTimeout(unlock,550);try{document.dispatchEvent(new CustomEvent('deen:listen:play',{detail:{version:VERSION,id:q.id||'',plays}}))}catch(_){}});
+   audio.addEventListener('pause',()=>setPlaying(false));audio.addEventListener('ended',()=>{setPlaying(false);unlock()});
+   audio.addEventListener('error',()=>{setPlaying(false);play.disabled=true;state.classList.add('error');state.querySelector('b').textContent='SES YÜKLENEMEDİ';sub.textContent='Ses kaynağını kontrol et.'});
+   play.onclick=async()=>{if(!audio)return;if(!audio.paused){audio.pause();return}try{await audio.play()}catch(err){state.classList.add('error');state.querySelector('b').textContent='OYNATMA BAŞLATILAMADI';console.error('DEEN listen audio',err)}};
+  }
+  q.options_tr.forEach((opt,idx)=>{
+   const b=document.createElement('button');b.type='button';b.className='option v860-choice';b.disabled=!heard;
+   const num=document.createElement('span');num.className='v860-choice-num';num.textContent=String(idx+1);
+   const label=document.createElement('span');label.className='option-label';label.textContent=String(opt);
+   const arrow=document.createElement('span');arrow.className='v860-choice-arrow';arrow.textContent='›';b.append(num,label,arrow);list.append(b);
+   b.onclick=e=>{
+    e.preventDefault();e.stopPropagation();if(!heard||locked||document.getElementById('feedback')?.classList.contains('show'))return;locked=true;answers++;stopAudio();
+    const value=String(opt),correct=norm(value)===norm(q.correct_answer);if(correct)correctAnswers++;haptic(correct);
+    try{submitAnswer(value,b)}catch(err){locked=false;console.error('DEEN listen submit',err);return}
+    list.classList.add('resolved');const ft=document.getElementById('feedbackTitle');
+    if(correct){if(ft)ft.textContent='✓ DOĞRU DUYDUN';advanceTimer=setTimeout(()=>{const btn=document.getElementById('continueBtn');if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;btn.click()}},1100)}
+    else if(ft)ft.textContent='Bir kez daha dinleyelim';
+    try{document.dispatchEvent(new CustomEvent('deen:listen:answered',{detail:{version:VERSION,id:q.id||'',correct,choice:value,plays}}))}catch(_){}
+   };
+  });
+  return true;
+ }
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v860){
+  const wrapped=function(...args){clearTimeout(advanceTimer);stopAudio();document.querySelector('.question-frame')?.classList.remove('v860-listen-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
+  wrapped.__v860=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.addEventListener('beforeunload',stopAudio);
+ window.DEEN_LISTEN_SELECT_MINIGAME={version:VERSION,build:BUILD,eligible,decorate,requiresApprovedAudio:true,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,plays,answers,correctAnswers,autoAdvanced,active:!!document.querySelector('.v860-listen-mode')})};
+ document.documentElement.dataset.deenListenSelect='ready';
+})();
+</script>
+
+<!-- DEEN v8.6.1 — Pronunciation Practice -->
+<style id="deen-v861-pronunciation-css">
+.question-frame.v861-pron-mode{padding-top:42px}
+.question-frame.v861-pron-mode .qtype{margin-bottom:10px;color:#9fb9bd}
+.question-frame.v861-pron-mode .template-action{display:none!important}
+.v861-pron-wrap{display:flex;flex-direction:column;gap:11px;margin-top:3px}
+.v861-target{position:relative;padding:15px 14px;border:1px solid rgba(96,164,158,.34);border-radius:22px;background:linear-gradient(150deg,rgba(10,47,56,.99),rgba(6,29,38,.99));box-shadow:inset 0 1px rgba(255,255,255,.03),0 12px 25px rgba(0,0,0,.16);overflow:hidden}
+.v861-target:before{content:"";position:absolute;right:-36px;top:-42px;width:126px;height:126px;border-radius:50%;border:1px solid rgba(224,196,111,.11)}
+.v861-target-label{position:relative;color:#7ea5a7;font:900 7px/1 Inter,system-ui,sans-serif;letter-spacing:1px}.v861-target-text{position:relative;margin-top:9px;color:#f1f8f5;font:850 17px/1.45 Inter,system-ui,sans-serif;text-align:center}.v861-target-hint{position:relative;margin-top:8px;color:#78989d;font:700 8px/1.35 Inter,system-ui,sans-serif;text-align:center}
+.v861-reference{display:grid;grid-template-columns:54px 1fr;gap:11px;align-items:center;padding:11px;border:1px solid rgba(78,132,141,.3);border-radius:18px;background:rgba(6,29,37,.58)}
+.v861-ref-play{width:54px;height:54px;border-radius:17px;border:1px solid rgba(125,227,201,.35);background:linear-gradient(180deg,rgba(35,109,97,.96),rgba(18,71,71,.98));color:#eafff8;font:950 19px/1 Inter,system-ui,sans-serif;box-shadow:0 8px 18px rgba(0,0,0,.18)}.v861-ref-play:disabled{opacity:.38}.v861-ref-play.playing{border-color:#90e9d0;box-shadow:0 0 0 3px rgba(128,229,202,.08),0 8px 18px rgba(0,0,0,.18)}
+.v861-ref-copy b{display:block;color:#e9f5f1;font:900 10px/1.2 Inter,system-ui,sans-serif}.v861-ref-copy span{display:block;margin-top:5px;color:#7f9da2;font:700 8px/1.35 Inter,system-ui,sans-serif}
+.v861-mic-card{padding:14px 12px;border:1px solid rgba(82,139,148,.34);border-radius:22px;background:linear-gradient(180deg,rgba(8,37,47,.96),rgba(5,27,35,.99));text-align:center;overflow:hidden}
+.v861-wave{height:38px;display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:10px}.v861-wave i{width:3px;height:8px;border-radius:999px;background:#476f76;opacity:.64}.v861-mic-card.recording .v861-wave i{background:#83e2c9;opacity:1;animation:v861Wave 620ms ease-in-out infinite alternate}.v861-mic-card.recording .v861-wave i:nth-child(2n){animation-delay:-150ms}.v861-mic-card.recording .v861-wave i:nth-child(3n){animation-delay:-300ms}.v861-mic-card.recording .v861-wave i:nth-child(5n){animation-delay:-430ms}
+.v861-mic{width:72px;height:72px;border-radius:24px;border:1px solid rgba(119,221,194,.38);background:linear-gradient(180deg,#267a6d,#155a59);color:#effff9;box-shadow:0 12px 25px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.06);font:950 24px/1 Inter,system-ui,sans-serif;transition:transform 130ms ease,box-shadow 180ms ease}.v861-mic:active{transform:scale(.95)}.v861-mic-card.recording .v861-mic{background:linear-gradient(180deg,#8b4655,#61343e);border-color:rgba(235,155,169,.5);box-shadow:0 0 0 5px rgba(220,113,134,.08),0 12px 25px rgba(0,0,0,.22)}
+.v861-mic-title{margin-top:9px;color:#eaf6f2;font:900 10px/1.2 Inter,system-ui,sans-serif}.v861-mic-sub{margin-top:5px;color:#7f9ea3;font:700 8px/1.35 Inter,system-ui,sans-serif}
+.v861-heard{display:none;padding:10px 11px;border:1px solid rgba(87,147,150,.3);border-radius:16px;background:rgba(8,35,42,.66);text-align:left}.v861-heard.show{display:block}.v861-heard small{display:block;color:#6f9296;font:850 7px/1 Inter,system-ui,sans-serif;letter-spacing:.7px}.v861-heard b{display:block;margin-top:6px;color:#dff3ed;font:800 11px/1.35 Inter,system-ui,sans-serif}.v861-heard em{display:block;margin-top:7px;color:#88adad;font:750 8px/1.35 Inter,system-ui,sans-serif;font-style:normal}.v861-heard.good{border-color:rgba(110,219,189,.38)}.v861-heard.good em{color:#95e3cd}.v861-heard.warn{border-color:rgba(220,183,105,.3)}.v861-heard.warn em{color:#dbc989}
+.v861-self-audio{display:none;width:100%;height:34px;margin-top:8px}.v861-self-audio.show{display:block}
+.v861-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.v861-retry,.v861-finish{min-height:48px;border-radius:15px;font:900 10px/1 Inter,system-ui,sans-serif;letter-spacing:.3px}.v861-retry{border:1px solid rgba(89,145,153,.4);background:rgba(9,39,48,.9);color:#b9d0d0}.v861-finish{border:1px solid rgba(112,215,189,.36);background:linear-gradient(180deg,#195d58,#104846);color:#eafff8}.v861-actions button:disabled{opacity:.4}
+.v861-note{color:#6d8b90;font:700 7px/1.4 Inter,system-ui,sans-serif;text-align:center;padding:0 8px}
+@keyframes v861Wave{0%{height:7px}50%{height:29px}100%{height:13px}}
+@media(max-width:390px){.v861-target{padding:13px 12px;border-radius:19px}.v861-target-text{font-size:15px}.v861-reference{grid-template-columns:50px 1fr}.v861-ref-play{width:50px;height:50px;border-radius:16px}.v861-mic{width:68px;height:68px;border-radius:22px}}
+@media(prefers-reduced-motion:reduce){.v861-mic-card.recording .v861-wave i,.v861-mic{animation:none!important;transition:none!important}}
+</style>
+<script id="deen-v861-pronunciation-runtime">
+(()=>{
+ if(window.__deenV861Pronunciation)return;window.__deenV861Pronunciation=true;
+ const VERSION='8.6.1-PRONUNCIATION-PRACTICE',BUILD='861speak1';
+ let rounds=0,attempts=0,recognitions=0,completed=0,refPlays=0;
+ let refAudio=null,recognizer=null,stream=null,recorder=null,chunks=[],stopTimer=0,userUrl='';
+ function kind(q){return String(q?.type||q?.question_type||q?.activity_type||'').toLowerCase()}
+ function eligible(q){return !!q&&['pronunciation','pronounce','speaking','repeat_after_me','speak'].includes(kind(q))}
+ function currentQuestion(){try{return session?.questions?.[session.index]||null}catch(_){return null}}
+ function target(q){return String(q?.target_text_tr||q?.target_text||q?.targetText||q?.phrase_tr||q?.phrase||q?.text_to_repeat||q?.correct_answer||q?.answer||'').trim()}
+ function audioSource(q){return String(q?.audio_url||q?.audio_src||q?.reference_audio_url||q?.voice_url||q?.media_url||q?.audio||'').trim()}
+ function norm(v){return String(v??'').normalize('NFKD').toLocaleLowerCase('tr-TR').replace(/[ً-ٰٟۖ-ۭ]/g,'').replace(/ـ/g,'').replace(/[إأآٱ]/g,'ا').replace(/ى/g,'ي').replace(/[^p{L}p{N}s]/gu,' ').replace(/s+/g,' ').trim()}
+ function similarity(a,b){a=norm(a);b=norm(b);if(!a&&!b)return 1;if(!a||!b)return 0;const m=a.length,n=b.length,dp=new Array(n+1);for(let j=0;j<=n;j++)dp[j]=j;for(let i=1;i<=m;i++){let prev=dp[0];dp[0]=i;for(let j=1;j<=n;j++){const tmp=dp[j],cost=a[i-1]===b[j-1]?0:1;dp[j]=Math.min(dp[j]+1,dp[j-1]+1,prev+cost);prev=tmp}}return Math.max(0,1-dp[n]/Math.max(m,n))}
+ function stopRef(){if(refAudio){try{refAudio.pause();refAudio.currentTime=0}catch(_){}refAudio=null}}
+ function cleanupMic(){clearTimeout(stopTimer);try{recognizer?.abort?.()}catch(_){}recognizer=null;try{if(recorder&&recorder.state!=='inactive')recorder.stop()}catch(_){}recorder=null;try{stream?.getTracks?.().forEach(t=>t.stop())}catch(_){}stream=null;chunks=[]}
+ function cleanup(){stopRef();cleanupMic();if(userUrl){try{URL.revokeObjectURL(userUrl)}catch(_){}userUrl=''}}
+ function haptic(){try{navigator.vibrate?.(14)}catch(_){}}
+ function decorate(){
+  cleanup();
+  const q=currentQuestion(),area=document.getElementById('answerArea'),frame=document.querySelector('.question-frame');
+  frame?.classList.remove('v861-pron-mode');
+  if(!eligible(q)||!area)return false;
+  const phrase=target(q);if(!phrase)return false;
+  rounds++;frame?.classList.remove('v852-card-mode','v859-mcq-mode','v860-listen-mode');frame?.classList.add('v861-pron-mode');
+  const hint=document.getElementById('qType');if(hint)hint.textContent='Dinle · mikrofona bas · tekrar et.';
+  const question=document.getElementById('questionText');if(question)question.textContent=String(q.instruction_tr||q.question_tr||q.prompt_tr||'Aşağıdaki ifadeyi sesli tekrar et.');
+  area.innerHTML='';
+  const wrap=document.createElement('div');wrap.className='v861-pron-wrap';
+  const targetCard=document.createElement('div');targetCard.className='v861-target';targetCard.innerHTML='<div class="v861-target-label">TEKRAR EDECEĞİN İFADE</div><div class="v861-target-text"></div><div class="v861-target-hint">Önce örneği dinle, sonra kendi sesinle tekrar et.</div>';targetCard.querySelector('.v861-target-text').textContent=phrase;
+  const reference=document.createElement('div');reference.className='v861-reference';
+  const refBtn=document.createElement('button');refBtn.type='button';refBtn.className='v861-ref-play';refBtn.textContent='▶';refBtn.setAttribute('aria-label','Örnek telaffuzu dinle');
+  const refCopy=document.createElement('div');refCopy.className='v861-ref-copy';refCopy.innerHTML='<b>Örnek telaffuz</b><span></span>';reference.append(refBtn,refCopy);
+  const src=audioSource(q);refCopy.querySelector('span').textContent=src?'Onaylı ses kaydını istediğin kadar dinleyebilirsin.':'Bu içerik için henüz onaylı örnek ses bağlanmadı.';
+  if(!src)refBtn.disabled=true;else{refAudio=new Audio();refAudio.preload='metadata';refAudio.src=src;refAudio.addEventListener('playing',()=>{refBtn.classList.add('playing');refBtn.textContent='Ⅱ';refPlays++});refAudio.addEventListener('pause',()=>{refBtn.classList.remove('playing');refBtn.textContent='▶'});refAudio.addEventListener('ended',()=>{refBtn.classList.remove('playing');refBtn.textContent='▶'});refAudio.addEventListener('error',()=>{refBtn.disabled=true;refCopy.querySelector('span').textContent='Örnek ses yüklenemedi; kaynak kontrol edilmeli.'});refBtn.onclick=async()=>{if(!refAudio)return;if(!refAudio.paused){refAudio.pause();return}try{await refAudio.play()}catch(err){console.error('DEEN pronunciation reference',err)}}}
+  const micCard=document.createElement('div');micCard.className='v861-mic-card';
+  const wave=document.createElement('div');wave.className='v861-wave';for(let i=0;i<18;i++)wave.append(document.createElement('i'));
+  const mic=document.createElement('button');mic.type='button';mic.className='v861-mic';mic.textContent='●';mic.setAttribute('aria-label','Telaffuz kaydını başlat');
+  const micTitle=document.createElement('div');micTitle.className='v861-mic-title';micTitle.textContent='Mikrofona bas ve tekrar et';
+  const micSub=document.createElement('div');micSub.className='v861-mic-sub';micSub.textContent='İlk denemede mükemmel olmak zorunda değil.';
+  micCard.append(wave,mic,micTitle,micSub);
+  const heard=document.createElement('div');heard.className='v861-heard';heard.innerHTML='<small>SİSTEMİN DUYDUĞU</small><b></b><em></em>';
+  const selfAudio=document.createElement('audio');selfAudio.className='v861-self-audio';selfAudio.controls=true;heard.append(selfAudio);
+  const actions=document.createElement('div');actions.className='v861-actions';
+  const retry=document.createElement('button');retry.type='button';retry.className='v861-retry';retry.textContent='TEKRAR DENE';retry.disabled=true;
+  const finish=document.createElement('button');finish.type='button';finish.className='v861-finish';finish.textContent='PRATİĞİ TAMAMLA';finish.disabled=true;actions.append(retry,finish);
+  const note=document.createElement('div');note.className='v861-note';note.textContent='Bu sürüm yaklaşık konuşma eşleşmesi verir; düşük eşleşme can veya enerji götürmez ve dinî telaffuz için kesin hüküm sayılmaz.';
+  wrap.append(targetCard,reference,micCard,heard,actions,note);area.append(wrap);
+  let recording=false,attempted=false,transcript='',finalized=false;
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition||null;
+  const lang=String(q.speech_lang||q.audio_lang||(/[؀-ۿ]/.test(phrase)?'ar-SA':'tr-TR'));
+  function showResult(text){
+   transcript=String(text||'').trim();heard.classList.add('show');heard.classList.remove('good','warn');const b=heard.querySelector('b'),em=heard.querySelector('em');
+   b.textContent=transcript||'Metin güvenilir biçimde çözümlenemedi.';
+   if(transcript){recognitions++;const s=similarity(phrase,transcript);if(s>=.72){heard.classList.add('good');em.textContent='Çok yakın · güzel tekrar.'}else if(s>=.5){heard.classList.add('warn');em.textContent='İyi başlangıç · istersen bir kez daha dene.'}else{heard.classList.add('warn');em.textContent='Bir kez daha yavaş ve net tekrar etmeyi dene.'}}
+   else em.textContent='Kaydını dinleyebilir veya tekrar deneyebilirsin.';
+   retry.disabled=false;finish.disabled=false;
+  }
+  function finalize(){
+   if(finalized)return;finalized=true;recording=false;micCard.classList.remove('recording');mic.textContent='●';mic.setAttribute('aria-label','Telaffuz kaydını başlat');micTitle.textContent='Denemen kaydedildi';attempted=true;haptic();
+   try{if(recorder&&recorder.state!=='inactive')recorder.stop()}catch(_){}
+   try{stream?.getTracks?.().forEach(t=>t.stop())}catch(_){}stream=null;
+   setTimeout(()=>{if(!transcript)showResult('')},180);
+  }
+  async function start(){
+   if(recording)return finalize();
+   stopRef();finalized=false;transcript='';attempts++;heard.classList.remove('show','good','warn');retry.disabled=true;finish.disabled=true;if(userUrl){try{URL.revokeObjectURL(userUrl)}catch(_){}userUrl='';selfAudio.removeAttribute('src');selfAudio.classList.remove('show')}
+   if(!navigator.mediaDevices?.getUserMedia){heard.classList.add('show','warn');heard.querySelector('b').textContent='Bu tarayıcı mikrofon kaydını desteklemiyor.';heard.querySelector('em').textContent='Başka bir güncel tarayıcıyla tekrar deneyebilirsin.';return}
+   try{stream=await navigator.mediaDevices.getUserMedia({audio:true})}catch(err){heard.classList.add('show','warn');heard.querySelector('b').textContent='Mikrofon izni alınamadı.';heard.querySelector('em').textContent='Mikrofon iznini açıp tekrar deneyebilirsin.';console.error('DEEN pronunciation mic',err);return}
+   recording=true;micCard.classList.add('recording');mic.textContent='■';mic.setAttribute('aria-label','Kaydı durdur');micTitle.textContent='Dinliyorum…';micSub.textContent='Bitirince mikrofona tekrar dokun.';
+   if(window.MediaRecorder){try{chunks=[];recorder=new MediaRecorder(stream);recorder.ondataavailable=e=>{if(e.data?.size)chunks.push(e.data)};recorder.onstop=()=>{if(chunks.length){const blob=new Blob(chunks,{type:recorder?.mimeType||'audio/webm'});userUrl=URL.createObjectURL(blob);selfAudio.src=userUrl;selfAudio.classList.add('show')}};recorder.start()}catch(err){console.warn('DEEN pronunciation recorder',err)}}
+   if(SR){try{recognizer=new SR();recognizer.lang=lang;recognizer.interimResults=true;recognizer.continuous=false;recognizer.maxAlternatives=1;recognizer.onresult=e=>{let txt='';for(let i=0;i<e.results.length;i++)txt+=e.results[i][0]?.transcript||'';transcript=txt.trim();if(transcript){heard.classList.add('show');heard.querySelector('b').textContent=transcript;heard.querySelector('em').textContent='Dinliyorum…'}};recognizer.onerror=e=>{console.warn('DEEN pronunciation recognition',e.error)};recognizer.onend=()=>{if(recording)finalize();if(transcript)showResult(transcript)};recognizer.start()}catch(err){console.warn('DEEN pronunciation recognition start',err)}}
+   stopTimer=setTimeout(finalize,8000);
+  }
+  mic.onclick=start;retry.onclick=start;
+  finish.onclick=()=>{
+   if(!attempted)return;cleanupMic();completed++;finish.disabled=true;retry.disabled=true;
+   try{completeQuestion(true,q)}catch(err){finish.disabled=false;retry.disabled=false;console.error('DEEN pronunciation complete',err);return}
+   const ft=document.getElementById('feedbackTitle'),fb=document.getElementById('feedbackText');if(ft)ft.textContent='✓ TELAFFUZ PRATİĞİ TAMAMLANDI';if(fb)fb.textContent=transcript?'Sistem yaklaşık olarak “'+transcript+'” duydu. Bu geri bildirim pratik içindir; kesin telaffuz hükmü değildir.':'Sesli tekrarını yaptın. İstersen ileride bu ifadeyi yeniden çalışabilirsin.';
+   try{document.dispatchEvent(new CustomEvent('deen:pronunciation:complete',{detail:{version:VERSION,id:q.id||'',attempts,recognized:!!transcript,language:lang}}))}catch(_){}
+  };
+  return true;
+ }
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v861){const wrapped=function(...args){cleanup();document.querySelector('.question-frame')?.classList.remove('v861-pron-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};wrapped.__v861=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}}
+ window.addEventListener('beforeunload',cleanup);
+ window.DEEN_PRONUNCIATION_PRACTICE={version:VERSION,build:BUILD,eligible,decorate,practiceFirst:true,noPenalty:true,requiresApprovedReferenceAudio:true,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,attempts,recognitions,completed,refPlays,speechRecognition:!!(window.SpeechRecognition||window.webkitSpeechRecognition),mediaRecorder:!!window.MediaRecorder,active:!!document.querySelector('.v861-pron-mode')})};
+ document.documentElement.dataset.deenPronunciation='ready';
