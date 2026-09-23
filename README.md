@@ -4,7 +4,7 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 
 ## Current build
 
-- **Version:** v8.0.2
+- **Version:** v9.9.3
 - **Entry point:** `index.html`
 - **Base artifact:** `DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html`
 - **Runtime patches:** `patches/v7.7.5.js` → `patches/v7.7.6.js` → `patches/v7.7.7.js` → `patches/v7.7.8.js` → `patches/v7.7.9.js` → `patches/v7.8.0.js` → `patches/v7.8.1.js` → `patches/v7.8.2.js` → `patches/v7.8.3.js` → `patches/v7.8.4.js` → `patches/v7.8.5.js` → `patches/v7.8.6.js` → `patches/v7.8.7.js` → `patches/v7.8.8.js` → `patches/v7.8.9.js` → `patches/v7.9.0.js` → `patches/v7.9.1.js` → `patches/v7.9.2.js` → `patches/v8.0.0.js` → `patches/v8.0.1.js` → `patches/v8.0.2.js`
@@ -16,7 +16,8 @@ DEEN — oyunlaştırılmış İslami öğrenme uygulaması prototipi.
 - **v8.0.0 runtime assets:** `patches/v8.0.0.runtime.js`, `patches/v8.0.0.css`
 - **v8.0.1 runtime asset:** `patches/v8.0.1.runtime.js`
 - **v8.0.2 runtime assets:** `patches/v8.0.2.runtime.js`, `patches/v8.0.2.css`
-- **Latest QA:** `qa/v8.0.2_DUNYAM_PROGRESS_CARD_STABILITY_QA.md`
+- **Current release bundle:** `patches/v9.0.0-v9.9.3-stage-intro.js`
+- **Release status:** v9.9.3 feature set synchronized with the canonical single-file build.
 
 ## Current focus — Dünyam
 
