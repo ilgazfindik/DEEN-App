@@ -1,0 +1,1000 @@
+ function render(){
+   const root=$('#v812Wardrobe');if(!root)return;
+   $('.v812-avatar',root).innerHTML=previewSvg();
+   const a=av();$('.v812-stage-badge',root).textContent=(a.gender==='female'?'KADIN':'ERKEK')+' · CANLI ÖNİZLEME';
+   const defs=allowedSubs();if(!defs.some(([k])=>k===S.sub))S.sub=defs[0]?.[0]||'head';
+   $('.v812-subtabs',root).innerHTML=defs.map(([k,l])=>`<button type="button" class="v812-subtab ${S.sub===k?'active':''}" data-v812-sub="${k}">${l}</button>`).join('');
+   $$('.v812-main-tab',root).forEach(b=>b.classList.toggle('active',b.dataset.v812Cat===S.cat));
+   $('.v812-grid',root).innerHTML=S.sub==='worldOutfit'?outfitCards():avatarCards(S.sub);
+   const cost=purchaseCost(),it=outfitBy(currentOutfit());
+   const foot=$('.v812-footcopy',root),btn=$('.v812-buy-save',root);
+   if(cost>0){foot.innerHTML=`<b>${it?.name||'Kıyafet'} seçildi</b><small>Kaydederken satın alınacak · mevcut bakiye ${Number(ws().gold||0)} Altın</small>`;btn.textContent=`🪙 ${cost} · SATIN AL & KAYDET`;btn.disabled=Number(ws().gold||0)<cost}
+   else{foot.innerHTML='<b>Görünüm hazır</b><small>Seçimlerin karakterinde ve Dünyam’da kullanılacak.</small>';btn.textContent='KAYDET & ODAYA DÖN';btn.disabled=false}
+ }
+ function mount(){
+   let root=$('#v812Wardrobe');if(root)return root;
+   root=document.createElement('div');root.id='v812Wardrobe';
+   root.innerHTML=`<div class="v812-head"><button type="button" class="v812-back" data-v812-cancel>‹</button><div class="v812-title"><b>Giyinme Odası</b><small>Karakterini tek ekranda hızlıca düzenle</small></div><button type="button" class="v812-save" data-v812-save>Kaydet</button></div><div class="v812-stage"><div class="v812-stage-badge">CANLI ÖNİZLEME</div><div class="v812-stage-meta"><button class="v812-mini" type="button" data-v812-random>RASTGELE</button></div><div class="v812-avatar"></div></div><div class="v812-main-tabs">${Object.entries(CATS).map(([k,v])=>`<button type="button" class="v812-main-tab ${k===S.cat?'active':''}" data-v812-cat="${k}">${v.label}</button>`).join('')}</div><div class="v812-subtabs"></div><div class="v812-panel"><div class="v812-grid"></div></div><div class="v812-footer"><div class="v812-footcopy"><b>Görünüm hazır</b><small>Seçimlerin karakterinde ve Dünyam’da kullanılacak.</small></div><button type="button" class="v812-buy-save" data-v812-save>KAYDET & ODAYA DÖN</button></div>`;
+   document.body.append(root);
+   root.addEventListener('click',e=>{
+     const cat=e.target.closest('[data-v812-cat]');if(cat){S.cat=cat.dataset.v812Cat;S.sub=allowedSubs()[0]?.[0]||'head';render();return}
+     const sub=e.target.closest('[data-v812-sub]');if(sub){S.sub=sub.dataset.v812Sub;render();return}
+     const opt=e.target.closest('[data-v812-avatar]');if(opt){const c=opt.dataset.v812Avatar,v=opt.dataset.v812Value;try{studio()?.select?.(c,v)}catch(err){};setTimeout(render,20);return}
+     const outfit=e.target.closest('[data-v812-outfit]');if(outfit){S.previewOutfit=outfit.dataset.v812Outfit;render();return}
+     if(e.target.closest('[data-v812-random]')){try{studio()?.randomize?.()}catch(err){};setTimeout(render,30);return}
+     if(e.target.closest('[data-v812-cancel]')){cancel();return}
+     if(e.target.closest('[data-v812-save]')){commit();return}
+   });
+   return root;
+ }
+ function open(){
+   try{window.DEEN_WARDROBE_UI?.close?.()}catch(e){}
+   try{const d=document.getElementById('v5Sheet');if(d?.open)d.close()}catch(e){}
+   const root=mount();S.initialAvatar=clone(av());S.initialWorldOutfit=ws().equipped?.outfit||'outfit_teal';S.previewOutfit=S.initialWorldOutfit;S.cat='head';S.sub='head';S.open=true;root.classList.add('open');document.body.style.overflow='hidden';render();
+ }
+ function restoreAvatar(){if(!S.initialAvatar)return;try{state.myWorld=state.myWorld||{};state.myWorld.avatar=clone(S.initialAvatar);saveState?.();updateUI?.()}catch(e){} }
+ function closeOnly(){const root=$('#v812Wardrobe');if(root)root.classList.remove('open');document.body.style.overflow='';S.open=false}
+ function cancel(){restoreAvatar();closeOnly();setTimeout(()=>{try{world()?.open?.('world')}catch(e){}},60)}
+ function commit(){
+   const id=currentOutfit(),it=outfitBy(id),cost=purchaseCost();if(cost>0&&Number(ws().gold||0)<cost)return;
+   try{if(cost>0)world()?.buy?.(id);else if(it)world()?.equip?.(id)}catch(e){}
+   try{state.myWorld.avatar.created=true;state.myWorld.avatar.libraryVersion='8.1.2';saveState?.();updateUI?.()}catch(e){}
+   closeOnly();setTimeout(()=>{try{world()?.open?.('world')}catch(e){}},80)
+ }
+ document.addEventListener('click',e=>{const b=e.target.closest?.('[data-v810-open-wardrobe]');if(!b)return;setTimeout(open,0)},true);
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.open){e.preventDefault();cancel()}},true);
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);try{saveState?.()}catch(e){}
+ window.DEEN_WARDROBE_PRO={version:VERSION,stateVersion:STATE_VERSION,open,cancel,save:commit,render,snapshot:()=>({open:S.open,cat:S.cat,sub:S.sub,previewOutfit:currentOutfit(),avatar:clone(av()),cost:purchaseCost()})};
+ setTimeout(()=>{window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.1.2 — Premium Giyinme Odası'},1200);
+})();
+
+</script>
+<style data-inline-from="./patches/v8.1.3.css">
+#v812Wardrobe{--v813-accent:#89e0ca;--v813-panel:#0a222a;--v813-card:#11313a}
+#v812Wardrobe .v812-head{min-height:64px;padding-top:max(10px,env(safe-area-inset-top));box-shadow:0 10px 30px rgba(0,0,0,.08)}
+#v812Wardrobe .v812-title b{font-size:17px;letter-spacing:-.2px}
+#v812Wardrobe .v812-title small{font-size:8.5px}
+#v812Wardrobe .v812-stage{height:310px;min-height:310px;background:radial-gradient(circle at 76% 14%,rgba(121,226,198,.18),transparent 18%),radial-gradient(circle at 24% 35%,rgba(74,138,157,.12),transparent 28%),linear-gradient(180deg,#10343e 0 57%,#0c282f 57% 100%)}
+#v812Wardrobe .v812-stage:before{bottom:22px;width:250px;height:68px;background:radial-gradient(ellipse,rgba(67,152,136,.45),rgba(6,28,34,0) 70%)}
+#v812Wardrobe .v812-stage:after{inset:auto 28px 16px}
+#v812Wardrobe .v812-avatar{bottom:22px;width:236px;height:258px;transition:transform .22s ease,filter .22s ease}
+#v812Wardrobe .v812-avatar svg{width:226px!important;height:252px!important}
+#v812Wardrobe .v812-stage.v813-zoom .v812-avatar{transform:translateX(-50%) scale(1.08)}
+#v812Wardrobe .v812-stage-meta{gap:6px}
+#v812Wardrobe .v812-mini{min-width:36px;height:34px;padding:0 9px;font-size:8px}
+#v812Wardrobe .v813-zoom-btn{display:none!important}
+#v812Wardrobe .v813-thumb{width:42px;height:42px;display:grid;place-items:center}
+#v812Wardrobe .v813-thumb svg{width:38px;height:38px;overflow:visible}
+#v812Wardrobe .v813-thumb path,#v812Wardrobe .v813-thumb ellipse,#v812Wardrobe .v813-thumb circle,#v812Wardrobe .v813-thumb rect{vector-effect:non-scaling-stroke}
+#v812Wardrobe .v812-stage-badge{font-size:7.6px;padding:7px 9px}
+#v812Wardrobe .v812-main-tabs{display:flex;gap:7px;padding:9px 10px 8px;overflow-x:auto;scrollbar-width:none}
+#v812Wardrobe .v812-main-tabs::-webkit-scrollbar{display:none}
+#v812Wardrobe .v812-main-tab{flex:0 0 66px;min-height:52px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:8px;padding:5px}
+#v812Wardrobe .v812-main-tab .v813-tab-ico{font-size:17px;line-height:1;color:#9dc8c2}
+#v812Wardrobe .v812-main-tab.active .v813-tab-ico{color:#bdf6e7;filter:drop-shadow(0 0 8px rgba(128,226,201,.24))}
+#v812Wardrobe .v812-subtabs{padding:8px 10px 5px;background:#091f27}
+#v812Wardrobe .v812-subtab{min-height:32px;padding:0 13px;font-size:8.5px}
+#v812Wardrobe .v812-panel{padding:0 0 calc(96px + env(safe-area-inset-bottom));overflow:hidden;background:linear-gradient(180deg,#091f27,#071b22)}
+#v812Wardrobe .v813-tray-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 12px 5px}
+#v812Wardrobe .v813-tray-head b{font-size:10px;color:#eef8f6}.v813-tray-head small{font-size:7.5px;color:#73979d}
+#v812Wardrobe .v812-grid{display:flex!important;grid-template-columns:none!important;gap:10px;padding:8px 12px 16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding:0 50%;overscroll-behavior-x:contain;scrollbar-width:none;align-items:stretch;min-height:140px}
+#v812Wardrobe .v812-grid::-webkit-scrollbar{display:none}
+#v812Wardrobe .v812-card{flex:0 0 96px;min-height:116px;scroll-snap-align:center;border-radius:22px;padding:10px 7px;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
+#v812Wardrobe .v812-card:active{transform:scale(.96)}
+#v812Wardrobe .v812-card.active{transform:translateY(-2px) scale(1.035);border-color:rgba(151,230,210,.42);background:linear-gradient(180deg,#173b42,#102d34);box-shadow:0 12px 24px rgba(0,0,0,.16),0 0 0 1px rgba(151,230,210,.08),inset 0 0 26px rgba(111,205,184,.05)}
+#v812Wardrobe .v812-card .ico{width:52px;height:52px;border-radius:18px;font-size:25px}
+#v812Wardrobe .v812-card .ico.swatch{width:48px;height:48px;border-width:4px}
+#v812Wardrobe .v812-card b{font-size:8.5px;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#v812Wardrobe .v812-card small{font-size:6.8px}
+#v812Wardrobe .v812-outfit .ico{width:60px;height:56px}
+#v812Wardrobe .v812-outfit .ico:before{width:34px;height:42px;border-radius:11px 11px 8px 8px}
+#v812Wardrobe .v812-outfit .price{font-size:7.5px}
+#v812Wardrobe .v813-current{margin:0 12px 5px;padding:9px 11px;border-radius:14px;border:1px solid rgba(117,205,188,.10);background:rgba(17,47,55,.62);display:flex;align-items:center;justify-content:space-between;gap:10px}
+#v812Wardrobe .v813-current span{font-size:8px;color:#7fa5aa}.v813-current b{font-size:9px;color:#eaf7f4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#v812Wardrobe .v812-footer{padding-top:10px;box-shadow:0 -12px 30px rgba(0,0,0,.12)}
+#v812Wardrobe .v812-buy-save{min-height:46px;border-radius:15px;font-size:10px;padding:0 16px}
+#v812Wardrobe .v813-save-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#83dfc8;margin-right:7px;box-shadow:0 0 10px rgba(131,223,200,.6);vertical-align:1px}
+#v812Wardrobe .v813-toast{position:absolute;left:50%;bottom:96px;transform:translate(-50%,12px);max-width:calc(100% - 32px);padding:9px 12px;border-radius:13px;background:rgba(10,32,39,.95);border:1px solid rgba(134,219,200,.18);box-shadow:0 12px 30px rgba(0,0,0,.25);font-size:8.5px;font-weight:900;color:#dff5f0;opacity:0;pointer-events:none;transition:.18s ease;z-index:2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#v812Wardrobe .v813-toast.show{opacity:1;transform:translate(-50%,0)}
+#v812Wardrobe.v813-dirty .v812-save{box-shadow:0 0 0 1px rgba(137,224,202,.08),0 0 18px rgba(137,224,202,.08)}
+#v812Wardrobe .v812-card.locked{opacity:.6;filter:saturate(.72)}
+#v812Wardrobe .v812-card.locked:before{content:'🔒';left:8px;top:8px;width:20px;height:20px;border-radius:8px;display:grid;place-items:center;background:rgba(7,24,30,.76);font-size:9px}
+@media(max-width:380px){#v812Wardrobe .v812-stage{height:276px;min-height:276px}#v812Wardrobe .v812-avatar{height:232px;width:216px}#v812Wardrobe .v812-avatar svg{height:226px!important;width:205px!important}#v812Wardrobe .v812-main-tab{flex-basis:60px;min-height:48px}.v812-card{flex-basis:90px!important;min-height:108px!important}}
+@media(prefers-reduced-motion:reduce){#v812Wardrobe .v812-avatar,#v812Wardrobe .v812-card,#v812Wardrobe .v813-toast{transition:none!important}}
+
+</style>
+<script data-inline-from="./patches/v8.1.3.runtime.js">
+(()=>{
+ if(window.__deenV813Applied)return;window.__deenV813Applied=true;
+ const VERSION='8.1.3',STATE_VERSION=72;
+ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+ const ICON={head:'◒',face:'◉',outfit:'▣',access:'◇',color:'●'};
+ let dirty=false, zoomed=false, toastTimer=0;
+ function root(){return $('#v812Wardrobe')}
+ function pro(){return window.DEEN_WARDROBE_PRO}
+ function snap(){try{return pro()?.snapshot?.()||{}}catch(e){return {}}}
+ function toast(msg){const r=root();if(!r)return;let t=$('.v813-toast',r);if(!t){t=document.createElement('div');t.className='v813-toast';r.append(t)}t.textContent=msg;clearTimeout(toastTimer);requestAnimationFrame(()=>t.classList.add('show'));toastTimer=setTimeout(()=>t.classList.remove('show'),1200)}
+ function labelFor(sub){const map={headwear:'Tür',head:'Stil',face:'Yüz',eyes:'Göz',brows:'Kaş',nose:'Burun',mouth:'Ağız',worldOutfit:'Kıyafet',glasses:'Gözlük',extra:'Ekstra',beard:'Sakal',skin:'Ten',tone:'Saç / Başörtüsü'};return map[sub]||'Seçenekler'}
+ function selectedName(){const r=root();const a=$('.v812-card.active b',r);return a?.textContent?.trim()||'Seçim yap'}
+ function thumbSvg(cat){
+   const c='#9fded0',d='#5b8f90',skin='#d8a57f';
+   if(cat==='headwear'||cat==='head')return `<span class="v813-thumb"><svg viewBox="0 0 48 48"><path d="M9 31c0-14 6-22 15-22s15 8 15 22c-3 7-8 11-15 11S12 38 9 31Z" fill="none" stroke="${c}" stroke-width="2.5"/><path d="M15 25c2-7 5-10 9-10s7 3 10 10" fill="none" stroke="${d}" stroke-width="2" stroke-linecap="round"/></svg></span>`;
+   if(cat==='face')return `<span class="v813-thumb"><svg viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="14" ry="17" fill="${skin}" opacity=".86"/><circle cx="19" cy="22" r="1.7" fill="${d}"/><circle cx="29" cy="22" r="1.7" fill="${d}"/><path d="M19 30q5 5 10 0" fill="none" stroke="${d}" stroke-width="2" stroke-linecap="round"/></svg></span>`;
+   if(cat==='eyes')return `<span class="v813-thumb"><svg viewBox="0 0 48 48"><path d="M10 24q6-7 12 0q-6 7-12 0M26 24q6-7 12 0q-6 7-12 0" fill="none" stroke="${c}" stroke-width="2.4"/><circle cx="16" cy="24" r="2" fill="${c}"/><circle cx="32" cy="24" r="2" fill="${c}"/></svg></span>`;
+   if(cat==='brows')return `<span class="v813-thumb"><svg viewBox="0 0 48 48"><path d="M10 22q6-5 12-1M26 21q6-4 12 1" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round"/></svg></span>`;
+   if(cat==='nose')return `<span class="v813-thumb"><svg viewBox="0 0 48 48"><path d="M25 14q-4 13-1 19q3 3 7 0" fill="none" stroke="${c}" stroke-width="2.5" stroke-linecap="round"/></svg></span>`;
+   if(cat==='mouth')return `<span class="v813-thumb"><svg viewBox="0 0 48 48"><path d="M13 23q11 13 22 0" fill="none" stroke="${c}" stroke-width="2.7" stroke-linecap="round"/></svg></span>`;
+   if(cat==='glasses')return `<span class="v813-thumb"><svg viewBox="0 0 48 48"><rect x="7" y="17" width="13" height="10" rx="4" fill="none" stroke="${c}" stroke-width="2.2"/><rect x="28" y="17" width="13" height="10" rx="4" fill="none" stroke="${c}" stroke-width="2.2"/><path d="M20 21h8" stroke="${c}" stroke-width="2.2"/></svg></span>`;
+   if(cat==='beard')return `<span class="v813-thumb"><svg viewBox="0 0 48 48"><path d="M12 18q1 20 12 22q11-2 12-22q-5 7-12 7t-12-7Z" fill="none" stroke="${c}" stroke-width="2.3"/></svg></span>`;
+   return `<span class="v813-thumb"><svg viewBox="0 0 48 48"><path d="M24 8l4 11l11 5l-11 5l-4 11l-4-11l-11-5l11-5Z" fill="none" stroke="${c}" stroke-width="2.2"/></svg></span>`;
+ }
+ function decorateThumbs(){const r=root();if(!r)return;$$('.v812-card[data-v812-avatar]',r).forEach(card=>{const cat=card.dataset.v812Avatar,ico=$('.ico',card);if(!ico||ico.classList.contains('swatch')||ico.dataset.v813Thumb)return;ico.dataset.v813Thumb='1';ico.innerHTML=thumbSvg(cat)})}
+ function ensureChrome(){
+   const r=root();if(!r)return;
+   const panel=$('.v812-panel',r), grid=$('.v812-grid',r);
+   if(panel&&grid&&!$('.v813-tray-head',panel)){
+     const h=document.createElement('div');h.className='v813-tray-head';h.innerHTML='<b>Seçenekler</b><small>Sağa kaydır · dokun ve dene</small>';panel.insertBefore(h,grid)
+   }
+   if(panel&&grid&&!$('.v813-current',panel)){
+     const c=document.createElement('div');c.className='v813-current';c.innerHTML='<span>Şu an seçili</span><b>—</b>';panel.insertBefore(c,grid)
+   }
+   const footer=$('.v812-footer',r);if(footer){const btn=$('.v812-buy-save',footer);if(btn&&!btn.dataset.v813Decorated){btn.dataset.v813Decorated='1';btn.innerHTML='<span class="v813-save-dot"></span>'+btn.textContent}}
+ }
+ function decorateTabs(){const r=root();if(!r)return;$$('.v812-main-tab',r).forEach(b=>{if(!$('.v813-tab-ico',b)){const key=b.dataset.v812Cat;const i=document.createElement('span');i.className='v813-tab-ico';i.textContent=ICON[key]||'•';b.prepend(i)}})}
+ function decorateState(){
+   const r=root();if(!r)return;ensureChrome();decorateTabs();decorateThumbs();
+   const s=snap();const head=$('.v813-tray-head b',r),cur=$('.v813-current b',r);if(head)head.textContent=labelFor(s.sub);if(cur)cur.textContent=selectedName();
+   r.classList.toggle('v813-dirty',dirty);
+   const stage=$('.v812-stage',r),z=$('[data-v813-zoom]',r);if(stage)stage.classList.toggle('v813-zoom',zoomed);if(z)z.textContent=zoomed?'−':'＋';
+   const save=$('.v812-save',r);if(save)save.textContent=dirty?'Kaydet •':'Kaydet';
+   const footer=$('.v812-buy-save',r);if(footer&&!footer.querySelector('.v813-save-dot'))footer.innerHTML='<span class="v813-save-dot"></span>'+footer.textContent;
+   const active=$('.v812-card.active',r);if(active){setTimeout(()=>{try{active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'})}catch(e){}},30)}
+ }
+ function markDirty(msg){dirty=true;decorateState();if(msg)toast(msg)}
+ function patchPro(){
+   const p=pro();if(!p||p.__v813)return;
+   const oldOpen=p.open, oldRender=p.render, oldCancel=p.cancel, oldSave=p.save;
+   if(typeof oldOpen==='function')p.open=function(...a){dirty=false;zoomed=false;const x=oldOpen.apply(this,a);setTimeout(decorateState,20);setTimeout(decorateState,100);return x};
+   if(typeof oldRender==='function')p.render=function(...a){const x=oldRender.apply(this,a);setTimeout(decorateState,0);return x};
+   if(typeof oldCancel==='function')p.cancel=function(...a){dirty=false;zoomed=false;return oldCancel.apply(this,a)};
+   if(typeof oldSave==='function')p.save=function(...a){dirty=false;zoomed=false;return oldSave.apply(this,a)};
+   p.__v813=true;
+ }
+ document.addEventListener('click',e=>{
+   if(e.target.closest?.('[data-v810-open-wardrobe]')){dirty=false;zoomed=false;setTimeout(decorateState,80);return}
+   const r=root();if(!r||!r.classList.contains('open'))return;
+   if(e.target.closest('[data-v812-cancel],[data-v812-save]')){dirty=false;zoomed=false;setTimeout(decorateState,0);return}
+   if(e.target.closest('[data-v812-avatar],[data-v812-outfit]')){setTimeout(()=>markDirty('Önizleme güncellendi'),25);return}
+   if(e.target.closest('[data-v812-random]')){setTimeout(()=>markDirty('Yeni bir görünüm denendi'),35);return}
+   if(e.target.closest('[data-v812-cat],[data-v812-sub]')){setTimeout(decorateState,20);return}
+ },true);
+ document.addEventListener('keydown',e=>{if((e.key==='ArrowRight'||e.key==='ArrowLeft')&&root()?.classList.contains('open')){const r=root(),cards=$$('.v812-card',r);if(!cards.length)return;const idx=Math.max(0,cards.findIndex(x=>x.classList.contains('active')));const n=e.key==='ArrowRight'?Math.min(cards.length-1,idx+1):Math.max(0,idx-1);cards[n]?.click()}},true);
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);try{saveState?.()}catch(e){}
+ patchPro();
+ [120,500,1200].forEach(ms=>setTimeout(()=>{patchPro();if(root()?.classList.contains('open'))decorateState()},ms));
+ window.DEEN_WARDROBE_FINAL={version:VERSION,stateVersion:STATE_VERSION,decorate:decorateState,snapshot:()=>{const r=root();return {version:VERSION,dirty,open:!!r?.classList.contains('open'),zoom:false,...snap()}}};
+ setTimeout(()=>{patchPro();decorateState();window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.1.3 — Giyinme Odası Final Polish'},900);
+})();
+
+</script>
+
+<style data-inline-from="./patches/v8.2.0.css">
+/* DEEN v8.2.0 — Premium Room Editor + World Shop */
+#v820RoomOverlay,#v820ShopOverlay{position:fixed;inset:0;z-index:10220;display:none;align-items:flex-end;justify-content:center;background:rgba(2,13,18,.78);backdrop-filter:blur(11px)}
+#v820RoomOverlay.open,#v820ShopOverlay.open{display:flex}
+.v820-sheet{width:min(100%,460px);height:min(94dvh,940px);display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(117,210,190,.17);border-bottom:0;border-radius:30px 30px 0 0;background:linear-gradient(180deg,#102c35,#091f27);box-shadow:0 -26px 70px rgba(0,0,0,.4);color:#edf8f5}
+.v820-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px;border-bottom:1px solid rgba(119,207,190,.09)}
+.v820-headcopy{min-width:0}.v820-headcopy small{display:block;font-size:9px;font-weight:950;letter-spacing:1.3px;color:#72d6bf}.v820-headcopy b{display:block;margin-top:3px;font-size:18px}.v820-headcopy span{display:block;margin-top:3px;font-size:9px;color:#83a3a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v820-back,.v820-done{min-height:42px;padding:0 13px;border-radius:14px;border:1px solid rgba(119,207,190,.15);background:#12313a;color:#dff5f0;font-size:11px;font-weight:950}.v820-done{background:linear-gradient(180deg,#194740,#123932);color:#c0f7e7}
+.v820-wallet{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border-radius:13px;border:1px solid rgba(229,194,102,.23);background:linear-gradient(180deg,#40341b,#2f2919);color:#f0d27e;font-size:10px;font-weight:1000}
+.v820-room-preview-wrap{padding:12px 14px 7px}.v820-room-preview{position:relative;height:255px;border-radius:24px;overflow:hidden;border:1px solid rgba(119,207,190,.16);background:#0d2830;box-shadow:0 15px 34px rgba(0,0,0,.22)}
+.v820-room-preview .v750-room{width:100%!important;height:100%!important;min-height:100%!important;margin:0!important;border:0!important;border-radius:0!important;transform:none!important;pointer-events:none!important}.v820-room-preview [id]{pointer-events:none!important}.v820-room-preview .v781-window-tap,.v820-room-preview .v777-feedback{display:none!important}
+.v820-room-label{position:absolute;left:12px;top:12px;z-index:5;padding:6px 9px;border-radius:999px;border:1px solid rgba(139,229,207,.18);background:rgba(6,28,34,.84);color:#a7ecdc;font-size:8px;font-weight:1000;letter-spacing:.4px}
+.v820-presets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:4px 14px 10px}.v820-preset{min-height:54px;border:1px solid rgba(119,207,190,.13);border-radius:15px;background:linear-gradient(180deg,#14343c,#102a32);color:#d8efeb;padding:8px;text-align:left}.v820-preset b{display:block;font-size:10px}.v820-preset small{display:block;margin-top:3px;font-size:7.5px;color:#7f9ca1}.v820-preset.saved{border-color:rgba(117,218,195,.24)}.v820-preset.active{box-shadow:inset 0 0 0 1px rgba(127,227,203,.12);border-color:#65cdb6}
+.v820-catbar,.v820-viewbar{display:flex;gap:7px;overflow:auto;scrollbar-width:none;padding:0 14px 9px}.v820-catbar::-webkit-scrollbar,.v820-viewbar::-webkit-scrollbar{display:none}.v820-cat,.v820-view{flex:0 0 auto;min-height:37px;padding:0 12px;border-radius:13px;border:1px solid rgba(118,205,188,.13);background:#112d35;color:#819fa4;font-size:9px;font-weight:950;white-space:nowrap}.v820-cat.active,.v820-view.active{border-color:rgba(129,225,203,.28);background:#173e3a;color:#e9faf6}
+.v820-rail{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;padding:0 14px 15px}.v820-rail::-webkit-scrollbar{display:none}.v820-decor{flex:0 0 138px;scroll-snap-align:center;min-height:156px;padding:10px;border-radius:18px;border:1px solid rgba(118,205,188,.13);background:linear-gradient(180deg,#14333c,#0f2931);color:#edf8f5;text-align:left;position:relative;overflow:hidden}.v820-decor.selected{border-color:#6fd6bf;box-shadow:inset 0 0 0 1px rgba(132,229,206,.10),0 10px 25px rgba(0,0,0,.12)}.v820-decor.locked{opacity:.7}.v820-decor-thumb{height:66px;border-radius:14px;border:1px solid rgba(255,255,255,.04);display:grid;place-items:center;background:radial-gradient(circle at 70% 25%,rgba(137,228,204,.15),transparent 30%),linear-gradient(160deg,#183a42,#102c34);position:relative;overflow:hidden}.v820-decor-thumb:before,.v820-decor-thumb:after{content:'';position:absolute}.v820-decor-thumb.desk:before{width:72px;height:12px;border-radius:5px;background:#72523d;bottom:25px;box-shadow:0 5px 0 #4e382c}.v820-decor-thumb.desk:after{width:6px;height:27px;left:36px;bottom:3px;background:#4a352b;box-shadow:56px 0 #4a352b}.v820-decor-thumb.rug:before{width:90px;height:40px;border-radius:50%;background:radial-gradient(ellipse,#4b9687,#24685f 60%,#173f3d);bottom:11px}.v820-decor-thumb.plant:before{width:26px;height:27px;border-radius:4px 4px 10px 10px;background:#8a6a49;bottom:7px}.v820-decor-thumb.plant:after{width:60px;height:56px;bottom:26px;background:radial-gradient(ellipse at 50% 100%,#5da477 0 10%,transparent 12%),radial-gradient(ellipse at 32% 62%,#4f936d 0 16%,transparent 18%),radial-gradient(ellipse at 68% 55%,#67a97d 0 16%,transparent 18%)}.v820-decor-thumb.shelf:before{width:82px;height:10px;background:#6c4b36;top:22px;box-shadow:0 26px #6c4b36}.v820-decor-thumb.shelf:after{width:8px;height:40px;background:#557b70;left:42px;top:17px;box-shadow:13px 3px #9b7b4b,28px -2px #415d72}.v820-decor-thumb.window:before{width:54px;height:68px;border:5px solid #80623f;border-radius:28px 28px 7px 7px;background:radial-gradient(circle at 70% 25%,#eadb8d 0 6px,transparent 7px),linear-gradient(#0d3150,#123c56);bottom:4px}.v820-decor-thumb.nur:before{width:22px;height:22px;border-radius:50%;background:#baffef;box-shadow:0 0 10px #7de1ca,0 0 28px #5fcab4}.v820-decor-thumb.base:before{content:'—';font-size:30px;color:#66858a}
+.v820-decor h3{margin:9px 0 3px;font-size:10px;line-height:1.2}.v820-decor p{margin:0;min-height:29px;font-size:7.5px;line-height:1.35;color:#7f9da2}.v820-decor-meta{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-top:8px;font-size:7.5px;color:#91acb0}.v820-rarity{font-weight:1000}.v820-rarity.rare{color:#7dd6c1}.v820-rarity.epic{color:#e5c879}.v820-price{color:#e4c878;font-weight:1000}.v820-owned{color:#8edcca;font-weight:950}
+.v820-mini-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}.v820-mini-actions button{min-height:30px;border-radius:10px;border:1px solid rgba(118,205,188,.14);background:#15343b;color:#b8d0d0;font-size:7.2px;font-weight:1000}.v820-mini-actions button.primary{border-color:rgba(121,221,197,.25);background:#18433d;color:#c0f4e6}.v820-mini-actions button.gold{border-color:rgba(226,193,105,.30);background:linear-gradient(180deg,#5a451d,#3d321c);color:#f0d47e}.v820-mini-actions button:disabled{opacity:.5}
+.v820-shop-summary{padding:12px 14px 8px}.v820-summary-card{padding:12px;border:1px solid rgba(120,209,190,.14);border-radius:18px;background:linear-gradient(180deg,#12313a,#0f2931);display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.v820-summary-card b{display:block;font-size:12px}.v820-summary-card small{display:block;margin-top:4px;font-size:8px;line-height:1.4;color:#829fa4}.v820-summary-progress{height:5px;margin-top:9px;border-radius:99px;background:#193840;overflow:hidden}.v820-summary-progress i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#62cbb4,#91e3cf)}
+.v820-shop-grid{padding:0 14px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;overflow:auto;align-content:start}.v820-shop-card{min-width:0;padding:10px;border:1px solid rgba(118,205,188,.13);border-radius:18px;background:linear-gradient(180deg,#14333c,#0f2931);position:relative}.v820-shop-card.equipped{border-color:#70d5bd;box-shadow:inset 0 0 0 1px rgba(130,227,203,.08)}.v820-shop-card.locked{opacity:.7}.v820-shop-card .v820-decor-thumb{height:76px}.v820-shop-card h3{font-size:10px;margin:8px 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v820-shop-card p{min-height:31px;margin:0;color:#819da2;font-size:7.4px;line-height:1.4}.v820-shop-card .v820-decor-meta{margin-top:7px}.v820-empty{grid-column:1/-1;padding:28px 12px;text-align:center;border:1px dashed rgba(118,205,188,.14);border-radius:18px;color:#7f9da2;font-size:10px}
+.v820-note{margin:0 14px 13px;padding:10px 12px;border-radius:14px;border:1px solid rgba(225,190,94,.18);background:rgba(56,45,23,.45);color:#d9bd72;font-size:8px;line-height:1.4}
+@media(max-width:390px){.v820-room-preview{height:226px}.v820-decor{flex-basis:128px}.v820-shop-grid{gap:8px}.v820-sheet{height:95dvh}}
+
+</style>
+<script data-inline-from="./patches/v8.2.0.runtime.js">
+(()=>{
+ if(window.__deenV820Applied)return;window.__deenV820Applied=true;
+ const VERSION='8.2.0',STATE_VERSION=72;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.2.0 — Room & Shop Refresh';
+ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+ const WORLD=window.DEEN_WORLD,COL=window.DEEN_WORLD_COLLECTION,DECOR=window.DEEN_WORLD_DECOR,PRE=window.DEEN_WORLD_PREVIEW,PRESETS=window.DEEN_WORLD_PRESETS,PROG=window.DEEN_WORLD_PROGRESSION;
+ if(!WORLD||!COL||!DECOR)return;
+ const CATS=[['all','Tümü'],['desk','Masa'],['rug','Halı'],['plant','Bitki'],['shelf','Kitaplık'],['window','Pencere'],['nur','NUR']];
+ const BASE={desk:{id:null,name:'Standart Masa',desc:'Odanın varsayılan çalışma masası.'},rug:{id:'rug_teal',name:'Teal Halı',desc:'Başlangıç halısı.'},plant:{id:null,name:'Bitki Yok',desc:'Bitkiyi odadan kaldır.'},shelf:{id:null,name:'Kitaplık Yok',desc:'Kitaplığı odadan kaldır.'},window:{id:null,name:'Standart Pencere',desc:'Varsayılan oda penceresi.'},nur:{id:null,name:'Standart NUR',desc:'Varsayılan ışık görünümü.'}};
+ let roomCat='desk',shopCat='all',shopView='all',lastFocus=null;
+ function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+ function items(){try{return COL.items?.()||[]}catch(e){return[]}}
+ function snap(){try{return COL.snapshot?.()||{}}catch(e){return{}}}
+ function eq(){return snap().equipped||state.myWorld?.equipped||{}}
+ function ownedIds(){return new Set(snap().owned||state.myWorld?.owned||[])}
+ function level(){return Number(snap().level||PROG?.snapshot?.().level||1)||1}
+ function gold(){return Number(state.currency)||0}
+ function item(id){return items().find(x=>x.id===id)||null}
+ function rarity(x){return String(x?.rarity||'common').toLowerCase()}
+ function typeName(t){return ({desk:'Masa',rug:'Halı',plant:'Bitki',shelf:'Kitaplık',window:'Pencere',nur:'NUR'})[t]||t}
+ function isOwned(x){return !x?.id || x.id==='rug_teal' || ownedIds().has(x.id)}
+ function isEquipped(x){return Object.prototype.hasOwnProperty.call(eq(),x.type)&&eq()[x.type]===x.id}
+ function canBuy(x){return !isOwned(x)&&level()>=(Number(x.req)||1)&&gold()>=(Number(x.price)||0)}
+ function roomNode(){return document.getElementById('v750Room')}
+ function cloneRoom(){const r=roomNode();if(!r)return null;const c=r.cloneNode(true);c.removeAttribute('id');c.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));c.querySelectorAll('button,input,[tabindex]').forEach(n=>n.setAttribute('tabindex','-1'));return c}
+ function refreshRoomClone(){const host=$('#v820RoomOverlay .v820-room-preview');if(!host)return;const c=cloneRoom();host.innerHTML='';if(c)host.append(c);host.insertAdjacentHTML('beforeend','<span class="v820-room-label">CANLI ODA</span>')}
+ function thumbClass(x){return x?.id?x.type:'base'}
+ function baseItem(type){return {...BASE[type],type,rarity:'starter',req:1,price:0,base:true}}
+ function roomList(type){return [baseItem(type),...items().filter(x=>x.type===type&&!x.paid&&!x.default)]}
+ function cardRoom(x){const own=isOwned(x),sel=isEquipped(x),locked=!own&&level()<(Number(x.req)||1);return `<article class="v820-decor ${sel?'selected':''} ${locked?'locked':''}" data-id="${x.id||''}" data-type="${x.type}"><div class="v820-decor-thumb ${thumbClass(x)}"></div><h3>${esc(x.name)}</h3><p>${esc(x.desc||'Dünyam için kalıcı kozmetik dekor.')}</p><div class="v820-decor-meta"><span class="v820-rarity ${rarity(x)}">${x.base?'BAŞLANGIÇ':rarity(x).toUpperCase()}</span><span class="${own?'v820-owned':'v820-price'}">${own?'Sende':'🪙 '+(Number(x.price)||0)}</span></div><div class="v820-mini-actions">${own?`<button class="primary" data-v820-equip="${x.id??'__base__'}" data-type="${x.type}" ${sel?'disabled':''}>${sel?'Kullanılıyor':'Kullan'}</button>`:`<button data-v820-preview="${x.id}" ${locked?'disabled':''}>Önizle</button><button class="gold" data-v820-buy="${x.id}" ${locked?'disabled':''}>${locked?'LV '+(x.req||1):'Satın Al'}</button>`}</div></article>`}
+ function renderRoomRail(){const rail=$('#v820RoomOverlay .v820-rail');if(rail)rail.innerHTML=roomList(roomCat).map(cardRoom).join('');$$('#v820RoomOverlay .v820-cat').forEach(b=>b.classList.toggle('active',b.dataset.cat===roomCat));renderPresets();refreshRoomClone();updateRoomWallet()}
+ function renderPresets(){const box=$('#v820RoomOverlay .v820-presets');if(!box||!PRESETS)return;let slots=[];try{slots=PRESETS.slots?.()||[]}catch(e){};const active=PRESETS.snapshot?.().active;box.innerHTML=slots.map(s=>`<button class="v820-preset ${s.snapshot?'saved':''} ${active===s.id?'active':''}" data-slot="${s.id}"><b>${s.id==='work'?'Çalışma':s.id==='night'?'Gece':'Doğa'}</b><small>${s.snapshot?'Dokun: uygula · Basılı: güncelle':'Dokun: bu odayı kaydet'}</small></button>`).join('')}
+ function updateRoomWallet(){const w=$('#v820RoomOverlay .v820-wallet');if(w)w.textContent='🪙 '+gold()+' Altın'}
+ function mountRoom(){let o=document.getElementById('v820RoomOverlay');if(o)return o;o=document.createElement('div');o.id='v820RoomOverlay';o.innerHTML=`<div class="v820-sheet"><div class="v820-head"><button class="v820-back" data-close>‹ Geri</button><div class="v820-headcopy"><small>BENİM DÜNYAM</small><b>Oda Düzeni</b><span>Dekorlarını seç, kombinlerini kaydet.</span></div><button class="v820-done" data-close>Bitti</button></div><div class="v820-room-preview-wrap"><div class="v820-room-preview"></div></div><div class="v820-presets"></div><div class="v820-catbar">${CATS.filter(x=>x[0]!=='all').map(([id,n])=>`<button class="v820-cat ${id===roomCat?'active':''}" data-cat="${id}">${n}</button>`).join('')}</div><div class="v820-rail"></div><div class="v820-note"><b>İpucu:</b> Sahip olduğun dekoru seçtiğinde oda anında güncellenir. Presetler Altın harcamaz.</div></div>`;document.body.append(o);o.addEventListener('click',roomClick);o.addEventListener('pointerdown',presetHoldStart);o.addEventListener('pointerup',presetHoldEnd);o.addEventListener('pointercancel',presetHoldEnd);return o}
+ let holdTimer=null,held=false;
+ function presetHoldStart(e){const b=e.target.closest('.v820-preset');if(!b)return;held=false;clearTimeout(holdTimer);holdTimer=setTimeout(()=>{held=true;try{PRESETS?.save?.(b.dataset.slot);setTimeout(renderRoomRail,80)}catch(_){}},650)}
+ function presetHoldEnd(){clearTimeout(holdTimer)}
+ function roomClick(e){if(e.target===e.currentTarget||e.target.closest('[data-close]')){closeRoom();return}const cat=e.target.closest('[data-cat]');if(cat){roomCat=cat.dataset.cat;renderRoomRail();return}const p=e.target.closest('.v820-preset');if(p){if(held){held=false;return}const slots=PRESETS?.slots?.()||[],s=slots.find(x=>x.id===p.dataset.slot);try{s?.snapshot?PRESETS.apply?.(p.dataset.slot):PRESETS.save?.(p.dataset.slot)}catch(_){}setTimeout(renderRoomRail,100);return}const eqb=e.target.closest('[data-v820-equip]');if(eqb){const type=eqb.dataset.type,id=eqb.dataset.v820Equip==='__base__'?BASE[type].id:eqb.dataset.v820Equip;try{DECOR.equip?.(type,id)}catch(_){}setTimeout(renderRoomRail,100);return}const buy=e.target.closest('[data-v820-buy]');if(buy){try{WORLD.buy?.(buy.dataset.v820Buy)}catch(_){}setTimeout(renderRoomRail,160);return}const prev=e.target.closest('[data-v820-preview]');if(prev){closeRoom(false);setTimeout(()=>{try{PRE?.open?.(prev.dataset.v820Preview)}catch(_){}},30)}}
+ function openRoom(){lastFocus=document.activeElement;mountRoom();const o=document.getElementById('v820RoomOverlay');o.classList.add('open');document.body.style.overflow='hidden';renderRoomRail();return true}
+ function closeRoom(restore=true){const o=document.getElementById('v820RoomOverlay');o?.classList.remove('open');if(restore)document.body.style.overflow='';try{lastFocus?.focus?.()}catch(_){}return true}
+ function shopItems(){return items().filter(x=>!x.paid&&!x.default)}
+ function viewMatch(x){if(shopView==='owned')return isOwned(x);if(shopView==='equipped')return isEquipped(x);if(shopView==='buyable')return !isOwned(x)&&level()>=(Number(x.req)||1);return true}
+ function filteredShop(){return shopItems().filter(x=>(shopCat==='all'||x.type===shopCat)&&viewMatch(x))}
+ function shopCard(x){const own=isOwned(x),sel=isEquipped(x),locked=!own&&level()<(Number(x.req)||1);return `<article class="v820-shop-card ${sel?'equipped':''} ${locked?'locked':''}"><div class="v820-decor-thumb ${thumbClass(x)}"></div><h3>${esc(x.name)}</h3><p>${esc(x.desc||'Dünyam için kalıcı kozmetik dekor.')}</p><div class="v820-decor-meta"><span class="v820-rarity ${rarity(x)}">${rarity(x).toUpperCase()} · LV ${Number(x.req)||1}</span><span class="${own?'v820-owned':'v820-price'}">${own?'Sende':'🪙 '+(Number(x.price)||0)}</span></div><div class="v820-mini-actions"><button data-v820-shop-preview="${x.id}">Önizle</button>${own?`<button class="primary" data-v820-shop-use="${x.id}" ${sel?'disabled':''}>${sel?'Odada':'Kullan'}</button>`:`<button class="gold" data-v820-shop-buy="${x.id}" ${locked?'disabled':''}>${locked?'LV '+(x.req||1):'Satın Al'}</button>`}</div></article>`}
+ function renderShop(){const list=filteredShop(),grid=$('#v820ShopOverlay .v820-shop-grid');if(grid)grid.innerHTML=list.length?list.map(shopCard).join(''):'<div class="v820-empty">Bu filtrede gösterilecek dekor yok.</div>';$$('#v820ShopOverlay .v820-cat').forEach(b=>b.classList.toggle('active',b.dataset.shopcat===shopCat));$$('#v820ShopOverlay .v820-view').forEach(b=>b.classList.toggle('active',b.dataset.view===shopView));const all=shopItems(),own=all.filter(isOwned).length,pct=all.length?Math.round(own/all.length*100):0;const txt=$('#v820ShopOverlay [data-summary]');if(txt)txt.innerHTML=`<b>${own}/${all.length} dekor sende</b><small>Oda Seviyesi ${level()} · Koleksiyon %${pct}</small><div class="v820-summary-progress"><i style="width:${pct}%"></i></div>`;const w=$('#v820ShopOverlay .v820-wallet');if(w)w.textContent='🪙 '+gold()+' Altın'}
+ function mountShop(){let o=document.getElementById('v820ShopOverlay');if(o)return o;o=document.createElement('div');o.id='v820ShopOverlay';o.innerHTML=`<div class="v820-sheet"><div class="v820-head"><button class="v820-back" data-close>‹ Odaya Dön</button><div class="v820-headcopy"><small>DÜNYA MAĞAZASI</small><b>Dekor Koleksiyonu</b><span>Önizle, satın al ve odanda kullan.</span></div><span class="v820-wallet">🪙 0 Altın</span></div><div class="v820-shop-summary"><div class="v820-summary-card"><div data-summary></div><button class="v820-done" data-open-room>Oda Düzeni</button></div></div><div class="v820-viewbar">${[['all','Tümü'],['buyable','Alınabilir'],['owned','Sahip'],['equipped','Odada']].map(([id,n])=>`<button class="v820-view ${id===shopView?'active':''}" data-view="${id}">${n}</button>`).join('')}</div><div class="v820-catbar">${CATS.map(([id,n])=>`<button class="v820-cat ${id===shopCat?'active':''}" data-shopcat="${id}">${n}</button>`).join('')}</div><div class="v820-shop-grid"></div><div class="v820-note">Altın yalnızca dünya, kıyafet ve kozmetik için kullanılır. Altınla enerji satın alınamaz.</div></div>`;document.body.append(o);o.addEventListener('click',shopClick);return o}
+ function shopClick(e){if(e.target===e.currentTarget||e.target.closest('[data-close]')){closeShop();return}if(e.target.closest('[data-open-room]')){closeShop(false);openRoom();return}const v=e.target.closest('[data-view]');if(v){shopView=v.dataset.view;renderShop();return}const c=e.target.closest('[data-shopcat]');if(c){shopCat=c.dataset.shopcat;renderShop();return}const prev=e.target.closest('[data-v820-shop-preview]');if(prev){closeShop(false);setTimeout(()=>{try{PRE?.open?.(prev.dataset.v820ShopPreview)}catch(_){}},30);return}const use=e.target.closest('[data-v820-shop-use]');if(use){try{COL.equip?.(use.dataset.v820ShopUse)}catch(_){}setTimeout(renderShop,100);return}const buy=e.target.closest('[data-v820-shop-buy]');if(buy){try{WORLD.buy?.(buy.dataset.v820ShopBuy)}catch(_){}setTimeout(renderShop,180)}}
+ function openShop(){lastFocus=document.activeElement;mountShop();document.getElementById('v820ShopOverlay').classList.add('open');document.body.style.overflow='hidden';renderShop();return true}
+ function closeShop(restore=true){document.getElementById('v820ShopOverlay')?.classList.remove('open');if(restore)document.body.style.overflow='';try{lastFocus?.focus?.()}catch(_){}return true}
+ document.addEventListener('click',e=>{if(e.target.closest?.('[data-v810-toggle-edit]')){e.preventDefault();e.stopImmediatePropagation();openRoom();return}if(e.target.closest?.('[data-v810-open-shop]')){e.preventDefault();e.stopImmediatePropagation();openShop();return}},true);
+ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(document.getElementById('v820RoomOverlay')?.classList.contains('open'))closeRoom();else if(document.getElementById('v820ShopOverlay')?.classList.contains('open'))closeShop()});
+ const oldTab=WORLD.tab?.bind(WORLD);if(oldTab&&!WORLD.__v820tab){WORLD.tab=function(t,...a){if(t==='shop')return openShop();return oldTab(t,...a)};WORLD.__v820tab=true}
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);try{saveState?.()}catch(e){}
+ window.DEEN_WORLD_ROOM_UI={version:VERSION,open:openRoom,close:closeRoom,refresh:renderRoomRail,snapshot:()=>({version:VERSION,category:roomCat,open:!!document.getElementById('v820RoomOverlay')?.classList.contains('open'),equipped:{...eq()},presets:PRESETS?.slots?.()||[]})};
+ window.DEEN_WORLD_SHOP_UI={version:VERSION,open:openShop,close:closeShop,refresh:renderShop,snapshot:()=>({version:VERSION,category:shopCat,view:shopView,open:!!document.getElementById('v820ShopOverlay')?.classList.contains('open'),gold:gold(),level:level(),items:filteredShop().length})};
+})();
+
+</script>
+
+<style data-inline-from="./patches/v8.2.1.css">
+#v821AreasOverlay,#v821MemoriesOverlay{position:fixed;inset:0;z-index:10260;display:none;align-items:flex-end;justify-content:center;background:rgba(2,13,18,.80);backdrop-filter:blur(12px)}
+#v821AreasOverlay.open,#v821MemoriesOverlay.open{display:flex}
+.v821-sheet{width:min(100%,460px);height:min(94dvh,940px);display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(117,210,190,.17);border-bottom:0;border-radius:30px 30px 0 0;background:linear-gradient(180deg,#102c35,#091f27);box-shadow:0 -26px 70px rgba(0,0,0,.42);color:#edf8f5}
+.v821-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px;border-bottom:1px solid rgba(119,207,190,.09)}
+.v821-back{min-height:42px;padding:0 14px;border-radius:14px;border:1px solid rgba(119,207,190,.15);background:#12313a;color:#dff5f0;font-size:11px;font-weight:950}
+.v821-headcopy{min-width:0;flex:1}.v821-headcopy small{display:block;font-size:9px;font-weight:950;letter-spacing:1.3px;color:#72d6bf}.v821-headcopy b{display:block;margin-top:3px;font-size:18px}.v821-headcopy span{display:block;margin-top:3px;font-size:9px;color:#83a3a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v821-wallet{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border-radius:13px;border:1px solid rgba(229,194,102,.23);background:rgba(93,66,18,.30);color:#f1cc77;font-size:10px;font-weight:950;white-space:nowrap}
+.v821-scroll{flex:1;min-height:0;overflow:auto;padding:12px 14px 22px;overscroll-behavior:contain}
+.v821-area-summary{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 13px;margin-bottom:12px;border:1px solid rgba(119,207,190,.12);border-radius:17px;background:linear-gradient(180deg,#12323b,#0e2830)}
+.v821-area-summary b{display:block;font-size:12px}.v821-area-summary small{display:block;margin-top:4px;font-size:9px;color:#87a8ad;line-height:1.4}.v821-area-summary .count{font-size:22px;font-weight:1000;color:#8be1ca}
+.v821-area-list{display:flex;flex-direction:column;gap:11px}
+.v821-area-card{position:relative;overflow:hidden;border-radius:22px;border:1px solid rgba(119,207,190,.14);background:linear-gradient(180deg,#14343e,#102a32);box-shadow:0 12px 28px rgba(0,0,0,.14)}
+.v821-area-card.active{border-color:rgba(145,231,209,.34);box-shadow:0 0 0 1px rgba(145,231,209,.07),0 12px 30px rgba(0,0,0,.16)}
+.v821-area-visual{height:134px;position:relative;overflow:hidden;background:linear-gradient(180deg,#173d49 0 56%,#123334 56%)}
+.v821-area-visual:after{content:'';position:absolute;left:12%;right:12%;bottom:12px;height:34px;border-radius:50%;background:radial-gradient(ellipse,rgba(52,130,117,.48),rgba(20,49,55,0) 72%)}
+.v821-area-visual .window{position:absolute;right:22px;top:19px;width:58px;height:66px;border:4px solid #456d73;border-bottom-width:7px;border-radius:30px 30px 7px 7px;background:linear-gradient(180deg,#0d2d3b,#153d46)}
+.v821-area-visual .window:after{content:'';position:absolute;width:7px;height:7px;border-radius:50%;right:13px;top:13px;background:#f1d178;box-shadow:0 0 13px rgba(241,209,120,.55)}
+.v821-area-visual .desk{position:absolute;left:26px;bottom:28px;width:88px;height:10px;border-radius:5px;background:#8b5e43;box-shadow:0 8px 0 -4px #644633}.v821-area-visual .desk:before,.v821-area-visual .desk:after{content:'';position:absolute;top:8px;width:7px;height:38px;background:#6f4a36;border-radius:0 0 4px 4px}.v821-area-visual .desk:before{left:8px}.v821-area-visual .desk:after{right:8px}
+.v821-area-visual .lamp{position:absolute;left:70px;bottom:42px;width:6px;height:42px;background:#c69a4b;border-radius:5px}.v821-area-visual .lamp:before{content:'';position:absolute;left:-12px;top:-10px;width:30px;height:15px;border-radius:14px 14px 5px 5px;background:#e4bd63;box-shadow:0 0 20px rgba(228,189,99,.18)}
+.v821-area-visual.reading{background:linear-gradient(180deg,#183844 0 56%,#142f32 56%)}.v821-area-visual.reading .books{position:absolute;left:28px;top:28px;width:72px;height:58px;border-left:7px solid #624737;border-bottom:7px solid #624737}.v821-area-visual.reading .books:after{content:'▰  ▰\A▰  ▰';white-space:pre;position:absolute;left:10px;top:5px;color:#9bc2b4;font-size:20px;line-height:24px}
+.v821-area-visual.garden{background:linear-gradient(180deg,#17404b 0 48%,#1c4c3c 48%)}.v821-area-visual.garden .plant{position:absolute;left:42px;bottom:20px;width:16px;height:46px;background:#73533c;border-radius:4px 4px 12px 12px}.v821-area-visual.garden .plant:before{content:'';position:absolute;left:-26px;top:-22px;width:67px;height:55px;border-radius:50%;background:radial-gradient(circle at 35% 40%,#55a878 0 22%,transparent 23%),radial-gradient(circle at 68% 42%,#4f9b6e 0 23%,transparent 24%),radial-gradient(circle at 50% 68%,#438b62 0 30%,transparent 31%)}
+.v821-area-badge{position:absolute;left:12px;top:12px;padding:6px 8px;border-radius:999px;background:rgba(5,25,30,.78);border:1px solid rgba(133,222,201,.15);font-size:8px;font-weight:1000;color:#a9ebda;letter-spacing:.6px}
+.v821-area-lock{position:absolute;right:12px;top:12px;padding:6px 8px;border-radius:999px;background:rgba(72,51,15,.82);border:1px solid rgba(232,196,100,.20);font-size:8px;font-weight:1000;color:#efcb78}
+.v821-area-body{padding:12px}.v821-area-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.v821-area-row b{font-size:13px}.v821-area-row small{display:block;margin-top:4px;font-size:9px;line-height:1.45;color:#88a9ae}.v821-area-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.v821-pill{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(119,207,190,.10);font-size:8px;font-weight:900;color:#b9d3d0}.v821-pill.gold{color:#f0cc78;border-color:rgba(229,194,102,.16);background:rgba(92,66,18,.2)}
+.v821-area-action{width:100%;min-height:42px;margin-top:11px;border-radius:14px;border:1px solid rgba(119,207,190,.18);background:linear-gradient(180deg,#19453f,#123832);color:#c0f6e7;font-size:11px;font-weight:1000}.v821-area-action.secondary{background:#12313a;color:#d9efeb}.v821-area-action[disabled]{opacity:.48}
+.v821-progress-card{padding:13px;margin-bottom:12px;border-radius:18px;border:1px solid rgba(119,207,190,.13);background:linear-gradient(180deg,#12323b,#0e2830)}
+.v821-progress-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.v821-progress-row>div{min-width:0}.v821-progress-row>div small{display:block;margin-top:4px;font-size:9px;line-height:1.4;color:#87a8ad}
+.v821-progress-row b{font-size:12px}.v821-progress-row strong{font-size:21px;color:#8be1ca}.v821-progress-bar{height:6px;border-radius:999px;background:#183943;margin-top:10px;overflow:hidden}.v821-progress-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#62c7b0,#d8bc68)}
+.v821-filterbar{display:flex;gap:8px;overflow:auto;margin-bottom:11px;padding-bottom:2px}.v821-filter{flex:0 0 auto;min-height:36px;padding:0 12px;border-radius:13px;border:1px solid rgba(119,207,190,.11);background:#112e36;color:#bcd7d4;font-size:9px;font-weight:950}.v821-filter.active{border-color:rgba(151,230,211,.28);background:#173c3d;color:#eaf9f5}
+.v821-memory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.v821-memory-card{position:relative;min-height:156px;padding:12px;border-radius:20px;border:1px solid rgba(119,207,190,.13);background:linear-gradient(180deg,#14343d,#102a31);text-align:left;color:#edf8f5;overflow:hidden}.v821-memory-card.owned{border-color:rgba(218,192,112,.22)}.v821-memory-card.equipped{border-color:rgba(145,231,209,.34);box-shadow:0 0 0 1px rgba(145,231,209,.07)}.v821-memory-card.ready{border-color:rgba(218,192,112,.34)}
+.v821-memory-icon{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;margin-bottom:10px;border:1px solid rgba(119,207,190,.13);background:radial-gradient(circle at 50% 40%,rgba(123,224,199,.16),rgba(17,45,53,.55));font-size:25px;color:#97ddc9}.v821-memory-card.owned .v821-memory-icon{color:#efd07b;background:radial-gradient(circle at 50% 40%,rgba(234,199,105,.16),rgba(17,45,53,.55))}
+.v821-memory-card b{display:block;font-size:11px;line-height:1.3;padding-right:34px}.v821-memory-card small{display:block;margin-top:4px;font-size:8px;line-height:1.4;color:#83a4a9}.v821-memory-num{position:absolute;right:11px;top:11px;width:27px;height:27px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(119,207,190,.12);background:rgba(255,255,255,.035);font-size:8px;font-weight:1000;color:#8daeb2}
+.v821-memory-state{display:inline-flex;margin-top:9px;padding:5px 7px;border-radius:999px;background:rgba(255,255,255,.045);font-size:7px;font-weight:1000;letter-spacing:.3px;color:#a7c1bf}.v821-memory-card.owned .v821-memory-state{color:#efd07b;background:rgba(234,199,105,.09)}.v821-memory-card.equipped .v821-memory-state{color:#abf0de;background:rgba(113,210,190,.10)}.v821-memory-card.ready .v821-memory-state{color:#f0cc78;background:rgba(234,199,105,.10)}
+.v821-memory-action{width:100%;min-height:34px;margin-top:10px;border-radius:12px;border:1px solid rgba(119,207,190,.14);background:#14363a;color:#c8e9e2;font-size:9px;font-weight:1000}.v821-memory-card.ready .v821-memory-action{border-color:rgba(228,193,102,.2);background:rgba(82,61,20,.45);color:#efd07b}
+.v821-note{margin-top:12px;padding:11px 12px;border-radius:15px;border:1px solid rgba(229,194,102,.16);background:rgba(67,51,20,.20);font-size:8px;line-height:1.5;color:#cfb56f}
+#worldScreenBody .v821-memory-more{min-height:32px;padding:0 10px;border-radius:11px;border:1px solid rgba(119,207,190,.13);background:#12313a;color:#bde9dd;font-size:8px;font-weight:950}
+@media(max-width:370px){.v821-memory-grid{grid-template-columns:1fr}.v821-area-visual{height:122px}}
+
+</style>
+<script data-inline-from="./patches/v8.2.1.runtime.js">
+(()=>{
+ const VERSION='8.2.1';
+ let tries=0;
+ function boot(){
+ const WORLD=window.DEEN_WORLD, IW=window.DEEN_INTERACTIVE_WORLD;
+ if(!WORLD||!IW){if(tries++<80)setTimeout(boot,150);return}
+ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const MEMORIES=[
+  ['U01','İlk Işık Lambası','✦'],['U02','Düzen Pusulası','⌖'],['U03','Ses Halkası','◌'],['U04','Beş Sütun Biblosu','Ⅱ'],['U05','İman Haritası','✧'],
+  ['U06','Işık Kristali','◇'],['U07','Vahiy Sayfası','▱'],['U08','Rehberlik İşareti','↗'],['U09','Ufuk Küresi','◒'],['U10','Ölçü Pusulası','⌖'],
+  ['U11','Niyet Taşı','◇'],['U12','Berrak Damla','∿'],['U13','Hazırlık Basamağı','⌁'],['U14','Saf Düzeni','≡'],['U15','Ramazan Feneri','◔']
+ ];
+ const AREA_META={
+  study:{visual:'study',tag:'BAŞLANGIÇ',note:'Ders, masa ve günlük etkileşimler için ana alan.',feature:'Odak & çalışma'},
+  reading:{visual:'reading',tag:'SAKİN ALAN',note:'Okuma ve sakin oda atmosferi için ikinci köşe.',feature:'Okuma & dinlenme'},
+  garden:{visual:'garden',tag:'AÇIK HAVA',note:'Yeşil tonlar ve farklı etkileşim noktalarıyla açık alan.',feature:'Bahçe & nefes'}
+ };
+ let memoryFilter='all';
+ function gold(){try{return Number(WORLD.gold?.())||0}catch(e){return Number(state?.currency)||0}}
+ function areas(){try{const a=IW.areas?.()||[];return Array.isArray(a)?a:Object.values(a)}catch(e){return[]}}
+ function areaSnap(){try{return IW.snapshot?.()||{}}catch(e){return{}}}
+ function worldSnap(){try{return WORLD.snapshot?.()||{}}catch(e){return{}}}
+ function visualMarkup(a){const m=AREA_META[a.id]||AREA_META.study;return `<div class="v821-area-visual ${m.visual}"><span class="v821-area-badge">${esc(m.tag)}</span><span class="window"></span><span class="desk"></span><span class="lamp"></span>${a.id==='reading'?'<span class="books"></span>':''}${a.id==='garden'?'<span class="plant"></span>':''}</div>`}
+ function areasMarkup(){
+   const snap=areaSnap(), unlocked=new Set(snap.unlocked||['study']), cur=snap.currentArea||'study';
+   return areas().map(a=>{const open=unlocked.has(a.id), active=cur===a.id, m=AREA_META[a.id]||AREA_META.study, enough=gold()>=(Number(a.price)||0);return `<article class="v821-area-card ${active?'active':''}">${visualMarkup(a)}${!open?`<span class="v821-area-lock">🔒 ${Number(a.price)||0} ALTIN</span>`:''}<div class="v821-area-body"><div class="v821-area-row"><div><b>${esc(a.name)}</b><small>${esc(m.note)}</small></div>${active?'<span class="v821-pill">AKTİF</span>':''}</div><div class="v821-area-meta"><span class="v821-pill">${esc(m.feature)}</span><span class="v821-pill">Kalıcı alan</span>${!open?`<span class="v821-pill gold">🪙 ${Number(a.price)||0}</span>`:''}</div>${active?'<button class="v821-area-action secondary" type="button" disabled>Şu an bu alandasın</button>':open?`<button class="v821-area-action" type="button" data-v821-area-use="${esc(a.id)}">Bu Alana Geç</button>`:`<button class="v821-area-action" type="button" data-v821-area-unlock="${esc(a.id)}" ${enough?'':'disabled'}>${enough?`🪙 ${Number(a.price)||0} · ALANI AÇ`:'Yetersiz Altın'}</button>`}</div></article>`}).join('');
+ }
+ function memoryStatus(unit){try{return WORLD.chestStatus?.(unit,'end')||{ready:false,claimed:false}}catch(e){return{ready:false,claimed:false}}}
+ function memoryRows(){
+   const ws=worldSnap(), equipped=ws.equipped?.collectible||'';
+   return MEMORIES.map((m,i)=>{const st=memoryStatus(m[0]);return{unit:m[0],name:m[1],glyph:m[2],n:i+1,claimed:!!st.claimed,ready:!!st.ready,equipped:equipped===m[0]}});
+ }
+ function filteredMemories(){const rows=memoryRows();if(memoryFilter==='owned')return rows.filter(x=>x.claimed);if(memoryFilter==='ready')return rows.filter(x=>x.ready&&!x.claimed);if(memoryFilter==='locked')return rows.filter(x=>!x.claimed&&!x.ready);return rows}
+ function memoryCard(x){let cls=x.equipped?'equipped owned':x.claimed?'owned':x.ready?'ready':'locked';let stateText=x.equipped?'ODADA KULLANILIYOR':x.claimed?'KOLEKSİYONDA':x.ready?'SANDIK HAZIR':'KİLİTLİ';let action=x.equipped?'<button class="v821-memory-action" disabled>Aktif Hatıra</button>':x.claimed?`<button class="v821-memory-action" type="button" data-v821-equip="${x.unit}">Odada Kullan</button>`:x.ready?`<button class="v821-memory-action" type="button" data-v821-claim="${x.unit}">Büyük Sandığı Aç</button>`:'<button class="v821-memory-action" disabled>Üniteyi Tamamla</button>';return `<article class="v821-memory-card ${cls}"><span class="v821-memory-num">${String(x.n).padStart(2,'0')}</span><div class="v821-memory-icon">${x.claimed?x.glyph:'◇'}</div><b>${esc(x.name)}</b><small>${x.claimed?'Bu ünite hatırası koleksiyonuna eklendi.':x.ready?'Ünite tamamlandı; büyük sandık açılmayı bekliyor.':'Büyük sandık için ünitenin ana aşamalarını tamamla.'}</small><span class="v821-memory-state">${stateText}</span>${action}</article>`}
+ function renderAreas(){const root=$('#v821AreasOverlay');if(!root)return;const snap=areaSnap(), unlocked=(snap.unlocked||['study']).length;$('.v821-wallet',root).innerHTML=`🪙 ${gold()} Altın`;$('.v821-area-summary .count',root).textContent=unlocked+'/'+areas().length;$('.v821-area-list',root).innerHTML=areasMarkup()}
+ function renderMemories(){const root=$('#v821MemoriesOverlay');if(!root)return;const rows=memoryRows(), owned=rows.filter(x=>x.claimed).length, ready=rows.filter(x=>x.ready&&!x.claimed).length;$('.v821-progress-row strong',root).textContent=owned+'/'+rows.length;$('.v821-progress-bar i',root).style.width=(rows.length?owned/rows.length*100:0)+'%';$('.v821-progress-card small',root).textContent=ready?`${ready} büyük sandık açılmaya hazır.`:'Hatıralar büyük sandıklardan açılır.';$$('.v821-filter',root).forEach(b=>b.classList.toggle('active',b.dataset.filter===memoryFilter));$('.v821-memory-grid',root).innerHTML=filteredMemories().map(memoryCard).join('')||'<div class="v821-note" style="grid-column:1/-1">Bu filtrede henüz hatıra yok.</div>'}
+ function mount(){
+   if(!$('#v821AreasOverlay')){const d=document.createElement('div');d.id='v821AreasOverlay';d.innerHTML=`<section class="v821-sheet"><header class="v821-head"><button class="v821-back" type="button" data-close>Geri</button><div class="v821-headcopy"><small>DÜNYAM</small><b>Alanlar</b><span>Köşeni seç veya yeni bir alan aç.</span></div><span class="v821-wallet">🪙 0 Altın</span></header><div class="v821-scroll"><div class="v821-area-summary"><div><b>Dünya Alanların</b><small>Açtığın alanlar kalıcıdır ve yalnızca Dünyam kişiselleştirmesini değiştirir.</small></div><span class="count">1/3</span></div><div class="v821-area-list"></div><div class="v821-note">Alan satın almak enerji, ders avantajı veya dinî ilerleme sağlamaz; yalnızca Dünyam görünümünü genişletir.</div></div></section>`;document.body.append(d)}
+   if(!$('#v821MemoriesOverlay')){const d=document.createElement('div');d.id='v821MemoriesOverlay';d.innerHTML=`<section class="v821-sheet"><header class="v821-head"><button class="v821-back" type="button" data-close>Geri</button><div class="v821-headcopy"><small>KOLEKSİYON</small><b>Ünite Hatıraları</b><span>Tamamladığın ünitelerden kalan kozmetik hatıralar.</span></div></header><div class="v821-scroll"><div class="v821-progress-card"><div class="v821-progress-row"><div><b>Koleksiyon İlerlemesi</b><small>Hatıralar büyük sandıklardan açılır.</small></div><strong>0/15</strong></div><div class="v821-progress-bar"><i style="width:0%"></i></div></div><div class="v821-filterbar"><button class="v821-filter active" data-filter="all">Tümü</button><button class="v821-filter" data-filter="owned">Açılan</button><button class="v821-filter" data-filter="ready">Hazır</button><button class="v821-filter" data-filter="locked">Kilitli</button></div><div class="v821-memory-grid"></div><div class="v821-note">Ünite Hatıraları yalnızca kozmetik koleksiyondur. Dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.</div></div></section>`;document.body.append(d)}
+ }
+ function closeAll(){['v821AreasOverlay','v821MemoriesOverlay'].forEach(id=>document.getElementById(id)?.classList.remove('open'));document.body.style.overflow=''}
+ function openAreas(){mount();closeAll();renderAreas();$('#v821AreasOverlay').classList.add('open');document.body.style.overflow='hidden'}
+ function openMemories(){mount();closeAll();memoryFilter='all';renderMemories();$('#v821MemoriesOverlay').classList.add('open');document.body.style.overflow='hidden'}
+ function refreshWorld(){setTimeout(()=>{try{WORLD.open?.('world')}catch(e){};setTimeout(decorateMain,180)},90)}
+ function useArea(id){try{IW.area?.(id)}catch(e){};closeAll();refreshWorld()}
+ function unlockArea(id){let ok=false;try{ok=!!IW.unlockNow?.(id)}catch(e){};if(ok){closeAll();refreshWorld()}else renderAreas()}
+ function equipMemory(unit){try{WORLD.equipCollectible?.(unit)}catch(e){};setTimeout(()=>{renderMemories();decorateMain()},100)}
+ function claimMemory(unit){let ok=false;try{ok=!!WORLD.claimPathChest?.(unit,'end')}catch(e){};setTimeout(()=>{renderMemories();decorateMain()},120);return ok}
+ function decorateMain(){const root=$('#worldScreenBody .v810-shell');if(!root)return;const head=$('.v810-collection-head',root);if(head&&!$('.v821-memory-more',head)){const b=document.createElement('button');b.className='v821-memory-more';b.type='button';b.dataset.v821OpenMemories='1';b.textContent='Tümünü Gör';head.append(b)}const menu=$('[data-v810-menu]',root);if(menu&&!$('[data-v821-open-memories]',menu)){const b=document.createElement('button');b.type='button';b.dataset.v821OpenMemories='1';b.textContent='Koleksiyon';menu.append(b)}}
+ mount();
+ document.addEventListener('click',e=>{
+   const t=e.target;
+   if(t.closest?.('#v821AreasOverlay [data-close],#v821MemoriesOverlay [data-close]')){closeAll();return}
+   const use=t.closest?.('[data-v821-area-use]');if(use){useArea(use.dataset.v821AreaUse);return}
+   const unlock=t.closest?.('[data-v821-area-unlock]');if(unlock){unlockArea(unlock.dataset.v821AreaUnlock);return}
+   const filter=t.closest?.('#v821MemoriesOverlay [data-filter]');if(filter){memoryFilter=filter.dataset.filter;renderMemories();return}
+   const eq=t.closest?.('[data-v821-equip]');if(eq){equipMemory(eq.dataset.v821Equip);return}
+   const cl=t.closest?.('[data-v821-claim]');if(cl){claimMemory(cl.dataset.v821Claim);return}
+ },true);
+ document.addEventListener('click',e=>{
+   const a=e.target.closest?.('[data-v810-area-open]');if(a){e.preventDefault();e.stopImmediatePropagation();openAreas();return}
+   const m=e.target.closest?.('[data-v821-open-memories]');if(m){e.preventDefault();e.stopImmediatePropagation();openMemories();return}
+ },true);
+ ['v821AreasOverlay','v821MemoriesOverlay'].forEach(id=>document.getElementById(id)?.addEventListener('click',e=>{if(e.target.id===id)closeAll()}));
+ let decorateTimer=0;document.addEventListener('click',()=>{clearTimeout(decorateTimer);decorateTimer=setTimeout(decorateMain,60)},true);
+ setTimeout(decorateMain,500);setTimeout(decorateMain,1200);
+ window.DEEN_WORLD_AREAS_UI={version:VERSION,open:openAreas,close:closeAll,render:renderAreas,snapshot:()=>({current:areaSnap().currentArea,unlocked:[...(areaSnap().unlocked||[])],gold:gold(),areas:areas().length})};
+ window.DEEN_WORLD_MEMORIES_UI={version:VERSION,open:openMemories,close:closeAll,render:renderMemories,snapshot:()=>{const r=memoryRows();return{owned:r.filter(x=>x.claimed).length,ready:r.filter(x=>x.ready&&!x.claimed).length,equipped:r.find(x=>x.equipped)?.unit||null,total:r.length}}};
+}
+ boot();
+})();
+
+</script>
+
+<style data-inline-from="./patches/v8.3.0.css">
+/* DEEN v8.3.0 — Dünyam Final Hub & Polish */
+:root{--v830-mint:#91e2ca;--v830-bg:#071c24;--v830-panel:#0d2932;--v830-line:rgba(123,211,193,.14);--v830-gold:#f0cf78}
+.v830-hubbar{display:flex;gap:7px;padding:8px 12px 10px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(117,207,190,.08);background:rgba(7,27,34,.78);-webkit-overflow-scrolling:touch}
+.v830-hubbar::-webkit-scrollbar{display:none}
+.v830-hubbar button{flex:0 0 auto;min-height:36px;padding:0 11px;border-radius:12px;border:1px solid rgba(117,207,190,.12);background:#102d35;color:#a9c5c6;font-size:10px;font-weight:950;letter-spacing:.1px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.v830-hubbar button .ico{font-size:12px;color:#71c9b5}
+.v830-hubbar button.active{border-color:rgba(145,226,202,.32);background:linear-gradient(180deg,#1a4542,#133733);color:#ddf9f1;box-shadow:0 0 0 1px rgba(145,226,202,.06),0 7px 18px rgba(0,0,0,.12)}
+.v830-hubbar button.active .ico{color:#a5f1dc}
+.v830-hubbar button:active{transform:scale(.98)}
+#v812Wardrobe .v830-hubbar{flex:0 0 auto}
+#v820RoomOverlay .v830-hubbar,#v820ShopOverlay .v830-hubbar,#v821AreasOverlay .v830-hubbar,#v821MemoriesOverlay .v830-hubbar{flex:0 0 auto}
+#v820RoomOverlay.open,#v820ShopOverlay.open,#v821AreasOverlay.open,#v821MemoriesOverlay.open{animation:v830Fade .16s ease-out both}
+#v820RoomOverlay.open .v820-sheet,#v820ShopOverlay.open .v820-sheet,#v821AreasOverlay.open .v821-sheet,#v821MemoriesOverlay.open .v821-sheet{animation:v830SheetIn .22s cubic-bezier(.2,.8,.2,1) both}
+#v812Wardrobe.open{animation:v830FullIn .18s ease-out both}
+@keyframes v830Fade{from{background:rgba(2,13,18,0)}to{background:rgba(2,13,18,.80)}}
+@keyframes v830SheetIn{from{opacity:.45;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes v830FullIn{from{opacity:.5;transform:scale(.995)}to{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){#v820RoomOverlay.open,#v820ShopOverlay.open,#v821AreasOverlay.open,#v821MemoriesOverlay.open,#v820RoomOverlay.open .v820-sheet,#v820ShopOverlay.open .v820-sheet,#v821AreasOverlay.open .v821-sheet,#v821MemoriesOverlay.open .v821-sheet,#v812Wardrobe.open{animation:none!important}.v830-hubbar button:active{transform:none}}
+.v830-unsaved{position:fixed;inset:0;z-index:10420;display:none;align-items:flex-end;justify-content:center;background:rgba(1,10,14,.72);backdrop-filter:blur(8px)}
+.v830-unsaved.open{display:flex;animation:v830Fade .14s ease-out both}
+.v830-unsaved-card{width:min(calc(100% - 24px),420px);margin-bottom:max(12px,env(safe-area-inset-bottom));padding:16px;border-radius:24px;border:1px solid rgba(135,221,202,.18);background:linear-gradient(180deg,#12313a,#0a222a);box-shadow:0 24px 70px rgba(0,0,0,.42)}
+.v830-unsaved-card .mark{width:42px;height:42px;border-radius:15px;display:grid;place-items:center;background:rgba(237,201,111,.10);border:1px solid rgba(237,201,111,.18);color:#f0d17f;font-size:20px;margin-bottom:10px}
+.v830-unsaved-card h3{margin:0;color:#f5fbfa;font-size:17px}.v830-unsaved-card p{margin:7px 0 14px;color:#91adb0;font-size:11px;line-height:1.5}
+.v830-unsaved-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.v830-unsaved-actions button{min-height:44px;border-radius:14px;border:1px solid rgba(124,210,193,.14);background:#102d35;color:#dcefeb;font-size:11px;font-weight:950}.v830-unsaved-actions .save{grid-column:1/-1;background:linear-gradient(180deg,#1b4943,#143a36);color:#bdf5e5;border-color:rgba(147,229,209,.24)}.v830-unsaved-actions .discard{color:#e4c879}
+#worldScreenBody .v810-pop{padding:8px!important;gap:6px!important}
+#worldScreenBody .v810-pop button{display:flex!important;align-items:center!important;gap:9px!important;text-align:left!important}
+#worldScreenBody .v810-pop button:before{width:21px;height:21px;border-radius:8px;display:grid;place-items:center;background:rgba(128,215,197,.07);color:#7ad0bc;font-size:11px;flex:0 0 auto}
+#worldScreenBody .v810-pop [data-v810-open-wardrobe]:before{content:'◒'}
+#worldScreenBody .v810-pop [data-v810-toggle-edit]:before{content:'▣'}
+#worldScreenBody .v810-pop [data-v810-open-shop]:before{content:'◇'}
+#worldScreenBody .v810-pop [data-v810-area-open]:before{content:'⌂'}
+#worldScreenBody .v810-pop [data-v821-open-memories]:before{content:'✦'}
+#worldScreenBody .v810-pop [data-v810-open-avatar]:before{content:'◉'}
+.v830-version{display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:4px 7px;border-radius:999px;border:1px solid rgba(119,207,190,.12);background:rgba(119,207,190,.05);color:#739fa3;font-size:8px;font-weight:900;vertical-align:middle}
+body.v830-module-open{overscroll-behavior:none}
+@media(max-width:390px){.v830-hubbar{padding-left:10px;padding-right:10px}.v830-hubbar button{padding:0 9px;font-size:9px}.v830-unsaved-card{width:calc(100% - 18px);padding:14px}}
+
+</style>
+<script data-inline-from="./patches/v8.3.0.runtime.js">
+(()=>{
+ if(window.__deenV830Applied)return;window.__deenV830Applied=true;
+ const VERSION='8.3.0',STATE_VERSION=73;
+ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+ const MODS=[
+  ['wardrobe','Giyinme','◒','#v812Wardrobe'],
+  ['room','Oda','▣','#v820RoomOverlay'],
+  ['shop','Mağaza','◇','#v820ShopOverlay'],
+  ['areas','Alanlar','⌂','#v821AreasOverlay'],
+  ['memories','Hatıralar','✦','#v821MemoriesOverlay']
+ ];
+ let requested=null,lastModule=null,reconciling=false,observer=null;
+ const overlayFor=n=>MODS.find(x=>x[0]===n)?.[3]||'';
+ let v820Retrying=false,v820Retries=0;
+ function ensureRoomShop(){
+   if(window.DEEN_WORLD_ROOM_UI?.open&&window.DEEN_WORLD_SHOP_UI?.open)return true;
+   if(v820Retrying||v820Retries>=3)return false;
+   if(!window.DEEN_WORLD||!window.DEEN_WORLD_COLLECTION||!window.DEEN_WORLD_DECOR)return false;
+   v820Retrying=true;v820Retries++;
+   try{
+     window.__deenV820Applied=false;
+     const inline=document.querySelector('script[data-deen-v820-inline]');
+     if(inline?.textContent?.trim()){new Function(inline.textContent)();v820Retrying=false;return !!window.DEEN_WORLD_ROOM_UI?.open}
+     const old=document.querySelector('script[data-deen-v820-runtime]');
+     if(old?.src){const sc=document.createElement('script');sc.dataset.deenV820Retry='830';sc.src=old.src+(old.src.includes('?')?'&':'?')+'retry=830-'+v820Retries;sc.onload=()=>{v820Retrying=false;decorate();reconcile()};sc.onerror=()=>{v820Retrying=false};document.head.append(sc);return false}
+   }catch(e){console.warn('DEEN v8.3.0 v8.2.0 recovery',e)}
+   v820Retrying=false;return false;
+ }
+ const elFor=n=>$(overlayFor(n));
+ function isOpen(n){return !!elFor(n)?.classList.contains('open')}
+ function openNames(){return MODS.filter(x=>isOpen(x[0])).map(x=>x[0])}
+ function api(n){
+   if(n==='wardrobe')return window.DEEN_WARDROBE_PRO;
+   if(n==='room')return window.DEEN_WORLD_ROOM_UI;
+   if(n==='shop')return window.DEEN_WORLD_SHOP_UI;
+   if(n==='areas')return window.DEEN_WORLD_AREAS_UI;
+   if(n==='memories')return window.DEEN_WORLD_MEMORIES_UI;
+ }
+ function dirtyWardrobe(){try{return !!window.DEEN_WARDROBE_FINAL?.snapshot?.().dirty}catch(e){return false}}
+ function setBodyLock(){const any=openNames().length>0||$('#v830Unsaved.open');document.body.classList.toggle('v830-module-open',any);document.body.style.overflow=any?'hidden':''}
+ function scrollWorldTop(){const b=$('#worldScreenBody');if(b){try{b.scrollTo({top:0,left:0,behavior:'auto'})}catch(e){b.scrollTop=0}b.scrollTop=0}try{window.scrollTo(0,0)}catch(e){}}
+ function hardClose(n){
+   const e=elFor(n);if(!e)return;
+   if(n==='room'){try{api(n)?.close?.(false)}catch(_){e.classList.remove('open')}}
+   else if(n==='shop'){try{api(n)?.close?.(false)}catch(_){e.classList.remove('open')}}
+   else if(n==='areas'||n==='memories'){try{api(n)?.close?.()}catch(_){e.classList.remove('open')}}
+   else if(n==='wardrobe'){e.classList.remove('open')}
+ }
+ function closeOthers(keep){MODS.forEach(([n])=>{if(n!==keep&&isOpen(n))hardClose(n)})}
+ function rawOpen(n){
+   if((n==='room'||n==='shop')&&!api(n)?.open){ensureRoomShop();if(!api(n)?.open){setTimeout(()=>rawOpen(n),180);return true}}
+   const a=api(n);if(!a?.open)return false;
+   requested=n;closeOthers(n);
+   try{a.open()}catch(e){console.warn('DEEN v8.3.0 open',n,e);return false}
+   setTimeout(()=>{requested=null;lastModule=n;decorate();reconcile()},30);return true
+ }
+ function ensureUnsaved(){
+   let d=$('#v830Unsaved');if(d)return d;
+   d=document.createElement('div');d.id='v830Unsaved';d.className='v830-unsaved';d.innerHTML=`<div class="v830-unsaved-card" role="dialog" aria-modal="true" aria-labelledby="v830UnsavedTitle"><div class="mark">◇</div><h3 id="v830UnsavedTitle">Görünüm değişiklikleri kaydedilsin mi?</h3><p>Giyinme Odası'nda henüz kaydetmediğin seçimler var. Başka bir Dünyam bölümüne geçmeden önce karar ver.</p><div class="v830-unsaved-actions"><button type="button" data-v830-stay>Kal</button><button type="button" class="discard" data-v830-discard>Vazgeç ve Geç</button><button type="button" class="save" data-v830-save>Kaydet ve Geç</button></div></div>`;document.body.append(d);return d
+ }
+ function askWardrobe(target){
+   const d=ensureUnsaved();d.dataset.target=target;d.classList.add('open');setBodyLock();setTimeout(()=>$('[data-v830-save]',d)?.focus?.(),20)
+ }
+ function open(n){
+   if(!MODS.some(x=>x[0]===n))return false;
+   const cur=current();if(cur===n){decorate();return true}
+   if(cur==='wardrobe'&&dirtyWardrobe()){askWardrobe(n);return true}
+   if(cur==='wardrobe'){
+     try{window.DEEN_WARDROBE_PRO?.cancel?.()}catch(e){hardClose('wardrobe')}
+     setTimeout(()=>rawOpen(n),100);return true
+   }
+   return rawOpen(n)
+ }
+ function closeCurrent(){
+   const cur=current();if(!cur){setBodyLock();return false}
+   if(cur==='wardrobe'){try{window.DEEN_WARDROBE_PRO?.cancel?.()}catch(e){hardClose(cur)}}else hardClose(cur);
+   setTimeout(()=>{reconcile();scrollWorldTop()},110);return true
+ }
+ function current(){const names=openNames();if(requested&&names.includes(requested))return requested;return names[names.length-1]||null}
+ function hubHtml(active){return `<nav class="v830-hubbar" aria-label="Dünyam bölümleri">${MODS.map(([id,label,ico])=>`<button type="button" data-v830-open="${id}" class="${id===active?'active':''}" aria-current="${id===active?'page':'false'}"><span class="ico">${ico}</span>${label}</button>`).join('')}</nav>`}
+ function decorateOverlay(n){
+   const root=elFor(n);if(!root)return;
+   let head=null;if(n==='wardrobe')head=$('.v812-head',root);else if(n==='room'||n==='shop')head=$('.v820-head',root);else head=$('.v821-head',root);
+   if(!head)return;
+   let bar=$('.v830-hubbar',root);if(!bar){head.insertAdjacentHTML('afterend',hubHtml(n));bar=$('.v830-hubbar',root)}
+   $$('.v830-hubbar button',root).forEach(b=>{const on=b.dataset.v830Open===n;b.classList.toggle('active',on);b.setAttribute('aria-current',on?'page':'false')});
+ }
+ function decorateMain(){
+   const root=$('#worldScreenBody .v810-shell');if(!root)return;
+   const menu=$('[data-v810-menu]',root);if(menu){
+     const order=['[data-v810-open-wardrobe]','[data-v810-toggle-edit]','[data-v810-open-shop]','[data-v810-area-open]','[data-v821-open-memories]','[data-v810-open-avatar]'];
+     order.forEach(sel=>{const b=$(sel,menu);if(b)menu.append(b)});
+   }
+   const kicker=$('.v810-head .kicker',root);if(kicker&&!$('.v830-version',kicker.parentElement)){kicker.insertAdjacentHTML('afterend','<span class="v830-version">v8.3 · DÜNYAM</span>')}
+ }
+ function decorate(){MODS.forEach(([n])=>decorateOverlay(n));decorateMain();setBodyLock()}
+ function reconcile(){
+   if(reconciling)return;reconciling=true;
+   try{
+     const names=openNames();
+     if(names.length>1){const keep=requested&&names.includes(requested)?requested:(lastModule&&names.includes(lastModule)?lastModule:names[names.length-1]);names.forEach(n=>{if(n!==keep)hardClose(n)});lastModule=keep}
+     const cur=current();if(cur)lastModule=cur;decorate();
+     if(!openNames().length&&!$('#v830Unsaved.open')){setBodyLock()}
+   }finally{reconciling=false}
+ }
+ function horizontalOverflow(){
+   const cur=current(),root=cur?elFor(cur):$('#worldScreenBody .v810-shell');if(!root)return 0;const target=$('.v812-body,.v820-scroll,.v821-scroll,.v810-shell',root)||root;return Math.max(0,Math.round((target.scrollWidth||0)-(target.clientWidth||0)))
+ }
+ function duplicateIds(){const ids=new Map(),dups=[];$$('[id]').forEach(e=>{const n=(ids.get(e.id)||0)+1;ids.set(e.id,n);if(n===2)dups.push(e.id)});return dups}
+ function check(){
+   const names=openNames();return {version:VERSION,apis:{wardrobe:!!api('wardrobe')?.open,room:!!api('room')?.open,shop:!!api('shop')?.open,areas:!!api('areas')?.open,memories:!!api('memories')?.open},mainShell:$$('#worldScreenBody .v810-shell').length,openOverlays:names,openCount:names.length,duplicateIds:duplicateIds(),horizontalOverflow:horizontalOverflow(),bodyLocked:document.body.style.overflow==='hidden',hubBars:$$('.v830-hubbar').length,dirtyWardrobe:dirtyWardrobe()}
+ }
+ function recover(){closeOthers(null);$('#v830Unsaved')?.classList.remove('open');setBodyLock();scrollWorldTop();decorate();return check()}
+ document.addEventListener('click',e=>{
+   const b=e.target.closest?.('[data-v830-open]');if(b){e.preventDefault();e.stopPropagation();open(b.dataset.v830Open);return}
+   const d=$('#v830Unsaved');if(!d?.classList.contains('open'))return;
+   if(e.target===d||e.target.closest?.('[data-v830-stay]')){d.classList.remove('open');setBodyLock();return}
+   const target=d.dataset.target;
+   if(e.target.closest?.('[data-v830-discard]')){d.classList.remove('open');try{window.DEEN_WARDROBE_PRO?.cancel?.()}catch(_){};setTimeout(()=>rawOpen(target),120);return}
+   if(e.target.closest?.('[data-v830-save]')){d.classList.remove('open');try{window.DEEN_WARDROBE_PRO?.save?.()}catch(_){};setTimeout(()=>{if(isOpen('wardrobe')){setBodyLock();return}rawOpen(target)},150);return}
+ },true);
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#v830Unsaved.open')){e.preventDefault();e.stopImmediatePropagation();$('#v830Unsaved').classList.remove('open');setBodyLock()}},true);
+ document.addEventListener('click',e=>{if(e.target.closest?.('.navbtn[data-screen="worldScreen"]'))setTimeout(()=>{scrollWorldTop();decorateMain()},180)},true);
+ let eventReconcileTimer=0;document.addEventListener('click',()=>{clearTimeout(eventReconcileTimer);eventReconcileTimer=setTimeout(reconcile,40)},true);
+ try{state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);saveState?.()}catch(e){}
+ window.DEEN_WORLD_HUB={version:VERSION,stateVersion:STATE_VERSION,open,close:closeCurrent,current,decorate,recover,check,snapshot:()=>({version:VERSION,current:current(),open:openNames(),lastModule,gold:window.DEEN_WORLD?.gold?.(),area:window.DEEN_INTERACTIVE_WORLD?.snapshot?.().currentArea||null})};
+ [40,180,600].forEach(ms=>setTimeout(ensureRoomShop,ms));
+ [80,320,900,1600].forEach(ms=>setTimeout(()=>{ensureRoomShop();decorate();reconcile()},ms));
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.3.0 — Dünyam Final Polish';
+})();
+
+</script>
+
+<style data-inline-from="./patches/v8.4.4.no-clothing.css">
+/* DEEN v8.4.5 — clothing UI hidden without touching shared avatar render surfaces */
+#v812Wardrobe [data-v812-cat="outfit"],
+#v812Wardrobe [data-v812-sub="outfit"],
+#v812Wardrobe [data-v812-sub="worldOutfit"],
+#v812Wardrobe .v812-outfit{
+ display:none!important;
+}
+
+</style>
+<script data-inline-from="./patches/v8.4.4.no-clothing.runtime.js">
+(()=>{
+ if(window.__deenV846AvatarSaveStable)return;
+ window.__deenV846AvatarSaveStable=true;
+ const VERSION='8.4.6-AVATAR-SAVE-STABLE',REV='846save2';
+ const $=(s,r=document)=>r?.querySelector?.(s)||null;
+ const $$=(s,r=document)=>[...(r?.querySelectorAll?.(s)||[])];
+ let saving=false,restoreTimer=0,lastError=null,lastSavedAt=0;
+ function root(){return $('#v812Wardrobe')}
+ function isClothingControl(el){
+  if(!el)return false;
+  const cat=String(el.dataset?.v812Cat||'').toLowerCase();
+  const sub=String(el.dataset?.v812Sub||'').toLowerCase();
+  const txt=String(el.textContent||'').trim().toLocaleLowerCase('tr-TR');
+  return cat==='outfit'||sub==='outfit'||sub==='worldoutfit'||txt==='kıyafet';
+ }
+ function findHeadControl(r){
+  return $$('button,[role="tab"],[data-v812-cat],[data-v812-sub]',r).find(el=>{
+   const cat=String(el.dataset?.v812Cat||'').toLowerCase();
+   const sub=String(el.dataset?.v812Sub||'').toLowerCase();
+   const txt=String(el.textContent||'').trim().toLocaleLowerCase('tr-TR');
+   return cat==='head'||sub==='head'||txt==='baş';
+  })||null;
+ }
+ function apply(){
+  const r=root();if(!r)return false;
+  const controls=$$('button,[role="tab"],[data-v812-cat],[data-v812-sub]',r);
+  let clothingActive=false;
+  for(const el of controls){
+   if(!isClothingControl(el))continue;
+   if(el.classList.contains('active')||el.getAttribute('aria-selected')==='true')clothingActive=true;
+   el.setAttribute('aria-hidden','true');
+   if('disabled' in el)el.disabled=true;
+  }
+  if(clothingActive){
+   const head=findHeadControl(r);
+   if(head&&!head.disabled)queueMicrotask(()=>head.click());
+  }
+  r.dataset.deenClothing='removed';
+  document.documentElement.dataset.deenV846='ready';
+  return true;
+ }
+ function schedule(){requestAnimationFrame(apply)}
+ function setSaveBusy(busy){
+  const r=root();if(!r)return;
+  $$('[data-v812-save]',r).forEach(btn=>{btn.disabled=!!busy;btn.dataset.v846Saving=busy?'1':'0'});
+ }
+ function avatarOnlySave(e){
+  const r=root();
+  if(!r?.classList?.contains('open'))return;
+  if(!e.target.closest?.('[data-v812-save]'))return;
+  e.preventDefault();
+  e.stopPropagation();
+  e.stopImmediatePropagation();
+  if(saving)return;
+  saving=true;lastError=null;setSaveBusy(true);
+  const pro=window.DEEN_WARDROBE_PRO;
+  const world=window.DEEN_WORLD;
+  const oldUpdate=window.updateUI;
+  const oldOpen=world?.open;
+  const oldBuy=world?.buy;
+  const oldEquip=world?.equip;
+  try{
+   // The wardrobe's original save still owns its internal open/close state and calls saveState().
+   // During that synchronous save, suppress obsolete clothing mutations and the heavy updateUI rebuild.
+   if(typeof oldUpdate==='function')window.updateUI=()=>{};
+   if(world&&typeof oldOpen==='function')world.open=()=>true;
+   if(world&&typeof oldBuy==='function')world.buy=()=>false;
+   if(world&&typeof oldEquip==='function')world.equip=()=>false;
+   if(pro&&typeof pro.save==='function')pro.save();
+   else{
+    try{state.myWorld=state.myWorld||{};state.myWorld.avatar=state.myWorld.avatar||{};state.myWorld.avatar.created=true;saveState?.()}catch(_){}
+    r.classList.remove('open');document.body.style.overflow='';
+   }
+   lastSavedAt=Date.now();
+  }catch(err){
+   lastError=String(err?.message||err);window.DEEN_V846_SAVE_ERROR=lastError;console.error('DEEN v8.4.6 avatar save:',err);
+  }finally{
+   if(typeof oldUpdate==='function')window.updateUI=oldUpdate;
+   if(world&&typeof oldBuy==='function')world.buy=oldBuy;
+   if(world&&typeof oldEquip==='function')world.equip=oldEquip;
+   clearTimeout(restoreTimer);
+   // v8.1.2 queues world.open() at +80ms. Keep it suppressed long enough for that callback to expire.
+   restoreTimer=setTimeout(()=>{
+    if(world&&typeof oldOpen==='function')world.open=oldOpen;
+    saving=false;setSaveBusy(false);
+   },180);
+  }
+ }
+ document.addEventListener('click',avatarOnlySave,true);
+ document.addEventListener('click',e=>{
+  if(e.target.closest?.('[data-v810-open-wardrobe]')){schedule();setTimeout(apply,60);setTimeout(apply,180)}
+ },true);
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});else schedule();
+ window.DEEN_V846_NO_CLOTHING={version:VERSION,revision:REV,refresh:schedule,save:()=>{const b=$('[data-v812-save]',root());b?.click()},check:()=>({version:VERSION,removed:root()?.dataset?.deenClothing==='removed',saving,lastSavedAt,error:lastError,destructiveCleanup:false,observer:false})};
+ window.DEEN_RELEASE_VERSION=VERSION;
+ window.DEEN_RENDER_ARBITRATION='V846_AVATAR_SAVE_STABLE';
+})();
+
+</script>
+<script data-inline-from="./patches/v8.4.8.global-interaction-stability.runtime.js">
+(()=>{
+ if(window.__deenV848GlobalStability)return;
+ window.__deenV848GlobalStability=true;
+ const VERSION='8.4.8-GLOBAL-INTERACTION-STABILITY',REV='848global1';
+ let blockedReconciles=0,blockedScrolls=0,coalescedRoomRenders=0,coalescedShopRenders=0;
+ let pendingRoomRender=0,pendingShopRender=0;
+
+ // v8.1.3 decorates the wardrobe after most renders and schedules a smooth
+ // scrollIntoView each time. Do not allow those animations to accumulate.
+ const currentScroll=Element.prototype.scrollIntoView;
+ if(typeof currentScroll==='function'&&!currentScroll.__deenV848){
+  const nativeScroll=currentScroll.__deenNative||currentScroll;
+  function stableScroll(arg){
+   try{
+    if(this?.closest?.('#v812Wardrobe')){
+     blockedScrolls++;
+     return;
+    }
+   }catch(_){}
+   return nativeScroll.call(this,arg);
+  }
+  stableScroll.__deenV848=true;
+  stableScroll.__deenNative=nativeScroll;
+  Element.prototype.scrollIntoView=stableScroll;
+ }
+
+ // v8.3.0 has an anonymous document click listener which queues the named
+ // reconcile() callback after EVERY click. The real module transitions call
+ // reconcile from their own anonymous transition callbacks, so suppressing
+ // only the directly scheduled named function removes redundant global work
+ // without disabling open/close reconciliation.
+ const currentTimeout=window.setTimeout;
+ if(typeof currentTimeout==='function'&&!currentTimeout.__deenV848){
+  const nativeTimeout=(currentTimeout.__deenNative||currentTimeout).bind(window);
+  const nativeClear=window.clearTimeout.bind(window);
+  function stableTimeout(fn,delay,...args){
+   try{
+    if(typeof fn==='function'&&fn.name==='reconcile'){
+     blockedReconciles++;
+     return 0;
+    }
+    // Room preset/equip/buy flows may queue several delayed full rail renders.
+    // Keep only the latest delayed render; synchronous category renders remain
+    // untouched so the UI still responds immediately.
+    if(typeof fn==='function'&&fn.name==='renderRoomRail'&&Number(delay)>=50){
+     if(pendingRoomRender){nativeClear(pendingRoomRender);coalescedRoomRenders++}
+     pendingRoomRender=nativeTimeout(()=>{pendingRoomRender=0;fn(...args)},delay);
+     return pendingRoomRender;
+    }
+    if(typeof fn==='function'&&fn.name==='renderShop'&&Number(delay)>=50){
+     if(pendingShopRender){nativeClear(pendingShopRender);coalescedShopRenders++}
+     pendingShopRender=nativeTimeout(()=>{pendingShopRender=0;fn(...args)},delay);
+     return pendingShopRender;
+    }
+   }catch(_){}
+   return nativeTimeout(fn,delay,...args);
+  }
+  stableTimeout.__deenV848=true;
+  stableTimeout.__deenNative=currentTimeout.__deenNative||currentTimeout;
+  window.setTimeout=stableTimeout;
+ }
+
+ document.documentElement.dataset.deenV848='ready';
+ window.DEEN_V848_STABILITY={
+  version:VERSION,
+  revision:REV,
+  check:()=>({
+   version:VERSION,
+   blockedReconciles,
+   blockedScrolls,
+   coalescedRoomRenders,
+   coalescedShopRenders,
+   roomOpen:!!document.querySelector('#v820RoomOverlay.open'),
+   wardrobeOpen:!!document.querySelector('#v812Wardrobe.open'),
+   timeoutGuard:!!window.setTimeout?.__deenV848,
+   scrollGuard:!!Element.prototype.scrollIntoView?.__deenV848
+  })
+ };
+ window.DEEN_RELEASE_VERSION=VERSION;
+ window.DEEN_RENDER_ARBITRATION='V848_GLOBAL_INTERACTION_STABILITY';
+})();
+
+</script>
+
+<script data-inline-from="./patches/v8.5.0.runtime-stability.runtime.js">
+(()=>{
+ if(window.__deenV850Runtime)return;window.__deenV850Runtime=true;
+ const VERSION='8.5.0-RUNTIME-STABILITY',REV='850stable1';
+ let progressPollStopped=false,stopAttempts=0,forcedProgressCloses=0,recoveredOverflow=0,recoveredWorldLocks=0,lastError=null;
+ function visible(el){
+  if(!el||!el.isConnected)return false;
+  try{const s=getComputedStyle(el);return s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity||1)!==0&&!!(el.offsetWidth||el.offsetHeight||el.getClientRects().length)}catch(_){return false}
+ }
+ function visibleBlockingOverlay(){
+  const selectors=['.v780-sheet','#v812Wardrobe.open','#v820RoomOverlay.open','#v820ShopOverlay.open','#v821AreasOverlay.open','#v821MemoriesOverlay.open','#v830Unsaved.open','#v765AvatarOverlay'];
+  for(const sel of selectors){for(const el of document.querySelectorAll(sel)){if(visible(el))return true}}
+  return false;
+ }
+ function stopProgressPoll(){
+  stopAttempts++;
+  try{
+   const p=window.DEEN_WORLD_PROGRESS_STABLE;
+   if(!p?.stop)return false;
+   p.stop();progressPollStopped=true;return true;
+  }catch(err){lastError='stopProgressPoll: '+String(err?.message||err);return false}
+ }
+ function normalizeLocks(){
+  try{
+   const visibleSheet=[...document.querySelectorAll('.v780-sheet')].some(visible);
+   if(!visibleSheet)document.body.classList.remove('v780-sheet-open');
+   if(visibleBlockingOverlay())return false;
+   if(document.body.style.overflow==='hidden'){document.body.style.overflow='';recoveredOverflow++}
+   const wb=document.getElementById('worldScreenBody');
+   if(wb){
+    if(wb.style.pointerEvents==='none'){wb.style.pointerEvents='auto';recoveredWorldLocks++}
+    if(wb.hasAttribute('inert')){wb.removeAttribute('inert');recoveredWorldLocks++}
+    if(wb.style.visibility==='hidden'){wb.style.visibility='';recoveredWorldLocks++}
+   }
+   return true;
+  }catch(err){lastError='normalizeLocks: '+String(err?.message||err);return false}
+ }
+ function closeProgress(){
+  try{
+   const sheets=[...document.querySelectorAll('.v780-sheet.v784-progression-sheet')];
+   if(!sheets.length)return false;
+   forcedProgressCloses+=sheets.length;sheets.forEach(el=>el.remove());
+   document.body.classList.remove('v780-sheet-open');normalizeLocks();return true;
+  }catch(err){lastError='closeProgress: '+String(err?.message||err);return false}
+ }
+ document.addEventListener('click',e=>{
+  if(e.target.closest?.('.v784-progression-sheet .v780-close')){
+   e.preventDefault();e.stopImmediatePropagation();closeProgress();return;
+  }
+  if(e.target.closest?.('.navbtn,[data-close],[data-v812-cancel],[data-v812-save]'))setTimeout(normalizeLocks,0);
+ },true);
+ document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.querySelector('.v784-progression-sheet')){e.preventDefault();closeProgress();return}
+  if(e.key==='Escape')setTimeout(normalizeLocks,0);
+ },true);
+ window.addEventListener('pageshow',()=>{setTimeout(stopProgressPoll,0);setTimeout(normalizeLocks,20)});
+ window.addEventListener('focus',()=>setTimeout(normalizeLocks,20));
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden){setTimeout(stopProgressPoll,0);setTimeout(normalizeLocks,20)}});
+ [0,120,400,900,1600,2600].forEach(ms=>setTimeout(()=>{stopProgressPoll();normalizeLocks()},ms));
+ document.documentElement.dataset.deenV850='ready';
+ window.DEEN_V850_STABILITY={
+  version:VERSION,revision:REV,closeProgress,normalize:normalizeLocks,stopProgressPoll,
+  check:()=>({
+   version:VERSION,revision:REV,progressPollStopped,stopAttempts,forcedProgressCloses,recoveredOverflow,recoveredWorldLocks,lastError,
+   progressionSheets:document.querySelectorAll('.v784-progression-sheet').length,
+   bodySheetOpen:document.body.classList.contains('v780-sheet-open'),bodyOverflow:document.body.style.overflow||'',
+   observer:window.DEEN_V850_PRE?.check?.()||null
+  })
+ };
+ window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_RENDER_ARBITRATION='V850_RUNTIME_STABILITY';
+})();
+
+</script>
+
+<!-- DEEN v8.5.1 — Multi-format Question Engine Core -->
+<script id="deen-v851-question-engine-core">
+(()=>{
+ if(window.__deenV851QuestionEngine)return;window.__deenV851QuestionEngine=true;
+ const VERSION='8.5.1-QUESTION-ENGINE-CORE',BUILD='851qcore1';
+ const TYPES=Object.freeze({
+  MCQ:'mcq',
+  CARD:'card',
+  TRUE_FALSE:'true_false',
+  FILL_BLANK:'fill_blank',
+  MATCH:'match',
+  SEQUENCE:'sequence',
+  SCENARIO:'scenario',
+  ODD_ONE_OUT:'odd_one_out',
+  LISTEN_SELECT:'listen_select',
+  PRONUNCIATION:'pronunciation'
+ });
+ const TYPE_LIST=Object.freeze(Object.values(TYPES));
+ const TYPE_META=Object.freeze({
+  mcq:{label:'4 Şıklı',interaction:'tap',family:'choice'},
+  card:{label:'Kart Seçimi',interaction:'tap',family:'choice'},
+  true_false:{label:'Doğru / Yanlış',interaction:'swipe_or_tap',family:'binary'},
+  fill_blank:{label:'Boşluk Doldurma',interaction:'drag_or_tap',family:'construct'},
+  match:{label:'Eşleştirme',interaction:'match',family:'connect'},
+  sequence:{label:'Sıralama',interaction:'drag',family:'order'},
+  scenario:{label:'Senaryo',interaction:'decision',family:'application'},
+  odd_one_out:{label:'Yanlışı Bul',interaction:'tap',family:'discriminate'},
+  listen_select:{label:'Dinle ve Seç',interaction:'listen_and_tap',family:'audio'},
+  pronunciation:{label:'Telaffuz',interaction:'speak',family:'voice'}
+ });
+ const clone=v=>{try{return structuredClone(v)}catch(_){return JSON.parse(JSON.stringify(v))}};
+ const normText=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
+ const optionValue=o=>o&&typeof o==='object'?(o.id??o.value??o.text??''):o;
+ function normalizeQuestion(input,index=0){
+  const q=input&&typeof input==='object'?clone(input):{};
+  q.id=String(q.id||q.questionId||('q_'+(index+1)));
+  q.type=String(q.type||TYPES.MCQ).toLowerCase();
+  q.prompt=String(q.prompt??q.question??q.text??'').trim();
+  q.instruction=String(q.instruction??'').trim();
+  q.difficulty=String(q.difficulty||'normal').toLowerCase();
+  q.topic=String(q.topic||q.topicId||'').trim();
+  q.knowledgeKey=String(q.knowledgeKey||q.skill||q.objective||q.id).trim();
+  q.options=Array.isArray(q.options)?q.options:[];
+  if(q.answer===undefined&&q.correct!==undefined)q.answer=q.correct;
+  if(q.answer===undefined&&q.correctAnswer!==undefined)q.answer=q.correctAnswer;
+  q.explanation=String(q.explanation??q.feedback??'').trim();
+  q.meta=q.meta&&typeof q.meta==='object'?q.meta:{};
+  return q;
+ }
+ function validateQuestion(input){
+  const q=normalizeQuestion(input);
+  const errors=[];
+  if(!TYPE_LIST.includes(q.type))errors.push('unsupported_type');
+  if(!q.prompt&&q.type!==TYPES.PRONUNCIATION)errors.push('missing_prompt');
+  if([TYPES.MCQ,TYPES.CARD,TYPES.SCENARIO,TYPES.ODD_ONE_OUT,TYPES.LISTEN_SELECT].includes(q.type)){
+   if(q.options.length<2)errors.push('not_enough_options');
+   if(q.answer===undefined||q.answer===null||q.answer==='')errors.push('missing_answer');
+  }
+  if(q.type===TYPES.TRUE_FALSE&&typeof q.answer!=='boolean')errors.push('answer_must_be_boolean');
+  if(q.type===TYPES.FILL_BLANK&&(q.answer===undefined||q.answer===null||(Array.isArray(q.answer)&&!q.answer.length)))errors.push('missing_answer');
+  if(q.type===TYPES.MATCH){const pairs=q.pairs||q.answer;if(!Array.isArray(pairs)||pairs.length<2)errors.push('missing_pairs')}
+  if(q.type===TYPES.SEQUENCE&&!Array.isArray(q.answer||q.sequence))errors.push('missing_sequence');
+  if(q.type===TYPES.PRONUNCIATION&&!String(q.targetText??q.answer??'').trim())errors.push('missing_target_text');
+  return {valid:errors.length===0,errors,question:q};
+ }
+ function sameValue(a,b){return normText(optionValue(a))===normText(optionValue(b))}
+ function canonicalPairs(v){
+  if(!v)return[];
+  if(Array.isArray(v))return v.map(x=>Array.isArray(x)?[normText(x[0]),normText(x[1])]:[normText(x?.left??x?.key),normText(x?.right??x?.value)]).sort((a,b)=>a[0].localeCompare(b[0],'tr'));
+  if(typeof v==='object')return Object.entries(v).map(([k,val])=>[normText(k),normText(val)]).sort((a,b)=>a[0].localeCompare(b[0],'tr'));
+  return[];
+ }
+ function grade(input,response){
+  const q=normalizeQuestion(input);
+  if(q.type===TYPES.PRONUNCIATION)return {gradable:false,correct:null,reason:'speech_engine_required'};
+  let correct=false;
+  if([TYPES.MCQ,TYPES.CARD,TYPES.SCENARIO,TYPES.ODD_ONE_OUT,TYPES.LISTEN_SELECT].includes(q.type)) correct=sameValue(response,q.answer);
+  else if(q.type===TYPES.TRUE_FALSE) correct=Boolean(response)===q.answer;
+  else if(q.type===TYPES.FILL_BLANK){const accepted=Array.isArray(q.answer)?q.answer:[q.answer];correct=accepted.some(a=>normText(a)===normText(response))}
+  else if(q.type===TYPES.SEQUENCE){const expected=q.answer||q.sequence||[],got=Array.isArray(response)?response:[];correct=expected.length===got.length&&expected.every((x,i)=>sameValue(x,got[i]))}
+  else if(q.type===TYPES.MATCH){const expected=canonicalPairs(q.pairs||q.answer),got=canonicalPairs(response);correct=expected.length===got.length&&expected.every((p,i)=>p[0]===got[i]?.[0]&&p[1]===got[i]?.[1])}
+  return {gradable:true,correct,answer:clone(q.answer??q.pairs??q.sequence??null)};
+ }
+ function shuffle(a,rng=Math.random){const out=[...a];for(let i=out.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[out[i],out[j]]=[out[j],out[i]]}return out}
+ function buildSection(pool,opts={}){
+  const count=Math.max(1,Number(opts.count)||10),rng=typeof opts.rng==='function'?opts.rng:Math.random;
+  let items=(Array.isArray(pool)?pool:[]).map(normalizeQuestion);
+  if(Array.isArray(opts.allowedTypes)&&opts.allowedTypes.length){const allowed=new Set(opts.allowedTypes);items=items.filter(q=>allowed.has(q.type))}
+  items=shuffle(items,rng);
+  const out=[],usedTypeCount={};
+  while(items.length&&out.length<count){
+   const last=out.at(-1)?.type,prev=out.at(-2)?.type;
+   let candidates=items.filter(q=>q.type!==last&&q.type!==prev);
+   if(!candidates.length)candidates=items.filter(q=>q.type!==last);
+   if(!candidates.length)candidates=items;
+   candidates.sort((a,b)=>(usedTypeCount[a.type]||0)-(usedTypeCount[b.type]||0));
+   const min=usedTypeCount[candidates[0]?.type]||0;
+   const best=candidates.filter(q=>(usedTypeCount[q.type]||0)===min);
+   const pick=best[Math.floor(rng()*best.length)]||candidates[0];
+   out.push(pick);usedTypeCount[pick.type]=(usedTypeCount[pick.type]||0)+1;
+   items.splice(items.indexOf(pick),1);
+  }
+  return out;
+ }
+ function analyzeSection(items){
+  const q=(items||[]).map(normalizeQuestion),types=q.map(x=>x.type),counts={};types.forEach(t=>counts[t]=(counts[t]||0)+1);
+  let consecutiveRepeats=0;for(let i=1;i<types.length;i++)if(types[i]===types[i-1])consecutiveRepeats++;
+  return {count:q.length,uniqueTypes:Object.keys(counts).length,counts,consecutiveRepeats,diverse:consecutiveRepeats===0&&Object.keys(counts).length>=Math.min(6,q.length)};
+ }
+ function emit(name,detail){
+  const payload={version:VERSION,at:Date.now(),...detail};
+  try{document.dispatchEvent(new CustomEvent('deen:question:'+name,{detail:payload}))}catch(_){}
+  return payload;
+ }
+ function feedbackProfile(correct,streak){
+  if(!correct)return {tone:'coach',intensity:'soft',label:'Tekrar deneyelim'};
+  if(streak>=5)return {tone:'celebrate',intensity:'high',label:'Seri ×'+streak};
+  if(streak>=3)return {tone:'reward',intensity:'medium',label:'Harika seri!'};
+  return {tone:'reward',intensity:'light',label:'Doğru!'};
+ }
+ function createSession(pool,opts={}){
+  const questions=opts.keepOrder?(pool||[]).map(normalizeQuestion):buildSection(pool,{...opts,count:opts.count||Math.min(10,(pool||[]).length||10)});
+  const state={id:String(opts.id||('session_'+Date.now())),index:0,streak:0,bestStreak:0,correct:0,wrong:0,answers:[],startedAt:Date.now(),finishedAt:null};
+  const api={
+   questions,
+   state,
+   current:()=>questions[state.index]||null,
+   submit(response,extra={}){
+    const q=questions[state.index];if(!q)return {ok:false,reason:'finished'};
+    const result=grade(q,response),isCorrect=result.correct===true;
+    if(result.gradable){if(isCorrect){state.correct++;state.streak++;state.bestStreak=Math.max(state.bestStreak,state.streak)}else{state.wrong++;state.streak=0}}
+    const record={questionId:q.id,type:q.type,knowledgeKey:q.knowledgeKey,response:clone(response),correct:result.correct,gradable:result.gradable,elapsedMs:Number(extra.elapsedMs)||0,at:Date.now()};
+    state.answers.push(record);
+    const feedback=feedbackProfile(isCorrect,state.streak);
+    emit('answered',{sessionId:state.id,record,feedback,streak:state.streak});
+    if(result.gradable)emit(isCorrect?'correct':'incorrect',{sessionId:state.id,record,feedback,streak:state.streak});
+    if(isCorrect&&state.streak>=3)emit('combo',{sessionId:state.id,streak:state.streak,feedback});
+    state.index++;
+    if(state.index>=questions.length){state.finishedAt=Date.now();emit('complete',{sessionId:state.id,summary:api.summary()})}
+    return {ok:true,...result,feedback,streak:state.streak,next:api.current()};
+   },
+   summary:()=>({id:state.id,total:questions.length,answered:state.answers.length,correct:state.correct,wrong:state.wrong,bestStreak:state.bestStreak,accuracy:state.answers.filter(x=>x.gradable).length?Math.round(state.correct/state.answers.filter(x=>x.gradable).length*100):0,finished:!!state.finishedAt,durationMs:(state.finishedAt||Date.now())-state.startedAt}),
+   reset(){state.index=0;state.streak=0;state.bestStreak=0;state.correct=0;state.wrong=0;state.answers.length=0;state.startedAt=Date.now();state.finishedAt=null;emit('reset',{sessionId:state.id});return api}
+  };
+  emit('session',{sessionId:state.id,count:questions.length,analysis:analyzeSection(questions)});
+  return api;
+ }
+ window.DEEN_QUESTION_TYPES=TYPES;
+ window.DEEN_QUESTION_ENGINE={
+  version:VERSION,build:BUILD,types:TYPES,typeList:TYPE_LIST,typeMeta:TYPE_META,
+  normalize:normalizeQuestion,validate:validateQuestion,grade,buildSection,analyzeSection,createSession,feedbackProfile,
+  check:()=>({version:VERSION,build:BUILD,types:TYPE_LIST.length,labels:TYPE_LIST.map(t=>TYPE_META[t].label),ready:true})
+ };
+ document.documentElement.dataset.deenQuestionEngine='ready';
+})();
+</script>
+
+<!-- DEEN v8.5.2 — Premium Card Choice -->
+<style id="deen-v852-card-choice-css">
+.question-frame.v852-card-mode{padding-top:46px}
+.question-frame.v852-card-mode .qtype{margin-bottom:10px;color:#9fb9bd}
+.question-frame.v852-card-mode .template-action{display:none!important}
+.options.grid.premium-grid.v852-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:4px}
+.options.grid.premium-grid.v852-card-grid .option{position:relative;min-height:128px;padding:15px 11px 13px;border-radius:23px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;overflow:hidden;border:1px solid rgba(97,157,159,.38);background:linear-gradient(180deg,rgba(10,43,52,.97),rgba(6,28,36,.99));box-shadow:inset 0 1px rgba(255,255,255,.035),0 12px 22px rgba(0,0,0,.18);transform:translateZ(0);transition:transform 130ms ease,border-color 180ms ease,box-shadow 180ms ease,background 180ms ease}
+.options.grid.premium-grid.v852-card-grid .option:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 22%,rgba(83,216,187,.085),transparent 50%);pointer-events:none}
+.options.grid.premium-grid.v852-card-grid .option:not(:disabled):active,.options.grid.premium-grid.v852-card-grid .option.v852-tap{transform:scale(.965)}
+.options.grid.premium-grid.v852-card-grid .option-badge{display:none}
+.options.grid.premium-grid.v852-card-grid .option-icon{position:relative;width:46px;height:46px;border-radius:16px;display:grid;place-items:center;font-size:24px;line-height:1;background:linear-gradient(180deg,rgba(31,93,91,.88),rgba(15,59,66,.9));border:1px solid rgba(108,222,195,.24);color:#b7f2de;box-shadow:inset 0 1px rgba(255,255,255,.04),0 7px 15px rgba(0,0,0,.16);font-family:Inter,system-ui,sans-serif}
+.options.grid.premium-grid.v852-card-grid .option-label{position:relative;font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:850;line-height:1.2;color:#eff8f5;text-align:center;letter-spacing:-.1px}
+.options.grid.premium-grid.v852-card-grid .option:after{content:"DOKUN";position:relative;font-family:Inter,system-ui,sans-serif;font-size:6px;font-weight:950;letter-spacing:1.45px;color:#67888d;margin-top:1px}
+.options.grid.premium-grid.v852-card-grid .option.correct{border-color:#78dfbf!important;background:linear-gradient(180deg,rgba(19,77,66,.98),rgba(8,48,44,.99))!important;box-shadow:0 0 0 2px rgba(117,225,191,.11),0 12px 28px rgba(42,199,159,.17)!important;animation:v852Correct 420ms cubic-bezier(.2,.75,.25,1)}
+.options.grid.premium-grid.v852-card-grid .option.correct .option-icon{border-color:rgba(149,239,211,.62);background:linear-gradient(180deg,#287e6b,#155b52);color:#eafff8}
+.options.grid.premium-grid.v852-card-grid .option.correct:after{content:"DOĞRU ✓";color:#96e8cc}
+.options.grid.premium-grid.v852-card-grid .option.wrong{border-color:#d98795!important;background:linear-gradient(180deg,rgba(74,40,48,.98),rgba(47,27,34,.99))!important;box-shadow:0 0 0 2px rgba(224,122,141,.08),0 12px 24px rgba(111,28,42,.12)!important;animation:v852Wrong 300ms ease}
+.options.grid.premium-grid.v852-card-grid .option.wrong .option-icon{border-color:rgba(227,139,153,.4);background:linear-gradient(180deg,#6d3d49,#492b35);color:#ffe9ed}
+.options.grid.premium-grid.v852-card-grid .option.wrong:after{content:"TEKRAR BAK";color:#e9a3af}
+.options.grid.premium-grid.v852-card-grid.v852-resolved .option:not(.correct):not(.wrong){opacity:.56;transform:scale(.985)}
