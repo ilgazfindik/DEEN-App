@@ -1,0 +1,1000 @@
+  try{
+    const sc=document.getElementById('learnScroll');
+    // V5.1.2 theme restoration: open at the unit hero so the DEEN visual identity is visible.
+    // The contextual DEVAM ET button still moves the player directly to the current lesson.
+    if(sc)sc.scrollTop=0;
+  }catch(err){}
+  try{updateUI()}catch(err){
+    console.error('DEEN UI boot error',err);
+    // updateUI başarısız olsa dahi path'i bir kez daha garanti et.
+    try{renderPaths()}catch(e){}
+  }
+  try{renderSectionFinal()}catch(err){}
+}
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',bootDEEN,{once:true});
+}else{
+  bootDEEN();
+}
+setTimeout(()=>{try{renderPaths();updateUI()}catch(err){console.error('DEEN delayed boot error',err)}},40);
+</script>
+
+<script id="deen-gameplay-feel-520-js">
+/* DEEN v5.2.0 — additive gameplay-feel layer. No question data or Learn layout mutation. */
+window.DEEN_GAMEPLAY_FEEL_VERSION='5.2.0';
+
+(function(){
+ const qs=(s,r=document)=>r.querySelector(s), qsa=(s,r=document)=>[...r.querySelectorAll(s)];
+ const oldAnswer=DEENFeel.answer;
+ DEENFeel.answer=function(correct,q){
+   oldAnswer(correct,q);
+   const frame=qs('.question-frame'), area=$('answerArea');
+   if(frame){
+     DEENFeel.classes(frame,correct?'gf520-frame-correct':'gf520-frame-wrong','question',correct?315:265);
+   }
+   if(correct&&!motionOff()){
+     const target=area?.querySelector('.option.selected')||area?.querySelector('.fill-choice.selected')||area?.querySelector('input')||area?.querySelector('.sequence-zone')||area?.querySelector('.match-grid')||frame;
+     if(target){
+       const host=target.tagName==='INPUT'?(target.parentElement||frame):target;
+       const ring=document.createElement('span');ring.className='gf520-answer-ring'+(session?.combo>=5?' gold':'');ring.setAttribute('aria-hidden','true');host.append(ring);
+       const b1=document.createElement('i'),b2=document.createElement('i');b1.className='gf520-bolt left'+(session?.combo>=5?' gold':'');b2.className='gf520-bolt right'+(session?.combo>=5?' gold':'');host.append(b1,b2);
+       const remove=()=>{ring.remove();b1.remove();b2.remove()};DEENFeel.cleanup('question',remove);DEENFeel.later('question',remove,300);
+     }
+   }
+   const combo=session?.combo||0;
+   if(correct&&[3,5,7].includes(combo)&&!motionOff()){
+     qs('.gf520-combo-milestone')?.remove();const t=document.createElement('div');t.className='gf520-combo-milestone'+(combo>=5?' gold':'');
+     t.textContent=combo===3?'3 doğru seri':combo===5?'5 doğru seri · Harika ilerleme':'7 doğru seri · Güçlü seri';t.setAttribute('role','status');$('lesson').append(t);
+     const rm=()=>t.remove();DEENFeel.cleanup('question',rm);DEENFeel.later('question',rm,700);
+   }
+ };
+
+ // Faster but visibly smooth question hand-off with spam guard inherited from v5.1.x.
+ const baseNext=(typeof oldNext==='function'?oldNext:nextQuestion);
+ nextQuestion=function(){
+   if(!session||session.committed||session.gf520Advancing||session.answeredIndex!==session.index)return;
+   const s=session,index=s.index;s.gf520Advancing=true;$('continueBtn').disabled=true;
+   const frame=qs('.question-frame');
+   const advance=()=>{
+     if(session!==s||s.index!==index){s.gf520Advancing=false;return}
+     frame?.classList.remove('gf520-question-out');
+     baseNext();
+     s.gf520Advancing=false;
+     if(session===s&&!s.committed){const nf=qs('.question-frame');if(!motionOff()){nf?.classList.add('gf520-question-in');DEENFeel.later('transition',()=>nf?.classList.remove('gf520-question-in'),195)}}
+   };
+   if(motionOff()){advance();return}
+   frame?.classList.add('gf520-question-out');
+   DEENFeel.later('transition',advance,145);
+ };
+
+ // Result-only visual polish. Underlying XP/state logic stays untouched.
+ const oldFeelResult=DEENFeel.result;
+ DEENFeel.result=function(pct,xp,isFinal){
+   oldFeelResult(pct,xp,isFinal);
+   const rv=$('resultView');if(!rv)return;
+   rv.classList.add('gf520-result-stage');DEENFeel.later('result',()=>rv.classList.remove('gf520-result-stage'),380);
+   qs('.gf520-perfect-label',rv)?.remove();
+   if(pct===100&&!isFinal){const badge=document.createElement('div');badge.className='gf520-perfect-label';badge.textContent=session?.wasCompleted?'✦ KUSURSUZ PEKİŞTİRME':'✦ KUSURSUZ DERS';$('resultTitle').before(badge)}
+ };
+
+ // Old-theme stage complete: animate node + side card + path + next pair.
+ animatePath=function(e,finish){
+   const node=$('slot-'+e.id),card=qs('[data-stage-card="'+e.id+'"]'),link=$('link-'+e.id),next=e.next?$('slot-'+e.next):null,nextCard=e.next?qs('[data-stage-card="'+e.next+'"]'):null;
+   if(!node||motionOff()){if(e.next)sound('unlock');finish();return}
+   DEENFeel.end('path');node.scrollIntoView({block:'center',behavior:'smooth'});
+   node.classList.add('gf520-stage-done');card?.classList.add('gf520-card-sweep');link?.classList.add('gf520-route-light');
+   DEENFeel.particles(node,e.perfect?7:4,'path',e.perfect?'gold':'teal',620);DEENFeel.haptic('complete');
+   const skip=document.createElement('button');skip.className='lp-skip';skip.textContent='Animasyonu atla';$('phone').append(skip);
+   let once=false;const clean=()=>{node.classList.remove('gf520-stage-done');card?.classList.remove('gf520-card-sweep');link?.classList.remove('gf520-route-light');next?.classList.remove('gf520-next-node');nextCard?.classList.remove('gf520-next-card');qs('.gf520-unlock-toast')?.remove();skip.remove()};
+   const done=()=>{if(once)return;once=true;DEENFeel.end('path');clean();finish()};celebrationFinish=done;skip.onclick=done;
+   if(e.next){
+     DEENFeel.later('path',()=>{next?.classList.add('gf520-next-node');nextCard?.classList.add('gf520-next-card');const toast=document.createElement('div');toast.className='gf520-unlock-toast';toast.textContent='YENİ DERS AÇILDI';toast.setAttribute('role','status');$('phone').append(toast);sound('unlock')},650);
+   }
+   DEENFeel.later('path',done,e.next?1850:1100);
+ };
+
+ // Unit completion: sequential wave across the already-restored seven nodes/cards, then ceremony.
+ animateUnit=function(e,finish){
+   const unit=$('v5Unit'+Number(e.unit.slice(1)));if(!unit||motionOff()){finish();return}
+   unit.scrollIntoView({block:'start',behavior:'smooth'});unit.classList.add('gf520-unit-wave');
+   const nodes=qsa('.lp-node',unit),cards=qsa('.deen-stage-card',unit),links=qsa('.lp-link',unit);
+   const skip=document.createElement('button');skip.className='lp-skip';skip.textContent='Animasyonu atla';$('phone').append(skip);
+   let once=false;const clean=()=>{unit.classList.remove('gf520-unit-wave');nodes.forEach(n=>n.classList.remove('gf520-unit-node-wave'));cards.forEach(c=>c.classList.remove('gf520-unit-card-wave'));links.forEach(l=>l.classList.remove('gf520-unit-link-wave'));skip.remove()};
+   const done=()=>{if(once)return;once=true;DEENFeel.end('unit');clean();finish()};celebrationFinish=done;skip.onclick=done;
+   nodes.forEach((node,i)=>DEENFeel.later('unit',()=>{node.classList.add('gf520-unit-node-wave');cards[i]?.classList.add('gf520-unit-card-wave');if(i>0)links[i-1]?.classList.add('gf520-unit-link-wave')},i*115));
+   DEENFeel.later('unit',done,Math.max(1450,nodes.length*115+620));
+ };
+
+ // Reward medal gets a little more tactile reveal; queue/state remains the same.
+ const oldRun=runCelebrations;
+ runCelebrations=function(){
+   oldRun();
+   DEENFeel.later('notice',()=>{const medal=qs('.gf-reward-medal');if(medal&&!medal.classList.contains('gf520-reward-pop'))medal.classList.add('gf520-reward-pop')},25);
+ };
+
+ // Extend non-visible developer harness; no progression mutation.
+ document.addEventListener('click',e=>{const b=e.target.closest?.('#resultContinueBtn,#gfRetryBtn,.feedback .btn');if(b&&!b.disabled)sound('click')},{capture:true});
+
+ if(window.DEEN_GAMEFEEL_TEST){
+   window.DEEN_GAMEFEEL_TEST.version='5.2.0';
+   window.DEEN_GAMEFEEL_TEST.snapshot=()=>({
+     version:window.DEEN_GAMEPLAY_FEEL_VERSION,
+     theme:{nodes:qsa('.deen-old-node').length,cards:qsa('.deen-stage-card').length},
+     sound:DEENSound.diagnostics(),effects:DEENFeel.diagnostics(),
+     queue:celebrationQueue.map(e=>e.type),active:activeCelebration?.type||null,
+     reduced:motionOff(),soundEnabled:!!state.settings.sound,hapticEnabled:!!state.settings.haptic
+   });
+ }
+})();
+</script>
+
+
+<script id="deen-v530-adaptive-lesson-composer">
+/* DEEN v5.3.0
+   Adaptive Lesson Composer.
+   Visual theme, question data, sound/game-feel and final selectors are preserved. */
+(() => {
+  const V530 = {
+    version: '5.3.0',
+    maxRecentPerStage: 10,
+    profileFor(stageId){
+      const st=STAGES.find(s=>s.id===stageId);
+      const unit=stageId.slice(0,3);
+      const score=Number(state.stageScores?.[stageId]);
+      const mastery=Number(masteryFor(unit)||0);
+      const challenge=stageId.endsWith('S07');
+      const support=(Number.isFinite(score)&&score<72)||mastery<42;
+      const stretch=(Number.isFinite(score)&&score>=92&&mastery>=78)||challenge;
+      return {challenge,support,stretch,score:Number.isFinite(score)?score:null,mastery,stage:st};
+    },
+    slotProfiles(target, profile){
+      if(target===10){
+        return [
+          {cog:['recognition'],diff:['easy','medium'],role:'warmup'},
+          {cog:['recall','recognition'],diff:['easy','medium'],role:'recall'},
+          {types:['matching','fill_blank','missing_item','true_false','speed_review','build_sequence'],role:'interaction'},
+          {cog:['application'],types:['scenario','error_spotting','multiple_choice'],role:'apply'},
+          {cog:['recall','application'],types:['progressive_recall','fill_blank','build_sequence','matching','missing_item'],role:'retrieve'},
+          {cog:['application','recall'],diff:['medium','hard'],role:'mixed'},
+          {priority:true,role:'weakness'},
+          {diff:['medium','hard'],cog:['recall','application'],role:'stretch'},
+          {diff:['hard','medium'],cog:['application','recall'],role:'challenge'},
+          {diff:['hard','medium'],cog:['application','recall'],priority:true,role:'finish'}
+        ];
+      }
+      return [
+        {cog:['recognition'],diff:profile.support?['easy']:['easy','medium'],role:'warmup'},
+        {cog:['recognition','recall'],diff:['easy','medium'],role:'recognize'},
+        {types:['matching','fill_blank','missing_item','true_false','speed_review','build_sequence'],role:'interaction'},
+        {cog:['recall','application'],types:['progressive_recall','fill_blank','matching','build_sequence','scenario','multiple_choice'],role:'retrieve'},
+        {cog:['application','recall'],types:['scenario','error_spotting','multiple_choice','missing_item'],role:'apply'},
+        {priority:true,cog:['recall','application','recognition'],role:'adaptive'},
+        {cog:['application','recall'],diff:profile.stretch?['hard','medium']:['medium','hard','easy'],role:'finish'}
+      ];
+    },
+    recent(stageId){
+      const h=state.lessonHistory?.[stageId];
+      return Array.isArray(h)?h:[];
+    },
+    ensureState(){
+      if(!state.lessonHistory||typeof state.lessonHistory!=='object'||Array.isArray(state.lessonHistory)) state.lessonHistory={};
+    },
+    remember(stageId, ids){
+      this.ensureState();
+      const prev=this.recent(stageId);
+      const next=[...ids,...prev.filter(id=>!ids.includes(id))].slice(0,this.maxRecentPerStage);
+      state.lessonHistory[stageId]=next;
+    },
+    priorityBoost(q){
+      const r=state.reviewSchedule?.[q.id];
+      let b=1;
+      if(state.mistakes?.includes(q.id)) b*=3.4;
+      if(r?.nextReview<=Date.now()) b*=2.1;
+      const ss=Number(state.stageScores?.[q.stage_id]);
+      if(Number.isFinite(ss)&&ss<75) b*=1.25;
+      return b;
+    },
+    fit(q,slot,ctx){
+      let f=1;
+      const profile=ctx.profile;
+      if(slot.cog?.length){
+        const idx=slot.cog.indexOf(q.cognitive_level);
+        f*=idx<0?.52:(1.85-idx*.25);
+      }
+      if(slot.diff?.length){
+        const idx=slot.diff.indexOf(q.difficulty);
+        f*=idx<0?.60:(1.65-idx*.18);
+      }
+      if(slot.types?.length){
+        const idx=slot.types.indexOf(q.activity_type);
+        f*=idx<0?.58:(1.7-idx*.08);
+      }
+      if(slot.priority) f*=this.priorityBoost(q);
+
+      // Adapt difficulty without making struggling users feel punished.
+      if(profile.support){
+        if(q.difficulty==='easy')f*=1.35;
+        if(q.difficulty==='hard')f*=.55;
+      }else if(profile.stretch){
+        if(q.difficulty==='hard')f*=1.35;
+        else if(q.difficulty==='medium')f*=1.15;
+      }
+
+      const tc=ctx.typeCounts[q.activity_type]||0;
+      const cc=ctx.conceptCounts[q.concept_id]||0;
+      const vg=q.variant_group_id||'';
+      const vc=vg?(ctx.variantCounts[vg]||0):0;
+
+      // Avoid monotonous lessons.
+      f/=1+tc*.48;
+      f/=1+Math.max(0,cc-1)*.70;
+      if(vc)f*=.20;
+
+      const last=ctx.out[ctx.out.length-1];
+      const prev=ctx.out[ctx.out.length-2];
+      if(last?.activity_type===q.activity_type)f*=.40;
+      if(last?.activity_type===q.activity_type&&prev?.activity_type===q.activity_type)f*=.08;
+      if(last?.concept_id===q.concept_id)f*=.58;
+
+      // Replays should feel fresh, but weak/mistake questions can still return.
+      if(ctx.recent.has(q.id)){
+        f*=state.mistakes?.includes(q.id)?.72:.18;
+      }
+
+      return Math.max(.005, f);
+    },
+    pick(pool,slot,ctx){
+      let candidates=pool.filter(q=>!ctx.used.has(q.id));
+      if(!candidates.length)return null;
+
+      // Hard constraints are applied only when the pool can satisfy them.
+      if(slot.forceHard){
+        const hard=candidates.filter(q=>q.difficulty==='hard');
+        if(hard.length)candidates=hard;
+      }
+      if(slot.newType){
+        const freshType=candidates.filter(q=>!(ctx.typeCounts[q.activity_type]||0));
+        if(freshType.length)candidates=freshType;
+      }
+
+      // Never allow three identical interaction types consecutively when an alternative exists.
+      const last=ctx.out[ctx.out.length-1],prev=ctx.out[ctx.out.length-2];
+      if(last&&prev&&last.activity_type===prev.activity_type){
+        const alternate=candidates.filter(q=>q.activity_type!==last.activity_type);
+        if(alternate.length)candidates=alternate;
+      }
+
+      // Normal lesson replays strongly prefer unseen questions.
+      // Smart Review is allowed to intentionally repeat due/mistake items.
+      if(!ctx.reviewMode&&ctx.recent?.size){
+        const unseen=candidates.filter(q=>!ctx.recent.has(q.id));
+        if(unseen.length)candidates=unseen;
+      }
+
+      return weightedChoice(candidates,q=>Math.max(.01,weight(q))*this.fit(q,slot,ctx));
+    },
+    compose(stageId){
+      const target=stageId.endsWith('S07')?10:7;
+      const pool=poolFor(stageId).filter(q=>!audioBlocked(q));
+      if(pool.length<target)return [];
+      const profile=this.profileFor(stageId);
+      const slots=this.slotProfiles(target,profile);
+      const ctx={
+        out:[],used:new Set(),recent:new Set(this.recent(stageId)),
+        typeCounts:{},conceptCounts:{},variantCounts:{},profile,reviewMode:false
+      };
+      const desiredDiversity=Math.min(target===10?5:3,new Set(pool.map(q=>q.activity_type)).size);
+      const hardAvailable=profile.challenge&&pool.some(q=>q.difficulty==='hard');
+      for(let si=0;si<slots.length;si++){
+        const slot={...slots[si]};
+        const distinct=Object.keys(ctx.typeCounts).length;
+        const remaining=slots.length-si;
+        const diversityNeeded=desiredDiversity-distinct;
+        if(diversityNeeded>=remaining)slot.newType=true;
+        if(hardAvailable&&si===slots.length-1&&!ctx.out.some(q=>q.difficulty==='hard'))slot.forceHard=true;
+
+        let q=this.pick(pool,slot,ctx);
+        if(!q)q=this.pick(pool,{newType:slot.newType,forceHard:slot.forceHard},ctx);
+        if(!q)break;
+        ctx.out.push(q);ctx.used.add(q.id);
+        ctx.typeCounts[q.activity_type]=(ctx.typeCounts[q.activity_type]||0)+1;
+        ctx.conceptCounts[q.concept_id]=(ctx.conceptCounts[q.concept_id]||0)+1;
+        if(q.variant_group_id)ctx.variantCounts[q.variant_group_id]=(ctx.variantCounts[q.variant_group_id]||0)+1;
+      }
+      while(ctx.out.length<target){
+        const q=this.pick(pool,{priority:true},ctx);
+        if(!q)break;
+        ctx.out.push(q);ctx.used.add(q.id);
+        ctx.typeCounts[q.activity_type]=(ctx.typeCounts[q.activity_type]||0)+1;
+        ctx.conceptCounts[q.concept_id]=(ctx.conceptCounts[q.concept_id]||0)+1;
+        if(q.variant_group_id)ctx.variantCounts[q.variant_group_id]=(ctx.variantCounts[q.variant_group_id]||0)+1;
+      }
+      return this.repairSequence(ctx.out,pool,target,profile);
+    },
+    repairSequence(out,pool,target,profile){
+      const arr=[...out];
+      const ids=new Set(arr.map(q=>q.id));
+      const typeCounts=()=>arr.reduce((m,q)=>(m[q.activity_type]=(m[q.activity_type]||0)+1,m),{});
+      const desired=Math.min(target===10?5:3,new Set(pool.map(q=>q.activity_type)).size);
+
+      // Guarantee minimum activity diversity when the stage pool supports it.
+      let guard=0;
+      while(new Set(arr.map(q=>q.activity_type)).size<desired&&guard++<12){
+        const present=new Set(arr.map(q=>q.activity_type));
+        const candidates=pool.filter(q=>!ids.has(q.id)&&!present.has(q.activity_type));
+        if(!candidates.length)break;
+        const q=weightedChoice(candidates,x=>Math.max(.01,weight(x)));
+        const tc=typeCounts();
+        let idx=-1;
+        for(let i=arr.length-1;i>=1;i--)if(tc[arr[i].activity_type]>1){idx=i;break}
+        if(idx<0)break;
+        ids.delete(arr[idx].id);arr[idx]=q;ids.add(q.id);
+      }
+
+      // Challenge lessons must contain a hard item when the source pool has one.
+      if(profile.challenge&&pool.some(q=>q.difficulty==='hard')&&!arr.some(q=>q.difficulty==='hard')){
+        const candidates=pool.filter(q=>q.difficulty==='hard'&&!ids.has(q.id));
+        if(candidates.length){
+          const q=weightedChoice(candidates,x=>Math.max(.01,weight(x)));
+          const tc=typeCounts();
+          let idx=-1;
+          for(let i=arr.length-1;i>=1;i--)if(arr[i].difficulty!=='hard'&&tc[arr[i].activity_type]>1){idx=i;break}
+          if(idx<0)idx=arr.length-1;
+          ids.delete(arr[idx].id);arr[idx]=q;ids.add(q.id);
+        }
+      }
+
+      // Reorder the selected set so no interaction type appears 3 times consecutively.
+      // This preserves the chosen questions (and therefore weakness/difficulty priorities)
+      // while distributing dominant activity types more naturally.
+      const grouped={};
+      arr.forEach(q=>(grouped[q.activity_type]??=[]).push(q));
+      const reordered=[];
+      while(reordered.length<arr.length){
+        const last=reordered[reordered.length-1]?.activity_type;
+        const prev=reordered[reordered.length-2]?.activity_type;
+        const blocked=(last&&prev&&last===prev)?last:null;
+        let types=Object.keys(grouped).filter(t=>grouped[t].length&&t!==blocked);
+        if(!types.length)types=Object.keys(grouped).filter(t=>grouped[t].length);
+        types.sort((a,b)=>grouped[b].length-grouped[a].length);
+        const chosen=types[0];
+        reordered.push(grouped[chosen].shift());
+      }
+      return reordered;
+    },
+    reviewCompose(pool,target){
+      const clean=[...pool].filter(q=>!audioBlocked(q));
+      if(clean.length<=target)return clean;
+      const ctx={
+        out:[],used:new Set(),recent:new Set(state.lastReviewIds||[]),
+        typeCounts:{},conceptCounts:{},variantCounts:{},
+        profile:{support:false,stretch:false,challenge:false},reviewMode:true
+      };
+      const slots=[
+        {priority:true,role:'due'},
+        {priority:true,cog:['recall','application'],role:'mistake'},
+        {types:['matching','fill_blank','missing_item','progressive_recall','build_sequence'],role:'retrieve'},
+        {cog:['application'],types:['scenario','error_spotting','multiple_choice'],role:'apply'},
+        {priority:true,role:'weak'},
+        {cog:['recall','application'],role:'mixed'},
+        {diff:['medium','hard','easy'],priority:true,role:'finish'}
+      ].slice(0,target);
+      for(const slot of slots){
+        const q=this.pick(clean,slot,ctx);
+        if(!q)continue;
+        ctx.out.push(q);ctx.used.add(q.id);
+        ctx.typeCounts[q.activity_type]=(ctx.typeCounts[q.activity_type]||0)+1;
+        ctx.conceptCounts[q.concept_id]=(ctx.conceptCounts[q.concept_id]||0)+1;
+        if(q.variant_group_id)ctx.variantCounts[q.variant_group_id]=(ctx.variantCounts[q.variant_group_id]||0)+1;
+      }
+      while(ctx.out.length<target){
+        const q=this.pick(clean,{priority:true},ctx);
+        if(!q)break;
+        ctx.out.push(q);ctx.used.add(q.id);
+        ctx.typeCounts[q.activity_type]=(ctx.typeCounts[q.activity_type]||0)+1;
+        ctx.conceptCounts[q.concept_id]=(ctx.conceptCounts[q.concept_id]||0)+1;
+      }
+      return this.repairSequence(ctx.out,clean,target,{challenge:false,support:false,stretch:false});
+    }
+  };
+
+  window.DEEN_LESSON_COMPOSER=V530;
+
+  // Replace only the lesson composition strategy. Finals remain untouched.
+  chooseQuestions=function(stageId){
+    return V530.compose(stageId);
+  };
+
+  // Remember a real lesson only after it has actually started.
+  const v530StartStage=startStage;
+  startStage=function(id){
+    const before=session;
+    v530StartStage(id);
+    if(session&&session!==before&&session.stage?.id===id&&Array.isArray(session.questions)&&session.questions.length){
+      V530.remember(id,session.questions.map(q=>q.id));
+      session.lessonComposer={
+        version:V530.version,
+        profile:V530.profileFor(id),
+        roles:V530.slotProfiles(session.questions.length,V530.profileFor(id)).map(x=>x.role)
+      };
+      try{saveState()}catch(e){}
+    }
+  };
+
+  // Upgrade Smart Review sequencing while keeping the existing UI/energy/state logic.
+  startSmartReview=function(mode='smart',unit=null){
+    if(typeof mode!=='string')mode='smart';
+    let p=reviewPool(mode,unit);
+    if(!p.length){
+      sheet('Tekrar listen hazır değil','<p>Bu listede henüz soru yok. Yeni bir ders tamamladığında tekrar planın oluşur.</p>'+primary('Öğrenmeye dön',"closeSheet();navigate('learnScreen')"));
+      return;
+    }
+    refillEnergy();
+    const cost=mode==='quick'?0:3;
+    if(!state.premium&&state.energy<cost){showEnergy();return}
+    if(!state.premium)state.energy-=cost;
+    const target=mode==='quick'?5:7;
+    const qs=V530.reviewCompose(p,target);
+    if(!qs.length)return;
+    state.lastReviewIds=qs.map(q=>q.id);
+    session={
+      stage:{id:'SMART',title:mode==='quick'?'Hızlı Tekrar':'Akıllı Tekrar',xp:45,energy:cost},
+      questions:qs,index:0,correct:0,combo:0,bestCombo:0,review:true,
+      startedAt:Date.now(),v5responses:[],
+      lessonComposer:{version:V530.version,mode:'review'}
+    };
+    openQuiz();
+    saveState();
+    updateUI();
+  };
+
+  window.DEEN_V530_TEST={
+    compose:id=>V530.compose(id).map(q=>({id:q.id,type:q.activity_type,cog:q.cognitive_level,diff:q.difficulty,concept:q.concept_id,variant:q.variant_group_id})),
+    recent:id=>V530.recent(id),
+    profile:id=>V530.profileFor(id)
+  };
+})();
+</script>
+
+
+<script id="deen-v540-retention-js">
+/* DEEN v5.4.0
+   Deterministic retention/reward loop:
+   - varied daily missions
+   - all-missions bonus
+   - weekly 5-day rhythm
+   - streak milestone rewards
+   - level and achievement rewards
+   - league promotion reward
+   Religious learning content remains untouched. */
+(() => {
+  window.DEEN_RETENTION_VERSION='5.4.0';
+
+  const V540_BASE_MIGRATE=migrate;
+  migrate=function(s,existing=true){
+    s=V540_BASE_MIGRATE(s,existing);
+    const r=s.retention&&typeof s.retention==='object'?s.retention:{};
+    r.version=1;
+    if(!Array.isArray(r.weeklyClaims))r.weeklyClaims=[];
+    if(!Array.isArray(r.streakRewards))r.streakRewards=[];
+    if(!Number.isFinite(r.lifetimeQuestsCompleted))r.lifetimeQuestsCompleted=0;
+    if(!Number.isFinite(r.lifetimeWeeklyGoals))r.lifetimeWeeklyGoals=0;
+    s.retention=r;
+    s.stateVersion=6;
+    return s;
+  };
+
+  state=migrate(state,true);
+
+  const V540_BASE_DAILY=daily;
+  function hashText(x){
+    let h=2166136261>>>0;
+    for(const c of String(x)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0}
+    return h>>>0;
+  }
+  function seededOrder(items,seed){
+    const a=[...items];let x=seed>>>0;
+    for(let i=a.length-1;i>0;i--){
+      x=(Math.imul(x,1664525)+1013904223)>>>0;
+      const j=x%(i+1);[a[i],a[j]]=[a[j],a[i]];
+    }
+    return a;
+  }
+  function questLabel(id,target){
+    return {
+      lessons:`${target} ders tamamla`,
+      correct:`${target} doğru cevap ver`,
+      answers:`${target} soru cevapla`,
+      xp:`${target} XP kazan`,
+      combo:`${target} doğru seri yap`,
+      review:`${target} tekrar dersi yap`,
+      perfect:`${target} kusursuz ders tamamla`
+    }[id]||id;
+  }
+  function makeQuest(id,target,reward=5){return{id,target,label:questLabel(id,target),reward}}
+  function generatedQuestSet(date){
+    const g=state.dailyGoal||2;
+    const scale={1:0,2:1,3:2}[g]??1;
+    const mandatory=makeQuest('lessons',g);
+    const pool=[
+      makeQuest('correct',[8,10,12][scale]),
+      makeQuest('answers',[14,18,24][scale]),
+      makeQuest('xp',[60,90,120][scale]),
+      makeQuest('combo',[3,4,5][scale])
+    ];
+    if(Object.keys(state.reviewSchedule||{}).length||state.mistakes?.length)pool.push(makeQuest('review',1));
+    if((state.history?.length||0)>=2)pool.push(makeQuest('perfect',1));
+    const picks=seededOrder(pool,hashText(date+'|DEEN')).slice(0,2);
+    return[mandatory,...picks];
+  }
+  function normalizeDailyRecord(d,date){
+    for(const[k,v]of Object.entries({lessons:0,correct:0,answers:0,reviews:0,xp:0,perfect:0,bestCombo:0})){
+      if(!Number.isFinite(d[k]))d[k]=v;
+    }
+    if(!Array.isArray(d.claimed))d.claimed=[];
+    if(!Array.isArray(d.claimedQuestIds))d.claimedQuestIds=[];
+    if(typeof d.goalClaimed!=='boolean')d.goalClaimed=false;
+
+    if(!Array.isArray(d.questSet)||d.questSet.length!==3){
+      const legacyActive=d.lessons>0||d.answers>0||d.correct>0||d.reviews>0||d.xp>0||d.claimed.length>0;
+      d.questSet=legacyActive?[
+        makeQuest('lessons',2),
+        makeQuest('correct',10),
+        makeQuest('review',1)
+      ]:generatedQuestSet(date);
+
+      if(legacyActive&&d.claimed.length){
+        const ids=['lessons','correct','review'];
+        d.claimedQuestIds=[...new Set([...d.claimedQuestIds,...d.claimed.map(i=>ids[i]).filter(Boolean)])];
+        if(d.claimedQuestIds.length===3&&typeof d.allQuestsClaimed!=='boolean')d.allQuestsClaimed=true;
+      }
+    }
+    if(typeof d.allQuestsClaimed!=='boolean')d.allQuestsClaimed=false;
+    return d;
+  }
+  daily=function(date=day()){
+    const d=V540_BASE_DAILY(date);
+    return normalizeDailyRecord(d,date);
+  };
+
+  function questValue(q,d=daily()){
+    if(q.id==='lessons')return d.lessons;
+    if(q.id==='correct')return d.correct;
+    if(q.id==='answers')return d.answers;
+    if(q.id==='xp')return d.xp;
+    if(q.id==='combo')return d.bestCombo;
+    if(q.id==='review')return d.reviews;
+    if(q.id==='perfect')return d.perfect;
+    return 0;
+  }
+  function dailyQuestStatus(d=daily()){
+    const rows=d.questSet.map(q=>({...q,value:questValue(q,d),done:questValue(q,d)>=q.target,claimed:d.claimedQuestIds.includes(q.id)}));
+    return{rows,done:rows.filter(x=>x.claimed).length,complete:rows.every(x=>x.claimed),allBonus:d.allQuestsClaimed};
+  }
+  function weekDates(){
+    const start=week(),out=[];
+    for(let i=0;i<7;i++){const d=new Date(start+'T12:00:00');d.setDate(d.getDate()+i);out.push(day(d))}
+    return out;
+  }
+  function weeklyStatus(){
+    const key=week(),dates=weekDates(),days=dates.filter(d=>state.streakMeta.weeklyActivity?.[d]).length;
+    return{key,days,goal:5,claimed:state.retention.weeklyClaims.includes(key),dates};
+  }
+  const STREAK_REWARDS={3:5,7:10,14:15,30:25,50:35,100:50,365:100};
+  function nextStreakMilestone(n=state.streak){
+    return[3,7,14,30,50,100,365].find(x=>x>n)||null;
+  }
+
+  function evaluateDailyRetention(d=daily()){
+    let xpBonus=0;
+    const completedNow=[];
+    for(const q of d.questSet){
+      if(questValue(q,d)>=q.target&&!d.claimedQuestIds.includes(q.id)){
+        d.claimedQuestIds.push(q.id);
+        state.currency+=q.reward;
+        state.retention.lifetimeQuestsCompleted++;
+        completedNow.push(q);
+      }
+    }
+    if(completedNow.length===1){
+      const q=completedNow[0];
+      celebrate({type:'quest_complete',id:day()+':'+q.id,amount:q.reward,title:'Görev tamamlandı',detail:q.label+` · +${q.reward} Pırıltı`});
+    }else if(completedNow.length>1){
+      const amount=completedNow.reduce((a,q)=>a+q.reward,0);
+      celebrate({type:'quest_bundle',id:day()+':'+completedNow.map(q=>q.id).sort().join('-'),amount,title:completedNow.length+' görev tamamlandı',detail:completedNow.map(q=>q.label).join(' · ')+` · +${amount} Pırıltı`});
+    }
+    if(d.questSet.every(q=>d.claimedQuestIds.includes(q.id))&&!d.allQuestsClaimed){
+      d.allQuestsClaimed=true;
+      state.currency+=5;
+      xpBonus+=award(20);
+      celebrate({type:'daily_all',id:day(),amount:5,title:'Günün görevleri tamamlandı',detail:'3 / 3 görev · +20 XP · +5 Pırıltı'});
+    }
+    return xpBonus;
+  }
+  function evaluateWeeklyRetention(){
+    const w=weeklyStatus();
+    if(w.days>=w.goal&&!w.claimed){
+      state.retention.weeklyClaims.push(w.key);
+      state.retention.lifetimeWeeklyGoals++;
+      state.currency+=20;
+      const xp=award(60);
+      celebrate({type:'weekly_complete',id:w.key,amount:20,title:'Haftalık ritim tamamlandı',detail:'5 aktif gün · +60 XP · +20 Pırıltı'});
+      return xp;
+    }
+    return 0;
+  }
+
+  // League rollover now rewards a real weekly promotion while staying a local simulation.
+  rollWeek=function(){
+    const w=week();if(w===state.league.week)return;
+    const oldWeek=state.league.week,oldTier=state.league.tier;
+    const rank=ranks().findIndex(x=>!x.npc)+1;
+    state.league.history.push({week:oldWeek,xp:state.league.xp,rank,tier:oldTier});
+    state.league.history=state.league.history.slice(-20);
+    if(state.league.xp>0)state.league.tier=Math.max(0,Math.min(5,oldTier+(rank<=5?1:rank>=17?-1:0)));
+    state.league.week=w;state.league.xp=0;
+    if(state.league.tier>oldTier){
+      state.currency+=20;
+      celebrate({type:'league_promotion',id:w,amount:20,title:TIERS[state.league.tier]+' ligine yükseldin',detail:'Haftalık öğrenme yolculuğun · +20 Pırıltı · Yerel simülasyon'});
+    }
+  };
+
+  const V540_BASE_BADGES=badges;
+  badges=function(){
+    const base=V540_BASE_BADGES();
+    const extra=[
+      {id:'perfect10',name:'Keskin Odak',desc:'10 kusursuz ders tamamla',ok:state.history.filter(x=>x.perfect).length>=10},
+      {id:'reviews10',name:'Hatırlama Ritmi',desc:'10 tekrar dersi tamamla',ok:state.history.filter(x=>x.review).length>=10},
+      {id:'lessons50',name:'Uzun Yol',desc:'50 ders tamamla',ok:state.history.length+state.legacyCompletedCount>=50},
+      {id:'xp5000',name:'Bilgi Birikimi',desc:'Öğrenerek 5000 XP kazan',ok:state.xp>=5000}
+    ];
+    const seen=new Set();return[...base,...extra].filter(b=>!seen.has(b.id)&&seen.add(b.id));
+  };
+
+  // Replace only reward accounting. Lesson scoring/progression stays in showResult/showSectionFinalResult.
+  commit=function(base){
+    if(session.committed)return 0;
+    session.committed=true;
+    const s=session,d=daily(),key=day()+':'+s.stage.id,n=state.stageAttempts[key]||0,beforeLevel=level().n;
+    state.stageAttempts[key]=n+1;
+
+    let earned=award(base*(n===0?1:n===1?.5:n===2?.25:0));
+    d.lessons++;
+    if(s.review)d.reviews++;
+    if(s.correct===s.questions.length)d.perfect++;
+    d.bestCombo=Math.max(d.bestCombo||0,s.bestCombo||0);
+
+    study();
+
+    if(d.lessons>=state.dailyGoal&&!d.goalClaimed){
+      d.goalClaimed=true;
+      earned+=award(25);
+      state.currency+=10;
+      celebrate({type:'goal_complete',id:day(),amount:10,title:'Bugünkü hedef tamamlandı',detail:state.dailyGoal+'/'+state.dailyGoal+' ders · +25 XP · +10 Pırıltı'});
+    }
+
+    earned+=evaluateWeeklyRetention();
+    earned+=evaluateDailyRetention(d);
+
+    const mastery=s.stage.unit?masteryFor(s.stage.unit):null;
+    state.history.push({
+      date:day(),at:Date.now(),stage:s.stage.id,unit:s.stage.unit||null,
+      correct:s.correct,total:s.questions.length,xp:earned,
+      seconds:Math.max(1,Math.round((Date.now()-(s.startedAt||Date.now()))/1000)),
+      review:!!s.review,perfect:s.correct===s.questions.length,mastery
+    });
+
+    const newBadges=badges().filter(b=>b.ok&&!state.achievements.includes(b.id));
+    for(const b of newBadges){
+      state.achievements.push(b.id);
+      state.currency+=10;
+      celebrate({type:'achievement',id:b.id,name:b.name,amount:10,title:'Yeni rozet · '+b.name,detail:b.desc+' · +10 Pırıltı'});
+    }
+
+    const afterLevel=level().n;
+    if(afterLevel>beforeLevel){
+      const amount=(afterLevel-beforeLevel)*5;
+      state.currency+=amount;
+      celebrate({type:'level_up',id:'L'+afterLevel,from:beforeLevel,to:afterLevel,amount,title:'Seviye '+beforeLevel+' → '+afterLevel,detail:`Bir adım daha ilerledin. · +${amount} Pırıltı`});
+    }
+
+    const milestone=Number(state.streak);
+    if(STREAK_REWARDS[milestone]&&!state.retention.streakRewards.includes(milestone)){
+      const amount=STREAK_REWARDS[milestone];
+      state.retention.streakRewards.push(milestone);
+      state.currency+=amount;
+      celebrate({type:'streak',id:'S'+milestone,amount,title:milestone+' günlük seri',detail:`Öğrenme ritmin güçleniyor. · +${amount} Pırıltı`});
+    }
+
+    saveState();
+    return earned;
+  };
+
+  // New celebration types slot into the existing controlled queue.
+  Object.assign(CELEBRATION_PRIORITY,{
+    league_promotion:3,
+    streak:4,
+    goal_complete:5,
+    quest_complete:6,
+    quest_bundle:6,
+    daily_all:7,
+    weekly_complete:8
+  });
+
+  quests=function(){
+    const d=daily(),st=dailyQuestStatus(d);
+    const rows=st.rows.map(q=>`<div class="v5-quest ${q.claimed?'v54-complete':''}"><div class="v5-row"><b>${q.claimed?'✓ ':''}${esc(q.label)}</b><span>${Math.min(q.value,q.target)}/${q.target}</span></div>${bar(q.value/q.target*100)}<small>+${q.reward} Pırıltı ${q.claimed?'· Kazanıldı':''}</small></div>`).join('');
+    const bonus=`<div class="v54-quest-bonus ${d.allQuestsClaimed?'done':''}"><b>${d.allQuestsClaimed?'✓ Günün görev bonusu':'3 görevi de tamamla'}</b><br>${d.allQuestsClaimed?'Kazanıldı':'Ek ödül: +20 XP · +5 Pırıltı'}</div>`;
+    return rows+bonus;
+  };
+
+  returnCard=function(){
+    const d=daily(),qs=dailyQuestStatus(d),w=weeklyStatus();
+    const next=STAGES.find(s=>stageState(s.unit,unitStages(s.unit).indexOf(s)).current),due=reviewPool('due').length;
+    let title='Bilgine bugün bir şey kat.';
+    if(d.lessons===0&&state.streak>0)title='Serini bugün de sürdür.';
+    if(d.lessons>=state.dailyGoal&&due>0)title='Hedef tamam. Şimdi hatırla.';
+    if(d.goalClaimed&&qs.complete)title='Bugünün yolculuğu tamam.';
+    const useReview=d.lessons>=state.dailyGoal&&due>0;
+    const action=useReview?"startSmartReview('due')":next?`scrollToCurrent('${next.unit}');preview('${next.id}')`:finalUnlocked()&&!state.sectionFinal.completed?'startSectionFinal()':final2Unlocked()?'startSection2Final()':"startSmartReview('quick')";
+    const label=useReview?'KISA TEKRAR':'DEVAM ET';
+    const detail=next?'Ünite '+Number(next.unit.slice(1))+' · Aşama '+Number(next.id.slice(-2))+' — '+esc(next.title):'Bilgini bir araya getirme zamanı.';
+    $('v5Return').innerHTML=`<section class="lp-return"><div class="v5-row"><span class="v5-kicker">BUGÜNKÜ HEDEF</span><b>${Math.min(d.lessons,state.dailyGoal)} / ${state.dailyGoal}</b></div><h1>${title}</h1><p>${detail}</p>${primary(label,action)}<small>Görevler ${qs.done}/3 · Haftalık ritim ${Math.min(w.days,w.goal)}/${w.goal} gün${due?' · '+due+' tekrar':''}</small></section>`;
+  };
+
+  xpPanel=function(){
+    const l=level();
+    sheet('Seviye '+l.n,`<span class="v5-big">${state.xp} XP</span><p>Sonraki seviyeye ${l.left} XP</p>${bar(l.progress)}<div class="v54-level-reward">Bir sonraki seviyede <b>+5 Pırıltı</b> kazanırsın.</div><p>XP yalnızca öğrenme, quiz ve tekrar etkinliklerini ölçer. İbadetlere puan verilmez.</p><p>Aynı ders aynı gün tekrarlandığında baz XP: %100 → %50 → %25 → %0.</p>`);
+  };
+
+  streakPanel=function(){
+    const m=state.streakMeta,w=weeklyStatus(),next=nextStreakMilestone(m.currentStreak);
+    const nextText=next?`${next} güne ${next-m.currentStreak} gün kaldı · +${STREAK_REWARDS[next]} Pırıltı`:'365 günlük kilometre taşını tamamladın.';
+    sheet('Her gün bir adım',
+      metrics([[m.currentStreak,'mevcut seri'],[m.longestStreak,'en uzun seri'],[m.streakFreeze,'seri koruması']])+
+      '<div class="v5-calendar">'+Array.from({length:7},(_,i)=>{const d=new Date();d.setDate(d.getDate()-6+i);const key=day(d);return `<div class="${m.weeklyActivity[key]?'active':m.freezeDates.includes(key)?'frozen':''}"><small>${d.toLocaleDateString('tr',{weekday:'short'})}</small><span>${m.weeklyActivity[key]?'✓':m.freezeDates.includes(key)?'❄':'·'}</span></div>`}).join('')+'</div>'+
+      `<div class="v54-streak-next"><b>Sıradaki seri kilometre taşı</b><small>${nextText}</small>${next?bar(m.currentStreak/next*100):''}</div>`+
+      `<div class="v54-week-card ${w.claimed?'claimed':''}"><div class="v5-row"><div><strong>Haftalık ritim</strong><small>5 farklı günde öğren</small></div><b>${Math.min(w.days,5)}/5</b></div><div class="v54-week-dots">${Array.from({length:5},(_,i)=>`<i class="${i<w.days?'on':''}"></i>`).join('')}</div><small>${w.claimed?'✓ Bu haftanın ödülü kazanıldı':'+60 XP · +20 Pırıltı'}</small></div>`+
+      '<p>Bir günde tamamladığın ilk ders seriyi artırır. Aynı gün daha fazla ders seriyi tekrar artırmaz.</p><p>Seri koruması tek bir kaçırılan günü korur. Korunan gün aktif öğrenme günü sayılmaz.</p>'+
+      primary('Seri koruması mağazası →','storePanel()')
+    );
+  };
+
+  const V540_BASE_PROFILE=profileView;
+  profileView=function(){
+    V540_BASE_PROFILE();
+    const body=$('profileScreenBody'),w=weeklyStatus();
+    const dailyHeader=[...body.querySelectorAll('h2')].find(x=>x.textContent.includes('Günlük görevler'));
+    if(dailyHeader){
+      dailyHeader.insertAdjacentHTML('beforebegin',`<h2 class="v5-section-label">Haftalık ritim</h2><div class="v54-week-card ${w.claimed?'claimed':''}"><div class="v5-row"><div><strong>5 farklı günde öğren</strong><small>Oturum sayısı değil, düzenli geri dönüş ödüllendirilir.</small></div><b>${Math.min(w.days,5)}/5</b></div><div class="v54-week-dots">${Array.from({length:5},(_,i)=>`<i class="${i<w.days?'on':''}"></i>`).join('')}</div><small>${w.claimed?'✓ Bu haftanın +60 XP · +20 Pırıltı ödülü kazanıldı':'Ödül: +60 XP · +20 Pırıltı'}</small></div>`);
+    }
+    const footer=body.querySelector('.v5-footer-note');if(footer)footer.innerHTML='DEEN 5.4.0 · Yerel, çevrimdışı deneyim<br>XP bir dinî yeterlilik veya ibadet ölçüsü değildir.';
+  };
+
+  const V540_BASE_LEAGUE=leagueView;
+  leagueView=function(){
+    V540_BASE_LEAGUE();
+    const rs=ranks(),rank=rs.findIndex(x=>!x.npc)+1,hero=$('leagueScreenBody')?.querySelector('.v5-leaguehero');
+    if(!hero)return;
+    let msg='';
+    if(rank<=5){
+      const sixth=rs[5]?.xp??0,margin=Math.max(0,state.league.xp-sixth);
+      msg=state.league.tier===TIERS.length-1?`Elmas ligindesin · İlk 5'te kal${margin?' · '+margin+' XP avantaj':''}.`:`Yükselme bölgesindesin${margin?' · '+margin+' XP avantaj':''}.`;
+    }else{
+      const fifth=rs[4]?.xp??0,need=Math.max(1,fifth-state.league.xp+1);
+      msg=`İlk 5 için yaklaşık ${need} XP daha gerekiyor.`;
+    }
+    hero.insertAdjacentHTML('beforeend',`<div class="v54-league-target">${msg}<br>Hafta yükselmesi: <b>+20 Pırıltı</b> · Yerel simülasyon</div>`);
+  };
+
+  const V540_BASE_SHOW_RESULT=showResult;
+  showResult=function(){
+    V540_BASE_SHOW_RESULT();
+    const el=$('v5ResultExtra');if(!el)return;
+    const q=dailyQuestStatus(),w=weeklyStatus();
+    el.insertAdjacentHTML('beforeend',`<div class="v54-result-loop">Günlük görevler <b>${q.done}/3</b> · Haftalık ritim <b>${Math.min(w.days,5)}/5 gün</b></div>`);
+  };
+
+  window.DEEN_RETENTION={
+    daily:()=>dailyQuestStatus(),
+    weekly:()=>weeklyStatus(),
+    evaluateDaily:()=>evaluateDailyRetention(daily()),
+    evaluateWeekly:()=>evaluateWeeklyRetention(),
+    nextStreak:()=>nextStreakMilestone(),
+    questSet:(date=day())=>daily(date).questSet.map(x=>({...x}))
+  };
+
+  // Normalize current state/day now; imported/reset states use wrapped migrate/daily later.
+  daily();
+  saveState();
+})();
+</script>
+
+
+<script id="deen-v550-return-session-js">
+/* DEEN v5.5.0
+   Smart return experience + post-lesson next action.
+   Theme, question data, adaptive composer and rewards are preserved. */
+(() => {
+  window.DEEN_RETURN_VERSION='5.5.0';
+
+  const DAY_MS=86400000;
+  function daysSince(dateStr){
+    if(!dateStr)return 0;
+    const a=new Date(dateStr+'T12:00:00'),b=new Date(day()+'T12:00:00');
+    return Math.max(0,Math.round((b-a)/DAY_MS));
+  }
+  function currentStage(){
+    return STAGES.find(s=>{
+      const arr=unitStages(s.unit),idx=arr.findIndex(x=>x.id===s.id);
+      return idx>=0&&stageState(s.unit,idx).current;
+    })||null;
+  }
+  function currentState(s){
+    if(!s)return null;
+    const arr=unitStages(s.unit),idx=arr.findIndex(x=>x.id===s.id);
+    return idx>=0?stageState(s.unit,idx):null;
+  }
+  function dueCount(){try{return reviewPool('due').filter(q=>!audioBlocked(q)).length}catch(e){return 0}}
+  function weakCount(){
+    try{return Object.keys(state.stageScores||{}).filter(id=>Number(state.stageScores[id])<75).length}catch(e){return 0}
+  }
+  function dailyStatus(){
+    const d=daily(),r=window.DEEN_RETENTION?.daily?.()||{done:0,complete:false,rows:[]};
+    const w=window.DEEN_RETENTION?.weekly?.()||{days:0,goal:5};
+    return {d,r,w};
+  }
+  function newlyOpenedUnit(next){
+    if(!next||!next.id.endsWith('S01'))return null;
+    const n=Number(next.unit.slice(1));
+    if(n<=1)return null;
+    const currentUnitDone=unitStages(next.unit).some(s=>state.completed.includes(s.id));
+    const prev='U'+String(n-1).padStart(2,'0');
+    const prevDone=unitStages(prev).length>0&&unitStages(prev).every(s=>state.completed.includes(s.id));
+    if(currentUnitDone||!prevDone)return null;
+    const name=(typeof U!=='undefined'&&U[n-1])?U[n-1]:(next.title||'Yeni ünite');
+    return{
+      type:'new_unit',title:name+' açıldı.',
+      detail:'Yeni bir öğrenme bölümü hazır. İlk aşamayla başlayabilirsin.',
+      action:`scrollToCurrent('${next.unit}');preview('${next.id}')`,
+      cta:'YENİ ÜNİTEYE BAŞLA'
+    };
+  }
+  function sectionRecentlyUnlocked(){
+    if(finalUnlocked()&&!state.sectionFinal.completed)return {type:'final1',title:'Temeller Ustalığı hazır',detail:'Kısım 1 bilgilerini bir araya getir.',action:"startSectionFinal()",cta:'FİNALE GİR'};
+    if(final2Unlocked()&&!state.section2Final.completed)return {type:'final2',title:'İman Ustalığı hazır',detail:'Kısım 2 bilgilerini bir araya getir.',action:"startSection2Final()",cta:'FİNALE GİR'};
+    return null;
+  }
+  function smartReturnDecision(){
+    const {d,r,w}=dailyStatus(),next=currentStage(),due=dueCount();
+    const inactive=daysSince(state.streakMeta?.lastStudyDate);
+    const firstToday=(d.lessons||0)===0;
+    const goalDone=(d.lessons||0)>=state.dailyGoal;
+    const allDone=goalDone&&r.complete;
+    const final=sectionRecentlyUnlocked();
+
+    if(final&&firstToday)return {...final,reason:'milestone'};
+
+    if(firstToday&&!state.streakMeta?.lastStudyDate&&!(state.history?.length||0)&&!(state.completed?.length||0)&&next){
+      return {
+        type:'first_start',title:'Yolculuğuna başla.',
+        detail:`${next.title} · 7 soru · yaklaşık 3 dakika.`,
+        action:`scrollToCurrent('${next.unit}');preview('${next.id}')`,
+        cta:'İLK DERSE BAŞLA'
+      };
+    }
+
+    const newUnit=newlyOpenedUnit(next);
+    if(newUnit&&firstToday)return newUnit;
+
+    // After a few inactive days, reduce friction instead of talking about a lost streak.
+    if(firstToday&&inactive>=3){
+      if(due>=5)return {
+        type:'return_review',title:'Tekrar başlayalım.',
+        detail:`${due} soru tekrar bekliyor. 5 soruluk kısa bir ısınmayla geri dön.`,
+        action:"startSmartReview('quick')",cta:'5 SORULUK ISINMA',soft:'Kaldığın yol burada. Seri baskısı yok.'
+      };
+      if(next)return {
+        type:'return_lesson',title:'Tekrar başlayalım.',
+        detail:`${next.title} · yaklaşık 5 dakika.`,
+        action:`scrollToCurrent('${next.unit}');preview('${next.id}')`,cta:'KISA DERSE BAŞLA',soft:'Kaldığın yerden devam et.'
+      };
+    }
+
+    // First session: lots of due material gets a quick warm-up before new content.
+    if(firstToday&&due>=8){
+      return {
+        type:'warmup',title:'Önce kısa bir ısınma.',
+        detail:`${due} tekrar bekliyor. 5 soruyla hafızanı tazele, sonra yeni derse geç.`,
+        action:"startSmartReview('quick')",cta:'5 SORULUK ISINMA',soft:'Yaklaşık 2 dakika.'
+      };
+    }
+
+    // Maintain an active streak with one obvious next lesson.
+    if(firstToday&&state.streak>0&&next){
+      const st=currentState(next);
+      const challenge=next.id.endsWith('S07')||next.kind==='challenge';
+      return {
+        type:challenge?'challenge':'streak',
+        title:challenge?'Challenge hazır.':`${state.streak} günlük serini bugün de sürdür.`,
+        detail:`${next.title} · ${challenge?'10 soru':'7 soru'} · yaklaşık ${challenge?'4':'3'} dakika.`,
+        action:`scrollToCurrent('${next.unit}');preview('${next.id}')`,
+        cta:challenge?'CHALLENGE’A GİR':'SERİYİ SÜRDÜR'
+      };
+    }
+
+    // After the daily lesson target, due review becomes the best next action.
+    if(goalDone&&due>0&&!allDone){
+      return {
+        type:'review',title:'Günlük ders hedefin tamam.',
+        detail:`Şimdi ${due} bekleyen sorudan kısa bir tekrar yaparak bilgiyi sabitle.`,
+        action:"startSmartReview('due')",cta:'KISA TEKRAR'
+      };
+    }
+
+    if(allDone){
+      return {
+        type:'done',title:'Bugünün yolculuğu tamamlandı.',
+        detail:'Ders hedefin ve günlük görevlerin bitti. İstersen kısa bir tekrar yapabilirsin.',
+        action:"startSmartReview('quick')",cta:'İSTEĞE BAĞLI TEKRAR',soft:'Bugün daha fazla oynaman gerekmiyor.'
+      };
+    }
+
+    if(final)return {...final,reason:'milestone'};
+    if(next){
+      const challenge=next.id.endsWith('S07')||next.kind==='challenge';
+      return {
+        type:challenge?'challenge':'lesson',
+        title:challenge?'Challenge hazır.':'Kaldığın yerden devam et.',
+        detail:`${next.title} · ${challenge?'10 soru':'7 soru'} · yaklaşık ${challenge?'4':'3'} dakika.`,
+        action:`scrollToCurrent('${next.unit}');preview('${next.id}')`,
+        cta:challenge?'CHALLENGE’A GİR':'DEVAM ET'
+      };
+    }
+    return {
+      type:'review',title:'Bugün bilgini tazele.',
+      detail:'Kısa bir tekrar oturumuyla öğrendiklerini canlı tut.',
+      action:"startSmartReview('quick')",cta:'HIZLI TEKRAR'
+    };
+  }
+
+  function journeyMarkup(){
+    const {d,r,w}=dailyStatus(),due=dueCount();
+    return `<small class="v55-return-summary">Görevler ${r.done}/3 · Haftalık ritim ${Math.min(w.days,w.goal)}/${w.goal} gün${due?' · '+due+' tekrar':''}</small>`;
+  }
+
+  returnCard=function(){
+    const decision=smartReturnDecision(),{d}=dailyStatus();
+    $('v5Return').innerHTML=`<section class="lp-return ${decision.type==='done'?'v55-done':''}">
+      <div class="v5-row"><span class="v5-kicker">${decision.type==='done'?'BUGÜN TAMAM':'SIRADAKİ ADIM'}</span><b>${Math.min(d.lessons,state.dailyGoal)} / ${state.dailyGoal}</b></div>
+      <h1>${esc(decision.title)}</h1>
+      <p>${esc(decision.detail)}</p>
+      ${primary(decision.cta,decision.action)}
+      ${journeyMarkup()}
+    </section>`;
+  };
+
+  function recommendationAfterLesson(){
+    const {d,r}=dailyStatus(),due=dueCount(),next=currentStage();
+    const goalDone=d.lessons>=state.dailyGoal;
+    const allDone=goalDone&&r.complete;
+
+    if(allDone)return {
+      kind:'done',title:'Bugünün yolculuğu tamamlandı.',
+      detail:'Ders hedefin ve 3 günlük görevin bitti.',
+      primary:{label:'ÖĞRENME YOLUNA DÖN',action:"closeLesson();navigate('learnScreen')"},
+      secondary:due?{label:'İSTEĞE BAĞLI TEKRAR',action:"closeLesson();startSmartReview('quick')"}:null
+    };
+    if(goalDone&&due>0)return {
+      kind:'review',title:'Şimdi hatırlamayı güçlendir.',
+      detail:`${due} soru tekrar bekliyor.`,
+      primary:{label:'KISA TEKRAR',action:"closeLesson();startSmartReview('due')"},
+      secondary:next?{label:'SONRAKİ DERS',action:`closeLesson();navigate('learnScreen');setTimeout(()=>{scrollToCurrent('${next.unit}');preview('${next.id}')},80)`}:null
+    };
+    if(next){
+      const challenge=next.id.endsWith('S07')||next.kind==='challenge';
+      const newUnit=newlyOpenedUnit(next);
+      return {
+        kind:newUnit?'new_unit':challenge?'challenge':'next',
+        title:newUnit?newUnit.title:challenge?'Challenge hazır.':'Bir adım daha?',
+        detail:newUnit?newUnit.detail:`${next.title} · ${challenge?'10':'7'} soru.`,
