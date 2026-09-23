@@ -1,0 +1,1000 @@
+const STAGES=[{"id":"U01-S01","unit":"U01","title":"İslam'la Tanış","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":40},{"id":"U01-S02","unit":"U01","title":"Müslüman Kimdir?","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"people","energy":5,"xp":45},{"id":"U01-S03","unit":"U01","title":"Kavramları Eşleştir","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U01-S04","unit":"U01","title":"Günlük Hayat","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U01-S05","unit":"U01","title":"Bildiklerini Kullan","meta":"Uygulama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":55},{"id":"U01-S06","unit":"U01","title":"Akıllı Tekrar","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U01-S07","unit":"U01","title":"Ünite Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U02-S01","unit":"U02","title":"Allah'a İman Nedir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":45},{"id":"U02-S02","unit":"U02","title":"Allah Birdir","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"spark","energy":5,"xp":50},{"id":"U02-S03","unit":"U02","title":"Yaratıcı ve Yaratılan","meta":"3. Aşama · 5 dk","kind":"lesson","icon":"orbit","energy":5,"xp":55},{"id":"U02-S04","unit":"U02","title":"Kavramları Bağla","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":55},{"id":"U02-S05","unit":"U02","title":"İman Hayata Nasıl Yansır?","meta":"Uygulama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":60},{"id":"U02-S06","unit":"U02","title":"Akıllı Tekrar","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":65},{"id":"U02-S07","unit":"U02","title":"Allah'a İman Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":110},{"id":"U03-S01","unit":"U03","title":"Şehadet Nedir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":45},{"id":"U03-S02","unit":"U03","title":"Anlamını Öğren","meta":"2. Aşama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":50},{"id":"U03-S03","unit":"U03","title":"Dinle ve Tanı","meta":"Dinleme · 5 dk","kind":"audio","icon":"headphones","energy":4,"xp":55},{"id":"U03-S04","unit":"U03","title":"Şehadeti Oluştur","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":60},{"id":"U03-S05","unit":"U03","title":"Ne Söylediğini Anla","meta":"Uygulama · 5 dk","kind":"scenario","icon":"quote","energy":5,"xp":60},{"id":"U03-S06","unit":"U03","title":"Akıllı Tekrar","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":65},{"id":"U03-S07","unit":"U03","title":"Şehadet Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":115},{"id":"U04-S01","unit":"U04","title":"Beş Şartı Tanı","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":45},{"id":"U04-S02","unit":"U04","title":"Şehadet ve Namaz","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"spark","energy":5,"xp":50},{"id":"U04-S03","unit":"U04","title":"Oruç, Zekât ve Hac","meta":"3. Aşama · 5 dk","kind":"lesson","icon":"leaf","energy":5,"xp":55},{"id":"U04-S04","unit":"U04","title":"Kavramları Eşleştir","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":55},{"id":"U04-S05","unit":"U04","title":"Hangisi Hangi Şart?","meta":"Uygulama · 5 dk","kind":"scenario","icon":"bulb","energy":5,"xp":60},{"id":"U04-S06","unit":"U04","title":"Akıllı Tekrar","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":65},{"id":"U04-S07","unit":"U04","title":"Beş Şart Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":120},{"id":"U05-S01","unit":"U05","title":"İman Ne Demektir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":50},{"id":"U05-S02","unit":"U05","title":"Altı Esası Tanı","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"spark","energy":5,"xp":55},{"id":"U05-S03","unit":"U05","title":"Kavramları Ayır","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":60},{"id":"U05-S04","unit":"U05","title":"Şart mı, İman Esası mı?","meta":"Sınıflandırma · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":65},{"id":"U05-S05","unit":"U05","title":"Günlük Hayatta Kavramlar","meta":"Uygulama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":70},{"id":"U05-S06","unit":"U05","title":"Kısım Öncesi Akıllı Tekrar","meta":"Karma Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":80},{"id":"U05-S07","unit":"U05","title":"İman Esasları Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":140},{"id":"U06-S01","unit":"U06","title":"Melekler Kimdir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":40},{"id":"U06-S02","unit":"U06","title":"Meleklerin Özellikleri","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"people","energy":5,"xp":45},{"id":"U06-S03","unit":"U06","title":"Cebrâil ve Vahiy","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U06-S04","unit":"U06","title":"Kur'an'da Meleklerin Görevleri","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U06-S05","unit":"U06","title":"Meleklere İmanın Anlamı","meta":"Uygulama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":55},{"id":"U06-S06","unit":"U06","title":"Yanlış Anlamaları Düzelt","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U06-S07","unit":"U06","title":"Melekler Ustalığı","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U07-S01","unit":"U07","title":"Kitaplara İman Nedir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":40},{"id":"U07-S02","unit":"U07","title":"Tevrat, İncil, Zebur ve Sahifeler","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"people","energy":5,"xp":45},{"id":"U07-S03","unit":"U07","title":"Kur'an'ın Konumu","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U07-S04","unit":"U07","title":"İlahi Kitapların Ortak Kaynağı","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U07-S05","unit":"U07","title":"Kur'an'ın Rehberliği ve Korunması","meta":"Uygulama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":55},{"id":"U07-S06","unit":"U07","title":"Yanlış Anlamaları Düzelt","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U07-S07","unit":"U07","title":"Kitaplara İman Ustalığı","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U08-S01","unit":"U08","title":"Peygamberlere İman Nedir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":40},{"id":"U08-S02","unit":"U08","title":"Peygamberlerin İnsan Oluşu ve Vahiy","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"people","energy":5,"xp":45},{"id":"U08-S03","unit":"U08","title":"Tebliğ, Müjde ve Uyarı","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U08-S04","unit":"U08","title":"Ortak Çağrı ve İman Birliği","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U08-S05","unit":"U08","title":"Hz. Muhammed ve Risalet","meta":"Uygulama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":55},{"id":"U08-S06","unit":"U08","title":"Yanlış Anlamaları Düzelt","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U08-S07","unit":"U08","title":"Peygamberlere İman Ustalığı","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U09-S01","unit":"U09","title":"Ahiret Gününe İman Nedir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":40},{"id":"U09-S02","unit":"U09","title":"Ölüm ve Dünya Hayatının Sonu","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"people","energy":5,"xp":45},{"id":"U09-S03","unit":"U09","title":"Kıyamet ve Yeniden Diriliş","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U09-S04","unit":"U09","title":"Hesap, Amel Defteri ve İlahi Adalet","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U09-S05","unit":"U09","title":"Ahiret Bilincinin Hayata Etkisi","meta":"Uygulama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":55},{"id":"U09-S06","unit":"U09","title":"Yanlış Anlamaları Düzelt","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U09-S07","unit":"U09","title":"Ahiret İmanı Ustalığı","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U10-S01","unit":"U10","title":"Kader ve Kazaya İman Nedir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":40},{"id":"U10-S02","unit":"U10","title":"Allah'ın İlmi, Ölçüsü ve Takdiri","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"people","energy":5,"xp":45},{"id":"U10-S03","unit":"U10","title":"İnsan İradesi ve Sorumluluk","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U10-S04","unit":"U10","title":"Çaba, Tedbir ve Tevekkül","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U10-S05","unit":"U10","title":"Musibet, Sabır ve Denge","meta":"Uygulama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":55},{"id":"U10-S06","unit":"U10","title":"Yanlış Anlamaları Düzelt","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U10-S07","unit":"U10","title":"Kader İnancı Ustalığı","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U11-S01","unit":"U11","title":"İbadet Nedir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":45},{"id":"U11-S02","unit":"U11","title":"Niyet ve İhlas","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"spark","energy":5,"xp":50},{"id":"U11-S03","unit":"U11","title":"Kavramları Eşleştir","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U11-S04","unit":"U11","title":"İbadetin Hayata Etkisi","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U11-S05","unit":"U11","title":"Bildiklerini Kullan","meta":"5. Aşama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":60},{"id":"U11-S06","unit":"U11","title":"Akıllı Tekrar","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U11-S07","unit":"U11","title":"Ünite Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U12-S01","unit":"U12","title":"Temizlik ve Taharet","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":45},{"id":"U12-S02","unit":"U12","title":"Abdestin Temeli","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"spark","energy":5,"xp":50},{"id":"U12-S03","unit":"U12","title":"Abdest Adımlarını Tanı","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U12-S04","unit":"U12","title":"Teyemmüm ve Kolaylık","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U12-S05","unit":"U12","title":"Ortak Temel ve Farklar","meta":"5. Aşama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":60},{"id":"U12-S06","unit":"U12","title":"Akıllı Tekrar","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U12-S07","unit":"U12","title":"Ünite Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U13-S01","unit":"U13","title":"Namaza Hazırlık","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":45},{"id":"U13-S02","unit":"U13","title":"Vakit ve Kıble","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"spark","energy":5,"xp":50},{"id":"U13-S03","unit":"U13","title":"Şartları Eşleştir","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U13-S04","unit":"U13","title":"Hazırlık Senaryoları","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U13-S05","unit":"U13","title":"Beş Vakit","meta":"5. Aşama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":60},{"id":"U13-S06","unit":"U13","title":"Akıllı Tekrar","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U13-S07","unit":"U13","title":"Ünite Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U14-S01","unit":"U14","title":"Namazın Yapısı","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":45},{"id":"U14-S02","unit":"U14","title":"Kıyam, Kıraat, Rükû, Secde","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"spark","energy":5,"xp":50},{"id":"U14-S03","unit":"U14","title":"Rekâtı Kur","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U14-S04","unit":"U14","title":"Namaz İçinde Akış","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U14-S05","unit":"U14","title":"Mazerette Kolaylık","meta":"5. Aşama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":60},{"id":"U14-S06","unit":"U14","title":"Akıllı Tekrar","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U14-S07","unit":"U14","title":"Ünite Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100},{"id":"U15-S01","unit":"U15","title":"Oruç Nedir?","meta":"1. Aşama · 5 dk","kind":"lesson","icon":"book","energy":5,"xp":45},{"id":"U15-S02","unit":"U15","title":"Ramazan ve Takva","meta":"2. Aşama · 5 dk","kind":"lesson","icon":"spark","energy":5,"xp":50},{"id":"U15-S03","unit":"U15","title":"İmsak ve İftar","meta":"Etkinlik · 5 dk","kind":"special","icon":"puzzle","energy":4,"xp":50},{"id":"U15-S04","unit":"U15","title":"Oruçlu Günlük Hayat","meta":"4. Aşama · 5 dk","kind":"scenario","icon":"leaf","energy":5,"xp":55},{"id":"U15-S05","unit":"U15","title":"Mazeret ve Kaza","meta":"5. Aşama · 5 dk","kind":"apply","icon":"bulb","energy":5,"xp":60},{"id":"U15-S06","unit":"U15","title":"Akıllı Tekrar","meta":"Tekrar · 5 dk","kind":"review","icon":"review","energy":3,"xp":60},{"id":"U15-S07","unit":"U15","title":"Ünite Challenge","meta":"Meydan Okuma · 10 dk","kind":"challenge","icon":"trophy","energy":5,"xp":100}];
+const SVG={
+ book:`<svg viewBox="0 0 24 24"><path d="M4 5.5c2.7-.8 5.4-.2 8 1.6v12c-2.6-1.8-5.3-2.4-8-1.6z"/><path d="M20 5.5c-2.7-.8-5.4-.2-8 1.6v12c2.6-1.8 5.3-2.4 8-1.6z"/></svg>`,
+ people:`<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.5-4 2.2-6 5.5-6s5 2 5.5 6"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M15.5 14.5c2.8-.7 4.8.7 5.3 4"/></svg>`,
+ puzzle:`<svg viewBox="0 0 24 24"><path d="M9 3h4v4a2 2 0 1 0 4 0V3h4v7h-4a2 2 0 1 0 0 4h4v7h-7v-4a2 2 0 1 0-4 0v4H3v-7h4a2 2 0 1 0 0-4H3V3z"/></svg>`,
+ leaf:`<svg viewBox="0 0 24 24"><path d="M4 17c7 0 12-5 15-12 1 7-2 14-9 14-3 0-5-1-6-2z"/><path d="M5 20c3-5 7-8 12-11"/></svg>`,
+ bulb:`<svg viewBox="0 0 24 24"><path d="M8 15c-2-1.3-3-3-3-5a7 7 0 1 1 14 0c0 2-1 3.7-3 5-1 .7-1.5 1.5-1.5 3h-5c0-1.5-.5-2.3-1.5-3z"/><path d="M9 21h6M12 1v2M3 10H1M23 10h-2M5 3l1.5 1.5M19 3l-1.5 1.5"/></svg>`,
+ review:`<svg viewBox="0 0 24 24"><path d="M19 7v5h-5"/><path d="M18 8a7 7 0 1 0 1 7"/><path d="M5 17v-5h5"/></svg>`,
+ trophy:`<svg viewBox="0 0 24 24"><path d="M7 4h10v4c0 4-2 6-5 6s-5-2-5-6z"/><path d="M7 6H4v2c0 2 1.5 3 4 3M17 6h3v2c0 2-1.5 3-4 3M12 14v4M8 21h8M9 18h6"/></svg>`,
+ profile:`<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.5-5 3.2-7 8-7s7.5 2 8 7"/></svg>`,
+ spark:`<svg viewBox="0 0 24 24"><path d="M12 2l2.2 6 5.8 2-5.8 2L12 18l-2.2-6L4 10l5.8-2z"/><path d="M19 16l1 2.5 2.5 1L20 20.5 19 23l-1-2.5-2.5-1 2.5-1z"/></svg>`,
+ orbit:`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M4 12c0-5 3-9 8-9s8 4 8 9-3 9-8 9-8-4-8-9z"/><path d="M3 8c4-2 8-1 12 2s6 7 4 10"/></svg>`,
+ headphones:`<svg viewBox="0 0 24 24"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13h3v7H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 1-2zM20 13h-3v7h2a2 2 0 0 0 2-2v-3a2 2 0 0 0-1-2z"/></svg>`,
+ quote:`<svg viewBox="0 0 24 24"><path d="M5 6h6v6H7c0 3-1 5-4 6 2-2 2-4 2-6zM14 6h6v6h-4c0 3-1 5-4 6 2-2 2-4 2-6z"/></svg>`
+};
+let previewMode=false;
+const DEFAULT_STATE={xp:0,energy:30,streak:0,premium:false,completed:[],mistakes:[],answered:0,correct:0,stageScores:{},sectionFinal:{attempts:0,bestScore:0,completed:false,rank:null,lastKnowledge:0,lastRetention:0},section2Final:{attempts:0,bestScore:0,completed:false,rank:null,lastKnowledge:0,lastRetention:0},section3Final:{attempts:0,bestScore:0,completed:false,rank:null,lastKnowledge:0,lastRetention:0},lastEnergyAt:Date.now()};
+const MAX_ENERGY=30;
+let volatileStorage={};
+function storageGet(key){try{return window.localStorage.getItem(key)}catch(e){return Object.prototype.hasOwnProperty.call(volatileStorage,key)?volatileStorage[key]:null}}
+function storageSet(key,value){try{window.localStorage.setItem(key,value)}catch(e){volatileStorage[key]=String(value)}}
+function storageRemove(key){try{window.localStorage.removeItem(key)}catch(e){delete volatileStorage[key]}}
+let state=loadState(),session=null,matchState=null,currentChoiceSelection=null;
+function loadState(){
+ const primary=storageGet('deen_v4_1_state'),backup=storageGet('deen_v57_last_good_state');
+ let s=null,recovered=false;
+ try{s=JSON.parse(primary||'null')}catch(e){
+  try{s=JSON.parse(backup||'null');recovered=!!s}catch(_){s=null}
+ }
+ try{
+  const out=Object.assign({},JSON.parse(JSON.stringify(DEFAULT_STATE)),s||{});
+  out.sectionFinal=Object.assign({},DEFAULT_STATE.sectionFinal,(s&&s.sectionFinal)||{});out.section2Final=Object.assign({},DEFAULT_STATE.sectionFinal,(s&&s.section2Final)||{});out.section3Final=Object.assign({},DEFAULT_STATE.sectionFinal,(s&&s.section3Final)||{});
+  out.completed=Array.isArray(out.completed)?out.completed:[];
+  out.mistakes=Array.isArray(out.mistakes)?out.mistakes:[];
+  out.stageScores=out.stageScores&&typeof out.stageScores==='object'?out.stageScores:{};
+  out.energy=Number.isFinite(Number(out.energy))?Math.max(0,Math.min(MAX_ENERGY,Number(out.energy))):DEFAULT_STATE.energy;
+  out.xp=Number.isFinite(Number(out.xp))?Math.max(0,Number(out.xp)):0;
+  out.streak=Number.isFinite(Number(out.streak))?Math.max(0,Number(out.streak)):0;
+  if(recovered)out.__recoveredFromBackup=true;
+  return out
+ }catch(e){return JSON.parse(JSON.stringify(DEFAULT_STATE))}
+}
+function saveState(){try{storageSet('deen_v4_1_state',JSON.stringify(state))}catch(e){}}
+function refillEnergy(){if(state.premium)return;const now=Date.now(),g=Math.floor((now-(state.lastEnergyAt||now))/(5*60*1000));if(g>0){state.energy=Math.min(MAX_ENERGY,state.energy+g);state.lastEnergyAt=now;saveState()}}
+function unitStages(u){return STAGES.filter(s=>s.unit===u)}
+function masteryFor(u){const arr=unitStages(u);return Math.round(arr.reduce((a,s)=>a+(state.stageScores[s.id]||0),0)/arr.length)}
+function updateUI(){refillEnergy();const e=state.premium?'∞':state.energy;['energyTop','lessonEnergy','profileEnergy'].forEach(id=>{const x=document.getElementById(id);if(x)x.textContent=e});document.getElementById('xpTop').textContent=state.xp;document.getElementById('profileXp').textContent=state.xp;document.getElementById('leagueXp').textContent=state.xp+' XP';document.getElementById('streakTop').textContent=state.streak;const ls=document.getElementById('lessonStreakMini');if(ls)ls.textContent=state.streak;document.getElementById('completedCount').textContent=state.completed.length;document.getElementById('mistakeCount').textContent=state.mistakes.length;const ms=['U01','U02','U03','U04','U05'].map(masteryFor);document.getElementById('masteryPercent').textContent=Math.round(ms.reduce((a,b)=>a+b,0)/ms.length)+'%';ms.forEach((m,i)=>{const n=i+1;document.getElementById('m'+n).style.width=m+'%';document.getElementById('m'+n+'Txt').textContent=m+'%'});['U01','U02','U03','U04','U05'].forEach((u,i)=>{const n=state.completed.filter(x=>x.startsWith(u)).length;document.getElementById('u'+(i+1)+'Progress').style.width=(n/7*100)+'%';document.getElementById('u'+(i+1)+'Count').textContent=n+'/7 aşama'});renderPaths();renderSectionFinal()}
+function stageState(unit,index){const arr=unitStages(unit),s=arr[index],done=state.completed.includes(s.id);const gate={U01:null,U02:'U01-S07',U03:'U02-S07',U04:'U03-S07',U05:'U04-S07'}[unit];const unitOpen=!gate||state.completed.includes(gate);const prevOpen=index===0||state.completed.includes(arr[index-1].id);return{done,locked:!previewMode&&(!unitOpen||!prevOpen),current:!done&&unitOpen&&prevOpen}}
+function pathMarkup(unit){const arr=unitStages(unit);const ys=[18,112,206,300,394,488,588];let svg=`<svg class="path-svg" viewBox="0 0 100 704" preserveAspectRatio="none"><path class="path-track" d="M 40 48 C 52 73, 62 92, 59 145 S 39 183, 40 239 S 62 276, 59 333 S 39 370, 40 427 S 62 466, 59 521 S 39 558, 41 626"/>`+ys.slice(0,6).map((y,i)=>`<circle class="path-dot" cx="${i%2?48:52}" cy="${y+82}" r="1.25"/>`).join('')+`</svg>`;let out=svg;arr.forEach((s,i)=>{const st=stageState(unit,i),right=i%2===0;const kind=s.kind==='lesson'?'':s.kind;const nodeLeft=right?'30.5%':'50%';const cardClass=`stage-card ${right?'right':'left'} ${s.kind==='challenge'?'challenge-card':''} ${st.locked?'locked':''}`;out+=`<div class="stage-slot" id="slot-${s.id}" style="top:${ys[i]}px"><button class="stage-node ${kind} ${st.done?'done':''} ${st.current?'current':''} ${st.locked?'locked':''}" style="left:${nodeLeft}" data-stage="${s.id}" aria-label="${s.title}">${st.locked?'':(SVG[s.icon]||SVG.book)}</button><button class="${cardClass}" data-stage="${s.id}" aria-label="${s.title} — ${s.meta}"><strong>${s.title}</strong><small>${s.meta}</small><span class="chev">›</span></button></div>`});return out}
+function renderPaths(){['U01','U02','U03','U04','U05'].forEach((u,i)=>{const el=document.getElementById('u'+(i+1)+'Path');if(el)el.innerHTML=pathMarkup(u)});document.querySelectorAll('[data-stage]').forEach(b=>{b.addEventListener('click',ev=>{ev.preventDefault();ev.stopPropagation();const target=ev.currentTarget,id=target.dataset.stage;if(!id)return;const node=document.querySelector(`.stage-node[data-stage="${id}"]`);if(target.classList.contains('locked')||(node&&node.classList.contains('locked')))return;startStage(id)},{once:true})})}
+function scrollToCurrent(unit){const arr=unitStages(unit);const s=arr.find(x=>!state.completed.includes(x.id))||arr[arr.length-1];document.getElementById('slot-'+s.id)?.scrollIntoView({behavior:'smooth',block:'center'})}
+
+const FINAL_UNIT_QUOTAS={U01:3,U02:4,U03:4,U04:4,U05:5};
+const FINAL_ALLOWED_TYPES=new Set(['multiple_choice','true_false','fill_blank','matching','missing_item','scenario','error_spotting','progressive_recall','speed_review']);
+const FINAL_REQUIRED_TYPES=['multiple_choice','scenario','matching','error_spotting','progressive_recall','fill_blank','true_false'];
+const FINAL_UNIT_NAMES={U01:'İslam Nedir?',U02:"Allah'a İman",U03:'Kelime-i Şehadet',U04:"İslam'ın Beş Şartı",U05:'İmanın Esasları'};
+function finalUnlocked(){return previewMode||state.completed.includes('U05-S07')}
+function renderSectionFinal(){const card=document.getElementById('sectionFinalCard'),btn=document.getElementById('startFinalBtn'),ey=document.getElementById('finalEyebrow'),best=document.getElementById('finalBest'),orb=document.getElementById('finalOrb');if(!card||!btn)return;const unlocked=finalUnlocked(),done=!!state.sectionFinal.completed;card.classList.toggle('locked',!unlocked);card.classList.toggle('completed',done);btn.disabled=!unlocked;best.textContent='En iyi skor · '+(state.sectionFinal.bestScore?state.sectionFinal.bestScore+'%':'—');if(done){ey.textContent='KISIM 1 TAMAMLANDI · '+(state.sectionFinal.rank||'USTALIK');btn.textContent='FİNALİ TEKRARLA · 20 SORU';orb.textContent=state.sectionFinal.rank==='ALTIN USTALIK'?'✦':'🏆'}else if(unlocked){ey.textContent='HAZIR · USTALIK SINAVI';btn.textContent='TEMELLER USTALIĞINI BAŞLAT';orb.textContent='🏆'}else{ey.textContent='KİLİTLİ · USTALIK SINAVI';btn.textContent="ÜNİTE 5 CHALLENGE'I TAMAMLA";orb.textContent='🔒'}btn.onclick=unlocked?startSectionFinal:null;const s2=document.getElementById('section2Card'),s2e=document.getElementById('section2Eyebrow'),s2c=document.getElementById('section2Copy'),s2l=document.getElementById('section2Lock');if(s2){s2.classList.toggle('unlocked',done);s2e.textContent=done?'SONRAKİ KISIM · AÇILDI':'SONRAKİ KISIM · KİLİTLİ';s2c.textContent=done?'Kısım 1 tamamlandı. Kısım 2 müfredatı eklenmeye hazır.':'Temeller Ustalığı sınavını %80 veya üzeriyle tamamladığında açılır.';s2l.textContent=done?'→':'🔒'}}
+function finalWeakConceptCounts(){const c={};for(const id of state.mistakes){const q=QUESTIONS.find(x=>x.id===id);if(q&&q.concept_id)c[q.concept_id]=(c[q.concept_id]||0)+1}return c}
+function finalQuestionWeight(q,unit,typeCounts,conceptCounts,weakConcepts){let w=1;if(state.mistakes.includes(q.id))w+=5;if(weakConcepts[q.concept_id])w+=Math.min(4,weakConcepts[q.concept_id]*1.15);const ss=state.stageScores[q.stage_id];if(Number.isFinite(ss))w+=Math.max(0,(100-ss)/24);w+=Math.max(0,(100-masteryFor(unit))/35);if(q.cognitive_level==='application')w+=1.35;else if(q.cognitive_level==='recall')w+=.7;if(q.difficulty==='hard')w+=.75;else if(q.difficulty==='medium')w+=.35;w/=1+(conceptCounts[q.concept_id]||0)*1.15;w/=1+Math.max(0,(typeCounts[q.activity_type]||0)-2)*.45;return Math.max(.08,w)}
+function weightedChoice(pool,weightFn){if(!pool.length)return null;const a=pool.map(q=>({q,w:weightFn(q)})),sum=a.reduce((s,x)=>s+x.w,0);let r=Math.random()*sum;for(const x of a){r-=x.w;if(r<=0)return x.q}return a[a.length-1].q}
+function chooseSectionFinal(){const selected=[],used=new Set(),unitCounts={U01:0,U02:0,U03:0,U04:0,U05:0},typeCounts={},conceptCounts={},weak=finalWeakConceptCounts(),unitOf=q=>q.stage_id.slice(0,3),eligible=QUESTIONS.filter(q=>FINAL_ALLOWED_TYPES.has(q.activity_type)&&FINAL_UNIT_QUOTAS[unitOf(q)]&&!audioBlocked(q));function add(q){if(!q||used.has(q.id))return false;const u=unitOf(q);if(unitCounts[u]>=FINAL_UNIT_QUOTAS[u])return false;selected.push(q);used.add(q.id);unitCounts[u]++;typeCounts[q.activity_type]=(typeCounts[q.activity_type]||0)+1;conceptCounts[q.concept_id]=(conceptCounts[q.concept_id]||0)+1;return true}for(const type of FINAL_REQUIRED_TYPES){const cand=eligible.filter(q=>q.activity_type===type&&!used.has(q.id)&&unitCounts[unitOf(q)]<FINAL_UNIT_QUOTAS[unitOf(q)]);add(weightedChoice(cand,x=>finalQuestionWeight(x,unitOf(x),typeCounts,conceptCounts,weak)))}for(const u of Object.keys(FINAL_UNIT_QUOTAS)){while(unitCounts[u]<FINAL_UNIT_QUOTAS[u]){const cand=eligible.filter(q=>unitOf(q)===u&&!used.has(q.id));if(!add(weightedChoice(cand,x=>finalQuestionWeight(x,u,typeCounts,conceptCounts,weak))))break}}return shuffle(selected).slice(0,20)}
+function finalPriorityIds(qs){const weak=finalWeakConceptCounts(),ids=new Set();for(const q of qs){if(state.mistakes.includes(q.id)||weak[q.concept_id]||(state.stageScores[q.stage_id]||100)<80)ids.add(q.id)}return ids}
+function setLessonStatus(finalMode){const el=document.getElementById('lessonStatus');if(!el)return;if(finalMode)el.innerHTML='🏆 <span>FINAL</span>';else el.innerHTML='ϟ <span id="lessonEnergy">'+(state.premium?'∞':state.energy)+'</span>'}
+function resetResultView(finalMode){DEENFeel.end('result');DEENFeel.end('return');document.getElementById('resultContinueBtn').disabled=false;const rv=document.getElementById('resultView');rv.classList.remove('show');rv.classList.toggle('final-mode',!!finalMode);document.getElementById('resultTitle').textContent=finalMode?'Temeller Ustalığı':'Ders tamamlandı';document.getElementById('resultSubtitle').textContent=finalMode?'Kısım 1 final sonucu':'Öğrenme doğruluğu';document.getElementById('resultContinueBtn').textContent='YOLCULUĞA DEVAM';document.getElementById('resultContinueBtn').onclick=finishLesson;document.getElementById('resultPct').style.color='';document.getElementById('resultMedal').style.borderColor='';document.getElementById('resultMedal').style.color=''}
+function startSectionFinal(){if(!finalUnlocked())return;const qs=chooseSectionFinal();if(qs.length!==20){alert('Final soru havuzu hazırlanamadı.');return}session={stage:{id:'SECTION1-FINAL',title:'Temeller Ustalığı',xp:260,energy:0},final:true,questions:qs,index:0,correct:0,combo:0,bestCombo:0,responses:[],priorityIds:finalPriorityIds(qs)};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(true);setLessonStatus(true);renderQuestion()}
+function finalUnitBreakdown(){const stats={};for(const u of Object.keys(FINAL_UNIT_QUOTAS))stats[u]={correct:0,total:0};for(const r of session.responses){if(stats[r.unit]){stats[r.unit].total++;if(r.correct)stats[r.unit].correct++}}return stats}
+function topWrongTopics(){const c={};for(const r of session.responses){if(!r.correct)c[r.topic]=(c[r.topic]||0)+1}return Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,2).map(x=>x[0])}
+function showSectionFinalResult(){const total=session.questions.length,pct=Math.round(session.correct/total*100),passed=pct>=80,gold=pct>=95,priority=session.responses.filter(r=>r.priority),retention=priority.length?Math.round(priority.filter(r=>r.correct).length/priority.length*100):pct,knowledge=pct,earned=passed?(gold?320:260):90;state.xp+=earned;state.sectionFinal.attempts=(state.sectionFinal.attempts||0)+1;state.sectionFinal.bestScore=Math.max(state.sectionFinal.bestScore||0,pct);state.sectionFinal.lastKnowledge=knowledge;state.sectionFinal.lastRetention=retention;if(passed){state.sectionFinal.completed=true;state.sectionFinal.rank=gold?'ALTIN USTALIK':'USTALIK'}const breakdown=finalUnitBreakdown(),strength=Object.entries(breakdown).filter(([u,s])=>s.total&&s.correct/s.total>=.8).sort((a,b)=>(b[1].correct/b[1].total)-(a[1].correct/a[1].total)).slice(0,3).map(([u])=>FINAL_UNIT_NAMES[u]),wrong=topWrongTopics();document.getElementById('quizView').style.display='none';const rv=document.getElementById('resultView');rv.classList.add('show','final-mode');document.getElementById('resultTitle').textContent=gold?'Altın Ustalık':passed?'Kısım 1 tamamlandı':'Biraz daha pekiştirelim';document.getElementById('resultSubtitle').textContent=passed?'Temeller Ustalığı başarıyla tamamlandı':'Geçiş için %80 gerekiyor';document.getElementById('resultPct').textContent=pct+'%';document.getElementById('resultPct').style.color=gold?'#ffe06e':passed?'var(--teal)':'#ff9b72';document.getElementById('resultCorrect').textContent=session.correct+'/'+total;document.getElementById('resultXp').textContent='+'+earned;document.getElementById('resultCombo').textContent=session.bestCombo+'x';document.getElementById('finalKnowledge').textContent=knowledge+'%';document.getElementById('finalRetention').textContent=retention+'%';document.getElementById('finalStrengths').textContent=strength.length?strength.join(' · '):'Henüz belirgin bir güçlü alan yok';document.getElementById('finalReview').textContent=wrong.length?wrong.join(' · '):'Belirgin tekrar ihtiyacı yok';document.getElementById('finalRank').textContent=gold?'✦ ALTIN USTALIK':passed?'✓ TEMELLER USTASI':'↻ SMART REVIEW ÖNERİLİYOR';const medal=document.getElementById('resultMedal');medal.style.borderColor=gold?'#ffe06e':passed?'var(--teal)':'#ff8e68';medal.style.color=gold?'#ffe06e':passed?'var(--teal)':'#ff8e68';const btn=document.getElementById('resultContinueBtn');if(passed){btn.textContent='KISIM 1’İ TAMAMLA';btn.onclick=()=>{finishLesson();setTimeout(()=>document.getElementById('section2Card')?.scrollIntoView({behavior:'smooth',block:'center'}),120)}}else{btn.textContent='AKILLI TEKRARA GİT';btn.onclick=()=>{finishLesson();startSmartReview()}}saveState();updateUI()}
+
+function poolFor(id){return QUESTIONS.filter(q=>q.stage_id===id)}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function chooseQuestions(id){const pool=poolFor(id),target=id.endsWith('S07')?10:7,groups={};pool.forEach(q=>(groups[q.activity_type]??=[]).push(q));let res=[];for(const k of Object.keys(groups)){const g=shuffle(groups[k]);if(g[0])res.push(g[0])}res=shuffle(res).slice(0,target);const used=new Set(res.map(q=>q.id));for(const q of shuffle(pool)){if(res.length>=target)break;if(!used.has(q.id)){res.push(q);used.add(q.id)}}return shuffle(res)}
+function startStage(id){const st=STAGES.find(x=>x.id===id);if(!st)return;if(!state.premium&&state.energy<st.energy){showEnergy();return}if(!state.premium)state.energy-=st.energy;const qs=chooseQuestions(id);if(!Array.isArray(qs)||!qs.length){console.error('Stage question pool empty',id);return}session={stage:st,questions:qs,index:0,correct:0,combo:0,bestCombo:0};const lesson=document.getElementById('lesson');if(!lesson)return;lesson.classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);setLessonStatus(false);try{saveState()}catch(e){};try{updateUI()}catch(e){console.error('updateUI during stage start',e)};renderQuestion()}
+function startSmartReview(){const missed=QUESTIONS.filter(q=>state.mistakes.includes(q.id));if(!missed.length){startStage('U01-S06');return}if(!state.premium&&state.energy<3){showEnergy();return}if(!state.premium)state.energy-=3;session={stage:{id:'SMART',title:'Akıllı Tekrar',xp:45,energy:3},questions:shuffle(missed).slice(0,7),index:0,correct:0,combo:0,bestCombo:0};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);setLessonStatus(false);renderQuestion();try{saveState();updateUI()}catch(e){console.error('Smart review state update',e)}}
+function normalize(s){return (s||'').toLocaleLowerCase('tr-TR').trim().replace(/[.,;:!?\'"“”‘’()]/g,'').replace(/\s+/g,' ')}
+
+function iconForQuestion(q){
+ const t=(q.question_tr||'').toLowerCase();
+ if(t.includes('namaz'))return '🕌';
+ if(t.includes('oruç')||t.includes('oruc'))return '☾';
+ if(t.includes('zekât')||t.includes('zekat'))return '🤲';
+ if(t.includes('melek'))return '🪽';
+ if(t.includes('kitap'))return '📖';
+ if(t.includes('ahiret'))return '🌙';
+ if(t.includes('allah'))return '✦';
+ if(t.includes('peygamber'))return '🕊';
+ return q.activity_type==='matching'?'◈':q.activity_type==='progressive_recall'?'✎':'✦'
+}
+function lessonPromptFor(q){
+ if(q.activity_type==='fill_blank')return 'Eksik kelimeyi tamamlayarak devam et.';
+ if(q.activity_type==='progressive_recall')return 'Boşluğu doldurarak öğrendiklerini hatırla.';
+ if(q.activity_type==='matching')return 'Kavramları doğru eşleştirerek ilerle.';
+ if(q.activity_type==='build_sequence')return 'Adımları doğru sıraya dizerek devam et.';
+ if(q.activity_type==='true_false'||q.activity_type==='speed_review')return 'Doğru seçimi yaparak öğrenmeye devam et.';
+ return 'Doğru cevabı seçerek yolculuğuna devam et.'
+}
+function headingFor(q){
+ const map={
+  multiple_choice:'TEMEL BİLGİLER',
+  true_false:'HIZLI KONTROL',
+  fill_blank:'BOŞLUĞU TAMAMLA',
+  missing_item:'EKSİĞİ BUL',
+  scenario:'BİLGİNİ PEKİŞTİR',
+  error_spotting:'HATAYI YAKALA',
+  progressive_recall:'HATIRLA VE TAMAMLA',
+  matching:'KAVRAMLARI EŞLEŞTİR',
+  speed_review:'HIZLI TEKRAR',
+  build_sequence:'SIRALA'
+ };
+ return map[q.activity_type]||'ÖĞRENME ADIMI'
+}
+function stageLabelForQuestion(q){
+ const sid=(session&&session.stage&&session.stage.id)||q.stage_id||'';
+ if(sid==='SMART')return 'Akıllı Tekrar';
+ if(sid==='SECTION1-FINAL')return 'Kısım 1 Finali';
+ const m=sid.match(/^U(\d+)-S(\d+)/);
+ if(m)return `Ünite ${Number(m[1])} · Aşama ${Number(m[2])}`;
+ return q.stage_title||'Öğrenme Adımı'
+}
+
+function isFillBlankQuestion(q){
+ return q && q.activity_type==='fill_blank';
+}
+function escapeDeenHTML(value){
+ return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+function renderFillQuestionText(q,el){
+ const safe=escapeDeenHTML(q.question_tr||'');
+ // Treat three or more underscores as the pedagogical blank.
+ const rich=safe.replace(/_{3,}/g,'<span class="blank-slot">•••</span>');
+ el.innerHTML=rich;
+}
+
+function shouldUseTrueFalseTemplate(q){
+ if(!Array.isArray(q.options_tr) || q.options_tr.length!==2) return false;
+ return q.activity_type==='true_false' || q.activity_type==='speed_review';
+}
+function shouldUseStandardMC(q){
+ if(!Array.isArray(q.options_tr) || q.options_tr.length!==4) return false;
+ if(shouldUseTrueFalseTemplate(q)) return false;
+ if(shouldUseCardGrid(q)) return false;
+ return true;
+}
+function shouldUseCardGrid(q){
+ if(!Array.isArray(q.options_tr)||q.options_tr.length!==4)return false;
+ if(!(q.activity_type==='multiple_choice'||q.activity_type==='missing_item'||q.activity_type==='scenario'))return false;
+ const longest=Math.max(...q.options_tr.map(x=>(x||'').length));
+ return longest<=22;
+}
+function optionVisualSymbol(text){
+ const t=(text||'').toLowerCase();
+ if(t.includes('namaz'))return '🕌';
+ if(t.includes('oruç')||t.includes('oruc'))return '☾';
+ if(t.includes('zekât')||t.includes('zekat'))return '🤲';
+ if(t.includes('melek'))return '🪽';
+ if(t.includes('kitap'))return '📖';
+ if(t.includes('ahiret'))return '🌙';
+ if(t.includes('allah'))return '✦';
+ if(t.includes('peygamber'))return '🕊';
+ if(t.includes('hac'))return '🕋';
+ if(t.includes('şehadet')||t.includes('seh') )return '☀';
+ return '◌'
+}
+
+
+function resetLessonScroll(){
+ const sc=document.querySelector('#quizView .qarea');
+ if(sc){sc.scrollTop=0;requestAnimationFrame(()=>{sc.scrollTop=0})}
+}
+function installLessonScrollSupport(){
+ const lesson=document.getElementById('lesson');
+ const sc=document.querySelector('#quizView .qarea');
+ if(!lesson||!sc||lesson.dataset.scrollSupport==='1')return;
+ lesson.dataset.scrollSupport='1';
+
+ // Some preview/iframe hosts swallow the normal wheel chain.
+ // Route wheel/trackpad movement directly into the lesson scroller.
+ lesson.addEventListener('wheel',e=>{
+   if(!lesson.classList.contains('active'))return;
+   const multiplier=e.deltaMode===1?24:(e.deltaMode===2?Math.max(320,sc.clientHeight):1);
+   const dy=e.deltaY*multiplier;
+   if(Math.abs(dy)<0.5)return;
+   const max=Math.max(0,sc.scrollHeight-sc.clientHeight);
+   const next=Math.max(0,Math.min(max,sc.scrollTop+dy));
+   if(next!==sc.scrollTop){
+     sc.scrollTop=next;
+     e.preventDefault();
+   }
+ },{passive:false});
+
+ // Desktop keyboard fallback.
+ document.addEventListener('keydown',e=>{
+   if(!lesson.classList.contains('active'))return;
+   if(['INPUT','TEXTAREA'].includes((document.activeElement&&document.activeElement.tagName)||''))return;
+   let dy=0;
+   if(e.key==='ArrowDown')dy=70;
+   else if(e.key==='ArrowUp')dy=-70;
+   else if(e.key==='PageDown'||e.key===' ')dy=Math.max(240,sc.clientHeight*.72);
+   else if(e.key==='PageUp')dy=-Math.max(240,sc.clientHeight*.72);
+   else if(e.key==='Home'){sc.scrollTop=0;e.preventDefault();return}
+   else if(e.key==='End'){sc.scrollTop=sc.scrollHeight;e.preventDefault();return}
+   if(dy){sc.scrollBy({top:dy,behavior:'smooth'});e.preventDefault()}
+ });
+
+ // Pointer drag fallback for desktop preview windows.
+ let dragging=false,lastY=0,moved=false;
+ sc.addEventListener('pointerdown',e=>{
+   if(e.pointerType==='mouse' && e.button!==0)return;
+   if(e.target.closest('button,input'))return;
+   dragging=true;moved=false;lastY=e.clientY;
+   try{sc.setPointerCapture(e.pointerId)}catch(_){}
+ });
+ sc.addEventListener('pointermove',e=>{
+   if(!dragging)return;
+   const d=lastY-e.clientY;
+   if(Math.abs(d)>2)moved=true;
+   sc.scrollTop+=d;lastY=e.clientY;
+ });
+ const stopDrag=()=>{dragging=false};
+ sc.addEventListener('pointerup',stopDrag);
+ sc.addEventListener('pointercancel',stopDrag);
+}
+
+function renderQuestion(){
+ installLessonScrollSupport();
+ resetLessonScroll();
+ matchState=null;currentChoiceSelection=null;
+ const q=session.questions[session.index],total=session.questions.length;
+ DEENFeel.progress(session.index/total);
+ const countEl=document.getElementById('quizCount');if(countEl)countEl.textContent=(session.index+1)+' / '+total;
+ document.getElementById('qStage').textContent=stageLabelForQuestion(q);
+ document.getElementById('questionIcon').textContent=iconForQuestion(q);
+ document.getElementById('qMeta').textContent=headingFor(q);
+ document.getElementById('qType').textContent=lessonPromptFor(q);
+ const qTextEl=document.getElementById('questionText');
+ const qLen=(q.question_tr||'').length;
+ qTextEl.className='question';
+ if(isFillBlankQuestion(q))renderFillQuestionText(q,qTextEl);
+ else qTextEl.textContent=q.question_tr;
+ if(qLen>70)qTextEl.classList.add('compact');
+ if(qLen>105)qTextEl.classList.add('tight');
+ if(qLen>145)qTextEl.classList.add('mini');
+ const qFrame=document.querySelector('.question-frame');
+ const lessonNote=document.querySelector('.lesson-note');
+ const useTF=shouldUseTrueFalseTemplate(q);
+ const useMatching=q.activity_type==='matching';
+ const useFill=isFillBlankQuestion(q);
+ const useCardGrid=!useFill && shouldUseCardGrid(q);
+ const useStandardMC=!useFill && shouldUseStandardMC(q);
+ if(qFrame){
+   const optionMax=Array.isArray(q.options_tr)&&q.options_tr.length?Math.max(...q.options_tr.map(x=>(x||'').length)):0;
+   const isCompactLayout=qLen>85 || optionMax>24 || useTF || useMatching || useStandardMC || useCardGrid || useFill;
+   qFrame.classList.toggle('compact-layout', !!isCompactLayout);
+   qFrame.classList.toggle('tf-layout', !!useTF);
+   qFrame.classList.toggle('matching-layout', !!useMatching);
+   qFrame.classList.toggle('mc-standard-layout', !!useStandardMC);
+   qFrame.classList.toggle('card-grid-layout', !!useCardGrid);
+   qFrame.classList.toggle('fill-layout', !!useFill);
+ }
+ if(lessonNote){
+   lessonNote.classList.toggle('hidden', !!useTF);
+   lessonNote.classList.toggle('matching-hidden', !!useMatching);
+   lessonNote.classList.toggle('grid-hidden', !!useCardGrid);
+   lessonNote.classList.toggle('fill-hidden', !!useFill);
+   lessonNote.classList.toggle('minimal', !useTF && !useMatching && !useStandardMC && !useCardGrid && !useFill && qLen>110);
+   lessonNote.classList.toggle('mc-minimal', !!useStandardMC);
+ }
+ document.getElementById('lessonNoteTitle').textContent=session.final?'Temeller Ustalığı için ilerliyorsun.':(useTF?'Hızlı ilerleme':(useStandardMC?'Bilgini güçlendir':(useCardGrid?'Kartını seç':'Bilgi küçük adımlarla büyür.')));
+ document.getElementById('lessonNoteText').textContent=session.final?'Bu final, ilk 5 ünitedeki güçlü ve zayıf yönlerini birlikte ölçer.':(useTF?'Doğru veya yanlış seçimini yaparak devam et.':(useStandardMC?'Şıkları dikkatle inceleyip en doğru cevabı seç.':(useCardGrid?'Dört kart arasından en doğru seçimi yap.':'Her doğru cevap, daha sağlam bir yarın demektir.')));
+ const area=document.getElementById('answerArea');area.innerHTML='';document.getElementById('feedback').classList.remove('show');
+ if((q.activity_type==='listening_select'||q.activity_type==='listening_meaning')&&q.asset_requirement){renderAudioPanel(q,area)}
+ if(q.activity_type==='matching'&&Array.isArray(q.pairs)){renderMatching(q,area);return}
+ if(q.activity_type==='build_sequence'&&Array.isArray(q.items)&&Array.isArray(q.correct_order)){renderSequence(q,area);return}
+ if(isFillBlankQuestion(q)){renderFillBlank(q,area);return}
+ if(!q.options_tr){
+   const inp=document.createElement('input');inp.className='answer-input';inp.placeholder=q.activity_type==='progressive_recall'?'Hatırladığın cevabı yaz…':'Cevabını yaz…';area.appendChild(inp);
+   const b=document.createElement('button');b.className='template-action';b.textContent='Kontrol Et';b.onclick=()=>submitAnswer(inp.value.trim(),inp);area.appendChild(b);
+ } else {
+   const useTF=shouldUseTrueFalseTemplate(q);
+   const useCardGrid=shouldUseCardGrid(q);
+   const useStandardMC=shouldUseStandardMC(q);
+   const wrap=document.createElement('div');wrap.className='options'+(useCardGrid?' grid premium-grid':'')+(useTF?' tf-options':'')+(useStandardMC?' mc-standard':'');
+   const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+   renderedOptions(q).forEach((opt,idx)=>{
+     const b=document.createElement('button');b.className='option';b.type='button';
+     const badge=document.createElement('span');badge.className='option-badge';badge.textContent=letters[idx]||String(idx+1);
+     const label=document.createElement('span');label.className='option-label';label.textContent=opt;
+     b.appendChild(badge);
+     if((wrap.classList.contains('grid') || useCardGrid) && !useTF){
+        const icon=document.createElement('span');icon.className='option-icon';icon.textContent=optionVisualSymbol(opt);b.appendChild(icon);
+     }
+     b.appendChild(label);
+     b.onclick=()=>{if(document.getElementById('feedback').classList.contains('show'))return;wrap.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');currentChoiceSelection={value:opt,button:b};cta.disabled=false;cta.textContent='Kontrol Et'};
+     wrap.appendChild(b);
+   });
+   area.appendChild(wrap);
+   const cta=document.createElement('button');cta.className='template-action';cta.type='button';cta.disabled=true
+   cta.textContent='Bir kart seç';
+   cta.onclick=()=>{if(currentChoiceSelection)submitAnswer(currentChoiceSelection.value,currentChoiceSelection.button)};
+   area.appendChild(cta);
+ }
+}
+
+function renderFillBlank(q,area){
+ const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+ if(Array.isArray(q.options_tr) && q.options_tr.length){
+   const grid=document.createElement('div');
+   grid.className='fill-choice-grid';
+   let selected=null;
+
+   renderedOptions(q).forEach((opt,idx)=>{
+     const b=document.createElement('button');
+     b.type='button';
+     b.className='fill-choice';
+     b.dataset.value=opt;
+
+     const badge=document.createElement('span');
+     badge.className='fill-choice-badge';
+     badge.textContent=letters[idx]||String(idx+1);
+
+     const label=document.createElement('span');
+     label.textContent=opt;
+
+     b.append(badge,label);
+     b.onclick=()=>{
+       if(document.getElementById('feedback').classList.contains('show'))return;
+       grid.querySelectorAll('.fill-choice').forEach(x=>x.classList.remove('selected'));
+       b.classList.add('selected');
+       selected={value:opt,button:b};
+       cta.disabled=false;
+       cta.textContent='Kontrol Et';
+     };
+     grid.appendChild(b);
+   });
+
+   area.appendChild(grid);
+
+   const cta=document.createElement('button');
+   cta.type='button';
+   cta.className='template-action';
+   cta.disabled=true;
+   cta.textContent='Bir kelime seç';
+   cta.onclick=()=>{
+     if(!selected)return;
+     const correct=normalize(selected.value)===normalize(q.correct_answer);
+     grid.querySelectorAll('.fill-choice').forEach(btn=>{
+       const value=btn.dataset.value||'';
+       if(normalize(value)===normalize(q.correct_answer))btn.classList.add('correct');
+       else if(btn===selected.button && !correct)btn.classList.add('wrong');
+       btn.disabled=true;
+     });
+     completeQuestion(correct,q);
+   };
+   area.appendChild(cta);
+   return;
+ }
+
+ const card=document.createElement('div');
+ card.className='fill-answer-card';
+
+ const label=document.createElement('div');
+ label.className='fill-answer-label';
+ label.innerHTML='<i></i><span>CEVABINI YAZ</span>';
+
+ const wrap=document.createElement('div');
+ wrap.className='fill-input-wrap';
+
+ const inp=document.createElement('input');
+ inp.type='text';
+ inp.className='fill-input';
+ inp.autocomplete='off';
+ inp.autocapitalize='sentences';
+ inp.spellcheck=false;
+ inp.placeholder='Eksik kelimeyi yaz…';
+
+ const status=document.createElement('span');
+ status.className='fill-input-status';
+ status.textContent='✎';
+
+ wrap.append(inp,status);
+ card.append(label,wrap);
+ area.appendChild(card);
+
+ const cta=document.createElement('button');
+ cta.type='button';
+ cta.className='template-action';
+ cta.disabled=true;
+ cta.textContent='Cevabını yaz';
+
+ const refresh=()=>{
+   const ready=inp.value.trim().length>0;
+   cta.disabled=!ready;
+   cta.textContent=ready?'Kontrol Et':'Cevabını yaz';
+ };
+ inp.addEventListener('input',refresh);
+ inp.addEventListener('keydown',e=>{
+   if(e.key==='Enter'&&!cta.disabled)cta.click();
+ });
+
+ cta.onclick=()=>{
+   if(document.getElementById('feedback').classList.contains('show'))return;
+   const value=inp.value.trim();
+   const correct=normalize(value)===normalize(q.correct_answer);
+   inp.disabled=true;
+   inp.classList.add(correct?'correct-input':'wrong-input');
+   status.textContent=correct?'✓':'!';
+   status.style.color=correct?'#85efbc':'#ff9b90';
+   completeQuestion(correct,q);
+ };
+ area.appendChild(cta);
+
+ setTimeout(()=>{if(inp.isConnected&&document.getElementById('lesson').classList.contains('active'))try{inp.focus({preventScroll:true})}catch(e){}},80);
+}
+
+function renderAudioPanel(q,area){const panel=document.createElement('div');panel.className='audio-panel';panel.innerHTML=`<button class="audio-play" type="button" aria-label="Ses kaydını oynat">▶</button><div class="audio-copy"><strong>Doğrulanmış ses kaydı</strong><small>Bu dinleme aktivitesi gerçek uygulamada uzman tarafından doğrulanmış kayıt kullanacak.</small><div class="audio-status">ÖNİZLEME: SES ASSET'İ HENÜZ EKLENMEDİ</div></div>`;const play=panel.querySelector('.audio-play');play.onclick=()=>{play.textContent='…';const st=panel.querySelector('.audio-status');st.textContent='Doğrulanmış ses dosyası eklendiğinde burada oynatılacak.';setTimeout(()=>play.textContent='▶',650)};area.appendChild(panel)}
+function renderSequence(q,area){let chosen=[];const zone=document.createElement('div');zone.className='sequence-zone empty';const bank=document.createElement('div');bank.className='sequence-bank';const hint=document.createElement('div');hint.className='activity-hint';hint.textContent='Parçalara dokunarak doğru sırayı oluştur. Üstteki parçaya dokunursan geri alabilirsin.';
+ function paint(){zone.innerHTML='';zone.classList.toggle('empty',chosen.length===0);chosen.forEach((text,idx)=>{const c=document.createElement('button');c.className='seq-chip placed';c.textContent=(idx+1)+'. '+text;c.onclick=()=>{chosen.splice(idx,1);paint()};zone.appendChild(c)});bank.innerHTML='';q.items.forEach((text,idx)=>{const used=chosen.filter(x=>x===text).length;const total=q.items.filter(x=>x===text).length;const c=document.createElement('button');c.className='seq-chip';c.textContent=text;c.disabled=used>=total;c.onclick=()=>{chosen.push(text);paint()};bank.appendChild(c)})}
+ area.append(zone,bank,hint);const check=document.createElement('button');check.className='btn';check.textContent='SIRAYI KONTROL ET';check.onclick=()=>{if(chosen.length!==q.correct_order.length)return;const ok=chosen.every((x,i)=>normalize(x)===normalize(q.correct_order[i]));zone.style.borderColor=ok?'var(--ok)':'var(--danger)';bank.querySelectorAll('button').forEach(b=>b.disabled=true);zone.querySelectorAll('button').forEach(b=>b.disabled=true);check.disabled=true;completeQuestion(ok,q)};area.appendChild(check);paint()}
+
+function submitAnswer(ans,el){if(document.getElementById('feedback').classList.contains('show'))return;const q=session.questions[session.index],correct=normalize(ans)===normalize(q.correct_answer);if(q.options_tr){document.querySelectorAll('.option').forEach(b=>{const val=(b.querySelector('.option-label')||b).textContent;if(normalize(val)===normalize(q.correct_answer))b.classList.add('correct');else if(b===el&&!correct)b.classList.add('wrong');b.disabled=true})}else el.style.borderColor=correct?'var(--ok)':'var(--danger)';completeQuestion(correct,q)}
+function renderMatching(q,area){
+ const left=shuffle(q.pairs.map((p,i)=>({text:p.left,i}))),
+       right=shuffle(q.pairs.map((p,i)=>({text:p.right,i})));
+ matchState={left:null,matched:new Set(),errors:0};
+
+ const grid=document.createElement('div');
+ grid.className='match-grid';
+
+ const lt=document.createElement('div');
+ lt.className='match-column-title';
+ lt.textContent='KAVRAM';
+ lt.style.gridColumn='1';
+ lt.style.gridRow='1';
+
+ const rt=document.createElement('div');
+ rt.className='match-column-title';
+ rt.textContent='AÇIKLAMA';
+ rt.style.gridColumn='2';
+ rt.style.gridRow='1';
+
+ grid.append(lt,rt);
+
+ const leftButtons=new Map();
+
+ left.forEach((x,row)=>{
+   const b=document.createElement('button');
+   b.type='button';
+   b.className='match-card match-left';
+   b.textContent=x.text;
+   b.dataset.i=x.i;
+   b.style.gridColumn='1';
+   b.style.gridRow=String(row+2);
+   b.onclick=()=>{
+     if(b.classList.contains('matched'))return;
+     grid.querySelectorAll('.match-left').forEach(z=>z.classList.remove('sel'));
+     b.classList.add('sel');
+     matchState.left=x.i;
+   };
+   leftButtons.set(x.i,b);
+   grid.appendChild(b);
+ });
+
+ const progress=document.createElement('div');
+ progress.className='matching-progress';
+ const progressText=document.createElement('span');
+ progressText.textContent='0 / '+q.pairs.length+' eşleşme';
+ progress.appendChild(progressText);
+ const dots=[];
+ for(let i=0;i<q.pairs.length;i++){
+   const d=document.createElement('i');
+   d.className='matching-progress-dot';
+   dots.push(d);
+   progress.appendChild(d);
+ }
+ function updateProgress(){
+   progressText.textContent=matchState.matched.size+' / '+q.pairs.length+' eşleşme';
+   dots.forEach((d,i)=>d.classList.toggle('done',i<matchState.matched.size));
+ }
+
+ right.forEach((x,row)=>{
+   const b=document.createElement('button');
+   b.type='button';
+   b.className='match-card match-right';
+   b.textContent=x.text;
+   b.dataset.i=x.i;
+   b.style.gridColumn='2';
+   b.style.gridRow=String(row+2);
+   b.onclick=()=>{
+     if(matchState.left===null||b.classList.contains('matched'))return;
+     const leftButton=leftButtons.get(matchState.left);
+     if(q.pairs[Number(matchState.left)].right===x.text){
+       b.classList.add('matched');
+       if(leftButton){leftButton.classList.add('matched');leftButton.classList.remove('sel')}
+       matchState.matched.add(Number(matchState.left));
+       matchState.left=null;
+       updateProgress();
+       if(matchState.matched.size===q.pairs.length){
+         const savedSession=session,savedIndex=session.index,ok=matchState.errors===0;setTimeout(()=>{if(session===savedSession&&session.index===savedIndex)completeQuestion(ok,q)},180);
+       }
+     }else{
+       matchState.errors++;
+       b.classList.add('match-error');
+       if(leftButton)leftButton.classList.add('match-error');
+       setTimeout(()=>{
+         b.classList.remove('match-error');
+         if(leftButton)leftButton.classList.remove('match-error','sel');
+       },400);
+       matchState.left=null;
+     }
+   };
+   grid.appendChild(b);
+ });
+
+ area.append(grid,progress);
+ updateProgress();
+}
+function completeQuestion(correct,q){state.answered++;if(session.final)session.responses.push({id:q.id,correct,unit:q.stage_id.slice(0,3),topic:q.topic||q.stage_title,concept:q.concept_id,priority:session.priorityIds.has(q.id)});if(correct){state.correct++;session.correct++;session.combo++;session.bestCombo=Math.max(session.bestCombo,session.combo);state.mistakes=state.mistakes.filter(id=>id!==q.id)}else{session.combo=0;if(!state.mistakes.includes(q.id))state.mistakes.push(q.id)}saveState();const fb=document.getElementById('feedback'),box=document.getElementById('feedbackBox');box.classList.toggle('bad',!correct);document.getElementById('feedbackIcon').textContent=correct?'✓':'!';document.getElementById('feedbackTitle').textContent=correct?'Doğru cevap':'Bunu birlikte düzeltelim';document.getElementById('feedbackText').textContent=q.explanation_tr||'';fb.classList.add('show');document.getElementById('continueBtn').onclick=nextQuestion;setTimeout(()=>{try{fb.scrollIntoView({behavior:'smooth',block:'end'})}catch(e){}},40)}
+function nextQuestion(){session.index++;if(session.index>=session.questions.length){if(session.final)showSectionFinalResult();else showResult()}else renderQuestion()}
+function showResult(){document.getElementById('quizView').style.display='none';const rv=document.getElementById('resultView');rv.classList.add('show');rv.classList.remove('final-mode');document.getElementById('resultTitle').textContent='Ders tamamlandı';document.getElementById('resultSubtitle').textContent='Öğrenme doğruluğu';document.getElementById('resultPct').style.color='';const total=session.questions.length,pct=Math.round(session.correct/total*100),earned=Math.max(5,Math.round(session.stage.xp*(.55+.45*session.correct/total)));state.xp+=earned;if(session.stage.id!=='SMART'){state.stageScores[session.stage.id]=Math.max(state.stageScores[session.stage.id]||0,pct);if(pct>=70&&!state.completed.includes(session.stage.id))state.completed.push(session.stage.id)}document.getElementById('resultPct').textContent=pct+'%';document.getElementById('resultCorrect').textContent=session.correct+'/'+total;document.getElementById('resultXp').textContent='+'+earned;document.getElementById('resultCombo').textContent=session.bestCombo+'x';document.getElementById('resultContinueBtn').textContent='YOLCULUĞA DEVAM';document.getElementById('resultContinueBtn').onclick=finishLesson;saveState();updateUI()}
+function finishLesson(){DEENFeel.end('question');DEENFeel.end('transition');DEENFeel.end('result');DEENFeel.end('return');document.getElementById('lesson').classList.remove('active');session=null;setLessonStatus(false);updateUI()}
+function closeLesson(){DEENFeel.end('question');DEENFeel.end('transition');DEENFeel.end('result');DEENFeel.end('return');document.getElementById('lesson').classList.remove('active');session=null;setLessonStatus(false);updateUI()}
+function showEnergy(){document.getElementById('energyModal').classList.add('show')}function hideEnergy(){document.getElementById('energyModal').classList.remove('show')}
+function rewardAd(){state.energy=Math.min(MAX_ENERGY,state.energy+10);state.lastEnergyAt=Date.now();saveState();hideEnergy();updateUI()}
+function togglePremium(){state.premium=!state.premium;saveState();updateUI();alert(state.premium?'Premium simülasyonu açıldı: enerji sınırsız.':'Premium simülasyonu kapatıldı.')}
+function resetPreview(){if(confirm('Önizleme ilerlemesi referans durumuna sıfırlansın mı?')){storageRemove('deen_v4_1_state');state=JSON.parse(JSON.stringify(DEFAULT_STATE));saveState();updateUI()}}
+document.querySelectorAll('.navbtn').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(btn.dataset.screen).classList.add('active');updateUI()});
+document.getElementById('previewToggle').onclick=()=>{previewMode=!previewMode;document.getElementById('previewToggle').textContent='İNCELEME MODU · '+(previewMode?'AÇIK':'KAPALI');renderPaths();renderSectionFinal()};
+
+/* DEEN V5 product layer. Existing templates and adaptive final selector retained. */
+const U=["İslam Nedir?","Allah’a İman","Kelime-i Şehadet","İslam’ın Beş Şartı","İmanın Esaslarına Giriş","Meleklere İman","Kitaplara İman","Peygamberlere İman","Ahiret Gününe İman","Kader ve Kazaya İman","İbadet Bilinci","Temizlik ve Abdest","Namaza Hazırlık","Namazın Yapısı","Oruç ve Ramazan"];
+const DESC=["Temel kavramlarla tanış. İnanç, ibadet ve ahlak arasındaki bağı keşfet.","Tevhidi ve imanın hayata yansımalarını öğren.","Şehadetin anlamını tanı; parçaları arasında bağ kur.","Beş şartı tanı, doğru bağlamlarıyla eşleştir.","Altı iman esasını öğren ve birbirinden ayırt et.","Meleklere iman konusunu adım adım pekiştir.","Kitaplara imanla ilgili temel kavramları keşfet.","Peygamberlere iman konusundaki bilgini güçlendir.","Ahiret inancını tanı, hatırla ve pekiştir.","Kader ve kaza kavramlarını kaynak notlarıyla öğren.","İbadetin anlamını, niyet ve ihlası; ibadet bilgisinin nasıl öğrenildiğini kavra.","Taharetin anlamını, abdestin Kur’an’daki ortak temelini ve teyemmümdeki kolaylığı öğren.","Namaz vakti, kıble, temizlik, niyet ve beş vakit farz rekâtların temelini öğren.","Namazın temel rükünlerini, bir rekâtın akışını ve mazeretteki kolaylık ilkesini öğren.","Ramazan orucunun anlamını, imsak-iftar sınırını, takva amacını ve temel mazeretleri öğren."];
+const COLORS=["#80d9c1","#aaa9ec","#d9bc7f","#deae94","#9cbbeb","#91ccc9","#b9bc90","#b1b2df","#d0aaaf","#9cbfae","#78cfae","#62aeb9","#d2aa68","#8ea8d1","#c58c70"];
+const $=id=>document.getElementById(id),esc=escapeDeenHTML,DAY=86400000,uid=n=>'U'+String(n).padStart(2,'0');
+const QMAP=new Map(QUESTIONS.map(q=>[q.id,q])),POOLS=new Map(STAGES.map(s=>[s.id,QUESTIONS.filter(q=>q.stage_id===s.id)]));
+function day(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function dn(d){return Math.floor(Date.parse(d+'T12:00:00Z')/DAY)}
+function week(d=new Date()){d=new Date(d);d.setDate(d.getDate()-(d.getDay()+6)%7);return day(d)}
+function migrate(s,existing=true){const defs={stateVersion:5,profile:{name:'Yolcu',frame:false,goldPath:false},dailyGoal:2,dailyQuests:{},achievements:[],currency:0,reviewSchedule:{},settings:{sound:true,animation:true,haptic:false,reducedMotion:false},streakMeta:{lastStudyDate:null,currentStreak:s.streak||0,longestStreak:s.streak||0,streakFreeze:0,weeklyActivity:{},freezeDates:[],legacyCarry:!!s.streak},league:{week:week(),xp:0,tier:0,history:[]},history:[],stageAttempts:{},onboarded:existing,minutes:10,legacyCompletedCount:(s.completed||[]).length};for(const[k,v]of Object.entries(defs)){if(s[k]==null)s[k]=v;else if(v&&typeof v==='object'&&!Array.isArray(v))s[k]={...v,...s[k]}}s.section2Final={...DEFAULT_STATE.sectionFinal,...s.section2Final};s.section3Final={...DEFAULT_STATE.sectionFinal,...s.section3Final};s.stateVersion=5;if(!Array.isArray(s.celebratedUnits))s.celebratedUnits=U.map((_,i)=>uid(i+1)).filter(u=>unitStages(u).every(t=>(s.completed||[]).includes(t.id)));if(!Array.isArray(s.celebratedSections))s.celebratedSections=[1,2,3].filter(n=>s[n===1?'sectionFinal':n===2?'section2Final':'section3Final']?.completed);s.dailyGoal=[1,2,3].includes(s.dailyGoal)?s.dailyGoal:2;return s}
+const oldRaw=storageGet('deen_v4_1_state');if(oldRaw&&!storageGet('deen_v5_migration_backup'))storageSet('deen_v5_migration_backup',oldRaw);state=migrate(state,!!oldRaw);
+function daily(date=day()){return state.dailyQuests[date]??={lessons:0,correct:0,answers:0,reviews:0,xp:0,claimed:[],goalClaimed:false}}
+function reconcileStreak(today=day()){const m=state.streakMeta;if(!m.lastStudyDate)return;const gap=dn(today)-dn(m.lastStudyDate);if(gap>1){if(gap===2&&m.streakFreeze>0){const d=new Date(today+'T12:00:00');d.setDate(d.getDate()-1);const key=day(d);if(!m.freezeDates.includes(key)){m.streakFreeze--;m.freezeDates.push(key)}m.lastStudyDate=key}else m.currentStreak=0}state.streak=m.currentStreak}
+function study(today=day()){reconcileStreak(today);const m=state.streakMeta;if(m.lastStudyDate!==today){const gap=m.lastStudyDate?dn(today)-dn(m.lastStudyDate):null;if(gap!==null&&gap<0)return;m.currentStreak=gap===1?m.currentStreak+1:m.legacyCarry?Math.max(1,m.currentStreak):1;m.legacyCarry=false;m.lastStudyDate=today;m.longestStreak=Math.max(m.longestStreak,m.currentStreak)}m.weeklyActivity[today]=true;state.streak=m.currentStreak}
+function npcs(w=state.league.week,tier=state.league.tier){let seed=[...w].reduce((a,c)=>a*31+c.charCodeAt(0),7)>>>0;return['Deniz','Ekin','Mira','Arda','Sena','Ali','Elif','Zeynep','Yunus','Selim','İpek','Ömer','Ada','Ayşe','Kerem','Zehra','Emre','Aslı','Bora'].map((name,id)=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return{name,id,xp:80+seed%620+tier*90,npc:true}})}
+function ranks(){return[...npcs(),{name:state.profile.name,id:99,xp:state.league.xp,npc:false}].sort((a,b)=>b.xp-a.xp||a.id-b.id)}
+const TIERS=['Bronz','Gümüş','Altın','Zümrüt','Safir','Elmas'];
+function rollWeek(){const w=week();if(w===state.league.week)return;const rank=ranks().findIndex(x=>!x.npc)+1,old=state.league.tier;state.league.history.push({week:state.league.week,xp:state.league.xp,rank,tier:old});if(state.league.xp>0)state.league.tier=Math.max(0,Math.min(5,old+(rank<=5?1:rank>=17?-1:0)));state.league.week=w;state.league.xp=0;if(state.league.tier>old)celebrate({type:'league_promotion',title:TIERS[state.league.tier]+' ligine yükseldin',detail:'Haftalık öğrenme yolculuğun · Yerel simülasyon'})}
+function level(xp=state.xp){let n=1,base=0,span=300;while(xp>=base+span){base+=span;n++;span=300+(n-1)*100}return{n,base,span,progress:(xp-base)/span*100,left:base+span-xp}}
+function award(x){rollWeek();x=Math.max(0,Math.round(x));state.xp+=x;state.league.xp+=x;daily().xp+=x;return x}
+refillEnergy=function(){if(state.premium)return;const now=Date.now();if(!Number.isFinite(state.lastEnergyAt)||state.lastEnergyAt>now)state.lastEnergyAt=now;if(state.energy>=30){state.energy=30;state.lastEnergyAt=now;return}const steps=Math.floor((now-state.lastEnergyAt)/300000);if(steps>0){state.energy=Math.min(30,state.energy+steps);state.lastEnergyAt=state.energy===30?now:state.lastEnergyAt+steps*300000;saveState()}};
+shuffle=function(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};poolFor=id=>POOLS.get(id)||[];
+window.DEEN_AUDIO_ASSETS=Object.create(null);
+function renderedOptions(q){return q.options_tr.length===4?shuffle(q.options_tr):[...q.options_tr]}
+const audioBlocked=q=>(q.asset_requirement==='audio_shahada_verified'||/^listening_/.test(q.activity_type))&&!(window.DEEN_AUDIO_ASSETS[q.asset_requirement]?.verified===true&&window.DEEN_AUDIO_ASSETS[q.asset_requirement]?.src);
+const originalMastery=masteryFor;
+masteryFor=function(u){const base=originalMastery(u),seen=Object.entries(state.reviewSchedule||{}).filter(([id])=>QMAP.get(id)?.stage_id.startsWith(u));if(!seen.length)return base;let score=0,total=0;for(const[id,r]of seen){const w=['recall','application'].includes(QMAP.get(id).cognitive_level)?1.3:1;score+=(r.recent||[]).reduce((a,b)=>a+b,0)/Math.max(1,(r.recent||[]).length)*w;total+=w}return Math.round(Math.max(0,Math.min(100,base*.55+score/total*45)))};
+function weight(q){const r=state.reviewSchedule[q.id];return(state.mistakes.includes(q.id)?12:1)+(r&&r.nextReview<=Date.now()?5:0)+(100-masteryFor(q.stage_id.slice(0,3)))/50+(q.cognitive_level==='application'?2:1)+(q.difficulty==='hard'?1:0)+(r?Math.min(4,(Date.now()-r.lastSeen)/DAY):2)}
+chooseQuestions=function(id){const target=id.endsWith('S07')?10:7;let pool=poolFor(id).filter(q=>!audioBlocked(q));if(pool.length<target)return [];const groups={};pool.forEach(q=>(groups[q.activity_type]??=[]).push(q));let out=shuffle(Object.values(groups).map(g=>weightedChoice(g,weight))).slice(0,target),used=new Set(out.map(q=>q.id));while(out.length<target){const q=weightedChoice(pool.filter(q=>!used.has(q.id)),weight);if(!q)break;used.add(q.id);out.push(q)}return shuffle(out)};
+stageState=function(unit,index){const a=unitStages(unit),s=a[index];if(!s)return{locked:true};const n=Number(unit.slice(1)),open=n===1||(n===6?state.sectionFinal.completed:state.completed.includes(uid(n-1)+'-S07')),prev=index===0||state.completed.includes(a[index-1].id),done=state.completed.includes(s.id);return{done,locked:!previewMode&&(!open||!prev),current:!done&&open&&prev,mastered:done&&(state.stageScores[s.id]||0)>=95&&masteryFor(unit)>=90}};
+finalUnlocked=()=>previewMode||state.completed.includes('U05-S07');const final2Unlocked=()=>previewMode||(state.sectionFinal.completed&&state.completed.includes('U10-S07'));const FINAL2_UNIT_QUOTAS={U06:5,U07:5,U08:5,U09:5,U10:5};
+function chooseSection2Final(){
+ const out=[],used=new Set(),counts=Object.fromEntries(Object.keys(FINAL2_UNIT_QUOTAS).map(u=>[u,0])),types={},concepts={},weak=finalWeakConceptCounts();
+ const eligible=QUESTIONS.filter(q=>FINAL2_UNIT_QUOTAS[q.stage_id.slice(0,3)]&&FINAL_ALLOWED_TYPES.has(q.activity_type)&&!audioBlocked(q));
+ const add=q=>{if(!q)return false;const u=q.stage_id.slice(0,3);out.push(q);used.add(q.id);counts[u]++;types[q.activity_type]=(types[q.activity_type]||0)+1;concepts[q.concept_id]=(concepts[q.concept_id]||0)+1;return true};
+ for(const type of FINAL_REQUIRED_TYPES){const candidates=eligible.filter(q=>q.activity_type===type&&!used.has(q.id)&&counts[q.stage_id.slice(0,3)]<5);if(!add(weightedChoice(candidates,q=>finalQuestionWeight(q,q.stage_id.slice(0,3),types,concepts,weak))))throw Error('Final activity pool insufficient: '+type)}
+ for(const u of Object.keys(counts))while(counts[u]<5){const candidates=eligible.filter(q=>q.stage_id.startsWith(u)&&!used.has(q.id));if(!add(weightedChoice(candidates,q=>finalQuestionWeight(q,u,types,concepts,weak))))throw Error('Final unit pool insufficient: '+u)}
+ return shuffle(out)
+}
+function sessionMeta(){if(session){session.startedAt=Date.now();session.v5responses=[];session.beforeMastery=session.stage.unit?masteryFor(session.stage.unit):null;session.review=session.stage.kind==='review';session.wasCompleted=state.completed.includes(session.stage.id);session.previousStreak=state.streak;session.firstSectionPass=session.final&&!state[session.final2?'section2Final':'sectionFinal'].completed}}
+const originalStart=startStage;startStage=function(id){const s=STAGES.find(s=>s.id===id);if(!s)return;if(stageState(s.unit,unitStages(s.unit).indexOf(s)).locked){toast('Önce önceki aşamayı tamamla.');return}if(!chooseQuestions(id).length){sheet('Ses içeriği henüz hazır değil','<p>Doğrulanmış ses kaydı henüz bağlı değil.</p><p>Bu aşamada ders oluşturmak için yeterli uygun soru yok. Enerji harcanmadı.</p>');return}refillEnergy();originalStart(id);sessionMeta()};
+const originalFinalStart=startSectionFinal;startSectionFinal=function(){originalFinalStart();sessionMeta()};
+function openQuiz(final=false){$('lesson').classList.add('active');$('quizView').style.display='flex';resetResultView(final);setLessonStatus(final);renderQuestion()}
+function startSection2Final(){if(!final2Unlocked())return;session={stage:{id:'SECTION2-FINAL',title:'İman Ustalığı',xp:300,energy:0},questions:chooseSection2Final(),index:0,correct:0,combo:0,bestCombo:0,final:true,final2:true,responses:[]};session.priorityIds=finalPriorityIds(session.questions);sessionMeta();openQuiz(true)}
+function reviewPool(mode='smart',unit=null){let p=QUESTIONS.filter(q=>!audioBlocked(q)&&(state.completed.includes(q.stage_id)||state.reviewSchedule[q.id]||q.stage_id==='U01-S01')&&(!unit||q.stage_id.startsWith(unit)));if(mode==='mistakes')p=p.filter(q=>state.mistakes.includes(q.id));if(mode==='due')p=p.filter(q=>state.reviewSchedule[q.id]?.nextReview<=Date.now());if(mode==='weak')p=p.filter(q=>masteryFor(q.stage_id.slice(0,3))<70);return p}
+startSmartReview=function(mode='smart',unit=null){if(typeof mode!=='string')mode='smart';let p=reviewPool(mode,unit);if(!p.length){sheet('Tekrar listen hazır değil','<p>Bu listede henüz soru yok. Yeni bir ders tamamladığında tekrar planın oluşur.</p>'+primary('Öğrenmeye dön',"closeSheet();navigate('learnScreen')"));return}refillEnergy();const cost=mode==='quick'?0:3;if(!state.premium&&state.energy<cost){showEnergy();return}if(!state.premium)state.energy-=cost;const recent=new Set(state.lastReviewIds||[]),fresh=p.filter(q=>!recent.has(q.id));if(fresh.length>=Math.min(7,p.length))p=fresh;const qs=[];while(p.length&&qs.length<(mode==='quick'?5:7)){const q=weightedChoice(p,weight);qs.push(q);p=p.filter(x=>x.id!==q.id)}state.lastReviewIds=qs.map(q=>q.id);session={stage:{id:'SMART',title:mode==='quick'?'Hızlı Tekrar':'Akıllı Tekrar',xp:45,energy:cost},questions:qs,index:0,correct:0,combo:0,bestCombo:0,review:true,startedAt:Date.now(),v5responses:[]};openQuiz();saveState();updateUI()};
+renderAudioPanel=function(q,area){const p=document.createElement('div');p.className='audio-panel';const asset=window.DEEN_AUDIO_ASSETS[q.asset_requirement];if(asset?.verified&&asset.src){const a=document.createElement('audio');a.controls=true;a.src=asset.src;p.append(a)}else p.innerHTML='<div><strong>Ses kaydı kullanılamıyor</strong><p>Doğrulanmış ses kaydı henüz bağlı değil.</p><small>Bu dinleme sorusu puanlanmaz. Yapay telaffuz kullanılmaz.</small></div>';area.append(p)};
+const oldSequence=renderSequence;renderSequence=function(q,area){oldSequence(q,area);const btn=area.querySelector(':scope > .btn'),sync=()=>{if(!$('feedback').classList.contains('show')){const ready=area.querySelectorAll('.placed').length===q.correct_order.length;btn.disabled=!ready;btn.textContent=ready?'Kontrol Et':'Sırayı tamamla'}};area.addEventListener('click',sync);sync()};
+const oldRender=renderQuestion;renderQuestion=function(){if(!session?.questions[session.index])return;DEENFeel.resetQuestion();$('v5ResultExtra')?.remove();oldRender();const q=session.questions[session.index],area=$('answerArea'),cta=area.querySelector('.template-action');if(cta?.disabled)cta.textContent=isFillBlankQuestion(q)?q.options_tr?'Bir kelime seç':'Cevabını yaz':shouldUseTrueFalseTemplate(q)?'Bir cevap seç':shouldUseCardGrid(q)?'Bir kart seç':'Bir seçenek seç';area.querySelectorAll('input').forEach(i=>{i.setAttribute('aria-label','Cevabını yaz');const action=area.querySelector('.template-action');if(action&&!q.options_tr){const sync=()=>{if(!$('feedback').classList.contains('show')){action.disabled=!i.value.trim();action.textContent=action.disabled?'Cevabını yaz':'Kontrol Et'}};i.addEventListener('input',sync);sync()}i.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();area.querySelector('.template-action')?.click()}}});if(session.final2){$('lessonNoteTitle').textContent='İman Ustalığı';$('lessonNoteText').textContent='Bu final U06–U10 konularını kapsar.'}if(audioBlocked(q)){area.innerHTML='';renderAudioPanel(q,area);const b=document.createElement('button');b.className='v5-primary';b.textContent='Puanlanmadan geç';b.onclick=()=>{session.questions.splice(session.index,1);if(session.index>=session.questions.length){if(session.final)showSectionFinalResult();else showResult()}else renderQuestion()};area.append(b)}if(session.stage.id==='U03-S03'&&audioBlocked(q))area.insertAdjacentHTML('afterbegin','<p class="v5-muted">Doğrulanmış medya kaynağı şu anda kullanılamıyor. İnternet bağlantısı gerektiğinde bu aşama puanlanmadan bekletilir; yapay telaffuz kullanılmaz.</p>');if(q.terminology_note)area.insertAdjacentHTML('afterbegin','<p class="v5-term">Soruda belirtilen terminoloji çerçevesini dikkate al. Geçerli Mâtürîdî / Eş’arî kullanım farkları inanç hatası değildir.</p>');document.querySelector('.v5-source')?.remove();const source=document.createElement('details');source.className='v5-source';source.innerHTML='<summary>Kaynak ve içerik notu</summary><p>Uzman incelemesi bekliyor. Bu içerik dinî yayın onayı değildir.</p><p>'+esc(q.source_reference||'Kaynak belirtilmemiş')+'</p><p>'+esc(q.source_evidence_note||'')+'</p>'+(q.source_urls||[]).filter(x=>/^https?:\/\//.test(x)).map((url,i)=>`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Kaynak ${i+1} ↗</a>`).join(' ')+(q.terminology_note?'<p>'+esc(q.terminology_note)+'</p>':'');document.querySelector('.question-frame').append(source)};
+const oldComplete=completeQuestion;completeQuestion=function(correct,q){if(!session||audioBlocked(q)||session.questions[session.index]?.id!==q.id||session.answeredIndex===session.index)return;session.answeredIndex=session.index;const r=state.reviewSchedule[q.id]??={lastSeen:0,correctCount:0,wrongCount:0,nextReview:0,stability:0,recent:[]};const now=Date.now(),prevStability=Number.isFinite(Number(r.stability))?Math.max(0,Math.min(60,Number(r.stability))):0;r.lastSeen=now;r[correct?'correctCount':'wrongCount']++;r.recent=[...r.recent,correct?1:0].slice(-5);r.stability=correct?(prevStability<=0?1:Math.min(60,prevStability*2.5)):0;r.nextReview=now+(correct?Math.max(1,r.stability)*DAY:600000);(session.v5responses??=[]).push({id:q.id,correct,unit:q.stage_id.slice(0,3),topic:q.topic,concept:q.concept_id,stability:r.stability,nextReview:r.nextReview});daily().answers++;if(correct)daily().correct++;oldComplete(correct,q);const a=q.correct_answer||q.correct_order?.join(' → ')||q.pairs?.map(p=>p.left+' → '+p.right).join(' · ');$('feedbackText').textContent=(correct?'':'Doğru cevap: '+a+'. ')+(q.explanation_tr||'');$('feedbackIcon').textContent=correct?'✓':'×';$('feedbackTitle').textContent=correct?'✓ DOĞRU':'× TEKRAR ETMEYE DEĞER';$('feedback').setAttribute('role','status');DEENFeel.answer(correct,q);saveState()};
+const oldNext=nextQuestion;nextQuestion=function(){
+ if(!session||session.committed||session.transitioning||session.answeredIndex!==session.index)return;
+ const s=session,index=s.index;s.transitioning=true;$('continueBtn').disabled=true;
+ const advance=()=>{if(session!==s||s.index!==index)return;s.gfAdvance=null;DEENFeel.end('transition');oldNext();s.transitioning=false;if(session===s&&!s.committed)DEENFeel.classes(document.querySelector('.question-frame'),'gf-question-in','question',130)};
+ s.gfAdvance=advance;
+ if(motionOff()){advance();return}
+ const frameEl=document.querySelector('.question-frame');DEENFeel.classes(frameEl,'gf-question-out','transition',115);DEENFeel.cleanup('transition',()=>frameEl?.classList.remove('gf-question-out'));DEENFeel.later('transition',advance,110);
+};
+function badges(){return[{id:'first',name:'İlk Adım',desc:'İlk dersini tamamla',ok:state.history.length>0||state.completed.length>0},{id:'streak7',name:'İstikrar',desc:'7 günlük öğrenme serisi',ok:state.streakMeta.longestStreak>=7},{id:'lessons25',name:'Bilgi Yolcusu',desc:'25 ders tamamla',ok:state.history.length+state.legacyCompletedCount>=25},{id:'master',name:'Usta Öğrenci',desc:'Bir ünitede %100 ustalık',ok:U.some((_,i)=>masteryFor(uid(i+1))===100)},{id:'final',name:'Kısım Ustası',desc:'Bir kısım finalini geç',ok:state.sectionFinal.completed||state.section2Final.completed},{id:'xp1000',name:'1000 XP',desc:'Öğrenerek 1000 XP kazan',ok:state.xp>=1000}]}
+function commit(base){if(session.committed)return 0;session.committed=true;const s=session,d=daily(),key=day()+':'+s.stage.id,n=state.stageAttempts[key]||0,beforeLevel=level().n;state.stageAttempts[key]=n+1;let earned=award(base*(n===0?1:n===1?.5:n===2?.25:0));d.lessons++;if(s.review)d.reviews++;study();if(d.lessons>=state.dailyGoal&&!d.goalClaimed){d.goalClaimed=true;earned+=award(25);state.currency+=10;celebrate({type:'goal_complete',amount:10,title:'Bugünkü hedef tamamlandı',detail:state.dailyGoal+'/'+state.dailyGoal+' ders · +25 XP · +10 Pırıltı'})}[d.lessons>=2,d.correct>=10,d.reviews>=1].forEach((ok,i)=>{if(ok&&!d.claimed.includes(i)){d.claimed.push(i);state.currency+=5;celebrate({type:'quest_complete',amount:5,title:'Görev tamamlandı',detail:['2 ders tamamla','10 doğru cevap ver','1 tekrar dersi yap'][i]+' · +5 Pırıltı'})}});const mastery=s.stage.unit?masteryFor(s.stage.unit):null;state.history.push({date:day(),at:Date.now(),stage:s.stage.id,unit:s.stage.unit||null,correct:s.correct,total:s.questions.length,xp:earned,seconds:Math.max(1,Math.round((Date.now()-(s.startedAt||Date.now()))/1000)),review:!!s.review,perfect:s.correct===s.questions.length,mastery});for(const b of badges())if(b.ok&&!state.achievements.includes(b.id)){state.achievements.push(b.id);celebrate({type:'achievement',id:b.id,name:b.name,title:'Yeni rozet · '+b.name,detail:b.desc})}if(level().n>beforeLevel)celebrate({type:'level_up',from:beforeLevel,to:level().n,title:'Seviye '+beforeLevel+' → '+level().n,detail:'Bir adım daha ilerledin.'});if([3,7,14,30,50,100].includes(state.streak)&&state.streak!==s.previousStreak)celebrate({type:'streak',title:state.streak+' günlük seri',detail:'Her gün öğrenmeye zaman ayırıyorsun.'});saveState();return earned}
+function paintResult(pct,xp,final){$('v5ResultExtra')?.remove();$('quizView').style.display='none';$('resultView').classList.add('show');$('resultView').classList.toggle('final-mode',final);$('resultPct').style.color=pct>=95?'var(--gold)':'var(--teal)';$('resultContinueBtn').disabled=false;DEENFeel.result(pct,xp,final)}
+showResult=function(){if(!session||session.committed)return;const s=session,total=s.questions.length;if(!total){finishLesson();return}const pct=Math.round(s.correct/total*100);if(s.stage.id!=='SMART'){state.stageScores[s.stage.id]=Math.max(state.stageScores[s.stage.id]||0,pct);if(pct>=70&&!state.completed.includes(s.stage.id))state.completed.push(s.stage.id)}const earned=commit(Math.max(5,Math.round(s.stage.xp*(.55+.45*s.correct/total))));paintResult(pct,earned,false);$('resultTitle').textContent=s.wasCompleted?(pct===100?'KUSURSUZ PEKİŞTİRME':'Bilgini pekiştirdin.'):pct===100?'KUSURSUZ DERS':pct>=70?'Harika ilerleme.':'Birlikte pekiştirelim.';$('resultSubtitle').textContent=pct>=70?(s.wasCompleted?'Pekiştirme tamamlandı.':'Bilgin, küçük adımlarla güçleniyor.'):'Aşamayı tamamlamak için en az %70 gerekiyor.';const concepts=[...new Set((s.v5responses||[]).map(r=>r.topic).filter(Boolean))].slice(0,3),change=s.stage.unit?masteryFor(s.stage.unit)-(s.beforeMastery||0):null;const el=document.createElement('div');el.id='v5ResultExtra';el.className='v5-result-extra';el.innerHTML=metrics([[state.history.at(-1).seconds+' sn','Ders süresi'],[total-s.correct,'Tekrar sorusu'],[change===null?'↻':(change>=0?'+':'')+change,'Ustalık puanı']])+'<p>'+esc(concepts.join(' · '))+'</p><div class="v5-row"><span>Günlük hedef</span><b>'+Math.min(daily().lessons,state.dailyGoal)+'/'+state.dailyGoal+'</b></div>'+bar(daily().lessons/state.dailyGoal*100)+'<p class="v5-muted">Öğrendiklerin aralıklı tekrar planına eklendi.</p>';$('resultContinueBtn').before(el);const next=STAGES.find(s=>stageState(s.unit,unitStages(s.unit).indexOf(s)).current);$('resultContinueBtn').textContent='YOLCULUĞA DEVAM';prepareStageCelebrations(s,pct,next,earned);$('resultContinueBtn').onclick=continueJourney;if(pct<70){const review=document.createElement('button');review.id='gfRetryBtn';review.className='v5-primary';review.textContent='AKILLI TEKRARLA PEKİŞTİR';review.onclick=()=>{if(!session||session.returning)return;session.returning=true;finishLesson();startSmartReview()};el.append(review)}updateUI()};
+showSectionFinalResult=function(){if(!session||session.committed)return;const s=session,pct=Math.round(s.correct/s.questions.length*100),passed=pct>=80,gold=pct>=95,f=state[s.final2?'section2Final':'sectionFinal'];f.attempts++;f.bestScore=Math.max(f.bestScore,pct);const p=s.responses.filter(r=>r.priority);f.lastKnowledge=pct;f.lastRetention=p.length?Math.round(p.filter(r=>r.correct).length/p.length*100):pct;if(passed){f.completed=true;if(gold||f.rank!=='ALTIN USTALIK')f.rank=gold?'ALTIN USTALIK':'USTALIK'}const xp=commit(passed?(gold?320:260):90);paintResult(pct,xp,true);$('resultTitle').textContent=gold?'Altın Ustalık':passed?`Kısım ${s.final2?2:1} tamamlandı`:'Biraz daha pekiştirelim';$('resultSubtitle').textContent=passed?s.stage.title:'Geçiş için %80 gerekiyor';$('finalKnowledge').textContent=pct+'%';$('finalRetention').textContent=f.lastRetention+'%';DEENFeel.counter($('finalKnowledge'),pct,n=>n+'%');DEENFeel.counter($('finalRetention'),f.lastRetention,n=>n+'%');const stats={};for(const r of s.responses){const x=stats[r.unit]??={correct:0,total:0};x.total++;if(r.correct)x.correct++}$('finalStrengths').textContent=Object.entries(stats).filter(([u,x])=>x.correct/x.total>=.8).map(([u])=>U[Number(u.slice(1))-1]).join(' · ')||'Tekrarla güçlenecek';$('finalReview').textContent=topWrongTopics().join(' · ')||'Belirgin tekrar ihtiyacı yok';$('finalRank').textContent=gold?'★ ALTIN USTALIK':passed?'✓ USTALIK':'↻ TEKRAR ÖNERİLİYOR';$('resultContinueBtn').textContent=passed?'Yolculuğa devam':'Akıllı tekrara git';if(passed&&s.firstSectionPass&&!state.celebratedSections.includes(s.final2?2:1)){const n=s.final2?2:1;state.celebratedSections.push(n);celebrate({type:'section_complete',section:n,gold,pct,retention:f.lastRetention,xp,strong:$('finalStrengths').textContent,review:$('finalReview').textContent})}$('resultContinueBtn').onclick=()=>{if(passed)continueJourney();else{finishLesson();startSmartReview()}};saveState();updateUI()};
+const oldClose=closeLesson;closeLesson=function(){if(session&&!session.committed&&!confirm('Dersi bırakmak istiyor musun? Cevapların kaydedilir; ders ödülü kazanılmaz. Harcanan enerji geri verilmez.'))return;oldClose()};
+function sound(kind){if(!state.settings.sound)return false;return DEENSound.play(kind)}
+function toast(text){const t=$('v5Toast');if(!t)return;const d=$('v5Sheet');(d?.open?d:$('phone')).append(t);t.textContent=text;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),3200)}
+function bar(p){p=Math.min(100,Math.max(0,p));return `<div class="v5-bar" role="progressbar" aria-label="İlerleme" aria-valuenow="${Math.round(p)}" aria-valuemin="0" aria-valuemax="100"><i style="width:${p}%"></i></div>`}
+function primary(label,action){return `<button class="v5-primary" onclick="${action}">${label}</button>`}
+function list(label,action,right='→',extra=''){return `<button class="v5-listbtn ${extra}" onclick="${action}"><span>${label}</span><b>${right}</b></button>`}
+function heading(k,title,sub=''){return `<div class="v5-kicker">${k}</div><h1 class="v5-title">${title}</h1><p class="v5-muted">${sub}</p>`}
+function metrics(a){return '<div class="v5-metricrow">'+a.map(([n,s])=>`<span>${n}<small>${s}</small></span>`).join('')+'</div>'}
+let sheetFocus;function sheet(title,body){$('v5Sheet').classList.toggle('deen-intro-dialog',String(body).includes('deen-stage-intro'));$('v5SheetTitle').textContent=title;$('v5SheetBody').innerHTML=body;if(!$('v5Sheet').open){sheetFocus=document.activeElement;$('v5Sheet').showModal()}$('v5Sheet').scrollTop=0}
+function closeSheet(){const t=$('v5Toast');t.classList.remove('show');$('phone').append(t);$('v5Sheet').close();sheetFocus?.focus?.({preventScroll:true});if(!session)setTimeout(runCelebrations,0)}
+function navigate(id){document.querySelectorAll('.screen').forEach(e=>e.classList.toggle('active',e.id===id));document.querySelectorAll('.navbtn').forEach(e=>{e.classList.toggle('active',e.dataset.screen===id);e.setAttribute('aria-current',e.dataset.screen===id?'page':'false')});updateUI()}
+function preview(id){
+ if(celebrationRunning)return;
+ const s=STAGES.find(s=>s.id===id);if(!s)return;const n=unitStages(s.unit).indexOf(s),st=stageState(s.unit,n),qs=chooseQuestions(id),due=poolFor(id).filter(q=>state.reviewSchedule[q.id]?.nextReview<=Date.now()).length;
+ const reason=Number(s.unit.slice(1))>=6&&!state.sectionFinal.completed?'Kısım 1 · Temeller Ustalığı finalini geçmelisin.':n>0?'Önce “'+unitStages(s.unit)[n-1].title+'” aşamasını tamamla.':'Önce bir önceki ünitenin son aşamasını tamamla.';
+ sheet(st.locked?'Bu ders henüz kilitli':s.title,`<div class="lp-preview-emblem">${st.locked?'⌑':s.kind==='challenge'?'✦':st.done?'✓':'✧'}</div><div class="v5-kicker">ÜNİTE ${Number(s.unit.slice(1))} · AŞAMA ${n+1} · ${s.kind==='challenge'?'USTALIK':s.kind==='review'?'PEKİŞTİRME':'KISA DERS'}</div><p>${DESC[Number(s.unit.slice(1))-1]}</p>`+metrics([[qs.length,'soru'],[s.energy,'enerji'],['+'+s.xp,'baz XP']])+`<p>Yaklaşık ${s.kind==='challenge'?5:3} dakika · Ustalık %${masteryFor(s.unit)}</p>`+(st.locked?'<p><b>Neden kilitli?</b><br>'+esc(reason)+'</p>':!qs.length?'<p><b>Ses içeriği henüz hazır değil.</b><br>Doğrulanmış ses kaydı henüz bağlı değil. Bu aşama için yeterli uygun soru yok; enerji harcanmaz.</p>':primary(st.done?'TEKRAR BAŞLA':'BAŞLA',`closeSheet();startStage('${id}')`))+(due>=2&&!st.locked?list('↻ Bu konuyu pekiştir',`closeSheet();startStage('${id}')`):'')+'<p class="v5-muted">Gün içindeki tekrarlarında XP azalır.</p>')
+}
+
+renderPaths=function(){
+ if(!$('v5Paths'))return;
+ const positions=[46,27,48,70,48,28,48];let h='';
+ U.forEach((name,i)=>{
+  const u=uid(i+1),a=unitStages(u),done=a.filter(s=>state.completed.includes(s.id)).length,m=masteryFor(u),world=i<5?1:2;
+  if(i===0||i===5)h+=`<header class="lp-world world-${world}" id="world-${world}"><span class="lp-worldmark">${world===1?'✧':'❖'}</span><div class="v5-kicker">KISIM ${world}</div><h2>${world===1?'Temeller':'İman'}</h2><p>${world===1?'İlk adımın, sağlam bir temel.':'İman esaslarını daha derin tanı.'}</p></header>`;
+  h+=`<article class="lp-unit world-${world}" id="v5Unit${i+1}" style="--unit:${world===1?'#82dac2':'#d7c18d'}"><header class="lp-unitintro"><div class="v5-kicker">ÜNİTE ${String(i+1).padStart(2,'0')}${done===7?' · ✓ TAMAMLANDI':''}</div><h2>${name}</h2><p>${DESC[i]}</p><div class="lp-progress">${a.map(s=>`<i class="${state.completed.includes(s.id)?'done':''}"></i>`).join('')}<span>${done}/7 aşama</span></div><div class="lp-mastery">${m===100?'★ ':''}USTALIK %${m}</div></header><div class="lp-path" aria-label="${esc(name)} öğrenme yolu"><svg class="lp-connectors" viewBox="0 0 100 980" preserveAspectRatio="none" aria-hidden="true">`;
+  a.slice(0,-1).forEach((s,n)=>{const active=state.completed.includes(s.id),master=(state.stageScores[s.id]||0)>=95;h+=`<path id="link-${s.id}" pathLength="100" class="lp-link ${active?'filled':''} ${active&&master?'gold':''}" d="M ${positions[n]} ${54+n*140} C ${positions[n]} ${124+n*140},${positions[n+1]} ${124+n*140},${positions[n+1]} ${194+n*140}"/>`});
+  h+='</svg>';
+  a.forEach((s,n)=>{
+   const st=stageState(u,n),perfect=(state.stageScores[s.id]||0)>=100,due=st.done&&poolFor(s.id).filter(q=>state.reviewSchedule[q.id]?.nextReview<=Date.now()).length>=2;
+   const status=st.locked?'locked':st.mastered?'mastered':st.done?'completed':st.current?'current':'available';
+   const type=s.kind==='challenge'?'challenge':s.kind==='review'?'review':s.kind==='scenario'||/uygula|hayat|kullan/i.test(s.title)?'application':/eşleştir/i.test(s.title)?'matching':'lesson';
+   const icon=st.locked?'⌑':st.mastered?'★':st.done?'✓':type==='challenge'?'✦':type==='review'?'↻':type==='matching'?'⇄':type==='application'?'✧':String(n+1);
+   const stateText=st.locked?'Kilitli':st.mastered?'Ustalaşıldı':st.done?'Tamamlandı':st.current?'Sıradaki ders':'Açık';
+   h+=`<div class="lp-stop ${status} ${type}" style="--x:${positions[n]}%;top:${n*140}px" id="stop-${s.id}"><button id="slot-${s.id}" data-stage="${s.id}" class="lp-node ${status} ${type}" onclick="preview('${s.id}')" aria-label="${esc(s.title)} · Aşama ${n+1} · ${stateText}${perfect?' · Kusursuz':''}${due?' · Tekrar zamanı':''}" ${st.current?'aria-current="step"':''}><svg class="lp-ring" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="37" pathLength="100"/></svg><span class="lp-symbol">${icon}</span>${perfect?'<span class="lp-perfect" aria-hidden="true">✦</span>':''}${due?'<span class="lp-due" aria-hidden="true">↻</span>':''}</button><div class="lp-label">${st.current?'<span class="lp-now">SIRADAKİ DERS</span>':''}<strong>${esc(s.title)}</strong><small>${st.locked?'Önceki aşamadan sonra':due?'↻ Pekiştirme zamanı':st.done?stateText:(s.kind==='challenge'?'10 soru · Ustalık':type==='matching'?'7 soru · Eşleştir':type==='application'?'7 soru · Uygula':type==='review'?'7 soru · Pekiştir':'7 soru · 3 dk')}</small></div></div>`;
+  });h+='</div></article>';
+  if(i===4||i===9){const n=i===4?1:2,f=state[n===1?'sectionFinal':'section2Final'],open=n===1?finalUnlocked():final2Unlocked();h+=`<article class="lp-gate ${open?'open':'locked'}" id="gate-${n}"><div class="lp-medallion">${f.completed?'✦':open?'❖':'⌑'}</div><div class="v5-kicker">KISIM ${n} FİNALİ</div><h2>${n===1?'Temeller':'İman'} Ustalığı</h2><p>${n===1?20:25} soru · 0 enerji · Geçiş %80</p><p>${f.completed?'✓ '+f.rank:'Bilgini bir araya getir.'} · En iyi %${f.bestScore}</p>${primary(open?'Ustalık sınavına başla':'Neden kilitli?',open?(n===1?'startSectionFinal()':'startSection2Final()'):`sheet('Final henüz kilitli','<p>Önce Ünite ${n===1?5:10} son aşamasını tamamla.${n===2?' Kısım 1 Finali de geçilmiş olmalı.':''}</p>')`)}</article>`}
+ });$('v5Paths').innerHTML=h;
+};
+
+renderSectionFinal=function(){};scrollToCurrent=function(u){const s=unitStages(u).find(s=>!state.completed.includes(s.id))||unitStages(u).at(-1);$('slot-'+s.id)?.scrollIntoView({block:'center',behavior:state.settings.reducedMotion?'instant':'smooth'})};
+function quests(){const d=daily();return[['2 ders tamamla',d.lessons,2],['10 doğru cevap ver',d.correct,10],['1 tekrar dersi yap',d.reviews,1]].map(([name,n,target],i)=>`<div class="v5-quest"><div class="v5-row"><b>${d.claimed.includes(i)?'✓ ':''}${name}</b><span>${Math.min(n,target)}/${target}</span></div>${bar(n/target*100)}<small>+5 Pırıltı ${d.claimed.includes(i)?'· Kazanıldı':''}</small></div>`).join('')}
+function returnCard(){const d=daily(),next=STAGES.find(s=>stageState(s.unit,unitStages(s.unit).indexOf(s)).current),due=reviewPool('due').length;$('v5Return').innerHTML=`<section class="lp-return"><div class="v5-row"><span class="v5-kicker">BUGÜNKÜ HEDEF</span><b>${Math.min(d.lessons,state.dailyGoal)} / ${state.dailyGoal}</b></div><h1>${d.lessons>=state.dailyGoal?'Bugünkü hedef tamam.':'Bilgine bugün bir şey kat.'}</h1><p>${next?'Ünite '+Number(next.unit.slice(1))+' · Aşama '+Number(next.id.slice(-2))+' — '+esc(next.title):'Bilgini bir araya getirme zamanı.'}</p>${primary('DEVAM ET',next?`scrollToCurrent('${next.unit}');preview('${next.id}')`:finalUnlocked()&&!state.sectionFinal.completed?'startSectionFinal()':final2Unlocked()?'startSection2Final()':"startSmartReview('quick')")}<small>${due?due+' soru tekrar bekliyor.':'Kendi ritminde, her gün bir adım.'}</small></section>`}
+
+function reviewView(){const due=reviewPool('due').length,weak=U.filter((_,i)=>masteryFor(uid(i+1))<70).length;$('reviewScreenBody').innerHTML=heading('HATIRLA · PEKİŞTİR','Bilgin taze kalsın.','Kısa tekrarlar, daha kalıcı öğrenme.')+`<div class="v5-focuscard"><span class="v5-big">${due}</span><h2>Bugün tekrar et</h2><p>${due?'Planındaki sorular seni bekliyor.':'Bugün için bekleyen soru yok. İstersen kısa bir pratik yap.'}</p>${primary('Akıllı Tekrar · 3 enerji →',`startSmartReview('${due?'due':'smart'}')`)}</div><div class="v5-tilegrid">`+[['mistakes','Yanlışların',state.mistakes.length+' soru','review'],['weak','Zayıf Konular',weak+' ünite · 3 enerji','bulb'],['quick','Hızlı Tekrar','5 soru · Ücretsiz','book'],['due','Ustalığı Koru',due+' vadesi gelen soru','review']].map(([mode,title,desc,icon])=>`<button onclick="startSmartReview('${mode}')"><span>${SVG[icon]}</span><b>${title}</b><small>${desc}</small></button>`).join('')+'</div><h2 class="v5-section-label">Konu ustalığın</h2>'+U.map((name,i)=>{const m=masteryFor(uid(i+1));return `<button class="v5-masterycard" onclick="startSmartReview('smart','${uid(i+1)}')"><div class="v5-row"><b>${name}</b><span>%${m}</span></div>${bar(m)}<small>${m>=80?'Güçlü alan':m?'Tekrarla güçlenir':'Öğrenilmeyi bekliyor'}</small></button>`}).join('')+'<p class="v5-muted">Ustalık; aşama puanlarını, son cevapları ve hatırlama / uygulama başarısını birlikte değerlendirir.</p>'}
+function leagueView(){const rs=ranks(),rank=rs.findIndex(x=>!x.npc)+1;$('leagueScreenBody').innerHTML=heading('HAFTALIK YOLCULUK','Birlikte ilerleme hissi.','Yerel simülasyon · Diğer profiller gerçek kullanıcı değildir.')+`<div class="v5-leaguehero"><span class="v5-leagueglyph tier-${state.league.tier}">${['◇','✧','✦','❖','⬡','✥'][state.league.tier]}</span><div class="v5-kicker">${TIERS[state.league.tier]} LİGİ</div><div class="v5-row"><span class="v5-big">#${rank}</span><div><b>${state.league.xp} XP</b><p>${7-(new Date().getDay()+6)%7} gün kaldı</p></div></div>${bar((21-rank)/20*100)}</div><div class="v5-leaguekey">↑ İlk 5 yükselir · 6–16 korunur · ↓ Son 4 düşer</div>`+rs.map((r,i)=>`${i===0?'<div class="v5-zone">YÜKSELME BÖLGESİ</div>':i===5?'<div class="v5-zone">KORUMA BÖLGESİ</div>':i===16?'<div class="v5-zone">DÜŞME BÖLGESİ</div>':''}<div class="v5-rank ${r.npc?'':'you'}"><b>${i+1}</b><span class="v5-avatar ${!r.npc&&state.profile.frame?'framed':''}">${esc(r.name.slice(0,1).toLocaleUpperCase('tr'))}</span><span>${esc(r.name)} ${r.npc?'':'<small>Sen</small>'}</span><strong>${r.xp}<small>XP</small></strong></div>`).join('')+'<p class="v5-muted">Hafta pazartesi başlar. Haftalık XP bu cihazdaki öğrenme etkinliklerinden gelir. Sıralama hafta kapanışında değerlendirilir.</p>'}
+function profileView(){const l=level(),h=state.history.filter(x=>x.date>=week()&&x.date<=day()),total=h.reduce((a,b)=>a+b.total,0),correct=h.reduce((a,b)=>a+b.correct,0),ms=U.map((name,i)=>({name,m:masteryFor(uid(i+1))})),strong=[...ms].sort((a,b)=>b.m-a.m)[0],weak=[...ms].sort((a,b)=>a.m-b.m)[0],xp=Object.entries(state.dailyQuests).filter(([d])=>d>=week()&&d<=day()).reduce((a,[d,v])=>a+v.xp,0);$('profileScreenBody').innerHTML=`<div class="v5-row"><span class="v5-kicker">SENİN YOLCULUĞUN</span><button class="v5-iconbtn" onclick="settingsPanel()" aria-label="Ayarlar">⚙</button></div><div class="v5-profilehead"><span class="v5-avatar large ${state.profile.frame?'framed':''}">${esc(state.profile.name.slice(0,1).toLocaleUpperCase('tr'))}</span><div><h1>${esc(state.profile.name)}</h1><button class="v5-textbtn" onclick="editProfile()">Profili düzenle ↗</button></div></div><div class="v5-panel"><div class="v5-row"><b>Seviye ${l.n}</b><span>${state.xp} XP</span></div>${bar(l.progress)}<p class="v5-muted">Sonraki seviyeye ${l.left} XP</p></div><div class="v5-profilemetrics">`+[[state.streak,'Günlük seri'],[state.streakMeta.longestStreak,'En uzun seri'],[state.history.length+state.legacyCompletedCount,'Tamamlanan ders'],['%'+Math.round(ms.reduce((a,b)=>a+b.m,0)/10),'Ortalama ustalık'],[state.history.filter(x=>x.perfect).length,'Kusursuz ders'],[TIERS[state.league.tier],'Yerel lig']].map(([n,t])=>`<div><strong>${n}</strong><small>${t}</small></div>`).join('')+'</div>'+list('Öğrenme takvimin','streakPanel()')+list('Günlük hedef · '+state.dailyGoal+' ders','goalPanel()')+'<h2 class="v5-section-label">Bu haftanın özeti</h2><div class="v5-panel">'+metrics([[new Set(h.map(x=>x.date)).size,'aktif gün'],[h.length,'ders'],[xp,'XP']])+`<p>Doğruluk: ${total?'%'+Math.round(correct/total*100):'Henüz ders yok'}</p><p><b>Güçlü alan:</b> ${strong.m?strong.name:'İlk dersinle keşfedelim'}</p><p><b>Tekrar gereken:</b> ${weak.name}</p><small>Rapor V5 kayıtlarından hesaplanır. Eski derslerin tarihleri tahmin edilmez.</small></div><h2 class="v5-section-label">Günlük görevler</h2><div class="v5-panel">${quests()}</div><h2 class="v5-section-label">Başarı rozetleri</h2><div class="v5-badges">`+badges().map(b=>`<div class="v5-badge ${b.ok?'earned':''}"><span>${b.ok?'★':'◇'}</span><strong>${b.name}</strong><small>${b.desc}</small><small>${b.ok?'Kazanıldı':'Henüz kazanılmadı'}</small></div>`).join('')+'</div>'+list('◇ Pırıltı mağazası','storePanel()',state.currency+' →')+`<div class="v5-premium"><div class="v5-kicker">DEEN PREMIUM</div><h2>Öğrenme ritmine<br>daha fazla alan.</h2><p>İçerik herkese açık. Ekstra konfor senin seçimin.</p>${primary(state.premium?'Premium etkin · Yönet':'Premium’u keşfet','premiumPanel()')}</div><p class="v5-footer-note">DEEN 5.1.1 · Yerel, çevrimdışı deneyim<br>XP bir dinî yeterlilik veya ibadet ölçüsü değildir.</p>`}
+updateUI=function(){refillEnergy();reconcileStreak();rollWeek();document.documentElement.classList.toggle('v5-reduce',!state.settings.animation||state.settings.reducedMotion);DEENFeel.settingsChanged();document.documentElement.classList.toggle('v5-goldpath',state.profile.goldPath||state.premium);const energy=state.premium?'∞':state.energy;$('v5Currency').textContent=state.currency;$('v5Stats').innerHTML='<div class="v5-stats">'+[['♨',state.streak,'Seri','streakPanel()','warm'],['ϟ',energy,'Enerji','showEnergy()',''],['★',state.xp>=10000?(state.xp/1000).toFixed(1)+'b':state.xp,'XP','xpPanel()','gold']].map(([icon,n,t,action,c])=>`<button onclick="${action}" aria-label="${n} ${t}"><span class="v5-stat-symbol ${c}">${icon}</span><b id="${t==='Enerji'?'gfHeaderEnergy':t==='XP'?'gfHeaderXP':'gfHeaderStreak'}">${n}</b><small>${t}</small></button>`).join('')+'</div>';if($('lessonEnergy'))$('lessonEnergy').textContent=energy;$('lessonStreakMini').textContent=state.streak;DEENFeel.header();returnCard();const active=document.querySelector('.screen.active')?.id;if(active==='learnScreen')renderPaths();if(active==='reviewScreen')reviewView();if(active==='leagueScreen')leagueView();if(active==='profileScreen')profileView()};
+function xpPanel(){const l=level();sheet('Seviye '+l.n,`<span class="v5-big">${state.xp} XP</span><p>Sonraki seviyeye ${l.left} XP</p>${bar(l.progress)}<p>XP yalnızca öğrenme, quiz ve tekrar etkinliklerini ölçer. İbadetlere puan verilmez.</p><p>Aynı ders aynı gün tekrarlandığında baz XP: %100 → %50 → %25 → %0.</p>`)}
+function goalPanel(){sheet('Kendi ritmini seç',`<p>Bugünkü hedefin ${Math.min(daily().lessons,state.dailyGoal)}/${state.dailyGoal} ders. Hedef bonusu günde yalnızca bir kez kazanılır.</p>`+[[1,'Hafif',5],[2,'Normal',10],[3,'Yoğun',15]].map(([n,t,min])=>list(t+`<small>${n} ders · ${min} dakika</small>`,`setGoal(${n})`,state.dailyGoal===n?'✓':'→',state.dailyGoal===n?'selected':'')).join(''))}
+function setGoal(n){state.dailyGoal=n;saveState();closeSheet();updateUI()}
+function streakPanel(){const m=state.streakMeta;sheet('Her gün bir adım',metrics([[m.currentStreak,'mevcut seri'],[m.longestStreak,'en uzun seri'],[m.streakFreeze,'seri koruması']])+'<div class="v5-calendar">'+Array.from({length:7},(_,i)=>{const d=new Date();d.setDate(d.getDate()-6+i);const key=day(d);return `<div class="${m.weeklyActivity[key]?'active':m.freezeDates.includes(key)?'frozen':''}"><small>${d.toLocaleDateString('tr',{weekday:'short'})}</small><span>${m.weeklyActivity[key]?'✓':m.freezeDates.includes(key)?'❄':'·'}</span></div>`}).join('')+'</div><p>Bir günde tamamladığın ilk ders seriyi artırır. Aynı gün daha fazla ders seriyi tekrar artırmaz.</p><p>Seri koruması tek bir kaçırılan günü korur. Korunan gün aktif öğrenme günü sayılmaz.</p>'+primary('Seri koruması mağazası →','storePanel()'))}
+showEnergy=function(){refillEnergy();const sec=Math.max(0,Math.ceil((300000-(Date.now()-state.lastEnergyAt))/1000));sheet(state.energy<5?'Enerjin yenileniyor':'Öğrenme enerjin',`<span class="v5-big">${state.premium?'∞':state.energy}<small> / 30</small></span>${bar(state.energy/30*100)}<p>${state.premium?'Premium simülasyonunda sınırsız enerji.':state.energy===30?'Enerjin tamamen dolu.':`Bir sonraki enerji: ${Math.floor(sec/60)} dk ${sec%60} sn. Her 5 dakikada +1.`}</p>`+primary('+10 enerji · Ödül simülasyonu','rewardAd()')+list('Ücretsiz hızlı tekrar',"closeSheet();startSmartReview('quick')")+list('Sınırsız enerji · Premium','premiumPanel()')+'<p class="v5-muted">Gerçek reklam veya ödeme yok. Sayaç panel açıldığında yenilenir.</p>')};hideEnergy=closeSheet;rewardAd=function(){state.energy=Math.min(30,state.energy+10);state.lastEnergyAt=Date.now();saveState();closeSheet();updateUI();toast('+10 enerji · Yerel simülasyon')};
+function premiumPanel(){sheet('Öğrenme, kesintisiz.',`<div class="v5-premium"><div class="v5-kicker">DEEN PREMIUM</div><h2>Bilgi herkese açık.<br>Konfor sana özel.</h2><ul><li>Sınırsız öğrenme enerjisi</li><li>Altın yol görünümü</li><li>Detaylı soru tekrar kayıtları</li></ul><p>Bu dosyada reklam yok. Temel içerik ve tekrarlar herkes için erişilebilir.</p>${primary(state.premium?'Simülasyonu kapat':'Ücretsiz simülasyonu aç','togglePremium()')}<p>Yerel simülasyon. Ücret, abonelik ve ödeme entegrasyonu yok.</p></div>`+(state.premium?list('Detaylı tekrar kayıtları','analyticsPanel()'):''))}
+togglePremium=function(){state.premium=!state.premium;state.lastEnergyAt=Date.now();saveState();closeSheet();updateUI();toast(state.premium?'Premium simülasyonu etkin':'Premium simülasyonu kapalı')};
+function analyticsPanel(){const rows=Object.entries(state.reviewSchedule).sort((a,b)=>b[1].lastSeen-a[1].lastSeen).slice(0,30);sheet('Son 30 soru kaydı',rows.length?rows.map(([id,r])=>`<div class="v5-panel"><b>${esc(QMAP.get(id)?.topic||id)}</b><p>${r.correctCount} doğru · ${r.wrongCount} yanlış</p><small>Sonraki tekrar: ${new Date(r.nextReview).toLocaleDateString('tr')}</small></div>`).join(''):'<p>İlk dersinden sonra kişisel tekrar kayıtların burada görünür.</p>')}
+function storePanel(){sheet('Pırıltı mağazası',`<div class="v5-kicker">${state.currency} PIRILTI</div><p>Pırıltı öğrenme hedeflerinden kazanılır. Dinî içerik satın alınmaz.</p>`+list('❄ Seri koruması<small>1 kaçırılan gün · En fazla 2</small>',"buy('freeze')",'20 ◇')+list('◇ Altın profil çerçevesi<small>'+(state.profile.frame?'Sahipsin':'Kalıcı kozmetik')+'</small>',"buy('frame')",'40 ◇')+list('★ Altın yol vurgusu<small>'+(state.profile.goldPath?'Etkin':'Kalıcı kozmetik')+'</small>',"buy('path')",'50 ◇'))}
+function buy(type){const cost={freeze:20,frame:40,path:50}[type];if(type==='freeze'&&state.streakMeta.streakFreeze>=2)return toast('En fazla 2 seri koruması tutabilirsin.');if(type==='frame'&&state.profile.frame||type==='path'&&state.profile.goldPath)return toast('Bu görünüme zaten sahipsin.');if(state.currency<cost)return toast('Biraz daha Pırıltı gerekiyor. Günlük görevlerle kazan.');state.currency-=cost;if(type==='freeze')state.streakMeta.streakFreeze++;if(type==='frame')state.profile.frame=true;if(type==='path')state.profile.goldPath=true;saveState();updateUI();storePanel()}
+function editProfile(){sheet('Sana nasıl hitap edelim?',`<label class="v5-label">Görünen ad<input id="v5Name" maxlength="24" value="${esc(state.profile.name)}" autocomplete="nickname"></label>`+primary('Kaydet','saveProfile()'))}
+function saveProfile(){const name=$('v5Name').value.trim();if(!name)return;state.profile.name=name;saveState();closeSheet();updateUI()}
+function settingsPanel(){sheet('Ayarlar','<div class="v5-settings">'+[['sound','Arayüz sesleri'],['animation','Animasyon'],['haptic','Dokunsal geri bildirim'],['reducedMotion','Hareketi azalt']].map(([key,title])=>`<label class="v5-toggle"><span>${title}</span><input type="checkbox" ${state.settings[key]?'checked':''} onchange="state.settings.${key}=this.checked;saveState();updateUI()"></label>`).join('')+'</div><p class="v5-muted">Dokunsal geri bildirim cihaz desteğine bağlıdır. Dinî telaffuz için yapay ses üretilmez.</p>'+list('Günlük hedef','goalPanel()')+list('Premium simülasyonu','premiumPanel()',state.premium?'Açık':'Kapalı')+list('İlerlemeyi yedekle','exportProgress()','↓')+'<label class="v5-import">Yedeği içe aktar<input type="file" accept="application/json,.json" onchange="importProgress(this.files[0])"></label><p class="v5-muted">Dosya adı veya tarayıcı değişirse kayıt ayrı kalabilir. Eski dosyanın kaydı aynı tarayıcıda erişilebilir olmalı; gerekirse yedek içe aktar. Bulut senkronizasyonu yok.</p>'+list('Geliştirici inceleme modu · '+(previewMode?'Açık':'Kapalı'),'togglePreviewMode()')+list('İlerlemeyi sıfırla','resetPreview()','→','danger'))}
+function exportProgress(){const b=new Blob([JSON.stringify({app:'DEEN',exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='deen_progress_backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),5000)}
+async function importProgress(file){if(!file)return;try{const p=JSON.parse(await file.text()),s=p.state||p;if(!Array.isArray(s.completed)||!Array.isArray(s.mistakes)||!Number.isFinite(s.xp)||!s.stageScores)throw Error('Invalid');if(!confirm('Mevcut ilerleme yedeklenerek içe aktarılan kayıtla değiştirilsin mi?'))return;storageSet('deen_v5_before_import',JSON.stringify(state));state=migrate({...JSON.parse(JSON.stringify(DEFAULT_STATE)),...s},true);state.energy=Math.max(0,Math.min(30,Number(state.energy)||0));saveState();closeSheet();updateUI();toast('İlerleme yedeği içe aktarıldı.')}catch(e){toast('Yedek okunamadı. Geçerli bir DEEN JSON dosyası seç.')}}
+resetPreview=function(){sheet('İlerleme sıfırlansın mı?','<p>Dersler, XP, hatalar ve hedefler bu tarayıcıda sıfırlanır. Önce yedek almanı öneririz.</p>'+list('Önce yedek indir','exportProgress()','↓')+primary('Evet, ilerlememi sıfırla','confirmReset()')+list('Vazgeç','closeSheet()'))};
+function confirmReset(){storageSet('deen_v5_before_reset',JSON.stringify(state));state=migrate(JSON.parse(JSON.stringify(DEFAULT_STATE)),true);state.lastEnergyAt=Date.now();saveState();closeSheet();navigate('learnScreen');toast('İlerleme sıfırlandı. Yeni bir başlangıç.')}
+function onboarding(step=0){const titles=['Her gün, biraz daha öğren.','Kendine zaman ayır.','Küçük hedef, güçlü ritim.','Öğren. Anla. Hatırla. Uygula.'];let b='';if(step===0)b='<div class="v5-onboardmark">◇</div><p class="v5-onboardintro">İslam’ı öğrenmenin<br>günlük yolu.</p><p>Kısa derslerle başla. Hatırladıkça güçlen. Kendi hızında ilerle.</p><p class="v5-muted">İçerikler uzman incelemesi bekliyor. DEEN bir dinî danışmanlık hizmeti değildir.</p>';if(step===1)b='<p>Günde ne kadar zaman ayırmak istersin?</p>'+[5,10,15].map(n=>list(n+' dakika',`state.minutes=${n};onboarding(1)`,state.minutes===n?'✓':'○',state.minutes===n?'selected':'')).join('');if(step===2)b='<p>Bir dersle başlamak bile değerli. Hedefini istediğin zaman değiştirebilirsin.</p>'+[[1,'Hafif'],[2,'Normal'],[3,'Yoğun']].map(([n,t])=>list(t+' · '+n+' ders',`state.dailyGoal=${n};onboarding(2)`,state.dailyGoal===n?'✓':'○',state.dailyGoal===n?'selected':'')).join('');if(step===3)b='<div class="v5-learningloop"><p><b>01 · Tanı</b><br>Kısa, odaklı dersler.</p><p><b>02 · Hatırla & uygula</b><br>Farklı sorularla bilgini dene.</p><p><b>03 · Pekiştir & ustalaş</b><br>Sana göre tekrar planı.</p></div><p>Ödüller yalnızca öğrenme içindir; ibadetler puanlanmaz.</p>';sheet(titles[step],'<div class="v5-onboarddots">'+[0,1,2,3].map(i=>`<i class="${i===step?'active':''}"></i>`).join('')+'</div>'+b+primary(step===3?'Yolculuğa başla →':'Devam et →',step===3?'finishOnboarding()':`onboarding(${step+1})`)+(step?list('← Geri',`onboarding(${step-1})`,''):''))}
+function finishOnboarding(){state.onboarded=true;saveState();closeSheet();updateUI();scrollToCurrent('U01')}
+function unitPicker(){sheet('Üniteler',U.map((n,i)=>list(String(i+1).padStart(2,'0')+' · '+n,`closeSheet();document.getElementById('v5Unit${i+1}').scrollIntoView({block:'start',behavior:'smooth'})`)).join(''))}
+function mountV5(){
+ $('learnScreen').innerHTML='<div class="scroll" id="learnScroll"><header class="v5-header"><div class="v5-wordmark"><span class="v5-emblem">◇</span> DEEN</div><button class="v5-currency" onclick="storePanel()" aria-label="Pırıltı mağazası">◇ <span id="v5Currency">0</span></button></header><div id="v5Stats"></div><div id="v5Return"></div><div class="v5-row v5-section-label"><h2>Öğrenme yolun</h2><button class="v5-textbtn" onclick="unitPicker()">15 ünite ↗</button></div><div id="v5Paths"></div><p class="v5-footer-note">Öğren. Anla. Hatırla. Uygula.<br>İçerikler uzman incelemesi bekliyor.</p></div>';
+ for(const id of ['reviewScreen','leagueScreen','profileScreen'])$(id).innerHTML='<div class="scroll v5-page" id="'+id+'Body"></div>';
+ $('lesson').append($('resultView'));const d=document.createElement('dialog');d.id='v5Sheet';d.setAttribute('aria-labelledby','v5SheetTitle');d.innerHTML='<div class="v5-sheet-head"><span class="v5-kicker">DEEN</span><button class="v5-iconbtn" onclick="closeSheet()" aria-label="Pencereyi kapat">×</button></div><h2 id="v5SheetTitle"></h2><div id="v5SheetBody"></div>';$('phone').append(d);const t=document.createElement('div');t.id='v5Toast';t.setAttribute('role','status');$('phone').append(t);
+ document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>navigate(b.dataset.screen));document.querySelector('.lesson-brand-sub').textContent='Öğren · Anla · Hatırla';document.querySelector('.lesson-head .close').setAttribute('aria-label','Dersi kapat');document.addEventListener('visibilitychange',()=>{if(!document.hidden){rollWeek();reconcileStreak();updateUI();saveState()}});
+}
+/* One presenter owns every celebration. Stage precedes its unit; section milestones lead. */
+const celebrationQueue=[];
+let celebrationRunning=false,activeCelebration=null,celebrationFinish=null,queuePump=null;
+const UNIT_BADGES=['Temeller Yolcusu','Kavram Kaşifi','Anlam Yolcusu','Temel Bağlar','İlk Kısım Yolcusu','Yeni Ufuklar','Bilgi Bağları','Öğrenme İzleri','Hatırlama Yolcusu','İman Konuları Yolcusu','İbadet Bilinci','Temizlik Yolcusu','Namaz Hazırlığı','Namaz Yapısı','Ramazan Yolcusu'];
+const CELEBRATION_PRIORITY={section_complete:0,section_intro:0,stage_complete:1,unit_complete:2,unit_intro:2,level_up:3,achievement:4,goal_complete:5,quest_complete:6,streak:7,league_promotion:7};
+function motionOff(){return !state.settings.animation||state.settings.reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches}
+function celebrationKey(e){return e.type+':'+(e.id||e.unit||e.section||e.title||'')}
+function celebrate(event){
+ const key=celebrationKey(event);if(activeCelebration&&celebrationKey(activeCelebration)===key||celebrationQueue.some(e=>celebrationKey(e)===key))return false;
+ celebrationQueue.push(event);celebrationQueue.sort((a,b)=>(CELEBRATION_PRIORITY[a.type]??8)-(CELEBRATION_PRIORITY[b.type]??8));
+ if(!session&&queuePump===null)queuePump=setTimeout(()=>{queuePump=null;runCelebrations()},0);return true;
+}
+function togglePreviewMode(){previewMode=!previewMode;closeSheet();updateUI();toast('Geliştirici inceleme modu · '+(previewMode?'Açık':'Kapalı'))}
+function prepareStageCelebrations(s,pct,next,xp){
+ if(!s.stage.unit||pct<70||s.gfEventsPrepared)return;s.gfEventsPrepared=true;
+ if(!s.wasCompleted)celebrate({type:'stage_complete',id:s.stage.id,next:next?.id,perfect:pct===100});
+ const u=s.stage.unit;
+ if(unitStages(u).every(t=>state.completed.includes(t.id))&&!state.celebratedUnits.includes(u)){
+  state.celebratedUnits.push(u);const index=Number(u.slice(1))-1;
+  celebrate({type:'unit_complete',unit:u,name:U[index],mastery:masteryFor(u),xp:state.history.filter(h=>h.unit===u).reduce((a,h)=>a+h.xp,0),perfect:unitStages(u).filter(t=>(state.stageScores[t.id]||0)>=100).length,badge:UNIT_BADGES[index]});saveState();
+ }
+}
+function continueJourney(){
+ if(!session?.committed||session.returning)return;const s=session;s.returning=true;$('resultContinueBtn').disabled=true;
+ const go=()=>{if(session!==s)return;s.gfReturn=null;finishLesson();navigate('learnScreen');runCelebrations()};
+ s.gfReturn=go;if(motionOff()){go();return}DEENFeel.classes($('resultView'),'gf-result-exit','return',110);DEENFeel.later('return',go,110);
+}
+function runCelebrations(){
+ if(celebrationRunning||session||$('v5Sheet')?.open||document.hidden||!celebrationQueue.length)return;
+ celebrationRunning=true;const e=celebrationQueue.shift();activeCelebration=e;$('phone').classList.add('gf-celebrating');
+ let finished=false;const finish=()=>{if(finished)return;finished=true;DEENFeel.end('notice');celebrationRunning=false;activeCelebration=null;celebrationFinish=null;$('phone').classList.remove('gf-celebrating');runCelebrations()};
+ if(e.type==='stage_complete'){animatePath(e,finish);return}
+ if(e.type==='unit_complete'){if(e.pathShown)ceremony(e,finish);else animateUnit(e,()=>{e.pathShown=true;ceremony(e,finish)});return}
+ if(e.type==='section_complete'||e.type==='section_intro'||e.type==='unit_intro'){ceremony(e,finish);return}
+ showReward(e,finish);
+}
+function showReward(e,finish){
+ const isModal=e.type==='achievement'||e.type==='level_up',box=document.createElement(isModal?'dialog':'div');box.className=isModal?'gf-reward-modal'+(e.type==='level_up'?' gf-level':''):'lp-reward gf-reward-toast';
+ if(isModal){box.setAttribute('aria-label',e.title||'Öğrenme ödülü')}else{box.setAttribute('role','status');box.setAttribute('aria-live','polite')}
+ const mark=document.createElement('span');mark.className='gf-reward-medal';mark.textContent=e.type==='level_up'?'✧':e.type==='achievement'?'❖':'✓';
+ const copy=document.createElement('div'),title=document.createElement('b'),detail=document.createElement('small');title.textContent=e.type==='achievement'?'YENİ ROZET · '+(e.name||e.title.replace('Yeni rozet · ','')):e.title;detail.textContent=e.amount?(e.detail||'').replace(/ · \+\d+ Pırıltı/,''):e.detail||'';copy.append(title,detail);box.append(mark,copy);
+ const skip=document.createElement('button');skip.type='button';skip.className='gf-reward-close';skip.textContent=isModal?'Devam et':'×';skip.setAttribute('aria-label','Bildirimi kapat');box.append(skip);$('phone').append(box);
+ let doneOnce=false;const done=()=>{if(doneOnce)return;doneOnce=true;DEENFeel.end('notice');if(isModal)box.close();box.remove();finish()};celebrationFinish=done;skip.onclick=done;
+ if(isModal){box.showModal();box.oncancel=ev=>{ev.preventDefault();done()}}else DEENFeel.later('notice',done,motionOff()?1600:1800);
+ DEENFeel.classes(mark,'gf-badge-reveal','notice',650);DEENFeel.particles(mark,4,'notice','gold',500);
+ if(e.type==='quest_complete'){const barEl=document.createElement('div');barEl.className='gf-quest-fill';barEl.setAttribute('aria-label','Görev tamamlandı');copy.append(barEl)}
+ if(e.amount){const amount=document.createElement('small');copy.append(amount);DEENFeel.counter(amount,e.amount,n=>'+'+n+' Pırıltı','notice',500)}
+ sound(e.type==='level_up'?'level':'reward');
+}
+function animatePath(e,finish){
+ const node=$('slot-'+e.id),link=$('link-'+e.id),next=e.next?$('slot-'+e.next):null;
+ if(!node||motionOff()){if(e.next)sound('unlock');finish();return}
+ DEENFeel.end('path');node.dataset.before=String(Number(e.id.slice(-2)));node.scrollIntoView({block:'center',behavior:'smooth'});node.classList.add('lp-completing');link?.classList.add('lp-travel');next?.classList.add('lp-unlocking');DEENFeel.particles(node,4,'path','teal',650);
+ const skip=document.createElement('button');skip.className='lp-skip';skip.textContent='Animasyonu atla';$('phone').append(skip);
+ let once=false;const done=()=>{if(once)return;once=true;DEENFeel.end('path');node.classList.remove('lp-completing');link?.classList.remove('lp-travel');next?.classList.remove('lp-unlocking');skip.remove();finish()};celebrationFinish=done;skip.onclick=done;
+ if(e.next)DEENFeel.later('path',()=>sound('unlock'),780);DEENFeel.later('path',done,2300);
+}
+function animateUnit(e,finish){
+ if(motionOff()){finish();return}const el=$('v5Unit'+Number(e.unit.slice(1)));el?.scrollIntoView({block:'start',behavior:'smooth'});el?.classList.add('lp-unit-flash');
+ const skip=document.createElement('button');skip.className='lp-skip';skip.textContent='Animasyonu atla';$('phone').append(skip);let once=false;const done=()=>{if(once)return;once=true;DEENFeel.end('unit');el?.classList.remove('lp-unit-flash');skip.remove();finish()};celebrationFinish=done;skip.onclick=done;DEENFeel.later('unit',done,1000);
+}
+
+function ceremony(e,finish){
+ if($('v5Sheet')?.open){celebrationQueue.unshift(e);finish();return}
+ const dialog=document.createElement('dialog');dialog.className='lp-ceremony';dialog.setAttribute('aria-labelledby','lpCeremonyTitle');let kicker='',title='',body='',button='YOLCULUĞA DEVAM',after=()=>{};
+ if(e.type==='unit_complete'){
+  const n=Number(e.unit.slice(1));kicker='ÜNİTE TAMAMLANDI';title=e.name;
+  body=metrics([['7 / 7','AŞAMA'],['%'+e.mastery,'USTALIK'],['+'+e.xp,'ÜNİTE XP']])+`<p class="lp-earnedbadge">✧ ${esc(e.badge)}</p><p>Kusursuz dersler: ${e.perfect}</p><div class="lp-next"><span class="v5-kicker">SIRADA</span><h3>${n===5?'Temeller Ustalığı Finali':n===10?'İman Ustalığı Finali':U[n]}</h3></div>`;
+  button=n===5||n===10?'FİNAL KAPISINA GİT':'SONRAKİ ÜNİTEYE GEÇ';after=()=>{if(n===5||n===10)$('gate-'+(n===5?1:2))?.scrollIntoView({block:'center',behavior:motionOff()?'instant':'smooth'});else celebrate({type:'unit_intro',unit:uid(n+1)})};
+ }else if(e.type==='section_complete'){
+  kicker='KISIM '+e.section+' TAMAMLANDI';title=e.gold?'Altın Ustalık':e.section===1?'Temeller Ustalığı':'İman Ustalığı';dialog.classList.toggle('gold',e.gold);
+  body=metrics([['%'+e.pct,'SKOR'],['%'+e.pct,'BİLGİ'],['%'+e.retention,'HATIRLAMA']])+`<p><b>Güçlü alan</b><br>${esc(e.strong)}</p><p><b>Tekrar önerisi</b><br>${esc(e.review)}</p><p>+${e.xp} XP</p>`;
+  button=e.section===1?'KISIM 2 · İMAN AÇILDI':'YOLCULUĞA DEVAM';after=()=>{if(e.section===1)celebrate({type:'section_intro',section:2})};
+ }else if(e.type==='section_intro'){
+  kicker='KISIM 2';title='İman';body='<p>Meleklerden kadere,<br>iman esaslarını daha derin tanı.</p>'+metrics([['5','ÜNİTE'],['35','AŞAMA'],['500','SORULUK HAVUZ']]);button='YOLCULUĞA BAŞLA';after=()=>scrollToCurrent('U06');
+ }else{const n=Number(e.unit.slice(1));kicker='ÜNİTE '+n;title=U[n-1];body='<p>'+DESC[n-1]+'</p>'+metrics([['7','AŞAMA'],['100','SORULUK HAVUZ']]);button='YOLCULUĞA BAŞLA';after=()=>scrollToCurrent(e.unit)}
+ dialog.innerHTML=`<div class="lp-ceremony-inner"><div class="v5-wordmark">DEEN</div><div class="lp-ceremony-medal">${e.gold?'✦':'❖'}</div><div class="v5-kicker">${kicker}</div><h2 id="lpCeremonyTitle">${esc(title)}</h2>${body}<button class="v5-primary" id="lpCeremonyContinue">${button}</button><small>Öğren · Anla · Hatırla · Uygula</small></div>`;
+ $('phone').append(dialog);dialog.showModal();DEENFeel.polishCeremony(dialog,e);let consumed=false;const done=()=>{if(consumed)return;consumed=true;DEENFeel.end('ceremony');dialog.close();dialog.remove();after();finish()};celebrationFinish=done;dialog.querySelector('button').onclick=done;dialog.oncancel=ev=>{ev.preventDefault();done()};
+}
+
+/* Original UI-only synthesis. Religious pronunciation never passes through this engine. */
+const DEENSound=(()=>{
+ let context=null,master=null,serial=0,variation=0,lastAt=-Infinity,lastKind='',unlocked=false;
+ const groups=new Set(),voices=new Set(),stats={contexts:0,played:0,oscillators:0,maxVoices:0};
+ const motifs={
+  correct:[[587.33,0,.12],[783.99,.075,.145]],correct2:[[622.25,0,.12],[830.61,.07,.15]],correct3:[[659.25,0,.11],[880,.065,.15]],
+  combo:[[659.25,0,.115],[880,.052,.14],[1046.5,.115,.115]],
+  combo3:[[659.25,0,.11],[880,.052,.135],[1046.5,.115,.11]],
+  combo5:[[698.46,0,.11],[932.33,.05,.14],[1108.73,.11,.13]],
+  combo7:[[783.99,0,.105],[987.77,.048,.135],[1174.66,.105,.14],[1318.51,.185,.115]],
+  wrong:[[246.94,0,.10],[196,.052,.12]],review:[[293.66,0,.15],[261.63,.105,.16]],click:[[420,0,.035]],
+  complete:[[392,0,.18],[523.25,.10,.18],[659.25,.22,.22]],
+  perfect:[[523.25,0,.17],[659.25,.10,.17],[783.99,.20,.20],[1046.5,.31,.24]],
+  unlock:[[440,0,.13],[587.33,.075,.14],[783.99,.15,.20]],
+  unit:[[392,0,.36],[493.88,.10,.35],[587.33,.20,.36],[783.99,.40,.42]],
+  section:[[392,0,.38],[523.25,.13,.36],[659.25,.26,.36],[783.99,.43,.44],[1046.5,.62,.40]],
+  gold:[[440,0,.34],[554.37,.11,.35],[659.25,.24,.38],[880,.40,.44],[1108.73,.61,.43]],
+  level:[[392,0,.15],[493.88,.09,.16],[659.25,.18,.18],[783.99,.29,.24]],
+  reward:[[523.25,0,.13],[698.46,.09,.19]]
+ };
+ function enabled(){return !!state.settings.sound&&!document.hidden}
+ function ensure(){if(context)return context;const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return null;context=new Audio();stats.contexts++;master=context.createGain();master.gain.value=.245;master.connect(context.destination);return context}
+ function unlock(){if(!enabled())return;try{const c=ensure();if(!c)return;unlocked=true;if(c.state==='suspended')Promise.resolve(c.resume()).catch(()=>{})}catch(_){}}
+ function release(group){if(group.released)return;group.released=true;clearTimeout(group.timer);for(const voice of group.voices){try{voice.o.onended=null;voice.o.stop();voice.o.disconnect();voice.g.disconnect()}catch(_){}voices.delete(voice)}group.voices.clear();try{group.gain.disconnect()}catch(_){}groups.delete(group)}
+ function fade(group){if(group.closing)return;group.closing=true;try{const t=context.currentTime;group.gain.gain.cancelScheduledValues(t);group.gain.gain.setTargetAtTime(0,t,.008);for(const v of group.voices)v.o.stop(t+.035)}catch(_){release(group)}}
+ function stop(){serial++;for(const g of [...groups])release(g)}
+ function schedule(kind,token){
+  if(!enabled()||token!==serial||!context||context.state==='suspended')return false;
+  const notes=motifs[kind]||motifs.reward,c=context,t=c.currentTime+.004;
+  for(const g of [...groups])if(kind!=='click'||g.kind==='click')fade(g);
+  if(voices.size+notes.length>16)return false;
+  const gain=c.createGain();gain.gain.value=kind==='click'?.24:kind==='wrong'?.55:1;gain.connect(master);
+  const group={gain,voices:new Set(),kind,closing:false,released:false,timer:0};groups.add(group);
+  for(const [hz,delay,duration]of notes){
+   const o=c.createOscillator(),g=c.createGain(),at=t+delay;o.type=kind==='wrong'||kind==='click'?'sine':'triangle';o.frequency.setValueAtTime(hz,at);
+   g.gain.setValueAtTime(.0001,at);g.gain.exponentialRampToValueAtTime(.10/Math.sqrt(notes.length),at+.008);g.gain.exponentialRampToValueAtTime(.0001,at+duration);
+   o.connect(g);g.connect(gain);const voice={o,g};group.voices.add(voice);voices.add(voice);stats.oscillators++;
+   o.onended=()=>{try{o.disconnect();g.disconnect()}catch(_){}voices.delete(voice);group.voices.delete(voice);if(!group.voices.size)release(group)};
+   o.start(at);o.stop(at+duration+.01);
+  }
+  stats.played++;stats.maxVoices=Math.max(stats.maxVoices,voices.size);
+  group.timer=setTimeout(()=>release(group),Math.ceil(Math.max(...notes.map(n=>n[1]+n[2]))*1000)+250);return true;
+ }
+ function play(kind='click'){
+  if(!enabled())return false;const now=Date.now();if(now-lastAt<65&&(kind==='click'||kind===lastKind))return false;
+  if(kind==='click'&&now-lastAt<160)return false;lastAt=now;lastKind=kind;
+  if(kind==='correct'){kind=['correct','correct2','correct3'][variation++%3]}
+  const token=++serial;
+  try{const c=ensure();if(!c)return false;if(c.state==='suspended'){Promise.resolve(c.resume()).then(()=>schedule(kind,token)).catch(()=>{});return true}return schedule(kind,token)}catch(_){return false}
+ }
+ function settingsChanged(){if(!enabled())stop()}
+ return {play,unlock,stop,settingsChanged,diagnostics:()=>({...stats,activeVoices:voices.size,activeGroups:groups.size,unlocked}),patterns:()=>Object.fromEntries(Object.entries(motifs).map(([k,v])=>[k,{notes:v.length,duration:Math.max(...v.map(n=>n[1]+n[2]))}]))};
+})();
+window.DEENSound=DEENSound;
+
+/* Finite, scoped effects. No persistent frame loops; all visual rewards read committed state. */
+const DEENFeel=(()=>{
+ const scopes=new Map(),counts=new WeakMap(),headerValues=new Map();let live=0,totalCreated=0;
+ function bucket(scope){if(!scopes.has(scope))scopes.set(scope,{timers:new Set(),frames:new Set(),cleanups:new Set()});return scopes.get(scope)}
+ function later(scope,fn,ms){const b=bucket(scope),id=setTimeout(()=>{b.timers.delete(id);fn()},ms);b.timers.add(id);return id}
+ function frame(scope,fn){const b=bucket(scope),id=requestAnimationFrame(t=>{b.frames.delete(id);fn(t)});b.frames.add(id);return id}
+ function cleanup(scope,fn){bucket(scope).cleanups.add(fn);return fn}
+ function end(scope){const b=scopes.get(scope);if(!b)return;for(const id of b.timers)clearTimeout(id);for(const id of b.frames)cancelAnimationFrame(id);for(const fn of [...b.cleanups])fn();scopes.delete(scope)}
+ function endAll(){for(const scope of [...scopes.keys()])end(scope)}
+ function classes(el,names,scope,ms){if(!el||motionOff())return;const list=names.split(' ');el.classList.remove(...list);el.classList.add(...list);const clear=cleanup(scope,()=>el.classList.remove(...list));later(scope,clear,ms)}
+ function counter(el,to,format=n=>String(n),scope='result',duration=620,from=0){
+  if(!el)return;const old=counts.get(el);if(old)old.cancel();let cancelled=false;const write=n=>{if(el.nodeType===3)el.nodeValue=format(n);else el.textContent=format(n)};
+  const cancel=()=>{cancelled=true;write(to);counts.delete(el)};counts.set(el,{cancel});cleanup(scope,cancel);
+  if(motionOff()||from===to){cancel();return}write(from);let start=null;
+  const tick=now=>{if(cancelled)return;if(start===null)start=now;const p=Math.min(1,(now-start)/duration),e=1-Math.pow(1-p,3);write(Math.round(from+(to-from)*e));if(p<1)frame(scope,tick);else{counts.delete(el);cancelled=true}};frame(scope,tick);
+ }
+ function numberText(el,scope){if(!el)return;const text=el.firstChild;if(!text||text.nodeType!==3)return;const str=text.nodeValue,match=str.match(/^(\s*[+%]?)(\d+)(.*)$/);if(match)counter(text,Number(match[2]),n=>match[1]+n+match[3],scope)}
+ function particles(host,count,scope,tone='teal',duration=380){
+  if(motionOff()||!host)return null;count=Math.min(count,scope==='question'?5:scope==='result'?8:15);
+  const wrap=document.createElement('span');wrap.className='gf-particles gf-'+tone;wrap.setAttribute('aria-hidden','true');
+  for(let i=0;i<count;i++){const p=document.createElement('i');p.className='gf-particle';const angle=(i/count)*Math.PI*2;p.style.setProperty('--gx',Math.cos(angle)*26+'px');p.style.setProperty('--gy',Math.sin(angle)*24+'px');p.style.setProperty('--gr',i*37+'deg');p.style.setProperty('--gd',duration+'ms');wrap.append(p)}host.append(wrap);live+=count;totalCreated+=count;let removed=false;
+  const remove=cleanup(scope,()=>{if(removed)return;removed=true;wrap.remove();live-=count});later(scope,remove,duration+40);return wrap;
+ }
+ function progress(ratio,correct=false){const el=$('quizProgress');if(!el)return;el.style.width='100%';el.style.transformOrigin='left center';el.style.transform='scaleX('+Math.max(0,Math.min(1,ratio))+')';el.parentElement?.setAttribute('role','progressbar');el.parentElement?.setAttribute('aria-label','Ders ilerlemesi');el.parentElement?.setAttribute('aria-valuemin','0');el.parentElement?.setAttribute('aria-valuemax','100');el.parentElement?.setAttribute('aria-valuenow',String(Math.round(ratio*100)));if(correct)classes(el,'gf-progress-light','question',380)}
+ function combo(value){const box=$('gfCombo');if(!box)return;if(value<3){box.classList.add('gf-combo-out');later('question',()=>{box.hidden=true;box.className='gf-combo'},130);return}box.hidden=false;box.className='gf-combo'+(value>=7?' gf-premium':value>=5?' gf-gold':'');box.textContent=value+'× SERİ';box.setAttribute('aria-label',value+' doğru seri');classes(box,'gf-combo-pop','question',300)}
+ function answer(correct,q){
+  const area=$('answerArea'),frameEl=document.querySelector('.question-frame');let target=area?.querySelector('.option.selected')||area?.querySelector('.fill-choice.selected')||area?.querySelector('input')||area?.querySelector('.sequence-zone')||area?.querySelector('.match-grid');
+  if(!target)target=frameEl;
+  // Matching and typed/sequence templates receive the same explicit visual status.
+  if(target){target.classList.add(correct?'gf-correct':'gf-wrong');target.setAttribute('aria-invalid',String(!correct))}
+  if(!correct&&q.activity_type==='build_sequence')target?.setAttribute('aria-label','Doğru sıra: '+q.correct_order.join(' → '));
+  if(correct){classes(target,'gf-answer-pop','question',320);classes($('feedbackIcon'),'gf-check-pop','question',220);
+   if(!motionOff()&&target){const host=target.tagName==='INPUT'?(target.parentElement?.classList.contains('fill-input-wrap')?target.parentElement.parentElement:frameEl):target;const fx=document.createElement('span');fx.className='gf-energy'+(session.combo>=7?' gf-premium':session.combo>=5?' gf-gold':session.combo>=3?' gf-medium':'');fx.setAttribute('aria-hidden','true');fx.innerHTML='<i></i><i></i>';host.append(fx);cleanup('question',()=>fx.remove());later('question',()=>fx.remove(),260);particles(host,session.combo>=5?5:3,'question',session.combo>=5?'gold':'teal',280)}
+  }else classes(target,'gf-wrong-pulse','question',200);
+  combo(session.combo);progress((session.index+1)/session.questions.length,correct);
+  $('continueBtn').textContent='DEVAM ET';$('continueBtn').disabled=false;classes($('continueBtn'),'gf-continue-in','question',160);
+  sound(correct?(session.combo>=7?'combo7':session.combo>=5?'combo5':session.combo>=3?'combo3':'correct'):'wrong');haptic(correct?(session.combo>=7?'combo7':session.combo>=5?'combo5':'correct'):'wrong');
+ }
+ function haptic(kind){if(!state.settings.haptic||typeof navigator.vibrate!=='function')return;try{navigator.vibrate(kind==='wrong'?[9,34,9]:kind==='complete'?[12,38,17]:kind==='combo7'?[10,26,10,26,14]:kind==='combo5'?[10,26,12]:9)}catch(_){}}
+ function resetQuestion(){end('question');const el=document.querySelector('.question-frame');el?.classList.remove('gf-question-out','gf-question-in');const box=$('gfCombo');if(box){box.hidden=!session||session.combo<3;box.textContent=session?.combo>=3?session.combo+'× SERİ':'';box.className='gf-combo'+(session?.combo>=7?' gf-premium':session?.combo>=5?' gf-gold':'')}}
+ function result(pct,xp,isFinal){
+  end('question');end('result');const s=session,el=$('resultView');el.classList.remove('gf-result-perfect','gf-result-pass','gf-result-review','gf-result-gold');const pass=pct>=(isFinal?80:70),gold=isFinal&&pct>=95;
+  el.classList.add(gold?'gf-result-gold':pct===100?'gf-result-perfect':pass?'gf-result-pass':'gf-result-review');
+  classes(el,'gf-result-enter','result',320);counter($('resultPct'),pct,n=>n+'%');counter($('resultCorrect'),s.correct,n=>n+'/'+s.questions.length);counter($('resultXp'),xp,n=>'+'+n);counter($('resultCombo'),s.bestCombo,n=>n+'x');
+  sound(gold?'gold':pct===100?'perfect':pass?'complete':'review');haptic('complete');
+  if(pct===100||gold){const medal=$('resultMedal');classes(medal,'gf-gold-sweep','result',600);particles(medal,8,'result','gold',650)}
+ }
+ function header(){
+  end('header');const values={currency:state.currency,energy:state.premium?'∞':state.energy,xp:state.xp};
+  for(const [key,to]of Object.entries(values)){const from=headerValues.get(key);headerValues.set(key,to);const ids=key==='energy'?['gfHeaderEnergy','lessonEnergy']:key==='xp'?['gfHeaderXP']:['v5Currency'];for(const id of ids){const el=$(id);if(!el)continue;const format=key==='xp'?n=>n>=10000?(n/1000).toFixed(1)+'b':String(n):n=>String(n);if(Number.isFinite(from)&&Number.isFinite(to)&&from!==to)counter(el,to,format,'header',360,from);else el.textContent=format(to)}}
+ }
+ function polishCeremony(dialog,e){
+  const scope='ceremony';end(scope);classes(dialog,'gf-ceremony-enter',scope,350);
+  dialog.querySelectorAll('.v5-metricrow > span').forEach(el=>numberText(el,scope));
+  const badge=dialog.querySelector('.lp-earnedbadge');classes(badge,'gf-badge-reveal',scope,650);
+  const medal=dialog.querySelector('.lp-ceremony-medal');
+  if(e.type==='unit_complete'){
+   const ring=document.createElementNS('http://www.w3.org/2000/svg','svg');ring.setAttribute('viewBox','0 0 120 130');ring.setAttribute('class','gf-mastery-ring');ring.setAttribute('aria-hidden','true');ring.innerHTML='<rect x="4" y="4" width="112" height="122" rx="52" pathLength="100"/>';medal?.append(ring);const path=ring.querySelector('rect');if(path){path.style.strokeDashoffset=String(100-e.mastery);if(!motionOff())classes(ring,'gf-ring-reveal',scope,700)}cleanup(scope,()=>ring.remove());
+  }
+  if(e.type==='unit_complete'||e.type==='section_complete'){classes(medal,'gf-gold-sweep',scope,750);particles(medal,e.type==='unit_complete'?12:e.gold?15:10,scope,e.gold?'gold':'teal',850)}
+  sound(e.type==='unit_complete'?'unit':e.type==='section_complete'?(e.gold?'gold':'section'):'unlock');
+ }
+ function settingsChanged(){DEENSound.settingsChanged();if(motionOff()){endAll();session?.gfAdvance?.();session?.gfReturn?.();if(celebrationRunning&&document.querySelector('.lp-skip'))celebrationFinish?.();document.querySelectorAll('.gf-particles,.gf-energy').forEach(el=>el.remove())}}
+ return {later,frame,cleanup,end,endAll,classes,counter,numberText,particles,progress,combo,answer,haptic,resetQuestion,result,header,polishCeremony,settingsChanged,diagnostics:()=>({liveParticles:live,totalParticlesCreated:totalCreated,timers:[...scopes.values()].reduce((n,b)=>n+b.timers.size,0),frames:[...scopes.values()].reduce((n,b)=>n+b.frames.size,0)})};
+})();
+
+function installGameFeel(){
+ const combo=document.createElement('span');combo.id='gfCombo';combo.className='gf-combo';combo.hidden=true;combo.setAttribute('role','status');combo.setAttribute('aria-live','polite');$('lesson').append(combo);
+ document.addEventListener('pointerdown',()=>DEENSound.unlock(),{passive:true});
+ document.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')DEENSound.unlock()},{passive:true});
+ document.addEventListener('click',e=>{const button=e.target.closest?.('.lp-node,.deen-stage-card,.navbtn,#v5Sheet .v5-primary,.lp-ceremony .v5-primary');if(button&&!button.disabled)sound('click')},{capture:true});
+ const media=matchMedia('(prefers-reduced-motion: reduce)');media.addEventListener?.('change',()=>DEENFeel.settingsChanged());
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){DEENSound.stop();DEENFeel.end('question');DEENFeel.end('header')}else{DEENFeel.settingsChanged();runCelebrations()}});
+ window.addEventListener('pagehide',()=>{DEENSound.stop();DEENFeel.endAll()});
+ window.addEventListener('pageshow',()=>{session?.gfAdvance?.();session?.gfReturn?.();if(document.querySelector('.lp-skip'))celebrationFinish?.();updateUI();runCelebrations()});
+}
+// Explicit opt-in developer preview only. Triggers presentation, never XP or saved progression.
+window.DEEN_GAMEFEEL_TEST={
+ diagnostics:()=>({sound:DEENSound.diagnostics(),effects:DEENFeel.diagnostics(),queue:celebrationQueue.map(e=>e.type),active:activeCelebration?.type||null}),
+ skip:()=>{if(previewMode)celebrationFinish?.()},
+ trigger(type){
+  if(!previewMode)return false;
+  if(['correct','wrong','combo'].includes(type)){if(!session?.questions[session.index])return false;const before=session.combo;session.combo=type==='combo'?5:type==='wrong'?0:Math.max(1,before);DEENFeel.answer(type!=='wrong',session.questions[session.index]);session.combo=before;return true}
+  if(type==='perfect'){if(!session)return false;DEENFeel.result(100,65,false);return true}
+  const samples={stage:{type:'stage_complete',id:'U01-S01',next:'U01-S02'},unit:{type:'unit_complete',unit:'U01',name:U[0],mastery:86,xp:350,perfect:3,badge:UNIT_BADGES[0]},section:{type:'section_complete',section:1,gold:true,pct:95,retention:90,xp:320,strong:U[1],review:U[4]},level:{type:'level_up',title:'Seviye 8 → 9',detail:'Bir adım daha ilerledin.'},quest:{type:'quest_complete',title:'Görev tamamlandı',detail:'10 / 10 doğru cevap',amount:5},goal:{type:'goal_complete',title:'Bugünkü hedef tamamlandı',detail:'2 / 2 ders · +25 XP',amount:10},achievement:{type:'achievement',title:'Yeni rozet · Bilgi Yolcusu',name:'Bilgi Yolcusu',detail:'25 ders tamamladın.'}};
+  if(!samples[type])return false;celebrate({...samples[type],qa:true});runCelebrations();return true;
+ }
+};
+
+
+/* ===========================
+   DEEN v5.1.2 — Main Theme Restoration
+   V5.1.1 game-feel, state, quiz and celebration engines remain intact.
+   =========================== */
+const DEEN512_UNIT_STYLES=[
+ {a:'#31efcf',b:'#79f3dc',bg:'linear-gradient(116deg,rgba(8,50,62,.96),rgba(4,25,35,.99))'},
+ {a:'#8f7cff',b:'#cba6ff',bg:'linear-gradient(116deg,rgba(29,35,74,.96),rgba(6,24,38,.99))'},
+ {a:'#d9b24b',b:'#ffe075',bg:'linear-gradient(116deg,rgba(15,48,47,.97),rgba(8,26,37,.99))'},
+ {a:'#e98453',b:'#ffb17e',bg:'linear-gradient(116deg,rgba(55,34,28,.98),rgba(10,31,38,.99))'},
+ {a:'#7770ef',b:'#aaa6ff',bg:'linear-gradient(116deg,rgba(30,31,75,.98),rgba(8,29,39,.99))'},
+ {a:'#56c6d9',b:'#9fe8ef',bg:'linear-gradient(116deg,rgba(15,47,63,.98),rgba(7,24,38,.99))'},
+ {a:'#5d94da',b:'#a8c9ff',bg:'linear-gradient(116deg,rgba(22,40,72,.98),rgba(7,24,38,.99))'},
+ {a:'#9f78d9',b:'#d1afff',bg:'linear-gradient(116deg,rgba(46,31,72,.98),rgba(9,25,38,.99))'},
+ {a:'#739dcf',b:'#b8d5ff',bg:'linear-gradient(116deg,rgba(27,43,67,.98),rgba(8,24,38,.99))'},
+ {a:'#b88b55',b:'#e5c08b',bg:'linear-gradient(116deg,rgba(55,40,31,.98),rgba(11,28,37,.99))'}
+,
+ {a:'#4fc8a2',b:'#9ae2c8',bg:'linear-gradient(116deg,rgba(14,53,47,.98),rgba(7,29,36,.99))'},
+ {a:'#4db4bd',b:'#9ce1e2',bg:'linear-gradient(116deg,rgba(13,48,55,.98),rgba(6,27,36,.99))'},
+ {a:'#d2a752',b:'#f0d58e',bg:'linear-gradient(116deg,rgba(53,42,22,.98),rgba(9,28,35,.99))'},
+ {a:'#7c9acb',b:'#bfd1ef',bg:'linear-gradient(116deg,rgba(28,41,63,.98),rgba(8,27,37,.99))'},
+ {a:'#c67d5d',b:'#efb193',bg:'linear-gradient(116deg,rgba(57,34,26,.98),rgba(10,29,35,.99))'}];
+function deen512SectionFinalMarkup(n){
+ const f=state[n===1?'sectionFinal':'section2Final'],open=n===1?finalUnlocked():final2Unlocked(),title=n===1?'Temeller Ustalığı':'İman Ustalığı',count=n===1?20:25;
+ const rank=f.completed?(f.rank||'USTALIK'):'',orb=f.completed?(rank==='ALTIN USTALIK'?'✦':'🏆'):open?'🏆':'🔒';
+ const action=open?(n===1?'startSectionFinal()':'startSection2Final()'):`sheet('Final henüz kilitli','<p>Önce Ünite ${n===1?5:10} son aşamasını tamamla.${n===2?' Kısım 1 Finali de geçilmiş olmalı.':''}</p>')`;
+ return `<article class="section-final-card restored-final-card ${open?'open':'locked'} ${f.completed?'completed':''}" id="gate-${n}"><div class="final-glow"></div><div class="final-orb">${orb}</div><div class="final-eyebrow">${f.completed?'KISIM '+n+' TAMAMLANDI · '+rank:open?'HAZIR · USTALIK SINAVI':'KİLİTLİ · USTALIK SINAVI'}</div><div class="final-title">${title}</div><div class="final-copy">${n===1?'İlk 5 ünitedeki bilgini tek bir ustalık sınavında bir araya getir.':'İman bölümündeki 5 ünitenin bilgisini bir araya getir.'}</div><div class="final-chips"><span>${count} SORU</span><span>0 ENERJİ</span><span>%80 GEÇİŞ</span></div><div class="final-best">En iyi skor · ${f.bestScore?f.bestScore+'%':'—'}</div><button class="final-start" type="button" ${open?'':'disabled'} onclick="${open?action:''}">${open?(f.completed?'FİNALİ TEKRARLA':'USTALIK SINAVINI BAŞLAT'):'ÖNCEKİ AŞAMALARI TAMAMLA'}</button></article>`;
+}
+function deen512PathMarkup(u,index){
+ const a=unitStages(u),ys=[18,112,206,300,394,488,588];
+ const nodeX=[30.5,50,30.5,50,30.5,50,30.5];
+ const pathD="M 40 48 C 52 73, 62 92, 59 145 S 39 183, 40 239 S 62 276, 59 333 S 39 370, 40 427 S 62 466, 59 521 S 39 558, 41 626";
+ let h=`<div class="lp-path restored-path deen-old-path" aria-label="${esc(U[index])} öğrenme yolu"><svg class="lp-connectors" viewBox="0 0 100 704" preserveAspectRatio="none" aria-hidden="true">`;
+
+ // One logical connector per stage so V5 completion/unlock animation can still target #link-STAGE.
+ a.slice(0,-1).forEach((s,n)=>{
+   const active=state.completed.includes(s.id),master=(state.stageScores[s.id]||0)>=95;
+   // Keep the old visual curve while splitting it into event-addressable connector segments.
+   const y1=48+n*94,y2=48+(n+1)*94, x1=n%2===0?40:59, x2=n%2===0?59:40, mid=(y1+y2)/2;
+   h+=`<path id="link-${s.id}" pathLength="100" class="lp-link ${active?'filled':''} ${active&&master?'gold':''}" d="M ${x1} ${y1} C ${x1+8} ${mid-12},${x2-8} ${mid+12},${x2} ${y2}"/>`;
+   h+=`<circle class="deen-path-dot" cx="${n%2?48:52}" cy="${ys[n]+82}" r="1.25"/>`;
+ });
+ h+='</svg>';
+
+ a.forEach((s,n)=>{
+   const st=stageState(u,n);
+   const perfect=(state.stageScores[s.id]||0)>=100;
+   const due=st.done&&poolFor(s.id).filter(q=>state.reviewSchedule[q.id]?.nextReview<=Date.now()).length>=2;
+   const status=st.locked?'locked':st.mastered?'mastered':st.done?'completed':st.current?'current':'available';
+   const right=n%2===0;
+   let type='lesson',typeClass='';
+   if(s.kind==='challenge'){type='challenge';typeClass='challenge'}
+   else if(s.kind==='review'){type='review';typeClass='review'}
+   else if(s.kind==='audio'){type='audio';typeClass='audio'}
+   else if(s.kind==='special'||/eşleştir/i.test(s.title)){type='matching';typeClass='matching'}
+   else if(s.kind==='apply'){type='apply';typeClass='apply-gold'}
+   else if(s.kind==='scenario'||/günlük hayat|uygula|kullan/i.test(s.title)){type='application';typeClass='application'}
+
+   const stateText=st.locked?'Kilitli':st.mastered?'Ustalaşıldı':st.done?'Tamamlandı':st.current?'Sıradaki ders':'Açık';
+   const iconSvg=st.locked?'':(SVG[s.icon]||SVG.book);
+   const cardSub=st.locked?'Önceki aşamadan sonra':due?'↻ Pekiştirme zamanı':s.meta;
+   const cardClass=`deen-stage-card ${right?'right':'left'} ${status} ${type==='challenge'?'challenge-card':''}`;
+   const action=`preview('${s.id}')`;
+
+   h+=`<div class="lp-stop ${status} ${typeClass}" style="--node-x:${nodeX[n]}%;top:${ys[n]}px" id="stop-${s.id}">
+     ${st.current?'<span class="deen-current-pill">SIRADAKİ DERS</span>':''}
+     <button id="slot-${s.id}" data-stage="${s.id}" class="lp-node deen-old-node ${status} ${typeClass}" style="--node-x:${nodeX[n]}%;left:${nodeX[n]}%" onclick="${action}" aria-label="${esc(s.title)} · Aşama ${n+1} · ${stateText}${perfect?' · Kusursuz':''}${due?' · Tekrar zamanı':''}" ${st.current?'aria-current="step"':''}>
+       <svg class="lp-ring" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="37" pathLength="100"/></svg>
+       ${iconSvg?iconSvg.replace('<svg','<svg class="deen-stage-icon"'):''}
+       ${perfect?'<span class="lp-perfect" aria-hidden="true">✦</span>':''}
+       ${due?'<span class="lp-due" aria-hidden="true">↻</span>':''}
+     </button>
+     <button class="${cardClass}" data-stage-card="${s.id}" onclick="${action}" aria-label="${esc(s.title)} — ${esc(cardSub)}">
+       <strong>${esc(s.title)}</strong>
+       <small>${esc(cardSub)}</small>
+       <span class="chev" aria-hidden="true">›</span>
+     </button>
+   </div>`;
+ });
+ return h+'</div>';
+}
+renderPaths=function(){
+ const root=$('v5Paths');if(!root)return;let h='';
+ U.forEach((name,i)=>{const u=uid(i+1),a=unitStages(u),done=a.filter(s=>state.completed.includes(s.id)).length,m=masteryFor(u),world=i<5?1:2,st=DEEN512_UNIT_STYLES[i];
+  if(i===5)h+=`<div class="restore-section-divider">KISIM 2 · İMAN</div>`;
+  if(i>0&&i!==5)h+=`<div class="restore-section-divider">${i===4?'SON ÜNİTE':'SONRAKİ ÜNİTE'}</div>`;
+  h+=`<section class="restored-unit world-${world}" id="v5Unit${i+1}" style="--unit-accent:${st.a};--unit-accent2:${st.b};--unit-progress:${Math.round(done/7*100)}%"><div class="hero" id="heroU${i+1}" style="background:${st.bg}"><div class="arch"></div><div class="crescent"></div><div class="hero-copy"><div class="eyebrow">${world}. KISIM · ${i+1}. ÜNİTE${done===7?' · ✓ TAMAMLANDI':''}</div><h1>${esc(name)}</h1><p>${esc(DESC[i])}</p></div><div class="hero-footer"><div class="hero-progress"><i></i></div><div class="hero-count"><b>${done}/7</b> aşama · Ustalık %${m}</div><button class="hero-arrow" aria-label="${esc(name)} mevcut aşamaya git" onclick="scrollToCurrent('${u}')">›</button></div></div>${deen512PathMarkup(u,i)}</section>`;
+  if(i===4)h+=`<div class="restore-section-divider">KISIM 1 FİNALİ</div>${deen512SectionFinalMarkup(1)}`;
+  if(i===9)h+=`<div class="restore-section-divider">KISIM 2 FİNALİ</div>${deen512SectionFinalMarkup(2)}`;
+ });root.innerHTML=h;
+};
+scrollToCurrent=function(u){const s=unitStages(u).find(s=>!state.completed.includes(s.id))||unitStages(u).at(-1);$('slot-'+s.id)?.scrollIntoView({block:'center',behavior:state.settings.reducedMotion?'instant':'smooth'})};
+mountV5=function(){
+ $('learnScreen').innerHTML=`<div class="scroll restored-learn" id="learnScroll"><header class="app-header restored-header"><div class="brand"><div class="logo"><span></span><span></span><i></i></div><div class="brand-name">DEEN</div></div><div class="stats"><button class="stat" onclick="streakPanel()" aria-label="Seri"><div class="stat-icon fire">♨</div><div class="stat-copy"><strong id="streakTop">${state.streak}</strong><small>Seri</small></div></button><button class="stat" onclick="showEnergy()" aria-label="Enerji"><div class="stat-icon energy">ϟ</div><div class="stat-copy"><strong id="energyTop">${state.premium?'∞':state.energy}</strong><small>Enerji</small></div></button><button class="stat" onclick="xpPanel()" aria-label="XP"><div class="stat-icon star">★</div><div class="stat-copy"><strong id="xpTop">${state.xp}</strong><small>XP</small></div></button></div></header><div id="v5Stats" hidden></div><div class="restored-tools"><button class="restored-currency-pill" onclick="storePanel()" aria-label="Pırıltı mağazası">◇ <span id="v5Currency">${state.currency}</span> Pırıltı</button></div><div id="v5Return"></div><div id="v5Paths"></div><p class="v5-footer-note">Öğren. Anla. Hatırla. Uygula.<br>İçerikler uzman incelemesi bekliyor.</p></div>`;
+ for(const id of ['reviewScreen','leagueScreen','profileScreen'])$(id).innerHTML='<div class="scroll v5-page" id="'+id+'Body"></div>';
+ $('lesson').append($('resultView'));const d=document.createElement('dialog');d.id='v5Sheet';d.setAttribute('aria-labelledby','v5SheetTitle');d.innerHTML='<div class="v5-sheet-head"><span class="v5-kicker">DEEN</span><button class="v5-iconbtn" onclick="closeSheet()" aria-label="Pencereyi kapat">×</button></div><h2 id="v5SheetTitle"></h2><div id="v5SheetBody"></div>';$('phone').append(d);const t=document.createElement('div');t.id='v5Toast';t.setAttribute('role','status');$('phone').append(t);
+ document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>navigate(b.dataset.screen));document.querySelector('.lesson-brand-sub').textContent='Öğren · Anla · Hatırla';document.querySelector('.lesson-head .close').setAttribute('aria-label','Dersi kapat');document.addEventListener('visibilitychange',()=>{if(!document.hidden){rollWeek();reconcileStreak();updateUI();saveState()}});
+};
+const DEEN512_BASE_UPDATE_UI=updateUI;
+updateUI=function(){DEEN512_BASE_UPDATE_UI();const energy=state.premium?'∞':state.energy;if($('streakTop'))$('streakTop').textContent=state.streak;if($('energyTop'))$('energyTop').textContent=energy;if($('xpTop'))$('xpTop').textContent=state.xp>=10000?(state.xp/1000).toFixed(1)+'b':state.xp};
+
+mountV5();installGameFeel();reconcileStreak();rollWeek();saveState();try{localStorage.setItem('deen_storage_probe','1');localStorage.removeItem('deen_storage_probe')}catch(e){$('v5Stats').insertAdjacentHTML('beforebegin','<p class="v5-term">Bu tarayıcı kalıcı kayda izin vermiyor. Kapatmadan önce Profil → Ayarlar’dan ilerlemeni yedekle.</p>')}
+if(!state.onboarded)setTimeout(()=>onboarding(),100);
+
+function bootDEEN(){
+  try{installLessonScrollSupport()}catch(err){console.error('DEEN lesson scroll support error',err)}
+  // Path render'ı state/UI hesaplarından bağımsız tutuyoruz.
+  // Böylece eski/bozuk localStorage verisi başka bir UI alanında hata üretse bile
+  // learning path ekranda boş kalmaz.
+  try{renderPaths()}catch(err){console.error('DEEN path boot error',err)}
