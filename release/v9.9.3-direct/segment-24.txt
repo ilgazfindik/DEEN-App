@@ -654,4 +654,147 @@
 
 
 <script id="deen-v981-release-guard">(()=>{const VERSION='9.8.1-SOURCE-LINKS',TITLE='DEEN v9.8.1 — Kaynak Bağlantıları';const apply=()=>{document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID='981sources1';document.documentElement.dataset.deenRelease=VERSION};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+<!-- DEEN v9.9.4 — Animal Companion -->
+<style id="deen-v994-animal-companion-css">
+.v994-animal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.v994-animal-card{border:1px solid #31535a;background:#0d2831;color:#e8f5f1;border-radius:16px;padding:14px 10px;text-align:center;cursor:pointer;min-height:124px;display:grid;place-items:center;align-content:center;gap:4px}
+.v994-animal-card:active{transform:scale(.98)}.v994-animal-card.selected{border-color:#8bdcc6;background:#123a3d;box-shadow:0 0 0 2px rgba(139,220,198,.11)}
+.v994-animal-card .animal{font-size:45px;line-height:1.05}.v994-animal-card b{font-size:14px}.v994-animal-card small{font-size:10px;color:#9fb9b8;letter-spacing:.3px;text-transform:uppercase}
+.v994-picker-note{font-size:11px;line-height:1.55;color:#9eb4b7;margin:5px 0 12px}
+.v994-profile-animal{font-size:42px;line-height:1;display:block;filter:drop-shadow(0 6px 10px #0004)}
+#profileScreenBody .v5-profilehead .v5-avatar.large.v994-companion-avatar{cursor:pointer;background:linear-gradient(145deg,#173b3e,#0c252d);border-color:#5d8e84;overflow:visible}
+#profileScreenBody .v5-profilehead .v5-avatar.large.v994-companion-avatar:after{content:"değiştir";position:absolute;transform:translateY(49px);font-size:8px;letter-spacing:.6px;text-transform:uppercase;color:#86aaa4;white-space:nowrap}
+#profileScreenBody .v5-profilehead .v5-avatar.large.v994-companion-avatar{position:relative}
+.v994-streak-companion{display:flex;align-items:center;gap:13px;padding:13px 14px;margin:0 0 14px;border:1px solid rgba(128,217,193,.22);border-radius:16px;background:linear-gradient(135deg,rgba(17,59,60,.78),rgba(9,35,43,.82))}
+.v994-streak-companion .animal{font-size:42px;line-height:1}.v994-streak-companion b{display:block;font-size:13px}.v994-streak-companion small{display:block;margin-top:3px;color:#9fb7b7;font-size:10px;line-height:1.4}
+.v994-result-companion{display:flex;align-items:center;justify-content:center;gap:12px;margin:14px auto 5px;padding:11px 14px;max-width:390px;border:1px solid rgba(128,217,193,.2);border-radius:16px;background:rgba(12,42,47,.72);text-align:left}
+.v994-result-companion .animal{font-size:46px;line-height:1;display:block;animation:v994-companion-pop .72s cubic-bezier(.2,.9,.25,1.25) both}
+.v994-result-companion.perfect .animal{animation:v994-companion-perfect 1s cubic-bezier(.2,.9,.25,1.25) both}
+.v994-result-companion b{display:block;font-size:12px}.v994-result-companion small{display:block;color:#a4bcbb;font-size:10px;margin-top:3px;line-height:1.4}
+@keyframes v994-companion-pop{0%{transform:scale(.72) translateY(8px);opacity:0}55%{transform:scale(1.16) translateY(-5px);opacity:1}100%{transform:scale(1) translateY(0);opacity:1}}
+@keyframes v994-companion-perfect{0%{transform:scale(.72) rotate(-8deg);opacity:0}42%{transform:scale(1.2) rotate(7deg);opacity:1}72%{transform:scale(.96) rotate(-3deg)}100%{transform:scale(1) rotate(0)}}
+#worldScreen .v760-launch,#worldScreen #v773WorldGate{display:none!important}
+#v5Sheet[data-companion-required="1"] .v5-sheet-head .v5-iconbtn{visibility:hidden!important;pointer-events:none!important}
+@media(max-width:390px){.v994-animal-grid{gap:8px}.v994-animal-card{min-height:112px;padding:11px 8px}.v994-animal-card .animal{font-size:40px}}
+@media(prefers-reduced-motion:reduce){.v994-result-companion .animal{animation:none!important}.v994-animal-card:active{transform:none}}
+</style>
+<script id="deen-v994-animal-companion-js">
+(()=>{
+ if(window.__deenV994AnimalCompanion)return;window.__deenV994AnimalCompanion=true;
+ const VERSION='9.9.4-ANIMAL-COMPANION',STATE_VERSION=50;
+ const ANIMALS={
+  lion:{emoji:'🦁',name:'Aslan',trait:'Cesaret'},
+  wolf:{emoji:'🐺',name:'Kurt',trait:'Kararlılık'},
+  owl:{emoji:'🦉',name:'Baykuş',trait:'Öğrenme · Bilgelik'},
+  turtle:{emoji:'🐢',name:'Kaplumbağa',trait:'Sabır'},
+  eagle:{emoji:'🦅',name:'Kartal',trait:'Odak'},
+  cat:{emoji:'🐈',name:'Kedi',trait:'Sakinlik'}
+ };
+ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ let pickerMode='profile',entryPromptShown=false;
+ function ensure(){
+  try{
+   state.profile=state.profile&&typeof state.profile==='object'?state.profile:{name:'Yolcu',frame:false,goldPath:false};
+   const id=String(state.profile.companion||'');
+   if(id&&!ANIMALS[id])state.profile.companion=null;
+   state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);
+  }catch(e){}
+ }
+ function current(){ensure();const id=String(state?.profile?.companion||'');return ANIMALS[id]?{id,...ANIMALS[id]}:null}
+ function cards(){
+  const active=current()?.id||'';
+  return '<div class="v994-animal-grid">'+Object.entries(ANIMALS).map(([id,a])=>'<button type="button" class="v994-animal-card '+(active===id?'selected':'')+'" onclick="DEEN_COMPANION.select(\''+id+'\')"><span class="animal" aria-hidden="true">'+a.emoji+'</span><b>'+esc(a.name)+'</b><small>'+esc(a.trait)+'</small></button>').join('')+'</div>';
+ }
+ function setRequired(on){
+  const d=document.getElementById('v5Sheet');if(!d)return;
+  if(on)d.dataset.companionRequired='1';else delete d.dataset.companionRequired;
+ }
+ function open(mode='profile'){
+  ensure();pickerMode=mode;
+  const required=mode==='onboarding'||mode==='required';
+  if(typeof sheet!=='function')return false;
+  sheet('Yol arkadaşını seç','<p>DEEN boyunca sana eşlik edecek hayvanı seç. Bu bir kişilik testi değil; sadece senin görsel yol arkadaşın.</p>'+cards()+'<p class="v994-picker-note">Seçimini daha sonra Profil ekranındaki hayvana dokunarak değiştirebilirsin.</p>');
+  setRequired(required);
+  return true;
+ }
+ function select(id){
+  if(!ANIMALS[id])return false;ensure();
+  state.profile.companion=id;
+  try{saveState()}catch(e){}
+  const mode=pickerMode;setRequired(false);
+  if(mode==='onboarding'){
+   try{BASE_ONBOARDING(0)}catch(e){try{closeSheet()}catch(_){}}
+  }else{
+   try{closeSheet()}catch(e){}
+   try{updateUI()}catch(e){}
+   setTimeout(()=>{decorateProfile();retireLegacyCharacterUi()},0);
+  }
+  return true;
+ }
+ function decorateProfile(){
+  const a=current(),root=document.getElementById('profileScreenBody');if(!a||!root)return false;
+  const avatar=root.querySelector('.v5-profilehead .v5-avatar.large');if(!avatar)return false;
+  avatar.classList.add('v994-companion-avatar');avatar.innerHTML='<span class="v994-profile-animal" aria-hidden="true">'+a.emoji+'</span>';
+  avatar.title=a.name+' · '+a.trait;avatar.setAttribute('aria-label','Yol arkadaşın '+a.name+'. Değiştirmek için dokun.');
+  avatar.onclick=()=>open('profile');
+  return true;
+ }
+ function decorateStreak(){
+  const a=current(),body=document.getElementById('v5SheetBody');if(!a||!body||document.getElementById('v994StreakCompanion'))return false;
+  const streak=Number(state?.streakMeta?.currentStreak??state?.streak??0)||0;
+  body.insertAdjacentHTML('afterbegin','<div class="v994-streak-companion" id="v994StreakCompanion"><span class="animal" aria-hidden="true">'+a.emoji+'</span><div><b>'+esc(a.name)+' seninle · '+streak+' günlük seri</b><small>'+esc(a.trait)+' · Bugün de küçük bir adım yeter.</small></div></div>');
+  return true;
+ }
+ function reaction(){
+  const a=current(),rv=document.getElementById('resultView');if(!a||!rv?.classList.contains('show'))return false;
+  rv.querySelector('#v994ResultCompanion')?.remove();
+  const total=Number(session?.questions?.length)||0,pct=total?Math.round((Number(session?.correct)||0)/total*100):0;
+  const perfect=pct===100;
+  const msg=perfect?a.name+' seninle kutluyor!':pct>=70?a.name+' gururla yanında.':'Bir adım daha — '+a.name+' yanında.';
+  const sub=perfect?'Kusursuz ders · '+a.trait:pct>=70?'Dersi tamamladın · '+a.trait:'Tekrar ettikçe güçlenir · '+a.trait;
+  const card='<div class="v994-result-companion '+(perfect?'perfect':'')+'" id="v994ResultCompanion"><span class="animal" aria-hidden="true">'+a.emoji+'</span><div><b>'+esc(msg)+'</b><small>'+esc(sub)+'</small></div></div>';
+  const subtitle=document.getElementById('resultSubtitle');
+  if(subtitle)subtitle.insertAdjacentHTML('afterend',card);else rv.insertAdjacentHTML('afterbegin',card);
+  return true;
+ }
+ function retireLegacyCharacterUi(){
+  try{
+   const ws=document.getElementById('worldScreen');ws?.classList.remove('v773-gated');
+   document.getElementById('v773WorldGate')?.remove();
+   document.querySelectorAll('#worldScreen .v760-launch').forEach(x=>x.remove());
+   document.querySelectorAll('#worldScreen button,#worldScreen [role="button"]').forEach(x=>{
+    if(x.closest?.('.v994-animal-grid'))return;
+    const t=(x.textContent||'').trim();
+    if(/AVATAR STUDIO|KARAKTERİNİ (OLUŞTUR|SEÇ)|KARAKTERİ DÜZENLE/i.test(t))x.style.display='none';
+   });
+  }catch(e){}
+ }
+ const BASE_ONBOARDING=typeof window.onboarding==='function'?window.onboarding:function(){};
+ window.onboarding=function(step=0){
+  ensure();
+  if(step===0&&!current()){pickerMode='onboarding';return open('onboarding')}
+  return BASE_ONBOARDING.apply(this,arguments);
+ };
+ const BASE_PROFILE=typeof window.profileView==='function'?window.profileView:null;
+ if(BASE_PROFILE)window.profileView=function(...args){const r=BASE_PROFILE.apply(this,args);setTimeout(decorateProfile,0);return r};
+ const BASE_STREAK=typeof window.streakPanel==='function'?window.streakPanel:null;
+ if(BASE_STREAK)window.streakPanel=function(...args){const r=BASE_STREAK.apply(this,args);setTimeout(decorateStreak,0);return r};
+ const BASE_SHOW_RESULT=typeof window.showResult==='function'?window.showResult:null;
+ if(BASE_SHOW_RESULT)window.showResult=function(...args){const r=BASE_SHOW_RESULT.apply(this,args);setTimeout(reaction,0);return r};
+ const BASE_UPDATE=typeof window.updateUI==='function'?window.updateUI:null;
+ if(BASE_UPDATE)window.updateUI=function(...args){ensure();const r=BASE_UPDATE.apply(this,args);setTimeout(()=>{decorateProfile();retireLegacyCharacterUi()},20);return r};
+ document.addEventListener('cancel',e=>{if(e.target?.id==='v5Sheet'&&e.target?.dataset?.companionRequired==='1'){e.preventDefault()}},true);
+ function promptExisting(){
+  ensure();retireLegacyCharacterUi();
+  if(entryPromptShown||!state?.onboarded||current())return;
+  entryPromptShown=true;setTimeout(()=>open('required'),450);
+ }
+ window.DEEN_COMPANION={version:VERSION,animals:JSON.parse(JSON.stringify(ANIMALS)),current:()=>current(),open,select,reaction};
+ ensure();
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',promptExisting,{once:true});else promptExisting();
+ setTimeout(()=>{try{promptExisting();decorateProfile();retireLegacyCharacterUi()}catch(e){}},900);
+})();
+</script>
+
 <script id="deen-v993-production-guard">(()=>{const VERSION='9.9.3-PRODUCTION',BUILD='993prod1',TITLE='DEEN v9.9.3';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
