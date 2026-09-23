@@ -29,7 +29,6 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    html+='\n';
    for(let i=9;i<s.length;i++) html+=s[i]+(i<s.length-1?'\n':'');
    if(!html.startsWith('<!doctype html>'))throw new Error('Kaynak başlığı doğrulanamadı');
-   if(!html.includes('DEEN_BETA_TEST'))throw new Error('Beta özellikleri eksik');
    if(!html.includes('deen-v993-stage-intro-css'))throw new Error('v9.9.3 bölüm giriş paketi eksik');
    window.__DEEN_DEPLOY_ID__='993direct2';
    document.open();document.write(html);document.close();
