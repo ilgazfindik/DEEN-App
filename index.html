@@ -19,12 +19,19 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const parts=["./release/v9.9.3-direct/segment-00.txt?v=993direct1","./release/v9.9.3-direct/segment-01.txt?v=993direct1","./release/v9.9.3-direct/segment-02.txt?v=993direct1","./release/v9.9.3-direct/segment-03.txt?v=993direct1","./release/v9.9.3-direct/segment-04.txt?v=993direct1","./release/v9.9.3-direct/segment-05.txt?v=993direct1","./release/v9.9.3-direct/segment-06.txt?v=993direct1","./release/v9.9.3-direct/segment-07.txt?v=993direct1","./release/v9.9.3-direct/segment-08.txt?v=993direct1","./release/v9.9.3-direct/segment-09.txt?v=993direct1","./release/v9.9.3-direct/segment-10.txt?v=993direct1","./release/v9.9.3-direct/segment-11.txt?v=993direct1","./release/v9.9.3-direct/segment-12.txt?v=993direct1","./release/v9.9.3-direct/segment-13.txt?v=993direct1","./release/v9.9.3-direct/segment-14.txt?v=993direct1","./release/v9.9.3-direct/segment-15.txt?v=993direct1","./release/v9.9.3-direct/segment-16.txt?v=993direct1","./release/v9.9.3-direct/segment-17.txt?v=993direct1","./release/v9.9.3-direct/segment-18.txt?v=993direct1","./release/v9.9.3-direct/segment-19.txt?v=993direct1","./release/v9.9.3-direct/segment-20.txt?v=993direct1","./release/v9.9.3-direct/segment-21.txt?v=993direct1","./release/v9.9.3-direct/segment-22.txt?v=993direct1","./release/v9.9.3-direct/segment-23.txt?v=993direct1","./release/v9.9.3-direct/segment-24.txt?v=993direct1"];
  try{
-   const responses=await Promise.all(parts.map(p=>fetch(p,{cache:'no-store'})));
+   const paths=Array.from({length:25},(_,i)=>'./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt?v=993direct2');
+   const responses=await Promise.all(paths.map(p=>fetch(p,{cache:'no-store'})));
    responses.forEach((r,i)=>{if(!r.ok)throw new Error('Release segment '+i+' yüklenemedi');});
-   const html=(await Promise.all(responses.map(r=>r.text()))).join('');
-   if(!html.startsWith('<!doctype html>')||!html.includes('DEEN_BETA_TEST')||!html.includes('deen-v993-stage-intro-css'))throw new Error('v9.9.3 doğrulaması başarısız');
+   const s=await Promise.all(responses.map(r=>r.text()));
+   let html=s[0]+'\n'+s[1]+'\n';
+   for(let i=2;i<=8;i++) html+=s[i];
+   html+='\n';
+   for(let i=9;i<s.length;i++) html+=s[i]+(i<s.length-1?'\n':'');
+   if(!html.startsWith('<!doctype html>'))throw new Error('Kaynak başlığı doğrulanamadı');
+   if(!html.includes('DEEN_BETA_TEST'))throw new Error('Beta özellikleri eksik');
+   if(!html.includes('deen-v993-stage-intro-css'))throw new Error('v9.9.3 bölüm giriş paketi eksik');
+   window.__DEEN_DEPLOY_ID__='993direct2';
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
