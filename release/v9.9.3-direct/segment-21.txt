@@ -1,0 +1,1000 @@
+})();
+</script>
+
+<!-- DEEN v8.6.2 — Lesson Flow Orchestrator -->
+<script id="deen-v862-flow-runtime">
+(()=>{
+ if(window.__deenV862Flow)return;window.__deenV862Flow=true;
+ const VERSION='8.6.2-LESSON-FLOW-ORCHESTRATOR',BUILD='862flow1';
+ const ALIAS={
+  multiple_choice:'mcq',mcq:'mcq',choice:'mcq',
+  card:'card',card_grid:'card',large_card:'card',
+  true_false:'true_false',boolean:'true_false',
+  fill_blank:'fill_blank',missing_item:'fill_blank',progressive_recall:'fill_blank',next_word:'fill_blank',
+  matching:'match',match:'match',
+  build_sequence:'sequence',sequence:'sequence',ordering:'sequence',
+  scenario:'scenario',case:'scenario',
+  error_spotting:'odd_one_out',odd_one_out:'odd_one_out',find_wrong:'odd_one_out',find_incorrect:'odd_one_out',wrong_one:'odd_one_out',spot_error:'odd_one_out',
+  listening_select:'listen_select',listening_meaning:'listen_select',listen_select:'listen_select','listen-and-select':'listen_select',audio_select:'listen_select',audio_choice:'listen_select',
+  pronunciation:'pronunciation',pronounce:'pronunciation',speaking:'pronunciation',repeat_after_me:'pronunciation',speak:'pronunciation'
+ };
+ const FAMILY={mcq:'choice',card:'choice',true_false:'binary',fill_blank:'construct',match:'connect',sequence:'order',scenario:'application',odd_one_out:'discriminate',listen_select:'audio',pronunciation:'voice'};
+ let plans=0,lastPlan=null;
+ const rawType=q=>String(q?.type||q?.question_type||q?.activity_type||'').trim().toLowerCase();
+ function classify(q){
+  const raw=rawType(q);if(ALIAS[raw])return ALIAS[raw];
+  if(Array.isArray(q?.pairs))return'match';
+  if(Array.isArray(q?.correct_order)||Array.isArray(q?.sequence))return'sequence';
+  if(Array.isArray(q?.options_tr)||Array.isArray(q?.options))return'mcq';
+  return'fill_blank';
+ }
+ const concept=q=>String(q?.concept_id||q?.knowledgeKey||q?.skill||q?.objective||q?.topic||'').trim();
+ function difficulty(q){
+  const d={easy:0,medium:1,hard:2}[String(q?.difficulty||'').toLowerCase()]??1;
+  const c={recognition:0,recall:1,application:2}[String(q?.cognitive_level||'').toLowerCase()]??1;
+  return d*2+c;
+ }
+ function desiredDifficulty(pos,total){const x=total<=1?0:pos/(total-1);return x<.24?1:x<.7?2.5:4}
+ function analyze(items){
+  const types=(items||[]).map(classify),counts={};types.forEach(t=>counts[t]=(counts[t]||0)+1);
+  let immediateRepeats=0,twoBackRepeats=0;for(let i=1;i<types.length;i++){if(types[i]===types[i-1])immediateRepeats++;if(i>1&&types[i]===types[i-2])twoBackRepeats++}
+  const conceptMap=new Map();(items||[]).forEach((q,i)=>{const c=concept(q);if(!c)return;const arr=conceptMap.get(c)||[];arr.push({i,type:types[i]});conceptMap.set(c,arr)});
+  let crossFormatConcepts=0;for(const arr of conceptMap.values())if(arr.length>1&&new Set(arr.map(x=>x.type)).size>1)crossFormatConcepts++;
+  return{count:types.length,uniqueTypes:Object.keys(counts).length,counts,immediateRepeats,twoBackRepeats,trueFalse:counts.true_false||0,crossFormatConcepts,diverse:immediateRepeats===0&&Object.keys(counts).length>=Math.min(types.length,5)};
+ }
+ function plan(items,opts={}){
+  const src=Array.isArray(items)?items.filter(Boolean):[];if(src.length<2)return[...src];
+  const pool=src.map((q,i)=>({q,i,type:classify(q),family:FAMILY[classify(q)]||'other',concept:concept(q),difficulty:difficulty(q)}));
+  const out=[],lastConceptPos=new Map(),conceptTypes=new Map(),typeUse={};
+  while(pool.length){
+   const pos=out.length,total=src.length,last=out.at(-1),prev=out.at(-2);
+   let candidates=[...pool];
+   const noImmediate=candidates.filter(x=>!last||x.type!==last.type);if(noImmediate.length)candidates=noImmediate;
+   const noTwoBack=candidates.filter(x=>!prev||x.type!==prev.type);if(noTwoBack.length)candidates=noTwoBack;
+   const spacedConcept=candidates.filter(x=>!x.concept||!lastConceptPos.has(x.concept)||pos-lastConceptPos.get(x.concept)>=3);if(spacedConcept.length)candidates=spacedConcept;
+   const target=desiredDifficulty(pos,total);
+   candidates.sort((a,b)=>{
+    const score=x=>{
+     let s=0;
+     s-=Math.abs(x.difficulty-target)*.58;
+     s-=Number(typeUse[x.type]||0)*.34;
+     if(!typeUse[x.type])s+=1.35;
+     if(last&&x.family!==last.family)s+=.38;
+     if(pos===0&&['card','match','fill_blank','mcq'].includes(x.type))s+=.45;
+     if(pos>=Math.max(1,total-2)&&['scenario','odd_one_out','sequence'].includes(x.type))s+=.72;
+     if(x.type==='true_false'&&pos>=Math.max(1,total-2))s-=.9;
+     if(x.concept&&lastConceptPos.has(x.concept)){
+      const gap=pos-lastConceptPos.get(x.concept),seenTypes=conceptTypes.get(x.concept)||new Set();
+      if(gap>=3&&gap<=5&&!seenTypes.has(x.type))s+=.95;
+      if(gap<3)s-=2.2;
+     }
+     s-=Math.abs(x.i-pos)*.018;
+     return s;
+    };
+    return score(b)-score(a)||a.i-b.i;
+   });
+   const pick=candidates[0]||pool[0];out.push(pick);typeUse[pick.type]=(typeUse[pick.type]||0)+1;
+   if(pick.concept){lastConceptPos.set(pick.concept,pos);const set=conceptTypes.get(pick.concept)||new Set();set.add(pick.type);conceptTypes.set(pick.concept,set)}
+   pool.splice(pool.indexOf(pick),1);
+  }
+  return out.map(x=>x.q);
+ }
+ function getSession(){let s=null;try{s=session}catch(_){try{s=window.session}catch(__){}}return s}
+ function prepareSession(){
+  const s=getSession();
+  if(!s||!Array.isArray(s.questions)||s.questions.length<2||s.index!==0||s.__v862Planned)return false;
+  const before=analyze(s.questions),ordered=plan(s.questions,{final:!!s.final,review:!!s.review,macro:!!s.macroStage});
+  s.questions.splice(0,s.questions.length,...ordered);s.__v862Planned=true;
+  const after=analyze(s.questions);s.questionFlow={version:VERSION,build:BUILD,before,after,types:s.questions.map(classify)};
+  lastPlan={stage:s.stage?.id||'',lessonNo:s.lessonNo||null,final:!!s.final,review:!!s.review,before,after,types:[...s.questionFlow.types],at:Date.now()};plans++;
+  try{document.documentElement.dataset.deenQuestionFlow='ready';document.dispatchEvent(new CustomEvent('deen:flow:planned',{detail:{version:VERSION,...lastPlan}}))}catch(_){}
+  return true;
+ }
+ const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
+ if(oldRender&&!oldRender.__v862){
+  const wrapped=function(...args){prepareSession();return oldRender.apply(this,args)};wrapped.__v862=true;
+  try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ }
+ window.DEEN_LESSON_ORCHESTRATOR={version:VERSION,build:BUILD,classify,plan,analyze,prepareSession,check:()=>({version:VERSION,build:BUILD,ready:true,plans,lastPlan})};
+ document.documentElement.dataset.deenLessonOrchestrator='ready';
+})();
+</script>
+\n<!-- DEEN v8.6.3 — Question Coverage Audit -->
+<script id="deen-v863-coverage-runtime">
+(()=>{
+ if(window.__deenV863Coverage)return;window.__deenV863Coverage=true;
+ const VERSION='8.6.3-QUESTION-COVERAGE-AUDIT',BUILD='863audit1';
+ const ALIAS={
+  multiple_choice:'mcq',mcq:'mcq',choice:'mcq',
+  card:'card',card_grid:'card',large_card:'card',
+  true_false:'true_false',boolean:'true_false',
+  fill_blank:'fill_blank',missing_item:'fill_blank',progressive_recall:'fill_blank',next_word:'fill_blank',
+  matching:'match',match:'match',
+  build_sequence:'sequence',sequence:'sequence',ordering:'sequence',
+  scenario:'scenario',case:'scenario',
+  error_spotting:'odd_one_out',odd_one_out:'odd_one_out',find_wrong:'odd_one_out',find_incorrect:'odd_one_out',wrong_one:'odd_one_out',spot_error:'odd_one_out',
+  listening_select:'listen_select',listening_meaning:'listen_select',listen_select:'listen_select','listen-and-select':'listen_select',audio_select:'listen_select',audio_choice:'listen_select',
+  pronunciation:'pronunciation',pronounce:'pronunciation',speaking:'pronunciation',repeat_after_me:'pronunciation',speak:'pronunciation'
+ };
+ const ALL=['mcq','card','true_false','fill_blank','match','sequence','scenario','odd_one_out','listen_select','pronunciation'];
+ const EXPECTED={
+  'ÖĞREN':['card','mcq','match','fill_blank'],
+  'ANLA':['match','fill_blank','odd_one_out','scenario','mcq'],
+  'UYGULA':['scenario','odd_one_out','mcq','fill_blank','match'],
+  'HATIRLA':['fill_blank','sequence','match','odd_one_out','mcq'],
+  'DİNLE':['listen_select','fill_blank','mcq'],
+  'USTALAŞ':['scenario','odd_one_out','sequence','match','fill_blank','mcq']
+ };
+ let scans=0,lastReport=null,retryTimer=0;
+ function getQuestions(){
+  let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){}
+  if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;
+  return Array.isArray(q)?q:[];
+ }
+ function classify(q){
+  try{const t=window.DEEN_LESSON_ORCHESTRATOR?.classify?.(q);if(t)return t}catch(_){}
+  const raw=String(q?.type||q?.question_type||q?.activity_type||'').trim().toLowerCase();
+  if(ALIAS[raw])return ALIAS[raw];
+  if(Array.isArray(q?.pairs))return'match';
+  if(Array.isArray(q?.correct_order)||Array.isArray(q?.sequence))return'sequence';
+  if(Array.isArray(q?.options_tr)||Array.isArray(q?.options))return'mcq';
+  return'fill_blank';
+ }
+ const concept=q=>String(q?.concept_id||q?.knowledgeKey||q?.skill||q?.objective||q?.topic||'').trim();
+ const stage=q=>String(q?.stage_id||q?.stageId||'UNSCOPED').trim()||'UNSCOPED';
+ const unit=q=>{const s=stage(q);const m=s.match(/^U\d{2}/);return m?m[0]:'UNSCOPED'};
+ function audioReady(q){
+  const direct=String(q?.audio_url||q?.audio_src||q?.reference_audio_url||q?.voice_url||q?.media_url||q?.audio||'').trim();if(direct)return true;
+  const key=String(q?.asset_requirement||'').trim();if(!key)return false;
+  try{const a=window.DEEN_AUDIO_ASSETS?.[key];return !!(a?.verified&&a?.src)}catch(_){return false}
+ }
+ function summarize(items,meta={}){
+  const qs=Array.isArray(items)?items.filter(Boolean):[],counts={};ALL.forEach(t=>counts[t]=0);
+  qs.forEach(q=>{const t=classify(q);counts[t]=(counts[t]||0)+1});
+  const present=Object.entries(counts).filter(([,n])=>n>0).map(([t])=>t),n=qs.length;
+  const dominant=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0]||['none',0];
+  const dominantShare=n?dominant[1]/n:0,trueFalseShare=n?(counts.true_false||0)/n:0;
+  const conceptMap=new Map();qs.forEach(q=>{const c=concept(q);if(!c)return;const arr=conceptMap.get(c)||[];arr.push(classify(q));conceptMap.set(c,arr)});
+  let repeatedConcepts=0,crossFormatConcepts=0;
+  for(const types of conceptMap.values())if(types.length>1){repeatedConcepts++;if(new Set(types).size>1)crossFormatConcepts++}
+  const crossFormatRate=repeatedConcepts?crossFormatConcepts/repeatedConcepts:null;
+  const expected=EXPECTED[meta.role]||[];
+  const missingRecommended=expected.filter(t=>!counts[t]);
+  const audioItems=qs.filter(q=>['listen_select','pronunciation'].includes(classify(q))),audioReadyCount=audioItems.filter(audioReady).length;
+  const flags=[];
+  if(n>=5&&present.length<3)flags.push({severity:'critical',code:'LOW_VARIETY',text:'5+ soruluk havuzda 3’ten az etkileşim tipi var.'});
+  else if(n>=5&&present.length<4)flags.push({severity:'warning',code:'LOW_VARIETY',text:'Havuz 4 farklı etkileşim tipinin altında.'});
+  if((meta.role==='USTALAŞ'||meta.kind==='challenge')&&n>=8&&present.length<5)flags.push({severity:'warning',code:'MASTERY_VARIETY',text:'Ustalık havuzu için format çeşitliliği düşük.'});
+  if(dominantShare>.75&&n>=4)flags.push({severity:'critical',code:'DOMINANT_TYPE',text:dominant[0]+' havuzun %'+Math.round(dominantShare*100)+'’ini oluşturuyor.'});
+  else if(dominantShare>.55&&n>=5)flags.push({severity:'warning',code:'DOMINANT_TYPE',text:dominant[0]+' havuzun %'+Math.round(dominantShare*100)+'’ini oluşturuyor.'});
+  if(trueFalseShare>.25&&n>=5)flags.push({severity:'warning',code:'TRUE_FALSE_HEAVY',text:'Doğru/Yanlış oranı yüksek (%'+Math.round(trueFalseShare*100)+').'});
+  if(repeatedConcepts>=2&&crossFormatRate<.35)flags.push({severity:'warning',code:'LOW_CROSS_FORMAT',text:'Tekrarlanan kazanımların çoğu farklı formatla ölçülmüyor.'});
+  if(meta.role==='DİNLE'&&n>=3&&!counts.listen_select)flags.push({severity:'warning',code:'LISTEN_MISSING',text:'Dinleme aşamasında Dinle ve Seç içeriği yok.'});
+  if(audioItems.length&&audioReadyCount<audioItems.length)flags.push({severity:'media',code:'AUDIO_NOT_READY',text:(audioItems.length-audioReadyCount)+' sesli etkileşimde onaylı/bağlı ses bulunamadı.'});
+  return{
+   id:meta.id||'',role:meta.role||'',kind:meta.kind||'',count:n,uniqueTypes:present.length,presentTypes:present,counts,
+   missingRecommended,dominantType:dominant[0],dominantShare:Number(dominantShare.toFixed(3)),trueFalseShare:Number(trueFalseShare.toFixed(3)),
+   concepts:conceptMap.size,repeatedConcepts,crossFormatConcepts,crossFormatRate:crossFormatRate==null?null:Number(crossFormatRate.toFixed(3)),
+   audio:{items:audioItems.length,ready:audioReadyCount,missing:Math.max(0,audioItems.length-audioReadyCount)},flags
+  };
+ }
+ function macroDefs(){try{return window.DEEN_FIVE_STAGE?.all?.()||[]}catch(_){return[]}}
+ function scan(){
+  const qs=getQuestions();
+  if(!qs.length){lastReport={version:VERSION,build:BUILD,ready:false,reason:'QUESTIONS_NOT_READY',at:Date.now()};return lastReport}
+  const units=[...new Set(qs.map(unit))].sort();
+  const stages=[...new Set(qs.map(stage))].sort();
+  const unitReports=units.map(id=>summarize(qs.filter(q=>unit(q)===id),{id}));
+  const stageReports=stages.map(id=>summarize(qs.filter(q=>stage(q)===id),{id}));
+  const macros=macroDefs().map(d=>{
+   const ids=new Set(Array.isArray(d?.legacyIds)?d.legacyIds:[]),pool=qs.filter(q=>ids.has(stage(q)));
+   return summarize(pool,{id:String(d?.id||''),role:String(d?.role||''),kind:String(d?.kind||'')});
+  });
+  const all=[...unitReports,...stageReports,...macros],critical=all.filter(x=>x.flags.some(f=>f.severity==='critical')),warnings=all.filter(x=>x.flags.some(f=>f.severity==='warning'));
+  const media=all.filter(x=>x.flags.some(f=>f.severity==='media'));
+  const gapScore=x=>x.flags.reduce((s,f)=>s+(f.severity==='critical'?4:f.severity==='warning'?2:.5),0)+Math.max(0,4-x.uniqueTypes)*.6+x.missingRecommended.length*.18;
+  const topGaps=[...macros].sort((a,b)=>gapScore(b)-gapScore(a)||a.id.localeCompare(b.id,'tr')).slice(0,12).map(x=>({id:x.id,role:x.role,count:x.count,uniqueTypes:x.uniqueTypes,presentTypes:x.presentTypes,missingRecommended:x.missingRecommended,flags:x.flags}));
+  const overall=summarize(qs,{id:'ALL'});
+  lastReport={version:VERSION,build:BUILD,ready:true,at:Date.now(),questionCount:qs.length,overall,units:unitReports,stages:stageReports,macroStages:macros,summary:{units:unitReports.length,stages:stageReports.length,macroStages:macros.length,critical:critical.length,warnings:warnings.length,mediaWarnings:media.length},topGaps};
+  scans++;
+  try{document.documentElement.dataset.deenCoverageAudit='ready';document.dispatchEvent(new CustomEvent('deen:coverage:scanned',{detail:{version:VERSION,summary:lastReport.summary,topGaps}}))}catch(_){}
+  return lastReport;
+ }
+ function schedule(){clearTimeout(retryTimer);const tries=[0,220,700,1600,3200];tries.forEach(ms=>setTimeout(()=>{const r=scan();if(r.ready)clearTimeout(retryTimer)},ms))}
+ window.DEEN_QUESTION_COVERAGE={
+  version:VERSION,build:BUILD,types:[...ALL],scan,report:()=>lastReport,
+  get:(scope='macro')=>{const r=lastReport||scan();if(!r?.ready)return[];return scope==='unit'?r.units:scope==='stage'?r.stages:scope==='all'?[r.overall]:r.macroStages},
+  check:()=>{const r=lastReport||scan();return{version:VERSION,build:BUILD,ready:!!r?.ready,scans,questions:r?.questionCount||0,summary:r?.summary||null,topGaps:r?.topGaps?.slice(0,5)||[]}}
+ };
+ document.documentElement.dataset.deenCoverageAudit='loaded';
+ schedule();
+})();
+</script>\n
+<!-- DEEN v8.6.4 — U01 S03 Content Enrichment -->
+<script id="deen-v864-u01-s03-runtime">
+(()=>{
+ if(window.__deenV864U01S03)return;window.__deenV864U01S03=true;
+ const VERSION='8.6.4-U01-S03-CONTENT-ENRICHMENT',BUILD='864u01s03',TARGET='U01-S03';
+ const ITEMS=[
+  {
+   id:'DEEN-U01-S03-015',stage_id:TARGET,unit_id:'U01',type:'fill_blank',question_type:'fill_blank',activity_type:'fill_blank',difficulty:2,
+   topic:'İman, ibadet ve ahlak ilişkisi',concept_id:'u01-triad-relation',
+   question_tr:'İman, ibadet ve ___ birlikte ele alındığında inanç, kulluk ve davranış arasındaki bağ daha açık görülür.',
+   options_tr:['ahlak','soy','şehir','meslek'],fill_choices:['ahlak','soy','şehir','meslek'],correct_answer:'ahlak',
+   explanation_tr:'Bu ünitede iman, ibadet ve ahlak farklı fakat birbiriyle ilişkili alanlar olarak ele alınıyor.',
+   source_reference:'DEEN U01 mevcut kavram çerçevesi',source_evidence_note:'Mevcut U01 soru havuzundaki iman, ibadet ve ahlak ilişkisini farklı bir etkileşim biçimiyle yeniden ölçer.',source_urls:[],
+   terminology_note:'Yeni bir dinî hüküm eklemez; mevcut ünite kavramlarını yeniden ölçer.'
+  },
+  {
+   id:'DEEN-U01-S03-016',stage_id:TARGET,unit_id:'U01',type:'scenario',question_type:'scenario',activity_type:'scenario',difficulty:2,
+   topic:'İman, ibadet ve ahlak ilişkisi',concept_id:'u01-triad-relation',actor_tr:'Mert',
+   question_tr:'Bu düşünceyi en iyi hangi cevap düzeltir?',decision_prompt_tr:'Mert’in düşüncesini en iyi hangi cevap düzeltir?',
+   scenario_tr:'Mert, “İnanç benim içimde; ibadet ve davranışlarımla hiçbir ilgisi yok.” diyor.',
+   options_tr:[
+    'İman, ibadet ve ahlak farklı alanlardır ama birbirleriyle ilişkilidir.',
+    'Sadece davranışlar önemlidir; inanç önemli değildir.',
+    'İbadet yalnızca başkalarının gördüğü davranışlardan oluşur.',
+    'Ahlakın dinî öğrenmeyle hiçbir ilişkisi yoktur.'
+   ],
+   correct_answer:'İman, ibadet ve ahlak farklı alanlardır ama birbirleriyle ilişkilidir.',
+   explanation_tr:'Ünite, iman, ibadet ve ahlakı aynı şey saymadan aralarındaki ilişkiyi kurmayı hedefliyor.',
+   source_reference:'DEEN U01 mevcut kavram çerçevesi',source_evidence_note:'U01-S03 ve U01-S06 içindeki mevcut kavram ilişkilerinin senaryo biçiminde yeniden ölçümüdür.',source_urls:[],
+   terminology_note:'Yeni bir dinî hüküm eklemez; mevcut ünite kavramlarını yeniden ölçer.'
+  },
+  {
+   id:'DEEN-U01-S03-017',stage_id:TARGET,unit_id:'U01',type:'odd_one_out',question_type:'odd_one_out',activity_type:'odd_one_out',difficulty:2,
+   topic:'İslam ve Müslüman kavramları',concept_id:'u01-islam-muslim-relation',
+   question_tr:'Üç ifade bu ünitedeki kavramlarla uyumlu. Hangisi hatalı?',
+   options_tr:[
+    'Kur’an Müslümanlar için temel bir rehberdir.',
+    'Hz. Muhammed Müslümanlar için rehberlik eden peygamberdir.',
+    'Ahlak insanın davranışlarıyla ilgilidir.',
+    'Müslüman olmak belirli bir millete mensup olmayı gerektirir.'
+   ],
+   correct_answer:'Müslüman olmak belirli bir millete mensup olmayı gerektirir.',
+   explanation_tr:'Bu ünitedeki anlatıma göre Müslüman kimliği belirli bir ülke, soy veya millete bağlı değildir.',
+   source_reference:'DEEN U01 mevcut kavram çerçevesi',source_evidence_note:'U01-S01 ve U01-S06 içindeki mevcut Müslüman kimliği anlatımını hata bulma formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Yeni bir dinî hüküm eklemez; mevcut ünite kavramlarını yeniden ölçer.'
+  },
+  {
+   id:'DEEN-U01-S03-018',stage_id:TARGET,unit_id:'U01',type:'multiple_choice',question_type:'multiple_choice',activity_type:'multiple_choice',difficulty:2,
+   topic:'İslam ve Müslüman kavramları',concept_id:'u01-islam-muslim-relation',
+   question_tr:'İslam ile Müslüman arasındaki ilişkiyi en doğru hangi ifade kurar?',
+   options_tr:[
+    'İslam dinin adıdır; Müslüman İslam’ı benimseyen kişidir.',
+    'İslam bir milletin adıdır; Müslüman o milletten doğan kişidir.',
+    'İslam yalnızca ibadetlerin adıdır; Müslüman yalnızca ibadet sırasında kullanılan bir addır.',
+    'İslam ve Müslüman tamamen aynı kavramdır.'
+   ],
+   correct_answer:'İslam dinin adıdır; Müslüman İslam’ı benimseyen kişidir.',
+   explanation_tr:'Kavramlar bağlantılıdır fakat aynı şeyi ifade etmez: İslam dinin adıdır; Müslüman ise İslam’ı benimseyen kişidir.',
+   source_reference:'DEEN U01 mevcut kavram çerçevesi',source_evidence_note:'U01-S03 içindeki mevcut “İslam ile Müslüman arasındaki bağ” kazanımını ikinci bir formatla yeniden ölçer.',source_urls:[],
+   terminology_note:'Yeni bir dinî hüküm eklemez; mevcut ünite kavramlarını yeniden ölçer.'
+  }
+ ];
+ let installed=false,added=0,beforeCount=0,afterCount=0,attempts=0;
+ function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){};if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:null}
+ function install(){
+  attempts++;const q=bank();if(!q)return false;
+  const targetBefore=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET);beforeCount=targetBefore.length;
+  const ids=new Set(q.map(x=>String(x?.id||'')));
+  ITEMS.forEach(item=>{if(!ids.has(item.id)){q.push({...item,options_tr:Array.isArray(item.options_tr)?[...item.options_tr]:item.options_tr,fill_choices:Array.isArray(item.fill_choices)?[...item.fill_choices]:item.fill_choices,source_urls:Array.isArray(item.source_urls)?[...item.source_urls]:[]});ids.add(item.id);added++}});
+  afterCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;installed=true;
+  document.documentElement.dataset.deenU01S03Enrichment='ready';
+  try{document.dispatchEvent(new CustomEvent('deen:content:enriched',{detail:{version:VERSION,build:BUILD,target:TARGET,added,ids:ITEMS.map(x=>x.id)}}))}catch(_){}
+  setTimeout(()=>{try{window.DEEN_QUESTION_COVERAGE?.scan?.()}catch(_){}},0);
+  return true;
+ }
+ [0,120,420,1000,2200].forEach(ms=>setTimeout(()=>{if(!installed)install()},ms));
+ window.DEEN_CONTENT_ENRICHMENT_V864={
+  version:VERSION,build:BUILD,target:TARGET,ids:ITEMS.map(x=>x.id),install,
+  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,beforeCount,afterCount,formats:['fill_blank','scenario','odd_one_out','mcq'],conceptPairs:['u01-triad-relation','u01-islam-muslim-relation']})
+ };
+})();
+</script>
+
+<!-- DEEN v8.6.5 — U01 S04 Content Enrichment -->
+<script id="deen-v865-u01-s04-runtime">
+(()=>{
+ if(window.__deenV865U01S04)return;window.__deenV865U01S04=true;
+ const VERSION='8.6.5-U01-S04-CONTENT-ENRICHMENT',BUILD='865u01s04',TARGET='U01-S04';
+ const ITEMS=[
+  {
+   id:'DEEN-U01-S04-017',stage_id:TARGET,unit_id:'U01',type:'fill_blank',question_type:'fill_blank',activity_type:'fill_blank',difficulty:2,
+   topic:'Dürüstlük ve günlük hayat',concept_id:'u01-daily-honesty',
+   question_tr:'Kasada sana yanlışlıkla fazla para üstü verildi. Onu geri vermek ___ değerine güçlü bir örnektir.',
+   options_tr:['dürüstlük','kabalık','umursamazlık','acelecilik'],fill_choices:['dürüstlük','kabalık','umursamazlık','acelecilik'],correct_answer:'dürüstlük',
+   explanation_tr:'Ünitedeki örnekte fazla para üstünü geri vermek dürüst davranışın günlük hayattaki karşılığı olarak ele alınıyor.',
+   source_reference:'DEEN U01-S04 mevcut içerik',source_evidence_note:'U01-S04-012 içindeki fazla para üstünü geri verme örneğini boşluk doldurma formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Yeni bir dinî hüküm eklemez; mevcut ünitedeki davranış örneğini farklı formatta ölçer.'
+  },
+  {
+   id:'DEEN-U01-S04-018',stage_id:TARGET,unit_id:'U01',type:'match',question_type:'match',activity_type:'matching',difficulty:2,
+   topic:'Günlük davranış ve değer eşleştirme',concept_id:'u01-values-in-action',
+   question_tr:'Davranışları öne çıkan değerlerle eşleştir.',
+   pairs:[
+    {left:'Fazla para üstünü geri vermek',right:'Dürüstlük'},
+    {left:'Haksız suçlamada sakin ve adil konuşmak',right:'Adalet'},
+    {left:'Yanlış bilgiyi küçümsemeden düzeltmek',right:'Saygı'}
+   ],
+   explanation_tr:'Aynı değer farklı durumlarda davranışa dönüşebilir; burada ünitedeki üç günlük hayat örneği eşleştiriliyor.',
+   source_reference:'DEEN U01-S04 mevcut içerik',source_evidence_note:'U01-S04-012, U01-S04-014 ve U01-S04-016 içindeki örnekleri eşleştirme formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Değer adları mevcut soru ifadelerinden türetilmiştir; yeni hüküm içermez.'
+  },
+  {
+   id:'DEEN-U01-S04-019',stage_id:TARGET,unit_id:'U01',type:'odd_one_out',question_type:'odd_one_out',activity_type:'odd_one_out',difficulty:2,
+   topic:'Ahlaki sorumluluk',concept_id:'u01-daily-ethics',
+   question_tr:'Üç davranış bu bölümdeki ahlaki sorumluluk anlayışıyla uyumlu. Hangisi uyumlu değildir?',
+   options_tr:[
+    'Hata yaptıktan sonra özür dilemek',
+    'Dedikoduya katılmamak',
+    'Fazla para üstünü geri vermek',
+    'Kimse görmüyorsa yalan söylemenin sorun olmadığını düşünmek'
+   ],
+   correct_answer:'Kimse görmüyorsa yalan söylemenin sorun olmadığını düşünmek',
+   explanation_tr:'Bu bölüm dürüstlük, özür, saygı ve sorumluluk gibi değerlerin yalnızca başkaları görürken değil günlük davranışlarda da önemli olduğunu vurguluyor.',
+   source_reference:'DEEN U01-S04 mevcut içerik',source_evidence_note:'U01-S04-006, U01-S04-010 ve U01-S04-012 içindeki günlük davranış örneklerinden türetilmiş hata bulma etkinliğidir.',source_urls:[],
+   terminology_note:'Yeni bir dinî hüküm eklemez; mevcut ahlak örneklerini karşılaştırır.'
+  },
+  {
+   id:'DEEN-U01-S04-020',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:2,
+   topic:'İbadet ve ahlak ilişkisi',concept_id:'u01-worship-ethics-link',
+   question_tr:'İbadetlerine önem veren biri çevresine karşı da dürüst ve saygılı davranıyor. Bu tablo en iyi neyi gösterir?',
+   options_tr:[
+    'İbadet ile ahlakın günlük hayatta ilişki kurabildiğini',
+    'Ahlakın ibadetle hiçbir ilgisinin olmadığını',
+    'Sadece dışarıdan görünen davranışların önemli olduğunu',
+    'İyi davranışların yalnızca belirli ortamlarda gerekli olduğunu'
+   ],
+   correct_answer:'İbadet ile ahlakın günlük hayatta ilişki kurabildiğini',
+   explanation_tr:'Ünitede ibadet ve ahlak aynı şey sayılmıyor; ancak birbirinden tamamen kopuk da ele alınmıyor.',
+   source_reference:'DEEN U01-S04 mevcut içerik',source_evidence_note:'U01-S04-003, U01-S04-013 ve U01-S04-015 içindeki ibadet-ahlak bağlantısını kart seçim formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Mevcut ünite çerçevesini yeniden ifade eder; yeni hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S04-021',stage_id:TARGET,unit_id:'U01',type:'multiple_choice',question_type:'multiple_choice',activity_type:'multiple_choice',difficulty:2,
+   topic:'Günlük hayatta ahlak',concept_id:'u01-values-in-action',
+   question_tr:'Bir kişi haksız yere suçlandığında bağırmak yerine sakin ve adil konuşuyor. Burada hangi iki özellik birlikte öne çıkıyor?',
+   options_tr:['Sakinlik ve adalet','Öfke ve acelecilik','Gösteriş ve rekabet','Umursamazlık ve kabalık'],
+   correct_answer:'Sakinlik ve adalet',
+   explanation_tr:'Bölümde aynı durum, tepkiyi kontrol etme ve adil davranma örneği olarak kullanılıyor.',
+   source_reference:'DEEN U01-S04 mevcut içerik',source_evidence_note:'U01-S04-016 içindeki örneği hızlı seçim formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Mevcut davranış örneğini farklı biçimde ölçer; yeni hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S04-022',stage_id:TARGET,unit_id:'U01',type:'fill_blank',question_type:'fill_blank',activity_type:'fill_blank',difficulty:2,
+   topic:'Saygılı iletişim',concept_id:'u01-values-in-action',
+   question_tr:'Yanlış bir bilgiyi karşıdaki kişiyi küçümsemeden düzeltmek, iletişimde ___ değerini öne çıkarır.',
+   options_tr:['saygı','kabalık','alay','umursamazlık'],fill_choices:['saygı','kabalık','alay','umursamazlık'],correct_answer:'saygı',
+   explanation_tr:'Ünitedeki Selin örneğinde yanlış bilgiyi düzeltirken küçümsememek saygılı bir tutum olarak ele alınıyor.',
+   source_reference:'DEEN U01-S04 mevcut içerik',source_evidence_note:'U01-S04-014 içindeki örneği boşluk doldurma formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Yeni bir dinî hüküm eklemez; mevcut davranış örneğini farklı formatta ölçer.'
+  }
+ ];
+ let installed=false,added=0,beforeCount=0,afterCount=0,attempts=0;
+ function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){};if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:null}
+ function install(){
+  attempts++;const q=bank();if(!q)return false;
+  beforeCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;
+  const ids=new Set(q.map(x=>String(x?.id||'')));
+  ITEMS.forEach(item=>{if(!ids.has(item.id)){q.push({...item,options_tr:Array.isArray(item.options_tr)?[...item.options_tr]:item.options_tr,fill_choices:Array.isArray(item.fill_choices)?[...item.fill_choices]:item.fill_choices,pairs:Array.isArray(item.pairs)?item.pairs.map(p=>({...p})):item.pairs,source_urls:Array.isArray(item.source_urls)?[...item.source_urls]:[]});ids.add(item.id);added++}});
+  afterCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;installed=true;
+  document.documentElement.dataset.deenU01S04Enrichment='ready';
+  try{document.dispatchEvent(new CustomEvent('deen:content:enriched',{detail:{version:VERSION,build:BUILD,target:TARGET,added,ids:ITEMS.map(x=>x.id)}}))}catch(_){}
+  setTimeout(()=>{try{window.DEEN_QUESTION_COVERAGE?.scan?.()}catch(_){}},0);
+  return true;
+ }
+ [0,120,420,1000,2200].forEach(ms=>setTimeout(()=>{if(!installed)install()},ms));
+ window.DEEN_CONTENT_ENRICHMENT_V865={
+  version:VERSION,build:BUILD,target:TARGET,ids:ITEMS.map(x=>x.id),install,
+  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,beforeCount,afterCount,formats:['fill_blank','match','odd_one_out','card','mcq'],concepts:['u01-daily-honesty','u01-values-in-action','u01-daily-ethics','u01-worship-ethics-link']})
+ };
+})();
+</script>
+
+<!-- DEEN v8.6.6 — U01 S06 Content Enrichment -->
+<script id="deen-v866-u01-s06-runtime">
+(()=>{
+ if(window.__deenV866U01S06)return;window.__deenV866U01S06=true;
+ const VERSION='8.6.6-U01-S06-CONTENT-ENRICHMENT',BUILD='866u01s06',TARGET='U01-S06';
+ const ITEMS=[
+  {
+   id:'DEEN-U01-S06-013',stage_id:TARGET,unit_id:'U01',type:'fill_blank',question_type:'fill_blank',activity_type:'fill_blank',difficulty:2,
+   topic:'İman, ibadet ve ahlak ilişkisi',concept_id:'u01-s06-faith-worship-ethics',
+   question_tr:'Bu ünitede iman, ibadet ve ___ birbirinden kopuk değil, ilişkili alanlar olarak ele alınır.',
+   options_tr:['ahlak','soy','şehir','meslek'],fill_choices:['ahlak','soy','şehir','meslek'],correct_answer:'ahlak',
+   explanation_tr:'Ünitenin temel çerçevesinde iman, ibadet ve ahlak aynı şey değildir; fakat birbirinden tamamen kopuk da düşünülmez.',
+   source_reference:'DEEN U01-S06 mevcut içerik',source_evidence_note:'U01-S06-004, U01-S06-006 ve U01-S06-012 içindeki iman-ibadet-ahlak ilişkisini boşluk doldurma biçiminde yeniden ölçer.',source_urls:[],
+   terminology_note:'Yeni bir dinî hüküm eklemez; mevcut ünite ilişkisini farklı formatta ölçer.'
+  },
+  {
+   id:'DEEN-U01-S06-014',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:2,
+   topic:'İman, ibadet ve ahlak ilişkisi',concept_id:'u01-s06-faith-worship-ethics',
+   question_tr:'“İnanç zihinde kalır; ibadet ve ahlakla bağlantısı yoktur.” cümlesini en iyi hangi kart düzeltir?',
+   options_tr:[
+    'İman, ibadet ve ahlak ilişki kurabilen alanlardır.',
+    'İman yalnızca sözden ibarettir.',
+    'İbadet sadece başkalarının gördüğü davranışlardır.',
+    'Ahlakın inançla hiçbir ilişkisi yoktur.'
+   ],
+   correct_answer:'İman, ibadet ve ahlak ilişki kurabilen alanlardır.',
+   explanation_tr:'Bölümde bu üç alan eşitlenmeden, aralarındaki bağın fark edilmesi hedefleniyor.',
+   source_reference:'DEEN U01-S06 mevcut içerik',source_evidence_note:'U01-S06-004 ve U01-S06-006 içindeki aynı kazanımı büyük kart seçimiyle yeniden ölçer.',source_urls:[],
+   terminology_note:'Mevcut ünite anlatımını yeniden ifade eder; yeni hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S06-015',stage_id:TARGET,unit_id:'U01',type:'match',question_type:'match',activity_type:'matching',difficulty:2,
+   topic:'Temel rehberlik kavramları',concept_id:'u01-s06-guidance-basics',
+   question_tr:'Kavramları bu ünitedeki rollerine göre eşleştir.',
+   pairs:[
+    {left:'Kur’an',right:'Temel rehber'},
+    {left:'Hz. Muhammed',right:'Peygamber ve örnek rehber'},
+    {left:'İbadet',right:'Kulluk davranışları'},
+    {left:'Ahlak',right:'Davranış ve tutumlar'}
+   ],
+   explanation_tr:'Bu eşleştirme, bölüm boyunca tekrar edilen Kur’an, peygamber, ibadet ve ahlak kavramlarını birlikte hatırlatır.',
+   source_reference:'DEEN U01 mevcut kavram çerçevesi',source_evidence_note:'U01-S06-007, U01-S06-009, U01-S06-011 ve önceki U01 aşamalarındaki mevcut kavram açıklamalarını eşleştirme biçiminde toplar.',source_urls:[],
+   terminology_note:'Yalnızca mevcut kavram rollerini tekrar eder; yeni dinî ayrıntı eklemez.'
+  },
+  {
+   id:'DEEN-U01-S06-016',stage_id:TARGET,unit_id:'U01',type:'odd_one_out',question_type:'odd_one_out',activity_type:'odd_one_out',difficulty:2,
+   topic:'Müslüman kimliği ve rehberlik',concept_id:'u01-s06-guidance-basics',
+   question_tr:'Üç ifade bu ünitedeki bilgilerle uyumlu. Hangisi uyumlu değildir?',
+   options_tr:[
+    'Kur’an Müslümanlar için rehberdir.',
+    'Peygamberin hayatı davranışlar için örnek olabilir.',
+    'Müslüman olmak belirli bir soydan gelmeyi gerektirir.',
+    'İslam günlük hayatla da ilişki kurar.'
+   ],
+   correct_answer:'Müslüman olmak belirli bir soydan gelmeyi gerektirir.',
+   explanation_tr:'Bu ünitede Müslüman kimliğinin belirli bir soy veya millete bağlı olmadığı özellikle vurgulanıyor.',
+   source_reference:'DEEN U01-S06 mevcut içerik',source_evidence_note:'U01-S06-002, U01-S06-005, U01-S06-007 ve U01-S06-009 içindeki mevcut bilgileri hata avı formatında karşılaştırır.',source_urls:[],
+   terminology_note:'Yeni hüküm eklemez; mevcut bölüm ifadelerinden doğru-yanlış ayrımı yaptırır.'
+  },
+  {
+   id:'DEEN-U01-S06-017',stage_id:TARGET,unit_id:'U01',type:'multiple_choice',question_type:'multiple_choice',activity_type:'multiple_choice',difficulty:2,
+   topic:'Kur’an ve günlük rehberlik',concept_id:'u01-s06-guidance-basics',
+   question_tr:'“Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır.” ifadesindeki eksikliği en iyi hangi seçenek açıklar?',
+   options_tr:[
+    'Kur’an aynı zamanda inanç ve yaşam konusunda rehberlik eder.',
+    'Kur’an sadece belirli bir millete hitap eder.',
+    'Kur’an yalnızca ezberlenmek için vardır.',
+    'Kur’an günlük davranışlarla hiçbir bağ kurmaz.'
+   ],
+   correct_answer:'Kur’an aynı zamanda inanç ve yaşam konusunda rehberlik eder.',
+   explanation_tr:'Bölümde Kur’an yalnızca geçmişe ait bilgi olarak değil, Müslümanlar için rehber olarak ele alınıyor.',
+   source_reference:'DEEN U01-S06 mevcut içerik',source_evidence_note:'U01-S06-007 içindeki mevcut kazanımı hızlı seçim formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Mevcut bölüm içeriğini yeniden ölçer; yeni dinî hüküm eklemez.'
+  }
+ ];
+ let installed=false,added=0,beforeCount=0,afterCount=0,attempts=0;
+ function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){};if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:null}
+ function install(){
+  attempts++;const q=bank();if(!q)return false;
+  beforeCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;
+  const ids=new Set(q.map(x=>String(x?.id||'')));
+  ITEMS.forEach(item=>{if(!ids.has(item.id)){q.push({...item,options_tr:Array.isArray(item.options_tr)?[...item.options_tr]:item.options_tr,fill_choices:Array.isArray(item.fill_choices)?[...item.fill_choices]:item.fill_choices,pairs:Array.isArray(item.pairs)?item.pairs.map(p=>({...p})):item.pairs,source_urls:Array.isArray(item.source_urls)?[...item.source_urls]:[]});ids.add(item.id);added++}});
+  afterCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;installed=true;
+  document.documentElement.dataset.deenU01S06Enrichment='ready';
+  try{document.dispatchEvent(new CustomEvent('deen:content:enriched',{detail:{version:VERSION,build:BUILD,target:TARGET,added,ids:ITEMS.map(x=>x.id)}}))}catch(_){}
+  setTimeout(()=>{try{window.DEEN_QUESTION_COVERAGE?.scan?.()}catch(_){}},0);
+  return true;
+ }
+ [0,120,420,1000,2200].forEach(ms=>setTimeout(()=>{if(!installed)install()},ms));
+ window.DEEN_CONTENT_ENRICHMENT_V866={
+  version:VERSION,build:BUILD,target:TARGET,ids:ITEMS.map(x=>x.id),install,
+  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,beforeCount,afterCount,formats:['fill_blank','card','match','odd_one_out','mcq'],conceptPairs:['u01-s06-faith-worship-ethics','u01-s06-guidance-basics']})
+ };
+})();
+</script>
+
+<!-- DEEN v8.6.7 — U01 S07 Final Mastery Enrichment -->
+<script id="deen-v867-u01-s07-runtime">
+(()=>{
+ if(window.__deenV867U01S07)return;window.__deenV867U01S07=true;
+ const VERSION='8.6.7-U01-S07-FINAL-MASTERY',BUILD='867u01s07',TARGET='U01-S07';
+ const ITEMS=[
+  {
+   id:'DEEN-U01-S07-015',stage_id:TARGET,unit_id:'U01',type:'fill_blank',question_type:'fill_blank',activity_type:'fill_blank',difficulty:2,
+   topic:'Dürüstlük ve ahlak',concept_id:'u01-final-ethics',
+   question_tr:'Kimse görmese bile doğruyu söylemek ve emanete sahip çıkmak ___ değerini gösterir.',
+   options_tr:['dürüstlük','kabalık','gösteriş','umursamazlık'],fill_choices:['dürüstlük','kabalık','gösteriş','umursamazlık'],correct_answer:'dürüstlük',
+   explanation_tr:'Final bölümündeki “kimse görmese bile dürüst davranmak” vurgusu, ahlakın yalnızca başkaları görürken değil her durumda önemli olduğunu hatırlatır.',
+   source_reference:'DEEN U01-S07 mevcut içerik',source_evidence_note:'U01-S07-002 içindeki görünmeyen durumda dürüstlük kazanımını boşluk doldurma formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Yeni dinî hüküm eklemez; mevcut ahlak örneğini farklı formatta ölçer.'
+  },
+  {
+   id:'DEEN-U01-S07-016',stage_id:TARGET,unit_id:'U01',type:'match',question_type:'match',activity_type:'matching',difficulty:2,
+   topic:'Ünite temel kavramları',concept_id:'u01-final-core-map',
+   question_tr:'Final kavram haritasını tamamla: kavramları doğru açıklamalarla eşleştir.',
+   pairs:[
+    {left:'İslam',right:'Allah’a teslimiyet ve kulluk merkezli yaşam anlayışı'},
+    {left:'Müslüman',right:'İslam’ı benimseyen kişi'},
+    {left:'Kur’an',right:'Temel rehber'},
+    {left:'Hz. Muhammed',right:'Peygamber ve örnek rehber'}
+   ],
+   explanation_tr:'Bu eşleştirme, ünitenin başından finale kadar tekrar edilen dört temel kavram arasındaki bağı birlikte hatırlatır.',
+   source_reference:'DEEN U01 mevcut kavram çerçevesi',source_evidence_note:'U01-S01, U01-S06 ve U01-S07 içindeki İslam, Müslüman, Kur’an ve peygamber kavramlarını final eşleştirmesinde toplar.',source_urls:[],
+   terminology_note:'Mevcut ünite tanımlarını yeniden düzenler; yeni dinî ayrıntı eklemez.'
+  },
+  {
+   id:'DEEN-U01-S07-017',stage_id:TARGET,unit_id:'U01',type:'scenario',question_type:'scenario',activity_type:'scenario',difficulty:3,
+   topic:'Günlük hayatta dürüstlük',concept_id:'u01-final-ethics',
+   question_tr:'Bir arkadaşın “Kimse görmüyorsa küçük bir yalanın önemi yok.” diyor. Bu ünitedeki anlayışa göre en uygun tepki hangisi?',
+   options_tr:[
+    'Kimse görmese de dürüst davranmaya çalışırım.',
+    'Yakalanmayacaksam yalan söyleyebilirim.',
+    'Sadece büyük yalanlardan kaçınırım.',
+    'Doğruyu söylemek yalnızca kalabalıkta önemlidir.'
+   ],
+   correct_answer:'Kimse görmese de dürüst davranmaya çalışırım.',
+   explanation_tr:'Ünitede dürüstlük, başkalarının görüp görmemesine bağlı bir davranış olarak değil ahlaki bir tutum olarak ele alınıyor.',
+   source_reference:'DEEN U01-S07 mevcut içerik',source_evidence_note:'U01-S07-002 içindeki dürüstlük kazanımını günlük hayat senaryosuna dönüştürür.',source_urls:[],
+   terminology_note:'Yeni dinî hüküm eklemez; mevcut ahlak kazanımını uygulama düzeyinde ölçer.'
+  },
+  {
+   id:'DEEN-U01-S07-018',stage_id:TARGET,unit_id:'U01',type:'odd_one_out',question_type:'odd_one_out',activity_type:'odd_one_out',difficulty:3,
+   topic:'İman, ibadet ve ahlak ilişkisi',concept_id:'u01-final-faith-worship-ethics',
+   question_tr:'Üç ifade bu ünitenin ana fikriyle uyumlu. Hangisi uyumlu değildir?',
+   options_tr:[
+    'İman kalple inanmayı da içerir.',
+    'İbadet kulluk davranışlarıyla ilgilidir.',
+    'Ahlak günlük davranış ve tutumlarla ilgilidir.',
+    'İman, ibadet ve ahlak tamamen kopuk üç ayrı alandır.'
+   ],
+   correct_answer:'İman, ibadet ve ahlak tamamen kopuk üç ayrı alandır.',
+   explanation_tr:'Ünitede bu alanlar aynı şey sayılmıyor; ancak birbirinden tamamen kopuk da ele alınmıyor.',
+   source_reference:'DEEN U01-S07 mevcut içerik',source_evidence_note:'U01-S07-003, U01-S07-005 ve U01-S07-013 içindeki temel ilişkiyi hata avı formatında ölçer.',source_urls:[],
+   terminology_note:'Mevcut ünite ilişkisini karşılaştırır; yeni hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S07-019',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:2,
+   topic:'Kur’an ve ahlak',concept_id:'u01-final-guidance',
+   question_tr:'Kur’an’ın ahlaki rehberliğinin günlük hayata yansımasını en iyi hangi kart anlatır?',
+   options_tr:[
+    'Rehberlik, davranış ve tutumlara da yön verebilir.',
+    'Kur’an ahlakla ilgili hiçbir rehberlik sunmaz.',
+    'Rehberlik yalnızca geçmiş olayları öğrenmek içindir.',
+    'Ahlakın günlük davranışlarla hiçbir ilişkisi yoktur.'
+   ],
+   correct_answer:'Rehberlik, davranış ve tutumlara da yön verebilir.',
+   explanation_tr:'Kur’an’ın rehberliği yalnızca bilgi düzeyinde değil, ahlaki davranış ve tutumları anlamada da yol gösterici bir çerçevede ele alınır.',
+   source_reference:'DEEN U01-S07 mevcut içerik',source_evidence_note:'U01-S07-011 ile near-duplicate oluşturan eski doğru/yanlış ifadesi, aynı kazanımı farklı ve uygulamalı bir kart formatında ölçmek için ayrıştırıldı.',source_urls:[],
+   terminology_note:'Yeni dinî hüküm eklemez; mevcut U01 rehberlik kazanımını farklı formatta ölçer.'
+  },
+  {
+   id:'DEEN-U01-S07-020',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:3,
+   topic:'Ünite genel özeti',concept_id:'u01-final-summary',
+   question_tr:'Üniteyi tek kartla kapat: İslam’ı bu bölümün anlattığı çerçevede en iyi hangi ifade özetler?',
+   options_tr:[
+    'İman, ibadet ve ahlakı birlikte ele alan; Kur’an ve peygamber rehberliğiyle şekillenen bir yaşam anlayışı.',
+    'Sadece belirli ibadetlerden oluşan ve günlük hayatla ilgisi olmayan bir yapı.',
+    'Yalnızca belirli bir millet veya kültüre ait bir gelenek.',
+    'Sadece geçmiş olayları öğrenmeye dayanan bir bilgi alanı.'
+   ],
+   correct_answer:'İman, ibadet ve ahlakı birlikte ele alan; Kur’an ve peygamber rehberliğiyle şekillenen bir yaşam anlayışı.',
+   explanation_tr:'Ünite boyunca İslam; iman, kulluk, ahlak, Kur’an rehberliği ve peygamber örnekliği arasında bağ kuran bütüncül bir çerçevede anlatılıyor.',
+   source_reference:'DEEN U01-S07 mevcut içerik',source_evidence_note:'U01-S07-001, U01-S07-004, U01-S07-007, U01-S07-012, U01-S07-013 ve U01-S07-014 içindeki final özetini tek kart seçiminde birleştirir.',source_urls:[],
+   terminology_note:'Yalnızca mevcut U01 kazanımlarını özetler; yeni dinî hüküm eklemez.'
+  }
+ ];
+ let installed=false,added=0,beforeCount=0,afterCount=0,attempts=0;
+ function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){};if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:null}
+ function install(){
+  attempts++;const q=bank();if(!q)return false;
+  beforeCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;
+  const ids=new Set(q.map(x=>String(x?.id||'')));
+  ITEMS.forEach(item=>{if(!ids.has(item.id)){q.push({...item,options_tr:Array.isArray(item.options_tr)?[...item.options_tr]:item.options_tr,fill_choices:Array.isArray(item.fill_choices)?[...item.fill_choices]:item.fill_choices,pairs:Array.isArray(item.pairs)?item.pairs.map(p=>({...p})):item.pairs,source_urls:Array.isArray(item.source_urls)?[...item.source_urls]:[]});ids.add(item.id);added++}});
+  afterCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;installed=true;
+  document.documentElement.dataset.deenU01S07Enrichment='ready';
+  try{document.dispatchEvent(new CustomEvent('deen:content:enriched',{detail:{version:VERSION,build:BUILD,target:TARGET,added,ids:ITEMS.map(x=>x.id)}}))}catch(_){}
+  setTimeout(()=>{try{window.DEEN_QUESTION_COVERAGE?.scan?.()}catch(_){}},0);
+  return true;
+ }
+ [0,120,420,1000,2200].forEach(ms=>setTimeout(()=>{if(!installed)install()},ms));
+ window.DEEN_CONTENT_ENRICHMENT_V867={
+  version:VERSION,build:BUILD,target:TARGET,ids:ITEMS.map(x=>x.id),install,
+  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,beforeCount,afterCount,formats:['fill_blank','match','scenario','odd_one_out','card'],concepts:['u01-final-ethics','u01-final-core-map','u01-final-faith-worship-ethics','u01-final-guidance','u01-final-summary']})
+ };
+})();
+</script>
+
+<!-- DEEN v8.6.8 — U01 S02 Content Enrichment -->
+<script id="deen-v868-u01-s02-runtime">
+(()=>{
+ if(window.__deenV868U01S02)return;window.__deenV868U01S02=true;
+ const VERSION='8.6.8-U01-S02-CONTENT-ENRICHMENT',BUILD='868u01s02',TARGET='U01-S02';
+ const BASE_FIX={
+  id:'DEEN-U01-S02-006',
+  question_tr:'Boşluğu tamamla: İbadetin amacı Allah’a ___ ve O’nun rızasını kazanmaktır.',
+  options_tr:['yakınlaşmak','uzaklaşmak','gösteriş yapmak','başkalarını etkilemek'],
+  correct_answer:'yakınlaşmak'
+ };
+ const ITEMS=[
+  {
+   id:'DEEN-U01-S02-015',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:2,
+   topic:'Müslüman kimliği',concept_id:'u01-s02-muslim-identity',
+   question_tr:'“Müslüman” kelimesini en doğru anlatan kart hangisi?',
+   options_tr:[
+    'İslam’ı benimseyen kişi',
+    'Belirli bir ülkede doğan kişi',
+    'Sadece Arapça konuşan kişi',
+    'Yalnızca belirli bir kültüre ait kişi'
+   ],
+   correct_answer:'İslam’ı benimseyen kişi',
+   explanation_tr:'Bu ünitede Müslüman kimliği bir ülke, dil veya millete değil İslam’ı benimsemeye bağlanıyor.',
+   source_reference:'DEEN U01-S02 mevcut içerik',source_evidence_note:'U01-S02-001 ve U01-S02-005 içindeki Müslüman kavramını kart seçim formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Yeni bir dinî hüküm eklemez; mevcut kavram tanımını farklı formatta ölçer.'
+  },
+  {
+   id:'DEEN-U01-S02-016',stage_id:TARGET,unit_id:'U01',type:'scenario',question_type:'scenario',activity_type:'scenario',difficulty:2,
+   topic:'Müslüman kimliği',concept_id:'u01-s02-muslim-identity',
+   question_tr:'Bir arkadaşın “Müslüman olmak için belli bir milletten gelmek gerekir.” diyor. Bu ünitedeki bilgiye göre en uygun cevap hangisi?',
+   options_tr:[
+    'Hayır; İslam’ı benimsemek belirli bir millete bağlı değildir.',
+    'Evet; Müslümanlık yalnızca tek bir millete aittir.',
+    'Sadece aynı dili konuşanlar Müslüman olabilir.',
+    'Müslümanlık yalnızca doğum yerine göre belirlenir.'
+   ],
+   correct_answer:'Hayır; İslam’ı benimsemek belirli bir millete bağlı değildir.',
+   explanation_tr:'Ünitenin temel çerçevesinde Müslüman kimliği belirli bir soy, ülke veya millet şartına bağlanmıyor.',
+   source_reference:'DEEN U01 mevcut içerik',source_evidence_note:'U01-S02-001 ve U01-S02-005 kavramını U01 içindeki evrensellik vurgusuyla günlük konuşma senaryosunda tekrar ölçer.',source_urls:[],
+   terminology_note:'Mevcut U01 kazanımını uygular; yeni dinî ayrıntı eklemez.'
+  },
+  {
+   id:'DEEN-U01-S02-017',stage_id:TARGET,unit_id:'U01',type:'odd_one_out',question_type:'odd_one_out',activity_type:'odd_one_out',difficulty:2,
+   topic:'İman, ibadet ve ahlak kavramları',concept_id:'u01-s02-core-concepts',
+   question_tr:'Üç açıklama bu ünitedeki kavramlarla uyumlu. Hangisi uyumlu değildir?',
+   options_tr:[
+    'İman: kalben inanma ve kabul etme ile ilgilidir.',
+    'İbadet: Allah’a kulluk yönü taşıyan davranışlarla ilgilidir.',
+    'Ahlak: davranış ve tutumlarla ilgilidir.',
+    'Müslümanlık: yalnızca belirli bir millete ait olmaktır.'
+   ],
+   correct_answer:'Müslümanlık: yalnızca belirli bir millete ait olmaktır.',
+   explanation_tr:'İlk üç ifade bölümdeki iman, ibadet ve ahlak ayrımına uygundur; Müslüman kimliği ise belirli bir millete bağlanmaz.',
+   source_reference:'DEEN U01-S02 mevcut içerik',source_evidence_note:'U01-S02-002, U01-S02-004, U01-S02-014 ve Müslüman kavramını tek hata avı etkinliğinde karşılaştırır.',source_urls:[],
+   terminology_note:'Mevcut kavram açıklamalarını karşılaştırır; yeni hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S02-018',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:2,
+   topic:'İman, ibadet ve ahlak ilişkisi',concept_id:'u01-s02-core-concepts',
+   question_tr:'İman, ibadet ve ahlak arasındaki ilişkiyi en iyi hangi kart anlatır?',
+   options_tr:[
+    'Farklı kavramlardır ama birbirinden tamamen kopuk değildir.',
+    'Üçü tam olarak aynı kavramdır.',
+    'Birbirleriyle hiçbir ilişkileri yoktur.',
+    'Sadece ahlak önemlidir; diğer ikisi gereksizdir.'
+   ],
+   correct_answer:'Farklı kavramlardır ama birbirinden tamamen kopuk değildir.',
+   explanation_tr:'Bölümde iman, ibadet ve ahlak birbirine eşitlenmeden aralarındaki bağın fark edilmesi hedefleniyor.',
+   source_reference:'DEEN U01-S02 mevcut içerik',source_evidence_note:'U01-S02-011 ve U01-S02-012 içindeki ilişki kazanımını büyük kart formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Mevcut ünite ilişkisini yeniden ifade eder; yeni dinî hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S02-019',stage_id:TARGET,unit_id:'U01',type:'scenario',question_type:'scenario',activity_type:'scenario',difficulty:2,
+   topic:'Kur’an ve peygamber rehberliği',concept_id:'u01-s02-guidance',
+   question_tr:'Bir arkadaşın “Kur’an ve peygamber bu ünitede neden birlikte anlatılıyor?” diye soruyor. En uygun cevap hangisi?',
+   options_tr:[
+    'Kur’an temel rehberdir; Hz. Muhammed de peygamber ve örnek rehberdir.',
+    'İkisi de yalnızca tarih öğrenmek içindir.',
+    'Kur’an günlük hayatla ilgili değildir.',
+    'Peygamberin rehberliği sadece yaşadığı dönemle sınırlıdır.'
+   ],
+   correct_answer:'Kur’an temel rehberdir; Hz. Muhammed de peygamber ve örnek rehberdir.',
+   explanation_tr:'Ünitede Kur’an temel rehber, Hz. Muhammed ise peygamber ve örnek rehber olarak ele alınıyor.',
+   source_reference:'DEEN U01-S02 mevcut içerik',source_evidence_note:'U01-S02-009 ve U01-S02-010 içindeki Kur’an ve peygamber rollerini senaryo formatında birlikte ölçer.',source_urls:[],
+   terminology_note:'Mevcut bölümdeki rehberlik rollerini birleştirir; yeni dinî ayrıntı eklemez.'
+  },
+  {
+   id:'DEEN-U01-S02-020',stage_id:TARGET,unit_id:'U01',type:'odd_one_out',question_type:'odd_one_out',activity_type:'odd_one_out',difficulty:3,
+   topic:'Kur’an ve peygamber rehberliği',concept_id:'u01-s02-guidance',
+   question_tr:'Üç ifade bölümdeki rehberlik anlayışıyla uyumlu. Hangisi uyumlu değildir?',
+   options_tr:[
+    'Kur’an Müslümanlar için temel rehberdir.',
+    'Hz. Muhammed peygamber ve örnek rehberdir.',
+    'Kur’an ve peygamber bilgisi davranışları anlamaya da yardım eder.',
+    'Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır.'
+   ],
+   correct_answer:'Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır.',
+   explanation_tr:'Ünitede Kur’an yalnızca geçmiş bilgisi veren bir metin olarak değil, Müslümanlar için rehber olarak ele alınıyor.',
+   source_reference:'DEEN U01 mevcut içerik',source_evidence_note:'U01-S02-009 ve U01-S02-010 içindeki rehberlik kazanımını U01’deki Kur’an vurgusuyla hata avı formatında tekrar ölçer.',source_urls:[],
+   terminology_note:'Mevcut U01 içeriğini karşılaştırır; yeni dinî hüküm eklemez.'
+  }
+ ];
+ let installed=false,added=0,beforeCount=0,afterCount=0,attempts=0,baseFixed=0;
+ function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){};if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:null}
+ function repairBase(q){
+  const item=q.find(x=>String(x?.id||'')===BASE_FIX.id);if(!item)return false;
+  const changed=String(item.question_tr||'')!==BASE_FIX.question_tr||String(item.correct_answer||'')!==BASE_FIX.correct_answer||!Array.isArray(item.options_tr)||item.options_tr.length!==BASE_FIX.options_tr.length||item.options_tr.some((v,i)=>String(v)!==BASE_FIX.options_tr[i]);
+  item.question_tr=BASE_FIX.question_tr;item.options_tr=[...BASE_FIX.options_tr];item.correct_answer=BASE_FIX.correct_answer;
+  if(changed)baseFixed++;
+  return true;
+ }
+ function install(){
+  attempts++;const q=bank();if(!q)return false;
+  repairBase(q);
+  beforeCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;
+  const ids=new Set(q.map(x=>String(x?.id||'')));
+  ITEMS.forEach(item=>{if(!ids.has(item.id)){q.push({...item,options_tr:Array.isArray(item.options_tr)?[...item.options_tr]:item.options_tr,source_urls:Array.isArray(item.source_urls)?[...item.source_urls]:[]});ids.add(item.id);added++}});
+  afterCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;installed=true;
+  document.documentElement.dataset.deenU01S02Enrichment='ready';
+  try{document.dispatchEvent(new CustomEvent('deen:content:enriched',{detail:{version:VERSION,build:BUILD,target:TARGET,added,baseFixed,ids:ITEMS.map(x=>x.id)}}))}catch(_){}
+  setTimeout(()=>{try{window.DEEN_QUESTION_COVERAGE?.scan?.()}catch(_){}},0);
+  return true;
+ }
+ [0,120,420,1000,2200].forEach(ms=>setTimeout(()=>{if(!installed)install()},ms));
+ window.DEEN_CONTENT_ENRICHMENT_V868={
+  version:VERSION,build:BUILD,target:TARGET,ids:ITEMS.map(x=>x.id),install,
+  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,baseFixed,beforeCount,afterCount,formats:['card','scenario','odd_one_out'],conceptPairs:['u01-s02-muslim-identity','u01-s02-core-concepts','u01-s02-guidance']})
+ };
+})();
+</script>
+
+<!-- DEEN v8.6.9 — U01 S01 Content Enrichment -->
+<script id="deen-v869-u01-s01-runtime">
+(()=>{
+ if(window.__deenV869U01S01)return;window.__deenV869U01S01=true;
+ const VERSION='8.6.9-U01-S01-CONTENT-ENRICHMENT',BUILD='869u01s01',TARGET='U01-S01';
+ const ITEMS=[
+  {
+   id:'DEEN-U01-S01-015',stage_id:TARGET,unit_id:'U01',type:'match',question_type:'match',activity_type:'matching',difficulty:1,
+   topic:'Temel İslam kavramları',concept_id:'u01-s01-core-concepts',
+   question_tr:'İlk kavram haritasını tamamla: kavramları doğru açıklamalarla eşleştir.',
+   pairs:[
+    {left:'İslam',right:'Allah’a teslimiyet ve kulluk merkezli yaşam anlayışı'},
+    {left:'Müslüman',right:'İslam’ı benimseyen kişi'},
+    {left:'İman',right:'Kalben inanma ve kabul etme'},
+    {left:'Ahlak',right:'Davranış ve tutumlarla ilgili alan'}
+   ],
+   explanation_tr:'Bu dört kavram ünitenin girişinde birbirinden ayrılarak tanıtılıyor; amaç kavramları karıştırmadan temel anlamlarını eşleştirmek.',
+   source_reference:'DEEN U01-S01 mevcut içerik',source_evidence_note:'U01-S01-001, U01-S01-004, U01-S01-008 ve U01-S01-007/014 içindeki temel kavramları eşleştirme formatında toplar.',source_urls:[],
+   terminology_note:'Yeni dinî hüküm eklemez; mevcut giriş kavramlarını farklı formatta ölçer.'
+  },
+  {
+   id:'DEEN-U01-S01-016',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:1,
+   topic:'İslam’ın merkezindeki fikir',concept_id:'u01-s01-islam-meaning',
+   question_tr:'İslam’ın temelindeki fikri en iyi hangi kart anlatır?',
+   options_tr:[
+    'Allah’a teslimiyet ve kulluk',
+    'Belirli bir millete ait olmak',
+    'Sadece tarih bilgisi öğrenmek',
+    'Yalnızca tek bir ibadeti yapmak'
+   ],
+   correct_answer:'Allah’a teslimiyet ve kulluk',
+   explanation_tr:'Ünite girişinde İslam’ın temelinde Allah’a teslimiyet ve kulluk düşüncesi vurgulanıyor.',
+   source_reference:'DEEN U01-S01 mevcut içerik',source_evidence_note:'U01-S01-001 ve U01-S01-006 içindeki teslimiyet/kulluk kazanımını kart seçimiyle yeniden ölçer.',source_urls:[],
+   terminology_note:'Mevcut ünite ifadesini kullanır; yeni dinî ayrıntı eklemez.'
+  },
+  {
+   id:'DEEN-U01-S01-017',stage_id:TARGET,unit_id:'U01',type:'scenario',question_type:'scenario',activity_type:'scenario',difficulty:2,
+   topic:'Müslüman kimliği',concept_id:'u01-s01-muslim-identity',
+   question_tr:'Yeni tanıştığın biri “Müslüman olmak belirli bir ülke veya millete bağlı mı?” diye soruyor. En uygun cevap hangisi?',
+   options_tr:[
+    'Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.',
+    'Evet; yalnızca belirli bir ülkede doğanlar Müslüman olabilir.',
+    'Sadece aynı dili konuşanlar Müslüman olabilir.',
+    'Müslümanlık yalnızca kültürel kökene göre belirlenir.'
+   ],
+   correct_answer:'Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.',
+   explanation_tr:'Bu bölüm Müslüman kimliğini belirli bir ülke, millet veya kültüre değil İslam’ı benimsemeye bağlar.',
+   source_reference:'DEEN U01-S01 mevcut içerik',source_evidence_note:'U01-S01-004, U01-S01-005 ve U01-S01-014 içindeki Müslüman kimliği/evrensellik vurgusunu senaryoya dönüştürür.',source_urls:[],
+   terminology_note:'Mevcut U01-S01 kazanımını uygular; yeni hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S01-018',stage_id:TARGET,unit_id:'U01',type:'odd_one_out',question_type:'odd_one_out',activity_type:'odd_one_out',difficulty:2,
+   topic:'İbadet kavramı',concept_id:'u01-s01-worship',
+   question_tr:'Üç ifade bu bölümdeki ibadet anlayışıyla uyumlu. Hangisi uyumlu değildir?',
+   options_tr:[
+    'İbadet Allah’a kullukla ilgilidir.',
+    'İbadet yalnızca namazdan ibaret değildir.',
+    'Farklı kulluk davranışları ibadet kapsamında ele alınabilir.',
+    'İbadet sadece başkalarına iyi görünmek için yapılır.'
+   ],
+   correct_answer:'İbadet sadece başkalarına iyi görünmek için yapılır.',
+   explanation_tr:'Bölümde ibadet yalnızca namazla sınırlandırılmıyor ve kulluk yönüyle anlatılıyor; gösteriş amacı bu çerçeveyle uyumlu değildir.',
+   source_reference:'DEEN U01-S01 mevcut içerik',source_evidence_note:'U01-S01-009 ve U01-S01-010 içindeki ibadet kapsamını hata avı formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Yeni bir hüküm eklemez; mevcut ibadet çerçevesini karşılaştırır.'
+  },
+  {
+   id:'DEEN-U01-S01-019',stage_id:TARGET,unit_id:'U01',type:'true_false',question_type:'true_false',activity_type:'true_false',difficulty:1,
+   topic:'Kur’an ve rehberlik',concept_id:'u01-s01-guidance',
+   question_tr:'Kur’an Müslümanlar için temel bir rehberdir.',
+   options_tr:['Doğru','Yanlış'],correct_answer:'Doğru',
+   explanation_tr:'Ünite girişinde Kur’an’ın Müslümanlar için temel rehber olduğu özellikle vurgulanıyor.',
+   source_reference:'DEEN U01-S01 mevcut içerik',source_evidence_note:'U01-S01-012 içindeki Kur’an’ın önemi kazanımını tek bir düşük frekanslı doğru/yanlış etkileşimiyle ölçer.',source_urls:[],
+   terminology_note:'Mevcut bölüm bilgisini tekrar eder; yeni dinî hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S01-020',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:2,
+   topic:'Kur’an ve peygamber rehberliği',concept_id:'u01-s01-guidance',
+   question_tr:'Kur’an ve Hz. Muhammed’in bu ünitedeki rehberlik rolünü en iyi hangi kart özetler?',
+   options_tr:[
+    'Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.',
+    'İkisi de yalnızca geçmiş olayları öğrenmek içindir.',
+    'Kur’an günlük hayatla ilgisizdir; peygamberin örnekliği de yalnızca geçmiştedir.',
+    'Rehberlik yalnızca kültürel geleneklerden gelir.'
+   ],
+   correct_answer:'Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.',
+   explanation_tr:'Bölüm Kur’an’ı temel rehber, Hz. Muhammed’i ise peygamber ve örnek rehber olarak tanıtıyor.',
+   source_reference:'DEEN U01-S01 mevcut içerik',source_evidence_note:'U01-S01-012 ve U01-S01-013 içindeki Kur’an ve peygamber rehberliğini tek kart sorusunda birleştirir.',source_urls:[],
+   terminology_note:'Mevcut giriş içeriğini özetler; yeni dinî ayrıntı eklemez.'
+  }
+ ];
+ let installed=false,added=0,beforeCount=0,afterCount=0,attempts=0;
+ function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){};if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:null}
+ function install(){
+  attempts++;const q=bank();if(!q)return false;
+  beforeCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;
+  const ids=new Set(q.map(x=>String(x?.id||'')));
+  ITEMS.forEach(item=>{if(!ids.has(item.id)){q.push({...item,options_tr:Array.isArray(item.options_tr)?[...item.options_tr]:item.options_tr,pairs:Array.isArray(item.pairs)?item.pairs.map(p=>({...p})):item.pairs,source_urls:Array.isArray(item.source_urls)?[...item.source_urls]:[]});ids.add(item.id);added++}});
+  afterCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;installed=true;
+  document.documentElement.dataset.deenU01S01Enrichment='ready';
+  try{document.dispatchEvent(new CustomEvent('deen:content:enriched',{detail:{version:VERSION,build:BUILD,target:TARGET,added,ids:ITEMS.map(x=>x.id)}}))}catch(_){}
+  setTimeout(()=>{try{window.DEEN_QUESTION_COVERAGE?.scan?.()}catch(_){}},0);
+  return true;
+ }
+ [0,120,420,1000,2200].forEach(ms=>setTimeout(()=>{if(!installed)install()},ms));
+ window.DEEN_CONTENT_ENRICHMENT_V869={
+  version:VERSION,build:BUILD,target:TARGET,ids:ITEMS.map(x=>x.id),install,
+  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,beforeCount,afterCount,formats:['match','card','scenario','odd_one_out','true_false'],conceptPairs:['u01-s01-core-concepts','u01-s01-islam-meaning','u01-s01-muslim-identity','u01-s01-worship','u01-s01-guidance']})
+ };
+})();
+</script>
+
+<!-- DEEN v8.7.0 — U01 S05 Content Enrichment -->
+<script id="deen-v870-u01-s05-runtime">
+(()=>{
+ if(window.__deenV870U01S05)return;window.__deenV870U01S05=true;
+ const VERSION='8.7.0-U01-S05-CONTENT-ENRICHMENT',BUILD='870u01s05',TARGET='U01-S05';
+ const ITEMS=[
+  {
+   id:'DEEN-U01-S05-017',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:2,
+   topic:'İslam ve yaşam anlayışı',concept_id:'u01-s05-life-framework',
+   question_tr:'İslam’ın bu ünitede anlatılan yaşam anlayışını en iyi hangi kart özetler?',
+   options_tr:[
+    'İman, ibadet ve ahlakı birlikte ele alan bir yaşam anlayışı',
+    'Sadece belirli ibadetlerden oluşan dar bir alan',
+    'Yalnızca belirli bir kültüre ait gelenek',
+    'Günlük hayatla ilgisi olmayan tarih bilgisi'
+   ],
+   correct_answer:'İman, ibadet ve ahlakı birlikte ele alan bir yaşam anlayışı',
+   explanation_tr:'Bu aşamada İslam; iman, ibadet ve ahlak arasında bağ kuran ve günlük hayata da yansıyan bir çerçevede ele alınıyor.',
+   source_reference:'DEEN U01-S05 mevcut içerik',source_evidence_note:'U01-S05-001, U01-S05-005, U01-S05-011 ve U01-S05-013 içindeki mevcut kazanımları kart seçimiyle birlikte ölçer.',source_urls:[],
+   terminology_note:'Yeni dinî hüküm eklemez; mevcut S05 kazanımlarını özetler.'
+  },
+  {
+   id:'DEEN-U01-S05-018',stage_id:TARGET,unit_id:'U01',type:'odd_one_out',question_type:'odd_one_out',activity_type:'odd_one_out',difficulty:2,
+   topic:'İman ve davranış ilişkisi',concept_id:'u01-s05-faith-action',
+   question_tr:'Üç ifade bu bölümdeki iman ve davranış anlayışıyla uyumlu. Hangisi uyumlu değildir?',
+   options_tr:[
+    'İman yalnızca dışarıdan görülen davranışlarla ölçülemez.',
+    'İman kalben inanmayla da ilgilidir.',
+    'Davranışlar inancın hayata yansımasına yardım edebilir.',
+    'İman sadece insanların dışarıdan gördüğü davranışlardan ibarettir.'
+   ],
+   correct_answer:'İman sadece insanların dışarıdan gördüğü davranışlardan ibarettir.',
+   explanation_tr:'Bölümde iman yalnızca dışarıdan görülen davranışlara indirgenmiyor; kalpte inanma ve bunun hayata yansıması birlikte ele alınıyor.',
+   source_reference:'DEEN U01-S05 mevcut içerik',source_evidence_note:'U01-S05-003 ve U01-S05-013 içindeki iman-davranış ilişkisinin hata avı formatında yeniden ölçümüdür.',source_urls:[],
+   terminology_note:'Mevcut bölüm anlatımını karşılaştırır; yeni hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S05-019',stage_id:TARGET,unit_id:'U01',type:'scenario',question_type:'scenario',activity_type:'scenario',difficulty:3,
+   topic:'İbadet ve günlük sorumluluk',concept_id:'u01-s05-worship-ethics',
+   question_tr:'Bir arkadaşın “İbadetlerimi yapıyorum; insanlara karşı nasıl davrandığımın pek önemi yok.” diyor. Bu ünitedeki anlayışa göre en uygun cevap hangisi?',
+   options_tr:[
+    'İbadet önemlidir; güzel ahlak ve insanlara karşı sorumluluk da önemlidir.',
+    'İbadet varsa davranışların hiçbir önemi yoktur.',
+    'Ahlak yalnızca ibadet etmeyenler için gereklidir.',
+    'İnsanlara karşı davranışlar dinî hayatla tamamen ilgisizdir.'
+   ],
+   correct_answer:'İbadet önemlidir; güzel ahlak ve insanlara karşı sorumluluk da önemlidir.',
+   explanation_tr:'Bu bölüm ibadet ile ahlakı aynı şey saymıyor; ancak insanlara karşı sorumlulukları dinî yaşamdan tamamen kopuk da görmüyor.',
+   source_reference:'DEEN U01-S05 mevcut içerik',source_evidence_note:'U01-S05-014 ve U01-S05-016 içindeki ibadet-ahlak bağlantısını günlük konuşma senaryosunda yeniden ölçer.',source_urls:[],
+   terminology_note:'Mevcut S05 çerçevesini uygular; yeni dinî hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S05-020',stage_id:TARGET,unit_id:'U01',type:'true_false',question_type:'true_false',activity_type:'true_false',difficulty:2,
+   topic:'Kur’an ve günlük yaşam',concept_id:'u01-s05-guidance',
+   question_tr:'Kur’an’ın rehberliği günlük yaşam ve davranışlarla da ilişkilidir.',
+   options_tr:['Doğru','Yanlış'],correct_answer:'Doğru',
+   explanation_tr:'Bu aşamada Kur’an yalnızca geçmişe ait bilgi olarak değil, günlük yaşamda da rehberlik eden temel kaynak olarak ele alınıyor.',
+   source_reference:'DEEN U01-S05 mevcut içerik',source_evidence_note:'U01-S05-011 içindeki mevcut kazanımı düşük frekanslı doğru/yanlış formatında yeniden ölçer.',source_urls:[],
+   terminology_note:'Mevcut bölüm bilgisini tekrar eder; yeni hüküm eklemez.'
+  },
+  {
+   id:'DEEN-U01-S05-021',stage_id:TARGET,unit_id:'U01',type:'card',question_type:'card',activity_type:'card_choice',difficulty:3,
+   topic:'Kur’an ve peygamber rehberliği',concept_id:'u01-s05-guidance',
+   question_tr:'Kur’an ve Hz. Muhammed’in bu ünitedeki rolünü en dengeli hangi kart anlatır?',
+   options_tr:[
+    'Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.',
+    'İkisi de yalnızca tarih öğrenmek için önemlidir.',
+    'Kur’an günlük yaşama yön vermez; peygamberin örnekliği de geçmişte kalmıştır.',
+    'Rehberlik yalnızca kişisel tercihlerden oluşur.'
+   ],
+   correct_answer:'Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.',
+   explanation_tr:'Bölüm Kur’an’ın rehberliğini ve Hz. Muhammed’in örnekliğini birlikte hatırlatıyor.',
+   source_reference:'DEEN U01-S05 mevcut içerik',source_evidence_note:'U01-S05-010, U01-S05-011 ve U01-S05-015 içindeki mevcut rehberlik kazanımlarını kart formatında birleştirir.',source_urls:[],
+   terminology_note:'Yalnızca mevcut U01 kavramlarını yeniden ölçer; yeni dinî ayrıntı eklemez.'
+  }
+ ];
+ let installed=false,added=0,beforeCount=0,afterCount=0,attempts=0;
+ function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){};if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:null}
+ function install(){
+  attempts++;const q=bank();if(!q)return false;
+  beforeCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;
+  const ids=new Set(q.map(x=>String(x?.id||'')));
+  ITEMS.forEach(item=>{if(!ids.has(item.id)){q.push({...item,options_tr:Array.isArray(item.options_tr)?[...item.options_tr]:item.options_tr,source_urls:Array.isArray(item.source_urls)?[...item.source_urls]:[]});ids.add(item.id);added++}});
+  afterCount=q.filter(x=>String(x?.stage_id||x?.stageId||'')===TARGET).length;installed=true;
+  document.documentElement.dataset.deenU01S05Enrichment='ready';
+  try{document.dispatchEvent(new CustomEvent('deen:content:enriched',{detail:{version:VERSION,build:BUILD,target:TARGET,added,ids:ITEMS.map(x=>x.id)}}))}catch(_){}
+  setTimeout(()=>{try{window.DEEN_QUESTION_COVERAGE?.scan?.()}catch(_){}},0);
+  return true;
+ }
+ [0,120,420,1000,2200].forEach(ms=>setTimeout(()=>{if(!installed)install()},ms));
+ window.DEEN_CONTENT_ENRICHMENT_V870={
+  version:VERSION,build:BUILD,target:TARGET,ids:ITEMS.map(x=>x.id),install,
+  check:()=>({version:VERSION,build:BUILD,ready:installed,target:TARGET,attempts,added,beforeCount,afterCount,formats:['card','odd_one_out','scenario','true_false'],conceptPairs:['u01-s05-life-framework','u01-s05-faith-action','u01-s05-worship-ethics','u01-s05-guidance']})
+ };
+})();
+</script>
+
+<!-- DEEN v8.7.1 — U01 Final QA -->
+<script id="deen-v871-u01-final-qa-runtime">
+(()=>{
+ if(window.__deenV871U01QA)return;window.__deenV871U01QA=true;
+ const VERSION='8.7.1-U01-FINAL-QA',BUILD='871u01qa1';
+ const STAGES=['U01-S01','U01-S02','U01-S03','U01-S04','U01-S05','U01-S06','U01-S07'];
+ const ALIAS={multiple_choice:'mcq',mcq:'mcq',choice:'mcq',card:'card',card_grid:'card',large_card:'card',true_false:'true_false',boolean:'true_false',fill_blank:'fill_blank',missing_item:'fill_blank',progressive_recall:'fill_blank',next_word:'fill_blank',matching:'match',match:'match',build_sequence:'sequence',sequence:'sequence',ordering:'sequence',scenario:'scenario',case:'scenario',error_spotting:'odd_one_out',odd_one_out:'odd_one_out',find_wrong:'odd_one_out',find_incorrect:'odd_one_out',wrong_one:'odd_one_out',spot_error:'odd_one_out',listening_select:'listen_select',listen_select:'listen_select',pronunciation:'pronunciation',speak:'pronunciation'};
+ let runs=0,lastReport=null;
+ function bank(){let q=[];try{if(Array.isArray(QUESTIONS))q=QUESTIONS}catch(_){};if(!q.length&&Array.isArray(window.QUESTIONS))q=window.QUESTIONS;return Array.isArray(q)?q:[]}
+ function type(q){try{const t=window.DEEN_LESSON_ORCHESTRATOR?.classify?.(q);if(t)return t}catch(_){};const raw=String(q?.type||q?.question_type||q?.activity_type||'').toLowerCase();if(ALIAS[raw])return ALIAS[raw];if(Array.isArray(q?.pairs))return'match';if(Array.isArray(q?.correct_order)||Array.isArray(q?.sequence))return'sequence';if(Array.isArray(q?.options_tr)||Array.isArray(q?.options))return'mcq';return'fill_blank'}
+ const stage=q=>String(q?.stage_id||q?.stageId||'');
+ const concept=q=>String(q?.concept_id||q?.knowledgeKey||q?.skill||q?.objective||q?.topic||'').trim();
+ const prompt=q=>String(q?.question_tr||q?.prompt||q?.question||'').trim();
+ const opts=q=>Array.isArray(q?.options_tr)?q.options_tr:Array.isArray(q?.options)?q.options:[];
+ const norm=s=>String(s||'').toLocaleLowerCase('tr-TR').replace(/[“”"'’.,!?;:()\[\]{}\-_/\\]/g,' ').replace(/\s+/g,' ').trim();
+ const tokens=s=>new Set(norm(s).split(' ').filter(x=>x.length>2));
+ function jaccard(a,b){const A=tokens(a),B=tokens(b);if(!A.size||!B.size)return 0;let i=0;A.forEach(x=>{if(B.has(x))i++});return i/(A.size+B.size-i)}
+ function duplicatePromptAudit(qs){
+  const exact=[],near=[],map=new Map();
+  qs.forEach(q=>{const n=norm(prompt(q));if(!n)return;const prev=map.get(n)||[];prev.forEach(p=>exact.push({a:p.id,b:q.id,stageA:stage(p),stageB:stage(q),text:prompt(q)}));prev.push(q);map.set(n,prev)});
+  for(let i=0;i<qs.length;i++)for(let j=i+1;j<qs.length;j++){
+   const a=qs[i],b=qs[j],pa=prompt(a),pb=prompt(b);if(pa.length<24||pb.length<24||norm(pa)===norm(pb))continue;
+   const sim=jaccard(pa,pb);if(sim<.82)continue;
+   const sameType=type(a)===type(b),ca=concept(a),cb=concept(b),sameConcept=!!ca&&ca===cb;
+   if(sameType||!sameConcept)near.push({a:a.id,b:b.id,stageA:stage(a),stageB:stage(b),similarity:Number(sim.toFixed(3)),sameType,sameConcept});
+  }
+  return{exact,near};
+ }
+ function itemAudit(q){
+  const issues=[],o=opts(q).map(x=>String(x||'').trim()),t=type(q),correct=String(q?.correct_answer??q?.answer??'').trim();
+  if(['mcq','card','true_false','fill_blank','scenario','odd_one_out','listen_select'].includes(t)){
+   if(o.length<2)issues.push('TOO_FEW_OPTIONS');
+   const n=o.map(norm);if(new Set(n).size!==n.length)issues.push('DUPLICATE_OPTIONS');
+   if(correct&&o.length&&!n.includes(norm(correct)))issues.push('CORRECT_NOT_IN_OPTIONS');
+   if(o.some(x=>x.length>120))issues.push('OPTION_TOO_LONG_MOBILE');
+   if(correct&&o.length>=3){const ci=o.findIndex(x=>norm(x)===norm(correct));if(ci>=0){const dl=o.filter((_,i)=>i!==ci).map(x=>Math.max(1,x.length));const avg=dl.reduce((a,b)=>a+b,0)/dl.length;if(correct.length>28&&correct.length>avg*2.6)issues.push('ANSWER_LENGTH_GIVEAWAY')}}
+  }
+  if(prompt(q).length>190)issues.push('PROMPT_TOO_LONG_MOBILE');
+  if(t==='match'&&Array.isArray(q?.pairs)){if(q.pairs.length>5)issues.push('TOO_MANY_MATCH_PAIRS');if(q.pairs.some(p=>String(p?.left||'').length>70||String(p?.right||'').length>70))issues.push('MATCH_TEXT_TOO_LONG')}
+  if(t==='sequence'){const arr=Array.isArray(q?.items)?q.items:Array.isArray(q?.correct_order)?q.correct_order:[];if(arr.length>6)issues.push('TOO_MANY_SEQUENCE_ITEMS')}
+  return issues;
+ }
+ function stageAudit(id,qs){
+  const pool=qs.filter(q=>stage(q)===id),counts={};pool.forEach(q=>counts[type(q)]=(counts[type(q)]||0)+1);
+  const unique=Object.keys(counts).length,n=pool.length,dominant=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0]||['none',0];
+  const flags=[];
+  if(n<10)flags.push({severity:'warning',code:'LOW_POOL',text:'Soru havuzu 10 etkileşimin altında.'});
+  if(n>=10&&unique<4)flags.push({severity:'critical',code:'LOW_FORMAT_VARIETY',text:'10+ etkileşimde 4 farklı formatın altında.'});
+  else if(n>=10&&unique<5)flags.push({severity:'warning',code:'FORMAT_VARIETY',text:'5 farklı formatın altında.'});
+  if(n&&dominant[1]/n>.55)flags.push({severity:'warning',code:'DOMINANT_FORMAT',text:dominant[0]+' oranı %'+Math.round(dominant[1]/n*100)+'.'});
+  if(n&&(counts.true_false||0)/n>.25)flags.push({severity:'warning',code:'TRUE_FALSE_HEAVY',text:'Doğru/Yanlış oranı %25 üstünde.'});
+  const cmap=new Map();pool.forEach(q=>{const c=concept(q);if(!c)return;const a=cmap.get(c)||[];a.push(type(q));cmap.set(c,a)});
+  let repeated=0,cross=0;for(const arr of cmap.values())if(arr.length>1){repeated++;if(new Set(arr).size>1)cross++}
+  if(repeated>=2&&cross/repeated<.5)flags.push({severity:'warning',code:'LOW_CROSS_FORMAT',text:'Tekrarlanan kazanımların yarısından azı farklı formatla ölçülüyor.'});
+  let planned=null;try{const p=window.DEEN_LESSON_ORCHESTRATOR?.plan?.(pool)||pool;planned=window.DEEN_LESSON_ORCHESTRATOR?.analyze?.(p)||null;if(planned?.immediateRepeats>0)flags.push({severity:'warning',code:'FLOW_REPEAT',text:'Planner sonrası ardışık format tekrarı kaldı.'})}catch(_){}
+  return{id,count:n,uniqueTypes:unique,counts,dominantType:dominant[0],dominantShare:n?Number((dominant[1]/n).toFixed(3)):0,repeatedConcepts:repeated,crossFormatConcepts:cross,crossFormatRate:repeated?Number((cross/repeated).toFixed(3)):null,planned,flags};
+ }
+ function run(){
+  const all=bank(),qs=all.filter(q=>/^U01-S0[1-7]$/.test(stage(q)));
