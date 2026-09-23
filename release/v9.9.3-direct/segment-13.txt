@@ -1,0 +1,1000 @@
+    if(p.challenge||p.key==='mastery_rehearsal'||p.key==='mixed_apply'){
+      // Accessible opening, harder ending.
+      return copy.sort((a,b)=>difficultyRank(a)-difficultyRank(b));
+    }
+    if(p.key==='active_recall'||p.key==='retrieve'||p.key==='listen_retrieve'){
+      return copy.sort((a,b)=>{
+        const ar=a.cognitive_level==='recall'?0:1,br=b.cognitive_level==='recall'?0:1;
+        return ar-br||difficultyRank(a)-difficultyRank(b);
+      });
+    }
+    return copy.sort((a,b)=>difficultyRank(a)-difficultyRank(b));
+  }
+  function choosePedagogical(d,lessonNo,overrideSeen=null){
+    const p=profile(d,lessonNo),m=mutableMeta(d),all=pool(d);
+    if(!all.length)return[];
+    const target=Math.min(p.target||5,all.length);
+    const seen=new Set(overrideSeen||m.seenIds||[]);
+    const chosen=[],used=new Set(),conceptUsed=new Set();
+
+    // Consume unseen material first. Repetition is a deliberate fallback only.
+    const unseen=all.filter(q=>!seen.has(q.id));
+    const seenPool=all.filter(q=>seen.has(q.id));
+    const rankList=list=>[...list].sort((a,b)=>score(b,p,seen,conceptUsed)-score(a,p,seen,conceptUsed));
+    const unseenRanked=rankList(unseen);
+    const seenRanked=rankList(seenPool);
+    const unseenPreferred=unseenRanked.filter(q=>p.types.includes(q.activity_type)||p.cog.includes(q.cognitive_level));
+    const allPreferred=[...unseenPreferred,...seenRanked.filter(q=>p.types.includes(q.activity_type)||p.cog.includes(q.cognitive_level))];
+
+    function add(q){
+      if(!q||used.has(q.id)||chosen.length>=target)return false;
+      chosen.push(q);used.add(q.id);if(q.concept_id)conceptUsed.add(q.concept_id);return true;
+    }
+
+    const diversityGoal=Math.min(target,p.challenge?4:Math.min(3,new Set(allPreferred.map(q=>q.activity_type)).size));
+    for(const type of p.types){
+      if(chosen.length>=target||new Set(chosen.map(q=>q.activity_type)).size>=diversityGoal)break;
+      add(unseenPreferred.find(x=>x.activity_type===type&&!used.has(x.id)));
+    }
+
+    const conceptGoal=Math.min(target,p.challenge?5:3,new Set(all.map(q=>q.concept_id).filter(Boolean)).size);
+    for(const q of unseenPreferred){
+      if(chosen.length>=target||conceptUsed.size>=conceptGoal)break;
+      if(!used.has(q.id)&&q.concept_id&&!conceptUsed.has(q.concept_id))add(q);
+    }
+
+    for(const q of unseenPreferred){if(chosen.length>=target)break;add(q)}
+    for(const q of unseenRanked){if(chosen.length>=target)break;add(q)}
+
+    if(chosen.length<target){
+      const repeatRanked=[...seenRanked].sort((a,b)=>{
+        if(p.adaptive){const dw=weakness(b)-weakness(a);if(dw)return dw}
+        return score(b,p,seen,conceptUsed)-score(a,p,seen,conceptUsed);
+      });
+      for(const q of repeatRanked){if(chosen.length>=target)break;add(q)}
+    }
+
+    return orderQuestions(chosen,p).slice(0,target);
+  }
+  function nextLessonNo(d){
+    const m=mutableMeta(d);
+    return Math.max(1,Math.min(d.lessons,m.completedLessons+1));
+  }
+  function lessonRoadmap(d){
+    const m=mutableMeta(d),arr=phaseList(d);
+    return arr.slice(0,d.lessons).map((p,i)=>({
+      no:i+1,title:p.title,goal:p.goal,
+      done:i<m.completedLessons,
+      current:i===Math.min(d.lessons-1,m.completedLessons),
+      target:p.target
+    }));
+  }
+  function roadmapHtml(d){
+    return `<div class="v631-preview-plan">${lessonRoadmap(d).map(x=>`<div class="v631-preview-step ${x.done?'done':x.current?'current':''}"><span class="n">${x.done?'✓':x.no}</span><div><b>${esc(x.title)}</b><small>${esc(x.goal)}</small></div><span class="tag">${x.target} SORU</span></div>`).join('')}</div>`;
+  }
+  function decorateCards(){
+    document.querySelectorAll('.v630-stage-card[data-stage-card]').forEach(card=>{
+      const d=defById(card.dataset.stageCard);if(!d)return;
+      const m=mutableMeta(d),no=nextLessonNo(d),p=profile(d,no);
+      const small=card.querySelector('small');
+      const prog=card.querySelector('.v630-progress b');
+      if(state.completed.includes(d.legacyIds.at(-1))&&m.completedLessons>=d.lessons){
+        if(small)small.textContent=`${d.lessons}/${d.lessons} mini ders · öğrenme zinciri tamamlandı`;
+        if(prog)prog.textContent='Aşama tamamlandı';
+      }else{
+        if(small){small.classList.add('v631-next-label');small.textContent=`Sıradaki: ${p.title} · ${p.goal}`}
+        if(prog)prog.textContent=d.kind==='challenge'?'Ünite Challenge':`Ders ${no}/${d.lessons} · ${p.title}`;
+      }
+    });
+  }
+
+  // Replace macro preview with an explicit pedagogical roadmap.
+  window.previewMacro=function(id){
+    const d=defById(id);if(!d)return;
+    const st=window.DEEN_FIVE_STAGE.state(id),m=mutableMeta(d),no=nextLessonNo(d),p=profile(d,no);
+    const qs=choosePedagogical(d,no);
+    const prev=d.index>0?window.DEEN_FIVE_STAGE.defs(d.unit)[d.index-1]:null;
+    const reason=prev?`Önce “${prev.title}” aşamasını tamamla.`:'Önce bir önceki ünitenin son aşamasını tamamla.';
+    const body=`<div class="lp-preview-emblem">${st.locked?'⌑':d.kind==='challenge'?'✦':st.done?'✓':'✧'}</div>
+      <div class="v5-kicker">ÜNİTE ${Number(d.unit.slice(1))} · AŞAMA ${d.index+1}/5 · ${d.role}</div>
+      <p>${esc(DESC[Number(d.unit.slice(1))-1])}</p>
+      ${roadmapHtml(d)}
+      <div class="v630-preview-list">
+        <div><span>Sıradaki mini ders</span><b>${esc(p.title)}</b></div>
+        <div><span>Hedef</span><b>${qs.length||p.target} soru</b></div>
+        <div><span>Aşama ilerlemesi</span><b>${m.completedLessons}/${d.lessons}</b></div>
+      </div>
+      ${st.locked?`<p><b>Neden kilitli?</b><br>${esc(reason)}</p>`:
+        !qs.length?`<p><b>Bu aşama için doğrulanmış medya gerekiyor.</b><br>Bağlantı gelene kadar enerji harcanmaz.</p>`:
+        primary(st.done?'PEKİŞTİRMEYE BAŞLA':m.completedLessons?'KALDIĞIN YERDEN DEVAM':'AŞAMAYA BAŞLA',`closeSheet();startMacroStage('${d.id}')`)}
+      <p class="v5-muted">Her mini ders bir öncekinin üzerine kurulur; soru seçimi sadece rastgele değildir.</p>`;
+    sheet(st.locked?'Bu aşama henüz kilitli':d.title,body);
+  };
+
+  // Start macro stages using the new pedagogical composer.
+  window.startMacroStage=function(id,lessonNo=null){
+    const d=defById(id);if(!d)return;
+    const st=window.DEEN_FIVE_STAGE.state(id);
+    if(st.locked)return previewMacro(id);
+    const m=mutableMeta(d),no=Math.max(1,Math.min(d.lessons,Number(lessonNo)||nextLessonNo(d)));
+    const p=profile(d,no),qs=choosePedagogical(d,no);
+    if(!qs.length){
+      sheet('İnternet bağlantısı gerekiyor',
+        '<p>Bu aşama doğrulanmış medya kaynağını kullanır.</p><p>Bağlantı geldiğinde tekrar deneyebilirsin. Yapay/TTS dinî telaffuz kullanılmaz ve enerji harcanmaz.</p>'+
+        list('Öğrenme yoluna dön',"closeSheet();navigate('learnScreen')",'←'));
+      return;
+    }
+    if(!state.premium&&state.energy<d.energy){
+      if(window.DEEN_V624)DEEN_V624.pendingStage=id;
+      showEnergy();return;
+    }
+    if(!state.premium)state.energy-=d.energy;
+    qs.forEach(q=>{if(!m.seenIds.includes(q.id))m.seenIds.push(q.id)});
+    m.lastLessonNo=no;
+    m.lessonQuestionIds[String(no)]=qs.map(q=>q.id);
+    m.lessonConcepts[String(no)]=[...new Set(qs.map(q=>q.concept_id).filter(Boolean))];
+    session={
+      stage:{id:d.id,unit:d.unit,title:d.title,kind:d.kind,xp:d.xp,energy:d.energy,meta:d.role},
+      questions:qs,index:0,correct:0,combo:0,bestCombo:0,
+      macroStage:true,macroId:d.id,macroRole:d.role,macroDef:d,
+      lessonNo:no,lessonTotal:d.lessons,
+      pedagogyProfile:clone(p),
+      startedAt:Date.now(),previousStreak:state.streak,
+      beforeMastery:(()=>{try{
+        const defs=DEEN_FIVE_STAGE.defs(d.unit);
+        return Math.round(defs.reduce((s,x)=>{
+          const mm=mutableMeta(x),vals=Object.values(mm.lessonScores).map(Number).filter(Number.isFinite);
+          return s+(vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:0);
+        },0)/defs.length)
+      }catch(e){return 0}})(),
+      wasCompleted:st.done,v5responses:[]
+    };
+    $('lesson').classList.add('active');$('quizView').style.display='flex';
+    resetResultView(false);setLessonStatus(false);saveState();updateUI();renderQuestion();
+  };
+
+  function objectiveBar(){$('v631Objective')?.remove(); if($('qStage')) $('qStage').textContent=session?.stage?.title||'DEEN'}
+
+  const oldRenderQuestion=window.renderQuestion;
+  window.renderQuestion=function(...args){
+    const r=oldRenderQuestion.apply(this,args);
+    try{objectiveBar()}catch(e){console.warn('V6.3.1 objective',e)}
+    return r;
+  };
+
+  const oldFinishLesson=window.finishLesson;
+  window.finishLesson=function(...args){
+    $('v631Objective')?.remove();
+    return oldFinishLesson.apply(this,args);
+  };
+
+  const oldRenderPaths=window.renderPaths;
+  window.renderPaths=function(...args){
+    const r=oldRenderPaths.apply(this,args);
+    try{decorateCards()}catch(e){console.warn('V6.3.1 path cards',e)}
+    return r;
+  };
+
+  const oldUpdateUI=window.updateUI;
+  window.updateUI=function(...args){
+    const r=oldUpdateUI.apply(this,args);
+    try{decorateCards();if(session?.macroStage)objectiveBar()}catch(e){console.warn('V6.3.1 updateUI',e)}
+    return r;
+  };
+
+  window.DEEN_PEDAGOGY={
+    version:'6.3.1',
+    profile:(id,lessonNo)=>{const d=defById(id);return d?clone(profile(d,lessonNo)):null},
+    roadmap:id=>{const d=defById(id);return d?clone(lessonRoadmap(d)):[]},
+    choose:(id,lessonNo,seen=[])=>{const d=defById(id);return d?choosePedagogical(d,lessonNo,seen):[]},
+    pool:id=>{const d=defById(id);return d?pool(d).map(q=>q.id):[]},
+    decorate:()=>decorateCards()
+  };
+
+  setTimeout(()=>{try{decorateCards()}catch(e){}},80);
+})();
+</script>
+
+
+
+<style id="deen-v632-pedagogy-css">
+/* DEEN v6.3.3 — Mini Lesson Pedagogical Flow + retention integrity hardening.
+   Keeps the v6.2.5 Living Learning Path geometry. */
+.v632-budget-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:10px 0 12px}
+.v632-budget-strip>div{border:1px solid #2c4e58;background:rgba(7,28,37,.78);border-radius:13px;padding:9px 7px;text-align:center}
+.v632-budget-strip b{display:block;color:#eff7f4;font-size:13px;line-height:1.1}.v632-budget-strip small{display:block;color:#8fa7ad;font-size:7px;letter-spacing:.7px;margin-top:4px}
+.v632-budget-note{margin:8px 0 0;padding:9px 10px;border-radius:12px;border:1px solid rgba(110,221,198,.16);background:rgba(19,70,67,.18);color:#b9d3cf;font-size:9px;line-height:1.45}
+.v631-objective .v632-objective-meta{display:flex;justify-content:space-between;gap:8px;margin-top:7px;color:#8fa9ad;font-size:8px;font-weight:800;letter-spacing:.3px}
+.v631-preview-step .tag.v632-repeat{border-color:#655b35;color:#dec987;background:rgba(75,60,24,.18)}
+@media(max-width:390px){.v632-budget-strip{gap:5px}.v632-budget-strip>div{padding:8px 5px}.v632-budget-strip b{font-size:12px}}
+</style>
+<script id="deen-v632-pedagogy-js">
+(() => {
+  if(window.__deenV632PedagogyApplied) return;
+  window.__deenV632PedagogyApplied=true;
+  window.DEEN_PEDAGOGY_VERSION='6.3.3';
+  window.DEEN_MINI_LESSON_FLOW_VERSION='6.3.3';
+
+  const UNIT_FIRST_PASS_TARGET=60;
+  const GENERIC_UNIQUE_CAPS=[14,20,16,6,4];
+  const U03_UNIQUE_CAPS=[14,14,14,13,5];
+  const PROFILES={
+    learn:[
+      {key:'easy_intro',title:'Çok Kolay Tanışma',goal:'Konuyla güvenli ve düşük eforlu bir ilk temas kur.',types:['multiple_choice','true_false','card_grid'],cog:['recognition'],dif:['easy'],target:5,accent:'#65e0ca'},
+      {key:'core_recognition',title:'Temel Kavram Tanıma',goal:'Ana kavramları örnekler ve karşıtları üzerinden tanı.',types:['multiple_choice','matching','true_false','missing_item'],cog:['recognition','recall'],dif:['easy','medium'],target:5,accent:'#76dfcd'},
+      {key:'controlled_recall',title:'Kontrollü Recall',goal:'İpuçları azalırken temel bilgiyi kontrollü biçimde geri çağır.',types:['fill_blank','progressive_recall','missing_item','multiple_choice'],cog:['recall','recognition'],dif:['easy','medium'],target:5,accent:'#d8c77e'}
+    ],
+    understand:[
+      {key:'distinguish',title:'Ayrım Yap',goal:'Yakın kavramları birbirinden ayır ve sınırlarını fark et.',types:['multiple_choice','matching','true_false','missing_item'],cog:['recognition','recall'],dif:['easy','medium'],target:5,accent:'#8aabff'},
+      {key:'match_verify',title:'Eşleştir & Doğrula',goal:'Kavramı doğru anlam, örnek veya ifadeyle eşleştir.',types:['matching','true_false','multiple_choice','missing_item'],cog:['recognition','recall'],dif:['easy','medium'],target:5,accent:'#9c91f2'},
+      {key:'fill_meaning',title:'Boşluğu Doldur',goal:'Kavramı görmeden eksik bilgiyi zihninden tamamla.',types:['fill_blank','progressive_recall','missing_item','multiple_choice'],cog:['recall'],dif:['easy','medium'],target:5,accent:'#c59ee6'},
+      {key:'mixed_concept',title:'Karma Kavram Kontrolü',goal:'Farklı soru biçimleriyle kavramsal anlayışını doğrula.',types:['multiple_choice','matching','fill_blank','error_spotting','scenario','true_false'],cog:['recall','application','recognition'],dif:['medium','hard'],target:5,accent:'#e1c47c'}
+    ],
+    apply:[
+      {key:'simple_scenario',title:'Basit Senaryo',goal:'Öğrendiğin ilkeyi açık ve basit bir duruma uygula.',types:['scenario','multiple_choice','true_false'],cog:['application','recognition'],dif:['easy','medium'],target:5,accent:'#63d7ba'},
+      {key:'daily_life',title:'Günlük Hayat',goal:'Bilgiyi günlük bir karar veya davranış bağlamında kullan.',types:['scenario','multiple_choice','error_spotting'],cog:['application'],dif:['medium','easy'],target:5,accent:'#55cfae'},
+      {key:'error_spotting',title:'Hatayı Yakala',goal:'Yanlış genellemeyi veya hatalı uygulamayı fark et.',types:['error_spotting','scenario','true_false','multiple_choice'],cog:['application','recall'],dif:['medium','hard'],target:5,accent:'#e0b96f'},
+      {key:'hard_application',title:'Zor Uygulama Karması',goal:'Farklı durumlarda bilgiyi daha bağımsız ve seçici kullan.',types:['scenario','error_spotting','multiple_choice','fill_blank','matching'],cog:['application','recall'],dif:['medium','hard'],target:5,accent:'#e2c47d'}
+    ],
+    recall3:[
+      {key:'blank_recall',title:'Boşluktan Hatırla',goal:'Cevabı görmeden bilgiyi zihninden geri çağır.',types:['fill_blank','progressive_recall','missing_item','true_false'],cog:['recall'],dif:['easy','medium'],target:6,accent:'#6bcfda',adaptive:true},
+      {key:'progressive_recall',title:'Aşamalı Hatırlama',goal:'İpuçlarını azaltarak daha bağımsız hatırlamaya geç.',types:['progressive_recall','fill_blank','matching','error_spotting','multiple_choice'],cog:['recall','application'],dif:['medium','hard'],target:6,accent:'#75cbd2',adaptive:true},
+      {key:'spaced_mix',title:'Aralıklı Karma Tekrar',goal:'Önceki mini derslerden karışık ve vadesi gelen bilgileri pekiştir.',types:['scenario','error_spotting','progressive_recall','multiple_choice','matching','fill_blank'],cog:['recall','application'],dif:['medium','hard'],target:6,accent:'#e5cf87',adaptive:true}
+    ],
+    recall4:[
+      {key:'blank_recall',title:'Boşluktan Hatırla',goal:'Cevabı görmeden temel yapıyı geri çağır.',types:['fill_blank','progressive_recall','missing_item','next_word'],cog:['recall'],dif:['easy','medium'],target:5,accent:'#6bcfda',adaptive:true},
+      {key:'progressive_recall',title:'Aşamalı Hatırlama',goal:'İpuçlarını azaltarak daha bağımsız hatırlamaya geç.',types:['progressive_recall','fill_blank','matching','build_sequence'],cog:['recall','application'],dif:['medium','easy'],target:5,accent:'#75cbd2',adaptive:true},
+      {key:'spaced_mix',title:'Aralıklı Karma Tekrar',goal:'Önceki derslerden karışık ve vadesi gelen bilgileri pekiştir.',types:['scenario','error_spotting','progressive_recall','multiple_choice','matching'],cog:['recall','application'],dif:['medium','hard'],target:5,accent:'#d8ad71',adaptive:true},
+      {key:'mastery_rehearsal',title:'Ustalık Provası',goal:'Challenge öncesi karma ve daha zor bir prova yap.',types:['scenario','error_spotting','build_sequence','progressive_recall','multiple_choice','matching'],cog:['application','recall'],dif:['medium','hard'],target:6,accent:'#e5cf87',adaptive:true}
+    ],
+    listen:[
+      {key:'listen_recognize',title:'Sesi Tanı',goal:'Resmî DiyanetTV kaydını dinleyerek ifadeyi tanı.',types:['listening_select','multiple_choice','true_false'],cog:['recognition'],dif:['easy','medium'],target:5,accent:'#66d5e6',audio:true},
+      {key:'listen_meaning',title:'Anlamı Seç',goal:'Dinlediğin ifadenin anlamını doğru seçenekle bağla.',types:['listening_meaning','listening_select','multiple_choice'],cog:['recognition','recall'],dif:['easy','medium'],target:5,accent:'#70cadf',audio:true},
+      {key:'listen_distinguish',title:'Dinle ve Ayırt Et',goal:'Benzer parçalar arasında duyduğun ifadeyi doğru biçimde ayırt et.',types:['listening_select','listening_meaning','true_false','multiple_choice'],cog:['recognition','recall'],dif:['medium','easy'],target:5,accent:'#7fc7dc',audio:true},
+      {key:'listen_recall',title:'Dinle ve Hatırla',goal:'Dinledikten sonra ifadeyi ve anlamını daha az ipucuyla geri çağır.',types:['listening_meaning','listening_select','fill_blank','multiple_choice'],cog:['recall','application'],dif:['medium','hard'],target:5,accent:'#dfc979',audio:true}
+    ],
+    mastery:[
+      {key:'mastery',title:'Ünite Challenge',goal:'Recognition, recall ve application karışımıyla üniteni ustalık seviyesinde sınırla.',types:['scenario','error_spotting','progressive_recall','multiple_choice','matching','fill_blank','true_false','build_sequence'],cog:['application','recall','recognition'],dif:['medium','hard','easy'],target:10,accent:'#e8cf78',adaptive:true,challenge:true}
+    ]
+  };
+
+  function clone(x){try{return JSON.parse(JSON.stringify(x))}catch(e){return x}}
+  function esc2(s){return typeof esc==='function'?esc(String(s??'')):String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]))}
+  function defs(u){return window.DEEN_FIVE_STAGE?.defs?.(u)||[]}
+  function defById(id){return window.DEEN_FIVE_STAGE?.all?.().find(d=>d.id===id)||null}
+  function stageNo(id){const m=String(id||'').match(/-S(\d{2})$/);return m?Number(m[1]):99}
+  function stageMax(d){return Math.max(...d.legacyIds.map(stageNo))}
+  function allUnitQuestions(u){return QUESTIONS.filter(q=>q.stage_id?.startsWith(u+'-'))}
+  function stageQuestions(d){const ids=new Set(d.legacyIds);return QUESTIONS.filter(q=>ids.has(q.stage_id))}
+  function safe(q){return !!q && !(typeof audioBlocked==='function'&&audioBlocked(q))}
+  function safeStageQuestions(d){return stageQuestions(d).filter(safe)}
+  function safeUnitQuestions(u){return allUnitQuestions(u).filter(safe)}
+  function profileList(d){
+    if(d.kind==='challenge'||d.role==='USTALAŞ')return PROFILES.mastery;
+    if(d.kind==='audio'||d.role==='DİNLE')return PROFILES.listen;
+    if(d.role==='ÖĞREN')return PROFILES.learn;
+    if(d.role==='ANLA')return PROFILES.understand;
+    if(d.role==='UYGULA')return PROFILES.apply;
+    if(d.role==='HATIRLA')return d.lessons>=4?PROFILES.recall4:PROFILES.recall3;
+    return PROFILES.learn;
+  }
+  function profile(d,no){const a=profileList(d);return a[Math.max(0,Math.min(a.length-1,(Number(no)||1)-1))]||a[0]}
+  function uniqueCap(d){return (d.unit==='U03'?U03_UNIQUE_CAPS:GENERIC_UNIQUE_CAPS)[d.index]??4}
+  function lessonNewQuota(d,no){const cap=uniqueCap(d),base=Math.floor(cap/d.lessons),rem=cap%d.lessons;return base+(Number(no)<=rem?1:0)}
+  function macroMeta(d){
+    state.macroStageMeta=state.macroStageMeta&&typeof state.macroStageMeta==='object'?state.macroStageMeta:{};
+    const m=state.macroStageMeta[d.id]&&typeof state.macroStageMeta[d.id]==='object'?state.macroStageMeta[d.id]:{};
+    m.completedLessons=Math.max(0,Math.min(d.lessons,Number(m.completedLessons)||0));
+    m.lessonScores=m.lessonScores&&typeof m.lessonScores==='object'?m.lessonScores:{};
+    m.seenIds=Array.isArray(m.seenIds)?m.seenIds:[];
+    m.lessonQuestionIds=m.lessonQuestionIds&&typeof m.lessonQuestionIds==='object'?m.lessonQuestionIds:{};
+    m.lessonConcepts=m.lessonConcepts&&typeof m.lessonConcepts==='object'?m.lessonConcepts:{};
+    m.totalLessons=d.lessons;
+    state.macroStageMeta[d.id]=m;return m;
+  }
+  function ensureState(s=state){
+    if(!s||typeof s!=='object')return s;
+    s.unitPedagogyMeta=s.unitPedagogyMeta&&typeof s.unitPedagogyMeta==='object'?s.unitPedagogyMeta:{};
+    for(let n=1;n<=15;n++){
+      const u='U'+String(n).padStart(2,'0');
+      const raw=s.unitPedagogyMeta[u]&&typeof s.unitPedagogyMeta[u]==='object'?s.unitPedagogyMeta[u]:{};
+      raw.firstPassTarget=UNIT_FIRST_PASS_TARGET;
+      raw.firstPassSeenIds=Array.isArray(raw.firstPassSeenIds)?raw.firstPassSeenIds:[];
+      raw.firstPassSeenIds=[...new Set(raw.firstPassSeenIds.filter(id=>QMAP?.has?.(id)||QUESTIONS.some(q=>q.id===id)))];
+      raw.firstPassStartedAt=Number(raw.firstPassStartedAt)||0;
+      raw.firstPassCompletedAt=Number(raw.firstPassCompletedAt)||0;
+      raw.version='6.3.3';
+      s.unitPedagogyMeta[u]=raw;
+    }
+    s.pedagogyFlowVersion='6.3.3';
+    s.stateVersion=Math.max(10,Number(s.stateVersion)||0);
+    return s;
+  }
+  function unitMeta(u){ensureState();return state.unitPedagogyMeta[u]}
+  function rebuildExposureFromAssignments(){
+    ensureState();
+    for(let n=1;n<=15;n++){
+      const u='U'+String(n).padStart(2,'0'),um=unitMeta(u);
+      if(um.firstPassSeenIds.length)continue;
+      const ids=[];
+      for(const d of defs(u)){
+        const m=macroMeta(d),maxLesson=Math.max(m.completedLessons,Math.min(d.lessons,Number(m.lastLessonNo)||0));
+        for(let i=1;i<=maxLesson;i++) for(const id of (m.lessonQuestionIds?.[String(i)]||[])) if(!ids.includes(id))ids.push(id);
+      }
+      um.firstPassSeenIds=ids;
+    }
+  }
+  function exposure(u){
+    const um=unitMeta(u),total=allUnitQuestions(u).length,used=um.firstPassSeenIds.length;
+    return {unit:u,target:um.firstPassTarget,used,reserved:Math.max(0,total-used),total,withinTarget:used>=50&&used<=65};
+  }
+  function weakness(q){
+    let w=0;const r=state.reviewSchedule?.[q.id];
+    if(state.mistakes?.includes(q.id))w+=7;
+    if(r){w+=Math.min(3,Number(r.wrongCount||0)*.8);if(Number(r.nextReview||0)<=Date.now())w+=2.4;const recent=Array.isArray(r.recent)?r.recent:[];if(recent.slice(-3).some(x=>!x))w+=1.4;const stability=Math.max(0,Math.min(60,Number(r.stability)||0));if(stability>0)w+=Math.max(0,1.8-Math.min(1.8,stability/4))}
+    return w;
+  }
+  function difficultyRank(q){const d={easy:0,medium:1,hard:2}[q.difficulty]??1,c={recognition:0,recall:1,application:2}[q.cognitive_level]??1;return d*2+c}
+  function score(q,p,concepts,{repeat=false,challenge=false}={}){
+    let s=Math.random()*.15;
+    const ti=p.types.indexOf(q.activity_type);if(ti>=0)s+=5-ti*.25;
+    if(p.cog.includes(q.cognitive_level))s+=2.1;
+    const di=p.dif.indexOf(q.difficulty);if(di>=0)s+=1.5-di*.15;
+    if(q.concept_id&&!concepts.has(q.concept_id))s+=1.25;
+    const w=weakness(q);if(p.adaptive||challenge)s+=w*1.25;else if(w)s+=.35;
+    if(repeat)s+=challenge?1.7:.5;
+    return s;
+  }
+  function order(items,p){
+    const a=[...items];
+    if(p.key==='error_spotting')return a.sort((x,y)=>(x.activity_type==='error_spotting'?0:1)-(y.activity_type==='error_spotting'?0:1)||difficultyRank(x)-difficultyRank(y));
+    if(p.challenge||p.key==='hard_application'||p.key==='mastery_rehearsal')return a.sort((x,y)=>difficultyRank(x)-difficultyRank(y));
+    if(/recall/.test(p.key))return a.sort((x,y)=>(x.cognitive_level==='recall'?0:1)-(y.cognitive_level==='recall'?0:1)||difficultyRank(x)-difficultyRank(y));
+    return a.sort((x,y)=>difficultyRank(x)-difficultyRank(y));
+  }
+  function pickDiverse(pool,count,p,used,concepts,repeat=false){
+    if(count<=0)return[];const out=[];
+    const ranked=()=>pool.filter(q=>!used.has(q.id)).sort((a,b)=>score(b,p,concepts,{repeat,challenge:!!p.challenge})-score(a,p,concepts,{repeat,challenge:!!p.challenge}));
+    const typeGoal=Math.min(count,p.challenge?4:3,new Set(pool.map(q=>q.activity_type)).size);
+    for(const t of p.types){if(out.length>=count||new Set(out.map(q=>q.activity_type)).size>=typeGoal)break;const q=ranked().find(x=>x.activity_type===t);if(q){out.push(q);used.add(q.id);if(q.concept_id)concepts.add(q.concept_id)}}
+    for(const q of ranked()){
+      if(out.length>=count)break;
+      if(q.concept_id&&!concepts.has(q.concept_id)){out.push(q);used.add(q.id);concepts.add(q.concept_id)}
+    }
+    for(const q of ranked()){if(out.length>=count)break;out.push(q);used.add(q.id);if(q.concept_id)concepts.add(q.concept_id)}
+    return out;
+  }
+  function assignmentQuestions(d,no){
+    const ids=macroMeta(d).lessonQuestionIds?.[String(no)];if(!Array.isArray(ids)||!ids.length)return null;
+    const qs=ids.map(id=>QMAP?.get?.(id)||QUESTIONS.find(q=>q.id===id)).filter(Boolean);
+    if(qs.length!==ids.length||qs.some(q=>!safe(q)))return null;
+    return qs;
+  }
+  function compose(d,no,{persist=false,forceReplay=false,ignoreAssignment=false}={}){
+    ensureState();const p=profile(d,no),m=macroMeta(d),um=unitMeta(d.unit),existing=!ignoreAssignment?assignmentQuestions(d,no):null;
+    const progression=!forceReplay && m.completedLessons<no;
+    if(existing && progression)return existing;
+    const base=safeStageQuestions(d),maxStage=stageMax(d);
+    if((d.kind==='audio'||d.role==='DİNLE') && base.length<(p.target||5))return [];
+    const unlocked=(d.kind==='audio'||d.role==='DİNLE')?base:safeUnitQuestions(d.unit).filter(q=>stageNo(q.stage_id)<=maxStage);
+    const target=Math.min(p.target||5,Math.max(base.length,p.target||5));
+    const used=new Set(),concepts=new Set(),chosen=[];
+    const firstSeen=new Set(um.firstPassSeenIds),macroFirstUsed=new Set(um.firstPassSeenIds.filter(id=>{const q=QMAP?.get?.(id)||QUESTIONS.find(x=>x.id===id);return q&&d.legacyIds.includes(q.stage_id)}));
+    let newSlots=0;
+    if(progression){
+      newSlots=Math.min(lessonNewQuota(d,no),Math.max(0,uniqueCap(d)-macroFirstUsed.size),Math.max(0,UNIT_FIRST_PASS_TARGET-firstSeen.size));
+    }else{
+      // Replay/adaptive work is where reserved material can begin to surface.
+      newSlots=Math.min(target,Math.max(2,Math.ceil(target*.65)));
+    }
+    // New first-pass material may come from any technical pool already unlocked in this unit.
+    // This lets mini lessons honor their pedagogical identity without leaking future-stage content.
+    const unseenBase=unlocked.filter(q=>!firstSeen.has(q.id));
+    chosen.push(...pickDiverse(unseenBase,newSlots,p,used,concepts,false));
+
+    let repeatPool=safeUnitQuestions(d.unit).filter(q=>firstSeen.has(q.id));
+    if(!p.challenge && progression)repeatPool=repeatPool.filter(q=>stageNo(q.stage_id)<=maxStage);
+    if(p.challenge)repeatPool.sort((a,b)=>weakness(b)-weakness(a));
+    chosen.push(...pickDiverse(repeatPool,target-chosen.length,p,used,concepts,true));
+
+    // If a user replays before enough history exists, use reserved stage material rather than shorten the lesson.
+    if(chosen.length<target){
+      const fallback=unlocked.filter(q=>!used.has(q.id));
+      chosen.push(...pickDiverse(fallback,target-chosen.length,p,used,concepts,false));
+    }
+    const out=order(chosen,p).slice(0,target);
+    if(persist){
+      m.lessonQuestionIds[String(no)]=out.map(q=>q.id);
+      m.lessonConcepts[String(no)]=[...new Set(out.map(q=>q.concept_id).filter(Boolean))];
+      if(!m.seenIds)m.seenIds=[];for(const q of out)if(!m.seenIds.includes(q.id))m.seenIds.push(q.id);
+      if(progression){if(!um.firstPassStartedAt)um.firstPassStartedAt=Date.now();for(const q of out)if(!um.firstPassSeenIds.includes(q.id))um.firstPassSeenIds.push(q.id)}
+    }
+    return out;
+  }
+  function nextLesson(d){const m=macroMeta(d);return Math.max(1,Math.min(d.lessons,m.completedLessons+1))}
+  function roadmap(d){return profileList(d).slice(0,d.lessons).map((p,i)=>({no:i+1,title:p.title,goal:p.goal,target:p.target,newQuota:lessonNewQuota(d,i+1),done:i<macroMeta(d).completedLessons,current:i===Math.min(d.lessons-1,macroMeta(d).completedLessons)}))}
+  function roadmapHtml(d){return `<div class="v631-preview-plan">${roadmap(d).map(x=>`<div class="v631-preview-step ${x.done?'done':x.current?'current':''}"><span class="n">${x.done?'✓':x.no}</span><div><b>${esc2(x.title)}</b><small>${esc2(x.goal)}</small></div><span class="tag ${x.newQuota<x.target?'v632-repeat':''}">${x.target} SORU</span></div>`).join('')}</div>`}
+  function budgetHtml(u){const x=exposure(u);return `<div class="v632-budget-strip"><div><b>${x.used}/${x.target}</b><small>İLK GEÇİŞ HAVUZU</small></div><div><b>${x.reserved}</b><small>REVIEW İÇİN SAKLI</small></div><div><b>${x.total}</b><small>ÜNİTE BANKASI</small></div></div><div class="v632-budget-note">Ana progression yaklaşık ${x.target} benzersiz soru kullanır. Kalan sorular replay, Smart Review ve adaptif tekrar için korunur.</div>`}
+
+  const baseMigrate=typeof migrate==='function'?migrate:null;
+  if(baseMigrate){migrate=function(...args){const s=baseMigrate.apply(this,args);ensureState(s);return s}}
+  ensureState();rebuildExposureFromAssignments();
+
+  window.previewMacro=function(id){
+    const d=defById(id);if(!d)return;
+    const st=window.DEEN_FIVE_STAGE.state(id),m=macroMeta(d),no=nextLesson(d),p=profile(d,no),qs=compose(d,no,{persist:false});
+    const unitNo=Number(d.unit.slice(1)),palette=DEEN512_UNIT_STYLES[unitNo-1]||{a:'#aa72e8',b:'#7bdcc8'};
+    const prev=d.index>0?defs(d.unit)[d.index-1]:null;
+    const reason=prev?`Önce “${prev.title}” aşamasını tamamla.`:'Önce bir önceki ünitenin son aşamasını tamamla.';
+    const iconPaths={
+      lesson:'<path d="M8 12c6-2 11-1 16 2v25c-5-3-10-4-16-2zM40 12c-6-2-11-1-16 2v25c5-3 10-4 16-2zM24 14v25"/>',
+      special:'<circle cx="14" cy="15" r="5"/><circle cx="34" cy="15" r="5"/><circle cx="24" cy="34" r="5"/><path d="m18 18 4 11m8-11-4 11"/>',
+      scenario:'<path d="M24 5 27 17 39 20 27 23 24 35 21 23 9 20 21 17Z"/><path d="M38 34v9m-4-4h9M9 36v7m-3-4h7"/>',
+      review:'<path d="M39 19A16 16 0 1 0 40 29M39 8v11H28"/><path d="M24 15v10l7 4"/>',
+      challenge:'<path d="m24 5 5.6 11.4 12.6 1.8-9.1 8.8 2.1 12.5L24 33.6 12.8 39.5l2.1-12.5-9.1-8.8 12.6-1.8Z"/>',
+      audio:'<path d="M10 19v10m7-17v24m7-30v36m7-28v20m7-15v10"/>'
+    };
+    const icon=iconPaths[d.kind]||iconPaths.lesson;
+    const action=st.locked?`<p class="deen-intro-status">${esc2(reason)}</p>`:!qs.length?'<p class="deen-intro-status">Bu aşama için resmî medya kaynağı gerekiyor.</p>':primary(st.done?'TEKRARLA':m.completedLessons?'DEVAM ET':'BÖLÜME BAŞLA',`closeSheet();startMacroStage('${d.id}')`);
+    const body=`<div class="deen-stage-intro" style="--deen-intro-accent:${palette.a};--deen-intro-soft:${palette.b}">
+      <button type="button" class="deen-intro-back" onclick="closeSheet()" aria-label="Bölüm girişinden geri dön"><span aria-hidden="true">←</span> Geri</button>
+      <div class="deen-intro-art" aria-hidden="true"><span class="deen-intro-halo"></span><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">${icon}</svg><i class="deen-intro-spark one">✦</i><i class="deen-intro-spark two">✦</i></div>
+      <div class="deen-intro-kicker">ÜNİTE ${unitNo} · ${esc2(U[unitNo-1])} · AŞAMA ${d.index+1}/5</div>
+      <h2 class="deen-intro-title">${esc2(d.title)}</h2>
+      <p class="deen-intro-desc">${esc2(DESC[unitNo-1])}</p>
+      <div class="deen-intro-goal"><span>BU AŞAMADA</span><b>${esc2(p.goal)}</b></div>
+      ${st.locked||!qs.length?'':`<div class="deen-intro-reward"><span aria-hidden="true">✦</span> XP KAZAN</div>`}
+      ${action}
+    </div>`;
+    sheet(st.locked?'Bu aşama henüz kilitli':d.title,body);
+  };
+
+  window.startMacroStage=function(id,lessonNo=null){
+    const d=defById(id);if(!d)return;const st=window.DEEN_FIVE_STAGE.state(id);if(st.locked)return previewMacro(id);
+    ensureState();const m=macroMeta(d),no=Math.max(1,Math.min(d.lessons,Number(lessonNo)||nextLesson(d))),p=profile(d,no);
+    const qs=compose(d,no,{persist:false});
+    if(!qs.length){
+      sheet('Doğrulanmış medya gerekiyor','<p>Bu mini ders yalnızca doğrulanmış DiyanetTV medya sistemiyle çalışır.</p><p>Medya hazır değilken soru oturumu başlamaz, enerji harcanmaz ve yapay/TTS Arapça telaffuz kullanılmaz.</p>'+list('Öğrenme yoluna dön',"closeSheet();navigate('learnScreen')",'←'));return;
+    }
+    if(!state.premium&&state.energy<d.energy){if(window.DEEN_V624)DEEN_V624.pendingStage=id;showEnergy();return}
+    if(!state.premium)state.energy-=d.energy;
+    const committedQs=compose(d,no,{persist:true});
+    m.lastLessonNo=no;
+    session={stage:{id:d.id,unit:d.unit,title:d.title,kind:d.kind,xp:d.xp,energy:d.energy,meta:d.role},questions:committedQs,index:0,correct:0,combo:0,bestCombo:0,macroStage:true,macroId:d.id,macroRole:d.role,macroDef:d,lessonNo:no,lessonTotal:d.lessons,pedagogyProfile:clone(p),pedagogyVersion:'6.3.3',unitExposureAtStart:exposure(d.unit),startedAt:Date.now(),previousStreak:state.streak,beforeMastery:(()=>{try{const a=defs(d.unit);return Math.round(a.reduce((sum,x)=>{const mm=macroMeta(x),v=Object.values(mm.lessonScores).map(Number).filter(Number.isFinite);return sum+(v.length?v.reduce((a,b)=>a+b,0)/v.length:0)},0)/a.length)}catch(e){return 0}})(),wasCompleted:st.done,v5responses:[]};
+    $('lesson').classList.add('active');$('quizView').style.display='flex';resetResultView(false);setLessonStatus(false);saveState();updateUI();renderQuestion();
+  };
+
+  function objective(){
+    if(!session?.macroStage||session.pedagogyVersion!=='6.3.3')return;const p=session.pedagogyProfile,x=exposure(session.macroDef.unit);let el=$('v631Objective');if(!el)return;
+    const meta=el.querySelector('.v632-objective-meta')||document.createElement('div');meta.className='v632-objective-meta';meta.innerHTML=`<span>İlk geçiş ${x.used}/${x.target}</span><span>${x.reserved} soru saklı</span>`;if(!meta.parentNode)el.append(meta);
+  }
+  const baseRenderQuestion=window.renderQuestion;window.renderQuestion=function(...args){const r=baseRenderQuestion.apply(this,args);try{objective()}catch(e){console.warn('V6.3.3 objective',e)}return r};
+  const baseUpdateUI=window.updateUI;window.updateUI=function(...args){ensureState();const r=baseUpdateUI.apply(this,args);try{objective()}catch(e){}return r};
+  const baseShowResult=window.showResult;window.showResult=function(...args){const d=session?.macroDef;const r=baseShowResult.apply(this,args);try{if(d&&window.DEEN_FIVE_STAGE.done(d.id)){const um=unitMeta(d.unit);if(defs(d.unit).every(x=>window.DEEN_FIVE_STAGE.done(x.id))&&!um.firstPassCompletedAt)um.firstPassCompletedAt=Date.now();saveState()}}catch(e){}return r};
+
+  function leakageCheck(d,qs,knownSeen=[]){const max=stageMax(d),known=new Set(knownSeen);return qs.filter(q=>q.stage_id.slice(0,3)!==d.unit||(d.kind!=='challenge'&&stageNo(q.stage_id)>max&&!known.has(q.id))).map(q=>q.id)}
+  window.DEEN_PEDAGOGY={
+    version:'6.3.3',target:UNIT_FIRST_PASS_TARGET,
+    profile:(id,no)=>{const d=defById(id);return d?clone(profile(d,no)):null},
+    roadmap:id=>{const d=defById(id);return d?clone(roadmap(d)):[]},
+    choose:(id,no,seen=[])=>{const d=defById(id);if(!d)return[];const um=unitMeta(d.unit),before=[...um.firstPassSeenIds];if(Array.isArray(seen)&&seen.length)um.firstPassSeenIds=[...new Set(seen)];const out=compose(d,no,{persist:false,ignoreAssignment:true});um.firstPassSeenIds=before;return out},
+    exposure:u=>clone(exposure(u)),
+    uniqueCap:id=>{const d=defById(id);return d?uniqueCap(d):0},
+    lessonNewQuota:(id,no)=>{const d=defById(id);return d?lessonNewQuota(d,no):0},
+    pool:id=>{const d=defById(id);return d?safeStageQuestions(d).map(q=>q.id):[]},
+    unitPool:u=>safeUnitQuestions(u).map(q=>q.id),
+    ensure:()=>ensureState(),
+    rebuild:()=>rebuildExposureFromAssignments(),
+    leakageCheck:(id,ids,seen=[])=>{const d=defById(id);const qs=(ids||[]).map(x=>QMAP?.get?.(x)||QUESTIONS.find(q=>q.id===x)).filter(Boolean);return d?leakageCheck(d,qs,seen):[]}
+  };
+  window.DEEN_V632={version:'6.3.3',firstPassTarget:UNIT_FIRST_PASS_TARGET,genericUniqueCaps:[...GENERIC_UNIQUE_CAPS],u03UniqueCaps:[...U03_UNIQUE_CAPS],exposure:u=>clone(exposure(u))};
+  saveState();setTimeout(()=>{try{window.DEEN_PEDAGOGY.ensure();window.DEEN_PEDAGOGY.rebuild();updateUI()}catch(e){console.warn('V6.3.3 init',e)}},60);
+})();
+</script>
+
+<style id="deen-v633-retention-css">
+/* DEEN v6.3.3 — durable review memory + mini-lesson debrief. */
+.v633-debrief{margin-top:12px;border:1px solid rgba(104,205,188,.24);background:linear-gradient(180deg,rgba(8,39,47,.82),rgba(7,28,36,.9));border-radius:16px;padding:12px;text-align:left}
+.v633-debrief .head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}.v633-debrief .head b{font-size:11px;color:#e9f4f2}.v633-debrief .head span{font-size:7px;letter-spacing:1px;color:#d9c27d;font-weight:900}
+.v633-debrief-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.v633-debrief-grid>div{border:1px solid rgba(79,119,130,.34);border-radius:12px;padding:8px 6px;background:rgba(5,26,34,.72);text-align:center}.v633-debrief-grid strong{display:block;font-size:13px;color:#f1f6f4}.v633-debrief-grid small{display:block;margin-top:3px;font-size:7px;color:#8fa6ac;letter-spacing:.45px}
+.v633-debrief p{margin:9px 0 0;font-size:9px;line-height:1.45;color:#b8cccf}.v633-debrief .next{color:#e2c97f}
+@media(max-width:390px){.v633-debrief{padding:10px}.v633-debrief-grid{gap:5px}.v633-debrief-grid>div{padding:7px 4px}.v633-debrief-grid strong{font-size:12px}}
+</style>
+<script id="deen-v633-retention-js">
+(() => {
+  if(window.__deenV633RetentionApplied)return;
+  window.__deenV633RetentionApplied=true;
+  window.DEEN_RETENTION_SCHEDULER_VERSION='6.3.3';
+  window.DEEN_V633={version:'6.3.3',stateVersion:10};
+  const clone633=x=>{try{return JSON.parse(JSON.stringify(x))}catch(e){return x}};
+  function ensureTelemetry(){
+    state.pedagogyTelemetry=state.pedagogyTelemetry&&typeof state.pedagogyTelemetry==='object'?state.pedagogyTelemetry:{};
+    state.pedagogyTelemetry.version='6.3.3';
+    state.pedagogyTelemetry.lessons=state.pedagogyTelemetry.lessons&&typeof state.pedagogyTelemetry.lessons==='object'?state.pedagogyTelemetry.lessons:{};
+    return state.pedagogyTelemetry;
+  }
+  function counts(items,key){return (items||[]).reduce((m,q)=>{const k=q?.[key]||'unknown';m[k]=(m[k]||0)+1;return m},{})}
+  function scheduleSummary(s){
+    const ids=(s?.questions||[]).map(q=>q.id),now=Date.now();let durable=0,dueSoon=0;
+    for(const id of ids){const r=state.reviewSchedule?.[id];if(!r)continue;if(Number(r.stability)>0&&Number(r.nextReview)>Number(r.lastSeen))durable++;if(Number(r.nextReview)>now&&Number(r.nextReview)<=now+DAY)dueSoon++}
+    return {durable,dueSoon};
+  }
+  function record(s,pct){
+    if(!s?.macroStage)return null;const t=ensureTelemetry(),key=`${s.macroId}:L${s.lessonNo}`,prev=t.lessons[key]||{},responses=Array.isArray(s.v5responses)?s.v5responses:[];
+    const row={macroId:s.macroId,unit:s.stage?.unit||null,role:s.macroRole,lessonNo:s.lessonNo,profileKey:s.pedagogyProfile?.key||null,profileTitle:s.pedagogyProfile?.title||null,attempts:(Number(prev.attempts)||0)+1,lastScore:pct,lastAt:Date.now(),questionIds:(s.questions||[]).map(q=>q.id),wrongIds:responses.filter(r=>!r.correct).map(r=>r.id),activityCounts:counts(s.questions,'activity_type'),cognitiveCounts:counts(s.questions,'cognitive_level'),difficultyCounts:counts(s.questions,'difficulty'),review:scheduleSummary(s)};
+    t.lessons[key]=row;const keys=Object.keys(t.lessons);if(keys.length>225)keys.sort((a,b)=>(t.lessons[a]?.lastAt||0)-(t.lessons[b]?.lastAt||0)).slice(0,keys.length-225).forEach(k=>delete t.lessons[k]);return row;
+  }
+  function debrief(s,row){
+    const host=document.getElementById('v5ResultExtra');if(!host||!s?.macroStage||!row)return;host.querySelector('.v633-debrief')?.remove();
+    const d=s.macroDef,m=window.DEEN_FIVE_STAGE?.meta?.(d.id),passed=row.lastScore>=70,nextNo=Math.min(d.lessons,(Number(m?.completedLessons)||0)+1),next=window.DEEN_PEDAGOGY?.profile?.(d.id,nextNo),types=Object.keys(row.activityCounts||{}).filter(k=>k!=='unknown').length,wrong=row.wrongIds.length;
+    const box=document.createElement('div');box.className='v633-debrief';box.innerHTML=`<div class="head"><b>${esc(row.profileTitle||'Mini ders')} · öğrenme özeti</b><span>HAFIZA PLANI AKTİF</span></div><div class="v633-debrief-grid"><div><strong>${types}</strong><small>ETKİNLİK TÜRÜ</small></div><div><strong>${wrong}</strong><small>TEKRAR ÖNCELİĞİ</small></div><div><strong>${row.review.durable}/${row.questionIds.length}</strong><small>KALICI PLAN</small></div></div><p>${passed?(m?.completedLessons>=d.lessons?'Bu macro aşama tamamlandı; bir sonraki düğüm artık açılabilir.':`Sıradaki mini ders: <span class="next">${esc(next?.title||'sonraki adım')}</span>.`):'Aynı atanmış soru seti korunur; tekrar denemesi yeni first-pass içeriği tüketmez.'}</p>`;host.append(box);
+  }
+  const baseShowResult=window.showResult;
+  window.showResult=function(...args){
+    const snap=session?.macroStage?session:null;
+    const total=snap?.questions?.length||0,pct=total?Math.round((snap.correct||0)/total*100):0;
+    const r=baseShowResult.apply(this,args);
+    try{if(snap){const row=record(snap,pct);debrief(snap,row);saveState()}}catch(e){console.warn('V6.3.3 debrief',e)}
+    return r;
+  };
+  const baseSave=window.saveState;
+  window.saveState=function(...args){
+    ensureTelemetry();
+    for(const r of Object.values(state.reviewSchedule||{})){
+      if(!r||typeof r!=='object')continue;
+      const st=Number(r.stability);r.stability=Number.isFinite(st)?Math.max(0,Math.min(60,st)):0;
+      if(!Number.isFinite(Number(r.nextReview)))r.nextReview=0;
+    }
+    return baseSave.apply(this,args);
+  };
+  window.DEEN_RETENTION_QA={
+    version:'6.3.3',
+    snapshot:id=>clone633(state.reviewSchedule?.[id]||null),
+    telemetry:()=>clone633(ensureTelemetry()),
+    intervalDays:id=>{const r=state.reviewSchedule?.[id];return r&&r.lastSeen&&r.nextReview?Math.max(0,(r.nextReview-r.lastSeen)/DAY):0}
+  };
+  ensureTelemetry();saveState();
+})();
+</script>
+
+
+
+<style id="deen-v640-adaptive-css">
+/* DEEN v6.4.1 — Adaptive Review & Mastery Engine.
+   Learning-path geometry remains v6.2.5-compatible; this layer only upgrades review/mastery UX. */
+.v640-memory-card{border:1px solid rgba(104,205,188,.28);background:radial-gradient(circle at 92% 12%,rgba(223,197,143,.10),transparent 28%),linear-gradient(180deg,rgba(10,48,55,.94),rgba(7,30,38,.96));border-radius:20px;padding:17px;margin:16px 0}
+.v640-memory-card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.v640-memory-card .eyebrow{font-size:8px;letter-spacing:1.25px;color:#d8c486;font-weight:950}.v640-memory-card h2{font-size:23px;margin:5px 0 7px;line-height:1.15}.v640-memory-card p{font-size:12px;line-height:1.5;color:#b9cfd0;margin:0}
+.v640-plan-count{min-width:66px;height:66px;border-radius:20px;border:1px solid rgba(111,226,203,.27);background:rgba(8,43,49,.78);display:grid;place-items:center;text-align:center}.v640-plan-count b{display:block;font-size:24px;line-height:1;color:#83e6d0}.v640-plan-count small{display:block;font-size:7px;color:#9eb4b8;letter-spacing:.7px;margin-top:4px}
+.v640-plan-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:13px 0}.v640-plan-metrics>div{border:1px solid rgba(78,115,125,.4);border-radius:12px;background:rgba(5,25,33,.72);padding:9px 6px;text-align:center}.v640-plan-metrics b{display:block;font-size:14px}.v640-plan-metrics small{display:block;font-size:7px;color:#8fa7ad;margin-top:3px;letter-spacing:.4px}
+.v640-concepts{display:flex;gap:6px;overflow:auto;padding:2px 0 4px;scrollbar-width:none}.v640-concepts::-webkit-scrollbar{display:none}.v640-concept-chip{flex:0 0 auto;border:1px solid rgba(82,123,133,.42);background:rgba(7,29,37,.78);border-radius:999px;padding:7px 9px;font-size:8px;color:#bdcdcf;white-space:nowrap}.v640-concept-chip.weak{border-color:rgba(235,174,115,.4);color:#edc88f}.v640-concept-chip.due{border-color:rgba(112,214,206,.38);color:#9ce1d6}
+.v640-unit-card{display:block;width:100%;text-align:left;background:#112a33;border:1px solid #304b56;border-radius:14px;padding:15px 14px;margin-bottom:10px}.v640-unit-card .row{display:flex;align-items:center;justify-content:space-between;gap:10px}.v640-unit-card b{font-size:14px}.v640-unit-card .score{font-size:14px;color:#d9c583;font-weight:900}.v640-unit-card small{display:block;color:#9fb4b8;font-size:10px;margin-top:7px;line-height:1.4}.v640-unit-card .v5-bar{margin-top:9px}
+.v640-weak-list{display:grid;gap:8px;margin:8px 0 18px}.v640-weak-row{border:1px solid rgba(78,115,125,.38);border-radius:13px;background:rgba(7,29,37,.72);padding:10px 11px}.v640-weak-row .row{display:flex;align-items:center;justify-content:space-between;gap:8px}.v640-weak-row b{font-size:11px}.v640-weak-row span{font-size:9px;font-weight:900}.v640-weak-row small{display:block;color:#8da5aa;font-size:8px;margin-top:4px}
+.v640-return-hint{margin-top:10px;padding:9px 10px;border:1px solid rgba(104,205,188,.18);border-radius:12px;background:rgba(6,31,38,.62);font-size:9px;color:#b8cfcc;line-height:1.4}.v640-return-hint b{color:#e2ca87}
+.v640-result{margin-top:10px;border:1px solid rgba(103,202,187,.22);border-radius:14px;background:rgba(7,31,39,.76);padding:11px;text-align:left}.v640-result .row{display:flex;justify-content:space-between;gap:8px}.v640-result b{font-size:10px}.v640-result span{font-size:9px;color:#d8c480;font-weight:900}.v640-result p{font-size:9px;color:#a9c0c1;line-height:1.45;margin:7px 0 0}
+@media(max-width:390px){.v640-memory-card{padding:14px}.v640-memory-card h2{font-size:21px}.v640-plan-count{min-width:60px;height:60px}.v640-plan-metrics{gap:5px}.v640-plan-metrics>div{padding:8px 4px}.v640-unit-card{padding:13px 12px}}
+</style>
+<script id="deen-v641-adaptive-js">
+(() => {
+  if(window.__deenV641AdaptiveApplied)return;
+  window.__deenV641AdaptiveApplied=true;
+  window.DEEN_ADAPTIVE_VERSION='6.4.1';
+  window.DEEN_RELEASE_VERSION='6.4.1';
+  const VERSION='6.4.1', STATE_VERSION=12, DAY640=86400000;
+  const clone640=x=>{try{return JSON.parse(JSON.stringify(x))}catch(e){return x}};
+  const finite640=(x,f=0,min=-Infinity,max=Infinity)=>{x=Number(x);return Number.isFinite(x)?Math.max(min,Math.min(max,x)):f};
+  const unitId=n=>'U'+String(n).padStart(2,'0');
+  const qUnit=q=>q?.stage_id?.slice(0,3)||'';
+  const firstPassIds=u=>new Set(state.unitPedagogyMeta?.[u]?.firstPassSeenIds||[]);
+  const completedStages=()=>new Set(state.completed||[]);
+  const now640=()=>Date.now();
+  function hash640(s){let h=2166136261>>>0;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0}return h>>>0}
+  function jitter640(id,salt=''){return (hash640(day()+'|'+salt+'|'+id)%1000)/1000}
+  function ensureAdaptive(s=state){
+    if(!s||typeof s!=='object')return s;
+    const a=s.adaptiveReviewMeta&&typeof s.adaptiveReviewMeta==='object'?s.adaptiveReviewMeta:{};
+    a.version=VERSION;
+    a.lastPlan=a.lastPlan&&typeof a.lastPlan==='object'?a.lastPlan:null;
+    a.lastResult=a.lastResult&&typeof a.lastResult==='object'?a.lastResult:null;
+    a.history=Array.isArray(a.history)?a.history.slice(-60):[];
+    a.sessions=finite640(a.sessions,0,0,1000000);
+    s.adaptiveReviewMeta=a;
+    s.adaptiveMasteryVersion=VERSION;
+    s.stateVersion=Math.max(STATE_VERSION,Number(s.stateVersion)||0);
+    return s;
+  }
+  function safe640(q){return !!q && !(typeof audioBlocked==='function'&&audioBlocked(q))}
+  function hasPedagogyHistory640(u){const m=state.unitPedagogyMeta?.[u],fp=firstPassIds(u);return fp.size>0||Number(m?.firstPassStartedAt)>0||Number(m?.firstPassCompletedAt)>0}
+  function attempted640(q){return !!state.reviewSchedule?.[q.id]}
+  function completedFirstPass640(q){const u=qUnit(q);return firstPassIds(u).has(q.id)&&completedStages().has(q.stage_id)}
+  function learnedConceptSet640(u){
+    const set=new Set();
+    for(const q of QUESTIONS){
+      if(qUnit(q)!==u)continue;
+      if((attempted640(q)||completedFirstPass640(q))&&q.concept_id)set.add(q.concept_id);
+    }
+    return set;
+  }
+  function allowed640(q){
+    if(!safe640(q))return false;
+    const u=qUnit(q);
+    // A merely assigned-but-abandoned question is not reviewable yet. It becomes learned after an answer
+    // or after its technical stage is actually completed. This prevents Smart Review from bypassing progression.
+    if(attempted640(q)||completedFirstPass640(q))return true;
+    if(!completedStages().has(q.stage_id))return false;
+    // Legacy saves without v6.3 first-pass metadata keep their old completed-stage review behavior.
+    if(!hasPedagogyHistory640(u))return true;
+    // In modern saves, a reserved variation may reinforce only a concept the learner has already met.
+    return !!q.concept_id&&learnedConceptSet640(u).has(q.concept_id);
+  }
+  function learned640(q){
+    if(!safe640(q))return false;
+    const u=qUnit(q);
+    if(attempted640(q)||completedFirstPass640(q))return true;
+    // Completed-stage fallback exists only for legacy saves that predate first-pass metadata.
+    return !hasPedagogyHistory640(u)&&completedStages().has(q.stage_id);
+  }
+  function conceptRows(unit=null){
+    const now=now640(),map=new Map();
+    for(const q of QUESTIONS){
+      const u=qUnit(q);if(unit&&u!==unit)continue;if(!learned640(q))continue;
+      const cid=q.concept_id||'uncategorized',key=u+'|'+cid;
+      let x=map.get(key);if(!x){x={key,unit:u,conceptId:cid,topic:q.topic||cid,questionIds:[],stageIds:new Set(),attemptedIds:new Set(),correct:0,wrong:0,recent:[],stabilities:[],due:0,mistakes:0,lastSeen:0};map.set(key,x)}
+      x.questionIds.push(q.id);x.stageIds.add(q.stage_id);
+      const r=state.reviewSchedule?.[q.id];
+      if(r){
+        const c=finite640(r.correctCount),w=finite640(r.wrongCount);x.correct+=c;x.wrong+=w;if(c+w>0)x.attemptedIds.add(q.id);
+        if(Array.isArray(r.recent))x.recent.push(...r.recent.slice(-5).map(v=>v?1:0));
+        const st=finite640(r.stability,0,0,60);if(c+w>0)x.stabilities.push(st);
+        if(Number(r.nextReview)>0&&Number(r.nextReview)<=now)x.due++;
+        x.lastSeen=Math.max(x.lastSeen,finite640(r.lastSeen));
+      }
+      if(state.mistakes?.includes(q.id))x.mistakes++;
+    }
+    const out=[];
+    for(const x of map.values()){
+      const attempts=x.correct+x.wrong;
+      const acc=attempts?x.correct/attempts:0;
+      const recentAcc=x.recent.length?x.recent.reduce((a,b)=>a+b,0)/x.recent.length:acc;
+      const avgStability=x.stabilities.length?x.stabilities.reduce((a,b)=>a+b,0)/x.stabilities.length:0;
+      const stageScores=[...x.stageIds].map(id=>finite640(state.stageScores?.[id],0,0,100)).filter(v=>v>0);
+      const baseline=stageScores.length?stageScores.reduce((a,b)=>a+b,0)/stageScores.length/100:0;
+      const coverage=Math.min(1,x.attemptedIds.size/Math.max(1,Math.min(4,x.questionIds.length)));
+      const stability=Math.min(1,avgStability/7);
+      const duePenalty=x.attemptedIds.size?Math.min(1,x.due/x.attemptedIds.size):0;
+      const mistakePenalty=Math.min(1,x.mistakes/Math.max(1,x.questionIds.length));
+      let score;
+      if(attempts){score=100*(.43*recentAcc+.20*acc+.15*stability+.12*coverage+.10*baseline)-12*duePenalty-8*mistakePenalty}
+      else score=baseline*45;
+      score=Math.round(Math.max(0,Math.min(100,score)));
+      const band=score>=85&&coverage>=.5?'strong':score>=70?'stable':score>=50?'developing':'weak';
+      out.push({...x,stageIds:[...x.stageIds],attemptedIds:[...x.attemptedIds],attempts,accuracy:Math.round(acc*100),recentAccuracy:Math.round(recentAcc*100),avgStability:Number(avgStability.toFixed(2)),coverage:Number(coverage.toFixed(2)),score,band});
+    }
+    return out.sort((a,b)=>a.score-b.score||b.due-a.due||b.mistakes-a.mistakes||a.key.localeCompare(b.key));
+  }
+  function unitMastery(unit){
+    const rows=conceptRows(unit);if(!rows.length)return{unit,score:0,learnedConcepts:0,weak:0,due:0,strong:0};
+    const weights=rows.map(r=>Math.max(1,Math.min(4,r.questionIds.length))),den=weights.reduce((a,b)=>a+b,0);
+    const score=Math.round(rows.reduce((s,r,i)=>s+r.score*weights[i],0)/den);
+    return{unit,score,learnedConcepts:rows.length,weak:rows.filter(r=>r.band==='weak'||r.band==='developing').length,due:rows.reduce((a,r)=>a+r.due,0),strong:rows.filter(r=>r.band==='strong').length};
+  }
+  function globalMastery(){
+    const rows=[];for(let n=1;n<=15;n++){const u=unitMastery(unitId(n));if(u.learnedConcepts)rows.push(u)}
+    if(!rows.length)return{score:0,units:0,weak:0,due:0};
+    return{score:Math.round(rows.reduce((a,b)=>a+b.score,0)/rows.length),units:rows.length,weak:rows.reduce((a,b)=>a+b.weak,0),due:rows.reduce((a,b)=>a+b.due,0)};
+  }
+  function questionSignals(q,conceptMap){
+    const r=state.reviewSchedule?.[q.id],c=conceptMap.get(qUnit(q)+'|'+(q.concept_id||'uncategorized'));
+    const u=qUnit(q),fp=firstPassIds(u),now=now640(),due=!!(r&&Number(r.nextReview)>0&&Number(r.nextReview)<=now),mistake=!!state.mistakes?.includes(q.id),recentWrong=!!r?.recent?.slice?.(-3).some(v=>!v),stability=finite640(r?.stability,0,0,60),reserved=hasPedagogyHistory640(u)&&!r&&!fp.has(q.id)&&completedStages().has(q.stage_id),overdueDays=due?Math.min(14,Math.max(0,(now-Number(r.nextReview||now))/DAY640)):0;
+    return{due,mistake,recentWrong,stability,reserved,overdueDays,conceptScore:c?.score??45,conceptBand:c?.band||'weak'};
+  }
+  function reason640(sig){
+    if(sig.mistake)return'Önceki yanlış';
+    if(sig.due)return'Tekrar zamanı';
+    if(sig.conceptScore<50)return'Zayıf kavram';
+    if(sig.recentWrong)return'Son cevaplarda zorlandı';
+    if(sig.stability>0&&sig.stability<2)return'Hafıza gücü düşük';
+    if(sig.reserved)return'Yeni soru varyasyonu';
+    return'Karma pekiştirme';
+  }
+  function candidateScore(q,sig,mode,unit){
+    let s=jitter640(q.id,mode+'|'+(unit||'all'))*.18;
+    if(sig.mistake)s+=8.5;
+    if(sig.due)s+=7.2+Math.min(3,sig.overdueDays*.35);
+    if(sig.recentWrong)s+=3.4;
+    s+=Math.max(0,(75-sig.conceptScore)/10);
+    if(sig.stability>0)s+=Math.max(0,2.6-Math.min(2.6,sig.stability/2.5));
+    if(q.cognitive_level==='recall')s+=1.0;if(q.cognitive_level==='application')s+=.75;
+    if(q.difficulty==='medium')s+=.35;if(q.difficulty==='hard')s+=.2;
+    if(sig.reserved)s+=(mode==='smart'||mode==='quick'||mode==='weak')?1.15:-5;
+    return s;
+  }
+  function repairTypes(selected,candidates,target,maxReserved){
+    const typeCount=arr=>new Set(arr.map(x=>x.q.activity_type)).size;
+    const available=[...new Set(candidates.map(x=>x.q.activity_type))];
+    const goal=Math.min(3,target,available.length);if(typeCount(selected)>=goal)return selected;
+    const selectedIds=new Set(selected.map(x=>x.q.id));
+    for(const t of available){
+      if(typeCount(selected)>=goal)break;if(selected.some(x=>x.q.activity_type===t))continue;
+      const add=candidates.find(x=>x.q.activity_type===t&&!selectedIds.has(x.q.id)&&(!x.sig.reserved||selected.filter(z=>z.sig.reserved).length<maxReserved));if(!add)continue;
+      let idx=-1,best=Infinity;
+      for(let i=selected.length-1;i>=0;i--){const x=selected[i];if(x.sig.mistake||x.sig.due)continue;const count=selected.filter(z=>z.q.activity_type===x.q.activity_type).length;if(count>1&&x.score<best){best=x.score;idx=i}}
+      if(idx>=0){selectedIds.delete(selected[idx].q.id);selected[idx]=add;selectedIds.add(add.q.id)}
+    }
+    return selected;
+  }
+  function plan(mode='smart',unit=null,target=null){
+    if(typeof mode!=='string')mode='smart';
+    const size=Math.max(1,Math.min(10,Number(target)||(mode==='quick'?5:7))),concepts=conceptRows(unit),cmap=new Map(concepts.map(c=>[c.key,c]));
+    let qs=QUESTIONS.filter(q=>allowed640(q)&&(!unit||qUnit(q)===unit));
+    const now=now640();
+    if(mode==='mistakes')qs=qs.filter(q=>state.mistakes?.includes(q.id));
+    if(mode==='due')qs=qs.filter(q=>Number(state.reviewSchedule?.[q.id]?.nextReview)>0&&Number(state.reviewSchedule[q.id].nextReview)<=now);
+    if(mode==='weak')qs=qs.filter(q=>(cmap.get(qUnit(q)+'|'+(q.concept_id||'uncategorized'))?.score??45)<60);
+    const rows=qs.map(q=>{const sig=questionSignals(q,cmap);return{q,sig,score:candidateScore(q,sig,mode,unit),reason:reason640(sig)}}).sort((a,b)=>b.score-a.score||a.q.id.localeCompare(b.q.id));
+    const maxReserved=(mode==='smart'?2:mode==='quick'||mode==='weak'?1:0),selected=[],ids=new Set(),conceptCounts={},typeCounts={},variants=new Set();
+    const take=x=>{if(!x||ids.has(x.q.id))return false;const cid=x.q.concept_id||'uncategorized',t=x.q.activity_type||'unknown',v=x.q.variant_group_id||'';if((conceptCounts[cid]||0)>=2)return false;if((typeCounts[t]||0)>=2&&selected.length>=3)return false;if(v&&variants.has(v))return false;if(x.sig.reserved&&selected.filter(z=>z.sig.reserved).length>=maxReserved)return false;selected.push(x);ids.add(x.q.id);conceptCounts[cid]=(conceptCounts[cid]||0)+1;typeCounts[t]=(typeCounts[t]||0)+1;if(v)variants.add(v);return true};
+    // Anchor the plan in due items, mistakes and the weakest learned concepts before general filling.
+    take(rows.find(x=>x.sig.due));
+    take(rows.find(x=>x.sig.mistake&&!ids.has(x.q.id)));
+    const weakKeys=concepts.filter(c=>c.score<60).slice(0,4).map(c=>c.key);
+    for(const key of weakKeys){if(selected.length>=size)break;take(rows.find(x=>(qUnit(x.q)+'|'+(x.q.concept_id||'uncategorized'))===key&&!ids.has(x.q.id)))}
+    for(const x of rows){if(selected.length>=size)break;take(x)}
+    // Relax only type/variant constraints if the filtered mode has too few candidates; never relax future-stage or reserved caps.
+    for(const x of rows){if(selected.length>=size)break;if(ids.has(x.q.id)||x.sig.reserved&&selected.filter(z=>z.sig.reserved).length>=maxReserved)continue;const cid=x.q.concept_id||'uncategorized';if((conceptCounts[cid]||0)>=3)continue;selected.push(x);ids.add(x.q.id);conceptCounts[cid]=(conceptCounts[cid]||0)+1}
+    repairTypes(selected,rows,size,maxReserved);
+    const final=selected.slice(0,size),summary={mode,unit,target:size,count:final.length,due:final.filter(x=>x.sig.due).length,mistakes:final.filter(x=>x.sig.mistake).length,reserved:final.filter(x=>x.sig.reserved).length,concepts:new Set(final.map(x=>x.q.concept_id)).size,activityTypes:new Set(final.map(x=>x.q.activity_type)).size,weakConcepts:concepts.filter(c=>c.score<60).length};
+    return{version:VERSION,createdAt:now640(),summary,questions:final.map(x=>({...x.q,_adaptive:{score:Number(x.score.toFixed(2)),reason:x.reason,signals:x.sig}}))};
+  }
+  function rememberPlan(p){
+    ensureAdaptive();const a=state.adaptiveReviewMeta,compact={at:p.createdAt,status:'started',mode:p.summary.mode,unit:p.summary.unit,count:p.summary.count,due:p.summary.due,mistakes:p.summary.mistakes,reserved:p.summary.reserved,concepts:p.summary.concepts,activityTypes:p.summary.activityTypes,ids:p.questions.map(q=>q.id)};a.lastPlan=compact;a.history=[...a.history,compact].slice(-60);a.sessions=finite640(a.sessions)+1;
+  }
+  const BASE_START_REVIEW=window.startSmartReview;
+  window.startSmartReview=function(mode='smart',unit=null){
+    if(typeof mode!=='string')mode='smart';ensureAdaptive();
+    const p=plan(mode,unit,mode==='quick'?5:7);
+    if(!p.questions.length){
+      if(typeof BASE_START_REVIEW==='function')return BASE_START_REVIEW(mode,unit);
+      sheet('Tekrar listen hazır değil','<p>Bu listede henüz soru yok. Yeni bir ders tamamladığında tekrar planın oluşur.</p>'+primary('Öğrenmeye dön',"closeSheet();navigate('learnScreen')"));return;
+    }
+    refillEnergy();const cost=mode==='quick'?0:3;if(!state.premium&&state.energy<cost){showEnergy();return}if(!state.premium)state.energy-=cost;
+    state.lastReviewIds=p.questions.map(q=>q.id);rememberPlan(p);
+    const before=unit?unitMastery(unit):globalMastery();
+    session={stage:{id:'SMART',title:mode==='quick'?'Hızlı Tekrar':'Adaptif Akıllı Tekrar',xp:45,energy:cost},questions:p.questions,index:0,correct:0,combo:0,bestCombo:0,review:true,adaptiveReview:true,adaptiveMode:mode,adaptiveUnit:unit,adaptivePlan:clone640(p.summary),adaptiveMasteryBefore:clone640(before),startedAt:Date.now(),v5responses:[],lessonComposer:{version:VERSION,mode:'adaptive-review'}};
+    openQuiz();saveState();updateUI();
+  };
+  function weakLabel(c){return c?.score<50?'Öncelikli':c?.score<70?'Gelişiyor':'Dengeli'}
+  function planCardHtml(p){
+    const concepts=conceptRows().slice(0,5),chips=concepts.map(c=>`<span class="v640-concept-chip ${c.due?'due':c.score<60?'weak':''}">${esc(c.topic)} · %${c.score}</span>`).join('');
+    const action=p.summary.count?primary('ADAPTİF TEKRARI BAŞLAT · '+p.summary.count+' SORU',"startSmartReview('smart')"):'<button class="v5-primary" type="button" disabled>İLK DERSİ TAMAMLA</button>';
+    return `<div class="v640-memory-card"><div class="top"><div><div class="eyebrow">ADAPTIVE MEMORY ENGINE · v6.4</div><h2>Bugünkü hafıza planın</h2><p>${p.summary.count?(p.summary.due?'Vadesi gelen bilgiler önce geliyor.':'Vadesi gelen soru yok; plan zayıf kavramlar ve kontrollü varyasyonlarla dengeleniyor.'):'İlk mini dersini tamamladığında kişisel tekrar planın burada oluşacak.'}</p></div><div class="v640-plan-count"><div><b>${p.summary.count}</b><small>SORU</small></div></div></div><div class="v640-plan-metrics"><div><b>${p.summary.due}</b><small>VADESİ GELEN</small></div><div><b>${p.summary.mistakes}</b><small>YANLIŞ ÖNCELİĞİ</small></div><div><b>${p.summary.activityTypes}</b><small>ETKİNLİK TÜRÜ</small></div></div><div class="v640-concepts">${chips||'<span class="v640-concept-chip">İlk dersinden sonra kişiselleşir</span>'}</div>${action}</div>`;
+  }
+  const BASE_REVIEW_VIEW=window.reviewView;
+  window.reviewView=function(){
+    ensureAdaptive();const p=plan('smart',null,7),due=Object.values(state.reviewSchedule||{}).filter(r=>Number(r.nextReview)>0&&Number(r.nextReview)<=now640()).length,concepts=conceptRows(),weak=concepts.filter(c=>c.score<60),unitCards=[];
+    for(let n=1;n<=15;n++){const u=unitId(n),m=unitMastery(u);if(!m.learnedConcepts)continue;unitCards.push(`<button class="v640-unit-card" onclick="startSmartReview('smart','${u}')"><div class="row"><b>${esc(U[n-1]||('Ünite '+n))}</b><span class="score">%${m.score}</span></div>${bar(m.score)}<small>${m.learnedConcepts} öğrenilmiş kavram · ${m.weak} güçlendirilecek · ${m.due} vadesi gelen</small></button>`)}
+    const weakRows=weak.slice(0,5).map(c=>`<div class="v640-weak-row"><div class="row"><b>${esc(c.topic)}</b><span>%${c.score}</span></div><small>${esc(U[Number(c.unit.slice(1))-1]||c.unit)} · ${weakLabel(c)}${c.due?' · '+c.due+' tekrar bekliyor':''}</small></div>`).join('');
+    $('reviewScreenBody').innerHTML=heading('HATIRLA · PEKİŞTİR','Unutmaya göre çalışan tekrar.','Plan, geçmiş cevapların ve tekrar zamanlarınla otomatik değişir.')+planCardHtml(p)+`<div class="v5-tilegrid">`+[['mistakes','Yanlışların',state.mistakes.length+' soru','review'],['weak','Zayıf Kavramlar',weak.length+' kavram · 3 enerji','bulb'],['quick','Hızlı Tekrar','5 soru · Ücretsiz','book'],['due','Vadesi Gelen',due+' soru','review']].map(([mode,title,desc,icon])=>`<button onclick="startSmartReview('${mode}')"><span>${SVG[icon]}</span><b>${title}</b><small>${desc}</small></button>`).join('')+`</div><h2 class="v5-section-label">Öğrenme hafızası</h2>${weakRows?`<div class="v640-weak-list">${weakRows}</div>`:'<p class="v5-muted">Henüz yeterli cevap geçmişi yok. Birkaç ders sonra zayıf kavramlar burada görünür.</p>'}<h2 class="v5-section-label">Ünite bazında</h2>${unitCards.join('')||'<p class="v5-muted">İlk üniteni oynadıkça burada kişisel hafıza skoru oluşur.</p>'}<p class="v5-muted">Bu skor yalnız öğrenme ve hatırlama performansını yönetir; dinî yeterlilik veya ibadet değeri değildir.</p>`;
+  };
+  const BASE_RETURN_CARD=window.returnCard;
+  window.returnCard=function(...args){
+    const r=typeof BASE_RETURN_CARD==='function'?BASE_RETURN_CARD.apply(this,args):undefined;
+    try{const host=$('v5Return'),p=plan('smart',null,7);if(host&&p.summary.count&&conceptRows().length){host.querySelector('.v640-return-hint')?.remove();const x=document.createElement('div');x.className='v640-return-hint';x.innerHTML=`<b>Hafıza planı:</b> ${p.summary.due} vadesi gelen · ${p.summary.mistakes} yanlış önceliği · ${p.summary.concepts} kavram`;host.append(x)}}catch(e){}
+    return r;
+  };
+  const BASE_SHOW_RESULT_640=window.showResult;
+  window.showResult=function(...args){
+    const snap=session?.adaptiveReview?{unit:session.adaptiveUnit,before:clone640(session.adaptiveMasteryBefore),plan:clone640(session.adaptivePlan),total:session.questions?.length||0}:null;
+    const r=BASE_SHOW_RESULT_640.apply(this,args);
+    try{
+      if(snap){
+        const after=snap.unit?unitMastery(snap.unit):globalMastery(),beforeScore=Number(snap.before?.score)||0,delta=after.score-beforeScore,host=$('v5ResultExtra');
+        ensureAdaptive();
+        const result={at:Date.now(),mode:snap.plan?.mode||'smart',unit:snap.unit||null,correct:Number(session?.correct)||0,total:snap.total,pct:snap.total?Math.round((Number(session?.correct)||0)/snap.total*100):0,masteryBefore:beforeScore,masteryAfter:after.score,masteryDelta:delta,ids:[...(state.lastReviewIds||[])]};
+        state.adaptiveReviewMeta.lastResult=result;
+        const h=state.adaptiveReviewMeta.history;if(Array.isArray(h)&&h.length){const last=h[h.length-1];if(last&&last.status==='started'&&JSON.stringify(last.ids||[])===JSON.stringify(result.ids)){Object.assign(last,{status:'completed',correct:result.correct,total:result.total,pct:result.pct,masteryBefore:result.masteryBefore,masteryAfter:result.masteryAfter,masteryDelta:result.masteryDelta,completedAt:result.at})}}
+        if(host){host.querySelector('.v640-result')?.remove();const box=document.createElement('div');box.className='v640-result';box.innerHTML=`<div class="row"><b>Adaptif hafıza özeti</b><span>${delta>0?'+':''}${delta} puan</span></div><p>${snap.plan?.due||0} vadesi gelen · ${snap.plan?.mistakes||0} yanlış önceliği · ${snap.plan?.activityTypes||0} etkinlik türü işlendi. Sonraki plan yeni cevaplarına göre yeniden hesaplanacak.</p>`;host.append(box)}
+        saveState();
+      }
+    }catch(e){console.warn('V6.4.1 result mastery',e)}return r;
+  };
+  const BASE_MIGRATE_640=typeof migrate==='function'?migrate:null;
+  if(BASE_MIGRATE_640)migrate=function(...args){const s=BASE_MIGRATE_640.apply(this,args);return ensureAdaptive(s)};
+  const BASE_SAVE_640=window.saveState;
+  window.saveState=function(...args){ensureAdaptive();return BASE_SAVE_640.apply(this,args)};
+  function futureLeakage(ids){
+    const bad=[];for(const id of ids||[]){const q=QMAP?.get?.(id)||QUESTIONS.find(x=>x.id===id);if(!q||!allowed640(q))bad.push(id)}return bad;
+  }
+  window.DEEN_ADAPTIVE={version:VERSION,stateVersion:STATE_VERSION,concepts:(u=null)=>clone640(conceptRows(u)),unit:u=>clone640(unitMastery(u)),global:()=>clone640(globalMastery()),plan:(mode='smart',u=null,target=null)=>clone640(plan(mode,u,target)),eligible:(u=null)=>QUESTIONS.filter(q=>allowed640(q)&&(!u||qUnit(q)===u)).map(q=>q.id),start:(mode='smart',u=null)=>startSmartReview(mode,u),futureLeakage};
+  window.DEEN_ADAPTIVE_QA={version:VERSION,conceptCount:(u=null)=>conceptRows(u).length,plan:(mode='smart',u=null,target=null)=>{const p=plan(mode,u,target);return{summary:p.summary,ids:p.questions.map(q=>q.id),types:p.questions.map(q=>q.activity_type),concepts:p.questions.map(q=>q.concept_id),reasons:p.questions.map(q=>q._adaptive.reason),reservedConcepts:p.questions.filter(q=>q._adaptive.signals.reserved).map(q=>q.concept_id),leakage:futureLeakage(p.questions.map(q=>q.id))}},unit:u=>clone640(unitMastery(u)),state:()=>clone640(state.adaptiveReviewMeta),canReview:id=>{const q=QMAP?.get?.(id)||QUESTIONS.find(x=>x.id===id);return !!q&&allowed640(q)},learnedConcepts:u=>[...learnedConceptSet640(u)]};
+  ensureAdaptive();saveState();setTimeout(()=>{try{updateUI()}catch(e){console.warn('V6.4.1 init',e)}},80);
+})();
+</script>
+
+
+
+<style id="deen-v650-daily-journey-css">
+/* DEEN v6.5.1 — Daily Journey / retention game loop. Learning is gamified; worship is not. */
+.v650-journey{padding:20px 18px 17px!important;background:
+  radial-gradient(circle at 88% 5%,rgba(225,197,137,.13),transparent 29%),
+  linear-gradient(145deg,rgba(18,58,66,.98),rgba(10,37,47,.99))!important;border-color:#3f6870!important}
+.v650-journey .v650-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.v650-journey .v650-head .v5-kicker{color:#b8eadf}
+.v650-plan-badge{flex:0 0 auto;min-width:58px;height:36px;padding:0 10px;border:1px solid rgba(226,201,145,.27);border-radius:999px;background:rgba(48,42,27,.58);color:#f2dca5;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;letter-spacing:.75px}
+.v650-journey h1{font-size:29px!important;line-height:1.08!important;margin:10px 0 9px!important}
+.v650-journey>p{font-size:13px!important;line-height:1.48!important;margin:0 0 15px!important;color:#c9dbdd!important}
+.v650-steps{display:grid;gap:7px;margin:5px 0 14px;grid-template-columns:repeat(var(--v650-count,3),minmax(0,1fr))}
+.v650-step{position:relative;min-width:0;border:1px solid #34545d;border-radius:15px;background:rgba(8,31,40,.78);padding:10px 7px 9px;text-align:center;overflow:hidden}
+.v650-step:before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#29454e}
+.v650-step.done{border-color:#477970;background:rgba(14,56,53,.75)}
+.v650-step.done:before{background:#75d8bd}
+.v650-step.current{border-color:#7edbc4;box-shadow:0 0 0 1px rgba(126,219,196,.12),0 8px 22px rgba(0,0,0,.12)}
+.v650-step.current:before{background:linear-gradient(90deg,#7edbc4,#ddc88d)}
+.v650-step i{width:25px;height:25px;margin:0 auto 6px;border-radius:9px;border:1px solid #47626a;background:#102e38;display:grid;place-items:center;color:#a9bdc1;font-style:normal;font-size:10px;font-weight:900}
+.v650-step.done i{background:#1c554c;border-color:#65a997;color:#bff2e2}
+.v650-step.current i{background:#8cddc6;border-color:#a9ead7;color:#0a302a}
+.v650-step b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:9.5px;line-height:1.2;color:#eef5f2}
+.v650-step small{display:block;margin-top:3px;font-size:7.5px!important;line-height:1.2;color:#829da2}
+.v650-journey .v5-primary{margin-top:0}
+.v650-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:11px;color:#8eaaae;font-size:9px;line-height:1.3}
+.v650-foot b{color:#cfddd9;font-weight:800}
+.v650-soft{margin-top:8px;padding-top:8px;border-top:1px solid rgba(76,107,115,.35);font-size:8.5px;color:#80999e;line-height:1.4}
+.v650-result-loop{margin-top:10px;border:1px solid #35545d;border-radius:16px;background:linear-gradient(180deg,rgba(11,39,48,.92),rgba(8,29,37,.96));padding:11px 12px}
+.v650-result-loop .row{display:flex;align-items:center;justify-content:space-between;gap:10px}.v650-result-loop b{font-size:11px;color:#e8f1ed}.v650-result-loop span{font-size:10px;color:#9ee2ce;font-weight:900}
+.v650-result-loop p{margin:5px 0 0;font-size:9px;line-height:1.4;color:#91a9ad}
+.v650-mini-track{display:flex;gap:4px;margin-top:8px}.v650-mini-track i{height:4px;border-radius:99px;background:#27454d;flex:1}.v650-mini-track i.done{background:#75d8bd}.v650-mini-track i.current{background:#d8c37e}
+.v650-journey.v650-complete{border-color:#756a48!important;background:radial-gradient(circle at 85% 10%,rgba(235,209,141,.17),transparent 30%),linear-gradient(145deg,rgba(38,47,43,.98),rgba(10,37,47,.99))!important}
+.v650-journey.v650-complete .v650-plan-badge{color:#ffe6a9;border-color:#76673d;background:rgba(73,57,26,.52)}
+@media(max-width:390px){.v650-journey{padding:17px 14px 15px!important}.v650-journey h1{font-size:26px!important}.v650-step{padding:9px 5px 8px}.v650-step b{font-size:8.5px}.v650-step small{font-size:7px!important}.v650-step i{width:23px;height:23px}.v650-foot{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.v650-step,.v650-step:before{transition:none!important;animation:none!important}}
+</style>
+<script id="deen-v650-daily-journey-js">
+(() => {
+  if(window.__deenV650DailyJourneyApplied)return;
+  window.__deenV650DailyJourneyApplied=true;
+  const VERSION='6.5.1',STATE_VERSION=13;
+  window.DEEN_DAILY_JOURNEY_VERSION=VERSION;
+  window.DEEN_RELEASE_VERSION=VERSION;
+  document.title='DEEN v6.5.1 — Günlük Yolculuk';
+
+  const safeObj=x=>x&&typeof x==='object'&&!Array.isArray(x)?x:{};
+  const finite=(n,f=0,min=0,max=1e9)=>{n=Number(n);return Number.isFinite(n)?Math.max(min,Math.min(max,n)):f};
+  const clone650=x=>{try{return JSON.parse(JSON.stringify(x))}catch(e){return x}};
+  function ensureJourney(s=state){
+    const j={version:VERSION,days:{},claimedDates:[],history:[],...safeObj(s.dailyJourneyMeta)};
+    j.days=safeObj(j.days);
+    j.claimedDates=Array.isArray(j.claimedDates)?[...new Set(j.claimedDates.filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x)))].slice(-120):[];
+    j.history=Array.isArray(j.history)?j.history.filter(x=>x&&typeof x==='object').slice(-120):[];
+    const keys=Object.keys(j.days).filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x)).sort().slice(-120),clean={};
+    for(const k of keys){const r=safeObj(j.days[k]);clean[k]={createdAt:finite(r.createdAt,Date.now()),claimed:!!r.claimed,claimedAt:finite(r.claimedAt,0),xpReward:finite(r.xpReward,10,0,100),sparklesReward:finite(r.sparklesReward,3,0,100),warmupFirst:!!r.warmupFirst};}
+    j.days=clean;j.version=VERSION;s.dailyJourneyMeta=j;s.dailyJourneyVersion=VERSION;s.stateVersion=Math.max(STATE_VERSION,Number(s.stateVersion)||0);return s;
+  }
+  function rec(date=day()){ensureJourney();return state.dailyJourneyMeta.days[date]??=( {createdAt:Date.now(),claimed:false,claimedAt:0,xpReward:10,sparklesReward:3,warmupFirst:false} )}
+  function todayHistory(date=day()){return (state.history||[]).filter(h=>h&&h.date===date)}
+  function progressionKeys(date=day()){
+    const set=new Set();for(const h of todayHistory(date)){if(h.review)continue;const k=h.macroStage?`${h.macroStage}:${h.macroLesson||1}`:(h.stage||'learning');set.add(k)}return [...set]
+  }
+  function reviewSessions(date=day()){return todayHistory(date).filter(h=>!!h.review)}
+  function dueCount(){
+    try{const eligible=new Set(window.DEEN_ADAPTIVE?.eligible?.()||[]),now=Date.now();return Object.entries(state.reviewSchedule||{}).filter(([id,r])=>eligible.has(id)&&Number(r?.nextReview)>0&&Number(r.nextReview)<=now).length}catch(e){return 0}
+  }
+  function reviewPlanCount(){try{return Number(window.DEEN_ADAPTIVE?.plan?.('quick',null,5)?.summary?.count)||0}catch(e){return 0}}
+  function pendingFinal(){
+    try{if(typeof finalUnlocked==='function'&&finalUnlocked()&&!state.sectionFinal?.completed)return{kind:'final',title:'Temeller Ustalığı',detail:'Kısım 1 finali · 20 soru',action:'startSectionFinal()'}}catch(e){}
+    try{if(typeof final2Unlocked==='function'&&final2Unlocked()&&!state.section2Final?.completed)return{kind:'final',title:'İman Ustalığı',detail:'Kısım 2 finali · 25 soru',action:'startSection2Final()'}}catch(e){}
+    try{if(window.DEEN_SECTION3?.finalUnlocked?.()&&!state.section3Final?.completed)return{kind:'final',title:'İbadet Temelleri Ustalığı',detail:'Kısım 3 finali · 25 soru',action:'startSection3Final()'}}catch(e){}
+    return null;
+  }
+  function currentLearning(){
+    const d=window.DEEN_FIVE_STAGE?.current?.();if(d){const m=window.DEEN_FIVE_STAGE.meta(d.id)||{};return{kind:'lesson',title:d.title,detail:`${d.role} · Mini ders ${Math.min(d.lessons,(Number(m.completedLessons)||0)+1)}/${d.lessons}`,action:`startMacroStage('${d.id}')`,macroId:d.id,role:d.role}}
+    return pendingFinal();
+  }
+  function status(date=day()){
+    ensureJourney();const r=rec(date),prog=progressionKeys(date),reviews=reviewSessions(date),next=currentLearning();
+    const requested=Math.max(1,Math.min(3,Number(state.dailyGoal)||2));
+    const courseHasLearning=!!next;
+    const lessonTarget=courseHasLearning?requested:0;
+    const lessons=Math.min(prog.length,lessonTarget),reviewDone=reviews.length>0,due=dueCount();
+    if(!r.warmupFirst&&prog.length===0&&reviews.length===0&&due>=8){r.warmupFirst=true}
+    const complete=lessons>=lessonTarget&&reviewDone;
+    const total=lessonTarget+1,done=lessons+(reviewDone?1:0);
+    return{date,lessonTarget,lessons,progressionUnique:prog.length,reviewDone,reviewSessions:reviews.length,due,reviewAvailable:reviewPlanCount()>0,nextLearning:next,warmupFirst:r.warmupFirst,complete,total,done,claimed:r.claimed,reward:{xp:r.xpReward,sparkles:r.sparklesReward}};
+  }
+  function steps(st=status()){
+    const a=[];for(let i=1;i<=st.lessonTarget;i++)a.push({key:'lesson'+i,type:'lesson',label:'Ders '+i,small:'Yeni ilerleme',done:st.lessons>=i});
+    const review={key:'review',type:'review',label:'Hatırla',small:'5 soru',done:st.reviewDone};
+    const ordered=st.warmupFirst?[review,...a]:[...a,review];let currentSet=false;
+    for(const x of ordered){x.current=!x.done&&!currentSet;if(x.current)currentSet=true}
+    return ordered;
+  }
+  function nextAction(st=status()){
+    const ss=steps(st),cur=ss.find(x=>x.current);
+    if(!cur)return{kind:'done',label:'ÖĞRENME YOLUNA DÖN',action:"navigate('learnScreen')",title:'Bugünün yolculuğu tamamlandı.',detail:'Bugün için zorunlu bir adım kalmadı. Daha fazlası tamamen isteğe bağlı.'};
+    if(cur.type==='review'){
+      if(st.reviewAvailable)return{kind:'review',label:st.warmupFirst&&!st.lessons?'5 SORULUK ISINMA':'5 SORULUK HATIRLAMA',action:"startSmartReview('quick')",title:st.warmupFirst&&!st.lessons?'Önce hafızanı ısıt.':'Şimdi bilgiyi sabitle.',detail:st.due?`${st.due} tekrar vadesi geldi; kısa plan en önemlileri seçer.`:'5 soruluk adaptif tekrar, bugünkü öğrenmeyi hafızada tutmaya yardım eder.'};
+      if(st.nextLearning)return{kind:'lesson',label:'DERSLE DEVAM ET',action:st.nextLearning.action,title:'Tekrar planı dersinden sonra oluşacak.',detail:st.nextLearning.title+' · '+st.nextLearning.detail};
+      return{kind:'empty',label:'ÖĞRENME YOLUNA DÖN',action:"navigate('learnScreen')",title:'Tekrar planı için önce öğrenme geçmişi gerekiyor.',detail:'İlk öğrenme oturumundan sonra kişisel hafıza planın oluşur.'};
+    }
+    if(st.nextLearning)return{kind:st.nextLearning.kind,label:st.nextLearning.kind==='final'?'FİNALE GİR':'SIRADAKİ MİNİ DERS',action:st.nextLearning.action,title:st.nextLearning.kind==='final'?st.nextLearning.title:'Bugünkü yeni öğrenmeye devam et.',detail:st.nextLearning.title+' · '+st.nextLearning.detail};
+    if(st.reviewAvailable)return{kind:'review',label:'HIZLI TEKRAR',action:"startSmartReview('quick')",title:'Yeni içerik tamamlandı.',detail:'Bugün kısa bir tekrar yaparak hafızanı canlı tutabilirsin.'};
+    return{kind:'done',label:'YOLA DÖN',action:"navigate('learnScreen')",title:'Bugünkü öğrenme hazır.',detail:'Kaldığın noktadan devam edebilirsin.'};
+  }
+  function evaluate(date=day(),notify=true){
+    ensureJourney();const st=status(date),r=rec(date);if(!st.complete||r.claimed)return{claimed:false,status:st};
+    r.claimed=true;r.claimedAt=Date.now();if(!state.dailyJourneyMeta.claimedDates.includes(date))state.dailyJourneyMeta.claimedDates.push(date);
+    const xp=typeof award==='function'?award(r.xpReward):(state.xp=(state.xp||0)+r.xpReward,r.xpReward);state.currency=(state.currency||0)+r.sparklesReward;
+    const row={date,at:r.claimedAt,progressionSessions:st.progressionUnique,reviewSessions:st.reviewSessions,xp,sparkles:r.sparklesReward};state.dailyJourneyMeta.history=[...state.dailyJourneyMeta.history,row].slice(-120);
+    if(notify&&typeof toast==='function')toast(`Günlük yolculuk tamamlandı · +${xp} XP · +${r.sparklesReward} Pırıltı`);
+    try{saveState()}catch(e){}return{claimed:true,reward:{xp,sparkles:r.sparklesReward},status:status(date)};
+  }
+  function journeyHtml(){
+    const st=status(),ss=steps(st),act=nextAction(st),q=window.DEEN_RETENTION?.daily?.()||{done:0},weekly=window.DEEN_RETENTION?.weekly?.()||{days:0,goal:5};
+    const completed=st.complete,headline=completed?'Bugünün yolculuğu tamamlandı.':act.title;
+    const copy=completed?'Yeni öğrenme ve hatırlama hedefin tamam. Bugün daha fazla oturum yapman gerekmiyor.':act.detail;
+    const stepHtml=ss.map((x,i)=>`<div class="v650-step ${x.done?'done':x.current?'current':''}"><i>${x.done?'✓':i+1}</i><b>${esc(x.label)}</b><small>${esc(x.small)}</small></div>`).join('');
+    const cta=completed?primary('ÖĞRENME YOLUNA DÖN',"navigate('learnScreen')"):primary(act.label,act.action);
+    return `<section class="lp-return v650-journey ${completed?'v650-complete':''}"><div class="v650-head"><div><span class="v5-kicker">BUGÜNKÜ YOLCULUK</span></div><div class="v650-plan-badge">${st.done}/${st.total}</div></div><h1>${esc(headline)}</h1><p>${esc(copy)}</p><div class="v650-steps" style="--v650-count:${Math.max(1,ss.length)}">${stepHtml}</div>${cta}<div class="v650-foot"><span>Görevler <b>${q.done||0}/3</b></span><span>Haftalık ritim <b>${Math.min(weekly.days||0,weekly.goal||5)}/${weekly.goal||5}</b></span>${st.due?`<span><b>${st.due}</b> tekrar</span>`:''}</div><div class="v650-soft">Ödüller yalnız öğrenme oturumları içindir; ibadetin kendisi puanlanmaz. Günlük plan bittikten sonra devam etmek isteğe bağlıdır.</div></section>`;
+  }
+  const BASE_RETURN=window.returnCard;
+  window.returnCard=function(...args){try{if(typeof BASE_RETURN==='function')BASE_RETURN.apply(this,args)}catch(e){}try{evaluate(day(),false);const host=$('v5Return');if(host){host.innerHTML=journeyHtml();const stats=$('v5Stats');if(stats?.parentNode&&stats.nextElementSibling!==host)stats.after(host);const streak=$('v622StreakPanel');if(streak?.parentNode&&host.nextElementSibling!==streak)host.after(streak)}}catch(e){console.warn('V6.5.1 daily journey render',e)}};
+
+  const BASE_COMMIT=window.commit;
+  window.commit=function(...args){const earned=BASE_COMMIT.apply(this,args);try{evaluate(day(),true)}catch(e){console.warn('V6.5.1 journey commit',e)}return earned};
+
+  function decorateResult(){
+    const host=$('v5ResultExtra');if(!host||host.querySelector('.v650-result-loop'))return;const st=status(),ss=steps(st),next=nextAction(st),box=document.createElement('div');box.className='v650-result-loop';
+    box.innerHTML=`<div class="row"><b>Bugünkü yolculuk</b><span>${st.done}/${st.total}</span></div><div class="v650-mini-track">${ss.map(x=>`<i class="${x.done?'done':x.current?'current':''}"></i>`).join('')}</div><p>${st.complete?'Bugünkü plan tamamlandı; bundan sonrası isteğe bağlı.':esc(next.title)}</p>`;host.append(box);
+  }
+  const BASE_SHOW_RESULT=window.showResult;
+  window.showResult=function(...args){const r=BASE_SHOW_RESULT.apply(this,args);try{evaluate(day(),true);decorateResult()}catch(e){console.warn('V6.5.1 result loop',e)}return r};
+  const BASE_SHOW_FINAL=window.showSectionFinalResult;
+  if(typeof BASE_SHOW_FINAL==='function')window.showSectionFinalResult=function(...args){const r=BASE_SHOW_FINAL.apply(this,args);try{evaluate(day(),true);decorateResult()}catch(e){}return r};
+
+  const BASE_MIGRATE=typeof migrate==='function'?migrate:null;
+  if(BASE_MIGRATE)migrate=function(...args){return ensureJourney(BASE_MIGRATE.apply(this,args))};
+  const BASE_SAVE=window.saveState;
+  window.saveState=function(...args){ensureJourney();return BASE_SAVE.apply(this,args)};
+
+  window.DEEN_DAILY_JOURNEY={
+    version:VERSION,stateVersion:STATE_VERSION,status:(date=day())=>clone650(status(date)),steps:(date=day())=>clone650(steps(status(date))),next:(date=day())=>clone650(nextAction(status(date))),evaluate:(date=day(),notify=false)=>clone650(evaluate(date,notify)),progressionKeys:(date=day())=>[...progressionKeys(date)],reviewSessions:(date=day())=>reviewSessions(date).length,html:()=>journeyHtml()
+  };
+  window.DEEN_DAILY_JOURNEY_QA={
+    version:VERSION,stateVersion:STATE_VERSION,snapshot:(date=day())=>({status:clone650(status(date)),steps:clone650(steps(status(date))),next:clone650(nextAction(status(date))),record:clone650(rec(date))}),sameLessonFarmSafe:(date=day())=>progressionKeys(date).length<=todayHistory(date).filter(h=>!h.review).length
+  };
+  ensureJourney();try{saveState()}catch(e){}setTimeout(()=>{try{updateUI();returnCard()}catch(e){console.warn('V6.5.1 init',e)}},90);
+})();
+</script>
+
+
+<style id="deen-v660-economy-css">
+/* DEEN v6.6.0 — consolidated Daily Journey / Quest / Streak / Chest economy */
+.v660-economy-strip{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.v660-economy-chip{min-width:0;border:1px solid rgba(92,145,152,.32);border-radius:15px;padding:9px 10px;background:linear-gradient(180deg,rgba(6,35,44,.78),rgba(5,26,35,.9));display:flex;align-items:center;gap:8px}
+.v660-economy-chip.ready{border-color:rgba(238,199,104,.54);background:radial-gradient(circle at 88% 12%,rgba(255,218,119,.12),transparent 30%),linear-gradient(180deg,rgba(49,39,19,.86),rgba(15,29,32,.92));cursor:pointer}
+.v660-economy-icon{width:29px;height:29px;flex:0 0 auto;border-radius:9px;display:grid;place-items:center;background:rgba(7,47,53,.82);border:1px solid rgba(105,212,190,.22);font-size:14px}
+.v660-economy-chip.ready .v660-economy-icon{background:rgba(76,53,17,.82);border-color:rgba(255,216,119,.32)}
+.v660-economy-chip b{display:block;font-size:9.5px;color:#eef5f4;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v660-economy-chip small{display:block;font-size:7.5px;color:#8faab0;margin-top:3px;line-height:1.2}
+.v660-quest{position:relative;border:1px solid rgba(65,108,121,.42);border-radius:18px;padding:12px 13px;margin-top:9px;background:linear-gradient(180deg,rgba(7,34,43,.93),rgba(5,25,33,.96))}
+.v660-quest.done{border-color:rgba(77,201,169,.4);background:linear-gradient(180deg,rgba(7,50,47,.92),rgba(5,31,35,.96))}
+.v660-quest .head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.v660-quest b{font-size:11px}.v660-quest span{font-size:9px;color:#b9c8cb;font-weight:900}
+.v660-quest p{font-size:8px;color:#83a0a8;margin:7px 0 0;line-height:1.4}
+.v660-seal{display:inline-flex;align-items:center;gap:5px;color:#dfc17b!important}
+.v660-chest-card{margin-top:12px;border:1px solid rgba(232,193,104,.35);border-radius:19px;padding:13px;background:radial-gradient(circle at 90% 12%,rgba(255,220,125,.13),transparent 30%),linear-gradient(180deg,rgba(43,33,17,.92),rgba(11,28,32,.95))}
+.v660-chest-card.locked{border-color:rgba(84,109,115,.3);filter:saturate(.72)}
+.v660-chest-card .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.v660-chest-card strong{font-size:12px;color:#fff2d2}.v660-chest-card small{font-size:8px;color:#bfae8b;line-height:1.35}.v660-chest-card b{font-size:10px;color:#f0ca72}
+.v660-chest-card button{width:100%;min-height:42px;margin-top:10px;border:0;border-radius:14px;background:linear-gradient(180deg,#f0d18e,#c89e4d);color:#182329;font-size:10px;font-weight:1000;letter-spacing:.45px;cursor:pointer}
+.v660-chest-card button:disabled{background:#172b31;color:#6e858d;border:1px solid #314950;cursor:not-allowed}
+.v660-policy{margin-top:10px;padding:9px 10px;border-radius:14px;border:1px solid rgba(70,105,116,.28);background:rgba(5,24,31,.58);font-size:8px;line-height:1.45;color:#78949c}
+.v660-ledger{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}.v660-ledger div{border:1px solid #24444d;border-radius:13px;padding:8px;text-align:center;background:#071c24}.v660-ledger strong{display:block;font-size:16px;color:#f0d17f}.v660-ledger span{display:block;font-size:6.5px;color:#8199a0;margin-top:2px;letter-spacing:.55px}
+@media(max-width:390px){.v660-economy-strip{gap:6px}.v660-economy-chip{padding:8px}.v660-economy-chip b{font-size:8.7px}.v660-economy-chip small{font-size:7px}}
+</style>
+
+<script id="deen-v660-economy-js">
+(() => {
+  if(window.__deenV660Applied)return; window.__deenV660Applied=true;
+  const VERSION='6.6.0', STATE_VERSION=14, MAX_LEDGER=300; window.DEEN_RELEASE_VERSION=VERSION; window.DEEN_ECONOMY_VERSION=VERSION;
+  const DAILY_REWARD={sparkles:5}, WEEKLY_REWARD={xp:25,sparkles:12,freeze:1};
+  const STREAK_REWARDS={3:{sparkles:2,freeze:0},7:{sparkles:5,freeze:1},14:{sparkles:8,freeze:0},30:{sparkles:15,freeze:1},50:{sparkles:20,freeze:0},100:{sparkles:30,freeze:1},365:{sparkles:50,freeze:1}};
+  const BASE_DAILY=window.daily, BASE_SAVE=window.saveState, BASE_MIGRATE=typeof window.migrate==='function'?window.migrate:null;
