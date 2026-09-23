@@ -1368,4 +1368,260 @@
 })();
 </script>
 
+
+<!-- DEEN v9.9.13 — Mobile single-screen lesson mode -->
+<style id="deen-v9913-mobile-lesson-fit-css">
+@media(max-width:499px){
+ html,body{width:100%;height:100%;height:100dvh;overflow:hidden!important;overscroll-behavior:none}
+ body{display:block!important}
+ .phone{width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;aspect-ratio:auto!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+ #lesson{position:absolute!important;inset:0!important;width:100%!important;height:100dvh!important;min-height:0!important;border-radius:0!important}
+ #quizView{height:100dvh!important;min-height:0!important;overflow:hidden!important;background:linear-gradient(180deg,#082732 0%,#05202a 100%)!important}
+
+ /* One compact in-game top bar. */
+ #v624LessonEnergy{display:none!important}
+ #mlStageProgress,.ml-stage-progress{display:none!important}
+ #lesson .lesson-head{
+   flex:0 0 auto!important;
+   min-height:58px!important;
+   margin:0!important;
+   padding:calc(7px + env(safe-area-inset-top)) 9px 7px!important;
+   display:grid!important;
+   grid-template-columns:40px minmax(0,1fr) auto!important;
+   align-items:center!important;
+   gap:8px!important;
+   border-bottom:1px solid rgba(92,137,148,.22)!important;
+   background:rgba(5,29,38,.94)!important;
+   backdrop-filter:blur(14px)!important;
+   z-index:20!important;
+ }
+ #lesson .close{
+   width:38px!important;height:38px!important;
+   border-radius:13px!important;
+   font-size:26px!important;
+   margin:0!important;
+   display:grid!important;
+   place-items:center!important;
+ }
+ #lesson .lesson-head-center{min-width:0!important;display:block!important}
+ #lesson .lesson-brand{display:none!important}
+ #lesson .lesson-progress-row{margin:0!important;display:grid!important;grid-template-columns:minmax(0,1fr) 34px!important;gap:7px!important;align-items:center!important}
+ #lesson .lesson-prog{height:6px!important;border-width:1px!important}
+ #lesson .lesson-count{min-width:0!important;font-size:9px!important;text-align:center!important;color:#cfdddf!important}
+ #lesson .lesson-chipset{display:flex!important;flex-direction:row!important;align-items:center!important;gap:4px!important}
+ #lesson .lesson-chip{
+   min-width:0!important;width:auto!important;height:32px!important;
+   padding:0 8px!important;border-radius:11px!important;
+   font-size:9px!important;gap:4px!important;
+ }
+ #lesson .lesson-chip.fire{padding-left:7px!important;padding-right:7px!important}
+
+ /* The question is the screen: no page-level lesson scrolling. */
+ #lesson .qarea{
+   flex:1 1 auto!important;
+   height:auto!important;
+   min-height:0!important;
+   overflow:hidden!important;
+   overscroll-behavior:none!important;
+   padding:7px 8px calc(7px + env(safe-area-inset-bottom))!important;
+   gap:0!important;
+   display:block!important;
+ }
+ #lesson .question-frame{
+   transform-origin:0 0!important;
+   margin:0!important;
+   border-radius:18px!important;
+   padding:10px 10px 9px!important;
+   box-shadow:inset 0 0 0 1px rgba(255,255,255,.015),0 8px 24px rgba(0,0,0,.18)!important;
+ }
+ #lesson .question-frame:before{display:none!important}
+ #lesson .question-icon{display:none!important}
+ #lesson .lesson-note{display:none!important}
+
+ /* Compact question chrome. */
+ #lesson .question-stage,
+ #lesson .question-frame.v730-playful #qStage{
+   min-height:0!important;height:auto!important;
+   padding:3px 8px!important;margin:0 auto 4px!important;
+   font-size:7px!important;line-height:1.2!important;letter-spacing:.7px!important;
+ }
+ #lesson .qmeta,
+ #lesson .question-frame.v730-playful #qMeta{
+   margin:0 auto 5px!important;padding:3px 7px!important;
+   font-size:6px!important;line-height:1.15!important;letter-spacing:.65px!important;
+ }
+ #lesson .question,
+ #lesson .question-frame.v730-playful #questionText{
+   font-size:clamp(15px,4.5vw,18px)!important;
+   line-height:1.12!important;margin:5px 0 5px!important;
+ }
+ #lesson .qtype,
+ #lesson .question-frame.v730-playful #qType{display:none!important}
+
+ /* Meryem / guide becomes a small in-question hint, not a second hero. */
+ #lesson .v730-presenter{
+   grid-template-columns:48px minmax(0,1fr)!important;
+   gap:7px!important;align-items:center!important;margin:0 0 6px!important;
+ }
+ #lesson .v730-avatar-wrap{height:50px!important}
+ #lesson .v730-avatar{width:44px!important;height:49px!important}
+ #lesson .v730-avatar-wrap:after{height:7px!important;left:7px!important;right:7px!important;filter:blur(3px)!important}
+ #lesson .v730-bubble{
+   min-height:46px!important;padding:7px 8px!important;
+   border-radius:12px 12px 12px 5px!important;
+ }
+ #lesson .v730-bubble:before{width:10px!important;height:10px!important;left:-6px!important;bottom:10px!important}
+ #lesson .v730-speaker{font-size:5.5px!important;letter-spacing:.7px!important;margin-bottom:2px!important}
+ #lesson .v730-line{font-size:9px!important;line-height:1.24!important}
+
+ /* Audio is one compact control. */
+ #lesson .audio-panel{padding:5px 7px!important;margin:0 0 5px!important;gap:7px!important;border-radius:12px!important}
+ #lesson .audio-play{width:32px!important;height:32px!important;min-width:32px!important;font-size:13px!important}
+ #lesson .audio-copy strong{font-size:8px!important}
+ #lesson .audio-copy small,#lesson .audio-status{display:none!important}
+
+ /* Long explanatory/branch notes start compact; tap to expand if desired. */
+ #lesson .v710-branch-preview.show{
+   display:block!important;
+   max-height:36px!important;overflow:hidden!important;
+   margin:5px 0!important;padding:6px 8px!important;
+   border-left-width:2px!important;border-radius:0 8px 8px 0!important;
+   font-size:8px!important;line-height:1.32!important;
+   cursor:pointer!important;
+ }
+ #lesson .v710-branch-preview.show.v9913-note-expanded{max-height:none!important}
+
+ /* Answer controls keep touch targets while consuming far less vertical space. */
+ #lesson #answerArea{gap:5px!important}
+ #lesson .options,#lesson .v710-decisions,#lesson .v710-clues{gap:5px!important}
+ #lesson .option,
+ #lesson .options.mc-standard .option,
+ #lesson .question-frame[data-v710-mode="choice_cards"] .option,
+ #lesson .question-frame[data-v710-mode="choice_cards"] .mc-standard .option,
+ #lesson .question-frame.v730-playful .option,
+ #lesson .question-frame.v730-playful .v710-decision,
+ #lesson .question-frame.v730-playful .v710-clue,
+ #lesson .question-frame.v730-playful .fill-choice{
+   min-height:43px!important;
+   padding:7px 9px!important;
+   border-radius:12px!important;
+   font-size:10.5px!important;
+   line-height:1.2!important;
+   box-shadow:none!important;
+ }
+ #lesson .question-frame.v730-playful .option-label,
+ #lesson .question-frame.v730-playful .v710-decision,
+ #lesson .question-frame.v730-playful .v710-clue{
+   font-size:10px!important;line-height:1.2!important;
+ }
+ #lesson .option .option-badge{width:29px!important;height:29px!important;left:7px!important;border-radius:9px!important;font-size:11px!important}
+ #lesson .option:has(.option-badge){padding-left:44px!important}
+ #lesson .template-action,#lesson .btn{min-height:42px!important;height:auto!important;margin-top:5px!important;font-size:9px!important}
+ #lesson .v710-kicker{margin:0 0 5px!important;font-size:7px!important}
+ #lesson .v710-story,#lesson .v710-case,#lesson .v710-listen-shell,#lesson .v710-rapid{
+   padding:7px!important;margin-bottom:5px!important;border-radius:12px!important;
+ }
+ #lesson .v710-story-text{font-size:10px!important;line-height:1.3!important}
+ #lesson .v710-listen-option{min-height:43px!important;padding:7px!important;font-size:9px!important}
+ #lesson .v710-binary button{min-height:52px!important}
+ #lesson .v710-word-chip{min-height:38px!important;padding:6px 8px!important;font-size:10px!important}
+ #lesson .v710-builder-zone{min-height:48px!important;padding:7px!important;margin-bottom:5px!important}
+ #lesson .match-card,#lesson .v710-match-card{min-height:40px!important;padding:6px!important;font-size:8.5px!important}
+ #lesson .sequence-zone{min-height:52px!important;padding:7px!important;margin-bottom:6px!important}
+ #lesson .seq-chip{padding:7px 8px!important;font-size:9px!important}
+
+ /* Feedback stays inside the same viewport too. */
+ #lesson .feedback{margin-top:5px!important}
+ #lesson .feedback-box{padding:7px!important;border-radius:12px!important}
+ #lesson .feedback-title{font-size:10px!important}
+ #lesson .feedback-text{font-size:8px!important;line-height:1.3!important}
+ #lesson .feedback-box.v732-feedback{grid-template-columns:42px minmax(0,1fr)!important;gap:7px!important}
+ #lesson .v732-reaction-avatar{width:40px!important;height:44px!important}
+
+ #lesson.v9913-fitted .question-frame{will-change:transform}
+}
+</style>
+<script id="deen-v9913-mobile-lesson-fit-js">
+(()=>{
+ if(window.__deenV9913MobileLessonFit)return;window.__deenV9913MobileLessonFit=true;
+ const VERSION='9.9.13-MOBILE-LESSON';
+ let observer=null,raf=0;
+ const mobile=()=>matchMedia('(max-width:499px)').matches;
+ function compactHeader(){
+   if(!mobile())return;
+   const close=document.querySelector('#lesson .close');
+   if(close){close.setAttribute('aria-label','Dersten çık');close.title='Dersten çık'}
+   const status=document.getElementById('lessonStatus');
+   if(status&&session&&!session.final){
+     const e=state?.premium?'∞':Math.max(0,Number(state?.energy)||0);
+     status.innerHTML='<span aria-hidden="true">♥</span><span id="lessonEnergy">'+e+'</span>';
+   }
+   const streak=document.getElementById('lessonStreakMini');
+   if(streak)streak.textContent=String(Math.max(0,Number(state?.streakMeta?.currentStreak??state?.streak)||0));
+ }
+ function notes(){
+   if(!mobile())return;
+   document.querySelectorAll('#lesson .v710-branch-preview.show').forEach(el=>{
+     if(el.dataset.v9913Bound)return;
+     el.dataset.v9913Bound='1';
+     el.title='Ayrıntıyı aç / kapat';
+     el.addEventListener('click',()=>{
+       el.classList.toggle('v9913-note-expanded');
+       schedule();
+     });
+   });
+ }
+ function resetFrame(){
+   const f=document.querySelector('#lesson .question-frame');
+   if(!f)return;
+   f.style.transform='';f.style.width='';f.style.maxWidth='';
+   document.getElementById('lesson')?.classList.remove('v9913-fitted');
+ }
+ function fit(){
+   raf=0;
+   const lesson=document.getElementById('lesson'),area=document.querySelector('#lesson .qarea'),frame=document.querySelector('#lesson .question-frame');
+   if(!mobile()||!lesson?.classList.contains('active')||!area||!frame){resetFrame();return}
+   compactHeader();notes();
+   frame.style.transform='';frame.style.width='100%';frame.style.maxWidth='none';
+   lesson.classList.remove('v9913-fitted');
+   requestAnimationFrame(()=>{
+     const available=Math.max(1,area.clientHeight-2);
+     const needed=Math.max(1,frame.scrollHeight);
+     let scale=Math.min(1,available/needed);
+     if(scale<.995){
+       scale=Math.max(.64,scale);
+       frame.style.width=(100/scale).toFixed(3)+'%';
+       frame.style.transform='scale('+scale.toFixed(4)+')';
+       lesson.classList.add('v9913-fitted');
+     }
+   });
+ }
+ function schedule(){
+   cancelAnimationFrame(raf);
+   raf=requestAnimationFrame(()=>setTimeout(fit,0));
+ }
+ function watch(){
+   const q=document.getElementById('quizView');
+   if(!q||observer)return;
+   observer=new MutationObserver(()=>schedule());
+   observer.observe(q,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class','style']});
+ }
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function')window.renderQuestion=function(...args){const r=RQ.apply(this,args);schedule();setTimeout(schedule,60);return r};
+ const CQ=window.completeQuestion;
+ if(typeof CQ==='function')window.completeQuestion=function(...args){const r=CQ.apply(this,args);schedule();setTimeout(schedule,60);return r};
+ const UI=window.updateUI;
+ if(typeof UI==='function')window.updateUI=function(...args){const r=UI.apply(this,args);if(document.getElementById('lesson')?.classList.contains('active'))schedule();return r};
+ window.addEventListener('resize',schedule,{passive:true});
+ window.visualViewport?.addEventListener?.('resize',schedule,{passive:true});
+ window.DEEN_MOBILE_LESSON={version:VERSION,fit:schedule,snapshot:()=>({
+   mobile:mobile(),
+   lessonActive:!!document.getElementById('lesson')?.classList.contains('active'),
+   viewport:{w:window.innerWidth,h:window.innerHeight,vh:window.visualViewport?.height||null},
+   questionScale:(()=>{const t=document.querySelector('#lesson .question-frame')?.style.transform||'';const m=t.match(/scale\(([^)]+)\)/);return m?Number(m[1]):1})()
+ })};
+ watch();schedule();setTimeout(()=>{watch();schedule()},500);
+})();
+</script>
+
 <script id="deen-v993-production-guard">(()=>{const VERSION='9.9.12-PRODUCTION',BUILD='9912authmock1',TITLE='DEEN v9.9.12';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
