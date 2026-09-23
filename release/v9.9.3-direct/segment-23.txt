@@ -1,0 +1,1000 @@
+     if(noSameFamily.length)candidates=noSameFamily;
+    }
+
+    // KURAL 4: Son 5 soruda kullanılan tiplerden kaçın
+    if(recentTypes.length>=3){
+     const noRecent=candidates.filter(x=>!recentTypes.includes(x.type));
+     if(noRecent.length)candidates=noRecent;
+    }
+
+    // KURAL 5: Kavram spacing (aynı kavram en az 3 soru sonra)
+    const spacedConcept=candidates.filter(x=>{
+     if(!x.concept)return true;
+     if(!lastConceptPos.has(x.concept))return true;
+     return pos-lastConceptPos.get(x.concept)>=3;
+    });
+    if(spacedConcept.length)candidates=spacedConcept;
+
+    // Hedef zorluk hesapla
+    const target=desiredDifficulty(pos,total);
+
+    // Puanlama sistemi
+    candidates.sort((a,b)=>{
+     const score=x=>{
+      let s=0;
+
+      // Zorluk eşleştirme
+      s-=Math.abs(x.difficulty-target)*0.58;
+
+      // Tip çeşitliliği bonusu
+      s-=Number(typeUse[x.type]||0)*0.34;
+      if(!typeUse[x.type])s+=1.35; // İlk kullanım bonusu
+
+      // Aile çeşitliliği
+      if(last&&x.family!==last.family)s+=0.38;
+
+      // Toddler tiplerine öncelik (ilk ve son sorularda)
+      if(x.isToddlerType){
+       if(pos===0||pos===total-1)s+=0.65;
+       if(pos%3===0)s+=0.45; // Her 3. soruda toddler tipi bonusu
+      }
+
+      // Başlangıç için uygun tipler
+      if(pos===0&&['card','match','fill_blank','mcq','image_word_match','emote_choice'].includes(x.type))s+=0.45;
+
+      // Bitiş için uygun tipler (ödüllendirici)
+      if(pos>=Math.max(1,total-2)&&['scenario','puzzle_complete','sticker_reward','happy_path'].includes(x.type))s+=0.72;
+
+      // True/false'ı sonda az kullan
+      if(x.type==='true_false'&&pos>=Math.max(1,total-2))s-=0.9;
+
+      // Kavram spacing bonusu
+      if(x.concept&&lastConceptPos.has(x.concept)){
+       const gap=pos-lastConceptPos.get(x.concept);
+       const seenTypes=conceptTypes.get(x.concept)||new Set();
+       if(gap>=3&&gap<=5&&!seenTypes.has(x.type))s+=0.95;
+       if(gap<3)s-=2.2;
+      }
+
+      // Pozisyon yakınlığı (çok sapma olmasın)
+      s-=Math.abs(x.i-pos)*0.018;
+
+      return s;
+     };
+     return score(b)-score(a)||a.i-b.i;
+    });
+
+    const pick=candidates[0]||pool[0];
+    out.push(pick);
+
+    // Kullanım sayısını güncelle
+    typeUse[pick.type]=(typeUse[pick.type]||0)+1;
+
+    // Recent types güncelle (max 5)
+    recentTypes.push(pick.type);
+    if(recentTypes.length>5)recentTypes.shift();
+
+    recentFamilies.push(pick.family);
+    if(recentFamilies.length>5)recentFamilies.shift();
+
+    // Kavram tracking
+    if(pick.concept){
+     lastConceptPos.set(pick.concept,pos);
+     const set=conceptTypes.get(pick.concept)||new Set();
+     set.add(pick.type);
+     conceptTypes.set(pick.concept,set);
+    }
+
+    pool.splice(pool.indexOf(pick),1);
+   }
+
+   // Final doğrulama - hiç tekrar var mı?
+   const finalTypes=out.map(x=>x.type);
+   let hasRepeat=false;
+   for(let i=1;i<finalTypes.length;i++){
+    if(finalTypes[i]===finalTypes[i-1]){
+     hasRepeat=true;
+     console.warn('⚠️ DEEN v890: Tekrar tespit edildi, pozisyon '+i,finalTypes[i]);
+    }
+   }
+
+   return out.map(x=>x.q);
+  }
+
+  // Session hazırlama
+  function getSession(){
+   let s=null;
+   try{s=session}catch(_){try{s=window.session}catch(__){}}
+   return s;
+  }
+
+  function prepareSession(){
+   const s=getSession();
+   if(!s||!Array.isArray(s.questions)||s.questions.length<2||s.index!==0||s.__v890Planned)return false;
+
+   const before=analyze(s.questions);
+   const ordered=plan(s.questions,{final:!!s.final,review:!!s.review,macro:!!s.macroStage});
+
+   s.questions.splice(0,s.questions.length,...ordered);
+   s.__v890Planned=true;
+   s.__v862Planned=true;
+   s.__v873Planned=true;
+
+   const after=analyze(s.questions);
+   s.questionFlow={
+    version:VERSION,
+    build:BUILD,
+    before,
+    after,
+    types:s.questions.map(classify),
+    noRepeatGuarantee:!after.immediateRepeats
+   };
+
+   lastPlan={
+    stage:s.stage?.id||'',
+    lessonNo:s.lessonNo||null,
+    final:!!s.final,
+    review:!!s.review,
+    before,
+    after,
+    types:[...s.questionFlow.types],
+    noRepeatStreak:after.immediateRepeats===0?'✅PASS':'❌FAIL',
+    at:Date.now()
+   };
+
+   plans++;
+
+   try{
+    document.documentElement.dataset.deenQuestionFlow='toddler-safe';
+    document.dispatchEvent(new CustomEvent('deen:flow:toddler-planned',{
+     detail:{version:VERSION,...lastPlan}
+    }));
+   }catch(_){}
+
+   return true;
+  }
+
+  // renderQuestion wrapper yükle
+  function install(){
+   const oldRender=typeof renderQuestion==='function'?renderQuestion:window.renderQuestion;
+   if(typeof oldRender==='function'&&!oldRender.__v890){
+    const wrapped=function(...args){
+     prepareSession();
+     return oldRender.apply(this,args);
+    };
+    wrapped.__v890=true;
+    try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+    document.documentElement.dataset.deenToddlerEngine='ready';
+    return true;
+   }
+   return false;
+  }
+
+  // Otomatik yükleme
+  [0,120,420,1000,2200].forEach(ms=>setTimeout(install,ms));
+
+  // Public API
+  window.DEEN_TODDLER_DOPAMINE_ENGINE={
+   version:VERSION,
+   build:BUILD,
+   types:Object.keys(TODDLER_TYPES),
+   typeNames:TODDLER_TYPES,
+   classify,
+   plan,
+   analyze,
+   prepareSession,
+   install,
+   check:()=>({
+    version:VERSION,
+    build:BUILD,
+    ready:document.documentElement.dataset.deenToddlerEngine==='ready',
+    plans,
+    lastPlan,
+    guarantee:'NO_IMMEDIATE_REPEATS',
+    newTypes:window.DEEN_TODDLER_DOPAMINE_ENGINE?.types||[]
+   })
+  };
+ })();
+</script>
+\n<!-- DEEN v8.9.1 — Toddler Interactive UI -->
+<script id="deen-v891-toddler-ui-runtime">
+(function runtime(){
+  if(window.__deenV891ToddlerUI)return;window.__deenV891ToddlerUI=true;
+  const VERSION='8.9.1-TODDLER-UI',BUILD='891toddler1';
+
+  // Confetti efekti - başarı ödülü
+  function spawnConfetti(x,y){
+   const container=document.createElement('div');
+   container.style.cssText='position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden;';
+   document.body.appendChild(container);
+
+   const colors=['#FF6B6B','#4ECDC4','#FFE66D','#95E1D3','#F38181'];
+   const emojis=['⭐','🌟','✨','🎉','🎊','💫','🔥','❤️'];
+
+   for(let i=0;i<30;i++){
+    const conf=document.createElement('div');
+    conf.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    conf.style.cssText=`
+     position:absolute;
+     left:${x}%;
+     top:${y}%;
+     font-size:${Math.random()*20+15}px;
+     color:${colors[Math.floor(Math.random()*colors.length)]};
+     pointer-events:none;
+     animation:confetti-fly ${1+Math.random()}s ease-out forwards;
+    `;
+    container.appendChild(conf);
+   }
+
+   setTimeout(()=>container.remove(),2000);
+  }
+
+  // Ses efekti çalma
+  function playSound(type){
+   const audioContext=new (window.AudioContext||window.webkitAudioContext)();
+   const oscillator=audioContext.createOscillator();
+   const gainNode=audioContext.createGain();
+
+   oscillator.connect(gainNode);
+   gainNode.connect(audioContext.destination);
+
+   switch(type){
+    case 'success':
+     oscillator.frequency.setValueAtTime(523.25,audioContext.currentTime);
+     oscillator.frequency.setValueAtTime(659.25,audioContext.currentTime+0.1);
+     oscillator.frequency.setValueAtTime(783.99,audioContext.currentTime+0.2);
+     gainNode.gain.setValueAtTime(0.3,audioContext.currentTime);
+     gainNode.gain.exponentialRampToValueAtTime(0.01,audioContext.currentTime+0.4);
+     oscillator.start(audioContext.currentTime);
+     oscillator.stop(audioContext.currentTime+0.4);
+     break;
+    case 'correct':
+     oscillator.frequency.setValueAtTime(523.25,audioContext.currentTime);
+     oscillator.frequency.setValueAtTime(783.99,audioContext.currentTime+0.15);
+     gainNode.gain.setValueAtTime(0.3,audioContext.currentTime);
+     gainNode.gain.exponentialRampToValueAtTime(0.01,audioContext.currentTime+0.3);
+     oscillator.start(audioContext.currentTime);
+     oscillator.stop(audioContext.currentTime+0.3);
+     break;
+    case 'wrong':
+     oscillator.frequency.setValueAtTime(196,audioContext.currentTime);
+     oscillator.frequency.setValueAtTime(164.81,audioContext.currentTime+0.2);
+     gainNode.gain.setValueAtTime(0.2,audioContext.currentTime);
+     gainNode.gain.exponentialRampToValueAtTime(0.01,audioContext.currentTime+0.3);
+     oscillator.start(audioContext.currentTime);
+     oscillator.stop(audioContext.currentTime+0.3);
+     break;
+    case 'pop':
+     oscillator.frequency.setValueAtTime(880,audioContext.currentTime);
+     gainNode.gain.setValueAtTime(0.15,audioContext.currentTime);
+     gainNode.gain.exponentialRampToValueAtTime(0.01,audioContext.currentTime+0.1);
+     oscillator.start(audioContext.currentTime);
+     oscillator.stop(audioContext.currentTime+0.1);
+     break;
+   }
+  }
+
+  // Resim-Kelime Eşleştirme UI
+  function renderImageWordMatch(q,renderCb){
+   const container=document.createElement('div');
+   container.className='toddler-image-word-match';
+   container.style.cssText='display:flex;flex-direction:column;gap:20px;padding:20px;max-width:500px;margin:0 auto;';
+
+   const imagesDiv=document.createElement('div');
+   imagesDiv.style.cssText='display:grid;grid-template-columns:repeat(2,1fr);gap:15px;';
+
+   const wordsDiv=document.createElement('div');
+   wordsDiv.style.cssText='display:flex;flex-direction:column;gap:10px;';
+
+   let selectedImage=null;
+   let matchedCount=0;
+   const totalPairs=q.pairs?.length||4;
+
+   q.pairs.forEach((pair,idx)=>{
+    const imgBtn=document.createElement('button');
+    imgBtn.innerHTML=`<img src="${pair.image}" style="width:100%;height:120px;object-fit:cover;border-radius:15px;border:4px solid #ddd;" alt="">`;
+    imgBtn.style.cssText='cursor:pointer;transition:transform 0.2s,border-color 0.2s;min-height:120px;';
+    imgBtn.onclick=()=>{
+     if(selectedImage){
+      if(selectedImage===idx){
+       imgBtn.style.borderColor='#ddd';
+       selectedImage=null;
+      }else{
+       // Eşleşme kontrolü
+       if(q.pairs[selectedImage].word===q.pairs[idx].word){
+        imgBtn.style.borderColor='#4ECDC4';
+        document.querySelector(`[data-img-idx="${selectedImage}"]`).style.borderColor='#4ECDC4';
+        playSound('correct');
+        spawnConfetti(50,50);
+        matchedCount++;
+        if(matchedCount===totalPairs){
+         setTimeout(()=>renderCb(true),500);
+        }
+       }else{
+        playSound('wrong');
+        imgBtn.style.borderColor='#FF6B6B';
+        setTimeout(()=>{
+         imgBtn.style.borderColor='#ddd';
+         document.querySelector(`[data-img-idx="${selectedImage}"]`).style.borderColor='#ddd';
+        },500);
+       }
+       selectedImage=null;
+      }
+     }else{
+      selectedImage=idx;
+      imgBtn.style.borderColor='#FFE66D';
+      playSound('pop');
+     }
+    };
+    imgBtn.dataset.imgIdx=idx;
+    imagesDiv.appendChild(imgBtn);
+   });
+
+   // Kelime butonları karıştır
+   const shuffledWords=[...q.pairs].sort(()=>Math.random()-0.5);
+   shuffledWords.forEach((pair,idx)=>{
+    const wordBtn=document.createElement('button');
+    wordBtn.textContent=pair.word;
+    wordBtn.style.cssText='padding:15px 20px;font-size:18px;border-radius:12px;border:3px solid #ddd;background:#fff;cursor:pointer;transition:all 0.2s;min-height:60px;';
+    wordBtn.onmouseover=()=>wordBtn.style.transform='scale(1.02)';
+    wordBtn.onmouseout=()=>wordBtn.style.transform='scale(1)';
+    wordsDiv.appendChild(wordBtn);
+   });
+
+   container.appendChild(imagesDiv);
+   container.appendChild(wordsDiv);
+
+   return container;
+  }
+
+  // Renk-Şekil Sıralama UI
+  function renderColorShapeSort(q,renderCb){
+   const container=document.createElement('div');
+   container.style.cssText='display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px;';
+
+   const instruction=document.createElement('div');
+   instruction.textContent=q.instruction||'Renkleri sırala!';
+   instruction.style.cssText='font-size:24px;font-weight:bold;color:#07151c;text-align:center;';
+   container.appendChild(instruction);
+
+   const dropZone=document.createElement('div');
+   dropZone.style.cssText='display:flex;gap:10px;padding:20px;background:#f0f4f8;border-radius:20px;min-height:100px;align-items:center;';
+
+   const shapes=[...q.shapes||[]];
+   const correctOrder=q.correct_order||shapes.map((_,i)=>i);
+   let placedShapes=[];
+
+   shapes.forEach((shape,idx)=>{
+    const shapeEl=document.createElement('div');
+    shapeEl.draggable=true;
+    shapeEl.style.cssText=`
+     width:80px;height:80px;
+     background:${shape.color};
+     border-radius:${shape.type==='circle'?'50%':shape.type==='square'?'15px':'50% 0 50% 0'};
+     cursor:grab;
+     transition:transform 0.2s;
+     box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    `;
+    shapeEl.onDragStart=(e)=>{
+     e.dataTransfer.setData('text/plain',idx.toString());
+     playSound('pop');
+    };
+    shapeEl.onclick=()=>{
+     dropZone.appendChild(shapeEl);
+     placedShapes.push(idx);
+     checkCompletion();
+    };
+    container.appendChild(shapeEl);
+   });
+
+   function checkCompletion(){
+    if(placedShapes.length===shapes.length){
+     const isCorrect=JSON.stringify(placedShapes)===JSON.stringify(correctOrder);
+     if(isCorrect){
+      playSound('success');
+      spawnConfetti(50,50);
+      setTimeout(()=>renderCb(true),500);
+     }else{
+      playSound('wrong');
+      setTimeout(()=>{
+       placedShapes=[];
+       // Reset shapes
+      },500);
+     }
+    }
+   }
+
+   container.appendChild(dropZone);
+   return container;
+  }
+
+  // Puzzle Tamamlama UI
+  function renderPuzzleComplete(q,renderCb){
+   const container=document.createElement('div');
+   container.style.cssText='display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px;';
+
+   const puzzleImage=document.createElement('div');
+   puzzleImage.style.cssText=`
+    width:300px;height:300px;
+    background-image:url('${q.image}');
+    background-size:300px 300px;
+    border-radius:20px;
+    border:4px solid #4ECDC4;
+    display:grid;
+    grid-template-columns:repeat(${q.gridSize||3},1fr);
+    grid-template-rows:repeat(${q.gridSize||3},1fr);
+    gap:2px;
+   `;
+
+   const pieces=[];
+   for(let i=0;i<(q.gridSize||3)*(q.gridSize||3);i++){
+    pieces.push(i);
+   }
+   pieces.sort(()=>Math.random()-0.5);
+
+   pieces.forEach((pieceIdx,posIdx)=>{
+    const piece=document.createElement('div');
+    piece.style.cssText=`
+     width:calc(300px / ${q.gridSize||3});
+     height:calc(300px / ${q.gridSize||3});
+     background-image:url('${q.image}');
+     background-size:300px 300px;
+     background-position:${-(pieceIdx%(q.gridSize||3))*(300/(q.gridSize||3))}px ${-Math.floor(pieceIdx/(q.gridSize||3))*(300/(q.gridSize||3))}px;
+     cursor:pointer;
+     transition:transform 0.2s;
+    `;
+    piece.onclick=()=>{
+     playSound('pop');
+     // Puzzle mantığı buraya
+    };
+    puzzleImage.appendChild(piece);
+   });
+
+   container.appendChild(puzzleImage);
+   return container;
+  }
+
+  // Dinle ve İşaretle UI
+  function renderListenPoint(q,renderCb){
+   const container=document.createElement('div');
+   container.style.cssText='display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px;';
+
+   const audioBtn=document.createElement('button');
+   audioBtn.innerHTML='🔊 Dinle';
+   audioBtn.style.cssText='padding:20px 40px;font-size:24px;border-radius:50px;background:#4ECDC4;color:#fff;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(78,205,196,0.4);transition:transform 0.2s;';
+   audioBtn.onclick=()=>{
+    if(q.audioSrc){
+     const audio=new Audio(q.audioSrc);
+     audio.play();
+     playSound('pop');
+    }
+   };
+   container.appendChild(audioBtn);
+
+   const optionsDiv=document.createElement('div');
+   optionsDiv.style.cssText='display:grid;grid-template-columns:repeat(2,1fr);gap:15px;';
+
+   q.options.forEach((opt,idx)=>{
+    const btn=document.createElement('button');
+    btn.innerHTML=`<img src="${opt.image}" style="width:100%;height:120px;object-fit:cover;border-radius:15px;" alt="">`;
+    btn.style.cssText='cursor:pointer;transition:transform 0.2s;min-height:120px;border:4px solid #ddd;border-radius:15px;';
+    btn.onclick=()=>{
+     if(idx===q.correctIndex){
+      btn.style.borderColor='#4ECDC4';
+      playSound('success');
+      spawnConfetti(50,50);
+      setTimeout(()=>renderCb(true),500);
+     }else{
+      btn.style.borderColor='#FF6B6B';
+      playSound('wrong');
+      setTimeout(()=>btn.style.borderColor='#ddd',500);
+     }
+    };
+    optionsDiv.appendChild(btn);
+   });
+
+   container.appendChild(optionsDiv);
+   return container;
+  }
+
+  // Doğru Yol Seç UI (Happy Path)
+  function renderHappyPath(q,renderCb){
+   const container=document.createElement('div');
+   container.style.cssText='display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px;';
+
+   const pathContainer=document.createElement('div');
+   pathContainer.style.cssText='position:relative;width:300px;height:400px;background:#f0f4f8;border-radius:20px;overflow:hidden;';
+
+   // Yol çizgisi
+   const pathLine=document.createElement('div');
+   pathLine.style.cssText='position:absolute;left:50%;top:0;width:4px;height:100%;background:#ddd;transform:translateX(-50%);';
+   pathContainer.appendChild(pathLine);
+
+   // Seçenekler
+   q.pathOptions.forEach((opt,idx)=>{
+    const optionBtn=document.createElement('button');
+    optionBtn.textContent=opt.text;
+    optionBtn.style.cssText=`
+     position:absolute;
+     left:${opt.isCorrect?'50%':(idx%2===0?'20%':'80%')}%;
+     top:${20+idx*20}%;
+     transform:translateX(-50%);
+     padding:15px 25px;
+     font-size:18px;
+     border-radius:15px;
+     border:3px solid ${opt.isCorrect?'#4ECDC4':'#ddd'};
+     background:#fff;
+     cursor:pointer;
+     transition:all 0.2s;
+    `;
+    optionBtn.onclick=()=>{
+     if(opt.isCorrect){
+      optionBtn.style.background='#4ECDC4';
+      optionBtn.style.color='#fff';
+      playSound('success');
+      spawnConfetti(50,50);
+      setTimeout(()=>renderCb(true),500);
+     }else{
+      optionBtn.style.background='#FF6B6B';
+      optionBtn.style.color='#fff';
+      playSound('wrong');
+      setTimeout(()=>{
+       optionBtn.style.background='#fff';
+       optionBtn.style.color='#07151c';
+      },500);
+     }
+    };
+    pathContainer.appendChild(optionBtn);
+   });
+
+   container.appendChild(pathContainer);
+   return container;
+  }
+
+  // Çıkart Toplama UI (Sticker Reward)
+  function renderStickerReward(q,renderCb){
+   const container=document.createElement('div');
+   container.style.cssText='display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px;';
+
+   const stickerBook=document.createElement('div');
+   stickerBook.style.cssText='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:20px;background:#fff;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,0.1);';
+
+   const stickers=q.stickers||['⭐','🌟','🎉','🎊','💫','🔥','❤️','🎈','🍭'];
+   const collected=new Set();
+
+   stickers.forEach((sticker,idx)=>{
+    const stickerEl=document.createElement('div');
+    stickerEl.textContent=sticker;
+    stickerEl.style.cssText=`
+     font-size:40px;
+     text-align:center;
+     padding:15px;
+     border-radius:15px;
+     background:${collected.has(idx)?'#FFE66D':'#f0f4f8'};
+     cursor:pointer;
+     transition:transform 0.2s;
+    `;
+    stickerEl.onclick=()=>{
+     if(!collected.has(idx)){
+      collected.add(idx);
+      stickerEl.style.background='#FFE66D';
+      stickerEl.style.transform='scale(1.2)';
+      playSound('pop');
+      if(collected.size===stickers.length){
+       playSound('success');
+       spawnConfetti(50,50);
+       setTimeout(()=>renderCb(true),500);
+      }
+     }
+    };
+    stickerBook.appendChild(stickerEl);
+   });
+
+   container.appendChild(stickerBook);
+   return container;
+  }
+
+  // Emoji ile Cevap UI
+  function renderEmoteChoice(q,renderCb){
+   const container=document.createElement('div');
+   container.style.cssText='display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px;';
+
+   const questionText=document.createElement('div');
+   questionText.textContent=q.question;
+   questionText.style.cssText='font-size:24px;text-align:center;color:#07151c;';
+   container.appendChild(questionText);
+
+   const emotesDiv=document.createElement('div');
+   emotesDiv.style.cssText='display:flex;gap:15px;flex-wrap:wrap;justify-content:center;';
+
+   q.emotes.forEach((emote,idx)=>{
+    const emoteBtn=document.createElement('button');
+    emoteBtn.textContent=emote.emoji;
+    emoteBtn.style.cssText='font-size:50px;padding:20px;border-radius:50%;border:4px solid #ddd;background:#fff;cursor:pointer;transition:transform 0.2s;';
+    emoteBtn.onclick=()=>{
+     if(emote.isCorrect){
+      emoteBtn.style.borderColor='#4ECDC4';
+      emoteBtn.style.background='#E8F8F5';
+      playSound('success');
+      spawnConfetti(50,50);
+      setTimeout(()=>renderCb(true),500);
+     }else{
+      emoteBtn.style.borderColor='#FF6B6B';
+      emoteBtn.style.background='#FDEDEC';
+      playSound('wrong');
+      setTimeout(()=>{
+       emoteBtn.style.borderColor='#ddd';
+       emoteBtn.style.background='#fff';
+      },500);
+     }
+    };
+    emotesDiv.appendChild(emoteBtn);
+   });
+
+   container.appendChild(emotesDiv);
+   return container;
+  }
+
+  // Sürükle-Yerleştir UI
+  function renderDragDropPlace(q,renderCb){
+   const container=document.createElement('div');
+   container.style.cssText='display:flex;flex-direction:column;gap:20px;padding:20px;';
+
+   const sourceDiv=document.createElement('div');
+   sourceDiv.style.cssText='display:flex;gap:15px;padding:20px;background:#f0f4f8;border-radius:15px;justify-content:center;flex-wrap:wrap;';
+
+   const targetDiv=document.createElement('div');
+   targetDiv.style.cssText='display:flex;gap:15px;padding:20px;background:#E8F8F5;border-radius:15px;justify-content:center;flex-wrap:wrap;min-height:80px;';
+
+   const items=[...q.items||[]];
+   const placedItems=[];
+
+   items.forEach((item,idx)=>{
+    const itemEl=document.createElement('div');
+    itemEl.draggable=true;
+    itemEl.textContent=item.text||item.emoji;
+    itemEl.style.cssText='padding:15px 20px;font-size:20px;border-radius:12px;background:#fff;border:3px solid #4ECDC4;cursor:grab;user-select:none;';
+    itemEl.onDragStart=(e)=>{
+     e.dataTransfer.setData('text/plain',idx.toString());
+     playSound('pop');
+    };
+    sourceDiv.appendChild(itemEl);
+   });
+
+   targetDiv.ondragover=(e)=>e.preventDefault();
+   targetDiv.ondrop=(e)=>{
+    e.preventDefault();
+    const idx=parseInt(e.dataTransfer.getData('text/plain'));
+    const item=items[idx];
+
+    if(q.correctPlacement.includes(item)){
+     const placedEl=document.createElement('div');
+     placedEl.textContent=item.text||item.emoji;
+     placedEl.style.cssText='padding:15px 20px;font-size:20px;border-radius:12px;background:#fff;border:3px solid #4ECDC4;';
+     targetDiv.appendChild(placedEl);
+     placedItems.push(item);
+     playSound('correct');
+
+     if(placedItems.length===q.correctPlacement.length){
+      playSound('success');
+      spawnConfetti(50,50);
+      setTimeout(()=>renderCb(true),500);
+     }
+    }else{
+     playSound('wrong');
+    }
+   };
+
+   container.appendChild(sourceDiv);
+   container.appendChild(targetDiv);
+   return container;
+  }
+
+  // Render fonksiyonlarını kaydet
+  window.DEEN_TODDLER_UI_RENDERERS={
+   image_word_match:renderImageWordMatch,
+   color_shape_sort:renderColorShapeSort,
+   puzzle_complete:renderPuzzleComplete,
+   listen_point:renderListenPoint,
+   happy_path:renderHappyPath,
+   sticker_reward:renderStickerReward,
+   emote_choice:renderEmoteChoice,
+   drag_drop_place:renderDragDropPlace
+  };
+
+  // Mevcut renderQuestion fonksiyonunu genişlet
+  function install(){
+   const oldRender=typeof renderQuestion==='function'?renderQuestion:window.renderQuestion;
+   if(typeof oldRender==='function'&&!oldRender.__v891){
+    const wrapped=function(q,...args){
+     const toddlerRenderer=q&&window.DEEN_TODDLER_UI_RENDERERS[q.type];
+     if(toddlerRenderer){
+      return toddlerRenderer(q,(result)=>{
+       // Sonuç callback'i
+       if(result){
+        playSound('success');
+        spawnConfetti(50,50);
+       }
+      });
+     }
+     return oldRender.call(this,q,...args);
+    };
+    wrapped.__v891=true;
+    try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+    document.documentElement.dataset.deenToddlerUI='ready';
+    return true;
+   }
+   return false;
+  }
+
+  // Otomatik yükleme
+  [0,150,500,1200,2500].forEach(ms=>setTimeout(install,ms));
+
+  // Public API
+  window.DEEN_TODDLER_INTERACTIVE_UI={
+   version:VERSION,
+   build:BUILD,
+   install,
+   playSound,
+   spawnConfetti,
+   renderers:Object.keys(window.DEEN_TODDLER_UI_RENDERERS||{}),
+   check:()=>({
+    version:VERSION,
+    build:BUILD,
+    ready:document.documentElement.dataset.deenToddlerUI==='ready',
+    renderers:Object.keys(window.DEEN_TODDLER_UI_RENDERERS||{})
+   })
+  };
+ })();
+</script>\n
+<!-- DEEN v9.0.0 — U01-S01 Turkish Pilot -->
+<script id="deen-v900-u01-s01-pilot">(function runtime(items){
+  if(window.__deenV900U01S01Pilot)return;window.__deenV900U01S01Pilot=true;
+  const VERSION='9.0.0-U01-S01-PILOT',BUILD='900pilot1',TARGET='U01-S01';
+  const clone=v=>JSON.parse(JSON.stringify(v));
+  let installs=0,lastAudit=null;
+
+  function bank(){
+   try{if(Array.isArray(QUESTIONS))return QUESTIONS}catch(_){}
+   return Array.isArray(window.QUESTIONS)?window.QUESTIONS:null;
+  }
+  function install(){
+   const questions=bank();if(!questions)return false;
+   for(let i=questions.length-1;i>=0;i--)if(String(questions[i]?.stage_id||'')===TARGET)questions.splice(i,1);
+   questions.push(...items.map(clone));
+   try{
+    const stage=STAGES.find(x=>x.id===TARGET);
+    if(stage)stage.meta='Başlangıç · 12 soru · yaklaşık 5 dk';
+   }catch(_){}
+   installs++;lastAudit=audit();
+   document.documentElement.dataset.deenU01S01Pilot=lastAudit.pass?'ready':'check';
+   return lastAudit.pass;
+  }
+  function pilotQuestions(){
+   return (bank()||[]).filter(q=>q.stage_id===TARGET).sort((a,b)=>Number(a.pilot_order)-Number(b.pilot_order));
+  }
+  function audit(){
+   const qs=pilotQuestions(),ids=new Set(qs.map(q=>q.id)),counts={};
+   qs.forEach(q=>counts[q.activity_type]=(counts[q.activity_type]||0)+1);
+   const issues=[];
+   if(qs.length!==12)issues.push('question_count');
+   if(ids.size!==qs.length)issues.push('duplicate_id');
+   if(Object.keys(counts).length!==6)issues.push('format_count');
+   if(counts.multiple_choice)issues.push('abcd_present');
+   qs.forEach(q=>{
+    if(!q.question_tr||!q.explanation_tr)issues.push(q.id+':missing_copy');
+    if(q.religious_release_ready!==false)issues.push(q.id+':release_flag');
+    if(!Array.isArray(q.source_urls)||!q.source_urls.length)issues.push(q.id+':source');
+    if(['card_choice','scenario','odd_one_out','true_false','fill_blank'].includes(q.activity_type)){
+     if(!Array.isArray(q.options_tr)||!q.options_tr.includes(q.correct_answer))issues.push(q.id+':answer');
+    }
+    if(q.activity_type==='matching'&&(!Array.isArray(q.pairs)||q.pairs.length<2))issues.push(q.id+':pairs');
+   });
+   return {target:TARGET,total:qs.length,counts,uniqueFormats:Object.keys(counts).length,abcdCount:counts.multiple_choice||0,issues,pass:issues.length===0};
+  }
+
+  const previousChoose=typeof chooseQuestions==='function'?chooseQuestions:null;
+  const choose=function(id){return id===TARGET?pilotQuestions():previousChoose?.(id)||[]};
+  try{window.chooseQuestions=choose;chooseQuestions=choose}catch(_){window.chooseQuestions=choose}
+
+  const previousStart=typeof startStage==='function'?startStage:null;
+  const start=function(id){
+   if(id!==TARGET)return previousStart?.(id);
+   install();
+   const st=STAGES.find(x=>x.id===id);if(!st)return;
+   if(!state.premium&&state.energy<st.energy){showEnergy();return}
+   if(!state.premium)state.energy-=st.energy;
+   const qs=pilotQuestions();if(qs.length!==12){console.error('DEEN pilot question pool invalid',audit());return}
+   session={stage:st,questions:qs,index:0,correct:0,combo:0,bestCombo:0,__v900Pilot:true,__v862Planned:true,__v873Planned:true,__v890Planned:true};
+   const lesson=document.getElementById('lesson');if(!lesson)return;
+   lesson.classList.add('active');document.getElementById('quizView').style.display='flex';
+   resetResultView(false);setLessonStatus(false);
+   try{saveState()}catch(_){}try{updateUI()}catch(err){console.error('DEEN pilot updateUI',err)}
+   renderQuestion();
+  };
+  try{window.startStage=start;startStage=start}catch(_){window.startStage=start}
+
+  install();[120,420,1000,2300].forEach(ms=>setTimeout(install,ms));
+  window.DEEN_U01_S01_PILOT={version:VERSION,build:BUILD,target:TARGET,install,questions:()=>clone(pilotQuestions()),audit,check:()=>({version:VERSION,build:BUILD,installs,...audit()})};
+  try{document.dispatchEvent(new CustomEvent('deen:pilot:installed',{detail:{version:VERSION,build:BUILD,target:TARGET,...lastAudit}}))}catch(_){}
+ })([{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"easy","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P01","pilot_order":1,"type":"card","question_type":"card","activity_type":"card_choice","concept_id":"islam_meaning","topic":"İslam'a giriş","cognitive_level":"recognition","question_tr":"İslam denince merkezde hangi fikir vardır?","options_tr":["Allah'a yönelmek ve O'nun rehberliğini benimsemek","Yalnızca belli bir kültüre ait olmak","Sadece geçmiş olayları öğrenmek","Yalnızca bazı kelimeleri ezberlemek"],"correct_answer":"Allah'a yönelmek ve O'nun rehberliğini benimsemek","explanation_tr":"İslam, Allah'a yönelmeyi ve O'nun rehberliğini hayatın içinde benimsemeyi öğretir.","source_reference":"Kur'an 2:112; Diyanet Hadislerle İslam, Cilt 1, s.363; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/119/112-ayet-tefsiri"],"source_evidence_note":"İslam ve teslimiyet kavramının temel çerçevesini destekler.","tags":["v9-pilot","u01","s01","card_choice","islam_meaning"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"easy","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P02","pilot_order":2,"type":"match","question_type":"match","activity_type":"matching","concept_id":"core_concepts","topic":"Temel kavramlar","cognitive_level":"recognition","question_tr":"Üç temel kavramı doğru açıklamayla eşleştir.","pairs":[{"left":"İman","right":"Kalben inanmak ve kabul etmek"},{"left":"İbadet","right":"Allah'a kulluk etmek"},{"left":"Ahlak","right":"Davranış ve tutumlar"}],"explanation_tr":"İman, ibadet ve ahlak farklı kavramlardır; birlikte anlamlı bir yaşam çerçevesi oluştururlar.","source_reference":"Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/184/177-ayet-tefsiri"],"source_evidence_note":"İman, kulluk ve davranış boyutlarının birlikte ele alınmasını destekler.","tags":["v9-pilot","u01","s01","matching","core_concepts"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"easy","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P03","pilot_order":3,"type":"true_false","question_type":"true_false","activity_type":"true_false","concept_id":"muslim_identity","topic":"Müslüman kimliği","cognitive_level":"recognition","question_tr":"Müslüman olmak için belirli bir ülkede doğmak gerekir.","options_tr":["Doğru","Yanlış"],"correct_answer":"Yanlış","explanation_tr":"Müslüman kimliği ülkeye, dile veya millete değil; İslam’ı benimsemeye dayanır.","source_reference":"Kur'an 22:78; 49:13; 34:28; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/mushaf/meal-2/hucurat-suresi-49/ayet-13/diyanet-isleri-baskanligi-meali-1"],"source_evidence_note":"İnsanların farklı topluluklardan oluştuğunu ve dinî kimliğin milliyete indirgenemeyeceğini destekler.","tags":["v9-pilot","u01","s01","true_false","muslim_identity"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"easy","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P04","pilot_order":4,"type":"fill_blank","question_type":"fill_blank","activity_type":"fill_blank","concept_id":"islam_meaning","topic":"İslam'a giriş","cognitive_level":"recall","question_tr":"Boşluğu tamamla: İslam’ın temelinde Allah’a ___ olmak vardır.","options_tr":["teslim","uzak","kayıtsız","yabancı"],"correct_answer":"teslim","explanation_tr":"Buradaki 'teslim olmak', Allah'a yönelmek ve O'nun rehberliğini benimsemek anlamında kullanılır.","source_reference":"Kur'an 2:112; Diyanet Hadislerle İslam, Cilt 1, s.363; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/119/112-ayet-tefsiri"],"source_evidence_note":"İslam ve teslimiyet kavramının temel bağlantısını destekler.","tags":["v9-pilot","u01","s01","fill_blank","islam_meaning"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"medium","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P05","pilot_order":5,"type":"scenario","question_type":"scenario","activity_type":"scenario","concept_id":"muslim_identity","topic":"Müslüman kimliği","cognitive_level":"application","question_tr":"Bir arkadaşın “İslam yalnızca tek bir ülkenin dinidir.” diyor. En iyi cevap hangisi?","options_tr":["Hayır; farklı ülkelerden ve kültürlerden insanlar Müslüman olabilir.","Evet; yalnızca aynı dili konuşanlar Müslüman olabilir.","Evet; doğduğun ülke inancını kesin olarak belirler.","Bunu öğrenmeye gerek yok; hiçbir önemi yoktur."],"correct_answer":"Hayır; farklı ülkelerden ve kültürlerden insanlar Müslüman olabilir.","explanation_tr":"İslam belirli bir millet veya coğrafyayla sınırlı değildir.","source_reference":"Kur'an 49:13; 34:28; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/mushaf/meal-2/hucurat-suresi-49/ayet-13/diyanet-isleri-baskanligi-meali-1"],"source_evidence_note":"Evrensellik ve farklı toplulukların varlığına ilişkin temel çerçeveyi destekler.","tags":["v9-pilot","u01","s01","scenario","muslim_identity"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"easy","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P06","pilot_order":6,"type":"odd_one_out","question_type":"odd_one_out","activity_type":"odd_one_out","concept_id":"core_concepts","topic":"Temel kavramlar","cognitive_level":"recognition","question_tr":"Üçü bu dersin temel kavramlarından. Hangisi bu gruba ait değil?","options_tr":["İman","İbadet","Ahlak","Milliyet"],"correct_answer":"Milliyet","explanation_tr":"Bu derste iman, ibadet ve ahlakın ilişkisini öğreniyoruz. Milliyet bu üçlü kavram grubunun parçası değildir.","source_reference":"Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/184/177-ayet-tefsiri"],"source_evidence_note":"Dersin iman, ibadet ve ahlak kavram haritasını destekler.","tags":["v9-pilot","u01","s01","odd_one_out","core_concepts"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"easy","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P07","pilot_order":7,"type":"card","question_type":"card","activity_type":"card_choice","concept_id":"quran_basic","topic":"Kur'an ve rehberlik","cognitive_level":"recognition","question_tr":"Kur’an’ın Müslümanlar için yerini anlatan kartı seç.","options_tr":["Temel kutsal kitap ve rehber","Yalnızca bir tarih kitabı","Sadece ibadet listesi","Belli bir ülkenin kültür kitabı"],"correct_answer":"Temel kutsal kitap ve rehber","explanation_tr":"Kur’an, Müslümanların temel kutsal kitabı ve hayatlarına rehber kabul ettikleri kaynaktır.","source_reference":"Kur'an 2:2; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/9/2-ayet-tefsiri"],"source_evidence_note":"Kur'an'ın rehberlik niteliğini destekler.","tags":["v9-pilot","u01","s01","card_choice","quran_basic"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"medium","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P08","pilot_order":8,"type":"match","question_type":"match","activity_type":"matching","concept_id":"guidance_map","topic":"Kavram haritası","cognitive_level":"recall","question_tr":"Kavramları doğru açıklamalarıyla buluştur.","pairs":[{"left":"Kur’an","right":"Temel kutsal kitap"},{"left":"Hz. Muhammed","right":"Son peygamber ve örnek rehber"},{"left":"Müslüman","right":"İslam’ı benimseyen kişi"}],"explanation_tr":"Kur’an temel kutsal kitaptır; Hz. Muhammed son peygamber ve örnek rehberdir; Müslüman İslam’ı benimseyen kişidir.","source_reference":"Kur'an 33:21, 33:40; 2:2; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Ahzab-suresi/3554/21-ayet-tefsiri","https://kuran.diyanet.gov.tr/tefsir/Ahzab-suresi/3573/40-ayet-tefsiri"],"source_evidence_note":"Kur'an'ın rehberliği ve Hz. Muhammed'in örnekliği ile son peygamber oluşunu destekler.","tags":["v9-pilot","u01","s01","matching","guidance_map"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"easy","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P09","pilot_order":9,"type":"true_false","question_type":"true_false","activity_type":"true_false","concept_id":"worship_basic","topic":"İbadet","cognitive_level":"recognition","question_tr":"İbadet yalnızca namazdan ibarettir.","options_tr":["Doğru","Yanlış"],"correct_answer":"Yanlış","explanation_tr":"Namaz önemli bir ibadettir; fakat ibadet kavramı yalnızca namazla sınırlı değildir.","source_reference":"Kur'an 51:56; Diyanet İlmihal, İman ve İbadetler; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Zariyat-suresi/4726/51-56-ayet-tefsiri"],"source_evidence_note":"Kulluk ve ibadet kavramının genel çerçevesini destekler.","tags":["v9-pilot","u01","s01","true_false","worship_basic"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"easy","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P10","pilot_order":10,"type":"fill_blank","question_type":"fill_blank","activity_type":"fill_blank","concept_id":"muslim_identity","topic":"Müslüman kimliği","cognitive_level":"recall","question_tr":"Boşluğu tamamla: İslam’ı benimseyen kişiye ___ denir.","options_tr":["Müslüman","melek","peygamber","misafir"],"correct_answer":"Müslüman","explanation_tr":"Müslüman, İslam’ı benimseyen kişidir.","source_reference":"Kur'an 22:78; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Hac-suresi/2672/77-78-ayet-tefsiri"],"source_evidence_note":"Müslüman adlandırmasına ilişkin temel çerçeveyi destekler.","tags":["v9-pilot","u01","s01","fill_blank","muslim_identity"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"medium","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P11","pilot_order":11,"type":"scenario","question_type":"scenario","activity_type":"scenario","concept_id":"faith_worship_ethics","topic":"Günlük hayat","cognitive_level":"application","question_tr":"Ece kimse görmezken bulduğu kalemi sahibine veriyor. Bu davranış en çok hangi kavramla ilişkilidir?","options_tr":["Ahlak","Milliyet","Şöhret","Rekabet"],"correct_answer":"Ahlak","explanation_tr":"Dürüstlük ve başkasının hakkını korumak güzel ahlakla ilişkilidir.","source_reference":"Kur'an 4:58; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Nisa-suresi/551/58-ayet-tefsiri"],"source_evidence_note":"Emanetin sahibine verilmesi ve adalet ilkesini destekler.","tags":["v9-pilot","u01","s01","scenario","faith_worship_ethics"]},{"world":"foundations","unit":"islam_nedir","stage_id":"U01-S01","stage_title":"İslam'la Tanış","difficulty":"medium","madhhab_scope":"universal","verification_status":"needs_review","source_audit_status":"pilot_rewrite_needs_expert_review","source_release_ready":false,"religious_release_ready":false,"audit_version":"u01_s01_pilot_v1","terminology_note":"Başlangıç düzeyindeki ortak çerçeveyi kullanır; mezhep ayrıntısı öğretmez.","id":"DEEN-U01-S01-P12","pilot_order":12,"type":"odd_one_out","question_type":"odd_one_out","activity_type":"odd_one_out","concept_id":"faith_worship_ethics","topic":"Ders özeti","cognitive_level":"application","question_tr":"Hangisi bu dersin anlattığı bütünlüğe uymaz?","options_tr":["İnanç davranışlara iyilik olarak yansıyabilir.","İbadet ve ahlak birbirinden tamamen kopuktur.","Kur’an Müslümanlar için rehberdir.","Müslümanlık belirli bir millete bağlı değildir."],"correct_answer":"İbadet ve ahlak birbirinden tamamen kopuktur.","explanation_tr":"Dersin ana fikri; iman, ibadet ve ahlakın farklı ama birbiriyle ilişkili alanlar olduğudur.","source_reference":"Kur'an 2:177; Diyanet Hadislerle İslam, Cilt 1, s.363; REQUIRES_EXPERT_VERIFICATION","source_urls":["https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/184/177-ayet-tefsiri"],"source_evidence_note":"İman, ibadet ve ahlaki davranışların birlikte ele alınmasını destekler.","tags":["v9-pilot","u01","s01","odd_one_out","faith_worship_ethics"]}]);</script>
+
+<!-- DEEN v9.1.0 — U01-S01 Learning Loop -->
+<style id="deen-v910-learning-loop-css">
+.v910-phasebar{position:relative;z-index:2;margin:0 0 16px;padding:12px;border:1px solid rgba(135,211,188,.26);border-radius:16px;background:rgba(7,28,35,.58)}
+.v910-phase-copy{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px}.v910-phase-copy b{color:#a7ead5;font:900 11px/1 system-ui,sans-serif;letter-spacing:1.5px}.v910-phase-copy span{color:#b9ccce;font:650 11px/1.25 system-ui,sans-serif;text-align:right}
+.v910-phase-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.v910-phase-steps i{display:flex;align-items:center;justify-content:center;gap:5px;min-height:27px;border:1px solid #405c64;border-radius:999px;color:#879da3;font:800 8px/1 system-ui,sans-serif;letter-spacing:.55px;font-style:normal}.v910-phase-steps i span{display:grid;place-items:center;width:15px;height:15px;border-radius:50%;background:#29434b;color:#a9bcc0;font-size:8px}.v910-phase-steps i.done{border-color:#537d70;color:#92bfae}.v910-phase-steps i.done span{background:#376354;color:#cbe9dd}.v910-phase-steps i.active{border-color:#b8d9ca;background:#315e53;color:#e5f5ee}.v910-phase-steps i.active span{background:#d8eee4;color:#245045}
+.v910-overlay{position:absolute;z-index:160;inset:0;display:grid;place-items:center;padding:24px;background:rgba(3,14,20,.88);backdrop-filter:blur(9px);overflow:auto}.v910-card{width:min(100%,360px);padding:30px 24px 24px;border:1px solid #73998e;border-radius:34px 34px 20px 20px;background:radial-gradient(ellipse at 50% 0,rgba(79,139,119,.28),transparent 60%),linear-gradient(165deg,#17343d,#0c242e);box-shadow:0 22px 60px rgba(0,0,0,.42);text-align:center;color:#edf5f1}.v910-card.transition{border-color:#a89565;background:radial-gradient(ellipse at 50% 0,rgba(176,149,79,.22),transparent 60%),linear-gradient(165deg,#263936,#10242c)}.v910-card-mark{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 18px;border:1px solid #79b49f;border-radius:50%;background:#214c42;color:#c8efdf;font-size:24px}.v910-card.transition .v910-card-mark{border-color:#bba86d;background:#4a452d;color:#f0d996}.v910-card-eyebrow{color:#9ed8c5;font:900 10px/1.2 system-ui,sans-serif;letter-spacing:1.6px}.v910-card.transition .v910-card-eyebrow{color:#d8c27f}.v910-card h2{margin:14px 0 12px;color:#f1efe5;font:500 27px/1.25 Georgia,serif}.v910-card p{margin:0;color:#c7d7d5;font:550 15px/1.65 system-ui,sans-serif}.v910-memory{margin:18px 0 0;padding:11px 13px;border:1px solid rgba(139,207,184,.2);border-radius:13px;background:rgba(43,94,78,.24);color:#bce7d7;font:750 12px/1.45 system-ui,sans-serif}.v910-card-button{width:100%;min-height:52px;margin-top:22px;padding:13px;border:1px solid #d8d2a8;border-radius:13px;background:linear-gradient(145deg,#eadcab,#c8af75);box-shadow:0 3px 0 #75674c;color:#393220;font:900 12px/1.3 system-ui,sans-serif;letter-spacing:.55px;cursor:pointer}
+.v910-result-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:22px 0 8px;text-align:center}.v910-result-summary div{padding:14px 6px;border:1px solid #405d64;border-radius:14px;background:#16343d}.v910-result-summary div.mastered{border-color:#6e9d8e;background:#24483f}.v910-result-summary span,.v910-result-summary small{display:block}.v910-result-summary span{color:#a9bdc1;font:850 8px/1.25 system-ui,sans-serif;letter-spacing:.7px}.v910-result-summary strong{display:block;margin:7px 0 5px;color:#dcebe6;font:900 19px/1 system-ui,sans-serif}.v910-result-summary small{color:#96acb1;font:600 9px/1.35 system-ui,sans-serif}.v910-result-summary .mastered strong{color:#bfead9}
+@media(max-width:380px){.v910-overlay{padding:16px}.v910-card{padding:24px 18px 20px}.v910-card h2{font-size:24px}.v910-result-summary{gap:5px}.v910-result-summary div{padding:12px 4px}.v910-result-summary strong{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.v910-overlay{backdrop-filter:none}}
+</style>
+<script id="deen-v910-learning-loop">(function runtime(config){
+  if(window.__deenV910LearningLoop)return;window.__deenV910LearningLoop=true;
+  const VERSION=config.version,BUILD=config.build,TARGET=config.target,PHASES=config.phases,TEACHING=config.teaching;
+  const META='__v910LearningLoop',RETRY='__deenReviewRetry';
+  let sessions=0,cardsShown=0,resultsShown=0,last=null;
+
+  function getSession(){let s=null;try{s=session}catch(_){try{s=window.session}catch(__){}}return s}
+  function current(s=getSession()){return s?.questions?.[Number(s?.index)||0]||null}
+  function stageId(s=getSession()){return String(s?.stage?.id||'')}
+  function isPilot(s=getSession()){
+   const id=stageId(s),qs=s?.questions;
+   return /^U01-S0[1-7]$/.test(id)&&Array.isArray(qs)&&qs.some(q=>Number(q?.pilot_order)>0);
+  }
+  function originId(q){return String(q?.__deenReviewOriginId||q?.id||q?.question_id||q?.concept_id||'question')}
+  function phaseFor(q){
+   if(q?.[RETRY])return{id:'review',label:'PEKİŞTİR',title:'Kaçırdığını tamamla',index:3};
+   const order=Number(q?.pilot_order)||1;
+   const found=PHASES.find(p=>order>=p.range[0]&&order<=p.range[1])||PHASES[0];
+   return{...found,index:PHASES.indexOf(found)};
+  }
+  function ensure(s=getSession()){
+   if(!isPilot(s))return null;
+   if(!s[META]){
+    let priorScore=0;
+    try{priorScore=Number(state?.stageScores?.[stageId(s)])||0}catch(_){}
+    const baseCount=s.questions.filter(q=>!q?.[RETRY]).length||12;
+    s[META]={version:VERSION,baseCount,firstAttempts:{},firstCorrect:0,mastered:{},seenCards:{},seenTransitions:{},priorScore,startedAt:Date.now()};
+    sessions++;
+   }
+   return s[META];
+  }
+  function metrics(s=getSession()){
+   const m=ensure(s);if(!m)return null;
+   const total=Number(m.baseCount)||12;
+   const firstCorrect=Math.max(0,Number(m.firstCorrect)||0);
+   const mastered=Math.min(total,Object.keys(m.mastered||{}).filter(k=>m.mastered[k]).length);
+   return{firstCorrect,total,firstPct:Math.round(firstCorrect/Math.max(1,total)*100),mastered,recovered:Math.max(0,mastered-firstCorrect)};
+  }
+  function emit(type,detail={}){
+   last={type,at:Date.now(),...detail};
+   try{document.dispatchEvent(new CustomEvent('deen:learning-loop:'+type,{detail:{version:VERSION,build:BUILD,...last}}))}catch(_){}
+  }
+  function removeOverlay(){document.querySelectorAll('.v910-overlay').forEach(el=>el.remove())}
+  function showOverlay(kind,data,onContinue){
+   const lesson=document.getElementById('lesson');if(!lesson||lesson.querySelector('.v910-overlay'))return false;
+   const overlay=document.createElement('div');overlay.className='v910-overlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');
+   overlay.innerHTML='<div class="v910-card '+kind+'"><div class="v910-card-mark" aria-hidden="true">'+(kind==='transition'?'◆':'✦')+'</div><div class="v910-card-eyebrow"></div><h2></h2><p></p><div class="v910-memory"></div><button class="v910-card-button" type="button"></button></div>';
+   overlay.querySelector('.v910-card-eyebrow').textContent=data.eyebrow||'';
+   overlay.querySelector('h2').textContent=data.title||'';
+   overlay.querySelector('p').textContent=data.body||'';
+   const memory=overlay.querySelector('.v910-memory');memory.textContent=data.memory||'';memory.hidden=!data.memory;
+   const button=overlay.querySelector('button');button.textContent=data.button||'ÖĞRENDİM · SORUYA GEÇ';
+   button.onclick=()=>{overlay.remove();onContinue?.();emit(kind==='transition'?'transition-continued':'teaching-continued',{id:data.id||''})};
+   lesson.append(overlay);setTimeout(()=>button.focus(),30);return true;
+  }
+  function transitionFor(q,m){
+   if(q?.[RETRY])return null;
+   const order=Number(q?.pilot_order)||0;
+   if(order===5&&!m.seenTransitions.apply)return{id:'apply',eyebrow:'2. AŞAMA · UYGULA',title:'Şimdi bilgiyi kullan.',body:'İlk dört kartta ana fikirleri gördün. Sıradaki sorularda bu bilgileri yeni durumlara uygulayacaksın.',button:'UYGULAMAYA BAŞLA'};
+   if(order===9&&!m.seenTransitions.recall)return{id:'recall',eyebrow:'3. AŞAMA · HATIRLA',title:'Şimdi kendi başına hatırla.',body:'İpuçları geride kaldı. Son dört soruda öğrendiklerini hafızandan çağır.',button:'HATIRLAMA TURUNA BAŞLA'};
+   return null;
+  }
+  function decorate(){
+   const s=getSession(),m=ensure(s),q=current(s);if(!m||!q)return false;
+   document.getElementById('lesson')?.classList.add('v910-learning-loop');
+   const frame=document.querySelector('.question-frame');if(!frame)return false;
+   frame.querySelectorAll('.v910-phasebar').forEach(el=>el.remove());
+   const phase=phaseFor(q),bar=document.createElement('div');bar.className='v910-phasebar';
+   const activeIndex=phase.id==='review'?3:phase.index;
+   bar.innerHTML='<div class="v910-phase-copy"><b>'+phase.label+'</b><span>'+phase.title+'</span></div><div class="v910-phase-steps">'+PHASES.map((p,i)=>'<i class="'+(i<activeIndex?'done':i===activeIndex?'active':'')+'"><span>'+(i+1)+'</span>'+p.label+'</i>').join('')+'</div>';
+   const anchor=document.getElementById('qStage')||frame.firstElementChild;if(anchor?.parentNode===frame)frame.insertBefore(bar,anchor);else frame.prepend(bar);
+   if(!q[RETRY]){
+    const order=Number(q.pilot_order)||1;
+    const count=document.getElementById('quizCount');if(count)count.textContent=order+' / '+m.baseCount;
+    const stage=document.getElementById('qStage');if(stage)stage.textContent='Öğrenme döngüsü · '+phase.label;
+   }
+   const transition=transitionFor(q,m);
+   if(transition){m.seenTransitions[transition.id]=true;showOverlay('transition',transition);return true}
+   const lesson=q.teaching_card||TEACHING[originId(q)];
+   if(!q[RETRY]&&lesson&&!m.seenCards[originId(q)]){
+    m.seenCards[originId(q)]=true;cardsShown++;showOverlay('teaching',{...lesson,id:originId(q)});emit('teaching-shown',{id:originId(q),order:Number(q.pilot_order)||0});
+   }
+   return true;
+  }
+  function decorateResult(s,m){
+   const data=metrics(s);if(!data)return;
+   removeOverlay();document.getElementById('lesson')?.classList.remove('v910-learning-loop');
+   const rv=document.getElementById('resultView');if(!rv)return;
+   document.getElementById('resultTitle').textContent=data.mastered===data.total?'Ders öğrenildi':'Ders tamamlandı';
+   document.getElementById('resultPct').textContent=data.firstPct+'%';
+   document.getElementById('resultSubtitle').textContent='İlk deneme doğruluğu';
+   document.getElementById('resultCorrect').textContent=data.firstCorrect+'/'+data.total;
+   rv.querySelector('.v910-result-summary')?.remove();
+   const summary=document.createElement('div');summary.className='v910-result-summary';
+   summary.innerHTML='<div><span>İLK DENEME</span><strong>'+data.firstCorrect+' / '+data.total+'</strong><small>Yardım almadan doğru</small></div><div class="mastered"><span>ÖĞRENİLEN</span><strong>'+data.mastered+' / '+data.total+'</strong><small>Tekrarlarla tamamlanan</small></div><div><span>GERİ KAZANILAN</span><strong>'+data.recovered+'</strong><small>Yanlıştan doğruya</small></div>';
+   const grid=rv.querySelector('.result-grid');if(grid)rv.insertBefore(summary,grid);else rv.append(summary);
+   resultsShown++;emit('result',{...data});
+  }
+  function wrapStart(){
+   const old=typeof startStage==='function'?startStage:window.startStage;if(typeof old!=='function'||old.__v910LearningLoop)return false;
+   const wrapped=function(id,...rest){removeOverlay();return old.call(this,id,...rest)};
+   wrapped.__v910LearningLoop=true;wrapped.__v910Original=old;try{window.startStage=wrapped;startStage=wrapped}catch(_){window.startStage=wrapped}return true;
+  }
+  function wrapRender(){
+   const old=typeof renderQuestion==='function'?renderQuestion:window.renderQuestion;if(typeof old!=='function'||old.__v910LearningLoop)return false;
+   const wrapped=function(...args){const out=old.apply(this,args);queueMicrotask(decorate);setTimeout(decorate,80);return out};
+   wrapped.__v910LearningLoop=true;wrapped.__v910Original=old;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}return true;
+  }
+  function wrapComplete(){
+   const old=typeof completeQuestion==='function'?completeQuestion:window.completeQuestion;if(typeof old!=='function'||old.__v910LearningLoop)return false;
+   const wrapped=function(correct,q,...rest){
+    const s=getSession(),m=ensure(s),actual=q||current(s);
+    if(m&&actual){
+     const id=originId(actual),ok=correct===true,isRetry=!!actual[RETRY];
+     if(!isRetry&&!Object.prototype.hasOwnProperty.call(m.firstAttempts,id)){m.firstAttempts[id]=ok;if(ok)m.firstCorrect++}
+     if(ok)m.mastered[id]=true;
+     emit('answer',{id,correct:ok,retry:isRetry,...metrics(s)});
+    }
+    return old.call(this,correct,q,...rest);
+   };
+   wrapped.__v910LearningLoop=true;wrapped.__v910Original=old;try{window.completeQuestion=wrapped;completeQuestion=wrapped}catch(_){window.completeQuestion=wrapped}return true;
+  }
+  function wrapResult(){
+   const old=typeof showResult==='function'?showResult:window.showResult;if(typeof old!=='function'||old.__v910LearningLoop)return false;
+   const wrapped=function(...args){
+    const s=getSession(),m=ensure(s);if(!m)return old.apply(this,args);
+    const data=metrics(s);s.correct=data.firstCorrect;
+    const out=old.apply(this,args);
+    try{
+     const id=stageId(s);state.stageScores[id]=Math.max(Number(m.priorScore)||0,data.firstPct);
+     if(!Array.isArray(state.completed))state.completed=[];
+     if(data.mastered===data.total&&!state.completed.includes(id))state.completed.push(id);
+     saveState();updateUI();
+    }catch(_){}
+    decorateResult(s,m);return out;
+   };
+   wrapped.__v910LearningLoop=true;wrapped.__v910Original=old;try{window.showResult=wrapped;showResult=wrapped}catch(_){window.showResult=wrapped}return true;
+  }
+  function install(){
+   const ok=[wrapStart(),wrapRender(),wrapComplete(),wrapResult()].every(Boolean);
+   if(!ok){let tries=0;const timer=setInterval(()=>{tries++;const ready=[wrapStart(),wrapRender(),wrapComplete(),wrapResult()];if(ready.every(Boolean)||tries>20)clearInterval(timer)},120)}
+   document.documentElement.dataset.deenLearningLoop='ready';emit('ready',{installed:true});
+  }
+  window.DEEN_U01_S01_LEARNING_LOOP={version:VERSION,build:BUILD,phases:PHASES,teaching:TEACHING,metrics,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,sessions,cardsShown,resultsShown,last,active:isPilot()})};
+  install();
+ })({"version":"9.1.0-U01-S01-LEARNING-LOOP","build":"910loop1","target":"U01-S01","phases":[{"id":"learn","label":"ÖĞREN","range":[1,4],"title":"Önce fikri keşfet"},{"id":"apply","label":"UYGULA","range":[5,8],"title":"Şimdi bilgiyi kullan"},{"id":"recall","label":"HATIRLA","range":[9,12],"title":"Bakmadan hatırla"}],"teaching":{"DEEN-U01-S01-P01":{"eyebrow":"1 · ANA FİKİR","title":"İslam, Allah'a yönelmektir.","body":"İslam; Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.","memory":"Kısa ipucu: Yönel · Güven · Yaşa"},"DEEN-U01-S01-P02":{"eyebrow":"2 · ÜÇLÜ HARİTA","title":"İman, ibadet ve ahlak birlikte anlam kazanır.","body":"İman kalpteki kabul, ibadet Allah'a kulluk, ahlak ise bunun davranışlara yansımasıdır.","memory":"Kısa ipucu: İnan · Kulluk et · Güzel davran"},"DEEN-U01-S01-P03":{"eyebrow":"3 · EVRENSEL KİMLİK","title":"Müslümanlık bir ülkeye bağlı değildir.","body":"Farklı dilleri konuşan ve farklı kültürlerde yaşayan insanlar İslam'ı benimseyebilir.","memory":"Kısa ipucu: İnanç var, coğrafya şartı yok"},"DEEN-U01-S01-P04":{"eyebrow":"4 · TESLİMİYET","title":"Teslim olmak, Allah'ın rehberliğini benimsemektir.","body":"Bu ifade düşünmeden hareket etmek değil; Allah’a güvenerek O’nun gösterdiği iyi yolu seçmek anlamına gelir.","memory":"Kısa ipucu: Yönünü Allah’ın rehberliğine çevir"}}});</script>
+
+<!-- DEEN v9.2.0 — U01 Full Unit -->
+<script id="deen-v920-u01-full-unit">(function runtime(config){
+  if(window.__deenV920FullUnit)return;window.__deenV920FullUnit=true;
+  const VERSION=config.version,BUILD=config.build,TARGETS=config.targets,FORMATS=config.formats,COURSES=config.courses;
+  const clone=v=>JSON.parse(JSON.stringify(v));let templates=null,installs=0,lastAudit=null;
+  function bank(){try{if(Array.isArray(QUESTIONS))return QUESTIONS}catch(_){}return Array.isArray(window.QUESTIONS)?window.QUESTIONS:null}
+  function kindFields(kind){
+   if(kind==='card_choice')return{type:'card',question_type:'card',activity_type:'card_choice'};
+   if(kind==='matching')return{type:'match',question_type:'match',activity_type:'matching'};
+   return{type:kind,question_type:kind,activity_type:kind};
+  }
+  function createTemplates(all){
+   const byId=new Map(all.map(q=>[String(q?.id||''),q]));templates={};
+   for(const stage of TARGETS){
+    const course=COURSES[stage];templates[stage]=course.questions.map((spec,index)=>{
+     const base=byId.get(spec.source);if(!base)throw new Error('Eksik kaynak soru: '+spec.source);
+     const item={...clone(base),...clone(spec.override||{}),...kindFields(spec.kind)};
+     item.id='DEEN-'+stage+'-P'+String(index+1).padStart(2,'0');item.stage_id=stage;item.pilot_order=index+1;item.unit_loop_order=index+1;
+     item.original_question_id=spec.source;item.format_system_version=VERSION;item.religious_release_ready=false;item.source_release_ready=false;
+     item.verification_status='needs_review';item.source_audit_status='full_unit_rewrite_needs_expert_review';
+     item.tags=[...(Array.isArray(item.tags)?item.tags:[]),'v9.2-full-unit',spec.kind,'phase-'+(index<4?'learn':index<8?'apply':'recall')];
+     if(index<4)item.teaching_card=clone(course.teaching[index]);
