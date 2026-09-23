@@ -6,95 +6,29 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.9.3 — Bölüm Girişi</title>
+<title>DEEN v9.9.3</title>
 <style>
-html,body{margin:0;background:#07151c;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100%}.boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}.box{max-width:340px}.logo{font-size:26px;font-weight:900;letter-spacing:5px;color:#91e2ca}.sub{margin-top:12px;color:#9db4b8;font-size:13px;line-height:1.5}.err{color:#f1b0b4}
+html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
+.logo{font-size:27px;font-weight:900;letter-spacing:5px;color:#91e2ca}
+.sub{margin-top:12px;color:#9db4b8;font-size:13px}.err{color:#f1b0b4}
 </style>
-<script src="./patches/v8.5.0.runtime-stability.js?v=850stable1"></script>
-<script src="./patches/v8.5.1.question-engine-core.js?v=851qcore1"></script>
-<script src="./patches/v8.5.2.card-choice-ui.js?v=852card1"></script>
-<script src="./patches/v8.5.3.matching-minigame.js?v=853match1"></script>
-<script src="./patches/v8.5.4.sequence-minigame.js?v=854seq1"></script>
-<script src="./patches/v8.5.5.fill-blank-minigame.js?v=855fill1"></script>
-<script src="./patches/v8.5.6.true-false-swipe.js?v=856tf1"></script>
-<script src="./patches/v8.5.7.scenario-minigame.js?v=857scenario1"></script>
-<script src="./patches/v8.5.8.odd-one-out-minigame.js?v=858odd1"></script>
-<script src="./patches/v8.5.9.mcq-rapid-choice.js?v=859mcq1"></script>
-<script src="./patches/v8.6.0.listen-select-minigame.js?v=860listen1"></script>
-<script src="./patches/v8.6.1.pronunciation-practice.js?v=861speak1"></script>
-<script src="./patches/v8.6.2.lesson-flow-orchestrator.js?v=862flow1"></script>
-<script src="./patches/v8.6.3.question-coverage-audit.js?v=863audit1"></script>
-<script src="./patches/v8.6.4.u01-s03-content-enrichment.js?v=864u01s03"></script>
-<script src="./patches/v8.6.5.u01-s04-content-enrichment.js?v=865u01s04"></script>
-<script src="./patches/v8.6.6.u01-s06-content-enrichment.js?v=866u01s06"></script>
-<script src="./patches/v8.6.7.u01-s07-final-mastery-enrichment.js?v=867u01s07b"></script>
-<script src="./patches/v8.6.8.u01-s02-content-enrichment.js?v=868u01s02fix1"></script>
-<script src="./patches/v8.6.9.u01-s01-content-enrichment.js?v=869u01s01"></script>
-<script src="./patches/v8.7.0.u01-s05-content-enrichment.js?v=870u01s05"></script>
-<script src="./patches/v8.7.1.u01-final-qa.js?v=871u01qa1"></script>
-<script src="./patches/v8.7.2.u01-mobile-readability-qa.js?v=872mobile1"></script>
-<script src="./patches/v8.7.3.u01-flow-balance.js?v=873flow1"></script>
-<script src="./patches/v8.7.4.admin-question-inspector.js?v=874admin3"></script>
-<script src="./patches/v8.7.5.admin-control-center.js?v=875admin2"></script>
-<script src="./patches/v8.7.6.u01-s01-format-mix.js?v=876s01mix1"></script>
-<script src="./patches/v8.7.7.u01-s02-format-mix.js?v=877s02mix1"></script>
-<script src="./patches/v8.7.8.u01-s03-format-mix.js?v=878s03mix2"></script>
-<script src="./patches/v8.7.9.u01-s06-format-mix.js?v=879s06mix1"></script>
-<script src="./patches/v8.8.0.u01-s07-format-mix.js?v=880s07mix1"></script>
-<script src="./patches/v8.8.1.u01-s04-format-mix.js?v=881s04mix1"></script>
-<script src="./patches/v8.8.2.u01-s05-format-mix.js?v=882s05mix1"></script>
-<script src="./patches/v8.8.3.wrong-review-mastery.js?v=883review1"></script>
-<script src="./patches/v8.8.4.review-phase-ux.js?v=884reviewux1"></script>
-<script src="./patches/v8.9.0.toddler-dopamine-engine.js?v=890toddler1"></script>
-<script src="./patches/v8.9.1.toddler-interactive-ui.js?v=891toddler2"></script>
-<script src="./patches/v8.9.5.complete-interactive-engine.js?v=895complete1"></script>
-<script src="./patches/v9.0.0-v9.9.3-stage-intro.js?v=993sync2"></script>
-<script src="./v8.9.4.multi-format-engine.js?v=894format1"></script>
-<script src="./v8.9.3.smart-mastery-engine.js?v=893mastery1"></script>
-<script src="./v8.9.4.focus-mode-ui.js?v=894focusui1"></script>
-<script src="./patches/v7.7.5.js?v=775"></script>
-<script src="./patches/v7.7.6.js?v=776"></script>
-<script src="./patches/v7.7.7.js?v=777"></script>
-<script src="./patches/v7.7.8.js?v=778"></script>
-<script src="./patches/v7.7.9.js?v=779"></script>
-<script src="./patches/v7.8.0.js?v=780"></script>
-<script src="./patches/v7.8.1.js?v=781"></script>
-<script src="./patches/v7.8.2.js?v=782"></script>
-<script src="./patches/v7.8.3.js?v=783"></script>
-<script src="./patches/v7.8.4.js?v=784"></script>
-<script src="./patches/v7.8.5.js?v=785"></script>
-<script src="./patches/v7.8.6.js?v=786"></script>
-<script src="./patches/v7.8.7.js?v=787"></script>
-<script src="./patches/v7.8.8.js?v=788"></script>
-<script src="./patches/v7.8.9.js?v=789"></script>
-<script src="./patches/v7.9.0.js?v=790"></script>
-<script src="./patches/v7.9.1.js?v=791"></script>
-<script src="./patches/v7.9.2.js?v=792"></script>
-<script src="./patches/v8.0.0.js?v=800"></script>
-<script src="./patches/v8.0.1.js?v=801"></script>
-<script src="./patches/v8.0.2.js?v=802"></script>
-<script src="./patches/v8.1.3.js?v=848global1"></script>
-<script src="./patches/v8.2.0.js?v=848global1"></script>
-<script src="./patches/v8.2.1.js?v=848global1"></script>
-<script src="./patches/v8.3.0.js?v=848global1"></script>
-<script src="./patches/v8.3.2.hf2t.release.js?v=848global1"></script>
-<script src="./patches/v8.3.2.hf2u.release.js?v=848global1"></script>
-<script src="./patches/v8.4.4.no-clothing.bootstrap.js?v=848global1"></script>
 </head>
 <body>
-<div class="boot"><div class="box"><div class="logo">DEEN</div><div class="sub" id="status">DEEN hazırlanıyor…</div></div></div>
+<div class="boot"><div><div class="logo">DEEN</div><div class="sub" id="status">v9.9.3 yükleniyor…</div></div></div>
 <script>
 (async()=>{
  const status=document.getElementById('status');
+ const parts=["./release/v9.9.3-direct/segment-00.txt?v=993direct1","./release/v9.9.3-direct/segment-01.txt?v=993direct1","./release/v9.9.3-direct/segment-02.txt?v=993direct1","./release/v9.9.3-direct/segment-03.txt?v=993direct1","./release/v9.9.3-direct/segment-04.txt?v=993direct1","./release/v9.9.3-direct/segment-05.txt?v=993direct1","./release/v9.9.3-direct/segment-06.txt?v=993direct1","./release/v9.9.3-direct/segment-07.txt?v=993direct1","./release/v9.9.3-direct/segment-08.txt?v=993direct1","./release/v9.9.3-direct/segment-09.txt?v=993direct1","./release/v9.9.3-direct/segment-10.txt?v=993direct1","./release/v9.9.3-direct/segment-11.txt?v=993direct1","./release/v9.9.3-direct/segment-12.txt?v=993direct1","./release/v9.9.3-direct/segment-13.txt?v=993direct1","./release/v9.9.3-direct/segment-14.txt?v=993direct1","./release/v9.9.3-direct/segment-15.txt?v=993direct1","./release/v9.9.3-direct/segment-16.txt?v=993direct1","./release/v9.9.3-direct/segment-17.txt?v=993direct1","./release/v9.9.3-direct/segment-18.txt?v=993direct1","./release/v9.9.3-direct/segment-19.txt?v=993direct1","./release/v9.9.3-direct/segment-20.txt?v=993direct1","./release/v9.9.3-direct/segment-21.txt?v=993direct1","./release/v9.9.3-direct/segment-22.txt?v=993direct1","./release/v9.9.3-direct/segment-23.txt?v=993direct1","./release/v9.9.3-direct/segment-24.txt?v=993direct1"];
  try{
-   const r=await fetch('./DEEN_v7_7_4_AVATAR_PERSIST_WORLD_STABILITY.html?v=884reviewux1',{cache:'no-store'});
-   if(!r.ok)throw new Error('Ana DEEN dosyası yüklenemedi.');
-   let html=await r.text();
-   const patches=[['850PRE',window.DEEN_PATCH_V850_PRE],['775',window.DEEN_PATCH_V775],['776',window.DEEN_PATCH_V776],['777',window.DEEN_PATCH_V777],['778',window.DEEN_PATCH_V778],['779',window.DEEN_PATCH_V779],['780',window.DEEN_PATCH_V780],['781',window.DEEN_PATCH_V781],['782',window.DEEN_PATCH_V782],['783',window.DEEN_PATCH_V783],['784',window.DEEN_PATCH_V784],['785',window.DEEN_PATCH_V785],['786',window.DEEN_PATCH_V786],['787',window.DEEN_PATCH_V787],['788',window.DEEN_PATCH_V788],['789',window.DEEN_PATCH_V789],['790',window.DEEN_PATCH_V790],['791',window.DEEN_PATCH_V791],['792',window.DEEN_PATCH_V792],['800',window.DEEN_PATCH_V800],['801',window.DEEN_PATCH_V801],['802',window.DEEN_PATCH_V802],['813',window.DEEN_PATCH_V813],['820',window.DEEN_PATCH_V820],['821',window.DEEN_PATCH_V821],['830',window.DEEN_PATCH_V830],['848CLEAN',window.DEEN_PATCH_V832HF2T],['848NOHOST',window.DEEN_PATCH_V832HF2U],['850POST',window.DEEN_PATCH_V850_POST],['851Q',window.DEEN_PATCH_V851],['852CARD',window.DEEN_PATCH_V852],['853MATCH',window.DEEN_PATCH_V853],['854SEQ',window.DEEN_PATCH_V854],['855FILL',window.DEEN_PATCH_V855],['856TF',window.DEEN_PATCH_V856],['857SCENARIO',window.DEEN_PATCH_V857],['858ODD',window.DEEN_PATCH_V858],['859MCQ',window.DEEN_PATCH_V859],['860LISTEN',window.DEEN_PATCH_V860],['861SPEAK',window.DEEN_PATCH_V861],['862FLOW',window.DEEN_PATCH_V862],['863AUDIT',window.DEEN_PATCH_V863],['864CONTENT',window.DEEN_PATCH_V864],['865CONTENT',window.DEEN_PATCH_V865],['866CONTENT',window.DEEN_PATCH_V866],['867CONTENT',window.DEEN_PATCH_V867],['868CONTENT',window.DEEN_PATCH_V868],['869CONTENT',window.DEEN_PATCH_V869],['870CONTENT',window.DEEN_PATCH_V870],['871QA',window.DEEN_PATCH_V871],['872MOBILE',window.DEEN_PATCH_V872],['873FLOW',window.DEEN_PATCH_V873],['874ADMIN',window.DEEN_PATCH_V874],['875ADMIN',window.DEEN_PATCH_V875],['876S01',window.DEEN_PATCH_V876],['877S02',window.DEEN_PATCH_V877],['878S03',window.DEEN_PATCH_V878],['879S06',window.DEEN_PATCH_V879],['880S07',window.DEEN_PATCH_V880],['881S04',window.DEEN_PATCH_V881],['882S05',window.DEEN_PATCH_V882],['883REVIEW',window.DEEN_PATCH_V883],['884REVIEWUX',window.DEEN_PATCH_V884],['890TODDLER',window.DEEN_PATCH_V890],['891TODDLERUI',window.DEEN_PATCH_V891],['895COMPLETE',window.DEEN_PATCH_V895],['993STAGE',window.DEEN_PATCH_V993_STAGE_INTRO]];
-   for(const [v,fn] of patches){if(typeof fn!=='function')throw new Error(v+' yaması yüklenemedi.');html=fn(html).html;}
-   html+='\n<script id="deen-release-guard">(()=>{const TITLE="DEEN v9.9.3 — Bölüm Girişi",VERSION="9.9.3-STAGE-INTRO",ARB="V993_STAGE_INTRO",BUILD="993sync2";const apply=()=>{document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_RENDER_ARBITRATION=ARB;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION};apply();if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",apply,{once:true});window.addEventListener("load",apply,{once:true});[100,300,700,1200,2000].forEach(ms=>setTimeout(apply,ms));window.DEEN_RELEASE_GUARD={version:VERSION,build:BUILD,check:()=>({title:document.title,version:window.DEEN_RELEASE_VERSION,arbitration:window.DEEN_RENDER_ARBITRATION,build:window.DEEN_BUILD_ID,questionEngine:window.DEEN_QUESTION_ENGINE?.check?.()||null,cardChoice:window.DEEN_CARD_CHOICE_UI?.check?.()||null,matching:window.DEEN_MATCHING_MINIGAME?.check?.()||null,sequence:window.DEEN_SEQUENCE_MINIGAME?.check?.()||null,fillBlank:window.DEEN_FILL_BLANK_MINIGAME?.check?.()||null,trueFalse:window.DEEN_TRUE_FALSE_SWIPE?.check?.()||null,scenario:window.DEEN_SCENARIO_MINIGAME?.check?.()||null,oddOneOut:window.DEEN_ODD_ONE_OUT_MINIGAME?.check?.()||null,rapidChoice:window.DEEN_RAPID_CHOICE_MCQ?.check?.()||null,listenSelect:window.DEEN_LISTEN_SELECT_MINIGAME?.check?.()||null,pronunciation:window.DEEN_PRONUNCIATION_PRACTICE?.check?.()||null,lessonFlow:window.DEEN_LESSON_ORCHESTRATOR?.check?.()||null,wrongReview:window.DEEN_WRONG_REVIEW_MASTERY?.check?.()||null,reviewPhaseUX:window.DEEN_REVIEW_PHASE_UX?.check?.()||null,coverageAudit:window.DEEN_QUESTION_COVERAGE?.check?.()||null,u01FinalQA:window.DEEN_U01_FINAL_QA?.check?.()||null,mobileReadability:window.DEEN_U01_MOBILE_READABILITY_QA?.check?.()||null,flowBalance:window.DEEN_U01_FLOW_BALANCE?.check?.()||null,u01S01FormatMix:window.DEEN_U01_S01_FORMAT_MIX?.check?.()||null,u01S02FormatMix:window.DEEN_U01_S02_FORMAT_MIX?.check?.()||null,u01S03FormatMix:window.DEEN_U01_S03_FORMAT_MIX?.check?.()||null,u01S04FormatMix:window.DEEN_U01_S04_FORMAT_MIX?.check?.()||null,u01S05FormatMix:window.DEEN_U01_S05_FORMAT_MIX?.check?.()||null,u01S06FormatMix:window.DEEN_U01_S06_FORMAT_MIX?.check?.()||null,u01S07FormatMix:window.DEEN_U01_S07_FORMAT_MIX?.check?.()||null,adminQuestionInspector:window.DEEN_ADMIN_QUESTION_INSPECTOR?.check?.()||null,adminControlCenter:window.DEEN_ADMIN_CONTROL_CENTER?.check?.()||null,contentEnrichmentS01:window.DEEN_CONTENT_ENRICHMENT_V869?.check?.()||null,contentEnrichmentS02:window.DEEN_CONTENT_ENRICHMENT_V868?.check?.()||null,contentEnrichmentS03:window.DEEN_CONTENT_ENRICHMENT_V864?.check?.()||null,contentEnrichmentS04:window.DEEN_CONTENT_ENRICHMENT_V865?.check?.()||null,contentEnrichmentS05:window.DEEN_CONTENT_ENRICHMENT_V870?.check?.()||null,contentEnrichmentS06:window.DEEN_CONTENT_ENRICHMENT_V866?.check?.()||null,contentEnrichmentS07:window.DEEN_CONTENT_ENRICHMENT_V867?.check?.()||null,runtime:window.DEEN_V850_STABILITY?.check?.()||null,observer:window.DEEN_V850_PRE?.check?.()||null,noClothing:window.DEEN_V846_NO_CLOTHING?.check?.()||null,stability:window.DEEN_V848_STABILITY?.check?.()||null})}})();<\/script>\n';
+   const responses=await Promise.all(parts.map(p=>fetch(p,{cache:'no-store'})));
+   responses.forEach((r,i)=>{if(!r.ok)throw new Error('Release segment '+i+' yüklenemedi');});
+   const html=(await Promise.all(responses.map(r=>r.text()))).join('');
+   if(!html.startsWith('<!doctype html>')||!html.includes('DEEN_BETA_TEST')||!html.includes('deen-v993-stage-intro-css'))throw new Error('v9.9.3 doğrulaması başarısız');
    document.open();document.write(html);document.close();
- }catch(err){console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);}
+ }catch(err){
+   console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
+ }
 })();
 </script>
 </body>
