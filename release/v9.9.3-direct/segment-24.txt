@@ -1604,7 +1604,7 @@
    const q=document.getElementById('quizView');
    if(!q||observer)return;
    observer=new MutationObserver(()=>schedule());
-   observer.observe(q,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class','style']});
+   observer.observe(q,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class']});
  }
  const RQ=window.renderQuestion;
  if(typeof RQ==='function')window.renderQuestion=function(...args){const r=RQ.apply(this,args);schedule();setTimeout(schedule,60);return r};
