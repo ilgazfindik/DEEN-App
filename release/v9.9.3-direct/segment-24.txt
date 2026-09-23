@@ -859,4 +859,107 @@
 })();
 </script>
 
+
+<!-- DEEN v9.9.6 — Unified onboarding flow -->
+<style id="deen-v996-onboarding-flow-css">
+.v996-age-grid,.v996-animal-grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:9px;margin:13px 0}
+.v996-age{width:100%;min-height:72px;border:1px solid #36545d;border-radius:16px;background:#0d2831;color:#e7f1ef;padding:13px 14px;text-align:left;display:grid;grid-template-columns:40px 1fr auto;gap:11px;align-items:center}
+.v996-age.selected{border-color:#8cddc6;background:#16383c;box-shadow:inset 0 0 0 1px rgba(140,221,198,.14)}
+.v996-age .ico{width:40px;height:40px;border:1px solid #48636a;border-radius:13px;background:#122f37;display:grid;place-items:center;font-size:20px}
+.v996-age b{display:block;font-size:14px}.v996-age small{display:block;margin-top:3px;color:#a9bdc0;font-size:10px;line-height:1.35}.v996-age strong{color:#9fe2cf;font-size:16px}
+.v996-animal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.v996-animal{border:1px solid #31535a;background:#0d2831;color:#e8f5f1;border-radius:16px;padding:13px 9px;text-align:center;min-height:118px;display:grid;place-items:center;align-content:center;gap:4px}
+.v996-animal.selected{border-color:#8bdcc6;background:#123a3d;box-shadow:0 0 0 2px rgba(139,220,198,.11)}
+.v996-animal .emoji{font-size:42px;line-height:1}.v996-animal b{font-size:13px}.v996-animal small{font-size:9px;color:#9fb9b8;letter-spacing:.25px;text-transform:uppercase}
+.v996-note{margin:8px 0 2px;color:#9eb4b7;font-size:10px;line-height:1.5}
+@media(max-width:380px){.v996-animal{min-height:108px}.v996-animal .emoji{font-size:38px}}
+</style>
+<script id="deen-v996-onboarding-flow-js">
+(()=>{
+ if(window.__deenV996OnboardingFlow)return;window.__deenV996OnboardingFlow=true;
+ const VERSION='9.9.6-ONBOARDING-FLOW',ONBOARDING_VERSION=4;
+ const AGES={
+  child:{label:'Çocuk',range:'8–12',icon:'🌱',desc:'Kısa cümleler, net yönlendirme ve daha sade geri bildirim.'},
+  teen:{label:'Genç',range:'13–17',icon:'✦',desc:'Doğal, doğrudan ve çocukça hissettirmeyen anlatım.'},
+  adult:{label:'Yetişkin',range:'18+',icon:'◇',desc:'Orijinal kavramsal dil ve daha yoğun açıklamalar.'}
+ };
+ const FALLBACK_ANIMALS={
+  lion:{emoji:'🦁',name:'Aslan',trait:'Cesaret'},wolf:{emoji:'🐺',name:'Kurt',trait:'Kararlılık'},
+  owl:{emoji:'🦉',name:'Baykuş',trait:'Öğrenme · Bilgelik'},turtle:{emoji:'🐢',name:'Kaplumbağa',trait:'Sabır'},
+  eagle:{emoji:'🦅',name:'Kartal',trait:'Odak'},cat:{emoji:'🐈',name:'Kedi',trait:'Sakinlik'}
+ };
+ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ function animals(){return window.DEEN_COMPANION?.animals||FALLBACK_ANIMALS}
+ function ensure(){
+  state.profile=state.profile&&typeof state.profile==='object'?state.profile:{name:'Yolcu',frame:false,goldPath:false};
+  if(!AGES[state.learningProfile])state.learningProfile='child';
+  if(state.profile.companion&&!animals()[state.profile.companion])state.profile.companion=null;
+  return state;
+ }
+ function ageMarkup(){
+  ensure();return '<div class="v996-age-grid">'+Object.entries(AGES).map(([id,a])=>
+   '<button type="button" class="v996-age '+(state.learningProfile===id?'selected':'')+'" onclick="DEEN_ONBOARDING_FLOW.selectAge(\''+id+'\')">'+
+   '<span class="ico">'+a.icon+'</span><span><b>'+esc(a.label)+' · '+esc(a.range)+'</b><small>'+esc(a.desc)+'</small></span><strong>'+(state.learningProfile===id?'✓':'›')+'</strong></button>'
+  ).join('')+'</div><p class="v996-note">Bu seçim yalnız anlatım tonunu ve açıklama yoğunluğunu değiştirir. Doğru cevaplar ve öğrenme hedefleri değişmez.</p>';
+ }
+ function animalMarkup(){
+  ensure();const all=animals(),sel=state.profile.companion||'';
+  return '<div class="v996-animal-grid">'+Object.entries(all).map(([id,a])=>
+   '<button type="button" class="v996-animal '+(sel===id?'selected':'')+'" onclick="DEEN_ONBOARDING_FLOW.selectAnimal(\''+id+'\')">'+
+   '<span class="emoji" aria-hidden="true">'+a.emoji+'</span><b>'+esc(a.name)+'</b><small>'+esc(a.trait)+'</small></button>'
+  ).join('')+'</div><p class="v996-note">Bu bir kişilik testi değil. Seçtiğin hayvan profilinde, seri ekranında ve ders sonlarında sana eşlik eder.</p>';
+ }
+ function policy(){
+  return '<div class="v690-policy-card"><span class="v690-safety-pill">ORTAK TEMEL ÖNCE</span><b>Başlangıçta mezhep seçimi istenmez.</b><p>DEEN önce mezheplerin ortak çekirdeğini öğretir. Mezhep-hassas içerikler uzman incelemesi önceliğini korur.</p></div>'+
+  '<div class="v690-policy-card gold"><b>Dinî içerik ödeme duvarının arkasında değildir.</b><p>Temel öğrenme içeriği Free kullanıcılar için erişilebilir kalır.</p></div>';
+ }
+ function dots(step){return '<div class="v5-onboarddots">'+Array.from({length:7},(_,i)=>'<i class="'+(i===step?'active':'')+'"></i>').join('')+'</div>'}
+ function footer(step){
+  if(step===6)return primary('Yolculuğa başla →','DEEN_ONBOARDING_FLOW.finish()')+list('← Geri','onboarding(5)','');
+  if(step===2)return primary(state.profile.companion?'Devam et →':'Önce bir hayvan seç','DEEN_ONBOARDING_FLOW.nextAnimal()')+list('← Geri','onboarding(1)','');
+  return primary('Devam et →','onboarding('+(step+1)+')')+(step?list('← Geri','onboarding('+(step-1)+')',''):'');
+ }
+ function render(step=0){
+  ensure();step=Math.max(0,Math.min(6,Number(step)||0));
+  const titles=['Her gün, biraz daha öğren.','Sana nasıl anlatalım?','Yol arkadaşını seç.','Kendine zaman ayır.','Küçük hedef, güçlü ritim.','Öğrenme döngünü tanı.','Hazırsın.'];
+  let b='';
+  if(step===0)b='<div class="v5-onboardmark">◇</div><p class="v5-onboardintro">İslam’ı öğrenmenin<br>günlük yolu.</p><p>Kısa derslerle öğren, aktif hatırlamayla güçlendir ve kendi hızında ilerle.</p><div class="v690-onboard-note">İçerikler kaynak notlarıyla hazırlanır ancak dinî uzman incelemesi henüz tamamlanmış değildir. DEEN, uzman fetvası veya dinî danışmanlık yerine geçmez.</div>';
+  if(step===1)b='<p>Yaşını yazmana gerek yok. Sana en rahat gelen anlatım biçimini seç.</p>'+ageMarkup();
+  if(step===2)b='<p>DEEN boyunca sana eşlik edecek hayvanı seç.</p>'+animalMarkup();
+  if(step===3)b='<p>Günde ne kadar zaman ayırmak istersin?</p>'+[5,10,15].map(n=>list(n+' dakika','state.minutes='+n+';saveState();onboarding(3)',state.minutes===n?'✓':'○',state.minutes===n?'selected':'')).join('');
+  if(step===4)b='<p>Günlük hedef, öğrenme ritmini düzenler. İbadetler bu hedefe dahil edilmez ve puanlanmaz.</p>'+[[1,'Hafif'],[2,'Normal'],[3,'Yoğun']].map(([n,t])=>list(t+' · '+n+' mini ders','state.dailyGoal='+n+';saveState();onboarding(4)',state.dailyGoal===n?'✓':'○',state.dailyGoal===n?'selected':'')).join('');
+  if(step===5)b='<div class="v5-learningloop"><p><b>01 · Öğren</b><br>Temel bilgiyi güvenli biçimde tanı.</p><p><b>02 · Anla & uygula</b><br>Kavramları ayır ve günlük durumlarda kullan.</p><p><b>03 · Hatırla & ustalaş</b><br>Aktif tekrar ve challenge ile pekiştir.</p></div><p>Ödüller yalnız öğrenme davranışını destekler; dinî değer veya ibadet sevabı ölçmez.</p>';
+  if(step===6)b=policy()+'<div class="v690-access"><b>Free:</b> öğrenme yolu + tekrar.<br><b>Premium:</b> kullanım konforu ve gelişmiş özellikler.</div>';
+  sheet(titles[step],dots(step)+b+footer(step));
+  const d=document.getElementById('v5Sheet');if(d){d.dataset.onboardingFlow='v996';delete d.dataset.companionRequired}
+  return true;
+ }
+ function selectAge(id){
+  if(!AGES[id])return false;ensure();
+  try{window.DEEN_AGE_PROFILE?.set?.(id,{persist:true,refresh:false})}catch(e){state.learningProfile=id}
+  state.learningProfile=id;state.onboardingAgeChosen=true;try{saveState()}catch(e){}
+  render(1);return true;
+ }
+ function selectAnimal(id){
+  if(!animals()[id])return false;ensure();state.profile.companion=id;
+  try{saveState()}catch(e){}render(2);return true;
+ }
+ function nextAnimal(){
+  ensure();if(!state.profile.companion){try{toast?.('Devam etmek için bir yol arkadaşı seç.')}catch(e){}return false}
+  return render(3);
+ }
+ function finish(){
+  ensure();if(!state.profile.companion)return render(2);
+  state.onboarded=true;state.onboardingVersion=ONBOARDING_VERSION;
+  try{saveState()}catch(e){}try{closeSheet()}catch(e){}
+  try{updateUI()}catch(e){}try{scrollToCurrent('U01')}catch(e){}
+  return true;
+ }
+ window.onboarding=render;
+ try{onboarding=render}catch(e){}
+ window.finishOnboarding=finish;
+ window.DEEN_ONBOARDING_FLOW={version:VERSION,render,selectAge,selectAnimal,nextAnimal,finish,snapshot:()=>({stepSheet:document.getElementById('v5Sheet')?.dataset?.onboardingFlow||null,age:state.learningProfile||null,ageChosen:!!state.onboardingAgeChosen,animal:state.profile?.companion||null,onboarded:!!state.onboarded})};
+})();
+</script>
+
 <script id="deen-v993-production-guard">(()=>{const VERSION='9.9.5-PRODUCTION',BUILD='995noworld1',TITLE='DEEN v9.9.5';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
