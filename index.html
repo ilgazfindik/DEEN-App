@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.9.3</title>
+<title>DEEN v9.9.4</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -20,7 +20,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const paths=Array.from({length:25},(_,i)=>'./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt?v=993prod1');
+   const paths=Array.from({length:25},(_,i)=>'./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt?v=994animals1');
    const responses=await Promise.all(paths.map(p=>fetch(p,{cache:'no-store'})));
    responses.forEach((r,i)=>{if(!r.ok)throw new Error('Release segment '+i+' yüklenemedi');});
    const s=await Promise.all(responses.map(r=>r.text()));
@@ -34,7 +34,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    const leaked=forbidden.find(marker=>html.includes(marker));
    if(leaked)throw new Error('Production güvenlik kontrolü başarısız: '+leaked);
    if(!html.includes('deen-v993-production-guard'))throw new Error('Production guard eksik');
-   window.__DEEN_DEPLOY_ID__='993prod1';
+   if(!html.includes('deen-v994-animal-companion-js'))throw new Error('Hayvan yol arkadaşı paketi eksik');
+   window.__DEEN_DEPLOY_ID__='994animals1';
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
