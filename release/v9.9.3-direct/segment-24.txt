@@ -1102,7 +1102,7 @@
 .v998-summary{margin-top:18px;border:1px solid #3a626c;border-radius:20px;background:rgba(5,30,38,.76);padding:7px 16px}
 .v998-summary-row{min-height:52px;display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:10px;border-bottom:1px solid rgba(103,148,155,.34)}.v998-summary-row:last-child{border-bottom:0}
 .v998-summary-row .ico{font-size:20px;color:#8fead2}.v998-summary-row span{color:#a9babe;font-size:13px}.v998-summary-row b{font:600 15px/1.2 Georgia,"Times New Roman",serif;color:#fff}
-.v998-companion-hero{position:absolute;left:50%;bottom:17px;transform:translateX(-50%);font-size:74px;filter:drop-shadow(0 12px 12px rgba(0,0,0,.34))}
+.v998-companion-hero{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font-size:74px;filter:drop-shadow(0 12px 12px rgba(0,0,0,.34));z-index:3;pointer-events:none}
 .v998-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid rgba(147,228,208,.22);border-radius:999px;background:rgba(13,54,58,.65);color:#9ee7d5;font-size:10px;font-weight:850;margin:0 auto 10px}
 @media(max-height:760px){.v998-screen{padding-top:18px}.v998-hero{height:26vh;min-height:170px;margin-top:10px}.v998-copy h1{font-size:32px}.v998-copy p{font-size:13px;margin-top:9px}.v998-choice{min-height:68px;padding-top:10px;padding-bottom:10px}.v998-animal{min-height:122px}.v998-animal .emoji{font-size:43px}.v998-primary{min-height:56px}}
 @media(max-width:370px){.v998-screen{padding-left:20px;padding-right:20px}.v998-animal-grid{gap:8px}.v998-animal{min-height:128px}.v998-copy h1{font-size:33px}}
@@ -1161,7 +1161,7 @@
   if(step===4)return frame(4,hero('v998-minihero')+'<div class="v998-copy"><h1>Günde ne kadar zaman ayırabilirsin?</h1><p>Kısa ama düzenli ilerlemek daha iyi sonuç verir.</p></div>'+optionCards('time')+'<p class="v998-helper">ⓘ Bunu daha sonra değiştirebilirsin.</p>',{bottom:primary('Devam et','onboarding(5)')});
   if(step===5)return frame(5,hero('v998-minihero')+'<div class="v998-copy"><h1>Günlük hedefini belirle</h1><p>Kendine uygun bir tempo seç. Amaç düzenli ilerleme, baskı değil.</p></div>'+optionCards('goal'),{bottom:primary('Devam et','onboarding(6)')});
   const a=ANIMALS[state.profile.companion]||ANIMALS.owl;
-  return frame(6,hero('v998-minihero')+'<span class="v998-companion-hero" data-animal="'+state.profile.companion+'"></span><div class="v998-copy"><span class="v998-tag">✓ KURULUM TAMAMLANDI</span><h1>Hazırsın</h1><p>Artık öğrenmeye başlayabilirsin.</p></div>'+summary(),{dotsOn:false,bottom:primary('Yolculuğa başla','DEEN_PREMIUM_ONBOARDING.finish()')+'<button class="v998-secondary" type="button" onclick="onboarding(1)">Düzenle</button>'});
+  return frame(6,hero('v998-minihero').replace('</div>','<span class="v998-companion-hero" data-animal="'+state.profile.companion+'"></span></div>')+'<div class="v998-copy"><span class="v998-tag">✓ KURULUM TAMAMLANDI</span><h1>Hazırsın</h1><p>Artık öğrenmeye başlayabilirsin.</p></div>'+summary(),{dotsOn:false,bottom:primary('Yolculuğa başla','DEEN_PREMIUM_ONBOARDING.finish()')+'<button class="v998-secondary" type="button" onclick="onboarding(1)">Düzenle</button>'});
  }
  function nameNext(){ensure();const input=document.getElementById('v998Name');state.profile.name=String(input?.value||'').trim().slice(0,24)||'Yolcu';try{saveState()}catch(e){}render(2)}
  function age(id){if(!AGES[id])return;state.learningProfile=id;state.onboardingAgeChosen=true;try{window.DEEN_AGE_PROFILE?.set?.(id,{persist:false,refresh:false})}catch(e){}try{saveState()}catch(e){}render(2)}
