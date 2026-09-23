@@ -797,4 +797,66 @@
 })();
 </script>
 
+
+<!-- DEEN v9.9.5 — Retire Dünyam -->
+<style id="deen-v995-world-retirement-css">
+.bottomnav{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.bottomnav [data-screen="worldScreen"],.v7691-world-nav{display:none!important}
+#worldScreen{display:none!important;visibility:hidden!important;pointer-events:none!important}
+</style>
+<script id="deen-v995-world-retirement-js">
+(()=>{
+ if(window.__deenV995WorldRetired)return;window.__deenV995WorldRetired=true;
+ const VERSION='9.9.5-WORLD-RETIRED';
+ let busy=false,observer=null;
+ function fallback(){
+  const learn=document.getElementById('learnScreen');
+  if(learn&&!document.querySelector('.screen.active:not(#worldScreen)'))learn.classList.add('active');
+  const nav=document.querySelector('.bottomnav [data-screen="learnScreen"]');
+  if(nav&&!document.querySelector('.bottomnav .navbtn.active:not([data-screen="worldScreen"])'))nav.classList.add('active');
+ }
+ function retire(){
+  if(busy)return;busy=true;
+  try{
+   document.querySelectorAll('.bottomnav [data-screen="worldScreen"]').forEach(x=>x.remove());
+   const world=document.getElementById('worldScreen');
+   if(world?.classList.contains('active')){
+    world.classList.remove('active');
+    try{BASE_NAVIGATE?.('learnScreen')}catch(e){fallback()}
+   }
+   if(world){world.setAttribute('aria-hidden','true');world.setAttribute('inert','');}
+   fallback();
+  }finally{busy=false}
+ }
+ const BASE_NAVIGATE=typeof window.navigate==='function'?window.navigate.bind(window):null;
+ if(BASE_NAVIGATE){
+  window.navigate=function(id,...args){
+   if(id==='worldScreen'){retire();return BASE_NAVIGATE('learnScreen',...args)}
+   const r=BASE_NAVIGATE(id,...args);setTimeout(retire,0);return r;
+  };
+ }
+ const BASE_UPDATE=typeof window.updateUI==='function'?window.updateUI:null;
+ if(BASE_UPDATE){
+  window.updateUI=function(...args){const r=BASE_UPDATE.apply(this,args);setTimeout(retire,120);return r};
+ }
+ document.addEventListener('click',e=>{
+  const t=e.target?.closest?.('[data-screen="worldScreen"]');
+  if(!t)return;e.preventDefault();e.stopImmediatePropagation();retire();
+ },true);
+ function watch(){
+  const nav=document.querySelector('.bottomnav');if(!nav||observer)return;
+  observer=new MutationObserver(()=>setTimeout(retire,0));
+  observer.observe(nav,{childList:true,subtree:true});
+ }
+ window.DEEN_WORLD_RETIREMENT={version:VERSION,retire,snapshot:()=>({
+  worldNavCount:document.querySelectorAll('.bottomnav [data-screen="worldScreen"]').length,
+  bottomNavCount:document.querySelectorAll('.bottomnav .navbtn').length,
+  worldVisible:!!document.getElementById('worldScreen')&&getComputedStyle(document.getElementById('worldScreen')).display!=='none'
+ })};
+ retire();watch();
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{retire();watch()},{once:true});
+ [100,350,800,1500,3000].forEach(ms=>setTimeout(()=>{retire();watch()},ms));
+})();
+</script>
+
 <script id="deen-v993-production-guard">(()=>{const VERSION='9.9.4-PRODUCTION',BUILD='994animals1',TITLE='DEEN v9.9.4';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
