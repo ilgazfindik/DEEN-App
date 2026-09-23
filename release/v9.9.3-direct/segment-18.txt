@@ -1,0 +1,1000 @@
+#worldScreenBody .v786-level-shift .v786-evolution-layer{animation:v786Shift 1s ease both}
+@keyframes v786Shift{0%{filter:brightness(1)}40%{filter:brightness(1.18)}100%{filter:brightness(1)}}
+html.v5-reduce #worldScreenBody .v786-level-shift .v786-evolution-layer,html.v625-motion-off #worldScreenBody .v786-level-shift .v786-evolution-layer{animation:none!important}
+@media(prefers-reduced-motion:reduce){#worldScreenBody .v750-room.v786-evolution,#worldScreenBody .v786-evolution-layer,#worldScreenBody .v786-wall-frame,#worldScreenBody .v786-wall-trim,#worldScreenBody .v786-floor-inlay,#worldScreenBody .v786-desk-light,#worldScreenBody .v786-ceiling-glow,#worldScreenBody .v786-corner-dots,#worldScreenBody .v786-window-stars{transition:none!important;animation:none!important}}
+@media(max-width:390px){#worldScreenBody .v786-wall-frame{left:15px;top:25px;transform:scale(.92)}#worldScreenBody .v786-floor-inlay{left:11%;right:11%}}
+</style>
+<script id="deen-v786-room-evolution-js">
+(()=>{
+ if(window.__deenV786Applied)return;window.__deenV786Applied=true;
+ const VERSION='7.8.6',STATE_VERSION=59;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.6 — Room Evolution by Level';
+ const PROG=window.DEEN_WORLD_PROGRESSION;
+ if(!PROG)return;
+ let scheduled=false,lastApplied=0,previewLevel=null,watchTimer=0;
+ function room(){return document.getElementById('v750Room')}
+ function level(){if(previewLevel!=null)return previewLevel;try{return Math.max(1,Math.min(7,Number(PROG.snapshot?.().level)||1))}catch(e){return 1}}
+ function ensureLayer(r){let l=r.querySelector(':scope > .v786-evolution-layer');if(l)return l;l=document.createElement('span');l.className='v786-evolution-layer';l.setAttribute('aria-hidden','true');l.innerHTML='<span class="v786-wall-frame"></span><span class="v786-wall-trim"></span><span class="v786-floor-inlay"></span><span class="v786-desk-light"></span><span class="v786-ceiling-glow"></span><span class="v786-corner-dots"></span>';r.insertBefore(l,r.firstChild);return l}
+ function ensureStars(r){const w=r.querySelector('.v779-window-scene');if(!w)return;let s=w.querySelector(':scope > .v786-window-stars');if(s)return;s=document.createElement('span');s.className='v786-window-stars';s.setAttribute('aria-hidden','true');s.innerHTML='<i></i><i></i><i></i><i></i><i></i><i></i>';w.append(s)}
+ function apply(force=false){scheduled=false;const r=room();if(!r)return false;const lv=level();ensureLayer(r);ensureStars(r);[...r.classList].filter(x=>/^v786-(?:lv|ge)d+$/.test(x)).forEach(x=>r.classList.remove(x));r.classList.add('v786-evolution','v786-lv'+lv);for(let n=2;n<=lv;n++)r.classList.add('v786-ge'+n);r.dataset.v786Level=String(lv);if((force||lastApplied)&&lastApplied&&lv>lastApplied){r.classList.remove('v786-level-shift');void r.offsetWidth;r.classList.add('v786-level-shift');setTimeout(()=>r.classList.remove('v786-level-shift'),1050)}lastApplied=lv;return true}
+ function schedule(ms=50){if(scheduled)return;scheduled=true;setTimeout(()=>apply(),ms)}
+ function watch(){clearTimeout(watchTimer);apply();watchTimer=setTimeout(watch,1800)}
+ const obs=new MutationObserver(ms=>{for(const m of ms){if(m.type==='childList'||m.target?.closest?.('#worldScreenBody .v784-progress-strip,#worldScreenBody .v750-world')){schedule(40);break}}});obs.observe(document.body,{childList:true,subtree:true,characterData:true});
+ document.addEventListener('click',e=>{if(e.target.closest?.('#worldScreenBody .navbtn,#worldScreenBody .v780-area-select,#worldScreenBody .v784-progress-strip,.v785-levelup,#worldScreenBody .v780-back-btn'))schedule(120)},true);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)clearTimeout(watchTimer);else{schedule(120);watchTimer=setTimeout(watch,500)}});window.addEventListener('pagehide',()=>clearTimeout(watchTimer));window.addEventListener('pageshow',()=>schedule(140));
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);try{saveState?.()}catch(e){}
+ window.DEEN_WORLD_EVOLUTION={version:VERSION,stateVersion:STATE_VERSION,apply,preview:n=>{previewLevel=Math.max(1,Math.min(7,Number(n)||1));apply(true);return previewLevel},clearPreview:()=>{previewLevel=null;apply(true)},snapshot:()=>{const r=room();return{version:VERSION,level:level(),roomLevel:Number(r?.dataset?.v786Level)||null,classes:r?[...r.classList].filter(x=>x.startsWith('v786-')):[],layer:!!r?.querySelector('.v786-evolution-layer'),stars:!!r?.querySelector('.v786-window-stars')}}};
+ setTimeout(()=>{apply();watchTimer=setTimeout(watch,1800)},720);
+})();
+</script>
+
+
+<!-- DEEN v7.8.7 — Room Decor Equip & Personalization -->
+<style id="deen-v787-room-personalization-css">
+#worldScreenBody .v787-customizer{margin:9px 0 8px;padding:10px;border:1px solid rgba(123,205,187,.17);border-radius:15px;background:linear-gradient(180deg,#0d2a31,#0a232a);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+#worldScreenBody .v787-customizer-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:9px}
+#worldScreenBody .v787-customizer-head b{display:block;font-size:9px;color:#edf8f5}.v787-customizer-head small{display:block;margin-top:2px;font-size:6.2px;line-height:1.35;color:#81999e}
+#worldScreenBody .v787-shop-link{border:1px solid #36535a;background:#102c33;color:#95b4b4;min-height:31px;border-radius:10px;padding:0 9px;font-size:6.3px;font-weight:950;white-space:nowrap}
+#worldScreenBody .v787-groups{display:grid;gap:7px}
+#worldScreenBody .v787-group{display:grid;grid-template-columns:62px minmax(0,1fr);gap:7px;align-items:center}
+#worldScreenBody .v787-group-label{font-size:6.5px;font-weight:950;color:#8ca5a9;letter-spacing:.25px}
+#worldScreenBody .v787-options{display:flex;gap:6px;min-width:0;overflow-x:auto;scrollbar-width:none;padding:1px}.v787-options::-webkit-scrollbar{display:none}
+#worldScreenBody .v787-choice{flex:0 0 auto;min-height:35px;border:1px solid #315058;border-radius:10px;background:#102a31;color:#9eb6b8;padding:6px 8px;font-size:6.5px;font-weight:900;display:flex;align-items:center;gap:5px;white-space:nowrap;transition:transform .12s,border-color .12s,background .12s}
+#worldScreenBody .v787-choice:active{transform:scale(.97)}#worldScreenBody .v787-choice .ico{font-size:12px;color:#8bdcca}
+#worldScreenBody .v787-choice.active{border-color:#79d9c2;background:linear-gradient(180deg,#1b4a43,#143c38);color:#eefaf7;box-shadow:inset 0 0 0 1px rgba(126,225,202,.08)}
+#worldScreenBody .v787-choice.active .ico{color:#b5f0e1}
+#worldScreenBody .v787-current{margin-top:8px;padding-top:8px;border-top:1px solid rgba(117,195,179,.1);display:flex;justify-content:space-between;gap:8px;color:#789196;font-size:6.1px}.v787-current b{color:#a8c8c4;font-size:6.2px}
+#worldScreenBody .v750-room.v787-no-plant .v750-obj-plant,#worldScreenBody .v750-room.v787-no-shelf .v750-obj-shelf{display:none!important}
+#worldScreenBody .v750-room.v787-desk-sand .v750-obj-desk .top{background:linear-gradient(180deg,#d2b68a 0%,#b99669 50%,#8e704f 100%)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 0 rgba(75,52,32,.18),0 4px 0 #765a40,0 8px 12px rgba(0,0,0,.09)!important}
+#worldScreenBody .v750-room.v787-desk-sand .v750-obj-desk .leg1,#worldScreenBody .v750-room.v787-desk-sand .v750-obj-desk .leg2{background:linear-gradient(90deg,#765a43,#ad8b65 45%,#6c513c)!important}
+#worldScreenBody .v750-room.v787-desk-sand .v779-desk-drawer{background:linear-gradient(180deg,#aa8864,#82654a)!important}
+#worldScreenBody .v750-room.v787-rug-sunrise .v750-obj-rug{background:radial-gradient(ellipse at center,#d7b26e 0 25%,#bb8259 26% 46%,#8f594f 47% 62%,#633e42 63% 100%)!important;box-shadow:0 10px 13px rgba(0,0,0,.16),inset 0 0 0 2px rgba(255,226,171,.11)!important}
+#worldScreenBody .v750-room.v787-rug-sunrise .v779-rug-medallion{border-color:rgba(255,231,180,.25)!important;box-shadow:inset 0 0 0 5px rgba(99,55,41,.09),0 0 16px rgba(231,181,101,.08)!important}
+#worldScreenBody .v750-room.v787-plant-olive .v750-obj-plant .leaf,#worldScreenBody .v750-room.v787-plant-olive .v779-leaf{background:linear-gradient(135deg,#8ab070,#496f51)!important}
+#worldScreenBody .v750-room.v787-plant-olive .v750-obj-plant .pot{background:linear-gradient(90deg,#77604c,#a38362 48%,#685442)!important}
+#worldScreenBody .v750-room.v787-shelf-oak .v750-obj-shelf{border-color:#72583d!important;background:linear-gradient(90deg,#3d3027,#332b25 52%,#3d3027)!important}
+#worldScreenBody .v750-room.v787-shelf-oak .v750-obj-shelf:after{background:#72563d!important;box-shadow:0 36px 0 #72563d!important}
+#worldScreenBody .v750-room.v787-window-night .v779-window-scene:before{background:radial-gradient(circle at 72% 24%,rgba(244,224,153,.92) 0 4px,transparent 5px),radial-gradient(circle at 28% 31%,rgba(226,246,241,.7) 0 1px,transparent 2px),radial-gradient(circle at 53% 17%,rgba(226,246,241,.56) 0 1px,transparent 2px),linear-gradient(180deg,#0c2638 0%,#102c3d 52%,#152f39 100%)!important;box-shadow:inset 0 -22px 30px rgba(3,14,22,.3)!important}
+#worldScreenBody .v750-room.reading.v787-window-night .v779-window-scene:before{background:radial-gradient(circle at 72% 24%,rgba(244,220,151,.86) 0 4px,transparent 5px),radial-gradient(circle at 30% 31%,rgba(245,232,193,.58) 0 1px,transparent 2px),linear-gradient(180deg,#252d39,#3a342d 100%)!important}
+#worldScreenBody .v750-room.v787-nur-starlight .v750-obj-nur{background:radial-gradient(circle,#fffdf0 0 5%,#ffe9a3 10%,#e7c565 21%,rgba(223,184,78,.26) 44%,transparent 71%)!important;filter:drop-shadow(0 0 15px rgba(238,203,103,.6))!important}
+#worldScreenBody .v750-room.v787-nur-starlight .v779-nur-ring{border-color:rgba(255,231,159,.28)!important;box-shadow:0 0 0 5px rgba(232,193,91,.045),0 0 14px rgba(232,193,91,.12)!important}
+#worldScreenBody .v787-equip-flash{animation:v787Equip .55s ease both!important}@keyframes v787Equip{0%{filter:brightness(1)}45%{filter:brightness(1.22) drop-shadow(0 0 13px rgba(132,228,205,.34))}100%{filter:brightness(1)}}
+html.v5-reduce #worldScreenBody .v787-equip-flash,html.v625-motion-off #worldScreenBody .v787-equip-flash{animation:none!important}@media(prefers-reduced-motion:reduce){#worldScreenBody .v787-equip-flash{animation:none!important}}
+@media(max-width:390px){#worldScreenBody .v787-customizer{padding:8px}.v787-group{grid-template-columns:54px minmax(0,1fr)!important}.v787-choice{min-height:33px!important;padding:5px 7px!important}.v787-shop-link{padding:0 7px!important}}
+</style>
+<script id="deen-v787-room-personalization-js">
+(()=>{
+ if(window.__deenV787Applied)return;window.__deenV787Applied=true;
+ const VERSION='7.8.7',STATE_VERSION=60;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.7 — Room Decor Equip & Personalization';
+ const WORLD=window.DEEN_WORLD,IW=window.DEEN_INTERACTIVE_WORLD,ASSETS=window.DEEN_WORLD_ASSETS,EVOLUTION=window.DEEN_WORLD_EVOLUTION;
+ if(!WORLD||!IW)return;
+ const GROUPS=[
+  {type:'desk',label:'MASA',icon:'▰',base:null,baseName:'Standart Masa',ids:['desk_sand']},
+  {type:'rug',label:'HALI',icon:'◉',base:'rug_teal',baseName:'Teal Halı',ids:['rug_sunrise']},
+  {type:'plant',label:'BİTKİ',icon:'♧',base:null,baseName:'Bitki Yok',ids:['plant_olive']},
+  {type:'shelf',label:'KİTAPLIK',icon:'▥',base:null,baseName:'Kitaplık Yok',ids:['shelf_oak']},
+  {type:'window',label:'PENCERE',icon:'◒',base:null,baseName:'Standart Pencere',ids:['window_night']},
+  {type:'nur',label:'NUR',icon:'✦',base:null,baseName:'Standart NUR',ids:['nur_starlight']}
+ ];
+ let scheduled=false,observer=null;
+ function save(){try{saveState?.()}catch(e){}}
+ function owned(id){return !id||id==='rug_teal'||!!state.myWorld?.owned?.includes?.(id)}
+ function items(){try{return WORLD.items?.()||[]}catch(e){return[]}}
+ function item(id){return items().find(x=>x.id===id)||null}
+ function eq(){state.myWorld=state.myWorld&&typeof state.myWorld==='object'?state.myWorld:{};state.myWorld.equipped=state.myWorld.equipped&&typeof state.myWorld.equipped==='object'?state.myWorld.equipped:{};if(!state.myWorld.equipped.rug)state.myWorld.equipped.rug='rug_teal';return state.myWorld.equipped}
+ function room(){return document.getElementById('v750Room')}
+ function editing(){try{return !!IW.state?.().editMode}catch(e){return false}}
+ function nameFor(id,fallback){return id?(item(id)?.name||fallback):fallback}
+ function currentName(g){const v=eq()[g.type]??g.base;return v===g.base?g.baseName:nameFor(v,g.baseName)}
+ function applyThemes(flashType=null){const r=room();if(!r)return false;const e=eq();[...r.classList].filter(x=>x.startsWith('v787-')&&!['v787-equip-flash'].includes(x)).forEach(x=>r.classList.remove(x));r.classList.add('v787-personalized');r.classList.toggle('v787-no-plant',!e.plant);r.classList.toggle('v787-no-shelf',!e.shelf);if(e.desk==='desk_sand')r.classList.add('v787-desk-sand');if(e.rug==='rug_sunrise')r.classList.add('v787-rug-sunrise');if(e.plant==='plant_olive')r.classList.add('v787-plant-olive');if(e.shelf==='shelf_oak')r.classList.add('v787-shelf-oak');if(e.window==='window_night')r.classList.add('v787-window-night');if(e.nur==='nur_starlight')r.classList.add('v787-nur-starlight');r.dataset.v787Equipped=[e.desk||'default',e.rug||'rug_teal',e.plant||'none',e.shelf||'none',e.window||'default',e.nur||'default'].join('|');if(flashType){const sel={desk:'.v750-obj-desk',rug:'.v750-obj-rug',plant:'.v750-obj-plant',shelf:'.v750-obj-shelf',window:'.v779-window-scene',nur:'.v750-obj-nur'}[flashType],t=sel?r.querySelector(sel):null;t?.classList.remove('v787-equip-flash');if(t){void t.offsetWidth;t.classList.add('v787-equip-flash');setTimeout(()=>t.classList.remove('v787-equip-flash'),620)}}return true}
+ function choice(g,id,label){const cur=(eq()[g.type]??g.base)===id,icon=id?(item(id)?.icon||g.icon):g.icon;return '<button type="button" class="v787-choice '+(cur?'active':'')+'" data-v787-type="'+g.type+'" data-v787-id="'+(id??'__base__')+'"><span class="ico">'+icon+'</span><span>'+label+'</span></button>'}
+ function groupHtml(g){let opts=[choice(g,g.base,g.baseName)];for(const id of g.ids){if(owned(id))opts.push(choice(g,id,nameFor(id,id)))}return '<div class="v787-group"><span class="v787-group-label">'+g.label+'</span><div class="v787-options">'+opts.join('')+'</div></div>'}
+ function customizerHtml(){const summary=GROUPS.map(g=>currentName(g)).join(' · ');return '<div class="v787-customizer"><div class="v787-customizer-head"><div><b>DEKOR STİLİ</b><small>Sahip olduğun parçaları tek dokunuşla odaya uygula.</small></div><button type="button" class="v787-shop-link" data-v787-shop>MAĞAZA</button></div><div class="v787-groups">'+GROUPS.map(groupHtml).join('')+'</div><div class="v787-current"><span>Seçimler otomatik kaydolur</span><b>'+summary+'</b></div></div>'}
+ function decorateCustomizer(){const tray=document.querySelector('#worldScreenBody .v750-tray');if(!tray||!editing()){tray?.querySelector('.v787-customizer')?.remove();return}let box=tray.querySelector(':scope > .v787-customizer');if(!box){tray.insertAdjacentHTML('afterbegin',customizerHtml());box=tray.querySelector(':scope > .v787-customizer')}else box.outerHTML=customizerHtml();box=tray.querySelector(':scope > .v787-customizer');const head=tray.querySelector('.v750-tray-head b'),sub=tray.querySelector('.v750-tray-head small');if(head)head.textContent='YERLEŞİM';if(sub)sub.textContent='Eşyaları sürükle veya görünürlüğünü değiştir.';box?.querySelectorAll('[data-v787-type]').forEach(b=>b.addEventListener('click',()=>{const type=b.dataset.v787Type,id=b.dataset.v787Id==='__base__'?GROUPS.find(g=>g.type===type)?.base:b.dataset.v787Id;equip(type,id)}));box?.querySelector('[data-v787-shop]')?.addEventListener('click',()=>{try{if(editing())IW.edit?.()}catch(e){};setTimeout(()=>WORLD.tab?.('shop'),70)})}
+ function equip(type,id){const g=GROUPS.find(x=>x.type===type);if(!g)return false;if(id!==g.base&&!owned(id)){toast?.('Bu dekor henüz sende yok.');return false}const e=eq();e[type]=id;if(type==='rug'&&!e[type])e[type]='rug_teal';save();applyThemes(type);decorateCustomizer();try{DEEN_SFX?.play?.('snap')}catch(_){};toast?.((id?nameFor(id,g.baseName):g.baseName)+' kullanılıyor');return true}
+ function decorate(){scheduled=false;eq();applyThemes();decorateCustomizer()}
+ function schedule(ms=45){if(scheduled)return;scheduled=true;setTimeout(decorate,ms)}
+ const oldEquip=WORLD.equip;if(typeof oldEquip==='function'&&!oldEquip.__v787){const fn=function(id,...args){const out=oldEquip.call(this,id,...args);setTimeout(()=>{applyThemes(item(id)?.type||null);decorateCustomizer()},120);return out};fn.__v787=true;WORLD.equip=fn}
+ const oldBuy=WORLD.buy;if(typeof oldBuy==='function'&&!oldBuy.__v787){const fn=function(id,...args){const out=oldBuy.call(this,id,...args);setTimeout(()=>{applyThemes(item(id)?.type||null);decorateCustomizer()},140);return out};fn.__v787=true;WORLD.buy=fn}
+ document.addEventListener('click',e=>{if(e.target.closest?.('#worldScreenBody [data-v780="edit"],#worldScreenBody .v780-area-select,#worldScreenBody .v780-back-btn,.navbtn[data-screen="worldScreen"],#worldScreenBody .v750-inventory button'))schedule(100)},true);
+ observer=new MutationObserver(ms=>{for(const m of ms){for(const n of m.addedNodes){if(n.nodeType===1&&(n.matches?.('#v750Room,.v750-tray,.v750-world')||n.querySelector?.('#v750Room,.v750-tray,.v750-world'))){schedule(40);return}}}});observer.observe(document.body,{childList:true,subtree:true});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule(110)});window.addEventListener('pageshow',()=>schedule(120));
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);eq();save();
+ window.DEEN_WORLD_DECOR={version:VERSION,stateVersion:STATE_VERSION,equip,apply:applyThemes,refresh:decorate,owned:id=>owned(id),snapshot:()=>({version:VERSION,editing:editing(),equipped:{...eq()},roomClasses:room()?[...room().classList].filter(x=>x.startsWith('v787-')):[],customizer:!!document.querySelector('#worldScreenBody .v787-customizer')})};
+ setTimeout(()=>{try{ASSETS?.decorate?.();EVOLUTION?.apply?.()}catch(e){};decorate()},760);
+})();
+</script>
+
+<style data-inline-from="./patches/v7.8.8.css">
+#worldScreenBody .v787-customizer{display:none!important}
+#worldScreenBody .v788-customizer{margin:9px 0 8px;padding:10px;border:1px solid rgba(124,207,188,.18);border-radius:16px;background:linear-gradient(180deg,#0e2b32,#0a232a);box-shadow:0 9px 22px rgba(0,0,0,.07)}
+#worldScreenBody .v788-customizer-head{display:flex;align-items:flex-start;justify-content:space-between;gap:9px;margin-bottom:9px}
+#worldScreenBody .v788-customizer-head b{display:block;font-size:9.4px;color:#eff9f6}#worldScreenBody .v788-customizer-head small{display:block;margin-top:2px;font-size:6.2px;line-height:1.35;color:#829da1}
+#worldScreenBody .v788-customizer-shop{min-height:31px;padding:0 9px;border:1px solid #36565e;border-radius:10px;background:#102d35;color:#9bb7b8;font-size:6.3px;font-weight:950;white-space:nowrap}
+#worldScreenBody .v788-equip-groups{display:grid;gap:8px}#worldScreenBody .v788-equip-group{display:grid;gap:5px}#worldScreenBody .v788-equip-label{display:flex;align-items:center;justify-content:space-between;padding:0 2px;font-size:6.4px;font-weight:950;color:#8ba4a8;letter-spacing:.2px}#worldScreenBody .v788-equip-label small{font-size:5.9px;color:#69858a;font-weight:800}
+#worldScreenBody .v788-equip-options{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:1px}#worldScreenBody .v788-equip-options::-webkit-scrollbar{display:none}
+#worldScreenBody .v788-equip-choice{position:relative;flex:0 0 104px;min-height:47px;padding:7px;border:1px solid #31515a;border-radius:12px;background:#102a32;color:#a5bbbd;text-align:left;display:grid;grid-template-columns:26px minmax(0,1fr);gap:7px;align-items:center}
+#worldScreenBody .v788-equip-choice.active{border-color:#79dcc3;background:linear-gradient(180deg,#194840,#123b37);box-shadow:inset 0 0 0 1px rgba(127,226,202,.09)}#worldScreenBody .v788-equip-choice:active{transform:scale(.975)}
+#worldScreenBody .v788-equip-ico{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.045);font-size:13px;color:#96decf}#worldScreenBody .v788-equip-copy{min-width:0}#worldScreenBody .v788-equip-copy b{display:block;font-size:6.5px;color:#dcebe8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#worldScreenBody .v788-equip-copy small{display:block;margin-top:2px;font-size:5.5px;color:#758f94}
+.v788-rarity{display:inline-flex;align-items:center;gap:3px;border-radius:999px;padding:3px 6px;border:1px solid;font-size:5.6px!important;font-weight:1000!important;letter-spacing:.35px;text-transform:uppercase;white-space:nowrap}
+.v788-rarity.common{color:#a7c3c2;border-color:rgba(160,194,193,.22);background:rgba(111,143,145,.08)}.v788-rarity.rare{color:#90d9ce;border-color:rgba(108,211,194,.28);background:rgba(49,132,119,.12)}.v788-rarity.epic{color:#e0c889;border-color:rgba(228,198,116,.3);background:rgba(137,103,31,.13)}.v788-rarity.starter{color:#819da1;border-color:rgba(128,157,161,.18);background:rgba(81,104,108,.08)}
+#worldScreenBody .v788-shop{margin:10px 0 12px}#worldScreenBody .v788-shop-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:9px}#worldScreenBody .v788-shop-head h2{margin:0;font-size:15px;color:#eef9f6}#worldScreenBody .v788-shop-head p{margin:3px 0 0;font-size:7px;line-height:1.4;color:#7f999e;max-width:240px}#worldScreenBody .v788-shop-stat{flex:0 0 auto;border:1px solid rgba(126,215,195,.17);border-radius:11px;padding:7px 8px;background:#102b32;color:#9fd8cc;font-size:6.2px;font-weight:950;text-align:center}
+#worldScreenBody .v788-filter-row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:1px 0 8px}#worldScreenBody .v788-filter-row::-webkit-scrollbar{display:none}#worldScreenBody .v788-filter{flex:0 0 auto;min-height:31px;padding:0 9px;border:1px solid #304e56;border-radius:10px;background:#0f2931;color:#839da2;font-size:6.4px;font-weight:950}#worldScreenBody .v788-filter.active{border-color:#72d5bd;background:#17443f;color:#e8f8f4}
+#worldScreenBody .v788-shop-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}#worldScreenBody .v788-card{position:relative;min-width:0;padding:10px;border:1px solid #304e56;border-radius:15px;background:linear-gradient(180deg,#102c34,#0c252d);display:flex;flex-direction:column;min-height:154px;overflow:hidden}#worldScreenBody .v788-card.owned{border-color:rgba(117,210,190,.27)}#worldScreenBody .v788-card.equipped{box-shadow:inset 0 0 0 1px rgba(122,224,201,.15),0 0 18px rgba(72,184,161,.06)}#worldScreenBody .v788-card.locked{opacity:.72}
+#worldScreenBody .v788-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:7px}#worldScreenBody .v788-card-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#15363c;border:1px solid rgba(121,204,187,.12);font-size:18px;color:#9be3d3}#worldScreenBody .v788-card h3{font-size:8.6px;line-height:1.2;color:#e6f3f0;margin:8px 0 3px}#worldScreenBody .v788-card-desc{font-size:6.2px;line-height:1.38;color:#789196;min-height:26px;margin-bottom:8px}#worldScreenBody .v788-card-meta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:6.2px;color:#8fa7aa}#worldScreenBody .v788-card-meta .gold{color:#dfc77e;font-weight:950}#worldScreenBody .v788-card button{width:100%;min-height:34px;margin-top:7px;border-radius:10px;border:1px solid #3a5960;background:#113038;color:#98b1b4;font-size:6.5px;font-weight:1000}#worldScreenBody .v788-card button.buy{border-color:#e0c978;background:linear-gradient(180deg,#d9bb63,#ad8338);color:#2a200a}#worldScreenBody .v788-card button.use{border-color:#76d8c0;background:linear-gradient(180deg,#6fd7bf,#43b39f);color:#082722}#worldScreenBody .v788-card button:disabled{background:#182c31;border-color:#30454c;color:#657f83}
+#worldScreenBody .v788-shop-note{margin-top:9px;padding:8px 10px;border:1px solid rgba(126,210,191,.1);border-radius:12px;background:rgba(13,39,46,.62);font-size:6.2px;line-height:1.45;color:#718c91}#worldScreenBody .v788-shop-note b{color:#9ebfba}
+#worldScreenBody .v750-room[class*="v788-eq-"]{transition:filter .25s ease}
+#worldScreenBody .v750-room.v788-eq-desk_walnut .v750-obj-desk .top{background:linear-gradient(180deg,#76523d,#5a3d31 55%,#453027)!important;box-shadow:inset 0 1px rgba(255,255,255,.08),0 4px 0 #39261f,0 8px 13px rgba(0,0,0,.13)!important}#worldScreenBody .v750-room.v788-eq-desk_walnut .v750-obj-desk .leg1,#worldScreenBody .v750-room.v788-eq-desk_walnut .v750-obj-desk .leg2{background:#493126!important}
+#worldScreenBody .v750-room.v788-eq-desk_sage .v750-obj-desk .top{background:linear-gradient(180deg,#7c9d8d,#5e8174 58%,#496b62)!important;box-shadow:inset 0 1px rgba(255,255,255,.13),0 4px 0 #3f5d55,0 8px 13px rgba(0,0,0,.1)!important}#worldScreenBody .v750-room.v788-eq-desk_sage .v779-desk-drawer{background:#526f64!important}
+#worldScreenBody .v750-room.v788-eq-desk_celestial .v750-obj-desk .top{background:radial-gradient(circle at 22% 35%,rgba(240,211,126,.42) 0 1px,transparent 2px),radial-gradient(circle at 72% 55%,rgba(210,239,233,.28) 0 1px,transparent 2px),linear-gradient(180deg,#273c4b,#172b3a)!important;box-shadow:inset 0 0 0 1px rgba(225,199,119,.18),0 4px 0 #132331,0 0 18px rgba(186,157,79,.12)!important}
+#worldScreenBody .v750-room.v788-eq-rug_moss .v750-obj-rug{background:radial-gradient(ellipse at center,#78916b 0 27%,#4f705b 28% 51%,#35554c 52% 68%,#263f3d 69% 100%)!important}#worldScreenBody .v750-room.v788-eq-rug_midnight .v750-obj-rug{background:radial-gradient(ellipse at center,#47566b 0 24%,#2e4259 25% 49%,#213448 50% 68%,#172a3a 69% 100%)!important}#worldScreenBody .v750-room.v788-eq-rug_constellation .v750-obj-rug{background:radial-gradient(circle at 32% 38%,#dec878 0 1px,transparent 2px),radial-gradient(circle at 67% 61%,#ccece4 0 1px,transparent 2px),radial-gradient(circle at 58% 31%,#d7c16e 0 1px,transparent 2px),radial-gradient(ellipse at center,#29394c 0 27%,#1c2d40 28% 58%,#121f31 59% 100%)!important;box-shadow:0 10px 15px rgba(0,0,0,.18),0 0 18px rgba(215,192,110,.09)!important}
+#worldScreenBody .v750-room.v788-eq-plant_fern .v750-obj-plant .leaf,#worldScreenBody .v750-room.v788-eq-plant_fern .v779-leaf{background:linear-gradient(135deg,#78aa78,#356a55)!important}#worldScreenBody .v750-room.v788-eq-plant_fern .v750-obj-plant .pot{background:linear-gradient(90deg,#516f6a,#78948b 48%,#405f5a)!important}
+#worldScreenBody .v750-room.v788-eq-plant_lavender .v750-obj-plant .leaf,#worldScreenBody .v750-room.v788-eq-plant_lavender .v779-leaf{background:linear-gradient(135deg,#82927c,#596b61)!important}#worldScreenBody .v750-room.v788-eq-plant_lavender .v750-obj-plant .pot{background:linear-gradient(90deg,#6d607c,#9a83a8 50%,#5d536a)!important;box-shadow:0 5px 9px rgba(80,54,101,.12)!important}
+#worldScreenBody .v750-room.v788-eq-plant_moonbonsai .v750-obj-plant{filter:drop-shadow(0 0 12px rgba(213,196,128,.2))!important}#worldScreenBody .v750-room.v788-eq-plant_moonbonsai .v750-obj-plant .leaf,#worldScreenBody .v750-room.v788-eq-plant_moonbonsai .v779-leaf{background:linear-gradient(135deg,#9cb5a2,#536f65)!important}#worldScreenBody .v750-room.v788-eq-plant_moonbonsai .v750-obj-plant .pot{background:linear-gradient(90deg,#55535b,#77717a 50%,#46454e)!important}
+#worldScreenBody .v750-room.v788-eq-shelf_walnut .v750-obj-shelf{border-color:#563c30!important;background:linear-gradient(90deg,#33251f,#2a211e 52%,#33251f)!important}#worldScreenBody .v750-room.v788-eq-shelf_walnut .v750-obj-shelf:after{background:#5a4031!important;box-shadow:0 36px 0 #5a4031!important}
+#worldScreenBody .v750-room.v788-eq-shelf_arch .v750-obj-shelf{border-color:#647c72!important;background:linear-gradient(90deg,#344a48,#2b403e 52%,#344a48)!important;border-radius:19px 19px 5px 5px!important}#worldScreenBody .v750-room.v788-eq-shelf_arch .v750-obj-shelf:after{background:#5f8075!important;box-shadow:0 36px 0 #5f8075!important}
+#worldScreenBody .v750-room.v788-eq-shelf_celestial .v750-obj-shelf{border-color:#786a4a!important;background:radial-gradient(circle at 24% 18%,rgba(235,211,135,.25) 0 1px,transparent 2px),linear-gradient(90deg,#202d3c,#172635 52%,#202d3c)!important;box-shadow:0 0 16px rgba(211,184,105,.09)!important}#worldScreenBody .v750-room.v788-eq-shelf_celestial .v750-obj-shelf:after{background:#756342!important;box-shadow:0 36px 0 #756342!important}
+#worldScreenBody .v750-room.v788-eq-window_dawn .v779-window-scene:before{background:radial-gradient(circle at 68% 44%,rgba(255,222,146,.92) 0 5px,rgba(244,188,110,.24) 6px,transparent 18px),linear-gradient(180deg,#967b84 0%,#cc9b82 48%,#e5c49c 100%)!important}
+#worldScreenBody .v750-room.v788-eq-window_rain .v779-window-scene:before{background:repeating-linear-gradient(105deg,transparent 0 9px,rgba(209,235,235,.13) 10px 11px,transparent 12px 19px),linear-gradient(180deg,#354c58,#243b46 62%,#1b313b)!important;filter:saturate(.85)!important}
+#worldScreenBody .v750-room.v788-eq-window_crescent .v779-window-scene:before{background:radial-gradient(circle at 70% 27%,#f0dfa3 0 7px,transparent 8px),radial-gradient(circle at 73% 24%,#172638 0 7px,transparent 8px),radial-gradient(circle at 31% 22%,rgba(229,246,241,.75) 0 1px,transparent 2px),radial-gradient(circle at 48% 46%,rgba(229,246,241,.56) 0 1px,transparent 2px),linear-gradient(180deg,#0b1c31,#12283d 62%,#17303d)!important;box-shadow:inset 0 -18px 26px rgba(1,9,18,.32),0 0 14px rgba(220,197,124,.08)!important}
+#worldScreenBody .v750-room.v788-eq-nur_mint .v750-obj-nur{background:radial-gradient(circle,#f4fffb 0 5%,#9cf3dc 11%,#55cdb2 22%,rgba(65,185,159,.22) 44%,transparent 71%)!important;filter:drop-shadow(0 0 15px rgba(92,224,193,.52))!important}
+#worldScreenBody .v750-room.v788-eq-nur_amber .v750-obj-nur{background:radial-gradient(circle,#fff9e9 0 5%,#f0d087 11%,#c99d42 22%,rgba(205,156,61,.22) 44%,transparent 71%)!important;filter:drop-shadow(0 0 15px rgba(225,184,87,.52))!important}
+#worldScreenBody .v750-room.v788-eq-nur_aurora .v750-obj-nur{background:radial-gradient(circle,#f9fffd 0 5%,#9de8d9 10%,#8da8df 21%,rgba(166,112,197,.24) 42%,transparent 72%)!important;filter:drop-shadow(0 0 18px rgba(131,205,195,.55)) drop-shadow(0 0 25px rgba(138,121,199,.16))!important}
+#worldScreenBody .v788-equip-pop{animation:v788EquipPop .55s ease both!important}@keyframes v788EquipPop{0%{filter:brightness(1)}42%{filter:brightness(1.25) drop-shadow(0 0 15px rgba(132,227,204,.32))}100%{filter:brightness(1)}}
+@media(max-width:390px){#worldScreenBody .v788-customizer{padding:8px}#worldScreenBody .v788-equip-choice{flex-basis:96px;min-height:45px}#worldScreenBody .v788-shop-grid{gap:7px}#worldScreenBody .v788-card{padding:8px;min-height:149px}#worldScreenBody .v788-card-icon{width:35px;height:35px}}
+@media(prefers-reduced-motion:reduce){#worldScreenBody .v788-equip-pop{animation:none!important}}
+
+</style>
+<script data-inline-from="./patches/v7.8.8.runtime.js">
+(()=>{
+ if(window.__deenV788Applied)return;window.__deenV788Applied=true;
+ const VERSION='7.8.8',STATE_VERSION=61;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.8 — Decor Collection & Rarity Shop';
+ const WORLD=window.DEEN_WORLD,DECOR=window.DEEN_WORLD_DECOR,PROG=window.DEEN_WORLD_PROGRESSION,IW=window.DEEN_INTERACTIVE_WORLD;
+ if(!WORLD||!DECOR)return;
+ const NEW_ITEMS=[
+  {id:'desk_walnut',type:'desk',name:'Ceviz Çalışma Masası',icon:'▰',price:45,rarity:'common',req:1,desc:'Koyu ahşap, sade çalışma masası.'},
+  {id:'desk_sage',type:'desk',name:'Adaçayı Masası',icon:'▰',price:85,rarity:'rare',req:3,desc:'Yumuşak yeşil, sakin odak teması.'},
+  {id:'desk_celestial',type:'desk',name:'Gökyüzü Masası',icon:'✦',price:150,rarity:'epic',req:6,desc:'Gece tonları ve ince yıldız detayları.'},
+  {id:'rug_moss',type:'rug',name:'Yosun Halı',icon:'◉',price:40,rarity:'common',req:1,desc:'Doğal yeşil tonlarda yumuşak halı.'},
+  {id:'rug_midnight',type:'rug',name:'Gece Mavisi Halı',icon:'◉',price:90,rarity:'rare',req:3,desc:'Derin lacivert katmanlı oda dokusu.'},
+  {id:'rug_constellation',type:'rug',name:'Takımyıldız Halısı',icon:'✧',price:145,rarity:'epic',req:6,desc:'Yıldız noktalarıyla premium gece halısı.'},
+  {id:'plant_fern',type:'plant',name:'Eğrelti Saksısı',icon:'♧',price:35,rarity:'common',req:1,desc:'Canlı ve sade yeşil oda bitkisi.'},
+  {id:'plant_lavender',type:'plant',name:'Lavanta Saksısı',icon:'♧',price:75,rarity:'rare',req:3,desc:'Mor saksı ve sakin bitki tonları.'},
+  {id:'plant_moonbonsai',type:'plant',name:'Ay Bonsaisi',icon:'♧',price:140,rarity:'epic',req:6,desc:'Soğuk tonlu, hafif ışıltılı bonsai.'},
+  {id:'shelf_walnut',type:'shelf',name:'Ceviz Kitaplık',icon:'▥',price:55,rarity:'common',req:2,desc:'Koyu ceviz raflarla klasik görünüm.'},
+  {id:'shelf_arch',type:'shelf',name:'Kemer Kitaplık',icon:'▥',price:95,rarity:'rare',req:4,desc:'Yuvarlatılmış kemer formunda raf sistemi.'},
+  {id:'shelf_celestial',type:'shelf',name:'Gökyüzü Kitaplığı',icon:'✦',price:155,rarity:'epic',req:6,desc:'Lacivert gövde ve altın detaylar.'},
+  {id:'window_dawn',type:'window',name:'Şafak Penceresi',icon:'◒',price:60,rarity:'common',req:2,desc:'Odaya sıcak gün doğumu atmosferi verir.'},
+  {id:'window_rain',type:'window',name:'Yağmur Penceresi',icon:'∿',price:105,rarity:'rare',req:4,desc:'Serin yağmur çizgileri ve koyu gökyüzü.'},
+  {id:'window_crescent',type:'window',name:'Hilal Penceresi',icon:'☾',price:165,rarity:'epic',req:6,desc:'Hilalli gece manzarası ve yıldız dokusu.'},
+  {id:'nur_mint',type:'nur',name:'NUR · Mint Işık',icon:'✦',price:50,rarity:'common',req:2,desc:'Mint tonlu sade ışık görünümü.'},
+  {id:'nur_amber',type:'nur',name:'NUR · Amber Işık',icon:'✦',price:95,rarity:'rare',req:4,desc:'Sıcak amber ışık ve yumuşak glow.'},
+  {id:'nur_aurora',type:'nur',name:'NUR · Aurora',icon:'✧',price:170,rarity:'epic',req:7,desc:'Mint, mavi ve mor katmanlı ışık.'}
+ ];
+ const NEW=Object.fromEntries(NEW_ITEMS.map(x=>[x.id,x]));
+ const EXISTING_META={
+   plant_olive:{rarity:'common',req:2,desc:'Zeytin tonlarında doğal saksı.'},shelf_oak:{rarity:'common',req:3,desc:'Sıcak meşe tonlarında kitaplık.'},rug_sunrise:{rarity:'rare',req:4,desc:'Gün doğumu renklerinde sıcak halı.'},desk_sand:{rarity:'rare',req:5,desc:'Kum tonlarında premium çalışma masası.'},window_night:{rarity:'rare',req:6,desc:'Ay ve gece tonlarında pencere.'},nur_starlight:{rarity:'epic',req:7,desc:'Altın yıldız ışığı görünümü.'}
+ };
+ const TYPES=[['all','TÜM'],['desk','MASA'],['rug','HALI'],['plant','BİTKİ'],['shelf','KİTAPLIK'],['window','PENCERE'],['nur','NUR']];
+ const BASES={desk:{id:null,name:'Standart Masa',icon:'▰'},rug:{id:'rug_teal',name:'Teal Halı',icon:'◉'},plant:{id:null,name:'Bitki Yok',icon:'♧'},shelf:{id:null,name:'Kitaplık Yok',icon:'▥'},window:{id:null,name:'Standart Pencere',icon:'◒'},nur:{id:null,name:'Standart NUR',icon:'✦'}};
+ let activeCat='all',scheduled=false;
+ const oldItems=WORLD.items;
+ function baseItems(){try{return typeof oldItems==='function'?oldItems.call(WORLD)||[]:[]}catch(e){return[]}}
+ function allItems(){const a=baseItems(),ids=new Set(a.map(x=>x.id));return a.concat(NEW_ITEMS.filter(x=>!ids.has(x.id)))}
+ if(typeof oldItems==='function'&&!oldItems.__v788){const fn=function(){return allItems().map(x=>({...x}))};fn.__v788=true;WORLD.items=fn}
+ function save(){try{saveState?.()}catch(e){}}
+ function level(){try{return Number(PROG?.snapshot?.().level)||1}catch(e){return 1}}
+ function owned(id){return !id||id==='rug_teal'||!!state.myWorld?.owned?.includes?.(id)}
+ function eq(){state.myWorld=state.myWorld&&typeof state.myWorld==='object'?state.myWorld:{};state.myWorld.equipped=state.myWorld.equipped&&typeof state.myWorld.equipped==='object'?state.myWorld.equipped:{};if(!state.myWorld.equipped.rug)state.myWorld.equipped.rug='rug_teal';return state.myWorld.equipped}
+ function item(id){return allItems().find(x=>x.id===id)||null}
+ function meta(x){if(!x)return{rarity:'common',req:1,desc:''};return NEW[x.id]||{...x,...(EXISTING_META[x.id]||{rarity:'common',req:1,desc:'Dünyam için kalıcı kozmetik dekor.'})}}
+ function decorItems(){return allItems().filter(x=>['desk','rug','plant','shelf','window','nur'].includes(x.type)&&!x.default&&!x.paid)}
+ function rarityLabel(r){return r==='epic'?'EPIC':r==='rare'?'RARE':'COMMON'}
+ function typeLabel(t){return ({desk:'Masa',rug:'Halı',plant:'Bitki',shelf:'Kitaplık',window:'Pencere',nur:'NUR'})[t]||t}
+ function spend(n,id){n=Math.max(0,Math.round(Number(n)||0));state.currency=Math.max(0,Number(state.currency)||0);if(state.currency<n)return false;state.currency-=n;state.myWorld.ledger=Array.isArray(state.myWorld.ledger)?state.myWorld.ledger:[];state.myWorld.ledger.push({at:Date.now(),type:'spend',amount:n,reason:'decor_shop_v788',key:id});if(state.myWorld.ledger.length>120)state.myWorld.ledger=state.myWorld.ledger.slice(-120);return true}
+ function equipAny(id){const x=item(id);if(!x||!['desk','rug','plant','shelf','window','nur'].includes(x.type)||!owned(id))return false;const out=DECOR.equip?.(x.type,id);applyThemes(x.type);schedule(50);return out!==false}
+ function buyNew(id){const x=NEW[id];if(!x)return null;if(owned(id)){equipAny(id);return true}if(level()<x.req){toast?.('Bu dekor Oda Seviyesi '+x.req+' seviyesinde açılır.');return false}if(!spend(x.price,id)){toast?.('Biraz daha Altın gerekiyor.');return false}state.myWorld.owned=Array.isArray(state.myWorld.owned)?state.myWorld.owned:[];state.myWorld.owned.push(id);save();equipAny(id);try{DEEN_SFX?.play?.('reward')}catch(e){};toast?.(x.name+' alındı · -'+x.price+' Altın');try{updateUI?.()}catch(e){};schedule(120);return true}
+ const oldBuy=WORLD.buy;if(typeof oldBuy==='function'&&!oldBuy.__v788){const fn=function(id,...args){if(NEW[id])return buyNew(id);const out=oldBuy.call(this,id,...args);setTimeout(()=>schedule(100),0);return out};fn.__v788=true;WORLD.buy=fn}
+ function applyThemes(flashType=null){const r=document.getElementById('v750Room');if(!r)return false;const e=eq();[...r.classList].filter(c=>c.startsWith('v788-eq-')).forEach(c=>r.classList.remove(c));for(const t of ['desk','rug','plant','shelf','window','nur']){const id=e[t];if(NEW[id])r.classList.add('v788-eq-'+id)}r.dataset.v788Equipped=[e.desk||'default',e.rug||'rug_teal',e.plant||'none',e.shelf||'none',e.window||'default',e.nur||'default'].join('|');if(flashType){const sel={desk:'.v750-obj-desk',rug:'.v750-obj-rug',plant:'.v750-obj-plant',shelf:'.v750-obj-shelf',window:'.v779-window-scene',nur:'.v750-obj-nur'}[flashType],el=sel?r.querySelector(sel):null;if(el){el.classList.remove('v788-equip-pop');void el.offsetWidth;el.classList.add('v788-equip-pop');setTimeout(()=>el.classList.remove('v788-equip-pop'),620)}}return true}
+ function baseChoice(type){const b=BASES[type],current=(eq()[type]??b.id)===b.id;return `<button type="button" class="v788-equip-choice ${current?'active':''}" data-v788-base="${type}"><span class="v788-equip-ico">${b.icon}</span><span class="v788-equip-copy"><b>${b.name}</b><small><span class="v788-rarity starter">STARTER</span></small></span></button>`}
+ function equipChoice(x){const m=meta(x),current=eq()[x.type]===x.id;return `<button type="button" class="v788-equip-choice ${current?'active':''}" data-v788-equip="${x.id}"><span class="v788-equip-ico">${x.icon||'✦'}</span><span class="v788-equip-copy"><b>${x.name}</b><small><span class="v788-rarity ${m.rarity}">${rarityLabel(m.rarity)}</span></small></span></button>`}
+ function customizer(){const tray=document.querySelector('#worldScreenBody .v750-tray');if(!tray)return;const editing=(()=>{try{return !!IW?.state?.().editMode}catch(e){return false}})();let box=tray.querySelector(':scope > .v788-customizer');if(!editing){box?.remove();return}const groups=['desk','rug','plant','shelf','window','nur'].map(t=>{const own=decorItems().filter(x=>x.type===t&&owned(x.id));return `<div class="v788-equip-group"><div class="v788-equip-label"><span>${typeLabel(t).toUpperCase()}</span><small>${own.length+(BASES[t].id||BASES[t].id===null?1:0)} seçenek</small></div><div class="v788-equip-options">${baseChoice(t)}${own.map(equipChoice).join('')}</div></div>`}).join('');const html=`<div class="v788-customizer"><div class="v788-customizer-head"><div><b>DEKOR KOLEKSİYONU</b><small>Sahip olduğun parçaları seç; nadirlik yalnızca kozmetiktir.</small></div><button type="button" class="v788-customizer-shop">MAĞAZA</button></div><div class="v788-equip-groups">${groups}</div></div>`;if(box)box.outerHTML=html;else tray.insertAdjacentHTML('afterbegin',html);box=tray.querySelector(':scope > .v788-customizer');box?.querySelectorAll('[data-v788-equip]').forEach(b=>b.addEventListener('click',()=>equipAny(b.dataset.v788Equip)));box?.querySelectorAll('[data-v788-base]').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.v788Base,base=BASES[t];DECOR.equip?.(t,base.id);applyThemes(t);schedule(40)}));box?.querySelector('.v788-customizer-shop')?.addEventListener('click',()=>{try{if(IW?.state?.().editMode)IW.edit?.()}catch(e){};setTimeout(()=>WORLD.tab?.('shop'),80)})}
+ function card(x){const m=meta(x),isOwned=owned(x.id),isEq=eq()[x.type]===x.id,locked=!isOwned&&level()<m.req;let btn='';if(isEq)btn='<button disabled>ODADA</button>';else if(isOwned)btn=`<button class="use" data-v788-use="${x.id}">KULLAN</button>`;else if(locked)btn=`<button disabled>🔒 ODA LV ${m.req}</button>`;else btn=`<button class="buy" data-v788-buy="${x.id}">🪙 ${x.price} · AL</button>`;return `<article class="v788-card ${isOwned?'owned':''} ${isEq?'equipped':''} ${locked?'locked':''}" data-v788-type="${x.type}"><div class="v788-card-top"><span class="v788-card-icon">${x.icon||'✦'}</span><span class="v788-rarity ${m.rarity}">${rarityLabel(m.rarity)}</span></div><h3>${x.name}</h3><div class="v788-card-desc">${m.desc}</div><div class="v788-card-meta"><span>${typeLabel(x.type)} · LV ${m.req}</span><span class="gold">${isOwned?'SAHİPSİN':'🪙 '+x.price}</span></div>${btn}</article>`}
+ function renderShop(){const heads=[...document.querySelectorAll('#worldScreenBody .v740-world-section-head b')],baseHead=heads.find(x=>(x.textContent||'').trim()==='Dünya Mağazası'),baseSec=baseHead?.closest('.v740-world-section');if(!baseSec){document.querySelector('#worldScreenBody .v788-shop')?.remove();return}baseSec.style.display='none';let sec=document.querySelector('#worldScreenBody .v788-shop');const list=decorItems().filter(x=>activeCat==='all'||x.type===activeCat),total=decorItems().length,own=decorItems().filter(x=>owned(x.id)).length;const html=`<section class="v788-shop"><div class="v788-shop-head"><div><h2>Dekor Koleksiyonu</h2><p>Odan için kalıcı kozmetikler. Common / Rare / Epic etiketleri yalnızca görünüm ve koleksiyon değerini gösterir.</p></div><div class="v788-shop-stat">${own}/${total}<br>SAHİP</div></div><div class="v788-filter-row">${TYPES.map(([id,label])=>`<button type="button" class="v788-filter ${activeCat===id?'active':''}" data-v788-filter="${id}">${label}</button>`).join('')}</div><div class="v788-shop-grid">${list.map(card).join('')}</div><div class="v788-shop-note"><b>Nadirlik güç vermez.</b> Epic bir dekor; ders, enerji, NUR kazanımı veya dinî içerikte avantaj sağlamaz. Sadece odanın görünümünü değiştirir.</div></section>`;if(sec)sec.outerHTML=html;else baseSec.insertAdjacentHTML('beforebegin',html);sec=document.querySelector('#worldScreenBody .v788-shop');sec?.querySelectorAll('[data-v788-filter]').forEach(b=>b.addEventListener('click',()=>{activeCat=b.dataset.v788Filter||'all';renderShop()}));sec?.querySelectorAll('[data-v788-buy]').forEach(b=>b.addEventListener('click',()=>{WORLD.buy?.(b.dataset.v788Buy);setTimeout(renderShop,100)}));sec?.querySelectorAll('[data-v788-use]').forEach(b=>b.addEventListener('click',()=>{equipAny(b.dataset.v788Use);setTimeout(renderShop,70)}))}
+ function decorate(){scheduled=false;eq();applyThemes();customizer();renderShop()}
+ function schedule(ms=55){if(scheduled)return;scheduled=true;setTimeout(decorate,ms)}
+ const observer=new MutationObserver(ms=>{for(const m of ms){for(const n of m.addedNodes){if(n.nodeType===1&&(n.matches?.('.v750-world,.v750-tray,.v740-world-section')||n.querySelector?.('.v750-world,.v750-tray,.v740-world-section'))){schedule(45);return}}}});observer.observe(document.body,{childList:true,subtree:true});
+ document.addEventListener('click',e=>{if(e.target.closest?.('#worldScreenBody [data-v780="edit"],#worldScreenBody .v780-area-select,#worldScreenBody .v780-back-btn,.navbtn[data-screen="worldScreen"]'))schedule(100)},true);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule(120)});window.addEventListener('pageshow',()=>schedule(140));
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);state.myWorld=state.myWorld||{};state.myWorld.decorCatalogVersion=VERSION;save();
+ window.DEEN_WORLD_COLLECTION={version:VERSION,stateVersion:STATE_VERSION,items:()=>allItems().filter(x=>['desk','rug','plant','shelf','window','nur'].includes(x.type)).map(x=>({...x,...meta(x)})),buy:buyNew,equip:equipAny,apply:applyThemes,refresh:decorate,snapshot:()=>({version:VERSION,level:level(),gold:Number(state.currency)||0,owned:decorItems().filter(x=>owned(x.id)).map(x=>x.id),equipped:{...eq()},newItems:NEW_ITEMS.length,shopCards:document.querySelectorAll('#worldScreenBody .v788-card').length,customizer:!!document.querySelector('#worldScreenBody .v788-customizer')})};
+ setTimeout(decorate,820);
+})();
+
+</script>
+
+<style data-inline-from="./patches/v7.8.9.css">
+/* DEEN v7.8.9 — Try Before Buy / Oda Önizleme */
+#worldScreenBody .v788-card .v789-try{width:100%;min-height:32px;margin-top:7px;border:1px solid rgba(113,210,190,.28);border-radius:10px;background:rgba(20,61,61,.54);color:#9fe4d5;font-size:6.4px;font-weight:1000;letter-spacing:.25px}
+#worldScreenBody .v788-card .v789-try:active{transform:scale(.98)}
+#worldScreenBody .v788-card.locked .v789-try{opacity:1;border-style:dashed;background:rgba(21,48,52,.7);color:#91aaa9}
+#worldScreenBody .v789-preview{position:fixed;inset:0;z-index:10140;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:linear-gradient(180deg,rgba(4,18,23,.97),rgba(5,20,25,.985));backdrop-filter:blur(9px);padding:max(14px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));box-sizing:border-box;animation:v789Fade .18s ease both;overflow:hidden}
+#worldScreenBody .v789-preview-top{width:min(390px,100%);margin:0 auto 10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+#worldScreenBody .v789-preview-title{min-width:0}#worldScreenBody .v789-preview-title small{display:block;font-size:6.2px;font-weight:950;letter-spacing:1px;color:#72cdb9}#worldScreenBody .v789-preview-title b{display:block;margin-top:3px;font-size:13px;color:#eef9f6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v789-preview-close{width:35px;height:35px;border-radius:12px;border:1px solid #315059;background:#102b32;color:#a8c0c1;font-size:14px;font-weight:900;flex:0 0 auto}
+#worldScreenBody .v789-preview-stage{width:min(390px,100%);min-height:0;margin:auto;display:grid;place-items:center;position:relative}
+#worldScreenBody .v789-preview-room-shell{width:100%;border:1px solid rgba(127,221,199,.18);border-radius:20px;padding:7px;box-sizing:border-box;background:linear-gradient(180deg,rgba(18,48,55,.92),rgba(9,32,38,.94));box-shadow:0 24px 60px rgba(0,0,0,.32);position:relative}
+#worldScreenBody .v789-preview-room-shell:before{content:'CANLI ODA ÖNİZLEMESİ';position:absolute;left:13px;top:13px;z-index:120;padding:4px 7px;border:1px solid rgba(125,219,198,.18);border-radius:999px;background:rgba(6,29,34,.86);color:#8edcca;font-size:5.4px;font-weight:1000;letter-spacing:.55px;pointer-events:none}
+#worldScreenBody .v789-preview-room{width:100%!important;max-width:none!important;margin:0!important;pointer-events:none!important;transform:none!important;box-sizing:border-box}
+#worldScreenBody .v789-preview-room [id]{pointer-events:none!important}
+#worldScreenBody .v789-preview-room.v789-preview-plant .v750-obj-plant,#worldScreenBody .v789-preview-room.v789-preview-shelf .v750-obj-shelf{display:block!important;visibility:visible!important;opacity:1!important}
+#worldScreenBody .v789-preview-room.v789-preview-desk .v750-obj-desk,#worldScreenBody .v789-preview-room.v789-preview-rug .v750-obj-rug,#worldScreenBody .v789-preview-room.v789-preview-plant .v750-obj-plant,#worldScreenBody .v789-preview-room.v789-preview-shelf .v750-obj-shelf,#worldScreenBody .v789-preview-room.v789-preview-window .v779-window-scene,#worldScreenBody .v789-preview-room.v789-preview-nur .v750-obj-nur{animation:v789Target 1.25s ease-in-out infinite alternate!important}
+#worldScreenBody .v789-preview-info{width:min(390px,100%);margin:10px auto 0;padding:11px;border:1px solid rgba(127,216,197,.17);border-radius:17px;background:linear-gradient(180deg,#102d34,#0b252c);box-sizing:border-box;box-shadow:0 12px 28px rgba(0,0,0,.18)}
+#worldScreenBody .v789-preview-meta{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:9px;align-items:center}
+#worldScreenBody .v789-preview-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#17383e;border:1px solid rgba(130,213,196,.14);color:#a0e5d5;font-size:18px}
+#worldScreenBody .v789-preview-copy{min-width:0}#worldScreenBody .v789-preview-copy b{display:block;color:#edf8f5;font-size:9.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#worldScreenBody .v789-preview-copy small{display:block;margin-top:3px;color:#829a9e;font-size:6.2px;line-height:1.35}
+#worldScreenBody .v789-preview-price{text-align:right;color:#dec47d;font-size:7px;font-weight:1000;white-space:nowrap}
+#worldScreenBody .v789-preview-actions{display:grid;grid-template-columns:.82fr 1.18fr;gap:8px;margin-top:10px}
+#worldScreenBody .v789-preview-actions button{min-height:43px;border-radius:12px;font-size:7px;font-weight:1000}
+#worldScreenBody .v789-cancel{border:1px solid #34525a;background:#102b33;color:#9db6b8}
+#worldScreenBody .v789-confirm{border:1px solid #81dec7;background:linear-gradient(180deg,#75dbc3,#48b7a2);color:#072821;box-shadow:0 9px 20px rgba(52,174,149,.13)}
+#worldScreenBody .v789-confirm.buy{border-color:#dfc774;background:linear-gradient(180deg,#ddc16c,#af873e);color:#2d2109}
+#worldScreenBody .v789-confirm:disabled{border-color:#3a4c4d;background:#1c3032;color:#788d8d;box-shadow:none}
+#worldScreenBody .v789-preview-note{margin-top:7px;text-align:center;color:#6f888d;font-size:5.8px;line-height:1.35}#worldScreenBody .v789-preview-note b{color:#9ebcb7}
+body.v789-preview-open{overflow:hidden!important;touch-action:none}
+@keyframes v789Fade{from{opacity:0}to{opacity:1}}@keyframes v789Target{from{filter:brightness(1)}to{filter:brightness(1.12) drop-shadow(0 0 12px rgba(127,225,202,.24))}}
+html.v5-reduce #worldScreenBody .v789-preview,html.v625-motion-off #worldScreenBody .v789-preview,html.v5-reduce #worldScreenBody .v789-preview-room[class*="v789-preview-"] .v750-object,html.v625-motion-off #worldScreenBody .v789-preview-room[class*="v789-preview-"] .v750-object{animation:none!important}
+@media(prefers-reduced-motion:reduce){#worldScreenBody .v789-preview,#worldScreenBody .v789-preview-room[class*="v789-preview-"] .v750-object,#worldScreenBody .v789-preview-room .v779-window-scene{animation:none!important}}
+@media(max-width:390px){#worldScreenBody .v789-preview{padding-left:8px;padding-right:8px}#worldScreenBody .v789-preview-room-shell{padding:5px;border-radius:18px}#worldScreenBody .v789-preview-info{padding:9px}.v789-preview-actions button{min-height:41px!important}}
+
+</style>
+<script data-inline-from="./patches/v7.8.9.runtime.js">
+(()=>{
+ if(window.__deenV789Applied)return;window.__deenV789Applied=true;
+ const VERSION='7.8.9',STATE_VERSION=62;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.9 — Try Before Buy / Oda Önizleme';
+ const WORLD=window.DEEN_WORLD,COLLECTION=window.DEEN_WORLD_COLLECTION,DECOR=window.DEEN_WORLD_DECOR,PROG=window.DEEN_WORLD_PROGRESSION,IDLE=window.DEEN_WORLD_IDLE,ACTIONS=window.DEEN_WORLD_ACTIONS;
+ if(!WORLD||!COLLECTION)return;
+ const OLD_CLASS={desk_sand:'v787-desk-sand',rug_sunrise:'v787-rug-sunrise',plant_olive:'v787-plant-olive',shelf_oak:'v787-shelf-oak',window_night:'v787-window-night',nur_starlight:'v787-nur-starlight'};
+ const TYPE_LABEL={desk:'Masa',rug:'Halı',plant:'Bitki',shelf:'Kitaplık',window:'Pencere',nur:'NUR'};
+ const TYPE_TARGET={desk:'.v750-obj-desk',rug:'.v750-obj-rug',plant:'.v750-obj-plant',shelf:'.v750-obj-shelf',window:'.v779-window-scene',nur:'.v750-obj-nur'};
+ let scheduled=false,currentId=null;
+ function items(){try{return COLLECTION.items?.()||[]}catch(e){return[]}}
+ function item(id){return items().find(x=>x.id===id)||null}
+ function owned(id){return !!state.myWorld?.owned?.includes?.(id)}
+ function level(){try{return Number(PROG?.snapshot?.().level)||1}catch(e){return 1}}
+ function rarity(r){return r==='epic'?'EPIC':r==='rare'?'RARE':'COMMON'}
+ function sanitizeClone(root){root.removeAttribute('id');root.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));root.querySelectorAll('.v782-action-chip,.v783-ambient-spark,.v785-room-reveal').forEach(el=>el.remove());root.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'))}
+ function removeTypeClasses(r,type){const prefixes=['v787-'+type+'-','v788-eq-'+type+'_'];[...r.classList].forEach(c=>{if(prefixes.some(p=>c.startsWith(p)))r.classList.remove(c)});if(type==='plant')r.classList.remove('v787-no-plant');if(type==='shelf')r.classList.remove('v787-no-shelf')}
+ function applyPreviewClass(r,x){removeTypeClasses(r,x.type);const cls=OLD_CLASS[x.id]||('v788-eq-'+x.id);r.classList.add(cls,'v789-preview-room','v789-preview-'+x.type);r.dataset.v789Preview=x.id;const t=r.querySelector(TYPE_TARGET[x.type]);if(t){t.style.display='';t.style.visibility='visible';t.style.opacity='1'}}
+ function buttonState(x){if(owned(x.id))return{label:'ODADA KULLAN',cls:'',disabled:false,mode:'use'};if(level()<(Number(x.req)||1))return{label:'🔒 ODA LV '+(Number(x.req)||1),cls:'',disabled:true,mode:'locked'};return{label:'🪙 '+(Number(x.price)||0)+' · SATIN AL',cls:'buy',disabled:false,mode:'buy'}}
+ function close(reason='cancel'){const o=document.querySelector('#worldScreenBody .v789-preview');if(!o)return false;o.remove();document.body.classList.remove('v789-preview-open');const id=currentId;currentId=null;try{IDLE?.reschedule?.()}catch(e){};if(reason==='cancel'&&id)try{DEEN_SFX?.play?.('tap')}catch(e){};return true}
+ function open(id){const x=item(id),scope=document.getElementById('worldScreenBody'),room=document.getElementById('v750Room');if(!x||!scope||!room)return false;close('replace');currentId=id;try{ACTIONS?.clear?.()}catch(e){};try{IDLE?.clear?.()}catch(e){};const clone=room.cloneNode(true);sanitizeClone(clone);applyPreviewClass(clone,x);const bs=buttonState(x),o=document.createElement('div');o.className='v789-preview';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.innerHTML=`<div class="v789-preview-top"><div class="v789-preview-title"><small>ÖNİZLEME · KAYDEDİLMEZ</small><b>${x.name}</b></div><button class="v789-preview-close" type="button" aria-label="Kapat">×</button></div><div class="v789-preview-stage"><div class="v789-preview-room-shell"></div></div><div class="v789-preview-info"><div class="v789-preview-meta"><span class="v789-preview-icon">${x.icon||'✦'}</span><span class="v789-preview-copy"><b>${x.name}</b><small>${TYPE_LABEL[x.type]||x.type} · Oda LV ${Number(x.req)||1} · <span class="v788-rarity ${x.rarity||'common'}">${rarity(x.rarity)}</span></small></span><span class="v789-preview-price">${owned(x.id)?'SAHİPSİN':'🪙 '+(Number(x.price)||0)}</span></div><div class="v789-preview-actions"><button type="button" class="v789-cancel">VAZGEÇ</button><button type="button" class="v789-confirm ${bs.cls}" data-v789-mode="${bs.mode}" ${bs.disabled?'disabled':''}>${bs.label}</button></div><div class="v789-preview-note"><b>Bu yalnızca görsel önizlemedir.</b> Vazgeçersen mevcut odan ve Altın bakiyen değişmez.</div></div>`;o.querySelector('.v789-preview-room-shell')?.append(clone);scope.append(o);document.body.classList.add('v789-preview-open');o.querySelector('.v789-preview-close')?.addEventListener('click',()=>close('cancel'));o.querySelector('.v789-cancel')?.addEventListener('click',()=>close('cancel'));o.addEventListener('click',e=>{if(e.target===o)close('cancel')});o.querySelector('.v789-confirm')?.addEventListener('click',()=>confirm(id));try{DEEN_SFX?.play?.('snap')}catch(e){};return true}
+ function confirm(id){const x=item(id);if(!x)return false;if(owned(id)){const ok=COLLECTION.equip?.(id)!==false;if(ok){close('use');toast?.(x.name+' odada kullanılıyor')}return ok}if(level()<(Number(x.req)||1))return false;const before=owned(id),res=WORLD.buy?.(id);setTimeout(()=>{if(owned(id)&&!before){try{COLLECTION.equip?.(id)}catch(e){};close('buy');toast?.(x.name+' odana uygulandı')}},120);return res!==false}
+ function decorateCards(){scheduled=false;const map=new Map(items().map(x=>[x.name,x]));document.querySelectorAll('#worldScreenBody .v788-card').forEach(card=>{if(card.querySelector(':scope > .v789-try'))return;const name=card.querySelector('h3')?.textContent?.trim(),x=map.get(name);if(!x||card.classList.contains('equipped'))return;const b=document.createElement('button');b.type='button';b.className='v789-try';b.dataset.v789Preview=x.id;b.textContent=card.classList.contains('locked')?'ÖNİZLE':'ODADA DENE';const primary=[...card.children].find(el=>el.tagName==='BUTTON'&&!el.classList.contains('v789-try'));if(primary)card.insertBefore(b,primary);else card.append(b)})}
+ function schedule(ms=50){if(scheduled)return;scheduled=true;setTimeout(decorateCards,ms)}
+ document.addEventListener('click',e=>{const b=e.target.closest?.('[data-v789-preview]');if(!b)return;e.preventDefault();e.stopPropagation();open(b.dataset.v789Preview)},true);
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('#worldScreenBody .v789-preview'))close('cancel')});
+ const obs=new MutationObserver(ms=>{for(const m of ms){if(m.type==='childList'&&m.target?.closest?.('#worldScreenBody')){schedule(45);break}}});obs.observe(document.body,{childList:true,subtree:true});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)close('hidden');else schedule(120)});window.addEventListener('pagehide',()=>close('hidden'));
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);try{saveState?.()}catch(e){}
+ window.DEEN_WORLD_PREVIEW={version:VERSION,stateVersion:STATE_VERSION,open,close,refresh:decorateCards,snapshot:()=>({version:VERSION,open:!!document.querySelector('#worldScreenBody .v789-preview'),item:currentId,tryButtons:document.querySelectorAll('#worldScreenBody .v789-try').length,gold:Number(state.currency)||0,equipped:{...(state.myWorld?.equipped||{})}})};
+ setTimeout(()=>decorateCards(),650);
+})();
+
+</script>
+
+<style data-inline-from="./patches/v7.9.0.css">
+/* DEEN v7.9.0 — Room Presets */
+#worldScreenBody .v790-presets{margin:9px 0 8px;padding:10px;border:1px solid rgba(123,205,187,.17);border-radius:15px;background:linear-gradient(180deg,#0e2b32,#0a232a);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+#worldScreenBody .v790-presets-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:9px}
+#worldScreenBody .v790-presets-head b{display:block;font-size:9px;color:#edf8f5}
+#worldScreenBody .v790-presets-head small{display:block;margin-top:2px;font-size:6.2px;line-height:1.35;color:#81999e}
+#worldScreenBody .v790-presets-count{flex:0 0 auto;min-width:42px;padding:5px 7px;border-radius:10px;border:1px solid rgba(127,214,195,.14);background:#102d34;color:#88d8c6;font-size:6px;font-weight:950;text-align:center;line-height:1.2}
+#worldScreenBody .v790-preset-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+#worldScreenBody .v790-preset-card{min-width:0;padding:8px;border:1px solid #315058;border-radius:13px;background:#102a31;display:grid;gap:7px;position:relative;overflow:hidden}
+#worldScreenBody .v790-preset-card.saved{border-color:rgba(108,205,184,.26);background:linear-gradient(180deg,#123330,#10292f)}
+#worldScreenBody .v790-preset-card.active{border-color:#76dac2;box-shadow:inset 0 0 0 1px rgba(126,224,201,.08),0 7px 18px rgba(39,155,133,.08)}
+#worldScreenBody .v790-preset-top{display:flex;align-items:center;gap:6px;min-width:0}
+#worldScreenBody .v790-preset-icon{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#17383e;border:1px solid rgba(130,213,196,.13);font-size:12px;color:#9de4d4;flex:0 0 auto}
+#worldScreenBody .v790-preset-copy{min-width:0}.v790-preset-copy b{display:block;font-size:7.4px;color:#eaf6f3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v790-preset-copy small{display:block;margin-top:2px;font-size:5.5px;color:#779095;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v790-preset-card.active .v790-preset-copy small{color:#8edbc9}
+#worldScreenBody .v790-preset-actions{display:grid;grid-template-columns:1fr;gap:5px}
+#worldScreenBody .v790-preset-actions.two{grid-template-columns:1.22fr .78fr}
+#worldScreenBody .v790-preset-actions button{min-height:31px;border-radius:9px;font-size:5.8px;font-weight:1000;padding:0 5px;white-space:nowrap}
+#worldScreenBody .v790-save{border:1px solid #3b5b62;background:#13313a;color:#9ab5b7}
+#worldScreenBody .v790-apply{border:1px solid #78dcc4;background:linear-gradient(180deg,#69d3bb,#43ad99);color:#062821;box-shadow:0 6px 13px rgba(53,166,143,.1)}
+#worldScreenBody .v790-update{border:1px solid #3c555b;background:#172e34;color:#91a9ab}
+#worldScreenBody .v790-preset-foot{font-size:5.3px;line-height:1.25;color:#6f888d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v790-preset-card.active .v790-preset-foot{color:#85c9ba}
+#worldScreenBody .v790-preset-chip{position:absolute;z-index:125;left:50%;top:13px;transform:translateX(-50%);padding:5px 9px;border-radius:999px;border:1px solid rgba(134,224,203,.25);background:rgba(7,31,36,.92);color:#a9eadb;font-size:6px;font-weight:1000;letter-spacing:.4px;pointer-events:none;animation:v790Chip 1.15s ease both}
+#worldScreenBody .v750-room.v790-preset-shift{animation:v790RoomShift .62s ease both}
+@keyframes v790RoomShift{0%{filter:brightness(1)}40%{filter:brightness(1.18) saturate(1.04)}100%{filter:brightness(1)}}
+@keyframes v790Chip{0%{opacity:0;transform:translate(-50%,-5px)}18%,70%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-5px)}}
+html.v5-reduce #worldScreenBody .v750-room.v790-preset-shift,html.v625-motion-off #worldScreenBody .v750-room.v790-preset-shift,html.v5-reduce #worldScreenBody .v790-preset-chip,html.v625-motion-off #worldScreenBody .v790-preset-chip{animation:none!important}
+@media(prefers-reduced-motion:reduce){#worldScreenBody .v750-room.v790-preset-shift,#worldScreenBody .v790-preset-chip{animation:none!important}}
+@media(max-width:390px){#worldScreenBody .v790-presets{padding:8px}#worldScreenBody .v790-preset-grid{gap:5px}#worldScreenBody .v790-preset-card{padding:7px 6px}#worldScreenBody .v790-preset-icon{width:25px;height:25px}.v790-preset-actions button{min-height:30px!important;font-size:5.4px!important}}
+
+</style>
+<script data-inline-from="./patches/v7.9.0.runtime.js">
+(()=>{
+ if(window.__deenV790Applied)return;window.__deenV790Applied=true;
+ const VERSION='7.9.0',STATE_VERSION=63;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.9.0 — Room Presets';
+ const DECOR=window.DEEN_WORLD_DECOR,COLLECTION=window.DEEN_WORLD_COLLECTION,IW=window.DEEN_INTERACTIVE_WORLD,PREVIEW=window.DEEN_WORLD_PREVIEW,IDLE=window.DEEN_WORLD_IDLE,ACTIONS=window.DEEN_WORLD_ACTIONS;
+ if(!DECOR||!COLLECTION||!IW)return;
+ const TYPES=['desk','rug','plant','shelf','window','nur'];
+ const STARTER={desk:null,rug:'rug_teal',plant:null,shelf:null,window:null,nur:null};
+ const SLOTS=[
+  {id:'work',name:'Çalışma',icon:'▰'},
+  {id:'night',name:'Gece',icon:'☾'},
+  {id:'nature',name:'Doğa',icon:'♧'}
+ ];
+ let scheduled=false;
+ function save(){try{saveState?.()}catch(e){}}
+ function editing(){try{return !!IW.state?.().editMode}catch(e){return false}}
+ function eq(){state.myWorld=state.myWorld&&typeof state.myWorld==='object'?state.myWorld:{};state.myWorld.equipped=state.myWorld.equipped&&typeof state.myWorld.equipped==='object'?state.myWorld.equipped:{};if(!state.myWorld.equipped.rug)state.myWorld.equipped.rug='rug_teal';return state.myWorld.equipped}
+ function cloneEquipped(){const e=eq(),out={};for(const t of TYPES)out[t]=Object.prototype.hasOwnProperty.call(e,t)?e[t]:STARTER[t];return out}
+ function ensure(){state.myWorld=state.myWorld&&typeof state.myWorld==='object'?state.myWorld:{};let p=state.myWorld.roomPresets&&typeof state.myWorld.roomPresets==='object'?state.myWorld.roomPresets:{};p.version=VERSION;p.slots=p.slots&&typeof p.slots==='object'?p.slots:{};for(const s of SLOTS){const old=p.slots[s.id]&&typeof p.slots[s.id]==='object'?p.slots[s.id]:{};p.slots[s.id]={id:s.id,name:s.name,icon:s.icon,snapshot:old.snapshot&&typeof old.snapshot==='object'?old.snapshot:null,updatedAt:Number(old.updatedAt)||0}}state.myWorld.roomPresets=p;state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);return p}
+ function slot(id){return ensure().slots[id]||null}
+ function owned(id){return id==null||id==='rug_teal'||!!state.myWorld?.owned?.includes?.(id)}
+ function normalizeSnapshot(snap){const cur=cloneEquipped(),out={};for(const t of TYPES){const raw=Object.prototype.hasOwnProperty.call(snap||{},t)?snap[t]:STARTER[t];out[t]=owned(raw)?raw:cur[t]}return out}
+ function same(a,b){return TYPES.every(t=>(a?.[t]??STARTER[t])===(b?.[t]??STARTER[t]))}
+ function itemName(id,type){if(id==null)return ({desk:'Standart Masa',plant:'Bitki Yok',shelf:'Kitaplık Yok',window:'Standart Pencere',nur:'Standart NUR'})[type]||'Standart';if(id==='rug_teal')return 'Teal Halı';try{return COLLECTION.items?.().find(x=>x.id===id)?.name||id}catch(e){return id}}
+ function summary(s){if(!s?.snapshot)return 'Henüz kaydedilmedi';const x=s.snapshot;const a=[itemName(x.desk,'desk'),itemName(x.rug,'rug'),itemName(x.window,'window')];return a.join(' · ')}
+ function timestamp(ms){if(!ms)return 'BOŞ';try{return new Intl.DateTimeFormat('tr-TR',{hour:'2-digit',minute:'2-digit'}).format(new Date(ms))}catch(e){return 'KAYITLI'}}
+ function currentSlotId(){const cur=cloneEquipped();for(const s of SLOTS){const x=slot(s.id);if(x?.snapshot&&same(cur,x.snapshot))return s.id}return null}
+ function saveSlot(id){const s=slot(id);if(!s)return false;s.snapshot=cloneEquipped();s.updatedAt=Date.now();save();decoratePresets();try{DEEN_SFX?.play?.('snap')}catch(e){};toast?.(s.name+' odası kaydedildi');return true}
+ function applySnapshot(snap){const clean=normalizeSnapshot(snap),e=eq();for(const t of TYPES)e[t]=clean[t];save();try{DECOR.apply?.()}catch(e){};try{COLLECTION.apply?.()}catch(e){};try{DECOR.refresh?.()}catch(e){};try{COLLECTION.refresh?.()}catch(e){};return clean}
+ function roomFeedback(name){const r=document.getElementById('v750Room');if(!r)return;r.classList.remove('v790-preset-shift');void r.offsetWidth;r.classList.add('v790-preset-shift');setTimeout(()=>r.classList.remove('v790-preset-shift'),700);r.querySelector(':scope > .v790-preset-chip')?.remove();const c=document.createElement('span');c.className='v790-preset-chip';c.textContent=name.toUpperCase()+' PRESETİ';r.append(c);setTimeout(()=>c.remove(),1250)}
+ function applySlot(id){const s=slot(id);if(!s?.snapshot){toast?.('Önce bu slota odanı kaydet.');return false}try{PREVIEW?.close?.('preset')}catch(e){};try{ACTIONS?.clear?.()}catch(e){};try{IDLE?.clear?.()}catch(e){};applySnapshot(s.snapshot);roomFeedback(s.name);decoratePresets();try{DEEN_SFX?.play?.('unlock')}catch(e){};toast?.(s.name+' oda düzeni uygulandı');setTimeout(()=>{try{IDLE?.reschedule?.()}catch(e){}},750);return true}
+ function cardHtml(m,active){const s=slot(m.id),saved=!!s?.snapshot;return `<div class="v790-preset-card ${saved?'saved':''} ${active===m.id?'active':''}" data-v790-card="${m.id}"><div class="v790-preset-top"><span class="v790-preset-icon">${m.icon}</span><span class="v790-preset-copy"><b>${m.name}</b><small>${active===m.id?'AKTİF':saved?'KAYITLI · '+timestamp(s.updatedAt):'BOŞ SLOT'}</small></span></div><div class="v790-preset-foot">${summary(s)}</div>${saved?`<div class="v790-preset-actions two"><button type="button" class="v790-apply" data-v790-apply="${m.id}">UYGULA</button><button type="button" class="v790-update" data-v790-save="${m.id}">GÜNCELLE</button></div>`:`<div class="v790-preset-actions"><button type="button" class="v790-save" data-v790-save="${m.id}">BU ODAYI KAYDET</button></div>`}</div>`}
+ function decoratePresets(){scheduled=false;const tray=document.querySelector('#worldScreenBody .v750-tray');if(!tray||!editing()){tray?.querySelector(':scope > .v790-presets')?.remove();return false}ensure();let box=tray.querySelector(':scope > .v790-presets');const saved=SLOTS.filter(s=>!!slot(s.id)?.snapshot).length,active=currentSlotId(),sig=JSON.stringify({active,eq:cloneEquipped(),slots:SLOTS.map(s=>{const x=slot(s.id);return[x?.updatedAt||0,x?.snapshot||null]})});if(box?.dataset?.v790Sig===sig)return true;const html=`<section class="v790-presets"><div class="v790-presets-head"><div><b>ODA PRESETLERİ</b><small>3 farklı dekor kombinasyonunu kaydet ve tek dokunuşla değiştir.</small></div><span class="v790-presets-count">${saved}/3<br>KAYIT</span></div><div class="v790-preset-grid">${SLOTS.map(s=>cardHtml(s,active)).join('')}</div></section>`;if(box)box.outerHTML=html;else{const anchor=tray.querySelector(':scope > .v788-customizer,:scope > .v787-customizer');if(anchor)anchor.insertAdjacentHTML('beforebegin',html);else tray.insertAdjacentHTML('afterbegin',html)}box=tray.querySelector(':scope > .v790-presets');if(box)box.dataset.v790Sig=sig;return true}
+ function schedule(ms=50){if(scheduled)return;scheduled=true;setTimeout(()=>decoratePresets(),ms)}
+ document.addEventListener('click',e=>{const saveBtn=e.target.closest?.('[data-v790-save]');if(saveBtn){e.preventDefault();e.stopPropagation();saveSlot(saveBtn.dataset.v790Save);return}const applyBtn=e.target.closest?.('[data-v790-apply]');if(applyBtn){e.preventDefault();e.stopPropagation();applySlot(applyBtn.dataset.v790Apply);return}if(e.target.closest?.('#worldScreenBody [data-v780="edit"],#worldScreenBody .v780-area-select,#worldScreenBody .v780-back-btn,.navbtn[data-screen="worldScreen"]'))schedule(110)},true);
+ const obs=new MutationObserver(ms=>{for(const m of ms){if(m.target?.closest?.('.v790-presets'))continue;if(m.type==='childList'&&m.target?.closest?.('#worldScreenBody')){schedule(55);break}}});obs.observe(document.body,{childList:true,subtree:true});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule(120)});window.addEventListener('pageshow',()=>schedule(140));
+ ensure();save();
+ window.DEEN_WORLD_PRESETS={version:VERSION,stateVersion:STATE_VERSION,save:saveSlot,apply:applySlot,refresh:decoratePresets,slots:()=>SLOTS.map(s=>({...slot(s.id),snapshot:slot(s.id)?.snapshot?{...slot(s.id).snapshot}:null})),snapshot:()=>({version:VERSION,editing:editing(),saved:SLOTS.filter(s=>!!slot(s.id)?.snapshot).length,active:currentSlotId(),equipped:cloneEquipped(),visible:!!document.querySelector('#worldScreenBody .v790-presets')})};
+ setTimeout(()=>decoratePresets(),850);
+})();
+
+</script>
+
+<style data-inline-from="./patches/v7.9.1.css">
+/* DEEN v7.9.1 — Shop & Collection Final Polish */
+#worldScreenBody .v788-shop-head .v788-shop-stat{display:none}#worldScreenBody .v788-shop-head{margin-bottom:7px}
+#worldScreenBody .v791-shop-polish{margin:0 0 9px;padding:10px;border:1px solid rgba(125,210,191,.16);border-radius:15px;background:linear-gradient(180deg,#0d2931,#0a232a);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+#worldScreenBody .v791-shop-overview{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center}
+#worldScreenBody .v791-overview-copy{min-width:0}#worldScreenBody .v791-overview-copy b{display:block;font-size:9px;color:#edf8f5}#worldScreenBody .v791-overview-copy small{display:block;margin-top:2px;font-size:6.2px;color:#7f999e;line-height:1.35}
+#worldScreenBody .v791-wallet{min-width:68px;padding:7px 9px;border:1px solid rgba(226,199,126,.19);border-radius:11px;background:linear-gradient(180deg,#302b1d,#25251d);color:#e6cc84;text-align:center;font-size:6.4px;font-weight:1000;line-height:1.25}
+#worldScreenBody .v791-progress{height:5px;margin-top:8px;border-radius:999px;background:#18353c;overflow:hidden}#worldScreenBody .v791-progress i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#5cc6ae,#8ce1cd);transition:width .25s ease}
+#worldScreenBody .v791-view-row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:8px;padding:1px 0}#worldScreenBody .v791-view-row::-webkit-scrollbar{display:none}
+#worldScreenBody .v791-view{flex:0 0 auto;min-height:29px;padding:0 8px;border:1px solid #304e56;border-radius:9px;background:#102a31;color:#829ca1;font-size:6.1px;font-weight:950;white-space:nowrap}
+#worldScreenBody .v791-view.active{border-color:#78d8c1;background:#18433e;color:#eaf8f4}.v791-view .count{margin-left:3px;color:#6f8d92}.v791-view.active .count{color:#98dfcf}
+#worldScreenBody .v788-filter{display:inline-flex;align-items:center;gap:4px}#worldScreenBody .v788-filter .v791-filter-count{font-size:5.5px;color:#638086;font-weight:900}#worldScreenBody .v788-filter.active .v791-filter-count{color:#91dac9}
+#worldScreenBody .v788-card{transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease,opacity .15s ease;cursor:pointer;padding-top:34px!important}
+#worldScreenBody .v788-card:active{transform:scale(.992)}
+#worldScreenBody .v788-card.v791-hidden{display:none!important}
+#worldScreenBody .v788-card.v791-previewable:focus-visible{outline:2px solid #83ddc8;outline-offset:2px}
+#worldScreenBody .v791-state{position:absolute;left:8px;top:8px;z-index:3;min-height:18px;display:inline-flex;align-items:center;padding:0 6px;border-radius:999px;border:1px solid rgba(133,169,172,.17);background:rgba(17,44,50,.9);color:#869fa3;font-size:5.4px;font-weight:1000;letter-spacing:.25px;pointer-events:none}
+#worldScreenBody .v791-state.equipped{border-color:rgba(117,220,195,.34);background:rgba(19,75,65,.92);color:#a4ead9}#worldScreenBody .v791-state.owned{border-color:rgba(117,204,188,.2);color:#9bc2ba}#worldScreenBody .v791-state.buyable{border-color:rgba(225,199,126,.23);background:rgba(56,49,29,.9);color:#e4cc88}#worldScreenBody .v791-state.locked{border-style:dashed;color:#738b90}
+#worldScreenBody .v788-card.equipped{border-color:#72d7bf!important;box-shadow:inset 0 0 0 1px rgba(122,224,201,.16),0 8px 23px rgba(44,166,143,.08)!important}
+#worldScreenBody .v788-card.owned:not(.equipped){background:linear-gradient(180deg,#112f35,#0d282f)}
+#worldScreenBody .v788-card.locked{opacity:.76;filter:saturate(.82)}
+#worldScreenBody .v788-card .v789-try{order:8;background:rgba(17,49,55,.8);border-color:rgba(112,199,183,.2);color:#91c9be}
+#worldScreenBody .v788-card .v789-try:before{content:'◉';margin-right:4px;font-size:5.5px}
+#worldScreenBody .v788-card button.buy{order:9}#worldScreenBody .v788-card button.use{order:9}
+#worldScreenBody .v788-card button.use:before{content:'✓';margin-right:4px}#worldScreenBody .v788-card button.buy:active,#worldScreenBody .v788-card button.use:active{transform:scale(.98)}
+#worldScreenBody .v791-empty{grid-column:1/-1;padding:22px 12px;border:1px dashed #315159;border-radius:14px;background:rgba(13,39,46,.5);text-align:center;color:#779196;font-size:6.5px;line-height:1.45}
+#worldScreenBody .v791-empty b{display:block;margin-bottom:4px;color:#a4c4c0;font-size:7.5px}
+#worldScreenBody .v791-shop-polish + .v788-filter-row{margin-top:1px}
+#worldScreenBody .v788-shop-note{display:flex;align-items:flex-start;gap:6px}#worldScreenBody .v788-shop-note:before{content:'i';flex:0 0 17px;width:17px;height:17px;border-radius:50%;display:grid;place-items:center;background:#15373d;color:#8ed9c9;font-size:7px;font-weight:1000}
+#worldScreenBody .v791-card-pulse{animation:v791CardPulse .6s ease both}@keyframes v791CardPulse{0%{box-shadow:0 0 0 0 rgba(116,219,195,0)}45%{box-shadow:0 0 0 4px rgba(116,219,195,.12),0 8px 24px rgba(48,168,145,.09)}100%{box-shadow:0 0 0 0 rgba(116,219,195,0)}}
+html.v5-reduce #worldScreenBody .v791-card-pulse,html.v625-motion-off #worldScreenBody .v791-card-pulse{animation:none!important}@media(prefers-reduced-motion:reduce){#worldScreenBody .v791-card-pulse{animation:none!important}#worldScreenBody .v788-card{transition:none!important}}
+@media(max-width:390px){#worldScreenBody .v791-shop-polish{padding:8px}#worldScreenBody .v791-wallet{min-width:61px;padding:6px 7px}#worldScreenBody .v791-view{min-height:28px;padding:0 7px}#worldScreenBody .v788-card{padding-top:32px!important}.v791-state{left:7px!important;top:7px!important}}
+
+</style>
+<script data-inline-from="./patches/v7.9.1.runtime.js">
+(()=>{
+ if(window.__deenV791Applied)return;window.__deenV791Applied=true;
+ const VERSION='7.9.1',STATE_VERSION=64;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.9.1 — Shop & Collection Final Polish';
+ const COLLECTION=window.DEEN_WORLD_COLLECTION,PREVIEW=window.DEEN_WORLD_PREVIEW,WORLD=window.DEEN_WORLD;
+ if(!COLLECTION||!WORLD)return;
+ const TYPES=['desk','rug','plant','shelf','window','nur'];
+ const TYPE_LABEL={desk:'MASA',rug:'HALI',plant:'BİTKİ',shelf:'KİTAPLIK',window:'PENCERE',nur:'NUR'};
+ const VIEWS=[['all','TÜMÜ'],['buyable','ALINABİLİR'],['owned','SAHİP'],['equipped','ODADA']];
+ let view='all',scheduled=false,lastSig='';
+ function items(){try{return COLLECTION.items?.().filter(x=>TYPES.includes(x.type)&&!x.default&&!x.paid)||[]}catch(e){return[]}}
+ function owned(id){return !!state.myWorld?.owned?.includes?.(id)}
+ function equipped(id,type){return state.myWorld?.equipped?.[type]===id}
+ function level(){try{return Number(window.DEEN_WORLD_PROGRESSION?.snapshot?.().level)||1}catch(e){return 1}}
+ function gold(){return Math.max(0,Number(state.currency)||0)}
+ function status(x){if(equipped(x.id,x.type))return'equipped';if(owned(x.id))return'owned';if(level()<(Number(x.req)||1))return'locked';return'buyable'}
+ function statusLabel(s){return s==='equipped'?'ODADA':s==='owned'?'SAHİPSİN':s==='buyable'?'ALINABİLİR':'KİLİTLİ'}
+ function counts(){const a=items(),out={all:a.length,buyable:0,owned:0,equipped:0};for(const x of a){const s=status(x);if(s==='buyable')out.buyable++;if(s==='owned'||s==='equipped')out.owned++;if(s==='equipped')out.equipped++}return out}
+ function categoryCounts(){const out={all:items().length};for(const t of TYPES)out[t]=items().filter(x=>x.type===t).length;return out}
+ function overview(){const shop=document.querySelector('#worldScreenBody .v788-shop');if(!shop)return null;let box=shop.querySelector(':scope > .v791-shop-polish'),a=items(),own=a.filter(x=>owned(x.id)).length,pct=a.length?Math.round(own/a.length*100):0,c=counts();const html=`<div class="v791-shop-polish"><div class="v791-shop-overview"><div class="v791-overview-copy"><b>Koleksiyonun · ${own}/${a.length}</b><small>%${pct} tamamlandı · Oda Lv ${level()} · nadirlik yalnızca kozmetik.</small></div><div class="v791-wallet">🪙 ${gold()}<br>ALTIN</div></div><div class="v791-progress"><i style="width:${pct}%"></i></div><div class="v791-view-row">${VIEWS.map(([id,label])=>`<button type="button" class="v791-view ${view===id?'active':''}" data-v791-view="${id}">${label}<span class="count">${c[id]}</span></button>`).join('')}</div></div>`;if(box)box.outerHTML=html;else{const head=shop.querySelector(':scope > .v788-shop-head');head?.insertAdjacentHTML('afterend',html)}return shop.querySelector(':scope > .v791-shop-polish')}
+ function decorateFilters(){const cc=categoryCounts();document.querySelectorAll('#worldScreenBody .v788-filter').forEach(b=>{const id=b.dataset.v788Filter||'all';let counter=b.querySelector('.v791-filter-count');if(!counter){counter=document.createElement('span');counter.className='v791-filter-count';b.append(counter)}counter.textContent=String(cc[id]??0)})}
+ function cardItem(card){const name=card.querySelector('h3')?.textContent?.trim();return items().find(x=>x.name===name)||null}
+ function normalizeButtons(card,s,x){const tryBtn=card.querySelector('.v789-try'),buy=card.querySelector('[data-v788-buy]'),use=card.querySelector('[data-v788-use]');if(tryBtn)tryBtn.textContent=s==='locked'?'ÖNİZLE':'ODADA DENE';if(buy)buy.textContent='🪙 '+(Number(x.price)||0)+' · SATIN AL';if(use)use.textContent='ODADA KULLAN';const disabled=[...card.children].find(el=>el.tagName==='BUTTON'&&el.disabled&&!el.classList.contains('v789-try'));if(disabled){if(s==='equipped')disabled.textContent='✓ ŞU AN ODADA';else if(s==='locked')disabled.textContent='🔒 ODA LV '+(Number(x.req)||1)}}
+ function decorateCard(card){const x=cardItem(card);if(!x)return;const s=status(x);card.dataset.v791Status=s;card.querySelector(':scope > .v791-state')?.remove();const pill=document.createElement('span');pill.className='v791-state '+s;pill.textContent=statusLabel(s);card.prepend(pill);card.classList.toggle('v791-previewable',s!=='equipped');card.setAttribute('aria-label',x.name+' · '+statusLabel(s));if(s!=='equipped'){card.setAttribute('role','button');card.tabIndex=0}else{card.removeAttribute('role');card.removeAttribute('tabindex')}normalizeButtons(card,s,x);const show=view==='all'||(view==='owned'&&(s==='owned'||s==='equipped'))||view===s;card.classList.toggle('v791-hidden',!show)}
+ function emptyState(){const grid=document.querySelector('#worldScreenBody .v788-shop-grid');if(!grid)return;grid.querySelector(':scope > .v791-empty')?.remove();if([...grid.querySelectorAll(':scope > .v788-card')].some(c=>!c.classList.contains('v791-hidden')))return;const e=document.createElement('div');e.className='v791-empty';e.innerHTML='<b>Bu görünümde dekor yok.</b>Başka bir durum filtresi veya kategori seçebilirsin.';grid.append(e)}
+ function decorate(force=false){scheduled=false;const shop=document.querySelector('#worldScreenBody .v788-shop');if(!shop)return false;const cards=[...shop.querySelectorAll('.v788-card')],filters=[...shop.querySelectorAll('.v788-filter')],sig=JSON.stringify({view,gold:gold(),level:level(),owned:items().filter(x=>owned(x.id)).map(x=>x.id),eq:state.myWorld?.equipped||{},cards:cards.map(x=>x.querySelector('h3')?.textContent||'')});const complete=!!shop.querySelector(':scope > .v791-shop-polish')&&cards.length>0&&cards.every(c=>c.dataset.v791Status&&c.querySelector(':scope > .v791-state'))&&filters.every(b=>b.querySelector('.v791-filter-count'));if(!force&&sig===lastSig&&complete)return true;lastSig=sig;overview();decorateFilters();shop.querySelectorAll('.v788-card').forEach(decorateCard);emptyState();return true}
+ function schedule(ms=45,force=false){if(scheduled)return;scheduled=true;setTimeout(()=>decorate(force),ms)}
+ function setView(v){if(!VIEWS.some(x=>x[0]===v))v='all';view=v;lastSig='';decorate(true);return view}
+ function previewCard(card){const x=cardItem(card);if(!x||status(x)==='equipped')return false;try{return PREVIEW?.open?.(x.id)!==false}catch(e){return false}}
+ document.addEventListener('click',e=>{const vb=e.target.closest?.('[data-v791-view]');if(vb){e.preventDefault();e.stopPropagation();setView(vb.dataset.v791View);return}const card=e.target.closest?.('#worldScreenBody .v788-card');if(!card||e.target.closest('button'))return;if(previewCard(card)){card.classList.remove('v791-card-pulse');void card.offsetWidth;card.classList.add('v791-card-pulse')}},true);
+ document.addEventListener('keydown',e=>{if(!['Enter',' '].includes(e.key))return;const card=e.target.closest?.('#worldScreenBody .v788-card.v791-previewable');if(!card||e.target.closest('button'))return;e.preventDefault();previewCard(card)},true);
+ const obs=new MutationObserver(ms=>{for(const m of ms){if(m.target?.closest?.('.v791-shop-polish,.v791-state,.v791-empty'))continue;if(m.type==='childList'&&m.target?.closest?.('#worldScreenBody')){schedule(55,false);break}}});obs.observe(document.body,{childList:true,subtree:true});
+ document.addEventListener('click',e=>{if(e.target.closest?.('[data-v788-filter],[data-v788-buy],[data-v788-use],[data-v789-mode],.v789-cancel,.v789-preview-close,[data-v790-apply]')){schedule(180,false)}},false);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden){schedule(120,false)}});window.addEventListener('pageshow',()=>{schedule(140,false)});
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);try{saveState?.()}catch(e){}
+ window.DEEN_WORLD_SHOP_POLISH={version:VERSION,stateVersion:STATE_VERSION,refresh:()=>decorate(true),setView,snapshot:()=>({version:VERSION,view,gold:gold(),level:level(),counts:counts(),cards:document.querySelectorAll('#worldScreenBody .v788-card').length,visibleCards:[...document.querySelectorAll('#worldScreenBody .v788-card')].filter(c=>!c.classList.contains('v791-hidden')).length,overview:!!document.querySelector('#worldScreenBody .v791-shop-polish')})};
+ setTimeout(()=>decorate(true),850);
+})();
+
+</script>
+
+<style data-inline-from="./patches/v7.9.2.css">
+#worldScreenBody .v792-balance-note{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 9px;border:1px solid rgba(117,207,186,.16);border-radius:12px;background:linear-gradient(180deg,#102d32,#0c262c);color:#8ea8aa;font-size:6.2px;line-height:1.35}
+#worldScreenBody .v792-balance-note b{color:#8fe0cd;font-size:6.1px;letter-spacing:.3px}#worldScreenBody .v792-balance-note span:last-child{white-space:nowrap;color:#b7cac7}
+#worldScreenBody .v792-price-note{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;padding:8px 9px;border:1px solid rgba(221,193,123,.15);border-radius:12px;background:#24251f;color:#918b72;font-size:6.1px;line-height:1.35}
+#worldScreenBody .v792-price-note b{color:#dfc985;font-size:6.3px}#worldScreenBody .v792-price-note span{text-align:right}
+#worldScreenBody .v784-progress-strip[data-v792="1"] .v784-progress-bar i{background:linear-gradient(90deg,#63cdb6,#91e3ce,#d4c175)}
+@media(max-width:390px){#worldScreenBody .v792-balance-note{align-items:flex-start;flex-direction:column;gap:3px}#worldScreenBody .v792-price-note{grid-template-columns:1fr;gap:3px}#worldScreenBody .v792-price-note span{text-align:left}}
+
+</style>
+<script data-inline-from="./patches/v7.9.2.runtime.js">
+(()=>{
+ if(window.__deenV792Applied)return;window.__deenV792Applied=true;
+ const VERSION='7.9.2',STATE_VERSION=65;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.9.2 — Economy & Progression Balance';
+ const PROG=window.DEEN_WORLD_PROGRESSION,COLLECTION=window.DEEN_WORLD_COLLECTION,LEVELUP=window.DEEN_WORLD_LEVELUP,EVOLUTION=window.DEEN_WORLD_EVOLUTION,SHOP=window.DEEN_WORLD_SHOP_POLISH;
+ if(!PROG)return;
+ const LEVELS=[
+  {n:1,min:0,title:'Başlangıç',bonus:0},
+  {n:2,min:25,title:'Yeşeren Köşe',unlock:'plant_olive',bonus:6},
+  {n:3,min:70,title:'Okuma Alanı',unlock:'shelf_oak',bonus:10},
+  {n:4,min:130,title:'Sıcak Dokunuş',unlock:'rug_sunrise',bonus:15},
+  {n:5,min:205,title:'Odak Alanı',unlock:'desk_sand',bonus:20},
+  {n:6,min:295,title:'Gece Manzarası',unlock:'window_night',bonus:25},
+  {n:7,min:400,title:'Yıldız Işığı',unlock:'nur_starlight',bonus:30}
+ ];
+ const DAILY={visit:{nur:5,gold:4},interact:{nur:8,gold:6},lesson:{nur:12,gold:8}};
+ const DAILY_TOTAL={nur:25,gold:18};
+ const PRICE_BANDS={common:[35,75],rare:[55,120],epic:[130,170]};
+ const oldSnapshot=PROG.snapshot?.bind(PROG),oldTasks=PROG.tasks?.bind(PROG);
+ let scheduled=false;
+ function clone(v){return JSON.parse(JSON.stringify(v))}
+ function save(){try{saveState?.()}catch(e){}}
+ function syncLegacy(){try{oldSnapshot?.()}catch(e){};state.myWorld=state.myWorld&&typeof state.myWorld==='object'?state.myWorld:{};state.myWorld.progression=state.myWorld.progression&&typeof state.myWorld.progression==='object'?state.myWorld.progression:{};const p=state.myWorld.progression;p.nur=Math.max(0,Number(p.nur)||0);p.levelClaims=Array.isArray(p.levelClaims)?p.levelClaims:[];p.daily=p.daily&&typeof p.daily==='object'?p.daily:{date:'',visited:false,items:[],claimed:[]};p.daily.claimed=Array.isArray(p.daily.claimed)?p.daily.claimed:[];state.myWorld.progressionBalance=state.myWorld.progressionBalance&&typeof state.myWorld.progressionBalance==='object'?state.myWorld.progressionBalance:{};state.myWorld.progressionBalance.version=VERSION;state.myWorld.progressionBalance.dailyTotal={...DAILY_TOTAL};state.myWorld.progressionBalance.levelThresholds=LEVELS.map(x=>x.min);state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);return p}
+ function levelFor(nur=syncLegacy().nur){let cur=LEVELS[0];for(const l of LEVELS)if(nur>=l.min)cur=l;return cur}
+ function nextLevel(nur=syncLegacy().nur){const cur=levelFor(nur);return LEVELS.find(x=>x.n===cur.n+1)||null}
+ function taskList(){let a=[];try{a=oldTasks?.()||[]}catch(e){};return a.map(t=>({...t,nur:DAILY[t.id]?.nur??t.nur,gold:DAILY[t.id]?.gold??t.gold}))}
+ function progress(){const p=syncLegacy(),cur=levelFor(p.nur),next=nextLevel(p.nur);if(!next)return{cur,next:null,pct:100,left:0,nur:p.nur};const span=Math.max(1,next.min-cur.min),within=Math.max(0,p.nur-cur.min);return{cur,next,pct:Math.max(0,Math.min(100,within/span*100)),left:Math.max(0,next.min-p.nur),nur:p.nur}}
+ function pendingCount(){const p=syncLegacy(),daily=taskList().filter(x=>x.done&&!x.claimed).length,lv=LEVELS.filter(x=>x.n>1&&x.n<=levelFor(p.nur).n&&!p.levelClaims.includes(x.n)).length;return daily+lv}
+ function addGold(n,reason,key){n=Math.max(0,Math.round(Number(n)||0));state.currency=Math.max(0,Number(state.currency)||0)+n;state.myWorld.ledger=Array.isArray(state.myWorld.ledger)?state.myWorld.ledger:[];state.myWorld.ledger.push({at:Date.now(),type:'earn',amount:n,reason,key});if(state.myWorld.ledger.length>120)state.myWorld.ledger=state.myWorld.ledger.slice(-120);return n}
+ function afterReward(beforeLevel){const after=levelFor().n;save();try{updateUI?.()}catch(e){};decorate(true);try{SHOP?.refresh?.()}catch(e){};try{EVOLUTION?.apply?.(true)}catch(e){};if(after>beforeLevel)setTimeout(()=>{try{LEVELUP?.show?.(after)}catch(e){}},140);return after}
+ function claimDaily(id){const p=syncLegacy(),t=taskList().find(x=>x.id===id),reward=DAILY[id];if(!reward||!t||!t.done||t.claimed||p.daily.claimed.includes(id))return false;const before=levelFor(p.nur).n;p.daily.claimed.push(id);p.nur+=reward.nur;addGold(reward.gold,'world_daily_balanced',(p.daily.date||'today')+':'+id);afterReward(before);try{DEEN_SFX?.play?.('reward')}catch(e){};toast?.('+'+reward.nur+' NUR · +'+reward.gold+' Altın');return true}
+ function claimLevel(n){const p=syncLegacy(),l=LEVELS.find(x=>x.n===Number(n)),cur=levelFor(p.nur);if(!l||l.n<=1||cur.n<l.n||p.levelClaims.includes(l.n))return false;p.levelClaims.push(l.n);addGold(l.bonus,'world_level_balanced','level:'+l.n);save();try{updateUI?.()}catch(e){};decorate(true);try{SHOP?.refresh?.()}catch(e){};try{DEEN_SFX?.play?.('reward')}catch(e){};toast?.('Oda Seviye '+l.n+' ödülü · +'+l.bonus+' Altın');return true}
+ function itemMap(){try{return Object.fromEntries((COLLECTION?.items?.()||window.DEEN_WORLD?.items?.()||[]).map(x=>[x.id,x]))}catch(e){return{}}}
+ function closePanel(){document.querySelector('.v780-sheet.v784-progression-sheet')?.remove();document.body.classList.remove('v780-sheet-open')}
+ function questMarkup(){return taskList().map(t=>`<div class="v784-quest ${t.done?'done ':''}${t.claimed?'claimed':''}"><span class="v784-quest-ico">${t.icon}</span><span class="v784-quest-copy"><b>${t.title}</b><small>${t.copy} · ${t.value}/${t.target}</small><small class="reward">✦ +${t.nur} NUR · 🪙 +${t.gold} Altın</small></span><button class="v784-quest-btn" data-v792-daily="${t.id}" ${!t.done||t.claimed?'disabled':''}>${t.claimed?'ALINDI':t.done?'AL':'DEVAM'}</button></div>`).join('')}
+ function roadMarkup(){const p=syncLegacy(),cur=levelFor(p.nur),items=itemMap();return LEVELS.slice(1).map(l=>{const unlocked=cur.n>=l.n,claimed=p.levelClaims.includes(l.n),it=items[l.unlock]||{name:l.unlock,price:0};let side;if(!unlocked)side=`<span class="v784-road-side">🔒 ${l.min} NUR</span>`;else if(!claimed)side=`<button class="v784-road-claim" data-v792-level="${l.n}">+${l.bonus} ALTIN · AL</button>`;else side='<span class="v784-road-side unlocked">AÇIK ✓</span>';return `<div class="v784-road-row ${unlocked?'current':'locked'}"><span class="v784-road-lv">LV ${l.n}</span><span class="v784-road-copy"><b>${it.name||l.unlock}</b><small>${l.title} · mağazada açılır · 🪙 ${Number(it.price)||0}</small></span>${side}</div>`}).join('')}
+ function openPanel(){try{window.DEEN_WORLD_SIMPLE?.closeSheet?.()}catch(e){};closePanel();const p=syncLegacy(),lp=progress(),o=document.createElement('div');o.className='v780-sheet v784-progression-sheet v792-balance-sheet';o.innerHTML=`<div class="v780-sheet-card" role="dialog" aria-modal="true"><div class="v780-grab"></div><div class="v780-sheet-head"><div><b>Oda Yolculuğu</b><small>Dengeli günlük ritim ve kozmetik ilerleme</small></div><button class="v780-close" type="button" aria-label="Kapat">×</button></div><div class="v784-sheet-copy"><div class="v784-summary"><span class="v784-summary-level">LV<br>${lp.cur.n}</span><span class="v784-summary-copy"><b>${lp.cur.title}</b><small>✦ ${p.nur} NUR${lp.next?' · sonraki seviyeye '+lp.left:' · maksimum seviye'}</small><span class="v784-summary-bar"><i style="width:${lp.pct.toFixed(1)}%"></i></span></span></div><div class="v792-balance-note"><span><b>GÜNLÜK MAKS.</b> ✦ ${DAILY_TOTAL.nur} NUR · 🪙 ${DAILY_TOTAL.gold} Altın</span><span>LV 7 ≈ 16 tam aktif gün</span></div><div class="v784-section-title"><b>Bugünün görevleri</b><small>${taskList().filter(x=>x.done).length}/3 tamamlandı</small></div><div class="v784-quests">${questMarkup()}</div><div class="v784-section-title"><b>Seviye kilitleri</b><small>Dekor + tek seferlik Altın</small></div><div class="v784-road">${roadMarkup()}</div><div class="v792-price-note"><b>Fiyat ritmi</b><span>Common ${PRICE_BANDS.common[0]}–${PRICE_BANDS.common[1]} · Rare ${PRICE_BANDS.rare[0]}–${PRICE_BANDS.rare[1]} · Epic ${PRICE_BANDS.epic[0]}–${PRICE_BANDS.epic[1]} Altın</span></div><div class="v784-note"><b>NUR</b> yalnızca Dünyam için kozmetik ilerleme puanıdır; dinî yeterlilik, ibadet veya maneviyat ölçüsü değildir.</div></div></div>`;o.addEventListener('click',e=>{const d=e.target.closest?.('[data-v792-daily]');if(d){claimDaily(d.dataset.v792Daily);return}const l=e.target.closest?.('[data-v792-level]');if(l){claimLevel(Number(l.dataset.v792Level));return}if(e.target===o||e.target.closest('.v780-close'))closePanel()});document.body.append(o);document.body.classList.add('v780-sheet-open');return true}
+ function decorateStrip(){const el=document.querySelector('#worldScreenBody .v784-progress-strip');if(!el)return false;const p=syncLegacy(),lp=progress(),done=taskList().filter(x=>x.done).length,pending=pendingCount(),badge=el.querySelector('.v784-level-badge'),copy=el.querySelector('.v784-progress-copy'),side=el.querySelector('.v784-progress-side'),bar=el.querySelector('.v784-progress-bar i');if(badge)badge.innerHTML='ODA<br>LV '+lp.cur.n;if(copy)copy.innerHTML=`<b>${lp.cur.title}</b><small>✦ ${p.nur}${lp.next?' / '+lp.next.min:''} NUR · ${done}/3 günlük görev</small>`;if(side){side.textContent=pending?pending+' ÖDÜL':'DETAY ›';side.classList.toggle('reward',!!pending)}if(bar)bar.style.width=lp.pct.toFixed(1)+'%';el.dataset.v792='1';return true}
+ function decorate(force=false){scheduled=false;syncLegacy();decorateStrip();if(document.querySelector('.v792-balance-sheet')&&force)openPanel();return true}
+ function schedule(ms=55){if(scheduled)return;scheduled=true;setTimeout(()=>decorate(false),ms)}
+ PROG.claimDaily=claimDaily;PROG.claimLevel=claimLevel;PROG.open=openPanel;PROG.level=()=>clone(levelFor());PROG.tasks=()=>clone(taskList());PROG.snapshot=()=>{const p=syncLegacy(),lp=progress();return clone({version:VERSION,nur:p.nur,level:lp.cur.n,next:lp.next?.n||null,daily:p.daily,tasks:taskList(),pending:pendingCount(),gold:Number(state.currency)||0,locks:Object.fromEntries(LEVELS.filter(x=>x.unlock).map(x=>[x.unlock,x.n])),balance:{daily:{...DAILY_TOTAL},levels:LEVELS.map(x=>({n:x.n,min:x.min,bonus:x.bonus})),priceBands:PRICE_BANDS}})};
+ document.addEventListener('click',e=>{const strip=e.target.closest?.('#worldScreenBody .v784-progress-strip');if(strip){e.preventDefault();e.stopImmediatePropagation();openPanel();return}if(e.target.closest?.('[data-v788-buy],[data-v789-mode],.navbtn[data-screen="worldScreen"]'))schedule(180)},true);
+ const obs=new MutationObserver(ms=>{for(const m of ms){if(m.target?.closest?.('.v792-balance-sheet,.v792-balance-note,.v792-price-note'))continue;if(m.type==='childList'&&m.target?.closest?.('#worldScreenBody')){schedule(70);break}}});obs.observe(document.body,{childList:true,subtree:true});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule(120)});window.addEventListener('pageshow',()=>schedule(150));
+ syncLegacy();save();
+ window.DEEN_WORLD_BALANCE={version:VERSION,stateVersion:STATE_VERSION,levels:()=>clone(LEVELS),daily:()=>clone(DAILY),priceBands:()=>clone(PRICE_BANDS),refresh:()=>decorate(true),open:openPanel,snapshot:()=>PROG.snapshot()};
+ setTimeout(()=>{decorateStrip();try{SHOP?.refresh?.()}catch(e){}},850);
+})();
+
+</script>
+
+<style data-inline-from="./patches/v8.0.0.css">
+/* DEEN v8.0.0 — final stabilization: intentionally minimal visual change */
+#worldScreenBody[data-v800-stable="1"]{isolation:isolate}
+
+</style>
+<script data-inline-from="./patches/v8.0.0.runtime.js">
+(()=>{
+ if(window.__deenV800Applied)return;window.__deenV800Applied=true;
+ const VERSION='8.0.0',STATE_VERSION=66;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.0.0 — Dünyam Final Stabilization';
+ const TYPES=['desk','rug','plant','shelf','window','nur'];
+ const STARTER={desk:null,rug:'rug_teal',plant:null,shelf:null,window:null,nur:null};
+ let timer=0,lastHealth=null,previewReturnTab=null,previewWasOpen=false;
+ function save(){try{saveState?.()}catch(e){}}
+ function worldActive(){return !!document.getElementById('worldScreen')?.classList.contains('active')}
+ function visible(el){if(!el||!el.isConnected)return false;const s=getComputedStyle(el);return s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity||1)!==0&&!!(el.offsetWidth||el.offsetHeight||el.getClientRects().length)}
+ function ensureState(){
+   state.myWorld=state.myWorld&&typeof state.myWorld==='object'?state.myWorld:{};
+   state.myWorld.owned=Array.isArray(state.myWorld.owned)?[...new Set(state.myWorld.owned.filter(Boolean))]:[];
+   const e=state.myWorld.equipped&&typeof state.myWorld.equipped==='object'?state.myWorld.equipped:{};
+   for(const t of TYPES)if(!Object.prototype.hasOwnProperty.call(e,t))e[t]=STARTER[t];
+   if(!e.rug)e.rug='rug_teal';state.myWorld.equipped=e;
+   const p=state.myWorld.progression&&typeof state.myWorld.progression==='object'?state.myWorld.progression:{};
+   p.nur=Math.max(0,Number(p.nur)||0);p.levelClaims=Array.isArray(p.levelClaims)?[...new Set(p.levelClaims.map(Number).filter(n=>n>=2&&n<=7))]:[];
+   if(!p.daily||typeof p.daily!=='object')p.daily={date:'',visited:false,items:[],claimed:[]};
+   p.daily.items=Array.isArray(p.daily.items)?[...new Set(p.daily.items.filter(Boolean))]:[];
+   p.daily.claimed=Array.isArray(p.daily.claimed)?[...new Set(p.daily.claimed.filter(Boolean))]:[];
+   state.myWorld.progression=p;
+   const rp=state.myWorld.roomPresets;
+   if(rp&&typeof rp==='object'&&rp.slots&&typeof rp.slots==='object'){
+     for(const id of ['work','night','nature']){
+       const s=rp.slots[id];if(!s||!s.snapshot||typeof s.snapshot!=='object')continue;
+       for(const t of TYPES)if(!Object.prototype.hasOwnProperty.call(s.snapshot,t))s.snapshot[t]=STARTER[t];
+     }
+   }
+   state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);return true;
+ }
+ function hardenPreview(){
+   const P=window.DEEN_WORLD_PREVIEW,W=window.DEEN_WORLD;if(!P||!W||P.__v800)return false;
+   const oldOpen=P.open?.bind(P),oldClose=P.close?.bind(P);if(typeof oldOpen!=='function')return false;
+   P.open=function(id){
+     if(!document.getElementById('v750Room')){
+       previewReturnTab='shop';try{W.tab?.('world')}catch(e){previewReturnTab=null;return false}
+       setTimeout(()=>{const ok=oldOpen(id);previewWasOpen=!!ok;if(!ok&&previewReturnTab){const tab=previewReturnTab;previewReturnTab=null;try{W.tab?.(tab)}catch(e){}}},90);
+       return true;
+     }
+     const ok=oldOpen(id);previewWasOpen=!!ok;
+     if(!ok&&previewReturnTab){try{W.tab?.(previewReturnTab)}catch(e){};previewReturnTab=null;previewWasOpen=false}
+     return ok;
+   };
+   if(typeof oldClose==='function')P.close=function(reason){const ok=oldClose(reason);const tab=previewReturnTab;previewReturnTab=null;previewWasOpen=false;if(tab)setTimeout(()=>{try{W.tab?.(tab)}catch(e){}},30);return ok};
+   P.__v800=true;return true;
+ }
+ function restorePreviewTabIfNeeded(){
+   const open=!!document.querySelector('#worldScreenBody .v789-preview');
+   if(previewWasOpen&&!open&&previewReturnTab){const tab=previewReturnTab;previewReturnTab=null;previewWasOpen=false;setTimeout(()=>{try{window.DEEN_WORLD?.tab?.(tab)}catch(e){}},35)}
+   else if(open)previewWasOpen=true;
+ }
+ function cleanDuplicates(selector,keep='last'){const nodes=[...document.querySelectorAll(selector)];if(nodes.length<=1)return 0;const survivor=keep==='first'?nodes[0]:nodes[nodes.length-1];let n=0;for(const x of nodes){if(x!==survivor){x.remove();n++}}return n}
+ function cleanTransient(){
+   let removed=0;
+   removed+=cleanDuplicates('#worldScreenBody .v789-preview');
+   removed+=cleanDuplicates('#worldScreenBody .v790-presets');
+   removed+=cleanDuplicates('#worldScreenBody .v788-shop');
+   removed+=cleanDuplicates('#worldScreenBody .v791-shop-polish');
+   restorePreviewTabIfNeeded();
+   const previews=[...document.querySelectorAll('#worldScreenBody .v789-preview')];
+   if(previews.length===0)document.body.classList.remove('v789-preview-open');
+   const sheets=[...document.querySelectorAll('.v780-sheet')].filter(visible);
+   if(sheets.length===0)document.body.classList.remove('v780-sheet-open');
+   const room=document.getElementById('v750Room');
+   if(room){room.classList.remove('moving','v751-character-walking','v751-character-arrive');}
+   document.querySelectorAll('#worldScreenBody .v750-character').forEach(x=>{x.classList.remove('moving','v751-character-walking','v751-character-arrive')});
+   return removed;
+ }
+ function avatarSnapshot(){const a=state.avatar||{};const keys=['gender','skin','face','eyes','brows','nose','mouth','headwear','head','hairColor','hijabColor','beard','outfit','glasses','extra','created','libraryVersion'];const out={};for(const k of keys)out[k]=a[k];return out}
+ function check(){
+   const room=document.getElementById('v750Room'),body=document.getElementById('worldScreenBody');
+   const apis=['DEEN_WORLD','DEEN_INTERACTIVE_WORLD','DEEN_LIVING_WORLD','DEEN_WORLD_ACTIONS','DEEN_WORLD_IDLE','DEEN_WORLD_PROGRESSION','DEEN_WORLD_LEVELUP','DEEN_WORLD_EVOLUTION','DEEN_WORLD_DECOR','DEEN_WORLD_COLLECTION','DEEN_WORLD_PREVIEW','DEEN_WORLD_PRESETS','DEEN_WORLD_SHOP_POLISH','DEEN_WORLD_BALANCE'];
+   const missing=apis.filter(k=>!window[k]);
+   const ids=[...document.querySelectorAll('[id]')].map(x=>x.id).filter(Boolean),dupIds=[...new Set(ids.filter((x,i)=>ids.indexOf(x)!==i))];
+   const overflow=!!(body&&body.scrollWidth>body.clientWidth+1);
+   const previewCount=document.querySelectorAll('#worldScreenBody .v789-preview').length;
+   const presetCount=document.querySelectorAll('#worldScreenBody .v790-presets').length;
+   const shopCount=document.querySelectorAll('#worldScreenBody .v788-shop').length;
+   const prog=(()=>{try{return window.DEEN_WORLD_PROGRESSION?.snapshot?.()||null}catch(e){return null}})();
+   return {version:VERSION,stateVersion:Number(state.stateVersion)||0,worldActive:worldActive(),room:!!room,missingApis:missing,duplicateIds:dupIds,overflow,previewCount,presetCount,shopCount,gold:Number(state.currency)||0,nur:Number(prog?.nur)||0,level:Number(prog?.level)||1,avatar:avatarSnapshot()};
+ }
+ function refreshSystems(){
+   hardenPreview();
+   try{window.DEEN_WORLD_DECOR?.apply?.()}catch(e){}
+   try{window.DEEN_WORLD_COLLECTION?.apply?.()}catch(e){}
+   try{window.DEEN_WORLD_EVOLUTION?.apply?.(false)}catch(e){}
+   try{window.DEEN_WORLD_SHOP_POLISH?.refresh?.()}catch(e){}
+   try{window.DEEN_WORLD_PRESETS?.refresh?.()}catch(e){}
+   try{window.DEEN_WORLD_BALANCE?.refresh?.()}catch(e){}
+   if(worldActive()&&!visible(document.querySelector('.v780-sheet'))&&!visible(document.querySelector('#worldScreenBody .v789-preview'))){try{window.DEEN_WORLD_IDLE?.reschedule?.()}catch(e){}}
+ }
+ function stabilize(reason='manual'){
+   clearTimeout(timer);ensureState();const removed=cleanTransient();save();refreshSystems();lastHealth=check();lastHealth.reason=reason;lastHealth.cleaned=removed;return {...lastHealth};
+ }
+ function schedule(reason,ms=120){clearTimeout(timer);timer=setTimeout(()=>stabilize(reason),ms)}
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule('visibility',100)});
+ window.addEventListener('pageshow',()=>schedule('pageshow',120));
+ window.addEventListener('focus',()=>schedule('focus',140));
+ document.addEventListener('click',e=>{if(e.target.closest?.('.navbtn[data-screen="worldScreen"],#worldScreenBody [data-v780="edit"],#worldScreenBody [data-v788-buy],#worldScreenBody [data-v788-use],#worldScreenBody [data-v790-apply],#worldScreenBody [data-v790-save]'))schedule('interaction',220)},true);
+ ensureState();hardenPreview();save();
+ window.DEEN_WORLD_FINAL={version:VERSION,stateVersion:STATE_VERSION,stabilize,check,snapshot:()=>({...check(),lastHealth:lastHealth?{...lastHealth}:null})};
+ setTimeout(()=>stabilize('boot'),950);
+})();
+
+</script>
+
+<script data-inline-from="./patches/v8.0.1.runtime.js">
+(()=>{
+ if(window.__deenV801Applied)return;window.__deenV801Applied=true;
+ const VERSION='8.0.1',STATE_VERSION=67;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.0.1 — Dünyam Entry Freeze Hotfix';
+ let seq=0;
+ function worldActive(){return !!document.getElementById('worldScreen')?.classList.contains('active')}
+ function avatarCreated(){return state?.myWorld?.avatar?.created===true}
+ function clearLockClasses(){
+   const body=document.getElementById('worldScreenBody');
+   if(body){body.style.visibility='';body.style.pointerEvents='auto';body.removeAttribute('inert')}
+   if(avatarCreated()){
+     document.getElementById('worldScreen')?.classList.remove('v773-gated');
+     document.getElementById('v773WorldGate')?.remove();
+   }
+   document.querySelectorAll('#worldScreenBody .v750-stage-card').forEach(x=>x.classList.remove('v776-busy','v777-interacting'));
+   document.querySelectorAll('#worldScreenBody .dragging,.v750-character').forEach(x=>x.classList.remove('dragging','moving','left','v751-character-walking','v751-character-arrive','v782-acting'));
+   try{window.DEEN_WORLD_UX?.recover?.()}catch(e){}
+   try{window.DEEN_WORLD_ACTIONS?.clear?.()}catch(e){}
+ }
+ function closeInvisibleWorldLayers(){
+   document.querySelectorAll('#worldScreenBody .v789-preview,.v780-sheet').forEach(el=>{
+     if(!el.isConnected)return;
+     const s=getComputedStyle(el),visible=s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity||1)!==0&&!!(el.offsetWidth||el.offsetHeight||el.getClientRects().length);
+     if(!visible)el.remove();
+   });
+   if(!document.querySelector('#worldScreenBody .v789-preview'))document.body.classList.remove('v789-preview-open');
+   if(![...document.querySelectorAll('.v780-sheet')].some(el=>{const s=getComputedStyle(el);return s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity||1)!==0&&!!(el.offsetWidth||el.offsetHeight||el.getClientRects().length)}))document.body.classList.remove('v780-sheet-open');
+ }
+ function top(){const body=document.getElementById('worldScreenBody');if(!body)return false;body.scrollTop=0;body.scrollLeft=0;return true}
+ function ensureHome(){
+   if(!worldActive())return false;
+   if(!document.getElementById('v750Room')){
+     try{window.DEEN_WORLD?.tab?.('world')}catch(e){}
+   }
+   return true;
+ }
+ function recover(reason='manual',forceHome=false){
+   seq++;
+   if(forceHome)ensureHome();
+   clearLockClasses();closeInvisibleWorldLayers();
+   if(forceHome)top();
+   try{window.DEEN_WORLD_FINAL?.stabilize?.('v801-'+reason)}catch(e){}
+   clearLockClasses();
+   if(forceHome)top();
+   try{window.DEEN_WORLD_SIMPLE?.decorate?.()}catch(e){}
+   try{window.DEEN_WORLD_DIRECT?.decorate?.()}catch(e){}
+   try{window.DEEN_WORLD_IDLE?.reschedule?.()}catch(e){}
+   return snapshot(reason);
+ }
+ function enter(reason='nav'){
+   [0,70,180,360].forEach((ms,i)=>setTimeout(()=>recover(reason+'-'+i,true),ms));
+ }
+ function snapshot(reason='snapshot'){
+   const body=document.getElementById('worldScreenBody'),stage=document.querySelector('#worldScreenBody .v750-stage-card');
+   return {version:VERSION,stateVersion:Number(state?.stateVersion)||0,reason,worldActive:worldActive(),scrollTop:body?.scrollTop||0,room:!!document.getElementById('v750Room'),bodyPointer:body?.style.pointerEvents||'',gated:!!document.getElementById('worldScreen')?.classList.contains('v773-gated'),busy:!!stage?.classList.contains('v776-busy'),interacting:!!stage?.classList.contains('v777-interacting'),previewOpen:!!document.querySelector('#worldScreenBody .v789-preview'),sheetOpen:!![...document.querySelectorAll('.v780-sheet')].some(el=>{const s=getComputedStyle(el);return s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity||1)!==0})};
+ }
+ document.addEventListener('click',e=>{if(e.target.closest?.('.navbtn[data-screen="worldScreen"]'))enter('bottom-nav')},true);
+ window.addEventListener('pageshow',()=>{if(worldActive())setTimeout(()=>recover('pageshow',false),100)});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&worldActive())setTimeout(()=>recover('visibility',false),100)});
+ window.addEventListener('focus',()=>{if(worldActive())setTimeout(()=>recover('focus',false),120)});
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);try{saveState?.()}catch(e){}
+ window.DEEN_WORLD_ENTRY_FIX={version:VERSION,stateVersion:STATE_VERSION,enter,recover,top,snapshot};
+ setTimeout(()=>{if(worldActive())recover('boot-active',false)},900);
+})();
+
+</script>
+
+<style data-inline-from="./patches/v8.0.2.css">
+/* DEEN v8.0.2 — stable progression card */
+#worldScreenBody .v784-progress-strip{display:none!important}
+#worldScreenBody .v802-progress-strip{width:100%;min-height:52px;margin:0 0 9px;padding:7px 9px;border:1px solid rgba(118,199,183,.18);border-radius:14px;background:linear-gradient(180deg,#0d2931,#0a2229);color:#dcece9;display:grid;grid-template-columns:38px minmax(0,1fr) auto;grid-template-rows:auto 4px;column-gap:9px;row-gap:5px;align-items:center;text-align:left;box-shadow:0 8px 18px rgba(0,0,0,.07);transform:none!important;animation:none!important;transition:none!important}
+#worldScreenBody .v802-progress-strip *{animation:none!important;transition:none!important}
+#worldScreenBody .v802-level-badge{grid-row:1/3;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(180deg,#214c46,#163a37);border:1px solid rgba(129,222,201,.2);color:#9be7d4;font-size:7px;font-weight:950;line-height:1.05;text-align:center;letter-spacing:.3px;box-sizing:border-box}
+#worldScreenBody .v802-level-badge b{font:inherit;color:inherit}
+#worldScreenBody .v802-progress-copy{min-width:0;display:flex;flex-direction:column;gap:1px}
+#worldScreenBody .v802-progress-copy>b{font-size:8.5px;color:#ecf8f5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v802-progress-copy>small{font-size:6.3px;color:#839da2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#worldScreenBody .v802-progress-side{font-size:6.4px;font-weight:950;color:#8fdccb;white-space:nowrap;padding-left:4px}
+#worldScreenBody .v802-progress-side.reward{color:#eed58d}
+#worldScreenBody .v802-progress-bar{grid-column:2/4;height:4px;border-radius:9px;background:#19353c;overflow:hidden}
+#worldScreenBody .v802-progress-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#5fcab2,#91e2cd)}
+@media(max-width:390px){#worldScreenBody .v802-progress-strip{grid-template-columns:35px minmax(0,1fr) auto;padding:7px;column-gap:7px}#worldScreenBody .v802-level-badge{width:35px;height:35px}}
+
+</style>
+<script data-inline-from="./patches/v8.0.2.runtime.js">
+(()=>{
+ if(window.__deenV802Applied)return;window.__deenV802Applied=true;
+ const VERSION='8.0.2',STATE_VERSION=68;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.0.2 — Stable Progress Card Hotfix';
+ const PROG=window.DEEN_WORLD_PROGRESSION;
+ if(!PROG)return;
+ let lastSig='',timer=0;
+ function worldHome(){return !!document.querySelector('#worldScreenBody .v750-world')}
+ function snap(){try{return PROG.snapshot?.()||{}}catch(e){return{}}}
+ function levelTitle(){try{return PROG.level?.()?.title||'Başlangıç'}catch(e){return'Başlangıç'}}
+ function nextMin(s){const next=Number(s?.next)||0;if(!next)return null;const levels=s?.balance?.levels||[];return Number(levels.find(x=>Number(x.n)===next)?.min)||null}
+ function data(){
+   const s=snap(),tasks=Array.isArray(s.tasks)?s.tasks:[],done=tasks.filter(x=>x?.done).length,pending=Math.max(0,Number(s.pending)||0),nur=Math.max(0,Number(s.nur)||0),level=Math.max(1,Number(s.level)||1),next=nextMin(s);
+   const levels=s?.balance?.levels||[],curMin=Number(levels.find(x=>Number(x.n)===level)?.min)||0;
+   const pct=next==null?100:Math.max(0,Math.min(100,((nur-curMin)/Math.max(1,next-curMin))*100));
+   return{nur,level,next,done,pending,pct,title:levelTitle()};
+ }
+ function mount(){
+   const body=document.getElementById('worldScreenBody');if(!body||!worldHome())return null;
+   let el=body.querySelector('.v802-progress-strip');
+   if(el)return el;
+   el=document.createElement('button');el.type='button';el.className='v802-progress-strip';el.setAttribute('aria-label','Oda Yolculuğu detayları');
+   el.innerHTML='<span class="v802-level-badge">ODA<br><b>LV 1</b></span><span class="v802-progress-copy"><b class="v802-title">Başlangıç</b><small class="v802-meta">✦ 0 NUR · 0/3 günlük görev</small></span><span class="v802-progress-side">DETAY ›</span><span class="v802-progress-bar"><i></i></span>';
+   el.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();try{PROG.open?.()}catch(err){}});
+   const q=body.querySelector('.v780-quickbar'),legacy=body.querySelector('.v784-progress-strip');
+   if(legacy)legacy.insertAdjacentElement('afterend',el);else if(q)q.insertAdjacentElement('afterend',el);else body.querySelector('.v750-world')?.prepend(el);
+   return el;
+ }
+ function render(force=false){
+   const el=mount();if(!el)return false;
+   const d=data(),sig=JSON.stringify([d.level,d.nur,d.next,d.done,d.pending,Math.round(d.pct*10),d.title]);
+   if(!force&&sig===lastSig)return true;lastSig=sig;
+   const badge=el.querySelector('.v802-level-badge b'),title=el.querySelector('.v802-title'),meta=el.querySelector('.v802-meta'),side=el.querySelector('.v802-progress-side'),bar=el.querySelector('.v802-progress-bar i');
+   if(badge&&badge.textContent!=='LV '+d.level)badge.textContent='LV '+d.level;
+   if(title&&title.textContent!==d.title)title.textContent=d.title;
+   const metaText='✦ '+d.nur+(d.next!=null?' / '+d.next:'')+' NUR · '+d.done+'/3 günlük görev';if(meta&&meta.textContent!==metaText)meta.textContent=metaText;
+   const sideText=d.pending?d.pending+' ÖDÜL':'DETAY ›';if(side&&side.textContent!==sideText)side.textContent=sideText;side?.classList.toggle('reward',!!d.pending);
+   const w=d.pct.toFixed(1)+'%';if(bar&&bar.style.width!==w)bar.style.width=w;
+   el.dataset.v802Sig=sig;return true;
+ }
+ function schedule(ms=80){clearTimeout(timer);timer=setTimeout(()=>render(false),ms)}
+ document.addEventListener('click',e=>{if(e.target.closest?.('.navbtn[data-screen="worldScreen"],#worldScreenBody [data-v792-daily],#worldScreenBody [data-v792-level],#worldScreenBody [data-v788-buy],#worldScreenBody [data-v790-apply]'))schedule(180)},true);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule(120)});window.addEventListener('pageshow',()=>schedule(140));window.addEventListener('focus',()=>schedule(160));
+ const obs=new MutationObserver(ms=>{if(!worldHome())return;const el=document.querySelector('#worldScreenBody .v802-progress-strip');if(!el){schedule(40);return}for(const m of ms){if(m.target===el||m.target?.closest?.('.v802-progress-strip'))continue;if(m.type==='childList'&&m.target?.closest?.('#worldScreenBody')){schedule(90);break}}});
+ obs.observe(document.body,{childList:true,subtree:true});
+ const interval=setInterval(()=>{if(worldHome())render(false)},700);
+ state.stateVersion=Math.max(STATE_VERSION,Number(state.stateVersion)||0);try{saveState?.()}catch(e){}
+ window.DEEN_WORLD_PROGRESS_STABLE={version:VERSION,stateVersion:STATE_VERSION,render:()=>render(true),snapshot:()=>({version:VERSION,...data(),mounted:!!document.querySelector('#worldScreenBody .v802-progress-strip'),legacyHidden:!!document.querySelector('#worldScreenBody .v784-progress-strip')}),stop:()=>clearInterval(interval)};
+ setTimeout(()=>render(true),900);
+})();
+
+</script>
+
+<style data-inline-from="./patches/v8.1.0.css">
+#worldScreenBody .v810-shell{padding:14px 14px 28px;display:flex;flex-direction:column;gap:12px;box-sizing:border-box}
+#worldScreenBody .v810-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+#worldScreenBody .v810-head .kicker{display:block;font-size:10px;font-weight:1000;letter-spacing:3px;color:#78d9c4;margin-bottom:8px}
+#worldScreenBody .v810-head h1{margin:0;font-size:24px;line-height:1.05;color:#f7fbfa}
+#worldScreenBody .v810-head p{margin:8px 0 0;font-size:11px;line-height:1.45;color:#95b6b8;max-width:300px}
+#worldScreenBody .v810-gold{flex:0 0 auto;min-height:54px;padding:0 16px;border-radius:18px;border:1px solid rgba(224,183,79,.38);background:linear-gradient(180deg,#6a4b15,#3f2f11);color:#ffdb7d;font-size:14px;font-weight:900;box-shadow:0 10px 22px rgba(0,0,0,.18)}
+#worldScreenBody .v810-topbar{display:flex;align-items:center;gap:10px;position:relative}
+#worldScreenBody .v810-area-btn{flex:1;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:52px;padding:0 16px;border-radius:18px;border:1px solid rgba(115,207,190,.22);background:linear-gradient(180deg,#163842,#122f37);color:#eef9f7;font-size:13px;font-weight:900;box-shadow:0 10px 20px rgba(0,0,0,.14)}
+#worldScreenBody .v810-area-btn small{display:block;font-size:9px;font-weight:700;color:#8eb1b5;margin-top:2px}
+#worldScreenBody .v810-area-dot{width:26px;height:26px;border-radius:10px;background:rgba(132,226,203,.12);display:grid;place-items:center;color:#9ce8d3;font-size:13px}
+#worldScreenBody .v810-more-btn{width:56px;min-width:56px;min-height:52px;border-radius:18px;border:1px solid rgba(115,207,190,.22);background:linear-gradient(180deg,#163842,#122f37);color:#dff7f1;font-size:21px;font-weight:1000;box-shadow:0 10px 20px rgba(0,0,0,.14)}
+#worldScreenBody .v810-progress-wrap{margin-top:2px}
+#worldScreenBody .v810-progress-wrap .v802-progress-strip{margin:0;border-radius:18px;min-height:62px;padding:10px 12px;box-shadow:none;border-color:rgba(120,210,194,.18);background:linear-gradient(180deg,#12313a,#0d2630)}
+#worldScreenBody .v810-progress-wrap .v802-level-badge{width:42px;height:42px;border-radius:14px}
+#worldScreenBody .v810-progress-wrap .v802-progress-copy>b{font-size:10px}
+#worldScreenBody .v810-progress-wrap .v802-progress-copy>small{font-size:7px}
+#worldScreenBody .v810-progress-wrap .v802-progress-side{font-size:8px}
+#worldScreenBody .v810-room-shell{border:1px solid rgba(112,205,188,.18);border-radius:24px;background:linear-gradient(180deg,rgba(16,45,54,.96),rgba(10,33,40,.98));padding:0;overflow:hidden;box-shadow:0 16px 38px rgba(0,0,0,.20)}
+#worldScreenBody .v810-room-shell .v750-world{padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+#worldScreenBody .v810-room-shell .v750-area-tabs,#worldScreenBody .v810-room-shell .v750-toolbar,#worldScreenBody .v810-room-shell .v750-controls,#worldScreenBody .v810-room-shell .v750-tray,#worldScreenBody .v810-room-shell .v750-unlock-card,#worldScreenBody .v810-room-shell .v750-world-note,#worldScreenBody .v810-room-shell .v777-feedback,#worldScreenBody .v810-room-shell .v783-idle-hint{display:none!important}
+#worldScreenBody .v810-room-shell .v750-stage-card{margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;min-height:0!important}
+#worldScreenBody .v810-room-shell .v750-room{height:360px;min-height:360px;border:0!important;border-radius:24px!important;overflow:hidden}
+#worldScreenBody .v810-room-shell .v781-window-tap{opacity:.01}
+#worldScreenBody .v810-room-actions{display:flex;gap:10px;padding:12px}
+#worldScreenBody .v810-room-actions button{flex:1;min-height:46px;border-radius:14px;border:1px solid rgba(120,210,194,.2);background:linear-gradient(180deg,#14353e,#102b33);color:#dff5f0;font-size:12px;font-weight:900}
+#worldScreenBody .v810-room-actions button.primary{background:linear-gradient(180deg,#1a443f,#123834);color:#b8f4e4}
+#worldScreenBody .v810-collection{display:flex;flex-direction:column;gap:10px;padding:2px 0 4px}
+#worldScreenBody .v810-collection-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+#worldScreenBody .v810-collection-head b{font-size:12px;color:#f0f8f7}
+#worldScreenBody .v810-collection-head small{font-size:9px;color:#7fa5aa}
+#worldScreenBody .v810-memory-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+#worldScreenBody .v810-memory{aspect-ratio:1/1;border-radius:16px;border:1px solid rgba(112,201,185,.22);background:linear-gradient(180deg,#11313a,#0e2730);display:flex;align-items:center;justify-content:center;position:relative;color:#7abdad;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
+#worldScreenBody .v810-memory .glyph{font-size:18px;line-height:1;color:#89d6c0}
+#worldScreenBody .v810-memory.locked .glyph{font-size:14px;color:#5f8d90}
+#worldScreenBody .v810-memory small{position:absolute;right:8px;bottom:7px;font-size:8px;color:#86a6ac}
+#worldScreenBody .v810-memory.owned{border-color:rgba(225,196,109,.3);box-shadow:0 0 0 1px rgba(255,223,141,.08), inset 0 0 0 1px rgba(255,255,255,.03)}
+#worldScreenBody .v810-memory.owned.equipped:after{content:'✓';position:absolute;left:8px;top:8px;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;background:rgba(133,224,198,.15);border:1px solid rgba(133,224,198,.28);color:#9df0d8;font-size:10px;font-weight:1000}
+#worldScreenBody .v810-policy{padding:12px 14px;border:1px solid rgba(224,183,79,.22);border-radius:16px;background:rgba(27,40,35,.55);color:#ddb55d;font-size:10px;line-height:1.45}
+#worldScreenBody .v810-pop{position:absolute;right:0;top:58px;width:196px;padding:8px;border-radius:18px;border:1px solid rgba(118,207,191,.18);background:rgba(9,30,36,.98);backdrop-filter:blur(10px);box-shadow:0 22px 40px rgba(0,0,0,.28);z-index:90;display:none;flex-direction:column;gap:6px}
+#worldScreenBody .v810-pop.open{display:flex}
+#worldScreenBody .v810-pop button{width:100%;min-height:40px;padding:0 12px;border-radius:12px;border:1px solid rgba(118,207,191,.14);background:linear-gradient(180deg,#163640,#112a32);color:#ecf8f5;font-size:11px;font-weight:900;text-align:left}
+#worldScreenBody .v810-area-sheet{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));padding:10px;border-radius:22px;border:1px solid rgba(118,207,191,.18);background:rgba(8,28,35,.98);backdrop-filter:blur(12px);z-index:10120;display:none;flex-direction:column;gap:8px;box-shadow:0 24px 46px rgba(0,0,0,.28)}
+#worldScreenBody .v810-area-sheet.open{display:flex}
+#worldScreenBody .v810-area-sheet-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:4px 4px 2px}
+#worldScreenBody .v810-area-sheet-head b{font-size:13px;color:#f4fbf9}
+#worldScreenBody .v810-area-sheet-head small{display:block;margin-top:2px;font-size:9px;color:#8fb0b4}
+#worldScreenBody .v810-area-sheet-head button{width:38px;height:38px;border-radius:12px;border:1px solid rgba(118,207,191,.18);background:#122e36;color:#dff7f1;font-size:18px}
+#worldScreenBody .v810-area-option{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:0 14px;border-radius:16px;border:1px solid rgba(118,207,191,.16);background:linear-gradient(180deg,#14343c,#102b33);color:#ebf8f5;text-align:left}
+#worldScreenBody .v810-area-option small{display:block;font-size:9px;color:#8eb0b3;margin-top:2px}
+#worldScreenBody .v810-area-option.active{border-color:rgba(164,228,212,.26);box-shadow:0 0 0 1px rgba(164,228,212,.06)}
+#worldScreenBody .v810-area-option.locked{opacity:.72}
+#worldScreenBody .v810-area-option .price{font-size:10px;font-weight:900;color:#f0cd76}
+@media (max-width:390px){#worldScreenBody .v810-memory-grid{gap:7px}#worldScreenBody .v810-memory{border-radius:14px}#worldScreenBody .v810-room-shell .v750-room{height:330px;min-height:330px}}
+
+</style>
+<script data-inline-from="./patches/v8.1.0.runtime.js">
+(()=>{
+  const SEL='#worldScreenBody';
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const unitLabel=n=>'U'+String(n).padStart(2,'0');
+  function worldBody(){return document.querySelector(SEL)}
+  function isWorldMain(){
+    const b=worldBody(); if(!b) return false;
+    if($('.v810-shell',b)) return true;
+    if($('.v750-world',b)) return true;
+    const active=$('.v740-world-tabs .active',b);
+    return !!active && /DÜNYAM/i.test(active.textContent||'');
+  }
+  function gold(){try{return window.DEEN_WORLD?.gold?.() ?? 0}catch(e){return 0}}
+  function currentArea(){try{return window.DEEN_INTERACTIVE_WORLD?.snapshot?.().currentArea || 'study'}catch(e){return 'study'}}
+  function areas(){try{const a=window.DEEN_INTERACTIVE_WORLD?.areas?.() || [];return Array.isArray(a)?a:Object.values(a)}catch(e){return []}}
+  function currentAreaMeta(){return areas().find(a=>a.id===currentArea()) || {id:'study',name:'Çalışma Köşesi',sub:'Başlangıç alanı'}}
+  function chestGrid(){
+    let equipped='';
+    try{equipped=window.DEEN_WORLD?.snapshot?.().equipped?.collectible || ''}catch(e){}
+    const html=[];
+    for(let i=1;i<=15;i++){
+      const unit=unitLabel(i);
+      let st={claimed:false,reward:{glyph:'✦',name:'Ünite Hatırası'}};
+      try{st=window.DEEN_WORLD?.chestStatus?.(unit,'end') || st}catch(e){}
+      const owned=!!st.claimed, glyph=owned?(st.reward?.glyph||'✦'):'◇', nm=owned?(st.reward?.name||('Ünite '+i)):'Kilitli';
+      const cls='v810-memory'+(owned?' owned':' locked')+(equipped===unit?' equipped':'');
+      const onclick=owned?`onclick="DEEN_WORLD.equipCollectible('${unit}')"`:'';
+      html.push(`<button class="${cls}" ${onclick} aria-label="${esc(nm)}"><span class="glyph">${glyph}</span><small>${i}</small></button>`);
+    }
+    return html.join('');
+  }
+  function buildShell(roomNode, progressNode){
+    const area=currentAreaMeta();
+    const shell=document.createElement('div');
+    shell.className='v810-shell';
+    shell.innerHTML=`<div class="v810-head"><div><span class="kicker">BENİM DÜNYAM</span><h1>Benim Köşem</h1><p>Karakterini yaşat, odanı düzenle ve yeni alanlar aç.</p></div><button class="v810-gold" type="button" data-v810-open-shop>🪙 <span>${gold()}</span> Altın</button></div>
+    <div class="v810-topbar"><button class="v810-area-btn" type="button" data-v810-area-open><span><span class="v810-area-dot">⌂</span></span><span style="flex:1;text-align:left"><strong>${esc(area.name)}</strong><small>${esc(area.sub||'Başlangıç alanı')}</small></span><span>▾</span></button><button class="v810-more-btn" type="button" data-v810-menu-btn>•••</button><div class="v810-pop" data-v810-menu><button type="button" data-v810-open-wardrobe>Giyinme Odası</button><button type="button" data-v810-open-avatar>Avatar</button><button type="button" data-v810-open-shop>Mağaza</button><button type="button" data-v810-toggle-edit>Oda Düzeni</button><button type="button" data-v810-area-open>Alanlar</button></div></div>
+    <div class="v810-progress-wrap"></div>
+    <div class="v810-room-shell"></div>
+    <div class="v810-collection"><div class="v810-collection-head"><div><b>Ünite Hatıraları</b><small>Büyük sandıklardan açılır</small></div><small>15 slot</small></div><div class="v810-memory-grid">${chestGrid()}</div><div class="v810-policy">Altın yalnız dünya, kıyafet ve kozmetik için kullanılır. <b>Altınla enerji satın alınamaz.</b></div></div>
+    <div class="v810-area-sheet" data-v810-area-sheet><div class="v810-area-sheet-head"><div><b>Alan Seç</b><small>Yeni alanlar açıldıkça burada görünür.</small></div><button type="button" data-v810-area-close>×</button></div><div data-v810-area-list></div></div>`;
+    $('.v810-progress-wrap',shell)?.append(progressNode);
+    const roomShell=$('.v810-room-shell',shell); roomShell?.append(roomNode);
+    const actions=document.createElement('div');
+    actions.className='v810-room-actions';
+    actions.innerHTML='<button class="primary" type="button" data-v810-toggle-edit>Oda Düzeni</button><button type="button" data-v810-open-wardrobe>Giyinme Odası</button>';
+    roomShell?.append(actions);
+    return shell;
+  }
+  function areaListHtml(){
+    const cur=currentArea();
+    return areas().map(a=>{const snap=window.DEEN_INTERACTIVE_WORLD?.snapshot?.()||{};const open=(snap.unlocked||[]).includes(a.id);return `<button class="v810-area-option ${cur===a.id?'active':''} ${open?'':'locked'}" type="button" data-v810-area="${a.id}"><span><b>${esc(a.name)}</b><small>${esc(a.sub||'')}</small></span><span class="price">${open?'Açık':'🔒'}</span></button>`}).join('');
+  }
+  function wire(shell){
+    const menu=$('[data-v810-menu]',shell), menuBtn=$('[data-v810-menu-btn]',shell);
+    const areaSheet=$('[data-v810-area-sheet]',shell), areaList=$('[data-v810-area-list]',shell);
+    if(areaList) areaList.innerHTML=areaListHtml();
+    menuBtn?.addEventListener('click',e=>{e.stopPropagation();menu?.classList.toggle('open')});
+    document.addEventListener('click',ev=>{if(!shell.contains(ev.target)){menu?.classList.remove('open');areaSheet?.classList.remove('open')}});
+    $$('[data-v810-open-shop]',shell).forEach(b=>b.addEventListener('click',()=>window.DEEN_WORLD?.tab?.('shop')));
+    $$('[data-v810-open-wardrobe]',shell).forEach(b=>b.addEventListener('click',()=>window.DEEN_WORLD?.tab?.('wardrobe')));
+    $('[data-v810-open-avatar]',shell)?.addEventListener('click',()=>window.DEEN_AVATAR_STUDIO?.open?.());
+    $$('[data-v810-toggle-edit]',shell).forEach(b=>b.addEventListener('click',()=>window.DEEN_INTERACTIVE_WORLD?.edit?.()));
+    $$('[data-v810-area-open]',shell).forEach(b=>b.addEventListener('click',()=>{menu?.classList.remove('open');areaSheet?.classList.add('open')}));
+    $('[data-v810-area-close]',shell)?.addEventListener('click',()=>areaSheet?.classList.remove('open'));
+    areaList?.addEventListener('click',e=>{
+      const btn=e.target.closest('[data-v810-area]'); if(!btn) return; const id=btn.dataset.v810Area; areaSheet?.classList.remove('open'); try{window.DEEN_INTERACTIVE_WORLD?.area?.(id)}catch(err){}
+      setTimeout(enhance,140);
+    });
+  }
+  function enhance(){
+    const body=worldBody(); if(!body || !isWorldMain()) return;
+    if(body.dataset.v810Enhancing==='1') return; body.dataset.v810Enhancing='1';
+    try{
+      const stageWorld=$('.v750-world',body); const prog=$('.v802-progress-strip',body) || $('.v784-progress-strip',body);
+      if(!stageWorld || !prog){body.dataset.v810Enhancing=''; return}
+      const roomNode=stageWorld; const progNode=prog;
+      const shell=buildShell(roomNode, progNode);
+      body.innerHTML=''; body.append(shell); wire(shell); body.dataset.v810Done='1';
+    }catch(e){console.warn('v8.1.0 world enhance',e)}
+    body.dataset.v810Enhancing='';
+  }
+  function reapply(){ [50,180,360,720].forEach(ms=>setTimeout(enhance,ms)); }
+  const WORLD=window.DEEN_WORLD||{};
+  if(WORLD && !WORLD.__v810patched){
+    ['render','open','tab'].forEach(k=>{
+      const old=WORLD[k];
+      if(typeof old==='function') WORLD[k]=function(...a){const r=old.apply(this,a); reapply(); return r};
+    });
+    WORLD.__v810patched=true;
+  }
+  const oldUI=window.updateUI;
+  if(typeof oldUI==='function' && !oldUI.__v810){
+    const fn=function(...a){const r=oldUI.apply(this,a); reapply(); return r}; fn.__v810=true; window.updateUI=fn;
+  }
+  document.addEventListener('click',e=>{if(e.target.closest?.('.navbtn[data-screen="worldScreen"]')) reapply()},true);
+  window.addEventListener('pageshow',reapply); window.addEventListener('focus',reapply);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden) reapply()});
+  setTimeout(reapply,700);
+})();
+
+</script>
+<style data-inline-from="./patches/v8.1.2.css">
+#v812Wardrobe{position:fixed;inset:0;z-index:10240;display:none;background:linear-gradient(180deg,rgba(4,17,23,.98),rgba(5,22,28,.995));color:#edf8f5;overflow:hidden}
+#v812Wardrobe.open{display:flex;flex-direction:column}
+#v812Wardrobe *{box-sizing:border-box}
+#v812Wardrobe .v812-head{min-height:68px;padding:max(12px,env(safe-area-inset-top)) 14px 10px;display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px;border-bottom:1px solid rgba(115,207,190,.10);background:rgba(6,25,31,.88);backdrop-filter:blur(12px)}
+#v812Wardrobe .v812-back,#v812Wardrobe .v812-save{height:42px;border-radius:14px;border:1px solid rgba(119,210,192,.18);background:#112f37;color:#dff7f1;font-size:12px;font-weight:950}
+#v812Wardrobe .v812-back{width:46px;font-size:20px}
+#v812Wardrobe .v812-save{padding:0 15px;background:linear-gradient(180deg,#1c4943,#153a36);color:#bdf4e5}
+#v812Wardrobe .v812-title{min-width:0}.v812-title b{display:block;font-size:16px;line-height:1.1;color:#f5fbfa}.v812-title small{display:block;margin-top:4px;font-size:9px;color:#7fa6ab;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#v812Wardrobe .v812-stage{height:296px;min-height:296px;position:relative;overflow:hidden;background:radial-gradient(circle at 72% 16%,rgba(130,231,205,.16),transparent 19%),linear-gradient(180deg,#10333d 0 57%,#0d2a30 57% 100%);border-bottom:1px solid rgba(116,207,189,.10)}
+#v812Wardrobe .v812-stage:before{content:'';position:absolute;left:50%;bottom:26px;width:220px;height:62px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(60,137,124,.38),rgba(6,28,34,0) 70%)}
+#v812Wardrobe .v812-stage:after{content:'';position:absolute;inset:auto 22px 18px;height:1px;background:linear-gradient(90deg,transparent,rgba(143,223,204,.16),transparent)}
+#v812Wardrobe .v812-avatar{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:218px;height:246px;display:grid;place-items:end center;filter:drop-shadow(0 18px 20px rgba(0,0,0,.22))}
+#v812Wardrobe .v812-avatar svg{width:210px!important;height:240px!important;max-width:none!important}
+#v812Wardrobe .v812-stage-badge{position:absolute;left:14px;top:14px;padding:8px 10px;border-radius:12px;border:1px solid rgba(125,218,200,.16);background:rgba(8,32,39,.72);font-size:8px;font-weight:1000;letter-spacing:.8px;color:#8bdcc9}
+#v812Wardrobe .v812-stage-meta{position:absolute;right:14px;top:14px;display:flex;gap:7px}
+#v812Wardrobe .v812-mini{height:34px;padding:0 10px;border-radius:11px;border:1px solid rgba(121,211,193,.14);background:rgba(8,32,39,.72);color:#bddbd6;font-size:9px;font-weight:900}
+#v812Wardrobe .v812-main-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;padding:10px 10px 8px;background:#081f27;border-bottom:1px solid rgba(118,207,191,.08)}
+#v812Wardrobe .v812-main-tab{min-height:42px;border-radius:13px;border:1px solid rgba(117,205,188,.12);background:#102b33;color:#8eafb3;font-size:9px;font-weight:950;padding:0 4px}
+#v812Wardrobe .v812-main-tab.active{border-color:rgba(151,229,210,.28);background:linear-gradient(180deg,#183c41,#123239);color:#f1faf8;box-shadow:0 0 0 1px rgba(151,229,210,.05)}
+#v812Wardrobe .v812-subtabs{display:flex;gap:7px;padding:8px 10px;overflow-x:auto;scrollbar-width:none;background:#0a222a}.v812-subtabs::-webkit-scrollbar{display:none}
+#v812Wardrobe .v812-subtab{flex:0 0 auto;min-height:34px;padding:0 12px;border-radius:999px;border:1px solid rgba(117,205,188,.12);background:#102a32;color:#87a8ad;font-size:9px;font-weight:900;white-space:nowrap}
+#v812Wardrobe .v812-subtab.active{color:#baf0e2;border-color:rgba(149,229,209,.26);background:#163a39}
+#v812Wardrobe .v812-panel{flex:1;min-height:0;overflow-y:auto;padding:4px 10px calc(88px + env(safe-area-inset-bottom));background:linear-gradient(180deg,#0a222a,#071b22)}
+#v812Wardrobe .v812-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-content:start}
+#v812Wardrobe .v812-card{min-height:104px;padding:9px 7px;border-radius:17px;border:1px solid rgba(116,205,188,.12);background:linear-gradient(180deg,#12313a,#0e2830);color:#dcefeb;text-align:center;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+#v812Wardrobe .v812-card.active{border-color:rgba(151,230,210,.34);box-shadow:0 0 0 1px rgba(151,230,210,.07),inset 0 0 24px rgba(111,205,184,.04)}
+#v812Wardrobe .v812-card.active:after{content:'✓';position:absolute;right:7px;top:7px;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:rgba(143,226,204,.16);border:1px solid rgba(143,226,204,.25);color:#bdf5e5;font-size:10px;font-weight:1000}
+#v812Wardrobe .v812-card.locked{opacity:.62}.v812-card.locked:before{content:'🔒';position:absolute;left:7px;top:7px;font-size:10px}
+#v812Wardrobe .v812-card .ico{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.04);font-size:22px;color:#a7dfd2;overflow:hidden}
+#v812Wardrobe .v812-card .ico.swatch{border-radius:50%;width:38px;height:38px;border:3px solid rgba(255,255,255,.10);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+#v812Wardrobe .v812-card b{font-size:9px;line-height:1.25;color:#edf9f6;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+#v812Wardrobe .v812-card small{font-size:7px;color:#789ca2;line-height:1.2}
+#v812Wardrobe .v812-outfit .ico{width:54px;height:48px;border-radius:15px;position:relative}.v812-outfit .ico:before{content:'';width:28px;height:36px;border-radius:9px 9px 7px 7px;background:var(--main,#27645c);box-shadow:inset 0 -10px 0 var(--accent,#2d7367)}
+#v812Wardrobe .v812-outfit .price{font-size:8px;font-weight:950;color:#e5c675}
+#v812Wardrobe .v812-footer{position:absolute;left:0;right:0;bottom:0;padding:9px 10px calc(9px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(7,27,34,.25),#071b22 28%);border-top:1px solid rgba(117,205,188,.08);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
+#v812Wardrobe .v812-footcopy{min-width:0}.v812-footcopy b{display:block;font-size:10px;color:#eef8f6}.v812-footcopy small{display:block;margin-top:3px;font-size:8px;color:#7d9fa5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#v812Wardrobe .v812-buy-save{min-height:44px;padding:0 14px;border-radius:14px;border:1px solid rgba(139,221,202,.20);background:linear-gradient(180deg,#1a4640,#133934);color:#bff5e6;font-size:10px;font-weight:1000}
+#v812Wardrobe .v812-buy-save[disabled]{opacity:.48}
+@media(max-width:380px){#v812Wardrobe .v812-stage{height:270px;min-height:270px}#v812Wardrobe .v812-avatar{height:224px}.v812-avatar svg{height:218px!important}.v812-main-tab{font-size:8px}.v812-grid{gap:7px}.v812-card{min-height:96px}}
+
+</style>
+<script data-inline-from="./patches/v8.1.2.runtime.js">
+(()=>{
+ if(window.__deenV812Applied)return;window.__deenV812Applied=true;
+ const VERSION='8.1.2',STATE_VERSION=71;
+ window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.1.2 — Premium Giyinme Odası';
+ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+ const clone=x=>JSON.parse(JSON.stringify(x));
+ const CATS={
+  head:{label:'Baş',subs:[['headwear','Tür'],['head','Stil']]},
+  face:{label:'Yüz',subs:[['face','Yüz'],['eyes','Göz'],['brows','Kaş'],['nose','Burun'],['mouth','Ağız']]},
+  outfit:{label:'Kıyafet',subs:[['worldOutfit','Kıyafet']]},
+  access:{label:'Aksesuar',subs:[['glasses','Gözlük'],['extra','Ekstra']]},
+  color:{label:'Renkler',subs:[['skin','Ten'],['tone','Saç / Başörtüsü']]}
+ };
+ const S={open:false,cat:'head',sub:'head',initialAvatar:null,initialWorldOutfit:null,previewOutfit:null};
+ function studio(){return window.DEEN_AVATAR_STUDIO}
+ function world(){return window.DEEN_WORLD}
+ function av(){try{return studio()?.state?.()||{}}catch(e){return {}}}
+ function ws(){try{return world()?.snapshot?.()||{}}catch(e){return {}}}
+ function worldItems(){try{return world()?.items?.()||[]}catch(e){return []}}
+ function owned(){return ws().owned||[]}
+ function outfitItems(){return worldItems().filter(x=>x.type==='outfit'&&!x.paid)}
+ function outfitBy(id){return worldItems().find(x=>x.id===id)}
+ function currentOutfit(){return S.previewOutfit||ws().equipped?.outfit||'outfit_teal'}
+ function rewardUnlocked(cat,opt){if(!opt?.reward)return true;const arr=state?.myWorld?.avatarOwnedParts||[];return arr.includes(`${cat}:${opt.v}`)}
+ function value(cat){const a=av();if(cat==='tone')return a.gender==='male'||a.headwear==='hair'?a.hairColor:a.hijabColor;return a[cat]}
+ function options(cat){try{return studio()?.options?.(cat)||[]}catch(e){return []}}
+ function allowedSubs(){const a=av();const base=clone(CATS);if(a.gender==='male')base.access.subs.push(['beard','Sakal']);return base[S.cat]?.subs||[]}
+ function previewSvg(){
+   const st=studio(); if(!st?.renderSvg)return '';
+   let svg=st.renderSvg('idle',av());
+   const actual=outfitBy(ws().equipped?.outfit||'outfit_teal')||outfitBy('outfit_teal')||{};
+   const selected=outfitBy(currentOutfit())||actual;
+   if(actual?.color&&selected?.color&&actual.color!==selected.color)svg=svg.split(actual.color).join(selected.color);
+   if(actual?.color2&&selected?.color2&&actual.color2!==selected.color2)svg=svg.split(actual.color2).join(selected.color2);
+   return svg;
+ }
+ function optionIcon(o,cat){if(o.color)return `<span class="ico swatch" style="background:${o.color}"></span>`;const glyph=o.i||({headwear:'◒',head:'✦',face:'◯',eyes:'◉',brows:'⌒',nose:'⌁',mouth:'⌣',glasses:'▣',extra:'✧',beard:'≈'}[cat]||'✦');return `<span class="ico">${glyph}</span>`}
+ function avatarCards(cat){
+   const cur=value(cat);
+   return options(cat).map(o=>{const locked=!rewardUnlocked(cat,o),active=cur===o.v;return `<button type="button" class="v812-card ${active?'active':''} ${locked?'locked':''}" data-v812-avatar="${cat}" data-v812-value="${o.v}">${optionIcon(o,cat)}<b>${o.n||o.v}</b><small>${locked?'Sandıktan açılır':active?'Seçili':'Dokun ve dene'}</small></button>`}).join('');
+ }
+ function outfitCards(){const cur=currentOutfit(), own=owned();return outfitItems().map(o=>{const active=cur===o.id,has=own.includes(o.id)||o.default;return `<button type="button" class="v812-card v812-outfit ${active?'active':''}" data-v812-outfit="${o.id}"><span class="ico" style="--main:${o.color||'#27645c'};--accent:${o.color2||'#2d7367'}"></span><b>${o.name}</b><span class="price">${has?'SAHİPSİN':'🪙 '+o.price}</span></button>`}).join('')}
+ function purchaseCost(){const id=currentOutfit(),it=outfitBy(id);return it&&!owned().includes(id)&&!it.default?Number(it.price||0):0}
