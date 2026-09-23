@@ -1046,4 +1046,135 @@
 })();
 </script>
 
+
+<!-- DEEN v9.9.8 — Premium visual onboarding -->
+<style id="deen-v998-premium-onboarding-css">
+#v998Onboarding{position:fixed;inset:0;z-index:90000;display:flex;justify-content:center;background:#020b10;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#f6f1e8}
+#v998Onboarding *{box-sizing:border-box}
+.v998-shell{position:relative;width:min(100%,520px);height:100dvh;min-height:640px;overflow:hidden;background:
+ radial-gradient(circle at 50% 8%,rgba(29,112,118,.22),transparent 26%),
+ linear-gradient(180deg,#052832 0%,#06202a 54%,#03151d 100%)}
+.v998-shell:before{content:"";position:absolute;inset:0;opacity:.24;pointer-events:none;background-image:
+ linear-gradient(45deg,transparent 46%,rgba(61,148,148,.18) 47%,rgba(61,148,148,.18) 49%,transparent 50%),
+ linear-gradient(-45deg,transparent 46%,rgba(61,148,148,.14) 47%,rgba(61,148,148,.14) 49%,transparent 50%);background-size:86px 86px;mask-image:linear-gradient(90deg,#000,transparent 28%,transparent 72%,#000)}
+.v998-screen{position:relative;z-index:2;height:100%;padding:28px 28px max(24px,env(safe-area-inset-bottom));display:flex;flex-direction:column;overflow:auto;scrollbar-width:none}
+.v998-screen::-webkit-scrollbar{display:none}
+.v998-top{min-height:56px;display:flex;align-items:center;justify-content:center;position:relative;flex:0 0 auto}
+.v998-brand{display:flex;flex-direction:column;align-items:center;gap:3px;color:#f1d39f;letter-spacing:5px;font-family:Georgia,"Times New Roman",serif;font-size:18px}
+.v998-brand-mark{width:44px;height:28px;position:relative;border:3px solid #efc994;border-bottom:0;border-radius:44px 44px 0 0;transform:scaleX(.72)}
+.v998-brand-mark:before{content:"◆";position:absolute;left:50%;top:-17px;transform:translateX(-50%) scaleX(1.35);font-size:9px}
+.v998-back{position:absolute;left:0;top:4px;width:48px;height:48px;border:1px solid rgba(137,193,195,.26);border-radius:17px;background:rgba(10,42,51,.82);color:#9be8d6;font-size:26px;display:grid;place-items:center;cursor:pointer}
+.v998-hero{position:relative;flex:0 0 auto;height:31vh;min-height:205px;max-height:330px;margin:18px 3px 18px;border:1px solid rgba(221,177,112,.55);border-radius:48% 48% 24px 24px / 34% 34% 15px 15px;overflow:hidden;background:
+ radial-gradient(circle at 50% 35%,rgba(255,211,136,.16),transparent 8%),
+ linear-gradient(180deg,#062c3b 0%,#124754 46%,#a77750 76%,#09262f 100%);box-shadow:inset 0 0 0 8px rgba(3,23,30,.45),0 18px 50px rgba(0,0,0,.28)}
+.v998-hero:before{content:"";position:absolute;width:46px;height:46px;border-radius:50%;background:#ffe3a3;left:50%;top:20%;transform:translateX(-50%);box-shadow:0 0 20px rgba(255,209,122,.55)}
+.v998-hero:after{content:"";position:absolute;width:49px;height:49px;border-radius:50%;background:#0d3d48;left:calc(50% + 12px);top:calc(20% - 7px)}
+.v998-skyline{position:absolute;left:8%;right:8%;bottom:0;height:42%;background:linear-gradient(180deg,transparent 0 14%,#082631 15%);clip-path:polygon(0 100%,0 64%,8% 64%,8% 42%,12% 42%,12% 66%,21% 66%,21% 52%,25% 52%,25% 70%,35% 70%,35% 50%,38% 50%,38% 32%,41% 50%,41% 68%,46% 68%,46% 42%,50% 28%,54% 42%,54% 68%,62% 68%,62% 40%,66% 40%,66% 18%,68% 18%,68% 40%,74% 40%,74% 58%,82% 58%,82% 34%,84% 34%,84% 58%,92% 58%,92% 46%,96% 46%,96% 70%,100% 70%,100% 100%)}
+.v998-lantern{position:absolute;bottom:13px;width:24px;height:44px;border:2px solid rgba(214,168,94,.7);border-radius:5px;background:radial-gradient(circle,#ffd879 0 18%,#d07c35 19% 30%,rgba(61,35,20,.7) 60%);box-shadow:0 0 28px rgba(255,173,75,.42)}
+.v998-lantern.left{left:8%}.v998-lantern.right{right:8%}
+.v998-copy{text-align:center;position:relative;z-index:2}
+.v998-copy h1{margin:0;font:600 clamp(34px,7.7vw,50px)/.98 Georgia,"Times New Roman",serif;letter-spacing:-1.2px;color:#fff7eb;text-wrap:balance}
+.v998-copy h1 .mint{color:#8bf0d1}
+.v998-copy p{margin:13px auto 0;max-width:430px;color:#afc2c4;font-size:15px;line-height:1.5;text-wrap:balance}
+.v998-dots{display:flex;justify-content:center;gap:9px;margin:20px 0 14px}
+.v998-dots i{width:8px;height:8px;border-radius:999px;background:#23434d}.v998-dots i.on{background:#8af0d1;box-shadow:0 0 12px rgba(138,240,209,.55)}
+.v998-bottom{margin-top:auto;padding-top:18px}
+.v998-primary{width:100%;min-height:62px;border:0;border-radius:999px;background:linear-gradient(100deg,#8ce9cc,#a8efd5);color:#06202a;font-size:18px;font-weight:950;letter-spacing:-.2px;box-shadow:0 13px 34px rgba(84,221,185,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px}
+.v998-primary:after{content:"→";font-size:26px;line-height:1;font-weight:500;margin-left:auto;margin-right:22px}.v998-primary span{margin-left:46px}
+.v998-secondary{width:100%;border:0;background:transparent;color:#b8c7c9;text-decoration:underline;text-underline-offset:4px;font-size:14px;padding:18px 0 2px;cursor:pointer}
+.v998-field{display:flex;align-items:center;gap:12px;margin-top:24px;border:1.5px solid #81d7c4;border-radius:18px;background:rgba(7,34,43,.75);min-height:66px;padding:0 18px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.025)}
+.v998-field .ico{font-size:25px;color:#98e5d3}.v998-field input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#f0f6f4;font-size:17px}.v998-field input::placeholder{color:#859da2}
+.v998-helper{text-align:center;margin:12px 0 0;color:#9fb1b5;font-size:11px}
+.v998-list{display:grid;gap:11px;margin-top:20px}
+.v998-choice{width:100%;border:1px solid #355964;border-radius:18px;background:rgba(6,34,43,.74);color:#edf6f3;padding:14px 16px;text-align:left;display:grid;grid-template-columns:48px 1fr 28px;align-items:center;gap:13px;min-height:78px;cursor:pointer;transition:.18s ease}
+.v998-choice.selected{border-color:#91efd4;box-shadow:0 0 0 2px rgba(145,239,212,.13),0 0 22px rgba(74,219,184,.12);background:linear-gradient(90deg,rgba(20,72,69,.9),rgba(6,38,47,.86))}
+.v998-choice .choice-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:#103640;border:1px solid rgba(134,203,196,.22);font-size:25px}
+.v998-choice b{display:block;font:600 18px/1.15 Georgia,"Times New Roman",serif}.v998-choice small{display:block;color:#9fb4b8;font-size:11px;line-height:1.35;margin-top:5px}
+.v998-radio{width:24px;height:24px;border:2px solid #577884;border-radius:50%;display:grid;place-items:center}.selected .v998-radio{border-color:#8cebd0;background:#8cebd0;color:#06232a}.selected .v998-radio:after{content:"✓";font-size:15px;font-weight:1000}
+.v998-animal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:17px}
+.v998-animal{position:relative;overflow:hidden;min-height:142px;border:1px solid #355b66;border-radius:18px;background:linear-gradient(160deg,#143d48,#082630);color:#fff;text-align:center;padding:15px 8px 12px;cursor:pointer}
+.v998-animal:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 32%,rgba(122,210,193,.20),transparent 42%);pointer-events:none}
+.v998-animal.selected{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.15),0 0 28px rgba(91,229,194,.19)}
+.v998-animal .emoji{position:relative;display:block;font-size:52px;line-height:1.05;margin-bottom:8px;filter:drop-shadow(0 8px 12px rgba(0,0,0,.28))}
+.v998-animal b{position:relative;display:block;font:600 17px/1.1 Georgia,"Times New Roman",serif}.v998-animal small{position:relative;color:#b9ced0;font-size:10px;display:block;margin-top:4px}
+.v998-animal .check{position:absolute;right:10px;top:10px;width:24px;height:24px;border-radius:50%;border:2px solid #6c8790}.v998-animal.selected .check{background:#91efd4;border-color:#91efd4}.v998-animal.selected .check:after{content:"✓";color:#06222a;font-weight:1000;font-size:14px;display:grid;place-items:center;height:100%}
+.v998-minihero{height:20vh;min-height:145px;max-height:210px;margin:15px 8px 4px}
+.v998-summary{margin-top:18px;border:1px solid #3a626c;border-radius:20px;background:rgba(5,30,38,.76);padding:7px 16px}
+.v998-summary-row{min-height:52px;display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:10px;border-bottom:1px solid rgba(103,148,155,.34)}.v998-summary-row:last-child{border-bottom:0}
+.v998-summary-row .ico{font-size:20px;color:#8fead2}.v998-summary-row span{color:#a9babe;font-size:13px}.v998-summary-row b{font:600 15px/1.2 Georgia,"Times New Roman",serif;color:#fff}
+.v998-companion-hero{position:absolute;left:50%;bottom:17px;transform:translateX(-50%);font-size:74px;filter:drop-shadow(0 12px 12px rgba(0,0,0,.34))}
+.v998-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid rgba(147,228,208,.22);border-radius:999px;background:rgba(13,54,58,.65);color:#9ee7d5;font-size:10px;font-weight:850;margin:0 auto 10px}
+@media(max-height:760px){.v998-screen{padding-top:18px}.v998-hero{height:26vh;min-height:170px;margin-top:10px}.v998-copy h1{font-size:32px}.v998-copy p{font-size:13px;margin-top:9px}.v998-choice{min-height:68px;padding-top:10px;padding-bottom:10px}.v998-animal{min-height:122px}.v998-animal .emoji{font-size:43px}.v998-primary{min-height:56px}}
+@media(max-width:370px){.v998-screen{padding-left:20px;padding-right:20px}.v998-animal-grid{gap:8px}.v998-animal{min-height:128px}.v998-copy h1{font-size:33px}}
+</style>
+<script id="deen-v998-premium-onboarding-js">
+(()=>{
+ if(window.__deenV998PremiumOnboarding)return;window.__deenV998PremiumOnboarding=true;
+ const VERSION='9.9.8-PREMIUM-ONBOARDING',ONBOARDING_VERSION=5;
+ const AGES={
+  child:{label:'Çocuk',range:'8–12',icon:'📚',desc:'Kısa, sade ve görsel ağırlıklı anlatım'},
+  teen:{label:'Genç',range:'13–17',icon:'🎓',desc:'Açık, akıcı ve günlük hayata yakın örnekler'},
+  adult:{label:'Yetişkin',range:'18+',icon:'📖',desc:'Daha derin, dengeli ve düzenli açıklamalar'}
+ };
+ const ANIMALS=window.DEEN_COMPANION?.animals||{
+  lion:{emoji:'🦁',name:'Aslan',trait:'Cesaret'},wolf:{emoji:'🐺',name:'Kurt',trait:'Kararlılık'},owl:{emoji:'🦉',name:'Baykuş',trait:'Öğrenme / Bilgelik'},turtle:{emoji:'🐢',name:'Kaplumbağa',trait:'Sabır'},eagle:{emoji:'🦅',name:'Kartal',trait:'Odak'},cat:{emoji:'🐈',name:'Kedi',trait:'Sakinlik'}
+ };
+ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ function ensure(){
+  state.profile=state.profile&&typeof state.profile==='object'?state.profile:{};
+  if(!String(state.profile.name||'').trim())state.profile.name='Yolcu';
+  if(!AGES[state.learningProfile])state.learningProfile='teen';
+  if(!ANIMALS[state.profile.companion])state.profile.companion=null;
+  if(![5,10,15].includes(Number(state.minutes)))state.minutes=10;
+  if(![1,2,3].includes(Number(state.dailyGoal)))state.dailyGoal=2;
+ }
+ function close(){document.getElementById('v998Onboarding')?.remove();try{document.getElementById('v5Sheet')?.close?.()}catch(e){}}
+ function brand(){return '<div class="v998-brand"><span class="v998-brand-mark"></span><span>DEEN</span></div>'}
+ function hero(extra=''){return '<div class="v998-hero '+extra+'"><div class="v998-skyline"></div><i class="v998-lantern left"></i><i class="v998-lantern right"></i></div>'}
+ function dots(step){return '<div class="v998-dots">'+Array.from({length:7},(_,i)=>'<i class="'+(i===step?'on':'')+'"></i>').join('')+'</div>'}
+ function primary(label,action){return '<button class="v998-primary" type="button" onclick="'+action+'"><span>'+label+'</span></button>'}
+ function frame(step,content,{back=true,dotsOn=true,bottom=''}={}){
+  close();
+  const root=document.createElement('div');root.id='v998Onboarding';
+  root.innerHTML='<div class="v998-shell"><div class="v998-screen"><div class="v998-top">'+(back?'<button class="v998-back" type="button" onclick="onboarding('+(step-1)+')" aria-label="Geri">‹</button>':'')+brand()+'</div>'+content+(dotsOn?dots(step):'')+'<div class="v998-bottom">'+bottom+'</div></div></div>';
+  document.body.appendChild(root);return root;
+ }
+ function ageCards(){return '<div class="v998-list">'+Object.entries(AGES).map(([id,a])=>'<button class="v998-choice '+(state.learningProfile===id?'selected':'')+'" type="button" onclick="DEEN_PREMIUM_ONBOARDING.age(\''+id+'\')"><span class="choice-ico">'+a.icon+'</span><span><b>'+a.label+' ('+a.range+')</b><small>'+a.desc+'</small></span><span class="v998-radio"></span></button>').join('')+'</div>'}
+ function animalCards(){return '<div class="v998-animal-grid">'+Object.entries(ANIMALS).map(([id,a])=>'<button class="v998-animal '+(state.profile.companion===id?'selected':'')+'" type="button" onclick="DEEN_PREMIUM_ONBOARDING.animal(\''+id+'\')"><span class="check"></span><span class="emoji">'+a.emoji+'</span><b>'+esc(a.name)+'</b><small>'+esc(a.trait)+'</small></button>').join('')+'</div>'}
+ function optionCards(kind){
+  if(kind==='time')return '<div class="v998-list">'+[5,10,15].map(n=>'<button class="v998-choice '+(Number(state.minutes)===n?'selected':'')+'" type="button" onclick="DEEN_PREMIUM_ONBOARDING.minutes('+n+')"><span class="choice-ico">◷</span><span><b>'+n+' dakika</b><small>'+(n===5?'Hızlı ve hafif tempo':n===10?'Dengeli günlük ritim':'Daha yoğun öğrenme')+'</small></span><span class="v998-radio"></span></button>').join('')+'</div>';
+  const data=[[1,'Hafif','1 mini ders'],[2,'Normal','2 mini ders'],[3,'Yoğun','3 mini ders']];
+  return '<div class="v998-list">'+data.map(([n,t,s])=>'<button class="v998-choice '+(Number(state.dailyGoal)===n?'selected':'')+'" type="button" onclick="DEEN_PREMIUM_ONBOARDING.goal('+n+')"><span class="choice-ico">'+(n===1?'◌':n===2?'◎':'◉')+'</span><span><b>'+t+'</b><small>'+s+' · kendi ritminde ilerle</small></span><span class="v998-radio"></span></button>').join('')+'</div>';
+ }
+ function summary(){
+  const a=ANIMALS[state.profile.companion]||ANIMALS.owl,p=AGES[state.learningProfile]||AGES.teen;
+  return '<div class="v998-summary">'+
+   [['♙','İsim',esc(state.profile.name||'Yolcu')],['⌂','Anlatım',p.label],['✦','Yol arkadaşı',a.name],['◷','Günlük süre',state.minutes+' dakika'],['◎','Günlük hedef',state.dailyGoal+' mini ders']].map(x=>'<div class="v998-summary-row"><span class="ico">'+x[0]+'</span><span>'+x[1]+':</span><b>'+x[2]+'</b></div>').join('')+
+  '</div>';
+ }
+ function render(step=0){
+  ensure();step=Math.max(0,Math.min(6,Number(step)||0));
+  if(step===0)return frame(0,hero()+'<div class="v998-copy"><h1><span class="mint">DEEN</span>’e hoş geldin</h1><p>İslam’ı adım adım, sakin ve düzenli şekilde öğren.</p></div>',{back:false,bottom:primary('Başlayalım','onboarding(1)')+'<button class="v998-secondary" type="button" onclick="DEEN_PREMIUM_ONBOARDING.skip()">Daha sonra</button>'});
+  if(step===1)return frame(1,hero('v998-minihero')+'<div class="v998-copy"><h1>Sana nasıl hitap edelim?</h1><p>İstersen gerçek adını, istersen kısa bir kullanıcı adı yazabilirsin.</p></div><label class="v998-field"><span class="ico">♙</span><input id="v998Name" maxlength="24" autocomplete="name" placeholder="Adın veya kullanıcı adın" value="'+esc(state.profile.name==='Yolcu'?'':state.profile.name)+'"></label><p class="v998-helper">Bu isim profilinde görünecek.</p>',{bottom:primary('Devam et','DEEN_PREMIUM_ONBOARDING.nameNext()')});
+  if(step===2)return frame(2,hero('v998-minihero')+'<div class="v998-copy"><h1>Sana en uygun <span class="mint">anlatımı</span> seçelim</h1><p>Yaşını yazmana gerek yok; sana en rahat gelen öğrenme stilini seç.</p></div>'+ageCards(),{bottom:primary('Devam et','onboarding(3)')});
+  if(step===3)return frame(3,'<div class="v998-copy" style="margin-top:28px"><h1>Yol arkadaşını seç</h1><p>Seçtiğin hayvan profilinde, serilerinde ve ders sonunda sana eşlik edecek.</p></div>'+animalCards(),{bottom:primary(state.profile.companion?'Devam et':'Önce bir hayvan seç','DEEN_PREMIUM_ONBOARDING.animalNext()')});
+  if(step===4)return frame(4,hero('v998-minihero')+'<div class="v998-copy"><h1>Günde ne kadar zaman ayırabilirsin?</h1><p>Kısa ama düzenli ilerlemek daha iyi sonuç verir.</p></div>'+optionCards('time')+'<p class="v998-helper">ⓘ Bunu daha sonra değiştirebilirsin.</p>',{bottom:primary('Devam et','onboarding(5)')});
+  if(step===5)return frame(5,hero('v998-minihero')+'<div class="v998-copy"><h1>Günlük hedefini belirle</h1><p>Kendine uygun bir tempo seç. Amaç düzenli ilerleme, baskı değil.</p></div>'+optionCards('goal'),{bottom:primary('Devam et','onboarding(6)')});
+  const a=ANIMALS[state.profile.companion]||ANIMALS.owl;
+  return frame(6,hero('v998-minihero')+'<span class="v998-companion-hero">'+a.emoji+'</span><div class="v998-copy"><span class="v998-tag">✓ KURULUM TAMAMLANDI</span><h1>Hazırsın</h1><p>Artık öğrenmeye başlayabilirsin.</p></div>'+summary(),{dotsOn:false,bottom:primary('Yolculuğa başla','DEEN_PREMIUM_ONBOARDING.finish()')+'<button class="v998-secondary" type="button" onclick="onboarding(1)">Düzenle</button>'});
+ }
+ function nameNext(){ensure();const input=document.getElementById('v998Name');state.profile.name=String(input?.value||'').trim().slice(0,24)||'Yolcu';try{saveState()}catch(e){}render(2)}
+ function age(id){if(!AGES[id])return;state.learningProfile=id;state.onboardingAgeChosen=true;try{window.DEEN_AGE_PROFILE?.set?.(id,{persist:false,refresh:false})}catch(e){}try{saveState()}catch(e){}render(2)}
+ function animal(id){if(!ANIMALS[id])return;state.profile.companion=id;try{saveState()}catch(e){}render(3)}
+ function animalNext(){if(!state.profile.companion){try{toast?.('Devam etmek için bir yol arkadaşı seç.')}catch(e){}return}render(4)}
+ function minutes(n){state.minutes=n;try{saveState()}catch(e){}render(4)}
+ function goal(n){state.dailyGoal=n;try{saveState()}catch(e){}render(5)}
+ function finish(){ensure();if(!state.profile.companion)state.profile.companion='owl';state.onboarded=true;state.onboardingVersion=ONBOARDING_VERSION;try{saveState()}catch(e){}close();try{updateUI()}catch(e){}try{window.DEEN_PROFILE_COMPANION_SYNC?.apply?.()}catch(e){}try{scrollToCurrent('U01')}catch(e){}}
+ function skip(){ensure();state.profile.name=state.profile.name||'Yolcu';state.learningProfile=AGES[state.learningProfile]?state.learningProfile:'teen';state.profile.companion=state.profile.companion||'owl';state.minutes=10;state.dailyGoal=2;finish()}
+ window.onboarding=render;try{onboarding=render}catch(e){}
+ window.finishOnboarding=finish;
+ window.DEEN_PREMIUM_ONBOARDING={version:VERSION,render,nameNext,age,animal,animalNext,minutes,goal,finish,skip,snapshot:()=>({name:state.profile?.name,age:state.learningProfile,animal:state.profile?.companion,minutes:state.minutes,goal:state.dailyGoal,onboarded:state.onboarded,version:state.onboardingVersion})};
+})();
+</script>
+
 <script id="deen-v993-production-guard">(()=>{const VERSION='9.9.7-PRODUCTION',BUILD='997profileanimal1',TITLE='DEEN v9.9.7';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
