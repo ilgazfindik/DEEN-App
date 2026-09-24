@@ -2522,6 +2522,20 @@
 #lesson .question-frame.deen-character-question-mode .v5-source{
   margin-top:12px!important;
 }
+#lesson .question-frame.deen-character-question-mode .v710-word-bank-label,
+#lesson .question-frame.deen-character-question-mode .fill-answer-label,
+#lesson .question-frame.deen-character-question-mode .activity-hint{
+  display:none!important;
+}
+#lesson .question-frame.deen-character-question-mode.deen-template-fill .fill-choice-grid{
+  margin:8px 0 16px!important;
+  justify-content:flex-start!important;
+  align-items:flex-start!important;
+}
+#lesson .question-frame.deen-character-question-mode.deen-template-fill #answerArea{
+  flex:0 0 auto!important;
+  display:block!important;
+}
 @media(max-width:380px){
   .deen-character-question-row{grid-template-columns:54px minmax(0,1fr);gap:9px}
   .deen-character-question-avatar{width:54px;height:64px;font-size:37px}
@@ -2535,7 +2549,7 @@
  const VERSION='9.9.18-CHARACTER-QUESTION';
  const TYPES=new Set([
    'multiple_choice','scenario','missing_item','error_spotting','progressive_recall',
-   'true_false','speed_review','listening_select','listening_meaning','next_word'
+   'true_false','speed_review','listening_select','listening_meaning','next_word','fill_blank'
  ]);
  const qNow=()=>session?.questions?.[session?.index]||null;
  const frame=()=>document.querySelector('#lesson .question-frame');
@@ -2599,7 +2613,9 @@
 
    const text=document.createElement('div');
    text.className='deen-character-question-text';
-   text.textContent=String(q.question_tr||q.prompt_tr||q.question||'').trim();
+   let questionText=String(q.question_tr||q.prompt_tr||q.question||'').trim();
+   if(type==='fill_blank')questionText=questionText.replace(/^\s*Boşluğu\s+tamamla\s*:\s*/i,'');
+   text.textContent=questionText;
    bubble.appendChild(text);
 
    if(listening(q)){
