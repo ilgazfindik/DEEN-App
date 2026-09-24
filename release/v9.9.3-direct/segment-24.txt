@@ -4509,4 +4509,155 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.29-PRODUCTION',BUILD='9929vectorcompanion1',TITLE='DEEN v9.9.29';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.30 — Center companion + question block -->
+<style id="deen-v9930-center-companion-row-css">
+/* Center the complete companion + question unit as one visual block. */
+#lesson .question-frame.deen-premium-fill .deen-character-question-row{
+  width:min(100%,352px)!important;
+  margin:0 auto 16px!important;
+  grid-template-columns:68px minmax(0,1fr)!important;
+  gap:9px!important;
+  align-items:center!important;
+  justify-content:center!important;
+  justify-items:stretch!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
+  width:68px!important;
+  min-width:68px!important;
+  height:90px!important;
+  justify-self:center!important;
+  align-self:center!important;
+  margin:0!important;
+}
+#lesson .question-frame.deen-premium-fill .v9926-mascot{
+  width:66px!important;
+  height:82px!important;
+  justify-self:center!important;
+}
+#lesson .question-frame.deen-premium-fill .v9929-companion-svg{
+  width:58px!important;
+  height:58px!important;
+  margin:0 auto!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
+  width:100%!important;
+  min-width:0!important;
+  min-height:92px!important;
+  margin:0!important;
+  padding:14px 39px 14px 17px!important;
+  box-sizing:border-box!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-text{
+  width:100%!important;
+  text-align:left!important;
+  font-size:17px!important;
+  line-height:1.28!important;
+}
+
+/* Align answers and CTA to the same centered content column. */
+#lesson .question-frame.deen-premium-fill .v710-word-bank{
+  width:min(100%,352px)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action{
+  width:min(100%,352px)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+@media(max-width:420px){
+  #lesson .question-frame.deen-premium-fill .deen-character-question-row{
+    width:min(100%,340px)!important;
+    grid-template-columns:64px minmax(0,1fr)!important;
+    gap:8px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
+    width:64px!important;
+    min-width:64px!important;
+    height:86px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .v9926-mascot{
+    width:62px!important;
+    height:78px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .v9929-companion-svg{
+    width:55px!important;
+    height:55px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
+    min-height:90px!important;
+    padding:13px 37px 13px 15px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .deen-character-question-text{
+    font-size:16.5px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .v710-word-bank,
+  #lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action{
+    width:min(100%,340px)!important;
+  }
+}
+</style>
+<script id="deen-v9930-center-companion-row-js">
+(()=>{
+ if(window.__deenV9930CenterCompanionRow)return;
+ window.__deenV9930CenterCompanionRow=true;
+ const VERSION='9.9.30-CENTER-COMPANION-ROW';
+ const frame=()=>document.querySelector('#lesson .question-frame');
+ const qNow=()=>session?.questions?.[session?.index]||null;
+
+ function apply(){
+   const f=frame(),q=qNow();
+   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
+   f.classList.add('deen-premium-fill');
+
+   try{window.DEEN_VECTOR_COMPANION?.apply?.()}catch(_){}
+
+   const row=f.querySelector('.deen-character-question-row');
+   if(row){
+     row.style.marginLeft='auto';
+     row.style.marginRight='auto';
+   }
+
+   const bank=f.querySelector('.v710-word-bank');
+   if(bank){
+     bank.style.marginLeft='auto';
+     bank.style.marginRight='auto';
+   }
+
+   const cta=bank?.nextElementSibling;
+   if(cta?.classList?.contains('template-action')){
+     cta.style.marginLeft='auto';
+     cta.style.marginRight='auto';
+   }
+
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(apply);
+     [70,180,420,760].forEach(ms=>setTimeout(apply,ms));
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(_){}
+ }
+
+ window.DEEN_CENTER_COMPANION_ROW={
+   version:VERSION,
+   apply,
+   snapshot:()=>({
+     active:!!frame()?.classList.contains('deen-premium-fill'),
+     rowWidth:frame()?.querySelector('.deen-character-question-row')?.getBoundingClientRect?.().width||0,
+     bankWidth:frame()?.querySelector('.v710-word-bank')?.getBoundingClientRect?.().width||0
+   })
+ };
+ setTimeout(apply,800);
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.30-PRODUCTION',BUILD='9930centerhero1',TITLE='DEEN v9.9.30';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
