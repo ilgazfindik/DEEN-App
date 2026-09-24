@@ -5137,4 +5137,120 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.33-PRODUCTION',BUILD='9933strongcenter1',TITLE='DEEN v9.9.33';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.34 — Fixed responsive vertical centering -->
+<style id="deen-v9934-fixed-vertical-center-css">
+/*
+  Previous transform-based centering did not visibly move the whole lesson stack.
+  This version uses normal document flow: add responsive top space to the first
+  visible question row so the row + answers + CTA all move together.
+*/
+#lesson .question-frame.deen-premium-fill .deen-character-question-row,
+#lesson .question-frame.deen-premium-fill #answerArea,
+#lesson .question-frame.deen-premium-fill .v710-word-bank,
+#lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action,
+#lesson .question-frame.deen-premium-fill .v710-word-bank + .btn{
+  transform:none!important;
+}
+
+/* Move the COMPLETE question stack down in normal flow. */
+#lesson .question-frame.deen-premium-fill .deen-character-question-row{
+  margin-top:clamp(112px,15vh,148px)!important;
+  margin-bottom:18px!important;
+}
+
+/* Keep answer stack spacing stable after the downward move. */
+#lesson .question-frame.deen-premium-fill #answerArea{
+  margin-top:0!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-bank{
+  margin-top:0!important;
+}
+
+/* Smaller-height devices need less travel. */
+@media(max-height:760px){
+  #lesson .question-frame.deen-premium-fill .deen-character-question-row{
+    margin-top:clamp(78px,11vh,96px)!important;
+  }
+}
+
+/* Very tall lesson shells can afford a stronger visual center. */
+@media(min-height:900px){
+  #lesson .question-frame.deen-premium-fill .deen-character-question-row{
+    margin-top:clamp(132px,16vh,158px)!important;
+  }
+}
+</style>
+
+<script id="deen-v9934-fixed-vertical-center-js">
+(()=>{
+ if(window.__deenV9934FixedVerticalCenter)return;
+ window.__deenV9934FixedVerticalCenter=true;
+
+ const VERSION='9.9.34-FIXED-VERTICAL-CENTER';
+ const frame=()=>document.querySelector('#lesson .question-frame');
+ const qNow=()=>session?.questions?.[session?.index]||null;
+
+ function apply(){
+   const f=frame(),q=qNow();
+   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
+
+   /* Neutralize old centering state. */
+   f.classList.remove('v9932-screen-centered','v9933-screen-centered');
+   f.style.removeProperty('--v9932-center-shift');
+   f.style.removeProperty('--v9933-center-shift');
+   f.classList.add('deen-premium-fill','v9934-fixed-center');
+
+   const row=f.querySelector('.deen-character-question-row');
+   const area=f.querySelector('#answerArea');
+   const bank=f.querySelector('.v710-word-bank');
+   const cta=f.querySelector('.v710-word-bank + .template-action,.v710-word-bank + .btn');
+
+   [row,area,bank,cta].forEach(el=>{
+     if(!el)return;
+     el.style.removeProperty('transform');
+     el.style.removeProperty('top');
+   });
+
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(apply);
+     [80,220,520,900].forEach(ms=>setTimeout(apply,ms));
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(_){}
+ }
+
+ const CQ=window.completeQuestion;
+ if(typeof CQ==='function'){
+   window.completeQuestion=function(...args){
+     const r=CQ.apply(this,args);
+     setTimeout(apply,80);
+     setTimeout(apply,260);
+     return r;
+   };
+   try{completeQuestion=window.completeQuestion}catch(_){}
+ }
+
+ window.DEEN_FIXED_VERTICAL_CENTER={
+   version:VERSION,
+   apply,
+   snapshot:()=>({
+     active:!!frame()?.classList.contains('v9934-fixed-center'),
+     marginTop:frame()?.querySelector('.deen-character-question-row')
+       ? getComputedStyle(frame().querySelector('.deen-character-question-row')).marginTop
+       : null
+   })
+ };
+
+ setTimeout(apply,800);
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.34-PRODUCTION',BUILD='9934fixedcenter1',TITLE='DEEN v9.9.34';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
