@@ -3471,4 +3471,203 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.22-PRODUCTION',BUILD='9922premiumfill2',TITLE='DEEN v9.9.22';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.23 — Companion hero cleanup -->
+<style id="deen-v9923-companion-hero-cleanup-css">
+/* The screenshot showed the companion still reading as a rectangular photo tile.
+   Crop much tighter, remove the visible photo-card silhouette and give the row more air. */
+#lesson .question-frame.deen-premium-fill .deen-character-question-row{
+  grid-template-columns:82px minmax(0,1fr)!important;
+  gap:8px!important;
+  min-height:112px!important;
+  margin:1px 0 16px!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
+  width:92px!important;
+  height:112px!important;
+  margin:0!important;
+  justify-self:center!important;
+  border:0!important;
+  border-radius:0!important;
+  overflow:hidden!important;
+  background-color:transparent!important;
+  background-size:236% 354%!important;
+  background-repeat:no-repeat!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 12px 17px rgba(0,0,0,.34))!important;
+  -webkit-clip-path:ellipse(40% 48% at 50% 51%)!important;
+  clip-path:ellipse(40% 48% at 50% 51%)!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+}
+/* Re-anchor the six cells after the tighter zoom. */
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="lion"]{background-position:2% 1%!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="wolf"]{background-position:98% 1%!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="owl"]{background-position:2% 50%!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="turtle"]{background-position:98% 50%!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="eagle"]{background-position:2% 99%!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="cat"]{background-position:98% 99%!important}
+
+#lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
+  min-height:102px!important;
+  padding:16px 42px 16px 19px!important;
+  border-radius:22px!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-bubble:before{
+  top:36px!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-text{
+  font-size:18px!important;
+  line-height:1.28!important;
+  font-weight:600!important;
+  letter-spacing:-.1px!important;
+  text-wrap:balance!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-audio{
+  top:11px!important;
+  right:10px!important;
+  width:30px!important;
+  height:30px!important;
+}
+
+/* Make the answer block feel deliberately grouped rather than stretched. */
+#lesson .question-frame.deen-premium-fill .v710-word-bank{
+  gap:8px!important;
+  margin-bottom:10px!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-chip{
+  min-height:49px!important;
+  border-radius:15px!important;
+  font-size:16px!important;
+  font-weight:600!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action{
+  min-height:54px!important;
+  border-radius:18px!important;
+  font-size:17px!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action:disabled{
+  opacity:1!important;
+  background:linear-gradient(180deg,rgba(95,128,126,.72),rgba(72,103,104,.74))!important;
+  border-color:rgba(135,170,166,.24)!important;
+  color:rgba(7,32,38,.86)!important;
+  box-shadow:none!important;
+}
+
+/* This icon was visually stranded under the CTA. Keep source details out of the active answering state. */
+#lesson .question-frame.deen-premium-fill .v5-source{
+  display:none!important;
+}
+
+@media(max-width:420px){
+  #lesson .question-frame.deen-premium-fill .deen-character-question-row{
+    grid-template-columns:76px minmax(0,1fr)!important;
+    gap:7px!important;
+    min-height:106px!important;
+    margin-bottom:14px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
+    width:86px!important;
+    height:104px!important;
+    background-size:240% 360%!important;
+  }
+  #lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
+    min-height:96px!important;
+    padding:14px 38px 14px 16px!important;
+    border-radius:19px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .deen-character-question-text{
+    font-size:17px!important;
+    line-height:1.26!important;
+  }
+  #lesson .question-frame.deen-premium-fill .v710-word-chip{
+    min-height:48px!important;
+  }
+}
+</style>
+<script id="deen-v9923-companion-hero-cleanup-js">
+(()=>{
+ if(window.__deenV9923CompanionHeroCleanup)return;window.__deenV9923CompanionHeroCleanup=true;
+ const VERSION='9.9.23-COMPANION-HERO-CLEANUP';
+ const frame=()=>document.querySelector('#lesson .question-frame');
+ const qNow=()=>session?.questions?.[session?.index]||null;
+
+ function apply(){
+   const f=frame(),q=qNow();
+   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
+   f.classList.add('deen-premium-fill');
+
+   /* Remove legacy narration UI and any surviving lesson chrome. */
+   f.querySelectorAll('.v960-narration-bar,.v950-age-badge,.v710-type-pill,.audio-panel,#v624LessonEnergy,.v624-lesson-energy').forEach(el=>el.remove());
+
+   const avatar=f.querySelector('.deen-character-question-avatar');
+   if(avatar){
+     avatar.classList.add('v998-companion-hero');
+     const id=String(state?.profile?.companion||avatar.dataset.animal||'owl').toLowerCase();
+     avatar.dataset.animal=['lion','wolf','owl','turtle','eagle','cat'].includes(id)?id:'owl';
+     avatar.textContent='';
+   }
+
+   /* Keep narration only as the small speaker inside the bubble. */
+   const bubble=f.querySelector('.deen-character-question-bubble');
+   if(bubble){
+     let b=bubble.querySelector('.deen-character-question-audio');
+     if(typeof window.DEEN_NARRATION?.speakQuestion==='function'){
+       if(!b){
+         b=document.createElement('button');
+         b.type='button';
+         b.className='deen-character-question-audio';
+         b.textContent='🔊';
+         bubble.appendChild(b);
+       }
+       b.setAttribute('aria-label','Soruyu dinle');
+       b.title='Soruyu dinle';
+       b.onclick=e=>{
+         e.preventDefault();e.stopPropagation();
+         try{window.DEEN_NARRATION.stop?.('bubble-replay')}catch(_){}
+         try{window.DEEN_NARRATION.speakQuestion()}catch(_){}
+       };
+     }else b?.remove();
+   }
+
+   f.querySelectorAll('.v5-source').forEach(el=>el.hidden=true);
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(apply);
+     [50,160,320].forEach(ms=>setTimeout(apply,ms));
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(_){}
+ }
+ const CQ=window.completeQuestion;
+ if(typeof CQ==='function'){
+   window.completeQuestion=function(...args){
+     const r=CQ.apply(this,args);
+     setTimeout(apply,0);
+     return r;
+   };
+   try{completeQuestion=window.completeQuestion}catch(_){}
+ }
+
+ window.DEEN_COMPANION_HERO_CLEANUP={
+   version:VERSION,
+   apply,
+   snapshot:()=>({
+     active:!!frame()?.classList.contains('deen-premium-fill'),
+     companion:frame()?.querySelector('.deen-character-question-avatar')?.dataset?.animal||null,
+     sourceVisible:!!frame()?.querySelector('.v5-source:not([hidden])'),
+     narrationRow:!!frame()?.querySelector('.v960-narration-bar'),
+     bubbleAudio:!!frame()?.querySelector('.deen-character-question-audio')
+   })
+ };
+ setTimeout(apply,700);
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.23-PRODUCTION',BUILD='9923hero3',TITLE='DEEN v9.9.23';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
