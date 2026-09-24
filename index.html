@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.9.27</title>
+<title>DEEN v9.9.28</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -15,15 +15,38 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 </style>
 </head>
 <body>
-<div class="boot"><div><div class="logo">DEEN</div><div class="sub" id="status">v9.9.3 yükleniyor…</div></div></div>
+<div class="boot"><div><div class="logo">DEEN</div><div class="sub" id="status">DEEN yükleniyor…</div></div></div>
 <script>
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const paths=Array.from({length:25},(_,i)=>'./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt?v=9927companionscene1');
-   const responses=await Promise.all(paths.map(p=>fetch(p,{cache:'no-store'})));
-   responses.forEach((r,i)=>{if(!r.ok)throw new Error('Release segment '+i+' yüklenemedi');});
-   const s=await Promise.all(responses.map(r=>r.text()));
+   const BUILD='9928loaderfix1';
+   const segmentName=i=>'segment-'+String(i).padStart(2,'0')+'.txt';
+   const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+   async function loadSegment(i){
+     const name=segmentName(i);
+     const local='./release/v9.9.3-direct/'+name;
+     const raw='https://raw.githubusercontent.com/ilgazfindik/DEEN-App/main/release/v9.9.3-direct/'+name;
+     const attempts=[
+       local+'?v='+BUILD,
+       local+'?v='+BUILD+'&retry=1',
+       raw+'?v='+BUILD
+     ];
+     let lastStatus='';
+     let lastError=null;
+     for(let n=0;n<attempts.length;n++){
+       try{
+         const r=await fetch(attempts[n],{cache:'no-store'});
+         lastStatus=String(r.status||'');
+         if(r.ok)return await r.text();
+       }catch(err){lastError=err}
+       if(n<attempts.length-1)await sleep(280*(n+1));
+     }
+     const detail=lastStatus?' (HTTP '+lastStatus+')':(lastError?.message?' ('+lastError.message+')':'');
+     throw new Error('Release segment '+i+' yüklenemedi'+detail);
+   }
+   status.textContent='DEEN hazırlanıyor…';
+   const s=await Promise.all(Array.from({length:25},(_,i)=>loadSegment(i)));
    let html=s[0]+'\n'+s[1]+'\n';
    for(let i=2;i<=8;i++) html+=s[i];
    html+='\n';
@@ -55,7 +78,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    if(!html.includes('deen-v9925-mascot-medallion-js'))throw new Error('Mascot medallion paketi eksik');
    if(!html.includes('deen-v9926-mascot-stability-js'))throw new Error('Mascot stability paketi eksik');
    if(!html.includes('deen-v9927-companion-stage-js'))throw new Error('Companion stage paketi eksik');
-   window.__DEEN_DEPLOY_ID__='9927companionscene1';
+   window.__DEEN_DEPLOY_ID__='9928loaderfix1';
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
