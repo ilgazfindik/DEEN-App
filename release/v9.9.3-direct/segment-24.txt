@@ -4903,6 +4903,7 @@
  let raf1=0,raf2=0;
 
  function center(){
+   if(window.__deenV9933StrongCenter)return;
    const f=frame(),q=qNow();
    if(!f||String(q?.activity_type||'')!=='fill_blank')return;
 
@@ -4986,4 +4987,154 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.32-PRODUCTION',BUILD='9932screencenter1',TITLE='DEEN v9.9.32';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.33 — Strong screen centering -->
+<style id="deen-v9933-screen-center-css">
+/* Center the active lesson group as one visual unit. */
+#lesson .question-frame.deen-premium-fill.v9933-screen-centered .deen-character-question-row,
+#lesson .question-frame.deen-premium-fill.v9933-screen-centered .v710-word-bank,
+#lesson .question-frame.deen-premium-fill.v9933-screen-centered .v710-word-bank + .template-action,
+#lesson .question-frame.deen-premium-fill.v9933-screen-centered .v710-word-bank + .btn{
+  transform:translateY(var(--v9933-center-shift,0px))!important;
+  will-change:transform!important;
+}
+
+#lesson .question-frame.deen-premium-fill.v9933-screen-centered .deen-character-question-row{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  justify-content:center!important;
+}
+
+#lesson .question-frame.deen-premium-fill.v9933-screen-centered .v710-word-bank{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+#lesson .question-frame.deen-premium-fill.v9933-screen-centered .v710-word-bank + .template-action,
+#lesson .question-frame.deen-premium-fill.v9933-screen-centered .v710-word-bank + .btn{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+/* Explicitly neutralize the older v9.9.32 answerArea transform. */
+#lesson .question-frame.deen-premium-fill.v9933-screen-centered #answerArea{
+  transform:none!important;
+}
+
+@media(max-width:420px){
+  #lesson .question-frame.deen-premium-fill.v9933-screen-centered{
+    --v9933-center-shift:0px;
+  }
+}
+</style>
+<script id="deen-v9933-screen-center-js">
+(()=>{
+ if(window.__deenV9933StrongCenter)return;
+ window.__deenV9933StrongCenter=true;
+
+ const VERSION='9.9.33-STRONG-SCREEN-CENTER';
+ const frame=()=>document.querySelector('#lesson .question-frame');
+ const qNow=()=>session?.questions?.[session?.index]||null;
+ let raf1=0,raf2=0;
+
+ function getCta(f){
+   return f.querySelector('.v710-word-bank + .template-action, .v710-word-bank + .btn, .template-action, .btn');
+ }
+
+ function center(){
+   const f=frame(),q=qNow();
+   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
+
+   const row=f.querySelector('.deen-character-question-row');
+   const bank=f.querySelector('.v710-word-bank');
+   const cta=getCta(f);
+   if(!row||!bank)return;
+
+   f.classList.remove('v9932-screen-centered');
+   f.style.removeProperty('--v9932-center-shift');
+   f.classList.add('deen-premium-fill','v9933-screen-centered');
+   f.style.setProperty('--v9933-center-shift','0px');
+
+   cancelAnimationFrame(raf1);
+   cancelAnimationFrame(raf2);
+
+   raf1=requestAnimationFrame(()=>{
+     raf2=requestAnimationFrame(()=>{
+       const fr=f.getBoundingClientRect();
+       const rr=row.getBoundingClientRect();
+       const br=bank.getBoundingClientRect();
+       const cr=cta?cta.getBoundingClientRect():br;
+
+       if(!fr.height||!rr.height||!br.height)return;
+
+       const blockTop=Math.min(rr.top,br.top,cr.top);
+       const blockBottom=Math.max(rr.bottom,br.bottom,cr.bottom);
+       const blockCenter=(blockTop+blockBottom)/2;
+
+       /* Center within the real usable lesson area, below top controls. */
+       const availableTop=fr.top+104;
+       const availableBottom=fr.bottom-42;
+       const targetCenter=(availableTop+availableBottom)/2;
+
+       let delta=targetCenter-blockCenter;
+
+       if(blockTop+delta<availableTop)delta=availableTop-blockTop;
+       if(blockBottom+delta>availableBottom)delta=availableBottom-blockBottom;
+
+       delta=Math.max(-60,Math.min(220,delta));
+       f.style.setProperty('--v9933-center-shift',Math.round(delta)+'px');
+     });
+   });
+ }
+
+ function schedule(){
+   center();
+   [80,180,360,720,1100].forEach(ms=>setTimeout(center,ms));
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     schedule();
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(_){}
+ }
+
+ const CQ=window.completeQuestion;
+ if(typeof CQ==='function'){
+   window.completeQuestion=function(...args){
+     const r=CQ.apply(this,args);
+     setTimeout(center,80);
+     setTimeout(center,220);
+     setTimeout(center,480);
+     return r;
+   };
+   try{completeQuestion=window.completeQuestion}catch(_){}
+ }
+
+ window.addEventListener('resize',()=>setTimeout(center,90),{passive:true});
+ window.visualViewport?.addEventListener?.('resize',()=>setTimeout(center,90),{passive:true});
+
+ window.DEEN_SCREEN_CENTER={
+   version:VERSION,
+   apply:center,
+   snapshot:()=>({
+     active:!!frame()?.classList.contains('v9933-screen-centered'),
+     shift:frame()?.style.getPropertyValue('--v9933-center-shift')||'0px'
+   })
+ };
+
+ setTimeout(schedule,760);
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.33-PRODUCTION',BUILD='9933strongcenter1',TITLE='DEEN v9.9.33';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
