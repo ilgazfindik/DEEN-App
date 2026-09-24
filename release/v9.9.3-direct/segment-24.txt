@@ -3782,6 +3782,7 @@
  const qNow=()=>session?.questions?.[session?.index]||null;
 
  function apply(){
+   if(window.__deenV9926MascotStability)return;
    const f=frame(),q=qNow();
    if(!f||String(q?.activity_type||'')!=='fill_blank')return;
    f.classList.add('deen-premium-fill');
@@ -4021,4 +4022,154 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.25-PRODUCTION',BUILD='9925medallion1',TITLE='DEEN v9.9.25';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.26 — Mascot render stability -->
+<style id="deen-v9926-mascot-stability-css">
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
+  display:grid!important;
+  place-items:center!important;
+  visibility:visible!important;
+  opacity:1!important;
+  min-width:68px!important;
+}
+#lesson .question-frame.deen-premium-fill .v9926-mascot{
+  width:58px!important;
+  height:58px!important;
+  display:grid!important;
+  place-items:center!important;
+  position:relative!important;
+  border-radius:50%!important;
+  border:1.5px solid rgba(231,191,98,.70)!important;
+  background:
+    radial-gradient(circle at 34% 28%,rgba(142,238,213,.20),transparent 35%),
+    linear-gradient(155deg,#123f46 0%,#0a2c36 58%,#071f29 100%)!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.028),
+    0 10px 22px rgba(0,0,0,.26),
+    0 0 0 4px rgba(7,39,46,.72)!important;
+}
+#lesson .question-frame.deen-premium-fill .v9926-mascot:before{
+  content:""!important;
+  position:absolute!important;
+  inset:-11px!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle,rgba(124,229,202,.10),transparent 70%)!important;
+  z-index:-1!important;
+}
+#lesson .question-frame.deen-premium-fill .v9926-mascot-glyph{
+  display:block!important;
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif!important;
+  font-size:38px!important;
+  line-height:1!important;
+  transform:translateY(1px)!important;
+  filter:saturate(.82) drop-shadow(0 4px 5px rgba(0,0,0,.24))!important;
+}
+@media(max-width:420px){
+  #lesson .question-frame.deen-premium-fill .v9926-mascot{
+    width:54px!important;
+    height:54px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .v9926-mascot-glyph{
+    font-size:35px!important;
+  }
+}
+</style>
+<script id="deen-v9926-mascot-stability-js">
+(()=>{
+ if(window.__deenV9926MascotStability)return;
+ window.__deenV9926MascotStability=true;
+
+ const VERSION='9.9.26-MASCOT-STABILITY';
+ const EMOJI={lion:'🦁',wolf:'🐺',owl:'🦉',turtle:'🐢',eagle:'🦅',cat:'🐈'};
+ const qNow=()=>session?.questions?.[session?.index]||null;
+ const frame=()=>document.querySelector('#lesson .question-frame');
+
+ let observer=null;
+ let repairing=false;
+
+ function desiredAnimal(avatar){
+   const id=String(state?.profile?.companion||avatar?.dataset?.animal||'owl').toLowerCase();
+   return EMOJI[id]?id:'owl';
+ }
+
+ function renderMascot(avatar){
+   if(!avatar)return;
+   const animal=desiredAnimal(avatar);
+   avatar.classList.add('v998-companion-hero');
+   avatar.dataset.animal=animal;
+
+   const current=avatar.querySelector('.v9926-mascot');
+   const currentAnimal=current?.dataset?.animal;
+   if(current && currentAnimal===animal)return;
+
+   repairing=true;
+   avatar.innerHTML='<span class="v9926-mascot" data-animal="'+animal+'" aria-hidden="true"><span class="v9926-mascot-glyph">'+EMOJI[animal]+'</span></span>';
+   avatar.setAttribute('aria-hidden','true');
+   repairing=false;
+ }
+
+ function watchAvatar(avatar){
+   if(observer)observer.disconnect();
+   if(!avatar)return;
+   observer=new MutationObserver(()=>{
+     if(repairing)return;
+     const mascot=avatar.querySelector('.v9926-mascot');
+     const animal=desiredAnimal(avatar);
+     if(!mascot||mascot.dataset.animal!==animal){
+       queueMicrotask(()=>renderMascot(avatar));
+     }
+   });
+   observer.observe(avatar,{childList:true,subtree:true,characterData:true});
+ }
+
+ function apply(){
+   const f=frame(),q=qNow();
+   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
+
+   f.classList.add('deen-premium-fill');
+   const avatar=f.querySelector('.deen-character-question-avatar');
+   renderMascot(avatar);
+   watchAvatar(avatar);
+
+   f.querySelectorAll('.v960-narration-bar,.v960-narration-note,.audio-panel,.v5-source,details.v5-source,.source,[class*="source-note"]').forEach(el=>el.remove());
+
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(apply);
+     [40,120,260,420,700].forEach(ms=>setTimeout(apply,ms));
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(_){}
+ }
+
+ const CQ=window.completeQuestion;
+ if(typeof CQ==='function'){
+   window.completeQuestion=function(...args){
+     const r=CQ.apply(this,args);
+     setTimeout(apply,0);
+     setTimeout(apply,180);
+     return r;
+   };
+   try{completeQuestion=window.completeQuestion}catch(_){}
+ }
+
+ window.DEEN_MASCOT_STABILITY={
+   version:VERSION,
+   apply,
+   snapshot:()=>({
+     active:!!frame()?.classList.contains('deen-premium-fill'),
+     animal:frame()?.querySelector('.deen-character-question-avatar')?.dataset?.animal||null,
+     mascot:!!frame()?.querySelector('.v9926-mascot')
+   })
+ };
+ setTimeout(apply,700);
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.26-PRODUCTION',BUILD='9926mascotfix1',TITLE='DEEN v9.9.26';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
