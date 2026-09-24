@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.9.30</title>
+<title>DEEN v9.9.31</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -20,7 +20,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const BUILD='9930centerhero1';
+   const BUILD='9931safecenter1';
    const segmentName=i=>'segment-'+String(i).padStart(2,'0')+'.txt';
    const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
    async function loadSegment(i){
@@ -80,7 +80,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    if(!html.includes('deen-v9927-companion-stage-js'))throw new Error('Companion stage paketi eksik');
    if(!html.includes('deen-v9929-vector-companion-js'))throw new Error('Vector companion paketi eksik');
    if(!html.includes('deen-v9930-center-companion-row-js'))throw new Error('Centered companion row paketi eksik');
-   window.__DEEN_DEPLOY_ID__='9930centerhero1';
+   if(!html.includes('deen-v9931-safe-center-rollback-js'))throw new Error('Safe center rollback paketi eksik');
+   window.__DEEN_DEPLOY_ID__='9931safecenter1';
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
