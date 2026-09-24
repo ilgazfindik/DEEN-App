@@ -1898,7 +1898,7 @@
 (()=>{
  if(window.__deenV9914UltraCleanLesson)return;window.__deenV9914UltraCleanLesson=true;
  const VERSION='9.9.14-ULTRA-CLEAN-LESSON';
- const mobile=()=>matchMedia('(max-width:699px)').matches;
+ const mobile=()=>true;
 
  function questionProgress(){
    const total=Math.max(1,Number(session?.questions?.length)||1);
