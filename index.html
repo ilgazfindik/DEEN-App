@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.9.32</title>
+<title>DEEN v9.9.33</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -20,7 +20,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const BUILD='9932screencenter1';
+   const BUILD='9933strongcenter1';
    const segmentName=i=>'segment-'+String(i).padStart(2,'0')+'.txt';
    const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
    async function loadSegment(i){
@@ -82,7 +82,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    if(!html.includes('deen-v9930-center-companion-row-js'))throw new Error('Centered companion row paketi eksik');
    if(!html.includes('deen-v9931-safe-center-rollback-js'))throw new Error('Safe center rollback paketi eksik');
    if(!html.includes('deen-v9932-screen-center-js'))throw new Error('Screen center paketi eksik');
-   window.__DEEN_DEPLOY_ID__='9932screencenter1';
+   if(!html.includes('deen-v9933-screen-center-js'))throw new Error('Strong screen center paketi eksik');
+   window.__DEEN_DEPLOY_ID__='9933strongcenter1';
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
