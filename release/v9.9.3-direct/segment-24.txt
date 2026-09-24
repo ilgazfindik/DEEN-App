@@ -2250,6 +2250,8 @@
  function decorateMatch(q){
    const a=area();if(!a)return;
    a.querySelectorAll('.match-column-title,.matching-progress').forEach(el=>el.setAttribute('aria-hidden','true'));
+   [...a.querySelectorAll('.match-left')].forEach((b,i)=>b.style.gridRow=String(i+1));
+   [...a.querySelectorAll('.match-right')].forEach((b,i)=>b.style.gridRow=String(i+1));
  }
 
  function decorateFill(q){
@@ -2282,7 +2284,7 @@
 
    const prompt=document.createElement('div');prompt.className='v9916-listen-question';prompt.textContent=q?.question_tr||'Dinlediğine göre doğru cevabı seç.';
    const firstChoice=a.querySelector('.options,.mc-standard,.v710-listen-options,.option');
-   if(firstChoice)a.insertBefore(prompt,firstChoice);else a.append(prompt);
+   if(firstChoice&&firstChoice.parentElement===a)a.insertBefore(prompt,firstChoice);else a.append(prompt);
  }
 
  function skipUnscored(){
