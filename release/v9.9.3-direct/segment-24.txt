@@ -1996,4 +1996,392 @@
 })();
 </script>
 
+
+<!-- DEEN v9.9.16 — Duolingo-inspired focused question templates -->
+<style id="deen-v9916-duo-question-templates-css">
+/* Shared in-card chrome */
+#lesson .question-frame{padding-top:70px!important}
+#v9914MiniProgress{left:62px!important;right:62px!important;top:24px!important;height:5px!important;background:#29464e!important}
+#v9914MiniProgress i{background:linear-gradient(90deg,#6c66ff,#5b65ff)!important;box-shadow:none!important}
+#v9916MiniEnergy{
+  position:absolute;right:12px;top:12px;z-index:31;
+  width:40px;height:30px;border-radius:999px;
+  display:flex;align-items:center;justify-content:center;gap:3px;
+  color:#b9f3df;font-size:10px;font-weight:900;
+  background:rgba(13,44,53,.88);border:1px solid rgba(106,169,171,.28)
+}
+#v9916MiniEnergy i{font-style:normal;color:#a174ff;font-size:13px}
+.v9916-task-title{
+  margin:0 0 16px!important;
+  color:#f7fbfa!important;
+  font-size:clamp(20px,5.5vw,27px)!important;
+  font-weight:950!important;
+  line-height:1.08!important;
+  letter-spacing:-.35px!important;
+  text-align:left!important
+}
+.v9916-original-hidden{display:none!important}
+
+/* Matching pairs */
+#lesson .question-frame.deen-template-match{justify-content:flex-start!important}
+#lesson .question-frame.deen-template-match #questionText{display:none!important}
+#lesson .question-frame.deen-template-match #answerArea{
+  flex:1 1 auto!important;display:flex!important;flex-direction:column!important;justify-content:center!important
+}
+#lesson .question-frame.deen-template-match .match-column-title,
+#lesson .question-frame.deen-template-match .matching-progress{display:none!important}
+#lesson .question-frame.deen-template-match .match-grid{
+  width:100%!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  grid-auto-rows:minmax(54px,auto)!important;
+  gap:10px!important;
+  align-content:center!important;
+  margin:0!important
+}
+#lesson .question-frame.deen-template-match .match-card{
+  min-height:58px!important;
+  border-radius:13px!important;
+  border:2px solid #40545c!important;
+  background:#17282f!important;
+  color:#f5f8f7!important;
+  padding:10px 8px!important;
+  font-size:clamp(12px,3.6vw,16px)!important;
+  font-weight:750!important;
+  line-height:1.2!important;
+  text-align:center!important;
+  box-shadow:0 2px 0 #2b3f47!important;
+  transition:transform .12s ease,opacity .16s ease,border-color .12s ease,background .12s ease!important
+}
+#lesson .question-frame.deen-template-match .match-card.sel{
+  border-color:#776cff!important;background:#272b4e!important;transform:translateY(-1px)!important
+}
+#lesson .question-frame.deen-template-match .match-card.matched{
+  opacity:0!important;pointer-events:none!important;transform:scale(.92)!important
+}
+#lesson .question-frame.deen-template-match .match-card.match-error,
+#lesson .question-frame.deen-template-match .match-card.error{
+  border-color:#ff767c!important;background:#47262b!important;animation:v9916shake .22s linear 1!important
+}
+@keyframes v9916shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+/* Fill the sentence */
+#lesson .question-frame.deen-template-fill #questionText{
+  display:block!important;
+  margin:16px 0 28px!important;
+  font-size:clamp(22px,6.2vw,30px)!important;
+  line-height:1.35!important;
+  text-align:left!important;
+  color:#f7faf9!important
+}
+#lesson .question-frame.deen-template-fill .blank-slot{
+  min-width:70px!important;height:auto!important;
+  border:0!important;border-bottom:2px solid #657880!important;
+  border-radius:0!important;background:transparent!important;
+  box-shadow:none!important;color:#8c76ff!important;
+  padding:0 10px 3px!important;margin:0 4px!important;
+  font-size:.72em!important;letter-spacing:3px!important
+}
+#lesson .question-frame.deen-template-fill #answerArea{
+  flex:1 1 auto!important;display:flex!important;flex-direction:column!important
+}
+#lesson .question-frame.deen-template-fill .fill-choice-grid{
+  display:flex!important;flex-wrap:wrap!important;justify-content:center!important;align-items:center!important;
+  gap:9px!important;margin:auto 0 18px!important
+}
+#lesson .question-frame.deen-template-fill .fill-choice{
+  width:auto!important;min-width:0!important;min-height:44px!important;
+  padding:8px 13px!important;border-radius:12px!important;
+  border:2px solid #40545c!important;background:#17282f!important;color:#f5f8f7!important;
+  box-shadow:0 2px 0 #2b3f47!important;font-size:14px!important;font-weight:800!important
+}
+#lesson .question-frame.deen-template-fill .fill-choice-badge{display:none!important}
+#lesson .question-frame.deen-template-fill .fill-choice.selected{
+  border-color:#7168ff!important;background:#292d52!important
+}
+#lesson .question-frame.deen-template-fill .fill-answer-card{
+  margin:auto 0 14px!important;border:1px solid #40545c!important;background:#14262e!important;border-radius:14px!important
+}
+#lesson .question-frame.deen-template-fill .fill-answer-label{display:none!important}
+#lesson .question-frame.deen-template-fill .fill-input{
+  height:50px!important;border-radius:11px!important;background:#101f26!important;font-size:16px!important
+}
+#lesson .question-frame.deen-template-fill .template-action{margin-top:auto!important}
+
+/* Listen and respond */
+#lesson .question-frame.deen-template-listen #questionText{display:none!important}
+#lesson .question-frame.deen-template-listen #answerArea{
+  flex:1 1 auto!important;display:flex!important;flex-direction:column!important
+}
+.v9916-listen-top{
+  display:grid!important;grid-template-columns:58px minmax(0,1fr)!important;
+  gap:10px!important;align-items:center!important;margin:0 0 18px!important
+}
+.v9916-listen-avatar{
+  width:54px;height:64px;border-radius:18px;
+  display:grid;place-items:center;font-size:38px;
+  background:linear-gradient(180deg,#263a44,#162930);border:1px solid #435c65
+}
+#lesson .question-frame.deen-template-listen .audio-panel{
+  position:relative!important;width:100%!important;max-width:none!important;
+  min-height:64px!important;margin:0!important;padding:10px 12px!important;
+  border:2px solid #40545c!important;border-radius:13px!important;
+  background:#17282f!important;display:flex!important;align-items:center!important
+}
+#lesson .question-frame.deen-template-listen .audio-panel:before{
+  content:"";position:absolute;left:-8px;top:20px;width:14px;height:14px;
+  background:#17282f;border-left:2px solid #40545c;border-bottom:2px solid #40545c;
+  transform:rotate(45deg)
+}
+#lesson .question-frame.deen-template-listen .audio-play{
+  width:38px!important;height:38px!important;min-width:38px!important;
+  border:0!important;background:#123c50!important;color:#51bff6!important;border-radius:10px!important
+}
+#lesson .question-frame.deen-template-listen .audio-copy strong{font-size:12px!important}
+#lesson .question-frame.deen-template-listen .audio-copy small,
+#lesson .question-frame.deen-template-listen .audio-status{display:none!important}
+.v9916-listen-question{
+  margin:2px 0 14px!important;padding-top:14px!important;border-top:1px solid #42545c!important;
+  color:#f5f8f7!important;font-size:clamp(17px,4.8vw,22px)!important;
+  font-weight:850!important;line-height:1.25!important
+}
+.v9916-slow{
+  margin-left:auto;border:0;background:transparent;color:#69c9f6;
+  font-size:10px;font-weight:950;letter-spacing:.4px;cursor:pointer
+}
+#lesson .question-frame.deen-template-listen .options,
+#lesson .question-frame.deen-template-listen .mc-standard{
+  display:flex!important;flex-direction:column!important;gap:8px!important
+}
+#lesson .question-frame.deen-template-listen .option{
+  min-height:48px!important;border-radius:11px!important;border:2px solid #40545c!important;
+  background:#17282f!important;color:#f5f8f7!important;padding:10px 12px!important;
+  box-shadow:0 2px 0 #2b3f47!important;font-size:13px!important;text-align:center!important
+}
+#lesson .question-frame.deen-template-listen .option .option-badge,
+#lesson .question-frame.deen-template-listen .option-icon{display:none!important}
+
+/* Future-ready speaking template */
+#lesson .question-frame.deen-template-speak #questionText{display:none!important}
+.v9916-speak-row{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;align-items:start;margin-top:4px}
+.v9916-speak-avatar{font-size:42px;width:58px;height:72px;border-radius:18px;display:grid;place-items:center;background:#253943;border:1px solid #435b64}
+.v9916-speech-bubble{position:relative;border:2px solid #40545c;background:#17282f;border-radius:13px;padding:13px;color:#f5f8f7;font-size:17px;line-height:1.35}
+.v9916-speech-bubble:before{content:"";position:absolute;left:-8px;top:20px;width:14px;height:14px;background:#17282f;border-left:2px solid #40545c;border-bottom:2px solid #40545c;transform:rotate(45deg)}
+.v9916-mic{
+  width:100%;min-height:64px;margin-top:18px;border-radius:13px;border:2px solid #40545c;
+  background:#17282f;color:#67c9f8;font-weight:950;font-size:14px;cursor:pointer
+}
+.v9916-skip-speak{margin-top:auto;border:0;background:transparent;color:#788b92;font-size:10px;font-weight:850;cursor:pointer;padding:12px}
+
+/* Generic focused-choice cleanup */
+#lesson .question-frame.deen-template-choice .option{
+  min-height:52px!important;border-radius:12px!important;
+  border:2px solid #40545c!important;background:#17282f!important;
+  box-shadow:0 2px 0 #2b3f47!important
+}
+@media(max-height:700px){
+  .v9916-task-title{margin-bottom:10px!important;font-size:19px!important}
+  #lesson .question-frame.deen-template-match .match-grid{gap:7px!important}
+  #lesson .question-frame.deen-template-match .match-card{min-height:48px!important;font-size:11px!important}
+  #lesson .question-frame.deen-template-fill #questionText{margin:8px 0 16px!important;font-size:20px!important}
+}
+</style>
+<script id="deen-v9916-duo-question-templates-js">
+(()=>{
+ if(window.__deenV9916DuoTemplates)return;window.__deenV9916DuoTemplates=true;
+ const VERSION='9.9.16-DUO-TEMPLATES';
+ const SPEAK_TYPES=new Set(['speaking','speak','speaking_repeat','recitation_repeat']);
+
+ const qNow=()=>session?.questions?.[session?.index];
+ const frame=()=>document.querySelector('#lesson .question-frame');
+ const area=()=>document.getElementById('answerArea');
+
+ function titleFor(q){
+   if(!q)return 'Soruyu cevapla';
+   const t=q.activity_type;
+   if(t==='matching')return 'Eşleşen çiftleri bul';
+   if(t==='fill_blank')return 'Cümleyi tamamla';
+   if(t==='listening_select'||t==='listening_meaning')return 'Dinle ve cevapla';
+   if(SPEAK_TYPES.has(t))return 'Bu cümleyi söyle';
+   if(t==='build_sequence')return 'Doğru sıraya koy';
+   if(t==='true_false'||t==='speed_review')return 'Doğru mu, yanlış mı?';
+   return 'Doğru cevabı seç';
+ }
+
+ function companionEmoji(){
+   try{return window.DEEN_COMPANION?.current?.()?.emoji||'🦉'}catch(e){return '🦉'}
+ }
+
+ function setClass(q){
+   const f=frame();if(!f)return;
+   f.classList.remove('deen-template-match','deen-template-fill','deen-template-listen','deen-template-speak','deen-template-choice');
+   if(q?.activity_type==='matching')f.classList.add('deen-template-match');
+   else if(q?.activity_type==='fill_blank')f.classList.add('deen-template-fill');
+   else if(q?.activity_type==='listening_select'||q?.activity_type==='listening_meaning')f.classList.add('deen-template-listen');
+   else if(SPEAK_TYPES.has(q?.activity_type))f.classList.add('deen-template-speak');
+   else f.classList.add('deen-template-choice');
+ }
+
+ function chrome(q){
+   const f=frame();if(!f)return;
+   let title=f.querySelector('.v9916-task-title');
+   if(!title){
+     title=document.createElement('h2');
+     title.className='v9916-task-title';
+     const exit=document.getElementById('v9914ExitLesson');
+     const progress=document.getElementById('v9914MiniProgress');
+     if(progress?.nextSibling)f.insertBefore(title,progress.nextSibling);
+     else if(exit?.nextSibling)f.insertBefore(title,exit.nextSibling);
+     else f.prepend(title);
+   }
+   title.textContent=titleFor(q);
+
+   let energy=document.getElementById('v9916MiniEnergy');
+   if(!energy){
+     energy=document.createElement('div');
+     energy.id='v9916MiniEnergy';
+     energy.setAttribute('aria-label','Enerji');
+     f.prepend(energy);
+   }
+   const value=state?.premium?'∞':Math.max(0,Number(state?.energy)||0);
+   energy.innerHTML='<i>♥</i><span>'+value+'</span>';
+ }
+
+ function decorateMatch(q){
+   const a=area();if(!a)return;
+   a.querySelectorAll('.match-column-title,.matching-progress').forEach(el=>el.setAttribute('aria-hidden','true'));
+ }
+
+ function decorateFill(q){
+   const a=area();if(!a)return;
+   a.querySelectorAll('.fill-choice').forEach(b=>{
+     const badge=b.querySelector('.fill-choice-badge');if(badge)badge.setAttribute('aria-hidden','true');
+   });
+ }
+
+ function decorateListen(q){
+   const f=frame(),a=area();if(!f||!a)return;
+   const original=document.getElementById('questionText');
+   original?.classList.add('v9916-original-hidden');
+   a.querySelectorAll('.v9916-listen-top,.v9916-listen-question').forEach(x=>x.remove());
+
+   const audio=a.querySelector('.audio-panel');
+   if(audio){
+     const row=document.createElement('div');row.className='v9916-listen-top';
+     const avatar=document.createElement('div');avatar.className='v9916-listen-avatar';avatar.textContent=companionEmoji();avatar.setAttribute('aria-hidden','true');
+     row.append(avatar,audio);
+
+     const nativeAudio=audio.querySelector('audio');
+     if(nativeAudio){
+       const slow=document.createElement('button');slow.type='button';slow.className='v9916-slow';slow.textContent='YAVAŞ';
+       slow.onclick=()=>{nativeAudio.playbackRate=.75;try{nativeAudio.currentTime=0;nativeAudio.play()}catch(e){}};
+       audio.append(slow);
+     }
+     a.prepend(row);
+   }
+
+   const prompt=document.createElement('div');prompt.className='v9916-listen-question';prompt.textContent=q?.question_tr||'Dinlediğine göre doğru cevabı seç.';
+   const firstChoice=a.querySelector('.options,.mc-standard,.v710-listen-options,.option');
+   if(firstChoice)a.insertBefore(prompt,firstChoice);else a.append(prompt);
+ }
+
+ function skipUnscored(){
+   if(!session?.questions?.length)return;
+   session.questions.splice(session.index,1);
+   if(session.index>=session.questions.length){
+     if(typeof showResult==='function')showResult();
+   }else{
+     renderQuestion();
+   }
+ }
+
+ function renderSpeak(q){
+   const a=area(),original=document.getElementById('questionText');if(!a)return;
+   original?.classList.add('v9916-original-hidden');
+   a.innerHTML='';
+   const target=String(q?.speak_text||q?.correct_answer||q?.question_tr||'').trim();
+
+   const row=document.createElement('div');row.className='v9916-speak-row';
+   const avatar=document.createElement('div');avatar.className='v9916-speak-avatar';avatar.textContent=companionEmoji();
+   const bubble=document.createElement('div');bubble.className='v9916-speech-bubble';bubble.textContent=target;
+   row.append(avatar,bubble);
+
+   const mic=document.createElement('button');mic.type='button';mic.className='v9916-mic';mic.innerHTML='🎙 &nbsp; KONUŞ';
+   const skip=document.createElement('button');skip.type='button';skip.className='v9916-skip-speak';skip.textContent='Şimdi konuşamıyorum';
+   skip.onclick=skipUnscored;
+
+   mic.onclick=()=>{
+     const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+     if(!SR){
+       mic.textContent='Bu tarayıcı konuşma tanımayı desteklemiyor';
+       setTimeout(()=>mic.innerHTML='🎙 &nbsp; KONUŞ',1600);
+       return;
+     }
+     const rec=new SR();
+     rec.lang=q?.speech_lang||'tr-TR';rec.interimResults=false;rec.maxAlternatives=1;
+     mic.disabled=true;mic.textContent='Dinliyorum…';
+     rec.onresult=e=>{
+       const heard=String(e.results?.[0]?.[0]?.transcript||'').trim();
+       mic.disabled=false;mic.textContent=heard?'Duyulan: '+heard:'Tekrar dene';
+       if(heard){
+         const note=document.createElement('div');note.className='v9916-listen-question';note.textContent='Telaffuz alıştırması tamamlandı. Bu aktivite şu aşamada puanlanmıyor.';
+         a.insertBefore(note,skip);
+         skip.textContent='Devam et';
+       }
+     };
+     rec.onerror=()=>{mic.disabled=false;mic.innerHTML='🎙 &nbsp; TEKRAR DENE'};
+     try{rec.start()}catch(e){mic.disabled=false}
+   };
+
+   a.append(row,mic,skip);
+ }
+
+ function apply(){
+   const q=qNow(),f=frame();if(!q||!f)return;
+   document.getElementById('questionText')?.classList.remove('v9916-original-hidden');
+   setClass(q);chrome(q);
+   if(q.activity_type==='matching')decorateMatch(q);
+   else if(q.activity_type==='fill_blank')decorateFill(q);
+   else if(q.activity_type==='listening_select'||q.activity_type==='listening_meaning')decorateListen(q);
+   else if(SPEAK_TYPES.has(q.activity_type))renderSpeak(q);
+   try{window.DEEN_CLEAN_LESSON?.apply?.()}catch(e){}
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(e){}
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(()=>apply());
+     setTimeout(apply,70);
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(e){}
+ }
+ const CQ=window.completeQuestion;
+ if(typeof CQ==='function'){
+   window.completeQuestion=function(...args){
+     const r=CQ.apply(this,args);
+     setTimeout(apply,0);
+     return r;
+   };
+   try{completeQuestion=window.completeQuestion}catch(e){}
+ }
+
+ window.DEEN_QUESTION_TEMPLATES={
+   version:VERSION,
+   apply,
+   titleFor,
+   supported:['matching','fill_blank','listening_select','listening_meaning','speaking'],
+   snapshot:()=>({
+     type:qNow()?.activity_type||null,
+     template:[...frame()?.classList||[]].find(x=>x.startsWith('deen-template-'))||null,
+     title:frame()?.querySelector('.v9916-task-title')?.textContent||null,
+     energy:document.getElementById('v9916MiniEnergy')?.textContent||null
+   })
+ };
+ setTimeout(apply,600);
+})();
+</script>
+
 <script id="deen-v993-production-guard">(()=>{const VERSION='9.9.15-PRODUCTION',BUILD='9915cleanall1',TITLE='DEEN v9.9.15';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
