@@ -3035,4 +3035,200 @@
 })();
 </script>
 
+
+<!-- DEEN v9.9.21 — Fill-blank DOM hotfix -->
+<style id="deen-v9921-fill-dom-hotfix-css">
+/* Remove legacy runtime chrome that was still being injected after our premium render. */
+#lesson .question-frame.deen-premium-fill .v950-age-badge,
+#lesson .question-frame.deen-premium-fill .v710-type-pill,
+#lesson .question-frame.deen-premium-fill .audio-panel,
+#lesson .question-frame.deen-premium-fill #v624LessonEnergy,
+#lesson .question-frame.deen-premium-fill .v624-lesson-energy,
+#lesson .question-frame.deen-premium-fill [id*="LessonEnergy"],
+#lesson .question-frame.deen-premium-fill [class*="lesson-energy"]{
+  display:none!important;
+}
+
+/* Force the actual V7.1 word-choice DOM into the reference layout. */
+#lesson .question-frame.deen-premium-fill .v710-word-bank{
+  width:100%!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:10px!important;
+  margin:0 0 16px!important;
+  padding:0!important;
+  align-items:stretch!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-chip{
+  width:100%!important;
+  min-width:0!important;
+  min-height:58px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:12px 18px!important;
+  border-radius:18px!important;
+  border:1.4px solid rgba(125,202,203,.56)!important;
+  background:linear-gradient(180deg,rgba(12,46,56,.92),rgba(7,34,43,.94))!important;
+  color:#f8f3e9!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:18px!important;
+  font-weight:600!important;
+  line-height:1.1!important;
+  text-align:center!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.018),0 7px 20px rgba(0,0,0,.12)!important;
+  transition:transform .14s ease,border-color .14s ease,background .14s ease,box-shadow .14s ease!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-chip:hover{
+  transform:translateY(-1px)!important;
+  border-color:rgba(145,231,212,.84)!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-chip.selected{
+  border-color:#8fe8cd!important;
+  background:linear-gradient(180deg,rgba(18,77,72,.98),rgba(11,54,58,.98))!important;
+  box-shadow:0 0 0 2px rgba(143,232,205,.12),0 10px 26px rgba(62,210,177,.12)!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-chip.correct{
+  border-color:#72e0b4!important;
+  background:linear-gradient(180deg,#175f50,#10453f)!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-chip.wrong{
+  border-color:#d87979!important;
+  background:linear-gradient(180deg,#593438,#432a31)!important;
+}
+
+/* CTA belongs directly under the four answer cards. */
+#lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action{
+  width:100%!important;
+  min-height:62px!important;
+  margin:4px 0 0!important;
+  border-radius:999px!important;
+  border:1.5px solid rgba(230,189,96,.74)!important;
+  background:linear-gradient(100deg,#91e9ca,#b1f0d2)!important;
+  color:#05232a!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:20px!important;
+  font-weight:700!important;
+  box-shadow:0 0 0 2px rgba(236,197,108,.12),0 15px 30px rgba(65,218,180,.18)!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action:disabled{
+  opacity:.42!important;
+  filter:saturate(.55)!important;
+  box-shadow:none!important;
+}
+
+/* Correct image crop: use the sprite as artwork, not as a tiny card thumbnail. */
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
+  border-radius:0!important;
+  overflow:visible!important;
+  background-color:transparent!important;
+  background-size:200% 300%!important;
+  background-repeat:no-repeat!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 15px 18px rgba(0,0,0,.34))!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="lion"]{background-position:0 0!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="wolf"]{background-position:100% 0!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="owl"]{background-position:0 50%!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="turtle"]{background-position:100% 50%!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="eagle"]{background-position:0 100%!important}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero[data-animal="cat"]{background-position:100% 100%!important}
+
+/* Only our compact top-right energy chip may remain. */
+#lesson .question-frame.deen-premium-fill #v9916MiniEnergy{
+  display:flex!important;
+  position:absolute!important;
+  right:12px!important;
+  top:13px!important;
+  left:auto!important;
+  width:auto!important;
+  max-width:58px!important;
+  min-width:44px!important;
+  height:34px!important;
+  padding:0 9px!important;
+  border-radius:999px!important;
+}
+
+/* The question + companion should sit higher and breathe more like the reference. */
+#lesson .question-frame.deen-premium-fill .deen-character-question-row{
+  margin-top:4px!important;
+  margin-bottom:22px!important;
+}
+#lesson .question-frame.deen-premium-fill #answerArea{
+  width:100%!important;
+  display:block!important;
+  flex:0 0 auto!important;
+}
+
+/* Info remains tiny. */
+#lesson .question-frame.deen-premium-fill .v5-source{
+  margin-top:12px!important;
+  align-self:flex-start!important;
+}
+
+@media(max-width:420px){
+  #lesson .question-frame.deen-premium-fill .v710-word-chip{min-height:52px!important;font-size:16px!important}
+  #lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action{min-height:56px!important;font-size:18px!important}
+}
+</style>
+<script id="deen-v9921-fill-dom-hotfix-js">
+(()=>{
+ if(window.__deenV9921FillDomHotfix)return;window.__deenV9921FillDomHotfix=true;
+ const VERSION='9.9.21-FILL-DOM-HOTFIX';
+ function clean(){
+   const q=session?.questions?.[session?.index];
+   const f=document.querySelector('#lesson .question-frame');
+   if(!f||q?.activity_type!=='fill_blank')return;
+   f.classList.add('deen-premium-fill');
+
+   f.querySelectorAll('.v950-age-badge,.v710-type-pill,.audio-panel,#v624LessonEnergy,.v624-lesson-energy').forEach(el=>el.remove());
+
+   const avatar=f.querySelector('.deen-character-question-avatar');
+   if(avatar){
+     avatar.classList.add('v998-companion-hero');
+     const id=String(state?.profile?.companion||avatar.dataset.animal||'owl').toLowerCase();
+     avatar.dataset.animal=['lion','wolf','owl','turtle','eagle','cat'].includes(id)?id:'owl';
+     avatar.textContent='';
+   }
+
+   const bank=f.querySelector('.v710-word-bank');
+   if(bank){
+     bank.querySelectorAll('.v710-word-chip').forEach(btn=>{
+       btn.removeAttribute('style');
+     });
+   }
+
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(e){}
+ }
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(clean);
+     setTimeout(clean,40);
+     setTimeout(clean,120);
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(e){}
+ }
+ const CQ=window.completeQuestion;
+ if(typeof CQ==='function'){
+   window.completeQuestion=function(...args){
+     const r=CQ.apply(this,args);
+     setTimeout(clean,0);
+     return r;
+   };
+   try{completeQuestion=window.completeQuestion}catch(e){}
+ }
+ window.DEEN_FILL_DOM_HOTFIX={version:VERSION,apply:clean,snapshot:()=>({
+   premium:!!document.querySelector('#lesson .question-frame.deen-premium-fill'),
+   ageBadge:!!document.querySelector('#lesson .question-frame .v950-age-badge'),
+   wordLabel:!!document.querySelector('#lesson .question-frame .v710-type-pill'),
+   audioPanel:!!document.querySelector('#lesson .question-frame .audio-panel'),
+   wordChoices:document.querySelectorAll('#lesson .question-frame .v710-word-chip').length
+ })};
+ setTimeout(clean,700);
+})();
+</script>
+
 <script id="deen-v993-production-guard">(()=>{const VERSION='9.9.20-PRODUCTION',BUILD='9920premiumfill1',TITLE='DEEN v9.9.20';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
