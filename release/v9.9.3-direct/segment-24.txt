@@ -4172,4 +4172,159 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.26-PRODUCTION',BUILD='9926mascotfix1',TITLE='DEEN v9.9.26';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.27 — Companion scene refinement -->
+<style id="deen-v9927-companion-stage-css">
+/* Stop treating the companion like a badge. Make it read as a character beside the speech bubble. */
+#lesson .question-frame.deen-premium-fill .deen-character-question-row{
+  grid-template-columns:74px minmax(0,1fr)!important;
+  gap:7px!important;
+  align-items:center!important;
+  min-height:104px!important;
+  margin:0 0 15px!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
+  width:74px!important;
+  height:96px!important;
+  min-width:74px!important;
+  display:grid!important;
+  place-items:center!important;
+  position:relative!important;
+  overflow:visible!important;
+  font-size:0!important;
+  filter:none!important;
+}
+#lesson .question-frame.deen-premium-fill .v9926-mascot,
+#lesson .question-frame.deen-premium-fill .v9925-mascot-medallion{
+  width:74px!important;
+  height:86px!important;
+  display:grid!important;
+  place-items:center!important;
+  position:relative!important;
+  border:0!important;
+  border-radius:0!important;
+  background:none!important;
+  box-shadow:none!important;
+}
+#lesson .question-frame.deen-premium-fill .v9926-mascot:before,
+#lesson .question-frame.deen-premium-fill .v9925-mascot-medallion:after{
+  content:""!important;
+  position:absolute!important;
+  width:78px!important;
+  height:78px!important;
+  inset:auto!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle,rgba(124,229,202,.11) 0%,rgba(124,229,202,.04) 48%,transparent 72%)!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+}
+#lesson .question-frame.deen-premium-fill .v9926-mascot-glyph,
+#lesson .question-frame.deen-premium-fill .v9925-mascot-glyph{
+  font-size:58px!important;
+  line-height:1!important;
+  transform:translateY(2px) scale(.98)!important;
+  filter:
+    saturate(.72)
+    contrast(.96)
+    drop-shadow(0 9px 10px rgba(0,0,0,.30))
+    drop-shadow(0 0 12px rgba(117,221,196,.07))!important;
+}
+
+/* Give the bubble a calmer, less cramped proportion. */
+#lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
+  min-height:94px!important;
+  padding:14px 39px 14px 17px!important;
+  border-radius:20px!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-bubble:before{
+  left:-7px!important;
+  top:33px!important;
+}
+#lesson .question-frame.deen-premium-fill .deen-character-question-text{
+  font-size:17px!important;
+  line-height:1.28!important;
+  font-weight:600!important;
+  letter-spacing:-.05px!important;
+  text-wrap:pretty!important;
+}
+
+/* Keep the answer stack visually quiet and consistent. */
+#lesson .question-frame.deen-premium-fill .v710-word-chip{
+  min-height:48px!important;
+  border-radius:15px!important;
+  font-size:16px!important;
+}
+#lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action{
+  min-height:53px!important;
+  border-radius:16px!important;
+}
+@media(max-width:420px){
+  #lesson .question-frame.deen-premium-fill .deen-character-question-row{
+    grid-template-columns:68px minmax(0,1fr)!important;
+    gap:6px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
+    width:68px!important;
+    min-width:68px!important;
+    height:90px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .v9926-mascot,
+  #lesson .question-frame.deen-premium-fill .v9925-mascot-medallion{
+    width:68px!important;
+    height:82px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .v9926-mascot-glyph,
+  #lesson .question-frame.deen-premium-fill .v9925-mascot-glyph{
+    font-size:53px!important;
+  }
+  #lesson .question-frame.deen-premium-fill .deen-character-question-text{
+    font-size:16.5px!important;
+  }
+}
+</style>
+<script id="deen-v9927-companion-stage-js">
+(()=>{
+ if(window.__deenV9927CompanionStage)return;
+ window.__deenV9927CompanionStage=true;
+ const VERSION='9.9.27-COMPANION-STAGE';
+ const frame=()=>document.querySelector('#lesson .question-frame');
+ const qNow=()=>session?.questions?.[session?.index]||null;
+
+ function apply(){
+   const f=frame(),q=qNow();
+   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
+   f.classList.add('deen-premium-fill');
+
+   /* Let the stability layer own the mascot DOM; this patch only owns presentation. */
+   try{window.DEEN_MASCOT_STABILITY?.apply?.()}catch(_){}
+
+   f.querySelectorAll('.v960-narration-bar,.v960-narration-note,.audio-panel,.v5-source,details.v5-source,.source,[class*="source-note"]').forEach(el=>el.remove());
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(apply);
+     [80,220,520].forEach(ms=>setTimeout(apply,ms));
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(_){}
+ }
+
+ window.DEEN_COMPANION_STAGE={
+   version:VERSION,
+   apply,
+   snapshot:()=>({
+     active:!!frame()?.classList.contains('deen-premium-fill'),
+     mascot:!!frame()?.querySelector('.v9926-mascot'),
+     bubble:!!frame()?.querySelector('.deen-character-question-bubble')
+   })
+ };
+ setTimeout(apply,750);
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.27-PRODUCTION',BUILD='9927companionscene1',TITLE='DEEN v9.9.27';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
