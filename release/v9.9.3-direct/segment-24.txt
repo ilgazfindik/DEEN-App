@@ -1627,7 +1627,7 @@
 
 <!-- DEEN v9.9.14 — Ultra-clean single-card lesson -->
 <style id="deen-v9914-ultra-clean-lesson-css">
-@media(max-width:699px){
+@media(min-width:0px){
   /* Remove the entire separate top chrome. */
   #lesson .lesson-head{display:none!important}
 
