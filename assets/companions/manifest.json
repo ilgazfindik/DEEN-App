@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.2.0",
   "base_path": "assets/companions",
   "default_companion": "owl",
   "states": [
@@ -52,5 +52,12 @@
       "celebrate": "assets/companions/cat/cat_celebrate.png",
       "avatar": "assets/companions/cat/cat_avatar.png"
     }
+  },
+  "state_strategy": {
+    "lesson_idle": "idle artwork",
+    "try_again": "idle artwork with gentle shake animation",
+    "avatar": "idle artwork reused for profile",
+    "correct": "celebration artwork with positive bounce",
+    "celebrate": "celebration artwork with larger celebration bounce"
   }
 }
