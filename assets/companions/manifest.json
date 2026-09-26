@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "base_path": "assets/companions",
+  "default_companion": "owl",
+  "states": [
+    "lesson_idle",
+    "correct",
+    "try_again",
+    "celebrate",
+    "avatar"
+  ],
+  "animals": {
+    "lion": {
+      "lesson_idle": "assets/companions/lion/lion_lesson_idle.png",
+      "correct": "assets/companions/lion/lion_correct.png",
+      "try_again": "assets/companions/lion/lion_try_again.png",
+      "celebrate": "assets/companions/lion/lion_celebrate.png",
+      "avatar": "assets/companions/lion/lion_avatar.png"
+    },
+    "wolf": {
+      "lesson_idle": "assets/companions/wolf/wolf_lesson_idle.png",
+      "correct": "assets/companions/wolf/wolf_correct.png",
+      "try_again": "assets/companions/wolf/wolf_try_again.png",
+      "celebrate": "assets/companions/wolf/wolf_celebrate.png",
+      "avatar": "assets/companions/wolf/wolf_avatar.png"
+    },
+    "owl": {
+      "lesson_idle": "assets/companions/owl/owl_lesson_idle.png",
+      "correct": "assets/companions/owl/owl_correct.png",
+      "try_again": "assets/companions/owl/owl_try_again.png",
+      "celebrate": "assets/companions/owl/owl_celebrate.png",
+      "avatar": "assets/companions/owl/owl_avatar.png"
+    },
+    "turtle": {
+      "lesson_idle": "assets/companions/turtle/turtle_lesson_idle.png",
+      "correct": "assets/companions/turtle/turtle_correct.png",
+      "try_again": "assets/companions/turtle/turtle_try_again.png",
+      "celebrate": "assets/companions/turtle/turtle_celebrate.png",
+      "avatar": "assets/companions/turtle/turtle_avatar.png"
+    },
+    "eagle": {
+      "lesson_idle": "assets/companions/eagle/eagle_lesson_idle.png",
+      "correct": "assets/companions/eagle/eagle_correct.png",
+      "try_again": "assets/companions/eagle/eagle_try_again.png",
+      "celebrate": "assets/companions/eagle/eagle_celebrate.png",
+      "avatar": "assets/companions/eagle/eagle_avatar.png"
+    },
+    "cat": {
+      "lesson_idle": "assets/companions/cat/cat_lesson_idle.png",
+      "correct": "assets/companions/cat/cat_correct.png",
+      "try_again": "assets/companions/cat/cat_try_again.png",
+      "celebrate": "assets/companions/cat/cat_celebrate.png",
+      "avatar": "assets/companions/cat/cat_avatar.png"
+    }
+  }
+}
