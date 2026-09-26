@@ -5636,7 +5636,7 @@
      };
      img.onload=()=>done(true);
      img.onerror=()=>done(false);
-     img.src=src+(src.includes('?')?'&':'?')+'v=9942companionpolish1';
+     img.src=src+(src.includes('?')?'&':'?')+'v=9943companionweight1';
      if(img.complete && img.naturalWidth>0)done(true);
      setTimeout(()=>done(false),3500);
    });
@@ -5708,7 +5708,7 @@
    img.setAttribute('aria-hidden','true');
    img.dataset.companion=id;
    img.dataset.mood=resolvedMood;
-   img.src=src+'?v=9942companionpolish1';
+   img.src=src+'?v=9943companionweight1';
 
    avatar.classList.add('deen-companion-runtime-ready');
    avatar.replaceChildren(img);
@@ -5737,7 +5737,7 @@
    img.className='deen-companion-profile-img';
    img.alt='';
    img.setAttribute('aria-hidden','true');
-   img.src=src+'?v=9942companionpolish1';
+   img.src=src+'?v=9943companionweight1';
    el.replaceChildren(img);
    return true;
  }
@@ -6382,4 +6382,135 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.42-PRODUCTION',BUILD='9942companionpolish1',TITLE='DEEN v9.9.42';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.43 — Companion visual-weight tuning from device screenshots -->
+<style id="deen-v9943-companion-weight-css">
+/*
+  v9.9.43: all companions stay fully visible, but their perceived visual
+  weight is normalized against the speech bubble. We enlarge artwork mostly
+  inside the existing grid columns so the bubble does not get squeezed.
+*/
+
+/* CAT — screenshot showed it slightly too small beside the bubble. */
+#lesson .question-frame .deen-character-question-avatar[data-animal="cat"] .deen-companion-runtime-img{
+  width:144px!important;
+  height:140px!important;
+  left:3px!important;
+  top:-3px!important;
+}
+
+/* LION — stronger presence, still fully contained. */
+#lesson .question-frame .deen-character-question-avatar[data-animal="lion"] .deen-companion-runtime-img{
+  width:154px!important;
+  height:144px!important;
+  left:3px!important;
+  top:-2px!important;
+}
+
+/* OWL — visually the smallest in the screenshots; give it the largest relative lift. */
+#lesson .question-frame .deen-character-question-avatar[data-animal="owl"] .deen-companion-runtime-img{
+  width:128px!important;
+  height:136px!important;
+  left:2px!important;
+  top:-7px!important;
+}
+
+/* Keep the remaining companions in the same visual-weight family. */
+#lesson .question-frame .deen-character-question-avatar[data-animal="eagle"] .deen-companion-runtime-img{
+  width:122px!important;
+  height:132px!important;
+  left:1px!important;
+  top:-6px!important;
+}
+#lesson .question-frame .deen-character-question-avatar[data-animal="wolf"] .deen-companion-runtime-img{
+  width:138px!important;
+  height:136px!important;
+  left:2px!important;
+  top:-2px!important;
+}
+#lesson .question-frame .deen-character-question-avatar[data-animal="turtle"] .deen-companion-runtime-img{
+  width:128px!important;
+  height:128px!important;
+  left:1px!important;
+  top:0!important;
+}
+
+/* A slightly tighter character-to-bubble relationship, closer to the reference. */
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row{
+  gap:4px!important;
+}
+
+/* Mobile is where the screenshots were captured. */
+@media(max-width:420px){
+  #lesson .question-frame .deen-character-question-avatar[data-animal="cat"] .deen-companion-runtime-img{
+    width:132px!important;
+    height:132px!important;
+    left:2px!important;
+    top:-4px!important;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="lion"] .deen-companion-runtime-img{
+    width:144px!important;
+    height:134px!important;
+    left:3px!important;
+    top:-3px!important;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="owl"] .deen-companion-runtime-img{
+    width:120px!important;
+    height:128px!important;
+    left:2px!important;
+    top:-6px!important;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="eagle"] .deen-companion-runtime-img{
+    width:116px!important;
+    height:126px!important;
+    left:1px!important;
+    top:-5px!important;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="wolf"] .deen-companion-runtime-img{
+    width:128px!important;
+    height:126px!important;
+    left:2px!important;
+    top:-2px!important;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="turtle"] .deen-companion-runtime-img{
+    width:120px!important;
+    height:120px!important;
+    left:1px!important;
+    top:0!important;
+  }
+}
+</style>
+
+<script id="deen-v9943-companion-weight-js">
+(()=>{
+ if(window.__deenV9943CompanionWeight)return;
+ window.__deenV9943CompanionWeight=true;
+ const VERSION='9.9.43-COMPANION-WEIGHT';
+
+ function apply(){
+   const row=document.querySelector('#lesson .deen-character-question-row.deen-companion-runtime-row');
+   const avatar=row?.querySelector('.deen-character-question-avatar.deen-companion-runtime-ready');
+   if(!row||!avatar)return false;
+   const animal=avatar.dataset.animal||row.dataset.companionAnimal||'';
+   if(animal)row.dataset.companionAnimal=animal;
+   row.dataset.deenCompanionWeight='9943';
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
+   return true;
+ }
+
+ window.DEEN_COMPANION_WEIGHT={
+   version:VERSION,
+   apply,
+   snapshot:()=>({
+     animal:document.querySelector('#lesson .deen-character-question-avatar')?.dataset?.animal||null,
+     tuned:document.querySelector('#lesson .deen-character-question-row')?.dataset?.deenCompanionWeight||null
+   })
+ };
+
+ [120,350,700,1200].forEach(ms=>setTimeout(apply,ms));
+ window.addEventListener('resize',()=>setTimeout(apply,80),{passive:true});
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.43-PRODUCTION',BUILD='9943companionweight1',TITLE='DEEN v9.9.43';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
