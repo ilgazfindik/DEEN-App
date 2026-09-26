@@ -5496,7 +5496,7 @@
  window.__deenV9936CompanionRuntime=true;
  window.__DEEN_COMPANION_ASSET_MODE=true;
 
- const VERSION='9.9.38-COMPANION-RUNTIME-STABLE';
+ const VERSION='9.9.39-ALL-COMPANIONS';
  const IDS=['lion','wolf','owl','turtle','eagle','cat'];
  const STATES=['lesson_idle','correct','try_again','celebrate','avatar'];
  const DEFAULT='owl';
@@ -5541,7 +5541,7 @@
      };
      img.onload=()=>done(true);
      img.onerror=()=>done(false);
-     img.src=src+(src.includes('?')?'&':'?')+'v=9938stableasset1';
+     img.src=src+(src.includes('?')?'&':'?')+'v=9939allcompanions1';
      if(img.complete && img.naturalWidth>0)done(true);
      setTimeout(()=>done(false),3500);
    });
@@ -5604,7 +5604,7 @@
    img.setAttribute('aria-hidden','true');
    img.dataset.companion=id;
    img.dataset.mood=resolvedMood;
-   img.src=src+'?v=9938stableasset1';
+   img.src=src+'?v=9939allcompanions1';
 
    avatar.classList.add('deen-companion-runtime-ready');
    avatar.replaceChildren(img);
@@ -5633,7 +5633,7 @@
    img.className='deen-companion-profile-img';
    img.alt='';
    img.setAttribute('aria-hidden','true');
-   img.src=src+'?v=9938stableasset1';
+   img.src=src+'?v=9939allcompanions1';
    el.replaceChildren(img);
    return true;
  }
@@ -5734,7 +5734,7 @@
  window.__deenV9938StableCompanionLock=true;
  window.__DEEN_COMPANION_ASSET_MODE=true;
 
- const VERSION='9.9.38-STABLE-COMPANION-LOCK';
+ const VERSION='9.9.39-ALL-COMPANIONS-LOCK';
  let observer=null;
  let repairing=false;
  let scheduled=false;
@@ -5839,4 +5839,37 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.38-PRODUCTION',BUILD='9938stableasset1',TITLE='DEEN v9.9.38';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.39 — Complete six-animal companion pack -->
+<script id="deen-v9939-all-companions-js">
+(()=>{
+ if(window.__deenV9939AllCompanions)return;
+ window.__deenV9939AllCompanions=true;
+
+ const VERSION='9.9.39-ALL-COMPANIONS';
+ const ANIMALS=['lion','wolf','owl','turtle','eagle','cat'];
+
+ function apply(){
+   try{window.DEEN_COMPANION_ASSETS?.preload?.()}catch(_){}
+   try{window.DEEN_COMPANION_LOCK?.apply?.()}catch(_){}
+ }
+
+ window.DEEN_ALL_COMPANIONS={
+   version:VERSION,
+   animals:[...ANIMALS],
+   states:['lesson_idle','correct','try_again','celebrate','avatar'],
+   apply,
+   snapshot:()=>({
+     selected:window.DEEN_COMPANION_ASSETS?.selected?.()||null,
+     animal:document.querySelector('#lesson .deen-character-question-avatar')?.dataset?.animal||null,
+     mood:document.querySelector('#lesson .deen-character-question-avatar')?.dataset?.deenCompanionMood||null,
+     image:document.querySelector('#lesson .deen-companion-runtime-img')?.getAttribute('src')||null
+   })
+ };
+
+ [120,420,900,1600].forEach(ms=>setTimeout(apply,ms));
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.39-PRODUCTION',BUILD='9939allcompanions1',TITLE='DEEN v9.9.39';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
