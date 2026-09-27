@@ -185,7 +185,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
      ['deen-v9947-final-companion-stabilization-js','Final companion stabilization paketi eksik'],
      ['deen-v9948-no-human-guide-js','No-human-guide paketi eksik'],
      ['deen-v9950-companion-streak-js','Companion streak direct paketi eksik'],
-     ['deen-v9953-runtime-arbiter-js','Runtime arbiter paketi eksik']
+     ['deen-v9953-runtime-arbiter-js','Runtime arbiter paketi eksik'],
+     ['deen-v9987-runtime-regression-js','Runtime regression guard eksik']
    ];
    const missing=required.find(([marker])=>!html.includes(marker));
    if(missing)throw new Error(missing[1]);
