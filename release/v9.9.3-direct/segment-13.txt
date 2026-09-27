@@ -794,12 +794,9 @@
     const weakRows=weak.slice(0,5).map(c=>`<div class="v640-weak-row"><div class="row"><b>${esc(c.topic)}</b><span>%${c.score}</span></div><small>${esc(U[Number(c.unit.slice(1))-1]||c.unit)} · ${weakLabel(c)}${c.due?' · '+c.due+' tekrar bekliyor':''}</small></div>`).join('');
     $('reviewScreenBody').innerHTML=heading('HATIRLA · PEKİŞTİR','Unutmaya göre çalışan tekrar.','Plan, geçmiş cevapların ve tekrar zamanlarınla otomatik değişir.')+planCardHtml(p)+`<div class="v5-tilegrid">`+[['mistakes','Yanlışların',state.mistakes.length+' soru','review'],['weak','Zayıf Kavramlar',weak.length+' kavram · 3 enerji','bulb'],['quick','Hızlı Tekrar','5 soru · Ücretsiz','book'],['due','Vadesi Gelen',due+' soru','review']].map(([mode,title,desc,icon])=>`<button onclick="startSmartReview('${mode}')"><span>${SVG[icon]}</span><b>${title}</b><small>${desc}</small></button>`).join('')+`</div><h2 class="v5-section-label">Öğrenme hafızası</h2>${weakRows?`<div class="v640-weak-list">${weakRows}</div>`:'<p class="v5-muted">Henüz yeterli cevap geçmişi yok. Birkaç ders sonra zayıf kavramlar burada görünür.</p>'}<h2 class="v5-section-label">Ünite bazında</h2>${unitCards.join('')||'<p class="v5-muted">İlk üniteni oynadıkça burada kişisel hafıza skoru oluşur.</p>'}<p class="v5-muted">Bu skor yalnız öğrenme ve hatırlama performansını yönetir; dinî yeterlilik veya ibadet değeri değildir.</p>`;
   };
-  const BASE_RETURN_CARD=window.returnCard;
-  window.returnCard=function(...args){
-    const r=typeof BASE_RETURN_CARD==='function'?BASE_RETURN_CARD.apply(this,args):undefined;
+  document.addEventListener('deen:return-card-rendered',()=>{
     try{const host=$('v5Return'),p=plan('smart',null,7);if(host&&p.summary.count&&conceptRows().length){host.querySelector('.v640-return-hint')?.remove();const x=document.createElement('div');x.className='v640-return-hint';x.innerHTML=`<b>Hafıza planı:</b> ${p.summary.due} vadesi gelen · ${p.summary.mistakes} yanlış önceliği · ${p.summary.concepts} kavram`;host.append(x)}}catch(e){}
-    return r;
-  };
+  });
   let v641PendingResult=null;
   document.addEventListener('deen:lesson-result-before',e=>{
     const s=e?.detail?.session;
@@ -988,8 +985,7 @@
     const cta=completed?primary('ÖĞRENME YOLUNA DÖN',"navigate('learnScreen')"):primary(act.label,act.action);
     return `<section class="lp-return v650-journey ${completed?'v650-complete':''}"><div class="v650-head"><div><span class="v5-kicker">BUGÜNKÜ YOLCULUK</span></div><div class="v650-plan-badge">${st.done}/${st.total}</div></div><h1>${esc(headline)}</h1><p>${esc(copy)}</p><div class="v650-steps" style="--v650-count:${Math.max(1,ss.length)}">${stepHtml}</div>${cta}<div class="v650-foot"><span>Görevler <b>${q.done||0}/3</b></span><span>Haftalık ritim <b>${Math.min(weekly.days||0,weekly.goal||5)}/${weekly.goal||5}</b></span>${st.due?`<span><b>${st.due}</b> tekrar</span>`:''}</div><div class="v650-soft">Ödüller yalnız öğrenme oturumları içindir; ibadetin kendisi puanlanmaz. Günlük plan bittikten sonra devam etmek isteğe bağlıdır.</div></section>`;
   }
-  const BASE_RETURN=window.returnCard;
-  window.returnCard=function(...args){try{if(typeof BASE_RETURN==='function')BASE_RETURN.apply(this,args)}catch(e){}try{evaluate(day(),false);const host=$('v5Return');if(host){host.innerHTML=journeyHtml();const stats=$('v5Stats');if(stats?.parentNode&&stats.nextElementSibling!==host)stats.after(host);const streak=$('v622StreakPanel');if(streak?.parentNode&&host.nextElementSibling!==streak)host.after(streak)}}catch(e){console.warn('V6.5.1 daily journey render',e)}};
+  document.addEventListener('deen:return-card-rendered',()=>{try{evaluate(day(),false);const host=$('v5Return');if(host){host.innerHTML=journeyHtml();const stats=$('v5Stats');if(stats?.parentNode&&stats.nextElementSibling!==host)stats.after(host);const streak=$('v622StreakPanel');if(streak?.parentNode&&host.nextElementSibling!==streak)host.after(streak)}}catch(e){console.warn('V6.5.1 daily journey render',e)}});
 
   const BASE_COMMIT=window.commit;
   window.commit=function(...args){const earned=BASE_COMMIT.apply(this,args);try{evaluate(day(),true)}catch(e){console.warn('V6.5.1 journey commit',e)}return earned};
@@ -999,8 +995,7 @@
     box.innerHTML=`<div class="row"><b>Bugünkü yolculuk</b><span>${st.done}/${st.total}</span></div><div class="v650-mini-track">${ss.map(x=>`<i class="${x.done?'done':x.current?'current':''}"></i>`).join('')}</div><p>${st.complete?'Bugünkü plan tamamlandı; bundan sonrası isteğe bağlı.':esc(next.title)}</p>`;host.append(box);
   }
   document.addEventListener('deen:lesson-result',()=>{try{evaluate(day(),true);decorateResult()}catch(e){console.warn('V6.5.1 result loop',e)}});
-  const BASE_SHOW_FINAL=window.showSectionFinalResult;
-  if(typeof BASE_SHOW_FINAL==='function')window.showSectionFinalResult=function(...args){const r=BASE_SHOW_FINAL.apply(this,args);try{evaluate(day(),true);decorateResult()}catch(e){}return r};
+  document.addEventListener('deen:section-result',()=>{try{evaluate(day(),true);decorateResult()}catch(e){}});
 
   const BASE_MIGRATE=typeof migrate==='function'?migrate:null;
   if(BASE_MIGRATE)migrate=function(...args){return ensureJourney(BASE_MIGRATE.apply(this,args))};
