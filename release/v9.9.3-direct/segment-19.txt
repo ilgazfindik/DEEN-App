@@ -105,6 +105,7 @@
 </style>
 <script data-inline-from="./patches/v8.1.3.runtime.js">
 (()=>{
+ if(window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV813Applied)return;window.__deenV813Applied=true;
  const VERSION='8.1.3',STATE_VERSION=72;
  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -203,6 +204,7 @@
 </style>
 <script data-inline-from="./patches/v8.2.0.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV820Applied)return;window.__deenV820Applied=true;
  const VERSION='8.2.0',STATE_VERSION=72;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.2.0 — Room & Shop Refresh';
@@ -305,6 +307,7 @@
 </style>
 <script data-inline-from="./patches/v8.2.1.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  const VERSION='8.2.1';
  let tries=0;
  function boot(){
@@ -420,6 +423,7 @@ body.v830-module-open{overscroll-behavior:none}
 </style>
 <script data-inline-from="./patches/v8.3.0.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV830Applied)return;window.__deenV830Applied=true;
  const VERSION='8.3.0',STATE_VERSION=73;
  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -564,6 +568,7 @@ body.v830-module-open{overscroll-behavior:none}
 </style>
 <script data-inline-from="./patches/v8.4.4.no-clothing.runtime.js">
 (()=>{
+ if(window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV846AvatarSaveStable)return;
  window.__deenV846AvatarSaveStable=true;
  const VERSION='8.4.6-AVATAR-SAVE-STABLE',REV='846save2';
@@ -664,6 +669,7 @@ body.v830-module-open{overscroll-behavior:none}
 </script>
 <script data-inline-from="./patches/v8.4.8.global-interaction-stability.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV848GlobalStability)return;
  window.__deenV848GlobalStability=true;
  const VERSION='8.4.8-GLOBAL-INTERACTION-STABILITY',REV='848global1';
@@ -749,6 +755,7 @@ body.v830-module-open{overscroll-behavior:none}
 
 <script data-inline-from="./patches/v8.5.0.runtime-stability.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV850Runtime)return;window.__deenV850Runtime=true;
  const VERSION='8.5.0-RUNTIME-STABILITY',REV='850stable1';
  let progressPollStopped=false,stopAttempts=0,forcedProgressCloses=0,recoveredOverflow=0,recoveredWorldLocks=0,lastError=null;
