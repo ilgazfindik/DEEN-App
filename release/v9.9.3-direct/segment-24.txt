@@ -5636,7 +5636,7 @@
      };
      img.onload=()=>done(true);
      img.onerror=()=>done(false);
-     img.src=src+(src.includes('?')?'&':'?')+'v=9948nohumanguide1';
+     img.src=src+(src.includes('?')?'&':'?')+'v=9949companionstreak1';
      if(img.complete && img.naturalWidth>0)done(true);
      setTimeout(()=>done(false),3500);
    });
@@ -5709,7 +5709,7 @@
    img.setAttribute('aria-hidden','true');
    img.dataset.companion=id;
    img.dataset.mood=resolvedMood;
-   img.src=src+'?v=9948nohumanguide1';
+   img.src=src+'?v=9949companionstreak1';
 
    avatar.classList.add('deen-companion-runtime-ready');
    avatar.replaceChildren(img);
@@ -5738,7 +5738,7 @@
    img.className='deen-companion-profile-img';
    img.alt='';
    img.setAttribute('aria-hidden','true');
-   img.src=src+'?v=9948nohumanguide1';
+   img.src=src+'?v=9949companionstreak1';
    el.replaceChildren(img);
    return true;
  }
@@ -7852,4 +7852,372 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.48-PRODUCTION',BUILD='9948nohumanguide1',TITLE='DEEN v9.9.48';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.49 — Authoritative companion streak engine -->
+<style id="deen-v9949-companion-streak-css">
+#lesson .question-frame{
+  position:relative!important;
+}
+#lesson .deen-streak-overlay{
+  position:absolute!important;
+  inset:0!important;
+  z-index:80!important;
+  display:grid!important;
+  place-items:center!important;
+  pointer-events:none!important;
+  opacity:0!important;
+  background:
+    radial-gradient(circle at 50% 44%,rgba(78,226,190,.12),transparent 29%),
+    rgba(3,20,26,.18)!important;
+  backdrop-filter:blur(1.5px)!important;
+  -webkit-backdrop-filter:blur(1.5px)!important;
+  animation:deenStreakOverlayIn .16s ease forwards!important;
+}
+#lesson .deen-streak-card{
+  position:relative!important;
+  width:min(78%,270px)!important;
+  min-height:260px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  padding:18px 18px 16px!important;
+  border-radius:30px!important;
+  border:1px solid rgba(229,190,91,.70)!important;
+  background:
+    radial-gradient(circle at 50% 32%,rgba(100,239,199,.13),transparent 40%),
+    linear-gradient(155deg,rgba(8,47,54,.97),rgba(4,30,39,.98))!important;
+  box-shadow:
+    0 24px 56px rgba(0,0,0,.40),
+    0 0 0 1px rgba(255,255,255,.025) inset,
+    0 0 35px rgba(82,222,187,.09)!important;
+  animation:deenStreakCardPop .64s cubic-bezier(.18,.9,.24,1.18) both!important;
+}
+#lesson .deen-streak-mascot{
+  width:156px!important;
+  height:156px!important;
+  flex:0 0 156px!important;
+  background-image:url("assets/combo/companions-sheet.png")!important;
+  background-size:400% 300%!important;
+  background-repeat:no-repeat!important;
+  filter:drop-shadow(0 16px 19px rgba(0,0,0,.30))!important;
+  animation:deenStreakMascotBounce .92s cubic-bezier(.2,.85,.2,1) both!important;
+}
+#lesson .deen-streak-count{
+  margin-top:-3px!important;
+  color:#f4cf69!important;
+  font:950 24px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  letter-spacing:.4px!important;
+  text-transform:uppercase!important;
+  text-shadow:0 3px 15px rgba(0,0,0,.35)!important;
+}
+#lesson .deen-streak-message{
+  max-width:220px!important;
+  color:#e7f4f0!important;
+  font:800 12px/1.35 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  text-align:center!important;
+  opacity:.88!important;
+}
+#lesson .deen-streak-particle{
+  position:absolute!important;
+  left:50%!important;
+  top:44%!important;
+  width:7px!important;
+  height:7px!important;
+  border-radius:50%!important;
+  background:#75e4c7!important;
+  box-shadow:0 0 10px rgba(117,228,199,.45)!important;
+  opacity:0!important;
+  animation:deenStreakParticle .88s cubic-bezier(.2,.8,.2,1) both!important;
+}
+#lesson .deen-streak-particle:nth-of-type(2n){
+  background:#e8c65d!important;
+  box-shadow:0 0 10px rgba(232,198,93,.42)!important;
+}
+#lesson .deen-streak-particle.p0{--sx:-66px;--sy:-73px;animation-delay:0ms!important}
+#lesson .deen-streak-particle.p1{--sx:-35px;--sy:-96px;animation-delay:35ms!important}
+#lesson .deen-streak-particle.p2{--sx:3px;--sy:-103px;animation-delay:55ms!important}
+#lesson .deen-streak-particle.p3{--sx:43px;--sy:-90px;animation-delay:70ms!important}
+#lesson .deen-streak-particle.p4{--sx:69px;--sy:-61px;animation-delay:85ms!important}
+#lesson .deen-streak-particle.p5{--sx:-79px;--sy:-34px;animation-delay:100ms!important}
+#lesson .deen-streak-particle.p6{--sx:82px;--sy:-27px;animation-delay:115ms!important}
+#lesson .deen-streak-particle.p7{--sx:-56px;--sy:10px;animation-delay:130ms!important}
+#lesson .deen-streak-particle.p8{--sx:56px;--sy:13px;animation-delay:145ms!important}
+#lesson .deen-streak-particle.p9{--sx:-8px;--sy:-116px;animation-delay:160ms!important}
+
+@keyframes deenStreakOverlayIn{
+  to{opacity:1}
+}
+@keyframes deenStreakCardPop{
+  0%{opacity:0;transform:translateY(36px) scale(.72)}
+  62%{opacity:1;transform:translateY(-4px) scale(1.045)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes deenStreakMascotBounce{
+  0%{transform:translateY(16px) scale(.82);opacity:0}
+  45%{transform:translateY(-8px) scale(1.08);opacity:1}
+  72%{transform:translateY(0) scale(.98)}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+@keyframes deenStreakParticle{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.35)}
+  18%{opacity:1}
+  100%{opacity:0;transform:translate(calc(-50% + var(--sx)),calc(-50% + var(--sy))) scale(1.18)}
+}
+#lesson .deen-streak-overlay.deen-streak-closing{
+  animation:deenStreakOverlayOut .20s ease forwards!important;
+}
+@keyframes deenStreakOverlayOut{
+  to{opacity:0}
+}
+
+@media(max-width:420px){
+  #lesson .deen-streak-card{
+    width:min(76%,246px)!important;
+    min-height:238px!important;
+    padding:15px 15px 14px!important;
+    border-radius:26px!important;
+  }
+  #lesson .deen-streak-mascot{
+    width:140px!important;
+    height:140px!important;
+    flex-basis:140px!important;
+  }
+  #lesson .deen-streak-count{font-size:21px!important}
+  #lesson .deen-streak-message{font-size:11px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #lesson .deen-streak-card,
+  #lesson .deen-streak-mascot,
+  #lesson .deen-streak-particle,
+  #lesson .deen-streak-overlay{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+  }
+}
+</style>
+
+<script id="deen-v9949-companion-streak-js">
+(()=>{
+ if(window.__deenV9949CompanionStreak)return;
+ window.__deenV9949CompanionStreak=true;
+
+ const VERSION='9.9.49-COMPANION-STREAK';
+ const IDS=['lion','wolf','owl','turtle','eagle','cat'];
+ const LABELS={lion:'Aslan',wolf:'Kurt',owl:'Baykuş',turtle:'Kaplumbağa',eagle:'Kartal',cat:'Kedi'};
+ const POSES={
+   lion:[[0,0],[0,1]],
+   wolf:[[0,2],[0,3]],
+   owl:[[1,0],[1,1]],
+   turtle:[[1,2],[1,3]],
+   eagle:[[2,0],[2,1]],
+   cat:[[2,2],[2,3]]
+ };
+ const MESSAGES={
+   3:'Harika gidiyorsun!',
+   5:'Mükemmel seri!',
+   10:'İnanılmaz odak!',
+   15:'Seri devam ediyor!'
+ };
+
+ let streak=Number(session?.companionStreak||0)||0;
+ let busy=false;
+ let lastGrade={key:'',correct:null,at:0};
+ let lastQuestionsRef=session?.questions||null;
+ let lastRenderedIndex=Number(session?.index||0);
+
+ const frame=()=>document.querySelector('#lesson .question-frame');
+
+ function selected(){
+   let id='';
+   try{id=String(window.DEEN_COMPANION_ASSETS?.selected?.()||'').toLowerCase()}catch(_){}
+   if(!IDS.includes(id)){
+     try{id=String(state?.profile?.companion||'').toLowerCase()}catch(_){}
+   }
+   if(!IDS.includes(id)){
+     try{id=String(window.DEEN?.state?.profile?.companion||window.DEEN?.state?.companion||'').toLowerCase()}catch(_){}
+   }
+   return IDS.includes(id)?id:'owl';
+ }
+
+ function questionKey(){
+   const q=session?.questions?.[session?.index]||{};
+   return [
+     Number(session?.index||0),
+     q.id||q.question_id||q.prompt||q.question||q.text||''
+   ].join('|');
+ }
+
+ function save(){
+   try{if(session)session.companionStreak=streak}catch(_){}
+ }
+
+ function reset(){
+   streak=0;
+   save();
+ }
+
+ function shouldCelebrate(n){
+   return n===3||n===5||n===10||(n>10&&n%5===0);
+ }
+
+ function bgPos(row,col){
+   return ((col/3)*100)+'% '+((row/2)*100)+'%';
+ }
+
+ function closeOverlay(ov){
+   if(!ov||!ov.isConnected)return;
+   ov.classList.add('deen-streak-closing');
+   setTimeout(()=>{ov.remove();busy=false},220);
+ }
+
+ function celebrate(n){
+   if(busy)return false;
+   const f=frame();
+   if(!f)return false;
+   busy=true;
+
+   f.querySelectorAll('.deen-streak-overlay').forEach(el=>el.remove());
+
+   const id=selected();
+   const poses=POSES[id]||POSES.owl;
+   const pose=poses[(n>=5?1:0)%poses.length];
+
+   const ov=document.createElement('div');
+   ov.className='deen-streak-overlay';
+   ov.setAttribute('aria-hidden','true');
+
+   const card=document.createElement('div');
+   card.className='deen-streak-card';
+
+   const mascot=document.createElement('div');
+   mascot.className='deen-streak-mascot';
+   mascot.style.backgroundPosition=bgPos(pose[0],pose[1]);
+
+   const count=document.createElement('div');
+   count.className='deen-streak-count';
+   count.textContent=n+' SERİ';
+
+   const message=document.createElement('div');
+   message.className='deen-streak-message';
+   message.textContent=(MESSAGES[n]||'Seri devam ediyor!')+' '+LABELS[id]+' seninle.';
+
+   card.append(mascot,count,message);
+   ov.appendChild(card);
+
+   for(let i=0;i<10;i++){
+     const p=document.createElement('i');
+     p.className='deen-streak-particle p'+i;
+     ov.appendChild(p);
+   }
+
+   f.appendChild(ov);
+
+   window.__DEEN_COMPANION_REACTION_LOCK=Date.now()+1250;
+   try{navigator.vibrate?.(n>=10?[18,32,18,32,24]:[14,24,14])}catch(_){}
+   try{window.DEEN_NO_HUMAN_GUIDE?.apply?.()}catch(_){}
+
+   setTimeout(()=>closeOverlay(ov),n>=10?1250:1050);
+   return true;
+ }
+
+ function handleAnswer(correct){
+   if(typeof correct!=='boolean')return false;
+
+   const now=Date.now();
+   const key=questionKey();
+
+   // Guard against duplicate wrappers / duplicate grading of the same question.
+   if(lastGrade.key===key && lastGrade.correct===correct && now-lastGrade.at<650)return false;
+   lastGrade={key,correct,at:now};
+
+   if(correct){
+     streak+=1;
+     save();
+     if(shouldCelebrate(streak)){
+       setTimeout(()=>celebrate(streak),260);
+     }
+   }else{
+     reset();
+   }
+   return true;
+ }
+
+ function onRender(){
+   const questionsRef=session?.questions||null;
+   const idx=Number(session?.index||0);
+
+   // A new lesson/session resets the consecutive-answer streak.
+   if(questionsRef!==lastQuestionsRef || idx<lastRenderedIndex){
+     reset();
+     lastQuestionsRef=questionsRef;
+   }
+   lastRenderedIndex=idx;
+
+   try{window.DEEN_NO_HUMAN_GUIDE?.apply?.()}catch(_){}
+ }
+
+ const CQ=window.completeQuestion;
+ if(typeof CQ==='function'){
+   window.completeQuestion=function(correct,...rest){
+     const keyBefore=questionKey();
+     const r=CQ.call(this,correct,...rest);
+     if(typeof correct==='boolean'){
+       // Use the pre-navigation question key if an inner wrapper advances state.
+       const now=Date.now();
+       if(!(lastGrade.key===keyBefore && lastGrade.correct===correct && now-lastGrade.at<650)){
+         lastGrade={key:keyBefore,correct,at:now};
+         if(correct){
+           streak+=1;
+           save();
+           if(shouldCelebrate(streak))setTimeout(()=>celebrate(streak),260);
+         }else reset();
+       }
+     }
+     return r;
+   };
+   try{completeQuestion=window.completeQuestion}catch(_){}
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(onRender);
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(_){}
+ }
+
+ // Preload the sprite sheet before the first milestone.
+ try{
+   const preload=new Image();
+   preload.src='assets/combo/companions-sheet.png?v=9949companionstreak1';
+ }catch(_){}
+
+ window.DEEN_COMPANION_STREAK={
+   version:VERSION,
+   onAnswer:handleAnswer,
+   celebrate,
+   reset,
+   selected,
+   get value(){return streak},
+   snapshot:()=>({
+     streak,
+     selected:selected(),
+     busy,
+     question:questionKey()
+   })
+ };
+
+ // Compatibility for Qwen's experimental API; one authoritative counter only.
+ window.DEEN_COMBO=window.DEEN_COMPANION_STREAK;
+
+ try{window.DEEN_NO_HUMAN_GUIDE?.apply?.()}catch(_){}
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.49-PRODUCTION',BUILD='9949companionstreak1',TITLE='DEEN v9.9.49';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
