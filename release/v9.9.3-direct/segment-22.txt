@@ -497,7 +497,7 @@
 <script id="deen-v883-wrong-review-mastery">
 (()=>{
  if(window.__deenV883WrongReviewMastery)return;window.__deenV883WrongReviewMastery=true;
- const VERSION='8.8.3-WRONG-REVIEW-MASTERY',BUILD='883review1';
+ const VERSION='9.9.62-WRONG-REVIEW-EVENTS',BUILD='9962lifecycle1';
  const META='__deenWrongReviewMastery';
  const RETRY='__deenReviewRetry';
  let queued=0,requeued=0,resolved=0,masteredLessons=0,lastEvent=null;
@@ -570,64 +570,54 @@
    resolved++;
    emit('resolved',{id:questionId(q),pending:m.pending});
  }
- function wrapCompleteQuestion(){
-   const old=typeof completeQuestion==='function'?completeQuestion:window.completeQuestion;
-   if(typeof old!=='function'||old.__v883WrongReview)return false;
-   const wrapped=function(correct,q,...rest){
-     const s=getSession(),m=ensureMeta(s),current=s?.questions?.[Number(s?.index)||0]||q;
-     const actualQ=q||current;
-     const isRetry=!!(current?.[RETRY]||actualQ?.[RETRY]);
-     const ok=correct===true;
-
-     if(m&&actualQ){
-       if(!ok)queueWrong(s,m,actualQ,isRetry);
-       else if(isRetry)resolveRetry(m,actualQ);
-     }
-
-     const out=old.call(this,correct,q,...rest);
-
-     if(m&&ok&&isRetry&&m.pending===0&&m.hadMistake){
-       normalizeMastery(s,m);
-     }
-     return out;
-   };
-   wrapped.__v883WrongReview=true;
-   wrapped.__v883Original=old;
-   try{window.completeQuestion=wrapped;completeQuestion=wrapped}catch(_){window.completeQuestion=wrapped}
-   return true;
+ function currentQuestion(){
+   const s=getSession();
+   return s?.questions?.[Number(s?.index)||0]||null;
  }
- function wrapRenderQuestion(){
-   const old=typeof renderQuestion==='function'?renderQuestion:window.renderQuestion;
-   if(typeof old!=='function'||old.__v883WrongReview)return false;
-   const wrapped=function(...args){
-     const s=getSession();
-     if(s&&Array.isArray(s.questions))ensureMeta(s);
-     return old.apply(this,args);
-   };
-   wrapped.__v883WrongReview=true;
-   wrapped.__v883Original=old;
-   try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
-   return true;
+ let lastGrade=null;
+
+ function onRender(){
+   const s=getSession();
+   if(s&&Array.isArray(s.questions))ensureMeta(s);
  }
- function install(){
-   const completeWrapped=wrapCompleteQuestion();
-   const renderWrapped=wrapRenderQuestion();
-   if(!completeWrapped||!renderWrapped){
-     let tries=0;
-     const timer=setInterval(()=>{
-       tries++;
-       const c=wrapCompleteQuestion(),r=wrapRenderQuestion();
-       if((c||window.completeQuestion?.__v883WrongReview)&&(r||window.renderQuestion?.__v883WrongReview)||tries>20)clearInterval(timer);
-     },120);
+
+ function onGrading(e){
+   const d=e?.detail||{};
+   const s=getSession(),m=ensureMeta(s);
+   const actualQ=d.question||currentQuestion();
+   if(!m||!actualQ)return;
+
+   const isRetry=!!actualQ?.[RETRY];
+   const ok=d.correct===true;
+
+   if(!ok)queueWrong(s,m,actualQ,isRetry);
+   else if(isRetry)resolveRetry(m,actualQ);
+
+   lastGrade={epoch:Number(d.epoch),s,m,q:actualQ,ok,isRetry};
+ }
+
+ function onGraded(e){
+   const epoch=Number(e?.detail?.epoch);
+   const g=lastGrade;
+   if(!g||g.epoch!==epoch)return;
+   if(g.ok&&g.isRetry&&g.m.pending===0&&g.m.hadMistake){
+     normalizeMastery(g.s,g.m);
    }
+   lastGrade=null;
+ }
+
+ function install(){
+   document.addEventListener('deen:question-rendered',onRender);
+   document.addEventListener('deen:question-grading',onGrading);
+   document.addEventListener('deen:question-graded',onGraded);
    document.documentElement.dataset.deenWrongReview='ready';
-   emit('ready',{completeWrapped:!!(window.completeQuestion?.__v883WrongReview),renderWrapped:!!(window.renderQuestion?.__v883WrongReview)});
+   emit('ready',{eventDriven:true});
  }
  window.DEEN_WRONG_REVIEW_MASTERY={
    version:VERSION,build:BUILD,
    state:()=>{const s=getSession(),m=s?.[META];return m?{...m,index:Number(s.index)||0,total:s.questions?.length||0}:null},
    forceNormalize:()=>{const s=getSession(),m=ensureMeta(s);return normalizeMastery(s,m)},
-   check:()=>({version:VERSION,build:BUILD,ready:true,queued,requeued,resolved,masteredLessons,lastEvent,completeWrapped:!!window.completeQuestion?.__v883WrongReview,renderWrapped:!!window.renderQuestion?.__v883WrongReview})
+   check:()=>({version:VERSION,build:BUILD,ready:true,queued,requeued,resolved,masteredLessons,lastEvent,eventDriven:true,lastGradeEpoch:lastGrade?.epoch??null})
  };
  install();
 })();
@@ -646,7 +636,7 @@
 <script id="deen-v884-review-ux-runtime">
 (()=>{
  if(window.__deenV884ReviewUX)return;window.__deenV884ReviewUX=true;
- const VERSION='8.8.4-REVIEW-PHASE-UX',BUILD='884reviewux1',RETRY='__deenReviewRetry';
+ const VERSION='9.9.62-REVIEW-PHASE-EVENT-UX',BUILD='9962lifecycle1',RETRY='__deenReviewRetry';
  let entries=0,announcements=0,last=null;
  function getSession(){let s=null;try{s=session}catch(_){try{s=window.session}catch(__){}}return s}
  function current(){const s=getSession();return s?.questions?.[Number(s?.index)||0]||null}
@@ -673,21 +663,15 @@
    try{document.dispatchEvent(new CustomEvent('deen:review-ux:shown',{detail:{version:VERSION,build:BUILD,...last}}))}catch(_){}
    return true
  }
- function wrapRender(){
-   const old=typeof renderQuestion==='function'?renderQuestion:window.renderQuestion;
-   if(typeof old!=='function'||old.__v884ReviewUX)return false;
-   const wrapped=function(...args){const out=old.apply(this,args);queueMicrotask(decorate);return out};
-   wrapped.__v884ReviewUX=true;wrapped.__v884Original=old;
-   try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
-   return true
+ function onRender(){
+   requestAnimationFrame(()=>decorate());
  }
  function install(){
-   const ok=wrapRender();
-   if(!ok){let tries=0;const timer=setInterval(()=>{tries++;if(wrapRender()||window.renderQuestion?.__v884ReviewUX||tries>20)clearInterval(timer)},120)}
+   document.addEventListener('deen:question-rendered',onRender);
    document.addEventListener('deen:wrong-review:mastered',()=>remove());
    document.documentElement.dataset.deenReviewUX='ready';
  }
- window.DEEN_REVIEW_PHASE_UX={version:VERSION,build:BUILD,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,entries,announcements,last,active:!!document.querySelector('.v884-review-banner'),renderWrapped:!!window.renderQuestion?.__v884ReviewUX})};
+ window.DEEN_REVIEW_PHASE_UX={version:VERSION,build:BUILD,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,entries,announcements,last,active:!!document.querySelector('.v884-review-banner'),eventDriven:true})};
  install();
 })();
 </script>
