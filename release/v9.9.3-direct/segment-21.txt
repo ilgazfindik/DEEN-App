@@ -5,7 +5,7 @@
 <script id="deen-v862-flow-runtime">
 (()=>{
  if(window.__deenV862Flow)return;window.__deenV862Flow=true;
- const VERSION='8.6.2-LESSON-FLOW-ORCHESTRATOR',BUILD='862flow1';
+ const VERSION='9.9.63-LESSON-FLOW-EVENT-ORCHESTRATOR',BUILD='9963renderlifecycle1';
  const ALIAS={
   multiple_choice:'mcq',mcq:'mcq',choice:'mcq',
   card:'card',card_grid:'card',large_card:'card',
@@ -90,12 +90,9 @@
   try{document.documentElement.dataset.deenQuestionFlow='ready';document.dispatchEvent(new CustomEvent('deen:flow:planned',{detail:{version:VERSION,...lastPlan}}))}catch(_){}
   return true;
  }
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v862){
-  const wrapped=function(...args){prepareSession();return oldRender.apply(this,args)};wrapped.__v862=true;
-  try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
- }
- window.DEEN_LESSON_ORCHESTRATOR={version:VERSION,build:BUILD,classify,plan,analyze,prepareSession,check:()=>({version:VERSION,build:BUILD,ready:true,plans,lastPlan})};
+ function onBeforeRender(){prepareSession()}
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ window.DEEN_LESSON_ORCHESTRATOR={version:VERSION,build:BUILD,classify,plan,analyze,prepareSession,check:()=>({version:VERSION,build:BUILD,ready:true,plans,lastPlan,eventDriven:true})};
  document.documentElement.dataset.deenLessonOrchestrator='ready';
 })();
 </script>
