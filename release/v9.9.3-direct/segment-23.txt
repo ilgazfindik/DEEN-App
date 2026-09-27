@@ -833,7 +833,7 @@
   if(window.__deenV910LearningLoop)return;window.__deenV910LearningLoop=true;
   const VERSION=config.version,BUILD=config.build,TARGET=config.target,PHASES=config.phases,TEACHING=config.teaching;
   const META='__v910LearningLoop',RETRY='__deenReviewRetry';
-  let sessions=0,cardsShown=0,resultsShown=0,last=null;
+  let sessions=0,cardsShown=0,resultsShown=0,last=null,pendingResult=null;
 
   function getSession(){let s=null;try{s=session}catch(_){try{s=window.session}catch(__){}}return s}
   function current(s=getSession()){return s?.questions?.[Number(s?.index)||0]||null}
@@ -932,47 +932,55 @@
    const wrapped=function(id,...rest){removeOverlay();return old.call(this,id,...rest)};
    wrapped.__v910LearningLoop=true;wrapped.__v910Original=old;try{window.startStage=wrapped;startStage=wrapped}catch(_){window.startStage=wrapped}return true;
   }
-  function wrapRender(){
-   const old=typeof renderQuestion==='function'?renderQuestion:window.renderQuestion;if(typeof old!=='function'||old.__v910LearningLoop)return false;
-   const wrapped=function(...args){const out=old.apply(this,args);queueMicrotask(decorate);setTimeout(decorate,80);return out};
-   wrapped.__v910LearningLoop=true;wrapped.__v910Original=old;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}return true;
+  function onRendered(){
+   requestAnimationFrame(()=>decorate());
   }
-  function wrapComplete(){
-   const old=typeof completeQuestion==='function'?completeQuestion:window.completeQuestion;if(typeof old!=='function'||old.__v910LearningLoop)return false;
-   const wrapped=function(correct,q,...rest){
-    const s=getSession(),m=ensure(s),actual=q||current(s);
-    if(m&&actual){
-     const id=originId(actual),ok=correct===true,isRetry=!!actual[RETRY];
-     if(!isRetry&&!Object.prototype.hasOwnProperty.call(m.firstAttempts,id)){m.firstAttempts[id]=ok;if(ok)m.firstCorrect++}
-     if(ok)m.mastered[id]=true;
-     emit('answer',{id,correct:ok,retry:isRetry,...metrics(s)});
+  function onGrading(e){
+   const s=getSession(),m=ensure(s);
+   const actual=e?.detail?.question||current(s);
+   if(m&&actual){
+    const id=originId(actual),ok=e?.detail?.correct===true,isRetry=!!actual[RETRY];
+    if(!isRetry&&!Object.prototype.hasOwnProperty.call(m.firstAttempts,id)){
+      m.firstAttempts[id]=ok;
+      if(ok)m.firstCorrect++;
     }
-    return old.call(this,correct,q,...rest);
-   };
-   wrapped.__v910LearningLoop=true;wrapped.__v910Original=old;try{window.completeQuestion=wrapped;completeQuestion=wrapped}catch(_){window.completeQuestion=wrapped}return true;
+    if(ok)m.mastered[id]=true;
+    emit('answer',{id,correct:ok,retry:isRetry,...metrics(s)});
+   }
   }
-  function wrapResult(){
-   const old=typeof showResult==='function'?showResult:window.showResult;if(typeof old!=='function'||old.__v910LearningLoop)return false;
-   const wrapped=function(...args){
-    const s=getSession(),m=ensure(s);if(!m)return old.apply(this,args);
-    const data=metrics(s);s.correct=data.firstCorrect;
-    const out=old.apply(this,args);
-    try{
-     const id=stageId(s);state.stageScores[id]=Math.max(Number(m.priorScore)||0,data.firstPct);
-     if(!Array.isArray(state.completed))state.completed=[];
-     if(data.mastered===data.total&&!state.completed.includes(id))state.completed.push(id);
-     saveState();updateUI();
-    }catch(_){}
-    decorateResult(s,m);return out;
-   };
-   wrapped.__v910LearningLoop=true;wrapped.__v910Original=old;try{window.showResult=wrapped;showResult=wrapped}catch(_){window.showResult=wrapped}return true;
+  function onResultBefore(){
+   const s=getSession(),m=ensure(s);
+   if(!m){pendingResult=null;return}
+   const data=metrics(s);
+   if(!data){pendingResult=null;return}
+   s.correct=data.firstCorrect;
+   pendingResult={s,m,data};
+  }
+  function onResult(){
+   const p=pendingResult;
+   pendingResult=null;
+   if(!p)return;
+   const {s,m,data}=p;
+   try{
+    const id=stageId(s);
+    state.stageScores[id]=Math.max(Number(m.priorScore)||0,data.firstPct);
+    if(!Array.isArray(state.completed))state.completed=[];
+    if(data.mastered===data.total&&!state.completed.includes(id))state.completed.push(id);
+    saveState();
+    updateUI();
+   }catch(_){}
+   decorateResult(s,m);
   }
   function install(){
-   const ok=[wrapStart(),wrapRender(),wrapComplete(),wrapResult()].every(Boolean);
-   if(!ok){let tries=0;const timer=setInterval(()=>{tries++;const ready=[wrapStart(),wrapRender(),wrapComplete(),wrapResult()];if(ready.every(Boolean)||tries>20)clearInterval(timer)},120)}
-   document.documentElement.dataset.deenLearningLoop='ready';emit('ready',{installed:true});
+   const startWrapped=wrapStart();
+   document.addEventListener('deen:question-rendered',onRendered);
+   document.addEventListener('deen:question-grading',onGrading);
+   document.addEventListener('deen:lesson-result-before',onResultBefore);
+   document.addEventListener('deen:lesson-result',onResult);
+   document.documentElement.dataset.deenLearningLoop='ready';
+   emit('ready',{installed:true,eventDriven:true,startWrapped});
   }
-  window.DEEN_U01_S01_LEARNING_LOOP={version:VERSION,build:BUILD,phases:PHASES,teaching:TEACHING,metrics,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,sessions,cardsShown,resultsShown,last,active:isPilot()})};
+  window.DEEN_U01_S01_LEARNING_LOOP={version:VERSION,build:BUILD,phases:PHASES,teaching:TEACHING,metrics,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,sessions,cardsShown,resultsShown,last,active:isPilot(),eventDriven:true,startWrapped:!!window.startStage?.__v910LearningLoop})};
   install();
  })({"version":"9.1.0-U01-S01-LEARNING-LOOP","build":"910loop1","target":"U01-S01","phases":[{"id":"learn","label":"ÖĞREN","range":[1,4],"title":"Önce fikri keşfet"},{"id":"apply","label":"UYGULA","range":[5,8],"title":"Şimdi bilgiyi kullan"},{"id":"recall","label":"HATIRLA","range":[9,12],"title":"Bakmadan hatırla"}],"teaching":{"DEEN-U01-S01-P01":{"eyebrow":"1 · ANA FİKİR","title":"İslam, Allah'a yönelmektir.","body":"İslam; Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.","memory":"Kısa ipucu: Yönel · Güven · Yaşa"},"DEEN-U01-S01-P02":{"eyebrow":"2 · ÜÇLÜ HARİTA","title":"İman, ibadet ve ahlak birlikte anlam kazanır.","body":"İman kalpteki kabul, ibadet Allah'a kulluk, ahlak ise bunun davranışlara yansımasıdır.","memory":"Kısa ipucu: İnan · Kulluk et · Güzel davran"},"DEEN-U01-S01-P03":{"eyebrow":"3 · EVRENSEL KİMLİK","title":"Müslümanlık bir ülkeye bağlı değildir.","body":"Farklı dilleri konuşan ve farklı kültürlerde yaşayan insanlar İslam'ı benimseyebilir.","memory":"Kısa ipucu: İnanç var, coğrafya şartı yok"},"DEEN-U01-S01-P04":{"eyebrow":"4 · TESLİMİYET","title":"Teslim olmak, Allah'ın rehberliğini benimsemektir.","body":"Bu ifade düşünmeden hareket etmek değil; Allah’a güvenerek O’nun gösterdiği iyi yolu seçmek anlamına gelir.","memory":"Kısa ipucu: Yönünü Allah’ın rehberliğine çevir"}}});</script>
 
