@@ -534,16 +534,14 @@
       saveState();
     }catch(e){console.warn('V6.3.3 debrief',e)}
   });
-  const baseSave=window.saveState;
-  window.saveState=function(...args){
+  document.addEventListener('deen:state-saving',()=>{
     ensureTelemetry();
     for(const r of Object.values(state.reviewSchedule||{})){
       if(!r||typeof r!=='object')continue;
       const st=Number(r.stability);r.stability=Number.isFinite(st)?Math.max(0,Math.min(60,st)):0;
       if(!Number.isFinite(Number(r.nextReview)))r.nextReview=0;
     }
-    return baseSave.apply(this,args);
-  };
+  });
   window.DEEN_RETENTION_QA={
     version:'6.3.3',
     snapshot:id=>clone633(state.reviewSchedule?.[id]||null),
@@ -828,8 +826,7 @@
   });
   const BASE_MIGRATE_640=typeof migrate==='function'?migrate:null;
   if(BASE_MIGRATE_640)migrate=function(...args){const s=BASE_MIGRATE_640.apply(this,args);return ensureAdaptive(s)};
-  const BASE_SAVE_640=window.saveState;
-  window.saveState=function(...args){ensureAdaptive();return BASE_SAVE_640.apply(this,args)};
+  document.addEventListener('deen:state-saving',()=>{ensureAdaptive()});
   function futureLeakage(ids){
     const bad=[];for(const id of ids||[]){const q=QMAP?.get?.(id)||QUESTIONS.find(x=>x.id===id);if(!q||!allowed640(q))bad.push(id)}return bad;
   }
@@ -965,8 +962,7 @@
   }
   document.addEventListener('deen:return-card-rendered',()=>{try{evaluate(day(),false);const host=$('v5Return');if(host){host.innerHTML=journeyHtml();const stats=$('v5Stats');if(stats?.parentNode&&stats.nextElementSibling!==host)stats.after(host);const streak=$('v622StreakPanel');if(streak?.parentNode&&host.nextElementSibling!==streak)host.after(streak)}}catch(e){console.warn('V6.5.1 daily journey render',e)}});
 
-  const BASE_COMMIT=window.commit;
-  window.commit=function(...args){const earned=BASE_COMMIT.apply(this,args);try{evaluate(day(),true)}catch(e){console.warn('V6.5.1 journey commit',e)}return earned};
+  document.addEventListener('deen:committed',()=>{try{evaluate(day(),true)}catch(e){console.warn('V6.5.1 journey commit',e)}});
 
   function decorateResult(){
     const host=$('v5ResultExtra');if(!host||host.querySelector('.v650-result-loop'))return;const st=status(),ss=steps(st),next=nextAction(st),box=document.createElement('div');box.className='v650-result-loop';
@@ -977,8 +973,7 @@
 
   const BASE_MIGRATE=typeof migrate==='function'?migrate:null;
   if(BASE_MIGRATE)migrate=function(...args){return ensureJourney(BASE_MIGRATE.apply(this,args))};
-  const BASE_SAVE=window.saveState;
-  window.saveState=function(...args){ensureJourney();return BASE_SAVE.apply(this,args)};
+  document.addEventListener('deen:state-saving',()=>{ensureJourney()});
 
   window.DEEN_DAILY_JOURNEY={
     version:VERSION,stateVersion:STATE_VERSION,status:(date=day())=>clone650(status(date)),steps:(date=day())=>clone650(steps(status(date))),next:(date=day())=>clone650(nextAction(status(date))),evaluate:(date=day(),notify=false)=>clone650(evaluate(date,notify)),progressionKeys:(date=day())=>[...progressionKeys(date)],reviewSessions:(date=day())=>reviewSessions(date).length,html:()=>journeyHtml()
