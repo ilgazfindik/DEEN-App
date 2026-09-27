@@ -36,14 +36,15 @@
 
   document.addEventListener('deen:question-graded',function(event){
     const correct=event?.detail?.correct===true;
-    setTimeout(function(){
+    const run=function(){
       const box=document.getElementById('feedbackBox');
       const btn=document.getElementById('continueBtn');
       if(box){ box.classList.remove('gf-ok','gf-bad'); void box.offsetWidth; box.classList.add(correct?'gf-ok':'gf-bad'); }
       if(btn) pulse(btn,'gf-cta',1000);
       fxBurst(box || document.getElementById('feedback') || document.body, correct?'ok':'bad', correct?16:12);
       correct ? sfxCorrect() : sfxWrong();
-    }, 20);
+    };
+    if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v621-feedback',event?.detail,run,{delays:[20]}))setTimeout(run,20);
   });
 
   let v621ResultCtx=null;
@@ -533,7 +534,7 @@
   function onV624Rendered(){try{paintLessonEnergy()}catch(e){}}
   function onV624Graded(e){
     const correct=e?.detail?.correct===true;
-    setTimeout(()=>{
+    const run=()=>{
       const hearts=[...document.querySelectorAll('#v624LessonEnergy .v624-heart.on')];
       const target=hearts.at(-1);
       if(target){
@@ -541,7 +542,8 @@
         void target.offsetWidth;
         target.classList.add(correct?'v624-heart-burst':'warn');
       }
-    },30);
+    };
+    if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v624-energy-feedback',e?.detail,run,{delays:[30]}))setTimeout(run,30);
   }
   document.addEventListener('deen:question-rendered',onV624Rendered);
   document.addEventListener('deen:question-graded',onV624Graded);
