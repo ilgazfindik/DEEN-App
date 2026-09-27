@@ -5662,7 +5662,7 @@
  window.__deenV9936CompanionRuntime=true;
  window.__DEEN_COMPANION_ASSET_MODE=true;
 
- const VERSION='9.9.56-COMPANION-EVENT-RUNTIME';
+ const VERSION='9.9.58-COMPANION-ASSET-CACHE';
  const IDS=['lion','wolf','owl','turtle','eagle','cat'];
  const STATES=['lesson_idle','correct','try_again','celebrate','avatar'];
  const DEFAULT='owl';
@@ -5692,30 +5692,40 @@
    return ASSETS[safeId]?.[safeMood]||ASSETS[safeId]?.lesson_idle||ASSETS[DEFAULT].lesson_idle;
  }
 
+ function assetVersion(){
+   return String(window.__DEEN_DEPLOY_ID__||window.DEEN_BUILD_ID||'9958assetcache1');
+ }
+
+ function versioned(src){
+   const sep=src.includes('?')?'&':'?';
+   return src+sep+'v='+encodeURIComponent(assetVersion());
+ }
+
  function dispatchRendered(id,mood){
    try{document.dispatchEvent(new CustomEvent('deen:companion-rendered',{detail:{animal:id,mood}}))}catch(_){}
  }
 
  function probe(src){
-   if(availability.has(src))return Promise.resolve(availability.get(src));
-   if(pending.has(src))return pending.get(src);
+   const url=versioned(src);
+   if(availability.has(url))return Promise.resolve(availability.get(url));
+   if(pending.has(url))return pending.get(url);
    const p=new Promise(resolve=>{
      const img=new Image();
      let settled=false;
      const done=ok=>{
        if(settled)return;
        settled=true;
-       availability.set(src,ok);
-       pending.delete(src);
+       availability.set(url,ok);
+       pending.delete(url);
        resolve(ok);
      };
      img.onload=()=>done(true);
      img.onerror=()=>done(false);
-     img.src=src+(src.includes('?')?'&':'?')+'v=9950streakdirect1';
+     img.src=url;
      if(img.complete&&img.naturalWidth>0)done(true);
      setTimeout(()=>done(false),3500);
    });
-   pending.set(src,p);
+   pending.set(url,p);
    return p;
  }
 
@@ -5796,7 +5806,7 @@
    img.setAttribute('aria-hidden','true');
    img.dataset.companion=id;
    img.dataset.mood=resolvedMood;
-   img.src=src+'?v=9950streakdirect1';
+   img.src=versioned(src);
 
    avatar.classList.add('deen-companion-runtime-ready');
    avatar.replaceChildren(img);
@@ -5830,7 +5840,7 @@
    img.alt='';
    img.setAttribute('aria-hidden','true');
    img.dataset.companion=id;
-   img.src=src+'?v=9950streakdirect1';
+   img.src=versioned(src);
    el.replaceChildren(img);
    return true;
  }
@@ -5896,6 +5906,7 @@
    preload,
    renderLesson,
    renderProfile,
+   assetVersion,
    availability:()=>Object.fromEntries(availability.entries())
  };
 
@@ -7970,7 +7981,7 @@
   width:200px!important;
   height:118.46px!important;
   flex:0 0 118.46px!important;
-  background-image:url("assets/combo/companions-sheet.png?v=9957spriteaspect1")!important;
+  background-image:url("assets/combo/companions-sheet.png?v=9958assetcache1")!important;
   background-size:200% 600%!important;
   background-repeat:no-repeat!important;
   filter:drop-shadow(0 16px 19px rgba(0,0,0,.30))!important;
@@ -8114,7 +8125,7 @@
   width:220px!important;
   height:130.30px!important;
   flex:0 0 130.30px!important;
-  background-image:url("assets/combo/companions-sheet.png?v=9957spriteaspect1")!important;
+  background-image:url("assets/combo/companions-sheet.png?v=9958assetcache1")!important;
   background-size:200% 600%!important;
   background-repeat:no-repeat!important;
   filter:drop-shadow(0 16px 19px rgba(0,0,0,.33))!important;
@@ -8197,7 +8208,7 @@
  if(window.__deenV9950CompanionStreak)return;
  window.__deenV9950CompanionStreak=true;
 
- const VERSION='9.9.57-COMPANION-STREAK-ASPECT';
+ const VERSION='9.9.58-COMPANION-STREAK-ASSET-CACHE';
  const IDS=['lion','wolf','owl','turtle','eagle','cat'];
  const LABELS={lion:'Aslan',wolf:'Kurt',owl:'Baykuş',turtle:'Kaplumbağa',eagle:'Kartal',cat:'Kedi'};
  const POSES={
@@ -8315,7 +8326,7 @@
  // Preload before the first milestone.
  try{
    const img=new Image();
-   img.src='assets/combo/companions-sheet.png?v=9957spriteaspect1';
+   img.src='assets/combo/companions-sheet.png?v=9958assetcache1';
  }catch(_){}
 
  window.DEEN_COMPANION_STREAK={
@@ -8480,4 +8491,4 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.57-PRODUCTION',BUILD='9957spriteaspect1',TITLE='DEEN v9.9.57';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.58-PRODUCTION',BUILD='9958assetcache1',TITLE='DEEN v9.9.58';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
