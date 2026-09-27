@@ -854,10 +854,7 @@
    const r=BASE_NAVIGATE(id,...args);setTimeout(retire,0);return r;
   };
  }
- const BASE_UPDATE=typeof window.updateUI==='function'?window.updateUI:null;
- if(BASE_UPDATE){
-  window.updateUI=function(...args){const r=BASE_UPDATE.apply(this,args);setTimeout(retire,120);return r};
- }
+ document.addEventListener('deen:ui-updated',()=>setTimeout(retire,120));
  document.addEventListener('click',e=>{
   const t=e.target?.closest?.('[data-screen="worldScreen"]');
   if(!t)return;e.preventDefault();e.stopImmediatePropagation();retire();
@@ -4032,73 +4029,6 @@
   }
 }
 </style>
-<script id="deen-v9925-mascot-medallion-js">
-(()=>{
- if(window.__deenV9925MascotMedallion)return;window.__deenV9925MascotMedallion=true;
- const VERSION='9.9.25-MASCOT-MEDALLION';
- const EMOJI={lion:'🦁',wolf:'🐺',owl:'🦉',turtle:'🐢',eagle:'🦅',cat:'🐈'};
- const frame=()=>document.querySelector('#lesson .question-frame');
- const qNow=()=>session?.questions?.[session?.index]||null;
-
- function apply(){
-   const f=frame(),q=qNow();
-   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
-   f.classList.add('deen-premium-fill');
-
-   const avatar=f.querySelector('.deen-character-question-avatar');
-   if(avatar && !window.__DEEN_COMPANION_ASSET_MODE && !avatar.classList.contains('deen-companion-runtime-ready')){
-     avatar.classList.add('v998-companion-hero');
-     const id=String(state?.profile?.companion||avatar.dataset.animal||'owl').toLowerCase();
-     const animal=EMOJI[id]?id:'owl';
-     avatar.dataset.animal=animal;
-     avatar.innerHTML='<span class="v9925-mascot-medallion" aria-hidden="true"><span class="v9925-mascot-glyph">'+EMOJI[animal]+'</span></span>';
-     avatar.setAttribute('aria-hidden','true');
-   }
-
-   /* Keep only the compact speaker inside the question bubble. */
-   f.querySelectorAll('.v960-narration-bar,.v960-narration-note,.audio-panel').forEach(el=>el.remove());
-
-   /* Source disclosure remains suppressed during answer selection. */
-   f.querySelectorAll('.v5-source,details.v5-source,.source,[class*="source-note"]').forEach(el=>el.remove());
-
-   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
- }
-
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [40,120,260].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(apply,0);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
-
- window.DEEN_MASCOT_MEDALLION={
-   version:VERSION,
-   apply,
-   snapshot:()=>({
-     active:!!frame()?.classList.contains('deen-premium-fill'),
-     animal:frame()?.querySelector('.deen-character-question-avatar')?.dataset?.animal||null,
-     medallion:!!frame()?.querySelector('.v9925-mascot-medallion')
-   })
- };
- setTimeout(apply,700);
-})();
-</script>
-
-
-
 <!-- DEEN v9.9.26 — Mascot render stability -->
 <style id="deen-v9926-mascot-stability-css">
 #lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
@@ -4150,107 +4080,6 @@
   }
 }
 </style>
-<script id="deen-v9926-mascot-stability-js">
-(()=>{
- if(window.__deenV9926MascotStability)return;
- window.__deenV9926MascotStability=true;
-
- const VERSION='9.9.26-MASCOT-STABILITY';
- const EMOJI={lion:'🦁',wolf:'🐺',owl:'🦉',turtle:'🐢',eagle:'🦅',cat:'🐈'};
- const qNow=()=>session?.questions?.[session?.index]||null;
- const frame=()=>document.querySelector('#lesson .question-frame');
-
- let observer=null;
- let repairing=false;
-
- function desiredAnimal(avatar){
-   const id=String(state?.profile?.companion||avatar?.dataset?.animal||'owl').toLowerCase();
-   return EMOJI[id]?id:'owl';
- }
-
- function renderMascot(avatar){
-   if(window.__DEEN_COMPANION_ASSET_MODE)return;
-   if(!avatar)return;
-   if(avatar.classList.contains('deen-companion-runtime-ready'))return;
-   const animal=desiredAnimal(avatar);
-   avatar.classList.add('v998-companion-hero');
-   avatar.dataset.animal=animal;
-
-   const current=avatar.querySelector('.v9926-mascot');
-   const currentAnimal=current?.dataset?.animal;
-   if(current && currentAnimal===animal)return;
-
-   repairing=true;
-   avatar.innerHTML='<span class="v9926-mascot" data-animal="'+animal+'" aria-hidden="true"><span class="v9926-mascot-glyph">'+EMOJI[animal]+'</span></span>';
-   avatar.setAttribute('aria-hidden','true');
-   repairing=false;
- }
-
- function watchAvatar(avatar){
-   if(observer)observer.disconnect();
-   if(!avatar)return;
-   observer=new MutationObserver(()=>{
-     if(window.__DEEN_COMPANION_ASSET_MODE||repairing||avatar.classList.contains('deen-companion-runtime-ready'))return;
-     const mascot=avatar.querySelector('.v9926-mascot');
-     const animal=desiredAnimal(avatar);
-     if(!mascot||mascot.dataset.animal!==animal){
-       queueMicrotask(()=>renderMascot(avatar));
-     }
-   });
-   observer.observe(avatar,{childList:true,subtree:true,characterData:true});
- }
-
- function apply(){
-   const f=frame(),q=qNow();
-   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
-
-   f.classList.add('deen-premium-fill');
-   const avatar=f.querySelector('.deen-character-question-avatar');
-   renderMascot(avatar);
-   watchAvatar(avatar);
-
-   f.querySelectorAll('.v960-narration-bar,.v960-narration-note,.audio-panel,.v5-source,details.v5-source,.source,[class*="source-note"]').forEach(el=>el.remove());
-
-   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
- }
-
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [40,120,260,420,700].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
-
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(apply,0);
-     setTimeout(apply,180);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
-
- window.DEEN_MASCOT_STABILITY={
-   version:VERSION,
-   apply,
-   snapshot:()=>({
-     active:!!frame()?.classList.contains('deen-premium-fill'),
-     animal:frame()?.querySelector('.deen-character-question-avatar')?.dataset?.animal||null,
-     mascot:!!frame()?.querySelector('.v9926-mascot')
-   })
- };
- setTimeout(apply,700);
-})();
-</script>
-
-
-
 <!-- DEEN v9.9.27 — Companion scene refinement -->
 <style id="deen-v9927-companion-stage-css">
 /* Stop treating the companion like a badge. Make it read as a character beside the speech bubble. */
@@ -4800,111 +4629,6 @@
   }
 }
 </style>
-<script id="deen-v9933-screen-center-js">
-(()=>{
- if(window.__deenV9933StrongCenter)return;
- window.__deenV9933StrongCenter=true;
-
- const VERSION='9.9.33-STRONG-SCREEN-CENTER';
- const frame=()=>document.querySelector('#lesson .question-frame');
- const qNow=()=>session?.questions?.[session?.index]||null;
- let raf1=0,raf2=0;
-
- function getCta(f){
-   return f.querySelector('.v710-word-bank + .template-action, .v710-word-bank + .btn, .template-action, .btn');
- }
-
- function center(){
-   const f=frame(),q=qNow();
-   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
-
-   const row=f.querySelector('.deen-character-question-row');
-   const bank=f.querySelector('.v710-word-bank');
-   const cta=getCta(f);
-   if(!row||!bank)return;
-
-   f.classList.remove('v9932-screen-centered');
-   f.style.removeProperty('--v9932-center-shift');
-   f.classList.add('deen-premium-fill','v9933-screen-centered');
-   f.style.setProperty('--v9933-center-shift','0px');
-
-   cancelAnimationFrame(raf1);
-   cancelAnimationFrame(raf2);
-
-   raf1=requestAnimationFrame(()=>{
-     raf2=requestAnimationFrame(()=>{
-       const fr=f.getBoundingClientRect();
-       const rr=row.getBoundingClientRect();
-       const br=bank.getBoundingClientRect();
-       const cr=cta?cta.getBoundingClientRect():br;
-
-       if(!fr.height||!rr.height||!br.height)return;
-
-       const blockTop=Math.min(rr.top,br.top,cr.top);
-       const blockBottom=Math.max(rr.bottom,br.bottom,cr.bottom);
-       const blockCenter=(blockTop+blockBottom)/2;
-
-       /* Center within the real usable lesson area, below top controls. */
-       const availableTop=fr.top+104;
-       const availableBottom=fr.bottom-42;
-       const targetCenter=(availableTop+availableBottom)/2;
-
-       let delta=targetCenter-blockCenter;
-
-       if(blockTop+delta<availableTop)delta=availableTop-blockTop;
-       if(blockBottom+delta>availableBottom)delta=availableBottom-blockBottom;
-
-       delta=Math.max(-60,Math.min(220,delta));
-       f.style.setProperty('--v9933-center-shift',Math.round(delta)+'px');
-     });
-   });
- }
-
- function schedule(){
-   center();
-   [80,180,360,720,1100].forEach(ms=>setTimeout(center,ms));
- }
-
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     schedule();
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
-
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(center,80);
-     setTimeout(center,220);
-     setTimeout(center,480);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
-
- window.addEventListener('resize',()=>setTimeout(center,90),{passive:true});
- window.visualViewport?.addEventListener?.('resize',()=>setTimeout(center,90),{passive:true});
-
- window.DEEN_SCREEN_CENTER={
-   version:VERSION,
-   apply:center,
-   snapshot:()=>({
-     active:!!frame()?.classList.contains('v9933-screen-centered'),
-     shift:frame()?.style.getPropertyValue('--v9933-center-shift')||'0px'
-   })
- };
-
- setTimeout(schedule,760);
-})();
-</script>
-
-
-
 <!-- DEEN v9.9.34 — Fixed responsive vertical centering -->
 <style id="deen-v9934-fixed-vertical-center-css">
 /*
@@ -8418,4 +8142,4 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.80-PRODUCTION',BUILD='9980runtimehygiene1',TITLE='DEEN v9.9.80';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.81-PRODUCTION',BUILD='9981layoutracefix1',TITLE='DEEN v9.9.81';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
