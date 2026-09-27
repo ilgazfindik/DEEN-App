@@ -540,8 +540,7 @@
   document.addEventListener('deen:question-rendered',onV624Rendered);
   document.addEventListener('deen:question-graded',onV624Graded);
   document.addEventListener('deen:lesson-finishing',()=>document.getElementById('v624LessonEnergy')?.remove());
-  const oldCloseLesson=window.closeLesson;
-  if(typeof oldCloseLesson==='function')window.closeLesson=function(){document.getElementById('v624LessonEnergy')?.remove();return oldCloseLesson.apply(this,arguments)};
+  document.addEventListener('deen:lesson-closing',()=>document.getElementById('v624LessonEnergy')?.remove());
   function lessonLabel(session){if(!session?.multiLessonStage)return session?.final?'Final':'Ders';if(session.lessonTotal===1)return'Challenge';return LOOP[Math.min(LOOP.length-1,Math.max(0,(session.lessonNo||1)-1))]}
   function stageMeta(stageId){return state.stageLessonMeta?.[stageId]||null}
   function nextStage(stageId){try{const u=stageId.slice(0,3),arr=unitStages(u),i=arr.findIndex(s=>s.id===stageId);return arr[i+1]||null}catch(e){return null}}
