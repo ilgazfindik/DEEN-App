@@ -392,7 +392,7 @@
  if(typeof BASE_COMPLETE==='function'){
   const wrapped=function(correct,q,...rest){const out=BASE_COMPLETE.call(this,correct,q,...rest);try{applyFeedback(correct===true,q||currentQuestion());setTimeout(()=>applyFeedback(correct===true,q||currentQuestion()),35)}catch(e){console.warn('V9.5 feedback',e)}return out};wrapped.__v950Age=true;wrapped.__v950Original=BASE_COMPLETE;try{window.completeQuestion=wrapped;completeQuestion=wrapped}catch(_){window.completeQuestion=wrapped}
  }
- const BASE_SAVE=window.saveState;if(typeof BASE_SAVE==='function')window.saveState=function(...args){ensure();return BASE_SAVE.apply(this,args)};
+ document.addEventListener('deen:state-saving',()=>{ensure()});
  try{if(window.saveState)saveState=window.saveState;if(window.profileView)profileView=window.profileView;if(window.settingsPanel)settingsPanel=window.settingsPanel}catch(_){}
  const observer=new MutationObserver(mutations=>{if(mutations.some(m=>m.addedNodes?.length)){queueMicrotask(()=>{try{adaptOverlay(document);applyQuestionUI()}catch(_){}})}});const lesson=document.getElementById('lesson');if(lesson)observer.observe(lesson,{childList:true,subtree:true});
  function activeQuestions(){const out=[];for(const stage of TARGETS){let qs=[];try{qs=typeof chooseQuestions==='function'?chooseQuestions(stage):window.chooseQuestions?.(stage)||[]}catch(_){}out.push(...qs)}return out}
@@ -532,7 +532,7 @@
  const BASE_CLOSE=typeof closeLesson==='function'?closeLesson:window.closeLesson;if(typeof BASE_CLOSE==='function'){const wrapped=function(...args){stop('close');return BASE_CLOSE.apply(this,args)};try{window.closeLesson=wrapped;closeLesson=wrapped}catch(_){window.closeLesson=wrapped}}
  const BASE_NAV=typeof navigate==='function'?navigate:window.navigate;if(typeof BASE_NAV==='function'){const wrapped=function(...args){stop('navigate');return BASE_NAV.apply(this,args)};try{window.navigate=wrapped;navigate=wrapped}catch(_){window.navigate=wrapped}}
  const BASE_SETTINGS=window.settingsPanel;if(typeof BASE_SETTINGS==='function')window.settingsPanel=function(...args){const out=BASE_SETTINGS.apply(this,args);try{injectSettings()}catch(e){lastError=String(e?.message||e)}return out};
- const BASE_SAVE=window.saveState;if(typeof BASE_SAVE==='function')window.saveState=function(...args){ensure();return BASE_SAVE.apply(this,args)};
+ document.addEventListener('deen:state-saving',()=>{ensure()});
  try{if(window.saveState)saveState=window.saveState;if(window.settingsPanel)settingsPanel=window.settingsPanel}catch(_){}
  function activeU01(){const stages=['U01-S01','U01-S02','U01-S03','U01-S04','U01-S05','U01-S06','U01-S07'],out=[];for(const id of stages){try{out.push(...(typeof chooseQuestions==='function'?chooseQuestions(id):window.chooseQuestions?.(id)||[]))}catch(_){}}return out}
  function audit(){
@@ -633,7 +633,7 @@
  const BASE_COMPLETE=typeof completeQuestion==='function'?completeQuestion:window.completeQuestion;if(typeof BASE_COMPLETE==='function'){const wrapped=function(correct,q,...rest){const cq=q||currentQuestion(),mark=session?.__v970Shown,elapsed=mark&&cq&&mark.id===cq.id?Date.now()-mark.at:null;const out=BASE_COMPLETE.call(this,correct,q,...rest);try{record(correct===true,cq,elapsed)}catch(e){lastError=String(e?.message||e)}return out};wrapped.__v970Analytics=true;wrapped.__v970Original=BASE_COMPLETE;try{window.completeQuestion=wrapped;completeQuestion=wrapped}catch(_){window.completeQuestion=wrapped}}
  const BASE_REVIEW=window.startSmartReview;if(typeof BASE_REVIEW==='function')window.startSmartReview=function(...args){const before=session;const out=BASE_REVIEW.apply(this,args);try{if(session&&session!==before&&session.review)reorderReviewTail()}catch(e){lastError=String(e?.message||e)}return out};
  const BASE_PROFILE=window.profileView;if(typeof BASE_PROFILE==='function')window.profileView=function(...args){const out=BASE_PROFILE.apply(this,args);try{injectProfile()}catch(e){lastError=String(e?.message||e)}return out};
- const BASE_SAVE=window.saveState;if(typeof BASE_SAVE==='function')window.saveState=function(...args){ensure();return BASE_SAVE.apply(this,args)};
+ document.addEventListener('deen:state-saving',()=>{ensure()});
  try{if(window.saveState)saveState=window.saveState;if(window.profileView)profileView=window.profileView}catch(_){}
  window.analyticsPanel=open;
  function activeU01(){const ids=['U01-S01','U01-S02','U01-S03','U01-S04','U01-S05','U01-S06','U01-S07'],out=[];for(const id of ids){try{out.push(...(typeof chooseQuestions==='function'?chooseQuestions(id):window.chooseQuestions?.(id)||[]))}catch(_){}}return out}
@@ -8528,7 +8528,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.74-RUNTIME-ARBITER';
+ const VERSION='9.9.77-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -8541,6 +8541,8 @@
  const LEGACY_CEREMONY=window.ceremony;
  const LEGACY_SECTION_RESULT=window.showSectionFinalResult;
  const LEGACY_LEAGUE_VIEW=window.leagueView;
+ const LEGACY_SAVE_STATE=window.saveState;
+ const LEGACY_COMMIT=window.commit;
 
  let renderBusy=false;
  let renderEpoch=0;
@@ -8560,6 +8562,8 @@
  let ceremonies=0;
  let sectionResults=0;
  let leagueRenders=0;
+ let stateSaves=0;
+ let commits=0;
 
  function questionKey(q){
    let actual=q;
@@ -8703,6 +8707,36 @@
    guardedLeagueView.__deen9953Original=LEGACY_LEAGUE_VIEW;
    window.leagueView=guardedLeagueView;
    try{leagueView=guardedLeagueView}catch(_){}
+ }
+
+ if(typeof LEGACY_SAVE_STATE==='function'){
+   const guardedSaveState=function(...args){
+     dispatch('deen:state-saving',{count:stateSaves+1});
+     const out=LEGACY_SAVE_STATE.apply(this,args);
+     stateSaves++;
+     dispatch('deen:state-saved',{count:stateSaves,result:out});
+     return out;
+   };
+   guardedSaveState.__deen9953=true;
+   guardedSaveState.__deen9953Original=LEGACY_SAVE_STATE;
+   window.saveState=guardedSaveState;
+   try{saveState=guardedSaveState}catch(_){}
+ }
+
+ if(typeof LEGACY_COMMIT==='function'){
+   const guardedCommit=function(...args){
+     let activeSession=null;
+     try{activeSession=session||null}catch(_){}
+     dispatch('deen:commit-before',{session:activeSession,args});
+     const out=LEGACY_COMMIT.apply(this,args);
+     commits++;
+     dispatch('deen:committed',{session:activeSession,args,result:out,count:commits});
+     return out;
+   };
+   guardedCommit.__deen9953=true;
+   guardedCommit.__deen9953Original=LEGACY_COMMIT;
+   window.commit=guardedCommit;
+   try{commit=guardedCommit}catch(_){}
  }
 
  if(typeof LEGACY_RENDER==='function'){
@@ -8885,10 +8919,16 @@
      sectionResultLifecycleEvents:true,
      leagueRenders,
      leagueGuarded:!!window.leagueView?.__deen9953,
-     leagueLifecycleEvents:true
+     leagueLifecycleEvents:true,
+     stateSaves,
+     commits,
+     saveGuarded:!!window.saveState?.__deen9953,
+     commitGuarded:!!window.commit?.__deen9953,
+     stateLifecycleEvents:true,
+     commitLifecycleEvents:true
    })
  };
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.76-PRODUCTION',BUILD='9976retiredtrim1',TITLE='DEEN v9.9.76';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.77-PRODUCTION',BUILD='9977statecommit1',TITLE='DEEN v9.9.77';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
