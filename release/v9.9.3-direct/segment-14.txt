@@ -671,6 +671,7 @@ html.v5-reduce .v711-streak-main,html.v5-reduce .v711-currency,html.v5-reduce .v
 </style>
 <script id="deen-v775-world-stability-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV775Applied)return;window.__deenV775Applied=true;
  const VERSION='7.7.5',STATE_VERSION=48;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.7.5 — Dünyam Avatar Integrity & Runtime Stability';
@@ -859,6 +860,7 @@ html.v625-motion-off .v720-nur,html.v625-motion-off .v720-nur-orbit,html.v625-mo
 
 <script id="deen-v720-living-world-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV720Applied)return;window.__deenV720Applied=true;
  const VERSION='7.2.0';
  window.DEEN_LIVING_WORLD_VERSION=VERSION;window.DEEN_RELEASE_VERSION=VERSION;
