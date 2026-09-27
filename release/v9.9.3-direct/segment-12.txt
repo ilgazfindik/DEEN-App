@@ -592,10 +592,21 @@
     if(!bar){bar=document.createElement('div');bar.id='v624LessonEnergy';const qv=document.getElementById('quizView');const anchor=document.getElementById('mlStageProgress')||qv.firstElementChild;if(anchor?.parentNode)anchor.parentNode.insertBefore(bar,anchor);else qv.prepend(bar)}
     bar.innerHTML=`<span class="v624-hearts">${heartMarkup()}</span><span>${state.premium?'Premium · ∞ enerji':`${state.energy}/30 enerji`}</span>`;
   }
-  const oldRenderQuestion=window.renderQuestion;
-  window.renderQuestion=function(){const r=oldRenderQuestion.apply(this,arguments);try{paintLessonEnergy()}catch(e){}return r};
-  const oldCompleteQuestion=window.completeQuestion;
-  if(typeof oldCompleteQuestion==='function')window.completeQuestion=function(correct,q){const r=oldCompleteQuestion.apply(this,arguments);setTimeout(()=>{const hearts=[...document.querySelectorAll('#v624LessonEnergy .v624-heart.on')];const target=hearts.at(-1);if(target){target.classList.remove('warn','v624-heart-burst');void target.offsetWidth;target.classList.add(correct?'v624-heart-burst':'warn')}},30);return r};
+  function onV624Rendered(){try{paintLessonEnergy()}catch(e){}}
+  function onV624Graded(e){
+    const correct=e?.detail?.correct===true;
+    setTimeout(()=>{
+      const hearts=[...document.querySelectorAll('#v624LessonEnergy .v624-heart.on')];
+      const target=hearts.at(-1);
+      if(target){
+        target.classList.remove('warn','v624-heart-burst');
+        void target.offsetWidth;
+        target.classList.add(correct?'v624-heart-burst':'warn');
+      }
+    },30);
+  }
+  document.addEventListener('deen:question-rendered',onV624Rendered);
+  document.addEventListener('deen:question-graded',onV624Graded);
   const oldFinishLesson=window.finishLesson;
   window.finishLesson=function(){document.getElementById('v624LessonEnergy')?.remove();return oldFinishLesson.apply(this,arguments)};
   const oldCloseLesson=window.closeLesson;
@@ -729,14 +740,9 @@
     };
   }
 
-  const baseUpdateUI=window.updateUI;
-  if(typeof baseUpdateUI==='function'){
-    window.updateUI=function(...args){
-      const res=baseUpdateUI.apply(this,args);
-      try{decorateLivingPath()}catch(e){console.warn('V6.2.5 updateUI',e)}
-      return res;
-    };
-  }
+  document.addEventListener('deen:ui-updated',()=>{
+    try{decorateLivingPath()}catch(e){console.warn('V6.2.5 updateUI',e)}
+  });
 
   const baseFinishLesson=window.finishLesson;
   if(typeof baseFinishLesson==='function'){
@@ -862,13 +868,14 @@
  const oldPreview=window.preview;
  window.preview=function(id){const d=String(id).includes('-M')?allDefs().find(x=>x.id===id):macroForLegacy(id);return d?previewMacro(d.id):oldPreview.apply(this,arguments)};
  function lessonProgress(){$('v630LessonProgress')?.remove(); if($('qStage')) $('qStage').textContent=session?.stage?.title||'DEEN'}
- const oldRenderQuestion=window.renderQuestion;window.renderQuestion=function(...a){const r=oldRenderQuestion.apply(this,a);try{lessonProgress()}catch(e){}return r};
+ document.addEventListener('deen:question-rendered',()=>{try{lessonProgress()}catch(e){}});
  window.startMacroStage=function(id,lessonNo=null){const d=allDefs().find(x=>x.id===id);if(!d)return;const st=stateOf(d);if(st.locked)return previewMacro(id);const m=meta(d),no=Math.max(1,Math.min(d.lessons,Number(lessonNo)||Math.min(d.lessons,m.completedLessons+1))),qs=choose(d,no);if(!qs.length){sheet('İnternet bağlantısı gerekiyor','<p>Bu aşama doğrulanmış medya kaynağını kullanır.</p><p>Bağlantı geldiğinde tekrar deneyebilirsin. Yapay/TTS dinî telaffuz kullanılmaz ve enerji harcanmaz.</p>'+list('Öğrenme yoluna dön',"closeSheet();navigate('learnScreen')",'←'));return}if(!state.premium&&state.energy<d.energy){if(window.DEEN_V624){DEEN_V624.pendingStage=id}showEnergy();return}if(!state.premium)state.energy-=d.energy;qs.forEach(q=>{if(!m.seenIds.includes(q.id))m.seenIds.push(q.id)});m.lastLessonNo=no;session={stage:{id:d.id,unit:d.unit,title:d.title,kind:d.kind,xp:d.xp,energy:d.energy,meta:d.role},questions:qs,index:0,correct:0,combo:0,bestCombo:0,macroStage:true,macroId:d.id,macroRole:d.role,macroDef:d,lessonNo:no,lessonTotal:d.lessons,startedAt:Date.now(),previousStreak:state.streak,beforeMastery:macroMastery(d.unit),wasCompleted:done(d),v5responses:[]};$('lesson').classList.add('active');$('quizView').style.display='flex';resetResultView(false);setLessonStatus(false);saveState();updateUI();renderQuestion()};
  function result(d,pct,earned,passed,completedNow){paintResult(pct,earned,false);$('resultTitle').textContent=completedNow?'AŞAMA TAMAMLANDI':passed?(pct===100?'KUSURSUZ MİNİ DERS':'Mini ders tamamlandı'):'Bir tur daha';$('resultSubtitle').textContent=completedNow?'Bu düğümün tüm mini dersleri tamamlandı.':passed?'Aynı aşama içinde bir sonraki mini derse geçebilirsin.':'Geçmek için %70 veya üzeri gerekiyor.';const ex=document.createElement('div');ex.id='v5ResultExtra';ex.className='v5-result-extra';const m=meta(d),next=nextMacro(d);ex.innerHTML=`<div class="v630-result-card"><div class="eyebrow">${d.role} · AŞAMA ${d.index+1}/5</div><div class="row"><b>${m.completedLessons}/${d.lessons} mini ders</b><span>${completedNow?(next?'Sıradaki: '+esc(next.title):'Ünite tamamlandı'):'Bu aşamada ilerliyorsun'}</span></div><div class="bar"><i style="width:${Math.round(m.completedLessons/d.lessons*100)}%"></i></div></div><div class="v5-row"><span>Günlük hedef</span><b>${Math.min(daily().lessons,state.dailyGoal)}/${state.dailyGoal}</b></div>${bar(daily().lessons/state.dailyGoal*100)}<p class="v5-muted">Aynı aşama tamamlanmadan sonraki düğüm açılmaz.</p>`;$('resultContinueBtn').before(ex);if(!passed){$('resultContinueBtn').textContent='MİNİ DERSİ TEKRARLA';$('resultContinueBtn').onclick=()=>startMacroStage(d.id,session.lessonNo)}else if(!completedNow){$('resultContinueBtn').textContent='SONRAKİ MİNİ DERS';$('resultContinueBtn').onclick=()=>startMacroStage(d.id,Math.min(d.lessons,session.lessonNo+1))}else{$('resultContinueBtn').textContent=next?'YENİ AŞAMAYI AÇ':'ÜNİTE ÖDÜLÜNE GEÇ';$('resultContinueBtn').onclick=continueJourney}}
  const oldShowResult=window.showResult;
  window.showResult=function(...args){if(!session?.macroStage)return oldShowResult.apply(this,args);if(session.committed)return;const s=session,d=s.macroDef,total=s.questions.length,pct=Math.round(s.correct/total*100),passed=pct>=70,m=meta(d);m.lastPct=pct;m.lessonScores[String(s.lessonNo)]=pct;if(passed&&m.completedLessons<s.lessonNo)m.completedLessons=s.lessonNo;const completedNow=passed&&m.completedLessons>=d.lessons;if(completedNow)completeLegacy(d,macroScore(d));const originalId=s.stage.id;s.stage.id=d.legacyIds[0];const earned=commit(Math.max(8,Math.round(d.xp*(.48+.52*s.correct/total))));s.stage.id=originalId;const hist=state.history.at(-1);if(hist){hist.macroStage=d.id;hist.macroLesson=s.lessonNo}if(completedNow){const next=nextMacro(d);prepareStageCelebrations(s,pct,next?{id:next.id}:null,earned)}saveState();result(d,pct,earned,passed,completedNow)};
  const oldFinish=window.finishLesson;window.finishLesson=function(...a){$('v630LessonProgress')?.remove();const r=oldFinish.apply(this,a);setTimeout(()=>{try{renderFiveStagePaths()}catch(e){}},80);return r};
- const oldUpdate=window.updateUI;window.updateUI=function(...a){syncFromLegacy();const r=oldUpdate.apply(this,a);try{renderFiveStagePaths();if($('completedCount'))$('completedCount').textContent=allDefs().filter(done).length}catch(e){}return r};
+ document.addEventListener('deen:ui-updating',()=>{try{syncFromLegacy()}catch(e){}});
+ document.addEventListener('deen:ui-updated',()=>{try{renderFiveStagePaths();if($('completedCount'))$('completedCount').textContent=allDefs().filter(done).length}catch(e){}});
  const oldReturn=window.returnCard;window.returnCard=function(){const r=oldReturn.apply(this,arguments);try{const dec=DEEN_RETURN_FLOW?.decide?.(),d=currentMacro();if(d&&dec?.action?.includes('preview(')){const p=$('v5Return')?.querySelector('p');const m=meta(d);if(p)p.textContent=`${d.title} · Aşama ${d.index+1}/5 · Mini ders ${Math.min(d.lessons,m.completedLessons+1)}/${d.lessons} · ${d.target} soru.`}}catch(e){}return r};
  const oldCeremony=window.ceremony;window.ceremony=function(e,finish){const r=oldCeremony.apply(this,arguments);if(e?.type==='unit_complete')setTimeout(()=>{const dlg=document.querySelector('.v623-ceremony[open]');const first=dlg?.querySelector('.v623-metric strong');if(first)first.textContent='5 / 5'},0);return r};
  window.DEEN_FIVE_STAGE={version:'6.3.0',defs:u=>defs(u),all:()=>allDefs(),current:u=>currentMacro(u),meta:id=>{const d=allDefs().find(x=>x.id===id);return d?clone(meta(d)):null},done:id=>{const d=allDefs().find(x=>x.id===id);return d?done(d):false},state:id=>{const d=allDefs().find(x=>x.id===id);return d?clone(stateOf(d)):null},choose:(id,l)=>{const d=allDefs().find(x=>x.id===id);return d?choose(d,l):[]},sync:()=>syncFromLegacy(),render:renderFiveStagePaths};
