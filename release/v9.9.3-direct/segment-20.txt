@@ -13,7 +13,7 @@
 <script id="deen-v852-card-choice-runtime">
 (()=>{
  if(window.__deenV852CardChoice)return;window.__deenV852CardChoice=true;
- const VERSION='8.5.2-CARD-CHOICE-UI',BUILD='852card1';
+ const VERSION='9.9.63-CARD-CHOICE-EVENT-UI',BUILD='9963renderlifecycle1';
  let autoTimer=0,answered=0,autoAdvanced=0;
  const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
  const oldShould=typeof shouldUseCardGrid==='function'?shouldUseCardGrid:null;
@@ -69,13 +69,11 @@
   });
   return true;
  }
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender){
-  const wrapped=function(...args){clearTimeout(autoTimer);const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
-  wrapped.__v852=true;
-  try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
- }
- window.DEEN_CARD_CHOICE_UI={version:VERSION,build:BUILD,decorate,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,answered,autoAdvanced,active:!!document.querySelector('.v852-card-grid')})};
+ function onBeforeRender(){clearTimeout(autoTimer)}
+ function onRendered(){queueMicrotask(decorate)}
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ document.addEventListener('deen:question-rendered',onRendered);
+ window.DEEN_CARD_CHOICE_UI={version:VERSION,build:BUILD,decorate,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,answered,autoAdvanced,active:!!document.querySelector('.v852-card-grid'),eventDriven:true})};
  document.documentElement.dataset.deenCardChoice='ready';
 })();
 </script>
@@ -113,7 +111,7 @@
 <script id="deen-v853-matching-runtime">
 (()=>{
  if(window.__deenV853Matching)return;window.__deenV853Matching=true;
- const VERSION='8.5.3-MATCHING-MINIGAME',BUILD='853match1';
+ const VERSION='9.9.63-MATCHING-EVENT-MINIGAME',BUILD='9963renderlifecycle1';
  const oldMatching=typeof renderMatching==='function'?renderMatching:null;
  let rounds=0,pairHits=0,pairMisses=0,autoAdvanced=0,advanceTimer=0;
  const shuffle=a=>{const out=[...a];for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]]}return out};
@@ -176,12 +174,12 @@
   return true;
  }
  try{window.renderMatching=premiumMatching;renderMatching=premiumMatching}catch(_){window.renderMatching=premiumMatching}
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v853){
-  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v853-match-mode');return oldRender.apply(this,args)};
-  wrapped.__v853=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ function onBeforeRender(){
+  clearTimeout(advanceTimer);
+  document.querySelector('.question-frame')?.classList.remove('v853-match-mode');
  }
- window.DEEN_MATCHING_MINIGAME={version:VERSION,build:BUILD,render:premiumMatching,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,pairHits,pairMisses,autoAdvanced,active:!!document.querySelector('.v853-match-wrap')})};
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ window.DEEN_MATCHING_MINIGAME={version:VERSION,build:BUILD,render:premiumMatching,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,pairHits,pairMisses,autoAdvanced,active:!!document.querySelector('.v853-match-wrap'),eventDriven:true})};
  document.documentElement.dataset.deenMatching='ready';
 })();
 </script>
@@ -217,7 +215,7 @@
 <script id="deen-v854-sequence-runtime">
 (()=>{
  if(window.__deenV854Sequence)return;window.__deenV854Sequence=true;
- const VERSION='8.5.4-SEQUENCE-MINIGAME',BUILD='854seq1';
+ const VERSION='9.9.63-SEQUENCE-EVENT-MINIGAME',BUILD='9963renderlifecycle1';
  const oldSequence=typeof renderSequence==='function'?renderSequence:null;
  let rounds=0,checks=0,misses=0,autoAdvanced=0,advanceTimer=0;
  const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
@@ -278,12 +276,12 @@
   return true;
  }
  try{window.renderSequence=premiumSequence;renderSequence=premiumSequence}catch(_){window.renderSequence=premiumSequence}
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v854){
-  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v854-sequence-mode');return oldRender.apply(this,args)};
-  wrapped.__v854=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ function onBeforeRender(){
+  clearTimeout(advanceTimer);
+  document.querySelector('.question-frame')?.classList.remove('v854-sequence-mode');
  }
- window.DEEN_SEQUENCE_MINIGAME={version:VERSION,build:BUILD,render:premiumSequence,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,checks,misses,autoAdvanced,active:!!document.querySelector('.v854-seq-wrap')})};
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ window.DEEN_SEQUENCE_MINIGAME={version:VERSION,build:BUILD,render:premiumSequence,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,checks,misses,autoAdvanced,active:!!document.querySelector('.v854-seq-wrap'),eventDriven:true})};
  document.documentElement.dataset.deenSequence='ready';
 })();
 </script>
@@ -318,7 +316,7 @@
 <script id="deen-v855-fill-runtime">
 (()=>{
  if(window.__deenV855Fill)return;window.__deenV855Fill=true;
- const VERSION='8.5.5-FILL-BLANK-MINIGAME',BUILD='855fill1';
+ const VERSION='9.9.63-FILL-EVENT-MINIGAME',BUILD='9963renderlifecycle1';
  const oldFill=typeof renderFillBlank==='function'?renderFillBlank:null;
  let rounds=0,attempts=0,misses=0,autoAdvanced=0,advanceTimer=0;
  const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
@@ -375,12 +373,12 @@
   return true;
  }
  try{window.renderFillBlank=premiumFill;renderFillBlank=premiumFill}catch(_){window.renderFillBlank=premiumFill}
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v855){
-  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v855-fill-mode');return oldRender.apply(this,args)};
-  wrapped.__v855=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ function onBeforeRender(){
+  clearTimeout(advanceTimer);
+  document.querySelector('.question-frame')?.classList.remove('v855-fill-mode');
  }
- window.DEEN_FILL_BLANK_MINIGAME={version:VERSION,build:BUILD,render:premiumFill,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,attempts,misses,autoAdvanced,active:!!document.querySelector('.v855-fill-wrap')})};
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ window.DEEN_FILL_BLANK_MINIGAME={version:VERSION,build:BUILD,render:premiumFill,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,attempts,misses,autoAdvanced,active:!!document.querySelector('.v855-fill-wrap'),eventDriven:true})};
  document.documentElement.dataset.deenFillBlank='ready';
 })();
 </script>
@@ -422,7 +420,7 @@
 <script id="deen-v856-true-false-runtime">
 (()=>{
  if(window.__deenV856TrueFalse)return;window.__deenV856TrueFalse=true;
- const VERSION='8.5.6-TRUE-FALSE-SWIPE',BUILD='856tf1';
+ const VERSION='9.9.63-TRUE-FALSE-EVENT-SWIPE',BUILD='9963renderlifecycle1';
  let rounds=0,swipes=0,taps=0,correctAnswers=0,wrongAnswers=0,autoAdvanced=0,advanceTimer=0;
  const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
  const truthy=v=>/^(doğru|dogru|true|evet|yes)$/.test(norm(v));
@@ -491,12 +489,11 @@
   card.addEventListener('pointerup',release);card.addEventListener('pointercancel',e=>{if(pointerId===e.pointerId){pointerId=null;card.style.transition='';card.classList.remove('toward-yes','toward-no');card.style.transform=''}});
   return true;
  }
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v856){
-  const wrapped=function(...args){clearTimeout(advanceTimer);const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
-  wrapped.__v856=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
- }
- window.DEEN_TRUE_FALSE_SWIPE={version:VERSION,build:BUILD,decorate,isTF,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,swipes,taps,correctAnswers,wrongAnswers,autoAdvanced,active:!!document.querySelector('.v856-tf-wrap')})};
+ function onBeforeRender(){clearTimeout(advanceTimer)}
+ function onRendered(){queueMicrotask(decorate)}
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ document.addEventListener('deen:question-rendered',onRendered);
+ window.DEEN_TRUE_FALSE_SWIPE={version:VERSION,build:BUILD,decorate,isTF,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,swipes,taps,correctAnswers,wrongAnswers,autoAdvanced,active:!!document.querySelector('.v856-tf-wrap'),eventDriven:true})};
  document.documentElement.dataset.deenTrueFalse='ready';
 })();
 </script>
@@ -535,7 +532,7 @@
 <script id="deen-v857-scenario-runtime">
 (()=>{
  if(window.__deenV857Scenario)return;window.__deenV857Scenario=true;
- const VERSION='8.5.7-SCENARIO-MINIGAME',BUILD='857scenario1';
+ const VERSION='9.9.63-SCENARIO-EVENT-MINIGAME',BUILD='9963renderlifecycle1';
  let rounds=0,decisions=0,correctDecisions=0;
  const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
  function eligible(q){return !!q&&Array.isArray(q.options_tr)&&q.options_tr.length>=2&&(q.activity_type==='scenario'||q.type==='scenario'||q.question_type==='scenario')}
@@ -585,12 +582,11 @@
   });
   return true;
  }
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v857){
-  const wrapped=function(...args){document.querySelector('.question-frame')?.classList.remove('v857-scenario-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
-  wrapped.__v857=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
- }
- window.DEEN_SCENARIO_MINIGAME={version:VERSION,build:BUILD,eligible,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,decisions,correctDecisions,active:!!document.querySelector('.v857-scenario-mode')})};
+ function onBeforeRender(){document.querySelector('.question-frame')?.classList.remove('v857-scenario-mode')}
+ function onRendered(){queueMicrotask(decorate)}
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ document.addEventListener('deen:question-rendered',onRendered);
+ window.DEEN_SCENARIO_MINIGAME={version:VERSION,build:BUILD,eligible,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,decisions,correctDecisions,active:!!document.querySelector('.v857-scenario-mode'),eventDriven:true})};
  document.documentElement.dataset.deenScenario='ready';
 })();
 </script>
@@ -623,7 +619,7 @@
 <script id="deen-v858-odd-runtime">
 (()=>{
  if(window.__deenV858Odd)return;window.__deenV858Odd=true;
- const VERSION='8.5.8-ODD-ONE-OUT-MINIGAME',BUILD='858odd1';
+ const VERSION='9.9.63-ODD-EVENT-MINIGAME',BUILD='9963renderlifecycle1';
  let rounds=0,perfect=0,misses=0,autoAdvanced=0,advanceTimer=0;
  const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
  const value=o=>o&&typeof o==='object'?String(o.text??o.label??o.value??o.id??''):String(o??'');
@@ -675,12 +671,14 @@
   });
   return true;
  }
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v858){
-  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v858-odd-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
-  wrapped.__v858=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ function onBeforeRender(){
+  clearTimeout(advanceTimer);
+  document.querySelector('.question-frame')?.classList.remove('v858-odd-mode');
  }
- window.DEEN_ODD_ONE_OUT_MINIGAME={version:VERSION,build:BUILD,eligible,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,perfect,misses,autoAdvanced,active:!!document.querySelector('.v858-odd-wrap')})};
+ function onRendered(){queueMicrotask(decorate)}
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ document.addEventListener('deen:question-rendered',onRendered);
+ window.DEEN_ODD_ONE_OUT_MINIGAME={version:VERSION,build:BUILD,eligible,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,perfect,misses,autoAdvanced,active:!!document.querySelector('.v858-odd-wrap'),eventDriven:true})};
  document.documentElement.dataset.deenOddOneOut='ready';
 })();
 </script>
@@ -717,7 +715,7 @@
 <script id="deen-v859-mcq-runtime">
 (()=>{
  if(window.__deenV859MCQ)return;window.__deenV859MCQ=true;
- const VERSION='8.5.9-RAPID-CHOICE-MCQ',BUILD='859mcq1';
+ const VERSION='9.9.63-MCQ-EVENT-RUNTIME',BUILD='9963renderlifecycle1';
  let rounds=0,answers=0,correctAnswers=0,autoAdvanced=0,advanceTimer=0;
  const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
  const excluded=new Set(['card','scenario','odd_one_out','listen_select','pronunciation','true_false','fill_blank','match','sequence']);
@@ -773,12 +771,14 @@
   });
   return true;
  }
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v859){
-  const wrapped=function(...args){clearTimeout(advanceTimer);document.querySelector('.question-frame')?.classList.remove('v859-mcq-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
-  wrapped.__v859=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ function onBeforeRender(){
+  clearTimeout(advanceTimer);
+  document.querySelector('.question-frame')?.classList.remove('v859-mcq-mode');
  }
- window.DEEN_RAPID_CHOICE_MCQ={version:VERSION,build:BUILD,eligible,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,answers,correctAnswers,autoAdvanced,active:!!document.querySelector('.v859-mcq-mode')})};
+ function onRendered(){queueMicrotask(decorate)}
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ document.addEventListener('deen:question-rendered',onRendered);
+ window.DEEN_RAPID_CHOICE_MCQ={version:VERSION,build:BUILD,eligible,decorate,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,answers,correctAnswers,autoAdvanced,active:!!document.querySelector('.v859-mcq-mode'),eventDriven:true})};
  document.documentElement.dataset.deenRapidChoice='ready';
 })();
 </script>
@@ -819,7 +819,7 @@
 <script id="deen-v860-listen-runtime">
 (()=>{
  if(window.__deenV860Listen)return;window.__deenV860Listen=true;
- const VERSION='8.6.0-LISTEN-SELECT-MINIGAME',BUILD='860listen1';
+ const VERSION='9.9.63-LISTEN-EVENT-RUNTIME',BUILD='9963renderlifecycle1';
  let rounds=0,plays=0,answers=0,correctAnswers=0,autoAdvanced=0,advanceTimer=0,audio=null,unlockTimer=0;
  const norm=v=>String(v??'').trim().toLocaleLowerCase('tr-TR').replace(/\s+/g,' ');
  function kind(q){return String(q?.type||q?.question_type||q?.activity_type||'').toLowerCase()}
@@ -876,13 +876,16 @@
   });
   return true;
  }
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v860){
-  const wrapped=function(...args){clearTimeout(advanceTimer);stopAudio();document.querySelector('.question-frame')?.classList.remove('v860-listen-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};
-  wrapped.__v860=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
+ function onBeforeRender(){
+  clearTimeout(advanceTimer);
+  stopAudio();
+  document.querySelector('.question-frame')?.classList.remove('v860-listen-mode');
  }
+ function onRendered(){queueMicrotask(decorate)}
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ document.addEventListener('deen:question-rendered',onRendered);
  window.addEventListener('beforeunload',stopAudio);
- window.DEEN_LISTEN_SELECT_MINIGAME={version:VERSION,build:BUILD,eligible,decorate,requiresApprovedAudio:true,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,plays,answers,correctAnswers,autoAdvanced,active:!!document.querySelector('.v860-listen-mode')})};
+ window.DEEN_LISTEN_SELECT_MINIGAME={version:VERSION,build:BUILD,eligible,decorate,requiresApprovedAudio:true,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,plays,answers,correctAnswers,autoAdvanced,active:!!document.querySelector('.v860-listen-mode'),eventDriven:true})};
  document.documentElement.dataset.deenListenSelect='ready';
 })();
 </script>
