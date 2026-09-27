@@ -323,9 +323,19 @@
   document.addEventListener('deen:return-card-rendered',()=>{try{renderHome()}catch(e){console.warn('V6.8.0 home',e)}});
   document.addEventListener('deen:navigated',event=>{const d=event?.detail||{};if(d.id==='learnScreen'||d.activeScreen==='learnScreen')setTimeout(()=>{try{renderHome()}catch(e){}},0)});
   document.addEventListener('deen:question-rendered',()=>{try{renderSessionBrief()}catch(e){}});
-  const BASE_START_MACRO=window.startMacroStage;if(typeof BASE_START_MACRO==='function')window.startMacroStage=function(...args){const before=session;const r=BASE_START_MACRO.apply(this,args);if(session&&session!==before){document.querySelectorAll('#resultView .v680-result-next').forEach(x=>x.remove());begin('lesson')}return r};
-  document.addEventListener('deen:review-started',event=>{if(event?.detail?.started!==true)return;document.querySelectorAll('#resultView .v680-result-next').forEach(x=>x.remove());begin('review')});
-  for(const name of ['startSectionFinal','startSection2Final','startSection3Final']){const base=window[name];if(typeof base==='function')window[name]=function(...args){const before=session;const r=base.apply(this,args);if(session&&session!==before)begin('final');return r}}
+  document.addEventListener('deen:macro-stage-started',event=>{
+    if(event?.detail?.started!==true)return;
+    document.querySelectorAll('#resultView .v680-result-next').forEach(x=>x.remove());
+    begin('lesson');
+  });
+  document.addEventListener('deen:review-started',event=>{
+    if(event?.detail?.started!==true)return;
+    document.querySelectorAll('#resultView .v680-result-next').forEach(x=>x.remove());
+    begin('review');
+  });
+  document.addEventListener('deen:section-final-started',event=>{
+    if(event?.detail?.started===true)begin('final');
+  });
   document.addEventListener('deen:lesson-result',()=>{try{window.DEEN_DAILY_JOURNEY?.evaluate?.(day(),true);window.DEEN_ECONOMY?.evaluate?.(day(),false);decorateResult()}catch(e){console.warn('V6.8.0 result',e)}});
   document.addEventListener('deen:section-result',()=>{try{decorateResult()}catch(e){}});
   document.addEventListener('deen:profile-rendered',()=>{try{const f=document.querySelector('#profileScreenBody .v5-footer-note');if(f)f.innerHTML='DEEN 6.8.0 · Next Best Action<br>XP ve Pırıltı yalnız öğrenme sistemini oyunlaştırır; ibadet puanlanmaz.'}catch(e){}});
