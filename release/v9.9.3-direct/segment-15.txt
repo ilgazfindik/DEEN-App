@@ -93,6 +93,7 @@ html.v5-reduce .v732-reaction-avatar,html.v625-motion-off .v732-reaction-avatar,
 </style>
 <script id="deen-v732-celebration-js">
 (()=>{
+ if(window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV732Applied)return;window.__deenV732Applied=true;
  const VERSION='7.3.2';window.DEEN_CELEBRATION_VERSION=VERSION;window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.3.3 — Celebration FX';
  function qIndex(q){const m=String(q?.id||'').match(/(\d{3})$/);return m?Number(m[1]):1}
@@ -317,6 +318,7 @@ html.v5-reduce .v740-nur-room,html.v5-reduce .v740-path-chest.ready{animation:no
 </style>
 <script id="deen-v740-world-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV740Applied)return;window.__deenV740Applied=true;
  const VERSION='7.4.0',STATE_VERSION=19;
  window.DEEN_WORLD_VERSION=VERSION;window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.4.0 — My World';
@@ -429,6 +431,7 @@ html.v5-reduce .v741-stage-avatar,*[data-reduced-motion="true"] .v741-stage-avat
 
 <script id="deen-v741-avatar-js">
 (()=>{
+ if(window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV741Applied)return;window.__deenV741Applied=true;
  const VERSION='7.4.1',STATE_VERSION=20;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.4.1 — Avatar Builder';
@@ -526,6 +529,7 @@ html.v5-reduce .v742-avatar,*[data-reduced-motion="true"] .v742-avatar{animation
 </style>
 <script id="deen-v742-avatar-js">
 (()=>{
+ if(window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV742Applied)return;window.__deenV742Applied=true;
  const VERSION='7.4.2',STATE_VERSION=21,WORLD=window.DEEN_WORLD;if(!WORLD)return;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.4.2 — Avatar Builder Advanced';
@@ -632,6 +636,7 @@ html.v5-reduce .v742-avatar,*[data-reduced-motion="true"] .v742-avatar{animation
 
 <script id="deen-v743-avatar-rewards-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV743Applied)return;window.__deenV743Applied=true;
  const VERSION='7.4.3',STATE_VERSION=22;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.4.3 — Avatar Rewards & Collections';
@@ -735,6 +740,7 @@ html.v5-reduce .v744-reveal:before,html.v5-reduce .v744-shake .v744-chest,html.v
 
 <script id="deen-v744-chest-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV744Applied)return;window.__deenV744Applied=true;
  const VERSION='7.4.4',STATE_VERSION=23,RARE_GUARANTEE_AFTER=4;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.4.4 — Premium Chest Reveal';
@@ -808,6 +814,7 @@ html.v5-reduce .v745-rays,html.v5-reduce .v745-reveal.shake .v745-chest,.v5-redu
 
 <script id="deen-v745-sets-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV745Applied)return;window.__deenV745Applied=true;
  const VERSION='7.4.5',STATE_VERSION=24,RARE_GUARANTEE_AFTER=4;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.4.5 — Chest Tiers & Collection Sets';
@@ -882,6 +889,7 @@ html.v5-reduce .v750-character,html.v625-motion-off .v750-character,.v5-reduce .
 
 <script id="deen-v750-interactive-world-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV750Applied)return;window.__deenV750Applied=true;
  const VERSION='7.5.0',STATE_VERSION=25;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.5.0 — Interactive My World';
@@ -969,6 +977,7 @@ html.v5-reduce .v751-character-walking,html.v625-motion-off .v751-character-walk
 
 <script id="deen-v751-living-world-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV751Applied)return;window.__deenV751Applied=true;
  const VERSION='7.5.1',STATE_VERSION=26;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.5.1 — Living My World';
