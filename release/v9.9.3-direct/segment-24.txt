@@ -5636,7 +5636,7 @@
      };
      img.onload=()=>done(true);
      img.onerror=()=>done(false);
-     img.src=src+(src.includes('?')?'&':'?')+'v=9947companionstable1';
+     img.src=src+(src.includes('?')?'&':'?')+'v=9948nohumanguide1';
      if(img.complete && img.naturalWidth>0)done(true);
      setTimeout(()=>done(false),3500);
    });
@@ -5709,7 +5709,7 @@
    img.setAttribute('aria-hidden','true');
    img.dataset.companion=id;
    img.dataset.mood=resolvedMood;
-   img.src=src+'?v=9947companionstable1';
+   img.src=src+'?v=9948nohumanguide1';
 
    avatar.classList.add('deen-companion-runtime-ready');
    avatar.replaceChildren(img);
@@ -5738,7 +5738,7 @@
    img.className='deen-companion-profile-img';
    img.alt='';
    img.setAttribute('aria-hidden','true');
-   img.src=src+'?v=9947companionstable1';
+   img.src=src+'?v=9948nohumanguide1';
    el.replaceChildren(img);
    return true;
  }
@@ -7666,4 +7666,190 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.47-PRODUCTION',BUILD='9947companionstable1',TITLE='DEEN v9.9.47';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.48 — Permanently disable legacy human lesson guide -->
+<style id="deen-v9948-no-human-guide-css">
+/*
+  The animal companion is now the only lesson presenter.
+  Legacy human/Meryem reaction avatars are hidden from the first paint,
+  including the brief post-answer frame before the compact feedback layout
+  is applied.
+*/
+#lesson .v732-reaction-avatar,
+#lesson .v732-reaction-name,
+#lesson [class*="v732-reaction-avatar"],
+#lesson [class*="v732-reaction-name"],
+#lesson .v730-presenter,
+#lesson .v730-avatar-wrap,
+#lesson .v730-avatar,
+#lesson [data-legacy-guide],
+#lesson [data-guide-avatar],
+#lesson .legacy-guide-avatar,
+#lesson .legacy-human-guide{
+  display:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important;
+  width:0!important;
+  min-width:0!important;
+  max-width:0!important;
+  height:0!important;
+  min-height:0!important;
+  max-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  overflow:hidden!important;
+}
+
+/* Old feedback icon/presenter column is no longer needed. */
+#lesson #feedbackIcon{
+  display:none!important;
+}
+
+/* If an old feedback card still carries the two-column presenter layout,
+   collapse it to one content column immediately. */
+#lesson .feedback-box.v732-feedback,
+#lesson .feedback-box:has(.v732-reaction-avatar),
+#lesson .feedback-box:has([class*="v732-reaction-avatar"]){
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+}
+</style>
+
+<script id="deen-v9948-no-human-guide-js">
+(()=>{
+  if(window.__deenV9948NoHumanGuide)return;
+  window.__deenV9948NoHumanGuide=true;
+
+  const VERSION='9.9.48-NO-HUMAN-GUIDE';
+  let observer=null;
+
+  const SELECTORS=[
+    '#lesson .v732-reaction-avatar',
+    '#lesson .v732-reaction-name',
+    '#lesson [class*="v732-reaction-avatar"]',
+    '#lesson [class*="v732-reaction-name"]',
+    '#lesson .v730-presenter',
+    '#lesson .v730-avatar-wrap',
+    '#lesson .v730-avatar',
+    '#lesson [data-legacy-guide]',
+    '#lesson [data-guide-avatar]',
+    '#lesson .legacy-guide-avatar',
+    '#lesson .legacy-human-guide'
+  ];
+
+  function kill(root=document){
+    let removed=0;
+    SELECTORS.forEach(sel=>{
+      root.querySelectorAll?.(sel)?.forEach(el=>{
+        try{
+          el.style.setProperty('display','none','important');
+          el.style.setProperty('visibility','hidden','important');
+          el.style.setProperty('opacity','0','important');
+          el.setAttribute('aria-hidden','true');
+          el.dataset.deenLegacyGuideDisabled='9948';
+          removed++;
+        }catch(_){}
+      });
+    });
+
+    const icon=document.getElementById('feedbackIcon');
+    if(icon){
+      icon.style.setProperty('display','none','important');
+      icon.setAttribute('aria-hidden','true');
+    }
+
+    document.querySelectorAll('#lesson .feedback-box.v732-feedback').forEach(box=>{
+      box.style.setProperty('grid-template-columns','minmax(0,1fr)','important');
+      box.style.setProperty('gap','0','important');
+    });
+
+    return removed;
+  }
+
+  function watch(){
+    const lesson=document.getElementById('lesson');
+    if(!lesson||!('MutationObserver' in window))return;
+    try{observer?.disconnect?.()}catch(_){}
+    observer=new MutationObserver(mutations=>{
+      let needsKill=false;
+      for(const m of mutations){
+        if(m.addedNodes?.length){needsKill=true;break}
+      }
+      if(needsKill)kill(lesson);
+    });
+    observer.observe(lesson,{childList:true,subtree:true});
+  }
+
+  /*
+    Old versions inject a human feedback avatar from completeQuestion hooks.
+    Run both synchronously and on the next frames so it never becomes visible.
+  */
+  const CQ=window.completeQuestion;
+  if(typeof CQ==='function'){
+    window.completeQuestion=function(...args){
+      kill();
+      const r=CQ.apply(this,args);
+      kill();
+      requestAnimationFrame(()=>kill());
+      [0,30,80,180,360,600].forEach(ms=>setTimeout(()=>kill(),ms));
+      return r;
+    };
+    try{completeQuestion=window.completeQuestion}catch(_){}
+  }
+
+  const RQ=window.renderQuestion;
+  if(typeof RQ==='function'){
+    window.renderQuestion=function(...args){
+      const r=RQ.apply(this,args);
+      kill();
+      requestAnimationFrame(()=>kill());
+      return r;
+    };
+    try{renderQuestion=window.renderQuestion}catch(_){}
+  }
+
+  /*
+    Also neutralize the old celebration helper's visible reaction nodes.
+    We keep the object itself intact for compatibility with older code.
+  */
+  function neutralizeCelebration(){
+    try{
+      const c=window.DEEN_CELEBRATION;
+      if(c && !c.__deenNoHumanGuide){
+        c.__deenNoHumanGuide=true;
+        if(typeof c.test==='function'){
+          const original=c.test.bind(c);
+          c.test=(...args)=>{
+            const r=original(...args);
+            kill();
+            requestAnimationFrame(()=>kill());
+            return r;
+          };
+        }
+      }
+    }catch(_){}
+  }
+
+  window.DEEN_NO_HUMAN_GUIDE={
+    version:VERSION,
+    apply:()=>{neutralizeCelebration();return kill()},
+    snapshot:()=>({
+      visibleLegacyGuides:SELECTORS.reduce((n,sel)=>n+[...document.querySelectorAll(sel)].filter(el=>getComputedStyle(el).display!=='none'&&getComputedStyle(el).visibility!=='hidden').length,0),
+      companion:document.querySelector('#lesson .deen-character-question-avatar')?.dataset?.animal||null
+    })
+  };
+
+  kill();
+  watch();
+  neutralizeCelebration();
+  [120,400,900,1600].forEach(ms=>setTimeout(()=>{
+    kill();
+    neutralizeCelebration();
+  },ms));
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.48-PRODUCTION',BUILD='9948nohumanguide1',TITLE='DEEN v9.9.48';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
