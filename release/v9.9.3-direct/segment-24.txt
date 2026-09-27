@@ -399,18 +399,20 @@
  window.finishOnboarding=function(){ensure();state.onboarded=true;state.onboardingVersion=ONBOARDING_VERSION;saveState();closeSheet();updateUI();try{scrollToCurrent('U01')}catch(_){}};
  document.addEventListener('deen:settings-rendered',()=>{try{injectSettings()}catch(e){console.warn('V9.5 settings',e)}});
  document.addEventListener('deen:profile-rendered',()=>{try{injectProfileCard()}catch(e){console.warn('V9.5 profile',e)}});
- document.addEventListener('deen:question-rendered',()=>{
+ document.addEventListener('deen:question-rendered',event=>{
   try{
    applyQuestionUI();
-   queueMicrotask(()=>{applyQuestionUI();adaptOverlay(document)});
-   setTimeout(()=>{applyQuestionUI();adaptOverlay(document)},95);
+   const run=()=>{applyQuestionUI();adaptOverlay(document)};
+   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v950-question-ui',event?.detail,run,{raf:true,delays:[95]}))setTimeout(run,95);
   }catch(e){console.warn('V9.5 render',e)}
  });
  document.addEventListener('deen:question-graded',event=>{
   try{
    const q=event?.detail?.question||currentQuestion();
-   applyFeedback(event?.detail?.correct===true,q);
-   setTimeout(()=>applyFeedback(event?.detail?.correct===true,q),35);
+   const correct=event?.detail?.correct===true;
+   applyFeedback(correct,q);
+   const run=()=>applyFeedback(correct,q);
+   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v950-feedback',event?.detail,run,{delays:[35]}))setTimeout(run,35);
   }catch(e){console.warn('V9.5 feedback',e)}
  });
  document.addEventListener('deen:state-saving',()=>{ensure()});
@@ -5138,12 +5140,14 @@
    Question lifecycle is now owned by DEEN_RUNTIME_ARBITER. This runtime only
    reacts to those canonical events; it no longer wraps render/grade/result.
  */
- document.addEventListener('deen:question-rendered',()=>{
-   requestAnimationFrame(()=>renderLesson('lesson_idle'));
+ document.addEventListener('deen:question-rendered',event=>{
+   const run=()=>renderLesson('lesson_idle');
+   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9936-companion',event?.detail,run,{raf:true}))requestAnimationFrame(run);
  });
  document.addEventListener('deen:question-graded',e=>{
    const mood=e?.detail?.correct===true?'correct':'try_again';
-   requestAnimationFrame(()=>renderLesson(mood));
+   const run=()=>renderLesson(mood);
+   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9936-companion',e?.detail,run,{raf:true}))requestAnimationFrame(run);
  });
  document.addEventListener('deen:lesson-result',()=>{
    requestAnimationFrame(()=>renderLesson('celebrate'));
@@ -5262,13 +5266,15 @@
    return repair(lastMood);
  }
 
- document.addEventListener('deen:question-rendered',()=>{
+ document.addEventListener('deen:question-rendered',event=>{
    lastMood='lesson_idle';
-   requestAnimationFrame(()=>mount('lesson_idle'));
+   const run=()=>mount('lesson_idle');
+   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9937-companion-lock',event?.detail,run,{raf:true}))requestAnimationFrame(run);
  });
  document.addEventListener('deen:question-graded',e=>{
    lastMood=e?.detail?.correct===true?'correct':'try_again';
-   requestAnimationFrame(()=>repair(lastMood));
+   const mood=lastMood,run=()=>repair(mood);
+   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9937-companion-lock',e?.detail,run,{raf:true}))requestAnimationFrame(run);
  });
  document.addEventListener('deen:companion-rendered',()=>watch());
  document.addEventListener('visibilitychange',()=>{
@@ -6111,14 +6117,15 @@
    if(Number.isFinite(epoch))lastGradeEpoch=epoch;
 
    const kind=e?.detail?.correct===true?'correct':'wrong';
-
-   // The companion runtime changes the artwork separately. Give that one
-   // animation frame to settle, then decorate once. Retry only if the avatar
-   // is not mounted yet; a successful first pass never runs a second time.
-   requestAnimationFrame(()=>{
-     if(render(kind))return;
-     setTimeout(()=>render(kind),80);
-   });
+   let done=false;
+   const run=()=>{
+     if(done)return;
+     done=!!render(kind);
+   };
+   // Arbiter validates epoch/key before both the first frame and retry.
+   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9944-reaction',e?.detail,run,{raf:true,delays:[80]})){
+     requestAnimationFrame(()=>{if(render(kind))return;setTimeout(()=>render(kind),80)});
+   }
  });
 
  window.DEEN_COMPANION_REACTIONS={
@@ -7594,7 +7601,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.86-RUNTIME-ARBITER';
+ const VERSION='9.9.87-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -8272,4 +8279,4 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.86-PRODUCTION',BUILD='9986owneraudit1',TITLE='DEEN v9.9.86';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.87-PRODUCTION',BUILD='9987regression1',TITLE='DEEN v9.9.87';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
