@@ -79,6 +79,7 @@
 </style>
 <script id="deen-v773-first-world-avatar-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV773Applied)return;window.__deenV773Applied=true;
  const VERSION='7.7.5',STATE_VERSION=48;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.7.5 — Dünyam Avatar Integrity & Runtime Stability';
@@ -227,6 +228,7 @@
 </style>
 <script id="deen-v776-world-ux-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV776Applied)return;window.__deenV776Applied=true;
  const VERSION='7.7.6',STATE_VERSION=49;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.7.6 — Dünyam Room UX & Interaction Stability';
@@ -315,6 +317,7 @@
 </style>
 <script id="deen-v777-world-object-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV777Applied)return;window.__deenV777Applied=true;
  const VERSION='7.7.7',STATE_VERSION=50;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.7.7 — Dünyam Object Interactions & Visual Polish';
@@ -420,6 +423,7 @@
 </style>
 <script id="deen-v778-world-visual-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV778Applied)return;window.__deenV778Applied=true;
  const VERSION='7.7.8',STATE_VERSION=51;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.7.8 — Dünyam Visual Hierarchy & Room Composition';
@@ -492,6 +496,7 @@
 </style>
 <script id="deen-v779-asset-polish-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV779Applied)return;window.__deenV779Applied=true;
  const VERSION='7.7.9',STATE_VERSION=52;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.7.9 — Dünyam Asset Polish';
@@ -581,6 +586,7 @@
 </style>
 <script id="deen-v780-simple-world-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV780Applied)return;window.__deenV780Applied=true;
  const VERSION='7.8.0',STATE_VERSION=53;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.0 — Dünyam Simplified Navigation & Motion';
@@ -638,6 +644,7 @@
 </style>
 <script id="deen-v781-direct-world-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV781Applied)return;window.__deenV781Applied=true;
  const VERSION='7.8.1',STATE_VERSION=54;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.1 — Direct Object Movement & Minimal Controls';
@@ -710,6 +717,7 @@ html.v5-reduce #worldScreenBody #v750Character.v782-acting svg,html.v625-motion-
 </style>
 <script id="deen-v782-context-actions-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV782Applied)return;window.__deenV782Applied=true;
  const VERSION='7.8.2',STATE_VERSION=55;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.2 — Contextual Character Actions';
@@ -772,6 +780,7 @@ html.v5-reduce #worldScreenBody #v750Character.v783-idle-ready svg,html.v625-mot
 </style>
 <script id="deen-v783-idle-life-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV783Applied)return;window.__deenV783Applied=true;
  const VERSION='7.8.3',STATE_VERSION=56;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.3 — Idle Life & Ambient Behavior';
@@ -833,6 +842,7 @@ html.v5-reduce #worldScreenBody #v750Character.v783-idle-ready svg,html.v625-mot
 </style>
 <script id="deen-v784-progression-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV784Applied)return;window.__deenV784Applied=true;
  const VERSION='7.8.4',STATE_VERSION=57;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.4 — Dünyam Progression & Daily Loop';
@@ -921,6 +931,7 @@ html.v5-reduce .v785-levelup-card,html.v625-motion-off .v785-levelup-card,html.v
 </style>
 <script id="deen-v785-levelup-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV785Applied)return;window.__deenV785Applied=true;
  const VERSION='7.8.5',STATE_VERSION=58;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.5 — Level-Up Celebration & Unlock Reveal';
