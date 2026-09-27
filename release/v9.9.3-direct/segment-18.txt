@@ -6,6 +6,7 @@ html.v5-reduce #worldScreenBody .v786-level-shift .v786-evolution-layer,html.v62
 </style>
 <script id="deen-v786-room-evolution-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV786Applied)return;window.__deenV786Applied=true;
  const VERSION='7.8.6',STATE_VERSION=59;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.6 — Room Evolution by Level';
@@ -64,6 +65,7 @@ html.v5-reduce #worldScreenBody .v787-equip-flash,html.v625-motion-off #worldScr
 </style>
 <script id="deen-v787-room-personalization-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV787Applied)return;window.__deenV787Applied=true;
  const VERSION='7.8.7',STATE_VERSION=60;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.7 — Room Decor Equip & Personalization';
@@ -148,6 +150,7 @@ html.v5-reduce #worldScreenBody .v787-equip-flash,html.v625-motion-off #worldScr
 </style>
 <script data-inline-from="./patches/v7.8.8.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV788Applied)return;window.__deenV788Applied=true;
  const VERSION='7.8.8',STATE_VERSION=61;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.8 — Decor Collection & Rarity Shop';
@@ -252,6 +255,7 @@ html.v5-reduce #worldScreenBody .v789-preview,html.v625-motion-off #worldScreenB
 </style>
 <script data-inline-from="./patches/v7.8.9.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV789Applied)return;window.__deenV789Applied=true;
  const VERSION='7.8.9',STATE_VERSION=62;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.8.9 — Try Before Buy / Oda Önizleme';
@@ -320,6 +324,7 @@ html.v5-reduce #worldScreenBody .v750-room.v790-preset-shift,html.v625-motion-of
 </style>
 <script data-inline-from="./patches/v7.9.0.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV790Applied)return;window.__deenV790Applied=true;
  const VERSION='7.9.0',STATE_VERSION=63;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.9.0 — Room Presets';
@@ -399,6 +404,7 @@ html.v5-reduce #worldScreenBody .v791-card-pulse,html.v625-motion-off #worldScre
 </style>
 <script data-inline-from="./patches/v7.9.1.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV791Applied)return;window.__deenV791Applied=true;
  const VERSION='7.9.1',STATE_VERSION=64;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.9.1 — Shop & Collection Final Polish';
@@ -450,6 +456,7 @@ html.v5-reduce #worldScreenBody .v791-card-pulse,html.v625-motion-off #worldScre
 </style>
 <script data-inline-from="./patches/v7.9.2.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV792Applied)return;window.__deenV792Applied=true;
  const VERSION='7.9.2',STATE_VERSION=65;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.9.2 — Economy & Progression Balance';
@@ -507,6 +514,7 @@ html.v5-reduce #worldScreenBody .v791-card-pulse,html.v625-motion-off #worldScre
 </style>
 <script data-inline-from="./patches/v8.0.0.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV800Applied)return;window.__deenV800Applied=true;
  const VERSION='8.0.0',STATE_VERSION=66;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.0.0 — Dünyam Final Stabilization';
@@ -615,6 +623,7 @@ html.v5-reduce #worldScreenBody .v791-card-pulse,html.v625-motion-off #worldScre
 
 <script data-inline-from="./patches/v8.0.1.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV801Applied)return;window.__deenV801Applied=true;
  const VERSION='8.0.1',STATE_VERSION=67;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.0.1 — Dünyam Entry Freeze Hotfix';
@@ -700,6 +709,7 @@ html.v5-reduce #worldScreenBody .v791-card-pulse,html.v625-motion-off #worldScre
 </style>
 <script data-inline-from="./patches/v8.0.2.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV802Applied)return;window.__deenV802Applied=true;
  const VERSION='8.0.2',STATE_VERSION=68;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.0.2 — Stable Progress Card Hotfix';
@@ -810,6 +820,7 @@ html.v5-reduce #worldScreenBody .v791-card-pulse,html.v625-motion-off #worldScre
 </style>
 <script data-inline-from="./patches/v8.1.0.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
   const SEL='#worldScreenBody';
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -956,6 +967,7 @@ html.v5-reduce #worldScreenBody .v791-card-pulse,html.v625-motion-off #worldScre
 </style>
 <script data-inline-from="./patches/v8.1.2.runtime.js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__)return;
  if(window.__deenV812Applied)return;window.__deenV812Applied=true;
  const VERSION='8.1.2',STATE_VERSION=71;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v8.1.2 — Premium Giyinme Odası';
