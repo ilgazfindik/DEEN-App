@@ -8528,7 +8528,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.71-RUNTIME-ARBITER';
+ const VERSION='9.9.74-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -8540,6 +8540,7 @@
  const LEGACY_PROFILE_VIEW=window.profileView;
  const LEGACY_CEREMONY=window.ceremony;
  const LEGACY_SECTION_RESULT=window.showSectionFinalResult;
+ const LEGACY_LEAGUE_VIEW=window.leagueView;
 
  let renderBusy=false;
  let renderEpoch=0;
@@ -8558,6 +8559,7 @@
  let profileRenders=0;
  let ceremonies=0;
  let sectionResults=0;
+ let leagueRenders=0;
 
  function questionKey(q){
    let actual=q;
@@ -8687,6 +8689,20 @@
    guardedSectionResult.__deen9953Original=LEGACY_SECTION_RESULT;
    window.showSectionFinalResult=guardedSectionResult;
    try{showSectionFinalResult=guardedSectionResult}catch(_){}
+ }
+
+ if(typeof LEGACY_LEAGUE_VIEW==='function'){
+   const guardedLeagueView=function(...args){
+     dispatch('deen:league-rendering',{count:leagueRenders+1});
+     const out=LEGACY_LEAGUE_VIEW.apply(this,args);
+     leagueRenders++;
+     dispatch('deen:league-rendered',{count:leagueRenders});
+     return out;
+   };
+   guardedLeagueView.__deen9953=true;
+   guardedLeagueView.__deen9953Original=LEGACY_LEAGUE_VIEW;
+   window.leagueView=guardedLeagueView;
+   try{leagueView=guardedLeagueView}catch(_){}
  }
 
  if(typeof LEGACY_RENDER==='function'){
@@ -8866,10 +8882,13 @@
      ceremonyGuarded:!!window.ceremony?.__deen9953,
      sectionResultGuarded:!!window.showSectionFinalResult?.__deen9953,
      viewLifecycleEvents:true,
-     sectionResultLifecycleEvents:true
+     sectionResultLifecycleEvents:true,
+     leagueRenders,
+     leagueGuarded:!!window.leagueView?.__deen9953,
+     leagueLifecycleEvents:true
    })
  };
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.73-PRODUCTION',BUILD='9973crosssegment1',TITLE='DEEN v9.9.73';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.74-PRODUCTION',BUILD='9974finalwrappers1',TITLE='DEEN v9.9.74';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
