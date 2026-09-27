@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.9.48</title>
+<title>DEEN v9.9.49</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -20,7 +20,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const BUILD='9948nohumanguide1';
+   const BUILD='9949companionstreak1';
    const segmentName=i=>'segment-'+String(i).padStart(2,'0')+'.txt';
    const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
    async function loadSegment(i){
@@ -96,13 +96,13 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    if(!html.includes('deen-v9946-unified-companion-layout-js'))throw new Error('Unified companion layout paketi eksik');
    if(!html.includes('deen-v9947-final-companion-stabilization-js'))throw new Error('Final companion stabilization paketi eksik');
    if(!html.includes('deen-v9948-no-human-guide-js'))throw new Error('No-human-guide paketi eksik');
-   window.__DEEN_DEPLOY_ID__='9948nohumanguide1';
+   if(!html.includes('deen-v9949-companion-streak-js'))throw new Error('Companion streak paketi eksik');
+   window.__DEEN_DEPLOY_ID__='9949companionstreak1';
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
  }
 })();
 </script>
-<script src="patches/v9.9.5.combo-celebration.js"></script>
 </body>
 </html>
