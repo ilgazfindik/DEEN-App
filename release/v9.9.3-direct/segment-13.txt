@@ -471,7 +471,16 @@
   document.addEventListener('deen:question-rendered',()=>{try{objective()}catch(e){console.warn('V6.3.3 objective',e)}});
   document.addEventListener('deen:ui-updating',()=>{try{ensureState()}catch(e){}});
   document.addEventListener('deen:ui-updated',()=>{try{objective()}catch(e){}});
-  const baseShowResult=window.showResult;window.showResult=function(...args){const d=session?.macroDef;const r=baseShowResult.apply(this,args);try{if(d&&window.DEEN_FIVE_STAGE.done(d.id)){const um=unitMeta(d.unit);if(defs(d.unit).every(x=>window.DEEN_FIVE_STAGE.done(x.id))&&!um.firstPassCompletedAt)um.firstPassCompletedAt=Date.now();saveState()}}catch(e){}return r};
+  document.addEventListener('deen:lesson-result',e=>{
+    const d=e?.detail?.session?.macroDef;
+    try{
+      if(d&&window.DEEN_FIVE_STAGE.done(d.id)){
+        const um=unitMeta(d.unit);
+        if(defs(d.unit).every(x=>window.DEEN_FIVE_STAGE.done(x.id))&&!um.firstPassCompletedAt)um.firstPassCompletedAt=Date.now();
+        saveState();
+      }
+    }catch(e){}
+  });
 
   function leakageCheck(d,qs,knownSeen=[]){const max=stageMax(d),known=new Set(knownSeen);return qs.filter(q=>q.stage_id.slice(0,3)!==d.unit||(d.kind!=='challenge'&&stageNo(q.stage_id)>max&&!known.has(q.id))).map(q=>q.id)}
   window.DEEN_PEDAGOGY={
@@ -530,14 +539,23 @@
     const d=s.macroDef,m=window.DEEN_FIVE_STAGE?.meta?.(d.id),passed=row.lastScore>=70,nextNo=Math.min(d.lessons,(Number(m?.completedLessons)||0)+1),next=window.DEEN_PEDAGOGY?.profile?.(d.id,nextNo),types=Object.keys(row.activityCounts||{}).filter(k=>k!=='unknown').length,wrong=row.wrongIds.length;
     const box=document.createElement('div');box.className='v633-debrief';box.innerHTML=`<div class="head"><b>${esc(row.profileTitle||'Mini ders')} · öğrenme özeti</b><span>HAFIZA PLANI AKTİF</span></div><div class="v633-debrief-grid"><div><strong>${types}</strong><small>ETKİNLİK TÜRÜ</small></div><div><strong>${wrong}</strong><small>TEKRAR ÖNCELİĞİ</small></div><div><strong>${row.review.durable}/${row.questionIds.length}</strong><small>KALICI PLAN</small></div></div><p>${passed?(m?.completedLessons>=d.lessons?'Bu macro aşama tamamlandı; bir sonraki düğüm artık açılabilir.':`Sıradaki mini ders: <span class="next">${esc(next?.title||'sonraki adım')}</span>.`):'Aynı atanmış soru seti korunur; tekrar denemesi yeni first-pass içeriği tüketmez.'}</p>`;host.append(box);
   }
-  const baseShowResult=window.showResult;
-  window.showResult=function(...args){
-    const snap=session?.macroStage?session:null;
-    const total=snap?.questions?.length||0,pct=total?Math.round((snap.correct||0)/total*100):0;
-    const r=baseShowResult.apply(this,args);
-    try{if(snap){const row=record(snap,pct);debrief(snap,row);saveState()}}catch(e){console.warn('V6.3.3 debrief',e)}
-    return r;
-  };
+  let v633PendingResult=null;
+  document.addEventListener('deen:lesson-result-before',e=>{
+    const s=e?.detail?.session;
+    if(!s?.macroStage){v633PendingResult=null;return}
+    const total=s.questions?.length||0;
+    const pct=total?Math.round((s.correct||0)/total*100):0;
+    v633PendingResult={s,pct};
+  });
+  document.addEventListener('deen:lesson-result',()=>{
+    const pending=v633PendingResult;v633PendingResult=null;
+    if(!pending)return;
+    try{
+      const row=record(pending.s,pending.pct);
+      debrief(pending.s,row);
+      saveState();
+    }catch(e){console.warn('V6.3.3 debrief',e)}
+  });
   const baseSave=window.saveState;
   window.saveState=function(...args){
     ensureTelemetry();
@@ -782,22 +800,57 @@
     try{const host=$('v5Return'),p=plan('smart',null,7);if(host&&p.summary.count&&conceptRows().length){host.querySelector('.v640-return-hint')?.remove();const x=document.createElement('div');x.className='v640-return-hint';x.innerHTML=`<b>Hafıza planı:</b> ${p.summary.due} vadesi gelen · ${p.summary.mistakes} yanlış önceliği · ${p.summary.concepts} kavram`;host.append(x)}}catch(e){}
     return r;
   };
-  const BASE_SHOW_RESULT_640=window.showResult;
-  window.showResult=function(...args){
-    const snap=session?.adaptiveReview?{unit:session.adaptiveUnit,before:clone640(session.adaptiveMasteryBefore),plan:clone640(session.adaptivePlan),total:session.questions?.length||0}:null;
-    const r=BASE_SHOW_RESULT_640.apply(this,args);
+  let v641PendingResult=null;
+  document.addEventListener('deen:lesson-result-before',e=>{
+    const s=e?.detail?.session;
+    v641PendingResult=s?.adaptiveReview?{
+      session:s,
+      unit:s.adaptiveUnit,
+      before:clone640(s.adaptiveMasteryBefore),
+      plan:clone640(s.adaptivePlan),
+      total:s.questions?.length||0
+    }:null;
+  });
+  document.addEventListener('deen:lesson-result',()=>{
+    const snap=v641PendingResult;v641PendingResult=null;
+    if(!snap)return;
     try{
-      if(snap){
-        const after=snap.unit?unitMastery(snap.unit):globalMastery(),beforeScore=Number(snap.before?.score)||0,delta=after.score-beforeScore,host=$('v5ResultExtra');
-        ensureAdaptive();
-        const result={at:Date.now(),mode:snap.plan?.mode||'smart',unit:snap.unit||null,correct:Number(session?.correct)||0,total:snap.total,pct:snap.total?Math.round((Number(session?.correct)||0)/snap.total*100):0,masteryBefore:beforeScore,masteryAfter:after.score,masteryDelta:delta,ids:[...(state.lastReviewIds||[])]};
-        state.adaptiveReviewMeta.lastResult=result;
-        const h=state.adaptiveReviewMeta.history;if(Array.isArray(h)&&h.length){const last=h[h.length-1];if(last&&last.status==='started'&&JSON.stringify(last.ids||[])===JSON.stringify(result.ids)){Object.assign(last,{status:'completed',correct:result.correct,total:result.total,pct:result.pct,masteryBefore:result.masteryBefore,masteryAfter:result.masteryAfter,masteryDelta:result.masteryDelta,completedAt:result.at})}}
-        if(host){host.querySelector('.v640-result')?.remove();const box=document.createElement('div');box.className='v640-result';box.innerHTML=`<div class="row"><b>Adaptif hafıza özeti</b><span>${delta>0?'+':''}${delta} puan</span></div><p>${snap.plan?.due||0} vadesi gelen · ${snap.plan?.mistakes||0} yanlış önceliği · ${snap.plan?.activityTypes||0} etkinlik türü işlendi. Sonraki plan yeni cevaplarına göre yeniden hesaplanacak.</p>`;host.append(box)}
-        saveState();
+      const s=snap.session;
+      const after=snap.unit?unitMastery(snap.unit):globalMastery();
+      const beforeScore=Number(snap.before?.score)||0;
+      const delta=after.score-beforeScore;
+      const host=$('v5ResultExtra');
+      ensureAdaptive();
+      const result={
+        at:Date.now(),
+        mode:snap.plan?.mode||'smart',
+        unit:snap.unit||null,
+        correct:Number(s?.correct)||0,
+        total:snap.total,
+        pct:snap.total?Math.round((Number(s?.correct)||0)/snap.total*100):0,
+        masteryBefore:beforeScore,
+        masteryAfter:after.score,
+        masteryDelta:delta,
+        ids:[...(state.lastReviewIds||[])]
+      };
+      state.adaptiveReviewMeta.lastResult=result;
+      const h=state.adaptiveReviewMeta.history;
+      if(Array.isArray(h)&&h.length){
+        const last=h[h.length-1];
+        if(last&&last.status==='started'&&JSON.stringify(last.ids||[])===JSON.stringify(result.ids)){
+          Object.assign(last,{status:'completed',correct:result.correct,total:result.total,pct:result.pct,masteryBefore:result.masteryBefore,masteryAfter:result.masteryAfter,masteryDelta:result.masteryDelta,completedAt:result.at});
+        }
       }
-    }catch(e){console.warn('V6.4.1 result mastery',e)}return r;
-  };
+      if(host){
+        host.querySelector('.v640-result')?.remove();
+        const box=document.createElement('div');
+        box.className='v640-result';
+        box.innerHTML=`<div class="row"><b>Adaptif hafıza özeti</b><span>${delta>0?'+':''}${delta} puan</span></div><p>${snap.plan?.due||0} vadesi gelen · ${snap.plan?.mistakes||0} yanlış önceliği · ${snap.plan?.activityTypes||0} etkinlik türü işlendi. Sonraki plan yeni cevaplarına göre yeniden hesaplanacak.</p>`;
+        host.append(box);
+      }
+      saveState();
+    }catch(e){console.warn('V6.4.1 result mastery',e)}
+  });
   const BASE_MIGRATE_640=typeof migrate==='function'?migrate:null;
   if(BASE_MIGRATE_640)migrate=function(...args){const s=BASE_MIGRATE_640.apply(this,args);return ensureAdaptive(s)};
   const BASE_SAVE_640=window.saveState;
@@ -945,8 +998,7 @@
     const host=$('v5ResultExtra');if(!host||host.querySelector('.v650-result-loop'))return;const st=status(),ss=steps(st),next=nextAction(st),box=document.createElement('div');box.className='v650-result-loop';
     box.innerHTML=`<div class="row"><b>Bugünkü yolculuk</b><span>${st.done}/${st.total}</span></div><div class="v650-mini-track">${ss.map(x=>`<i class="${x.done?'done':x.current?'current':''}"></i>`).join('')}</div><p>${st.complete?'Bugünkü plan tamamlandı; bundan sonrası isteğe bağlı.':esc(next.title)}</p>`;host.append(box);
   }
-  const BASE_SHOW_RESULT=window.showResult;
-  window.showResult=function(...args){const r=BASE_SHOW_RESULT.apply(this,args);try{evaluate(day(),true);decorateResult()}catch(e){console.warn('V6.5.1 result loop',e)}return r};
+  document.addEventListener('deen:lesson-result',()=>{try{evaluate(day(),true);decorateResult()}catch(e){console.warn('V6.5.1 result loop',e)}});
   const BASE_SHOW_FINAL=window.showSectionFinalResult;
   if(typeof BASE_SHOW_FINAL==='function')window.showSectionFinalResult=function(...args){const r=BASE_SHOW_FINAL.apply(this,args);try{evaluate(day(),true);decorateResult()}catch(e){}return r};
 
