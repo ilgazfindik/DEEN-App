@@ -8279,4 +8279,58 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
+<!-- DEEN v9.9.87 — Runtime regression guard: non-destructive ownership/lifecycle self-check -->
+<script id="deen-v9987-runtime-regression-js">
+(()=>{
+ if(window.__deenV9987RuntimeRegression)return;
+ window.__deenV9987RuntimeRegression=true;
+ const VERSION='9.9.87-RUNTIME-REGRESSION';
+ const BUILD='9987regression1';
+ let last=null,runs=0;
+
+ function checks(){
+  const finals=['startSectionFinal','startSection2Final','startSection3Final'];
+  return {
+   renderOwner:!!window.renderQuestion?.__deen9953,
+   gradeOwner:!!window.completeQuestion?.__deen9953,
+   resultOwner:!!window.showResult?.__deen9953,
+   uiOwner:!!window.updateUI?.__deen9953,
+   startOwner:!!window.startStage?.__deen9953,
+   finishOwner:!!window.finishLesson?.__deen9953,
+   nextOwner:!!window.nextQuestion?.__deen9953,
+   closeOwner:!!window.closeLesson?.__deen9953,
+   navigateOwner:!!window.navigate?.__deen9953,
+   reviewOwner:!!window.startSmartReview?.__deen9953,
+   macroOwner:!!window.startMacroStage?.__deen9953,
+   finalOwners:finals.every(name=>!!window[name]?.__deen9953),
+   streakOwner:!!window.streakPanel?.__deen9953,
+   energyOwner:!!window.showEnergy?.__deen9953,
+   rewardOwner:!!window.rewardAd?.__deen9953,
+   scheduler:typeof window.DEEN_RUNTIME_SCHEDULE?.question==='function',
+   arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.87-RUNTIME-ARBITER',
+   noLateRenderWrapper:!window.renderQuestion?.__v873&&!window.renderQuestion?.__v890&&!window.renderQuestion?.__v891,
+   noLateStartWrapper:!window.startStage?.__v910LearningLoop,
+   build:!window.DEEN_BUILD_ID||window.DEEN_BUILD_ID===BUILD
+  };
+ }
+
+ function run(){
+  const values=checks(),failed=Object.entries(values).filter(([,ok])=>ok!==true).map(([name])=>name);
+  last={version:VERSION,build:BUILD,at:Date.now(),run:++runs,pass:failed.length===0,failed,checks:values};
+  document.documentElement.dataset.deenRuntimeRegression=last.pass?'pass':'fail';
+  if(!last.pass)try{console.error('DEEN runtime regression guard failed',last)}catch(_){}
+  return JSON.parse(JSON.stringify(last));
+ }
+
+ window.DEEN_RUNTIME_REGRESSION={
+  version:VERSION,
+  build:BUILD,
+  run,
+  snapshot:()=>last?JSON.parse(JSON.stringify(last)):run()
+ };
+
+ [0,250,1200,2500].forEach(ms=>setTimeout(run,ms));
+})();
+</script>
+
 <script id="deen-v993-production-guard">(()=>{const VERSION='9.9.87-PRODUCTION',BUILD='9987regression1',TITLE='DEEN v9.9.87';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
