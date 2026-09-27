@@ -164,10 +164,18 @@
   try{document.documentElement.dataset.deenQuestionFlow='balanced';document.dispatchEvent(new CustomEvent('deen:flow:balanced',{detail:{version:VERSION,...lastPlan}}))}catch(_){}
   return true;
  }
+ let lifecycleInstalled=false;
+ function onQuestionRendering(){
+  // v8.9.0 is the newer session planner. Keep v8.7.3 as a fallback/public planner only.
+  if(typeof window.DEEN_TODDLER_DOPAMINE_ENGINE?.prepareSession==='function')return false;
+  return prepareSession();
+ }
  function install(){
   const o=orch();if(!o)return false;o.plan=balancedPlan;
-  const old=typeof renderQuestion==='function'?renderQuestion:window.renderQuestion;
-  if(typeof old==='function'&&!old.__v873){const wrapped=function(...args){prepareSession();return old.apply(this,args)};wrapped.__v873=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}}
+  if(!lifecycleInstalled){
+   document.addEventListener('deen:question-rendering',onQuestionRendering);
+   lifecycleInstalled=true;
+  }
   document.documentElement.dataset.deenFlowBalance='ready';return true;
  }
  function audit(){
