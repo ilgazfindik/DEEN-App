@@ -8528,10 +8528,11 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.63-RUNTIME-ARBITER';
+ const VERSION='9.9.66-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
+ const LEGACY_UPDATE=window.updateUI;
 
  let renderBusy=false;
  let renderEpoch=0;
@@ -8540,6 +8541,8 @@
  let blockedGrades=0;
  let completedGrades=0;
  let renders=0;
+ let uiDepth=0;
+ let uiUpdates=0;
 
  function questionKey(q){
    let actual=q;
@@ -8672,6 +8675,28 @@
    try{showResult=guardedResult}catch(_){}
  }
 
+
+ if(typeof LEGACY_UPDATE==='function'){
+   const guardedUpdate=function(...args){
+     const outer=uiDepth===0;
+     if(outer)dispatch('deen:ui-updating',{count:uiUpdates+1});
+     uiDepth++;
+     let out;
+     try{
+       out=LEGACY_UPDATE.apply(this,args);
+       if(outer)uiUpdates++;
+     }finally{
+       uiDepth=Math.max(0,uiDepth-1);
+     }
+     if(outer)queueMicrotask(()=>dispatch('deen:ui-updated',{count:uiUpdates}));
+     return out;
+   };
+   guardedUpdate.__deen9953=true;
+   guardedUpdate.__deen9953Original=LEGACY_UPDATE;
+   window.updateUI=guardedUpdate;
+   try{updateUI=guardedUpdate}catch(_){}
+ }
+
  window.DEEN_RUNTIME_ARBITER={
    version:VERSION,
    snapshot:()=>({
@@ -8685,12 +8710,16 @@
      renderGuarded:!!window.renderQuestion?.__deen9953,
      gradeGuarded:!!window.completeQuestion?.__deen9953,
      resultGuarded:!!window.showResult?.__deen9953,
+     uiGuarded:!!window.updateUI?.__deen9953,
+     uiDepth,
+     uiUpdates,
      preRenderEvent:true,
      preGradeEvent:true,
-     preResultEvent:true
+     preResultEvent:true,
+     uiLifecycleEvents:true
    })
  };
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.65-PRODUCTION',BUILD='9965legacyretire1',TITLE='DEEN v9.9.65';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.66-PRODUCTION',BUILD='9966uilifecycle1',TITLE='DEEN v9.9.66';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
