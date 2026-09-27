@@ -68,6 +68,7 @@ opacity:.98;transition:background .45s ease, opacity .45s ease, filter .45s ease
 </style>
 <script id="deen-v752-world-loop-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV752Applied)return;window.__deenV752Applied=true;
  const VERSION='7.5.2',STATE_VERSION=27;
  document.title='DEEN v7.5.2 — Living World Loop';window.DEEN_RELEASE_VERSION=VERSION;
@@ -123,6 +124,7 @@ opacity:.98;transition:background .45s ease, opacity .45s ease, filter .45s ease
 </style>
 <script id="deen-v753-skin-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV753Applied)return;window.__deenV753Applied=true;
  const VERSION='7.5.3',STATE_VERSION=28;
  document.title='DEEN v7.5.3 — World Skin & Asset Binding';window.DEEN_RELEASE_VERSION=VERSION;
@@ -196,6 +198,7 @@ opacity:.98;transition:background .45s ease, opacity .45s ease, filter .45s ease
 </style>
 <script id="deen-v760-avatar-studio-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV760AvatarStudioApplied)return;window.__deenV760AvatarStudioApplied=true;
  const VERSION='7.6.1',STATE_VERSION=32;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.6.1 — Outfit + Beard + Modular Rewards';
@@ -354,6 +357,7 @@ opacity:.98;transition:background .45s ease, opacity .45s ease, filter .45s ease
 </style>
 <script id="deen-v761-bridge-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV761BridgeApplied)return;window.__deenV761BridgeApplied=true;
  const VERSION='7.6.1',STATE_VERSION=32;
  function patchStudioNote(){const ov=document.getElementById('v760Overlay');if(!ov||ov.querySelector('.v761-reward-note'))return;const footer=ov.querySelector('.v760-footer');footer?.insertAdjacentHTML('beforebegin','<div class="v761-reward-note"><b>Temel görünüm ücretsiz.</b> Yüz, ten, göz, kaş, burun ve ağız seçenekleri serbesttir. Özel kıyafet ve bazı sakal stilleri ücretsiz öğrenme sandıklarından koleksiyona açılır; gerçek parayla rastgele sandık yoktur.</div>')}
@@ -428,6 +432,7 @@ opacity:.98;transition:background .45s ease, opacity .45s ease, filter .45s ease
 </style>
 <script id="deen-v762-snap-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV762SnapApplied)return; window.__deenV762SnapApplied=true;
  const VERSION='7.6.2',STATE_VERSION=33;
  const ICONS={gender:'🙂',skin:'◐',face:'🧑',eyes:'👀',brows:'︿',nose:'👃',mouth:'☺',headwear:'🧕',head:'💇',tone:'🎨',beard:'🧔',outfit:'👕',glasses:'👓',extra:'✨'};
@@ -499,6 +504,7 @@ opacity:.98;transition:background .45s ease, opacity .45s ease, filter .45s ease
 </style>
 <script id="deen-v763-thumb-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV763ThumbApplied)return; window.__deenV763ThumbApplied=true;
  const VERSION='7.6.3', STATE_VERSION=34;
  const FEMALE_HIJABS=['soft_wrap','classic_wrap','layered_wrap','hooded','cross_front','turkish_wrap','loose_wrap','sport_wrap'];
@@ -538,6 +544,7 @@ opacity:.98;transition:background .45s ease, opacity .45s ease, filter .45s ease
 </style>
 <script id="deen-v764-stable-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV764Applied)return; window.__deenV764Applied=true;
  const VERSION='7.6.4', STATE_VERSION=35;
  window.DEEN_RELEASE_VERSION=VERSION;
@@ -608,6 +615,7 @@ opacity:.98;transition:background .45s ease, opacity .45s ease, filter .45s ease
 </style>
 <script id="deen-v766-avatar-library-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV766Applied)return;window.__deenV766Applied=true;
  const VERSION='7.6.8',STATE_VERSION=39;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.6.8 — Avatar Save Slots & Favorites';
@@ -773,6 +781,7 @@ function bind(){const ov=document.getElementById('v765AvatarOverlay');if(!ov)ret
 </style>
 <script id="deen-v7691-hotfix-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV7691Applied)return;window.__deenV7691Applied=true;
  const VERSION='7.6.9.1',STATE_VERSION=42;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.6.9.1 — World Nav Hotfix + Avatar Collection';
@@ -859,6 +868,7 @@ function bind(){const ov=document.getElementById('v765AvatarOverlay');if(!ov)ret
 </style>
 <script id="deen-v771-chest-integrity-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV770Applied)return;window.__deenV770Applied=true;
  const VERSION='7.7.1',STATE_VERSION=44;
  window.DEEN_RELEASE_VERSION=VERSION;
@@ -980,6 +990,7 @@ function bind(){const ov=document.getElementById('v765AvatarOverlay');if(!ov)ret
 </style>
 <script id="deen-v772-unified-collection-js">
 (()=>{
+ if(window.__DEEN_WORLD_RETIRED_RUNTIME__||window.__DEEN_LEGACY_AVATAR_RETIRED__)return;
  if(window.__deenV772Applied)return;window.__deenV772Applied=true;
  const VERSION='7.7.2',STATE_VERSION=45;
  window.DEEN_RELEASE_VERSION=VERSION;document.title='DEEN v7.7.2 — Unified Reward Collection';
