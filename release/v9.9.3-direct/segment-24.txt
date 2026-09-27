@@ -974,7 +974,7 @@
 <script id="deen-v997-profile-companion-sync-js">
 (()=>{
  if(window.__deenV997ProfileCompanionSync)return;window.__deenV997ProfileCompanionSync=true;
- const VERSION='9.9.7-PROFILE-COMPANION';
+ const VERSION='9.9.52-PROFILE-COMPANION-LOOP-FIX';
  let observer=null,busy=false;
  function companion(){
   try{
@@ -994,26 +994,49 @@
    root.querySelector('.v5-profilehead > span:first-child')
   ].filter(Boolean);
  }
+ function configure(el,a){
+  el.classList.add('v997-companion-avatar','v994-companion-avatar');
+  el.title=a.name+' · '+a.trait;
+  el.setAttribute('aria-label','Yol arkadaşın '+a.name+'. Değiştirmek için dokun.');
+  el.onclick=e=>{e.preventDefault();e.stopPropagation();try{window.DEEN_COMPANION?.open?.('profile')}catch(_){}};
+ }
+ function ensureFallback(el,a){
+  /*
+    Once the real companion asset runtime owns this avatar, this legacy sync
+    layer must NEVER replace its children. Previously it rewrote innerHTML on
+    every observer callback, causing PNG -> emoji -> observer -> emoji loops.
+  */
+  if(window.__DEEN_COMPANION_ASSET_MODE)return false;
+  const existing=el.querySelector(':scope > .v997-animal');
+  if(existing && el.children.length===1 && existing.textContent===a.emoji)return false;
+  const span=document.createElement('span');
+  span.className='v997-animal';
+  span.setAttribute('aria-hidden','true');
+  span.textContent=a.emoji;
+  el.replaceChildren(span);
+  return true;
+ }
  function apply(){
   if(busy)return false;busy=true;
   try{
    const a=companion(),root=document.getElementById('profileScreenBody');
    if(!a||!root)return false;
+
+   // Removing a legacy CTA is idempotent; subsequent observer passes do nothing.
    root.querySelectorAll('.v760-profile-cta').forEach(x=>x.remove());
+
    const seen=new Set(),els=candidates(root).filter(el=>!seen.has(el)&&(seen.add(el),true));
    if(!els.length)return false;
+
    for(const el of els){
-    el.classList.add('v997-companion-avatar','v994-companion-avatar');
-    el.innerHTML='<span class="v997-animal" aria-hidden="true">'+a.emoji+'</span>';
-    el.title=a.name+' · '+a.trait;
-    el.setAttribute('aria-label','Yol arkadaşın '+a.name+'. Değiştirmek için dokun.');
-    el.onclick=e=>{e.preventDefault();e.stopPropagation();try{window.DEEN_COMPANION?.open?.('profile')}catch(_){}};
+    configure(el,a);
+    ensureFallback(el,a);
    }
    return true;
   }finally{busy=false}
  }
  function schedule(){
-  [0,30,90,160,300].forEach(ms=>setTimeout(()=>{try{apply()}catch(e){}},ms));
+  [0,80,220].forEach(ms=>setTimeout(()=>{try{apply()}catch(e){}},ms));
  }
  const BASE_PROFILE=typeof window.profileView==='function'?window.profileView:null;
  if(BASE_PROFILE){
@@ -1030,12 +1053,22 @@
   if(nav)schedule();
  },true);
  function watch(){
-  const root=document.getElementById('profileScreenBody');if(!root||observer)return;
-  observer=new MutationObserver(()=>{if(!busy)setTimeout(()=>{try{apply()}catch(e){}},0)});
+  const root=document.getElementById('profileScreenBody');
+  if(!root||!('MutationObserver' in window))return;
+  try{observer?.disconnect?.()}catch(_){}
+  observer=new MutationObserver(mutations=>{
+   if(busy)return;
+   // Only react to actual child-tree changes. Attribute changes from configure()
+   // are deliberately not observed, preventing self-triggered synchronization.
+   if(!mutations.some(m=>m.type==='childList'&&(m.addedNodes.length||m.removedNodes.length)))return;
+   queueMicrotask(()=>{try{apply()}catch(e){}});
+  });
   observer.observe(root,{childList:true,subtree:true});
  }
  window.DEEN_PROFILE_COMPANION_SYNC={version:VERSION,apply,snapshot:()=>({
   companion:companion()?.id||null,
+  assetMode:!!window.__DEEN_COMPANION_ASSET_MODE,
+  profileImage:!!document.querySelector('#profileScreenBody .deen-companion-profile-img'),
   visibleEmoji:document.querySelector('#profileScreenBody .v997-animal')?.textContent||null,
   oldAvatarSvgCount:document.querySelectorAll('#profileScreenBody .v997-companion-avatar svg').length,
   legacyProfileCtaCount:document.querySelectorAll('#profileScreenBody .v760-profile-cta').length
@@ -8263,4 +8296,4 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.51-PRODUCTION',BUILD='9951spritegrid1',TITLE='DEEN v9.9.51';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.52-PRODUCTION',BUILD='9952profileloop1',TITLE='DEEN v9.9.52';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
