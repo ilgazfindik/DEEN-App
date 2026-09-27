@@ -21,9 +21,9 @@ Regression pass for the centralized Runtime Arbiter and the critical learning fl
 
 All release segments were parsed after the v9.9.87 changes.
 
-- Release scripts parsed: 103
+- Release scripts parsed: 104
 - Loader/index scripts parsed: 1
-- Total scripts parsed: 104
+- Total scripts parsed: 105
 - Syntax errors: 0
 - Legacy `renderQuestion=wrapped` assignments in late v873/v890/v891 installers: 0
 - Legacy `startStage=wrapped` assignment in v910: 0
