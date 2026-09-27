@@ -5636,7 +5636,7 @@
      };
      img.onload=()=>done(true);
      img.onerror=()=>done(false);
-     img.src=src+(src.includes('?')?'&':'?')+'v=9949companionstreak1';
+     img.src=src+(src.includes('?')?'&':'?')+'v=9950streakdirect1';
      if(img.complete && img.naturalWidth>0)done(true);
      setTimeout(()=>done(false),3500);
    });
@@ -5709,7 +5709,7 @@
    img.setAttribute('aria-hidden','true');
    img.dataset.companion=id;
    img.dataset.mood=resolvedMood;
-   img.src=src+'?v=9949companionstreak1';
+   img.src=src+'?v=9950streakdirect1';
 
    avatar.classList.add('deen-companion-runtime-ready');
    avatar.replaceChildren(img);
@@ -5738,7 +5738,7 @@
    img.className='deen-companion-profile-img';
    img.alt='';
    img.setAttribute('aria-hidden','true');
-   img.src=src+'?v=9949companionstreak1';
+   img.src=src+'?v=9950streakdirect1';
    el.replaceChildren(img);
    return true;
  }
@@ -8000,12 +8000,129 @@
 }
 </style>
 
-<script id="deen-v9949-companion-streak-js">
-(()=>{
- if(window.__deenV9949CompanionStreak)return;
- window.__deenV9949CompanionStreak=true;
+<style id="deen-v9950-companion-streak-css">
+#deenStreakOverlay{
+  position:fixed!important;
+  inset:0!important;
+  z-index:2147483000!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  pointer-events:none!important;
+  background:rgba(3,18,23,.34)!important;
+  backdrop-filter:blur(2px)!important;
+  -webkit-backdrop-filter:blur(2px)!important;
+  opacity:0;
+  animation:deen9950OverlayIn .18s ease forwards;
+}
+#deenStreakOverlay.closing{animation:deen9950OverlayOut .2s ease forwards!important}
+#deenStreakOverlay .deen9950-card{
+  position:relative!important;
+  width:min(76vw,280px)!important;
+  min-height:292px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  padding:20px 20px 18px!important;
+  border-radius:32px!important;
+  border:1px solid rgba(232,194,91,.78)!important;
+  background:
+    radial-gradient(circle at 50% 32%,rgba(89,230,194,.17),transparent 43%),
+    linear-gradient(155deg,rgba(7,48,56,.985),rgba(3,28,37,.99))!important;
+  box-shadow:0 28px 70px rgba(0,0,0,.5),0 0 36px rgba(89,230,194,.10)!important;
+  animation:deen9950CardPop .62s cubic-bezier(.17,.9,.22,1.16) both!important;
+  overflow:visible!important;
+}
+#deenStreakOverlay .deen9950-mascot{
+  width:176px!important;
+  height:176px!important;
+  flex:0 0 176px!important;
+  background-image:url("assets/combo/companions-sheet.png?v=9950streakdirect1")!important;
+  background-size:400% 300%!important;
+  background-repeat:no-repeat!important;
+  filter:drop-shadow(0 16px 19px rgba(0,0,0,.33))!important;
+  animation:deen9950Mascot .86s cubic-bezier(.2,.86,.2,1) both!important;
+}
+#deenStreakOverlay .deen9950-count{
+  color:#f3ce67!important;
+  font:950 25px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  letter-spacing:.45px!important;
+  text-transform:uppercase!important;
+  text-shadow:0 3px 16px rgba(0,0,0,.38)!important;
+}
+#deenStreakOverlay .deen9950-copy{
+  color:#e6f3ef!important;
+  font:800 12px/1.35 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  text-align:center!important;
+  max-width:220px!important;
+  opacity:.9!important;
+}
+#deenStreakOverlay .deen9950-particle{
+  position:absolute!important;
+  left:50%!important;
+  top:45%!important;
+  width:8px!important;
+  height:8px!important;
+  border-radius:50%!important;
+  background:#79e5c9!important;
+  opacity:0!important;
+  box-shadow:0 0 11px rgba(121,229,201,.46)!important;
+  animation:deen9950Particle .95s cubic-bezier(.2,.8,.2,1) both!important;
+}
+#deenStreakOverlay .deen9950-particle:nth-child(2n){
+  background:#e8c45d!important;
+  box-shadow:0 0 11px rgba(232,196,93,.45)!important;
+}
+#deenStreakOverlay .p0{--x:-82px;--y:-88px}
+#deenStreakOverlay .p1{--x:-45px;--y:-118px}
+#deenStreakOverlay .p2{--x:0px;--y:-128px}
+#deenStreakOverlay .p3{--x:48px;--y:-112px}
+#deenStreakOverlay .p4{--x:82px;--y:-76px}
+#deenStreakOverlay .p5{--x:-94px;--y:-38px}
+#deenStreakOverlay .p6{--x:96px;--y:-31px}
+#deenStreakOverlay .p7{--x:-68px;--y:15px}
+#deenStreakOverlay .p8{--x:70px;--y:18px}
+#deenStreakOverlay .p9{--x:-18px;--y:-140px}
+#deenStreakOverlay .p10{--x:24px;--y:-142px}
+#deenStreakOverlay .p11{--x:2px;--y:28px}
 
- const VERSION='9.9.49-COMPANION-STREAK';
+@keyframes deen9950OverlayIn{to{opacity:1}}
+@keyframes deen9950OverlayOut{to{opacity:0}}
+@keyframes deen9950CardPop{
+  0%{opacity:0;transform:translateY(42px) scale(.70)}
+  62%{opacity:1;transform:translateY(-5px) scale(1.055)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes deen9950Mascot{
+  0%{opacity:0;transform:translateY(22px) scale(.78) rotate(-3deg)}
+  48%{opacity:1;transform:translateY(-10px) scale(1.10) rotate(2deg)}
+  75%{transform:translateY(0) scale(.98) rotate(-1deg)}
+  100%{opacity:1;transform:translateY(0) scale(1) rotate(0)}
+}
+@keyframes deen9950Particle{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.35)}
+  16%{opacity:1}
+  100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.15)}
+}
+@media(max-width:420px){
+  #deenStreakOverlay .deen9950-card{width:min(74vw,250px)!important;min-height:258px!important;padding:16px!important;border-radius:27px!important}
+  #deenStreakOverlay .deen9950-mascot{width:150px!important;height:150px!important;flex-basis:150px!important}
+  #deenStreakOverlay .deen9950-count{font-size:21px!important}
+  #deenStreakOverlay .deen9950-copy{font-size:11px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #deenStreakOverlay,#deenStreakOverlay *{animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+</style>
+
+<script id="deen-v9950-companion-streak-js">
+(()=>{
+ if(window.__deenV9950CompanionStreak)return;
+ window.__deenV9950CompanionStreak=true;
+
+ const VERSION='9.9.50-COMPANION-STREAK-DIRECT';
  const IDS=['lion','wolf','owl','turtle','eagle','cat'];
  const LABELS={lion:'Aslan',wolf:'Kurt',owl:'Baykuş',turtle:'Kaplumbağa',eagle:'Kartal',cat:'Kedi'};
  const POSES={
@@ -8016,20 +8133,15 @@
    eagle:[[2,0],[2,1]],
    cat:[[2,2],[2,3]]
  };
- const MESSAGES={
+ const COPY={
    3:'Harika gidiyorsun!',
    5:'Mükemmel seri!',
-   10:'İnanılmaz odak!',
-   15:'Seri devam ediyor!'
+   10:'İnanılmaz odak!'
  };
 
- let streak=Number(session?.companionStreak||0)||0;
+ let lastKey='';
+ let lastCombo=-1;
  let busy=false;
- let lastGrade={key:'',correct:null,at:0};
- let lastQuestionsRef=session?.questions||null;
- let lastRenderedIndex=Number(session?.index||0);
-
- const frame=()=>document.querySelector('#lesson .question-frame');
 
  function selected(){
    let id='';
@@ -8037,27 +8149,11 @@
    if(!IDS.includes(id)){
      try{id=String(state?.profile?.companion||'').toLowerCase()}catch(_){}
    }
-   if(!IDS.includes(id)){
-     try{id=String(window.DEEN?.state?.profile?.companion||window.DEEN?.state?.companion||'').toLowerCase()}catch(_){}
-   }
    return IDS.includes(id)?id:'owl';
  }
 
- function questionKey(){
-   const q=session?.questions?.[session?.index]||{};
-   return [
-     Number(session?.index||0),
-     q.id||q.question_id||q.prompt||q.question||q.text||''
-   ].join('|');
- }
-
- function save(){
-   try{if(session)session.companionStreak=streak}catch(_){}
- }
-
- function reset(){
-   streak=0;
-   save();
+ function keyFor(q){
+   return String(q?.id||q?.question_id||q?.prompt||q?.question||q?.text||session?.index||'');
  }
 
  function shouldCelebrate(n){
@@ -8068,156 +8164,103 @@
    return ((col/3)*100)+'% '+((row/2)*100)+'%';
  }
 
- function closeOverlay(ov){
+ function close(ov){
    if(!ov||!ov.isConnected)return;
-   ov.classList.add('deen-streak-closing');
+   ov.classList.add('closing');
    setTimeout(()=>{ov.remove();busy=false},220);
  }
 
- function celebrate(n){
+ function celebrate(combo){
    if(busy)return false;
-   const f=frame();
-   if(!f)return false;
    busy=true;
 
-   f.querySelectorAll('.deen-streak-overlay').forEach(el=>el.remove());
+   document.getElementById('deenStreakOverlay')?.remove();
 
    const id=selected();
-   const poses=POSES[id]||POSES.owl;
-   const pose=poses[(n>=5?1:0)%poses.length];
+   const pair=POSES[id]||POSES.owl;
+   const pose=pair[combo>=5?1:0];
 
    const ov=document.createElement('div');
-   ov.className='deen-streak-overlay';
+   ov.id='deenStreakOverlay';
    ov.setAttribute('aria-hidden','true');
 
    const card=document.createElement('div');
-   card.className='deen-streak-card';
+   card.className='deen9950-card';
 
    const mascot=document.createElement('div');
-   mascot.className='deen-streak-mascot';
+   mascot.className='deen9950-mascot';
    mascot.style.backgroundPosition=bgPos(pose[0],pose[1]);
 
    const count=document.createElement('div');
-   count.className='deen-streak-count';
-   count.textContent=n+' SERİ';
+   count.className='deen9950-count';
+   count.textContent=combo+' SERİ';
 
-   const message=document.createElement('div');
-   message.className='deen-streak-message';
-   message.textContent=(MESSAGES[n]||'Seri devam ediyor!')+' '+LABELS[id]+' seninle.';
+   const copy=document.createElement('div');
+   copy.className='deen9950-copy';
+   copy.textContent=(COPY[combo]||'Seri devam ediyor!')+' '+LABELS[id]+' seninle.';
 
-   card.append(mascot,count,message);
+   card.append(mascot,count,copy);
    ov.appendChild(card);
 
-   for(let i=0;i<10;i++){
+   for(let i=0;i<12;i++){
      const p=document.createElement('i');
-     p.className='deen-streak-particle p'+i;
+     p.className='deen9950-particle p'+i;
      ov.appendChild(p);
    }
 
-   f.appendChild(ov);
+   document.body.appendChild(ov);
+   window.__DEEN_COMPANION_REACTION_LOCK=Date.now()+1400;
 
-   window.__DEEN_COMPANION_REACTION_LOCK=Date.now()+1250;
-   try{navigator.vibrate?.(n>=10?[18,32,18,32,24]:[14,24,14])}catch(_){}
    try{window.DEEN_NO_HUMAN_GUIDE?.apply?.()}catch(_){}
+   try{navigator.vibrate?.(combo>=10?[18,30,18,30,24]:[14,22,14])}catch(_){}
 
-   setTimeout(()=>closeOverlay(ov),n>=10?1250:1050);
+   setTimeout(()=>close(ov),combo>=10?1400:1150);
    return true;
  }
 
- function handleAnswer(correct){
+ function onGrade(correct,officialCombo,q){
    if(typeof correct!=='boolean')return false;
 
-   const now=Date.now();
-   const key=questionKey();
+   const combo=correct?Math.max(0,Number(officialCombo)||0):0;
+   const key=keyFor(q);
 
-   // Guard against duplicate wrappers / duplicate grading of the same question.
-   if(lastGrade.key===key && lastGrade.correct===correct && now-lastGrade.at<650)return false;
-   lastGrade={key,correct,at:now};
+   // completeQuestion is authoritative. This only rejects accidental duplicate calls.
+   if(key===lastKey && combo===lastCombo)return false;
+   lastKey=key;
+   lastCombo=combo;
 
-   if(correct){
-     streak+=1;
-     save();
-     if(shouldCelebrate(streak)){
-       setTimeout(()=>celebrate(streak),260);
-     }
-   }else{
-     reset();
+   if(!correct)return true;
+
+   if(shouldCelebrate(combo)){
+     setTimeout(()=>celebrate(combo),180);
    }
    return true;
  }
 
- function onRender(){
-   const questionsRef=session?.questions||null;
-   const idx=Number(session?.index||0);
-
-   // A new lesson/session resets the consecutive-answer streak.
-   if(questionsRef!==lastQuestionsRef || idx<lastRenderedIndex){
-     reset();
-     lastQuestionsRef=questionsRef;
-   }
-   lastRenderedIndex=idx;
-
-   try{window.DEEN_NO_HUMAN_GUIDE?.apply?.()}catch(_){}
- }
-
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(correct,...rest){
-     const keyBefore=questionKey();
-     const r=CQ.call(this,correct,...rest);
-     if(typeof correct==='boolean'){
-       // Use the pre-navigation question key if an inner wrapper advances state.
-       const now=Date.now();
-       if(!(lastGrade.key===keyBefore && lastGrade.correct===correct && now-lastGrade.at<650)){
-         lastGrade={key:keyBefore,correct,at:now};
-         if(correct){
-           streak+=1;
-           save();
-           if(shouldCelebrate(streak))setTimeout(()=>celebrate(streak),260);
-         }else reset();
-       }
-     }
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
-
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(onRender);
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
-
- // Preload the sprite sheet before the first milestone.
+ // Preload before the first milestone.
  try{
-   const preload=new Image();
-   preload.src='assets/combo/companions-sheet.png?v=9949companionstreak1';
+   const img=new Image();
+   img.src='assets/combo/companions-sheet.png?v=9950streakdirect1';
  }catch(_){}
 
  window.DEEN_COMPANION_STREAK={
    version:VERSION,
-   onAnswer:handleAnswer,
+   onGrade,
    celebrate,
-   reset,
    selected,
-   get value(){return streak},
+   get value(){try{return Number(session?.combo||0)||0}catch(_){return 0}},
    snapshot:()=>({
-     streak,
+     combo:(()=>{try{return Number(session?.combo||0)||0}catch(_){return 0}})(),
      selected:selected(),
      busy,
-     question:questionKey()
+     lastKey,
+     lastCombo
    })
  };
 
- // Compatibility for Qwen's experimental API; one authoritative counter only.
  window.DEEN_COMBO=window.DEEN_COMPANION_STREAK;
-
  try{window.DEEN_NO_HUMAN_GUIDE?.apply?.()}catch(_){}
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.49-PRODUCTION',BUILD='9949companionstreak1',TITLE='DEEN v9.9.49';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.50-PRODUCTION',BUILD='9950streakdirect1',TITLE='DEEN v9.9.50';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
