@@ -7963,10 +7963,14 @@
   animation:deenStreakCardPop .64s cubic-bezier(.18,.9,.24,1.18) both!important;
 }
 #lesson .deen-streak-mascot{
-  width:156px!important;
-  height:156px!important;
-  flex:0 0 156px!important;
-  background-image:url("assets/combo/companions-sheet.png")!important;
+  /*
+    Source sheet is 2 columns × 6 rows. Each sprite cell is landscape, not
+    square. Keep that cell aspect ratio so the mascot is never stretched.
+  */
+  width:200px!important;
+  height:118.46px!important;
+  flex:0 0 118.46px!important;
+  background-image:url("assets/combo/companions-sheet.png?v=9957spriteaspect1")!important;
   background-size:200% 600%!important;
   background-repeat:no-repeat!important;
   filter:drop-shadow(0 16px 19px rgba(0,0,0,.30))!important;
@@ -8048,9 +8052,9 @@
     border-radius:26px!important;
   }
   #lesson .deen-streak-mascot{
-    width:140px!important;
-    height:140px!important;
-    flex-basis:140px!important;
+    width:176px!important;
+    height:104.24px!important;
+    flex-basis:104.24px!important;
   }
   #lesson .deen-streak-count{font-size:21px!important}
   #lesson .deen-streak-message{font-size:11px!important}
@@ -8103,10 +8107,14 @@
   overflow:visible!important;
 }
 #deenStreakOverlay .deen9950-mascot{
-  width:176px!important;
-  height:176px!important;
-  flex:0 0 176px!important;
-  background-image:url("assets/combo/companions-sheet.png?v=9951spritegrid1")!important;
+  /*
+    Preserve the real 2×6 sprite-cell aspect ratio. The previous square box
+    forced the sheet to scale differently on X/Y and visibly squashed mascots.
+  */
+  width:220px!important;
+  height:130.30px!important;
+  flex:0 0 130.30px!important;
+  background-image:url("assets/combo/companions-sheet.png?v=9957spriteaspect1")!important;
   background-size:200% 600%!important;
   background-repeat:no-repeat!important;
   filter:drop-shadow(0 16px 19px rgba(0,0,0,.33))!important;
@@ -8175,7 +8183,7 @@
 }
 @media(max-width:420px){
   #deenStreakOverlay .deen9950-card{width:min(74vw,250px)!important;min-height:258px!important;padding:16px!important;border-radius:27px!important}
-  #deenStreakOverlay .deen9950-mascot{width:150px!important;height:150px!important;flex-basis:150px!important}
+  #deenStreakOverlay .deen9950-mascot{width:196px!important;height:116.09px!important;flex-basis:116.09px!important}
   #deenStreakOverlay .deen9950-count{font-size:21px!important}
   #deenStreakOverlay .deen9950-copy{font-size:11px!important}
 }
@@ -8189,7 +8197,7 @@
  if(window.__deenV9950CompanionStreak)return;
  window.__deenV9950CompanionStreak=true;
 
- const VERSION='9.9.51-COMPANION-STREAK-SPRITEGRID';
+ const VERSION='9.9.57-COMPANION-STREAK-ASPECT';
  const IDS=['lion','wolf','owl','turtle','eagle','cat'];
  const LABELS={lion:'Aslan',wolf:'Kurt',owl:'Baykuş',turtle:'Kaplumbağa',eagle:'Kartal',cat:'Kedi'};
  const POSES={
@@ -8307,7 +8315,7 @@
  // Preload before the first milestone.
  try{
    const img=new Image();
-   img.src='assets/combo/companions-sheet.png?v=9951spritegrid1';
+   img.src='assets/combo/companions-sheet.png?v=9957spriteaspect1';
  }catch(_){}
 
  window.DEEN_COMPANION_STREAK={
@@ -8472,4 +8480,4 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.56-PRODUCTION',BUILD='9956layoutarbiter1',TITLE='DEEN v9.9.56';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.57-PRODUCTION',BUILD='9957spriteaspect1',TITLE='DEEN v9.9.57';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
