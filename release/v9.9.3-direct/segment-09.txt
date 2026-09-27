@@ -986,8 +986,14 @@ mountV5=function(){
  $('lesson').append($('resultView'));const d=document.createElement('dialog');d.id='v5Sheet';d.setAttribute('aria-labelledby','v5SheetTitle');d.innerHTML='<div class="v5-sheet-head"><span class="v5-kicker">DEEN</span><button class="v5-iconbtn" onclick="closeSheet()" aria-label="Pencereyi kapat">×</button></div><h2 id="v5SheetTitle"></h2><div id="v5SheetBody"></div>';$('phone').append(d);const t=document.createElement('div');t.id='v5Toast';t.setAttribute('role','status');$('phone').append(t);
  document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>navigate(b.dataset.screen));document.querySelector('.lesson-brand-sub').textContent='Öğren · Anla · Hatırla';document.querySelector('.lesson-head .close').setAttribute('aria-label','Dersi kapat');document.addEventListener('visibilitychange',()=>{if(!document.hidden){rollWeek();reconcileStreak();updateUI();saveState()}});
 };
-const DEEN512_BASE_UPDATE_UI=updateUI;
-updateUI=function(){DEEN512_BASE_UPDATE_UI();const energy=state.premium?'∞':state.energy;if($('streakTop'))$('streakTop').textContent=state.streak;if($('energyTop'))$('energyTop').textContent=energy;if($('xpTop'))$('xpTop').textContent=state.xp>=10000?(state.xp/1000).toFixed(1)+'b':state.xp};
+function deen512SyncTopStats(){
+ const energy=state.premium?'∞':state.energy;
+ if($('streakTop'))$('streakTop').textContent=state.streak;
+ if($('energyTop'))$('energyTop').textContent=energy;
+ if($('xpTop'))$('xpTop').textContent=state.xp>=10000?(state.xp/1000).toFixed(1)+'b':state.xp;
+}
+document.addEventListener('deen:ui-updated',deen512SyncTopStats);
+setTimeout(()=>{try{deen512SyncTopStats()}catch(_){}},0);
 
 mountV5();installGameFeel();reconcileStreak();rollWeek();saveState();try{localStorage.setItem('deen_storage_probe','1');localStorage.removeItem('deen_storage_probe')}catch(e){$('v5Stats').insertAdjacentHTML('beforebegin','<p class="v5-term">Bu tarayıcı kalıcı kayda izin vermiyor. Kapatmadan önce Profil → Ayarlar’dan ilerlemeni yedekle.</p>')}
 if(!state.onboarded)setTimeout(()=>onboarding(),100);
