@@ -383,18 +383,31 @@
  };
  window.finishOnboarding=function(){ensure();state.onboarded=true;state.onboardingVersion=ONBOARDING_VERSION;saveState();closeSheet();updateUI();try{scrollToCurrent('U01')}catch(_){}};
  const BASE_SETTINGS=window.settingsPanel;if(typeof BASE_SETTINGS==='function')window.settingsPanel=function(...args){const out=BASE_SETTINGS.apply(this,args);try{injectSettings()}catch(e){console.warn('V9.5 settings',e)}return out};
- const BASE_PROFILE=window.profileView;if(typeof BASE_PROFILE==='function')window.profileView=function(...args){const out=BASE_PROFILE.apply(this,args);try{injectProfileCard()}catch(e){console.warn('V9.5 profile',e)}return out};
- const BASE_RENDER=typeof renderQuestion==='function'?renderQuestion:window.renderQuestion;
- if(typeof BASE_RENDER==='function'){
-  const wrapped=function(...args){const out=BASE_RENDER.apply(this,args);try{applyQuestionUI();queueMicrotask(()=>{applyQuestionUI();adaptOverlay(document)});setTimeout(()=>{applyQuestionUI();adaptOverlay(document)},95)}catch(e){console.warn('V9.5 render',e)}return out};wrapped.__v950Age=true;wrapped.__v950Original=BASE_RENDER;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}
- }
- const BASE_COMPLETE=typeof completeQuestion==='function'?completeQuestion:window.completeQuestion;
- if(typeof BASE_COMPLETE==='function'){
-  const wrapped=function(correct,q,...rest){const out=BASE_COMPLETE.call(this,correct,q,...rest);try{applyFeedback(correct===true,q||currentQuestion());setTimeout(()=>applyFeedback(correct===true,q||currentQuestion()),35)}catch(e){console.warn('V9.5 feedback',e)}return out};wrapped.__v950Age=true;wrapped.__v950Original=BASE_COMPLETE;try{window.completeQuestion=wrapped;completeQuestion=wrapped}catch(_){window.completeQuestion=wrapped}
- }
+ document.addEventListener('deen:profile-rendered',()=>{try{injectProfileCard()}catch(e){console.warn('V9.5 profile',e)}});
+ document.addEventListener('deen:question-rendered',()=>{
+  try{
+   applyQuestionUI();
+   queueMicrotask(()=>{applyQuestionUI();adaptOverlay(document)});
+   setTimeout(()=>{applyQuestionUI();adaptOverlay(document)},95);
+  }catch(e){console.warn('V9.5 render',e)}
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  try{
+   const q=event?.detail?.question||currentQuestion();
+   applyFeedback(event?.detail?.correct===true,q);
+   setTimeout(()=>applyFeedback(event?.detail?.correct===true,q),35);
+  }catch(e){console.warn('V9.5 feedback',e)}
+ });
  document.addEventListener('deen:state-saving',()=>{ensure()});
  try{if(window.saveState)saveState=window.saveState;if(window.profileView)profileView=window.profileView;if(window.settingsPanel)settingsPanel=window.settingsPanel}catch(_){}
- const observer=new MutationObserver(mutations=>{if(mutations.some(m=>m.addedNodes?.length)){queueMicrotask(()=>{try{adaptOverlay(document);applyQuestionUI()}catch(_){}})}});const lesson=document.getElementById('lesson');if(lesson)observer.observe(lesson,{childList:true,subtree:true});
+ const observer=new MutationObserver(mutations=>{
+  const overlayAdded=mutations.some(m=>[...m.addedNodes].some(node=>{
+   if(node?.nodeType!==1)return false;
+   return node.matches?.('.v910-overlay')||node.closest?.('.v910-overlay')||node.querySelector?.('.v910-overlay');
+  }));
+  if(overlayAdded)queueMicrotask(()=>{try{adaptOverlay(document)}catch(_){}});
+ });
+ const lesson=document.getElementById('lesson');if(lesson)observer.observe(lesson,{childList:true,subtree:true});
  function activeQuestions(){const out=[];for(const stage of TARGETS){let qs=[];try{qs=typeof chooseQuestions==='function'?chooseQuestions(stage):window.chooseQuestions?.(stage)||[]}catch(_){}out.push(...qs)}return out}
  function audit(){
   const questions=activeQuestions(),byStage={};let pass=true;
@@ -632,7 +645,7 @@
  const BASE_RENDER=typeof renderQuestion==='function'?renderQuestion:window.renderQuestion;if(typeof BASE_RENDER==='function'){const wrapped=function(...args){const out=BASE_RENDER.apply(this,args);try{shown(currentQuestion())}catch(e){lastError=String(e?.message||e)}return out};wrapped.__v970Analytics=true;wrapped.__v970Original=BASE_RENDER;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}}
  const BASE_COMPLETE=typeof completeQuestion==='function'?completeQuestion:window.completeQuestion;if(typeof BASE_COMPLETE==='function'){const wrapped=function(correct,q,...rest){const cq=q||currentQuestion(),mark=session?.__v970Shown,elapsed=mark&&cq&&mark.id===cq.id?Date.now()-mark.at:null;const out=BASE_COMPLETE.call(this,correct,q,...rest);try{record(correct===true,cq,elapsed)}catch(e){lastError=String(e?.message||e)}return out};wrapped.__v970Analytics=true;wrapped.__v970Original=BASE_COMPLETE;try{window.completeQuestion=wrapped;completeQuestion=wrapped}catch(_){window.completeQuestion=wrapped}}
  const BASE_REVIEW=window.startSmartReview;if(typeof BASE_REVIEW==='function')window.startSmartReview=function(...args){const before=session;const out=BASE_REVIEW.apply(this,args);try{if(session&&session!==before&&session.review)reorderReviewTail()}catch(e){lastError=String(e?.message||e)}return out};
- const BASE_PROFILE=window.profileView;if(typeof BASE_PROFILE==='function')window.profileView=function(...args){const out=BASE_PROFILE.apply(this,args);try{injectProfile()}catch(e){lastError=String(e?.message||e)}return out};
+ document.addEventListener('deen:profile-rendered',()=>{try{injectProfile()}catch(e){lastError=String(e?.message||e)}});
  document.addEventListener('deen:state-saving',()=>{ensure()});
  try{if(window.saveState)saveState=window.saveState;if(window.profileView)profileView=window.profileView}catch(_){}
  window.analyticsPanel=open;
@@ -776,14 +789,11 @@
   if(step===0&&!current()){pickerMode='onboarding';return open('onboarding')}
   return BASE_ONBOARDING.apply(this,arguments);
  };
- const BASE_PROFILE=typeof window.profileView==='function'?window.profileView:null;
- if(BASE_PROFILE)window.profileView=function(...args){const r=BASE_PROFILE.apply(this,args);setTimeout(decorateProfile,0);return r};
+ document.addEventListener('deen:profile-rendered',()=>setTimeout(decorateProfile,0));
  const BASE_STREAK=typeof window.streakPanel==='function'?window.streakPanel:null;
  if(BASE_STREAK)window.streakPanel=function(...args){const r=BASE_STREAK.apply(this,args);setTimeout(decorateStreak,0);return r};
- const BASE_SHOW_RESULT=typeof window.showResult==='function'?window.showResult:null;
- if(BASE_SHOW_RESULT)window.showResult=function(...args){const r=BASE_SHOW_RESULT.apply(this,args);setTimeout(reaction,0);return r};
- const BASE_UPDATE=typeof window.updateUI==='function'?window.updateUI:null;
- if(BASE_UPDATE)window.updateUI=function(...args){ensure();const r=BASE_UPDATE.apply(this,args);setTimeout(()=>{decorateProfile();retireLegacyCharacterUi()},20);return r};
+ document.addEventListener('deen:lesson-result',()=>setTimeout(reaction,0));
+ document.addEventListener('deen:ui-updated',()=>{ensure();setTimeout(()=>{decorateProfile();retireLegacyCharacterUi()},20)});
  document.addEventListener('cancel',e=>{if(e.target?.id==='v5Sheet'&&e.target?.dataset?.companionRequired==='1'){e.preventDefault()}},true);
  function promptExisting(){
   ensure();retireLegacyCharacterUi();
@@ -1047,19 +1057,13 @@
    return true;
   }finally{busy=false}
  }
+ let scheduleTimers=[];
  function schedule(){
-  [0,80,220].forEach(ms=>setTimeout(()=>{try{apply()}catch(e){}},ms));
+  scheduleTimers.forEach(id=>clearTimeout(id));
+  scheduleTimers=[0,80,220].map(ms=>setTimeout(()=>{try{apply()}catch(e){}},ms));
  }
- const BASE_PROFILE=typeof window.profileView==='function'?window.profileView:null;
- if(BASE_PROFILE){
-  window.profileView=function(...args){const r=BASE_PROFILE.apply(this,args);schedule();return r};
-  try{profileView=window.profileView}catch(e){}
- }
- const BASE_UPDATE=typeof window.updateUI==='function'?window.updateUI:null;
- if(BASE_UPDATE){
-  window.updateUI=function(...args){const r=BASE_UPDATE.apply(this,args);schedule();return r};
-  try{updateUI=window.updateUI}catch(e){}
- }
+ document.addEventListener('deen:profile-rendered',schedule);
+ document.addEventListener('deen:ui-updated',schedule);
  document.addEventListener('click',e=>{
   const nav=e.target?.closest?.('.navbtn[data-screen="profileScreen"]');
   if(nav)schedule();
@@ -3916,178 +3920,6 @@
 
 
 <!-- DEEN v9.9.24 — Companion asset reset -->
-<style id="deen-v9924-companion-asset-reset-css">
-/* The photographic sprite clashes with the product language.
-   Remove it completely and use a clean companion mark until dedicated transparent art exists. */
-#lesson .question-frame.deen-premium-fill .deen-character-question-row{
-  grid-template-columns:78px minmax(0,1fr)!important;
-  gap:10px!important;
-  min-height:106px!important;
-  margin:0 0 15px!important;
-}
-#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
-  width:76px!important;
-  height:94px!important;
-  margin:0!important;
-  justify-self:center!important;
-  display:grid!important;
-  place-items:center!important;
-  overflow:visible!important;
-  border:0!important;
-  border-radius:0!important;
-  background-image:none!important;
-  background-color:transparent!important;
-  clip-path:none!important;
-  -webkit-clip-path:none!important;
-  -webkit-mask-image:none!important;
-  mask-image:none!important;
-  filter:drop-shadow(0 11px 14px rgba(0,0,0,.30))!important;
-  color:#f4e5bd!important;
-  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif!important;
-  font-size:62px!important;
-  line-height:1!important;
-  text-shadow:0 0 24px rgba(143,232,205,.12)!important;
-}
-#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero:before{
-  content:""!important;
-  position:absolute!important;
-  width:70px!important;
-  height:70px!important;
-  border-radius:50%!important;
-  background:radial-gradient(circle,rgba(123,225,201,.13) 0%,rgba(123,225,201,.05) 48%,transparent 72%)!important;
-  filter:blur(2px)!important;
-  z-index:-1!important;
-}
-#lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
-  min-height:100px!important;
-  padding:15px 41px 15px 18px!important;
-  border-radius:21px!important;
-}
-#lesson .question-frame.deen-premium-fill .deen-character-question-bubble:before{
-  top:35px!important;
-}
-#lesson .question-frame.deen-premium-fill .deen-character-question-text{
-  font-size:18px!important;
-  line-height:1.27!important;
-  font-weight:600!important;
-  letter-spacing:-.08px!important;
-  text-wrap:pretty!important;
-}
-
-/* Source info belongs in feedback, not while the learner is choosing an answer. */
-#lesson .question-frame.deen-premium-fill .v5-source,
-#lesson .question-frame.deen-premium-fill details.v5-source,
-#lesson .question-frame.deen-premium-fill .source,
-#lesson .question-frame.deen-premium-fill [class*="source-note"]{
-  display:none!important;
-}
-
-/* Keep the composition dense and centered in the upper half of the phone. */
-#lesson .question-frame.deen-premium-fill .v710-word-bank{
-  gap:8px!important;
-  margin-bottom:10px!important;
-}
-#lesson .question-frame.deen-premium-fill .v710-word-chip{
-  min-height:48px!important;
-  border-radius:15px!important;
-  font-size:16px!important;
-}
-#lesson .question-frame.deen-premium-fill .v710-word-bank + .template-action{
-  min-height:54px!important;
-  margin-top:2px!important;
-  border-radius:18px!important;
-}
-@media(max-width:420px){
-  #lesson .question-frame.deen-premium-fill .deen-character-question-row{
-    grid-template-columns:70px minmax(0,1fr)!important;
-    gap:9px!important;
-  }
-  #lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
-    width:68px!important;
-    height:88px!important;
-    font-size:56px!important;
-  }
-  #lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
-    min-height:94px!important;
-    padding:14px 38px 14px 16px!important;
-  }
-  #lesson .question-frame.deen-premium-fill .deen-character-question-text{
-    font-size:17px!important;
-  }
-}
-</style>
-<script id="deen-v9924-companion-asset-reset-js">
-(()=>{
- if(window.__deenV9924CompanionAssetReset)return;window.__deenV9924CompanionAssetReset=true;
- const VERSION='9.9.24-COMPANION-ASSET-RESET';
- const EMOJI={lion:'🦁',wolf:'🐺',owl:'🦉',turtle:'🐢',eagle:'🦅',cat:'🐈'};
- const frame=()=>document.querySelector('#lesson .question-frame');
- const qNow=()=>session?.questions?.[session?.index]||null;
-
- function apply(){
-   if(window.__deenV9926MascotStability)return;
-   const f=frame(),q=qNow();
-   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
-   f.classList.add('deen-premium-fill');
-
-   const avatar=f.querySelector('.deen-character-question-avatar');
-   if(avatar && !window.__DEEN_COMPANION_ASSET_MODE && !avatar.classList.contains('deen-companion-runtime-ready')){
-     avatar.classList.add('v998-companion-hero');
-     const id=String(state?.profile?.companion||avatar.dataset.animal||'owl').toLowerCase();
-     const animal=EMOJI[id]?id:'owl';
-     avatar.dataset.animal=animal;
-     avatar.style.removeProperty('background-image');
-     avatar.style.removeProperty('background-position');
-     avatar.textContent=EMOJI[animal];
-     avatar.setAttribute('aria-hidden','true');
-   }
-
-   /* Remove the orphaned source/info control entirely during answering. */
-   f.querySelectorAll('.v5-source,details.v5-source,.source,[class*="source-note"]').forEach(el=>el.remove());
-
-   /* Old narration row must never return; only the tiny bubble speaker remains. */
-   f.querySelectorAll('.v960-narration-bar,.v960-narration-note,.audio-panel').forEach(el=>el.remove());
-
-   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
- }
-
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [30,90,180,360].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(apply,0);
-     setTimeout(apply,120);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
-
- window.DEEN_COMPANION_ASSET_RESET={
-   version:VERSION,
-   apply,
-   snapshot:()=>({
-     active:!!frame()?.classList.contains('deen-premium-fill'),
-     animal:frame()?.querySelector('.deen-character-question-avatar')?.dataset?.animal||null,
-     avatarText:frame()?.querySelector('.deen-character-question-avatar')?.textContent||null,
-     sourceControls:frame()?.querySelectorAll('.v5-source,details.v5-source,.source,[class*="source-note"]').length||0
-   })
- };
- setTimeout(apply,700);
-})();
-</script>
-
-
-
 <!-- DEEN v9.9.25 — Premium mascot medallion -->
 <style id="deen-v9925-mascot-medallion-css">
 /* Turn the raw emoji into a deliberate premium companion badge. */
@@ -4575,188 +4407,6 @@
 
 
 <!-- DEEN v9.9.29 — Vector companion artwork -->
-<style id="deen-v9929-vector-companion-css">
-/* Replace platform emoji with DEEN-owned vector line art. */
-#lesson .question-frame.deen-premium-fill .deen-character-question-row{
-  grid-template-columns:76px minmax(0,1fr)!important;
-  gap:8px!important;
-}
-#lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
-  width:76px!important;
-  min-width:76px!important;
-  height:96px!important;
-}
-#lesson .question-frame.deen-premium-fill .v9926-mascot{
-  width:72px!important;
-  height:86px!important;
-  display:grid!important;
-  place-items:center!important;
-  border:0!important;
-  border-radius:0!important;
-  background:none!important;
-  box-shadow:none!important;
-}
-#lesson .question-frame.deen-premium-fill .v9926-mascot:before{
-  content:""!important;
-  position:absolute!important;
-  width:76px!important;
-  height:76px!important;
-  inset:auto!important;
-  border-radius:50%!important;
-  background:
-    radial-gradient(circle,rgba(126,228,204,.11) 0%,rgba(126,228,204,.04) 48%,transparent 72%)!important;
-  z-index:-1!important;
-}
-#lesson .question-frame.deen-premium-fill .v9929-companion-svg{
-  width:64px!important;
-  height:64px!important;
-  display:block!important;
-  overflow:visible!important;
-  color:#e6c26f!important;
-  filter:
-    drop-shadow(0 7px 9px rgba(0,0,0,.30))
-    drop-shadow(0 0 10px rgba(121,227,202,.07))!important;
-}
-#lesson .question-frame.deen-premium-fill .v9929-companion-svg .mint{
-  color:#8fe2cc!important;
-}
-#lesson .question-frame.deen-premium-fill .v9929-companion-svg .soft{
-  opacity:.72!important;
-}
-#lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
-  min-height:94px!important;
-  padding:14px 40px 14px 17px!important;
-  border-radius:20px!important;
-}
-#lesson .question-frame.deen-premium-fill .deen-character-question-text{
-  font-size:17px!important;
-  line-height:1.28!important;
-  font-weight:600!important;
-}
-@media(max-width:420px){
-  #lesson .question-frame.deen-premium-fill .deen-character-question-row{
-    grid-template-columns:70px minmax(0,1fr)!important;
-    gap:7px!important;
-  }
-  #lesson .question-frame.deen-premium-fill .deen-character-question-avatar.v998-companion-hero{
-    width:70px!important;
-    min-width:70px!important;
-    height:90px!important;
-  }
-  #lesson .question-frame.deen-premium-fill .v9929-companion-svg{
-    width:58px!important;
-    height:58px!important;
-  }
-}
-</style>
-<script id="deen-v9929-vector-companion-js">
-(()=>{
- if(window.__deenV9929VectorCompanion)return;
- window.__deenV9929VectorCompanion=true;
-
- const VERSION='9.9.29-VECTOR-COMPANION';
- const qNow=()=>session?.questions?.[session?.index]||null;
- const frame=()=>document.querySelector('#lesson .question-frame');
-
- const base=(body)=>'<svg class="v9929-companion-svg" viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">'+body+'</g></svg>';
-
- const ART={
-   eagle:()=>base(
-     '<path d="M31 11c4 0 7 2 9 5l6 1-5 4 1 5c-2-2-4-3-7-3-4 0-7 2-9 5"/>'+
-     '<path class="soft" d="M27 25c-7-4-14-5-20-3 5 2 9 5 12 9-5-1-9 0-13 2 6 1 11 4 15 8"/>'+
-     '<path class="soft" d="M35 25c7-4 14-5 20-3-5 2-9 5-12 9 5-1 9 0 13 2-6 1-11 4-15 8"/>'+
-     '<path class="mint" d="M26 29c1 10 3 16 6 21 3-5 5-11 6-21"/>'+
-     '<path d="M29 50l-3 4m9-4 3 4"/>'
-   ),
-   owl:()=>base(
-     '<path d="M18 23l6-8 8 6 8-6 6 8v17c0 8-6 14-14 14S18 48 18 40V23z"/>'+
-     '<circle class="mint" cx="26" cy="31" r="5"/><circle class="mint" cx="38" cy="31" r="5"/>'+
-     '<circle cx="26" cy="31" r="1.4"/><circle cx="38" cy="31" r="1.4"/>'+
-     '<path d="M30 37l2 3 2-3M25 48h14"/>'
-   ),
-   cat:()=>base(
-     '<path d="M18 24l3-10 8 6h6l8-6 3 10v16c0 8-6 14-14 14S18 48 18 40V24z"/>'+
-     '<path class="mint" d="M25 31h3m8 0h3M29 38h6"/>'+
-     '<path d="M32 35v3m-9 1-8-2m8 6-8 2m26-6 8-2m-8 6 8 2"/>'
-   ),
-   wolf:()=>base(
-     '<path d="M15 23l7-10 6 8h8l6-8 7 10-4 19-13 13-13-13-4-19z"/>'+
-     '<path class="mint" d="M23 30l6 2m12-2-6 2M28 42h8"/>'+
-     '<path d="M32 34v7m-6 4 6 3 6-3"/>'
-   ),
-   lion:()=>base(
-     '<path d="M32 10c11 0 20 9 20 20S43 53 32 53 12 41 12 30 21 10 32 10z"/>'+
-     '<path d="M22 24c2-5 6-8 10-8s8 3 10 8v14c0 6-4 10-10 10S22 44 22 38V24z"/>'+
-     '<path class="mint" d="M26 30h3m6 0h3M29 39h6"/><path d="M32 34v5"/>'
-   ),
-   turtle:()=>base(
-     '<ellipse cx="30" cy="34" rx="18" ry="13"/>'+
-     '<path class="mint" d="M17 34h26M30 21v26M20 25l20 18M40 25 20 43"/>'+
-     '<path d="M48 31h7l4 4-4 4h-7M15 27l-7-4m7 18-7 4M26 48l-2 6m12-6 2 6"/>'
-   )
- };
-
- function animalId(avatar){
-   const id=String(state?.profile?.companion||avatar?.dataset?.animal||'owl').toLowerCase();
-   return ART[id]?id:'owl';
- }
-
- function render(){
-   if(window.__deenV9931ClassicCompanion)return;
-   const f=frame(),q=qNow();
-   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
-   f.classList.add('deen-premium-fill');
-
-   try{window.DEEN_MASCOT_STABILITY?.apply?.()}catch(_){}
-
-   const avatar=f.querySelector('.deen-character-question-avatar');
-   if(avatar){
-     const id=animalId(avatar);
-     avatar.dataset.animal=id;
-
-     let mascot=avatar.querySelector('.v9926-mascot');
-     if(!mascot){
-       mascot=document.createElement('span');
-       mascot.className='v9926-mascot';
-       avatar.replaceChildren(mascot);
-     }
-     if(mascot.dataset.vectorAnimal!==id || !mascot.querySelector('.v9929-companion-svg')){
-       mascot.dataset.animal=id;
-       mascot.dataset.vectorAnimal=id;
-       mascot.innerHTML=ART[id]();
-     }
-   }
-
-   f.querySelectorAll('.v960-narration-bar,.v960-narration-note,.audio-panel,.v5-source,details.v5-source,.source,[class*="source-note"]').forEach(el=>el.remove());
-   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
- }
-
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(render);
-     [60,180,420,760].forEach(ms=>setTimeout(render,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
-
- window.DEEN_VECTOR_COMPANION={
-   version:VERSION,
-   apply:render,
-   snapshot:()=>({
-     active:!!frame()?.classList.contains('deen-premium-fill'),
-     animal:frame()?.querySelector('.deen-character-question-avatar')?.dataset?.animal||null,
-     vector:!!frame()?.querySelector('.v9929-companion-svg')
-   })
- };
- setTimeout(render,800);
-})();
-</script>
-
-
-
 <!-- DEEN v9.9.30 — Center companion + question block -->
 <style id="deen-v9930-center-companion-row-css">
 /* Center the complete companion + question unit as one visual block. */
@@ -5105,137 +4755,6 @@
 
 
 <!-- DEEN v9.9.32 — Safe screen-centered lesson content -->
-<style id="deen-v9932-screen-center-css">
-/* Center the visible question block without reparenting answer DOM. */
-#lesson .question-frame.deen-premium-fill.v9932-screen-centered .deen-character-question-row,
-#lesson .question-frame.deen-premium-fill.v9932-screen-centered #answerArea{
-  transform:translateY(var(--v9932-center-shift,0px))!important;
-  will-change:transform!important;
-}
-#lesson .question-frame.deen-premium-fill.v9932-screen-centered .deen-character-question-row{
-  width:100%!important;
-  max-width:none!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-  justify-content:center!important;
-}
-#lesson .question-frame.deen-premium-fill.v9932-screen-centered #answerArea{
-  width:100%!important;
-  max-width:none!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-#lesson .question-frame.deen-premium-fill.v9932-screen-centered .v710-word-bank,
-#lesson .question-frame.deen-premium-fill.v9932-screen-centered .v710-word-bank + .template-action,
-#lesson .question-frame.deen-premium-fill.v9932-screen-centered .v710-word-bank + .btn{
-  width:100%!important;
-  max-width:none!important;
-  margin-left:0!important;
-  margin-right:0!important;
-}
-@media(max-width:420px){
-  #lesson .question-frame.deen-premium-fill.v9932-screen-centered{
-    --v9932-center-shift:0px;
-  }
-}
-</style>
-<script id="deen-v9932-screen-center-js">
-(()=>{
- if(window.__deenV9932ScreenCenter)return;
- window.__deenV9932ScreenCenter=true;
-
- const VERSION='9.9.32-SCREEN-CENTER';
- const frame=()=>document.querySelector('#lesson .question-frame');
- const qNow=()=>session?.questions?.[session?.index]||null;
- let raf1=0,raf2=0;
-
- function center(){
-   if(window.__deenV9933StrongCenter)return;
-   const f=frame(),q=qNow();
-   if(!f||String(q?.activity_type||'')!=='fill_blank')return;
-
-   const row=f.querySelector('.deen-character-question-row');
-   const area=f.querySelector('#answerArea');
-   if(!row||!area)return;
-
-   f.classList.add('deen-premium-fill','v9932-screen-centered');
-   f.style.setProperty('--v9932-center-shift','0px');
-
-   cancelAnimationFrame(raf1);
-   cancelAnimationFrame(raf2);
-   raf1=requestAnimationFrame(()=>{
-     raf2=requestAnimationFrame(()=>{
-       const fr=f.getBoundingClientRect();
-       const rr=row.getBoundingClientRect();
-       const ar=area.getBoundingClientRect();
-
-       if(!fr.height||!rr.height||!ar.height)return;
-
-       const blockTop=rr.top;
-       const blockBottom=ar.bottom;
-       const blockCenter=(blockTop+blockBottom)/2;
-       const targetCenter=fr.top+(fr.height/2);
-
-       let delta=targetCenter-blockCenter;
-
-       /* Keep clear of the fixed header controls and bottom edge. */
-       const topLimit=fr.top+78;
-       const bottomLimit=fr.bottom-24;
-       if(blockTop+delta<topLimit) delta=topLimit-blockTop;
-       if(blockBottom+delta>bottomLimit) delta=bottomLimit-blockBottom;
-
-       delta=Math.max(-120,Math.min(140,delta));
-       f.style.setProperty('--v9932-center-shift',Math.round(delta)+'px');
-     });
-   });
- }
-
- function schedule(){
-   center();
-   [80,180,360,720].forEach(ms=>setTimeout(center,ms));
- }
-
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     schedule();
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
-
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(center,60);
-     setTimeout(center,220);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
-
- window.addEventListener('resize',()=>setTimeout(center,80),{passive:true});
- window.visualViewport?.addEventListener?.('resize',()=>setTimeout(center,80),{passive:true});
-
- window.DEEN_SCREEN_CENTER={
-   version:VERSION,
-   apply:center,
-   snapshot:()=>({
-     active:!!frame()?.classList.contains('v9932-screen-centered'),
-     shift:frame()?.style.getPropertyValue('--v9932-center-shift')||'0px',
-     rowTop:frame()?.querySelector('.deen-character-question-row')?.getBoundingClientRect?.().top||0,
-     answerBottom:frame()?.querySelector('#answerArea')?.getBoundingClientRect?.().bottom||0
-   })
- };
-
- setTimeout(schedule,760);
-})();
-</script>
-
-
-
 <!-- DEEN v9.9.33 — Strong screen centering -->
 <style id="deen-v9933-screen-center-css">
 /* Center the active lesson group as one visual unit. */
@@ -6037,25 +5556,8 @@
    requestAnimationFrame(()=>renderLesson('celebrate'));
  });
 
- const BASE_PROFILE=window.profileView;
- if(typeof BASE_PROFILE==='function'){
-   window.profileView=function(...args){
-     const r=BASE_PROFILE.apply(this,args);
-     requestAnimationFrame(renderProfile);
-     return r;
-   };
-   try{profileView=window.profileView}catch(_){}
- }
-
- const BASE_UPDATE=window.updateUI;
- if(typeof BASE_UPDATE==='function'){
-   window.updateUI=function(...args){
-     const r=BASE_UPDATE.apply(this,args);
-     requestAnimationFrame(()=>{preload();renderProfile()});
-     return r;
-   };
-   try{updateUI=window.updateUI}catch(_){}
- }
+ document.addEventListener('deen:profile-rendered',()=>requestAnimationFrame(renderProfile));
+ document.addEventListener('deen:ui-updated',()=>requestAnimationFrame(()=>{preload();renderProfile()}));
 
  if(window.DEEN_COMPANION&&typeof window.DEEN_COMPANION.select==='function'&&!window.DEEN_COMPANION.select.__deen9936){
    const baseSelect=window.DEEN_COMPANION.select;
@@ -8034,32 +7536,17 @@
   }
 
   /*
-    Old versions inject a human feedback avatar from completeQuestion hooks.
-    Run both synchronously and on the next frames so it never becomes visible.
+    Canonical lifecycle plus the structural observer is enough to suppress
+    legacy guide nodes. This avoids the old multi-timeout render/grade burst.
   */
-  const CQ=window.completeQuestion;
-  if(typeof CQ==='function'){
-    window.completeQuestion=function(...args){
-      kill();
-      const r=CQ.apply(this,args);
-      kill();
-      requestAnimationFrame(()=>kill());
-      [0,30,80,180,360,600].forEach(ms=>setTimeout(()=>kill(),ms));
-      return r;
-    };
-    try{completeQuestion=window.completeQuestion}catch(_){}
-  }
-
-  const RQ=window.renderQuestion;
-  if(typeof RQ==='function'){
-    window.renderQuestion=function(...args){
-      const r=RQ.apply(this,args);
-      kill();
-      requestAnimationFrame(()=>kill());
-      return r;
-    };
-    try{renderQuestion=window.renderQuestion}catch(_){}
-  }
+  document.addEventListener('deen:question-rendered',()=>{
+    kill();
+    requestAnimationFrame(()=>kill());
+  });
+  document.addEventListener('deen:question-graded',()=>{
+    kill();
+    requestAnimationFrame(()=>kill());
+  });
 
   /*
     Also neutralize the old celebration helper's visible reaction nodes.
@@ -8931,4 +8418,4 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.79-PRODUCTION',BUILD='9979retiredcross1',TITLE='DEEN v9.9.79';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.80-PRODUCTION',BUILD='9980runtimehygiene1',TITLE='DEEN v9.9.80';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
