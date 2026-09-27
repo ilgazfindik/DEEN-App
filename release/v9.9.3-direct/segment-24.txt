@@ -806,8 +806,9 @@
 </style>
 <script id="deen-v995-world-retirement-js">
 (()=>{
+ window.__DEEN_WORLD_RETIRED_RUNTIME__=true;
  if(window.__deenV995WorldRetired)return;window.__deenV995WorldRetired=true;
- const VERSION='9.9.5-WORLD-RETIRED';
+ const VERSION='9.9.61-WORLD-QUIESCED';
  let busy=false,observer=null;
  function fallback(){
   const learn=document.getElementById('learnScreen');
@@ -851,7 +852,8 @@
  window.DEEN_WORLD_RETIREMENT={version:VERSION,retire,snapshot:()=>({
   worldNavCount:document.querySelectorAll('.bottomnav [data-screen="worldScreen"]').length,
   bottomNavCount:document.querySelectorAll('.bottomnav .navbtn').length,
-  worldVisible:!!document.getElementById('worldScreen')&&getComputedStyle(document.getElementById('worldScreen')).display!=='none'
+  worldVisible:!!document.getElementById('worldScreen')&&getComputedStyle(document.getElementById('worldScreen')).display!=='none',
+  legacyRuntimeQuiesced:!!window.__DEEN_WORLD_RETIRED_RUNTIME__
  })};
  retire();watch();
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{retire();watch()},{once:true});
@@ -8651,4 +8653,4 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.60-PRODUCTION',BUILD='9960bootresilience1',TITLE='DEEN v9.9.60';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.61-PRODUCTION',BUILD='9961worldquiesce1',TITLE='DEEN v9.9.61';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
