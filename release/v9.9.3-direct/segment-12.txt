@@ -258,63 +258,6 @@
   // v6.2.3 owns the authoritative unit/section ceremony.
   // v6.2.2 no longer wraps ceremony; retention rewards are handled downstream.
   ensureState();
-    if(event.type==='unit_complete'){
-      const key=event.unit;
-      if(state.v622Rewards.units[key]) return state.v622Rewards.units[key];
-      const reward={sparkles:15,xpBonus:25,freezeBonus:((Number(key.slice(1))%5===0 && (state.streakMeta?.streakFreeze||0)<2)?1:0)};
-      state.currency=(state.currency||0)+reward.sparkles;
-      reward.xpBonus = award(reward.xpBonus);
-      if(reward.freezeBonus){ state.streakMeta.streakFreeze=(state.streakMeta.streakFreeze||0)+reward.freezeBonus; }
-      state.v622Rewards.units[key]=reward; saveState(); return reward;
-    }
-    if(event.type==='section_complete'){
-      const key='S'+event.section;
-      if(state.v622Rewards.sections[key]) return state.v622Rewards.sections[key];
-      const reward={sparkles:40,xpBonus:60,freezeBonus:1};
-      state.currency=(state.currency||0)+reward.sparkles;
-      reward.xpBonus = award(reward.xpBonus);
-      state.streakMeta.streakFreeze=Math.min(2,(state.streakMeta.streakFreeze||0)+reward.freezeBonus);
-      state.v622Rewards.sections[key]=reward; saveState(); return reward;
-    }
-    return {sparkles:0,xpBonus:0,freezeBonus:0};
-  }
-  window.ceremony = function(e, finish){
-    if(!(e && (e.type==='unit_complete' || e.type==='section_complete'))) return oldCeremony.apply(this, arguments);
-    if(document.getElementById('v5Sheet')?.open){ celebrationQueue.unshift(e); finish(); return; }
-    const reward=claimReward(e);
-    const dialog=document.createElement('dialog');
-    dialog.className='v622-ceremony';
-    dialog.setAttribute('aria-labelledby','v622CeremonyTitle');
-    const isUnit=e.type==='unit_complete';
-    const n=isUnit?Number(e.unit.slice(1)):null;
-    const nextTitle=isUnit ? (n===5?'Temeller Ustalığı Finali':n===10?'İman Ustalığı Finali':U[n]||'Sonraki ünite') : (e.section===1?'Kısım 2 · İman':'Öğrenme yolculuğuna devam');
-    const kicker=isUnit?'ÜNİTE TAMAMLANDI':`KISIM ${e.section} TAMAMLANDI`;
-    const title=isUnit?e.name:(e.gold?'Altın Ustalık':(e.section===1?'Temeller Ustalığı':'İman Ustalığı'));
-    const subtitle=isUnit?`7 aşamalık bu üniteyi tamamladın. Artık ödülünü alıp bir sonraki adıma geçebilirsin.`:`Büyük kapıyı açtın. Bu kısım için özel ödüller ve daha güçlü bir geçiş seremonisi hazır.`;
-    const btn=isUnit?(n===5||n===10?'FİNAL KAPISINA GİT':'SONRAKİ ÜNİTEYE GEÇ'):(e.section===1?'KISIM 2’YE GEÇ':'YOLCULUĞA DEVAM');
-    dialog.innerHTML=`<div class="v622-ceremony-card ${e.gold?'gold':''}"><div class="v622-stars"><i>✦</i><i>✦</i><i>✦</i><i>✦</i></div><div class="v622-crown">${isUnit?'👑':(e.gold?'🏆':'⭐')}</div><div class="v5-kicker">${kicker}</div><h2 id="v622CeremonyTitle">${esc(title)}</h2><p>${subtitle}</p><div class="v622-reward-row"><div class="r"><strong>${isUnit?'7 / 7':'%'+e.pct}</strong><span>${isUnit?'AŞAMA':'SKOR'}</span></div><div class="r"><strong>${isUnit?'%'+e.mastery:'%'+e.retention}</strong><span>${isUnit?'USTALIK':'HATIRLAMA'}</span></div><div class="r"><strong>+${reward.xpBonus}</strong><span>BONUS XP</span></div></div><div class="v622-loot"><h4>ÖDÜL SANDIĞI</h4><div class="v622-loot-grid"><div><strong>◇ ${reward.sparkles}</strong><span>PIRILTI</span></div><div><strong>${reward.freezeBonus?('❄ +'+reward.freezeBonus):'—'}</strong><span>SERİ KORUMA</span></div><div><strong>${isUnit?e.perfect:(e.gold?'ALTIN':'USTALIK')}</strong><span>${isUnit?'KUSURSUZ DERS':'RÜTBE'}</span></div></div></div><p><b>Sıradaki adım:</b><br>${esc(nextTitle)}</p><button class="v622-cta" id="v622CeremonyContinue">${btn}</button><small class="v622-foot">Öğren · Anla · Hatırla · Uygula</small></div>`;
-    document.getElementById('phone').append(dialog);
-    dialog.showModal();
-    try{DEENFeel.polishCeremony(dialog,e)}catch(_){ }
-    try{sound?.(isUnit?'unit':(e.gold?'gold':'section'))}catch(_){ }
-    let consumed=false;
-    const after=()=>{
-      if(isUnit){
-        if(n===5||n===10) document.getElementById('gate-'+(n===5?1:2))?.scrollIntoView({block:'center',behavior:motionOff()?'instant':'smooth'});
-        else celebrate({type:'unit_intro',unit:uid(n+1)});
-      } else if(e.section===1) celebrate({type:'section_intro',section:2});
-    };
-    const done=()=>{
-      if(consumed) return; consumed=true;
-      try{DEENFeel.end('ceremony')}catch(_){ }
-      dialog.close(); dialog.remove(); after(); finish();
-    };
-    celebrationFinish=done;
-    dialog.querySelector('#v622CeremonyContinue').onclick=done;
-    dialog.oncancel=(ev)=>{ev.preventDefault(); done();};
-  };
-
-  ensureState();
   setTimeout(()=>{ try{renderStreakPanel(); updateEnergyModal();}catch(e){console.error('v6.2.2 init',e)} },0);
 })();
 </script>
