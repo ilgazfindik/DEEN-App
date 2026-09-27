@@ -808,8 +808,7 @@
   return BASE_ONBOARDING.apply(this,arguments);
  };
  document.addEventListener('deen:profile-rendered',()=>setTimeout(decorateProfile,0));
- const BASE_STREAK=typeof window.streakPanel==='function'?window.streakPanel:null;
- if(BASE_STREAK)window.streakPanel=function(...args){const r=BASE_STREAK.apply(this,args);setTimeout(decorateStreak,0);return r};
+ document.addEventListener('deen:streak-rendered',()=>setTimeout(decorateStreak,0));
  document.addEventListener('deen:lesson-result',()=>setTimeout(reaction,0));
  document.addEventListener('deen:ui-updated',()=>{ensure();setTimeout(()=>{decorateProfile();retireLegacyCharacterUi()},20)});
  document.addEventListener('cancel',e=>{if(e.target?.id==='v5Sheet'&&e.target?.dataset?.companionRequired==='1'){e.preventDefault()}},true);
@@ -7595,7 +7594,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.84-RUNTIME-ARBITER';
+ const VERSION='9.9.85-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -7615,6 +7614,15 @@
  const LEGACY_NAVIGATE=window.navigate;
  const LEGACY_SETTINGS_PANEL=window.settingsPanel;
  const LEGACY_START_REVIEW=window.startSmartReview;
+ const LEGACY_START_MACRO=window.startMacroStage;
+ const LEGACY_SECTION_FINALS={
+   startSectionFinal:window.startSectionFinal,
+   startSection2Final:window.startSection2Final,
+   startSection3Final:window.startSection3Final
+ };
+ const LEGACY_STREAK_PANEL=window.streakPanel;
+ const LEGACY_SHOW_ENERGY=window.showEnergy;
+ const LEGACY_REWARD_AD=window.rewardAd;
 
  let renderBusy=false;
  let renderEpoch=0;
@@ -7641,6 +7649,11 @@
  let navigations=0;
  let settingsOpens=0;
  let reviewStarts=0;
+ let macroStarts=0;
+ let sectionFinalStarts=0;
+ let streakOpens=0;
+ let energyOpens=0;
+ let rewardAds=0;
  const questionJobs=new Map();
  let cancelledQuestionJobs=0;
  let executedQuestionJobs=0;
@@ -7937,7 +7950,100 @@
    try{startSmartReview=guardedStartReview}catch(_){}
  }
 
- if(typeof LEGACY_RENDER==='function'){
+ 
+ if(typeof LEGACY_START_MACRO==='function'){
+   const guardedStartMacro=function(stageId,...rest){
+     cancelAllQuestionJobs();
+     let before=null;
+     try{before=session||null}catch(_){}
+     const id=String(stageId||'');
+     dispatch('deen:macro-stage-starting',{stageId:id,session:before});
+     const out=LEGACY_START_MACRO.call(this,stageId,...rest);
+     let active=null;
+     try{active=session||null}catch(_){}
+     const started=!!active&&active!==before&&active.macroStage===true;
+     if(started)macroStarts++;
+     dispatch('deen:macro-stage-started',{stageId:id,session:active,previousSession:before,started,count:macroStarts,result:out});
+     return out;
+   };
+   guardedStartMacro.__deen9953=true;
+   guardedStartMacro.__deen9953Original=LEGACY_START_MACRO;
+   window.startMacroStage=guardedStartMacro;
+   try{startMacroStage=guardedStartMacro}catch(_){}
+ }
+
+ for(const [name,original] of Object.entries(LEGACY_SECTION_FINALS)){
+   if(typeof original!=='function')continue;
+   const guardedSectionFinal=function(...args){
+     cancelAllQuestionJobs();
+     let before=null;
+     try{before=session||null}catch(_){}
+     const section=name==='startSectionFinal'?1:name==='startSection2Final'?2:3;
+     dispatch('deen:section-final-starting',{name,section,session:before,args});
+     const out=original.apply(this,args);
+     let active=null;
+     try{active=session||null}catch(_){}
+     const started=!!active&&active!==before&&active.final===true;
+     if(started)sectionFinalStarts++;
+     dispatch('deen:section-final-started',{name,section,session:active,previousSession:before,args,started,count:sectionFinalStarts,result:out});
+     return out;
+   };
+   guardedSectionFinal.__deen9953=true;
+   guardedSectionFinal.__deen9953Original=original;
+   window[name]=guardedSectionFinal;
+ }
+
+ if(typeof LEGACY_STREAK_PANEL==='function'){
+   const guardedStreakPanel=function(...args){
+     dispatch('deen:streak-rendering',{count:streakOpens+1});
+     const out=LEGACY_STREAK_PANEL.apply(this,args);
+     streakOpens++;
+     dispatch('deen:streak-rendered',{count:streakOpens,result:out});
+     return out;
+   };
+   guardedStreakPanel.__deen9953=true;
+   guardedStreakPanel.__deen9953Original=LEGACY_STREAK_PANEL;
+   window.streakPanel=guardedStreakPanel;
+   try{streakPanel=guardedStreakPanel}catch(_){}
+ }
+
+ if(typeof LEGACY_SHOW_ENERGY==='function'){
+   const guardedShowEnergy=function(...args){
+     let beforeEnergy=null;
+     try{beforeEnergy=Number(state?.energy)}catch(_){}
+     dispatch('deen:energy-rendering',{count:energyOpens+1,beforeEnergy});
+     const out=LEGACY_SHOW_ENERGY.apply(this,args);
+     energyOpens++;
+     let afterEnergy=null;
+     try{afterEnergy=Number(state?.energy)}catch(_){}
+     dispatch('deen:energy-rendered',{count:energyOpens,beforeEnergy,afterEnergy,result:out});
+     return out;
+   };
+   guardedShowEnergy.__deen9953=true;
+   guardedShowEnergy.__deen9953Original=LEGACY_SHOW_ENERGY;
+   window.showEnergy=guardedShowEnergy;
+   try{showEnergy=guardedShowEnergy}catch(_){}
+ }
+
+ if(typeof LEGACY_REWARD_AD==='function'){
+   const guardedRewardAd=function(...args){
+     let beforeEnergy=null;
+     try{beforeEnergy=Number(state?.energy)}catch(_){}
+     dispatch('deen:reward-ad-starting',{beforeEnergy,args});
+     const out=LEGACY_REWARD_AD.apply(this,args);
+     rewardAds++;
+     let afterEnergy=null;
+     try{afterEnergy=Number(state?.energy)}catch(_){}
+     dispatch('deen:reward-ad-completed',{beforeEnergy,afterEnergy,args,count:rewardAds,result:out});
+     return out;
+   };
+   guardedRewardAd.__deen9953=true;
+   guardedRewardAd.__deen9953Original=LEGACY_REWARD_AD;
+   window.rewardAd=guardedRewardAd;
+   try{rewardAd=guardedRewardAd}catch(_){}
+ }
+
+if(typeof LEGACY_RENDER==='function'){
    const guardedRender=function(...args){
      /*
        One canonical render boundary. Pre-render cleanup/planning runs through
@@ -8144,15 +8250,26 @@
      navigations,
      settingsOpens,
      reviewStarts,
+     macroStarts,
+     sectionFinalStarts,
+     streakOpens,
+     energyOpens,
+     rewardAds,
      nextGuarded:!!window.nextQuestion?.__deen9953,
      closeGuarded:!!window.closeLesson?.__deen9953,
      navigateGuarded:!!window.navigate?.__deen9953,
      settingsGuarded:!!window.settingsPanel?.__deen9953,
      reviewGuarded:!!window.startSmartReview?.__deen9953,
-     flowLifecycleEvents:true
+     macroGuarded:!!window.startMacroStage?.__deen9953,
+     sectionFinalGuards:Object.fromEntries(Object.keys(LEGACY_SECTION_FINALS).map(name=>[name,!!window[name]?.__deen9953])),
+     streakGuarded:!!window.streakPanel?.__deen9953,
+     energyGuarded:!!window.showEnergy?.__deen9953,
+     rewardAdGuarded:!!window.rewardAd?.__deen9953,
+     flowLifecycleEvents:true,
+     crossCutLifecycleEvents:true
    })
  };
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.84-PRODUCTION',BUILD='9984flowboundaries1',TITLE='DEEN v9.9.84';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.85-PRODUCTION',BUILD='9985crosscuts1',TITLE='DEEN v9.9.85';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
