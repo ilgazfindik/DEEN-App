@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.9.44</title>
+<title>DEEN v9.9.45</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -20,7 +20,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 (async()=>{
  const status=document.getElementById('status');
  try{
-   const BUILD='9944reactions1';
+   const BUILD='9945feedbackfix1';
    const segmentName=i=>'segment-'+String(i).padStart(2,'0')+'.txt';
    const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
    async function loadSegment(i){
@@ -92,7 +92,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    if(!html.includes('deen-v9942-companion-polish-js'))throw new Error('Companion polish paketi eksik');
    if(!html.includes('deen-v9943-companion-weight-js'))throw new Error('Companion visual-weight paketi eksik');
    if(!html.includes('deen-v9944-companion-reactions-js'))throw new Error('Companion reaction paketi eksik');
-   window.__DEEN_DEPLOY_ID__='9944reactions1';
+   if(!html.includes('deen-v9945-feedback-layout-js'))throw new Error('Feedback layout paketi eksik');
+   window.__DEEN_DEPLOY_ID__='9945feedbackfix1';
    document.open();document.write(html);document.close();
  }catch(err){
    console.error(err);status.className='sub err';status.textContent='DEEN açılamadı: '+(err?.message||err);
