@@ -635,8 +635,27 @@
     const btn=document.getElementById('resultContinueBtn');if(btn){btn.classList.add('v624-main-cta');if(snapshot.final)btn.textContent=passed?'BÜYÜK ÖDÜLÜ TOPLA':'TEKRARA DÖN';else if(snapshot.completedNow)btn.textContent='YENİ AŞAMAYI AÇ';else if(passed&&snapshot.multi)btn.textContent=snapshot.lessonNo<snapshot.lessonTotal?'SONRAKİ MİNİ DERS':'AŞAMAYI TAMAMLA';else if(!passed)btn.textContent='DERSİ TEKRARLA'}
     if(passed&&!snapshot.final){const secondary=document.createElement('button');secondary.id='v624SecondaryResult';secondary.className='v624-secondary-result';secondary.textContent='ÖĞRENME YOLUNA DÖN';secondary.onclick=()=>{try{finishLesson();navigate('learnScreen')}catch(e){finishLesson()}};btn?.after(secondary)}
   }
-  const oldShowResult=window.showResult;
-  window.showResult=function(){const s=session;const snap=s?{stageId:s.stage?.id,total:s.questions?.length||0,pct:s.questions?.length?Math.round(s.correct/s.questions.length*100):0,lessonNo:s.lessonNo||1,lessonTotal:s.lessonTotal||1,multi:!!s.multiLessonStage,final:!!s.final,wasComplete:s.stage?.id?state.completed.includes(s.stage.id):false}:null;const r=oldShowResult.apply(this,arguments);if(snap){snap.completedNow=!snap.wasComplete&&state.completed.includes(snap.stageId);setTimeout(()=>decorateResult(snap),90)}return r};
+  let v624PendingResult=null;
+  document.addEventListener('deen:lesson-result-before',e=>{
+    const s=e?.detail?.session;
+    if(!s||s.macroStage){v624PendingResult=null;return}
+    v624PendingResult={
+      stageId:s.stage?.id,
+      total:s.questions?.length||0,
+      pct:s.questions?.length?Math.round((s.correct||0)/s.questions.length*100):0,
+      lessonNo:s.lessonNo||1,
+      lessonTotal:s.lessonTotal||1,
+      multi:!!s.multiLessonStage,
+      final:!!s.final,
+      wasComplete:s.stage?.id?state.completed.includes(s.stage.id):false
+    };
+  });
+  document.addEventListener('deen:lesson-result',()=>{
+    const snap=v624PendingResult;v624PendingResult=null;
+    if(!snap)return;
+    snap.completedNow=!snap.wasComplete&&state.completed.includes(snap.stageId);
+    setTimeout(()=>decorateResult(snap),90);
+  });
   const oldShowSectionFinalResult=window.showSectionFinalResult;
   if(typeof oldShowSectionFinalResult==='function')window.showSectionFinalResult=function(){const s=session;const snap=s?{stageId:s.stage?.id,total:s.questions?.length||0,pct:s.questions?.length?Math.round(s.correct/s.questions.length*100):0,lessonNo:1,lessonTotal:1,multi:false,final:true,completedNow:false}:null;const r=oldShowSectionFinalResult.apply(this,arguments);setTimeout(()=>decorateResult(snap),100);return r};
   try{paintEnergyModal()}catch(e){}
