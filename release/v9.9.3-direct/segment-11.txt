@@ -31,21 +31,20 @@
   }
   document.addEventListener('deen:lesson-result',v550DecorateLessonResult);
 
-  const V550_BASE_SHOW_SECTION_RESULT=showSectionFinalResult;
-  showSectionFinalResult=function(...args){
-    V550_BASE_SHOW_SECTION_RESULT(...args);
-    // Section-final result already has a stronger milestone CTA; only append journey context.
-    const extra=$('v5ResultExtra');
-    if(extra&&!extra.querySelector('.v55-journey'))extra.insertAdjacentHTML('beforeend',journeyMarkup());
-  };
+  // Section-final and navigation decoration now consume authoritative lifecycle events.
+  document.addEventListener('deen:section-result',()=>{
+    try{
+      const extra=$('v5ResultExtra');
+      if(extra&&!extra.querySelector('.v55-journey'))extra.insertAdjacentHTML('beforeend',journeyMarkup());
+    }catch(e){}
+  });
 
-  // When user explicitly taps Öğren, refresh the decision instead of showing stale return text.
-  const V550_BASE_NAV=navigate;
-  navigate=function(id,...args){
-    const r=V550_BASE_NAV(id,...args);
-    if(id==='learnScreen'){try{returnCard()}catch(e){}}
-    return r;
-  };
+  document.addEventListener('deen:navigated',event=>{
+    const detail=event?.detail||{};
+    if(detail.id==='learnScreen'||detail.activeScreen==='learnScreen'){
+      try{returnCard()}catch(e){}
+    }
+  });
 
   window.DEEN_RETURN_FLOW={
     decide:()=>smartReturnDecision(),
