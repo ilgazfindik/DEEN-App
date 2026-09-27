@@ -25,12 +25,11 @@
     </div>`;
   }
 
-  const V550_BASE_SHOW_RESULT=showResult;
-  showResult=function(...args){
-    V550_BASE_SHOW_RESULT(...args);
+  function v550DecorateLessonResult(){
     const extra=$('v5ResultExtra');
     if(extra&&!extra.querySelector('.v55-next-card'))extra.insertAdjacentHTML('beforeend',nextCardMarkup(recommendationAfterLesson()));
-  };
+  }
+  document.addEventListener('deen:lesson-result',v550DecorateLessonResult);
 
   const V550_BASE_SHOW_SECTION_RESULT=showSectionFinalResult;
   showSectionFinalResult=function(...args){
@@ -147,13 +146,11 @@
   };
 
   // Ensure EVERY U03-S03 question shows the listening source, not only listening_* activity types.
-  const V560_BASE_RENDER=renderQuestion;
-  renderQuestion=function(...args){
-    V560_BASE_RENDER(...args);
+  function v560SyncVerifiedMedia(){
     const q=session?.questions?.[session.index],area=$('answerArea');
     if(!q||!area||q.asset_requirement!=='audio_shahada_verified')return;
 
-    // Remove stale pre-integration blocker copy, if an older wrapper inserted it.
+    // Remove stale pre-integration blocker copy, if an older layer inserted it.
     [...area.querySelectorAll('.v5-muted')].forEach(el=>{
       if(/Doğrulanmış ses kaydı henüz bağlı değil|Doğrulanmış medya kaynağı şu anda kullanılamıyor/i.test(el.textContent||''))el.remove();
     });
@@ -165,7 +162,8 @@
     }else if(area.firstElementChild!==panel){
       area.prepend(panel);
     }
-  };
+  }
+  document.addEventListener('deen:question-rendered',v560SyncVerifiedMedia);
 
   // Kısım 1 Final remains fully self-contained/offline: remote-media questions stay out.
   const V560_FINAL_ORIGINAL=chooseSectionFinal;
@@ -534,8 +532,11 @@
   if(final3Unlocked()&&!final3State().completed){const d=daily();$('v5Return').innerHTML=`<section class="lp-return"><div class="v5-row"><span class="v5-kicker">SIRADAKİ ADIM</span><b>${Math.min(d.lessons,state.dailyGoal)} / ${state.dailyGoal}</b></div><h1>İbadet Temelleri Ustalığı hazır.</h1><p>U11–U15 bilgisini 25 soruluk finalde bir araya getir.</p>${primary('FİNALE GİR','startSection3Final()')}<small>0 enerji · %80 geçiş · %95 Altın Ustalık</small></section>`;return}
   return V600_BASE_RETURN();
  };
- const V600_BASE_SHOW_RESULT=showResult;
- showResult=function(...args){V600_BASE_SHOW_RESULT(...args);if(session?.stage?.id==='U15-S07'&&final3Unlocked()&&!final3State().completed){const x=$('v5ResultExtra')?.querySelector('.v55-next-card');if(x)x.outerHTML=`<div class="v55-next-card"><span class="v5-kicker">SIRADA NE VAR?</span><b>İbadet Temelleri Ustalığı hazır.</b><p>25 soru · 0 enerji · %80 geçiş.</p><div class="v55-next-actions">${primary('FİNALE GİR',"closeLesson();startSection3Final()")}</div></div>`}};
+ function v600DecorateLessonResult(event){
+  const active=event?.detail?.session;
+  if(active?.stage?.id==='U15-S07'&&final3Unlocked()&&!final3State().completed){const x=$('v5ResultExtra')?.querySelector('.v55-next-card');if(x)x.outerHTML=`<div class="v55-next-card"><span class="v5-kicker">SIRADA NE VAR?</span><b>İbadet Temelleri Ustalığı hazır.</b><p>25 soru · 0 enerji · %80 geçiş.</p><div class="v55-next-actions">${primary('FİNALE GİR',"closeLesson();startSection3Final()")}</div></div>`}
+ }
+ document.addEventListener('deen:lesson-result',v600DecorateLessonResult);
 
  // Extend ceremony behavior for the new section while preserving tested Kısım 1/2 flow.
  const V600_BASE_CEREMONY=ceremony;
@@ -711,9 +712,7 @@
   const __oldStartStage = window.startStage;
   const __oldShowResult = window.showResult;
   const __oldFinishLesson = window.finishLesson;
-  const __oldRenderQuestion = window.renderQuestion;
   const __oldRenderPaths = window.renderPaths;
-  const __oldUpdateUI = window.updateUI;
 
   function beginMultiLessonStage(stageId, lessonNoOverride, replayMode){
     ensureStateShape();
@@ -772,11 +771,9 @@
     if(qMeta && session.stage && session.stage.meta) qMeta.textContent = session.stage.meta;
   }
 
-  window.renderQuestion = function(){
-    const res = __oldRenderQuestion.apply(this, arguments);
+  document.addEventListener('deen:question-rendered',function(){
     try{ ensureQuizStageProgress(); }catch(e){ console.warn(e); }
-    return res;
-  };
+  });
 
   function renderMultiLessonResult(){
     document.getElementById('quizView').style.display='none';
@@ -898,11 +895,9 @@
     return res;
   };
 
-  window.updateUI = function(){
-    const res = __oldUpdateUI.apply(this, arguments);
+  document.addEventListener('deen:ui-updated',function(){
     try{ decoratePathCards(); if(session && session.multiLessonStage) ensureQuizStageProgress(); }catch(e){ console.warn(e); }
-    return res;
-  };
+  });
 
   // initial paint sync
   try{ saveState(); }catch(e){}
