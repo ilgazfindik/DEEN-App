@@ -255,9 +255,9 @@
     },60);
   });
 
-  const oldCeremony = window.ceremony;
-  function claimReward(event){
-    ensureState();
+  // v6.2.3 owns the authoritative unit/section ceremony.
+  // v6.2.2 no longer wraps ceremony; retention rewards are handled downstream.
+  ensureState();
     if(event.type==='unit_complete'){
       const key=event.unit;
       if(state.v622Rewards.units[key]) return state.v622Rewards.units[key];
@@ -512,29 +512,29 @@
     },80);
   });
 
-  const oldShowSectionFinalResult = window.showSectionFinalResult;
-  if(typeof oldShowSectionFinalResult==='function'){
-    window.showSectionFinalResult = function(){
-      const res = oldShowSectionFinalResult.apply(this, arguments);
-      setTimeout(()=>{
-        if(!session || !document.getElementById('resultView')?.classList.contains('show')) return;
-        const total=session.questions?.length||0;
-        const pct=total?Math.round(session.correct/total*100):0;
-        if(pct>=80){
-          const btn=document.getElementById('resultContinueBtn');
-          if(btn) btn.textContent='BÜYÜK ÖDÜLÜ TOPLA';
-          const extra=document.getElementById('v5ResultExtra');
-          if(extra && !document.getElementById('v623ResultBanner')){
-            const banner=document.createElement('div');
-            banner.id='v623ResultBanner'; banner.className='v623-result-banner';
-            banner.innerHTML=`<b>Final kapısı açıldı</b><small>Bu kısım başarıyla tamamlandı. Devam ettiğinde güçlü bir sandık açılış seremonisi göreceksin.</small>`;
-            extra.append(banner);
-          }
+  let v623SectionResultSession=null;
+  document.addEventListener('deen:section-result-before',event=>{
+    v623SectionResultSession=event?.detail?.session||null;
+  });
+  document.addEventListener('deen:section-result',()=>{
+    const active=v623SectionResultSession;v623SectionResultSession=null;
+    setTimeout(()=>{
+      if(!active || !document.getElementById('resultView')?.classList.contains('show')) return;
+      const total=active.questions?.length||0;
+      const pct=total?Math.round(active.correct/total*100):0;
+      if(pct>=80){
+        const btn=document.getElementById('resultContinueBtn');
+        if(btn) btn.textContent='BÜYÜK ÖDÜLÜ TOPLA';
+        const extra=document.getElementById('v5ResultExtra');
+        if(extra && !document.getElementById('v623ResultBanner')){
+          const banner=document.createElement('div');
+          banner.id='v623ResultBanner'; banner.className='v623-result-banner';
+          banner.innerHTML=`<b>Final kapısı açıldı</b><small>Bu kısım başarıyla tamamlandı. Devam ettiğinde güçlü bir sandık açılış seremonisi göreceksin.</small>`;
+          extra.append(banner);
         }
-      },80);
-      return res;
-    }
-  }
+      }
+    },80);
+  });
 })();
 </script>
 
@@ -644,8 +644,20 @@
     snap.completedNow=!snap.wasComplete&&state.completed.includes(snap.stageId);
     setTimeout(()=>decorateResult(snap),90);
   });
-  const oldShowSectionFinalResult=window.showSectionFinalResult;
-  if(typeof oldShowSectionFinalResult==='function')window.showSectionFinalResult=function(){const s=session;const snap=s?{stageId:s.stage?.id,total:s.questions?.length||0,pct:s.questions?.length?Math.round(s.correct/s.questions.length*100):0,lessonNo:1,lessonTotal:1,multi:false,final:true,completedNow:false}:null;const r=oldShowSectionFinalResult.apply(this,arguments);setTimeout(()=>decorateResult(snap),100);return r};
+  let v624PendingSectionResult=null;
+  document.addEventListener('deen:section-result-before',event=>{
+    const s=event?.detail?.session;
+    v624PendingSectionResult=s?{
+      stageId:s.stage?.id,
+      total:s.questions?.length||0,
+      pct:s.questions?.length?Math.round((s.correct||0)/s.questions.length*100):0,
+      lessonNo:1,lessonTotal:1,multi:false,final:true,completedNow:false
+    }:null;
+  });
+  document.addEventListener('deen:section-result',()=>{
+    const snap=v624PendingSectionResult;v624PendingSectionResult=null;
+    if(snap)setTimeout(()=>decorateResult(snap),100);
+  });
   try{paintEnergyModal()}catch(e){}
 })();
 </script>
@@ -876,8 +888,8 @@
  document.addEventListener('deen:lesson-finished',()=>{setTimeout(()=>{try{renderFiveStagePaths()}catch(e){}},80)});
  document.addEventListener('deen:ui-updating',()=>{try{syncFromLegacy()}catch(e){}});
  document.addEventListener('deen:ui-updated',()=>{try{renderFiveStagePaths();if($('completedCount'))$('completedCount').textContent=allDefs().filter(done).length}catch(e){}});
- const oldReturn=window.returnCard;window.returnCard=function(){const r=oldReturn.apply(this,arguments);try{const dec=DEEN_RETURN_FLOW?.decide?.(),d=currentMacro();if(d&&dec?.action?.includes('preview(')){const p=$('v5Return')?.querySelector('p');const m=meta(d);if(p)p.textContent=`${d.title} · Aşama ${d.index+1}/5 · Mini ders ${Math.min(d.lessons,m.completedLessons+1)}/${d.lessons} · ${d.target} soru.`}}catch(e){}return r};
- const oldCeremony=window.ceremony;window.ceremony=function(e,finish){const r=oldCeremony.apply(this,arguments);if(e?.type==='unit_complete')setTimeout(()=>{const dlg=document.querySelector('.v623-ceremony[open]');const first=dlg?.querySelector('.v623-metric strong');if(first)first.textContent='5 / 5'},0);return r};
+ document.addEventListener('deen:return-card-rendered',()=>{try{const dec=DEEN_RETURN_FLOW?.decide?.(),d=currentMacro();if(d&&dec?.action?.includes('preview(')){const p=$('v5Return')?.querySelector('p');const m=meta(d);if(p)p.textContent=`${d.title} · Aşama ${d.index+1}/5 · Mini ders ${Math.min(d.lessons,m.completedLessons+1)}/${d.lessons} · ${d.target} soru.`}}catch(e){}});
+ document.addEventListener('deen:ceremony-opened',event=>{const e=event?.detail?.event;if(e?.type==='unit_complete')setTimeout(()=>{const dlg=document.querySelector('.v623-ceremony[open]');const first=dlg?.querySelector('.v623-metric strong');if(first)first.textContent='5 / 5'},0)});
  window.DEEN_FIVE_STAGE={version:'6.3.0',defs:u=>defs(u),all:()=>allDefs(),current:u=>currentMacro(u),meta:id=>{const d=allDefs().find(x=>x.id===id);return d?clone(meta(d)):null},done:id=>{const d=allDefs().find(x=>x.id===id);return d?done(d):false},state:id=>{const d=allDefs().find(x=>x.id===id);return d?clone(stateOf(d)):null},choose:(id,l)=>{const d=allDefs().find(x=>x.id===id);return d?choose(d,l):[]},sync:()=>syncFromLegacy(),render:renderFiveStagePaths};
  syncFromLegacy();setTimeout(()=>{renderFiveStagePaths();try{returnCard()}catch(e){}},80);
 })();
