@@ -397,7 +397,7 @@
   sheet(titles[step],'<div class="v5-onboarddots">'+dots+'</div>'+b+primary(step===5?'Yolculuğa başla →':'Devam et →',step===5?'finishOnboarding()':`onboarding(${step+1})`)+(step?list('← Geri',`onboarding(${step-1})`,''):''));
  };
  window.finishOnboarding=function(){ensure();state.onboarded=true;state.onboardingVersion=ONBOARDING_VERSION;saveState();closeSheet();updateUI();try{scrollToCurrent('U01')}catch(_){}};
- const BASE_SETTINGS=window.settingsPanel;if(typeof BASE_SETTINGS==='function')window.settingsPanel=function(...args){const out=BASE_SETTINGS.apply(this,args);try{injectSettings()}catch(e){console.warn('V9.5 settings',e)}return out};
+ document.addEventListener('deen:settings-rendered',()=>{try{injectSettings()}catch(e){console.warn('V9.5 settings',e)}});
  document.addEventListener('deen:profile-rendered',()=>{try{injectProfileCard()}catch(e){console.warn('V9.5 profile',e)}});
  document.addEventListener('deen:question-rendered',()=>{
   try{
@@ -559,10 +559,10 @@
   const run=()=>mountFeedback(correct,q);
   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v960-narration',event?.detail,run,{delays:[70]}))setTimeout(run,70);
  });
- const BASE_NEXT=typeof nextQuestion==='function'?nextQuestion:window.nextQuestion;if(typeof BASE_NEXT==='function'){const wrapped=function(...args){stop('next');return BASE_NEXT.apply(this,args)};try{window.nextQuestion=wrapped;nextQuestion=wrapped}catch(_){window.nextQuestion=wrapped}}
- const BASE_CLOSE=typeof closeLesson==='function'?closeLesson:window.closeLesson;if(typeof BASE_CLOSE==='function'){const wrapped=function(...args){stop('close');return BASE_CLOSE.apply(this,args)};try{window.closeLesson=wrapped;closeLesson=wrapped}catch(_){window.closeLesson=wrapped}}
- const BASE_NAV=typeof navigate==='function'?navigate:window.navigate;if(typeof BASE_NAV==='function'){const wrapped=function(...args){stop('navigate');return BASE_NAV.apply(this,args)};try{window.navigate=wrapped;navigate=wrapped}catch(_){window.navigate=wrapped}}
- const BASE_SETTINGS=window.settingsPanel;if(typeof BASE_SETTINGS==='function')window.settingsPanel=function(...args){const out=BASE_SETTINGS.apply(this,args);try{injectSettings()}catch(e){lastError=String(e?.message||e)}return out};
+ document.addEventListener('deen:question-advancing',()=>stop('next'));
+ document.addEventListener('deen:lesson-closing',()=>stop('close'));
+ document.addEventListener('deen:navigating',()=>stop('navigate'));
+ document.addEventListener('deen:settings-rendered',()=>{try{injectSettings()}catch(e){lastError=String(e?.message||e)}});
  document.addEventListener('deen:state-saving',()=>{ensure()});
  try{if(window.saveState)saveState=window.saveState;if(window.settingsPanel)settingsPanel=window.settingsPanel}catch(_){}
  function activeU01(){const stages=['U01-S01','U01-S02','U01-S03','U01-S04','U01-S05','U01-S06','U01-S07'],out=[];for(const id of stages){try{out.push(...(typeof chooseQuestions==='function'?chooseQuestions(id):window.chooseQuestions?.(id)||[]))}catch(_){}}return out}
@@ -662,7 +662,7 @@
  }
  document.addEventListener('deen:question-rendered',()=>{try{shown(currentQuestion())}catch(e){lastError=String(e?.message||e)}});
  document.addEventListener('deen:question-graded',event=>{try{const cq=event?.detail?.question||currentQuestion(),mark=session?.__v970Shown,elapsed=mark&&cq&&mark.id===cq.id?Date.now()-mark.at:null;record(event?.detail?.correct===true,cq,elapsed)}catch(e){lastError=String(e?.message||e)}});
- const BASE_REVIEW=window.startSmartReview;if(typeof BASE_REVIEW==='function')window.startSmartReview=function(...args){const before=session;const out=BASE_REVIEW.apply(this,args);try{if(session&&session!==before&&session.review)reorderReviewTail()}catch(e){lastError=String(e?.message||e)}return out};
+ document.addEventListener('deen:review-started',event=>{if(event?.detail?.started!==true)return;try{if(session?.review)reorderReviewTail()}catch(e){lastError=String(e?.message||e)}});
  document.addEventListener('deen:profile-rendered',()=>{try{injectProfile()}catch(e){lastError=String(e?.message||e)}});
  document.addEventListener('deen:state-saving',()=>{ensure()});
  try{if(window.saveState)saveState=window.saveState;if(window.profileView)profileView=window.profileView}catch(_){}
@@ -7595,7 +7595,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.83-RUNTIME-ARBITER';
+ const VERSION='9.9.84-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -7610,6 +7610,11 @@
  const LEGACY_LEAGUE_VIEW=window.leagueView;
  const LEGACY_SAVE_STATE=window.saveState;
  const LEGACY_COMMIT=window.commit;
+ const LEGACY_NEXT_QUESTION=window.nextQuestion;
+ const LEGACY_CLOSE_LESSON=window.closeLesson;
+ const LEGACY_NAVIGATE=window.navigate;
+ const LEGACY_SETTINGS_PANEL=window.settingsPanel;
+ const LEGACY_START_REVIEW=window.startSmartReview;
 
  let renderBusy=false;
  let renderEpoch=0;
@@ -7631,6 +7636,11 @@
  let leagueRenders=0;
  let stateSaves=0;
  let commits=0;
+ let questionAdvances=0;
+ let lessonCloses=0;
+ let navigations=0;
+ let settingsOpens=0;
+ let reviewStarts=0;
  const questionJobs=new Map();
  let cancelledQuestionJobs=0;
  let executedQuestionJobs=0;
@@ -7842,6 +7852,91 @@
    try{commit=guardedCommit}catch(_){}
  }
 
+ if(typeof LEGACY_NEXT_QUESTION==='function'){
+   const guardedNextQuestion=function(...args){
+     cancelAllQuestionJobs();
+     let activeSession=null,index=0,key='';
+     try{activeSession=session||null;index=Number(session?.index)||0;key=questionKey()}catch(_){}
+     dispatch('deen:question-advancing',{session:activeSession,index,key});
+     const out=LEGACY_NEXT_QUESTION.apply(this,args);
+     questionAdvances++;
+     dispatch('deen:question-advance-requested',{session:activeSession,index,key,count:questionAdvances,result:out});
+     return out;
+   };
+   guardedNextQuestion.__deen9953=true;
+   guardedNextQuestion.__deen9953Original=LEGACY_NEXT_QUESTION;
+   window.nextQuestion=guardedNextQuestion;
+   try{nextQuestion=guardedNextQuestion}catch(_){}
+ }
+
+ if(typeof LEGACY_CLOSE_LESSON==='function'){
+   const guardedCloseLesson=function(...args){
+     cancelAllQuestionJobs();
+     let activeSession=null;
+     try{activeSession=session||null}catch(_){}
+     dispatch('deen:lesson-closing',{session:activeSession});
+     const out=LEGACY_CLOSE_LESSON.apply(this,args);
+     lessonCloses++;
+     dispatch('deen:lesson-closed',{session:activeSession,count:lessonCloses,result:out});
+     return out;
+   };
+   guardedCloseLesson.__deen9953=true;
+   guardedCloseLesson.__deen9953Original=LEGACY_CLOSE_LESSON;
+   window.closeLesson=guardedCloseLesson;
+   try{closeLesson=guardedCloseLesson}catch(_){}
+ }
+
+ if(typeof LEGACY_NAVIGATE==='function'){
+   const guardedNavigate=function(id,...args){
+     cancelAllQuestionJobs();
+     const requested=String(id||'');
+     dispatch('deen:navigating',{id:requested});
+     const out=LEGACY_NAVIGATE.call(this,id,...args);
+     navigations++;
+     let activeScreen='';
+     try{activeScreen=document.querySelector('.screen.active')?.id||''}catch(_){}
+     dispatch('deen:navigated',{id:requested,activeScreen,count:navigations,result:out});
+     return out;
+   };
+   guardedNavigate.__deen9953=true;
+   guardedNavigate.__deen9953Original=LEGACY_NAVIGATE;
+   window.navigate=guardedNavigate;
+   try{navigate=guardedNavigate}catch(_){}
+ }
+
+ if(typeof LEGACY_SETTINGS_PANEL==='function'){
+   const guardedSettingsPanel=function(...args){
+     dispatch('deen:settings-rendering',{count:settingsOpens+1});
+     const out=LEGACY_SETTINGS_PANEL.apply(this,args);
+     settingsOpens++;
+     dispatch('deen:settings-rendered',{count:settingsOpens,result:out});
+     return out;
+   };
+   guardedSettingsPanel.__deen9953=true;
+   guardedSettingsPanel.__deen9953Original=LEGACY_SETTINGS_PANEL;
+   window.settingsPanel=guardedSettingsPanel;
+   try{settingsPanel=guardedSettingsPanel}catch(_){}
+ }
+
+ if(typeof LEGACY_START_REVIEW==='function'){
+   const guardedStartReview=function(...args){
+     let before=null;
+     try{before=session||null}catch(_){}
+     dispatch('deen:review-starting',{session:before,args});
+     const out=LEGACY_START_REVIEW.apply(this,args);
+     let active=null;
+     try{active=session||null}catch(_){}
+     const started=!!active&&active!==before&&active.review===true;
+     if(started)reviewStarts++;
+     dispatch('deen:review-started',{session:active,previousSession:before,args,started,count:reviewStarts,result:out});
+     return out;
+   };
+   guardedStartReview.__deen9953=true;
+   guardedStartReview.__deen9953Original=LEGACY_START_REVIEW;
+   window.startSmartReview=guardedStartReview;
+   try{startSmartReview=guardedStartReview}catch(_){}
+ }
+
  if(typeof LEGACY_RENDER==='function'){
    const guardedRender=function(...args){
      /*
@@ -8043,10 +8138,21 @@
      pendingQuestionJobGroups:questionJobs.size,
      cancelledQuestionJobs,
      executedQuestionJobs,
-     staleQuestionGuard:true
+     staleQuestionGuard:true,
+     questionAdvances,
+     lessonCloses,
+     navigations,
+     settingsOpens,
+     reviewStarts,
+     nextGuarded:!!window.nextQuestion?.__deen9953,
+     closeGuarded:!!window.closeLesson?.__deen9953,
+     navigateGuarded:!!window.navigate?.__deen9953,
+     settingsGuarded:!!window.settingsPanel?.__deen9953,
+     reviewGuarded:!!window.startSmartReview?.__deen9953,
+     flowLifecycleEvents:true
    })
  };
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.83-PRODUCTION',BUILD='9983lifecyclehooks1',TITLE='DEEN v9.9.83';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.84-PRODUCTION',BUILD='9984flowboundaries1',TITLE='DEEN v9.9.84';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
