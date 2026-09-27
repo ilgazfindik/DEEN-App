@@ -2199,31 +2199,12 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(e){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     setTimeout(clean,0);
-     setTimeout(clean,70);
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(e){}
- }
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(clean,0);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(e){}
- }
-
- document.addEventListener('click',e=>{
-   if(e.target?.closest?.('#lesson .v5-source summary'))setTimeout(()=>window.DEEN_MOBILE_LESSON?.fit?.(),0);
- },true);
- window.addEventListener('resize',clean,{passive:true});
- window.visualViewport?.addEventListener?.('resize',clean,{passive:true});
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9914',event?.detail,clean,{"raf":false,"delays":[0,70]}))clean();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9914',event?.detail,clean,{"raf":false,"delays":[0]}))clean();
+ });
 
  window.DEEN_CLEAN_LESSON={
    version:VERSION,
@@ -2594,25 +2575,12 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(e){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(()=>apply());
-     setTimeout(apply,70);
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(e){}
- }
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(apply,0);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(e){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9916',event?.detail,apply,{"raf":true,"delays":[70]}))apply();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9916',event?.detail,apply,{"raf":false,"delays":[0]}))apply();
+ });
 
  window.DEEN_QUESTION_TEMPLATES={
    version:VERSION,
@@ -2888,25 +2856,12 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(e){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     setTimeout(apply,60);
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(e){}
- }
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(apply,0);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(e){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9918',event?.detail,apply,{"raf":true,"delays":[60]}))apply();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9918',event?.detail,apply,{"raf":false,"delays":[0]}))apply();
+ });
 
  window.DEEN_CHARACTER_QUESTION={
    version:VERSION,
@@ -3245,25 +3200,12 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(e){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(decorate);
-     setTimeout(decorate,80);
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(e){}
- }
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(decorate,0);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(e){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9920',event?.detail,decorate,{"raf":true,"delays":[80]}))decorate();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9920',event?.detail,decorate,{"raf":false,"delays":[0]}))decorate();
+ });
 
  window.DEEN_PREMIUM_FILL={
    version:VERSION,
@@ -3444,26 +3386,13 @@
 
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(e){}
  }
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(clean);
-     setTimeout(clean,40);
-     setTimeout(clean,120);
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(e){}
- }
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(clean,0);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(e){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9921',event?.detail,clean,{"raf":true,"delays":[40,120]}))clean();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9921',event?.detail,clean,{"raf":false,"delays":[0]}))clean();
+ });
+
  window.DEEN_FILL_DOM_HOTFIX={version:VERSION,apply:clean,snapshot:()=>({
    premium:!!document.querySelector('#lesson .question-frame.deen-premium-fill'),
    ageBadge:!!document.querySelector('#lesson .question-frame .v950-age-badge'),
@@ -3679,26 +3608,12 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(polish);
-     [50,180,360].forEach(ms=>setTimeout(polish,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(polish,0);
-     setTimeout(polish,160);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9922',event?.detail,polish,{"raf":true,"delays":[50,180,360]}))polish();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9922',event?.detail,polish,{"raf":false,"delays":[0,160]}))polish();
+ });
 
  window.DEEN_PREMIUM_FILL_POLISH={
    version:VERSION,
@@ -3879,25 +3794,12 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [50,160,320].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(apply,0);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9923',event?.detail,apply,{"raf":true,"delays":[50,160,320]}))apply();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9923',event?.detail,apply,{"raf":false,"delays":[0]}))apply();
+ });
 
  window.DEEN_COMPANION_HERO_CLEANUP={
    version:VERSION,
@@ -4209,16 +4111,9 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [80,220,520].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9927',event?.detail,apply,{"raf":true,"delays":[80,220,520]}))apply();
+ });
 
  window.DEEN_COMPANION_STAGE={
    version:VERSION,
@@ -4359,16 +4254,9 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [70,180,420,760].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9930',event?.detail,apply,{"raf":true,"delays":[70,180,420,760]}))apply();
+ });
 
  window.DEEN_CENTER_COMPANION_ROW={
    version:VERSION,
@@ -4557,16 +4445,9 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [60,160,360,720].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9931',event?.detail,apply,{"raf":true,"delays":[60,160,360,720]}))apply();
+ });
 
  window.DEEN_SAFE_CENTER={
    version:VERSION,
@@ -4706,27 +4587,12 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [80,220,520,900].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
-
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(apply,80);
-     setTimeout(apply,260);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9934',event?.detail,apply,{"raf":true,"delays":[80,220,520,900]}))apply();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9934',event?.detail,apply,{"raf":false,"delays":[80,260]}))apply();
+ });
 
  window.DEEN_FIXED_VERTICAL_CENTER={
    version:VERSION,
@@ -4864,26 +4730,12 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [80,220,520].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
-
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(apply,80);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9935',event?.detail,apply,{"raf":true,"delays":[80,220,520]}))apply();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9935',event?.detail,apply,{"raf":false,"delays":[80]}))apply();
+ });
 
  window.DEEN_REFERENCE_BALANCE={
    version:VERSION,
@@ -5607,26 +5459,12 @@
    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(apply);
-     [70,180,420,850].forEach(ms=>setTimeout(apply,ms));
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
-
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(...args){
-     const r=CQ.apply(this,args);
-     setTimeout(apply,90);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-rendered',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9941',event?.detail,apply,{"raf":true,"delays":[70,180,420,850]}))apply();
+ });
+ document.addEventListener('deen:question-graded',event=>{
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9941',event?.detail,apply,{"raf":false,"delays":[90]}))apply();
+ });
 
  window.DEEN_BOOLEAN_SCREEN_REPAIR={
    version:VERSION,
@@ -7739,7 +7577,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.77-RUNTIME-ARBITER';
+ const VERSION='9.9.82-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -7775,6 +7613,41 @@
  let leagueRenders=0;
  let stateSaves=0;
  let commits=0;
+ const questionJobs=new Map();
+ let cancelledQuestionJobs=0;
+ let executedQuestionJobs=0;
+
+ function cancelQuestionJobs(label){
+   const jobs=questionJobs.get(label);
+   if(!jobs)return;
+   for(const id of jobs.timeouts||[])try{clearTimeout(id)}catch(_){}
+   for(const id of jobs.rafs||[])try{cancelAnimationFrame(id)}catch(_){}
+   questionJobs.delete(label);
+   cancelledQuestionJobs++;
+ }
+ function cancelAllQuestionJobs(){
+   for(const label of [...questionJobs.keys()])cancelQuestionJobs(label);
+ }
+ function scheduleQuestion(label,detail,fn,opts={}){
+   if(typeof fn!=='function')return false;
+   const safeLabel=String(label||'anonymous');
+   cancelQuestionJobs(safeLabel);
+   const epoch=Number(detail?.epoch)||renderEpoch;
+   const key=String(detail?.key||questionKey());
+   const jobs={timeouts:[],rafs:[]};
+   questionJobs.set(safeLabel,jobs);
+   const valid=()=>epoch===renderEpoch&&key===questionKey();
+   const run=()=>{
+     if(!valid())return false;
+     try{fn();executedQuestionJobs++;return true}
+     catch(err){try{console.warn('DEEN scheduled question job failed',safeLabel,err)}catch(_){}return false}
+   };
+   if(opts?.raf===true)jobs.rafs.push(requestAnimationFrame(run));
+   for(const ms of Array.isArray(opts?.delays)?opts.delays:[]){
+     jobs.timeouts.push(setTimeout(run,Math.max(0,Number(ms)||0)));
+   }
+   return true;
+ }
 
  function questionKey(q){
    let actual=q;
@@ -7820,6 +7693,7 @@
 
  if(typeof LEGACY_FINISH==='function'){
    const guardedFinish=function(...args){
+     cancelAllQuestionJobs();
      const before=(()=>{try{return session||null}catch(_){return null}})();
      const stageId=String(before?.stage?.id||'');
      dispatch('deen:lesson-finishing',{session:before,stageId});
@@ -7958,6 +7832,7 @@
      */
      if(renderBusy)return false;
      renderBusy=true;
+     cancelAllQuestionJobs();
      const nextEpoch=renderEpoch+1;
      dispatch('deen:question-rendering',{
        epoch:nextEpoch,
@@ -8089,6 +7964,16 @@
    try{updateUI=guardedUpdate}catch(_){}
  }
 
+ window.DEEN_RUNTIME_SCHEDULE={
+   question:scheduleQuestion,
+   cancel:cancelQuestionJobs,
+   cancelAll:cancelAllQuestionJobs,
+   snapshot:()=>({
+     groups:questionJobs.size,
+     cancelled:cancelledQuestionJobs,
+     executed:executedQuestionJobs
+   })
+ };
  window.DEEN_RUNTIME_ARBITER={
    version:VERSION,
    snapshot:()=>({
@@ -8136,10 +8021,14 @@
      saveGuarded:!!window.saveState?.__deen9953,
      commitGuarded:!!window.commit?.__deen9953,
      stateLifecycleEvents:true,
-     commitLifecycleEvents:true
+     commitLifecycleEvents:true,
+     pendingQuestionJobGroups:questionJobs.size,
+     cancelledQuestionJobs,
+     executedQuestionJobs,
+     staleQuestionGuard:true
    })
  };
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.81-PRODUCTION',BUILD='9981layoutracefix1',TITLE='DEEN v9.9.81';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.82-PRODUCTION',BUILD='9982stalescheduler1',TITLE='DEEN v9.9.82';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
