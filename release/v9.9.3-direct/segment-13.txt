@@ -468,8 +468,9 @@
     if(!session?.macroStage||session.pedagogyVersion!=='6.3.3')return;const p=session.pedagogyProfile,x=exposure(session.macroDef.unit);let el=$('v631Objective');if(!el)return;
     const meta=el.querySelector('.v632-objective-meta')||document.createElement('div');meta.className='v632-objective-meta';meta.innerHTML=`<span>İlk geçiş ${x.used}/${x.target}</span><span>${x.reserved} soru saklı</span>`;if(!meta.parentNode)el.append(meta);
   }
-  const baseRenderQuestion=window.renderQuestion;window.renderQuestion=function(...args){const r=baseRenderQuestion.apply(this,args);try{objective()}catch(e){console.warn('V6.3.3 objective',e)}return r};
-  const baseUpdateUI=window.updateUI;window.updateUI=function(...args){ensureState();const r=baseUpdateUI.apply(this,args);try{objective()}catch(e){}return r};
+  document.addEventListener('deen:question-rendered',()=>{try{objective()}catch(e){console.warn('V6.3.3 objective',e)}});
+  document.addEventListener('deen:ui-updating',()=>{try{ensureState()}catch(e){}});
+  document.addEventListener('deen:ui-updated',()=>{try{objective()}catch(e){}});
   const baseShowResult=window.showResult;window.showResult=function(...args){const d=session?.macroDef;const r=baseShowResult.apply(this,args);try{if(d&&window.DEEN_FIVE_STAGE.done(d.id)){const um=unitMeta(d.unit);if(defs(d.unit).every(x=>window.DEEN_FIVE_STAGE.done(x.id))&&!um.firstPassCompletedAt)um.firstPassCompletedAt=Date.now();saveState()}}catch(e){}return r};
 
   function leakageCheck(d,qs,knownSeen=[]){const max=stageMax(d),known=new Set(knownSeen);return qs.filter(q=>q.stage_id.slice(0,3)!==d.unit||(d.kind!=='challenge'&&stageNo(q.stage_id)>max&&!known.has(q.id))).map(q=>q.id)}
