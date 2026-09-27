@@ -405,21 +405,21 @@ window.DEEN_GAMEPLAY_FEEL_VERSION='5.2.0';
     return V530.compose(stageId);
   };
 
-  // Remember a real lesson only after it has actually started.
-  const v530StartStage=startStage;
-  startStage=function(id){
-    const before=session;
-    v530StartStage(id);
-    if(session&&session!==before&&session.stage?.id===id&&Array.isArray(session.questions)&&session.questions.length){
-      V530.remember(id,session.questions.map(q=>q.id));
-      session.lessonComposer={
+  // Remember a real lesson only after the authoritative start boundary succeeds.
+  function v530RememberStartedLesson(event){
+    const id=event?.detail?.stageId;
+    const active=event?.detail?.session;
+    if(active&&active.stage?.id===id&&Array.isArray(active.questions)&&active.questions.length){
+      V530.remember(id,active.questions.map(q=>q.id));
+      active.lessonComposer={
         version:V530.version,
         profile:V530.profileFor(id),
-        roles:V530.slotProfiles(session.questions.length,V530.profileFor(id)).map(x=>x.role)
+        roles:V530.slotProfiles(active.questions.length,V530.profileFor(id)).map(x=>x.role)
       };
       try{saveState()}catch(e){}
     }
-  };
+  }
+  document.addEventListener('deen:lesson-started',v530RememberStartedLesson);
 
   // Upgrade Smart Review sequencing while keeping the existing UI/energy/state logic.
   startSmartReview=function(mode='smart',unit=null){
