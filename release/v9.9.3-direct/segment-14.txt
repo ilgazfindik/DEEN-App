@@ -325,7 +325,7 @@
   }
   const BASE_RETURN=window.returnCard;window.returnCard=function(...args){try{if(typeof BASE_RETURN==='function')BASE_RETURN.apply(this,args)}catch(e){}try{renderHome()}catch(e){console.warn('V6.8.0 home',e)}};
   const BASE_NAV=window.navigate;window.navigate=function(id,...args){const r=BASE_NAV.apply(this,[id,...args]);if(id==='learnScreen')setTimeout(()=>{try{renderHome()}catch(e){}},0);return r};
-  const BASE_RENDER_Q=window.renderQuestion;window.renderQuestion=function(...args){const r=BASE_RENDER_Q.apply(this,args);try{renderSessionBrief()}catch(e){}return r};
+  document.addEventListener('deen:question-rendered',()=>{try{renderSessionBrief()}catch(e){}});
   const BASE_START_MACRO=window.startMacroStage;if(typeof BASE_START_MACRO==='function')window.startMacroStage=function(...args){const before=session;const r=BASE_START_MACRO.apply(this,args);if(session&&session!==before){document.querySelectorAll('#resultView .v680-result-next').forEach(x=>x.remove());begin('lesson')}return r};
   const BASE_START_REVIEW=window.startSmartReview;if(typeof BASE_START_REVIEW==='function')window.startSmartReview=function(...args){const before=session;const r=BASE_START_REVIEW.apply(this,args);if(session&&session!==before){document.querySelectorAll('#resultView .v680-result-next').forEach(x=>x.remove());begin('review')}return r};
   for(const name of ['startSectionFinal','startSection2Final','startSection3Final']){const base=window[name];if(typeof base==='function')window[name]=function(...args){const before=session;const r=base.apply(this,args);if(session&&session!==before)begin('final');return r}}
@@ -418,8 +418,7 @@
   }
   const PREV_SAVE=window.saveState;
   if(typeof PREV_SAVE==='function')window.saveState=function(...args){ensureRC();const r=PREV_SAVE.apply(this,args);ensureRC();return r};
-  const PREV_UPDATE=window.updateUI;
-  if(typeof PREV_UPDATE==='function')window.updateUI=function(...args){ensureRC();return PREV_UPDATE.apply(this,args)};
+  document.addEventListener('deen:ui-updating',()=>{try{ensureRC()}catch(e){}});
   window.DEEN_RC={
     version:VERSION,
     stateVersion:STATE_VERSION,
@@ -512,10 +511,35 @@
  function renderListenPick(q,area){const shell=document.createElement('div');shell.className='v710-listen-shell';const wave=document.createElement('div');wave.className='v710-wave';for(let i=0;i<19;i++){const x=document.createElement('i');x.style.height=(7+(i*13%25))+'px';wave.append(x)}shell.append(wave);try{renderAudioPanel(q,shell)}catch(e){console.warn('V7.1 media panel',e)}const opts=document.createElement('div');opts.className='v710-listen-options';let sel=null;renderedOptions(q).forEach(opt=>{const b=document.createElement('button');b.type='button';b.className='v710-listen-option';b.dataset.value=opt;b.textContent=opt;b.onclick=()=>{opts.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');sel=b;cta.disabled=false};opts.append(b)});const cta=actionButton('Dinlediğim cevabı kilitle');cta.disabled=true;cta.onclick=()=>sel&&finishChoice(opts,q,sel.dataset.value,sel);area.append(shell,opts,cta)}
  function renderDragMatch(q,area){const pairs=q.pairs||[],left=shuffle(pairs.map((p,i)=>({text:p.left,i}))),right=shuffle(pairs.map((p,i)=>({text:p.right,i})));let selected=null,matched=new Set(),errors=0,drag=null,ghost=null;const board=document.createElement('div');board.className='v710-match-board';board.innerHTML='<div class="v710-match-head" style="grid-column:1;grid-row:1">KAVRAM</div><div class="v710-match-head" style="grid-column:2;grid-row:1">AÇIKLAMA</div>';const leftMap=new Map(),rightMap=new Map();function progress(){pt.textContent=matched.size+' / '+pairs.length+' eşleşme';bar.style.width=(matched.size/Math.max(1,pairs.length)*100)+'%'}function tryMatch(idx,target){if(idx==null||target==null||matched.has(idx))return;const lb=leftMap.get(idx),rb=rightMap.get(target);if(idx===target){lb?.classList.add('matched');rb?.classList.add('matched');lb&&(lb.disabled=true);rb&&(rb.disabled=true);matched.add(idx);selected=null;progress();if(matched.size===pairs.length)setTimeout(()=>completeQuestion(errors===0,q),170)}else{errors++;lb?.classList.add('error');rb?.classList.add('error');setTimeout(()=>{lb?.classList.remove('error','selected');rb?.classList.remove('error')},300);selected=null}}function endDrag(e){if(drag==null)return;const el=document.elementFromPoint(e.clientX,e.clientY)?.closest?.('.v710-match-card.target');if(el)tryMatch(drag,Number(el.dataset.i));leftMap.get(drag)?.classList.remove('dragging');rightMap.forEach(x=>x.classList.remove('over'));ghost?.remove();ghost=null;drag=null}left.forEach(x=>{const b=document.createElement('button');b.type='button';b.className='v710-match-card source';b.textContent=x.text;b.dataset.i=x.i;b.onclick=()=>{if(b.disabled)return;board.querySelectorAll('.source').forEach(z=>z.classList.remove('selected'));b.classList.add('selected');selected=x.i};b.onpointerdown=e=>{if(b.disabled)return;drag=x.i;b.classList.add('dragging');ghost=b.cloneNode(true);ghost.style.cssText='position:fixed;z-index:9999;pointer-events:none;opacity:.9;width:'+b.offsetWidth+'px;left:'+(e.clientX-b.offsetWidth/2)+'px;top:'+(e.clientY-28)+'px';document.body.append(ghost);b.setPointerCapture?.(e.pointerId)};b.onpointermove=e=>{if(drag!==x.i||!ghost)return;ghost.style.left=(e.clientX-ghost.offsetWidth/2)+'px';ghost.style.top=(e.clientY-28)+'px';rightMap.forEach(z=>z.classList.remove('over'));document.elementFromPoint(e.clientX,e.clientY)?.closest?.('.v710-match-card.target')?.classList.add('over')};b.onpointerup=endDrag;b.onpointercancel=endDrag;b.style.gridColumn='1';b.style.gridRow=String(left.indexOf(x)+2);leftMap.set(x.i,b);board.append(b)});right.forEach(x=>{const b=document.createElement('button');b.type='button';b.className='v710-match-card target';b.textContent=x.text;b.dataset.i=x.i;b.onclick=()=>{if(selected!=null)tryMatch(selected,x.i)};b.style.gridColumn='2';b.style.gridRow=String(right.indexOf(x)+2);rightMap.set(x.i,b);board.append(b)});const pr=document.createElement('div');pr.className='v710-match-progress';const pt=document.createElement('b'),track=document.createElement('span');track.className='v710-mini-bar';const bar=document.createElement('i');track.append(bar);pr.append(pt,track);area.append(board,pr);progress()}
  function renderWordBuilder(q,area){let chosen=[];const zone=document.createElement('div');zone.className='v710-builder-zone empty';const bank=document.createElement('div');bank.className='v710-word-bank';const hint=document.createElement('div');hint.className='v710-builder-hint';hint.textContent='Dokunarak ekle. Üstteki bir bloğa dokunursan geri gider; sürükleyerek blokların sırasını da değiştirebilirsin.';let dragIndex=null;function paint(){zone.innerHTML='';zone.classList.toggle('empty',chosen.length===0);chosen.forEach((text,idx)=>{const c=document.createElement('button');c.type='button';c.className='v710-builder-piece';c.textContent=text;c.dataset.idx=idx;c.onclick=()=>{if(dragIndex!==null)return;chosen.splice(idx,1);paint()};c.draggable=true;c.ondragstart=()=>dragIndex=idx;c.ondragover=e=>e.preventDefault();c.ondrop=e=>{e.preventDefault();if(dragIndex===null||dragIndex===idx)return;const [m]=chosen.splice(dragIndex,1);chosen.splice(idx,0,m);dragIndex=null;paint()};c.ondragend=()=>dragIndex=null;zone.append(c)});bank.innerHTML='';q.items.forEach(text=>{const used=chosen.filter(x=>x===text).length,total=q.items.filter(x=>x===text).length;const b=document.createElement('button');b.type='button';b.className='v710-word-chip';b.textContent=text;b.disabled=used>=total;b.onclick=()=>{chosen.push(text);paint()};bank.append(b)});cta.disabled=chosen.length!==(q.correct_order||[]).length}const cta=actionButton('Sırayı kontrol et');cta.disabled=true;cta.onclick=()=>{const ok=chosen.length===q.correct_order.length&&chosen.every((x,i)=>normalize(x)===normalize(q.correct_order[i]));zone.style.borderColor=ok?'#83d6b1':'#dc8d92';disableAll(area);completeQuestion(ok,q)};area.append(zone,bank,hint,cta);paint()}
- const BASE_RENDER=window.renderQuestion;
- window.renderQuestion=function(...args){const r=BASE_RENDER.apply(this,args);try{const q=session?.questions?.[session.index],area=document.getElementById('answerArea');if(!q||!area)return r;const mode=modeFor(q);setMode(mode,q);if(mode==='choice_cards'||mode==='typed_recall'||mode==='fallback')return r;area.innerHTML='';document.getElementById('feedback')?.classList.remove('show');if(mode==='drag_match')renderDragMatch(q,area);else if(mode==='word_builder')renderWordBuilder(q,area);else if(mode==='bug_hunt')renderBugHunt(q,area);else if(mode==='branch_scenario')renderScenario(q,area);else if(mode==='listen_pick')renderListenPick(q,area);else if(mode==='word_choice')renderWordChoice(q,area);else if(mode==='rapid_recall')renderBinary(q,area,true);else if(mode==='binary')renderBinary(q,area,false);return r}catch(e){console.error('V7.1 interactive render',e);return r}};
- const BASE_COMPLETE=window.completeQuestion;
- window.completeQuestion=function(correct,q){ensure710();state.interactionEngine.answers++;const mode=modeFor(q);state.interactionEngine.last={mode,questionId:q?.id||null,correct:!!correct,answeredAt:Date.now()};return BASE_COMPLETE.call(this,correct,q)};
+ function applyInteractiveQuestion(){
+  try{
+   const q=session?.questions?.[session.index],area=document.getElementById('answerArea');
+   if(!q||!area)return false;
+   const mode=modeFor(q);setMode(mode,q);
+   if(mode==='choice_cards'||mode==='typed_recall'||mode==='fallback')return false;
+   area.innerHTML='';
+   document.getElementById('feedback')?.classList.remove('show');
+   if(mode==='drag_match')renderDragMatch(q,area);
+   else if(mode==='word_builder')renderWordBuilder(q,area);
+   else if(mode==='bug_hunt')renderBugHunt(q,area);
+   else if(mode==='branch_scenario')renderScenario(q,area);
+   else if(mode==='listen_pick')renderListenPick(q,area);
+   else if(mode==='word_choice')renderWordChoice(q,area);
+   else if(mode==='rapid_recall')renderBinary(q,area,true);
+   else if(mode==='binary')renderBinary(q,area,false);
+   return true;
+  }catch(e){console.error('V7.1 interactive render',e);return false}
+ }
+ function trackInteractiveAnswer(e){
+  const q=e?.detail?.question;
+  const correct=e?.detail?.correct===true;
+  ensure710();
+  state.interactionEngine.answers++;
+  const mode=modeFor(q);
+  state.interactionEngine.last={mode,questionId:q?.id||null,correct,answeredAt:Date.now()};
+ }
+ document.addEventListener('deen:question-rendered',applyInteractiveQuestion);
+ document.addEventListener('deen:question-grading',trackInteractiveAnswer);
  const BASE_PROFILE=window.profileView;if(typeof BASE_PROFILE==='function')window.profileView=function(...args){const r=BASE_PROFILE.apply(this,args);try{const footer=document.querySelector('#profileScreenBody .v5-footer-note');if(footer)footer.innerHTML='DEEN 7.1 · Interactive Question Engine<br>XP ve Pırıltı öğrenmeyi oyunlaştırır; ibadet puanlanmaz. Dinî içerikler uzman incelemesi bekler.'}catch(e){}return r};
  const BASE_SAVE=window.saveState;if(typeof BASE_SAVE==='function')window.saveState=function(...args){ensure710();return BASE_SAVE.apply(this,args)};
  window.DEEN_INTERACTIONS={version:VERSION,stateVersion:STATE_VERSION,modeFor:q=>modeFor(q),inventory:()=>QUESTIONS.reduce((m,q)=>(m[q.activity_type]=(m[q.activity_type]||0)+1,m),{}),coverage:()=>{const m={};QUESTIONS.forEach(q=>{const k=modeFor(q);m[k]=(m[k]||0)+1});return m},snapshot:()=>JSON.parse(JSON.stringify(state.interactionEngine||{}))};
@@ -613,8 +637,7 @@ html.v5-reduce .v711-streak-main,html.v5-reduce .v711-currency,html.v5-reduce .v
   function cleanHome(){
     try{compactNBA();compactStreak();const tools=document.querySelector('.restored-tools');if(tools)tools.setAttribute('aria-hidden','true')}catch(e){console.warn('V7.1.1 home declutter',e)}
   }
-  const BASE_UPDATE=window.updateUI;
-  if(typeof BASE_UPDATE==='function')window.updateUI=function(...args){const r=BASE_UPDATE.apply(this,args);queueMicrotask(cleanHome);return r};
+  document.addEventListener('deen:ui-updated',()=>queueMicrotask(cleanHome));
   const BASE_RETURN=window.returnCard;
   if(typeof BASE_RETURN==='function')window.returnCard=function(...args){const r=BASE_RETURN.apply(this,args);queueMicrotask(cleanHome);return r};
   const BASE_PROFILE=window.profileView;
