@@ -8296,4 +8296,146 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.52-PRODUCTION',BUILD='9952profileloop1',TITLE='DEEN v9.9.52';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+<!-- DEEN v9.9.53 — Authoritative runtime boundary for question lifecycle -->
+<script id="deen-v9953-runtime-arbiter-js">
+(()=>{
+ if(window.__deenV9953RuntimeArbiter)return;
+ window.__deenV9953RuntimeArbiter=true;
+
+ const VERSION='9.9.53-RUNTIME-ARBITER';
+ const LEGACY_RENDER=window.renderQuestion;
+ const LEGACY_COMPLETE=window.completeQuestion;
+ const LEGACY_RESULT=window.showResult;
+
+ let renderBusy=false;
+ let renderEpoch=0;
+ let gradedEpoch=-1;
+ let lastGradeKey='';
+ let blockedGrades=0;
+ let completedGrades=0;
+ let renders=0;
+
+ function questionKey(q){
+   let actual=q;
+   try{actual=actual||session?.questions?.[Number(session?.index)||0]}catch(_){}
+   let id='';
+   try{id=String(actual?.id||actual?.question_id||actual?.prompt||actual?.question||actual?.text||'')}catch(_){}
+   let idx='';
+   try{idx=String(Number(session?.index)||0)}catch(_){idx='0'}
+   return idx+'::'+id;
+ }
+
+ function dispatch(name,detail){
+   try{document.dispatchEvent(new CustomEvent(name,{detail}))}catch(_){}
+ }
+
+ if(typeof LEGACY_RENDER==='function'){
+   const guardedRender=function(...args){
+     /*
+       A renderer is allowed to schedule follow-up DOM work, but a synchronous
+       re-entry into renderQuestion can corrupt the current question tree.
+     */
+     if(renderBusy)return false;
+     renderBusy=true;
+     renderEpoch++;
+     gradedEpoch=-1;
+     lastGradeKey='';
+     let out;
+     try{
+       out=LEGACY_RENDER.apply(this,args);
+       renders++;
+     }finally{
+       renderBusy=false;
+     }
+     const epoch=renderEpoch;
+     queueMicrotask(()=>dispatch('deen:question-rendered',{
+       epoch,
+       index:(()=>{try{return Number(session?.index)||0}catch(_){return 0}})(),
+       key:questionKey()
+     }));
+     return out;
+   };
+   guardedRender.__deen9953=true;
+   guardedRender.__deen9953Original=LEGACY_RENDER;
+   window.renderQuestion=guardedRender;
+   try{renderQuestion=guardedRender}catch(_){}
+ }
+
+ if(typeof LEGACY_COMPLETE==='function'){
+   const guardedComplete=function(correct,q,...rest){
+     /*
+       completeQuestion mutates answered/correct/combo immediately. A double
+       click or duplicated template callback therefore used to grade the same
+       question twice. One render epoch may be graded exactly once.
+     */
+     const key=questionKey(q);
+     if(gradedEpoch===renderEpoch){
+       blockedGrades++;
+       return false;
+     }
+
+     gradedEpoch=renderEpoch;
+     lastGradeKey=key;
+
+     let out;
+     try{
+       out=LEGACY_COMPLETE.call(this,correct,q,...rest);
+       completedGrades++;
+     }catch(err){
+       // A thrown grade did not complete; allow a retry rather than deadlocking.
+       gradedEpoch=-1;
+       lastGradeKey='';
+       throw err;
+     }
+
+     const detail={
+       epoch:renderEpoch,
+       key,
+       correct:correct===true,
+       combo:(()=>{try{return Number(session?.combo)||0}catch(_){return 0}})(),
+       index:(()=>{try{return Number(session?.index)||0}catch(_){return 0}})()
+     };
+     queueMicrotask(()=>dispatch('deen:question-graded',detail));
+     return out;
+   };
+   guardedComplete.__deen9953=true;
+   guardedComplete.__deen9953Original=LEGACY_COMPLETE;
+   window.completeQuestion=guardedComplete;
+   try{completeQuestion=guardedComplete}catch(_){}
+ }
+
+ if(typeof LEGACY_RESULT==='function'){
+   const guardedResult=function(...args){
+     const out=LEGACY_RESULT.apply(this,args);
+     queueMicrotask(()=>dispatch('deen:lesson-result',{
+       correct:(()=>{try{return Number(session?.correct)||0}catch(_){return 0}})(),
+       total:(()=>{try{return Number(session?.questions?.length)||0}catch(_){return 0}})()
+     }));
+     return out;
+   };
+   guardedResult.__deen9953=true;
+   guardedResult.__deen9953Original=LEGACY_RESULT;
+   window.showResult=guardedResult;
+   try{showResult=guardedResult}catch(_){}
+ }
+
+ window.DEEN_RUNTIME_ARBITER={
+   version:VERSION,
+   snapshot:()=>({
+     renderEpoch,
+     gradedEpoch,
+     lastGradeKey,
+     renderBusy,
+     blockedGrades,
+     completedGrades,
+     renders,
+     renderGuarded:!!window.renderQuestion?.__deen9953,
+     gradeGuarded:!!window.completeQuestion?.__deen9953,
+     resultGuarded:!!window.showResult?.__deen9953
+   })
+ };
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.53-PRODUCTION',BUILD='9953runtimearbiter1',TITLE='DEEN v9.9.53';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
