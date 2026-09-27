@@ -787,13 +787,12 @@ window.DEEN_GAMEPLAY_FEEL_VERSION='5.2.0';
     hero.insertAdjacentHTML('beforeend',`<div class="v54-league-target">${msg}<br>Hafta yükselmesi: <b>+20 Pırıltı</b> · Yerel simülasyon</div>`);
   };
 
-  const V540_BASE_SHOW_RESULT=showResult;
-  showResult=function(){
-    V540_BASE_SHOW_RESULT();
-    const el=$('v5ResultExtra');if(!el)return;
+  function v540DecorateLessonResult(){
+    const el=$('v5ResultExtra');if(!el||el.querySelector('.v54-result-loop'))return;
     const q=dailyQuestStatus(),w=weeklyStatus();
     el.insertAdjacentHTML('beforeend',`<div class="v54-result-loop">Günlük görevler <b>${q.done}/3</b> · Haftalık ritim <b>${Math.min(w.days,5)}/5 gün</b></div>`);
-  };
+  }
+  document.addEventListener('deen:lesson-result',v540DecorateLessonResult);
 
   window.DEEN_RETENTION={
     daily:()=>dailyQuestStatus(),
