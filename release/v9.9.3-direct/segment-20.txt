@@ -917,7 +917,7 @@
 <script id="deen-v861-pronunciation-runtime">
 (()=>{
  if(window.__deenV861Pronunciation)return;window.__deenV861Pronunciation=true;
- const VERSION='8.6.1-PRONUNCIATION-PRACTICE',BUILD='861speak1';
+ const VERSION='9.9.64-PRONUNCIATION-EVENT-PRACTICE',BUILD='9964pronlifecycle1';
  let rounds=0,attempts=0,recognitions=0,completed=0,refPlays=0;
  let refAudio=null,recognizer=null,stream=null,recorder=null,chunks=[],stopTimer=0,userUrl='';
  function kind(q){return String(q?.type||q?.question_type||q?.activity_type||'').toLowerCase()}
@@ -996,8 +996,13 @@
   };
   return true;
  }
- const oldRender=typeof renderQuestion==='function'?renderQuestion:null;
- if(oldRender&&!oldRender.__v861){const wrapped=function(...args){cleanup();document.querySelector('.question-frame')?.classList.remove('v861-pron-mode');const out=oldRender.apply(this,args);queueMicrotask(decorate);return out};wrapped.__v861=true;try{window.renderQuestion=wrapped;renderQuestion=wrapped}catch(_){window.renderQuestion=wrapped}}
+ function onBeforeRender(){
+  cleanup();
+  document.querySelector('.question-frame')?.classList.remove('v861-pron-mode');
+ }
+ function onRendered(){queueMicrotask(decorate)}
+ document.addEventListener('deen:question-rendering',onBeforeRender);
+ document.addEventListener('deen:question-rendered',onRendered);
  window.addEventListener('beforeunload',cleanup);
- window.DEEN_PRONUNCIATION_PRACTICE={version:VERSION,build:BUILD,eligible,decorate,practiceFirst:true,noPenalty:true,requiresApprovedReferenceAudio:true,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,attempts,recognitions,completed,refPlays,speechRecognition:!!(window.SpeechRecognition||window.webkitSpeechRecognition),mediaRecorder:!!window.MediaRecorder,active:!!document.querySelector('.v861-pron-mode')})};
+ window.DEEN_PRONUNCIATION_PRACTICE={version:VERSION,build:BUILD,eligible,decorate,practiceFirst:true,noPenalty:true,requiresApprovedReferenceAudio:true,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,attempts,recognitions,completed,refPlays,speechRecognition:!!(window.SpeechRecognition||window.webkitSpeechRecognition),mediaRecorder:!!window.MediaRecorder,active:!!document.querySelector('.v861-pron-mode'),eventDriven:true})};
  document.documentElement.dataset.deenPronunciation='ready';
