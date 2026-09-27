@@ -575,8 +575,7 @@
   function heartMarkup(cls='v624-heart'){const n=heartCount();let x='';for(let i=1;i<=5;i++)x+=`<span class="${cls} ${i<=n?'on':'off'}">♥</span>`;return x}
   function regenMinutes(){if(state.premium||state.energy>=MAX_ENERGY)return 0;const last=Number.isFinite(state.lastEnergyAt)?state.lastEnergyAt:Date.now();return Math.max(1,Math.ceil(Math.max(0,300000-(Date.now()-last))/60000))}
   function retryIntent(){const x=window.__v624EnergyIntent;if(!x?.stageId)return;setTimeout(()=>{try{startStage(x.stageId)}catch(e){console.warn(e)}},180)}
-  const oldStartStage=window.startStage;
-  window.startStage=function(id){if(id&&STAGES.some(s=>s.id===id))window.__v624EnergyIntent={stageId:id,cost:energyCost(id),at:Date.now()};return oldStartStage.apply(this,arguments)};
+  document.addEventListener('deen:lesson-starting',event=>{const id=event?.detail?.stageId;if(event.defaultPrevented)return;if(id&&STAGES.some(s=>s.id===id))window.__v624EnergyIntent={stageId:id,cost:energyCost(id),at:Date.now()}});
   function paintEnergyModal(){
     const modal=document.getElementById('energyModal'),sheet=modal?.querySelector('.sheet');if(!sheet)return;
     const intent=window.__v624EnergyIntent||{};const cost=intent.cost||3;const missing=Math.max(0,cost-(state.energy||0));
@@ -607,8 +606,7 @@
   }
   document.addEventListener('deen:question-rendered',onV624Rendered);
   document.addEventListener('deen:question-graded',onV624Graded);
-  const oldFinishLesson=window.finishLesson;
-  window.finishLesson=function(){document.getElementById('v624LessonEnergy')?.remove();return oldFinishLesson.apply(this,arguments)};
+  document.addEventListener('deen:lesson-finishing',()=>document.getElementById('v624LessonEnergy')?.remove());
   const oldCloseLesson=window.closeLesson;
   if(typeof oldCloseLesson==='function')window.closeLesson=function(){document.getElementById('v624LessonEnergy')?.remove();return oldCloseLesson.apply(this,arguments)};
   function lessonLabel(session){if(!session?.multiLessonStage)return session?.final?'Final':'Ders';if(session.lessonTotal===1)return'Challenge';return LOOP[Math.min(LOOP.length-1,Math.max(0,(session.lessonNo||1)-1))]}
@@ -750,39 +748,31 @@
     addFlowTraces(document);
   }
 
-  const baseRenderPaths=window.renderPaths;
-  if(typeof baseRenderPaths==='function'){
-    window.renderPaths=function(...args){
-      const res=baseRenderPaths.apply(this,args);
-      try{decorateLivingPath()}catch(e){console.warn('V6.2.5 renderPaths',e)}
-      return res;
-    };
-  }
+  document.addEventListener('deen:path-rendered',()=>{
+    try{decorateLivingPath()}catch(e){console.warn('V6.2.5 renderPaths',e)}
+  });
 
   document.addEventListener('deen:ui-updated',()=>{
     try{decorateLivingPath()}catch(e){console.warn('V6.2.5 updateUI',e)}
   });
 
-  const baseFinishLesson=window.finishLesson;
-  if(typeof baseFinishLesson==='function'){
-    window.finishLesson=function(...args){
-      const before=currentStageId();
-      const res=baseFinishLesson.apply(this,args);
-      setTimeout(()=>{
-        const after=currentStageId();
-        if(after && after!==before){
-          state.v625LastUnlocked={id:after,at:Date.now()};
-          try{saveState()}catch(e){}
-          try{decorateLivingPath()}catch(e){}
-          const target=document.querySelector(`.restored-path.deen-old-path .deen-stage-card[data-stage-card="${CSS.escape(after)}"]`);
-          if(target && !motionDisabled()){
-            try{target.scrollIntoView({behavior:'smooth',block:'center'})}catch(e){}
-          }
+  let v625BeforeFinish='';
+  document.addEventListener('deen:lesson-finishing',()=>{v625BeforeFinish=currentStageId()||''});
+  document.addEventListener('deen:lesson-finished',()=>{
+    const before=v625BeforeFinish;v625BeforeFinish='';
+    setTimeout(()=>{
+      const after=currentStageId();
+      if(after && after!==before){
+        state.v625LastUnlocked={id:after,at:Date.now()};
+        try{saveState()}catch(e){}
+        try{decorateLivingPath()}catch(e){}
+        const target=document.querySelector(`.restored-path.deen-old-path .deen-stage-card[data-stage-card="${CSS.escape(after)}"]`);
+        if(target && !motionDisabled()){
+          try{target.scrollIntoView({behavior:'smooth',block:'center'})}catch(e){}
         }
-      },180);
-      return res;
-    };
-  }
+      }
+    },180);
+  });
 
   window.DEEN_LIVING_PATH={
     version:'6.2.5',
@@ -892,7 +882,8 @@
  function result(d,pct,earned,passed,completedNow){paintResult(pct,earned,false);$('resultTitle').textContent=completedNow?'AŞAMA TAMAMLANDI':passed?(pct===100?'KUSURSUZ MİNİ DERS':'Mini ders tamamlandı'):'Bir tur daha';$('resultSubtitle').textContent=completedNow?'Bu düğümün tüm mini dersleri tamamlandı.':passed?'Aynı aşama içinde bir sonraki mini derse geçebilirsin.':'Geçmek için %70 veya üzeri gerekiyor.';const ex=document.createElement('div');ex.id='v5ResultExtra';ex.className='v5-result-extra';const m=meta(d),next=nextMacro(d);ex.innerHTML=`<div class="v630-result-card"><div class="eyebrow">${d.role} · AŞAMA ${d.index+1}/5</div><div class="row"><b>${m.completedLessons}/${d.lessons} mini ders</b><span>${completedNow?(next?'Sıradaki: '+esc(next.title):'Ünite tamamlandı'):'Bu aşamada ilerliyorsun'}</span></div><div class="bar"><i style="width:${Math.round(m.completedLessons/d.lessons*100)}%"></i></div></div><div class="v5-row"><span>Günlük hedef</span><b>${Math.min(daily().lessons,state.dailyGoal)}/${state.dailyGoal}</b></div>${bar(daily().lessons/state.dailyGoal*100)}<p class="v5-muted">Aynı aşama tamamlanmadan sonraki düğüm açılmaz.</p>`;$('resultContinueBtn').before(ex);if(!passed){$('resultContinueBtn').textContent='MİNİ DERSİ TEKRARLA';$('resultContinueBtn').onclick=()=>startMacroStage(d.id,session.lessonNo)}else if(!completedNow){$('resultContinueBtn').textContent='SONRAKİ MİNİ DERS';$('resultContinueBtn').onclick=()=>startMacroStage(d.id,Math.min(d.lessons,session.lessonNo+1))}else{$('resultContinueBtn').textContent=next?'YENİ AŞAMAYI AÇ':'ÜNİTE ÖDÜLÜNE GEÇ';$('resultContinueBtn').onclick=continueJourney}}
  const oldShowResult=window.showResult;
  window.showResult=function(...args){if(!session?.macroStage)return oldShowResult.apply(this,args);if(session.committed)return;const s=session,d=s.macroDef,total=s.questions.length,pct=Math.round(s.correct/total*100),passed=pct>=70,m=meta(d);m.lastPct=pct;m.lessonScores[String(s.lessonNo)]=pct;if(passed&&m.completedLessons<s.lessonNo)m.completedLessons=s.lessonNo;const completedNow=passed&&m.completedLessons>=d.lessons;if(completedNow)completeLegacy(d,macroScore(d));const originalId=s.stage.id;s.stage.id=d.legacyIds[0];const earned=commit(Math.max(8,Math.round(d.xp*(.48+.52*s.correct/total))));s.stage.id=originalId;const hist=state.history.at(-1);if(hist){hist.macroStage=d.id;hist.macroLesson=s.lessonNo}if(completedNow){const next=nextMacro(d);prepareStageCelebrations(s,pct,next?{id:next.id}:null,earned)}saveState();result(d,pct,earned,passed,completedNow)};
- const oldFinish=window.finishLesson;window.finishLesson=function(...a){$('v630LessonProgress')?.remove();const r=oldFinish.apply(this,a);setTimeout(()=>{try{renderFiveStagePaths()}catch(e){}},80);return r};
+ document.addEventListener('deen:lesson-finishing',()=>{$('v630LessonProgress')?.remove()});
+ document.addEventListener('deen:lesson-finished',()=>{setTimeout(()=>{try{renderFiveStagePaths()}catch(e){}},80)});
  document.addEventListener('deen:ui-updating',()=>{try{syncFromLegacy()}catch(e){}});
  document.addEventListener('deen:ui-updated',()=>{try{renderFiveStagePaths();if($('completedCount'))$('completedCount').textContent=allDefs().filter(done).length}catch(e){}});
  const oldReturn=window.returnCard;window.returnCard=function(){const r=oldReturn.apply(this,arguments);try{const dec=DEEN_RETURN_FLOW?.decide?.(),d=currentMacro();if(d&&dec?.action?.includes('preview(')){const p=$('v5Return')?.querySelector('p');const m=meta(d);if(p)p.textContent=`${d.title} · Aşama ${d.index+1}/5 · Mini ders ${Math.min(d.lessons,m.completedLessons+1)}/${d.lessons} · ${d.target} soru.`}}catch(e){}return r};
