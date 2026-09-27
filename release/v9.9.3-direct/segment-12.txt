@@ -218,16 +218,22 @@
     sheet.querySelector('#v622PremiumBtn').onclick=()=>{togglePremium();hideEnergy();};
     sheet.querySelector('#v622WaitBtn').onclick=()=>hideEnergy();
   }
-  const oldShowEnergy = window.showEnergy;
-  window.showEnergy = function(){ ensureState(); updateEnergyModal(); return oldShowEnergy ? oldShowEnergy.apply(this, arguments) : document.getElementById('energyModal')?.classList.add('show'); }
-  const oldRewardAd = window.rewardAd;
-  window.rewardAd = function(){
-    ensureState(); state.v622AdViews=(state.v622AdViews||0)+1;
-    const before=state.energy;
-    const res=oldRewardAd ? oldRewardAd.apply(this, arguments) : null;
-    try{ sound?.('reward'); toast?.(`Enerji yenilendi · ${before} → ${state.energy}`); }catch(e){}
-    return res;
-  }
+  // Energy and rewarded-ad cross-cuts are lifecycle consumers; v624 owns the modal implementation.
+  document.addEventListener('deen:energy-rendering',()=>{
+    try{ensureState();updateEnergyModal()}catch(e){}
+  });
+  document.addEventListener('deen:reward-ad-starting',()=>{
+    ensureState();
+    state.v622AdViews=(state.v622AdViews||0)+1;
+  });
+  document.addEventListener('deen:reward-ad-completed',event=>{
+    try{
+      const before=event?.detail?.beforeEnergy;
+      const after=event?.detail?.afterEnergy;
+      sound?.('reward');
+      toast?.(`Enerji yenilendi · ${before ?? state.energy} → ${after ?? state.energy}`);
+    }catch(e){}
+  });
 
   let v622ResultCtx=null;
   document.addEventListener('deen:lesson-result-before',event=>{
