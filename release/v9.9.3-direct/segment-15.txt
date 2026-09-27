@@ -257,8 +257,7 @@ html.v5-reduce .v732-reaction-avatar,html.v625-motion-off .v732-reaction-avatar,
     }
   });
   const watchMatch=()=>document.querySelectorAll('.v710-match-card').forEach(el=>observer.observe(el,{attributes:true,attributeFilter:['class']}));
-  const oldRender=window.renderQuestion;
-  if(typeof oldRender==='function')window.renderQuestion=function(...args){const r=oldRender.apply(this,args);setTimeout(watchMatch,0);return r};
+  document.addEventListener('deen:question-rendered',()=>setTimeout(watchMatch,0));
 
   // Word-builder drag/drop and block placement feel.
   document.addEventListener('drop',e=>{if(e.target.closest?.('.v710-builder-piece,.v710-builder-zone'))play('snap')},{capture:true});
