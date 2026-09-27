@@ -8518,7 +8518,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.53-RUNTIME-ARBITER';
+ const VERSION='9.9.62-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -8581,10 +8581,14 @@
    const guardedComplete=function(correct,q,...rest){
      /*
        completeQuestion mutates answered/correct/combo immediately. A double
-       click or duplicated template callback therefore used to grade the same
-       question twice. One render epoch may be graded exactly once.
+       click or duplicated template callback therefore may grade one render
+       epoch only once. Features that must run before grading use the canonical
+       synchronous deen:question-grading event instead of wrapping this method.
      */
-     const key=questionKey(q);
+     let actualQuestion=q;
+     try{actualQuestion=actualQuestion||session?.questions?.[Number(session?.index)||0]||null}catch(_){}
+     const key=questionKey(actualQuestion);
+
      if(gradedEpoch===renderEpoch){
        blockedGrades++;
        return false;
@@ -8593,12 +8597,20 @@
      gradedEpoch=renderEpoch;
      lastGradeKey=key;
 
+     dispatch('deen:question-grading',{
+       epoch:renderEpoch,
+       key,
+       correct:correct===true,
+       combo:(()=>{try{return Number(session?.combo)||0}catch(_){return 0}})(),
+       index:(()=>{try{return Number(session?.index)||0}catch(_){return 0}})(),
+       question:actualQuestion
+     });
+
      let out;
      try{
        out=LEGACY_COMPLETE.call(this,correct,q,...rest);
        completedGrades++;
      }catch(err){
-       // A thrown grade did not complete; allow a retry rather than deadlocking.
        gradedEpoch=-1;
        lastGradeKey='';
        throw err;
@@ -8609,7 +8621,8 @@
        key,
        correct:correct===true,
        combo:(()=>{try{return Number(session?.combo)||0}catch(_){return 0}})(),
-       index:(()=>{try{return Number(session?.index)||0}catch(_){return 0}})()
+       index:(()=>{try{return Number(session?.index)||0}catch(_){return 0}})(),
+       question:actualQuestion
      };
      queueMicrotask(()=>dispatch('deen:question-graded',detail));
      return out;
@@ -8622,10 +8635,18 @@
 
  if(typeof LEGACY_RESULT==='function'){
    const guardedResult=function(...args){
+     let activeSession=null;
+     try{activeSession=session||null}catch(_){}
+     dispatch('deen:lesson-result-before',{
+       session:activeSession,
+       correct:(()=>{try{return Number(activeSession?.correct)||0}catch(_){return 0}})(),
+       total:(()=>{try{return Number(activeSession?.questions?.length)||0}catch(_){return 0}})()
+     });
      const out=LEGACY_RESULT.apply(this,args);
      queueMicrotask(()=>dispatch('deen:lesson-result',{
-       correct:(()=>{try{return Number(session?.correct)||0}catch(_){return 0}})(),
-       total:(()=>{try{return Number(session?.questions?.length)||0}catch(_){return 0}})()
+       session:activeSession,
+       correct:(()=>{try{return Number(activeSession?.correct)||0}catch(_){return 0}})(),
+       total:(()=>{try{return Number(activeSession?.questions?.length)||0}catch(_){return 0}})()
      }));
      return out;
    };
@@ -8647,10 +8668,12 @@
      renders,
      renderGuarded:!!window.renderQuestion?.__deen9953,
      gradeGuarded:!!window.completeQuestion?.__deen9953,
-     resultGuarded:!!window.showResult?.__deen9953
+     resultGuarded:!!window.showResult?.__deen9953,
+     preGradeEvent:true,
+     preResultEvent:true
    })
  };
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.61-PRODUCTION',BUILD='9961worldquiesce1',TITLE='DEEN v9.9.61';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.62-PRODUCTION',BUILD='9962lifecycle1',TITLE='DEEN v9.9.62';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
