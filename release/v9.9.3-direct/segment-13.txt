@@ -155,32 +155,10 @@
 
   function objectiveBar(){$('v631Objective')?.remove(); if($('qStage')) $('qStage').textContent=session?.stage?.title||'DEEN'}
 
-  const oldRenderQuestion=window.renderQuestion;
-  window.renderQuestion=function(...args){
-    const r=oldRenderQuestion.apply(this,args);
-    try{objectiveBar()}catch(e){console.warn('V6.3.1 objective',e)}
-    return r;
-  };
-
-  const oldFinishLesson=window.finishLesson;
-  window.finishLesson=function(...args){
-    $('v631Objective')?.remove();
-    return oldFinishLesson.apply(this,args);
-  };
-
-  const oldRenderPaths=window.renderPaths;
-  window.renderPaths=function(...args){
-    const r=oldRenderPaths.apply(this,args);
-    try{decorateCards()}catch(e){console.warn('V6.3.1 path cards',e)}
-    return r;
-  };
-
-  const oldUpdateUI=window.updateUI;
-  window.updateUI=function(...args){
-    const r=oldUpdateUI.apply(this,args);
-    try{decorateCards();if(session?.macroStage)objectiveBar()}catch(e){console.warn('V6.3.1 updateUI',e)}
-    return r;
-  };
+  document.addEventListener('deen:question-rendered',()=>{try{objectiveBar()}catch(e){console.warn('V6.3.1 objective',e)}});
+  document.addEventListener('deen:lesson-finishing',()=>{$('v631Objective')?.remove()});
+  document.addEventListener('deen:path-rendered',()=>{try{decorateCards()}catch(e){console.warn('V6.3.1 path cards',e)}});
+  document.addEventListener('deen:ui-updated',()=>{try{decorateCards();if(session?.macroStage)objectiveBar()}catch(e){console.warn('V6.3.1 updateUI',e)}});
 
   window.DEEN_PEDAGOGY={
     version:'6.3.1',
