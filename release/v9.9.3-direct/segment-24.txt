@@ -5636,7 +5636,7 @@
      };
      img.onload=()=>done(true);
      img.onerror=()=>done(false);
-     img.src=src+(src.includes('?')?'&':'?')+'v=9945feedbackfix1';
+     img.src=src+(src.includes('?')?'&':'?')+'v=9946uniformcompanions1';
      if(img.complete && img.naturalWidth>0)done(true);
      setTimeout(()=>done(false),3500);
    });
@@ -5709,7 +5709,7 @@
    img.setAttribute('aria-hidden','true');
    img.dataset.companion=id;
    img.dataset.mood=resolvedMood;
-   img.src=src+'?v=9945feedbackfix1';
+   img.src=src+'?v=9946uniformcompanions1';
 
    avatar.classList.add('deen-companion-runtime-ready');
    avatar.replaceChildren(img);
@@ -5738,7 +5738,7 @@
    img.className='deen-companion-profile-img';
    img.alt='';
    img.setAttribute('aria-hidden','true');
-   img.src=src+'?v=9945feedbackfix1';
+   img.src=src+'?v=9946uniformcompanions1';
    el.replaceChildren(img);
    return true;
  }
@@ -7085,4 +7085,337 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.45-PRODUCTION',BUILD='9945feedbackfix1',TITLE='DEEN v9.9.45';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.46 — Unified companion sizing + long-question typography + standardized talking pose -->
+<style id="deen-v9946-unified-companion-layout-css">
+/*
+  One layout system for lion / wolf / owl / turtle / eagle / cat.
+  The slot width is reserved in the grid, so artwork can never enter the
+  speech bubble. Per-animal tuning only affects artwork inside that slot.
+*/
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row{
+  --deen-companion-slot:108px;
+  --deen-companion-height:124px;
+  --deen-companion-art-w:108px;
+  --deen-companion-art-h:124px;
+  --deen-companion-art-x:0px;
+  --deen-companion-art-y:0px;
+  display:grid!important;
+  grid-template-columns:var(--deen-companion-slot) minmax(0,1fr)!important;
+  column-gap:10px!important;
+  align-items:center!important;
+  width:100%!important;
+  max-width:100%!important;
+  overflow:visible!important;
+  box-sizing:border-box!important;
+}
+
+#lesson .question-frame .deen-character-question-avatar.deen-companion-runtime-ready{
+  width:var(--deen-companion-slot)!important;
+  min-width:var(--deen-companion-slot)!important;
+  max-width:var(--deen-companion-slot)!important;
+  height:var(--deen-companion-height)!important;
+  min-height:var(--deen-companion-height)!important;
+  align-self:center!important;
+  justify-self:center!important;
+  display:grid!important;
+  place-items:end center!important;
+  overflow:hidden!important;
+  position:relative!important;
+  background:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  font-size:0!important;
+}
+
+#lesson .question-frame .deen-companion-runtime-img{
+  width:var(--deen-companion-art-w)!important;
+  max-width:var(--deen-companion-slot)!important;
+  height:var(--deen-companion-art-h)!important;
+  max-height:var(--deen-companion-height)!important;
+  left:var(--deen-companion-art-x)!important;
+  top:var(--deen-companion-art-y)!important;
+  position:relative!important;
+  display:block!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  pointer-events:none!important;
+  user-select:none!important;
+  -webkit-user-drag:none!important;
+  transform-origin:50% 88%!important;
+}
+
+/* Same slot, small visual-normalization differences inside the slot only. */
+#lesson .question-frame .deen-character-question-avatar[data-animal="lion"]{
+  --deen-companion-art-w:108px;
+  --deen-companion-art-h:124px;
+  --deen-companion-art-y:1px;
+}
+#lesson .question-frame .deen-character-question-avatar[data-animal="wolf"]{
+  --deen-companion-art-w:104px;
+  --deen-companion-art-h:122px;
+}
+#lesson .question-frame .deen-character-question-avatar[data-animal="owl"]{
+  --deen-companion-art-w:106px;
+  --deen-companion-art-h:124px;
+  --deen-companion-art-y:-2px;
+}
+#lesson .question-frame .deen-character-question-avatar[data-animal="turtle"]{
+  --deen-companion-art-w:104px;
+  --deen-companion-art-h:118px;
+  --deen-companion-art-y:2px;
+}
+#lesson .question-frame .deen-character-question-avatar[data-animal="eagle"]{
+  --deen-companion-art-w:104px;
+  --deen-companion-art-h:124px;
+  --deen-companion-art-y:-2px;
+}
+#lesson .question-frame .deen-character-question-avatar[data-animal="cat"]{
+  --deen-companion-art-w:106px;
+  --deen-companion-art-h:122px;
+}
+
+/* Standard talking position for every companion. */
+#lesson .question-frame .deen-character-question-bubble{
+  min-width:0!important;
+  width:100%!important;
+  min-height:92px!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  margin:0!important;
+  padding:15px 48px 15px 17px!important;
+  border-radius:20px!important;
+}
+#lesson .question-frame .deen-character-question-bubble:before{
+  width:13px!important;
+  height:13px!important;
+  left:-7px!important;
+  top:50%!important;
+  transform:translateY(-50%) rotate(45deg)!important;
+}
+#lesson .question-frame .deen-character-question-text{
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  margin:0!important;
+  font-size:clamp(17px,4.35vw,21px)!important;
+  line-height:1.22!important;
+  letter-spacing:-.18px!important;
+  overflow-wrap:break-word!important;
+  word-break:normal!important;
+  hyphens:none!important;
+}
+#lesson .question-frame .deen-character-question-audio,
+#lesson .question-frame .deen-boolean-narration{
+  right:10px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+}
+
+/* Long prompts shrink only slightly; the bubble is allowed to grow vertically. */
+#lesson .question-frame .deen-character-question-row.deen-question-long .deen-character-question-bubble{
+  min-height:102px!important;
+}
+#lesson .question-frame .deen-character-question-row.deen-question-long .deen-character-question-text{
+  font-size:clamp(16px,4.05vw,19.5px)!important;
+  line-height:1.20!important;
+}
+#lesson .question-frame .deen-character-question-row.deen-question-very-long .deen-character-question-bubble{
+  min-height:112px!important;
+}
+#lesson .question-frame .deen-character-question-row.deen-question-very-long .deen-character-question-text{
+  font-size:clamp(15px,3.8vw,18px)!important;
+  line-height:1.18!important;
+  letter-spacing:-.12px!important;
+}
+#lesson .question-frame .deen-character-question-row.deen-question-ultra-long .deen-character-question-bubble{
+  min-height:122px!important;
+  padding-top:13px!important;
+  padding-bottom:13px!important;
+}
+#lesson .question-frame .deen-character-question-row.deen-question-ultra-long .deen-character-question-text{
+  font-size:clamp(14.5px,3.62vw,17px)!important;
+  line-height:1.17!important;
+}
+
+/* Previous per-animal widths are intentionally neutralized by the unified slot. */
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="lion"],
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="wolf"],
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="owl"],
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="turtle"],
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="eagle"],
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="cat"]{
+  grid-template-columns:var(--deen-companion-slot) minmax(0,1fr)!important;
+}
+
+@media(max-width:420px){
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row{
+    --deen-companion-slot:96px;
+    --deen-companion-height:116px;
+    --deen-companion-art-w:96px;
+    --deen-companion-art-h:116px;
+    column-gap:8px!important;
+  }
+
+  #lesson .question-frame .deen-character-question-avatar[data-animal="lion"]{
+    --deen-companion-art-w:96px;
+    --deen-companion-art-h:116px;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="wolf"]{
+    --deen-companion-art-w:94px;
+    --deen-companion-art-h:114px;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="owl"]{
+    --deen-companion-art-w:96px;
+    --deen-companion-art-h:116px;
+    --deen-companion-art-y:-2px;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="turtle"]{
+    --deen-companion-art-w:94px;
+    --deen-companion-art-h:111px;
+    --deen-companion-art-y:2px;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="eagle"]{
+    --deen-companion-art-w:95px;
+    --deen-companion-art-h:116px;
+    --deen-companion-art-y:-2px;
+  }
+  #lesson .question-frame .deen-character-question-avatar[data-animal="cat"]{
+    --deen-companion-art-w:96px;
+    --deen-companion-art-h:114px;
+  }
+
+  #lesson .question-frame .deen-character-question-bubble{
+    min-height:88px!important;
+    padding:14px 45px 14px 15px!important;
+    border-radius:18px!important;
+  }
+  #lesson .question-frame .deen-character-question-text{
+    font-size:16.5px!important;
+    line-height:1.20!important;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-question-long .deen-character-question-text{
+    font-size:15.6px!important;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-question-very-long .deen-character-question-text{
+    font-size:14.8px!important;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-question-ultra-long .deen-character-question-text{
+    font-size:14px!important;
+  }
+}
+
+@media(max-width:370px){
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row{
+    --deen-companion-slot:88px;
+    --deen-companion-height:110px;
+    --deen-companion-art-w:88px;
+    --deen-companion-art-h:110px;
+    column-gap:7px!important;
+  }
+  #lesson .question-frame .deen-character-question-text{
+    font-size:15.5px!important;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-question-long .deen-character-question-text{
+    font-size:14.8px!important;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-question-very-long .deen-character-question-text,
+  #lesson .question-frame .deen-character-question-row.deen-question-ultra-long .deen-character-question-text{
+    font-size:13.9px!important;
+  }
+}
+</style>
+
+<script id="deen-v9946-unified-companion-layout-js">
+(()=>{
+ if(window.__deenV9946UnifiedCompanionLayout)return;
+ window.__deenV9946UnifiedCompanionLayout=true;
+
+ const VERSION='9.9.46-UNIFIED-COMPANION-LAYOUT';
+ let resizeObserver=null;
+
+ function classify(){
+   const row=document.querySelector('#lesson .deen-character-question-row.deen-companion-runtime-row');
+   const text=row?.querySelector('.deen-character-question-text');
+   const avatar=row?.querySelector('.deen-character-question-avatar.deen-companion-runtime-ready');
+   if(!row||!text||!avatar)return false;
+
+   const animal=avatar.dataset.animal||row.dataset.companionAnimal||'';
+   if(animal)row.dataset.companionAnimal=animal;
+
+   row.classList.remove('deen-question-long','deen-question-very-long','deen-question-ultra-long');
+
+   const raw=(text.textContent||'').replace(/\s+/g,' ').trim();
+   const len=raw.length;
+
+   const cs=getComputedStyle(text);
+   const lh=parseFloat(cs.lineHeight)||20;
+   const lines=Math.max(1,Math.round(text.scrollHeight/lh));
+
+   if(len>=112 || lines>=5){
+     row.classList.add('deen-question-ultra-long');
+   }else if(len>=82 || lines>=4){
+     row.classList.add('deen-question-very-long');
+   }else if(len>=55 || lines>=3){
+     row.classList.add('deen-question-long');
+   }
+
+   row.dataset.deenUnifiedCompanion='9946';
+   row.dataset.deenPromptLength=String(len);
+   row.dataset.deenPromptLines=String(lines);
+
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
+   return true;
+ }
+
+ function observe(){
+   const text=document.querySelector('#lesson .deen-character-question-text');
+   if(!text)return;
+   try{resizeObserver?.disconnect?.()}catch(_){}
+   if('ResizeObserver' in window){
+     resizeObserver=new ResizeObserver(()=>requestAnimationFrame(classify));
+     resizeObserver.observe(text);
+   }
+ }
+
+ function apply(){
+   const ok=classify();
+   if(ok)observe();
+   return ok;
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(apply);
+     [70,180,420,800].forEach(ms=>setTimeout(apply,ms));
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(_){}
+ }
+
+ window.addEventListener('resize',()=>setTimeout(apply,70),{passive:true});
+
+ window.DEEN_UNIFIED_COMPANION_LAYOUT={
+   version:VERSION,
+   apply,
+   snapshot:()=>({
+     animal:document.querySelector('#lesson .deen-character-question-avatar')?.dataset?.animal||null,
+     promptLength:document.querySelector('#lesson .deen-character-question-row')?.dataset?.deenPromptLength||null,
+     promptLines:document.querySelector('#lesson .deen-character-question-row')?.dataset?.deenPromptLines||null,
+     long:document.querySelector('#lesson .deen-character-question-row')?.classList.contains('deen-question-long')||false,
+     veryLong:document.querySelector('#lesson .deen-character-question-row')?.classList.contains('deen-question-very-long')||false,
+     ultraLong:document.querySelector('#lesson .deen-character-question-row')?.classList.contains('deen-question-ultra-long')||false
+   })
+ };
+
+ [220,600,1100].forEach(ms=>setTimeout(apply,ms));
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.46-PRODUCTION',BUILD='9946uniformcompanions1',TITLE='DEEN v9.9.46';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
