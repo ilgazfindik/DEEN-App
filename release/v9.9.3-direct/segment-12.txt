@@ -34,84 +34,76 @@
     if(btn && !btn.disabled){ if(!btn.id || (btn.id!=='continueBtn' && btn.id!=='resultContinueBtn')) sfxTap(); }
   }, {capture:true});
 
-  const oldCompleteQuestion = window.completeQuestion;
-  if(typeof oldCompleteQuestion==='function'){
-    window.completeQuestion = function(correct, q){
-      const res = oldCompleteQuestion.apply(this, arguments);
-      setTimeout(function(){
-        const box=document.getElementById('feedbackBox');
-        const btn=document.getElementById('continueBtn');
-        if(box){ box.classList.remove('gf-ok','gf-bad'); void box.offsetWidth; box.classList.add(correct?'gf-ok':'gf-bad'); }
-        if(btn) pulse(btn,'gf-cta',1000);
-        fxBurst(box || document.getElementById('feedback') || document.body, correct?'ok':'bad', correct?16:12);
-        correct ? sfxCorrect() : sfxWrong();
-      }, 20);
-      return res;
-    };
-  }
+  document.addEventListener('deen:question-graded',function(event){
+    const correct=event?.detail?.correct===true;
+    setTimeout(function(){
+      const box=document.getElementById('feedbackBox');
+      const btn=document.getElementById('continueBtn');
+      if(box){ box.classList.remove('gf-ok','gf-bad'); void box.offsetWidth; box.classList.add(correct?'gf-ok':'gf-bad'); }
+      if(btn) pulse(btn,'gf-cta',1000);
+      fxBurst(box || document.getElementById('feedback') || document.body, correct?'ok':'bad', correct?16:12);
+      correct ? sfxCorrect() : sfxWrong();
+    }, 20);
+  });
 
-  const oldShowResult = window.showResult;
-  if(typeof oldShowResult==='function'){
-    window.showResult = function(){
-      const ctx = session ? {
-        stageId: session.stage?.id,
-        title: session.stage?.title || 'Aşama',
-        lessonNo: session.lessonNo || 1,
-        lessonTotal: session.lessonTotal || 1,
-        score: session.questions?.length ? Math.round(session.correct/session.questions.length*100) : 0,
-        wasCompleted: session.stage?.id ? state.completed.includes(session.stage.id) : false
-      } : null;
-      const res = oldShowResult.apply(this, arguments);
-      setTimeout(function(){
-        const rv=document.getElementById('resultView'); if(!rv||!rv.classList.contains('show')) return;
-        rv.classList.remove('gf-perfect','gf-pass','gf-retry');
-        const btn=document.getElementById('resultContinueBtn'); if(btn) pulse(btn,'gf-cta',1100);
-        if(!ctx) return;
-        const nowCompleted = ctx.stageId ? state.completed.includes(ctx.stageId) : false;
-        const completedNow = !ctx.wasCompleted && nowCompleted;
-        const perfect = ctx.score===100;
-        const passed = ctx.score>=70;
-        window.__deenV621LastResult = {stageId:ctx.stageId, completedNow, passed, perfect, nextStageId:completedNow?nextStageId(ctx.stageId):null, title:ctx.title};
-        if(completedNow){
-          rv.classList.add(perfect?'gf-perfect':'gf-pass');
-          fxBanner('Aşama tamamlandı', ctx.title+' artık bitti. Sıradaki düğüm açıldı.', 'gold');
-          fxBurst(document.getElementById('resultMedal')||rv,'gold',22);
-          perfect ? sfxPerfect() : sfxUnlock();
-        }else if(passed){
-          rv.classList.add(perfect?'gf-perfect':'gf-pass');
-          fxBanner(perfect?'Kusursuz ders':'Ders geçildi', perfect?'Bu mini derste hepsini doğru yaptın.':'Sonraki mini derse geçebilirsin.', perfect?'gold':'ok');
-          fxBurst(document.getElementById('resultPct')||rv, perfect?'gold':'ok', perfect?18:14);
-          perfect ? sfxPerfect() : sfxCorrect();
-        }else{
-          rv.classList.add('gf-retry');
-          fxBanner('Bir tur daha', 'Bu mini dersi %70 ve üzeri ile geçmen gerekiyor.', 'bad');
-          fxBurst(document.getElementById('resultPct')||rv,'bad',10);
-          sfxWrong();
-        }
-      }, 30);
-      return res;
-    };
-  }
+  let v621ResultCtx=null;
+  document.addEventListener('deen:lesson-result-before',function(event){
+    const active=event?.detail?.session;
+    v621ResultCtx=active ? {
+      stageId: active.stage?.id,
+      title: active.stage?.title || 'Aşama',
+      lessonNo: active.lessonNo || 1,
+      lessonTotal: active.lessonTotal || 1,
+      score: active.questions?.length ? Math.round(active.correct/active.questions.length*100) : 0,
+      wasCompleted: active.stage?.id ? state.completed.includes(active.stage.id) : false
+    } : null;
+  });
+  document.addEventListener('deen:lesson-result',function(){
+    const ctx=v621ResultCtx;v621ResultCtx=null;
+    setTimeout(function(){
+      const rv=document.getElementById('resultView'); if(!rv||!rv.classList.contains('show')) return;
+      rv.classList.remove('gf-perfect','gf-pass','gf-retry');
+      const btn=document.getElementById('resultContinueBtn'); if(btn) pulse(btn,'gf-cta',1100);
+      if(!ctx) return;
+      const nowCompleted = ctx.stageId ? state.completed.includes(ctx.stageId) : false;
+      const completedNow = !ctx.wasCompleted && nowCompleted;
+      const perfect = ctx.score===100;
+      const passed = ctx.score>=70;
+      window.__deenV621LastResult = {stageId:ctx.stageId, completedNow, passed, perfect, nextStageId:completedNow?nextStageId(ctx.stageId):null, title:ctx.title};
+      if(completedNow){
+        rv.classList.add(perfect?'gf-perfect':'gf-pass');
+        fxBanner('Aşama tamamlandı', ctx.title+' artık bitti. Sıradaki düğüm açıldı.', 'gold');
+        fxBurst(document.getElementById('resultMedal')||rv,'gold',22);
+        perfect ? sfxPerfect() : sfxUnlock();
+      }else if(passed){
+        rv.classList.add(perfect?'gf-perfect':'gf-pass');
+        fxBanner(perfect?'Kusursuz ders':'Ders geçildi', perfect?'Bu mini derste hepsini doğru yaptın.':'Sonraki mini derse geçebilirsin.', perfect?'gold':'ok');
+        fxBurst(document.getElementById('resultPct')||rv, perfect?'gold':'ok', perfect?18:14);
+        perfect ? sfxPerfect() : sfxCorrect();
+      }else{
+        rv.classList.add('gf-retry');
+        fxBanner('Bir tur daha', 'Bu mini dersi %70 ve üzeri ile geçmen gerekiyor.', 'bad');
+        fxBurst(document.getElementById('resultPct')||rv,'bad',10);
+        sfxWrong();
+      }
+    }, 30);
+  });
 
-  const oldFinishLesson = window.finishLesson;
-  if(typeof oldFinishLesson==='function'){
-    window.finishLesson = function(){
-      const info = window.__deenV621LastResult ? Object.assign({}, window.__deenV621LastResult) : null;
-      const res = oldFinishLesson.apply(this, arguments);
-      setTimeout(function(){
-        if(!info) return;
-        if(info.completedNow){
-          stageAnimate(info.stageId,'complete');
-          if(info.nextStageId){
-            stageAnimate(info.nextStageId,'next');
-            const nextTitle = (STAGES.find(s=>s.id===info.nextStageId)||{}).title || 'Sıradaki ders';
-            fxBanner('Yeni ders açıldı', nextTitle+' artık oynanabilir.', 'ok');
-          }
+  document.addEventListener('deen:lesson-finished',function(){
+    const info = window.__deenV621LastResult ? Object.assign({}, window.__deenV621LastResult) : null;
+    window.__deenV621LastResult=null;
+    setTimeout(function(){
+      if(!info) return;
+      if(info.completedNow){
+        stageAnimate(info.stageId,'complete');
+        if(info.nextStageId){
+          stageAnimate(info.nextStageId,'next');
+          const nextTitle = (STAGES.find(s=>s.id===info.nextStageId)||{}).title || 'Sıradaki ders';
+          fxBanner('Yeni ders açıldı', nextTitle+' artık oynanabilir.', 'ok');
         }
-      }, 120);
-      return res;
-    };
-  }
+      }
+    }, 120);
+  });
 })();
 </script>
 
@@ -211,14 +203,10 @@
     panel.innerHTML=`<div class="v622-streak-head"><div><b>Seri sistemi</b><small>Her gün öğren, serini büyüt ve ritmini koru.</small></div><div class="v622-streak-badge">🔥 ${m.currentStreak||0}</div></div><div class="v622-streak-grid"><div class="v622-pill"><strong>${m.currentStreak||0}</strong><span>MEVCUT SERİ</span></div><div class="v622-pill"><strong>${m.longestStreak||0}</strong><span>EN UZUN</span></div><div class="v622-pill"><strong>${m.streakFreeze||0}</strong><span>SERİ KORUMA</span></div></div><div class="v622-next"><div class="v622-next-row"><span>Sonraki seri ödülü</span><b>${info.next} gün</b></div><div class="v622-mini-bar"><i style="width:${info.progress}%"></i></div></div><button class="v622-streak-cta" type="button">SERİ DETAYLARINI AÇ</button>`;
     panel.querySelector('button').onclick=()=>typeof streakPanel==='function'&&streakPanel();
   }
-  const oldUpdateUI = window.updateUI;
-  if(typeof oldUpdateUI==='function'){
-    window.updateUI = function(){
-      const res = oldUpdateUI.apply(this, arguments);
-      try{ensureState(); renderStreakPanel();}catch(e){console.error('v6.2.2 updateUI patch',e)}
-      return res;
-    }
-  }
+  document.addEventListener('deen:ui-updated',()=>{
+    try{ensureState(); renderStreakPanel();}catch(e){console.error('v6.2.2 updateUI patch',e)}
+  });
+  setTimeout(()=>{try{ensureState();renderStreakPanel()}catch(e){}},0);
 
   function updateEnergyModal(){
     const modal=document.getElementById('energyModal'); if(!modal) return;
@@ -241,30 +229,31 @@
     return res;
   }
 
-  const oldShowResult = window.showResult;
-  if(typeof oldShowResult==='function'){
-    window.showResult = function(){
-      const stageId = session?.stage?.id || null;
-      const wasCompleted = stageId ? state.completed.includes(stageId) : false;
-      const res = oldShowResult.apply(this, arguments);
-      setTimeout(()=>{
-        const extra=document.getElementById('v5ResultExtra'); if(!extra || document.getElementById('v622ResultStrip')) return;
-        const pct = session?.questions?.length ? Math.round((session.correct/session.questions.length)*100) : 0;
-        const current = state.streakMeta?.currentStreak || state.streak || 0;
-        const next = streakMilestone(current).next;
-        const strip=document.createElement('div');
-        strip.id='v622ResultStrip'; strip.className='v622-result-strip';
-        const completedNow = stageId && !wasCompleted && state.completed.includes(stageId);
-        strip.innerHTML=`<div class="k">DERS RİTMİ</div><div class="row"><b>🔥 ${current} günlük seri</b><span>Sonraki seri ödülü: ${next} gün</span></div>`;
-        extra.append(strip);
-        const chest=document.createElement('div');
-        chest.className='v622-chest';
-        chest.innerHTML=`<div class="v622-chest-head"><div class="v622-chest-icon">${completedNow?'👑':pct===100?'⭐':'🎁'}</div><div><small>${completedNow?'AŞAMA ÖDÜLÜ':'DERS ÖDÜLÜ'}</small><b>${completedNow?'Yeni düğüm açıldı':'Ritmini koruyorsun'}</b></div></div><p>${completedNow?'Bu ders zincirini geçtin. Sonraki düğüm ve ünite ilerleyişi daha güçlü hissettirilecek.':pct>=70?'Mini ders geçti. İstersen hemen sıradaki mini derse atlayabilirsin.':'Bu mini ders için akıllı tekrar öneriliyor.'}</p>`;
-        extra.append(chest);
-      },60);
-      return res;
-    }
-  }
+  let v622ResultCtx=null;
+  document.addEventListener('deen:lesson-result-before',event=>{
+    const active=event?.detail?.session;
+    const stageId=active?.stage?.id||null;
+    v622ResultCtx={stageId,wasCompleted:stageId?state.completed.includes(stageId):false,session:active};
+  });
+  document.addEventListener('deen:lesson-result',()=>{
+    const ctx=v622ResultCtx;v622ResultCtx=null;
+    setTimeout(()=>{
+      const active=ctx?.session;
+      const extra=document.getElementById('v5ResultExtra'); if(!extra || document.getElementById('v622ResultStrip')) return;
+      const pct = active?.questions?.length ? Math.round((active.correct/active.questions.length)*100) : 0;
+      const current = state.streakMeta?.currentStreak || state.streak || 0;
+      const next = streakMilestone(current).next;
+      const strip=document.createElement('div');
+      strip.id='v622ResultStrip'; strip.className='v622-result-strip';
+      const completedNow = ctx?.stageId && !ctx.wasCompleted && state.completed.includes(ctx.stageId);
+      strip.innerHTML=`<div class="k">DERS RİTMİ</div><div class="row"><b>🔥 ${current} günlük seri</b><span>Sonraki seri ödülü: ${next} gün</span></div>`;
+      extra.append(strip);
+      const chest=document.createElement('div');
+      chest.className='v622-chest';
+      chest.innerHTML=`<div class="v622-chest-head"><div class="v622-chest-icon">${completedNow?'👑':pct===100?'⭐':'🎁'}</div><div><small>${completedNow?'AŞAMA ÖDÜLÜ':'DERS ÖDÜLÜ'}</small><b>${completedNow?'Yeni düğüm açıldı':'Ritmini koruyorsun'}</b></div></div><p>${completedNow?'Bu ders zincirini geçtin. Sonraki düğüm ve ünite ilerleyişi daha güçlü hissettirilecek.':pct>=70?'Mini ders geçti. İstersen hemen sıradaki mini derse atlayabilirsin.':'Bu mini ders için akıllı tekrar öneriliyor.'}</p>`;
+      extra.append(chest);
+    },60);
+  });
 
   const oldCeremony = window.ceremony;
   function claimReward(event){
@@ -498,29 +487,30 @@
     if(motionOff()) openChest();
   };
 
-  const oldShowResult = window.showResult;
-  if(typeof oldShowResult==='function'){
-    window.showResult = function(){
-      const stageId=session?.stage?.id||null;
-      const wasDone=!!(stageId && state.completed.includes(stageId));
-      const res=oldShowResult.apply(this, arguments);
-      setTimeout(()=>{
-        if(!session || !document.getElementById('resultView')?.classList.contains('show')) return;
-        const pct=session.questions?.length?Math.round(session.correct/session.questions.length*100):0;
-        const extra=document.getElementById('v5ResultExtra');
-        if(!extra || document.getElementById('v623ResultBanner')) return;
-        if(pct===100 || (!wasDone && stageId && state.completed.includes(stageId))){
-          const banner=document.createElement('div');
-          banner.id='v623ResultBanner'; banner.className='v623-result-banner';
-          banner.innerHTML=`<b>${pct===100?'Kusursuz ders ödülü hazır':'Yeni aşama ödülü hazır'}</b><small>${pct===100?'Bu mini dersi hatasız bitirdin. Devam ettiğinde daha güçlü bir ödül hissi göreceksin.':'Bu düğümü ilk kez geçtin. Devam ettiğinde açılma efekti ve ödül akışı seni bekliyor.'}</small>`;
-          extra.append(banner);
-          const btn=document.getElementById('resultContinueBtn');
-          if(btn) btn.textContent = pct===100 ? 'ÖDÜLÜ AL VE DEVAM ET' : 'AÇILMA EFEKTİNE GEÇ';
-        }
-      },80);
-      return res;
-    }
-  }
+  let v623ResultCtx=null;
+  document.addEventListener('deen:lesson-result-before',event=>{
+    const active=event?.detail?.session;
+    const stageId=active?.stage?.id||null;
+    v623ResultCtx={stageId,wasDone:!!(stageId&&state.completed.includes(stageId)),session:active};
+  });
+  document.addEventListener('deen:lesson-result',()=>{
+    const ctx=v623ResultCtx;v623ResultCtx=null;
+    setTimeout(()=>{
+      const active=ctx?.session;
+      if(!active || !document.getElementById('resultView')?.classList.contains('show')) return;
+      const pct=active.questions?.length?Math.round(active.correct/active.questions.length*100):0;
+      const extra=document.getElementById('v5ResultExtra');
+      if(!extra || document.getElementById('v623ResultBanner')) return;
+      if(pct===100 || (!ctx.wasDone && ctx.stageId && state.completed.includes(ctx.stageId))){
+        const banner=document.createElement('div');
+        banner.id='v623ResultBanner'; banner.className='v623-result-banner';
+        banner.innerHTML=`<b>${pct===100?'Kusursuz ders ödülü hazır':'Yeni aşama ödülü hazır'}</b><small>${pct===100?'Bu mini dersi hatasız bitirdin. Devam ettiğinde daha güçlü bir ödül hissi göreceksin.':'Bu düğümü ilk kez geçtin. Devam ettiğinde açılma efekti ve ödül akışı seni bekliyor.'}</small>`;
+        extra.append(banner);
+        const btn=document.getElementById('resultContinueBtn');
+        if(btn) btn.textContent = pct===100 ? 'ÖDÜLÜ AL VE DEVAM ET' : 'AÇILMA EFEKTİNE GEÇ';
+      }
+    },80);
+  });
 
   const oldShowSectionFinalResult = window.showSectionFinalResult;
   if(typeof oldShowSectionFinalResult==='function'){
