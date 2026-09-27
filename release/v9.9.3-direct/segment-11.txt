@@ -395,18 +395,20 @@
   };
 
   // Clearer offline U03 wording. Never substitute generated pronunciation.
-  const V570_BASE_START=startStage;
-  startStage=function(id){
+  // The central pre-start boundary makes this guard apply even when later
+  // multi-lesson orchestration handles the stage.
+  function v570VerifiedMediaStartGuard(event){
+    const id=event?.detail?.stageId;
     if(id==='U03-S03'&&window.DEEN_VERIFIED_MEDIA&&!DEEN_VERIFIED_MEDIA.isReady()){
       sheet('İnternet bağlantısı gerekiyor',
         '<p>Dinle ve Tanı aşaması resmî DiyanetTV kaynağını kullanır.</p>'+
         '<p>Bağlantı geldiğinde tekrar deneyebilirsin. Yapay/TTS dinî telaffuz kullanılmaz ve enerji harcanmaz.</p>'+
         list('Öğrenme yoluna dön',"closeSheet();navigate('learnScreen')",'←')
       );
-      return;
+      event.preventDefault();
     }
-    return V570_BASE_START(id);
-  };
+  }
+  document.addEventListener('deen:lesson-starting',v570VerifiedMediaStartGuard);
 
   // Persist at lifecycle boundaries without changing gameplay.
   addEventListener('pagehide',()=>{try{saveState()}catch(e){}});
@@ -711,8 +713,6 @@
 
   const __oldStartStage = window.startStage;
   const __oldShowResult = window.showResult;
-  const __oldFinishLesson = window.finishLesson;
-  const __oldRenderPaths = window.renderPaths;
 
   function beginMultiLessonStage(stageId, lessonNoOverride, replayMode){
     ensureStateShape();
@@ -826,7 +826,7 @@
     const btn = document.getElementById('resultContinueBtn');
     if(stageCompletedNow){
       btn.textContent = 'YOLCULUĞA DEVAM';
-      btn.onclick = function(){ __oldFinishLesson(); };
+      btn.onclick = function(){ window.finishLesson(); };
     }else if(passed){
       const nextNo = Math.min(session.lessonNo + 1, session.lessonTotal);
       btn.textContent = session.lessonNo >= session.lessonTotal ? 'AŞAMAYI TAMAMLA' : 'SONRAKİ DERS';
@@ -846,13 +846,12 @@
     return __oldShowResult.apply(this, arguments);
   };
 
-  window.finishLesson = function(){
+  document.addEventListener('deen:lesson-finishing',function(){
     const kicker = document.getElementById('mlResultKicker');
     if(kicker) kicker.remove();
     const stageProgress = document.getElementById('mlStageProgress');
     if(stageProgress) stageProgress.remove();
-    return __oldFinishLesson.apply(this, arguments);
-  };
+  });
 
   function decoratePathCards(){
     document.querySelectorAll('.stage-card[data-stage]').forEach(card => {
@@ -889,11 +888,9 @@
     });
   }
 
-  window.renderPaths = function(){
-    const res = __oldRenderPaths.apply(this, arguments);
+  document.addEventListener('deen:path-rendered',function(){
     try{ decoratePathCards(); }catch(e){ console.warn(e); }
-    return res;
-  };
+  });
 
   document.addEventListener('deen:ui-updated',function(){
     try{ decoratePathCards(); if(session && session.multiLessonStage) ensureQuizStageProgress(); }catch(e){ console.warn(e); }
