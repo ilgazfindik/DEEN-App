@@ -6702,9 +6702,11 @@
  if(window.__deenV9944CompanionReactions)return;
  window.__deenV9944CompanionReactions=true;
 
- const VERSION='9.9.44-COMPANION-REACTIONS';
+ const VERSION='9.9.54-COMPANION-REACTIONS-ONCE';
  let reactionToken=0;
  let cleanupTimer=0;
+ let lastGradeEpoch=-1;
+ let reactionCount=0;
 
  const frame=()=>document.querySelector('#lesson .question-frame');
  const avatar=()=>frame()?.querySelector('.deen-character-question-avatar.deen-companion-runtime-ready')||null;
@@ -6744,7 +6746,7 @@
    a.appendChild(root);
  }
 
- function render(kind){
+ function render(kind,{vibrate=true}={}){
    const token=++reactionToken;
    const f=frame(),a=avatar();
    if(!f||!a)return false;
@@ -6757,9 +6759,9 @@
      chip('Harika!','correct');
      particles(8);
      window.__DEEN_COMPANION_REACTION_LOCK=Date.now()+1050;
-     try{navigator.vibrate?.([12,24,12])}catch(_){}
-     try{window.DEEN_COMPANION_ASSETS?.renderLesson?.('correct')}catch(_){}
+     if(vibrate)try{navigator.vibrate?.([12,24,12])}catch(_){}
      cleanupTimer=setTimeout(()=>{if(token===reactionToken)clearVisuals()},1080);
+     reactionCount++;
      return true;
    }
 
@@ -6768,9 +6770,9 @@
      a.classList.add('v9944-reaction-wrong');
      chip('Tekrar dene','wrong');
      window.__DEEN_COMPANION_REACTION_LOCK=Date.now()+900;
-     try{navigator.vibrate?.(28)}catch(_){}
-     try{window.DEEN_COMPANION_ASSETS?.renderLesson?.('try_again')}catch(_){}
+     if(vibrate)try{navigator.vibrate?.(28)}catch(_){}
      cleanupTimer=setTimeout(()=>{if(token===reactionToken)clearVisuals()},920);
+     reactionCount++;
      return true;
    }
 
@@ -6780,50 +6782,42 @@
      chip('Bölüm tamamlandı!','celebrate');
      particles(10);
      window.__DEEN_COMPANION_REACTION_LOCK=Date.now()+1700;
-     try{navigator.vibrate?.([18,35,18,35,28])}catch(_){}
-     try{window.DEEN_COMPANION_ASSETS?.renderLesson?.('celebrate')}catch(_){}
+     if(vibrate)try{navigator.vibrate?.([18,35,18,35,28])}catch(_){}
      cleanupTimer=setTimeout(()=>{if(token===reactionToken)clearVisuals()},1750);
+     reactionCount++;
      return true;
    }
 
    return false;
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     window.__DEEN_COMPANION_REACTION_LOCK=0;
-     reactionToken++;
-     clearVisuals();
-     const r=RQ.apply(this,args);
-     setTimeout(()=>window.DEEN_COMPANION_ASSETS?.renderLesson?.('lesson_idle'),90);
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
+ /*
+   v9.9.54: This feature no longer wraps renderQuestion / completeQuestion /
+   showResult. Those lifecycle boundaries are owned by DEEN_RUNTIME_ARBITER.
+   The mascot artwork itself is owned by DEEN_COMPANION_ASSETS (v9936).
+   This layer only adds the chip/particles/haptic reaction exactly once.
+ */
+ document.addEventListener('deen:question-rendered',()=>{
+   window.__DEEN_COMPANION_REACTION_LOCK=0;
+   reactionToken++;
+   clearVisuals();
+ });
 
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(correct,...rest){
-     const r=CQ.call(this,correct,...rest);
-     const kind=correct===true?'correct':'wrong';
-     window.__DEEN_COMPANION_REACTION_LOCK=Date.now()+(kind==='correct'?1050:900);
-     [55,180].forEach(ms=>setTimeout(()=>render(kind),ms));
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-graded',e=>{
+   const epoch=Number(e?.detail?.epoch);
+   if(Number.isFinite(epoch) && epoch===lastGradeEpoch)return;
+   if(Number.isFinite(epoch))lastGradeEpoch=epoch;
 
- const SR=window.showResult;
- if(typeof SR==='function'){
-   window.showResult=function(...args){
-     const r=SR.apply(this,args);
-     window.__DEEN_COMPANION_REACTION_LOCK=Date.now()+1700;
-     [80,260].forEach(ms=>setTimeout(()=>render('celebrate'),ms));
-     return r;
-   };
-   try{showResult=window.showResult}catch(_){}
- }
+   const kind=e?.detail?.correct===true?'correct':'wrong';
+
+   // The companion runtime changes the artwork separately. Give that one
+   // animation frame to settle, then decorate once. Retry only if the avatar
+   // is not mounted yet; a successful first pass never runs a second time.
+   requestAnimationFrame(()=>{
+     if(render(kind))return;
+     setTimeout(()=>render(kind),80);
+   });
+ });
 
  window.DEEN_COMPANION_REACTIONS={
    version:VERSION,
@@ -6836,7 +6830,10 @@
      correct:!!frame()?.classList.contains('v9944-feedback-correct'),
      wrong:!!frame()?.classList.contains('v9944-feedback-wrong'),
      celebrate:!!frame()?.classList.contains('v9944-feedback-celebrate'),
-     lockedUntil:Number(window.__DEEN_COMPANION_REACTION_LOCK||0)
+     lockedUntil:Number(window.__DEEN_COMPANION_REACTION_LOCK||0),
+     lastGradeEpoch,
+     reactionCount,
+     eventDriven:true
    })
  };
 })();
@@ -8438,4 +8435,4 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.53-PRODUCTION',BUILD='9953runtimearbiter1',TITLE='DEEN v9.9.53';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.54-PRODUCTION',BUILD='9954reactiononce1',TITLE='DEEN v9.9.54';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
