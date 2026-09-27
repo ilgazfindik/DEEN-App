@@ -6844,9 +6844,11 @@
 <!-- DEEN v9.9.45 — Clean post-answer feedback state -->
 <style id="deen-v9945-feedback-layout-css">
 /*
-  After an answer is graded, remove the old answer stack from the layout and
-  use that space for a compact explanation. This prevents feedback from
-  covering the last option / Kontrol Et button on mobile.
+  v9.9.55 feedback layout:
+  - answers disappear after grading
+  - explanation is NEVER line-clamped
+  - long feedback scrolls inside its own panel
+  - Continue stays reachable at the bottom
 */
 #lesson .question-frame.v9945-feedback-mode{
   overflow:hidden!important;
@@ -6855,27 +6857,43 @@
   display:none!important;
 }
 #lesson .question-frame.v9945-feedback-mode .deen-character-question-row{
-  margin-bottom:14px!important;
+  margin-bottom:12px!important;
 }
 #lesson .question-frame.v9945-feedback-mode .feedback{
-  display:block!important;
+  display:flex!important;
+  flex-direction:column!important;
   position:relative!important;
   inset:auto!important;
   width:100%!important;
   max-width:none!important;
+  min-height:0!important;
   margin:0!important;
   padding:0!important;
   z-index:22!important;
-  flex:0 0 auto!important;
+  flex:1 1 auto!important;
+  overflow:hidden!important;
 }
 #lesson .question-frame.v9945-feedback-mode .feedback-box{
   position:relative!important;
   width:100%!important;
-  display:block!important;
   min-height:0!important;
+  max-height:100%!important;
+  flex:1 1 auto!important;
+  display:flex!important;
+  align-items:flex-start!important;
+  overflow:auto!important;
+  -webkit-overflow-scrolling:touch!important;
+  overscroll-behavior:contain!important;
   padding:14px 46px 13px 15px!important;
   border-radius:18px!important;
   box-shadow:0 12px 28px rgba(0,0,0,.20)!important;
+  scrollbar-width:thin!important;
+  scrollbar-color:rgba(151,219,201,.35) transparent!important;
+}
+#lesson .question-frame.v9945-feedback-mode .feedback-box::-webkit-scrollbar{width:4px!important}
+#lesson .question-frame.v9945-feedback-mode .feedback-box::-webkit-scrollbar-thumb{
+  background:rgba(151,219,201,.32)!important;
+  border-radius:999px!important;
 }
 #lesson .question-frame.v9945-feedback-mode .feedback-box.bad{
   border:1px solid rgba(224,113,123,.46)!important;
@@ -6899,6 +6917,7 @@
 #lesson .question-frame.v9945-feedback-mode .feedback-copy{
   min-width:0!important;
   width:100%!important;
+  flex:1 1 auto!important;
 }
 #lesson .question-frame.v9945-feedback-mode .feedback-title{
   margin:0!important;
@@ -6915,27 +6934,35 @@
 #lesson .question-frame.v9945-feedback-mode .feedback-text{
   margin:5px 0 0!important;
   color:#d6e3e2!important;
-  font:650 11px/1.4 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
-  display:-webkit-box!important;
-  -webkit-box-orient:vertical!important;
-  -webkit-line-clamp:3!important;
-  overflow:hidden!important;
+  font:650 11px/1.48 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  display:block!important;
+  max-height:none!important;
+  overflow:visible!important;
+  -webkit-line-clamp:unset!important;
+  -webkit-box-orient:initial!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
 }
 #lesson .question-frame.v9945-feedback-mode .v9945-correct-answer{
   display:flex!important;
-  align-items:center!important;
+  align-items:flex-start!important;
   gap:6px!important;
-  margin-top:8px!important;
-  padding:7px 9px!important;
+  margin-top:9px!important;
+  padding:8px 9px!important;
   border-radius:11px!important;
   background:rgba(255,255,255,.055)!important;
   border:1px solid rgba(255,255,255,.075)!important;
   color:#f4e4bc!important;
-  font:850 10px/1.25 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  font:850 10px/1.35 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
 }
 #lesson .question-frame.v9945-feedback-mode .v9945-correct-answer span{
   color:#9fb5b6!important;
   font-weight:750!important;
+  flex:0 0 auto!important;
+}
+#lesson .question-frame.v9945-feedback-mode .v9945-correct-answer strong{
+  min-width:0!important;
+  overflow-wrap:anywhere!important;
 }
 #lesson .question-frame.v9945-feedback-mode .v960-feedback-speak{
   position:absolute!important;
@@ -6965,6 +6992,7 @@
 #lesson .question-frame.v9945-feedback-mode #continueBtn{
   width:100%!important;
   min-height:54px!important;
+  flex:0 0 auto!important;
   margin:10px 0 0!important;
   border-radius:17px!important;
   border:1px solid rgba(218,181,91,.70)!important;
@@ -6975,24 +7003,32 @@
   box-shadow:0 8px 20px rgba(73,205,173,.12)!important;
 }
 
-/* Feedback state uses the freed answer space and stays visually centered. */
+/* Mobile: reserve the viewport for the actual explanation instead of decorative empty space. */
 @media(max-width:499px){
   #lesson .question-frame.v9945-feedback-mode .deen-character-question-row{
-    margin-top:clamp(86px,14vh,132px)!important;
+    margin-top:clamp(10px,2.2vh,20px)!important;
+    margin-bottom:10px!important;
+    flex:0 0 auto!important;
+  }
+  #lesson .question-frame.v9945-feedback-mode .feedback{
+    min-height:0!important;
+    flex:1 1 auto!important;
   }
   #lesson .question-frame.v9945-feedback-mode .feedback-box{
-    padding:12px 43px 11px 13px!important;
+    padding:12px 43px 12px 13px!important;
     border-radius:16px!important;
   }
   #lesson .question-frame.v9945-feedback-mode .feedback-title{
     font-size:13px!important;
   }
   #lesson .question-frame.v9945-feedback-mode .feedback-text{
-    font-size:10px!important;
-    -webkit-line-clamp:3!important;
+    font-size:10.5px!important;
+    line-height:1.48!important;
+    -webkit-line-clamp:unset!important;
   }
   #lesson .question-frame.v9945-feedback-mode #continueBtn{
     min-height:52px!important;
+    margin-top:8px!important;
   }
 }
 </style>
@@ -7002,8 +7038,9 @@
  if(window.__deenV9945FeedbackLayout)return;
  window.__deenV9945FeedbackLayout=true;
 
- const VERSION='9.9.45-FEEDBACK-LAYOUT';
+ const VERSION='9.9.55-FEEDBACK-FULL-TEXT';
  let token=0;
+ let lastGradeEpoch=-1;
 
  const frame=()=>document.querySelector('#lesson .question-frame');
  const qNow=()=>session?.questions?.[session?.index]||null;
@@ -7024,6 +7061,10 @@
    const f=frame();
    f?.classList.remove('v9945-feedback-mode','v9945-feedback-correct','v9945-feedback-wrong');
    removeAnswerLine();
+   const fb=document.getElementById('feedback');
+   if(fb)fb.scrollTop=0;
+   const box=document.getElementById('feedbackBox');
+   if(box)box.scrollTop=0;
  }
 
  function compact(correct,q=qNow()){
@@ -7035,7 +7076,6 @@
    f.classList.toggle('v9945-feedback-correct',correct===true);
    f.classList.toggle('v9945-feedback-wrong',correct!==true);
 
-   /* One companion only: hide legacy feedback presenters. */
    document.getElementById('feedbackIcon')?.style.setProperty('display','none','important');
    box.querySelectorAll('.v732-reaction-avatar,[class*="v732-reaction"]').forEach(el=>el.style.setProperty('display','none','important'));
 
@@ -7060,7 +7100,8 @@
    const continueBtn=document.getElementById('continueBtn');
    if(continueBtn)continueBtn.textContent='Devam et';
 
-   /* Give layout one frame to settle after removing the full answer stack. */
+   box.scrollTop=0;
+
    requestAnimationFrame(()=>{
      if(my!==token)return;
      try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
@@ -7073,33 +7114,32 @@
    return true;
  }
 
- const RQ=window.renderQuestion;
- if(typeof RQ==='function'){
-   window.renderQuestion=function(...args){
-     reset();
-     const r=RQ.apply(this,args);
-     requestAnimationFrame(reset);
-     return r;
-   };
-   try{renderQuestion=window.renderQuestion}catch(_){}
- }
+ /*
+   v9.9.55: feedback no longer wraps renderQuestion / completeQuestion.
+   The authoritative lifecycle is DEEN_RUNTIME_ARBITER.
+ */
+ document.addEventListener('deen:question-rendered',()=>reset());
 
- const CQ=window.completeQuestion;
- if(typeof CQ==='function'){
-   window.completeQuestion=function(correct,q,...rest){
-     const r=CQ.call(this,correct,q,...rest);
-     /*
-       Let the selected option flash its right/wrong state first; then switch
-       to the clean explanation view instead of allowing the legacy feedback
-       box to cover the last answer.
-     */
-     const actual=q||qNow();
-     setTimeout(()=>compact(correct===true,actual),360);
-     setTimeout(()=>compact(correct===true,actual),560);
-     return r;
-   };
-   try{completeQuestion=window.completeQuestion}catch(_){}
- }
+ document.addEventListener('deen:question-graded',e=>{
+   const epoch=Number(e?.detail?.epoch);
+   if(Number.isFinite(epoch)&&epoch===lastGradeEpoch)return;
+   if(Number.isFinite(epoch))lastGradeEpoch=epoch;
+
+   const correct=e?.detail?.correct===true;
+   const q=qNow();
+   const expected=++token;
+
+   // Preserve the short right/wrong flash, then switch to the explanation.
+   setTimeout(()=>{
+     if(expected!==token)return;
+     if(compact(correct,q))return;
+     // Defensive retry only if a legacy renderer delayed .feedback.show.
+     setTimeout(()=>{
+       if(expected!==token)return;
+       compact(correct,q);
+     },90);
+   },330);
+ });
 
  window.DEEN_FEEDBACK_LAYOUT={
    version:VERSION,
@@ -7109,7 +7149,13 @@
      active:!!frame()?.classList.contains('v9945-feedback-mode'),
      wrong:!!frame()?.classList.contains('v9945-feedback-wrong'),
      correct:!!frame()?.classList.contains('v9945-feedback-correct'),
-     answer:document.querySelector('#lesson .v9945-correct-answer strong')?.textContent||null
+     answer:document.querySelector('#lesson .v9945-correct-answer strong')?.textContent||null,
+     explanationLength:(document.getElementById('feedbackText')?.textContent||'').length,
+     explanationScrollHeight:document.getElementById('feedbackBox')?.scrollHeight||0,
+     explanationClientHeight:document.getElementById('feedbackBox')?.clientHeight||0,
+     scrollable:(()=>{const b=document.getElementById('feedbackBox');return !!b&&b.scrollHeight>b.clientHeight+1})(),
+     lastGradeEpoch,
+     eventDriven:true
    })
  };
 })();
@@ -8435,4 +8481,4 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.54-PRODUCTION',BUILD='9954reactiononce1',TITLE='DEEN v9.9.54';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.55-PRODUCTION',BUILD='9955feedbackscroll1',TITLE='DEEN v9.9.55';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
