@@ -8518,7 +8518,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.62-RUNTIME-ARBITER';
+ const VERSION='9.9.63-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -8548,12 +8548,18 @@
  if(typeof LEGACY_RENDER==='function'){
    const guardedRender=function(...args){
      /*
-       A renderer is allowed to schedule follow-up DOM work, but a synchronous
-       re-entry into renderQuestion can corrupt the current question tree.
+       One canonical render boundary. Pre-render cleanup/planning runs through
+       deen:question-rendering; visual decorators run through question-rendered.
      */
      if(renderBusy)return false;
      renderBusy=true;
-     renderEpoch++;
+     const nextEpoch=renderEpoch+1;
+     dispatch('deen:question-rendering',{
+       epoch:nextEpoch,
+       index:(()=>{try{return Number(session?.index)||0}catch(_){return 0}})(),
+       key:questionKey()
+     });
+     renderEpoch=nextEpoch;
      gradedEpoch=-1;
      lastGradeKey='';
      let out;
@@ -8669,6 +8675,7 @@
      renderGuarded:!!window.renderQuestion?.__deen9953,
      gradeGuarded:!!window.completeQuestion?.__deen9953,
      resultGuarded:!!window.showResult?.__deen9953,
+     preRenderEvent:true,
      preGradeEvent:true,
      preResultEvent:true
    })
@@ -8676,4 +8683,4 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.62-PRODUCTION',BUILD='9962lifecycle1',TITLE='DEEN v9.9.62';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.63-PRODUCTION',BUILD='9963renderlifecycle1',TITLE='DEEN v9.9.63';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
