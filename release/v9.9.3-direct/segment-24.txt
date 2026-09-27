@@ -5591,7 +5591,7 @@
  window.__deenV9936CompanionRuntime=true;
  window.__DEEN_COMPANION_ASSET_MODE=true;
 
- const VERSION='9.9.41-COMPANION-LAYOUT-FIX';
+ const VERSION='9.9.47-COMPANION-STABILIZATION';
  const IDS=['lion','wolf','owl','turtle','eagle','cat'];
  const STATES=['lesson_idle','correct','try_again','celebrate','avatar'];
  const DEFAULT='owl';
@@ -5636,7 +5636,7 @@
      };
      img.onload=()=>done(true);
      img.onerror=()=>done(false);
-     img.src=src+(src.includes('?')?'&':'?')+'v=9946uniformcompanions1';
+     img.src=src+(src.includes('?')?'&':'?')+'v=9947companionstable1';
      if(img.complete && img.naturalWidth>0)done(true);
      setTimeout(()=>done(false),3500);
    });
@@ -5709,7 +5709,7 @@
    img.setAttribute('aria-hidden','true');
    img.dataset.companion=id;
    img.dataset.mood=resolvedMood;
-   img.src=src+'?v=9946uniformcompanions1';
+   img.src=src+'?v=9947companionstable1';
 
    avatar.classList.add('deen-companion-runtime-ready');
    avatar.replaceChildren(img);
@@ -5738,7 +5738,7 @@
    img.className='deen-companion-profile-img';
    img.alt='';
    img.setAttribute('aria-hidden','true');
-   img.src=src+'?v=9946uniformcompanions1';
+   img.src=src+'?v=9947companionstable1';
    el.replaceChildren(img);
    return true;
  }
@@ -7418,4 +7418,252 @@
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.46-PRODUCTION',BUILD='9946uniformcompanions1',TITLE='DEEN v9.9.46';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+
+
+<!-- DEEN v9.9.47 — Final companion stabilization -->
+<style id="deen-v9947-final-companion-stabilization-css">
+/*
+  Final companion normalization:
+  - one stable box for every mood/state
+  - state artwork may change, layout never jumps
+  - wolf gets a slightly wider safe slot for its full-body silhouette
+  - no companion can enter the speech-bubble column
+*/
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row{
+  --deen-final-slot:108px;
+  --deen-final-h:124px;
+  --deen-final-art-w:104px;
+  --deen-final-art-h:122px;
+  grid-template-columns:var(--deen-final-slot) minmax(0,1fr)!important;
+  column-gap:10px!important;
+  align-items:center!important;
+}
+
+#lesson .question-frame .deen-character-question-avatar.deen-companion-runtime-ready{
+  width:var(--deen-final-slot)!important;
+  min-width:var(--deen-final-slot)!important;
+  max-width:var(--deen-final-slot)!important;
+  height:var(--deen-final-h)!important;
+  min-height:var(--deen-final-h)!important;
+  max-height:var(--deen-final-h)!important;
+  overflow:hidden!important;
+  display:grid!important;
+  place-items:end center!important;
+  align-self:center!important;
+  justify-self:center!important;
+  background:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+
+#lesson .question-frame .deen-character-question-avatar.deen-companion-runtime-ready .deen-companion-runtime-img{
+  width:var(--deen-final-art-w)!important;
+  max-width:var(--deen-final-slot)!important;
+  height:var(--deen-final-art-h)!important;
+  max-height:var(--deen-final-h)!important;
+  position:relative!important;
+  left:0!important;
+  top:0!important;
+  display:block!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  transform-origin:50% 88%!important;
+}
+
+/* Full-body wolf needs a touch more breathing room than the other mascots. */
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="wolf"]{
+  --deen-final-slot:116px;
+  --deen-final-h:126px;
+  --deen-final-art-w:112px;
+  --deen-final-art-h:124px;
+}
+
+/* Keep perceived weight consistent without changing the reserved column. */
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="lion"]{
+  --deen-final-art-w:106px;
+  --deen-final-art-h:124px;
+}
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="owl"]{
+  --deen-final-art-w:104px;
+  --deen-final-art-h:124px;
+}
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="turtle"]{
+  --deen-final-art-w:102px;
+  --deen-final-art-h:118px;
+}
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="eagle"]{
+  --deen-final-art-w:104px;
+  --deen-final-art-h:124px;
+}
+#lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="cat"]{
+  --deen-final-art-w:106px;
+  --deen-final-art-h:122px;
+}
+
+/*
+  Every visual state uses exactly the same geometry. Only the artwork and
+  animation change, so correct/wrong/celebrate cannot resize or crop the row.
+*/
+#lesson .question-frame .deen-character-question-row[data-companion-state="lesson_idle"] .deen-companion-runtime-img,
+#lesson .question-frame .deen-character-question-row[data-companion-state="correct"] .deen-companion-runtime-img,
+#lesson .question-frame .deen-character-question-row[data-companion-state="try_again"] .deen-companion-runtime-img,
+#lesson .question-frame .deen-character-question-row[data-companion-state="celebrate"] .deen-companion-runtime-img{
+  width:var(--deen-final-art-w)!important;
+  height:var(--deen-final-art-h)!important;
+  max-width:var(--deen-final-slot)!important;
+  max-height:var(--deen-final-h)!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+}
+
+/* Wrong answer: gentle, premium reaction rather than a harsh shake. */
+#lesson .question-frame .deen-character-question-row[data-companion-state="try_again"] .deen-companion-runtime-img{
+  filter:saturate(.94) brightness(.97) drop-shadow(0 12px 14px rgba(0,0,0,.24))!important;
+}
+
+/* Correct / lesson complete keep positive visual emphasis. */
+#lesson .question-frame .deen-character-question-row[data-companion-state="correct"] .deen-companion-runtime-img{
+  filter:saturate(1.04) brightness(1.025) drop-shadow(0 14px 16px rgba(73,218,176,.18))!important;
+}
+#lesson .question-frame .deen-character-question-row[data-companion-state="celebrate"] .deen-companion-runtime-img{
+  filter:saturate(1.06) brightness(1.035) drop-shadow(0 15px 18px rgba(240,199,92,.20))!important;
+}
+
+@media(max-width:420px){
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row{
+    --deen-final-slot:96px;
+    --deen-final-h:116px;
+    --deen-final-art-w:94px;
+    --deen-final-art-h:114px;
+    column-gap:8px!important;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="wolf"]{
+    --deen-final-slot:104px;
+    --deen-final-h:118px;
+    --deen-final-art-w:100px;
+    --deen-final-art-h:116px;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="lion"]{
+    --deen-final-art-w:95px;
+    --deen-final-art-h:116px;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="owl"],
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="eagle"]{
+    --deen-final-art-w:94px;
+    --deen-final-art-h:116px;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="turtle"]{
+    --deen-final-art-w:92px;
+    --deen-final-art-h:111px;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="cat"]{
+    --deen-final-art-w:96px;
+    --deen-final-art-h:114px;
+  }
+}
+
+@media(max-width:370px){
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row{
+    --deen-final-slot:88px;
+    --deen-final-h:110px;
+    --deen-final-art-w:86px;
+    --deen-final-art-h:108px;
+    column-gap:7px!important;
+  }
+  #lesson .question-frame .deen-character-question-row.deen-companion-runtime-row[data-companion-animal="wolf"]{
+    --deen-final-slot:96px;
+    --deen-final-h:112px;
+    --deen-final-art-w:92px;
+    --deen-final-art-h:110px;
+  }
+}
+</style>
+
+<script id="deen-v9947-final-companion-stabilization-js">
+(()=>{
+ if(window.__deenV9947FinalCompanionStabilization)return;
+ window.__deenV9947FinalCompanionStabilization=true;
+
+ const VERSION='9.9.47-FINAL-COMPANION-STABILIZATION';
+ let observer=null;
+
+ function apply(){
+   const row=document.querySelector('#lesson .deen-character-question-row.deen-companion-runtime-row');
+   const avatar=row?.querySelector('.deen-character-question-avatar.deen-companion-runtime-ready');
+   const img=avatar?.querySelector('.deen-companion-runtime-img');
+   if(!row||!avatar||!img)return false;
+
+   const animal=String(avatar.dataset.animal||row.dataset.companionAnimal||'').toLowerCase();
+   const mood=String(avatar.dataset.deenCompanionMood||'lesson_idle').toLowerCase();
+
+   if(animal)row.dataset.companionAnimal=animal;
+   row.dataset.companionState=['lesson_idle','correct','try_again','celebrate'].includes(mood)?mood:'lesson_idle';
+   row.dataset.deenCompanionStable='9947';
+
+   img.setAttribute('draggable','false');
+   img.setAttribute('aria-hidden','true');
+
+   try{window.DEEN_UNIFIED_COMPANION_LAYOUT?.apply?.()}catch(_){}
+   try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(_){}
+   return true;
+ }
+
+ function observe(){
+   try{observer?.disconnect?.()}catch(_){}
+   const avatar=document.querySelector('#lesson .deen-character-question-avatar.deen-companion-runtime-ready');
+   if(!avatar||!('MutationObserver' in window))return;
+   observer=new MutationObserver(()=>requestAnimationFrame(apply));
+   observer.observe(avatar,{
+     attributes:true,
+     attributeFilter:['data-animal','data-deen-companion-mood'],
+     childList:true,
+     subtree:true
+   });
+ }
+
+ function mount(){
+   const ok=apply();
+   if(ok)observe();
+   return ok;
+ }
+
+ const RQ=window.renderQuestion;
+ if(typeof RQ==='function'){
+   window.renderQuestion=function(...args){
+     const r=RQ.apply(this,args);
+     requestAnimationFrame(mount);
+     [70,180,420,850].forEach(ms=>setTimeout(mount,ms));
+     return r;
+   };
+   try{renderQuestion=window.renderQuestion}catch(_){}
+ }
+
+ const CQ=window.completeQuestion;
+ if(typeof CQ==='function'){
+   window.completeQuestion=function(...args){
+     const r=CQ.apply(this,args);
+     [70,190,430].forEach(ms=>setTimeout(mount,ms));
+     return r;
+   };
+   try{completeQuestion=window.completeQuestion}catch(_){}
+ }
+
+ window.addEventListener('resize',()=>setTimeout(mount,80),{passive:true});
+
+ window.DEEN_FINAL_COMPANION_STABILIZATION={
+   version:VERSION,
+   apply:mount,
+   snapshot:()=>({
+     animal:document.querySelector('#lesson .deen-character-question-avatar')?.dataset?.animal||null,
+     state:document.querySelector('#lesson .deen-character-question-row')?.dataset?.companionState||null,
+     stable:document.querySelector('#lesson .deen-character-question-row')?.dataset?.deenCompanionStable||null,
+     src:document.querySelector('#lesson .deen-companion-runtime-img')?.getAttribute('src')||null
+   })
+ };
+
+ [220,650,1200].forEach(ms=>setTimeout(mount,ms));
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.47-PRODUCTION',BUILD='9947companionstable1',TITLE='DEEN v9.9.47';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
