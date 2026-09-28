@@ -605,7 +605,7 @@
 <body>
 <div class="phone" id="phone">
  <section class="screen active" id="learnScreen">
-  <button class="preview-toggle" id="previewToggle">İNCELEME MODU · AÇIK</button>
+  <!-- production: developer preview control removed -->
   <div class="scroll" id="learnScroll">
    <header class="app-header">
     <div class="brand"><div class="logo"><span></span><span></span><i></i></div><div class="brand-name">DEEN</div></div>
