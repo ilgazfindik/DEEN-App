@@ -23,8 +23,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install image codec
-        run: python -m pip install --upgrade pillow pillow-avif-plugin
+      - name: Install codecs
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pillow pillow-avif-plugin
 
       - name: Build lion and cat AVIF assets and patch release
         shell: bash
@@ -33,24 +36,57 @@ jobs:
           from pathlib import Path
           from PIL import Image, ImageFilter, ImageFile
           import pillow_avif
-          ImageFile.LOAD_TRUNCATED_IMAGES = True
+          import subprocess
 
+          ImageFile.LOAD_TRUNCATED_IMAGES = True
           root = Path(".")
+          tmp_root = Path("/tmp/deen-recovery")
+          tmp_root.mkdir(parents=True, exist_ok=True)
+
+          def open_pillow(path):
+              im = Image.open(path).convert("RGBA")
+              im.load()
+              return im
 
           def load_source(animal, tier):
-              preferred = root / "assets/companions" / animal / f"{animal}_combo_{tier}.webp"
+              folder = root / "assets/companions" / animal
+              preferred = folder / f"{animal}_combo_{tier}.webp"
+
               try:
-                  im = Image.open(preferred).convert("RGBA")
-                  im.load()
-                  print("source", preferred, im.size)
-                  return im, preferred, False
+                  im = open_pillow(preferred)
+                  print("PIL source", preferred, im.size)
+                  return im, "direct"
               except Exception as exc:
-                  fallback = root / "assets/companions" / animal / f"{animal}_celebrate.png"
-                  print("decode failed", preferred, repr(exc), "-> fallback", fallback)
-                  im = Image.open(fallback).convert("RGBA")
-                  im.load()
-                  print("source", fallback, im.size)
-                  return im, fallback, True
+                  print("PIL decode failed", preferred, repr(exc))
+
+              recovered = tmp_root / f"{animal}_{tier}.png"
+              cmd = [
+                  "ffmpeg", "-y", "-v", "error", "-i", str(preferred),
+                  "-frames:v", "1", str(recovered)
+              ]
+              proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+              if proc.returncode == 0 and recovered.exists() and recovered.stat().st_size > 0:
+                  try:
+                      im = open_pillow(recovered)
+                      print("FFMPEG recovered", preferred, im.size)
+                      return im, "recovered"
+                  except Exception as exc:
+                      print("Recovered PNG decode failed", repr(exc))
+              else:
+                  print("FFMPEG failed", preferred, proc.returncode, proc.stderr[-500:])
+
+              for candidate_name in (f"{animal}_celebrate.png", f"{animal}_correct.png", f"{animal}_avatar.png"):
+                  candidate = folder / candidate_name
+                  if not candidate.exists():
+                      continue
+                  try:
+                      im = open_pillow(candidate)
+                      print("Fallback source", candidate, im.size)
+                      return im, "fallback"
+                  except Exception as exc:
+                      print("Fallback decode failed", candidate, repr(exc))
+
+              raise RuntimeError(f"No usable source for {animal} tier {tier}")
 
           def fit_square(im, size=512, inset=24):
               max_side = size - inset * 2
@@ -62,12 +98,10 @@ jobs:
               canvas.alpha_composite(resized, pos)
               return canvas
 
-          repaired_webps = []
-
           for animal in ("lion", "cat"):
               folder = root / "assets/companions" / animal
               for tier in (3, 5):
-                  original, source_path, used_fallback = load_source(animal, tier)
+                  original, mode = load_source(animal, tier)
                   img = fit_square(original)
 
                   rgb = img.convert("RGB").filter(
@@ -78,20 +112,17 @@ jobs:
 
                   dst = folder / f"{animal}_combo_{tier}.avif"
                   img.save(dst, "AVIF", quality=92, speed=6)
-
-                  check = Image.open(dst).convert("RGBA")
-                  assert check.size == (512, 512), (dst, check.size)
+                  check = open_pillow(dst)
+                  assert check.size == (512, 512)
                   amin, amax = check.getchannel("A").getextrema()
-                  assert amin < 255, (dst, "alpha channel lost")
-                  print("generated", dst, dst.stat().st_size, "alpha", (amin, amax))
+                  assert amin < 255
+                  print("generated", dst, dst.stat().st_size, "alpha", (amin, amax), "mode", mode)
 
-                  # If the legacy WebP is corrupt, rebuild it too so browser fallback works.
-                  if used_fallback:
+                  # Rebuild any source that needed recovery so WebP fallback is valid too.
+                  if mode != "direct":
                       webp = folder / f"{animal}_combo_{tier}.webp"
-                      img.save(webp, "WEBP", lossless=True, method=6)
-                      repaired_webps.append(webp)
-                      verify = Image.open(webp).convert("RGBA")
-                      verify.load()
+                      img.save(webp, "WEBP", quality=92, method=6, exact=True)
+                      verify = open_pillow(webp)
                       assert verify.size == (512, 512)
                       print("repaired fallback", webp, webp.stat().st_size)
 
@@ -114,8 +145,8 @@ jobs:
 
           index_path = root / "index.html"
           index = index_path.read_text(encoding="utf-8")
-          assert "<title>DEEN v9.10.11</title>" in index, "version title anchor missing"
-          assert "const BUILD='9111eaglehd1';" in index, "build anchor missing"
+          assert "<title>DEEN v9.10.11</title>" in index
+          assert "const BUILD='9111eaglehd1';" in index
           index = index.replace("<title>DEEN v9.10.11</title>", "<title>DEEN v9.10.12</title>", 1)
           index = index.replace("const BUILD='9111eaglehd1';", "const BUILD='9112allcomboshd1';", 1)
           index_path.write_text(index, encoding="utf-8")
@@ -129,9 +160,12 @@ jobs:
           git rm .github/workflows/lion-cat-hd-once.yml
           git add assets/companions/lion/lion_combo_3.avif \
                   assets/companions/lion/lion_combo_5.avif \
+                  assets/companions/lion/lion_combo_3.webp \
                   assets/companions/lion/lion_combo_5.webp \
                   assets/companions/cat/cat_combo_3.avif \
                   assets/companions/cat/cat_combo_5.avif \
+                  assets/companions/cat/cat_combo_3.webp \
+                  assets/companions/cat/cat_combo_5.webp \
                   release/v9.9.3-direct/segment-24.txt \
                   index.html
           git commit -m "feat: migrate all combo mascots to HD AVIF (v9.10.12)"
