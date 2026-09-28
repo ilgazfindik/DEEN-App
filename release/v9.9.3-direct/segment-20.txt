@@ -120,66 +120,232 @@
  function premiumMatching(q,area){
   if(!q||!Array.isArray(q.pairs)||q.pairs.length<2){return oldMatching?.(q,area)}
   clearTimeout(advanceTimer);rounds++;
-  const frame=document.querySelector('.question-frame');frame?.classList.add('v853-match-mode');
-  const hint=document.getElementById('qType');if(hint)hint.textContent='Soldan bir kart seç · sağdaki doğru eşini bul.';
-  const pairs=q.pairs.map((p,i)=>({id:i,left:String(p?.left??''),right:String(p?.right??'')}));
-  const left=shuffle(pairs.map(p=>({pair:p.id,text:p.left}))),right=shuffle(pairs.map(p=>({pair:p.id,text:p.right})));
-  const wrap=document.createElement('div');wrap.className='v853-match-wrap';
-  const lcol=document.createElement('div');lcol.className='v853-match-col';
-  const rail=document.createElement('div');rail.className='v853-match-rail';rail.innerHTML='<i></i>';
-  const rcol=document.createElement('div');rcol.className='v853-match-col';
-  const status=document.createElement('div');status.className='v853-match-status';
-  wrap.append(lcol,rail,rcol,status);area.append(wrap);
+
+  const frame=document.querySelector('.question-frame');
+  if(!frame)return oldMatching?.(q,area);
+
+  // v10.1.9: premiumMatching itself is now the authoritative renderer.
+  frame.classList.remove('v853-match-mode','v1013-match-ref','v1014-three-pairs','v1014-four-pairs');
+  frame.classList.add('v1017-match-screen');
+  frame.dataset.pairs=String(q.pairs.length);
+  frame.style.transform='';
+  frame.style.width='100%';
+  frame.style.maxWidth='none';
+  document.getElementById('lesson')?.classList.remove('v9913-fitted');
+
+  // Build background directly in the renderer so no late takeover is required.
+  frame.querySelector('.v1017-bg')?.remove();
+  frame.querySelector('.v1017-hero')?.remove();
+
+  const bg=document.createElement('div');
+  bg.className='v1017-bg';
+  bg.setAttribute('aria-hidden','true');
+
+  const moon=document.createElement('span');
+  moon.className='v1017-moon';
+
+  const ns='http://www.w3.org/2000/svg';
+  const mosque=document.createElementNS(ns,'svg');
+  mosque.setAttribute('class','v1017-mosque');
+  mosque.setAttribute('viewBox','0 0 300 240');
+  mosque.setAttribute('aria-hidden','true');
+  mosque.innerHTML=
+    '<g fill="#0a2a34">'+
+      '<rect x="112" y="126" width="116" height="82" rx="3"/>'+
+      '<path d="M124 126 Q170 73 216 126 Z"/>'+
+      '<rect x="92" y="91" width="16" height="117" rx="2"/>'+
+      '<path d="M92 91 L100 68 L108 91 Z"/>'+
+      '<rect x="235" y="65" width="15" height="143" rx="2"/>'+
+      '<path d="M235 65 L242.5 42 L250 65 Z"/>'+
+      '<rect x="68" y="125" width="12" height="83" rx="2"/>'+
+      '<path d="M68 125 L74 108 L80 125 Z"/>'+
+      '<rect x="258" y="118" width="11" height="90" rx="2"/>'+
+      '<path d="M258 118 L263.5 101 L269 118 Z"/>'+
+    '</g>'+
+    '<g fill="#e8ad61" opacity=".82">'+
+      '<rect x="143" y="151" width="8" height="16" rx="4"/>'+
+      '<rect x="173" y="151" width="8" height="16" rx="4"/>'+
+      '<rect x="157" y="179" width="10" height="29" rx="5"/>'+
+      '<rect x="96" y="108" width="7" height="10" rx="3"/>'+
+      '<rect x="239" y="88" width="7" height="10" rx="3"/>'+
+    '</g>'+
+    '<path d="M0 208 Q38 182 83 207 T166 207 T250 204 T320 210 V240 H0Z" fill="#0b3038" opacity=".92"/>';
+  bg.append(moon,mosque);
+  frame.insertBefore(bg,frame.firstChild);
+
+  const hero=document.createElement('div');
+  hero.className='v1017-hero';
+  hero.innerHTML=
+    '<h1 class="v1017-title">Eşleşen <span>çiftleri</span> bul</h1>'+
+    '<p class="v1017-subtitle">Doğru kavramları anlamlarıyla eşleştir.</p>';
+  const narration=frame.querySelector('.v960-narration-bar');
+  if(narration)frame.insertBefore(hero,narration);
+  else frame.prepend(hero);
+
+  const hint=document.getElementById('qType');
+  if(hint)hint.textContent='';
+
+  area.innerHTML='';
+
+  const shell=document.createElement('div');
+  shell.className='v1017-shell';
+
+  const board=document.createElement('div');
+  board.className='v1017-board';
+
+  const lcol=document.createElement('div');
+  lcol.className='v1017-col v1017-left';
+
+  const rcol=document.createElement('div');
+  rcol.className='v1017-col v1017-right';
+
+  const footer=document.createElement('div');
+  footer.className='v1017-footer';
+  footer.innerHTML=
+    '<div class="v1017-count"></div>'+
+    '<div class="v1017-meter"><i></i></div>';
+
+  board.append(lcol,rcol);
+  shell.append(board,footer);
+  area.append(shell);
+
+  const pairs=q.pairs.map((p,i)=>({
+    id:i,
+    left:String(p?.left??''),
+    right:String(p?.right??'')
+  }));
+  const left=shuffle(pairs.map(p=>({pair:p.id,text:p.left})));
+  const right=shuffle(pairs.map(p=>({pair:p.id,text:p.right})));
+
   let selected=null,matched=0,errors=0,resolving=false,finished=false;
   try{matchState={left:null,matched:new Set(),errors:0}}catch(_){}
-  const update=()=>{status.innerHTML='<span>Bağlantıları tamamla</span><b>'+matched+' / '+pairs.length+' EŞLEŞME</b>'};
-  const buttons=[];
+
+  function update(){
+    const count=footer.querySelector('.v1017-count');
+    const fill=footer.querySelector('.v1017-meter i');
+    if(count)count.textContent=matched+' / '+pairs.length+' eşleşme';
+    if(fill)fill.style.width=Math.round((matched/pairs.length)*100)+'%';
+  }
+
   function make(side,item){
-   const b=document.createElement('button');b.type='button';b.className='v853-match-card';b.textContent=item.text;b.dataset.pair=String(item.pair);b.dataset.side=side;b.setAttribute('aria-label',(side==='left'?'Kavram: ':'Eş: ')+item.text);
-   b.onclick=()=>pick(b);buttons.push(b);return b;
+    const b=document.createElement('button');
+    b.type='button';
+    b.className='v1017-card';
+    b.textContent=item.text;
+    b.dataset.pair=String(item.pair);
+    b.dataset.side=side;
+    b.setAttribute('aria-label',(side==='left'?'Kavram: ':'Eş: ')+item.text);
+    b.onclick=()=>pick(b);
+    return b;
   }
-  left.forEach(x=>lcol.append(make('left',x)));right.forEach(x=>rcol.append(make('right',x)));update();
+
+  left.forEach(x=>lcol.append(make('left',x)));
+  right.forEach(x=>rcol.append(make('right',x)));
+  update();
+
   function finish(){
-   if(finished)return;finished=true;wrap.classList.add('v853-match-finish');
-   const ok=errors===0;
-   setTimeout(()=>{
-    try{completeQuestion(ok,q)}catch(err){console.error('DEEN matching complete',err);return}
-    const title=document.getElementById('feedbackTitle');
-    if(title)title.textContent=ok?'✓ TÜM EŞLEŞMELER DOĞRU':'Eşleştirme tamamlandı';
-    try{document.dispatchEvent(new CustomEvent('deen:matching:complete',{detail:{version:VERSION,id:q.id||'',correct:ok,errors,pairs:pairs.length}}))}catch(_){}
-    if(ok){advanceTimer=setTimeout(()=>{const btn=document.getElementById('continueBtn');if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;btn.click()}},1100)}
-   },430);
+    if(finished)return;
+    finished=true;
+    const ok=errors===0;
+    setTimeout(()=>{
+      try{completeQuestion(ok,q)}catch(err){console.error('DEEN matching complete',err);return}
+      const title=document.getElementById('feedbackTitle');
+      if(title)title.textContent=ok?'✓ TÜM EŞLEŞMELER DOĞRU':'Eşleştirme tamamlandı';
+      try{
+        document.dispatchEvent(new CustomEvent('deen:matching:complete',{
+          detail:{version:'10.1.9-SEG20-AUTH',id:q.id||'',correct:ok,errors,pairs:pairs.length}
+        }))
+      }catch(_){}
+      if(ok){
+        advanceTimer=setTimeout(()=>{
+          const btn=document.getElementById('continueBtn');
+          if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show')){
+            autoAdvanced++;
+            btn.click();
+          }
+        },1100);
+      }
+    },430);
   }
+
   function good(a,b){
-   resolving=true;pairHits++;matched++;haptic(true);
-   a.classList.remove('selected');b.classList.remove('selected');a.classList.add('matched');b.classList.add('matched');
-   a.disabled=true;b.disabled=true;pop(wrap,'✓ EŞLEŞTİ');
-   try{matchState?.matched?.add?.(Number(a.dataset.pair));if(matchState)matchState.left=null}catch(_){}
-   selected=null;update();
-   setTimeout(()=>{a.classList.add('settled');b.classList.add('settled');resolving=false;if(matched>=pairs.length)finish()},330);
+    resolving=true;pairHits++;matched++;haptic(true);
+    a.classList.remove('selected');
+    b.classList.remove('selected');
+    a.classList.add('matched');
+    b.classList.add('matched');
+    a.disabled=true;
+    b.disabled=true;
+    try{
+      matchState?.matched?.add?.(Number(a.dataset.pair));
+      if(matchState)matchState.left=null;
+    }catch(_){}
+    selected=null;
+    update();
+    setTimeout(()=>{
+      resolving=false;
+      if(matched>=pairs.length)finish();
+    },240);
   }
+
   function bad(a,b){
-   resolving=true;errors++;pairMisses++;haptic(false);a.classList.add('wrong');b.classList.add('wrong');pop(wrap,'BİR DAHA DENE',true);
-   try{if(matchState)matchState.errors=errors}catch(_){}
-   setTimeout(()=>{a.classList.remove('wrong','selected');b.classList.remove('wrong','selected');selected=null;resolving=false;try{if(matchState)matchState.left=null}catch(_){ }},310);
+    resolving=true;errors++;pairMisses++;haptic(false);
+    a.classList.add('wrong');
+    b.classList.add('wrong');
+    try{if(matchState)matchState.errors=errors}catch(_){}
+    setTimeout(()=>{
+      a.classList.remove('wrong','selected');
+      b.classList.remove('wrong','selected');
+      selected=null;
+      resolving=false;
+      try{if(matchState)matchState.left=null}catch(_){}
+    },300);
   }
+
   function pick(b){
-   if(finished||resolving||b.disabled)return;
-   if(!selected){selected=b;b.classList.add('selected');try{if(matchState)matchState.left=b}catch(_){};return}
-   if(selected===b){b.classList.remove('selected');selected=null;try{if(matchState)matchState.left=null}catch(_){};return}
-   if(selected.dataset.side===b.dataset.side){selected.classList.remove('selected');selected=b;b.classList.add('selected');try{if(matchState)matchState.left=b}catch(_){};return}
-   b.classList.add('selected');
-   const a=selected;pairs[Number(a.dataset.pair)].right===pairs[Number(b.dataset.pair)].right?good(a,b):bad(a,b);
+    if(finished||resolving||b.disabled)return;
+
+    if(!selected){
+      selected=b;
+      b.classList.add('selected');
+      try{if(matchState)matchState.left=b}catch(_){}
+      return;
+    }
+    if(selected===b){
+      b.classList.remove('selected');
+      selected=null;
+      try{if(matchState)matchState.left=null}catch(_){}
+      return;
+    }
+    if(selected.dataset.side===b.dataset.side){
+      selected.classList.remove('selected');
+      selected=b;
+      b.classList.add('selected');
+      try{if(matchState)matchState.left=b}catch(_){}
+      return;
+    }
+
+    b.classList.add('selected');
+    const a=selected;
+    const ai=Number(a.dataset.pair);
+    const bi=Number(b.dataset.pair);
+    if(ai===bi)good(a,b);else bad(a,b);
   }
+
+  document.documentElement.dataset.deenMatchingRenderer='segment20-v1019';
   return true;
  }
  try{window.renderMatching=premiumMatching;renderMatching=premiumMatching}catch(_){window.renderMatching=premiumMatching}
  function onBeforeRender(){
   clearTimeout(advanceTimer);
-  document.querySelector('.question-frame')?.classList.remove('v853-match-mode');
+  const frame=document.querySelector('.question-frame');
+  frame?.classList.remove('v853-match-mode','v1017-match-screen');
+  if(frame){delete frame.dataset.pairs}
+  frame?.querySelector('.v1017-bg')?.remove();
+  frame?.querySelector('.v1017-hero')?.remove();
  }
  document.addEventListener('deen:question-rendering',onBeforeRender);
- window.DEEN_MATCHING_MINIGAME={version:VERSION,build:BUILD,render:premiumMatching,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,pairHits,pairMisses,autoAdvanced,active:!!document.querySelector('.v853-match-wrap'),eventDriven:true})};
+ window.DEEN_MATCHING_MINIGAME={version:VERSION,build:BUILD,render:premiumMatching,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,pairHits,pairMisses,autoAdvanced,active:!!document.querySelector('.v1017-shell'),renderer:'segment20-v1019',eventDriven:true})};
  document.documentElement.dataset.deenMatching='ready';
 })();
 </script>
