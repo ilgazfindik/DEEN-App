@@ -1,7 +1,1 @@
-#worldScreenBody .v786-level-shift .v786-evolution-layer{animation:v786Shift 1s ease both}
-@keyframes v786Shift{0%{filter:brightness(1)}40%{filter:brightness(1.18)}100%{filter:brightness(1)}}
-html.v5-reduce #worldScreenBody .v786-level-shift .v786-evolution-layer,html.v625-motion-off #worldScreenBody .v786-level-shift .v786-evolution-layer{animation:none!important}
-@media(prefers-reduced-motion:reduce){#worldScreenBody .v750-room.v786-evolution,#worldScreenBody .v786-evolution-layer,#worldScreenBody .v786-wall-frame,#worldScreenBody .v786-wall-trim,#worldScreenBody .v786-floor-inlay,#worldScreenBody .v786-desk-light,#worldScreenBody .v786-ceiling-glow,#worldScreenBody .v786-corner-dots,#worldScreenBody .v786-window-stars{transition:none!important;animation:none!important}}
-@media(max-width:390px){#worldScreenBody .v786-wall-frame{left:15px;top:25px;transform:scale(.92)}#worldScreenBody .v786-floor-inlay{left:11%;right:11%}}
-</style>
-<!-- DEEN v7.8.7 — Room Decor Equip & Personalization -->
+<!-- DEEN v9.9.88 RELEASE FREEZE: retired My World continuation CSS removed. -->
