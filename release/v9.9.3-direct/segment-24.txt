@@ -1693,11 +1693,16 @@
    lesson.classList.remove('v9913-fitted');
 
    /*
-     v10.1.4: the matching reference screen owns its own viewport geometry.
-     Do not auto-scale it back down; that was making the redesign look almost
-     identical to the old compact template.
+     v10.1.7: matching owns its viewport from render time.
+     Detect it from session data, not from a class that is added later.
    */
-   if(frame.classList.contains('v1013-match-ref')){
+   const activeQuestion=(()=>{try{return session?.questions?.[session?.index]||null}catch(_){return null}})();
+   const activeType=String(activeQuestion?.activity_type||activeQuestion?.question_type||activeQuestion?.type||'').toLowerCase();
+   if(activeType==='matching'||frame.classList.contains('v1017-match-screen')){
+     frame.style.transform='';
+     frame.style.width='100%';
+     frame.style.maxWidth='none';
+     lesson.classList.remove('v9913-fitted');
      fitCount++;
      return true;
    }
@@ -10751,6 +10756,10 @@ if(typeof LEGACY_RENDER==='function'){
  function apply(){
    const q=currentQuestion(),f=frame();
    if(!f)return false;
+   if(f.classList.contains('v1017-match-screen')){
+     clear();
+     return false;
+   }
    if(!isMatching(q)){clear();return false}
    f.classList.add('v1013-match-ref');
    scenery(f);title(f);syncProgress(f);watch(f);
@@ -11531,5 +11540,761 @@ if(typeof LEGACY_RENDER==='function'){
  document.addEventListener('deen:question-rendered',schedule);
  document.addEventListener('deen:question-graded',schedule);
  window.DEEN_MATCHING_REFERENCE_FINISH={version:'10.1.6',apply};
+})();
+</script>
+
+
+<!-- DEEN v10.1.7 — Single authoritative matching screen -->
+<style id="deen-v1017-authoritative-matching-css">
+/*
+  Matching is now one component:
+  HUD -> hero -> listen -> board -> footer.
+  No legacy scaling, no v853 rail/status, no layered matching decorators.
+*/
+#lesson .qarea:has(.question-frame.v1017-match-screen){
+  height:100dvh!important;
+  min-height:100dvh!important;
+  padding:6px!important;
+  overflow:hidden!important;
+  display:block!important;
+}
+#lesson .question-frame.v1017-match-screen{
+  position:relative!important;
+  isolation:isolate!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  height:calc(100dvh - 12px)!important;
+  min-height:calc(100dvh - 12px)!important;
+  margin:0!important;
+  padding:72px 18px 15px!important;
+  overflow:hidden!important;
+  display:flex!important;
+  flex-direction:column!important;
+  transform:none!important;
+  border-radius:25px!important;
+  border:1px solid rgba(85,151,157,.34)!important;
+  background:
+    radial-gradient(circle at 82% 18%,rgba(24,104,120,.26),transparent 28%),
+    radial-gradient(circle at 15% 88%,rgba(28,92,74,.12),transparent 33%),
+    linear-gradient(180deg,#062d39 0%,#052631 53%,#031923 100%)!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.018),
+    0 18px 44px rgba(0,0,0,.26)!important;
+}
+
+/* Old matching classes must not drive layout on this screen. */
+#lesson .question-frame.v1017-match-screen.v853-match-mode{padding-top:72px!important}
+#lesson .question-frame.v1017-match-screen.v1013-match-ref{padding:72px 18px 15px!important}
+#lesson .question-frame.v1017-match-screen .v1013-match-scenery,
+#lesson .question-frame.v1017-match-screen .v1013-match-subtitle,
+#lesson .question-frame.v1017-match-screen .v1016-mosque,
+#lesson .question-frame.v1017-match-screen .matching-progress,
+#lesson .question-frame.v1017-match-screen .match-grid,
+#lesson .question-frame.v1017-match-screen .match-column-title,
+#lesson .question-frame.v1017-match-screen .v853-match-wrap{
+  display:none!important;
+}
+
+/* Persistent HUD */
+#lesson .question-frame.v1017-match-screen #v9914ExitLesson{
+  position:absolute!important;
+  z-index:20!important;
+  left:12px!important;
+  top:12px!important;
+  width:44px!important;
+  height:44px!important;
+  min-width:44px!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:15px!important;
+  border:1px solid rgba(97,157,163,.34)!important;
+  background:rgba(7,42,52,.82)!important;
+  color:#fff0d5!important;
+  font-size:27px!important;
+  line-height:1!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.035)!important;
+}
+#lesson .question-frame.v1017-match-screen #v9914MiniProgress{
+  position:absolute!important;
+  z-index:20!important;
+  left:74px!important;
+  right:72px!important;
+  top:29px!important;
+  height:6px!important;
+  border:1px solid rgba(106,159,166,.28)!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+  background:rgba(27,68,78,.82)!important;
+}
+#lesson .question-frame.v1017-match-screen #v9914MiniProgress i{
+  display:block!important;
+  height:100%!important;
+  border-radius:inherit!important;
+  background:linear-gradient(90deg,#71e2bc,#91eacb)!important;
+  box-shadow:0 0 12px rgba(113,226,188,.24)!important;
+}
+#lesson .question-frame.v1017-match-screen #v9916MiniEnergy{
+  position:absolute!important;
+  z-index:20!important;
+  right:12px!important;
+  top:12px!important;
+  width:auto!important;
+  min-width:52px!important;
+  height:44px!important;
+  padding:0 11px!important;
+  border-radius:15px!important;
+  border:1px solid rgba(97,157,163,.3)!important;
+  background:rgba(7,42,52,.82)!important;
+  color:#f6faf8!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:5px!important;
+  font-size:14px!important;
+  font-weight:900!important;
+}
+#lesson .question-frame.v1017-match-screen #v9916MiniEnergy i{
+  color:#ff817b!important;
+  font-size:18px!important;
+}
+
+/* Hide legacy question chrome; the component supplies its own hero. */
+#lesson .question-frame.v1017-match-screen .v9916-task-title,
+#lesson .question-frame.v1017-match-screen #qStage,
+#lesson .question-frame.v1017-match-screen #qMeta,
+#lesson .question-frame.v1017-match-screen #qType,
+#lesson .question-frame.v1017-match-screen #questionText,
+#lesson .question-frame.v1017-match-screen .question-stage,
+#lesson .question-frame.v1017-match-screen .question,
+#lesson .question-frame.v1017-match-screen .qtype{
+  display:none!important;
+}
+
+/* Use existing narration control inside our hero flow. */
+#lesson .question-frame.v1017-match-screen .v960-narration-bar{
+  position:absolute!important;
+  z-index:7!important;
+  left:18px!important;
+  top:198px!important;
+  width:max-content!important;
+  max-width:68%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+#lesson .question-frame.v1017-match-screen .v960-narration-note{display:none!important}
+#lesson .question-frame.v1017-match-screen .v960-speak{
+  min-height:48px!important;
+  padding:0 17px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:9px!important;
+  border-radius:999px!important;
+  border:1.5px solid rgba(104,207,180,.58)!important;
+  background:linear-gradient(180deg,rgba(13,61,65,.86),rgba(8,44,53,.9))!important;
+  color:#f4f9f7!important;
+  font-size:13px!important;
+  font-weight:850!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.04),0 8px 20px rgba(0,0,0,.12)!important;
+}
+
+/* Authoritative component layers */
+#lesson .question-frame.v1017-match-screen .v1017-bg{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  overflow:hidden!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-bg:after{
+  content:""!important;
+  position:absolute!important;
+  left:-8%!important;
+  right:-8%!important;
+  bottom:-1px!important;
+  height:32%!important;
+  background:
+    radial-gradient(ellipse at 6% 102%,rgba(13,52,46,.96) 0 13%,transparent 14%),
+    radial-gradient(ellipse at 18% 106%,rgba(9,44,41,.96) 0 16%,transparent 17%),
+    radial-gradient(ellipse at 82% 105%,rgba(10,47,43,.94) 0 15%,transparent 16%),
+    radial-gradient(ellipse at 96% 102%,rgba(14,56,49,.95) 0 13%,transparent 14%),
+    linear-gradient(180deg,transparent 0 18%,rgba(4,25,31,.14) 52%,rgba(2,16,22,.62) 100%)!important;
+  opacity:.62!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-moon{
+  position:absolute!important;
+  right:50px!important;
+  top:132px!important;
+  width:44px!important;
+  height:44px!important;
+  border-radius:50%!important;
+  box-shadow:-13px 9px 0 0 #ffdda0,-13px 9px 26px rgba(255,204,116,.3)!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-mosque{
+  position:absolute!important;
+  right:-14px!important;
+  top:155px!important;
+  width:255px!important;
+  height:214px!important;
+  opacity:.31!important;
+  filter:drop-shadow(0 10px 25px rgba(0,0,0,.2))!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-hero{
+  position:relative!important;
+  z-index:5!important;
+  flex:0 0 auto!important;
+  width:100%!important;
+  padding:14px 0 0!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-title{
+  width:100%!important;
+  margin:0!important;
+  color:#fffaf2!important;
+  white-space:nowrap!important;
+  font-family:Inter,system-ui,sans-serif!important;
+  font-size:clamp(27px,7.2vw,36px)!important;
+  font-weight:950!important;
+  line-height:1.03!important;
+  letter-spacing:-.9px!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-title span{color:#91ebc8!important}
+#lesson .question-frame.v1017-match-screen .v1017-subtitle{
+  margin:7px 0 0!important;
+  max-width:88%!important;
+  color:#aec6ca!important;
+  font-size:clamp(12.5px,3.5vw,15px)!important;
+  font-weight:560!important;
+  line-height:1.35!important;
+}
+
+/* Answer area now gets real remaining viewport height. */
+#lesson .question-frame.v1017-match-screen #answerArea{
+  position:relative!important;
+  z-index:6!important;
+  flex:1 1 auto!important;
+  min-height:0!important;
+  width:100%!important;
+  margin:0!important;
+  padding:118px 0 0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  overflow:hidden!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-shell{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-board{
+  flex:0 0 auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr)!important;
+  column-gap:12px!important;
+  width:100%!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-col{
+  min-width:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:12px!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-card{
+  position:relative!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:82px!important;
+  padding:14px 44px 14px 16px!important;
+  border-radius:20px!important;
+  border:1px solid rgba(95,142,153,.54)!important;
+  background:
+    radial-gradient(circle at 12% 10%,rgba(111,226,190,.055),transparent 46%),
+    linear-gradient(180deg,rgba(18,57,68,.96),rgba(9,40,50,.99))!important;
+  color:#f6faf8!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.025),0 8px 19px rgba(0,0,0,.13)!important;
+  font-family:Inter,system-ui,sans-serif!important;
+  font-size:clamp(12px,3.35vw,15px)!important;
+  font-weight:720!important;
+  line-height:1.28!important;
+  text-align:left!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  overflow-wrap:anywhere!important;
+  cursor:pointer!important;
+  transition:transform .13s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-card[data-side="left"]{
+  font-size:clamp(15px,4vw,18px)!important;
+  font-weight:900!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-card:after{
+  content:""!important;
+  position:absolute!important;
+  right:13px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  width:24px!important;
+  height:24px!important;
+  border-radius:50%!important;
+  border:1.5px solid rgba(116,158,168,.5)!important;
+  background:rgba(4,29,37,.18)!important;
+  box-sizing:border-box!important;
+  display:grid!important;
+  place-items:center!important;
+  color:#073a37!important;
+  font-size:14px!important;
+  font-weight:1000!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-card:not(:disabled):active{
+  transform:scale(.985)!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-card.selected{
+  border-color:#79e4bd!important;
+  background:
+    radial-gradient(circle at 12% 10%,rgba(117,232,190,.14),transparent 48%),
+    linear-gradient(180deg,rgba(25,91,76,.97),rgba(11,57,57,.99))!important;
+  box-shadow:0 0 0 2px rgba(121,228,189,.08),0 0 22px rgba(80,221,173,.11)!important;
+  transform:translateY(-1px)!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-card.selected:after{
+  border-color:#7ce6bf!important;
+  background:#7ce6bf!important;
+  box-shadow:inset 0 0 0 5px #123f40!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-card.matched{
+  border-color:#77e9ba!important;
+  background:
+    radial-gradient(circle at 14% 15%,rgba(111,238,186,.19),transparent 45%),
+    linear-gradient(180deg,rgba(21,94,70,.98),rgba(9,59,54,.99))!important;
+  color:#effff7!important;
+  box-shadow:0 0 0 1px rgba(119,233,186,.11),0 0 24px rgba(75,222,166,.11)!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-card.matched:after{
+  content:"✓"!important;
+  border-color:#83ebc2!important;
+  background:#83ebc2!important;
+  color:#073a37!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-card.wrong{
+  border-color:#ff8a87!important;
+  background:linear-gradient(180deg,rgba(78,39,46,.97),rgba(48,27,34,.99))!important;
+  animation:v1017Wrong .28s ease!important;
+}
+@keyframes v1017Wrong{
+  0%,100%{transform:translateX(0)}
+  28%{transform:translateX(-4px)}
+  62%{transform:translateX(4px)}
+}
+
+/* Real footer: independent of board height. */
+#lesson .question-frame.v1017-match-screen .v1017-footer{
+  margin-top:auto!important;
+  flex:0 0 auto!important;
+  width:76%!important;
+  align-self:center!important;
+  padding:18px 0 2px!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-count{
+  margin:0 0 8px!important;
+  text-align:center!important;
+  color:#cbdadc!important;
+  font-size:12px!important;
+  font-weight:720!important;
+  line-height:1.2!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-meter{
+  width:100%!important;
+  height:6px!important;
+  overflow:hidden!important;
+  border:1px solid rgba(99,150,160,.35)!important;
+  border-radius:999px!important;
+  background:rgba(20,59,69,.74)!important;
+}
+#lesson .question-frame.v1017-match-screen .v1017-meter i{
+  display:block!important;
+  width:0;
+  height:100%!important;
+  border-radius:inherit!important;
+  background:linear-gradient(90deg,#72dfb8,#92edce)!important;
+  box-shadow:0 0 10px rgba(114,223,184,.24)!important;
+  transition:width .22s ease!important;
+}
+
+/* Pair-count density only affects this component. */
+#lesson .question-frame.v1017-match-screen[data-pairs="3"] .v1017-card{
+  min-height:94px!important;
+}
+#lesson .question-frame.v1017-match-screen[data-pairs="3"] .v1017-col{
+  gap:14px!important;
+}
+
+/* Small phones: preserve hierarchy without whole-screen scaling. */
+@media(max-width:390px){
+  #lesson .question-frame.v1017-match-screen{
+    padding-left:13px!important;
+    padding-right:13px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-title{
+    font-size:25px!important;
+    letter-spacing:-.7px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-subtitle{
+    font-size:11.5px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v960-narration-bar{
+    left:13px!important;
+    top:190px!important;
+  }
+  #lesson .question-frame.v1017-match-screen #answerArea{
+    padding-top:112px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-board{
+    column-gap:9px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-col{
+    gap:10px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-card{
+    min-height:72px!important;
+    padding:11px 36px 11px 12px!important;
+    border-radius:18px!important;
+    font-size:10.8px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-card[data-side="left"]{
+    font-size:13.5px!important;
+  }
+  #lesson .question-frame.v1017-match-screen[data-pairs="3"] .v1017-card{
+    min-height:82px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-mosque{
+    right:-26px!important;
+    top:151px!important;
+    width:235px!important;
+    height:205px!important;
+    opacity:.29!important;
+  }
+}
+@media(max-height:720px){
+  #lesson .question-frame.v1017-match-screen{
+    padding-top:64px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-hero{
+    padding-top:7px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-title{
+    font-size:23px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-subtitle{
+    margin-top:4px!important;
+    font-size:10.5px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v960-narration-bar{
+    top:168px!important;
+  }
+  #lesson .question-frame.v1017-match-screen #answerArea{
+    padding-top:96px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-card{
+    min-height:62px!important;
+  }
+  #lesson .question-frame.v1017-match-screen[data-pairs="3"] .v1017-card{
+    min-height:70px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-col{
+    gap:8px!important;
+  }
+  #lesson .question-frame.v1017-match-screen .v1017-footer{
+    padding-top:10px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #lesson .question-frame.v1017-match-screen .v1017-card,
+  #lesson .question-frame.v1017-match-screen .v1017-meter i{
+    transition:none!important;
+    animation:none!important;
+  }
+}
+</style>
+
+<script id="deen-v1017-authoritative-matching-js">
+(()=>{
+ if(window.__deenV1017AuthoritativeMatching)return;
+ window.__deenV1017AuthoritativeMatching=true;
+
+ const VERSION='10.1.7-AUTHORITATIVE-MATCHING';
+ let advanceTimer=0,rounds=0,hits=0,misses=0;
+
+ const shuffle=a=>{
+   const out=[...a];
+   for(let i=out.length-1;i>0;i--){
+     const j=Math.floor(Math.random()*(i+1));
+     [out[i],out[j]]=[out[j],out[i]];
+   }
+   return out;
+ };
+ const haptic=ok=>{try{navigator.vibrate?.(ok?14:[10,22,10])}catch(_){}};
+
+ function buildBackground(){
+   const bg=document.createElement('div');
+   bg.className='v1017-bg';
+   bg.setAttribute('aria-hidden','true');
+
+   const moon=document.createElement('span');
+   moon.className='v1017-moon';
+
+   const ns='http://www.w3.org/2000/svg';
+   const mosque=document.createElementNS(ns,'svg');
+   mosque.setAttribute('class','v1017-mosque');
+   mosque.setAttribute('viewBox','0 0 300 240');
+   mosque.setAttribute('aria-hidden','true');
+   mosque.innerHTML=
+    '<g fill="#0a2a34">'+
+      '<rect x="112" y="126" width="116" height="82" rx="3"/>'+
+      '<path d="M124 126 Q170 73 216 126 Z"/>'+
+      '<rect x="92" y="91" width="16" height="117" rx="2"/>'+
+      '<path d="M92 91 L100 68 L108 91 Z"/>'+
+      '<rect x="235" y="65" width="15" height="143" rx="2"/>'+
+      '<path d="M235 65 L242.5 42 L250 65 Z"/>'+
+      '<rect x="68" y="125" width="12" height="83" rx="2"/>'+
+      '<path d="M68 125 L74 108 L80 125 Z"/>'+
+      '<rect x="258" y="118" width="11" height="90" rx="2"/>'+
+      '<path d="M258 118 L263.5 101 L269 118 Z"/>'+
+    '</g>'+
+    '<g fill="#e8ad61" opacity=".82">'+
+      '<rect x="143" y="151" width="8" height="16" rx="4"/>'+
+      '<rect x="173" y="151" width="8" height="16" rx="4"/>'+
+      '<rect x="157" y="179" width="10" height="29" rx="5"/>'+
+      '<rect x="96" y="108" width="7" height="10" rx="3"/>'+
+      '<rect x="239" y="88" width="7" height="10" rx="3"/>'+
+    '</g>'+
+    '<path d="M0 208 Q38 182 83 207 T166 207 T250 204 T320 210 V240 H0Z" fill="#0b3038" opacity=".92"/>';
+
+   bg.append(moon,mosque);
+   return bg;
+ }
+
+ function makeHero(){
+   const hero=document.createElement('div');
+   hero.className='v1017-hero';
+   hero.innerHTML=
+     '<h1 class="v1017-title">Eşleşen <span>çiftleri</span> bul</h1>'+
+     '<p class="v1017-subtitle">Doğru kavramları anlamlarıyla eşleştir.</p>';
+   return hero;
+ }
+
+ function authoritativeMatching(q,area){
+   if(!q||!Array.isArray(q.pairs)||q.pairs.length<2)return false;
+
+   clearTimeout(advanceTimer);
+   rounds++;
+
+   const frame=document.querySelector('#lesson .question-frame');
+   if(!frame||!area)return false;
+
+   // Single owner: clean every legacy matching state before building.
+   frame.classList.remove('v853-match-mode','v1013-match-ref','v1014-three-pairs','v1014-four-pairs');
+   frame.classList.add('v1017-match-screen');
+   frame.dataset.pairs=String(q.pairs.length);
+   frame.style.transform='';
+   frame.style.width='100%';
+   frame.style.maxWidth='none';
+   document.getElementById('lesson')?.classList.remove('v9913-fitted');
+
+   frame.querySelector('.v1017-bg')?.remove();
+   frame.querySelector('.v1017-hero')?.remove();
+   frame.insertBefore(buildBackground(),frame.firstChild);
+
+   const hero=makeHero();
+   const narration=frame.querySelector('.v960-narration-bar');
+   if(narration)frame.insertBefore(hero,narration);
+   else frame.prepend(hero);
+
+   area.innerHTML='';
+
+   const shell=document.createElement('div');
+   shell.className='v1017-shell';
+
+   const board=document.createElement('div');
+   board.className='v1017-board';
+
+   const lcol=document.createElement('div');
+   lcol.className='v1017-col v1017-left';
+
+   const rcol=document.createElement('div');
+   rcol.className='v1017-col v1017-right';
+
+   const footer=document.createElement('div');
+   footer.className='v1017-footer';
+   footer.innerHTML=
+     '<div class="v1017-count"></div>'+
+     '<div class="v1017-meter"><i></i></div>';
+
+   board.append(lcol,rcol);
+   shell.append(board,footer);
+   area.append(shell);
+
+   const pairs=q.pairs.map((p,i)=>({
+     id:i,
+     left:String(p?.left??''),
+     right:String(p?.right??'')
+   }));
+   const left=shuffle(pairs.map(p=>({pair:p.id,text:p.left})));
+   const right=shuffle(pairs.map(p=>({pair:p.id,text:p.right})));
+
+   let selected=null,matched=0,errors=0,resolving=false,finished=false;
+   try{matchState={left:null,matched:new Set(),errors:0}}catch(_){}
+
+   function update(){
+     const count=footer.querySelector('.v1017-count');
+     const fill=footer.querySelector('.v1017-meter i');
+     if(count)count.textContent=matched+' / '+pairs.length+' eşleşme';
+     if(fill)fill.style.width=Math.round((matched/pairs.length)*100)+'%';
+   }
+
+   function make(side,item){
+     const b=document.createElement('button');
+     b.type='button';
+     b.className='v1017-card';
+     b.textContent=item.text;
+     b.dataset.pair=String(item.pair);
+     b.dataset.side=side;
+     b.setAttribute('aria-label',(side==='left'?'Kavram: ':'Eş: ')+item.text);
+     b.onclick=()=>pick(b);
+     return b;
+   }
+
+   left.forEach(x=>lcol.append(make('left',x)));
+   right.forEach(x=>rcol.append(make('right',x)));
+   update();
+
+   function finish(){
+     if(finished)return;
+     finished=true;
+     const ok=errors===0;
+     setTimeout(()=>{
+       try{completeQuestion(ok,q)}
+       catch(err){console.error('DEEN authoritative matching complete',err);return}
+       const title=document.getElementById('feedbackTitle');
+       if(title)title.textContent=ok?'✓ TÜM EŞLEŞMELER DOĞRU':'Eşleştirme tamamlandı';
+       try{
+         document.dispatchEvent(new CustomEvent('deen:matching:complete',{
+           detail:{version:VERSION,id:q.id||'',correct:ok,errors,pairs:pairs.length}
+         }))
+       }catch(_){}
+       if(ok){
+         advanceTimer=setTimeout(()=>{
+           const btn=document.getElementById('continueBtn');
+           if(btn&&!btn.disabled&&document.getElementById('feedback')?.classList.contains('show'))btn.click();
+         },1100);
+       }
+     },430);
+   }
+
+   function good(a,b){
+     resolving=true;hits++;matched++;haptic(true);
+     a.classList.remove('selected');
+     b.classList.remove('selected');
+     a.classList.add('matched');
+     b.classList.add('matched');
+     a.disabled=true;
+     b.disabled=true;
+     try{
+       matchState?.matched?.add?.(Number(a.dataset.pair));
+       if(matchState)matchState.left=null;
+     }catch(_){}
+     selected=null;
+     update();
+     setTimeout(()=>{
+       resolving=false;
+       if(matched>=pairs.length)finish();
+     },240);
+   }
+
+   function bad(a,b){
+     resolving=true;misses++;errors++;haptic(false);
+     a.classList.add('wrong');
+     b.classList.add('wrong');
+     try{if(matchState)matchState.errors=errors}catch(_){}
+     setTimeout(()=>{
+       a.classList.remove('wrong','selected');
+       b.classList.remove('wrong','selected');
+       selected=null;
+       resolving=false;
+       try{if(matchState)matchState.left=null}catch(_){}
+     },300);
+   }
+
+   function pick(b){
+     if(finished||resolving||b.disabled)return;
+
+     if(!selected){
+       selected=b;
+       b.classList.add('selected');
+       try{if(matchState)matchState.left=b}catch(_){}
+       return;
+     }
+     if(selected===b){
+       b.classList.remove('selected');
+       selected=null;
+       try{if(matchState)matchState.left=null}catch(_){}
+       return;
+     }
+     if(selected.dataset.side===b.dataset.side){
+       selected.classList.remove('selected');
+       selected=b;
+       b.classList.add('selected');
+       try{if(matchState)matchState.left=b}catch(_){}
+       return;
+     }
+
+     b.classList.add('selected');
+     const a=selected;
+     const ai=Number(a.dataset.pair),bi=Number(b.dataset.pair);
+     if(ai===bi)good(a,b);else bad(a,b);
+   }
+
+   return true;
+ }
+
+ try{
+   window.renderMatching=authoritativeMatching;
+   renderMatching=authoritativeMatching;
+ }catch(_){
+   window.renderMatching=authoritativeMatching;
+ }
+
+ // Keep old diagnostics pointing at the real owner.
+ try{
+   if(window.DEEN_MATCHING_MINIGAME)window.DEEN_MATCHING_MINIGAME.render=authoritativeMatching;
+ }catch(_){}
+
+ document.addEventListener('deen:question-rendering',()=>{
+   clearTimeout(advanceTimer);
+   const f=document.querySelector('#lesson .question-frame');
+   if(!f)return;
+   f.classList.remove('v1017-match-screen');
+   delete f.dataset.pairs;
+   f.querySelector('.v1017-bg')?.remove();
+   f.querySelector('.v1017-hero')?.remove();
+ });
+
+ window.DEEN_AUTHORITATIVE_MATCHING={
+   version:VERSION,
+   render:authoritativeMatching,
+   check:()=>({
+     version:VERSION,
+     active:!!document.querySelector('#lesson .question-frame.v1017-match-screen'),
+     cards:document.querySelectorAll('#lesson .v1017-card').length,
+     transform:document.querySelector('#lesson .question-frame')?.style.transform||'',
+     fitted:document.getElementById('lesson')?.classList.contains('v9913-fitted')||false,
+     rounds,hits,misses
+   })
+ };
+ document.documentElement.dataset.deenMatchingOwner='v1017';
 })();
 </script>
