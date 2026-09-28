@@ -10432,3 +10432,337 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
+
+
+<!-- DEEN v10.1.3 — Reference-inspired premium matching screen -->
+<style id="deen-v1013-reference-matching-css">
+#lesson .question-frame.v1013-match-ref{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  padding:72px 14px 14px!important;
+  border:1px solid rgba(92,155,160,.28)!important;
+  border-radius:24px!important;
+  background:
+    radial-gradient(circle at 82% 20%,rgba(34,128,132,.22),transparent 29%),
+    radial-gradient(circle at 16% 76%,rgba(35,116,91,.12),transparent 31%),
+    linear-gradient(180deg,#062c38 0%,#062630 48%,#041b25 100%)!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.018),
+    0 16px 42px rgba(0,0,0,.24)!important;
+}
+#lesson .question-frame.v1013-match-ref .v1013-match-scenery{
+  position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden
+}
+#lesson .question-frame.v1013-match-ref .v1013-match-scenery:before{
+  content:"";position:absolute;right:48px;top:126px;width:34px;height:34px;border-radius:50%;
+  background:#ffdda0;box-shadow:0 0 22px rgba(255,201,108,.38)
+}
+#lesson .question-frame.v1013-match-ref .v1013-match-scenery .v1013-moon-cut{
+  position:absolute;right:37px;top:118px;width:34px;height:34px;border-radius:50%;
+  background:#07303b
+}
+#lesson .question-frame.v1013-match-ref .v1013-match-scenery:after{
+  content:"";position:absolute;right:-6%;top:150px;width:58%;height:166px;
+  opacity:.18;
+  background:linear-gradient(180deg,#173f49,#0c2832);
+  clip-path:polygon(
+    0 100%,0 77%,7% 77%,7% 61%,10% 61%,10% 39%,12% 31%,14% 39%,14% 61%,
+    21% 61%,21% 72%,29% 72%,29% 58%,33% 58%,33% 44%,37% 37%,41% 44%,41% 58%,
+    49% 58%,49% 73%,55% 73%,55% 51%,58% 51%,58% 31%,60% 23%,62% 31%,62% 51%,
+    69% 51%,69% 72%,76% 72%,76% 57%,80% 57%,80% 43%,83% 35%,86% 43%,86% 57%,
+    92% 57%,92% 70%,96% 70%,96% 44%,98% 36%,100% 44%,100% 100%
+  )
+}
+#lesson .question-frame.v1013-match-ref .v9916-task-title,
+#lesson .question-frame.v1013-match-ref .v1013-match-subtitle,
+#lesson .question-frame.v1013-match-ref .v960-narration-bar,
+#lesson .question-frame.v1013-match-ref #answerArea{
+  position:relative;z-index:2
+}
+
+#lesson .question-frame.v1013-match-ref #v9914ExitLesson{
+  left:12px!important;top:12px!important;width:42px!important;height:42px!important;
+  border-radius:15px!important;border:1px solid rgba(91,151,158,.32)!important;
+  background:rgba(7,42,52,.78)!important;color:#fff2dc!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.035)!important;
+  font-size:28px!important;line-height:1!important
+}
+#lesson .question-frame.v1013-match-ref #v9914MiniProgress{
+  left:72px!important;right:72px!important;top:28px!important;height:6px!important;
+  border:1px solid rgba(108,163,170,.28)!important;border-radius:999px!important;
+  background:rgba(25,67,78,.76)!important;overflow:hidden!important
+}
+#lesson .question-frame.v1013-match-ref #v9914MiniProgress i{
+  background:linear-gradient(90deg,#70e5bd,#8ce9c9)!important;
+  box-shadow:0 0 12px rgba(112,229,189,.28)!important
+}
+#lesson .question-frame.v1013-match-ref #v9916MiniEnergy{
+  right:12px!important;top:12px!important;width:auto!important;min-width:50px!important;height:42px!important;
+  padding:0 11px!important;border-radius:15px!important;
+  border:1px solid rgba(91,151,158,.28)!important;
+  background:rgba(7,42,52,.78)!important;color:#f7fbfa!important;
+  font-size:14px!important;gap:5px!important
+}
+#lesson .question-frame.v1013-match-ref #v9916MiniEnergy i{
+  color:#ff8079!important;font-size:18px!important
+}
+
+#lesson .question-frame.v1013-match-ref .v9916-task-title{
+  margin:9px 0 4px!important;
+  max-width:88%!important;
+  color:#fffaf2!important;
+  font-size:clamp(26px,7vw,34px)!important;
+  font-weight:950!important;line-height:1.03!important;letter-spacing:-.9px!important
+}
+#lesson .question-frame.v1013-match-ref .v9916-task-title .v1013-mint{color:#91ebc8}
+#lesson .question-frame.v1013-match-ref .v1013-match-subtitle{
+  margin:0 0 13px!important;max-width:92%;
+  color:#acc5ca;font-size:clamp(12px,3.55vw,15px);font-weight:560;line-height:1.35
+}
+#lesson .question-frame.v1013-match-ref .qtype,
+#lesson .question-frame.v1013-match-ref #qType,
+#lesson .question-frame.v1013-match-ref #questionText{
+  display:none!important
+}
+
+/* Narration becomes the compact reference pill. */
+#lesson .question-frame.v1013-match-ref .v960-narration-bar{
+  width:max-content!important;max-width:76%!important;
+  display:flex!important;align-items:center!important;
+  margin:2px 0 14px!important;padding:0!important;
+  border:0!important;background:transparent!important
+}
+#lesson .question-frame.v1013-match-ref .v960-narration-note{display:none!important}
+#lesson .question-frame.v1013-match-ref .v960-speak{
+  min-height:44px!important;padding:0 16px!important;
+  display:flex!important;align-items:center!important;gap:9px!important;
+  border-radius:999px!important;border:1px solid rgba(104,207,180,.58)!important;
+  background:linear-gradient(180deg,rgba(13,61,65,.82),rgba(8,44,53,.86))!important;
+  color:#f2f8f5!important;font-size:13px!important;font-weight:850!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.04),0 8px 20px rgba(0,0,0,.12)!important
+}
+#lesson .question-frame.v1013-match-ref .v960-speak>span:first-child{
+  color:#75e2bd!important;font-size:17px!important
+}
+
+/* Matching board: two clean columns, large touch targets, radio/check affordances. */
+#lesson .question-frame.v1013-match-ref #answerArea{
+  flex:1 1 auto!important;min-height:0!important;
+  display:flex!important;flex-direction:column!important;justify-content:flex-start!important;
+  gap:0!important
+}
+#lesson .question-frame.v1013-match-ref .match-column-title{display:none!important}
+#lesson .question-frame.v1013-match-ref .match-grid{
+  width:100%!important;display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.04fr)!important;
+  grid-auto-rows:minmax(58px,auto)!important;
+  gap:9px!important;align-content:start!important;margin:0!important
+}
+#lesson .question-frame.v1013-match-ref .match-card{
+  position:relative!important;min-width:0!important;
+  min-height:clamp(58px,8.3dvh,72px)!important;
+  padding:11px 40px 11px 13px!important;
+  border-radius:18px!important;
+  border:1px solid rgba(95,140,153,.48)!important;
+  background:linear-gradient(180deg,rgba(14,52,63,.92),rgba(8,37,47,.95))!important;
+  color:#f4f8f7!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.025),0 8px 18px rgba(0,0,0,.12)!important;
+  text-align:left!important;font-size:clamp(11px,3.25vw,14px)!important;
+  line-height:1.28!important;overflow-wrap:anywhere!important;
+  transition:transform .14s ease,border-color .17s ease,background .17s ease,box-shadow .17s ease,opacity .17s ease!important
+}
+#lesson .question-frame.v1013-match-ref .match-card.match-left{
+  font-weight:900!important;font-size:clamp(13px,3.65vw,16px)!important
+}
+#lesson .question-frame.v1013-match-ref .match-card.match-right{font-weight:650!important}
+#lesson .question-frame.v1013-match-ref .match-card:after{
+  content:"";position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  width:21px;height:21px;border-radius:50%;
+  border:1.5px solid rgba(121,159,169,.48);
+  background:rgba(5,29,38,.18);
+  box-sizing:border-box
+}
+#lesson .question-frame.v1013-match-ref .match-card:not(.matched):not(.sel):active{
+  transform:scale(.98)!important
+}
+#lesson .question-frame.v1013-match-ref .match-card.sel{
+  border-color:#79e5bd!important;
+  background:linear-gradient(180deg,rgba(24,90,74,.92),rgba(11,58,57,.96))!important;
+  transform:translateY(-1px)!important;
+  box-shadow:0 0 0 2px rgba(121,229,189,.08),0 0 22px rgba(76,221,174,.12)!important
+}
+#lesson .question-frame.v1013-match-ref .match-card.sel:after{
+  border-color:#7ce6bf;background:#7ce6bf;
+  box-shadow:inset 0 0 0 5px #123e3f
+}
+#lesson .question-frame.v1013-match-ref .match-card.matched{
+  opacity:1!important;pointer-events:none!important;transform:none!important;
+  border-color:#76e8b9!important;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(102,232,182,.18),transparent 42%),
+    linear-gradient(180deg,rgba(21,92,69,.95),rgba(10,59,55,.98))!important;
+  color:#f1fff8!important;
+  box-shadow:0 0 0 1px rgba(118,232,185,.12),0 0 24px rgba(82,224,169,.12)!important
+}
+#lesson .question-frame.v1013-match-ref .match-card.matched:after{
+  content:"✓";display:grid;place-items:center;
+  border-color:#82eac2;background:#82eac2;color:#073a37;
+  font-size:14px;font-weight:1000
+}
+#lesson .question-frame.v1013-match-ref .match-card.match-error,
+#lesson .question-frame.v1013-match-ref .match-card.error{
+  border-color:#ff8b87!important;
+  background:linear-gradient(180deg,rgba(79,39,45,.95),rgba(49,28,35,.98))!important;
+  animation:v1013MatchShake .23s ease!important
+}
+@keyframes v1013MatchShake{
+  0%,100%{transform:translateX(0)}
+  30%{transform:translateX(-4px)}
+  68%{transform:translateX(4px)}
+}
+
+/* Reference-style bottom match counter and meter. */
+#lesson .question-frame.v1013-match-ref .matching-progress{
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;gap:7px!important;
+  width:72%!important;margin:auto auto 0!important;padding:14px 0 1px!important;
+  color:#c6d7d9!important;font-size:11px!important;font-weight:650!important
+}
+#lesson .question-frame.v1013-match-ref .matching-progress>span{
+  color:#c9d9da!important;font-size:11px!important;letter-spacing:.1px!important
+}
+#lesson .question-frame.v1013-match-ref .matching-progress-dot{display:none!important}
+#lesson .question-frame.v1013-match-ref .v1013-match-meter{
+  position:relative;width:100%;height:5px;border-radius:999px;
+  border:1px solid rgba(103,153,163,.36);background:rgba(20,58,68,.72);overflow:hidden
+}
+#lesson .question-frame.v1013-match-ref .v1013-match-meter>i{
+  display:block;width:0;height:100%;border-radius:inherit;
+  background:linear-gradient(90deg,#72dfb8,#91edcd);
+  box-shadow:0 0 10px rgba(114,223,184,.25);
+  transition:width .22s ease
+}
+
+@media(max-width:390px){
+  #lesson .question-frame.v1013-match-ref{padding-left:11px!important;padding-right:11px!important}
+  #lesson .question-frame.v1013-match-ref .v9916-task-title{font-size:24px!important}
+  #lesson .question-frame.v1013-match-ref .v1013-match-subtitle{font-size:11.5px!important;margin-bottom:10px!important}
+  #lesson .question-frame.v1013-match-ref .v960-narration-bar{margin-bottom:11px!important}
+  #lesson .question-frame.v1013-match-ref .v960-speak{min-height:40px!important;padding:0 13px!important;font-size:12px!important}
+  #lesson .question-frame.v1013-match-ref .match-grid{gap:7px!important}
+  #lesson .question-frame.v1013-match-ref .match-card{
+    min-height:54px!important;padding:9px 34px 9px 10px!important;border-radius:15px!important;
+    font-size:10.5px!important
+  }
+  #lesson .question-frame.v1013-match-ref .match-card.match-left{font-size:12.5px!important}
+  #lesson .question-frame.v1013-match-ref .match-card:after{right:9px;width:19px;height:19px}
+  #lesson .question-frame.v1013-match-ref .matching-progress{padding-top:10px!important}
+  #lesson .question-frame.v1013-match-ref .v1013-match-scenery:after{top:148px;height:145px}
+}
+@media(max-height:720px){
+  #lesson .question-frame.v1013-match-ref{padding-top:62px!important}
+  #lesson .question-frame.v1013-match-ref .v9916-task-title{margin-top:4px!important;margin-bottom:2px!important;font-size:22px!important}
+  #lesson .question-frame.v1013-match-ref .v1013-match-subtitle{margin-bottom:7px!important;font-size:10.5px!important}
+  #lesson .question-frame.v1013-match-ref .v960-narration-bar{margin-bottom:8px!important}
+  #lesson .question-frame.v1013-match-ref .v960-speak{min-height:36px!important}
+  #lesson .question-frame.v1013-match-ref .match-card{min-height:48px!important}
+  #lesson .question-frame.v1013-match-ref .matching-progress{padding-top:7px!important;gap:5px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #lesson .question-frame.v1013-match-ref .match-card,
+  #lesson .question-frame.v1013-match-ref .v1013-match-meter>i{transition:none!important}
+}
+</style>
+
+<script id="deen-v1013-reference-matching-js">
+(()=>{
+ if(window.__deenV1013ReferenceMatching)return;window.__deenV1013ReferenceMatching=true;
+ const VERSION='10.1.3-REFERENCE-MATCHING';
+ let observer=null;
+
+ function currentQuestion(){
+   try{return session?.questions?.[session?.index]||null}catch(_){return null}
+ }
+ function isMatching(q=currentQuestion()){return q?.activity_type==='matching'}
+ function frame(){return document.querySelector('#lesson .question-frame')}
+ function syncProgress(f){
+   if(!f)return;
+   const left=[...f.querySelectorAll('.match-card.match-left')];
+   const total=left.length;
+   const done=left.filter(x=>x.classList.contains('matched')).length;
+   const progress=f.querySelector('.matching-progress');
+   if(!progress||!total)return;
+   let meter=progress.querySelector('.v1013-match-meter');
+   if(!meter){
+     meter=document.createElement('div');
+     meter.className='v1013-match-meter';
+     meter.innerHTML='<i></i>';
+     progress.appendChild(meter);
+   }
+   meter.querySelector('i')?.style.setProperty('width',Math.round(done/total*100)+'%');
+ }
+ function scenery(f){
+   let s=f.querySelector(':scope > .v1013-match-scenery');
+   if(s)return s;
+   s=document.createElement('div');
+   s.className='v1013-match-scenery';
+   s.setAttribute('aria-hidden','true');
+   s.innerHTML='<span class="v1013-moon-cut"></span>';
+   f.prepend(s);
+   return s;
+ }
+ function title(f){
+   const h=f.querySelector('.v9916-task-title');
+   if(h)h.innerHTML='Eşleşen <span class="v1013-mint">çiftleri</span> bul';
+   let sub=f.querySelector('.v1013-match-subtitle');
+   if(!sub){
+     sub=document.createElement('div');
+     sub.className='v1013-match-subtitle';
+     sub.textContent='Doğru kavramları anlamlarıyla eşleştir.';
+     h?.insertAdjacentElement('afterend',sub);
+   }
+ }
+ function watch(f){
+   try{observer?.disconnect?.()}catch(_){}
+   const grid=f.querySelector('.match-grid');
+   if(!grid||!('MutationObserver' in window))return;
+   observer=new MutationObserver(()=>syncProgress(f));
+   observer.observe(grid,{subtree:true,attributes:true,attributeFilter:['class']});
+ }
+ function clear(){
+   try{observer?.disconnect?.()}catch(_){}
+   observer=null;
+   const f=frame();if(!f)return;
+   f.classList.remove('v1013-match-ref');
+   f.querySelector(':scope > .v1013-match-scenery')?.remove();
+   f.querySelector('.v1013-match-subtitle')?.remove();
+ }
+ function apply(){
+   const q=currentQuestion(),f=frame();
+   if(!f)return false;
+   if(!isMatching(q)){clear();return false}
+   f.classList.add('v1013-match-ref');
+   scenery(f);title(f);syncProgress(f);watch(f);
+   return true;
+ }
+ function schedule(){
+   [0,90,180,320].forEach(ms=>setTimeout(()=>{try{apply()}catch(_){}},ms));
+ }
+ document.addEventListener('deen:question-rendering',()=>{try{clear()}catch(_){}});
+ document.addEventListener('deen:question-rendered',schedule);
+ document.addEventListener('deen:question-graded',schedule);
+ window.DEEN_REFERENCE_MATCHING={
+   version:VERSION,
+   apply,
+   check:()=>({
+     version:VERSION,
+     active:!!document.querySelector('#lesson .question-frame.v1013-match-ref'),
+     title:document.querySelector('#lesson .v9916-task-title')?.textContent||'',
+     cards:document.querySelectorAll('#lesson .v1013-match-ref .match-card').length,
+     matched:document.querySelectorAll('#lesson .v1013-match-ref .match-left.matched').length,
+     meter:!!document.querySelector('#lesson .v1013-match-ref .v1013-match-meter')
+   })
+ };
+})();
+</script>
