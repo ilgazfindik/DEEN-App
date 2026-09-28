@@ -8343,8 +8343,8 @@ if(typeof LEGACY_RENDER==='function'){
 (()=>{
  if(window.__deenV9988RuntimeRegression)return;
  window.__deenV9988RuntimeRegression=true;
- const VERSION='9.10.0-RUNTIME-REGRESSION';
- const BUILD='9100combovisfinal1';
+ const VERSION='9.10.1-RUNTIME-REGRESSION';
+ const BUILD='9101singlecompanion1';
  let last=null,runs=0;
 
  function checks(){
@@ -9213,6 +9213,8 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
+<!-- DEEN v9.10.1 — Single selected companion, no card/no random media -->
+<style id="deen-v9101-single-companion-marker"></style>
 <!-- DEEN v9.10.0 — Final combo visibility: allow keyframes to own opacity/transform -->
 <style id="deen-v9100-combo-visibility-final-marker"></style>
 <!-- DEEN v9.9.99 — Combo visibility watchdog: never stay opacity:0 -->
@@ -9290,8 +9292,8 @@ if(typeof LEGACY_RENDER==='function'){
  window.__deenV9997ComboCanvas=true;
  window.__DEEN_COMBO_CANVAS_ACTIVE=true;
 
- const VERSION='9.10.0-COMBO-VISIBILITY-FINAL';
- const BUILD='9100combovisfinal1';
+ const VERSION='9.10.1-SINGLE-COMPANION-COMBO';
+ const BUILD='9101singlecompanion1';
  const RENDER_MIN_WIDTH=480;
  const RENDER_MAX_WIDTH=640;
 
@@ -9481,6 +9483,7 @@ if(typeof LEGACY_RENDER==='function'){
  }
 
  function show(detail={}){
+   if(window.__DEEN_SINGLE_COMPANION_COMBO_ACTIVE===true)return false;
    disableOldOverlays();
 
    const companion=selectedCompanion();
@@ -9634,14 +9637,242 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.10.0-PRODUCTION',BUILD='9100combovisfinal1',TITLE='DEEN v9.10.0';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<!-- DEEN v9.10.1 — Single selected companion combo celebration -->
+<style id="deen-v9101-single-companion-combo-css">
+#deenSingleCompanionCombo{
+  position:absolute!important;
+  inset:0!important;
+  z-index:2147483070!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  pointer-events:none!important;
+  overflow:hidden!important;
+  background:transparent!important;
+}
+#deenSingleCompanionCombo.closing{
+  animation:deen9101OverlayOut .18s ease forwards!important;
+}
+#deenSingleCompanionCombo .deen9101-companion{
+  display:block!important;
+  width:min(72%,330px)!important;
+  max-height:68%!important;
+  height:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 20px 30px rgba(0,0,0,.24))!important;
+  opacity:0;
+  transform:translate3d(0,42vh,0) scale(.94);
+  animation:deen9101Rise .82s cubic-bezier(.16,.92,.22,1.03) forwards!important;
+  will-change:transform,opacity!important;
+}
+@keyframes deen9101Rise{
+  0%{
+    opacity:0;
+    transform:translate3d(0,42vh,0) scale(.94);
+  }
+  58%{
+    opacity:1;
+    transform:translate3d(0,-14px,0) scale(1.025);
+  }
+  78%{
+    opacity:1;
+    transform:translate3d(0,4px,0) scale(.995);
+  }
+  100%{
+    opacity:1;
+    transform:translate3d(0,0,0) scale(1);
+  }
+}
+@keyframes deen9101OverlayOut{
+  to{opacity:0}
+}
+@media(max-width:420px){
+  #deenSingleCompanionCombo .deen9101-companion{
+    width:min(76%,300px)!important;
+    max-height:64%!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #deenSingleCompanionCombo .deen9101-companion,
+  #deenSingleCompanionCombo.closing{
+    animation-duration:.01ms!important;
+  }
+}
+</style>
+<script id="deen-v9101-single-companion-combo-js">
+(()=>{
+ if(window.__deenV9101SingleCompanionCombo)return;
+ window.__deenV9101SingleCompanionCombo=true;
+ window.__DEEN_SINGLE_COMPANION_COMBO_ACTIVE=true;
+
+ const VERSION='9.10.1-SINGLE-COMPANION-COMBO';
+ const BUILD='9101singlecompanion1';
+
+ let active=null;
+ let timer=0;
+ let lastKey='';
+ let shows=0;
+ let fallbacks=0;
+
+ function selectedCompanion(){
+   try{
+     return String(
+       window.DEEN_COMPANION_ASSETS?.selected?.() ||
+       state?.profile?.companion ||
+       'owl'
+     ).toLowerCase();
+   }catch(_){
+     return 'owl';
+   }
+ }
+
+ function assetForSelected(){
+   try{
+     const src=window.DEEN_COMPANION_ASSETS?.asset?.('celebrate');
+     if(src)return src;
+   }catch(_){}
+
+   const id=selectedCompanion();
+   return 'assets/companions/'+id+'/'+id+'_celebrate.png';
+ }
+
+ function keyFor(detail={}){
+   if(detail.key)return String(detail.key);
+   const q=detail.question||null;
+   let index=0;
+   try{index=Number(detail.index ?? session?.index ?? 0)||0}catch(_){}
+   return index+'::'+String(q?.id||q?.question_id||q?.question||q?.prompt||'');
+ }
+
+ function destroyLegacyCombo(){
+   try{window.DEEN_COMBO_MEDIA?.clear?.(true)}catch(_){}
+   try{window.DEEN_COMBO_WEBM?.clear?.(true)}catch(_){}
+   try{window.DEEN_COMBO_CANVAS?.clear?.(true)}catch(_){}
+
+   document.getElementById('deenComboMediaOverlay')?.remove();
+   document.getElementById('deenComboWebmOverlay')?.remove();
+   document.getElementById('deenComboCanvasOverlay')?.remove();
+   document.getElementById('deenStreakOverlay')?.classList?.add?.('closing');
+ }
+
+ function clear(immediate=false){
+   clearTimeout(timer);
+   timer=0;
+
+   const node=active;
+   active=null;
+   if(!node)return false;
+
+   if(immediate){
+     try{node.remove()}catch(_){}
+     return true;
+   }
+
+   node.classList.add('closing');
+   setTimeout(()=>{try{node.remove()}catch(_){}},190);
+   return true;
+ }
+
+ function show(detail={}){
+   destroyLegacyCombo();
+
+   const key=keyFor(detail);
+   if(key && key===lastKey && active)return false;
+   lastKey=key;
+
+   clear(true);
+
+   const quiz=document.getElementById('quizView');
+   if(!quiz)return false;
+
+   if(getComputedStyle(quiz).position==='static'){
+     quiz.style.position='relative';
+   }
+
+   const overlay=document.createElement('div');
+   overlay.id='deenSingleCompanionCombo';
+   overlay.setAttribute('aria-hidden','true');
+
+   const head=document.querySelector('#quizView .lesson-head');
+   const headHeight=Math.max(0,Math.round(head?.getBoundingClientRect?.().height||70));
+   overlay.style.top=headHeight+'px';
+
+   const img=document.createElement('img');
+   img.className='deen9101-companion';
+   img.alt='';
+   img.decoding='async';
+   img.src=assetForSelected()+(assetForSelected().includes('?')?'&':'?')+'v='+BUILD;
+
+   img.onerror=()=>{
+     fallbacks++;
+     const id=selectedCompanion();
+     img.src='assets/companions/'+id+'/'+id+'_idle.png?v='+BUILD;
+   };
+
+   overlay.appendChild(img);
+   quiz.appendChild(overlay);
+   active=overlay;
+   shows++;
+
+   timer=setTimeout(()=>clear(false),1800);
+   try{navigator.vibrate?.([18,24,18])}catch(_){}
+   return true;
+ }
+
+ function maybe(detail={}){
+   const combo=Math.max(0,Number(detail.combo)||0);
+   if(detail.correct===true && combo===3){
+     return show(detail);
+   }
+   if(detail.correct!==true){
+     clear(true);
+     lastKey='';
+   }
+   return false;
+ }
+
+ document.addEventListener('deen:question-graded',event=>maybe(event?.detail||{}));
+ document.addEventListener('deen:question-advancing',()=>clear(true));
+ document.addEventListener('deen:question-rendering',()=>clear(true));
+ document.addEventListener('deen:lesson-result',()=>clear(true));
+ document.addEventListener('deen:lesson-closed',()=>clear(true));
+ document.addEventListener('deen:navigating',()=>clear(true));
+ document.addEventListener('deen:question-rendered',destroyLegacyCombo);
+
+ destroyLegacyCombo();
+
+ window.DEEN_SINGLE_COMPANION_COMBO={
+   version:VERSION,
+   build:BUILD,
+   show,
+   clear,
+   selected:selectedCompanion,
+   snapshot:()=>({
+     version:VERSION,
+     build:BUILD,
+     selected:selectedCompanion(),
+     shows,
+     fallbacks,
+     active:!!active,
+     lastKey
+   })
+ };
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.10.1-PRODUCTION',BUILD='9101singlecompanion1',TITLE='DEEN v9.10.1';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
 <!-- DEEN v9.9.88 — Final release freeze manifest -->
 <script id="deen-v9988-release-freeze-js">
 (()=>{
- const VERSION='9.10.0',BUILD='9100combovisfinal1';
+ const VERSION='9.10.1',BUILD='9101singlecompanion1';
  function snapshot(){
   const checks={
-   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.10.0-PRODUCTION',
+   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.10.1-PRODUCTION',
    arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.93-RUNTIME-ARBITER',
    regression:window.DEEN_RUNTIME_REGRESSION?.build===BUILD,
    adminRemoved:!window.DEEN_ADMIN_PANEL&&!document.getElementById('deenAdminTestPanel'),
