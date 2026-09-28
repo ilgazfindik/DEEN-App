@@ -2739,7 +2739,21 @@
   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9918',event?.detail,apply,{"raf":true,"delays":[60]}))apply();
  });
  document.addEventListener('deen:question-graded',event=>{
-  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9918',event?.detail,apply,{"raf":false,"delays":[0]}))apply();
+  /*
+    Do not rebuild the question row after grading. mount() removes the whole
+    row, which also destroys the runtime companion <img>. The question has not
+    changed here, so preserve the existing DOM and only repair if the row is
+    genuinely missing.
+  */
+  const preserve=()=>{
+    const f=frame();
+    const row=f?.querySelector('.deen-character-question-row');
+    if(!row)return apply();
+    f.classList.add('deen-character-question-mode');
+    try{window.DEEN_MOBILE_LESSON?.fit?.()}catch(e){}
+    return true;
+  };
+  if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v9918-grade-preserve',event?.detail,preserve,{"raf":true,"delays":[80]}))requestAnimationFrame(preserve);
  });
 
  window.DEEN_CHARACTER_QUESTION={
@@ -8159,8 +8173,8 @@ if(typeof LEGACY_RENDER==='function'){
 (()=>{
  if(window.__deenV9988RuntimeRegression)return;
  window.__deenV9988RuntimeRegression=true;
- const VERSION='9.9.91-RUNTIME-REGRESSION';
- const BUILD='9991streakbridge1';
+ const VERSION='9.9.92-RUNTIME-REGRESSION';
+ const BUILD='9992companionpersist1';
  let last=null,runs=0;
 
  function checks(){
@@ -8276,14 +8290,114 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.91-PRODUCTION',BUILD='9991streakbridge1',TITLE='DEEN v9.9.91';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<!-- DEEN v9.9.92 — Preserve the visible lesson companion through feedback -->
+<style id="deen-v9992-feedback-companion-persistence-css">
+#lesson .question-frame.v9945-feedback-mode .deen-character-question-row,
+#lesson .question-frame.v9945-feedback-mode .deen-character-question-avatar,
+#lesson .question-frame.v9945-feedback-mode .deen-companion-runtime-img{
+  visibility:visible!important;
+  opacity:1!important;
+}
+#lesson .question-frame.v9945-feedback-mode .deen-character-question-avatar{
+  display:grid!important;
+}
+#lesson .question-frame.v9945-feedback-mode .deen-companion-runtime-img{
+  display:block!important;
+}
+</style>
+<script id="deen-v9992-feedback-companion-persistence-js">
+(()=>{
+ if(window.__deenV9992FeedbackCompanionPersistence)return;
+ window.__deenV9992FeedbackCompanionPersistence=true;
+
+ const VERSION='9.9.92-FEEDBACK-COMPANION-PERSISTENCE';
+ const BUILD='9992companionpersist1';
+ let repairs=0,last=null;
+
+ async function ensure(detail){
+   const f=document.querySelector('#lesson .question-frame');
+   if(!f)return false;
+
+   let row=f.querySelector('.deen-character-question-row');
+   if(!row){
+     try{window.DEEN_CHARACTER_QUESTION?.apply?.()}catch(_){}
+     row=f.querySelector('.deen-character-question-row');
+   }
+   if(!row)return false;
+
+   let avatar=row.querySelector('.deen-character-question-avatar');
+   if(!avatar)return false;
+
+   avatar.style.setProperty('display','grid','important');
+   avatar.style.setProperty('visibility','visible','important');
+   avatar.style.setProperty('opacity','1','important');
+
+   let img=avatar.querySelector('.deen-companion-runtime-img');
+   if(!img){
+     try{await window.DEEN_COMPANION_ASSETS?.renderLesson?.('lesson_idle')}catch(_){}
+     avatar=row.querySelector('.deen-character-question-avatar');
+     img=avatar?.querySelector('.deen-companion-runtime-img')||null;
+     if(img)repairs++;
+   }
+
+   if(img){
+     img.style.setProperty('display','block','important');
+     img.style.setProperty('visibility','visible','important');
+     img.style.setProperty('opacity','1','important');
+   }
+
+   last={
+     at:Date.now(),
+     epoch:Number(detail?.epoch)||0,
+     key:String(detail?.key||''),
+     correct:detail?.correct===true,
+     row:!!row,
+     avatar:!!avatar,
+     image:!!img,
+     animal:avatar?.dataset?.animal||null
+   };
+   return !!img;
+ }
+
+ document.addEventListener('deen:question-graded',event=>{
+   const detail=event?.detail||{};
+   const run=()=>ensure(detail);
+   if(!window.DEEN_RUNTIME_SCHEDULE?.question?.(
+     'v9992-feedback-companion',
+     detail,
+     run,
+     {raf:true,delays:[24,120,360]}
+   )){
+     requestAnimationFrame(run);
+     setTimeout(run,120);
+   }
+ });
+
+ window.DEEN_FEEDBACK_COMPANION_PERSISTENCE={
+   version:VERSION,
+   build:BUILD,
+   ensure,
+   snapshot:()=>({
+     version:VERSION,
+     build:BUILD,
+     repairs,
+     row:!!document.querySelector('#lesson .deen-character-question-row'),
+     avatar:!!document.querySelector('#lesson .deen-character-question-avatar'),
+     image:!!document.querySelector('#lesson .deen-companion-runtime-img'),
+     last:last?{...last}:null
+   })
+ };
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.92-PRODUCTION',BUILD='9992companionpersist1',TITLE='DEEN v9.9.92';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
 <!-- DEEN v9.9.88 — Final release freeze manifest -->
 <script id="deen-v9988-release-freeze-js">
 (()=>{
- const VERSION='9.9.91',BUILD='9991streakbridge1';
+ const VERSION='9.9.92',BUILD='9992companionpersist1';
  function snapshot(){
   const checks={
-   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.91-PRODUCTION',
+   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.92-PRODUCTION',
    arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.90-RUNTIME-ARBITER',
    regression:window.DEEN_RUNTIME_REGRESSION?.build===BUILD,
    adminRemoved:!window.DEEN_ADMIN_PANEL&&!document.getElementById('deenAdminTestPanel'),
