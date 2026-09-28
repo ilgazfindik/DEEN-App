@@ -8159,8 +8159,8 @@ if(typeof LEGACY_RENDER==='function'){
 (()=>{
  if(window.__deenV9988RuntimeRegression)return;
  window.__deenV9988RuntimeRegression=true;
- const VERSION='9.9.90-RUNTIME-REGRESSION';
- const BUILD='9990feedbackfix1';
+ const VERSION='9.9.91-RUNTIME-REGRESSION';
+ const BUILD='9991streakbridge1';
  let last=null,runs=0;
 
  function checks(){
@@ -8208,15 +8208,83 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.90-PRODUCTION',BUILD='9990feedbackfix1',TITLE='DEEN v9.9.90';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<!-- DEEN v9.9.91 — Bridge authoritative graded lifecycle to companion streak reactions -->
+<script id="deen-v9991-streak-reaction-bridge-js">
+(()=>{
+ if(window.__deenV9991StreakReactionBridge)return;
+ window.__deenV9991StreakReactionBridge=true;
+
+ const VERSION='9.9.91-STREAK-REACTION-BRIDGE';
+ const BUILD='9991streakbridge1';
+ let graded=0,forwarded=0,milestones=0,last=null;
+
+ function isMilestone(combo){
+   return combo===3||combo===5||combo===10||(combo>10&&combo%5===0);
+ }
+
+ function forward(event){
+   const detail=event?.detail||{};
+   const correct=detail.correct===true;
+   const combo=correct?Math.max(0,Number(detail.combo)||0):0;
+   const question=detail.question||null;
+   graded++;
+
+   let handled=false,error='';
+   try{
+     const api=window.DEEN_COMPANION_STREAK||window.DEEN_COMBO;
+     if(api&&typeof api.onGrade==='function'){
+       handled=api.onGrade(correct,combo,question)!==false;
+       if(handled)forwarded++;
+       if(handled&&correct&&isMilestone(combo))milestones++;
+     }else{
+       error='streak-api-missing';
+     }
+   }catch(err){
+     error=String(err?.message||err||'streak-forward-failed');
+     try{console.warn('DEEN streak reaction bridge failed',err)}catch(_){}
+   }
+
+   last={
+     at:Date.now(),
+     epoch:Number(detail.epoch)||0,
+     key:String(detail.key||''),
+     correct,
+     combo,
+     handled,
+     milestone:correct&&isMilestone(combo),
+     error
+   };
+ }
+
+ document.addEventListener('deen:question-graded',forward);
+
+ window.DEEN_STREAK_REACTION_BRIDGE={
+   version:VERSION,
+   build:BUILD,
+   forward,
+   snapshot:()=>({
+     version:VERSION,
+     build:BUILD,
+     graded,
+     forwarded,
+     milestones,
+     listener:true,
+     streakApi:typeof (window.DEEN_COMPANION_STREAK||window.DEEN_COMBO)?.onGrade==='function',
+     last:last?{...last}:null
+   })
+ };
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.91-PRODUCTION',BUILD='9991streakbridge1',TITLE='DEEN v9.9.91';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
 <!-- DEEN v9.9.88 — Final release freeze manifest -->
 <script id="deen-v9988-release-freeze-js">
 (()=>{
- const VERSION='9.9.90',BUILD='9990feedbackfix1';
+ const VERSION='9.9.91',BUILD='9991streakbridge1';
  function snapshot(){
   const checks={
-   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.90-PRODUCTION',
-   arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.88-RUNTIME-ARBITER',
+   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.91-PRODUCTION',
+   arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.90-RUNTIME-ARBITER',
    regression:window.DEEN_RUNTIME_REGRESSION?.build===BUILD,
    adminRemoved:!window.DEEN_ADMIN_PANEL&&!document.getElementById('deenAdminTestPanel'),
    previewRemoved:!document.getElementById('previewToggle'),
