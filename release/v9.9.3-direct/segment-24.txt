@@ -8343,8 +8343,8 @@ if(typeof LEGACY_RENDER==='function'){
 (()=>{
  if(window.__deenV9988RuntimeRegression)return;
  window.__deenV9988RuntimeRegression=true;
- const VERSION='9.9.99-RUNTIME-REGRESSION';
- const BUILD='9999combovisibility1';
+ const VERSION='9.10.0-RUNTIME-REGRESSION';
+ const BUILD='9100combovisfinal1';
  let last=null,runs=0;
 
  function checks(){
@@ -9213,6 +9213,8 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
+<!-- DEEN v9.10.0 — Final combo visibility: allow keyframes to own opacity/transform -->
+<style id="deen-v9100-combo-visibility-final-marker"></style>
 <!-- DEEN v9.9.99 — Combo visibility watchdog: never stay opacity:0 -->
 <style id="deen-v9999-combo-visibility-marker"></style>
 <!-- DEEN v9.9.98 — Combo motion/quality refinement: bottom-up + DPR-aware canvas -->
@@ -9240,11 +9242,13 @@ if(typeof LEGACY_RENDER==='function'){
   max-height:78%!important;
   display:grid!important;
   place-items:center!important;
-  opacity:0!important;
-  transform:translate3d(0,clamp(220px,36vh,360px),0) scale(.90)!important;
+  opacity:0;
+  transform:translate3d(0,clamp(220px,36vh,360px),0) scale(.90);
+  visibility:hidden!important;
   will-change:transform,opacity!important;
 }
 #deenComboCanvasOverlay .deen9997-stage.deen9998-ready{
+  visibility:visible!important;
   animation:deen9998RiseFromBottom .78s cubic-bezier(.16,.92,.22,1.04) both!important;
 }
 #deenComboCanvasOverlay .deen9997-canvas{
@@ -9286,8 +9290,8 @@ if(typeof LEGACY_RENDER==='function'){
  window.__deenV9997ComboCanvas=true;
  window.__DEEN_COMBO_CANVAS_ACTIVE=true;
 
- const VERSION='9.9.99-COMBO-VISIBILITY';
- const BUILD='9999combovisibility1';
+ const VERSION='9.10.0-COMBO-VISIBILITY-FINAL';
+ const BUILD='9100combovisfinal1';
  const RENDER_MIN_WIDTH=480;
  const RENDER_MAX_WIDTH=640;
 
@@ -9630,14 +9634,14 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.99-PRODUCTION',BUILD='9999combovisibility1',TITLE='DEEN v9.9.99';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.10.0-PRODUCTION',BUILD='9100combovisfinal1',TITLE='DEEN v9.10.0';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
 <!-- DEEN v9.9.88 — Final release freeze manifest -->
 <script id="deen-v9988-release-freeze-js">
 (()=>{
- const VERSION='9.9.99',BUILD='9999combovisibility1';
+ const VERSION='9.10.0',BUILD='9100combovisfinal1';
  function snapshot(){
   const checks={
-   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.99-PRODUCTION',
+   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.10.0-PRODUCTION',
    arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.93-RUNTIME-ARBITER',
    regression:window.DEEN_RUNTIME_REGRESSION?.build===BUILD,
    adminRemoved:!window.DEEN_ADMIN_PANEL&&!document.getElementById('deenAdminTestPanel'),
