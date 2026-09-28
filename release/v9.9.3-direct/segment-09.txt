@@ -523,10 +523,32 @@ function renderMatching(q,area){
   const label=document.createElement('span');
   label.className='v1017-card-label';
   label.textContent=item.text;
+  label.style.setProperty('flex','1 1 auto','important');
+  label.style.setProperty('min-width','0','important');
+  label.style.setProperty('display','block','important');
+  label.style.setProperty('text-align','left','important');
 
   const indicator=document.createElement('span');
   indicator.className='v1017-choice-indicator';
   indicator.setAttribute('aria-hidden','true');
+  indicator.style.setProperty('display','grid','important');
+  indicator.style.setProperty('place-items','center','important');
+  indicator.style.setProperty('flex','0 0 24px','important');
+  indicator.style.setProperty('width','24px','important');
+  indicator.style.setProperty('height','24px','important');
+  indicator.style.setProperty('min-width','24px','important');
+  indicator.style.setProperty('min-height','24px','important');
+  indicator.style.setProperty('border','1.5px solid rgba(116,158,168,.72)','important');
+  indicator.style.setProperty('border-radius','50%','important');
+  indicator.style.setProperty('background','rgba(4,29,37,.3)','important');
+  indicator.style.setProperty('box-sizing','border-box','important');
+  indicator.style.setProperty('pointer-events','none','important');
+
+  b.style.setProperty('display','flex','important');
+  b.style.setProperty('align-items','center','important');
+  b.style.setProperty('justify-content','flex-start','important');
+  b.style.setProperty('text-align','left','important');
+  b.style.setProperty('gap','12px','important');
 
   b.append(label,indicator);
   b.onclick=()=>pick(b);
