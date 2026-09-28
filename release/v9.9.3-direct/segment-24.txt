@@ -12296,5 +12296,34 @@ if(typeof LEGACY_RENDER==='function'){
    })
  };
  document.documentElement.dataset.deenMatchingOwner='v1017';
+
+ /*
+   v10.1.8 takeover:
+   Core may render the first matching question before this late release segment
+   executes. Rebuild that already-visible question immediately so the user
+   never remains on the legacy .match-card/.v853 DOM.
+ */
+ function takeoverCurrent(){
+   try{
+     const q=session?.questions?.[session?.index]||null;
+     if(!q||q.activity_type!=='matching'||!Array.isArray(q.pairs))return false;
+     const area=document.getElementById('answerArea');
+     if(!area)return false;
+
+     const alreadyNew=area.querySelector('.v1017-shell');
+     const legacy=area.querySelector('.match-grid,.v853-match-wrap,.matching-progress');
+     if(alreadyNew&&!legacy)return true;
+
+     authoritativeMatching(q,area);
+     document.documentElement.dataset.deenMatchingTakeover='done';
+     return true;
+   }catch(err){
+     console.error('DEEN v10.1.8 matching takeover',err);
+     document.documentElement.dataset.deenMatchingTakeover='error';
+     return false;
+   }
+ }
+ [0,40,120,260].forEach(ms=>setTimeout(takeoverCurrent,ms));
+ window.DEEN_AUTHORITATIVE_MATCHING.takeover=takeoverCurrent;
 })();
 </script>
