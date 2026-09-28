@@ -24,30 +24,53 @@ jobs:
           python-version: "3.12"
 
       - name: Install image codec
-        run: python -m pip install --upgrade pillow pillow-avif-plugin
+        run: |
+          python -m pip install --upgrade pillow pillow-avif-plugin
+          ffmpeg -version | head -n 1
 
       - name: Build lion and cat AVIF assets and patch release
         shell: bash
         run: |
+          set -euo pipefail
+          mkdir -p /tmp/deen-mascots
+
+          for animal in lion cat; do
+            for tier in 3 5; do
+              src="assets/companions/$animal/${animal}_combo_${tier}.webp"
+              tmp="/tmp/deen-mascots/${animal}_combo_${tier}.png"
+
+              echo "SOURCE $src"
+              ffprobe -v error -select_streams v:0 -show_entries stream=width,height,pix_fmt -of default=nw=1 "$src" || true
+
+              # Decode the first visual frame with ffmpeg, which is more tolerant
+              # of unusual WebP bitstreams than Pillow's direct WebP decoder.
+              ffmpeg -y -v error -i "$src" -frames:v 1 \
+                -vf "scale=512:512:flags=lanczos" "$tmp"
+
+              test -s "$tmp"
+            done
+          done
+
           python - <<'PY'
           from pathlib import Path
           from PIL import Image, ImageFilter
           import pillow_avif
 
           root = Path(".")
+          tmp_root = Path("/tmp/deen-mascots")
+
           for animal in ("lion", "cat"):
               folder = root / "assets/companions" / animal
               for tier in (3, 5):
-                  src = folder / f"{animal}_combo_{tier}.webp"
+                  tmp = tmp_root / f"{animal}_combo_{tier}.png"
                   dst = folder / f"{animal}_combo_{tier}.avif"
 
-                  original = Image.open(src).convert("RGBA")
-                  print(src, "source_size=", original.size)
+                  img = Image.open(tmp).convert("RGBA")
+                  assert img.size == (512, 512), (tmp, img.size)
 
-                  # Preserve alpha, upscale to the unified 512x512 mascot canvas,
-                  # then apply a restrained post-resize sharpen to reduce softness.
-                  img = original.convert("RGBa").resize((512, 512), Image.Resampling.LANCZOS).convert("RGBA")
-                  rgb = img.convert("RGB").filter(ImageFilter.UnsharpMask(radius=1.2, percent=105, threshold=3))
+                  rgb = img.convert("RGB").filter(
+                      ImageFilter.UnsharpMask(radius=1.15, percent=100, threshold=3)
+                  )
                   alpha = img.getchannel("A")
                   img = Image.merge("RGBA", (*rgb.split(), alpha))
                   img.save(dst, "AVIF", quality=92, speed=6)
@@ -56,6 +79,7 @@ jobs:
                   assert check.size == (512, 512), (dst, check.size)
                   amin, amax = check.getchannel("A").getextrema()
                   assert amin < 255, (dst, "alpha channel lost")
+                  print("generated", dst, dst.stat().st_size, "alpha", (amin, amax))
 
           seg_path = root / "release/v9.9.3-direct/segment-24.txt"
           seg = seg_path.read_text(encoding="utf-8")
@@ -70,7 +94,6 @@ jobs:
               assert old in seg, f"mapping anchor missing: {old}"
               seg = seg.replace(old, new, 1)
 
-          # Guard against accidentally regressing any already-migrated animal.
           for animal in ("lion", "cat", "eagle", "turtle", "owl", "wolf"):
               assert f"{animal}_combo_3.avif" in seg
               assert f"{animal}_combo_5.avif" in seg
@@ -84,10 +107,6 @@ jobs:
           index = index.replace("<title>DEEN v9.10.11</title>", "<title>DEEN v9.10.12</title>", 1)
           index = index.replace("const BUILD='9111eaglehd1';", "const BUILD='9112allcomboshd1';", 1)
           index_path.write_text(index, encoding="utf-8")
-
-          for animal in ("lion", "cat"):
-              for p in sorted((root / "assets/companions" / animal).glob(f"{animal}_combo_*.avif")):
-                  print("generated", p, p.stat().st_size)
           PY
 
       - name: Commit generated assets and release patch
