@@ -421,100 +421,188 @@ function renderSequence(q,area){let chosen=[];const zone=document.createElement(
 
 function submitAnswer(ans,el){if(document.getElementById('feedback').classList.contains('show'))return;const q=session.questions[session.index],correct=normalize(ans)===normalize(q.correct_answer);if(q.options_tr){document.querySelectorAll('.option').forEach(b=>{const val=(b.querySelector('.option-label')||b).textContent;if(normalize(val)===normalize(q.correct_answer))b.classList.add('correct');else if(b===el&&!correct)b.classList.add('wrong');b.disabled=true})}else el.style.borderColor=correct?'var(--ok)':'var(--danger)';completeQuestion(correct,q)}
 function renderMatching(q,area){
- const left=shuffle(q.pairs.map((p,i)=>({text:p.left,i}))),
-       right=shuffle(q.pairs.map((p,i)=>({text:p.right,i})));
+ if(!q||!Array.isArray(q.pairs)||q.pairs.length<2)return;
+
+ const frame=document.querySelector('#lesson .question-frame')||document.querySelector('.question-frame');
+ if(frame){
+  frame.classList.remove('v853-match-mode','v1013-match-ref','v1014-three-pairs','v1014-four-pairs');
+  frame.classList.add('v1017-match-screen');
+  frame.dataset.pairs=String(q.pairs.length);
+  frame.style.transform='';
+  frame.style.width='100%';
+  frame.style.maxWidth='none';
+  document.getElementById('lesson')?.classList.remove('v9913-fitted');
+
+  frame.querySelector('.v1017-bg')?.remove();
+  frame.querySelector('.v1017-hero')?.remove();
+
+  const bg=document.createElement('div');
+  bg.className='v1017-bg';
+  bg.setAttribute('aria-hidden','true');
+
+  const moon=document.createElement('span');
+  moon.className='v1017-moon';
+
+  const ns='http://www.w3.org/2000/svg';
+  const mosque=document.createElementNS(ns,'svg');
+  mosque.setAttribute('class','v1017-mosque');
+  mosque.setAttribute('viewBox','0 0 300 240');
+  mosque.setAttribute('aria-hidden','true');
+  mosque.innerHTML=
+   '<g fill="#0a2a34">'+
+    '<rect x="112" y="126" width="116" height="82" rx="3"/>'+
+    '<path d="M124 126 Q170 73 216 126 Z"/>'+
+    '<rect x="92" y="91" width="16" height="117" rx="2"/>'+
+    '<path d="M92 91 L100 68 L108 91 Z"/>'+
+    '<rect x="235" y="65" width="15" height="143" rx="2"/>'+
+    '<path d="M235 65 L242.5 42 L250 65 Z"/>'+
+    '<rect x="68" y="125" width="12" height="83" rx="2"/>'+
+    '<path d="M68 125 L74 108 L80 125 Z"/>'+
+    '<rect x="258" y="118" width="11" height="90" rx="2"/>'+
+    '<path d="M258 118 L263.5 101 L269 118 Z"/>'+
+   '</g>'+
+   '<g fill="#e8ad61" opacity=".82">'+
+    '<rect x="143" y="151" width="8" height="16" rx="4"/>'+
+    '<rect x="173" y="151" width="8" height="16" rx="4"/>'+
+    '<rect x="157" y="179" width="10" height="29" rx="5"/>'+
+    '<rect x="96" y="108" width="7" height="10" rx="3"/>'+
+    '<rect x="239" y="88" width="7" height="10" rx="3"/>'+
+   '</g>'+
+   '<path d="M0 208 Q38 182 83 207 T166 207 T250 204 T320 210 V240 H0Z" fill="#0b3038" opacity=".92"/>';
+  bg.append(moon,mosque);
+  frame.insertBefore(bg,frame.firstChild);
+
+  const hero=document.createElement('div');
+  hero.className='v1017-hero';
+  hero.innerHTML='<h1 class="v1017-title">Eşleşen <span>çiftleri</span> bul</h1><p class="v1017-subtitle">Doğru kavramları anlamlarıyla eşleştir.</p>';
+  const narration=frame.querySelector('.v960-narration-bar');
+  if(narration)frame.insertBefore(hero,narration);
+  else frame.prepend(hero);
+ }
+
+ area.innerHTML='';
+
+ const pairs=q.pairs.map((p,i)=>({id:i,left:String(p?.left??''),right:String(p?.right??'')}));
+ const left=shuffle(pairs.map(p=>({pair:p.id,text:p.left})));
+ const right=shuffle(pairs.map(p=>({pair:p.id,text:p.right})));
+
+ const shell=document.createElement('div');
+ shell.className='v1017-shell';
+ const board=document.createElement('div');
+ board.className='v1017-board';
+ const lcol=document.createElement('div');
+ lcol.className='v1017-col v1017-left';
+ const rcol=document.createElement('div');
+ rcol.className='v1017-col v1017-right';
+ const footer=document.createElement('div');
+ footer.className='v1017-footer';
+ footer.innerHTML='<div class="v1017-count"></div><div class="v1017-meter"><i></i></div>';
+ board.append(lcol,rcol);
+ shell.append(board,footer);
+ area.append(shell);
+
  matchState={left:null,matched:new Set(),errors:0};
+ let selected=null,resolving=false,finished=false;
 
- const grid=document.createElement('div');
- grid.className='match-grid';
-
- const lt=document.createElement('div');
- lt.className='match-column-title';
- lt.textContent='KAVRAM';
- lt.style.gridColumn='1';
- lt.style.gridRow='1';
-
- const rt=document.createElement('div');
- rt.className='match-column-title';
- rt.textContent='AÇIKLAMA';
- rt.style.gridColumn='2';
- rt.style.gridRow='1';
-
- grid.append(lt,rt);
-
- const leftButtons=new Map();
-
- left.forEach((x,row)=>{
-   const b=document.createElement('button');
-   b.type='button';
-   b.className='match-card match-left';
-   b.textContent=x.text;
-   b.dataset.i=x.i;
-   b.style.gridColumn='1';
-   b.style.gridRow=String(row+2);
-   b.onclick=()=>{
-     if(b.classList.contains('matched'))return;
-     grid.querySelectorAll('.match-left').forEach(z=>z.classList.remove('sel'));
-     b.classList.add('sel');
-     matchState.left=x.i;
-   };
-   leftButtons.set(x.i,b);
-   grid.appendChild(b);
- });
-
- const progress=document.createElement('div');
- progress.className='matching-progress';
- const progressText=document.createElement('span');
- progressText.textContent='0 / '+q.pairs.length+' eşleşme';
- progress.appendChild(progressText);
- const dots=[];
- for(let i=0;i<q.pairs.length;i++){
-   const d=document.createElement('i');
-   d.className='matching-progress-dot';
-   dots.push(d);
-   progress.appendChild(d);
- }
- function updateProgress(){
-   progressText.textContent=matchState.matched.size+' / '+q.pairs.length+' eşleşme';
-   dots.forEach((d,i)=>d.classList.toggle('done',i<matchState.matched.size));
+ function update(){
+  const count=footer.querySelector('.v1017-count');
+  const fill=footer.querySelector('.v1017-meter i');
+  const done=matchState.matched.size;
+  if(count)count.textContent=done+' / '+pairs.length+' eşleşme';
+  if(fill)fill.style.width=Math.round(done/pairs.length*100)+'%';
  }
 
- right.forEach((x,row)=>{
-   const b=document.createElement('button');
-   b.type='button';
-   b.className='match-card match-right';
-   b.textContent=x.text;
-   b.dataset.i=x.i;
-   b.style.gridColumn='2';
-   b.style.gridRow=String(row+2);
-   b.onclick=()=>{
-     if(matchState.left===null||b.classList.contains('matched'))return;
-     const leftButton=leftButtons.get(matchState.left);
-     if(q.pairs[Number(matchState.left)].right===x.text){
-       b.classList.add('matched');
-       if(leftButton){leftButton.classList.add('matched');leftButton.classList.remove('sel')}
-       matchState.matched.add(Number(matchState.left));
-       matchState.left=null;
-       updateProgress();
-       if(matchState.matched.size===q.pairs.length){
-         const savedSession=session,savedIndex=session.index,ok=matchState.errors===0;setTimeout(()=>{if(session===savedSession&&session.index===savedIndex)completeQuestion(ok,q)},180);
-       }
-     }else{
-       matchState.errors++;
-       b.classList.add('match-error');
-       if(leftButton)leftButton.classList.add('match-error');
-       setTimeout(()=>{
-         b.classList.remove('match-error');
-         if(leftButton)leftButton.classList.remove('match-error','sel');
-       },400);
-       matchState.left=null;
-     }
-   };
-   grid.appendChild(b);
- });
+ function make(side,item){
+  const b=document.createElement('button');
+  b.type='button';
+  b.className='v1017-card';
+  b.textContent=item.text;
+  b.dataset.pair=String(item.pair);
+  b.dataset.side=side;
+  b.setAttribute('aria-label',(side==='left'?'Kavram: ':'Eş: ')+item.text);
+  b.onclick=()=>pick(b);
+  return b;
+ }
 
- area.append(grid,progress);
- updateProgress();
+ left.forEach(x=>lcol.append(make('left',x)));
+ right.forEach(x=>rcol.append(make('right',x)));
+ update();
+
+ function vibrate(ok){try{navigator.vibrate?.(ok?14:[10,22,10])}catch(_){}}
+
+ function finish(){
+  if(finished)return;
+  finished=true;
+  const ok=matchState.errors===0;
+  const savedSession=session,savedIndex=session.index;
+  setTimeout(()=>{
+   if(session===savedSession&&session.index===savedIndex)completeQuestion(ok,q);
+  },430);
+ }
+
+ function good(a,b){
+  resolving=true;
+  vibrate(true);
+  a.classList.remove('selected');
+  b.classList.remove('selected');
+  a.classList.add('matched');
+  b.classList.add('matched');
+  a.disabled=true;
+  b.disabled=true;
+  matchState.matched.add(Number(a.dataset.pair));
+  matchState.left=null;
+  selected=null;
+  update();
+  setTimeout(()=>{
+   resolving=false;
+   if(matchState.matched.size===pairs.length)finish();
+  },240);
+ }
+
+ function bad(a,b){
+  resolving=true;
+  vibrate(false);
+  matchState.errors++;
+  a.classList.add('wrong');
+  b.classList.add('wrong');
+  setTimeout(()=>{
+   a.classList.remove('wrong','selected');
+   b.classList.remove('wrong','selected');
+   selected=null;
+   matchState.left=null;
+   resolving=false;
+  },300);
+ }
+
+ function pick(b){
+  if(finished||resolving||b.disabled)return;
+
+  if(!selected){
+   selected=b;
+   b.classList.add('selected');
+   matchState.left=Number(b.dataset.pair);
+   return;
+  }
+  if(selected===b){
+   b.classList.remove('selected');
+   selected=null;
+   matchState.left=null;
+   return;
+  }
+  if(selected.dataset.side===b.dataset.side){
+   selected.classList.remove('selected');
+   selected=b;
+   b.classList.add('selected');
+   matchState.left=Number(b.dataset.pair);
+   return;
+  }
+
+  b.classList.add('selected');
+  const a=selected;
+  if(Number(a.dataset.pair)===Number(b.dataset.pair))good(a,b);else bad(a,b);
+ }
+
+ document.documentElement.dataset.deenMatchingRenderer='core09-v1020';
 }
 function completeQuestion(correct,q){state.answered++;if(session.final)session.responses.push({id:q.id,correct,unit:q.stage_id.slice(0,3),topic:q.topic||q.stage_title,concept:q.concept_id,priority:session.priorityIds.has(q.id)});if(correct){state.correct++;session.correct++;session.combo++;session.bestCombo=Math.max(session.bestCombo,session.combo);state.mistakes=state.mistakes.filter(id=>id!==q.id)}else{session.combo=0;if(!state.mistakes.includes(q.id))state.mistakes.push(q.id)}try{window.DEEN_COMPANION_STREAK?.onGrade?.(correct,session.combo,q)}catch(e){}saveState();const fb=document.getElementById('feedback'),box=document.getElementById('feedbackBox');box.classList.toggle('bad',!correct);document.getElementById('feedbackIcon').textContent=correct?'✓':'!';document.getElementById('feedbackTitle').textContent=correct?'Doğru cevap':'Bunu birlikte düzeltelim';document.getElementById('feedbackText').textContent=q.explanation_tr||'';fb.classList.add('show');document.getElementById('continueBtn').onclick=nextQuestion;setTimeout(()=>{try{fb.scrollIntoView({behavior:'smooth',block:'end'})}catch(e){}},40)}
 function nextQuestion(){session.index++;if(session.index>=session.questions.length){if(session.final)showSectionFinalResult();else showResult()}else renderQuestion()}
