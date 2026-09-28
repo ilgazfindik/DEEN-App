@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.9.88</title>
+<title>DEEN v9.9.89</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -19,7 +19,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9988releasefreeze1';
+ const BUILD='9989bootfix1';
  const SEGMENT_COUNT=25;
  const CONCURRENCY=6;
  const CACHE_NAME='deen-release-'+BUILD;
@@ -27,8 +27,9 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
  const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 
  function validSegment(i,text){
-   if(typeof text!=='string'||text.length<128)return false;
+   if(typeof text!=='string')return false;
    if(i===0&&!/^\s*<!doctype html>/i.test(text))return false;
+   if(text.length<128&&!text.includes('DEEN_RETIRED_SEGMENT_OK'))return false;
    return true;
  }
 
@@ -137,7 +138,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
      'DEEN_CONTENT_AUDIT',
      'deen-v990-beta-js',
      'DEEN_BETA_TEST',
-     'deen-beta-open'
+     'deen-beta-open',
+     'deen-v9910-admin-test-panel-js'
    ];
    const leaked=forbidden.find(marker=>html.includes(marker));
    if(leaked)throw new Error('Production güvenlik kontrolü başarısız: '+leaked);
@@ -152,7 +154,6 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
      ['deen-v998-premium-onboarding-js','Premium onboarding paketi eksik'],
      ['deen-v999-reference-hero-css','Referans onboarding görseli eksik'],
      ['deen-v999-animal-art-css','Hayvan görsel paketi eksik'],
-     ['deen-v9910-admin-test-panel-js','Admin test paneli eksik'],
      ['deen-v9912-auth-mock-js','Görsel giriş sağlayıcıları eksik'],
      ['deen-v9913-mobile-lesson-fit-js','Mobil ders sığdırma paketi eksik'],
      ['deen-v9914-ultra-clean-lesson-js','Ultra sade ders paketi eksik'],
