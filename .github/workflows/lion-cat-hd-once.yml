@@ -25,6 +25,8 @@ jobs:
 
       - name: Install image codec
         run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
           python -m pip install --upgrade pillow pillow-avif-plugin
           ffmpeg -version | head -n 1
 
