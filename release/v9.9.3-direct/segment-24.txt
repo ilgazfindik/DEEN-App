@@ -10279,7 +10279,7 @@ if(typeof LEGACY_RENDER==='function'){
    lion:{3:'assets/companions/lion/lion_combo_3.webp',5:'assets/companions/lion/lion_combo_5.webp'},
    cat:{3:'assets/companions/cat/cat_combo_3.webp',5:'assets/companions/cat/cat_combo_5.webp'},
    eagle:{3:'assets/companions/eagle/eagle_combo_3.webp',5:'assets/companions/eagle/eagle_combo_5.webp'},
-   turtle:{3:'assets/companions/turtle/turtle_combo_3.webp',5:'assets/companions/turtle/turtle_combo_5.webp'},
+   turtle:{3:'assets/companions/turtle/turtle_combo_3.avif',5:'assets/companions/turtle/turtle_combo_5.avif'},
    owl:{3:'assets/companions/owl/owl_combo_3.avif',5:'assets/companions/owl/owl_combo_5.avif'},
    wolf:{3:'assets/companions/wolf/wolf_combo_3.avif',5:'assets/companions/wolf/wolf_combo_5.avif'}
  };
@@ -10332,6 +10332,14 @@ if(typeof LEGACY_RENDER==='function'){
    img.src=src;
 
    img.onerror=()=>{
+     const id=selectedCompanion();
+     const tier=(Number(combo)===5)?5:3;
+     const webp='assets/companions/'+id+'/'+id+'_combo_'+tier+'.webp?v='+BUILD;
+     if(!img.dataset.webpFallback && /\.avif(?:\?|$)/i.test(img.src)){
+       img.dataset.webpFallback='1';
+       img.src=webp;
+       return;
+     }
      const fallback=fallbackCompanionSrc();
      if(fallback && img.src!==fallback)img.src=fallback;
    };
