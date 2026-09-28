@@ -31,8 +31,9 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          from PIL import Image, ImageFilter
+          from PIL import Image, ImageFilter, ImageFile
           import pillow_avif
+          ImageFile.LOAD_TRUNCATED_IMAGES = True
 
           root = Path(".")
 
