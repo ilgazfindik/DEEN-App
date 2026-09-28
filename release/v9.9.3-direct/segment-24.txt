@@ -8343,8 +8343,8 @@ if(typeof LEGACY_RENDER==='function'){
 (()=>{
  if(window.__deenV9988RuntimeRegression)return;
  window.__deenV9988RuntimeRegression=true;
- const VERSION='9.9.95-RUNTIME-REGRESSION';
- const BUILD='9995comboensure1';
+ const VERSION='9.9.96-RUNTIME-REGRESSION';
+ const BUILD='9996combowebm1';
  let last=null,runs=0;
 
  function checks(){
@@ -8969,14 +8969,257 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.95-PRODUCTION',BUILD='9995comboensure1',TITLE='DEEN v9.9.95';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<!-- DEEN v9.9.96 — Transparent 3-correct WEBM celebration -->
+<style id="deen-v9996-combo-webm-css">
+#deenComboWebmOverlay{
+  position:fixed!important;
+  inset:0!important;
+  z-index:2147483060!important;
+  display:grid!important;
+  place-items:center!important;
+  pointer-events:none!important;
+  background:transparent!important;
+  opacity:1!important;
+}
+#deenComboWebmOverlay.closing{animation:deen9996Out .18s ease forwards!important}
+#deenComboWebmOverlay .deen9996-wrap{
+  position:relative!important;
+  width:min(76vw,330px)!important;
+  display:grid!important;
+  place-items:center!important;
+}
+#deenComboWebmOverlay .deen9996-video{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:64vh!important;
+  object-fit:contain!important;
+  background:transparent!important;
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.28))!important;
+  animation:deen9996Pop .34s cubic-bezier(.18,.9,.22,1.12) both!important;
+}
+#deenComboWebmOverlay .deen9996-badge{
+  position:absolute!important;
+  left:50%!important;
+  bottom:2px!important;
+  transform:translateX(-50%)!important;
+  min-width:max-content!important;
+  padding:8px 14px!important;
+  border-radius:999px!important;
+  border:1px solid rgba(235,196,91,.72)!important;
+  background:rgba(6,39,46,.94)!important;
+  color:#f5d97a!important;
+  font:950 13px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  letter-spacing:.35px!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.24)!important;
+}
+@keyframes deen9996Pop{
+  0%{opacity:0;transform:translateY(20px) scale(.84)}
+  62%{opacity:1;transform:translateY(-5px) scale(1.035)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes deen9996Out{to{opacity:0}}
+@media(max-width:420px){
+  #deenComboWebmOverlay .deen9996-wrap{width:min(80vw,290px)!important}
+  #deenComboWebmOverlay .deen9996-badge{font-size:12px!important}
+}
+</style>
+<script id="deen-v9996-combo-webm-js">
+(()=>{
+ if(window.__deenV9996ComboWebm)return;
+ window.__deenV9996ComboWebm=true;
+
+ const VERSION='9.9.96-COMBO-WEBM';
+ const BUILD='9996combowebm1';
+ const MEDIA=[
+   'assets/combo/combo-1.webm?v='+BUILD,
+   'assets/combo/combo-2.webm?v='+BUILD
+ ];
+
+ let active=null;
+ let timer=0;
+ let lastPick=-1;
+ let lastKey='';
+ let shows=0;
+ let videoErrors=0;
+ let directTriggers=0;
+ let eventTriggers=0;
+
+ function keyFor(detail,q){
+   if(detail?.key)return String(detail.key);
+   let idx=0;
+   try{idx=Number(detail?.index ?? session?.index ?? 0)||0}catch(_){}
+   return idx+'::'+String(q?.id||q?.question_id||q?.question||q?.prompt||'');
+ }
+
+ function pick(){
+   if(MEDIA.length<2)return 0;
+   let n=Math.floor(Math.random()*MEDIA.length);
+   if(n===lastPick)n=(n+1)%MEDIA.length;
+   lastPick=n;
+   return n;
+ }
+
+ function fallback(video){
+   videoErrors++;
+   const wrap=video?.parentElement;
+   if(!wrap)return;
+   let src='';
+   try{src=window.DEEN_COMPANION_ASSETS?.asset?.('celebrate')||''}catch(_){}
+   if(!src)return;
+   const img=document.createElement('img');
+   img.className='deen9996-video';
+   img.alt='';
+   img.src=src+(src.includes('?')?'&':'?')+'v='+BUILD;
+   video.replaceWith(img);
+ }
+
+ function clear(immediate=false){
+   clearTimeout(timer);
+   timer=0;
+   const node=active;
+   active=null;
+   if(!node)return false;
+   try{
+     const v=node.querySelector('video');
+     if(v){v.pause();v.removeAttribute('src');v.load()}
+   }catch(_){}
+   if(immediate){try{node.remove()}catch(_){};return true}
+   node.classList.add('closing');
+   setTimeout(()=>{try{node.remove()}catch(_){}},190);
+   return true;
+ }
+
+ function disableLegacy(){
+   try{
+     if(window.DEEN_COMBO_MEDIA && !window.DEEN_COMBO_MEDIA.__deen9996Disabled){
+       window.DEEN_COMBO_MEDIA.__deen9996Disabled=true;
+       window.DEEN_COMBO_MEDIA.__deen9996OriginalShow=window.DEEN_COMBO_MEDIA.show;
+       window.DEEN_COMBO_MEDIA.show=()=>false;
+       window.DEEN_COMBO_MEDIA.clear?.(true);
+     }
+   }catch(_){}
+   document.getElementById('deenComboMediaOverlay')?.remove();
+ }
+
+ function show(detail={}){
+   disableLegacy();
+   const q=detail?.question||null;
+   const key=keyFor(detail,q);
+   if(key&&key===lastKey&&active)return false;
+   lastKey=key;
+
+   clear(true);
+
+   const ov=document.createElement('div');
+   ov.id='deenComboWebmOverlay';
+   ov.setAttribute('aria-hidden','true');
+
+   const wrap=document.createElement('div');
+   wrap.className='deen9996-wrap';
+
+   const video=document.createElement('video');
+   video.className='deen9996-video';
+   video.autoplay=true;
+   video.muted=true;
+   video.loop=false;
+   video.playsInline=true;
+   video.preload='auto';
+   video.src=MEDIA[pick()];
+   video.onerror=()=>fallback(video);
+
+   const badge=document.createElement('div');
+   badge.className='deen9996-badge';
+   badge.textContent='3 SERİ ✦';
+
+   wrap.append(video,badge);
+   ov.appendChild(wrap);
+   document.body.appendChild(ov);
+   active=ov;
+   shows++;
+
+   const play=()=>{try{video.play()?.catch?.(()=>{})}catch(_){}};
+   play();
+   video.addEventListener('loadedmetadata',play,{once:true});
+   video.addEventListener('ended',()=>clear(false),{once:true});
+
+   timer=setTimeout(()=>clear(false),5200);
+   try{navigator.vibrate?.([18,26,18])}catch(_){}
+   return true;
+ }
+
+ function maybe(detail={}){
+   const combo=Math.max(0,Number(detail.combo)||0);
+   if(detail.correct===true&&combo===3)return show(detail);
+   if(detail.correct!==true){
+     clear(true);
+     lastKey='';
+   }
+   return false;
+ }
+
+ function installDirect(){
+   const api=window.DEEN_COMPANION_STREAK||window.DEEN_COMBO;
+   if(!api||typeof api.onGrade!=='function'||api.onGrade.__deen9996)return false;
+   const original=api.onGrade.bind(api);
+   const wrapped=function(correct,combo,q){
+     const out=original(correct,combo,q);
+     if(correct===true&&Math.max(0,Number(combo)||0)===3){
+       directTriggers++;
+       show({correct:true,combo,question:q,key:keyFor({},q)});
+     }else if(correct!==true){
+       clear(true);
+       lastKey='';
+     }
+     return out;
+   };
+   wrapped.__deen9996=true;
+   wrapped.__deen9996Original=original;
+   api.onGrade=wrapped;
+   window.DEEN_COMPANION_STREAK=api;
+   window.DEEN_COMBO=api;
+   return true;
+ }
+
+ document.addEventListener('deen:question-graded',event=>{
+   const d=event?.detail||{};
+   if(d.correct===true&&Math.max(0,Number(d.combo)||0)===3)eventTriggers++;
+   maybe(d);
+ });
+ document.addEventListener('deen:question-advancing',()=>clear(true));
+ document.addEventListener('deen:question-rendering',()=>clear(true));
+ document.addEventListener('deen:lesson-result',()=>clear(true));
+ document.addEventListener('deen:lesson-closed',()=>clear(true));
+ document.addEventListener('deen:navigating',()=>clear(true));
+ document.addEventListener('deen:question-rendered',()=>{disableLegacy();installDirect()});
+ document.addEventListener('deen:lesson-started',()=>{disableLegacy();installDirect()});
+
+ disableLegacy();
+ installDirect();
+ [0,100,350,900].forEach(ms=>setTimeout(()=>{disableLegacy();installDirect()},ms));
+
+ window.DEEN_COMBO_WEBM={
+   version:VERSION,
+   build:BUILD,
+   media:[...MEDIA],
+   show,
+   clear,
+   snapshot:()=>({
+     version:VERSION,build:BUILD,shows,videoErrors,directTriggers,eventTriggers,
+     active:!!active,lastPick,lastKey
+   })
+ };
+})();
+</script>
+
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.96-PRODUCTION',BUILD='9996combowebm1',TITLE='DEEN v9.9.96';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
 <!-- DEEN v9.9.88 — Final release freeze manifest -->
 <script id="deen-v9988-release-freeze-js">
 (()=>{
- const VERSION='9.9.95',BUILD='9995comboensure1';
+ const VERSION='9.9.96',BUILD='9996combowebm1';
  function snapshot(){
   const checks={
-   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.95-PRODUCTION',
+   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.96-PRODUCTION',
    arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.90-RUNTIME-ARBITER',
    regression:window.DEEN_RUNTIME_REGRESSION?.build===BUILD,
    adminRemoved:!window.DEEN_ADMIN_PANEL&&!document.getElementById('deenAdminTestPanel'),
