@@ -7490,7 +7490,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.90-RUNTIME-ARBITER';
+ const VERSION='9.9.93-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -7541,6 +7541,11 @@
  let stateSaves=0;
  let commits=0;
  let questionAdvances=0;
+ let blockedQuestionAdvances=0;
+ let advanceBusy=false;
+ let advanceSession=null;
+ let advanceIndex=-1;
+ let advanceKey='';
  let lessonCloses=0;
  let navigations=0;
  let settingsOpens=0;
@@ -7762,14 +7767,58 @@
  }
 
  if(typeof LEGACY_NEXT_QUESTION==='function'){
+   const releaseAdvanceLock=()=>{
+     advanceBusy=false;
+     advanceSession=null;
+     advanceIndex=-1;
+     advanceKey='';
+   };
+
+   document.addEventListener('deen:question-rendered',releaseAdvanceLock);
+   document.addEventListener('deen:lesson-result',releaseAdvanceLock);
+   document.addEventListener('deen:lesson-closed',releaseAdvanceLock);
+
    const guardedNextQuestion=function(...args){
-     cancelAllQuestionJobs();
      let activeSession=null,index=0,key='';
      try{activeSession=session||null;index=Number(session?.index)||0;key=questionKey()}catch(_){}
+
+     /*
+       The legacy game-feel nextQuestion schedules the real advance ~110 ms
+       later. Keep the authoritative boundary locked until the next render or
+       result so manual clicks and old auto-advance timers cannot create a
+       second transition lifecycle for the same question.
+     */
+     if(!activeSession||advanceBusy||activeSession?.transitioning===true){
+       blockedQuestionAdvances++;
+       return false;
+     }
+
+     advanceBusy=true;
+     advanceSession=activeSession;
+     advanceIndex=index;
+     advanceKey=key;
+     cancelAllQuestionJobs();
      dispatch('deen:question-advancing',{session:activeSession,index,key});
-     const out=LEGACY_NEXT_QUESTION.apply(this,args);
-     questionAdvances++;
+
+     let out;
+     try{
+       out=LEGACY_NEXT_QUESTION.apply(this,args);
+       questionAdvances++;
+     }catch(err){
+       releaseAdvanceLock();
+       throw err;
+     }
+
      dispatch('deen:question-advance-requested',{session:activeSession,index,key,count:questionAdvances,result:out});
+
+     // Defensive unlock only when the legacy transition failed to reach render/result.
+     setTimeout(()=>{
+       if(!advanceBusy||advanceSession!==activeSession)return;
+       let live=null,liveIndex=-1,transitioning=false;
+       try{live=session||null;liveIndex=Number(session?.index)||0;transitioning=session?.transitioning===true}catch(_){}
+       if(live!==activeSession||liveIndex!==index||!transitioning)releaseAdvanceLock();
+     },900);
+
      return out;
    };
    guardedNextQuestion.__deen9953=true;
@@ -8142,6 +8191,10 @@ if(typeof LEGACY_RENDER==='function'){
      executedQuestionJobs,
      staleQuestionGuard:true,
      questionAdvances,
+     blockedQuestionAdvances,
+     advanceBusy,
+     advanceIndex,
+     advanceKey,
      lessonCloses,
      navigations,
      settingsOpens,
@@ -8168,13 +8221,130 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
+<!-- DEEN v9.9.93 — Stable feedback-to-next-question transition -->
+<style id="deen-v9993-question-transition-css">
+#lesson .question-frame.deen9993-transitioning #continueBtn{
+  pointer-events:none!important;
+}
+#lesson .question-frame.deen9993-transitioning{
+  contain:layout paint style;
+}
+</style>
+<script id="deen-v9993-question-transition-js">
+(()=>{
+ if(window.__deenV9993QuestionTransition)return;
+ window.__deenV9993QuestionTransition=true;
+
+ const VERSION='9.9.93-QUESTION-TRANSITION';
+ const BUILD='9993transition1';
+ let advances=0,renderResets=0,blockedSynthetic=0,last=null;
+
+ const frame=()=>document.querySelector('#lesson .question-frame');
+
+ function fadeStreak(){
+   const ov=document.getElementById('deenStreakOverlay');
+   if(ov&&ov.isConnected)ov.classList.add('closing');
+ }
+
+ function clearTransient(source='rendering'){
+   const f=frame();
+   try{window.DEEN_FEEDBACK_LAYOUT?.reset?.()}catch(_){}
+   try{window.DEEN_COMPANION_REACTIONS?.clear?.()}catch(_){}
+   try{window.DEEN_RUNTIME_SCHEDULE?.cancel?.('v9992-feedback-companion')}catch(_){}
+   window.__DEEN_COMPANION_REACTION_LOCK=0;
+
+   const fb=document.getElementById('feedback');
+   fb?.classList.remove('show');
+   if(fb)fb.scrollTop=0;
+   const box=document.getElementById('feedbackBox');
+   if(box)box.scrollTop=0;
+
+   if(f){
+     f.classList.remove(
+       'v9945-feedback-mode','v9945-feedback-correct','v9945-feedback-wrong',
+       'v9944-feedback-correct','v9944-feedback-wrong','v9944-feedback-celebrate'
+     );
+     f.querySelectorAll('.v9944-reaction-chip,.v9944-particles').forEach(el=>el.remove());
+   }
+
+   if(source==='rendering')renderResets++;
+   return true;
+ }
+
+ function onAdvancing(event){
+   advances++;
+   const f=frame();
+   f?.classList.add('deen9993-transitioning');
+   const btn=document.getElementById('continueBtn');
+   if(btn)btn.disabled=true;
+   fadeStreak();
+   last={
+     at:Date.now(),
+     index:Number(event?.detail?.index)||0,
+     key:String(event?.detail?.key||'')
+   };
+ }
+
+ function onRendering(){
+   clearTransient('rendering');
+ }
+
+ function onRendered(){
+   const f=frame();
+   f?.classList.remove('deen9993-transitioning','gf-question-out');
+   const sc=document.querySelector('#quizView .qarea');
+   if(sc){sc.scrollTop=0;requestAnimationFrame(()=>{if(sc.isConnected)sc.scrollTop=0})}
+   try{window.DEEN_COMPANION_ASSETS?.renderLesson?.('lesson_idle')}catch(_){}
+ }
+
+ /*
+   Old v8.5x minigames call continueBtn.click() about one second after a
+   correct answer. Feedback is now intentionally user-paced. Reject only those
+   synthetic button clicks; real pointer/keyboard activation remains normal.
+ */
+ document.addEventListener('click',event=>{
+   const btn=event.target?.closest?.('#continueBtn');
+   if(!btn||event.isTrusted)return;
+   if(window.__DEEN_ALLOW_PROGRAMMATIC_CONTINUE===true)return;
+   event.preventDefault();
+   event.stopImmediatePropagation();
+   blockedSynthetic++;
+ },true);
+
+ document.addEventListener('deen:question-advancing',onAdvancing);
+ document.addEventListener('deen:question-rendering',onRendering);
+ document.addEventListener('deen:question-rendered',onRendered);
+ document.addEventListener('deen:lesson-result',()=>{
+   frame()?.classList.remove('deen9993-transitioning');
+   fadeStreak();
+ });
+
+ window.DEEN_QUESTION_TRANSITION={
+   version:VERSION,
+   build:BUILD,
+   clear:clearTransient,
+   snapshot:()=>({
+     version:VERSION,
+     build:BUILD,
+     advances,
+     renderResets,
+     blockedSynthetic,
+     transitioning:!!frame()?.classList.contains('deen9993-transitioning'),
+     feedbackVisible:!!document.getElementById('feedback')?.classList.contains('show'),
+     runtime:window.DEEN_RUNTIME_ARBITER?.snapshot?.()||null,
+     last:last?{...last}:null
+   })
+ };
+})();
+</script>
+
 <!-- DEEN v9.9.87 — Runtime regression guard: non-destructive ownership/lifecycle self-check -->
 <script id="deen-v9988-runtime-regression-js">
 (()=>{
  if(window.__deenV9988RuntimeRegression)return;
  window.__deenV9988RuntimeRegression=true;
- const VERSION='9.9.92-RUNTIME-REGRESSION';
- const BUILD='9992companionpersist1';
+ const VERSION='9.9.93-RUNTIME-REGRESSION';
+ const BUILD='9993transition1';
  let last=null,runs=0;
 
  function checks(){
@@ -8196,7 +8366,7 @@ if(typeof LEGACY_RENDER==='function'){
    energyOwner:!!window.showEnergy?.__deen9953,
    rewardOwner:!!window.rewardAd?.__deen9953,
    scheduler:typeof window.DEEN_RUNTIME_SCHEDULE?.question==='function',
-   arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.90-RUNTIME-ARBITER',
+   arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.93-RUNTIME-ARBITER',
    noLateRenderWrapper:!window.renderQuestion?.__v873&&!window.renderQuestion?.__v890&&!window.renderQuestion?.__v891,
    noLateStartWrapper:!window.startStage?.__v910LearningLoop,
    build:!window.DEEN_BUILD_ID||window.DEEN_BUILD_ID===BUILD
@@ -8390,14 +8560,14 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.92-PRODUCTION',BUILD='9992companionpersist1',TITLE='DEEN v9.9.92';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.93-PRODUCTION',BUILD='9993transition1',TITLE='DEEN v9.9.93';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
 <!-- DEEN v9.9.88 — Final release freeze manifest -->
 <script id="deen-v9988-release-freeze-js">
 (()=>{
- const VERSION='9.9.92',BUILD='9992companionpersist1';
+ const VERSION='9.9.93',BUILD='9993transition1';
  function snapshot(){
   const checks={
-   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.92-PRODUCTION',
+   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.93-PRODUCTION',
    arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.90-RUNTIME-ARBITER',
    regression:window.DEEN_RUNTIME_REGRESSION?.build===BUILD,
    adminRemoved:!window.DEEN_ADMIN_PANEL&&!document.getElementById('deenAdminTestPanel'),
