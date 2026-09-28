@@ -8742,6 +8742,7 @@ if(typeof LEGACY_RENDER==='function'){
  }
 
  document.addEventListener('deen:question-graded',event=>{
+   if(window.__DEEN_COMBO_TIERS_ACTIVE)return;
    const d=event?.detail||{};
    const combo=Math.max(0,Number(d.combo)||0);
    if(d.correct===true&&combo===3){
@@ -8912,11 +8913,13 @@ if(typeof LEGACY_RENDER==='function'){
  }
 
  function installDirectBridge(){
+   if(window.__DEEN_COMBO_TIERS_ACTIVE)return false;
    const api=window.DEEN_COMPANION_STREAK||window.DEEN_COMBO;
    if(!api||typeof api.onGrade!=='function'||api.onGrade.__deen9995)return false;
 
    const original=api.onGrade.bind(api);
    const wrapped=function(correct,combo,q){
+     if(window.__DEEN_COMBO_TIERS_ACTIVE)return false;
      const result=original(correct,combo,q);
      const n=Math.max(0,Number(combo)||0);
      if(correct===true&&n===3){
@@ -8939,6 +8942,7 @@ if(typeof LEGACY_RENDER==='function'){
  }
 
  document.addEventListener('deen:question-graded',event=>{
+   if(window.__DEEN_COMBO_TIERS_ACTIVE)return;
    const d=event?.detail||{};
    const combo=Math.max(0,Number(d.combo)||0);
    if(d.correct===true&&combo===3){
@@ -9163,10 +9167,12 @@ if(typeof LEGACY_RENDER==='function'){
  }
 
  function installDirect(){
+   if(window.__DEEN_COMBO_TIERS_ACTIVE)return false;
    const api=window.DEEN_COMPANION_STREAK||window.DEEN_COMBO;
    if(!api||typeof api.onGrade!=='function'||api.onGrade.__deen9996)return false;
    const original=api.onGrade.bind(api);
    const wrapped=function(correct,combo,q){
+     if(window.__DEEN_COMBO_TIERS_ACTIVE)return false;
      const out=original(correct,combo,q);
      if(correct===true&&Math.max(0,Number(combo)||0)===3){
        directTriggers++;
@@ -9186,6 +9192,7 @@ if(typeof LEGACY_RENDER==='function'){
  }
 
  document.addEventListener('deen:question-graded',event=>{
+   if(window.__DEEN_COMBO_TIERS_ACTIVE)return;
    const d=event?.detail||{};
    if(d.correct===true&&Math.max(0,Number(d.combo)||0)===3)eventTriggers++;
    maybe(d);
@@ -9607,7 +9614,10 @@ if(typeof LEGACY_RENDER==='function'){
    return false;
  }
 
- document.addEventListener('deen:question-graded',event=>maybe(event?.detail||{}));
+ document.addEventListener('deen:question-graded',event=>{
+   if(window.__DEEN_COMBO_TIERS_ACTIVE)return;
+   maybe(event?.detail||{});
+ });
  document.addEventListener('deen:question-advancing',()=>clear(true));
  document.addEventListener('deen:question-rendering',()=>clear(true));
  document.addEventListener('deen:lesson-result',()=>clear(true));
@@ -9841,7 +9851,10 @@ if(typeof LEGACY_RENDER==='function'){
    return false;
  }
 
- document.addEventListener('deen:question-graded',event=>maybe(event?.detail||{}));
+ document.addEventListener('deen:question-graded',event=>{
+   if(window.__DEEN_COMBO_TIERS_ACTIVE)return;
+   maybe(event?.detail||{});
+ });
  document.addEventListener('deen:question-advancing',()=>clear(true));
  document.addEventListener('deen:question-rendering',()=>clear(true));
  document.addEventListener('deen:lesson-result',()=>clear(true));
@@ -10060,6 +10073,7 @@ if(typeof LEGACY_RENDER==='function'){
  }
 
  function authoritativeOnGrade(correct,officialCombo,q){
+   if(window.__DEEN_COMBO_TIERS_ACTIVE)return false;
    if(typeof correct!=='boolean')return false;
 
    const combo=correct?Math.max(0,Number(officialCombo)||0):0;
@@ -10081,6 +10095,7 @@ if(typeof LEGACY_RENDER==='function'){
  }
 
  function installOwner(){
+   if(window.__DEEN_COMBO_TIERS_ACTIVE)return false;
    const api=window.DEEN_COMPANION_STREAK||window.DEEN_COMBO;
    if(!api)return false;
 
@@ -10214,6 +10229,7 @@ if(typeof LEGACY_RENDER==='function'){
 (()=>{
  if(window.__deenV9103DirectCombo)return;
  window.__deenV9103DirectCombo=true;
+ window.__DEEN_COMBO_TIERS_ACTIVE=true;
  window.__DEEN_COMBO_OWNER_V9102=true;
  window.__DEEN_SINGLE_COMPANION_COMBO_ACTIVE=true;
  window.__DEEN_COMBO_CANVAS_ACTIVE=true;
