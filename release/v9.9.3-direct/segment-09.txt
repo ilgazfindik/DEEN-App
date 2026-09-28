@@ -637,7 +637,7 @@ function renderMatching(q,area){
   if(Number(a.dataset.pair)===Number(b.dataset.pair))good(a,b);else bad(a,b);
  }
 
- document.documentElement.dataset.deenMatchingRenderer='core09-v1022';
+ document.documentElement.dataset.deenMatchingRenderer='core09-v1023';
 }
 function completeQuestion(correct,q){state.answered++;if(session.final)session.responses.push({id:q.id,correct,unit:q.stage_id.slice(0,3),topic:q.topic||q.stage_title,concept:q.concept_id,priority:session.priorityIds.has(q.id)});if(correct){state.correct++;session.correct++;session.combo++;session.bestCombo=Math.max(session.bestCombo,session.combo);state.mistakes=state.mistakes.filter(id=>id!==q.id)}else{session.combo=0;if(!state.mistakes.includes(q.id))state.mistakes.push(q.id)}try{window.DEEN_COMPANION_STREAK?.onGrade?.(correct,session.combo,q)}catch(e){}saveState();const fb=document.getElementById('feedback'),box=document.getElementById('feedbackBox');box.classList.toggle('bad',!correct);document.getElementById('feedbackIcon').textContent=correct?'✓':'!';document.getElementById('feedbackTitle').textContent=correct?'Doğru cevap':'Bunu birlikte düzeltelim';document.getElementById('feedbackText').textContent=q.explanation_tr||'';fb.classList.add('show');document.getElementById('continueBtn').onclick=nextQuestion;setTimeout(()=>{try{fb.scrollIntoView({behavior:'smooth',block:'end'})}catch(e){}},40)}
 function nextQuestion(){session.index++;if(session.index>=session.questions.length){if(session.final)showSectionFinalResult();else showResult()}else renderQuestion()}
