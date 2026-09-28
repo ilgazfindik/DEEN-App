@@ -1423,147 +1423,7 @@
 .v998-companion-hero[data-animal="lion"]{background-position:0 0!important}.v998-companion-hero[data-animal="wolf"]{background-position:100% 0!important}.v998-companion-hero[data-animal="owl"]{background-position:0 50%!important}.v998-companion-hero[data-animal="turtle"]{background-position:100% 50%!important}.v998-companion-hero[data-animal="eagle"]{background-position:0 100%!important}.v998-companion-hero[data-animal="cat"]{background-position:100% 100%!important}
 </style>
 
-<!-- DEEN v9.9.10 — Admin test control panel -->
-<style id="deen-v9910-admin-test-panel-css">
-#deenAdminTestPanel{position:fixed;inset:0;z-index:120000;background:rgba(1,10,14,.76);backdrop-filter:blur(10px);display:grid;place-items:center;padding:18px;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-#deenAdminTestPanel[hidden]{display:none!important}
-.datp-card{width:min(720px,96vw);max-height:min(88dvh,860px);overflow:auto;background:linear-gradient(180deg,#0a2832,#061c25);border:1px solid #31545e;border-radius:24px;box-shadow:0 28px 90px rgba(0,0,0,.48);color:#eef7f4;padding:18px}
-.datp-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;position:sticky;top:-18px;z-index:4;background:linear-gradient(180deg,#0a2832 80%,rgba(10,40,50,0));padding:18px 0 10px}
-.datp-head h2{margin:0;font-size:20px}.datp-head small{display:block;color:#89a7ad;font-size:10px;margin-top:4px}
-.datp-close{width:42px;height:42px;border-radius:13px;border:1px solid #385963;background:#102f38;color:#dbe9e6;font-size:20px;cursor:pointer}
-.datp-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:8px 0 16px}
-.datp-stat{border:1px solid #2d4c55;border-radius:14px;background:#0d2a33;padding:10px}.datp-stat b{display:block;font-size:15px}.datp-stat span{display:block;color:#819fa6;font-size:8px;text-transform:uppercase;letter-spacing:.7px;margin-top:3px}
-.datp-section{margin-top:16px}.datp-section h3{font-size:10px;letter-spacing:1px;color:#8fe2ce;text-transform:uppercase;margin:0 0 8px}
-.datp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.datp-btn{min-height:52px;border:1px solid #35545d;border-radius:14px;background:#102d36;color:#e8f4f1;text-align:left;padding:10px 12px;cursor:pointer;font-weight:800;font-size:12px}
-.datp-btn small{display:block;color:#8fa8ad;font-size:8px;font-weight:500;margin-top:3px;line-height:1.35}
-.datp-btn:hover{border-color:#70cdb7;background:#14373e}.datp-btn.mint{border-color:#5ebda8;background:#123d3b}.datp-btn.gold{border-color:#8b7644;background:#3a321c;color:#f2dfaa}.datp-btn.danger{border-color:#75484e;background:#3a2026;color:#ffd7db}
-.datp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
-.datp-step{min-height:38px;border:1px solid #304d56;border-radius:12px;background:#0d2932;color:#cfdfdc;font-size:9px;font-weight:800;cursor:pointer}
-.datp-note{margin-top:13px;padding:10px 12px;border:1px solid rgba(241,200,112,.18);border-radius:13px;background:rgba(76,60,24,.2);color:#bfb493;font-size:9px;line-height:1.45}
-@media(max-width:600px){.datp-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.datp-grid{grid-template-columns:1fr}.datp-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-</style>
-<script id="deen-v9910-admin-test-panel-js">
-(()=>{
- if(window.__deenV9910AdminTestPanel)return;window.__deenV9910AdminTestPanel=true;
- const VERSION='9.9.10-ADMIN-TEST';
- const $=s=>document.querySelector(s);
- function save(){try{saveState()}catch(e){}try{updateUI()}catch(e){}try{window.DEEN_PROFILE_COMPANION_SYNC?.apply?.()}catch(e){}refresh()}
- function currentStats(){
-  return {
-   gold:Math.max(0,Number(state?.currency)||0),
-   energy:state?.premium?'∞':Math.max(0,Number(state?.energy)||0),
-   xp:Math.max(0,Number(state?.xp)||0),
-   done:Array.isArray(state?.completed)?state.completed.length:0
-  }
- }
- function markup(){
-  const s=currentStats();
-  return '<div class="datp-card" role="dialog" aria-modal="true" aria-label="DEEN Admin Test Panel">'+
-   '<div class="datp-head"><div><h2>DEEN · Admin Test Panel</h2><small>P ile aç / kapa · '+VERSION+'</small></div><button class="datp-close" onclick="DEEN_ADMIN_PANEL.close()" aria-label="Kapat">×</button></div>'+
-   '<div class="datp-stats">'+
-    '<div class="datp-stat"><b id="datpGold">'+s.gold.toLocaleString('tr-TR')+'</b><span>Altın</span></div>'+
-    '<div class="datp-stat"><b id="datpEnergy">'+s.energy+'</b><span>Enerji</span></div>'+
-    '<div class="datp-stat"><b id="datpXp">'+s.xp.toLocaleString('tr-TR')+'</b><span>XP</span></div>'+
-    '<div class="datp-stat"><b id="datpDone">'+s.done+'</b><span>Tamamlanan</span></div>'+
-   '</div>'+
-   '<section class="datp-section"><h3>Kaynaklar & Yetkiler</h3><div class="datp-grid">'+
-    '<button class="datp-btn gold" onclick="DEEN_ADMIN_PANEL.unlimitedGold()">∞ Altın<small>Bakiyeyi 999.999.999 yapar.</small></button>'+
-    '<button class="datp-btn mint" onclick="DEEN_ADMIN_PANEL.unlimitedEnergy()">∞ Can / Enerji<small>Premium test modunu ve sınırsız enerjiyi açar.</small></button>'+
-    '<button class="datp-btn" onclick="DEEN_ADMIN_PANEL.maxXp()">999.999 XP<small>Seviye ve profil ekranlarını hızlı test et.</small></button>'+
-    '<button class="datp-btn" onclick="DEEN_ADMIN_PANEL.streak30()">30 Günlük Seri<small>Seri ekranı ve rozetleri için test değeri.</small></button>'+
-    '<button class="datp-btn mint" onclick="DEEN_ADMIN_PANEL.unlockAll()">Tüm Bölümleri Aç<small>15 ünite, aşamalar ve bölüm finallerini erişilebilir/tamamlanmış hale getirir.</small></button>'+
-    '<button class="datp-btn" onclick="DEEN_ADMIN_PANEL.premiumOff()">Premium Testini Kapat<small>Enerjiyi normale döndürür; diğer test verilerine dokunmaz.</small></button>'+
-   '</div></section>'+
-   '<section class="datp-section"><h3>Onboarding / Giriş Ekranları</h3><div class="datp-steps">'+
-    [['Giriş',0],['İsim',1],['Anlatım',2],['Hayvan',3],['Süre',4],['Hedef',5],['Hazırsın',6]].map(x=>'<button class="datp-step" onclick="DEEN_ADMIN_PANEL.onboarding('+x[1]+')">'+x[0]+'</button>').join('')+
-   '</div></section>'+
-   '<section class="datp-section"><h3>Uygulama Ekranları</h3><div class="datp-grid">'+
-    '<button class="datp-btn" onclick="DEEN_ADMIN_PANEL.go(\'learnScreen\')">Öğren<small>Ana öğrenme yoluna git.</small></button>'+
-    '<button class="datp-btn" onclick="DEEN_ADMIN_PANEL.go(\'reviewScreen\')">Tekrar<small>Tekrar ekranını aç.</small></button>'+
-    '<button class="datp-btn" onclick="DEEN_ADMIN_PANEL.go(\'leagueScreen\')">Lig<small>Lig ekranını aç.</small></button>'+
-    '<button class="datp-btn" onclick="DEEN_ADMIN_PANEL.go(\'profileScreen\')">Profil<small>Profil ekranını aç.</small></button>'+
-   '</div></section>'+
-   '<section class="datp-section"><h3>Test Sıfırlama</h3><div class="datp-grid">'+
-    '<button class="datp-btn danger" onclick="DEEN_ADMIN_PANEL.resetProgress()">İlerlemeyi Sıfırla<small>XP, tamamlanan dersler ve bölüm skorlarını temizler; isim ve hayvanı korur.</small></button>'+
-    '<button class="datp-btn danger" onclick="DEEN_ADMIN_PANEL.resetOnboarding()">Onboarding’i Baştan Başlat<small>Seçimleri korur ama uygulamayı giriş ekranından tekrar başlatır.</small></button>'+
-   '</div></section>'+
-   '<div class="datp-note">Bu panel yalnız test içindir. P tuşu input/textarea içinde yazı yazarken tetiklenmez.</div>'+
-  '</div>';
- }
- function ensure(){
-  let el=$('#deenAdminTestPanel');
-  if(!el){el=document.createElement('div');el.id='deenAdminTestPanel';el.hidden=true;document.body.appendChild(el)}
-  return el
- }
- function refresh(){
-  const s=currentStats();
-  const vals={datpGold:s.gold.toLocaleString('tr-TR'),datpEnergy:String(s.energy),datpXp:s.xp.toLocaleString('tr-TR'),datpDone:String(s.done)};
-  for(const [id,v] of Object.entries(vals)){const el=document.getElementById(id);if(el)el.textContent=v}
- }
- function open(){const el=ensure();el.innerHTML=markup();el.hidden=false;document.documentElement.style.overflow='hidden';refresh()}
- function close(){const el=ensure();el.hidden=true;document.documentElement.style.overflow=''}
- function toggle(){const el=ensure();el.hidden?open():close()}
- function unlimitedGold(){state.currency=999999999;save()}
- function unlimitedEnergy(){state.premium=true;state.energy=30;state.lastEnergyAt=Date.now();save()}
- function premiumOff(){state.premium=false;state.energy=30;state.lastEnergyAt=Date.now();save()}
- function maxXp(){state.xp=999999;save()}
- function streak30(){
-  state.streak=30;
-  state.streakMeta=state.streakMeta&&typeof state.streakMeta==='object'?state.streakMeta:{};
-  state.streakMeta.currentStreak=30;state.streakMeta.longestStreak=Math.max(30,Number(state.streakMeta.longestStreak)||0);
-  save()
- }
- function unlockAll(){
-  const list=(typeof STAGES!=='undefined'&&Array.isArray(STAGES))?STAGES:[];
-  state.completed=Array.isArray(state.completed)?state.completed:[];
-  state.stageScores=state.stageScores&&typeof state.stageScores==='object'?state.stageScores:{};
-  for(const s of list){if(s?.id&&!state.completed.includes(s.id))state.completed.push(s.id);if(s?.id)state.stageScores[s.id]=100}
-  for(const key of ['sectionFinal','section2Final','section3Final']){
-   state[key]=state[key]&&typeof state[key]==='object'?state[key]:{};
-   Object.assign(state[key],{attempts:Math.max(1,Number(state[key].attempts)||0),bestScore:100,completed:true,rank:'S',lastKnowledge:100,lastRetention:100});
-  }
-  try{
-   const defs=window.DEEN_FIVE_STAGE?.all?.()||[];
-   state.macroStageMeta=state.macroStageMeta&&typeof state.macroStageMeta==='object'?state.macroStageMeta:{};
-   for(const d of defs){
-    const scores={};for(let n=1;n<=Number(d.lessons||1);n++)scores[n]=100;
-    state.macroStageMeta[d.id]={...(state.macroStageMeta[d.id]||{}),completedLessons:Number(d.lessons)||1,totalLessons:Number(d.lessons)||1,lessonScores:scores,lastLessonNo:Number(d.lessons)||1,lastPct:100,seenIds:state.macroStageMeta[d.id]?.seenIds||[]};
-    for(const id of d.legacyIds||[]){if(!state.completed.includes(id))state.completed.push(id);state.stageScores[id]=100}
-   }
-   window.DEEN_FIVE_STAGE?.sync?.();
-  }catch(e){}
-  save();try{window.DEEN_FIVE_STAGE?.render?.()}catch(e){}
- }
- function onboardingStep(step){
-  close();try{window.onboarding?.(Number(step)||0)}catch(e){try{onboarding(Number(step)||0)}catch(_){}}
- }
- function go(id){
-  close();try{document.getElementById('v998Onboarding')?.remove()}catch(e){}
-  try{navigate(id)}catch(e){try{window.navigate?.(id)}catch(_){}}
- }
- function resetProgress(){
-  if(!confirm('Ders ilerlemesi ve XP sıfırlansın mı? İsim ve hayvan korunacak.'))return;
-  state.xp=0;state.completed=[];state.mistakes=[];state.answered=0;state.correct=0;state.stageScores={};state.macroStageMeta={};
-  for(const key of ['sectionFinal','section2Final','section3Final'])state[key]={attempts:0,bestScore:0,completed:false,rank:null,lastKnowledge:0,lastRetention:0};
-  state.premium=false;state.energy=30;state.lastEnergyAt=Date.now();save();try{window.DEEN_FIVE_STAGE?.sync?.();window.DEEN_FIVE_STAGE?.render?.()}catch(e){}
- }
- function resetOnboarding(){
-  state.onboarded=false;state.onboardingVersion=0;save();onboardingStep(0)
- }
- document.addEventListener('keydown',e=>{
-  if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;
-  const t=e.target,tag=(t?.tagName||'').toLowerCase();
-  if(tag==='input'||tag==='textarea'||tag==='select'||t?.isContentEditable)return;
-  if(String(e.key||'').toLowerCase()==='p'){e.preventDefault();toggle()}
-  if(e.key==='Escape'&&!ensure().hidden)close();
- },true);
- document.addEventListener('click',e=>{if(e.target?.id==='deenAdminTestPanel')close()});
- window.DEEN_ADMIN_PANEL={version:VERSION,open,close,toggle,refresh,unlimitedGold,unlimitedEnergy,premiumOff,maxXp,streak30,unlockAll,onboarding:onboardingStep,go,resetProgress,resetOnboarding};
- ensure();
-})();
-</script>
-
+<!-- DEEN v9.9.88 RELEASE FREEZE: production admin test panel removed. -->
 
 <!-- DEEN v9.9.12 — visual auth mock -->
 <style id="deen-v9912-auth-mock-css">
@@ -7601,7 +7461,7 @@
  if(window.__deenV9953RuntimeArbiter)return;
  window.__deenV9953RuntimeArbiter=true;
 
- const VERSION='9.9.87-RUNTIME-ARBITER';
+ const VERSION='9.9.88-RUNTIME-ARBITER';
  const LEGACY_RENDER=window.renderQuestion;
  const LEGACY_COMPLETE=window.completeQuestion;
  const LEGACY_RESULT=window.showResult;
@@ -8280,12 +8140,12 @@ if(typeof LEGACY_RENDER==='function'){
 </script>
 
 <!-- DEEN v9.9.87 — Runtime regression guard: non-destructive ownership/lifecycle self-check -->
-<script id="deen-v9987-runtime-regression-js">
+<script id="deen-v9988-runtime-regression-js">
 (()=>{
- if(window.__deenV9987RuntimeRegression)return;
- window.__deenV9987RuntimeRegression=true;
- const VERSION='9.9.87-RUNTIME-REGRESSION';
- const BUILD='9987regression1';
+ if(window.__deenV9988RuntimeRegression)return;
+ window.__deenV9988RuntimeRegression=true;
+ const VERSION='9.9.88-RUNTIME-REGRESSION';
+ const BUILD='9988releasefreeze1';
  let last=null,runs=0;
 
  function checks(){
@@ -8307,7 +8167,7 @@ if(typeof LEGACY_RENDER==='function'){
    energyOwner:!!window.showEnergy?.__deen9953,
    rewardOwner:!!window.rewardAd?.__deen9953,
    scheduler:typeof window.DEEN_RUNTIME_SCHEDULE?.question==='function',
-   arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.87-RUNTIME-ARBITER',
+   arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.88-RUNTIME-ARBITER',
    noLateRenderWrapper:!window.renderQuestion?.__v873&&!window.renderQuestion?.__v890&&!window.renderQuestion?.__v891,
    noLateStartWrapper:!window.startStage?.__v910LearningLoop,
    build:!window.DEEN_BUILD_ID||window.DEEN_BUILD_ID===BUILD
@@ -8333,4 +8193,28 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.87-PRODUCTION',BUILD='9987regression1',TITLE='DEEN v9.9.87';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const apply=()=>{clean();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.9.88-PRODUCTION',BUILD='9988releasefreeze1',TITLE='DEEN v9.9.88';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;window.saveState?.()}}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<!-- DEEN v9.9.88 — Final release freeze manifest -->
+<script id="deen-v9988-release-freeze-js">
+(()=>{
+ const VERSION='9.9.88',BUILD='9988releasefreeze1';
+ function snapshot(){
+  const checks={
+   production:document.documentElement.dataset.deenEnvironment==='production'||window.DEEN_RELEASE_VERSION==='9.9.88-PRODUCTION',
+   arbiter:window.DEEN_RUNTIME_ARBITER?.version==='9.9.88-RUNTIME-ARBITER',
+   regression:window.DEEN_RUNTIME_REGRESSION?.build===BUILD,
+   adminRemoved:!window.DEEN_ADMIN_PANEL&&!document.getElementById('deenAdminTestPanel'),
+   previewRemoved:!document.getElementById('previewToggle'),
+   previewLocked:(()=>{try{return previewMode===false}catch(_){return true}})(),
+   premiumSimulationDisabled:(()=>{try{return typeof togglePremium!=='function'||togglePremium.__deenProductionDisabled===true}catch(_){return true}})(),
+   worldRetired:window.__DEEN_WORLD_RETIRED_RUNTIME__===true,
+   nativeMutationObserver:!window.MutationObserver?.__deenV850
+  };
+  const failed=Object.entries(checks).filter(([,ok])=>ok!==true).map(([k])=>k);
+  return{version:VERSION,build:BUILD,frozen:true,pass:failed.length===0,failed,checks};
+ }
+ window.DEEN_RELEASE_FREEZE={version:VERSION,build:BUILD,snapshot};
+ setTimeout(()=>{const s=snapshot();document.documentElement.dataset.deenReleaseFreeze=s.pass?'pass':'fail';if(!s.pass)console.error('DEEN release freeze failed',s)},2700);
+})();
+</script>
+
