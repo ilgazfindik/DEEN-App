@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.10.4</title>
+<title>DEEN v9.10.5</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -19,7 +19,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9104lionhires1';
+ const BUILD='9105lionassetfix1';
  const SEGMENT_COUNT=25;
  const CONCURRENCY=6;
  const CACHE_NAME='deen-release-'+BUILD;
@@ -199,7 +199,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
      ['deen-v9101-single-companion-combo-js','Single selected companion combo eksik'],
      ['deen-v9102-authoritative-combo-js','Authoritative selected companion combo eksik'],
      ['deen-v9103-direct-combo-js','Direct session combo celebration eksik'],
-     ['deen-v9104-lion-hires-marker','High-quality lion combo source eksik']
+     ['deen-v9104-lion-hires-marker','High-quality lion combo source eksik'],
+     ['deen-v9105-lion-asset-fix-marker','Complete lion combo asset fix eksik']
    ];
    const missing=required.find(([marker])=>!html.includes(marker));
    if(missing)throw new Error(missing[1]);
