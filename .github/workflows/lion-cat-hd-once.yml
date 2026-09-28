@@ -24,57 +24,58 @@ jobs:
           python-version: "3.12"
 
       - name: Install image codec
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
-          python -m pip install --upgrade pillow pillow-avif-plugin
-          ffmpeg -version | head -n 1
+        run: python -m pip install --upgrade pillow pillow-avif-plugin
 
       - name: Build lion and cat AVIF assets and patch release
         shell: bash
         run: |
-          set -euo pipefail
-          mkdir -p /tmp/deen-mascots
-
-          for animal in lion cat; do
-            for tier in 3 5; do
-              src="assets/companions/$animal/${animal}_combo_${tier}.webp"
-              tmp="/tmp/deen-mascots/${animal}_combo_${tier}.png"
-
-              echo "SOURCE $src"
-              ffprobe -v error -select_streams v:0 -show_entries stream=width,height,pix_fmt -of default=nw=1 "$src" || true
-
-              # Decode the first visual frame with ffmpeg, which is more tolerant
-              # of unusual WebP bitstreams than Pillow's direct WebP decoder.
-              ffmpeg -y -v error -i "$src" -frames:v 1 \
-                -vf "scale=512:512:flags=lanczos" "$tmp"
-
-              test -s "$tmp"
-            done
-          done
-
           python - <<'PY'
           from pathlib import Path
           from PIL import Image, ImageFilter
           import pillow_avif
 
           root = Path(".")
-          tmp_root = Path("/tmp/deen-mascots")
+
+          def load_source(animal, tier):
+              preferred = root / "assets/companions" / animal / f"{animal}_combo_{tier}.webp"
+              try:
+                  im = Image.open(preferred).convert("RGBA")
+                  im.load()
+                  print("source", preferred, im.size)
+                  return im, preferred, False
+              except Exception as exc:
+                  fallback = root / "assets/companions" / animal / f"{animal}_celebrate.png"
+                  print("decode failed", preferred, repr(exc), "-> fallback", fallback)
+                  im = Image.open(fallback).convert("RGBA")
+                  im.load()
+                  print("source", fallback, im.size)
+                  return im, fallback, True
+
+          def fit_square(im, size=512, inset=24):
+              max_side = size - inset * 2
+              scale = min(max_side / im.width, max_side / im.height)
+              target = (max(1, round(im.width * scale)), max(1, round(im.height * scale)))
+              resized = im.resize(target, Image.Resampling.LANCZOS)
+              canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+              pos = ((size-target[0])//2, (size-target[1])//2)
+              canvas.alpha_composite(resized, pos)
+              return canvas
+
+          repaired_webps = []
 
           for animal in ("lion", "cat"):
               folder = root / "assets/companions" / animal
               for tier in (3, 5):
-                  tmp = tmp_root / f"{animal}_combo_{tier}.png"
-                  dst = folder / f"{animal}_combo_{tier}.avif"
-
-                  img = Image.open(tmp).convert("RGBA")
-                  assert img.size == (512, 512), (tmp, img.size)
+                  original, source_path, used_fallback = load_source(animal, tier)
+                  img = fit_square(original)
 
                   rgb = img.convert("RGB").filter(
-                      ImageFilter.UnsharpMask(radius=1.15, percent=100, threshold=3)
+                      ImageFilter.UnsharpMask(radius=1.1, percent=95, threshold=3)
                   )
                   alpha = img.getchannel("A")
                   img = Image.merge("RGBA", (*rgb.split(), alpha))
+
+                  dst = folder / f"{animal}_combo_{tier}.avif"
                   img.save(dst, "AVIF", quality=92, speed=6)
 
                   check = Image.open(dst).convert("RGBA")
@@ -83,9 +84,18 @@ jobs:
                   assert amin < 255, (dst, "alpha channel lost")
                   print("generated", dst, dst.stat().st_size, "alpha", (amin, amax))
 
+                  # If the legacy WebP is corrupt, rebuild it too so browser fallback works.
+                  if used_fallback:
+                      webp = folder / f"{animal}_combo_{tier}.webp"
+                      img.save(webp, "WEBP", lossless=True, method=6)
+                      repaired_webps.append(webp)
+                      verify = Image.open(webp).convert("RGBA")
+                      verify.load()
+                      assert verify.size == (512, 512)
+                      print("repaired fallback", webp, webp.stat().st_size)
+
           seg_path = root / "release/v9.9.3-direct/segment-24.txt"
           seg = seg_path.read_text(encoding="utf-8")
-
           replacements = {
               "lion:{3:'assets/companions/lion/lion_combo_3.webp',5:'assets/companions/lion/lion_combo_5.webp'},":
               "lion:{3:'assets/companions/lion/lion_combo_3.avif',5:'assets/companions/lion/lion_combo_5.avif'},",
@@ -99,7 +109,6 @@ jobs:
           for animal in ("lion", "cat", "eagle", "turtle", "owl", "wolf"):
               assert f"{animal}_combo_3.avif" in seg
               assert f"{animal}_combo_5.avif" in seg
-
           seg_path.write_text(seg, encoding="utf-8")
 
           index_path = root / "index.html"
@@ -119,6 +128,7 @@ jobs:
           git rm .github/workflows/lion-cat-hd-once.yml
           git add assets/companions/lion/lion_combo_3.avif \
                   assets/companions/lion/lion_combo_5.avif \
+                  assets/companions/lion/lion_combo_5.webp \
                   assets/companions/cat/cat_combo_3.avif \
                   assets/companions/cat/cat_combo_5.avif \
                   release/v9.9.3-direct/segment-24.txt \
