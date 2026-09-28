@@ -1,0 +1,106 @@
+name: One-off Lion Cat HD AVIF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/lion-cat-hd-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  convert-and-patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install image codec
+        run: python -m pip install --upgrade pillow pillow-avif-plugin
+
+      - name: Build lion and cat AVIF assets and patch release
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageFilter
+          import pillow_avif
+
+          root = Path(".")
+          for animal in ("lion", "cat"):
+              folder = root / "assets/companions" / animal
+              for tier in (3, 5):
+                  src = folder / f"{animal}_combo_{tier}.webp"
+                  dst = folder / f"{animal}_combo_{tier}.avif"
+
+                  original = Image.open(src).convert("RGBA")
+                  print(src, "source_size=", original.size)
+
+                  # Preserve alpha, upscale to the unified 512x512 mascot canvas,
+                  # then apply a restrained post-resize sharpen to reduce softness.
+                  img = original.convert("RGBa").resize((512, 512), Image.Resampling.LANCZOS).convert("RGBA")
+                  rgb = img.convert("RGB").filter(ImageFilter.UnsharpMask(radius=1.2, percent=105, threshold=3))
+                  alpha = img.getchannel("A")
+                  img = Image.merge("RGBA", (*rgb.split(), alpha))
+                  img.save(dst, "AVIF", quality=92, speed=6)
+
+                  check = Image.open(dst).convert("RGBA")
+                  assert check.size == (512, 512), (dst, check.size)
+                  amin, amax = check.getchannel("A").getextrema()
+                  assert amin < 255, (dst, "alpha channel lost")
+
+          seg_path = root / "release/v9.9.3-direct/segment-24.txt"
+          seg = seg_path.read_text(encoding="utf-8")
+
+          replacements = {
+              "lion:{3:'assets/companions/lion/lion_combo_3.webp',5:'assets/companions/lion/lion_combo_5.webp'},":
+              "lion:{3:'assets/companions/lion/lion_combo_3.avif',5:'assets/companions/lion/lion_combo_5.avif'},",
+              "cat:{3:'assets/companions/cat/cat_combo_3.webp',5:'assets/companions/cat/cat_combo_5.webp'},":
+              "cat:{3:'assets/companions/cat/cat_combo_3.avif',5:'assets/companions/cat/cat_combo_5.avif'},",
+          }
+          for old, new in replacements.items():
+              assert old in seg, f"mapping anchor missing: {old}"
+              seg = seg.replace(old, new, 1)
+
+          # Guard against accidentally regressing any already-migrated animal.
+          for animal in ("lion", "cat", "eagle", "turtle", "owl", "wolf"):
+              assert f"{animal}_combo_3.avif" in seg
+              assert f"{animal}_combo_5.avif" in seg
+
+          seg_path.write_text(seg, encoding="utf-8")
+
+          index_path = root / "index.html"
+          index = index_path.read_text(encoding="utf-8")
+          assert "<title>DEEN v9.10.11</title>" in index, "version title anchor missing"
+          assert "const BUILD='9111eaglehd1';" in index, "build anchor missing"
+          index = index.replace("<title>DEEN v9.10.11</title>", "<title>DEEN v9.10.12</title>", 1)
+          index = index.replace("const BUILD='9111eaglehd1';", "const BUILD='9112allcomboshd1';", 1)
+          index_path.write_text(index, encoding="utf-8")
+
+          for animal in ("lion", "cat"):
+              for p in sorted((root / "assets/companions" / animal).glob(f"{animal}_combo_*.avif")):
+                  print("generated", p, p.stat().st_size)
+          PY
+
+      - name: Commit generated assets and release patch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/lion-cat-hd-once.yml
+          git add assets/companions/lion/lion_combo_3.avif \
+                  assets/companions/lion/lion_combo_5.avif \
+                  assets/companions/cat/cat_combo_3.avif \
+                  assets/companions/cat/cat_combo_5.avif \
+                  release/v9.9.3-direct/segment-24.txt \
+                  index.html
+          git commit -m "feat: migrate all combo mascots to HD AVIF (v9.10.12)"
+          git push
