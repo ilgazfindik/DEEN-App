@@ -1905,7 +1905,7 @@
   /* Answer area: clean alignment and large enough touch targets. */
   #lesson #answerArea{
     width:100%!important;
-    gap:8px!important;
+    gap:7px!important;
     margin:0!important;
   }
   #lesson .options,
@@ -3949,7 +3949,7 @@
 
 /* Give the bubble a calmer, less cramped proportion. */
 #lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
-  min-height:94px!important;
+  min-height:86px!important;
   padding:14px 39px 14px 17px!important;
   border-radius:20px!important;
 }
@@ -10890,7 +10890,7 @@ if(typeof LEGACY_RENDER==='function'){
   font-size:13px!important;
 }
 #lesson .question-frame.v1013-match-ref .v1013-match-meter{
-  height:6px!important;
+  height:5px!important;
 }
 
 /* 3-pair questions should still feel like a designed game board, not tiny rows. */
@@ -11057,7 +11057,7 @@ if(typeof LEGACY_RENDER==='function'){
   display:flex!important;
   align-items:center!important;
   justify-content:flex-start!important;
-  gap:12px!important;
+  gap:10px!important;
   overflow-wrap:anywhere!important;
   overflow:hidden!important;
   transition:
@@ -11430,7 +11430,7 @@ if(typeof LEGACY_RENDER==='function'){
   min-height:96px!important;
 }
 #lesson .question-frame.v1013-match-ref.v1014-three-pairs .v853-match-col{
-  gap:14px!important;
+  gap:12px!important;
 }
 
 /* Four-pair rounds stay large without forcing global scale. */
@@ -11452,10 +11452,10 @@ if(typeof LEGACY_RENDER==='function'){
 
 @media(max-width:390px){
   #lesson .question-frame.v1013-match-ref .v853-match-wrap{
-    column-gap:9px!important;
+    column-gap:8px!important;
   }
   #lesson .question-frame.v1013-match-ref .v853-match-col{
-    gap:10px!important;
+    gap:8px!important;
   }
   #lesson .question-frame.v1013-match-ref .v853-match-card{
     min-height:74px!important;
@@ -11464,7 +11464,7 @@ if(typeof LEGACY_RENDER==='function'){
     font-size:11px!important;
   }
   #lesson .question-frame.v1013-match-ref .v853-match-card[data-side="left"]{
-    font-size:13.5px!important;
+    font-size:13px!important;
   }
   #lesson .question-frame.v1013-match-ref.v1014-three-pairs .v853-match-card{
     min-height:84px!important;
@@ -11794,8 +11794,8 @@ if(typeof LEGACY_RENDER==='function'){
 #lesson .question-frame.v1017-match-screen .v1017-board{
   flex:0 0 auto!important;
   display:grid!important;
-  grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr)!important;
-  column-gap:12px!important;
+  grid-template-columns:minmax(0,.90fr) minmax(0,1.10fr)!important;
+  column-gap:10px!important;
   width:100%!important;
 }
 #lesson .question-frame.v1017-match-screen .v1017-col{
@@ -11808,9 +11808,9 @@ if(typeof LEGACY_RENDER==='function'){
   position:relative!important;
   width:100%!important;
   min-width:0!important;
-  min-height:82px!important;
-  padding:14px 44px 14px 16px!important;
-  border-radius:20px!important;
+  min-height:74px!important;
+  padding:12px 14px 12px 14px!important;
+  border-radius:18px!important;
   border:1px solid rgba(95,142,153,.54)!important;
   background:
     radial-gradient(circle at 12% 10%,rgba(111,226,190,.055),transparent 46%),
@@ -11818,9 +11818,9 @@ if(typeof LEGACY_RENDER==='function'){
   color:#f6faf8!important;
   box-shadow:inset 0 1px rgba(255,255,255,.025),0 8px 19px rgba(0,0,0,.13)!important;
   font-family:Inter,system-ui,sans-serif!important;
-  font-size:clamp(12px,3.35vw,15px)!important;
-  font-weight:720!important;
-  line-height:1.28!important;
+  font-size:clamp(11.5px,3.05vw,14px)!important;
+  font-weight:740!important;
+  line-height:1.24!important;
   text-align:left!important;
   display:flex!important;
   align-items:center!important;
@@ -11830,8 +11830,8 @@ if(typeof LEGACY_RENDER==='function'){
   transition:transform .13s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease!important;
 }
 #lesson .question-frame.v1017-match-screen .v1017-card[data-side="left"]{
-  font-size:clamp(15px,4vw,18px)!important;
-  font-weight:900!important;
+  font-size:clamp(14.5px,3.7vw,17px)!important;
+  font-weight:860!important;
 }
 #lesson .question-frame.v1017-match-screen .v1017-card:after{
   display:none!important;
@@ -11902,18 +11902,18 @@ if(typeof LEGACY_RENDER==='function'){
 
 /* Real footer: independent of board height. */
 #lesson .question-frame.v1017-match-screen .v1017-footer{
-  margin-top:18px!important;
+  margin-top:14px!important;
   flex:0 0 auto!important;
-  width:82%!important;
+  width:78%!important;
   align-self:center!important;
   padding:0 0 2px!important;
 }
 #lesson .question-frame.v1017-match-screen .v1017-count{
-  margin:0 0 8px!important;
+  margin:0 0 6px!important;
   text-align:center!important;
   color:#cbdadc!important;
-  font-size:12px!important;
-  font-weight:720!important;
+  font-size:11px!important;
+  font-weight:760!important;
   line-height:1.2!important;
 }
 #lesson .question-frame.v1017-match-screen .v1017-meter{
@@ -11969,16 +11969,16 @@ if(typeof LEGACY_RENDER==='function'){
     gap:10px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-card{
-    min-height:72px!important;
-    padding:11px 11px 11px 12px!important;
-    border-radius:18px!important;
-    font-size:10.8px!important;
+    min-height:68px!important;
+    padding:10px 10px 10px 11px!important;
+    border-radius:17px!important;
+    font-size:10.5px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-card[data-side="left"]{
     font-size:13.5px!important;
   }
   #lesson .question-frame.v1017-match-screen[data-pairs="3"] .v1017-card{
-    min-height:82px!important;
+    min-height:76px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-mosque{
     right:-26px!important;
@@ -12009,10 +12009,10 @@ if(typeof LEGACY_RENDER==='function'){
     padding-top:96px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-card{
-    min-height:62px!important;
+    min-height:60px!important;
   }
   #lesson .question-frame.v1017-match-screen[data-pairs="3"] .v1017-card{
-    min-height:70px!important;
+    min-height:66px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-col{
     gap:8px!important;
@@ -12083,7 +12083,7 @@ if(typeof LEGACY_RENDER==='function'){
    card.style.setProperty('align-items','center','important');
    card.style.setProperty('justify-content','flex-start','important');
    card.style.setProperty('text-align','left','important');
-   card.style.setProperty('gap','12px','important');
+   card.style.setProperty('gap','10px','important');
    card.style.setProperty('padding-right','14px','important');
 
    if(card.classList.contains('matched')){
