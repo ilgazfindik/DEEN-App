@@ -4,8 +4,8 @@
   if(window.__deenV1045MatchingBaseline)return;
   window.__deenV1045MatchingBaseline=true;
 
-  const VERSION='10.5.6-WINDOW-POINTER-MATCHING-BASELINE';
-  const BUILD='9156windowpointer1';
+  const VERSION='10.5.7-DOM-STATE-MATCHING-BASELINE';
+  const BUILD='9157domstate1';
   let runs=0;
   let last=null;
 
@@ -57,7 +57,7 @@
       noScale:transform===''||transform==='none',
       notFitted:!fitted,
       coreGuard:window.DEEN_AUTHORITATIVE_MATCHING?.check?.().owner==='segment-09',
-      isolatedEngine:window.DEEN_ISOLATED_MATCHING?.version==='10.5.6-WINDOW-POINTER-MATCHING'
+      isolatedEngine:window.DEEN_ISOLATED_MATCHING?.version==='10.5.7-DOM-STATE-MATCHING'
     };
 
     const failed=Object.entries(checks).filter(([,ok])=>ok!==true).map(([name])=>name);
