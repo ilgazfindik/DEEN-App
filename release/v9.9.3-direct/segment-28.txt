@@ -1,0 +1,115 @@
+<!-- DEEN v10.4.5 — Matching authoritative baseline guard -->
+<script id="deen-v1045-matching-baseline-js">
+(()=>{
+  if(window.__deenV1045MatchingBaseline)return;
+  window.__deenV1045MatchingBaseline=true;
+
+  const VERSION='10.4.5-MATCHING-BASELINE';
+  const BUILD='9145matchbaseline1';
+  let runs=0;
+  let last=null;
+
+  const frame=()=>document.querySelector('#lesson .question-frame');
+  const currentQuestion=()=>{
+    try{return session?.questions?.[Number(session?.index)||0]||null}catch(_){return null}
+  };
+  const isMatching=()=>String(currentQuestion()?.activity_type||'').toLowerCase()==='matching';
+
+  function visible(el){
+    if(!el)return false;
+    const s=getComputedStyle(el);
+    return s.display!=='none'&&s.visibility!=='hidden'&&s.opacity!=='0';
+  }
+
+  function inspect(reason='manual'){
+    const f=frame();
+    const q=currentQuestion();
+
+    if(!f||!isMatching()){
+      last={version:VERSION,build:BUILD,at:Date.now(),run:++runs,reason,active:false,pass:true,failed:[],checks:{}};
+      return {...last};
+    }
+
+    const pairs=Array.isArray(q?.pairs)?q.pairs.length:0;
+    const cards=[...f.querySelectorAll('.v1017-card')];
+    const legacyGrid=f.querySelector('.match-grid');
+    const shell=f.querySelector('.v1017-shell');
+    const board=f.querySelector('.v1017-board');
+    const left=f.querySelector('.v1017-left');
+    const right=f.querySelector('.v1017-right');
+    const footer=f.querySelector('.v1017-footer');
+    const transform=f.style.transform||'';
+    const fitted=document.getElementById('lesson')?.classList.contains('v9913-fitted')||false;
+
+    const checks={
+      owner:document.documentElement.dataset.deenMatchingOwner==='segment-09',
+      renderer:document.documentElement.dataset.deenMatchingRenderer==='core09-v1023',
+      screen:f.classList.contains('v1017-match-screen'),
+      shell:!!shell,
+      board:!!board,
+      columns:!!left&&!!right,
+      footer:!!footer,
+      pairCount:pairs>=2,
+      cardCount:cards.length===pairs*2,
+      indicators:cards.length>0&&cards.every(card=>!!card.querySelector('.v1017-choice-indicator')),
+      sideTags:cards.length>0&&cards.every(card=>card.dataset.side==='left'||card.dataset.side==='right'),
+      noVisibleLegacyGrid:!visible(legacyGrid),
+      noScale:transform===''||transform==='none',
+      notFitted:!fitted,
+      coreGuard:window.DEEN_AUTHORITATIVE_MATCHING?.check?.().owner==='segment-09'
+    };
+
+    const failed=Object.entries(checks).filter(([,ok])=>ok!==true).map(([name])=>name);
+    last={
+      version:VERSION,
+      build:BUILD,
+      at:Date.now(),
+      run:++runs,
+      reason,
+      active:true,
+      pass:failed.length===0,
+      failed,
+      checks,
+      pairs,
+      cards:cards.length,
+      renderer:document.documentElement.dataset.deenMatchingRenderer||null,
+      owner:document.documentElement.dataset.deenMatchingOwner||null,
+      deploy:String(window.__DEEN_DEPLOY_ID__||'')
+    };
+
+    document.documentElement.dataset.deenMatchingBaseline=last.pass?'pass':'fail';
+    if(!last.pass){
+      try{console.error('DEEN matching baseline failed',last)}catch(_){}
+    }
+    return JSON.parse(JSON.stringify(last));
+  }
+
+  function schedule(reason,detail){
+    const run=()=>inspect(reason);
+    if(window.DEEN_RUNTIME_SCHEDULE?.question){
+      window.DEEN_RUNTIME_SCHEDULE.question(
+        'v1045-matching-baseline-'+reason,
+        detail||{},
+        run,
+        {raf:true,delays:[80,220]}
+      );
+    }else{
+      requestAnimationFrame(run);
+      setTimeout(run,120);
+    }
+  }
+
+  document.addEventListener('deen:question-rendered',e=>schedule('rendered',e?.detail));
+  document.addEventListener('deen:question-graded',e=>schedule('graded',e?.detail));
+  document.addEventListener('deen:question-advancing',()=>{
+    document.documentElement.dataset.deenMatchingBaseline='idle';
+  });
+
+  window.DEEN_MATCHING_BASELINE={
+    version:VERSION,
+    build:BUILD,
+    inspect,
+    snapshot:()=>last?JSON.parse(JSON.stringify(last)):inspect('snapshot')
+  };
+})();
+</script>
