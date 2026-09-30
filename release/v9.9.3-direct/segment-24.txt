@@ -12917,3 +12917,24 @@ if(typeof LEGACY_RENDER==='function'){
   }
 }
 </style>
+
+
+<!-- DEEN v10.4.1 — Fill grading cleanup guard -->
+<style id="deen-v1041-fill-feedback-guard-css">
+/* Feedback owns the viewport after grading. Native fill controls must disappear completely. */
+#lesson .question-frame.deen-premium-fill.v9945-feedback-mode #answerArea,
+#lesson .question-frame.deen-premium-fill.v1038-fill-authoritative.v9945-feedback-mode #answerArea,
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo.v9945-feedback-mode #answerArea,
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive.v9945-feedback-mode #answerArea{
+  display:none!important;
+}
+#lesson .question-frame.deen-premium-fill.v9945-feedback-mode .v1039-fill-bank,
+#lesson .question-frame.deen-premium-fill.v9945-feedback-mode .v1040-fill-bank,
+#lesson .question-frame.deen-premium-fill.v9945-feedback-mode .v1039-fill-check,
+#lesson .question-frame.deen-premium-fill.v9945-feedback-mode .v1040-fill-check{
+  display:none!important;
+}
+#lesson .question-frame.deen-premium-fill.v9945-feedback-mode .deen-character-question-row{
+  margin-bottom:12px!important;
+}
+</style>
