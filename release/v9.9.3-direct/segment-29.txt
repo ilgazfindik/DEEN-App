@@ -357,3 +357,93 @@
   };
 })();
 </script>
+
+
+<script id="deen-v1054-matching-debug-js">
+(()=>{
+  if(window.__deenV1054MatchingDebug)return;
+  window.__deenV1054MatchingDebug=true;
+
+  const enabled=new URLSearchParams(location.search).get('debugmatch')==='1';
+  if(!enabled)return;
+
+  let pointerdowns=0,windowClicks=0,lastPointer=null,lastClick=null;
+
+  function q(){
+    try{return session?.questions?.[Number(session?.index)||0]||null}catch(_){return null}
+  }
+
+  function describe(target){
+    const card=target?.closest?.('#lesson .v1017-card');
+    const label=card?.querySelector?.('.v1017-card-label')?.textContent?.trim()||'';
+    return {
+      tag:String(target?.tagName||'').toLowerCase(),
+      cls:String(target?.className||'').slice(0,80),
+      card:!!card,
+      label,
+      side:card?.closest?.('.v1017-left')?'left':(card?.closest?.('.v1017-right')?'right':'?'),
+      pair:card?.dataset?.pair||''
+    };
+  }
+
+  function ensure(){
+    let el=document.getElementById('deenMatchDebug');
+    if(el)return el;
+    el=document.createElement('pre');
+    el.id='deenMatchDebug';
+    el.style.cssText='position:fixed;left:8px;right:8px;bottom:8px;z-index:2147483647;margin:0;padding:9px 10px;border:1px solid rgba(129,236,201,.7);border-radius:10px;background:rgba(1,12,18,.94);color:#bff7e5;font:700 10px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;pointer-events:none;max-height:155px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.45)';
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function paint(){
+    const el=ensure();
+    const snap=window.DEEN_ISOLATED_MATCHING?.snapshot?.()||null;
+    const question=q();
+    const selectedCards=[...document.querySelectorAll('#lesson .v1017-card.selected')].map(x=>x.querySelector('.v1017-card-label')?.textContent?.trim());
+    const matched=[...document.querySelectorAll('#lesson .v1017-card.matched')].map(x=>x.querySelector('.v1017-card-label')?.textContent?.trim());
+    el.textContent=[
+      'MATCH DEBUG v10.5.4',
+      'question: '+String(question?.id||question?.activity_type||'none'),
+      'engine: '+String(snap?.version||'MISSING')+' active='+String(snap?.active),
+      'window pointer/click: '+pointerdowns+'/'+windowClicks+' engineClicks='+String(snap?.clicks??'—'),
+      'last pointer: '+JSON.stringify(lastPointer),
+      'last click: '+JSON.stringify(lastClick),
+      'engine selected: '+JSON.stringify(snap?.selected||null),
+      'DOM selected: '+JSON.stringify(selectedCards),
+      'matched L/R: '+String(snap?.matchedLeft??'—')+'/'+String(snap?.matchedRight??'—')+' DOM='+matched.length,
+      'last state: '+String(document.documentElement.dataset.deenMatchingLast||'—'),
+      'renderer: '+String(document.documentElement.dataset.deenMatchingRenderer||'—')
+    ].join('\n');
+  }
+
+  window.addEventListener('pointerdown',e=>{
+    const card=e.target?.closest?.('#lesson .v1017-card');
+    if(!card)return;
+    pointerdowns++;
+    lastPointer=describe(e.target);
+    requestAnimationFrame(paint);
+  },true);
+
+  window.addEventListener('click',e=>{
+    const card=e.target?.closest?.('#lesson .v1017-card');
+    if(!card)return;
+    windowClicks++;
+    lastClick=describe(e.target);
+    setTimeout(paint,0);
+    setTimeout(paint,60);
+  },true);
+
+  document.addEventListener('deen:question-rendered',()=>{
+    setTimeout(paint,100);
+  });
+
+  window.DEEN_MATCHING_DEBUG={
+    version:'10.5.4-MATCH-DEBUG',
+    paint,
+    snapshot:()=>({pointerdowns,windowClicks,lastPointer,lastClick,engine:window.DEEN_ISOLATED_MATCHING?.snapshot?.()||null})
+  };
+
+  setTimeout(paint,300);
+})();
+</script>
