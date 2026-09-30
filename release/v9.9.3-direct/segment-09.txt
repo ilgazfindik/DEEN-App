@@ -304,9 +304,9 @@ function renderQuestion(){
 
 function renderFillBlank(q,area){
  document.documentElement.dataset.deenFillOwner='segment-09';
- document.documentElement.dataset.deenFillRenderer='core09-v1031';
+ document.documentElement.dataset.deenFillRenderer='core09-v1032';
  const frame=document.querySelector('#lesson .question-frame');
- if(frame)frame.dataset.deenFillRenderer='core09-v1031';
+ if(frame)frame.dataset.deenFillRenderer='core09-v1032';
  const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
  if(Array.isArray(q.options_tr) && q.options_tr.length){
