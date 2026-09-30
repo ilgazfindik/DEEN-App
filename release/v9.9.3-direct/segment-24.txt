@@ -12030,6 +12030,132 @@ if(typeof LEGACY_RENDER==='function'){
 }
 </style>
 
+<script id="deen-v1017-card-normalizer-js">
+(()=>{
+ if(window.__deenV1017CardNormalizer)return;
+ window.__deenV1017CardNormalizer=true;
+
+ const VERSION='10.2.4-CARD-NORMALIZER';
+ let runs=0,repairs=0;
+
+ function ensureCard(card){
+   if(!card||!card.classList?.contains('v1017-card'))return false;
+
+   let label=card.querySelector('.v1017-card-label');
+   let indicator=card.querySelector('.v1017-choice-indicator');
+   const raw=(label?.textContent||card.textContent||'').trim();
+
+   if(!label){
+     card.textContent='';
+     label=document.createElement('span');
+     label.className='v1017-card-label';
+     label.textContent=raw;
+     card.append(label);
+     repairs++;
+   }
+   if(!indicator){
+     indicator=document.createElement('span');
+     indicator.className='v1017-choice-indicator';
+     indicator.setAttribute('aria-hidden','true');
+     card.append(indicator);
+     repairs++;
+   }
+
+   label.style.setProperty('flex','1 1 auto','important');
+   label.style.setProperty('min-width','0','important');
+   label.style.setProperty('display','block','important');
+   label.style.setProperty('text-align','left','important');
+
+   indicator.style.setProperty('display','grid','important');
+   indicator.style.setProperty('place-items','center','important');
+   indicator.style.setProperty('flex','0 0 24px','important');
+   indicator.style.setProperty('width','24px','important');
+   indicator.style.setProperty('height','24px','important');
+   indicator.style.setProperty('min-width','24px','important');
+   indicator.style.setProperty('min-height','24px','important');
+   indicator.style.setProperty('border','1.5px solid rgba(116,158,168,.74)','important');
+   indicator.style.setProperty('border-radius','50%','important');
+   indicator.style.setProperty('background','rgba(4,29,37,.32)','important');
+   indicator.style.setProperty('box-sizing','border-box','important');
+   indicator.style.setProperty('pointer-events','none','important');
+
+   card.style.setProperty('display','flex','important');
+   card.style.setProperty('align-items','center','important');
+   card.style.setProperty('justify-content','flex-start','important');
+   card.style.setProperty('text-align','left','important');
+   card.style.setProperty('gap','12px','important');
+   card.style.setProperty('padding-right','14px','important');
+
+   if(card.classList.contains('matched')){
+     indicator.textContent='✓';
+     indicator.style.setProperty('border-color','#83ebc2','important');
+     indicator.style.setProperty('background','#83ebc2','important');
+     indicator.style.setProperty('color','#073a37','important');
+   }else if(card.classList.contains('selected')){
+     indicator.textContent='';
+     indicator.style.setProperty('border-color','#7ce6bf','important');
+     indicator.style.setProperty('background','#7ce6bf','important');
+     indicator.style.setProperty('box-shadow','inset 0 0 0 5px #123f40','important');
+   }else{
+     indicator.textContent='';
+     indicator.style.removeProperty('box-shadow');
+   }
+
+   card.dataset.v1017Normalized='1';
+   return true;
+ }
+
+ function apply(){
+   runs++;
+   const cards=[...document.querySelectorAll('#lesson .v1017-card')];
+   cards.forEach(ensureCard);
+   if(cards.length){
+     document.documentElement.dataset.deenMatchingNormalizer='v1024';
+     document.documentElement.dataset.deenMatchingIndicatorCount=String(document.querySelectorAll('#lesson .v1017-choice-indicator').length);
+   }
+   return cards.length;
+ }
+
+ function schedule(){
+   [0,16,60,160,360].forEach(ms=>setTimeout(apply,ms));
+ }
+
+ document.addEventListener('deen:question-rendered',schedule);
+ document.addEventListener('deen:question-graded',schedule);
+ document.addEventListener('deen:question-rendering',()=>setTimeout(apply,0));
+
+ const observer=new MutationObserver(mutations=>{
+   let relevant=false;
+   for(const m of mutations){
+     if(m.type==='childList'&&(m.addedNodes.length||m.removedNodes.length)){relevant=true;break}
+     if(m.type==='attributes'&&m.target?.classList?.contains?.('v1017-card')){relevant=true;break}
+   }
+   if(relevant)queueMicrotask(apply);
+ });
+ const startObserver=()=>{
+   const host=document.getElementById('answerArea')||document.getElementById('lesson');
+   if(host)observer.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startObserver,{once:true});
+ else startObserver();
+
+ setTimeout(schedule,0);
+
+ window.DEEN_MATCHING_CARD_NORMALIZER={
+   version:VERSION,
+   apply,
+   check:()=>({
+     version:VERSION,
+     runs,repairs,
+     cards:document.querySelectorAll('#lesson .v1017-card').length,
+     labels:document.querySelectorAll('#lesson .v1017-card-label').length,
+     indicators:document.querySelectorAll('#lesson .v1017-choice-indicator').length,
+     normalized:document.querySelectorAll('#lesson .v1017-card[data-v1017-normalized="1"]').length
+   })
+ };
+})();
+</script>
+
 <script id="deen-v1017-authoritative-matching-js">
 (()=>{
  if(window.__deenV1017AuthoritativeMatching)return;
