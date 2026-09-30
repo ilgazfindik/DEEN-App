@@ -318,9 +318,9 @@ function renderQuestion(){
 
 function renderFillBlank(q,area){
  document.documentElement.dataset.deenFillOwner='segment-09';
- document.documentElement.dataset.deenFillRenderer='core09-v1032';
+ document.documentElement.dataset.deenFillRenderer='core09-v1034';
  const frame=document.querySelector('#lesson .question-frame');
- if(frame)frame.dataset.deenFillRenderer='core09-v1032';
+ if(frame)frame.dataset.deenFillRenderer='core09-v1034';
  const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
  if(Array.isArray(q.options_tr) && q.options_tr.length){
@@ -359,7 +359,7 @@ function renderFillBlank(q,area){
    cta.type='button';
    cta.className='template-action';
    cta.disabled=true;
-   cta.textContent='Bir kelime seç';
+   cta.textContent='Kontrol Et';
    cta.onclick=()=>{
      if(!selected)return;
      const correct=normalize(selected.value)===normalize(q.correct_answer);
