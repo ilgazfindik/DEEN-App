@@ -12784,3 +12784,136 @@ if(typeof LEGACY_RENDER==='function'){
   }
 }
 </style>
+
+
+<!-- DEEN v10.4.0 — Interactive fill slot + drag feedback -->
+<style id="deen-v1040-fill-interaction-css">
+@keyframes v1040SlotPop{
+  0%{transform:translateY(2px) scale(.92);opacity:.35}
+  60%{transform:translateY(-1px) scale(1.045);opacity:1}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-slot{
+  position:relative!important;
+  cursor:pointer!important;
+  transition:
+    background .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease,
+    transform .16s ease!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-slot-word{
+  display:inline-block!important;
+  padding:1px 4px 2px!important;
+  color:#86efd0!important;
+  font-weight:950!important;
+  letter-spacing:-.2px!important;
+  text-shadow:0 0 18px rgba(89,229,190,.22)!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-slot-placeholder{
+  display:inline-block!important;
+  min-width:70px!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-slot-pop .v1040-fill-slot-word{
+  animation:v1040SlotPop .22s cubic-bezier(.2,.8,.2,1) both!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-slot.drag-over{
+  transform:translateY(-1px) scale(1.025)!important;
+  border-bottom-color:#9cf6da!important;
+  background:rgba(28,104,91,.42)!important;
+  box-shadow:
+    0 0 0 3px rgba(120,235,202,.11),
+    0 0 24px rgba(91,231,192,.18)!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-slot[data-filled="1"]{
+  border-bottom-color:#7ee9c8!important;
+  background:linear-gradient(180deg,rgba(23,88,78,.34),rgba(14,62,64,.28))!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-slot.correct .v1040-fill-slot-word{
+  color:#a4f5dc!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-slot.wrong .v1040-fill-slot-word{
+  color:#ffc7cb!important;
+  text-shadow:none!important;
+}
+
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-chip{
+  cursor:grab!important;
+  touch-action:none!important;
+  -webkit-user-select:none!important;
+  user-select:none!important;
+  transition:
+    transform .14s ease,
+    opacity .14s ease,
+    border-color .14s ease,
+    box-shadow .14s ease!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-chip:active{
+  cursor:grabbing!important;
+  transform:scale(.96)!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-chip.dragging{
+  opacity:.34!important;
+  transform:scale(.95)!important;
+  box-shadow:none!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-chip.selected{
+  opacity:.46!important;
+  border-style:dashed!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-chip.selected .v1040-fill-chip-label{
+  color:#a8cbc3!important;
+}
+
+/* Floating chip used by touch/pointer drag. */
+.v1040-drag-ghost{
+  position:fixed!important;
+  z-index:250000!important;
+  left:0;
+  top:0;
+  transform:translate(-50%,-125%) scale(1.05)!important;
+  width:auto!important;
+  min-width:82px!important;
+  max-width:min(240px,72vw)!important;
+  min-height:44px!important;
+  margin:0!important;
+  padding:9px 15px!important;
+  border-radius:14px!important;
+  border:1.5px solid rgba(139,236,209,.86)!important;
+  background:linear-gradient(180deg,rgba(18,72,72,.98),rgba(8,43,51,.98))!important;
+  color:#f6fff9!important;
+  font:850 15px/1.15 Inter,system-ui,sans-serif!important;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.34),
+    0 0 0 3px rgba(123,233,202,.10)!important;
+  pointer-events:none!important;
+  opacity:.96!important;
+}
+
+/* Keep the bank compact and visually secondary to the sentence. */
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-bank{
+  margin-top:4px!important;
+}
+#lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-check:not(:disabled){
+  border-color:rgba(229,191,101,.78)!important;
+  background:linear-gradient(100deg,#91e9ca,#b4f0d5)!important;
+  box-shadow:
+    0 0 0 2px rgba(236,197,108,.10),
+    0 12px 26px rgba(65,218,180,.16)!important;
+}
+
+@media(max-width:420px){
+  #lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-slot-word{
+    padding-inline:3px!important;
+  }
+  #lesson .question-frame.deen-premium-fill.v1040-fill-interactive .v1040-fill-slot-placeholder{
+    min-width:62px!important;
+  }
+  .v1040-drag-ghost{
+    min-width:74px!important;
+    min-height:42px!important;
+    padding:8px 13px!important;
+    font-size:14px!important;
+  }
+}
+</style>
