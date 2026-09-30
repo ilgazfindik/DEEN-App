@@ -4,8 +4,8 @@
   if(window.__deenV1053IsolatedMatchingEngine)return;
   window.__deenV1053IsolatedMatchingEngine=true;
 
-  const VERSION='10.5.5-POINTERDOWN-MATCHING';
-  const BUILD='9155pointermatch1';
+  const VERSION='10.5.6-WINDOW-POINTER-MATCHING';
+  const BUILD='9156windowpointer1';
 
   let state=null;
   let clicks=0;
@@ -146,7 +146,7 @@
       if(!d)return;
       card.onclick=null;
       card.removeAttribute('onclick');
-      card.dataset.deenMatchEngine='v1055';
+      card.dataset.deenMatchEngine='v1056';
 
       if(d.side==='left'&&s.matchedLeft.has(d.token))paintMatched(card);
       else if(d.side==='right'&&s.matchedRight.has(d.token))paintMatched(card);
@@ -164,7 +164,7 @@
     }
 
     updateFooter(s);
-    document.documentElement.dataset.deenMatchingInteraction='pointerdown-v1055';
+    document.documentElement.dataset.deenMatchingInteraction='window-pointer-v1056';
     return true;
   }
 
@@ -294,7 +294,7 @@
     cards().forEach(card=>{
       card.onclick=null;
       card.removeAttribute('onclick');
-      card.dataset.deenMatchEngine='v1055';
+      card.dataset.deenMatchEngine='v1056';
     });
     rehydrate();
     return true;
@@ -310,40 +310,57 @@
   let suppressClickUntil=0;
   let lastPointerCard=null;
 
-  document.addEventListener('pointerdown',event=>{
+  let lastEngineError=null;
+
+  function safeHandle(card,source,event){
+    try{
+      const result=handle(card);
+      lastEngineError=null;
+      document.documentElement.dataset.deenMatchingInputSource=source;
+      delete document.documentElement.dataset.deenMatchingError;
+      return result;
+    }catch(err){
+      lastEngineError=String(err?.stack||err?.message||err);
+      document.documentElement.dataset.deenMatchingError=String(err?.message||err||'unknown').slice(0,180);
+      console.error('DEEN matching input error',err,{source,card});
+      return false;
+    }
+  }
+
+  /*
+    v10.5.6: diagnostics proved pointerdown reaches window even when the
+    corresponding click disappears. Own matching input at the earliest stable
+    capture point: window. stopPropagation still allows other listeners on
+    window (including diagnostics) to observe the same event, while preventing
+    legacy target handlers from competing with this engine.
+  */
+  window.addEventListener('pointerdown',event=>{
     const card=event.target?.closest?.('#lesson .v1017-card');
     if(!card||!active())return;
     if(event.pointerType==='mouse'&&event.button!==0)return;
 
     event.preventDefault();
     event.stopPropagation();
-    event.stopImmediatePropagation();
 
     lastPointerCard=card;
     suppressClickUntil=Date.now()+700;
-    handle(card);
+    safeHandle(card,'window-pointerdown',event);
   },true);
 
-  document.addEventListener('click',event=>{
+  window.addEventListener('click',event=>{
     const card=event.target?.closest?.('#lesson .v1017-card');
     if(!card||!active())return;
 
+    event.preventDefault();
+    event.stopPropagation();
+
     if(Date.now()<=suppressClickUntil){
-      event.preventDefault();
-      event.stopPropagation();
-      event.stopImmediatePropagation();
       lastPointerCard=null;
       return;
     }
 
-    /*
-      Keyboard/assistive activation may legitimately produce click without
-      pointerdown. Preserve that accessibility path.
-    */
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-    handle(card);
+    // Keyboard / assistive activation fallback.
+    safeHandle(card,'window-click-fallback',event);
   },true);
 
   document.addEventListener('deen:question-rendering',()=>{
@@ -387,6 +404,8 @@
       correctPairs,
       wrongPairs,
       arms,
+      inputSource:document.documentElement.dataset.deenMatchingInputSource||null,
+      lastEngineError,
       renderer:document.documentElement.dataset.deenMatchingRenderer||null
     })
   };
@@ -448,6 +467,8 @@
       'DOM selected: '+JSON.stringify(selectedCards),
       'matched L/R: '+String(snap?.matchedLeft??'—')+'/'+String(snap?.matchedRight??'—')+' DOM='+matched.length,
       'last state: '+String(document.documentElement.dataset.deenMatchingLast||'—'),
+      'input source: '+String(document.documentElement.dataset.deenMatchingInputSource||'—'),
+      'engine error: '+String(document.documentElement.dataset.deenMatchingError||snap?.lastEngineError||'—'),
       'renderer: '+String(document.documentElement.dataset.deenMatchingRenderer||'—')
     ].join('\n');
   }
