@@ -4,8 +4,8 @@
   if(window.__deenV1053IsolatedMatchingEngine)return;
   window.__deenV1053IsolatedMatchingEngine=true;
 
-  const VERSION='10.5.6-WINDOW-POINTER-MATCHING';
-  const BUILD='9156windowpointer1';
+  const VERSION='10.5.7-DOM-STATE-MATCHING';
+  const BUILD='9157domstate1';
 
   let state=null;
   let clicks=0;
@@ -128,7 +128,7 @@
     if(!s)return;
     const q=question();
     const total=Array.isArray(q?.pairs)?q.pairs.length:0;
-    const done=s.matchedLeft.size;
+    const done=document.querySelectorAll('#lesson .v1017-left .v1017-card.matched').length;
     const count=document.querySelector('#lesson .v1017-count');
     const fill=document.querySelector('#lesson .v1017-meter i');
     if(count)count.textContent=done+' / '+total+' eşleşme';
@@ -146,7 +146,7 @@
       if(!d)return;
       card.onclick=null;
       card.removeAttribute('onclick');
-      card.dataset.deenMatchEngine='v1056';
+      card.dataset.deenMatchEngine='v1057';
 
       if(d.side==='left'&&s.matchedLeft.has(d.token))paintMatched(card);
       else if(d.side==='right'&&s.matchedRight.has(d.token))paintMatched(card);
@@ -164,7 +164,7 @@
     }
 
     updateFooter(s);
-    document.documentElement.dataset.deenMatchingInteraction='window-pointer-v1056';
+    document.documentElement.dataset.deenMatchingInteraction='dom-state-v1057';
     return true;
   }
 
@@ -196,7 +196,8 @@
   function finish(s){
     const q=question();
     if(!s||!q||s.finished)return;
-    if(s.matchedLeft.size!==q.pairs.length)return;
+    const done=document.querySelectorAll('#lesson .v1017-left .v1017-card.matched').length;
+    if(done!==q.pairs.length)return;
 
     s.finished=true;
     clearSelection(s);
@@ -250,6 +251,20 @@
     document.documentElement.dataset.deenMatchingLast='wrong';
   }
 
+  function syncStateFromDOM(s){
+    if(!s)return;
+    s.matchedLeft=new Set(
+      [...document.querySelectorAll('#lesson .v1017-left .v1017-card.matched')]
+        .map(descriptor).filter(Boolean).map(d=>d.token)
+    );
+    s.matchedRight=new Set(
+      [...document.querySelectorAll('#lesson .v1017-right .v1017-card.matched')]
+        .map(descriptor).filter(Boolean).map(d=>d.token)
+    );
+    const selectedCard=document.querySelector('#lesson .v1017-card.selected:not(.matched):not(:disabled)');
+    s.selected=selectedCard?descriptor(selectedCard):null;
+  }
+
   function handle(card){
     if(!active()||!card||card.disabled)return false;
 
@@ -259,12 +274,21 @@
 
     clicks++;
 
-    if(!s.selected){
+    /*
+      v10.5.7: DOM is authoritative for the transient selection.
+      The visual .selected state is demonstrably stable even when the previous
+      JS selection object is lost between taps. Reconstruct state from DOM
+      before every interaction.
+    */
+    syncStateFromDOM(s);
+
+    const selectedCard=document.querySelector('#lesson .v1017-card.selected:not(.matched):not(:disabled)');
+    const previous=selectedCard?descriptor(selectedCard):null;
+
+    if(!previous){
       select(card,s);
       return true;
     }
-
-    const previous=s.selected;
 
     if(previous.token===current.token){
       clearSelection(s);
@@ -284,6 +308,8 @@
     if(correct(left,right))good(left,right,s);
     else bad(left,right,s);
 
+    syncStateFromDOM(s);
+    updateFooter(s);
     return true;
   }
 
@@ -294,7 +320,7 @@
     cards().forEach(card=>{
       card.onclick=null;
       card.removeAttribute('onclick');
-      card.dataset.deenMatchEngine='v1056';
+      card.dataset.deenMatchEngine='v1057';
     });
     rehydrate();
     return true;
@@ -396,8 +422,9 @@
       active:active(),
       key:state?.key||null,
       selected:state?.selected?{...state.selected}:null,
-      matchedLeft:state?.matchedLeft?.size||0,
-      matchedRight:state?.matchedRight?.size||0,
+      matchedLeft:document.querySelectorAll('#lesson .v1017-left .v1017-card.matched').length,
+      matchedRight:document.querySelectorAll('#lesson .v1017-right .v1017-card.matched').length,
+      domSelected:descriptor(document.querySelector('#lesson .v1017-card.selected:not(.matched):not(:disabled)')),
       errors:state?.errors||0,
       finished:state?.finished||false,
       clicks,
