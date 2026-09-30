@@ -1,0 +1,258 @@
+<!-- DEEN v10.4.8 — Persistent matching interaction owner -->
+<script id="deen-v1048-matching-interaction-owner-js">
+(()=>{
+ if(window.__deenV1048MatchingInteractionOwner)return;
+ window.__deenV1048MatchingInteractionOwner=true;
+
+ const VERSION='10.4.8-MATCHING-INTERACTION-OWNER';
+ const BUILD='9148matchpersist1';
+ let state=null;
+ let clicks=0,renders=0,rehydrates=0,completions=0;
+
+ function qNow(){
+   try{return session?.questions?.[Number(session?.index)||0]||null}catch(_){return null}
+ }
+ function keyFor(q=qNow()){
+   let idx='0';
+   try{idx=String(Number(session?.index)||0)}catch(_){}
+   return idx+'::'+String(q?.id||q?.question_id||q?.question_tr||'');
+ }
+ function norm(v){
+   return String(v??'').toLocaleLowerCase('tr-TR').trim()
+     .replace(/[.,;:!?'"“”‘’()]/g,'')
+     .replace(/\s+/g,' ');
+ }
+ function textOf(card){
+   return String(card?.querySelector?.('.v1017-card-label')?.textContent||card?.textContent||'').trim();
+ }
+ function active(){
+   const q=qNow();
+   return !!q&&q.activity_type==='matching'&&Array.isArray(q.pairs)&&!!document.querySelector('#lesson .v1017-shell');
+ }
+ function ensure(){
+   const q=qNow();
+   if(!q||q.activity_type!=='matching'||!Array.isArray(q.pairs))return null;
+   const key=keyFor(q);
+   if(!state||state.key!==key){
+     state={
+       key,
+       selected:null,
+       matchedLeft:new Set(),
+       usedRight:new Set(),
+       errors:0,
+       finished:false,
+       startedAt:Date.now()
+     };
+   }
+   return state;
+ }
+ function findCard(desc){
+   if(!desc)return null;
+   const cards=[...document.querySelectorAll('#lesson .v1017-card[data-side="'+desc.side+'"]')];
+   return cards.find(card=>
+     String(card.dataset.pair)===String(desc.pair) &&
+     norm(textOf(card))===norm(desc.text)
+   )||cards.find(card=>String(card.dataset.pair)===String(desc.pair))||null;
+ }
+ function desc(card){
+   return {
+     side:String(card?.dataset?.side||''),
+     pair:Number(card?.dataset?.pair),
+     text:textOf(card)
+   };
+ }
+ function updateFooter(s=ensure()){
+   if(!s)return;
+   const q=qNow();
+   const total=Array.isArray(q?.pairs)?q.pairs.length:0;
+   const done=s.matchedLeft.size;
+   const count=document.querySelector('#lesson .v1017-count');
+   const fill=document.querySelector('#lesson .v1017-meter i');
+   if(count)count.textContent=done+' / '+total+' eşleşme';
+   if(fill)fill.style.width=(total?Math.round(done/total*100):0)+'%';
+   document.documentElement.dataset.deenMatchingProgress=done+'/'+total;
+ }
+ function clearVisualSelected(){
+   document.querySelectorAll('#lesson .v1017-card.selected').forEach(card=>card.classList.remove('selected'));
+ }
+ function paintMatched(card){
+   if(!card)return;
+   card.classList.remove('selected','wrong');
+   card.classList.add('matched');
+   card.disabled=true;
+   const indicator=card.querySelector('.v1017-choice-indicator');
+   if(indicator)indicator.textContent='✓';
+ }
+ function rehydrate(){
+   if(!active())return false;
+   const s=ensure();
+   if(!s)return false;
+   rehydrates++;
+
+   const cards=[...document.querySelectorAll('#lesson .v1017-card')];
+   cards.forEach(card=>{
+     const side=card.dataset.side;
+     const pair=Number(card.dataset.pair);
+     if(side==='left'&&s.matchedLeft.has(pair))paintMatched(card);
+     if(side==='right'&&s.usedRight.has(pair))paintMatched(card);
+   });
+
+   clearVisualSelected();
+   if(s.selected){
+     const card=findCard(s.selected);
+     if(card&&!card.disabled&&!card.classList.contains('matched'))card.classList.add('selected');
+   }
+   updateFooter(s);
+   document.documentElement.dataset.deenMatchingInteraction='v1048';
+   return true;
+ }
+ function semantic(leftDesc,rightDesc){
+   const q=qNow();
+   const pair=q?.pairs?.[Number(leftDesc?.pair)];
+   if(!pair)return false;
+   return norm(pair.right)===norm(rightDesc?.text);
+ }
+ function flashWrong(a,b){
+   [a,b].forEach(card=>card?.classList?.add('wrong'));
+   setTimeout(()=>[a,b].forEach(card=>card?.classList?.remove('wrong')),300);
+ }
+ function finish(s){
+   if(!s||s.finished)return;
+   const q=qNow();
+   if(!q||s.matchedLeft.size!==q.pairs.length)return;
+   s.finished=true;
+   s.selected=null;
+   clearVisualSelected();
+   updateFooter(s);
+   document.documentElement.dataset.deenMatchingFinished='1';
+   completions++;
+   const savedKey=s.key;
+   setTimeout(()=>{
+     if(keyFor()!==savedKey)return;
+     try{window.completeQuestion?.(s.errors===0,q)}catch(err){console.error('DEEN matching completion failed',err)}
+   },220);
+ }
+ function select(card,s){
+   clearVisualSelected();
+   s.selected=desc(card);
+   card.classList.add('selected');
+   document.documentElement.dataset.deenMatchingLast='selected';
+ }
+ function handle(card){
+   if(!active()||!card||card.disabled||card.classList.contains('matched'))return;
+   const s=ensure();
+   if(!s||s.finished)return;
+   clicks++;
+
+   const current=desc(card);
+   const previous=s.selected;
+
+   if(!previous){
+     select(card,s);
+     return;
+   }
+
+   if(previous.side===current.side){
+     if(previous.pair===current.pair&&norm(previous.text)===norm(current.text)){
+       s.selected=null;
+       clearVisualSelected();
+       document.documentElement.dataset.deenMatchingLast='cleared';
+     }else{
+       select(card,s);
+       document.documentElement.dataset.deenMatchingLast='reselected';
+     }
+     return;
+   }
+
+   const left=previous.side==='left'?previous:current;
+   const right=previous.side==='right'?previous:current;
+   const leftCard=previous.side==='left'?findCard(previous):card;
+   const rightCard=previous.side==='right'?findCard(previous):card;
+
+   s.selected=null;
+   clearVisualSelected();
+
+   if(semantic(left,right)){
+     try{navigator.vibrate?.(14)}catch(_){}
+     s.matchedLeft.add(Number(left.pair));
+     s.usedRight.add(Number(right.pair));
+     paintMatched(leftCard);
+     paintMatched(rightCard);
+     updateFooter(s);
+     document.documentElement.dataset.deenMatchingLast='correct';
+     finish(s);
+   }else{
+     try{navigator.vibrate?.([10,22,10])}catch(_){}
+     s.errors++;
+     flashWrong(leftCard,rightCard);
+     document.documentElement.dataset.deenMatchingLast='wrong';
+   }
+ }
+
+ /*
+   Capture phase deliberately owns matching clicks. Old per-card onclick
+   callbacks never see the event, so there is exactly one interaction owner.
+ */
+ document.addEventListener('click',event=>{
+   const card=event.target?.closest?.('#lesson .v1017-card');
+   if(!card)return;
+   event.preventDefault();
+   event.stopImmediatePropagation();
+   handle(card);
+ },true);
+
+ document.addEventListener('deen:question-rendering',()=>{
+   const q=qNow();
+   const key=keyFor(q);
+   if(!q||q.activity_type!=='matching'){
+     state=null;
+     document.documentElement.dataset.deenMatchingInteraction='idle';
+     return;
+   }
+   // Preserve state for same-question rerenders; reset only on a new question.
+   if(state&&state.key!==key)state=null;
+ });
+
+ document.addEventListener('deen:question-rendered',event=>{
+   const q=qNow();
+   if(!q||q.activity_type!=='matching')return;
+   renders++;
+   ensure();
+   requestAnimationFrame(rehydrate);
+   [40,120,280].forEach(ms=>setTimeout(()=>{
+     if(keyFor()===state?.key)rehydrate();
+   },ms));
+ });
+
+ const observer=new MutationObserver(mutations=>{
+   if(!state||!active())return;
+   const replaced=mutations.some(m=>m.type==='childList'&&(m.addedNodes.length||m.removedNodes.length));
+   if(replaced)queueMicrotask(rehydrate);
+ });
+ function observe(){
+   const host=document.getElementById('answerArea');
+   if(host)observer.observe(host,{childList:true,subtree:true});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',observe,{once:true});
+ else observe();
+
+ window.DEEN_MATCHING_INTERACTION_OWNER={
+   version:VERSION,
+   build:BUILD,
+   rehydrate,
+   snapshot:()=>({
+     version:VERSION,
+     build:BUILD,
+     active:active(),
+     key:state?.key||null,
+     selected:state?.selected?{...state.selected}:null,
+     matched:state?.matchedLeft?.size||0,
+     usedRight:state?.usedRight?.size||0,
+     errors:state?.errors||0,
+     finished:state?.finished||false,
+     clicks,renders,rehydrates,completions,
+     renderer:document.documentElement.dataset.deenMatchingRenderer||null
+   })
+ };
+})();
+</script>
