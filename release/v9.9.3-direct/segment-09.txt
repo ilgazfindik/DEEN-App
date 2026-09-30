@@ -324,78 +324,228 @@ function renderFillBlank(q,area){
  const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
  if(Array.isArray(q.options_tr) && q.options_tr.length){
-   if(frame)frame.classList.add('v1039-fill-duo');
-   document.documentElement.dataset.deenFillRenderer='core09-v1039';
-   if(frame)frame.dataset.deenFillRenderer='core09-v1039';
+   if(frame)frame.classList.add('v1039-fill-duo','v1040-fill-interactive');
+   document.documentElement.dataset.deenFillRenderer='core09-v1040';
+   if(frame)frame.dataset.deenFillRenderer='core09-v1040';
 
    const sentenceEl=frame?.querySelector('.deen-character-question-text')||document.getElementById('questionText');
    const source=String(q.question_tr||q.prompt_tr||q.question||'').trim();
+   let selected=null;
+   let slot=null;
+   let cta=null;
+   let grid=null;
+   let pointerGhost=null;
+   let pointerDrag=null;
+
+   function feedbackOpen(){
+     return document.getElementById('feedback')?.classList.contains('show');
+   }
 
    function renderInlineSlot(value='',status=''){
      if(!sentenceEl)return null;
      const match=source.match(/_{3,}/);
      if(!match){sentenceEl.textContent=source;return null}
+
      const before=source.slice(0,match.index);
      const after=source.slice(match.index+match[0].length);
      sentenceEl.textContent='';
      sentenceEl.appendChild(document.createTextNode(before));
-     const slot=document.createElement('span');
-     slot.className='v1039-fill-slot';
-     if(status)slot.classList.add(status);
+
+     const nextSlot=document.createElement('span');
+     nextSlot.className='v1039-fill-slot v1040-fill-slot';
+     nextSlot.dataset.filled=value?'1':'0';
+     nextSlot.setAttribute('aria-label',value?'Seçilen kelime: '+value:'Boşluk');
+     if(status)nextSlot.classList.add(status);
+
      if(value){
-       slot.dataset.filled='1';
-       slot.textContent=value;
+       const word=document.createElement('span');
+       word.className='v1040-fill-slot-word';
+       word.textContent=value;
+       nextSlot.appendChild(word);
+       nextSlot.classList.add('v1040-slot-pop');
      }else{
-       slot.dataset.filled='0';
-       slot.textContent='\u00A0\u00A0\u00A0\u00A0';
+       const placeholder=document.createElement('span');
+       placeholder.className='v1040-fill-slot-placeholder';
+       placeholder.textContent='\u00A0\u00A0\u00A0\u00A0';
+       nextSlot.appendChild(placeholder);
      }
-     sentenceEl.appendChild(slot);
+
+     nextSlot.addEventListener('click',()=>{
+       if(!feedbackOpen()&&selected)clearSelection();
+     });
+
+     nextSlot.addEventListener('dragover',e=>{
+       if(feedbackOpen())return;
+       e.preventDefault();
+       if(e.dataTransfer)e.dataTransfer.dropEffect='move';
+       nextSlot.classList.add('drag-over');
+     });
+     nextSlot.addEventListener('dragleave',()=>nextSlot.classList.remove('drag-over'));
+     nextSlot.addEventListener('drop',e=>{
+       if(feedbackOpen())return;
+       e.preventDefault();
+       nextSlot.classList.remove('drag-over');
+       const valueFromDrag=String(e.dataTransfer?.getData('text/plain')||'');
+       if(!valueFromDrag)return;
+       const btn=[...grid.querySelectorAll('.v1039-fill-chip')].find(x=>x.dataset.value===valueFromDrag);
+       if(btn)selectWord(valueFromDrag,btn,'drag');
+     });
+
+     sentenceEl.appendChild(nextSlot);
      sentenceEl.appendChild(document.createTextNode(after));
-     return slot;
+     return nextSlot;
    }
 
-   let slot=renderInlineSlot();
-   const grid=document.createElement('div');
-   grid.className='fill-choice-grid v1039-fill-bank';
-   let selected=null;
+   function clearChipStates(){
+     grid?.querySelectorAll('.fill-choice').forEach(x=>x.classList.remove('selected','dragging'));
+   }
+
+   function clearSelection(){
+     clearChipStates();
+     selected=null;
+     slot=renderInlineSlot();
+     if(cta)cta.disabled=true;
+   }
+
+   function selectWord(value,button,sourceType='tap'){
+     if(feedbackOpen()||!button)return;
+     clearChipStates();
+     button.classList.add('selected');
+     selected={value,button,source:sourceType};
+     slot=renderInlineSlot(value);
+     if(slot){
+       slot.dataset.source=sourceType;
+       slot.classList.add('filled');
+     }
+     if(cta){
+       cta.disabled=false;
+       cta.textContent='Kontrol Et';
+     }
+     try{navigator.vibrate?.(sourceType==='drag'?12:7)}catch(_){}
+   }
+
+   function removePointerGhost(){
+     pointerGhost?.remove();
+     pointerGhost=null;
+     document.querySelectorAll('#lesson .v1040-fill-slot.drag-over').forEach(x=>x.classList.remove('drag-over'));
+   }
+
+   function startPointerDrag(e,button,value){
+     if(feedbackOpen()||e.button>0)return;
+     const sx=e.clientX,sy=e.clientY;
+     let active=false;
+     let suppressClick=false;
+
+     const move=ev=>{
+       if(ev.pointerId!==e.pointerId)return;
+       const dx=ev.clientX-sx,dy=ev.clientY-sy;
+       if(!active&&Math.hypot(dx,dy)<8)return;
+       active=true;
+       suppressClick=true;
+       ev.preventDefault();
+
+       if(!pointerGhost){
+         pointerGhost=button.cloneNode(true);
+         pointerGhost.classList.add('v1040-drag-ghost');
+         document.body.appendChild(pointerGhost);
+         button.classList.add('dragging');
+       }
+       pointerGhost.style.left=ev.clientX+'px';
+       pointerGhost.style.top=ev.clientY+'px';
+
+       const target=document.elementFromPoint(ev.clientX,ev.clientY)?.closest?.('.v1040-fill-slot');
+       document.querySelectorAll('#lesson .v1040-fill-slot.drag-over').forEach(x=>{
+         if(x!==target)x.classList.remove('drag-over');
+       });
+       target?.classList.add('drag-over');
+     };
+
+     const end=ev=>{
+       if(ev.pointerId!==e.pointerId)return;
+       button.releasePointerCapture?.(e.pointerId);
+       button.removeEventListener('pointermove',move);
+       button.removeEventListener('pointerup',end);
+       button.removeEventListener('pointercancel',cancel);
+
+       let target=null;
+       if(active)target=document.elementFromPoint(ev.clientX,ev.clientY)?.closest?.('.v1040-fill-slot');
+       removePointerGhost();
+       button.classList.remove('dragging');
+
+       if(active&&target){
+         selectWord(value,button,'drag');
+         button.dataset.suppressClick='1';
+         setTimeout(()=>delete button.dataset.suppressClick,80);
+       }else if(suppressClick){
+         button.dataset.suppressClick='1';
+         setTimeout(()=>delete button.dataset.suppressClick,80);
+       }
+       pointerDrag=null;
+     };
+
+     const cancel=ev=>{
+       if(ev.pointerId!==e.pointerId)return;
+       button.removeEventListener('pointermove',move);
+       button.removeEventListener('pointerup',end);
+       button.removeEventListener('pointercancel',cancel);
+       removePointerGhost();
+       button.classList.remove('dragging');
+       pointerDrag=null;
+     };
+
+     pointerDrag={button,value};
+     button.setPointerCapture?.(e.pointerId);
+     button.addEventListener('pointermove',move,{passive:false});
+     button.addEventListener('pointerup',end);
+     button.addEventListener('pointercancel',cancel);
+   }
+
+   slot=renderInlineSlot();
+   grid=document.createElement('div');
+   grid.className='fill-choice-grid v1039-fill-bank v1040-fill-bank';
 
    renderedOptions(q).forEach(opt=>{
      const b=document.createElement('button');
      b.type='button';
-     b.className='fill-choice v1039-fill-chip';
+     b.className='fill-choice v1039-fill-chip v1040-fill-chip';
      b.dataset.value=opt;
+     b.draggable=true;
+     b.setAttribute('aria-label',opt+' kelimesini boşluğa yerleştir');
 
      const label=document.createElement('span');
-     label.className='v1039-fill-chip-label';
+     label.className='v1039-fill-chip-label v1040-fill-chip-label';
      label.textContent=opt;
      b.appendChild(label);
 
      b.onclick=()=>{
-       if(document.getElementById('feedback').classList.contains('show'))return;
-       const wasSelected=b.classList.contains('selected');
-       grid.querySelectorAll('.fill-choice').forEach(x=>x.classList.remove('selected'));
-
-       if(wasSelected){
-         selected=null;
-         slot=renderInlineSlot();
-         cta.disabled=true;
-         return;
-       }
-
-       b.classList.add('selected');
-       selected={value:opt,button:b};
-       slot=renderInlineSlot(opt);
-       cta.disabled=false;
-       cta.textContent='Kontrol Et';
+       if(b.dataset.suppressClick==='1'||feedbackOpen())return;
+       if(b.classList.contains('selected'))clearSelection();
+       else selectWord(opt,b,'tap');
      };
+
+     b.addEventListener('dragstart',e=>{
+       if(feedbackOpen()){e.preventDefault();return}
+       b.classList.add('dragging');
+       e.dataTransfer?.setData('text/plain',opt);
+       if(e.dataTransfer)e.dataTransfer.effectAllowed='move';
+     });
+     b.addEventListener('dragend',()=>{
+       b.classList.remove('dragging');
+       document.querySelectorAll('#lesson .v1040-fill-slot.drag-over').forEach(x=>x.classList.remove('drag-over'));
+     });
+     b.addEventListener('pointerdown',e=>{
+       if(e.pointerType==='mouse')return;
+       startPointerDrag(e,b,opt);
+     });
+
      grid.appendChild(b);
    });
 
    area.appendChild(grid);
 
-   const cta=document.createElement('button');
+   cta=document.createElement('button');
    cta.type='button';
-   cta.className='template-action v1039-fill-check';
+   cta.className='template-action v1039-fill-check v1040-fill-check';
    cta.disabled=true;
    cta.textContent='Kontrol Et';
    cta.onclick=()=>{
@@ -406,6 +556,7 @@ function renderFillBlank(q,area){
        if(normalize(value)===normalize(q.correct_answer))btn.classList.add('correct');
        else if(btn===selected.button&&!correct)btn.classList.add('wrong');
        btn.disabled=true;
+       btn.draggable=false;
      });
      slot=renderInlineSlot(selected.value,correct?'correct':'wrong');
      completeQuestion(correct,q);
