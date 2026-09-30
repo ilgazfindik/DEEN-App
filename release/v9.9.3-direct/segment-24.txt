@@ -1905,7 +1905,7 @@
   /* Answer area: clean alignment and large enough touch targets. */
   #lesson #answerArea{
     width:100%!important;
-    gap:7px!important;
+    gap:8px!important;
     margin:0!important;
   }
   #lesson .options,
@@ -3949,7 +3949,7 @@
 
 /* Give the bubble a calmer, less cramped proportion. */
 #lesson .question-frame.deen-premium-fill .deen-character-question-bubble{
-  min-height:86px!important;
+  min-height:94px!important;
   padding:14px 39px 14px 17px!important;
   border-radius:20px!important;
 }
@@ -10890,7 +10890,7 @@ if(typeof LEGACY_RENDER==='function'){
   font-size:13px!important;
 }
 #lesson .question-frame.v1013-match-ref .v1013-match-meter{
-  height:5px!important;
+  height:6px!important;
 }
 
 /* 3-pair questions should still feel like a designed game board, not tiny rows. */
@@ -11057,7 +11057,7 @@ if(typeof LEGACY_RENDER==='function'){
   display:flex!important;
   align-items:center!important;
   justify-content:flex-start!important;
-  gap:10px!important;
+  gap:12px!important;
   overflow-wrap:anywhere!important;
   overflow:hidden!important;
   transition:
@@ -11245,7 +11245,7 @@ if(typeof LEGACY_RENDER==='function'){
     font-size:10.5px!important;
   }
   #lesson .question-frame.v1013-match-ref .v853-match-card[data-side="left"]{
-    font-size:13px!important;
+    font-size:13.5px!important;
   }
   #lesson .question-frame.v1013-match-ref .v853-match-card:after{
     right:9px!important;width:20px!important;height:20px!important;
@@ -11430,7 +11430,7 @@ if(typeof LEGACY_RENDER==='function'){
   min-height:96px!important;
 }
 #lesson .question-frame.v1013-match-ref.v1014-three-pairs .v853-match-col{
-  gap:12px!important;
+  gap:14px!important;
 }
 
 /* Four-pair rounds stay large without forcing global scale. */
@@ -11452,10 +11452,10 @@ if(typeof LEGACY_RENDER==='function'){
 
 @media(max-width:390px){
   #lesson .question-frame.v1013-match-ref .v853-match-wrap{
-    column-gap:8px!important;
+    column-gap:9px!important;
   }
   #lesson .question-frame.v1013-match-ref .v853-match-col{
-    gap:8px!important;
+    gap:10px!important;
   }
   #lesson .question-frame.v1013-match-ref .v853-match-card{
     min-height:74px!important;
@@ -11802,7 +11802,7 @@ if(typeof LEGACY_RENDER==='function'){
   min-width:0!important;
   display:flex!important;
   flex-direction:column!important;
-  gap:12px!important;
+  gap:10px!important;
 }
 #lesson .question-frame.v1017-match-screen .v1017-card{
   position:relative!important;
@@ -11918,7 +11918,7 @@ if(typeof LEGACY_RENDER==='function'){
 }
 #lesson .question-frame.v1017-match-screen .v1017-meter{
   width:100%!important;
-  height:6px!important;
+  height:5px!important;
   overflow:hidden!important;
   border:1px solid rgba(99,150,160,.35)!important;
   border-radius:999px!important;
@@ -11936,10 +11936,10 @@ if(typeof LEGACY_RENDER==='function'){
 
 /* Pair-count density only affects this component. */
 #lesson .question-frame.v1017-match-screen[data-pairs="3"] .v1017-card{
-  min-height:94px!important;
+  min-height:86px!important;
 }
 #lesson .question-frame.v1017-match-screen[data-pairs="3"] .v1017-col{
-  gap:14px!important;
+  gap:12px!important;
 }
 
 /* Small phones: preserve hierarchy without whole-screen scaling. */
@@ -11963,10 +11963,10 @@ if(typeof LEGACY_RENDER==='function'){
     padding-top:112px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-board{
-    column-gap:9px!important;
+    column-gap:8px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-col{
-    gap:10px!important;
+    gap:8px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-card{
     min-height:68px!important;
@@ -11975,7 +11975,7 @@ if(typeof LEGACY_RENDER==='function'){
     font-size:10.5px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-card[data-side="left"]{
-    font-size:13.5px!important;
+    font-size:13px!important;
   }
   #lesson .question-frame.v1017-match-screen[data-pairs="3"] .v1017-card{
     min-height:76px!important;
@@ -12015,7 +12015,7 @@ if(typeof LEGACY_RENDER==='function'){
     min-height:66px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-col{
-    gap:8px!important;
+    gap:7px!important;
   }
   #lesson .question-frame.v1017-match-screen .v1017-footer{
     padding-top:10px!important;
