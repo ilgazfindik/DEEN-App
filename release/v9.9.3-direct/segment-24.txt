@@ -12385,14 +12385,28 @@ if(typeof LEGACY_RENDER==='function'){
  }
  function toggle(){overlay()?.classList.contains('open')?close():open()}
 
- document.addEventListener('keydown',e=>{
-   if(e.code==='Escape'&&overlay()?.classList.contains('open')){
+ let lastHotkeyAt=0;
+ function isAdminHotkey(e){
+   if(e.ctrlKey||e.metaKey||e.altKey||isTyping())return false;
+   const key=String(e.key||'').toLocaleLowerCase('tr-TR');
+   return e.code==='KeyP'||key==='p';
+ }
+ function handleAdminHotkey(e){
+   if((e.code==='Escape'||e.key==='Escape')&&overlay()?.classList.contains('open')){
      e.preventDefault();close();return;
    }
-   if(e.code!=='KeyP'||e.ctrlKey||e.metaKey||e.altKey||isTyping())return;
+   if(!isAdminHotkey(e))return;
+   const now=Date.now();
+   if(now-lastHotkeyAt<180)return;
+   lastHotkeyAt=now;
    e.preventDefault();
+   e.stopPropagation();
    toggle();
- });
+ }
+ document.addEventListener('keydown',handleAdminHotkey,true);
+ document.addEventListener('keyup',e=>{
+   if(!overlay()?.classList.contains('open')&&isAdminHotkey(e))handleAdminHotkey(e);
+ },true);
 
  window.DEEN_ADMIN={
    version:VERSION,
