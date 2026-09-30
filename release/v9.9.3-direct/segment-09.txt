@@ -710,49 +710,97 @@ function renderMatching(q,area){
  shell.append(board,footer);
  area.append(shell);
 
- matchState={left:null,matched:new Set(),errors:0};
- let selected=null,finished=false;
- let correctMatches=0,wrongAttempts=0;
+ const persistentKey=String(q.id||q.question_id||q.question_tr||'matching')+'::'+String(Number(session?.index)||0);
+ let persistent=session?.__deenMatchingState;
+ if(!persistent||persistent.key!==persistentKey){
+  persistent={
+   key:persistentKey,
+   selected:null,
+   matchedLeft:[],
+   matchedRight:[],
+   errors:0,
+   finished:false
+  };
+  if(session)session.__deenMatchingState=persistent;
+ }
+
+ matchState={
+  left:persistent.selected?Number(persistent.selected.pair):null,
+  matched:new Set(persistent.matchedLeft||[]),
+  errors:Number(persistent.errors)||0
+ };
+ let finished=!!persistent.finished;
 
  function cardText(card){
   return String(card?.querySelector?.('.v1017-card-label')?.textContent||card?.textContent||'').trim();
  }
 
- function pairCards(a,b){
-  const leftCard=a?.dataset?.side==='left'?a:(b?.dataset?.side==='left'?b:null);
-  const rightCard=a?.dataset?.side==='right'?a:(b?.dataset?.side==='right'?b:null);
-  return {leftCard,rightCard};
+ function descriptor(card){
+  return card?{
+   side:String(card.dataset.side||''),
+   pair:Number(card.dataset.pair),
+   text:cardText(card)
+  }:null;
+ }
+
+ function findCard(desc){
+  if(!desc)return null;
+  const cards=[...area.querySelectorAll('.v1017-card[data-side="'+desc.side+'"]')];
+  return cards.find(card=>
+   Number(card.dataset.pair)===Number(desc.pair)&&normalize(cardText(card))===normalize(desc.text)
+  )||cards.find(card=>Number(card.dataset.pair)===Number(desc.pair))||null;
  }
 
  function semanticMatch(a,b){
-  const {leftCard,rightCard}=pairCards(a,b);
-  if(!leftCard||!rightCard)return false;
-  const pair=pairs[Number(leftCard.dataset.pair)];
+  const ad=descriptor(a),bd=descriptor(b);
+  const leftDesc=ad?.side==='left'?ad:(bd?.side==='left'?bd:null);
+  const rightDesc=ad?.side==='right'?ad:(bd?.side==='right'?bd:null);
+  if(!leftDesc||!rightDesc)return false;
+  const pair=pairs[Number(leftDesc.pair)];
   if(!pair)return false;
-  // Visually identical right-side answers are interchangeable.
-  return normalize(pair.right)===normalize(cardText(rightCard));
+  return normalize(pair.right)===normalize(rightDesc.text);
+ }
+
+ function persist(){
+  if(!session)return;
+  persistent.matchedLeft=[...new Set(persistent.matchedLeft.map(Number))];
+  persistent.matchedRight=[...new Set(persistent.matchedRight.map(Number))];
+  persistent.errors=Number(persistent.errors)||0;
+  persistent.finished=!!persistent.finished;
+  session.__deenMatchingState=persistent;
  }
 
  function update(){
   const count=footer.querySelector('.v1017-count');
   const fill=footer.querySelector('.v1017-meter i');
-  const done=matchState.matched.size;
+  const done=persistent.matchedLeft.length;
   if(count)count.textContent=done+' / '+pairs.length+' eşleşme';
   if(fill)fill.style.width=Math.round(done/pairs.length*100)+'%';
   document.documentElement.dataset.deenMatchingProgress=done+'/'+pairs.length;
  }
 
- function setSelected(card){
-  if(selected&&selected!==card)selected.classList.remove('selected');
-  selected=card||null;
-  if(selected)selected.classList.add('selected');
-  matchState.left=selected?Number(selected.dataset.pair):null;
+ function paintMatched(card){
+  if(!card)return;
+  card.classList.remove('selected','wrong');
+  card.classList.add('matched');
+  card.disabled=true;
+  const indicator=card.querySelector('.v1017-choice-indicator');
+  if(indicator)indicator.textContent='✓';
  }
 
  function clearSelection(){
-  if(selected)selected.classList.remove('selected');
-  selected=null;
+  area.querySelectorAll('.v1017-card.selected').forEach(card=>card.classList.remove('selected'));
+  persistent.selected=null;
   matchState.left=null;
+  persist();
+ }
+
+ function selectCard(card){
+  area.querySelectorAll('.v1017-card.selected').forEach(el=>el.classList.remove('selected'));
+  persistent.selected=descriptor(card);
+  matchState.left=Number(card.dataset.pair);
+  card.classList.add('selected');
+  persist();
  }
 
  function make(side,item){
@@ -800,111 +848,126 @@ function renderMatching(q,area){
 
  left.forEach(x=>lcol.append(make('left',x)));
  right.forEach(x=>rcol.append(make('right',x)));
+
+ for(const id of persistent.matchedLeft){
+  const card=area.querySelector('.v1017-card[data-side="left"][data-pair="'+Number(id)+'"]');
+  paintMatched(card);
+ }
+ for(const id of persistent.matchedRight){
+  const card=area.querySelector('.v1017-card[data-side="right"][data-pair="'+Number(id)+'"]');
+  paintMatched(card);
+ }
+ if(persistent.selected){
+  const card=findCard(persistent.selected);
+  if(card&&!card.disabled)card.classList.add('selected');
+ }
  update();
 
  function vibrate(ok){try{navigator.vibrate?.(ok?14:[10,22,10])}catch(_){}}
 
  function finish(){
-  if(finished)return;
+  if(finished||persistent.finished)return;
+  if(persistent.matchedLeft.length!==pairs.length)return;
   finished=true;
+  persistent.finished=true;
   clearSelection();
-  const ok=matchState.errors===0;
-  const savedSession=session,savedIndex=session.index;
+  persist();
+  const ok=persistent.errors===0;
+  const savedSession=session,savedIndex=session.index,savedKey=persistentKey;
   document.documentElement.dataset.deenMatchingFinished='1';
   setTimeout(()=>{
-   if(session===savedSession&&session.index===savedIndex)completeQuestion(ok,q);
-  },260);
+   if(session===savedSession&&session.index===savedIndex&&session?.__deenMatchingState?.key===savedKey){
+    completeQuestion(ok,q);
+   }
+  },220);
  }
 
  function good(a,b){
-  const {leftCard}=pairCards(a,b);
-  if(!leftCard)return;
+  const ad=descriptor(a),bd=descriptor(b);
+  const leftCard=ad.side==='left'?a:b;
+  const rightCard=ad.side==='right'?a:b;
+  const leftId=Number(leftCard.dataset.pair);
+  const rightId=Number(rightCard.dataset.pair);
 
   vibrate(true);
-  a.classList.remove('selected','wrong');
-  b.classList.remove('selected','wrong');
-  a.classList.add('matched');
-  b.classList.add('matched');
+  paintMatched(leftCard);
+  paintMatched(rightCard);
 
-  const ai=a.querySelector('.v1017-choice-indicator');
-  const bi=b.querySelector('.v1017-choice-indicator');
-  if(ai)ai.textContent='✓';
-  if(bi)bi.textContent='✓';
-
-  a.disabled=true;
-  b.disabled=true;
-  matchState.matched.add(Number(leftCard.dataset.pair));
-  correctMatches++;
-  clearSelection();
+  if(!persistent.matchedLeft.includes(leftId))persistent.matchedLeft.push(leftId);
+  if(!persistent.matchedRight.includes(rightId))persistent.matchedRight.push(rightId);
+  matchState.matched=new Set(persistent.matchedLeft);
+  persistent.selected=null;
+  matchState.left=null;
+  persist();
   update();
 
   document.documentElement.dataset.deenMatchingLast='correct';
-  if(matchState.matched.size===pairs.length)finish();
+  if(persistent.matchedLeft.length===pairs.length)finish();
  }
 
  function bad(a,b){
   vibrate(false);
-  matchState.errors++;
-  wrongAttempts++;
-
-  a.classList.remove('selected');
-  b.classList.remove('selected');
+  persistent.errors++;
+  matchState.errors=persistent.errors;
   a.classList.add('wrong');
   b.classList.add('wrong');
-  clearSelection();
-
-  document.documentElement.dataset.deenMatchingLast='wrong';
-
-  // Visual feedback only. There is deliberately no interaction lock.
+  persistent.selected=null;
+  matchState.left=null;
+  persist();
   setTimeout(()=>{
-   a.classList.remove('wrong');
-   b.classList.remove('wrong');
+   a.classList.remove('wrong','selected');
+   b.classList.remove('wrong','selected');
   },300);
+  document.documentElement.dataset.deenMatchingLast='wrong';
  }
 
- function pick(b){
-  if(finished||!b||b.disabled)return;
+ function pick(card){
+  if(finished||persistent.finished||card.disabled)return;
 
-  b.classList.remove('wrong');
-
-  if(!selected){
-   setSelected(b);
+  const selectedDesc=persistent.selected;
+  if(!selectedDesc){
+   selectCard(card);
    document.documentElement.dataset.deenMatchingLast='selected';
    return;
   }
 
-  if(selected===b){
+  const selectedCard=findCard(selectedDesc);
+  if(!selectedCard){
+   selectCard(card);
+   document.documentElement.dataset.deenMatchingLast='recovered-selection';
+   return;
+  }
+
+  if(selectedCard===card){
    clearSelection();
    document.documentElement.dataset.deenMatchingLast='cleared';
    return;
   }
 
-  if(selected.dataset.side===b.dataset.side){
-   setSelected(b);
+  if(selectedCard.dataset.side===card.dataset.side){
+   selectCard(card);
    document.documentElement.dataset.deenMatchingLast='reselected';
    return;
   }
 
-  const a=selected;
-  if(semanticMatch(a,b))good(a,b);
-  else bad(a,b);
+  if(semanticMatch(selectedCard,card))good(selectedCard,card);
+  else bad(selectedCard,card);
  }
 
- window.DEEN_MATCHING_INTERACTION={
-  version:'10.4.7-LOCKFREE',
+ window.DEEN_MATCHING_SESSION_STATE={
+  version:'10.5.0-SESSION-STATE',
   snapshot:()=>({
-   finished,
-   selected:!!selected,
-   selectedSide:selected?.dataset?.side||null,
-   matched:matchState.matched.size,
-   total:pairs.length,
-   errors:matchState.errors,
-   correctMatches,
-   wrongAttempts
+   key:persistent.key,
+   selected:persistent.selected?{...persistent.selected}:null,
+   matchedLeft:[...persistent.matchedLeft],
+   matchedRight:[...persistent.matchedRight],
+   errors:persistent.errors,
+   finished:persistent.finished,
+   progress:persistent.matchedLeft.length+'/'+pairs.length
   })
  };
 
- document.documentElement.dataset.deenMatchingRenderer='core09-v1047';
+ document.documentElement.dataset.deenMatchingRenderer='core09-v1050';
 }
 function completeQuestion(correct,q){state.answered++;if(session.final)session.responses.push({id:q.id,correct,unit:q.stage_id.slice(0,3),topic:q.topic||q.stage_title,concept:q.concept_id,priority:session.priorityIds.has(q.id)});if(correct){state.correct++;session.correct++;session.combo++;session.bestCombo=Math.max(session.bestCombo,session.combo);state.mistakes=state.mistakes.filter(id=>id!==q.id)}else{session.combo=0;if(!state.mistakes.includes(q.id))state.mistakes.push(q.id)}try{window.DEEN_COMPANION_STREAK?.onGrade?.(correct,session.combo,q)}catch(e){}saveState();const fb=document.getElementById('feedback'),box=document.getElementById('feedbackBox');box.classList.toggle('bad',!correct);document.getElementById('feedbackIcon').textContent=correct?'✓':'!';document.getElementById('feedbackTitle').textContent=correct?'Doğru cevap':'Bunu birlikte düzeltelim';document.getElementById('feedbackText').textContent=q.explanation_tr||'';fb.classList.add('show');document.getElementById('continueBtn').onclick=nextQuestion;setTimeout(()=>{try{fb.scrollIntoView({behavior:'smooth',block:'end'})}catch(e){}},40)}
 function nextQuestion(){session.index++;if(session.index>=session.questions.length){if(session.final)showSectionFinalResult();else showResult()}else renderQuestion()}
