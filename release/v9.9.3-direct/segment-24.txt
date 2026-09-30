@@ -12153,6 +12153,66 @@ if(typeof LEGACY_RENDER==='function'){
      normalized:document.querySelectorAll('#lesson .v1017-card[data-v1017-normalized="1"]').length
    })
  };
+
+ // v10.2.5 temporary runtime fingerprint — remove after diagnosis.
+ function mountFingerprint(){
+   const frame=document.querySelector('#lesson .question-frame');
+   if(!frame||!frame.classList.contains('v1017-match-screen'))return false;
+
+   let box=frame.querySelector('#v1025MatchingFingerprint');
+   if(!box){
+     box=document.createElement('div');
+     box.id='v1025MatchingFingerprint';
+     box.setAttribute('aria-live','polite');
+     box.style.cssText=[
+       'position:absolute','left:10px','bottom:10px','z-index:9999',
+       'max-width:calc(100% - 20px)','padding:7px 9px',
+       'border:1px solid rgba(255,210,120,.75)','border-radius:9px',
+       'background:rgba(0,0,0,.82)','color:#ffe7a8',
+       'font:700 9px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace',
+       'letter-spacing:.15px','pointer-events:none','white-space:pre-wrap'
+     ].join(';');
+     frame.append(box);
+   }
+
+   const cards=[...document.querySelectorAll('#lesson .v1017-card')];
+   const first=cards[0]||null;
+   const childNames=first?[...first.children].map(x=>'.'+String(x.className||'').trim().replace(/\s+/g,'.')).join(','):'-';
+   const st=first?getComputedStyle(first):null;
+   const data=[
+     'BUILD '+String(window.__DEEN_DEPLOY_ID__||'-'),
+     'OWNER '+String(document.documentElement.dataset.deenMatchingOwner||'-'),
+     'RENDER '+String(document.documentElement.dataset.deenMatchingRenderer||'-'),
+     'NORM '+String(document.documentElement.dataset.deenMatchingNormalizer||'-'),
+     'CARDS '+cards.length+
+       '  LABELS '+document.querySelectorAll('#lesson .v1017-card-label').length+
+       '  IND '+document.querySelectorAll('#lesson .v1017-choice-indicator').length+
+       '  FIX '+document.querySelectorAll('#lesson .v1017-card[data-v1017-normalized="1"]').length,
+     'RUNS '+runs+'  REPAIRS '+repairs,
+     'CHILDREN '+childNames,
+     'ALIGN '+(st?.textAlign||'-')+' / '+(st?.justifyContent||'-')
+   ];
+   box.textContent=data.join('\n');
+   return true;
+ }
+
+ function fingerprintSchedule(){
+   [0,30,120,300,700].forEach(ms=>setTimeout(()=>{
+     apply();
+     mountFingerprint();
+   },ms));
+ }
+
+ document.addEventListener('deen:question-rendered',fingerprintSchedule);
+ document.addEventListener('deen:question-graded',fingerprintSchedule);
+ const fpObserver=new MutationObserver(()=>queueMicrotask(mountFingerprint));
+ const fpStart=()=>{
+   const lesson=document.getElementById('lesson');
+   if(lesson)fpObserver.observe(lesson,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fpStart,{once:true});
+ else fpStart();
+ setTimeout(fingerprintSchedule,0);
 })();
 </script>
 
