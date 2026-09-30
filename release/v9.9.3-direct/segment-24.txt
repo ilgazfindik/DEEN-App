@@ -11702,6 +11702,14 @@ if(typeof LEGACY_RENDER==='function'){
   box-shadow:inset 0 1px rgba(255,255,255,.04),0 8px 20px rgba(0,0,0,.12)!important;
 }
 
+/* Matching owns its own header; legacy learning-profile badges must never appear here. */
+#lesson .question-frame.v1017-match-screen .v950-age-badge,
+#lesson .question-frame.v1017-match-screen .v710-type-pill,
+#lesson .question-frame.v1017-match-screen .question-type-pill,
+#lesson .question-frame.v1017-match-screen .lesson-age-pill{
+  display:none!important;
+}
+
 /* Authoritative component layers */
 #lesson .question-frame.v1017-match-screen .v1017-bg{
   position:absolute!important;
