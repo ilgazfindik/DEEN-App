@@ -3503,7 +3503,7 @@
    }
 
    const text=f.querySelector('.deen-character-question-text');
-   if(text){
+   if(text && !f.classList.contains('v1039-fill-duo')){
      text.textContent=String(q?.question_tr||q?.prompt_tr||q?.question||'')
        .replace(/^\s*Boşluğu\s+tamamla\s*:\s*/i,'')
        .trim();
@@ -12644,3 +12644,143 @@ if(typeof LEGACY_RENDER==='function'){
  };
 })();
 </script>
+
+
+<!-- DEEN v10.3.9 — Duolingo-style native fill -->
+<style id="deen-v1039-fill-duo-css">
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .deen-character-question-row,
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .deen-character-question-row.deen-companion-runtime-row{
+  margin-top:clamp(48px,6vh,64px)!important;
+  margin-bottom:20px!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .deen-character-question-text{
+  line-height:1.34!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .v1039-fill-slot{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  vertical-align:baseline!important;
+  min-width:88px!important;
+  min-height:28px!important;
+  margin:0 3px!important;
+  padding:1px 7px 3px!important;
+  border:0!important;
+  border-bottom:2px solid rgba(137,231,204,.92)!important;
+  border-radius:7px 7px 3px 3px!important;
+  background:rgba(21,79,74,.20)!important;
+  color:#dffbf2!important;
+  font:850 .94em/1.08 Inter,system-ui,sans-serif!important;
+  letter-spacing:-.15px!important;
+  white-space:nowrap!important;
+  box-shadow:inset 0 -7px 16px rgba(117,228,197,.035)!important;
+  transition:background .14s ease,border-color .14s ease,color .14s ease,box-shadow .14s ease!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .v1039-fill-slot[data-filled="0"]{
+  color:transparent!important;
+  background:rgba(13,50,56,.22)!important;
+  border-bottom-color:rgba(142,205,197,.76)!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .v1039-fill-slot.correct{
+  color:#e8fff7!important;
+  background:rgba(31,112,91,.40)!important;
+  border-bottom-color:#72e0b4!important;
+  box-shadow:0 0 0 2px rgba(114,224,180,.09)!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .v1039-fill-slot.wrong{
+  color:#ffe7e7!important;
+  background:rgba(111,54,61,.38)!important;
+  border-bottom-color:#dc7a82!important;
+  box-shadow:0 0 0 2px rgba(220,122,130,.08)!important;
+}
+
+/* Word bank: content-sized chips, never ABCD/full-width answer cards. */
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .fill-choice-grid.v1039-fill-bank{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  width:100%!important;
+  max-width:350px!important;
+  margin:2px auto 16px!important;
+  padding:2px 0!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .fill-choice.v1039-fill-chip{
+  flex:0 1 auto!important;
+  width:auto!important;
+  min-width:82px!important;
+  max-width:100%!important;
+  min-height:46px!important;
+  padding:10px 16px!important;
+  border-radius:14px!important;
+  border:1.35px solid rgba(118,190,193,.58)!important;
+  background:linear-gradient(180deg,rgba(13,48,58,.94),rgba(8,35,44,.96))!important;
+  color:#f5f7f2!important;
+  font:800 15px/1.15 Inter,system-ui,sans-serif!important;
+  box-shadow:0 5px 15px rgba(0,0,0,.10)!important;
+  transform:none!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .fill-choice.v1039-fill-chip:hover{
+  transform:translateY(-1px)!important;
+  border-color:rgba(143,226,207,.82)!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .fill-choice.v1039-fill-chip.selected{
+  opacity:.48!important;
+  border-color:rgba(136,218,199,.44)!important;
+  background:rgba(11,44,51,.72)!important;
+  box-shadow:none!important;
+  transform:scale(.97)!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .fill-choice.v1039-fill-chip.correct{
+  opacity:1!important;
+  border-color:#72e0b4!important;
+  background:linear-gradient(180deg,#175f50,#10453f)!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .fill-choice.v1039-fill-chip.wrong{
+  opacity:1!important;
+  border-color:#d87979!important;
+  background:linear-gradient(180deg,#593438,#432a31)!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .fill-choice-badge{
+  display:none!important;
+}
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .v1039-fill-chip-label{
+  display:block!important;
+  white-space:normal!important;
+}
+
+/* Check action stays separate from the word bank. */
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo .v1039-fill-check{
+  width:100%!important;
+  min-height:56px!important;
+  margin:0!important;
+  border-radius:18px!important;
+}
+@media(max-width:420px){
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo .deen-character-question-row,
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo .deen-character-question-row.deen-companion-runtime-row{
+    margin-top:clamp(38px,5vh,52px)!important;
+    margin-bottom:17px!important;
+  }
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo .v1039-fill-slot{
+    min-width:78px!important;
+    min-height:26px!important;
+    padding:1px 6px 2px!important;
+  }
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo .fill-choice-grid.v1039-fill-bank{
+    max-width:320px!important;
+    gap:8px!important;
+    margin-bottom:14px!important;
+  }
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo .fill-choice.v1039-fill-chip{
+    min-width:76px!important;
+    min-height:44px!important;
+    padding:9px 14px!important;
+    font-size:14.5px!important;
+  }
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo .v1039-fill-check{
+    min-height:54px!important;
+  }
+}
+</style>
