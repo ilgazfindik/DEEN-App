@@ -1,0 +1,103 @@
+<!-- DEEN v10.4.4 — Fill regression freeze -->
+<script id="deen-v1044-fill-freeze-js">
+(()=>{
+  if(window.__deenV1044FillFreeze)return;
+  window.__deenV1044FillFreeze=true;
+
+  const VERSION='10.4.4-FILL-FREEZE';
+  const BUILD='9144fillfreeze1';
+  let runs=0;
+  let last=null;
+
+  const frame=()=>document.querySelector('#lesson .question-frame');
+  const currentQuestion=()=>{
+    try{return session?.questions?.[Number(session?.index)||0]||null}catch(_){return null}
+  };
+  const isFill=()=>{
+    const q=currentQuestion();
+    const type=String(q?.activity_type||q?.question_type||q?.type||'').toLowerCase();
+    return type==='fill_blank'||!!frame()?.classList.contains('v1040-fill-interactive');
+  };
+
+  function inspect(reason='manual'){
+    const f=frame();
+    if(!f||!isFill()){
+      last={version:VERSION,build:BUILD,at:Date.now(),run:++runs,reason,active:false,pass:true,failed:[],checks:{}};
+      return {...last};
+    }
+
+    const feedbackVisible=!!document.getElementById('feedback')?.classList.contains('show');
+    const graded=f.classList.contains('v1043-fill-graded')||f.classList.contains('v9945-feedback-mode');
+    const area=document.getElementById('answerArea');
+    const bank=f.querySelector('.v1039-fill-bank,.v1040-fill-bank');
+    const check=f.querySelector('.v1039-fill-check,.v1040-fill-check');
+    const slot=f.querySelector('.v1039-fill-slot,.v1040-fill-slot');
+    const continueBtn=document.getElementById('continueBtn');
+
+    const checks={
+      renderer:f.dataset.deenFillRenderer==='core09-v1041',
+      interactive:f.classList.contains('v1040-fill-interactive'),
+      noABCD:f.querySelectorAll('#answerArea .option,#answerArea .option-badge').length===0,
+      slotPresent:!!slot,
+      pregradeBank:graded||!!bank,
+      pregradeCheck:graded||!!check,
+      chipCount:graded||f.querySelectorAll('.v1039-fill-chip,.v1040-fill-chip').length>=2,
+      dragCapable:graded||[...f.querySelectorAll('.v1040-fill-chip')].every(el=>el.draggable===true),
+      feedbackVisible:!graded||feedbackVisible,
+      answerHidden:!graded||!area||getComputedStyle(area).display==='none',
+      continueReady:!graded||(
+        !!continueBtn &&
+        continueBtn.disabled===false &&
+        /devam/i.test(continueBtn.textContent||'')
+      ),
+      handoffRuntime:typeof window.DEEN_FILL_FEEDBACK_HANDOFF?.snapshot==='function',
+      arbiter:!!window.completeQuestion?.__deen9953&&!!window.nextQuestion?.__deen9953
+    };
+
+    const failed=Object.entries(checks).filter(([,ok])=>ok!==true).map(([name])=>name);
+    last={
+      version:VERSION,
+      build:BUILD,
+      at:Date.now(),
+      run:++runs,
+      reason,
+      active:true,
+      graded,
+      pass:failed.length===0,
+      failed,
+      checks,
+      renderer:f.dataset.deenFillRenderer||null,
+      deploy:String(window.__DEEN_DEPLOY_ID__||'')
+    };
+
+    document.documentElement.dataset.deenFillFreeze=last.pass?'pass':'fail';
+    if(!last.pass){
+      try{console.error('DEEN fill freeze regression failed',last)}catch(_){}
+    }
+    return JSON.parse(JSON.stringify(last));
+  }
+
+  function scheduled(reason,detail){
+    const run=()=>inspect(reason);
+    if(window.DEEN_RUNTIME_SCHEDULE?.question){
+      window.DEEN_RUNTIME_SCHEDULE.question('v1044-fill-freeze-'+reason,detail||{},run,{raf:true,delays:[80]});
+    }else{
+      requestAnimationFrame(run);
+      setTimeout(run,80);
+    }
+  }
+
+  document.addEventListener('deen:question-rendered',e=>scheduled('rendered',e?.detail));
+  document.addEventListener('deen:question-graded',e=>scheduled('graded',e?.detail));
+  document.addEventListener('deen:fill-feedback-ready',e=>scheduled('feedback-ready',e?.detail));
+  document.addEventListener('deen:question-advancing',()=>{document.documentElement.dataset.deenFillFreeze='idle'});
+
+  window.DEEN_FILL_FREEZE={
+    version:VERSION,
+    build:BUILD,
+    frozen:true,
+    inspect,
+    snapshot:()=>last?JSON.parse(JSON.stringify(last)):inspect('snapshot')
+  };
+})();
+</script>
