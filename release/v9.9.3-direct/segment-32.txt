@@ -1,0 +1,103 @@
+<!-- DEEN v10.6.1 — Final matching settle polish -->
+<style id="deen-v1061-matching-final-polish-css">
+/*
+  FINAL MATCHING POLISH
+  CSS only. No renderer/state/input/observer changes.
+*/
+
+/* Completed pairs visually step back without changing layout. */
+#lesson .question-frame.v1017-match-screen .v1017-card.matched{
+  animation:v1061PairSettle .52s cubic-bezier(.2,.88,.24,1.18) both!important;
+  opacity:.74!important;
+  filter:saturate(.88) brightness(.98)!important;
+  transform-origin:center!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card.matched .v1017-card-label{
+  opacity:.84!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card.matched .v1017-choice-indicator{
+  animation:v1061FinalCheck .44s cubic-bezier(.2,.92,.22,1.28) both!important;
+}
+
+/* When every card is matched, give the board one compact completion pulse. */
+#lesson .question-frame.v1017-match-screen .v1017-board:not(:has(.v1017-card:not(.matched))){
+  animation:v1061BoardComplete .36s ease-out both!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-board:not(:has(.v1017-card:not(.matched))) + .v1017-footer .v1017-count{
+  color:#9df0cf!important;
+  animation:v1061CountComplete .36s ease-out both!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-board:not(:has(.v1017-card:not(.matched))) + .v1017-footer .v1017-meter{
+  border-color:rgba(139,236,203,.58)!important;
+  box-shadow:0 0 18px rgba(111,226,188,.18)!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-board:not(:has(.v1017-card:not(.matched))) + .v1017-footer .v1017-meter i{
+  box-shadow:0 0 16px rgba(126,235,199,.42)!important;
+}
+
+/* Keep unfinished cards visually dominant. */
+#lesson .question-frame.v1017-match-screen .v1017-card:not(.matched):not(.selected){
+  opacity:1!important;
+}
+
+/* Matched cards should no longer look interactive. */
+#lesson .question-frame.v1017-match-screen .v1017-card.matched{
+  cursor:default!important;
+}
+
+@keyframes v1061PairSettle{
+  0%{
+    opacity:1;
+    transform:scale(.965);
+    filter:saturate(1.08) brightness(1.06);
+  }
+  46%{
+    opacity:1;
+    transform:scale(1.026);
+    filter:saturate(1.06) brightness(1.04);
+  }
+  100%{
+    opacity:.74;
+    transform:scale(.985);
+    filter:saturate(.88) brightness(.98);
+  }
+}
+
+@keyframes v1061FinalCheck{
+  0%{transform:scale(.58);opacity:.25}
+  62%{transform:scale(1.18);opacity:1}
+  100%{transform:scale(1);opacity:1}
+}
+
+@keyframes v1061BoardComplete{
+  0%{transform:scale(.992)}
+  55%{transform:scale(1.008)}
+  100%{transform:scale(1)}
+}
+
+@keyframes v1061CountComplete{
+  0%{transform:scale(.96);opacity:.72}
+  60%{transform:scale(1.08);opacity:1}
+  100%{transform:scale(1);opacity:1}
+}
+
+@media(max-width:420px){
+  #lesson .question-frame.v1017-match-screen .v1017-card.matched{
+    opacity:.78!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #lesson .question-frame.v1017-match-screen .v1017-card.matched,
+  #lesson .question-frame.v1017-match-screen .v1017-card.matched .v1017-choice-indicator,
+  #lesson .question-frame.v1017-match-screen .v1017-board:not(:has(.v1017-card:not(.matched))),
+  #lesson .question-frame.v1017-match-screen .v1017-board:not(:has(.v1017-card:not(.matched))) + .v1017-footer .v1017-count{
+    animation:none!important;
+  }
+}
+</style>
