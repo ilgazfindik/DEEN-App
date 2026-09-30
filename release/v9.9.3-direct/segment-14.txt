@@ -492,7 +492,7 @@
  }
  function modeFor(q){
    if(!q)return'fallback';
-   if(q.activity_type==='matching'&&Array.isArray(q.pairs))return'drag_match';
+   if(q.activity_type==='matching'&&Array.isArray(q.pairs))return'native_matching';
    if(q.activity_type==='build_sequence'&&Array.isArray(q.items))return'word_builder';
    if(q.activity_type==='error_spotting'&&Array.isArray(q.options_tr))return'bug_hunt';
    if(q.activity_type==='scenario'&&Array.isArray(q.options_tr))return'branch_scenario';
@@ -522,6 +522,7 @@
    const q=session?.questions?.[session.index],area=document.getElementById('answerArea');
    if(!q||!area)return false;
    const mode=modeFor(q);setMode(mode,q);
+   if(mode==='native_matching')return false;
    if(mode==='choice_cards'||mode==='typed_recall'||mode==='fallback')return false;
    area.innerHTML='';
    document.getElementById('feedback')?.classList.remove('show');
