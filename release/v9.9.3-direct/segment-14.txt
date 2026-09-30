@@ -497,7 +497,8 @@
    if(q.activity_type==='error_spotting'&&Array.isArray(q.options_tr))return'bug_hunt';
    if(q.activity_type==='scenario'&&Array.isArray(q.options_tr))return'branch_scenario';
    if((q.activity_type==='listening_select'||q.activity_type==='listening_meaning')&&q.asset_requirement)return'listen_pick';
-   if(q.activity_type==='next_word'||(q.activity_type==='fill_blank'&&Array.isArray(q.options_tr)))return'word_choice';
+   if(q.activity_type==='fill_blank'&&Array.isArray(q.options_tr))return'native_fill';
+   if(q.activity_type==='next_word')return'word_choice';
    if((q.activity_type==='speed_review'||(session?.review&&q.activity_type==='true_false'))&&Array.isArray(q.options_tr)&&q.options_tr.length===2)return'rapid_recall';
    if(q.activity_type==='true_false'&&Array.isArray(q.options_tr)&&q.options_tr.length===2)return'binary';
    if(Array.isArray(q.options_tr))return'choice_cards';
@@ -522,7 +523,7 @@
    const q=session?.questions?.[session.index],area=document.getElementById('answerArea');
    if(!q||!area)return false;
    const mode=modeFor(q);setMode(mode,q);
-   if(mode==='native_matching')return false;
+   if(mode==='native_matching'||mode==='native_fill')return false;
    if(mode==='choice_cards'||mode==='typed_recall'||mode==='fallback')return false;
    area.innerHTML='';
    document.getElementById('feedback')?.classList.remove('show');
