@@ -12205,13 +12205,8 @@ if(typeof LEGACY_RENDER==='function'){
 
  document.addEventListener('deen:question-rendered',fingerprintSchedule);
  document.addEventListener('deen:question-graded',fingerprintSchedule);
- const fpObserver=new MutationObserver(()=>queueMicrotask(mountFingerprint));
- const fpStart=()=>{
-   const lesson=document.getElementById('lesson');
-   if(lesson)fpObserver.observe(lesson,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
- };
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fpStart,{once:true});
- else fpStart();
+ document.addEventListener('deen:question-rendering',()=>setTimeout(fingerprintSchedule,0));
+ // Do not observe the fingerprint DOM itself: that creates a self-triggering mutation loop.
  setTimeout(fingerprintSchedule,0);
 })();
 </script>
