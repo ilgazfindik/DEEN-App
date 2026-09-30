@@ -227,6 +227,20 @@ function renderQuestion(){
  resetLessonScroll();
  matchState=null;currentChoiceSelection=null;
  const q=session.questions[session.index],total=session.questions.length;
+
+ // v10.3.3: matching owns temporary screen chrome; never leak it into the next question.
+ const liveFrame=document.querySelector('#lesson .question-frame')||document.querySelector('.question-frame');
+ if(liveFrame && q?.activity_type!=='matching'){
+   liveFrame.classList.remove('v1017-match-screen','v853-match-mode','v1013-match-ref','v1014-three-pairs','v1014-four-pairs');
+   delete liveFrame.dataset.pairs;
+   liveFrame.querySelector('.v1017-bg')?.remove();
+   liveFrame.querySelector('.v1017-hero')?.remove();
+   liveFrame.style.transform='';
+   liveFrame.style.width='';
+   liveFrame.style.maxWidth='';
+   document.getElementById('lesson')?.classList.remove('v9913-fitted');
+ }
+
  DEENFeel.progress(session.index/total);
  const countEl=document.getElementById('quizCount');if(countEl)countEl.textContent=(session.index+1)+' / '+total;
  document.getElementById('qStage').textContent=stageLabelForQuestion(q);
