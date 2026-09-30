@@ -1,4 +1,4 @@
-<!-- DEEN v10.6.2 — Achievement badge artwork -->
+<!-- DEEN v10.6.3 — Complete 10-badge artwork -->
 <style id="deen-v1062-badge-art-css">
 /*
   Premium achievement artwork.
@@ -27,7 +27,7 @@
   width:96px!important;
   height:96px!important;
   margin:-1px auto 2px!important;
-  background-image:url("assets/badges/deen-badges-atlas.webp?v=9162badgeart1")!important;
+  background-image:url("assets/badges/deen-badges-atlas.webp?v=9163badge10complete1")!important;
   background-repeat:no-repeat!important;
   background-size:500% 200%!important;
   background-position:0 0;
@@ -131,15 +131,18 @@
 <script id="deen-v1062-badge-art-js">
 (()=>{
   window.DEEN_BADGE_ART={
-    version:'10.6.2-BADGE-ART',
-    build:'9162badgeart1',
+    version:'10.6.3-BADGE-ART',
+    build:'9163badge10complete1',
     asset:'assets/badges/deen-badges-atlas.webp',
     ids:['first','streak7','lessons25','master','final','xp1000','perfect10','reviews10','lessons50','xp5000'],
-    check:()=>({
-      cards:document.querySelectorAll('#profileScreen .v5-badge[data-badge-id]').length,
-      art:document.querySelectorAll('#profileScreen .deen-badge-art').length,
-      earned:document.querySelectorAll('#profileScreen .v5-badge.earned').length
-    })
+    check:()=>{
+      const expected=window.DEEN_BADGE_ART.ids;
+      const cards=[...document.querySelectorAll('#profileScreen .v5-badge[data-badge-id]')];
+      const present=cards.map(el=>el.dataset.badgeId).filter(Boolean);
+      const missing=expected.filter(id=>!present.includes(id));
+      const art=document.querySelectorAll('#profileScreen .deen-badge-art').length;
+      return{expected:expected.length,cards:cards.length,art,earned:document.querySelectorAll('#profileScreen .v5-badge.earned').length,missing,pass:cards.length===expected.length&&art===expected.length&&missing.length===0};
+    }
   };
   document.documentElement.dataset.deenBadgeArt='v1062';
 })();
