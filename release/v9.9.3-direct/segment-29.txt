@@ -4,8 +4,8 @@
   if(window.__deenV1053IsolatedMatchingEngine)return;
   window.__deenV1053IsolatedMatchingEngine=true;
 
-  const VERSION='10.5.3-ISOLATED-MATCHING';
-  const BUILD='9153isolatedmatch1';
+  const VERSION='10.5.5-POINTERDOWN-MATCHING';
+  const BUILD='9155pointermatch1';
 
   let state=null;
   let clicks=0;
@@ -146,7 +146,7 @@
       if(!d)return;
       card.onclick=null;
       card.removeAttribute('onclick');
-      card.dataset.deenMatchEngine='v1053';
+      card.dataset.deenMatchEngine='v1055';
 
       if(d.side==='left'&&s.matchedLeft.has(d.token))paintMatched(card);
       else if(d.side==='right'&&s.matchedRight.has(d.token))paintMatched(card);
@@ -164,7 +164,7 @@
     }
 
     updateFooter(s);
-    document.documentElement.dataset.deenMatchingInteraction='isolated-v1053';
+    document.documentElement.dataset.deenMatchingInteraction='pointerdown-v1055';
     return true;
   }
 
@@ -294,20 +294,55 @@
     cards().forEach(card=>{
       card.onclick=null;
       card.removeAttribute('onclick');
-      card.dataset.deenMatchEngine='v1053';
+      card.dataset.deenMatchEngine='v1055';
     });
     rehydrate();
     return true;
   }
 
-  document.addEventListener('click',event=>{
+  /*
+    v10.5.5: live diagnostics proved the failure happens between pointerdown
+    and click (2 pointerdowns, only 1 click). Matching therefore owns the
+    interaction at pointerdown, which is the reliable event on this screen.
+    The subsequent synthetic/native click is swallowed so one tap is handled
+    exactly once.
+  */
+  let suppressClickUntil=0;
+  let lastPointerCard=null;
+
+  document.addEventListener('pointerdown',event=>{
     const card=event.target?.closest?.('#lesson .v1017-card');
     if(!card||!active())return;
+    if(event.pointerType==='mouse'&&event.button!==0)return;
 
     event.preventDefault();
     event.stopPropagation();
     event.stopImmediatePropagation();
 
+    lastPointerCard=card;
+    suppressClickUntil=Date.now()+700;
+    handle(card);
+  },true);
+
+  document.addEventListener('click',event=>{
+    const card=event.target?.closest?.('#lesson .v1017-card');
+    if(!card||!active())return;
+
+    if(Date.now()<=suppressClickUntil){
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      lastPointerCard=null;
+      return;
+    }
+
+    /*
+      Keyboard/assistive activation may legitimately produce click without
+      pointerdown. Preserve that accessibility path.
+    */
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
     handle(card);
   },true);
 
