@@ -12041,29 +12041,6 @@ if(typeof LEGACY_RENDER==='function'){
 <script id="deen-v1017-card-normalizer-js">
 (()=>{
  if(window.__deenV1017CardNormalizer)return;
-
- /*
-   v10.5.1: the core matching renderer now owns card DOM and interaction state.
-   The old normalizer observed every selected/matched class mutation and wrote
-   back into the same cards. Keep a compatibility API, but do not observe or
-   mutate authoritative v1017 cards anymore.
- */
- if(window.__DEEN_MATCHING_ENGINE_V1051__){
-   window.__deenV1017CardNormalizer=true;
-   window.DEEN_MATCHING_CARD_NORMALIZER={
-     version:'10.5.1-BYPASSED',
-     apply:()=>0,
-     check:()=>({
-       version:'10.5.1-BYPASSED',
-       bypassed:true,
-       cards:document.querySelectorAll('#lesson .v1017-card').length,
-       labels:document.querySelectorAll('#lesson .v1017-card-label').length,
-       indicators:document.querySelectorAll('#lesson .v1017-choice-indicator').length
-     })
-   };
-   document.documentElement.dataset.deenMatchingNormalizer='bypassed-v1051';
-   return;
- }
  window.__deenV1017CardNormalizer=true;
 
  const VERSION='10.2.4-CARD-NORMALIZER';
