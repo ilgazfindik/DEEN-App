@@ -1,0 +1,80 @@
+<!-- DEEN v10.4.2 — Fill viewport balance -->
+<style id="deen-v1042-fill-balance-css">
+/*
+  Keep the now-stable fill interaction untouched.
+  This layer only improves vertical rhythm on tall phones/desktops so the
+  question, companion, word bank and CTA read as one centered learning cluster.
+*/
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) .deen-character-question-row,
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) .deen-character-question-row.deen-companion-runtime-row{
+  margin-top:clamp(66px,8.5vh,94px)!important;
+  margin-bottom:18px!important;
+}
+
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) #answerArea{
+  width:100%!important;
+  max-width:380px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) .v1039-fill-bank{
+  max-width:340px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+#lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) .v1039-fill-check{
+  max-width:380px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+@media (min-height:820px){
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) .deen-character-question-row,
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) .deen-character-question-row.deen-companion-runtime-row{
+    margin-top:clamp(82px,10vh,112px)!important;
+  }
+}
+
+@media (max-height:700px){
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) .deen-character-question-row,
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) .deen-character-question-row.deen-companion-runtime-row{
+    margin-top:34px!important;
+    margin-bottom:14px!important;
+  }
+}
+
+@media (max-width:420px){
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) #answerArea{
+    max-width:360px!important;
+  }
+  #lesson .question-frame.deen-premium-fill.v1039-fill-duo.v1040-fill-interactive:not(.v9945-feedback-mode) .v1039-fill-bank{
+    max-width:320px!important;
+  }
+}
+</style>
+<script id="deen-v1042-fill-balance-js">
+(()=>{
+  const VERSION='10.4.2-FILL-BALANCE',BUILD='9142fillbalance1';
+  function mark(){
+    const frame=document.querySelector('#lesson .question-frame');
+    if(!frame?.classList.contains('v1040-fill-interactive'))return false;
+    frame.dataset.deenFillBalance='v1042';
+    document.documentElement.dataset.deenFillBalance='v1042';
+    return true;
+  }
+  document.addEventListener('deen:question-rendered',()=>requestAnimationFrame(mark));
+  document.addEventListener('deen:question-graded',()=>requestAnimationFrame(mark));
+  requestAnimationFrame(mark);
+  window.DEEN_FILL_BALANCE={
+    version:VERSION,
+    build:BUILD,
+    apply:mark,
+    snapshot:()=>({
+      active:!!document.querySelector('#lesson .question-frame[data-deen-fill-balance="v1042"]'),
+      renderer:document.querySelector('#lesson .question-frame')?.dataset?.deenFillRenderer||null
+    })
+  };
+})();
+</script>
