@@ -12043,7 +12043,7 @@ if(typeof LEGACY_RENDER==='function'){
  if(window.__deenV1017CardNormalizer)return;
  window.__deenV1017CardNormalizer=true;
 
- const VERSION='10.2.4-CARD-NORMALIZER';
+ const VERSION='10.5.8-CARD-NORMALIZER-STABLE';
  let runs=0,repairs=0;
 
  function ensureCard(card){
@@ -12095,17 +12095,17 @@ if(typeof LEGACY_RENDER==='function'){
    card.style.setProperty('padding-right','14px','important');
 
    if(card.classList.contains('matched')){
-     indicator.textContent='✓';
+     if(indicator.textContent!=='✓')indicator.textContent='✓';
      indicator.style.setProperty('border-color','#83ebc2','important');
      indicator.style.setProperty('background','#83ebc2','important');
      indicator.style.setProperty('color','#073a37','important');
    }else if(card.classList.contains('selected')){
-     indicator.textContent='';
+     if(indicator.textContent!=='')indicator.textContent='';
      indicator.style.setProperty('border-color','#7ce6bf','important');
      indicator.style.setProperty('background','#7ce6bf','important');
      indicator.style.setProperty('box-shadow','inset 0 0 0 5px #123f40','important');
    }else{
-     indicator.textContent='';
+     if(indicator.textContent!=='')indicator.textContent='';
      indicator.style.removeProperty('box-shadow');
    }
 
@@ -12132,17 +12132,23 @@ if(typeof LEGACY_RENDER==='function'){
  document.addEventListener('deen:question-graded',schedule);
  document.addEventListener('deen:question-rendering',()=>setTimeout(apply,0));
 
+ let observerScheduled=false;
  const observer=new MutationObserver(mutations=>{
-   let relevant=false;
-   for(const m of mutations){
-     if(m.type==='childList'&&(m.addedNodes.length||m.removedNodes.length)){relevant=true;break}
-     if(m.type==='attributes'&&m.target?.classList?.contains?.('v1017-card')){relevant=true;break}
-   }
-   if(relevant)queueMicrotask(apply);
+   const relevant=mutations.some(m=>
+     m.type==='childList' &&
+     m.target?.id==='answerArea' &&
+     (m.addedNodes.length||m.removedNodes.length)
+   );
+   if(!relevant||observerScheduled)return;
+   observerScheduled=true;
+   requestAnimationFrame(()=>{
+     observerScheduled=false;
+     apply();
+   });
  });
  const startObserver=()=>{
-   const host=document.getElementById('answerArea')||document.getElementById('lesson');
-   if(host)observer.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+   const host=document.getElementById('answerArea');
+   if(host)observer.observe(host,{subtree:false,childList:true});
  };
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startObserver,{once:true});
  else startObserver();
@@ -12158,7 +12164,8 @@ if(typeof LEGACY_RENDER==='function'){
      cards:document.querySelectorAll('#lesson .v1017-card').length,
      labels:document.querySelectorAll('#lesson .v1017-card-label').length,
      indicators:document.querySelectorAll('#lesson .v1017-choice-indicator').length,
-     normalized:document.querySelectorAll('#lesson .v1017-card[data-v1017-normalized="1"]').length
+     normalized:document.querySelectorAll('#lesson .v1017-card[data-v1017-normalized="1"]').length,
+     observerMode:'answerArea-direct-child-only'
    })
  };
 
