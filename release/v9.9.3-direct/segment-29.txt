@@ -4,8 +4,8 @@
  if(window.__deenV1048MatchingInteractionOwner)return;
  window.__deenV1048MatchingInteractionOwner=true;
 
- const VERSION='10.4.8-MATCHING-INTERACTION-OWNER';
- const BUILD='9148matchpersist1';
+ const VERSION='10.4.9-MATCHING-INTERACTION-OWNER';
+ const BUILD='9149matchobserverfix1';
  let state=null;
  let clicks=0,renders=0,rehydrates=0,completions=0;
 
@@ -68,8 +68,10 @@
    const done=s.matchedLeft.size;
    const count=document.querySelector('#lesson .v1017-count');
    const fill=document.querySelector('#lesson .v1017-meter i');
-   if(count)count.textContent=done+' / '+total+' eşleşme';
-   if(fill)fill.style.width=(total?Math.round(done/total*100):0)+'%';
+   const label=done+' / '+total+' eşleşme';
+   const width=(total?Math.round(done/total*100):0)+'%';
+   if(count&&count.textContent!==label)count.textContent=label;
+   if(fill&&fill.style.width!==width)fill.style.width=width;
    document.documentElement.dataset.deenMatchingProgress=done+'/'+total;
  }
  function clearVisualSelected(){
@@ -81,7 +83,7 @@
    card.classList.add('matched');
    card.disabled=true;
    const indicator=card.querySelector('.v1017-choice-indicator');
-   if(indicator)indicator.textContent='✓';
+   if(indicator&&indicator.textContent!=='✓')indicator.textContent='✓';
  }
  function rehydrate(){
    if(!active())return false;
@@ -103,7 +105,7 @@
      if(card&&!card.disabled&&!card.classList.contains('matched'))card.classList.add('selected');
    }
    updateFooter(s);
-   document.documentElement.dataset.deenMatchingInteraction='v1048';
+   document.documentElement.dataset.deenMatchingInteraction='v1049';
    return true;
  }
  function semantic(leftDesc,rightDesc){
@@ -224,14 +226,19 @@
    },ms));
  });
 
+ let rehydrateRaf=0;
  const observer=new MutationObserver(mutations=>{
-   if(!state||!active())return;
+   if(!state)return;
    const replaced=mutations.some(m=>m.type==='childList'&&(m.addedNodes.length||m.removedNodes.length));
-   if(replaced)queueMicrotask(rehydrate);
+   if(!replaced)return;
+   cancelAnimationFrame(rehydrateRaf);
+   rehydrateRaf=requestAnimationFrame(()=>{
+     if(active())rehydrate();
+   });
  });
  function observe(){
    const host=document.getElementById('answerArea');
-   if(host)observer.observe(host,{childList:true,subtree:true});
+   if(host)observer.observe(host,{childList:true,subtree:false});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',observe,{once:true});
  else observe();
