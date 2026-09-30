@@ -629,7 +629,7 @@ function renderSequence(q,area){let chosen=[];const zone=document.createElement(
  area.append(zone,bank,hint);const check=document.createElement('button');check.className='btn';check.textContent='SIRAYI KONTROL ET';check.onclick=()=>{if(chosen.length!==q.correct_order.length)return;const ok=chosen.every((x,i)=>normalize(x)===normalize(q.correct_order[i]));zone.style.borderColor=ok?'var(--ok)':'var(--danger)';bank.querySelectorAll('button').forEach(b=>b.disabled=true);zone.querySelectorAll('button').forEach(b=>b.disabled=true);check.disabled=true;completeQuestion(ok,q)};area.appendChild(check);paint()}
 
 function submitAnswer(ans,el){if(document.getElementById('feedback').classList.contains('show'))return;const q=session.questions[session.index],correct=normalize(ans)===normalize(q.correct_answer);if(q.options_tr){document.querySelectorAll('.option').forEach(b=>{const val=(b.querySelector('.option-label')||b).textContent;if(normalize(val)===normalize(q.correct_answer))b.classList.add('correct');else if(b===el&&!correct)b.classList.add('wrong');b.disabled=true})}else el.style.borderColor=correct?'var(--ok)':'var(--danger)';completeQuestion(correct,q)}
-function renderMatching(q,area){
+window.__DEEN_MATCHING_ENGINE_V1051__=true;\nfunction renderMatching(q,area){
  if(!q||!Array.isArray(q.pairs)||q.pairs.length<2)return;
 
  const frame=document.querySelector('#lesson .question-frame')||document.querySelector('.question-frame');
@@ -710,9 +710,15 @@ function renderMatching(q,area){
  shell.append(board,footer);
  area.append(shell);
 
- const persistentKey=String(q.id||q.question_id||q.question_tr||'matching')+'::'+String(Number(session?.index)||0);
- let persistent=session?.__deenMatchingState;
- if(!persistent||persistent.key!==persistentKey){
+ const runId=(()=>{
+  if(!session)return'matching-no-session';
+  if(!session.__deenMatchingRunId)session.__deenMatchingRunId='match-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);
+  return session.__deenMatchingRunId;
+ })();
+ const persistentKey=runId+'::'+String(q.id||q.question_id||q.question_tr||'matching')+'::'+String(Number(session?.index)||0);
+ const stateStore=window.__DEEN_MATCHING_STATE_STORE__||(window.__DEEN_MATCHING_STATE_STORE__=new Map());
+ let persistent=stateStore.get(persistentKey);
+ if(!persistent){
   persistent={
    key:persistentKey,
    selected:null,
@@ -721,8 +727,9 @@ function renderMatching(q,area){
    errors:0,
    finished:false
   };
-  if(session)session.__deenMatchingState=persistent;
+  stateStore.set(persistentKey,persistent);
  }
+ if(session)session.__deenMatchingState=persistent;
 
  matchState={
   left:persistent.selected?Number(persistent.selected.pair):null,
@@ -762,12 +769,12 @@ function renderMatching(q,area){
  }
 
  function persist(){
-  if(!session)return;
   persistent.matchedLeft=[...new Set(persistent.matchedLeft.map(Number))];
   persistent.matchedRight=[...new Set(persistent.matchedRight.map(Number))];
   persistent.errors=Number(persistent.errors)||0;
   persistent.finished=!!persistent.finished;
-  session.__deenMatchingState=persistent;
+  stateStore.set(persistentKey,persistent);
+  if(session)session.__deenMatchingState=persistent;
  }
 
  function update(){
@@ -876,7 +883,7 @@ function renderMatching(q,area){
   const savedSession=session,savedIndex=session.index,savedKey=persistentKey;
   document.documentElement.dataset.deenMatchingFinished='1';
   setTimeout(()=>{
-   if(session===savedSession&&session.index===savedIndex&&session?.__deenMatchingState?.key===savedKey){
+   if(session===savedSession&&session.index===savedIndex&&stateStore.get(savedKey)?.key===savedKey){
     completeQuestion(ok,q);
    }
   },220);
@@ -955,7 +962,7 @@ function renderMatching(q,area){
  }
 
  window.DEEN_MATCHING_SESSION_STATE={
-  version:'10.5.0-SESSION-STATE',
+  version:'10.5.1-RENDERER-STORE',
   snapshot:()=>({
    key:persistent.key,
    selected:persistent.selected?{...persistent.selected}:null,
@@ -967,7 +974,7 @@ function renderMatching(q,area){
   })
  };
 
- document.documentElement.dataset.deenMatchingRenderer='core09-v1050';
+ document.documentElement.dataset.deenMatchingRenderer='core09-v1051';
 }
 function completeQuestion(correct,q){state.answered++;if(session.final)session.responses.push({id:q.id,correct,unit:q.stage_id.slice(0,3),topic:q.topic||q.stage_title,concept:q.concept_id,priority:session.priorityIds.has(q.id)});if(correct){state.correct++;session.correct++;session.combo++;session.bestCombo=Math.max(session.bestCombo,session.combo);state.mistakes=state.mistakes.filter(id=>id!==q.id)}else{session.combo=0;if(!state.mistakes.includes(q.id))state.mistakes.push(q.id)}try{window.DEEN_COMPANION_STREAK?.onGrade?.(correct,session.combo,q)}catch(e){}saveState();const fb=document.getElementById('feedback'),box=document.getElementById('feedbackBox');box.classList.toggle('bad',!correct);document.getElementById('feedbackIcon').textContent=correct?'✓':'!';document.getElementById('feedbackTitle').textContent=correct?'Doğru cevap':'Bunu birlikte düzeltelim';document.getElementById('feedbackText').textContent=q.explanation_tr||'';fb.classList.add('show');document.getElementById('continueBtn').onclick=nextQuestion;setTimeout(()=>{try{fb.scrollIntoView({behavior:'smooth',block:'end'})}catch(e){}},40)}
 function nextQuestion(){session.index++;if(session.index>=session.questions.length){if(session.final)showSectionFinalResult();else showResult()}else renderQuestion()}
