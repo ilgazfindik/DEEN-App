@@ -1,0 +1,146 @@
+<!-- DEEN v10.6.2 — Achievement badge artwork -->
+<style id="deen-v1062-badge-art-css">
+/*
+  Premium achievement artwork.
+  Visual-only badge layer: achievement conditions remain authoritative in badges().
+*/
+#profileScreen .v5-badges{
+  gap:12px!important;
+}
+
+#profileScreen .v5-badge{
+  position:relative!important;
+  min-height:206px!important;
+  padding:12px 10px 13px!important;
+  gap:5px!important;
+  overflow:hidden!important;
+  border-color:rgba(75,111,122,.72)!important;
+  background:
+    radial-gradient(circle at 50% 8%,rgba(76,157,143,.08),transparent 48%),
+    linear-gradient(180deg,#102c36 0%,#102832 100%)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.025)!important;
+}
+
+#profileScreen .v5-badge .deen-badge-art{
+  display:block!important;
+  flex:0 0 auto!important;
+  width:96px!important;
+  height:96px!important;
+  margin:-1px auto 2px!important;
+  background-image:url("assets/badges/deen-badges-atlas.webp?v=9162badgeart1")!important;
+  background-repeat:no-repeat!important;
+  background-size:500% 200%!important;
+  background-position:0 0;
+  image-rendering:auto!important;
+  filter:grayscale(.86) saturate(.28) brightness(.62) contrast(.92)!important;
+  opacity:.48!important;
+  transform:scale(.94)!important;
+  transition:filter .2s ease,opacity .2s ease,transform .2s ease!important;
+}
+
+#profileScreen .v5-badge[data-badge-id="first"] .deen-badge-art{background-position:0% 0%!important}
+#profileScreen .v5-badge[data-badge-id="streak7"] .deen-badge-art{background-position:25% 0%!important}
+#profileScreen .v5-badge[data-badge-id="lessons25"] .deen-badge-art{background-position:50% 0%!important}
+#profileScreen .v5-badge[data-badge-id="master"] .deen-badge-art{background-position:75% 0%!important}
+#profileScreen .v5-badge[data-badge-id="final"] .deen-badge-art{background-position:100% 0%!important}
+#profileScreen .v5-badge[data-badge-id="xp1000"] .deen-badge-art{background-position:0% 100%!important}
+#profileScreen .v5-badge[data-badge-id="perfect10"] .deen-badge-art{background-position:25% 100%!important}
+#profileScreen .v5-badge[data-badge-id="reviews10"] .deen-badge-art{background-position:50% 100%!important}
+#profileScreen .v5-badge[data-badge-id="lessons50"] .deen-badge-art{background-position:75% 100%!important}
+#profileScreen .v5-badge[data-badge-id="xp5000"] .deen-badge-art{background-position:100% 100%!important}
+
+#profileScreen .v5-badge strong{
+  margin-top:1px!important;
+  color:#f5f9f7!important;
+  font-size:14px!important;
+  font-weight:850!important;
+  line-height:1.15!important;
+}
+
+#profileScreen .v5-badge small{
+  font-size:10.5px!important;
+  line-height:1.28!important;
+  color:#aac0c4!important;
+}
+
+#profileScreen .v5-badge .deen-badge-status{
+  margin-top:auto!important;
+  padding:3px 8px!important;
+  border-radius:999px!important;
+  border:1px solid rgba(101,137,147,.32)!important;
+  background:rgba(5,28,36,.36)!important;
+  color:#81999f!important;
+  font-size:9.5px!important;
+  font-weight:760!important;
+}
+
+/* Earned achievements reveal the full artwork. */
+#profileScreen .v5-badge.earned{
+  border-color:rgba(202,168,92,.72)!important;
+  background:
+    radial-gradient(circle at 50% 14%,rgba(83,210,170,.12),transparent 46%),
+    radial-gradient(circle at 50% 0%,rgba(222,186,101,.09),transparent 44%),
+    linear-gradient(180deg,#183236 0%,#202d2b 100%)!important;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.045),
+    0 7px 22px rgba(0,0,0,.12)!important;
+}
+
+#profileScreen .v5-badge.earned .deen-badge-art{
+  filter:
+    saturate(1.08)
+    brightness(1.05)
+    drop-shadow(0 6px 9px rgba(0,0,0,.42))
+    drop-shadow(0 0 7px rgba(83,224,178,.16))!important;
+  opacity:1!important;
+  transform:scale(1)!important;
+}
+
+#profileScreen .v5-badge.earned .deen-badge-status{
+  border-color:rgba(207,174,93,.48)!important;
+  background:rgba(104,77,25,.18)!important;
+  color:#efdca7!important;
+}
+
+#profileScreen .v5-badge.earned:hover .deen-badge-art{
+  transform:scale(1.035)!important;
+}
+
+/* In case an older renderer leaves the placeholder glyph in the card. */
+#profileScreen .v5-badge>span:not(.deen-badge-art){
+  display:none!important;
+}
+
+@media(max-width:390px){
+  #profileScreen .v5-badge{
+    min-height:188px!important;
+    padding:10px 8px 11px!important;
+  }
+  #profileScreen .v5-badge .deen-badge-art{
+    width:84px!important;
+    height:84px!important;
+  }
+  #profileScreen .v5-badge strong{font-size:13px!important}
+  #profileScreen .v5-badge small{font-size:9.5px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #profileScreen .v5-badge .deen-badge-art{transition:none!important}
+}
+</style>
+<script id="deen-v1062-badge-art-js">
+(()=>{
+  window.DEEN_BADGE_ART={
+    version:'10.6.2-BADGE-ART',
+    build:'9162badgeart1',
+    asset:'assets/badges/deen-badges-atlas.webp',
+    ids:['first','streak7','lessons25','master','final','xp1000','perfect10','reviews10','lessons50','xp5000'],
+    check:()=>({
+      cards:document.querySelectorAll('#profileScreen .v5-badge[data-badge-id]').length,
+      art:document.querySelectorAll('#profileScreen .deen-badge-art').length,
+      earned:document.querySelectorAll('#profileScreen .v5-badge.earned').length
+    })
+  };
+  document.documentElement.dataset.deenBadgeArt='v1062';
+})();
+</script>
