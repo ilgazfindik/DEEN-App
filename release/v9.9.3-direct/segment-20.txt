@@ -334,14 +334,34 @@
   slot.addEventListener('drop',e=>{e.preventDefault();slot.classList.remove('drag-over');if(dragChip)tryValue(dragChip)});
   return true;
  }
- try{window.renderFillBlank=premiumFill;renderFillBlank=premiumFill}catch(_){window.renderFillBlank=premiumFill}
+ // v10.3.2: fill-blank rendering is owned by segment-09.
+ // Keep the old v855 implementation only as a diagnostic compatibility bridge.
+ function nativeFill(q,area){
+  if(typeof oldFill==='function')return oldFill(q,area);
+  return false;
+ }
  function onBeforeRender(){
   clearTimeout(advanceTimer);
   document.querySelector('.question-frame')?.classList.remove('v855-fill-mode');
  }
  document.addEventListener('deen:question-rendering',onBeforeRender);
- window.DEEN_FILL_BLANK_MINIGAME={version:VERSION,build:BUILD,render:premiumFill,eligible,check:()=>({version:VERSION,build:BUILD,ready:true,rounds,attempts,misses,autoAdvanced,active:!!document.querySelector('.v855-fill-wrap'),eventDriven:true})};
- document.documentElement.dataset.deenFillBlank='ready';
+ window.DEEN_FILL_BLANK_MINIGAME={
+  version:'10.3.2-CORE-BRIDGE',
+  build:'9132v855retired1',
+  render:nativeFill,
+  eligible,
+  check:()=>({
+   version:'10.3.2-CORE-BRIDGE',
+   build:'9132v855retired1',
+   ready:typeof oldFill==='function',
+   retired:true,
+   owner:'segment-09',
+   legacyActive:!!document.querySelector('.v855-fill-wrap'),
+   coreActive:!!document.querySelector('#lesson .fill-choice-grid'),
+   eventDriven:true
+  })
+ };
+ document.documentElement.dataset.deenFillBlank='retired-core09';
 })();
 </script>
 
