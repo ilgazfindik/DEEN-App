@@ -324,29 +324,67 @@ function renderFillBlank(q,area){
  const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
  if(Array.isArray(q.options_tr) && q.options_tr.length){
+   if(frame)frame.classList.add('v1039-fill-duo');
+   document.documentElement.dataset.deenFillRenderer='core09-v1039';
+   if(frame)frame.dataset.deenFillRenderer='core09-v1039';
+
+   const sentenceEl=frame?.querySelector('.deen-character-question-text')||document.getElementById('questionText');
+   const source=String(q.question_tr||q.prompt_tr||q.question||'').trim();
+
+   function renderInlineSlot(value='',status=''){
+     if(!sentenceEl)return null;
+     const match=source.match(/_{3,}/);
+     if(!match){sentenceEl.textContent=source;return null}
+     const before=source.slice(0,match.index);
+     const after=source.slice(match.index+match[0].length);
+     sentenceEl.textContent='';
+     sentenceEl.appendChild(document.createTextNode(before));
+     const slot=document.createElement('span');
+     slot.className='v1039-fill-slot';
+     if(status)slot.classList.add(status);
+     if(value){
+       slot.dataset.filled='1';
+       slot.textContent=value;
+     }else{
+       slot.dataset.filled='0';
+       slot.textContent='\u00A0\u00A0\u00A0\u00A0';
+     }
+     sentenceEl.appendChild(slot);
+     sentenceEl.appendChild(document.createTextNode(after));
+     return slot;
+   }
+
+   let slot=renderInlineSlot();
    const grid=document.createElement('div');
-   grid.className='fill-choice-grid';
+   grid.className='fill-choice-grid v1039-fill-bank';
    let selected=null;
 
-   renderedOptions(q).forEach((opt,idx)=>{
+   renderedOptions(q).forEach(opt=>{
      const b=document.createElement('button');
      b.type='button';
-     b.className='fill-choice';
+     b.className='fill-choice v1039-fill-chip';
      b.dataset.value=opt;
 
-     const badge=document.createElement('span');
-     badge.className='fill-choice-badge';
-     badge.textContent=letters[idx]||String(idx+1);
-
      const label=document.createElement('span');
+     label.className='v1039-fill-chip-label';
      label.textContent=opt;
+     b.appendChild(label);
 
-     b.append(badge,label);
      b.onclick=()=>{
        if(document.getElementById('feedback').classList.contains('show'))return;
+       const wasSelected=b.classList.contains('selected');
        grid.querySelectorAll('.fill-choice').forEach(x=>x.classList.remove('selected'));
+
+       if(wasSelected){
+         selected=null;
+         slot=renderInlineSlot();
+         cta.disabled=true;
+         return;
+       }
+
        b.classList.add('selected');
        selected={value:opt,button:b};
+       slot=renderInlineSlot(opt);
        cta.disabled=false;
        cta.textContent='Kontrol Et';
      };
@@ -357,7 +395,7 @@ function renderFillBlank(q,area){
 
    const cta=document.createElement('button');
    cta.type='button';
-   cta.className='template-action';
+   cta.className='template-action v1039-fill-check';
    cta.disabled=true;
    cta.textContent='Kontrol Et';
    cta.onclick=()=>{
@@ -366,9 +404,10 @@ function renderFillBlank(q,area){
      grid.querySelectorAll('.fill-choice').forEach(btn=>{
        const value=btn.dataset.value||'';
        if(normalize(value)===normalize(q.correct_answer))btn.classList.add('correct');
-       else if(btn===selected.button && !correct)btn.classList.add('wrong');
+       else if(btn===selected.button&&!correct)btn.classList.add('wrong');
        btn.disabled=true;
      });
+     slot=renderInlineSlot(selected.value,correct?'correct':'wrong');
      completeQuestion(correct,q);
    };
    area.appendChild(cta);
