@@ -325,10 +325,10 @@ function renderFillBlank(q,area){
 
  if(Array.isArray(q.options_tr) && q.options_tr.length){
    if(frame)frame.classList.add('v1039-fill-duo','v1040-fill-interactive');
-   document.documentElement.dataset.deenFillRenderer='core09-v1040';
-   if(frame)frame.dataset.deenFillRenderer='core09-v1040';
+   document.documentElement.dataset.deenFillRenderer='core09-v1041';
+   if(frame)frame.dataset.deenFillRenderer='core09-v1041';
 
-   const sentenceEl=frame?.querySelector('.deen-character-question-text')||document.getElementById('questionText');
+   const currentSentenceEl=()=>frame?.querySelector('.deen-character-question-text')||document.getElementById('questionText');
    const source=String(q.question_tr||q.prompt_tr||q.question||'').trim();
    let selected=null;
    let slot=null;
@@ -342,6 +342,7 @@ function renderFillBlank(q,area){
    }
 
    function renderInlineSlot(value='',status=''){
+     const sentenceEl=currentSentenceEl();
      if(!sentenceEl)return null;
      const match=source.match(/_{3,}/);
      if(!match){sentenceEl.textContent=source;return null}
