@@ -1,265 +1,359 @@
-<!-- DEEN v10.4.8 — Persistent matching interaction owner -->
-<script id="deen-v1048-matching-interaction-owner-js">
+<!-- DEEN v10.5.3 — Isolated matching interaction engine -->
+<script id="deen-v1053-isolated-matching-engine-js">
 (()=>{
- if(window.__deenV1048MatchingInteractionOwner)return;
- window.__deenV1048MatchingInteractionOwner=true;
+  if(window.__deenV1053IsolatedMatchingEngine)return;
+  window.__deenV1053IsolatedMatchingEngine=true;
 
- const VERSION='10.4.9-MATCHING-INTERACTION-OWNER';
- const BUILD='9149matchobserverfix1';
- let state=null;
- let clicks=0,renders=0,rehydrates=0,completions=0;
+  const VERSION='10.5.3-ISOLATED-MATCHING';
+  const BUILD='9153isolatedmatch1';
 
- function qNow(){
-   try{return session?.questions?.[Number(session?.index)||0]||null}catch(_){return null}
- }
- function keyFor(q=qNow()){
-   let idx='0';
-   try{idx=String(Number(session?.index)||0)}catch(_){}
-   return idx+'::'+String(q?.id||q?.question_id||q?.question_tr||'');
- }
- function norm(v){
-   return String(v??'').toLocaleLowerCase('tr-TR').trim()
-     .replace(/[.,;:!?'"“”‘’()]/g,'')
-     .replace(/\s+/g,' ');
- }
- function textOf(card){
-   return String(card?.querySelector?.('.v1017-card-label')?.textContent||card?.textContent||'').trim();
- }
- function active(){
-   const q=qNow();
-   return !!q&&q.activity_type==='matching'&&Array.isArray(q.pairs)&&!!document.querySelector('#lesson .v1017-shell');
- }
- function ensure(){
-   const q=qNow();
-   if(!q||q.activity_type!=='matching'||!Array.isArray(q.pairs))return null;
-   const key=keyFor(q);
-   if(!state||state.key!==key){
-     state={
-       key,
-       selected:null,
-       matchedLeft:new Set(),
-       usedRight:new Set(),
-       errors:0,
-       finished:false,
-       startedAt:Date.now()
-     };
-   }
-   return state;
- }
- function findCard(desc){
-   if(!desc)return null;
-   const cards=[...document.querySelectorAll('#lesson .v1017-card[data-side="'+desc.side+'"]')];
-   return cards.find(card=>
-     String(card.dataset.pair)===String(desc.pair) &&
-     norm(textOf(card))===norm(desc.text)
-   )||cards.find(card=>String(card.dataset.pair)===String(desc.pair))||null;
- }
- function desc(card){
-   return {
-     side:String(card?.dataset?.side||''),
-     pair:Number(card?.dataset?.pair),
-     text:textOf(card)
-   };
- }
- function updateFooter(s=ensure()){
-   if(!s)return;
-   const q=qNow();
-   const total=Array.isArray(q?.pairs)?q.pairs.length:0;
-   const done=s.matchedLeft.size;
-   const count=document.querySelector('#lesson .v1017-count');
-   const fill=document.querySelector('#lesson .v1017-meter i');
-   const label=done+' / '+total+' eşleşme';
-   const width=(total?Math.round(done/total*100):0)+'%';
-   if(count&&count.textContent!==label)count.textContent=label;
-   if(fill&&fill.style.width!==width)fill.style.width=width;
-   document.documentElement.dataset.deenMatchingProgress=done+'/'+total;
- }
- function clearVisualSelected(){
-   document.querySelectorAll('#lesson .v1017-card.selected').forEach(card=>card.classList.remove('selected'));
- }
- function paintMatched(card){
-   if(!card)return;
-   card.classList.remove('selected','wrong');
-   card.classList.add('matched');
-   card.disabled=true;
-   const indicator=card.querySelector('.v1017-choice-indicator');
-   if(indicator&&indicator.textContent!=='✓')indicator.textContent='✓';
- }
- function rehydrate(){
-   if(!active())return false;
-   const s=ensure();
-   if(!s)return false;
-   rehydrates++;
+  let state=null;
+  let clicks=0;
+  let correctPairs=0;
+  let wrongPairs=0;
+  let arms=0;
 
-   const cards=[...document.querySelectorAll('#lesson .v1017-card')];
-   cards.forEach(card=>{
-     const side=card.dataset.side;
-     const pair=Number(card.dataset.pair);
-     if(side==='left'&&s.matchedLeft.has(pair))paintMatched(card);
-     if(side==='right'&&s.usedRight.has(pair))paintMatched(card);
-   });
+  const norm=v=>String(v??'')
+    .toLocaleLowerCase('tr-TR')
+    .trim()
+    .replace(/[.,;:!?'"“”‘’()]/g,'')
+    .replace(/\s+/g,' ');
 
-   clearVisualSelected();
-   if(s.selected){
-     const card=findCard(s.selected);
-     if(card&&!card.disabled&&!card.classList.contains('matched'))card.classList.add('selected');
-   }
-   updateFooter(s);
-   document.documentElement.dataset.deenMatchingInteraction='v1049';
-   return true;
- }
- function semantic(leftDesc,rightDesc){
-   const q=qNow();
-   const pair=q?.pairs?.[Number(leftDesc?.pair)];
-   if(!pair)return false;
-   return norm(pair.right)===norm(rightDesc?.text);
- }
- function flashWrong(a,b){
-   [a,b].forEach(card=>card?.classList?.add('wrong'));
-   setTimeout(()=>[a,b].forEach(card=>card?.classList?.remove('wrong')),300);
- }
- function finish(s){
-   if(!s||s.finished)return;
-   const q=qNow();
-   if(!q||s.matchedLeft.size!==q.pairs.length)return;
-   s.finished=true;
-   s.selected=null;
-   clearVisualSelected();
-   updateFooter(s);
-   document.documentElement.dataset.deenMatchingFinished='1';
-   completions++;
-   const savedKey=s.key;
-   setTimeout(()=>{
-     if(keyFor()!==savedKey)return;
-     try{window.completeQuestion?.(s.errors===0,q)}catch(err){console.error('DEEN matching completion failed',err)}
-   },220);
- }
- function select(card,s){
-   clearVisualSelected();
-   s.selected=desc(card);
-   card.classList.add('selected');
-   document.documentElement.dataset.deenMatchingLast='selected';
- }
- function handle(card){
-   if(!active()||!card||card.disabled||card.classList.contains('matched'))return;
-   const s=ensure();
-   if(!s||s.finished)return;
-   clicks++;
+  function question(){
+    try{return session?.questions?.[Number(session?.index)||0]||null}catch(_){return null}
+  }
 
-   const current=desc(card);
-   const previous=s.selected;
+  function active(){
+    const q=question();
+    return !!q &&
+      String(q.activity_type||'').toLowerCase()==='matching' &&
+      Array.isArray(q.pairs) &&
+      !!document.querySelector('#lesson .v1017-shell');
+  }
 
-   if(!previous){
-     select(card,s);
-     return;
-   }
+  function key(){
+    const q=question();
+    let idx=0;
+    try{idx=Number(session?.index)||0}catch(_){}
+    let run='lesson';
+    try{
+      if(session && !session.__deenV1053RunId){
+        session.__deenV1053RunId='m-'+Date.now()+'-'+Math.random().toString(36).slice(2,7);
+      }
+      run=session?.__deenV1053RunId||run;
+    }catch(_){}
+    return run+'::'+idx+'::'+String(q?.id||q?.question_id||q?.question_tr||'matching');
+  }
 
-   if(previous.side===current.side){
-     if(previous.pair===current.pair&&norm(previous.text)===norm(current.text)){
-       s.selected=null;
-       clearVisualSelected();
-       document.documentElement.dataset.deenMatchingLast='cleared';
-     }else{
-       select(card,s);
-       document.documentElement.dataset.deenMatchingLast='reselected';
-     }
-     return;
-   }
+  function sideOf(card){
+    if(!card)return null;
+    if(card.closest('.v1017-left'))return'left';
+    if(card.closest('.v1017-right'))return'right';
+    return null;
+  }
 
-   const left=previous.side==='left'?previous:current;
-   const right=previous.side==='right'?previous:current;
-   const leftCard=previous.side==='left'?findCard(previous):card;
-   const rightCard=previous.side==='right'?findCard(previous):card;
+  function textOf(card){
+    return String(card?.querySelector?.('.v1017-card-label')?.textContent||card?.textContent||'').trim();
+  }
 
-   s.selected=null;
-   clearVisualSelected();
+  function descriptor(card){
+    const side=sideOf(card);
+    if(!side)return null;
+    return {
+      side,
+      pair:String(card.dataset.pair??''),
+      text:textOf(card),
+      token:side+'::'+String(card.dataset.pair??'')+'::'+norm(textOf(card))
+    };
+  }
 
-   if(semantic(left,right)){
-     try{navigator.vibrate?.(14)}catch(_){}
-     s.matchedLeft.add(Number(left.pair));
-     s.usedRight.add(Number(right.pair));
-     paintMatched(leftCard);
-     paintMatched(rightCard);
-     updateFooter(s);
-     document.documentElement.dataset.deenMatchingLast='correct';
-     finish(s);
-   }else{
-     try{navigator.vibrate?.([10,22,10])}catch(_){}
-     s.errors++;
-     flashWrong(leftCard,rightCard);
-     document.documentElement.dataset.deenMatchingLast='wrong';
-   }
- }
+  function ensureState(){
+    if(!active())return null;
+    const k=key();
+    if(!state||state.key!==k){
+      state={
+        key:k,
+        selected:null,
+        matchedLeft:new Set(),
+        matchedRight:new Set(),
+        errors:0,
+        finished:false
+      };
+    }
+    return state;
+  }
 
- /*
-   Capture phase deliberately owns matching clicks. Old per-card onclick
-   callbacks never see the event, so there is exactly one interaction owner.
- */
- document.addEventListener('click',event=>{
-   const card=event.target?.closest?.('#lesson .v1017-card');
-   if(!card)return;
-   event.preventDefault();
-   event.stopImmediatePropagation();
-   handle(card);
- },true);
+  function cards(){
+    return [...document.querySelectorAll('#lesson .v1017-card')];
+  }
 
- document.addEventListener('deen:question-rendering',()=>{
-   const q=qNow();
-   const key=keyFor(q);
-   if(!q||q.activity_type!=='matching'){
-     state=null;
-     document.documentElement.dataset.deenMatchingInteraction='idle';
-     return;
-   }
-   // Preserve state for same-question rerenders; reset only on a new question.
-   if(state&&state.key!==key)state=null;
- });
+  function findCard(desc){
+    if(!desc)return null;
+    return cards().find(card=>{
+      const d=descriptor(card);
+      return d &&
+        d.side===desc.side &&
+        d.pair===desc.pair &&
+        norm(d.text)===norm(desc.text);
+    })||null;
+  }
 
- document.addEventListener('deen:question-rendered',event=>{
-   const q=qNow();
-   if(!q||q.activity_type!=='matching')return;
-   renders++;
-   ensure();
-   requestAnimationFrame(rehydrate);
-   [40,120,280].forEach(ms=>setTimeout(()=>{
-     if(keyFor()===state?.key)rehydrate();
-   },ms));
- });
+  function clearSelectedVisual(){
+    cards().forEach(card=>card.classList.remove('selected'));
+  }
 
- let rehydrateRaf=0;
- const observer=new MutationObserver(mutations=>{
-   if(!state)return;
-   const replaced=mutations.some(m=>m.type==='childList'&&(m.addedNodes.length||m.removedNodes.length));
-   if(!replaced)return;
-   cancelAnimationFrame(rehydrateRaf);
-   rehydrateRaf=requestAnimationFrame(()=>{
-     if(active())rehydrate();
-   });
- });
- function observe(){
-   const host=document.getElementById('answerArea');
-   if(host)observer.observe(host,{childList:true,subtree:false});
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',observe,{once:true});
- else observe();
+  function paintSelected(card){
+    clearSelectedVisual();
+    if(card&&!card.disabled&&!card.classList.contains('matched')){
+      card.classList.add('selected');
+    }
+  }
 
- window.DEEN_MATCHING_INTERACTION_OWNER={
-   version:VERSION,
-   build:BUILD,
-   rehydrate,
-   snapshot:()=>({
-     version:VERSION,
-     build:BUILD,
-     active:active(),
-     key:state?.key||null,
-     selected:state?.selected?{...state.selected}:null,
-     matched:state?.matchedLeft?.size||0,
-     usedRight:state?.usedRight?.size||0,
-     errors:state?.errors||0,
-     finished:state?.finished||false,
-     clicks,renders,rehydrates,completions,
-     renderer:document.documentElement.dataset.deenMatchingRenderer||null
-   })
- };
+  function paintMatched(card){
+    if(!card)return;
+    card.classList.remove('selected','wrong');
+    card.classList.add('matched');
+    card.disabled=true;
+    const indicator=card.querySelector('.v1017-choice-indicator');
+    if(indicator)indicator.textContent='✓';
+  }
+
+  function setIndicatorNeutral(card){
+    if(!card||card.classList.contains('matched'))return;
+    const indicator=card.querySelector('.v1017-choice-indicator');
+    if(indicator)indicator.textContent='';
+  }
+
+  function updateFooter(s=ensureState()){
+    if(!s)return;
+    const q=question();
+    const total=Array.isArray(q?.pairs)?q.pairs.length:0;
+    const done=s.matchedLeft.size;
+    const count=document.querySelector('#lesson .v1017-count');
+    const fill=document.querySelector('#lesson .v1017-meter i');
+    if(count)count.textContent=done+' / '+total+' eşleşme';
+    if(fill)fill.style.width=(total?Math.round(done/total*100):0)+'%';
+    document.documentElement.dataset.deenMatchingProgress=done+'/'+total;
+  }
+
+  function rehydrate(){
+    if(!active())return false;
+    const s=ensureState();
+    if(!s)return false;
+
+    cards().forEach(card=>{
+      const d=descriptor(card);
+      if(!d)return;
+      card.onclick=null;
+      card.removeAttribute('onclick');
+      card.dataset.deenMatchEngine='v1053';
+
+      if(d.side==='left'&&s.matchedLeft.has(d.token))paintMatched(card);
+      else if(d.side==='right'&&s.matchedRight.has(d.token))paintMatched(card);
+      else{
+        card.disabled=false;
+        card.classList.remove('matched','wrong');
+        setIndicatorNeutral(card);
+      }
+    });
+
+    clearSelectedVisual();
+    if(s.selected){
+      const selected=findCard(s.selected);
+      if(selected&&!selected.disabled)selected.classList.add('selected');
+    }
+
+    updateFooter(s);
+    document.documentElement.dataset.deenMatchingInteraction='isolated-v1053';
+    return true;
+  }
+
+  function expectedRight(leftDesc){
+    const q=question();
+    if(!q||!Array.isArray(q.pairs)||!leftDesc)return null;
+    const pair=q.pairs.find(p=>norm(p?.left)===norm(leftDesc.text));
+    return pair?String(pair.right??''):null;
+  }
+
+  function correct(leftDesc,rightDesc){
+    const expected=expectedRight(leftDesc);
+    return expected!==null && norm(expected)===norm(rightDesc?.text);
+  }
+
+  function select(card,s){
+    const d=descriptor(card);
+    if(!d)return;
+    s.selected=d;
+    paintSelected(card);
+    document.documentElement.dataset.deenMatchingLast='selected';
+  }
+
+  function clearSelection(s){
+    s.selected=null;
+    clearSelectedVisual();
+  }
+
+  function finish(s){
+    const q=question();
+    if(!s||!q||s.finished)return;
+    if(s.matchedLeft.size!==q.pairs.length)return;
+
+    s.finished=true;
+    clearSelection(s);
+    updateFooter(s);
+    document.documentElement.dataset.deenMatchingFinished='1';
+
+    const savedKey=s.key;
+    setTimeout(()=>{
+      if(!state||state.key!==savedKey)return;
+      try{window.completeQuestion?.(s.errors===0,q)}
+      catch(err){console.error('DEEN isolated matching completion failed',err)}
+    },220);
+  }
+
+  function good(leftDesc,rightDesc,s){
+    const leftCard=findCard(leftDesc);
+    const rightCard=findCard(rightDesc);
+    if(!leftCard||!rightCard)return;
+
+    try{navigator.vibrate?.(14)}catch(_){}
+
+    s.matchedLeft.add(leftDesc.token);
+    s.matchedRight.add(rightDesc.token);
+    s.selected=null;
+    correctPairs++;
+
+    paintMatched(leftCard);
+    paintMatched(rightCard);
+    updateFooter(s);
+    document.documentElement.dataset.deenMatchingLast='correct';
+
+    finish(s);
+  }
+
+  function bad(leftDesc,rightDesc,s){
+    const leftCard=findCard(leftDesc);
+    const rightCard=findCard(rightDesc);
+
+    s.errors++;
+    s.selected=null;
+    wrongPairs++;
+    clearSelectedVisual();
+
+    try{navigator.vibrate?.([10,22,10])}catch(_){}
+
+    [leftCard,rightCard].forEach(card=>card?.classList?.add('wrong'));
+    setTimeout(()=>{
+      [leftCard,rightCard].forEach(card=>card?.classList?.remove('wrong'));
+    },300);
+
+    document.documentElement.dataset.deenMatchingLast='wrong';
+  }
+
+  function handle(card){
+    if(!active()||!card||card.disabled)return false;
+
+    const s=ensureState();
+    const current=descriptor(card);
+    if(!s||!current||s.finished)return false;
+
+    clicks++;
+
+    if(!s.selected){
+      select(card,s);
+      return true;
+    }
+
+    const previous=s.selected;
+
+    if(previous.token===current.token){
+      clearSelection(s);
+      document.documentElement.dataset.deenMatchingLast='cleared';
+      return true;
+    }
+
+    if(previous.side===current.side){
+      select(card,s);
+      document.documentElement.dataset.deenMatchingLast='reselected';
+      return true;
+    }
+
+    const left=previous.side==='left'?previous:current;
+    const right=previous.side==='right'?previous:current;
+
+    if(correct(left,right))good(left,right,s);
+    else bad(left,right,s);
+
+    return true;
+  }
+
+  function arm(){
+    if(!active())return false;
+    arms++;
+    ensureState();
+    cards().forEach(card=>{
+      card.onclick=null;
+      card.removeAttribute('onclick');
+      card.dataset.deenMatchEngine='v1053';
+    });
+    rehydrate();
+    return true;
+  }
+
+  document.addEventListener('click',event=>{
+    const card=event.target?.closest?.('#lesson .v1017-card');
+    if(!card||!active())return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+    handle(card);
+  },true);
+
+  document.addEventListener('deen:question-rendering',()=>{
+    const q=question();
+    if(!q||String(q.activity_type||'').toLowerCase()!=='matching'){
+      state=null;
+      document.documentElement.dataset.deenMatchingInteraction='idle';
+    }
+  });
+
+  document.addEventListener('deen:question-rendered',event=>{
+    const run=()=>arm();
+    if(!window.DEEN_RUNTIME_SCHEDULE?.question?.(
+      'v1053-isolated-matching',
+      event?.detail,
+      run,
+      {raf:true,delays:[0,80,220]}
+    )){
+      requestAnimationFrame(run);
+      setTimeout(run,80);
+      setTimeout(run,220);
+    }
+  });
+
+  window.DEEN_ISOLATED_MATCHING={
+    version:VERSION,
+    build:BUILD,
+    arm,
+    rehydrate,
+    snapshot:()=>({
+      version:VERSION,
+      build:BUILD,
+      active:active(),
+      key:state?.key||null,
+      selected:state?.selected?{...state.selected}:null,
+      matchedLeft:state?.matchedLeft?.size||0,
+      matchedRight:state?.matchedRight?.size||0,
+      errors:state?.errors||0,
+      finished:state?.finished||false,
+      clicks,
+      correctPairs,
+      wrongPairs,
+      arms,
+      renderer:document.documentElement.dataset.deenMatchingRenderer||null
+    })
+  };
 })();
 </script>
