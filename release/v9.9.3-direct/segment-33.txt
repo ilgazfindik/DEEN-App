@@ -1,4 +1,4 @@
-<!-- DEEN v10.6.3 — Complete 10-badge artwork -->
+<!-- DEEN v10.6.4 — High-resolution 10-badge artwork -->
 <style id="deen-v1062-badge-art-css">
 /*
   Premium achievement artwork.
@@ -27,7 +27,7 @@
   width:96px!important;
   height:96px!important;
   margin:-1px auto 2px!important;
-  background-image:url("assets/badges/deen-badges-atlas.webp?v=9163badge10complete1")!important;
+  background-image:url("assets/badges/deen-badges-atlas.webp?v=9164badgehq1")!important;
   background-repeat:no-repeat!important;
   background-size:500% 200%!important;
   background-position:0 0;
@@ -131,8 +131,8 @@
 <script id="deen-v1062-badge-art-js">
 (()=>{
   window.DEEN_BADGE_ART={
-    version:'10.6.3-BADGE-ART',
-    build:'9163badge10complete1',
+    version:'10.6.4-BADGE-HQ',
+    build:'9164badgehq1',
     asset:'assets/badges/deen-badges-atlas.webp',
     ids:['first','streak7','lessons25','master','final','xp1000','perfect10','reviews10','lessons50','xp5000'],
     check:()=>{
@@ -144,6 +144,6 @@
       return{expected:expected.length,cards:cards.length,art,earned:document.querySelectorAll('#profileScreen .v5-badge.earned').length,missing,pass:cards.length===expected.length&&art===expected.length&&missing.length===0};
     }
   };
-  document.documentElement.dataset.deenBadgeArt='v1062';
+  document.documentElement.dataset.deenBadgeArt='v1064hq';
 })();
 </script>
