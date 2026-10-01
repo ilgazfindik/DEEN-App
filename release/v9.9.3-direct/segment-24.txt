@@ -13343,3 +13343,233 @@ if(typeof LEGACY_RENDER==='function'){
  window.DEEN_WELCOME_PREMIUM={version:'10.6.5',apply};
 })();
 </script>
+
+<!-- DEEN v10.6.6 — Welcome final polish -->
+<style id="deen-v1066-welcome-final-polish-css">
+#v998Onboarding[data-step="0"] .v998-shell{
+  background:
+    radial-gradient(circle at 50% -5%,rgba(48,143,145,.14),transparent 31%),
+    radial-gradient(circle at 50% 67%,rgba(17,79,88,.08),transparent 38%),
+    linear-gradient(180deg,#06313a 0%,#05242e 47%,#031820 100%)!important;
+}
+#v998Onboarding[data-step="0"] .v998-shell:before{
+  opacity:.07!important;
+  background-size:108px 108px!important;
+}
+#v998Onboarding[data-step="0"] .v998-shell:after{
+  display:none!important;
+}
+#v998Onboarding[data-step="0"] .v998-screen{
+  padding-left:26px!important;
+  padding-right:26px!important;
+}
+#v998Onboarding[data-step="0"] .v998-top{
+  min-height:68px!important;
+}
+#v998Onboarding[data-step="0"] .v998-brand{
+  gap:3px!important;
+  font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif!important;
+  font-size:17px!important;
+  letter-spacing:6.5px!important;
+  color:#efcc91!important;
+}
+#v998Onboarding[data-step="0"] .v998-brand-mark{
+  width:43px!important;
+  height:28px!important;
+  border-width:2px!important;
+}
+#v998Onboarding[data-step="0"] .v998-hero.v9912-login-hero{
+  height:clamp(218px,27.5vh,278px)!important;
+  min-height:218px!important;
+  max-height:278px!important;
+  margin:4px 2px 17px!important;
+  border-radius:28px!important;
+  background-size:135% auto!important;
+  background-position:center 55%!important;
+  border:1px solid rgba(232,181,91,.82)!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,238,197,.08),
+    inset 0 -38px 54px rgba(1,14,19,.10),
+    0 17px 36px rgba(0,0,0,.28)!important;
+}
+#v998Onboarding[data-step="0"] .v998-copy{
+  padding:0 8px!important;
+}
+#v998Onboarding[data-step="0"] .v998-copy h1{
+  font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif!important;
+  font-size:clamp(36px,7.5vw,46px)!important;
+  line-height:1.01!important;
+  letter-spacing:-1.25px!important;
+  font-weight:600!important;
+  text-shadow:0 3px 18px rgba(0,0,0,.18)!important;
+}
+#v998Onboarding[data-step="0"] .v998-copy p{
+  margin-top:11px!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  font-size:13px!important;
+  line-height:1.45!important;
+  color:#c5d1d2!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authmock{
+  margin-top:18px!important;
+  gap:9px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-auth-title{
+  margin:0 0 5px!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  font-size:10px!important;
+  font-weight:650!important;
+  letter-spacing:.08px!important;
+  color:#94aaae!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn{
+  min-height:55px!important;
+  border-radius:18px!important;
+  grid-template-columns:40px minmax(0,1fr) 30px!important;
+  padding:0 13px!important;
+  border:1px solid rgba(101,158,169,.56)!important;
+  background:
+    linear-gradient(180deg,rgba(9,43,53,.83),rgba(5,29,38,.91))!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.025)!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn:hover{
+  transform:none!important;
+  border-color:rgba(131,207,190,.72)!important;
+  background:linear-gradient(180deg,rgba(11,50,59,.9),rgba(6,34,42,.94))!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn b{
+  padding-left:3px!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  font-size:13px!important;
+  font-weight:720!important;
+  letter-spacing:0!important;
+  color:#eff5f3!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn:after{
+  font-size:24px!important;
+  color:#cddcda!important;
+  opacity:.88!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico{
+  width:32px!important;
+  height:32px!important;
+  border-radius:10px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico.g:after{
+  font-size:18px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico.applemark svg{
+  width:17px!important;
+  height:21px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-or{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:12px!important;
+  margin:6px 2px 0!important;
+}
+#v998Onboarding[data-step="0"] .v9912-or span,
+#v998Onboarding[data-step="0"] .v9912-or span:last-child{
+  display:block!important;
+  height:1px!important;
+  min-width:0!important;
+  background:rgba(116,154,161,.32)!important;
+}
+#v998Onboarding[data-step="0"] .v9912-or em{
+  color:#789399!important;
+  font-size:9px!important;
+  letter-spacing:.2px!important;
+}
+#v998Onboarding[data-step="0"] .v998-dots{
+  gap:9px!important;
+  margin:15px 0 8px!important;
+}
+#v998Onboarding[data-step="0"] .v998-dots i{
+  width:7px!important;
+  height:7px!important;
+  background:#294751!important;
+}
+#v998Onboarding[data-step="0"] .v998-dots i.on{
+  width:8px!important;
+  height:8px!important;
+  background:#8cebd1!important;
+  box-shadow:0 0 12px rgba(111,235,203,.58)!important;
+}
+#v998Onboarding[data-step="0"] .v998-bottom{
+  padding-top:11px!important;
+}
+#v998Onboarding[data-step="0"] .v998-primary{
+  min-height:60px!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  background:linear-gradient(100deg,#9beed4 0%,#a9efd8 56%,#99e4cd 100%)!important;
+  box-shadow:
+    0 13px 29px rgba(63,207,170,.16),
+    inset 0 1px rgba(255,255,255,.46)!important;
+}
+#v998Onboarding[data-step="0"] .v998-primary span{
+  margin-left:44px!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  font-size:17px!important;
+  font-weight:820!important;
+  letter-spacing:-.2px!important;
+}
+#v998Onboarding[data-step="0"] .v998-primary:after{
+  font-size:23px!important;
+}
+#v998Onboarding[data-step="0"] .v998-secondary{
+  padding-top:14px!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  font-size:12px!important;
+  color:#aebfc1!important;
+  text-underline-offset:4px!important;
+}
+
+@media(min-width:700px){
+  #v998Onboarding[data-step="0"] .v998-shell{
+    width:min(100%,560px)!important;
+  }
+}
+@media(max-height:820px){
+  #v998Onboarding[data-step="0"] .v998-top{min-height:56px!important}
+  #v998Onboarding[data-step="0"] .v998-hero.v9912-login-hero{
+    height:170px!important;
+    min-height:170px!important;
+    background-size:132% auto!important;
+    margin-bottom:12px!important;
+  }
+  #v998Onboarding[data-step="0"] .v998-copy h1{font-size:33px!important}
+  #v998Onboarding[data-step="0"] .v998-copy p{font-size:12px!important;margin-top:8px!important}
+  #v998Onboarding[data-step="0"] .v9912-authmock{margin-top:11px!important;gap:7px!important}
+  #v998Onboarding[data-step="0"] .v9912-auth-title{font-size:9px!important;margin-bottom:2px!important}
+  #v998Onboarding[data-step="0"] .v9912-authbtn{min-height:47px!important}
+  #v998Onboarding[data-step="0"] .v9912-authbtn b{font-size:12px!important}
+  #v998Onboarding[data-step="0"] .v9912-or{margin-top:3px!important}
+  #v998Onboarding[data-step="0"] .v998-dots{margin:10px 0 4px!important}
+  #v998Onboarding[data-step="0"] .v998-bottom{padding-top:7px!important}
+  #v998Onboarding[data-step="0"] .v998-primary{min-height:54px!important}
+  #v998Onboarding[data-step="0"] .v998-secondary{padding-top:10px!important}
+}
+@media(max-width:370px){
+  #v998Onboarding[data-step="0"] .v998-screen{padding-left:20px!important;padding-right:20px!important}
+  #v998Onboarding[data-step="0"] .v998-copy h1{font-size:32px!important}
+}
+</style>
+<script id="deen-v1066-welcome-final-polish-js">
+(()=>{
+  function verify(){
+    const root=document.querySelector('#v998Onboarding[data-step="0"]');
+    if(!root)return null;
+    const hero=root.querySelector('.v9912-login-hero');
+    const sep=root.querySelector('.v9912-or');
+    return{
+      hero:!!hero,
+      separator:!!sep,
+      authButtons:root.querySelectorAll('.v9912-authbtn').length,
+      dots:root.querySelectorAll('.v998-dots i').length,
+      appleSvg:!!root.querySelector('.v9912-authico.applemark svg')
+    };
+  }
+  window.DEEN_WELCOME_FINAL={version:'10.6.6',verify};
+})();
+</script>
