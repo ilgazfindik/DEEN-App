@@ -12945,3 +12945,292 @@ if(typeof LEGACY_RENDER==='function'){
   margin-bottom:12px!important;
 }
 </style>
+
+
+<!-- DEEN v10.6.4 — Premium welcome screen -->
+<style id="deen-v1064-premium-welcome-css">
+/* Step 0 only. The onboarding state machine and handlers remain authoritative. */
+#v998Onboarding[data-step="0"]{
+  background:#020b10!important;
+}
+#v998Onboarding[data-step="0"] .v998-shell{
+  width:min(100%,520px)!important;
+  min-height:100dvh!important;
+  background:
+    radial-gradient(circle at 50% -8%,rgba(52,153,154,.18),transparent 30%),
+    radial-gradient(circle at 50% 62%,rgba(16,92,99,.10),transparent 34%),
+    linear-gradient(180deg,#07303a 0%,#05242e 42%,#031821 100%)!important;
+  box-shadow:0 0 0 1px rgba(216,174,103,.10),0 0 80px rgba(0,0,0,.45)!important;
+}
+#v998Onboarding[data-step="0"] .v998-shell:before{
+  opacity:.16!important;
+  background-size:96px 96px!important;
+  mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.34) 18%,transparent 42%,transparent 58%,rgba(0,0,0,.34) 82%,#000 100%)!important;
+}
+#v998Onboarding[data-step="0"] .v998-shell:after{
+  content:""!important;
+  position:absolute!important;
+  inset:12px!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  border:1px solid rgba(224,183,112,.08)!important;
+  border-radius:42px 42px 28px 28px!important;
+  box-shadow:inset 0 0 70px rgba(105,224,194,.025)!important;
+}
+#v998Onboarding[data-step="0"] .v998-screen{
+  padding:18px 28px max(18px,env(safe-area-inset-bottom))!important;
+  overflow:hidden!important;
+}
+#v998Onboarding[data-step="0"] .v998-top{
+  min-height:72px!important;
+}
+#v998Onboarding[data-step="0"] .v998-brand{
+  gap:5px!important;
+  color:#efcc91!important;
+  font-size:18px!important;
+  letter-spacing:6px!important;
+  text-shadow:0 6px 24px rgba(238,191,112,.14)!important;
+}
+#v998Onboarding[data-step="0"] .v998-brand-mark{
+  width:48px!important;
+  height:31px!important;
+  border-width:2.5px!important;
+  border-color:#efc988!important;
+  border-radius:50px 50px 0 0!important;
+}
+#v998Onboarding[data-step="0"] .v998-brand-mark:before{
+  top:-17px!important;
+  color:#f4d59f!important;
+}
+#v998Onboarding[data-step="0"] .v998-hero.v9912-login-hero{
+  position:relative!important;
+  height:clamp(205px,28vh,290px)!important;
+  min-height:205px!important;
+  max-height:290px!important;
+  margin:8px 4px 18px!important;
+  border:1.5px solid rgba(232,181,91,.88)!important;
+  border-radius:34px!important;
+  background-position:center 52%!important;
+  overflow:hidden!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,239,200,.12),
+    inset 0 -48px 70px rgba(1,15,20,.17),
+    0 18px 45px rgba(0,0,0,.34)!important;
+}
+#v998Onboarding[data-step="0"] .v998-hero.v9912-login-hero:after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  background:
+    linear-gradient(180deg,rgba(3,20,26,.02) 48%,rgba(3,20,26,.18) 100%),
+    radial-gradient(circle at 50% 0%,rgba(255,199,100,.10),transparent 42%)!important;
+  pointer-events:none!important;
+}
+#v998Onboarding[data-step="0"] .v998-copy{
+  margin-top:0!important;
+  padding:0 2px!important;
+}
+#v998Onboarding[data-step="0"] .v998-copy h1{
+  margin:0!important;
+  font-size:clamp(36px,8.1vw,49px)!important;
+  line-height:.98!important;
+  letter-spacing:-1.5px!important;
+  font-weight:600!important;
+  color:#fff6e9!important;
+  text-wrap:balance!important;
+}
+#v998Onboarding[data-step="0"] .v998-copy h1 .mint{
+  color:#93efd3!important;
+  text-shadow:0 0 28px rgba(93,235,195,.10)!important;
+}
+#v998Onboarding[data-step="0"] .v998-copy p{
+  margin:13px auto 0!important;
+  max-width:430px!important;
+  color:#c3d0d1!important;
+  font-size:14px!important;
+  line-height:1.48!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authmock{
+  margin:17px 0 0!important;
+  gap:10px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-auth-title{
+  margin:0 0 3px!important;
+  color:#9db2b5!important;
+  font-size:10px!important;
+  font-weight:700!important;
+  letter-spacing:.15px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn{
+  position:relative!important;
+  min-height:56px!important;
+  padding:0 15px!important;
+  grid-template-columns:40px minmax(0,1fr) 40px!important;
+  border-radius:20px!important;
+  border:1px solid rgba(115,171,180,.62)!important;
+  background:
+    linear-gradient(180deg,rgba(10,47,58,.76),rgba(5,31,40,.82))!important;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.035),
+    0 8px 22px rgba(0,0,0,.10)!important;
+  backdrop-filter:blur(14px)!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn:hover{
+  border-color:rgba(151,231,211,.82)!important;
+  background:linear-gradient(180deg,rgba(16,61,68,.88),rgba(7,38,47,.91))!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn:after{
+  content:"›"!important;
+  grid-column:3!important;
+  justify-self:end!important;
+  color:#e9f0ed!important;
+  font-size:29px!important;
+  font-weight:300!important;
+  line-height:1!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn b{
+  grid-column:2!important;
+  justify-self:start!important;
+  padding-left:4px!important;
+  font-size:14px!important;
+  font-weight:800!important;
+  color:#f3f7f5!important;
+  letter-spacing:.01px!important;
+  text-align:left!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico{
+  width:34px!important;
+  height:34px!important;
+  border-radius:11px!important;
+  background:rgba(13,58,67,.9)!important;
+  border:1px solid rgba(132,212,197,.25)!important;
+  font-size:17px!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.04)!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico.g{
+  border:0!important;
+  background:#fff!important;
+  color:transparent!important;
+  position:relative!important;
+  font-size:0!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico.g:after{
+  content:"G"!important;
+  font:900 19px/1 Arial,sans-serif!important;
+  background:conic-gradient(from -45deg,#4285f4 0 25%,#34a853 0 43%,#fbbc05 0 67%,#ea4335 0 82%,#4285f4 0)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  color:transparent!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico.applemark{
+  background:#f6f6f4!important;
+  color:#091218!important;
+  font-size:0!important;
+  border-color:rgba(255,255,255,.72)!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico.applemark:after{
+  content:"●"!important;
+  font-size:15px!important;
+  line-height:1!important;
+  color:#091218!important;
+  transform:translateY(1px)!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn.email .v9912-authico{
+  color:#86ead2!important;
+  font-size:17px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-or{
+  margin:4px 4px -2px!important;
+  gap:14px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-or span{
+  background:linear-gradient(90deg,transparent,rgba(134,171,177,.36))!important;
+}
+#v998Onboarding[data-step="0"] .v9912-or span:last-child{
+  background:linear-gradient(90deg,rgba(134,171,177,.36),transparent)!important;
+}
+#v998Onboarding[data-step="0"] .v9912-or em{
+  color:#78979c!important;
+  font-size:10px!important;
+}
+#v998Onboarding[data-step="0"] .v998-dots{
+  gap:10px!important;
+  margin:16px 0 8px!important;
+}
+#v998Onboarding[data-step="0"] .v998-dots i{
+  width:8px!important;
+  height:8px!important;
+  background:#294852!important;
+}
+#v998Onboarding[data-step="0"] .v998-dots i.on{
+  width:9px!important;
+  height:9px!important;
+  background:#8cf1d4!important;
+  box-shadow:0 0 16px rgba(111,239,207,.7)!important;
+}
+#v998Onboarding[data-step="0"] .v998-bottom{
+  margin-top:auto!important;
+  padding-top:15px!important;
+}
+#v998Onboarding[data-step="0"] .v998-primary{
+  min-height:64px!important;
+  padding:0 8px!important;
+  border-radius:999px!important;
+  background:linear-gradient(100deg,#9af0d4 0%,#a8f0d8 54%,#9ce7cf 100%)!important;
+  color:#06232b!important;
+  box-shadow:
+    0 14px 36px rgba(76,224,186,.17),
+    inset 0 1px rgba(255,255,255,.45)!important;
+}
+#v998Onboarding[data-step="0"] .v998-primary span{
+  margin-left:48px!important;
+  font-size:18px!important;
+  font-weight:950!important;
+}
+#v998Onboarding[data-step="0"] .v998-primary:after{
+  margin-right:22px!important;
+  font-size:27px!important;
+}
+#v998Onboarding[data-step="0"] .v998-secondary{
+  color:#b8c8ca!important;
+  font-size:13px!important;
+  padding:16px 0 0!important;
+  text-underline-offset:5px!important;
+}
+
+@media(max-height:820px){
+  #v998Onboarding[data-step="0"] .v998-screen{padding-top:12px!important}
+  #v998Onboarding[data-step="0"] .v998-top{min-height:58px!important}
+  #v998Onboarding[data-step="0"] .v998-hero.v9912-login-hero{
+    height:175px!important;min-height:175px!important;margin:4px 4px 12px!important
+  }
+  #v998Onboarding[data-step="0"] .v998-copy h1{font-size:34px!important}
+  #v998Onboarding[data-step="0"] .v998-copy p{font-size:12.5px!important;margin-top:8px!important}
+  #v998Onboarding[data-step="0"] .v9912-authmock{margin-top:11px!important;gap:7px!important}
+  #v998Onboarding[data-step="0"] .v9912-auth-title{display:block!important;font-size:9px!important}
+  #v998Onboarding[data-step="0"] .v9912-authbtn{min-height:47px!important;border-radius:16px!important}
+  #v998Onboarding[data-step="0"] .v9912-authico{width:29px!important;height:29px!important}
+  #v998Onboarding[data-step="0"] .v9912-authbtn b{font-size:12px!important}
+  #v998Onboarding[data-step="0"] .v998-dots{margin:10px 0 4px!important}
+  #v998Onboarding[data-step="0"] .v998-bottom{padding-top:8px!important}
+  #v998Onboarding[data-step="0"] .v998-primary{min-height:56px!important}
+  #v998Onboarding[data-step="0"] .v998-secondary{padding-top:10px!important}
+}
+@media(max-height:690px){
+  #v998Onboarding[data-step="0"] .v998-hero.v9912-login-hero{height:145px!important;min-height:145px!important}
+  #v998Onboarding[data-step="0"] .v998-copy h1{font-size:30px!important}
+  #v998Onboarding[data-step="0"] .v998-copy p{font-size:11.5px!important}
+  #v998Onboarding[data-step="0"] .v9912-auth-title{display:none!important}
+  #v998Onboarding[data-step="0"] .v9912-authbtn{min-height:43px!important}
+  #v998Onboarding[data-step="0"] .v998-primary{min-height:52px!important}
+}
+@media(max-width:370px){
+  #v998Onboarding[data-step="0"] .v998-screen{padding-left:20px!important;padding-right:20px!important}
+  #v998Onboarding[data-step="0"] .v998-copy h1{font-size:33px!important}
+  #v998Onboarding[data-step="0"] .v9912-authbtn b{font-size:12.5px!important}
+}
+</style>
+<script id="deen-v1064-premium-welcome-js">
+(()=>{document.documentElement.dataset.deenWelcome='v1064';})();
+</script>
