@@ -13573,3 +13573,84 @@ if(typeof LEGACY_RENDER==='function'){
   window.DEEN_WELCOME_FINAL={version:'10.6.6',verify};
 })();
 </script>
+
+<!-- DEEN v10.6.7 — Auth logo fix -->
+<style id="deen-v1067-auth-logo-fix-css">
+#v998Onboarding[data-step="0"] .v9912-authico{
+  width:32px!important;
+  height:32px!important;
+  border-radius:10px!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  flex:0 0 32px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico svg{
+  display:block!important;
+  width:20px!important;
+  height:20px!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico.g{
+  background:#fff!important;
+  border:1px solid rgba(255,255,255,.82)!important;
+  color:initial!important;
+  font-size:0!important;
+  box-shadow:0 2px 7px rgba(0,0,0,.14)!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico.g:after{display:none!important}
+#v998Onboarding[data-step="0"] .v9912-authico.applemark{
+  background:#f8f8f5!important;
+  border:1px solid rgba(255,255,255,.84)!important;
+  color:initial!important;
+  font-size:0!important;
+  box-shadow:0 2px 7px rgba(0,0,0,.14)!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authico.applemark:after{display:none!important}
+#v998Onboarding[data-step="0"] .v9912-authico.applemark svg{
+  width:18px!important;
+  height:22px!important;
+  fill:#0a1115!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn.email .v9912-authico{
+  background:linear-gradient(180deg,#123e48,#0d323b)!important;
+  border:1px solid rgba(114,222,198,.28)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.035)!important;
+  color:initial!important;
+  font-size:0!important;
+}
+#v998Onboarding[data-step="0"] .v9912-authbtn.email .v9912-authico svg{
+  width:19px!important;
+  height:19px!important;
+  fill:none!important;
+  stroke:#86ead2!important;
+  stroke-width:1.8!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+</style>
+<script id="deen-v1067-auth-logo-fix-js">
+(()=>{
+  const GOOGLE='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.8 12.23c0-.76-.07-1.49-.2-2.19H12v4.14h5.49a4.7 4.7 0 0 1-2.04 3.08v2.56h3.3c1.93-1.78 3.05-4.4 3.05-7.59z"/><path fill="#34A853" d="M12 22c2.75 0 5.06-.91 6.75-2.47l-3.3-2.56c-.91.61-2.08.98-3.45.98-2.66 0-4.91-1.8-5.72-4.22H2.87v2.65A10.2 10.2 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.28 13.73A6.13 6.13 0 0 1 5.96 12c0-.6.1-1.19.32-1.73V7.62H2.87A10.04 10.04 0 0 0 1.8 12c0 1.57.38 3.06 1.07 4.38l3.41-2.65z"/><path fill="#EA4335" d="M12 6.05c1.5 0 2.84.52 3.9 1.52l2.92-2.92C17.05 3 14.74 2 12 2a10.2 10.2 0 0 0-9.13 5.62l3.41 2.65C7.09 7.85 9.34 6.05 12 6.05z"/></svg>';
+  const APPLE='<svg viewBox="0 0 24 28" aria-hidden="true"><path d="M18.8 14.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.7-2.4-4.5-2.4-1.9-.2-3.7 1.1-4.6 1.1-.9 0-2.3-1.1-3.8-1-2 .03-3.8 1.15-4.8 2.9-2.05 3.55-.52 8.78 1.47 11.66.98 1.4 2.14 2.98 3.66 2.92 1.47-.06 2.03-.95 3.8-.95 1.77 0 2.27.95 3.82.92 1.58-.03 2.58-1.42 3.55-2.83 1.12-1.63 1.58-3.2 1.6-3.28-.03-.01-3.04-1.17-3.04-4.45zM15.66 5.8c.81-.98 1.36-2.35 1.21-3.71-1.17.05-2.58.78-3.41 1.76-.75.86-1.4 2.25-1.23 3.58 1.3.1 2.63-.66 3.43-1.63z"/></svg>';
+  const EMAIL='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="5.2" width="17.6" height="13.6" rx="2.5"/><path d="M4.6 7.2 12 12.8l7.4-5.6"/></svg>';
+  function apply(){
+    const root=document.querySelector('#v998Onboarding[data-step="0"]');
+    if(!root)return;
+    const g=root.querySelector('.v9912-authico.g');
+    const a=root.querySelector('.v9912-authico.applemark');
+    const m=root.querySelector('.v9912-authbtn.email .v9912-authico');
+    if(g&&g.dataset.logoFixed!=='1'){g.innerHTML=GOOGLE;g.dataset.logoFixed='1';}
+    if(a&&a.dataset.logoFixed!=='1'){a.innerHTML=APPLE;a.dataset.logoFixed='1';}
+    if(m&&m.dataset.logoFixed!=='1'){m.innerHTML=EMAIL;m.dataset.logoFixed='1';}
+  }
+  const mo=new MutationObserver(()=>queueMicrotask(apply));
+  mo.observe(document.documentElement,{childList:true,subtree:true});
+  document.addEventListener('click',()=>setTimeout(apply,0),true);
+  setTimeout(apply,0);setTimeout(apply,100);setTimeout(apply,500);
+  window.DEEN_AUTH_LOGOS={version:'10.6.7',apply,verify:()=>({
+    google:!!document.querySelector('.v9912-authico.g svg'),
+    apple:!!document.querySelector('.v9912-authico.applemark svg'),
+    email:!!document.querySelector('.v9912-authbtn.email .v9912-authico svg')
+  })};
+})();
+</script>
