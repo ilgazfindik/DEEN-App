@@ -13696,3 +13696,42 @@ window.DEEN_ONBOARDING_ANIMAL_HQ={
  })
 };
 </script>
+
+<!-- DEEN v10.7.0 — Individual HQ onboarding animal cards -->
+<style id="deen-v1070-animal-cards-individual-css">
+#v998Onboarding[data-step="3"] .v998-animal{
+  min-height:164px!important;
+  padding:112px 8px 13px!important;
+  background:#082630!important;
+  overflow:hidden!important;
+}
+#v998Onboarding[data-step="3"] .v998-animal:before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0 0 auto 0!important;
+  width:100%!important;
+  height:112px!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center!important;
+  image-rendering:auto!important;
+  z-index:0!important;
+  opacity:1!important;
+}
+#v998Onboarding[data-step="3"] .v998-animal:after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;right:0!important;top:58px!important;height:56px!important;
+  background:linear-gradient(180deg,transparent,rgba(3,25,32,.93))!important;
+  pointer-events:none!important;
+  z-index:1!important;
+}
+#v998Onboarding[data-step="3"] .v998-animal b,
+#v998Onboarding[data-step="3"] .v998-animal small{z-index:2!important}
+#v998Onboarding[data-step="3"] .v998-animal .check{z-index:4!important}
+#v998Onboarding[data-step="3"] .v998-animal .emoji{display:none!important}
+</style>
+<script id="deen-v1070-animal-cards-individual-js">
+window.DEEN_ONBOARDING_ANIMAL_CARDS={version:'10.7.0',ids:['lion','wolf','owl','turtle','eagle','cat'],check:()=>({cards:document.querySelectorAll('#v998Onboarding[data-step="3"] .v998-animal').length,ready:!!document.getElementById('deen-v1070-animal-cards-individual-css')})};
+</script>
