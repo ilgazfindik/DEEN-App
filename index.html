@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.10.90</title>
+<title>DEEN v9.10.91</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -19,7 +19,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9191readability1';
+ const BUILD='9192typelock1';
  const SEGMENT_COUNT=35;
  const CONCURRENCY=6;
  const CACHE_NAME='deen-release-'+BUILD;
@@ -223,7 +223,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
      ['deen-v1077-profile-avatar-assets-css','Profil şeffaf maskot görsel paketi eksik'],
      ['deen-v1088-legacy-neon-persist-css','Kalıcı legacy neon ve bölüm giriş paketi eksik'],
      ['deen-v1089-multilingual-typography-css','Çok dilli tipografi paketi eksik'],
-     ['deen-v1090-readability-guard-css','Global okunabilirlik paketi eksik']
+     ['deen-v1090-readability-guard-css','Global okunabilirlik paketi eksik'],
+     ['deen-v1091-typography-freeze-css','Tipografi freeze paketi eksik']
    ];
    const missing=required.find(([marker])=>!html.includes(marker));
    if(missing)throw new Error(missing[1]);
