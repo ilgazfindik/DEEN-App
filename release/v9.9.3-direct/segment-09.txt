@@ -1449,7 +1449,34 @@ document.addEventListener('deen:ui-updated',deen512SyncTopStats);
 setTimeout(()=>{try{deen512SyncTopStats()}catch(_){}},0);
 
 mountV5();installGameFeel();reconcileStreak();rollWeek();saveState();try{localStorage.setItem('deen_storage_probe','1');localStorage.removeItem('deen_storage_probe')}catch(e){$('v5Stats').insertAdjacentHTML('beforebegin','<p class="v5-term">Bu tarayıcı kalıcı kayda izin vermiyor. Kapatmadan önce Profil → Ayarlar’dan ilerlemeni yedekle.</p>')}
-if(!state.onboarded)setTimeout(()=>onboarding(),100);
+if(!state.onboarded){
+  // Do not render any legacy sheet-based onboarding while the final premium
+  // onboarding bundle is still being parsed. On slower phones the old 100ms
+  // callback could briefly paint the orange "Devam et →" CTA before v998
+  // became authoritative.
+  window.__DEEN_WAIT_FOR_PREMIUM_ONBOARDING__=true;
+  (function waitForPremiumOnboarding(attempt=0){
+    if(state.onboarded)return;
+    const premium=window.DEEN_PREMIUM_ONBOARDING;
+    if(premium&&typeof premium.render==='function'){
+      window.__DEEN_WAIT_FOR_PREMIUM_ONBOARDING__=false;
+      try{
+        const d=document.getElementById('v5Sheet');
+        if(d?.open&&d.querySelector('.v5-onboarddots'))d.close();
+      }catch(_){}
+      premium.render(0);
+      return;
+    }
+    if(attempt<80){
+      setTimeout(()=>waitForPremiumOnboarding(attempt+1),50);
+      return;
+    }
+    // Last-resort compatibility only. By this point the full release should
+    // already be parsed; never show the legacy flow during normal boot.
+    window.__DEEN_WAIT_FOR_PREMIUM_ONBOARDING__=false;
+    try{window.onboarding?.(0)}catch(_){}
+  })();
+}
 
 function bootDEEN(){
   try{installLessonScrollSupport()}catch(err){console.error('DEEN lesson scroll support error',err)}
