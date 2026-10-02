@@ -1084,3 +1084,164 @@ html:lang(ur) .qtype{
   };
 })();
 </script>
+
+
+<!-- DEEN v10.9.1 — Typography Freeze -->
+<style id="deen-v1091-typography-freeze-css">
+:root{
+  --deen-font-ui:"Nunito Sans","Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif!important;
+  --deen-font-ar:"Noto Sans Arabic","Noto Sans",Tahoma,Arial,sans-serif!important;
+}
+
+/* Frozen DEEN typography contract.
+   Visual neon/theme rules are intentionally untouched. */
+html,body,.phone,.screen,
+button,input,select,textarea,
+.app-header,.brand-name,.page-title,
+.hero,.hero *,
+.v5-page,.v5-page *,
+.bottomnav,.bottomnav *,
+.lesson,.lesson *,
+.question-frame,.question-frame *,
+.feedback,.feedback *,
+.result,.result *,
+#v5Sheet,#v5Sheet *,
+#v998Onboarding,#v998Onboarding *,
+.restored-learn,.restored-learn *,
+.lp-unit,.lp-unit *,
+.lp-path,.lp-path *,
+.v5-profilehead,.v5-profilehead *,
+.v5-profilemetrics,.v5-profilemetrics *,
+.v5-badge,.v5-badge *{
+  font-family:var(--deen-font-ui)!important;
+}
+
+html:lang(ar),
+html:lang(fa),
+html:lang(ur){
+  --deen-font-ui:var(--deen-font-ar)!important;
+}
+
+/* Locked hierarchy */
+.question,
+.deen-character-question-text,
+.option,
+.fill-choice,
+.v710-word-chip,
+.v710-decision,
+.v710-clue{
+  font-weight:600!important;
+}
+
+.btn,
+.v5-primary,
+.template-action,
+#continueBtn,
+#resultContinueBtn,
+#v998Onboarding .v998-primary{
+  font-weight:700!important;
+}
+
+.page-title,
+.hero h1,
+.restored-unit .hero h1,
+.lp-unitintro h2,
+.lp-world h2,
+.result h2,
+#v5Sheet .deen-intro-title,
+#v998Onboarding .v998-copy h1,
+#profileScreenBody .v5-profilehead h1{
+  font-family:var(--deen-font-ui)!important;
+  font-weight:700!important;
+  letter-spacing:-.02em!important;
+}
+
+/* Minimum readability contract */
+.stat-copy small{font-size:10.5px!important}
+.restored-path .lp-label small,
+.restored-path.deen-old-path .lp-label small,
+.lp-label small{font-size:11px!important}
+.restored-path .lp-label strong,
+.restored-path.deen-old-path .lp-label strong,
+.lp-label strong{font-size:13px!important}
+.qtype{font-size:13.5px!important}
+.bottomnav .navbtn{font-size:11.5px!important}
+
+@media(max-width:390px){
+  .stat-copy small{font-size:10px!important}
+  .restored-path .lp-label small,
+  .restored-path.deen-old-path .lp-label small,
+  .lp-label small{font-size:10.5px!important}
+  .restored-path .lp-label strong,
+  .restored-path.deen-old-path .lp-label strong,
+  .lp-label strong{font-size:12.5px!important}
+  .bottomnav .navbtn{font-size:11px!important}
+}
+</style>
+<script id="deen-v1091-typography-freeze-js">
+(()=>{
+  if(window.__deenV1091TypographyFreeze)return;
+  window.__deenV1091TypographyFreeze=true;
+
+  const IDS=[
+    'deen-v1089-multilingual-typography-css',
+    'deen-v1090-readability-guard-css',
+    'deen-v1091-typography-freeze-css'
+  ];
+
+  let enforcing=false;
+  function enforce(){
+    if(enforcing)return;
+    enforcing=true;
+    try{
+      const head=document.head;
+      if(!head)return false;
+      for(const id of IDS){
+        const node=document.getElementById(id);
+        if(node)head.appendChild(node);
+      }
+      document.documentElement.dataset.deenTypographyLocked='1';
+      return true;
+    }finally{
+      enforcing=false;
+    }
+  }
+
+  enforce();
+  document.addEventListener('DOMContentLoaded',enforce,{once:true});
+  setTimeout(enforce,80);
+  setTimeout(enforce,400);
+
+  if(document.head&&'MutationObserver' in window){
+    const observer=new MutationObserver(mutations=>{
+      const hasStyleMutation=mutations.some(m=>
+        [...m.addedNodes,...m.removedNodes].some(n=>
+          n?.nodeType===1&&(
+            n.tagName==='STYLE'||
+            n.tagName==='LINK'
+          )
+        )
+      );
+      if(hasStyleMutation)queueMicrotask(enforce);
+    });
+    observer.observe(document.head,{childList:true});
+    window.__deenTypographyFreezeObserver=observer;
+  }
+
+  window.DEEN_TYPOGRAPHY_LOCK={
+    version:'10.9.1',
+    build:'9192typelock1',
+    family:'Nunito Sans',
+    neonPreserved:true,
+    multilingual:true,
+    enforce,
+    check:()=>({
+      locked:document.documentElement.dataset.deenTypographyLocked==='1',
+      font:getComputedStyle(document.body).fontFamily,
+      typography:!!document.getElementById('deen-v1089-multilingual-typography-css'),
+      readability:!!document.getElementById('deen-v1090-readability-guard-css'),
+      freeze:!!document.getElementById('deen-v1091-typography-freeze-css')
+    })
+  };
+})();
+</script>
