@@ -1250,7 +1250,7 @@ html:lang(ur){
 
 <!-- DEEN v10.9.2 — Luxury Neon Home V1 -->
 <style id="deen-v1092-luxury-neon-home-css">
-/* DEEN v10.9.3 — Luxury Neon Home V1.1: emerald balance + stronger mobile text. */
+/* DEEN v10.9.4 — Luxury Neon Home V1.2: strong phone readability. */
 /* Main-screen-only polish.
    Typography freeze, lesson engine, onboarding, profile and mascots stay untouched. */
 #learnScreen .restored-learn{
@@ -1622,6 +1622,186 @@ html:lang(ur){
 }
 #learnScreen.active ~ .bottomnav .navbtn.active{
   font-weight:800!important;
+}
+
+/* STRONG READABILITY V2 — phone-first */
+/* Keep important text comfortably readable on a real 360–430px phone. */
+#learnScreen #v5Return .v680-nba.v711-compact .v680-kicker{
+  font-size:11.5px!important;
+  line-height:1.3!important;
+  font-weight:800!important;
+  letter-spacing:1.25px!important;
+  color:#8af0cf!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact h1{
+  font-size:24px!important;
+  line-height:1.16!important;
+  font-weight:800!important;
+  letter-spacing:-.35px!important;
+  color:#f7faf8!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact>p{
+  font-size:14px!important;
+  line-height:1.55!important;
+  font-weight:600!important;
+  color:#d5e2dc!important;
+  -webkit-line-clamp:3!important;
+}
+#learnScreen .v711-progress-copy b{
+  font-size:12.5px!important;
+  line-height:1.3!important;
+  font-weight:800!important;
+  color:#f0f6f2!important;
+}
+#learnScreen .v711-progress-copy small{
+  font-size:11px!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+  color:#b8cac2!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact .v680-meta b{
+  font-size:11px!important;
+  line-height:1.25!important;
+  font-weight:800!important;
+  color:#edf4f0!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact .v680-meta small{
+  font-size:10.5px!important;
+  line-height:1.25!important;
+  font-weight:700!important;
+  color:#afc2ba!important;
+}
+
+/* Header labels */
+#learnScreen .restored-header .stat b,
+#learnScreen .restored-header .stat strong{
+  font-size:16px!important;
+  line-height:1.05!important;
+  font-weight:800!important;
+  color:#f6faf7!important;
+}
+#learnScreen .restored-header .stat small{
+  font-size:11.5px!important;
+  line-height:1.2!important;
+  font-weight:700!important;
+  color:#c6d6d0!important;
+}
+
+/* Streak strip */
+#learnScreen .v711-streak-copy b{
+  font-size:12px!important;
+  line-height:1.25!important;
+  font-weight:800!important;
+  color:#f4eee7!important;
+}
+#learnScreen .v711-streak-copy small{
+  font-size:11px!important;
+  line-height:1.3!important;
+  font-weight:600!important;
+  color:#c2b7aa!important;
+}
+#learnScreen .v711-currency{
+  font-size:11px!important;
+  font-weight:800!important;
+}
+
+/* Unit card */
+#learnScreen .restored-unit .hero .eyebrow{
+  font-size:12px!important;
+  line-height:1.3!important;
+  font-weight:800!important;
+  letter-spacing:1.25px!important;
+  color:#85efcc!important;
+}
+#learnScreen .restored-unit .hero h1{
+  font-size:31px!important;
+  line-height:1.08!important;
+  font-weight:800!important;
+  letter-spacing:-.55px!important;
+  color:#f7faf7!important;
+}
+#learnScreen .restored-unit .hero p{
+  font-size:14.5px!important;
+  line-height:1.58!important;
+  font-weight:600!important;
+  color:#d7e3dd!important;
+}
+#learnScreen .restored-unit .hero-count,
+#learnScreen .restored-unit .lp-progress span,
+#learnScreen .restored-unit .lp-mastery{
+  font-size:12.5px!important;
+  line-height:1.3!important;
+  font-weight:700!important;
+  color:#d4e0da!important;
+}
+
+/* Learning path text cards */
+#learnScreen .stage-card strong{
+  font-size:14.5px!important;
+  line-height:1.28!important;
+  font-weight:800!important;
+  color:#f5f9f6!important;
+}
+#learnScreen .stage-card small{
+  font-size:11.5px!important;
+  line-height:1.38!important;
+  font-weight:700!important;
+  color:#c2d2cb!important;
+}
+#learnScreen .restored-path .lp-label strong,
+#learnScreen .restored-path.deen-old-path .lp-label strong{
+  font-size:14px!important;
+  line-height:1.3!important;
+  font-weight:800!important;
+  color:#f3f8f4!important;
+}
+#learnScreen .restored-path .lp-label small,
+#learnScreen .restored-path.deen-old-path .lp-label small{
+  font-size:11.5px!important;
+  line-height:1.4!important;
+  font-weight:700!important;
+  color:#bdd0c7!important;
+}
+#learnScreen .restored-path.deen-old-path .lp-now{
+  font-size:10.5px!important;
+  line-height:1.15!important;
+  font-weight:800!important;
+  letter-spacing:.55px!important;
+}
+
+/* Bottom nav: labels remain legible even in Safari browser chrome. */
+#learnScreen.active ~ .bottomnav .navbtn{
+  font-size:12px!important;
+  line-height:1.2!important;
+  font-weight:700!important;
+  color:#8fa49d!important;
+}
+#learnScreen.active ~ .bottomnav .navbtn.active{
+  font-weight:800!important;
+  color:#69f2cf!important;
+}
+
+/* Compact phones: preserve readability rather than shrinking back to legacy 7–9px. */
+@media(max-width:390px){
+  #learnScreen #v5Return .v680-nba.v711-compact h1{
+    font-size:22px!important;
+  }
+  #learnScreen #v5Return .v680-nba.v711-compact>p{
+    font-size:13px!important;
+  }
+  #learnScreen .v711-progress-copy b{font-size:11.5px!important}
+  #learnScreen .v711-progress-copy small{font-size:10.5px!important}
+  #learnScreen #v5Return .v680-nba.v711-compact .v680-meta b{font-size:10.5px!important}
+  #learnScreen #v5Return .v680-nba.v711-compact .v680-meta small{font-size:10px!important}
+  #learnScreen .restored-unit .hero h1{font-size:28px!important}
+  #learnScreen .restored-unit .hero p{font-size:13.5px!important}
+  #learnScreen .stage-card strong{font-size:13.5px!important}
+  #learnScreen .stage-card small{font-size:11px!important}
+  #learnScreen .restored-path .lp-label strong,
+  #learnScreen .restored-path.deen-old-path .lp-label strong{font-size:13px!important}
+  #learnScreen .restored-path .lp-label small,
+  #learnScreen .restored-path.deen-old-path .lp-label small{font-size:11px!important}
+  #learnScreen.active ~ .bottomnav .navbtn{font-size:11.5px!important}
 }
 
 /* Keep touch response premium and restrained */
