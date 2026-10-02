@@ -1883,3 +1883,201 @@ html:lang(ur){
   letter-spacing:.05px!important;
 }
 </style>
+
+
+<!-- DEEN v10.9.3 — Animated stage entry -->
+<style id="deen-v1093-stage-transition-css">
+/* Path tap feedback */
+#learnScreen .lp-stop.deen-stage-transition-source .lp-node,
+#learnScreen .lp-stop.deen-stage-transition-source .deen-stage-card{
+  will-change:transform,box-shadow,border-color;
+}
+#learnScreen .lp-stop.deen-stage-transition-source .lp-node{
+  animation:deenStageNodePulse .34s cubic-bezier(.2,.8,.2,1) both!important;
+  z-index:8!important;
+}
+#learnScreen .lp-stop.deen-stage-transition-source .deen-stage-card{
+  animation:deenStageCardPulse .30s ease-out both!important;
+}
+#learnScreen .lp-stop.deen-stage-transition-source::after{
+  content:"";
+  position:absolute;
+  left:var(--node-x,50%);
+  top:46px;
+  width:64px;
+  height:64px;
+  transform:translate(-50%,-50%) scale(.58);
+  border:1px solid rgba(105,242,207,.68);
+  border-radius:999px;
+  pointer-events:none;
+  z-index:7;
+  animation:deenStageRipple .40s ease-out both;
+  box-shadow:0 0 22px rgba(49,239,207,.18);
+}
+@keyframes deenStageNodePulse{
+  0%{transform:translateX(-50%) scale(1);filter:none}
+  42%{transform:translateX(-50%) scale(.94);filter:drop-shadow(0 0 4px rgba(49,239,207,.30))}
+  100%{transform:translateX(-50%) scale(1.055);filter:drop-shadow(0 0 10px rgba(49,239,207,.42))}
+}
+@keyframes deenStageCardPulse{
+  0%{transform:translateY(0);border-color:rgba(91,139,148,.17)}
+  55%{transform:translateY(-2px);border-color:rgba(105,242,207,.55);box-shadow:0 0 14px rgba(49,239,207,.10)}
+  100%{transform:translateY(0)}
+}
+@keyframes deenStageRipple{
+  0%{opacity:.78;transform:translate(-50%,-50%) scale(.55)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.45)}
+}
+
+/* Background recedes very slightly while entering the stage preview. */
+#learnScreen.deen-stage-transition-out .restored-learn{
+  transform:scale(.982);
+  opacity:.72;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .24s ease!important;
+  transform-origin:50% 55%;
+}
+#learnScreen.deen-stage-transition-out ~ .bottomnav{
+  opacity:.76;
+  transform:translateY(4px);
+  transition:opacity .22s ease,transform .28s cubic-bezier(.2,.8,.2,1)!important;
+}
+
+/* Existing stage preview remains authoritative; only its entrance is animated. */
+#v5Sheet.deen-stage-enter{
+  transform-origin:50% 64%;
+  animation:deenStageSheetEnter .34s cubic-bezier(.18,.86,.24,1) both!important;
+}
+#v5Sheet.deen-stage-enter::backdrop{
+  animation:deenStageBackdropEnter .30s ease-out both;
+}
+#v5Sheet.deen-stage-enter #v5SheetTitle{
+  animation:deenStageCopyEnter .30s .045s ease-out both;
+}
+#v5Sheet.deen-stage-enter #v5SheetBody{
+  animation:deenStageCopyEnter .34s .085s ease-out both;
+}
+#v5Sheet.deen-stage-enter .v5-primary{
+  animation:deenStageCtaEnter .32s .14s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes deenStageSheetEnter{
+  0%{opacity:0;transform:translateY(16px) scale(.982)}
+  55%{opacity:1}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes deenStageBackdropEnter{
+  from{background:rgba(0,9,12,.12)}
+  to{background:rgba(0,9,12,.66)}
+}
+@keyframes deenStageCopyEnter{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes deenStageCtaEnter{
+  from{opacity:0;transform:translateY(7px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #learnScreen .lp-stop.deen-stage-transition-source .lp-node,
+  #learnScreen .lp-stop.deen-stage-transition-source .deen-stage-card,
+  #learnScreen .lp-stop.deen-stage-transition-source::after,
+  #learnScreen.deen-stage-transition-out .restored-learn,
+  #learnScreen.deen-stage-transition-out ~ .bottomnav,
+  #v5Sheet.deen-stage-enter,
+  #v5Sheet.deen-stage-enter::backdrop,
+  #v5Sheet.deen-stage-enter #v5SheetTitle,
+  #v5Sheet.deen-stage-enter #v5SheetBody,
+  #v5Sheet.deen-stage-enter .v5-primary{
+    animation:none!important;
+    transition:none!important;
+    transform:none!important;
+    opacity:1!important;
+  }
+}
+</style>
+
+<script id="deen-v1093-stage-transition-js">
+(()=>{
+  if(window.__deenV1093StageTransition)return;
+  window.__deenV1093StageTransition=true;
+
+  const BASE_PREVIEW=typeof window.preview==='function'?window.preview.bind(window):null;
+  if(!BASE_PREVIEW)return;
+
+  let busy=false,timer=0;
+  const motionOff=()=>{
+    try{
+      return !!state?.settings?.reducedMotion||
+        state?.settings?.animation===false||
+        matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }catch(_){
+      return matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+  };
+
+  function sourceFor(id){
+    const node=document.querySelector('#learnScreen .lp-node[data-stage="'+CSS.escape(String(id))+'"]');
+    return node?.closest('.lp-stop')||document.getElementById('stop-'+id)||null;
+  }
+
+  function cleanup(){
+    clearTimeout(timer);
+    document.querySelectorAll('#learnScreen .lp-stop.deen-stage-transition-source')
+      .forEach(x=>x.classList.remove('deen-stage-transition-source'));
+    document.getElementById('learnScreen')?.classList.remove('deen-stage-transition-out');
+    busy=false;
+  }
+
+  function animatePreview(id){
+    if(!id)return BASE_PREVIEW(id);
+    if(busy)return false;
+    if(motionOff())return BASE_PREVIEW(id);
+
+    const source=sourceFor(id);
+    if(!source)return BASE_PREVIEW(id);
+
+    const node=source.querySelector('.lp-node');
+    if(node?.classList.contains('locked'))return BASE_PREVIEW(id);
+
+    busy=true;
+    source.classList.add('deen-stage-transition-source');
+    document.getElementById('learnScreen')?.classList.add('deen-stage-transition-out');
+
+    timer=setTimeout(()=>{
+      try{
+        BASE_PREVIEW(id);
+        const sheet=document.getElementById('v5Sheet');
+        if(sheet?.open){
+          sheet.classList.remove('deen-stage-enter');
+          void sheet.offsetWidth;
+          sheet.classList.add('deen-stage-enter');
+          setTimeout(()=>sheet.classList.remove('deen-stage-enter'),520);
+        }
+      }finally{
+        setTimeout(cleanup,90);
+      }
+    },300);
+    return true;
+  }
+
+  window.preview=animatePreview;
+  try{preview=animatePreview}catch(_){}
+
+  document.addEventListener('close',e=>{
+    if(e.target?.id==='v5Sheet')cleanup();
+  },true);
+
+  window.DEEN_STAGE_TRANSITION={
+    version:'10.9.3',
+    build:'9204stagetransition1',
+    preview:animatePreview,
+    cleanup,
+    snapshot:()=>({
+      busy,
+      source:document.querySelector('.deen-stage-transition-source')?.id||null,
+      sheetAnimated:document.getElementById('v5Sheet')?.classList.contains('deen-stage-enter')||false,
+      reduced:motionOff()
+    })
+  };
+})();
+</script>
