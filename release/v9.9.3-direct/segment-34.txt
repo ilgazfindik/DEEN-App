@@ -478,3 +478,248 @@
   document.documentElement.dataset.deenLegacyNeon='persistent';
 })();
 </script>
+
+
+<!-- DEEN v10.8.9 — Multilingual Typography V1 -->
+<style id="deen-v1089-multilingual-typography-css">
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --deen-font-ui:"Nunito Sans","Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --deen-font-ar:"Noto Sans Arabic","Noto Sans",Tahoma,Arial,sans-serif;
+  --deen-font-cjk:"Noto Sans CJK SC","Noto Sans SC","Noto Sans JP","Noto Sans KR","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --deen-font-weight-body:500;
+  --deen-font-weight-ui:600;
+  --deen-font-weight-strong:700;
+}
+
+/* Locale-aware font routing */
+html:lang(ar),
+html:lang(fa),
+html:lang(ur){
+  --deen-font-ui:var(--deen-font-ar);
+}
+html:lang(zh),
+html:lang(ja),
+html:lang(ko){
+  --deen-font-ui:var(--deen-font-cjk);
+}
+
+/* One readable family across the product. Neon/color system is untouched. */
+html,body,.phone,.screen,
+button,input,select,textarea,
+.app-header,.brand-name,.page-title,.hero,.hero *,
+.v5-page,.v5-page *,
+.bottomnav,.bottomnav *,
+.lesson,.lesson *,
+.question-frame,.question-frame *,
+.feedback,.feedback *,
+.result,.result *,
+#v5Sheet,#v5Sheet *,
+#v998Onboarding,#v998Onboarding *,
+.restored-learn,.restored-learn *,
+.lp-unit,.lp-unit *,
+.lp-path,.lp-path *,
+.v5-profilehead,.v5-profilehead *,
+.v5-profilemetrics,.v5-profilemetrics *,
+.v5-badge,.v5-badge *{
+  font-family:var(--deen-font-ui)!important;
+}
+
+/* Explicitly retire remaining legacy serif/condensed title styles. */
+.hero h1,
+.lp-gate h2,
+.restore-world-card h2,
+.restored-unit .hero h1,
+.lp-unitintro h2,
+.lp-world h2,
+.result h2,
+#v5Sheet .deen-intro-title,
+#v5Sheet:not(.deen-intro-dialog) h2,
+#v998Onboarding .v998-copy h1,
+#profileScreenBody .v5-profilehead h1,
+#profileScreenBody .v5-premium h2,
+.question,
+.deen-character-question-text{
+  font-family:var(--deen-font-ui)!important;
+}
+
+/* Duolingo-like hierarchy: friendly, clear, never overly heavy. */
+body,
+button,input,select,textarea{
+  font-weight:var(--deen-font-weight-body)!important;
+}
+
+.question,
+.deen-character-question-text,
+.option,
+.fill-choice,
+.v710-word-chip,
+.v710-decision,
+.v710-clue,
+.v5-listbtn,
+.navbtn{
+  font-weight:600!important;
+}
+
+button,
+.btn,
+.v5-primary,
+.template-action,
+#continueBtn,
+#resultContinueBtn,
+.v9912-authbtn,
+.v998-primary{
+  font-weight:700!important;
+}
+
+.page-title,
+.hero h1,
+.restored-unit .hero h1,
+.lp-unitintro h2,
+.lp-world h2,
+.result h2,
+#v5Sheet .deen-intro-title,
+#v998Onboarding .v998-copy h1,
+#profileScreenBody .v5-profilehead h1{
+  font-weight:700!important;
+  letter-spacing:-.02em!important;
+}
+
+.brand-name{
+  font-weight:800!important;
+  letter-spacing:.24em!important;
+}
+
+.v5-kicker,
+.qmeta,
+.eyebrow,
+.deen-intro-kicker,
+.v998-brand{
+  font-weight:700!important;
+}
+
+/* Readability tuning */
+body{
+  font-feature-settings:"kern" 1,"liga" 1!important;
+  font-synthesis:none!important;
+  -webkit-font-smoothing:antialiased!important;
+  text-rendering:optimizeLegibility!important;
+}
+
+.question,
+.deen-character-question-text{
+  line-height:1.30!important;
+  letter-spacing:-.012em!important;
+}
+
+.option,
+.fill-choice,
+.v710-word-chip,
+.v710-decision,
+.v710-clue{
+  line-height:1.34!important;
+  letter-spacing:-.006em!important;
+}
+
+p,
+.v5-muted,
+.qtype,
+.feedback-text,
+.deen-intro-desc,
+.v998-copy p{
+  line-height:1.52!important;
+}
+
+input,
+textarea,
+select{
+  font-size:16px;
+}
+
+/* Arabic-script languages need more vertical breathing room. */
+html:lang(ar) body,
+html:lang(fa) body,
+html:lang(ur) body{
+  line-height:1.62!important;
+}
+html:lang(ar) .question,
+html:lang(fa) .question,
+html:lang(ur) .question,
+html:lang(ar) .deen-character-question-text,
+html:lang(fa) .deen-character-question-text,
+html:lang(ur) .deen-character-question-text{
+  line-height:1.58!important;
+  letter-spacing:0!important;
+}
+
+/* Basic RTL readiness for future translations. */
+html[dir="rtl"] .question,
+html[dir="rtl"] .deen-character-question-text,
+html[dir="rtl"] .qtype,
+html[dir="rtl"] .feedback-text,
+html[dir="rtl"] .deen-intro-desc,
+html[dir="rtl"] .v998-copy p{
+  text-align:right!important;
+}
+html[dir="rtl"] .deen-intro-back span{
+  transform:scaleX(-1);
+}
+html[dir="rtl"] input,
+html[dir="rtl"] textarea{
+  text-align:right;
+}
+
+/* CJK: avoid fake bold and excessive tracking. */
+html:lang(zh) *,
+html:lang(ja) *,
+html:lang(ko) *{
+  letter-spacing:normal;
+}
+</style>
+<script id="deen-v1089-multilingual-typography-js">
+(()=>{
+  if(window.__deenV1089Typography)return;
+  window.__deenV1089Typography=true;
+
+  const RTL=new Set(['ar','fa','ur','he']);
+  const normalize=locale=>String(locale||'tr').trim().toLowerCase().replace('_','-');
+
+  function setLocale(locale){
+    const value=normalize(locale);
+    const base=value.split('-')[0]||'tr';
+    document.documentElement.lang=value;
+    document.documentElement.dir=RTL.has(base)?'rtl':'ltr';
+    document.documentElement.dataset.deenLocale=value;
+    return {locale:value,dir:document.documentElement.dir};
+  }
+
+  const current=normalize(document.documentElement.lang||'tr');
+  if(!document.documentElement.dir){
+    document.documentElement.dir=RTL.has(current.split('-')[0])?'rtl':'ltr';
+  }
+  document.documentElement.dataset.deenTypography='multilingual-v1';
+
+  if(document.fonts?.ready){
+    document.fonts.ready.then(()=>{
+      document.documentElement.dataset.deenFontsReady='1';
+    }).catch(()=>{});
+  }
+
+  window.DEEN_TYPOGRAPHY={
+    version:'10.8.9',
+    build:'9190multitype1',
+    primary:'Nunito Sans',
+    fallback:'Noto Sans',
+    arabic:'Noto Sans Arabic',
+    setLocale,
+    check:()=>({
+      locale:document.documentElement.lang,
+      dir:document.documentElement.dir,
+      font:getComputedStyle(document.body).fontFamily,
+      ready:document.documentElement.dataset.deenFontsReady||'0',
+      css:!!document.getElementById('deen-v1089-multilingual-typography-css')
+    })
+  };
+})();
+</script>
