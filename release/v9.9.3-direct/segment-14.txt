@@ -585,8 +585,8 @@
 #v5Return .v680-nba.v711-compact .v680-main.gold{box-shadow:0 4px 0 #80651e!important}
 #v5Return .v680-nba.v711-compact .v680-meta{display:flex!important;gap:5px!important;margin-top:8px!important;justify-content:center!important;flex-wrap:nowrap!important}
 #v5Return .v680-nba.v711-compact .v680-meta div{display:flex!important;align-items:center!important;justify-content:center!important;gap:4px!important;flex:1 1 0!important;border:0!important;border-radius:999px!important;background:rgba(7,30,38,.55)!important;padding:5px 6px!important;min-height:25px!important}
-#v5Return .v680-nba.v711-compact .v680-meta b{display:inline!important;font-size:7.7px!important;color:#d7e8e4!important}
-#v5Return .v680-nba.v711-compact .v680-meta small{display:inline!important;margin:0!important;font-size:6.1px!important;color:#718f93!important;overflow:visible!important;text-overflow:clip!important}
+#v5Return .v680-nba.v711-compact .v680-meta b{display:inline!important;font-size:11.5px!important;font-weight:900!important;line-height:1!important;color:#f7fbf8!important;-webkit-text-stroke:.16px currentColor!important}
+#v5Return .v680-nba.v711-compact .v680-meta small{display:inline!important;margin:0!important;font-size:10.5px!important;font-weight:900!important;line-height:1!important;color:#dce7e1!important;-webkit-text-stroke:.16px currentColor!important;overflow:visible!important;text-overflow:clip!important}
 .v622-streak-panel.v711-streak-strip{margin:7px 0 10px!important;padding:0!important;border-radius:16px!important;border:1px solid rgba(255,173,93,.16)!important;background:linear-gradient(180deg,rgba(27,22,18,.95),rgba(11,29,34,.96))!important;box-shadow:0 10px 25px rgba(0,0,0,.12)!important;display:flex!important;align-items:stretch!important;min-height:50px!important;overflow:hidden!important}
 .v711-streak-main{flex:1 1 auto;min-width:0;border:0;background:transparent;color:inherit;display:flex;align-items:center;gap:9px;padding:8px 10px;text-align:left;cursor:pointer}
 .v711-streak-fire{width:31px;height:31px;border-radius:11px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(255,170,88,.22);background:rgba(74,43,23,.45);font-size:15px}
@@ -630,7 +630,30 @@ html.v5-reduce .v711-streak-main,html.v5-reduce .v711-currency,html.v5-reduce .v
       const copy=document.createElement('div');copy.className='v711-progress-copy';copy.innerHTML=`<b>${done}/${total} · ${esc711(curLabel)}</b><small>Bugünkü yolculuk</small>`;
       steps.before(row);row.append(steps,copy);
     }
-    const meta=card.querySelector('.v680-meta');if(meta){const labels=['Görev','Haftalık','Tekrar'];[...meta.children].forEach((x,i)=>{const sm=x.querySelector('small');if(sm)sm.textContent=labels[i]||sm.textContent})}
+    const meta=card.querySelector('.v680-meta');if(meta){
+      const labels=['Görev','Haftalık','Tekrar'];
+      [...meta.children].forEach((x,i)=>{
+        const b=x.querySelector('b'),sm=x.querySelector('small');
+        if(b){
+          b.style.setProperty('font-family','var(--deen-font-ui)','important');
+          b.style.setProperty('font-size','11.5px','important');
+          b.style.setProperty('font-weight','900','important');
+          b.style.setProperty('line-height','1','important');
+          b.style.setProperty('color','#f7fbf8','important');
+          b.style.setProperty('-webkit-text-stroke','.16px currentColor','important');
+        }
+        if(sm){
+          sm.textContent=labels[i]||sm.textContent;
+          sm.style.setProperty('font-family','var(--deen-font-ui)','important');
+          sm.style.setProperty('font-size','10.5px','important');
+          sm.style.setProperty('font-weight','900','important');
+          sm.style.setProperty('line-height','1','important');
+          sm.style.setProperty('color','#dce7e1','important');
+          sm.style.setProperty('-webkit-text-stroke','.16px currentColor','important');
+        }
+      });
+      meta.dataset.deenMetaTypography='bold';
+    }
     return true;
   }
   function compactStreak(){
