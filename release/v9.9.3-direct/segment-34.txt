@@ -1862,4 +1862,18 @@ html:lang(ur){
     transition:none!important;
   }
 }
+
+/* HOME META BOLD FIX */
+#learnScreen #v5Return .v680-nba.v711-compact .v680-meta b,
+#learnScreen #v5Return .v680-nba.v711-compact .v680-meta small{
+  font-weight:900!important;
+  -webkit-text-stroke:.24px currentColor!important;
+  text-rendering:geometricPrecision!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact .v680-meta b{
+  color:#f5faf7!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact .v680-meta small{
+  color:#d2ded8!important;
+}
 </style>
