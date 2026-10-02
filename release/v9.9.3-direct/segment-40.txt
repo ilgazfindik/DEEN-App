@@ -1,0 +1,470 @@
+<!-- DEEN v10.8.5 — Neon Signature Theme -->
+<style id="deen-v1085-neon-signature-theme-css">
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --deen-bg:#050d12;
+  --deen-bg-2:#071820;
+  --deen-surface-1:#0b2028;
+  --deen-surface-2:#102a33;
+  --deen-surface-3:#143640;
+  --deen-text:#f3f7f5;
+  --deen-muted:#8ea3a6;
+  --deen-border:rgba(146,187,188,.13);
+
+  /* Heritage accent — never remove */
+  --deen-neon:#31efcf;
+  --deen-neon-2:#6ef3dc;
+  --deen-neon-soft:rgba(49,239,207,.10);
+  --deen-neon-line:rgba(49,239,207,.22);
+  --deen-neon-glow:0 0 20px rgba(49,239,207,.14);
+
+  --deen-gold:#d1af69;
+  --deen-danger:#ee848b;
+
+  --bg:var(--deen-bg);
+  --bg2:var(--deen-bg-2);
+  --ink:var(--deen-text);
+  --muted:var(--deen-muted);
+  --line:#28434a;
+  --teal:var(--deen-neon);
+  --teal2:#61d9c4;
+  --gold:var(--deen-gold);
+  --card:var(--deen-surface-1);
+  --card2:var(--deen-surface-2);
+  --ok:var(--deen-neon);
+}
+
+/* Main typography */
+html,body,.phone,.screen,
+button,input,select,textarea,
+.lesson,.question-frame,.option,.template-action,
+.v5-panel,.v5-profilemetrics,.v5-listbtn,.bottomnav,.navbtn,
+#v5Sheet,#v998Onboarding,
+.feedback,.result{
+  font-family:"Plus Jakarta Sans","Manrope","Inter","Segoe UI",system-ui,sans-serif!important;
+}
+
+/* Editorial headings only */
+.hero h1,
+.restored-unit .hero h1,
+.restore-world-card h2,
+#v998Onboarding .v998-copy h1,
+#v5Sheet:not(.deen-intro-dialog) h2,
+#v5Sheet .deen-intro-title,
+.result h2,
+#profileScreenBody .v5-premium h2{
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-weight:600!important;
+}
+
+/* App shell */
+body{
+  background:#020609!important;
+}
+.phone{
+  background:
+    radial-gradient(circle at 50% 12%,rgba(49,239,207,.055),transparent 31%),
+    radial-gradient(circle at 88% 72%,rgba(67,123,140,.055),transparent 28%),
+    linear-gradient(180deg,#07161d 0%,#050f15 52%,#030b10 100%)!important;
+}
+.screen::after{
+  background:
+    radial-gradient(circle at 15% 18%,rgba(49,239,207,.026),transparent 18%),
+    radial-gradient(circle at 84% 62%,rgba(209,175,105,.024),transparent 20%)!important;
+}
+
+/* Core surfaces */
+.glass,
+.metric,
+.v5-panel,
+.v5-profilemetrics>div,
+.v5-listbtn,
+.v5-badge,
+.v5-unitintro,
+.v5-return,
+.deen-verified-media{
+  border-color:var(--deen-border)!important;
+  background:linear-gradient(180deg,rgba(16,42,51,.92),rgba(9,29,36,.97))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.022),
+    0 10px 28px rgba(0,0,0,.10)!important;
+}
+
+/* Text hierarchy */
+.page-title,
+.v5-profilehead h1,
+.question,
+.deen-character-question-text,
+.option,
+.v5-listbtn,
+.v5-profilemetrics strong{
+  color:var(--deen-text)!important;
+}
+.v5-muted,
+.qtype,
+.v5-profilemetrics small,
+.feedback-text,
+#resultSubtitle{
+  color:var(--deen-muted)!important;
+}
+
+/* Heritage neon lives in active states */
+.v5-textbtn,
+.navbtn.active,
+.v5-kicker,
+.qmeta,
+.restored-unit .hero .eyebrow,
+#profileScreen .v5-textbtn{
+  color:var(--deen-neon)!important;
+}
+
+/* Navigation */
+.bottomnav{
+  background:rgba(5,17,23,.965)!important;
+  border-top-color:rgba(49,239,207,.09)!important;
+  box-shadow:0 -12px 34px rgba(0,0,0,.20)!important;
+}
+.bottomnav .navbtn{
+  color:#788e91!important;
+}
+.bottomnav .navbtn.active{
+  color:var(--deen-neon)!important;
+  background:rgba(49,239,207,.055)!important;
+  border-color:rgba(49,239,207,.10)!important;
+  box-shadow:inset 0 0 0 1px rgba(49,239,207,.018)!important;
+}
+.bottomnav .navbtn.active svg{
+  filter:drop-shadow(0 0 6px rgba(49,239,207,.18))!important;
+}
+
+/* Header / progress */
+.v5-bar,
+.lesson-prog{
+  background:rgba(117,151,155,.13)!important;
+}
+.v5-bar i,
+.lesson-prog i{
+  background:linear-gradient(90deg,#21dcbf,var(--deen-neon),#75f3df)!important;
+  box-shadow:0 0 12px rgba(49,239,207,.16)!important;
+}
+
+/* Primary CTA retains signature neon */
+.btn,
+.v5-primary,
+.template-action,
+#resultContinueBtn,
+#v998Onboarding .v998-primary,
+#v5Sheet .deen-stage-intro .v5-primary{
+  background:linear-gradient(180deg,#5ff3d8,#31dfc1)!important;
+  color:#06251f!important;
+  border:1px solid rgba(171,255,235,.30)!important;
+  box-shadow:
+    0 8px 22px rgba(49,239,207,.10),
+    inset 0 1px 0 rgba(255,255,255,.18)!important;
+  font-family:"Plus Jakarta Sans","Manrope",system-ui,sans-serif!important;
+  font-weight:700!important;
+}
+.btn:hover,
+.v5-primary:hover,
+.template-action:hover,
+#resultContinueBtn:hover{
+  box-shadow:
+    0 10px 26px rgba(49,239,207,.15),
+    inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+.btn:disabled,
+.v5-primary:disabled,
+.template-action:disabled{
+  background:#183139!important;
+  color:#69817f!important;
+  border-color:rgba(146,187,188,.08)!important;
+  box-shadow:none!important;
+}
+
+/* Lesson */
+.lesson{
+  background:
+    radial-gradient(circle at 50% 14%,rgba(49,239,207,.042),transparent 28%),
+    linear-gradient(180deg,#06171e 0%,#071a21 100%)!important;
+}
+.lesson-head{
+  background:rgba(6,24,31,.94)!important;
+  border-bottom-color:rgba(49,239,207,.075)!important;
+}
+.close,
+.lesson-chip{
+  border-color:rgba(146,187,188,.12)!important;
+  background:rgba(12,35,43,.90)!important;
+}
+.question-frame{
+  border-color:rgba(146,187,188,.12)!important;
+  background:
+    radial-gradient(circle at 50% 7%,rgba(49,239,207,.027),transparent 24%),
+    linear-gradient(180deg,rgba(13,38,46,.97),rgba(8,27,34,.99))!important;
+}
+.question-stage{
+  border-color:rgba(49,239,207,.14)!important;
+  background:rgba(49,239,207,.035)!important;
+  color:#9fc9c1!important;
+}
+
+/* Answers */
+.option,
+.v710-word-chip,
+.fill-choice,
+.v1039-fill-chip,
+.v1040-fill-chip,
+.seq-chip,
+.match-card{
+  border-color:rgba(146,187,188,.13)!important;
+  background:linear-gradient(180deg,rgba(15,42,50,.97),rgba(9,31,38,.995))!important;
+  color:#eef4f1!important;
+}
+.option:hover,
+.v710-word-chip:hover,
+.fill-choice:hover,
+.v1039-fill-chip:hover,
+.v1040-fill-chip:hover,
+.match-card:hover{
+  border-color:rgba(49,239,207,.24)!important;
+}
+.option.selected,
+.fill-choice.selected,
+.v1039-fill-chip.selected,
+.v1040-fill-chip.selected,
+.match-card.sel{
+  border-color:rgba(49,239,207,.48)!important;
+  background:
+    linear-gradient(180deg,rgba(19,64,61,.96),rgba(10,42,47,.99))!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(49,239,207,.06),
+    0 0 18px rgba(49,239,207,.055)!important;
+}
+.option.correct,
+.gf-correct{
+  border-color:rgba(49,239,207,.56)!important;
+}
+.option.wrong,
+.gf-wrong{
+  border-color:rgba(238,132,139,.40)!important;
+}
+
+/* Feedback */
+.feedback-box{
+  border-color:rgba(49,239,207,.15)!important;
+  background:linear-gradient(180deg,rgba(16,47,49,.95),rgba(9,33,37,.99))!important;
+}
+.feedback-icon{
+  border-color:rgba(49,239,207,.21)!important;
+  background:rgba(49,239,207,.065)!important;
+  color:var(--deen-neon)!important;
+}
+.feedback-title{
+  color:#eaf3ef!important;
+}
+.feedback-box.bad{
+  border-color:rgba(238,132,139,.18)!important;
+}
+.feedback-box.bad .feedback-icon{
+  color:#efa3a8!important;
+}
+
+/* Result */
+.result{
+  background:
+    radial-gradient(circle at 50% 20%,rgba(49,239,207,.045),transparent 25%),
+    linear-gradient(180deg,#071920 0%,#041116 100%)!important;
+}
+.result-pct{
+  color:var(--deen-neon)!important;
+  text-shadow:0 0 20px rgba(49,239,207,.09)!important;
+}
+.medal{
+  border-color:rgba(209,175,105,.38)!important;
+  color:#d4b979!important;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(209,175,105,.10),transparent 42%),
+    linear-gradient(160deg,#2a302b,#15272a)!important;
+}
+
+/* Profile */
+#profileScreenBody .v5-profilehead .v5-avatar.large{
+  border-color:rgba(49,239,207,.18)!important;
+  background:linear-gradient(145deg,#12323a,#0a242b)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 9px 24px rgba(0,0,0,.15)!important;
+}
+#profileScreenBody>.v5-panel:first-of-type{
+  border-color:rgba(49,239,207,.12)!important;
+  background:
+    radial-gradient(circle at 90% 0,rgba(49,239,207,.042),transparent 32%),
+    linear-gradient(180deg,rgba(16,44,52,.97),rgba(9,32,39,.99))!important;
+}
+#profileScreenBody .v5-profilemetrics>div{
+  background:rgba(12,37,44,.72)!important;
+}
+#profileScreenBody .v5-badge.earned{
+  border-color:rgba(209,175,105,.20)!important;
+}
+
+/* Learning path */
+.restored-unit{
+  --unit-accent:var(--deen-neon)!important;
+  --unit-accent2:#76f1dd!important;
+}
+.restored-unit .hero{
+  border-color:rgba(49,239,207,.11)!important;
+  background:
+    radial-gradient(circle at 92% 6%,rgba(49,239,207,.040),transparent 30%),
+    linear-gradient(145deg,rgba(14,42,50,.97),rgba(7,28,35,.99))!important;
+}
+.restored-path.deen-old-path .lp-link.filled{
+  stroke:#35bda8!important;
+}
+.restored-path.deen-old-path .deen-path-dot{
+  fill:#d9f8f1!important;
+  stroke:#31bda6!important;
+}
+.restored-path.deen-old-path .lp-node.deen-old-node.current{
+  border-color:rgba(49,239,207,.76)!important;
+  background:
+    radial-gradient(circle at 34% 24%,rgba(255,255,255,.14),transparent 32%),
+    linear-gradient(145deg,#4ce8cc,#20bfa7)!important;
+  color:#062a24!important;
+  box-shadow:
+    0 0 0 5px rgba(49,239,207,.055),
+    0 0 24px rgba(49,239,207,.13),
+    0 12px 28px rgba(0,0,0,.15)!important;
+}
+.restored-path.deen-old-path .lp-node.deen-old-node.completed{
+  border-color:rgba(49,239,207,.20)!important;
+  color:#72cdbd!important;
+}
+.restored-path.deen-old-path .lp-now{
+  background:var(--deen-neon)!important;
+  color:#05271f!important;
+}
+
+/* Onboarding */
+#v998Onboarding .v998-shell{
+  background:
+    radial-gradient(circle at 50% -4%,rgba(49,239,207,.075),transparent 30%),
+    linear-gradient(180deg,#071c23 0%,#05161d 54%,#030d12 100%)!important;
+}
+#v998Onboarding .v998-copy h1 .mint{
+  color:var(--deen-neon)!important;
+  text-shadow:0 0 20px rgba(49,239,207,.10)!important;
+}
+#v998Onboarding .v998-dots i.on{
+  background:var(--deen-neon)!important;
+  box-shadow:0 0 10px rgba(49,239,207,.12)!important;
+}
+#v998Onboarding .v998-choice.selected,
+#v998Onboarding[data-step="3"] .v998-animal.selected{
+  border-color:rgba(49,239,207,.42)!important;
+  background:linear-gradient(160deg,rgba(20,60,59,.94),rgba(8,35,42,.99))!important;
+  box-shadow:inset 0 0 0 1px rgba(49,239,207,.04)!important;
+}
+#v998Onboarding .selected .v998-radio,
+#v998Onboarding[data-step="3"] .v998-animal.selected .check{
+  background:var(--deen-neon)!important;
+  border-color:var(--deen-neon)!important;
+  color:#05271f!important;
+}
+
+/* Auth */
+#v998Onboarding .v9912-authbtn{
+  border-color:rgba(146,187,188,.10)!important;
+  background:rgba(10,31,38,.74)!important;
+}
+#v998Onboarding .v9912-authbtn:hover{
+  border-color:rgba(49,239,207,.22)!important;
+  background:rgba(12,39,46,.86)!important;
+}
+
+/* Sheets */
+#v5Sheet:not(.deen-intro-dialog),
+#v5Sheet.deen-intro-dialog{
+  background:
+    radial-gradient(circle at 82% 0,rgba(49,239,207,.035),transparent 26%),
+    linear-gradient(180deg,#102a32 0%,#081f27 100%)!important;
+  border-color:rgba(146,187,188,.12)!important;
+}
+#v5Sheet .v5-toggle input[type="checkbox"]:checked{
+  background:#1b6b5d!important;
+  border-color:rgba(49,239,207,.40)!important;
+}
+#v5Sheet .v5-toggle input[type="checkbox"]:checked::before{
+  background:var(--deen-neon)!important;
+  box-shadow:0 0 9px rgba(49,239,207,.16)!important;
+}
+#v5Sheet .deen-intro-halo{
+  border-color:rgba(49,239,207,.24)!important;
+  box-shadow:
+    inset 0 0 18px rgba(49,239,207,.035),
+    0 0 20px rgba(49,239,207,.05)!important;
+}
+#v5Sheet .deen-intro-art{
+  color:var(--deen-neon)!important;
+}
+
+/* Focus states */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:2px solid rgba(49,239,207,.68)!important;
+  outline-offset:2px!important;
+}
+
+/* Signature glow should be rare, not everywhere */
+.deen-neon-signature,
+.navbtn.active,
+.restored-path.deen-old-path .lp-node.deen-old-node.current,
+.result-pct{
+  --deen-signature-neon:var(--deen-neon);
+}
+
+/* Motion keeps the neon alive */
+@keyframes deenNeonBreath{
+  0%,100%{
+    box-shadow:
+      0 0 0 4px rgba(49,239,207,.035),
+      0 0 18px rgba(49,239,207,.08),
+      0 10px 24px rgba(0,0,0,.12)
+  }
+  50%{
+    box-shadow:
+      0 0 0 6px rgba(49,239,207,.06),
+      0 0 28px rgba(49,239,207,.14),
+      0 13px 28px rgba(0,0,0,.16)
+  }
+}
+.restored-path.deen-old-path .lp-node.deen-old-node.current{
+  animation:deenNeonBreath 2.8s ease-in-out infinite!important;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .restored-path.deen-old-path .lp-node.deen-old-node.current{
+    animation:none!important;
+  }
+}
+</style>
+<script id="deen-v1085-neon-signature-theme-js">
+window.DEEN_NEON_SIGNATURE_THEME={
+  version:'10.8.5',
+  build:'9185neonsignature1',
+  neon:'#31efcf',
+  font:'Plus Jakarta Sans',
+  check:()=>({
+    css:!!document.getElementById('deen-v1085-neon-signature-theme-css'),
+    neon:getComputedStyle(document.documentElement).getPropertyValue('--deen-neon').trim(),
+    font:getComputedStyle(document.body).fontFamily,
+    currentNode:!!document.querySelector('.restored-path.deen-old-path .lp-node.deen-old-node.current'),
+    activeNav:!!document.querySelector('.bottomnav .navbtn.active')
+  })
+};
+document.documentElement.dataset.deenTheme='neon-signature';
+</script>
