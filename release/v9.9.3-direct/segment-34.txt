@@ -1189,58 +1189,59 @@ html:lang(ur){
     'deen-v1091-typography-freeze-css'
   ];
 
-  let enforcing=false;
   function enforce(){
-    if(enforcing)return;
-    enforcing=true;
-    try{
-      const head=document.head;
-      if(!head)return false;
-      for(const id of IDS){
-        const node=document.getElementById(id);
-        if(node)head.appendChild(node);
-      }
-      document.documentElement.dataset.deenTypographyLocked='1';
-      return true;
-    }finally{
-      enforcing=false;
+    const head=document.head;
+    if(!head)return false;
+
+    const nodes=IDS.map(id=>document.getElementById(id)).filter(Boolean);
+    if(!nodes.length)return false;
+
+    // Only reorder when necessary. Never keep observing <head>;
+    // the previous observer could create an append -> mutation -> append loop on mobile.
+    let lastIndex=-1;
+    let inOrder=true;
+    const children=[...head.children];
+    for(const node of nodes){
+      const idx=children.indexOf(node);
+      if(idx<=lastIndex){inOrder=false;break;}
+      lastIndex=idx;
     }
+
+    const freeze=nodes[nodes.length-1];
+    const alreadyLast=freeze===head.lastElementChild;
+    if(!inOrder||!alreadyLast){
+      const frag=document.createDocumentFragment();
+      for(const node of nodes)frag.appendChild(node);
+      head.appendChild(frag);
+    }
+
+    document.documentElement.dataset.deenTypographyLocked='1';
+    return true;
   }
 
+  // One initial pass is enough because these styles ship in the final release segment.
+  // A second delayed pass covers any late parser/layout timing without a permanent observer.
   enforce();
-  document.addEventListener('DOMContentLoaded',enforce,{once:true});
-  setTimeout(enforce,80);
-  setTimeout(enforce,400);
-
-  if(document.head&&'MutationObserver' in window){
-    const observer=new MutationObserver(mutations=>{
-      const hasStyleMutation=mutations.some(m=>
-        [...m.addedNodes,...m.removedNodes].some(n=>
-          n?.nodeType===1&&(
-            n.tagName==='STYLE'||
-            n.tagName==='LINK'
-          )
-        )
-      );
-      if(hasStyleMutation)queueMicrotask(enforce);
-    });
-    observer.observe(document.head,{childList:true});
-    window.__deenTypographyFreezeObserver=observer;
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',enforce,{once:true});
   }
+  setTimeout(enforce,120);
 
   window.DEEN_TYPOGRAPHY_LOCK={
-    version:'10.9.1',
-    build:'9192typelock1',
+    version:'10.9.2',
+    build:'9193mobilefreezefix1',
     family:'Nunito Sans',
     neonPreserved:true,
     multilingual:true,
+    observer:false,
     enforce,
     check:()=>({
       locked:document.documentElement.dataset.deenTypographyLocked==='1',
       font:getComputedStyle(document.body).fontFamily,
       typography:!!document.getElementById('deen-v1089-multilingual-typography-css'),
       readability:!!document.getElementById('deen-v1090-readability-guard-css'),
-      freeze:!!document.getElementById('deen-v1091-typography-freeze-css')
+      freeze:!!document.getElementById('deen-v1091-typography-freeze-css'),
+      observer:false
     })
   };
 })();
