@@ -1,9 +1,21 @@
-<!-- DEEN v10.7.1 — Onboarding HQ atlas geometry hotfix -->
-<style id="deen-v1071-onboarding-atlas-hotfix-css">
+<!-- DEEN v10.7.2 — Onboarding HQ atlas asset loader -->
+<style id="deen-v1072-onboarding-atlas-loader-css">
+#v998Onboarding[data-step="3"] .v998-animal .emoji{
+  display:block!important;
+  position:absolute!important;
+  left:50%!important;
+  top:21px!important;
+  transform:translateX(-50%)!important;
+  z-index:2!important;
+  font-size:54px!important;
+  opacity:.9!important;
+}
+#v998Onboarding[data-step="3"][data-hq-atlas-ready="1"] .v998-animal .emoji{
+  display:none!important;
+}
 #v998Onboarding[data-step="3"] .v998-animal:before{
   background-size:200% 300%!important;
   background-repeat:no-repeat!important;
-  background-position:0 0;
 }
 #v998Onboarding[data-step="3"] .v998-animal[data-animal="lion"]:before{background-position:0 0!important}
 #v998Onboarding[data-step="3"] .v998-animal[data-animal="wolf"]:before{background-position:100% 0!important}
@@ -12,18 +24,61 @@
 #v998Onboarding[data-step="3"] .v998-animal[data-animal="eagle"]:before{background-position:0 100%!important}
 #v998Onboarding[data-step="3"] .v998-animal[data-animal="cat"]:before{background-position:100% 100%!important}
 </style>
-<script id="deen-v1071-onboarding-atlas-hotfix-js">
-window.DEEN_ONBOARDING_ATLAS_HOTFIX={
- version:'10.7.1',
- verify:()=>({
-  rootStep:document.getElementById('v998Onboarding')?.dataset?.step||null,
-  cards:document.querySelectorAll('#v998Onboarding[data-step="3"] .v998-animal').length,
-  mapped:[...document.querySelectorAll('#v998Onboarding[data-step="3"] .v998-animal')].map(el=>({
-    animal:el.dataset.animal,
-    image:getComputedStyle(el,'::before').backgroundImage!=='none',
-    size:getComputedStyle(el,'::before').backgroundSize,
-    position:getComputedStyle(el,'::before').backgroundPosition
-  }))
- })
-};
+<script id="deen-v1072-onboarding-atlas-loader-js">
+(()=>{
+ if(window.__deenV1072AtlasLoader)return;
+ window.__deenV1072AtlasLoader=true;
+ const VERSION='9171onboardingatlasasset1';
+ const base='./release/v9.9.3-direct/assets/onboarding-hq/atlas.part';
+ const urls=[0,1,2,3,4].map(i=>base+i+'.txt?v='+VERSION);
+ async function load(){
+   const parts=await Promise.all(urls.map(async u=>{
+     const r=await fetch(u,{cache:'no-store'});
+     if(!r.ok)throw new Error('atlas HTTP '+r.status);
+     return (await r.text()).trim();
+   }));
+   const b64=parts.join('');
+   if(b64.length!==98636)throw new Error('atlas length '+b64.length);
+   const src='data:image/webp;base64,'+b64;
+   const test=new Image();
+   await new Promise((resolve,reject)=>{
+     test.onload=resolve;
+     test.onerror=()=>reject(new Error('atlas decode'));
+     test.src=src;
+   });
+   let style=document.getElementById('deen-v1072-onboarding-atlas-image-css');
+   if(!style){
+     style=document.createElement('style');
+     style.id='deen-v1072-onboarding-atlas-image-css';
+     document.head.appendChild(style);
+   }
+   style.textContent='#v998Onboarding[data-step="3"] .v998-animal:before{background-image:linear-gradient(180deg,rgba(2,17,23,.02) 44%,rgba(3,25,32,.90) 100%),url("'+src+'")!important}';
+   const mark=()=>{
+     const root=document.getElementById('v998Onboarding');
+     if(root?.dataset?.step==='3')root.dataset.hqAtlasReady='1';
+   };
+   mark();
+   new MutationObserver(mark).observe(document.documentElement,{childList:true,subtree:true});
+   window.DEEN_ONBOARDING_ATLAS_HOTFIX={
+     version:'10.7.2',
+     ready:true,
+     bytes:73976,
+     b64:b64.length,
+     verify:()=>({
+       rootStep:document.getElementById('v998Onboarding')?.dataset?.step||null,
+       ready:document.getElementById('v998Onboarding')?.dataset?.hqAtlasReady||'0',
+       imageStyle:!!document.getElementById('deen-v1072-onboarding-atlas-image-css'),
+       cards:document.querySelectorAll('#v998Onboarding[data-step="3"] .v998-animal').length
+     })
+   };
+ }
+ load().catch(err=>{
+   console.error('DEEN HQ atlas load failed',err);
+   window.DEEN_ONBOARDING_ATLAS_HOTFIX={
+     version:'10.7.2',
+     ready:false,
+     error:String(err?.message||err)
+   };
+ });
+})();
 </script>
