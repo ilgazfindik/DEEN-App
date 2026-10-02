@@ -1,0 +1,29 @@
+<!-- DEEN v10.7.1 — Onboarding HQ atlas geometry hotfix -->
+<style id="deen-v1071-onboarding-atlas-hotfix-css">
+#v998Onboarding[data-step="3"] .v998-animal:before{
+  background-size:200% 300%!important;
+  background-repeat:no-repeat!important;
+  background-position:0 0;
+}
+#v998Onboarding[data-step="3"] .v998-animal[data-animal="lion"]:before{background-position:0 0!important}
+#v998Onboarding[data-step="3"] .v998-animal[data-animal="wolf"]:before{background-position:100% 0!important}
+#v998Onboarding[data-step="3"] .v998-animal[data-animal="owl"]:before{background-position:0 50%!important}
+#v998Onboarding[data-step="3"] .v998-animal[data-animal="turtle"]:before{background-position:100% 50%!important}
+#v998Onboarding[data-step="3"] .v998-animal[data-animal="eagle"]:before{background-position:0 100%!important}
+#v998Onboarding[data-step="3"] .v998-animal[data-animal="cat"]:before{background-position:100% 100%!important}
+</style>
+<script id="deen-v1071-onboarding-atlas-hotfix-js">
+window.DEEN_ONBOARDING_ATLAS_HOTFIX={
+ version:'10.7.1',
+ verify:()=>({
+  rootStep:document.getElementById('v998Onboarding')?.dataset?.step||null,
+  cards:document.querySelectorAll('#v998Onboarding[data-step="3"] .v998-animal').length,
+  mapped:[...document.querySelectorAll('#v998Onboarding[data-step="3"] .v998-animal')].map(el=>({
+    animal:el.dataset.animal,
+    image:getComputedStyle(el,'::before').backgroundImage!=='none',
+    size:getComputedStyle(el,'::before').backgroundSize,
+    position:getComputedStyle(el,'::before').backgroundPosition
+  }))
+ })
+};
+</script>
