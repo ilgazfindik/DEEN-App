@@ -213,3 +213,268 @@
  schedule();
 })();
 </script>
+
+
+<!-- DEEN v10.8.8 — Legacy neon persistence + real neon stage intro -->
+<style id="deen-v1088-legacy-neon-persist-css">
+/* Keep the original DEEN neon alive after every path re-render. */
+.restored-unit .hero{
+  border-color:color-mix(in srgb,var(--unit-accent) 62%,#24414a)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 0 0 1px color-mix(in srgb,var(--unit-accent) 8%,transparent),
+    0 0 24px color-mix(in srgb,var(--unit-accent) 16%,transparent),
+    0 14px 34px rgba(0,0,0,.18)!important;
+}
+.restored-unit .hero::before{
+  opacity:.9!important;
+}
+.restored-unit .hero-progress i{
+  box-shadow:
+    0 0 8px color-mix(in srgb,var(--unit-accent) 58%,transparent),
+    0 0 20px color-mix(in srgb,var(--unit-accent) 30%,transparent)!important;
+}
+.restored-unit .hero-arrow{
+  border-color:color-mix(in srgb,var(--unit-accent) 70%,#173944)!important;
+  box-shadow:0 0 14px color-mix(in srgb,var(--unit-accent) 18%,transparent)!important;
+}
+
+/* Open/completed nodes keep a visible neon edge; locked nodes stay quiet. */
+.restored-path.deen-old-path .lp-node:not(.locked){
+  border-color:color-mix(in srgb,var(--unit-accent) 66%,#6a8580)!important;
+  box-shadow:
+    0 6px 0 #081e26,
+    0 0 0 2px color-mix(in srgb,var(--unit-accent) 8%,transparent),
+    0 0 16px color-mix(in srgb,var(--unit-accent) 16%,transparent),
+    0 10px 20px rgba(0,0,0,.20)!important;
+}
+.restored-path.deen-old-path .lp-node.completed{
+  border-color:color-mix(in srgb,var(--unit-accent) 72%,#8fb0a5)!important;
+  box-shadow:
+    0 5px 0 #0a252b,
+    0 0 12px color-mix(in srgb,var(--unit-accent) 20%,transparent),
+    0 0 24px color-mix(in srgb,var(--unit-accent) 8%,transparent)!important;
+}
+.restored-path.deen-old-path .lp-node.current{
+  border-color:#b9ffec!important;
+  background:
+    radial-gradient(circle at 35% 25%,rgba(255,255,255,.18),transparent 33%),
+    linear-gradient(145deg,#77f4d9,#35c7af)!important;
+  box-shadow:
+    0 6px 0 #267c6c,
+    0 0 0 8px rgba(49,239,207,.10),
+    0 0 22px rgba(49,239,207,.38),
+    0 0 44px rgba(49,239,207,.16)!important;
+  animation:deenLegacyNeonPulse 2.65s ease-in-out infinite!important;
+}
+.restored-path.deen-old-path .lp-node.current .lp-symbol{
+  color:#0a3530!important;
+}
+.restored-path.deen-old-path .lp-node.mastered,
+.restored-path.deen-old-path .lp-node.challenge{
+  border-color:#e0c889!important;
+  box-shadow:
+    0 5px 0 #263332,
+    0 0 14px rgba(224,200,137,.24),
+    0 0 28px rgba(224,200,137,.10)!important;
+}
+.restored-path.deen-old-path .lp-node.matching:not(.locked){
+  border-color:#8f79ff!important;
+  box-shadow:
+    0 5px 0 #171d31,
+    0 0 14px rgba(143,121,255,.22),
+    0 0 28px rgba(143,121,255,.08)!important;
+}
+.restored-path.deen-old-path .lp-link.filled{
+  stroke:color-mix(in srgb,var(--unit-accent) 82%,#8db5a7)!important;
+  filter:
+    drop-shadow(0 0 3px color-mix(in srgb,var(--unit-accent) 55%,transparent))
+    drop-shadow(0 0 8px color-mix(in srgb,var(--unit-accent) 20%,transparent))!important;
+}
+.restored-path.deen-old-path .deen-path-dot{
+  filter:drop-shadow(0 0 6px color-mix(in srgb,var(--unit-accent) 55%,transparent))!important;
+}
+.restored-path.deen-old-path .lp-now{
+  background:#65f6da!important;
+  color:#07362e!important;
+  box-shadow:0 0 12px rgba(49,239,207,.30)!important;
+}
+
+/* The old neon stage intro must stay neon for the entire time the dialog is open. */
+#v5Sheet.deen-intro-dialog{
+  border-color:#ae74d3!important;
+  background:
+    radial-gradient(circle at 50% 21%,rgba(177,73,225,.13),transparent 34%),
+    radial-gradient(circle at 50% 21%,#183040 0%,#102832 40%,#0b202b 100%)!important;
+  box-shadow:
+    0 0 0 5px rgba(170,87,213,.10),
+    0 0 22px rgba(196,83,241,.42),
+    0 0 52px rgba(169,81,214,.30),
+    0 22px 85px rgba(0,0,0,.70)!important;
+}
+#v5Sheet.deen-intro-dialog .deen-intro-halo{
+  box-shadow:
+    0 0 18px color-mix(in srgb,var(--deen-intro-accent) 58%,transparent),
+    0 0 36px color-mix(in srgb,var(--deen-intro-accent) 30%,transparent),
+    inset 0 0 19px color-mix(in srgb,var(--deen-intro-accent) 18%,transparent)!important;
+}
+#v5Sheet.deen-intro-dialog .deen-intro-art svg{
+  filter:
+    drop-shadow(0 0 8px var(--deen-intro-accent))
+    drop-shadow(0 0 18px color-mix(in srgb,var(--deen-intro-accent) 45%,transparent))!important;
+}
+#v5Sheet.deen-intro-dialog .deen-intro-title{
+  text-shadow:
+    0 0 10px rgba(196,109,237,.62),
+    0 0 24px rgba(196,109,237,.34)!important;
+}
+#v5Sheet.deen-intro-dialog .deen-stage-intro .v5-primary{
+  border-color:#e4a5ff!important;
+  background:linear-gradient(110deg,#9021dc,#bc35ed 58%,#9c22d9)!important;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.30),
+    0 0 0 4px rgba(184,77,226,.12),
+    0 0 18px rgba(178,61,235,.62),
+    0 0 38px rgba(178,61,235,.28)!important;
+}
+
+@keyframes deenLegacyNeonPulse{
+  0%,100%{
+    box-shadow:
+      0 6px 0 #267c6c,
+      0 0 0 8px rgba(49,239,207,.09),
+      0 0 20px rgba(49,239,207,.34),
+      0 0 40px rgba(49,239,207,.14)
+  }
+  50%{
+    box-shadow:
+      0 6px 0 #267c6c,
+      0 0 0 11px rgba(49,239,207,.11),
+      0 0 28px rgba(49,239,207,.46),
+      0 0 52px rgba(49,239,207,.20)
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .restored-path.deen-old-path .lp-node.current{animation:none!important}
+}
+</style>
+<script id="deen-v1088-legacy-neon-persist-js">
+(()=>{
+  if(window.__deenV1088LegacyNeonPersist)return;
+  window.__deenV1088LegacyNeonPersist=true;
+
+  const VERSION='10.8.8';
+  const BASE_PREVIEW=typeof window.preview==='function'?window.preview:null;
+
+  const safeEsc=x=>{
+    try{return typeof esc==='function'?esc(String(x??'')):String(x??'')}catch(_){return String(x??'')}
+  };
+
+  function stageIcon(kind,done,locked){
+    if(locked)return '<path d="M8 11V8a4 4 0 0 1 8 0v3"/><rect x="6" y="11" width="12" height="9" rx="2"/>';
+    if(done)return '<path d="m5 12 4 4L19 6"/>';
+    if(kind==='challenge')return '<path d="m12 3 2.5 5.3L20 9l-4 3.9.9 5.6L12 16l-4.9 2.5.9-5.6L4 9l5.5-.7L12 3Z"/>';
+    if(kind==='review')return '<path d="M20 7v5h-5"/><path d="M19 12a7 7 0 1 1-2-5"/>';
+    return '<path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H12v17H7.5A2.5 2.5 0 0 0 5 22V5.5Z"/><path d="M19 5.5A2.5 2.5 0 0 0 16.5 3H12v17h4.5A2.5 2.5 0 0 1 19 22V5.5Z"/>';
+  }
+
+  function neonPreview(id){
+    try{
+      const stg=STAGES.find(x=>x.id===id);
+      if(!stg)return BASE_PREVIEW?.(id);
+
+      const unit=stg.unit;
+      const stages=unitStages(unit);
+      const index=stages.indexOf(stg);
+      const status=stageState(unit,index);
+      const qs=chooseQuestions(id);
+      const due=poolFor(id).filter(q=>state.reviewSchedule[q.id]?.nextReview<=Date.now()).length;
+      const desc=DESC[Number(unit.slice(1))-1]||'';
+      const mastery=masteryFor(unit);
+      const label=stg.kind==='challenge'?'USTALIK':stg.kind==='review'?'PEKİŞTİRME':'KISA DERS';
+      const accent=stg.kind==='challenge'?'#d9bc79':stg.kind==='review'?'#8d79ff':'#bc35ed';
+      const soft=stg.kind==='challenge'?'#f1dca6':stg.kind==='review'?'#d9d2ff':'#efd0ff';
+      const locked=!!status.locked;
+      const done=!!status.done;
+      const reason=Number(unit.slice(1))>=6&&!state.sectionFinal.completed
+        ?'Kısım 1 · Temeller Ustalığı finalini geçmelisin.'
+        :index>0
+          ?'Önce “'+safeEsc(stages[index-1].title)+'” aşamasını tamamla.'
+          :'Önce bir önceki ünitenin son aşamasını tamamla.';
+
+      const action=locked
+        ?'<div class="deen-intro-status">⌑ '+reason+'</div>'
+        :!qs.length
+          ?'<div class="deen-intro-status">Doğrulanmış uygun soru henüz bağlı değil. Enerji harcanmaz.</div>'
+          :'<button class="v5-primary" type="button" onclick="closeSheet();startStage(\''+safeEsc(id)+'\')">'+(done?'TEKRAR BAŞLA':'BAŞLA')+'</button>';
+
+      const reinforce=due>=2&&!locked
+        ?'<button class="v5-listbtn" type="button" onclick="closeSheet();startStage(\''+safeEsc(id)+'\')"><span>↻ Bu konuyu pekiştir</span><b>→</b></button>'
+        :'';
+
+      const body=
+        '<div class="deen-stage-intro" style="--deen-intro-accent:'+accent+';--deen-intro-soft:'+soft+'">'+
+          '<button class="deen-intro-back" type="button" onclick="closeSheet()"><span>‹</span> Öğrenme yoluna dön</button>'+
+          '<div class="deen-intro-art">'+
+            '<span class="deen-intro-halo"></span>'+
+            '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+stageIcon(stg.kind,done,locked)+'</svg>'+
+            '<i class="deen-intro-spark one">✦</i><i class="deen-intro-spark two">✧</i>'+
+          '</div>'+
+          '<div class="deen-intro-kicker">ÜNİTE '+Number(unit.slice(1))+' · AŞAMA '+(index+1)+' · '+label+'</div>'+
+          '<div class="deen-intro-title">'+safeEsc(stg.title)+'</div>'+
+          '<p class="deen-intro-desc">'+safeEsc(desc)+'</p>'+
+          '<div class="deen-intro-goal"><span>HEDEF</span><b>'+qs.length+' soru · '+stg.energy+' enerji · +'+stg.xp+' baz XP · Ustalık %'+mastery+'</b></div>'+
+          '<div class="deen-intro-reward"><span>✦</span> Yaklaşık '+(stg.kind==='challenge'?5:3)+' dakika</div>'+
+          action+reinforce+
+          '<div class="deen-intro-status">Gün içindeki tekrarlarında XP azalır.</div>'+
+        '</div>';
+
+      sheet(locked?'Bu ders henüz kilitli':stg.title,body);
+      ensureDialog();
+      return true;
+    }catch(err){
+      console.warn('Legacy neon preview fallback',err);
+      return BASE_PREVIEW?.(id);
+    }
+  }
+
+  function ensureDialog(){
+    const d=document.getElementById('v5Sheet');
+    if(!d)return false;
+    const hasIntro=!!d.querySelector('.deen-stage-intro');
+    if(hasIntro&&!d.classList.contains('deen-intro-dialog')){
+      d.classList.add('deen-intro-dialog');
+    }
+    return hasIntro;
+  }
+
+  window.preview=neonPreview;
+  try{preview=neonPreview}catch(_){}
+
+  const d=document.getElementById('v5Sheet');
+  if(d&&'MutationObserver' in window){
+    new MutationObserver(()=>{
+      if(d.querySelector('.deen-stage-intro')&&!d.classList.contains('deen-intro-dialog')){
+        d.classList.add('deen-intro-dialog');
+      }
+    }).observe(d,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
+  }
+
+  document.addEventListener('deen:path-rendered',()=>{
+    document.documentElement.dataset.deenLegacyNeon='persistent';
+  });
+
+  window.DEEN_LEGACY_NEON={
+    version:VERSION,
+    preview:neonPreview,
+    ensureDialog,
+    check:()=>({
+      current:document.querySelectorAll('.restored-path.deen-old-path .lp-node.current').length,
+      intro:!!document.querySelector('#v5Sheet.deen-intro-dialog .deen-stage-intro'),
+      css:!!document.getElementById('deen-v1088-legacy-neon-persist-css')
+    })
+  };
+
+  document.documentElement.dataset.deenLegacyNeon='persistent';
+})();
+</script>
