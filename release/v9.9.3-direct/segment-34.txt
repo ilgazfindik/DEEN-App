@@ -1186,7 +1186,8 @@ html:lang(ur){
   const IDS=[
     'deen-v1089-multilingual-typography-css',
     'deen-v1090-readability-guard-css',
-    'deen-v1091-typography-freeze-css'
+    'deen-v1091-typography-freeze-css',
+    'deen-v1092-luxury-neon-home-css'
   ];
 
   function enforce(){
@@ -1228,8 +1229,8 @@ html:lang(ur){
   setTimeout(enforce,120);
 
   window.DEEN_TYPOGRAPHY_LOCK={
-    version:'10.9.2',
-    build:'9193mobilefreezefix1',
+    version:'10.9.6',
+    build:'9200metacascadefix1',
     family:'Nunito Sans',
     neonPreserved:true,
     multilingual:true,
@@ -1866,14 +1867,19 @@ html:lang(ur){
 /* HOME META BOLD FIX */
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta b,
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta small{
+  font-family:var(--deen-font-ui)!important;
   font-weight:900!important;
-  -webkit-text-stroke:.24px currentColor!important;
+  line-height:1!important;
+  -webkit-text-stroke:.16px currentColor!important;
   text-rendering:geometricPrecision!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta b{
-  color:#f5faf7!important;
+  font-size:11.5px!important;
+  color:#f7fbf8!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta small{
-  color:#d2ded8!important;
+  font-size:10.5px!important;
+  color:#dce7e1!important;
+  letter-spacing:.05px!important;
 }
 </style>
