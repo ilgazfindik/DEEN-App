@@ -1250,13 +1250,14 @@ html:lang(ur){
 
 <!-- DEEN v10.9.2 — Luxury Neon Home V1 -->
 <style id="deen-v1092-luxury-neon-home-css">
+/* DEEN v10.9.3 — Luxury Neon Home V1.1: emerald balance + stronger mobile text. */
 /* Main-screen-only polish.
    Typography freeze, lesson engine, onboarding, profile and mascots stay untouched. */
 #learnScreen .restored-learn{
   background:
     radial-gradient(circle at 50% 13%,rgba(49,239,207,.050),transparent 30%),
     radial-gradient(circle at 82% 68%,rgba(217,188,121,.018),transparent 21%),
-    linear-gradient(180deg,#031219 0%,#021016 52%,#010b10 100%)!important;
+    linear-gradient(180deg,#031611 0%,#02120e 52%,#010b08 100%)!important;
 }
 
 /* HEADER — quieter shell, clearer hierarchy */
@@ -1268,9 +1269,9 @@ html:lang(ur){
 }
 #learnScreen .restored-header .stat{
   min-height:47px!important;
-  border:1px solid rgba(99,176,178,.18)!important;
+  border:1px solid rgba(78,183,145,.20)!important;
   border-radius:15px!important;
-  background:linear-gradient(180deg,rgba(8,34,42,.82),rgba(5,25,32,.88))!important;
+  background:linear-gradient(180deg,rgba(7,35,28,.84),rgba(4,26,21,.90))!important;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.018),
     0 8px 20px rgba(0,0,0,.09)!important;
@@ -1293,7 +1294,7 @@ html:lang(ur){
   border-radius:18px!important;
   background:
     radial-gradient(circle at 90% 0,rgba(49,239,207,.045),transparent 32%),
-    linear-gradient(180deg,rgba(11,39,47,.94),rgba(6,27,34,.98))!important;
+    linear-gradient(180deg,rgba(9,42,33,.95),rgba(5,29,23,.985))!important;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.018),
     0 14px 30px rgba(0,0,0,.13)!important;
@@ -1316,17 +1317,17 @@ html:lang(ur){
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-step{
   border:1px solid rgba(93,143,151,.24)!important;
-  background:#09252d!important;
+  background:#09291f!important;
   box-shadow:none!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-step.current{
   border-color:rgba(49,239,207,.66)!important;
-  background:#0d3837!important;
+  background:#0d3b30!important;
   box-shadow:0 0 0 2px rgba(49,239,207,.05),0 0 12px rgba(49,239,207,.11)!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-step.done{
   border-color:rgba(96,188,166,.34)!important;
-  background:#10332f!important;
+  background:#11372c!important;
 }
 #learnScreen .v711-progress-copy b{
   color:#dceae6!important;
@@ -1340,7 +1341,7 @@ html:lang(ur){
   min-height:44px!important;
   border:1px solid rgba(182,255,237,.30)!important;
   border-radius:13px!important;
-  background:linear-gradient(180deg,#4ce8cd 0%,#25c9ae 100%)!important;
+  background:linear-gradient(180deg,#49e8bc 0%,#20c59c 100%)!important;
   color:#042720!important;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.18),
@@ -1357,7 +1358,7 @@ html:lang(ur){
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta div{
   border:0!important;
-  background:rgba(4,24,31,.34)!important;
+  background:rgba(4,27,21,.38)!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta b{
   color:#d5e5e1!important;
@@ -1371,7 +1372,7 @@ html:lang(ur){
   min-height:48px!important;
   border:1px solid rgba(217,188,121,.18)!important;
   border-radius:14px!important;
-  background:linear-gradient(180deg,rgba(24,25,22,.86),rgba(7,26,32,.92))!important;
+  background:linear-gradient(180deg,rgba(21,27,21,.88),rgba(6,29,23,.94))!important;
   box-shadow:0 9px 22px rgba(0,0,0,.10)!important;
 }
 #learnScreen .v711-streak-fire{
@@ -1387,17 +1388,17 @@ html:lang(ur){
 }
 #learnScreen .v711-currency{
   border-left-color:rgba(217,188,121,.10)!important;
-  background:rgba(9,29,34,.34)!important;
+  background:rgba(7,31,24,.38)!important;
   color:#d8c38d!important;
 }
 
 /* UNIT HERO — luxury neon: one controlled perimeter + luminous progress */
 #learnScreen .restored-unit .hero{
-  border:1px solid color-mix(in srgb,var(--unit-accent) 46%,#25414a)!important;
+  border:1px solid color-mix(in srgb,var(--unit-accent) 46%,#29473b)!important;
   border-radius:20px!important;
   background:
     radial-gradient(circle at 82% 12%,color-mix(in srgb,var(--unit-accent) 4%,transparent),transparent 32%),
-    linear-gradient(145deg,rgba(9,38,46,.97),rgba(4,25,32,.995))!important;
+    linear-gradient(145deg,rgba(8,40,31,.975),rgba(4,27,21,.995))!important;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.018),
     0 14px 32px rgba(0,0,0,.14)!important;
@@ -1417,8 +1418,8 @@ html:lang(ur){
   box-shadow:0 0 15px rgba(217,188,121,.22)!important;
 }
 #learnScreen .restored-unit .hero-progress{
-  border-color:rgba(102,148,153,.13)!important;
-  background:#08242d!important;
+  border-color:rgba(94,151,129,.14)!important;
+  background:#08271f!important;
   box-shadow:inset 0 1px 3px rgba(0,0,0,.28)!important;
 }
 #learnScreen .restored-unit .hero-progress i{
@@ -1427,8 +1428,8 @@ html:lang(ur){
 }
 #learnScreen .restored-unit .hero-arrow{
   border-color:rgba(49,239,207,.28)!important;
-  background:#092932!important;
-  color:#74e6d1!important;
+  background:#092d24!important;
+  color:#75e7c3!important;
   box-shadow:none!important;
 }
 #learnScreen .restored-unit .hero-arrow:active{
@@ -1437,11 +1438,11 @@ html:lang(ur){
 
 /* LEARNING PATH — only the current choice gets strong neon */
 #learnScreen .restored-path.deen-old-path .lp-link{
-  stroke:#23414a!important;
+  stroke:#24483b!important;
   filter:none!important;
 }
 #learnScreen .restored-path.deen-old-path .lp-link.filled{
-  stroke:color-mix(in srgb,var(--unit-accent) 62%,#52756f)!important;
+  stroke:color-mix(in srgb,var(--unit-accent) 62%,#557c68)!important;
   filter:drop-shadow(0 0 3px color-mix(in srgb,var(--unit-accent) 22%,transparent))!important;
 }
 #learnScreen .restored-path.deen-old-path .deen-path-dot{
@@ -1450,17 +1451,17 @@ html:lang(ur){
 }
 #learnScreen .restored-path.deen-old-path .lp-node.deen-old-node{
   border-width:2px!important;
-  border-color:color-mix(in srgb,var(--unit-accent) 36%,#3e5a61)!important;
+  border-color:color-mix(in srgb,var(--unit-accent) 36%,#426154)!important;
   background:
-    radial-gradient(circle at 36% 28%,color-mix(in srgb,var(--unit-accent) 12%,#173b43),#09252e 68%)!important;
+    radial-gradient(circle at 36% 28%,color-mix(in srgb,var(--unit-accent) 12%,#173e33),#09281f 68%)!important;
   box-shadow:
-    0 5px 0 #071c23,
+    0 5px 0 #071d18,
     0 9px 19px rgba(0,0,0,.17)!important;
 }
 #learnScreen .restored-path.deen-old-path .lp-node.deen-old-node.completed{
-  border-color:color-mix(in srgb,var(--unit-accent) 46%,#6b8580)!important;
-  background:linear-gradient(145deg,#173c3b,#0d2e33)!important;
-  box-shadow:0 4px 0 #092127,0 7px 16px rgba(0,0,0,.13)!important;
+  border-color:color-mix(in srgb,var(--unit-accent) 46%,#6c8a78)!important;
+  background:linear-gradient(145deg,#173f34,#0d3127)!important;
+  box-shadow:0 4px 0 #09231d,0 7px 16px rgba(0,0,0,.13)!important;
 }
 #learnScreen .restored-path.deen-old-path .lp-node.deen-old-node.current{
   border-color:#b9ffec!important;
@@ -1477,9 +1478,9 @@ html:lang(ur){
   color:#072f29!important;
 }
 #learnScreen .restored-path.deen-old-path .lp-node.deen-old-node.locked{
-  border-color:#2a424b!important;
-  background:linear-gradient(145deg,#132830,#0c1d24)!important;
-  box-shadow:0 4px 0 #07151b!important;
+  border-color:#2c493b!important;
+  background:linear-gradient(145deg,#132c24,#0c201a)!important;
+  box-shadow:0 4px 0 #071712!important;
   opacity:.68!important;
 }
 #learnScreen .restored-path.deen-old-path .lp-node.deen-old-node.matching:not(.locked){
@@ -1494,8 +1495,8 @@ html:lang(ur){
 
 /* Stage side cards */
 #learnScreen .stage-card{
-  border:1px solid rgba(91,139,148,.17)!important;
-  background:linear-gradient(180deg,rgba(10,37,45,.92),rgba(6,27,34,.96))!important;
+  border:1px solid rgba(83,146,121,.18)!important;
+  background:linear-gradient(180deg,rgba(9,39,31,.94),rgba(5,29,23,.97))!important;
   box-shadow:0 8px 20px rgba(0,0,0,.11)!important;
 }
 #learnScreen .stage-card:not(.locked):hover{
@@ -1509,14 +1510,14 @@ html:lang(ur){
 /* BOTTOM NAV — cleaner floating dock, heritage neon remains active */
 #learnScreen.active ~ .bottomnav{
   height:78px!important;
-  border-top:1px solid rgba(69,128,136,.16)!important;
+  border-top:1px solid rgba(65,135,110,.18)!important;
   border-radius:22px 22px 0 0!important;
-  background:rgba(3,19,26,.96)!important;
+  background:rgba(3,22,17,.97)!important;
   box-shadow:0 -12px 30px rgba(0,0,0,.18)!important;
   backdrop-filter:blur(20px)!important;
 }
 #learnScreen.active ~ .bottomnav .navbtn{
-  color:#748c91!important;
+  color:#78958a!important;
   text-shadow:none!important;
 }
 #learnScreen.active ~ .bottomnav .navbtn.active{
@@ -1532,6 +1533,95 @@ html:lang(ur){
   width:5px!important;
   height:5px!important;
   box-shadow:0 0 7px rgba(49,239,207,.45)!important;
+}
+
+/* MOBILE TEXT — stronger, clearer */
+#learnScreen .restored-header .stat b{
+  color:#f2f8f4!important;
+  font-weight:800!important;
+}
+#learnScreen .restored-header .stat small{
+  color:#b9cbc3!important;
+  font-weight:600!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact .v680-kicker{
+  font-weight:800!important;
+  letter-spacing:1.15px!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact h1{
+  font-weight:700!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact>p{
+  color:#c5d4cf!important;
+  font-weight:600!important;
+}
+#learnScreen .v711-progress-copy b{
+  color:#e6f0eb!important;
+  font-weight:700!important;
+}
+#learnScreen .v711-progress-copy small{
+  color:#a5bab2!important;
+  font-weight:600!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact .v680-meta b{
+  color:#e4eee9!important;
+  font-weight:800!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact .v680-meta small{
+  color:#9fb5ad!important;
+  font-weight:600!important;
+}
+#learnScreen .v711-streak-copy b{
+  font-weight:800!important;
+}
+#learnScreen .v711-streak-copy small{
+  color:#b1a79d!important;
+  font-weight:600!important;
+}
+#learnScreen .v711-currency{
+  font-weight:800!important;
+}
+#learnScreen .restored-unit .hero .eyebrow{
+  color:#76e5c4!important;
+  font-weight:800!important;
+}
+#learnScreen .restored-unit .hero h1{
+  color:#f4f8f4!important;
+  font-weight:800!important;
+}
+#learnScreen .restored-unit .hero p{
+  color:#c9d9d1!important;
+  font-weight:600!important;
+}
+#learnScreen .restored-unit .hero-count,
+#learnScreen .restored-unit .lp-progress span,
+#learnScreen .restored-unit .lp-mastery{
+  color:#bfd0c8!important;
+  font-weight:700!important;
+}
+#learnScreen .stage-card strong{
+  color:#eef5f0!important;
+  font-weight:800!important;
+}
+#learnScreen .stage-card small{
+  color:#b1c5bc!important;
+  font-weight:600!important;
+}
+#learnScreen .restored-path .lp-label strong,
+#learnScreen .restored-path.deen-old-path .lp-label strong{
+  color:#edf5f0!important;
+  font-weight:800!important;
+}
+#learnScreen .restored-path .lp-label small,
+#learnScreen .restored-path.deen-old-path .lp-label small{
+  color:#adc2b9!important;
+  font-weight:600!important;
+}
+#learnScreen.active ~ .bottomnav .navbtn{
+  font-weight:700!important;
+}
+#learnScreen.active ~ .bottomnav .navbtn.active{
+  font-weight:800!important;
 }
 
 /* Keep touch response premium and restrained */
