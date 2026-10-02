@@ -82,3 +82,142 @@
  });
 })();
 </script>
+
+
+<!-- DEEN v10.7.6 — Profile companion uses the real HQ mascot atlas -->
+<style id="deen-v1076-profile-mascot-asset-css">
+#profileScreenBody .v5-profilehead .v5-avatar.large.v994-companion-avatar{
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  font-size:0!important;
+}
+#profileScreenBody .v1076-profile-mascot{
+  width:68px!important;
+  height:38.25px!important;
+  display:block!important;
+  flex:0 0 auto!important;
+  background-repeat:no-repeat!important;
+  background-size:200% auto!important;
+  background-color:transparent!important;
+  transform:scale(1.12)!important;
+  transform-origin:center!important;
+  filter:drop-shadow(0 5px 8px rgba(0,0,0,.22))!important;
+  pointer-events:none!important;
+}
+#profileScreenBody .v1076-profile-mascot[data-animal="lion"]{background-position:0 0!important}
+#profileScreenBody .v1076-profile-mascot[data-animal="wolf"]{background-position:100% 0!important}
+#profileScreenBody .v1076-profile-mascot[data-animal="owl"]{background-position:0 50%!important}
+#profileScreenBody .v1076-profile-mascot[data-animal="turtle"]{background-position:100% 50%!important}
+#profileScreenBody .v1076-profile-mascot[data-animal="eagle"]{background-position:0 100%!important}
+#profileScreenBody .v1076-profile-mascot[data-animal="cat"]{background-position:100% 100%!important}
+#profileScreenBody .v994-profile-animal{display:none!important}
+</style>
+<script id="deen-v1076-profile-mascot-asset-js">
+(()=>{
+ if(window.__deenV1076ProfileMascotAsset)return;
+ window.__deenV1076ProfileMascotAsset=true;
+
+ const VERSION='10.7.6';
+ const VALID=new Set(['lion','wolf','owl','turtle','eagle','cat']);
+ const POS={
+   lion:'0 0',
+   wolf:'100% 0',
+   owl:'0 50%',
+   turtle:'100% 50%',
+   eagle:'0 100%',
+   cat:'100% 100%'
+ };
+
+ function atlas(){
+   const style=document.getElementById('deen-v1073-onboarding-inline-atlas-css');
+   const text=String(style?.textContent||'');
+   const match=text.match(/url\(["']?(data:image\/webp;base64,[A-Za-z0-9+/=]+)["']?\)/);
+   return match?.[1]||'';
+ }
+
+ function selected(){
+   try{
+     const direct=String(state?.profile?.companion||'').trim().toLowerCase();
+     if(VALID.has(direct))return direct;
+     const current=window.DEEN_COMPANION?.current?.()?.id;
+     return VALID.has(current)?current:'';
+   }catch(_){return ''}
+ }
+
+ function apply(){
+   const root=document.getElementById('profileScreenBody');
+   if(!root)return false;
+
+   const avatar=root.querySelector('.v5-profilehead .v5-avatar.large');
+   const animal=selected();
+   const src=atlas();
+   if(!avatar||!animal||!src)return false;
+
+   avatar.classList.add('v994-companion-avatar','v1076-profile-avatar');
+   avatar.innerHTML='';
+
+   const art=document.createElement('span');
+   art.className='v1076-profile-mascot';
+   art.dataset.animal=animal;
+   art.setAttribute('aria-hidden','true');
+   art.style.backgroundImage='url("'+src+'")';
+   art.style.backgroundPosition=POS[animal];
+   avatar.appendChild(art);
+
+   const info=window.DEEN_COMPANION?.animals?.[animal];
+   const name=info?.name||animal;
+   const trait=info?.trait||'';
+   avatar.title=name+(trait?' · '+trait:'');
+   avatar.setAttribute('aria-label','Yol arkadaşın '+name+'. Değiştirmek için dokun.');
+
+   if(typeof window.DEEN_COMPANION?.open==='function'){
+     avatar.onclick=()=>window.DEEN_COMPANION.open('profile');
+   }
+
+   avatar.dataset.mascotAsset='hq-atlas';
+   avatar.dataset.animal=animal;
+   document.documentElement.dataset.deenProfileMascot=animal;
+   return true;
+ }
+
+ function schedule(){
+   requestAnimationFrame(()=>apply());
+   setTimeout(apply,30);
+   setTimeout(apply,90);
+ }
+
+ document.addEventListener('deen:profile-rendered',schedule);
+ document.addEventListener('deen:ui-updated',schedule);
+ document.addEventListener('deen:navigated',schedule);
+
+ const body=document.getElementById('profileScreenBody');
+ if(body){
+   new MutationObserver(()=>schedule()).observe(body,{childList:true,subtree:true});
+ }
+
+ const baseSelect=window.DEEN_COMPANION?.select;
+ if(typeof baseSelect==='function'&&!baseSelect.__deenProfileAssetWrapped){
+   const wrapped=function(){
+     const out=baseSelect.apply(this,arguments);
+     schedule();
+     return out;
+   };
+   wrapped.__deenProfileAssetWrapped=true;
+   window.DEEN_COMPANION.select=wrapped;
+ }
+
+ window.DEEN_PROFILE_MASCOT_ASSET={
+   version:VERSION,
+   apply,
+   check:()=>({
+     selected:selected(),
+     atlas:!!atlas(),
+     avatar:!!document.querySelector('#profileScreenBody .v1076-profile-mascot'),
+     rendered:document.querySelector('#profileScreenBody .v1076-profile-mascot')?.dataset?.animal||null
+   })
+ };
+
+ schedule();
+})();
+</script>
