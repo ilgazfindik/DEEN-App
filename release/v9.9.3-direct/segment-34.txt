@@ -482,7 +482,7 @@
 
 <!-- DEEN v10.8.9 — Multilingual Typography V1 -->
 <style id="deen-v1089-multilingual-typography-css">
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap');
 
 :root{
   --deen-font-ui:"Nunito Sans","Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
@@ -1250,7 +1250,7 @@ html:lang(ur){
 
 <!-- DEEN v10.9.2 — Luxury Neon Home V1 -->
 <style id="deen-v1092-luxury-neon-home-css">
-/* DEEN v10.9.4 — Luxury Neon Home V1.2: strong phone readability. */
+/* DEEN v10.9.5 — Luxury Neon Home V1.3: visibly bold phone typography. */
 /* Main-screen-only polish.
    Typography freeze, lesson engine, onboarding, profile and mascots stay untouched. */
 #learnScreen .restored-learn{
@@ -1538,7 +1538,7 @@ html:lang(ur){
 /* MOBILE TEXT — stronger, clearer */
 #learnScreen .restored-header .stat b{
   color:#f2f8f4!important;
-  font-weight:800!important;
+  font-weight:900!important;
 }
 #learnScreen .restored-header .stat small{
   color:#b9cbc3!important;
@@ -1565,29 +1565,29 @@ html:lang(ur){
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta b{
   color:#e4eee9!important;
-  font-weight:800!important;
+  font-weight:900!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta small{
   color:#9fb5ad!important;
   font-weight:600!important;
 }
 #learnScreen .v711-streak-copy b{
-  font-weight:800!important;
+  font-weight:900!important;
 }
 #learnScreen .v711-streak-copy small{
   color:#b1a79d!important;
   font-weight:600!important;
 }
 #learnScreen .v711-currency{
-  font-weight:800!important;
+  font-weight:900!important;
 }
 #learnScreen .restored-unit .hero .eyebrow{
   color:#76e5c4!important;
-  font-weight:800!important;
+  font-weight:900!important;
 }
 #learnScreen .restored-unit .hero h1{
   color:#f4f8f4!important;
-  font-weight:800!important;
+  font-weight:900!important;
 }
 #learnScreen .restored-unit .hero p{
   color:#c9d9d1!important;
@@ -1601,7 +1601,7 @@ html:lang(ur){
 }
 #learnScreen .stage-card strong{
   color:#eef5f0!important;
-  font-weight:800!important;
+  font-weight:900!important;
 }
 #learnScreen .stage-card small{
   color:#b1c5bc!important;
@@ -1610,7 +1610,7 @@ html:lang(ur){
 #learnScreen .restored-path .lp-label strong,
 #learnScreen .restored-path.deen-old-path .lp-label strong{
   color:#edf5f0!important;
-  font-weight:800!important;
+  font-weight:900!important;
 }
 #learnScreen .restored-path .lp-label small,
 #learnScreen .restored-path.deen-old-path .lp-label small{
@@ -1621,7 +1621,7 @@ html:lang(ur){
   font-weight:700!important;
 }
 #learnScreen.active ~ .bottomnav .navbtn.active{
-  font-weight:800!important;
+  font-weight:900!important;
 }
 
 /* STRONG READABILITY V2 — phone-first */
@@ -1629,47 +1629,47 @@ html:lang(ur){
 #learnScreen #v5Return .v680-nba.v711-compact .v680-kicker{
   font-size:11.5px!important;
   line-height:1.3!important;
-  font-weight:800!important;
-  letter-spacing:1.25px!important;
+  font-weight:900!important;
+  letter-spacing:1.15px!important;
   color:#8af0cf!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact h1{
   font-size:24px!important;
   line-height:1.16!important;
-  font-weight:800!important;
+  font-weight:900!important;
   letter-spacing:-.35px!important;
   color:#f7faf8!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact>p{
   font-size:14px!important;
   line-height:1.55!important;
-  font-weight:600!important;
+  font-weight:800!important;
   color:#d5e2dc!important;
   -webkit-line-clamp:3!important;
 }
 #learnScreen .v711-progress-copy b{
   font-size:12.5px!important;
   line-height:1.3!important;
-  font-weight:800!important;
+  font-weight:900!important;
   color:#f0f6f2!important;
 }
 #learnScreen .v711-progress-copy small{
   font-size:11px!important;
   line-height:1.35!important;
-  font-weight:600!important;
-  color:#b8cac2!important;
+  font-weight:800!important;
+  color:#c4d4cd!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta b{
   font-size:11px!important;
   line-height:1.25!important;
-  font-weight:800!important;
+  font-weight:900!important;
   color:#edf4f0!important;
 }
 #learnScreen #v5Return .v680-nba.v711-compact .v680-meta small{
   font-size:10.5px!important;
   line-height:1.25!important;
-  font-weight:700!important;
-  color:#afc2ba!important;
+  font-weight:800!important;
+  color:#baccc4!important;
 }
 
 /* Header labels */
@@ -1677,107 +1677,107 @@ html:lang(ur){
 #learnScreen .restored-header .stat strong{
   font-size:16px!important;
   line-height:1.05!important;
-  font-weight:800!important;
+  font-weight:900!important;
   color:#f6faf7!important;
 }
 #learnScreen .restored-header .stat small{
   font-size:11.5px!important;
   line-height:1.2!important;
-  font-weight:700!important;
-  color:#c6d6d0!important;
+  font-weight:800!important;
+  color:#d0ded8!important;
 }
 
 /* Streak strip */
 #learnScreen .v711-streak-copy b{
   font-size:12px!important;
   line-height:1.25!important;
-  font-weight:800!important;
+  font-weight:900!important;
   color:#f4eee7!important;
 }
 #learnScreen .v711-streak-copy small{
   font-size:11px!important;
   line-height:1.3!important;
-  font-weight:600!important;
-  color:#c2b7aa!important;
+  font-weight:700!important;
+  color:#c9beb1!important;
 }
 #learnScreen .v711-currency{
   font-size:11px!important;
-  font-weight:800!important;
+  font-weight:900!important;
 }
 
 /* Unit card */
 #learnScreen .restored-unit .hero .eyebrow{
   font-size:12px!important;
   line-height:1.3!important;
-  font-weight:800!important;
-  letter-spacing:1.25px!important;
+  font-weight:900!important;
+  letter-spacing:1.15px!important;
   color:#85efcc!important;
 }
 #learnScreen .restored-unit .hero h1{
   font-size:31px!important;
   line-height:1.08!important;
-  font-weight:800!important;
+  font-weight:900!important;
   letter-spacing:-.55px!important;
   color:#f7faf7!important;
 }
 #learnScreen .restored-unit .hero p{
   font-size:14.5px!important;
   line-height:1.58!important;
-  font-weight:600!important;
-  color:#d7e3dd!important;
+  font-weight:700!important;
+  color:#dce7e1!important;
 }
 #learnScreen .restored-unit .hero-count,
 #learnScreen .restored-unit .lp-progress span,
 #learnScreen .restored-unit .lp-mastery{
   font-size:12.5px!important;
   line-height:1.3!important;
-  font-weight:700!important;
-  color:#d4e0da!important;
+  font-weight:800!important;
+  color:#dbe6e0!important;
 }
 
 /* Learning path text cards */
 #learnScreen .stage-card strong{
   font-size:14.5px!important;
   line-height:1.28!important;
-  font-weight:800!important;
+  font-weight:900!important;
   color:#f5f9f6!important;
 }
 #learnScreen .stage-card small{
   font-size:11.5px!important;
   line-height:1.38!important;
-  font-weight:700!important;
-  color:#c2d2cb!important;
+  font-weight:800!important;
+  color:#cbdad3!important;
 }
 #learnScreen .restored-path .lp-label strong,
 #learnScreen .restored-path.deen-old-path .lp-label strong{
   font-size:14px!important;
   line-height:1.3!important;
-  font-weight:800!important;
+  font-weight:900!important;
   color:#f3f8f4!important;
 }
 #learnScreen .restored-path .lp-label small,
 #learnScreen .restored-path.deen-old-path .lp-label small{
   font-size:11.5px!important;
   line-height:1.4!important;
-  font-weight:700!important;
-  color:#bdd0c7!important;
+  font-weight:800!important;
+  color:#c7d8d0!important;
 }
 #learnScreen .restored-path.deen-old-path .lp-now{
   font-size:10.5px!important;
   line-height:1.15!important;
-  font-weight:800!important;
-  letter-spacing:.55px!important;
+  font-weight:900!important;
+  letter-spacing:.50px!important;
 }
 
 /* Bottom nav: labels remain legible even in Safari browser chrome. */
 #learnScreen.active ~ .bottomnav .navbtn{
   font-size:12px!important;
   line-height:1.2!important;
-  font-weight:700!important;
-  color:#8fa49d!important;
+  font-weight:800!important;
+  color:#a5bab2!important;
 }
 #learnScreen.active ~ .bottomnav .navbtn.active{
-  font-weight:800!important;
+  font-weight:900!important;
   color:#69f2cf!important;
 }
 
@@ -1802,6 +1802,36 @@ html:lang(ur){
   #learnScreen .restored-path .lp-label small,
   #learnScreen .restored-path.deen-old-path .lp-label small{font-size:11px!important}
   #learnScreen.active ~ .bottomnav .navbtn{font-size:11.5px!important}
+}
+
+/* BOLD RENDER ASSIST */
+/* Very small stroke compensates for thin mobile antialiasing without changing layout. */
+#learnScreen .restored-header .stat b,
+#learnScreen .restored-header .stat small,
+#learnScreen #v5Return .v680-kicker,
+#learnScreen #v5Return .v680-nba.v711-compact>p,
+#learnScreen .v711-progress-copy b,
+#learnScreen .v711-progress-copy small,
+#learnScreen #v5Return .v680-meta b,
+#learnScreen #v5Return .v680-meta small,
+#learnScreen .v711-streak-copy b,
+#learnScreen .v711-streak-copy small,
+#learnScreen .restored-unit .hero .eyebrow,
+#learnScreen .restored-unit .hero p,
+#learnScreen .restored-unit .hero-count,
+#learnScreen .restored-unit .lp-progress span,
+#learnScreen .restored-unit .lp-mastery,
+#learnScreen .stage-card strong,
+#learnScreen .stage-card small,
+#learnScreen .restored-path .lp-label strong,
+#learnScreen .restored-path .lp-label small,
+#learnScreen.active ~ .bottomnav .navbtn{
+  -webkit-text-stroke:.14px currentColor!important;
+  text-rendering:geometricPrecision!important;
+}
+#learnScreen #v5Return .v680-nba.v711-compact h1,
+#learnScreen .restored-unit .hero h1{
+  -webkit-text-stroke:.20px currentColor!important;
 }
 
 /* Keep touch response premium and restrained */
