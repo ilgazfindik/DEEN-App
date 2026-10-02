@@ -723,3 +723,364 @@ html:lang(ko) *{
   };
 })();
 </script>
+
+
+<!-- DEEN v10.9.0 — Global Readability Guard -->
+<style id="deen-v1090-readability-guard-css">
+:root{
+  --deen-readable-xs:11px;
+  --deen-readable-sm:12.5px;
+  --deen-readable-body:14px;
+  --deen-readable-muted:#aec2c4;
+  --deen-readable-soft:#c7d7d8;
+}
+
+/* Global floor for genuinely textual small-print.
+   Decorative icons and badges are excluded by selector. */
+.phone small:not(.lp-perfect):not(.lp-due),
+#v5Sheet small,
+#v998Onboarding small{
+  font-size:max(10.5px,.76em)!important;
+  line-height:1.38!important;
+}
+
+/* Top HUD */
+.stat-copy strong{
+  font-size:15px!important;
+  line-height:1.05!important;
+  font-weight:700!important;
+}
+.stat-copy small{
+  font-size:10.5px!important;
+  line-height:1.15!important;
+  margin-top:3px!important;
+  color:#b6c7d1!important;
+  font-weight:600!important;
+}
+@media(max-width:385px){
+  .stat-copy strong{font-size:14px!important}
+  .stat-copy small{font-size:10px!important}
+}
+
+/* Learn screen — section/card hierarchy */
+.restored-currency-pill{
+  font-size:11.5px!important;
+  line-height:1.2!important;
+}
+.restore-section-divider,
+.unit-divider{
+  font-size:10.5px!important;
+  line-height:1.25!important;
+  letter-spacing:1.35px!important;
+}
+.restored-unit .hero .eyebrow,
+.hero .eyebrow{
+  font-size:11.5px!important;
+  line-height:1.25!important;
+  letter-spacing:1.35px!important;
+}
+.restored-unit .hero p,
+.hero p{
+  font-size:13px!important;
+  line-height:1.52!important;
+  color:#d3e1e5!important;
+}
+.restored-unit .hero-count,
+.hero-count{
+  font-size:11.5px!important;
+  line-height:1.2!important;
+  color:#d2dde2!important;
+  font-weight:600!important;
+}
+.lp-progress span{
+  font-size:11.5px!important;
+  line-height:1.25!important;
+  color:#c8d8d6!important;
+}
+.lp-mastery{
+  font-size:10.5px!important;
+  line-height:1.3!important;
+  letter-spacing:1px!important;
+  font-weight:700!important;
+}
+.restored-path .lp-label strong,
+.restored-path.deen-old-path .lp-label strong,
+.lp-label strong{
+  font-size:13px!important;
+  line-height:1.28!important;
+  font-weight:700!important;
+  color:#dce8e5!important;
+}
+.restored-path .lp-label small,
+.restored-path.deen-old-path .lp-label small,
+.lp-label small{
+  font-size:11px!important;
+  line-height:1.32!important;
+  color:#a9bec2!important;
+  margin-top:4px!important;
+}
+.lp-now{
+  font-size:10px!important;
+  line-height:1.15!important;
+  letter-spacing:.55px!important;
+  font-weight:800!important;
+}
+.restore-world-card p,
+.lp-world p,
+.lp-unitintro p{
+  font-size:12.5px!important;
+  line-height:1.55!important;
+  color:#afc3c6!important;
+}
+.lp-unitintro .v5-kicker,
+.lp-return .v5-kicker{
+  font-size:11px!important;
+  line-height:1.2!important;
+}
+#learnScreen.active ~ .bottomnav .navbtn,
+.bottomnav .navbtn{
+  font-size:11.5px!important;
+  line-height:1.15!important;
+  font-weight:600!important;
+}
+
+/* Generic UI labels */
+.v5-kicker,
+.qmeta,
+.eyebrow{
+  font-size:max(11px,.72rem)!important;
+  line-height:1.3!important;
+}
+.v5-muted{
+  color:#bccdd0!important;
+  font-size:max(12.5px,.8rem)!important;
+  line-height:1.55!important;
+}
+.v5-footer-note,
+.v5-leaguekey,
+.v5-rank>span small,
+.v5-rank strong small{
+  font-size:11.5px!important;
+  line-height:1.45!important;
+}
+
+/* Lesson HUD */
+.lesson-brand-sub{
+  font-size:10.5px!important;
+  line-height:1.2!important;
+  color:#c2d3d7!important;
+}
+.lesson-count{
+  font-size:12.5px!important;
+  font-weight:600!important;
+}
+.lesson-chip,
+.lesson-chip.fire{
+  font-size:12px!important;
+  line-height:1.2!important;
+}
+.question-stage{
+  font-size:12px!important;
+  line-height:1.25!important;
+}
+.qmeta{
+  font-size:11px!important;
+  letter-spacing:1.25px!important;
+  color:#a9e0d2!important;
+}
+.qtype{
+  font-size:13.5px!important;
+  line-height:1.5!important;
+  color:#c5d5d8!important;
+}
+.question-frame.card-grid-layout .qtype,
+.question-frame.fill-layout .qtype,
+.tf-layout .qtype{
+  font-size:12px!important;
+}
+.option-label,
+.mc-standard .option-label,
+.premium-grid .option-label,
+.tf-options .option-label{
+  font-size:16px!important;
+  line-height:1.42!important;
+  font-weight:600!important;
+}
+.options.grid.premium-grid .option .option-label{
+  font-size:14.5px!important;
+  line-height:1.35!important;
+}
+.fill-answer-label{
+  font-size:11.5px!important;
+  line-height:1.3!important;
+}
+.match-column-title{
+  font-size:11.5px!important;
+  line-height:1.3!important;
+}
+.matching-progress,
+.matching-progress span,
+.activity-hint{
+  font-size:13px!important;
+  line-height:1.5!important;
+}
+.lesson-note small,
+.lesson-note.minimal small,
+.lesson-note.mc-minimal small{
+  font-size:11px!important;
+  line-height:1.38!important;
+}
+.lesson-note strong,
+.lesson-note.minimal strong{
+  font-size:12.5px!important;
+  line-height:1.35!important;
+}
+
+/* Feedback and results */
+.feedback-title{
+  font-size:14px!important;
+  line-height:1.3!important;
+}
+.feedback-text{
+  font-size:12.5px!important;
+  line-height:1.55!important;
+  color:#c2d2d0!important;
+}
+#resultSubtitle{
+  font-size:12.5px!important;
+  line-height:1.45!important;
+}
+.result-grid span,
+.final-metrics span,
+.final-insight small{
+  font-size:10.5px!important;
+  line-height:1.3!important;
+}
+
+/* Profile */
+#profileScreenBody .v5-profilemetrics small,
+#profileScreenBody .v5-panel small,
+#profileScreenBody .v5-badge small{
+  font-size:11.5px!important;
+  line-height:1.4!important;
+  color:#b5c7c4!important;
+}
+#profileScreenBody .v5-badge .deen-badge-status{
+  font-size:10px!important;
+  line-height:1.2!important;
+}
+#profileScreenBody .v5-listbtn{
+  font-size:13px!important;
+  line-height:1.35!important;
+}
+
+/* Onboarding */
+#v998Onboarding .v998-copy p{
+  font-size:14px!important;
+  line-height:1.58!important;
+  color:#b7c8c5!important;
+}
+#v998Onboarding .v998-helper{
+  font-size:11.5px!important;
+  line-height:1.4!important;
+}
+#v998Onboarding .v998-choice small,
+#v998Onboarding .v998-animal small{
+  font-size:11px!important;
+  line-height:1.35!important;
+  color:#a9bcba!important;
+}
+#v998Onboarding .v9912-auth-title,
+#v998Onboarding .v9912-or em{
+  font-size:10.5px!important;
+  line-height:1.25!important;
+}
+#v998Onboarding .v9912-authbtn b{
+  font-size:12.5px!important;
+  line-height:1.3!important;
+}
+
+/* Sheets/settings */
+#v5Sheet p{
+  font-size:14px!important;
+  line-height:1.58!important;
+}
+#v5Sheet .v5-muted{
+  font-size:12.5px!important;
+}
+#v5Sheet .v5-toggle,
+#v5Sheet .v5-label{
+  font-size:14px!important;
+}
+#v5Sheet .deen-intro-kicker{
+  font-size:11px!important;
+  line-height:1.3!important;
+}
+#v5Sheet .deen-intro-desc{
+  font-size:13px!important;
+  line-height:1.55!important;
+}
+#v5Sheet .deen-intro-goal span{
+  font-size:10.5px!important;
+}
+#v5Sheet .deen-intro-goal b{
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+#v5Sheet .deen-intro-status{
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+
+/* Keep text readable on small phones instead of shrinking further. */
+@media(max-width:390px){
+  .restored-unit .hero p,
+  .hero p{font-size:12.5px!important}
+  .restored-unit .hero-count,
+  .hero-count{font-size:11px!important}
+  .restored-path .lp-label strong,
+  .restored-path.deen-old-path .lp-label strong,
+  .lp-label strong{font-size:12.5px!important}
+  .restored-path .lp-label small,
+  .restored-path.deen-old-path .lp-label small,
+  .lp-label small{font-size:10.5px!important}
+  #learnScreen.active ~ .bottomnav .navbtn,
+  .bottomnav .navbtn{font-size:11px!important}
+}
+
+/* Arabic scripts need extra line height, not smaller text. */
+html:lang(ar) .phone,
+html:lang(fa) .phone,
+html:lang(ur) .phone{
+  --deen-readable-xs:11.5px;
+}
+html:lang(ar) .lp-label strong,
+html:lang(fa) .lp-label strong,
+html:lang(ur) .lp-label strong,
+html:lang(ar) .lp-label small,
+html:lang(fa) .lp-label small,
+html:lang(ur) .lp-label small,
+html:lang(ar) .qtype,
+html:lang(fa) .qtype,
+html:lang(ur) .qtype{
+  line-height:1.6!important;
+  letter-spacing:0!important;
+}
+</style>
+<script id="deen-v1090-readability-guard-js">
+(()=>{
+  if(window.__deenV1090Readability)return;
+  window.__deenV1090Readability=true;
+  document.documentElement.dataset.deenReadability='v1';
+  window.DEEN_READABILITY={
+    version:'10.9.0',
+    build:'9191readability1',
+    check:()=>({
+      css:!!document.getElementById('deen-v1090-readability-guard-css'),
+      stat:getComputedStyle(document.querySelector('.stat-copy small')||document.body).fontSize,
+      path:getComputedStyle(document.querySelector('.lp-label small')||document.body).fontSize,
+      nav:getComputedStyle(document.querySelector('.bottomnav .navbtn')||document.body).fontSize
+    })
+  };
+})();
+</script>
