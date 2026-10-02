@@ -155,6 +155,15 @@
    if(!avatar||!animal||!src)return false;
 
    avatar.classList.add('v994-companion-avatar','v1076-profile-avatar');
+
+   const existing=avatar.querySelector('.v1076-profile-mascot');
+   if(existing&&existing.dataset.animal===animal&&existing.style.backgroundImage){
+     avatar.dataset.mascotAsset='hq-atlas';
+     avatar.dataset.animal=animal;
+     document.documentElement.dataset.deenProfileMascot=animal;
+     return true;
+   }
+
    avatar.innerHTML='';
 
    const art=document.createElement('span');
