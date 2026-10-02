@@ -2224,54 +2224,118 @@ html:lang(ur){
   if(window.__deenV1094StageLaunch)return;
   window.__deenV1094StageLaunch=true;
 
-  const BASE_START=
-    typeof window.startStage==='function'
-      ?window.startStage
-      :(typeof startStage==='function'?startStage:null);
-
-  if(!BASE_START){
-    console.warn('DEEN liquid launch: startStage owner not found');
-    return;
-  }
-
-  let busy=false;
   let lastStage=null;
   let launchCount=0;
+  let lastAt=0;
 
-  const motionOff=()=>{
-    try{
-      return !!state?.settings?.reducedMotion||state?.settings?.animation===false;
-    }catch(_){
-      return false;
-    }
-  };
-
-  function curtain(){
+  function removeCurtain(){
     document.getElementById('deenStageLaunchCurtain')?.remove();
+  }
+
+  function curtain(stageId){
+    const now=Date.now();
+    if(now-lastAt<120)return document.getElementById('deenStageLaunchCurtain');
+    lastAt=now;
+    lastStage=String(stageId||'');
+    launchCount++;
+
+    removeCurtain();
+
     const phone=document.getElementById('phone');
     const host=document.body||document.documentElement;
-    if(!phone||!host)return null;
+    if(!host)return null;
 
-    const rect=phone.getBoundingClientRect();
+    const rect=phone?.getBoundingClientRect?.();
+    const left=rect?Math.round(rect.left):0;
+    const top=rect?Math.round(rect.top):0;
+    const width=rect?Math.max(1,Math.round(rect.width)):window.innerWidth;
+    const height=rect?Math.max(1,Math.round(rect.height)):window.innerHeight;
+
     const el=document.createElement('div');
     el.id='deenStageLaunchCurtain';
     el.setAttribute('aria-hidden','true');
-    el.style.setProperty('--deen-liquid-left',Math.round(rect.left)+'px');
-    el.style.setProperty('--deen-liquid-top',Math.round(rect.top)+'px');
-    el.style.setProperty('--deen-liquid-width',Math.max(1,Math.round(rect.width))+'px');
-    el.style.setProperty('--deen-liquid-height',Math.max(1,Math.round(rect.height))+'px');
+    Object.assign(el.style,{
+      position:'fixed',
+      left:left+'px',
+      top:top+'px',
+      width:width+'px',
+      height:height+'px',
+      overflow:'hidden',
+      pointerEvents:'none',
+      zIndex:'2147483646',
+      background:'transparent',
+      isolation:'isolate'
+    });
+
     try{
-      el.style.setProperty('--deen-liquid-radius',getComputedStyle(phone).borderRadius||'0px');
+      el.style.borderRadius=phone?getComputedStyle(phone).borderRadius:'0px';
     }catch(_){
-      el.style.setProperty('--deen-liquid-radius','0px');
+      el.style.borderRadius='0px';
     }
 
-    el.innerHTML=
-      '<div class="deen-liquid-soft"></div>'+
-      '<div class="deen-liquid-main"></div>';
+    const soft=document.createElement('div');
+    const main=document.createElement('div');
+    const shine=document.createElement('div');
 
+    for(const layer of [soft,main]){
+      Object.assign(layer.style,{
+        position:'absolute',
+        left:'-12%',
+        top:'-128%',
+        width:'124%',
+        height:'132%',
+        background:'#31EFCF',
+        willChange:'transform',
+        transform:'translate3d(0,-18%,0)',
+        backfaceVisibility:'hidden'
+      });
+    }
+
+    Object.assign(soft.style,{
+      opacity:'.30',
+      borderRadius:'0 0 48% 52% / 0 0 12% 10%'
+    });
+
+    Object.assign(main.style,{
+      borderRadius:'0 0 43% 57% / 0 0 10% 13%',
+      boxShadow:'0 22px 46px rgba(49,239,207,.18)'
+    });
+
+    Object.assign(shine.style,{
+      position:'absolute',
+      left:'-5%',
+      top:'-12px',
+      width:'110%',
+      height:'24px',
+      borderRadius:'50%',
+      background:'#31EFCF',
+      opacity:'.45',
+      filter:'blur(7px)'
+    });
+    main.appendChild(shine);
+
+    el.append(soft,main);
     host.appendChild(el);
-    setTimeout(()=>el.remove(),1040);
+
+    const timing={duration:940,easing:'cubic-bezier(.58,.02,.22,.98)',fill:'forwards'};
+    const mainAnim=main.animate([
+      {transform:'translate3d(0,-18%,0)',offset:0},
+      {transform:'translate3d(0,97%,0)',offset:.43},
+      {transform:'translate3d(0,97%,0)',offset:.58},
+      {transform:'translate3d(0,190%,0)',offset:1}
+    ],timing);
+
+    soft.animate([
+      {transform:'translate3d(0,-23%,0)',offset:0},
+      {transform:'translate3d(0,91%,0)',offset:.40},
+      {transform:'translate3d(0,91%,0)',offset:.58},
+      {transform:'translate3d(0,184%,0)',offset:1}
+    ],{...timing,duration:980});
+
+    mainAnim.finished
+      .catch(()=>{})
+      .finally(()=>setTimeout(removeCurtain,80));
+
     return el;
   }
 
@@ -2284,80 +2348,42 @@ html:lang(ur){
     setTimeout(()=>lesson.classList.remove('deen-stage-launch-in'),620);
   }
 
-  function invokeBase(ctx,args){
-    return BASE_START.apply(ctx,args);
-  }
+  // Authoritative trigger: Runtime Arbiter emits this immediately before
+  // every real stage start. No button selector or startStage wrapper needed.
+  document.addEventListener('deen:lesson-starting',event=>{
+    const stageId=event?.detail?.stageId||'';
+    curtain(stageId);
+    requestAnimationFrame(()=>requestAnimationFrame(revealLesson));
+  },true);
 
-  function launch(stageId,rest=[],ctx=window){
-    if(!stageId)return invokeBase(ctx,[stageId,...rest]);
-    if(busy)return false;
-
-    lastStage=String(stageId);
-    launchCount++;
-
-    if(motionOff()){
-      try{closeSheet()}catch(_){}
-      return invokeBase(ctx,[stageId,...rest]);
-    }
-
-    busy=true;
-
-    const sheet=document.getElementById('v5Sheet');
-    const primary=sheet?.querySelector('.deen-stage-intro .v5-primary');
-    if(primary)primary.disabled=true;
-
-    // The liquid starts immediately on lesson launch. The old preview remains
-    // underneath until the wipe fully covers the phone, then the real lesson
-    // is mounted behind the mint layer.
-    curtain();
-
-    setTimeout(()=>{
-      try{closeSheet()}catch(_){}
-
-      try{
-        invokeBase(ctx,[stageId,...rest]);
+  // Fallback for any future code path that activates lesson without emitting
+  // the lifecycle event. MutationObserver only fires when lesson becomes active.
+  const lesson=document.getElementById('lesson');
+  if(lesson&&'MutationObserver' in window){
+    let wasActive=lesson.classList.contains('active');
+    new MutationObserver(()=>{
+      const active=lesson.classList.contains('active');
+      if(active&&!wasActive&&!document.getElementById('deenStageLaunchCurtain')){
+        let sid='';
+        try{sid=String(session?.stage?.id||'')}catch(_){}
+        curtain(sid);
         revealLesson();
-      }catch(err){
-        console.warn('DEEN liquid stage launch failed',err);
       }
-
-      setTimeout(()=>{
-        busy=false;
-        if(primary&&primary.isConnected)primary.disabled=false;
-      },610);
-    },410);
-
-    return true;
+      wasActive=active;
+    }).observe(lesson,{attributes:true,attributeFilter:['class']});
   }
-
-  const animatedStart=function(stageId,...rest){
-    return launch(stageId,rest,this);
-  };
-
-  animatedStart.__deen9208=true;
-  animatedStart.__deen9953=BASE_START.__deen9953===true;
-  animatedStart.__deen9953Original=BASE_START.__deen9953Original||BASE_START;
-  animatedStart.__deenLiquidOriginal=BASE_START;
-
-  // Authoritative boundary: every real stage launch now crosses this wrapper.
-  window.startStage=animatedStart;
-  try{startStage=animatedStart}catch(_){}
 
   window.DEEN_STAGE_LAUNCH={
-    version:'10.9.7',
-    build:'9208globalstagewipe1',
-    start:animatedStart,
-    force:launch,
-    original:BASE_START,
+    version:'10.9.8',
+    build:'9209lessonstartingwipe1',
+    start:(stageId)=>curtain(stageId),
+    curtain,
     snapshot:()=>({
-      busy,
       lastStage,
       launchCount,
       curtain:!!document.getElementById('deenStageLaunchCurtain'),
-      lessonEntering:document.getElementById('lesson')?.classList.contains('deen-stage-launch-in')||false,
-      reduced:motionOff(),
-      globalOwner:window.startStage===animatedStart,
-      runtimeArbiterPreserved:animatedStart.__deen9953===true
+      lifecycle:true,
+      fallbackObserver:!!lesson
     })
   };
 })();
