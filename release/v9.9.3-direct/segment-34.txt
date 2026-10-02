@@ -2081,3 +2081,228 @@ html:lang(ur){
   };
 })();
 </script>
+
+
+<!-- DEEN v10.9.4 — Stage CTA -> lesson launch transition -->
+<style id="deen-v1094-stage-launch-css">
+/* Exit the purple stage intro with intent instead of disappearing instantly. */
+#v5Sheet.deen-stage-launch-out{
+  pointer-events:none!important;
+  animation:deenStageIntroExit .19s cubic-bezier(.4,0,.8,.2) both!important;
+}
+#v5Sheet.deen-stage-launch-out .deen-stage-intro .v5-primary{
+  animation:deenStageLaunchButton .19s cubic-bezier(.2,.8,.2,1) both!important;
+}
+#v5Sheet.deen-stage-launch-out .deen-intro-art{
+  animation:deenStageLaunchArt .19s ease-out both!important;
+}
+@keyframes deenStageIntroExit{
+  0%{opacity:1;transform:translateY(0) scale(1)}
+  100%{opacity:0;transform:translateY(-12px) scale(.976)}
+}
+@keyframes deenStageLaunchButton{
+  0%{transform:scale(1);filter:brightness(1)}
+  38%{transform:scale(.975);filter:brightness(1.18);box-shadow:0 0 0 5px rgba(188,53,237,.13),0 0 30px rgba(188,53,237,.65)}
+  100%{transform:scale(1.018);filter:brightness(1.08);opacity:.25}
+}
+@keyframes deenStageLaunchArt{
+  0%{transform:translateY(0) scale(1);opacity:1}
+  100%{transform:translateY(-7px) scale(1.04);opacity:.52}
+}
+
+/* Short mint energy veil between intro and gameplay. */
+#deenStageLaunchCurtain{
+  position:absolute;
+  inset:0;
+  z-index:12000;
+  pointer-events:none;
+  overflow:hidden;
+  border-radius:inherit;
+  background:
+    radial-gradient(circle at 50% 48%,rgba(80,244,205,.22),rgba(8,45,37,.16) 34%,rgba(1,12,14,.72) 78%);
+  animation:deenStageCurtain .46s cubic-bezier(.2,.75,.2,1) both;
+}
+#deenStageLaunchCurtain::before{
+  content:"";
+  position:absolute;
+  inset:-24% -70%;
+  background:linear-gradient(105deg,transparent 37%,rgba(137,255,226,.05) 43%,rgba(137,255,226,.50) 50%,rgba(137,255,226,.08) 57%,transparent 63%);
+  transform:translateX(-42%);
+  animation:deenStageCurtainSweep .46s cubic-bezier(.18,.8,.2,1) both;
+}
+#deenStageLaunchCurtain::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:90px;
+  height:90px;
+  border-radius:999px;
+  border:1px solid rgba(112,247,214,.60);
+  box-shadow:0 0 25px rgba(49,239,207,.22),inset 0 0 24px rgba(49,239,207,.10);
+  transform:translate(-50%,-50%) scale(.45);
+  animation:deenStageCurtainRing .42s ease-out both;
+}
+@keyframes deenStageCurtain{
+  0%{opacity:0}
+  22%{opacity:1}
+  66%{opacity:.86}
+  100%{opacity:0}
+}
+@keyframes deenStageCurtainSweep{
+  0%{transform:translateX(-42%)}
+  100%{transform:translateX(42%)}
+}
+@keyframes deenStageCurtainRing{
+  0%{opacity:.72;transform:translate(-50%,-50%) scale(.45)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(2.8)}
+}
+
+/* First gameplay frame arrives softly after the veil. */
+#lesson.deen-stage-launch-in .lesson-head{
+  animation:deenLessonHeadEnter .30s .035s ease-out both!important;
+}
+#lesson.deen-stage-launch-in .question-frame{
+  animation:deenLessonQuestionEnter .38s .075s cubic-bezier(.18,.86,.24,1) both!important;
+}
+#lesson.deen-stage-launch-in #continueBtn{
+  animation:deenLessonControlEnter .30s .15s ease-out both!important;
+}
+@keyframes deenLessonHeadEnter{
+  from{opacity:0;transform:translateY(-7px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes deenLessonQuestionEnter{
+  from{opacity:0;transform:translateY(17px) scale(.982)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes deenLessonControlEnter{
+  from{opacity:0;transform:translateY(9px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #v5Sheet.deen-stage-launch-out,
+  #v5Sheet.deen-stage-launch-out .deen-stage-intro .v5-primary,
+  #v5Sheet.deen-stage-launch-out .deen-intro-art,
+  #deenStageLaunchCurtain,
+  #deenStageLaunchCurtain::before,
+  #deenStageLaunchCurtain::after,
+  #lesson.deen-stage-launch-in .lesson-head,
+  #lesson.deen-stage-launch-in .question-frame,
+  #lesson.deen-stage-launch-in #continueBtn{
+    animation:none!important;
+  }
+}
+</style>
+
+<script id="deen-v1094-stage-launch-js">
+(()=>{
+  if(window.__deenV1094StageLaunch)return;
+  window.__deenV1094StageLaunch=true;
+
+  let busy=false;
+  let lastStage=null;
+
+  const motionOff=()=>{
+    try{
+      return !!state?.settings?.reducedMotion||
+        state?.settings?.animation===false||
+        matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }catch(_){
+      return matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+  };
+
+  function stageIdFromButton(btn){
+    const raw=String(btn?.getAttribute('onclick')||'');
+    const m=raw.match(/startStage\(\s*['"]([^'"]+)['"]\s*\)/);
+    return m?.[1]||'';
+  }
+
+  function curtain(){
+    document.getElementById('deenStageLaunchCurtain')?.remove();
+    const phone=document.getElementById('phone');
+    if(!phone)return null;
+    const el=document.createElement('div');
+    el.id='deenStageLaunchCurtain';
+    el.setAttribute('aria-hidden','true');
+    phone.appendChild(el);
+    setTimeout(()=>el.remove(),540);
+    return el;
+  }
+
+  function revealLesson(){
+    const lesson=document.getElementById('lesson');
+    if(!lesson)return;
+    lesson.classList.remove('deen-stage-launch-in');
+    void lesson.offsetWidth;
+    lesson.classList.add('deen-stage-launch-in');
+    setTimeout(()=>lesson.classList.remove('deen-stage-launch-in'),620);
+  }
+
+  function start(stageId){
+    if(!stageId||busy)return false;
+    if(typeof window.startStage!=='function'&&typeof startStage!=='function')return false;
+
+    lastStage=stageId;
+
+    if(motionOff()){
+      try{closeSheet()}catch(_){}
+      try{(window.startStage||startStage)(stageId)}catch(err){console.warn('DEEN stage launch',err)}
+      return true;
+    }
+
+    busy=true;
+    const sheet=document.getElementById('v5Sheet');
+    const primary=sheet?.querySelector('.deen-stage-intro .v5-primary');
+    if(primary)primary.disabled=true;
+    sheet?.classList.add('deen-stage-launch-out');
+
+    setTimeout(()=>{
+      try{closeSheet()}catch(_){}
+      sheet?.classList.remove('deen-stage-launch-out');
+      curtain();
+
+      setTimeout(()=>{
+        try{
+          (window.startStage||startStage)(stageId);
+          revealLesson();
+        }catch(err){
+          console.warn('DEEN animated stage launch failed',err);
+          try{(window.startStage||startStage)(stageId)}catch(_){}
+        }finally{
+          busy=false;
+        }
+      },105);
+    },185);
+
+    return true;
+  }
+
+  // Capture the existing purple BAŞLA / TEKRARLA CTA before its legacy inline
+  // closeSheet();startStage(...) handler fires.
+  document.addEventListener('click',event=>{
+    const btn=event.target?.closest?.('#v5Sheet.deen-intro-dialog .deen-stage-intro .v5-primary');
+    if(!btn||btn.disabled)return;
+    const stageId=stageIdFromButton(btn);
+    if(!stageId)return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    start(stageId);
+  },true);
+
+  window.DEEN_STAGE_LAUNCH={
+    version:'10.9.4',
+    build:'9205stagelaunch1',
+    start,
+    snapshot:()=>({
+      busy,
+      lastStage,
+      curtain:!!document.getElementById('deenStageLaunchCurtain'),
+      lessonEntering:document.getElementById('lesson')?.classList.contains('deen-stage-launch-in')||false,
+      reduced:motionOff()
+    })
+  };
+})();
+</script>
