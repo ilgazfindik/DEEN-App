@@ -1,0 +1,361 @@
+<!-- DEEN v10.8.1 — Premium geometry and hierarchy -->
+<style id="deen-v1081-premium-geometry-css">
+/* Screen rhythm */
+.scroll{
+  padding-left:22px!important;
+  padding-right:22px!important;
+  padding-bottom:38px!important;
+}
+.v5-page{
+  padding-top:calc(24px + env(safe-area-inset-top))!important;
+}
+
+/* Profile hierarchy */
+#profileScreenBody{
+  padding-bottom:12px!important;
+}
+#profileScreenBody>.v5-row:first-child{
+  min-height:48px!important;
+  margin-bottom:12px!important;
+}
+#profileScreenBody>.v5-row:first-child .v5-kicker{
+  letter-spacing:1.7px!important;
+}
+#profileScreenBody .v5-profilehead{
+  gap:16px!important;
+  margin:10px 0 26px!important;
+  align-items:center!important;
+}
+#profileScreenBody .v5-profilehead .v5-avatar.large{
+  width:76px!important;
+  height:76px!important;
+  border-radius:22px!important;
+  border:1px solid rgba(145,223,201,.24)!important;
+  background:linear-gradient(145deg,rgba(19,54,60,.96),rgba(10,35,42,.98))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    0 10px 28px rgba(0,0,0,.16)!important;
+}
+#profileScreenBody .v5-profilehead h1{
+  margin:0 0 2px!important;
+  line-height:1.08!important;
+}
+#profileScreenBody .v5-profilehead .v5-textbtn{
+  min-height:36px!important;
+  padding:5px 0!important;
+  font-size:13px!important;
+}
+
+/* Level card = primary information */
+#profileScreenBody>.v5-panel:first-of-type{
+  position:relative!important;
+  padding:18px 20px!important;
+  margin:0 0 18px!important;
+  border-radius:20px!important;
+  border:1px solid rgba(145,223,201,.16)!important;
+  background:
+    radial-gradient(circle at 88% 8%,rgba(145,223,201,.055),transparent 34%),
+    linear-gradient(180deg,rgba(17,48,55,.96),rgba(11,37,44,.985))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 14px 34px rgba(0,0,0,.12)!important;
+}
+#profileScreenBody>.v5-panel:first-of-type .v5-row{
+  align-items:baseline!important;
+  margin-bottom:12px!important;
+}
+#profileScreenBody>.v5-panel:first-of-type .v5-row b{
+  color:#f6f2e9!important;
+  font-size:15px!important;
+  font-weight:700!important;
+  line-height:1.2!important;
+}
+#profileScreenBody>.v5-panel:first-of-type .v5-row span{
+  color:#dbe8e3!important;
+  font-size:14px!important;
+  font-weight:600!important;
+}
+#profileScreenBody>.v5-panel:first-of-type .v5-bar{
+  height:7px!important;
+  margin:0!important;
+  border-radius:999px!important;
+}
+#profileScreenBody>.v5-panel:first-of-type .v5-muted{
+  margin:11px 0 0!important;
+  font-size:12px!important;
+  line-height:1.4!important;
+}
+
+/* Metrics: quieter than primary card */
+#profileScreenBody .v5-profilemetrics{
+  gap:10px!important;
+  margin:18px 0 20px!important;
+}
+#profileScreenBody .v5-profilemetrics>div{
+  min-height:86px!important;
+  padding:15px 16px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  border:1px solid rgba(160,210,200,.095)!important;
+  border-radius:17px!important;
+  background:rgba(13,40,47,.72)!important;
+  box-shadow:none!important;
+}
+#profileScreenBody .v5-profilemetrics strong{
+  font-size:23px!important;
+  line-height:1!important;
+  font-weight:700!important;
+  font-variant-numeric:tabular-nums!important;
+}
+#profileScreenBody .v5-profilemetrics small{
+  margin-top:8px!important;
+  color:#9eb0ad!important;
+  font-size:11.5px!important;
+  line-height:1.25!important;
+}
+
+/* Secondary rows should stop looking like boxed dashboard widgets */
+#profileScreenBody .v5-listbtn{
+  min-height:58px!important;
+  margin:9px 0!important;
+  padding:14px 15px!important;
+  border-color:rgba(160,210,200,.10)!important;
+  border-radius:15px!important;
+  background:rgba(13,40,47,.58)!important;
+  box-shadow:none!important;
+}
+#profileScreenBody .v5-listbtn:hover{
+  background:rgba(17,48,55,.72)!important;
+}
+#profileScreenBody .v5-section-label{
+  margin:30px 2px 13px!important;
+  color:#dfe8e4!important;
+  font-size:16px!important;
+  font-weight:700!important;
+  letter-spacing:-.2px!important;
+}
+#profileScreenBody .v5-badges{
+  gap:10px!important;
+}
+#profileScreenBody .v5-badge{
+  min-height:148px!important;
+  padding:16px 12px!important;
+  border-color:rgba(160,210,200,.09)!important;
+  background:rgba(13,40,47,.60)!important;
+  box-shadow:none!important;
+}
+#profileScreenBody .v5-badge.earned{
+  border-color:rgba(201,168,103,.24)!important;
+  background:
+    radial-gradient(circle at 50% 0,rgba(201,168,103,.08),transparent 44%),
+    rgba(32,39,34,.72)!important;
+}
+
+/* Premium card: editorial, not game-shop */
+#profileScreenBody .v5-premium{
+  padding:22px!important;
+  border-radius:20px!important;
+  border:1px solid rgba(201,168,103,.20)!important;
+  background:
+    radial-gradient(circle at 92% 0,rgba(201,168,103,.085),transparent 38%),
+    linear-gradient(160deg,rgba(31,42,38,.95),rgba(12,35,40,.98))!important;
+  box-shadow:none!important;
+}
+#profileScreenBody .v5-premium h2{
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-weight:600!important;
+  font-size:27px!important;
+  line-height:1.08!important;
+  color:#f2ecdf!important;
+}
+
+/* Bottom nav: deliberate active capsule */
+.bottomnav{
+  height:calc(78px + env(safe-area-inset-bottom))!important;
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom))!important;
+}
+.bottomnav .navbtn{
+  min-height:56px!important;
+  border:1px solid transparent!important;
+  border-radius:15px!important;
+  gap:5px!important;
+  font-size:11.5px!important;
+  transition:background .16s ease,border-color .16s ease,color .16s ease!important;
+}
+.bottomnav .navbtn svg{
+  width:21px!important;
+  height:21px!important;
+}
+.bottomnav .navbtn.active{
+  color:#b6eadb!important;
+  background:rgba(145,223,201,.065)!important;
+  border-color:rgba(145,223,201,.09)!important;
+}
+.bottomnav .navbtn.active::after{
+  display:none!important;
+}
+
+/* Lesson geometry */
+.lesson-head{
+  padding:calc(13px + env(safe-area-inset-top)) 14px 12px!important;
+  gap:10px!important;
+}
+.lesson-head .close{
+  width:40px!important;
+  height:40px!important;
+  min-width:40px!important;
+  border-radius:14px!important;
+  font-size:23px!important;
+}
+.lesson-chip{
+  height:38px!important;
+  min-width:70px!important;
+  padding:0 11px!important;
+}
+.qarea{
+  padding:8px 14px 20px!important;
+  gap:12px!important;
+}
+.question-frame{
+  border-radius:22px!important;
+  padding:34px 16px 16px!important;
+  overflow:hidden!important;
+}
+.question-frame::before{
+  display:none!important;
+}
+.question-ornament{
+  opacity:.48!important;
+}
+.question-icon{
+  top:14px!important;
+  width:36px!important;
+  height:36px!important;
+  border-color:rgba(160,210,200,.12)!important;
+  background:rgba(12,37,44,.88)!important;
+  color:#cbb177!important;
+  box-shadow:none!important;
+}
+.question-stage{
+  min-height:30px!important;
+  margin:11px auto 10px!important;
+  padding:0 12px!important;
+  border-color:rgba(145,223,201,.14)!important;
+  background:rgba(145,223,201,.045)!important;
+  font-size:9px!important;
+}
+.qmeta{
+  margin-top:1px!important;
+  color:#8fa5a3!important;
+  font-size:8.5px!important;
+  letter-spacing:2.1px!important;
+}
+.question{
+  max-width:92%!important;
+  margin:12px auto 12px!important;
+  font-size:clamp(19px,4.8vw,23px)!important;
+  line-height:1.24!important;
+  font-weight:650!important;
+}
+.qtype{
+  max-width:90%!important;
+  margin:0 auto 15px!important;
+  color:#96aaa7!important;
+  font-size:10px!important;
+  line-height:1.45!important;
+}
+
+/* Answers */
+#answerArea,
+.options{
+  gap:9px!important;
+}
+.option{
+  min-height:62px!important;
+  border-radius:16px!important;
+  padding:11px 14px 11px 58px!important;
+  border-width:1px!important;
+  font-size:14px!important;
+  line-height:1.34!important;
+  font-weight:550!important;
+}
+.option .option-badge{
+  left:13px!important;
+  width:32px!important;
+  height:32px!important;
+  border-radius:10px!important;
+  font-family:"Manrope","Inter","Segoe UI",system-ui,sans-serif!important;
+  font-size:12px!important;
+  font-weight:700!important;
+}
+.option.selected{
+  border-color:rgba(145,223,201,.44)!important;
+  background:
+    linear-gradient(180deg,rgba(24,61,66,.96),rgba(14,45,51,.99))!important;
+  box-shadow:inset 0 0 0 1px rgba(145,223,201,.08)!important;
+}
+.option.correct{
+  border-color:rgba(145,223,201,.52)!important;
+}
+.option.wrong{
+  border-color:rgba(232,121,127,.42)!important;
+}
+.template-action{
+  min-height:52px!important;
+  border-radius:15px!important;
+  margin-top:3px!important;
+  font-size:14px!important;
+}
+
+/* Fill / sequence / matching consistency */
+.v710-word-chip,
+.fill-choice,
+.v1039-fill-chip,
+.v1040-fill-chip,
+.seq-chip{
+  border-radius:14px!important;
+}
+.sequence-zone{
+  border-width:1px!important;
+  border-color:rgba(160,210,200,.16)!important;
+  background:rgba(7,28,34,.66)!important;
+  border-radius:16px!important;
+}
+.v1017-card{
+  border-radius:15px!important;
+}
+
+/* Desktop shell */
+@media(min-width:600px){
+  .phone{
+    border-radius:30px!important;
+    border-color:rgba(160,210,200,.14)!important;
+  }
+}
+
+/* Small screens */
+@media(max-width:390px){
+  .scroll{padding-left:18px!important;padding-right:18px!important}
+  #profileScreenBody .v5-profilehead{gap:14px!important}
+  #profileScreenBody .v5-profilehead .v5-avatar.large{width:70px!important;height:70px!important}
+  #profileScreenBody .v5-profilemetrics>div{min-height:80px!important;padding:14px!important}
+  #profileScreenBody .v5-profilemetrics strong{font-size:21px!important}
+  .qarea{padding-left:11px!important;padding-right:11px!important}
+  .question-frame{padding-left:13px!important;padding-right:13px!important}
+  .option{min-height:58px!important;padding-left:54px!important}
+}
+</style>
+<script id="deen-v1081-premium-geometry-js">
+window.DEEN_PREMIUM_GEOMETRY={
+  version:'10.8.1',
+  build:'9181premiumgeometry1',
+  check:()=>({
+    css:!!document.getElementById('deen-v1081-premium-geometry-css'),
+    metrics:document.querySelectorAll('#profileScreenBody .v5-profilemetrics>div').length,
+    nav:document.querySelectorAll('.bottomnav .navbtn').length,
+    lesson:!!document.querySelector('.question-frame')
+  })
+};
+document.documentElement.dataset.deenGeometry='premium-v2';
+</script>
