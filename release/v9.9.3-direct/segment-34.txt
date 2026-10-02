@@ -406,10 +406,10 @@
         ?'<div class="deen-intro-status">⌑ '+reason+'</div>'
         :!qs.length
           ?'<div class="deen-intro-status">Doğrulanmış uygun soru henüz bağlı değil. Enerji harcanmaz.</div>'
-          :'<button class="v5-primary" type="button" onclick="window.DEEN_STAGE_LAUNCH.start(\''+safeEsc(id)+'\')">'+(done?'TEKRAR BAŞLA':'BAŞLA')+'</button>';
+          :'<button class="v5-primary" type="button" onclick="startStage(\''+safeEsc(id)+'\')">'+(done?'TEKRAR BAŞLA':'BAŞLA')+'</button>';
 
       const reinforce=due>=2&&!locked
-        ?'<button class="v5-listbtn" type="button" onclick="window.DEEN_STAGE_LAUNCH.start(\''+safeEsc(id)+'\')"><span>↻ Bu konuyu pekiştir</span><b>→</b></button>'
+        ?'<button class="v5-listbtn" type="button" onclick="startStage(\''+safeEsc(id)+'\')"><span>↻ Bu konuyu pekiştir</span><b>→</b></button>'
         :'';
 
       const body=
@@ -2224,24 +2224,27 @@ html:lang(ur){
   if(window.__deenV1094StageLaunch)return;
   window.__deenV1094StageLaunch=true;
 
+  const BASE_START=
+    typeof window.startStage==='function'
+      ?window.startStage
+      :(typeof startStage==='function'?startStage:null);
+
+  if(!BASE_START){
+    console.warn('DEEN liquid launch: startStage owner not found');
+    return;
+  }
+
   let busy=false;
   let lastStage=null;
+  let launchCount=0;
 
   const motionOff=()=>{
     try{
-      return !!state?.settings?.reducedMotion||
-        state?.settings?.animation===false||
-        matchMedia('(prefers-reduced-motion: reduce)').matches;
+      return !!state?.settings?.reducedMotion||state?.settings?.animation===false;
     }catch(_){
-      return matchMedia('(prefers-reduced-motion: reduce)').matches;
+      return false;
     }
   };
-
-  function stageIdFromButton(btn){
-    const raw=String(btn?.getAttribute('onclick')||'');
-    const m=raw.match(/startStage\(\s*['"]([^'"]+)['"]\s*\)/);
-    return m?.[1]||'';
-  }
 
   function curtain(){
     document.getElementById('deenStageLaunchCurtain')?.remove();
@@ -2262,6 +2265,7 @@ html:lang(ur){
     }catch(_){
       el.style.setProperty('--deen-liquid-radius','0px');
     }
+
     el.innerHTML=
       '<div class="deen-liquid-soft"></div>'+
       '<div class="deen-liquid-main"></div>';
@@ -2280,67 +2284,80 @@ html:lang(ur){
     setTimeout(()=>lesson.classList.remove('deen-stage-launch-in'),620);
   }
 
-  function start(stageId){
-    if(!stageId||busy)return false;
-    if(typeof window.startStage!=='function'&&typeof startStage!=='function')return false;
+  function invokeBase(ctx,args){
+    return BASE_START.apply(ctx,args);
+  }
 
-    lastStage=stageId;
+  function launch(stageId,rest=[],ctx=window){
+    if(!stageId)return invokeBase(ctx,[stageId,...rest]);
+    if(busy)return false;
+
+    lastStage=String(stageId);
+    launchCount++;
 
     if(motionOff()){
       try{closeSheet()}catch(_){}
-      try{(window.startStage||startStage)(stageId)}catch(err){console.warn('DEEN stage launch',err)}
-      return true;
+      return invokeBase(ctx,[stageId,...rest]);
     }
 
     busy=true;
+
     const sheet=document.getElementById('v5Sheet');
     const primary=sheet?.querySelector('.deen-stage-intro .v5-primary');
     if(primary)primary.disabled=true;
-    sheet?.classList.add('deen-stage-launch-out');
+
+    // The liquid starts immediately on lesson launch. The old preview remains
+    // underneath until the wipe fully covers the phone, then the real lesson
+    // is mounted behind the mint layer.
+    curtain();
 
     setTimeout(()=>{
       try{closeSheet()}catch(_){}
-      sheet?.classList.remove('deen-stage-launch-out');
-      curtain();
+
+      try{
+        invokeBase(ctx,[stageId,...rest]);
+        revealLesson();
+      }catch(err){
+        console.warn('DEEN liquid stage launch failed',err);
+      }
 
       setTimeout(()=>{
-        try{
-          (window.startStage||startStage)(stageId);
-          revealLesson();
-        }catch(err){
-          console.warn('DEEN animated stage launch failed',err);
-          try{(window.startStage||startStage)(stageId)}catch(_){}
-        }finally{
-          busy=false;
-        }
-      },430);
-    },185);
+        busy=false;
+        if(primary&&primary.isConnected)primary.disabled=false;
+      },610);
+    },410);
 
     return true;
   }
 
-  // Capture the existing purple BAŞLA / TEKRARLA CTA before its legacy inline
-  // closeSheet();startStage(...) handler fires.
-  document.addEventListener('click',event=>{
-    const btn=event.target?.closest?.('#v5Sheet .deen-stage-intro .v5-primary, #v5Sheet .deen-stage-intro .v5-listbtn');
-    if(!btn||btn.disabled)return;
-    const stageId=stageIdFromButton(btn);
-    if(!stageId)return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    start(stageId);
-  },true);
+  const animatedStart=function(stageId,...rest){
+    return launch(stageId,rest,this);
+  };
+
+  animatedStart.__deen9208=true;
+  animatedStart.__deen9953=BASE_START.__deen9953===true;
+  animatedStart.__deen9953Original=BASE_START.__deen9953Original||BASE_START;
+  animatedStart.__deenLiquidOriginal=BASE_START;
+
+  // Authoritative boundary: every real stage launch now crosses this wrapper.
+  window.startStage=animatedStart;
+  try{startStage=animatedStart}catch(_){}
 
   window.DEEN_STAGE_LAUNCH={
-    version:'10.9.6',
-    build:'9207liquidtransitionfix1',
-    start,
+    version:'10.9.7',
+    build:'9208globalstagewipe1',
+    start:animatedStart,
+    force:launch,
+    original:BASE_START,
     snapshot:()=>({
       busy,
       lastStage,
+      launchCount,
       curtain:!!document.getElementById('deenStageLaunchCurtain'),
       lessonEntering:document.getElementById('lesson')?.classList.contains('deen-stage-launch-in')||false,
-      reduced:motionOff()
+      reduced:motionOff(),
+      globalOwner:window.startStage===animatedStart,
+      runtimeArbiterPreserved:animatedStart.__deen9953===true
     })
   };
 })();
