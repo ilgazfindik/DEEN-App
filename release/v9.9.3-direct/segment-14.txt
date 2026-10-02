@@ -295,7 +295,16 @@
   }
   function renderHome(){
     try{window.DEEN_DAILY_JOURNEY?.evaluate?.(day(),false);window.DEEN_ECONOMY?.evaluate?.(day(),false)}catch(e){}
-    const host=document.getElementById('v5Return');if(!host)return;host.innerHTML=homeHtml();const btn=document.getElementById('v680HomeAction');if(btn)btn.onclick=()=>execute(decide('home'));
+    const host=document.getElementById('v5Return');if(!host)return;host.innerHTML=homeHtml();const btn=document.getElementById('v680HomeAction');if(btn){
+      btn.style.setProperty('font-family','var(--deen-font-ui)','important');
+      btn.style.setProperty('font-size','12.5px','important');
+      btn.style.setProperty('font-weight','900','important');
+      btn.style.setProperty('line-height','1','important');
+      btn.style.setProperty('letter-spacing','.45px','important');
+      btn.style.setProperty('-webkit-text-stroke','.16px currentColor','important');
+      btn.dataset.deenCtaTypography='bold';
+      btn.onclick=()=>execute(decide('home'));
+    }
     const stats=document.getElementById('v5Stats');if(stats?.parentNode&&stats.nextElementSibling!==host)stats.after(host);const streak=document.getElementById('v622StreakPanel');if(streak?.parentNode&&host.nextElementSibling!==streak)host.after(streak);
   }
   function begin(kind){
@@ -581,7 +590,7 @@
 .v711-progress-copy{min-width:0;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:1px}
 .v711-progress-copy b{font-size:8px;color:#dff4ee;letter-spacing:.15px;white-space:nowrap}
 .v711-progress-copy small{font-size:6.8px;color:#7f9c9e;white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}
-#v5Return .v680-nba.v711-compact .v680-main{min-height:43px!important;border-radius:14px!important;font-size:9.5px!important;box-shadow:0 4px 0 #0b7b70!important}
+#v5Return .v680-nba.v711-compact .v680-main{min-height:43px!important;border-radius:14px!important;font-size:12.5px!important;font-weight:900!important;line-height:1!important;letter-spacing:.45px!important;-webkit-text-stroke:.16px currentColor!important;text-rendering:geometricPrecision!important;box-shadow:0 4px 0 #0b7b70!important}
 #v5Return .v680-nba.v711-compact .v680-main.gold{box-shadow:0 4px 0 #80651e!important}
 #v5Return .v680-nba.v711-compact .v680-meta{display:flex!important;gap:5px!important;margin-top:8px!important;justify-content:center!important;flex-wrap:nowrap!important}
 #v5Return .v680-nba.v711-compact .v680-meta div{display:flex!important;align-items:center!important;justify-content:center!important;gap:4px!important;flex:1 1 0!important;border:0!important;border-radius:999px!important;background:rgba(7,30,38,.55)!important;padding:5px 6px!important;min-height:25px!important}
