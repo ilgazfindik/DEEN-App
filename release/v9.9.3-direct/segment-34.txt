@@ -2704,8 +2704,8 @@ window.DEEN_REWARD_BADGE_ART={
   if(window.__deenV10913AdminPanel)return;
   window.__deenV10913AdminPanel=true;
 
-  const VERSION='10.9.13';
-  const BUILD='9214adminauthority1';
+  const VERSION='10.9.14';
+  const BUILD='9215adminreset1';
   const SECTION_MAX={1:5,2:10,3:15};
 
   function clone(v){try{return JSON.parse(JSON.stringify(v))}catch(_){return v}}
@@ -2788,11 +2788,57 @@ window.DEEN_REWARD_BADGE_ART={
     for(let i=1;i<=n;i++)passFinal(i);
     persist('Kısım '+n+' tamamlandı · '+count+' teknik aşama %100.');
   }
+  function clearStageRuntime(ids){
+    const set=new Set(ids);
+    if(state.stageLessonMeta&&typeof state.stageLessonMeta==='object'){
+      for(const id of set)delete state.stageLessonMeta[id];
+    }
+    if(state.stageAttemptCounts&&typeof state.stageAttemptCounts==='object'){
+      for(const id of set)delete state.stageAttemptCounts[id];
+    }
+    if(state.stageAttempts&&typeof state.stageAttempts==='object'){
+      for(const key of Object.keys(state.stageAttempts)){
+        if([...set].some(id=>key===id||key.endsWith(':'+id)))delete state.stageAttempts[key];
+      }
+    }
+  }
+  function resetSection(n,{all=false}={}){
+    ensureArrays();
+    n=Math.max(1,Math.min(3,Number(n)||1));
+    const minUnit=all?1:(n===1?1:n===2?6:11);
+    const maxUnit=15;
+    const affectedStages=stageList().filter(s=>{
+      const u=Number(String(s.unit||'').slice(1));
+      return u>=minUnit&&u<=maxUnit;
+    });
+    const affectedIds=new Set(affectedStages.map(s=>s.id));
+    const affectedUnits=new Set(units().filter(u=>Number(u.slice(1))>=minUnit));
+
+    state.completed=state.completed.filter(id=>!affectedIds.has(id));
+    for(const id of affectedIds)delete state.stageScores[id];
+    clearStageRuntime([...affectedIds]);
+
+    state.celebratedUnits=(state.celebratedUnits||[]).filter(u=>!affectedUnits.has(u));
+    state.history=(state.history||[]).filter(h=>{
+      const u=Number(String(h?.unit||'').slice(1));
+      return !Number.isFinite(u)||u<minUnit;
+    });
+
+    for(let i=n;i<=3;i++){
+      const f=finalState(i);
+      Object.assign(f,{attempts:0,bestScore:0,completed:false,rank:null,lastKnowledge:0,lastRetention:0});
+    }
+    state.celebratedSections=(state.celebratedSections||[]).filter(x=>Number(x)<n);
+
+    persist(all
+      ? 'Tüm bölüm ilerlemesi sıfırlandı.'
+      : 'Kısım '+n+' ve sonraki kısımlar sıfırlandı.');
+  }
   function passAll(){
     ensureArrays();
     const count=completeThrough(15);
     passFinal(1);passFinal(2);passFinal(3);
-    persist('Tüm içerik tamamlandı · '+count+' aşama %100 · 3 final geçti.');
+    persist('Tüm içerik tamamlandı · '+count+' teknik aşama %100 · 3 final geçti.');
   }
   function passSelectedStage(){
     const id=document.getElementById('deenAdminStage')?.value;
@@ -3003,10 +3049,14 @@ window.DEEN_REWARD_BADGE_ART={
       '</div>'+
       '<section class="deen-admin-section"><h3>HIZLI İLERLEME</h3><div class="deen-admin-grid">'+
         '<button class="deen-admin-btn primary" data-admin="passAll">TÜM BÖLÜMLERİ GEÇ</button>'+
-        '<button class="deen-admin-btn gold" data-admin="unlockBadges">TÜM ROZETLERİ AÇ</button>'+
+        '<button class="deen-admin-btn warn" data-admin="resetAllSections">TÜM BÖLÜMLERİ SIFIRLA</button>'+
         '<button class="deen-admin-btn" data-admin="passSection" data-arg="1">KISIM 1’İ GEÇ</button>'+
+        '<button class="deen-admin-btn warn" data-admin="resetSection" data-arg="1">KISIM 1’İ SIFIRLA</button>'+
         '<button class="deen-admin-btn" data-admin="passSection" data-arg="2">KISIM 2’Yİ GEÇ</button>'+
+        '<button class="deen-admin-btn warn" data-admin="resetSection" data-arg="2">KISIM 2’Yİ SIFIRLA</button>'+
         '<button class="deen-admin-btn" data-admin="passSection" data-arg="3">KISIM 3’Ü GEÇ</button>'+
+        '<button class="deen-admin-btn warn" data-admin="resetSection" data-arg="3">KISIM 3’Ü SIFIRLA</button>'+
+        '<button class="deen-admin-btn gold" data-admin="unlockBadges">TÜM ROZETLERİ AÇ</button>'+
         '<button class="deen-admin-btn '+(s.preview?'gold':'dark')+'" data-admin="previewUnlock" data-arg="'+(s.preview?'0':'1')+'">'+(s.preview?'KİLİTLERİ NORMALLEŞTİR':'TÜM KİLİTLERİ AÇ')+'</button>'+
       '</div></section>'+
       '<section class="deen-admin-section"><h3>TEK AŞAMA KONTROLÜ</h3>'+
@@ -3070,6 +3120,8 @@ window.DEEN_REWARD_BADGE_ART={
     unlockBadges,
     clearBadges,
     passSection:n=>passSection(Number(n)),
+    resetSection:n=>resetSection(Number(n)),
+    resetAllSections:()=>resetSection(1,{all:true}),
     previewUnlock:v=>previewUnlock(v==='1'),
     passStage:passSelectedStage,
     resetStage:resetSelectedStage,
@@ -3110,7 +3162,7 @@ window.DEEN_REWARD_BADGE_ART={
 
   window.DEEN_ADMIN={
     authoritative:true,version:VERSION,build:BUILD,open,close,toggle,render,snapshot,
-    passAll,passSection,passFinal:passOneFinal,
+    passAll,passSection,resetSection,passFinal:passOneFinal,
     passStage:id=>{const s=stageList().find(x=>x.id===id);if(!s)return false;completeStages(x=>x.id===id);persist(id+' tamamlandı.');return true},
     passUnit:u=>{const count=completeStages(s=>s.unit===u);persist(u+' · '+count+' aşama tamamlandı.');return count},
     unlockBadges,
@@ -3118,6 +3170,6 @@ window.DEEN_REWARD_BADGE_ART={
     onboarding:()=>openEntry(true),
     audit
   };
-  document.documentElement.dataset.deenAdmin='v10912';
+  document.documentElement.dataset.deenAdmin='v10914';
 })();
 </script>
