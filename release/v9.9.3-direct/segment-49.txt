@@ -1,0 +1,229 @@
+
+<style id="deen-v10942-quran-journey-v2-css">
+.deen-qj2{display:grid;gap:10px}
+.deen-qj2-hero{padding:15px;border:1px solid rgba(103,207,181,.21);border-radius:19px;background:linear-gradient(145deg,#10383b,#092933)}
+.deen-qj2-hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.deen-qj2-hero h2{margin:0;color:#effaf7;font:900 16px/1.2 Inter,system-ui,sans-serif}
+.deen-qj2-hero p{margin:5px 0 0;color:#82a09c;font:650 8px/1.45 Inter,system-ui,sans-serif}
+.deen-qj2-mastery{flex:0 0 auto;padding:8px 9px;border:1px solid rgba(197,164,84,.2);border-radius:11px;background:rgba(82,64,29,.2);color:#dfcc96;text-align:center;font:900 10px/1 Inter,system-ui,sans-serif}
+.deen-qj2-mastery small{display:block;margin-top:4px;color:#938463;font:750 6.5px/1}
+.deen-qj2-progress{height:7px;margin-top:11px;border-radius:999px;background:#061d24;overflow:hidden}
+.deen-qj2-progress i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#5bcbb1,#a1e9d4)}
+.deen-qj2-stages{display:grid;gap:7px}
+.deen-qj2-stage{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:9px;min-height:62px;padding:10px;border:1px solid rgba(82,137,139,.17);border-radius:15px;background:#0a2931}
+.deen-qj2-stage.locked{opacity:.52}
+.deen-qj2-stage.done{border-color:rgba(101,207,179,.27);background:#0d3336}
+.deen-qj2-icon{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:#082129;color:#8bd8c3;font:900 10px/1 Inter,system-ui,sans-serif}
+.deen-qj2-stage.done .deen-qj2-icon{background:#15433e;color:#a4ead6}
+.deen-qj2-copy b{display:block;color:#e4f3ef;font:850 10px/1.2 Inter,system-ui,sans-serif}
+.deen-qj2-copy small{display:block;margin-top:4px;color:#76938f;font:650 7.5px/1.35 Inter,system-ui,sans-serif}
+.deen-qj2-btn{min-height:34px;padding:0 9px;border:1px solid #31535a;border-radius:10px;background:#12343c;color:#9fe4d0;font:850 7px/1 Inter,system-ui,sans-serif}
+.deen-qj2-btn[disabled]{background:#09242b;color:#617d79}
+.deen-qj2-quiz{display:grid;gap:10px}
+.deen-qj2-qhead{display:flex;justify-content:space-between;gap:10px;color:#7f9d99;font:800 8px/1.2 Inter,system-ui,sans-serif}
+.deen-qj2-qcard{padding:15px;border:1px solid rgba(86,140,141,.18);border-radius:17px;background:#0a2931}
+.deen-qj2-qcard h3{margin:0;color:#e8f6f2;font:850 12px/1.4 Inter,system-ui,sans-serif}
+.deen-qj2-ar{margin-top:11px;padding:14px 10px;border-radius:13px;background:#071f27;color:#fff;text-align:center;direction:rtl;unicode-bidi:plaintext;font-family:"Noto Naskh Arabic","Amiri",serif;font-size:26px;line-height:1.75}
+.deen-qj2-meal{margin-top:11px;padding:11px;border-radius:12px;background:#102b31;color:#d6e6e2;font:700 9px/1.5 Inter,system-ui,sans-serif}
+.deen-qj2-options{display:grid;gap:7px;margin-top:11px}
+.deen-qj2-option{min-height:44px;padding:8px 10px;border:1px solid #315159;border-radius:12px;background:#0b3036;color:#d6e8e4;text-align:left;font:750 8.5px/1.35 Inter,system-ui,sans-serif}
+.deen-qj2-option.ar{direction:rtl;text-align:center;font-family:"Noto Naskh Arabic","Amiri",serif;font-size:18px}
+.deen-qj2-option.correct{border-color:rgba(99,205,177,.38);background:#15443f;color:#a5ead6}
+.deen-qj2-option.wrong{border-color:rgba(216,136,103,.3);background:#42271f;color:#e1a28b}
+.deen-qj2-feedback{padding:9px;border-radius:11px;font:800 8px/1.4 Inter,system-ui,sans-serif}
+.deen-qj2-feedback.good{background:#123b38;color:#9ce2ce}.deen-qj2-feedback.bad{background:#3b261f;color:#dfa18b}
+.deen-qj2-next{min-height:43px;border:1px solid rgba(101,207,179,.28);border-radius:12px;background:#15413d;color:#a2e8d4;font:850 8px/1 Inter,system-ui,sans-serif}
+.deen-qj2-result{padding:17px;border:1px solid rgba(101,207,179,.22);border-radius:17px;background:#0d3035;text-align:center}
+.deen-qj2-result strong{display:block;color:#effaf7;font:900 19px/1 Inter,system-ui,sans-serif}
+.deen-qj2-result span{display:block;margin-top:7px;color:#82a09c;font:700 8px/1.45 Inter,system-ui,sans-serif}
+@media(max-width:350px){.deen-qj2-stage{grid-template-columns:30px 1fr}.deen-qj2-stage>.deen-qj2-btn{grid-column:1/-1;width:100%}.deen-qj2-ar{font-size:23px}}
+</style>
+<script id="deen-v10942-quran-journey-v2-js">
+(()=>{
+if(window.__deenV10942QuranJourneyV2)return;window.__deenV10942QuranJourneyV2=true;
+
+const IDS=['fatiha','ikhlas','falaq','nas','kawthar','asr'];
+const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kawthar:'Kevser',asr:'Asr'};
+const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kawthar:3,asr:3};
+const PASS={ayah:80,meaning:80,final:75};
+const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
+const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);
+
+let currentSurah='ikhlas';
+let quiz=null;
+
+const qs=()=>DEEN_QURAN.ensureState();
+const rec=(id,n)=>DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n))||null;
+const esc=v=>String(v??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+const words=t=>String(t||'').trim().split(/\s+/).filter(Boolean);
+const hash=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0};
+function seededShuffle(a,seed){const out=[...a];let x=hash(String(seed))||1;for(let i=out.length-1;i>0;i--){x=(Math.imul(x,1664525)+1013904223)>>>0;const j=x%(i+1);[out[i],out[j]]=[out[j],out[i]]}return out}
+function jroot(){const q=qs();q.journeyV2=q.journeyV2&&typeof q.journeyV2==='object'?q.journeyV2:{surahs:{}};q.journeyV2.surahs=q.journeyV2.surahs||{};return q.journeyV2}
+function sstate(id){const root=jroot();root.surahs[id]=root.surahs[id]&&typeof root.surahs[id]==='object'?root.surahs[id]:{};const s=root.surahs[id];for(const k of ['ayah','meaning','final']){s[k]=s[k]&&typeof s[k]==='object'?s[k]:{};s[k].best=Math.max(0,Number(s[k].best)||0);s[k].attempts=Math.max(0,Number(s[k].attempts)||0);s[k].passed=s[k].passed===true;s[k].passedAt=s[k].passedAt||null}s.finalCompletedAt=s.finalCompletedAt||null;return s}
+function ayahs(id){const s=qs().progress?.surahs?.[id];return Array.from({length:COUNTS[id]},(_,i)=>({n:i+1,a:s?.ayahs?.[i+1]||{}}))}
+function stats(id){
+ const rows=ayahs(id),s=sstate(id);
+ const learned=rows.filter(x=>!!x.a.completedAt).length;
+ const memorized=rows.filter(x=>x.a.completedAt&&Number(x.a.memorizationLevel)>=5&&x.a.state==='solid').length;
+ const learnedReady=learned===COUNTS[id],memReady=memorized===COUNTS[id];
+ const ayahUnlocked=memReady||s.ayah.passed||s.meaning.passed||s.final.passed;
+ const meaningUnlocked=s.ayah.passed||s.meaning.passed||s.final.passed;
+ const finalUnlocked=s.meaning.passed||s.final.passed;
+ const mastery=masteryLevel(id);
+ const complete=[learnedReady,memReady,s.ayah.passed,s.meaning.passed,s.final.passed].filter(Boolean).length;
+ return{learned,memorized,total:COUNTS[id],learnedReady,memReady,ayahUnlocked,meaningUnlocked,finalUnlocked,mastery,progress:Math.round(complete/5*100),state:s}
+}
+function masteryLevel(id){
+ const s=sstate(id);if(!s.final.passed)return 0;
+ const rows=ayahs(id).filter(x=>x.a.completedAt);if(!rows.length)return 1;
+ const reviews=rows.reduce((a,x)=>a+(Number(x.a.srs?.reviewCount)||0),0)/rows.length;
+ const stability=rows.reduce((a,x)=>a+(Number(x.a.srs?.stabilityDays)||0),0)/rows.length;
+ const due=rows.some(x=>{const t=Date.parse(x.a.nextReviewAt||'');return Number.isFinite(t)&&t<=Date.now()});
+ if(stability>=30&&!due)return 4;
+ if(stability>=14)return 3;
+ if(reviews>=2)return 2;
+ return 1;
+}
+function stageRow(icon,title,sub,done,locked,action,label){
+ return'<div class="deen-qj2-stage'+(done?' done':'')+(locked?' locked':'')+'"><span class="deen-qj2-icon">'+(done?'✓':icon)+'</span><span class="deen-qj2-copy"><b>'+esc(title)+'</b><small>'+esc(sub)+'</small></span><button class="deen-qj2-btn" '+(locked?'disabled':'')+' onclick="'+action+'">'+(locked?'KİLİTLİ':label)+'</button></div>';
+}
+function journeyHtml(id){
+ const m=stats(id),s=m.state;
+ return'<div class="deen-qj2"><section class="deen-qj2-hero"><div class="deen-qj2-hero-top"><span><h2>'+NAMES[id]+' · Sure Yolculuğu</h2><p>Öğren → Ezberle → Test Et → Final → Ustalaş</p></span><span class="deen-qj2-mastery">SEVİYE '+m.mastery+'<small>USTALIK</small></span></div><div class="deen-qj2-progress"><i style="width:'+m.progress+'%"></i></div></section><div class="deen-qj2-stages">'+
+ stageRow('1','Öğren',m.learned+'/'+m.total+' ayet öğrenildi',m.learnedReady,false,"DEEN_QURAN_JOURNEY_V2.startStage('learn')",m.learnedReady?'TEKRAR':'BAŞLA')+
+ stageRow('2','Ezberle',m.memorized+'/'+m.total+' ayet 5/5 + Solid',m.memReady,!m.learnedReady,"DEEN_QURAN_JOURNEY_V2.startStage('memorize')",m.memReady?'GÜÇLENDİR':'DEVAM')+
+ stageRow('3','Ayet Testi',s.ayah.passed?'Geçildi · en iyi %'+s.ayah.best:'Ezber ve ayet devamı soruları',s.ayah.passed,!m.ayahUnlocked,"DEEN_QURAN_JOURNEY_V2.startStage('ayah')",s.ayah.passed?'TEKRAR':'TESTE BAŞLA')+
+ stageRow('4','Anlam Testi',s.meaning.passed?'Geçildi · en iyi %'+s.meaning.best:'Meal ↔ ayet eşleştirme',s.meaning.passed,!m.meaningUnlocked,"DEEN_QURAN_JOURNEY_V2.startStage('meaning')",s.meaning.passed?'TEKRAR':'TESTE BAŞLA')+
+ stageRow('5','Sure Finali',s.final.passed?'Tamamlandı · en iyi %'+s.final.best:'8 soruluk karışık final',s.final.passed,!m.finalUnlocked,"DEEN_QURAN_JOURNEY_V2.startStage('final')",s.final.passed?'TEKRAR':'FİNALE GİR')+
+ stageRow('★','Ustalık',m.mastery?'Seviye '+m.mastery+'/4 · SRS ile güçlenir':'Finali geçince açılır',m.mastery>=4,!s.final.passed,"DEEN_QURAN_JOURNEY_V2.startStage('mastery')",m.mastery?'TEKRAR':'AÇ')+
+ '</div></div>';
+}
+function open(id){
+ if(!IDS.includes(id))id=qs().profile?.currentSurah||'ikhlas';
+ currentSurah=id;sheet(NAMES[id]+' Yolculuğu',journeyHtml(id));DEEN_QURAN_ANALYTICS?.track?.('learn_open',{surahId:id,mode:'journey'});return true;
+}
+function refreshJourney(){const x=document.querySelector?.('.deen-qj2');if(!x)return false;const h=document.createElement('div');h.innerHTML=journeyHtml(currentSurah);x.replaceWith(h.firstElementChild);return true}
+function startStage(stage){
+ const m=stats(currentSurah);
+ if(stage==='learn')return baseOpenSurah?.(currentSurah);
+ if(stage==='memorize'){if(!m.learnedReady)return false;return baseMemorize?.(currentSurah)}
+ if(stage==='ayah'){if(!m.ayahUnlocked)return false;return startQuiz('ayah')}
+ if(stage==='meaning'){if(!m.meaningUnlocked)return false;return startQuiz('meaning')}
+ if(stage==='final'){if(!m.finalUnlocked)return false;return startQuiz('final')}
+ if(stage==='mastery'){if(!m.state.final.passed)return false;return DEEN_QURAN_SRS?.openReview?.()||DEEN_QURAN_MEM_V2?.openWeak?.()}
+ return false;
+}
+function allWords(id){const out=[];for(let n=1;n<=COUNTS[id];n++)out.push(...words(rec(id,n)?.arabic?.text));return[...new Set(out)]}
+function optionSet(correct,candidates,seed){
+ const uniq=[correct,...candidates.filter(x=>x&&x!==correct)].filter((x,i,a)=>a.indexOf(x)===i).slice(0,4);
+ return seededShuffle(uniq.map((text,i)=>({id:'o'+i,text})),seed);
+}
+function qFill(id,n,seed){
+ const r=rec(id,n),w=words(r?.arabic?.text);if(w.length<2)return qNumber(id,n,seed);
+ const bi=hash(seed)%w.length,answer=w[bi],pool=[...allWords(id),...w].filter(x=>x!==answer);
+ const display=w.map((x,i)=>i===bi?'_____':x).join(' ');
+ return{kind:'fill',ayah:n,title:'Eksik kelimeyi tamamla',display,type:'arabic',answer,options:optionSet(answer,pool,seed)};
+}
+function qNext(id,n,seed){
+ const total=COUNTS[id],base=Math.min(Math.max(1,n),Math.max(1,total-1)),target=base+1;
+ const a=rec(id,base),answer=rec(id,target)?.arabic?.text;
+ const pool=Array.from({length:total},(_,i)=>rec(id,i+1)?.arabic?.text).filter(x=>x!==answer);
+ return{kind:'next',ayah:base,title:'Bu ayetten sonra hangisi gelir?',display:a?.arabic?.text,type:'arabic',answer,options:optionSet(answer,pool,seed)};
+}
+function qContinuation(id,n,seed){
+ const r=rec(id,n),w=words(r?.arabic?.text);if(w.length<3)return qFill(id,n,seed);
+ const cut=Math.max(1,Math.floor(w.length/2)),display=w.slice(0,cut).join(' ')+' …',answer=w.slice(cut).join(' ');
+ const pool=[];for(let x=1;x<=COUNTS[id];x++){if(x===n)continue;const z=words(rec(id,x)?.arabic?.text);pool.push(z.slice(Math.max(1,Math.floor(z.length/2))).join(' '))}
+ return{kind:'continuation',ayah:n,title:'Ayetin doğru devamını seç',display,type:'arabic',answer,options:optionSet(answer,pool,seed)};
+}
+function qMealToAyah(id,n,seed){
+ const r=rec(id,n),answer=r?.arabic?.text,pool=Array.from({length:COUNTS[id]},(_,i)=>rec(id,i+1)?.arabic?.text).filter(x=>x!==answer);
+ return{kind:'mealToAyah',ayah:n,title:'Bu meal hangi ayete ait?',display:r?.translation?.text,type:'meal',answer,options:optionSet(answer,pool,seed),optionsArabic:true};
+}
+function qAyahToMeal(id,n,seed){
+ const r=rec(id,n),answer=r?.translation?.text,pool=Array.from({length:COUNTS[id]},(_,i)=>rec(id,i+1)?.translation?.text).filter(x=>x!==answer);
+ return{kind:'ayahToMeal',ayah:n,title:'Bu ayetin doğrulanmış meali hangisi?',display:r?.arabic?.text,type:'arabic',answer,options:optionSet(answer,pool,seed)};
+}
+function qNumber(id,n,seed){
+ const r=rec(id,n),answer='Ayet '+n,pool=Array.from({length:COUNTS[id]},(_,i)=>'Ayet '+(i+1)).filter(x=>x!==answer);
+ return{kind:'number',ayah:n,title:'Bu sure içinde kaçıncı ayet?',display:r?.arabic?.text,type:'arabic',answer,options:optionSet(answer,pool,seed)};
+}
+function weakOrder(id){
+ const rows=DEEN_QURAN_MEM_V2?.weak?.(99)?.filter(x=>x.id===id)||[];
+ const nums=rows.map(x=>x.n);for(let n=1;n<=COUNTS[id];n++)if(!nums.includes(n))nums.push(n);return nums;
+}
+function buildQuestions(stage,attempt){
+ const id=currentSurah,total=COUNTS[id],seed=id+':'+stage+':'+attempt,weak=weakOrder(id),out=[];
+ const pick=i=>weak[i%weak.length]||((i%total)+1);
+ if(stage==='ayah'){
+  const f=[qFill,qNext,qContinuation,qFill,qNext];
+  for(let i=0;i<5;i++)out.push(f[i](id,pick(i),seed+':'+i));
+ }
+ if(stage==='meaning'){
+  const f=[qMealToAyah,qAyahToMeal,qNumber,qMealToAyah,qAyahToMeal];
+  for(let i=0;i<5;i++)out.push(f[i](id,pick(i),seed+':'+i));
+ }
+ if(stage==='final'){
+  const f=[qFill,qMealToAyah,qNext,qAyahToMeal,qContinuation,qNumber,qFill,qNext];
+  for(let i=0;i<8;i++)out.push(f[i](id,pick(i),seed+':'+i));
+ }
+ return out;
+}
+function startQuiz(stage){
+ const s=sstate(currentSurah),slot=s[stage],attempt=slot.attempts+1;
+ quiz={stage,questions:buildQuestions(stage,attempt),index:0,correct:0,answered:false,selected:null};
+ sheet(stage==='ayah'?'Ayet Testi':stage==='meaning'?'Anlam Testi':'Sure Finali',quizHtml());return true;
+}
+function quizHtml(){
+ if(!quiz)return'';
+ if(quiz.index>=quiz.questions.length)return resultHtml();
+ const q=quiz.questions[quiz.index],pct=Math.round(quiz.index/quiz.questions.length*100);
+ return'<div class="deen-qj2-quiz"><div class="deen-qj2-qhead"><span>'+NAMES[currentSurah]+' · '+(quiz.index+1)+'/'+quiz.questions.length+'</span><span>'+quiz.correct+' doğru</span></div><div class="deen-qj2-progress"><i style="width:'+pct+'%"></i></div><section class="deen-qj2-qcard"><h3>'+esc(q.title)+'</h3>'+(q.type==='arabic'?'<div class="deen-qj2-ar">'+esc(q.display)+'</div>':'<div class="deen-qj2-meal">'+esc(q.display)+'</div>')+'<div class="deen-qj2-options">'+q.options.map(o=>'<button class="deen-qj2-option '+(q.optionsArabic?'ar':'')+(quiz.answered&&o.text===q.answer?' correct':'')+(quiz.answered&&o.id===quiz.selected&&o.text!==q.answer?' wrong':'')+'" '+(quiz.answered?'disabled':'')+' onclick="DEEN_QURAN_JOURNEY_V2.choose(\''+o.id+'\')">'+esc(o.text)+'</button>').join('')+'</div></section>'+(quiz.answered?'<div class="deen-qj2-feedback '+(quiz.lastCorrect?'good':'bad')+'">'+(quiz.lastCorrect?'Doğru.':'Bu turda doğru cevap yeşil olarak gösterildi.')+'</div><button class="deen-qj2-next" onclick="DEEN_QURAN_JOURNEY_V2.nextQuestion()">DEVAM ET</button>':'')+'</div>';
+}
+function replaceQuiz(){const x=document.querySelector?.('.deen-qj2-quiz');if(!x)return false;const h=document.createElement('div');h.innerHTML=quizHtml();x.replaceWith(h.firstElementChild);return true}
+function choose(id){
+ if(!quiz||quiz.answered)return false;const q=quiz.questions[quiz.index],o=q.options.find(x=>x.id===id);if(!o)return false;
+ quiz.answered=true;quiz.selected=id;quiz.lastCorrect=o.text===q.answer;if(quiz.lastCorrect)quiz.correct++;
+ const outcome=quiz.lastCorrect?'good':(quiz.stage==='meaning'?'hard':'again');
+ DEEN_QURAN_SRS?.record?.(currentSurah,q.ayah,outcome,'journey_'+quiz.stage);
+ DEEN_QURAN_ANALYTICS?.track?.(quiz.lastCorrect?'correct':'wrong',{surahId:currentSurah,type:'journey_'+quiz.stage,outcome:quiz.lastCorrect?'correct':'wrong'});
+ if(quiz.lastCorrect)DEEN_QURAN_MASCOT?.react?.();replaceQuiz();return quiz.lastCorrect;
+}
+function nextQuestion(){
+ if(!quiz?.answered)return false;quiz.index++;quiz.answered=false;quiz.selected=null;quiz.lastCorrect=null;
+ if(quiz.index>=quiz.questions.length){finishQuiz();replaceQuiz();return true}
+ replaceQuiz();return true;
+}
+function finishQuiz(){
+ const score=Math.round(quiz.correct/quiz.questions.length*100),s=sstate(currentSurah),slot=s[quiz.stage],threshold=PASS[quiz.stage];
+ slot.attempts++;slot.best=Math.max(slot.best,score);slot.lastScore=score;slot.lastAt=new Date().toISOString();
+ if(score>=threshold){slot.passed=true;slot.passedAt=slot.passedAt||slot.lastAt;if(quiz.stage==='final')s.finalCompletedAt=s.finalCompletedAt||slot.lastAt}
+ DEEN_QURAN.persistState?.();quiz.result={score,passed:score>=threshold,threshold,stage:quiz.stage};return quiz.result;
+}
+function resultHtml(){
+ const r=quiz.result||finishQuiz(),label=r.stage==='ayah'?'Ayet Testi':r.stage==='meaning'?'Anlam Testi':'Sure Finali';
+ return'<div class="deen-qj2-quiz"><div class="deen-qj2-result"><strong>%'+r.score+'</strong><span>'+label+' · '+(r.passed?'Geçtin. Bir sonraki aşama açıldı.':'Geçmek için en az %'+r.threshold+' gerekiyor. Zayıf ayetleri güçlendirip tekrar dene.')+'</span></div><button class="deen-qj2-next" onclick="DEEN_QURAN_JOURNEY_V2.backToJourney()">SURE YOLCULUĞUNA DÖN</button></div>';
+}
+function backToJourney(){sheet(NAMES[currentSurah]+' Yolculuğu',journeyHtml(currentSurah));return true}
+function audit(id='ikhlas'){
+ const m=stats(id),s=m.state,issues=[];
+ if(s.meaning.passed&&!s.ayah.passed)issues.push('meaning_without_ayah');
+ if(s.final.passed&&!s.meaning.passed)issues.push('final_without_meaning');
+ if(s.final.passed&&m.mastery<1)issues.push('final_without_mastery');
+ return{ok:!issues.length,id,stats:m,issues};
+}
+function injectDashboard(){
+ const q=document.querySelector?.('.deen-quran-quick');if(!q||q.querySelector('[data-qjourney-v2]'))return false;
+ const b=document.createElement('button');b.type='button';b.setAttribute('data-qjourney-v2','1');b.innerHTML='<i>▶</i><b>Sure Oyunu</b><small>Öğren · ezberle · test et · ustalaş</small>';b.onclick=()=>open(qs().profile?.currentSurah||'ikhlas');q.appendChild(b);return true;
+}
+
+DEEN_QURAN.openLearningFlow=baseOpenSurah;
+DEEN_QURAN.openSurah=function(id){if(IDS.includes(id))return open(id);return baseOpenSurah?.(id)};
+DEEN_QURAN.journeyV2=open;
+window.DEEN_QURAN_JOURNEY_V2={open,startStage,stats,masteryLevel,startQuiz,choose,nextQuestion,backToJourney,audit,buildQuestions,refreshJourney};
+document.addEventListener?.('deen:navigated',()=>setTimeout(injectDashboard,0));
+if(typeof MutationObserver!=='undefined')new MutationObserver(injectDashboard).observe(document.body,{childList:true,subtree:true});
+setTimeout(injectDashboard,0);
+document.documentElement.dataset.deenQuranJourneyV2='v10942';
+})();
+</script>
