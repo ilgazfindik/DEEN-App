@@ -5837,3 +5837,592 @@ window.DEEN_REWARD_BADGE_ART={
   window.DEEN_QURAN_MEM={open,reveal,remembered,retry,model,overview,allMemorized};
 })();
 </script>
+
+
+<!-- DEEN v10.9.23 — Quran interactive practice engine -->
+<style id="deen-v10923-quran-interactive-practice-css">
+.deen-quran-quick{grid-template-columns:repeat(2,1fr)!important}
+.deen-practice-session{display:grid;gap:11px}
+.deen-practice-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:10px
+}
+.deen-practice-head b{
+  display:block;color:#eefaf7;
+  font:900 13px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-practice-head small{
+  display:block;margin-top:4px;color:#769492;
+  font:650 8.5px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-practice-score{
+  flex:0 0 auto;min-height:25px;display:inline-flex;align-items:center;
+  padding:0 9px;border:1px solid rgba(107,211,183,.2);border-radius:999px;
+  background:#103239;color:#8ddbc5;
+  font:850 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-practice-modes{
+  display:flex;gap:6px;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none
+}
+.deen-practice-modes::-webkit-scrollbar{display:none}
+.deen-practice-mode{
+  flex:0 0 auto;min-height:31px;padding:0 10px;
+  border:1px solid rgba(79,131,136,.19);border-radius:999px;
+  background:#0a2730;color:#789795;
+  font:800 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-practice-mode.active{
+  border-color:rgba(105,214,184,.27);background:#123b3d;color:#9ae2cd
+}
+.deen-practice-card{
+  padding:16px;border:1px solid rgba(89,149,149,.21);border-radius:20px;
+  background:
+    radial-gradient(circle at 92% 2%,rgba(103,217,187,.07),transparent 30%),
+    linear-gradient(180deg,#0d3037,#09262e)
+}
+.deen-practice-kicker{
+  color:#83c9b7;
+  font:850 8px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:.6px
+}
+.deen-practice-card h2{
+  margin:7px 0 5px;color:#effaf7;
+  font:900 19px/1.15 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-practice-card p{
+  margin:0;color:#819e9b;
+  font:650 9.5px/1.5 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-practice-arabic{
+  margin-top:14px;padding:16px 11px;
+  border:1px solid rgba(108,199,178,.15);border-radius:16px;
+  background:#071f27;color:#fff;text-align:center;direction:rtl;
+  font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",serif;
+  font-size:27px;line-height:1.8
+}
+.deen-practice-arabic .blank{
+  display:inline-block;min-width:52px;height:34px;vertical-align:middle;
+  margin:0 4px;border-bottom:2px solid rgba(114,206,183,.55);
+  color:#86d5c0;font-family:var(--deen-font-ui,Inter,system-ui,sans-serif);
+  font-size:12px;direction:ltr
+}
+.deen-practice-answer{
+  min-height:58px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:7px;margin-top:12px;padding:10px;border:1px dashed rgba(99,163,159,.22);
+  border-radius:14px;background:#082129;direction:rtl
+}
+.deen-practice-answer.empty{
+  color:#607f7d;font:700 8.5px/1.3 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  direction:ltr
+}
+.deen-practice-chips{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px;
+  direction:rtl
+}
+.deen-practice-chip{
+  min-height:42px;padding:8px 13px;
+  border:1px solid rgba(93,156,153,.25);border-radius:13px;
+  background:#0d3036;color:#eff9f7;
+  font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",serif;
+  font-size:18px;line-height:1.25
+}
+.deen-practice-chip:active{transform:scale(.98)}
+.deen-practice-chip.used{opacity:.34;pointer-events:none}
+.deen-practice-chip.matched{
+  border-color:rgba(106,216,185,.35);background:#15443f;color:#a9eedb;
+  pointer-events:none
+}
+.deen-practice-chip.selected{
+  border-color:rgba(207,174,91,.35);background:#42391f;color:#ebdbab
+}
+.deen-practice-cardgrid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px
+}
+.deen-practice-memory{
+  min-height:54px;padding:8px;border:1px solid rgba(88,144,145,.22);
+  border-radius:13px;background:#0b2931;color:#edf9f6;
+  font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",serif;
+  font-size:18px;line-height:1.25
+}
+.deen-practice-memory.matched{
+  border-color:rgba(105,213,184,.32);background:#123d3b;color:#9ce4cf
+}
+.deen-practice-memory.selected{
+  border-color:rgba(200,169,88,.34);background:#40371f;color:#e9daac
+}
+.deen-practice-feedback{
+  margin-top:11px;padding:10px;border-radius:12px;
+  font:750 8.5px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-practice-feedback.good{
+  border:1px solid rgba(92,206,175,.21);background:rgba(31,113,92,.15);color:#8bdcc5
+}
+.deen-practice-feedback.bad{
+  border:1px solid rgba(219,139,105,.2);background:rgba(120,62,43,.13);color:#e1a38a
+}
+.deen-practice-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.deen-practice-btn{
+  min-height:44px;border-radius:13px;border:1px solid rgba(103,208,180,.23);
+  background:linear-gradient(180deg,#176052,#10463f);
+  color:#eefbf7;font:850 9.5px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-practice-btn.secondary{
+  border-color:rgba(83,136,140,.19);background:#0a2931;color:#8ca9a6
+}
+.deen-practice-btn.full{grid-column:1/-1}
+.deen-practice-source{
+  margin-top:10px;color:#688684;
+  font:650 7.5px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+</style>
+<script id="deen-v10923-quran-interactive-practice-js">
+(()=>{
+  if(window.__deenV10923QuranInteractivePractice)return;
+  window.__deenV10923QuranInteractivePractice=true;
+
+  const TYPES=['fill_blank','reorder','continuation','word_match','next_chunk'];
+  const LABELS={
+    fill_blank:'Boşluk',
+    reorder:'Sırala',
+    continuation:'Devamı',
+    word_match:'Eşleştir',
+    next_chunk:'Sonraki Parça'
+  };
+  let session=null;
+
+  const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const qstate=()=>DEEN_QURAN?.ensureState?.()||state.quranJourney;
+  const record=n=>DEEN_QURAN_CONTENT?.getAyah?.('ikhlas',Number(n))||null;
+  const words=text=>String(text||'').trim().split(/\s+/).filter(Boolean);
+  const uniq=arr=>[...new Set(arr)];
+  function shuffle(arr){
+    const out=[...arr];
+    for(let i=out.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [out[i],out[j]]=[out[j],out[i]];
+    }
+    return out;
+  }
+  function makeChunks(tokens){
+    if(tokens.length<=3)return tokens.map((t,i)=>({id:'c'+i,text:t,index:i}));
+    const size=tokens.length>=6?2:1;
+    const out=[];
+    for(let i=0;i<tokens.length;i+=size){
+      out.push({id:'c'+out.length,text:tokens.slice(i,i+size).join(' '),index:out.length});
+    }
+    return out;
+  }
+  function ensurePractice(){
+    const q=qstate();
+    const s=q.progress.surahs.ikhlas;
+    s.practice=s.practice&&typeof s.practice==='object'?s.practice:{};
+    const p=s.practice;
+    p.sessions=Math.max(0,Number(p.sessions)||0);
+    p.correct=Math.max(0,Number(p.correct)||0);
+    p.wrong=Math.max(0,Number(p.wrong)||0);
+    p.byType=p.byType&&typeof p.byType==='object'?p.byType:{};
+    for(const type of TYPES){
+      p.byType[type]=p.byType[type]&&typeof p.byType[type]==='object'?p.byType[type]:{};
+      p.byType[type].correct=Math.max(0,Number(p.byType[type].correct)||0);
+      p.byType[type].wrong=Math.max(0,Number(p.byType[type].wrong)||0);
+    }
+    p.lastType=TYPES.includes(p.lastType)?p.lastType:null;
+    p.lastAyah=Math.max(1,Math.min(4,Number(p.lastAyah)||1));
+    p.lastAt=typeof p.lastAt==='string'?p.lastAt:null;
+    return p;
+  }
+  function eligible(){
+    const q=qstate();
+    const out=[];
+    for(let n=1;n<=4;n++){
+      const a=q.progress.surahs.ikhlas.ayahs[n];
+      if(a?.completedAt&&record(n))out.push(n);
+    }
+    return out;
+  }
+  function defaultAyah(){
+    const list=eligible();
+    const current=Math.max(1,Math.min(4,Number(qstate()?.profile?.currentAyah)||1));
+    return list.includes(current)?current:(list[0]||1);
+  }
+  function otherTokens(exceptAyah){
+    const out=[];
+    for(let n=1;n<=4;n++){
+      if(n===exceptAyah)continue;
+      const r=record(n);
+      if(r)out.push(...words(r.arabic.text));
+    }
+    return uniq(out);
+  }
+  function buildExercise(type,ayah){
+    type=TYPES.includes(type)?type:'fill_blank';
+    ayah=Math.max(1,Math.min(4,Number(ayah)||1));
+    const r=record(ayah);
+    if(!r)return null;
+    const tokens=words(r.arabic.text);
+    const chunks=makeChunks(tokens);
+    if(type==='fill_blank'){
+      const blankIndex=Math.min(tokens.length-1,Math.max(0,(ayah+tokens.length)%tokens.length));
+      const answer=tokens[blankIndex];
+      const pool=uniq([answer,...otherTokens(ayah)]).filter(Boolean);
+      const distractors=pool.filter(x=>x!==answer).slice(0,3);
+      return {type,ayah,tokens,blankIndex,answer,options:shuffle([answer,...distractors])};
+    }
+    if(type==='reorder'){
+      return {type,ayah,chunks,options:shuffle(chunks.map(x=>({...x})))};
+    }
+    if(type==='continuation'){
+      const prompt=chunks[0];
+      const target=chunks[1]||chunks[0];
+      const extras=uniq([
+        ...chunks.slice(2).map(x=>x.text),
+        ...otherTokens(ayah).slice(0,3)
+      ]).filter(x=>x!==target.text).slice(0,3);
+      return {type,ayah,prompt,target,options:shuffle([{id:target.id,text:target.text},...extras.map((text,i)=>({id:'x'+i,text}))])};
+    }
+    if(type==='word_match'){
+      let pick=uniq(tokens).slice(0,3);
+      if(pick.length<2)pick=uniq([...tokens,...otherTokens(ayah)]).slice(0,3);
+      const cards=[];
+      pick.forEach((text,i)=>{
+        cards.push({id:'m'+i+'a',pair:'p'+i,text});
+        cards.push({id:'m'+i+'b',pair:'p'+i,text});
+      });
+      return {type,ayah,cards:shuffle(cards)};
+    }
+    return {
+      type,ayah,chunks,
+      start:chunks[0],
+      options:shuffle(chunks.slice(1).map(x=>({...x})))
+    };
+  }
+  function newSession(type,ayah){
+    const exercise=buildExercise(type,ayah);
+    if(!exercise)return null;
+    session={
+      type:exercise.type,
+      ayah:exercise.ayah,
+      exercise,
+      selected:[],
+      matched:[],
+      openCards:[],
+      cursor:exercise.type==='next_chunk'?1:0,
+      done:false,
+      feedback:null,
+      hadError:false
+    };
+    return session;
+  }
+  function sourceLine(r){
+    return 'Kaynaklı ayet metni · '+(r?.arabic?.source?.provider||'—')+' · '+(r?.arabic?.source?.reference||'');
+  }
+  function modeButtons(){
+    return TYPES.map(type=>
+      '<button class="deen-practice-mode'+(session?.type===type?' active':'')+'" type="button" onclick="DEEN_QURAN_PRACTICE.switchType(\''+type+'\')">'+esc(LABELS[type])+'</button>'
+    ).join('');
+  }
+  function chips(options,used=[]){
+    return '<div class="deen-practice-chips">'+options.map(o=>
+      '<button class="deen-practice-chip'+(used.includes(o.id)?' used':'')+'" type="button" onclick="DEEN_QURAN_PRACTICE.choose(\''+esc(o.id)+'\')">'+esc(o.text)+'</button>'
+    ).join('')+'</div>';
+  }
+  function feedbackHtml(){
+    if(!session?.feedback)return '';
+    return '<div class="deen-practice-feedback '+(session.feedback.good?'good':'bad')+'">'+esc(session.feedback.text)+'</div>';
+  }
+  function exerciseHtml(){
+    if(!session)return '<div class="deen-quran-pending">Pratik oturumu hazırlanamadı.</div>';
+    const r=record(session.ayah);
+    if(!r)return '<div class="deen-quran-pending">Doğrulanmamış içerik pratik ekranında gösterilmedi.</div>';
+    const ex=session.exercise;
+    let inner='';
+
+    if(ex.type==='fill_blank'){
+      const line=ex.tokens.map((t,i)=>i===ex.blankIndex?'<span class="blank">_____</span>':esc(t)).join(' ');
+      inner=
+        '<div class="deen-practice-kicker">BOŞLUK DOLDURMA</div>'+
+        '<h2>Eksik kelimeyi yerine koy</h2>'+
+        '<p>Ayetin eksik parçasını aşağıdaki kelime taşlarından seç.</p>'+
+        '<div class="deen-practice-arabic" lang="ar">'+line+'</div>'+
+        chips(ex.options);
+    }else if(ex.type==='reorder'){
+      const selected=session.selected.map(id=>ex.chunks.find(x=>x.id===id)).filter(Boolean);
+      inner=
+        '<div class="deen-practice-kicker">PARÇALARI SIRALA</div>'+
+        '<h2>Ayeti doğru sıraya getir</h2>'+
+        '<p>Parçalara sırayla dokun. Son parça yerleşince sistem kontrol eder.</p>'+
+        '<div class="deen-practice-answer'+(selected.length?'':' empty')+'">'+
+          (selected.length?selected.map(x=>'<span class="deen-practice-chip">'+esc(x.text)+'</span>').join(' '):'Seçtiğin parçalar burada birleşecek')+
+        '</div>'+
+        chips(ex.options,session.selected);
+    }else if(ex.type==='continuation'){
+      inner=
+        '<div class="deen-practice-kicker">DOĞRU DEVAMI BUL</div>'+
+        '<h2>Bu parçadan sonra ne geliyor?</h2>'+
+        '<p>Şıklardan harf seçmek yerine doğrudan doğru metin parçasına dokun.</p>'+
+        '<div class="deen-practice-arabic" lang="ar">'+esc(ex.prompt.text)+' …</div>'+
+        chips(ex.options);
+    }else if(ex.type==='word_match'){
+      inner=
+        '<div class="deen-practice-kicker">KELİME EŞLEŞTİRME</div>'+
+        '<h2>Aynı kelimeleri eşleştir</h2>'+
+        '<p>Bu aşama anlam testi değildir. Aynı Arapça kelimenin iki kartını bul.</p>'+
+        '<div class="deen-practice-cardgrid">'+
+          ex.cards.map(card=>{
+            const matched=session.matched.includes(card.id);
+            const selected=session.openCards.includes(card.id);
+            return '<button class="deen-practice-memory'+(matched?' matched':'')+(selected?' selected':'')+'" type="button" onclick="DEEN_QURAN_PRACTICE.choose(\''+card.id+'\')">'+esc(card.text)+'</button>';
+          }).join('')+
+        '</div>';
+    }else{
+      const built=ex.chunks.slice(0,session.cursor).map(x=>x.text).join(' ');
+      const remaining=ex.chunks.slice(session.cursor);
+      inner=
+        '<div class="deen-practice-kicker">SONRAKİ PARÇA</div>'+
+        '<h2>Ayeti adım adım tamamla</h2>'+
+        '<p>Görünen kısmın hemen ardından gelen doğru parçayı seç.</p>'+
+        '<div class="deen-practice-arabic" lang="ar">'+esc(built)+(remaining.length?' …':'')+'</div>'+
+        (remaining.length?chips(shuffle(remaining.map(x=>({...x})))):'');
+    }
+
+    return '<div class="deen-practice-card">'+inner+feedbackHtml()+
+      '<div class="deen-practice-source">'+esc(sourceLine(r))+'</div>'+
+    '</div>';
+  }
+  function sessionHtml(){
+    const p=ensurePractice();
+    const list=eligible();
+    if(!list.length){
+      return '<div class="deen-practice-session">'+
+        '<div class="deen-quran-pending">Etkileşimli pratik için önce İhlâs öğrenme turunda en az bir ayeti tamamla.</div>'+
+        '<button class="deen-practice-btn full" type="button" onclick="DEEN_QURAN.openIkhlas(1)">ÖĞRENME TURUNU AÇ</button>'+
+      '</div>';
+    }
+    return '<div class="deen-practice-session">'+
+      '<div class="deen-practice-head">'+
+        '<span><b>İhlâs Pratik Alanı</b><small>Ayet '+session.ayah+' · '+esc(LABELS[session.type])+'</small></span>'+
+        '<span class="deen-practice-score">'+p.correct+' doğru · '+p.wrong+' tekrar</span>'+
+      '</div>'+
+      '<div class="deen-practice-modes">'+modeButtons()+'</div>'+
+      exerciseHtml()+
+      '<div class="deen-practice-actions">'+
+        '<button class="deen-practice-btn secondary" type="button" onclick="DEEN_QURAN_PRACTICE.reset()">SIFIRLA</button>'+
+        '<button class="deen-practice-btn" type="button" onclick="DEEN_QURAN_PRACTICE.nextExercise()">YENİ PRATİK</button>'+
+      '</div>'+
+    '</div>';
+  }
+  function redraw(){
+    const mount=document.querySelector('.deen-practice-session');
+    if(!mount)return false;
+    const holder=document.createElement('div');
+    holder.innerHTML=sessionHtml();
+    mount.replaceWith(holder.firstElementChild);
+    return true;
+  }
+  function mark(correct){
+    const q=qstate();
+    const p=ensurePractice();
+    const bucket=p.byType[session.type];
+    const a=q.progress.surahs.ikhlas.ayahs[session.ayah];
+    const now=new Date().toISOString();
+    if(correct){
+      p.correct++;
+      bucket.correct++;
+      a.correctRecalls=(Number(a.correctRecalls)||0)+1;
+    }else{
+      p.wrong++;
+      bucket.wrong++;
+      a.wrongRecalls=(Number(a.wrongRecalls)||0)+1;
+      session.hadError=true;
+    }
+    a.repetitions=(Number(a.repetitions)||0)+1;
+    a.lastStudiedAt=now;
+    q.progress.surahs.ikhlas.lastStudiedAt=now;
+    p.lastAt=now;
+    p.lastType=session.type;
+    p.lastAyah=session.ayah;
+    DEEN_QURAN.persistState?.();
+  }
+  function complete(){
+    if(session.done)return;
+    session.done=true;
+    mark(true);
+    ensurePractice().sessions++;
+    DEEN_QURAN.persistState?.();
+    session.feedback={good:true,text:session.hadError?'Tamamlandı. Zorlandığın parçayı bir sonraki turda yeniden güçlendireceğiz.':'Doğru. Bu hatırlama turu tamamlandı.'};
+  }
+  function fail(message='Henüz değil. Bir kez daha dene.'){
+    mark(false);
+    session.feedback={good:false,text:message};
+  }
+  function choose(id){
+    if(!session||session.done)return false;
+    const ex=session.exercise;
+
+    if(ex.type==='fill_blank'){
+      const option=ex.options.find(x=>x.id===id)||ex.options.find(x=>x.text===id);
+      if(!option)return false;
+      if(option.text===ex.answer){complete()}else fail();
+      redraw();
+      return session.done;
+    }
+
+    if(ex.type==='continuation'){
+      const option=ex.options.find(x=>x.id===id);
+      if(!option)return false;
+      if(option.text===ex.target.text){complete()}else fail();
+      redraw();
+      return session.done;
+    }
+
+    if(ex.type==='reorder'){
+      if(session.selected.includes(id))return false;
+      session.selected.push(id);
+      if(session.selected.length===ex.chunks.length){
+        const ok=session.selected.every((cid,i)=>cid===ex.chunks[i].id);
+        if(ok)complete();
+        else{
+          fail('Sıra tam oturmadı. Parçaları temizledim; tekrar kur.');
+          session.selected=[];
+        }
+      }
+      redraw();
+      return session.done;
+    }
+
+    if(ex.type==='word_match'){
+      if(session.matched.includes(id)||session.openCards.includes(id))return false;
+      session.openCards.push(id);
+      if(session.openCards.length===2){
+        const [a,b]=session.openCards.map(cid=>ex.cards.find(c=>c.id===cid));
+        if(a&&b&&a.pair===b.pair){
+          session.matched.push(a.id,b.id);
+          session.openCards=[];
+          if(session.matched.length===ex.cards.length)complete();
+          else session.feedback={good:true,text:'Eşleşti. Kalan kelimeleri bul.'};
+        }else{
+          fail('Bu iki kart aynı kelime değil. Tekrar dene.');
+          session.openCards=[];
+        }
+      }
+      redraw();
+      return session.done;
+    }
+
+    const target=ex.chunks[session.cursor];
+    if(!target)return false;
+    if(id===target.id){
+      session.cursor++;
+      if(session.cursor>=ex.chunks.length)complete();
+      else session.feedback={good:true,text:'Doğru parça. Devam et.'};
+    }else{
+      fail('Bu parça hemen sonra gelmiyor. Tekrar dene.');
+    }
+    redraw();
+    return session.done;
+  }
+  function open(type,ayah){
+    const p=ensurePractice();
+    const list=eligible();
+    if(!list.length){
+      session={type:'fill_blank',ayah:1,exercise:null,selected:[],matched:[],openCards:[],cursor:0,done:false,feedback:null,hadError:false};
+      sheet('Kur’an Pratiği',sessionHtml());
+      return false;
+    }
+    const selectedAyah=list.includes(Number(ayah))?Number(ayah):defaultAyah();
+    const selectedType=TYPES.includes(type)?type:TYPES[p.sessions%TYPES.length];
+    newSession(selectedType,selectedAyah);
+    const q=qstate();
+    q.profile.currentSurah='ikhlas';
+    q.profile.currentAyah=selectedAyah;
+    q.profile.lastMode='practice';
+    q.progress.surahs.ikhlas.currentAyah=selectedAyah;
+    DEEN_QURAN.persistState?.();
+    sheet('Kur’an Pratiği',sessionHtml());
+    document.documentElement.dataset.deenQuranPractice='v10923';
+    return true;
+  }
+  function switchType(type){
+    if(!TYPES.includes(type))return false;
+    newSession(type,session?.ayah||defaultAyah());
+    redraw();
+    return true;
+  }
+  function reset(){
+    if(!session)return false;
+    newSession(session.type,session.ayah);
+    redraw();
+    return true;
+  }
+  function nextExercise(){
+    const p=ensurePractice();
+    const currentIndex=TYPES.indexOf(session?.type);
+    const nextType=TYPES[(currentIndex+1+TYPES.length)%TYPES.length];
+    const list=eligible();
+    const currentPos=list.indexOf(session?.ayah);
+    const nextAyah=list.length?list[(currentPos+1+list.length)%list.length]:1;
+    newSession(nextType,nextAyah);
+    p.lastType=nextType;
+    p.lastAyah=nextAyah;
+    DEEN_QURAN.persistState?.();
+    redraw();
+    return true;
+  }
+  function model(){
+    const p=ensurePractice();
+    return {
+      type:session?.type||null,
+      ayah:session?.ayah||null,
+      done:!!session?.done,
+      feedback:session?.feedback?{...session.feedback}:null,
+      selected:[...(session?.selected||[])],
+      matched:[...(session?.matched||[])],
+      cursor:Number(session?.cursor)||0,
+      stats:JSON.parse(JSON.stringify(p))
+    };
+  }
+  function injectDashboard(){
+    const quick=document.querySelector('.deen-quran-quick');
+    if(!quick||quick.querySelector('[data-quran-practice]'))return false;
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.setAttribute('data-quran-practice','1');
+    btn.innerHTML='<i>◇</i><b>Pratik</b><small>Etkileşimli hatırlama</small>';
+    btn.onclick=()=>open();
+    quick.appendChild(btn);
+    return true;
+  }
+
+  window.DEEN_QURAN=window.DEEN_QURAN||{};
+  window.DEEN_QURAN.practice=open;
+  window.DEEN_QURAN.openPractice=open;
+  window.DEEN_QURAN_PRACTICE={
+    open,switchType,reset,nextExercise,choose,model,
+    buildExercise,
+    eligibleAyahs:()=>[...eligible()],
+    types:[...TYPES],
+    check:()=>({
+      eligible:[...eligible()],
+      types:[...TYPES],
+      model:model()
+    })
+  };
+
+  const oldDashboard=DEEN_QURAN.dashboardRender||DEEN_QURAN.render;
+  if(typeof oldDashboard==='function'&&!oldDashboard.__deenPracticeWrapped){
+    const wrapped=function(){
+      const out=oldDashboard.apply(this,arguments);
+      injectDashboard();
+      return out;
+    };
+    wrapped.__deenPracticeWrapped=true;
+    DEEN_QURAN.dashboardRender=wrapped;
+    DEEN_QURAN.render=wrapped;
+    window.leagueView=wrapped;
+    try{leagueView=wrapped}catch(_){}
+  }
+  document.addEventListener('deen:navigated',()=>{
+    if(document.querySelector('.screen.active')?.id==='leagueScreen')setTimeout(injectDashboard,0);
+  });
+  if(document.querySelector('.screen.active')?.id==='leagueScreen')setTimeout(injectDashboard,0);
+})();
+</script>
