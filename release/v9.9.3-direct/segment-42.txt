@@ -1,0 +1,18 @@
+
+<style id="deen-v10935-juz-amma-css">
+.deen-juzamma{display:grid;gap:8px}.deen-juz-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px;border:1px solid rgba(82,137,139,.17);border-radius:13px;background:#0a2931}.deen-juz-row b{color:#e4f3ef;font-size:9px}.deen-juz-row span{color:#75928f;font-size:7px}.deen-juz-tag{flex:0 0 auto;padding:5px 7px;border-radius:999px;background:#102f36;color:#83cdb9;font-size:6.5px;font-weight:850}.deen-juz-tag.pending{color:#cdbb7d;background:#342d1d}
+</style>
+<script id="deen-v10935-juz-amma-js">
+(()=>{if(window.__deenV10935JuzAmma)return;window.__deenV10935JuzAmma=true;
+const ALL=[
+[78,'naba','Nebe',40],[79,'naziat','Nâziât',46],[80,'abasa','Abese',42],[81,'takwir','Tekvîr',29],[82,'infitar','İnfitâr',19],[83,'mutaffifin','Mutaffifîn',36],[84,'inshiqaq','İnşikâk',25],[85,'buruj','Burûc',22],[86,'tariq','Târık',17],[87,'ala','A‘lâ',19],[88,'ghashiyah','Gâşiye',26],[89,'fajr','Fecr',30],[90,'balad','Beled',20],[91,'shams','Şems',15],[92,'layl','Leyl',21],[93,'duha','Duhâ',11],[94,'sharh','İnşirâh',8],[95,'tin','Tîn',8],[96,'alaq','Alak',19],[97,'qadr','Kadir',5],[98,'bayyinah','Beyyine',8],[99,'zalzalah','Zilzâl',8],[100,'adiyat','Âdiyât',11],[101,'qariah','Kâria',11],[102,'takathur','Tekâsür',8],[103,'asr','Asr',3],[104,'humazah','Hümeze',9],[105,'fil','Fîl',5],[106,'quraysh','Kureyş',4],[107,'maun','Maûn',7],[108,'kawthar','Kevser',3],[109,'kafirun','Kâfirûn',6],[110,'nasr','Nasr',3],[111,'masad','Tebbet',5],[112,'ikhlas','İhlâs',4],[113,'falaq','Felak',5],[114,'nas','Nâs',6]
+].map(x=>({number:x[0],id:x[1],name:x[2],ayahs:x[3]}));
+const live=new Set(['asr','kawthar','ikhlas','falaq','nas']);
+function status(x){return live.has(x.id)&&DEEN_QURAN_CONTENT?.getSurah?.(x.id)?.length===x.ayahs?'ready':'review_required'}
+function html(){return'<div class="deen-juzamma">'+ALL.map(x=>'<div class="deen-juz-row"><span><b>'+x.number+' · '+x.name+'</b><span>'+x.ayahs+' ayet</span></span><span class="deen-juz-tag '+(status(x)==='ready'?'':'pending')+'">'+(status(x)==='ready'?'HAZIR':'UZMAN REVIEW')+'</span></div>').join('')+'<div class="deen-quran-note">Yeni Arapça metin için kaynak: Tanzil Uthmani (CC BY 3.0, verbatim + attribution). Türkçe meal ayrıca hak/uzman kontrolünden geçmeden live olmaz.</div></div>'}
+function open(){sheet('Cüz Amma',html());return true}
+function catalog(){return ALL.map(x=>({...x,status:status(x),arabicSource:{provider:'Tanzil Project',license:'CC BY 3.0',url:'https://tanzil.net/docs/Text_License'},translationSource:{provider:'Vikikaynak',edition:'Muhammed Hamdi Yazır, 1938',url:"https://tr.wikisource.org/wiki/Kur%27an"}}))}
+function audit(){const rows=catalog();return{totalSurahs:rows.length,ready:rows.filter(x=>x.status==='ready').length,pending:rows.filter(x=>x.status!=='ready').length,unsafeLive:rows.filter(x=>x.status==='ready'&&!live.has(x.id)).length}}
+window.DEEN_QURAN_JUZ_AMMA={open,catalog,audit};window.DEEN_QURAN.juzAmma=open;document.documentElement.dataset.deenJuzAmma='v10935';
+})();
+</script>
