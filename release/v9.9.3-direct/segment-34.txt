@@ -2451,3 +2451,177 @@ window.DEEN_REWARD_BADGE_ART={
   })
 };
 </script>
+
+
+<!-- DEEN v10.9.10 — Badge surface authority + audit -->
+<style id="deen-v10910-badge-surface-audit-css">
+#resultMedal.deen-result-badge-art{
+  width:118px!important;
+  height:118px!important;
+  min-width:118px!important;
+  min-height:118px!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-repeat:no-repeat!important;
+  background-size:500% 200%!important;
+  box-shadow:none!important;
+  color:transparent!important;
+  padding:0!important;
+  overflow:visible!important;
+  filter:
+    saturate(1.08)
+    brightness(1.05)
+    drop-shadow(0 10px 16px rgba(0,0,0,.35))
+    drop-shadow(0 0 10px rgba(83,224,178,.13))!important;
+}
+#resultMedal.deen-result-badge-art svg,
+#resultMedal.deen-result-badge-art>*{
+  display:none!important;
+}
+
+.gf-reward-modal .gf-reward-medal.deen-reward-badge-missing{
+  width:94px!important;
+  height:94px!important;
+  border:1px dashed rgba(145,223,201,.20)!important;
+  border-radius:24px!important;
+  background:rgba(145,223,201,.035)!important;
+  box-shadow:none!important;
+  color:transparent!important;
+  position:relative!important;
+}
+.gf-reward-modal .gf-reward-medal.deen-reward-badge-missing::after{
+  content:"ROZET";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#91b9ae;
+  font:700 9px/1 "Manrope","Inter",system-ui,sans-serif;
+  letter-spacing:1.1px;
+}
+
+@media(max-width:390px){
+  #resultMedal.deen-result-badge-art{
+    width:104px!important;
+    height:104px!important;
+    min-width:104px!important;
+    min-height:104px!important;
+  }
+}
+</style>
+<script id="deen-v10910-badge-surface-audit-js">
+(()=>{
+  let lessonBefore=null;
+  let sectionBefore=null;
+  let lastResultBadges=[];
+
+  function achievements(){
+    try{return Array.isArray(state?.achievements)?[...state.achievements]:[]}
+    catch(_){return[]}
+  }
+  function snapshot(){return new Set(achievements())}
+  function diff(before){
+    const b=before||new Set();
+    return achievements().filter(id=>!b.has(id)&&window.DEEN_BADGE_ART?.known?.(id));
+  }
+  function clearResultArt(){
+    const medal=document.getElementById('resultMedal');
+    if(!medal)return;
+    medal.classList.remove('deen-result-badge-art','deen-badge-art');
+    delete medal.dataset.badgeId;
+    medal.style.removeProperty('background-image');
+    medal.style.removeProperty('background-position');
+    medal.style.removeProperty('background-size');
+    medal.style.removeProperty('background-repeat');
+    medal.removeAttribute('role');
+    medal.removeAttribute('aria-label');
+  }
+  function renderResultBadge(ids){
+    const id=(ids||[])[0];
+    if(!id||!window.DEEN_BADGE_ART?.known?.(id))return false;
+    const medal=document.getElementById('resultMedal');
+    if(!medal)return false;
+    medal.classList.add('deen-result-badge-art');
+    medal.dataset.badgeId=id;
+    medal.setAttribute('role','img');
+    let label=id;
+    try{label=badges().find(b=>b.id===id)?.name||id}catch(_){}
+    medal.setAttribute('aria-label','Yeni rozet · '+label);
+    window.DEEN_BADGE_ART.apply(medal,id,{size:118});
+    lastResultBadges=[...ids];
+    return true;
+  }
+
+  document.addEventListener('deen:lesson-result-before',()=>{
+    lessonBefore=snapshot();
+    lastResultBadges=[];
+    clearResultArt();
+  },true);
+  document.addEventListener('deen:lesson-result',()=>{
+    const ids=diff(lessonBefore);
+    lessonBefore=null;
+    if(ids.length)requestAnimationFrame(()=>renderResultBadge(ids));
+  },true);
+
+  document.addEventListener('deen:section-result-before',()=>{
+    sectionBefore=snapshot();
+    lastResultBadges=[];
+    clearResultArt();
+  },true);
+  document.addEventListener('deen:section-result',()=>{
+    const ids=diff(sectionBefore);
+    sectionBefore=null;
+    if(ids.length)requestAnimationFrame(()=>renderResultBadge(ids));
+  },true);
+
+  function audit(){
+    const registry=window.DEEN_BADGE_ART;
+    let defined=[];
+    try{defined=badges().map(b=>String(b.id))}catch(_){}
+    const atlas=registry?.ids?[...registry.ids]:[];
+    const missingAchievementArt=defined.filter(id=>!registry?.known?.(id));
+    const orphanAtlas=atlas.filter(id=>!defined.includes(id));
+    const savedUnknown=achievements().filter(id=>!registry?.known?.(id));
+    let unitNames=[];
+    try{unitNames=Array.isArray(UNIT_BADGES)?[...UNIT_BADGES]:[]}catch(_){}
+    const openPopup=document.querySelector('.gf-reward-modal[open],.gf-reward-modal');
+    const popupArt=openPopup?.querySelector('.deen-reward-badge-art[data-badge-id]')||null;
+    const popupMissing=openPopup?.querySelector('.deen-reward-badge-missing')||null;
+    const resultArt=document.querySelector('#resultMedal.deen-result-badge-art[data-badge-id]');
+    const profile=registry?.check?.()||null;
+    const issues=[];
+    if(!registry)issues.push('achievement_registry_missing');
+    if(missingAchievementArt.length)issues.push('achievement_art_missing');
+    if(savedUnknown.length)issues.push('saved_achievement_unknown');
+    if(popupMissing)issues.push('open_reward_badge_missing_art');
+    if(unitNames.length)issues.push('unit_badge_assets_missing');
+    return{
+      version:'10.9.10',
+      build:'9211badgesystemaudit1',
+      achievement:{
+        defined,
+        atlas,
+        missingAchievementArt,
+        orphanAtlas,
+        savedUnknown,
+        profile,
+        popup:popupArt?.dataset.badgeId||null,
+        result:resultArt?.dataset.badgeId||null,
+        lastResultBadges:[...lastResultBadges]
+      },
+      unitBadges:{
+        expected:unitNames.length,
+        mapped:0,
+        missing:[...unitNames],
+        note:'UNIT_BADGES is a separate 15-name reward set and has no image assets in the current 10-achievement atlas.'
+      },
+      issues,
+      pass:issues.length===0
+    };
+  }
+
+  window.DEEN_BADGE_AUDIT={version:'10.9.10',build:'9211badgesystemaudit1',run:audit,snapshot:audit};
+  document.documentElement.dataset.deenBadgeSurfaces='v10910';
+})();
+</script>
