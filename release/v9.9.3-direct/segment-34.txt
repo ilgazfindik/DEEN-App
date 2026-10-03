@@ -7008,6 +7008,9 @@ window.DEEN_REWARD_BADGE_ART={
     const info=ensureMeta(id,n);
     if(!info||!info.ayah.completedAt)return null;
     if(info.ayah.nextReviewAt)return null;
+    if(info.srs.reviewCount===0&&num(info.ayah.memorizationLevel,0)<5){
+      info.ayah.state='new';
+    }
     return record(id,n,'good','learning_complete');
   }
   function dueItems(includeToday=true){
