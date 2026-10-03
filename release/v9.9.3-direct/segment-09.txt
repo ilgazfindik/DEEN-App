@@ -1132,7 +1132,8 @@ function mountV5(){
 /* One presenter owns every celebration. Stage precedes its unit; section milestones lead. */
 const celebrationQueue=[];
 let celebrationRunning=false,activeCelebration=null,celebrationFinish=null,queuePump=null;
-const UNIT_BADGES=['Temeller Yolcusu','Kavram Kaşifi','Anlam Yolcusu','Temel Bağlar','İlk Kısım Yolcusu','Yeni Ufuklar','Bilgi Bağları','Öğrenme İzleri','Hatırlama Yolcusu','İman Konuları Yolcusu','İbadet Bilinci','Temizlik Yolcusu','Namaz Hazırlığı','Namaz Yapısı','Ramazan Yolcusu'];
+const UNIT_TITLES=['Temeller Yolcusu','Kavram Kaşifi','Anlam Yolcusu','Temel Bağlar','İlk Kısım Yolcusu','Yeni Ufuklar','Bilgi Bağları','Öğrenme İzleri','Hatırlama Yolcusu','İman Konuları Yolcusu','İbadet Bilinci','Temizlik Yolcusu','Namaz Hazırlığı','Namaz Yapısı','Ramazan Yolcusu'];
+const UNIT_BADGES=UNIT_TITLES; // legacy alias; these are titles, not collectible achievement badges.
 const CELEBRATION_PRIORITY={section_complete:0,section_intro:0,stage_complete:1,unit_complete:2,unit_intro:2,level_up:3,achievement:4,goal_complete:5,quest_complete:6,streak:7,league_promotion:7};
 function motionOff(){return !state.settings.animation||state.settings.reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches}
 function celebrationKey(e){return e.type+':'+(e.id||e.unit||e.section||e.title||'')}
@@ -1148,7 +1149,7 @@ function prepareStageCelebrations(s,pct,next,xp){
  const u=s.stage.unit;
  if(unitStages(u).every(t=>state.completed.includes(t.id))&&!state.celebratedUnits.includes(u)){
   state.celebratedUnits.push(u);const index=Number(u.slice(1))-1;
-  celebrate({type:'unit_complete',unit:u,name:U[index],mastery:masteryFor(u),xp:state.history.filter(h=>h.unit===u).reduce((a,h)=>a+h.xp,0),perfect:unitStages(u).filter(t=>(state.stageScores[t.id]||0)>=100).length,badge:UNIT_BADGES[index]});saveState();
+  celebrate({type:'unit_complete',unit:u,name:U[index],mastery:masteryFor(u),xp:state.history.filter(h=>h.unit===u).reduce((a,h)=>a+h.xp,0),perfect:unitStages(u).filter(t=>(state.stageScores[t.id]||0)>=100).length,title:UNIT_TITLES[index]});saveState();
  }
 }
 function continueJourney(){
@@ -1364,7 +1365,7 @@ window.DEEN_GAMEFEEL_TEST={
   if(!previewMode)return false;
   if(['correct','wrong','combo'].includes(type)){if(!session?.questions[session.index])return false;const before=session.combo;session.combo=type==='combo'?5:type==='wrong'?0:Math.max(1,before);DEENFeel.answer(type!=='wrong',session.questions[session.index]);session.combo=before;return true}
   if(type==='perfect'){if(!session)return false;DEENFeel.result(100,65,false);return true}
-  const samples={stage:{type:'stage_complete',id:'U01-S01',next:'U01-S02'},unit:{type:'unit_complete',unit:'U01',name:U[0],mastery:86,xp:350,perfect:3,badge:UNIT_BADGES[0]},section:{type:'section_complete',section:1,gold:true,pct:95,retention:90,xp:320,strong:U[1],review:U[4]},level:{type:'level_up',title:'Seviye 8 → 9',detail:'Bir adım daha ilerledin.'},quest:{type:'quest_complete',title:'Görev tamamlandı',detail:'10 / 10 doğru cevap',amount:5},goal:{type:'goal_complete',title:'Bugünkü hedef tamamlandı',detail:'2 / 2 ders · +25 XP',amount:10},achievement:{type:'achievement',id:'lessons25',title:'Yeni rozet · Bilgi Yolcusu',name:'Bilgi Yolcusu',detail:'25 ders tamamladın.'}};
+  const samples={stage:{type:'stage_complete',id:'U01-S01',next:'U01-S02'},unit:{type:'unit_complete',unit:'U01',name:U[0],mastery:86,xp:350,perfect:3,title:UNIT_TITLES[0]},section:{type:'section_complete',section:1,gold:true,pct:95,retention:90,xp:320,strong:U[1],review:U[4]},level:{type:'level_up',title:'Seviye 8 → 9',detail:'Bir adım daha ilerledin.'},quest:{type:'quest_complete',title:'Görev tamamlandı',detail:'10 / 10 doğru cevap',amount:5},goal:{type:'goal_complete',title:'Bugünkü hedef tamamlandı',detail:'2 / 2 ders · +25 XP',amount:10},achievement:{type:'achievement',id:'lessons25',title:'Yeni rozet · Bilgi Yolcusu',name:'Bilgi Yolcusu',detail:'25 ders tamamladın.'}};
   if(!samples[type])return false;celebrate({...samples[type],qa:true});runCelebrations();return true;
  }
 };
