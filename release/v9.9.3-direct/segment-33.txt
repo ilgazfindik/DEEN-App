@@ -27,7 +27,7 @@
   width:96px!important;
   height:96px!important;
   margin:-1px auto 2px!important;
-  background-image:url("assets/badges/deen-badges-atlas.webp?v=9164badgehq1")!important;
+  background-image:url("assets/badges/deen-badges-atlas.webp?v=9211badgesystemaudit1")!important;
   background-repeat:no-repeat!important;
   background-size:500% 200%!important;
   background-position:0 0;
@@ -130,21 +130,96 @@
 </style>
 <script id="deen-v1062-badge-art-js">
 (()=>{
+  const IDS=['first','streak7','lessons25','master','final','xp1000','perfect10','reviews10','lessons50','xp5000'];
+  const POSITIONS={
+    first:'0% 0%',
+    streak7:'25% 0%',
+    lessons25:'50% 0%',
+    master:'75% 0%',
+    final:'100% 0%',
+    xp1000:'0% 100%',
+    perfect10:'25% 100%',
+    reviews10:'50% 100%',
+    lessons50:'75% 100%',
+    xp5000:'100% 100%'
+  };
+  const ASSET='assets/badges/deen-badges-atlas.webp?v=9211badgesystemaudit1';
+
+  function known(id){return IDS.includes(String(id||''))}
+  function apply(el,id,{size=null}={}){
+    if(!el||!known(id))return false;
+    const key=String(id);
+    el.dataset.badgeId=key;
+    el.classList.add('deen-badge-art');
+    const url=new URL(ASSET,document.baseURI).href;
+    el.style.setProperty('background-image',`url("${url}")`,'important');
+    el.style.setProperty('background-repeat','no-repeat','important');
+    el.style.setProperty('background-size','500% 200%','important');
+    el.style.setProperty('background-position',POSITIONS[key],'important');
+    el.style.setProperty('image-rendering','auto','important');
+    if(size){
+      el.style.setProperty('width',size+'px','important');
+      el.style.setProperty('height',size+'px','important');
+    }
+    return true;
+  }
+
+  function hydrate(root=document){
+    let count=0;
+    root.querySelectorAll?.('[data-badge-id] .deen-badge-art,.deen-badge-art[data-badge-id],.deen-reward-badge-art[data-badge-id],.deen-result-badge-art[data-badge-id]').forEach(el=>{
+      const id=el.dataset.badgeId||el.closest?.('[data-badge-id]')?.dataset?.badgeId;
+      if(apply(el,id))count++;
+    });
+    return count;
+  }
+
   window.DEEN_BADGE_ART={
-    version:'10.6.4-BADGE-HQ',
-    build:'9164badgehq1',
-    asset:'assets/badges/deen-badges-atlas.webp',
-    ids:['first','streak7','lessons25','master','final','xp1000','perfect10','reviews10','lessons50','xp5000'],
+    version:'10.9.10-BADGE-REGISTRY',
+    build:'9211badgesystemaudit1',
+    asset:ASSET,
+    ids:IDS,
+    positions:POSITIONS,
+    known,
+    apply,
+    hydrate,
     check:()=>{
-      const expected=window.DEEN_BADGE_ART.ids;
       const cards=[...document.querySelectorAll('#profileScreen .v5-badge[data-badge-id]')];
       const present=cards.map(el=>el.dataset.badgeId).filter(Boolean);
-      const missing=expected.filter(id=>!present.includes(id));
+      const missing=IDS.filter(id=>!present.includes(id));
+      const unknown=present.filter(id=>!known(id));
       const art=document.querySelectorAll('#profileScreen .deen-badge-art').length;
-      return{expected:expected.length,cards:cards.length,art,earned:document.querySelectorAll('#profileScreen .v5-badge.earned').length,missing,pass:cards.length===expected.length&&art===expected.length&&missing.length===0};
+      const popup=document.querySelector('.gf-reward-modal .deen-reward-badge-art[data-badge-id]');
+      const result=document.querySelector('#resultMedal.deen-result-badge-art[data-badge-id]');
+      return{
+        expected:IDS.length,
+        cards:cards.length,
+        art,
+        earned:document.querySelectorAll('#profileScreen .v5-badge.earned').length,
+        missing,
+        unknown,
+        popup:popup?.dataset.badgeId||null,
+        result:result?.dataset.badgeId||null,
+        pass:cards.length===IDS.length&&art===IDS.length&&missing.length===0&&unknown.length===0
+      };
     }
   };
-  document.documentElement.dataset.deenBadgeArt='v1064hq';
+
+  const obs=new MutationObserver(records=>{
+    for(const r of records){
+      for(const node of r.addedNodes||[]){
+        if(node?.nodeType===1){
+          if(node.matches?.('[data-badge-id] .deen-badge-art,.deen-badge-art[data-badge-id],.deen-reward-badge-art[data-badge-id],.deen-result-badge-art[data-badge-id]')){
+            const id=node.dataset.badgeId||node.closest?.('[data-badge-id]')?.dataset?.badgeId;
+            apply(node,id);
+          }
+          hydrate(node);
+        }
+      }
+    }
+  });
+  obs.observe(document.documentElement,{childList:true,subtree:true});
+  queueMicrotask(()=>hydrate(document));
+  document.documentElement.dataset.deenBadgeArt='v10910registry';
 })();
 </script>
 
