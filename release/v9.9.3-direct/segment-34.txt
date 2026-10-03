@@ -6065,7 +6065,7 @@ window.DEEN_REWARD_BADGE_ART={
       const answer=tokens[blankIndex];
       const pool=uniq([answer,...otherTokens(ayah)]).filter(Boolean);
       const distractors=pool.filter(x=>x!==answer).slice(0,3);
-      return {type,ayah,tokens,blankIndex,answer,options:shuffle([answer,...distractors])};
+      return {type,ayah,tokens,blankIndex,answer,options:shuffle([answer,...distractors].map((text,i)=>({id:'f'+i,text})))};
     }
     if(type==='reorder'){
       return {type,ayah,chunks,options:shuffle(chunks.map(x=>({...x})))};
