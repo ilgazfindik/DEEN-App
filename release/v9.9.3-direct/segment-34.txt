@@ -6940,11 +6940,11 @@ window.DEEN_REWARD_BADGE_ART={
     const learned=ayahs.filter(a=>!!a.completedAt);
     if(!learned.length)return;
     if(learned.some(a=>a.nextReviewAt&&Date.parse(a.nextReviewAt)<=nowMs())){
-      if(surah.status==='memorized')surah.status='review_due';
+      surah.status='review_due';
     }else if(learned.length===ayahs.length&&learned.every(a=>a.state==='solid'&&num(a.memorizationLevel,0)>=5)){
       surah.status='memorized';
       surah.memorizedAt=surah.memorizedAt||new Date().toISOString();
-    }else if(surah.status==='review_due'||surah.status==='not_started'){
+    }else{
       surah.status='learning';
     }
   }
