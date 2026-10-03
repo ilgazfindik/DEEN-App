@@ -1,0 +1,116 @@
+
+<style id="deen-v10944-quran-chapter-audio-css">
+.deen-qchapter{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:11px;padding:10px 11px;border:1px solid rgba(103,207,181,.18);border-radius:13px;background:#08262e}
+.deen-qchapter-copy b{display:block;color:#e3f4ef;font:850 9px/1.2 Inter,system-ui,sans-serif}
+.deen-qchapter-copy small{display:block;margin-top:4px;color:#789793;font:650 7px/1.35 Inter,system-ui,sans-serif}
+.deen-qchapter-play{flex:0 0 auto;min-width:72px;min-height:38px;border:1px solid rgba(103,207,181,.28);border-radius:11px;background:#15413d;color:#a1e7d3;font:850 7.5px/1 Inter,system-ui,sans-serif}
+.deen-qchapter-play.playing{background:#44391f;color:#ead99f;border-color:rgba(204,170,83,.28)}
+.deen-qchapter-license{margin-top:6px;color:#617f7b;font:650 6.5px/1.35 Inter,system-ui,sans-serif}
+</style>
+<script id="deen-v10944-quran-chapter-audio-js">
+(()=>{
+if(window.__deenV10944QuranChapterAudio)return;window.__deenV10944QuranChapterAudio=true;
+
+const SOURCES={
+ fatiha:{
+   name:'Fâtiha',file:'Chapter 1, Al-Fatiha (Murattal) - Recitation of the Holy Qur\\'an.mp3',
+   license:'CC0 1.0',author:'Atcovi',source:'https://commons.wikimedia.org/wiki/File:Chapter_1,_Al-Fatiha_(Murattal)_-_Recitation_of_the_Holy_Qur%27an.mp3'
+ },
+ ikhlas:{
+   name:'İhlâs',file:'Chapter 112, Al-Ikhlas (Mujawwad) - Recitation of the Holy Qur\\'an.mp3',
+   license:'CC0 1.0',author:'Atcovi',source:'https://commons.wikimedia.org/wiki/File:Chapter_112,_Al-Ikhlas_(Mujawwad)_-_Recitation_of_the_Holy_Qur%27an.mp3'
+ },
+ falaq:{
+   name:'Felak',file:'Chapter 113, Al-Falaq (Murattal) v2 - Recitation of the Holy Qur\\'an.mp3',
+   license:'CC BY-SA 4.0',author:'Atcovi',source:'https://commons.wikimedia.org/wiki/File:Chapter_113,_Al-Falaq_(Murattal)_v2_-_Recitation_of_the_Holy_Qur%27an.mp3'
+ },
+ nas:{
+   name:'Nâs',file:'Chapter 114, Al-Nas (Mujawwad) - Recitation of the Holy Qur\\'an.mp3',
+   license:'CC0 1.0',author:'Atcovi',source:'https://commons.wikimedia.org/wiki/File:Chapter_114,_Al-Nas_(Mujawwad)_-_Recitation_of_the_Holy_Qur%27an.mp3'
+ },
+ kawthar:{
+   name:'Kevser',file:'Chapter 108, Al-Kawthar (Mujawwad) - Recitation of the Holy Qur\\'an.mp3',
+   license:'CC BY-SA 4.0',author:'Atcovi',source:'https://commons.wikimedia.org/wiki/File:Chapter_108,_Al-Kawthar_(Mujawwad)_-_Recitation_of_the_Holy_Qur%27an.mp3'
+ },
+ asr:{
+   name:'Asr',file:'Chapter 103, Al-Asr (Murattal) - Recitation of the Holy Qur\\'an.mp3',
+   license:'CC0 1.0',author:'Atcovi',source:'https://commons.wikimedia.org/wiki/File:Chapter_103,_Al-Asr_(Murattal)_-_Recitation_of_the_Holy_Qur%27an.mp3'
+ }
+};
+let player=null,currentId=null,status='idle';
+
+function directUrl(file){
+ return 'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(file);
+}
+function ensurePlayer(){
+ if(player)return player;
+ const A=window.Audio||window.HTMLAudioElement;
+ if(!A)return null;
+ player=new A();
+ player.preload='metadata';
+ player.addEventListener?.('play',()=>{status='playing';refresh()});
+ player.addEventListener?.('pause',()=>{if(status!=='error')status='paused';refresh()});
+ player.addEventListener?.('ended',()=>{status='done';currentId=null;refresh()});
+ player.addEventListener?.('error',()=>{status='error';refresh()});
+ return player;
+}
+function source(id){const x=SOURCES[id];return x?{...x,audioUrl:directUrl(x.file)}:null}
+async function play(id){
+ const s=SOURCES[id];if(!s)return false;
+ const p=ensurePlayer();if(!p)return false;
+ if(currentId!==id||!p.src){
+   try{p.src=directUrl(s.file);p.currentTime=0}catch(_){}
+   currentId=id;
+ }
+ try{
+   const out=p.play();if(out&&typeof out.then==='function')await out;
+   status='playing';refresh();DEEN_QURAN_ANALYTICS?.track?.('audio_play',{surahId:id,mode:'chapter'});return true;
+ }catch(_){status='error';refresh();return false}
+}
+function pause(){
+ const p=ensurePlayer();try{p?.pause()}catch(_){}
+ status='paused';refresh();return true;
+}
+function stop(){
+ const p=ensurePlayer();try{p?.pause();p.currentTime=0}catch(_){}
+ currentId=null;status='idle';refresh();return true;
+}
+function toggle(id){
+ const p=ensurePlayer();
+ if(currentId===id&&p&&!p.paused)return pause();
+ return play(id);
+}
+function currentJourneyId(){
+ const h=document.querySelector?.('.deen-qj2-hero h2')?.textContent||'';
+ for(const [id,s] of Object.entries(SOURCES))if(h.includes(s.name))return id;
+ const profile=DEEN_QURAN?.ensureState?.()?.profile?.currentSurah;
+ return SOURCES[profile]?profile:null;
+}
+function cardHtml(id){
+ const s=SOURCES[id],playing=currentId===id&&status==='playing';
+ return '<div class="deen-qchapter" data-qchapter="'+id+'">'+
+  '<span class="deen-qchapter-copy"><b>Sureyi Dinle</b><small>'+s.name+' · Wikimedia Commons kıraati</small>'+
+  '<span class="deen-qchapter-license">'+s.author+' · '+s.license+'</span></span>'+
+  '<button class="deen-qchapter-play'+(playing?' playing':'')+'" type="button" onclick="DEEN_QURAN_CHAPTER_AUDIO.toggle(\''+id+'\')">'+(playing?'DURAKLAT':'▶ DİNLE')+'</button>'+
+ '</div>';
+}
+function inject(){
+ const hero=document.querySelector?.('.deen-qj2-hero');if(!hero||hero.querySelector('.deen-qchapter'))return false;
+ const id=currentJourneyId();if(!id)return false;
+ hero.insertAdjacentHTML('beforeend',cardHtml(id));return true;
+}
+function refresh(){
+ const old=document.querySelector?.('.deen-qchapter');if(!old)return false;
+ const id=old.getAttribute('data-qchapter');const h=document.createElement('div');h.innerHTML=cardHtml(id);old.replaceWith(h.firstElementChild);return true;
+}
+let timer=null;function schedule(){clearTimeout(timer);timer=setTimeout(inject,35)}
+document.addEventListener?.('deen:navigating',stop);
+document.addEventListener?.('deen:navigated',schedule);
+document.addEventListener?.('close',e=>{if(e.target?.id==='v5Sheet')stop()},true);
+if(typeof MutationObserver!=='undefined')new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
+schedule();
+
+window.DEEN_QURAN_CHAPTER_AUDIO={play,pause,stop,toggle,source,sources:()=>JSON.parse(JSON.stringify(SOURCES)),status:()=>({status,currentId,available:Object.keys(SOURCES).length})};
+document.documentElement.dataset.deenQuranChapterAudio='v10944';
+})();
+</script>
