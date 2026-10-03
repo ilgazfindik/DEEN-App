@@ -5040,3 +5040,422 @@ window.DEEN_REWARD_BADGE_ART={
   document.documentElement.dataset.deenQuranContent='v10920';
 })();
 </script>
+
+
+<!-- DEEN v10.9.21 — Ikhlas real learning session -->
+<style id="deen-v10921-ikhlas-learning-css">
+.deen-ikhlas-session{display:grid;gap:12px}
+.deen-ikhlas-session .deen-ikhlas-progresshead{
+  display:flex;align-items:center;justify-content:space-between;gap:12px
+}
+.deen-ikhlas-session .deen-ikhlas-progresshead b{
+  color:#e9f8f4;font:850 11px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-ikhlas-session .deen-ikhlas-progresshead span{
+  color:#7fa19d;font:750 9px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-ikhlas-steps{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:5px
+}
+.deen-ikhlas-stepdot{
+  height:5px;border-radius:999px;background:#0b252d;overflow:hidden
+}
+.deen-ikhlas-stepdot.on{background:linear-gradient(90deg,#59cbb2,#9ce8d1)}
+.deen-ikhlas-card{
+  padding:16px;
+  border:1px solid rgba(92,153,151,.22);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(99,211,181,.08),transparent 28%),
+    linear-gradient(180deg,#0d3037,#09262e);
+}
+.deen-ikhlas-kicker{
+  color:#86cbb9;
+  font:850 8.5px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:.65px
+}
+.deen-ikhlas-card h2{
+  margin:7px 0 4px;color:#f2fbf8;
+  font:900 20px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-ikhlas-card p{
+  margin:0;color:#829f9d;
+  font:650 10px/1.5 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-ikhlas-arabic{
+  margin-top:14px;padding:18px 12px;
+  border:1px solid rgba(111,202,180,.16);
+  border-radius:16px;background:#071f27;
+  color:#fff;text-align:center;direction:rtl;
+  font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",serif;
+  font-size:30px;line-height:1.8;
+  letter-spacing:0
+}
+.deen-ikhlas-meaning{
+  margin-top:14px;padding:14px;
+  border:1px solid rgba(191,160,82,.18);
+  border-radius:15px;background:rgba(91,70,29,.11)
+}
+.deen-ikhlas-meaning b{
+  display:block;margin-bottom:6px;color:#d7c48f;
+  font:850 9px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-ikhlas-meaning p{
+  color:#e7e2d4;font-size:12px;line-height:1.55
+}
+.deen-ikhlas-source{
+  margin-top:10px;color:#698887;
+  font:650 7.8px/1.45 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-ikhlas-listen{
+  display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px;
+  border:1px solid rgba(86,142,142,.18);border-radius:14px;background:#09262d
+}
+.deen-ikhlas-listen i{
+  width:34px;height:34px;display:grid;place-items:center;
+  border:1px solid rgba(102,183,163,.18);border-radius:11px;
+  background:#10373a;color:#86d6c0;font-style:normal
+}
+.deen-ikhlas-listen span{min-width:0}
+.deen-ikhlas-listen b{display:block;color:#dbece8;font-size:10px}
+.deen-ikhlas-listen small{display:block;margin-top:3px;color:#718f8e;font-size:8px;line-height:1.35}
+.deen-ikhlas-recall{
+  margin-top:14px;padding:20px 12px;border:1px dashed rgba(117,203,180,.22);
+  border-radius:16px;background:#081f26;text-align:center
+}
+.deen-ikhlas-recall .prompt{
+  color:#dceee9;font:800 12px/1.45 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-ikhlas-recall .hidden{
+  margin-top:12px;color:#60827f;font:800 18px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:4px
+}
+.deen-ikhlas-actions{display:grid;gap:7px;margin-top:2px}
+.deen-ikhlas-btn{
+  width:100%;min-height:46px;border-radius:14px;
+  border:1px solid rgba(111,221,191,.25);
+  background:linear-gradient(180deg,#176052,#10463f);
+  color:#effcf8;font:850 10px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-ikhlas-btn.secondary{
+  border-color:rgba(91,140,143,.2);background:#0a2931;color:#95b5b1
+}
+.deen-ikhlas-btn[disabled]{opacity:.48;cursor:not-allowed}
+.deen-ikhlas-complete{
+  padding:16px;border:1px solid rgba(111,220,190,.19);border-radius:18px;
+  background:linear-gradient(180deg,#0f3638,#09262e);text-align:center
+}
+.deen-ikhlas-complete strong{display:block;color:#ecfaf6;font-size:19px}
+.deen-ikhlas-complete span{display:block;margin-top:6px;color:#81a19e;font-size:9px;line-height:1.45}
+</style>
+<script id="deen-v10921-ikhlas-learning-js">
+(()=>{
+  if(window.__deenV10921IkhlasLearning)return;
+  window.__deenV10921IkhlasLearning=true;
+
+  const VERIFIED_AT='2026-10-04T00:15:00+03:00';
+  const SOURCE_REVIEW='DEEN source cross-check: Quran.com + Vikikaynak';
+  const ARABIC_SOURCE={
+    provider:'Quran.com',
+    edition:'Uthmani display',
+    reference:'Surah 112',
+    url:'https://quran.com/tr/ihlas'
+  };
+  const MEAL_SOURCE={
+    provider:'Vikikaynak',
+    edition:'Muhammed Hamdi Yazır, 1938',
+    reference:"Kur'an/İhlâs Suresi",
+    url:"https://tr.wikisource.org/wiki/Kur%27an/%C4%B0hl%C3%A2s_Suresi"
+  };
+  const CONTENT=[
+    {n:1,arabic:'قُلْ هُوَ ٱللَّهُ أَحَدٌ',meal:'De, o: Allah tek bir tektir.'},
+    {n:2,arabic:'ٱللَّهُ ٱلصَّمَدُ',meal:'Allah, o eksiksiz sameddir.'},
+    {n:3,arabic:'لَمْ يَلِدْ وَلَمْ يُولَدْ',meal:'Doğurmadı ve doğurulmadı.'},
+    {n:4,arabic:'وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ',meal:'Ona bir küfüv de olmadı.'}
+  ];
+  const STEPS=['listen','read','meaning','recall','complete'];
+  const STEP_LABELS={listen:'Dinle',read:'Oku',meaning:'Anlam',recall:'Hatırla',complete:'Tamamla'};
+  let session={ayah:1,step:0,revealed:false};
+
+  const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const api=()=>window.DEEN_QURAN_CONTENT;
+
+  function registerContent(){
+    if(!api()?.register)return false;
+    for(const item of CONTENT){
+      api().register({
+        surah_id:'ikhlas',
+        ayah_number:item.n,
+        arabic:{
+          text:item.arabic,
+          source:{...ARABIC_SOURCE,reference:'112:'+item.n},
+          verification_status:'production_ready'
+        },
+        translation:{
+          language:'tr',
+          text:item.meal,
+          source:{...MEAL_SOURCE,reference:"İhlâs "+item.n+". ayet"},
+          verification_status:'production_ready'
+        },
+        recitation:{
+          audio_url:null,
+          qari:null,
+          riwayah:null,
+          source:{},
+          verification_status:'needs_review'
+        },
+        learning_note:{
+          text:null,
+          source:{},
+          verification_status:'needs_review'
+        },
+        verification:{
+          verification_status:'production_ready',
+          religious_release_ready:true,
+          verified_by:SOURCE_REVIEW,
+          verified_at:VERIFIED_AT,
+          review_notes:[
+            'Arabic verse display cross-checked against Quran.com Surah 112.',
+            'Turkish translation uses public-domain Muhammed Hamdi Yazır text from Vikikaynak.',
+            'No tafsir or interpretive learning note is released in this stage.'
+          ]
+        },
+        updated_at:VERIFIED_AT
+      });
+    }
+    return true;
+  }
+
+  function getAyah(n){
+    return api()?.getAyah?.('ikhlas',Number(n))||null;
+  }
+  function ensureSession(){
+    const q=DEEN_QURAN?.ensureState?.()||state.quranJourney;
+    const current=Math.max(1,Math.min(4,Number(q?.profile?.currentAyah||q?.progress?.surahs?.ikhlas?.currentAyah||1)));
+    if(!session||session.ayah<1||session.ayah>4)session={ayah:current,step:0,revealed:false};
+    return q;
+  }
+  function sourceLine(record){
+    return 'Arapça: '+(record?.arabic?.source?.provider||'—')+' · '+(record?.arabic?.source?.reference||'')+
+      ' · Meal: Muhammed Hamdi Yazır (1938), Vikikaynak';
+  }
+  function stepDots(){
+    return STEPS.map((_,i)=>'<i class="deen-ikhlas-stepdot'+(i<=session.step?' on':'')+'"></i>').join('');
+  }
+  function currentRecord(){
+    return getAyah(session.ayah);
+  }
+  function blockedHtml(n){
+    const readiness=api()?.readiness?.('ikhlas',n);
+    return '<div class="deen-quran-pending">Bu ayet production doğrulama kapısından geçmedi. İçerik kullanıcıya gösterilmedi.'+
+      (readiness?.reasons?.length?'<br><small>'+esc(readiness.reasons.join(' · '))+'</small>':'')+
+      '</div>';
+  }
+  function cardHtml(){
+    const record=currentRecord();
+    if(!record)return blockedHtml(session.ayah);
+    const stage=STEPS[session.step];
+    const title=STEP_LABELS[stage];
+    let body='';
+
+    if(stage==='listen'){
+      body=
+        '<div class="deen-ikhlas-card">'+
+          '<div class="deen-ikhlas-kicker">1 · DİNLE</div>'+
+          '<h2>Ayet '+session.ayah+' / 4</h2>'+
+          '<p>Önce ayetin sesini dinlemek ideal akıştır. Kıraat kaydı 8/14 ses sistemi aşamasında bağlanacak.</p>'+
+          '<div class="deen-ikhlas-listen"><i>▶</i><span><b>Kıraat henüz bağlı değil</b><small>Yanlış veya kaynaksız ses oynatmak yerine bu adımı güvenli biçimde pasif tutuyoruz.</small></span></div>'+
+          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+
+          '<div class="deen-ikhlas-source">'+esc(sourceLine(record))+'</div>'+
+        '</div>';
+    }else if(stage==='read'){
+      body=
+        '<div class="deen-ikhlas-card">'+
+          '<div class="deen-ikhlas-kicker">2 · OKU</div>'+
+          '<h2>Metni gözünle takip et</h2>'+
+          '<p>Ayetin tamamını yavaşça oku. Bu turda telaffuza otomatik doğru/yanlış hükmü vermiyoruz.</p>'+
+          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+
+          '<div class="deen-ikhlas-source">'+esc(sourceLine(record))+'</div>'+
+        '</div>';
+    }else if(stage==='meaning'){
+      body=
+        '<div class="deen-ikhlas-card">'+
+          '<div class="deen-ikhlas-kicker">3 · ANLAM</div>'+
+          '<h2>Ayetin mealini bağla</h2>'+
+          '<p>Bu aşamada yalnız kaynaklı meal gösterilir; yorum veya tefsir eklemiyoruz.</p>'+
+          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+
+          '<div class="deen-ikhlas-meaning"><b>TÜRKÇE MEAL</b><p>'+esc(record.translation.text)+'</p></div>'+
+          '<div class="deen-ikhlas-source">'+esc(sourceLine(record))+'</div>'+
+        '</div>';
+    }else if(stage==='recall'){
+      body=
+        '<div class="deen-ikhlas-card">'+
+          '<div class="deen-ikhlas-kicker">4 · HATIRLA</div>'+
+          '<h2>Metne bakmadan getir</h2>'+
+          '<p>Önce ayeti zihninden söylemeye çalış. Sonra kontrol etmek için metni aç.</p>'+
+          '<div class="deen-ikhlas-recall">'+
+            '<div class="prompt">İhlâs '+session.ayah+'. ayeti hatırla</div>'+
+            (session.revealed
+              ?'<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'
+              :'<div class="hidden">••• ••• •••</div>')+
+          '</div>'+
+          (!session.revealed?'<button class="deen-ikhlas-btn secondary" type="button" onclick="DEEN_QURAN_IKHLAS.reveal()">AYETİ GÖSTER</button>':'')+
+        '</div>';
+    }else{
+      body=
+        '<div class="deen-ikhlas-card">'+
+          '<div class="deen-ikhlas-kicker">5 · TAMAMLA</div>'+
+          '<h2>Ayet turunu bitir</h2>'+
+          '<p>Bu ayeti ilk öğrenme turunda tamamladığını işaretle. Ezber seviyesi daha sonra tekrarlarla güçlenecek.</p>'+
+          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+
+          '<div class="deen-ikhlas-meaning"><b>TÜRKÇE MEAL</b><p>'+esc(record.translation.text)+'</p></div>'+
+        '</div>';
+    }
+    return body;
+  }
+  function bodyHtml(){
+    return '<div class="deen-ikhlas-session">'+
+      '<div class="deen-ikhlas-progresshead"><b>İhlâs · Ayet '+session.ayah+'/4</b><span>'+esc(STEP_LABELS[STEPS[session.step]])+'</span></div>'+
+      '<div class="deen-ikhlas-steps">'+stepDots()+'</div>'+
+      cardHtml()+
+      '<div class="deen-ikhlas-actions">'+
+        (session.step<STEPS.length-1
+          ?'<button class="deen-ikhlas-btn" type="button" onclick="DEEN_QURAN_IKHLAS.next()">DEVAM ET</button>'
+          :'<button class="deen-ikhlas-btn" type="button" onclick="DEEN_QURAN_IKHLAS.finishAyah()">AYETİ TAMAMLA</button>')+
+        (session.step>0?'<button class="deen-ikhlas-btn secondary" type="button" onclick="DEEN_QURAN_IKHLAS.back()">GERİ</button>':'')+
+      '</div>'+
+    '</div>';
+  }
+  function redraw(){
+    const mount=document.querySelector('.deen-ikhlas-session');
+    if(mount){
+      const wrapper=document.createElement('div');
+      wrapper.innerHTML=bodyHtml();
+      mount.replaceWith(wrapper.firstElementChild);
+      return true;
+    }
+    return false;
+  }
+  function open(ayah){
+    registerContent();
+    const q=DEEN_QURAN?.ensureState?.()||state.quranJourney;
+    const selected=Math.max(1,Math.min(4,Number(ayah||q?.profile?.currentAyah||q?.progress?.surahs?.ikhlas?.currentAyah||1)));
+    session={ayah:selected,step:0,revealed:false};
+    try{DEEN_QURAN?.startSurah?.('ikhlas',selected,'learn')}catch(_){}
+    sheet('İhlâs Suresi',bodyHtml());
+    document.documentElement.dataset.deenIkhlasLearning='v10921';
+    return true;
+  }
+  function next(){
+    if(session.step<STEPS.length-1){
+      session.step++;
+      session.revealed=false;
+      redraw();
+    }
+    return session.step;
+  }
+  function back(){
+    if(session.step>0){
+      session.step--;
+      session.revealed=false;
+      redraw();
+    }
+    return session.step;
+  }
+  function reveal(){
+    session.revealed=true;
+    redraw();
+    return true;
+  }
+  function finishAyah(){
+    const q=DEEN_QURAN?.ensureState?.()||state.quranJourney;
+    const s=q.progress.surahs.ikhlas;
+    const prior=s.ayahs[session.ayah]||{};
+    const firstCompletion=!prior.completedAt;
+    const nextState={
+      state:prior.state==='solid'?'solid':'strengthening',
+      completedAt:prior.completedAt||new Date().toISOString(),
+      memorizationLevel:Math.max(1,Number(prior.memorizationLevel)||0),
+      repetitions:(Number(prior.repetitions)||0)+1,
+      lastStudiedAt:new Date().toISOString()
+    };
+    DEEN_QURAN.updateAyah('ikhlas',session.ayah,nextState);
+    const updated=DEEN_QURAN.ensureState();
+    if(firstCompletion)updated.daily.ayahs=(Number(updated.daily.ayahs)||0)+1;
+
+    if(session.ayah<4){
+      const nextAyah=session.ayah+1;
+      updated.profile.currentSurah='ikhlas';
+      updated.profile.currentAyah=nextAyah;
+      updated.progress.surahs.ikhlas.currentAyah=nextAyah;
+      updated.profile.lastSession={surahId:'ikhlas',ayah:nextAyah,mode:'learn',at:new Date().toISOString()};
+      updated.profile.lastSessionAt=updated.profile.lastSession.at;
+      DEEN_QURAN.persistState();
+      session={ayah:nextAyah,step:0,revealed:false};
+      redraw();
+      return {done:false,nextAyah};
+    }
+
+    updated.profile.currentSurah='ikhlas';
+    updated.profile.currentAyah=4;
+    updated.progress.surahs.ikhlas.currentAyah=4;
+    updated.progress.surahs.ikhlas.status='learning';
+    DEEN_QURAN.persistState();
+
+    const mount=document.querySelector('.deen-ikhlas-session');
+    if(mount){
+      mount.innerHTML=
+        '<div class="deen-ikhlas-complete">'+
+          '<strong>İlk öğrenme turu tamamlandı</strong>'+
+          '<span>İhlâs’ın 4 ayetini Dinle → Oku → Anlam → Hatırla → Tamamla akışıyla bitirdin. Bu henüz “ezberlendi” sayılmaz; sonraki ezber ve tekrar motorları hafızayı güçlendirecek.</span>'+
+        '</div>'+
+        '<button class="deen-ikhlas-btn" type="button" onclick="DEEN_QURAN_IKHLAS.restart()">BAŞTAN GÖZDEN GEÇİR</button>';
+    }
+    return {done:true,nextAyah:null};
+  }
+  function restart(){
+    session={ayah:1,step:0,revealed:false};
+    const q=DEEN_QURAN.ensureState();
+    q.profile.currentSurah='ikhlas';
+    q.profile.currentAyah=1;
+    q.progress.surahs.ikhlas.currentAyah=1;
+    DEEN_QURAN.persistState();
+    redraw();
+    return true;
+  }
+  function model(){
+    const record=currentRecord();
+    return {
+      surah:'ikhlas',
+      ayah:session.ayah,
+      step:STEPS[session.step],
+      stepIndex:session.step,
+      revealed:session.revealed,
+      contentReady:!!record,
+      arabic:record?.arabic?.text||null,
+      meal:record?.translation?.text||null
+    };
+  }
+
+  registerContent();
+  ensureSession();
+
+  const previousOpen=typeof DEEN_QURAN?.openSurah==='function'?DEEN_QURAN.openSurah.bind(DEEN_QURAN):null;
+  window.DEEN_QURAN=window.DEEN_QURAN||{};
+  window.DEEN_QURAN.openSurah=function(id){
+    if(id==='ikhlas')return open();
+    return previousOpen?previousOpen(id):false;
+  };
+  window.DEEN_QURAN.openIkhlas=open;
+
+  window.DEEN_QURAN_IKHLAS={
+    open,next,back,reveal,finishAyah,restart,model,
+    content:()=>CONTENT.map(x=>({...x})),
+    check:()=>({
+      productionReady:CONTENT.every(x=>!!getAyah(x.n)),
+      ayahs:CONTENT.map(x=>({n:x.n,ready:!!getAyah(x.n)})),
+      model:model()
+    })
+  };
+})();
+</script>
