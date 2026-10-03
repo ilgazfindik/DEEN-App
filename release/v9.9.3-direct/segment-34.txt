@@ -3649,3 +3649,327 @@ window.DEEN_REWARD_BADGE_ART={
   setTimeout(nav,500);
 })();
 </script>
+
+
+<!-- DEEN v10.9.17 — Quran persistent data architecture v2 -->
+<script id="deen-v10917-quran-data-js">
+(()=>{
+  if(window.__deenV10917QuranData)return;
+  window.__deenV10917QuranData=true;
+
+  const SCHEMA_VERSION=2;
+  const SURAH_IDS=['fatiha','ikhlas','falaq','nas','kawthar','asr'];
+  const AYAH_COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kawthar:3,asr:3};
+  const AYAH_STATES=['new','learning','strengthening','solid'];
+  const SURAH_STATES=['not_started','learning','memorized','review_due'];
+
+  const nowIso=()=>new Date().toISOString();
+  const todayKey=()=>{
+    const d=new Date();
+    const y=d.getFullYear();
+    const m=String(d.getMonth()+1).padStart(2,'0');
+    const day=String(d.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+day;
+  };
+  const isObj=v=>!!v&&typeof v==='object'&&!Array.isArray(v);
+  const cleanId=id=>SURAH_IDS.includes(id)?id:'fatiha';
+  const num=(v,fallback=0)=>Number.isFinite(Number(v))?Number(v):fallback;
+  const clamp=(v,min,max)=>Math.min(max,Math.max(min,num(v,min)));
+  const safeIso=v=>{
+    if(typeof v!=='string'||!v)return null;
+    const t=Date.parse(v);
+    return Number.isFinite(t)?new Date(t).toISOString():null;
+  };
+
+  function blankAyah(){
+    return {
+      state:'new',
+      memorizationLevel:0,
+      repetitions:0,
+      correctRecalls:0,
+      wrongRecalls:0,
+      lastStudiedAt:null,
+      nextReviewAt:null,
+      completedAt:null
+    };
+  }
+
+  function normalizeAyah(raw){
+    const a=isObj(raw)?raw:{};
+    const out={...blankAyah(),...a};
+    if(!AYAH_STATES.includes(out.state))out.state='new';
+    out.memorizationLevel=clamp(out.memorizationLevel,0,5);
+    out.repetitions=Math.max(0,Math.floor(num(out.repetitions,0)));
+    out.correctRecalls=Math.max(0,Math.floor(num(out.correctRecalls,0)));
+    out.wrongRecalls=Math.max(0,Math.floor(num(out.wrongRecalls,0)));
+    out.lastStudiedAt=safeIso(out.lastStudiedAt);
+    out.nextReviewAt=safeIso(out.nextReviewAt);
+    out.completedAt=safeIso(out.completedAt);
+    return out;
+  }
+
+  function blankSurah(id){
+    const ayahs={};
+    for(let i=1;i<=AYAH_COUNTS[id];i++)ayahs[i]=blankAyah();
+    return {
+      status:'not_started',
+      startedAt:null,
+      lastStudiedAt:null,
+      memorizedAt:null,
+      nextReviewAt:null,
+      currentAyah:1,
+      completedAyahs:0,
+      ayahs
+    };
+  }
+
+  function normalizeSurah(id,raw){
+    const base=blankSurah(id);
+    const s=isObj(raw)?raw:{};
+    const out={...base,...s};
+    if(!SURAH_STATES.includes(out.status))out.status='not_started';
+    out.startedAt=safeIso(out.startedAt);
+    out.lastStudiedAt=safeIso(out.lastStudiedAt);
+    out.memorizedAt=safeIso(out.memorizedAt);
+    out.nextReviewAt=safeIso(out.nextReviewAt);
+    out.currentAyah=Math.round(clamp(out.currentAyah,1,AYAH_COUNTS[id]));
+    out.ayahs={};
+    let completed=0;
+    for(let i=1;i<=AYAH_COUNTS[id];i++){
+      out.ayahs[i]=normalizeAyah(s.ayahs?.[i]);
+      if(out.ayahs[i].state==='solid'||out.ayahs[i].completedAt)completed++;
+    }
+    out.completedAyahs=completed;
+    return out;
+  }
+
+  function normalizeReviewItem(item){
+    if(!isObj(item))return null;
+    const surahId=cleanId(item.surahId||item.surah||item.surah_id);
+    const ayah=Math.round(clamp(item.ayah||item.ayahNumber||1,1,AYAH_COUNTS[surahId]));
+    return {
+      id:String(item.id||surahId+':'+ayah),
+      surahId,
+      ayah,
+      dueAt:safeIso(item.dueAt||item.nextReviewAt)||nowIso(),
+      reason:String(item.reason||'scheduled'),
+      createdAt:safeIso(item.createdAt)||nowIso()
+    };
+  }
+
+  function ensure(){
+    state.quranJourney=isObj(state.quranJourney)?state.quranJourney:{};
+    const q=state.quranJourney;
+    const oldVersion=Math.max(1,Math.floor(num(q.schemaVersion||q.version,1)));
+    const migratedAt=safeIso(q.meta?.migratedAt)||nowIso();
+
+    q.progress=isObj(q.progress)?q.progress:{};
+    q.progress.surahs=isObj(q.progress.surahs)?q.progress.surahs:{};
+    q.startedSurahs=Array.isArray(q.startedSurahs)?q.startedSurahs.filter(x=>SURAH_IDS.includes(x)):[];
+    q.memorizedSurahs=Array.isArray(q.memorizedSurahs)?q.memorizedSurahs.filter(x=>SURAH_IDS.includes(x)):[];
+    q.currentSurah=cleanId(q.currentSurah);
+
+    for(const id of SURAH_IDS){
+      const s=normalizeSurah(id,q.progress.surahs[id]);
+      if(q.startedSurahs.includes(id)&&s.status==='not_started'){
+        s.status='learning';
+        s.startedAt=s.startedAt||migratedAt;
+      }
+      if(q.memorizedSurahs.includes(id)){
+        s.status='memorized';
+        s.startedAt=s.startedAt||migratedAt;
+        s.memorizedAt=s.memorizedAt||migratedAt;
+      }
+      q.progress.surahs[id]=s;
+    }
+
+    q.profile=isObj(q.profile)?q.profile:{};
+    q.profile.currentSurah=cleanId(q.profile.currentSurah||q.currentSurah);
+    q.profile.currentAyah=Math.round(clamp(q.profile.currentAyah||q.progress.surahs[q.profile.currentSurah].currentAyah,1,AYAH_COUNTS[q.profile.currentSurah]));
+    q.profile.lastMode=typeof q.profile.lastMode==='string'?q.profile.lastMode:'learn';
+    q.profile.lastSessionAt=safeIso(q.profile.lastSessionAt);
+    q.profile.lastSession=isObj(q.profile.lastSession)?q.profile.lastSession:null;
+
+    q.goals=isObj(q.goals)?q.goals:{};
+    q.goals.dailyAyahs=Math.round(clamp(q.goals.dailyAyahs??1,1,20));
+    q.goals.dailyMinutes=Math.round(clamp(q.goals.dailyMinutes??5,1,120));
+    q.goals.weeklyDays=Math.round(clamp(q.goals.weeklyDays??3,1,7));
+    q.goals.primary=['ayahs','minutes','days'].includes(q.goals.primary)?q.goals.primary:'ayahs';
+
+    q.daily=isObj(q.daily)?q.daily:{};
+    if(q.daily.date!==todayKey()){
+      q.daily={date:todayKey(),minutes:0,ayahs:0,sessions:0,lastSessionAt:null};
+    }else{
+      q.daily.minutes=Math.max(0,num(q.daily.minutes,0));
+      q.daily.ayahs=Math.max(0,Math.floor(num(q.daily.ayahs,0)));
+      q.daily.sessions=Math.max(0,Math.floor(num(q.daily.sessions,0)));
+      q.daily.lastSessionAt=safeIso(q.daily.lastSessionAt);
+    }
+
+    q.favorites=isObj(q.favorites)?q.favorites:{};
+    q.favorites.ayahs=Array.isArray(q.favorites.ayahs)?q.favorites.ayahs.filter(x=>typeof x==='string'):[];
+    q.favorites.surahs=Array.isArray(q.favorites.surahs)?q.favorites.surahs.filter(x=>SURAH_IDS.includes(x)):[];
+
+    q.review=isObj(q.review)?q.review:{};
+    const legacyQueue=Array.isArray(q.reviewQueue)?q.reviewQueue:[];
+    const sourceQueue=Array.isArray(q.review.queue)&&q.review.queue.length?q.review.queue:legacyQueue;
+    q.review.queue=sourceQueue.map(normalizeReviewItem).filter(Boolean);
+    q.review.history=Array.isArray(q.review.history)?q.review.history.filter(isObj):[];
+    q.review.lastRunAt=safeIso(q.review.lastRunAt);
+
+    q.meta=isObj(q.meta)?q.meta:{};
+    q.meta.schemaVersion=SCHEMA_VERSION;
+    q.meta.migratedFrom=Math.min(oldVersion,SCHEMA_VERSION);
+    q.meta.migratedAt=q.meta.migratedAt||migratedAt;
+    q.meta.updatedAt=nowIso();
+
+    q.schemaVersion=SCHEMA_VERSION;
+    q.version=SCHEMA_VERSION;
+    q.currentSurah=q.profile.currentSurah;
+    q.reviewQueue=q.review.queue;
+    q.verseLearned=SURAH_IDS.reduce((sum,id)=>sum+q.progress.surahs[id].completedAyahs,0);
+    q.startedSurahs=SURAH_IDS.filter(id=>q.progress.surahs[id].status!=='not_started');
+    q.memorizedSurahs=SURAH_IDS.filter(id=>q.progress.surahs[id].status==='memorized');
+    return q;
+  }
+
+  function persist(){
+    const q=ensure();
+    q.meta.updatedAt=nowIso();
+    try{saveState?.()}catch(_){}
+    return q;
+  }
+
+  function startSurah(id,ayah=1,mode='learn'){
+    const q=ensure();
+    id=cleanId(id);
+    const s=q.progress.surahs[id];
+    const at=nowIso();
+    if(s.status==='not_started')s.status='learning';
+    s.startedAt=s.startedAt||at;
+    s.lastStudiedAt=at;
+    s.currentAyah=Math.round(clamp(ayah,1,AYAH_COUNTS[id]));
+    q.profile.currentSurah=id;
+    q.profile.currentAyah=s.currentAyah;
+    q.profile.lastMode=String(mode||'learn');
+    q.profile.lastSessionAt=at;
+    q.profile.lastSession={surahId:id,ayah:s.currentAyah,mode:q.profile.lastMode,at};
+    q.daily.sessions+=1;
+    q.daily.lastSessionAt=at;
+    return persist();
+  }
+
+  function updateAyah(id,ayah,changes={}){
+    const q=ensure();
+    id=cleanId(id);
+    ayah=Math.round(clamp(ayah,1,AYAH_COUNTS[id]));
+    const s=q.progress.surahs[id];
+    const current=normalizeAyah(s.ayahs[ayah]);
+    const next=normalizeAyah({...current,...(isObj(changes)?changes:{})});
+    next.lastStudiedAt=safeIso(changes.lastStudiedAt)||next.lastStudiedAt||nowIso();
+    s.ayahs[ayah]=next;
+    s.lastStudiedAt=next.lastStudiedAt;
+    if(s.status==='not_started')s.status='learning';
+    if(!s.startedAt)s.startedAt=next.lastStudiedAt;
+    q.profile.currentSurah=id;
+    q.profile.currentAyah=ayah;
+    return persist();
+  }
+
+  function scheduleReview(id,ayah,dueAt,reason='scheduled'){
+    const q=ensure();
+    id=cleanId(id);
+    ayah=Math.round(clamp(ayah,1,AYAH_COUNTS[id]));
+    const due=safeIso(dueAt)||nowIso();
+    const key=id+':'+ayah;
+    q.review.queue=q.review.queue.filter(x=>x.id!==key);
+    q.review.queue.push({id:key,surahId:id,ayah,dueAt:due,reason:String(reason),createdAt:nowIso()});
+    q.review.queue.sort((a,b)=>Date.parse(a.dueAt)-Date.parse(b.dueAt));
+    q.progress.surahs[id].ayahs[ayah].nextReviewAt=due;
+    q.progress.surahs[id].nextReviewAt=q.review.queue.find(x=>x.surahId===id)?.dueAt||due;
+    q.reviewQueue=q.review.queue;
+    return persist();
+  }
+
+  function toggleFavorite(id,ayah){
+    const q=ensure();
+    id=cleanId(id);
+    const key=ayah==null?id:id+':'+Math.round(clamp(ayah,1,AYAH_COUNTS[id]));
+    const bucket=ayah==null?q.favorites.surahs:q.favorites.ayahs;
+    const pos=bucket.indexOf(key);
+    if(pos>=0)bucket.splice(pos,1); else bucket.push(key);
+    persist();
+    return pos<0;
+  }
+
+  function setGoal(goal,value){
+    const q=ensure();
+    if(goal==='dailyAyahs')q.goals.dailyAyahs=Math.round(clamp(value,1,20));
+    else if(goal==='dailyMinutes')q.goals.dailyMinutes=Math.round(clamp(value,1,120));
+    else if(goal==='weeklyDays')q.goals.weeklyDays=Math.round(clamp(value,1,7));
+    else if(goal==='primary'&&['ayahs','minutes','days'].includes(value))q.goals.primary=value;
+    return persist();
+  }
+
+  function snapshot(){
+    return JSON.parse(JSON.stringify(ensure()));
+  }
+
+  const base=window.DEEN_QURAN||{};
+  const baseOpen=typeof base.openSurah==='function'?base.openSurah.bind(base):null;
+  const baseRender=typeof base.render==='function'?base.render.bind(base):null;
+
+  if(baseOpen){
+    base.openSurah=function(id){
+      startSurah(id,1,'learn');
+      const out=baseOpen(id);
+      persist();
+      return out;
+    };
+  }
+  if(baseRender){
+    base.render=function(){
+      ensure();
+      return baseRender();
+    };
+  }
+
+  base.schemaVersion=SCHEMA_VERSION;
+  base.ensureState=ensure;
+  base.persistState=persist;
+  base.startSurah=startSurah;
+  base.updateAyah=updateAyah;
+  base.scheduleReview=scheduleReview;
+  base.toggleFavorite=toggleFavorite;
+  base.setGoal=setGoal;
+  base.state=snapshot;
+  base.schema=()=>({
+    version:SCHEMA_VERSION,
+    surahStates:[...SURAH_STATES],
+    ayahStates:[...AYAH_STATES],
+    surahs:SURAH_IDS.map(id=>({id,ayahs:AYAH_COUNTS[id]}))
+  });
+  base.checkData=()=>{
+    const q=ensure();
+    return {
+      schemaVersion:q.schemaVersion,
+      currentSurah:q.profile.currentSurah,
+      currentAyah:q.profile.currentAyah,
+      startedSurahs:q.startedSurahs.length,
+      memorizedSurahs:q.memorizedSurahs.length,
+      reviewItems:q.review.queue.length,
+      favorites:q.favorites.ayahs.length+q.favorites.surahs.length,
+      dailyGoal:{ayahs:q.goals.dailyAyahs,minutes:q.goals.dailyMinutes,weeklyDays:q.goals.weeklyDays},
+      legacyCompatible:Array.isArray(q.startedSurahs)&&Array.isArray(q.memorizedSurahs)&&Array.isArray(q.reviewQueue)
+    };
+  };
+  window.DEEN_QURAN=base;
+
+  const migrated=ensure();
+  if(migrated.meta.migratedFrom<SCHEMA_VERSION||!migrated.meta.persistedSchemaV2){
+    migrated.meta.persistedSchemaV2=true;
+    persist();
+  }
+  document.documentElement.dataset.deenQuranData='v10917';
+})();
+</script>
