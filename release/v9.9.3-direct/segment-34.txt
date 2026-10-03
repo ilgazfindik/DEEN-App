@@ -3768,6 +3768,7 @@ window.DEEN_REWARD_BADGE_ART={
     q.startedSurahs=Array.isArray(q.startedSurahs)?q.startedSurahs.filter(x=>SURAH_IDS.includes(x)):[];
     q.memorizedSurahs=Array.isArray(q.memorizedSurahs)?q.memorizedSurahs.filter(x=>SURAH_IDS.includes(x)):[];
     q.currentSurah=cleanId(q.currentSurah);
+    const legacyVerseLearned=Math.max(0,Math.floor(num(q.verseLearned,0)));
 
     for(const id of SURAH_IDS){
       const s=normalizeSurah(id,q.progress.surahs[id]);
@@ -3813,13 +3814,22 @@ window.DEEN_REWARD_BADGE_ART={
     q.review=isObj(q.review)?q.review:{};
     const legacyQueue=Array.isArray(q.reviewQueue)?q.reviewQueue:[];
     const sourceQueue=Array.isArray(q.review.queue)&&q.review.queue.length?q.review.queue:legacyQueue;
-    q.review.queue=sourceQueue.map(normalizeReviewItem).filter(Boolean);
+    const normalizedQueue=[];
+    const unmappedLegacy=[];
+    for(const item of sourceQueue){
+      const normalized=normalizeReviewItem(item);
+      if(normalized)normalizedQueue.push(normalized); else unmappedLegacy.push(item);
+    }
+    q.review.queue=normalizedQueue;
+    q.review.legacyQueue=Array.isArray(q.review.legacyQueue)?q.review.legacyQueue:[];
+    if(unmappedLegacy.length)q.review.legacyQueue.push(...unmappedLegacy);
     q.review.history=Array.isArray(q.review.history)?q.review.history.filter(isObj):[];
     q.review.lastRunAt=safeIso(q.review.lastRunAt);
 
     q.meta=isObj(q.meta)?q.meta:{};
     q.meta.schemaVersion=SCHEMA_VERSION;
-    q.meta.migratedFrom=Math.min(oldVersion,SCHEMA_VERSION);
+    const previousMigratedFrom=Math.max(1,Math.floor(num(q.meta.migratedFrom,oldVersion)));
+    q.meta.migratedFrom=Math.min(previousMigratedFrom,oldVersion,SCHEMA_VERSION);
     q.meta.migratedAt=q.meta.migratedAt||migratedAt;
     q.meta.updatedAt=nowIso();
 
@@ -3827,7 +3837,9 @@ window.DEEN_REWARD_BADGE_ART={
     q.version=SCHEMA_VERSION;
     q.currentSurah=q.profile.currentSurah;
     q.reviewQueue=q.review.queue;
-    q.verseLearned=SURAH_IDS.reduce((sum,id)=>sum+q.progress.surahs[id].completedAyahs,0);
+    const structuredVerseLearned=SURAH_IDS.reduce((sum,id)=>sum+q.progress.surahs[id].completedAyahs,0);
+    q.progress.legacyVerseLearned=Math.max(legacyVerseLearned,Math.floor(num(q.progress.legacyVerseLearned,0)));
+    q.verseLearned=Math.max(q.progress.legacyVerseLearned,structuredVerseLearned);
     q.startedSurahs=SURAH_IDS.filter(id=>q.progress.surahs[id].status!=='not_started');
     q.memorizedSurahs=SURAH_IDS.filter(id=>q.progress.surahs[id].status==='memorized');
     return q;
