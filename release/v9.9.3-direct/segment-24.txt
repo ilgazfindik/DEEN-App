@@ -12229,238 +12229,26 @@ if(typeof LEGACY_RENDER==='function'){
 
 <!-- DEEN v10.3.5 — Developer admin panel -->
 <style id="deen-v1035-admin-panel-css">
-#deenAdminOverlay{
-  position:fixed;inset:0;z-index:120000;
-  display:none;align-items:center;justify-content:center;
-  padding:18px;background:rgba(0,9,13,.78);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
-#deenAdminOverlay.open{display:flex}
-#deenAdminTrigger{
-  position:fixed;top:12px;right:12px;z-index:119999;
-  width:34px;height:34px;border-radius:11px;
-  border:1px solid rgba(121,230,194,.34);
-  background:rgba(6,35,43,.86);color:#91e9ca;
-  font:900 12px/1 Inter,system-ui,sans-serif;
-  box-shadow:0 8px 24px rgba(0,0,0,.22);
-  cursor:pointer;opacity:.62;
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-}
-#deenAdminTrigger:hover{opacity:1;border-color:rgba(121,230,194,.7)}
-#deenAdminTrigger:active{transform:scale(.96)}
-#deenAdminPanel{
-  width:min(420px,100%);max-height:min(760px,92vh);overflow:auto;
-  border:1px solid rgba(123,224,198,.26);border-radius:24px;
-  background:
-    radial-gradient(circle at 88% 8%,rgba(125,226,193,.10),transparent 28%),
-    linear-gradient(180deg,#0a2a34 0%,#071d26 100%);
-  box-shadow:0 30px 90px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.025);
-  color:#edf8f5;padding:18px;
-}
-.deen-admin-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-.deen-admin-title{display:flex;align-items:center;gap:10px}
-.deen-admin-mark{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;border:1px solid rgba(126,228,197,.28);background:#103b42;color:#8be9c7;font-weight:950}
-.deen-admin-title h2{font-size:18px;line-height:1;margin:0}
-.deen-admin-title small{display:block;margin-top:5px;color:#88a7aa;font-size:9px;letter-spacing:.7px;text-transform:uppercase}
-.deen-admin-close{width:36px;height:36px;border:1px solid #31515a;border-radius:11px;background:#0a222b;color:#d8e8e6;font-size:20px;cursor:pointer}
-.deen-admin-status{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}
-.deen-admin-stat{padding:10px 8px;border-radius:14px;border:1px solid rgba(91,143,153,.28);background:rgba(4,27,35,.62);text-align:center}
-.deen-admin-stat strong{display:block;font-size:13px;color:#f6fbf9;overflow:hidden;text-overflow:ellipsis}
-.deen-admin-stat span{display:block;margin-top:4px;color:#78999d;font-size:8px;letter-spacing:.55px;text-transform:uppercase}
-.deen-admin-section{padding:13px;border:1px solid rgba(91,143,153,.24);border-radius:16px;background:rgba(7,32,40,.56);margin-top:10px}
-.deen-admin-section h3{margin:0 0 9px;font-size:11px;color:#b8cfcc;letter-spacing:.7px;text-transform:uppercase}
-.deen-admin-actions{display:grid;gap:8px}
-.deen-admin-btn{
-  width:100%;min-height:46px;border-radius:13px;border:1px solid rgba(92,149,157,.42);
-  background:linear-gradient(180deg,#113b46,#0b2a34);color:#eef9f7;
-  font:800 12px/1.2 Inter,system-ui,sans-serif;padding:10px 12px;text-align:left;cursor:pointer;
-}
-.deen-admin-btn b{display:block;font-size:12px}
-.deen-admin-btn small{display:block;margin-top:3px;color:#8facaf;font-size:9px;font-weight:600}
-.deen-admin-btn.primary{border-color:rgba(121,230,194,.55);background:linear-gradient(180deg,#185b51,#0d3f3d)}
-.deen-admin-btn.gold{border-color:rgba(229,188,94,.5);background:linear-gradient(180deg,#55451f,#362e1d);color:#ffe8a8}
-.deen-admin-btn.danger{border-color:rgba(220,116,126,.38);background:linear-gradient(180deg,#47282f,#301f25);color:#ffdfe3}
-.deen-admin-note{margin:12px 2px 0;color:#708f94;font-size:9px;line-height:1.45}
-@media(max-width:430px){
- #deenAdminOverlay{padding:10px}
- #deenAdminPanel{border-radius:20px;padding:14px}
- .deen-admin-status{grid-template-columns:1fr 1fr}
-}
+/* DEEN v10.9.13 — legacy admin retired. Authoritative admin lives in segment-34. */
+#deenAdminOverlay,#deenAdminTrigger{display:none!important;visibility:hidden!important;pointer-events:none!important}
 </style>
 <script id="deen-v1035-admin-panel-js">
 (()=>{
- if(window.__deenV1035AdminPanel)return;
- window.__deenV1035AdminPanel=true;
-
- const VERSION='10.3.5-ADMIN-PANEL';
-
- function getState(){
-   try{return state}catch(_){return null}
- }
- function persist(){
-   try{saveState()}catch(_){}
-   try{updateUI()}catch(_){}
-   try{document.dispatchEvent(new CustomEvent('deen:ui-updating',{detail:{source:'admin'}}))}catch(_){}
- }
- function overlay(){return document.getElementById('deenAdminOverlay')}
- function isTyping(){
-   const a=document.activeElement;
-   return !!a&&(['INPUT','TEXTAREA','SELECT'].includes(a.tagName)||a.isContentEditable);
- }
- function status(){
-   const s=getState();
-   if(!s)return;
-   const values={
-     energy:s.premium?'∞':String(s.energy??0),
-     currency:String(s.currency??0),
-     premium:s.premium?'AÇIK':'KAPALI',
-     companion:String(s.profile?.companion||'—')
-   };
-   Object.entries(values).forEach(([k,v])=>{
-     const el=document.querySelector('[data-admin-stat="'+k+'"]');
-     if(el)el.textContent=v;
-   });
- }
- function mountTrigger(){
-   let b=document.getElementById('deenAdminTrigger');
-   if(b)return b;
-   b=document.createElement('button');
-   b.id='deenAdminTrigger';
-   b.type='button';
-   b.textContent='P';
-   b.setAttribute('aria-label','DEEN Admin Panelini Aç');
-   b.title='Admin Paneli (P)';
-   b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open()});
-   document.body.append(b);
-   return b;
- }
- function mount(){
-   if(overlay())return overlay();
-   const root=document.createElement('div');
-   root.id='deenAdminOverlay';
-   root.setAttribute('aria-hidden','true');
-   root.innerHTML=
-     '<div id="deenAdminPanel" role="dialog" aria-modal="true" aria-labelledby="deenAdminTitle">'+
-       '<div class="deen-admin-head">'+
-         '<div class="deen-admin-title"><div class="deen-admin-mark">P</div><div><h2 id="deenAdminTitle">DEEN Admin</h2><small>Developer / Test Panel</small></div></div>'+
-         '<button type="button" class="deen-admin-close" aria-label="Kapat" data-admin-action="close">×</button>'+
-       '</div>'+
-       '<div class="deen-admin-status">'+
-         '<div class="deen-admin-stat"><strong data-admin-stat="energy">—</strong><span>Enerji</span></div>'+
-         '<div class="deen-admin-stat"><strong data-admin-stat="currency">—</strong><span>Pırıltı</span></div>'+
-         '<div class="deen-admin-stat"><strong data-admin-stat="premium">—</strong><span>Premium</span></div>'+
-         '<div class="deen-admin-stat"><strong data-admin-stat="companion">—</strong><span>Companion</span></div>'+
-       '</div>'+
-       '<div class="deen-admin-section"><h3>Test Kaynakları</h3><div class="deen-admin-actions">'+
-         '<button type="button" class="deen-admin-btn primary" data-admin-action="infinite"><b>∞ Sınırsız enerji</b><small>Premium test modunu açar ve enerjiyi maksimuma getirir.</small></button>'+
-         '<button type="button" class="deen-admin-btn gold" data-admin-action="currency"><b>◇ Maksimum Pırıltı</b><small>Test bakiyesini 100.000.000 yapar.</small></button>'+
-         '<button type="button" class="deen-admin-btn" data-admin-action="normal"><b>Normal enerji moduna dön</b><small>Premium test modunu kapatır; enerjiyi 30 yapar.</small></button>'+
-       '</div></div>'+
-       '<div class="deen-admin-section"><h3>Navigasyon</h3><div class="deen-admin-actions">'+
-         '<button type="button" class="deen-admin-btn primary" data-admin-action="entry"><b>↩ Giriş ekranına dön</b><small>İlerlemeni silmeden premium onboarding başlangıcını açar.</small></button>'+
-       '</div></div>'+
-       '<p class="deen-admin-note">Bu panel yalnız test içindir. Klavyeden P ile açılır/kapanır, ESC ile kapanır.</p>'+
-     '</div>';
-   document.body.append(root);
-
-   root.addEventListener('click',e=>{
-     if(e.target===root){close();return}
-     const btn=e.target.closest('[data-admin-action]');
-     if(!btn)return;
-     const action=btn.dataset.adminAction;
-     if(action==='close'){close();return}
-     const s=getState();if(!s)return;
-     if(action==='infinite'){
-       window.__DEEN_ADMIN_TEST_MODE__=true;
-       window.DEEN_PREMIUM_ENTITLEMENT={...(window.DEEN_PREMIUM_ENTITLEMENT||{}),active:true,source:'admin'};
-       s.premium=true;
-       s.energy=typeof MAX_ENERGY!=='undefined'?MAX_ENERGY:30;
-       s.lastEnergyAt=Date.now();
-       persist();status();return;
-     }
-     if(action==='currency'){
-       s.currency=100000000;
-       persist();status();return;
-     }
-     if(action==='normal'){
-       window.__DEEN_ADMIN_TEST_MODE__=false;
-       if(window.DEEN_PREMIUM_ENTITLEMENT?.source==='admin')window.DEEN_PREMIUM_ENTITLEMENT={...window.DEEN_PREMIUM_ENTITLEMENT,active:false};
-       s.premium=false;
-       s.energy=typeof MAX_ENERGY!=='undefined'?MAX_ENERGY:30;
-       s.lastEnergyAt=Date.now();
-       persist();status();return;
-     }
-     if(action==='entry'){
-       close();
-       try{document.getElementById('lesson')?.classList.remove('active')}catch(_){}
-       try{const qv=document.getElementById('quizView');if(qv)qv.style.display='none'}catch(_){}
-       try{session=null}catch(_){}
-       try{document.getElementById('feedback')?.classList.remove('show')}catch(_){}
-       try{document.getElementById('v998Onboarding')?.remove()}catch(_){}
-       try{
-         if(typeof window.onboarding==='function')window.onboarding(0);
-         else if(typeof onboarding==='function')onboarding(0);
-       }catch(err){console.error('DEEN admin entry navigation',err)}
-       return;
-     }
-   });
-   return root;
- }
- function open(){
-   const el=mount();
-   el.classList.add('open');
-   el.setAttribute('aria-hidden','false');
-   status();
-   requestAnimationFrame(()=>el.querySelector('.deen-admin-close')?.focus?.());
- }
- function close(){
-   const el=overlay();if(!el)return;
-   el.classList.remove('open');
-   el.setAttribute('aria-hidden','true');
- }
- function toggle(){overlay()?.classList.contains('open')?close():open()}
-
- let lastHotkeyAt=0;
- function isAdminHotkey(e){
-   if(e.ctrlKey||e.metaKey||e.altKey||isTyping())return false;
-   const key=String(e.key||'').toLocaleLowerCase('tr-TR');
-   return e.code==='KeyP'||key==='p';
- }
- function handleAdminHotkey(e){
-   if((e.code==='Escape'||e.key==='Escape')&&overlay()?.classList.contains('open')){
-     e.preventDefault();close();return;
-   }
-   if(!isAdminHotkey(e))return;
-   const now=Date.now();
-   if(now-lastHotkeyAt<180)return;
-   lastHotkeyAt=now;
-   e.preventDefault();
-   e.stopPropagation();
-   toggle();
- }
- document.addEventListener('keydown',handleAdminHotkey,true);
- document.addEventListener('keyup',e=>{
-   if(!overlay()?.classList.contains('open')&&isAdminHotkey(e))handleAdminHotkey(e);
- },true);
- window.addEventListener('keydown',handleAdminHotkey,true);
-
- const start=()=>{try{mountTrigger()}catch(err){console.error('DEEN admin trigger',err)}};
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
- else start();
- setTimeout(start,120);
- setTimeout(start,900);
-
- window.DEEN_ADMIN={
-   version:VERSION,
-   open,close,toggle,status,
-   snapshot:()=>({
-     open:!!overlay()?.classList.contains('open'),
-     premium:!!getState()?.premium,
-     energy:getState()?.energy??null,
-     currency:getState()?.currency??null
-   })
- };
+  if(window.__deenV1035AdminPanelRetired)return;
+  window.__deenV1035AdminPanelRetired=true;
+  const cleanup=()=>{
+    try{document.getElementById('deenAdminOverlay')?.remove()}catch(_){}
+    try{document.getElementById('deenAdminTrigger')?.remove()}catch(_){}
+  };
+  cleanup();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',cleanup,{once:true});
+  setTimeout(cleanup,120);
+  setTimeout(cleanup,900);
+  window.DEEN_LEGACY_ADMIN={
+    version:'10.3.5-retired',
+    retired:true,
+    reason:'Replaced by authoritative v10.9.13 admin control center.'
+  };
 })();
 </script>
 
