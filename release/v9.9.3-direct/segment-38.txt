@@ -1,0 +1,240 @@
+
+<style id="deen-v10931-quran-mobile-polish-css">
+:root{
+  --deen-quran-sheet-gap:clamp(12px,3.2vw,18px);
+  --deen-quran-radius:clamp(14px,4vw,20px);
+}
+#v5Sheet{
+  max-height:min(94dvh,820px)!important;
+  padding-left:max(var(--deen-quran-sheet-gap),env(safe-area-inset-left))!important;
+  padding-right:max(var(--deen-quran-sheet-gap),env(safe-area-inset-right))!important;
+  padding-bottom:max(20px,env(safe-area-inset-bottom))!important;
+  scroll-padding-bottom:max(28px,env(safe-area-inset-bottom))!important;
+}
+#v5SheetBody{padding-bottom:max(12px,env(safe-area-inset-bottom))}
+#v5Sheet :where(
+  .deen-quran-surah-card,.deen-ikhlas-card,.deen-mem-card,.deen-practice-card,
+  .deen-srs-card,.deen-dailyverse-card,.deen-dailyverse-question,.deen-wbw-card,
+  .deen-wbw-frequent,.deen-qprog-section,.deen-qprog-stat
+){
+  border-radius:var(--deen-quran-radius);
+}
+#v5Sheet :where(
+  .deen-ikhlas-arabic,.deen-mem-arabic,.deen-practice-arabic,
+  .deen-srs-arabic,.deen-dailyverse-arabic,.deen-wbw-verse
+){
+  font-size:clamp(24px,7.3vw,31px)!important;
+  line-height:1.82!important;
+  padding-inline:clamp(10px,3vw,16px)!important;
+  text-wrap:pretty;
+}
+#v5Sheet :where(
+  .deen-ikhlas-btn,.deen-mem-btn,.deen-practice-btn,.deen-srs-btn,
+  .deen-dailyverse-option,.deen-wbw-btn,.deen-qprog-chip,
+  .deen-practice-chip,.deen-wbw-word,.deen-quran-surah-card
+){
+  min-height:44px;
+}
+#v5Sheet :where(
+  .deen-ikhlas-btn,.deen-mem-btn,.deen-practice-btn,.deen-srs-btn,
+  .deen-dailyverse-option,.deen-wbw-btn
+){
+  font-size:max(9px,2.45vw);
+}
+#v5Sheet .deen-quran-surah-card{
+  padding:clamp(12px,3.4vw,15px);
+}
+#v5Sheet .deen-quran-surah-name b{
+  font-size:clamp(12px,3.5vw,14px);
+}
+#v5Sheet .deen-quran-surah-status{
+  max-width:42%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+#v5Sheet .deen-quran-quick{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:8px!important;
+}
+#v5Sheet .deen-quran-quick>button{
+  min-width:0!important;
+  min-height:72px;
+}
+#v5Sheet .deen-quran-quick>button b,
+#v5Sheet .deen-quran-quick>button small{
+  overflow-wrap:anywhere;
+}
+#v5Sheet .deen-wbw-verse{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:4px;
+}
+#v5Sheet .deen-wbw-word{
+  flex:0 1 auto;
+  margin:2px!important;
+  padding:7px 9px!important;
+}
+#v5Sheet .deen-practice-chips{
+  gap:7px!important;
+}
+#v5Sheet .deen-practice-chip{
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+#v5Sheet .deen-qprog-week{
+  grid-template-columns:repeat(7,minmax(0,1fr))!important;
+}
+#v5Sheet .deen-qprog-day{
+  min-width:0;
+  padding-inline:1px!important;
+}
+@media(max-width:390px){
+  #v5Sheet :where(.deen-quran-surah-top,.deen-dailyverse-head,.deen-qprog-head){
+    gap:8px!important;
+  }
+  #v5Sheet .deen-quran-library-summary{
+    gap:5px!important;
+  }
+  #v5Sheet .deen-quran-library-summary div{
+    padding-inline:4px!important;
+  }
+  #v5Sheet .deen-quran-library-summary strong{
+    font-size:14px!important;
+  }
+}
+@media(max-width:350px){
+  #v5Sheet .deen-quran-quick{
+    grid-template-columns:1fr!important;
+  }
+  #v5Sheet .deen-quran-quick>button{
+    min-height:58px;
+  }
+  #v5Sheet :where(.deen-quran-surah-top,.deen-quran-surah-foot,.deen-dailyverse-head,.deen-qprog-head){
+    align-items:flex-start!important;
+  }
+  #v5Sheet .deen-quran-surah-status{
+    max-width:46%;
+    font-size:7px!important;
+  }
+  #v5Sheet .deen-qprog-week{
+    gap:3px!important;
+  }
+}
+@media(max-height:680px){
+  #v5Sheet{
+    max-height:96dvh!important;
+  }
+  #v5Sheet :where(.deen-ikhlas-card,.deen-mem-card,.deen-practice-card,.deen-srs-card,.deen-dailyverse-card,.deen-wbw-card){
+    padding-top:12px!important;
+    padding-bottom:12px!important;
+  }
+}
+</style>
+<script id="deen-v10931-quran-device-audit-js">
+(()=>{
+  if(window.__deenV10931QuranDeviceAudit)return;
+  window.__deenV10931QuranDeviceAudit=true;
+
+  const ROOT_SELECTORS=[
+    '.deen-quran-library-wrap','.deen-ikhlas-session','.deen-mem-session',
+    '.deen-practice-session','.deen-srs-session','.deen-dailyverse',
+    '.deen-wbw','.deen-qprog'
+  ];
+  const ARABIC_SELECTORS=[
+    '.deen-ikhlas-arabic','.deen-mem-arabic','.deen-practice-arabic',
+    '.deen-srs-arabic','.deen-dailyverse-arabic','.deen-wbw-verse','.deen-wbw-ar'
+  ];
+  const BUTTON_SELECTORS=[
+    '.deen-ikhlas-btn','.deen-mem-btn','.deen-practice-btn','.deen-srs-btn',
+    '.deen-dailyverse-option','.deen-wbw-btn','.deen-practice-chip','.deen-wbw-word'
+  ];
+
+  function visible(el){
+    if(!el||typeof el.getBoundingClientRect!=='function')return false;
+    const r=el.getBoundingClientRect();
+    return r.width>0&&r.height>0;
+  }
+  function audit(){
+    const sheet=document.getElementById?.('v5Sheet');
+    const viewport={
+      width:window.innerWidth||document.documentElement?.clientWidth||0,
+      height:window.innerHeight||document.documentElement?.clientHeight||0,
+      dpr:window.devicePixelRatio||1
+    };
+    const issues=[];
+    const details={roots:0,arabic:0,buttons:0};
+
+    if(sheet&&visible(sheet)){
+      const sr=sheet.getBoundingClientRect();
+      if(sr.left<-1||sr.right>viewport.width+1)issues.push({type:'sheet-horizontal-overflow',left:sr.left,right:sr.right,viewport:viewport.width});
+      if(sr.height>viewport.height+1)issues.push({type:'sheet-vertical-overflow',height:sr.height,viewport:viewport.height});
+      if(sheet.scrollWidth>sheet.clientWidth+2)issues.push({type:'sheet-scrollwidth',scrollWidth:sheet.scrollWidth,clientWidth:sheet.clientWidth});
+    }
+
+    for(const sel of ROOT_SELECTORS){
+      for(const el of document.querySelectorAll?.(sel)||[]){
+        if(!visible(el))continue;
+        details.roots++;
+        if(el.scrollWidth>el.clientWidth+2)issues.push({type:'content-horizontal-overflow',selector:sel,scrollWidth:el.scrollWidth,clientWidth:el.clientWidth});
+      }
+    }
+
+    for(const sel of ARABIC_SELECTORS){
+      for(const el of document.querySelectorAll?.(sel)||[]){
+        if(!visible(el))continue;
+        details.arabic++;
+        const cs=window.getComputedStyle?.(el);
+        if(cs&&cs.direction!=='rtl')issues.push({type:'arabic-not-rtl',selector:sel,direction:cs.direction});
+        if(el.scrollWidth>el.clientWidth+2)issues.push({type:'arabic-overflow',selector:sel});
+      }
+    }
+
+    for(const sel of BUTTON_SELECTORS){
+      for(const el of document.querySelectorAll?.(sel)||[]){
+        if(!visible(el))continue;
+        details.buttons++;
+        const r=el.getBoundingClientRect();
+        if(r.height<40)issues.push({type:'small-tap-target',selector:sel,height:Math.round(r.height)});
+        if(r.right>viewport.width+1||r.left<-1)issues.push({type:'button-horizontal-overflow',selector:sel});
+      }
+    }
+
+    const result={
+      ok:issues.length===0,
+      viewport,
+      issues,
+      details,
+      at:new Date().toISOString()
+    };
+    document.documentElement.dataset.deenQuranDeviceQa=result.ok?'pass':'warn';
+    window.__deenLastQuranDeviceAudit=result;
+    return result;
+  }
+
+  let timer=null;
+  function schedule(){
+    if(timer)clearTimeout(timer);
+    timer=setTimeout(()=>{timer=null;audit()},120);
+  }
+
+  document.addEventListener?.('deen:navigated',schedule);
+  document.addEventListener?.('click',e=>{
+    if(e.target?.closest?.('#v5Sheet,.deen-quran-quick,#leagueScreen'))schedule();
+  },true);
+  window.addEventListener?.('resize',schedule);
+  window.addEventListener?.('orientationchange',schedule);
+
+  if(typeof MutationObserver!=='undefined'){
+    const obs=new MutationObserver(m=>{if(m.some(x=>x.addedNodes?.length||x.removedNodes?.length))schedule()});
+    const root=document.getElementById?.('v5Sheet')||document.body;
+    if(root)obs.observe(root,{childList:true,subtree:true});
+  }
+
+  window.DEEN_QURAN_DEVICE_QA={audit,schedule,last:()=>window.__deenLastQuranDeviceAudit||null};
+  schedule();
+})();
+</script>
