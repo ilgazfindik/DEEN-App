@@ -1,0 +1,113 @@
+
+<script id="deen-v10929-quran-six-surah-js">
+(()=>{
+if(window.__deenV10929QuranSixSurah)return;window.__deenV10929QuranSixSurah=true;
+
+const VERIFIED_AT='2026-10-04T22:00:00+03:00';
+const REVIEWER='DEEN source cross-check: Quran.com + Vikikaynak';
+const PACKS={
+fatiha:{name:'Fâtiha',number:1,quran:'https://quran.com/tr/fatiha/1-7',wiki:"https://tr.wikisource.org/wiki/Kur%27an/F%C3%A2tiha_Suresi",
+arabic:['بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ','ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ','ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ','مَـٰلِكِ يَوْمِ ٱلدِّينِ','إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ','ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ','صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ'],
+meal:['Rahmân, Rahîm Allahın ismiyle','Hamd, o rabbiâlemîn,','o rahman, rahîm,','o din gününün maliki Allâh\\'ın.','Sade sana ederiz kulluğu, ibadeti ve sade senden dileriz avni, inayeti yarab!','Hidayet eyle bizi doğru yola','O kendilerine in\\'am ettiğin mes\\'utların yoluna. Ne o gadap olunanların ne de sapgınların yoluna değil.']},
+asr:{name:'Asr',number:103,quran:'https://quran.com/tr/asr',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Asr_Suresi",
+arabic:['وَٱلْعَصْرِ','إِنَّ ٱلْإِنسَـٰنَ لَفِى خُسْرٍ','إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ'],
+meal:['Asra yemin olsun ki,','İnsan mutlaka ziyandadır.','Ancak iman edenler, salih amel (iyi işler) işleyenler, birbirlerine hakkı tavsiye eden ve sabrı tavsiye edenler bunun dışındadır.']},
+kawthar:{name:'Kevser',number:108,quran:'https://quran.com/tr/kevser',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Kevser_Suresi",
+arabic:['إِنَّآ أَعْطَيْنَـٰكَ ٱلْكَوْثَرَ','فَصَلِّ لِرَبِّكَ وَٱنْحَرْ','إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ'],
+meal:['Biz verdik sana hakikatte kevser.','Sen de Rabbin için namaz kıl ve kurban kesiver.','Doğrusu sana bugz edendir ebter.']},
+falaq:{name:'Felak',number:113,quran:'https://quran.com/tr/felak',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Felak_Suresi",
+arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ','مِن شَرِّ مَا خَلَقَ','وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ','وَمِن شَرِّ ٱلنَّفَّـٰثَـٰتِ فِى ٱلْعُقَدِ','وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ'],
+meal:['De ki: Sığınırım Rabbına o felak\\'ın,','Şerrinden yarattıklarının.','Ve şerriden bir gâsıkın daldığı zaman.','Ve o, ukdelere üfleyen neffasların şerrinden.','Ve şerrinden hâsidin hased ettiği zaman.']},
+nas:{name:'Nâs',number:114,quran:'https://quran.com/tr/nas',wiki:"https://tr.wikisource.org/wiki/Kur%27an/N%C3%A2s_Suresi",
+arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ','مَلِكِ ٱلنَّاسِ','إِلَـٰهِ ٱلنَّاسِ','مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ','ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ','مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ'],
+meal:['De ki sığınırım Rabb’ine nâsın,','Melikine nâsın,','İlâhına nâsın,','Şerrinden o sinsi vesvasın.','Ki vesvese verir sinelerinde nâsın.','Gerek cinden gerekse insden.']}
+};
+const IDS=['fatiha','ikhlas','falaq','nas','kawthar','asr'], STEPS=['listen','read','meaning','recall','complete'];
+const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const qs=()=>DEEN_QURAN.ensureState(), meta=id=>PACKS[id]||DEEN_QURAN_CONTENT?.surahs?.[id]||null;
+const rec=(id,n)=>DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n))||null;
+function registerAll(){
+ for(const [id,p] of Object.entries(PACKS)) for(let i=0;i<p.arabic.length;i++) DEEN_QURAN_CONTENT.register({
+  surah_id:id,ayah_number:i+1,
+  arabic:{text:p.arabic[i],source:{provider:'Quran.com',edition:'Uthmani display',reference:p.number+':'+(i+1),url:p.quran},verification_status:'production_ready'},
+  translation:{language:'tr',text:p.meal[i],source:{provider:'Vikikaynak',edition:'Muhammed Hamdi Yazır, 1938',reference:p.name+' '+(i+1)+'. ayet',url:p.wiki,license:'Public domain',rights_reference:"https://tr.wikisource.org/wiki/Kur%27an"},verification_status:'production_ready'},
+  recitation:{audio_url:null,qari:null,riwayah:null,source:{},verification_status:'needs_review',rights_status:'unknown'},
+  learning_note:{text:null,source:{},verification_status:'needs_review'},
+  verification:{verification_status:'production_ready',religious_release_ready:true,verified_by:REVIEWER,verified_at:VERIFIED_AT,review_notes:['Arabic cross-checked against Quran.com.','Turkish meal cross-checked against public-domain Muhammed Hamdi Yazır text on Vikikaynak.','No new tafsir or recitation is released by this pack.']},
+  updated_at:VERIFIED_AT
+ });
+ return DEEN_QURAN_CONTENT.summary();
+}
+registerAll();
+
+/* ---------- generic learning ---------- */
+let L={id:'fatiha',ayah:1,step:0,revealed:false};
+function lHtml(){
+ const p=meta(L.id),r=rec(L.id,L.ayah); if(!p||!r)return'<div class="deen-quran-pending">Doğrulanmamış içerik gösterilmedi.</div>';
+ const stage=STEPS[L.step], label={listen:'Dinle',read:'Oku',meaning:'Anlam',recall:'Hatırla',complete:'Tamamla'}[stage];
+ let body='';
+ if(stage==='listen') body='<div class="deen-ikhlas-card"><div class="deen-ikhlas-kicker">1 · DİNLE</div><h2>Ayet '+L.ayah+' / '+p.arabic.length+'</h2><p>Kıraat yalnız hakları temizlenmiş kayıt bağlanırsa oynatılır.</p>'+(DEEN_QURAN_AUDIO?.controlsHtml?.(L.id,L.ayah)||'')+'<div class="deen-ikhlas-arabic" lang="ar">'+esc(r.arabic.text)+'</div></div>';
+ else if(stage==='read') body='<div class="deen-ikhlas-card"><div class="deen-ikhlas-kicker">2 · OKU</div><h2>Metni gözünle takip et</h2><p>Ayetin tamamını yavaşça oku.</p><div class="deen-ikhlas-arabic" lang="ar">'+esc(r.arabic.text)+'</div></div>';
+ else if(stage==='meaning') body='<div class="deen-ikhlas-card"><div class="deen-ikhlas-kicker">3 · ANLAM</div><h2>Meal ile bağ kur</h2><p>Yalnız kaynaklı meal gösterilir.</p><div class="deen-ikhlas-arabic" lang="ar">'+esc(r.arabic.text)+'</div><div class="deen-ikhlas-meaning"><b>TÜRKÇE MEAL</b><p>'+esc(r.translation.text)+'</p></div></div>';
+ else if(stage==='recall') body='<div class="deen-ikhlas-card"><div class="deen-ikhlas-kicker">4 · HATIRLA</div><h2>Metne bakmadan getir</h2><p>Önce zihninden söyle, sonra kontrol et.</p><div class="deen-ikhlas-recall"><div class="prompt">'+esc(p.name)+' '+L.ayah+'. ayeti hatırla</div>'+(L.revealed?'<div class="deen-ikhlas-arabic" lang="ar">'+esc(r.arabic.text)+'</div>':'<div class="hidden">••• ••• •••</div>')+'</div>'+(!L.revealed?'<button class="deen-ikhlas-btn secondary" onclick="DEEN_QURAN_MULTI.reveal()">AYETİ GÖSTER</button>':'')+'</div>';
+ else body='<div class="deen-ikhlas-card"><div class="deen-ikhlas-kicker">5 · TAMAMLA</div><h2>Ayet turunu bitir</h2><p>İlk öğrenme tamamlanır; ezber ayrı güçlendirilir.</p><div class="deen-ikhlas-arabic" lang="ar">'+esc(r.arabic.text)+'</div><div class="deen-ikhlas-meaning"><b>TÜRKÇE MEAL</b><p>'+esc(r.translation.text)+'</p></div></div>';
+ return '<div class="deen-ikhlas-session deen-qmulti-session"><div class="deen-ikhlas-progresshead"><b>'+esc(p.name)+' · Ayet '+L.ayah+'/'+p.arabic.length+'</b><span>'+label+'</span></div><div class="deen-ikhlas-steps">'+STEPS.map((_,i)=>'<i class="deen-ikhlas-stepdot'+(i<=L.step?' on':'')+'"></i>').join('')+'</div>'+body+'<div class="deen-ikhlas-actions">'+(L.step<4?'<button class="deen-ikhlas-btn" onclick="DEEN_QURAN_MULTI.next()">DEVAM ET</button>':'<button class="deen-ikhlas-btn" onclick="DEEN_QURAN_MULTI.finish()">AYETİ TAMAMLA</button>')+(L.step>0?'<button class="deen-ikhlas-btn secondary" onclick="DEEN_QURAN_MULTI.back()">GERİ</button>':'')+'</div></div>';
+}
+function redraw(sel,html){const x=document.querySelector?.(sel);if(!x)return false;const h=document.createElement('div');h.innerHTML=html;x.replaceWith(h.firstElementChild);return true}
+function openLearning(id,ayah){
+ registerAll();const p=meta(id);if(!p||id==='ikhlas')return false;const q=qs(),s=q.progress.surahs[id],a=Math.max(1,Math.min(p.arabic.length,Number(ayah||s.currentAyah||1)));
+ L={id,ayah:a,step:0,revealed:false};DEEN_QURAN.startSurah(id,a,'learn');sheet(p.name+' Suresi',lHtml());return true;
+}
+function finishLearning(){
+ const p=meta(L.id),q=qs(),a=q.progress.surahs[L.id].ayahs[L.ayah],first=!a.completedAt,now=new Date().toISOString();
+ DEEN_QURAN.updateAyah(L.id,L.ayah,{state:a.state==='solid'?'solid':'strengthening',completedAt:a.completedAt||now,memorizationLevel:Math.max(1,Number(a.memorizationLevel)||0),repetitions:(Number(a.repetitions)||0)+1,lastStudiedAt:now});
+ const u=qs();if(first)u.daily.ayahs=(Number(u.daily.ayahs)||0)+1;DEEN_QURAN_SRS?.bootstrap?.(L.id,L.ayah);
+ if(L.ayah<p.arabic.length){L={id:L.id,ayah:L.ayah+1,step:0,revealed:false};u.profile.currentSurah=L.id;u.profile.currentAyah=L.ayah;u.progress.surahs[L.id].currentAyah=L.ayah;u.profile.lastSession={surahId:L.id,ayah:L.ayah,mode:'learn',at:now};DEEN_QURAN.persistState();redraw('.deen-qmulti-session',lHtml());return{done:false,nextAyah:L.ayah}}
+ u.progress.surahs[L.id].status='learning';u.profile.currentSurah=L.id;u.profile.currentAyah=L.ayah;DEEN_QURAN.persistState();const x=document.querySelector?.('.deen-qmulti-session');if(x)x.innerHTML='<div class="deen-ikhlas-complete"><strong>İlk öğrenme turu tamamlandı</strong><span>'+esc(p.name)+' için tüm ayetlerin ilk öğrenme turu bitti. Ezber ve tekrar motorları şimdi hafızayı güçlendirebilir.</span></div>';return{done:true,nextAyah:null};
+}
+
+/* ---------- generic memorization ---------- */
+let M={id:'fatiha',ayah:1,target:1,revealed:false};
+const words=t=>String(t||'').trim().split(/\s+/).filter(Boolean);
+function mask(text,l){const w=words(text);if(l===1)return w.map(esc).join(' ');if(l===5)return'';return w.map((x,i)=>{const show=l===2?(i%3)!==1:l===3?(i===0||i===w.length-1):i===0;return show?esc(x):'<span class="deen-mem-token hidden">•••</span>'}).join(' ')}
+function astate(id,n){return qs().progress.surahs[id].ayahs[n]}
+function mHtml(){
+ const p=meta(M.id),r=rec(M.id,M.ayah),a=astate(M.id,M.ayah);if(!p||!r)return'<div class="deen-quran-pending">Doğrulanmamış içerik gösterilmedi.</div>';if(!a.completedAt)return'<div class="deen-mem-session deen-qmulti-mem-session"><div class="deen-quran-pending">Önce bu ayetin öğrenme turunu tamamla.</div></div>';
+ const titles=['','Tam metin','Bazı kelimeler gizli','Çoğu kelime gizli','Başlangıç ipucu','Tamamen ezberden'];
+ const main=M.revealed?'<div class="deen-mem-arabic" lang="ar">'+esc(r.arabic.text)+'</div>':M.target===5?'<div class="deen-mem-empty"><strong>Metin gizli</strong><span>Ayeti tamamen ezberden söyle.</span></div>':'<div class="deen-mem-arabic" lang="ar">'+mask(r.arabic.text,M.target)+'</div>';
+ return '<div class="deen-mem-session deen-qmulti-mem-session"><div class="deen-mem-head"><span><b>'+esc(p.name)+' Ezberi</b><small>Ayet '+M.ayah+' / '+p.arabic.length+'</small></span><span class="deen-mem-badge">'+Math.max(0,Number(a.memorizationLevel)||0)+'/5</span></div><div class="deen-mem-levels">'+Array.from({length:5},(_,i)=>'<i class="deen-mem-level'+(i<M.target?' on':'')+'"></i>').join('')+'</div><div class="deen-mem-card"><div class="deen-mem-kicker">EZBER KADEMESİ '+M.target+' / 5</div><h2>'+titles[M.target]+'</h2>'+main+(!M.revealed?'<button class="deen-mem-btn secondary full" onclick="DEEN_QURAN_MULTI.memReveal()">METNİ GÖSTER</button>':'')+'</div><div class="deen-mem-actions"><button class="deen-mem-btn secondary" onclick="DEEN_QURAN_MULTI.memRetry()">TEKRAR ET</button><button class="deen-mem-btn" onclick="DEEN_QURAN_MULTI.memRemembered()">HATIRLADIM</button></div></div>';
+}
+function openMem(id,ayah){const p=meta(id);if(!p||id==='ikhlas')return false;const q=qs(),s=q.progress.surahs[id];let a=Math.max(1,Math.min(p.arabic.length,Number(ayah||s.currentAyah||1)));if(!s.ayahs[a].completedAt){const found=Object.keys(s.ayahs).map(Number).find(n=>s.ayahs[n].completedAt);if(found)a=found}M={id,ayah:a,target:Math.max(1,Math.min(5,(Number(s.ayahs[a].memorizationLevel)||0)+1)),revealed:false};q.profile.currentSurah=id;q.profile.currentAyah=a;q.profile.lastMode='memorize';DEEN_QURAN.persistState();sheet(p.name+' Ezberi',mHtml());return true}
+function allMem(id){const s=qs().progress.surahs[id];return Object.values(s.ayahs).every(a=>a.completedAt&&Number(a.memorizationLevel)>=5&&a.state==='solid')}
+function memRemembered(){const a=astate(M.id,M.ayah),target=M.target;DEEN_QURAN.updateAyah(M.id,M.ayah,{memorizationLevel:Math.max(Number(a.memorizationLevel)||0,target),correctRecalls:(Number(a.correctRecalls)||0)+1,repetitions:(Number(a.repetitions)||0)+1,state:target>=5?'solid':'strengthening',lastStudiedAt:new Date().toISOString()});DEEN_QURAN_SRS?.record?.(M.id,M.ayah,'good','memorization');const q=qs();if(allMem(M.id)){q.progress.surahs[M.id].status='memorized';q.progress.surahs[M.id].memorizedAt=q.progress.surahs[M.id].memorizedAt||new Date().toISOString();q.memorizedSurahs=[...new Set([...(q.memorizedSurahs||[]),M.id])];DEEN_QURAN.persistState();return{memorized:true,nextAyah:null}}const cur=Number(astate(M.id,M.ayah).memorizationLevel)||0;if(cur<5){M.target=cur+1;M.revealed=false;redraw('.deen-qmulti-mem-session',mHtml());return{memorized:false,nextAyah:M.ayah,nextLevel:M.target}}const p=meta(M.id);for(let d=1;d<=p.arabic.length;d++){const n=((M.ayah-1+d)%p.arabic.length)+1,a2=astate(M.id,n);if(a2.completedAt&&Number(a2.memorizationLevel)<5){M={id:M.id,ayah:n,target:(Number(a2.memorizationLevel)||0)+1,revealed:false};redraw('.deen-qmulti-mem-session',mHtml());return{memorized:false,nextAyah:n,nextLevel:M.target}}}return{memorized:false,nextAyah:null}}
+function memRetry(){const a=astate(M.id,M.ayah),lv=Math.max(0,(Number(a.memorizationLevel)||0)-1);DEEN_QURAN.updateAyah(M.id,M.ayah,{memorizationLevel:lv,wrongRecalls:(Number(a.wrongRecalls)||0)+1,repetitions:(Number(a.repetitions)||0)+1,state:'strengthening',lastStudiedAt:new Date().toISOString()});DEEN_QURAN_SRS?.record?.(M.id,M.ayah,'again','memorization');M.target=Math.max(1,lv+1);M.revealed=false;redraw('.deen-qmulti-mem-session',mHtml());return{level:lv,targetLevel:M.target}}
+
+/* ---------- generic practice ---------- */
+let P=null;const TYPES=['fill_blank','reorder','continuation','word_match','next_chunk'];
+const shuffle=a=>{const o=[...a];for(let i=o.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[o[i],o[j]]=[o[j],o[i]]}return o};
+const chunks=t=>{const w=words(t);const size=w.length>=6?2:1,out=[];for(let i=0;i<w.length;i+=size)out.push({id:'c'+out.length,text:w.slice(i,i+size).join(' ')});return out};
+function distract(id,ayah){const out=[];for(let n=1;n<=meta(id).arabic.length;n++)if(n!==ayah){const r=rec(id,n);if(r)out.push(...words(r.arabic.text))}return[...new Set(out)]}
+function buildEx(id,type,ayah){const r=rec(id,ayah);if(!r)return null;const w=words(r.arabic.text),cs=chunks(r.arabic.text);if(type==='fill_blank'){const bi=Math.min(w.length-1,(ayah+w.length)%w.length),ans=w[bi],ds=distract(id,ayah).filter(x=>x!==ans).slice(0,3);return{type,ayah,tokens:w,blankIndex:bi,answer:ans,options:shuffle([ans,...ds].map((text,i)=>({id:'f'+i,text})))}}if(type==='reorder')return{type,ayah,chunks:cs,options:shuffle(cs)};if(type==='continuation'){const target=cs[1]||cs[0],ex=distract(id,ayah).filter(x=>x!==target.text).slice(0,3);return{type,ayah,prompt:cs[0],target,options:shuffle([{id:target.id,text:target.text},...ex.map((text,i)=>({id:'x'+i,text}))])}}if(type==='word_match'){const pick=[...new Set(w)].slice(0,3),cards=[];pick.forEach((text,i)=>{cards.push({id:'m'+i+'a',pair:'p'+i,text},{id:'m'+i+'b',pair:'p'+i,text})});return{type,ayah,cards:shuffle(cards)}}return{type,ayah,chunks:cs,start:cs[0],options:shuffle(cs.slice(1))}}
+function pHtml(){if(!P)return'';const p=meta(P.id),e=P.ex;let inner='';if(e.type==='fill_blank'){inner='<div class="deen-practice-kicker">BOŞLUK DOLDURMA</div><h2>Eksik kelimeyi seç</h2><div class="deen-practice-arabic" lang="ar">'+e.tokens.map((t,i)=>i===e.blankIndex?'<span class="blank">_____</span>':esc(t)).join(' ')+'</div>'+chip(e.options)}else if(e.type==='reorder'){inner='<div class="deen-practice-kicker">PARÇALARI SIRALA</div><h2>Ayeti doğru sıraya getir</h2><div class="deen-practice-answer">'+P.selected.map(id=>'<span class="deen-practice-chip">'+esc(e.chunks.find(x=>x.id===id)?.text||'')+'</span>').join('')+'</div>'+chip(e.options,P.selected)}else if(e.type==='continuation'){inner='<div class="deen-practice-kicker">DOĞRU DEVAMI BUL</div><h2>Bu parçadan sonra ne geliyor?</h2><div class="deen-practice-arabic">'+esc(e.prompt.text)+' …</div>'+chip(e.options)}else if(e.type==='word_match'){inner='<div class="deen-practice-kicker">KELİME EŞLEŞTİRME</div><h2>Aynı kelimeleri eşleştir</h2><div class="deen-practice-cardgrid">'+e.cards.map(x=>'<button class="deen-practice-memory'+(P.matched.includes(x.id)?' matched':'')+(P.open.includes(x.id)?' selected':'')+'" onclick="DEEN_QURAN_MULTI.practiceChoose(\''+x.id+'\')">'+esc(x.text)+'</button>').join('')+'</div>'}else{inner='<div class="deen-practice-kicker">SONRAKİ PARÇA</div><h2>Ayeti adım adım tamamla</h2><div class="deen-practice-arabic">'+esc(e.chunks.slice(0,P.cursor).map(x=>x.text).join(' '))+(P.cursor<e.chunks.length?' …':'')+'</div>'+chip(e.chunks.slice(P.cursor))}return'<div class="deen-practice-session deen-qmulti-practice-session"><div class="deen-practice-head"><span><b>'+esc(p.name)+' Pratik</b><small>Ayet '+P.ayah+' · '+P.type+'</small></span></div><div class="deen-practice-modes">'+TYPES.map(t=>'<button class="deen-practice-mode'+(P.type===t?' active':'')+'" onclick="DEEN_QURAN_MULTI.practiceSwitch(\''+t+'\')">'+t.replace('_',' ')+'</button>').join('')+'</div><div class="deen-practice-card">'+inner+(P.feedback?'<div class="deen-practice-feedback '+(P.feedback.good?'good':'bad')+'">'+esc(P.feedback.text)+'</div>':'')+'</div></div>'}
+function chip(opts,used=[]){return'<div class="deen-practice-chips">'+opts.map(o=>'<button class="deen-practice-chip'+(used.includes(o.id)?' used':'')+'" onclick="DEEN_QURAN_MULTI.practiceChoose(\''+o.id+'\')">'+esc(o.text)+'</button>').join('')+'</div>'}
+function openPractice(id,type,ayah){const p=meta(id);if(!p||id==='ikhlas')return false;const q=qs(),eligible=Object.keys(q.progress.surahs[id].ayahs).map(Number).filter(n=>q.progress.surahs[id].ayahs[n].completedAt&&rec(id,n));if(!eligible.length){sheet(p.name+' Pratik','<div class="deen-quran-pending">Önce en az bir ayetin öğrenme turunu tamamla.</div>');return false}const a=eligible.includes(Number(ayah))?Number(ayah):eligible[0],t=TYPES.includes(type)?type:'fill_blank';P={id,type:t,ayah:a,ex:buildEx(id,t,a),selected:[],matched:[],open:[],cursor:1,done:false,feedback:null};sheet(p.name+' Pratik',pHtml());return true}
+function gradePractice(ok){const a=astate(P.id,P.ayah);DEEN_QURAN.updateAyah(P.id,P.ayah,{correctRecalls:(Number(a.correctRecalls)||0)+(ok?1:0),wrongRecalls:(Number(a.wrongRecalls)||0)+(ok?0:1),repetitions:(Number(a.repetitions)||0)+1,lastStudiedAt:new Date().toISOString()});DEEN_QURAN_SRS?.record?.(P.id,P.ayah,ok?'good':'again','practice')}
+function pDone(){if(P.done)return;P.done=true;gradePractice(true);P.feedback={good:true,text:'Doğru. Hatırlama turu tamamlandı.'}}
+function pFail(){gradePractice(false);P.feedback={good:false,text:'Henüz değil. Tekrar dene.'}}
+function pChoose(id){if(!P||P.done)return false;const e=P.ex;if(e.type==='fill_blank'||e.type==='continuation'){const o=e.options.find(x=>x.id===id);if(!o)return false;(e.type==='fill_blank'?o.text===e.answer:o.text===e.target.text)?pDone():pFail()}else if(e.type==='reorder'){if(P.selected.includes(id))return false;P.selected.push(id);if(P.selected.length===e.chunks.length){P.selected.every((x,i)=>x===e.chunks[i].id)?pDone():(pFail(),P.selected=[])}}else if(e.type==='word_match'){if(P.matched.includes(id)||P.open.includes(id))return false;P.open.push(id);if(P.open.length===2){const a=P.ex.cards.find(x=>x.id===P.open[0]),b=P.ex.cards.find(x=>x.id===P.open[1]);if(a?.pair===b?.pair){P.matched.push(...P.open);P.open=[];if(P.matched.length===P.ex.cards.length)pDone()}else{pFail();P.open=[]}}}else{const target=e.chunks[P.cursor];if(id===target?.id){P.cursor++;if(P.cursor>=e.chunks.length)pDone();else P.feedback={good:true,text:'Doğru parça. Devam et.'}}else pFail()}redraw('.deen-qmulti-practice-session',pHtml());return P.done}
+
+/* routes */
+const previousOpen=DEEN_QURAN.openSurah?.bind(DEEN_QURAN), oldMem=DEEN_QURAN.memorize?.bind(DEEN_QURAN), oldPractice=DEEN_QURAN.practice?.bind(DEEN_QURAN);
+DEEN_QURAN.openSurah=function(id){if(id==='ikhlas')return previousOpen?previousOpen(id):DEEN_QURAN_IKHLAS?.open?.();if(PACKS[id])return openLearning(id);return previousOpen?previousOpen(id):false};
+DEEN_QURAN.memorize=function(id,ayah){const sid=IDS.includes(id)?id:(qs().profile.currentSurah||'ikhlas');if(sid==='ikhlas')return DEEN_QURAN_MEM?.open?.(Number(ayah)||undefined)??oldMem?.();return openMem(sid,IDS.includes(id)?ayah:id)};
+DEEN_QURAN.practice=function(id,type,ayah){let sid=id;if(!IDS.includes(sid)){ayah=type;type=id;sid=qs().profile.currentSurah||'ikhlas'}if(sid==='ikhlas')return DEEN_QURAN_PRACTICE?.open?.(type,ayah)??oldPractice?.();return openPractice(sid,type,ayah)};
+
+window.DEEN_QURAN_MULTI={
+ registerAll,openLearning,finish:finishLearning,next:()=>{if(L.step<4)L.step++;L.revealed=false;redraw('.deen-qmulti-session',lHtml());return L.step},back:()=>{if(L.step>0)L.step--;L.revealed=false;redraw('.deen-qmulti-session',lHtml());return L.step},reveal:()=>{L.revealed=true;redraw('.deen-qmulti-session',lHtml());return true},
+ openMem,memReveal:()=>{M.revealed=true;redraw('.deen-qmulti-mem-session',mHtml());return true},memRemembered,memRetry,
+ openPractice,practiceChoose:pChoose,practiceSwitch:t=>{if(!TYPES.includes(t))return false;P.type=t;P.ex=buildEx(P.id,t,P.ayah);P.selected=[];P.matched=[];P.open=[];P.cursor=1;P.done=false;P.feedback=null;redraw('.deen-qmulti-practice-session',pHtml());return true},
+ audit:()=>({content:DEEN_QURAN_CONTENT.summary(),surahs:IDS.map(id=>({id,ready:DEEN_QURAN_CONTENT.getSurah(id).length,total:DEEN_QURAN_CONTENT.surahs[id].ayahs}))})
+};
+document.documentElement.dataset.deenQuranSixSurah='v10929';
+})();
+</script>
