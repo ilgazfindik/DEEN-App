@@ -2624,3 +2624,491 @@ window.DEEN_REWARD_BADGE_ART={
   document.documentElement.dataset.deenBadgeSurfaces='v10910';
 })();
 </script>
+
+
+<!-- DEEN v10.9.12 — Comprehensive developer admin panel -->
+<style id="deen-v10912-admin-panel-css">
+#deenAdminPanel{
+  width:min(94vw,460px);
+  max-width:460px;
+  max-height:92dvh;
+  margin:auto;
+  padding:0;
+  border:1px solid rgba(107,170,160,.34);
+  border-radius:26px;
+  background:#071b23;
+  color:#eef8f5;
+  box-shadow:0 28px 100px rgba(0,0,0,.68);
+  overflow:hidden;
+}
+#deenAdminPanel::backdrop{background:rgba(1,8,12,.78);backdrop-filter:blur(7px)}
+.deen-admin-shell{display:flex;flex-direction:column;max-height:92dvh}
+.deen-admin-head{
+  position:sticky;top:0;z-index:3;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 17px 14px;
+  border-bottom:1px solid rgba(118,170,164,.16);
+  background:linear-gradient(180deg,#102f35,#0b242d);
+}
+.deen-admin-head b{font:900 16px/1.1 Inter,system-ui,sans-serif;letter-spacing:.2px}
+.deen-admin-head small{display:block;margin-top:4px;color:#8fb2ad;font:700 9px/1.2 Inter,system-ui,sans-serif;letter-spacing:.65px}
+.deen-admin-close{
+  width:38px;height:38px;border:1px solid #34565d;border-radius:12px;background:#102f38;
+  color:#d8efea;font-size:22px;cursor:pointer
+}
+.deen-admin-body{padding:14px 14px calc(20px + env(safe-area-inset-bottom));overflow:auto;overscroll-behavior:contain}
+.deen-admin-status{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px}
+.deen-admin-stat{padding:9px 5px;border:1px solid rgba(99,154,148,.17);border-radius:13px;background:#0c2730;text-align:center}
+.deen-admin-stat strong{display:block;color:#dcf9f1;font:900 13px/1 Inter,system-ui,sans-serif}
+.deen-admin-stat span{display:block;margin-top:5px;color:#7fa7a3;font:750 7px/1 Inter,system-ui,sans-serif;letter-spacing:.65px}
+.deen-admin-section{margin:10px 0;padding:12px;border:1px solid rgba(86,137,139,.20);border-radius:17px;background:linear-gradient(180deg,#0d2831,#0a222b)}
+.deen-admin-section h3{margin:0 0 9px;color:#d8f2eb;font:900 10px/1.2 Inter,system-ui,sans-serif;letter-spacing:1px}
+.deen-admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.deen-admin-grid.one{grid-template-columns:1fr}
+.deen-admin-btn{
+  min-height:42px;padding:9px 9px;border:1px solid #31535a;border-radius:12px;
+  background:#12343c;color:#d9efea;font:800 10px/1.2 Inter,system-ui,sans-serif;
+  cursor:pointer;text-align:center
+}
+.deen-admin-btn:hover{filter:brightness(1.08)}
+.deen-admin-btn:active{transform:scale(.985)}
+.deen-admin-btn.primary{border-color:#4ea893;background:#155048;color:#c9fff0}
+.deen-admin-btn.gold{border-color:#8b7746;background:#42371f;color:#ffe9ae}
+.deen-admin-btn.warn{border-color:#82584f;background:#452925;color:#ffd9cf}
+.deen-admin-btn.dark{background:#0b232c;color:#9fc0ba}
+.deen-admin-select{
+  width:100%;height:42px;margin-bottom:7px;padding:0 10px;border:1px solid #35555d;border-radius:12px;
+  background:#081e27;color:#e5f3f0;font:750 10px/1 Inter,system-ui,sans-serif;outline:none
+}
+.deen-admin-note{margin:8px 1px 0;color:#789b98;font:650 8px/1.45 Inter,system-ui,sans-serif}
+#deenAdminMessage{
+  display:none;margin:0 0 10px;padding:9px 11px;border:1px solid rgba(86,190,160,.25);
+  border-radius:12px;background:rgba(38,112,91,.16);color:#baf2df;font:750 9px/1.35 Inter,system-ui,sans-serif
+}
+#deenAdminMessage.show{display:block}
+.deen-admin-json{
+  display:none;margin-top:8px;padding:10px;max-height:180px;overflow:auto;border-radius:12px;
+  background:#06171e;border:1px solid #243f46;color:#a9c9c3;font:650 8px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;
+  white-space:pre-wrap;word-break:break-word
+}
+.deen-admin-json.show{display:block}
+@media(max-width:380px){
+  .deen-admin-body{padding:11px}
+  .deen-admin-status{grid-template-columns:repeat(2,1fr)}
+  .deen-admin-grid{gap:6px}
+  .deen-admin-btn{font-size:9px}
+}
+</style>
+<script id="deen-v10912-admin-panel-js">
+(()=>{
+  if(window.__deenV10912AdminPanel)return;
+  window.__deenV10912AdminPanel=true;
+
+  const VERSION='10.9.12';
+  const BUILD='9213adminpanel1';
+  const SECTION_MAX={1:5,2:10,3:15};
+
+  function clone(v){try{return JSON.parse(JSON.stringify(v))}catch(_){return v}}
+  function units(){try{return Array.from({length:15},(_,i)=>uid(i+1))}catch(_){return Array.from({length:15},(_,i)=>'U'+String(i+1).padStart(2,'0'))}}
+  function stageList(){try{return Array.isArray(STAGES)?STAGES:[]}catch(_){return[]}}
+  function finalState(n){
+    const key=n===1?'sectionFinal':n===2?'section2Final':'section3Final';
+    if(!state[key]||typeof state[key]!=='object'){
+      state[key]={attempts:0,bestScore:0,completed:false,rank:null,lastKnowledge:0,lastRetention:0};
+    }
+    return state[key];
+  }
+  function refreshRuntime(){
+    try{window.DEEN_FIVE_STAGE?.sync?.()}catch(_){}
+    try{renderPaths?.()}catch(_){}
+    try{updateUI?.()}catch(_){}
+    try{returnCard?.()}catch(_){}
+    try{window.DEEN_PROFILE_COMPANION_SYNC?.apply?.()}catch(_){}
+    try{window.DEEN_BADGE_ART?.hydrate?.(document)}catch(_){}
+  }
+  function persist(message){
+    try{saveState?.()}catch(_){}
+    refreshRuntime();
+    render();
+    notify(message);
+  }
+  function notify(message){
+    const el=document.getElementById('deenAdminMessage');
+    if(!el)return;
+    el.textContent=message||'Tamamlandı.';
+    el.classList.add('show');
+    clearTimeout(notify.t);
+    notify.t=setTimeout(()=>el.classList.remove('show'),2600);
+  }
+  function ensureArrays(){
+    if(!Array.isArray(state.completed))state.completed=[];
+    if(!state.stageScores||typeof state.stageScores!=='object')state.stageScores={};
+    if(!Array.isArray(state.celebratedUnits))state.celebratedUnits=[];
+    if(!Array.isArray(state.celebratedSections))state.celebratedSections=[];
+    if(!Array.isArray(state.achievements))state.achievements=[];
+    if(!Array.isArray(state.history))state.history=[];
+    state.profile=state.profile&&typeof state.profile==='object'?state.profile:{};
+    state.streakMeta=state.streakMeta&&typeof state.streakMeta==='object'?state.streakMeta:{};
+  }
+  function completeStages(filter){
+    ensureArrays();
+    const list=stageList().filter(filter);
+    const done=new Set(state.completed);
+    for(const s of list){
+      done.add(s.id);
+      state.stageScores[s.id]=100;
+    }
+    state.completed=[...done];
+    return list.length;
+  }
+  function completeThrough(maxUnit){
+    const count=completeStages(s=>Number(String(s.unit||'').slice(1))<=maxUnit);
+    const doneUnits=units().slice(0,maxUnit);
+    state.celebratedUnits=[...new Set([...(state.celebratedUnits||[]),...doneUnits])];
+    return count;
+  }
+  function passFinal(n){
+    const f=finalState(n);
+    f.attempts=Math.max(1,Number(f.attempts)||0);
+    f.bestScore=100;
+    f.completed=true;
+    f.rank='ALTIN USTALIK';
+    f.lastKnowledge=100;
+    f.lastRetention=100;
+    state.celebratedSections=[...new Set([...(state.celebratedSections||[]),n])];
+  }
+  function passSection(n){
+    ensureArrays();
+    const max=SECTION_MAX[n]||5;
+    const count=completeThrough(max);
+    for(let i=1;i<=n;i++)passFinal(i);
+    persist('Kısım '+n+' tamamlandı · '+count+' teknik aşama %100.');
+  }
+  function passAll(){
+    ensureArrays();
+    const count=completeThrough(15);
+    passFinal(1);passFinal(2);passFinal(3);
+    persist('Tüm içerik tamamlandı · '+count+' aşama %100 · 3 final geçti.');
+  }
+  function passSelectedStage(){
+    const id=document.getElementById('deenAdminStage')?.value;
+    const s=stageList().find(x=>x.id===id);
+    if(!s)return notify('Aşama bulunamadı.');
+    completeStages(x=>x.id===id);
+    persist(id+' %100 tamamlandı.');
+  }
+  function resetSelectedStage(){
+    const id=document.getElementById('deenAdminStage')?.value;
+    if(!id)return;
+    ensureArrays();
+    state.completed=state.completed.filter(x=>x!==id);
+    delete state.stageScores[id];
+    persist(id+' geri alındı.');
+  }
+  function startSelectedStage(){
+    const id=document.getElementById('deenAdminStage')?.value;
+    if(!id)return;
+    close();
+    const prev=previewMode;
+    try{
+      previewMode=true;
+      if(typeof preview==='function')preview(id);
+      else if(typeof startStage==='function')startStage(id);
+    }finally{
+      setTimeout(()=>{try{previewMode=prev}catch(_){}},0);
+    }
+  }
+  function passSelectedUnit(){
+    const u=document.getElementById('deenAdminUnit')?.value;
+    if(!u)return;
+    const count=completeStages(s=>s.unit===u);
+    state.celebratedUnits=[...new Set([...(state.celebratedUnits||[]),u])];
+    persist(u+' tamamlandı · '+count+' aşama %100.');
+  }
+  function resetSelectedUnit(){
+    const u=document.getElementById('deenAdminUnit')?.value;
+    if(!u)return;
+    ensureArrays();
+    const ids=new Set(stageList().filter(s=>s.unit===u).map(s=>s.id));
+    state.completed=state.completed.filter(id=>!ids.has(id));
+    ids.forEach(id=>delete state.stageScores[id]);
+    state.celebratedUnits=state.celebratedUnits.filter(x=>x!==u);
+    persist(u+' ilerlemesi geri alındı.');
+  }
+  function passOneFinal(n){
+    ensureArrays();passFinal(n);persist('Kısım '+n+' finali Altın Ustalık olarak geçti.');
+  }
+  function resetFinal(n){
+    const f=finalState(n);
+    Object.assign(f,{attempts:0,bestScore:0,completed:false,rank:null,lastKnowledge:0,lastRetention:0});
+    state.celebratedSections=(state.celebratedSections||[]).filter(x=>x!==n);
+    persist('Kısım '+n+' finali sıfırlandı.');
+  }
+  function unlockBadges(){
+    ensureArrays();
+    let ids=[];
+    try{ids=badges().map(b=>b.id)}catch(_){ids=window.DEEN_BADGE_ART?.ids||[]}
+    state.achievements=[...new Set([...(state.achievements||[]),...ids])];
+    persist(ids.length+' gerçek achievement rozeti açıldı.');
+  }
+  function clearBadges(){
+    state.achievements=[];
+    persist('Achievement rozetleri kilitlendi.');
+  }
+  function setEnergy(maxOnly=false){
+    ensureArrays();
+    state.energy=30;
+    state.lastEnergyAt=Date.now();
+    if(!maxOnly)state.premium=true;
+    persist(maxOnly?'Enerji 30/30 yapıldı.':'Sınırsız enerji açıldı (admin premium flag).');
+  }
+  function normalEnergy(){
+    state.premium=false;
+    state.energy=Math.min(30,Math.max(0,Number(state.energy)||30));
+    persist('Normal enerji sistemi geri açıldı.');
+  }
+  function addCurrency(value){
+    state.currency=Math.max(0,Number(value)||0);
+    persist('Pırıltı: '+state.currency);
+  }
+  function addXP(value){
+    state.xp=Math.max(0,Number(value)||0);
+    persist('XP: '+state.xp);
+  }
+  function setStreak(value){
+    ensureArrays();
+    const n=Math.max(0,Number(value)||0);
+    state.streak=n;
+    state.streakMeta.currentStreak=n;
+    state.streakMeta.longestStreak=Math.max(n,Number(state.streakMeta.longestStreak)||0);
+    persist('Seri: '+n+' gün.');
+  }
+  function previewUnlock(on){
+    try{previewMode=!!on}catch(_){}
+    render();
+    notify(on?'Tüm kilitler geçici açıldı.':'Normal kilit sistemi geri açıldı.');
+  }
+  function clearProgress(){
+    if(!confirm('Tüm ders/final ilerlemesi ve rozetler sıfırlansın mı? Profil ve onboarding korunacak.'))return;
+    ensureArrays();
+    state.completed=[];
+    state.stageScores={};
+    state.celebratedUnits=[];
+    state.celebratedSections=[];
+    state.achievements=[];
+    state.history=[];
+    if(state.stageAttempts&&typeof state.stageAttempts==='object')state.stageAttempts={};
+    for(const n of [1,2,3])Object.assign(finalState(n),{attempts:0,bestScore:0,completed:false,rank:null,lastKnowledge:0,lastRetention:0});
+    try{window.DEEN_FIVE_STAGE?.sync?.()}catch(_){}
+    persist('İlerleme sıfırlandı; profil korundu.');
+  }
+  function fullReset(){
+    if(!confirm('TÜM yerel oyun verisi sıfırlansın mı? Profil, onboarding, ilerleme ve ayarlar silinir.'))return;
+    try{storageRemove?.('deen_v4_1_state')}catch(_){}
+    try{storageRemove?.('deen_v57_last_good_state')}catch(_){}
+    try{
+      const base=clone(DEFAULT_STATE);
+      state=typeof migrate==='function'?migrate(base,false):base;
+      saveState?.();
+    }catch(_){}
+    close();
+    try{window.DEEN_PREMIUM_ONBOARDING?.render?.(0)}catch(_){location.reload()}
+  }
+  function openEntry(reset=false){
+    close();
+    if(reset){
+      try{state.onboarded=false;state.onboardingVersion=0;saveState?.()}catch(_){}
+    }
+    try{window.DEEN_PREMIUM_ONBOARDING?.render?.(0)}
+    catch(_){try{onboarding?.(0)}catch(__){}}
+  }
+  function go(screen){
+    close();
+    try{navigate?.(screen)}catch(_){}
+  }
+  function audit(){
+    let result={};
+    try{
+      result={
+        badge:window.DEEN_BADGE_AUDIT?.run?.()||null,
+        runtime:window.DEEN_RUNTIME_ARBITER?.snapshot?.()||window.DEEN_RUNTIME_REGRESSION?.snapshot?.()||null,
+        admin:snapshot()
+      };
+    }catch(e){result={error:String(e?.message||e)}}
+    const box=document.getElementById('deenAdminJson');
+    if(box){box.textContent=JSON.stringify(result,null,2);box.classList.add('show')}
+  }
+  async function copyState(){
+    try{
+      await navigator.clipboard.writeText(JSON.stringify(state,null,2));
+      notify('State JSON panoya kopyalandı.');
+    }catch(_){notify('Panoya kopyalama desteklenmedi.')}
+  }
+  function snapshot(){
+    ensureArrays();
+    return{
+      version:VERSION,build:BUILD,
+      stages:{completed:state.completed.length,total:stageList().length},
+      finals:[1,2,3].map(n=>!!finalState(n).completed),
+      achievements:state.achievements.length,
+      xp:Number(state.xp)||0,
+      currency:Number(state.currency)||0,
+      energy:state.premium?'∞':Number(state.energy)||0,
+      streak:Number(state.streak)||0,
+      preview:!!previewMode,
+      onboarded:!!state.onboarded
+    };
+  }
+
+  function optionsStage(){
+    return stageList().map(s=>'<option value="'+s.id+'">'+s.id+' · '+String(s.title||s.kind||'Aşama')+'</option>').join('');
+  }
+  function optionsUnit(){
+    const names=Array.isArray(window.U)?window.U:(typeof U!=='undefined'?U:[]);
+    return units().map((u,i)=>'<option value="'+u+'">'+u+' · '+String(names[i]||('Ünite '+(i+1)))+'</option>').join('');
+  }
+  function ensureDialog(){
+    let d=document.getElementById('deenAdminPanel');
+    if(d)return d;
+    d=document.createElement('dialog');
+    d.id='deenAdminPanel';
+    d.innerHTML='<div class="deen-admin-shell"><div class="deen-admin-head"><div><b>DEEN ADMIN</b><small>P · DEVELOPER CONTROL CENTER</small></div><button class="deen-admin-close" type="button" aria-label="Admin panelini kapat">×</button></div><div class="deen-admin-body" id="deenAdminBody"></div></div>';
+    document.body.appendChild(d);
+    d.querySelector('.deen-admin-close').onclick=close;
+    d.addEventListener('cancel',e=>{e.preventDefault();close()});
+    d.addEventListener('click',event=>{
+      const b=event.target.closest('[data-admin]');
+      if(!b)return;
+      const a=b.dataset.admin;
+      const arg=b.dataset.arg;
+      const fn=actions[a];
+      if(fn)fn(arg);
+    });
+    return d;
+  }
+  function render(){
+    const d=ensureDialog(),body=d.querySelector('#deenAdminBody');
+    const s=snapshot();
+    body.innerHTML=
+      '<div id="deenAdminMessage"></div>'+
+      '<div class="deen-admin-status">'+
+        '<div class="deen-admin-stat"><strong>'+s.stages.completed+'/'+s.stages.total+'</strong><span>AŞAMA</span></div>'+
+        '<div class="deen-admin-stat"><strong>'+s.achievements+'/10</strong><span>ROZET</span></div>'+
+        '<div class="deen-admin-stat"><strong>'+s.xp+'</strong><span>XP</span></div>'+
+        '<div class="deen-admin-stat"><strong>'+s.energy+'</strong><span>ENERJİ</span></div>'+
+      '</div>'+
+      '<section class="deen-admin-section"><h3>HIZLI İLERLEME</h3><div class="deen-admin-grid">'+
+        '<button class="deen-admin-btn primary" data-admin="passAll">TÜM BÖLÜMLERİ GEÇ</button>'+
+        '<button class="deen-admin-btn gold" data-admin="unlockBadges">TÜM ROZETLERİ AÇ</button>'+
+        '<button class="deen-admin-btn" data-admin="passSection" data-arg="1">KISIM 1’İ GEÇ</button>'+
+        '<button class="deen-admin-btn" data-admin="passSection" data-arg="2">KISIM 2’Yİ GEÇ</button>'+
+        '<button class="deen-admin-btn" data-admin="passSection" data-arg="3">KISIM 3’Ü GEÇ</button>'+
+        '<button class="deen-admin-btn '+(s.preview?'gold':'dark')+'" data-admin="previewUnlock" data-arg="'+(s.preview?'0':'1')+'">'+(s.preview?'KİLİTLERİ NORMALLEŞTİR':'TÜM KİLİTLERİ AÇ')+'</button>'+
+      '</div></section>'+
+      '<section class="deen-admin-section"><h3>TEK AŞAMA KONTROLÜ</h3>'+
+        '<select class="deen-admin-select" id="deenAdminStage">'+optionsStage()+'</select><div class="deen-admin-grid">'+
+        '<button class="deen-admin-btn primary" data-admin="passStage">SEÇİLİ AŞAMAYI GEÇ</button>'+
+        '<button class="deen-admin-btn" data-admin="startStage">AŞAMAYI AÇ / BAŞLAT</button>'+
+        '<button class="deen-admin-btn warn" data-admin="resetStage">AŞAMAYI GERİ AL</button>'+
+        '<button class="deen-admin-btn dark" data-admin="goLearn">ÖĞREN EKRANINA DÖN</button>'+
+      '</div></section>'+
+      '<section class="deen-admin-section"><h3>ÜNİTE KONTROLÜ</h3>'+
+        '<select class="deen-admin-select" id="deenAdminUnit">'+optionsUnit()+'</select><div class="deen-admin-grid">'+
+        '<button class="deen-admin-btn primary" data-admin="passUnit">SEÇİLİ ÜNİTEYİ GEÇ</button>'+
+        '<button class="deen-admin-btn warn" data-admin="resetUnit">ÜNİTEYİ GERİ AL</button>'+
+      '</div></section>'+
+      '<section class="deen-admin-section"><h3>FİNAL / USTALIK</h3><div class="deen-admin-grid">'+
+        '<button class="deen-admin-btn gold" data-admin="passFinal" data-arg="1">KISIM 1 FİNALİNİ GEÇ</button>'+
+        '<button class="deen-admin-btn warn" data-admin="resetFinal" data-arg="1">FINAL 1 SIFIRLA</button>'+
+        '<button class="deen-admin-btn gold" data-admin="passFinal" data-arg="2">KISIM 2 FİNALİNİ GEÇ</button>'+
+        '<button class="deen-admin-btn warn" data-admin="resetFinal" data-arg="2">FINAL 2 SIFIRLA</button>'+
+        '<button class="deen-admin-btn gold" data-admin="passFinal" data-arg="3">KISIM 3 FİNALİNİ GEÇ</button>'+
+        '<button class="deen-admin-btn warn" data-admin="resetFinal" data-arg="3">FINAL 3 SIFIRLA</button>'+
+      '</div></section>'+
+      '<section class="deen-admin-section"><h3>EKONOMİ / TEST DEĞERLERİ</h3><div class="deen-admin-grid">'+
+        '<button class="deen-admin-btn primary" data-admin="unlimitedEnergy">SINIRSIZ ENERJİ</button>'+
+        '<button class="deen-admin-btn" data-admin="maxEnergy">ENERJİ 30/30</button>'+
+        '<button class="deen-admin-btn" data-admin="currencyMax">999.999 PIRILTI</button>'+
+        '<button class="deen-admin-btn" data-admin="xp5000">5.000 XP</button>'+
+        '<button class="deen-admin-btn" data-admin="xp50000">50.000 XP</button>'+
+        '<button class="deen-admin-btn" data-admin="streak100">100 GÜN SERİ</button>'+
+        '<button class="deen-admin-btn dark" data-admin="normalEnergy">NORMAL ENERJİ</button>'+
+        '<button class="deen-admin-btn warn" data-admin="clearBadges">ROZETLERİ KİLİTLE</button>'+
+      '</div></section>'+
+      '<section class="deen-admin-section"><h3>GİRİŞ / NAVİGASYON</h3><div class="deen-admin-grid">'+
+        '<button class="deen-admin-btn" data-admin="entry">GİRİŞ EKRANINA DÖN</button>'+
+        '<button class="deen-admin-btn" data-admin="resetOnboarding">ONBOARDING’İ BAŞTAN AÇ</button>'+
+        '<button class="deen-admin-btn" data-admin="profile">PROFİLE GİT</button>'+
+        '<button class="deen-admin-btn" data-admin="goLearn">ÖĞREN EKRANINA GİT</button>'+
+      '</div><p class="deen-admin-note">“Giriş ekranına dön” mevcut progress’i silmez. “Onboarding’i baştan aç” sadece onboarding tamamlandı bayrağını sıfırlar.</p></section>'+
+      '<section class="deen-admin-section"><h3>QA / STATE</h3><div class="deen-admin-grid">'+
+        '<button class="deen-admin-btn" data-admin="audit">ROZET + RUNTIME AUDIT</button>'+
+        '<button class="deen-admin-btn" data-admin="copyState">STATE JSON KOPYALA</button>'+
+        '<button class="deen-admin-btn warn" data-admin="clearProgress">İLERLEMEYİ SIFIRLA</button>'+
+        '<button class="deen-admin-btn warn" data-admin="fullReset">TAM SIFIRLAMA</button>'+
+      '</div><pre class="deen-admin-json" id="deenAdminJson"></pre></section>';
+    return d;
+  }
+  function open(){
+    try{document.getElementById('v5Sheet')?.open&&document.getElementById('v5Sheet').close()}catch(_){}
+    const d=render();
+    if(!d.open)d.showModal();
+  }
+  function close(){
+    const d=document.getElementById('deenAdminPanel');
+    if(d?.open)d.close();
+  }
+  function toggle(){document.getElementById('deenAdminPanel')?.open?close():open()}
+
+  const actions={
+    passAll,
+    unlockBadges,
+    clearBadges,
+    passSection:n=>passSection(Number(n)),
+    previewUnlock:v=>previewUnlock(v==='1'),
+    passStage:passSelectedStage,
+    resetStage:resetSelectedStage,
+    startStage:startSelectedStage,
+    passUnit:passSelectedUnit,
+    resetUnit:resetSelectedUnit,
+    passFinal:n=>passOneFinal(Number(n)),
+    resetFinal:n=>resetFinal(Number(n)),
+    unlimitedEnergy:()=>setEnergy(false),
+    maxEnergy:()=>setEnergy(true),
+    normalEnergy,
+    currencyMax:()=>addCurrency(999999),
+    xp5000:()=>addXP(5000),
+    xp50000:()=>addXP(50000),
+    streak100:()=>setStreak(100),
+    entry:()=>openEntry(false),
+    resetOnboarding:()=>openEntry(true),
+    profile:()=>go('profileScreen'),
+    goLearn:()=>go('learnScreen'),
+    audit,
+    copyState,
+    clearProgress,
+    fullReset
+  };
+
+  document.addEventListener('keydown',event=>{
+    if(event.defaultPrevented||event.ctrlKey||event.metaKey||event.altKey)return;
+    const t=event.target;
+    if(t&&(['INPUT','TEXTAREA','SELECT'].includes(t.tagName)||t.isContentEditable))return;
+    if(String(event.key||'').toLowerCase()!=='p')return;
+    event.preventDefault();
+    toggle();
+  },true);
+
+  window.DEEN_ADMIN={
+    version:VERSION,build:BUILD,open,close,toggle,render,snapshot,
+    passAll,passSection,passFinal:passOneFinal,
+    passStage:id=>{const s=stageList().find(x=>x.id===id);if(!s)return false;completeStages(x=>x.id===id);persist(id+' tamamlandı.');return true},
+    passUnit:u=>{const count=completeStages(s=>s.unit===u);persist(u+' · '+count+' aşama tamamlandı.');return count},
+    unlockBadges,
+    entry:()=>openEntry(false),
+    onboarding:()=>openEntry(true),
+    audit
+  };
+  document.documentElement.dataset.deenAdmin='v10912';
+})();
+</script>
