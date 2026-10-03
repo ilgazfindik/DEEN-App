@@ -1,0 +1,19 @@
+
+<style id="deen-v10936-quran-word-intel-css">
+.deen-qwi{display:grid;gap:7px}.deen-qwi-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px;border-radius:12px;background:#0a2931}.deen-qwi-row b{font-family:"Noto Naskh Arabic","Amiri",serif;font-size:20px;color:#fff}.deen-qwi-row span{color:#789793;font-size:7px}.deen-qwi-row button{min-height:32px;border:1px solid #31535a;border-radius:10px;background:#12343c;color:#9fe4d0;font-size:7px;font-weight:850}
+</style>
+<script id="deen-v10936-quran-word-intel-js">
+(()=>{if(window.__deenV10936QuranWordIntel)return;window.__deenV10936QuranWordIntel=true;
+const IDS=['fatiha','ikhlas','falaq','nas','kawthar','asr'];
+const strip=s=>String(s||'').normalize('NFKD').replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'').replace(/[^\u0621-\u064A]/g,'');
+function stateObj(){const q=DEEN_QURAN.ensureState();q.wordIntelligence=q.wordIntelligence&&typeof q.wordIntelligence==='object'?q.wordIntelligence:{known:{}};q.wordIntelligence.known=q.wordIntelligence.known||{};return q.wordIntelligence}
+function corpus(){const map=new Map();for(const id of IDS){const rows=DEEN_QURAN_CONTENT?.getSurah?.(id)||[];for(const r of rows){for(const raw of String(r.arabic?.text||'').split(/\s+/)){const k=strip(raw);if(!k)continue;const x=map.get(k)||{key:k,display:raw,count:0,surahs:new Set()};x.count++;x.surahs.add(id);map.set(k,x)}}}return[...map.values()].map(x=>({...x,surahs:[...x.surahs]})).sort((a,b)=>b.count-a.count||a.key.localeCompare(b.key))}
+function top(limit=20){const s=stateObj();return corpus().slice(0,limit).map(x=>({...x,known:!!s.known[x.key]}))}
+function toggle(k){const s=stateObj();s.known[k]=!s.known[k];DEEN_QURAN.persistState?.();redraw();return s.known[k]}
+function html(){const rows=top(24);return'<div class="deen-qwi">'+rows.map(x=>'<div class="deen-qwi-row"><span><b lang="ar">'+x.display+'</b><span>'+x.count+' tekrar · '+x.surahs.length+' sure'+(x.known?' · öğrenildi':'')+'</span></span><button onclick="DEEN_QURAN_WORD_INTEL.toggle(\''+x.key+'\')">'+(x.known?'✓':'ÖĞRENDİM')+'</button></div>').join('')+'<div class="deen-quran-note">Türkçe kelime anlamı yalnız uzman doğrulanmış word-by-word kaydı varsa gösterilir; bu ekran frekans/tanıma takibi yapar.</div></div>'}
+function redraw(){const x=document.querySelector?.('.deen-qwi');if(!x)return false;const h=document.createElement('div');h.innerHTML=html();x.replaceWith(h.firstElementChild);return true}
+function open(){sheet('Sık Kur’an Kelimeleri',html());return true}
+function model(){const rows=top(999);return{unique:rows.length,known:rows.filter(x=>x.known).length,top:rows.slice(0,10)}}
+window.DEEN_QURAN_WORD_INTEL={open,model,top,toggle,corpus};window.DEEN_QURAN.frequentWords=open;document.documentElement.dataset.deenQuranWordIntel='v10936';
+})();
+</script>
