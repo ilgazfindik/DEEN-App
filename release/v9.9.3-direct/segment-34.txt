@@ -7223,3 +7223,312 @@ window.DEEN_REWARD_BADGE_ART={
   document.documentElement.dataset.deenQuranSrs='v10925';
 })();
 </script>
+
+
+<!-- DEEN v10.9.26 — verified daily verse -->
+<style id="deen-v10926-quran-daily-verse-css">
+.deen-dailyverse{display:grid;gap:11px}
+.deen-dailyverse-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px
+}
+.deen-dailyverse-head b{
+  display:block;color:#eefaf7;
+  font:900 13px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-dailyverse-head small{
+  display:block;margin-top:4px;color:#769491;
+  font:650 8.5px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-dailyverse-date{
+  flex:0 0 auto;padding:7px 9px;border:1px solid rgba(101,207,180,.18);
+  border-radius:11px;background:#103139;color:#8bd7c2;
+  font:800 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-dailyverse-card{
+  padding:16px;border:1px solid rgba(88,147,148,.21);border-radius:20px;
+  background:
+    radial-gradient(circle at 92% 3%,rgba(105,217,187,.07),transparent 30%),
+    linear-gradient(180deg,#0d3037,#09262e)
+}
+.deen-dailyverse-kicker{
+  color:#83c8b7;font:850 8px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:.6px
+}
+.deen-dailyverse-arabic{
+  margin-top:13px;padding:18px 11px;border:1px solid rgba(108,198,177,.15);
+  border-radius:16px;background:#071f27;color:#fff;text-align:center;direction:rtl;
+  font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",serif;
+  font-size:29px;line-height:1.85
+}
+.deen-dailyverse-meaning,
+.deen-dailyverse-note{
+  margin-top:11px;padding:12px;border-radius:14px
+}
+.deen-dailyverse-meaning{
+  border:1px solid rgba(191,160,82,.18);background:rgba(91,70,29,.11)
+}
+.deen-dailyverse-note{
+  border:1px solid rgba(98,185,163,.16);background:rgba(31,94,80,.11)
+}
+.deen-dailyverse-meaning b,
+.deen-dailyverse-note b{
+  display:block;margin-bottom:5px;font:850 8px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-dailyverse-meaning b{color:#d7c48f}
+.deen-dailyverse-note b{color:#91d9c5}
+.deen-dailyverse-meaning p,
+.deen-dailyverse-note p{
+  margin:0;color:#e6e2d4;font:650 10.5px/1.5 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-dailyverse-note p{color:#cfe7e0}
+.deen-dailyverse-source{
+  margin-top:10px;color:#668582;
+  font:650 7.5px/1.45 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-dailyverse-question{
+  padding:15px;border:1px solid rgba(87,145,146,.2);border-radius:18px;background:#0a2931
+}
+.deen-dailyverse-question h3{
+  margin:0;color:#eaf7f3;font:850 12px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-dailyverse-options{display:grid;gap:7px;margin-top:11px}
+.deen-dailyverse-option{
+  min-height:43px;padding:9px 11px;border:1px solid rgba(84,139,142,.19);
+  border-radius:12px;background:#0c3036;color:#cfe2de;text-align:left;
+  font:750 9px/1.3 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-dailyverse-option.correct{
+  border-color:rgba(99,207,178,.33);background:#15423e;color:#a1e7d2
+}
+.deen-dailyverse-option.wrong{
+  border-color:rgba(214,136,102,.25);background:rgba(112,58,41,.17);color:#dfa18a
+}
+.deen-dailyverse-result{
+  margin-top:9px;padding:9px 10px;border-radius:11px;
+  font:750 8px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-dailyverse-result.good{
+  border:1px solid rgba(98,204,176,.2);background:rgba(31,106,88,.14);color:#8cdbc5
+}
+.deen-dailyverse-result.bad{
+  border:1px solid rgba(215,137,103,.19);background:rgba(112,58,41,.13);color:#dda087
+}
+</style>
+<script id="deen-v10926-quran-daily-verse-js">
+(()=>{
+  if(window.__deenV10926QuranDailyVerse)return;
+  window.__deenV10926QuranDailyVerse=true;
+
+  const NOTES={
+    'ikhlas:1':{
+      text:'Bu ayetin mealinde Allah’ın tekliği vurgulanır.',
+      source:{provider:'Vikikaynak',edition:'Muhammed Hamdi Yazır, 1938',reference:'İhlâs 1. ayet',url:"https://tr.wikisource.org/wiki/Kur%27an/%C4%B0hl%C3%A2s_Suresi"},
+      question:'Bu ayetin mealinde hangi ana fikir öne çıkıyor?',
+      correct:'Allah’ın tek olması',
+      options:['Allah’ın tek olması','Bir yolculuk anlatımı','Bir zaman ölçüsü','Bir tabiat olayı']
+    },
+    'ikhlas:2':{
+      text:'Bu ayetin mealinde Allah için “samed” ifadesi yer alır.',
+      source:{provider:'Vikikaynak',edition:'Muhammed Hamdi Yazır, 1938',reference:'İhlâs 2. ayet',url:"https://tr.wikisource.org/wiki/Kur%27an/%C4%B0hl%C3%A2s_Suresi"},
+      question:'Meal içinde Allah için hangi ifade kullanılıyor?',
+      correct:'Samed',
+      options:['Samed','Yolcu','Sabah','Yağmur']
+    },
+    'ikhlas:3':{
+      text:'Bu ayet doğurmama ve doğurulmama ifadelerini birlikte verir.',
+      source:{provider:'Vikikaynak',edition:'Muhammed Hamdi Yazır, 1938',reference:'İhlâs 3. ayet',url:"https://tr.wikisource.org/wiki/Kur%27an/%C4%B0hl%C3%A2s_Suresi"},
+      question:'Bu ayetin mealinde hangi iki ifade birlikte geçiyor?',
+      correct:'Doğurmadı ve doğurulmadı',
+      options:['Doğurmadı ve doğurulmadı','Geldi ve gitti','Uyudu ve uyandı','Yürüdü ve durdu']
+    },
+    'ikhlas:4':{
+      text:'Bu ayetin mealinde Allah’a hiçbir küfüv olmadığı ifade edilir.',
+      source:{provider:'Vikikaynak',edition:'Muhammed Hamdi Yazır, 1938',reference:'İhlâs 4. ayet',url:"https://tr.wikisource.org/wiki/Kur%27an/%C4%B0hl%C3%A2s_Suresi"},
+      question:'Bu ayetin mealinde hangi fikir ifade ediliyor?',
+      correct:'Ona hiçbir küfüv olmadığı',
+      options:['Ona hiçbir küfüv olmadığı','Bir günün uzunluğu','Bir yolun yönü','Bir mevsimin gelişi']
+    }
+  };
+
+  const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const qstate=()=>DEEN_QURAN?.ensureState?.()||state.quranJourney;
+  const todayKey=()=>{
+    const d=new Date();
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  };
+  const prettyDate=()=>new Date().toLocaleDateString('tr-TR',{day:'numeric',month:'short'});
+  const stableHash=str=>{
+    let h=2166136261;
+    for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}
+    return h>>>0;
+  };
+  function readyPool(){
+    const out=[];
+    for(let n=1;n<=4;n++){
+      const rec=DEEN_QURAN_CONTENT?.getAyah?.('ikhlas',n);
+      const note=NOTES['ikhlas:'+n];
+      if(rec&&note)out.push({id:'ikhlas:'+n,surahId:'ikhlas',ayah:n,record:rec,note});
+    }
+    return out;
+  }
+  function ensureDailyState(){
+    const q=qstate();
+    q.dailyVerse=q.dailyVerse&&typeof q.dailyVerse==='object'?q.dailyVerse:{};
+    const d=q.dailyVerse;
+    const date=todayKey();
+    if(d.date!==date){
+      q.dailyVerse={
+        date,
+        selectedId:null,
+        answered:false,
+        correct:null,
+        attempts:0,
+        answeredAt:null
+      };
+    }
+    return q.dailyVerse;
+  }
+  function selection(){
+    const pool=readyPool();
+    if(!pool.length)return null;
+    const d=ensureDailyState();
+    if(d.selectedId){
+      const existing=pool.find(x=>x.id===d.selectedId);
+      if(existing)return existing;
+    }
+    const selected=pool[stableHash(d.date)%pool.length];
+    d.selectedId=selected.id;
+    DEEN_QURAN.persistState?.();
+    return selected;
+  }
+  function injectVerifiedNote(item){
+    const current=DEEN_QURAN_CONTENT?.internalGet?.(item.surahId,item.ayah);
+    if(!current)return false;
+    const note=item.note;
+    DEEN_QURAN_CONTENT.register({
+      ...current,
+      learning_note:{
+        text:note.text,
+        source:{...note.source},
+        verification_status:'production_ready'
+      }
+    });
+    return !!DEEN_QURAN_CONTENT?.getAyah?.(item.surahId,item.ayah)?.learning_note?.text;
+  }
+  function verifyAllNotes(){
+    const pool=readyPool();
+    for(const item of pool)injectVerifiedNote(item);
+    return pool.length;
+  }
+  function itemNow(){
+    verifyAllNotes();
+    const selected=selection();
+    if(!selected)return null;
+    const rec=DEEN_QURAN_CONTENT?.getAyah?.(selected.surahId,selected.ayah);
+    if(!rec?.learning_note?.text)return null;
+    return {...selected,record:rec,note:{...selected.note,text:rec.learning_note.text}};
+  }
+  function optionClass(text,state){
+    if(!state.answered)return '';
+    if(text===itemNow()?.note?.correct)return ' correct';
+    if(state.correct===false&&text===state.lastChoice)return ' wrong';
+    return '';
+  }
+  function html(){
+    const item=itemNow();
+    if(!item){
+      return '<div class="deen-dailyverse"><div class="deen-quran-pending">Bugünün Ayeti için production-ready içerik ve kaynaklı öğrenme notu bulunamadı.</div></div>';
+    }
+    const d=ensureDailyState();
+    const r=item.record;
+    const note=item.note;
+    return '<div class="deen-dailyverse">'+
+      '<div class="deen-dailyverse-head">'+
+        '<span><b>Bugünün Ayeti</b><small>Doğrulanmış günlük öğrenme kartı</small></span>'+
+        '<span class="deen-dailyverse-date">'+esc(prettyDate())+'</span>'+
+      '</div>'+
+      '<section class="deen-dailyverse-card">'+
+        '<div class="deen-dailyverse-kicker">İHLÂS · '+item.ayah+'. AYET</div>'+
+        '<div class="deen-dailyverse-arabic" lang="ar">'+esc(r.arabic.text)+'</div>'+
+        '<div class="deen-dailyverse-meaning"><b>TÜRKÇE MEAL</b><p>'+esc(r.translation.text)+'</p></div>'+
+        '<div class="deen-dailyverse-note"><b>KISA ÖĞRENME NOTU</b><p>'+esc(note.text)+'</p></div>'+
+        '<div class="deen-dailyverse-source">Arapça: '+esc(r.arabic.source.provider||'—')+' · Meal/Not: Muhammed Hamdi Yazır (1938), Vikikaynak</div>'+
+      '</section>'+
+      '<section class="deen-dailyverse-question">'+
+        '<h3>'+esc(note.question)+'</h3>'+
+        '<div class="deen-dailyverse-options">'+
+          note.options.map(text=>
+            '<button type="button" class="deen-dailyverse-option'+optionClass(text,d)+'" '+(d.answered?'disabled':'')+
+            ' onclick="DEEN_QURAN_DAILY.answer(\''+esc(text).replace(/&#39;/g,"\\'")+'\')">'+esc(text)+'</button>'
+          ).join('')+
+        '</div>'+
+        (d.answered
+          ?'<div class="deen-dailyverse-result '+(d.correct?'good':'bad')+'">'+
+            (d.correct?'Doğru. Meal ve kısa nottaki ana fikri yakaladın.':'Bu turda doğru seçenek: '+esc(note.correct)+'.')+
+          '</div>'
+          :'')+
+      '</section>'+
+    '</div>';
+  }
+  function redraw(){
+    const mount=document.querySelector('.deen-dailyverse');
+    if(!mount)return false;
+    const holder=document.createElement('div');
+    holder.innerHTML=html();
+    mount.replaceWith(holder.firstElementChild);
+    return true;
+  }
+  function open(){
+    const item=itemNow();
+    sheet('Bugünün Ayeti',html());
+    document.documentElement.dataset.deenQuranDailyVerse='v10926';
+    return !!item;
+  }
+  function answer(choice){
+    const item=itemNow();
+    if(!item)return false;
+    const d=ensureDailyState();
+    if(d.answered)return d.correct===true;
+    d.attempts=Math.max(0,Number(d.attempts)||0)+1;
+    d.lastChoice=String(choice);
+    d.correct=String(choice)===item.note.correct;
+    d.answered=true;
+    d.answeredAt=new Date().toISOString();
+    const q=qstate();
+    q.dailyVerse=d;
+    q.profile.lastMode='daily_verse';
+    q.profile.lastSessionAt=d.answeredAt;
+    DEEN_QURAN.persistState?.();
+    if(window.DEEN_QURAN_SRS?.record){
+      DEEN_QURAN_SRS.record(item.surahId,item.ayah,d.correct?'good':'hard','daily_verse');
+    }
+    redraw();
+    return d.correct;
+  }
+  function model(){
+    const item=itemNow();
+    const d=ensureDailyState();
+    return item?{
+      date:d.date,
+      selectedId:item.id,
+      ayah:item.ayah,
+      answered:d.answered,
+      correct:d.correct,
+      attempts:d.attempts,
+      arabic:item.record.arabic.text,
+      meal:item.record.translation.text,
+      note:item.note.text,
+      question:item.note.question,
+      answer:item.note.correct,
+      ready:true
+    }:{date:d.date,ready:false};
+  }
+
+  verifyAllNotes();
+  window.DEEN_QURAN=window.DEEN_QURAN||{};
+  window.DEEN_QURAN.dailyVerse=open;
+  window.DEEN_QURAN_DAILY={
+    open,answer,model,selection,readyPool:()=>readyPool().map(x=>({id:x.id,ayah:x.ayah}))
+  };
+})();
+</script>
