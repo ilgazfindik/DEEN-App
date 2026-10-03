@@ -8,7 +8,7 @@ const REVIEWER='DEEN source cross-check: Quran.com + Vikikaynak';
 const PACKS={
 fatiha:{name:'Fâtiha',number:1,quran:'https://quran.com/tr/fatiha/1-7',wiki:"https://tr.wikisource.org/wiki/Kur%27an/F%C3%A2tiha_Suresi",
 arabic:['بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ','ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ','ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ','مَـٰلِكِ يَوْمِ ٱلدِّينِ','إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ','ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ','صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ'],
-meal:['Rahmân, Rahîm Allahın ismiyle','Hamd, o rabbiâlemîn,','o rahman, rahîm,','o din gününün maliki Allâh\\'ın.','Sade sana ederiz kulluğu, ibadeti ve sade senden dileriz avni, inayeti yarab!','Hidayet eyle bizi doğru yola','O kendilerine in\\'am ettiğin mes\\'utların yoluna. Ne o gadap olunanların ne de sapgınların yoluna değil.']},
+meal:['Rahmân, Rahîm Allahın ismiyle','Hamd, o rabbiâlemîn,','o rahman, rahîm,','o din gününün maliki Allâh\'ın.','Sade sana ederiz kulluğu, ibadeti ve sade senden dileriz avni, inayeti yarab!','Hidayet eyle bizi doğru yola','O kendilerine in\'am ettiğin mes\'utların yoluna. Ne o gadap olunanların ne de sapgınların yoluna değil.']},
 asr:{name:'Asr',number:103,quran:'https://quran.com/tr/asr',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Asr_Suresi",
 arabic:['وَٱلْعَصْرِ','إِنَّ ٱلْإِنسَـٰنَ لَفِى خُسْرٍ','إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ'],
 meal:['Asra yemin olsun ki,','İnsan mutlaka ziyandadır.','Ancak iman edenler, salih amel (iyi işler) işleyenler, birbirlerine hakkı tavsiye eden ve sabrı tavsiye edenler bunun dışındadır.']},
@@ -17,7 +17,7 @@ arabic:['إِنَّآ أَعْطَيْنَـٰكَ ٱلْكَوْثَرَ','فَ
 meal:['Biz verdik sana hakikatte kevser.','Sen de Rabbin için namaz kıl ve kurban kesiver.','Doğrusu sana bugz edendir ebter.']},
 falaq:{name:'Felak',number:113,quran:'https://quran.com/tr/felak',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Felak_Suresi",
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ','مِن شَرِّ مَا خَلَقَ','وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ','وَمِن شَرِّ ٱلنَّفَّـٰثَـٰتِ فِى ٱلْعُقَدِ','وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ'],
-meal:['De ki: Sığınırım Rabbına o felak\\'ın,','Şerrinden yarattıklarının.','Ve şerriden bir gâsıkın daldığı zaman.','Ve o, ukdelere üfleyen neffasların şerrinden.','Ve şerrinden hâsidin hased ettiği zaman.']},
+meal:['De ki: Sığınırım Rabbına o felak\'ın,','Şerrinden yarattıklarının.','Ve şerriden bir gâsıkın daldığı zaman.','Ve o, ukdelere üfleyen neffasların şerrinden.','Ve şerrinden hâsidin hased ettiği zaman.']},
 nas:{name:'Nâs',number:114,quran:'https://quran.com/tr/nas',wiki:"https://tr.wikisource.org/wiki/Kur%27an/N%C3%A2s_Suresi",
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ','مَلِكِ ٱلنَّاسِ','إِلَـٰهِ ٱلنَّاسِ','مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ','ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ','مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ'],
 meal:['De ki sığınırım Rabb’ine nâsın,','Melikine nâsın,','İlâhına nâsın,','Şerrinden o sinsi vesvasın.','Ki vesvese verir sinelerinde nâsın.','Gerek cinden gerekse insden.']}
