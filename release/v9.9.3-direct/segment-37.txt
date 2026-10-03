@@ -1,0 +1,177 @@
+
+<style id="deen-v10930-quran-final-qa-css">
+/* Final Quran mobile/sheet guard. */
+#v5Sheet{
+  width:min(100%,480px)!important;
+  max-width:100vw!important;
+  overflow-x:hidden!important;
+  overscroll-behavior:contain!important;
+}
+#v5SheetBody,
+#v5Sheet .deen-quran-hub,
+#v5Sheet .deen-quran-library-wrap,
+#v5Sheet .deen-ikhlas-session,
+#v5Sheet .deen-mem-session,
+#v5Sheet .deen-practice-session,
+#v5Sheet .deen-srs-session,
+#v5Sheet .deen-dailyverse,
+#v5Sheet .deen-wbw,
+#v5Sheet .deen-qprog{
+  width:100%;
+  min-width:0;
+  max-width:100%;
+}
+#v5Sheet :where(
+  .deen-ikhlas-arabic,
+  .deen-mem-arabic,
+  .deen-practice-arabic,
+  .deen-srs-arabic,
+  .deen-dailyverse-arabic,
+  .deen-wbw-verse,
+  .deen-wbw-ar
+){
+  max-width:100%;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  direction:rtl;
+  unicode-bidi:plaintext;
+}
+#v5Sheet :where(
+  .deen-quran-surah-top,
+  .deen-quran-surah-progress-row,
+  .deen-quran-surah-foot,
+  .deen-ikhlas-progresshead,
+  .deen-mem-head,
+  .deen-practice-head,
+  .deen-srs-head,
+  .deen-dailyverse-head,
+  .deen-wbw-head,
+  .deen-qprog-head
+)>*{min-width:0}
+#v5Sheet button{touch-action:manipulation}
+@media(max-width:360px){
+  #v5Sheet{padding-left:16px!important;padding-right:16px!important}
+  .deen-qprog-grid{grid-template-columns:1fr!important}
+  .deen-wbw-tabs{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .deen-srs-actions,
+  .deen-mem-actions,
+  .deen-practice-actions{grid-template-columns:1fr!important}
+  .deen-quran-library-summary{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:320px){
+  #v5Sheet{padding-left:12px!important;padding-right:12px!important}
+  #v5Sheet :where(.deen-ikhlas-arabic,.deen-mem-arabic,.deen-practice-arabic,.deen-srs-arabic,.deen-dailyverse-arabic){
+    font-size:24px!important;
+    line-height:1.75!important;
+  }
+}
+</style>
+<script id="deen-v10930-quran-final-qa-js">
+(()=>{
+  if(window.__deenV10930QuranFinalQa)return;
+  window.__deenV10930QuranFinalQa=true;
+
+  const IDS=['fatiha','ikhlas','falaq','nas','kawthar','asr'];
+  const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kawthar:3,asr:3};
+  const qstate=()=>DEEN_QURAN?.ensureState?.()||state?.quranJourney||null;
+  const validDate=v=>typeof v==='string'&&Number.isFinite(Date.parse(v));
+
+  function repairReviewQueue(){
+    const q=qstate();
+    if(!q)return {changed:false,before:0,after:0};
+    q.review=q.review&&typeof q.review==='object'?q.review:{queue:[],legacyQueue:[],history:[]};
+    q.review.queue=Array.isArray(q.review.queue)?q.review.queue:[];
+    q.review.legacyQueue=Array.isArray(q.review.legacyQueue)?q.review.legacyQueue:[];
+
+    const before=q.review.queue.length;
+    const best=new Map();
+    const invalid=[];
+    for(const item of q.review.queue){
+      const sid=String(item?.surahId||'');
+      const ayah=Number(item?.ayah);
+      if(!IDS.includes(sid)||!Number.isInteger(ayah)||ayah<1||ayah>COUNTS[sid]||!validDate(item?.dueAt)){
+        invalid.push(item);
+        continue;
+      }
+      const k=sid+':'+ayah;
+      const prev=best.get(k);
+      if(!prev||Date.parse(item.dueAt)<Date.parse(prev.dueAt))best.set(k,item);
+    }
+    q.review.queue=[...best.values()].sort((a,b)=>Date.parse(a.dueAt)-Date.parse(b.dueAt));
+    if(invalid.length)q.review.legacyQueue.push(...invalid);
+    const changed=before!==q.review.queue.length||invalid.length>0;
+    if(changed)DEEN_QURAN?.persistState?.();
+    return {changed,before,after:q.review.queue.length,invalid:invalid.length};
+  }
+
+  function audit(){
+    const q=qstate();
+    const checks={};
+    checks.schema=!!q&&Number(q.schemaVersion)===2&&Number(q.version)===2;
+    checks.currentSurah=!!q&&IDS.includes(q.profile?.currentSurah||q.currentSurah||'fatiha');
+    const sid=q?.profile?.currentSurah||q?.currentSurah||'fatiha';
+    const ayah=Number(q?.profile?.currentAyah||1);
+    checks.currentAyah=IDS.includes(sid)&&Number.isInteger(ayah)&&ayah>=1&&ayah<=COUNTS[sid];
+
+    const content={};
+    for(const id of IDS){
+      let ready=0;
+      try{ready=DEEN_QURAN_CONTENT?.getSurah?.(id)?.length||0}catch(_){}
+      content[id]={ready,total:COUNTS[id],ok:ready===COUNTS[id]};
+    }
+    checks.contentReady=Object.values(content).every(x=>x.ok);
+
+    const queue=Array.isArray(q?.review?.queue)?q.review.queue:[];
+    const keys=queue.map(x=>String(x?.surahId)+':'+Number(x?.ayah));
+    checks.reviewQueueUnique=new Set(keys).size===keys.length;
+    checks.reviewDates=queue.every(x=>validDate(x?.dueAt));
+
+    let audioSafe=true;
+    try{
+      const rows=DEEN_QURAN_AUDIO?.audit?.()||[];
+      audioSafe=rows.every(x=>!x.playable||(x.rights_status==='cleared'&&!!x.license&&!!x.rights_reference));
+    }catch(_){audioSafe=false}
+    checks.audioRightsGate=audioSafe;
+
+    checks.sheet=typeof document==='undefined'||!!document.getElementById?.('v5Sheet');
+    checks.quranRoute=typeof document==='undefined'||!!document.getElementById?.('leagueScreen');
+    checks.rtlCss=typeof document==='undefined'||!!document.getElementById?.('deen-v10930-quran-final-qa-css');
+
+    const failures=Object.entries(checks).filter(([,ok])=>!ok).map(([k])=>k);
+    return {
+      ok:failures.length===0,
+      failures,
+      checks,
+      content,
+      queueCount:queue.length,
+      schemaVersion:q?.schemaVersion||null,
+      current:{surahId:sid,ayah}
+    };
+  }
+
+  function stopAudio(){
+    try{DEEN_QURAN_AUDIO?.stop?.(false)}catch(_){}
+  }
+
+  const repair=repairReviewQueue();
+  const result=audit();
+  document.documentElement.dataset.deenQuranQa=result.ok?'pass':'fail';
+
+  document.addEventListener?.('close',e=>{
+    if(e.target?.id==='v5Sheet')stopAudio();
+  },true);
+  document.addEventListener?.('deen:navigating',stopAudio);
+  document.addEventListener?.('deen:navigated',()=>{
+    const r=audit();
+    document.documentElement.dataset.deenQuranQa=r.ok?'pass':'fail';
+  });
+
+  window.DEEN_QURAN_QA={
+    audit,
+    repairReviewQueue,
+    stopAudio,
+    initial:{repair,result},
+    version:'10.9.30'
+  };
+})();
+</script>
