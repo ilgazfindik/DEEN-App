@@ -2626,9 +2626,9 @@ window.DEEN_REWARD_BADGE_ART={
 </script>
 
 
-<!-- DEEN v10.9.12 — Comprehensive developer admin panel -->
+<!-- DEEN v10.9.13 — Authoritative comprehensive developer admin panel -->
 <style id="deen-v10912-admin-panel-css">
-#deenAdminPanel{
+#deenAdminPanelV2{
   width:min(94vw,460px);
   max-width:460px;
   max-height:92dvh;
@@ -2641,7 +2641,7 @@ window.DEEN_REWARD_BADGE_ART={
   box-shadow:0 28px 100px rgba(0,0,0,.68);
   overflow:hidden;
 }
-#deenAdminPanel::backdrop{background:rgba(1,8,12,.78);backdrop-filter:blur(7px)}
+#deenAdminPanelV2::backdrop{background:rgba(1,8,12,.78);backdrop-filter:blur(7px)}
 .deen-admin-shell{display:flex;flex-direction:column;max-height:92dvh}
 .deen-admin-head{
   position:sticky;top:0;z-index:3;
@@ -2704,11 +2704,15 @@ window.DEEN_REWARD_BADGE_ART={
   if(window.__deenV10912AdminPanel)return;
   window.__deenV10912AdminPanel=true;
 
-  const VERSION='10.9.12';
-  const BUILD='9213adminpanel1';
+  const VERSION='10.9.13';
+  const BUILD='9214adminauthority1';
   const SECTION_MAX={1:5,2:10,3:15};
 
   function clone(v){try{return JSON.parse(JSON.stringify(v))}catch(_){return v}}
+  function retireLegacyAdmin(){
+    try{document.getElementById('deenAdminOverlay')?.remove()}catch(_){}
+    try{document.getElementById('deenAdminTrigger')?.remove()}catch(_){}
+  }
   function units(){try{return Array.from({length:15},(_,i)=>uid(i+1))}catch(_){return Array.from({length:15},(_,i)=>'U'+String(i+1).padStart(2,'0'))}}
   function stageList(){try{return Array.isArray(STAGES)?STAGES:[]}catch(_){return[]}}
   function finalState(n){
@@ -2968,10 +2972,10 @@ window.DEEN_REWARD_BADGE_ART={
     return units().map((u,i)=>'<option value="'+u+'">'+u+' · '+String(names[i]||('Ünite '+(i+1)))+'</option>').join('');
   }
   function ensureDialog(){
-    let d=document.getElementById('deenAdminPanel');
+    let d=document.getElementById('deenAdminPanelV2');
     if(d)return d;
     d=document.createElement('dialog');
-    d.id='deenAdminPanel';
+    d.id='deenAdminPanelV2';
     d.innerHTML='<div class="deen-admin-shell"><div class="deen-admin-head"><div><b>DEEN ADMIN</b><small>P · DEVELOPER CONTROL CENTER</small></div><button class="deen-admin-close" type="button" aria-label="Admin panelini kapat">×</button></div><div class="deen-admin-body" id="deenAdminBody"></div></div>';
     document.body.appendChild(d);
     d.querySelector('.deen-admin-close').onclick=close;
@@ -3050,15 +3054,16 @@ window.DEEN_REWARD_BADGE_ART={
     return d;
   }
   function open(){
+    retireLegacyAdmin();
     try{document.getElementById('v5Sheet')?.open&&document.getElementById('v5Sheet').close()}catch(_){}
     const d=render();
     if(!d.open)d.showModal();
   }
   function close(){
-    const d=document.getElementById('deenAdminPanel');
+    const d=document.getElementById('deenAdminPanelV2');
     if(d?.open)d.close();
   }
-  function toggle(){document.getElementById('deenAdminPanel')?.open?close():open()}
+  function toggle(){document.getElementById('deenAdminPanelV2')?.open?close():open()}
 
   const actions={
     passAll,
@@ -3090,6 +3095,10 @@ window.DEEN_REWARD_BADGE_ART={
     fullReset
   };
 
+  retireLegacyAdmin();
+  setTimeout(retireLegacyAdmin,150);
+  setTimeout(retireLegacyAdmin,950);
+
   document.addEventListener('keydown',event=>{
     if(event.defaultPrevented||event.ctrlKey||event.metaKey||event.altKey)return;
     const t=event.target;
@@ -3100,7 +3109,7 @@ window.DEEN_REWARD_BADGE_ART={
   },true);
 
   window.DEEN_ADMIN={
-    version:VERSION,build:BUILD,open,close,toggle,render,snapshot,
+    authoritative:true,version:VERSION,build:BUILD,open,close,toggle,render,snapshot,
     passAll,passSection,passFinal:passOneFinal,
     passStage:id=>{const s=stageList().find(x=>x.id===id);if(!s)return false;completeStages(x=>x.id===id);persist(id+' tamamlandı.');return true},
     passUnit:u=>{const count=completeStages(s=>s.unit===u);persist(u+' · '+count+' aşama tamamlandı.');return count},
