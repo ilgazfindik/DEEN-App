@@ -4899,7 +4899,7 @@ window.DEEN_REWARD_BADGE_ART={
   function sourcePresent(src){
     return !!(src&&(src.provider||src.reference||src.url||src.edition));
   }
-  function gate(record){
+  function coreGate(record){
     const reasons=[];
     if(!record)reasons.push('missing_record');
     if(!record)return {ready:false,reasons};
@@ -4917,18 +4917,23 @@ window.DEEN_REWARD_BADGE_ART={
     if(!sourcePresent(record.translation?.source))reasons.push('translation_source_missing');
     if(record.translation?.verification_status!=='production_ready')reasons.push('translation_not_production_ready');
 
-    if(record.recitation?.audio_url){
-      if(!sourcePresent(record.recitation?.source))reasons.push('recitation_source_missing');
-      if(record.recitation?.verification_status!=='production_ready')reasons.push('recitation_not_production_ready');
-      if(record.recitation?.rights_status!=='cleared')reasons.push('recitation_rights_not_cleared');
-      if(!record.recitation?.source?.license)reasons.push('recitation_license_missing');
-      if(!record.recitation?.source?.rights_reference)reasons.push('recitation_rights_reference_missing');
-    }
-    if(record.learning_note?.text){
-      if(!sourcePresent(record.learning_note?.source))reasons.push('learning_note_source_missing');
-      if(record.learning_note?.verification_status!=='production_ready')reasons.push('learning_note_not_production_ready');
-    }
-
+    return {ready:reasons.length===0,reasons};
+  }
+  function recitationGate(record){
+    const reasons=[];
+    if(!record?.recitation?.audio_url)reasons.push('recitation_audio_missing');
+    if(!record?.recitation?.source||!sourcePresent(record.recitation.source))reasons.push('recitation_source_missing');
+    if(record?.recitation?.verification_status!=='production_ready')reasons.push('recitation_not_production_ready');
+    if(record?.recitation?.rights_status!=='cleared')reasons.push('recitation_rights_not_cleared');
+    if(!record?.recitation?.source?.license)reasons.push('recitation_license_missing');
+    if(!record?.recitation?.source?.rights_reference)reasons.push('recitation_rights_reference_missing');
+    return {ready:reasons.length===0,reasons};
+  }
+  function learningNoteGate(record){
+    const reasons=[];
+    if(!record?.learning_note?.text)reasons.push('learning_note_missing');
+    if(!sourcePresent(record?.learning_note?.source))reasons.push('learning_note_source_missing');
+    if(record?.learning_note?.verification_status!=='production_ready')reasons.push('learning_note_not_production_ready');
     return {ready:reasons.length===0,reasons};
   }
 
@@ -4945,9 +4950,12 @@ window.DEEN_REWARD_BADGE_ART={
   function productionGet(id,n){
     const rec=internalGet(id,n);
     if(!rec)return null;
-    const result=gate(rec);
+    const result=coreGate(rec);
     if(!result.ready)return null;
-    return rec;
+    const safe=clone(rec);
+    if(!recitationGate(rec).ready)safe.recitation=blankAyah(id,n).recitation;
+    if(!learningNoteGate(rec).ready)safe.learning_note=blankAyah(id,n).learning_note;
+    return safe;
   }
   function productionSurah(id){
     if(!validSurah(id))return [];
@@ -4972,14 +4980,26 @@ window.DEEN_REWARD_BADGE_ART={
   }
   function readiness(id,n){
     const rec=internalGet(id,n);
-    return gate(rec);
+    return coreGate(rec);
+  }
+  function audioReadiness(id,n){
+    const rec=internalGet(id,n);
+    const core=coreGate(rec);
+    if(!core.ready)return {ready:false,reasons:[...core.reasons]};
+    return recitationGate(rec);
+  }
+  function learningNoteReadiness(id,n){
+    const rec=internalGet(id,n);
+    const core=coreGate(rec);
+    if(!core.ready)return {ready:false,reasons:[...core.reasons]};
+    return learningNoteGate(rec);
   }
   function inventory(){
     const all=[];
     for(const id of Object.keys(SURAH_META)){
       for(let n=1;n<=ayahCount(id);n++){
         const rec=internalGet(id,n);
-        const g=gate(rec);
+        const g=coreGate(rec);
         all.push({
           surah_id:id,
           ayah_number:n,
@@ -5020,6 +5040,8 @@ window.DEEN_REWARD_BADGE_ART={
     getAyah:productionGet,
     getSurah:productionSurah,
     readiness,
+    audioReadiness,
+    learningNoteReadiness,
     inventory,
     summary,
     canRender:(id,n)=>readiness(id,n).ready,
@@ -5036,6 +5058,7 @@ window.DEEN_REWARD_BADGE_ART={
   window.DEEN_QURAN.getVerifiedAyah=productionGet;
   window.DEEN_QURAN.getVerifiedSurah=productionSurah;
   window.DEEN_QURAN.contentReadiness=readiness;
+  window.DEEN_QURAN.audioReadiness=audioReadiness;
 
   // User-facing guard: content renderers must go through verified getters.
   window.DEEN_QURAN.renderVerifiedAyah=function(id,n,renderer){
