@@ -4949,6 +4949,18 @@ window.DEEN_REWARD_BADGE_ART={
     }
     return out;
   }
+  function hasPayload(rec){
+    return !!(
+      rec?.arabic?.text||
+      rec?.translation?.text||
+      rec?.recitation?.audio_url||
+      rec?.learning_note?.text||
+      sourcePresent(rec?.arabic?.source)||
+      sourcePresent(rec?.translation?.source)||
+      sourcePresent(rec?.recitation?.source)||
+      sourcePresent(rec?.learning_note?.source)
+    );
+  }
   function readiness(id,n){
     const rec=internalGet(id,n);
     return gate(rec);
@@ -4962,7 +4974,7 @@ window.DEEN_REWARD_BADGE_ART={
         all.push({
           surah_id:id,
           ayah_number:n,
-          exists:!!rec,
+          exists:hasPayload(rec),
           production_ready:g.ready,
           verification_status:rec?.verification?.verification_status||'missing',
           religious_release_ready:rec?.verification?.religious_release_ready===true,
