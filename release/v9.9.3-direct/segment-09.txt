@@ -1169,15 +1169,21 @@ function showReward(e,finish){
  const isModal=e.type==='achievement'||e.type==='level_up',box=document.createElement(isModal?'dialog':'div');box.className=isModal?'gf-reward-modal'+(e.type==='level_up'?' gf-level':''):'lp-reward gf-reward-toast';
  if(isModal){box.setAttribute('aria-label',e.title||'Öğrenme ödülü')}else{box.setAttribute('role','status');box.setAttribute('aria-live','polite')}
  const rewardBadgeId=e.type==='achievement'?(String(e.id||'')||String((badges().find(b=>b.name===e.name)||{}).id||'')):'';
+ const rewardBadgeKnown=e.type==='achievement'&&!!window.DEEN_BADGE_ART?.known?.(rewardBadgeId);
  const mark=document.createElement('span');
- mark.className='gf-reward-medal'+(rewardBadgeId?' deen-reward-badge-art':'');
- if(rewardBadgeId){
+ mark.className='gf-reward-medal'+(rewardBadgeKnown?' deen-reward-badge-art':e.type==='achievement'?' deen-reward-badge-missing':'');
+ if(rewardBadgeKnown){
   mark.dataset.badgeId=rewardBadgeId;
   mark.setAttribute('role','img');
   mark.setAttribute('aria-label',e.name||e.title||'Kazanılan rozet');
   mark.textContent='';
+  window.DEEN_BADGE_ART.apply(mark,rewardBadgeId,{size:132});
+ }else if(e.type==='achievement'){
+  mark.setAttribute('aria-label',e.name||e.title||'Kazanılan rozet');
+  mark.textContent='';
+  mark.dataset.badgeMissing=rewardBadgeId||e.name||'unknown';
  }else{
-  mark.textContent=e.type==='level_up'?'✧':e.type==='achievement'?'❖':'✓';
+  mark.textContent=e.type==='level_up'?'✧':'✓';
  }
  const copy=document.createElement('div'),title=document.createElement('b'),detail=document.createElement('small');title.textContent=e.type==='achievement'?'YENİ ROZET · '+(e.name||e.title.replace('Yeni rozet · ','')):e.title;detail.textContent=e.amount?(e.detail||'').replace(/ · \+\d+ Pırıltı/,''):e.detail||'';copy.append(title,detail);box.append(mark,copy);
  const skip=document.createElement('button');skip.type='button';skip.className='gf-reward-close';skip.textContent=isModal?'Devam et':'×';skip.setAttribute('aria-label','Bildirimi kapat');box.append(skip);$('phone').append(box);
@@ -1358,7 +1364,7 @@ window.DEEN_GAMEFEEL_TEST={
   if(!previewMode)return false;
   if(['correct','wrong','combo'].includes(type)){if(!session?.questions[session.index])return false;const before=session.combo;session.combo=type==='combo'?5:type==='wrong'?0:Math.max(1,before);DEENFeel.answer(type!=='wrong',session.questions[session.index]);session.combo=before;return true}
   if(type==='perfect'){if(!session)return false;DEENFeel.result(100,65,false);return true}
-  const samples={stage:{type:'stage_complete',id:'U01-S01',next:'U01-S02'},unit:{type:'unit_complete',unit:'U01',name:U[0],mastery:86,xp:350,perfect:3,badge:UNIT_BADGES[0]},section:{type:'section_complete',section:1,gold:true,pct:95,retention:90,xp:320,strong:U[1],review:U[4]},level:{type:'level_up',title:'Seviye 8 → 9',detail:'Bir adım daha ilerledin.'},quest:{type:'quest_complete',title:'Görev tamamlandı',detail:'10 / 10 doğru cevap',amount:5},goal:{type:'goal_complete',title:'Bugünkü hedef tamamlandı',detail:'2 / 2 ders · +25 XP',amount:10},achievement:{type:'achievement',title:'Yeni rozet · Bilgi Yolcusu',name:'Bilgi Yolcusu',detail:'25 ders tamamladın.'}};
+  const samples={stage:{type:'stage_complete',id:'U01-S01',next:'U01-S02'},unit:{type:'unit_complete',unit:'U01',name:U[0],mastery:86,xp:350,perfect:3,badge:UNIT_BADGES[0]},section:{type:'section_complete',section:1,gold:true,pct:95,retention:90,xp:320,strong:U[1],review:U[4]},level:{type:'level_up',title:'Seviye 8 → 9',detail:'Bir adım daha ilerledin.'},quest:{type:'quest_complete',title:'Görev tamamlandı',detail:'10 / 10 doğru cevap',amount:5},goal:{type:'goal_complete',title:'Bugünkü hedef tamamlandı',detail:'2 / 2 ders · +25 XP',amount:10},achievement:{type:'achievement',id:'lessons25',title:'Yeni rozet · Bilgi Yolcusu',name:'Bilgi Yolcusu',detail:'25 ders tamamladın.'}};
   if(!samples[type])return false;celebrate({...samples[type],qa:true});runCelebrations();return true;
  }
 };
