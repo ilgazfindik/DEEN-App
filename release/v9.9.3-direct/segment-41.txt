@@ -1,0 +1,17 @@
+
+<style id="deen-v10934-quran-mascot-ux-css">
+.deen-qmascot{display:flex;align-items:center;gap:10px;margin:0 0 10px;padding:9px 11px;border:1px solid rgba(91,151,149,.16);border-radius:14px;background:rgba(8,37,45,.72)}.deen-qmascot img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(0,0,0,.22))}.deen-qmascot b{display:block;color:#dff2ed;font:850 9px/1.2 Inter,system-ui,sans-serif}.deen-qmascot span{display:block;margin-top:3px;color:#779692;font:650 7.5px/1.35 Inter,system-ui,sans-serif}.deen-qmascot-react{animation:deenQMascotReact .55s ease}@keyframes deenQMascotReact{0%{transform:translateY(4px);opacity:.5}55%{transform:translateY(-3px)}100%{transform:none;opacity:1}}
+</style>
+<script id="deen-v10934-quran-mascot-ux-js">
+(()=>{if(window.__deenV10934QuranMascotUx)return;window.__deenV10934QuranMascotUx=true;
+const A={lion:'./assets/companions/lion/lion_avatar.png',wolf:'./assets/companions/wolf/wolf_avatar.png',owl:'./assets/companions/owl/owl_avatar.png',turtle:'./assets/companions/turtle/turtle_avatar.png',eagle:'./assets/companions/eagle/eagle_avatar.png',cat:'./assets/companions/cat/cat_avatar.png'},L={lion:'Aslan',wolf:'Kurt',owl:'Baykuş',turtle:'Kaplumbağa',eagle:'Kartal',cat:'Kedi'};
+function selected(){const id=String(state?.profile?.companion||'').toLowerCase();return A[id]?id:'owl'}
+function html(){const id=selected();return'<div class="deen-qmascot" data-qmascot="'+id+'"><img src="'+A[id]+'?v=9239" alt=""><span><b>'+L[id]+'</b><span>Kur’an çalışmanda sakin şekilde sana eşlik ediyor.</span></span></div>'}
+function decorate(){const roots=document.querySelectorAll?.('#v5Sheet .deen-ikhlas-session,#v5Sheet .deen-mem-session,#v5Sheet .deen-practice-session,#v5Sheet .deen-srs-session,#v5Sheet .deen-dailyverse,#v5Sheet .deen-wbw,#v5Sheet .deen-qprog')||[];for(const r of roots){if(r.querySelector('.deen-qmascot'))continue;r.insertAdjacentHTML('afterbegin',html())}return roots.length}
+function react(){decorate();const x=document.querySelector?.('#v5Sheet .deen-qmascot');if(!x)return false;x.classList.remove('deen-qmascot-react');void x.offsetWidth;x.classList.add('deen-qmascot-react');return true}
+let t=null;const schedule=()=>{clearTimeout(t);t=setTimeout(decorate,60)};
+document.addEventListener?.('click',e=>{if(e.target?.closest?.('#v5Sheet'))schedule()},true);document.addEventListener?.('deen:navigated',schedule);
+if(typeof MutationObserver!=='undefined'){const o=new MutationObserver(schedule);o.observe(document.body,{childList:true,subtree:true})}
+window.DEEN_QURAN_MASCOT={decorate,react,selected};schedule();document.documentElement.dataset.deenQuranMascot='v10934';
+})();
+</script>
