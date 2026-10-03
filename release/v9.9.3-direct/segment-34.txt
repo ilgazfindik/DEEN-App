@@ -6941,11 +6941,13 @@ window.DEEN_REWARD_BADGE_ART={
     if(!learned.length)return;
     if(learned.some(a=>a.nextReviewAt&&Date.parse(a.nextReviewAt)<=nowMs())){
       surah.status='review_due';
+      q.memorizedSurahs=Array.isArray(q.memorizedSurahs)?q.memorizedSurahs.filter(x=>x!==id):[];
     }else if(learned.length===ayahs.length&&learned.every(a=>a.state==='solid'&&num(a.memorizationLevel,0)>=5)){
       surah.status='memorized';
       surah.memorizedAt=surah.memorizedAt||new Date().toISOString();
     }else{
       surah.status='learning';
+      q.memorizedSurahs=Array.isArray(q.memorizedSurahs)?q.memorizedSurahs.filter(x=>x!==id):[];
     }
   }
   function record(id,n,outcome='good',source='review'){
