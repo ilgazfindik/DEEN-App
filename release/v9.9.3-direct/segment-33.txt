@@ -27,7 +27,7 @@
   width:96px!important;
   height:96px!important;
   margin:-1px auto 2px!important;
-  background-image:url("assets/badges/deen-badges-atlas.webp?v=9211badgesystemaudit1")!important;
+  background-image:url("assets/badges/deen-badges-atlas.webp?v=9212badgecleanup1")!important;
   background-repeat:no-repeat!important;
   background-size:500% 200%!important;
   background-position:0 0;
@@ -143,7 +143,7 @@
     lessons50:'75% 100%',
     xp5000:'100% 100%'
   };
-  const ASSET='assets/badges/deen-badges-atlas.webp?v=9211badgesystemaudit1';
+  const ASSET='assets/badges/deen-badges-atlas.webp?v=9212badgecleanup1';
 
   function known(id){return IDS.includes(String(id||''))}
   function apply(el,id,{size=null}={}){
@@ -174,8 +174,8 @@
   }
 
   window.DEEN_BADGE_ART={
-    version:'10.9.10-BADGE-REGISTRY',
-    build:'9211badgesystemaudit1',
+    version:'10.9.11-BADGE-REGISTRY',
+    build:'9212badgecleanup1',
     asset:ASSET,
     ids:IDS,
     positions:POSITIONS,
