@@ -3210,3 +3210,442 @@ window.DEEN_REWARD_BADGE_ART={
   document.documentElement.dataset.deenAdmin='v10915';
 })();
 </script>
+
+
+<!-- DEEN v10.9.16 — Quran learning hub replaces League -->
+<style id="deen-v10916-quran-hub-css">
+#leagueScreenBody{
+  padding-bottom:110px!important;
+}
+#leagueScreenBody .deen-quran-shell{
+  padding:18px 16px 34px;
+}
+.deen-quran-kicker{
+  color:#8fe2c9;
+  font:800 10px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+}
+.deen-quran-title{
+  margin:7px 0 6px;
+  color:#f1fbf8;
+  font:800 30px/1.05 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:-.04em;
+}
+.deen-quran-sub{
+  margin:0 0 16px;
+  color:#a8c1c1;
+  font:650 13px/1.55 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-hero{
+  position:relative;
+  overflow:hidden;
+  padding:18px;
+  border:1px solid rgba(113,225,192,.22);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 86% 8%,rgba(126,229,192,.13),transparent 32%),
+    linear-gradient(145deg,#10393d,#0a2832 62%,#0a222c);
+  box-shadow:0 18px 40px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.025);
+}
+.deen-quran-hero::after{
+  content:"";
+  position:absolute;
+  width:150px;height:150px;
+  right:-48px;bottom:-62px;
+  border:1px solid rgba(151,228,205,.10);
+  border-radius:50%;
+  box-shadow:0 0 0 24px rgba(151,228,205,.025),0 0 0 48px rgba(151,228,205,.016);
+  pointer-events:none;
+}
+.deen-quran-hero .mini{
+  color:#8cc8bb;
+  font:800 9px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:.9px;
+}
+.deen-quran-hero h2{
+  margin:8px 0 5px;
+  color:#fff;
+  font:800 22px/1.15 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-hero p{
+  max-width:80%;
+  margin:0 0 14px;
+  color:#aac4c3;
+  font:650 12px/1.5 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-progress{
+  height:7px;
+  margin:12px 0 12px;
+  border-radius:99px;
+  background:#071c24;
+  overflow:hidden;
+}
+.deen-quran-progress i{
+  display:block;height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#5fceb5,#a7efd8);
+  box-shadow:0 0 14px rgba(91,215,185,.32);
+}
+.deen-quran-primary{
+  width:100%;
+  min-height:48px;
+  border:1px solid rgba(124,234,204,.34);
+  border-radius:14px;
+  background:linear-gradient(180deg,#1b695c,#124a46);
+  color:#eafff9;
+  font:800 12px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  cursor:pointer;
+}
+.deen-quran-section-title{
+  margin:19px 1px 10px;
+  color:#dbeee9;
+  font:800 12px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+.deen-quran-card{
+  min-height:132px;
+  padding:14px;
+  border:1px solid rgba(84,139,143,.25);
+  border-radius:18px;
+  background:linear-gradient(180deg,#0e2b34,#0a222b);
+  color:#e8f7f3;
+  text-align:left;
+  cursor:pointer;
+  box-shadow:inset 0 1px rgba(255,255,255,.02);
+}
+.deen-quran-card:active{transform:scale(.985)}
+.deen-quran-card .ico{
+  width:36px;height:36px;
+  display:grid;place-items:center;
+  margin-bottom:13px;
+  border:1px solid rgba(111,214,187,.24);
+  border-radius:12px;
+  background:#123a3d;
+  color:#9be5ce;
+  font-size:17px;
+}
+.deen-quran-card b{
+  display:block;
+  color:#edf9f6;
+  font:800 13px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-card small{
+  display:block;
+  margin-top:5px;
+  color:#88a9a6;
+  font:650 10px/1.38 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-top:10px;
+}
+.deen-quran-stat{
+  padding:10px 6px;
+  border:1px solid rgba(77,128,133,.18);
+  border-radius:13px;
+  background:#09232b;
+  text-align:center;
+}
+.deen-quran-stat strong{
+  display:block;
+  color:#e8faf5;
+  font:850 15px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-stat span{
+  display:block;
+  margin-top:5px;
+  color:#718f90;
+  font:750 8px/1.1 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-note{
+  margin:15px 2px 0;
+  color:#708d8d;
+  font:650 9px/1.5 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-list{display:grid;gap:8px}
+.deen-quran-list button{
+  width:100%;
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  border:1px solid rgba(87,144,144,.24);
+  border-radius:14px;
+  background:#0c2931;
+  color:#eaf6f3;
+  cursor:pointer;
+  text-align:left;
+}
+.deen-quran-list button>span:first-child{min-width:0}
+.deen-quran-list button b{
+  display:block;
+  font:800 12px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-list button small{
+  display:block;
+  margin-top:4px;
+  color:#819f9d;
+  font:650 9px/1.25 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-quran-list button em{
+  flex:0 0 auto;
+  color:#8fdac6;
+  font-style:normal;
+  font-weight:850;
+}
+.deen-quran-flow{
+  display:grid;gap:8px;margin-top:12px;
+}
+.deen-quran-step{
+  display:grid;
+  grid-template-columns:32px 1fr;
+  gap:10px;
+  align-items:start;
+  padding:10px;
+  border:1px solid rgba(82,137,139,.18);
+  border-radius:13px;
+  background:#0a252d;
+}
+.deen-quran-step i{
+  width:30px;height:30px;display:grid;place-items:center;
+  border:1px solid rgba(117,216,192,.22);
+  border-radius:10px;background:#113b3d;color:#93dfca;font-style:normal;font-weight:850;
+}
+.deen-quran-step b{display:block;color:#e5f5f1;font-size:11px}
+.deen-quran-step small{display:block;margin-top:4px;color:#829f9d;font-size:9px;line-height:1.4}
+.deen-quran-pending{
+  margin-top:12px;
+  padding:11px;
+  border:1px solid rgba(191,163,91,.24);
+  border-radius:13px;
+  background:rgba(103,79,31,.14);
+  color:#d7c28c;
+  font:650 9px/1.5 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+@media(max-width:370px){
+  .deen-quran-shell{padding-left:12px!important;padding-right:12px!important}
+  .deen-quran-grid{gap:7px}
+  .deen-quran-card{min-height:124px;padding:12px}
+}
+</style>
+<script id="deen-v10916-quran-hub-js">
+(()=>{
+  if(window.__deenV10916QuranHub)return;
+  window.__deenV10916QuranHub=true;
+
+  const VERSION='10.9.16';
+  const BUILD='9217quranhub1';
+  const SURAHS=[
+    {id:'fatiha',name:'Fâtiha',ayahs:7,order:1},
+    {id:'ikhlas',name:'İhlâs',ayahs:4,order:112},
+    {id:'falaq',name:'Felak',ayahs:5,order:113},
+    {id:'nas',name:'Nâs',ayahs:6,order:114},
+    {id:'kawthar',name:'Kevser',ayahs:3,order:108},
+    {id:'asr',name:'Asr',ayahs:3,order:103}
+  ];
+
+  function ensure(){
+    state.quranJourney=state.quranJourney&&typeof state.quranJourney==='object'?state.quranJourney:{};
+    const q=state.quranJourney;
+    if(!Array.isArray(q.startedSurahs))q.startedSurahs=[];
+    if(!Array.isArray(q.memorizedSurahs))q.memorizedSurahs=[];
+    if(!Array.isArray(q.reviewQueue))q.reviewQueue=[];
+    if(!SURAHS.some(s=>s.id===q.currentSurah))q.currentSurah='fatiha';
+    q.verseLearned=Math.max(0,Number(q.verseLearned)||0);
+    q.version=1;
+    return q;
+  }
+  function current(){
+    const q=ensure();
+    return SURAHS.find(s=>s.id===q.currentSurah)||SURAHS[0];
+  }
+  function save(){
+    try{saveState?.()}catch(_){}
+  }
+  function nav(){
+    const b=document.querySelector('.bottomnav .navbtn[data-screen="leagueScreen"]');
+    if(!b)return false;
+    const label=b.querySelector('span');
+    if(label)label.textContent='Kur’an';
+    b.setAttribute('aria-label','Kur’an öğrenme merkezi');
+    const svg=b.querySelector('svg');
+    if(svg)svg.innerHTML='<path d="M4.5 5.5c2.6-.7 5-.2 7.5 1.5v11.5c-2.5-1.7-4.9-2.2-7.5-1.5z"/><path d="M19.5 5.5c-2.6-.7-5-.2-7.5 1.5v11.5c2.5-1.7 4.9-2.2 7.5-1.5z"/><path d="M12 7v11.5"/>';
+    return true;
+  }
+  function render(){
+    nav();
+    const root=document.getElementById('leagueScreenBody');
+    if(!root)return false;
+    const q=ensure(),cur=current();
+    const started=q.startedSurahs.length;
+    const memorized=q.memorizedSurahs.length;
+    const due=q.reviewQueue.length;
+    const progress=Math.min(100,Math.round((memorized/SURAHS.length)*100));
+    root.innerHTML=
+      '<div class="deen-quran-shell">'+
+        '<div class="deen-quran-kicker">KUR’AN ÖĞRENME MERKEZİ</div>'+
+        '<h1 class="deen-quran-title">Kur’an Yolculuğun</h1>'+
+        '<p class="deen-quran-sub">Sureleri adım adım öğren, ezberini güçlendir ve düzenli tekrarlarla hatırla.</p>'+
+        '<section class="deen-quran-hero">'+
+          '<div class="mini">'+(started?'DEVAM ET':'İLK ADIM')+'</div>'+
+          '<h2>'+cur.name+' Suresi</h2>'+
+          '<p>'+cur.ayahs+' ayet · Dinle → parçala → anla → hatırla → ezberden tamamla</p>'+
+          '<div class="deen-quran-progress"><i style="width:'+progress+'%"></i></div>'+
+          '<button class="deen-quran-primary" type="button" onclick="DEEN_QURAN.openSurah(\''+cur.id+'\')">'+(started?'ÇALIŞMAYA DEVAM ET':'SURE ÖĞRENMEYE BAŞLA')+'</button>'+
+        '</section>'+
+        '<div class="deen-quran-stats">'+
+          '<div class="deen-quran-stat"><strong>'+started+'</strong><span>BAŞLANAN SURE</span></div>'+
+          '<div class="deen-quran-stat"><strong>'+memorized+'</strong><span>EZBERLENEN</span></div>'+
+          '<div class="deen-quran-stat"><strong>'+due+'</strong><span>TEKRAR</span></div>'+
+        '</div>'+
+        '<h2 class="deen-quran-section-title">Nasıl çalışmak istersin?</h2>'+
+        '<div class="deen-quran-grid">'+
+          '<button class="deen-quran-card" type="button" onclick="DEEN_QURAN.surahList()"><span class="ico">☰</span><b>Sure Öğren</b><small>Kısa sureleri adım adım öğren.</small></button>'+
+          '<button class="deen-quran-card" type="button" onclick="DEEN_QURAN.memorize()"><span class="ico">◌</span><b>Ezber</b><small>Dinle, gizle, sırala ve hatırla.</small></button>'+
+          '<button class="deen-quran-card" type="button" onclick="DEEN_QURAN.dailyVerse()"><span class="ico">✦</span><b>Bugünün Ayeti</b><small>Bir ayeti anlamıyla birlikte çalış.</small></button>'+
+          '<button class="deen-quran-card" type="button" onclick="DEEN_QURAN.review()"><span class="ico">↻</span><b>Kur’an Tekrarı</b><small>Öğrendiğin sure ve ayetleri pekiştir.</small></button>'+
+        '</div>'+
+        '<p class="deen-quran-note">Kur’an metni, meal ve ses içerikleri doğrulanmış kaynak bağlantısı tamamlanmadan yayınlanmaz.</p>'+
+      '</div>';
+    document.documentElement.dataset.deenQuranHub='v10916';
+    return true;
+  }
+  function surahList(){
+    ensure();
+    sheet('Sure Öğren',
+      '<p class="v5-muted">İlk öğrenme paketi kısa surelerle başlayacak.</p>'+
+      '<div class="deen-quran-list">'+SURAHS.map(s=>
+        '<button type="button" onclick="DEEN_QURAN.openSurah(\''+s.id+'\')">'+
+          '<span><b>'+s.name+' Suresi</b><small>'+s.order+'. sure · '+s.ayahs+' ayet</small></span>'+
+          '<em>→</em>'+
+        '</button>'
+      ).join('')+'</div>'+
+      '<div class="deen-quran-pending">Ayet metni, meal ve kıraat sesleri içerik doğrulama hattından geçtikçe bu öğrenme akışına bağlanacak.</div>'
+    );
+  }
+  function openSurah(id){
+    const s=SURAHS.find(x=>x.id===id)||SURAHS[0],q=ensure();
+    q.currentSurah=s.id;
+    if(!q.startedSurahs.includes(s.id))q.startedSurahs.push(s.id);
+    save();
+    render();
+    sheet(s.name+' Suresi',
+      '<div class="v5-kicker">ÖĞRENME AKIŞI · '+s.ayahs+' AYET</div>'+
+      '<p class="v5-muted">Bu sureyi tek seferde ezberlemek yerine küçük adımlarla ilerleyeceğiz.</p>'+
+      '<div class="deen-quran-flow">'+
+        step('1','Dinle & takip et','Doğrulanmış kıraat kaydı eşliğinde metni takip et.')+
+        step('2','Parçalara böl','Ayeti kısa, hatırlanabilir parçalara ayır.')+
+        step('3','Anlamını öğren','Doğrulanmış meal ve kısa bağlam notuyla anlamı kur.')+
+        step('4','Hatırla','Kelimeler ve parçalar aşamalı olarak gizlenir.')+
+        step('5','Ezberden tamamla','Başlangıç ipucundan sonra devamını zihninden getir.')+
+      '</div>'+
+      '<div class="deen-quran-pending">İçerik paketi henüz doğrulama aşamasında. Öğrenme motoru hazır; ayet/meal/ses bağlandığında bu adımlar aktif olacak.</div>'
+    );
+  }
+  function step(n,title,desc){
+    return '<div class="deen-quran-step"><i>'+n+'</i><span><b>'+title+'</b><small>'+desc+'</small></span></div>';
+  }
+  function memorize(){
+    sheet('Ezber Modu',
+      '<p class="v5-muted">Ezber çalışması tek bir yönteme bağlı kalmayacak.</p>'+
+      '<div class="deen-quran-flow">'+
+        step('1','Dinle & takip et','Kıraat ilerlerken metni takip et.')+
+        step('2','Gizleyerek oku','Kelimeler aşamalı kaybolur; sen devam edersin.')+
+        step('3','Sırala','Ayet parçalarını doğru sıraya getir.')+
+        step('4','Hatırlama testi','Yalnız başlangıç ipucu verilir; devamını hatırlarsın.')+
+      '</div>'+
+      '<div class="deen-quran-pending">Telaffuz/kıraat için otomatik “doğru-yanlış” hükmü bu ilk sürümde verilmeyecek. İlk aşama dinleme ve self-check odaklı olacak.</div>'
+    );
+  }
+  function dailyVerse(){
+    sheet('Bugünün Ayeti',
+      '<div class="v5-kicker">GÜNLÜK AYET ÇALIŞMASI</div>'+
+      '<h2 style="margin:8px 0 6px">Ayet havuzu hazırlanıyor</h2>'+
+      '<p class="v5-muted">Burada Arapça ayet, sure/ayet numarası, doğrulanmış Türkçe meal ve kısa öğrenme notu birlikte gösterilecek.</p>'+
+      '<div class="deen-quran-pending">Doğrulanmış kaynak bağlanmadan rastgele ayet veya meal yayınlamıyoruz.</div>'
+    );
+  }
+  function review(){
+    const q=ensure();
+    sheet('Kur’an Tekrarı',
+      '<div class="v5-kicker">'+q.reviewQueue.length+' TEKRAR BEKLİYOR</div>'+
+      '<h2 style="margin:8px 0 6px">'+(q.reviewQueue.length?'Bugünkü ezber tekrarların':'Şimdilik tekrar yok')+'</h2>'+
+      '<p class="v5-muted">'+(q.reviewQueue.length?'Öğrendiğin sure ve ayetler unutma aralığına göre burada sıralanacak.':'İlk sure çalışmalarını tamamladıkça tekrar planın burada oluşacak.')+'</p>'+
+      '<div class="deen-quran-pending">Kur’an tekrarları genel “Tekrar” sekmesinden ayrı tutulur; burada yalnız sure/ayet ezberi yönetilir.</div>'
+    );
+  }
+
+  // Retire user-facing league mechanics while preserving legacy state compatibility.
+  window.rollWeek=function quranEraWeekRoll(){
+    try{
+      const w=week();
+      if(state.league&&state.league.week!==w){
+        state.league.week=w;
+        state.league.xp=0;
+      }
+    }catch(_){}
+  };
+
+  window.leagueView=render;
+  try{leagueView=render}catch(_){}
+
+  const baseProfile=window.profileView;
+  if(typeof baseProfile==='function'&&!baseProfile.__deenQuranWrapped){
+    const wrapped=function(){
+      const out=baseProfile.apply(this,arguments);
+      try{
+        const q=ensure();
+        const metrics=document.querySelectorAll('#profileScreenBody .v5-profilemetrics > div');
+        const last=metrics[metrics.length-1];
+        if(last){
+          const strong=last.querySelector('strong');
+          const small=last.querySelector('small');
+          if(strong)strong.textContent=String(q.memorizedSurahs.length);
+          if(small)small.textContent='Ezberlenen sure';
+        }
+      }catch(_){}
+      return out;
+    };
+    wrapped.__deenQuranWrapped=true;
+    window.profileView=wrapped;
+    try{profileView=wrapped}catch(_){}
+  }
+
+  window.DEEN_QURAN={
+    version:VERSION,
+    build:BUILD,
+    surahs:SURAHS.map(x=>({...x})),
+    render,
+    surahList,
+    openSurah,
+    memorize,
+    dailyVerse,
+    review,
+    state:()=>JSON.parse(JSON.stringify(ensure())),
+    check:()=>({
+      nav:document.querySelector('.bottomnav .navbtn[data-screen="leagueScreen"] span')?.textContent||null,
+      body:!!document.querySelector('#leagueScreenBody .deen-quran-shell'),
+      leagueVisible:/\bLig\b/i.test(document.getElementById('leagueScreen')?.innerText||''),
+      current:current().id
+    })
+  };
+
+  nav();
+  if(document.querySelector('.screen.active')?.id==='leagueScreen')render();
+  document.addEventListener('deen:navigated',e=>{
+    nav();
+    if(document.querySelector('.screen.active')?.id==='leagueScreen')render();
+  });
+  setTimeout(nav,80);
+  setTimeout(nav,500);
+})();
+</script>
