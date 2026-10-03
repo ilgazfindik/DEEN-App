@@ -1133,7 +1133,6 @@ function mountV5(){
 const celebrationQueue=[];
 let celebrationRunning=false,activeCelebration=null,celebrationFinish=null,queuePump=null;
 const UNIT_TITLES=['Temeller Yolcusu','Kavram Kaşifi','Anlam Yolcusu','Temel Bağlar','İlk Kısım Yolcusu','Yeni Ufuklar','Bilgi Bağları','Öğrenme İzleri','Hatırlama Yolcusu','İman Konuları Yolcusu','İbadet Bilinci','Temizlik Yolcusu','Namaz Hazırlığı','Namaz Yapısı','Ramazan Yolcusu'];
-const UNIT_BADGES=UNIT_TITLES; // legacy alias; these are titles, not collectible achievement badges.
 const CELEBRATION_PRIORITY={section_complete:0,section_intro:0,stage_complete:1,unit_complete:2,unit_intro:2,level_up:3,achievement:4,goal_complete:5,quest_complete:6,streak:7,league_promotion:7};
 function motionOff(){return !state.settings.animation||state.settings.reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches}
 function celebrationKey(e){return e.type+':'+(e.id||e.unit||e.section||e.title||'')}
@@ -1335,7 +1334,7 @@ const DEENFeel=(()=>{
  function polishCeremony(dialog,e){
   const scope='ceremony';end(scope);classes(dialog,'gf-ceremony-enter',scope,350);
   dialog.querySelectorAll('.v5-metricrow > span').forEach(el=>numberText(el,scope));
-  const unitTitle=dialog.querySelector('.lp-unit-title,.lp-earnedbadge');classes(unitTitle,'gf-badge-reveal',scope,650);
+  const unitTitle=dialog.querySelector('.lp-unit-title');classes(unitTitle,'gf-badge-reveal',scope,650);
   const medal=dialog.querySelector('.lp-ceremony-medal');
   if(e.type==='unit_complete'){
    const ring=document.createElementNS('http://www.w3.org/2000/svg','svg');ring.setAttribute('viewBox','0 0 120 130');ring.setAttribute('class','gf-mastery-ring');ring.setAttribute('aria-hidden','true');ring.innerHTML='<rect x="4" y="4" width="112" height="122" rx="52" pathLength="100"/>';medal?.append(ring);const path=ring.querySelector('rect');if(path){path.style.strokeDashoffset=String(100-e.mastery);if(!motionOff())classes(ring,'gf-ring-reveal',scope,700)}cleanup(scope,()=>ring.remove());
