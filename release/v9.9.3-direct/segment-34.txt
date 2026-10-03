@@ -6809,3 +6809,412 @@ window.DEEN_REWARD_BADGE_ART={
   document.documentElement.dataset.deenQuranAudio='v10924';
 })();
 </script>
+
+
+<!-- DEEN v10.9.25 — Quran spaced repetition engine -->
+<style id="deen-v10925-quran-srs-css">
+.deen-srs-session{display:grid;gap:11px}
+.deen-srs-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.deen-srs-head b{display:block;color:#eef9f6;font:900 13px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-srs-head small{display:block;margin-top:4px;color:#75918f;font:650 8.5px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-srs-count{
+  flex:0 0 auto;min-height:24px;display:inline-flex;align-items:center;padding:0 8px;
+  border:1px solid rgba(103,209,181,.2);border-radius:999px;background:#103239;color:#8ddbc5;
+  font:850 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-srs-card{
+  padding:16px;border:1px solid rgba(87,146,147,.21);border-radius:19px;
+  background:linear-gradient(180deg,#0d3037,#09262e)
+}
+.deen-srs-kicker{
+  color:#84c8b7;font:850 8px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);letter-spacing:.55px
+}
+.deen-srs-card h2{margin:7px 0 5px;color:#effaf7;font:900 19px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-srs-card p{margin:0;color:#809d9a;font:650 9.5px/1.5 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-srs-prompt{
+  margin-top:14px;padding:20px 12px;border:1px dashed rgba(105,191,172,.2);border-radius:15px;
+  background:#071f27;text-align:center
+}
+.deen-srs-prompt strong{display:block;color:#deefeb;font-size:12px}
+.deen-srs-prompt span{display:block;margin-top:7px;color:#64817f;font-size:8.5px;line-height:1.45}
+.deen-srs-arabic{
+  margin-top:14px;padding:17px 11px;border:1px solid rgba(108,198,177,.15);border-radius:15px;
+  background:#071f27;color:#fff;text-align:center;direction:rtl;
+  font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",serif;font-size:28px;line-height:1.8
+}
+.deen-srs-meta{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:11px
+}
+.deen-srs-meta div{padding:9px 5px;border-radius:11px;background:#0a2830;text-align:center}
+.deen-srs-meta strong{display:block;color:#e4f4f0;font-size:11px}
+.deen-srs-meta small{display:block;margin-top:4px;color:#698987;font-size:7px}
+.deen-srs-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.deen-srs-btn{
+  min-height:44px;border-radius:13px;border:1px solid rgba(90,146,146,.2);
+  background:#0a2931;color:#91afab;font:850 8.5px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-srs-btn.again{border-color:rgba(216,137,105,.22);background:rgba(112,58,41,.18);color:#e1a28a}
+.deen-srs-btn.hard{border-color:rgba(195,162,82,.22);background:rgba(101,77,30,.17);color:#dcc488}
+.deen-srs-btn.good{border-color:rgba(99,209,179,.25);background:#12423e;color:#9ae3ce}
+.deen-srs-empty{
+  padding:17px;border:1px solid rgba(84,140,141,.18);border-radius:17px;background:#0a2931;text-align:center
+}
+.deen-srs-empty strong{display:block;color:#e5f5f1;font-size:13px}
+.deen-srs-empty span{display:block;margin-top:6px;color:#75918f;font-size:8.5px;line-height:1.45}
+</style>
+<script id="deen-v10925-quran-srs-js">
+(()=>{
+  if(window.__deenV10925QuranSrs)return;
+  window.__deenV10925QuranSrs=true;
+
+  const HOUR=60*60*1000;
+  const DAY=24*HOUR;
+  const OUTCOMES=['again','hard','good','easy'];
+  const SURAH_NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kawthar:'Kevser',asr:'Asr'};
+  let reviewSession=null;
+
+  const qstate=()=>DEEN_QURAN?.ensureState?.()||state.quranJourney;
+  const num=(v,f=0)=>Number.isFinite(Number(v))?Number(v):f;
+  const iso=t=>new Date(t).toISOString();
+  const nowMs=()=>Date.now();
+  const clone=v=>JSON.parse(JSON.stringify(v));
+  const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+  function ensureMeta(id,n){
+    const q=qstate();
+    const a=q?.progress?.surahs?.[id]?.ayahs?.[n];
+    if(!a)return null;
+    a.srs=a.srs&&typeof a.srs==='object'?a.srs:{};
+    const s=a.srs;
+    s.reviewCount=Math.max(0,Math.floor(num(s.reviewCount,0)));
+    s.successStreak=Math.max(0,Math.floor(num(s.successStreak,0)));
+    s.lapseCount=Math.max(0,Math.floor(num(s.lapseCount,0)));
+    s.stabilityDays=Math.max(0,num(s.stabilityDays,0));
+    s.lastOutcome=OUTCOMES.includes(s.lastOutcome)?s.lastOutcome:null;
+    s.lastReviewAt=typeof s.lastReviewAt==='string'?s.lastReviewAt:null;
+    return {ayah:a,srs:s};
+  }
+  function stateLabel(v){
+    return ({new:'New',learning:'Learning',strengthening:'Strengthening',solid:'Solid'})[v]||'New';
+  }
+  function intervalFor(a,s,outcome){
+    const current=a.state||'new';
+    const streak=s.successStreak;
+    const memory=Math.max(0,Math.min(5,num(a.memorizationLevel,0)));
+
+    if(outcome==='again')return {ms:10*60*1000,nextState:current==='new'?'learning':(current==='solid'?'strengthening':'learning'),stability:.01};
+    if(outcome==='hard'){
+      const base=current==='solid'?2*DAY:6*HOUR;
+      return {
+        ms:Math.max(base,Math.min(3*DAY,(s.stabilityDays||.25)*DAY*.55)),
+        nextState:current==='new'?'learning':(current==='solid'?'strengthening':current),
+        stability:Math.max(.25,(s.stabilityDays||.25)*.7)
+      };
+    }
+    if(outcome==='easy'){
+      if(current==='new')return {ms:3*DAY,nextState:'strengthening',stability:3};
+      if(current==='learning')return {ms:7*DAY,nextState:'strengthening',stability:7};
+      if(current==='strengthening')return {ms:21*DAY,nextState:memory>=4?'solid':'strengthening',stability:21};
+      const days=Math.min(90,Math.max(30,(s.stabilityDays||21)*1.9));
+      return {ms:days*DAY,nextState:'solid',stability:days};
+    }
+
+    if(current==='new')return {ms:DAY,nextState:'learning',stability:1};
+    if(current==='learning'){
+      const mature=streak>=1;
+      return {ms:(mature?3:1)*DAY,nextState:mature?'strengthening':'learning',stability:mature?3:1};
+    }
+    if(current==='strengthening'){
+      const canSolid=memory>=5&&streak>=2;
+      const days=canSolid?14:5;
+      return {ms:days*DAY,nextState:canSolid?'solid':'strengthening',stability:days};
+    }
+    const days=Math.min(60,Math.max(14,(s.stabilityDays||14)*1.6));
+    return {ms:days*DAY,nextState:'solid',stability:days};
+  }
+  function updateSurahStatus(id){
+    const q=qstate();
+    const surah=q.progress.surahs[id];
+    if(!surah)return;
+    const ayahs=Object.values(surah.ayahs||{});
+    const learned=ayahs.filter(a=>!!a.completedAt);
+    if(!learned.length)return;
+    if(learned.some(a=>a.nextReviewAt&&Date.parse(a.nextReviewAt)<=nowMs())){
+      if(surah.status==='memorized')surah.status='review_due';
+    }else if(learned.length===ayahs.length&&learned.every(a=>a.state==='solid'&&num(a.memorizationLevel,0)>=5)){
+      surah.status='memorized';
+      surah.memorizedAt=surah.memorizedAt||new Date().toISOString();
+    }else if(surah.status==='review_due'||surah.status==='not_started'){
+      surah.status='learning';
+    }
+  }
+  function record(id,n,outcome='good',source='review'){
+    if(!OUTCOMES.includes(outcome))outcome='good';
+    const info=ensureMeta(id,n);
+    if(!info)return null;
+    const {ayah:a,srs:s}=info;
+    if(!a.completedAt)return null;
+
+    const at=nowMs();
+    if(outcome==='again'){
+      s.successStreak=0;
+      s.lapseCount++;
+    }else if(outcome==='hard'){
+      s.successStreak=Math.max(0,s.successStreak);
+    }else{
+      s.successStreak++;
+    }
+    s.reviewCount++;
+    s.lastOutcome=outcome;
+    s.lastReviewAt=iso(at);
+
+    const plan=intervalFor(a,s,outcome);
+    s.stabilityDays=plan.stability;
+    a.state=plan.nextState;
+    a.lastStudiedAt=iso(at);
+    a.nextReviewAt=iso(at+plan.ms);
+
+    const q=qstate();
+    q.review.history=Array.isArray(q.review.history)?q.review.history:[];
+    q.review.history.push({
+      id:id+':'+Number(n)+':'+at,
+      surahId:id,
+      ayah:Number(n),
+      outcome,
+      source:String(source||'review'),
+      reviewedAt:iso(at),
+      dueAt:a.nextReviewAt,
+      state:a.state,
+      stabilityDays:s.stabilityDays
+    });
+    if(q.review.history.length>500)q.review.history=q.review.history.slice(-500);
+
+    DEEN_QURAN.scheduleReview(id,n,a.nextReviewAt,'srs:'+outcome);
+    q.review.lastRunAt=iso(at);
+    updateSurahStatus(id);
+    DEEN_QURAN.persistState?.();
+
+    return {
+      surahId:id,ayah:Number(n),outcome,
+      state:a.state,
+      dueAt:a.nextReviewAt,
+      intervalMs:plan.ms,
+      stabilityDays:s.stabilityDays,
+      successStreak:s.successStreak,
+      lapseCount:s.lapseCount
+    };
+  }
+  function bootstrap(id,n){
+    const info=ensureMeta(id,n);
+    if(!info||!info.ayah.completedAt)return null;
+    if(info.ayah.nextReviewAt)return null;
+    return record(id,n,'good','learning_complete');
+  }
+  function dueItems(includeToday=true){
+    const q=qstate();
+    const limit=includeToday?(()=>{const d=new Date();d.setHours(23,59,59,999);return d.getTime()})():nowMs();
+    const map=new Map();
+    for(const item of q.review.queue||[]){
+      const t=Date.parse(item?.dueAt);
+      if(!Number.isFinite(t)||t>limit)continue;
+      const id=String(item.surahId||'');
+      const n=Number(item.ayah);
+      const a=q?.progress?.surahs?.[id]?.ayahs?.[n];
+      if(!a?.completedAt)continue;
+      map.set(id+':'+n,{
+        id:id+':'+n,surahId:id,ayah:n,dueAt:item.dueAt,
+        state:a.state||'new',
+        memorizationLevel:num(a.memorizationLevel,0),
+        srs:clone(a.srs||{})
+      });
+    }
+    return [...map.values()].sort((a,b)=>Date.parse(a.dueAt)-Date.parse(b.dueAt));
+  }
+  function risk(item){
+    const overdue=Math.max(0,nowMs()-Date.parse(item.dueAt||0))/DAY;
+    const lapses=num(item.srs?.lapseCount,0);
+    const stability=Math.max(.1,num(item.srs?.stabilityDays,.1));
+    return Math.round((overdue+1)*(1+lapses*.45)*100/stability);
+  }
+  function nextDue(){
+    return dueItems(true).sort((a,b)=>risk(b)-risk(a))[0]||null;
+  }
+  function timeLabel(isoDate){
+    const diff=Date.parse(isoDate)-nowMs();
+    if(diff<=0){
+      const hours=Math.floor(Math.abs(diff)/HOUR);
+      return hours<1?'Şimdi':'Gecikmiş · '+hours+' sa';
+    }
+    const hours=Math.round(diff/HOUR);
+    if(hours<24)return hours+' sa sonra';
+    return Math.round(hours/24)+' gün sonra';
+  }
+  function reviewHtml(){
+    const items=dueItems(true);
+    if(!items.length){
+      return '<div class="deen-srs-session"><div class="deen-srs-empty"><strong>Bugün için tekrar kalmadı</strong>'+
+        '<span>Yeni tekrar zamanı ayetlerin forgetting-risk planına göre otomatik oluşacak.</span></div></div>';
+    }
+    const item=reviewSession?.item||nextDue();
+    reviewSession=reviewSession&&reviewSession.item?.id===item.id?reviewSession:{item,revealed:false};
+    const rec=DEEN_QURAN_CONTENT?.getAyah?.(item.surahId,item.ayah);
+    if(!rec)return '<div class="deen-quran-pending">Doğrulanmamış içerik tekrar ekranında gösterilmedi.</div>';
+
+    return '<div class="deen-srs-session">'+
+      '<div class="deen-srs-head">'+
+        '<span><b>Kur’an Tekrarı</b><small>'+esc(SURAH_NAMES[item.surahId]||item.surahId)+' · Ayet '+item.ayah+'</small></span>'+
+        '<span class="deen-srs-count">'+items.length+' tekrar</span>'+
+      '</div>'+
+      '<div class="deen-srs-card">'+
+        '<div class="deen-srs-kicker">'+esc(stateLabel(item.state).toUpperCase())+' · RİSK '+risk(item)+'</div>'+
+        '<h2>Ayetin tamamını hatırla</h2>'+
+        '<p>Önce metne bakmadan zihninden getir. Sonra metni aç ve kendi hatırlamanı değerlendir.</p>'+
+        (reviewSession.revealed
+          ?'<div class="deen-srs-arabic" lang="ar">'+esc(rec.arabic.text)+'</div>'
+          :'<div class="deen-srs-prompt"><strong>Metin gizli</strong><span>Hazır olduğunda kontrol için ayeti göster.</span></div>')+
+        '<div class="deen-srs-meta">'+
+          '<div><strong>'+Math.round(num(item.memorizationLevel,0))+'/5</strong><small>EZBER</small></div>'+
+          '<div><strong>'+num(item.srs?.successStreak,0)+'</strong><small>DOĞRU SERİ</small></div>'+
+          '<div><strong>'+num(item.srs?.lapseCount,0)+'</strong><small>UNUTMA</small></div>'+
+        '</div>'+
+      '</div>'+
+      (!reviewSession.revealed
+        ?'<button class="deen-srs-btn good" type="button" onclick="DEEN_QURAN_SRS.reveal()">AYETİ GÖSTER</button>'
+        :'<div class="deen-srs-actions">'+
+          '<button class="deen-srs-btn again" type="button" onclick="DEEN_QURAN_SRS.grade(\'again\')">UNUTTUM</button>'+
+          '<button class="deen-srs-btn hard" type="button" onclick="DEEN_QURAN_SRS.grade(\'hard\')">ZORLANDIM</button>'+
+          '<button class="deen-srs-btn good" type="button" onclick="DEEN_QURAN_SRS.grade(\'good\')">HATIRLADIM</button>'+
+        '</div>')+
+    '</div>';
+  }
+  function redrawReview(){
+    const mount=document.querySelector('.deen-srs-session');
+    if(!mount)return false;
+    const holder=document.createElement('div');
+    holder.innerHTML=reviewHtml();
+    mount.replaceWith(holder.firstElementChild);
+    return true;
+  }
+  function openReview(){
+    reviewSession=null;
+    sheet('Kur’an Tekrarı',reviewHtml());
+    document.documentElement.dataset.deenQuranSrs='v10925';
+    return true;
+  }
+  function reveal(){
+    if(!reviewSession)return false;
+    reviewSession.revealed=true;
+    redrawReview();
+    return true;
+  }
+  function grade(outcome){
+    if(!reviewSession?.item||!OUTCOMES.includes(outcome))return false;
+    const item=reviewSession.item;
+    const result=record(item.surahId,item.ayah,outcome,'review_session');
+    reviewSession=null;
+    redrawReview();
+    return result;
+  }
+  function inspect(id,n){
+    const q=qstate();
+    const a=q?.progress?.surahs?.[id]?.ayahs?.[n];
+    if(!a)return null;
+    return {
+      surahId:id,ayah:Number(n),
+      state:a.state,
+      memorizationLevel:num(a.memorizationLevel,0),
+      nextReviewAt:a.nextReviewAt||null,
+      srs:clone(a.srs||{}),
+      queued:(q.review.queue||[]).find(x=>x.surahId===id&&Number(x.ayah)===Number(n))||null
+    };
+  }
+  function audit(){
+    const q=qstate(),rows=[];
+    for(const [id,surah] of Object.entries(q.progress.surahs||{})){
+      for(const [n,a] of Object.entries(surah.ayahs||{})){
+        if(!a.completedAt)continue;
+        rows.push(inspect(id,Number(n)));
+      }
+    }
+    return rows;
+  }
+  function bootstrapAll(){
+    const q=qstate();
+    let count=0;
+    for(const [id,surah] of Object.entries(q.progress.surahs||{})){
+      for(const [n,a] of Object.entries(surah.ayahs||{})){
+        if(a.completedAt&&!a.nextReviewAt){
+          if(bootstrap(id,Number(n)))count++;
+        }
+      }
+    }
+    return count;
+  }
+  function wrapResult(obj,name,successOutcome='good',failureOutcome='again'){
+    const base=obj?.[name];
+    if(typeof base!=='function'||base.__deenSrsWrapped)return;
+    const wrapped=function(){
+      const before=obj.model?.();
+      const out=base.apply(this,arguments);
+      const after=obj.model?.();
+      const ayah=Number(before?.ayah||after?.ayah);
+      if(Number.isFinite(ayah)){
+        if(name==='retry')record('ikhlas',ayah,failureOutcome,'memorization');
+        else if(name==='remembered')record('ikhlas',ayah,successOutcome,'memorization');
+      }
+      return out;
+    };
+    wrapped.__deenSrsWrapped=true;
+    obj[name]=wrapped;
+  }
+  function wrapPractice(){
+    const obj=window.DEEN_QURAN_PRACTICE;
+    const base=obj?.choose;
+    if(typeof base!=='function'||base.__deenSrsWrapped)return;
+    const wrapped=function(){
+      const before=obj.model?.();
+      const out=base.apply(this,arguments);
+      const after=obj.model?.();
+      const ayah=Number(before?.ayah||after?.ayah);
+      if(Number.isFinite(ayah)){
+        const wrongDelta=num(after?.stats?.wrong,0)-num(before?.stats?.wrong,0);
+        const correctDelta=num(after?.stats?.correct,0)-num(before?.stats?.correct,0);
+        if(wrongDelta>0)record('ikhlas',ayah,'again','practice');
+        else if(correctDelta>0)record('ikhlas',ayah,'good','practice');
+      }
+      return out;
+    };
+    wrapped.__deenSrsWrapped=true;
+    obj.choose=wrapped;
+  }
+  function wrapLearning(){
+    const obj=window.DEEN_QURAN_IKHLAS;
+    const base=obj?.finishAyah;
+    if(typeof base!=='function'||base.__deenSrsWrapped)return;
+    const wrapped=function(){
+      const before=obj.model?.();
+      const out=base.apply(this,arguments);
+      const ayah=Number(before?.ayah);
+      if(Number.isFinite(ayah))bootstrap('ikhlas',ayah);
+      return out;
+    };
+    wrapped.__deenSrsWrapped=true;
+    obj.finishAyah=wrapped;
+  }
+
+  window.DEEN_QURAN=window.DEEN_QURAN||{};
+  window.DEEN_QURAN.review=openReview;
+  window.DEEN_QURAN_SRS={
+    record,bootstrap,bootstrapAll,
+    dueItems,nextDue,risk,inspect,audit,
+    openReview,reveal,grade,
+    outcomes:[...OUTCOMES]
+  };
+  wrapLearning();
+  wrapResult(window.DEEN_QURAN_MEM,'remembered','good','again');
+  wrapResult(window.DEEN_QURAN_MEM,'retry','good','again');
+  wrapPractice();
+  bootstrapAll();
+  document.documentElement.dataset.deenQuranSrs='v10925';
+})();
+</script>
