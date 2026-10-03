@@ -1,0 +1,13 @@
+
+<style id="deen-v10939-quran-daily-center-css">
+.deen-qdc{margin:0 0 13px;padding:14px;border:1px solid rgba(104,207,181,.2);border-radius:18px;background:linear-gradient(145deg,#10383b,#092933)}.deen-qdc-top{display:flex;justify-content:space-between;gap:10px}.deen-qdc h2{margin:0;color:#effaf7;font-size:15px}.deen-qdc p{margin:5px 0 0;color:#84a19d;font-size:8px;line-height:1.4}.deen-qdc-score{color:#9ce4cf;font-size:11px;font-weight:900}.deen-qdc-tasks{display:grid;gap:6px;margin-top:10px}.deen-qdc-task{padding:8px;border-radius:10px;background:#08252d;color:#bfd4d0;font-size:8px}.deen-qdc-actions{display:grid;grid-template-columns:2fr 1fr;gap:7px;margin-top:10px}.deen-qdc-btn{min-height:40px;border:1px solid #31535a;border-radius:11px;background:#12343c;color:#9fe4d0;font-size:7.5px;font-weight:850}
+</style>
+<script id="deen-v10939-quran-daily-center-js">
+(()=>{if(window.__deenV10939QuranDailyCenter)return;window.__deenV10939QuranDailyCenter=true;
+function html(){const p=DEEN_QURAN_PLAN?.today?.()||{tasks:[]},m=DEEN_QURAN_PROGRESS?.model?.()||{strength:0,due:0};return'<section class="deen-qdc"><div class="deen-qdc-top"><span><h2>Bugünkü Kur’an Yolculuğun</h2><p>Düşünmeden başlayabileceğin küçük günlük akış.</p></span><span class="deen-qdc-score">%'+m.strength+'<br><small>hafıza</small></span></div><div class="deen-qdc-tasks">'+p.tasks.map((x,i)=>'<div class="deen-qdc-task">'+(i+1)+'. '+x.title+'</div>').join('')+'</div><div class="deen-qdc-actions"><button class="deen-qdc-btn" onclick="DEEN_QURAN_PLAN.start()">BUGÜNKÜ PLANI BAŞLAT</button><button class="deen-qdc-btn" onclick="DEEN_QURAN_DAILY.open()">GÜNÜN AYETİ</button></div></section>'}
+function inject(){const shell=document.querySelector?.('#leagueScreenBody .deen-quran-shell');if(!shell||shell.querySelector('.deen-qdc'))return false;shell.insertAdjacentHTML('afterbegin',html());return true}
+function refresh(){document.querySelector?.('.deen-qdc')?.remove();return inject()}
+const base=DEEN_QURAN.dashboardRender||DEEN_QURAN.render;if(typeof base==='function'&&!base.__deenDailyCenterWrapped){const w=function(){const r=base.apply(this,arguments);setTimeout(inject,0);return r};w.__deenDailyCenterWrapped=true;DEEN_QURAN.dashboardRender=w;DEEN_QURAN.render=w;window.leagueView=w;try{leagueView=w}catch(_){}}
+document.addEventListener?.('deen:navigated',()=>setTimeout(inject,0));window.DEEN_QURAN_DAILY_CENTER={inject,refresh,html};setTimeout(inject,0);document.documentElement.dataset.deenQuranDailyCenter='v10939';
+})();
+</script>
