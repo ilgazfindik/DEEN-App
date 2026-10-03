@@ -4784,7 +4784,9 @@ window.DEEN_REWARD_BADGE_ART={
       provider:null,
       edition:null,
       reference:null,
-      url:null
+      url:null,
+      license:null,
+      rights_reference:null
     };
   }
   function normalizeSource(raw){
@@ -4793,7 +4795,9 @@ window.DEEN_REWARD_BADGE_ART={
       provider:trim(s.provider)||null,
       edition:trim(s.edition)||null,
       reference:trim(s.reference)||null,
-      url:trim(s.url)||null
+      url:trim(s.url)||null,
+      license:trim(s.license)||null,
+      rights_reference:trim(s.rights_reference)||null
     };
   }
   function blankVerification(){
@@ -4839,7 +4843,8 @@ window.DEEN_REWARD_BADGE_ART={
         qari:null,
         riwayah:null,
         source:blankSource(),
-        verification_status:'needs_review'
+        verification_status:'needs_review',
+        rights_status:'unknown'
       },
       learning_note:{
         text:null,
@@ -4878,7 +4883,8 @@ window.DEEN_REWARD_BADGE_ART={
         qari:trim(recitation.qari)||null,
         riwayah:trim(recitation.riwayah)||null,
         source:normalizeSource(recitation.source),
-        verification_status:cleanStatus(recitation.verification_status)
+        verification_status:cleanStatus(recitation.verification_status),
+        rights_status:['unknown','cleared','restricted'].includes(recitation.rights_status)?recitation.rights_status:'unknown'
       },
       learning_note:{
         text:trim(learning.text)||null,
@@ -4914,6 +4920,9 @@ window.DEEN_REWARD_BADGE_ART={
     if(record.recitation?.audio_url){
       if(!sourcePresent(record.recitation?.source))reasons.push('recitation_source_missing');
       if(record.recitation?.verification_status!=='production_ready')reasons.push('recitation_not_production_ready');
+      if(record.recitation?.rights_status!=='cleared')reasons.push('recitation_rights_not_cleared');
+      if(!record.recitation?.source?.license)reasons.push('recitation_license_missing');
+      if(!record.recitation?.source?.rights_reference)reasons.push('recitation_rights_reference_missing');
     }
     if(record.learning_note?.text){
       if(!sourcePresent(record.learning_note?.source))reasons.push('learning_note_source_missing');
@@ -6424,5 +6433,353 @@ window.DEEN_REWARD_BADGE_ART={
     if(document.querySelector('.screen.active')?.id==='leagueScreen')setTimeout(injectDashboard,0);
   });
   if(document.querySelector('.screen.active')?.id==='leagueScreen')setTimeout(injectDashboard,0);
+})();
+</script>
+
+
+<!-- DEEN v10.9.24 — provider-independent Quran audio engine -->
+<style id="deen-v10924-quran-audio-engine-css">
+.deen-qaudio{
+  margin-top:13px;padding:12px;
+  border:1px solid rgba(91,151,149,.2);border-radius:15px;
+  background:#08242b
+}
+.deen-qaudio-top{
+  display:flex;align-items:center;justify-content:space-between;gap:10px
+}
+.deen-qaudio-title b{
+  display:block;color:#e8f6f2;
+  font:850 10px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-qaudio-title small{
+  display:block;margin-top:4px;color:#708f8d;
+  font:650 8px/1.35 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-qaudio-play{
+  flex:0 0 auto;width:40px;height:40px;border-radius:13px;
+  border:1px solid rgba(107,215,186,.26);
+  background:linear-gradient(180deg,#176052,#10463f);
+  color:#effcf8;font-size:14px
+}
+.deen-qaudio-play[disabled]{opacity:.38}
+.deen-qaudio-status{
+  margin-top:9px;color:#7e9e9a;
+  font:700 8px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-qaudio-controls{
+  display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px
+}
+.deen-qaudio-control{
+  padding:9px;border:1px solid rgba(78,132,135,.18);
+  border-radius:12px;background:#0b2b32
+}
+.deen-qaudio-control label{
+  display:block;color:#6f908d;
+  font:750 7.5px/1.15 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-qaudio-control select{
+  width:100%;margin-top:5px;border:0;outline:0;background:transparent;color:#dceee9;
+  font:800 9px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-qaudio-toggle{
+  width:100%;min-height:38px;margin-top:8px;
+  border:1px solid rgba(87,143,143,.18);border-radius:12px;
+  background:#0a2931;color:#8eada9;
+  font:800 8px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-qaudio-toggle.on{
+  border-color:rgba(105,212,183,.28);background:#123b3d;color:#9ce5d0
+}
+.deen-qaudio-rights{
+  margin-top:9px;color:#657f7d;
+  font:650 7px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+</style>
+<script id="deen-v10924-quran-audio-engine-js">
+(()=>{
+  if(window.__deenV10924QuranAudioEngine)return;
+  window.__deenV10924QuranAudioEngine=true;
+
+  let player=null;
+  let timer=null;
+  let playingKey=null;
+  let playIndex=0;
+  let status='idle';
+
+  const clamp=(v,min,max)=>Math.min(max,Math.max(min,Number(v)||min));
+  const qstate=()=>DEEN_QURAN?.ensureState?.()||state.quranJourney;
+  const key=(id,n)=>id+':'+Number(n);
+  const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+  function ensureSettings(){
+    const q=qstate();
+    q.audio=q.audio&&typeof q.audio==='object'?q.audio:{};
+    q.audio.repeatCount=Math.max(1,Math.min(10,Math.round(Number(q.audio.repeatCount)||3)));
+    q.audio.gapMs=[0,1000,2000,3000,5000].includes(Number(q.audio.gapMs))?Number(q.audio.gapMs):2000;
+    q.audio.loopSelected=q.audio.loopSelected===true;
+    q.audio.volume=clamp(q.audio.volume??1,0,1);
+    q.audio.lastSurah=typeof q.audio.lastSurah==='string'?q.audio.lastSurah:'ikhlas';
+    q.audio.lastAyah=Math.max(1,Number(q.audio.lastAyah)||1);
+    return q.audio;
+  }
+  function verifiedAudio(id,n){
+    const rec=DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n));
+    if(!rec?.recitation?.audio_url)return null;
+    const a=rec.recitation;
+    if(a.verification_status!=='production_ready')return null;
+    if(a.rights_status!=='cleared')return null;
+    if(!a.source?.license||!a.source?.rights_reference)return null;
+    return {
+      surahId:id,ayah:Number(n),url:a.audio_url,
+      qari:a.qari||'Doğrulanmış kıraat',
+      riwayah:a.riwayah||null,
+      provider:a.source.provider||null,
+      license:a.source.license,
+      rightsReference:a.source.rights_reference
+    };
+  }
+  function clearTimer(){
+    if(timer){clearTimeout(timer);timer=null}
+  }
+  function makePlayer(){
+    if(player)return player;
+    const AudioCtor=window.Audio||window.HTMLAudioElement;
+    if(!AudioCtor)return null;
+    try{
+      player=new AudioCtor();
+      player.preload='metadata';
+      player.addEventListener?.('ended',onEnded);
+      player.addEventListener?.('error',onError);
+      player.addEventListener?.('play',()=>{status='playing';refreshControls()});
+      player.addEventListener?.('pause',()=>{if(status!=='error')status='paused';refreshControls()});
+      return player;
+    }catch(_){return null}
+  }
+  function currentInfo(){
+    if(!playingKey)return null;
+    const [id,n]=playingKey.split(':');
+    return verifiedAudio(id,Number(n));
+  }
+  function stop(reset=true){
+    clearTimer();
+    const p=makePlayer();
+    if(p){
+      try{p.pause()}catch(_){}
+      if(reset){try{p.currentTime=0}catch(_){}}
+    }
+    status='idle';
+    playingKey=null;
+    playIndex=0;
+    refreshControls();
+    return true;
+  }
+  async function play(id,n){
+    const info=verifiedAudio(id,n);
+    if(!info){
+      status='unavailable';
+      refreshControls();
+      return false;
+    }
+    const p=makePlayer();
+    if(!p){status='unsupported';refreshControls();return false}
+    clearTimer();
+    const k=key(id,n);
+    if(playingKey!==k||p.src!==info.url){
+      try{p.src=info.url}catch(_){}
+      playingKey=k;
+      playIndex=0;
+    }
+    const settings=ensureSettings();
+    p.volume=settings.volume;
+    settings.lastSurah=id;
+    settings.lastAyah=Number(n);
+    DEEN_QURAN.persistState?.();
+    try{
+      const out=p.play();
+      if(out&&typeof out.then==='function')await out;
+      status='playing';
+      refreshControls();
+      return true;
+    }catch(_){
+      status='error';
+      refreshControls();
+      return false;
+    }
+  }
+  function pause(){
+    clearTimer();
+    const p=makePlayer();
+    try{p?.pause()}catch(_){}
+    status='paused';
+    refreshControls();
+    return true;
+  }
+  function toggle(id,n){
+    const k=key(id,n);
+    const p=makePlayer();
+    if(playingKey===k&&p&&!p.paused)return pause();
+    return play(id,n);
+  }
+  function onEnded(){
+    const info=currentInfo();
+    if(!info){stop(false);return}
+    const settings=ensureSettings();
+    playIndex++;
+    if(settings.loopSelected||playIndex<settings.repeatCount){
+      status='waiting';
+      refreshControls();
+      clearTimer();
+      timer=setTimeout(()=>{
+        const p=makePlayer();
+        try{p.currentTime=0}catch(_){}
+        play(info.surahId,info.ayah);
+      },settings.gapMs);
+      return;
+    }
+    status='done';
+    const p=makePlayer();
+    try{p.currentTime=0}catch(_){}
+    refreshControls();
+  }
+  function onError(){
+    clearTimer();
+    status='error';
+    refreshControls();
+  }
+  function setRepeat(v){
+    ensureSettings().repeatCount=Math.max(1,Math.min(10,Math.round(Number(v)||1)));
+    DEEN_QURAN.persistState?.();
+    refreshControls();
+    return ensureSettings().repeatCount;
+  }
+  function setGap(v){
+    const n=Number(v);
+    ensureSettings().gapMs=[0,1000,2000,3000,5000].includes(n)?n:2000;
+    DEEN_QURAN.persistState?.();
+    refreshControls();
+    return ensureSettings().gapMs;
+  }
+  function setLoop(v){
+    ensureSettings().loopSelected=v===true;
+    DEEN_QURAN.persistState?.();
+    refreshControls();
+    return ensureSettings().loopSelected;
+  }
+  function setVolume(v){
+    const value=clamp(v,0,1);
+    ensureSettings().volume=value;
+    const p=makePlayer();
+    if(p)p.volume=value;
+    DEEN_QURAN.persistState?.();
+    return value;
+  }
+  function statusText(available){
+    if(!available)return 'Doğrulanmış ve hakları temizlenmiş kıraat kaydı henüz bağlı değil.';
+    if(status==='playing')return 'Kıraat oynatılıyor · '+(playIndex+1)+'. tekrar';
+    if(status==='waiting')return 'Sonraki tekrar için bekleniyor…';
+    if(status==='paused')return 'Duraklatıldı';
+    if(status==='done')return 'Tekrar turu tamamlandı';
+    if(status==='error')return 'Ses yüklenemedi. Metin ve öğrenme akışı çalışmaya devam ediyor.';
+    if(status==='unsupported')return 'Bu tarayıcı ses oynatmayı desteklemiyor.';
+    return 'Kıraat hazır';
+  }
+  function controlsHtml(id,n){
+    const settings=ensureSettings();
+    const info=verifiedAudio(id,n);
+    const available=!!info;
+    const active=playingKey===key(id,n)&&status==='playing';
+    return '<div class="deen-qaudio" data-quran-audio="'+esc(key(id,n))+'">'+
+      '<div class="deen-qaudio-top">'+
+        '<span class="deen-qaudio-title"><b>Ayet kıraati</b><small>'+(available?esc(info.qari):'Ses kaydı bekleniyor')+'</small></span>'+
+        '<button class="deen-qaudio-play" type="button" '+(available?'':'disabled')+' onclick="DEEN_QURAN_AUDIO.toggle(\''+esc(id)+'\','+Number(n)+')">'+(active?'Ⅱ':'▶')+'</button>'+
+      '</div>'+
+      '<div class="deen-qaudio-status">'+esc(statusText(available))+'</div>'+
+      '<div class="deen-qaudio-controls">'+
+        '<div class="deen-qaudio-control"><label>TEKRAR SAYISI</label><select onchange="DEEN_QURAN_AUDIO.setRepeat(this.value)">'+
+          [1,3,5,10].map(v=>'<option value="'+v+'"'+(settings.repeatCount===v?' selected':'')+'>'+v+'×</option>').join('')+
+        '</select></div>'+
+        '<div class="deen-qaudio-control"><label>AYET ARASI BEKLEME</label><select onchange="DEEN_QURAN_AUDIO.setGap(this.value)">'+
+          [[0,'Yok'],[1000,'1 sn'],[2000,'2 sn'],[3000,'3 sn'],[5000,'5 sn']].map(x=>'<option value="'+x[0]+'"'+(settings.gapMs===x[0]?' selected':'')+'>'+x[1]+'</option>').join('')+
+        '</select></div>'+
+      '</div>'+
+      '<button class="deen-qaudio-toggle'+(settings.loopSelected?' on':'')+'" type="button" onclick="DEEN_QURAN_AUDIO.setLoop(!DEEN_QURAN_AUDIO.settings().loopSelected)">SEÇİLİ AYETİ LOOP '+(settings.loopSelected?'AÇIK':'KAPALI')+'</button>'+
+      '<div class="deen-qaudio-rights">'+(available
+        ?'Kaynak: '+esc(info.provider||'—')+' · Lisans: '+esc(info.license)
+        :'Ses URL’si production’a ancak kaynak, lisans ve kullanım hakkı kaydı birlikte doğrulanınca açılır.')+'</div>'+
+    '</div>';
+  }
+  function enhanceIkhlas(){
+    const model=DEEN_QURAN_IKHLAS?.model?.();
+    if(!model||model.step!=='listen')return false;
+    const card=document.querySelector('.deen-ikhlas-card');
+    if(!card)return false;
+    const legacy=card.querySelector('.deen-ikhlas-listen');
+    if(legacy)legacy.remove();
+    const old=card.querySelector('.deen-qaudio');
+    if(old)old.remove();
+    const holder=document.createElement('div');
+    holder.innerHTML=controlsHtml('ikhlas',model.ayah);
+    const arabic=card.querySelector('.deen-ikhlas-arabic');
+    if(arabic)arabic.insertAdjacentElement('beforebegin',holder.firstElementChild);
+    else card.appendChild(holder.firstElementChild);
+    return true;
+  }
+  function refreshControls(){
+    const model=DEEN_QURAN_IKHLAS?.model?.();
+    const mount=document.querySelector('.deen-qaudio');
+    if(!model||!mount)return false;
+    const holder=document.createElement('div');
+    holder.innerHTML=controlsHtml('ikhlas',model.ayah);
+    mount.replaceWith(holder.firstElementChild);
+    return true;
+  }
+  function wrapIkhlasMethod(name){
+    const obj=window.DEEN_QURAN_IKHLAS;
+    const base=obj?.[name];
+    if(typeof base!=='function'||base.__deenAudioWrapped)return;
+    const wrapped=function(){
+      if(name==='next'||name==='back'||name==='finishAyah'||name==='restart')stop(false);
+      const out=base.apply(this,arguments);
+      setTimeout(enhanceIkhlas,0);
+      return out;
+    };
+    wrapped.__deenAudioWrapped=true;
+    obj[name]=wrapped;
+  }
+  function audit(){
+    const rows=[];
+    for(let n=1;n<=4;n++){
+      const rec=DEEN_QURAN_CONTENT?.internalGet?.('ikhlas',n);
+      const audio=rec?.recitation||{};
+      rows.push({
+        ayah:n,
+        hasUrl:!!audio.audio_url,
+        verification_status:audio.verification_status||'missing',
+        rights_status:audio.rights_status||'unknown',
+        license:audio.source?.license||null,
+        rights_reference:audio.source?.rights_reference||null,
+        playable:!!verifiedAudio('ikhlas',n)
+      });
+    }
+    return rows;
+  }
+
+  const API={
+    play,pause,stop,toggle,
+    setRepeat,setGap,setLoop,setVolume,
+    settings:()=>JSON.parse(JSON.stringify(ensureSettings())),
+    verifiedAudio,
+    controlsHtml,
+    enhanceIkhlas,
+    audit,
+    state:()=>({status,playingKey,playIndex})
+  };
+  window.DEEN_QURAN_AUDIO=API;
+  window.DEEN_QURAN=window.DEEN_QURAN||{};
+  window.DEEN_QURAN.audio=API;
+
+  ['open','next','back','reveal','finishAyah','restart'].forEach(wrapIkhlasMethod);
+  setTimeout(enhanceIkhlas,0);
+  document.documentElement.dataset.deenQuranAudio='v10924';
 })();
 </script>
