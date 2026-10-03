@@ -7532,3 +7532,342 @@ window.DEEN_REWARD_BADGE_ART={
   };
 })();
 </script>
+
+
+<!-- DEEN v10.9.27 — verified word-by-word Quran layer -->
+<style id="deen-v10927-quran-word-by-word-css">
+.deen-wbw{display:grid;gap:11px}
+.deen-wbw-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.deen-wbw-head b{display:block;color:#eefaf7;font:900 13px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-wbw-head small{display:block;margin-top:4px;color:#769491;font:650 8.5px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-wbw-score{
+  flex:0 0 auto;min-height:24px;display:inline-flex;align-items:center;padding:0 8px;
+  border:1px solid rgba(103,209,181,.2);border-radius:999px;background:#103239;color:#8ddbc5;
+  font:850 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-wbw-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.deen-wbw-tab{
+  min-height:35px;border:1px solid rgba(82,137,139,.18);border-radius:11px;
+  background:#0a2931;color:#789694;font:850 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-wbw-tab.active{border-color:rgba(102,211,182,.28);background:#123c3e;color:#9ae2cd}
+.deen-wbw-card{
+  padding:15px;border:1px solid rgba(88,147,148,.21);border-radius:19px;
+  background:linear-gradient(180deg,#0d3037,#09262e)
+}
+.deen-wbw-kicker{
+  color:#83c8b7;font:850 8px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);letter-spacing:.55px
+}
+.deen-wbw-verse{
+  margin-top:11px;padding:16px 10px;border:1px solid rgba(107,198,177,.15);border-radius:15px;
+  background:#071f27;direction:rtl;text-align:center
+}
+.deen-wbw-word{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin:4px;padding:8px 10px;border:1px solid rgba(93,153,151,.22);border-radius:12px;
+  background:#0c3036;color:#fff;
+  font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",serif;font-size:21px;line-height:1.25
+}
+.deen-wbw-word.known{border-color:rgba(102,210,181,.32);background:#15413d;color:#a5ead6}
+.deen-wbw-word.selected{border-color:rgba(199,168,88,.34);background:#40371f;color:#eadbad}
+.deen-wbw-detail{
+  margin-top:12px;padding:13px;border:1px solid rgba(84,140,141,.18);border-radius:14px;background:#09272f
+}
+.deen-wbw-ar{
+  color:#fff;font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",serif;
+  font-size:27px;line-height:1.4;text-align:center
+}
+.deen-wbw-trans{
+  margin-top:6px;color:#9ddfcd;text-align:center;
+  font:800 10px/1.3 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-wbw-gloss{
+  margin-top:12px;padding:10px;border-radius:11px;background:#0b3036;color:#dbece8;
+  font:750 9px/1.45 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-wbw-gloss b{color:#8cd9c3}
+.deen-wbw-meta{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:9px
+}
+.deen-wbw-meta div{padding:9px;border-radius:11px;background:#082129}
+.deen-wbw-meta strong{display:block;color:#dcece8;font-size:9px}
+.deen-wbw-meta small{display:block;margin-top:4px;color:#688684;font-size:7px;line-height:1.25}
+.deen-wbw-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+.deen-wbw-btn{
+  min-height:42px;border-radius:12px;border:1px solid rgba(99,204,177,.22);
+  background:#12423e;color:#9de5d0;font:850 8.5px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-wbw-btn.secondary{border-color:rgba(82,136,139,.18);background:#0a2931;color:#8ba9a6}
+.deen-wbw-source{
+  margin-top:10px;color:#657f7d;
+  font:650 7px/1.45 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-wbw-frequent{padding:14px;border:1px solid rgba(84,139,141,.18);border-radius:17px;background:#0a2931}
+.deen-wbw-frequent h3{margin:0;color:#e6f5f1;font:850 11px/1.3 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-wbw-frequent-list{display:grid;gap:6px;margin-top:9px}
+.deen-wbw-frequent-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px;
+  border-radius:11px;background:#0c3036
+}
+.deen-wbw-frequent-row span{color:#dbece8;font:750 8.5px/1.3 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-wbw-frequent-row b{color:#8ed8c4;font:850 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+</style>
+<script id="deen-v10927-quran-word-by-word-js">
+(()=>{
+  if(window.__deenV10927QuranWordByWord)return;
+  window.__deenV10927QuranWordByWord=true;
+
+  const SOURCE={
+    morphology:{
+      provider:'Quranic Arabic Corpus',
+      reference:'Surah 112 word-by-word morphology',
+      url:'https://corpus.quran.com/wordbyword.jsp?chapter=112&verse=1'
+    },
+    context:{
+      provider:'Quran.com',
+      reference:'Surah 112 Turkish verse context',
+      url:'https://quran.com/tr/ihlas'
+    }
+  };
+
+  const WORDS={
+    1:[
+      {id:'112:1:1',key:'qul',arabic:'قُلْ',trans:'qul',gloss:'De / söyle',grammar:'Emir fiili'},
+      {id:'112:1:2',key:'huwa',arabic:'هُوَ',trans:'huwa',gloss:'O',grammar:'Zamir'},
+      {id:'112:1:3',key:'allah',arabic:'ٱللَّهُ',trans:'allāhu',gloss:'Allah',grammar:'Özel isim'},
+      {id:'112:1:4',key:'ahad',arabic:'أَحَدٌ',trans:'aḥadun',gloss:'Bir / tek',grammar:'İsim'}
+    ],
+    2:[
+      {id:'112:2:1',key:'allah',arabic:'ٱللَّهُ',trans:'allāhu',gloss:'Allah',grammar:'Özel isim'},
+      {id:'112:2:2',key:'samad',arabic:'ٱلصَّمَدُ',trans:'al-ṣamadu',gloss:'Samed',grammar:'İsim'}
+    ],
+    3:[
+      {id:'112:3:1',key:'lam',arabic:'لَمْ',trans:'lam',gloss:'Olumsuzluk: …medi / …madı',grammar:'Olumsuzluk edatı'},
+      {id:'112:3:2',key:'yalid',arabic:'يَلِدْ',trans:'yalid',gloss:'Doğurur',grammar:'Fiil'},
+      {id:'112:3:3',key:'walam',arabic:'وَلَمْ',trans:'wa-lam',gloss:'Ve …medi / …madı',grammar:'Bağlaç + olumsuzluk'},
+      {id:'112:3:4',key:'yulad',arabic:'يُولَدْ',trans:'yūlad',gloss:'Doğurulur',grammar:'Edilgen fiil'}
+    ],
+    4:[
+      {id:'112:4:1',key:'walam',arabic:'وَلَمْ',trans:'wa-lam',gloss:'Ve … değil / olmadı',grammar:'Bağlaç + olumsuzluk'},
+      {id:'112:4:2',key:'yakun',arabic:'يَكُن',trans:'yakun',gloss:'Olur / vardır',grammar:'Fiil'},
+      {id:'112:4:3',key:'lahu',arabic:'لَّهُۥ',trans:'lahu',gloss:'O’na / O’nun için',grammar:'Edat + zamir'},
+      {id:'112:4:4',key:'kufuwan',arabic:'كُفُوًا',trans:'kufuwan',gloss:'Denk / eş',grammar:'İsim'},
+      {id:'112:4:5',key:'ahad',arabic:'أَحَدٌۢ',trans:'aḥadun',gloss:'Hiç kimse / biri',grammar:'İsim'}
+    ]
+  };
+
+  let view={ayah:1,selectedId:null};
+  const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const qstate=()=>DEEN_QURAN?.ensureState?.()||state.quranJourney;
+
+  function ensureProgress(){
+    const q=qstate();
+    q.wordByWord=q.wordByWord&&typeof q.wordByWord==='object'?q.wordByWord:{};
+    const w=q.wordByWord;
+    w.words=w.words&&typeof w.words==='object'?w.words:{};
+    w.totalInteractions=Math.max(0,Number(w.totalInteractions)||0);
+    w.lastAyah=Math.max(1,Math.min(4,Number(w.lastAyah)||1));
+    w.lastWordId=typeof w.lastWordId==='string'?w.lastWordId:null;
+    for(const list of Object.values(WORDS)){
+      for(const item of list){
+        const p=w.words[item.key]=w.words[item.key]&&typeof w.words[item.key]==='object'?w.words[item.key]:{};
+        p.seenCount=Math.max(0,Number(p.seenCount)||0);
+        p.known=p.known===true;
+        p.firstSeenAt=typeof p.firstSeenAt==='string'?p.firstSeenAt:null;
+        p.lastSeenAt=typeof p.lastSeenAt==='string'?p.lastSeenAt:null;
+      }
+    }
+    return w;
+  }
+  function occurrences(){
+    const map={};
+    for(const list of Object.values(WORDS)){
+      for(const item of list){
+        map[item.key]=(map[item.key]||0)+1;
+      }
+    }
+    return map;
+  }
+  function uniqueKeys(){return Object.keys(ensureProgress().words)}
+  function knownCount(){
+    const p=ensureProgress();
+    return uniqueKeys().filter(k=>p.words[k]?.known).length;
+  }
+  function selected(){
+    const list=WORDS[view.ayah]||[];
+    return list.find(x=>x.id===view.selectedId)||null;
+  }
+  function inspectWord(item,write=true){
+    if(!item)return null;
+    const p=ensureProgress();
+    const now=new Date().toISOString();
+    if(write){
+      const row=p.words[item.key];
+      row.seenCount++;
+      row.firstSeenAt=row.firstSeenAt||now;
+      row.lastSeenAt=now;
+      p.totalInteractions++;
+      p.lastAyah=view.ayah;
+      p.lastWordId=item.id;
+      DEEN_QURAN.persistState?.();
+    }
+    return {...item,progress:{...p.words[item.key]}};
+  }
+  function choose(id){
+    const item=(WORDS[view.ayah]||[]).find(x=>x.id===id);
+    if(!item)return false;
+    view.selectedId=id;
+    inspectWord(item,true);
+    redraw();
+    return true;
+  }
+  function setAyah(n){
+    n=Math.max(1,Math.min(4,Number(n)||1));
+    view.ayah=n;
+    view.selectedId=null;
+    ensureProgress().lastAyah=n;
+    DEEN_QURAN.persistState?.();
+    redraw();
+    return n;
+  }
+  function toggleKnown(){
+    const item=selected();
+    if(!item)return false;
+    const p=ensureProgress();
+    p.words[item.key].known=!p.words[item.key].known;
+    DEEN_QURAN.persistState?.();
+    redraw();
+    return p.words[item.key].known;
+  }
+  function detailHtml(){
+    const item=selected();
+    if(!item){
+      return '<div class="deen-wbw-detail"><div class="deen-wbw-gloss"><b>Bir kelime seç</b><br>Transliterasyon, bağlamsal kısa karşılık ve dil bilgisi burada görünecek.</div></div>';
+    }
+    const row=ensureProgress().words[item.key];
+    return '<div class="deen-wbw-detail">'+
+      '<div class="deen-wbw-ar" lang="ar">'+esc(item.arabic)+'</div>'+
+      '<div class="deen-wbw-trans">'+esc(item.trans)+'</div>'+
+      '<div class="deen-wbw-gloss"><b>BAĞLAMSAL KISA KARŞILIK</b><br>'+esc(item.gloss)+'</div>'+
+      '<div class="deen-wbw-meta">'+
+        '<div><strong>'+esc(item.grammar)+'</strong><small>DİL BİLGİSİ</small></div>'+
+        '<div><strong>'+row.seenCount+'</strong><small>GÖRÜLME</small></div>'+
+      '</div>'+
+      '<div class="deen-wbw-actions">'+
+        '<button class="deen-wbw-btn '+(row.known?'secondary':'')+'" type="button" onclick="DEEN_QURAN_WBW.toggleKnown()">'+(row.known?'ÖĞRENİLDİ ✓':'BUNU ÖĞRENDİM')+'</button>'+
+        '<button class="deen-wbw-btn secondary" type="button" onclick="DEEN_QURAN_WBW.nextWord()">SONRAKİ KELİME</button>'+
+      '</div>'+
+      '<div class="deen-wbw-source">Transliterasyon/morfoloji: Quranic Arabic Corpus · Türkçe kısa karşılık: ayet bağlamı Quran.com Türkçe metniyle çapraz kontrol edilmiştir.</div>'+
+    '</div>';
+  }
+  function frequentHtml(){
+    const occ=occurrences(),p=ensureProgress();
+    const rows=Object.keys(occ).filter(k=>occ[k]>1).sort((a,b)=>occ[b]-occ[a]||a.localeCompare(b));
+    const label={allah:'ٱللَّهُ · Allah',ahad:'أَحَدٌ · aḥadun',walam:'وَلَمْ · wa-lam'};
+    return '<div class="deen-wbw-frequent">'+
+      '<h3>Bu pakette tekrar eden kelimeler</h3>'+
+      '<div class="deen-wbw-frequent-list">'+
+        rows.map(k=>'<div class="deen-wbw-frequent-row"><span>'+esc(label[k]||k)+'</span><b>'+occ[k]+'× · '+(p.words[k]?.known?'öğrenildi':'çalışılıyor')+'</b></div>').join('')+
+      '</div>'+
+    '</div>';
+  }
+  function html(){
+    const p=ensureProgress();
+    const list=WORDS[view.ayah]||[];
+    const total=uniqueKeys().length;
+    return '<div class="deen-wbw">'+
+      '<div class="deen-wbw-head">'+
+        '<span><b>Kelime Kelime İhlâs</b><small>Kelimeye dokun · transliterasyon ve kısa bağlamsal karşılığı gör</small></span>'+
+        '<span class="deen-wbw-score">'+knownCount()+'/'+total+' öğrenildi</span>'+
+      '</div>'+
+      '<div class="deen-wbw-tabs">'+[1,2,3,4].map(n=>
+        '<button class="deen-wbw-tab'+(view.ayah===n?' active':'')+'" type="button" onclick="DEEN_QURAN_WBW.setAyah('+n+')">Ayet '+n+'</button>'
+      ).join('')+'</div>'+
+      '<section class="deen-wbw-card">'+
+        '<div class="deen-wbw-kicker">İHLÂS · '+view.ayah+'. AYET</div>'+
+        '<div class="deen-wbw-verse">'+
+          list.map(item=>{
+            const row=p.words[item.key]||{};
+            return '<button class="deen-wbw-word'+(row.known?' known':'')+(view.selectedId===item.id?' selected':'')+'" type="button" onclick="DEEN_QURAN_WBW.choose(\''+esc(item.id)+'\')">'+esc(item.arabic)+'</button>';
+          }).join('')+
+        '</div>'+
+        detailHtml()+
+      '</section>'+
+      frequentHtml()+
+      '<div class="deen-quran-note">Buradaki Türkçe alan tam cümle meali değildir; kelimenin bu ayetteki kısa bağlamsal karşılığıdır. Ayrıntılı anlam için ayetin doğrulanmış mealini kullan.</div>'+
+    '</div>';
+  }
+  function redraw(){
+    const mount=document.querySelector('.deen-wbw');
+    if(!mount)return false;
+    const holder=document.createElement('div');
+    holder.innerHTML=html();
+    mount.replaceWith(holder.firstElementChild);
+    return true;
+  }
+  function open(ayah){
+    const p=ensureProgress();
+    view={ayah:Math.max(1,Math.min(4,Number(ayah)||p.lastAyah||1)),selectedId:null};
+    sheet('Kelime Kelime Kur’an',html());
+    document.documentElement.dataset.deenQuranWordByWord='v10927';
+    return true;
+  }
+  function nextWord(){
+    const list=WORDS[view.ayah]||[];
+    if(!list.length)return false;
+    const current=list.findIndex(x=>x.id===view.selectedId);
+    const next=list[(current+1+list.length)%list.length];
+    return choose(next.id);
+  }
+  function model(){
+    const p=ensureProgress();
+    return {
+      ayah:view.ayah,
+      selected:selected()?.id||null,
+      uniqueWords:uniqueKeys().length,
+      known:knownCount(),
+      totalInteractions:p.totalInteractions,
+      progress:JSON.parse(JSON.stringify(p.words))
+    };
+  }
+  function injectDashboard(){
+    const quick=document.querySelector('.deen-quran-quick');
+    if(!quick||quick.querySelector('[data-quran-wordbyword]'))return false;
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.setAttribute('data-quran-wordbyword','1');
+    btn.innerHTML='<i>ك</i><b>Kelime Kelime</b><small>Transliterasyon ve anlam</small>';
+    btn.onclick=()=>open();
+    quick.appendChild(btn);
+    return true;
+  }
+
+  window.DEEN_QURAN=window.DEEN_QURAN||{};
+  window.DEEN_QURAN.wordByWord=open;
+  window.DEEN_QURAN.openWordByWord=open;
+  window.DEEN_QURAN_WBW={
+    open,choose,setAyah,toggleKnown,nextWord,model,
+    words:()=>JSON.parse(JSON.stringify(WORDS)),
+    source:()=>JSON.parse(JSON.stringify(SOURCE)),
+    occurrences
+  };
+
+  const oldDashboard=DEEN_QURAN.dashboardRender||DEEN_QURAN.render;
+  if(typeof oldDashboard==='function'&&!oldDashboard.__deenWbwWrapped){
+    const wrapped=function(){
+      const out=oldDashboard.apply(this,arguments);
+      injectDashboard();
+      return out;
+    };
+    wrapped.__deenWbwWrapped=true;
+    DEEN_QURAN.dashboardRender=wrapped;
+    DEEN_QURAN.render=wrapped;
+    window.leagueView=wrapped;
+    try{leagueView=wrapped}catch(_){}
+  }
+  document.addEventListener('deen:navigated',()=>{
+    if(document.querySelector('.screen.active')?.id==='leagueScreen')setTimeout(injectDashboard,0);
+  });
+  if(document.querySelector('.screen.active')?.id==='leagueScreen')setTimeout(injectDashboard,0);
+})();
+</script>
