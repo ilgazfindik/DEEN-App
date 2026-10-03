@@ -40,7 +40,7 @@ const SOURCES={
 let player=null,currentId=null,status='idle';
 
 function directUrl(file){
- return 'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(file);
+ return 'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(file).replace(/'/g,'%27');
 }
 function ensurePlayer(){
  if(player)return player;
