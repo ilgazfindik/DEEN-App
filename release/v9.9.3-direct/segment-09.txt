@@ -1168,7 +1168,17 @@ function runCelebrations(){
 function showReward(e,finish){
  const isModal=e.type==='achievement'||e.type==='level_up',box=document.createElement(isModal?'dialog':'div');box.className=isModal?'gf-reward-modal'+(e.type==='level_up'?' gf-level':''):'lp-reward gf-reward-toast';
  if(isModal){box.setAttribute('aria-label',e.title||'Öğrenme ödülü')}else{box.setAttribute('role','status');box.setAttribute('aria-live','polite')}
- const mark=document.createElement('span');mark.className='gf-reward-medal';mark.textContent=e.type==='level_up'?'✧':e.type==='achievement'?'❖':'✓';
+ const rewardBadgeId=e.type==='achievement'?(String(e.id||'')||String((badges().find(b=>b.name===e.name)||{}).id||'')):'';
+ const mark=document.createElement('span');
+ mark.className='gf-reward-medal'+(rewardBadgeId?' deen-reward-badge-art':'');
+ if(rewardBadgeId){
+  mark.dataset.badgeId=rewardBadgeId;
+  mark.setAttribute('role','img');
+  mark.setAttribute('aria-label',e.name||e.title||'Kazanılan rozet');
+  mark.textContent='';
+ }else{
+  mark.textContent=e.type==='level_up'?'✧':e.type==='achievement'?'❖':'✓';
+ }
  const copy=document.createElement('div'),title=document.createElement('b'),detail=document.createElement('small');title.textContent=e.type==='achievement'?'YENİ ROZET · '+(e.name||e.title.replace('Yeni rozet · ','')):e.title;detail.textContent=e.amount?(e.detail||'').replace(/ · \+\d+ Pırıltı/,''):e.detail||'';copy.append(title,detail);box.append(mark,copy);
  const skip=document.createElement('button');skip.type='button';skip.className='gf-reward-close';skip.textContent=isModal?'Devam et':'×';skip.setAttribute('aria-label','Bildirimi kapat');box.append(skip);$('phone').append(box);
  let doneOnce=false;const done=()=>{if(doneOnce)return;doneOnce=true;DEENFeel.end('notice');if(isModal)box.close();box.remove();finish()};celebrationFinish=done;skip.onclick=done;
