@@ -2583,8 +2583,8 @@ window.DEEN_REWARD_BADGE_ART={
     const missingAchievementArt=defined.filter(id=>!registry?.known?.(id));
     const orphanAtlas=atlas.filter(id=>!defined.includes(id));
     const savedUnknown=achievements().filter(id=>!registry?.known?.(id));
-    let unitNames=[];
-    try{unitNames=Array.isArray(UNIT_BADGES)?[...UNIT_BADGES]:[]}catch(_){}
+    let unitTitles=[];
+    try{unitTitles=Array.isArray(UNIT_TITLES)?[...UNIT_TITLES]:[]}catch(_){}
     const openPopup=document.querySelector('.gf-reward-modal[open],.gf-reward-modal');
     const popupArt=openPopup?.querySelector('.deen-reward-badge-art[data-badge-id]')||null;
     const popupMissing=openPopup?.querySelector('.deen-reward-badge-missing')||null;
@@ -2595,10 +2595,9 @@ window.DEEN_REWARD_BADGE_ART={
     if(missingAchievementArt.length)issues.push('achievement_art_missing');
     if(savedUnknown.length)issues.push('saved_achievement_unknown');
     if(popupMissing)issues.push('open_reward_badge_missing_art');
-    if(unitNames.length)issues.push('unit_badge_assets_missing');
     return{
-      version:'10.9.10',
-      build:'9211badgesystemaudit1',
+      version:'10.9.11',
+      build:'9212badgecleanup1',
       achievement:{
         defined,
         atlas,
@@ -2610,18 +2609,18 @@ window.DEEN_REWARD_BADGE_ART={
         result:resultArt?.dataset.badgeId||null,
         lastResultBadges:[...lastResultBadges]
       },
-      unitBadges:{
-        expected:unitNames.length,
-        mapped:0,
-        missing:[...unitNames],
-        note:'UNIT_BADGES is a separate 15-name reward set and has no image assets in the current 10-achievement atlas.'
+      unitTitles:{
+        expected:unitTitles.length,
+        values:[...unitTitles],
+        collectible:false,
+        note:'Unit completion labels are progression titles, not collectible badges. They intentionally have no badge artwork.'
       },
       issues,
       pass:issues.length===0
     };
   }
 
-  window.DEEN_BADGE_AUDIT={version:'10.9.10',build:'9211badgesystemaudit1',run:audit,snapshot:audit};
+  window.DEEN_BADGE_AUDIT={version:'10.9.11',build:'9212badgecleanup1',run:audit,snapshot:audit};
   document.documentElement.dataset.deenBadgeSurfaces='v10910';
 })();
 </script>
