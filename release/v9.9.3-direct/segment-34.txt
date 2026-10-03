@@ -6611,6 +6611,9 @@ window.DEEN_REWARD_BADGE_ART={
       try{p.src=info.url}catch(_){}
       playingKey=k;
       playIndex=0;
+    }else if(['done','idle','error','unavailable','unsupported'].includes(status)){
+      playIndex=0;
+      try{p.currentTime=0}catch(_){}
     }
     const settings=ensureSettings();
     p.volume=settings.volume;
