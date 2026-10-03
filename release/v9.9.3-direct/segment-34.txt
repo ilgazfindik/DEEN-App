@@ -2627,7 +2627,7 @@ window.DEEN_REWARD_BADGE_ART={
 
 
 <!-- DEEN v10.9.13 — Authoritative comprehensive developer admin panel -->
-<style id="deen-v10912-admin-panel-css">
+<style id="deen-v10913-admin-panel-css">
 #deenAdminPanelV2{
   width:min(94vw,460px);
   max-width:460px;
@@ -2699,10 +2699,10 @@ window.DEEN_REWARD_BADGE_ART={
   .deen-admin-btn{font-size:9px}
 }
 </style>
-<script id="deen-v10912-admin-panel-js">
+<script id="deen-v10913-admin-panel-js">
 (()=>{
-  if(window.__deenV10912AdminPanel)return;
-  window.__deenV10912AdminPanel=true;
+  if(window.__deenV10913AdminPanel)return;
+  window.__deenV10913AdminPanel=true;
 
   const VERSION='10.9.13';
   const BUILD='9214adminauthority1';
