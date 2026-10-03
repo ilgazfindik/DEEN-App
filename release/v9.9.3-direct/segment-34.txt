@@ -4745,3 +4745,286 @@ window.DEEN_REWARD_BADGE_ART={
   };
 })();
 </script>
+
+
+<!-- DEEN v10.9.20 — verified Quran content registry and production gate -->
+<script id="deen-v10920-quran-content-registry-js">
+(()=>{
+  if(window.__deenV10920QuranContentRegistry)return;
+  window.__deenV10920QuranContentRegistry=true;
+
+  const SCHEMA_VERSION=1;
+  const STATUS=['draft','needs_review','verified','production_ready','rejected'];
+  const SURAH_META={
+    fatiha:{number:1,name:'Fâtiha',ayahs:7},
+    asr:{number:103,name:'Asr',ayahs:3},
+    kawthar:{number:108,name:'Kevser',ayahs:3},
+    ikhlas:{number:112,name:'İhlâs',ayahs:4},
+    falaq:{number:113,name:'Felak',ayahs:5},
+    nas:{number:114,name:'Nâs',ayahs:6}
+  };
+
+  const store={};
+  const isObj=v=>!!v&&typeof v==='object'&&!Array.isArray(v);
+  const clone=v=>JSON.parse(JSON.stringify(v));
+  const trim=v=>typeof v==='string'?v.trim():'';
+  const iso=v=>{
+    if(typeof v!=='string'||!v)return null;
+    const t=Date.parse(v);
+    return Number.isFinite(t)?new Date(t).toISOString():null;
+  };
+  const cleanStatus=v=>STATUS.includes(v)?v:'needs_review';
+  const validSurah=id=>Object.prototype.hasOwnProperty.call(SURAH_META,id);
+  const ayahCount=id=>SURAH_META[id]?.ayahs||0;
+  const validAyah=(id,n)=>validSurah(id)&&Number.isInteger(Number(n))&&Number(n)>=1&&Number(n)<=ayahCount(id);
+  const key=(id,n)=>id+':'+Number(n);
+
+  function blankSource(){
+    return {
+      provider:null,
+      edition:null,
+      reference:null,
+      url:null
+    };
+  }
+  function normalizeSource(raw){
+    const s=isObj(raw)?raw:{};
+    return {
+      provider:trim(s.provider)||null,
+      edition:trim(s.edition)||null,
+      reference:trim(s.reference)||null,
+      url:trim(s.url)||null
+    };
+  }
+  function blankVerification(){
+    return {
+      verification_status:'needs_review',
+      religious_release_ready:false,
+      verified_by:null,
+      verified_at:null,
+      review_notes:[]
+    };
+  }
+  function normalizeVerification(raw){
+    const v=isObj(raw)?raw:{};
+    return {
+      verification_status:cleanStatus(v.verification_status),
+      religious_release_ready:v.religious_release_ready===true,
+      verified_by:trim(v.verified_by)||null,
+      verified_at:iso(v.verified_at),
+      review_notes:Array.isArray(v.review_notes)?v.review_notes.map(x=>trim(x)).filter(Boolean):[]
+    };
+  }
+  function blankAyah(id,n){
+    const meta=SURAH_META[id];
+    return {
+      schema_version:SCHEMA_VERSION,
+      surah_id:id,
+      surah_number:meta.number,
+      surah_name:meta.name,
+      ayah_number:Number(n),
+      arabic:{
+        text:null,
+        source:blankSource(),
+        verification_status:'needs_review'
+      },
+      translation:{
+        language:'tr',
+        text:null,
+        source:blankSource(),
+        verification_status:'needs_review'
+      },
+      recitation:{
+        audio_url:null,
+        qari:null,
+        riwayah:null,
+        source:blankSource(),
+        verification_status:'needs_review'
+      },
+      learning_note:{
+        text:null,
+        source:blankSource(),
+        verification_status:'needs_review'
+      },
+      verification:blankVerification(),
+      updated_at:new Date().toISOString()
+    };
+  }
+  function normalizeAyah(raw){
+    if(!isObj(raw))throw new Error('Kur’an içerik kaydı nesne olmalı');
+    const id=trim(raw.surah_id);
+    const n=Number(raw.ayah_number);
+    if(!validAyah(id,n))throw new Error('Geçersiz sure/ayet anahtarı');
+    const base=blankAyah(id,n);
+    const arabic=isObj(raw.arabic)?raw.arabic:{};
+    const translation=isObj(raw.translation)?raw.translation:{};
+    const recitation=isObj(raw.recitation)?raw.recitation:{};
+    const learning=isObj(raw.learning_note)?raw.learning_note:{};
+    return {
+      ...base,
+      arabic:{
+        text:trim(arabic.text)||null,
+        source:normalizeSource(arabic.source),
+        verification_status:cleanStatus(arabic.verification_status)
+      },
+      translation:{
+        language:trim(translation.language)||'tr',
+        text:trim(translation.text)||null,
+        source:normalizeSource(translation.source),
+        verification_status:cleanStatus(translation.verification_status)
+      },
+      recitation:{
+        audio_url:trim(recitation.audio_url)||null,
+        qari:trim(recitation.qari)||null,
+        riwayah:trim(recitation.riwayah)||null,
+        source:normalizeSource(recitation.source),
+        verification_status:cleanStatus(recitation.verification_status)
+      },
+      learning_note:{
+        text:trim(learning.text)||null,
+        source:normalizeSource(learning.source),
+        verification_status:cleanStatus(learning.verification_status)
+      },
+      verification:normalizeVerification(raw.verification),
+      updated_at:iso(raw.updated_at)||new Date().toISOString()
+    };
+  }
+
+  function sourcePresent(src){
+    return !!(src&&(src.provider||src.reference||src.url||src.edition));
+  }
+  function gate(record){
+    const reasons=[];
+    if(!record)reasons.push('missing_record');
+    if(!record)return {ready:false,reasons};
+
+    if(record.verification?.religious_release_ready!==true)reasons.push('religious_release_ready_false');
+    if(record.verification?.verification_status!=='production_ready')reasons.push('record_not_production_ready');
+    if(!record.verification?.verified_by)reasons.push('verified_by_missing');
+    if(!record.verification?.verified_at)reasons.push('verified_at_missing');
+
+    if(!record.arabic?.text)reasons.push('arabic_text_missing');
+    if(!sourcePresent(record.arabic?.source))reasons.push('arabic_source_missing');
+    if(record.arabic?.verification_status!=='production_ready')reasons.push('arabic_not_production_ready');
+
+    if(!record.translation?.text)reasons.push('translation_text_missing');
+    if(!sourcePresent(record.translation?.source))reasons.push('translation_source_missing');
+    if(record.translation?.verification_status!=='production_ready')reasons.push('translation_not_production_ready');
+
+    if(record.recitation?.audio_url){
+      if(!sourcePresent(record.recitation?.source))reasons.push('recitation_source_missing');
+      if(record.recitation?.verification_status!=='production_ready')reasons.push('recitation_not_production_ready');
+    }
+    if(record.learning_note?.text){
+      if(!sourcePresent(record.learning_note?.source))reasons.push('learning_note_source_missing');
+      if(record.learning_note?.verification_status!=='production_ready')reasons.push('learning_note_not_production_ready');
+    }
+
+    return {ready:reasons.length===0,reasons};
+  }
+
+  function register(raw){
+    const normalized=normalizeAyah(raw);
+    store[key(normalized.surah_id,normalized.ayah_number)]=normalized;
+    return clone(normalized);
+  }
+  function internalGet(id,n){
+    if(!validAyah(id,Number(n)))return null;
+    const rec=store[key(id,n)];
+    return rec?clone(rec):null;
+  }
+  function productionGet(id,n){
+    const rec=internalGet(id,n);
+    if(!rec)return null;
+    const result=gate(rec);
+    if(!result.ready)return null;
+    return rec;
+  }
+  function productionSurah(id){
+    if(!validSurah(id))return [];
+    const out=[];
+    for(let n=1;n<=ayahCount(id);n++){
+      const rec=productionGet(id,n);
+      if(rec)out.push(rec);
+    }
+    return out;
+  }
+  function readiness(id,n){
+    const rec=internalGet(id,n);
+    return gate(rec);
+  }
+  function inventory(){
+    const all=[];
+    for(const id of Object.keys(SURAH_META)){
+      for(let n=1;n<=ayahCount(id);n++){
+        const rec=internalGet(id,n);
+        const g=gate(rec);
+        all.push({
+          surah_id:id,
+          ayah_number:n,
+          exists:!!rec,
+          production_ready:g.ready,
+          verification_status:rec?.verification?.verification_status||'missing',
+          religious_release_ready:rec?.verification?.religious_release_ready===true,
+          reasons:[...g.reasons]
+        });
+      }
+    }
+    return all;
+  }
+  function summary(){
+    const inv=inventory();
+    return {
+      schema_version:SCHEMA_VERSION,
+      total_slots:inv.length,
+      registered:inv.filter(x=>x.exists).length,
+      production_ready:inv.filter(x=>x.production_ready).length,
+      blocked:inv.filter(x=>!x.production_ready).length
+    };
+  }
+
+  // Pre-create no user-facing text. The six-surah pack starts entirely blocked.
+  for(const id of Object.keys(SURAH_META)){
+    for(let n=1;n<=ayahCount(id);n++){
+      store[key(id,n)]=blankAyah(id,n);
+    }
+  }
+
+  const api={
+    schemaVersion:SCHEMA_VERSION,
+    statuses:[...STATUS],
+    surahs:clone(SURAH_META),
+    register,
+    internalGet,
+    getAyah:productionGet,
+    getSurah:productionSurah,
+    readiness,
+    inventory,
+    summary,
+    canRender:(id,n)=>readiness(id,n).ready,
+    assertProductionReady:(id,n)=>{
+      const r=readiness(id,n);
+      if(!r.ready)throw new Error('Kur’an içeriği production-ready değil: '+r.reasons.join(', '));
+      return true;
+    }
+  };
+
+  window.DEEN_QURAN_CONTENT=api;
+  window.DEEN_QURAN=window.DEEN_QURAN||{};
+  window.DEEN_QURAN.content=api;
+  window.DEEN_QURAN.getVerifiedAyah=productionGet;
+  window.DEEN_QURAN.getVerifiedSurah=productionSurah;
+  window.DEEN_QURAN.contentReadiness=readiness;
+
+  // User-facing guard: content renderers must go through verified getters.
+  window.DEEN_QURAN.renderVerifiedAyah=function(id,n,renderer){
+    const record=productionGet(id,n);
+    if(!record)return false;
+    if(typeof renderer!=='function')return false;
+    renderer(clone(record));
+    return true;
+  };
+
+  document.documentElement.dataset.deenQuranContent='v10920';
+})();
+</script>
