@@ -2388,3 +2388,66 @@ html:lang(ur){
   };
 })();
 </script>
+
+
+<!-- DEEN v10.9.9 — Earned badge reward artwork bridge -->
+<style id="deen-v1099-reward-badge-art-css">
+.gf-reward-modal .gf-reward-medal.deen-reward-badge-art{
+  display:block!important;
+  width:132px!important;
+  height:132px!important;
+  flex:0 0 132px!important;
+  margin:0 auto 8px!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:url("assets/badges/deen-badges-atlas.webp?v=9210rewardbadgeart1")!important;
+  background-repeat:no-repeat!important;
+  background-size:500% 200%!important;
+  background-position:0 0;
+  box-shadow:none!important;
+  color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+  opacity:1!important;
+  filter:
+    saturate(1.08)
+    brightness(1.06)
+    drop-shadow(0 10px 16px rgba(0,0,0,.36))
+    drop-shadow(0 0 10px rgba(83,224,178,.13))!important;
+  transform:none!important;
+  image-rendering:auto!important;
+}
+
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="first"]{background-position:0% 0%!important}
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="streak7"]{background-position:25% 0%!important}
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="lessons25"]{background-position:50% 0%!important}
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="master"]{background-position:75% 0%!important}
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="final"]{background-position:100% 0%!important}
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="xp1000"]{background-position:0% 100%!important}
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="perfect10"]{background-position:25% 100%!important}
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="reviews10"]{background-position:50% 100%!important}
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="lessons50"]{background-position:75% 100%!important}
+.gf-reward-modal .deen-reward-badge-art[data-badge-id="xp5000"]{background-position:100% 100%!important}
+
+@media(max-width:390px){
+  .gf-reward-modal .gf-reward-medal.deen-reward-badge-art{
+    width:116px!important;
+    height:116px!important;
+    flex-basis:116px!important;
+  }
+}
+</style>
+<script id="deen-v1099-reward-badge-art-js">
+window.DEEN_REWARD_BADGE_ART={
+  version:'10.9.9',
+  build:'9210rewardbadgeart1',
+  asset:'assets/badges/deen-badges-atlas.webp',
+  ids:['first','streak7','lessons25','master','final','xp1000','perfect10','reviews10','lessons50','xp5000'],
+  check:()=>({
+    css:!!document.getElementById('deen-v1099-reward-badge-art-css'),
+    openReward:!!document.querySelector('.gf-reward-modal[open]'),
+    art:!!document.querySelector('.gf-reward-modal .deen-reward-badge-art[data-badge-id]')
+  })
+};
+</script>
