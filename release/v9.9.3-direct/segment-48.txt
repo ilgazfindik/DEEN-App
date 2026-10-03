@@ -1,0 +1,40 @@
+
+<style id="deen-v10941-quran-phase2-hub-css">
+.deen-qphase2-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+.deen-qphase2-grid button{min-height:68px!important;min-width:0!important}
+.deen-qphase2-grid button b{display:block;color:#dff2ed;font-size:9px}
+.deen-qphase2-grid button small{display:block;margin-top:4px;color:#769692;font-size:7px;line-height:1.25}
+.deen-qaudio-admin{margin-top:8px;padding:9px;border:1px solid #28474d;border-radius:11px;background:#09252d;color:#86a39f;font:700 7.5px/1.4 Inter,system-ui,sans-serif}
+.deen-qaudio-admin input{width:100%;box-sizing:border-box;height:36px;margin-top:7px;padding:0 9px;border:1px solid #35555d;border-radius:9px;background:#081e27;color:#e5f3f0;font-size:8px}
+</style>
+<script id="deen-v10941-quran-phase2-hub-js">
+(()=>{
+if(window.__deenV10941QuranPhase2Hub)return;window.__deenV10941QuranPhase2Hub=true;
+function addBtn(root,key,icon,title,sub,fn){
+  if(root.querySelector('[data-qphase2="'+key+'"]'))return;
+  const b=document.createElement('button');b.type='button';b.setAttribute('data-qphase2',key);
+  b.innerHTML='<i>'+icon+'</i><b>'+title+'</b><small>'+sub+'</small>';b.onclick=fn;root.appendChild(b);
+}
+function injectDashboard(){
+  const q=document.querySelector?.('.deen-quran-quick');if(!q)return false;
+  q.classList.add('deen-qphase2-grid');
+  addBtn(q,'juz','30','Cüz Amma','37 surelik kontrollü genişleme',()=>DEEN_QURAN_JUZ_AMMA?.open?.());
+  addBtn(q,'words','ك','Sık Kelimeler','Tekrar eden kelimeleri tanı',()=>DEEN_QURAN_WORD_INTEL?.open?.());
+  addBtn(q,'weak','↻','Zayıf Ayetler','Riskli ayetleri önce çalış',()=>DEEN_QURAN_MEM_V2?.openWeak?.());
+  addBtn(q,'plan','✓','Kişisel Plan','Bugünkü küçük çalışma akışı',()=>DEEN_QURAN_PLAN?.open?.());
+  return true;
+}
+function injectAdmin(){
+  const body=document.getElementById('deenAdminBody');if(!body||document.getElementById('deenQuranAudioAdmin'))return false;
+  const s=DEEN_QURAN_AUDIO_PROVIDER?.status?.()||{configured:false,ready:0,total:28,endpoint:null};
+  body.insertAdjacentHTML('beforeend','<section class="deen-admin-section" id="deenQuranAudioAdmin"><h3>KUR’AN · KIRAAT BACKEND</h3><div class="deen-qaudio-admin">Hak-gated audio: '+s.ready+'/'+s.total+' · backend '+(s.configured?'hazır':'yapılandırılmadı')+'<input id="deenQuranAudioEndpoint" placeholder="https://.../quran-audio" value="'+(s.endpoint||'')+'"><button class="deen-admin-btn" style="width:100%;margin-top:7px" data-qaudio-save="1">ENDPOINT KAYDET</button></div></section>');
+  return true;
+}
+document.addEventListener('click',e=>{if(!e.target.closest?.('[data-qaudio-save]'))return;const v=String(document.getElementById('deenQuranAudioEndpoint')?.value||'').trim();try{DEEN_QURAN_AUDIO_PROVIDER.configure(v);document.getElementById('deenQuranAudioAdmin')?.remove();injectAdmin()}catch(_){}},true);
+document.addEventListener?.('deen:navigated',()=>setTimeout(injectDashboard,0));
+if(typeof MutationObserver!=='undefined')new MutationObserver(()=>{injectDashboard();injectAdmin()}).observe(document.body,{childList:true,subtree:true});
+setTimeout(()=>{injectDashboard();injectAdmin()},0);
+window.DEEN_QURAN_PHASE2={injectDashboard,injectAdmin,audit:()=>({audio:DEEN_QURAN_AUDIO_PROVIDER?.status?.(),juz:DEEN_QURAN_JUZ_AMMA?.audit?.(),words:DEEN_QURAN_WORD_INTEL?.model?.(),analytics:DEEN_QURAN_ANALYTICS?.audit?.()})};
+document.documentElement.dataset.deenQuranPhase2='complete';
+})();
+</script>
