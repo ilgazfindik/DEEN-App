@@ -5459,3 +5459,381 @@ window.DEEN_REWARD_BADGE_ART={
   };
 })();
 </script>
+
+
+<!-- DEEN v10.9.22 — Ikhlas progressive memorization engine -->
+<style id="deen-v10922-ikhlas-memorization-css">
+.deen-mem-session{display:grid;gap:12px}
+.deen-mem-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px
+}
+.deen-mem-head b{
+  display:block;color:#edf9f6;
+  font:900 13px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-mem-head small{
+  display:block;margin-top:4px;color:#759492;
+  font:650 8.5px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-mem-badge{
+  flex:0 0 auto;min-height:24px;display:inline-flex;align-items:center;
+  padding:0 8px;border:1px solid rgba(109,216,187,.2);border-radius:999px;
+  background:#103239;color:#8ddcc6;
+  font:850 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-mem-levels{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:5px
+}
+.deen-mem-level{
+  height:6px;border-radius:999px;background:#0a252c
+}
+.deen-mem-level.on{background:linear-gradient(90deg,#55c7ad,#9ae8d0)}
+.deen-mem-card{
+  padding:16px;border:1px solid rgba(88,148,148,.21);border-radius:20px;
+  background:
+    radial-gradient(circle at 94% 4%,rgba(104,218,187,.07),transparent 30%),
+    linear-gradient(180deg,#0d3037,#09262e)
+}
+.deen-mem-kicker{
+  color:#86c9b8;
+  font:850 8px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:.6px
+}
+.deen-mem-card h2{
+  margin:7px 0 5px;color:#f0fbf8;
+  font:900 20px/1.15 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-mem-card p{
+  margin:0;color:#829f9d;
+  font:650 9.5px/1.5 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-mem-arabic{
+  margin-top:15px;padding:19px 12px;
+  border:1px solid rgba(111,203,181,.16);border-radius:16px;
+  background:#071f27;color:#fff;text-align:center;direction:rtl;
+  font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",serif;
+  font-size:29px;line-height:1.85
+}
+.deen-mem-token.hidden{
+  display:inline-block;
+  min-width:34px;margin:0 2px;
+  color:#5b7777;border-bottom:2px solid rgba(109,154,151,.35);
+  font-family:var(--deen-font-ui,Inter,system-ui,sans-serif);
+  font-size:14px;line-height:1.6;direction:ltr
+}
+.deen-mem-empty{
+  margin-top:15px;padding:24px 12px;border:1px dashed rgba(111,198,176,.19);
+  border-radius:16px;background:#071f27;text-align:center
+}
+.deen-mem-empty strong{
+  display:block;color:#dceeea;font-size:12px
+}
+.deen-mem-empty span{
+  display:block;margin-top:7px;color:#698785;font-size:8.5px;line-height:1.45
+}
+.deen-mem-selfcheck{
+  margin-top:12px;padding:11px;border:1px solid rgba(181,153,82,.17);
+  border-radius:13px;background:rgba(94,71,26,.09);
+  color:#a89464;font:650 8.5px/1.45 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-mem-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.deen-mem-btn{
+  min-height:46px;border-radius:14px;border:1px solid rgba(103,211,182,.24);
+  background:linear-gradient(180deg,#176052,#10463f);
+  color:#effcf8;font:850 10px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)
+}
+.deen-mem-btn.secondary{
+  border-color:rgba(88,139,142,.2);background:#0a2931;color:#91b1ad
+}
+.deen-mem-btn.full{grid-column:1/-1}
+.deen-mem-overview{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:6px
+}
+.deen-mem-overview div{
+  padding:10px 5px;border:1px solid rgba(82,137,140,.17);
+  border-radius:12px;background:#09242c;text-align:center
+}
+.deen-mem-overview strong{display:block;color:#e7f7f3;font-size:14px}
+.deen-mem-overview small{
+  display:block;margin-top:4px;color:#6e8c8b;
+  font-size:7px;line-height:1.15
+}
+.deen-mem-done{
+  padding:17px;border:1px solid rgba(190,159,80,.2);border-radius:18px;
+  background:linear-gradient(180deg,#133536,#0a272e);text-align:center
+}
+.deen-mem-done strong{display:block;color:#e9dec0;font-size:19px}
+.deen-mem-done span{
+  display:block;margin-top:7px;color:#8fa5a0;font-size:9px;line-height:1.5
+}
+@media(max-width:370px){
+  .deen-mem-overview{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+<script id="deen-v10922-ikhlas-memorization-js">
+(()=>{
+  if(window.__deenV10922IkhlasMemorization)return;
+  window.__deenV10922IkhlasMemorization=true;
+
+  const MAX_LEVEL=5;
+  const LEVELS={
+    1:{title:'Tam metin',desc:'Metnin tamamını görerek oku ve zihninde sesini kur.'},
+    2:{title:'Bazı kelimeler gizli',desc:'Yaklaşık üç kelimeden biri gizli. Eksik parçaları zihninden tamamla.'},
+    3:{title:'Çoğu kelime gizli',desc:'Yalnız birkaç güçlü ipucu görünür; geri kalanını hatırla.'},
+    4:{title:'Başlangıç ipucu',desc:'Sadece ilk kelime görünür. Ayetin devamını tamamen sen getir.'},
+    5:{title:'Tamamen ezberden',desc:'Hiçbir metin ipucu yok. Ayeti baştan sona ezberden söyle.'}
+  };
+  let session={ayah:1,targetLevel:1,revealed:false};
+
+  const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const qstate=()=>DEEN_QURAN?.ensureState?.()||state.quranJourney;
+  const content=n=>DEEN_QURAN_CONTENT?.getAyah?.('ikhlas',Number(n))||null;
+
+  function ayahState(n){
+    const q=qstate();
+    return q?.progress?.surahs?.ikhlas?.ayahs?.[n]||{};
+  }
+  function learned(n){
+    return !!ayahState(n)?.completedAt;
+  }
+  function currentLevel(n){
+    return Math.max(0,Math.min(MAX_LEVEL,Number(ayahState(n)?.memorizationLevel)||0));
+  }
+  function firstEligible(){
+    for(let n=1;n<=4;n++){
+      if(learned(n)&&currentLevel(n)<MAX_LEVEL)return n;
+    }
+    for(let n=1;n<=4;n++){
+      if(learned(n))return n;
+    }
+    return 1;
+  }
+  function targetFor(n){
+    return Math.max(1,Math.min(MAX_LEVEL,currentLevel(n)+1));
+  }
+  function words(text){
+    return String(text||'').trim().split(/\s+/).filter(Boolean);
+  }
+  function maskedTokens(record,level){
+    const ws=words(record?.arabic?.text);
+    if(level===1)return ws.map(w=>'<span>'+esc(w)+'</span>').join(' ');
+    if(level===5)return '';
+    return ws.map((w,i)=>{
+      let visible=false;
+      if(level===2)visible=(i%3)!==1;
+      else if(level===3)visible=(i===0||i===ws.length-1);
+      else if(level===4)visible=i===0;
+      return visible
+        ?'<span>'+esc(w)+'</span>'
+        :'<span class="deen-mem-token hidden">•••</span>';
+    }).join(' ');
+  }
+  function overview(){
+    const q=qstate();
+    const rows=[];
+    for(let n=1;n<=4;n++){
+      const a=q.progress.surahs.ikhlas.ayahs[n];
+      rows.push({
+        ayah:n,
+        learned:!!a.completedAt,
+        level:Math.max(0,Math.min(MAX_LEVEL,Number(a.memorizationLevel)||0)),
+        correct:Number(a.correctRecalls)||0,
+        wrong:Number(a.wrongRecalls)||0,
+        solid:a.state==='solid'
+      });
+    }
+    return rows;
+  }
+  function allMemorized(){
+    return overview().every(x=>x.level>=MAX_LEVEL&&x.solid);
+  }
+  function levelBars(level){
+    return Array.from({length:MAX_LEVEL},(_,i)=>
+      '<i class="deen-mem-level'+(i<level?' on':'')+'"></i>'
+    ).join('');
+  }
+  function blockedHtml(){
+    const anyLearned=overview().some(x=>x.learned);
+    if(!anyLearned){
+      return '<div class="deen-quran-pending">Ezber motorunu açmadan önce İhlâs’ın öğrenme turunda en az bir ayeti tamamla.</div>'+
+        '<button class="deen-mem-btn full" type="button" onclick="DEEN_QURAN.openIkhlas(1)">ÖĞRENME TURUNU AÇ</button>';
+    }
+    return '<div class="deen-quran-pending">Bu ayet öğrenme turunda henüz tamamlanmadı. Önce ayeti öğren, sonra ezber kademesine geç.</div>';
+  }
+  function exerciseHtml(){
+    const record=content(session.ayah);
+    if(!record)return '<div class="deen-quran-pending">Doğrulanmamış içerik ezber ekranında gösterilmedi.</div>';
+    if(!learned(session.ayah))return blockedHtml();
+
+    const level=session.targetLevel;
+    const info=LEVELS[level];
+    const visible=session.revealed?record.arabic.text:null;
+    let main='';
+    if(session.revealed){
+      main='<div class="deen-mem-arabic" lang="ar">'+esc(visible)+'</div>';
+    }else if(level===5){
+      main='<div class="deen-mem-empty"><strong>Metin gizli</strong><span>Ayetin tamamını ezberden söyle. Kontrol etmek istersen “Metni göster”e dokun.</span></div>';
+    }else{
+      main='<div class="deen-mem-arabic" lang="ar">'+maskedTokens(record,level)+'</div>';
+    }
+
+    return '<div class="deen-mem-card">'+
+      '<div class="deen-mem-kicker">EZBER KADEMESİ '+level+' / '+MAX_LEVEL+'</div>'+
+      '<h2>'+esc(info.title)+'</h2>'+
+      '<p>'+esc(info.desc)+'</p>'+
+      main+
+      '<div class="deen-mem-selfcheck">Bu sürüm self-check kullanır: uygulama kıraatini otomatik olarak “doğru” ilan etmez. Metni zihninden söyledikten sonra kendin kontrol et.</div>'+
+      (!session.revealed
+        ?'<button class="deen-mem-btn secondary full" style="margin-top:10px" type="button" onclick="DEEN_QURAN_MEM.reveal()">METNİ GÖSTER</button>'
+        :'')+
+    '</div>';
+  }
+  function sessionHtml(){
+    const rows=overview();
+    const mastered=rows.filter(x=>x.level>=MAX_LEVEL&&x.solid).length;
+    const totalCorrect=rows.reduce((s,x)=>s+x.correct,0);
+    const totalWrong=rows.reduce((s,x)=>s+x.wrong,0);
+    return '<div class="deen-mem-session">'+
+      '<div class="deen-mem-head">'+
+        '<span><b>İhlâs Ezber Motoru</b><small>Ayet '+session.ayah+' / 4 · '+esc(LEVELS[session.targetLevel].title)+'</small></span>'+
+        '<span class="deen-mem-badge">'+mastered+'/4 SAĞLAM</span>'+
+      '</div>'+
+      '<div class="deen-mem-levels">'+levelBars(session.targetLevel)+'</div>'+
+      '<div class="deen-mem-overview">'+
+        rows.map(x=>'<div><strong>'+x.level+'/5</strong><small>AYET '+x.ayah+'</small></div>').join('')+
+      '</div>'+
+      exerciseHtml()+
+      (learned(session.ayah)
+        ?'<div class="deen-mem-actions">'+
+          '<button class="deen-mem-btn secondary" type="button" onclick="DEEN_QURAN_MEM.retry()">TEKRAR ET</button>'+
+          '<button class="deen-mem-btn" type="button" onclick="DEEN_QURAN_MEM.remembered()">HATIRLADIM</button>'+
+        '</div>'
+        :'')+
+      '<div class="deen-quran-note">Self-check toplamı: '+totalCorrect+' başarılı hatırlama · '+totalWrong+' tekrar isteği</div>'+
+    '</div>';
+  }
+  function redraw(){
+    const mount=document.querySelector('.deen-mem-session');
+    if(!mount)return false;
+    const holder=document.createElement('div');
+    holder.innerHTML=sessionHtml();
+    mount.replaceWith(holder.firstElementChild);
+    return true;
+  }
+  function open(ayah){
+    const q=qstate();
+    const requested=Number(ayah);
+    const selected=(requested>=1&&requested<=4)?requested:firstEligible();
+    session={
+      ayah:selected,
+      targetLevel:targetFor(selected),
+      revealed:false
+    };
+    q.profile.currentSurah='ikhlas';
+    q.profile.currentAyah=selected;
+    q.profile.lastMode='memorize';
+    q.progress.surahs.ikhlas.currentAyah=selected;
+    DEEN_QURAN.persistState?.();
+    sheet('İhlâs Ezberi',sessionHtml());
+    document.documentElement.dataset.deenIkhlasMemorization='v10922';
+    return true;
+  }
+  function reveal(){
+    session.revealed=true;
+    redraw();
+    return true;
+  }
+  function nextPending(after){
+    for(let offset=1;offset<=4;offset++){
+      const n=((after-1+offset)%4)+1;
+      if(learned(n)&&currentLevel(n)<MAX_LEVEL)return n;
+    }
+    return null;
+  }
+  function remembered(){
+    if(!learned(session.ayah))return false;
+    const a=ayahState(session.ayah);
+    const target=session.targetLevel;
+    const changes={
+      memorizationLevel:Math.max(Number(a.memorizationLevel)||0,target),
+      correctRecalls:(Number(a.correctRecalls)||0)+1,
+      repetitions:(Number(a.repetitions)||0)+1,
+      wrongRecalls:Number(a.wrongRecalls)||0,
+      state:target>=MAX_LEVEL?'solid':'strengthening',
+      lastStudiedAt:new Date().toISOString()
+    };
+    DEEN_QURAN.updateAyah('ikhlas',session.ayah,changes);
+    const q=qstate();
+
+    if(allMemorized()){
+      q.progress.surahs.ikhlas.status='memorized';
+      q.progress.surahs.ikhlas.memorizedAt=q.progress.surahs.ikhlas.memorizedAt||new Date().toISOString();
+      q.profile.currentSurah='ikhlas';
+      q.profile.currentAyah=4;
+      q.progress.surahs.ikhlas.currentAyah=4;
+      DEEN_QURAN.persistState?.();
+      const mount=document.querySelector('.deen-mem-session');
+      if(mount){
+        mount.innerHTML=
+          '<div class="deen-mem-done"><strong>İhlâs ezberi tamamlandı</strong>'+
+          '<span>Dört ayetin tamamı 5/5 kademesini geçti. Sure artık ezberlendi statüsünde; 9/14 tekrar motoru geldiğinde hafıza gücü zaman içinde yeniden ölçülecek.</span></div>'+
+          '<button class="deen-mem-btn full" type="button" onclick="DEEN_QURAN_MEM.open(1)">EZBERİ GÖZDEN GEÇİR</button>';
+      }
+      return {memorized:true,nextAyah:null};
+    }
+
+    const current=currentLevel(session.ayah);
+    if(current<MAX_LEVEL){
+      session.targetLevel=current+1;
+      session.revealed=false;
+      redraw();
+      return {memorized:false,nextAyah:session.ayah,nextLevel:session.targetLevel};
+    }
+
+    const next=nextPending(session.ayah);
+    if(next){
+      session={ayah:next,targetLevel:targetFor(next),revealed:false};
+      q.profile.currentAyah=next;
+      q.progress.surahs.ikhlas.currentAyah=next;
+      DEEN_QURAN.persistState?.();
+      redraw();
+      return {memorized:false,nextAyah:next,nextLevel:session.targetLevel};
+    }
+    redraw();
+    return {memorized:false,nextAyah:null};
+  }
+  function retry(){
+    if(!learned(session.ayah))return false;
+    const a=ayahState(session.ayah);
+    const current=Math.max(0,Number(a.memorizationLevel)||0);
+    const regressed=Math.max(0,current-1);
+    DEEN_QURAN.updateAyah('ikhlas',session.ayah,{
+      memorizationLevel:regressed,
+      wrongRecalls:(Number(a.wrongRecalls)||0)+1,
+      repetitions:(Number(a.repetitions)||0)+1,
+      state:regressed>=MAX_LEVEL?'solid':'strengthening',
+      lastStudiedAt:new Date().toISOString()
+    });
+    session.targetLevel=Math.max(1,regressed+1);
+    session.revealed=false;
+    redraw();
+    return {level:regressed,targetLevel:session.targetLevel};
+  }
+  function model(){
+    return {
+      ayah:session.ayah,
+      targetLevel:session.targetLevel,
+      revealed:session.revealed,
+      learned:learned(session.ayah),
+      currentLevel:currentLevel(session.ayah),
+      allMemorized:allMemorized(),
+      overview:overview()
+    };
+  }
+
+  window.DEEN_QURAN=window.DEEN_QURAN||{};
+  window.DEEN_QURAN.memorize=open;
+  window.DEEN_QURAN.openMemorization=open;
+  window.DEEN_QURAN_MEM={open,reveal,remembered,retry,model,overview,allMemorized};
+})();
+</script>
