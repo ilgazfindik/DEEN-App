@@ -4,7 +4,7 @@
 </style>
 <script id="deen-v10938-quran-personal-plan-js">
 (()=>{if(window.__deenV10938QuranPersonalPlan)return;window.__deenV10938QuranPersonalPlan=true;
-const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','kawthar','asr'];
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','kawthar','asr'];
 function plan(){const q=DEEN_QURAN.ensureState();q.personalPlan=q.personalPlan&&typeof q.personalPlan==='object'?q.personalPlan:{active:true,dailyMinutes:5,weeklyDays:3,newAyahs:1,targetSurahs:['ikhlas','falaq','nas']};q.personalPlan.targetSurahs=Array.isArray(q.personalPlan.targetSurahs)?q.personalPlan.targetSurahs.filter(x=>IDS.includes(x)):['ikhlas'];return q.personalPlan}
 function setPreset(k){const p=plan();if(k==='calm')Object.assign(p,{active:true,dailyMinutes:5,weeklyDays:3,newAyahs:1});if(k==='balanced')Object.assign(p,{active:true,dailyMinutes:10,weeklyDays:5,newAyahs:1});if(k==='intensive')Object.assign(p,{active:true,dailyMinutes:15,weeklyDays:7,newAyahs:2});DEEN_QURAN.setGoal?.('dailyMinutes',p.dailyMinutes);DEEN_QURAN.setGoal?.('weeklyDays',p.weeklyDays);DEEN_QURAN.setGoal?.('dailyAyahs',p.newAyahs);DEEN_QURAN.persistState?.();redraw();return p}
 function nextNew(){const q=DEEN_QURAN.ensureState(),p=plan();for(const id of p.targetSurahs){const s=q.progress?.surahs?.[id];for(const [n,a] of Object.entries(s?.ayahs||{}))if(!a.completedAt&&DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n)))return{kind:'new',id,n:Number(n),title:id+' · Ayet '+n}}return null}
