@@ -1,0 +1,300 @@
+
+<style id="deen-v10953-asr-inline-audio-css">
+.deen-qmulti-session[data-asr-inline-audio="1"] .deen-qaudio{display:none!important}
+.deen-asr-audio-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+.deen-asr-audio-row h2{margin:0!important;min-width:0}
+.deen-asr-inline-speaker{
+  width:38px;height:38px;flex:0 0 38px;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(103,207,181,.28);border-radius:12px;background:#123b3b;color:#a7ead7;
+  cursor:pointer;font:900 16px/1 system-ui,sans-serif;box-shadow:0 5px 14px rgba(0,0,0,.12)
+}
+.deen-asr-inline-speaker.playing{background:#1a4b45;border-color:rgba(126,231,200,.42);transform:scale(.98)}
+.deen-asr-inline-speaker:active{transform:scale(.95)}
+.deen-asr-inline-hint{margin:5px 0 0!important;color:#789995!important;font-size:7px!important;line-height:1.35!important}
+.deen-asr-inline-hint.error{color:#dfa18b!important}
+.deen-qmulti-session[data-asr-inline-audio="1"] .deen-ikhlas-arabic[data-asr-sync="1"]{position:relative}
+.deen-asr-sync-word{
+  display:inline;color:rgba(235,248,244,.42);
+  transition:color .16s ease,background .16s ease,text-shadow .16s ease;
+  border-radius:7px;padding:0 2px
+}
+.deen-asr-sync-word.past{color:rgba(173,229,214,.78)}
+.deen-asr-sync-word.current{
+  color:#effffb;background:rgba(87,205,176,.16);
+  text-shadow:0 0 12px rgba(109,224,195,.28)
+}
+.deen-asr-sync-track{
+  height:3px;margin:9px auto 0;max-width:88%;overflow:hidden;
+  border-radius:999px;background:rgba(111,154,150,.12)
+}
+.deen-asr-sync-track i{
+  display:block;width:0%;height:100%;border-radius:inherit;
+  background:linear-gradient(90deg,#5fcbb3,#a9ead8);transition:width .08s linear
+}
+@media(max-width:340px){.deen-asr-inline-speaker{width:36px;height:36px;flex-basis:36px}}
+</style>
+
+<script id="deen-v10953-asr-inline-audio-js">
+(()=>{
+if(window.__deenV10953AsrInlineAudio)return;window.__deenV10953AsrInlineAudio=true;
+
+const BASE='./assets/quran/audio/asr/';
+const FILES={1:'asr_1.mp3',2:'asr_2.mp3',3:'asr_3.mp3'};
+const CACHE='9259asraudio1';
+let player=null,currentAyah=null,status='idle',rafId=0;
+
+function q(){return DEEN_QURAN?.ensureState?.()||null}
+function root(){return document.querySelector?.('.deen-qmulti-session')}
+function visibleAyah(){
+  const r=root();
+  const text=r?.querySelector?.('.deen-ikhlas-progresshead b')?.textContent||
+             r?.querySelector?.('.deen-ikhlas-card h2')?.textContent||'';
+  const m=String(text).match(/Ayet\s*(\d+)/i);
+  if(m)return Math.max(1,Math.min(3,Number(m[1])||1));
+  return Math.max(1,Math.min(3,Number(q()?.profile?.currentAyah)||1));
+}
+function isAsr(){
+  const r=root();
+  if(!r)return false;
+  const head=r.querySelector?.('.deen-ikhlas-progresshead b')?.textContent||'';
+  return q()?.profile?.currentSurah==='asr'&&/Asr/i.test(head);
+}
+function url(n){return BASE+FILES[n]+'?v='+CACHE}
+function hint(msg,error=false){
+  const h=root()?.querySelector?.('.deen-asr-inline-hint');
+  if(!h)return false;
+  h.textContent=msg;
+  h.classList.toggle('error',!!error);
+  return true;
+}
+function cleanWord(w){
+  return String(w||'')
+    .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'')
+    .replace(/[^\u0621-\u064A]/g,'');
+}
+function prepareSyncedText(){
+  const r=root();
+  const ar=r?.querySelector?.('.deen-ikhlas-card .deen-ikhlas-arabic');
+  if(!ar)return null;
+  const n=visibleAyah();
+  if(ar.dataset.asrSync==='1'&&Number(ar.dataset.syncAyah)===n)return ar;
+  const raw=String(ar.textContent||'').trim();
+  if(!raw)return null;
+  const list=raw.split(/\s+/).filter(Boolean);
+  ar.innerHTML=list.map((w,i)=>
+    '<span class="deen-asr-sync-word" data-sync-index="'+i+'" data-sync-weight="'+
+    Math.max(1,cleanWord(w).length)+'">'+w+'</span>'
+  ).join(' ')+'<div class="deen-asr-sync-track" aria-hidden="true"><i></i></div>';
+  ar.dataset.asrSync='1';
+  ar.dataset.syncAyah=String(n);
+  return ar;
+}
+function resetSyncedText(clearProgress=true){
+  const ar=root()?.querySelector?.('.deen-ikhlas-card .deen-ikhlas-arabic[data-asr-sync="1"]');
+  if(!ar)return false;
+  for(const w of ar.querySelectorAll('.deen-asr-sync-word'))w.classList.remove('past','current');
+  if(clearProgress){
+    const bar=ar.querySelector('.deen-asr-sync-track i');
+    if(bar)bar.style.width='0%';
+  }
+  return true;
+}
+function syncText(){
+  const ar=prepareSyncedText();
+  if(!ar||!player||currentAyah!==visibleAyah())return false;
+  const spans=[...ar.querySelectorAll('.deen-asr-sync-word')];
+  const bar=ar.querySelector('.deen-asr-sync-track i');
+  const dur=Number(player.duration),t=Number(player.currentTime)||0;
+  if(!Number.isFinite(dur)||dur<=0||!spans.length)return false;
+
+  const progress=Math.max(0,Math.min(1,t/dur));
+  if(bar)bar.style.width=(progress*100).toFixed(2)+'%';
+
+  if(status==='ended'){
+    spans.forEach(w=>{w.classList.add('past');w.classList.remove('current')});
+    return true;
+  }
+
+  const lead=Math.min(.16,dur*.07),tail=Math.min(.12,dur*.05);
+  const usable=Math.max(.1,dur-lead-tail);
+  const p=Math.max(0,Math.min(.999,(t-lead)/usable));
+  const weights=spans.map(w=>Math.max(1,Number(w.dataset.syncWeight)||1));
+  const total=weights.reduce((a,b)=>a+b,0);
+  let acc=0,idx=0;
+  for(let i=0;i<weights.length;i++){
+    acc+=weights[i]/total;
+    if(p<acc){idx=i;break}
+  }
+  spans.forEach((w,i)=>{
+    w.classList.toggle('past',i<idx);
+    w.classList.toggle('current',i===idx&&t>=lead);
+  });
+  return true;
+}
+function stopRaf(){
+  if(rafId&&typeof cancelAnimationFrame==='function')cancelAnimationFrame(rafId);
+  rafId=0;
+}
+function startRaf(){
+  stopRaf();
+  const step=()=>{
+    syncText();
+    if(status==='playing'&&typeof requestAnimationFrame==='function')rafId=requestAnimationFrame(step);
+  };
+  if(typeof requestAnimationFrame==='function')rafId=requestAnimationFrame(step);
+}
+function ensurePlayer(){
+  if(player)return player;
+  if(typeof Audio!=='function')return null;
+  player=new Audio();
+  player.preload='auto';
+  player.addEventListener('play',()=>{status='playing';syncButton();prepareSyncedText();startRaf();syncText()});
+  player.addEventListener('pause',()=>{
+    if(status!=='error'&&status!=='ended')status='paused';
+    stopRaf();syncButton();syncText();
+  });
+  player.addEventListener('ended',()=>{
+    status='ended';stopRaf();syncButton();syncText();
+    hint('Ayet sesi tamamlandı. Tekrar dinlemek için hoparlöre dokun.');
+  });
+  player.addEventListener('error',()=>{
+    status='error';stopRaf();syncButton();
+    hint('Ayet sesi yüklenemedi. Sayfayı yenileyip tekrar dene.',true);
+  });
+  player.addEventListener('loadedmetadata',syncText);
+  player.addEventListener('timeupdate',syncText);
+  return player;
+}
+function syncButton(){
+  const b=root()?.querySelector?.('.deen-asr-inline-speaker');
+  if(!b)return false;
+  const n=visibleAyah();
+  const playing=status==='playing'&&currentAyah===n&&player&&!player.paused;
+  b.classList.toggle('playing',playing);
+  b.textContent=playing?'Ⅱ':'🔊';
+  b.setAttribute('aria-label',playing?'Ayet sesini duraklat':'Ayet '+n+' sesini dinle');
+  b.setAttribute('data-ayah-audio',String(n));
+  return true;
+}
+async function play(n){
+  n=Math.max(1,Math.min(3,Number(n)||1));
+  const p=ensurePlayer();
+  if(!p){hint('Bu tarayıcı ses oynatmayı desteklemiyor.',true);return false}
+  if(currentAyah!==n||!p.src){
+    try{p.pause()}catch(_){}
+    currentAyah=n;
+    resetSyncedText(true);
+    prepareSyncedText();
+    p.src=url(n);
+    try{p.currentTime=0}catch(_){}
+  }else if(status==='ended'){
+    try{p.currentTime=0}catch(_){}
+    resetSyncedText(true);
+  }
+  hint('Ayet '+n+' dinleniyor…');
+  try{
+    const out=p.play();
+    if(out&&typeof out.then==='function')await out;
+    status='playing';syncButton();startRaf();syncText();
+    DEEN_QURAN_ANALYTICS?.track?.('audio_play',{surahId:'asr',mode:'ayah_local'});
+    return true;
+  }catch(e){
+    status='error';syncButton();
+    hint('Ayet sesi açılamadı: '+String(e?.message||e),true);
+    return false;
+  }
+}
+function pause(){
+  if(!player)return false;
+  try{player.pause()}catch(_){}
+  status='paused';stopRaf();syncButton();syncText();
+  hint('Ayet sesi duraklatıldı.');
+  return true;
+}
+async function toggle(){
+  const n=visibleAyah();
+  if(player&&currentAyah===n&&!player.paused&&status==='playing')return pause();
+  return play(n);
+}
+function stop(){
+  if(player){try{player.pause();player.currentTime=0}catch(_){}}
+  currentAyah=null;status='idle';stopRaf();resetSyncedText(true);syncButton();
+  return true;
+}
+function decorate(){
+  const r=root();
+  if(!r||!isAsr())return false;
+  const card=r.querySelector('.deen-ikhlas-card');
+  if(!card)return false;
+  const stage=card.querySelector('.deen-ikhlas-kicker')?.textContent||'';
+  if(!/DİNLE/i.test(stage))return false;
+
+  r.setAttribute('data-asr-inline-audio','1');
+
+  let button=card.querySelector('.deen-asr-inline-speaker');
+  if(!button){
+    const h2=card.querySelector('h2');
+    if(h2){
+      let row=card.querySelector('.deen-asr-audio-row');
+      if(!row){
+        row=document.createElement('div');
+        row.className='deen-asr-audio-row';
+        h2.parentNode.insertBefore(row,h2);
+        row.appendChild(h2);
+      }
+      button=document.createElement('button');
+      button.type='button';
+      button.className='deen-asr-inline-speaker';
+      button.setAttribute('onclick','DEEN_QURAN_ASR_INLINE_AUDIO.toggle()');
+      row.appendChild(button);
+    }
+  }
+
+  let h=card.querySelector('.deen-asr-inline-hint');
+  if(!h){
+    h=document.createElement('p');
+    h.className='deen-asr-inline-hint';
+    const row=card.querySelector('.deen-asr-audio-row');
+    row?.insertAdjacentElement('afterend',h);
+  }
+  if(h&&!h.classList.contains('error'))h.textContent='Hoparlöre dokun: Ayet '+visibleAyah()+' kaydını dinle.';
+
+  prepareSyncedText();
+  syncText();
+
+  const n=visibleAyah();
+  if(currentAyah&&currentAyah!==n&&status==='playing')stop();
+  syncButton();
+  return true;
+}
+function audit(){
+  return{
+    ok:Object.keys(FILES).length===3,
+    files:Object.entries(FILES).map(([n,file])=>({ayah:Number(n),file,url:BASE+file})),
+    wikimediaKept:!!window.DEEN_QURAN_CHAPTER_AUDIO?.source?.('asr'),
+    genericLearningEngine:true,
+    wordSync:true
+  };
+}
+
+let timer=null;
+function schedule(){clearTimeout(timer);timer=setTimeout(decorate,25)}
+document.addEventListener?.('click',e=>{if(e.target?.closest?.('#v5Sheet'))schedule()},true);
+document.addEventListener?.('deen:navigating',stop);
+document.addEventListener?.('deen:navigated',schedule);
+document.addEventListener?.('close',e=>{if(e.target?.id==='v5Sheet')stop()},true);
+if(typeof MutationObserver!=='undefined')new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
+setInterval(()=>{decorate();syncButton()},300);
+schedule();
+
+window.DEEN_QURAN_ASR_INLINE_AUDIO={
+  toggle,play,pause,stop,decorate,syncButton,syncText,prepareSyncedText,
+  ayah:visibleAyah,audit,
+  state:()=>({
+    status,currentAyah,src:player?.src||null,currentTime:player?.currentTime||0,
+    duration:Number.isFinite(player?.duration)?player.duration:null
+  })
+};
+document.documentElement.dataset.deenAsrInlineAudio='v10953';
+})();
+</script>
