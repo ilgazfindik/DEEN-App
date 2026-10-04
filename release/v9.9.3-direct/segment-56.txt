@@ -1,5 +1,146 @@
-<!-- DEEN_RETIRED_SEGMENT_OK
-DEEN v10.9.60 universal Quran ayah audio migration.
-This legacy per-surah audio segment is intentionally retired.
-Runtime is handled by release/v9.9.3-direct/segment-52.txt.
--->
+<!-- DEEN v10.9.66 — Quran Hub information architecture -->
+<style id="deen-v10966-quran-hub-ia-css">
+.deen-qia-nav{display:flex;gap:6px;overflow-x:auto;margin:2px 0 13px;padding:2px 0 4px;scrollbar-width:none}.deen-qia-nav::-webkit-scrollbar{display:none}
+.deen-qia-nav button{flex:0 0 auto;min-height:34px;padding:0 11px;border:1px solid rgba(83,139,141,.2);border-radius:999px;background:#092730;color:#789795;font:800 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qia-nav button:first-child{border-color:rgba(103,216,184,.28);background:#123a3c;color:#9be2ce}
+.deen-qia-section{display:grid;gap:9px;margin:0 0 15px;scroll-margin-top:14px}
+.deen-qia-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding:0 2px}
+.deen-qia-section-head span{min-width:0}.deen-qia-section-head h2{margin:0;color:#edf9f6;font:900 14px/1.15 var(--deen-font-ui,Inter,system-ui,sans-serif);letter-spacing:-.01em}
+.deen-qia-section-head p{margin:4px 0 0;color:#718f8d;font:650 8px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qia-section-head em{flex:0 0 auto;max-width:48%;padding:6px 8px;border:1px solid rgba(89,148,148,.17);border-radius:999px;background:#09262e;color:#7fa19d;font:800 7.5px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deen-qia-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.deen-qia-action{min-width:0;min-height:82px;padding:12px;border:1px solid rgba(82,139,141,.2);border-radius:16px;background:linear-gradient(160deg,#0d2e35,#09262e);color:#e9f7f4;text-align:left;box-shadow:inset 0 1px rgba(255,255,255,.018)}
+.deen-qia-action.primary{border-color:rgba(104,213,184,.29);background:radial-gradient(circle at 100% 0%,rgba(99,219,184,.09),transparent 40%),linear-gradient(160deg,#12383b,#09282f)}
+.deen-qia-action.warn{border-color:rgba(220,165,101,.23);background:radial-gradient(circle at 100% 0%,rgba(222,161,93,.08),transparent 42%),linear-gradient(160deg,#123034,#09272f)}
+.deen-qia-action:active{transform:scale(.99)}
+.deen-qia-action i{width:29px;height:29px;display:grid;place-items:center;margin-bottom:8px;border:1px solid rgba(103,204,178,.17);border-radius:10px;background:#11353a;color:#91dbc6;font-style:normal;font-size:11px;font-weight:850}
+.deen-qia-action.warn i{border-color:rgba(220,165,101,.18);color:#ddb27f}
+.deen-qia-action b{display:block;overflow:hidden;color:#edf9f6;font:850 10px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);white-space:nowrap;text-overflow:ellipsis}
+.deen-qia-action small{display:block;margin-top:4px;color:#73928f;font:650 7.7px/1.35 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qia-today .deen-quran-hero{margin:0}.deen-qia-today .deen-quran-today-grid{margin:0}
+.deen-qia-today .deen-qdc,.deen-qia-today .deen-qreward-daily{margin:0}
+.deen-qia-play [data-qarena-hub]{margin:0}.deen-qia-play .deen-qarena-hub-head{display:none}
+.deen-qia-progress .deen-quran-overview{margin:0}
+.deen-qia-progress .deen-quran-note{margin:2px 0 0}
+.deen-quran-dashboard>.deen-quran-section-title,.deen-quran-dashboard>.deen-quran-quick{display:none!important}
+.deen-quran-dashboard .deen-quran-quick.deen-qia-legacy-quick{display:none!important}
+.deen-qia-coverage{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 11px;border:1px solid rgba(80,134,138,.16);border-radius:13px;background:rgba(7,29,37,.68)}
+.deen-qia-coverage span{color:#7a9996;font:700 8px/1.35 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qia-coverage b{color:#9bdcca;font:850 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);white-space:nowrap}
+@media(max-width:360px){.deen-qia-actions{gap:6px}.deen-qia-action{padding:10px;min-height:78px}.deen-qia-section-head em{max-width:44%}}
+</style>
+<script id="deen-v10966-quran-hub-ia-js">
+(()=>{
+if(window.__deenV10966QuranHubIA)return;window.__deenV10966QuranHubIA=true;
+const BUILD='9281quranhubia1';
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','bayyina','zilzal','kawthar','asr'];
+let timer=0;
+const qs=()=>{try{return DEEN_QURAN?.ensureState?.()||state?.quranJourney||{}}catch(_){return state?.quranJourney||{}}};
+function current(){const id=qs()?.profile?.currentSurah;return IDS.includes(id)?id:'fatiha'}
+function safe(fn,fallback='Bu alan henüz hazır değil.'){try{const r=fn?.();if(r===false&&typeof sheet==='function')sheet('Kur’an', '<p class="v5-muted">'+fallback+'</p>');return r}catch(e){if(typeof sheet==='function')sheet('Kur’an','<p class="v5-muted">'+fallback+'</p>');return false}}
+function action(key){
+ const id=current();
+ if(key==='surahs')return safe(()=>DEEN_QURAN?.surahList?.());
+ if(key==='journey')return safe(()=>DEEN_QURAN_JOURNEY_V2?.open?.(id));
+ if(key==='juz')return safe(()=>DEEN_QURAN_JUZ_AMMA?.open?.());
+ if(key==='words')return safe(()=>DEEN_QURAN_WORD_INTEL?.open?.());
+ if(key==='memorize')return safe(()=>DEEN_QURAN?.memorize?.(id),'Önce bir sure seçip öğrenmeye başla.');
+ if(key==='continuous')return safe(()=>DEEN_QURAN_MEM_V2?.openContinuous?.(id),'Bu surede henüz öğrenilmiş ayet yok.');
+ if(key==='weakmem')return safe(()=>DEEN_QURAN_MEM_V2?.openWeak?.(),'Henüz zayıf ayet oluşmadı.');
+ if(key==='sequence')return safe(()=>DEEN_QURAN_MEM_V2?.openSequence?.(id),'Ayet sıralaması için bu surede en az iki ayet öğren.');
+ if(key==='progress')return safe(()=>DEEN_QURAN_PROGRESS?.open?.());
+ if(key==='mastery')return safe(()=>DEEN_QURAN_CHALLENGE?.openMastery?.());
+ if(key==='review')return safe(()=>DEEN_QURAN?.review?.());
+ if(key==='plan')return safe(()=>DEEN_QURAN_PLAN?.open?.());
+ return false
+}
+function stats(){
+ const q=qs();let learned=0;
+ for(const id of IDS){const s=q?.progress?.surahs?.[id]?.ayahs||{};learned+=Object.values(s).filter(a=>a?.completedAt).length}
+ const missions=DEEN_QURAN_REWARDS?.missions?.()||{done:0,rows:[]};
+ const weak=(DEEN_QURAN_QUESTION_ARENA?.weakRows?.()||[]).length;
+ const p=DEEN_QURAN_PROGRESS?.model?.()||{};
+ let mastery=0,count=0;for(const id of IDS){const v=DEEN_QURAN_CHALLENGE?.masteryScore?.(id);if(Number.isFinite(Number(v))){mastery+=Number(v);count++}}
+ return{learned,missionsDone:Number(missions.done)||0,weak,due:Number(p.due)||0,strength:Number(p.strength)||0,mastery:count?Math.round(mastery/count):50}
+}
+function section(id,title,sub,badge,klass=''){
+ const s=document.createElement('section');s.className='deen-qia-section '+klass;s.dataset.qiaSection=id;s.id='deenQia-'+id;
+ const h=document.createElement('div');h.className='deen-qia-section-head';h.innerHTML='<span><h2>'+title+'</h2><p>'+sub+'</p></span><em data-qia-badge="'+id+'">'+badge+'</em>';
+ const body=document.createElement('div');body.className='deen-qia-section-body';body.dataset.qiaBody=id;s.append(h,body);return s
+}
+function actionGrid(items){
+ const g=document.createElement('div');g.className='deen-qia-actions';
+ for(const x of items){const b=document.createElement('button');b.type='button';b.className='deen-qia-action'+(x.primary?' primary':'')+(x.warn?' warn':'');b.innerHTML='<i>'+x.icon+'</i><b>'+x.title+'</b><small>'+x.sub+'</small>';b.onclick=()=>action(x.key);g.appendChild(b)}
+ return g
+}
+function nav(){
+ const n=document.createElement('nav');n.className='deen-qia-nav';n.dataset.qiaNav='1';n.setAttribute('aria-label','Kur’an bölümleri');
+ [['today','Bugün'],['learn','Öğren'],['play','Oyna'],['memorize','Ezber'],['progress','İlerleme']].forEach(([id,label])=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=()=>document.getElementById('deenQia-'+id)?.scrollIntoView?.({behavior:'smooth',block:'start'});n.appendChild(b)});return n
+}
+function ensureStructure(shell){
+ let root=shell.querySelector(':scope > [data-qia-root]');
+ if(!root){
+  root=document.createElement('div');root.dataset.qiaRoot='1';
+  const today=section('today','Bugün','Şu an ne yapman gerektiğini tek yerde gör.','Günlük akış','deen-qia-today');
+  const learn=section('learn','Öğren','Sureleri keşfet, anlamı ve yapıyı adım adım çalış.','16 sure · 90 ayet','deen-qia-learn');
+  learn.querySelector('[data-qia-body]').appendChild(actionGrid([
+   {key:'surahs',icon:'☰',title:'Sureler',sub:'16 surelik öğrenme kütüphanesi',primary:true},
+   {key:'journey',icon:'▶',title:'Sure Oyunu',sub:'Öğren · ezberle · test et'},
+   {key:'words',icon:'ك',title:'Sık Kelimeler',sub:'Tekrar eden kelimeleri tanı'},
+   {key:'juz',icon:'30',title:'Cüz Amma Haritası',sub:'Hazır ve sıradaki sureleri gör'}
+  ]));
+  const play=section('play','Oyna','Bilgiyi aktif hatırlamayla sınayıp güçlendir.','7+ soru modu','deen-qia-play');
+  const mem=section('memorize','Ezber','Hatırlamayı ve ayet sırasını ayrı egzersizlerle çalış.','Ezber araçları','deen-qia-memorize');
+  mem.querySelector('[data-qia-body]').appendChild(actionGrid([
+   {key:'memorize',icon:'◌',title:'Ezbere Başla',sub:'Mevcut surede hatırlama turu',primary:true},
+   {key:'continuous',icon:'∞',title:'Kesintisiz Ezber',sub:'Öğrendiğin ayetleri art arda çağır'},
+   {key:'weakmem',icon:'↻',title:'Zayıf Ayetler',sub:'Riskli ayetleri önce güçlendir',warn:true},
+   {key:'sequence',icon:'⇅',title:'Ayet Sıralaması',sub:'Sure içindeki doğru sırayı kur'}
+  ]));
+  const progress=section('progress','İlerleme','Öğrenme, tekrar ve sure ustalığını birlikte izle.','Kişisel ölçüm','deen-qia-progress');
+  progress.querySelector('[data-qia-body]').appendChild(actionGrid([
+   {key:'progress',icon:'◫',title:'İlerleme Merkezi',sub:'Hedefler ve hafıza gücü',primary:true},
+   {key:'mastery',icon:'★',title:'Sure Ustalığı',sub:'Seviye ve performans puanları'},
+   {key:'review',icon:'↻',title:'Tekrar Planı',sub:'Bugün zamanı gelen ayetler'},
+   {key:'plan',icon:'✓',title:'Kişisel Plan',sub:'Günlük çalışma temposunu ayarla'}
+  ]));
+  const coverage=document.createElement('div');coverage.className='deen-qia-coverage';coverage.innerHTML='<span>Kur’an alanı yalnız kayıtlı ayet, meal, ses ve ilerleme verilerini kullanır.</span><b>16 SURE · 90 AYET</b>';progress.querySelector('[data-qia-body]').appendChild(coverage);
+  root.append(today,learn,play,mem,progress);
+  const head=shell.querySelector('.deen-quran-head');if(head)head.insertAdjacentElement('afterend',nav());else shell.insertAdjacentElement('afterbegin',nav());
+  const anchor=shell.querySelector('[data-qia-nav]');anchor?.insertAdjacentElement('afterend',root);
+ }
+ return root
+}
+function move(node,target){if(node&&target&&node.parentElement!==target)target.appendChild(node)}
+function updateBadges(root){
+ const s=stats(),set=(id,v)=>{const x=root.querySelector('[data-qia-badge="'+id+'"]');if(x)x.textContent=v};
+ set('today',s.missionsDone+'/3 görev');
+ set('learn',s.learned+'/90 ayet');
+ set('play',s.weak?(''+s.weak+' zayıf ayet'):'Challenge hazır');
+ set('memorize',s.strength?('%'+Math.round(s.strength)+' hafıza'):'Ezber araçları');
+ set('progress',s.due?(s.due+' tekrar bugün'):('Ustalık %'+s.mastery));
+}
+function organize(){
+ const shell=document.querySelector?.('#leagueScreenBody .deen-quran-dashboard');if(!shell)return false;
+ const root=ensureStructure(shell),body=id=>root.querySelector('[data-qia-body="'+id+'"]');
+ const today=body('today'),play=body('play'),progress=body('progress');
+ move(shell.querySelector('.deen-qdc'),today);
+ move(shell.querySelector('.deen-quran-hero'),today);
+ move(shell.querySelector('.deen-quran-today-grid'),today);
+ move(shell.querySelector('[data-quran-reward-daily]'),today);
+ move(shell.querySelector('[data-qarena-hub]'),play);
+ move(shell.querySelector('.deen-quran-overview'),progress);
+ move(shell.querySelector('.deen-quran-note'),progress);
+ const quick=shell.querySelector('.deen-quran-quick');if(quick)quick.classList.add('deen-qia-legacy-quick');
+ shell.querySelectorAll(':scope > .deen-quran-section-title').forEach(x=>x.style.display='none');
+ updateBadges(root);document.documentElement.dataset.deenQuranHubIA='v10966';return true
+}
+function schedule(){clearTimeout(timer);timer=setTimeout(organize,35)}
+const old=DEEN_QURAN.dashboardRender||DEEN_QURAN.render;
+if(typeof old==='function'&&!old.__deenHubIAWrapped){const w=function(){const r=old.apply(this,arguments);schedule();return r};w.__deenHubIAWrapped=true;DEEN_QURAN.dashboardRender=w;DEEN_QURAN.render=w;window.leagueView=w;try{leagueView=w}catch(_){}}
+document.addEventListener?.('deen:navigated',schedule);
+if(typeof MutationObserver!=='undefined')new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
+window.DEEN_QURAN_HUB_V2={organize,action,stats,audit:()=>({build:BUILD,sections:document.querySelectorAll?.('[data-qia-section]')?.length||0,nav:!!document.querySelector?.('[data-qia-nav]'),stats:stats()})};
+schedule();
+})();
+</script>
