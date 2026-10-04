@@ -45,15 +45,24 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'
 const qs=()=>DEEN_QURAN.ensureState(), meta=id=>PACKS[id]||DEEN_QURAN_CONTENT?.surahs?.[id]||null;
 const rec=(id,n)=>DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n))||null;
 function registerAll(){
- for(const [id,p] of Object.entries(PACKS)) for(let i=0;i<p.arabic.length;i++) DEEN_QURAN_CONTENT.register({
-  surah_id:id,ayah_number:i+1,
-  arabic:{text:p.arabic[i],source:{provider:'Quran.com',edition:'Uthmani display',reference:p.number+':'+(i+1),url:p.quran},verification_status:'production_ready'},
-  translation:{language:'tr',text:p.meal[i],source:{provider:p.translationProvider||'Vikikaynak',edition:p.translationEdition||'Muhammed Hamdi Yazır, 1938',reference:p.name+' '+(i+1)+'. ayet',url:p.translationUrl||p.wiki,license:p.translationProvider?null:'Public domain',rights_reference:p.translationProvider?null:"https://tr.wikisource.org/wiki/Kur%27an"},verification_status:'production_ready'},
-  recitation:{audio_url:null,qari:null,riwayah:null,source:{},verification_status:'needs_review',rights_status:'unknown'},
-  learning_note:{text:null,source:{},verification_status:'needs_review'},
-  verification:{verification_status:'production_ready',religious_release_ready:true,verified_by:REVIEWER,verified_at:VERIFIED_AT,review_notes:['Arabic cross-checked against Quran.com.',p.translationProvider==='Quran.com'?'Turkish meal cross-checked against '+(p.translationEdition||'Quran.com Turkish translation')+' on Quran.com.':'Turkish meal cross-checked against public-domain Muhammed Hamdi Yazır text on Vikikaynak.','No new tafsir or recitation is released by this pack.']},
-  updated_at:VERIFIED_AT
- });
+ for(const [id,p] of Object.entries(PACKS)) for(let i=0;i<p.arabic.length;i++){
+  const n=i+1;
+  const existing=DEEN_QURAN_CONTENT?.internalGet?.(id,n);
+  const existingVerification=existing?.verification||null;
+  const expertManaged=!!existingVerification&&(
+    existingVerification.verification_status==='needs_review'||
+    (existingVerification.verified_by&&existingVerification.verified_by!==REVIEWER)
+  );
+  DEEN_QURAN_CONTENT.register({
+   surah_id:id,ayah_number:n,
+   arabic:{text:p.arabic[i],source:{provider:'Quran.com',edition:'Uthmani display',reference:p.number+':'+n,url:p.quran},verification_status:'production_ready'},
+   translation:{language:'tr',text:p.meal[i],source:{provider:p.translationProvider||'Vikikaynak',edition:p.translationEdition||'Muhammed Hamdi Yazır, 1938',reference:p.name+' '+n+'. ayet',url:p.translationUrl||p.wiki,license:p.translationProvider?null:'Public domain',rights_reference:p.translationProvider?null:"https://tr.wikisource.org/wiki/Kur%27an"},verification_status:'production_ready'},
+   recitation:existing?.recitation?.audio_url?existing.recitation:{audio_url:null,qari:null,riwayah:null,source:{},verification_status:'needs_review',rights_status:'unknown'},
+   learning_note:existing?.learning_note?.text?existing.learning_note:{text:null,source:{},verification_status:'needs_review'},
+   verification:expertManaged?existingVerification:{verification_status:'production_ready',religious_release_ready:true,verified_by:REVIEWER,verified_at:VERIFIED_AT,review_notes:['Arabic cross-checked against Quran.com.',p.translationProvider==='Quran.com'?'Turkish meal cross-checked against '+(p.translationEdition||'Quran.com Turkish translation')+' on Quran.com.':'Turkish meal cross-checked against public-domain Muhammed Hamdi Yazır text on Vikikaynak.','No new tafsir or recitation is released by this pack.']},
+   updated_at:expertManaged?(existing?.updated_at||VERIFIED_AT):VERIFIED_AT
+  });
+ }
  return DEEN_QURAN_CONTENT.summary();
 }
 registerAll();

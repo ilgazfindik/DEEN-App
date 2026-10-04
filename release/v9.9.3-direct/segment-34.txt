@@ -4442,7 +4442,7 @@ window.DEEN_REWARD_BADGE_ART={
           '<button type="button" onclick="DEEN_QURAN.memorize()"><i>◌</i><b>Ezber</b><small>Hatırlama çalışması</small></button>'+
           '<button type="button" onclick="DEEN_QURAN.dailyVerse()"><i>✦</i><b>Bugünün Ayeti</b><small>Günlük anlam çalışması</small></button>'+
         '</div>'+
-        '<p class="deen-quran-note">Kur’an metni, meal ve kıraat içerikleri doğrulanmış kaynak statüsü olmadan production’da gösterilmez.</p>'+
+        '<p class="deen-quran-note">Kur’an metni ve meal kaynakları kayıt altında tutulur; uzman onayı production release gate üzerinden ayrıca izlenir.</p>'+
       '</div>';
     document.documentElement.dataset.deenQuranDashboard='v10918';
     return true;
@@ -4743,7 +4743,7 @@ window.DEEN_REWARD_BADGE_ART={
           '</button>'
         ).join('')+
       '</div>'+
-      '<div class="deen-quran-library-note">Arapça metin, meal ve kıraat içerikleri yalnız doğrulama statüsü production-ready olduğunda öğrenme ekranına bağlanır.</div>'
+      '<div class="deen-quran-library-note">Arapça metin, meal ve ses kaynakları ayrı izlenir; uzman release onayı admin doğrulama hattında yönetilir.</div>'
     );
     document.documentElement.dataset.deenQuranLibrary='v10919';
     return true;
@@ -5239,6 +5239,12 @@ window.DEEN_REWARD_BADGE_ART={
   function registerContent(){
     if(!api()?.register)return false;
     for(const item of CONTENT){
+      const existing=api()?.internalGet?.('ikhlas',item.n);
+      const existingVerification=existing?.verification||null;
+      const expertManaged=!!existingVerification&&(
+        existingVerification.verification_status==='needs_review'||
+        (existingVerification.verified_by&&existingVerification.verified_by!==SOURCE_REVIEW)
+      );
       api().register({
         surah_id:'ikhlas',
         ayah_number:item.n,
@@ -5253,19 +5259,20 @@ window.DEEN_REWARD_BADGE_ART={
           source:{...MEAL_SOURCE,reference:"İhlâs "+item.n+". ayet"},
           verification_status:'production_ready'
         },
-        recitation:{
+        recitation:existing?.recitation?.audio_url?existing.recitation:{
           audio_url:null,
           qari:null,
           riwayah:null,
           source:{},
-          verification_status:'needs_review'
+          verification_status:'needs_review',
+          rights_status:'unknown'
         },
-        learning_note:{
+        learning_note:existing?.learning_note?.text?existing.learning_note:{
           text:null,
           source:{},
           verification_status:'needs_review'
         },
-        verification:{
+        verification:expertManaged?existingVerification:{
           verification_status:'production_ready',
           religious_release_ready:true,
           verified_by:SOURCE_REVIEW,
@@ -5276,12 +5283,11 @@ window.DEEN_REWARD_BADGE_ART={
             'No tafsir or interpretive learning note is released in this stage.'
           ]
         },
-        updated_at:VERIFIED_AT
+        updated_at:expertManaged?(existing?.updated_at||VERIFIED_AT):VERIFIED_AT
       });
     }
     return true;
   }
-
   function getAyah(n){
     return api()?.getAyah?.('ikhlas',Number(n))||null;
   }
