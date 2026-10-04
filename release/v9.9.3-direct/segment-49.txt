@@ -42,9 +42,9 @@
 (()=>{
 if(window.__deenV10942QuranJourneyV2)return;window.__deenV10942QuranJourneyV2=true;
 
-const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','kawthar','asr'];
-const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',kawthar:'Kevser',asr:'Asr'};
-const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,kawthar:3,asr:3};
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','kawthar','asr'];
+const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',kawthar:'Kevser',asr:'Asr'};
+const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,kawthar:3,asr:3};
 const PASS={ayah:80,meaning:80,final:75};
 const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
 const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);

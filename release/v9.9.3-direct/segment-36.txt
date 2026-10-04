@@ -24,6 +24,9 @@ meal:["Allah'ın yardımı ve fetih geldiğinde,","Ve insanların dalga dalga Al
 masad:{name:'Tebbet',number:111,quran:'https://quran.com/tr/tebbet',translationProvider:'Quran.com',translationEdition:'Turkish Translation (Diyanet)',translationUrl:'https://quran.com/tr/tebbet',
 arabic:['تَبَّتْ يَدَآ أَبِى لَهَبٍۢ وَتَبَّ','مَآ أَغْنَىٰ عَنْهُ مَالُهُۥ وَمَا كَسَبَ','سَيَصْلَىٰ نَارًۭا ذَاتَ لَهَبٍۢ','وَٱمْرَأَتُهُۥ حَمَّالَةَ ٱلْحَطَبِ','فِى جِيدِهَا حَبْلٌۭ مِّن مَّسَدٍۭ'],
 meal:["Ebu Leheb'in elleri kurusun; kurudu da!","Malı ve kazandığı kendisine fayda vermedi.","Alevli ateşe yaslanacaktır.","Karısı da, boynunda bir ip olduğu halde ona odun taşıyacaktır.","Karısı da, boynunda bir ip olduğu halde ona odun taşıyacaktır."]},
+fil:{name:'Fîl',number:105,quran:'https://quran.com/tr/fil/1-5',translationProvider:'Quran.com',translationEdition:'Elmalili Hamdi Yazir',translationUrl:'https://quran.com/tr/fil/translation/tr-hamdi',
+arabic:['أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَـٰبِ ٱلْفِيلِ','أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍۢ','وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ','تَرْمِيهِم بِحِجَارَةٍۢ مِّن سِجِّيلٍۢ','فَجَعَلَهُمْ كَعَصْفٍۢ مَّأْكُولٍۭ'],
+meal:["Görmedin mi Rabb'in fil sahiplerine ne yaptı?","Onların tuzaklarını boşa çıkarmadı mı?","Üzerlerine sürü sürü kuşlar gönderdi.","Onlara çamurdan sertleşmiş taşlar atıyorlardı.","Ve onları, yenilmiş ekin yaprağı gibi yaptı."]},
 falaq:{name:'Felak',number:113,quran:'https://quran.com/tr/felak',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Felak_Suresi",
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ','مِن شَرِّ مَا خَلَقَ','وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ','وَمِن شَرِّ ٱلنَّفَّـٰثَـٰتِ فِى ٱلْعُقَدِ','وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ'],
 meal:['De ki: Sığınırım Rabbına o felak\'ın,','Şerrinden yarattıklarının.','Ve şerriden bir gâsıkın daldığı zaman.','Ve o, ukdelere üfleyen neffasların şerrinden.','Ve şerrinden hâsidin hased ettiği zaman.']},
@@ -31,7 +34,7 @@ nas:{name:'Nâs',number:114,quran:'https://quran.com/tr/nas',wiki:"https://tr.wi
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ','مَلِكِ ٱلنَّاسِ','إِلَـٰهِ ٱلنَّاسِ','مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ','ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ','مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ'],
 meal:['De ki sığınırım Rabb’ine nâsın,','Melikine nâsın,','İlâhına nâsın,','Şerrinden o sinsi vesvasın.','Ki vesvese verir sinelerinde nâsın.','Gerek cinden gerekse insden.']}
 };
-const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','kawthar','asr'], STEPS=['listen','read','meaning','recall','complete'];
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','kawthar','asr'], STEPS=['listen','read','meaning','recall','complete'];
 const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const qs=()=>DEEN_QURAN.ensureState(), meta=id=>PACKS[id]||DEEN_QURAN_CONTENT?.surahs?.[id]||null;
 const rec=(id,n)=>DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n))||null;
