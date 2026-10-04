@@ -1,5 +1,153 @@
-<!-- DEEN_RETIRED_SEGMENT_OK
-DEEN v10.9.60 universal Quran ayah audio migration.
-This legacy per-surah audio segment is intentionally retired.
-Runtime is handled by release/v9.9.3-direct/segment-52.txt.
--->
+<!-- DEEN v10.9.68 — Quran Play Path -->
+<style id="deen-v10968-quran-play-path-css">
+.deen-qia-play [data-qarena-hub]{display:none!important}
+.deen-qplay{display:grid;gap:11px}
+.deen-qplay-hero{padding:14px;border:1px solid rgba(105,216,184,.22);border-radius:18px;background:radial-gradient(circle at 93% 0%,rgba(102,222,187,.11),transparent 40%),linear-gradient(155deg,#10373a,#092830)}
+.deen-qplay-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.deen-qplay-top b{display:block;color:#effaf7;font:900 12px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qplay-top small{display:block;margin-top:4px;color:#759491;font:650 7.7px/1.35 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qplay-level{flex:0 0 auto;padding:7px 9px;border:1px solid rgba(201,169,91,.2);border-radius:999px;background:rgba(91,70,29,.12);color:#dbc68b;font:850 7.5px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qplay-daily{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:11px}
+.deen-qplay-daynode{position:relative;min-width:0;padding:10px 8px;border:1px solid rgba(82,138,141,.19);border-radius:13px;background:#08262e;color:#dceeea;text-align:left}
+.deen-qplay-daynode.done{border-color:rgba(94,207,176,.28);background:#103934}.deen-qplay-daynode.locked{opacity:.48}
+.deen-qplay-daynode i{width:24px;height:24px;display:grid;place-items:center;border-radius:8px;background:#11353a;color:#91dbc6;font-style:normal;font-size:8px;font-weight:900}
+.deen-qplay-daynode.done i{background:#185046;color:#a8edd9}.deen-qplay-daynode b{display:block;margin-top:8px;font-size:8.5px}.deen-qplay-daynode small{display:block;margin-top:4px;color:#72918f;font-size:6.8px;line-height:1.3}
+.deen-qplay-daybar{height:5px;margin-top:10px;overflow:hidden;border-radius:999px;background:#061b22}.deen-qplay-daybar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#59cbb2,#9ce8d1)}
+.deen-qplay-path{position:relative;display:grid;gap:9px;padding:2px 0}
+.deen-qplay-path:before{content:"";position:absolute;left:19px;top:21px;bottom:21px;width:2px;background:linear-gradient(#4cb49f,rgba(76,180,159,.12))}
+.deen-qplay-node{position:relative;display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:10px;min-height:68px;padding:10px 11px;border:1px solid rgba(80,134,138,.17);border-radius:15px;background:linear-gradient(160deg,#0c2c34,#08252d);text-align:left;color:#e8f6f3}
+.deen-qplay-node.unlocked{border-color:rgba(94,199,173,.22)}.deen-qplay-node.current{border-color:rgba(105,221,187,.36);background:radial-gradient(circle at 100% 0%,rgba(104,221,187,.09),transparent 42%),linear-gradient(160deg,#11383a,#09272f)}
+.deen-qplay-node.locked{opacity:.55}
+.deen-qplay-node .orb{position:relative;z-index:1;width:38px;height:38px;display:grid;place-items:center;border:2px solid #214d50;border-radius:50%;background:#0b2a32;color:#6f9692;font-style:normal;font-size:10px;font-weight:900}
+.deen-qplay-node.unlocked .orb,.deen-qplay-node.current .orb{border-color:#57bca6;background:#14463f;color:#a2ead5;box-shadow:0 0 0 4px #09282f}
+.deen-qplay-node .copy{min-width:0}.deen-qplay-node .copy b{display:block;font-size:9.5px}.deen-qplay-node .copy small{display:block;margin-top:4px;color:#718f8d;font-size:7.2px;line-height:1.35}
+.deen-qplay-node em{font-style:normal;color:#7eaaa2;font-size:7px;font-weight:850;white-space:nowrap}
+.deen-qplay-note{padding:9px 10px;border:1px solid rgba(81,134,138,.13);border-radius:12px;background:rgba(7,29,36,.6);color:#6d8a88;font-size:7px;line-height:1.45}
+.deen-qplay-celebrate{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:rgba(1,14,20,.56);backdrop-filter:blur(5px);pointer-events:none;animation:deenQPlayFade .18s ease-out}
+.deen-qplay-celebrate-card{position:relative;width:min(300px,82vw);padding:22px;border:1px solid rgba(122,232,202,.35);border-radius:24px;background:radial-gradient(circle at 50% 0%,rgba(119,232,199,.18),transparent 36%),linear-gradient(160deg,#154740,#0a2b32);text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.42);animation:deenQPlayPop .32s cubic-bezier(.2,.8,.25,1.15)}
+.deen-qplay-celebrate-card .star{width:54px;height:54px;margin:0 auto 12px;display:grid;place-items:center;border:1px solid rgba(225,193,109,.32);border-radius:18px;background:rgba(111,84,30,.2);color:#eed28a;font-size:24px;box-shadow:0 0 28px rgba(226,195,111,.11)}
+.deen-qplay-celebrate-card b{display:block;color:#f1fbf8;font-size:19px}.deen-qplay-celebrate-card p{margin:6px 0 0;color:#92b5af;font-size:9px;line-height:1.45}.deen-qplay-celebrate-card strong{display:block;margin-top:13px;color:#a4ead6;font-size:13px}
+@keyframes deenQPlayPop{from{opacity:0;transform:scale(.82) translateY(15px)}to{opacity:1;transform:none}}
+@keyframes deenQPlayFade{from{opacity:0}to{opacity:1}}
+@media(max-width:360px){.deen-qplay-daily{gap:5px}.deen-qplay-daynode{padding:9px 6px}.deen-qplay-node{grid-template-columns:36px 1fr auto;padding:9px}}
+@media(prefers-reduced-motion:reduce){.deen-qplay-celebrate,.deen-qplay-celebrate-card{animation:none!important}}
+</style>
+<script id="deen-v10968-quran-play-path-js">
+(()=>{
+if(window.__deenV10968QuranPlayPath)return;window.__deenV10968QuranPlayPath=true;
+const BUILD='9283quranplaypath1';
+let timer=0,activeRoute=null;
+const qs=()=>{try{return DEEN_QURAN?.ensureState?.()||state?.quranJourney||{}}catch(_){return state?.quranJourney||{}}};
+function persist(){try{DEEN_QURAN?.persistState?.()}catch(_){try{saveState?.()}catch(__){}}}
+function playStore(){
+ const q=qs();q.quranPlayPath=q.quranPlayPath&&typeof q.quranPlayPath==='object'?q.quranPlayPath:{version:1,correct:0,wrong:0};
+ q.quranPlayPath.version=1;q.quranPlayPath.correct=Math.max(0,Number(q.quranPlayPath.correct)||0);q.quranPlayPath.wrong=Math.max(0,Number(q.quranPlayPath.wrong)||0);
+ if(!q.quranPlayPath.seeded){
+  const old=q.questionArenaMastery?.surahs||{};let c=0,w=0;for(const s of Object.values(old)){c+=Math.max(0,Number(s?.correct)||0);w+=Math.max(0,Number(s?.wrong)||0)}
+  q.quranPlayPath.correct=Math.max(q.quranPlayPath.correct,c);q.quranPlayPath.wrong=Math.max(q.quranPlayPath.wrong,w);q.quranPlayPath.seeded=true;persist()
+ }
+ return q.quranPlayPath
+}
+function lifetime(){
+ const s=playStore(),correct=s.correct,wrong=s.wrong,attempts=correct+wrong,acc=attempts?Math.round(correct/attempts*100):0;
+ return{correct,wrong,attempts,accuracy:acc}
+}
+function daily(){
+ const m=DEEN_QURAN_REWARDS?.missions?.()||{rows:[],done:0,complete:false,claimed:false};
+ const by=id=>(m.rows||[]).find(x=>x.id===id)||{value:0,target:0,done:false};
+ return{questions:by('questions'),correct:by('correct'),challenges:by('challenges'),done:Number(m.done)||0,complete:!!m.complete,claimed:!!m.claimed}
+}
+function weakCount(){return (DEEN_QURAN_QUESTION_ARENA?.weakRows?.()||[]).length}
+function gameLevel(){
+ const x=lifetime();
+ if(x.attempts>=50&&x.correct>=35)return{n:5,name:'Usta Oyuncu'};
+ if(x.attempts>=30&&x.correct>=20)return{n:4,name:'İleri'};
+ if(x.attempts>=20&&x.correct>=12)return{n:3,name:'Aktif'};
+ if(x.attempts>=12&&x.correct>=7)return{n:2,name:'Açılıyor'};
+ if(x.correct>=3)return{n:1,name:'Başlangıç'};
+ return{n:0,name:'Yeni'}
+}
+function nodes(){
+ const x=lifetime(),weak=weakCount();
+ return[
+  {id:'mixed',icon:'◇',title:'Soru Arenası',sub:'Karışık soru modları',unlocked:true,req:'Açık',run:()=>DEEN_QURAN_QUESTION_ARENA?.open?.('mixed','all')},
+  {id:'meaning',icon:'≋',title:'Meali Bul',sub:'Ayet ile kayıtlı meali eşleştir',unlocked:x.correct>=5,req:x.correct>=5?'Açık':'5 doğru',run:()=>DEEN_QURAN_QUESTION_ARENA?.open?.('meaning','all')},
+  {id:'audio',icon:'♪',title:'Sesi Bul',sub:'Dinlediğin ayeti tanı',unlocked:x.attempts>=12,req:x.attempts>=12?'Açık':'12 soru',run:()=>DEEN_QURAN_QUESTION_ARENA?.open?.('audio','all')},
+  {id:'sequence',icon:'→',title:'Ayet Zinciri',sub:'Bir sonraki ayeti seç',unlocked:x.correct>=15,req:x.correct>=15?'Açık':'15 doğru',run:()=>DEEN_QURAN_QUESTION_ARENA?.open?.('next_ayah','all')},
+  {id:'challenge',icon:'10',title:'10 Soru Challenge',sub:'Kolay · Orta · Zor',unlocked:x.attempts>=20,req:x.attempts>=20?'Açık':'20 soru',run:()=>DEEN_QURAN_CHALLENGE?.openSetup?.()},
+  {id:'weak',icon:'!',title:'Zayıf Ayet Boss',sub:'Kişisel risk havuzundan zor tur',unlocked:x.attempts>=25&&weak>=2,req:x.attempts<25?'25 soru':weak<2?'2 zayıf ayet':'Açık',run:()=>DEEN_QURAN_REWARDS?.openWeak?.()}
+ ]
+}
+function startNode(id){
+ const n=nodes().find(x=>x.id===id);if(!n)return false;
+ if(!n.unlocked){if(typeof toast==='function')toast(n.title+' · kilidi açmak için '+n.req);return false}
+ activeRoute=id;const r=n.run?.();schedule();return r
+}
+function startDaily(step){
+ const d=daily();
+ if(step===1){activeRoute='daily1';return DEEN_QURAN_QUESTION_ARENA?.open?.('mixed','current')}
+ if(step===2){if(Number(d.questions.value)<3){if(typeof toast==='function')toast('Önce 3 soru çöz');return false}activeRoute='daily2';return DEEN_QURAN_QUESTION_ARENA?.open?.('meaning','all')}
+ if(step===3){if(Number(d.correct.value)<7){if(typeof toast==='function')toast('Önce 7 doğru cevaba ulaş');return false}activeRoute='daily3';return DEEN_QURAN_CHALLENGE?.start?.('medium','all')}
+ return false
+}
+function dailyHtml(){
+ const d=daily(),q=Number(d.questions.value)||0,c=Number(d.correct.value)||0,ch=Number(d.challenges.value)||0;
+ const rows=[
+  {n:1,title:'Isınma',sub:Math.min(q,3)+'/3 soru',done:q>=3,locked:false},
+  {n:2,title:'Anlam',sub:Math.min(c,7)+'/7 doğru',done:c>=7,locked:q<3},
+  {n:3,title:'Challenge',sub:Math.min(ch,1)+'/1 tur',done:ch>=1,locked:c<7}
+ ];
+ const pct=Math.round(rows.filter(x=>x.done).length/3*100);
+ return'<div class="deen-qplay-daily">'+rows.map(x=>'<button type="button" class="deen-qplay-daynode'+(x.done?' done':'')+(x.locked?' locked':'')+'" onclick="DEEN_QURAN_PLAY_PATH.startDaily('+x.n+')" '+(x.locked?'aria-disabled="true"':'')+'><i>'+(x.done?'✓':x.n)+'</i><b>'+x.title+'</b><small>'+x.sub+'</small></button>').join('')+'</div><div class="deen-qplay-daybar"><i style="width:'+pct+'%"></i></div>'
+}
+function pathHtml(){
+ const ns=nodes(),firstLocked=ns.findIndex(x=>!x.unlocked);
+ return'<div class="deen-qplay-path">'+ns.map((x,i)=>'<button type="button" class="deen-qplay-node '+(x.unlocked?'unlocked ':'locked ')+(i===firstLocked-1||firstLocked===0&&i===0?'current':'')+'" onclick="DEEN_QURAN_PLAY_PATH.startNode(\''+x.id+'\')"><i class="orb">'+(x.unlocked?x.icon:'•')+'</i><span class="copy"><b>'+x.title+'</b><small>'+x.sub+'</small></span><em>'+x.req+'</em></button>').join('')+'</div>'
+}
+function html(){
+ const x=lifetime(),lvl=gameLevel(),d=daily();
+ const sig=[x.correct,x.wrong,d.questions.value,d.correct.value,d.challenges.value,weakCount(),lvl.n].join('|');
+ return'<div class="deen-qplay" data-qplay-root="1" data-qplay-sig="'+sig+'">'+
+  '<section class="deen-qplay-hero"><div class="deen-qplay-top"><span><b>Günlük Oyun Rotası</b><small>Bugünün 3 adımını sırayla tamamla.</small></span><span class="deen-qplay-level">SV '+lvl.n+' · '+lvl.name+'</span></div>'+dailyHtml()+'</section>'+
+  '<div class="deen-qia-section-head"><span><h2>Oyun Yolu</h2><p>Oynadıkça yeni soru modları açılır.</p></span><em>'+x.correct+' doğru · %'+x.accuracy+'</em></div>'+
+  pathHtml()+
+  '<div class="deen-qplay-note">Oyun seviyesi yalnız uygulama içi soru etkinliğini ve performansını gösterir; dinî yeterlilik veya ibadet ölçüsü değildir.</div>'+
+ '</div>'
+}
+function inject(){
+ const body=document.querySelector?.('[data-qia-body="play"]');if(!body)return false;
+ let root=body.querySelector?.('[data-qplay-root]');
+ const next=html(),tmp=document.createElement('div');tmp.innerHTML=next;const fresh=tmp.firstElementChild;
+ if(root?.dataset?.qplaySig===fresh?.dataset?.qplaySig){document.documentElement.dataset.deenQuranPlayPath='v10968';return true}
+ if(root)root.replaceWith(fresh);else body.insertAdjacentElement('afterbegin',fresh);
+ document.documentElement.dataset.deenQuranPlayPath='v10968';return true
+}
+function celebrate(result){
+ if(!result||(!Number(result.xp)&&!Number(result.sparkles)))return false;
+ document.querySelector?.('.deen-qplay-celebrate')?.remove();
+ const o=document.createElement('div');o.className='deen-qplay-celebrate';
+ o.innerHTML='<div class="deen-qplay-celebrate-card"><div class="star">★</div><b>Challenge tamamlandı</b><p>Oyun yolunda ilerledin.</p><strong>+'+(Number(result.xp)||0)+' XP'+(Number(result.sparkles)?' · +'+Number(result.sparkles)+' Pırıltı':'')+'</strong></div>';
+ document.body.appendChild(o);setTimeout(()=>o.remove(),1700);schedule();return true
+}
+function installRewards(){
+ const r=window.DEEN_QURAN_REWARDS;if(!r||r.__playPathWrapped)return false;
+ const base=r.challengeCompleted?.bind(r);if(typeof base!=='function')return false;
+ r.challengeCompleted=function(snapshot){const out=base(snapshot);setTimeout(()=>celebrate(out),0);return out};r.__playPathWrapped=true;return true
+}
+function installArena(){
+ const a=window.DEEN_QURAN_QUESTION_ARENA;if(!a||a.__playPathWrapped)return false;
+ const base=a.choose?.bind(a);if(typeof base!=='function')return false;
+ a.choose=function(value){
+  const before=a.state?.();if(before?.answered)return base(value);
+  const out=base(value),after=a.state?.();
+  if(after?.answered&&!before?.answered){const s=playStore();if(out===true)s.correct++;else s.wrong++;persist()}
+  setTimeout(schedule,0);return out
+ };a.__playPathWrapped=true;return true
+}
+function schedule(){clearTimeout(timer);timer=setTimeout(()=>{installRewards();installArena();inject()},50)}
+const mo=typeof MutationObserver!=='undefined'?new MutationObserver(()=>schedule()):null;mo?.observe?.(document.body,{childList:true,subtree:true});
+document.addEventListener?.('deen:navigated',schedule);
+window.DEEN_QURAN_PLAY_PATH={inject,startNode,startDaily,celebrate,lifetime,daily,nodes,gameLevel,audit:()=>({build:BUILD,lifetime:lifetime(),level:gameLevel(),daily:daily(),unlocked:nodes().filter(x=>x.unlocked).map(x=>x.id),weak:weakCount()})};
+schedule();
+})();
+</script>
