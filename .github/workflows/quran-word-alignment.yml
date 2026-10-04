@@ -1,0 +1,45 @@
+name: Quran Word Alignment
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Optional: surah id (e.g. fatiha) or ayah key (e.g. fatiha:1)"
+        required: false
+        type: string
+      force:
+        description: "Re-align entries that already have timings"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Generate exact Quran word timings
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ALIGN_ONLY: ${{ inputs.only }}
+          FORCE_ALIGNMENT: ${{ inputs.force && '1' || '0' }}
+        run: node scripts/quran/align-word-timings.mjs
+      - name: Commit timing manifest
+        run: |
+          if git diff --quiet -- assets/quran/audio/word-timings.json; then
+            echo "No timing changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/quran/audio/word-timings.json
+          git commit -m "Update Quran exact word timings"
+          git push
