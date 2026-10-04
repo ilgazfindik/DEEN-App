@@ -1,5 +1,168 @@
-<!-- DEEN_RETIRED_SEGMENT_OK
-DEEN v10.9.60 universal Quran ayah audio migration.
-This legacy per-surah audio segment is intentionally retired.
-Runtime is handled by release/v9.9.3-direct/segment-52.txt.
--->
+<!-- DEEN v10.9.63 — Quran Question Arena: 16 surahs / 90 ayahs -->
+<style id="deen-v10963-quran-question-arena-css">
+.deen-qarena-hub{margin-top:13px}
+.deen-qarena-hub-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:8px}
+.deen-qarena-hub-head h2{margin:0;color:#eaf8f4;font:900 13px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qarena-hub-head span{color:#6f918d;font:750 7.5px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qarena-hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.deen-qarena-hub-card{min-height:82px;padding:12px;border:1px solid rgba(91,151,149,.2);border-radius:16px;background:linear-gradient(160deg,#0e3037,#09262e);color:#eaf8f5;text-align:left}
+.deen-qarena-hub-card.primary{border-color:rgba(100,216,184,.31);background:radial-gradient(circle at 100% 0%,rgba(106,226,192,.12),transparent 42%),linear-gradient(160deg,#123b3d,#0a2a31)}
+.deen-qarena-hub-card i{width:30px;height:30px;display:grid;place-items:center;margin-bottom:8px;border:1px solid rgba(104,204,179,.18);border-radius:10px;background:#12373b;color:#96dfca;font-style:normal;font-size:12px}
+.deen-qarena-hub-card b{display:block;color:#eefaf7;font-size:10px}.deen-qarena-hub-card small{display:block;margin-top:4px;color:#769592;font-size:7.7px;line-height:1.35}
+.deen-qarena{display:grid;gap:10px}.deen-qarena-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.deen-qarena-top b{display:block;color:#edf9f6;font-size:13px}.deen-qarena-top small{display:block;margin-top:4px;color:#789894;font-size:8px}
+.deen-qarena-score{flex:0 0 auto;padding:7px 9px;border:1px solid rgba(104,207,181,.2);border-radius:12px;background:#0f3338;color:#9ce4cf;font-size:8px;font-weight:850}
+.deen-qarena-scroll{display:flex;gap:6px;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none}.deen-qarena-scroll::-webkit-scrollbar{display:none}
+.deen-qarena-pill{flex:0 0 auto;min-height:31px;padding:0 10px;border:1px solid rgba(79,132,136,.2);border-radius:999px;background:#0a2730;color:#789795;font-size:8px;font-weight:800}
+.deen-qarena-pill.on{border-color:rgba(104,215,184,.3);background:#143c3e;color:#9ee5d0}
+.deen-qarena-card{padding:15px;border:1px solid rgba(91,151,149,.22);border-radius:19px;background:radial-gradient(circle at 92% 0%,rgba(101,216,185,.075),transparent 33%),linear-gradient(180deg,#0d3037,#09262e)}
+.deen-qarena-kicker{color:#84cbb9;font-size:8px;font-weight:850;letter-spacing:.5px}.deen-qarena-card h2{margin:7px 0 5px;color:#f0faf7;font-size:18px;line-height:1.18}.deen-qarena-card p{margin:0;color:#819e9a;font-size:9px;line-height:1.45}
+.deen-qarena-ar{margin-top:13px;padding:15px 11px;border:1px solid rgba(108,199,178,.15);border-radius:15px;background:#071f27;color:#fff;text-align:center;direction:rtl;font-family:"Noto Naskh Arabic","Amiri",serif;font-size:25px;line-height:1.75}
+.deen-qarena-ar .blank{display:inline-block;min-width:52px;border-bottom:2px solid rgba(116,211,186,.55);color:#83d7c0;font-family:Inter,system-ui,sans-serif;font-size:10px;direction:ltr}
+.deen-qarena-options{display:grid;gap:8px;margin-top:12px}.deen-qarena-option{width:100%;min-height:47px;padding:10px 12px;border:1px solid rgba(86,144,145,.22);border-radius:13px;background:#0b2b32;color:#e9f6f3;text-align:left;font-size:9px;line-height:1.4}
+.deen-qarena-option.ar{text-align:center;direction:rtl;font-family:"Noto Naskh Arabic","Amiri",serif;font-size:18px;line-height:1.4}
+.deen-qarena-option.good{border-color:rgba(101,216,184,.38);background:#16433f;color:#a9eedb}.deen-qarena-option.bad{border-color:rgba(225,145,110,.35);background:#422b27;color:#efb198}
+.deen-qarena-audio{width:100%;min-height:48px;margin-top:13px;border:1px solid rgba(105,216,185,.28);border-radius:14px;background:linear-gradient(180deg,#176052,#10463f);color:#effcf8;font-size:10px;font-weight:850}
+.deen-qarena-feedback{margin-top:11px;padding:10px;border-radius:12px;font-size:8.5px;font-weight:750;line-height:1.4}.deen-qarena-feedback.good{border:1px solid rgba(91,206,175,.22);background:rgba(31,113,92,.15);color:#8bdcc5}.deen-qarena-feedback.bad{border:1px solid rgba(219,139,105,.2);background:rgba(120,62,43,.13);color:#e1a38a}
+.deen-qarena-next{width:100%;min-height:45px;margin-top:10px;border:1px solid rgba(105,216,185,.26);border-radius:13px;background:#123c3c;color:#a5ead6;font-size:9px;font-weight:850}
+.deen-qarena-build{color:#647f7d;font-size:7px;line-height:1.35}
+@media(max-width:350px){.deen-qarena-hub-grid{grid-template-columns:1fr 1fr}.deen-qarena-card{padding:13px}.deen-qarena-ar{font-size:22px}}
+</style>
+<script id="deen-v10963-quran-question-arena-js">
+(()=>{
+if(window.__deenV10963QuranQuestionArena)return;window.__deenV10963QuranQuestionArena=true;
+const BUILD='9278quranarena1';
+const META={
+ fatiha:{name:'Fâtiha',count:7},ikhlas:{name:'İhlâs',count:4},falaq:{name:'Felak',count:5},nas:{name:'Nâs',count:6},
+ kafirun:{name:'Kâfirûn',count:6},nasr:{name:'Nasr',count:3},masad:{name:'Tebbet',count:5},fil:{name:'Fîl',count:5},
+ quraysh:{name:'Kureyş',count:4},maun:{name:'Mâûn',count:7},sharh:{name:'İnşirah',count:8},tin:{name:'Tîn',count:8},
+ bayyina:{name:'Beyyine',count:8},zilzal:{name:'Zilzâl',count:8},kawthar:{name:'Kevser',count:3},asr:{name:'Asr',count:3}
+};
+const IDS=Object.keys(META);
+const TYPES=['mixed','fill_blank','continuation','meaning','surah','audio','next_ayah','ayah_number'];
+const LABEL={mixed:'Karışık',fill_blank:'Boşluk',continuation:'Devamı',meaning:'Meali Bul',surah:'Hangi Sure?',audio:'Sesi Bul',next_ayah:'Sonraki Ayet',ayah_number:'Ayet No'};
+const SCOPES=['all','current','learned'];
+const SCOPE_LABEL={all:'Tüm 90 Ayet',current:'Bu Sure',learned:'Öğrendiklerim'};
+let A={scope:'all',type:'mixed',score:0,wrong:0,streak:0,total:0,q:null,answered:false,choice:null};
+const esc=v=>String(v??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+const shuffle=a=>{const o=[...a];for(let i=o.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[o[i],o[j]]=[o[j],o[i]]}return o};
+const uniqBy=(a,key)=>{const s=new Set();return a.filter(x=>{const k=key(x);if(s.has(k))return false;s.add(k);return true})};
+function qs(){try{return DEEN_QURAN?.ensureState?.()||state?.quranJourney||{}}catch(_){return state?.quranJourney||{}}}
+function row(id,n){const r=DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n));if(!r)return null;return{id,ayah:Number(n),name:META[id]?.name||id,arabic:String(r.arabic?.text||''),translation:String(r.translation?.text||''),record:r}}
+function allRows(){const out=[];for(const id of IDS)for(let n=1;n<=META[id].count;n++){const r=row(id,n);if(r?.arabic)out.push(r)}return out}
+function learnedRows(){const q=qs(),out=[];for(const id of IDS){const s=q.progress?.surahs?.[id];for(let n=1;n<=META[id].count;n++)if(s?.ayahs?.[n]?.completedAt){const r=row(id,n);if(r)out.push(r)}}return out}
+function scopeRows(){
+ if(A.scope==='learned'){const x=learnedRows();if(x.length>=2)return x}
+ if(A.scope==='current'){const id=IDS.includes(qs()?.profile?.currentSurah)?qs().profile.currentSurah:'fatiha';const x=[];for(let n=1;n<=META[id].count;n++){const r=row(id,n);if(r)x.push(r)}if(x.length)return x}
+ return allRows();
+}
+function pick(a){return a[Math.floor(Math.random()*a.length)]||null}
+function words(t){return String(t||'').trim().split(/\s+/).filter(Boolean)}
+function option(id,text,value,kind){return{id,text:String(text||''),value,kind:kind||'text'}}
+function makeFill(pool,target){
+ const w=words(target.arabic);if(w.length<2)return makeSurah(pool,target);
+ const bi=Math.min(w.length-1,Math.max(0,Math.floor(w.length/2)));
+ const ans=w[bi];const candidates=[];
+ for(const r of shuffle(pool))for(const x of words(r.arabic)){if(x!==ans&&!candidates.includes(x))candidates.push(x);if(candidates.length>=3)break}
+ return{type:'fill_blank',target,prompt:w.map((x,i)=>i===bi?'__BLANK__':x),answer:ans,options:shuffle([option('c',ans,ans,'ar'),...candidates.slice(0,3).map((x,i)=>option('d'+i,x,x,'ar'))])};
+}
+function makeContinuation(pool,target){
+ const w=words(target.arabic);if(w.length<3)return makeSurah(pool,target);
+ const split=Math.max(1,Math.min(w.length-1,Math.floor(w.length/2)));
+ const prompt=w.slice(0,split).join(' '),ans=w.slice(split).join(' ');const ds=[];
+ for(const r of shuffle(pool)){if(r.id===target.id&&r.ayah===target.ayah)continue;const rw=words(r.arabic);const x=rw.slice(Math.max(1,Math.floor(rw.length/2))).join(' ');if(x&&x!==ans&&!ds.includes(x))ds.push(x);if(ds.length>=3)break}
+ return{type:'continuation',target,prompt,answer:ans,options:shuffle([option('c',ans,ans,'ar'),...ds.map((x,i)=>option('d'+i,x,x,'ar'))])};
+}
+function makeMeaning(pool,target){
+ if(!target.translation)return makeSurah(pool,target);
+ const others=uniqBy(shuffle(pool).filter(x=>x.translation&&x.translation!==target.translation),x=>x.translation).slice(0,3);
+ return{type:'meaning',target,prompt:target.arabic,answer:target.translation,options:shuffle([option('c',target.translation,target.translation),...others.map((x,i)=>option('d'+i,x.translation,x.translation))])};
+}
+function makeSurah(pool,target){
+ const names=shuffle(IDS.filter(x=>x!==target.id)).slice(0,3);
+ return{type:'surah',target,prompt:target.arabic,answer:target.id,options:shuffle([option('c',target.name,target.id),...names.map((id,i)=>option('d'+i,META[id].name,id))])};
+}
+function makeAudio(pool,target){
+ const others=shuffle(pool.filter(x=>!(x.id===target.id&&x.ayah===target.ayah))).slice(0,3);
+ return{type:'audio',target,prompt:'audio',answer:target.id+':'+target.ayah,options:shuffle([option('c',target.arabic,target.id+':'+target.ayah,'ar'),...others.map((x,i)=>option('d'+i,x.arabic,x.id+':'+x.ayah,'ar'))])};
+}
+function makeNext(pool,target){
+ if(target.ayah>=META[target.id].count){const candidates=pool.filter(x=>x.ayah<META[x.id].count);target=pick(candidates)||target}
+ const next=row(target.id,target.ayah+1);if(!next)return makeSurah(pool,target);
+ const others=shuffle(pool.filter(x=>x.arabic!==next.arabic&&!(x.id===target.id&&x.ayah===target.ayah))).slice(0,3);
+ return{type:'next_ayah',target,prompt:target.arabic,answer:next.id+':'+next.ayah,options:shuffle([option('c',next.arabic,next.id+':'+next.ayah,'ar'),...others.map((x,i)=>option('d'+i,x.arabic,x.id+':'+x.ayah,'ar'))])};
+}
+function makeAyahNumber(pool,target){
+ const nums=[target.ayah];for(let i=1;nums.length<Math.min(4,META[target.id].count);i++){const n=((target.ayah-1+i)%META[target.id].count)+1;if(!nums.includes(n))nums.push(n)}
+ return{type:'ayah_number',target,prompt:target.arabic,answer:String(target.ayah),options:shuffle(nums.map((n,i)=>option(i?'d'+i:'c','Ayet '+n,String(n))))};
+}
+function makeQuestion(){
+ const pool=scopeRows();if(!pool.length)return null;
+ const target=pick(pool);let type=A.type;
+ if(type==='mixed')type=pick(['fill_blank','continuation','meaning','surah','audio','next_ayah','ayah_number']);
+ const q=type==='fill_blank'?makeFill(pool,target):type==='continuation'?makeContinuation(pool,target):type==='meaning'?makeMeaning(pool,target):type==='surah'?makeSurah(pool,target):type==='audio'?makeAudio(pool,target):type==='next_ayah'?makeNext(pool,target):makeAyahNumber(pool,target);
+ q.sourceCount=pool.length;return q;
+}
+function titleFor(q){return({fill_blank:'Eksik kelimeyi bul',continuation:'Ayetin devamını seç',meaning:'Doğru meali bul',surah:'Bu ayet hangi surede?',audio:'Dinlediğin ayeti bul',next_ayah:'Bundan sonra hangi ayet gelir?',ayah_number:'Bu kaçıncı ayet?'})[q.type]||'Kur’an sorusu'}
+function kickerFor(q){return({fill_blank:'BOŞLUK DOLDURMA',continuation:'DEVAMINI BUL',meaning:'AYET · MEAL',surah:'SUREYİ BUL',audio:'SESİ BUL',next_ayah:'AYET SIRASI',ayah_number:'AYET NUMARASI'})[q.type]||'KUR’AN PRATİĞİ'}
+function promptHtml(q){
+ if(q.type==='audio')return'<button class="deen-qarena-audio" type="button" onclick="DEEN_QURAN_QUESTION_ARENA.play()">🔊 AYETİ DİNLE</button>';
+ if(q.type==='fill_blank')return'<div class="deen-qarena-ar" lang="ar">'+q.prompt.map(x=>x==='__BLANK__'?'<span class="blank">_____</span>':esc(x)).join(' ')+'</div>';
+ return'<div class="deen-qarena-ar" lang="ar">'+esc(q.prompt)+'</div>';
+}
+function optionsHtml(q){
+ return'<div class="deen-qarena-options">'+q.options.map(o=>{
+  const cls=A.answered?(o.value===q.answer?' good':(A.choice===o.value?' bad':'')):'';
+  return'<button class="deen-qarena-option'+(o.kind==='ar'?' ar':'')+cls+'" type="button" '+(A.answered?'disabled':'')+' onclick="DEEN_QURAN_QUESTION_ARENA.choose(\''+esc(o.value).replace(/'/g,'&#39;')+'\')">'+esc(o.text)+'</button>';
+ }).join('')+'</div>';
+}
+function body(){
+ const q=A.q;if(!q)return'<div class="deen-quran-pending">Soru havuzu hazırlanamadı.</div>';
+ const feedback=A.answered?'<div class="deen-qarena-feedback '+(A.choice===q.answer?'good':'bad')+'">'+(A.choice===q.answer?'Doğru. Devam edebilirsin.':'Doğru cevap işaretlendi. Bir sonraki soruda tekrar dene.')+'</div>':'';
+ return'<div class="deen-qarena">'+
+  '<div class="deen-qarena-top"><span><b>Soru Arenası</b><small>'+q.target.name+' · Ayet '+q.target.ayah+' · '+q.sourceCount+' ayetlik havuz</small></span><span class="deen-qarena-score">✓ '+A.score+' · 🔥 '+A.streak+'</span></div>'+
+  '<div class="deen-qarena-scroll">'+SCOPES.map(x=>'<button class="deen-qarena-pill'+(A.scope===x?' on':'')+'" onclick="DEEN_QURAN_QUESTION_ARENA.setScope(\''+x+'\')">'+SCOPE_LABEL[x]+'</button>').join('')+'</div>'+
+  '<div class="deen-qarena-scroll">'+TYPES.map(x=>'<button class="deen-qarena-pill'+(A.type===x?' on':'')+'" onclick="DEEN_QURAN_QUESTION_ARENA.setType(\''+x+'\')">'+LABEL[x]+'</button>').join('')+'</div>'+
+  '<div class="deen-qarena-card"><div class="deen-qarena-kicker">'+kickerFor(q)+'</div><h2>'+titleFor(q)+'</h2><p>Kaynaklı Arapça metin ve kayıtlı meal verisinden otomatik oluşturuldu.</p>'+
+   promptHtml(q)+optionsHtml(q)+feedback+(A.answered?'<button class="deen-qarena-next" onclick="DEEN_QURAN_QUESTION_ARENA.next()">SONRAKİ SORU →</button>':'')+
+  '</div><div class="deen-qarena-build">16 sure · 90 ayet · yorum/tefsir sorusu üretmez; yalnız kayıtlı metin, meal, sıra ve ses eşleşmesini kullanır.</div></div>';
+}
+function redraw(){const x=document.querySelector('.deen-qarena');if(!x)return false;const h=document.createElement('div');h.innerHTML=body();x.replaceWith(h.firstElementChild);return true}
+function resetQuestion(){DEEN_QURAN_AYAH_AUDIO?.stop?.();A.q=makeQuestion();A.answered=false;A.choice=null;return A.q}
+function open(type,scope){
+ if(TYPES.includes(type))A.type=type;if(SCOPES.includes(scope))A.scope=scope;resetQuestion();DEEN_QURAN_ANALYTICS?.track?.('practice_open',{mode:'question_arena',type:A.type});sheet('Kur’an Soru Arenası',body());return true
+}
+function choose(value){
+ if(A.answered||!A.q)return false;A.choice=String(value);A.answered=true;A.total++;
+ const ok=A.choice===String(A.q.answer);if(ok){A.score++;A.streak++}else{A.wrong++;A.streak=0}
+ const a=qs()?.progress?.surahs?.[A.q.target.id]?.ayahs?.[A.q.target.ayah];
+ if(a&&typeof DEEN_QURAN?.updateAyah==='function')DEEN_QURAN.updateAyah(A.q.target.id,A.q.target.ayah,{correctRecalls:(Number(a.correctRecalls)||0)+(ok?1:0),wrongRecalls:(Number(a.wrongRecalls)||0)+(ok?0:1),repetitions:(Number(a.repetitions)||0)+1,lastStudiedAt:new Date().toISOString()});
+ DEEN_QURAN_SRS?.record?.(A.q.target.id,A.q.target.ayah,ok?'good':'again','question_arena');
+ DEEN_QURAN_ANALYTICS?.track?.(ok?'correct':'wrong',{surahId:A.q.target.id,type:A.q.type,mode:'question_arena'});
+ if(A.q.type==='audio')DEEN_QURAN_AYAH_AUDIO?.stop?.();redraw();return ok
+}
+function next(){resetQuestion();redraw();return true}
+function setType(t){if(!TYPES.includes(t))return false;A.type=t;resetQuestion();redraw();return true}
+function setScope(s){if(!SCOPES.includes(s))return false;A.scope=s;resetQuestion();redraw();return true}
+function play(){if(!A.q||A.q.type!=='audio')return false;return DEEN_QURAN_AYAH_AUDIO?.play?.(A.q.target.ayah,A.q.target.id)}
+function injectHub(){
+ const shell=document.querySelector('#leagueScreenBody .deen-quran-dashboard');if(!shell)return false;
+ shell.querySelector('[data-quran-practice]')?.remove();
+ if(shell.querySelector('[data-qarena-hub]'))return true;
+ const overview=shell.querySelector('.deen-quran-overview');if(!overview)return false;
+ const sec=document.createElement('section');sec.className='deen-qarena-hub';sec.setAttribute('data-qarena-hub','1');
+ sec.innerHTML='<div class="deen-qarena-hub-head"><h2>Soru & Oyunlar</h2><span>16 sure · 90 ayet</span></div><div class="deen-qarena-hub-grid">'+
+  '<button class="deen-qarena-hub-card primary" onclick="DEEN_QURAN_QUESTION_ARENA.open(\'mixed\',\'all\')"><i>◇</i><b>Soru Arenası</b><small>7 soru türü · tüm surelerden karışık</small></button>'+
+  '<button class="deen-qarena-hub-card" onclick="DEEN_QURAN_QUESTION_ARENA.open(\'audio\',\'all\')"><i>🔊</i><b>Sesi Bul</b><small>Dinlediğin ayeti seç</small></button>'+
+  '<button class="deen-qarena-hub-card" onclick="DEEN_QURAN_QUESTION_ARENA.open(\'meaning\',\'all\')"><i>≋</i><b>Meali Bul</b><small>Ayet ile kayıtlı meali eşleştir</small></button>'+
+  '<button class="deen-qarena-hub-card" onclick="DEEN_QURAN_QUESTION_ARENA.open(\'surah\',\'all\')"><i>؟</i><b>Hangi Sure?</b><small>Ayetin ait olduğu sureyi bul</small></button>'+
+  '</div>';
+ overview.insertAdjacentElement('afterend',sec);return true
+}
+const base=DEEN_QURAN.dashboardRender||DEEN_QURAN.render;
+if(typeof base==='function'&&!base.__deenQuranArenaWrapped){const w=function(){const r=base.apply(this,arguments);setTimeout(injectHub,0);return r};w.__deenQuranArenaWrapped=true;DEEN_QURAN.dashboardRender=w;DEEN_QURAN.render=w;window.leagueView=w;try{leagueView=w}catch(_){}}
+document.addEventListener?.('deen:navigated',()=>setTimeout(injectHub,0));
+window.DEEN_QURAN_QUESTION_ARENA={open,choose,next,setType,setScope,play,injectHub,state:()=>JSON.parse(JSON.stringify(A)),audit:()=>({build:BUILD,surahs:IDS.length,rows:allRows().length,learned:learnedRows().length,types:TYPES.length-1,scopes:[...SCOPES],audioReady:!!DEEN_QURAN_AYAH_AUDIO?.play})};
+setTimeout(injectHub,0);document.documentElement.dataset.deenQuranQuestionArena='v10963';
+})();
+</script>
