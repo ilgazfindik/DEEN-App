@@ -4923,24 +4923,29 @@ window.DEEN_REWARD_BADGE_ART={
   function sourcePresent(src){
     return !!(src&&(src.provider||src.reference||src.url||src.edition));
   }
-  function coreGate(record){
+  function sourceGate(record){
     const reasons=[];
     if(!record)reasons.push('missing_record');
     if(!record)return {ready:false,reasons};
 
+    if(!record.arabic?.text)reasons.push('arabic_text_missing');
+    if(!sourcePresent(record.arabic?.source))reasons.push('arabic_source_missing');
+    if(record.arabic?.verification_status!=='production_ready')reasons.push('arabic_not_source_ready');
+
+    if(!record.translation?.text)reasons.push('translation_text_missing');
+    if(!sourcePresent(record.translation?.source))reasons.push('translation_source_missing');
+    if(record.translation?.verification_status!=='production_ready')reasons.push('translation_not_source_ready');
+
+    return {ready:reasons.length===0,reasons};
+  }
+  function expertReleaseGate(record){
+    const source=sourceGate(record);
+    const reasons=[...source.reasons];
+    if(!record)return {ready:false,reasons};
     if(record.verification?.religious_release_ready!==true)reasons.push('religious_release_ready_false');
     if(record.verification?.verification_status!=='production_ready')reasons.push('record_not_production_ready');
     if(!record.verification?.verified_by)reasons.push('verified_by_missing');
     if(!record.verification?.verified_at)reasons.push('verified_at_missing');
-
-    if(!record.arabic?.text)reasons.push('arabic_text_missing');
-    if(!sourcePresent(record.arabic?.source))reasons.push('arabic_source_missing');
-    if(record.arabic?.verification_status!=='production_ready')reasons.push('arabic_not_production_ready');
-
-    if(!record.translation?.text)reasons.push('translation_text_missing');
-    if(!sourcePresent(record.translation?.source))reasons.push('translation_source_missing');
-    if(record.translation?.verification_status!=='production_ready')reasons.push('translation_not_production_ready');
-
     return {ready:reasons.length===0,reasons};
   }
   function recitationGate(record){
@@ -4974,7 +4979,7 @@ window.DEEN_REWARD_BADGE_ART={
   function productionGet(id,n){
     const rec=internalGet(id,n);
     if(!rec)return null;
-    const result=coreGate(rec);
+    const result=sourceGate(rec);
     if(!result.ready)return null;
     const safe=clone(rec);
     if(!recitationGate(rec).ready)safe.recitation=blankAyah(id,n).recitation;
@@ -5004,18 +5009,22 @@ window.DEEN_REWARD_BADGE_ART={
   }
   function readiness(id,n){
     const rec=internalGet(id,n);
-    return coreGate(rec);
+    return sourceGate(rec);
+  }
+  function expertReadiness(id,n){
+    const rec=internalGet(id,n);
+    return expertReleaseGate(rec);
   }
   function audioReadiness(id,n){
     const rec=internalGet(id,n);
-    const core=coreGate(rec);
-    if(!core.ready)return {ready:false,reasons:[...core.reasons]};
+    const source=sourceGate(rec);
+    if(!source.ready)return {ready:false,reasons:[...source.reasons]};
     return recitationGate(rec);
   }
   function learningNoteReadiness(id,n){
     const rec=internalGet(id,n);
-    const core=coreGate(rec);
-    if(!core.ready)return {ready:false,reasons:[...core.reasons]};
+    const source=sourceGate(rec);
+    if(!source.ready)return {ready:false,reasons:[...source.reasons]};
     return learningNoteGate(rec);
   }
   function inventory(){
@@ -5023,15 +5032,19 @@ window.DEEN_REWARD_BADGE_ART={
     for(const id of Object.keys(SURAH_META)){
       for(let n=1;n<=ayahCount(id);n++){
         const rec=internalGet(id,n);
-        const g=coreGate(rec);
+        const source=sourceGate(rec);
+        const expert=expertReleaseGate(rec);
         all.push({
           surah_id:id,
           ayah_number:n,
           exists:hasPayload(rec),
-          production_ready:g.ready,
+          source_ready:source.ready,
+          production_ready:source.ready,
+          expert_release_ready:expert.ready,
           verification_status:rec?.verification?.verification_status||'missing',
           religious_release_ready:rec?.verification?.religious_release_ready===true,
-          reasons:[...g.reasons]
+          reasons:[...source.reasons],
+          expert_reasons:[...expert.reasons]
         });
       }
     }
@@ -5043,8 +5056,10 @@ window.DEEN_REWARD_BADGE_ART={
       schema_version:SCHEMA_VERSION,
       total_slots:inv.length,
       registered:inv.filter(x=>x.exists).length,
-      production_ready:inv.filter(x=>x.production_ready).length,
-      blocked:inv.filter(x=>!x.production_ready).length
+      production_ready:inv.filter(x=>x.source_ready).length,
+      source_ready:inv.filter(x=>x.source_ready).length,
+      expert_release_ready:inv.filter(x=>x.expert_release_ready).length,
+      blocked:inv.filter(x=>!x.source_ready).length
     };
   }
 
@@ -5064,14 +5079,15 @@ window.DEEN_REWARD_BADGE_ART={
     getAyah:productionGet,
     getSurah:productionSurah,
     readiness,
+    expertReadiness,
     audioReadiness,
     learningNoteReadiness,
     inventory,
     summary,
     canRender:(id,n)=>readiness(id,n).ready,
     assertProductionReady:(id,n)=>{
-      const r=readiness(id,n);
-      if(!r.ready)throw new Error('Kur’an içeriği production-ready değil: '+r.reasons.join(', '));
+      const r=expertReadiness(id,n);
+      if(!r.ready)throw new Error('Kur’an içeriği uzman release onaylı değil: '+r.reasons.join(', '));
       return true;
     }
   };
@@ -5082,9 +5098,10 @@ window.DEEN_REWARD_BADGE_ART={
   window.DEEN_QURAN.getVerifiedAyah=productionGet;
   window.DEEN_QURAN.getVerifiedSurah=productionSurah;
   window.DEEN_QURAN.contentReadiness=readiness;
+  window.DEEN_QURAN.expertReleaseReadiness=expertReadiness;
   window.DEEN_QURAN.audioReadiness=audioReadiness;
 
-  // User-facing guard: content renderers must go through verified getters.
+  // User-facing guard: content renderers use source-verified Arabic + translation; expert release certification is tracked separately.
   window.DEEN_QURAN.renderVerifiedAyah=function(id,n,renderer){
     const record=productionGet(id,n);
     if(!record)return false;
