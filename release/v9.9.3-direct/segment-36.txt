@@ -36,6 +36,9 @@ meal:["Dini yalanlayanı gördün mü?","İşte o, öksüzü iter, kakar.","Yoks
 sharh:{name:'İnşirah',number:94,quran:'https://quran.com/tr/insirah/1-8',translationProvider:'Quran.com',translationEdition:'Turkish Translation (Diyanet)',translationUrl:'https://quran.com/tr/insirah/translations/quran.tr.diyanet',
 arabic:['أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ','وَوَضَعْنَا عَنكَ وِزْرَكَ','ٱلَّذِىٓ أَنقَضَ ظَهْرَكَ','وَرَفَعْنَا لَكَ ذِكْرَكَ','فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًا','إِنَّ مَعَ ٱلْعُسْرِ يُسْرًۭا','فَإِذَا فَرَغْتَ فَٱنصَبْ','وَإِلَىٰ رَبِّكَ فَٱرْغَب'],
 meal:["Senin gönlünü açmadık mı?","Belini büken yükünü üzerinden almadık mı?","Belini büken yükünü üzerinden almadık mı?","Senin şanını yükseltmedik mi?","Elbette güçlükle beraber şüphesiz bir kolaylık vardır.","Gerçekten, güçlükle beraber bir kolaylık vardır.","Öyleyse, bir işi bitirince diğerine giriş;","Ve ümit edeceğini yalnız Rabbinden iste."]},
+tin:{name:'Tîn',number:95,quran:'https://quran.com/tr/tin/1-8',translationProvider:'Quran.com',translationEdition:'Turkish Translation (Diyanet)',translationUrl:'https://quran.com/tr/tin/translation/quran.tr.diyanet',
+arabic:['وَٱلتِّينِ وَٱلزَّيْتُونِ','وَطُورِ سِينِينَ','وَهَـٰذَا ٱلْبَلَدِ ٱلْأَمِينِ','لَقَدْ خَلَقْنَا ٱلْإِنسَـٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍۢ','ثُمَّ رَدَدْنَـٰهُ أَسْفَلَ سَـٰفِلِينَ','إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ فَلَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍۢ','فَمَا يُكَذِّبُكَ بَعْدُ بِٱلدِّينِ','أَلَيْسَ ٱللَّهُ بِأَحْكَمِ ٱلْحَـٰكِمِينَ'],
+meal:["İncir ve zeytine and olsun,","And olsun Sina dağına,","And olsun bu güvenli Mekke şehrine ki:","Biz insanı en güzel şekilde yarattık,","Sonra onu aşağıların en aşağısı kıldık.","Yalnız, inanıp yararlı iş işleyenler bunun dışındadır. Onlara kesintisiz ecir vardır.","Öyleyken, sana dini yalan saydırtan nedir?","Allah, hükmedenlerin en iyi hükmedeni değil midir?"]},
 falaq:{name:'Felak',number:113,quran:'https://quran.com/tr/felak',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Felak_Suresi",
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ','مِن شَرِّ مَا خَلَقَ','وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ','وَمِن شَرِّ ٱلنَّفَّـٰثَـٰتِ فِى ٱلْعُقَدِ','وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ'],
 meal:['De ki: Sığınırım Rabbına o felak\'ın,','Şerrinden yarattıklarının.','Ve şerriden bir gâsıkın daldığı zaman.','Ve o, ukdelere üfleyen neffasların şerrinden.','Ve şerrinden hâsidin hased ettiği zaman.']},
@@ -43,7 +46,7 @@ nas:{name:'Nâs',number:114,quran:'https://quran.com/tr/nas',wiki:"https://tr.wi
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ','مَلِكِ ٱلنَّاسِ','إِلَـٰهِ ٱلنَّاسِ','مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ','ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ','مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ'],
 meal:['De ki sığınırım Rabb’ine nâsın,','Melikine nâsın,','İlâhına nâsın,','Şerrinden o sinsi vesvasın.','Ki vesvese verir sinelerinde nâsın.','Gerek cinden gerekse insden.']}
 };
-const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','kawthar','asr'], STEPS=['listen','read','meaning','recall','complete'];
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','kawthar','asr'], STEPS=['listen','read','meaning','recall','complete'];
 const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const qs=()=>DEEN_QURAN.ensureState(), meta=id=>PACKS[id]||DEEN_QURAN_CONTENT?.surahs?.[id]||null;
 const rec=(id,n)=>DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n))||null;

@@ -26,7 +26,7 @@ function injectDashboard(){
 }
 function injectAdmin(){
   const body=document.getElementById('deenAdminBody');if(!body||document.getElementById('deenQuranAudioAdmin'))return false;
-  const s=DEEN_QURAN_AUDIO_PROVIDER?.status?.()||{configured:false,ready:0,total:66,endpoint:null};
+  const s=DEEN_QURAN_AUDIO_PROVIDER?.status?.()||{configured:false,ready:0,total:74,endpoint:null};
   body.insertAdjacentHTML('beforeend','<section class="deen-admin-section" id="deenQuranAudioAdmin"><h3>KUR’AN · KIRAAT BACKEND</h3><div class="deen-qaudio-admin">Hak-gated audio: '+s.ready+'/'+s.total+' · backend '+(s.configured?'hazır':'yapılandırılmadı')+'<input id="deenQuranAudioEndpoint" placeholder="https://.../quran-audio" value="'+(s.endpoint||'')+'"><button class="deen-admin-btn" style="width:100%;margin-top:7px" data-qaudio-save="1">ENDPOINT KAYDET</button></div></section>');
   return true;
 }

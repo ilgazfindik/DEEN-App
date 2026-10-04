@@ -3456,6 +3456,7 @@ window.DEEN_REWARD_BADGE_ART={
     {id:'quraysh',name:'Kureyş',ayahs:4,order:106},
     {id:'maun',name:'Mâûn',ayahs:7,order:107},
     {id:'sharh',name:'İnşirah',ayahs:8,order:94},
+    {id:'tin',name:'Tîn',ayahs:8,order:95},
     {id:'kawthar',name:'Kevser',ayahs:3,order:108},
     {id:'asr',name:'Asr',ayahs:3,order:103}
   ];
@@ -3665,8 +3666,8 @@ window.DEEN_REWARD_BADGE_ART={
   window.__deenV10917QuranData=true;
 
   const SCHEMA_VERSION=2;
-  const SURAH_IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','kawthar','asr'];
-  const AYAH_COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,kawthar:3,asr:3};
+  const SURAH_IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','kawthar','asr'];
+  const AYAH_COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,tin:8,kawthar:3,asr:3};
   const AYAH_STATES=['new','learning','strengthening','solid'];
   const SURAH_STATES=['not_started','learning','memorized','review_due'];
 
@@ -4278,6 +4279,7 @@ window.DEEN_REWARD_BADGE_ART={
     quraysh:{name:'Kureyş',ayahs:4},
     maun:{name:'Mâûn',ayahs:7},
     sharh:{name:'İnşirah',ayahs:8},
+    tin:{name:'Tîn',ayahs:8},
     kawthar:{name:'Kevser',ayahs:3},
     asr:{name:'Asr',ayahs:3}
   };
@@ -4642,6 +4644,7 @@ window.DEEN_REWARD_BADGE_ART={
     {id:'quraysh',name:'Kureyş',order:106,ayahs:4},
     {id:'maun',name:'Mâûn',order:107,ayahs:7},
     {id:'sharh',name:'İnşirah',order:94,ayahs:8},
+    {id:'tin',name:'Tîn',order:95,ayahs:8},
     {id:'kawthar',name:'Kevser',order:108,ayahs:3},
     {id:'asr',name:'Asr',order:103,ayahs:3}
   ];
@@ -4717,7 +4720,7 @@ window.DEEN_REWARD_BADGE_ART={
     const due=items.filter(x=>x.status==='review_due').length;
 
     sheet('Sure Kütüphanesi',
-      '<div class="v5-kicker">13 SURE · ÖĞRENME & EZBER</div>'+
+      '<div class="v5-kicker">14 SURE · ÖĞRENME & EZBER</div>'+
       '<p class="v5-muted">Her surenin ilerlemesi ve tekrar durumu ayrı tutulur. Bir sureyi seçtiğinde kaldığın ayetten devam edersin.</p>'+
       '<div class="deen-quran-library-summary">'+
         '<div><strong>'+started+'</strong><small>BAŞLANAN</small></div>'+
@@ -4787,6 +4790,7 @@ window.DEEN_REWARD_BADGE_ART={
     quraysh:{number:106,name:'Kureyş',ayahs:4},
     maun:{number:107,name:'Mâûn',ayahs:7},
     sharh:{number:94,name:'İnşirah',ayahs:8},
+    tin:{number:95,name:'Tîn',ayahs:8},
     ikhlas:{number:112,name:'İhlâs',ayahs:4},
     falaq:{number:113,name:'Felak',ayahs:5},
     nas:{number:114,name:'Nâs',ayahs:6}
