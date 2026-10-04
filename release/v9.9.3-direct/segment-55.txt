@@ -1,5 +1,111 @@
-<!-- DEEN_RETIRED_SEGMENT_OK
-DEEN v10.9.60 universal Quran ayah audio migration.
-This legacy per-surah audio segment is intentionally retired.
-Runtime is handled by release/v9.9.3-direct/segment-52.txt.
--->
+<!-- DEEN v10.9.65 — Quran rewards, daily missions, weak challenge -->
+<style id="deen-v10965-quran-rewards-css">
+.deen-qreward-daily{margin-top:12px;padding:13px;border:1px solid rgba(104,207,181,.2);border-radius:17px;background:linear-gradient(155deg,#10373a,#092933)}
+.deen-qreward-daily-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.deen-qreward-daily-head b{display:block;color:#edf9f6;font-size:11px}.deen-qreward-daily-head small{display:block;margin-top:4px;color:#789894;font-size:7.5px;line-height:1.35}
+.deen-qreward-bonus{flex:0 0 auto;padding:6px 8px;border:1px solid rgba(196,164,86,.24);border-radius:999px;background:rgba(95,74,30,.17);color:#dfc98b;font-size:7.5px;font-weight:850}
+.deen-qreward-missions{display:grid;gap:6px;margin-top:10px}.deen-qreward-mission{display:grid;grid-template-columns:20px 1fr auto;align-items:center;gap:8px;padding:8px;border-radius:11px;background:#08252d}
+.deen-qreward-mission i{width:20px;height:20px;display:grid;place-items:center;border-radius:7px;background:#10363a;color:#8fd9c5;font-style:normal;font-size:8px;font-weight:900}
+.deen-qreward-mission.done i{background:#17453f;color:#a9eedb}.deen-qreward-mission span{color:#bdd3cf;font-size:8px}.deen-qreward-mission strong{color:#89cdbb;font-size:8px}
+.deen-qreward-progress{height:5px;margin-top:9px;overflow:hidden;border-radius:999px;background:#061b22}.deen-qreward-progress i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#59cbb2,#9ce8d1)}
+.deen-qreward-note{margin-top:8px;color:#6e8d8a;font-size:7px;line-height:1.4}
+.deen-qreward-weak{border-color:rgba(223,166,102,.24)!important;background:radial-gradient(circle at 100% 0%,rgba(224,156,92,.09),transparent 42%),linear-gradient(160deg,#123236,#0a2930)!important}
+.deen-qreward-weak i{border-color:rgba(226,168,103,.22)!important;color:#e1b37c!important}
+</style>
+<script id="deen-v10965-quran-rewards-js">
+(()=>{
+if(window.__deenV10965QuranRewards)return;window.__deenV10965QuranRewards=true;
+const BUILD='9280quranrewards1';
+const TARGETS={questions:10,correct:7,challenges:1};
+const CHALLENGE_XP={easy:20,medium:30,hard:45};
+const qs=()=>{try{return DEEN_QURAN?.ensureState?.()||state?.quranJourney||{}}catch(_){return state?.quranJourney||{}}};
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+function persist(){try{DEEN_QURAN?.persistState?.()}catch(_){try{saveState?.()}catch(__){}}}
+function root(){
+ const q=qs();q.quranRewards=q.quranRewards&&typeof q.quranRewards==='object'?q.quranRewards:{version:1,days:{}};
+ q.quranRewards.version=1;q.quranRewards.days=q.quranRewards.days&&typeof q.quranRewards.days==='object'?q.quranRewards.days:{};
+ return q.quranRewards
+}
+function rec(date=today()){
+ const r=root();const d=r.days[date]=r.days[date]&&typeof r.days[date]==='object'?r.days[date]:{};
+ d.questions=Math.max(0,Number(d.questions)||0);d.correct=Math.max(0,Number(d.correct)||0);d.challenges=Math.max(0,Number(d.challenges)||0);
+ d.challengeRewardAttempts=Math.max(0,Number(d.challengeRewardAttempts)||0);d.claimed=d.claimed===true;d.claimedAt=d.claimedAt||null;
+ d.challengeTokens=Array.isArray(d.challengeTokens)?d.challengeTokens:[];
+ const keys=Object.keys(r.days).sort();while(keys.length>45){const k=keys.shift();delete r.days[k]}
+ return d
+}
+function missions(d=rec()){
+ const rows=[
+  {id:'questions',title:'10 Kur’an sorusu çöz',value:d.questions,target:TARGETS.questions},
+  {id:'correct',title:'7 doğru cevap ver',value:d.correct,target:TARGETS.correct},
+  {id:'challenges',title:'1 challenge tamamla',value:d.challenges,target:TARGETS.challenges}
+ ].map(x=>({...x,done:x.value>=x.target}));
+ return{rows,done:rows.filter(x=>x.done).length,complete:rows.every(x=>x.done),claimed:d.claimed}
+}
+function giveXp(n){n=Math.max(0,Math.round(Number(n)||0));if(!n)return 0;try{if(typeof award==='function')return award(n)}catch(_){};try{state.xp=Math.max(0,Number(state.xp)||0)+n}catch(_){}return n}
+function giveSparkles(n){n=Math.max(0,Math.round(Number(n)||0));if(!n)return 0;try{state.currency=Math.max(0,Number(state.currency)||0)+n;return n}catch(_){return 0}}
+function refresh(){try{DEEN_QURAN_DAILY_CENTER?.refresh?.()}catch(_){};document.querySelector('[data-quran-reward-daily]')?.remove();injectDaily();try{updateUI?.()}catch(_){}}
+function evaluate(notify=true){
+ const d=rec(),m=missions(d);if(!m.complete||d.claimed)return{claimed:false,status:m};
+ d.claimed=true;d.claimedAt=new Date().toISOString();const xp=giveXp(25),sparkles=giveSparkles(5);persist();refresh();
+ if(notify&&typeof toast==='function')toast('Kur’an günlük görevleri tamamlandı · +'+xp+' XP · +'+sparkles+' Pırıltı');
+ return{claimed:true,xp,sparkles,status:missions(d)}
+}
+function recordQuestion(ok){
+ const d=rec();d.questions++;if(ok)d.correct++;persist();const e=evaluate(true);if(!e.claimed)refresh();return missions(d)
+}
+function markChallenge(token){
+ const d=rec(),key=String(token||Date.now());if(d.challengeTokens.includes(key))return false;
+ d.challengeTokens.push(key);d.challengeTokens=d.challengeTokens.slice(-12);d.challenges++;persist();const e=evaluate(true);if(!e.claimed)refresh();return true
+}
+function challengeCompleted(snapshot){
+ const d=rec();markChallenge(snapshot?.startedAt);
+ const attempt=d.challengeRewardAttempts++;const mult=[1,.5,.25][attempt]??0;
+ const base=(CHALLENGE_XP[snapshot?.level]||30)+(snapshot?.scope==='weak'?10:0);
+ const accuracy=snapshot?.answered?Number(snapshot.correct||0)/Number(snapshot.answered):0;
+ const perfect=accuracy>=1?10:0;const xp=giveXp((base+perfect)*mult);
+ const sparkles=attempt===0?giveSparkles(2):0;
+ persist();refresh();
+ if(typeof toast==='function'&&(xp||sparkles))toast('Challenge ödülü · +'+xp+' XP'+(sparkles?' · +'+sparkles+' Pırıltı':''));
+ return{xp,sparkles,multiplier:mult,attempt:attempt+1,base,perfectBonus:perfect}
+}
+function dailyHtml(){
+ const d=rec(),m=missions(d),pct=Math.round(m.done/3*100);
+ return'<section class="deen-qreward-daily" data-quran-reward-daily="1"><div class="deen-qreward-daily-head"><span><b>Günlük Kur’an Görevleri</b><small>Bir challenge ile üç görevi birlikte ilerletebilirsin.</small></span><span class="deen-qreward-bonus">'+(d.claimed?'✓ ALINDI':'+25 XP · +5 Pırıltı')+'</span></div>'+
+ '<div class="deen-qreward-missions">'+m.rows.map((x,i)=>'<div class="deen-qreward-mission'+(x.done?' done':'')+'"><i>'+(x.done?'✓':i+1)+'</i><span>'+x.title+'</span><strong>'+Math.min(x.value,x.target)+'/'+x.target+'</strong></div>').join('')+'</div>'+
+ '<div class="deen-qreward-progress"><i style="width:'+pct+'%"></i></div><div class="deen-qreward-note">Challenge XP’si aynı gün tekrarlandıkça %100 → %50 → %25 → %0 düşer. Günlük görev bonusu günde bir kez verilir.</div></section>'
+}
+function injectDaily(){
+ const shell=document.querySelector?.('#leagueScreenBody .deen-quran-dashboard');if(!shell||shell.querySelector('[data-quran-reward-daily]'))return false;
+ const hub=shell.querySelector('[data-qarena-hub]');if(hub)hub.insertAdjacentHTML('afterend',dailyHtml());else shell.insertAdjacentHTML('beforeend',dailyHtml());return true
+}
+function weakReady(){return (DEEN_QURAN_QUESTION_ARENA?.weakRows?.()||[]).length>=2}
+function openWeak(){
+ if(!weakReady()){sheet('Zayıf Ayet Challenge','<div class="v5-kicker">HENÜZ YETERLİ VERİ YOK</div><p class="v5-muted">Yanlış yaptığın, ezber seviyesi düşük veya tekrar zamanı geçmiş en az iki ayet oluştuğunda bu mod otomatik açılır.</p>');return false}
+ return DEEN_QURAN_CHALLENGE?.startWeak?.('hard')||false
+}
+function injectWeak(){
+ const hub=document.querySelector?.('[data-qarena-hub] .deen-qarena-hub-grid');if(!hub||hub.querySelector('[data-qweak-challenge]'))return false;
+ const b=document.createElement('button');b.type='button';b.className='deen-qarena-hub-card deen-qreward-weak';b.dataset.qweakChallenge='1';
+ const count=(DEEN_QURAN_QUESTION_ARENA?.weakRows?.()||[]).length;b.innerHTML='<i>!</i><b>Zayıf Ayet Challenge</b><small>'+(count>=2?count+' riskli ayetten kişisel tur':'Performansına göre otomatik açılır')+'</small>';b.onclick=openWeak;hub.appendChild(b);return true
+}
+function installArena(){
+ const a=window.DEEN_QURAN_QUESTION_ARENA;if(!a||a.__quranRewardsWrapped)return false;
+ const base=a.choose.bind(a);
+ a.choose=function(value){
+  const before=a.state?.();if(before?.answered)return base(value);
+  const ok=base(value),after=a.state?.();
+  if(after?.answered&&!before?.answered)recordQuestion(ok===true);
+  const c=DEEN_QURAN_CHALLENGE?.state?.();
+  if(c?.active&&c.answered>=c.limit)markChallenge(c.startedAt);
+  return ok
+ };
+ a.__quranRewardsWrapped=true;return true
+}
+function audit(){const d=rec(),m=missions(d);return{build:BUILD,date:today(),missions:m,weakCount:(DEEN_QURAN_QUESTION_ARENA?.weakRows?.()||[]).length,rewardAttempt:d.challengeRewardAttempts,arenaWrapped:!!DEEN_QURAN_QUESTION_ARENA?.__quranRewardsWrapped}}
+window.DEEN_QURAN_REWARDS={challengeCompleted,recordQuestion,markChallenge,missions,evaluate,openWeak,injectDaily,injectWeak,audit};
+const mo=typeof MutationObserver!=='undefined'?new MutationObserver(()=>{installArena();injectWeak();injectDaily()}):null;mo?.observe?.(document.body,{childList:true,subtree:true});
+document.addEventListener?.('deen:navigated',()=>setTimeout(()=>{installArena();injectWeak();injectDaily()},0));
+setTimeout(()=>{installArena();injectWeak();injectDaily()},0);document.documentElement.dataset.deenQuranRewards='v10965';
+})();
+</script>
