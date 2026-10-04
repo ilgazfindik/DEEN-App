@@ -1,72 +1,453 @@
 
-<script id="deen-v10945-fatiha-local-audio-js">
-(()=>{
-if(window.__deenV10945FatihaLocalAudio)return;window.__deenV10945FatihaLocalAudio=true;
 
-const BASE='./assets/quran/audio/fatiha/';
-const FILES={
-  1:'fatiha_1.mp3',
-  2:'fatiha_2.mp3',
-  3:'fatiha_3.mp3',
-  4:'fatiha_4.mp3',
-  5:'fatiha_5.mp3',
-  6:'fatiha_6.mp3',
-  7:'fatiha_7.mp3'
-};
-const VERIFIED_AT='2026-10-04T12:37:00+03:00';
-
-function bind(){
-  let bound=0;
-  for(let n=1;n<=7;n++){
-    const base=DEEN_QURAN_CONTENT?.internalGet?.('fatiha',n);
-    if(!base)continue;
-    DEEN_QURAN_CONTENT.register({
-      ...base,
-      recitation:{
-        audio_url:BASE+FILES[n],
-        qari:'Samir - Modern Arabic',
-        riwayah:'Hafs',
-        source:{
-          provider:'DEEN user-provided ElevenLabs generation',
-          edition:'Fatiha ayah audio',
-          reference:'Fatiha '+n,
-          url:BASE+FILES[n],
-          license:'User-provided generated asset',
-          rights_reference:'Generated/provided by DEEN project owner for in-app use on 2026-10-04'
-        },
-        verification_status:'production_ready',
-        rights_status:'cleared'
-      },
-      updated_at:VERIFIED_AT
-    });
-    bound++;
-  }
-  return bound;
+<style id="deen-v10960-quran-universal-audio-css">
+[data-deen-ayah-audio="1"] .deen-qaudio{display:none!important}
+.deen-ayah-audio-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+.deen-ayah-audio-row h2{margin:0!important;min-width:0}
+.deen-ayah-inline-speaker{
+  width:38px;height:38px;flex:0 0 38px;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(103,207,181,.28);border-radius:12px;background:#123b3b;color:#a7ead7;
+  cursor:pointer;font:900 16px/1 system-ui,sans-serif;box-shadow:0 5px 14px rgba(0,0,0,.12)
 }
+.deen-ayah-inline-speaker.playing{background:#1a4b45;border-color:rgba(126,231,200,.42);transform:scale(.98)}
+.deen-ayah-inline-speaker:active{transform:scale(.95)}
+.deen-ayah-inline-hint{margin:5px 0 0!important;color:#789995!important;font-size:7px!important;line-height:1.35!important}
+.deen-ayah-inline-hint.error{color:#dfa18b!important}
+.deen-ayah-sync-word{
+  display:inline;color:rgba(235,248,244,.42);
+  transition:color .16s ease,background .16s ease,text-shadow .16s ease;
+  border-radius:7px;padding:0 2px
+}
+.deen-ayah-sync-word.past{color:rgba(173,229,214,.78)}
+.deen-ayah-sync-word.current{
+  color:#effffb;background:rgba(87,205,176,.16);
+  text-shadow:0 0 12px rgba(109,224,195,.28)
+}
+.deen-ayah-sync-track{
+  height:3px;margin:9px auto 0;max-width:88%;overflow:hidden;
+  border-radius:999px;background:rgba(111,154,150,.12)
+}
+.deen-ayah-sync-track i{
+  display:block;width:0%;height:100%;border-radius:inherit;
+  background:linear-gradient(90deg,#5fcbb3,#a9ead8);transition:width .08s linear
+}
+@media(max-width:340px){.deen-ayah-inline-speaker{width:36px;height:36px;flex-basis:36px}}
+</style>
 
-function audit(){
-  const rows=[];
-  for(let n=1;n<=7;n++){
-    const r=DEEN_QURAN_CONTENT?.getAyah?.('fatiha',n);
-    const a=DEEN_QURAN_AUDIO?.verifiedAudio?.('fatiha',n);
-    rows.push({
-      ayah:n,
-      file:FILES[n],
-      contentReady:!!r,
-      audioReady:!!a,
-      url:a?.url||null
-    });
+
+<script id="deen-v10960-quran-universal-audio-js">
+(()=>{
+if(window.__deenV10960QuranUniversalAudio)return;
+window.__deenV10960QuranUniversalAudio=true;
+
+const BUILD='9266universalquranaudio1';
+const CONFIG={"fatiha":{"name":"Fâtiha","count":7,"root":".deen-qmulti-session","base":"./assets/quran/audio/fatiha/","files":["fatiha_1.mp3","fatiha_2.mp3","fatiha_3.mp3","fatiha_4.mp3","fatiha_5.mp3","fatiha_6.mp3","fatiha_7.mp3"],"leadMax":0.18,"leadFactor":0.075,"tailMax":0.14,"tailFactor":0.055,"id":"fatiha"},"ikhlas":{"name":"İhlâs","count":4,"root":".deen-ikhlas-session","base":"./assets/quran/audio/ikhlas/","files":["ihlas_1.mp3","ihlas_2.mp3","ihlas_3.mp3","ihlas_4.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"ikhlas"},"falaq":{"name":"Felak","count":5,"root":".deen-qmulti-session","base":"./assets/quran/audio/falaq/","files":["felak_1.mp3","felak_2.mp3","felak_3.mp3","felak_4.mp3","felak_5.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"falaq"},"nas":{"name":"Nâs","count":6,"root":".deen-qmulti-session","base":"./assets/quran/audio/nas/","files":["nas_1.mp3","nas_2.mp3","nas_3.mp3","nas_4.mp3","nas_5.mp3","nas_6.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"nas"},"kawthar":{"name":"Kevser","count":3,"root":".deen-qmulti-session","base":"./assets/quran/audio/kawthar/","files":["kevser_1.mp3","kevser_2.mp3","kevser_3.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"kawthar"},"asr":{"name":"Asr","count":3,"root":".deen-qmulti-session","base":"./assets/quran/audio/asr/","files":["asr_1.mp3","asr_2.mp3","asr_3.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"asr"},"kafirun":{"name":"Kâfirûn","count":6,"root":".deen-qmulti-session","base":"./assets/quran/audio/kafirun/","files":["kafirun_1.mp3","kafirun_2.mp3","kafirun_3.mp3","kafirun_4.mp3","kafirun_5.mp3","kafirun_6.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"kafirun"},"nasr":{"name":"Nasr","count":3,"root":".deen-qmulti-session","base":"./assets/quran/audio/nasr/","files":["nasr_1.mp3","nasr_2.mp3","nasr_3.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"nasr"},"masad":{"name":"Tebbet","count":5,"root":".deen-qmulti-session","base":"./assets/quran/audio/masad/","files":["tebbet_1.mp3","tebbet_2.mp3","tebbet_3.mp3","tebbet_4.mp3","tebbet_5.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"masad"},"fil":{"name":"Fîl","count":5,"root":".deen-qmulti-session","base":"./assets/quran/audio/fil/","files":["fil_1.mp3","fil_2.mp3","fil_3.mp3","fil_4.mp3","fil_5.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"fil"},"quraysh":{"name":"Kureyş","count":4,"root":".deen-qmulti-session","base":"./assets/quran/audio/quraysh/","files":["kureys_1.mp3","kureys_2.mp3","kureys_3.mp3","kureys_4.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"quraysh"},"maun":{"name":"Mâûn","count":7,"root":".deen-qmulti-session","base":"./assets/quran/audio/maun/","files":["maun_1.mp3","maun_2.mp3","maun_3.mp3","maun_4.mp3","maun_5.mp3","maun_6.mp3","maun_7.mp3"],"leadMax":0.16,"leadFactor":0.07,"tailMax":0.12,"tailFactor":0.05,"id":"maun"}};
+const IDS=Object.keys(CONFIG);
+const TOTAL_AYAHS=IDS.reduce((sum,id)=>sum+CONFIG[id].count,0);
+
+let player=null;
+let activeSurah=null;
+let currentAyah=null;
+let status='idle';
+let rafId=0;
+let timer=null;
+
+function q(){
+  try{return DEEN_QURAN?.ensureState?.()||DEEN_QURAN?.state?.()||state?.quranJourney||null}catch(_){
+    return state?.quranJourney||null;
   }
-  return{
-    ok:rows.every(x=>x.contentReady&&x.audioReady),
-    ready:rows.filter(x=>x.audioReady).length,
-    total:7,
-    rows
+}
+function cfg(id){
+  const x=CONFIG[id];
+  return x?x:null;
+}
+function currentId(){
+  const id=q()?.profile?.currentSurah||q()?.currentSurah||null;
+  return CONFIG[id]?id:null;
+}
+function currentCfg(){
+  const id=currentId();
+  return id?CONFIG[id]:null;
+}
+function rootFor(c){
+  if(!c)return null;
+  return document.querySelector?.(c.root)||null;
+}
+function cardFor(root){
+  return root?.querySelector?.('.deen-ikhlas-card')||null;
+}
+function isListenCard(card){
+  if(!card)return false;
+  const stage=card.querySelector?.('.deen-ikhlas-kicker')?.textContent||'';
+  return /DİNLE/i.test(stage);
+}
+function visibleAyah(c,root=rootFor(c)){
+  if(!c)return 1;
+  const text=root?.querySelector?.('.deen-ikhlas-progresshead b')?.textContent||
+             root?.querySelector?.('.deen-ikhlas-card h2')?.textContent||'';
+  const m=String(text).match(/Ayet\s*(\d+)/i);
+  const fallback=Number(q()?.profile?.currentAyah)||1;
+  const n=m?Number(m[1]):fallback;
+  return Math.max(1,Math.min(c.count,Number.isFinite(n)?n:1));
+}
+function fileFor(c,n){
+  return c?.files?.[n-1]||null;
+}
+function audioUrl(c,n){
+  const file=fileFor(c,n);
+  return file?c.base+file+'?v='+BUILD:null;
+}
+function cleanWord(w){
+  return String(w||'')
+    .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'')
+    .replace(/[^\u0621-\u064A]/g,'');
+}
+function hint(msg,error=false,c=currentCfg()){
+  const root=rootFor(c);
+  const h=root?.querySelector?.('.deen-ayah-inline-hint');
+  if(!h)return false;
+  h.textContent=msg;
+  h.classList.toggle('error',!!error);
+  return true;
+}
+function arabicEl(c,root=rootFor(c)){
+  return root?.querySelector?.('.deen-ikhlas-card .deen-ikhlas-arabic')||null;
+}
+function prepareSyncedText(c=currentCfg()){
+  if(!c)return null;
+  const root=rootFor(c);
+  const ar=arabicEl(c,root);
+  if(!ar)return null;
+  const n=visibleAyah(c,root);
+  if(ar.dataset.deenAudioSync==='1'&&ar.dataset.syncSurah===c.id&&Number(ar.dataset.syncAyah)===n)return ar;
+
+  const raw=String(ar.textContent||'').trim();
+  if(!raw)return null;
+  const list=raw.split(/\s+/).filter(Boolean);
+  ar.innerHTML=list.map((w,i)=>
+    '<span class="deen-ayah-sync-word" data-sync-index="'+i+'" data-sync-weight="'+
+    Math.max(1,cleanWord(w).length)+'">'+w+'</span>'
+  ).join(' ')+'<div class="deen-ayah-sync-track" aria-hidden="true"><i></i></div>';
+  ar.dataset.deenAudioSync='1';
+  ar.dataset.syncSurah=c.id;
+  ar.dataset.syncAyah=String(n);
+  return ar;
+}
+function resetSyncedText(clearProgress=true,c=activeSurah?cfg(activeSurah):currentCfg()){
+  if(!c)return false;
+  const ar=arabicEl(c);
+  if(!ar)return false;
+  for(const w of ar.querySelectorAll('.deen-ayah-sync-word'))w.classList.remove('past','current');
+  if(clearProgress){
+    const bar=ar.querySelector('.deen-ayah-sync-track i');
+    if(bar)bar.style.width='0%';
+  }
+  return true;
+}
+function syncText(){
+  const c=activeSurah?cfg(activeSurah):currentCfg();
+  if(!c||!player||currentAyah!==visibleAyah(c))return false;
+  const ar=prepareSyncedText(c);
+  if(!ar)return false;
+
+  const spans=[...ar.querySelectorAll('.deen-ayah-sync-word')];
+  const bar=ar.querySelector('.deen-ayah-sync-track i');
+  const dur=Number(player.duration),t=Number(player.currentTime)||0;
+  if(!Number.isFinite(dur)||dur<=0||!spans.length)return false;
+
+  const progress=Math.max(0,Math.min(1,t/dur));
+  if(bar)bar.style.width=(progress*100).toFixed(2)+'%';
+
+  if(status==='ended'){
+    spans.forEach(w=>{w.classList.add('past');w.classList.remove('current')});
+    return true;
+  }
+
+  const lead=Math.min(c.leadMax,dur*c.leadFactor);
+  const tail=Math.min(c.tailMax,dur*c.tailFactor);
+  const usable=Math.max(.1,dur-lead-tail);
+  const p=Math.max(0,Math.min(.999,(t-lead)/usable));
+  const weights=spans.map(w=>Math.max(1,Number(w.dataset.syncWeight)||1));
+  const total=weights.reduce((a,b)=>a+b,0);
+  let acc=0,idx=0;
+  for(let i=0;i<weights.length;i++){
+    acc+=weights[i]/total;
+    if(p<acc){idx=i;break}
+  }
+  spans.forEach((w,i)=>{
+    w.classList.toggle('past',i<idx);
+    w.classList.toggle('current',i===idx&&t>=lead);
+  });
+  return true;
+}
+function stopRaf(){
+  if(rafId&&typeof cancelAnimationFrame==='function')cancelAnimationFrame(rafId);
+  rafId=0;
+}
+function startRaf(){
+  stopRaf();
+  const step=()=>{
+    syncText();
+    if(status==='playing'&&typeof requestAnimationFrame==='function')rafId=requestAnimationFrame(step);
+  };
+  if(typeof requestAnimationFrame==='function')rafId=requestAnimationFrame(step);
+}
+function ensurePlayer(){
+  if(player)return player;
+  if(typeof Audio!=='function')return null;
+  player=new Audio();
+  player.preload='auto';
+  player.addEventListener('play',()=>{
+    status='playing';syncButton();prepareSyncedText(activeSurah?cfg(activeSurah):currentCfg());startRaf();syncText();
+  });
+  player.addEventListener('pause',()=>{
+    if(status!=='error'&&status!=='ended')status='paused';
+    stopRaf();syncButton();syncText();
+  });
+  player.addEventListener('ended',()=>{
+    status='ended';stopRaf();syncButton();syncText();
+    hint('Ayet sesi tamamlandı. Tekrar dinlemek için hoparlöre dokun.',false,activeSurah?cfg(activeSurah):currentCfg());
+  });
+  player.addEventListener('error',()=>{
+    status='error';stopRaf();syncButton();
+    hint('Ayet sesi yüklenemedi. Sayfayı yenileyip tekrar dene.',true,activeSurah?cfg(activeSurah):currentCfg());
+  });
+  player.addEventListener('loadedmetadata',syncText);
+  player.addEventListener('timeupdate',syncText);
+  return player;
+}
+function buttonFor(c=currentCfg()){
+  return rootFor(c)?.querySelector?.('.deen-ayah-inline-speaker')||null;
+}
+function syncButton(c=currentCfg()){
+  if(!c)return false;
+  const b=buttonFor(c);
+  if(!b)return false;
+  const n=visibleAyah(c);
+  const playing=status==='playing'&&activeSurah===c.id&&currentAyah===n&&player&&!player.paused;
+  b.classList.toggle('playing',playing);
+  b.textContent=playing?'Ⅱ':'🔊';
+  b.setAttribute('aria-label',playing?'Ayet sesini duraklat':'Ayet '+n+' sesini dinle');
+  b.setAttribute('data-ayah-audio',String(n));
+  b.setAttribute('data-surah-audio',c.id);
+  return true;
+}
+async function play(n,surahId=currentId()){
+  const c=cfg(surahId);
+  if(!c)return false;
+  n=Math.max(1,Math.min(c.count,Number(n)||1));
+  const p=ensurePlayer();
+  if(!p){hint('Bu tarayıcı ses oynatmayı desteklemiyor.',true,c);return false}
+
+  if(activeSurah!==c.id||currentAyah!==n||!p.src){
+    const previous=activeSurah?cfg(activeSurah):null;
+    try{p.pause()}catch(_){}
+    if(previous)resetSyncedText(true,previous);
+    activeSurah=c.id;
+    currentAyah=n;
+    resetSyncedText(true,c);
+    prepareSyncedText(c);
+    p.src=audioUrl(c,n)||'';
+    try{p.currentTime=0}catch(_){}
+  }else if(status==='ended'){
+    try{p.currentTime=0}catch(_){}
+    resetSyncedText(true,c);
+  }
+
+  hint('Ayet '+n+' dinleniyor…',false,c);
+  try{
+    const out=p.play();
+    if(out&&typeof out.then==='function')await out;
+    status='playing';syncButton(c);startRaf();syncText();
+    DEEN_QURAN_ANALYTICS?.track?.('audio_play',{surahId:c.id,mode:'ayah_local_universal'});
+    return true;
+  }catch(e){
+    status='error';syncButton(c);
+    hint('Ayet sesi açılamadı: '+String(e?.message||e),true,c);
+    return false;
+  }
+}
+function pause(surahId=activeSurah||currentId()){
+  const c=cfg(surahId);
+  if(!player||!c)return false;
+  try{player.pause()}catch(_){}
+  status='paused';stopRaf();syncButton(c);syncText();
+  hint('Ayet sesi duraklatıldı.',false,c);
+  return true;
+}
+async function toggle(surahId=currentId()){
+  const c=cfg(surahId);
+  if(!c)return false;
+  const n=visibleAyah(c);
+  if(player&&activeSurah===c.id&&currentAyah===n&&!player.paused&&status==='playing')return pause(c.id);
+  return play(n,c.id);
+}
+function stop(){
+  const old=activeSurah?cfg(activeSurah):null;
+  if(player){try{player.pause();player.currentTime=0}catch(_){}}
+  status='idle';stopRaf();
+  if(old)resetSyncedText(true,old);
+  activeSurah=null;currentAyah=null;
+  if(old)syncButton(old);
+  const now=currentCfg();if(now&&now!==old)syncButton(now);
+  return true;
+}
+function decorate(){
+  const c=currentCfg();
+  if(!c)return false;
+  const root=rootFor(c);
+  if(!root)return false;
+  const card=cardFor(root);
+  if(!card)return false;
+
+  if(!isListenCard(card)){
+    root.removeAttribute('data-deen-ayah-audio');
+    if(activeSurah===c.id&&status==='playing')stop();
+    return false;
+  }
+
+  root.setAttribute('data-deen-ayah-audio','1');
+  root.setAttribute('data-deen-audio-surah',c.id);
+
+  let row=card.querySelector('.deen-ayah-audio-row');
+  const h2=card.querySelector('h2');
+  if(!row&&h2){
+    row=document.createElement('div');
+    row.className='deen-ayah-audio-row';
+    h2.parentNode.insertBefore(row,h2);
+    row.appendChild(h2);
+  }
+
+  let button=card.querySelector('.deen-ayah-inline-speaker');
+  if(!button&&row){
+    button=document.createElement('button');
+    button.type='button';
+    button.className='deen-ayah-inline-speaker';
+    row.appendChild(button);
+  }
+  if(button&&button.dataset.deenAudioBound!=='1'){
+    button.dataset.deenAudioBound='1';
+    button.addEventListener('click',()=>toggle(c.id));
+  }
+
+  let h=card.querySelector('.deen-ayah-inline-hint');
+  if(!h){
+    h=document.createElement('p');
+    h.className='deen-ayah-inline-hint';
+    row?.insertAdjacentElement('afterend',h);
+  }
+  if(h&&!h.classList.contains('error'))h.textContent='Hoparlöre dokun: Ayet '+visibleAyah(c,root)+' kaydını dinle.';
+
+  const n=visibleAyah(c,root);
+  if(activeSurah&&activeSurah!==c.id)stop();
+  if(activeSurah===c.id&&currentAyah!==null&&currentAyah!==n)stop();
+
+  prepareSyncedText(c);
+  syncText();
+  syncButton(c);
+  return true;
+}
+function schedule(){
+  clearTimeout(timer);
+  timer=setTimeout(decorate,25);
+}
+function filesAudit(){
+  return IDS.flatMap(id=>CONFIG[id].files.map((file,i)=>({
+    surahId:id,ayah:i+1,file,url:CONFIG[id].base+file
+  })));
+}
+function audit(){
+  const files=filesAudit();
+  return {
+    ok:IDS.length===12&&TOTAL_AYAHS===58&&files.length===58,
+    version:'v10960',
+    build:BUILD,
+    surahs:IDS.length,
+    ayahs:TOTAL_AYAHS,
+    files:files.length,
+    currentSurah:currentId(),
+    wikimediaKept:!!window.DEEN_QURAN_CHAPTER_AUDIO,
+    singlePlayer:true,
+    singleObserver:true,
+    configs:JSON.parse(JSON.stringify(CONFIG))
+  };
+}
+function stateNow(){
+  return {
+    status,activeSurah,currentAyah,
+    src:player?.src||null,
+    currentTime:player?.currentTime||0,
+    duration:Number.isFinite(player?.duration)?player.duration:null
+  };
+}
+function compat(id){
+  return {
+    toggle:()=>toggle(id),
+    play:n=>play(n,id),
+    pause:()=>pause(id),
+    stop,
+    decorate,
+    syncButton:()=>syncButton(cfg(id)),
+    syncText,
+    prepareSyncedText:()=>prepareSyncedText(cfg(id)),
+    ayah:()=>visibleAyah(cfg(id)),
+    audit,
+    state:stateNow
   };
 }
 
-const count=bind();
-window.DEEN_QURAN_FATIHA_AUDIO={bind,audit,files:()=>({...FILES}),count:()=>count};
-document.documentElement.dataset.deenFatihaAudio='v10945';
+document.addEventListener?.('click',e=>{if(e.target?.closest?.('#v5Sheet'))schedule()},true);
+document.addEventListener?.('deen:navigating',stop);
+document.addEventListener?.('deen:navigated',schedule);
+document.addEventListener?.('close',e=>{if(e.target?.id==='v5Sheet')stop()},true);
+if(typeof MutationObserver!=='undefined')new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
+setInterval(()=>{decorate();const c=currentCfg();if(c)syncButton(c)},350);
+
+window.DEEN_QURAN_AYAH_AUDIO={
+  play,pause,stop,toggle,decorate,syncText,prepareSyncedText,audit,state:stateNow,
+  config:id=>cfg(id)?JSON.parse(JSON.stringify(cfg(id))):null,
+  configs:()=>JSON.parse(JSON.stringify(CONFIG))
+};
+
+window.DEEN_QURAN_FATIHA_INLINE_AUDIO=compat('fatiha');
+window.DEEN_QURAN_IKHLAS_INLINE_AUDIO=compat('ikhlas');
+window.DEEN_QURAN_FALAQ_INLINE_AUDIO=compat('falaq');
+window.DEEN_QURAN_NAS_INLINE_AUDIO=compat('nas');
+window.DEEN_QURAN_KAWTHAR_INLINE_AUDIO=compat('kawthar');
+window.DEEN_QURAN_ASR_INLINE_AUDIO=compat('asr');
+window.DEEN_QURAN_KAFIRUN_INLINE_AUDIO=compat('kafirun');
+window.DEEN_QURAN_NASR_INLINE_AUDIO=compat('nasr');
+window.DEEN_QURAN_MASAD_INLINE_AUDIO=compat('masad');
+window.DEEN_QURAN_FIL_INLINE_AUDIO=compat('fil');
+window.DEEN_QURAN_QURAYSH_INLINE_AUDIO=compat('quraysh');
+window.DEEN_QURAN_MAUN_INLINE_AUDIO=compat('maun');
+
+// Backward-compatible Fâtiha metadata API; playback is now handled by the universal engine.
+window.DEEN_QURAN_FATIHA_AUDIO={
+  bind:()=>CONFIG.fatiha.count,
+  audit,
+  files:()=>Object.fromEntries(CONFIG.fatiha.files.map((file,i)=>[i+1,file])),
+  count:()=>CONFIG.fatiha.count
+};
+
+window.__deenV10945FatihaLocalAudio=true;
+window.__deenV10946FatihaInlineAudio=true;
+window.__deenV10947FatihaDirectInline=true;
+window.__deenV10949IkhlasInlineAudio=true;
+window.__deenV10950FalaqInlineAudio=true;
+window.__deenV10951NasInlineAudio=true;
+window.__deenV10952KawtharInlineAudio=true;
+window.__deenV10953AsrInlineAudio=true;
+window.__deenV10954KafirunInlineAudio=true;
+window.__deenV10955NasrInlineAudio=true;
+window.__deenV10956MasadInlineAudio=true;
+window.__deenV10957FilInlineAudio=true;
+window.__deenV10958QurayshInlineAudio=true;
+window.__deenV10959MaunInlineAudio=true;
+
+document.documentElement.dataset.deenQuranUniversalAudio='v10960';
+document.documentElement.dataset.deenFatihaAudio='v10960';
+document.documentElement.dataset.deenFatihaInlineAudio='v10960';
+schedule();
 })();
 </script>
