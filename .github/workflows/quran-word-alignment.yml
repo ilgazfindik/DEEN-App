@@ -1,10 +1,6 @@
 name: Quran Word Alignment
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'assets/quran/audio/.alignment-trigger'
   workflow_dispatch:
     inputs:
       only:
