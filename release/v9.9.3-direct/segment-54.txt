@@ -32,7 +32,7 @@ const LEVELS={
  medium:{name:'Orta',tag:'Aktif hatırlama',types:['fill_blank','continuation','meaning','surah','audio']},
  hard:{name:'Zor',tag:'Ezber baskısı',types:['fill_blank','continuation','audio','next_ayah','meaning','ayah_number']}
 };
-let C={active:false,level:'medium',limit:10,answered:0,correct:0,wrong:0,streak:0,bestStreak:0,history:[],startedAt:null,finishedAt:null};
+let C={active:false,level:'medium',scope:'all',limit:10,answered:0,correct:0,wrong:0,streak:0,bestStreak:0,history:[],startedAt:null,finishedAt:null,reward:null};
 const arena=()=>window.DEEN_QURAN_QUESTION_ARENA;
 const qs=()=>{try{return DEEN_QURAN?.ensureState?.()||state?.quranJourney||{}}catch(_){return state?.quranJourney||{}}};
 function persist(){try{DEEN_QURAN?.persistState?.()}catch(_){}}
@@ -60,10 +60,10 @@ function decorate(){
  if(!banner){banner=document.createElement('div');banner.className='deen-qchallenge-banner';root.insertBefore(banner,root.firstChild)}
  banner.innerHTML='<div class="deen-qchallenge-banner-top"><span>10 SORULUK CHALLENGE · '+LEVELS[C.level].name.toUpperCase()+'</span><span>Soru '+current+' / '+C.limit+'</span></div><div class="deen-qchallenge-bar"><i style="width:'+pct+'%"></i></div>';return true
 }
-function start(level='medium'){
- if(!LEVELS[level])level='medium';
- C={active:true,level,limit:10,answered:0,correct:0,wrong:0,streak:0,bestStreak:0,history:[],startedAt:new Date().toISOString(),finishedAt:null};
- const t=levelType();arena()?.open?.(t,'all');setTimeout(decorate,0);return true
+function start(level='medium',scope='all'){
+ if(!LEVELS[level])level='medium';if(!['all','weak','current','learned'].includes(scope))scope='all';
+ C={active:true,level,scope,limit:10,answered:0,correct:0,wrong:0,streak:0,bestStreak:0,history:[],startedAt:new Date().toISOString(),finishedAt:null,reward:null};
+ const t=levelType();arena()?.open?.(t,scope);setTimeout(decorate,0);return true
 }
 function strongest(){
  const root=store();let rows=IDS.map(id=>({id,name:META[id],score:masteryScore(id),attempts:root.surahs[id].correct+root.surahs[id].wrong})).filter(x=>x.attempts>0);
@@ -72,17 +72,29 @@ function strongest(){
 function resultHtml(){
  const acc=C.answered?Math.round(C.correct/C.answered*100):0;const top=strongest();
  const label=acc>=90?'Çok güçlü':acc>=70?'İyi gidiyor':acc>=50?'Gelişiyor':'Tekrar gerekli';
- return'<div class="deen-qchallenge-result"><div class="deen-qchallenge-ring"><span><strong>%'+acc+'</strong><small>DOĞRULUK</small></span></div><h2>'+label+'</h2><p>'+LEVELS[C.level].name+' challenge tamamlandı. Sonuçlar sure bazlı ustalık puanına işlendi.</p>'+
+ const reward=C.reward?'<p style="margin-top:8px;color:#9ce4cf;font-weight:850">+'+C.reward.xp+' XP'+(C.reward.sparkles?' · +'+C.reward.sparkles+' Pırıltı':'')+(C.reward.multiplier<1?' · tekrar katsayısı %'+Math.round(C.reward.multiplier*100):'')+'</p>':'';
+ return'<div class="deen-qchallenge-result"><div class="deen-qchallenge-ring"><span><strong>%'+acc+'</strong><small>DOĞRULUK</small></span></div><h2>'+label+'</h2><p>'+LEVELS[C.level].name+(C.scope==='weak'?' · Zayıf Ayetler':'')+' challenge tamamlandı. Sonuçlar sure bazlı ustalık puanına işlendi.</p>'+reward+
  '<div class="deen-qchallenge-metrics"><div><strong>'+C.correct+'/10</strong><small>DOĞRU</small></div><div><strong>'+C.bestStreak+'</strong><small>EN İYİ SERİ</small></div><div><strong>'+top.score+'</strong><small>'+top.name.toUpperCase()+'</small></div></div>'+
- '<div class="deen-qchallenge-actions"><button class="deen-qchallenge-btn" onclick="DEEN_QURAN_CHALLENGE.start(\''+C.level+'\')">TEKRAR OYNA</button><button class="deen-qchallenge-btn secondary" onclick="DEEN_QURAN_CHALLENGE.openMastery()">USTALIKLARIM</button></div></div>'
+ '<div class="deen-qchallenge-actions"><button class="deen-qchallenge-btn" onclick="DEEN_QURAN_CHALLENGE.start(\''+C.level+'\',\''+C.scope+'\')">TEKRAR OYNA</button><button class="deen-qchallenge-btn secondary" onclick="DEEN_QURAN_CHALLENGE.openMastery()">USTALIKLARIM</button></div></div>'
 }
 function finish(){
- C.active=false;C.finishedAt=new Date().toISOString();const acc=C.answered?Math.round(C.correct/C.answered*100):0;const root=store();root.challenge.plays=Math.max(0,Number(root.challenge.plays)||0)+1;root.challenge.bestAccuracy=Math.max(Number(root.challenge.bestAccuracy)||0,acc);root.challenge.bestStreak=Math.max(Number(root.challenge.bestStreak)||0,C.bestStreak);root.challenge.lastLevel=C.level;root.challenge.lastAt=C.finishedAt;persist();sheet('Challenge Sonucu',resultHtml());return true
+ C.active=false;C.finishedAt=new Date().toISOString();const acc=C.answered?Math.round(C.correct/C.answered*100):0;const root=store();root.challenge.plays=Math.max(0,Number(root.challenge.plays)||0)+1;root.challenge.bestAccuracy=Math.max(Number(root.challenge.bestAccuracy)||0,acc);root.challenge.bestStreak=Math.max(Number(root.challenge.bestStreak)||0,C.bestStreak);root.challenge.lastLevel=C.level;root.challenge.lastScope=C.scope;root.challenge.lastAt=C.finishedAt;
+ try{C.reward=window.DEEN_QURAN_REWARDS?.challengeCompleted?.(JSON.parse(JSON.stringify(C)))||null}catch(_){C.reward=null}
+ persist();sheet('Challenge Sonucu',resultHtml());return true
+}
+function surahLevel(id){
+ const root=store(),s=root.surahs[id],attempts=s.correct+s.wrong,score=masteryScore(id);
+ if(attempts>=25&&score>=90)return{n:5,name:'Usta'};
+ if(attempts>=15&&score>=80)return{n:4,name:'Sağlam'};
+ if(attempts>=10&&score>=70)return{n:3,name:'Hatırlama'};
+ if(attempts>=6&&score>=60)return{n:2,name:'Tanıma'};
+ if(attempts>=3)return{n:1,name:'Başlangıç'};
+ return{n:0,name:'Yeni'}
 }
 function openMastery(){
- const root=store();const rows=IDS.map(id=>({id,name:META[id],score:masteryScore(id),c:root.surahs[id].correct,w:root.surahs[id].wrong})).sort((a,b)=>b.score-a.score||(b.c+b.w)-(a.c+a.w));
- const html='<div class="v5-kicker">SURE BAZLI USTALIK</div><p class="v5-muted">Puan yalnız soru performansından oluşur. Az denemede 50’ye yakın kalır; yeterli tekrar geldikçe gerçek doğruluk oranına yaklaşır.</p><div class="deen-qmastery-list">'+
- rows.map(x=>'<div class="deen-qmastery-row"><div class="deen-qmastery-top"><b>'+x.name+'</b><strong>'+x.score+'/100</strong></div><small>'+(x.c+x.w)+' soru · '+x.c+' doğru · '+x.w+' yanlış</small><div class="deen-qmastery-bar"><i style="width:'+x.score+'%"></i></div></div>').join('')+'</div>';
+ const root=store();const rows=IDS.map(id=>({id,name:META[id],score:masteryScore(id),c:root.surahs[id].correct,w:root.surahs[id].wrong,level:surahLevel(id)})).sort((a,b)=>b.level.n-a.level.n||b.score-a.score||(b.c+b.w)-(a.c+a.w));
+ const html='<div class="v5-kicker">SURE BAZLI USTALIK</div><p class="v5-muted">Seviye yalnız soru çözerek yükselir; yüksek puan kadar yeterli tekrar sayısı da gerekir.</p><div class="deen-qmastery-list">'+
+ rows.map(x=>'<div class="deen-qmastery-row"><div class="deen-qmastery-top"><b>'+x.name+' · Seviye '+x.level.n+' '+x.level.name+'</b><strong>'+x.score+'/100</strong></div><small>'+(x.c+x.w)+' soru · '+x.c+' doğru · '+x.w+' yanlış</small><div class="deen-qmastery-bar"><i style="width:'+x.score+'%"></i></div></div>').join('')+'</div>';
  sheet('Kur’an Ustalığı',html);return true
 }
 function injectHub(){
@@ -114,7 +126,7 @@ function install(){
 function audit(){const root=store();return{build:BUILD,installed:!!arena()?.__challengeWrapped,levels:Object.keys(LEVELS),limit:10,surahs:IDS.length,masteryRows:Object.keys(root.surahs).length,plays:Number(root.challenge.plays)||0}}
 const mo=typeof MutationObserver!=='undefined'?new MutationObserver(()=>{install();injectHub()}):null;mo?.observe?.(document.body,{childList:true,subtree:true});
 document.addEventListener?.('deen:navigated',()=>setTimeout(()=>{install();injectHub()},0));
-window.DEEN_QURAN_CHALLENGE={openSetup,start,finish,openMastery,masteryScore,state:()=>JSON.parse(JSON.stringify(C)),audit};
+window.DEEN_QURAN_CHALLENGE={openSetup,start,startWeak:(level='hard')=>start(level,'weak'),finish,openMastery,masteryScore,surahLevel,state:()=>JSON.parse(JSON.stringify(C)),audit};
 setTimeout(()=>{install();injectHub()},0);document.documentElement.dataset.deenQuranChallenge='v10964';
 })();
 </script>
