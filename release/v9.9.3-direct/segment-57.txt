@@ -1,5 +1,116 @@
-<!-- DEEN_RETIRED_SEGMENT_OK
-DEEN v10.9.60 universal Quran ayah audio migration.
-This legacy per-surah audio segment is intentionally retired.
-Runtime is handled by release/v9.9.3-direct/segment-52.txt.
--->
+<!-- DEEN v10.9.67 — Premium Quran Today focus -->
+<style id="deen-v10967-quran-premium-focus-css">
+.deen-qia-today.is-premium-focus>.deen-quran-hero,
+.deen-qia-today.is-premium-focus>.deen-quran-today-grid,
+.deen-qia-today.is-premium-focus>.deen-qdc,
+.deen-qia-today.is-premium-focus>[data-quran-reward-daily]{display:none!important}
+.deen-qfocus{position:relative;overflow:hidden;padding:18px;border:1px solid rgba(112,225,193,.3);border-radius:22px;background:radial-gradient(circle at 88% 10%,rgba(112,231,196,.16),transparent 29%),radial-gradient(circle at 4% 100%,rgba(28,117,106,.17),transparent 35%),linear-gradient(145deg,#123f40 0%,#0c3037 56%,#08242c 100%);box-shadow:0 16px 34px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.035)}
+.deen-qfocus:before{content:"";position:absolute;right:-38px;top:-35px;width:128px;height:170px;border:1px solid rgba(157,234,210,.09);border-radius:64px 64px 12px 12px;box-shadow:0 0 0 18px rgba(157,234,210,.018),0 0 0 38px rgba(157,234,210,.01);pointer-events:none}
+.deen-qfocus>*{position:relative;z-index:1}
+.deen-qfocus-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.deen-qfocus-kicker{display:flex;align-items:center;gap:6px;color:#98dec9;font:900 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);letter-spacing:.75px}
+.deen-qfocus-kicker i{width:7px;height:7px;border-radius:50%;background:#74ddbd;box-shadow:0 0 12px rgba(116,221,189,.55)}
+.deen-qfocus-xp{padding:6px 8px;border:1px solid rgba(205,176,103,.21);border-radius:999px;background:rgba(91,70,29,.12);color:#dbc78f;font:850 7.5px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qfocus-main{margin-top:14px}
+.deen-qfocus-main h3{margin:0;color:#f3fcf9;font:900 25px/1.06 var(--deen-font-ui,Inter,system-ui,sans-serif);letter-spacing:-.035em}
+.deen-qfocus-main p{margin:7px 0 0;max-width:83%;color:#9ab8b4;font:680 9.5px/1.5 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qfocus-progress-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;color:#769793;font:750 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qfocus-progress-head strong{color:#dff8f0;font-weight:900}
+.deen-qfocus-progress{height:7px;margin-top:7px;overflow:hidden;border-radius:999px;background:#061c23}
+.deen-qfocus-progress i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#58cdb1,#a8eed8);box-shadow:0 0 15px rgba(89,215,183,.28)}
+.deen-qfocus-cta{width:100%;min-height:52px;margin-top:15px;border:1px solid rgba(164,242,219,.36);border-radius:15px;background:linear-gradient(180deg,#62d3b6,#42ad99);color:#062e2d;font:950 10px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);letter-spacing:.4px;box-shadow:0 4px 0 #2b776d,0 12px 24px rgba(0,0,0,.18)}
+.deen-qfocus-cta:active{transform:translateY(2px);box-shadow:0 2px 0 #2b776d,0 8px 17px rgba(0,0,0,.15)}
+.deen-qfocus-signals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:11px}
+.deen-qfocus-signal{min-width:0;padding:8px;border:1px solid rgba(89,148,148,.15);border-radius:11px;background:rgba(5,28,35,.42)}
+.deen-qfocus-signal b{display:block;color:#e1f2ee;font:900 10px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qfocus-signal small{display:block;margin-top:4px;overflow:hidden;color:#718e8c;font:700 6.9px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif);white-space:nowrap;text-overflow:ellipsis}
+.deen-qfocus-shortcuts{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
+.deen-qfocus-shortcuts button{min-height:37px;border:1px solid rgba(89,148,148,.16);border-radius:11px;background:#0a2b32;color:#8fcfbe;font:820 7.7px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-qia-section{padding:0}
+.deen-qia-section:not(.deen-qia-today){padding:13px;border:1px solid rgba(78,132,136,.13);border-radius:19px;background:linear-gradient(180deg,rgba(8,31,39,.38),rgba(7,27,34,.22))}
+.deen-qia-section:not(.deen-qia-today) .deen-qia-section-head{padding:0 1px 2px}
+.deen-qia-actions{gap:7px}
+.deen-qia-action{min-height:86px;padding:12px;border-radius:15px;transition:transform .12s ease,border-color .12s ease,background .12s ease}
+.deen-qia-action.primary{grid-column:1/-1;min-height:92px;display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:10px;align-content:center}
+.deen-qia-action.primary i{grid-row:1/3;margin:0;width:34px;height:34px;align-self:center}
+.deen-qia-action.primary b{align-self:end;font-size:11px}.deen-qia-action.primary small{align-self:start;margin-top:4px}
+.deen-qia-play .deen-qarena-hub-grid{gap:7px}
+.deen-qia-play .deen-qarena-hub-card{min-height:78px;border-radius:15px}
+.deen-qia-play .deen-qarena-hub-card.primary{grid-column:1/-1;min-height:90px}
+.deen-qia-nav{position:sticky;top:0;z-index:8;margin-left:-2px;margin-right:-2px;padding:7px 2px;background:linear-gradient(180deg,rgba(7,27,35,.97),rgba(7,27,35,.88),transparent);backdrop-filter:blur(8px)}
+.deen-qia-nav button{min-height:32px;background:#0a2830}
+.deen-qia-nav button.is-active{border-color:rgba(102,216,184,.32);background:#143b3d;color:#a1e5d1}
+@media(max-width:360px){.deen-qfocus{padding:15px}.deen-qfocus-main h3{font-size:22px}.deen-qfocus-main p{max-width:92%}.deen-qfocus-signals{gap:5px}.deen-qia-section:not(.deen-qia-today){padding:11px}}
+@media(prefers-reduced-motion:reduce){.deen-qfocus-cta,.deen-qia-action{transition:none!important}}
+</style>
+<script id="deen-v10967-quran-premium-focus-js">
+(()=>{
+if(window.__deenV10967QuranPremiumFocus)return;window.__deenV10967QuranPremiumFocus=true;
+const BUILD='9282quranfocus1';
+const META={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
+let timer=0;
+const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+function model(){
+ const d=DEEN_QURAN?.dashboardModel?.()||{};
+ const p=DEEN_QURAN_PROGRESS?.model?.()||{};
+ const missions=DEEN_QURAN_REWARDS?.missions?.()||{done:0,rows:[]};
+ const q=DEEN_QURAN?.ensureState?.()||state?.quranJourney||{};
+ const id=d.currentId||q?.profile?.currentSurah||'fatiha';
+ return{
+  id,name:d.currentName||META[id]||'Fâtiha',ayah:Math.max(1,Number(d.currentAyah)||1),ayahs:Math.max(1,Number(d.ayahs)||1),
+  pct:Math.max(0,Math.min(100,Number(d.surahPct)||0)),due:Math.max(0,Number(d.dueCount)||Number(p.due)||0),
+  strength:Math.max(0,Math.min(100,Math.round(Number(p.strength)||0))),missions:Math.max(0,Math.min(3,Number(missions.done)||0)),
+  learned:Math.max(0,Number(d.learned)||0),started:!!d.hasStarted,goalPct:Math.max(0,Math.min(100,Number(d.goalPct)||0))
+ }
+}
+function primary(){
+ const m=model();
+ try{return DEEN_QURAN?.openSurah?.(m.id)}catch(_){return false}
+}
+function plan(){try{return DEEN_QURAN_PLAN?.start?.()}catch(_){return false}}
+function daily(){try{return DEEN_QURAN_DAILY?.open?.()}catch(_){return false}}
+function details(){
+ const m=model(),missions=DEEN_QURAN_REWARDS?.missions?.()||{rows:[]};
+ const rows=(missions.rows||[]).map(x=>'<div class="deen-qreward-mission'+(x.done?' done':'')+'"><i>'+(x.done?'✓':'·')+'</i><span>'+esc(x.title)+'</span><strong>'+Math.min(Number(x.value)||0,Number(x.target)||0)+'/'+(Number(x.target)||0)+'</strong></div>').join('');
+ sheet('Bugünkü Kur’an Durumu','<div class="v5-kicker">'+esc(m.name).toUpperCase()+' · AYET '+m.ayah+'/'+m.ayahs+'</div><div class="deen-qreward-missions" style="margin-top:10px">'+rows+'</div><div class="deen-qia-coverage" style="margin-top:10px"><span>Hafıza gücü</span><b>%'+m.strength+'</b></div><div class="deen-qia-coverage" style="margin-top:7px"><span>Bugünkü tekrar</span><b>'+m.due+'</b></div>');
+ return true
+}
+function signature(m=model()){return [m.id,m.ayah,m.ayahs,m.pct,m.due,m.strength,m.missions,m.learned,m.started?1:0,m.goalPct].join('|')}
+function html(){
+ const m=model(),sig=signature(m),cta=m.started?'ÇALIŞMAYA DEVAM ET':'İLK SUREYE BAŞLA';
+ const desc=m.started?'Ayet '+m.ayah+' üzerinden kaldığın yerden devam et.':'İlk kısa sureni küçük adımlarla öğrenmeye başla.';
+ return'<article class="deen-qfocus" data-qfocus="1" data-qfocus-sig="'+esc(sig)+'">'+
+  '<div class="deen-qfocus-top"><span class="deen-qfocus-kicker"><i></i>BUGÜNÜN ODAĞI</span><span class="deen-qfocus-xp">'+m.missions+'/3 GÖREV</span></div>'+
+  '<div class="deen-qfocus-main"><h3>'+esc(m.name)+' Suresi</h3><p>'+esc(desc)+'</p></div>'+
+  '<div class="deen-qfocus-progress-head"><span>Sure ilerlemesi</span><strong>%'+m.pct+'</strong></div><div class="deen-qfocus-progress"><i style="width:'+m.pct+'%"></i></div>'+
+  '<button class="deen-qfocus-cta" type="button" onclick="DEEN_QURAN_PREMIUM_FOCUS.primary()">'+cta+' →</button>'+
+  '<div class="deen-qfocus-signals"><div class="deen-qfocus-signal"><b>'+m.due+'</b><small>TEKRAR</small></div><div class="deen-qfocus-signal"><b>%'+m.strength+'</b><small>HAFIZA</small></div><div class="deen-qfocus-signal"><b>'+m.learned+'/90</b><small>AYET</small></div></div>'+
+  '<div class="deen-qfocus-shortcuts"><button type="button" onclick="DEEN_QURAN_PREMIUM_FOCUS.plan()">BUGÜNKÜ PLAN</button><button type="button" onclick="DEEN_QURAN_PREMIUM_FOCUS.details()">DETAYLAR</button></div>'+
+ '</article>'
+}
+function decorateNav(){
+ const nav=document.querySelector?.('[data-qia-nav]');if(!nav)return false;
+ const sections=[...document.querySelectorAll?.('[data-qia-section]')||[]];if(!sections.length)return false;
+ const buttons=[...nav.querySelectorAll('button')];buttons.forEach((b,i)=>b.classList.toggle('is-active',i===0));
+ return true
+}
+function inject(){
+ const section=document.querySelector?.('[data-qia-section="today"]');if(!section)return false;
+ section.classList.add('is-premium-focus');
+ const body=section.querySelector?.('[data-qia-body="today"]');if(!body)return false;
+ let card=body.querySelector?.('[data-qfocus]');
+ const sig=signature(),h=html();
+ if(card?.dataset?.qfocusSig===sig){decorateNav();document.documentElement.dataset.deenQuranPremiumFocus='v10967';return true}
+ if(card){const tmp=document.createElement('div');tmp.innerHTML=h;card.replaceWith(tmp.firstElementChild)}
+ else body.insertAdjacentHTML('afterbegin',h);
+ decorateNav();document.documentElement.dataset.deenQuranPremiumFocus='v10967';return true
+}
+function schedule(){clearTimeout(timer);timer=setTimeout(inject,50)}
+const base=DEEN_QURAN.dashboardRender||DEEN_QURAN.render;
+if(typeof base==='function'&&!base.__deenPremiumFocusWrapped){const w=function(){const r=base.apply(this,arguments);schedule();return r};w.__deenPremiumFocusWrapped=true;DEEN_QURAN.dashboardRender=w;DEEN_QURAN.render=w;window.leagueView=w;try{leagueView=w}catch(_){}}
+document.addEventListener?.('deen:navigated',schedule);
+if(typeof MutationObserver!=='undefined')new MutationObserver(m=>{if(m.some(x=>x.addedNodes?.length||x.removedNodes?.length))schedule()}).observe(document.body,{childList:true,subtree:true});
+window.DEEN_QURAN_PREMIUM_FOCUS={inject,primary,plan,daily,details,model,audit:()=>({build:BUILD,focus:!!document.querySelector?.('[data-qfocus]'),model:model()})};
+schedule();
+})();
+</script>
