@@ -4,7 +4,7 @@
 </style>
 <script id="deen-v10936-quran-word-intel-js">
 (()=>{if(window.__deenV10936QuranWordIntel)return;window.__deenV10936QuranWordIntel=true;
-const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','kawthar','asr'];
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','bayyina','kawthar','asr'];
 const strip=s=>String(s||'').normalize('NFKD').replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'').replace(/[^\u0621-\u064A]/g,'');
 function stateObj(){const q=DEEN_QURAN.ensureState();q.wordIntelligence=q.wordIntelligence&&typeof q.wordIntelligence==='object'?q.wordIntelligence:{known:{}};q.wordIntelligence.known=q.wordIntelligence.known||{};return q.wordIntelligence}
 function corpus(){const map=new Map();for(const id of IDS){const rows=DEEN_QURAN_CONTENT?.getSurah?.(id)||[];for(const r of rows){for(const raw of String(r.arabic?.text||'').split(/\s+/)){const k=strip(raw);if(!k)continue;const x=map.get(k)||{key:k,display:raw,count:0,surahs:new Set()};x.count++;x.surahs.add(id);map.set(k,x)}}}return[...map.values()].map(x=>({...x,surahs:[...x.surahs]})).sort((a,b)=>b.count-a.count||a.key.localeCompare(b.key))}

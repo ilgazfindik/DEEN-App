@@ -4,7 +4,7 @@
 </style>
 <script id="deen-v10937-quran-mem-v2-js">
 (()=>{if(window.__deenV10937QuranMemV2)return;window.__deenV10937QuranMemV2=true;
-const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','kawthar','asr'];let session=null;
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','bayyina','kawthar','asr'];let session=null;
 const qs=()=>DEEN_QURAN.ensureState(),rec=(id,n)=>DEEN_QURAN_CONTENT?.getAyah?.(id,n),esc=v=>String(v??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 function learned(){const out=[];for(const id of IDS){const s=qs().progress?.surahs?.[id];for(const [n,a] of Object.entries(s?.ayahs||{}))if(a.completedAt&&rec(id,Number(n)))out.push({id,n:Number(n),a})}return out}
 function weakScore(x){const a=x.a,wrong=Number(a.wrongRecalls)||0,ok=Number(a.correctRecalls)||0,lapse=Number(a.srs?.lapseCount)||0;let overdue=0;const d=Date.parse(a.nextReviewAt||'');if(Number.isFinite(d)&&d<Date.now())overdue=Math.min(10,(Date.now()-d)/86400000);return Math.round(wrong*4+lapse*5+overdue*2-ok+Math.max(0,5-(Number(a.memorizationLevel)||0))*2)}
