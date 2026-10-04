@@ -1,0 +1,72 @@
+
+<script id="deen-v10945-fatiha-local-audio-js">
+(()=>{
+if(window.__deenV10945FatihaLocalAudio)return;window.__deenV10945FatihaLocalAudio=true;
+
+const BASE='./assets/quran/audio/fatiha/';
+const FILES={
+  1:'fatiha_1.mp3',
+  2:'fatiha_2.mp3',
+  3:'fatiha_3.mp3',
+  4:'fatiha_4.mp3',
+  5:'fatiha_5.mp3',
+  6:'fatiha_6.mp3',
+  7:'fatiha_7.mp3'
+};
+const VERIFIED_AT='2026-10-04T12:37:00+03:00';
+
+function bind(){
+  let bound=0;
+  for(let n=1;n<=7;n++){
+    const base=DEEN_QURAN_CONTENT?.internalGet?.('fatiha',n);
+    if(!base)continue;
+    DEEN_QURAN_CONTENT.register({
+      ...base,
+      recitation:{
+        audio_url:BASE+FILES[n],
+        qari:'Samir - Modern Arabic',
+        riwayah:'Hafs',
+        source:{
+          provider:'DEEN user-provided ElevenLabs generation',
+          edition:'Fatiha ayah audio',
+          reference:'Fatiha '+n,
+          url:BASE+FILES[n],
+          license:'User-provided generated asset',
+          rights_reference:'Generated/provided by DEEN project owner for in-app use on 2026-10-04'
+        },
+        verification_status:'production_ready',
+        rights_status:'cleared'
+      },
+      updated_at:VERIFIED_AT
+    });
+    bound++;
+  }
+  return bound;
+}
+
+function audit(){
+  const rows=[];
+  for(let n=1;n<=7;n++){
+    const r=DEEN_QURAN_CONTENT?.getAyah?.('fatiha',n);
+    const a=DEEN_QURAN_AUDIO?.verifiedAudio?.('fatiha',n);
+    rows.push({
+      ayah:n,
+      file:FILES[n],
+      contentReady:!!r,
+      audioReady:!!a,
+      url:a?.url||null
+    });
+  }
+  return{
+    ok:rows.every(x=>x.contentReady&&x.audioReady),
+    ready:rows.filter(x=>x.audioReady).length,
+    total:7,
+    rows
+  };
+}
+
+const count=bind();
+window.DEEN_QURAN_FATIHA_AUDIO={bind,audit,files:()=>({...FILES}),count:()=>count};
+document.documentElement.dataset.deenFatihaAudio='v10945';
+})();
+</script>
