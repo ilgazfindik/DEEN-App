@@ -15,6 +15,9 @@ meal:['Asra yemin olsun ki,','İnsan mutlaka ziyandadır.','Ancak iman edenler, 
 kawthar:{name:'Kevser',number:108,quran:'https://quran.com/tr/kevser',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Kevser_Suresi",
 arabic:['إِنَّآ أَعْطَيْنَـٰكَ ٱلْكَوْثَرَ','فَصَلِّ لِرَبِّكَ وَٱنْحَرْ','إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ'],
 meal:['Biz verdik sana hakikatte kevser.','Sen de Rabbin için namaz kıl ve kurban kesiver.','Doğrusu sana bugz edendir ebter.']},
+kafirun:{name:'Kâfirûn',number:109,quran:'https://quran.com/tr/kafirun',translationProvider:'Quran.com',translationEdition:'Diyanet İşleri Başkanlığı',translationUrl:'https://quran.com/tr/kafirun/translation/quran.tr.diyanet',
+arabic:['قُلْ يَـٰٓأَيُّهَا ٱلْكَـٰفِرُونَ','لَآ أَعْبُدُ مَا تَعْبُدُونَ','وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ','وَلَآ أَنَا۠ عَابِدٌۭ مَّا عَبَدتُّمْ','وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ','لَكُمْ دِينُكُمْ وَلِىَ دِينِ'],
+meal:['De ki: "Ey inkârcılar!"','"Ben sizin taptıklarınıza tapmam."','"Benim taptığıma da sizler tapmazsınız."','"Ben de sizin taptığınıza tapacak değilim."','"Benim taptığıma da sizler tapmıyorsunuz."','"Sizin dininiz size, benim dinim banadır."']},
 falaq:{name:'Felak',number:113,quran:'https://quran.com/tr/felak',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Felak_Suresi",
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ','مِن شَرِّ مَا خَلَقَ','وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ','وَمِن شَرِّ ٱلنَّفَّـٰثَـٰتِ فِى ٱلْعُقَدِ','وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ'],
 meal:['De ki: Sığınırım Rabbına o felak\'ın,','Şerrinden yarattıklarının.','Ve şerriden bir gâsıkın daldığı zaman.','Ve o, ukdelere üfleyen neffasların şerrinden.','Ve şerrinden hâsidin hased ettiği zaman.']},
@@ -22,7 +25,7 @@ nas:{name:'Nâs',number:114,quran:'https://quran.com/tr/nas',wiki:"https://tr.wi
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ','مَلِكِ ٱلنَّاسِ','إِلَـٰهِ ٱلنَّاسِ','مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ','ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ','مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ'],
 meal:['De ki sığınırım Rabb’ine nâsın,','Melikine nâsın,','İlâhına nâsın,','Şerrinden o sinsi vesvasın.','Ki vesvese verir sinelerinde nâsın.','Gerek cinden gerekse insden.']}
 };
-const IDS=['fatiha','ikhlas','falaq','nas','kawthar','asr'], STEPS=['listen','read','meaning','recall','complete'];
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','kawthar','asr'], STEPS=['listen','read','meaning','recall','complete'];
 const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const qs=()=>DEEN_QURAN.ensureState(), meta=id=>PACKS[id]||DEEN_QURAN_CONTENT?.surahs?.[id]||null;
 const rec=(id,n)=>DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n))||null;
@@ -30,10 +33,10 @@ function registerAll(){
  for(const [id,p] of Object.entries(PACKS)) for(let i=0;i<p.arabic.length;i++) DEEN_QURAN_CONTENT.register({
   surah_id:id,ayah_number:i+1,
   arabic:{text:p.arabic[i],source:{provider:'Quran.com',edition:'Uthmani display',reference:p.number+':'+(i+1),url:p.quran},verification_status:'production_ready'},
-  translation:{language:'tr',text:p.meal[i],source:{provider:'Vikikaynak',edition:'Muhammed Hamdi Yazır, 1938',reference:p.name+' '+(i+1)+'. ayet',url:p.wiki,license:'Public domain',rights_reference:"https://tr.wikisource.org/wiki/Kur%27an"},verification_status:'production_ready'},
+  translation:{language:'tr',text:p.meal[i],source:{provider:p.translationProvider||'Vikikaynak',edition:p.translationEdition||'Muhammed Hamdi Yazır, 1938',reference:p.name+' '+(i+1)+'. ayet',url:p.translationUrl||p.wiki,license:p.translationProvider?null:'Public domain',rights_reference:p.translationProvider?null:"https://tr.wikisource.org/wiki/Kur%27an"},verification_status:'production_ready'},
   recitation:{audio_url:null,qari:null,riwayah:null,source:{},verification_status:'needs_review',rights_status:'unknown'},
   learning_note:{text:null,source:{},verification_status:'needs_review'},
-  verification:{verification_status:'production_ready',religious_release_ready:true,verified_by:REVIEWER,verified_at:VERIFIED_AT,review_notes:['Arabic cross-checked against Quran.com.','Turkish meal cross-checked against public-domain Muhammed Hamdi Yazır text on Vikikaynak.','No new tafsir or recitation is released by this pack.']},
+  verification:{verification_status:'production_ready',religious_release_ready:true,verified_by:REVIEWER,verified_at:VERIFIED_AT,review_notes:['Arabic cross-checked against Quran.com.',p.translationProvider==='Quran.com'?'Turkish meal cross-checked against Quran.com Diyanet translation.':'Turkish meal cross-checked against public-domain Muhammed Hamdi Yazır text on Vikikaynak.','No new tafsir or recitation is released by this pack.']},
   updated_at:VERIFIED_AT
  });
  return DEEN_QURAN_CONTENT.summary();

@@ -71,8 +71,8 @@
   if(window.__deenV10930QuranFinalQa)return;
   window.__deenV10930QuranFinalQa=true;
 
-  const IDS=['fatiha','ikhlas','falaq','nas','kawthar','asr'];
-  const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kawthar:3,asr:3};
+  const IDS=['fatiha','ikhlas','falaq','nas','kafirun','kawthar','asr'];
+  const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,kawthar:3,asr:3};
   const qstate=()=>DEEN_QURAN?.ensureState?.()||state?.quranJourney||null;
   const validDate=v=>typeof v==='string'&&Number.isFinite(Date.parse(v));
 
