@@ -3450,6 +3450,7 @@ window.DEEN_REWARD_BADGE_ART={
     {id:'falaq',name:'Felak',ayahs:5,order:113},
     {id:'nas',name:'Nâs',ayahs:6,order:114},
     {id:'kafirun',name:'Kâfirûn',ayahs:6,order:109},
+    {id:'nasr',name:'Nasr',ayahs:3,order:110},
     {id:'kawthar',name:'Kevser',ayahs:3,order:108},
     {id:'asr',name:'Asr',ayahs:3,order:103}
   ];
@@ -3659,8 +3660,8 @@ window.DEEN_REWARD_BADGE_ART={
   window.__deenV10917QuranData=true;
 
   const SCHEMA_VERSION=2;
-  const SURAH_IDS=['fatiha','ikhlas','falaq','nas','kafirun','kawthar','asr'];
-  const AYAH_COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,kawthar:3,asr:3};
+  const SURAH_IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','kawthar','asr'];
+  const AYAH_COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,kawthar:3,asr:3};
   const AYAH_STATES=['new','learning','strengthening','solid'];
   const SURAH_STATES=['not_started','learning','memorized','review_due'];
 
@@ -4266,6 +4267,7 @@ window.DEEN_REWARD_BADGE_ART={
     falaq:{name:'Felak',ayahs:5},
     nas:{name:'Nâs',ayahs:6},
     kafirun:{name:'Kâfirûn',ayahs:6},
+    nasr:{name:'Nasr',ayahs:3},
     kawthar:{name:'Kevser',ayahs:3},
     asr:{name:'Asr',ayahs:3}
   };
@@ -4624,6 +4626,7 @@ window.DEEN_REWARD_BADGE_ART={
     {id:'falaq',name:'Felak',order:113,ayahs:5},
     {id:'nas',name:'Nâs',order:114,ayahs:6},
     {id:'kafirun',name:'Kâfirûn',order:109,ayahs:6},
+    {id:'nasr',name:'Nasr',order:110,ayahs:3},
     {id:'kawthar',name:'Kevser',order:108,ayahs:3},
     {id:'asr',name:'Asr',order:103,ayahs:3}
   ];
@@ -4699,7 +4702,7 @@ window.DEEN_REWARD_BADGE_ART={
     const due=items.filter(x=>x.status==='review_due').length;
 
     sheet('Sure Kütüphanesi',
-      '<div class="v5-kicker">7 SURE · ÖĞRENME & EZBER</div>'+
+      '<div class="v5-kicker">8 SURE · ÖĞRENME & EZBER</div>'+
       '<p class="v5-muted">Her surenin ilerlemesi ve tekrar durumu ayrı tutulur. Bir sureyi seçtiğinde kaldığın ayetten devam edersin.</p>'+
       '<div class="deen-quran-library-summary">'+
         '<div><strong>'+started+'</strong><small>BAŞLANAN</small></div>'+
@@ -4763,6 +4766,7 @@ window.DEEN_REWARD_BADGE_ART={
     asr:{number:103,name:'Asr',ayahs:3},
     kawthar:{number:108,name:'Kevser',ayahs:3},
     kafirun:{number:109,name:'Kâfirûn',ayahs:6},
+    nasr:{number:110,name:'Nasr',ayahs:3},
     ikhlas:{number:112,name:'İhlâs',ayahs:4},
     falaq:{number:113,name:'Felak',ayahs:5},
     nas:{number:114,name:'Nâs',ayahs:6}
