@@ -1,5 +1,120 @@
-<!-- DEEN_RETIRED_SEGMENT_OK
-DEEN v10.9.60 universal Quran ayah audio migration.
-This legacy per-surah audio segment is intentionally retired.
-Runtime is handled by release/v9.9.3-direct/segment-52.txt.
--->
+<!-- DEEN v10.9.64 — Quran Challenge + mastery -->
+<style id="deen-v10964-quran-challenge-css">
+.deen-qchallenge-banner{padding:10px 11px;border:1px solid rgba(105,213,184,.22);border-radius:14px;background:linear-gradient(180deg,#10373a,#0a2931)}
+.deen-qchallenge-banner-top{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#93dec9;font:850 8px/1.2 Inter,system-ui,sans-serif}
+.deen-qchallenge-banner-top span:last-child{color:#759591}
+.deen-qchallenge-bar{height:5px;margin-top:8px;overflow:hidden;border-radius:999px;background:#061b22}.deen-qchallenge-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#59cbb2,#9ce8d1)}
+.deen-qchallenge-setup{display:grid;gap:9px}.deen-qchallenge-intro{padding:13px;border:1px solid rgba(89,149,149,.2);border-radius:16px;background:#0a2931}
+.deen-qchallenge-intro b{display:block;color:#edf9f6;font-size:13px}.deen-qchallenge-intro p{margin:6px 0 0;color:#789895;font-size:8.5px;line-height:1.45}
+.deen-qchallenge-level{width:100%;padding:13px;border:1px solid rgba(87,145,146,.22);border-radius:16px;background:linear-gradient(180deg,#0d3037,#09262e);color:#eaf8f5;text-align:left}
+.deen-qchallenge-level b{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px}.deen-qchallenge-level b em{font-style:normal;color:#8cd8c3;font-size:8px}.deen-qchallenge-level small{display:block;margin-top:5px;color:#759491;font-size:8px;line-height:1.4}
+.deen-qchallenge-result{text-align:center;padding:4px 0}.deen-qchallenge-ring{width:92px;height:92px;margin:0 auto;display:grid;place-items:center;border:7px solid rgba(100,213,183,.2);border-radius:50%;background:#0b2c33}
+.deen-qchallenge-ring strong{display:block;color:#eefaf7;font-size:24px;line-height:1}.deen-qchallenge-ring small{display:block;margin-top:4px;color:#7fa09c;font-size:8px}
+.deen-qchallenge-result h2{margin:14px 0 5px;color:#eefaf7;font-size:19px}.deen-qchallenge-result p{margin:0;color:#7d9c99;font-size:9px;line-height:1.45}
+.deen-qchallenge-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:14px}.deen-qchallenge-metrics div{padding:10px 6px;border:1px solid rgba(86,143,144,.18);border-radius:13px;background:#0a2931}
+.deen-qchallenge-metrics strong{display:block;color:#eaf8f5;font-size:15px}.deen-qchallenge-metrics small{display:block;margin-top:4px;color:#718f8d;font-size:7.5px}
+.deen-qchallenge-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}.deen-qchallenge-btn{min-height:44px;border:1px solid rgba(100,211,182,.24);border-radius:13px;background:#123b3c;color:#a0e6d1;font-size:9px;font-weight:850}.deen-qchallenge-btn.secondary{border-color:rgba(82,137,140,.2);background:#0a2931;color:#8eaaa7}
+.deen-qmastery-list{display:grid;gap:8px;margin-top:10px}.deen-qmastery-row{padding:11px;border:1px solid rgba(87,145,146,.18);border-radius:14px;background:#0a2931}
+.deen-qmastery-top{display:flex;justify-content:space-between;gap:10px}.deen-qmastery-top b{color:#eaf8f5;font-size:10px}.deen-qmastery-top strong{color:#9ae2cd;font-size:10px}.deen-qmastery-row small{display:block;margin-top:4px;color:#718f8d;font-size:7.5px}
+.deen-qmastery-bar{height:5px;margin-top:8px;overflow:hidden;border-radius:999px;background:#061b22}.deen-qmastery-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#58c9af,#99e8d0)}
+</style>
+<script id="deen-v10964-quran-challenge-js">
+(()=>{
+if(window.__deenV10964QuranChallenge)return;window.__deenV10964QuranChallenge=true;
+const BUILD='9279quranchallenge1';
+const META={
+ fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',
+ quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'
+};
+const IDS=Object.keys(META);
+const LEVELS={
+ easy:{name:'Kolay',tag:'Temel tanıma',types:['surah','ayah_number','meaning']},
+ medium:{name:'Orta',tag:'Aktif hatırlama',types:['fill_blank','continuation','meaning','surah','audio']},
+ hard:{name:'Zor',tag:'Ezber baskısı',types:['fill_blank','continuation','audio','next_ayah','meaning','ayah_number']}
+};
+let C={active:false,level:'medium',limit:10,answered:0,correct:0,wrong:0,streak:0,bestStreak:0,history:[],startedAt:null,finishedAt:null};
+const arena=()=>window.DEEN_QURAN_QUESTION_ARENA;
+const qs=()=>{try{return DEEN_QURAN?.ensureState?.()||state?.quranJourney||{}}catch(_){return state?.quranJourney||{}}};
+function persist(){try{DEEN_QURAN?.persistState?.()}catch(_){}}
+function store(){
+ const q=qs();q.questionArenaMastery=q.questionArenaMastery&&typeof q.questionArenaMastery==='object'?q.questionArenaMastery:{version:1,surahs:{},challenge:{plays:0,bestAccuracy:0,bestStreak:0}};
+ q.questionArenaMastery.version=1;q.questionArenaMastery.surahs=q.questionArenaMastery.surahs||{};q.questionArenaMastery.challenge=q.questionArenaMastery.challenge||{plays:0,bestAccuracy:0,bestStreak:0};
+ for(const id of IDS){const s=q.questionArenaMastery.surahs[id]=q.questionArenaMastery.surahs[id]||{};s.correct=Math.max(0,Number(s.correct)||0);s.wrong=Math.max(0,Number(s.wrong)||0);s.bestStreak=Math.max(0,Number(s.bestStreak)||0);s.lastAt=s.lastAt||null}
+ return q.questionArenaMastery
+}
+function masteryScore(id){const s=store().surahs[id],attempts=s.correct+s.wrong;if(!attempts)return 50;const accuracy=s.correct/attempts;const confidence=Math.min(1,attempts/10);return Math.round((.5*(1-confidence)+accuracy*confidence)*100)}
+function record(id,ok,streak){
+ const root=store(),s=root.surahs[id];if(ok)s.correct++;else s.wrong++;s.bestStreak=Math.max(s.bestStreak,Number(streak)||0);s.lastAt=new Date().toISOString();persist();return masteryScore(id)
+}
+function levelType(){const pool=LEVELS[C.level]?.types||LEVELS.medium.types;const used=C.history.slice(-2).map(x=>x.type);const choices=pool.filter(x=>!used.includes(x));return (choices.length?choices:pool)[Math.floor(Math.random()*(choices.length?choices.length:pool.length))]}
+function setupHtml(){return'<div class="deen-qchallenge-setup"><div class="deen-qchallenge-intro"><b>10 Soruluk Challenge</b><p>90 ayetlik mevcut havuzdan 10 soru. Zorluk arttıkça tanıma soruları azalır, aktif hatırlama ve ayet sırası soruları artar.</p></div>'+
+ Object.entries(LEVELS).map(([id,x])=>'<button class="deen-qchallenge-level" type="button" onclick="DEEN_QURAN_CHALLENGE.start(\''+id+'\')"><b>'+x.name+'<em>'+x.tag+'</em></b><small>'+x.types.map(t=>({surah:'Hangi Sure',ayah_number:'Ayet No',meaning:'Meal',fill_blank:'Boşluk',continuation:'Devamı',audio:'Sesi Bul',next_ayah:'Sonraki Ayet'})[t]).join(' · ')+'</small></button>').join('')+
+ '</div>'}
+function openSetup(){sheet('Kur’an Challenge',setupHtml());return true}
+function decorate(){
+ const root=document.querySelector('.deen-qarena');if(!root)return false;
+ const score=root.querySelector('.deen-qarena-score');if(score&&C.active)score.textContent='✓ '+C.correct+' · 🔥 '+C.streak;
+ let banner=root.querySelector('.deen-qchallenge-banner');
+ if(!C.active){banner?.remove();return false}
+ const current=Math.min(C.limit,C.answered+1),pct=Math.round((C.answered/C.limit)*100);
+ if(!banner){banner=document.createElement('div');banner.className='deen-qchallenge-banner';root.insertBefore(banner,root.firstChild)}
+ banner.innerHTML='<div class="deen-qchallenge-banner-top"><span>10 SORULUK CHALLENGE · '+LEVELS[C.level].name.toUpperCase()+'</span><span>Soru '+current+' / '+C.limit+'</span></div><div class="deen-qchallenge-bar"><i style="width:'+pct+'%"></i></div>';return true
+}
+function start(level='medium'){
+ if(!LEVELS[level])level='medium';
+ C={active:true,level,limit:10,answered:0,correct:0,wrong:0,streak:0,bestStreak:0,history:[],startedAt:new Date().toISOString(),finishedAt:null};
+ const t=levelType();arena()?.open?.(t,'all');setTimeout(decorate,0);return true
+}
+function strongest(){
+ const root=store();let rows=IDS.map(id=>({id,name:META[id],score:masteryScore(id),attempts:root.surahs[id].correct+root.surahs[id].wrong})).filter(x=>x.attempts>0);
+ if(!rows.length)rows=[{id:'fatiha',name:META.fatiha,score:50,attempts:0}];rows.sort((a,b)=>b.score-a.score||b.attempts-a.attempts);return rows[0]
+}
+function resultHtml(){
+ const acc=C.answered?Math.round(C.correct/C.answered*100):0;const top=strongest();
+ const label=acc>=90?'Çok güçlü':acc>=70?'İyi gidiyor':acc>=50?'Gelişiyor':'Tekrar gerekli';
+ return'<div class="deen-qchallenge-result"><div class="deen-qchallenge-ring"><span><strong>%'+acc+'</strong><small>DOĞRULUK</small></span></div><h2>'+label+'</h2><p>'+LEVELS[C.level].name+' challenge tamamlandı. Sonuçlar sure bazlı ustalık puanına işlendi.</p>'+
+ '<div class="deen-qchallenge-metrics"><div><strong>'+C.correct+'/10</strong><small>DOĞRU</small></div><div><strong>'+C.bestStreak+'</strong><small>EN İYİ SERİ</small></div><div><strong>'+top.score+'</strong><small>'+top.name.toUpperCase()+'</small></div></div>'+
+ '<div class="deen-qchallenge-actions"><button class="deen-qchallenge-btn" onclick="DEEN_QURAN_CHALLENGE.start(\''+C.level+'\')">TEKRAR OYNA</button><button class="deen-qchallenge-btn secondary" onclick="DEEN_QURAN_CHALLENGE.openMastery()">USTALIKLARIM</button></div></div>'
+}
+function finish(){
+ C.active=false;C.finishedAt=new Date().toISOString();const acc=C.answered?Math.round(C.correct/C.answered*100):0;const root=store();root.challenge.plays=Math.max(0,Number(root.challenge.plays)||0)+1;root.challenge.bestAccuracy=Math.max(Number(root.challenge.bestAccuracy)||0,acc);root.challenge.bestStreak=Math.max(Number(root.challenge.bestStreak)||0,C.bestStreak);root.challenge.lastLevel=C.level;root.challenge.lastAt=C.finishedAt;persist();sheet('Challenge Sonucu',resultHtml());return true
+}
+function openMastery(){
+ const root=store();const rows=IDS.map(id=>({id,name:META[id],score:masteryScore(id),c:root.surahs[id].correct,w:root.surahs[id].wrong})).sort((a,b)=>b.score-a.score||(b.c+b.w)-(a.c+a.w));
+ const html='<div class="v5-kicker">SURE BAZLI USTALIK</div><p class="v5-muted">Puan yalnız soru performansından oluşur. Az denemede 50’ye yakın kalır; yeterli tekrar geldikçe gerçek doğruluk oranına yaklaşır.</p><div class="deen-qmastery-list">'+
+ rows.map(x=>'<div class="deen-qmastery-row"><div class="deen-qmastery-top"><b>'+x.name+'</b><strong>'+x.score+'/100</strong></div><small>'+(x.c+x.w)+' soru · '+x.c+' doğru · '+x.w+' yanlış</small><div class="deen-qmastery-bar"><i style="width:'+x.score+'%"></i></div></div>').join('')+'</div>';
+ sheet('Kur’an Ustalığı',html);return true
+}
+function injectHub(){
+ const hub=document.querySelector('[data-qarena-hub] .deen-qarena-hub-grid');if(!hub)return false;
+ if(!hub.querySelector('[data-qchallenge]')){const b=document.createElement('button');b.className='deen-qarena-hub-card primary';b.type='button';b.dataset.qchallenge='1';b.innerHTML='<i>10</i><b>10 Soru Challenge</b><small>Kolay · Orta · Zor</small>';b.onclick=openSetup;hub.appendChild(b)}
+ if(!hub.querySelector('[data-qmastery]')){const b=document.createElement('button');b.className='deen-qarena-hub-card';b.type='button';b.dataset.qmastery='1';b.innerHTML='<i>★</i><b>Ustalık</b><small>Sure bazlı performans</small>';b.onclick=openMastery;hub.appendChild(b)}
+ return true
+}
+function install(){
+ const a=arena();if(!a||a.__challengeWrapped)return false;
+ const baseChoose=a.choose.bind(a),baseNext=a.next.bind(a),baseOpen=a.open.bind(a),baseSetType=a.setType.bind(a),baseSetScope=a.setScope.bind(a);
+ a.open=function(){const r=baseOpen(...arguments);setTimeout(()=>{decorate();injectHub()},0);return r};
+ a.choose=function(value){
+   if(!C.active)return baseChoose(value);
+   const before=a.state?.();const q=before?.q;if(!q||before?.answered)return false;
+   const ok=baseChoose(value);C.answered++;if(ok){C.correct++;C.streak++;C.bestStreak=Math.max(C.bestStreak,C.streak)}else{C.wrong++;C.streak=0}
+   const score=record(q.target.id,!!ok,C.streak);C.history.push({type:q.type,surahId:q.target.id,ayah:q.target.ayah,ok:!!ok,mastery:score});
+   setTimeout(decorate,0);return ok
+ };
+ a.next=function(){
+   if(!C.active)return baseNext();
+   if(C.answered>=C.limit)return finish();
+   const t=levelType();const r=baseSetType(t);setTimeout(decorate,0);return r
+ };
+ a.setType=function(t){if(C.active)return false;return baseSetType(t)};
+ a.setScope=function(s){if(C.active)return false;return baseSetScope(s)};
+ a.__challengeWrapped=true;return true
+}
+function audit(){const root=store();return{build:BUILD,installed:!!arena()?.__challengeWrapped,levels:Object.keys(LEVELS),limit:10,surahs:IDS.length,masteryRows:Object.keys(root.surahs).length,plays:Number(root.challenge.plays)||0}}
+const mo=typeof MutationObserver!=='undefined'?new MutationObserver(()=>{install();injectHub()}):null;mo?.observe?.(document.body,{childList:true,subtree:true});
+document.addEventListener?.('deen:navigated',()=>setTimeout(()=>{install();injectHub()},0));
+window.DEEN_QURAN_CHALLENGE={openSetup,start,finish,openMastery,masteryScore,state:()=>JSON.parse(JSON.stringify(C)),audit};
+setTimeout(()=>{install();injectHub()},0);document.documentElement.dataset.deenQuranChallenge='v10964';
+})();
+</script>
