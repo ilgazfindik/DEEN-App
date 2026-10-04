@@ -30,6 +30,9 @@ meal:["Görmedin mi Rabb'in fil sahiplerine ne yaptı?","Onların tuzaklarını 
 quraysh:{name:'Kureyş',number:106,quran:'https://quran.com/tr/kureys/1-4',translationProvider:'Quran.com',translationEdition:'Elmalili Hamdi Yazir',translationUrl:'https://quran.com/tr/kureys/translation/tr-hamdi',
 arabic:['لِإِيلَـٰفِ قُرَيْشٍ','إِۦلَـٰفِهِمْ رِحْلَةَ ٱلشِّتَآءِ وَٱلصَّيْفِ','فَلْيَعْبُدُوا۟ رَبَّ هَـٰذَا ٱلْبَيْتِ','ٱلَّذِىٓ أَطْعَمَهُم مِّن جُوعٍۢ وَءَامَنَهُم مِّنْ خَوْفٍۭ'],
 meal:["Kureyş'in ilâfı (güven ve barış andlaşmalarından faydalanmalarını sağlamak) için.","Kış ve yaz seferlerinde (faydalandıkları andlaşmaların) kadrini bilmiş olmaları için.","Bu Beyt (Kâbe)nin Rabbine kulluk etsinler.","O, kendilerini açlıktan kurtararak beslemiştir ve her tehlikeye karşı onlara emniyet vermiştir."]},
+maun:{name:'Mâûn',number:107,quran:'https://quran.com/tr/maun/1-7',translationProvider:'Quran.com',translationEdition:'Elmalili Hamdi Yazir',translationUrl:'https://quran.com/tr/maun/translation/tr-hamdi',
+arabic:['أَرَءَيْتَ ٱلَّذِى يُكَذِّبُ بِٱلدِّينِ','فَذَٰلِكَ ٱلَّذِى يَدُعُّ ٱلْيَتِيمَ','وَلَا يَحُضُّ عَلَىٰ طَعَامِ ٱلْمِسْكِينِ','فَوَيْلٌۭ لِّلْمُصَلِّينَ','ٱلَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ','ٱلَّذِينَ هُمْ يُرَآءُونَ','وَيَمْنَعُونَ ٱلْمَاعُونَ'],
+meal:["Dini yalanlayanı gördün mü?","İşte o, öksüzü iter, kakar.","Yoksulu doyurmaya önayak olmaz.","Vay haline o namaz kılanların ki,","Kıldıkları namazın değerine aldırış etmezler.","Gösteriş yaparlar onlar,","Ve yardımlığı sakınırlar (zekatı vermezler)."]},
 falaq:{name:'Felak',number:113,quran:'https://quran.com/tr/felak',wiki:"https://tr.wikisource.org/wiki/Kur%27an/Felak_Suresi",
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ','مِن شَرِّ مَا خَلَقَ','وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ','وَمِن شَرِّ ٱلنَّفَّـٰثَـٰتِ فِى ٱلْعُقَدِ','وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ'],
 meal:['De ki: Sığınırım Rabbına o felak\'ın,','Şerrinden yarattıklarının.','Ve şerriden bir gâsıkın daldığı zaman.','Ve o, ukdelere üfleyen neffasların şerrinden.','Ve şerrinden hâsidin hased ettiği zaman.']},
@@ -37,7 +40,7 @@ nas:{name:'Nâs',number:114,quran:'https://quran.com/tr/nas',wiki:"https://tr.wi
 arabic:['قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ','مَلِكِ ٱلنَّاسِ','إِلَـٰهِ ٱلنَّاسِ','مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ','ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ','مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ'],
 meal:['De ki sığınırım Rabb’ine nâsın,','Melikine nâsın,','İlâhına nâsın,','Şerrinden o sinsi vesvasın.','Ki vesvese verir sinelerinde nâsın.','Gerek cinden gerekse insden.']}
 };
-const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','kawthar','asr'], STEPS=['listen','read','meaning','recall','complete'];
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','kawthar','asr'], STEPS=['listen','read','meaning','recall','complete'];
 const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const qs=()=>DEEN_QURAN.ensureState(), meta=id=>PACKS[id]||DEEN_QURAN_CONTENT?.surahs?.[id]||null;
 const rec=(id,n)=>DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n))||null;
