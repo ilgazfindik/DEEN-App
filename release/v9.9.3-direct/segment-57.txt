@@ -1,5 +1,228 @@
-<!-- DEEN_RETIRED_SEGMENT_OK
-DEEN v10.9.60 universal Quran ayah audio migration.
-This legacy per-surah audio segment is intentionally retired.
-Runtime is handled by release/v9.9.3-direct/segment-52.txt.
--->
+<!-- DEEN v10.9.73 — Quran native mobile integration -->
+<style id="deen-v10973-quran-mobile-integration-css">
+/* Mobile-only shell integration. Desktop phone preview remains unchanged. */
+@media (max-width:499px){
+  html,body{
+    width:100%;
+    min-width:100%;
+    height:100%;
+    min-height:100%;
+    overflow:hidden;
+    overscroll-behavior:none;
+  }
+  body{
+    align-items:stretch;
+    justify-content:stretch;
+  }
+  .phone{
+    width:100vw!important;
+    max-width:none!important;
+    height:100vh!important;
+    height:100dvh!important;
+    max-height:none!important;
+    aspect-ratio:auto!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+  }
+
+  /* Bottom navigation follows the device safe area. */
+  .bottomnav{
+    height:calc(76px + env(safe-area-inset-bottom))!important;
+    padding:7px max(12px,env(safe-area-inset-right)) calc(5px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))!important;
+    border-radius:24px 24px 0 0!important;
+  }
+  .navbtn{
+    min-width:44px;
+    min-height:44px;
+    touch-action:manipulation;
+  }
+  .navbtn svg{width:23px;height:23px}
+  .scroll{
+    inset:0 0 calc(76px + env(safe-area-inset-bottom))!important;
+  }
+
+  /* Quran screen: use the real phone width instead of the desktop dashboard canvas. */
+  #leagueScreenBody{
+    padding-left:0!important;
+    padding-right:0!important;
+    padding-bottom:0!important;
+    overscroll-behavior-y:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  #leagueScreenBody .deen-quran-shell.deen-quran-dashboard{
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:
+      max(12px,env(safe-area-inset-top))
+      max(13px,env(safe-area-inset-right))
+      calc(28px + env(safe-area-inset-bottom))
+      max(13px,env(safe-area-inset-left))!important;
+  }
+
+  /* Keep the section switcher reachable with one thumb and inside the viewport. */
+  .deen-qia-nav{
+    width:100%;
+    max-width:100%;
+    gap:6px;
+    margin:0 0 11px!important;
+    padding:2px 0 4px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  .deen-qia-nav button{
+    min-height:38px;
+    padding:0 12px;
+    scroll-snap-align:start;
+    touch-action:manipulation;
+  }
+
+  .deen-qia-section{
+    width:100%;
+    max-width:100%;
+    margin-bottom:13px;
+  }
+  .deen-qia-section-body,
+  .deen-quran-hero,
+  .deen-quran-today-grid,
+  .deen-qreward-daily,
+  .deen-qarena-hub,
+  .deen-quran-overview{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+
+  /* Reference hero scaled for a phone, without changing its contents or actions. */
+  .deen-quran-dashboard .deen-quran-hero{
+    padding:16px!important;
+    border-radius:20px!important;
+  }
+  .deen-quran-dashboard .deen-quran-hero h2{
+    margin-top:10px;
+    font-size:clamp(21px,6.1vw,25px)!important;
+  }
+  .deen-quran-dashboard .deen-quran-hero-meta{
+    font-size:clamp(9px,2.55vw,11px)!important;
+  }
+  .deen-quran-dashboard .deen-quran-primary{
+    min-height:48px!important;
+    margin-top:12px!important;
+    touch-action:manipulation;
+  }
+
+  .deen-quran-today-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;
+  }
+  .deen-quran-today-card{
+    min-width:0!important;
+    padding:11px!important;
+    border-radius:15px!important;
+  }
+  .deen-quran-today-card strong{
+    font-size:clamp(17px,5vw,21px)!important;
+  }
+  .deen-quran-today-card small{
+    min-height:0!important;
+    font-size:7.6px!important;
+    line-height:1.35!important;
+  }
+
+  /* Daily missions remain compact and fully inside the phone canvas. */
+  .deen-qreward-daily{
+    padding:11px!important;
+    border-radius:15px!important;
+  }
+  .deen-qreward-daily-head{gap:7px!important}
+  .deen-qreward-daily-head b{font-size:10px!important}
+  .deen-qreward-bonus{
+    max-width:44%;
+    padding:5px 7px!important;
+    font-size:6.8px!important;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .deen-qreward-missions{gap:5px!important;margin-top:8px!important}
+  .deen-qreward-mission{
+    grid-template-columns:18px minmax(0,1fr) auto!important;
+    gap:6px!important;
+    padding:7px!important;
+  }
+  .deen-qreward-mission i{width:18px!important;height:18px!important}
+  .deen-qreward-mission span{
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  .deen-qia-actions{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;
+  }
+  .deen-qia-action{
+    min-width:0!important;
+    min-height:76px!important;
+    padding:10px!important;
+    border-radius:14px!important;
+    touch-action:manipulation;
+  }
+
+  .deen-qia-section-head{
+    align-items:center!important;
+    gap:7px!important;
+  }
+  .deen-qia-section-head h2{font-size:13px!important}
+  .deen-qia-section-head p{font-size:7.4px!important}
+  .deen-qia-section-head em{
+    max-width:45%!important;
+    padding:5px 7px!important;
+    font-size:6.8px!important;
+  }
+
+  /* Prevent horizontal layout leaks on narrow devices. */
+  #leagueScreenBody .deen-quran-dashboard,
+  #leagueScreenBody .deen-quran-dashboard *{
+    max-inline-size:100%;
+  }
+  #leagueScreenBody .deen-quran-dashboard button{
+    -webkit-touch-callout:none;
+  }
+}
+
+@media (max-width:359px){
+  #leagueScreenBody .deen-quran-shell.deen-quran-dashboard{
+    padding-left:10px!important;
+    padding-right:10px!important;
+  }
+  .deen-qia-nav button{padding:0 10px}
+  .deen-quran-today-grid{grid-template-columns:1fr!important}
+  .deen-qia-actions{gap:6px!important}
+}
+
+@media (min-width:500px){
+  /* Preserve the existing desktop phone preview exactly. */
+  .phone{max-width:432px}
+}
+</style>
+<script id="deen-v10973-quran-mobile-integration-js">
+(()=>{
+if(window.__deenV10973QuranMobileIntegration)return;
+window.__deenV10973QuranMobileIntegration=true;
+document.documentElement.dataset.deenQuranMobileIntegration='v10973';
+window.DEEN_QURAN_MOBILE_INTEGRATION={
+  audit:()=>({
+    build:'9290quranmobile1',
+    viewport:{w:window.innerWidth,h:window.innerHeight},
+    phone:!!document.querySelector?.('.phone'),
+    quran:!!document.querySelector?.('#leagueScreenBody .deen-quran-dashboard'),
+    bottomNav:!!document.querySelector?.('.bottomnav')
+  })
+};
+})();
+</script>
