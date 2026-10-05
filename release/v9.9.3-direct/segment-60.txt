@@ -1,5 +1,174 @@
-<!-- DEEN_RETIRED_SEGMENT_OK
-DEEN v10.9.60 universal Quran ayah audio migration.
-This legacy per-surah audio segment is intentionally retired.
-Runtime is handled by release/v9.9.3-direct/segment-52.txt.
--->
+<!-- DEEN v10.9.70 — Minimal Quran home -->
+<style id="deen-v10970-quran-minimal-css">
+#leagueScreenBody .deen-quran-dashboard.is-qminimal{
+  max-width:520px;
+  margin:0 auto;
+  padding:22px 16px calc(108px + env(safe-area-inset-bottom));
+}
+#leagueScreenBody .deen-quran-dashboard.is-qminimal > *{
+  display:none!important;
+}
+#leagueScreenBody .deen-quran-dashboard.is-qminimal > [data-qminimal-root]{
+  display:grid!important;
+}
+.deen-qminimal{
+  gap:14px;
+}
+.deen-qminimal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.deen-qminimal-head h1{
+  margin:0;
+  color:#f2fbf8;
+  font:900 29px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:-.035em;
+}
+.deen-qminimal-head span{
+  color:#688683;
+  font:750 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-qminimal-card{
+  padding:18px;
+  border:1px solid rgba(108,219,188,.23);
+  border-radius:21px;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(106,224,191,.11),transparent 34%),
+    linear-gradient(150deg,#11393b,#092930);
+}
+.deen-qminimal-kicker{
+  color:#7eb2a8;
+  font:850 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:.7px;
+}
+.deen-qminimal-card h2{
+  margin:10px 0 4px;
+  color:#f4fcfa;
+  font:900 23px/1.1 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-qminimal-meta{
+  color:#789795;
+  font:700 8.5px/1.35 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-qminimal-bar{
+  height:6px;
+  margin-top:13px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#061b22;
+}
+.deen-qminimal-bar i{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#58cbb1,#a3ead4);
+}
+.deen-qminimal-continue{
+  width:100%;
+  min-height:50px;
+  margin-top:14px;
+  border:1px solid rgba(158,241,217,.32);
+  border-radius:14px;
+  background:linear-gradient(180deg,#5fcfb3,#44ae99);
+  color:#062e2d;
+  font:950 10px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  letter-spacing:.35px;
+  box-shadow:0 4px 0 #2c766d;
+}
+.deen-qminimal-continue:active{
+  transform:translateY(2px);
+  box-shadow:0 2px 0 #2c766d;
+}
+.deen-qminimal-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.deen-qminimal-actions button{
+  min-height:54px;
+  border:1px solid rgba(82,138,141,.17);
+  border-radius:14px;
+  background:#0a2931;
+  color:#dfeeea;
+  font:850 9px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);
+}
+.deen-qminimal-actions button:active{transform:scale(.99)}
+.deen-qminimal-foot{
+  color:#5e7b79;
+  font:650 7px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif);
+  text-align:center;
+}
+@media(max-width:350px){
+  #leagueScreenBody .deen-quran-dashboard.is-qminimal{padding-left:13px;padding-right:13px}
+  .deen-qminimal-card{padding:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .deen-qminimal-continue,.deen-qminimal-actions button{transition:none!important}
+}
+</style>
+<script id="deen-v10970-quran-minimal-js">
+(()=>{
+if(window.__deenV10970QuranMinimal)return;window.__deenV10970QuranMinimal=true;
+const BUILD='9285quranminimal1';
+const META={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
+let timer=0;
+const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+function model(){
+  const d=DEEN_QURAN?.dashboardModel?.()||{};
+  const q=DEEN_QURAN?.ensureState?.()||state?.quranJourney||{};
+  const id=d.currentId||q?.profile?.currentSurah||'fatiha';
+  return{
+    id,
+    name:d.currentName||META[id]||'Fâtiha',
+    ayah:Math.max(1,Number(d.currentAyah)||1),
+    ayahs:Math.max(1,Number(d.ayahs)||1),
+    pct:Math.max(0,Math.min(100,Math.round(Number(d.surahPct)||0))),
+    started:!!d.hasStarted
+  };
+}
+function resume(){const m=model();try{return DEEN_QURAN?.openSurah?.(m.id)}catch(_){return false}}
+function surahs(){try{return DEEN_QURAN?.surahList?.()}catch(_){return false}}
+function practice(){try{return DEEN_QURAN_QUESTION_ARENA?.open?.('mixed','all')}catch(_){return false}}
+function signature(m=model()){return[m.id,m.name,m.ayah,m.ayahs,m.pct,m.started?1:0].join('|')}
+function html(){
+  const m=model(),sig=signature(m);
+  return'<main class="deen-qminimal" data-qminimal-root="1" data-qminimal-sig="'+esc(sig)+'">'+
+    '<header class="deen-qminimal-head"><h1>Kur’an</h1><span>16 sure · 90 ayet</span></header>'+
+    '<section class="deen-qminimal-card">'+
+      '<div class="deen-qminimal-kicker">KALDIĞIN YER</div>'+
+      '<h2>'+esc(m.name)+' Suresi</h2>'+
+      '<div class="deen-qminimal-meta">Ayet '+m.ayah+' / '+m.ayahs+'</div>'+
+      '<div class="deen-qminimal-bar"><i style="width:'+m.pct+'%"></i></div>'+
+      '<button class="deen-qminimal-continue" type="button" onclick="DEEN_QURAN_MINIMAL.resume()">'+(m.started?'DEVAM ET':'BAŞLA')+' →</button>'+
+    '</section>'+
+    '<section class="deen-qminimal-actions">'+
+      '<button type="button" onclick="DEEN_QURAN_MINIMAL.surahs()">SURELER</button>'+
+      '<button type="button" onclick="DEEN_QURAN_MINIMAL.practice()">PRATİK</button>'+
+    '</section>'+
+    '<div class="deen-qminimal-foot">Ana ekran yalnız öğrenmeye devam etmek, sure seçmek ve pratik yapmak için sadeleştirildi.</div>'+
+  '</main>';
+}
+function inject(){
+  const shell=document.querySelector?.('#leagueScreenBody .deen-quran-dashboard');if(!shell)return false;
+  shell.classList.add('is-qminimal');
+  let root=shell.querySelector(':scope > [data-qminimal-root]');
+  const sig=signature();
+  if(root?.dataset?.qminimalSig===sig){document.documentElement.dataset.deenQuranMinimal='v10970';return true}
+  const tmp=document.createElement('div');tmp.innerHTML=html();const fresh=tmp.firstElementChild;
+  if(root)root.replaceWith(fresh);else shell.insertAdjacentElement('afterbegin',fresh);
+  document.documentElement.dataset.deenQuranMinimal='v10970';return true;
+}
+function schedule(){clearTimeout(timer);timer=setTimeout(inject,45)}
+const base=DEEN_QURAN.dashboardRender||DEEN_QURAN.render;
+if(typeof base==='function'&&!base.__deenQuranMinimalWrapped){
+  const w=function(){const r=base.apply(this,arguments);schedule();return r};
+  w.__deenQuranMinimalWrapped=true;DEEN_QURAN.dashboardRender=w;DEEN_QURAN.render=w;window.leagueView=w;try{leagueView=w}catch(_){}
+}
+document.addEventListener?.('deen:navigated',schedule);
+if(typeof MutationObserver!=='undefined')new MutationObserver(m=>{if(m.some(x=>x.addedNodes?.length||x.removedNodes?.length))schedule()}).observe(document.body,{childList:true,subtree:true});
+window.DEEN_QURAN_MINIMAL={inject,resume,surahs,practice,model,audit:()=>({build:BUILD,clickTargets:3,model:model()})};
+schedule();
+})();
+</script>
