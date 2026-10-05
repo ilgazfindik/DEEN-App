@@ -7231,6 +7231,7 @@
 }
 </style>
 
+<!-- deen-v9959-lion-cat-streak-fix -->
 <style id="deen-v9950-companion-streak-css">
 #deenStreakOverlay{
   position:fixed!important;
@@ -7350,6 +7351,35 @@
 @media(prefers-reduced-motion:reduce){
   #deenStreakOverlay,#deenStreakOverlay *{animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
+
+/* v9.9.59 — Lion/Cat use their dedicated reaction assets, not sprite-sheet crops. */
+#deenStreakOverlay .deen9950-mascot[data-direct-asset]{
+  width:220px!important;
+  height:180px!important;
+  flex:0 0 180px!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+}
+#deenStreakOverlay .deen9950-mascot[data-direct-asset="lion3"]{
+  background-image:url("assets/companions/lion/lion_combo_3.webp?v=9291lioncatfix1")!important;
+}
+#deenStreakOverlay .deen9950-mascot[data-direct-asset="lion5"]{
+  background-image:url("assets/companions/lion/lion_combo_5.webp?v=9291lioncatfix1")!important;
+}
+#deenStreakOverlay .deen9950-mascot[data-direct-asset="cat3"]{
+  background-image:url("assets/companions/cat/cat_combo_3.webp?v=9291lioncatfix1")!important;
+}
+#deenStreakOverlay .deen9950-mascot[data-direct-asset="cat5"]{
+  background-image:url("assets/companions/cat/cat_combo_5.webp?v=9291lioncatfix1")!important;
+}
+@media(max-width:420px){
+  #deenStreakOverlay .deen9950-mascot[data-direct-asset]{
+    width:190px!important;
+    height:156px!important;
+    flex-basis:156px!important;
+  }
+}
 </style>
 
 <script id="deen-v9950-companion-streak-js">
@@ -7357,7 +7387,7 @@
  if(window.__deenV9950CompanionStreak)return;
  window.__deenV9950CompanionStreak=true;
 
- const VERSION='9.9.58-COMPANION-STREAK-ASSET-CACHE';
+ const VERSION='9.9.59-COMPANION-STREAK-LION-CAT-DIRECT';
  const IDS=['lion','wolf','owl','turtle','eagle','cat'];
  const LABELS={lion:'Aslan',wolf:'Kurt',owl:'Baykuş',turtle:'Kaplumbağa',eagle:'Kartal',cat:'Kedi'};
  const POSES={
@@ -7373,6 +7403,17 @@
    5:'Mükemmel seri!',
    10:'İnanılmaz odak!'
  };
+ const DIRECT_ASSETS={
+   lion:{3:'assets/companions/lion/lion_combo_3.webp?v=9291lioncatfix1',5:'assets/companions/lion/lion_combo_5.webp?v=9291lioncatfix1'},
+   cat:{3:'assets/companions/cat/cat_combo_3.webp?v=9291lioncatfix1',5:'assets/companions/cat/cat_combo_5.webp?v=9291lioncatfix1'}
+ };
+
+ function assetFor(id,combo){
+   const set=DIRECT_ASSETS[id];
+   if(!set)return null;
+   const pose=Number(combo)>=5?5:3;
+   return{key:id+pose,url:set[pose],pose};
+ }
 
  let lastKey='';
  let lastCombo=-1;
@@ -7424,7 +7465,12 @@
 
    const mascot=document.createElement('div');
    mascot.className='deen9950-mascot';
-   mascot.style.backgroundPosition=bgPos(pose[0],pose[1]);
+   const direct=assetFor(id,combo);
+   if(direct){
+     mascot.dataset.directAsset=direct.key;
+   }else{
+     mascot.style.backgroundPosition=bgPos(pose[0],pose[1]);
+   }
 
    const count=document.createElement('div');
    count.className='deen9950-count';
@@ -7476,6 +7522,7 @@
  try{
    const img=new Image();
    img.src='assets/combo/companions-sheet.png?v=9958assetcache1';
+   Object.values(DIRECT_ASSETS).flatMap(x=>Object.values(x)).forEach(src=>{const p=new Image();p.src=src});
  }catch(_){}
 
  window.DEEN_COMPANION_STREAK={
@@ -7483,6 +7530,7 @@
    onGrade,
    celebrate,
    selected,
+   assetFor,
    get value(){try{return Number(session?.combo||0)||0}catch(_){return 0}},
    snapshot:()=>({
      combo:(()=>{try{return Number(session?.combo||0)||0}catch(_){return 0}})(),
