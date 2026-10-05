@@ -164,16 +164,6 @@ function switchSurah(){
  try{return DEEN_QURAN?.surahList?.()}catch(_){return false}
 }
 function signature(m=model()){return[m.id,m.name,m.ayah,m.ayahs,m.pct,m.started?1:0].join('|')}
-function purgeLegacy(shell){
- const keep='[data-qresume-root]';
- let removed=0;
- for(const node of [...shell.children]){
-  if(node.matches?.(keep))continue;
-  node.remove();removed++;
- }
- shell.classList.add('is-qresume','deen-quran-root-clean');
- return removed;
-}
 function html(){
  const m=model(),sig=signature(m);
  const kicker=m.started?'ÇALIŞMAYA DEVAM ET':'İLK SURENİ SEÇ';
@@ -193,17 +183,13 @@ function html(){
 }
 function inject(){
  const shell=document.querySelector?.('#leagueScreenBody .deen-quran-dashboard');if(!shell)return false;
+ shell.classList.add('is-qresume');
  let root=shell.querySelector(':scope > [data-qresume-root]');
  const sig=signature();
- if(!root||root?.dataset?.qresumeSig!==sig){
-  const tmp=document.createElement('div');tmp.innerHTML=html();const fresh=tmp.firstElementChild;
-  if(root)root.replaceWith(fresh);else shell.insertAdjacentElement('afterbegin',fresh);
-  root=fresh;
- }
- const removed=purgeLegacy(shell);
- document.documentElement.dataset.deenQuranResumeFirst='v10971';
- document.documentElement.dataset.deenQuranLegacyPurged=String(removed);
- return true;
+ if(root?.dataset?.qresumeSig===sig){document.documentElement.dataset.deenQuranResumeFirst='v10971';return true}
+ const tmp=document.createElement('div');tmp.innerHTML=html();const fresh=tmp.firstElementChild;
+ if(root)root.replaceWith(fresh);else shell.insertAdjacentElement('afterbegin',fresh);
+ document.documentElement.dataset.deenQuranResumeFirst='v10971';return true;
 }
 function schedule(){clearTimeout(timer);timer=setTimeout(inject,45)}
 const base=DEEN_QURAN.dashboardRender||DEEN_QURAN.render;
@@ -213,7 +199,7 @@ if(typeof base==='function'&&!base.__deenQuranResumeFirstWrapped){
 }
 document.addEventListener?.('deen:navigated',schedule);
 if(typeof MutationObserver!=='undefined')new MutationObserver(m=>{if(m.some(x=>x.addedNodes?.length||x.removedNodes?.length))schedule()}).observe(document.body,{childList:true,subtree:true});
-window.DEEN_QURAN_RESUME_FIRST={inject,resume,switchSurah,purgeLegacy,model,audit:()=>({build:BUILD,started:model().started,visibleActions:model().started?2:1,legacyChildren:[...document.querySelectorAll?.('#leagueScreenBody .deen-quran-dashboard > :not([data-qresume-root])')||[]].length,model:model()})};
+window.DEEN_QURAN_RESUME_FIRST={inject,resume,switchSurah,model,audit:()=>({build:BUILD,started:model().started,visibleActions:model().started?2:1,model:model()})};
 schedule();
 })();
 </script>
