@@ -4263,6 +4263,21 @@ window.DEEN_REWARD_BADGE_ART={
   .deen-quran-quick{gap:6px}
   .deen-quran-quick button{padding:10px 7px}
 }
+
+/* Resume-first critical paint guard: legacy Quran dashboard must never flash. */
+#leagueScreenBody .deen-quran-dashboard.deen-quran-root-clean > :not([data-qresume-root]),
+#leagueScreenBody .deen-quran-dashboard.is-qresume > :not([data-qresume-root]){display:none!important}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume{display:grid;gap:0}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-card{padding:20px 18px 18px;border:1px solid rgba(108,220,188,.25);border-radius:22px;background:linear-gradient(150deg,#123d3e,#092a32)}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-kicker{color:#8fd5c2;font:900 8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif);letter-spacing:.85px}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-switch{min-height:28px;padding:0;border:0;background:transparent;color:#688d88;font:800 7.3px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-card h1{margin:18px 0 5px;color:#f4fcfa;font:900 27px/1.04 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-meta{color:#7d9c99;font:700 9px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-progress-head{display:flex;justify-content:space-between;gap:12px;margin-top:22px;color:#6f908c;font:750 7.8px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-bar{height:7px;margin-top:8px;overflow:hidden;border-radius:999px;background:#061b22}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#59ccb2,#a5ecd6)}
+#leagueScreenBody .deen-quran-dashboard .deen-qresume-cta{width:100%;min-height:52px;margin-top:17px;border:1px solid rgba(158,241,217,.34);border-radius:15px;background:linear-gradient(180deg,#61d1b5,#44ae99);color:#062e2d;font:950 10px/1 var(--deen-font-ui,Inter,system-ui,sans-serif)}
 </style>
 <script id="deen-v10918-quran-dashboard-js">
 (()=>{
@@ -4393,66 +4408,23 @@ window.DEEN_REWARD_BADGE_ART={
     const root=document.getElementById('leagueScreenBody');
     if(!root)return false;
     const m=model();
-    const today=new Date().toLocaleDateString('tr-TR',{day:'numeric',month:'short'});
-    const cta=m.hasStarted?'ÇALIŞMAYA DEVAM ET':m.currentName.toUpperCase()+' İLE BAŞLA';
-    const reviewCopy=m.dueCount
-      ? (m.overdue?m.overdue+' gecikmiş tekrar dahil':'Bugün tamamlanması gerekenler')
-      : 'Bugün için planlanmış tekrar yok';
+    const cta=m.hasStarted?'DEVAM ET':'SURE SEÇ';
     root.innerHTML=
-      '<div class="deen-quran-shell deen-quran-dashboard">'+
-        '<div class="deen-quran-head">'+
-          '<div><div class="deen-quran-kicker">KUR’AN ÖĞRENME MERKEZİ</div>'+
-          '<h1 class="deen-quran-title">Kur’an Yolculuğun</h1>'+
-          '<p class="deen-quran-sub">Kaldığın yerden devam et, bugünkü tekrarlarını tamamla ve ilerlemeni sakin bir ritimde güçlendir.</p></div>'+
-          '<div class="deen-quran-date">'+esc(today)+'</div>'+
-        '</div>'+
-
-        '<section class="deen-quran-hero">'+
-          '<div class="deen-quran-hero-top">'+
-            '<span class="deen-quran-live-badge">'+(m.hasStarted?'DEVAM ET':'İLK ADIM')+'</span>'+
-            '<span class="deen-quran-status-pill">'+esc(statusLabel(m.status))+'</span>'+
-          '</div>'+
-          '<h2>'+esc(m.currentName)+' Suresi</h2>'+
-          '<div class="deen-quran-hero-meta">Ayet '+m.currentAyah+' / '+m.ayahs+' · Son çalışma: '+esc(humanDate(m.lastAt))+'</div>'+
-          '<div class="deen-quran-progress-row"><span>Sure ilerlemesi</span><strong>%'+m.surahPct+'</strong></div>'+
-          '<div class="deen-quran-progress"><i style="width:'+m.surahPct+'%"></i></div>'+
-          '<button class="deen-quran-primary" type="button" onclick="DEEN_QURAN.openSurah(\''+esc(m.currentId)+'\')">'+esc(cta)+'</button>'+
-        '</section>'+
-
-        '<div class="deen-quran-today-grid">'+
-          '<section class="deen-quran-today-card">'+
-            '<div class="top"><span class="label">BUGÜNKÜ HEDEF</span><span class="icon">✓</span></div>'+
-            '<strong>'+m.goalValue+' / '+m.goalTarget+' '+esc(m.goalUnit)+'</strong>'+
-            '<small>'+esc(m.goalLabel)+(m.goalPct>=100?' tamamlandı.':' · düzenli küçük adımlar yeterli.')+'</small>'+
-            '<div class="deen-quran-mini-progress"><i style="width:'+m.goalPct+'%"></i></div>'+
+      '<div class="deen-quran-shell deen-quran-dashboard is-qresume deen-quran-root-clean">'+
+        '<main class="deen-qresume" data-qresume-root="1" data-qresume-bootstrap="1">'+
+          '<section class="deen-qresume-card">'+
+            '<div class="deen-qresume-top"><span class="deen-qresume-kicker">'+(m.hasStarted?'ÇALIŞMAYA DEVAM ET':'İLK SURENİ SEÇ')+'</span>'+
+              (m.hasStarted?'<button type="button" class="deen-qresume-switch" onclick="DEEN_QURAN.surahList()">SURE DEĞİŞTİR</button>':'')+
+            '</div>'+
+            '<h1>'+esc(m.currentName)+' Suresi</h1>'+
+            '<div class="deen-qresume-meta">'+(m.hasStarted?'Ayet '+m.currentAyah+' / '+m.ayahs:'Kısa surelerden birini seçerek başla')+'</div>'+
+            '<div class="deen-qresume-progress-head"><span>İlerleme</span><strong>%'+m.surahPct+'</strong></div>'+
+            '<div class="deen-qresume-bar"><i style="width:'+m.surahPct+'%"></i></div>'+
+            '<button type="button" class="deen-qresume-cta" onclick="'+(m.hasStarted?('DEEN_QURAN.openSurah(\''+esc(m.currentId)+'\')'):'DEEN_QURAN.surahList()')+'">'+cta+' →</button>'+
           '</section>'+
-          '<section class="deen-quran-today-card">'+
-            '<div class="top"><span class="label">BUGÜNKÜ TEKRARLAR</span><span class="icon">↻</span></div>'+
-            '<strong>'+m.dueCount+'</strong>'+
-            '<small>'+esc(reviewCopy)+'</small>'+
-            '<button class="deen-quran-review-link" type="button" onclick="DEEN_QURAN.review()">'+(m.dueCount?'TEKRARLARI AÇ':'TEKRAR PLANINI GÖR')+'</button>'+
-          '</section>'+
-        '</div>'+
-
-        '<section class="deen-quran-overview">'+
-          '<div class="deen-quran-overview-head"><b>Genel ilerleme</b><span>%'+m.overallPct+'</span></div>'+
-          '<div class="deen-quran-progress"><i style="width:'+m.overallPct+'%"></i></div>'+
-          '<div class="deen-quran-overview-metrics">'+
-            '<div><strong>'+m.learned+'</strong><small>ÖĞRENİLEN AYET</small></div>'+
-            '<div><strong>'+m.started+'</strong><small>BAŞLANAN SURE</small></div>'+
-            '<div><strong>'+m.memorized+'</strong><small>EZBERLENEN SURE</small></div>'+
-          '</div>'+
-        '</section>'+
-
-        '<h2 class="deen-quran-section-title">Çalışma alanları</h2>'+
-        '<div class="deen-quran-quick">'+
-          '<button type="button" onclick="DEEN_QURAN.surahList()"><i>☰</i><b>Sureler</b><small>Öğrenme kütüphanesi</small></button>'+
-          '<button type="button" onclick="DEEN_QURAN.memorize()"><i>◌</i><b>Ezber</b><small>Hatırlama çalışması</small></button>'+
-          '<button type="button" onclick="DEEN_QURAN.dailyVerse()"><i>✦</i><b>Bugünün Ayeti</b><small>Günlük anlam çalışması</small></button>'+
-        '</div>'+
-        '<p class="deen-quran-note">Kur’an metni ve meal kaynakları kayıt altında tutulur; uzman onayı production release gate üzerinden ayrıca izlenir.</p>'+
+        '</main>'+
       '</div>';
-    document.documentElement.dataset.deenQuranDashboard='v10918';
+    document.documentElement.dataset.deenQuranDashboard='resume-first-source';
     return true;
   }
 
