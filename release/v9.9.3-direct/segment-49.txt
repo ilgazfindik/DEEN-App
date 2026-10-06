@@ -49,6 +49,44 @@
 .deen-qj2-next{min-height:48px;background:linear-gradient(180deg,#6ed7b8,#46b398);color:#092e2b;font-size:11px;touch-action:manipulation}
 .deen-qj2-next:disabled{opacity:.42}
 .deen-qj2-gap{display:inline-block;border-bottom:2px dashed #6bd7b2;padding:0 4px;color:#79d7bb}
+
+/* v10.9.77 — inline fill-word state, scoped strictly to Ayet Testi questions. */
+.deen-qj2-gap{
+  display:inline-block;
+  vertical-align:baseline;
+  min-width:54px;
+  min-height:1.35em;
+  padding:0 7px 1px;
+  margin-inline:3px;
+  border-bottom:2px dashed rgba(126,231,193,.68);
+  border-radius:6px 6px 3px 3px;
+  color:#9cdbc7;
+  font:inherit;
+  text-align:center;
+  line-height:inherit;
+  overflow-wrap:anywhere;
+  unicode-bidi:isolate;
+  transition:background-color .14s ease,color .14s ease,border-color .14s ease;
+}
+.deen-qj2-gap.filled,.deen-qj2-gap.correct{
+  color:#a8f4d8;
+  border:1px solid rgba(109,233,184,.58);
+  border-bottom:2px solid #69dfb2;
+  background:rgba(35,113,89,.35);
+}
+.deen-qj2-gap.incorrect{
+  color:#ffd6c8;
+  border:1px solid rgba(227,130,113,.55);
+  border-bottom:2px solid #d98573;
+  background:rgba(116,53,47,.28);
+}
+.deen-qj2-fill-hint{
+  margin:4px 2px 0;
+  color:#93cbbd;
+  font:700 10px/1.5 Inter,system-ui,sans-serif;
+  text-align:center;
+}
+@media(prefers-reduced-motion:reduce){.deen-qj2-gap{transition:none}}
 </style>
 <script id="deen-v10942-quran-journey-v2-js">
 (()=>{
@@ -58,7 +96,7 @@ const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quray
 const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
 const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,tin:8,bayyina:8,zilzal:8,kawthar:3,asr:3};
 const PASS={ayah:80,meaning:80,final:75};
-const GAME_BUILD='9295surahbytest1';
+const GAME_BUILD='9296fillinline1';
 const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
 const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);
 
@@ -210,9 +248,17 @@ function quizHtml(){
   return'<button type="button" class="deen-qj2-option'+klass+'" aria-pressed="'+(selected?'true':'false')+'" '+
    (quiz.answered?'disabled':'')+' onclick="DEEN_QURAN_JOURNEY_V2.choose(\''+o.id+'\')">'+esc(o.text)+'</button>';
  }).join('');
- const prompt=q.type==='arabic'?'<div class="deen-qj2-ar" lang="ar">'+
-  (q.kind==='fill'?esc(q.display).replace('_____','<span class="deen-qj2-gap">ــــــ</span>'):esc(q.display))+'</div>':
+ // Only fill-in-the-blank questions mirror a selected word directly inside the Arabic ayah.
+ // The registered ayah text itself is never mutated.
+ const picked=q.kind==='fill'?q.options.find(o=>o.id===quiz.selected):null;
+ const slotClass=picked?(quiz.answered?(quiz.lastCorrect?' correct':' incorrect'):' filled'):'';
+ const slotLabel=picked?esc(picked.text):'ــــــ';
+ const slot='<span class="deen-qj2-gap'+slotClass+'" data-qj2-fill-slot="1" aria-label="'+
+  (picked?'Seçilen kelime: '+esc(picked.text):'Eksik kelime')+'">'+slotLabel+'</span>';
+ const arabicHtml=q.kind==='fill'?esc(q.display).replace('_____',slot):esc(q.display);
+ const prompt=q.type==='arabic'?'<div class="deen-qj2-ar" lang="ar" aria-live="'+(q.kind==='fill'?'polite':'off')+'">'+arabicHtml+'</div>':
   '<div class="deen-qj2-meal">'+esc(q.display)+'</div>';
+ const slotHint=q.kind==='fill'&&!quiz.answered?'<p class="deen-qj2-fill-hint">'+(picked?'Kelime boşluğa yerleşti. İstersen başka bir kelime seç.':'Bir kelime seç, ayetteki boşluğa yerleştir.')+'</p>':'';
  const feedback=quiz.answered?'<div class="deen-qj2-feedback '+(quiz.lastCorrect?'good':'bad')+'" role="status">'+
   (quiz.lastCorrect?'Doğru!':'Doğru cevap: '+esc(q.answer))+'</div>':'';
  const next=quiz.answered?
@@ -221,7 +267,7 @@ function quizHtml(){
  return'<div class="deen-qj2-quiz" data-surah-test="'+esc(currentSurah)+'" data-quiz-stage="'+esc(quiz.stage)+'">'+
   '<div class="deen-qj2-qhead"><span>'+esc(NAMES[currentSurah])+' · '+(quiz.index+1)+' / '+quiz.questions.length+'</span><span>✓ '+quiz.correct+' doğru</span></div>'+
   '<div class="deen-qj2-progress" aria-label="Test ilerlemesi"><i style="width:'+pct+'%"></i></div>'+
-  '<section class="deen-qj2-qcard"><h3>'+esc(q.title)+'</h3>'+prompt+
+  '<section class="deen-qj2-qcard"><h3>'+esc(q.title)+'</h3>'+prompt+slotHint+
   '<div class="deen-qj2-options" role="group" aria-label="Cevap seçenekleri">'+choices+'</div></section>'+
   feedback+next+'</div>';
 }
@@ -229,7 +275,7 @@ function replaceQuiz(){const x=document.querySelector?.('.deen-qj2-quiz');if(!x)
 function choose(id){
  if(!quiz||quiz.answered||quiz.result)return false;
  const q=quiz.questions[quiz.index],o=q?.options.find(x=>x.id===id);
- if(!o)return false;quiz.selected=id;replaceQuiz();return true;
+ if(!o)return false;quiz.selected=quiz.selected===id?null:id;replaceQuiz();return true;
 }
 function checkAnswer(){
  if(!quiz||quiz.answered||quiz.result||!quiz.selected)return false;
