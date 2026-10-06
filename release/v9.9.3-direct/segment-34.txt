@@ -5258,17 +5258,19 @@ window.DEEN_REWARD_BADGE_ART={
  const sourceName=(m,lang)=>lang==='en'?'Marmaduke Pickthall · 1930':String(m.source?.edition||m.source?.provider||'');
  function html(rec){
   const lang=locale(),meal=get(rec),label=({tr:'TÜRKÇE MEAL',en:'ENGLISH MEANING',ar:'معنى الآية',de:'ÜBERSETZUNG',es:'TRADUCCIÓN',fr:'TRADUCTION'}[lang]||'MEANING');
-  if(!meal)return'<div class="deen-ayah-translation deen-ayah-translation-pending" data-verse-translation="missing" lang="'+lang+'" role="status"><strong>'+label+'</strong><p>'+({tr:'Bu ayetin doğrulanmış Türkçe meali henüz hazır değil.',en:'No source-verified English meaning yet.',ar:'لا تتوفر ترجمة موثقة لهذه الآية بعد.',de:'Für diesen Vers ist noch keine geprüfte Übersetzung verfügbar.',es:'Aún no hay traducción verificada para esta aleya.',fr:'Aucune traduction vérifiée pour ce verset.'}[lang]||'Translation pending.')+'</p></div>';
+  if(!meal)return'<div class="deen-ayah-translation deen-ayah-translation-pending" data-verse-translation="missing" lang="'+lang+'" dir="'+(lang==='ar'?'rtl':'ltr')+'" role="status"><strong>'+label+'</strong><p>'+({tr:'Bu ayetin doğrulanmış Türkçe meali henüz hazır değil.',en:'No source-verified English meaning yet.',ar:'لا تتوفر ترجمة موثقة لهذه الآية بعد.',de:'Für diesen Vers ist noch keine geprüfte Übersetzung verfügbar.',es:'Aún no hay traducción verificada para esta aleya.',fr:'Aucune traduction vérifiée pour ce verset.'}[lang]||'Translation pending.')+'</p></div>';
   const url=String(meal.source?.url||'');
   const link=/^https:\/\//i.test(url)?' · <a href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+(lang==='en'?'Source':'Kaynak')+' ↗</a>':'';
   const note=lang==='en'&&meal.expert_review_status!=='approved'?' · Scholarly review pending':'';
   return'<div class="deen-ayah-translation" data-verse-translation="'+lang+'" lang="'+lang+'" dir="ltr"><strong>'+label+'</strong><p>'+escapeHtml(meal.text)+'</p><small>'+escapeHtml(sourceName(meal,lang)+note)+link+'</small></div>';
  }
  function sourceLine(rec){
-  const lang=locale(),m=get(rec);return(lang==='en'?'Arabic: ':'Arapça: ')+String(rec?.arabic?.source?.provider||'—')+
+  const lang=locale(),m=get(rec);
+  if(lang==='ar')return 'النص القرآني: '+String(rec?.arabic?.source?.provider||'—')+' · التفسير العربي الموثّق قيد الإعداد';
+  return(lang==='en'?'Arabic: ':'Arapça: ')+String(rec?.arabic?.source?.provider||'—')+
    (lang==='en'?' · Translation: ':' · Meal: ')+(m?sourceName(m,lang):(lang==='en'?'English meaning unavailable':'Türkçe meal bekleniyor'));
  }
- window.DEEN_QURAN_LEARNING_TRANSLATION={get,html,sourceLine,locale,version:'9308linebylinemeaning1'};
+ window.DEEN_QURAN_LEARNING_TRANSLATION={get,html,sourceLine,locale,version:'9314arquransourceline1'};
 })();
 </script>
 <script id="deen-v10921-ikhlas-learning-js">
