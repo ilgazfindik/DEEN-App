@@ -1,0 +1,21 @@
+name: Arabic question bank audit
+on:
+  push:
+    paths:
+      - 'assets/i18n/questions.ar.draft.json'
+      - 'scripts/audit-arabic-questions.mjs'
+      - 'release/v9.9.3-direct/segment-0*.txt'
+      - '.github/workflows/arabic-question-audit.yml'
+  workflow_dispatch:
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit all base questions and Arabic translation drafts
+        run: node scripts/audit-arabic-questions.mjs
