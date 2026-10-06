@@ -232,7 +232,8 @@ const I18N={
 const locale=()=>window.DEEN_APP_LOCALE?.get?.()||'tr';
 function quizChrome(html){
  if(locale()==='tr')return html;
- if(locale()==='ar')return window.DEEN_ARABIC_UI?.markup?.(html)||html;
+ // Keep original source text in nodes: the central DOM localizer handles Arabic and can restore Turkish.
+ if(locale()==='ar')return html;
  const pairs=[
  ['Sure Yolculuğu','Surah Journey'],['Öğren → Ezberle → Test Et → Final → Ustalaş','Learn → Memorize → Test → Final → Master'],
  ['SEVİYE','LEVEL'],['USTALIK','MASTERY'],['Ayet Testi','Ayah Test'],['Anlam Testi','Meaning Test'],['Sure Finali','Surah Final'],
