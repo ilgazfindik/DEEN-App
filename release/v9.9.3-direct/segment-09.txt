@@ -1477,32 +1477,26 @@ document.addEventListener('deen:ui-updated',deen512SyncTopStats);
 setTimeout(()=>{try{deen512SyncTopStats()}catch(_){}},0);
 
 mountV5();installGameFeel();reconcileStreak();rollWeek();saveState();try{localStorage.setItem('deen_storage_probe','1');localStorage.removeItem('deen_storage_probe')}catch(e){$('v5Stats').insertAdjacentHTML('beforebegin','<p class="v5-term">Bu tarayıcı kalıcı kayda izin vermiyor. Kapatmadan önce Profil → Ayarlar’dan ilerlemeni yedekle.</p>')}
-if(!state.onboarded){
-  // Do not render any legacy sheet-based onboarding while the final premium
-  // onboarding bundle is still being parsed. On slower phones the old 100ms
-  // callback could briefly paint the orange "Devam et →" CTA before v998
-  // became authoritative.
+if(!state.onboarded||state?.settings?.onboardingLanguageConfirmed!==true){
+  // v9.12.08: Never display the premium welcome before the late-loaded language picker.
   window.__DEEN_WAIT_FOR_PREMIUM_ONBOARDING__=true;
-  (function waitForPremiumOnboarding(attempt=0){
-    if(state.onboarded)return;
-    const premium=window.DEEN_PREMIUM_ONBOARDING;
-    if(premium&&typeof premium.render==='function'){
+  (function waitForLanguageFirst(attempt=0){
+    if(state.onboarded&&state?.settings?.onboardingLanguageConfirmed===true){
       window.__DEEN_WAIT_FOR_PREMIUM_ONBOARDING__=false;
-      try{
-        const d=document.getElementById('v5Sheet');
-        if(d?.open&&d.querySelector('.v5-onboarddots'))d.close();
-      }catch(_){}
-      premium.render(0);
       return;
     }
-    if(attempt<80){
-      setTimeout(()=>waitForPremiumOnboarding(attempt+1),50);
+    const premium=window.DEEN_PREMIUM_ONBOARDING;
+    const chooser=window.DEEN_LANGUAGE_ONBOARDING;
+    if(premium&&typeof premium.render==='function'&&chooser&&typeof chooser.render==='function'){
+      window.__DEEN_WAIT_FOR_PREMIUM_ONBOARDING__=false;
+      try{const sheet=document.getElementById('v5Sheet');if(sheet?.open&&sheet.querySelector('.v5-onboarddots'))sheet.close()}catch(_){}
+      if(!chooser.confirmed())chooser.render();
+      else if(!state.onboarded)premium.render(0);
       return;
     }
-    // Last-resort compatibility only. By this point the full release should
-    // already be parsed; never show the legacy flow during normal boot.
+    if(attempt<160){setTimeout(()=>waitForLanguageFirst(attempt+1),50);return}
     window.__DEEN_WAIT_FOR_PREMIUM_ONBOARDING__=false;
-    try{window.onboarding?.(0)}catch(_){}
+    if(!state.onboarded)try{window.onboarding?.(0)}catch(_){}
   })();
 }
 

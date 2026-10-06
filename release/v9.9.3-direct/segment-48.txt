@@ -177,15 +177,27 @@ document.documentElement.dataset.deenQuranPhase2='complete';
   if(!s||!lang||!window.DEEN_APP_LOCALE?.set?.(lang))return false;
   s.settings.onboardingLanguageConfirmed=true;delete s.settings.onboardingLanguageDraft;
   try{saveState()}catch(_){}
+  if(s.onboarded===true){
+    document.getElementById('v998Onboarding')?.remove();
+    try{updateUI()}catch(_){}
+    return true;
+  }
   return original(0);
  }
  function render(step=0){
-  if(!stateRef()?.onboarded&&Number(step)===0&&!confirmed())return renderLanguage();
+  if(Number(step)===0&&!confirmed())return renderLanguage();
   return original(step);
  }
  premium.render=render;window.onboarding=render;
  try{onboarding=render}catch(_){}
- window.DEEN_LANGUAGE_ONBOARDING={choose,continue:complete,render:renderLanguage,selected,confirmed,options:()=>options.map(o=>({...o})),version:'9309sixlanguageonboarding1'};
+ window.DEEN_LANGUAGE_ONBOARDING={choose,continue:complete,render:renderLanguage,selected,confirmed,options:()=>options.map(o=>({...o})),version:'9310languagefirstfix1'};
+ function ensureFirstScreen(){
+  if(confirmed())return;
+  if(document.getElementById('v998Onboarding')?.dataset?.step==='language')return;
+  renderLanguage();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensureFirstScreen,{once:true});
+ else ensureFirstScreen();
 })();
 </script>
 
