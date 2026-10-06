@@ -604,7 +604,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9336arabiclivevariants1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9337arabicmacroguard1'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  if(typeof MutationObserver!=='undefined'){
   const observer=new MutationObserver(schedule);
@@ -725,6 +725,29 @@ html:lang(ar) #lesson .deen-arabic-pilot-label{
  }
  window.DEEN_ARABIC_PILOT=pilot;
  pilot.promise=preload();
+ // The visible learning path uses Uxx-Mxx macro stages, not the legacy startStage directly.
+ // Route the first macro stage to the reviewed Arabic preview; block all other Turkish question pools.
+ if(typeof window.startMacroStage==='function'){
+  const previousMacro=window.startMacroStage;
+  if(!previousMacro.__deenArabicPilotGuarded){
+   const guardedMacro=function(id,...args){
+    if(window.DEEN_APP_LOCALE?.get?.()!=='ar')return previousMacro.call(this,id,...args);
+    if(id!=='U01-M01'||!pilot.ready)return pilot.notice(id);
+    try{if(typeof closeSheet==='function')closeSheet()}catch(_){}
+    return typeof window.startStage==='function'?window.startStage('U01-S01'):pilot.notice(id);
+   };
+   guardedMacro.__deenArabicPilotGuarded=true;
+   window.startMacroStage=guardedMacro;
+   try{startMacroStage=guardedMacro}catch(_){}
+  }
+ }
+ if(typeof window.startSmartReview==='function'){
+  const previousReview=window.startSmartReview;
+  window.startSmartReview=function(...args){
+   if(window.DEEN_APP_LOCALE?.get?.()==='ar')return pilot.notice('SMART');
+   return previousReview.apply(this,args);
+  };
+ }
  for(const event of ['deen:language-changed','deen:navigated']){
   document.addEventListener(event,()=>{
    if(window.DEEN_APP_LOCALE?.get?.()!=='ar')document.querySelector('#lesson .deen-arabic-pilot-label')?.remove();
