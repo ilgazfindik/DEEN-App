@@ -331,6 +331,24 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
  }
 
 
+ const deenArabicRemainingRules=[
+ [/^SEVİYE\s*(\d+)$/i,m=>'المستوى '+m[1]],
+ [/^AŞAMA\s*(\d+)$/i,m=>'المرحلة '+m[1]],
+ [/^SURE\s*(\d+)$/i,m=>'السورة '+m[1]],
+ [/^ÜNİTE\s*(\d+)\s*[·•]\s*AŞAMA\s*(\d+)\s*[·•]\s*(.+)$/i,m=>'الوحدة '+m[1]+' · المرحلة '+m[2]+' · '+(dict[m[3]]||m[3])],
+ [/^(\d+)\s*soru\s*[·•]\s*(\d+)\s*enerji\s*[·•]\s*\+(\d+)\s*baz XP\s*[·•]\s*Ustalık\s*%?(\d+)$/i,m=>m[1]+' أسئلة · '+m[2]+' طاقة · +'+m[3]+' XP · الإتقان '+m[4]+'٪'],
+ [/^(.+?)\s+Suresi\s*[·•]\s*(\d+)\s*ayet$/i,m=>dict[m[1]]?'سورة '+dict[m[1]]+' · '+m[2]+' آيات':null],
+ [/^(\d+)\s*\/\s*(\d+)\s*Görev$/i,m=>m[1]+' / '+m[2]+' مهام'],
+ [/^(\d+)\s*soru\s+tekrar\s+bekliyor\.?$/i,m=>m[1]+' أسئلة تنتظر المراجعة'],
+ [/^(\d+)\s+günlük\s+seri\s*[·•]\s*Sonraki\s+ödül\s+(\d+)\s+gün$/i,m=>'سلسلة '+m[1]+' أيام · المكافأة التالية بعد '+m[2]+' أيام'],
+ [/^(\d+)\s*\/\s*(\d+)\s*ayet\s+öğrenildi$/i,m=>m[1]+' / '+m[2]+' آيات تم تعلمها']
+ ];
+ function translateRemainingUI(trim){
+  if(trim.length>200)return null;
+  for(const [re,build] of deenArabicRemainingRules){const m=re.exec(trim);if(m){const out=build(m);if(out)return out;}}
+  return null;
+ }
+
  const deenQuranDynamicRules=[
  [/^(.+?)\s*[·•]\s*Sure Yolculuğu$/i,m=>(dict[m[1]]||m[1])+' · رحلة السورة'],
  [/^(.+?)\s*[·•]\s*Ayet\s*(\d+)\s*[·•]\s*(\d+)\s*ayetlik havuz$/i,m=>(dict[m[1]]||m[1])+' · الآية '+m[2]+' · '+m[3]+' آيات في المجموعة'],
@@ -451,6 +469,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   }
   if(!out)out=translateDynamicUI(trim);
   if(!out)out=translateQuranDynamicUI(trim);
+  if(!out)out=translateRemainingUI(trim);
   return out?text.replace(trim,out):text;
  }
  function markup(html){
@@ -499,7 +518,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9327qurancompleteness1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9328quranfinalaudit1'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  if(typeof MutationObserver!=='undefined'){
   const observer=new MutationObserver(schedule);
