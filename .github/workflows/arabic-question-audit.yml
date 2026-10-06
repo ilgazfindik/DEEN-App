@@ -4,6 +4,10 @@ on:
     paths:
       - 'assets/i18n/questions.ar.draft.json'
       - 'scripts/audit-arabic-questions.mjs'
+      - 'scripts/audit-arabic-pilot.mjs'
+      - 'release/v9.9.3-direct/segment-21.txt'
+      - 'release/v9.9.3-direct/segment-22.txt'
+      - 'release/v9.9.3-direct/segment-48.txt'
       - 'release/v9.9.3-direct/segment-0*.txt'
       - '.github/workflows/arabic-question-audit.yml'
   workflow_dispatch:
@@ -19,3 +23,5 @@ jobs:
           node-version: '22'
       - name: Audit all base questions and Arabic translation drafts
         run: node scripts/audit-arabic-questions.mjs
+      - name: Audit Arabic live first-stage preview and fail-closed policy
+        run: node scripts/audit-arabic-pilot.mjs
