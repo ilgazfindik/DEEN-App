@@ -170,7 +170,7 @@ const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quray
 const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
 const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,tin:8,bayyina:8,zilzal:8,kawthar:3,asr:3};
 const PASS={ayah:80,meaning:80,final:75};
-const GAME_BUILD='9300questionlocale1';
+const GAME_BUILD='9301qslocalepolish1';
 const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
 const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);
 
@@ -181,6 +181,31 @@ const I18N={
  en:{verse:'Ayah',fill:'Fill in the missing word',next:'Which ayah comes next?',listen:'Choose the meaning of the recited ayah',listenNum:'Which ayah number did you hear?',continuation:'Choose the correct continuation',toNumber:'Which ayah number matches this meaning?',toMeaning:'Choose the meaning of this ayah',number:'What number is this ayah?',lang:'Question language',warning:'Verified English meanings are unavailable. Ayah Test is available; Meaning Test and Surah Final are locked.',play:'🔊 PLAY AYAH',hint:'Choose the meaning of the recited ayah.',hintNum:'Choose the ayah number you hear.',fillHint:'Tap or drag a word into the blank.',filled:'Tap another word to change it.',correct:'Correct!',correctAnswer:'Correct answer: ',check:'CHECK',continue:'NEXT QUESTION →',result:'SEE RESULTS'}
 };
 const locale=()=>String(document.documentElement.lang||'tr').toLowerCase().split('-')[0]==='en'?'en':'tr';
+function quizChrome(html){
+ if(locale()!=='en')return html;
+ const pairs=[
+ ['Sure Yolculuğu','Surah Journey'],['Öğren → Ezberle → Test Et → Final → Ustalaş','Learn → Memorize → Test → Final → Master'],
+ ['SEVİYE','LEVEL'],['USTALIK','MASTERY'],['Ayet Testi','Ayah Test'],['Anlam Testi','Meaning Test'],['Sure Finali','Surah Final'],
+ ['ayet öğrenildi','ayahs learned'],['ayet 5/5 + Solid','ayahs memorized'],['Öğren','Learn'],['Ezberle','Memorize'],['Ustalık','Mastery'],
+ ['Geçildi · en iyi','Passed · best'],['Tamamlandı · en iyi','Completed · best'],
+ ['Bu sureye özel 5 soru','5 questions about this surah'],['Bu surenin mealinden 5 soru','5 questions about meanings'],
+ ['Ayet + Anlam geçilince açılır · 8 soru','Pass Ayah + Meaning to unlock · 8 questions'],
+ ['Finali geçince açılır','Unlock after final'],['SRS ile güçlenir','Spaced review'],
+ ['KİLİTLİ','LOCKED'],['TESTE BAŞLA','START TEST'],['FİNALE GİR','TAKE FINAL'],
+ ['GÜÇLENDİR','PRACTICE'],['DEVAM','CONTINUE'],['TEKRAR','REVIEW'],['BAŞLA','START'],['Seviye','Level'],
+ ['Tekrar tamamlandı','Practice complete'],['Başardın!','Well done!'],['Biraz daha pratik yapalım','Keep practicing'],
+ ['Yeni rekor','New best'],['Bu tekrar alıştırması ilerleme puanını değiştirmedi.','This practice did not change your progress.'],
+ ['Bu aşamayı geçtin. Bir sonraki adım için sure yolculuğuna dönebilirsin.','You passed. Return to Surah Journey to continue.'],
+ ['Bu aşamayı geçmek için en az','You need at least'],[' gerekiyor. Yanlışlarını çalışıp yeniden dene.',' to pass. Review your mistakes and retry.'],
+ ['Soru analizi','Question breakdown'],['Seçtiğin cevap','Your answer'],['Doğru cevap','Correct answer'],
+ ['Yanlış','Incorrect'],['Doğru','Correct'],['BAŞARI','SCORE'],['En iyi puan','Personal best'],['Kayıt değişmedi','Progress unchanged'],
+ ['Tekrar edilecek ilgili ayetler:','Ayahs to review:'],['Hatalı Sorular · Tekrar','Mistakes · Practice'],
+ ['YANLIŞLARI TEKRAR ET','REVIEW MISTAKES'],['TESTİ YENİDEN DENE','TRY AGAIN'],
+ ['SURE YOLCULUĞUNA DÖN','BACK TO SURAH JOURNEY'],['soru · Ayet','question · Ayah'],[' doğru',' correct']
+ ];
+ for(const [before,after] of pairs)html=html.split(before).join(after);
+ return html;
+}
 const T=k=>I18N[locale()][k];
 const verse=n=>T('verse')+' '+n;
 function verifiedMeal(id,n){
@@ -247,14 +272,14 @@ function stageRow(icon,title,sub,done,locked,action,label){
 }
 function journeyHtml(id){
  const m=stats(id),s=m.state;
- return'<div class="deen-qj2"><section class="deen-qj2-hero"><div class="deen-qj2-hero-top"><span><h2>'+NAMES[id]+' · Sure Yolculuğu</h2><p>Öğren → Ezberle → Test Et → Final → Ustalaş</p></span><span class="deen-qj2-mastery">SEVİYE '+m.mastery+'<small>USTALIK</small></span></div><div class="deen-qj2-progress"><i style="width:'+m.progress+'%"></i></div></section><div class="deen-qj2-stages">'+
+ return quizChrome('<div class="deen-qj2">'+languageUI(id)+'<section class="deen-qj2-hero"><div class="deen-qj2-hero-top"><span><h2>'+NAMES[id]+' · Sure Yolculuğu</h2><p>Öğren → Ezberle → Test Et → Final → Ustalaş</p></span><span class="deen-qj2-mastery">SEVİYE '+m.mastery+'<small>USTALIK</small></span></div><div class="deen-qj2-progress"><i style="width:'+m.progress+'%"></i></div></section><div class="deen-qj2-stages">'+
  stageRow('1','Öğren',m.learned+'/'+m.total+' ayet öğrenildi',m.learnedReady,false,"DEEN_QURAN_JOURNEY_V2.startStage('learn')",m.learnedReady?'TEKRAR':'BAŞLA')+
  stageRow('2','Ezberle',m.memorized+'/'+m.total+' ayet 5/5 + Solid',m.memReady,!m.learnedReady,"DEEN_QURAN_JOURNEY_V2.startStage('memorize')",m.memReady?'GÜÇLENDİR':'DEVAM')+
  stageRow('3','Ayet Testi',s.ayah.passed?'Geçildi · en iyi %'+s.ayah.best:'Bu sureye özel 5 soru',s.ayah.passed,!m.ayahUnlocked,"DEEN_QURAN_JOURNEY_V2.startStage('ayah')",s.ayah.passed?'TEKRAR':'TESTE BAŞLA')+
  stageRow('4','Anlam Testi',s.meaning.passed?'Geçildi · en iyi %'+s.meaning.best:'Bu surenin mealinden 5 soru',s.meaning.passed,!m.meaningUnlocked,"DEEN_QURAN_JOURNEY_V2.startStage('meaning')",s.meaning.passed?'TEKRAR':'TESTE BAŞLA')+
  stageRow('5','Sure Finali',s.final.passed?'Tamamlandı · en iyi %'+s.final.best:'Ayet + Anlam geçilince açılır · 8 soru',s.final.passed,!m.finalUnlocked,"DEEN_QURAN_JOURNEY_V2.startStage('final')",s.final.passed?'TEKRAR':'FİNALE GİR')+
  stageRow('★','Ustalık',m.mastery?'Seviye '+m.mastery+'/4 · SRS ile güçlenir':'Finali geçince açılır',m.mastery>=4,!s.final.passed,"DEEN_QURAN_JOURNEY_V2.startStage('mastery')",m.mastery?'TEKRAR':'AÇ')+
- '</div></div>'+languageUI(id);
+ '</div></div>');
 }
 function open(id){
  stopQuizAudio();
@@ -350,7 +375,7 @@ function startQuiz(stage){
   sheet('Test henüz hazır değil','<div class="deen-quran-pending">Bu sure için doğrulanmış sorular hazırlanamadı.</div>');return false;
  }
  quiz={stage,questions,index:0,correct:0,answered:false,selected:null,result:null,answers:[],practice:false};
- sheet(stage==='ayah'?'Ayet Testi':stage==='meaning'?'Anlam Testi':'Sure Finali',quizHtml());return true;
+ sheet(locale()==='en'?(stage==='ayah'?'Ayah Test':stage==='meaning'?'Meaning Test':'Surah Final'):(stage==='ayah'?'Ayet Testi':stage==='meaning'?'Anlam Testi':'Sure Finali'),quizHtml());return true;
 }
 function quizHtml(){
  if(!quiz)return'';
@@ -387,7 +412,7 @@ function quizHtml(){
   '<button type="button" class="deen-qj2-next" onclick="DEEN_QURAN_JOURNEY_V2.nextQuestion()">'+esc(T(quiz.index===quiz.questions.length-1?'result':'continue'))+'</button>':
   '<button type="button" class="deen-qj2-next" '+(quiz.selected?'':'disabled')+' onclick="DEEN_QURAN_JOURNEY_V2.checkAnswer()">'+esc(T('check'))+'</button>';
  return'<div class="deen-qj2-quiz" data-surah-test="'+esc(currentSurah)+'" data-quiz-stage="'+esc(quiz.stage)+'">'+
-  '<div class="deen-qj2-qhead"><span>'+esc(NAMES[currentSurah])+' · '+(quiz.index+1)+' / '+quiz.questions.length+'</span><span>✓ '+quiz.correct+' doğru</span></div>'+
+  '<div class="deen-qj2-qhead"><span>'+esc(NAMES[currentSurah])+' · '+(quiz.index+1)+' / '+quiz.questions.length+'</span><span>✓ '+quiz.correct+' '+(locale()==='en'?'correct':'doğru')+'</span></div>'+
   '<div class="deen-qj2-progress" aria-label="Test ilerlemesi"><i style="width:'+pct+'%"></i></div>'+
   '<section class="deen-qj2-qcard"><h3>'+esc(q.title)+'</h3>'+prompt+slotHint+
   '<div class="deen-qj2-options" role="group" aria-label="Cevap seçenekleri">'+choices+'</div></section>'+
@@ -409,12 +434,12 @@ async function playQuizAudio(){
  const statusNode=document.querySelector?.('.deen-qj2-quiz .deen-qj2-audio-status');
  if(!engine?.play){if(statusNode)statusNode.textContent='Bu ayetin ses kaydı kullanılamıyor.';return false}
  const token=++audioRequestToken;
- if(statusNode)statusNode.textContent='Ayet sesi hazırlanıyor…';
+ if(statusNode)statusNode.textContent=locale()==='en'?'Preparing ayah audio…':'Ayet sesi hazırlanıyor…';
  try{
   engine.stop?.(); // Reuse and rewind the global audio player.
   const ok=await engine.play(q.ayah,currentSurah);
   if(token!==audioRequestToken)return false;
-  if(statusNode&&statusNode.isConnected!==false)statusNode.textContent=ok?'Dinledikten sonra doğru ayeti seç. Tekrar dinleyebilirsin.':'Ses oynatılamadı. Ayeti tekrar dinlemeyi dene.';
+  if(statusNode&&statusNode.isConnected!==false)statusNode.textContent=ok?(locale()==='en'?'Replay the audio if needed.':'Tekrar dinleyebilirsin.'):(locale()==='en'?'Audio could not play.':'Ses oynatılamadı.');
   return !!ok;
  }catch(_){
   if(token===audioRequestToken&&statusNode&&statusNode.isConnected!==false)statusNode.textContent='Ses oynatılamadı. Lütfen tekrar dene.';
@@ -563,7 +588,7 @@ function resultHtml(){
  }).join('');
  const review=wrong.length?'<button type="button" class="deen-qj2-next" onclick="DEEN_QURAN_JOURNEY_V2.reviewWrong()">YANLIŞLARI TEKRAR ET · '+wrong.length+'</button>':'';
  const bestValue=r.practice?'—':'%'+r.best;
- return'<div class="deen-qj2-quiz" data-qj2-result-v2="1" data-practice="'+(r.practice?'1':'0')+'">'+
+ return quizChrome('<div class="deen-qj2-quiz" data-qj2-result-v2="1" data-practice="'+(r.practice?'1':'0')+'">'+
   '<section class="deen-qj2-summary" aria-label="Test sonuç özeti">'+
    '<div class="deen-qj2-summary-top">'+esc(NAMES[currentSurah])+' · '+esc(label)+(r.practice?' · Tekrar':'')+'</div>'+
    '<h3>'+(r.practice?'Tekrar tamamlandı':r.passed?'Başardın!':'Biraz daha pratik yapalım')+(r.newBest?' ✦ Yeni rekor':'')+'</h3>'+
@@ -576,9 +601,9 @@ function resultHtml(){
   '<div class="deen-qj2-result-actions">'+review+
    '<button type="button" class="deen-qj2-result-secondary" onclick="DEEN_QURAN_JOURNEY_V2.retryQuiz()">TESTİ YENİDEN DENE</button>'+
    '<button type="button" class="deen-qj2-result-secondary" onclick="DEEN_QURAN_JOURNEY_V2.backToJourney()">SURE YOLCULUĞUNA DÖN</button></div>'+
-  '</div>';
+  '</div>');
 }
-function backToJourney(){stopQuizAudio();ignoreClick=null;discardDrag();sheet(NAMES[currentSurah]+' Yolculuğu',journeyHtml(currentSurah));return true}
+function backToJourney(){stopQuizAudio();ignoreClick=null;discardDrag();sheet(NAMES[currentSurah]+' · '+(locale()==='en'?'Surah Journey':'Sure Yolculuğu'),journeyHtml(currentSurah));return true}
 function audit(id='ikhlas'){
  const m=stats(id),s=m.state,issues=[];
  if(s.meaning.passed&&!s.ayah.passed)issues.push('meaning_without_ayah');
