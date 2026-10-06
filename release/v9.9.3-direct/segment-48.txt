@@ -329,6 +329,66 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   return null;
  }
 
+
+ const deenQuranDynamicRules=[
+ [/^(.+?)\s*[·•]\s*Sure Yolculuğu$/i,m=>(dict[m[1]]||m[1])+' · رحلة السورة'],
+ [/^(.+?)\s*[·•]\s*Ayet\s*(\d+)\s*[·•]\s*(\d+)\s*ayetlik havuz$/i,m=>(dict[m[1]]||m[1])+' · الآية '+m[2]+' · '+m[3]+' آيات في المجموعة'],
+ [/^(.+?)\s*[·•]\s*Wikimedia Commons kıraati$/i,m=>(dict[m[1]]||m[1])+' · تلاوة من ويكيميديا كومنز'],
+ [/^(.+?)\s*Suresi$/i,m=>dict[m[1]]?'سورة '+dict[m[1]]:null],
+ [/^(.+?)\s*Ezberi$/i,m=>dict[m[1]]?'حفظ سورة '+dict[m[1]]:null],
+ [/^(.+?)\s*Pratik$/i,m=>dict[m[1]]?'تدريبات سورة '+dict[m[1]]:null],
+ [/^(.+?)\s*\bSuresi\b\s*[·•]\s*(\d+)\s*ayet$/i,m=>dict[m[1]]?'سورة '+dict[m[1]]+' · '+m[2]+' آيات':null],
+ [/^(\d+)\s*\/\s*(\d+)\s*ayet öğrenildi$/i,m=>m[1]+' / '+m[2]+' آيات تم تعلّمها'],
+ [/^(\d+)\s*\/\s*(\d+)\s*ayet(?:\s*5\/5)?\s*\+\s*Solid$/i,m=>m[1]+' / '+m[2]+' آيات محفوظة بإتقان'],
+ [/^(\d+)\s*\/\s*(\d+)\s*ayet tamamlandı$/i,m=>m[1]+' / '+m[2]+' آيات مكتملة'],
+ [/^(\d+)\s*\/\s*(\d+)\s*ayet$/i,m=>m[1]+' / '+m[2]+' آيات'],
+ [/^Geçildi\s*[·•]\s*en iyi\s*%?(\d+)$/i,m=>'تم الاجتياز · أفضل نتيجة '+m[1]+'٪'],
+ [/^Tamamlandı\s*[·•]\s*en iyi\s*%?(\d+)$/i,m=>'مكتمل · أفضل نتيجة '+m[1]+'٪'],
+ [/^(\d+)\s*\/\s*(\d+)\s*ayet çalışıldı\s*[·•]\s*kişisel tekrar etkin$/i,m=>m[1]+' / '+m[2]+' آيات دُرست · المراجعة الشخصية مفعّلة'],
+ [/^(\d+)\s*ayet\s*[·•]\s*Dinle\s*→\s*parçala\s*→\s*anla\s*→\s*hatırla\s*→\s*ezberden tamamla$/i,m=>m[1]+' آيات · استمع ← قسّم ← افهم ← تذكّر ← أكمل من الحفظ'],
+ [/^(\d+)\s*TEKRAR BEKLİYOR$/i,m=>m[1]+' مراجعات منتظرة'],
+ [/^ÖĞRENME AKIŞI\s*[·•]\s*(\d+)\s*AYET$/i,m=>'مسار التعلّم · '+m[1]+' آيات'],
+ [/^(\d+)\.\s*sure\s*[·•]\s*(\d+)\s*ayet(?:\s*[·•]\s*Şu an buradasın)?$/i,m=>'السورة رقم '+m[1]+' · '+m[2]+' آيات'+(m[0].includes('Şu an buradasın')?' · أنت هنا الآن':'')],
+ [/^İHLÂS\s*[·•]\s*(\d+)\.\s*AYET$/i,m=>'الإخلاص · الآية '+m[1]],
+ [/^İhlâs\s+(\d+)\.\s*ayeti hatırla$/i,m=>'تذكّر الآية '+m[1]+' من سورة الإخلاص'],
+ [/^(.+?)\s+(\d+)\.\s*ayeti hatırla$/i,m=>dict[m[1]]?'تذكّر الآية '+m[2]+' من سورة '+dict[m[1]]:null],
+ [/^(\d+)\s*\/\s*(\d+)\s*AYET$/i,m=>m[1]+' / '+m[2]+' آيات'],
+ [/^(\d+)\s*ayetlik yapı içinde$/i,m=>'ضمن مجموعة من '+m[1]+' آيات'],
+ [/^Hedef\s*(\d+)\s*gün$/i,m=>'الهدف '+m[1]+' أيام'],
+ [/^(\d+)\s*tekrar\s*[·•]\s*(\d+)\s*sure(?:\s*[·•]\s*öğrenildi)?$/i,m=>m[1]+' مراجعات · '+m[2]+' سور'+(m[0].includes('öğrenildi')?' · تم تعلّمها':'')],
+ [/^(\d+)\s*×\s*[·•]\s*(öğrenildi|çalışılıyor)$/i,m=>m[1]+' مرات · '+(m[2]==='öğrenildi'?'تم التعلّم':'جارٍ التعلّم')],
+ [/^(\d+)\s*doğru\s*[·•]\s*(\d+)\s*tekrar$/i,m=>m[1]+' صحيحة · '+m[2]+' مراجعات'],
+ [/^Self-check toplamı:\s*(\d+)\s*başarılı hatırlama\s*[·•]\s*(\d+)\s*tekrar isteği$/i,m=>'نتيجة التقييم الذاتي: '+m[1]+' استدعاءات ناجحة · '+m[2]+' تحتاج إلى مراجعة'],
+ [/^(\d+)\s*tekrar$/i,m=>m[1]+' مراجعات'],
+ [/^İHLÂS\s*[·•]\s*(\d+)\.\s*AYET$/i,m=>'الإخلاص · الآية '+m[1]],
+ [/^(\d+)\s*sa sonra$/i,m=>'بعد '+m[1]+' ساعات'],
+ [/^(\d+)\s*gün sonra$/i,m=>'بعد '+m[1]+' أيام'],
+ [/^Gecikmiş\s*[·•]\s*(\d+)$/i,m=>'مراجعات متأخرة · '+m[1]],
+ [/^(.+?)\s*[·•]\s*RİSK\s*(\d+)$/i,m=>(dict[m[1]]||m[1])+' · مستوى المخاطرة '+m[2]],
+ [/^Kesintisiz Ezber\s*[·•]\s*(.+?)\s*(\d+)$/i,m=>'حفظ متواصل · '+(dict[m[1]]||m[1])+' '+m[2]],
+ [/^(\d+)\s*SORULUK CHALLENGE\s*[·•]\s*(KOLAY|ORTA|ZOR)$/i,m=>'تحدّي '+m[1]+' أسئلة · '+({KOLAY:'سهل',ORTA:'متوسط',ZOR:'صعب'}[m[2].toUpperCase()]||m[2])],
+ [/^Seviye\s+(\d+)\s+(Kolay|Orta|Zor|Başlangıç|Gelişiyor|Sağlam|Ustalık)$/i,m=>'المستوى '+m[1]+' · '+(dict[m[2]]||m[2])],
+ [/^(\d+)\s*riskli ayetten kişisel tur$/i,m=>'جولة خاصة من '+m[1]+' آيات تحتاج إلى مراجعة'],
+ [/^(\d+)\s*soru\s*[·•]\s*(\d+)\s*doğru\s*[·•]\s*(\d+)\s*yanlış$/i,m=>m[1]+' أسئلة · '+m[2]+' صحيحة · '+m[3]+' خاطئة'],
+ [/^(\d+)\s*ayetlik havuz$/i,m=>'مجموعة من '+m[1]+' آيات'],
+ [/^(.+?)\s*[·•]\s*Seviye\s+(\d+)\s+(.+)$/i,m=>(dict[m[1]]||m[1])+' · المستوى '+m[2]+' '+(dict[m[3]]||m[3])],
+ [/^Ustalık\s*%?\s*(\d+)$/i,m=>'الإتقان '+m[1]+'٪'],
+ [/^(\d+)\s*[·•]\s*(\d+)\s*AYET$/i,m=>m[1]+' · '+m[2]+' آيات'],
+ [/^(\d+)\s*\/\s*(\d+)\s*AYET$/i,m=>m[1]+' / '+m[2]+' آيات'],
+ [/^(\d+)\s+ayet$/i,m=>m[1]+' آيات'],
+ [/^(\d+)\s+sure$/i,m=>m[1]+' سور'],
+ [/^(\d+)\s+öğrenildi$/i,m=>m[1]+' تم تعلّمها'],
+ [/^(\d+)\s+tekrar bugün$/i,m=>m[1]+' مراجعات اليوم']
+ ];
+ function translateQuranDynamicUI(trim){
+  if(trim.length>230)return null;
+  for(const [pattern,build] of deenQuranDynamicRules){
+   const hit=pattern.exec(trim);
+   if(hit){const out=build(hit);if(out)return out;}
+  }
+  return null;
+ }
+
  function translate(value){
   const text=String(value??''),trim=text.trim();if(!trim)return text;
   let out=dict[trim];
@@ -389,6 +449,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
    else if(verse)out=(dict[verse[1]]||verse[1])+' · الآية '+verse[2]+' · مجموعة من '+verse[3]+' آيات';
   }
   if(!out)out=translateDynamicUI(trim);
+  if(!out)out=translateQuranDynamicUI(trim);
   return out?text.replace(trim,out):text;
  }
  function markup(html){
@@ -437,7 +498,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9325quranaudioexperts1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9326qurandynamic1'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  if(typeof MutationObserver!=='undefined'){
   const observer=new MutationObserver(schedule);
