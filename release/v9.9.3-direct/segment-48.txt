@@ -331,6 +331,18 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
  }
 
 
+ const deenQuranToastRules=[
+ [/^Kur’an günlük görevleri tamamlandı\s*[·•]\s*\+(\d+)\s*XP(?:\s*[·•]\s*\+(\d+)\s*Pırıltı)?$/i,m=>'اكتملت المهام القرآنية اليومية · +'+m[1]+' XP'+(m[2]?' · +'+m[2]+' نقاط':'')],
+ [/^Challenge ödülü\s*[·•]\s*\+(\d+)\s*XP(?:\s*[·•]\s*\+(\d+)\s*Pırıltı)?$/i,m=>'مكافأة التحدّي · +'+m[1]+' XP'+(m[2]?' · +'+m[2]+' نقاط':'')],
+ [/^(\d+)\s*(?:günlük|gün)\s*tekrar\s*bekliyor$/i,m=>m[1]+' مراجعات مستحقة'],
+ [/^Kıraat oynatılıyor\s*[·•]\s*(.+)$/i,m=>'التلاوة قيد التشغيل · '+(dict[m[1]]||m[1])]
+ ];
+ function translateQuranToastUI(text){
+  if(text.length>220)return null;
+  for(const [pattern,build] of deenQuranToastRules){const match=pattern.exec(text);if(match)return build(match);}
+  return null;
+ }
+
  const deenArabicRemainingRules=[
  [/^SEVİYE\s*(\d+)$/i,m=>'المستوى '+m[1]],
  [/^AŞAMA\s*(\d+)$/i,m=>'المرحلة '+m[1]],
@@ -470,6 +482,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   if(!out)out=translateDynamicUI(trim);
   if(!out)out=translateQuranDynamicUI(trim);
   if(!out)out=translateRemainingUI(trim);
+  if(!out)out=translateQuranToastUI(trim);
   return out?text.replace(trim,out):text;
  }
  function markup(html){
@@ -518,7 +531,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9328quranfinalaudit1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9329quranlocaleaudit2'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  if(typeof MutationObserver!=='undefined'){
   const observer=new MutationObserver(schedule);
