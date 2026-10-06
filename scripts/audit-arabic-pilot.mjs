@@ -63,10 +63,39 @@ const seven=pilot.questionsFor(bank,7,a=>[...a]);
 if(seven.length!==7||new Set(seven.map(q=>q.id)).size!==7)throw Error('Seven-question selection invalid');
 if(!seven.some(q=>q.activity_type==='matching')||!seven.some(q=>q.activity_type==='fill_blank')||!seven.some(q=>q.activity_type==='true_false'))throw Error('Format diversity insufficient');
 if(pilot.questionsFor(bank.filter(q=>q.id!=='DEEN-U01-S01-015'),7,a=>[...a]).length!==0)throw Error('Fail-closed missing-source behavior did not work');
+
+// Test the actual browser pilot entry wrapper against a simulated first-stage click.
+const match=s48.match(/<script id="deen-v91221-arabic-question-pilot-js">([\s\S]*?)<\/script>/);
+if(!match)throw Error('Arabic pilot browser boot script not found');
+let lang='ar',nativeMacro=0,nativeReview=0,routedStage='',warnings=0;
+const W={
+ DEEN_APP_LOCALE:{get:()=>lang},
+ startStage:id=>{routedStage=id},
+ startMacroStage:()=>{nativeMacro++},
+ startSmartReview:()=>{nativeReview++},
+ alert:()=>{warnings++}
+};
+const D={addEventListener:()=>{}};
+const simulatedFetch=async()=>({ok:true,json:async()=>draft});
+Function('window','document','fetch','console',match[1])(W,D,simulatedFetch,console);
+await W.DEEN_ARABIC_PILOT.promise;
+if(!W.DEEN_ARABIC_PILOT.ready)throw Error('Arabic preview failed to preload');
+W.startMacroStage('U01-M02');
+if(nativeMacro!==0||routedStage!=='')throw Error('Arabic unreviewed macro stage was not blocked');
+W.startMacroStage('U01-M01');
+if(routedStage!=='U01-S01')throw Error('Arabic first macro not routed to pilot lesson');
+W.startSmartReview();
+if(nativeReview!==0)throw Error('Unreviewed Arabic smart-review was not blocked');
+lang='tr';
+W.startMacroStage('U01-M02');
+W.startSmartReview();
+if(nativeMacro!==1||nativeReview!==1)throw Error('Original Turkish paths not preserved');
+if(warnings<2)throw Error('Arabic unavailable content did not warn');
+
 console.log(JSON.stringify({
  result:'PASS',baseStageQuestions:14,runtimeOverrides:6,runtimeAdditions:6,
  playableArabicQuestionVariants:matchCount,choiceIndexChecks:correctIndexChecks,
  matchingChecks,clozeChecks:blankCount,pilotSelection:seven.map(q=>q.id),
  translationsRemainExpertUnapproved:true,
- malformedOrStaleDataMustBlock:true
+ malformedOrStaleDataMustBlock:true,arabicMacroEntryGuardPass:true,originalTurkishNavigationPreserved:true
 },null,2));
