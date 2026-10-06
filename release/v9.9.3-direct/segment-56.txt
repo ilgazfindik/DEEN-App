@@ -95,9 +95,9 @@ function ensureStructure(shell){
   const ayetTestBtn=document.createElement('button');
   ayetTestBtn.type='button';
   ayetTestBtn.className='deen-atest-entry';
-  ayetTestBtn.setAttribute('aria-label','Ayet Testi · Fâtiha ve İhlâs · 5 soru');
-  ayetTestBtn.innerHTML='<span><b>Ayet Testi</b><small>Fâtiha ve İhlâs · 5 soruluk mini test</small></span><i class="deen-atest-arrow" aria-hidden="true">→</i>';
-  ayetTestBtn.onclick=()=>window.DEEN_QURAN_AYET_TEST?.open?.();
+  ayetTestBtn.setAttribute('aria-label','Sure Testleri · Ayet Testi, Anlam Testi, Sure Finali');
+  ayetTestBtn.innerHTML='<span><b>Sure Testleri</b><small>Seçtiğin sureye özel Ayet · Anlam · Final</small></span><i class="deen-atest-arrow" aria-hidden="true">→</i>';
+  ayetTestBtn.onclick=()=>action('journey');
   play.querySelector('[data-qia-body]').appendChild(ayetTestBtn);
   const mem=section('memorize','Ezber','Hatırlamayı ve ayet sırasını ayrı egzersizlerle çalış.','Ezber araçları','deen-qia-memorize');
   mem.querySelector('[data-qia-body]').appendChild(actionGrid([
