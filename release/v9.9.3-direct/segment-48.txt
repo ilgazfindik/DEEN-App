@@ -332,6 +332,16 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
  }
 
 
+ const deenQuranDashboardMetricRules=[
+ [/^(\d+)\s*\/\s*(\d+)\s*görev$/i,m=>m[1]+' / '+m[2]+' مهام'],
+ [/^(\d+)\s*zayıf ayet$/i,m=>m[1]+' آيات تحتاج إلى مراجعة'],
+ [/^%(\d+)\s*hafıza$/i,m=>'قوة الحفظ '+m[1]+'٪']
+ ];
+ function translateQuranDashboardMetricUI(t){
+  if(t.length>90)return null;
+  for(const [pattern,build] of deenQuranDashboardMetricRules){const m=pattern.exec(t);if(m)return build(m);}
+  return null;
+ }
  const deenQuranToastRules=[
  [/^Kur’an günlük görevleri tamamlandı\s*[·•]\s*\+(\d+)\s*XP(?:\s*[·•]\s*\+(\d+)\s*Pırıltı)?$/i,m=>'اكتملت المهام القرآنية اليومية · +'+m[1]+' XP'+(m[2]?' · +'+m[2]+' نقاط':'')],
  [/^Challenge ödülü\s*[·•]\s*\+(\d+)\s*XP(?:\s*[·•]\s*\+(\d+)\s*Pırıltı)?$/i,m=>'مكافأة التحدّي · +'+m[1]+' XP'+(m[2]?' · +'+m[2]+' نقاط':'')],
@@ -484,6 +494,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   if(!out)out=translateQuranDynamicUI(trim);
   if(!out)out=translateRemainingUI(trim);
   if(!out)out=translateQuranToastUI(trim);
+  if(!out)out=translateQuranDashboardMetricUI(trim);
   return out?text.replace(trim,out):text;
  }
  function markup(html){
@@ -532,7 +543,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9330qurancards1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9331qurancardsmetrics1'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  if(typeof MutationObserver!=='undefined'){
   const observer=new MutationObserver(schedule);
