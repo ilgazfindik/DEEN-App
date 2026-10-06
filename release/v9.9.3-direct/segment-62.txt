@@ -1,284 +1,42 @@
-<!-- DEEN v10.9.74 — Quran Ayet Testi MVP: 5 questions, Fatiha + Ikhlas -->
+<!-- DEEN v10.9.76 — One authoritative Quran test flow, inside each surah -->
 <style id="deen-v10974-quran-ayet-test-css">
-/* Scoped Quran mini-test UI. No changes to other quiz, memorize, audio or navigation engines. */
+/* The Oyna shortcut opens the actual selected-surah journey; no duplicate test panel. */
 .deen-atest-entry{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  width:100%;min-height:76px;margin:0 0 9px;padding:13px 14px;
-  border:1px solid rgba(113,231,195,.36);border-radius:17px;
-  background:radial-gradient(circle at 95% 5%,rgba(111,229,196,.12),transparent 38%),linear-gradient(135deg,#16423f,#0b292f);
-  color:#edf9f5;text-align:left;touch-action:manipulation;
+ width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;
+ min-height:74px;margin:0 0 9px;padding:12px 14px;text-align:left;touch-action:manipulation;
+ border:1px solid rgba(105,219,184,.31);border-radius:16px;
+ background:radial-gradient(circle at 95% 0,rgba(98,210,178,.10),transparent 40%),linear-gradient(145deg,#123b3c,#0b2932);
+ color:#e7f8f1
 }
 .deen-atest-entry b{display:block;font:900 12px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)}
-.deen-atest-entry small{display:block;margin-top:5px;color:#9dbcb6;font:650 8px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)}
-.deen-atest-entry .deen-atest-arrow{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:11px;background:#4fbea4;color:#09322f;font-size:19px;font-weight:900}
-.deen-atest{display:grid;gap:12px;width:100%;max-width:100%;color:#e6f6f2;font-family:var(--deen-font-ui,Inter,system-ui,sans-serif)}
-.deen-atest *{box-sizing:border-box}
-.deen-atest-lead{padding:14px;border:1px solid rgba(112,211,180,.24);border-radius:18px;background:linear-gradient(135deg,#123b3b,#0a2730)}
-.deen-atest-tag{font-size:9px;letter-spacing:.7px;font-weight:850;color:#8fdbc7}
-.deen-atest-lead h3{font-size:18px;line-height:1.23;letter-spacing:-.2px;margin:7px 0 5px;color:#effaf7}
-.deen-atest-lead p,.deen-atest-note{font-size:10px;line-height:1.55;color:#a6bdb9;margin:0}
-.deen-atest-pick{width:100%;min-height:60px;padding:13px;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #2d605c;border-radius:14px;background:#0c3036;color:#f1fbf7;text-align:left}
-.deen-atest-pick b{display:block;font-size:12px}.deen-atest-pick small{display:block;margin-top:5px;font-size:9px;color:#96b5b1}
-.deen-atest-pick i{font-size:18px;color:#7fdbc0;font-style:normal}
-.deen-atest-progresshead{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#8dbab0;font-size:10px;font-weight:850}
-.deen-atest-progresshead b{color:#e8fbf5;font-size:11px}
-.deen-atest-progress{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
-.deen-atest-progress i{display:block;height:6px;border-radius:999px;background:#12323a}
-.deen-atest-progress i.done{background:linear-gradient(90deg,#46bfa3,#8ae4c5)}
-.deen-atest-qcard{padding:15px 13px 13px;border:1px solid rgba(101,184,164,.22);border-radius:19px;background:linear-gradient(160deg,#11383a,#092832)}
-.deen-atest-qcard h3{font-size:17px;line-height:1.26;margin:6px 0;color:#f4fcfa}
-.deen-atest-ref{font-size:9px;color:#86a8a0}
-.deen-atest-ar{
-  margin:15px 0 11px;padding:17px 9px;direction:rtl;text-align:center;
-  border-radius:15px;border:1px solid rgba(92,180,152,.23);
-  background:#08242b;color:#f6f9f4;font-family:"Noto Naskh Arabic","Amiri",serif;
-  font-size:clamp(24px,7vw,31px);line-height:1.9;overflow-wrap:break-word;
-}
-.deen-atest-blank{display:inline-block;min-width:46px;max-width:100%;padding:0 3px;border-bottom:2px dashed #7fe0c0;line-height:1.4;color:#7fe0c0;vertical-align:baseline}
-.deen-atest-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:11px}
-.deen-atest-choice{
-  min-width:0;min-height:56px;padding:9px 8px;border:1px solid #2b5758;border-radius:13px;
-  background:#0c2d34;color:#e9f9f4;text-align:center;font-size:10px;font-weight:750;line-height:1.35;
-  overflow-wrap:anywhere;touch-action:manipulation;
-}
-.deen-atest-choice.ar{direction:rtl;font-family:"Noto Naskh Arabic","Amiri",serif;font-size:clamp(17px,5vw,23px);line-height:1.5}
-.deen-atest-choice.selected{border:2px solid #83ebca;background:#195046;color:#f9fffd}
-.deen-atest-choice.good{border-color:#7bdfb9;background:#1b5848;color:#e6fff4}
-.deen-atest-choice.bad{border-color:#d78775;background:#53302d;color:#ffe1d7}
-.deen-atest-choice:disabled{opacity:1;cursor:default}
-.deen-atest-choice:focus-visible,.deen-atest-btn:focus-visible,.deen-atest-pick:focus-visible,.deen-atest-entry:focus-visible{outline:2px solid #9cead1;outline-offset:2px}
-.deen-atest-answer{margin-top:10px;padding:10px 11px;border-radius:12px;font-size:10px;line-height:1.5}
-.deen-atest-answer.good{background:#143f37;border:1px solid #347960;color:#bcf5dc}
-.deen-atest-answer.bad{background:#3b2b2a;border:1px solid #7e554d;color:#ffddcf}
-.deen-atest-btn{width:100%;min-height:49px;margin-top:13px;padding:10px 12px;border:1px solid rgba(176,243,216,.33);border-radius:13px;background:linear-gradient(180deg,#6cdfb9,#46b89e);color:#063329;font-size:11px;font-weight:950;letter-spacing:.2px;touch-action:manipulation}
-.deen-atest-btn:disabled{opacity:.4;cursor:not-allowed}
-.deen-atest-btn.secondary{margin-top:7px;border-color:#345956;background:#15353c;color:#a4e0cb}
-.deen-atest-result{padding:19px 15px;text-align:center;border:1px solid rgba(102,211,177,.26);border-radius:19px;background:linear-gradient(160deg,#143d3b,#092a32)}
-.deen-atest-result strong{display:block;font-size:34px;line-height:1.15;color:#a5efd3}
-.deen-atest-result b{display:block;margin-top:8px;font-size:14px;color:#f0faf7}
-.deen-atest-result p{font-size:10px;line-height:1.45;color:#9ab7b2}
-.deen-atest-misses{padding:11px 13px;border:1px solid #315956;border-radius:13px;background:#0c2e34;font-size:10px;color:#dbeae6}
-.deen-atest-misses b{display:block;margin-bottom:5px}
-.deen-atest-misses span{display:block;margin-top:4px;color:#b0c9c2}
-@media(max-width:350px){.deen-atest-options{gap:6px}.deen-atest-qcard{padding:12px 10px}.deen-atest-choice{min-height:52px;padding:8px 6px}}
-@media(prefers-reduced-motion:reduce){.deen-atest *{scroll-behavior:auto!important;transition:none!important}}
+.deen-atest-entry small{display:block;margin-top:5px;color:#95b7ae;font:650 9px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-atest-arrow{display:grid;place-items:center;flex:0 0 35px;width:35px;height:35px;border-radius:11px;background:#62d3b1;color:#08332a;font:900 18px/1 Inter,system-ui,sans-serif;font-style:normal}
+.deen-atest-entry:focus-visible{outline:2px solid #8ceac9;outline-offset:2px}
 </style>
 <script id="deen-v10974-quran-ayet-test-js">
 (()=>{
 if(window.__deenV10974QuranAyetTest)return;
 window.__deenV10974QuranAyetTest=true;
-const BUILD='9294ayettestmvp1';
-const SURAHS={fatiha:{name:'Fâtiha',count:7},ikhlas:{name:'İhlâs',count:4}};
-const TOTAL=5;
-const STAGES=[
- {type:'fill',ayah:1},
- {type:'meaning',ayah:2},
- {type:'continuation',ayah:3},
- {type:'next',ayah:2},
- {type:'fill',ayah:0}
-];
-let run=null;
-const esc=v=>String(v??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[x]));
-const words=s=>String(s||'').trim().split(/\s+/).filter(Boolean);
-function shuffle(xs){
- const a=xs.slice();
- for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
- return a;
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','bayyina','zilzal','kawthar','asr'];
+function journey(){return window.DEEN_QURAN_JOURNEY_V2}
+function current(){
+ try{const id=String(window.DEEN_QURAN?.ensureState?.()?.profile?.currentSurah||'');return IDS.includes(id)?id:'fatiha'}catch(_){return'fatiha'}
 }
-function registeredRows(id){
- if(!SURAHS[id])return [];
- const rows=[];
- for(let n=1;n<=SURAHS[id].count;n++){
-  let rec=null;
-  try{rec=window.DEEN_QURAN_CONTENT?.getAyah?.(id,n)}catch(_){}
-  const ar=String(rec?.arabic?.text||'').trim();
-  const tr=String(rec?.translation?.text||'').trim();
-  if(!ar||!tr)continue;
-  rows.push({id,ayah:n,arabic:ar,translation:tr});
- }
- return rows;
-}
-function poolFor(id){return registeredRows(id).concat(registeredRows(id==='fatiha'?'ikhlas':'fatiha'))}
-function question(type,target,pool,all){
- let prompt='',answer='',opts=[],label='',arabicOpts=true;
- const ws=words(target.arabic);
- if(type==='fill'&&ws.length>=2){
-  const n=ws.length===2?1:Math.floor(ws.length/2);
-  answer=ws[n];prompt=ws.map((w,i)=>i===n?'__BLANK__':w);
-  label='Eksik kelimeyi tamamla';
-  const distractors=shuffle([...new Set(pool.flatMap(r=>words(r.arabic)).filter(w=>w!==answer))]).slice(0,3);
-  opts=[answer,...distractors];
- }else if(type==='continuation'&&ws.length>=2){
-  const n=Math.max(1,Math.floor(ws.length/2));
-  prompt=ws.slice(0,n).join(' ');answer=ws.slice(n).join(' ');
-  label='Ayetin devamını bul';
-  const distractors=shuffle([...new Set(pool.map(r=>{
-   const z=words(r.arabic);
-   return z.slice(Math.max(1,Math.floor(z.length/2))).join(' ');
-  }).filter(w=>w&&w!==answer))]).slice(0,3);
-  opts=[answer,...distractors];
- }else if(type==='meaning'){
-  prompt=target.arabic;answer=target.translation;label='Ayetin mealini seç';arabicOpts=false;
-  const distractors=shuffle([...new Set(pool.map(r=>r.translation).filter(t=>t&&t!==answer))]).slice(0,3);
-  opts=[answer,...distractors];
- }else if(type==='next'){
-  const next=all.find(r=>r.ayah===target.ayah+1);
-  if(!next)return null;
-  prompt=target.arabic;answer=next.arabic;label='Sonraki ayeti bul';
-  const distractors=shuffle([...new Set(pool.map(r=>r.arabic).filter(a=>a&&a!==answer&&a!==prompt))]).slice(0,3);
-  opts=[answer,...distractors];
- }else return null;
- if(opts.length!==4||new Set(opts).size!==4)return null;
- const options=shuffle(opts).map((value,i)=>({id:'o'+i,text:value,correct:value===answer}));
- return {type,ayah:target.ayah,label,prompt,answer,options,arabicOpts};
-}
-function build(id){
- const all=registeredRows(id),pool=poolFor(id);
- if(all.length!==SURAHS[id].count||pool.length<7)return null;
- const result=[];
- for(const stage of STAGES){
-  const n=stage.ayah||SURAHS[id].count;
-  const target=all.find(r=>r.ayah===n);
-  if(!target)return null;
-  const q=question(stage.type,target,pool,all);
-  if(!q)return null;
-  result.push(q);
- }
- return result.length===TOTAL?result:null;
-}
-function currentSurah(){
- let id='';
- try{id=String(window.DEEN_QURAN?.ensureState?.()?.profile?.currentSurah||'')}catch(_){}
- return SURAHS[id]?id:'fatiha';
-}
-function visible(){return !!document.querySelector?.('#v5Sheet[open] #v5SheetBody .deen-atest')}
-function draw(html){
- if(typeof sheet!=='function')return false;
- sheet('Ayet Testi',html);
- return true;
-}
-function selectionHtml(){
- const preferred=currentSurah();
- return '<div class="deen-atest" data-atest-phase="choose">'+
- '<div class="deen-atest-lead"><div class="deen-atest-tag">KUR’AN · OYNA</div><h3>Ayet Testi</h3>'+
- '<p>5 kısa soruyla ayetleri hatırla. Önce çalışmak istediğin sureyi seç.</p></div>'+
- Object.keys(SURAHS).sort((a,b)=>a===preferred?-1:b===preferred?1:0).map(id=>
- '<button class="deen-atest-pick" type="button" onclick="DEEN_QURAN_AYET_TEST.start(\''+id+'\')"><span><b>'+SURAHS[id].name+' Suresi</b><small>'+SURAHS[id].count+' ayet · 5 soruluk tur'+(id===preferred?' · Önerilen':'')+'</small></span><i>→</i></button>'
- ).join('')+
- '<p class="deen-atest-note">Sorular kayıtlı Arapça ayet metni ve Türkçe mealden oluşturulur. Bu sürümde ses ve sürükleme testi bulunmaz.</p></div>';
-}
-function displayArabic(q){
- if(Array.isArray(q.prompt)){
-  return q.prompt.map(w=>w==='__BLANK__'?'<span class="deen-atest-blank">ــــــ</span>':esc(w)).join(' ');
- }
- return esc(q.prompt);
-}
-function bodyHtml(){
- if(!run)return selectionHtml();
- if(run.done)return resultHtml();
- const q=run.questions[run.index];
- if(!q)return'<div class="deen-atest">Soru bulunamadı.</div>';
- const checked=run.checked;
- const answerChoice=q.options.find(x=>x.correct);
- const choices=q.options.map(opt=>{
-   const active=run.choice===opt.id;
-   const klass=checked?(opt.correct?' good':active?' bad':''):active?' selected':'';
-   return '<button type="button" class="deen-atest-choice'+(q.arabicOpts?' ar':'')+klass+'" aria-pressed="'+(active?'true':'false')+'"'+
-   (checked?' disabled':'')+' onclick="DEEN_QURAN_AYET_TEST.select(\''+opt.id+'\')">'+esc(opt.text)+'</button>';
- }).join('');
- return '<div class="deen-atest" data-atest-phase="question">'+
- '<div class="deen-atest-progresshead"><span>'+esc(SURAHS[run.id].name)+' Suresi</span><b>'+(run.index+1)+' / '+TOTAL+'</b></div>'+
- '<div class="deen-atest-progress" aria-label="Test ilerlemesi">'+Array.from({length:TOTAL},(_,i)=>'<i class="'+(i<=run.index?'done':'')+'"></i>').join('')+'</div>'+
- '<div class="deen-atest-qcard"><div class="deen-atest-tag">AYET '+q.ayah+'</div><h3>'+esc(q.label)+'</h3>'+
- '<div class="deen-atest-ref">Kayıtlı ayet metni · '+esc(SURAHS[run.id].name)+'</div>'+
- '<div class="deen-atest-ar" lang="ar">'+displayArabic(q)+'</div>'+
- '<div class="deen-atest-options" role="group" aria-label="Cevap seçenekleri">'+choices+'</div>'+
- (checked?'<div class="deen-atest-answer '+(run.answerCorrect?'good':'bad')+'" role="status">'+
- (run.answerCorrect?'Doğru!':'Tekrar çalışılacak. Doğru cevap: '+esc(answerChoice?.text||q.answer))+'</div>':'')+
- (checked?
- '<button type="button" class="deen-atest-btn" onclick="DEEN_QURAN_AYET_TEST.next()">'+(run.index===TOTAL-1?'SONUCU GÖR':'SONRAKİ SORU →')+'</button>':
- '<button type="button" class="deen-atest-btn" onclick="DEEN_QURAN_AYET_TEST.check()"'+(!run.choice?' disabled':'')+'>KONTROL ET</button>')+
- '</div><p class="deen-atest-note">Ayet verileri kayıtlı kaynaklardan alınmıştır. Ezber ilerlemen bu testten otomatik değiştirilmez.</p></div>';
-}
-function resultHtml(){
- const pct=Math.round(run.correct/TOTAL*100);
- const missed=run.answers.filter(x=>!x.correct);
- return '<div class="deen-atest" data-atest-phase="result">'+
-  '<div class="deen-atest-result"><div class="deen-atest-tag">'+esc(SURAHS[run.id].name)+' SURESİ · TAMAMLANDI</div>'+
-  '<strong>%'+pct+'</strong><b>'+run.correct+' / '+TOTAL+' doğru</b>'+
-  '<p>'+(missed.length?'Yanlış yaptığın ayetleri tekrar ederek güçlendirebilirsin.':'Bu turdaki tüm soruları doğru cevapladın!')+'</p></div>'+
-  (missed.length?'<div class="deen-atest-misses"><b>Tekrar önerilen ayetler</b>'+
-   [...new Set(missed.map(x=>x.ayah))].map(n=>'<span>'+esc(SURAHS[run.id].name)+' · Ayet '+n+'</span>').join('')+'</div>':'')+
-  '<button type="button" class="deen-atest-btn" onclick="DEEN_QURAN_AYET_TEST.start(\''+run.id+'\')">YENİDEN TEST ET</button>'+
-  '<button type="button" class="deen-atest-btn secondary" onclick="DEEN_QURAN_AYET_TEST.open()">SURE DEĞİŞTİR</button></div>';
-}
-function refresh(){
- if(!visible())return false;
- const body=document.querySelector('#v5SheetBody');
- if(!body)return false;
- body.innerHTML=bodyHtml();
- return true;
-}
-function open(){run=null;return draw(selectionHtml())}
+function open(){return journey()?.open?.(current())||false}
 function start(id){
- if(!SURAHS[id])return false;
- const questions=build(id);
- if(!questions){
-  return draw('<div class="deen-atest"><div class="deen-atest-lead"><h3>Test henüz hazır değil</h3><p>'+esc(SURAHS[id].name)+' için gerekli ayet metni veya meal kayıtları eksik. Eksik içerik için soru uydurulmadı.</p></div><button class="deen-atest-btn secondary" onclick="DEEN_QURAN_AYET_TEST.open()">GERİ DÖN</button></div>');
- }
- run={id,questions,index:0,correct:0,choice:null,checked:false,answerCorrect:false,answers:[],done:false,saved:false};
- return draw(bodyHtml());
-}
-function select(id){
- if(!run||run.checked||run.done||!visible())return false;
- const q=run.questions[run.index];
- if(!q?.options.some(o=>o.id===id))return false;
- run.choice=id;refresh();return true;
-}
-function check(){
- if(!run||run.checked||run.done||!visible()||!run.choice)return false;
- const q=run.questions[run.index];
- const option=q?.options.find(x=>x.id===run.choice);
- if(!option)return false;
- run.checked=true;
- run.answerCorrect=!!option.correct;
- if(option.correct)run.correct++;
- run.answers.push({ayah:q.ayah,type:q.type,correct:!!option.correct});
- refresh();return run.answerCorrect;
-}
-function saveResult(){
- if(!run||run.saved)return false;
- run.saved=true;
- try{
-  const journey=window.DEEN_QURAN?.ensureState?.()||state.quranJourney;
-  if(journey && typeof journey==='object'){
-   const previous=Array.isArray(journey.ayetTestHistory)?journey.ayetTestHistory:[];
-   journey.ayetTestHistory=[...previous.slice(-9),{
-    surahId:run.id,at:new Date().toISOString(),score:run.correct,total:TOTAL,
-    wrongAyahs:run.answers.filter(a=>!a.correct).map(a=>a.ayah)
-   }];
-   if(typeof saveState==='function')saveState();
-  }
- }catch(_){}
- return true;
-}
-function next(){
- if(!run||!run.checked||run.done||!visible())return false;
- if(run.index===TOTAL-1){
-  run.done=true;saveResult();refresh();return true;
- }
- run.index++;run.choice=null;run.checked=false;run.answerCorrect=false;refresh();return true;
-}
-function snapshot(){
- return run?{build:BUILD,surah:run.id,index:run.index,total:TOTAL,score:run.correct,
- selected:run.choice,checked:run.checked,done:run.done,answers:run.answers.map(x=>({...x}))}:{build:BUILD,phase:'choose',total:TOTAL};
+ const n=IDS.includes(id)?id:current(),j=journey();
+ if(!j?.open?.(n))return false;
+ return j.startQuiz?.('ayah')||false;
 }
 window.DEEN_QURAN_AYET_TEST={
- open,start,select,check,next,snapshot,
- available:id=>!!SURAHS[id]&&!!build(id),
- audit:()=>({build:BUILD,surahs:Object.keys(SURAHS),questions:TOTAL,
-  fatihaReady:!!build('fatiha'),ikhlasReady:!!build('ikhlas'),entry:!!document.querySelector?.('.deen-atest-entry')})
+ open,start,
+ select:id=>journey()?.choose?.(id)||false,
+ check:()=>journey()?.checkAnswer?.()||false,
+ next:()=>journey()?.nextQuestion?.()||false,
+ snapshot:()=>journey()?.quizSnapshot?.()||{phase:'surah_select'},
+ available:id=>!!journey()?.stats?.(id)?.sourceReady,
+ audit:()=>({build:'9295surahbytest1',mode:'surah_journey',surahs:IDS.length,duplicateTestScreen:false})
 };
-document.documentElement.dataset.deenQuranAyetTest='v10974';
+document.documentElement.dataset.deenQuranAyetTest='surah-journey';
 })();
 </script>
