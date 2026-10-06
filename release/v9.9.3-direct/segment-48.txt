@@ -38,3 +38,68 @@ window.DEEN_QURAN_PHASE2={injectDashboard,injectAdmin,audit:()=>({audio:DEEN_QUR
 document.documentElement.dataset.deenQuranPhase2='complete';
 })();
 </script>
+
+<!-- DEEN v9.12.02 — single locale preference for App Settings and Quran Journey -->
+<style id="deen-v91202-app-language-css">
+.deen-app-language-setting{display:grid;gap:10px;margin-bottom:13px;padding:14px;border:1px solid rgba(103,205,177,.32);border-radius:15px;background:#10363b;color:#e9fff6;font:700 12px/1.45 Inter,system-ui,sans-serif}
+.deen-app-language-setting label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:850}
+.deen-app-language-setting select{min-width:112px;min-height:44px;padding:8px 12px;border:1px solid #6fcbb0;border-radius:10px;background:#0b2b34;color:#effff9;font-size:13px;font-weight:750}
+.deen-app-language-setting p{margin:0;color:#a8d0c4;font-size:11px;line-height:1.5}
+.deen-app-language-setting select:focus-visible{outline:2px solid #a9f6da;outline-offset:2px}
+</style>
+<script id="deen-v91202-app-language-js">
+(()=>{
+ if(window.DEEN_APP_LOCALE)return;
+ const KEY='deen_app_language_v1';
+ const SUPPORTED=['tr','en'];
+ const norm=v=>{const s=String(v||'').toLowerCase().trim().split('-')[0];return SUPPORTED.includes(s)?s:null};
+ const appState=()=>{try{return typeof state==='object'&&state?state:null}catch(_){return null}};
+ function stored(){try{return norm(window.localStorage?.getItem(KEY))}catch(_){return null}}
+ function get(){
+  const s=appState();
+  return norm(s?.settings?.language)||norm(s?.quranJourney?.quizLocale)||stored()||norm(document.documentElement.lang)||'tr';
+ }
+ function apply(lang){
+  const s=appState();
+  if(s){
+   s.settings=s.settings&&typeof s.settings==='object'?s.settings:{};
+   s.settings.language=lang;
+   if(s.quranJourney&&typeof s.quranJourney==='object')s.quranJourney.quizLocale=lang;
+  }
+  document.documentElement.lang=lang;
+  document.documentElement.dir='ltr';
+  document.documentElement.dataset.deenAppLocale=lang;
+ }
+ function hydrate(){
+  const chosen=get(),s=appState();
+  const dirty=!!s&&(s.settings?.language!==chosen||(s.quranJourney&&s.quranJourney.quizLocale!==chosen));
+  apply(chosen);
+  if(dirty)try{saveState()}catch(_){}
+  return chosen;
+ }
+ function set(lang){
+  const next=norm(lang);if(!next)return false;
+  const before=get();apply(next);
+  try{window.localStorage?.setItem(KEY,next)}catch(_){}
+  try{saveState()}catch(_){}
+  renderSettings();
+  if(next!==before)try{document.dispatchEvent(new CustomEvent('deen:language-changed',{detail:{language:next,previous:before}}))}catch(_){}
+  return true;
+ }
+ function renderSettings(){
+  const body=document.getElementById?.('v5SheetBody'),title=document.getElementById?.('v5SheetTitle');
+  if(!body||!title||!['Ayarlar','Settings'].includes(String(title.textContent||'').trim()))return false;
+  let section=body.querySelector?.('[data-deen-app-language]');
+  if(!section){
+   body.insertAdjacentHTML('afterbegin','<section class="deen-app-language-setting" data-deen-app-language="1"><label for="deenAppLanguage">Uygulama dili / App language <select id="deenAppLanguage" aria-label="Uygulama dili" onchange="DEEN_APP_LOCALE.set(this.value)"><option value="tr">Türkçe</option><option value="en">English</option></select></label><p>Tek bir dil seçimi Kur’an testlerini de yönetir. Diğer ekranların çevirileri kademeli hazırlanıyor; Arapça ayet metni değişmez.</p></section>');
+   section=body.querySelector?.('[data-deen-app-language]');
+  }
+  const select=section?.querySelector?.('select');
+  if(select)select.value=get();
+  return !!section;
+ }
+ window.DEEN_APP_LOCALE={get,set,hydrate,renderSettings,supported:()=>[...SUPPORTED],version:'9304centralocale1'};
+ document.addEventListener?.('deen:settings-rendered',renderSettings);
+ hydrate();
+})();
+</script>

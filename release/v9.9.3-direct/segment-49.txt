@@ -180,7 +180,7 @@ const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quray
 const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
 const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,tin:8,bayyina:8,zilzal:8,kawthar:3,asr:3};
 const PASS={ayah:80,meaning:80,final:75};
-const GAME_BUILD='9303mealquarantine1';
+const GAME_BUILD='9304centralocale1';
 const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
 const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);
 
@@ -190,7 +190,7 @@ const I18N={
  tr:{verse:'Ayet',fill:'Eksik kelimeyi tamamla',next:'Bu ayetten sonra hangisi gelir?',listen:'Dinlediğin ayetin anlamını seç',listenNum:'Dinlediğin ayet kaçıncı ayet?',continuation:'Ayetin doğru devamını seç',toNumber:'Bu meal kaçıncı ayete ait?',toMeaning:'Bu ayetin anlamı hangisi?',number:'Bu sure içinde kaçıncı ayet?',lang:'Soru dili',warning:'Bu dil için doğrulanmış meal hazır değil. Anlam Testi ve Sure Finali kilitli.',play:'🔊 AYETİ DİNLE',hint:'Dinlediğin ayetin anlamını seç.',hintNum:'Dinlediğin ayetin numarasını seç.',fillHint:'Bir kelimeye dokun veya boşluğa sürükle.',filled:'Başka bir kelime seçebilirsin.',correct:'Doğru!',correctAnswer:'Doğru cevap: ',check:'KONTROL ET',continue:'SONRAKİ SORU →',result:'SONUCU GÖR'},
  en:{verse:'Ayah',fill:'Fill in the missing word',next:'Which ayah comes next?',listen:'Choose the meaning of the recited ayah',listenNum:'Which ayah number did you hear?',continuation:'Choose the correct continuation',toNumber:'Which ayah number matches this meaning?',toMeaning:'Choose the meaning of this ayah',number:'What number is this ayah?',lang:'Question language',warning:'Verified English meanings are unavailable. Ayah Test is available; Meaning Test and Surah Final are locked.',play:'🔊 PLAY AYAH',hint:'Choose the meaning of the recited ayah.',hintNum:'Choose the ayah number you hear.',fillHint:'Tap or drag a word into the blank.',filled:'Tap another word to change it.',correct:'Correct!',correctAnswer:'Correct answer: ',check:'CHECK',continue:'NEXT QUESTION →',result:'SEE RESULTS'}
 };
-const locale=()=>String(document.documentElement.lang||'tr').toLowerCase().split('-')[0]==='en'?'en':'tr';
+const locale=()=>window.DEEN_APP_LOCALE?.get?.()||'tr';
 function quizChrome(html){
  if(locale()!=='en')return html;
  const pairs=[
@@ -224,19 +224,11 @@ function verifiedMeal(id,n){
 }
 function mealReady(id){return Array.from({length:COUNTS[id]},(_,i)=>verifiedMeal(id,i+1)).every(Boolean)}
 function setQuizLanguage(l){
- if(l!=='tr'&&l!=='en')return false;
- try{window.DEEN_TYPOGRAPHY?.setLocale?.(l)}catch(_){}
- document.documentElement.lang=l;document.documentElement.dir='ltr';
- qs().quizLocale=l;DEEN_QURAN.persistState?.();
+ if(!window.DEEN_APP_LOCALE?.set?.(l))return false;
  stopQuizAudio();ignoreClick=null;discardDrag();quiz=null;
- sheet(NAMES[currentSurah]+' · '+(l==='en'?'Surah Journey':'Sure Yolculuğu'),journeyHtml(currentSurah));return true;
+ sheet(NAMES[currentSurah]+' · '+(locale()==='en'?'Surah Journey':'Sure Yolculuğu'),journeyHtml(currentSurah));return true;
 }
-function restoreLocale(){
- if(qs()?.quizLocale==='en'&&locale()==='tr'){
-  try{window.DEEN_TYPOGRAPHY?.setLocale?.('en')}catch(_){}
-  document.documentElement.lang='en';document.documentElement.dir='ltr';
- }
-}
+function restoreLocale(){return window.DEEN_APP_LOCALE?.hydrate?.()||'tr'}
 function languageUI(id){
  const ready=mealReady(id);
  return '<div class="deen-qj2-language"><label for="deen-qj2-lang">'+esc(T('lang'))+'</label><select id="deen-qj2-lang" onchange="DEEN_QURAN_JOURNEY_V2.setQuizLanguage(this.value)"><option value="tr"'+(locale()==='tr'?' selected':'')+'>Türkçe</option><option value="en"'+(locale()==='en'?' selected':'')+'>English</option></select></div>'+
