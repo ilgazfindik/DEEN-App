@@ -175,6 +175,40 @@
 @media(max-width:350px){.deen-qj2-stage{grid-template-columns:32px minmax(0,1fr)}.deen-qj2-stage>.deen-qj2-btn{grid-column:1/-1;width:100%}}
 .deen-qj2-adaptive{display:flex;align-items:center;gap:8px;padding:9px 11px;margin:8px 0;border:1px solid rgba(105,199,174,.2);border-radius:12px;background:#0c3037;color:#afe1d3;font:700 10px/1.4 Inter,system-ui,sans-serif}
 .deen-qj2-adaptive i{color:#9ae6ca;font-style:normal}
+/* v9.12.05 · unified Quran Journey goal, companion and collectible milestones */
+.deen-qj2-habits{padding:13px;display:grid;gap:10px;border:1px solid rgba(105,206,176,.2);border-radius:17px;background:linear-gradient(145deg,#123b3e,#09272f)}
+.deen-qj2-habits-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.deen-qj2-habits-head b{color:#f1fff8;font:850 13px/1.4 Inter,system-ui,sans-serif}
+.deen-qj2-habits-head span{color:#9fe7cb;font:850 11px/1.3 Inter,system-ui,sans-serif}
+.deen-qj2-goal-bar{height:8px;border-radius:999px;background:#061f25;overflow:hidden}
+.deen-qj2-goal-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#48c9a9,#b7f1dc)}
+.deen-qj2-goal-presets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.deen-qj2-goal-presets button{min-height:44px;border:1px solid rgba(120,196,173,.3);border-radius:10px;background:#0b2a32;color:#bee1d5;font:800 11px Inter,system-ui,sans-serif;cursor:pointer}
+.deen-qj2-goal-presets button[aria-pressed="true"]{border-color:#86e4c6;background:#1b524a;color:#f1fff8}
+.deen-qj2-goal-note{color:#a6c7be;font:650 10px/1.5 Inter,system-ui,sans-serif}
+.deen-qj2-habits-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.deen-qj2-habits-actions button{min-height:44px;padding:8px;border:1px solid rgba(117,206,179,.33);border-radius:10px;background:#163f41;color:#d1f7e9;font:800 11px/1.25 Inter,system-ui,sans-serif;cursor:pointer}
+.deen-qj2-medals{padding:14px;border:1px solid rgba(198,166,98,.22);border-radius:17px;background:linear-gradient(145deg,#23332e,#0b2832)}
+.deen-qj2-medals-title{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#e9d4a9;font:850 12px/1.4 Inter,system-ui,sans-serif}
+.deen-qj2-medals-title small{color:#bba77c;font:700 10px Inter,system-ui,sans-serif}
+.deen-qj2-medals-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.deen-qj2-medal{min-height:77px;display:grid;align-content:center;justify-items:center;gap:5px;padding:8px 5px;border:1px solid rgba(178,165,129,.18);border-radius:12px;background:rgba(8,28,32,.55);color:#6d8881;text-align:center;opacity:.66}
+.deen-qj2-medal.earned{border-color:rgba(224,186,110,.55);background:linear-gradient(145deg,rgba(101,76,34,.37),rgba(30,64,55,.4));color:#efdbaa;opacity:1}
+.deen-qj2-medal-icon{font-size:22px;line-height:1.2;filter:grayscale(.8)}
+.deen-qj2-medal.earned .deen-qj2-medal-icon{filter:none}
+.deen-qj2-medal small{font:750 9px/1.3 Inter,system-ui,sans-serif}
+.deen-qj2-buddy{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid rgba(114,201,171,.24);border-radius:15px;background:rgba(18,59,56,.65)}
+.deen-qj2-buddy-avatar{flex:0 0 58px;width:58px;height:58px;display:grid;place-items:center;border-radius:14px;background:#09282f;overflow:hidden}
+.deen-qj2-buddy-avatar img{width:100%;height:100%;object-fit:contain}
+.deen-qj2-buddy-avatar span{color:#a5edcd;font-size:29px}
+.deen-qj2-buddy-message{min-width:0;display:grid;gap:4px;color:#d8f6e8;font:750 11px/1.55 Inter,system-ui,sans-serif}
+.deen-qj2-buddy-message b{color:#92e6c8;font-size:12px}
+.deen-qj2-result-medal{color:#f5d896;font:800 11px/1.4 Inter,system-ui,sans-serif}
+.deen-qj2-companion-win .deen-qj2-buddy-avatar{animation:deenQj2CompanionReward .72s ease both}
+@keyframes deenQj2CompanionReward{0%{transform:translateY(8px) scale(.85)}60%{transform:translateY(-3px) scale(1.08)}100%{transform:none}}
+@media(prefers-reduced-motion:reduce){.deen-qj2-companion-win .deen-qj2-buddy-avatar{animation:none}}
+@media(max-width:350px){.deen-qj2-habits{padding:11px}.deen-qj2-buddy{padding:10px}.deen-qj2-buddy-avatar{flex-basis:50px;width:50px;height:50px}}
+
 
 </style>
 <script id="deen-v10942-quran-journey-v2-js">
@@ -185,7 +219,7 @@ const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quray
 const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
 const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,tin:8,bayyina:8,zilzal:8,kawthar:3,asr:3};
 const PASS={ayah:80,meaning:80,final:75};
-const GAME_BUILD='9306adaptivequiz1';
+const GAME_BUILD='9307quranmilestones1';
 const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
 const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);
 
@@ -275,10 +309,126 @@ function masteryLevel(id){
  if(reviews>=2)return 2;
  return 1;
 }
+const MILESTONES=[
+ {id:'first',icon:'✦',tr:'İlk Ayet',en:'First Ayah'},
+ {id:'memorized',icon:'◆',tr:'Ezber Yolcusu',en:'Memorizer'},
+ {id:'ayah',icon:'✧',tr:'Ayet Bilgisi',en:'Ayah Scholar'},
+ {id:'meaning',icon:'◇',tr:'Anlam Ustası',en:'Meaning Explorer'},
+ {id:'final',icon:'★',tr:'Sure Finali',en:'Surah Final'},
+ {id:'mastery',icon:'♛',tr:'Usta Yolcu',en:'Master Learner'}
+];
+const GOAL_OPTIONS=[1,2,3,5];
+const COMPANIONS={
+ lion:{tr:'Aslan',en:'Lion',url:'./assets/companions/lion/lion_avatar.png'},
+ wolf:{tr:'Kurt',en:'Wolf',url:'./assets/companions/wolf/wolf_avatar.png'},
+ owl:{tr:'Baykuş',en:'Owl',url:'./assets/companions/owl/owl_avatar.png'},
+ turtle:{tr:'Kaplumbağa',en:'Turtle',url:'./assets/companions/turtle/turtle_avatar.png'},
+ eagle:{tr:'Kartal',en:'Eagle',url:'./assets/companions/eagle/eagle_avatar.png'},
+ cat:{tr:'Kedi',en:'Cat',url:'./assets/companions/cat/cat_avatar.png'}
+};
+const bounded=(v,min,max)=>Math.min(max,Math.max(min,Number(v)||min));
+function todayDate(){
+ const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function isToday(when){
+ const d=new Date(when||0);
+ return Number.isFinite(d.getTime())&&d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')===todayDate();
+}
+function dailyJourney(id){
+ const q=qs(),goal=bounded(q.goals?.dailyAyahs??1,1,20);
+ let finishedToday=0;
+ for(const sid of IDS){
+  const rows=q.progress?.surahs?.[sid]?.ayahs||{};
+  for(const item of Object.values(rows))if(isToday(item?.completedAt))finishedToday++;
+ }
+ const count=Math.max(q.daily?.date===todayDate()?Number(q.daily.ayahs)||0:0,finishedToday);
+ const due=q.review?.queue?.filter(x=>{const at=Date.parse(x.dueAt||'');return Number.isFinite(at)&&at<=Date.now()})||[];
+ const dueCount=new Set(due.map(x=>x.surahId+':'+x.ayah)).size;
+ let missions=null;try{missions=window.DEEN_QURAN_REWARDS?.missions?.()||null}catch(_){}
+ return{goal,done:Math.max(0,count),due:dueCount,rewardDone:Number(missions?.done)||0,rewardClaimed:missions?.claimed===true};
+}
+function setDailyGoal(value){
+ const n=Number(value);if(!GOAL_OPTIONS.includes(n))return false;
+ const q=qs(),old=Number(q.goals?.dailyAyahs)||1;
+ if(old===n)return true;
+ DEEN_QURAN.setGoal?.('dailyAyahs',n);
+ if(q.goals)q.goals.dailyAyahs=n;
+ if(q.personalPlan&&typeof q.personalPlan==='object')q.personalPlan.newAyahs=n;
+ DEEN_QURAN.persistState?.();
+ refreshJourney();
+ return true;
+}
+function milestoneModel(id){
+ const m=stats(id);
+ return{
+  first:m.learned>=1,
+  memorized:m.memReady,
+  ayah:m.state.ayah.passed,
+  meaning:m.state.meaning.passed,
+  final:m.state.final.passed,
+  mastery:m.mastery>=4
+ };
+}
+function syncMilestones(id){
+ const q=jroot(),newly=[],current=milestoneModel(id);
+ q.medals=q.medals&&typeof q.medals==='object'&&!Array.isArray(q.medals)?q.medals:{};
+ const saved=q.medals[id]=q.medals[id]&&typeof q.medals[id]==='object'?q.medals[id]:{};
+ for(const badge of MILESTONES){
+  if(current[badge.id]&&!saved[badge.id]){
+   saved[badge.id]=new Date().toISOString();
+   newly.push(badge.id);
+  }
+ }
+ if(newly.length)DEEN_QURAN.persistState?.();
+ return newly;
+}
+function selectedCompanion(){
+ let chosen='';
+ try{chosen=String(window.DEEN_PROFILE_AVATAR_ASSETS?.check?.()?.selected||'').toLowerCase()}catch(_){}
+ if(!COMPANIONS[chosen])try{chosen=String(typeof state==='object'?state?.profile?.companion||'':'').toLowerCase()}catch(_){}
+ return COMPANIONS[chosen]||null;
+}
+function mascotMessage(id,good,newBadges=[]){
+ const c=selectedCompanion(),english=locale()==='en';
+ const title=c?(english?c.en:c.tr):(english?'Your DEEN companion':'DEEN yol arkadaşın');
+ const image='<div class="deen-qj2-buddy-avatar">'+(c?'<img alt="" aria-hidden="true" src="'+esc(c.url)+'">':'<span aria-hidden="true">✦</span>')+'</div>';
+ const unlocks=newBadges.map(k=>MILESTONES.find(m=>m.id===k)).filter(Boolean);
+ const sentence=unlocks.length?(english?'New milestone unlocked!':'Yeni madalya açıldı!'):good?
+  (english?'Great work! Keep reviewing to grow your mastery.':'Harika ilerliyorsun! Tekrarlarla ustalığını büyüt.'):
+  (english?'Review the missed ayahs and try again.':'Zorlandığın ayetleri tekrar edip yeniden dene.');
+ return '<div class="deen-qj2-buddy'+(unlocks.length?' deen-qj2-companion-win':'')+'" role="status">'+image+
+  '<div class="deen-qj2-buddy-message"><b>'+esc(title)+'</b><span>'+esc(sentence)+'</span>'+
+  (unlocks.length?'<small class="deen-qj2-result-medal">'+esc(unlocks.map(k=>english?k.en:k.tr).join(' · '))+'</small>':'')+'</div></div>';
+}
+function experienceHtml(id){
+ const s=dailyJourney(id),model=milestoneModel(id),english=locale()==='en';
+ const achieved=MILESTONES.filter(x=>model[x.id]).length;
+ const pct=Math.min(100,Math.round(s.done/s.goal*100));
+ const goalButtons=GOAL_OPTIONS.map(n=>'<button type="button" aria-pressed="'+(s.goal===n?'true':'false')+'" onclick="DEEN_QURAN_JOURNEY_V2.setDailyGoal('+n+')">'+n+'</button>').join('');
+ const dailyHeader=english?'Daily memorization goal':'Günlük ezber hedefi';
+ const taskText=english?'New ayahs learned today':'Bugün öğrenilen yeni ayet';
+ const note=english?
+  'Existing daily missions: '+s.rewardDone+'/3 completed'+(s.rewardClaimed?' · Reward claimed':'')+' · '+s.due+' reviews due':
+  'Mevcut günlük görevler: '+s.rewardDone+'/3 tamamlandı'+(s.rewardClaimed?' · Ödül alındı':'')+' · '+s.due+' tekrar bekliyor';
+ const goalPanel='<section class="deen-qj2-habits" data-qj2-daily="1"><div class="deen-qj2-habits-head"><b>'+dailyHeader+'</b><span>'+s.done+'/'+s.goal+'</span></div>'+
+  '<div class="deen-qj2-goal-bar" role="progressbar" aria-valuenow="'+Math.min(s.done,s.goal)+'" aria-valuemin="0" aria-valuemax="'+s.goal+'" aria-label="'+esc(dailyHeader)+'"><i style="width:'+pct+'%"></i></div>'+
+  '<div class="deen-qj2-goal-note">'+esc(taskText)+'</div>'+
+  '<div class="deen-qj2-goal-presets" role="group" aria-label="'+esc(dailyHeader)+'">'+goalButtons+'</div>'+
+  '<div class="deen-qj2-goal-note">'+esc(note)+'</div>'+
+  '<div class="deen-qj2-habits-actions"><button type="button" onclick="DEEN_QURAN_JOURNEY_V2.startStage(\'learn\')">'+(english?'LEARN':'ÖĞREN')+'</button><button type="button" onclick="DEEN_QURAN_JOURNEY_V2.reviewDue()">'+(english?'REVIEW':'TEKRARLA')+'</button></div></section>';
+ const badges='<section class="deen-qj2-medals" data-qj2-medals="1"><div class="deen-qj2-medals-title"><span>✦ '+(english?'Surah milestones':'Sure madalyaları')+'</span><small>'+achieved+'/'+MILESTONES.length+'</small></div>'+
+  '<div class="deen-qj2-medals-grid">'+MILESTONES.map(m=>'<div class="deen-qj2-medal'+(model[m.id]?' earned':'')+'" data-qj2-medal="'+m.id+'" aria-label="'+esc((english?m.en:m.tr)+(model[m.id]?' ✓':''))+'"><span class="deen-qj2-medal-icon" aria-hidden="true">'+m.icon+'</span><small>'+esc(english?m.en:m.tr)+'</small></div>').join('')+'</div>'+
+  '<div class="deen-qj2-goal-note" style="margin-top:10px">'+(english?'Collectible progress medals. No extra XP is issued.':'Biriktirilebilir ilerleme madalyaları. Ek XP verilmez.')+'</div></section>';
+ return goalPanel+badges+mascotMessage(id,achieved>0);
+}
+function reviewDue(){
+ try{return window.DEEN_QURAN_SRS?.openReview?.()||false}catch(_){return false}
+}
 function stageRow(icon,title,sub,done,locked,action,label){
  return'<div class="deen-qj2-stage'+(done?' done':'')+(locked?' locked':'')+'"><span class="deen-qj2-icon">'+(done?'✓':icon)+'</span><span class="deen-qj2-copy"><b>'+esc(title)+'</b><small>'+esc(sub)+'</small></span><button class="deen-qj2-btn" '+(locked?'disabled':'')+' onclick="'+action+'">'+(locked?'KİLİTLİ':label)+'</button></div>';
 }
 function journeyHtml(id){
+ syncMilestones(id);
  const m=stats(id),s=m.state;
  return quizChrome('<div class="deen-qj2">'+languageUI(id)+'<div class="deen-qj2-adaptive"><i>✦</i>'+esc((function(){
   const a=adaptiveSummary(id);return locale()==='en'?(a.seen?a.seen+'/'+a.total+' ayahs practiced · adaptive review enabled':'Balanced questions · adapts to your learning'):(a.seen?a.seen+'/'+a.total+' ayet çalışıldı · kişisel tekrar etkin':'Dengeli sorular · öğrendikçe uyarlanır');
@@ -289,7 +439,7 @@ function journeyHtml(id){
  stageRow('4','Anlam Testi',s.meaning.passed?'Geçildi · en iyi %'+s.meaning.best:'Bu surenin mealinden 5 soru',s.meaning.passed,!m.meaningUnlocked,"DEEN_QURAN_JOURNEY_V2.startStage('meaning')",s.meaning.passed?'TEKRAR':'TESTE BAŞLA')+
  stageRow('5','Sure Finali',s.final.passed?'Tamamlandı · en iyi %'+s.final.best:'Ayet + Anlam geçilince açılır · 8 soru',s.final.passed,!m.finalUnlocked,"DEEN_QURAN_JOURNEY_V2.startStage('final')",s.final.passed?'TEKRAR':'FİNALE GİR')+
  stageRow('★','Ustalık',m.mastery?'Seviye '+m.mastery+'/4 · SRS ile güçlenir':'Finali geçince açılır',m.mastery>=4,!s.final.passed,"DEEN_QURAN_JOURNEY_V2.startStage('mastery')",m.mastery?'TEKRAR':'AÇ')+
- '</div></div>');
+ '</div>'+experienceHtml(id)+'</div>');
 }
 function open(id){
  stopQuizAudio();
@@ -621,6 +771,7 @@ function checkAnswer(){
  if(!quiz.practice){
   const outcome=quiz.lastCorrect?'good':(quiz.stage==='meaning'?'hard':'again');
   adaptiveRecord(currentSurah,quiz.stage,q,quiz.lastCorrect);
+  try{window.DEEN_QURAN_REWARDS?.recordQuestion?.(quiz.lastCorrect)}catch(_){}
   try{DEEN_QURAN_SRS?.record?.(currentSurah,focusedAyah(q),outcome,'journey_'+quiz.stage)}catch(_){}
   try{DEEN_QURAN_ANALYTICS?.track?.(quiz.lastCorrect?'correct':'wrong',{surahId:currentSurah,type:'journey_'+quiz.stage,outcome:quiz.lastCorrect?'correct':'wrong'})}catch(_){}
  }
@@ -645,7 +796,9 @@ function finishQuiz(){
  slot.attempts++;slot.best=Math.max(slot.best,score);slot.lastScore=score;slot.lastAt=new Date().toISOString();
  if(passed){slot.passed=true;slot.passedAt=slot.passedAt||slot.lastAt;if(quiz.stage==='final')s.finalCompletedAt=s.finalCompletedAt||slot.lastAt}
  DEEN_QURAN.persistState?.();
- quiz.result={score,passed,threshold,stage:quiz.stage,practice:false,newBest:score>previousBest&&score>0,best:slot.best,previousAttempts};
+ const unlocked=syncMilestones(currentSurah);
+ if(unlocked.length)try{window.DEEN_QURAN_MASCOT?.react?.('milestone')}catch(_){}
+ quiz.result={score,passed,threshold,stage:quiz.stage,practice:false,newBest:score>previousBest&&score>0,best:slot.best,previousAttempts,milestones:unlocked};
  return quiz.result;
 }
 function reviewWrong(){
@@ -683,12 +836,13 @@ function resultHtml(){
  }).join('');
  const review=wrong.length?'<button type="button" class="deen-qj2-next" onclick="DEEN_QURAN_JOURNEY_V2.reviewWrong()">YANLIŞLARI TEKRAR ET · '+wrong.length+'</button>':'';
  const bestValue=r.practice?'—':'%'+r.best;
+ const companion=mascotMessage(currentSurah,r.passed,!r.practice?r.milestones||[]:[]);
  return quizChrome('<div class="deen-qj2-quiz" data-qj2-result-v2="1" data-practice="'+(r.practice?'1':'0')+'">'+
   '<section class="deen-qj2-summary" aria-label="Test sonuç özeti">'+
    '<div class="deen-qj2-summary-top">'+esc(NAMES[currentSurah])+' · '+esc(label)+(r.practice?' · Tekrar':'')+'</div>'+
    '<h3>'+(r.practice?'Tekrar tamamlandı':r.passed?'Başardın!':'Biraz daha pratik yapalım')+(r.newBest?' ✦ Yeni rekor':'')+'</h3>'+
    '<div class="deen-qj2-score-ring'+(r.passed?'':' missed')+'" style="--score:'+r.score+'%" role="img" aria-label="Başarı puanı yüzde '+r.score+'"><strong>%'+r.score+'</strong><small>BAŞARI</small></div>'+
-   '<p class="deen-qj2-summary-sub">'+esc(description)+'</p>'+
+   '<p class="deen-qj2-summary-sub">'+esc(description)+'</p>'+companion+
    '<div class="deen-qj2-metrics"><div class="deen-qj2-metric"><b>'+quiz.correct+'</b><small>Doğru</small></div><div class="deen-qj2-metric"><b>'+wrong.length+'</b><small>Yanlış</small></div><div class="deen-qj2-metric"><b>'+bestValue+'</b><small>'+(r.practice?'Kayıt değişmedi':'En iyi puan')+'</small></div></div>'+
    (unique.length?'<div class="deen-qj2-targets">Tekrar edilecek ilgili ayetler: '+unique.join(', ')+'</div>':'')+
   '</section>'+
@@ -715,7 +869,7 @@ restoreLocale();
 DEEN_QURAN.openLearningFlow=baseOpenSurah;
 DEEN_QURAN.openSurah=function(id){if(IDS.includes(id))return open(id);return baseOpenSurah?.(id)};
 DEEN_QURAN.journeyV2=open;
-window.DEEN_QURAN_JOURNEY_V2={open,startStage,stats,masteryLevel,startQuiz,choose,checkAnswer,nextQuestion,backToJourney,audit,buildQuestions,refreshJourney,dragStart,dragMove,dragEnd,dragCancel,playQuizAudio,reviewWrong,retryQuiz,setQuizLanguage,locale,mealReady,adaptiveSummary,build:GAME_BUILD,quizSnapshot:()=>quiz?{surah:currentSurah,stage:quiz.stage,index:quiz.index,correct:quiz.correct,selected:quiz.selected,answered:quiz.answered,dragging:!!drag?.moved,practice:quiz.practice,answers:quiz.answers.length,wrong:quiz.answers.filter(a=>!a.correct).length,result:quiz.result}:null};
+window.DEEN_QURAN_JOURNEY_V2={open,startStage,stats,masteryLevel,startQuiz,choose,checkAnswer,nextQuestion,backToJourney,audit,buildQuestions,refreshJourney,dragStart,dragMove,dragEnd,dragCancel,playQuizAudio,reviewWrong,retryQuiz,setQuizLanguage,setDailyGoal,reviewDue,dailyJourney,milestoneModel,syncMilestones,locale,mealReady,adaptiveSummary,build:GAME_BUILD,quizSnapshot:()=>quiz?{surah:currentSurah,stage:quiz.stage,index:quiz.index,correct:quiz.correct,selected:quiz.selected,answered:quiz.answered,dragging:!!drag?.moved,practice:quiz.practice,answers:quiz.answers.length,wrong:quiz.answers.filter(a=>!a.correct).length,result:quiz.result}:null};
 document.addEventListener?.('deen:navigated',()=>setTimeout(injectDashboard,0));
 if(typeof MutationObserver!=='undefined')new MutationObserver(injectDashboard).observe(document.body,{childList:true,subtree:true});
 setTimeout(injectDashboard,0);
