@@ -432,6 +432,49 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   return null;
  }
 
+
+ // v9.12.20: text-only Arabic localization of review, streak, mission and analytics counters.
+ // These are display strings, not lesson questions; preserve original progress metrics.
+ const deenReviewBadgeArabicRules=[
+ [/^(.+?)\s*[·•]\s*(Öncelikli|Gelişiyor|Dengeli)(?:\s*[·•]\s*(\d+)\s+tekrar bekliyor)?$/i,m=>(dict[m[1]]||m[1])+' · '+(dict[m[2]]||m[2])+(m[3]?' · '+m[3]+' مراجعات منتظرة':'')],
+ [/^(.+?)\s*[·•]\s*(\d+)\s+tekrar bekliyor$/i,m=>(dict[m[1]]||m[1])+' · '+m[2]+' مراجعات منتظرة'],
+ [/^(\d+)\s+kontrol noktası tamamlandı$/i,m=>'اكتملت '+m[1]+' نقاط تحقّق'],
+ [/^(\d+)\s+HAZIR$/i,m=>m[1]+' جاهزة'],
+ [/^(\d+)\.\s*gün\s*\+\s*(\d+)\.\s*gün$/i,m=>'اليوم '+m[1]+' + اليوم '+m[2]],
+ [/^(\d+)\s+günlük tekrar$/i,m=>'مراجعة بعد '+m[1]+' أيام'],
+ [/^(\d+)\s+doğru seri$/i,m=>'سلسلة من '+m[1]+' إجابات صحيحة'],
+ [/^(\d+)\s+soru cevapla$/i,m=>'أجب عن '+m[1]+' سؤالًا'],
+ [/^(\d+)\s+adaptif tekrar$/i,m=>m[1]+' مراجعات تكيفية'],
+ [/^(\d+)\s+kusursuz ders$/i,m=>m[1]+' دروس دون أخطاء'],
+ [/^(\d+)\s+doğru cevap$/i,m=>m[1]+' إجابات صحيحة'],
+ [/^(\d+)\s+farklı günde öğren$/i,m=>'تعلّم في '+m[1]+' أيام مختلفة'],
+ [/^(\d+)\s+günlük öğrenme serisi$/i,m=>m[1]+' أيام متتالية من التعلّم'],
+ [/^(\d+)\s+ders tamamla$/i,m=>'أكمل '+m[1]+' درسًا'],
+ [/^(\d+)\s+kusursuz ders tamamla$/i,m=>'أكمل '+m[1]+' دروس دون أخطاء'],
+ [/^(\d+)\s+tekrar dersi tamamla$/i,m=>'أكمل '+m[1]+' جلسات مراجعة'],
+ [/^Öğrenerek\s+(\d+)\s+XP kazan$/i,m=>'اكسب '+m[1]+' نقطة خبرة من التعلّم'],
+ [/^(\d+)\s+soruda hata tekrar ediyor\.\s*Akıllı tekrar bu sinyalleri önceliklendirecek\.$/i,m=>'تتكرر الأخطاء في '+m[1]+' أسئلة؛ ستعطيها المراجعة الذكية الأولوية.'],
+ [/^(\d+)\s+kavram henüz dengeli değil\.\s*Tekrar planında bunlar daha görünür olacak\.$/i,m=>'لا تزال '+m[1]+' مفاهيم بحاجة إلى تقوية؛ ستبرز في خطة المراجعة.'],
+ [/^Son cevaplarında doğruluk önceki döneme göre\s+(\d+)\s+puan yükseldi\.$/i,m=>'ارتفعت دقة إجاباتك الأخيرة بمقدار '+m[1]+' نقاط مقارنة بالفترة السابقة.'],
+ [/^(\d+)\s+cevap\s*[·•]\s*(\d+)\s+yanlış(?:\s*[·•]\s*ort\.\s*(.+))?$/i,m=>m[1]+' إجابات · '+m[2]+' أخطاء'+(m[3]?' · المتوسط '+m[3]:'')],
+ [/^Ödül:\s*\+(\d+)\s+XP\s*[·•]\s*\+(\d+)\s+Pırıltı(?:\s*[·•]\s*\+(\d+)\s+seri koruma)?$/i,m=>'المكافأة: +'+m[1]+' XP · +'+m[2]+' بريق'+(m[3]?' · +'+m[3]+' حماية السلسلة':'')],
+ [/^\+(\d+)\s+XP\s*[·•]\s*\+(\d+)\s+Pırıltı(?:\s*[·•]\s*\+(\d+)\s+seri koruma)?$/i,m=>'+'+m[1]+' XP · +'+m[2]+' بريق'+(m[3]?' · +'+m[3]+' حماية السلسلة':'')],
+ [/^Günlük sandık\s*[·•]\s*(\d+)\s*\/\s*(\d+)\s*mühür$/i,m=>'صندوق اليوم · '+m[1]+' / '+m[2]+' أختام'],
+ [/^Günlük sandık\s+(\d+)\s*\/\s*(\d+)$/i,m=>'صندوق اليوم '+m[1]+' / '+m[2]],
+ [/^Haftalık ritim\s+(\d+)\s*\/\s*(\d+)$/i,m=>'الإيقاع الأسبوعي '+m[1]+' / '+m[2]],
+ [/^(\d+)\s*\/\s*(\d+)\s+görev mührü$/i,m=>m[1]+' / '+m[2]+' أختام للمهام'],
+ [/^(\d+)\s*\/\s*(\d+)\s+tamamlanmış günlük yolculuk$/i,m=>m[1]+' / '+m[2]+' رحلات يومية مكتملة'],
+ [/^(.+?)\s*·\s*Öncelikli\s*·\s*(\d+)\s+tekrar bekliyor$/i,m=>(dict[m[1]]||m[1])+' · أولوية عالية · '+m[2]+' مراجعات منتظرة']
+ ];
+ function translateReviewBadgeUI(t){
+  if(t.length>280)return null;
+  for(const [re,format] of deenReviewBadgeArabicRules){
+   const hit=re.exec(t);
+   if(hit){const result=format(hit);if(result)return result;}
+  }
+  return null;
+ }
+
  function translate(value){
   const text=String(value??''),trim=text.trim();if(!trim)return text;
   let out=dict[trim];
@@ -496,6 +539,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   if(!out)out=translateRemainingUI(trim);
   if(!out)out=translateQuranToastUI(trim);
   if(!out)out=translateQuranDashboardMetricUI(trim);
+  if(!out)out=translateReviewBadgeUI(trim);
   return out?text.replace(trim,out):text;
  }
  function markup(html){
@@ -544,7 +588,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9332reviewbadges1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9333reviewbadgepatterns1'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  if(typeof MutationObserver!=='undefined'){
   const observer=new MutationObserver(schedule);
