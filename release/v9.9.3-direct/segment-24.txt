@@ -1257,6 +1257,9 @@
 
  function render(step=0){
   ensure();
+  // Hard prerequisite: even a direct onboarding(5) must ask for language first.
+  if(state?.settings?.onboardingLanguageConfirmed!==true)
+    return window.DEEN_LANGUAGE_ONBOARDING?.render?.()||false;
   step=Math.max(0,Math.min(5,Number(step)||0));
 
   if(step===0)return frame(0,
@@ -1359,6 +1362,7 @@
  }
 
  function finish(){
+  if(state?.settings?.onboardingLanguageConfirmed!==true)return window.DEEN_LANGUAGE_ONBOARDING?.render?.()||false;
   ensure();
   if(!state.profile.companion)return render(3);
   state.onboarded=true;
@@ -1372,6 +1376,7 @@
  }
 
  function skip(){
+  if(state?.settings?.onboardingLanguageConfirmed!==true)return window.DEEN_LANGUAGE_ONBOARDING?.render?.()||false;
   ensure();
   state.profile.name=state.profile.name||'Yolcu';
   state.learningProfile=AGES[state.learningProfile]?state.learningProfile:'teen';

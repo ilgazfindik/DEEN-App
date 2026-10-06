@@ -146,6 +146,8 @@ document.documentElement.dataset.deenQuranPhase2='complete';
  const allowed=id=>options.some(x=>x.id===id);
  const selected=()=>allowed(stateRef()?.settings?.onboardingLanguageDraft)?stateRef().settings.onboardingLanguageDraft:null;
  const confirmed=()=>stateRef()?.settings?.onboardingLanguageConfirmed===true;
+ // URL-only preview never clears the user's completed onboarding or progress.
+ const previewRequested=()=>{try{return /(?:^|[?&])previewLanguage=1(?:&|$)/.test(String(window.location?.search||''))}catch(_){return false}};
  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  function renderLanguage(){
   if(!stateRef())return false;
@@ -185,14 +187,14 @@ document.documentElement.dataset.deenQuranPhase2='complete';
   return original(0);
  }
  function render(step=0){
-  if(Number(step)===0&&!confirmed())return renderLanguage();
+  if(!confirmed())return renderLanguage();
   return original(step);
  }
  premium.render=render;window.onboarding=render;
  try{onboarding=render}catch(_){}
- window.DEEN_LANGUAGE_ONBOARDING={choose,continue:complete,render:renderLanguage,selected,confirmed,options:()=>options.map(o=>({...o})),version:'9310languagefirstfix1'};
+ window.DEEN_LANGUAGE_ONBOARDING={choose,continue:complete,render:renderLanguage,selected,confirmed,options:()=>options.map(o=>({...o})),version:'9311firstlanguagegate1'};
  function ensureFirstScreen(){
-  if(confirmed())return;
+  if(confirmed()&&!previewRequested())return;
   if(document.getElementById('v998Onboarding')?.dataset?.step==='language')return;
   renderLanguage();
  }
