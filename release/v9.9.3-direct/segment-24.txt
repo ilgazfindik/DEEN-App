@@ -10211,6 +10211,7 @@ if(typeof LEGACY_RENDER==='function'){
 </script>
 
 <!-- DEEN v9.10.9 — 3-correct / 5-correct per-companion asset tiers -->
+<!-- deen-v9293-live-combo-source-fix: active 9103 renderer, lion + cat WebP only -->
 <style id="deen-v9106-combo-tier-marker"></style>
 <!-- DEEN v9.10.5 — Complete lion source asset + cache refresh -->
 <style id="deen-v9105-lion-asset-fix-marker"></style>
@@ -10298,7 +10299,7 @@ if(typeof LEGACY_RENDER==='function'){
  window.__DEEN_COMBO_CANVAS_ACTIVE=true;
 
  const VERSION='9.10.9-COMBO-TIERS';
- const BUILD='9109wolfhd1';
+ const BUILD='9293livecombo1';
 
  let active=null;
  let timer=0;
@@ -10339,8 +10340,10 @@ if(typeof LEGACY_RENDER==='function'){
  }
 
  const COMBO_ASSETS={
-   lion:{3:'assets/companions/lion/lion_combo_3.avif',5:'assets/companions/lion/lion_combo_5.avif'},
-   cat:{3:'assets/companions/cat/cat_combo_3.avif',5:'assets/companions/cat/cat_combo_5.avif'},
+   // Use visually verified image files. The AVIF variants can render corrupt
+   // rectangles / scanlines even while network loading succeeds (no onerror).
+   lion:{3:'assets/companions/lion/lion_combo_3.webp',5:'assets/companions/lion/lion_combo_5.webp'},
+   cat:{3:'assets/companions/cat/cat_combo_3.webp',5:'assets/companions/cat/cat_combo_5.webp'},
    eagle:{3:'assets/companions/eagle/eagle_combo_3.avif',5:'assets/companions/eagle/eagle_combo_5.avif'},
    turtle:{3:'assets/companions/turtle/turtle_combo_3.avif',5:'assets/companions/turtle/turtle_combo_5.avif'},
    owl:{3:'assets/companions/owl/owl_combo_3.avif',5:'assets/companions/owl/owl_combo_5.avif'},
@@ -10464,6 +10467,8 @@ if(typeof LEGACY_RENDER==='function'){
      active:!!active,
      lastKey,
      source,
+     selected:selectedCompanion(),
+     renderedSrc:active?.querySelector?.('img')?.currentSrc||active?.querySelector?.('img')?.src||'',
      combo:(()=>{try{return Number(session?.combo)||0}catch(_){return 0}})()
    })
  };
