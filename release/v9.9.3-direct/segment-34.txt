@@ -5251,14 +5251,14 @@ window.DEEN_REWARD_BADGE_ART={
 (()=>{
  if(window.DEEN_QURAN_LEARNING_TRANSLATION)return;
  const escapeHtml=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const locale=()=>window.DEEN_APP_LOCALE?.get?.()==='en'?'en':'tr';
- function get(rec){const lang=locale(),m=lang==='en'?rec?.translations?.en:rec?.translation;
+ const locale=()=>window.DEEN_APP_LOCALE?.get?.()||'tr';
+ function get(rec){const lang=locale(),m=lang==='en'?rec?.translations?.en:lang==='tr'?rec?.translation:null;
   return m&&String(m.language||'').split('-')[0]===lang&&m.verification_status==='production_ready'&&m.source?.provider&&typeof m.text==='string'&&m.text.trim()?m:null;
  }
  const sourceName=(m,lang)=>lang==='en'?'Marmaduke Pickthall · 1930':String(m.source?.edition||m.source?.provider||'');
  function html(rec){
-  const lang=locale(),meal=get(rec),label=lang==='en'?'ENGLISH MEANING':'TÜRKÇE MEAL';
-  if(!meal)return'<div class="deen-ayah-translation deen-ayah-translation-pending" data-verse-translation="missing" lang="'+lang+'" role="status"><strong>'+label+'</strong><p>'+(lang==='en'?'No source-verified English translation for this ayah.':'Bu ayetin doğrulanmış Türkçe meali henüz hazır değil.')+'</p></div>';
+  const lang=locale(),meal=get(rec),label=({tr:'TÜRKÇE MEAL',en:'ENGLISH MEANING',ar:'معنى الآية',de:'ÜBERSETZUNG',es:'TRADUCCIÓN',fr:'TRADUCTION'}[lang]||'MEANING');
+  if(!meal)return'<div class="deen-ayah-translation deen-ayah-translation-pending" data-verse-translation="missing" lang="'+lang+'" role="status"><strong>'+label+'</strong><p>'+({tr:'Bu ayetin doğrulanmış Türkçe meali henüz hazır değil.',en:'No source-verified English meaning yet.',ar:'لا تتوفر ترجمة موثقة لهذه الآية بعد.',de:'Für diesen Vers ist noch keine geprüfte Übersetzung verfügbar.',es:'Aún no hay traducción verificada para esta aleya.',fr:'Aucune traduction vérifiée pour ce verset.'}[lang]||'Translation pending.')+'</p></div>';
   const url=String(meal.source?.url||'');
   const link=/^https:\/\//i.test(url)?' · <a href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+(lang==='en'?'Source':'Kaynak')+' ↗</a>':'';
   const note=lang==='en'&&meal.expert_review_status!=='approved'?' · Scholarly review pending':'';

@@ -51,7 +51,7 @@ document.documentElement.dataset.deenQuranPhase2='complete';
 (()=>{
  if(window.DEEN_APP_LOCALE)return;
  const KEY='deen_app_language_v1';
- const SUPPORTED=['tr','en'];
+ const SUPPORTED=['tr','en','ar','de','es','fr'];
  const norm=v=>{const s=String(v||'').toLowerCase().trim().split('-')[0];return SUPPORTED.includes(s)?s:null};
  const appState=()=>{try{return typeof state==='object'&&state?state:null}catch(_){return null}};
  function stored(){try{return norm(window.localStorage?.getItem(KEY))}catch(_){return null}}
@@ -67,8 +67,9 @@ document.documentElement.dataset.deenQuranPhase2='complete';
    if(s.quranJourney&&typeof s.quranJourney==='object')s.quranJourney.quizLocale=lang;
   }
   document.documentElement.lang=lang;
-  document.documentElement.dir='ltr';
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   document.documentElement.dataset.deenAppLocale=lang;
+  try{window.DEEN_TYPOGRAPHY?.setLocale?.(lang)}catch(_){};
  }
  function hydrate(){
   const chosen=get(),s=appState();
@@ -91,16 +92,100 @@ document.documentElement.dataset.deenQuranPhase2='complete';
   if(!body||!title||!['Ayarlar','Settings'].includes(String(title.textContent||'').trim()))return false;
   let section=body.querySelector?.('[data-deen-app-language]');
   if(!section){
-   body.insertAdjacentHTML('afterbegin','<section class="deen-app-language-setting" data-deen-app-language="1"><label for="deenAppLanguage">Uygulama dili / App language <select id="deenAppLanguage" aria-label="Uygulama dili" onchange="DEEN_APP_LOCALE.set(this.value)"><option value="tr">Türkçe</option><option value="en">English</option></select></label><p>Tek bir dil seçimi Kur’an testlerini de yönetir. Diğer ekranların çevirileri kademeli hazırlanıyor; Arapça ayet metni değişmez.</p></section>');
+   body.insertAdjacentHTML('afterbegin','<section class="deen-app-language-setting" data-deen-app-language="1"><label for="deenAppLanguage">Uygulama dili / App language <select id="deenAppLanguage" aria-label="Uygulama dili" onchange="DEEN_APP_LOCALE.set(this.value)"><option value="tr">Türkçe</option><option value="en">English</option><option value="ar">العربية</option><option value="de">Deutsch</option><option value="es">Español</option><option value="fr">Français</option></select></label><p>Tek bir dil seçimi Kur’an testlerini de yönetir. Diğer ekranların çevirileri kademeli hazırlanıyor; Arapça ayet metni değişmez.</p></section>');
    section=body.querySelector?.('[data-deen-app-language]');
   }
   const select=section?.querySelector?.('select');
   if(select)select.value=get();
   return !!section;
  }
- window.DEEN_APP_LOCALE={get,set,hydrate,renderSettings,supported:()=>[...SUPPORTED],version:'9304centralocale1'};
+ window.DEEN_APP_LOCALE={get,set,hydrate,renderSettings,supported:()=>[...SUPPORTED],version:'9309sixlanguageonboarding1'};
  document.addEventListener?.('deen:settings-rendered',renderSettings);
  hydrate();
+})();
+</script>
+
+<!-- v9.12.07: first question is language, without changing original onboarding step indices. -->
+<style id="deen-v91207-language-first-css">
+#v998Onboarding[data-step="language"] .v998-shell{background:radial-gradient(circle at 50% 0,rgba(45,137,127,.22),transparent 37%),linear-gradient(180deg,#0b343e,#07232e 60%,#03151d)}
+#v998Onboarding .deen-language-intro{text-align:center;margin:20px 0 0}
+#v998Onboarding .deen-language-symbol{display:grid;place-items:center;margin:0 auto 16px;width:62px;height:62px;border-radius:20px;border:1px solid #539786;background:#16463f;color:#d0f7df;font:850 23px Georgia,serif}
+#v998Onboarding .deen-language-intro h1{margin:0;color:#fff7e9;font:800 clamp(25px,7vw,34px)/1.13 Georgia,serif}
+#v998Onboarding .deen-language-intro p{max-width:340px;margin:10px auto 0;color:#b2d3ca;font:650 13px/1.6 Inter,system-ui,sans-serif}
+#v998Onboarding .deen-language-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:22px 0 10px;direction:ltr}
+#v998Onboarding .deen-language-choice{min-width:0;min-height:82px;border:1px solid #32636a;border-radius:17px;background:#092d36;color:#f4fdf7;display:grid;place-items:center;align-content:center;gap:5px;cursor:pointer}
+#v998Onboarding .deen-language-choice[aria-pressed="true"]{border-color:#95eacc;background:#165047;box-shadow:0 0 0 2px rgba(123,218,183,.15)}
+#v998Onboarding .deen-language-choice small{color:#9bbfb3;font:800 10px Inter,system-ui,sans-serif;letter-spacing:1px}
+#v998Onboarding .deen-language-choice b{font:850 clamp(13px,3.7vw,17px)/1.25 Inter,system-ui,sans-serif}
+#v998Onboarding .deen-language-note{margin:8px auto;text-align:center;max-width:380px;color:#a1c1b7;font:650 11px/1.6 Inter,system-ui,sans-serif}
+#v998Onboarding[data-step="language"] .v998-bottom{padding-top:10px}
+#v998Onboarding[data-step="language"] .v998-primary:disabled{opacity:.4;cursor:not-allowed}
+#v998Onboarding[data-step="language"][dir="rtl"] .deen-language-intro{direction:rtl}
+@media(max-height:710px){#v998Onboarding .deen-language-intro{margin-top:7px}#v998Onboarding .deen-language-symbol{height:46px;width:46px;margin-bottom:8px}#v998Onboarding .deen-language-options{gap:7px;margin-top:14px}#v998Onboarding .deen-language-choice{min-height:65px}}
+</style>
+<script id="deen-v91207-language-first-js">
+(()=>{
+ if(window.DEEN_LANGUAGE_ONBOARDING)return;
+ const premium=window.DEEN_PREMIUM_ONBOARDING;
+ if(!premium||typeof premium.render!=='function')return;
+ const original=premium.render.bind(premium);
+ const options=[
+  {id:'tr',code:'TR',name:'Türkçe'},{id:'en',code:'EN',name:'English'},
+  {id:'ar',code:'AR',name:'العربية'},{id:'de',code:'DE',name:'Deutsch'},
+  {id:'es',code:'ES',name:'Español'},{id:'fr',code:'FR',name:'Français'}
+ ];
+ const messages={
+ tr:{title:'Hangi dili kullanmak istersin?',sub:'DEEN deneyimini sana en uygun dilde başlatalım.',next:'Devam et',note:'Ders ve meal çevirileri aşamalı tamamlanıyor. Kur’an ayetleri Arapça kalır.'},
+ en:{title:'Which language would you like to use?',sub:'Choose the language for your DEEN journey.',next:'Continue',note:'Lesson and translation support is being expanded. Quran verses remain in Arabic.'},
+ ar:{title:'ما اللغة التي تفضل استخدامها؟',sub:'اختر لغتك لبدء رحلتك مع DEEN.',next:'متابعة',note:'تُضاف ترجمات الدروس والمعاني تدريجيًا. يبقى نص القرآن باللغة العربية.'},
+ de:{title:'Welche Sprache möchtest du verwenden?',sub:'Wähle deine Sprache für DEEN.',next:'Weiter',note:'Lektions- und Versübersetzungen werden schrittweise ergänzt. Der Korantext bleibt arabisch.'},
+ es:{title:'¿Qué idioma quieres utilizar?',sub:'Elige el idioma de tu experiencia DEEN.',next:'Continuar',note:'Las traducciones se añadirán gradualmente. El texto del Corán sigue en árabe.'},
+ fr:{title:'Quelle langue souhaites-tu utiliser ?',sub:'Choisis la langue de ton parcours DEEN.',next:'Continuer',note:'Les traductions seront ajoutées progressivement. Le texte coranique reste en arabe.'}
+ };
+ const stateRef=()=>{try{return typeof state==='object'&&state?state:null}catch(_){return null}};
+ const allowed=id=>options.some(x=>x.id===id);
+ const selected=()=>allowed(stateRef()?.settings?.onboardingLanguageDraft)?stateRef().settings.onboardingLanguageDraft:null;
+ const confirmed=()=>stateRef()?.settings?.onboardingLanguageConfirmed===true;
+ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ function renderLanguage(){
+  if(!stateRef())return false;
+  document.getElementById('v998Onboarding')?.remove();
+  try{document.getElementById('v5Sheet')?.close?.()}catch(_){}
+  const current=window.DEEN_APP_LOCALE?.get?.()||'tr',msg=messages[current]||messages.tr,chosen=selected();
+  const root=document.createElement('div');root.id='v998Onboarding';root.dataset.step='language';root.dataset.totalSteps='7';
+  root.dir=current==='ar'?'rtl':'ltr';
+  root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label',msg.title);
+  root.innerHTML='<div class="v998-shell"><div class="v998-screen"><div class="v998-top"><div class="v998-brand"><span class="v998-brand-mark"></span><span>DEEN</span></div></div>'+
+   '<div class="deen-language-intro"><div class="deen-language-symbol" aria-hidden="true">文</div><h1>'+esc(msg.title)+'</h1><p>'+esc(msg.sub)+'</p></div>'+
+   '<div class="deen-language-options" role="group" aria-label="'+esc(msg.title)+'">'+options.map(x=>
+    '<button type="button" class="deen-language-choice" aria-pressed="'+(x.id===chosen)+'" lang="'+x.id+'" dir="'+(x.id==='ar'?'rtl':'ltr')+'" onclick="DEEN_LANGUAGE_ONBOARDING.choose(\''+x.id+'\')">'+
+    '<small>'+x.code+'</small><b>'+esc(x.name)+'</b></button>').join('')+'</div>'+
+   '<p class="deen-language-note">'+esc(msg.note)+'</p><div class="v998-bottom">'+
+   '<button type="button" class="v998-primary" '+(!chosen?'disabled aria-disabled="true"':'')+' onclick="DEEN_LANGUAGE_ONBOARDING.continue()"><span>'+esc(msg.next)+'</span></button></div></div></div>';
+  document.body.appendChild(root);return true;
+ }
+ function choose(lang){
+  if(!allowed(lang)||!window.DEEN_APP_LOCALE?.set?.(lang))return false;
+  const s=stateRef();if(!s)return false;
+  s.settings=s.settings&&typeof s.settings==='object'?s.settings:{};
+  s.settings.onboardingLanguageDraft=lang;
+  try{saveState()}catch(_){}
+  return renderLanguage();
+ }
+ function complete(){
+  const s=stateRef(),lang=selected();
+  if(!s||!lang||!window.DEEN_APP_LOCALE?.set?.(lang))return false;
+  s.settings.onboardingLanguageConfirmed=true;delete s.settings.onboardingLanguageDraft;
+  try{saveState()}catch(_){}
+  return original(0);
+ }
+ function render(step=0){
+  if(!stateRef()?.onboarded&&Number(step)===0&&!confirmed())return renderLanguage();
+  return original(step);
+ }
+ premium.render=render;window.onboarding=render;
+ try{onboarding=render}catch(_){}
+ window.DEEN_LANGUAGE_ONBOARDING={choose,continue:complete,render:renderLanguage,selected,confirmed,options:()=>options.map(o=>({...o})),version:'9309sixlanguageonboarding1'};
 })();
 </script>
 

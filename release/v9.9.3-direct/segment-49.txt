@@ -231,7 +231,7 @@ const I18N={
 };
 const locale=()=>window.DEEN_APP_LOCALE?.get?.()||'tr';
 function quizChrome(html){
- if(locale()!=='en')return html;
+ if(locale()==='tr')return html;
  const pairs=[
  ['Sure Yolculuğu','Surah Journey'],['Öğren → Ezberle → Test Et → Final → Ustalaş','Learn → Memorize → Test → Final → Master'],
  ['SEVİYE','LEVEL'],['USTALIK','MASTERY'],['Ayet Testi','Ayah Test'],['Anlam Testi','Meaning Test'],['Sure Finali','Surah Final'],
@@ -255,11 +255,12 @@ function quizChrome(html){
  for(const [before,after] of pairs)html=html.split(before).join(after);
  return html;
 }
-const T=k=>I18N[locale()][k];
+const EXTRA_I18N={"ar":{"verse":"الآية","fill":"أكمل الكلمة الناقصة","next":"ما الآية التالية؟","listenNum":"ما رقم الآية التي سمعتها؟","continuation":"اختر التكملة الصحيحة","number":"ما رقم هذه الآية؟","lang":"لغة الأسئلة","warning":"لا تتوفر ترجمة موثقة بهذه اللغة. اختبار الآيات متاح، أما اختبار المعاني والنهائي فمقفلان.","play":"🔊 استمع إلى الآية","hintNum":"اختر رقم الآية المسموعة.","fillHint":"المس كلمة أو اسحبها إلى الفراغ.","filled":"يمكن اختيار كلمة أخرى.","correct":"صحيح!","correctAnswer":"الإجابة الصحيحة: ","check":"تحقق","continue":"السؤال التالي ←","result":"عرض النتائج"},"de":{"verse":"Vers","fill":"Ergänze das fehlende Wort","next":"Welcher Vers kommt als Nächstes?","listenNum":"Welche Versnummer hast du gehört?","continuation":"Wähle die richtige Fortsetzung","number":"Welche Nummer hat dieser Vers?","lang":"Fragensprache","warning":"Noch keine geprüfte Übersetzung. Der Vers-Test ist verfügbar; Bedeutungstest und Finale sind gesperrt.","play":"🔊 VERS ANHÖREN","hintNum":"Wähle die gehörte Versnummer.","fillHint":"Tippe oder ziehe ein Wort in die Lücke.","filled":"Du kannst das Wort ändern.","correct":"Richtig!","correctAnswer":"Richtige Antwort: ","check":"PRÜFEN","continue":"NÄCHSTE FRAGE →","result":"ERGEBNISSE"},"es":{"verse":"Aleya","fill":"Completa la palabra que falta","next":"¿Qué aleya sigue?","listenNum":"¿Qué número de aleya escuchaste?","continuation":"Elige la continuación correcta","number":"¿Qué número tiene esta aleya?","lang":"Idioma de preguntas","warning":"Aún no hay traducción verificada. El test de aleyas está disponible; los de significado y final están bloqueados.","play":"🔊 ESCUCHAR ALEYA","hintNum":"Elige el número de aleya escuchado.","fillHint":"Toca o arrastra una palabra al espacio.","filled":"Puedes cambiar la palabra.","correct":"¡Correcto!","correctAnswer":"Respuesta correcta: ","check":"COMPROBAR","continue":"SIGUIENTE →","result":"RESULTADOS"},"fr":{"verse":"Verset","fill":"Complète le mot manquant","next":"Quel verset vient ensuite ?","listenNum":"Quel numéro de verset as-tu entendu ?","continuation":"Choisis la suite correcte","number":"Quel est le numéro de ce verset ?","lang":"Langue des questions","warning":"Traduction vérifiée indisponible. Le test des versets est accessible ; les tests de sens et final sont verrouillés.","play":"🔊 ÉCOUTER LE VERSET","hintNum":"Choisis le numéro du verset entendu.","fillHint":"Touche ou glisse un mot dans le blanc.","filled":"Tu peux choisir un autre mot.","correct":"Correct !","correctAnswer":"Bonne réponse : ","check":"VÉRIFIER","continue":"QUESTION SUIVANTE →","result":"RÉSULTATS"}};
+const T=k=>(I18N[locale()]||EXTRA_I18N[locale()]||I18N.en)[k]||I18N.en[k];
 const verse=n=>T('verse')+' '+n;
 function verifiedMeal(id,n){
  const r=rec(id,n);
- const m=locale()==='en'?r?.translations?.en:r?.translation;
+ const m=locale()==='en'?r?.translations?.en:locale()==='tr'?r?.translation:null;
  return m&&String(m.language||'').split('-')[0]===locale()&&m.verification_status==='production_ready'&&m.source?.provider&&m.text?m.text:null;
 }
 function mealReady(id){return Array.from({length:COUNTS[id]},(_,i)=>verifiedMeal(id,i+1)).every(Boolean)}
@@ -271,7 +272,7 @@ function setQuizLanguage(l){
 function restoreLocale(){return window.DEEN_APP_LOCALE?.hydrate?.()||'tr'}
 function languageUI(id){
  const ready=mealReady(id);
- return '<div class="deen-qj2-language"><label for="deen-qj2-lang">'+esc(T('lang'))+'</label><select id="deen-qj2-lang" onchange="DEEN_QURAN_JOURNEY_V2.setQuizLanguage(this.value)"><option value="tr"'+(locale()==='tr'?' selected':'')+'>Türkçe</option><option value="en"'+(locale()==='en'?' selected':'')+'>English</option></select></div>'+
+ return '<div class="deen-qj2-language"><label for="deen-qj2-lang">'+esc(T('lang'))+'</label><select id="deen-qj2-lang" onchange="DEEN_QURAN_JOURNEY_V2.setQuizLanguage(this.value)"><option value="tr"'+(locale()==='tr'?' selected':'')+'>Türkçe</option><option value="en"'+(locale()==='en'?' selected':'')+'>English</option><option value="ar"'+(locale()==='ar'?' selected':'')+'>العربية</option><option value="de"'+(locale()==='de'?' selected':'')+'>Deutsch</option><option value="es"'+(locale()==='es'?' selected':'')+'>Español</option><option value="fr"'+(locale()==='fr'?' selected':'')+'>Français</option></select></div>'+
  (!ready?'<div class="deen-qj2-locale-warning" role="status">'+esc(T('warning'))+'</div>':locale()==='en'?'<div class="deen-qj2-translation-source"><b>English meaning:</b> Marmaduke Pickthall (1930) · Public domain. Historical English; religious expert review pending. <a href="https://www.gutenberg.org/ebooks/16955" target="_blank" rel="noopener noreferrer">Source ↗</a></div>':'');
 }
 
