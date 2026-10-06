@@ -71,7 +71,27 @@ function showSectionFinalResult(){const total=session.questions.length,pct=Math.
 function poolFor(id){return QUESTIONS.filter(q=>q.stage_id===id)}
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
 function chooseQuestions(id){const pool=poolFor(id),target=id.endsWith('S07')?10:7,groups={};pool.forEach(q=>(groups[q.activity_type]??=[]).push(q));let res=[];for(const k of Object.keys(groups)){const g=shuffle(groups[k]);if(g[0])res.push(g[0])}res=shuffle(res).slice(0,target);const used=new Set(res.map(q=>q.id));for(const q of shuffle(pool)){if(res.length>=target)break;if(!used.has(q.id)){res.push(q);used.add(q.id)}}return shuffle(res)}
-function startStage(id){if(window.DEEN_APP_LOCALE?.get?.()==='ar')return window.DEEN_ARABIC_UI?.pending?.();const st=STAGES.find(x=>x.id===id);if(!st)return;if(!state.premium&&state.energy<st.energy){showEnergy();return}if(!state.premium)state.energy-=st.energy;const qs=chooseQuestions(id);if(!Array.isArray(qs)||!qs.length){console.error('Stage question pool empty',id);return}session={stage:st,questions:qs,index:0,correct:0,combo:0,bestCombo:0};const lesson=document.getElementById('lesson');if(!lesson)return;lesson.classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);setLessonStatus(false);try{saveState()}catch(e){};try{updateUI()}catch(e){console.error('updateUI during stage start',e)};renderQuestion()}
+function startStage(id){
+ const arabic=window.DEEN_APP_LOCALE?.get?.()==='ar';
+ const pilot=window.DEEN_ARABIC_PILOT;
+ if(arabic&&!pilot?.canStart?.(id))return pilot?.notice?.(id)||window.DEEN_ARABIC_UI?.pending?.();
+ const st=STAGES.find(x=>x.id===id);if(!st)return;
+ const qs=arabic?pilot.questionsFor(QUESTIONS,7,shuffle):chooseQuestions(id);
+ if(!Array.isArray(qs)||!qs.length){
+  if(arabic)return pilot?.notice?.(id);
+  console.error('Stage question pool empty',id);return;
+ }
+ if(!state.premium&&state.energy<st.energy){showEnergy();return}
+ if(!state.premium)state.energy-=st.energy;
+ session={stage:st,questions:qs,index:0,correct:0,combo:0,bestCombo:0,deenArabicPilot:arabic};
+ const lesson=document.getElementById('lesson');if(!lesson)return;
+ lesson.classList.add('active');document.getElementById('quizView').style.display='flex';
+ resetResultView(false);setLessonStatus(false);
+ try{saveState()}catch(e){};
+ try{updateUI()}catch(e){console.error('updateUI during stage start',e)};
+ renderQuestion();
+ if(arabic)pilot.decorate?.();
+}
 function startSmartReview(){if(window.DEEN_APP_LOCALE?.get?.()==='ar')return window.DEEN_ARABIC_UI?.pending?.();const missed=QUESTIONS.filter(q=>state.mistakes.includes(q.id));if(!missed.length){startStage('U01-S06');return}if(!state.premium&&state.energy<3){showEnergy();return}if(!state.premium)state.energy-=3;session={stage:{id:'SMART',title:'Akıllı Tekrar',xp:45,energy:3},questions:shuffle(missed).slice(0,7),index:0,correct:0,combo:0,bestCombo:0};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);setLessonStatus(false);renderQuestion();try{saveState();updateUI()}catch(e){console.error('Smart review state update',e)}}
 function normalize(s){return (s||'').toLocaleLowerCase('tr-TR').trim().replace(/[.,;:!?\'"“”‘’()]/g,'').replace(/\s+/g,' ')}
 
