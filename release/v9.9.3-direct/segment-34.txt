@@ -4453,6 +4453,7 @@ window.DEEN_REWARD_BADGE_ART={
         '<p class="deen-quran-note">Kur’an metni ve meal kaynakları kayıt altında tutulur; uzman onayı production release gate üzerinden ayrıca izlenir.</p>'+
       '</div>';
     document.documentElement.dataset.deenQuranDashboard='v10918';
+    try{window.DEEN_ARABIC_UI?.localize?.(root)}catch(_){}
     return true;
   }
 
@@ -4757,6 +4758,7 @@ window.DEEN_REWARD_BADGE_ART={
       '<div class="deen-quran-library-note">Arapça metin, meal ve ses kaynakları ayrı izlenir; uzman release onayı admin doğrulama hattında yönetilir.</div>'
     );
     document.documentElement.dataset.deenQuranLibrary='v10919';
+    try{window.DEEN_ARABIC_UI?.localize?.(document.getElementById('v5Sheet'))}catch(_){}
     return true;
   }
 
