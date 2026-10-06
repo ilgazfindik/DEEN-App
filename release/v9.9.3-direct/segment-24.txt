@@ -1215,6 +1215,7 @@
   root.innerHTML='<div class="v998-shell"><div class="v998-screen"><div class="v998-top">'+
     (back?'<button class="v998-back" type="button" onclick="onboarding('+(step-1)+')" aria-label="Geri">‹</button>':'')+
     brand()+'</div>'+content+(dotsOn?dots(step):'')+'<div class="v998-bottom">'+bottom+'</div></div></div>';
+  if(window.DEEN_ARABIC_UI?.active?.())root.innerHTML=window.DEEN_ARABIC_UI.markup(root.innerHTML);
   document.body.appendChild(root);
   return root;
  }

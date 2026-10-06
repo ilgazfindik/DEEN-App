@@ -248,3 +248,85 @@ document.documentElement.dataset.deenQuranPhase2='complete';
  };
 })();
 </script>
+
+<!-- v9.12.10 Arabic interface localization. Religious question source remains unchanged. -->
+<style id="deen-v91210-arabic-css">
+html:lang(ar),html:lang(ar) body,html:lang(ar) .phone,html:lang(ar) .screen,html:lang(ar) #v5Sheet,html:lang(ar) #v998Onboarding{direction:rtl}
+html:lang(ar) #v998Onboarding .v998-copy,html:lang(ar) .deen-qj2,html:lang(ar) .v5-settings{text-align:right}
+html:lang(ar) button,html:lang(ar) input,html:lang(ar) select{font-family:"Noto Sans Arabic",Tahoma,Arial,sans-serif!important}
+html:lang(ar) .v998-copy h1{line-height:1.6;letter-spacing:0}
+html:lang(ar) .deen-ayah-translation{direction:rtl!important;text-align:right!important}
+html:lang(ar) .deen-ikhlas-arabic,html:lang(ar) .deen-mem-arabic{direction:rtl;text-align:center;unicode-bidi:isolate}
+html:lang(ar) .deen-qj2-progress{direction:ltr}
+</style>
+<script id="deen-v91210-arabic-js">
+(()=>{
+ if(window.DEEN_ARABIC_UI)return;
+ const dict={"Ayarlar":"الإعدادات","Uygulama dili / App language":"لغة التطبيق","DEEN’e hoş geldin":"مرحبًا بك في DEEN","İslam’ı adım adım, sakin ve düzenli şekilde öğren.":"تعلّم الإسلام خطوة بخطوة بهدوء وانتظام.","Hesabını koru, ilerlemeni kaybetme":"احفظ حسابك وتقدّمك","Google ile devam et":"المتابعة باستخدام Google","Apple ile devam et":"المتابعة باستخدام Apple","E-posta ile devam et":"المتابعة بالبريد الإلكتروني","veya":"أو","Başlayalım":"لنبدأ","Daha sonra":"لاحقًا","Sana nasıl hitap edelim?":"بماذا تحب أن نناديك؟","İstersen gerçek adını, istersen kısa bir kullanıcı adı yazabilirsin.":"يمكنك كتابة اسمك الحقيقي أو اختيار اسم مستخدم قصير.","Adın veya kullanıcı adın":"اسمك أو اسم المستخدم","Bu isim profilinde görünecek.":"سيظهر هذا الاسم في ملفك الشخصي.","Sana en uygun ":"الأنسب لك ","anlatımı":"أسلوب الشرح"," seçelim":" لنختر","Yaşını yazmana gerek yok; sana en rahat gelen öğrenme stilini seç.":"لست بحاجة إلى ذكر عمرك؛ اختر أسلوب التعلّم الأنسب لك.","Çocuk":"طفل","Genç":"يافع","Yetişkin":"بالغ","Kısa, sade ve görsel ağırlıklı anlatım":"شرح مبسّط ومختصر مع وسائل بصرية","Açık, akıcı ve günlük hayata yakın örnekler":"أمثلة واضحة من الحياة اليومية","Daha derin, dengeli ve düzenli açıklamalar":"شروح أعمق ومتوازنة ومنظّمة","Yol arkadaşını seç":"اختر رفيق رحلتك","Seçtiğin hayvan profilinde, serilerinde ve ders sonunda sana eşlik edecek.":"سيرافقك الحيوان الذي تختاره في ملفك وإنجازاتك ودروسك.","Aslan":"أسد","Kurt":"ذئب","Baykuş":"بومة","Kaplumbağa":"سلحفاة","Kartal":"نسر","Kedi":"قط","Cesaret":"شجاعة","Kararlılık":"عزيمة","Öğrenme / Bilgelik":"التعلّم والحكمة","Sabır":"صبر","Odak":"تركيز","Sakinlik":"هدوء","Önce bir hayvan seç":"اختر حيوانًا أولًا","Günde ne kadar zaman ayırabilirsin?":"كم وقتًا يمكنك تخصيصه يوميًا؟","Kısa ama düzenli ilerlemek daha iyi sonuç verir.":"التعلّم المنتظم، ولو قليلًا، يحقق نتائج أفضل.","5 dakika":"٥ دقائق","10 dakika":"١٠ دقائق","15 dakika":"١٥ دقيقة","Hızlı ve hafif tempo · 1 mini ders":"وتيرة خفيفة وسريعة · درس قصير واحد","Dengeli günlük ritim · 2 mini ders":"وتيرة يومية متوازنة · درسان قصيران","Daha yoğun öğrenme · 3 mini ders":"تعلّم مكثّف · ثلاثة دروس قصيرة","ⓘ Günlük mini ders hedefin seçtiğin süreye göre otomatik ayarlanır. Bunu daha sonra değiştirebilirsin.":"ⓘ يتحدد هدفك اليومي حسب الوقت المختار، ويمكن تغييره لاحقًا.","✓ KURULUM TAMAMLANDI":"✓ اكتمل الإعداد","Hazırsın":"أنت مستعد","Artık öğrenmeye başlayabilirsin.":"يمكنك البدء بالتعلّم الآن.","İsim":"الاسم","Anlatım":"أسلوب الشرح","Yol arkadaşı":"رفيق الرحلة","Günlük süre":"الوقت اليومي","Günlük hedef":"الهدف اليومي","mini ders":"درس قصير","Başla":"ابدأ","Düzenle":"تعديل","Devam et":"متابعة","Geri":"رجوع","Öğren":"تعلّم","Tekrarla":"مراجعة","Kur’an":"القرآن","Profil":"الملف الشخصي","Mağaza":"المتجر","Rozetler":"الأوسمة","Pırıltı mağazası":"متجر النقاط اللامعة","Arayüz sesleri":"أصوات الواجهة","Animasyon":"الرسوم المتحركة","Dokunsal geri bildirim":"الاهتزاز عند اللمس","Hareketi azalt":"تقليل الحركة","Kapat":"إغلاق","Ünite":"الوحدة","Aşama":"المرحلة","Ders":"درس","BAŞLA":"ابدأ","ÖĞREN":"تعلّم","Başlanmadı":"لم يبدأ","Öğreniliyor":"جارٍ التعلّم","Tamamlandı":"مكتمل","Kilitli":"مقفل","Seviye":"المستوى","Ustalık":"الإتقان","Ayet":"آية","Kontrol Et":"تحقّق","Doğru":"صحيح","Yanlış":"خطأ","Bir kart seç":"اختر بطاقة","Doğru cevap":"الإجابة الصحيحة","Cevabını yaz…":"اكتب إجابتك…","TEMEL BİLGİLER":"المعارف الأساسية","HIZLI KONTROL":"اختبار سريع","BOŞLUĞU TAMAMLA":"أكمل الفراغ","KAVRAMLARI EŞLEŞTİR":"طابق المفاهيم","İslam Nedir?":"ما الإسلام؟","Allah’a İman":"الإيمان بالله","Kelime-i Şehadet":"الشهادتان","İslam’ın Beş Şartı":"أركان الإسلام الخمسة","İmanın Esaslarına Giriş":"مقدمة في أركان الإيمان","Meleklere İman":"الإيمان بالملائكة","Kitaplara İman":"الإيمان بالكتب","Peygamberlere İman":"الإيمان بالرسل","Ahiret Gününe İman":"الإيمان باليوم الآخر","Kader ve Kazaya İman":"الإيمان بالقضاء والقدر","İbadet Bilinci":"فهم العبادة","Temizlik ve Abdest":"الطهارة والوضوء","Namaza Hazırlık":"الاستعداد للصلاة","Namazın Yapısı":"أركان الصلاة","Oruç ve Ramazan":"الصيام ورمضان","Sure Yolculuğu":"رحلة السورة","Sure Finali":"الاختبار النهائي للسورة","Ayet Testi":"اختبار الآيات","Anlam Testi":"اختبار المعاني","Dinle":"استمع","Oku":"اقرأ","Anlam":"المعنى","Hatırla":"تذكّر","Tamamla":"أكمل","Ezberle":"احفظ","Tekrar":"مراجعة","Fâtiha":"الفاتحة","İhlâs":"الإخلاص","Felak":"الفلق","Nâs":"الناس","Kâfirûn":"الكافرون","Nasr":"النصر","Tebbet":"المسد","Fîl":"الفيل","Kureyş":"قريش","Mâûn":"الماعون","İnşirah":"الشرح","Tîn":"التين","Beyyine":"البينة","Zilzâl":"الزلزلة","Kevser":"الكوثر","Asr":"العصر"},originals=new WeakMap(),attrs=new WeakMap();
+ const active=()=>window.DEEN_APP_LOCALE?.get?.()==='ar';
+ function translate(value){
+  const text=String(value??''),trim=text.trim();if(!trim)return text;
+  let out=dict[trim];
+  if(!out){
+   const a=trim.match(/^(\d+)\. Aşama · (\d+) dk$/),b=trim.match(/^Ünite (\d+) · Aşama (\d+)$/);
+   if(a)out='المرحلة '+a[1]+' · '+a[2]+' دقائق';
+   else if(b)out='الوحدة '+b[1]+' · المرحلة '+b[2];
+  }
+  return out?text.replace(trim,out):text;
+ }
+ function markup(html){
+  if(!active())return String(html);
+  return String(html).replace(/>([^<]*)</g,(all,v)=>'>'+translate(v)+'<').replace(/(placeholder|aria-label|title)="([^"]*)"/g,(all,k,v)=>k+'="'+translate(v)+'"');
+ }
+ function excluded(el){return !el||['STYLE','SCRIPT','NOSCRIPT','CODE','SVG','TEXTAREA'].includes(el.nodeName)||el.isContentEditable||el.closest?.('[lang="ar"],.deen-ikhlas-arabic,.deen-mem-arabic')}
+ function localize(root){
+  if(!root)return 0;const stack=[root];let count=0;
+  while(stack.length){
+   const n=stack.pop();if(!n)continue;
+   if(n.nodeType===3){
+    if(excluded(n.parentElement))continue;
+    const value=n.nodeValue||'';let x=originals.get(n);
+    if(!x||value!==x.tr&&value!==x.ar){x={tr:value,ar:translate(value)};originals.set(n,x)}
+    if(active()&&value===x.tr)n.nodeValue=x.ar;
+    else if(!active()&&value===x.ar)n.nodeValue=x.tr;
+    count++;continue;
+   }
+   if(n.nodeType!==1&&n.nodeType!==9)continue;
+   if(n.nodeType===1&&excluded(n))continue;
+   if(n.hasAttribute){
+    let entries=attrs.get(n);if(!entries){entries={};attrs.set(n,entries)}
+    for(const key of ['placeholder','aria-label','title']){
+     if(!n.hasAttribute(key))continue;const value=n.getAttribute(key);
+     let item=entries[key];
+     if(!item||value!==item.tr&&value!==item.ar){item={tr:value,ar:translate(value)};entries[key]=item}
+     if(active()&&value===item.tr)n.setAttribute(key,item.ar);
+     else if(!active()&&value===item.ar)n.setAttribute(key,item.tr);
+    }
+   }
+   for(let i=(n.childNodes||[]).length-1;i>=0;i--)stack.push(n.childNodes[i]);
+  }
+  return count;
+ }
+ let scheduled=false;
+ function schedule(){
+  if(scheduled)return;scheduled=true;
+  const run=()=>{scheduled=false;localize(document.body)};
+  if(typeof requestAnimationFrame==='function')requestAnimationFrame(run);else setTimeout(run,0);
+ }
+ function pending(){
+  if(!active())return false;
+  const title='ترجمة الدروس العربية قيد الإعداد';
+  const html='<div dir="rtl" lang="ar" style="padding:14px;line-height:1.9;color:#e6fff5"><h3>الترجمة العربية لهذا الدرس لم تكتمل بعد</h3><p>الأسئلة والإجابات لهذا المسار متوفرة بالتركية فقط. لن نعرض ترجمة غير مدققة قد تغير الإجابات.</p><p>يمكنك متابعة تعلّم السور والاستماع إلى الآيات العربية من قسم القرآن.</p></div>';
+  try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
+  window.alert?.(title);return true;
+ }
+ window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9312arabicinterface1'};
+ for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
+ if(typeof MutationObserver!=='undefined'){
+  const observer=new MutationObserver(schedule);
+  const watch=()=>observer.observe(document.body,{subtree:true,childList:true,characterData:true});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch,{once:true});else if(document.body)watch();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});else schedule();
+})();
+</script>
