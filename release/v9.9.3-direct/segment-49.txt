@@ -180,7 +180,7 @@ const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quray
 const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
 const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,tin:8,bayyina:8,zilzal:8,kawthar:3,asr:3};
 const PASS={ayah:80,meaning:80,final:75};
-const GAME_BUILD='9302quranqa1';
+const GAME_BUILD='9303mealquarantine1';
 const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
 const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);
 
@@ -347,7 +347,8 @@ function qListen(id,n,seed){
  }
  if(!target)return qNext(id,n,seed);
  const answer=withMeal?verifiedMeal(id,target):verse(target);
- const pool=Array.from({length:COUNTS[id]},(_,i)=>withMeal?verifiedMeal(id,i+1):verse(i+1)).filter(x=>x&&x!==answer);
+ const pool=Array.from({length:COUNTS[id]},(_,i)=>i+1).filter(i=>!withMeal||sameTextAyahs(id,i,'meal').length===1)
+  .map(i=>withMeal?verifiedMeal(id,i):verse(i)).filter(x=>x&&x!==answer);
  return{kind:'listen',ayah:target,title:T(withMeal?'listen':'listenNum'),display:'',type:'audio',answer,options:optionSet(answer,pool,seed),optionsArabic:false};
 }
 function qContinuation(id,n,seed){
@@ -357,13 +358,16 @@ function qContinuation(id,n,seed){
  return{kind:'continuation',ayah:n,title:T('continuation'),display,type:'arabic',answer,options:optionSet(answer,pool,seed)};
 }
 function qMealToAyah(id,n,seed){
- if(sameTextAyahs(id,n,'meal').length>1)return sameTextAyahs(id,n,'arabic').length>1?qFill(id,n,seed):qAyahToMeal(id,n,seed);
+ if(sameTextAyahs(id,n,'meal').length>1)return sameTextAyahs(id,n,'arabic').length>1?qFill(id,n,seed):qNumber(id,n,seed);
  const answer=verse(n),pool=Array.from({length:COUNTS[id]},(_,i)=>verse(i+1)).filter(x=>x!==answer);
  return{kind:'mealToAyah',ayah:n,title:T('toNumber'),display:verifiedMeal(id,n),type:'meal',answer,options:optionSet(answer,pool,seed)};
 }
 function qAyahToMeal(id,n,seed){
+ // A repeated translation is quarantined from meaning assessment until reviewed.
+ if(sameTextAyahs(id,n,'meal').length>1)return sameTextAyahs(id,n,'arabic').length>1?qFill(id,n,seed):qNumber(id,n,seed);
  if(sameTextAyahs(id,n,'arabic').length>1)return sameTextAyahs(id,n,'meal').length>1?qFill(id,n,seed):qMealToAyah(id,n,seed);
- const answer=verifiedMeal(id,n),pool=Array.from({length:COUNTS[id]},(_,i)=>verifiedMeal(id,i+1)).filter(x=>x&&x!==answer);
+ const answer=verifiedMeal(id,n),pool=Array.from({length:COUNTS[id]},(_,i)=>i+1)
+  .filter(i=>sameTextAyahs(id,i,'meal').length===1).map(i=>verifiedMeal(id,i)).filter(x=>x&&x!==answer);
  return{kind:'ayahToMeal',ayah:n,title:T('toMeaning'),display:rec(id,n)?.arabic?.text,type:'arabic',answer,options:optionSet(answer,pool,seed)};
 }
 function qNumber(id,n,seed){
