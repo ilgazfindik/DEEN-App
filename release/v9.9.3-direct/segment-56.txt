@@ -90,6 +90,15 @@ function ensureStructure(shell){
    {key:'juz',icon:'30',title:'Cüz Amma Haritası',sub:'Hazır ve sıradaki sureleri gör'}
   ]));
   const play=section('play','Oyna','Bilgiyi aktif hatırlamayla sınayıp güçlendir.','7+ soru modu','deen-qia-play');
+
+  // One clear entry to the five-question Ayet Testi. Existing Soru Arenası stays intact.
+  const ayetTestBtn=document.createElement('button');
+  ayetTestBtn.type='button';
+  ayetTestBtn.className='deen-atest-entry';
+  ayetTestBtn.setAttribute('aria-label','Ayet Testi · Fâtiha ve İhlâs · 5 soru');
+  ayetTestBtn.innerHTML='<span><b>Ayet Testi</b><small>Fâtiha ve İhlâs · 5 soruluk mini test</small></span><i class="deen-atest-arrow" aria-hidden="true">→</i>';
+  ayetTestBtn.onclick=()=>window.DEEN_QURAN_AYET_TEST?.open?.();
+  play.querySelector('[data-qia-body]').appendChild(ayetTestBtn);
   const mem=section('memorize','Ezber','Hatırlamayı ve ayet sırasını ayrı egzersizlerle çalış.','Ezber araçları','deen-qia-memorize');
   mem.querySelector('[data-qia-body]').appendChild(actionGrid([
    {key:'memorize',icon:'◌',title:'Ezbere Başla',sub:'Mevcut surede hatırlama turu',primary:true},
