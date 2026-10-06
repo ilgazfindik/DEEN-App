@@ -5236,6 +5236,41 @@ window.DEEN_REWARD_BADGE_ART={
 .deen-ikhlas-complete strong{display:block;color:#ecfaf6;font-size:19px}
 .deen-ikhlas-complete span{display:block;margin-top:6px;color:#81a19e;font-size:9px;line-height:1.45}
 </style>
+
+<!-- DEEN v9.12.06: locale-matched meaning immediately after the original Arabic ayah. -->
+<style id="deen-v91206-verse-translation-css">
+.deen-ayah-translation{margin-top:10px;padding:13px 14px;border:1px solid rgba(141,205,173,.25);border-left:3px solid #83dcbd;border-radius:12px;background:linear-gradient(125deg,#17403e,#0c3036);direction:ltr;text-align:left;color:#eafaf3}
+.deen-ayah-translation strong{display:block;margin-bottom:6px;color:#a4efd3;font:850 10px/1.4 Inter,system-ui,sans-serif}
+.deen-ayah-translation p{margin:0;color:#f1faf6;font:650 13px/1.65 Inter,system-ui,sans-serif;overflow-wrap:anywhere}
+.deen-ayah-translation small{display:block;margin-top:8px;color:#b3cebf;font:650 10px/1.45 Inter,system-ui,sans-serif}
+.deen-ayah-translation a{color:#b9efdb;text-decoration:underline}
+.deen-ayah-translation-pending{border-left-color:#bf9b60}
+@media(max-width:350px){.deen-ayah-translation{padding:11px}.deen-ayah-translation p{font-size:12px}}
+</style>
+<script id="deen-v91206-verse-translation-js">
+(()=>{
+ if(window.DEEN_QURAN_LEARNING_TRANSLATION)return;
+ const escapeHtml=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const locale=()=>window.DEEN_APP_LOCALE?.get?.()==='en'?'en':'tr';
+ function get(rec){const lang=locale(),m=lang==='en'?rec?.translations?.en:rec?.translation;
+  return m&&String(m.language||'').split('-')[0]===lang&&m.verification_status==='production_ready'&&m.source?.provider&&typeof m.text==='string'&&m.text.trim()?m:null;
+ }
+ const sourceName=(m,lang)=>lang==='en'?'Marmaduke Pickthall · 1930':String(m.source?.edition||m.source?.provider||'');
+ function html(rec){
+  const lang=locale(),meal=get(rec),label=lang==='en'?'ENGLISH MEANING':'TÜRKÇE MEAL';
+  if(!meal)return'<div class="deen-ayah-translation deen-ayah-translation-pending" data-verse-translation="missing" lang="'+lang+'" role="status"><strong>'+label+'</strong><p>'+(lang==='en'?'No source-verified English translation for this ayah.':'Bu ayetin doğrulanmış Türkçe meali henüz hazır değil.')+'</p></div>';
+  const url=String(meal.source?.url||'');
+  const link=/^https:\/\//i.test(url)?' · <a href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+(lang==='en'?'Source':'Kaynak')+' ↗</a>':'';
+  const note=lang==='en'&&meal.expert_review_status!=='approved'?' · Scholarly review pending':'';
+  return'<div class="deen-ayah-translation" data-verse-translation="'+lang+'" lang="'+lang+'" dir="ltr"><strong>'+label+'</strong><p>'+escapeHtml(meal.text)+'</p><small>'+escapeHtml(sourceName(meal,lang)+note)+link+'</small></div>';
+ }
+ function sourceLine(rec){
+  const lang=locale(),m=get(rec);return(lang==='en'?'Arabic: ':'Arapça: ')+String(rec?.arabic?.source?.provider||'—')+
+   (lang==='en'?' · Translation: ':' · Meal: ')+(m?sourceName(m,lang):(lang==='en'?'English meaning unavailable':'Türkçe meal bekleniyor'));
+ }
+ window.DEEN_QURAN_LEARNING_TRANSLATION={get,html,sourceLine,locale,version:'9308linebylinemeaning1'};
+})();
+</script>
 <script id="deen-v10921-ikhlas-learning-js">
 (()=>{
   if(window.__deenV10921IkhlasLearning)return;
@@ -5329,10 +5364,8 @@ window.DEEN_REWARD_BADGE_ART={
     if(!session||session.ayah<1||session.ayah>4)session={ayah:current,step:0,revealed:false};
     return q;
   }
-  function sourceLine(record){
-    return 'Arapça: '+(record?.arabic?.source?.provider||'—')+' · '+(record?.arabic?.source?.reference||'')+
-      ' · Meal: Muhammed Hamdi Yazır (1938), Vikikaynak';
-  }
+  function sourceLine(r){return window.DEEN_QURAN_LEARNING_TRANSLATION?.sourceLine?.(r)||''}
+  const translated=r=>window.DEEN_QURAN_LEARNING_TRANSLATION?.html?.(r)||'';
   function stepDots(){
     return STEPS.map((_,i)=>'<i class="deen-ikhlas-stepdot'+(i<=session.step?' on':'')+'"></i>').join('');
   }
@@ -5359,7 +5392,7 @@ window.DEEN_REWARD_BADGE_ART={
           '<h2>Ayet '+session.ayah+' / 4</h2>'+
           '<p>Önce ayetin sesini dinlemek ideal akıştır. Kıraat kaydı 8/14 ses sistemi aşamasında bağlanacak.</p>'+
           '<div class="deen-ikhlas-listen"><i>▶</i><span><b>Kıraat henüz bağlı değil</b><small>Yanlış veya kaynaksız ses oynatmak yerine bu adımı güvenli biçimde pasif tutuyoruz.</small></span></div>'+
-          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+
+          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+translated(record)+
           '<div class="deen-ikhlas-source">'+esc(sourceLine(record))+'</div>'+
         '</div>';
     }else if(stage==='read'){
@@ -5368,7 +5401,7 @@ window.DEEN_REWARD_BADGE_ART={
           '<div class="deen-ikhlas-kicker">2 · OKU</div>'+
           '<h2>Metni gözünle takip et</h2>'+
           '<p>Ayetin tamamını yavaşça oku. Bu turda telaffuza otomatik doğru/yanlış hükmü vermiyoruz.</p>'+
-          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+
+          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+translated(record)+
           '<div class="deen-ikhlas-source">'+esc(sourceLine(record))+'</div>'+
         '</div>';
     }else if(stage==='meaning'){
@@ -5377,8 +5410,8 @@ window.DEEN_REWARD_BADGE_ART={
           '<div class="deen-ikhlas-kicker">3 · ANLAM</div>'+
           '<h2>Ayetin mealini bağla</h2>'+
           '<p>Bu aşamada yalnız kaynaklı meal gösterilir; yorum veya tefsir eklemiyoruz.</p>'+
-          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+
-          '<div class="deen-ikhlas-meaning"><b>TÜRKÇE MEAL</b><p>'+esc(record.translation.text)+'</p></div>'+
+          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+translated(record)+
+          
           '<div class="deen-ikhlas-source">'+esc(sourceLine(record))+'</div>'+
         '</div>';
     }else if(stage==='recall'){
@@ -5390,7 +5423,7 @@ window.DEEN_REWARD_BADGE_ART={
           '<div class="deen-ikhlas-recall">'+
             '<div class="prompt">İhlâs '+session.ayah+'. ayeti hatırla</div>'+
             (session.revealed
-              ?'<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'
+              ?'<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+translated(record)
               :'<div class="hidden">••• ••• •••</div>')+
           '</div>'+
           (!session.revealed?'<button class="deen-ikhlas-btn secondary" type="button" onclick="DEEN_QURAN_IKHLAS.reveal()">AYETİ GÖSTER</button>':'')+
@@ -5401,8 +5434,8 @@ window.DEEN_REWARD_BADGE_ART={
           '<div class="deen-ikhlas-kicker">5 · TAMAMLA</div>'+
           '<h2>Ayet turunu bitir</h2>'+
           '<p>Bu ayeti ilk öğrenme turunda tamamladığını işaretle. Ezber seviyesi daha sonra tekrarlarla güçlenecek.</p>'+
-          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+
-          '<div class="deen-ikhlas-meaning"><b>TÜRKÇE MEAL</b><p>'+esc(record.translation.text)+'</p></div>'+
+          '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+translated(record)+
+          
         '</div>';
     }
     return body;
@@ -5764,7 +5797,7 @@ window.DEEN_REWARD_BADGE_ART={
     const visible=session.revealed?record.arabic.text:null;
     let main='';
     if(session.revealed){
-      main='<div class="deen-mem-arabic" lang="ar">'+esc(visible)+'</div>';
+      main='<div class="deen-mem-arabic" lang="ar">'+esc(visible)+'</div>'+(window.DEEN_QURAN_LEARNING_TRANSLATION?.html?.(record)||'');
     }else if(level===5){
       main='<div class="deen-mem-empty"><strong>Metin gizli</strong><span>Ayetin tamamını ezberden söyle. Kontrol etmek istersen “Metni göster”e dokun.</span></div>';
     }else{
