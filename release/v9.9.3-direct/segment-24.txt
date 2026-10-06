@@ -7231,7 +7231,7 @@
 }
 </style>
 
-<!-- deen-v9959-lion-cat-streak-fix -->
+<!-- deen-v9960-lion-cat-streak-repair -->
 <style id="deen-v9950-companion-streak-css">
 #deenStreakOverlay{
   position:fixed!important;
@@ -7362,16 +7362,16 @@
   background-repeat:no-repeat!important;
 }
 #deenStreakOverlay .deen9950-mascot[data-direct-asset="lion3"]{
-  background-image:url("assets/companions/lion/lion_combo_3.webp?v=9291lioncatfix1")!important;
+  background-image:url("assets/companions/lion/lion_combo_3.webp?v=9292lioncatrepaired1")!important;
 }
 #deenStreakOverlay .deen9950-mascot[data-direct-asset="lion5"]{
-  background-image:url("assets/companions/lion/lion_combo_5.webp?v=9291lioncatfix1")!important;
+  background-image:url("assets/companions/lion/lion_combo_5.webp?v=9292lioncatrepaired1")!important;
 }
 #deenStreakOverlay .deen9950-mascot[data-direct-asset="cat3"]{
-  background-image:url("assets/companions/cat/cat_combo_3.webp?v=9291lioncatfix1")!important;
+  background-image:url("assets/companions/cat/cat_combo_3.webp?v=9292lioncatrepaired1")!important;
 }
 #deenStreakOverlay .deen9950-mascot[data-direct-asset="cat5"]{
-  background-image:url("assets/companions/cat/cat_combo_5.webp?v=9291lioncatfix1")!important;
+  background-image:url("assets/companions/cat/cat_combo_5.webp?v=9292lioncatrepaired1")!important;
 }
 @media(max-width:420px){
   #deenStreakOverlay .deen9950-mascot[data-direct-asset]{
@@ -7387,7 +7387,7 @@
  if(window.__deenV9950CompanionStreak)return;
  window.__deenV9950CompanionStreak=true;
 
- const VERSION='9.9.59-COMPANION-STREAK-LION-CAT-DIRECT';
+ const VERSION='9.9.60-COMPANION-STREAK-ASSET-REPAIR';
  const IDS=['lion','wolf','owl','turtle','eagle','cat'];
  const LABELS={lion:'Aslan',wolf:'Kurt',owl:'Baykuş',turtle:'Kaplumbağa',eagle:'Kartal',cat:'Kedi'};
  const POSES={
@@ -7404,8 +7404,8 @@
    10:'İnanılmaz odak!'
  };
  const DIRECT_ASSETS={
-   lion:{3:'assets/companions/lion/lion_combo_3.webp?v=9291lioncatfix1',5:'assets/companions/lion/lion_combo_5.webp?v=9291lioncatfix1'},
-   cat:{3:'assets/companions/cat/cat_combo_3.webp?v=9291lioncatfix1',5:'assets/companions/cat/cat_combo_5.webp?v=9291lioncatfix1'}
+   lion:{3:'assets/companions/lion/lion_combo_3.webp?v=9292lioncatrepaired1',5:'assets/companions/lion/lion_combo_5.webp?v=9292lioncatrepaired1'},
+   cat:{3:'assets/companions/cat/cat_combo_3.webp?v=9292lioncatrepaired1',5:'assets/companions/cat/cat_combo_5.webp?v=9292lioncatrepaired1'}
  };
 
  function assetFor(id,combo){
