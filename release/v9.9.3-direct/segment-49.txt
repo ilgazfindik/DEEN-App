@@ -128,6 +128,8 @@
 .deen-qj2-language{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px;border:1px solid #41776b;border-radius:12px;background:#12343a;color:#eafff8;font:800 11px Inter,system-ui,sans-serif}
 .deen-qj2-language select{min-height:44px;padding:8px;border-radius:10px;border:1px solid #66ad96;background:#154240;color:#f2fffb}
 .deen-qj2-locale-warning{padding:11px;border-radius:12px;background:#413529;color:#f5ddb2;font:700 11px/1.5 Inter,system-ui,sans-serif}
+.deen-qj2-translation-source{padding:10px 12px;border:1px solid rgba(119,183,163,.3);border-radius:12px;background:#0c3137;color:#b2d8cd;font:700 10px/1.5 Inter,system-ui,sans-serif}
+.deen-qj2-translation-source b{color:#e3fff1}.deen-qj2-translation-source a{color:#93e6c8}
 .deen-qj2-option[data-arabic-option]{direction:rtl;text-align:center;font:750 19px/1.6 "Noto Naskh Arabic","Amiri",serif}
 /* DEEN 9.11.97 — compact result dashboard with accessible mistake review. */
 .deen-qj2-summary{display:grid;gap:13px;padding:16px;border:1px solid rgba(109,218,183,.24);border-radius:20px;background:linear-gradient(145deg,#113b3d,#0a262f);box-shadow:0 9px 30px rgba(0,0,0,.14)}
@@ -180,7 +182,7 @@ const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quray
 const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
 const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,tin:8,bayyina:8,zilzal:8,kawthar:3,asr:3};
 const PASS={ayah:80,meaning:80,final:75};
-const GAME_BUILD='9304centralocale1';
+const GAME_BUILD='9305pickthallenglish1';
 const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
 const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);
 
@@ -219,7 +221,8 @@ function quizChrome(html){
 const T=k=>I18N[locale()][k];
 const verse=n=>T('verse')+' '+n;
 function verifiedMeal(id,n){
- const m=rec(id,n)?.translation;
+ const r=rec(id,n);
+ const m=locale()==='en'?r?.translations?.en:r?.translation;
  return m&&String(m.language||'').split('-')[0]===locale()&&m.verification_status==='production_ready'&&m.source?.provider&&m.text?m.text:null;
 }
 function mealReady(id){return Array.from({length:COUNTS[id]},(_,i)=>verifiedMeal(id,i+1)).every(Boolean)}
@@ -232,7 +235,7 @@ function restoreLocale(){return window.DEEN_APP_LOCALE?.hydrate?.()||'tr'}
 function languageUI(id){
  const ready=mealReady(id);
  return '<div class="deen-qj2-language"><label for="deen-qj2-lang">'+esc(T('lang'))+'</label><select id="deen-qj2-lang" onchange="DEEN_QURAN_JOURNEY_V2.setQuizLanguage(this.value)"><option value="tr"'+(locale()==='tr'?' selected':'')+'>Türkçe</option><option value="en"'+(locale()==='en'?' selected':'')+'>English</option></select></div>'+
- (!ready?'<div class="deen-qj2-locale-warning" role="status">'+esc(T('warning'))+'</div>':'');
+ (!ready?'<div class="deen-qj2-locale-warning" role="status">'+esc(T('warning'))+'</div>':locale()==='en'?'<div class="deen-qj2-translation-source"><b>English meaning:</b> Marmaduke Pickthall (1930) · Public domain. Historical English; religious expert review pending. <a href="https://www.gutenberg.org/ebooks/16955" target="_blank" rel="noopener noreferrer">Source ↗</a></div>':'');
 }
 
 const qs=()=>DEEN_QURAN.ensureState();
