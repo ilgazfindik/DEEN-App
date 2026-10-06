@@ -53,6 +53,11 @@ let player=null;
 let activeSurah=null;
 let currentAyah=null;
 let status='idle';
+let journeyQuizAudio=false;
+function visibleQuizPrompt(){
+ const node=document.querySelector?.('#v5Sheet .deen-qj2-quiz .deen-qj2-audio-prompt');
+ return !!node&&(typeof node.getClientRects!=='function'||node.getClientRects().length>0);
+}
 let rafId=0;
 let timer=null;
 
@@ -291,10 +296,11 @@ function syncButton(c=currentCfg()){
   b.setAttribute('data-surah-audio',c.id);
   return true;
 }
-async function play(n,surahId=currentId()){
+async function play(n,surahId=currentId(),context=null){
   const c=cfg(surahId);
   if(!c)return false;
   n=Math.max(1,Math.min(c.count,Number(n)||1));
+  journeyQuizAudio=context==='journey-quiz';
   const p=ensurePlayer();
   if(!p){hint('Bu tarayıcı ses oynatmayı desteklemiyor.',true,c);return false}
 
@@ -321,7 +327,7 @@ async function play(n,surahId=currentId()){
     DEEN_QURAN_ANALYTICS?.track?.('audio_play',{surahId:c.id,mode:'ayah_local_universal'});
     return true;
   }catch(e){
-    status='error';syncButton(c);
+    status='error';journeyQuizAudio=false;syncButton(c);
     hint('Ayet sesi açılamadı: '+String(e?.message||e),true,c);
     return false;
   }
@@ -342,6 +348,7 @@ async function toggle(surahId=currentId()){
   return play(n,c.id);
 }
 function stop(){
+  journeyQuizAudio=false;
   const old=activeSurah?cfg(activeSurah):null;
   if(player){try{player.pause();player.currentTime=0}catch(_){}}
   status='idle';stopRaf();
@@ -352,6 +359,12 @@ function stop(){
   return true;
 }
 function decorate(){
+  // Learning-card auto-stop must not interrupt the question audio.
+  // On close/hide, getClientRects() becomes empty and playback stops.
+  if(journeyQuizAudio){
+    if(!visibleQuizPrompt())stop();
+    return false;
+  }
   const c=currentCfg();
   if(!c)return false;
   const root=rootFor(c);
@@ -506,7 +519,7 @@ function audit(){
 }
 function stateNow(){
   return {
-    status,activeSurah,currentAyah,
+    status,activeSurah,currentAyah,journeyQuizAudio,
     src:player?.src||null,
     currentTime:player?.currentTime||0,
     duration:Number.isFinite(player?.duration)?player.duration:null

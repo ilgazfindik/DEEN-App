@@ -161,6 +161,16 @@
 .deen-qj2-result-secondary{min-height:45px;padding:10px;border:1px solid rgba(138,206,184,.35);border-radius:12px;background:#11353a;color:#c4f4df;font:800 11px/1.3 Inter,system-ui,sans-serif;cursor:pointer}
 .deen-qj2-result-secondary:focus-visible,.deen-qj2-analysis summary:focus-visible{outline:2px solid #9df8d9;outline-offset:2px}
 @media(max-width:350px){.deen-qj2-summary{padding:12px}.deen-qj2-score-ring{width:116px;height:116px}}
+/* v9.12.00 — minimum touch targets and readable question controls. */
+.deen-qj2-stage{min-height:70px}
+.deen-qj2-copy b{font-size:12px;line-height:1.35}
+.deen-qj2-copy small{font-size:10px;line-height:1.45}
+.deen-qj2-btn{min-height:44px;min-width:72px;padding:8px;font-size:10px;line-height:1.25;white-space:normal}
+.deen-qj2-option{font-size:13px;line-height:1.45}
+.deen-qj2-option.ar{font-size:19px}
+.deen-qj2-quiz,.deen-qj2-qcard{min-width:0}
+.deen-qj2-ar{overflow-wrap:anywhere}
+@media(max-width:350px){.deen-qj2-stage{grid-template-columns:32px minmax(0,1fr)}.deen-qj2-stage>.deen-qj2-btn{grid-column:1/-1;width:100%}}
 </style>
 <script id="deen-v10942-quran-journey-v2-js">
 (()=>{
@@ -170,7 +180,7 @@ const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quray
 const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
 const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,tin:8,bayyina:8,zilzal:8,kawthar:3,asr:3};
 const PASS={ayah:80,meaning:80,final:75};
-const GAME_BUILD='9301qslocalepolish1';
+const GAME_BUILD='9302quranqa1';
 const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
 const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);
 
@@ -298,6 +308,15 @@ function startStage(stage){
  return false;
 }
 function allWords(id){const out=[];for(let n=1;n<=COUNTS[id];n++)out.push(...words(rec(id,n)?.arabic?.text));return[...new Set(out)]}
+/* Some real surahs repeat an ayah verbatim or have matching meal entries.
+   Asking for a unique ayah number when text is duplicated would mark valid
+   answers wrong; select an unambiguous question type instead. */
+function sameTextAyahs(id,n,field){
+ const target=field==='arabic'?rec(id,n)?.arabic?.text:verifiedMeal(id,n);
+ if(!target)return[];
+ return Array.from({length:COUNTS[id]},(_,i)=>i+1).filter(i=>
+  (field==='arabic'?rec(id,i)?.arabic?.text:verifiedMeal(id,i))===target);
+}
 function optionSet(correct,candidates,seed){
  const uniq=[correct,...candidates.filter(x=>x&&x!==correct)].filter((x,i,a)=>a.indexOf(x)===i).slice(0,4);
  return seededShuffle(uniq.map((text,i)=>({id:'o'+i,text})),seed);
@@ -315,11 +334,21 @@ function qNext(id,n,seed){
  return{kind:'next',ayah:base,title:T('next'),display:a?.arabic?.text,type:'arabic',answer,options:optionSet(answer,pool,seed)};
 }
 function qListen(id,n,seed){
- const audio=window.DEEN_QURAN_AYAH_AUDIO,cfg=audio?.config?.(id),arabic=rec(id,n)?.arabic?.text;
- if(!cfg?.files?.[n-1]||!arabic||typeof audio?.play!=='function')return qNext(id,n,seed);
- const withMeal=mealReady(id),answer=withMeal?verifiedMeal(id,n):verse(n);
+ const audio=window.DEEN_QURAN_AYAH_AUDIO,cfg=audio?.config?.(id),withMeal=mealReady(id);
+ if(!cfg?.files||typeof audio?.play!=='function')return qNext(id,n,seed);
+ // Repeated recitations or repeated meals cannot serve as unique identification questions.
+ let target=null;
+ for(let offset=0;offset<COUNTS[id];offset++){
+  const candidate=((n-1+offset)%COUNTS[id])+1;
+  if(!cfg.files[candidate-1]||!rec(id,candidate)?.arabic?.text)continue;
+  if(sameTextAyahs(id,candidate,'arabic').length!==1)continue;
+  if(withMeal&&sameTextAyahs(id,candidate,'meal').length!==1)continue;
+  target=candidate;break;
+ }
+ if(!target)return qNext(id,n,seed);
+ const answer=withMeal?verifiedMeal(id,target):verse(target);
  const pool=Array.from({length:COUNTS[id]},(_,i)=>withMeal?verifiedMeal(id,i+1):verse(i+1)).filter(x=>x&&x!==answer);
- return{kind:'listen',ayah:n,title:T(withMeal?'listen':'listenNum'),display:'',type:'audio',answer,options:optionSet(answer,pool,seed),optionsArabic:false};
+ return{kind:'listen',ayah:target,title:T(withMeal?'listen':'listenNum'),display:'',type:'audio',answer,options:optionSet(answer,pool,seed),optionsArabic:false};
 }
 function qContinuation(id,n,seed){
  const r=rec(id,n),w=words(r?.arabic?.text);if(w.length<3)return qFill(id,n,seed);
@@ -328,14 +357,17 @@ function qContinuation(id,n,seed){
  return{kind:'continuation',ayah:n,title:T('continuation'),display,type:'arabic',answer,options:optionSet(answer,pool,seed)};
 }
 function qMealToAyah(id,n,seed){
+ if(sameTextAyahs(id,n,'meal').length>1)return sameTextAyahs(id,n,'arabic').length>1?qFill(id,n,seed):qAyahToMeal(id,n,seed);
  const answer=verse(n),pool=Array.from({length:COUNTS[id]},(_,i)=>verse(i+1)).filter(x=>x!==answer);
  return{kind:'mealToAyah',ayah:n,title:T('toNumber'),display:verifiedMeal(id,n),type:'meal',answer,options:optionSet(answer,pool,seed)};
 }
 function qAyahToMeal(id,n,seed){
+ if(sameTextAyahs(id,n,'arabic').length>1)return sameTextAyahs(id,n,'meal').length>1?qFill(id,n,seed):qMealToAyah(id,n,seed);
  const answer=verifiedMeal(id,n),pool=Array.from({length:COUNTS[id]},(_,i)=>verifiedMeal(id,i+1)).filter(x=>x&&x!==answer);
  return{kind:'ayahToMeal',ayah:n,title:T('toMeaning'),display:rec(id,n)?.arabic?.text,type:'arabic',answer,options:optionSet(answer,pool,seed)};
 }
 function qNumber(id,n,seed){
+ if(sameTextAyahs(id,n,'arabic').length>1)return mealReady(id)&&sameTextAyahs(id,n,'meal').length===1?qMealToAyah(id,n,seed):qFill(id,n,seed);
  const answer=verse(n),pool=Array.from({length:COUNTS[id]},(_,i)=>verse(i+1)).filter(x=>x!==answer);
  return{kind:'number',ayah:n,title:T('number'),display:rec(id,n)?.arabic?.text,type:'arabic',answer,options:optionSet(answer,pool,seed)};
 }
@@ -402,7 +434,7 @@ function quizHtml(){
   (picked?'Seçilen kelime: '+esc(picked.text):'Eksik kelime')+'">'+slotLabel+'</span>';
  const arabicHtml=q.kind==='fill'?esc(q.display).replace('_____',slot):esc(q.display);
  const prompt=q.type==='audio'
-  ?'<div class="deen-qj2-audio-prompt" role="group" aria-label="Sesli ayet sorusu"><span class="deen-qj2-audio-symbol" aria-hidden="true">♫</span><button type="button" class="deen-qj2-audio-play" '+(quiz.answered?'disabled':'')+' onclick="DEEN_QURAN_JOURNEY_V2.playQuizAudio()">'+esc(T('play'))+'</button><span class="deen-qj2-audio-status" role="status" aria-live="polite">'+esc(T(mealReady(currentSurah)?'hint':'hintNum'))+'</span></div>'
+  ?'<div class="deen-qj2-audio-prompt" role="group" aria-label="'+(locale()==='en'?'Audio ayah question':'Sesli ayet sorusu')+'"><span class="deen-qj2-audio-symbol" aria-hidden="true">♫</span><button type="button" class="deen-qj2-audio-play" '+(quiz.answered?'disabled':'')+' onclick="DEEN_QURAN_JOURNEY_V2.playQuizAudio()">'+esc(T('play'))+'</button><span class="deen-qj2-audio-status" role="status" aria-live="polite">'+esc(T(mealReady(currentSurah)?'hint':'hintNum'))+'</span></div>'
   :q.type==='arabic'?'<div class="deen-qj2-ar" lang="ar" aria-live="'+(q.kind==='fill'?'polite':'off')+'">'+arabicHtml+'</div>':
   '<div class="deen-qj2-meal">'+esc(q.display)+'</div>';
  const slotHint=q.kind==='fill'&&!quiz.answered?'<p class="deen-qj2-fill-hint">'+T(picked?'filled':'fillHint')+'</p>':'';
@@ -437,7 +469,7 @@ async function playQuizAudio(){
  if(statusNode)statusNode.textContent=locale()==='en'?'Preparing ayah audio…':'Ayet sesi hazırlanıyor…';
  try{
   engine.stop?.(); // Reuse and rewind the global audio player.
-  const ok=await engine.play(q.ayah,currentSurah);
+  const ok=await engine.play(q.ayah,currentSurah,'journey-quiz');
   if(token!==audioRequestToken)return false;
   if(statusNode&&statusNode.isConnected!==false)statusNode.textContent=ok?(locale()==='en'?'Replay the audio if needed.':'Tekrar dinleyebilirsin.'):(locale()==='en'?'Audio could not play.':'Ses oynatılamadı.');
   return !!ok;
