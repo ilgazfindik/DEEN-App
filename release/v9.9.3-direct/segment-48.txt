@@ -391,7 +391,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   if(!active())return String(html);
   return String(html).replace(/>([^<]*)</g,(all,v)=>'>'+translate(v)+'<').replace(/(placeholder|aria-label|title)="([^"]*)"/g,(all,k,v)=>k+'="'+translate(v)+'"');
  }
- function excluded(el){return !el||['STYLE','SCRIPT','NOSCRIPT','CODE','SVG','TEXTAREA'].includes(el.nodeName)||el.isContentEditable||el.closest?.('.deen-ikhlas-arabic,.deen-mem-arabic,[data-deen-no-translate]')}
+ function excluded(el){return !el||['STYLE','SCRIPT','NOSCRIPT','CODE','SVG','TEXTAREA'].includes(el.nodeName)||el.isContentEditable||el.closest?.('.deen-ikhlas-arabic,.deen-mem-arabic,[data-deen-no-translate],#lesson #questionText,#lesson #answerArea,#lesson #feedbackText')}
  function localize(root){
   if(!root)return 0;const stack=[root];let count=0;
   while(stack.length){
@@ -433,7 +433,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9320arabicdynamic1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9321arabicsafeguard1'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  if(typeof MutationObserver!=='undefined'){
   const observer=new MutationObserver(schedule);
