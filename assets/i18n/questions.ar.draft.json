@@ -294,5 +294,353 @@
     "Quran 33:40 uses خاتم النبيين.",
     "Arabic orthography and answer positions are independently auditable; NO religious expert or native-speaker certification has been obtained."
   ],
-  "research_completed_with_sources": true
+  "research_completed_with_sources": true,
+  "runtime_variants": {
+    "DEEN-U01-S01-001": {
+      "question_ar": "أيُّ بطاقة تعبّر على نحو أدقّ عن الفكرة الأساسية في الإسلام؟",
+      "options_ar": [
+        "الاستسلام لله واتّباع هديه",
+        "حفظ أسماء عبادات معيّنة فقط",
+        "الانتماء إلى ثقافة معيّنة فقط"
+      ],
+      "correct_answer_ar": "الاستسلام لله واتّباع هديه",
+      "explanation_ar": "تُقدّم هذه الوحدة الإسلام دينًا يشمل التوجّه إلى الله والإيمان به واتباع هديه، لا مجرّد ثقافة أو حفظ أسماء بعض العبادات.",
+      "source_question_tr": "İslam’ın temelindeki fikri en iyi hangi kart anlatır?",
+      "source_correct_answer_tr": "Allah’a teslimiyeti ve O’nun rehberliğini benimsemek",
+      "source_options_tr": [
+        "Allah’a teslimiyeti ve O’nun rehberliğini benimsemek",
+        "Yalnızca belirli ibadetlerin adını öğrenmek",
+        "Sadece belirli bir kültüre ait olmak"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/2:112"
+      ]
+    },
+    "DEEN-U01-S01-003": {
+      "question_ar": "طابق الإيمان والعبادة والأخلاق مع تعريفاتها الصحيحة.",
+      "pairs_ar": [
+        {
+          "left": "الإيمان",
+          "right": "الاعتقاد والتصديق"
+        },
+        {
+          "left": "العبادة",
+          "right": "التعبّد لله"
+        },
+        {
+          "left": "الأخلاق",
+          "right": "السلوك والتصرّفات"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "الإيمان والعبادة والأخلاق مفاهيم مختلفة لكنها مترابطة، ولكلٍّ منها معنى ينبغي تمييزه.",
+      "source_question_tr": "İman, ibadet ve ahlakı doğru açıklamalarla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "İman",
+          "right": "İnanç ve kabul"
+        },
+        {
+          "left": "İbadet",
+          "right": "Allah’a kulluk"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Davranış ve tutumlar"
+        }
+      ],
+      "activity_type": "matching",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/184/177-ayet-tefsiri"
+      ]
+    },
+    "DEEN-U01-S01-004": {
+      "question_ar": "أيُّ بطاقة تشرح معنى كلمة «مسلم» شرحًا صحيحًا؟",
+      "options_ar": [
+        "من يؤمن بالله ويعتنق تعاليم الإسلام",
+        "من وُلد في بلد معيّن فقط",
+        "من يتكلّم اللغة العربية فقط"
+      ],
+      "correct_answer_ar": "من يؤمن بالله ويعتنق تعاليم الإسلام",
+      "explanation_ar": "المسلم من يعتنق الإسلام، ولا يرتبط ذلك ببلد الميلاد أو اللغة.",
+      "source_question_tr": "“Müslüman” denince hangi kart doğru tanımı verir?",
+      "source_correct_answer_tr": "Allah’a inanan ve İslam’ın öğretilerini benimseyen kişi",
+      "source_options_tr": [
+        "Allah’a inanan ve İslam’ın öğretilerini benimseyen kişi",
+        "Sadece belirli bir ülkede doğan kişi",
+        "Sadece Arapça konuşan kişi"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/49:13"
+      ]
+    },
+    "DEEN-U01-S01-007": {
+      "question_ar": "يقول صديقك: «الإيمان والعبادة والأخلاق أمور منفصلة تمامًا». ما أنسب ردٍّ وفق هذه الوحدة؟",
+      "options_ar": [
+        "تشكل هذه المجالات الثلاثة رؤية مترابطة للحياة.",
+        "نعم، لا توجد أي صلة بينها.",
+        "الأخلاق وحدها مهمة، ولا صلة لها بالمجالين الآخرين."
+      ],
+      "correct_answer_ar": "تشكل هذه المجالات الثلاثة رؤية مترابطة للحياة.",
+      "explanation_ar": "الإيمان والعبادة والأخلاق مجالات متمايزة لكنها مترابطة في فهم الحياة الإسلامية.",
+      "source_question_tr": "Bir arkadaşın “İman, ibadet ve ahlak birbirinden tamamen ayrı şeylerdir.” diyor. Bu bölüme göre en uygun cevap hangisi?",
+      "source_correct_answer_tr": "Bu üç alan birbiriyle bağlantılı bir yaşam anlayışı oluşturur.",
+      "source_options_tr": [
+        "Bu üç alan birbiriyle bağlantılı bir yaşam anlayışı oluşturur.",
+        "Evet; aralarında hiçbir bağlantı yoktur.",
+        "Yalnızca ahlak önemlidir; diğer ikisi ayrı kalır."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/2:177"
+      ]
+    },
+    "DEEN-U01-S01-008": {
+      "question_ar": "أكمل الفراغ: يدلّ التصديق بالقلب والقبول في هذه الوحدة على مفهوم «___».",
+      "options_ar": [
+        "الإيمان",
+        "العبادة",
+        "الأخلاق",
+        "الهداية"
+      ],
+      "correct_answer_ar": "الإيمان",
+      "explanation_ar": "يُقصد بالإيمان هنا التصديق والاعتقاد بالقلب؛ ولا يُراد حصر جميع معانيه في عبادة واحدة.",
+      "source_question_tr": "Boşluğu tamamla: Kalben inanma ve kabul etme, bu bölümde ___ kavramını anlatır.",
+      "source_correct_answer_tr": "iman",
+      "source_options_tr": [
+        "iman",
+        "ibadet",
+        "ahlak",
+        "rehberlik"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "fill_blank",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/49:14"
+      ]
+    },
+    "DEEN-U01-S01-012": {
+      "question_ar": "اختر البطاقة التي توضّح مكانة القرآن عند المسلمين.",
+      "options_ar": [
+        "كتاب المسلمين المقدّس الأساسي",
+        "كتاب يقتصر على سرد الأحداث التاريخية",
+        "دليل يسرد خطوات العبادات فقط"
+      ],
+      "correct_answer_ar": "كتاب المسلمين المقدّس الأساسي",
+      "explanation_ar": "القرآن هو كتاب المسلمين المقدّس، ويعدّونه مصدرًا للهداية في الإيمان والحياة.",
+      "source_question_tr": "Kur’an’ın Müslümanlar için yerini doğru anlatan kartı seç.",
+      "source_correct_answer_tr": "Müslümanların temel kutsal kitabı",
+      "source_options_tr": [
+        "Müslümanların temel kutsal kitabı",
+        "Yalnızca tarih olaylarını anlatan bir kitap",
+        "Sadece ibadet adımlarını sıralayan bir el kitabı"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/17:9"
+      ]
+    },
+    "DEEN-U01-S01-015": {
+      "question_ar": "أكمل خريطة المفاهيم الأولى: طابق كل مفهوم مع شرحه الصحيح.",
+      "pairs_ar": [
+        {
+          "left": "الإسلام",
+          "right": "منهج حياة يقوم على الاستسلام لله وعبادته"
+        },
+        {
+          "left": "المسلم",
+          "right": "من يعتنق الإسلام"
+        },
+        {
+          "left": "الإيمان",
+          "right": "التصديق والاعتقاد بالقلب"
+        },
+        {
+          "left": "الأخلاق",
+          "right": "ما يتعلّق بالسلوك والتصرّفات"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "تُعرّف هذه الوحدة بالمفاهيم الأربعة بصورة منفصلة، بهدف تمييز معانيها الأساسية دون خلط.",
+      "source_question_tr": "İlk kavram haritasını tamamla: kavramları doğru açıklamalarla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "İslam",
+          "right": "Allah’a teslimiyet ve kulluk merkezli yaşam anlayışı"
+        },
+        {
+          "left": "Müslüman",
+          "right": "İslam’ı benimseyen kişi"
+        },
+        {
+          "left": "İman",
+          "right": "Kalben inanma ve kabul etme"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Davranış ve tutumlarla ilgili alan"
+        }
+      ],
+      "activity_type": "matching",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/2:112",
+        "https://quran.com/ar/2:177"
+      ]
+    },
+    "DEEN-U01-S01-016": {
+      "question_ar": "أيُّ بطاقة تعبّر على أفضل وجه عن الفكرة الأساسية في الإسلام؟",
+      "options_ar": [
+        "الاستسلام لله وعبادته",
+        "الانتماء إلى جنسية محدّدة",
+        "معرفة التاريخ فقط",
+        "أداء عبادة واحدة فقط"
+      ],
+      "correct_answer_ar": "الاستسلام لله وعبادته",
+      "explanation_ar": "تؤكّد مقدمة الوحدة الاستسلام لله والتعبّد له بوصفهما من المعاني الأساسية للإسلام.",
+      "source_question_tr": "İslam’ın temelindeki fikri en iyi hangi kart anlatır?",
+      "source_correct_answer_tr": "Allah’a teslimiyet ve kulluk",
+      "source_options_tr": [
+        "Allah’a teslimiyet ve kulluk",
+        "Belirli bir millete ait olmak",
+        "Sadece tarih bilgisi öğrenmek",
+        "Yalnızca tek bir ibadeti yapmak"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/2:112"
+      ]
+    },
+    "DEEN-U01-S01-017": {
+      "question_ar": "يسألك شخص تعرّفت إليه حديثًا: «هل يلزم الانتماء إلى بلد أو قومية معيّنة لأكون مسلمًا؟» ما أنسب جواب؟",
+      "options_ar": [
+        "لا، فاعتناق الإسلام لا يتوقّف على بلد أو قومية معيّنة.",
+        "نعم، لا يصبح مسلمًا إلا من وُلد في بلد محدّد.",
+        "لا يكون مسلمًا إلا من يتكلّم اللغة نفسها.",
+        "تُحدَّد الهوية الإسلامية بالأصل الثقافي وحده."
+      ],
+      "correct_answer_ar": "لا، فاعتناق الإسلام لا يتوقّف على بلد أو قومية معيّنة.",
+      "explanation_ar": "ترتبط هوية المسلم باعتناق الإسلام، لا بجنسية أو شعب أو ثقافة معيّنة.",
+      "source_question_tr": "Yeni tanıştığın biri “Müslüman olmak belirli bir ülke veya millete bağlı mı?” diye soruyor. En uygun cevap hangisi?",
+      "source_correct_answer_tr": "Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.",
+      "source_options_tr": [
+        "Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.",
+        "Evet; yalnızca belirli bir ülkede doğanlar Müslüman olabilir.",
+        "Sadece aynı dili konuşanlar Müslüman olabilir.",
+        "Müslümanlık yalnızca kültürel kökene göre belirlenir."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/49:13"
+      ]
+    },
+    "DEEN-U01-S01-018": {
+      "question_ar": "ثلاث عبارات تتوافق مع مفهوم العبادة في هذه الوحدة. أيُّها لا يتوافق معه؟",
+      "options_ar": [
+        "تتعلّق العبادة بالتعبّد لله.",
+        "لا تقتصر العبادة على الصلاة وحدها.",
+        "يمكن أن تندرج أعمال تعبّدية مختلفة ضمن العبادة.",
+        "تُؤدَّى العبادة لمجرّد الظهور بمظهر حسن أمام الناس."
+      ],
+      "correct_answer_ar": "تُؤدَّى العبادة لمجرّد الظهور بمظهر حسن أمام الناس.",
+      "explanation_ar": "العبادة لا تقتصر على الصلاة، وينبغي أن تكون لله بإخلاص لا طلبًا للمدح والظهور أمام الناس.",
+      "source_question_tr": "Üç ifade bu bölümdeki ibadet anlayışıyla uyumlu. Hangisi uyumlu değildir?",
+      "source_correct_answer_tr": "İbadet sadece başkalarına iyi görünmek için yapılır.",
+      "source_options_tr": [
+        "İbadet Allah’a kullukla ilgilidir.",
+        "İbadet yalnızca namazdan ibaret değildir.",
+        "Farklı kulluk davranışları ibadet kapsamında ele alınabilir.",
+        "İbadet sadece başkalarına iyi görünmek için yapılır."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "odd_one_out",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/98:5"
+      ]
+    },
+    "DEEN-U01-S01-019": {
+      "question_ar": "القرآن مصدر أساسي للهداية عند المسلمين.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "تُبرز مقدمة الوحدة مكانة القرآن بوصفه مصدرًا أساسيًا للهداية عند المسلمين.",
+      "source_question_tr": "Kur’an Müslümanlar için temel bir rehberdir.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "true_false",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/17:9"
+      ]
+    },
+    "DEEN-U01-S01-020": {
+      "question_ar": "أيُّ بطاقة تلخّص على نحو أدقّ دور القرآن والنبي محمد ﷺ في الهداية وفق هذه الوحدة؟",
+      "options_ar": [
+        "القرآن مصدر أساسي للهداية، والنبي محمد ﷺ رسول الله وقدوة يُقتدى بها.",
+        "كلاهما مخصّص لمعرفة أحداث الماضي فقط.",
+        "لا صلة للقرآن بالحياة اليومية، والاقتداء بالنبيّ محصور في الماضي.",
+        "تأتي الهداية من التقاليد الثقافية وحدها."
+      ],
+      "correct_answer_ar": "القرآن مصدر أساسي للهداية، والنبي محمد ﷺ رسول الله وقدوة يُقتدى بها.",
+      "explanation_ar": "تقدّم الوحدة القرآن مصدرًا أساسيًا للهداية، والنبي محمدًا ﷺ رسولًا وقدوةً للمسلمين.",
+      "source_question_tr": "Kur’an ve Hz. Muhammed’in bu ünitedeki rehberlik rolünü en iyi hangi kart özetler?",
+      "source_correct_answer_tr": "Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.",
+      "source_options_tr": [
+        "Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.",
+        "İkisi de yalnızca geçmiş olayları öğrenmek içindir.",
+        "Kur’an günlük hayatla ilgisizdir; peygamberin örnekliği de yalnızca geçmiştedir.",
+        "Rehberlik yalnızca kültürel geleneklerden gelir."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "draft_requires_native_arabic_reviewer",
+      "research_references": [
+        "https://quran.com/ar/17:9",
+        "https://quran.com/ar/33:40"
+      ]
+    }
+  },
+  "runtime_variant_source_files": [
+    "release/v9.9.3-direct/segment-21.txt",
+    "release/v9.9.3-direct/segment-22.txt"
+  ]
 }
