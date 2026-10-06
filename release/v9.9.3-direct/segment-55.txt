@@ -77,7 +77,9 @@ function dailyHtml(){
 }
 function injectDaily(){
  const shell=document.querySelector?.('#leagueScreenBody .deen-quran-dashboard');if(!shell||shell.querySelector('[data-quran-reward-daily]'))return false;
- const hub=shell.querySelector('[data-qarena-hub]');if(hub)hub.insertAdjacentHTML('afterend',dailyHtml());else shell.insertAdjacentHTML('beforeend',dailyHtml());return true
+ const hub=shell.querySelector('[data-qarena-hub]');if(hub)hub.insertAdjacentHTML('afterend',dailyHtml());else shell.insertAdjacentHTML('beforeend',dailyHtml());
+ try{window.DEEN_ARABIC_UI?.localize?.(shell)}catch(_){}
+ return true
 }
 function weakReady(){return (DEEN_QURAN_QUESTION_ARENA?.weakRows?.()||[]).length>=2}
 function openWeak(){
