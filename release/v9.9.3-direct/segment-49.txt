@@ -125,6 +125,38 @@
 .deen-qj2-audio-play:focus-visible{outline:2px solid #dcfff1;outline-offset:3px}
 .deen-qj2-audio-play:disabled{opacity:.5;cursor:default}
 .deen-qj2-audio-status{min-height:1.5em;color:#a6d3c7;text-align:center;font:700 11px/1.5 Inter,system-ui,sans-serif}
+/* DEEN 9.11.97 — compact result dashboard with accessible mistake review. */
+.deen-qj2-summary{display:grid;gap:13px;padding:16px;border:1px solid rgba(109,218,183,.24);border-radius:20px;background:linear-gradient(145deg,#113b3d,#0a262f);box-shadow:0 9px 30px rgba(0,0,0,.14)}
+.deen-qj2-summary-top{text-align:center;color:#9bddd0;font:800 11px/1.5 Inter,system-ui,sans-serif;letter-spacing:.04em}
+.deen-qj2-summary h3{margin:0;text-align:center;font:900 clamp(15px,4.5vw,20px)/1.35 Inter,system-ui,sans-serif;color:#f2fffa}
+.deen-qj2-score-ring{--score:0%;width:128px;height:128px;position:relative;display:grid;place-items:center;margin:0 auto;border-radius:50%;background:conic-gradient(#67d9b5 var(--score),#28474c var(--score));isolation:isolate}
+.deen-qj2-score-ring:before{content:"";position:absolute;inset:9px;border-radius:50%;background:#10343a;z-index:0}
+.deen-qj2-score-ring strong{position:relative;z-index:1;color:#f3fffb;font:900 33px/1 Inter,system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.deen-qj2-score-ring small{position:absolute;z-index:1;bottom:33px;color:#8dbcb2;font:750 9px/1 Inter,system-ui,sans-serif}
+.deen-qj2-score-ring.missed{background:conic-gradient(#d6a579 var(--score),#28474c var(--score))}
+.deen-qj2-summary-sub{margin:0 auto;max-width:310px;text-align:center;color:#a8c9c3;font:650 11px/1.55 Inter,system-ui,sans-serif}
+.deen-qj2-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.deen-qj2-metric{display:grid;gap:4px;justify-items:center;padding:11px 6px;border:1px solid rgba(133,200,181,.15);border-radius:12px;background:rgba(7,27,34,.45);text-align:center}
+.deen-qj2-metric b{font:900 20px/1 Inter,system-ui,sans-serif;color:#eefcf7;font-variant-numeric:tabular-nums}
+.deen-qj2-metric small{font:700 9px/1.3 Inter,system-ui,sans-serif;color:#a1c1b8}
+.deen-qj2-targets{padding:10px 12px;border:1px solid rgba(227,175,126,.2);border-radius:12px;background:rgba(82,55,30,.2);color:#e8d2b4;font:700 11px/1.5 Inter,system-ui,sans-serif}
+.deen-qj2-analysis{border:1px solid rgba(120,193,176,.18);border-radius:15px;background:#0a2931;overflow:hidden}
+.deen-qj2-analysis summary{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px 14px;color:#e4f5ed;font:800 12px/1.4 Inter,system-ui,sans-serif;cursor:pointer;list-style:none}
+.deen-qj2-analysis summary::-webkit-details-marker{display:none}
+.deen-qj2-analysis summary:after{content:"⌄";color:#9fdbc9;font-size:16px}
+.deen-qj2-analysis[open] summary:after{content:"⌃"}
+.deen-qj2-answer-row{display:flex;gap:10px;align-items:flex-start;margin:0 12px;padding:11px 0;border-top:1px solid rgba(137,195,176,.13)}
+.deen-qj2-answer-icon{flex:0 0 24px;width:24px;height:24px;display:grid;place-items:center;border-radius:8px;background:#16463b;color:#a6eed0;font:900 12px/1 Inter,system-ui,sans-serif}
+.deen-qj2-answer-icon.bad{background:#533129;color:#ffc4b0}
+.deen-qj2-answer-copy{min-width:0;flex:1;display:grid;gap:5px;color:#dcece7;font:700 11px/1.4 Inter,system-ui,sans-serif}
+.deen-qj2-answer-copy small{color:#9bbab2;font:650 10px/1.4 Inter,system-ui,sans-serif}
+.deen-qj2-answer-copy .wrong-text{color:#e6a891}
+.deen-qj2-answer-copy .right-text{color:#9fe7c9}
+.deen-qj2-answer-copy [lang="ar"]{direction:rtl;text-align:right;unicode-bidi:plaintext;font:750 17px/1.6 "Noto Naskh Arabic","Amiri",serif;overflow-wrap:anywhere}
+.deen-qj2-result-actions{display:grid;gap:8px}
+.deen-qj2-result-secondary{min-height:45px;padding:10px;border:1px solid rgba(138,206,184,.35);border-radius:12px;background:#11353a;color:#c4f4df;font:800 11px/1.3 Inter,system-ui,sans-serif;cursor:pointer}
+.deen-qj2-result-secondary:focus-visible,.deen-qj2-analysis summary:focus-visible{outline:2px solid #9df8d9;outline-offset:2px}
+@media(max-width:350px){.deen-qj2-summary{padding:12px}.deen-qj2-score-ring{width:116px;height:116px}}
 </style>
 <script id="deen-v10942-quran-journey-v2-js">
 (()=>{
@@ -134,7 +166,7 @@ const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quray
 const NAMES={fatiha:'Fâtiha',ikhlas:'İhlâs',falaq:'Felak',nas:'Nâs',kafirun:'Kâfirûn',nasr:'Nasr',masad:'Tebbet',fil:'Fîl',quraysh:'Kureyş',maun:'Mâûn',sharh:'İnşirah',tin:'Tîn',bayyina:'Beyyine',zilzal:'Zilzâl',kawthar:'Kevser',asr:'Asr'};
 const COUNTS={fatiha:7,ikhlas:4,falaq:5,nas:6,kafirun:6,nasr:3,masad:5,fil:5,quraysh:4,maun:7,sharh:8,tin:8,bayyina:8,zilzal:8,kawthar:3,asr:3};
 const PASS={ayah:80,meaning:80,final:75};
-const GAME_BUILD='9298listeningquiz1';
+const GAME_BUILD='9299resultdashboard1';
 const baseOpenSurah=DEEN_QURAN.openSurah?.bind(DEEN_QURAN);
 const baseMemorize=DEEN_QURAN.memorize?.bind(DEEN_QURAN);
 
@@ -279,7 +311,7 @@ function startQuiz(stage){
  if(questions.length<5||questions.some(q=>!q||!q.answer||!Array.isArray(q.options)||q.options.length<2||q.options.filter(o=>o.text===q.answer).length!==1)){
   sheet('Test henüz hazır değil','<div class="deen-quran-pending">Bu sure için doğrulanmış sorular hazırlanamadı.</div>');return false;
  }
- quiz={stage,questions,index:0,correct:0,answered:false,selected:null,result:null};
+ quiz={stage,questions,index:0,correct:0,answered:false,selected:null,result:null,answers:[],practice:false};
  sheet(stage==='ayah'?'Ayet Testi':stage==='meaning'?'Anlam Testi':'Sure Finali',quizHtml());return true;
 }
 function quizHtml(){
@@ -426,10 +458,13 @@ function checkAnswer(){
  const q=quiz.questions[quiz.index],o=q?.options.find(x=>x.id===quiz.selected);
  if(!o)return false;
  quiz.answered=true;quiz.lastCorrect=o.text===q.answer;if(quiz.lastCorrect)quiz.correct++;
+ quiz.answers.push({index:quiz.index,ayah:q.ayah,kind:q.kind,title:q.title,selected:o.text,answer:q.answer,correct:quiz.lastCorrect});
  if(q.kind==='listen')stopQuizAudio();
- const outcome=quiz.lastCorrect?'good':(quiz.stage==='meaning'?'hard':'again');
- try{DEEN_QURAN_SRS?.record?.(currentSurah,q.ayah,outcome,'journey_'+quiz.stage)}catch(_){}
- try{DEEN_QURAN_ANALYTICS?.track?.(quiz.lastCorrect?'correct':'wrong',{surahId:currentSurah,type:'journey_'+quiz.stage,outcome:quiz.lastCorrect?'correct':'wrong'})}catch(_){}
+ if(!quiz.practice){
+  const outcome=quiz.lastCorrect?'good':(quiz.stage==='meaning'?'hard':'again');
+  try{DEEN_QURAN_SRS?.record?.(currentSurah,q.ayah,outcome,'journey_'+quiz.stage)}catch(_){}
+  try{DEEN_QURAN_ANALYTICS?.track?.(quiz.lastCorrect?'correct':'wrong',{surahId:currentSurah,type:'journey_'+quiz.stage,outcome:quiz.lastCorrect?'correct':'wrong'})}catch(_){}
+ }
  if(quiz.lastCorrect)try{DEEN_QURAN_MASCOT?.react?.()}catch(_){}
  replaceQuiz();return quiz.lastCorrect;
 }
@@ -440,14 +475,69 @@ function nextQuestion(){
 }
 function finishQuiz(){
  if(quiz?.result)return quiz.result;
- const score=Math.round(quiz.correct/quiz.questions.length*100),s=sstate(currentSurah),slot=s[quiz.stage],threshold=PASS[quiz.stage];
+ if(!quiz||!quiz.questions?.length)return null;
+ const score=Math.round(quiz.correct/quiz.questions.length*100),threshold=PASS[quiz.stage],passed=score>=threshold;
+ // Review practice must not alter stage attempts, personal best, unlocks, or SRS.
+ if(quiz.practice){
+  quiz.result={score,passed,threshold,stage:quiz.stage,practice:true,newBest:false,best:null};
+  return quiz.result;
+ }
+ const s=sstate(currentSurah),slot=s[quiz.stage],previousBest=slot.best,previousAttempts=slot.attempts;
  slot.attempts++;slot.best=Math.max(slot.best,score);slot.lastScore=score;slot.lastAt=new Date().toISOString();
- if(score>=threshold){slot.passed=true;slot.passedAt=slot.passedAt||slot.lastAt;if(quiz.stage==='final')s.finalCompletedAt=s.finalCompletedAt||slot.lastAt}
- DEEN_QURAN.persistState?.();quiz.result={score,passed:score>=threshold,threshold,stage:quiz.stage};return quiz.result;
+ if(passed){slot.passed=true;slot.passedAt=slot.passedAt||slot.lastAt;if(quiz.stage==='final')s.finalCompletedAt=s.finalCompletedAt||slot.lastAt}
+ DEEN_QURAN.persistState?.();
+ quiz.result={score,passed,threshold,stage:quiz.stage,practice:false,newBest:score>previousBest&&score>0,best:slot.best,previousAttempts};
+ return quiz.result;
+}
+function reviewWrong(){
+ if(!quiz?.result)return false;
+ const bad=quiz.answers.filter(a=>!a.correct),questions=bad.map(a=>quiz.questions[a.index]).filter(Boolean);
+ if(!questions.length)return false;
+ stopQuizAudio();ignoreClick=null;discardDrag();
+ const stage=quiz.stage;
+ quiz={stage,questions,index:0,correct:0,answered:false,selected:null,result:null,answers:[],practice:true};
+ sheet('Hatalı Sorular · Tekrar',quizHtml());
+ return true;
+}
+function retryQuiz(){
+ if(!quiz?.result)return false;
+ return startQuiz(quiz.stage);
+}
+function answerIsArabic(a){
+ return ['fill','next','continuation','mealToAyah','listen'].includes(a.kind);
+}
+function answerLine(kind,label,value,arabic){
+ return'<small class="'+kind+'">'+esc(label)+'</small><div class="'+kind+'" '+(arabic?'lang="ar" dir="rtl"':'')+'>'+esc(value)+'</div>';
 }
 function resultHtml(){
- const r=quiz.result||finishQuiz(),label=r.stage==='ayah'?'Ayet Testi':r.stage==='meaning'?'Anlam Testi':'Sure Finali';
- return'<div class="deen-qj2-quiz"><div class="deen-qj2-result"><strong>%'+r.score+'</strong><span>'+label+' · '+(r.passed?'Geçtin. Bir sonraki aşama açıldı.':'Geçmek için en az %'+r.threshold+' gerekiyor. Zayıf ayetleri güçlendirip tekrar dene.')+'</span></div><button class="deen-qj2-next" onclick="DEEN_QURAN_JOURNEY_V2.backToJourney()">SURE YOLCULUĞUNA DÖN</button></div>';
+ const r=quiz.result||finishQuiz();if(!r)return'';
+ const label=r.stage==='ayah'?'Ayet Testi':r.stage==='meaning'?'Anlam Testi':'Sure Finali';
+ const total=quiz.questions.length,wrong=quiz.answers.filter(a=>!a.correct),unique=[...new Set(wrong.map(a=>a.ayah))].sort((a,b)=>a-b);
+ const description=r.practice?'Bu tekrar alıştırması ilerleme puanını değiştirmedi.'
+  :r.passed?'Bu aşamayı geçtin. Bir sonraki adım için sure yolculuğuna dönebilirsin.'
+  :'Bu aşamayı geçmek için en az %'+r.threshold+' gerekiyor. Yanlışlarını çalışıp yeniden dene.';
+ const rows=quiz.answers.map((a,i)=>{
+  const short='<b>'+esc((i+1)+'. soru · Ayet '+a.ayah)+'</b><small>'+esc(a.title)+'</small>';
+  const answer=a.correct?'':answerLine('wrong-text','Seçtiğin cevap',a.selected,answerIsArabic(a))+
+    answerLine('right-text','Doğru cevap',a.answer,answerIsArabic(a));
+  return'<div class="deen-qj2-answer-row"><span class="deen-qj2-answer-icon'+(a.correct?'':' bad')+'" aria-label="'+(a.correct?'Doğru':'Yanlış')+'">'+(a.correct?'✓':'×')+'</span><div class="deen-qj2-answer-copy">'+short+answer+'</div></div>';
+ }).join('');
+ const review=wrong.length?'<button type="button" class="deen-qj2-next" onclick="DEEN_QURAN_JOURNEY_V2.reviewWrong()">YANLIŞLARI TEKRAR ET · '+wrong.length+'</button>':'';
+ const bestValue=r.practice?'—':'%'+r.best;
+ return'<div class="deen-qj2-quiz" data-qj2-result-v2="1" data-practice="'+(r.practice?'1':'0')+'">'+
+  '<section class="deen-qj2-summary" aria-label="Test sonuç özeti">'+
+   '<div class="deen-qj2-summary-top">'+esc(NAMES[currentSurah])+' · '+esc(label)+(r.practice?' · Tekrar':'')+'</div>'+
+   '<h3>'+(r.practice?'Tekrar tamamlandı':r.passed?'Başardın!':'Biraz daha pratik yapalım')+(r.newBest?' ✦ Yeni rekor':'')+'</h3>'+
+   '<div class="deen-qj2-score-ring'+(r.passed?'':' missed')+'" style="--score:'+r.score+'%" role="img" aria-label="Başarı puanı yüzde '+r.score+'"><strong>%'+r.score+'</strong><small>BAŞARI</small></div>'+
+   '<p class="deen-qj2-summary-sub">'+esc(description)+'</p>'+
+   '<div class="deen-qj2-metrics"><div class="deen-qj2-metric"><b>'+quiz.correct+'</b><small>Doğru</small></div><div class="deen-qj2-metric"><b>'+wrong.length+'</b><small>Yanlış</small></div><div class="deen-qj2-metric"><b>'+bestValue+'</b><small>'+(r.practice?'Kayıt değişmedi':'En iyi puan')+'</small></div></div>'+
+   (unique.length?'<div class="deen-qj2-targets">Tekrar edilecek ilgili ayetler: '+unique.join(', ')+'</div>':'')+
+  '</section>'+
+  '<details class="deen-qj2-analysis" open><summary>Soru analizi <b>'+quiz.correct+'/'+total+' doğru</b></summary>'+rows+'</details>'+
+  '<div class="deen-qj2-result-actions">'+review+
+   '<button type="button" class="deen-qj2-result-secondary" onclick="DEEN_QURAN_JOURNEY_V2.retryQuiz()">TESTİ YENİDEN DENE</button>'+
+   '<button type="button" class="deen-qj2-result-secondary" onclick="DEEN_QURAN_JOURNEY_V2.backToJourney()">SURE YOLCULUĞUNA DÖN</button></div>'+
+  '</div>';
 }
 function backToJourney(){stopQuizAudio();ignoreClick=null;discardDrag();sheet(NAMES[currentSurah]+' Yolculuğu',journeyHtml(currentSurah));return true}
 function audit(id='ikhlas'){
@@ -465,7 +555,7 @@ function injectDashboard(){
 DEEN_QURAN.openLearningFlow=baseOpenSurah;
 DEEN_QURAN.openSurah=function(id){if(IDS.includes(id))return open(id);return baseOpenSurah?.(id)};
 DEEN_QURAN.journeyV2=open;
-window.DEEN_QURAN_JOURNEY_V2={open,startStage,stats,masteryLevel,startQuiz,choose,checkAnswer,nextQuestion,backToJourney,audit,buildQuestions,refreshJourney,dragStart,dragMove,dragEnd,dragCancel,playQuizAudio,build:GAME_BUILD,quizSnapshot:()=>quiz?{surah:currentSurah,stage:quiz.stage,index:quiz.index,correct:quiz.correct,selected:quiz.selected,answered:quiz.answered,dragging:!!drag?.moved}:null};
+window.DEEN_QURAN_JOURNEY_V2={open,startStage,stats,masteryLevel,startQuiz,choose,checkAnswer,nextQuestion,backToJourney,audit,buildQuestions,refreshJourney,dragStart,dragMove,dragEnd,dragCancel,playQuizAudio,reviewWrong,retryQuiz,build:GAME_BUILD,quizSnapshot:()=>quiz?{surah:currentSurah,stage:quiz.stage,index:quiz.index,correct:quiz.correct,selected:quiz.selected,answered:quiz.answered,dragging:!!drag?.moved,practice:quiz.practice,answers:quiz.answers.length,wrong:quiz.answers.filter(a=>!a.correct).length,result:quiz.result}:null};
 document.addEventListener?.('deen:navigated',()=>setTimeout(injectDashboard,0));
 if(typeof MutationObserver!=='undefined')new MutationObserver(injectDashboard).observe(document.body,{childList:true,subtree:true});
 setTimeout(injectDashboard,0);
