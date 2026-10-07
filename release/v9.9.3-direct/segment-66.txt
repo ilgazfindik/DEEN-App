@@ -39,7 +39,7 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9340arabicfullbank1'
+  version:'9341arabicfullbank2'
  };
 
  const sameArray=(a,b)=>{
@@ -76,10 +76,12 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
   if(base.activity_type!==translated.activity_type)return null;
   if(blankCount(base.question_tr)!==blankCount(translated.question_ar))return null;
 
-  if(!sameArray(base.options_tr,translated.source_options_tr))return null;
-  if(!samePairs(base.pairs,translated.source_pairs_tr))return null;
-  if(!sameArray(base.items,translated.source_items_tr))return null;
-  if(!sameArray(base.correct_order,translated.source_correct_order_tr))return null;
+  if(isRuntimeVariant){
+   if(!sameArray(base.options_tr,translated.source_options_tr))return null;
+   if(!samePairs(base.pairs,translated.source_pairs_tr))return null;
+   if(!sameArray(base.items,translated.source_items_tr))return null;
+   if(!sameArray(base.correct_order,translated.source_correct_order_tr))return null;
+  }
 
   if(base.activity_type!=='matching' && base.activity_type!=='build_sequence' &&
      base.correct_answer!==translated.source_correct_answer_tr)return null;
@@ -175,7 +177,7 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9340arabicfullbank1';
+   const token='9341arabicfullbank2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
