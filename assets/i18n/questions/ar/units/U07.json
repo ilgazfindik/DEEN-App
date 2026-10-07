@@ -2273,6 +2273,370 @@
       "source_ref": "Kur'an 17:9 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-001": {
+      "question_ar": "كتب طالب الجمل الآتية: (1) أنزل الله التوراة والإنجيل. (2) أُعطي داود عليه السلام الزبور. (3) القرآن يصدّق الوحي السابق. أيّها يوافق القرآن؟",
+      "options_ar": [
+        "1 و2 و3",
+        "1 فقط",
+        "2 فقط",
+        "2 و3"
+      ],
+      "correct_answer_ar": "1 و2 و3",
+      "explanation_ar": "تؤيد آل عمران 3:3-4 والنساء 4:163 والمائدة 5:48 هذه المعلومات الثلاث.",
+      "source_question_tr": "Bir öğrenci şu cümleleri yazıyor: (1) Tevrat ve İncil Allah tarafından indirilmiştir. (2) Hz. Dâvûd'a Zebur verilmiştir. (3) Kur'an önceki vahiyleri tasdik eder. Hangileri Kur'an'la uyumludur?",
+      "source_correct_answer_tr": "1, 2 ve 3",
+      "source_options_tr": [
+        "1, 2 ve 3",
+        "Yalnız 1",
+        "Yalnız 2",
+        "2 ve 3"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:285; 3:3-4; 4:136,163; 5:44,46,48; 15:9; 17:9; 41:41-42; 87:18-19; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-002": {
+      "question_ar": "يقول شخص: «الإيمان بوحي الله السابق يتعارض مع قبول مرجعية القرآن». ما أفضل جواب؟",
+      "options_ar": [
+        "تجمع سورة المائدة 5:48 بين تصديق الوحي السابق وكون القرآن مهيمنًا عليه",
+        "يجب رفض الوحي السابق",
+        "القرآن ليس مهيمنًا",
+        "لا توجد أي علاقة بين الوحي"
+      ],
+      "correct_answer_ar": "تجمع سورة المائدة 5:48 بين تصديق الوحي السابق وكون القرآن مهيمنًا عليه",
+      "explanation_ar": "تجمع الآية بين تصديق الوحي السابق وموقع القرآن المهيمن والمرجعي عليه.",
+      "source_question_tr": "Bir kişi 'Allah'ın önceki vahiylerini kabul etmekle Kur'an'ın ölçüsünü kabul etmek çelişir' diyor. En iyi cevap hangisidir?",
+      "source_correct_answer_tr": "Mâide 5:48 hem tasdiki hem Kur'an'ın denetleyici konumunu birlikte bildirir",
+      "source_options_tr": [
+        "Mâide 5:48 hem tasdiki hem Kur'an'ın denetleyici konumunu birlikte bildirir",
+        "Önceki vahiyler reddedilmelidir",
+        "Kur'an denetleyici değildir",
+        "Vahiyler arasında hiçbir ilişki yoktur"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 5:48 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-003": {
+      "question_ar": "إنزال الكتب الإلهية على أنبياء مختلفين لا يعني اختلاف مصدر الوحي.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "يعرض القرآن التوراة والإنجيل والقرآن بوصفها وحيًا من عند الله.",
+      "source_question_tr": "İlahî kitapların farklı peygamberlere indirilmesi, vahyin kaynağının farklı olduğu anlamına gelmez.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 3:3-4; 5:44; 5:46 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-004": {
+      "question_ar": "يقوم الإيمان بالكتب على الاعتقاد بأن مصدر الوحي هو ______.",
+      "options_ar": [
+        "الله",
+        "المجتمع",
+        "النبي نفسه",
+        "المؤرخ"
+      ],
+      "correct_answer_ar": "الله",
+      "explanation_ar": "المصدر المشترك للكتب الإلهية هو الله.",
+      "source_question_tr": "Kitaplara imanın temelinde vahyin kaynağının ______ olduğu inancı bulunur.",
+      "source_correct_answer_tr": "Allah",
+      "source_options_tr": [
+        "Allah",
+        "toplum",
+        "peygamberin kendisi",
+        "tarihçi"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Kur'an 2:285; 4:136 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-005": {
+      "question_ar": "كُتب في بطاقة ملخّص: «القرآن يرفض الكتب السابقة ولا يعدّها وحيًا». ما التصحيح الأشمل؟",
+      "options_ar": [
+        "القرآن يصدّق الوحي الإلهي السابق ويبيّن أنه مهيمنٌ عليه",
+        "لا يذكر القرآن الوحي السابق أصلًا",
+        "لا يقبل القرآن إلا الزبور",
+        "يرفض القرآن الوحي كله"
+      ],
+      "correct_answer_ar": "القرآن يصدّق الوحي الإلهي السابق ويبيّن أنه مهيمنٌ عليه",
+      "explanation_ar": "تجمع سورة المائدة 5:48 بين التصديق والهيمنة.",
+      "source_question_tr": "Bir özet kartında 'Kur'an önceki kitapları reddeder ve onları vahiy saymaz' yazıyor. En kapsamlı düzeltme hangisidir?",
+      "source_correct_answer_tr": "Kur'an önceki ilahî vahiyleri tasdik eder ve kendisini onlar üzerinde denetleyici olarak bildirir",
+      "source_options_tr": [
+        "Kur'an önceki ilahî vahiyleri tasdik eder ve kendisini onlar üzerinde denetleyici olarak bildirir",
+        "Kur'an önceki vahiylerden hiç söz etmez",
+        "Kur'an yalnız Zebur'u kabul eder",
+        "Kur'an vahyi tamamen reddeder"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 5:48 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-006": {
+      "question_ar": "صِل المصدر بالمعلومة والنتيجة المناسبة في موضوع الإيمان بالكتب.",
+      "pairs_ar": [
+        {
+          "left": "الحجر 15:9",
+          "right": "حفظ القرآن"
+        },
+        {
+          "left": "الإسراء 17:9",
+          "right": "هداية القرآن"
+        },
+        {
+          "left": "المائدة 5:48",
+          "right": "تصديق الكتب السابقة والهيمنة عليها"
+        }
+      ],
+      "explanation_ar": "تبيّن هذه الآيات هوية القرآن ووظيفته وعلاقته بالوحي السابق من جوانب مختلفة.",
+      "source_question_tr": "Kitaplara iman ünitesinde kaynak, bilgi ve sonucu eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Hicr 15:9",
+          "right": "Kur'an'ın korunması"
+        },
+        {
+          "left": "İsrâ 17:9",
+          "right": "Kur'an'ın rehberliği"
+        },
+        {
+          "left": "Mâide 5:48",
+          "right": "Önceki kitapları tasdik ve denetim"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Kur'an 2:285; 3:3-4; 4:136,163; 5:44,46,48; 15:9; 17:9; 41:41-42; 87:18-19; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-007": {
+      "question_ar": "اكتب ثلاثة مبادئ أساسية في الإيمان بالكتب: المصدر، والعلاقة، والهداية.",
+      "correct_answer_ar": "المصدر هو الله؛ والقرآن يصدّق الوحي الإلهي السابق ويقدّم المعيار المرجعي؛ والقرآن هدايةٌ تهدي الإنسان إلى الصواب.",
+      "explanation_ar": "تلخّص هذه المبادئ الثلاثة مصدر الوحي ومكانة القرآن ووظيفته في الهداية.",
+      "source_question_tr": "Kitaplara iman konusunda üç temel ilkeyi yaz: kaynak, ilişki ve rehberlik.",
+      "source_correct_answer_tr": "Kaynak Allah'tır; Kur'an önceki ilahî vahiyleri tasdik eder ve ölçü sunar; Kur'an insanı doğruya yönelten rehberdir.",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 2:285; 3:3-4; 4:136,163; 5:44,46,48; 15:9; 17:9; 41:41-42; 87:18-19; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-008": {
+      "question_ar": "يعرض تطبيق تعليمي أعدادًا مروية عن الصحف تحت عنوان «آية قرآنية». ما التصحيح الأدق؟",
+      "options_ar": [
+        "فصل المعلومة الصريحة في الآية عن تفاصيل الروايات، وألا يُنسب إلى القرآن إلا ما نصّ عليه بوضوح",
+        "اعتبار جميع الروايات آيات",
+        "حذف موضوع الصحف كليًا",
+        "إخفاء نوع المصدر"
+      ],
+      "correct_answer_ar": "فصل المعلومة الصريحة في الآية عن تفاصيل الروايات، وألا يُنسب إلى القرآن إلا ما نصّ عليه بوضوح",
+      "explanation_ar": "تذكر سورة الأعلى 87:18-19 صحف إبراهيم وموسى؛ أما التفاصيل الأخرى فينبغي بيان مستوى مصدرها على حدة.",
+      "source_question_tr": "Bir eğitim uygulaması sahife rivayetlerindeki sayıları 'Kur'an ayeti' etiketiyle sunuyor. En doğru düzeltme hangisidir?",
+      "source_correct_answer_tr": "Ayet bilgisini rivayet ayrıntısından ayırıp yalnız açık Kur'an bilgisini ayet olarak etiketlemek",
+      "source_options_tr": [
+        "Ayet bilgisini rivayet ayrıntısından ayırıp yalnız açık Kur'an bilgisini ayet olarak etiketlemek",
+        "Bütün rivayetleri ayet saymak",
+        "Sahifeler konusunu tamamen silmek",
+        "Kaynak türünü gizlemek"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 87:18-19 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-009": {
+      "question_ar": "أيّ المطابقات الآتية في وحدة الإيمان بالكتب غير صحيحة؟",
+      "options_ar": [
+        "التوراة — في المائدة 5:44 فيها هدى ونور",
+        "الإنجيل — في المائدة 5:46 أُعطي لعيسى عليه السلام",
+        "الزبور — في النساء 4:163 أُعطي لداود عليه السلام",
+        "القرآن — في المائدة 5:48 يرفض الوحي السابق كله"
+      ],
+      "correct_answer_ar": "القرآن — في المائدة 5:48 يرفض الوحي السابق كله",
+      "explanation_ar": "تذكر سورة المائدة 5:48 أن القرآن مصدِّقٌ لما سبقه من الكتاب ومهيمنٌ عليه، لا أنه يرفضه كله.",
+      "source_question_tr": "Kitaplara iman ünitesindeki eşleştirmelerden hangisi yanlıştır?",
+      "source_correct_answer_tr": "Kur'an — Mâide 5:48'de önceki vahiyleri bütünüyle reddeder",
+      "source_options_tr": [
+        "Tevrat — Mâide 5:44'te hidayet ve nur",
+        "İncil — Mâide 5:46'da Hz. Îsâ'ya verilmiştir",
+        "Zebur — Nisâ 4:163'te Hz. Dâvûd'a verilmiştir",
+        "Kur'an — Mâide 5:48'de önceki vahiyleri bütünüyle reddeder"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:285; 3:3-4; 4:136,163; 5:44,46,48; 15:9; 17:9; 41:41-42; 87:18-19; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-010": {
+      "question_ar": "يصف شخص حفظ القرآن بأنه «ادعاء يعتمد على جهود البشر وحدهم». أي آية تجعل هذا الوصف ناقصًا؟",
+      "options_ar": [
+        "الحجر 15:9",
+        "الأعلى 87:19",
+        "النساء 4:163",
+        "المائدة 5:46"
+      ],
+      "correct_answer_ar": "الحجر 15:9",
+      "explanation_ar": "تربط سورة الحجر 15:9 حفظ الذكر مباشرة بضمان الله: «وَإِنَّا لَهُ لَحَافِظُونَ».",
+      "source_question_tr": "Bir kişi Kur'an'ın korunmasını 'yalnız insanların çabasına bağlı bir iddia' diye açıklıyor. Hangi ayet bu ifadeyi eksik bırakır?",
+      "source_correct_answer_tr": "Hicr 15:9",
+      "source_options_tr": [
+        "Hicr 15:9",
+        "A'lâ 87:19",
+        "Nisâ 4:163",
+        "Mâide 5:46"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 15:9; 41:41-42 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-011": {
+      "question_ar": "أكمل الجملة المتعلقة بهداية القرآن: هذا الكتاب يهدي الإنسان إلى التي هي ______.",
+      "options_ar": [
+        "أقوم",
+        "أقدم",
+        "أخفى",
+        "أعقد"
+      ],
+      "correct_answer_ar": "أقوم",
+      "explanation_ar": "تذكر سورة الإسراء 17:9 أن القرآن يهدي للتي هي أقوم.",
+      "source_question_tr": "Kur'an'ın rehberliğiyle ilgili cümleyi tamamla: Bu kitap insanı en ______ olana yöneltir.",
+      "source_correct_answer_tr": "doğru",
+      "source_options_tr": [
+        "doğru",
+        "eski",
+        "gizli",
+        "karmaşık"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Kur'an 17:9 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-012": {
+      "question_ar": "ما المنهج الموثوق في تعلّم موضوع الإيمان بالكتب؟",
+      "options_ar": [
+        "الاعتماد على نص الآية الصريح، مع بيان مستوى مصدر التفسير والرواية على حدة",
+        "اعتبار كل شائعة وحيًا",
+        "إصدار أحكام قطعية بلا مصدر",
+        "عرض كلام البشر على أنه كلام الله"
+      ],
+      "correct_answer_ar": "الاعتماد على نص الآية الصريح، مع بيان مستوى مصدر التفسير والرواية على حدة",
+      "explanation_ar": "الحفاظ على الفرق بين الوحي والتفسير والرأي البشري أساسٌ في دقة التعامل مع المصادر.",
+      "source_question_tr": "Kitaplara iman konusunda güvenilir öğrenme yöntemi hangisidir?",
+      "source_correct_answer_tr": "Açık ayet bilgisini temel alıp yorum ve rivayetin kaynak seviyesini ayrıca belirtmek",
+      "source_options_tr": [
+        "Açık ayet bilgisini temel alıp yorum ve rivayetin kaynak seviyesini ayrıca belirtmek",
+        "Her söylentiyi vahiy saymak",
+        "Kaynak göstermeden kesin hüküm vermek",
+        "İnsan sözünü Allah sözü diye sunmak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:285; 3:3-4; 4:136,163; 5:44,46,48; 15:9; 17:9; 41:41-42; 87:18-19; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-013": {
+      "question_ar": "يقول طالب: «الإيمان بالكتب يعني حفظ أسماء الكتب فقط». ما الجواب الأكثر توازنًا؟",
+      "options_ar": [
+        "إلى جانب معرفة الأسماء، ينبغي فهم أن الوحي من عند الله، ووظيفته في الهداية، ومكانة القرآن",
+        "نعم، هو مجرد حفظ الأسماء",
+        "الإيمان بالكتب لا علاقة له بالعمل",
+        "لا يوجد مفهوم الهداية في الوحي"
+      ],
+      "correct_answer_ar": "إلى جانب معرفة الأسماء، ينبغي فهم أن الوحي من عند الله، ووظيفته في الهداية، ومكانة القرآن",
+      "explanation_ar": "تتناول الوحدة مصدر الكتب وهدايتها وعلاقة القرآن بالوحي السابق معًا.",
+      "source_question_tr": "Bir öğrenci 'Kitaplara iman sadece kitap isimlerini ezberlemektir' diyor. En dengeli cevap hangisidir?",
+      "source_correct_answer_tr": "İsim bilgisi yanında vahyin Allah'tan gelişi, rehberliği ve Kur'an'ın konumunu anlamak gerekir",
+      "source_options_tr": [
+        "İsim bilgisi yanında vahyin Allah'tan gelişi, rehberliği ve Kur'an'ın konumunu anlamak gerekir",
+        "Evet, yalnız isim ezberidir",
+        "Kitaplara iman davranışla ilgisizdir",
+        "Rehberlik kavramı vahiyde yoktur"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:285; 3:3-4; 4:136,163; 5:44,46,48; 15:9; 17:9; 41:41-42; 87:18-19; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S07-014": {
+      "question_ar": "أي جملة تلخّص وحدة الإيمان بالكتب أفضل تلخيص؟",
+      "options_ar": [
+        "الإيمان بالكتب يشمل التصديق بالوحي الذي أنزله الله، وفهم هداية القرآن وعلاقته الصحيحة بالوحي السابق",
+        "الإيمان بالكتب يعني اعتبار النصوص القديمة آثارًا تاريخية فقط",
+        "كل كتابة دينية وحيٌ من الله",
+        "القرآن يرفض جميع الوحي السابق"
+      ],
+      "correct_answer_ar": "الإيمان بالكتب يشمل التصديق بالوحي الذي أنزله الله، وفهم هداية القرآن وعلاقته الصحيحة بالوحي السابق",
+      "explanation_ar": "تجمع الوحدة بين أصل الإيمان، والكتب المذكورة بالاسم، ووحدة مصدر الوحي، ومكانة القرآن، وهدايته، وحفظه.",
+      "source_question_tr": "Kitaplara iman ünitesini en iyi özetleyen cümle hangisidir?",
+      "source_correct_answer_tr": "Kitaplara iman, Allah'ın indirdiği vahiyleri tasdik etmeyi, Kur'an'ın rehberliğini ve önceki vahiylerle ilişkisini doğru anlamayı içerir",
+      "source_options_tr": [
+        "Kitaplara iman, Allah'ın indirdiği vahiyleri tasdik etmeyi, Kur'an'ın rehberliğini ve önceki vahiylerle ilişkisini doğru anlamayı içerir",
+        "Kitaplara iman yalnız eski metinleri tarihî eser saymaktır",
+        "Her dinî yazı vahiydir",
+        "Kur'an önceki bütün vahiyleri reddeder"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:285; 3:3-4; 4:136,163; 5:44,46,48; 15:9; 17:9; 41:41-42; 87:18-19; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   }
 }
