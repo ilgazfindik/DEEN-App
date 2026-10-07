@@ -1969,6 +1969,310 @@
       "source_ref": "Kur'an 17:9 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-001": {
+      "question_ar": "يقول طالب: «لا يذكر القرآن أن التوراة والإنجيل أُنزلا من عند الله». ما التصحيح؟",
+      "options_ar": [
+        "تبيّن آل عمران 3:3-4 والمائدة 5:44-46 أنهما وحيٌ إلهي",
+        "لا يذكر القرآن هذين الكتابين أصلًا",
+        "التوراة والإنجيل كتاب واحد",
+        "أُعطي الإنجيل لداود عليه السلام"
+      ],
+      "correct_answer_ar": "تبيّن آل عمران 3:3-4 والمائدة 5:44-46 أنهما وحيٌ إلهي",
+      "explanation_ar": "يصرّح القرآن بأن التوراة والإنجيل أُنزلا من عند الله.",
+      "source_question_tr": "Bir öğrenci 'Kur'an'da Tevrat ve İncil'in Allah tarafından indirildiği söylenmez' diyor. Düzeltme hangisidir?",
+      "source_correct_answer_tr": "Âl-i İmrân 3:3-4 ve Mâide 5:44-46 onların ilahî vahiy olarak verildiğini bildirir",
+      "source_options_tr": [
+        "Âl-i İmrân 3:3-4 ve Mâide 5:44-46 onların ilahî vahiy olarak verildiğini bildirir",
+        "Kur'an bu kitapları hiç anmaz",
+        "Tevrat ve İncil aynı kitaptır",
+        "İncil Hz. Dâvûd'a verilmiştir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 3:3-4; 5:44; 5:46 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-002": {
+      "question_ar": "الإيمان بالكتب يقتضي اعتبار كل نص ديني كتبه البشر وحيًا من الله تلقائيًا.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "يميّز القرآن بين الوحي وكلام البشر، وتذمّ سورة البقرة 2:79 نسبة ما يكتبه الناس إلى الله.",
+      "source_question_tr": "Kitaplara iman, insan eliyle yazılmış her dinî metni otomatik olarak Allah'ın vahyi kabul etmeyi gerektirir.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 2:79 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-003": {
+      "question_ar": "ينشر صانع محتوى رأيه الشخصي على أنه «كلام الله القطعي». ما التحذير الأساسي المستفاد من سورة البقرة 2:79؟",
+      "options_ar": [
+        "ألا يُنسب كلام البشر إلى الله",
+        "أن يُعدّ كل تفسير وحيًا",
+        "أن يُخفى المصدر",
+        "أن يُغيَّر النص الديني لأجل الكسب"
+      ],
+      "correct_answer_ar": "ألا يُنسب كلام البشر إلى الله",
+      "explanation_ar": "تذمّ سورة البقرة 2:79 من يكتبون بأيديهم ثم يقولون: «هذا من عند الله».",
+      "source_question_tr": "Bir içerik üreticisi kendi yorumunu 'Allah'ın kesin sözü' diye yayımlıyor. Bakara 2:79'un verdiği temel uyarı hangisidir?",
+      "source_correct_answer_tr": "İnsan sözünü Allah'a nispet etmemek",
+      "source_options_tr": [
+        "İnsan sözünü Allah'a nispet etmemek",
+        "Her yorumu vahiy saymak",
+        "Kaynağı gizlemek",
+        "Dinî metni kazanç için istediği gibi değiştirmek"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:79 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-004": {
+      "question_ar": "كُتب في ملاحظة: «القرآن يرفض الكتب الإلهية السابقة تمامًا». أين الخطأ؟",
+      "options_ar": [
+        "تذكر سورة المائدة 5:48 أن القرآن مصدِّقٌ للكتب السابقة",
+        "لا يتحدث القرآن عن الوحي السابق مطلقًا",
+        "يرفض القرآن مفهوم الوحي",
+        "لا يقبل القرآن إلا الزبور"
+      ],
+      "correct_answer_ar": "تذكر سورة المائدة 5:48 أن القرآن مصدِّقٌ للكتب السابقة",
+      "explanation_ar": "يصدّق القرآن أصل الوحي السابق، ويصف نفسه بأنه مهيمنٌ عليه.",
+      "source_question_tr": "Bir notta 'Kur'an önceki ilahî kitapları tamamen reddeder' yazıyor. Hata nedir?",
+      "source_correct_answer_tr": "Mâide 5:48 Kur'an'ın önceki kitapları tasdik ettiğini bildirir",
+      "source_options_tr": [
+        "Mâide 5:48 Kur'an'ın önceki kitapları tasdik ettiğini bildirir",
+        "Kur'an önceki vahiylerden hiç söz etmez",
+        "Kur'an vahiy fikrini reddeder",
+        "Kur'an yalnız Zebur'u kabul eder"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 5:48 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-005": {
+      "question_ar": "أي العبارات الآتية هي الأكثر إشكالًا من حيث الانضباط بالمصدر في موضوع الإيمان بالكتب؟",
+      "options_ar": [
+        "«يجب اعتبار كل نص ديني بلا مصدر وحيًا»",
+        "«تُذكر التوراة في القرآن كتابًا إلهيًّا»",
+        "«أُعطي داود عليه السلام الزبور»",
+        "«القرآن يصدّق الوحي السابق»"
+      ],
+      "correct_answer_ar": "«يجب اعتبار كل نص ديني بلا مصدر وحيًا»",
+      "explanation_ar": "ادعاء الوحي يحتاج إلى مصدر موثوق، ولا يصح نسبة كلام البشر إلى الله.",
+      "source_question_tr": "Aşağıdakilerden hangisi kitaplara iman konusunda kaynak disiplini açısından en sorunlu cümledir?",
+      "source_correct_answer_tr": "'Kaynaksız her dinî metin vahiy sayılmalıdır'",
+      "source_options_tr": [
+        "'Kaynaksız her dinî metin vahiy sayılmalıdır'",
+        "'Tevrat Kur'an'da ilahî kitap olarak anılır'",
+        "'Hz. Dâvûd'a Zebur verilmiştir'",
+        "'Kur'an önceki vahiyleri tasdik eder'"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:79 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-006": {
+      "question_ar": "تصديق القرآن للوحي السابق يعني أنه يصدّق كل رواية مجهولة المصدر.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "يتعلق التصديق بأصل الوحي الإلهي، ولا يجعل كل رواية مجهولة المصدر وحيًا.",
+      "source_question_tr": "Kur'an'ın önceki vahiyleri tasdik etmesi, kaynağı belirsiz her anlatıyı doğruladığı anlamına gelir.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 5:48 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-007": {
+      "question_ar": "صِل الادعاءات الخاطئة المتعلقة بالكتب الإلهية بالتصحيحات الصحيحة.",
+      "pairs_ar": [
+        {
+          "left": "أُعطي الزبور لموسى عليه السلام",
+          "right": "النساء 4:163: أُعطي داود عليه السلام الزبور"
+        },
+        {
+          "left": "القرآن يرفض الكتب السابقة",
+          "right": "المائدة 5:48: القرآن مصدِّقٌ لما سبقه"
+        },
+        {
+          "left": "القرآن غير محفوظ",
+          "right": "الحجر 15:9: يخبر الله أنه حافظٌ للذكر"
+        }
+      ],
+      "explanation_ar": "توضح هذه التصحيحات ثلاث نقاط شائعة يكثر الخلط فيها عند الحديث عن الإيمان بالكتب.",
+      "source_question_tr": "İlahî kitaplarla ilgili yanlış iddiaları doğru düzeltmeleriyle eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Zebur Hz. Mûsâ'ya verilmiştir",
+          "right": "Nisâ 4:163: Hz. Dâvûd'a Zebur verildi"
+        },
+        {
+          "left": "Kur'an önceki kitapları reddeder",
+          "right": "Mâide 5:48: Öncekileri tasdik eder"
+        },
+        {
+          "left": "Kur'an korunmaz",
+          "right": "Hicr 15:9: Allah koruyacağını bildirir"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Kur'an 2:285; 3:3-4; 4:136,163; 5:44,46,48; 15:9; 17:9; 41:41-42; 87:18-19; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-008": {
+      "question_ar": "اشرح في جملة واحدة الفرق الأساسي بين التفسير البشري والوحي الإلهي.",
+      "correct_answer_ar": "مصدر الوحي الإلهي هو الله، أما التفسير البشري فهو اجتهاد لفهم الوحي ولا يُعدّ الوحي نفسه.",
+      "explanation_ar": "تتضمن سورة البقرة 2:79 تحذيرًا واضحًا من عرض كلام البشر على أنه من عند الله.",
+      "source_question_tr": "İnsan yorumu ile ilahî vahiy arasındaki temel farkı tek cümleyle açıkla.",
+      "source_correct_answer_tr": "İlahî vahyin kaynağı Allah'tır; insan yorumu ise vahyi anlamaya çalışan beşerî değerlendirmedir ve vahyin kendisi sayılmaz.",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 2:79 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-009": {
+      "question_ar": "تتضمن سورة الحجر 15:9 ضمانًا صريحًا يتعلق بحفظ القرآن.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "تنص الآية على أن الله أنزل الذكر وأنه له لحافظون.",
+      "source_question_tr": "Kur'an'ın korunması konusunda Hicr 15:9 açık bir güvence ifade eder.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 15:9; 41:41-42 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-010": {
+      "question_ar": "يقول سؤال اختبار: «يذكر القرآن أعداد جميع الصحف واحدةً واحدة». ما التقييم الأدق؟",
+      "options_ar": [
+        "العبارة خاطئة؛ تذكر الأعلى 87:18-19 صحف إبراهيم وموسى ولا تسرد جميع الأعداد",
+        "العبارة صحيحة؛ كل الأعداد مذكورة في الآيات",
+        "ينكر القرآن وجود الصحف",
+        "الصحف اسم آخر للإنجيل فقط"
+      ],
+      "correct_answer_ar": "العبارة خاطئة؛ تذكر الأعلى 87:18-19 صحف إبراهيم وموسى ولا تسرد جميع الأعداد",
+      "explanation_ar": "ينبغي التفريق بين المعلومة الصريحة في الآيات والتفاصيل المروية في مصادر أخرى؛ فالآيتان تذكران صحف إبراهيم وموسى دون تعداد جميع الصحف.",
+      "source_question_tr": "Bir sınav sorusu 'Sahifelerin bütün sayıları Kur'an'da tek tek verilir' diyor. En doğru değerlendirme hangisidir?",
+      "source_correct_answer_tr": "Yanlıştır; A'lâ 87:18-19 İbrâhim ve Mûsâ'nın sahifelerini zikreder ama bütün sayıları vermez",
+      "source_options_tr": [
+        "Yanlıştır; A'lâ 87:18-19 İbrâhim ve Mûsâ'nın sahifelerini zikreder ama bütün sayıları vermez",
+        "Doğrudur; bütün sayılar ayettedir",
+        "Kur'an sahifeleri inkâr eder",
+        "Sahifeler yalnız İncil'in adıdır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 87:18-19 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-011": {
+      "question_ar": "تقديم كلام البشر على أنه وحي بقول «هذا من عند الله» أمرٌ ______ في سورة البقرة 2:79.",
+      "options_ar": [
+        "مذموم",
+        "مستحب",
+        "واجب",
+        "ممدوح"
+      ],
+      "correct_answer_ar": "مذموم",
+      "explanation_ar": "تذمّ الآية بشدة من يكتبون بأيديهم ثم يقولون عن ذلك: «هذا من عند الله».",
+      "source_question_tr": "İnsan sözünü 'Bu Allah katındandır' diyerek vahiy gibi sunmak, Bakara 2:79'da ______.",
+      "source_correct_answer_tr": "kınanır",
+      "source_options_tr": [
+        "kınanır",
+        "önerilir",
+        "zorunlu tutulur",
+        "övülür"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Kur'an 2:79 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U07-S06-012": {
+      "question_ar": "يعلّم تطبيق أن «الوظيفة الأساسية للقرآن هي تقديم المعلومات التاريخية فقط». ما التصحيح؟",
+      "options_ar": [
+        "تؤكد سورة الإسراء 17:9 أن القرآن يهدي للتي هي أقوم",
+        "القرآن لا يهدي الناس",
+        "القرآن كتاب تسلسل زمني فقط",
+        "يرفض القرآن مفهوم الهداية"
+      ],
+      "correct_answer_ar": "تؤكد سورة الإسراء 17:9 أن القرآن يهدي للتي هي أقوم",
+      "explanation_ar": "توضح سورة الإسراء 17:9 وظيفة القرآن في هداية الناس إلى الطريق الأقوم.",
+      "source_question_tr": "Bir uygulama 'Kur'an'ın ana işlevi yalnız tarihî bilgi vermektir' diye öğretiyor. Düzeltme hangisidir?",
+      "source_correct_answer_tr": "İsrâ 17:9 Kur'an'ın en doğru olana ileten rehberlik işlevini vurgular",
+      "source_options_tr": [
+        "İsrâ 17:9 Kur'an'ın en doğru olana ileten rehberlik işlevini vurgular",
+        "Kur'an rehberlik etmez",
+        "Kur'an yalnız kronoloji kitabıdır",
+        "Kur'an hidayet kavramını reddeder"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 17:9 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   }
 }
