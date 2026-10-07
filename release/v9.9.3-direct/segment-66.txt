@@ -12,6 +12,10 @@ html:lang(ar) #lesson .v1017-subtitle{text-align:right;unicode-bidi:plaintext}
 html:lang(ar) #lesson #answerArea .option-label,
 html:lang(ar) #lesson #answerArea .fill-choice,
 html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-bidi:plaintext}
+html:lang(ar) #lesson .v1017-hero{direction:rtl!important;text-align:right!important;margin:14px 0 18px!important;padding:0 4px!important;position:relative!important;z-index:2!important}
+html:lang(ar) #lesson .v1017-title{font-size:clamp(24px,7vw,36px)!important;line-height:1.12!important;white-space:normal!important;text-align:right!important;margin:0!important}
+html:lang(ar) #lesson .v1017-subtitle{margin-top:8px!important;text-align:right!important}
+html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!important}
 </style>
 <script id="deen-v91223-arabic-fullbank-js">
 (()=>{
@@ -36,10 +40,11 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
   failure:'',
   translations:Object.create(null),
   runtime_variants:Object.create(null),
+  live_translations:Object.create(null),
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9341arabicfullbank2'
+  version:'9342arabicliveu01'
  };
 
  const sameArray=(a,b)=>{
@@ -67,6 +72,7 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
   if(typeof t.explanation_ar!=='string'||!t.explanation_ar.trim())return false;
   const values=userVisibleStrings(t);
   if(values.some(v=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(v.replace(/\bDEEN\b/g,''))))return false;
+  if(t.teaching_card_ar&&Object.values(t.teaching_card_ar).some(v=>typeof v!=='string'||!v.trim()||/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(v)))return false;
   return /[\u0600-\u06FF]/.test(t.question_ar)&&/[\u0600-\u06FF]/.test(t.explanation_ar);
  }
 
@@ -77,8 +83,12 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
   if(blankCount(base.question_tr)!==blankCount(translated.question_ar))return null;
 
   if(isRuntimeVariant){
-   if(!sameArray(base.options_tr,translated.source_options_tr))return null;
-   if(!samePairs(base.pairs,translated.source_pairs_tr))return null;
+   if(base.activity_type==='matching'){
+    if(!samePairs(base.pairs,translated.source_pairs_tr))return null;
+   }else{
+    if(!sameArray(base.options_tr,translated.source_options_tr))return null;
+    if(!samePairs(base.pairs,translated.source_pairs_tr))return null;
+   }
    if(!sameArray(base.items,translated.source_items_tr))return null;
    if(!sameArray(base.correct_order,translated.source_correct_order_tr))return null;
   }
@@ -86,14 +96,14 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
   if(base.activity_type!=='matching' && base.activity_type!=='build_sequence' &&
      base.correct_answer!==translated.source_correct_answer_tr)return null;
 
-  if(Array.isArray(base.options_tr)){
+  if(base.activity_type==='matching'){
+   if(!Array.isArray(base.pairs)||!Array.isArray(translated.pairs_ar)||translated.pairs_ar.length!==base.pairs.length)return null;
+   if(translated.pairs_ar.some(p=>typeof p?.left!=='string'||typeof p?.right!=='string'||!p.left.trim()||!p.right.trim()))return null;
+  }else if(Array.isArray(base.options_tr)){
    if(!Array.isArray(translated.options_ar)||translated.options_ar.length!==base.options_tr.length)return null;
    const correctIndex=base.options_tr.indexOf(base.correct_answer);
    if(correctIndex<0||translated.options_ar[correctIndex]!==translated.correct_answer_ar)return null;
    if(translated.options_ar.filter(x=>x===translated.correct_answer_ar).length!==1)return null;
-  }else if(base.activity_type==='matching'){
-   if(!Array.isArray(base.pairs)||!Array.isArray(translated.pairs_ar)||translated.pairs_ar.length!==base.pairs.length)return null;
-   if(translated.pairs_ar.some(p=>typeof p?.left!=='string'||typeof p?.right!=='string'||!p.left.trim()||!p.right.trim()))return null;
   }else if(base.activity_type==='build_sequence'||Array.isArray(base.correct_order)){
    if(!Array.isArray(base.items)||!Array.isArray(translated.items_ar)||translated.items_ar.length!==base.items.length)return null;
    if(!Array.isArray(base.correct_order)||!Array.isArray(translated.correct_order_ar)||translated.correct_order_ar.length!==base.correct_order.length)return null;
@@ -110,6 +120,7 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
    items:Array.isArray(translated.items_ar)?[...translated.items_ar]:base.items,
    correct_order:Array.isArray(translated.correct_order_ar)?[...translated.correct_order_ar]:base.correct_order,
    explanation_tr:translated.explanation_ar,
+   teaching_card:translated.teaching_card_ar?{...translated.teaching_card_ar}:base.teaching_card,
    __deenArabicPilot:true,
    __deenArabicFullBank:true,
    __deenSourceQuestion:base,
@@ -119,9 +130,10 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
 
  pilot.translateQuestion=function(base){
   if(!pilot.ready||!base)return null;
+  const live=pilot.live_translations[base.id];
   const variant=pilot.runtime_variants[base.id];
-  const translated=variant||pilot.translations[base.id];
-  return asDisplayQuestion(base,translated,!!variant);
+  const translated=live||variant||pilot.translations[base.id];
+  return asDisplayQuestion(base,translated,!!live||!!variant);
  };
 
  pilot.canStart=id=>pilot.ready&&supportedStages.has(id);
@@ -177,14 +189,15 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9341arabicfullbank2';
+   const token='9342arabicliveu01';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
    }
-   const [units,draft]=await Promise.all([
+   const [units,draft,liveFile]=await Promise.all([
     Promise.all(unitJobs),
-    fetchJson('./assets/i18n/questions.ar.draft.json?v='+token)
+    fetchJson('./assets/i18n/questions.ar.draft.json?v='+token),
+    fetchJson('./assets/i18n/questions/ar/runtime/U01.live.json?v='+token)
    ]);
    const translations=Object.create(null);
    for(const file of units){
@@ -196,8 +209,13 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
    const variants=draft?.runtime_variants||{};
    if(Object.keys(variants).length!==20)throw Error('Arabic runtime variant count '+Object.keys(variants).length);
    if(Object.values(variants).some(x=>!validArabicEntry(x)))throw Error('Invalid Arabic runtime variant');
+   if(liveFile?.locale!=='ar'||liveFile?.release_ready!==false||liveFile?.verified_by_religious_expert!==false)throw Error('Unsafe Arabic live metadata');
+   const live=liveFile?.translations||{};
+   if(Object.keys(live).length!==84)throw Error('Arabic live U01 count '+Object.keys(live).length);
+   if(Object.values(live).some(x=>!validArabicEntry(x)))throw Error('Invalid Arabic live U01 entry');
    pilot.translations=translations;
    pilot.runtime_variants=variants;
+   pilot.live_translations=live;
    pilot.ready=true;
   }catch(e){
    pilot.failure=String(e?.message||e);
@@ -211,6 +229,31 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
 
  window.DEEN_ARABIC_PILOT=pilot;
  pilot.promise=preload();
+
+ // The legacy U01-S01 pilot owns startStage and bypasses the normal locale selector.
+ // In Arabic mode only, start it with all 12 translated Pxx questions.
+ if(typeof window.startStage==='function'){
+  const previousStartStage=window.startStage;
+  const fullStartStage=function(id,...args){
+   if(locale()!=='ar'||id!=='U01-S01')return previousStartStage.apply(this,[id,...args]);
+   if(!pilot.ready)return pilot.notice(id);
+   const st=STAGES.find(x=>x.id===id);if(!st)return;
+   if(!state.premium&&state.energy<st.energy){showEnergy();return}
+   if(!state.premium)state.energy-=st.energy;
+   const sourcePool=QUESTIONS.filter(q=>q.stage_id===id).sort((a,b)=>(Number(a.pilot_order)||0)-(Number(b.pilot_order)||0));
+   const qs=sourcePool.map(q=>pilot.translateQuestion(q));
+   if(sourcePool.length!==12||qs.some(q=>!q))return pilot.notice(id);
+   session={stage:st,questions:qs,index:0,correct:0,combo:0,bestCombo:0,__v900Pilot:true,__v862Planned:true,__v873Planned:true,__v890Planned:true,deenArabicPilot:true};
+   const lesson=document.getElementById('lesson');if(!lesson)return;
+   lesson.classList.add('active');document.getElementById('quizView').style.display='flex';
+   resetResultView(false);setLessonStatus(false);
+   try{saveState()}catch(_){}try{updateUI()}catch(err){console.error('DEEN Arabic U01-S01 updateUI',err)}
+   renderQuestion();pilot.decorate?.();return true;
+  };
+  fullStartStage.__deenArabicFullBank=true;
+  window.startStage=fullStartStage;
+  try{startStage=fullStartStage}catch(_){}
+ }
 
  // Override the old two-stage macro guard with a complete U01–U15 mapper.
  if(typeof window.startMacroStage==='function'){
@@ -276,6 +319,26 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
   try{startSmartReview=fullReview}catch(_){}
  }
 
+ if(typeof window.completeQuestion==='function'){
+  const previousComplete=window.completeQuestion;
+  const fullComplete=function(correct,q){
+   const result=previousComplete.apply(this,arguments);
+   if(locale()==='ar'&&q){
+    const title=document.getElementById('feedbackTitle');
+    const body=document.getElementById('feedbackText');
+    if(title)title.textContent=correct?'إجابة صحيحة':'لنصحّحها معًا';
+    if(body){
+     const answer=q.correct_answer||q.correct_order?.join(' ← ')||q.pairs?.map(p=>p.left+' ← '+p.right).join(' · ')||'';
+     body.textContent=(correct?'':(answer?'الإجابة الصحيحة: '+answer+'. ':''))+(q.explanation_tr||'');
+    }
+   }
+   return result;
+  };
+  fullComplete.__deenArabicFullBank=true;
+  window.completeQuestion=fullComplete;
+  try{completeQuestion=fullComplete}catch(_){}
+ }
+
  const chromeMap={
   'Doğru cevabı seç':'اختر الإجابة الصحيحة',
   'Soruyu dinle':'استمع إلى السؤال',
@@ -287,6 +350,12 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
   'bul':'المتطابقة',
   'Doğru kavramları anlamlarıyla eşleştir.':'صِل المفاهيم بمعانيها الصحيحة.',
   'DOĞRU':'صحيح',
+  'Doğru cevap':'الإجابة الصحيحة',
+  'Birlikte düzeltelim':'لنصحّحها معًا',
+  'Bunu birlikte düzeltelim':'لنصحّحها معًا',
+  'TEKRAR ETMEYE DEĞER':'يستحق المراجعة',
+  'Devam':'متابعة',
+  'Devam Et':'متابعة',
   '1 · ANA FİKİR':'١ · الفكرة الرئيسية',
   "İslam, Allah'a yönelmektir.":'الإسلام هو التوجّه إلى الله.',
   "İslam; Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.":'الإسلام يعلّم الثقة بالله، وقبول هدايته، وتحويل ذلك إلى حياة عملية.',
@@ -333,11 +402,13 @@ html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-b
   failure:()=>pilot.failure,
   baseCount:()=>Object.keys(pilot.translations||{}).length,
   runtimeVariantCount:()=>Object.keys(pilot.runtime_variants||{}).length,
+  liveRuntimeCount:()=>Object.keys(pilot.live_translations||{}).length,
   supportedStageCount:()=>pilot.supportedStages.size,
   audit:()=>({
    ready:pilot.ready,
    base:Object.keys(pilot.translations||{}).length,
    runtimeVariants:Object.keys(pilot.runtime_variants||{}).length,
+   liveRuntime:Object.keys(pilot.live_translations||{}).length,
    stages:pilot.supportedStages.size,
    failure:pilot.failure
   })
