@@ -655,6 +655,826 @@
       "source_ref": "Kur'an 47:19 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Yayınları, Ezanı Anlamak; REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-001": {
+      "question_ar": "أيُّ عبارة مما يلي هي التي استمعت إليها؟",
+      "options_ar": [
+        "الشهادتان (بالصيغة الكاملة)",
+        "الأذان فقط",
+        "سورة الفاتحة",
+        "دعاء «سبحانك»"
+      ],
+      "correct_answer_ar": "الشهادتان (بالصيغة الكاملة)",
+      "explanation_ar": "النص المقروء في التسجيل هو الشهادتان، وهما من أهم عبارات الإقرار بالإيمان في الإسلام.",
+      "source_question_tr": "Dinlediğin ifade aşağıdakilerden hangisidir?",
+      "source_correct_answer_tr": "Kelime-i Şehadet (Tam hali)",
+      "source_options_tr": [
+        "Kelime-i Şehadet (Tam hali)",
+        "Yalnızca Ezan",
+        "Fatiha Suresi",
+        "Sübhaneke Duası"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_select",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-002": {
+      "question_ar": "أيٌّ مما يلي يعبّر عن معنى الجملة التي استمعت إليها؟",
+      "options_ar": [
+        "أشهد أن لا إله إلا الله، وأن محمدًا ﷺ عبده ورسوله.",
+        "الله أكبر من كل شيء وله الحمد.",
+        "باسم الله الرحمن الرحيم.",
+        "اهدنا الصراط المستقيم."
+      ],
+      "correct_answer_ar": "أشهد أن لا إله إلا الله، وأن محمدًا ﷺ عبده ورسوله.",
+      "explanation_ar": "تجمع الصيغة المعروفة للشهادتين بين التوحيد والشهادة بأن محمدًا ﷺ عبد الله ورسوله.",
+      "source_question_tr": "Dinlediğin cümlenin Türkçe anlamı aşağıdakilerden hangisidir?",
+      "source_correct_answer_tr": "Allah'tan başka ilah olmadığına ve Muhammed'in O'nun kulu ve elçisi olduğuna şahitlik ederim.",
+      "source_options_tr": [
+        "Allah'tan başka ilah olmadığına ve Muhammed'in O'nun kulu ve elçisi olduğuna şahitlik ederim.",
+        "Allah her şeyden büyüktür ve övgü O'nadır.",
+        "Rahman ve Rahim olan Allah'ın adıyla.",
+        "Bizi doğru yola ilet."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_meaning",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-003": {
+      "question_ar": "في التسجيل الذي استمعت إليه، أين ينتهي الجزء الأول من الشهادتين، أي جزء التوحيد، ويبدأ الجزء المتعلق بالنبوة؟",
+      "options_ar": [
+        "بعد عبارة «إلا الله».",
+        "مباشرة بعد كلمة «أشهد».",
+        "بعد كلمة «محمدًا».",
+        "بعد كلمة «عبده»."
+      ],
+      "correct_answer_ar": "بعد عبارة «إلا الله».",
+      "explanation_ar": "ينتهي جزء التوحيد بعبارة «أشهد أن لا إله إلا الله»، ثم تبدأ الشهادة بالنبوة بقول «وأشهد».",
+      "source_question_tr": "Dinlediğin kayıtta, Kelime-i Şehadet'in ilk kısmı (tevhid kısmı) nerede bitmekte ve peygamberlik kısmı başlamaktadır?",
+      "source_correct_answer_tr": "...illallah kelimesinden sonra.",
+      "source_options_tr": [
+        "...illallah kelimesinden sonra.",
+        "...Eşhedü kelimesinden hemen sonra.",
+        "...Muhammeden kelimesinden sonra.",
+        "...abdühû kelimesinden sonra."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_select",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-004": {
+      "question_ar": "في التسجيل الذي استمعت إليه، تُقرأ وحدانية الله وعبودية محمد ﷺ لله ورسالته معًا في عبارة واحدة.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "الشهادتان عبارة مترابطة تجمع التوحيد والشهادة برسالة محمد ﷺ في سياق واحد.",
+      "source_question_tr": "Dinlediğin kayıtta, Allah'ın birliği ve Hz. Muhammed'in kulluğu ve elçiliği aynı cümle içinde birleştirilerek okunmaktadır.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-005": {
+      "question_ar": "بأي مفهوم أساسي يرتبط الجزء الأول الذي استمعت إليه؟",
+      "options_ar": [
+        "التوحيد",
+        "الآخرة",
+        "القدر",
+        "الإيمان بالملائكة"
+      ],
+      "correct_answer_ar": "التوحيد",
+      "explanation_ar": "الجزء الأول هو «أشهد أن لا إله إلا الله»، وهو مرتبط بعقيدة التوحيد.",
+      "source_question_tr": "Dinlediğin ilk bölüm hangi temel kavramla bağlantılıdır?",
+      "source_correct_answer_tr": "Tevhid",
+      "source_options_tr": [
+        "Tevhid",
+        "Ahiret",
+        "Kader",
+        "Meleklere iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_select",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-006": {
+      "question_ar": "كم مرة تسمع كلمة «أشهد»، التي تعني الإقرار بالشهادة، في التسجيل؟",
+      "options_ar": [
+        "مرتين",
+        "مرة واحدة",
+        "ثلاث مرات",
+        "لا أسمعها"
+      ],
+      "correct_answer_ar": "مرتين",
+      "explanation_ar": "تُسمع مرتين: مرة للشهادة بوحدانية الله، ومرة للشهادة برسالة محمد ﷺ.",
+      "source_question_tr": "Dinlediğin kayıtta 'şahitlik ederim' anlamına gelen 'eşhedü' kelimesini kaç kez duyuyorsun?",
+      "source_correct_answer_tr": "İki kez",
+      "source_options_tr": [
+        "İki kez",
+        "Bir kez",
+        "Üç kez",
+        "Hiç duymuyorum"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-007": {
+      "question_ar": "أيُّ معنيين يردان معًا في العبارة الكاملة التي استمعت إليها؟",
+      "options_ar": [
+        "وحدانية الله وأن محمدًا ﷺ عبد الله ورسوله",
+        "وحدانية الله فقط",
+        "الصلاة فقط",
+        "الأخلاق الحسنة فقط"
+      ],
+      "correct_answer_ar": "وحدانية الله وأن محمدًا ﷺ عبد الله ورسوله",
+      "explanation_ar": "يتضمن التسجيل الكامل إقرارين متتابعين: التوحيد، وعبودية محمد ﷺ لله ورسالته.",
+      "source_question_tr": "Dinlediğin tam ifadede aşağıdaki anlamlardan hangisi birlikte yer alır?",
+      "source_correct_answer_tr": "Allah'ın birliği ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+      "source_options_tr": [
+        "Allah'ın birliği ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+        "Yalnızca Allah'ın birliği",
+        "Yalnızca namaz ibadeti",
+        "Yalnızca güzel ahlak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_meaning",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-008": {
+      "question_ar": "بأي كلمة تنتهي الصيغة المعروفة للشهادتين التي استمعت إليها؟",
+      "options_ar": [
+        "رسوله",
+        "إلا الله",
+        "أشهد",
+        "محمدًا"
+      ],
+      "correct_answer_ar": "رسوله",
+      "explanation_ar": "تنتهي الصيغة التعليمية المعتمدة بعبارة «...محمدًا عبده ورسوله».",
+      "source_question_tr": "Dinlediğin standart Kelime-i Şehadet metni hangi kelime ile sona ermektedir?",
+      "source_correct_answer_tr": "Resûlüh",
+      "source_options_tr": [
+        "Resûlüh",
+        "İllallah",
+        "Eşhedü",
+        "Muhammeden"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_select",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-009": {
+      "question_ar": "أيُّ خيار يشرح الوظيفة الأساسية لعبارة الشهادتين التي استمعت إليها بأدق صورة؟",
+      "options_ar": [
+        "التعبير لفظيًا عن الإقرار الإيماني الأساسي للدخول في الإسلام",
+        "إبرام عقد مادي فقط",
+        "سرد أسماء الأنبياء السابقين فقط",
+        "الإعلان عن أوقات الصلوات الخمس"
+      ],
+      "correct_answer_ar": "التعبير لفظيًا عن الإقرار الإيماني الأساسي للدخول في الإسلام",
+      "explanation_ar": "الشهادتان إقرار إيماني لفظي أساسي يجمع توحيد الله والشهادة بعبودية محمد ﷺ لله ورسالته.",
+      "source_question_tr": "Dinlediğin Kelime-i Şehadet ifadesinin temel işlevini en doğru hangi seçenek açıklar?",
+      "source_correct_answer_tr": "İslam'a girişin temel iman beyanını sözlü olarak ifade etmek",
+      "source_options_tr": [
+        "İslam'a girişin temel iman beyanını sözlü olarak ifade etmek",
+        "Yalnızca maddi bir sözleşme yapmak",
+        "Sadece geçmiş peygamberlerin isimlerini saymak",
+        "Günde beş vakit namazın vakitlerini duyurmak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_meaning",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-010": {
+      "question_ar": "في التسجيل، تُسمع العبارة التي تصل بين جزأي الجملة وتبدأ الشهادة الثانية بصيغة «و ________».",
+      "options_ar": [
+        "أشهد",
+        "لا",
+        "رسول",
+        "الله"
+      ],
+      "correct_answer_ar": "أشهد",
+      "explanation_ar": "بعد «إلا الله» ينتهي الجزء الأول، ثم تبدأ الشهادة بالنبوة مباشرة بقول «وأشهد».",
+      "source_question_tr": "Dinlediğin kayıtta, cümlenin iki parçasını birbirine bağlayan ve ikinci şahitliği başlatan ifade 've ________' şeklinde duyulur.",
+      "source_correct_answer_tr": "eşhedü",
+      "source_options_tr": [
+        "eşhedü",
+        "lâ",
+        "resul",
+        "Allah"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-011": {
+      "question_ar": "أيُّ اسم علم تسمعه في الجزء الثاني من التسجيل؟",
+      "options_ar": [
+        "محمد",
+        "إبراهيم",
+        "موسى",
+        "عيسى"
+      ],
+      "correct_answer_ar": "محمد",
+      "explanation_ar": "الجزء الثاني هو «وأشهد أن محمدًا عبده ورسوله».",
+      "source_question_tr": "Dinlediğin kaydın ikinci bölümünde hangi özel isim duyulur?",
+      "source_correct_answer_tr": "Muhammed",
+      "source_options_tr": [
+        "Muhammed",
+        "İbrahim",
+        "Musa",
+        "İsa"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_select",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-012": {
+      "question_ar": "أيُّ جزء من النص الذي استمعت إليه يعبّر عن أن محمدًا ﷺ عبد الله ورسوله؟",
+      "options_ar": [
+        "وأشهد أن محمدًا عبده ورسوله",
+        "أشهد أن لا إله إلا الله",
+        "لا إله",
+        "أشهد"
+      ],
+      "correct_answer_ar": "وأشهد أن محمدًا عبده ورسوله",
+      "explanation_ar": "يشهد الجزء الثاني بأن محمدًا ﷺ عبد الله ورسوله.",
+      "source_question_tr": "Dinlediğin metnin Hz. Muhammed'in Allah'ın kulu ve elçisi olduğunu ifade eden bölümü hangisidir?",
+      "source_correct_answer_tr": "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+      "source_options_tr": [
+        "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+        "Eşhedü en lâ ilâhe illallah",
+        "Lâ ilâhe",
+        "Eşhedü"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-013": {
+      "question_ar": "أيُّ خيار يشرح البنية الثنائية للعبارة التي استمعت إليها بصورة أدق؟",
+      "options_ar": [
+        "تأتي أولًا الشهادة بوحدانية الله، ثم الشهادة بعبودية محمد ﷺ لله ورسالته",
+        "تُذكر الصلاة أولًا ثم الصيام",
+        "تُذكر الآخرة أولًا ثم القدر",
+        "يُعرَّف القرآن أولًا ثم الحديث"
+      ],
+      "correct_answer_ar": "تأتي أولًا الشهادة بوحدانية الله، ثم الشهادة بعبودية محمد ﷺ لله ورسالته",
+      "explanation_ar": "ينتقل ترتيب الشهادتين من إقرار التوحيد إلى الإقرار برسالة محمد ﷺ.",
+      "source_question_tr": "Dinlediğin ifadenin iki bölümlü yapısını en doğru hangi seçenek açıklar?",
+      "source_correct_answer_tr": "Önce Allah'ın birliğine, sonra Hz. Muhammed'in kulluğu ve elçiliğine şahitlik edilir",
+      "source_options_tr": [
+        "Önce Allah'ın birliğine, sonra Hz. Muhammed'in kulluğu ve elçiliğine şahitlik edilir",
+        "Önce namaz, sonra oruç anlatılır",
+        "Önce ahiret, sonra kader anlatılır",
+        "Önce Kur'an, sonra hadis tanımlanır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_meaning",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S03-014": {
+      "question_ar": "ما المعنى الذي يُؤكَّد في نهاية العبارة التي استمعت إليها؟",
+      "options_ar": [
+        "أن محمدًا ﷺ عبد الله ورسوله",
+        "أنه لا إله إلا الله",
+        "أن الصلاة فرض",
+        "أجزاء القرآن"
+      ],
+      "correct_answer_ar": "أن محمدًا ﷺ عبد الله ورسوله",
+      "explanation_ar": "ينتهي التسجيل بعبارة «محمدًا عبده ورسوله»، فتؤكد أن محمدًا ﷺ عبد الله ورسوله.",
+      "source_question_tr": "Dinlediğin ifadenin sonunda hangi anlam vurgulanır?",
+      "source_correct_answer_tr": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+      "source_options_tr": [
+        "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+        "Allah'tan başka ilah olmadığı",
+        "Namazın farz olduğu",
+        "Kur'an'ın bölümleri"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_meaning",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-001": {
+      "question_ar": "رتّب نص الشهادتين بالترتيب الصحيح.",
+      "items_ar": [
+        "وأشهد أن محمدًا عبده ورسوله",
+        "أشهد أن لا إله إلا الله"
+      ],
+      "correct_order_ar": [
+        "أشهد أن لا إله إلا الله",
+        "وأشهد أن محمدًا عبده ورسوله"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "تبدأ الشهادتان بـ«أشهد أن لا إله إلا الله» وتنتهيان بـ«وأشهد أن محمدًا عبده ورسوله».",
+      "source_question_tr": "Kelime-i Şehadet metnini doğru sıraya koy.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+        "Eşhedü en lâ ilâhe illallah"
+      ],
+      "source_correct_order_tr": [
+        "Eşhedü en lâ ilâhe illallah",
+        "ve eşhedü enne Muhammeden abdühû ve resûlüh"
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-002": {
+      "question_ar": "أكمل الجملة بصورة صحيحة: «...وأشهد أن محمدًا _________ ورسوله»",
+      "options_ar": [
+        "عبده",
+        "إلا الله",
+        "أشهد",
+        "محمدًا"
+      ],
+      "correct_answer_ar": "عبده",
+      "explanation_ar": "في الصيغة المعروفة تأتي كلمة «عبده» بعد «محمدًا»، ثم «ورسوله».",
+      "source_question_tr": "Cümleyi doğru şekilde tamamla: '...ve eşhedü enne Muhammeden _________ ve resûlüh'",
+      "source_correct_answer_tr": "abdühû",
+      "source_options_tr": [
+        "abdühû",
+        "illallah",
+        "eşhedü",
+        "Muhammeden"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "next_word",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-003": {
+      "question_ar": "أكمل الجزء الناقص: «أشهد أن لا إله _____»",
+      "options_ar": [
+        "إلا الله",
+        "رسوله",
+        "محمدًا",
+        "أشهد"
+      ],
+      "correct_answer_ar": "إلا الله",
+      "explanation_ar": "الجزء الأول من الصيغة المعتمدة هو «أشهد أن لا إله إلا الله».",
+      "source_question_tr": "Eksik parçayı tamamla: 'Eşhedü en lâ ilâhe _____'",
+      "source_correct_answer_tr": "illallah",
+      "source_options_tr": [
+        "illallah",
+        "resûlüh",
+        "Muhammeden",
+        "eşhedü"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-004": {
+      "question_ar": "رتّب الكلمات التي تكوّن النصف الأول من الشهادتين، أي جزء التوحيد.",
+      "items_ar": [
+        "إلا الله",
+        "أشهد",
+        "أن لا إله"
+      ],
+      "correct_order_ar": [
+        "أشهد",
+        "أن لا إله",
+        "إلا الله"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "تبدأ العبارة بـ«أشهد»، ثم «أن لا إله»، وتُختتم بـ«إلا الله».",
+      "source_question_tr": "Şehadetin ilk yarısını (tevhid kısmını) oluşturan kelimeleri doğru sıraya koy.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "illallah",
+        "Eşhedü",
+        "en lâ ilâhe"
+      ],
+      "source_correct_order_tr": [
+        "Eşhedü",
+        "en lâ ilâhe",
+        "illallah"
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-005": {
+      "question_ar": "أكمل الجملة بصورة صحيحة: «أشهد أن لا إله إلا الله _________ أشهد أن محمدًا عبده ورسوله»",
+      "options_ar": [
+        "و",
+        "لا",
+        "أنْ",
+        "أنَّ"
+      ],
+      "correct_answer_ar": "و",
+      "explanation_ar": "تربط الواو بين الشهادتين، فتجمع الإقرارين في عبارة واحدة مترابطة.",
+      "source_question_tr": "Cümleyi doğru şekilde tamamla: 'Eşhedü en lâ ilâhe illallah _________ eşhedü enne Muhammeden abdühû ve resûlüh'",
+      "source_correct_answer_tr": "ve",
+      "source_options_tr": [
+        "ve",
+        "lâ",
+        "en",
+        "enne"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "next_word",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-006": {
+      "question_ar": "رتّب الأجزاء التي تكوّن معنى الشهادتين ترتيبًا منطقيًا صحيحًا.",
+      "items_ar": [
+        "وبأن محمدًا ﷺ عبد الله ورسوله",
+        "أشهد",
+        "أن لا إله إلا الله"
+      ],
+      "correct_order_ar": [
+        "أشهد",
+        "أن لا إله إلا الله",
+        "وبأن محمدًا ﷺ عبد الله ورسوله"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يبدأ المعنى بفعل الشهادة، ثم الإقرار بأنه لا إله إلا الله، ثم الإقرار بأن محمدًا ﷺ عبد الله ورسوله.",
+      "source_question_tr": "Şehadetin Türkçe anlamını oluşturan bölümleri doğru mantıksal sıraya koy.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "Muhammed'in Allah'ın kulu ve elçisi olduğuna",
+        "şahitlik ederim.",
+        "Allah'tan başka ilah olmadığına ve"
+      ],
+      "source_correct_order_tr": [
+        "Allah'tan başka ilah olmadığına ve",
+        "Muhammed'in Allah'ın kulu ve elçisi olduğuna",
+        "şahitlik ederim."
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet, Dinimi Öğreniyorum; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-007": {
+      "question_ar": "أكمل الجزء الناقص: «_____ أن لا إله إلا الله»",
+      "options_ar": [
+        "أشهد",
+        "رسوله",
+        "محمدًا",
+        "أنَّ"
+      ],
+      "correct_answer_ar": "أشهد",
+      "explanation_ar": "تبدأ الصيغة المعتمدة بكلمة «أشهد».",
+      "source_question_tr": "Eksik parçayı tamamla: '_____ en lâ ilâhe illallah'",
+      "source_correct_answer_tr": "Eşhedü",
+      "source_options_tr": [
+        "Eşhedü",
+        "Resûlüh",
+        "Muhammeden",
+        "Enne"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-008": {
+      "question_ar": "رتّب النصف الثاني من الشهادتين بالترتيب الصحيح.",
+      "items_ar": [
+        "رسوله",
+        "وأشهد",
+        "عبده و",
+        "أن محمدًا"
+      ],
+      "correct_order_ar": [
+        "وأشهد",
+        "أن محمدًا",
+        "عبده و",
+        "رسوله"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يتتابع الجزء الثاني هكذا: «وأشهد»، ثم «أن محمدًا»، ثم «عبده و»، ثم «رسوله».",
+      "source_question_tr": "Şehadetin ikinci yarısını doğru sıraya koy.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "resûlüh",
+        "ve eşhedü",
+        "abdühû ve",
+        "enne Muhammeden"
+      ],
+      "source_correct_order_tr": [
+        "ve eşhedü",
+        "enne Muhammeden",
+        "abdühû ve",
+        "resûlüh"
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-009": {
+      "question_ar": "أكمل الجملة: «وأشهد أن _________ عبده ورسوله»",
+      "options_ar": [
+        "محمدًا",
+        "إلا الله",
+        "أشهد",
+        "عبده"
+      ],
+      "correct_answer_ar": "محمدًا",
+      "explanation_ar": "يبيّن الجزء الثاني أن محمدًا ﷺ عبد الله ورسوله.",
+      "source_question_tr": "Cümleyi tamamla: 've eşhedü enne _________ abdühû ve resûlüh'",
+      "source_correct_answer_tr": "Muhammeden",
+      "source_options_tr": [
+        "Muhammeden",
+        "illallah",
+        "eşhedü",
+        "abdühû"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "next_word",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-010": {
+      "question_ar": "تذكّر المعنى واكتب الكلمة الناقصة: «_____ أن لا إله إلا الله، وأن محمدًا ﷺ رسول الله»",
+      "correct_answer_ar": "أشهد",
+      "explanation_ar": "المعنى الأساسي للشهادة هو الإقرار والشهادة بما يؤمن به الإنسان.",
+      "source_question_tr": "Türkçe anlamı hatırla ve boşluğu yaz: 'Allah'tan başka ilah olmadığına ve Muhammed'in Allah'ın elçisi olduğuna _____ ederim.'",
+      "source_correct_answer_tr": "şahitlik",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet, Dinimi Öğreniyorum; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-011": {
+      "question_ar": "رتّب نص الشهادتين في أربعة أجزاء بالترتيب الصحيح.",
+      "items_ar": [
+        "عبده ورسوله",
+        "أشهد أن لا إله",
+        "وأشهد أن محمدًا",
+        "إلا الله"
+      ],
+      "correct_order_ar": [
+        "أشهد أن لا إله",
+        "إلا الله",
+        "وأشهد أن محمدًا",
+        "عبده ورسوله"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "تبدأ الصيغة بإقرار التوحيد، ثم تنتقل إلى الشهادة بأن محمدًا ﷺ عبد الله ورسوله.",
+      "source_question_tr": "Kelime-i Şehadet metnini dört parça halinde doğru sıraya diz.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "abdühû ve resûlüh",
+        "Eşhedü en lâ ilâhe",
+        "ve eşhedü enne Muhammeden",
+        "illallah"
+      ],
+      "source_correct_order_tr": [
+        "Eşhedü en lâ ilâhe",
+        "illallah",
+        "ve eşhedü enne Muhammeden",
+        "abdühû ve resûlüh"
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-012": {
+      "question_ar": "أكمل الجملة: «أشهد أن _________ إله إلا الله»",
+      "options_ar": [
+        "لا",
+        "و",
+        "أنَّ",
+        "رسول"
+      ],
+      "correct_answer_ar": "لا",
+      "explanation_ar": "«لا» أداة نفي في عبارة «لا إله»، وهي جزء من صيغة التوحيد.",
+      "source_question_tr": "Cümleyi tamamla: 'Eşhedü en _________ ilâhe illallah'",
+      "source_correct_answer_tr": "lâ",
+      "source_options_tr": [
+        "lâ",
+        "ve",
+        "enne",
+        "resul"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "next_word",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-013": {
+      "question_ar": "مراجعة سريعة: أيُّ عبارة تبدأ الشهادة الثانية في النص المعتمد؟",
+      "options_ar": [
+        "وأشهد",
+        "إلا الله",
+        "محمدًا",
+        "رسوله"
+      ],
+      "correct_answer_ar": "وأشهد",
+      "explanation_ar": "تبدأ «وأشهد» الشهادة الثانية، أي الشهادة بعبودية محمد ﷺ لله ورسالته.",
+      "source_question_tr": "Hızlı tekrar: Kontrollü şehadet metninde ikinci şahitliği başlatan ifade hangisidir?",
+      "source_correct_answer_tr": "ve eşhedü",
+      "source_options_tr": [
+        "ve eşhedü",
+        "illallah",
+        "Muhammeden",
+        "resûlüh"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-014": {
+      "question_ar": "ما أهم هدف عند تعلّم نص الشهادتين في هذه الوحدة؟",
+      "options_ar": [
+        "فهم ترتيب النص ومعنى التوحيد والرسالة اللذين يحملهما",
+        "حفظ عدد الكلمات فقط",
+        "القدرة على قوله بسرعة فقط",
+        "نسخ شكل الكتابة فقط"
+      ],
+      "correct_answer_ar": "فهم ترتيب النص ومعنى التوحيد والرسالة اللذين يحملهما",
+      "explanation_ar": "هدف DEEN ليس حفظ تسلسل الأصوات فقط، بل فهم المعنيين الأساسيين في النص أيضًا.",
+      "source_question_tr": "Bu ünitede şehadet metnini öğrenirken en önemli hedef hangisidir?",
+      "source_correct_answer_tr": "Metnin sırasını tanırken taşıdığı tevhid ve elçilik anlamını da kavramak",
+      "source_options_tr": [
+        "Metnin sırasını tanırken taşıdığı tevhid ve elçilik anlamını da kavramak",
+        "Yalnızca kelimelerin sayısını ezberlemek",
+        "Yalnızca hızlı söyleyebilmek",
+        "Yalnızca yazı biçimini kopyalamak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: Kelime-i Tevhid ve Kelime-i Şehâdet; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-015": {
+      "question_ar": "صِل الأجزاء العربية بمعانيها.",
+      "pairs_ar": [
+        {
+          "left": "أشهد",
+          "right": "أُقرّ وأشهد"
+        },
+        {
+          "left": "لا إله إلا الله",
+          "right": "إفراد الله بالألوهية"
+        },
+        {
+          "left": "محمدًا عبده ورسوله",
+          "right": "محمد ﷺ عبد الله ورسوله"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "«أشهد» للإقرار بالشهادة، و«لا إله إلا الله» للتوحيد، و«محمدًا عبده ورسوله» لبيان عبودية محمد ﷺ لله ورسالته.",
+      "source_question_tr": "Arapça parçaları Türkçe anlamlarıyla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Eşhedü",
+          "right": "Şahitlik ederim"
+        },
+        {
+          "left": "Lâ ilâhe illallah",
+          "right": "Allah'tan başka ilah yoktur"
+        },
+        {
+          "left": "Muhammeden abdühû ve resûlüh",
+          "right": "Muhammed Allah'ın elçisidir"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet Hadislerle İslam, Cilt 1, s.495; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S04-016": {
+      "question_ar": "أيُّ مطابقة مما يلي خاطئة؟",
+      "options_ar": [
+        "«إلا الله» ← عبودية محمد ﷺ لله ورسالته",
+        "«لا إله إلا الله» ← التوحيد",
+        "«محمدًا عبده ورسوله» ← عبودية محمد ﷺ لله ورسالته",
+        "«أشهد» ← أُقرّ وأشهد"
+      ],
+      "correct_answer_ar": "«إلا الله» ← عبودية محمد ﷺ لله ورسالته",
+      "explanation_ar": "تأتي «إلا الله» في جزء التوحيد؛ أما عبودية محمد ﷺ لله ورسالته فتُذكر في الجزء الثاني.",
+      "source_question_tr": "Aşağıdaki eşleştirmelerden hangisi hatalıdır?",
+      "source_correct_answer_tr": "'illallah' → Hz. Muhammed'in kulluğu ve elçiliği",
+      "source_options_tr": [
+        "'illallah' → Hz. Muhammed'in kulluğu ve elçiliği",
+        "'Lâ ilâhe illallah' → tevhid",
+        "'Muhammeden abdühû ve resûlüh' → Hz. Muhammed'in kulluğu ve elçiliği",
+        "'Eşhedü' → şahitlik ederim"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "runtime_variants": {},
