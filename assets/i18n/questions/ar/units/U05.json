@@ -2341,6 +2341,400 @@
       "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-001": {
+      "question_ar": "أيٌّ مما يلي ركن من أركان الإيمان، وتؤكد عليه الشهادتان بوضوح أيضًا؟",
+      "options_ar": [
+        "الإيمان بالرسل",
+        "الإيمان بالملائكة",
+        "الإيمان بالقدر",
+        "الإيمان باليوم الآخر"
+      ],
+      "correct_answer_ar": "الإيمان بالرسل",
+      "explanation_ar": "تتضمن الشهادتان بوضوح الشهادة بأن محمدًا ﷺ عبد الله ورسوله؛ ولذلك ترتبطان مباشرة بركن الإيمان بالرسل.",
+      "source_question_tr": "Aşağıdakilerden hangisi hem bir iman esasıdır hem de Kelime-i Şehadet'in açıkça vurguladığı bir konudur?",
+      "source_correct_answer_tr": "Peygamberlere iman",
+      "source_options_tr": [
+        "Peygamberlere iman",
+        "Meleklere iman",
+        "Kadere iman",
+        "Ahirete iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-002": {
+      "question_ar": "في بطاقة مفهوم عبارة «ارتباط الأمور بعلم الله وتقديره». إلى أي ركن من أركان الإيمان تنتمي هذه البطاقة؟",
+      "options_ar": [
+        "الإيمان بالقضاء والقدر",
+        "الإيمان بالملائكة",
+        "الإيمان بالكتب",
+        "الإيمان باليوم الآخر"
+      ],
+      "correct_answer_ar": "الإيمان بالقضاء والقدر",
+      "explanation_ar": "هذه العبارة ترتبط بركن الإيمان بالقضاء والقدر.",
+      "source_question_tr": "Bir kavram kartında 'Allah'ın bilgisi ve takdiriyle ilişkili oluş' ifadesi yazıyor. Bu kart hangi iman esasına aittir?",
+      "source_correct_answer_tr": "Kader ve kazaya iman",
+      "source_options_tr": [
+        "Kader ve kazaya iman",
+        "Meleklere iman",
+        "Kitaplara iman",
+        "Ahiret gününe iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 13:8, 25:2, 54:49; Diyanet Hadislerle İslam, Cilt 1, s.597-599; Din İşleri Yüksek Kurulu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-003": {
+      "question_ar": "صِل التعريفات بأركان الإيمان التي تنتمي إليها.",
+      "pairs_ar": [
+        {
+          "left": "الحياة بعد الموت والحساب",
+          "right": "الإيمان باليوم الآخر"
+        },
+        {
+          "left": "وجود الملائكة الذين خلقهم الله",
+          "right": "الإيمان بالملائكة"
+        },
+        {
+          "left": "إنزال الله الكتب على رسله بالوحي",
+          "right": "الإيمان بالكتب"
+        }
+      ],
+      "explanation_ar": "تكوّن أركان الإيمان المختلفة جوانب متعددة من بناء العقيدة الإسلامية.",
+      "source_question_tr": "Tanımları ait oldukları esaslarla eşleştirin.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Ölümden sonra hayat ve hesap",
+          "right": "Ahirete iman"
+        },
+        {
+          "left": "Allah'ın yarattığı meleklerin varlığı",
+          "right": "Meleklere iman"
+        },
+        {
+          "left": "Allah'ın peygamberlere vahiy yoluyla kitaplar göndermesi",
+          "right": "Kitaplara iman"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-004": {
+      "question_ar": "يُسمّى الإيمان بالبشر الذين اصطفاهم الله لهداية الناس وتبليغ وحيه الإيمانَ بـ______.",
+      "options_ar": [
+        "الرسل",
+        "الملائكة",
+        "القدر",
+        "الكتب"
+      ],
+      "correct_answer_ar": "الرسل",
+      "explanation_ar": "الرسل هم البشر الذين اصطفاهم الله لتبليغ رسالته وهداية الناس.",
+      "source_question_tr": "Allah'ın bizlere doğru yolu göstermek için seçtiği örnek insanlara inanmaya ______ iman denir.",
+      "source_correct_answer_tr": "Peygamberlere",
+      "source_options_tr": [
+        "Peygamberlere",
+        "Meleklere",
+        "Kadere",
+        "Kitaplara"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 2:285, 4:136; Diyanet Hadislerle İslam, Cilt 1, s.563-568; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-005": {
+      "question_ar": "الإيمان بوجود الملائكة الذين خلقهم الله يندرج تحت أي ركن من أركان الإيمان؟",
+      "options_ar": [
+        "الإيمان بالملائكة",
+        "الإيمان بالكتب",
+        "الإيمان باليوم الآخر",
+        "الإيمان بالقضاء والقدر"
+      ],
+      "correct_answer_ar": "الإيمان بالملائكة",
+      "explanation_ar": "الإيمان بوجود الملائكة أحد أركان الإيمان الستة.",
+      "source_question_tr": "Allah'ın yarattığı meleklerin varlığına inanmak imanın hangi esasıdır?",
+      "source_correct_answer_tr": "Meleklere iman",
+      "source_options_tr": [
+        "Meleklere iman",
+        "Kitaplara iman",
+        "Ahiret gününe iman",
+        "Kader ve kazaya iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:285; Diyanet Hadislerle İslam, Cilt 1, s.529-535; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-006": {
+      "question_ar": "من يقول: «أؤمن بأنني سأحاسَب في الآخرة على أفعالي في الدنيا» يؤكد أي ركن من أركان الإيمان؟",
+      "options_ar": [
+        "الإيمان باليوم الآخر",
+        "الإيمان بالكتب",
+        "الإيمان بالقدر",
+        "الإيمان بالرسل"
+      ],
+      "correct_answer_ar": "الإيمان باليوم الآخر",
+      "explanation_ar": "الوعي بالحساب والحياة بعد الموت يرتبط بالإيمان باليوم الآخر.",
+      "source_question_tr": "'Dünyadaki davranışlarımdan ahirette hesaba çekileceğime inanıyorum' diyen bir kişi hangi iman esasına vurgu yapmaktadır?",
+      "source_correct_answer_tr": "Ahiret gününe iman",
+      "source_options_tr": [
+        "Ahiret gününe iman",
+        "Kitaplara iman",
+        "Kadere iman",
+        "Peygamberlere iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:4; Diyanet Hadislerle İslam, Cilt 1, s.587-593; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-007": {
+      "question_ar": "يُسمّى الإيمان بالنصوص الإلهية التي تتضمن وحي الله وأنزلها على رسله الإيمانَ بـ______.",
+      "options_ar": [
+        "الكتب",
+        "الملائكة",
+        "القدر",
+        "الآخرة"
+      ],
+      "correct_answer_ar": "الكتب",
+      "explanation_ar": "تدخل الصحف والكتب المنزلة ضمن الوحي الإلهي، والإيمان بها هو الإيمان بالكتب.",
+      "source_question_tr": "Allah'ın vahiylerini içeren, peygamberlere gönderilen ilahi metinlere inanmaya ______ iman denir.",
+      "source_correct_answer_tr": "Kitaplara",
+      "source_options_tr": [
+        "Kitaplara",
+        "Meleklere",
+        "Kadere",
+        "Ahirete"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 2:4, 2:285, 4:136; Diyanet Hadislerle İslam, Cilt 1, s.539-545; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-008": {
+      "question_ar": "أيٌّ مما يلي ليس أصلًا اعتقاديًا، بل عبادة عملية؟",
+      "options_ar": [
+        "صيام رمضان",
+        "الإيمان باليوم الآخر",
+        "الإيمان بالملائكة",
+        "الإيمان بالقدر"
+      ],
+      "correct_answer_ar": "صيام رمضان",
+      "explanation_ar": "صيام رمضان عبادة عملية وهو من أركان الإسلام.",
+      "source_question_tr": "Hangisi bir inanç esası olmayıp pratik bir ibadettir?",
+      "source_correct_answer_tr": "Oruç tutmak",
+      "source_options_tr": [
+        "Oruç tutmak",
+        "Ahirete iman",
+        "Meleklere iman",
+        "Kadere iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-009": {
+      "question_ar": "صِل المواقف بركن الإيمان المرتبط بها.",
+      "pairs_ar": [
+        {
+          "left": "الإيمان بأن ما يقع مرتبط بتقدير الله",
+          "right": "الإيمان بالقدر"
+        },
+        {
+          "left": "التفكير في يوم الحساب والامتناع عن الظلم",
+          "right": "الإيمان باليوم الآخر"
+        },
+        {
+          "left": "الإيمان بأن القرآن كلام الله",
+          "right": "الإيمان بالكتب"
+        }
+      ],
+      "explanation_ar": "يمكن أن تتشكل أفكار الإنسان ومواقفه اليومية في ضوء أركان الإيمان.",
+      "source_question_tr": "Senaryoları ilgili iman esası ile eşleştirin.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Allah'ın takdiri olduğuna inanmak",
+          "right": "Kadere iman"
+        },
+        {
+          "left": "Hesap gününü düşünüp haksızlık yapmamak",
+          "right": "Ahirete iman"
+        },
+        {
+          "left": "Kur'an'ın Allah sözü olduğuna inanmak",
+          "right": "Kitaplara iman"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-010": {
+      "question_ar": "يحذف طالب عنوان «الإيمان بالملائكة» وهو يسرد أركان الإيمان الستة. ما الخطأ الذي يحدث في القائمة؟",
+      "options_ar": [
+        "ينقص ركن من أركان الإيمان.",
+        "ينقص ركن من أركان الإسلام الخمسة.",
+        "ينقص عنوان يتعلق بالصلاة.",
+        "لا يوجد خطأ في القائمة."
+      ],
+      "correct_answer_ar": "ينقص ركن من أركان الإيمان.",
+      "explanation_ar": "الإيمان بالملائكة واحد من أركان الإيمان الستة.",
+      "source_question_tr": "Bir öğrenci altı iman esasını sıralarken 'Meleklere iman' başlığını çıkarıyor. Bu listede hangi hata oluşur?",
+      "source_correct_answer_tr": "İmanın esaslarından biri eksik kalır.",
+      "source_options_tr": [
+        "İmanın esaslarından biri eksik kalır.",
+        "İslam'ın beş şartlarından biri eksik kalır.",
+        "Namazla ilgili bir başlık eksik kalır.",
+        "Listede hata oluşmaz."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-011": {
+      "question_ar": "يُستكمل اسم أحد أركان الإيمان بقولنا: «الإيمان بـ______ والقدر».",
+      "options_ar": [
+        "القضاء",
+        "اليوم الآخر",
+        "الملائكة",
+        "الكتب"
+      ],
+      "correct_answer_ar": "القضاء",
+      "explanation_ar": "الاسم الشائع لهذا الركن هو «الإيمان بالقضاء والقدر».",
+      "source_question_tr": "İmanın esaslarından biri 'Kader ve ______ iman' ifadesiyle tamamlanır.",
+      "source_correct_answer_tr": "Kazaya",
+      "source_options_tr": [
+        "Kazaya",
+        "Ahirete",
+        "Meleklere",
+        "Kitaplara"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 13:8, 25:2, 54:49; Diyanet Hadislerle İslam, Cilt 1, s.597-599; Din İşleri Yüksek Kurulu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-012": {
+      "question_ar": "يقول جم: «لم يرسل الله رسلًا إلى الناس لتبليغ وحيه». مع أي ركن من أركان الإيمان يتعارض هذا الرأي؟",
+      "options_ar": [
+        "الإيمان بالرسل",
+        "الإيمان بالملائكة",
+        "الإيمان باليوم الآخر",
+        "الإيمان بالقدر"
+      ],
+      "correct_answer_ar": "الإيمان بالرسل",
+      "explanation_ar": "الإيمان بالرسل الذين اصطفاهم الله وكلفهم بتبليغ الوحي هو أحد أركان الإيمان.",
+      "source_question_tr": "Cem, 'Allah insanlara vahyini iletecek peygamberler göndermemiştir' diyor. Bu görüş hangi iman esasıyla çelişir?",
+      "source_correct_answer_tr": "Peygamberlere iman",
+      "source_options_tr": [
+        "Peygamberlere iman",
+        "Meleklere iman",
+        "Ahirete iman",
+        "Kadere iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:285, 4:136; Diyanet Hadislerle İslam, Cilt 1, s.563-568; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-013": {
+      "question_ar": "الاسم العام للعناوين الستة الأساسية للاعتقاد في الإسلام هو «______ الإيمان».",
+      "options_ar": [
+        "أركان",
+        "مدن",
+        "تواريخ",
+        "تطبيقات"
+      ],
+      "correct_answer_ar": "أركان",
+      "explanation_ar": "تُسمّى هذه العناوين الاعتقادية الستة «أركان الإيمان».",
+      "source_question_tr": "İslam'daki altı temel inanç başlığının genel adı 'İmanın ______'dır.",
+      "source_correct_answer_tr": "Esasları",
+      "source_options_tr": [
+        "Esasları",
+        "Şehirleri",
+        "Tarihleri",
+        "Uygulamaları"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S07-014": {
+      "question_ar": "من أركان الإيمان: الإيمان بالله والملائكة والكتب والرسل واليوم الآخر و______.",
+      "options_ar": [
+        "القضاء والقدر",
+        "إقامة الصلاة",
+        "إيتاء الزكاة",
+        "حج البيت"
+      ],
+      "correct_answer_ar": "القضاء والقدر",
+      "explanation_ar": "الركن الذي يُكمل القائمة هو الإيمان بالقضاء والقدر.",
+      "source_question_tr": "İmanın esasları arasında Allah'a, Meleklere, Kitaplara, Peygamberlere, Ahirete ve ______ iman yer alır.",
+      "source_correct_answer_tr": "Kader ve Kazaya",
+      "source_options_tr": [
+        "Kader ve Kazaya",
+        "Namaz kılmaya",
+        "Zekât vermeye",
+        "Hacca gitmeye"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "runtime_variants": {}
