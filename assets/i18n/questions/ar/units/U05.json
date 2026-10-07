@@ -2029,6 +2029,318 @@
       "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-001": {
+      "question_ar": "في جدولٍ ما وُضعت «الصلاة» و«الإيمان بالملائكة» في الفئة نفسها، وهي «أركان الإسلام». ما المشكلة؟",
+      "options_ar": [
+        "الإيمان بالملائكة ليس من أركان الإسلام، بل من أركان الإيمان.",
+        "الصلاة من أركان الإيمان.",
+        "لا يوجد شيء اسمه الإيمان بالملائكة.",
+        "لا مشكلة؛ الجدول صحيح."
+      ],
+      "correct_answer_ar": "الإيمان بالملائكة ليس من أركان الإسلام، بل من أركان الإيمان.",
+      "explanation_ar": "الصلاة عبادة عملية من أركان الإسلام، أما الإيمان بالملائكة فهو من أصول الاعتقاد وأركان الإيمان.",
+      "source_question_tr": "Bir tabloda 'Namaz' ve 'Meleklere iman' aynı kategoriye (İslam'ın Şartları) yazılmış. Buradaki sorun nedir?",
+      "source_correct_answer_tr": "Meleklere iman İslam'ın şartı değil, imanın esasıdır.",
+      "source_options_tr": [
+        "Meleklere iman İslam'ın şartı değil, imanın esasıdır.",
+        "Namaz imanın esasıdır.",
+        "Meleklere iman diye bir şey yoktur.",
+        "Hiçbir sorun yoktur, tablo doğrudur."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-002": {
+      "question_ar": "لاحظ علي أن الشهادتين تمثلان إعلانًا أساسيًا في الإسلام، وأنهما تؤكدان بوضوح ركنين من أركان الإيمان. ما هذان الركنان؟",
+      "options_ar": [
+        "الإيمان بالله والرسل",
+        "الإيمان بالملائكة واليوم الآخر",
+        "الإيمان بالكتب والقدر",
+        "الإيمان بالقدر والملائكة"
+      ],
+      "correct_answer_ar": "الإيمان بالله والرسل",
+      "explanation_ar": "تتضمن الشهادتان إقرار التوحيد والشهادة بأن محمدًا ﷺ عبد الله ورسوله؛ ولذلك ترتبطان مباشرة بالإيمان بالله والرسل.",
+      "source_question_tr": "Ali, Kelime-i Şehadet'in İslam'ın temel beyanı olduğunu ve iman esaslarından iki başlığı açıkça vurguladığını fark ediyor. Bu iki başlık hangileridir?",
+      "source_correct_answer_tr": "Allah'a ve Peygamberlere iman",
+      "source_options_tr": [
+        "Allah'a ve Peygamberlere iman",
+        "Meleklere ve Ahirete iman",
+        "Kitaplara ve Kadere iman",
+        "Kadere ve Meleklere iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.495; Diyanet, Dinimi Öğreniyorum; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-003": {
+      "question_ar": "أركان الإسلام خمسة. فكم عدد أركان الإيمان؟",
+      "options_ar": [
+        "6",
+        "4",
+        "5",
+        "7"
+      ],
+      "correct_answer_ar": "6",
+      "explanation_ar": "أركان الإسلام خمسة، وأركان الإيمان ستة.",
+      "source_question_tr": "İslam'ın şartları 5 tanedir. Peki imanın esasları toplam kaç tanedir?",
+      "source_correct_answer_tr": "6",
+      "source_options_tr": [
+        "6",
+        "4",
+        "5",
+        "7"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491, 495 ve 587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-004": {
+      "question_ar": "يقول شخص: «التوحيد هو الإيمان بوجود الله ووحدانيته، وهو واحد من أركان الإسلام الخمسة». أين الخطأ؟",
+      "options_ar": [
+        "التوحيد ليس عبادة مستقلة مذكورة بندًا منفصلًا في قائمة أركان الإسلام الخمسة؛ بل يرتبط بالإيمان بالله وبالمعنى الأساسي للشهادتين.",
+        "التوحيد لا يصح إلا في رمضان.",
+        "التوحيد اسم آخر للإيمان بالرسل.",
+        "لا خطأ في العبارة."
+      ],
+      "correct_answer_ar": "التوحيد ليس عبادة مستقلة مذكورة بندًا منفصلًا في قائمة أركان الإسلام الخمسة؛ بل يرتبط بالإيمان بالله وبالمعنى الأساسي للشهادتين.",
+      "explanation_ar": "التوحيد يعني وحدانية الله. ولا يُعد بندًا تعبديًا مستقلًا في قائمة أركان الإسلام الخمسة، بل هو من المعاني الأساسية في الشهادتين والإيمان بالله.",
+      "source_question_tr": "Bir kişi 'Tevhid, Allah'ın var ve bir olmasıdır ve bu durum İslam'ın 5 şartından biridir' diyor. Hata nerededir?",
+      "source_correct_answer_tr": "Tevhid, İslam'ın beş şartı listesinde ayrı bir ibadet maddesi değildir; Allah'a iman ve Kelime-i Şehadet'in temel içeriğiyle ilgilidir.",
+      "source_options_tr": [
+        "Tevhid, İslam'ın beş şartı listesinde ayrı bir ibadet maddesi değildir; Allah'a iman ve Kelime-i Şehadet'in temel içeriğiyle ilgilidir.",
+        "Tevhid, sadece Ramazan'da geçerlidir.",
+        "Tevhid, Peygamberlere imanın diğer adıdır.",
+        "Cümlede hata yoktur."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.495; Diyanet, Dinimi Öğreniyorum; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-005": {
+      "question_ar": "أثناء صيام عائشة، وعند الإفطار، تدعو الله قائلة إنها صامت ابتغاء رضاه وتسأله أن يفرحهم في الآخرة. ما المفهومان اللذان يجمعهما فعل عائشة ودعاؤها؟",
+      "options_ar": [
+        "ركن من أركان الإسلام (الصيام) مع ركن من أركان الإيمان (الإيمان باليوم الآخر)",
+        "ركن من أركان الإسلام (الحج) مع ركن من أركان الإيمان (الإيمان بالملائكة)",
+        "أركان الإسلام فقط",
+        "أركان الإيمان فقط"
+      ],
+      "correct_answer_ar": "ركن من أركان الإسلام (الصيام) مع ركن من أركان الإيمان (الإيمان باليوم الآخر)",
+      "explanation_ar": "صيامها من أركان الإسلام، وإيمانها بالآخرة من أركان الإيمان.",
+      "source_question_tr": "Ayşe oruç tutarken, iftar vaktinde, 'Allahım senin rızan için oruç tuttum ve bana verdiğin rızıkla orucumu açıyorum, ahirette de bizi sevindir' diye dua ediyor. Ayşe'nin bu eylemi ve duası hangi iki kavramı birleştirir?",
+      "source_correct_answer_tr": "İslam'ın şartı (Oruç) ile İmanın esası (Ahirete iman)",
+      "source_options_tr": [
+        "İslam'ın şartı (Oruç) ile İmanın esası (Ahirete iman)",
+        "İslam'ın şartı (Hac) ile İmanın esası (Meleklere iman)",
+        "Sadece İslam'ın şartlarını",
+        "Sadece İmanın esaslarını"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:183-185 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.491; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-006": {
+      "question_ar": "ماذا يُسمّى الشخص الذي يعتنق الإسلام ويرتبط بالله بوعي التسليم له؟",
+      "options_ar": [
+        "مسلم",
+        "مَلَك",
+        "نبي",
+        "عالِم"
+      ],
+      "correct_answer_ar": "مسلم",
+      "explanation_ar": "من يعتنق دين الإسلام يُسمّى مسلمًا.",
+      "source_question_tr": "İslam dinini benimseyen ve Allah'a teslimiyet bilinciyle bağlanan kişiye ne ad verilir?",
+      "source_correct_answer_tr": "Müslüman",
+      "source_options_tr": [
+        "Müslüman",
+        "Melek",
+        "Peygamber",
+        "Alim"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:112 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.363; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-007": {
+      "question_ar": "يقول شخص: «الحج من أركان الإيمان». ما الخطأ في هذه العبارة؟",
+      "options_ar": [
+        "الحج من أركان الإسلام، وليس من أركان الإيمان.",
+        "الحج ليس فرضًا.",
+        "الحج من أركان الإيمان، لكن الصلاة ليست منها.",
+        "لا خطأ في العبارة."
+      ],
+      "correct_answer_ar": "الحج من أركان الإسلام، وليس من أركان الإيمان.",
+      "explanation_ar": "الحج عبادة من أركان الإسلام الخمسة، وليس من أصول الاعتقاد التي تُعد أركان الإيمان.",
+      "source_question_tr": "Bir kişi 'Hacca gitmek, imanın şartlarındandır' diyor. Bu cümledeki hata nedir?",
+      "source_correct_answer_tr": "Hacca gitmek imanın değil, İslam'ın şartlarındandır.",
+      "source_options_tr": [
+        "Hacca gitmek imanın değil, İslam'ın şartlarındandır.",
+        "Hacca gitmek farz değildir.",
+        "İmanın şartlarında hacca gitmek vardır ancak namaz yoktur.",
+        "Bu cümlede hata yoktur."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 3:97, 2:196-197; Diyanet Hadislerle İslam, Cilt 1, s.491; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-008": {
+      "question_ar": "إعطاء المسلم الذي وجبت عليه الزكاةَ القدرَ المحدد شرعًا من ماله لمستحقيه هو عبادة ______، وهي من أركان الإسلام.",
+      "options_ar": [
+        "الزكاة",
+        "الصيام",
+        "الصلاة",
+        "الإيمان"
+      ],
+      "correct_answer_ar": "الزكاة",
+      "explanation_ar": "الزكاة عبادة مالية تتعلق بإخراج القدر المحدد شرعًا من المال الذي تحققت فيه الشروط وإيصاله إلى مستحقيه المذكورين في القرآن.",
+      "source_question_tr": "Zekât yükümlülüğü doğan bir Müslümanın, malından dinen belirlenen payı hak sahiplerine vermesi İslam'ın şartlarından olan ______ ibadetidir.",
+      "source_correct_answer_tr": "zekât",
+      "source_options_tr": [
+        "zekât",
+        "oruç",
+        "namaz",
+        "iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 9:60, 9:103; Diyanet Hadislerle İslam, Cilt 1, s.491; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-009": {
+      "question_ar": "يكتب طالب في قائمة أركان الإيمان أحد العنوانين فقط: «الإيمان بالله» أو «الإيمان باليوم الآخر». ما النقص المفاهيمي في قائمته؟",
+      "options_ar": [
+        "الإيمان باليوم الآخر أيضًا من أركان الإيمان.",
+        "الإيمان باليوم الآخر من أركان الإسلام الخمسة.",
+        "الإيمان بالله من أركان الإسلام الخمسة.",
+        "لا يوجد نقص مفاهيمي في القائمة."
+      ],
+      "correct_answer_ar": "الإيمان باليوم الآخر أيضًا من أركان الإيمان.",
+      "explanation_ar": "الإيمان بالله والإيمان باليوم الآخر عنوانان مستقلان ضمن أركان الإيمان.",
+      "source_question_tr": "Bir öğrenci 'Allah'a iman' ile 'Ahiret gününe iman' başlıklarından yalnızca birini imanın esasları listesine yazıyor. Listede hangi kavramsal eksiklik vardır?",
+      "source_correct_answer_tr": "Ahiret gününe iman da imanın esaslarındandır.",
+      "source_options_tr": [
+        "Ahiret gününe iman da imanın esaslarındandır.",
+        "Ahiret gününe iman İslam'ın beş şartındandır.",
+        "Allah'a iman İslam'ın beş şartındandır.",
+        "Listede kavramsal eksiklik yoktur."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-010": {
+      "question_ar": "أيُّ خيار يصف العلاقة بين أركان الإسلام الخمسة وأركان الإيمان وصفًا أدق؟",
+      "options_ar": [
+        "أركان الإيمان تصنّف أصول الاعتقاد، وأركان الإسلام الخمسة تصنّف الشهادتين والعبادات الأساسية؛ وهما إطاران مختلفان لكن مترابطان.",
+        "القائمتان متطابقتان تمامًا.",
+        "أركان الإيمان تتكوّن من السلوك فقط، وأركان الإسلام من الأفكار فقط.",
+        "قبول أركان الإسلام وحدها يغني عن أركان الإيمان."
+      ],
+      "correct_answer_ar": "أركان الإيمان تصنّف أصول الاعتقاد، وأركان الإسلام الخمسة تصنّف الشهادتين والعبادات الأساسية؛ وهما إطاران مختلفان لكن مترابطان.",
+      "explanation_ar": "يعلّم حديث جبريل وحديث «بُني الإسلام على خمس» أركان الإيمان وأركان الإسلام الأساسية في إطارين مختلفين لكن مترابطين.",
+      "source_question_tr": "İslam'ın beş şartları ile imanın esasları arasındaki ilişkiyi en doğru anlatan seçenek hangisidir?",
+      "source_correct_answer_tr": "İmanın esasları temel inanç başlıklarını; İslam'ın beş şartı ise şehadet ile temel ibadetleri sınıflandıran ayrı ama ilişkili iki çerçevedir.",
+      "source_options_tr": [
+        "İmanın esasları temel inanç başlıklarını; İslam'ın beş şartı ise şehadet ile temel ibadetleri sınıflandıran ayrı ama ilişkili iki çerçevedir.",
+        "İkisi tamamen aynı listedir.",
+        "İmanın esasları yalnız davranışlardan, İslam'ın şartları yalnız düşüncelerden oluşur.",
+        "Sadece İslam'ın şartlarını kabul etmek iman esaslarının yerini tutar."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-011": {
+      "question_ar": "ما الخطأ المفاهيمي لدى من يقول: «الشهادتان مجرد ألفاظ تُحفظ، ولا أهمية للمعنى الإيماني الذي تحملانه»؟",
+      "options_ar": [
+        "غفل عن أن الشهادتين إعلانٌ للإيمان.",
+        "خلط الشهادتين بالصلاة.",
+        "خلط الشهادتين بالحج.",
+        "لا خطأ في العبارة."
+      ],
+      "correct_answer_ar": "غفل عن أن الشهادتين إعلانٌ للإيمان.",
+      "explanation_ar": "الشهادتان ليستا مجرد أصوات تُحفظ؛ بل هما إعلان للإيمان بأنه لا إله إلا الله وأن محمدًا ﷺ عبد الله ورسوله.",
+      "source_question_tr": "'Kelime-i Şehadet yalnızca ezberlenecek bir söz dizisidir; taşıdığı inanç anlamı önemli değildir' diyen birinin kavramsal hatası nedir?",
+      "source_correct_answer_tr": "Şehadetin bir inanç beyanı olduğunu gözden kaçırmıştır.",
+      "source_options_tr": [
+        "Şehadetin bir inanç beyanı olduğunu gözden kaçırmıştır.",
+        "Şehadeti namazla karıştırmıştır.",
+        "Şehadeti hacla karıştırmıştır.",
+        "İfadede hata yoktur."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.495; Diyanet, Dinimi Öğreniyorum; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S06-012": {
+      "question_ar": "في جدول جُمعت «الصلاة، والصيام، والزكاة، والحج» مع «الإيمان بالملائكة» تحت عنوان واحد. ما المشكلة في هذا التصنيف؟",
+      "options_ar": [
+        "ينبغي وضع الإيمان بالملائكة تحت عنوان أركان الإيمان.",
+        "الصلاة من أركان الإيمان.",
+        "الصيام من أركان الإيمان.",
+        "لا مشكلة في الجدول."
+      ],
+      "correct_answer_ar": "ينبغي وضع الإيمان بالملائكة تحت عنوان أركان الإيمان.",
+      "explanation_ar": "الصلاة والصيام والزكاة والحج ترتبط بأركان الإسلام، أما الإيمان بالملائكة فمن أركان الإيمان.",
+      "source_question_tr": "Bir tabloda 'Namaz, Oruç, Zekât, Hac' ile 'Meleklere iman' aynı başlık altında toplanmış. Bu sınıflandırmadaki sorun nedir?",
+      "source_correct_answer_tr": "Meleklere iman, imanın esasları başlığında yer almalıdır.",
+      "source_options_tr": [
+        "Meleklere iman, imanın esasları başlığında yer almalıdır.",
+        "Namaz imanın esasıdır.",
+        "Oruç imanın esasıdır.",
+        "Tabloda sorun yoktur."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "runtime_variants": {}
