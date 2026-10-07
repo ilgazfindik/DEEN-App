@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9348u02arabicstage2'
+  version:'9349u02arabicstage3'
  };
 
  const sameArray=(a,b)=>{
@@ -75,6 +75,20 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   if(t.teaching_card_ar&&Object.values(t.teaching_card_ar).some(v=>typeof v!=='string'||!v.trim()||/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(v)))return false;
   return /[\u0600-\u06FF]/.test(t.question_ar)&&/[\u0600-\u06FF]/.test(t.explanation_ar);
  }
+
+ const arabicU02ConceptNames={
+  belief_in_allah:'الإيمان بالله',
+  tawhid_basic:'التوحيد',
+  allah_one:'وحدانية الله',
+  worship_allah:'عبادة الله وحده',
+  concept_relationships:'العلاقات بين المفاهيم',
+  creator_basic:'الله الخالق',
+  creator_creation_distinction:'التمييز بين الخالق والمخلوق',
+  gratitude_basic:'الشكر',
+  trust_in_allah_basic:'الثقة بالله',
+  belief_daily_life:'أثر الإيمان في الحياة اليومية',
+  responsibility_from_belief:'المسؤولية الناتجة عن الإيمان'
+ };
 
  function asDisplayQuestion(base,translated,isRuntimeVariant=false){
   if(!base||!validArabicEntry(translated))return null;
@@ -120,6 +134,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    items:Array.isArray(translated.items_ar)?[...translated.items_ar]:base.items,
    correct_order:Array.isArray(translated.correct_order_ar)?[...translated.correct_order_ar]:base.correct_order,
    explanation_tr:translated.explanation_ar,
+   stage_title:typeof arabizeDynamicText==='function'?arabizeDynamicText(base.stage_title||''):base.stage_title,
+   topic:arabicU02ConceptNames[base.concept_id]||(typeof arabizeDynamicText==='function'?arabizeDynamicText(base.topic||''):base.topic),
    teaching_card:translated.teaching_card_ar?{...translated.teaching_card_ar}:base.teaching_card,
    __deenArabicPilot:true,
    __deenArabicFullBank:true,
@@ -189,7 +205,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9348u02arabicstage2';
+   const token='9349u02arabicstage3';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -657,7 +673,87 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   'İman Hayata Nasıl Yansır?':'كيف ينعكس الإيمان على الحياة؟',
   "Allah'a İman Challenge":'تحدّي الإيمان بالله',
   'Tevhid, yaratıcı-yaratılan ayrımı ve imanın hayata yansımasını öğren.':'تعلّم التوحيد، والتمييز بين الخالق والمخلوق، وكيف ينعكس الإيمان على الحياة.',
-  "Allah'a İman · 5 aşamalı öğrenme yolu":'الإيمان بالله · مسار تعلّم من 5 مراحل'
+  "Allah'a İman · 5 aşamalı öğrenme yolu":'الإيمان بالله · مسار تعلّم من 5 مراحل',
+  'Allah’a İman':'الإيمان بالله',
+  'Allah’a İman Nedir?':'ما معنى الإيمان بالله؟',
+  "Allah'a iman tanımı":'تعريف الإيمان بالله',
+  'Tevhid kavramı':'مفهوم التوحيد',
+  "Allah'ın birliği":'وحدانية الله',
+  'Kulluk ve tevhid':'العبادة والتوحيد',
+  'Tevhid ilişkileri':'علاقات التوحيد بالمفاهيم',
+  'Allah yaratıcıdır':'الله هو الخالق',
+  'Yaratıcı-yaratılan ayrımı':'التمييز بين الخالق والمخلوق',
+  'Şükür kavramı':'مفهوم الشكر',
+  'Güven kavramı':'مفهوم الثقة بالله',
+  'İnançtan günlük tutuma':'من الإيمان إلى السلوك اليومي',
+  'Görev sorumluluğu':'مسؤولية أداء الواجب',
+  'Kontrol Et':'تحقّق',
+  'Doğru veya yanlış seçimini yaparak devam et.':'اختر صحيحًا أو خطأ ثم تابع.',
+  'Şıkları dikkatle inceleyip en doğru cevabı seç.':'راجع الخيارات بعناية واختر الإجابة الأصح.',
+  'Dört kart arasından en doğru seçimi yap.':'اختر الإجابة الأصح من بين البطاقات الأربع.',
+  'Her doğru cevap, daha sağlam bir yarın demektir.':'كل إجابة صحيحة تجعل التعلّم أكثر رسوخًا.',
+  'Hatırladığın cevabı yaz…':'اكتب الإجابة التي تتذكرها…',
+  'Cevabını yaz…':'اكتب إجابتك…',
+  'Cevabını yaz':'اكتب إجابتك',
+  'Bir kart seç':'اختر بطاقة',
+  'Seçilen kelime:':'الكلمة المختارة:',
+  'Boşluk':'الفراغ',
+  'kelimesini boşluğa yerleştir':'ضع الكلمة في الفراغ',
+  'Öğrenme doğruluğu':'دقة التعلّم',
+  'Doğru cevap:':'الإجابة الصحيحة:',
+  '✓ DOĞRU':'✓ صحيح',
+  '× TEKRAR ETMEYE DEĞER':'× يستحق المراجعة',
+  'AŞAMA USTALIĞI':'إتقان المرحلة',
+  'Harika! Bu aşamadaki tüm dersler tamamlandı. Sıradaki aşama şimdi açıldı.':'رائع! اكتملت جميع دروس هذه المرحلة، وفُتحت المرحلة التالية الآن.',
+  'Çok iyi. Şimdi bu aşamadaki sonraki derse geçebilirsin.':'جيد جدًا. يمكنك الآن الانتقال إلى الدرس التالي في هذه المرحلة.',
+  'Çok iyi. Şimdi bu aşamadaki son adıma geçebilirsin.':'جيد جدًا. يمكنك الآن الانتقال إلى الخطوة الأخيرة في هذه المرحلة.',
+  'Bu aşamayı açmak için bu dersi %70 veya üzeriyle tamamla.':'لإكمال هذه المرحلة، حقّق 70٪ أو أكثر في هذا الدرس.',
+  'KUSURSUZ PEKİŞTİRME':'تعزيز مثالي',
+  'Bilgini pekiştirdin.':'عزّزت معرفتك.',
+  'KUSURSUZ DERS':'درس مثالي',
+  'Harika ilerleme.':'تقدّم رائع.',
+  'Birlikte pekiştirelim.':'لنعزّزها معًا.',
+  'Pekiştirme tamamlandı.':'اكتمل التعزيز.',
+  'Bilgin, küçük adımlarla güçleniyor.':'تزداد معرفتك رسوخًا بخطوات صغيرة.',
+  'Aşamayı tamamlamak için en az %70 gerekiyor.':'يلزم 70٪ على الأقل لإكمال المرحلة.',
+  'Temeller Ustalığı için ilerliyorsun.':'أنت تتقدّم نحو إتقان الأساسيات.',
+  'Hızlı ilerleme':'تقدّم سريع',
+  'Bilgini güçlendir':'عزّز معرفتك',
+  'Kartını seç':'اختر بطاقتك',
+  'Bilgi küçük adımlarla büyür.':'تنمو المعرفة بخطوات صغيرة.',
+  'Tekrar listen hazır değil':'قائمة المراجعة غير جاهزة',
+  'Bu listede henüz soru yok. Yeni bir ders tamamladığında tekrar planın oluşur.':'لا توجد أسئلة في هذه القائمة بعد. ستتكوّن خطة المراجعة عندما تكمل درسًا جديدًا.',
+  'Öğrenmeye dön':'العودة إلى التعلّم',
+  'Hızlı Tekrar':'مراجعة سريعة',
+  'Adaptif Akıllı Tekrar':'مراجعة ذكية تكيفية',
+  'Öncelikli':'أولوية عالية',
+  'Gelişiyor':'قيد التحسن',
+  'Dengeli':'متوازن',
+  'ADAPTİF TEKRARI BAŞLAT':'ابدأ المراجعة التكيفية',
+  'İLK DERSİ TAMAMLA':'أكمل الدرس الأول',
+  'ADAPTIVE MEMORY ENGINE · v6.4':'محرك الذاكرة التكيفي · v6.4',
+  'Bugünkü hafıza planın':'خطة الذاكرة لليوم',
+  'Vadesi gelen bilgiler önce geliyor.':'تأتي المعلومات المستحقة للمراجعة أولًا.',
+  'Vadesi gelen soru yok; plan zayıf kavramlar ve kontrollü varyasyonlarla dengeleniyor.':'لا توجد أسئلة مستحقة الآن؛ تتوازن الخطة بين المفاهيم الضعيفة والتنويعات المنضبطة.',
+  'İlk mini dersini tamamladığında kişisel tekrar planın burada oluşacak.':'عندما تكمل أول درس مصغّر ستظهر هنا خطة المراجعة الشخصية.',
+  'SORU':'سؤال',
+  'VADESİ GELEN':'مستحق للمراجعة',
+  'YANLIŞ ÖNCELİĞİ':'أولوية الأخطاء',
+  'İlk dersinden sonra kişiselleşir':'يتخصّص بعد درسك الأول',
+  'HATIRLA · PEKİŞTİR':'تذكّر · عزّز',
+  'Unutmaya göre çalışan tekrar.':'مراجعة تتكيّف مع النسيان.',
+  'Plan, geçmiş cevapların ve tekrar zamanlarınla otomatik değişir.':'تتغيّر الخطة تلقائيًا وفق إجاباتك السابقة ومواعيد المراجعة.',
+  'Yanlışların':'أخطاؤك',
+  'Zayıf Kavramlar':'المفاهيم الضعيفة',
+  'Ücretsiz':'مجاني',
+  'Vadesi Gelen':'المستحق للمراجعة',
+  'Öğrenme hafızası':'ذاكرة التعلّم',
+  'Ünite bazında':'حسب الوحدة',
+  'Henüz yeterli cevap geçmişi yok. Birkaç ders sonra zayıf kavramlar burada görünür.':'لا يوجد سجل إجابات كافٍ بعد. ستظهر المفاهيم الضعيفة هنا بعد بضعة دروس.',
+  'İlk üniteni oynadıkça burada kişisel hafıza skoru oluşur.':'مع تقدّمك في وحدتك الأولى ستظهر هنا درجة الذاكرة الشخصية.',
+  'Bu skor yalnız öğrenme ve hatırlama performansını yönetir; dinî yeterlilik veya ibadet değeri değildir.':'تُستخدم هذه الدرجة فقط لإدارة أداء التعلّم والتذكّر، وليست حكمًا على الكفاءة الدينية أو قيمة العبادة.',
+  'Hafıza planı:':'خطة الذاكرة:',
+  'Adaptif hafıza özeti':'ملخّص الذاكرة التكيفية'
  };
  Object.assign(chromeMap,u02ChromeMap);
  const arabicPhrasePairs=[
@@ -711,6 +807,16 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    (m,title,a,b,l1,l2,q)=>arabizeDynamicText(title.trim())+' · المرحلة '+a+'/'+b+' · الدرس المصغّر '+l1+'/'+l2+' · '+q+' أسئلة.');
   out=out.replace(/([^.!؟]+)\s+artık bitti\.\s*Sıradaki düğüm açıldı\./gi,(m,t)=>'اكتملت '+arabizeDynamicText(t.trim())+'. فُتحت المحطة التالية.');
   out=out.replace(/([^.!؟]+)\s+artık oynanabilir\./gi,(m,t)=>'أصبح '+arabizeDynamicText(t.trim())+' متاحًا الآن.');
+  out=out.replace(/DERS\s*(\d+)\s*\/\s*(\d+)\s*GEÇİLDİ/gi,'تم اجتياز الدرس $1/$2');
+  out=out.replace(/DERS\s*(\d+)\s*\/\s*(\d+)\s*TEKRAR/gi,'مراجعة الدرس $1/$2');
+  out=out.replace(/(\d+)\s*öğrenilmiş kavram\s*·\s*(\d+)\s*güçlendirilecek\s*·\s*(\d+)\s*vadesi gelen/gi,'$1 مفاهيم متعلّمة · $2 تحتاج إلى تعزيز · $3 مستحقة للمراجعة');
+  out=out.replace(/(\d+)\s*kavram\s*·\s*(\d+)\s*enerji/gi,'$1 مفاهيم · $2 طاقة');
+  out=out.replace(/(\d+)\s*tekrar bekliyor/gi,'$1 مراجعات منتظرة');
+  out=out.replace(/(\d+)\s*puan\b/gi,'$1 نقاط');
+  out=out.replace(/(\d+)\s*vadesi gelen\s*·\s*(\d+)\s*yanlış önceliği\s*·\s*(\d+)\s*etkinlik türü işlendi\.\s*Sonraki plan yeni cevaplarına göre yeniden hesaplanacak\./gi,
+    '$1 مستحقة للمراجعة · $2 أولوية أخطاء · تمت معالجة $3 أنواع من الأنشطة. ستُعاد حساب الخطة التالية وفق إجاباتك الجديدة.');
+  out=out.replace(/(\d+)\s*vadesi gelen\s*·\s*(\d+)\s*yanlış önceliği\s*·\s*(\d+)\s*kavram/gi,
+    '$1 مستحقة للمراجعة · $2 أولوية أخطاء · $3 مفاهيم');
   for(const [tr,ar] of arabicPhrasePairs)if(out.includes(tr))out=out.split(tr).join(ar);
   const exact=chromeMap[out.trim()];
   if(exact)return out.replace(out.trim(),exact);
@@ -895,7 +1001,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9348u02arabicstage2',
+  version:'9349u02arabicstage3',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
