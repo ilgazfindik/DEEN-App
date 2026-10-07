@@ -1158,6 +1158,390 @@
       "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-001": {
+      "question_ar": "كان علي جالسًا مع أصدقائه، فلاحظ أن أحدهم يكذب وفكّر: «هذا لا ينسجم مع القيم التي تعلمتها». بأي مفهوم يرتبط ردّ فعل علي أكثر؟",
+      "options_ar": [
+        "الوعي الأخلاقي",
+        "معرفة العبادات فقط",
+        "حفظ القرآن فقط",
+        "معرفة أوقات الصلاة فقط"
+      ],
+      "correct_answer_ar": "الوعي الأخلاقي",
+      "explanation_ar": "حساسية علي تجاه الصدق مثال على انعكاس القيم الأخلاقية التي يتعلمها في حياته اليومية.",
+      "source_question_tr": "Ali, arkadaşlarıyla otururken birinin yalan söylediğini fark ediyor ve içinden \"Bu, öğrendiğim değerlere uymuyor\" diye düşünüyor. Ali'nin bu tepkisi hangi kavramla en çok ilişkilidir?",
+      "source_correct_answer_tr": "Ahlaki farkındalık",
+      "source_options_tr": [
+        "Ahlaki farkındalık",
+        "Sadece ibadet bilgisi",
+        "Sadece Kur'an ezberi",
+        "Sadece namaz vakti bilgisi"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:90 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.13; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-002": {
+      "question_ar": "أتيحت لزينب فرصة الغش في الاختبار، لكنها امتنعت لأنها فكرت: «الله يرى كل شيء». بأي علاقة يرتبط هذا السلوك؟",
+      "options_ar": [
+        "ترابط الإيمان والأخلاق",
+        "الشعور بالخوف فقط",
+        "قواعد المدرسة فقط",
+        "ضغط الأصدقاء فقط"
+      ],
+      "correct_answer_ar": "ترابط الإيمان والأخلاق",
+      "explanation_ar": "يعكس سلوك زينب أثر إيمانها بالله في اختيارها لسلوك أخلاقي صحيح.",
+      "source_question_tr": "Zeynep, sınavda kopya çekme fırsatı olmasına rağmen bunu yapmıyor çünkü \"Allah her şeyi görüyor\" diye düşünüyor. Bu davranış hangi kavramla ilişkilidir?",
+      "source_correct_answer_tr": "İman ve ahlakın birlikte işlemesi",
+      "source_options_tr": [
+        "İman ve ahlakın birlikte işlemesi",
+        "Sadece korku duygusu",
+        "Sadece okul kuralları",
+        "Sadece arkadaş baskısı"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 3, s.151-152; Kur'an 4:58; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-003": {
+      "question_ar": "يقول صديق: «العبادة وطريقة معاملتي للناس أمران لا علاقة بينهما إطلاقًا». ما النقص في هذه العبارة؟",
+      "options_ar": [
+        "تتجاهل تمامًا الصلة التي يمكن أن تكون بين العبادة وحسن الأخلاق",
+        "تزعم أن العبادة لا تتكوّن إلا من السلوك الاجتماعي",
+        "تقول إن الأخلاق والعبادة مفهوم واحد",
+        "تعرّف مفهوم النبي تعريفًا خاطئًا"
+      ],
+      "correct_answer_ar": "تتجاهل تمامًا الصلة التي يمكن أن تكون بين العبادة وحسن الأخلاق",
+      "explanation_ar": "في إطار هذه الوحدة، العبادة والأخلاق مفهومان مختلفان، لكنهما قد يلتقيان في انعكاس الإيمان والقيم على حياة الإنسان.",
+      "source_question_tr": "Bir arkadaşın \"İbadet ile insanlara nasıl davrandığım tamamen ilgisizdir\" diyor. Bu ifadede hangi eksiklik vardır?",
+      "source_correct_answer_tr": "İbadet ile güzel ahlak arasında kurulabilecek ilişkiyi tamamen göz ardı ediyor",
+      "source_options_tr": [
+        "İbadet ile güzel ahlak arasında kurulabilecek ilişkiyi tamamen göz ardı ediyor",
+        "İbadetin yalnızca toplumsal davranışlardan oluştuğunu savunuyor",
+        "Ahlak ile ibadetin aynı kavram olduğunu söylüyor",
+        "Peygamber kavramını yanlış tanımlıyor"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 2:177; 29:45; Maûn 107:1-7 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-004": {
+      "question_ar": "يقول صديق: «لكي يكون المرء مسلمًا يجب أن يكون قد وُلد في بلد معيّن». ما الخطأ في هذه العبارة؟",
+      "options_ar": [
+        "الإسلام مرتبط بالإيمان والاعتناق لا بمكان الولادة",
+        "العبارة صحيحة تمامًا",
+        "يجب فقط أن يتكلم لغة معيّنة",
+        "المهم هو تقاليد الأسرة فقط"
+      ],
+      "correct_answer_ar": "الإسلام مرتبط بالإيمان والاعتناق لا بمكان الولادة",
+      "explanation_ar": "صفة المسلم لا تتحدد بالجنسية أو مكان الميلاد، بل باعتناق الإسلام.",
+      "source_question_tr": "Bir arkadaşın \"Müslüman olmak için mutlaka belirli bir ülkede doğmuş olmak gerekir\" diyor. Bu ifadenin hatası nedir?",
+      "source_correct_answer_tr": "Müslüman olmak inanca dayanır, doğum yerine değil",
+      "source_options_tr": [
+        "Müslüman olmak inanca dayanır, doğum yerine değil",
+        "İfade tamamen doğrudur",
+        "Sadece belirli bir dil konuşmak gerekir",
+        "Sadece aile geleneği önemlidir"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 22:78; 49:13; 34:28 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-005": {
+      "question_ar": "كان محمد على وشك كتابة تعليق فظّ على وسائل التواصل، ثم عدل عنه وكتب عبارة ألطف. بأي مفهوم يرتبط هذا الاختيار؟",
+      "options_ar": [
+        "تطبيق حسن الأخلاق في السلوك اليومي",
+        "الرغبة في الشهرة فقط",
+        "الخوف من القواعد فقط",
+        "العادة فقط"
+      ],
+      "correct_answer_ar": "تطبيق حسن الأخلاق في السلوك اليومي",
+      "explanation_ar": "اختيار محمد للكلام اللطيف مثال على تطبيق القيم الأخلاقية في التواصل اليومي.",
+      "source_question_tr": "Mehmet, sosyal medyada birine kaba bir yorum yazmak üzereyken vazgeçiyor ve daha nazik bir cümle kuruyor. Bu tercih hangi kavramla ilgilidir?",
+      "source_correct_answer_tr": "Güzel ahlakı günlük davranışa yansıtmak",
+      "source_options_tr": [
+        "Güzel ahlakı günlük davranışa yansıtmak",
+        "Sadece popüler olmak istemek",
+        "Sadece kurallardan korkmak",
+        "Sadece alışkanlık"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:90 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.13; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-006": {
+      "question_ar": "بعد أن تشاجرت إليف مع أسرتها هدأت واعتذرت لأنها تعلمت أن «حسن التصرف مهم». بأي مفهوم يرتبط هذا الموقف؟",
+      "options_ar": [
+        "الأخلاق",
+        "قواعد الأسرة فقط",
+        "التقاليد فقط",
+        "الخوف فقط"
+      ],
+      "correct_answer_ar": "الأخلاق",
+      "explanation_ar": "اعتذار إليف مثال على تطبيق القيم الأخلاقية التي تعلمتها في حياتها.",
+      "source_question_tr": "Elif, ailesiyle tartıştıktan sonra sakinleşip özür diliyor çünkü \"güzel davranmanın önemli olduğunu\" öğrendi. Bu durum hangi kavramla ilişkilidir?",
+      "source_correct_answer_tr": "Ahlak",
+      "source_options_tr": [
+        "Ahlak",
+        "Sadece aile kuralları",
+        "Sadece gelenek",
+        "Sadece korku"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:90 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.13; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-007": {
+      "question_ar": "يقول صديق: «أستطيع أن أحكم حكمًا قاطعًا على أخلاق الإنسان كلها بمجرد النظر إلى عباداته». ما المشكلة في هذه العبارة؟",
+      "options_ar": [
+        "تعمّم حكمًا قاطعًا على أخلاق الإنسان كلها انطلاقًا من مجال واحد ظاهر",
+        "تفترض أن العبادة والأخلاق مفهوم واحد",
+        "تفترض أن العبادة لا قيمة لها",
+        "تحصر الأخلاق في قواعد المجتمع فقط"
+      ],
+      "correct_answer_ar": "تعمّم حكمًا قاطعًا على أخلاق الإنسان كلها انطلاقًا من مجال واحد ظاهر",
+      "explanation_ar": "العبادة والأخلاق مترابطتان لكنهما ليستا مفهومًا واحدًا، ولا يصح التسرع في الحكم القاطع على باطن الإنسان وظاهره كله من مظهر واحد.",
+      "source_question_tr": "Bir arkadaşın \"Bir kişinin ibadet hayatına bakarak onun bütün ahlakı hakkında kesin hüküm verebilirim\" diyor. Bu ifadedeki sorun nedir?",
+      "source_correct_answer_tr": "Tek bir gözlenebilir alandan kişinin bütün ahlaki durumuna dair kesin genelleme yapması",
+      "source_options_tr": [
+        "Tek bir gözlenebilir alandan kişinin bütün ahlaki durumuna dair kesin genelleme yapması",
+        "İbadet ile ahlakın aynı kavram olması",
+        "İbadetin hiçbir değeri olmaması",
+        "Ahlakın yalnızca toplum kurallarından ibaret olması"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 53:32 (Diyanet meali/tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.363; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-008": {
+      "question_ar": "عندما أخطأ جان في عمله أخبر مديره بالحقيقة بدل أن يخفي الخطأ. على أي قيمة أساسية يقوم هذا السلوك؟",
+      "options_ar": [
+        "الصدق وحسن الخلق",
+        "الخوف من القواعد فقط",
+        "الخوف من فقدان العمل فقط",
+        "العادة فقط"
+      ],
+      "correct_answer_ar": "الصدق وحسن الخلق",
+      "explanation_ar": "تصرف جان بصدق مثال على تطبيق قيمة الصدق في الحياة اليومية.",
+      "source_question_tr": "Can, işte bir hata yaptığında bunu saklamak yerine dürüstçe patronuna anlatıyor. Bu davranış hangi temel değere dayanır?",
+      "source_correct_answer_tr": "Dürüstlük (ahlak)",
+      "source_options_tr": [
+        "Dürüstlük (ahlak)",
+        "Sadece kural korkusu",
+        "Sadece işten atılma endişesi",
+        "Sadece alışkanlık"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 4:58; 16:90 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-009": {
+      "question_ar": "أيُّ عبارة تصف نظرة الإسلام إلى الحياة اليومية على نحو صحيح؟",
+      "options_ar": [
+        "لا تقتصر على العبادات، بل تشمل أيضًا السلوك الأخلاقي",
+        "لا تنطبق إلا في المسجد",
+        "لا تُطبَّق إلا في أيام محددة",
+        "تخصّ البالغين فقط"
+      ],
+      "correct_answer_ar": "لا تقتصر على العبادات، بل تشمل أيضًا السلوك الأخلاقي",
+      "explanation_ar": "تقدّم هذه الوحدة الإسلام إطارًا يشمل الاعتقاد والعبادة والأخلاق ومجالات الحياة اليومية.",
+      "source_question_tr": "İslam'ın günlük hayata yaklaşımı için hangisi doğrudur?",
+      "source_correct_answer_tr": "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+      "source_options_tr": [
+        "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+        "Sadece camide geçerlidir",
+        "Sadece belirli günlerde uygulanır",
+        "Sadece yetişkinler için geçerlidir"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 16:90 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.13; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-010": {
+      "question_ar": "امتنعت عائشة عن المشاركة مع مجموعة كانت تغتاب إحدى صديقاتها لأنها رأت أن ذلك غير صحيح. بأي مفهوم يرتبط هذا الموقف؟",
+      "options_ar": [
+        "الحسّ الأخلاقي",
+        "الخجل فقط",
+        "الرغبة في الابتعاد عن المجموعة فقط",
+        "عدم الاهتمام فقط"
+      ],
+      "correct_answer_ar": "الحسّ الأخلاقي",
+      "explanation_ar": "يعكس موقف عائشة تطبيق القيم الأخلاقية في علاقاتها اليومية.",
+      "source_question_tr": "Ayşe, bir arkadaşının dedikodusunu yapan gruba katılmıyor çünkü bunun doğru olmadığını düşünüyor. Bu tutum hangi kavramla ilgilidir?",
+      "source_correct_answer_tr": "Ahlaki duyarlılık",
+      "source_options_tr": [
+        "Ahlaki duyarlılık",
+        "Sadece utangaçlık",
+        "Sadece grup dışı kalma isteği",
+        "Sadece ilgisizlik"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 49:12 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-011": {
+      "question_ar": "يقول صديق: «الإسلام ليس إلا عبادات ولا علاقة له بالحياة اليومية». ما الخطأ الأساسي في هذه العبارة؟",
+      "options_ar": [
+        "تضيّق مفهوم الإسلام وتتجاهل جوانب الاعتقاد والعبادة والأخلاق والحياة اليومية",
+        "تقول إن الإسلام لا يتكوّن إلا من الأخلاق",
+        "تجعل العبادة والأخلاق مفهومًا واحدًا",
+        "تؤكد أن القرآن مصدر أساسي"
+      ],
+      "correct_answer_ar": "تضيّق مفهوم الإسلام وتتجاهل جوانب الاعتقاد والعبادة والأخلاق والحياة اليومية",
+      "explanation_ar": "تقدّم هذه الوحدة الإسلام إطارًا لا يقتصر على العبادات، بل يشمل الاعتقاد والتعبّد والأخلاق.",
+      "source_question_tr": "Bir arkadaşın \"İslam sadece ibadetlerden ibarettir, günlük hayatla ilgisi yoktur\" diyor. Bu ifadedeki temel hata nedir?",
+      "source_correct_answer_tr": "İslam'ın inanç, ibadet, ahlak ve günlük yaşamla ilgili yönlerini daraltıyor",
+      "source_options_tr": [
+        "İslam'ın inanç, ibadet, ahlak ve günlük yaşamla ilgili yönlerini daraltıyor",
+        "İslam'ın yalnızca ahlak kurallarından oluştuğunu söylüyor",
+        "İbadet ile ahlakın aynı kavram olduğunu savunuyor",
+        "Kur'an'ın temel kaynak olduğunu vurguluyor"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 16:90 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.13; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-012": {
+      "question_ar": "لاحظ إمري في متجر أنه تسلّم من البائع نقودًا زائدة، فعاد وردّها. بأي مفهوم يمكن تفسير هذا السلوك بصورة أساسية؟",
+      "options_ar": [
+        "الصدق وحسن الأخلاق",
+        "الإلزام القانوني فقط",
+        "الخوف من الكاميرات فقط",
+        "العادة فقط"
+      ],
+      "correct_answer_ar": "الصدق وحسن الأخلاق",
+      "explanation_ar": "يعكس هذا التصرف الصدق والشعور بالمسؤولية الأخلاقية في الحياة اليومية.",
+      "source_question_tr": "Emre, bir mağazada fazla para üstü aldığını fark edince geri gidip parayı iade ediyor. Bu davranış öncelikle hangi kavramla açıklanabilir?",
+      "source_correct_answer_tr": "Dürüstlük ve güzel ahlak",
+      "source_options_tr": [
+        "Dürüstlük ve güzel ahlak",
+        "Sadece yasal zorunluluk",
+        "Sadece kamera korkusu",
+        "Sadece alışkanlık"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 4:58; 16:90 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-013": {
+      "question_ar": "اهتمام الإنسان بعباداته مع التزامه بالصدق والاحترام يوضح أي علاقة في هذه الوحدة؟",
+      "options_ar": [
+        "إمكان اجتماع العبادة وحسن الأخلاق في حياة الإنسان وتساندهما",
+        "أن العبادة والأخلاق مفهوم واحد تمامًا",
+        "أن الأخلاق تجعل العبادة غير ضرورية",
+        "أن الصدق لا علاقة له بالدين"
+      ],
+      "correct_answer_ar": "إمكان اجتماع العبادة وحسن الأخلاق في حياة الإنسان وتساندهما",
+      "explanation_ar": "يوضح المثال أن العبادة والأخلاق ليستا مفهومًا واحدًا، لكنهما يمكن أن تجتمعا وتتساندا في حياة الإنسان.",
+      "source_question_tr": "Bir kişinin ibadetlerine önem verirken dürüst ve saygılı davranması bu ünitede hangi ilişkiyi gösterir?",
+      "source_correct_answer_tr": "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+      "source_options_tr": [
+        "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+        "İbadet ve ahlakın tamamen aynı kavram olduğunu",
+        "Ahlakın ibadeti gereksiz yaptığını",
+        "Dürüstlüğün dinle ilgisiz olduğunu"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:177; 29:45; Maûn 107:1-7 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-014": {
+      "question_ar": "عندما نشر صديق لسيلين معلومة دينية خاطئة، شاركت المعلومة الصحيحة معه بلطف من غير أن تحتقره. بأي قيمة يرتبط هذا الموقف؟",
+      "options_ar": [
+        "التواصل المحترم واللطيف",
+        "التظاهر بالمعرفة فقط",
+        "الرغبة في الفوز بالنقاش فقط",
+        "الرغبة في إثبات الذات فقط"
+      ],
+      "correct_answer_ar": "التواصل المحترم واللطيف",
+      "explanation_ar": "يوضح موقف سيلين أهمية مراعاة حسن الخلق حتى عند تصحيح المعلومات.",
+      "source_question_tr": "Selin, bir arkadaşı dini konuda yanlış bir bilgi paylaştığında onu küçümsemeden, nazikçe doğru bilgiyi paylaşıyor. Bu tutum hangi değerle ilgilidir?",
+      "source_correct_answer_tr": "Saygılı ve nazik iletişim (ahlak)",
+      "source_options_tr": [
+        "Saygılı ve nazik iletişim (ahlak)",
+        "Sadece bilgiçlik taslamak",
+        "Sadece tartışmayı kazanmak isteği",
+        "Sadece kendini haklı çıkarma"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:125 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-015": {
+      "question_ar": "يقول صديق: «الدعاء والعبادة مهمان، لكن مسؤولياتي تجاه الناس لا علاقة لها بهما إطلاقًا». ما النقص في هذه العبارة؟",
+      "options_ar": [
+        "تقطع تمامًا الصلة الممكنة بين العبادة والمسؤوليات الأخلاقية والاجتماعية",
+        "تقول إن العبادة والأخلاق كلمة واحدة",
+        "تنكر أن الدعاء يمكن أن يكون عبادة",
+        "تؤكد أن القرآن مصدر أساسي"
+      ],
+      "correct_answer_ar": "تقطع تمامًا الصلة الممكنة بين العبادة والمسؤوليات الأخلاقية والاجتماعية",
+      "explanation_ar": "في هذه الوحدة العبادة والأخلاق مجالان مختلفان، لكنهما قد يتساندان في انعكاس القيم على حياة الإنسان.",
+      "source_question_tr": "Bir arkadaşın \"Dua ve ibadet önemli olsa da insanlara karşı sorumluluklarımın bunlarla hiçbir ilgisi yok\" diyor. Bu ifadede hangi eksiklik vardır?",
+      "source_correct_answer_tr": "İbadet ile ahlaki ve toplumsal sorumluluklar arasında kurulabilecek bağı tamamen koparıyor",
+      "source_options_tr": [
+        "İbadet ile ahlaki ve toplumsal sorumluluklar arasında kurulabilecek bağı tamamen koparıyor",
+        "İbadet ile ahlakın aynı kelime olduğunu söylüyor",
+        "Duanın bir ibadet olabileceğini reddediyor",
+        "Kur'an'ın temel kaynak olduğunu savunuyor"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 2:177; 29:45; Maûn 107:1-7 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-016": {
+      "question_ar": "عندما اتُّهم بوراك في عمله ظلمًا، بقي هادئًا وشرح الموقف بعدل ولم يصرخ غضبًا. إلى أي قيمة يشير هذا السلوك؟",
+      "options_ar": [
+        "الصبر وحسن الأخلاق",
+        "الجبن فقط",
+        "عدم الاكتراث فقط",
+        "الخوف من القواعد فقط"
+      ],
+      "correct_answer_ar": "الصبر وحسن الأخلاق",
+      "explanation_ar": "يعكس هدوء بوراك وإنصافه قيمتي الصبر وحسن الخلق في التعامل مع المواقف الصعبة.",
+      "source_question_tr": "Burak, iş yerinde haksız yere suçlandığında sakin kalıp adil bir şekilde durumu açıklıyor, kızıp bağırmıyor. Bu davranış hangi değere işaret eder?",
+      "source_correct_answer_tr": "Sabır ve güzel ahlak",
+      "source_options_tr": [
+        "Sabır ve güzel ahlak",
+        "Sadece korkaklık",
+        "Sadece ilgisizlik",
+        "Sadece kural korkusu"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 3:133-135 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "runtime_variants": {
