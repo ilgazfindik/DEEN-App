@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9342arabicliveu01'
+  version:'9343arabiclearningloop1'
  };
 
  const sameArray=(a,b)=>{
@@ -189,7 +189,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9342arabicliveu01';
+   const token='9343arabiclearningloop1';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -356,12 +356,72 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   'TEKRAR ETMEYE DEĞER':'يستحق المراجعة',
   'Devam':'متابعة',
   'Devam Et':'متابعة',
+  'ÖĞREN':'تعلّم',
+  'UYGULA':'طبّق',
+  'HATIRLA':'تذكّر',
+  'PEKİŞTİR':'عزّز',
+  'Önce fikri keşfet':'اكتشف الفكرة أولاً',
+  'Şimdi bilgiyi kullan':'استخدم ما تعلمته الآن',
+  'Bakmadan hatırla':'تذكّر دون النظر',
+  'Kaçırdığını tamamla':'أكمل ما فاتك',
+  '2. AŞAMA · UYGULA':'٢ · المرحلة الثانية · طبّق',
+  'Şimdi bilgiyi kullan.':'استخدم ما تعلمته الآن.',
+  'İlk dört kartta ana fikirleri gördün. Sıradaki sorularda bu bilgileri yeni durumlara uygulayacaksın.':'رأيت الأفكار الرئيسية في البطاقات الأربع الأولى. في الأسئلة التالية ستطبّق ما تعلمته على مواقف جديدة.',
+  'UYGULAMAYA BAŞLA':'ابدأ التطبيق',
+  '3. AŞAMA · HATIRLA':'٣ · المرحلة الثالثة · تذكّر',
+  'Şimdi kendi başına hatırla.':'تذكّر بنفسك الآن.',
+  'İpuçları geride kaldı. Son dört soruda öğrendiklerini hafızandan çağır.':'انتهت التلميحات. في الأسئلة الأربعة الأخيرة استدعِ ما تعلمته من ذاكرتك.',
+  'HATIRLAMA TURUNA BAŞLA':'ابدأ جولة التذكّر',
+  'ÖĞRENDİM · SORUYA GEÇ':'فهمتُ · انتقل إلى السؤال',
+  'Ders öğrenildi':'تم تعلّم الدرس',
+  'Ders tamamlandı':'اكتمل الدرس',
+  'İlk deneme doğruluğu':'دقة المحاولة الأولى',
+  'İLK DENEME':'المحاولة الأولى',
+  'Yardım almadan doğru':'إجابات صحيحة دون مساعدة',
+  'ÖĞRENİLEN':'تم إتقانه',
+  'Tekrarlarla tamamlanan':'اكتمل بالمراجعة',
+  'GERİ KAZANILAN':'تم استعادته',
+  'Yanlıştan doğruya':'من خطأ إلى صحيح',
+  'Başlangıç':'البداية',
   '1 · ANA FİKİR':'١ · الفكرة الرئيسية',
   "İslam, Allah'a yönelmektir.":'الإسلام هو التوجّه إلى الله.',
   "İslam; Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.":'الإسلام يعلّم الثقة بالله، وقبول هدايته، وتحويل ذلك إلى حياة عملية.',
   'Kısa ipucu: Yönel · Güven · Yaşa':'تلميح قصير: توجّه · ثِق · عِش',
   'ÖĞRENDİM · SORUYA GEÇ':'فهمتُ · انتقل إلى السؤال'
  };
+
+ function localizeLearningLoop(root=document.getElementById('lesson')||document.body){
+  if(locale()!=='ar'||!root)return;
+  const overlay=root.querySelector?.('.v910-overlay');
+  if(overlay){
+   overlay.setAttribute('dir','rtl');
+   overlay.style.direction='rtl';
+   const eyebrow=overlay.querySelector('.v910-card-eyebrow');
+   const title=overlay.querySelector('h2');
+   const body=overlay.querySelector('p');
+   const memory=overlay.querySelector('.v910-memory');
+   const button=overlay.querySelector('button');
+   for(const el of [eyebrow,title,body,memory,button]){
+    if(el){
+     const key=(el.textContent||'').trim();
+     if(chromeMap[key])el.textContent=chromeMap[key];
+     el.style.textAlign='center';
+    }
+   }
+  }
+  root.querySelectorAll?.('.v910-phasebar b,.v910-phasebar span,.v910-phasebar i').forEach(el=>{
+   const key=(el.textContent||'').trim();
+   if(chromeMap[key])el.textContent=chromeMap[key];
+  });
+  const rv=document.getElementById('resultView');
+  if(rv){
+   rv.querySelectorAll('*').forEach(el=>{
+    if(el.children.length)return;
+    const key=(el.textContent||'').trim();
+    if(chromeMap[key])el.textContent=chromeMap[key];
+   });
+  }
+ }
 
  function localizeChrome(root=document.getElementById('lesson')||document.body){
   if(locale()!=='ar'||!root)return;
@@ -379,8 +439,14 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     const m=trim.match(/^(\d+)\s*\/\s*(\d+)\s*eşleşme$/i);
     if(m)out=m[1]+' / '+m[2]+' مطابقات';
    }
+   if(!out&&trim.startsWith('Öğrenme döngüsü · ')){
+    const phase=trim.slice('Öğrenme döngüsü · '.length);
+    const phaseAr=chromeMap[phase]||phase;
+    out='مسار التعلّم · '+phaseAr;
+   }
    if(out)node.nodeValue=raw.replace(trim,out);
   }
+  localizeLearningLoop(root);
  }
  let chromeQueued=false;
  const queueChrome=()=>{
