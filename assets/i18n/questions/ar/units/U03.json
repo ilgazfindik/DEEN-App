@@ -1475,6 +1475,788 @@
       "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-001": {
+      "question_ar": "يقول صديقك: «الشهادتان فقط لإظهار أننا نؤمن بأن الله واحد». ما النقص في هذا الفهم؟",
+      "options_ar": [
+        "أنه نسي أن الشهادتين تتضمنان أيضًا الشهادة بأن محمدًا ﷺ عبد الله ورسوله.",
+        "أن الشهادتين تتعلقان في الأصل بالإيمان بالملائكة.",
+        "أنهما تتحدثان عن النبوة فقط بدل وحدانية الله.",
+        "أنه لا يظن أن العبارة تؤكد الآخرة فقط."
+      ],
+      "correct_answer_ar": "أنه نسي أن الشهادتين تتضمنان أيضًا الشهادة بأن محمدًا ﷺ عبد الله ورسوله.",
+      "explanation_ar": "تجمع الشهادتان بين أصلين: التوحيد، والشهادة بعبودية محمد ﷺ لله ورسالته.",
+      "source_question_tr": "Bir arkadaşın 'Kelime-i Şehadet yalnızca bizim Allah'ın bir olduğuna inandığımızı göstermek içindir' diyor. Bu anlayıştaki eksiklik nedir?",
+      "source_correct_answer_tr": "Şehadetin, Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik etmeyi de içerdiğini unutmasıdır.",
+      "source_options_tr": [
+        "Şehadetin, Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik etmeyi de içerdiğini unutmasıdır.",
+        "Şehadetin aslında meleklere inanmakla ilgili olmasıdır.",
+        "Allah'ın birliği yerine sadece peygamberliği anlatmasıdır.",
+        "Bu ifadenin sadece ahireti vurguladığını düşünmemesidir."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet Hadislerle İslam, Cilt 1, s.495; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-002": {
+      "question_ar": "أيُّ تفسير مما يلي يتعارض بوضوح مع معنى التوحيد في الشهادتين؟",
+      "options_ar": [
+        "الإقرار بوجود آلهة مستقلة متعددة",
+        "الإيمان بأن الله واحد لا شريك له",
+        "توجيه العبادة إلى الله",
+        "ربط الجزء الأول من الشهادتين بالتوحيد"
+      ],
+      "correct_answer_ar": "الإقرار بوجود آلهة مستقلة متعددة",
+      "explanation_ar": "يحمل الجزء الأول من الشهادتين معنى أن الله هو الإله الواحد.",
+      "source_question_tr": "Aşağıdaki yorumlardan hangisi şehadetin tevhid anlamıyla açıkça çelişir?",
+      "source_correct_answer_tr": "Birden fazla bağımsız ilah bulunduğunu kabul etmek",
+      "source_options_tr": [
+        "Birden fazla bağımsız ilah bulunduğunu kabul etmek",
+        "Allah'ın bir ve tek olduğuna inanmak",
+        "İbadeti Allah'a yöneltmek",
+        "Şehadetin ilk bölümünü tevhidle ilişkilendirmek"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Yayınları, Ezanı Anlamak; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-003": {
+      "question_ar": "يحفظ طالب الشهادتين كاملتين لكنه لا يعرف معناهما. ما الخطوة الأكثر فائدة للتعلّم؟",
+      "options_ar": [
+        "تعلّم معنى جزأي التوحيد والرسالة أيضًا",
+        "محاولة قولهما بسرعة أكبر فقط",
+        "حفظ عدد الكلمات فقط",
+        "اعتبار المعنى غير مهم تمامًا"
+      ],
+      "correct_answer_ar": "تعلّم معنى جزأي التوحيد والرسالة أيضًا",
+      "explanation_ar": "تهدف هذه الوحدة إلى فهم معنى الإقرارين الأساسيين إلى جانب معرفة ترتيبهما الصحيح.",
+      "source_question_tr": "Bir öğrenci şehadeti eksiksiz ezberliyor fakat ne anlama geldiğini bilmiyor. Öğrenme açısından hangi adım en faydalıdır?",
+      "source_correct_answer_tr": "Tevhid ve elçilik bölümlerinin anlamını da öğrenmek",
+      "source_options_tr": [
+        "Tevhid ve elçilik bölümlerinin anlamını da öğrenmek",
+        "Sadece daha hızlı söylemeye çalışmak",
+        "Yalnızca kelime sayısını ezberlemek",
+        "Anlamı tamamen önemsiz görmek"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: Kelime-i Tevhid ve Kelime-i Şehâdet; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-004": {
+      "question_ar": "يسأل طالب: «لماذا يُذكر محمد ﷺ في الشهادتين رسولًا لا خالقًا؟». ما الجواب الأنسب وفق إطار هذه الوحدة؟",
+      "options_ar": [
+        "لأن الشهادتين تقران بأن الله هو الإله الواحد، وأن محمدًا ﷺ رسول الله",
+        "لأن الأنبياء يُعدّون آلهة",
+        "لأن مفهوم الخالق يُستخدم للملائكة فقط",
+        "لأن الشهادتين لا تذكران النبوة أصلًا"
+      ],
+      "correct_answer_ar": "لأن الشهادتين تقران بأن الله هو الإله الواحد، وأن محمدًا ﷺ رسول الله",
+      "explanation_ar": "يعبّر جزآ الشهادتين عن مفهومين مختلفين: التوحيد والرسالة.",
+      "source_question_tr": "Bir öğrenci 'Şehadette Hz. Muhammed neden yaratıcı değil, elçi olarak anılıyor?' diye soruyor. Bu ünitenin çerçevesine göre en uygun cevap hangisidir?",
+      "source_correct_answer_tr": "Çünkü şehadet Allah'ı tek ilah olarak, Hz. Muhammed'i ise Allah'ın elçisi olarak ifade eder",
+      "source_options_tr": [
+        "Çünkü şehadet Allah'ı tek ilah olarak, Hz. Muhammed'i ise Allah'ın elçisi olarak ifade eder",
+        "Çünkü peygamberler ilah kabul edilir",
+        "Çünkü yaratıcı kavramı yalnızca melekler için kullanılır",
+        "Çünkü şehadet peygamberlikten hiç söz etmez"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 48:29; 18:110 (Diyanet meali/tefsiri); Diyanet, Dinimi Öğreniyorum; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-005": {
+      "question_ar": "أيُّ تصور يتعارض مع عبارة «أشهد أن لا إله إلا الله»؟",
+      "options_ar": [
+        "فكرة إمكان وجود آلهة قوية مستقلة متعددة تدبّر الكون",
+        "الإيمان بأن الله الخالق الواحد المتفرّد الذي لا مثيل له",
+        "فهم أن الدعاء يُوجَّه إلى الله وحده",
+        "الإيمان بأن أي مخلوق لا يملك صفات الله نفسها"
+      ],
+      "correct_answer_ar": "فكرة إمكان وجود آلهة قوية مستقلة متعددة تدبّر الكون",
+      "explanation_ar": "«لا إله إلا الله» إقرار بالتوحيد، أي أنه لا إله إلا الله وأن الألوهية له وحده.",
+      "source_question_tr": "Hangi anlayış 'Eşhedü en lâ ilâhe illallah' ifadesiyle çelişir?",
+      "source_correct_answer_tr": "Evrendeki düzeni sağlayan birbirinden bağımsız güçlü tanrıların olabileceği düşüncesi.",
+      "source_options_tr": [
+        "Evrendeki düzeni sağlayan birbirinden bağımsız güçlü tanrıların olabileceği düşüncesi.",
+        "Allah'ın eşsiz ve benzersiz tek yaratıcı olduğu inancı.",
+        "Duaların yalnızca Allah'a yöneltilmesi gerektiği anlayışı.",
+        "Hiçbir yaratılmışın Allah ile aynı özelliklere sahip olmadığı inancı."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 47:19 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Yayınları, Ezanı Anlamak; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-006": {
+      "question_ar": "تعبّر الشهادتان عن الإيمان بالتوحيد و_____ معًا.",
+      "correct_answer_ar": "النبوة",
+      "explanation_ar": "يرتبط الجزء الأول بالتوحيد، والثاني بعبودية محمد ﷺ لله ورسالته، أي بالنبوة والرسالة.",
+      "source_question_tr": "Şehadet metni tevhid ve _____ inancını birlikte ifade eder.",
+      "source_correct_answer_tr": "peygamberlik",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet Hadislerle İslam, Cilt 1, s.495; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-007": {
+      "question_ar": "صِل المفاهيم الرئيسة في النص بما يقابلها.",
+      "pairs_ar": [
+        {
+          "left": "أشهد",
+          "right": "أشهد وأُقرّ"
+        },
+        {
+          "left": "التوحيد",
+          "right": "وحدانية الله"
+        },
+        {
+          "left": "عبده ورسوله",
+          "right": "عبد الله ورسوله"
+        },
+        {
+          "left": "الإقراران الأساسيان",
+          "right": "التوحيد وعبودية محمد ﷺ لله ورسالته"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "تربط هذه المطابقات بين مستوى الألفاظ والمعاني والمفاهيم في النص.",
+      "source_question_tr": "Metindeki ana kavramları karşılıklarıyla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Eşhedü",
+          "right": "Şahitlik ederim"
+        },
+        {
+          "left": "Tevhid",
+          "right": "Allah'ın birliği"
+        },
+        {
+          "left": "Abdühû ve resûlüh",
+          "right": "O'nun kulu ve elçisi"
+        },
+        {
+          "left": "İki ana beyan",
+          "right": "Tevhid ve Hz. Muhammed'in kulluğu/elçiliği"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: Kelime-i Tevhid ve Kelime-i Şehâdet; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-008": {
+      "question_ar": "أيُّ خيار يوجز رسالة الشهادتين بأشمل صورة؟",
+      "options_ar": [
+        "لا إله إلا الله، ومحمد ﷺ عبد الله ورسوله",
+        "خلق الله الكون ثم ترك الإنسان وشأنه",
+        "محمد ﷺ مخلوق له صفات إلهية",
+        "الشهادتان تتحدثان فقط عن الصلاة والصيام"
+      ],
+      "correct_answer_ar": "لا إله إلا الله، ومحمد ﷺ عبد الله ورسوله",
+      "explanation_ar": "يجمع المعنى المعروف للشهادتين بين إقرار التوحيد وكون محمد ﷺ عبد الله ورسوله.",
+      "source_question_tr": "Aşağıdakilerden hangisi Kelime-i Şehadet'in içerdiği mesajı en kapsamlı şekilde özetler?",
+      "source_correct_answer_tr": "Allah'tan başka ilah yoktur; Hz. Muhammed O'nun kulu ve elçisidir",
+      "source_options_tr": [
+        "Allah'tan başka ilah yoktur; Hz. Muhammed O'nun kulu ve elçisidir",
+        "Allah evreni yaratmış, sonrasında insanı kendi haline bırakmıştır",
+        "Hz. Muhammed ilahî özelliklere sahip bir varlıktır",
+        "Kelime-i Şehadet yalnız namaz ve oruçtan söz eder"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet Hadislerle İslam, Cilt 1, s.495; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-009": {
+      "question_ar": "صِل أجزاء الشهادتين بالمعاني التي تدل عليها مباشرة.",
+      "pairs_ar": [
+        {
+          "left": "أشهد أن لا إله إلا الله",
+          "right": "الشهادة بأنه لا إله إلا الله"
+        },
+        {
+          "left": "وأشهد أن محمدًا عبده ورسوله",
+          "right": "الشهادة بأن محمدًا ﷺ عبد الله ورسوله"
+        },
+        {
+          "left": "التوحيد",
+          "right": "وحدانية الله"
+        },
+        {
+          "left": "الرسالة / النبوة",
+          "right": "مفهوم الرسالة"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "تحمل صيغة الشهادتين إقرار التوحيد والشهادة بعبودية محمد ﷺ لله ورسالته معًا.",
+      "source_question_tr": "Şehadetin bölümlerini doğrudan ifade ettikleri anlamlarla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Eşhedü en lâ ilâhe illallah",
+          "right": "Allah'tan başka ilah olmadığına şahitlik"
+        },
+        {
+          "left": "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+          "right": "Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik"
+        },
+        {
+          "left": "Tevhid",
+          "right": "Allah'ın birliği"
+        },
+        {
+          "left": "Risalet / peygamberlik",
+          "right": "Elçilik kavramı"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Yayınları, Ezanı Anlamak; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-010": {
+      "question_ar": "أيُّ أسلوب تعلّم مما يلي لا ينسجم مع هدف هذه الوحدة؟",
+      "options_ar": [
+        "حفظ الشهادتين كأصوات فقط دون تعلّم معناهما",
+        "تمييز جزأي النص",
+        "تعلّم صلته بالتوحيد",
+        "تعلّم دلالة عبودية محمد ﷺ لله ورسالته"
+      ],
+      "correct_answer_ar": "حفظ الشهادتين كأصوات فقط دون تعلّم معناهما",
+      "explanation_ar": "تهدف DEEN في هذه الوحدة إلى الفهم إلى جانب الحفظ؛ فمن المهم معرفة ما يقوله الإقراران الأساسيان.",
+      "source_question_tr": "Aşağıdaki öğrenme yaklaşımlarından hangisi bu ünitenin hedefiyle uyuşmaz?",
+      "source_correct_answer_tr": "Şehadeti yalnızca ses olarak ezberleyip anlamını hiç öğrenmemek",
+      "source_options_tr": [
+        "Şehadeti yalnızca ses olarak ezberleyip anlamını hiç öğrenmemek",
+        "Metnin iki bölümünü ayırt etmek",
+        "Tevhid bağlantısını öğrenmek",
+        "Hz. Muhammed'in kulluğu ve elçiliği bağlantısını öğrenmek"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Yayınları, Ezanı Anlamak; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-011": {
+      "question_ar": "أيُّ خيار يشرح عبارة «لا إله إلا الله» بأدق صورة في المستوى التمهيدي لهذه الوحدة؟",
+      "options_ar": [
+        "تفيد أنه لا إله إلا الله وأن الله هو الإله الواحد",
+        "تفيد اعتبار كل إنسان قوي إلهًا",
+        "تسرد الأصنام التاريخية فقط",
+        "تفيد أن الأنبياء آلهة"
+      ],
+      "correct_answer_ar": "تفيد أنه لا إله إلا الله وأن الله هو الإله الواحد",
+      "explanation_ar": "تُتعلَّم هذه العبارة في المستوى التمهيدي ضمن إطار التوحيد، أي وحدانية الله وكونه الإله الواحد.",
+      "source_question_tr": "'Lâ ilâhe illallah' ifadesini bu ünitenin başlangıç düzeyinde en doğru hangi seçenek açıklar?",
+      "source_correct_answer_tr": "Allah'tan başka ilah olmadığını ve Allah'ın tek ilah olduğunu ifade eder",
+      "source_options_tr": [
+        "Allah'tan başka ilah olmadığını ve Allah'ın tek ilah olduğunu ifade eder",
+        "Her güçlü insanın ilah kabul edilmesini anlatır",
+        "Yalnızca tarihsel putları sayar",
+        "Peygamberlerin ilah olduğunu ifade eder"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 47:19 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Yayınları, Ezanı Anlamak; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-012": {
+      "question_ar": "أيُّ عبارة مما يلي تتضمن معلومة خاطئة عن مكانة محمد ﷺ كما تذكرها الشهادتان؟",
+      "options_ar": [
+        "يُعتقد أن محمدًا ﷺ شريك لله في تدبير الكون.",
+        "محمد ﷺ عبد من عباد الله ورسوله.",
+        "محمد ﷺ مكلّف بتبليغ رسالة الله إلى الناس.",
+        "الإقرار بعبوديته لله ورسالته من أصول الإيمان."
+      ],
+      "correct_answer_ar": "يُعتقد أن محمدًا ﷺ شريك لله في تدبير الكون.",
+      "explanation_ar": "تصف الشهادتان محمدًا ﷺ بأنه عبد الله ورسوله، ولا تجعله شريكًا لله أو إلهًا.",
+      "source_question_tr": "Aşağıdaki ifadelerden hangisinde Hz. Muhammed'in Kelime-i Şehadette belirtilen konumuyla ilgili hatalı bir bilgi vardır?",
+      "source_correct_answer_tr": "Hz. Muhammed'in de evreni yönetmede Allah'a ortak olduğuna inanılır.",
+      "source_options_tr": [
+        "Hz. Muhammed'in de evreni yönetmede Allah'a ortak olduğuna inanılır.",
+        "Hz. Muhammed, Allah'ın kullarından bir kul ve elçidir.",
+        "Hz. Muhammed, Allah'ın emirlerini insanlara ulaştırmakla görevlidir.",
+        "Hz. Muhammed'in kulluğu ve elçiliğini onaylamak imanın temel şartıdır."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 48:29; 18:110 (Diyanet meali/tefsiri); Diyanet, Dinimi Öğreniyorum; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-013": {
+      "question_ar": "يسأل طالب: «لماذا للشهادتين جزآن؟». ما الشرح الأنسب؟",
+      "options_ar": [
+        "لأن التوحيد وعبودية محمد ﷺ لله ورسالته يُعبَّر عنهما معًا",
+        "لأن سورتين مختلفتين جُمعتا معًا",
+        "لأنهما تشرحان الصلاة والصيام",
+        "لأن الهدف مجرد زيادة عدد الكلمات"
+      ],
+      "correct_answer_ar": "لأن التوحيد وعبودية محمد ﷺ لله ورسالته يُعبَّر عنهما معًا",
+      "explanation_ar": "يشهد الجزء الأول بوحدانية الله، ويشهد الجزء الثاني بعبودية محمد ﷺ لله ورسالته.",
+      "source_question_tr": "Bir öğrenci 'Şehadetin neden iki bölümü var?' diye soruyor. En uygun açıklama hangisidir?",
+      "source_correct_answer_tr": "Çünkü tevhid ve Hz. Muhammed'in kulluğu ve elçiliği birlikte ifade edilir",
+      "source_options_tr": [
+        "Çünkü tevhid ve Hz. Muhammed'in kulluğu ve elçiliği birlikte ifade edilir",
+        "Çünkü iki farklı sure birleştirilmiştir",
+        "Çünkü namaz ve oruç anlatılır",
+        "Çünkü yalnızca kelime sayısını artırmak amaçlanır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet Hadislerle İslam, Cilt 1, s.495; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-014": {
+      "question_ar": "لا يقتصر معنى التوحيد والرسالة في الشهادتين على لحظة الدخول في الإسلام فقط.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "تشير المواد التعليمية إلى تكرار هذه المعاني في ممارسات دينية مثل الأذان والصلاة؛ فوعي التوحيد والرسالة مستمر في الحياة الإيمانية للمسلم.",
+      "source_question_tr": "Kelime-i Şehadet'in taşıdığı tevhid ve risalet anlamı, Müslümanın dinî hayatında yalnızca İslam'a ilk giriş anıyla sınırlı değildir.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: Kelime-i Tevhid ve Kelime-i Şehâdet; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-015": {
+      "question_ar": "ماذا يؤكد تعبير «أشهد» في كلمة الشهادة ضمن هذه الوحدة؟",
+      "options_ar": [
+        "أن يعبّر الإنسان بلسانه عن الإقرار الأساسي الذي يؤمن به",
+        "يمينًا في محكمة",
+        "مجرد حفظ نص",
+        "سرد حدث تاريخي فقط"
+      ],
+      "correct_answer_ar": "أن يعبّر الإنسان بلسانه عن الإقرار الأساسي الذي يؤمن به",
+      "explanation_ar": "تدل الشهادة هنا على التعبير اللفظي عن الإيمان بصيغة الشهادة والإقرار.",
+      "source_question_tr": "Şehadet kelimesindeki 'şahitlik ederim' ifadesi bu ünitede neyi vurgular?",
+      "source_correct_answer_tr": "Kişinin inandığı temel beyanı sözle ifade etmesini",
+      "source_options_tr": [
+        "Kişinin inandığı temel beyanı sözle ifade etmesini",
+        "Bir mahkeme yeminini",
+        "Yalnızca bir metni ezberlemeyi",
+        "Sadece tarihsel bir olayı anlatmayı"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet, Dinimi Öğreniyorum; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S05-016": {
+      "question_ar": "تذكّر: ما المفهوم الذي يعبّر عنه الجزء الأول من الشهادتين، وما المفهوم الذي يعبّر عنه الجزء الثاني؟ اكتب الإجابة بصيغة «___ و ___».",
+      "correct_answer_ar": "التوحيد والنبوة",
+      "explanation_ar": "يرتبط الجزء الأول بالتوحيد، والثاني بعبودية محمد ﷺ لله ورسالته، أي بالنبوة والرسالة.",
+      "source_question_tr": "Hatırla: Şehadetin ilk bölümü hangi kavramı, ikinci bölümü hangi kavramı ifade eder? Cevabı '___ ve ___' biçiminde yaz.",
+      "source_correct_answer_tr": "Tevhid ve peygamberlik",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet Hadislerle İslam, Cilt 1, s.495; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-001": {
+      "question_ar": "إذا ذُكرت وحدانية الله فقط دون ذكر مَن بلّغ الرسالة، فأيُّ جزء من الشهادتين يكون ناقصًا؟",
+      "options_ar": [
+        "الجزء الذي يشهد بأن محمدًا ﷺ رسول الله.",
+        "الجزء الذي يبيّن الإيمان بالملائكة.",
+        "الجزء الذي يشرح الإيمان باليوم الآخر.",
+        "الجزء الذي ينتهي بقول «لا إله» فقط."
+      ],
+      "correct_answer_ar": "الجزء الذي يشهد بأن محمدًا ﷺ رسول الله.",
+      "explanation_ar": "بعد إقرار التوحيد، تتضمن الصيغة الكاملة للشهادتين الإقرار بأن محمدًا ﷺ عبد الله ورسوله.",
+      "source_question_tr": "Bir ifadede yalnızca Allah'ın birliğinden bahsediliyor ancak mesajın kimin aracılığıyla geldiğinden bahsedilmiyorsa, Kelime-i Şehadet açısından hangi bölüm eksik kalmıştır?",
+      "source_correct_answer_tr": "Hz. Muhammed'in elçi olduğuna şahitlik edilen bölüm.",
+      "source_options_tr": [
+        "Hz. Muhammed'in elçi olduğuna şahitlik edilen bölüm.",
+        "Meleklere iman edildiğini gösteren bölüm.",
+        "Ahiret gününe inancı anlatan bölüm.",
+        "Sadece 'Lâ ilâhe' diyerek bitirilen bölüm."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet Hadislerle İslam, Cilt 1, s.495; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-002": {
+      "question_ar": "مراجعة ذكية: صِل العبارات بالمفاهيم الأساسية.",
+      "pairs_ar": [
+        {
+          "left": "لا إله إلا الله",
+          "right": "التوحيد"
+        },
+        {
+          "left": "محمدًا عبده ورسوله",
+          "right": "العبودية لله والرسالة / النبوة"
+        },
+        {
+          "left": "أشهد",
+          "right": "أشهد وأُقرّ"
+        },
+        {
+          "left": "الشهادتان",
+          "right": "مجموع الإقرارين الأساسيين"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "تربط هذه المراجعة أجزاء النص مباشرة بالمفاهيم التي تدل عليها.",
+      "source_question_tr": "Akıllı tekrar: İfadeleri temel kavramlarla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Lâ ilâhe illallah",
+          "right": "Tevhid"
+        },
+        {
+          "left": "Muhammeden abdühû ve resûlüh",
+          "right": "Kulluk ve elçilik / peygamberlik"
+        },
+        {
+          "left": "Eşhedü",
+          "right": "Şahitlik ederim"
+        },
+        {
+          "left": "Kelime-i Şehadet",
+          "right": "İki ana beyanın bütünü"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Kur'an 47:19 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Yayınları, Ezanı Anlamak; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-003": {
+      "question_ar": "في النص المعياري المضبوط للشهادتين تأتي كلمة «عبده» بعد «محمدًا».",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "في الصيغة التعليمية المعتمدة يأتي الجزء الثاني على نحو «...محمدًا عبده ورسوله».",
+      "source_question_tr": "Kontrollü standart şehadet metninde 'Muhammeden' kelimesinden sonra 'abdühû' gelir.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: Kelime-i Tevhid ve Kelime-i Şehâdet; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-004": {
+      "question_ar": "في التسجيل الذي استمعت إليه، أين يرد حرف العطف الذي يصل جزء التوحيد بجزء النبوة ويجمع الإقرارين؟",
+      "options_ar": [
+        "في الواو المسموعة مباشرة بعد «إلا الله».",
+        "في بداية التسجيل.",
+        "في نهاية التسجيل.",
+        "بعد كلمة «محمدًا»."
+      ],
+      "correct_answer_ar": "في الواو المسموعة مباشرة بعد «إلا الله».",
+      "explanation_ar": "ينتهي الجزء الأول بـ«...إلا الله»، ثم يبدأ الجزء الثاني مباشرة بقول «وأشهد...».",
+      "source_question_tr": "Dinlediğin kayıtta, tevhid bölümünü peygamberlik bölümünden ayıran ve iki beyanı birleştiren bağlaç ifadesi nerede geçmektedir?",
+      "source_correct_answer_tr": "illallah kelimesinden hemen sonra duyulan 've' hecesinde.",
+      "source_options_tr": [
+        "illallah kelimesinden hemen sonra duyulan 've' hecesinde.",
+        "Kayıdın en başında.",
+        "Kayıdın en sonunda.",
+        "Muhammeden kelimesinden sonra."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "listening_select",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: standart Kelime-i Şehadet metni; REQUIRES_VERIFIED_AUDIO_ASSET; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-005": {
+      "question_ar": "تسأل زينب: «لماذا تُستخدم لغة الشهادة في كلمة الشهادة؟». ما التفسير الأنسب في مستوى هذه الوحدة؟",
+      "options_ar": [
+        "لأن الإنسان يبيّن أنه يعبّر بلسانه عن الإقرار الأساسي الذي يؤمن به",
+        "لأنها مأخوذة من لغة المحاكم فقط",
+        "لأن معنى الكلمة هو الحفظ فقط",
+        "لأن الشهادة خاصة بالأنبياء فقط"
+      ],
+      "correct_answer_ar": "لأن الإنسان يبيّن أنه يعبّر بلسانه عن الإقرار الأساسي الذي يؤمن به",
+      "explanation_ar": "تدل الشهادة على أن يقرّ الإنسان بلسانه بالمعاني الأساسية التي يؤمن بها.",
+      "source_question_tr": "Zeynep 'Şehadet kelimesinde neden tanıklık dili kullanılıyor?' diye soruyor. Bu ünitenin düzeyine göre en uygun açıklama hangisidir?",
+      "source_correct_answer_tr": "Çünkü kişi inandığı temel beyanı sözle ifade ettiğini belirtir",
+      "source_options_tr": [
+        "Çünkü kişi inandığı temel beyanı sözle ifade ettiğini belirtir",
+        "Çünkü bu yalnızca mahkeme dilinden alınmıştır",
+        "Çünkü kelimenin anlamı sadece ezberlemektir",
+        "Çünkü şahitlik yalnız peygamberlere özgüdür"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Yayınları, Ezanı Anlamak; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-006": {
+      "question_ar": "رتّب معنى الجملة ترتيبًا منطقيًا صحيحًا.",
+      "items_ar": [
+        "وبأن محمدًا ﷺ عبد الله ورسوله",
+        "أشهد",
+        "أن لا إله إلا الله"
+      ],
+      "correct_order_ar": [
+        "أشهد",
+        "أن لا إله إلا الله",
+        "وبأن محمدًا ﷺ عبد الله ورسوله"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يبدأ المعنى بفعل الشهادة، ثم الإقرار بأنه لا إله إلا الله، ثم الإقرار بأن محمدًا ﷺ عبد الله ورسوله.",
+      "source_question_tr": "Cümlenin Türkçe anlamını mantıksal olarak doğru sıraya diz.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "olduğuna şahitlik ederim.",
+        "Allah'tan başka ilah olmadığına",
+        "ve Muhammed'in O'nun kulu ve elçisi"
+      ],
+      "source_correct_order_tr": [
+        "Allah'tan başka ilah olmadığına",
+        "ve Muhammed'in O'nun kulu ve elçisi",
+        "olduğuna şahitlik ederim."
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-007": {
+      "question_ar": "صِل مفاهيم الشهادتين بتعريفاتها.",
+      "pairs_ar": [
+        {
+          "left": "لا إله إلا الله",
+          "right": "التوحيد"
+        },
+        {
+          "left": "محمدًا عبده ورسوله",
+          "right": "عبد الله ورسوله"
+        },
+        {
+          "left": "أشهد",
+          "right": "أشهد وأُقرّ"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "«لا إله إلا الله» تدل على التوحيد، و«عبده» على العبودية لله، و«رسوله» على الرسالة.",
+      "source_question_tr": "Şehadet içindeki kavramları tanımlarıyla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Lâ ilâhe illallah",
+          "right": "Tevhid"
+        },
+        {
+          "left": "Muhammeden abdühû ve resûlüh",
+          "right": "Allah'ın kulu ve elçisi"
+        },
+        {
+          "left": "Eşhedü",
+          "right": "Şahitlik ederim"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet Yayınları, Ezanı Anlamak, 'Şehadetler' bölümü; Diyanet Hadislerle İslam, Cilt 1, s.495; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-008": {
+      "question_ar": "يشرح نصٌّ وحدانية الله لكنه يحذف تمامًا جزء النبوة والرسالة. ما التصحيح اللازم من جهة الشهادتين؟",
+      "options_ar": [
+        "إضافة الجزء الذي يشهد بأن محمدًا ﷺ عبد الله ورسوله",
+        "إضافة عدد ركعات الصلاة",
+        "إضافة خطوات الحج",
+        "إضافة عدد سور القرآن"
+      ],
+      "correct_answer_ar": "إضافة الجزء الذي يشهد بأن محمدًا ﷺ عبد الله ورسوله",
+      "explanation_ar": "تُتعلَّم الشهادتان بإقراريهما الأساسيين معًا: التوحيد، وعبودية محمد ﷺ لله ورسالته.",
+      "source_question_tr": "Bir açıklama Allah'ın birliğini anlatıyor fakat peygamberlik/elçilik bölümünü tamamen atlıyor. Şehadet açısından hangi düzeltme gerekir?",
+      "source_correct_answer_tr": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik bölümü eklenmelidir",
+      "source_options_tr": [
+        "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik bölümü eklenmelidir",
+        "Namazın rekâtları eklenmelidir",
+        "Hac adımları eklenmelidir",
+        "Kur'an'daki sure sayısı eklenmelidir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 48:29; 18:110 (Diyanet meali/tefsiri); Diyanet, Dinimi Öğreniyorum; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-009": {
+      "question_ar": "في الشهادة الأولى، أيُّ كلمة تأتي بين «أشهد» و«لا إله إلا الله»؟",
+      "options_ar": [
+        "أن",
+        "و",
+        "أنَّ",
+        "رسول"
+      ],
+      "correct_answer_ar": "أن",
+      "explanation_ar": "تربط «أن» فعل «أشهد» بالجملة «لا إله إلا الله».",
+      "source_question_tr": "İlk şahitlikte 'Eşhedü' ile 'lâ ilâhe illallah' arasına hangi kelime gelir?",
+      "source_correct_answer_tr": "en",
+      "source_options_tr": [
+        "en",
+        "ve",
+        "enne",
+        "resul"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "next_word",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-010": {
+      "question_ar": "اكتب المفهوم الأساسي الذي يرتبط به الجزء الأول من الشهادتين.",
+      "correct_answer_ar": "التوحيد",
+      "explanation_ar": "يرتبط جزء «لا إله إلا الله» بوحدانية الله، أي بمفهوم التوحيد.",
+      "source_question_tr": "Şehadetin ilk bölümünün bağlantılı olduğu temel kavramı yaz.",
+      "source_correct_answer_tr": "Tevhid",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 47:19 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Yayınları, Ezanı Anlamak; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-011": {
+      "question_ar": "أيُّ أسلوب دراسة مما يلي ناقص بالنسبة إلى هدف تعلّم معنى الشهادتين؟",
+      "options_ar": [
+        "محاولة قولهما بسرعة فقط دون دراسة معناهما",
+        "تمييز الجزأين مع معانيهما",
+        "تعلّم صلتهما بالتوحيد",
+        "التعرّف على جزء الرسالة"
+      ],
+      "correct_answer_ar": "محاولة قولهما بسرعة فقط دون دراسة معناهما",
+      "explanation_ar": "تهدف هذه الوحدة إلى فهم ما يدل عليه النص إلى جانب صحة النطق والترتيب.",
+      "source_question_tr": "Aşağıdaki çalışma biçimlerinden hangisi şehadetin anlamını öğrenme hedefi açısından eksiktir?",
+      "source_correct_answer_tr": "Yalnızca hızlı söylemeye çalışıp anlamını hiç incelememek",
+      "source_options_tr": [
+        "Yalnızca hızlı söylemeye çalışıp anlamını hiç incelememek",
+        "İki bölümü anlamlarıyla ayırmak",
+        "Tevhid bağlantısını öğrenmek",
+        "Elçilik bölümünü tanımak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum: Kelime-i Tevhid ve Kelime-i Şehâdet; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U03-S06-012": {
+      "question_ar": "مَن المتكلم في كلمة «أشهد»؟",
+      "options_ar": [
+        "المتكلم نفسه: «أنا أشهد»",
+        "المعلّم فقط",
+        "الإمام فقط",
+        "شخص ثالث غير محدد"
+      ],
+      "correct_answer_ar": "المتكلم نفسه: «أنا أشهد»",
+      "explanation_ar": "«أشهد» صيغة للمتكلم المفرد، ومعناها «أنا أشهد».",
+      "source_question_tr": "'Eşhedü' kelimesindeki kişi kimdir?",
+      "source_correct_answer_tr": "Konuşan kişinin kendisi: 'Ben şahitlik ederim'",
+      "source_options_tr": [
+        "Konuşan kişinin kendisi: 'Ben şahitlik ederim'",
+        "Yalnızca öğretmen",
+        "Yalnızca imam",
+        "Belirsiz bir üçüncü kişi"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet, Dinimi Öğreniyorum; Diyanet Dijital Yayın, İman Ünitesi; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "runtime_variants": {},
