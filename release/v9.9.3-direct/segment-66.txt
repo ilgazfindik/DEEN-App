@@ -785,6 +785,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   out=out.replace(/(\d+)\s*soru/gi,'$1 أسئلة');
   out=out.replace(/Mini ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس المصغّر $1/$2');
   out=out.replace(/Ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس $1/$2');
+  out=out.replace(/الدرس\s*(\d+)\s*\/\s*(\d+)\s*GEÇİLDİ/gi,'تم اجتياز الدرس $1/$2');
+  out=out.replace(/الدرس\s*(\d+)\s*\/\s*(\d+)\s*TEKRAR/gi,'مراجعة الدرس $1/$2');
   out=out.replace(/Ustalık\s*%\s*(\d+)/gi,'الإتقان $1٪');
   out=out.replace(/Ustalık challenge\s*·\s*(\d+)\s*أسئلة/gi,'تحدّي الإتقان · $1 أسئلة');
   out=out.replace(/Ustalık challenge\s*·\s*(\d+)\s*soru/gi,'تحدّي الإتقان · $1 أسئلة');
