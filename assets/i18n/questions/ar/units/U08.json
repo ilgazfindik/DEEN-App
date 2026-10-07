@@ -370,6 +370,366 @@
       "source_ref": "Kur'an 4:163-164 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-001": {
+      "question_ar": "كيف يعرّف محمد ﷺ نفسه في سورة الكهف 18:110؟",
+      "options_ar": [
+        "أنا بشر مثلكم يوحى إليّ",
+        "أنا إله فوق البشر",
+        "أقول إني مَلَك",
+        "أنا قائد عادي لا أتلقى وحيًا"
+      ],
+      "correct_answer_ar": "أنا بشر مثلكم يوحى إليّ",
+      "explanation_ar": "تجمع سورة الكهف 18:110 بين بشرية النبي ﷺ وحقيقة الوحي إليه.",
+      "source_question_tr": "Kehf 18:110'da Hz. Muhammed kendisini nasıl tanıtır?",
+      "source_correct_answer_tr": "Sizin gibi bir insanım; bana vahyediliyor",
+      "source_options_tr": [
+        "Sizin gibi bir insanım; bana vahyediliyor",
+        "İnsanüstü bir ilahım",
+        "Bir melek olduğumu söylüyorum",
+        "Vahiy almayan sıradan bir liderim"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-002": {
+      "question_ar": "يعدّ القرآن كون الأنبياء بشرًا أمرًا منافيًا للنبوة.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "تبيّن الأنبياء 21:7-8 والكهف 18:110 بشرية الأنبياء صراحةً.",
+      "source_question_tr": "Kur'an, peygamberlerin insan oluşunu peygamberliğe aykırı bir durum olarak görür.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-003": {
+      "question_ar": "يقول محمد ﷺ في سورة الكهف 18:110: «إنما أنا ______ مثلكم».",
+      "options_ar": [
+        "بشر",
+        "مَلَك",
+        "إله",
+        "مَلِك"
+      ],
+      "correct_answer_ar": "بشر",
+      "explanation_ar": "تنص الآية صراحةً على بشرية النبي ﷺ.",
+      "source_question_tr": "Kehf 18:110'da Hz. Muhammed, 'Ben de sizin gibi bir ______' der.",
+      "source_correct_answer_tr": "insanım",
+      "source_options_tr": [
+        "insanım",
+        "meleğim",
+        "ilahım",
+        "kralım"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-004": {
+      "question_ar": "يقول شخص: «النبي الحقيقي لا يمكن أن يكون بشرًا، بل يجب أن يكون مَلَكًا». ما المعلومة التي تصحح هذا الادعاء؟",
+      "options_ar": [
+        "تذكر الأنبياء 21:7 أن الرسل السابقين كانوا رجالًا يوحى إليهم",
+        "يعدّ القرآن جميع الأنبياء ملائكة",
+        "النبوة لا صلة لها بالبشر",
+        "الوحي لا ينزل إلا على الملائكة"
+      ],
+      "correct_answer_ar": "تذكر الأنبياء 21:7 أن الرسل السابقين كانوا رجالًا يوحى إليهم",
+      "explanation_ar": "يبين القرآن أن الرسل من البشر وأن الله يوحي إليهم.",
+      "source_question_tr": "Birisi 'Gerçek peygamber insan olamaz, mutlaka melek olmalıdır' diyor. Hangi bilgi bu iddiayı düzeltir?",
+      "source_correct_answer_tr": "Enbiyâ 21:7 daha önce de vahiy alan insan peygamberler gönderildiğini bildirir",
+      "source_options_tr": [
+        "Enbiyâ 21:7 daha önce de vahiy alan insan peygamberler gönderildiğini bildirir",
+        "Kur'an bütün peygamberleri melek sayar",
+        "Peygamberlik insanla ilişkisizdir",
+        "Vahiy yalnız meleklere iner"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-005": {
+      "question_ar": "كُتب في ملاحظة: «الأنبياء لا يأكلون الطعام وهم خالدون». ما التصحيح؟",
+      "options_ar": [
+        "تذكر الأنبياء 21:8 أنهم كانوا يأكلون الطعام ولم يكونوا خالدين",
+        "يعدّ القرآن الأنبياء آلهة خالدين",
+        "الأنبياء أرواح فقط",
+        "الأنبياء لم يعيشوا أصلًا"
+      ],
+      "correct_answer_ar": "تذكر الأنبياء 21:8 أنهم كانوا يأكلون الطعام ولم يكونوا خالدين",
+      "explanation_ar": "تؤكد الأنبياء 21:8 أن الرسل ذوو صفات بشرية وأنهم ليسوا خالدين.",
+      "source_question_tr": "Bir notta 'Peygamberler yemek yemez ve ölümsüzdür' yazıyor. Düzeltme hangisidir?",
+      "source_correct_answer_tr": "Enbiyâ 21:8 onların yemek yiyen ve ölümsüz olmayan insanlar olduğunu bildirir",
+      "source_options_tr": [
+        "Enbiyâ 21:8 onların yemek yiyen ve ölümsüz olmayan insanlar olduğunu bildirir",
+        "Kur'an peygamberleri ölümsüz ilahlar sayar",
+        "Peygamberler yalnız ruhtur",
+        "Peygamberler hiç yaşamamıştır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-006": {
+      "question_ar": "صِل العبارات بالمفاهيم الصحيحة.",
+      "pairs_ar": [
+        {
+          "left": "البشرية",
+          "right": "خصائص بشرية كالأكل والحياة والموت"
+        },
+        {
+          "left": "الوحي",
+          "right": "إبلاغ إلهي يميّز النبي عن المعرفة البشرية العادية"
+        },
+        {
+          "left": "الرسالة",
+          "right": "مهمة تبليغ الوحي إلى الناس"
+        }
+      ],
+      "explanation_ar": "يجمع القرآن بين بشرية الأنبياء وكونهم رسلًا يتلقون الوحي.",
+      "source_question_tr": "İfadeleri doğru kavramlarla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "İnsan oluş",
+          "right": "Yeme, yaşama ve ölümlülük gibi beşerî özellikler"
+        },
+        {
+          "left": "Vahiy",
+          "right": "Peygamberi sıradan bilgiden ayıran ilahî bildirim"
+        },
+        {
+          "left": "Risalet",
+          "right": "Vahyi insanlara ulaştırma görevi"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-007": {
+      "question_ar": "ما الحقيقة التي تذكّر بها سورة آل عمران 3:144 بشأن محمد ﷺ؟",
+      "options_ar": [
+        "أنه رسول وقد خلت من قبله الرسل",
+        "أنه خالد لا يموت",
+        "أنه إله",
+        "أنه لم يسبقه أي رسول"
+      ],
+      "correct_answer_ar": "أنه رسول وقد خلت من قبله الرسل",
+      "explanation_ar": "تؤكد الآية أن محمدًا ﷺ رسول بشر، وأن رسلًا قد مضوا من قبله.",
+      "source_question_tr": "Âl-i İmrân 3:144 Hz. Muhammed hakkında hangi gerçeği hatırlatır?",
+      "source_correct_answer_tr": "Onun bir elçi olduğunu ve kendisinden önce de elçilerin gelip geçtiğini",
+      "source_options_tr": [
+        "Onun bir elçi olduğunu ve kendisinden önce de elçilerin gelip geçtiğini",
+        "Onun ölümsüz olduğunu",
+        "Onun ilah olduğunu",
+        "Ondan önce hiç peygamber gelmediğini"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-008": {
+      "question_ar": "يقول طالب: «لأن النبي بشر فلا يمكن أن يتلقى الوحي». ما الجواب الأدق؟",
+      "options_ar": [
+        "يذكر القرآن صراحةً أن الله أوحى إلى رسل من البشر",
+        "الوحي لا يأتي إلا إلى الجمادات",
+        "البشرية تجعل النبوة مستحيلة",
+        "الأنبياء يحولون أنفسهم إلى ملائكة"
+      ],
+      "correct_answer_ar": "يذكر القرآن صراحةً أن الله أوحى إلى رسل من البشر",
+      "explanation_ar": "تبين الأنبياء 21:7 والكهف 18:110 أن البشرية والوحي لا يتعارضان.",
+      "source_question_tr": "Bir öğrenci 'Peygamber insan olduğu için vahiy alamaz' diyor. En doğru cevap hangisidir?",
+      "source_correct_answer_tr": "Kur'an insan peygamberlere vahyedildiğini açıkça bildirir",
+      "source_options_tr": [
+        "Kur'an insan peygamberlere vahyedildiğini açıkça bildirir",
+        "Vahiy yalnız cansız varlıklara gelir",
+        "İnsan olmak peygamberliği imkânsız kılar",
+        "Peygamberler kendilerini melek yapar"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-009": {
+      "question_ar": "من الأمور الأساسية التي تميّز النبي عن سائر الناس تلقيه الوحي من الله.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "تؤكد الكهف 18:110 أن محمدًا ﷺ بشر، لكنه يوحى إليه.",
+      "source_question_tr": "Peygamberi diğer insanlardan ayıran temel hususlardan biri Allah'tan vahiy almasıdır.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-010": {
+      "question_ar": "اشرح في جملة واحدة العلاقة بين بشرية الأنبياء وتلقيهم الوحي.",
+      "correct_answer_ar": "الأنبياء بشر، وما يجعلهم أنبياء هو اصطفاء الله لهم بالوحي وتكليفهم بالرسالة.",
+      "explanation_ar": "لا يرى القرآن تعارضًا بين الصفات البشرية ومهمة الوحي.",
+      "source_question_tr": "Peygamberlerin insan oluşu ile vahiy almaları arasındaki ilişkiyi bir cümleyle anlat.",
+      "source_correct_answer_tr": "Peygamberler insanlardır; onları peygamber yapan, Allah tarafından seçilip vahiy almaları ve elçilikle görevlendirilmeleridir.",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-011": {
+      "question_ar": "اكتب التأكيدين الأساسيين في سورة الكهف 18:110 عن محمد ﷺ.",
+      "correct_answer_ar": "محمد ﷺ بشر، ويوحى إليه أن إله الناس إله واحد.",
+      "explanation_ar": "تجمع الآية في سياق واحد بين بشرية النبي ﷺ وتلقيه الوحي.",
+      "source_question_tr": "Kehf 18:110'un Hz. Muhammed hakkındaki iki temel vurgusunu yaz.",
+      "source_correct_answer_tr": "Hz. Muhammed bir insandır ve kendisine Allah'ın birliği hakkında vahiy gelmektedir.",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-012": {
+      "question_ar": "وفقًا للأنبياء 21:8، لم يكن الرسل أجسادًا لا تأكل الطعام، ولم يكونوا ______.",
+      "options_ar": [
+        "خالدين",
+        "بشرًا",
+        "رسلًا",
+        "متلقين للوحي"
+      ],
+      "correct_answer_ar": "خالدين",
+      "explanation_ar": "تذكّر الآية ببشرية الرسل وفنائهم.",
+      "source_question_tr": "Enbiyâ 21:8'e göre peygamberler yemek yemeyen bedenler değildi ve ______ değillerdi.",
+      "source_correct_answer_tr": "ölümsüz",
+      "source_options_tr": [
+        "ölümsüz",
+        "insan",
+        "elçi",
+        "vahiy alan"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-013": {
+      "question_ar": "رتّب المفاهيم ترتيبًا منطقيًّا لفهم النبوة.",
+      "items_ar": [
+        "يصطفي الله إنسانًا",
+        "يوحي إليه",
+        "يكلفه بالرسالة",
+        "يبلّغ الرسول الوحي إلى الناس"
+      ],
+      "correct_order_ar": [
+        "يصطفي الله إنسانًا",
+        "يوحي إليه",
+        "يكلفه بالرسالة",
+        "يبلّغ الرسول الوحي إلى الناس"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يلخّص هذا الترتيب أبعاد الاصطفاء والوحي والتبليغ في النبوة.",
+      "source_question_tr": "Peygamberliği anlamak için kavramları mantıksal sıraya koy.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "Allah bir insanı seçer",
+        "Ona vahiy verir",
+        "Onu elçi olarak görevlendirir",
+        "Elçi vahyi insanlara ulaştırır"
+      ],
+      "source_correct_order_tr": [
+        "Allah bir insanı seçer",
+        "Ona vahiy verir",
+        "Onu elçi olarak görevlendirir",
+        "Elçi vahyi insanlara ulaştırır"
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S02-014": {
+      "question_ar": "ما إحدى النتائج التربوية المهمة لكون الأنبياء بشرًا؟",
+      "options_ar": [
+        "إمكان اقتداء الناس بحياتهم وسلوكهم",
+        "اعتبارهم آلهة",
+        "الاستغناء عن الوحي",
+        "عبادة الناس للأنبياء"
+      ],
+      "correct_answer_ar": "إمكان اقتداء الناس بحياتهم وسلوكهم",
+      "explanation_ar": "تجعل بشرية الأنبياء تطبيق الرسالة في حياة الإنسان أمرًا مشاهدًا، وتؤكد الأحزاب 33:21 القدوة الحسنة في رسول الله ﷺ.",
+      "source_question_tr": "Peygamberlerin insan oluşunun eğitsel açıdan önemli sonuçlarından biri hangisidir?",
+      "source_correct_answer_tr": "İnsanların onların hayatından örneklik görebilmesi",
+      "source_options_tr": [
+        "İnsanların onların hayatından örneklik görebilmesi",
+        "Onların ilah sayılması",
+        "Vahyin gereksizleşmesi",
+        "İnsanların peygamberlere ibadet etmesi"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 33:21 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   }
 }
