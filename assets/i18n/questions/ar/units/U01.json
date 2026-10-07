@@ -1932,6 +1932,286 @@
       "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-001": {
+      "question_ar": "يقول صديق: «الإسلام مجرد نظام يتكوّن من عبادات محددة». كيف تشرح له الإطار الأساسي الذي تعلمته؟",
+      "options_ar": [
+        "أقول إن الإسلام إطار متكامل يجمع الإيمان والعبادة والأخلاق",
+        "أوافقه تمامًا",
+        "أؤكد أن العبادة وحدها هي المهمة",
+        "لا أعلّق على الأمر"
+      ],
+      "correct_answer_ar": "أقول إن الإسلام إطار متكامل يجمع الإيمان والعبادة والأخلاق",
+      "explanation_ar": "الإسلام لا يقتصر على العبادة وحدها، بل يشمل الاعتقاد والعبادة والأخلاق في إطار مترابط.",
+      "source_question_tr": "Bir arkadaşın \"İslam sadece belirli ibadetlerden oluşan bir sistemdir\" diyor. Öğrendiğin temel çerçeveye göre ona nasıl bir açıklama yaparsın?",
+      "source_correct_answer_tr": "İslam'ın iman, ibadet ve ahlakı bir arada içeren bütünsel bir yaşam biçimi olduğunu söylerim",
+      "source_options_tr": [
+        "İslam'ın iman, ibadet ve ahlakı bir arada içeren bütünsel bir yaşam biçimi olduğunu söylerim",
+        "Ona tamamen katılırım",
+        "Sadece ibadetin önemli olduğunu onaylarım",
+        "Bu konuda yorum yapmam"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:112 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.363; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-002": {
+      "question_ar": "يقول صديق: «لكي يكون الإنسان مسلمًا يجب أن ينتمي إلى نسب معيّن». ما أدق ردّ؟",
+      "options_ar": [
+        "صفة المسلم تقوم على اعتناق الإسلام، لا على نسب أو قومية معينة",
+        "لا يكون المسلم إلا من نسب عائلي محدد",
+        "تتحدد صفة المسلم باللغة التي يتحدثها",
+        "تتحدد صفة المسلم تلقائيًا بحسب مكان ولادته"
+      ],
+      "correct_answer_ar": "صفة المسلم تقوم على اعتناق الإسلام، لا على نسب أو قومية معينة",
+      "explanation_ar": "مفهوم المسلم يرتبط باعتناق الإسلام، لا بالجنسية أو النسب أو اللغة.",
+      "source_question_tr": "Bir arkadaşın \"Müslüman olmak için belirli bir soydan gelmek gerekir\" diyor. Bu görüşe karşı en doğru cevap hangisidir?",
+      "source_correct_answer_tr": "Müslümanlık belirli bir soy veya milliyete değil, İslam'ı benimsemeye dayanır",
+      "source_options_tr": [
+        "Müslümanlık belirli bir soy veya milliyete değil, İslam'ı benimsemeye dayanır",
+        "Müslümanlık yalnızca belirli bir aile soyundan gelmekle kazanılan bir kimliktir",
+        "Müslümanlık kişinin konuştuğu dile göre belirlenir",
+        "Müslümanlık doğduğu coğrafyaya göre otomatik olarak belirlenir"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 22:78; 49:13; 34:28 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-003": {
+      "question_ar": "الغاية الوحيدة من العبادة أن يبدو الإنسان حسنًا أمام المجتمع.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "المقصود بالعبادة التعبّد لله وابتغاء رضاه، وليس تحسين الصورة أمام الناس.",
+      "source_question_tr": "İbadetin tek amacı toplumda iyi görünmektir.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 98:5 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.139-140; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-004": {
+      "question_ar": "يقول صديق: «الإيمان يبقى في ذهن الإنسان فقط ولا علاقة له بالعبادة أو الأخلاق». ما النقص في هذا التصور؟",
+      "options_ar": [
+        "يتجاهل العلاقة التي تناولتها الوحدة بين الإيمان والعبادة والأخلاق",
+        "يقرّ بأن الإيمان والعبادة كلمة واحدة تمامًا",
+        "يقول إن الأخلاق ليست إلا قواعد قانونية",
+        "يؤكد أن القرآن مصدر أساسي"
+      ],
+      "correct_answer_ar": "يتجاهل العلاقة التي تناولتها الوحدة بين الإيمان والعبادة والأخلاق",
+      "explanation_ar": "الإيمان والعبادة والأخلاق مفاهيم مختلفة، لكن الوحدة تبيّن وجود صلة بينها في حياة الإنسان.",
+      "source_question_tr": "Bir arkadaşın \"İnanç insanın yalnızca zihninde kalır; ibadet ve ahlakla hiçbir bağlantısı yoktur\" diyor. Bu görüşteki eksik nokta nedir?",
+      "source_correct_answer_tr": "Bu ünitede öğrenilen iman, ibadet ve ahlak arasındaki ilişkiyi göz ardı ediyor",
+      "source_options_tr": [
+        "Bu ünitede öğrenilen iman, ibadet ve ahlak arasındaki ilişkiyi göz ardı ediyor",
+        "İman ile ibadetin tamamen aynı kelime olduğunu kabul ediyor",
+        "Ahlakın yalnızca hukuk kurallarından oluştuğunu söylüyor",
+        "Kur'an'ın temel kaynak olduğunu vurguluyor"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 2:177; 29:45; Maûn 107:1-7 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-005": {
+      "question_ar": "يقول صديق: «الدين يُعاش في المسجد فقط ولا علاقة له بالحياة اليومية». كيف ترد وفق ما تعلمته؟",
+      "options_ar": [
+        "أوضح أن قيمًا مثل الصدق والاحترام تظهر في مختلف مجالات الحياة اليومية",
+        "أوافقه تمامًا",
+        "أؤكد أنه لا يطبق إلا في أماكن العبادة",
+        "لا أقول شيئًا"
+      ],
+      "correct_answer_ar": "أوضح أن قيمًا مثل الصدق والاحترام تظهر في مختلف مجالات الحياة اليومية",
+      "explanation_ar": "القيم الأخلاقية في الإسلام لا تقتصر على أماكن العبادة، بل تمتد إلى العلاقات والحياة اليومية.",
+      "source_question_tr": "Bir arkadaşın \"Din sadece camide/mescitte yaşanır, günlük hayatla ilgisi yoktur\" diyor. Öğrendiklerine göre bu görüşe nasıl bir açıklama getirirsin?",
+      "source_correct_answer_tr": "Dinin, dürüstlük ve saygı gibi değerlerle günlük hayatın her alanına yansıdığını söylerim",
+      "source_options_tr": [
+        "Dinin, dürüstlük ve saygı gibi değerlerle günlük hayatın her alanına yansıdığını söylerim",
+        "Ona tamamen katılırım",
+        "Sadece ibadet yerlerinde geçerli olduğunu onaylarım",
+        "Bu konuda hiçbir şey söylemem"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:90 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.13; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-006": {
+      "question_ar": "أيُّ عبارة تلخّص العلاقة بين الإيمان والعبادة والأخلاق في هذه الوحدة بأكثر صورة متوازنة؟",
+      "options_ar": [
+        "الإيمان جانب الاعتقاد، والعبادة جانب التعبّد، والأخلاق جانب السلوك؛ وهي مختلفة لكنها مترابطة",
+        "الثلاثة مجرد صيغ مختلفة للمفهوم نفسه",
+        "العبادة تغني تمامًا عن المفهومين الآخرين",
+        "الأخلاق لا علاقة لها بالإيمان أو العبادة"
+      ],
+      "correct_answer_ar": "الإيمان جانب الاعتقاد، والعبادة جانب التعبّد، والأخلاق جانب السلوك؛ وهي مختلفة لكنها مترابطة",
+      "explanation_ar": "تمييز هذه المفاهيم مع فهم صلتها بعضها ببعض من أهداف هذه الوحدة الأساسية.",
+      "source_question_tr": "Aşağıdakilerden hangisi bu ünitede iman, ibadet ve ahlak arasında kurulan ilişkiyi en dengeli biçimde özetler?",
+      "source_correct_answer_tr": "İman inancı, ibadet kulluğu, ahlak ise davranış boyutunu anlatır; üçü farklı ama ilişkilidir",
+      "source_options_tr": [
+        "İman inancı, ibadet kulluğu, ahlak ise davranış boyutunu anlatır; üçü farklı ama ilişkilidir",
+        "Üçü de aynı kavramın farklı yazılışlarıdır",
+        "İbadet diğer iki kavramın yerini tamamen alır",
+        "Ahlak inanç ve ibadetle hiçbir bağlantı taşımaz"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-007": {
+      "question_ar": "يقول صديق: «القرآن كتاب تاريخ يروي أحداث الماضي فقط». ما النقص في هذه العبارة؟",
+      "options_ar": [
+        "تتجاهل كون القرآن مصدرًا للهداية في الإيمان والأخلاق أيضًا",
+        "العبارة صحيحة تمامًا",
+        "تبالغ فقط في الجانب التاريخي",
+        "لا يوجد أي نقص"
+      ],
+      "correct_answer_ar": "تتجاهل كون القرآن مصدرًا للهداية في الإيمان والأخلاق أيضًا",
+      "explanation_ar": "يذكر القرآن أحداثًا من الماضي، لكنه كذلك مصدر للهداية في الاعتقاد والأخلاق والحياة.",
+      "source_question_tr": "Bir arkadaşın \"Kur'an sadece geçmişte yaşanmış olayları anlatan bir tarih kitabıdır\" diyor. Bu ifadedeki eksiklik nedir?",
+      "source_correct_answer_tr": "Kur'an'ın inanç ve ahlaki rehberlik yönünü göz ardı ediyor",
+      "source_options_tr": [
+        "Kur'an'ın inanç ve ahlaki rehberlik yönünü göz ardı ediyor",
+        "İfade tamamen doğrudur",
+        "Kur'an'ın tarihi yönünü abartıyor",
+        "Hiçbir eksiklik yok"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 2:2; 17:9 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-008": {
+      "question_ar": "يقول صديق: «الإيمان مجرد جملة تُقال باللسان ولا علاقة له بالقلب». كيف تشرح له الأمر؟",
+      "options_ar": [
+        "أوضح أن الإيمان في أصله تصديق وقبول في القلب، وأن القول تعبير عنه",
+        "أوافقه تمامًا",
+        "أؤكد أن النطق وحده يكفي دائمًا",
+        "لا أعلّق"
+      ],
+      "correct_answer_ar": "أوضح أن الإيمان في أصله تصديق وقبول في القلب، وأن القول تعبير عنه",
+      "explanation_ar": "في هذا المدخل التعليمي يُقدَّم الإيمان أساسًا بوصفه تصديقًا وقبولًا في القلب، ويعبّر اللسان عنه.",
+      "source_question_tr": "Bir arkadaşın \"İman sadece dilden söylenen bir cümledir, kalple ilgisi yoktur\" diyor. Ona nasıl bir açıklama yaparsın?",
+      "source_correct_answer_tr": "İmanın temelde kalpte gerçekleşen bir kabul olduğunu, sözün ise bunun bir ifadesi olduğunu söylerim",
+      "source_options_tr": [
+        "İmanın temelde kalpte gerçekleşen bir kabul olduğunu, sözün ise bunun bir ifadesi olduğunu söylerim",
+        "Ona tamamen katılırım",
+        "Sadece söylemenin yeterli olduğunu onaylarım",
+        "Bu konuda yorum yapmam"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 49:14-15 (Diyanet meali/tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.563; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-009": {
+      "question_ar": "سيرة النبي محمد ﷺ تمثل للمسلمين قدوة يمكن الاستفادة منها في السلوك اليومي.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "ينظر المسلمون إلى النبي محمد ﷺ بوصفه رسولًا وقدوةً في السلوك والعمل.",
+      "source_question_tr": "Peygamberin hayatı, Müslümanlar için günlük davranışlarda örnek alınabilecek bir rehber niteliğindedir.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 33:21; 68:4 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-010": {
+      "question_ar": "بعد أن تصرف شخص بنفاد صبر مع أسرته قال لنفسه: «لم أتصرف وفق مبادئ حسن السلوك التي تعلمتها». بأي مفهوم يرتبط هذا التقييم أكثر؟",
+      "options_ar": [
+        "الوعي الأخلاقي",
+        "تعلم ترتيب العبادات",
+        "معرفة بناء المصحف",
+        "حفظ تعريف النبي"
+      ],
+      "correct_answer_ar": "الوعي الأخلاقي",
+      "explanation_ar": "مقارنة الإنسان سلوكه بالقيم التي تعلمها مثال على الوعي الأخلاقي ومراجعة النفس.",
+      "source_question_tr": "Bir arkadaşın, ailesine karşı sabırsız davrandıktan sonra \"Öğrendiğim güzel davranış ilkelerine uygun davranmadım\" diyerek kendini değerlendiriyor. Bu durum en çok hangi kavramla ilişkilidir?",
+      "source_correct_answer_tr": "Ahlaki farkındalık",
+      "source_options_tr": [
+        "Ahlaki farkındalık",
+        "İbadetlerin sırasını öğrenme",
+        "Kur'an'ın kitap yapısını tanıma",
+        "Peygamber kavramının tanımını ezberleme"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 3:133-135 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-011": {
+      "question_ar": "(مراجعة سريعة) ما المعنى الأساسي لكلمة «العبادة»؟",
+      "options_ar": [
+        "التعبّد لله عن قصد ووعي",
+        "التقاليد فقط",
+        "العادة فقط",
+        "القواعد فقط"
+      ],
+      "correct_answer_ar": "التعبّد لله عن قصد ووعي",
+      "explanation_ar": "العبادة هي التوجّه إلى الله بأعمال التعبّد مع قصد رضاه.",
+      "source_question_tr": "(Hızlı Tekrar) \"İbadet\" kelimesi en temelde neyi ifade eder?",
+      "source_correct_answer_tr": "Allah'a yönelik bilinçli kulluk davranışı",
+      "source_options_tr": [
+        "Allah'a yönelik bilinçli kulluk davranışı",
+        "Sadece gelenek",
+        "Sadece alışkanlık",
+        "Sadece kural"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 98:5 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.139-140; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-012": {
+      "question_ar": "شخص يؤمن بالله، ويعبده، ويتحلّى بحسن الأخلاق. ماذا يبيّن اجتماع هذه الجوانب؟",
+      "options_ar": [
+        "تحقّق صورة متكاملة من الإيمان والعبادة والأخلاق في حياته",
+        "أنه يبحث فقط عن قبول المجتمع",
+        "أنه لا يحمل أي معنى خاص",
+        "أنه يتبع التقاليد فقط"
+      ],
+      "correct_answer_ar": "تحقّق صورة متكاملة من الإيمان والعبادة والأخلاق في حياته",
+      "explanation_ar": "اجتماع الإيمان والعبادة وحسن الأخلاق مثال على النظرة المتكاملة التي تعرضها الوحدة.",
+      "source_question_tr": "Bir kişi hem Allah'a inanıyor (iman) hem ibadet ediyor hem de güzel ahlak sahibi. Bu durum İslam açısından neyi gösterir?",
+      "source_correct_answer_tr": "İslam'ın öğrettiği bütünlüğün hayata geçirildiğini",
+      "source_options_tr": [
+        "İslam'ın öğrettiği bütünlüğün hayata geçirildiğini",
+        "Sadece toplumsal onay aradığını",
+        "Hiçbir özel anlam taşımadığını",
+        "Sadece gelenek takip ettiğini"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:177; 29:45; Maûn 107:1-7 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "runtime_variants": {
