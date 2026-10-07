@@ -1164,6 +1164,459 @@
       "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.587 (Cibrîl hadisi); Din İşleri Yüksek Kurulu, Kader ve Kazaya İman; REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-001": {
+      "question_ar": "أيٌّ مما يلي من أركان الإسلام وليس من أركان الإيمان؟",
+      "options_ar": [
+        "إقامة الصلاة",
+        "الإيمان بالملائكة",
+        "الإيمان باليوم الآخر",
+        "الإيمان بالقدر"
+      ],
+      "correct_answer_ar": "إقامة الصلاة",
+      "explanation_ar": "إقامة الصلاة عبادة عملية وهي من أركان الإسلام.",
+      "source_question_tr": "Aşağıdakilerden hangisi İslam'ın şartlarından biri olup, imanın esaslarından değildir?",
+      "source_correct_answer_tr": "Namaz kılmak",
+      "source_options_tr": [
+        "Namaz kılmak",
+        "Meleklere iman",
+        "Ahirete iman",
+        "Kadere iman"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-002": {
+      "question_ar": "صيام رمضان يندرج ضمن أركان الإسلام.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "صيام رمضان أحد أركان الإسلام الخمسة.",
+      "source_question_tr": "Oruç tutmak, İslam'ın şartları kategorisindedir.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-003": {
+      "question_ar": "صِل العبارات بالتصنيف الصحيح.",
+      "pairs_ar": [
+        {
+          "left": "حج البيت",
+          "right": "ركن من أركان الإسلام"
+        },
+        {
+          "left": "الإيمان باليوم الآخر",
+          "right": "ركن من أركان الإيمان"
+        },
+        {
+          "left": "إيتاء الزكاة",
+          "right": "ركن من أركان الإسلام"
+        }
+      ],
+      "explanation_ar": "تُميَّز أصول الاعتقاد التي يصدّق بها القلب عن العبادات التي تُؤدّى بالبدن أو المال.",
+      "source_question_tr": "İfadeleri doğru sınıflandırmayla eşleştirin.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Hacca gitmek",
+          "right": "İslam'ın Şartı"
+        },
+        {
+          "left": "Ahirete iman",
+          "right": "İmanın Esası"
+        },
+        {
+          "left": "Zekât vermek",
+          "right": "İslam'ın Şartı"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-004": {
+      "question_ar": "في قائمةٍ ما وُضع «الإيمان بالملائكة» في موضعه الصحيح. أما «إقامة الصلاة» فليست من أركان الإيمان، بل ينبغي تصنيفها على أنها ______ من أركان الإسلام.",
+      "options_ar": [
+        "ركن",
+        "أصل إيمان",
+        "كتاب",
+        "نبي"
+      ],
+      "correct_answer_ar": "ركن",
+      "explanation_ar": "الصلاة ليست من أركان الإيمان، بل هي أحد أركان الإسلام الخمسة.",
+      "source_question_tr": "Bir listede 'Meleklere iman' doğru biçimde yer alıyor. Aynı listeye eklenen 'Namaz kılmak' ise imanın esası değil, İslam'ın ______ olarak sınıflandırılmalıdır.",
+      "source_correct_answer_tr": "şartı",
+      "source_options_tr": [
+        "şartı",
+        "iman esası",
+        "kitabı",
+        "peygamberi"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-005": {
+      "question_ar": "أيٌّ مما يلي يندرج ضمن أركان الإيمان؟",
+      "options_ar": [
+        "الإيمان بالكتب",
+        "حج البيت",
+        "إقامة الصلاة",
+        "صيام رمضان"
+      ],
+      "correct_answer_ar": "الإيمان بالكتب",
+      "explanation_ar": "الخيارات الثلاثة الأخرى من أركان الإسلام العملية.",
+      "source_question_tr": "Aşağıdakilerden hangisi İmanın Esasları kategorisindedir?",
+      "source_correct_answer_tr": "Kitaplara iman",
+      "source_options_tr": [
+        "Kitaplara iman",
+        "Hacca gitmek",
+        "Namaz kılmak",
+        "Oruç tutmak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-006": {
+      "question_ar": "كتب علي في درس التربية الدينية «إيتاء الزكاة» في عمود «الأصول التي نؤمن بها بالقلب». فقال المعلم إن ذلك خطأ. في أي عمود كان ينبغي أن يضع «إيتاء الزكاة»؟",
+      "options_ar": [
+        "أركان الإسلام (العبادات)",
+        "أركان الإيمان (الاعتقاد)",
+        "الإخلاص",
+        "القدر"
+      ],
+      "correct_answer_ar": "أركان الإسلام (العبادات)",
+      "explanation_ar": "الزكاة عبادة مالية وعملية، وهي من أركان الإسلام وليست من أركان الإيمان.",
+      "source_question_tr": "Ali, din kültürü dersinde 'Kalpten inandığımız temel esaslar' sütununa 'Zekât vermek' yazmıştır. Öğretmeni bunun yanlış olduğunu söylüyor. Sizce 'Zekât vermek' hangi sütuna yazılmalıydı?",
+      "source_correct_answer_tr": "İslam'ın Şartları (İbadetler)",
+      "source_options_tr": [
+        "İslam'ın Şartları (İbadetler)",
+        "İmanın Esasları (İnanç)",
+        "İhlâs",
+        "Kader"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-007": {
+      "question_ar": "أيٌّ مما يلي لا ينتمي إلى مجموعة أركان الإسلام؟",
+      "options_ar": [
+        "الإيمان بالرسل",
+        "إيتاء الزكاة",
+        "النطق بالشهادتين",
+        "إقامة الصلاة"
+      ],
+      "correct_answer_ar": "الإيمان بالرسل",
+      "explanation_ar": "الإيمان بالرسل من أركان الإيمان، وليس من أركان الإسلام.",
+      "source_question_tr": "Aşağıdakilerden hangisi İslam'ın Şartları grubuna ait değildir?",
+      "source_correct_answer_tr": "Peygamberlere iman",
+      "source_options_tr": [
+        "Peygamberlere iman",
+        "Zekât vermek",
+        "Kelime-i Şehadet getirmek",
+        "Namaz kılmak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-008": {
+      "question_ar": "يوجد خطأ في الجدول:\n1. الإيمان بالله (ركن إيمان)\n2. الإيمان بالقدر (ركن إيمان)\n3. صيام رمضان (ركن إيمان)\nأيُّ رقم هو الخاطئ؟",
+      "options_ar": [
+        "3. صيام رمضان (ركن إيمان)",
+        "1. الإيمان بالله (ركن إيمان)",
+        "2. الإيمان بالقدر (ركن إيمان)",
+        "لا يوجد خطأ في الجدول."
+      ],
+      "correct_answer_ar": "3. صيام رمضان (ركن إيمان)",
+      "explanation_ar": "صيام رمضان ليس من أركان الإيمان، بل من أركان الإسلام.",
+      "source_question_tr": "Tabloda bir hata var:\n1. Allah'a iman (İman esası)\n2. Kadere iman (İman esası)\n3. Oruç tutmak (İman esası)\nHatalı olan numara hangisidir?",
+      "source_correct_answer_tr": "3. Oruç tutmak (İman esası)",
+      "source_options_tr": [
+        "3. Oruç tutmak (İman esası)",
+        "1. Allah'a iman (İman esası)",
+        "2. Kadere iman (İman esası)",
+        "Tabloda hata yoktur."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-009": {
+      "question_ar": "صِل كلَّ عنصر بالمجال الذي ينتمي إليه.",
+      "pairs_ar": [
+        {
+          "left": "الإيمان بالملائكة",
+          "right": "ركن من أركان الإيمان"
+        },
+        {
+          "left": "صيام رمضان",
+          "right": "ركن من أركان الإسلام"
+        },
+        {
+          "left": "الإيمان باليوم الآخر",
+          "right": "ركن من أركان الإيمان"
+        }
+      ],
+      "explanation_ar": "أركان الإسلام تتعلق بالأعمال والعبادات، وأركان الإيمان تتعلق بأصول الاعتقاد.",
+      "source_question_tr": "İlgili alanları eşleştirin.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Meleklere iman",
+          "right": "İmanın Esası"
+        },
+        {
+          "left": "Oruç tutmak",
+          "right": "İslam'ın Şartı"
+        },
+        {
+          "left": "Ahirete iman",
+          "right": "İmanın Esası"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-010": {
+      "question_ar": "الشهادتان واحدة من ______ الإسلام الخمسة.",
+      "options_ar": [
+        "أركان",
+        "أركان الإيمان",
+        "قواعد الأخلاق",
+        "موضوعات التاريخ"
+      ],
+      "correct_answer_ar": "أركان",
+      "explanation_ar": "النطق بالشهادتين أحد أركان الإسلام الخمسة.",
+      "source_question_tr": "Kelime-i Şehadet, İslam'ın beş ______ arasında yer alır.",
+      "source_correct_answer_tr": "şartı",
+      "source_options_tr": [
+        "şartı",
+        "iman esası",
+        "ahlak kuralı",
+        "tarih konusu"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-011": {
+      "question_ar": "أعدّت عائشة لوحة وكتبت تحت عنوان «أركان الإسلام»:\n- إقامة الصلاة\n- صيام رمضان\n- الإيمان بالرسل\n- إيتاء الزكاة\nأيُّ بند في لوحتها غير صحيح؟",
+      "options_ar": [
+        "الإيمان بالرسل",
+        "إقامة الصلاة",
+        "صيام رمضان",
+        "إيتاء الزكاة"
+      ],
+      "correct_answer_ar": "الإيمان بالرسل",
+      "explanation_ar": "الإيمان بالرسل من أركان الإيمان، وليس من أركان الإسلام.",
+      "source_question_tr": "Pano hazırlayan Ayşe, 'İslam'ın Şartları' başlığı altına şunları yazdı:\n- Namaz kılmak\n- Oruç tutmak\n- Peygamberlere iman\n- Zekât vermek\nAyşe'nin tablosunda hangi madde yanlıştır?",
+      "source_correct_answer_tr": "Peygamberlere iman",
+      "source_options_tr": [
+        "Peygamberlere iman",
+        "Namaz kılmak",
+        "Oruç tutmak",
+        "Zekât vermek"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-012": {
+      "question_ar": "الإيمان بالكتب يندرج ضمن أركان الإيمان.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "الإيمان بالكتب أحد أركان الإيمان الستة.",
+      "source_question_tr": "Kitaplara iman, imanın esasları kategorisindedir.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-013": {
+      "question_ar": "صِل الأعمال أو المعتقدات بفئاتها.",
+      "pairs_ar": [
+        {
+          "left": "إقامة الصلاة",
+          "right": "ركن من أركان الإسلام"
+        },
+        {
+          "left": "الإيمان بالله",
+          "right": "ركن من أركان الإيمان"
+        },
+        {
+          "left": "الإيمان بالقدر",
+          "right": "ركن من أركان الإيمان"
+        }
+      ],
+      "explanation_ar": "الأصول الاعتقادية من أركان الإيمان، والعبادات الأساسية من أركان الإسلام.",
+      "source_question_tr": "Eylemleri/İnançları kategorileriyle eşleştirin.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Namaz kılmak",
+          "right": "İslam'ın Şartı"
+        },
+        {
+          "left": "Allah'a iman",
+          "right": "İmanın Esası"
+        },
+        {
+          "left": "Kadere iman",
+          "right": "İmanın Esası"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-014": {
+      "question_ar": "أيُّ مطابقة بين أركان الإسلام وأركان الإيمان غير صحيحة؟",
+      "options_ar": [
+        "إيتاء الزكاة - ركن من أركان الإيمان",
+        "الإيمان باليوم الآخر - ركن من أركان الإيمان",
+        "حج البيت - ركن من أركان الإسلام",
+        "الإيمان بالملائكة - ركن من أركان الإيمان"
+      ],
+      "correct_answer_ar": "إيتاء الزكاة - ركن من أركان الإيمان",
+      "explanation_ar": "إيتاء الزكاة من أركان الإسلام، وليس من أركان الإيمان.",
+      "source_question_tr": "İslam'ın şartları ile imanın esasları eşleştirmelerinden hangisi yanlıştır?",
+      "source_correct_answer_tr": "Zekât vermek - İmanın Esası",
+      "source_options_tr": [
+        "Zekât vermek - İmanın Esası",
+        "Ahirete iman - İmanın Esası",
+        "Hacca gitmek - İslam'ın Şartı",
+        "Meleklere iman - İmanın Esası"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-015": {
+      "question_ar": "يسأل عمر جده: «يا جدي، هل الصيام الذي نصومه في رمضان من أركان الإيمان؟» ماذا ينبغي أن يجيبه جده؟",
+      "options_ar": [
+        "لا، صيام رمضان أحد أركان الإسلام.",
+        "نعم، هو أحد أركان الإيمان الستة.",
+        "الصيام ركن من أركان الإيمان وركن من أركان الإسلام معًا.",
+        "الصيام متعلق بالاعتقاد وليس عبادة."
+      ],
+      "correct_answer_ar": "لا، صيام رمضان أحد أركان الإسلام.",
+      "explanation_ar": "الصيام عبادة بدنية وهو أحد أركان الإسلام الخمسة.",
+      "source_question_tr": "Ömer dedesine sorar: 'Dede, Ramazan ayında tuttuğumuz oruç imanın esası mıdır?' Dedesi ne cevap vermelidir?",
+      "source_correct_answer_tr": "Hayır, oruç tutmak İslam'ın şartlarından biridir.",
+      "source_options_tr": [
+        "Hayır, oruç tutmak İslam'ın şartlarından biridir.",
+        "Evet, imanın altı esasından biridir.",
+        "Oruç hem imanın esası hem İslam'ın şartıdır.",
+        "Oruç inançla ilgilidir, ibadet değildir."
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U05-S04-016": {
+      "question_ar": "في أيِّ خيار تكون العبارتان كلتاهما من أركان الإيمان؟",
+      "options_ar": [
+        "الإيمان بالكتب - الإيمان بالقدر",
+        "إقامة الصلاة - الإيمان باليوم الآخر",
+        "صيام رمضان - إيتاء الزكاة",
+        "الإيمان بالملائكة - حج البيت"
+      ],
+      "correct_answer_ar": "الإيمان بالكتب - الإيمان بالقدر",
+      "explanation_ar": "في الخيارات الأخرى يوجد على الأقل عنصر واحد من أركان الإسلام.",
+      "source_question_tr": "Hangi seçenekteki her iki ifade de 'İmanın Esasları'ndandır?",
+      "source_correct_answer_tr": "Kitaplara iman - Kadere iman",
+      "source_options_tr": [
+        "Kitaplara iman - Kadere iman",
+        "Namaz kılmak - Ahirete iman",
+        "Oruç tutmak - Zekât vermek",
+        "Meleklere iman - Hacca gitmek"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.491 ve s.587; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "runtime_variants": {}
