@@ -642,13 +642,19 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   'Gün içindeki tekrarlarında XP azalır.':'تنخفض نقاط XP في المراجعات المتكررة خلال اليوم.',
   'Bu ders henüz kilitli':'هذا الدرس ما زال مقفلًا',
   'Sıradaki:':'التالي:',
-  'Mini ders':'درس مصغّر'
+  'Mini ders':'درس مصغّر',
+  'Aşama':'المرحلة',
+  'Ders':'الدرس'
  };
  Object.assign(chromeMap,u01ChromeMap);
  const u01PhrasePairs=Object.entries(u01ChromeMap).sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
   let out=String(input??'');
+  // Exact UI strings must win before substring replacements; otherwise e.g. "Bu aşamadaki..."
+  // can be corrupted by the shorter "Bu aşama" phrase.
+  const initialExact=chromeMap[out.trim()];
+  if(initialExact)return out.replace(out.trim(),initialExact);
 
   // Last-mile Arabic UI patterns that are generated dynamically by review/lesson flows.
   out=out.replace(/PEK[İI]ŞT[İI]RME\s+TURU/gi,'جولة التعزيز');
