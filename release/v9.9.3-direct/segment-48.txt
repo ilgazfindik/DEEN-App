@@ -604,7 +604,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9337arabicmacroguard1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,pending,active,dictionarySize:Object.keys(dict).length,version:'9338arabics02pilot1'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  if(typeof MutationObserver!=='undefined'){
   const observer=new MutationObserver(schedule);
@@ -636,11 +636,15 @@ html:lang(ar) #lesson .deen-arabic-pilot-label{
   loading:true,
   failure:'',
   translations:null,
+  runtime_variants:null,
+  supportedStages:new Set(['U01-S01','U01-S02']),
+  stageMap:{'U01-M01':'U01-S01','U01-M02':'U01-S02'},
   sourceLabel:'المحتوى العربي تجريبي ولم يحصل بعد على مراجعة مختص.',
-  canStart:id=>id==='U01-S01'&&pilot.ready
+  canStart:id=>pilot.supportedStages.has(id)&&pilot.ready
  };
  pilot.notice=function(id){
-  const msg=id!=='U01-S01'
+  const supported=pilot.supportedStages.has(id)||Object.prototype.hasOwnProperty.call(pilot.stageMap,id);
+  const msg=!supported
    ?'الترجمة العربية لهذا الدرس لم تُراجع بعد، ولا يمكن فتح أسئلة غير مدقّقة.'
    :pilot.loading?'جارٍ تجهيز النسخة العربية، حاول مجددًا بعد لحظة.'
    :pilot.failure?'تعذّر تحميل ترجمة الأسئلة العربية. يُرجى التحقّق من الاتصال وإعادة المحاولة.'
@@ -687,13 +691,13 @@ html:lang(ar) #lesson .deen-arabic-pilot-label{
    __deenArabicPilot:true,
    __deenSourceQuestion:base};
  }
- pilot.questionsFor=function(bank,count,shuffle){
-  if(!pilot.ready||!Array.isArray(bank))return [];
-  const pool=bank.filter(q=>q.stage_id==='U01-S01').map(q=>{
+ pilot.questionsFor=function(bank,stageId,count,shuffle){
+  if(!pilot.ready||!Array.isArray(bank)||!pilot.supportedStages.has(stageId))return [];
+  const pool=bank.filter(q=>q.stage_id===stageId).map(q=>{
    const variant=pilot.runtime_variants[q.id];
    return asDisplayQuestion(q,variant||pilot.translations[q.id],!!variant);
   }).filter(Boolean);
-  if(pool.length!==20)return []; // Fail closed until all six runtime additions and six format edits match exactly.
+  if(pool.length!==20)return []; // Each enabled stage must have all 20 live variants translated and source-matched.
   const random=typeof shuffle==='function'?shuffle:(list=>[...list]);
   const tf=random(pool.filter(q=>q.activity_type==='true_false')).slice(0,1);
   const fill=random(pool.filter(q=>q.activity_type==='fill_blank')).slice(0,1);
@@ -711,12 +715,12 @@ html:lang(ar) #lesson .deen-arabic-pilot-label{
  };
  async function preload(){
   try{
-   const response=await fetch('./assets/i18n/questions.ar.draft.json?v=9335arabicpiloti18n1',{cache:'no-store'});
+   const response=await fetch('./assets/i18n/questions.ar.draft.json?v=9338arabics02pilot1',{cache:'no-store'});
    if(!response.ok)throw Error('HTTP '+response.status);
    const file=await response.json();
    if(file.locale!=='ar'||file.release_ready!==false||file.verified_by_religious_expert!==false)throw Error('Unsafe translation metadata');
-   if(Object.keys(file.translations||{}).length!==14)throw Error('Incomplete pilot');
-   if(Object.keys(file.runtime_variants||{}).length!==12)throw Error('Incomplete runtime variants');
+   if(Object.keys(file.translations||{}).length!==28)throw Error('Incomplete pilot');
+   if(Object.keys(file.runtime_variants||{}).length!==20)throw Error('Incomplete runtime variants');
    if(Object.values(file.translations).some(x=>x.expert_approved!==false))throw Error('Unapproved flags changed unexpectedly');
    if(Object.values(file.runtime_variants).some(x=>x.expert_approved!==false))throw Error('Runtime review flags changed');
    pilot.translations=file.translations;pilot.runtime_variants=file.runtime_variants;pilot.ready=true;
@@ -732,9 +736,10 @@ html:lang(ar) #lesson .deen-arabic-pilot-label{
   if(!previousMacro.__deenArabicPilotGuarded){
    const guardedMacro=function(id,...args){
     if(window.DEEN_APP_LOCALE?.get?.()!=='ar')return previousMacro.call(this,id,...args);
-    if(id!=='U01-M01'||!pilot.ready)return pilot.notice(id);
+    const legacyStage=pilot.stageMap[id];
+    if(!legacyStage||!pilot.ready)return pilot.notice(id);
     try{if(typeof closeSheet==='function')closeSheet()}catch(_){}
-    return typeof window.startStage==='function'?window.startStage('U01-S01'):pilot.notice(id);
+    return typeof window.startStage==='function'?window.startStage(legacyStage):pilot.notice(id);
    };
    guardedMacro.__deenArabicPilotGuarded=true;
    window.startMacroStage=guardedMacro;
