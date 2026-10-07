@@ -370,6 +370,373 @@
       "source_ref": "Kur'an 2:285; 2:97-98; 16:49-50; 18:50; 21:19-20,26-28; 32:11; 35:1; 40:7-9; 66:6; 82:10-12; REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-001": {
+      "question_ar": "ما الصفة التي تؤكدها سورة التحريم 66:6 في الملائكة؟",
+      "options_ar": [
+        "أنهم لا يعصون الله ما أمرهم",
+        "أنهم يضعون الأحكام من عند أنفسهم",
+        "أنهم يتلقون الأوامر من البشر",
+        "أنهم يغيّرون ما شاؤوا من الأوامر"
+      ],
+      "correct_answer_ar": "أنهم لا يعصون الله ما أمرهم",
+      "explanation_ar": "تذكر الآية أن الملائكة لا يعصون الله ما أمرهم ويفعلون ما يؤمرون.",
+      "source_question_tr": "Tahrîm 66:6'da meleklerin hangi özelliği vurgulanır?",
+      "source_correct_answer_tr": "Allah'ın emrine karşı gelmemeleri",
+      "source_options_tr": [
+        "Allah'ın emrine karşı gelmemeleri",
+        "Kendi başlarına hüküm koymaları",
+        "İnsanlardan emir almaları",
+        "Diledikleri emri değiştirmeleri"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-002": {
+      "question_ar": "وفقًا لسورة النحل 16:49-50، لا يستكبر الملائكة عن طاعة الله ويفعلون ما يؤمرون.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "تبيّن الآيتان أن الملائكة لا يستكبرون، ويخافون ربهم، ويفعلون ما يؤمرون.",
+      "source_question_tr": "Nahl 16:49-50'ye göre melekler Allah'a karşı büyüklük taslamaz ve kendilerine emredileni yaparlar.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-003": {
+      "question_ar": "ماذا تؤكد سورة الأنبياء 21:19-20 عن عبادة الملائكة؟",
+      "options_ar": [
+        "أنهم يسبّحون الليل والنهار ولا يفترون",
+        "أنهم يعبدون مرة واحدة في السنة فقط",
+        "أنهم يتركون العبادة للبشر",
+        "أنهم يبتعدون عن العبادة"
+      ],
+      "correct_answer_ar": "أنهم يسبّحون الليل والنهار ولا يفترون",
+      "explanation_ar": "تذكر الآيتان أنهم لا يستكبرون عن عبادة الله ولا يستحسرون، ويسبّحون الليل والنهار ولا يفترون.",
+      "source_question_tr": "Enbiyâ 21:19-20 meleklerin ibadeti hakkında neyi vurgular?",
+      "source_correct_answer_tr": "Bıkıp usanmadan Allah'ı tesbih ettiklerini",
+      "source_options_tr": [
+        "Bıkıp usanmadan Allah'ı tesbih ettiklerini",
+        "Yalnız yılda bir ibadet ettiklerini",
+        "İbadeti insanlara bıraktıklarını",
+        "İbadetten uzak durduklarını"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-004": {
+      "question_ar": "يقول طالب: «يمكن للملائكة ألا ينفّذوا أمر الله إذا لم يعجبهم». ما المعلومة التي تصحح هذا الفهم؟",
+      "options_ar": [
+        "القرآن يبيّن أنهم يفعلون ما يؤمرون",
+        "ليس للملائكة أي مهمة",
+        "الملائكة لا يتبعون إلا البشر",
+        "الملائكة مستقلون عن الوحي"
+      ],
+      "correct_answer_ar": "القرآن يبيّن أنهم يفعلون ما يؤمرون",
+      "explanation_ar": "تذكر سورة التحريم 66:6 وسورة النحل 16:50 أن الملائكة ينفذون ما يأمرهم الله به.",
+      "source_question_tr": "Bir öğrenci 'Melekler de Allah'ın emrini beğenmezlerse uygulamayabilir' diyor. Hangi bilgi bu yorumu düzeltir?",
+      "source_correct_answer_tr": "Kur'an onların emredileni yaptığını bildirir",
+      "source_options_tr": [
+        "Kur'an onların emredileni yaptığını bildirir",
+        "Meleklerin hiçbir görevi yoktur",
+        "Melekler yalnız insanlara uyar",
+        "Melekler vahiyden bağımsızdır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-005": {
+      "question_ar": "وفقًا لسورة النحل 16:50، يفعل الملائكة ما ______.",
+      "options_ar": [
+        "يؤمرون به",
+        "يُنهون عنه كله",
+        "يقوله البشر",
+        "يأتيهم عشوائيًا"
+      ],
+      "correct_answer_ar": "يؤمرون به",
+      "explanation_ar": "تقرر الآية أن الملائكة يفعلون ما يؤمرون.",
+      "source_question_tr": "Nahl 16:50'ye göre melekler kendilerine ______ olanı yaparlar.",
+      "source_correct_answer_tr": "emredilen",
+      "source_options_tr": [
+        "emredilen",
+        "yasaklanan her şeyi",
+        "insanların söylediği",
+        "rastgele gelen"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-006": {
+      "question_ar": "ورد في ملاحظة: «قد يستكبر الملائكة عن عبادة الله». ما التصحيح؟",
+      "options_ar": [
+        "لا يستكبر الملائكة عن عبادة الله",
+        "الملائكة لا يعبدون الله",
+        "الملائكة يعبدون البشر",
+        "الملائكة مجرد رموز"
+      ],
+      "correct_answer_ar": "لا يستكبر الملائكة عن عبادة الله",
+      "explanation_ar": "تذكر سورة النحل 16:49 وسورة الأنبياء 21:19 أن الملائكة لا يستكبرون عن عبادة الله.",
+      "source_question_tr": "Bir notta 'Melekler Allah'a kulluk etmeyi küçümseyebilir' yazıyor. Düzeltme hangisidir?",
+      "source_correct_answer_tr": "Melekler Allah'a kulluktan kibirlenmezler",
+      "source_options_tr": [
+        "Melekler Allah'a kulluktan kibirlenmezler",
+        "Melekler ibadet etmez",
+        "Melekler insanlara kulluk eder",
+        "Melekler yalnızca semboldür"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-007": {
+      "question_ar": "صِل كل آية بالصفة التي تؤكدها في شأن الملائكة.",
+      "pairs_ar": [
+        {
+          "left": "التحريم 66:6",
+          "right": "تنفيذ ما يؤمرون به"
+        },
+        {
+          "left": "الأنبياء 21:19-20",
+          "right": "التسبيح بالليل والنهار"
+        },
+        {
+          "left": "النحل 16:49-50",
+          "right": "الطاعة من غير استكبار"
+        }
+      ],
+      "explanation_ar": "تصف هذه الآيات طاعة الملائكة وعبادتهم من جوانب متعددة.",
+      "source_question_tr": "Ayetlerde vurgulanan özellikleri ifadelerle eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Tahrîm 66:6",
+          "right": "Emredileni yerine getirme"
+        },
+        {
+          "left": "Enbiyâ 21:19-20",
+          "right": "Gece gündüz tesbih"
+        },
+        {
+          "left": "Nahl 16:49-50",
+          "right": "Kibirlenmeden itaat"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-008": {
+      "question_ar": "للملائكة سلطة مستقلة عن أمر الله.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "يصف القرآن الملائكة بأنهم عباد لله يعملون بأمره، لا بسلطة مستقلة عنه.",
+      "source_question_tr": "Melekler Allah'ın emrinden bağımsız bir otoriteye sahiptir.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 21:26-28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-009": {
+      "question_ar": "ما المنهج الأدق في فهم ما تقوله سورة فاطر 35:1 عن أجنحة الملائكة؟",
+      "options_ar": [
+        "نثبت ما ذكرته الآية ولا نجزم بتصور محدد لكيفيتها",
+        "نرسم جميع الملائكة بصورة واحدة متطابقة",
+        "نتجاهل ذكر الأجنحة في الآية",
+        "نقول إن لكل مَلَك أربعة أجنحة بالضبط"
+      ],
+      "correct_answer_ar": "نثبت ما ذكرته الآية ولا نجزم بتصور محدد لكيفيتها",
+      "explanation_ar": "تذكر الآية أن للملائكة أجنحة، أما الجزم بكيفية محددة لهيئتها فليس مما يثبته النص.",
+      "source_question_tr": "Fâtır 35:1'in meleklerin kanatlarıyla ilgili verdiği bilgi için en doğru yaklaşım hangisidir?",
+      "source_correct_answer_tr": "Ayetin söylediğini kabul edip mahiyeti hakkında kesin hayal üretmemek",
+      "source_options_tr": [
+        "Ayetin söylediğini kabul edip mahiyeti hakkında kesin hayal üretmemek",
+        "Bütün melekleri tek bir resimle aynı göstermek",
+        "Kanat ifadesini yok saymak",
+        "Her meleğin tam dört kanadı olduğunu söylemek"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 35:1 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-010": {
+      "question_ar": "يقول طالب: «بما أن سورة فاطر 35:1 ذكرت مثنى وثلاث ورباع، فلا يمكن أن يكون لأي مَلَك أكثر من أربعة أجنحة». ما الجواب الأنسب؟",
+      "options_ar": [
+        "الآية تذكر أيضًا أن الله يزيد في الخلق ما يشاء",
+        "نعم، الآية تضع حدًا أقصى قاطعًا",
+        "الآية لا تذكر الأجنحة أصلًا",
+        "الآية لا تذكر الملائكة"
+      ],
+      "correct_answer_ar": "الآية تذكر أيضًا أن الله يزيد في الخلق ما يشاء",
+      "explanation_ar": "بعد ذكر «مثنى وثلاث ورباع»، تقرر سورة فاطر 35:1 أن الله يزيد في الخلق ما يشاء.",
+      "source_question_tr": "Bir öğrenci 'Fâtır 35:1'de 2, 3 ve 4 geçtiğine göre hiçbir meleğin bundan fazla kanadı olamaz' diyor. En uygun cevap nedir?",
+      "source_correct_answer_tr": "Ayet Allah'ın yaratmada dilediğini artırdığını da bildirir",
+      "source_options_tr": [
+        "Ayet Allah'ın yaratmada dilediğini artırdığını da bildirir",
+        "Evet, ayet kesin üst sınır koyar",
+        "Kanat ifadesi ayette hiç yoktur",
+        "Meleklerden söz edilmez"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 35:1 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-011": {
+      "question_ar": "لخّص موقف الملائكة من الله بصفتين قصيرتين.",
+      "correct_answer_ar": "لا يستكبرون عن عبادة الله ويفعلون ما يؤمرون.",
+      "explanation_ar": "تبيّن سورة النحل 16:49-50 أن الملائكة لا يستكبرون ويفعلون ما يؤمرون.",
+      "source_question_tr": "Meleklerin Allah'a karşı tutumunu iki kısa özellikle özetle.",
+      "source_correct_answer_tr": "Allah'a karşı büyüklük taslamazlar ve kendilerine emredileni yerine getirirler.",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-012": {
+      "question_ar": "تذكر سورة الأنبياء 21:19-20 أن الملائكة ______ الليل والنهار.",
+      "options_ar": [
+        "يسبّحون",
+        "يتاجرون",
+        "ينامون",
+        "يسافرون"
+      ],
+      "correct_answer_ar": "يسبّحون",
+      "explanation_ar": "تذكر الآيات أن الملائكة يسبّحون الليل والنهار ولا يفترون.",
+      "source_question_tr": "Enbiyâ 21:19-20'de meleklerin gece gündüz ______ ettikleri bildirilir.",
+      "source_correct_answer_tr": "tesbih",
+      "source_options_tr": [
+        "tesbih",
+        "ticaret",
+        "uyku",
+        "yolculuk"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-013": {
+      "question_ar": "رتّب منطقيًا وصف عبادة الملائكة كما تلخصه هذه المرحلة التعليمية.",
+      "items_ar": [
+        "يعرفون عظمة الله",
+        "يخضعون له من غير استكبار",
+        "ينفذون ما يؤمرون به",
+        "يسبّحون الله"
+      ],
+      "correct_order_ar": [
+        "يعرفون عظمة الله",
+        "يخضعون له من غير استكبار",
+        "ينفذون ما يؤمرون به",
+        "يسبّحون الله"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "هذا الترتيب ملخص تعليمي؛ وتؤكد الآيات معاني الخضوع والطاعة والتسبيح عند الملائكة.",
+      "source_question_tr": "Meleklerin ayetlerdeki kulluk tasvirini mantıksal olarak sırala.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "Allah'ın büyüklüğünü tanırlar",
+        "Kibirlenmeden boyun eğerler",
+        "Emredileni yerine getirirler",
+        "Allah'ı tesbih ederler"
+      ],
+      "source_correct_order_tr": [
+        "Allah'ın büyüklüğünü tanırlar",
+        "Kibirlenmeden boyun eğerler",
+        "Emredileni yerine getirirler",
+        "Allah'ı tesbih ederler"
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S02-014": {
+      "question_ar": "تصوير القرآن للملائكة يعلّم أنهم مخلوقات تعصي الله.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "تقرر سورة التحريم 66:6 صراحةً أن الملائكة لا يعصون الله ما أمرهم.",
+      "source_question_tr": "Kur'an'daki melek tasviri, onların Allah'a isyan eden varlıklar olduğunu öğretir.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 16:49-50; 21:19-20; 66:6 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   }
 }
