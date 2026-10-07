@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9347u01arabicstage3'
+  version:'9348u02arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -189,7 +189,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9347u01arabicstage3';
+   const token='9348u02arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -647,7 +647,23 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   'Ders':'الدرس'
  };
  Object.assign(chromeMap,u01ChromeMap);
- const u01PhrasePairs=Object.entries(u01ChromeMap).sort((a,b)=>b[0].length-a[0].length);
+
+ const u02ChromeMap={
+  "Allah'a İman":'الإيمان بالله',
+  "Allah'a İman Nedir?":'ما معنى الإيمان بالله؟',
+  'Allah Birdir':'الله واحد',
+  'Yaratıcı ve Yaratılan':'الخالق والمخلوق',
+  'Kavramları Bağla':'اربط المفاهيم',
+  'İman Hayata Nasıl Yansır?':'كيف ينعكس الإيمان على الحياة؟',
+  "Allah'a İman Challenge":'تحدّي الإيمان بالله',
+  'Tevhid, yaratıcı-yaratılan ayrımı ve imanın hayata yansımasını öğren.':'تعلّم التوحيد، والتمييز بين الخالق والمخلوق، وكيف ينعكس الإيمان على الحياة.',
+  "Allah'a İman · 5 aşamalı öğrenme yolu":'الإيمان بالله · مسار تعلّم من 5 مراحل'
+ };
+ Object.assign(chromeMap,u02ChromeMap);
+ const arabicPhrasePairs=[
+  ...Object.entries(u01ChromeMap),
+  ...Object.entries(u02ChromeMap)
+ ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
   let out=String(input??'');
@@ -671,6 +687,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   out=out.replace(/(\d+)\s*mini ders tamamlandı/gi,'أُكمل $1 من الدروس المصغّرة');
   out=out.replace(/(\d+)\s*mini ders/gi,'$1 دروس مصغّرة');
   out=out.replace(/(\d+)\s*soru/gi,'$1 أسئلة');
+  out=out.replace(/Mini ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس المصغّر $1/$2');
   out=out.replace(/Ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس $1/$2');
   out=out.replace(/Ustalık\s*%\s*(\d+)/gi,'الإتقان $1٪');
   out=out.replace(/Ustalık challenge\s*·\s*(\d+)\s*أسئلة/gi,'تحدّي الإتقان · $1 أسئلة');
@@ -694,7 +711,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    (m,title,a,b,l1,l2,q)=>arabizeDynamicText(title.trim())+' · المرحلة '+a+'/'+b+' · الدرس المصغّر '+l1+'/'+l2+' · '+q+' أسئلة.');
   out=out.replace(/([^.!؟]+)\s+artık bitti\.\s*Sıradaki düğüm açıldı\./gi,(m,t)=>'اكتملت '+arabizeDynamicText(t.trim())+'. فُتحت المحطة التالية.');
   out=out.replace(/([^.!؟]+)\s+artık oynanabilir\./gi,(m,t)=>'أصبح '+arabizeDynamicText(t.trim())+' متاحًا الآن.');
-  for(const [tr,ar] of u01PhrasePairs)if(out.includes(tr))out=out.split(tr).join(ar);
+  for(const [tr,ar] of arabicPhrasePairs)if(out.includes(tr))out=out.split(tr).join(ar);
   const exact=chromeMap[out.trim()];
   if(exact)return out.replace(out.trim(),exact);
 
@@ -878,7 +895,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9347u01arabicstage3',
+  version:'9348u02arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
