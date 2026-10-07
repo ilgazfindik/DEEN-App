@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9343arabiclearningloop1'
+  version:'9344arabiclastmile1'
  };
 
  const sameArray=(a,b)=>{
@@ -189,7 +189,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9343arabiclearningloop1';
+   const token='9344arabiclastmile1';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -383,12 +383,141 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   'GERİ KAZANILAN':'تم استعادته',
   'Yanlıştan doğruya':'من خطأ إلى صحيح',
   'Başlangıç':'البداية',
+  'Harika!':'رائع!',
+  'Birlikte düzeltelim':'لنصحّحها معًا',
+  'Tekrar dene':'حاول مرة أخرى',
+  'Evet! Tam olarak bu ✦':'نعم! هذا هو تمامًا ✦',
+  'Harika yakaladın!':'أحسنت الالتقاط!',
+  'Süper, parça yerine oturdu.':'رائع، اتضحت الصورة.',
+  'Doğru! Bir adım daha.':'صحيح! خطوة أخرى.',
+  'Yaklaştın. İpucuna birlikte bakalım.':'اقتربت. لننظر إلى التلميح معًا.',
+  'Olmadı ama sorun değil; açıklama bize yolu gösterir.':'ليست صحيحة، لكن لا بأس؛ التفسير يوضح الطريق.',
+  'Bir ayrıntı kaçtı. Hemen düzeltelim.':'فاتتنا تفصيلة. لنصححها الآن.',
+  'Tekrar deneyince daha kolay hatırlayacaksın.':'عند المحاولة مجددًا ستتذكر بسهولة أكبر.',
+  'Ders süresi':'مدة الدرس',
+  'Tekrar sorusu':'سؤال مراجعة',
+  'Ustalık puanı':'نقاط الإتقان',
+  'Günlük hedef':'الهدف اليومي',
+  'Öğrendiklerin aralıklı tekrar planına eklendi.':'تمت إضافة ما تعلمته إلى خطة المراجعة المتباعدة.',
+  'AKILLI TEKRARLA PEKİŞTİR':'عزّز بالمراجعة الذكية',
+  'YOLCULUĞA DEVAM':'واصل الرحلة',
+  'DERS RİTMİ':'إيقاع الدرس',
+  'AŞAMA ÖDÜLÜ':'مكافأة المرحلة',
+  'DERS ÖDÜLÜ':'مكافأة الدرس',
+  'Yeni düğüm açıldı':'تم فتح محطة جديدة',
+  'Ritmini koruyorsun':'أنت تحافظ على إيقاعك',
+  'Bu ders zincirini geçtin. Sonraki düğüm ve ünite ilerleyişi daha güçlü hissettirilecek.':'أكملت سلسلة هذا الدرس. فُتحت لك المحطة التالية والتقدم في الوحدة.',
+  'Mini ders geçti. İstersen hemen sıradaki mini derse atlayabilirsin.':'أكملت الدرس المصغّر. يمكنك الانتقال مباشرة إلى الدرس المصغّر التالي.',
+  'Bu mini ders için akıllı tekrar öneriliyor.':'يوصى بالمراجعة الذكية لهذا الدرس المصغّر.',
+  'SIRADAKİ EN İYİ ADIM':'أفضل خطوة تالية',
+  'Yolculuğa devam et':'واصل الرحلة',
+  'Bu dersi başarıyla tamamladın. Öğrenme yolunda bir sonraki adıma geçebilirsin.':'أكملت هذا الدرس بنجاح. يمكنك الانتقال إلى الخطوة التالية في رحلة التعلّم.',
+  'Bu dersi tekrar et':'أعد هذا الدرس',
+  'Yanlış yaptığın sorular tekrar sistemine eklendi. %70 ve üzeriyle geçtiğinde ilerleme açılır.':'أُضيفت الأسئلة التي أخطأت فيها إلى نظام المراجعة. يُفتح التقدم عند تحقيق 70٪ أو أكثر.',
+  'Büyük ödül seremonisi hazır':'مراسم المكافأة الكبرى جاهزة',
+  'Smart Review ile güçlendir':'عزّز بالمراجعة الذكية',
+  'Devam ettiğinde final ödül sandığı ve yeni kısım geçişi açılacak.':'عند المتابعة سيفتح صندوق المكافأة النهائية والانتقال إلى القسم الجديد.',
+  'Geçiş için %80 gerekiyor. Zayıf alanlarını tekrar ederek yeniden deneyebilirsin.':'يلزم 80٪ للانتقال. راجع نقاط الضعف ثم حاول مجددًا.',
+  'Ünite kapısı hazır':'بوابة الوحدة جاهزة',
+  'Bu aşamadaki tüm mini dersleri tamamladın. Yol üzerindeki bir sonraki düğüm açıldı.':'أكملت جميع الدروس المصغّرة في هذه المرحلة. فُتحت المحطة التالية على المسار.',
+  'Aşamayı tamamla':'أكمل المرحلة',
+  'BÜYÜK ÖDÜLÜ TOPLA':'احصل على المكافأة الكبرى',
+  'TEKRARA DÖN':'عُد إلى المراجعة',
+  'YENİ AŞAMAYI AÇ':'افتح المرحلة الجديدة',
+  'SONRAKİ MİNİ DERS':'الدرس المصغّر التالي',
+  'AŞAMAYI TAMAMLA':'أكمل المرحلة',
+  'DERSİ TEKRARLA':'أعد الدرس',
+  'ÖĞRENME YOLUNA DÖN':'عُد إلى مسار التعلّم',
+  'Haftalık ritim':'الإيقاع الأسبوعي',
+  'MEVCUT SERİ':'السلسلة الحالية',
+  'EN UZUN':'الأطول',
+  'SERİ KORUMA':'حماية السلسلة',
+  'Sonraki seri ödülü':'مكافأة السلسلة التالية',
+  'SERİ DETAYLARINI AÇ':'افتح تفاصيل السلسلة',
+  'COMBO':'تتابع',
+  'XP':'خبرة',
+  'Öğrenme':'تعلّم',
+  'Bilgelik':'حكمة',
+  'Cesaret':'شجاعة',
+  'Kararlılık':'عزيمة',
+  'Sabır':'صبر',
+  'Odak':'تركيز',
+  'Sakinlik':'هدوء',
+  'Baykuş':'البومة',
+  'Aslan':'الأسد',
+  'Kurt':'الذئب',
+  'Kaplumbağa':'السلحفاة',
+  'Kartal':'النسر',
+  'Kedi':'القطة',
   '1 · ANA FİKİR':'١ · الفكرة الرئيسية',
   "İslam, Allah'a yönelmektir.":'الإسلام هو التوجّه إلى الله.',
   "İslam; Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.":'الإسلام يعلّم الثقة بالله، وقبول هدايته، وتحويل ذلك إلى حياة عملية.',
   'Kısa ipucu: Yönel · Güven · Yaşa':'تلميح قصير: توجّه · ثِق · عِش',
   'ÖĞRENDİM · SORUYA GEÇ':'فهمتُ · انتقل إلى السؤال'
  };
+
+ function arabizeDynamicText(input){
+  let out=String(input??'');
+  const exact=chromeMap[out.trim()];
+  if(exact)return out.replace(out.trim(),exact);
+
+  // Replace fixed phrases even when badges/icons/numbers surround them.
+  const phrasePairs=[
+   ['YETİŞKİN ANLATIM','شرح للبالغين'],
+   ['Harika!','رائع!'],
+   ['Birlikte düzeltelim','لنصحّحها معًا'],
+   ['Neden?','لماذا؟'],
+   ['Ders süresi','مدة الدرس'],
+   ['Tekrar sorusu','سؤال مراجعة'],
+   ['Ustalık puanı','نقاط الإتقان'],
+   ['Günlük hedef','الهدف اليومي'],
+   ['Öğrendiklerin aralıklı tekrar planına eklendi.','تمت إضافة ما تعلمته إلى خطة المراجعة المتباعدة.'],
+   ['AKILLI TEKRARLA PEKİŞTİR','عزّز بالمراجعة الذكية'],
+   ['DERS RİTMİ','إيقاع الدرس'],
+   ['AŞAMA ÖDÜLÜ','مكافأة المرحلة'],
+   ['DERS ÖDÜLÜ','مكافأة الدرس'],
+   ['Ritmini koruyorsun','أنت تحافظ على إيقاعك'],
+   ['SIRADAKİ EN İYİ ADIM','أفضل خطوة تالية'],
+   ['Yolculuğa devam et','واصل الرحلة'],
+   ['Haftalık ritim','الإيقاع الأسبوعي'],
+   ['Sonraki seri ödülü','مكافأة السلسلة التالية'],
+   ['SERİ DETAYLARINI AÇ','افتح تفاصيل السلسلة'],
+   ['ÖĞRENME YOLUNA DÖN','عُد إلى مسار التعلّم'],
+   ['YOLCULUĞA DEVAM','واصل الرحلة']
+  ];
+  for(const [tr,ar] of phrasePairs)if(out.includes(tr))out=out.split(tr).join(ar);
+
+  // Dynamic combo/streak/time/progress strings.
+  out=out.replace(/(\d+)\s*×\s*SERİ\s*·\s*MUHTEŞEM/gi,'سلسلة $1× · رائعة');
+  out=out.replace(/(\d+)\s*SERİ\s*✦/gi,'سلسلة $1 ✦');
+  out=out.replace(/(\d+)\s*SERİ/gi,'سلسلة $1');
+  out=out.replace(/(\d+)×\s*SERİ/gi,'سلسلة $1×');
+  out=out.replace(/(\d+)\s*günlük seri/gi,'سلسلة لمدة $1 يوم');
+  out=out.replace(/Sonraki seri ödülü:\s*(\d+)\s*gün/gi,'مكافأة السلسلة التالية: $1 أيام');
+  out=out.replace(/(\d+)\s*sn\b/gi,'$1 ث');
+  out=out.replace(/(\d+)\s*gün\b/gi,'$1 أيام');
+  out=out.replace(/(\d+)\s*tekrar\b/gi,'$1 مراجعات');
+
+  // Companion/mascot result copy.
+  const animals={Baykuş:'البومة',Aslan:'الأسد',Kurt:'الذئب',Kaplumbağa:'السلحفاة',Kartal:'النسر',Kedi:'القطة'};
+  const traits={Bilgelik:'حكمة',Cesaret:'شجاعة',Kararlılık:'عزيمة',Sabır:'صبر',Odak:'تركيز',Sakinlik:'هدوء',Öğrenme:'تعلّم'};
+  for(const [tr,ar] of Object.entries(animals))out=out.split(tr).join(ar);
+  for(const [tr,ar] of Object.entries(traits))out=out.split(tr).join(ar);
+  out=out.replace(/Bir adım daha\s*—\s*/g,'خطوة أخرى — ');
+  out=out.replace(/\s+yanında\./g,' معك.');
+  out=out.replace(/\s+gururla yanında\./g,' معك بفخر.');
+  out=out.replace(/\s+seninle kutluyor!/g,' يحتفل معك!');
+  out=out.replace(/Tekrar ettikçe güçlenir/g,'يقوى مع التكرار');
+  out=out.replace(/Kusursuz ders/g,'درس مثالي');
+  out=out.replace(/Dersi tamamladın/g,'أكملت الدرس');
+
+  // Result next-step dynamic titles where the Turkish suffix is generated from stage metadata.
+  if(/^Sıradaki aşama\s*·/i.test(out.trim()))out='المرحلة التالية جاهزة';
+  if(/^Sonraki mini ders\s*·/i.test(out.trim()))out='الدرس المصغّر التالي';
+  out=out.replace(/^(\d+) derslik bu aşamada (\d+)\/(\d+) ilerlemedesin\.$/i,'تقدّمك في هذه المرحلة: $2 / $3 من أصل $1 دروس.');
+
+  return out;
+ }
 
  function localizeLearningLoop(root=document.getElementById('lesson')||document.body){
   if(locale()!=='ar'||!root)return;
@@ -444,14 +573,38 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     const phaseAr=chromeMap[phase]||phase;
     out='مسار التعلّم · '+phaseAr;
    }
+   if(!out){
+    const dynamic=arabizeDynamicText(trim);
+    if(dynamic!==trim)out=dynamic;
+   }
    if(out)node.nodeValue=raw.replace(trim,out);
   }
   localizeLearningLoop(root);
+
+  const rv=document.getElementById('resultView');
+  if(rv){
+   rv.setAttribute('dir','rtl');
+   rv.querySelectorAll('*').forEach(el=>{
+    if(el.children.length)return;
+    const raw=el.textContent||'',trim=raw.trim();
+    if(!trim)return;
+    const converted=arabizeDynamicText(trim);
+    if(converted!==trim)el.textContent=raw.replace(trim,converted);
+   });
+
+   const conceptLine=rv.querySelector('#v5ResultExtra > p:not(.v5-muted)');
+   if(conceptLine){
+    const t=(conceptLine.textContent||'').trim();
+    if(/[ÇĞİÖŞÜçğıöşü]/.test(t)||/\b(İslam|Temel|kavram|kimliği|namaz|oruç|iman|ibadet|ahlak|peygamber|vahiy|kader)\b/i.test(t)){
+     conceptLine.textContent='مفاهيم الدرس · مراجعة وتطبيق';
+    }
+   }
+  }
  }
  let chromeQueued=false;
  const queueChrome=()=>{
   if(chromeQueued)return;chromeQueued=true;
-  const run=()=>{chromeQueued=false;localizeChrome()};
+  const run=()=>{chromeQueued=false;localizeChrome(document.body)};
   if(typeof requestAnimationFrame==='function')requestAnimationFrame(run);else setTimeout(run,0);
  };
  if(typeof MutationObserver!=='undefined'){
