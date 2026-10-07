@@ -2212,6 +2212,374 @@
       "source_ref": "Kur'an 2:177; 29:45; Maûn 107:1-7 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-001": {
+      "question_ar": "وفق الإطار العام لهذه الوحدة، أيُّ عبارة تشرح الإسلام بأفضل صورة؟",
+      "options_ar": [
+        "دين يجمع التوجّه إلى الله مع الإيمان والعبادة وحسن السلوك",
+        "مفهوم يقتصر على أسماء عبادات معيّنة",
+        "هوية ثقافية تخص قومية بعينها",
+        "تقليد لا يتكوّن إلا من أحداث تاريخية"
+      ],
+      "correct_answer_ar": "دين يجمع التوجّه إلى الله مع الإيمان والعبادة وحسن السلوك",
+      "explanation_ar": "تتناول الوحدة الإسلام دينًا متكاملًا لا يُختزل في جانب واحد، بل يرتبط بالإيمان والعبادة والأخلاق.",
+      "source_question_tr": "Bu ünitenin genel çerçevesine göre İslam'ı en iyi hangi ifade açıklar?",
+      "source_correct_answer_tr": "Allah'a yönelişi; inanç, kulluk ve güzel davranışlarla birlikte ele alan bir din",
+      "source_options_tr": [
+        "Allah'a yönelişi; inanç, kulluk ve güzel davranışlarla birlikte ele alan bir din",
+        "Yalnızca belirli ibadetlerin adını ifade eden bir kavram",
+        "Belirli bir milliyete ait kültürel kimlik",
+        "Sadece tarihsel olaylardan oluşan bir gelenek"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-002": {
+      "question_ar": "يستمر صديقك في التصرف بصدق في العمل حتى عندما لا يراه أحد. مع أي تعليم ينسجم هذا السلوك؟",
+      "options_ar": [
+        "أن الأخلاق مهمة حتى عندما لا يراقبنا الناس",
+        "الخوف من القانون فقط",
+        "القلق على الوظيفة فقط",
+        "لا علاقة له بأي تعليم"
+      ],
+      "correct_answer_ar": "أن الأخلاق مهمة حتى عندما لا يراقبنا الناس",
+      "explanation_ar": "الصدق قيمة أخلاقية لا تقتصر أهميتها على وجود رقابة من الآخرين.",
+      "source_question_tr": "Bir arkadaşın, iş yerinde kimse görmese bile dürüst davranmaya devam ediyor. Bu davranış İslam'ın hangi öğretisiyle örtüşür?",
+      "source_correct_answer_tr": "Ahlakın, insanlar görmese bile önemli olduğu öğretisiyle",
+      "source_options_tr": [
+        "Ahlakın, insanlar görmese bile önemli olduğu öğretisiyle",
+        "Sadece kanun korkusuyla",
+        "Sadece iş güvencesi kaygısıyla",
+        "Hiçbir öğretiyle ilgisi yok"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 3, s.151-152; Kur'an 4:58; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-003": {
+      "question_ar": "الإيمان لا يتعلق بمجرد المشاركة في طقوس معيّنة، بل يتعلق أيضًا بالتصديق والقبول في القلب.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "يرتبط الإيمان في هذا المدخل التعليمي بالتصديق الباطن، ولا يُختزل في المشاركة في أعمال ظاهرة فقط.",
+      "source_question_tr": "İman, bir kişinin sadece belirli törenlere katılmasıyla değil, kalben inanmasıyla ilgilidir.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 49:14-15 (Diyanet meali/tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.563; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-004": {
+      "question_ar": "طابق مفاهيم الإيمان والعبادة والأخلاق والقرآن مع شروحها الصحيحة.",
+      "pairs_ar": [
+        {
+          "left": "الإيمان",
+          "right": "الاعتقاد الباطن"
+        },
+        {
+          "left": "العبادة",
+          "right": "التعبّد لله في القول والعمل"
+        },
+        {
+          "left": "الأخلاق",
+          "right": "انعكاس القيم في السلوك"
+        },
+        {
+          "left": "القرآن",
+          "right": "المصدر المقدّس الأساسي"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "تلخّص هذه المفاهيم صورة تمتد من الاعتقاد والمصدر إلى التعبّد والسلوك.",
+      "source_question_tr": "İman, ibadet, ahlak ve Kur'an kavramlarını doğru açıklamalarıyla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "İman",
+          "right": "İçsel inanç"
+        },
+        {
+          "left": "İbadet",
+          "right": "Uygulanan kulluk"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Davranışa yansıma"
+        },
+        {
+          "left": "Kur'an",
+          "right": "Temel kaynak"
+        }
+      ],
+      "activity_type": "matching",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-005": {
+      "question_ar": "يقول صديق: «الإيمان والعبادة والأخلاق موضوعات منفصلة تمامًا». ما الخطأ في هذا الرأي؟",
+      "options_ar": [
+        "يتجاهل أن هذه المفاهيم مختلفة لكنها مترابطة داخل الإطار العام للإسلام",
+        "يفترض أن المفاهيم الثلاثة متطابقة تمامًا",
+        "يقول إن العبادة تعني الأخلاق فقط",
+        "يخلط بين القرآن والنبي"
+      ],
+      "correct_answer_ar": "يتجاهل أن هذه المفاهيم مختلفة لكنها مترابطة داخل الإطار العام للإسلام",
+      "explanation_ar": "الإيمان والعبادة والأخلاق ليست مفهومًا واحدًا، لكنها ذات جوانب متكاملة في الإطار الذي تعلمناه.",
+      "source_question_tr": "Bir arkadaşın \"İman, ibadet ve ahlak birbirinden tamamen kopuk konulardır\" diyor. Bu görüşteki hata nedir?",
+      "source_correct_answer_tr": "Bu üç kavramın farklı olmakla birlikte İslam'ın genel çerçevesinde birbirleriyle ilişkili olduğunu göz ardı ediyor",
+      "source_options_tr": [
+        "Bu üç kavramın farklı olmakla birlikte İslam'ın genel çerçevesinde birbirleriyle ilişkili olduğunu göz ardı ediyor",
+        "Üç kavramın tamamen aynı anlama geldiğini kabul ediyor",
+        "İbadetin yalnızca ahlak anlamına geldiğini söylüyor",
+        "Kur'an ile peygamber kavramlarını karıştırıyor"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 2:177; 29:45; Maûn 107:1-7 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-006": {
+      "question_ar": "يجتمع في مسجد واحد أشخاص من بلدان مختلفة ويتحدثون لغات متعددة. ماذا يوضح ذلك عن مفهوم «المسلم»؟",
+      "options_ar": [
+        "أن صفة المسلم هوية دينية تقوم على الإيمان ولا تتقيد بقومية أو لغة",
+        "أن الإسلام خاص ببلد واحد",
+        "أن الإسلام مرتبط بلغة واحدة فقط",
+        "لا يوضح شيئًا"
+      ],
+      "correct_answer_ar": "أن صفة المسلم هوية دينية تقوم على الإيمان ولا تتقيد بقومية أو لغة",
+      "explanation_ar": "يوضح هذا المثال عالمية الهوية الإسلامية وعدم اقتصارها على قومية أو لغة بعينها.",
+      "source_question_tr": "Farklı ülkelerden, farklı dilleri konuşan insanlar aynı camide bir araya geliyor. Bu durum \"Müslüman\" kavramı hakkında ne gösterir?",
+      "source_correct_answer_tr": "Müslümanlığın milliyet ve dilden bağımsız, inanca dayalı bir kimlik olduğunu",
+      "source_options_tr": [
+        "Müslümanlığın milliyet ve dilden bağımsız, inanca dayalı bir kimlik olduğunu",
+        "Sadece belirli bir ülkeye özgü olduğunu",
+        "Sadece belirli bir dile bağlı olduğunu",
+        "Hiçbir şey göstermez"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 22:78; 49:13; 34:28 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-007": {
+      "question_ar": "أيُّ عبارة تلخّص الدور الأساسي للنبي في الإسلام؟",
+      "options_ar": [
+        "رسول يبلّغ رسالة الله وقدوة يُقتدى بها في حياته",
+        "قائد تاريخي فقط",
+        "كاتب فقط",
+        "تاجر فقط"
+      ],
+      "correct_answer_ar": "رسول يبلّغ رسالة الله وقدوة يُقتدى بها في حياته",
+      "explanation_ar": "النبي محمد ﷺ رسول يبلّغ رسالة الله وقدوة للمسلمين في سيرته.",
+      "source_question_tr": "Peygamberin İslam'daki temel rolü aşağıdakilerden hangisiyle en iyi özetlenir?",
+      "source_correct_answer_tr": "Allah'ın mesajını ileten ve yaşamıyla örnek olan kişi",
+      "source_options_tr": [
+        "Allah'ın mesajını ileten ve yaşamıyla örnek olan kişi",
+        "Sadece bir tarihi lider",
+        "Sadece bir yazar",
+        "Sadece bir tüccar"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 33:39; 33:21 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-008": {
+      "question_ar": "(مراجعة سريعة) ما الفكرة التي أكدت عليها هذه الوحدة في مركز مفهوم «الإسلام»؟",
+      "options_ar": [
+        "الاستسلام لله وقبول هديه",
+        "الانتماء إلى ثقافة معينة",
+        "تعلم المعلومات التاريخية فقط",
+        "حفظ أسماء العبادات فقط"
+      ],
+      "correct_answer_ar": "الاستسلام لله وقبول هديه",
+      "explanation_ar": "أبرزت الوحدة التوجّه إلى الله والاستسلام له وقبول هديه من المعاني المركزية لمفهوم الإسلام.",
+      "source_question_tr": "(Hızlı Tekrar) Bu ünitede \"İslam\" kavramının merkezinde hangi fikir vurgulandı?",
+      "source_correct_answer_tr": "Allah'a teslimiyet ve O'nun rehberliğini benimseme",
+      "source_options_tr": [
+        "Allah'a teslimiyet ve O'nun rehberliğini benimseme",
+        "Belirli bir kültüre ait olma",
+        "Sadece tarih bilgisi öğrenme",
+        "Yalnızca ibadet isimlerini ezberleme"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 2:112 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.363; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-009": {
+      "question_ar": "(مراجعة سريعة) ما الغاية الأساسية من العبادة؟",
+      "options_ar": [
+        "ابتغاء رضا الله",
+        "الشهرة في المجتمع",
+        "تمضية الوقت فقط",
+        "اكتساب عادة فقط"
+      ],
+      "correct_answer_ar": "ابتغاء رضا الله",
+      "explanation_ar": "يقوم معنى العبادة على التعبّد لله وابتغاء رضاه.",
+      "source_question_tr": "(Hızlı Tekrar) İbadetin temel amacı nedir?",
+      "source_correct_answer_tr": "Allah'ın rızasını kazanmak",
+      "source_options_tr": [
+        "Allah'ın rızasını kazanmak",
+        "Toplumda ünlü olmak",
+        "Sadece vakit geçirmek",
+        "Sadece alışkanlık edinmek"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 98:5 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.139-140; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-010": {
+      "question_ar": "(مراجعة سريعة) ما الذي يدل عليه مفهوم «الأخلاق» في أساسه؟",
+      "options_ar": [
+        "حسن السلوك والصدق",
+        "القانون فقط",
+        "التقاليد فقط",
+        "النجاح فقط"
+      ],
+      "correct_answer_ar": "حسن السلوك والصدق",
+      "explanation_ar": "تتعلق الأخلاق بصفات الإنسان وسلوكه، ومنها الصدق وحسن التعامل.",
+      "source_question_tr": "(Hızlı Tekrar) \"Ahlak\" kavramı en temelde neyi ifade eder?",
+      "source_correct_answer_tr": "Güzel davranış ve dürüstlük",
+      "source_options_tr": [
+        "Güzel davranış ve dürüstlük",
+        "Sadece kanun",
+        "Sadece gelenek",
+        "Sadece başarı"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 4:58; 16:90 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-011": {
+      "question_ar": "القرآن مصدر للهداية في الأخلاق أيضًا، وليس في العبادات وحدها.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "يقدّم القرآن هداية في الاعتقاد والعبادة والأخلاق وجوانب الحياة المختلفة.",
+      "source_question_tr": "Kur'an, sadece ibadetle ilgili değil, ahlaki konularda da rehberlik eden bir kaynaktır.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 2:2; 17:9 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-012": {
+      "question_ar": "طابق مفاهيم الإسلام والمسلم والنبي مع شروحها الصحيحة.",
+      "pairs_ar": [
+        {
+          "left": "الإسلام",
+          "right": "الدين"
+        },
+        {
+          "left": "المسلم",
+          "right": "من يعتنق هذا الدين"
+        },
+        {
+          "left": "النبي",
+          "right": "رسول وقدوة"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "تقدّم هذه المفاهيم إطارًا يبدأ بالدين، ويمر بمن يعتنقه، ويشمل الرسول الذي يبلّغ هدي الله ويكون قدوة.",
+      "source_question_tr": "İslam, Müslüman ve peygamber kavramlarını doğru açıklamalarıyla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "İslam",
+          "right": "Din"
+        },
+        {
+          "left": "Müslüman",
+          "right": "Bu dine mensup kişi"
+        },
+        {
+          "left": "Peygamber",
+          "right": "Örnek rehber"
+        }
+      ],
+      "activity_type": "matching",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-013": {
+      "question_ar": "يهتم شخص بعباداته ويتعامل في الوقت نفسه باحترام وصدق مع من حوله. ماذا يوضح هذا المثال؟",
+      "options_ar": [
+        "إمكان اجتماع العبادة وحسن الأخلاق في حياة الإنسان",
+        "أن العبادة منفصلة تمامًا عن الأخلاق",
+        "أن الأخلاق مجرد قواعد اجتماعية",
+        "أن العبادة والأخلاق مفهوم واحد تمامًا"
+      ],
+      "correct_answer_ar": "إمكان اجتماع العبادة وحسن الأخلاق في حياة الإنسان",
+      "explanation_ar": "يوضح المثال أن العبادة والأخلاق ليستا مفهومًا واحدًا، لكنهما يمكن أن تجتمعا وتتساندا في حياة الإنسان.",
+      "source_question_tr": "Bir kişi ibadetlerine önem verirken çevresine karşı da saygılı ve dürüst davranıyor. Bu örnek bu ünitedeki hangi ilişkiyi gösterir?",
+      "source_correct_answer_tr": "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+      "source_options_tr": [
+        "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+        "İbadetin ahlaktan tamamen bağımsız olduğunu",
+        "Ahlakın yalnızca toplumsal kurallardan oluştuğunu",
+        "İbadet ile ahlakın tamamen aynı kavram olduğunu"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:177; 29:45; Maûn 107:1-7 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-014": {
+      "question_ar": "استنادًا إلى مفاهيم الوحدة كلها، أيُّ عبارة تصف الإسلام بأفضل صورة؟",
+      "options_ar": [
+        "دين متكامل يجمع الإيمان والعبادة والأخلاق",
+        "نظام لا يتكوّن إلا من عبادات معيّنة",
+        "مجموعة أحداث تاريخية فقط",
+        "هوية ثقافية فقط"
+      ],
+      "correct_answer_ar": "دين متكامل يجمع الإيمان والعبادة والأخلاق",
+      "explanation_ar": "توضح مفاهيم الوحدة أن الإسلام يجمع الاعتقاد والتعبّد والأخلاق في إطار متكامل.",
+      "source_question_tr": "Ünite boyunca öğrendiğin kavramlara göre, İslam'ı en iyi hangi ifade tanımlar?",
+      "source_correct_answer_tr": "İnanç, ibadet ve ahlakı bir arada barındıran bütünsel bir yaşam biçimi",
+      "source_options_tr": [
+        "İnanç, ibadet ve ahlakı bir arada barındıran bütünsel bir yaşam biçimi",
+        "Sadece belirli ibadetlerden oluşan bir sistem",
+        "Sadece tarihi bir olaylar dizisi",
+        "Sadece kültürel bir kimlik"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "runtime_variants": {
