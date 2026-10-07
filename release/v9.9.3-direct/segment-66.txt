@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9346u01arabicstage2'
+  version:'9347u01arabicstage3'
  };
 
  const sameArray=(a,b)=>{
@@ -189,7 +189,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9346u01arabicstage2';
+   const token='9347u01arabicstage3';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -586,7 +586,63 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   'Bu aşamada ilerliyorsun':'أنت تتقدّم في هذه المرحلة',
   'Aynı aşama tamamlanmadan sonraki düğüm açılmaz.':'لن تُفتح المحطة التالية قبل إكمال هذه المرحلة.',
   'mevcut aşamaya git':'انتقل إلى المرحلة الحالية',
-  '5 aşamalı öğrenme yolu':'مسار تعلّم من 5 مراحل'
+  '5 aşamalı öğrenme yolu':'مسار تعلّم من 5 مراحل',
+  'İslam Nedir? · 5 aşamalı öğrenme yolu':'ما الإسلام؟ · مسار تعلّم من 5 مراحل',
+  'SONRAKİ ÜNİTE':'الوحدة التالية',
+  'Aşama içindeki mini dersler:':'الدروس المصغّرة في هذه المرحلة:',
+  'öğrenme → kavrama → hatırlama → uygulama':'تعلّم → فهم → تذكّر → تطبيق',
+  'Challenge':'تحدٍّ',
+  'İnternet bağlantısı gerekiyor':'يتطلب اتصالًا بالإنترنت',
+  'Bu aşama doğrulanmış medya kaynağını kullanır.':'تستخدم هذه المرحلة مصدر وسائط موثّقًا.',
+  'Bağlantı geldiğinde tekrar deneyebilirsin. Yapay/TTS dinî telaffuz kullanılmaz ve enerji harcanmaz.':'يمكنك المحاولة مجددًا عند عودة الاتصال. لا يُستخدم نطق ديني اصطناعي ولا تُستهلك الطاقة.',
+  'Öğrenme yoluna dön':'العودة إلى مسار التعلّم',
+  'AŞAMA TAMAMLANDI':'اكتملت المرحلة',
+  'KUSURSUZ MİNİ DERS':'درس مصغّر مثالي',
+  'Mini ders tamamlandı':'اكتمل الدرس المصغّر',
+  'Bir tur daha':'جولة أخرى',
+  'Bu düğümün tüm mini dersleri tamamlandı.':'اكتملت جميع الدروس المصغّرة في هذه المحطة.',
+  'Aynı aşama içinde bir sonraki mini derse geçebilirsin.':'يمكنك الانتقال إلى الدرس المصغّر التالي ضمن المرحلة نفسها.',
+  'Geçmek için %70 veya üzeri gerekiyor.':'يلزم تحقيق 70٪ أو أكثر للنجاح.',
+  'MİNİ DERSİ TEKRARLA':'أعد الدرس المصغّر',
+  'ÜNİTE ÖDÜLÜNE GEÇ':'انتقل إلى مكافأة الوحدة',
+  'Kusursuz ders':'درس مثالي',
+  'Ders geçildi':'تم اجتياز الدرس',
+  'Bu mini derste hepsini doğru yaptın.':'أجبت عن جميع أسئلة هذا الدرس المصغّر بشكل صحيح.',
+  'Sonraki mini derse geçebilirsin.':'يمكنك الانتقال إلى الدرس المصغّر التالي.',
+  'Bu mini dersi %70 ve üzeri ile geçmen gerekiyor.':'يجب أن تحقق 70٪ أو أكثر لاجتياز هذا الدرس المصغّر.',
+  'Sıradaki ders':'الدرس التالي',
+  'Yeni ders açıldı':'تم فتح درس جديد',
+  'Kusursuz ders ödülü hazır':'مكافأة الدرس المثالي جاهزة',
+  'Yeni aşama ödülü hazır':'مكافأة المرحلة الجديدة جاهزة',
+  'Bu mini dersi hatasız bitirdin. Devam ettiğinde daha güçlü bir ödül hissi göreceksin.':'أنهيت هذا الدرس المصغّر بلا أخطاء. عند المتابعة ستظهر لك مكافأة أقوى.',
+  'Bu düğümü ilk kez geçtin. Devam ettiğinde açılma efekti ve ödül akışı seni bekliyor.':'اجتزت هذه المحطة لأول مرة. عند المتابعة سيظهر تأثير الفتح ومسار المكافأة.',
+  'ÖDÜLÜ AL VE DEVAM ET':'احصل على المكافأة وتابع',
+  'AÇILMA EFEKTİNE GEÇ':'انتقل إلى تأثير الفتح',
+  'Altın performans':'أداء ذهبي',
+  'Final geçildi':'تم اجتياز النهائي',
+  'Tekrar öneriliyor':'يوصى بالمراجعة',
+  'Mini ders geçildi':'تم اجتياز الدرس المصغّر',
+  'Mini dersi tekrar et':'أعد الدرس المصغّر',
+  'AŞAMA ÖĞRENME DÖNGÜSÜ':'دورة تعلّم المرحلة',
+  'öğrenme zinciri tamamlandı':'اكتملت سلسلة التعلّم',
+  'sonraki adım':'الخطوة التالية',
+  'Önceki yanlış':'خطأ سابق',
+  'Tekrar zamanı':'موعد المراجعة',
+  'Zayıf kavram':'مفهوم ضعيف',
+  'Tekrar listen hazır değil':'قائمة المراجعة غير جاهزة',
+  'Doğrulanmış uygun soru henüz bağlı değil. Enerji harcanmaz.':'لا يوجد سؤال موثّق مناسب مرتبط بعد. لن تُستهلك الطاقة.',
+  'TEKRAR BAŞLA':'ابدأ مجددًا',
+  'BAŞLA':'ابدأ',
+  'Bu konuyu pekiştir':'عزّز هذا الموضوع',
+  'HEDEF':'الهدف',
+  'enerji':'طاقة',
+  'baz XP':'XP أساسي',
+  'Yaklaşık':'حوالي',
+  'dakika':'دقائق',
+  'Gün içindeki tekrarlarında XP azalır.':'تنخفض نقاط XP في المراجعات المتكررة خلال اليوم.',
+  'Bu ders henüz kilitli':'هذا الدرس ما زال مقفلًا',
+  'Sıradaki:':'التالي:',
+  'Mini ders':'درس مصغّر'
  };
  Object.assign(chromeMap,u01ChromeMap);
  const u01PhrasePairs=Object.entries(u01ChromeMap).sort((a,b)=>b[0].length-a[0].length);
@@ -621,6 +677,17 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   out=out.replace(/Meydan Okuma\s*·\s*(\d+)\s*dk/gi,'تحدٍّ · $1 دقائق');
   out=out.replace(/Sıradaki:\s*/gi,'التالي: ');
   out=out.replace(/✓\s*TAMAMLANDI/gi,'✓ مكتمل');
+  out=out.replace(/Aşama\s*(\d+)\s*\/\s*(\d+)/gi,'المرحلة $1/$2');
+  out=out.replace(/Mini ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس المصغّر $1/$2');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*mini ders\s*·\s*öğrenme zinciri tamamlandı/gi,'أُكمل $1/$2 من الدروس المصغّرة · اكتملت سلسلة التعلّم');
+  out=out.replace(/Önce\s*[“"]([^”"]+)[”"]\s*aşamasını tamamla\.?/gi,(m,t)=>'أكمل أولًا مرحلة «'+arabizeDynamicText(t)+'».');
+  out=out.replace(/Aşama içindeki mini dersler:\s*/gi,'الدروس المصغّرة في هذه المرحلة: ');
+  out=out.replace(/Yaklaşık\s*(\d+)\s*dakika/gi,'حوالي $1 دقائق');
+  out=out.replace(/(\d+)\s*soru\s*·\s*(\d+)\s*enerji\s*·\s*\+(\d+)\s*baz XP\s*·\s*Ustalık\s*%\s*(\d+)/gi,'$1 أسئلة · $2 طاقة · +$3 XP أساسي · الإتقان $4٪');
+  out=out.replace(/([^·]+)\s*·\s*Aşama\s*(\d+)\s*\/\s*(\d+)\s*·\s*Mini ders\s*(\d+)\s*\/\s*(\d+)\s*·\s*(\d+)\s*soru\.?/gi,
+   (m,title,a,b,l1,l2,q)=>arabizeDynamicText(title.trim())+' · المرحلة '+a+'/'+b+' · الدرس المصغّر '+l1+'/'+l2+' · '+q+' أسئلة.');
+  out=out.replace(/([^.!؟]+)\s+artık bitti\.\s*Sıradaki düğüm açıldı\./gi,(m,t)=>'اكتملت '+arabizeDynamicText(t.trim())+'. فُتحت المحطة التالية.');
+  out=out.replace(/([^.!؟]+)\s+artık oynanabilir\./gi,(m,t)=>'أصبح '+arabizeDynamicText(t.trim())+' متاحًا الآن.');
   for(const [tr,ar] of u01PhrasePairs)if(out.includes(tr))out=out.split(tr).join(ar);
   const exact=chromeMap[out.trim()];
   if(exact)return out.replace(out.trim(),exact);
@@ -804,6 +871,26 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   document.addEventListener(ev,queueChromeBurst);
  queueChromeBurst();
 
+ window.DEEN_U01_ARABIC_AUDIT={
+  version:'9347u01arabicstage3',
+  scan(root=document.body){
+   const offenders=[];
+   if(!root)return {ok:false,count:0,offenders:['no-root']};
+   const turkish=/[ÇĞİÖŞÜçğıöşü]|\b(?:aşama|ünite|kısım|ders|soru|tekrar|öğren|hedef|ilerleme|kilitli|yanlış|doğru|ustalık|günlük|sonraki|sıradaki|önceki|başla|tamamlandı|pekiştir|hatırla|anla|uygula)\b/i;
+   const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+   while((node=walker.nextNode())){
+    const t=(node.nodeValue||'').trim();
+    if(t&&turkish.test(t))offenders.push({kind:'text',text:t.slice(0,220)});
+   }
+   root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+    for(const attr of ['aria-label','title','placeholder']){
+     const t=(el.getAttribute(attr)||'').trim();
+     if(t&&turkish.test(t))offenders.push({kind:attr,text:t.slice(0,220)});
+    }
+   });
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,100)};
+  }
+ };
  window.DEEN_ARABIC_FULL_BANK={
   version:pilot.version,
   ready:()=>pilot.ready,
