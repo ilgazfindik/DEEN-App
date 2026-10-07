@@ -1977,6 +1977,310 @@
       "source_ref": "Kur'an 2:285; 2:97-98; 16:49-50; 18:50; 21:19-20,26-28; 32:11; 35:1; 40:7-9; 66:6; 82:10-12; REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-001": {
+      "question_ar": "ورد في محتوى: «كان إبليس مَلَكًا ثم صار من الجن». ما الخطأ الأساسي في هذا القول وفقًا للقرآن؟",
+      "options_ar": [
+        "سورة الكهف 18:50 تنص على أن إبليس كان من الجن",
+        "القرآن يعدّ إبليس هو جبريل",
+        "إبليس هو مَلَك الموت",
+        "القرآن لا يذكر إبليس أصلًا"
+      ],
+      "correct_answer_ar": "سورة الكهف 18:50 تنص على أن إبليس كان من الجن",
+      "explanation_ar": "تقول سورة الكهف 18:50 عن إبليس: «كان من الجن».",
+      "source_question_tr": "Bir içerikte 'İblîs bir melekti, sonra cin oldu' deniyor. Kur'an'a göre temel hata nedir?",
+      "source_correct_answer_tr": "Kehf 18:50 İblîs'in cinlerden olduğunu bildirir",
+      "source_options_tr": [
+        "Kehf 18:50 İblîs'in cinlerden olduğunu bildirir",
+        "Kur'an İblîs'i Cebrâil sayar",
+        "İblîs ölüm meleğidir",
+        "Kur'an İblîs'ten hiç söz etmez"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 18:50; 66:6 ve Diyanet tefsiri; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-002": {
+      "question_ar": "وفقًا لسورة الكهف 18:50، إبليس من الجن.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "تنص الآية صراحةً على أن إبليس كان من الجن.",
+      "source_question_tr": "Kehf 18:50'ye göre İblîs cinlerdendir.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 18:50; 66:6 ve Diyanet tefsiri; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-003": {
+      "question_ar": "يطرح سؤال في اختبار: «ما الاسم الخاص لمَلَك الموت في القرآن؟» ويجعل الإجابة الصحيحة «عزرائيل». ما التقييم الأدق؟",
+      "options_ar": [
+        "السؤال بهذه الصيغة غير دقيق؛ فالقرآن يستعمل تعبير «مَلَك الموت»",
+        "السؤال صحيح تمامًا",
+        "ينبغي أن تكون الإجابة جبريل",
+        "ينبغي أن تكون الإجابة ميكال"
+      ],
+      "correct_answer_ar": "السؤال بهذه الصيغة غير دقيق؛ فالقرآن يستعمل تعبير «مَلَك الموت»",
+      "explanation_ar": "تقول سورة السجدة 32:11 «مَلَك الموت» من غير ذكر اسم خاص؛ ويذكر التفسير المعتمد في المصدر التركي أن اسم عزرائيل لا يرد في القرآن.",
+      "source_question_tr": "Bir sınav sorusu 'Kur'an'da ölüm meleğinin özel adı nedir?' diye sorup doğru cevap olarak 'Azrâil' veriyor. En doğru değerlendirme hangisidir?",
+      "source_correct_answer_tr": "Soru bu biçimiyle hatalıdır; Kur'an 'ölüm meleği' ifadesini kullanır",
+      "source_options_tr": [
+        "Soru bu biçimiyle hatalıdır; Kur'an 'ölüm meleği' ifadesini kullanır",
+        "Soru bütünüyle doğrudur",
+        "Doğru cevap Cebrâil olmalıdır",
+        "Doğru cevap Mîkâil olmalıdır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 32:11 ve Diyanet tefsiri; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-004": {
+      "question_ar": "يقول طالب: «سورة فاطر 35:1 تثبت أن جميع الملائكة لهم أربعة أجنحة بالضبط». أين الخطأ؟",
+      "options_ar": [
+        "الآية تذكر أعدادًا مختلفة وتقول إن الله يزيد في الخلق ما يشاء",
+        "الآية لا تذكر الملائكة",
+        "الآية تتحدث عن مَلَك واحد فقط",
+        "الآية تنفي وجود الأجنحة"
+      ],
+      "correct_answer_ar": "الآية تذكر أعدادًا مختلفة وتقول إن الله يزيد في الخلق ما يشاء",
+      "explanation_ar": "تذكر سورة فاطر 35:1 «مثنى وثلاث ورباع»، ثم تقول إن الله يزيد في الخلق ما يشاء.",
+      "source_question_tr": "Bir öğrenci 'Fâtır 35:1 bütün meleklerin tam dört kanatlı olduğunu kanıtlar' diyor. Hata nedir?",
+      "source_correct_answer_tr": "Ayet farklı sayılardan söz eder ve Allah'ın yaratmada dilediğini artırdığını bildirir",
+      "source_options_tr": [
+        "Ayet farklı sayılardan söz eder ve Allah'ın yaratmada dilediğini artırdığını bildirir",
+        "Ayet meleklerden söz etmez",
+        "Ayet yalnız bir meleği anlatır",
+        "Ayet kanat kavramını reddeder"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 35:1 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-005": {
+      "question_ar": "أي عبارة من الآتي هي الأكثر إشكالًا من جهة الانضباط بالمصدر عند الحديث عن الملائكة؟",
+      "options_ar": [
+        "«نعرف هيئة جميع الملائكة بكل تفاصيلها»",
+        "«القرآن يذكر الملائكة»",
+        "«جبريل يبلّغ الوحي بإذن الله»",
+        "«الملائكة يطيعون أمر الله»"
+      ],
+      "correct_answer_ar": "«نعرف هيئة جميع الملائكة بكل تفاصيلها»",
+      "explanation_ar": "يذكر القرآن بعض صفات الملائكة، أما الجزم بأننا نعرف هيئة جميع الملائكة بكل تفاصيلها فيتجاوز ما يثبته المصدر.",
+      "source_question_tr": "Aşağıdakilerden hangisi melekler hakkında kaynak disiplini açısından en sorunlu cümledir?",
+      "source_correct_answer_tr": "'Bütün meleklerin görünüşünü ayrıntısıyla biliyoruz'",
+      "source_options_tr": [
+        "'Bütün meleklerin görünüşünü ayrıntısıyla biliyoruz'",
+        "'Kur'an meleklerden söz eder'",
+        "'Cebrâil vahyi Allah'ın izniyle iletir'",
+        "'Melekler Allah'ın emrine itaat eder'"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 35:1 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-006": {
+      "question_ar": "يمكن للملائكة أن يضعوا أحكامًا مستقلة من دون أمر الله.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "يصف القرآن الملائكة بأنهم عباد لله يعملون بأمره، لا بسلطة تشريعية مستقلة.",
+      "source_question_tr": "Melekler Allah'ın emri olmadan bağımsız hüküm koyabilir.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 21:26-28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-007": {
+      "question_ar": "صِل الادعاءات الخاطئة عن الملائكة بتصحيحاتها الصحيحة.",
+      "pairs_ar": [
+        {
+          "left": "إبليس مَلَك",
+          "right": "الكهف 18:50: إبليس من الجن"
+        },
+        {
+          "left": "القرآن يذكر اسم عزرائيل",
+          "right": "السجدة 32:11: التعبير هو «مَلَك الموت»"
+        },
+        {
+          "left": "كل مَلَك له أربعة أجنحة بالضبط",
+          "right": "فاطر 35:1: أعداد مختلفة وزيادة في الخلق"
+        }
+      ],
+      "explanation_ar": "توضح هذه الأمثلة أهمية التفريق بين ما يقوله المصدر وبين الروايات الشائعة التي لا يثبتها النص.",
+      "source_question_tr": "Meleklerle ilgili yanlış iddiaları doğru düzeltmeleriyle eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "İblîs melektir",
+          "right": "Kehf 18:50: İblîs cinlerdendir"
+        },
+        {
+          "left": "Kur'an Azrâil adını verir",
+          "right": "Secde 32:11: Ölüm meleği ifadesi"
+        },
+        {
+          "left": "Her melek tam dört kanatlıdır",
+          "right": "Fâtır 35:1: Farklı sayılar ve artış"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Kur'an 2:285; 2:97-98; 16:49-50; 18:50; 21:19-20,26-28; 32:11; 35:1; 40:7-9; 66:6; 82:10-12; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-008": {
+      "question_ar": "اكتب في جملة واحدة المعلومة القرآنية التي تميّز إبليس عن الملائكة.",
+      "correct_answer_ar": "تذكر سورة الكهف 18:50 أن إبليس من الجن، بينما تصف الآيات الملائكة بأنهم مطيعون لأمر الله.",
+      "explanation_ar": "يساعد هذا التفريق على تصحيح الخطأ الشائع الذي يعدّ إبليس من الملائكة.",
+      "source_question_tr": "İblîs ile melekleri ayıran Kur'an bilgisini tek cümleyle yaz.",
+      "source_correct_answer_tr": "Kehf 18:50 İblîs'in cinlerden olduğunu; meleklerle ilgili ayetler ise onların Allah'ın emrine itaat ettiğini bildirir.",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 18:50; 66:6 ve Diyanet tefsiri; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-009": {
+      "question_ar": "عرض اسم خاص لكل مَلَك لم يسمّه القرآن على أنه معلومة دينية قطعية هو منهج موثوق.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "لا ينبغي تقديم أسماء أو تفاصيل لم يذكرها المصدر على أنها معلومات دينية قطعية.",
+      "source_question_tr": "Kur'an'da adı verilmeyen her meleğin ismini kesin biçimde biliyormuş gibi sunmak güvenilir bir yöntemdir.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 2:285; 2:97-98; 16:49-50; 18:50; 21:19-20,26-28; 32:11; 35:1; 40:7-9; 66:6; 82:10-12; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-010": {
+      "question_ar": "يعرض مقطعٌ ادعاء «الملائكة أبناء الله» على أنه معلومة دينية. أي مجموعة آيات تردّ هذا الادعاء مباشرةً؟",
+      "options_ar": [
+        "الأنبياء 21:26-28",
+        "الانفطار 82:10-12",
+        "السجدة 32:11",
+        "البقرة 2:97"
+      ],
+      "correct_answer_ar": "الأنبياء 21:26-28",
+      "explanation_ar": "ترد سورة الأنبياء 21:26-28 هذا الادعاء وتصف الملائكة بأنهم «عباد مكرمون».",
+      "source_question_tr": "Bir video, 'Melekler Allah'ın çocuklarıdır' iddiasını dinî bilgi diye sunuyor. Hangi ayet grubu bunu doğrudan reddeder?",
+      "source_correct_answer_tr": "Enbiyâ 21:26-28",
+      "source_options_tr": [
+        "Enbiyâ 21:26-28",
+        "İnfitâr 82:10-12",
+        "Secde 32:11",
+        "Bakara 2:97"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 21:26-28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-011": {
+      "question_ar": "اعتبار الملائكة أبناءً لله أو شركاء له في الألوهية لا ينسجم مع عقيدة ______.",
+      "options_ar": [
+        "التوحيد",
+        "المسؤولية",
+        "القراءة",
+        "التاريخ"
+      ],
+      "correct_answer_ar": "التوحيد",
+      "explanation_ar": "يصف القرآن الملائكة بأنهم عباد لله، وتختص الألوهية بالله وحده.",
+      "source_question_tr": "Melekleri Allah'ın çocukları veya ilahî ortakları saymak, ______ inancıyla bağdaşmaz.",
+      "source_correct_answer_tr": "tevhid",
+      "source_options_tr": [
+        "tevhid",
+        "sorumluluk",
+        "okuma",
+        "tarih"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Kur'an 21:26-28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U06-S06-012": {
+      "question_ar": "ورد في ملاحظة: «أنشأ جبريل القرآن بقراره الخاص ثم أعطاه للنبي». ما التصحيح؟",
+      "options_ar": [
+        "نزّل جبريل القرآن على قلب النبي بإذن الله",
+        "جمع جبريل الوحي من الناس",
+        "أوحى جبريل بوصفه إلهًا مستقلًا",
+        "القرآن ينكر جبريل"
+      ],
+      "correct_answer_ar": "نزّل جبريل القرآن على قلب النبي بإذن الله",
+      "explanation_ar": "تفرّق سورة البقرة 2:97 بين مصدر الوحي وبين دور جبريل في تنزيله بإذن الله.",
+      "source_question_tr": "Bir notta 'Cebrâil Kur'an'ı kendi kararıyla oluşturup Peygamber'e verdi' yazıyor. Düzeltme hangisidir?",
+      "source_correct_answer_tr": "Cebrâil Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirdi",
+      "source_options_tr": [
+        "Cebrâil Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirdi",
+        "Cebrâil vahyi insanlardan topladı",
+        "Cebrâil bağımsız bir ilah olarak vahiy verdi",
+        "Kur'an Cebrâil'i reddeder"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 2:97-98 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   }
 }
