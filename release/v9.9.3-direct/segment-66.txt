@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.23 — full Arabic question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.27 — Arabic UI + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9344arabiclastmile1'
+  version:'9345arabicuilastmile2'
  };
 
  const sameArray=(a,b)=>{
@@ -189,7 +189,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9344arabiclastmile1';
+   const token='9345arabicuilastmile2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -340,6 +340,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  }
 
  const chromeMap={
+  'PEKİŞTİRME TURU':'جولة التعزيز',
+  'Pekiştirme turu':'جولة التعزيز',
+  'Yanlış yaptığın soruları tamamlıyoruz.':'نُكمل الأسئلة التي أخطأت فيها.',
+  'Yanlış yaptığın soruları tamamlıyoruz':'نُكمل الأسئلة التي أخطأت فيها.',
+  'KALDI':'متبقٍ',
   'Doğru cevabı seç':'اختر الإجابة الصحيحة',
   'Soruyu dinle':'استمع إلى السؤال',
   'Önce fikri keşfet':'اكتشف الفكرة أولاً',
@@ -460,8 +465,56 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   'ÖĞRENDİM · SORUYA GEÇ':'فهمتُ · انتقل إلى السؤال'
  };
 
+
+ const arabicUnitNames={
+  1:'ما الإسلام؟',
+  2:'الإيمان بالله',
+  3:'الشهادتان',
+  4:'أركان الإسلام الخمسة',
+  5:'مدخل إلى أركان الإيمان',
+  6:'الإيمان بالملائكة',
+  7:'الإيمان بالكتب',
+  8:'الإيمان بالرسل',
+  9:'الإيمان باليوم الآخر',
+  10:'الإيمان بالقدر',
+  11:'الوعي بالعبادة',
+  12:'الوضوء',
+  13:'الطهارة',
+  14:'الصلاة',
+  15:'الصيام'
+ };
+ const turkishUnitNames={
+  'İslam Nedir?':arabicUnitNames[1],
+  "Allah'a İman":arabicUnitNames[2],
+  'Kelime-i Şehadet':arabicUnitNames[3],
+  "İslam'ın Beş Şartı":arabicUnitNames[4],
+  'İmanın Esaslarına Giriş':arabicUnitNames[5],
+  'Meleklere İman':arabicUnitNames[6],
+  'Kitaplara İman':arabicUnitNames[7],
+  'Peygamberlere İman':arabicUnitNames[8],
+  'Ahiret Gününe İman':arabicUnitNames[9],
+  'Kadere İman':arabicUnitNames[10],
+  'İbadet Bilinci':arabicUnitNames[11],
+  'Abdest':arabicUnitNames[12],
+  'Taharet':arabicUnitNames[13],
+  'Namaz':arabicUnitNames[14],
+  'Oruç':arabicUnitNames[15]
+ };
+ Object.assign(chromeMap,turkishUnitNames);
+
  function arabizeDynamicText(input){
   let out=String(input??'');
+
+  // Last-mile Arabic UI patterns that are generated dynamically by review/lesson flows.
+  out=out.replace(/PEK[İI]ŞT[İI]RME\s+TURU/gi,'جولة التعزيز');
+  out=out.replace(/Yanlış yaptığın soruları tamamlıyoruz\.?/gi,'نُكمل الأسئلة التي أخطأت فيها.');
+  out=out.replace(/(\d+)\s*KALDI/gi,'متبقي $1');
+  out=out.replace(/YET[İI]ŞK[İI]N\s+ANLATIM/gi,'شرح للبالغين');
+  out=out.replace(/ÜNİTE\s*(\d+)\s*·\s*([^·]+?)\s*·\s*AŞAMA\s*(\d+)\s*\/\s*(\d+)/gi,
+   (m,u,name,s,t)=>'الوحدة '+u+' · '+(arabicUnitNames[Number(u)]||name.trim())+' · المرحلة '+s+'/'+t);
+  out=out.replace(/ÜNİTE\s*(\d+)\s*·\s*AŞAMA\s*(\d+)\s*\/\s*(\d+)/gi,
+   (m,u,s,t)=>'الوحدة '+u+' · المرحلة '+s+'/'+t);
+  out=out.replace(/(\d+)\.\s*KISIM\s*·\s*(\d+)\.\s*ÜNİTE/gi,'القسم $1 · الوحدة $2');
   const exact=chromeMap[out.trim()];
   if(exact)return out.replace(out.trim(),exact);
 
@@ -563,6 +616,13 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
 
  function localizeChrome(root=document.getElementById('lesson')||document.body){
   if(locale()!=='ar'||!root)return;
+
+  // Unit titles are keyed by unit number so Turkish source names can never leak into Arabic UI.
+  for(const [n,name] of Object.entries(arabicUnitNames)){
+   document.querySelectorAll('#heroU'+n+' .hero-copy h1,#v5Unit'+n+' .hero-copy h1,[data-unit="U'+String(n).padStart(2,'0')+'"] .hero-copy h1').forEach(el=>{
+    if(el.textContent!==name)el.textContent=name;
+   });
+  }
   root.querySelectorAll?.('.v1017-title').forEach(el=>{
    if(!/[\u0600-\u06FF]/.test(el.textContent||''))el.innerHTML='اعثر على <span>الأزواج المتطابقة</span>';
   });
@@ -621,8 +681,13 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   const watch=()=>document.body&&observer.observe(document.body,{subtree:true,childList:true,characterData:true});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch,{once:true});else watch();
  }
- for(const ev of ['deen:language-changed','deen:navigated','deen:ui-updated'])document.addEventListener(ev,queueChrome);
- queueChrome();
+ const queueChromeBurst=()=>{
+  queueChrome();
+  for(const ms of [40,140,360])setTimeout(()=>localizeChrome(document.body),ms);
+ };
+ for(const ev of ['deen:language-changed','deen:navigated','deen:ui-updated','deen:question-rendered','deen:lesson-opened'])
+  document.addEventListener(ev,queueChromeBurst);
+ queueChromeBurst();
 
  window.DEEN_ARABIC_FULL_BANK={
   version:pilot.version,
