@@ -3133,6 +3133,420 @@
       "translation_format": "Modern Standard Arabic (الفصحى)",
       "research_references": [],
       "translation_scope": "live_runtime_variant"
+    },
+    "DEEN-U01-S03-004": {
+      "question_ar": "اختر البطاقة التي تشرح الفرق بين الإيمان والعبادة شرحًا صحيحًا.",
+      "options_ar": [
+        "الإيمان يتعلق بالاعتقاد والقبول، والعبادة تتعلق بأعمال يُقصد بها التعبّد لله.",
+        "الإيمان والعبادة مفهومان متطابقان في كل حال.",
+        "الإيمان لا يتكوّن إلا من حركات بدنية."
+      ],
+      "correct_answer_ar": "الإيمان يتعلق بالاعتقاد والقبول، والعبادة تتعلق بأعمال يُقصد بها التعبّد لله.",
+      "explanation_ar": "الإيمان والعبادة مترابطان لكنهما ليسا مفهومًا واحدًا؛ فالإيمان يتعلق بالاعتقاد والقبول، والعبادة بأعمال التعبّد لله.",
+      "source_question_tr": "İman ile ibadet arasındaki farkı doğru anlatan kartı seç.",
+      "source_correct_answer_tr": "İman inanç ve kabulle, ibadet ise Allah’a kulluk amacı taşıyan davranışlarla ilgilidir.",
+      "source_options_tr": [
+        "İman inanç ve kabulle, ibadet ise Allah’a kulluk amacı taşıyan davranışlarla ilgilidir.",
+        "İman ve ibadet her durumda aynı kavramdır.",
+        "İman yalnızca bedensel hareketlerden oluşur."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S03-015": {
+      "question_ar": "عندما تُدرس مفاهيم الإيمان والعبادة و«___» معًا، تتضح الصلة بين الاعتقاد والتعبّد والسلوك.",
+      "options_ar": [
+        "الأخلاق",
+        "النسب",
+        "المدينة",
+        "المهنة"
+      ],
+      "correct_answer_ar": "الأخلاق",
+      "explanation_ar": "تتناول الوحدة الإيمان والعبادة والأخلاق بوصفها مجالات مختلفة لكنها مترابطة.",
+      "source_question_tr": "İman, ibadet ve ___ birlikte ele alındığında inanç, kulluk ve davranış arasındaki bağ daha açık görülür.",
+      "source_correct_answer_tr": "ahlak",
+      "source_options_tr": [
+        "ahlak",
+        "soy",
+        "şehir",
+        "meslek"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "fill_blank",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S03-016": {
+      "question_ar": "أيُّ جواب يصحح هذه الفكرة بأفضل صورة؟",
+      "options_ar": [
+        "الإيمان والعبادة والأخلاق مجالات مختلفة لكنها مترابطة.",
+        "السلوك وحده مهم، أما الاعتقاد فلا أهمية له.",
+        "العبادة لا تتكوّن إلا من أعمال يراها الآخرون.",
+        "الأخلاق لا علاقة لها بالتعلّم الديني."
+      ],
+      "correct_answer_ar": "الإيمان والعبادة والأخلاق مجالات مختلفة لكنها مترابطة.",
+      "explanation_ar": "تهدف الوحدة إلى فهم العلاقة بين الإيمان والعبادة والأخلاق من غير مساواة هذه المفاهيم بعضها ببعض.",
+      "source_question_tr": "Bu düşünceyi en iyi hangi cevap düzeltir?",
+      "source_correct_answer_tr": "İman, ibadet ve ahlak farklı alanlardır ama birbirleriyle ilişkilidir.",
+      "source_options_tr": [
+        "İman, ibadet ve ahlak farklı alanlardır ama birbirleriyle ilişkilidir.",
+        "Sadece davranışlar önemlidir; inanç önemli değildir.",
+        "İbadet yalnızca başkalarının gördüğü davranışlardan oluşur.",
+        "Ahlakın dinî öğrenmeyle hiçbir ilişkisi yoktur."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S03-017": {
+      "question_ar": "ثلاث عبارات تتوافق مع مفاهيم هذه الوحدة. أيُّها خاطئة؟",
+      "options_ar": [
+        "القرآن مصدر أساسي للهداية عند المسلمين.",
+        "النبي محمد ﷺ رسول وقدوة للمسلمين.",
+        "الأخلاق تتعلق بسلوك الإنسان وتصرفاته.",
+        "لكي يكون الإنسان مسلمًا يجب أن ينتمي إلى قومية معيّنة."
+      ],
+      "correct_answer_ar": "لكي يكون الإنسان مسلمًا يجب أن ينتمي إلى قومية معيّنة.",
+      "explanation_ar": "وفق هذه الوحدة، لا ترتبط صفة المسلم ببلد أو نسب أو قومية بعينها.",
+      "source_question_tr": "Üç ifade bu ünitedeki kavramlarla uyumlu. Hangisi hatalı?",
+      "source_correct_answer_tr": "Müslüman olmak belirli bir millete mensup olmayı gerektirir.",
+      "source_options_tr": [
+        "Kur’an Müslümanlar için temel bir rehberdir.",
+        "Hz. Muhammed Müslümanlar için rehberlik eden peygamberdir.",
+        "Ahlak insanın davranışlarıyla ilgilidir.",
+        "Müslüman olmak belirli bir millete mensup olmayı gerektirir."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "odd_one_out",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S03-018": {
+      "question_ar": "أيُّ عبارة تشرح العلاقة بين الإسلام والمسلم شرحًا صحيحًا؟",
+      "options_ar": [
+        "الإسلام اسم الدين، والمسلم هو من يعتنق الإسلام.",
+        "الإسلام اسم قومية، والمسلم من وُلد في تلك القومية.",
+        "الإسلام اسم العبادات فقط، والمسلم اسم يستخدم وقت العبادة فقط.",
+        "الإسلام والمسلم مفهومان متطابقان تمامًا."
+      ],
+      "correct_answer_ar": "الإسلام اسم الدين، والمسلم هو من يعتنق الإسلام.",
+      "explanation_ar": "المفهومان مترابطان لكنهما لا يعنيان الشيء نفسه: الإسلام اسم الدين، والمسلم من يعتنقه.",
+      "source_question_tr": "İslam ile Müslüman arasındaki ilişkiyi en doğru hangi ifade kurar?",
+      "source_correct_answer_tr": "İslam dinin adıdır; Müslüman İslam’ı benimseyen kişidir.",
+      "source_options_tr": [
+        "İslam dinin adıdır; Müslüman İslam’ı benimseyen kişidir.",
+        "İslam bir milletin adıdır; Müslüman o milletten doğan kişidir.",
+        "İslam yalnızca ibadetlerin adıdır; Müslüman yalnızca ibadet sırasında kullanılan bir addır.",
+        "İslam ve Müslüman tamamen aynı kavramdır."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-013": {
+      "question_ar": "في هذه الوحدة تُعرض مفاهيم الإيمان والعبادة و«___» بوصفها مجالات مترابطة وليست منفصلة تمامًا.",
+      "options_ar": [
+        "الأخلاق",
+        "النسب",
+        "المدينة",
+        "المهنة"
+      ],
+      "correct_answer_ar": "الأخلاق",
+      "explanation_ar": "الإيمان والعبادة والأخلاق ليست مفهومًا واحدًا، لكنها ليست مجالات منفصلة تمامًا بعضها عن بعض.",
+      "source_question_tr": "Bu ünitede iman, ibadet ve ___ birbirinden kopuk değil, ilişkili alanlar olarak ele alınır.",
+      "source_correct_answer_tr": "ahlak",
+      "source_options_tr": [
+        "ahlak",
+        "soy",
+        "şehir",
+        "meslek"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "fill_blank",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-014": {
+      "question_ar": "أيُّ بطاقة تصحح عبارة: «الإيمان يبقى في الذهن ولا علاقة له بالعبادة أو الأخلاق»؟",
+      "options_ar": [
+        "يمكن أن توجد صلة بين الإيمان والعبادة والأخلاق.",
+        "الإيمان مجرد قول باللسان.",
+        "العبادة فقط ما يراه الآخرون.",
+        "الأخلاق لا علاقة لها بالإيمان."
+      ],
+      "correct_answer_ar": "يمكن أن توجد صلة بين الإيمان والعبادة والأخلاق.",
+      "explanation_ar": "تتناول الوحدة هذه المجالات بوصفها مختلفة لكنها مترابطة، من غير مساواتها بعضها ببعض.",
+      "source_question_tr": "“İnanç zihinde kalır; ibadet ve ahlakla bağlantısı yoktur.” cümlesini en iyi hangi kart düzeltir?",
+      "source_correct_answer_tr": "İman, ibadet ve ahlak ilişki kurabilen alanlardır.",
+      "source_options_tr": [
+        "İman, ibadet ve ahlak ilişki kurabilen alanlardır.",
+        "İman yalnızca sözden ibarettir.",
+        "İbadet sadece başkalarının gördüğü davranışlardır.",
+        "Ahlakın inançla hiçbir ilişkisi yoktur."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-015": {
+      "question_ar": "طابق المفاهيم بأدوارها في هذه الوحدة.",
+      "pairs_ar": [
+        {
+          "left": "القرآن",
+          "right": "المصدر الأساسي للهداية"
+        },
+        {
+          "left": "النبي محمد ﷺ",
+          "right": "رسول وقدوة"
+        },
+        {
+          "left": "العبادة",
+          "right": "أعمال التعبّد لله"
+        },
+        {
+          "left": "الأخلاق",
+          "right": "السلوك والمواقف"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يستعيد هذا التمرين مفاهيم القرآن والنبي والعبادة والأخلاق التي تكررت في الوحدة.",
+      "source_question_tr": "Kavramları bu ünitedeki rollerine göre eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Kur’an",
+          "right": "Temel rehber"
+        },
+        {
+          "left": "Hz. Muhammed",
+          "right": "Peygamber ve örnek rehber"
+        },
+        {
+          "left": "İbadet",
+          "right": "Kulluk davranışları"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Davranış ve tutumlar"
+        }
+      ],
+      "activity_type": "matching",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-016": {
+      "question_ar": "ثلاث عبارات تتوافق مع ما تعلمته في هذه الوحدة. أيُّها لا يتوافق؟",
+      "options_ar": [
+        "القرآن مصدر هداية للمسلمين.",
+        "يمكن الاقتداء بسيرة النبي في السلوك.",
+        "لكي يكون المسلم مسلمًا يجب أن يكون من نسب معيّن.",
+        "للإسلام صلة بالحياة اليومية أيضًا."
+      ],
+      "correct_answer_ar": "لكي يكون المسلم مسلمًا يجب أن يكون من نسب معيّن.",
+      "explanation_ar": "تؤكد الوحدة أن صفة المسلم لا ترتبط بنسب أو قومية محددة.",
+      "source_question_tr": "Üç ifade bu ünitedeki bilgilerle uyumlu. Hangisi uyumlu değildir?",
+      "source_correct_answer_tr": "Müslüman olmak belirli bir soydan gelmeyi gerektirir.",
+      "source_options_tr": [
+        "Kur’an Müslümanlar için rehberdir.",
+        "Peygamberin hayatı davranışlar için örnek olabilir.",
+        "Müslüman olmak belirli bir soydan gelmeyi gerektirir.",
+        "İslam günlük hayatla da ilişki kurar."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "odd_one_out",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S06-017": {
+      "question_ar": "أيُّ اختيار يوضح النقص في عبارة: «القرآن كتاب تاريخ يروي أحداث الماضي فقط»؟",
+      "options_ar": [
+        "القرآن يقدّم كذلك هداية في الإيمان والحياة.",
+        "القرآن يخاطب قومية واحدة فقط.",
+        "القرآن موجود للحفظ فقط.",
+        "لا علاقة للقرآن بالسلوك اليومي."
+      ],
+      "correct_answer_ar": "القرآن يقدّم كذلك هداية في الإيمان والحياة.",
+      "explanation_ar": "لا يُعرض القرآن في الوحدة بوصفه معلومات عن الماضي فقط، بل مصدرًا للهداية عند المسلمين.",
+      "source_question_tr": "“Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır.” ifadesindeki eksikliği en iyi hangi seçenek açıklar?",
+      "source_correct_answer_tr": "Kur’an aynı zamanda inanç ve yaşam konusunda rehberlik eder.",
+      "source_options_tr": [
+        "Kur’an aynı zamanda inanç ve yaşam konusunda rehberlik eder.",
+        "Kur’an sadece belirli bir millete hitap eder.",
+        "Kur’an yalnızca ezberlenmek için vardır.",
+        "Kur’an günlük davranışlarla hiçbir bağ kurmaz."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-015": {
+      "question_ar": "قول الحق وحفظ الأمانة حتى عندما لا يراك أحد يدل على قيمة «___».",
+      "options_ar": [
+        "الصدق",
+        "الفظاظة",
+        "الرياء",
+        "اللامبالاة"
+      ],
+      "correct_answer_ar": "الصدق",
+      "explanation_ar": "التأكيد على الصدق حتى في غياب رقابة الآخرين يوضح أن الأخلاق موقف ثابت لا يرتبط بمشاهدة الناس.",
+      "source_question_tr": "Kimse görmese bile doğruyu söylemek ve emanete sahip çıkmak ___ değerini gösterir.",
+      "source_correct_answer_tr": "dürüstlük",
+      "source_options_tr": [
+        "dürüstlük",
+        "kabalık",
+        "gösteriş",
+        "umursamazlık"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "fill_blank",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-016": {
+      "question_ar": "أكمل خريطة مفاهيم نهاية الوحدة: طابق المفاهيم مع شروحها الصحيحة.",
+      "pairs_ar": [
+        {
+          "left": "الإسلام",
+          "right": "منهج يقوم على الاستسلام لله وعبادته"
+        },
+        {
+          "left": "المسلم",
+          "right": "من يعتنق الإسلام"
+        },
+        {
+          "left": "القرآن",
+          "right": "المصدر الأساسي للهداية"
+        },
+        {
+          "left": "النبي محمد ﷺ",
+          "right": "رسول وقدوة"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يجمع هذا التمرين أربعة مفاهيم أساسية تكررت من بداية الوحدة إلى نهايتها.",
+      "source_question_tr": "Final kavram haritasını tamamla: kavramları doğru açıklamalarla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "İslam",
+          "right": "Allah’a teslimiyet ve kulluk merkezli yaşam anlayışı"
+        },
+        {
+          "left": "Müslüman",
+          "right": "İslam’ı benimseyen kişi"
+        },
+        {
+          "left": "Kur’an",
+          "right": "Temel rehber"
+        },
+        {
+          "left": "Hz. Muhammed",
+          "right": "Peygamber ve örnek rehber"
+        }
+      ],
+      "activity_type": "matching",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-017": {
+      "question_ar": "يقول صديق: «إذا لم يرني أحد فلا بأس بكذبة صغيرة». ما أنسب موقف وفق ما تعلمته؟",
+      "options_ar": [
+        "أحاول الالتزام بالصدق حتى إذا لم يرني أحد.",
+        "يمكنني الكذب ما دمت لن أُكتشف.",
+        "أتجنب الأكاذيب الكبيرة فقط.",
+        "الصدق مهم فقط أمام الناس."
+      ],
+      "correct_answer_ar": "أحاول الالتزام بالصدق حتى إذا لم يرني أحد.",
+      "explanation_ar": "تتعامل الوحدة مع الصدق بوصفه قيمة أخلاقية لا تتوقف على وجود من يراقب الإنسان.",
+      "source_question_tr": "Bir arkadaşın “Kimse görmüyorsa küçük bir yalanın önemi yok.” diyor. Bu ünitedeki anlayışa göre en uygun tepki hangisi?",
+      "source_correct_answer_tr": "Kimse görmese de dürüst davranmaya çalışırım.",
+      "source_options_tr": [
+        "Kimse görmese de dürüst davranmaya çalışırım.",
+        "Yakalanmayacaksam yalan söyleyebilirim.",
+        "Sadece büyük yalanlardan kaçınırım.",
+        "Doğruyu söylemek yalnızca kalabalıkta önemlidir."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-018": {
+      "question_ar": "ثلاث عبارات تتفق مع الفكرة الأساسية للوحدة. أيُّها لا يتفق؟",
+      "options_ar": [
+        "الإيمان يتضمن التصديق بالقلب.",
+        "العبادة تتعلق بأعمال التعبّد لله.",
+        "الأخلاق تتعلق بالسلوك والمواقف اليومية.",
+        "الإيمان والعبادة والأخلاق ثلاثة مجالات منفصلة تمامًا."
+      ],
+      "correct_answer_ar": "الإيمان والعبادة والأخلاق ثلاثة مجالات منفصلة تمامًا.",
+      "explanation_ar": "لا تساوي الوحدة بين هذه المجالات، لكنها لا تعرضها أيضًا بوصفها منفصلة تمامًا.",
+      "source_question_tr": "Üç ifade bu ünitenin ana fikriyle uyumlu. Hangisi uyumlu değildir?",
+      "source_correct_answer_tr": "İman, ibadet ve ahlak tamamen kopuk üç ayrı alandır.",
+      "source_options_tr": [
+        "İman kalple inanmayı da içerir.",
+        "İbadet kulluk davranışlarıyla ilgilidir.",
+        "Ahlak günlük davranış ve tutumlarla ilgilidir.",
+        "İman, ibadet ve ahlak tamamen kopuk üç ayrı alandır."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "odd_one_out",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-019": {
+      "question_ar": "أيُّ بطاقة تصف بأفضل صورة انعكاس هداية القرآن الأخلاقية في الحياة اليومية؟",
+      "options_ar": [
+        "يمكن للهداية أن توجّه السلوك والمواقف أيضًا.",
+        "القرآن لا يقدّم أي هداية أخلاقية.",
+        "الهداية مخصصة لمعرفة أحداث الماضي فقط.",
+        "الأخلاق لا علاقة لها بالسلوك اليومي."
+      ],
+      "correct_answer_ar": "يمكن للهداية أن توجّه السلوك والمواقف أيضًا.",
+      "explanation_ar": "تُفهم هداية القرآن في الوحدة بوصفها مؤثرة في المعرفة والسلوك والمواقف الأخلاقية.",
+      "source_question_tr": "Kur’an’ın ahlaki rehberliğinin günlük hayata yansımasını en iyi hangi kart anlatır?",
+      "source_correct_answer_tr": "Rehberlik, davranış ve tutumlara da yön verebilir.",
+      "source_options_tr": [
+        "Rehberlik, davranış ve tutumlara da yön verebilir.",
+        "Kur’an ahlakla ilgili hiçbir rehberlik sunmaz.",
+        "Rehberlik yalnızca geçmiş olayları öğrenmek içindir.",
+        "Ahlakın günlük davranışlarla hiçbir ilişkisi yoktur."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S07-020": {
+      "question_ar": "اختم الوحدة ببطاقة واحدة: أيُّ عبارة تلخّص الإسلام وفق الإطار الذي تعلمته؟",
+      "options_ar": [
+        "منهج حياة يجمع الإيمان والعبادة والأخلاق، ويسترشد بالقرآن وهدي النبي.",
+        "نظام يتكوّن فقط من عبادات محددة ولا صلة له بالحياة اليومية.",
+        "تقليد يخص قومية أو ثقافة واحدة فقط.",
+        "مجال معلومات يقتصر على أحداث الماضي."
+      ],
+      "correct_answer_ar": "منهج حياة يجمع الإيمان والعبادة والأخلاق، ويسترشد بالقرآن وهدي النبي.",
+      "explanation_ar": "قدمت الوحدة الإسلام إطارًا متكاملًا يربط الإيمان والتعبّد والأخلاق بهداية القرآن وقدوة النبي.",
+      "source_question_tr": "Üniteyi tek kartla kapat: İslam’ı bu bölümün anlattığı çerçevede en iyi hangi ifade özetler?",
+      "source_correct_answer_tr": "İman, ibadet ve ahlakı birlikte ele alan; Kur’an ve peygamber rehberliğiyle şekillenen bir yaşam anlayışı.",
+      "source_options_tr": [
+        "İman, ibadet ve ahlakı birlikte ele alan; Kur’an ve peygamber rehberliğiyle şekillenen bir yaşam anlayışı.",
+        "Sadece belirli ibadetlerden oluşan ve günlük hayatla ilgisi olmayan bir yapı.",
+        "Yalnızca belirli bir millet veya kültüre ait bir gelenek.",
+        "Sadece geçmiş olayları öğrenmeye dayanan bir bilgi alanı."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "generated_from": "DEEN Turkish source bank",
