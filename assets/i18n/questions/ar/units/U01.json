@@ -3547,6 +3547,160 @@
       "activity_type": "card_choice",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-017": {
+      "question_ar": "أعطاك الموظف عند صندوق الدفع نقودًا زائدة بالخطأ. إعادتها إليه مثال واضح على قيمة «___».",
+      "options_ar": [
+        "الصدق",
+        "الفظاظة",
+        "اللامبالاة",
+        "التسرع"
+      ],
+      "correct_answer_ar": "الصدق",
+      "explanation_ar": "إعادة المال الزائد مثال يومي على الصدق والأمانة.",
+      "source_question_tr": "Kasada sana yanlışlıkla fazla para üstü verildi. Onu geri vermek ___ değerine güçlü bir örnektir.",
+      "source_correct_answer_tr": "dürüstlük",
+      "source_options_tr": [
+        "dürüstlük",
+        "kabalık",
+        "umursamazlık",
+        "acelecilik"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "fill_blank",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-018": {
+      "question_ar": "طابق السلوك بالقيمة التي يبرزها.",
+      "pairs_ar": [
+        {
+          "left": "إعادة النقود الزائدة",
+          "right": "الصدق"
+        },
+        {
+          "left": "التحدث بهدوء وعدل عند اتهام ظالم",
+          "right": "العدل"
+        },
+        {
+          "left": "تصحيح المعلومة الخاطئة من غير احتقار صاحبها",
+          "right": "الاحترام"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يمكن أن تتحول القيم نفسها إلى سلوك في مواقف مختلفة؛ وهنا تُطابق ثلاثة أمثلة يومية مع القيم التي تبرزها.",
+      "source_question_tr": "Davranışları öne çıkan değerlerle eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Fazla para üstünü geri vermek",
+          "right": "Dürüstlük"
+        },
+        {
+          "left": "Haksız suçlamada sakin ve adil konuşmak",
+          "right": "Adalet"
+        },
+        {
+          "left": "Yanlış bilgiyi küçümsemeden düzeltmek",
+          "right": "Saygı"
+        }
+      ],
+      "activity_type": "matching",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-019": {
+      "question_ar": "ثلاثة سلوكيات تنسجم مع المسؤولية الأخلاقية في هذه الوحدة. أيُّها لا ينسجم؟",
+      "options_ar": [
+        "الاعتذار بعد ارتكاب خطأ",
+        "عدم المشاركة في الغيبة",
+        "إعادة النقود الزائدة",
+        "اعتقاد أن الكذب لا بأس به إذا لم يرَك أحد"
+      ],
+      "correct_answer_ar": "اعتقاد أن الكذب لا بأس به إذا لم يرَك أحد",
+      "explanation_ar": "تؤكد الوحدة أن الصدق والاعتذار والاحترام والمسؤولية قيم مهمة في السلوك اليومي، لا عند وجود من يراقب الإنسان فقط.",
+      "source_question_tr": "Üç davranış bu bölümdeki ahlaki sorumluluk anlayışıyla uyumlu. Hangisi uyumlu değildir?",
+      "source_correct_answer_tr": "Kimse görmüyorsa yalan söylemenin sorun olmadığını düşünmek",
+      "source_options_tr": [
+        "Hata yaptıktan sonra özür dilemek",
+        "Dedikoduya katılmamak",
+        "Fazla para üstünü geri vermek",
+        "Kimse görmüyorsa yalan söylemenin sorun olmadığını düşünmek"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "odd_one_out",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-020": {
+      "question_ar": "يهتم شخص بعباداته ويتعامل كذلك بصدق واحترام مع من حوله. ما الذي يوضحه هذا المثال بأفضل صورة؟",
+      "options_ar": [
+        "إمكان وجود صلة بين العبادة والأخلاق في الحياة اليومية",
+        "أن الأخلاق لا علاقة لها بالعبادة مطلقًا",
+        "أن السلوك الظاهر وحده هو المهم",
+        "أن حسن السلوك مطلوب في أماكن محددة فقط"
+      ],
+      "correct_answer_ar": "إمكان وجود صلة بين العبادة والأخلاق في الحياة اليومية",
+      "explanation_ar": "لا تساوي الوحدة بين العبادة والأخلاق، لكنها لا تعرضهما أيضًا بوصفهما منفصلتين تمامًا.",
+      "source_question_tr": "İbadetlerine önem veren biri çevresine karşı da dürüst ve saygılı davranıyor. Bu tablo en iyi neyi gösterir?",
+      "source_correct_answer_tr": "İbadet ile ahlakın günlük hayatta ilişki kurabildiğini",
+      "source_options_tr": [
+        "İbadet ile ahlakın günlük hayatta ilişki kurabildiğini",
+        "Ahlakın ibadetle hiçbir ilgisinin olmadığını",
+        "Sadece dışarıdan görünen davranışların önemli olduğunu",
+        "İyi davranışların yalnızca belirli ortamlarda gerekli olduğunu"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "card_choice",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-021": {
+      "question_ar": "عندما يُتَّهم شخص ظلمًا فيبقى هادئًا ويشرح الموقف بإنصاف بدل أن يصرخ، ما الصفتان اللتان تبرزان معًا؟",
+      "options_ar": [
+        "الهدوء والعدل",
+        "الغضب والتسرع",
+        "الرياء والمنافسة",
+        "اللامبالاة والفظاظة"
+      ],
+      "correct_answer_ar": "الهدوء والعدل",
+      "explanation_ar": "يستخدم هذا المثال ضبط رد الفعل والتصرف بعدل في موقف صعب.",
+      "source_question_tr": "Bir kişi haksız yere suçlandığında bağırmak yerine sakin ve adil konuşuyor. Burada hangi iki özellik birlikte öne çıkıyor?",
+      "source_correct_answer_tr": "Sakinlik ve adalet",
+      "source_options_tr": [
+        "Sakinlik ve adalet",
+        "Öfke ve acelecilik",
+        "Gösteriş ve rekabet",
+        "Umursamazlık ve kabalık"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-022": {
+      "question_ar": "تصحيح معلومة خاطئة من غير احتقار الشخص الآخر يبرز قيمة «___» في التواصل.",
+      "options_ar": [
+        "الاحترام",
+        "الفظاظة",
+        "السخرية",
+        "اللامبالاة"
+      ],
+      "correct_answer_ar": "الاحترام",
+      "explanation_ar": "تصحيح الخطأ بلطف ومن غير احتقار للآخر مثال على التواصل المحترم.",
+      "source_question_tr": "Yanlış bir bilgiyi karşıdaki kişiyi küçümsemeden düzeltmek, iletişimde ___ değerini öne çıkarır.",
+      "source_correct_answer_tr": "saygı",
+      "source_options_tr": [
+        "saygı",
+        "kabalık",
+        "alay",
+        "umursamazlık"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "fill_blank",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "generated_from": "DEEN Turkish source bank",
