@@ -1,0 +1,344 @@
+<!-- DEEN v9.12.23 — full Arabic question-bank runtime (U01–U15) -->
+<style id="deen-v91223-arabic-fullbank-css">
+html:lang(ar) #lesson #questionText,
+html:lang(ar) #lesson #feedbackText,
+html:lang(ar) #lesson #answerArea,
+html:lang(ar) #lesson .v1017-hero,
+html:lang(ar) #lesson .v1017-board{direction:rtl}
+html:lang(ar) #lesson #questionText,
+html:lang(ar) #lesson #feedbackText,
+html:lang(ar) #lesson .v1017-title,
+html:lang(ar) #lesson .v1017-subtitle{text-align:right;unicode-bidi:plaintext}
+html:lang(ar) #lesson #answerArea .option-label,
+html:lang(ar) #lesson #answerArea .fill-choice,
+html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-bidi:plaintext}
+</style>
+<script id="deen-v91223-arabic-fullbank-js">
+(()=>{
+ if(window.__DEEN_ARABIC_FULL_BANK_V91223__)return;
+ window.__DEEN_ARABIC_FULL_BANK_V91223__=true;
+
+ const locale=()=>window.DEEN_APP_LOCALE?.get?.();
+ const pad=n=>String(n).padStart(2,'0');
+ const supportedStages=new Set();
+ const stageMap={};
+ for(let u=1;u<=15;u++){
+  for(let s=1;s<=7;s++){
+   const unit='U'+pad(u),legacy=unit+'-S'+pad(s),macro=unit+'-M'+pad(s);
+   supportedStages.add(legacy);
+   stageMap[macro]=legacy;
+  }
+ }
+
+ const pilot={
+  ready:false,
+  loading:true,
+  failure:'',
+  translations:Object.create(null),
+  runtime_variants:Object.create(null),
+  supportedStages,
+  stageMap,
+  sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
+  version:'9340arabicfullbank1'
+ };
+
+ const sameArray=(a,b)=>{
+  if(!Array.isArray(a))return !Array.isArray(b);
+  return Array.isArray(b)&&a.length===b.length&&a.every((x,i)=>x===b[i]);
+ };
+ const samePairs=(a,b)=>{
+  if(!Array.isArray(a))return !Array.isArray(b)||b.length===0;
+  return Array.isArray(b)&&a.length===b.length&&a.every((x,i)=>x?.left===b[i]?.left&&x?.right===b[i]?.right);
+ };
+ const blankCount=s=>(String(s||'').match(/___/g)||[]).length;
+
+ function userVisibleStrings(t){
+  const out=[t?.question_ar,t?.correct_answer_ar,t?.explanation_ar];
+  (t?.options_ar||[]).forEach(x=>out.push(x));
+  (t?.pairs_ar||[]).forEach(p=>out.push(p?.left,p?.right));
+  (t?.items_ar||[]).forEach(x=>out.push(x));
+  (t?.correct_order_ar||[]).forEach(x=>out.push(x));
+  return out.filter(x=>typeof x==='string'&&x.trim());
+ }
+
+ function validArabicEntry(t){
+  if(!t||t.expert_approved!==false)return false;
+  if(typeof t.question_ar!=='string'||!t.question_ar.trim())return false;
+  if(typeof t.explanation_ar!=='string'||!t.explanation_ar.trim())return false;
+  const values=userVisibleStrings(t);
+  if(values.some(v=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(v.replace(/\bDEEN\b/g,''))))return false;
+  return /[\u0600-\u06FF]/.test(t.question_ar)&&/[\u0600-\u06FF]/.test(t.explanation_ar);
+ }
+
+ function asDisplayQuestion(base,translated,isRuntimeVariant=false){
+  if(!base||!validArabicEntry(translated))return null;
+  if(base.question_tr!==translated.source_question_tr)return null;
+  if(base.activity_type!==translated.activity_type)return null;
+  if(blankCount(base.question_tr)!==blankCount(translated.question_ar))return null;
+
+  if(!sameArray(base.options_tr,translated.source_options_tr))return null;
+  if(!samePairs(base.pairs,translated.source_pairs_tr))return null;
+  if(!sameArray(base.items,translated.source_items_tr))return null;
+  if(!sameArray(base.correct_order,translated.source_correct_order_tr))return null;
+
+  if(base.activity_type!=='matching' && base.activity_type!=='build_sequence' &&
+     base.correct_answer!==translated.source_correct_answer_tr)return null;
+
+  if(Array.isArray(base.options_tr)){
+   if(!Array.isArray(translated.options_ar)||translated.options_ar.length!==base.options_tr.length)return null;
+   const correctIndex=base.options_tr.indexOf(base.correct_answer);
+   if(correctIndex<0||translated.options_ar[correctIndex]!==translated.correct_answer_ar)return null;
+   if(translated.options_ar.filter(x=>x===translated.correct_answer_ar).length!==1)return null;
+  }else if(base.activity_type==='matching'){
+   if(!Array.isArray(base.pairs)||!Array.isArray(translated.pairs_ar)||translated.pairs_ar.length!==base.pairs.length)return null;
+   if(translated.pairs_ar.some(p=>typeof p?.left!=='string'||typeof p?.right!=='string'||!p.left.trim()||!p.right.trim()))return null;
+  }else if(base.activity_type==='build_sequence'||Array.isArray(base.correct_order)){
+   if(!Array.isArray(base.items)||!Array.isArray(translated.items_ar)||translated.items_ar.length!==base.items.length)return null;
+   if(!Array.isArray(base.correct_order)||!Array.isArray(translated.correct_order_ar)||translated.correct_order_ar.length!==base.correct_order.length)return null;
+  }else if(!translated.correct_answer_ar){
+   return null;
+  }
+
+  return {
+   ...base,
+   question_tr:translated.question_ar,
+   options_tr:Array.isArray(translated.options_ar)?[...translated.options_ar]:null,
+   correct_answer:translated.correct_answer_ar||null,
+   pairs:Array.isArray(translated.pairs_ar)?translated.pairs_ar.map(p=>({...p})):base.pairs,
+   items:Array.isArray(translated.items_ar)?[...translated.items_ar]:base.items,
+   correct_order:Array.isArray(translated.correct_order_ar)?[...translated.correct_order_ar]:base.correct_order,
+   explanation_tr:translated.explanation_ar,
+   __deenArabicPilot:true,
+   __deenArabicFullBank:true,
+   __deenSourceQuestion:base,
+   __deenRuntimeVariant:!!isRuntimeVariant
+  };
+ }
+
+ pilot.translateQuestion=function(base){
+  if(!pilot.ready||!base)return null;
+  const variant=pilot.runtime_variants[base.id];
+  const translated=variant||pilot.translations[base.id];
+  return asDisplayQuestion(base,translated,!!variant);
+ };
+
+ pilot.canStart=id=>pilot.ready&&supportedStages.has(id);
+
+ pilot.questionsFor=function(bank,stageId,count,shuffleFn){
+  if(!pilot.ready||!Array.isArray(bank)||!supportedStages.has(stageId))return [];
+  const sourcePool=bank.filter(q=>q.stage_id===stageId);
+  if(!sourcePool.length)return [];
+  const pool=sourcePool.map(q=>pilot.translateQuestion(q)).filter(Boolean);
+  if(pool.length!==sourcePool.length)return [];
+  const random=typeof shuffleFn==='function'?shuffleFn:(list=>[...list]);
+  const target=stageId.endsWith('S07')?10:(Number.isFinite(Number(count))?Number(count):7);
+  const groups={};
+  pool.forEach(q=>(groups[q.activity_type]??=[]).push(q));
+  let chosen=[];
+  for(const key of Object.keys(groups)){
+   const g=random(groups[key]);
+   if(g[0])chosen.push(g[0]);
+  }
+  chosen=random(chosen).slice(0,target);
+  const seen=new Set(chosen.map(q=>q.id));
+  for(const q of random(pool)){
+   if(chosen.length>=target)break;
+   if(!seen.has(q.id)){chosen.push(q);seen.add(q.id)}
+  }
+  return random(chosen).slice(0,target);
+ };
+
+ pilot.notice=function(id){
+  const msg=pilot.loading
+   ?'جارٍ تحميل بنك الأسئلة العربي الكامل. حاول مرة أخرى بعد لحظة.'
+   :pilot.failure
+    ?'تعذّر تحميل بنك الأسئلة العربي بالكامل. تم منع عرض الأسئلة التركية.'
+    :'تعذّر تجهيز هذا السؤال بالعربية، لذلك لن يُعرض النص التركي.';
+  try{if(typeof sheet==='function'){sheet('الأسئلة العربية','<p dir="rtl">'+msg+'</p>');return true}}catch(_){}
+  window.alert?.(msg);
+  return true;
+ };
+
+ pilot.decorate=function(){
+  if(locale()!=='ar')return;
+  const lesson=document.getElementById('lesson');
+  if(!lesson?.classList.contains('active'))return;
+  document.querySelectorAll('#lesson .deen-arabic-pilot-label').forEach(el=>el.remove());
+ };
+
+ async function fetchJson(url){
+  const r=await fetch(url,{cache:'no-store'});
+  if(!r.ok)throw Error('HTTP '+r.status+' '+url);
+  return r.json();
+ }
+
+ async function preload(){
+  pilot.loading=true;pilot.failure='';pilot.ready=false;
+  try{
+   const token='9340arabicfullbank1';
+   const unitJobs=[];
+   for(let u=1;u<=15;u++){
+    unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
+   }
+   const [units,draft]=await Promise.all([
+    Promise.all(unitJobs),
+    fetchJson('./assets/i18n/questions.ar.draft.json?v='+token)
+   ]);
+   const translations=Object.create(null);
+   for(const file of units){
+    if(file?.locale!=='ar'||file?.release_ready!==false||file?.verified_by_religious_expert!==false)throw Error('Unsafe Arabic unit metadata');
+    Object.assign(translations,file.translations||{});
+   }
+   if(Object.keys(translations).length!==1500)throw Error('Arabic base bank count '+Object.keys(translations).length);
+   if(Object.values(translations).some(x=>!validArabicEntry(x)))throw Error('Invalid Arabic base entry');
+   const variants=draft?.runtime_variants||{};
+   if(Object.keys(variants).length!==20)throw Error('Arabic runtime variant count '+Object.keys(variants).length);
+   if(Object.values(variants).some(x=>!validArabicEntry(x)))throw Error('Invalid Arabic runtime variant');
+   pilot.translations=translations;
+   pilot.runtime_variants=variants;
+   pilot.ready=true;
+  }catch(e){
+   pilot.failure=String(e?.message||e);
+   pilot.ready=false;
+   console.error('[DEEN Arabic full bank]',e);
+  }finally{
+   pilot.loading=false;
+  }
+  return pilot.ready;
+ }
+
+ window.DEEN_ARABIC_PILOT=pilot;
+ pilot.promise=preload();
+
+ // Override the old two-stage macro guard with a complete U01–U15 mapper.
+ if(typeof window.startMacroStage==='function'){
+  const previousMacro=window.startMacroStage;
+  const fullMacro=function(id,...args){
+   if(locale()!=='ar')return previousMacro.apply(this,[id,...args]);
+   const legacy=stageMap[id]||id;
+   if(!supportedStages.has(legacy)||!pilot.ready)return pilot.notice(id);
+   try{if(typeof closeSheet==='function')closeSheet()}catch(_){}
+   return typeof window.startStage==='function'?window.startStage(legacy):pilot.notice(id);
+  };
+  fullMacro.__deenArabicFullBank=true;
+  window.startMacroStage=fullMacro;
+  try{startMacroStage=fullMacro}catch(_){}
+ }
+
+ // Restore Arabic Smart Review using the same translated bank instead of the old pilot block.
+ if(typeof window.startSmartReview==='function'){
+  const previousReview=window.startSmartReview;
+  const fullReview=function(mode='smart',unit=null){
+   if(locale()!=='ar')return previousReview.apply(this,arguments);
+   if(!pilot.ready)return pilot.notice('SMART');
+   try{
+    if(typeof mode!=='string')mode='smart';
+    let p=typeof reviewPool==='function'?reviewPool(mode,unit):[];
+    if(!Array.isArray(p)||!p.length){
+     try{
+      if(typeof sheet==='function'){
+       sheet('المراجعة غير جاهزة بعد','<p dir="rtl">لا توجد أسئلة في قائمة المراجعة هذه بعد.</p>');
+       return true;
+      }
+     }catch(_){}
+     return true;
+    }
+    if(typeof refillEnergy==='function')refillEnergy();
+    const cost=mode==='quick'?0:3;
+    if(!state.premium&&state.energy<cost){showEnergy();return}
+    if(!state.premium)state.energy-=cost;
+    const recent=new Set(state.lastReviewIds||[]);
+    const fresh=p.filter(q=>!recent.has(q.id));
+    if(fresh.length>=Math.min(7,p.length))p=fresh;
+    const target=mode==='quick'?5:7;
+    const base=(typeof shuffle==='function'?shuffle(p):[...p]).slice(0,target);
+    const qs=base.map(q=>pilot.translateQuestion(q));
+    if(qs.some(q=>!q))return pilot.notice('SMART');
+    state.lastReviewIds=base.map(q=>q.id);
+    session={
+     stage:{id:'SMART',title:mode==='quick'?'مراجعة سريعة':'مراجعة ذكية',xp:45,energy:cost},
+     questions:qs,index:0,correct:0,combo:0,bestCombo:0,review:true,
+     startedAt:Date.now(),v5responses:[],deenArabicPilot:true
+    };
+    if(typeof openQuiz==='function')openQuiz();
+    pilot.decorate();
+    try{saveState();updateUI()}catch(_){}
+    return true;
+   }catch(e){
+    console.error('[DEEN Arabic review]',e);
+    return pilot.notice('SMART');
+   }
+  };
+  fullReview.__deenArabicFullBank=true;
+  window.startSmartReview=fullReview;
+  try{startSmartReview=fullReview}catch(_){}
+ }
+
+ const chromeMap={
+  'Doğru cevabı seç':'اختر الإجابة الصحيحة',
+  'Soruyu dinle':'استمع إلى السؤال',
+  'Önce fikri keşfet':'اكتشف الفكرة أولاً',
+  'YETİŞKİN ANLATIM':'شرح للبالغين',
+  'Yetişkin anlatım':'شرح للبالغين',
+  'Eşleşen':'اعثر على',
+  'çiftleri':'الأزواج',
+  'bul':'المتطابقة',
+  'Doğru kavramları anlamlarıyla eşleştir.':'صِل المفاهيم بمعانيها الصحيحة.',
+  'DOĞRU':'صحيح',
+  '1 · ANA FİKİR':'١ · الفكرة الرئيسية',
+  "İslam, Allah'a yönelmektir.":'الإسلام هو التوجّه إلى الله.',
+  "İslam; Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.":'الإسلام يعلّم الثقة بالله، وقبول هدايته، وتحويل ذلك إلى حياة عملية.',
+  'Kısa ipucu: Yönel · Güven · Yaşa':'تلميح قصير: توجّه · ثِق · عِش',
+  'ÖĞRENDİM · SORUYA GEÇ':'فهمتُ · انتقل إلى السؤال'
+ };
+
+ function localizeChrome(root=document.getElementById('lesson')||document.body){
+  if(locale()!=='ar'||!root)return;
+  root.querySelectorAll?.('.v1017-title').forEach(el=>{
+   if(!/[\u0600-\u06FF]/.test(el.textContent||''))el.innerHTML='اعثر على <span>الأزواج المتطابقة</span>';
+  });
+  root.querySelectorAll?.('.v1017-subtitle').forEach(el=>el.textContent='صِل المفاهيم بمعانيها الصحيحة.');
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[];let n;
+  while((n=walker.nextNode()))nodes.push(n);
+  for(const node of nodes){
+   const raw=node.nodeValue||'',trim=raw.trim();
+   let out=chromeMap[trim];
+   if(!out){
+    const m=trim.match(/^(\d+)\s*\/\s*(\d+)\s*eşleşme$/i);
+    if(m)out=m[1]+' / '+m[2]+' مطابقات';
+   }
+   if(out)node.nodeValue=raw.replace(trim,out);
+  }
+ }
+ let chromeQueued=false;
+ const queueChrome=()=>{
+  if(chromeQueued)return;chromeQueued=true;
+  const run=()=>{chromeQueued=false;localizeChrome()};
+  if(typeof requestAnimationFrame==='function')requestAnimationFrame(run);else setTimeout(run,0);
+ };
+ if(typeof MutationObserver!=='undefined'){
+  const observer=new MutationObserver(queueChrome);
+  const watch=()=>document.body&&observer.observe(document.body,{subtree:true,childList:true,characterData:true});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch,{once:true});else watch();
+ }
+ for(const ev of ['deen:language-changed','deen:navigated','deen:ui-updated'])document.addEventListener(ev,queueChrome);
+ queueChrome();
+
+ window.DEEN_ARABIC_FULL_BANK={
+  version:pilot.version,
+  ready:()=>pilot.ready,
+  failure:()=>pilot.failure,
+  baseCount:()=>Object.keys(pilot.translations||{}).length,
+  runtimeVariantCount:()=>Object.keys(pilot.runtime_variants||{}).length,
+  supportedStageCount:()=>pilot.supportedStages.size,
+  audit:()=>({
+   ready:pilot.ready,
+   base:Object.keys(pilot.translations||{}).length,
+   runtimeVariants:Object.keys(pilot.runtime_variants||{}).length,
+   stages:pilot.supportedStages.size,
+   failure:pilot.failure
+  })
+ };
+})();
+</script>
