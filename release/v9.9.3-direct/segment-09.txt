@@ -76,7 +76,7 @@ function startStage(id){
  const pilot=window.DEEN_ARABIC_PILOT;
  if(arabic&&!pilot?.canStart?.(id))return pilot?.notice?.(id)||window.DEEN_ARABIC_UI?.pending?.();
  const st=STAGES.find(x=>x.id===id);if(!st)return;
- const qs=arabic?pilot.questionsFor(QUESTIONS,7,shuffle):chooseQuestions(id);
+ const qs=arabic?pilot.questionsFor(QUESTIONS,id,7,shuffle):chooseQuestions(id);
  if(!Array.isArray(qs)||!qs.length){
   if(arabic)return pilot?.notice?.(id);
   console.error('Stage question pool empty',id);return;
