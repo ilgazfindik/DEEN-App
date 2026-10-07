@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.29 — U01–U02 Arabic verified UI + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.30 — U01–U02 Arabic verified UI + U03 stage-2 localization + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9349u02arabicstage3'
+  version:'9350u03arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -89,6 +89,19 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   belief_daily_life:'أثر الإيمان في الحياة اليومية',
   responsibility_from_belief:'المسؤولية الناتجة عن الإيمان'
  };
+ Object.assign(arabicU02ConceptNames,{
+  shahada_basic:'أساسيات الشهادتين',
+  shahada_two_parts:'جزآ الشهادتين',
+  shahada_meaning:'معنى الشهادتين',
+  shahada_phrase_recognition:'التعرّف على ألفاظ الشهادتين',
+  shahada_tawhid:'التوحيد في الشهادتين',
+  shahada_prophethood:'الرسالة في الشهادتين',
+  shahada_concept_relationships:'ترابط مفاهيم الشهادتين',
+  shahada_word_recognition:'التعرّف على كلمات الشهادتين',
+  shahada_audio_recognition:'التعرّف السمعي على الشهادتين',
+  shahada_sequence:'ترتيب الشهادتين',
+  shahada_application:'تطبيق معاني الشهادتين'
+ });
 
  function asDisplayQuestion(base,translated,isRuntimeVariant=false){
   if(!base||!validArabicEntry(translated))return null;
@@ -205,7 +218,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9349u02arabicstage3';
+   const token='9350u03arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -756,9 +769,120 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   'Adaptif hafıza özeti':'ملخّص الذاكرة التكيفية'
  };
  Object.assign(chromeMap,u02ChromeMap);
+
+ const u03ChromeMap={
+  "Şehadet Nedir?":"ما الشهادتان؟",
+  "Anlamını Öğren":"تعلّم معناهما",
+  "Dinle ve Tanı":"استمع وتعرّف",
+  "Şehadeti Oluştur":"رتّب الشهادتين",
+  "Ne Söylediğini Anla":"افهم ما تقول",
+  "Şehadet Challenge":"تحدّي الشهادتين",
+  "Şehadetin anlamını öğren, dinleyerek tanı ve parçalarını doğru şekilde birleştir.":"تعلّم معنى الشهادتين، وتعرّف إليهما بالاستماع، ورتّب أجزائهما ترتيبًا صحيحًا.",
+  "Kelime-i Şehadet'e giriş":"مقدمة إلى الشهادتين",
+  "Şehadetin bölümleri":"جزآ الشهادتين",
+  "Şehadetin anlamı":"معنى الشهادتين",
+  "Şehadetin Türkçe anlamı":"معنى الشهادتين",
+  "Şehadetin içeriği":"مضمون الشهادتين",
+  "Şehadet'in şartı":"شرط الشهادة",
+  "Şahitlik kavramı":"مفهوم الشهادة",
+  "İlk kelime tanıma":"التعرّف على الكلمة الأولى",
+  "İki beyan":"الإقراران",
+  "İmanın kapsayıcılığı":"شمول الإيمان",
+  "Resûlullah kelime anlamı":"معنى كلمة رسول الله",
+  "Genel Anlam":"المعنى العام",
+  "Sözlü beyan":"الإقرار اللفظي",
+  "Tevhid kavramı eşleşmesi":"مطابقة مفهوم التوحيد",
+  "Peygamberlik kavramı eşleşmesi":"مطابقة مفهوم الرسالة",
+  "Bölüm-Anlam Eşleştirme":"مطابقة الجزء بالمعنى",
+  "İlah kavramı":"مفهوم الإله",
+  "Anlam tamamlama":"إكمال المعنى",
+  "Peygamberliğin kabulü":"الإقرار بالرسالة",
+  "Şehadet metni inceleme":"تحليل نص الشهادتين",
+  "Lâ ilâhe illallah eşleşmesi":"مطابقة «لا إله إلا الله»",
+  "Tevhid ve Risalet dengesi":"التكامل بين التوحيد والرسالة",
+  "İlah kelimesinin reddi":"نفي الألوهية",
+  "Şahitlik pratik anlamı":"المعنى العملي للشهادة",
+  "Resûl ve elçi ilişkisi":"معنى الرسول بوصفه مُرسَلًا",
+  "Eksik parça tespiti":"تحديد الجزء الناقص",
+  "İlahiyet Kavramı":"مفهوم الألوهية",
+  "Tam metin tanıma":"التعرّف على النص كاملًا",
+  "Ses-Anlam eşleşmesi":"مطابقة الصوت بالمعنى",
+  "İlk kısım tanıma":"التعرّف على الجزء الأول",
+  "Ses içeriği":"محتوى التسجيل الصوتي",
+  "İşiterek boşluk doldurma":"ملء الفراغ بالاستماع",
+  "Eşhedü tekrarı duyma":"سماع تكرار «أشهد»",
+  "İşitsel hata tespiti bağlamı":"اكتشاف الخطأ بالاستماع",
+  "Son kelime tanıma":"التعرّف على الكلمة الأخيرة",
+  "Kavram eşleme işitsel":"مطابقة المفاهيم بالاستماع",
+  "İki parça birleştirici":"الربط بين الجزأين",
+  "Peygamber ismi tanıma":"التعرّف على اسم النبي",
+  "Peygamberliğin işitsel karşılığı":"التعرّف السمعي على معنى الرسالة",
+  "İlk şahitlik vurgusu":"التركيز على الشهادة الأولى",
+  "Kavram tanıma tekrar":"مراجعة التعرّف على المفاهيم",
+  "Tüm ifade sıralaması":"ترتيب العبارة كاملة",
+  "Son kelime":"الكلمة الأخيرة",
+  "İlk kısım tamamlama":"إكمال الجزء الأول",
+  "Detaylı kelime sıralama":"ترتيب الكلمات بالتفصيل",
+  "Bağlaç bilgisi":"معرفة أداة الربط",
+  "Türkçe anlam sıralama":"ترتيب المعنى",
+  "Başlangıç kelimesi":"الكلمة الأولى",
+  "İkinci kısım sıralama":"ترتيب الجزء الثاني",
+  "Orta kelime":"الكلمة الوسطى",
+  "Anlam eksikliği":"نقص المعنى",
+  "Tüm cümle parçaları sıralama":"ترتيب جميع أجزاء الجملة",
+  "Negatif ifade tanıma":"التعرّف على عبارة النفي",
+  "Kelime kontrolü":"التحقق من الكلمة",
+  "Bütünleyici anlam":"المعنى المتكامل",
+  "Çeviri parça eşleşmesi":"مطابقة أجزاء المعنى",
+  "Hızlı kelime kontrolü":"تحقق سريع من الكلمات",
+  "Senaryo - Eksik anlayış":"موقف: فهم ناقص",
+  "Senaryo - Özümseme":"موقف: استيعاب المعنى",
+  "Doğru kavrama":"الفهم الصحيح",
+  "Senaryo - Elçi konumu":"موقف: مكانة الرسول",
+  "Tevhid Hata Tespiti":"اكتشاف خطأ في فهم التوحيد",
+  "Bütünlük ilkesi":"مبدأ التكامل",
+  "Şahitlik bilinci":"وعي الشهادة",
+  "Parçalar arası anlam":"العلاقة المعنوية بين الأجزاء",
+  "Pratik inanç eşleşmesi":"مطابقة الاعتقاد بالتطبيق",
+  "Senaryo - Söz ve Öz":"موقف: اللفظ والمعنى",
+  "İlah kelimesinin kapsayıcılığı":"دلالة كلمة الإله",
+  "Hata tespiti - Resulullah konumu":"اكتشاف الخطأ: مكانة رسول الله",
+  "Boşluk doldurma uygulama":"تطبيق ملء الفراغ",
+  "Sürekli bilinç":"الوعي المستمر",
+  "Şahitlik hissi":"استحضار معنى الشهادة",
+  "Bağlamsal bağlantı":"الربط بالسياق",
+  "Kavramsal Geri Çağırma 1":"استرجاع المفهوم 1",
+  "İlah reddi zihinsel model":"التصور الذهني لنفي الألوهية",
+  "Anlam eksikliği pratik":"تطبيق على نقص المعنى",
+  "İşitsel Hafıza":"الذاكرة السمعية",
+  "Şahitlik Pratiği":"تطبيق معنى الشهادة",
+  "Çeviri yapı bozumu":"تحليل بنية المعنى",
+  "Kavramları Hızlı Eşleştirme":"مطابقة سريعة للمفاهيم",
+  "Elçi reddi senaryosu":"موقف: إنكار الرسالة",
+  "Kelime tamamlama":"إكمال الكلمة",
+  "Tevhid Kavramı Tekrar":"مراجعة مفهوم التوحيد",
+  "Dil ve Kalp":"اللسان والقلب",
+  "Odaklanma - Eşhedü":"تركيز: «أشهد»",
+  "Kapsamlı Senaryo":"موقف شامل",
+  "Tam metin hız testi":"اختبار سرعة النص الكامل",
+  "Odaklı dinleme hata tespiti":"اكتشاف الخطأ بالاستماع المركّز",
+  "Tevhid özü":"جوهر التوحيد",
+  "Kelimeler arası geçiş":"الانتقال بين الكلمات",
+  "Şehadet ve İman bağlantısı":"العلاقة بين الشهادتين والإيمان",
+  "Ünite temel kavramları":"المفاهيم الأساسية للوحدة",
+  "Hata Bulmaca":"اكتشف الخطأ",
+  "Boşluk doldurma (Bütünleşik)":"ملء الفراغ (متكامل)",
+  "Tevhid ve Pratik Yaşam":"التوحيد والحياة العملية",
+  "Son kelime doğruluk testi":"اختبار دقة الكلمة الأخيرة",
+  "Sesli tamamlama analizi":"تحليل الإكمال الصوتي",
+  "Gerçek inanç vurgusu":"التأكيد على الإيمان الصادق",
+  "Final kelime dizilimi":"الترتيب النهائي للكلمات"
+ };
+ Object.assign(chromeMap,u03ChromeMap);
  const arabicPhrasePairs=[
   ...Object.entries(u01ChromeMap),
-  ...Object.entries(u02ChromeMap)
+  ...Object.entries(u02ChromeMap),
+  ...Object.entries(u03ChromeMap)
  ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
@@ -792,6 +916,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   out=out.replace(/Ustalık challenge\s*·\s*(\d+)\s*soru/gi,'تحدّي الإتقان · $1 أسئلة');
   out=out.replace(/(\d+)\.\s*Aşama\s*·\s*(\d+)\s*dk/gi,'المرحلة $1 · $2 دقائق');
   out=out.replace(/Etkinlik\s*·\s*(\d+)\s*dk/gi,'نشاط · $1 دقائق');
+  out=out.replace(/Dinleme\s*·\s*(\d+)\s*dk/gi,'استماع · $1 دقائق');
   out=out.replace(/Uygulama\s*·\s*(\d+)\s*dk/gi,'تطبيق · $1 دقائق');
   out=out.replace(/Karma Tekrar\s*·\s*(\d+)\s*dk/gi,'مراجعة متنوعة · $1 دقائق');
   out=out.replace(/Tekrar\s*·\s*(\d+)\s*dk/gi,'مراجعة · $1 دقائق');
@@ -1003,7 +1128,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9349u02arabicstage3',
+  version:'9350u03arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1023,8 +1148,34 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9349u02arabicstage3',
+  version:'9350u03arabicstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
+ };
+ window.DEEN_U03_ARABIC_AUDIT={
+  version:'9350u03arabicstage2',
+  scan(root=document.body){
+   const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u03ChromeMap);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u03-text',text:t.slice(0,220),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u03-'+attr,text:t.slice(0,220),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,150)};
+  }
  };
  window.DEEN_ARABIC_FULL_BANK={
   version:pilot.version,
