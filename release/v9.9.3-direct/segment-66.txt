@@ -449,6 +449,10 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   'Kaplumbağa':'السلحفاة',
   'Kartal':'النسر',
   'Kedi':'القطة',
+  'Harika gidiyorsun!':'رائع، استمر!',
+  'Mükemmel seri!':'سلسلة ممتازة!',
+  'İnanılmaz odak!':'تركيز مذهل!',
+  'Seri devam ediyor!':'السلسلة مستمرة!',
   '1 · ANA FİKİR':'١ · الفكرة الرئيسية',
   "İslam, Allah'a yönelmektir.":'الإسلام هو التوجّه إلى الله.',
   "İslam; Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.":'الإسلام يعلّم الثقة بالله، وقبول هدايته، وتحويل ذلك إلى حياة عملية.',
@@ -504,9 +508,14 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   for(const [tr,ar] of Object.entries(animals))out=out.split(tr).join(ar);
   for(const [tr,ar] of Object.entries(traits))out=out.split(tr).join(ar);
   out=out.replace(/Bir adım daha\s*—\s*/g,'خطوة أخرى — ');
-  out=out.replace(/\s+yanında\./g,' معك.');
   out=out.replace(/\s+gururla yanında\./g,' معك بفخر.');
+  out=out.replace(/\s+yanında\./g,' معك.');
   out=out.replace(/\s+seninle kutluyor!/g,' يحتفل معك!');
+  out=out.replace(/\s+seninle\./g,' معك.');
+  out=out.replace(/Harika gidiyorsun!/g,'رائع، استمر!');
+  out=out.replace(/Mükemmel seri!/g,'سلسلة ممتازة!');
+  out=out.replace(/İnanılmaz odak!/g,'تركيز مذهل!');
+  out=out.replace(/Seri devam ediyor!/g,'السلسلة مستمرة!');
   out=out.replace(/Tekrar ettikçe güçlenir/g,'يقوى مع التكرار');
   out=out.replace(/Kusursuz ders/g,'درس مثالي');
   out=out.replace(/Dersi tamamladın/g,'أكملت الدرس');
