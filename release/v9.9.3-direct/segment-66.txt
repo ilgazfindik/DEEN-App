@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.28 — U01 Arabic verified UI + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.29 — U01–U02 Arabic verified UI + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -1021,6 +1021,10 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    });
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,100)};
   }
+ };
+ window.DEEN_U02_ARABIC_AUDIT={
+  version:'9349u02arabicstage3',
+  scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_ARABIC_FULL_BANK={
   version:pilot.version,
