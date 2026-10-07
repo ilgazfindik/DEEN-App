@@ -2270,6 +2270,381 @@
       "source_ref": "Kur'an 2:285; 4:136 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-001": {
+      "question_ar": "كتب طالب الجمل الثلاث الآتية: (1) الأنبياء بشر يتلقون الوحي. (2) جوهر دعوتهم المشتركة هو التوحيد. (3) محمد ﷺ خاتم النبيين. أيّها يوافق القرآن؟",
+      "options_ar": [
+        "1 و2 و3",
+        "1 فقط",
+        "1 و2",
+        "2 و3"
+      ],
+      "correct_answer_ar": "1 و2 و3",
+      "explanation_ar": "تدعم الكهف 18:110 والأنبياء 21:25 والأحزاب 33:40 هذه المعلومات الثلاث.",
+      "source_question_tr": "Bir öğrenci şu üç cümleyi yazıyor: (1) Peygamberler vahiy alan insanlardır. (2) Ortak çağrılarının özü tevhiddir. (3) Hz. Muhammed peygamberlerin sonuncusudur. Hangileri Kur'an'la uyumludur?",
+      "source_correct_answer_tr": "1, 2 ve 3",
+      "source_options_tr": [
+        "1, 2 ve 3",
+        "Yalnız 1",
+        "1 ve 2",
+        "2 ve 3"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-002": {
+      "question_ar": "كون الأنبياء بشرًا وتلقيهم الوحي من الله أمران متناقضان في القرآن.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "تجمع الكهف 18:110 صراحةً بين بشرية النبي وتلقيه الوحي.",
+      "source_question_tr": "Peygamberlerin insan olması ile Allah'tan vahiy almaları Kur'an'a göre birbiriyle çelişir.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 18:110; 21:7-8; 3:144 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-003": {
+      "question_ar": "تتمحور دعوة الأنبياء المشتركة حول عبادة ______ وحده.",
+      "options_ar": [
+        "الله",
+        "النبي",
+        "المجتمع",
+        "الملائكة"
+      ],
+      "correct_answer_ar": "الله",
+      "explanation_ar": "تؤكد الأنبياء 21:25 والنحل 16:36 دعوة الرسل المشتركة إلى التوحيد.",
+      "source_question_tr": "Peygamberlerin ortak çağrısının merkezinde yalnız ______ kulluk vardır.",
+      "source_correct_answer_tr": "Allah'a",
+      "source_options_tr": [
+        "Allah'a",
+        "peygambere",
+        "topluma",
+        "meleklere"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-004": {
+      "question_ar": "يصف محتوى محمدًا ﷺ بأنه «رسول يُقتدى به» و«إله» في الوقت نفسه. ما التصحيح المطلوب؟",
+      "options_ar": [
+        "تؤكد الأحزاب 33:21 قدوته، والكهف 18:110 بشريته؛ والعبادة لله وحده",
+        "الاقتداء يعني الألوهية",
+        "محمد ﷺ ليس بشرًا",
+        "التوحيد لا ينطبق على الأنبياء"
+      ],
+      "correct_answer_ar": "تؤكد الأحزاب 33:21 قدوته، والكهف 18:110 بشريته؛ والعبادة لله وحده",
+      "explanation_ar": "يعرض القرآن محمدًا ﷺ بشرًا ورسولًا وأسوة حسنة، ولا ينسب إليه الألوهية.",
+      "source_question_tr": "Bir içerikte Hz. Muhammed hem 'örnek alınacak elçi' hem de 'ilah' diye tanıtılıyor. Hangi düzeltme gerekir?",
+      "source_correct_answer_tr": "Ahzâb 33:21 örnekliğini, Kehf 18:110 ise insan oluşunu bildirir; ibadet yalnız Allah'adır",
+      "source_options_tr": [
+        "Ahzâb 33:21 örnekliğini, Kehf 18:110 ise insan oluşunu bildirir; ibadet yalnız Allah'adır",
+        "Örnek olmak ilah olmak demektir",
+        "Hz. Muhammed insan değildir",
+        "Tevhid peygamberler için geçerli değildir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-005": {
+      "question_ar": "يقول شخص: «من لم يرد اسمه في القرآن لا يمكن أن يكون نبيًّا قطعًا». ما الجواب الأدق؟",
+      "options_ar": [
+        "تذكر النساء 4:164 أن من الرسل من لم يُقصص؛ وفي الوقت نفسه لا يجوز وصف شخص بأنه نبي بلا دليل",
+        "يذكر القرآن جميع الأنبياء",
+        "كل شخصية تاريخية نبي",
+        "معرفة الأسماء لا علاقة لها بالنبوة"
+      ],
+      "correct_answer_ar": "تذكر النساء 4:164 أن من الرسل من لم يُقصص؛ وفي الوقت نفسه لا يجوز وصف شخص بأنه نبي بلا دليل",
+      "explanation_ar": "تبيّن الآية حدود المعلومة: لم تُذكر أسماء جميع الرسل، وهذا لا يبرر ادعاءات نبوة بلا مصدر.",
+      "source_question_tr": "Bir kişi 'Kur'an'da adı olmayan biri kesinlikle peygamber olamaz' diyor. En doğru cevap hangisidir?",
+      "source_correct_answer_tr": "Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir; kaynakta olmayan kişiye de gelişigüzel peygamber denmez",
+      "source_options_tr": [
+        "Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir; kaynakta olmayan kişiye de gelişigüzel peygamber denmez",
+        "Kur'an bütün peygamberleri sayar",
+        "Her tarihî kişi peygamberdir",
+        "İsim bilgisi peygamberlik için gereksizdir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 4:163-164 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-006": {
+      "question_ar": "يقول طالب: «رسالة محمد ﷺ موجهة إلى جماعة محددة فقط». أي معلومتين تقدمان أقوى تصحيح؟",
+      "options_ar": [
+        "سبأ 34:28 تذكر إرساله إلى الناس كافة، والأحزاب 33:40 تذكر رسالته",
+        "النساء 4:164 والبقرة 2:253",
+        "الأنبياء 21:8 والنساء 4:165",
+        "البقرة 2:285 والنحل 16:36"
+      ],
+      "correct_answer_ar": "سبأ 34:28 تذكر إرساله إلى الناس كافة، والأحزاب 33:40 تذكر رسالته",
+      "explanation_ar": "تجمع الآيتان بين هوية محمد ﷺ رسولًا وعالمية رسالته.",
+      "source_question_tr": "Bir öğrenci 'Hz. Muhammed'in risaleti yalnız belirli bir halka yöneliktir' diyor. Hangi iki bilgi birlikte en güçlü düzeltmeyi sağlar?",
+      "source_correct_answer_tr": "Sebe 34:28 bütün insanlara gönderilişi ve Ahzâb 33:40 elçiliğini bildirir",
+      "source_options_tr": [
+        "Sebe 34:28 bütün insanlara gönderilişi ve Ahzâb 33:40 elçiliğini bildirir",
+        "Nisâ 4:164 ve Bakara 2:253",
+        "Enbiyâ 21:8 ve Nisâ 4:165",
+        "Bakara 2:285 ve Nahl 16:36"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 3:144; 33:40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-007": {
+      "question_ar": "كُتب في بطاقة ملخّص: «الأنبياء هم مصدر الرسالة، ويغيّرون الوحي إن أرادوا». ما التصحيح الأشمل؟",
+      "options_ar": [
+        "مصدر الوحي هو الله، ومهمة النبي تبليغ ما أُنزل إليه",
+        "مصدر الوحي نفس النبي",
+        "المجتمع يصنع الوحي كما يشاء",
+        "ليس للأنبياء مهمة تبليغ"
+      ],
+      "correct_answer_ar": "مصدر الوحي هو الله، ومهمة النبي تبليغ ما أُنزل إليه",
+      "explanation_ar": "تنسب النساء 4:163 الوحي إلى الله، وتنسب المائدة 5:67 مهمة التبليغ إلى الرسول.",
+      "source_question_tr": "Bir özet kartında 'Peygamberler mesajın kaynağıdır; isterlerse vahyi değiştirirler' yazıyor. En kapsamlı düzeltme hangisidir?",
+      "source_correct_answer_tr": "Vahyin kaynağı Allah'tır ve peygamberin görevi kendisine indirileni tebliğ etmektir",
+      "source_options_tr": [
+        "Vahyin kaynağı Allah'tır ve peygamberin görevi kendisine indirileni tebliğ etmektir",
+        "Vahyin kaynağı peygamberin nefsidir",
+        "Toplum vahyi istediği gibi üretir",
+        "Peygamberlerin tebliğ görevi yoktur"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-008": {
+      "question_ar": "صِل المصدر بالمعلومة والنتيجة المناسبة في وحدة الإيمان بالرسل.",
+      "pairs_ar": [
+        {
+          "left": "البقرة 2:285",
+          "right": "عدم التفريق بين الرسل في أصل الإيمان"
+        },
+        {
+          "left": "المائدة 5:67",
+          "right": "تبليغ الوحي"
+        },
+        {
+          "left": "الأحزاب 33:40",
+          "right": "رسالة محمد ﷺ وختم النبوة به"
+        }
+      ],
+      "explanation_ar": "تتطلب إتقان الوحدة ربط الآية بالمفهوم الصحيح، لا مجرد حفظ رقم الآية.",
+      "source_question_tr": "Peygamberlere iman ünitesinde kaynak, bilgi ve sonucu eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Bakara 2:285",
+          "right": "Elçiler arasında iman bakımından ayrım yapmama"
+        },
+        {
+          "left": "Mâide 5:67",
+          "right": "Vahyin tebliği"
+        },
+        {
+          "left": "Ahzâb 33:40",
+          "right": "Hz. Muhammed'in elçiliği ve son peygamber oluşu"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-009": {
+      "question_ar": "لخّص وحدة الإيمان بالرسل بأربعة مفاهيم مفتاحية.",
+      "correct_answer_ar": "الوحي، والتبليغ، والتوحيد، وتصديق جميع رسل الله.",
+      "explanation_ar": "تلخّص هذه المفاهيم مصدر النبوة ومهمتها ورسالتها وبعدها الإيماني.",
+      "source_question_tr": "Peygamberlere iman ünitesini dört anahtar kavramla özetle.",
+      "source_correct_answer_tr": "Vahiy, tebliğ, tevhid ve bütün Allah elçilerini tasdik etmek.",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-010": {
+      "question_ar": "تذكر الأحزاب 33:21 أن في رسول الله ______ حسنة.",
+      "options_ar": [
+        "أسوة",
+        "ألوهية",
+        "خلودًا",
+        "تفوق نسب"
+      ],
+      "correct_answer_ar": "أسوة",
+      "explanation_ar": "تذكر الآية أن في رسول الله أسوة حسنة لمن كان يرجو الله واليوم الآخر.",
+      "source_question_tr": "Ahzâb 33:21, Resûlullah'ta güzel bir ______ bulunduğunu bildirir.",
+      "source_correct_answer_tr": "örneklik",
+      "source_options_tr": [
+        "örneklik",
+        "ilahlık",
+        "ölümsüzlük",
+        "soy üstünlüğü"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Kur'an 33:21 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-011": {
+      "question_ar": "تصف الأحزاب 33:40 محمدًا ﷺ بأنه ______ النبيين.",
+      "options_ar": [
+        "خاتم",
+        "أول ووحيد",
+        "ملك",
+        "أب"
+      ],
+      "correct_answer_ar": "خاتم",
+      "explanation_ar": "تنص الآية على أن محمدًا ﷺ رسول الله وخاتم النبيين.",
+      "source_question_tr": "Ahzâb 33:40, Hz. Muhammed'i peygamberlerin ______ olarak tanımlar.",
+      "source_correct_answer_tr": "sonuncusu",
+      "source_options_tr": [
+        "sonuncusu",
+        "ilk ve tek olanı",
+        "kralı",
+        "babası"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Kur'an 3:144; 33:40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-012": {
+      "question_ar": "رتّب عناصر الإيمان بالرسل بصورة متكاملة.",
+      "items_ar": [
+        "يصطفي الله رسلًا من البشر",
+        "يوحي إليهم",
+        "يبلّغ الرسل رسالة التوحيد",
+        "يصدّق المؤمنون رسل الله"
+      ],
+      "correct_order_ar": [
+        "يصطفي الله رسلًا من البشر",
+        "يوحي إليهم",
+        "يبلّغ الرسل رسالة التوحيد",
+        "يصدّق المؤمنون رسل الله"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يجمع هذا الترتيب بين الاصطفاء والوحي والرسالة والإيمان بالرسل.",
+      "source_question_tr": "Peygamberlere iman bilgisini bütüncül biçimde sırala.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "Allah insanlardan elçiler seçer",
+        "Onlara vahiy verir",
+        "Elçiler tevhid mesajını tebliğ eder",
+        "Müminler Allah'ın elçilerini tasdik eder"
+      ],
+      "source_correct_order_tr": [
+        "Allah insanlardan elçiler seçer",
+        "Onlara vahiy verir",
+        "Elçiler tevhid mesajını tebliğ eder",
+        "Müminler Allah'ın elçilerini tasdik eder"
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-013": {
+      "question_ar": "أي مطابقة من مصادر الإيمان بالرسل غير صحيحة؟",
+      "options_ar": [
+        "النساء 4:165 — التبشير والإنذار",
+        "الكهف 18:110 — البشرية والوحي",
+        "سبأ 34:28 — إرسال محمد ﷺ إلى الناس كافة",
+        "الأحزاب 33:40 — استمرار الأنبياء بعد محمد ﷺ"
+      ],
+      "correct_answer_ar": "الأحزاب 33:40 — استمرار الأنبياء بعد محمد ﷺ",
+      "explanation_ar": "تصف الأحزاب 33:40 محمدًا ﷺ بأنه خاتم النبيين.",
+      "source_question_tr": "Peygamberlere iman kaynak eşleştirmelerinden hangisi yanlıştır?",
+      "source_correct_answer_tr": "Ahzâb 33:40 — Hz. Muhammed'den sonra peygamberlerin devam edeceği",
+      "source_options_tr": [
+        "Nisâ 4:165 — müjde ve uyarı",
+        "Kehf 18:110 — insan oluş ve vahiy",
+        "Sebe 34:28 — Hz. Muhammed'in bütün insanlara gönderilişi",
+        "Ahzâb 33:40 — Hz. Muhammed'den sonra peygamberlerin devam edeceği"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S07-014": {
+      "question_ar": "أي جملة تلخّص وحدة الإيمان بالرسل أفضل تلخيص؟",
+      "options_ar": [
+        "الإيمان بالرسل يشمل تصديق الرسل البشر الذين أوحى الله إليهم، وفهم دعوتهم المشتركة إلى التوحيد ومهمتهم في التبليغ",
+        "الإيمان بالرسل هو حفظ الأسماء فقط",
+        "الأنبياء كائنات إلهية",
+        "كل نبي دعا إلى إله مختلف"
+      ],
+      "correct_answer_ar": "الإيمان بالرسل يشمل تصديق الرسل البشر الذين أوحى الله إليهم، وفهم دعوتهم المشتركة إلى التوحيد ومهمتهم في التبليغ",
+      "explanation_ar": "تجمع الوحدة بين أصل الإيمان، وبشرية الرسل، والوحي، والتبليغ، والتوحيد، ووحدة الإيمان، ورسالة محمد ﷺ.",
+      "source_question_tr": "Peygamberlere iman ünitesini en iyi özetleyen cümle hangisidir?",
+      "source_correct_answer_tr": "Peygamberlere iman; Allah'ın vahiy verdiği insan elçileri tasdik etmeyi, ortak tevhid çağrılarını ve tebliğ görevlerini doğru anlamayı içerir",
+      "source_options_tr": [
+        "Peygamberlere iman; Allah'ın vahiy verdiği insan elçileri tasdik etmeyi, ortak tevhid çağrılarını ve tebliğ görevlerini doğru anlamayı içerir",
+        "Peygamberlere iman yalnız isim ezberidir",
+        "Peygamberler ilahî varlıklardır",
+        "Her peygamber farklı bir ilaha çağırır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   }
 }
