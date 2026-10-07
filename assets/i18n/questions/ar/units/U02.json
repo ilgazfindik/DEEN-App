@@ -1435,6 +1435,672 @@
       "source_ref": "Kur'an 2:163; 6:102; 3:159; 16:114 (Diyanet, Kur'an Yolu Tefsiri/meali); REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-001": {
+      "question_ar": "حصل طالب على درجة أفضل مما توقع. ما الموقف الأكثر انسجامًا مع الإيمان بالله والشكر؟",
+      "options_ar": [
+        "يفرح بنجاحه مع إدراك النعمة وشكر الله عليها",
+        "يستعمل نجاحه فقط للتفاخر على الآخرين",
+        "يظن أن النجاح لا يحمّله أي مسؤولية",
+        "يحتقر النتيجة ولا يراها ذات قيمة"
+      ],
+      "correct_answer_ar": "يفرح بنجاحه مع إدراك النعمة وشكر الله عليها",
+      "explanation_ar": "الشكر هو إدراك الخير والنعمة وإظهار الامتنان، وليس تحويل النجاح إلى وسيلة للكبر.",
+      "source_question_tr": "Bir öğrenci beklediğinden iyi bir not alıyor. Allah'a iman ve şükür anlayışıyla en uyumlu tutum hangisidir?",
+      "source_correct_answer_tr": "Başarısına sevinirken nimetin farkına varıp şükretmek",
+      "source_options_tr": [
+        "Başarısına sevinirken nimetin farkına varıp şükretmek",
+        "Başarısını sadece başkalarına üstünlük göstermek için kullanmak",
+        "Başarının hiçbir sorumluluk doğurmadığını düşünmek",
+        "Notu küçümseyip hiçbir değer vermemek"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:114; 31:12; 14:7; Diyanet Hadislerle İslam, Cilt 2, s.75; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-002": {
+      "question_ar": "إنجاز الجزء المكلف به في مشروع جماعي في موعده يرتبط أكثر بأي مفهوم في هذه الوحدة؟",
+      "options_ar": [
+        "المسؤولية",
+        "حفظ تعريف التوحيد فقط",
+        "نسيان الفرق بين الخالق والمخلوق",
+        "حصر الشكر في الكلمات فقط"
+      ],
+      "correct_answer_ar": "المسؤولية",
+      "explanation_ar": "المسؤولية تعني أخذ ما على الإنسان من واجب بجدية والقيام به.",
+      "source_question_tr": "Bir grup ödevinde sana düşen işi zamanında yapman, bu ünitedeki hangi anlayışla daha çok ilişkilidir?",
+      "source_correct_answer_tr": "Sorumluluk",
+      "source_options_tr": [
+        "Sorumluluk",
+        "Tevhidi yalnızca ezberleme",
+        "Yaratıcı-yaratılan ayrımını unutma",
+        "Şükrü sadece sözle sınırlama"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 4:58 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-003": {
+      "question_ar": "قبل امتحان مهم، ما السلوك الأكثر اتزانًا مع مفهوم التوكّل على الله؟",
+      "options_ar": [
+        "يدرس بانتظام ويبذل ما يستطيع ثم يفوّض النتيجة إلى الله",
+        "لا يستعد وينتظر النتيجة فقط",
+        "يرى الدراسة غير ضرورية ويترك مسؤوليته",
+        "يعدّ نتيجة الامتحان مسؤولية الآخرين"
+      ],
+      "correct_answer_ar": "يدرس بانتظام ويبذل ما يستطيع ثم يفوّض النتيجة إلى الله",
+      "explanation_ar": "التوكّل لا يعني ترك السعي، بل بذل السبب ثم الاعتماد على الله فيما لا يملكه الإنسان.",
+      "source_question_tr": "Önemli bir sınav öncesinde Allah'a güven anlayışıyla en uyumlu davranış hangisidir?",
+      "source_correct_answer_tr": "Düzenli çalışıp elinden geleni yaptıktan sonra sonucu Allah'a bırakmak",
+      "source_options_tr": [
+        "Düzenli çalışıp elinden geleni yaptıktan sonra sonucu Allah'a bırakmak",
+        "Hiç hazırlanmadan yalnızca sonucu beklemek",
+        "Çalışmayı gereksiz görüp sorumluluğu tamamen bırakmak",
+        "Sınav sonucunu başkalarının sorumluluğu saymak"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 3:159-160; 6:102 (Diyanet, Kur'an Yolu Tefsiri/meali); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-004": {
+      "question_ar": "كيف يساعد وجود الطعام جاهزًا على مائدة الأسرة في فهم الشكر في الحياة اليومية؟",
+      "options_ar": [
+        "بتذكير الإنسان بإدراك النعمة والشكر عليها",
+        "باعتبار الطعام شيئًا عاديًا لا معنى له",
+        "بالنظر فقط إلى ما يأكله الآخرون",
+        "بحصر الشكر في الإنجازات الكبيرة"
+      ],
+      "correct_answer_ar": "بتذكير الإنسان بإدراك النعمة والشكر عليها",
+      "explanation_ar": "لا يقتصر الشكر على الأحداث الكبيرة، بل يشمل إدراك النعم اليومية.",
+      "source_question_tr": "Ailene ait sofrada yemeğin hazır olduğunu görmek, şükür kavramını günlük hayatta nasıl düşünmeye yardımcı olabilir?",
+      "source_correct_answer_tr": "Nimetin farkına varıp teşekkür etmeyi hatırlatarak",
+      "source_options_tr": [
+        "Nimetin farkına varıp teşekkür etmeyi hatırlatarak",
+        "Yemeği sıradan görüp hiçbir anlam yüklemeyerek",
+        "Sadece başkalarının ne yediğine bakarak",
+        "Şükrü yalnızca büyük başarılarla sınırlandırarak"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:114; 31:12; 14:7; Diyanet Hadislerle İslam, Cilt 2, s.75; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-005": {
+      "question_ar": "اكتشفت أن موظف الصندوق أعطاك نقودًا زائدة بالخطأ. ما السلوك الأكثر انسجامًا مع المسؤولية والصدق؟",
+      "options_ar": [
+        "إخبار الموظف بالمبلغ الزائد",
+        "الاحتفاظ بالنقود لأن أحدًا قد لا يلاحظ",
+        "ترك الأمر لصديقك",
+        "تجاهل الخطأ لأنه في مصلحتك"
+      ],
+      "correct_answer_ar": "إخبار الموظف بالمبلغ الزائد",
+      "explanation_ar": "يدفع الصدق والمسؤولية إلى تصحيح الخطأ حتى إذا كان بقاؤه يعود بالنفع على الشخص.",
+      "source_question_tr": "Kasada sana yanlışlıkla fazla para üstü verildiğini fark ettin. Sorumluluk ve dürüstlük anlayışıyla en uyumlu davranış hangisidir?",
+      "source_correct_answer_tr": "Fazla verilen parayı görevliye bildirmek",
+      "source_options_tr": [
+        "Fazla verilen parayı görevliye bildirmek",
+        "Kimse fark etmez diye parayı saklamak",
+        "Durumu arkadaşına bırakmak",
+        "Yanlışı kendi lehine olduğu için önemsememek"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 4:58 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-006": {
+      "question_ar": "التحقق من معلومة قبل نشرها على وسائل التواصل لأنك غير متأكد من صحتها يرتبط أكثر بأي موقف؟",
+      "options_ar": [
+        "المسؤولية",
+        "اللامبالاة",
+        "الرياء",
+        "عدم الاهتمام بالتسرع"
+      ],
+      "correct_answer_ar": "المسؤولية",
+      "explanation_ar": "المسؤولية تشمل التفكير في أثر المعلومات التي نشاركها على الآخرين.",
+      "source_question_tr": "Sosyal medyada doğruluğundan emin olmadığın bir bilgiyi paylaşmadan önce kontrol etmek, bu ünitedeki hangi tutumla daha çok uyumludur?",
+      "source_correct_answer_tr": "Sorumluluk",
+      "source_options_tr": [
+        "Sorumluluk",
+        "Kayıtsızlık",
+        "Gösteriş",
+        "Aceleciliği önemsememe"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 49:6 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-007": {
+      "question_ar": "كيف يوضح استخدام ما لديك من إمكانات دون إسراف العلاقة بين الشكر والمسؤولية؟",
+      "options_ar": [
+        "بمعرفة قيمة النعمة واستعمالها بعناية",
+        "بالتعبير عن قيمة النعمة بالكلام فقط",
+        "باستعمال النعمة للتفاخر أمام الناس",
+        "بترك المسؤولية كلها لغيرك"
+      ],
+      "correct_answer_ar": "بمعرفة قيمة النعمة واستعمالها بعناية",
+      "explanation_ar": "يرتبط الشكر بإدراك النعمة، وترتبط المسؤولية بحسن استعمالها والعناية بها.",
+      "source_question_tr": "Sahip olduğun bir imkânı israf etmeden kullanmak, şükür ve sorumluluk ilişkisini nasıl gösterir?",
+      "source_correct_answer_tr": "Nimetin değerini bilip onu özenli kullanarak",
+      "source_options_tr": [
+        "Nimetin değerini bilip onu özenli kullanarak",
+        "Nimetin değerini sadece sözle ifade ederek",
+        "İmkânı başkalarına gösteriş için kullanarak",
+        "Sorumluluğu tamamen başkasına bırakarak"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:114; 31:12; 14:7; Diyanet Hadislerle İslam, Cilt 2, s.75; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-008": {
+      "question_ar": "تستعد لمقابلة عمل. ما النهج الأكثر اتزانًا مع التوكّل على الله؟",
+      "options_ar": [
+        "تستعد جيدًا ثم تفوّض النتيجة إلى الله",
+        "لا تستعد وتنتظر نتيجة جيدة فقط",
+        "تظن أن النتيجة تحت سيطرتك بالكامل",
+        "لا تتخذ أي خطوة بسبب القلق"
+      ],
+      "correct_answer_ar": "تستعد جيدًا ثم تفوّض النتيجة إلى الله",
+      "explanation_ar": "يجتمع التوكّل والمسؤولية: يبذل الإنسان ما يستطيع ثم يفوّض ما لا يملكه إلى الله.",
+      "source_question_tr": "Bir iş görüşmesine hazırlanıyorsun. Allah'a güven anlayışıyla en dengeli yaklaşım hangisidir?",
+      "source_correct_answer_tr": "Hazırlığını yapıp sonucu Allah'a bırakmak",
+      "source_options_tr": [
+        "Hazırlığını yapıp sonucu Allah'a bırakmak",
+        "Hazırlık yapmadan sadece iyi sonuç beklemek",
+        "Sonucu tamamen kendi kontrolünde görmek",
+        "Kaygılandığın için hiçbir adım atmamak"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 3:159-160; 6:102 (Diyanet, Kur'an Yolu Tefsiri/meali); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-009": {
+      "question_ar": "إنجاز مهمة منزلية موكلة إليك من غير أن يذكرك بها أحد مثال يومي على أي مفهوم؟",
+      "options_ar": [
+        "المسؤولية",
+        "حفظ مصطلح التوحيد",
+        "تكرار الفرق بين الخالق والمخلوق",
+        "التعبير عن الشكر بالكلام فقط"
+      ],
+      "correct_answer_ar": "المسؤولية",
+      "explanation_ar": "المسؤولية تعني أن يأخذ الإنسان ما عليه من واجب بجدية حتى دون رقابة خارجية.",
+      "source_question_tr": "Evde sana verilen bir görevi kimse hatırlatmadan yerine getirmek, bu ünitedeki hangi kavramın günlük örneğidir?",
+      "source_correct_answer_tr": "Sorumluluk",
+      "source_options_tr": [
+        "Sorumluluk",
+        "Tevhid terimini ezberleme",
+        "Yaratıcı-yaratılan ayrımını tekrar etme",
+        "Şükrü yalnızca sözle ifade etme"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:285-286; Diyanet Hadislerle İslam, Cilt 1, s.505 ve s.618; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-010": {
+      "question_ar": "لم يسر يومك كما خططت، لكنك بقيت مدركًا لما لديك من دعم وإمكانات. بأي مفهوم يرتبط هذا الموقف أكثر؟",
+      "options_ar": [
+        "الشكر",
+        "الشرك",
+        "المخلوقية",
+        "حفظ المصطلحات"
+      ],
+      "correct_answer_ar": "الشكر",
+      "explanation_ar": "يرتبط الشكر بإدراك النعم الموجودة، وليس فقط بالشعور بالامتنان عندما تسير الأمور كلها كما نريد.",
+      "source_question_tr": "Bir gün planladığın gibi gitmedi ama yine de sahip olduğun destek ve imkânların farkına vardın. Bu tutum hangi kavramla daha çok ilişkilidir?",
+      "source_correct_answer_tr": "Şükür",
+      "source_options_tr": [
+        "Şükür",
+        "Ortaklık",
+        "Yaratılmışlık",
+        "Kavram ezberi"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:114; 31:12; 14:7; Diyanet Hadislerle İslam, Cilt 2, s.75; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-011": {
+      "question_ar": "كيف يمكن أن يكون ترك المكان الذي استخدمته في الحديقة نظيفًا مثالًا على المسؤولية المرتبطة بالإيمان بالله؟",
+      "options_ar": [
+        "بالتعامل بعناية مع البيئة",
+        "بالاهتمام فقط عندما يراك الآخرون",
+        "بترك المسؤولية كلها للعاملين",
+        "بعدم الاهتمام بأثر سلوكك"
+      ],
+      "correct_answer_ar": "بالتعامل بعناية مع البيئة",
+      "explanation_ar": "يمكن أن تشمل المسؤولية مراعاة أثر أفعال الإنسان في البيئة ومن حوله.",
+      "source_question_tr": "Parkta kullandığın alanı temiz bırakmak, Allah'a imanla ilişkilendirilen sorumluluk anlayışına nasıl örnek olabilir?",
+      "source_correct_answer_tr": "Çevreye karşı özenli davranarak",
+      "source_options_tr": [
+        "Çevreye karşı özenli davranarak",
+        "Sadece başkaları görürken dikkat ederek",
+        "Sorumluluğu tamamen görevlilere bırakarak",
+        "Kendi davranışının etkisini önemsemeyerek"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 7, s.369 ve s.374; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-012": {
+      "question_ar": "طلب منك صديق يمر بصعوبة أن تساعده. ما النهج الأنسب مع الرحمة والمسؤولية؟",
+      "options_ar": [
+        "تحاول مساعدته في حدود استطاعتك",
+        "تحتقره",
+        "تجعل موقفه موضوعًا للضحك",
+        "تنتظر فقط أن يساعده الآخرون"
+      ],
+      "correct_answer_ar": "تحاول مساعدته في حدود استطاعتك",
+      "explanation_ar": "يمكن أن يظهر ارتباط الإيمان والأخلاق في السلوك الحساس والمسؤول تجاه الآخرين.",
+      "source_question_tr": "Bir arkadaşın zorlanırken yardım istemesi karşısında, merhamet ve sorumluluk anlayışıyla en uygun yaklaşım hangisidir?",
+      "source_correct_answer_tr": "İmkânın ölçüsünde yardımcı olmaya çalışmak",
+      "source_options_tr": [
+        "İmkânın ölçüsünde yardımcı olmaya çalışmak",
+        "Onu küçümsemek",
+        "Durumu eğlence konusu yapmak",
+        "Sadece başkalarının yardım etmesini beklemek"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet Hadislerle İslam, Cilt 4, s.304; Cilt 2, s.32; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-013": {
+      "question_ar": "تعطلت خطة استعددت لها طويلًا بصورة غير متوقعة. ما رد الفعل الأكثر اتزانًا مع التوكّل على الله؟",
+      "options_ar": [
+        "تعيد تقييم ما تستطيع فعله وتتخذ خطوات جديدة مع تفويض النتيجة إلى الله",
+        "تترك كل مسؤولية ولا تفعل شيئًا",
+        "تلوم الجميع بغضب",
+        "لا تخطط لأي شيء مرة أخرى"
+      ],
+      "correct_answer_ar": "تعيد تقييم ما تستطيع فعله وتتخذ خطوات جديدة مع تفويض النتيجة إلى الله",
+      "explanation_ar": "التوكّل ليس سلبية؛ بل استمرار في أداء المسؤولية ضمن الظروف الجديدة مع تفويض ما لا يملكه الإنسان إلى الله.",
+      "source_question_tr": "Uzun süre hazırlandığın bir plan beklenmedik şekilde bozuldu. Allah'a güven anlayışıyla en dengeli tepki hangisidir?",
+      "source_correct_answer_tr": "Elinden geleni yeniden değerlendirip yeni adımlar atarken sonucu Allah'a bırakmak",
+      "source_options_tr": [
+        "Elinden geleni yeniden değerlendirip yeni adımlar atarken sonucu Allah'a bırakmak",
+        "Hiçbir şey yapmadan tüm sorumluluğu bırakmak",
+        "Öfkeyle herkesi suçlamak",
+        "Bir daha hiçbir plan yapmamak"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 3:159-160; 6:102 (Diyanet, Kur'an Yolu Tefsiri/meali); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-014": {
+      "question_ar": "تلقيت ثناءً بعد مشروع عملت عليه طويلًا. ما الموقف الذي يجمع الشكر والتقييم المتوازن للذات؟",
+      "options_ar": [
+        "تعترف بجهدك وتدرك النعمة والدعم وتشكر الله",
+        "تنسب النجاح لنفسك وحدك وتحتقر الآخرين",
+        "تعدّ جهدك بلا قيمة مطلقًا",
+        "تستخدم الثناء للتفاخر فقط"
+      ],
+      "correct_answer_ar": "تعترف بجهدك وتدرك النعمة والدعم وتشكر الله",
+      "explanation_ar": "الشكر لا يعني إنكار الجهد، بل إدراك النعمة والإمكانات والدعم مع الاعتراف بالعمل المبذول.",
+      "source_question_tr": "Bir proje sonunda övgü aldın. Şükür ile sağlıklı öz değerlendirmeyi birlikte koruyan tutum hangisidir?",
+      "source_correct_answer_tr": "Emeğini kabul edip nimetin ve desteğin farkına vararak şükretmek",
+      "source_options_tr": [
+        "Emeğini kabul edip nimetin ve desteğin farkına vararak şükretmek",
+        "Başarıyı yalnızca kendine bağlayıp başkalarını küçümsemek",
+        "Kendi emeğini tamamen değersiz saymak",
+        "Övgüyü yalnızca gösteriş için kullanmak"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:114; 31:12; 14:7; Diyanet Hadislerle İslam, Cilt 2, s.75; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-015": {
+      "question_ar": "يقول شخص: «إذا كنت أتوكل على الله فلا حاجة إلى أي استعداد». ما الخطأ الأساسي؟",
+      "options_ar": [
+        "يفصل التوكّل عن المسؤولية وبذل السبب",
+        "أنه استخدم مفهوم التوكّل",
+        "أنه ذكر الاستعداد",
+        "أنه يهتم بالنتيجة"
+      ],
+      "correct_answer_ar": "يفصل التوكّل عن المسؤولية وبذل السبب",
+      "explanation_ar": "يُعرض التوكّل في هذه الوحدة مع قيام الإنسان بما عليه من واجب وبذل ما يستطيع.",
+      "source_question_tr": "Bir kişi “Allah'a güveniyorsam hiçbir hazırlık yapmama gerek yok” diyor. Bu düşüncedeki temel hata nedir?",
+      "source_correct_answer_tr": "Güveni sorumluluk ve çabadan koparması",
+      "source_options_tr": [
+        "Güveni sorumluluk ve çabadan koparması",
+        "Allah'a güven kavramını kullanması",
+        "Hazırlıktan söz etmesi",
+        "Sonucu önemsemesi"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 3:159-160; 6:102 (Diyanet, Kur'an Yolu Tefsiri/meali); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S05-016": {
+      "question_ar": "ورد شرح يقول: «الإيمان بالله لا علاقة له بأي شكل بالسلوك اليومي». ما الجانب الناقص وفق هذه الوحدة؟",
+      "options_ar": [
+        "يتجاهل إمكان ارتباط الإيمان بمواقف مثل المسؤولية والشكر والتوكّل",
+        "لا يقول إن كل سلوك عبادة تلقائيًا",
+        "لا يزعم أن جميع الأفعال متساوية",
+        "لا يتحدث عن التاريخ فقط"
+      ],
+      "correct_answer_ar": "يتجاهل إمكان ارتباط الإيمان بمواقف مثل المسؤولية والشكر والتوكّل",
+      "explanation_ar": "تتناول DEEN الإيمان بالله من خلال معناه ومن خلال صلته بالقيم والمواقف في الحياة.",
+      "source_question_tr": "Bir açıklama “Allah'a iman günlük davranışlarla hiçbir şekilde ilişkili değildir” diyor. Bu ünitenin yaklaşımına göre eksik olan nokta hangisidir?",
+      "source_correct_answer_tr": "İnancın sorumluluk, şükür ve güven gibi tutumlarla ilişki kurabileceğini göz ardı etmesi",
+      "source_options_tr": [
+        "İnancın sorumluluk, şükür ve güven gibi tutumlarla ilişki kurabileceğini göz ardı etmesi",
+        "Her davranışın otomatik olarak ibadet olduğunu söylememesi",
+        "Tüm davranışların aynı değerde olduğunu savunmaması",
+        "Sadece tarih bilgisinden söz etmemesi"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 2:286; 4:58 (Diyanet, Kur'an Yolu Tefsiri/meali); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-001": {
+      "question_ar": "ورد في شرح أن العبادة والعبودية ينبغي أن تُوجّها لله وحده. بأي مفهوم يرتبط ذلك مباشرة؟",
+      "options_ar": [
+        "التوحيد",
+        "الشكر",
+        "المخلوقية",
+        "المسؤولية"
+      ],
+      "correct_answer_ar": "التوحيد",
+      "explanation_ar": "يرتبط التوحيد بوحدانية الله وبإفراده بالعبادة.",
+      "source_question_tr": "Bir açıklamada ibadet ve kulluğun yalnızca Allah'a yöneltilmesi gerektiği söyleniyor. Bu düşünce en doğrudan hangi kavramla ilişkilidir?",
+      "source_correct_answer_tr": "Tevhid",
+      "source_options_tr": [
+        "Tevhid",
+        "Şükür",
+        "Yaratılmışlık",
+        "Sorumluluk"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 112:1-4; 2:163 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-002": {
+      "question_ar": "وصف شخص موجودًا طبيعيًا بأنه «خالق شريك لله». أي تمييز أساسي في الوحدة خلط بين طرفيه؟",
+      "options_ar": [
+        "التمييز بين الخالق والمخلوق",
+        "التمييز بين الشكر والامتنان",
+        "التمييز بين المسؤولية والتخطيط",
+        "التمييز بين التوكّل وبذل السبب"
+      ],
+      "correct_answer_ar": "التمييز بين الخالق والمخلوق",
+      "explanation_ar": "تتناول الوحدة الله بوصفه الخالق والموجودات الطبيعية بوصفها مخلوقة.",
+      "source_question_tr": "Bir kişi doğadaki bir varlığı “Allah'ın ortağı olan yaratıcı” diye tanımlıyor. Bu ünitedeki hangi temel ayrımı karıştırmış olur?",
+      "source_correct_answer_tr": "Yaratıcı ile yaratılan ayrımını",
+      "source_options_tr": [
+        "Yaratıcı ile yaratılan ayrımını",
+        "Şükür ile minnettarlık ayrımını",
+        "Sorumluluk ile planlama ayrımını",
+        "Güven ile çaba ayrımını"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 42:11-12; 39:62 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-003": {
+      "question_ar": "يستعد طالب لامتحانه بانتظام لكنه يعرف أنه لا يملك السيطرة الكاملة على النتيجة. كيف يكمل موقفه بالتوكّل على الله؟",
+      "options_ar": [
+        "يستمر في بذل جهده ويفوّض النتيجة إلى الله",
+        "يترك الاستعداد وينتظر النتيجة فقط",
+        "يتوقف عن الدراسة لأنه يضمن النتيجة",
+        "يسلّم مسؤوليته كاملة لغيره"
+      ],
+      "correct_answer_ar": "يستمر في بذل جهده ويفوّض النتيجة إلى الله",
+      "explanation_ar": "التوكّل يجتمع مع أداء المسؤولية، ولا يعني السلبية أو ترك السبب.",
+      "source_question_tr": "Bir öğrenci sınava düzenli hazırlanıyor fakat sonucu tamamen kontrol edemeyeceğini biliyor. Allah'a güven anlayışını en dengeli biçimde nasıl tamamlar?",
+      "source_correct_answer_tr": "Çabasını sürdürür ve sonucu Allah'a bırakır",
+      "source_options_tr": [
+        "Çabasını sürdürür ve sonucu Allah'a bırakır",
+        "Hazırlığını bırakıp yalnızca sonucu bekler",
+        "Sonucu garanti gördüğü için artık çalışmaz",
+        "Sorumluluğu bütünüyle başkasına verir"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 3:159-160; 6:102 (Diyanet, Kur'an Yolu Tefsiri/meali); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-004": {
+      "question_ar": "يقول طالب: «الشكر هو مجرد قول كلمة شكر، ولا علاقة له بإدراك قيمة النعمة». ما الجانب الناقص؟",
+      "options_ar": [
+        "أن الشكر يرتبط أيضًا بإدراك النعمة والامتنان لها",
+        "أن الشكر يستخدم في الأسئلة الصعبة فقط",
+        "أن الشكر والتوحيد كلمة واحدة",
+        "أن الشكر يعني الفرق بين الخالق والمخلوق"
+      ],
+      "correct_answer_ar": "أن الشكر يرتبط أيضًا بإدراك النعمة والامتنان لها",
+      "explanation_ar": "تربط الوحدة الشكر بإدراك النعمة وإظهار الامتنان.",
+      "source_question_tr": "Bir öğrenci “Şükür sadece 'teşekkür' kelimesini söylemektir; nimetin değerini bilmekle ilgisi yoktur” diyor. Eksik olan nokta hangisidir?",
+      "source_correct_answer_tr": "Şükrün nimet farkındalığı ve minnettarlıkla da ilgili olması",
+      "source_options_tr": [
+        "Şükrün nimet farkındalığı ve minnettarlıkla da ilgili olması",
+        "Şükrün yalnızca zor sorularda kullanılması",
+        "Şükrün tevhidle aynı kelime olması",
+        "Şükrün yaratıcı-yaratılan ayrımı demek olması"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 16:114; 31:12; 14:7; Diyanet Hadislerle İslam, Cilt 2, s.75; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-005": {
+      "question_ar": "ما المشكلة الأساسية في شرح يقول: «الإيمان بالله هو مجرد أداء بعض السلوكيات الدينية، ولا أهمية للاعتقاد والقبول»؟",
+      "options_ar": [
+        "يحذف جانب الاعتقاد والتصديق والقبول من معنى الإيمان",
+        "يتحدث عن أعمال دينية",
+        "يستخدم لفظ الله",
+        "الشرح قصير"
+      ],
+      "correct_answer_ar": "يحذف جانب الاعتقاد والتصديق والقبول من معنى الإيمان",
+      "explanation_ar": "الإيمان بالله قضية اعتقاد وتصديق وقبول في الأصل؛ ويمكن أن ترتبط به الأعمال لكنها لا تحل محل معنى الإيمان.",
+      "source_question_tr": "“Allah'a iman, sadece bazı dinî davranışları yapmaktır; inanma ve kabul etme kısmı önemli değildir” açıklamasındaki temel sorun nedir?",
+      "source_correct_answer_tr": "İman kavramının inanç ve kabul yönünü dışarıda bırakması",
+      "source_options_tr": [
+        "İman kavramının inanç ve kabul yönünü dışarıda bırakması",
+        "Dinî davranışlardan söz etmesi",
+        "Cümlede Allah kelimesini kullanması",
+        "Açıklamanın kısa olması"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 2:285; 2:163 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-006": {
+      "question_ar": "قبل إظهار الجواب، تذكّر: بأي نقطتين أساسيتين قدّمت الوحدة الإيمان بالله في بدايتها؟",
+      "options_ar": null,
+      "correct_answer_ar": "الإيمان بوجود الله ووحدانيته",
+      "explanation_ar": "يقيس السؤال إطار «الوجود والوحدانية» الذي استخدمته مقدمة الوحدة، من غير ادعاء أنه تعريف جامع لكل تفاصيل العقيدة.",
+      "source_question_tr": "Cevabı açmadan önce hatırla: Bu ünitenin giriş çerçevesinde Allah'a iman hangi iki temel vurguyla tanıtıldı?",
+      "source_correct_answer_tr": "Allah'ın varlığına ve birliğine inanmayı",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 2:285; 2:163 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-007": {
+      "question_ar": "قبل إظهار الجواب، تذكّر المصطلح: ما اسم المفهوم الذي يعني الإيمان بأن الله واحد لا شريك له؟",
+      "options_ar": null,
+      "correct_answer_ar": "التوحيد",
+      "explanation_ar": "استدعاء المصطلح انطلاقًا من تعريفه يقوّي التعلم النشط.",
+      "source_question_tr": "Cevabı görmeden önce terimi hatırla: Allah'ın bir ve tek olduğuna inanmayı anlatan temel kavram nedir?",
+      "source_correct_answer_tr": "Tevhid",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 112:1-4; 2:163 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-008": {
+      "question_ar": "(مراجعة سريعة) إلى من يُنسب مفهوم «الخالق» مباشرة في هذه الوحدة؟",
+      "options_ar": [
+        "إلى الله",
+        "إلى الإنسان بالمعنى نفسه المنسوب لله",
+        "إلى الطبيعة بوصفها إلهًا مستقلًا",
+        "إلى كل مخلوق على السواء"
+      ],
+      "correct_answer_ar": "إلى الله",
+      "explanation_ar": "تتناول الوحدة الله بوصفه الخالق وسائر الموجودات بوصفها مخلوقة.",
+      "source_question_tr": "(Hızlı Tekrar) “Yaratıcı” kavramı bu ünitede en doğrudan kime aittir?",
+      "source_correct_answer_tr": "Allah'a",
+      "source_options_tr": [
+        "Allah'a",
+        "İnsana Allah'la aynı anlamda",
+        "Doğaya bağımsız bir ilah olarak",
+        "Her yaratılmış varlığa eşit biçimde"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 39:62-63; 6:102 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-009": {
+      "question_ar": "(مراجعة سريعة) ما المفهوم الذي يدل على الامتنان عند النعمة؟",
+      "options_ar": [
+        "الشكر",
+        "التوحيد",
+        "المخلوقية",
+        "العبودية"
+      ],
+      "correct_answer_ar": "الشكر",
+      "explanation_ar": "يرتبط الشكر بإدراك النعمة والامتنان لها.",
+      "source_question_tr": "(Hızlı Tekrar) Nimet karşısında minnettarlık gösterme kavramı hangisidir?",
+      "source_correct_answer_tr": "Şükür",
+      "source_options_tr": [
+        "Şükür",
+        "Tevhid",
+        "Yaratılmışlık",
+        "Kulluk"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 16:114; 31:12; 14:7; Diyanet Hadislerle İslam, Cilt 2, s.75; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-010": {
+      "question_ar": "(تطبيق سريع) أداء مهمة بأمانة حتى عندما لا يراقبك أحد يرتبط أكثر بأي موقف؟",
+      "options_ar": [
+        "المسؤولية",
+        "اللامبالاة",
+        "الرياء",
+        "السلبية"
+      ],
+      "correct_answer_ar": "المسؤولية",
+      "explanation_ar": "المسؤولية تعني توجيه السلوك بالقيم والواجب، لا بالرقابة الخارجية فقط.",
+      "source_question_tr": "(Hızlı Uygulama) Bir görevi kimse denetlemese de dürüstçe tamamlamak hangi tutumla daha çok ilişkilidir?",
+      "source_correct_answer_tr": "Sorumluluk",
+      "source_options_tr": [
+        "Sorumluluk",
+        "Kayıtsızlık",
+        "Gösteriş",
+        "Pasiflik"
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 4:58 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-011": {
+      "question_ar": "للمراجعة الذكية، طابق المفاهيم بأقصر معانيها.",
+      "pairs_ar": [
+        {
+          "left": "الإيمان بالله",
+          "right": "الإيمان بالوجود والوحدانية"
+        },
+        {
+          "left": "التوحيد",
+          "right": "وحدانية الله"
+        },
+        {
+          "left": "الشكر",
+          "right": "الامتنان عند النعمة"
+        },
+        {
+          "left": "التوكّل",
+          "right": "الاعتماد على الله بعد بذل السبب"
+        }
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يلخّص هذا التمرين أربعة مفاهيم رئيسة في الوحدة على شاشة واحدة.",
+      "source_question_tr": "Akıllı tekrar için kavramları en kısa karşılıklarıyla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Allah'a iman",
+          "right": "Varlık ve birlik inancı"
+        },
+        {
+          "left": "Tevhid",
+          "right": "Allah'ın birliği"
+        },
+        {
+          "left": "Şükür",
+          "right": "Nimet karşısında minnettarlık"
+        },
+        {
+          "left": "Güven",
+          "right": "Çaba sonrasında Allah'a dayanma"
+        }
+      ],
+      "activity_type": "matching",
+      "source_ref": "Kur'an 2:163; 6:102; 3:159; 16:114 (Diyanet, Kur'an Yolu Tefsiri/meali); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U02-S06-012": {
+      "question_ar": "يرتبط التوكّل على الله بأن يبذل الإنسان ما عليه ثم يفوّض النتيجة إلى «______».",
+      "options_ar": null,
+      "correct_answer_ar": "الله",
+      "explanation_ar": "التوكّل لا يعني ترك الجهد، بل أداء المسؤولية ثم تفويض النتيجة إلى الله.",
+      "source_question_tr": "Allah'a güven, kişinin üzerine düşeni yaptıktan sonra sonucu ______ bırakmasıyla ilişkilidir.",
+      "source_correct_answer_tr": "Allah'a",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Kur'an 3:159-160; 6:102 (Diyanet, Kur'an Yolu Tefsiri/meali); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   },
   "runtime_variants": {},
