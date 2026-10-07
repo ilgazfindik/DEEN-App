@@ -1623,6 +1623,1081 @@
         "صحيح",
         "خطأ"
       ]
+    },
+    "DEEN-U11-S05-001": {
+      "question_ar": "أكمل بلا تلميح: الصيام ليس مجرد جوع، بل يرتبط بالعبودية ووعي ___.",
+      "correct_answer_ar": "التقوى",
+      "explanation_ar": "يرتبط الصيام بالتقوى والصبر والمسؤولية إلى جانب معنى العبادة.",
+      "source_question_tr": "İpucu olmadan tamamla: Oruç yalnız açlık değil kulluk ve ___ bilinciyle ilişkilidir.",
+      "source_correct_answer_tr": "takva",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Diyanet, Oruç İlmihali; Kur’an 2:183-184, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U11-S05-002": {
+      "question_ar": "أكمل بلا تلميح: ينبغي لوعي العبادة أن يدعم حسن ___.",
+      "correct_answer_ar": "الأخلاق",
+      "explanation_ar": "تؤكد المصادر التعليمية الجانب الأخلاقي والتربوي للعبادة.",
+      "source_question_tr": "İpucu olmadan tamamla: İbadet bilinci güzel ___ desteklemelidir.",
+      "source_correct_answer_tr": "ahlakı",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U11-S05-003": {
+      "question_ar": "أكمل بلا تلميح: في روح العبادة ___ والصدق.",
+      "correct_answer_ar": "الإخلاص",
+      "explanation_ar": "تؤكد البينة 98:5 إخلاص الدين لله.",
+      "source_question_tr": "İpucu olmadan tamamla: İbadetin ruhunda ___ ve samimiyet bulunur.",
+      "source_correct_answer_tr": "ihlas",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U11-S05-004": {
+      "question_ar": "أكمل بلا تلميح: الدعاء يعبّر عن ___ العبد إلى الله.",
+      "correct_answer_ar": "توجّهِ",
+      "explanation_ar": "الدعاء من أبرز صور توجه العبد إلى الله.",
+      "source_question_tr": "İpucu olmadan tamamla: Dua kulun Allah'a ___ ifade eder.",
+      "source_correct_answer_tr": "yönelişini",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U11-S05-005": {
+      "question_ar": "أكمل بلا تلميح: ينبغي تعلّم معلومات العبادة من مصادر ___.",
+      "correct_answer_ar": "موثوقة",
+      "explanation_ar": "ينبغي تعلّم العبادة من مصادر موثوقة وفهم الاختلافات في سياقها الصحيح.",
+      "source_question_tr": "İpucu olmadan tamamla: İbadet bilgisi ___ kaynaklardan öğrenilmelidir.",
+      "source_correct_answer_tr": "güvenilir",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U11-S05-006": {
+      "question_ar": "أي مبدأ صحيح في موضوع الصيام؟",
+      "correct_answer_ar": "العبودية والتقوى والصبر والمسؤولية",
+      "explanation_ar": "يرتبط الصيام بالتقوى والصبر والمسؤولية إلى جانب معنى العبادة.",
+      "source_question_tr": "Oruç konusunda hangi ilke doğrudur?",
+      "source_correct_answer_tr": "Kulluk, takva, sabır ve sorumluluk",
+      "source_options_tr": [
+        "Sadece aç kalmak",
+        "Yalnızca sosyal görünürlük",
+        "Kulluk, takva, sabır ve sorumluluk",
+        "Gündelik hayatı tamamen durdurmak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet, Oruç İlmihali; Kur’an 2:183-184, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "مجرد الامتناع عن الطعام",
+        "مجرد الظهور الاجتماعي",
+        "العبودية والتقوى والصبر والمسؤولية",
+        "إيقاف الحياة اليومية تمامًا"
+      ]
+    },
+    "DEEN-U11-S05-007": {
+      "question_ar": "يقول طالب: «لا علاقة بين العبادة والسلوك الأخلاقي». أي عبارة تصحح هذا الفهم أفضل؟",
+      "correct_answer_ar": "أن يدعم وعي العبودية السلوك الحسن وتدعمه الأخلاق",
+      "explanation_ar": "تلفت المصادر التعليمية إلى الوظيفة التربوية والأخلاقية للعبادة.",
+      "source_question_tr": "Bir öğrenci “İbadet ile ahlaki davranışların hiçbir ilişkisi yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+      "source_correct_answer_tr": "Kulluk bilinci ile güzel davranışların birbirini desteklemesi",
+      "source_options_tr": [
+        "İbadetin ahlaktan tamamen kopuk olması",
+        "Ahlakın ibadeti gereksiz kılması",
+        "Kulluk bilinci ile güzel davranışların birbirini desteklemesi",
+        "İbadetin sadece görünüş olması"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "أن تكون العبادة منفصلة تمامًا عن الأخلاق",
+        "أن تجعل الأخلاق العبادة غير ضرورية",
+        "أن يدعم وعي العبودية السلوك الحسن وتدعمه الأخلاق",
+        "أن تكون العبادة مجرد مظهر"
+      ]
+    },
+    "DEEN-U11-S05-008": {
+      "question_ar": "أي عبارة تعكس الأساس المشترك للإخلاص بصورة صحيحة؟",
+      "correct_answer_ar": "التوجه إلى الله بصدق",
+      "explanation_ar": "تؤكد البينة 98:5 إخلاص الدين لله.",
+      "source_question_tr": "İhlas konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+      "source_correct_answer_tr": "Allah'a içtenlikle yönelmek",
+      "source_options_tr": [
+        "İnsanların takdirini amaçlamak",
+        "Gösterişi öncelik yapmak",
+        "Allah'a içtenlikle yönelmek",
+        "Sadece dış görünüşe odaklanmak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "طلب تقدير الناس",
+        "تقديم الرياء على غيره",
+        "التوجه إلى الله بصدق",
+        "التركيز على المظهر فقط"
+      ]
+    },
+    "DEEN-U11-S05-009": {
+      "question_ar": "يسألك صديق عن الدعاء. أي معلومة صحيحة تقولها له؟",
+      "correct_answer_ar": "توجه العبد إلى الله وسؤاله",
+      "explanation_ar": "الدعاء من أبرز صور توجه العبد إلى الله.",
+      "source_question_tr": "Bir arkadaşın Dua hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_correct_answer_tr": "Kulun Allah'a yönelmesi ve O'ndan istemesi",
+      "source_options_tr": [
+        "Yalnızca ezber yarışması",
+        "Başkalarına gösteriş yapma biçimi",
+        "Kulun Allah'a yönelmesi ve O'ndan istemesi",
+        "İbadetle ilgisiz bir konuşma"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "مسابقة حفظ فقط",
+        "وسيلة للرياء أمام الآخرين",
+        "توجه العبد إلى الله وسؤاله",
+        "كلام لا علاقة له بالعبادة"
+      ]
+    },
+    "DEEN-U11-S05-010": {
+      "question_ar": "كيف نصحح عبارة: «كل معلومة مجهولة المصدر عن العبادة يجب قبولها بوصفها موثوقة»؟",
+      "correct_answer_ar": "الرجوع إلى المصادر الدينية الموثوقة",
+      "explanation_ar": "ينبغي تعلّم العبادة من مصادر موثوقة وفهم الاختلافات في سياقها الصحيح.",
+      "source_question_tr": "“Kaynağı belirsiz her bilgi ibadet konusunda güvenilir kabul edilmelidir.” ifadesindeki hatayı hangi seçenek düzeltir?",
+      "source_correct_answer_tr": "Güvenilir dinî kaynaklara başvurmak",
+      "source_options_tr": [
+        "Her duyulanı kesin hüküm kabul etmek",
+        "Kaynağı belirsiz bilgiyi yaymak",
+        "Güvenilir dinî kaynaklara başvurmak",
+        "Mezhep farklarını yok saymak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "اعتبار كل ما يُسمع حكمًا قطعيًّا",
+        "نشر المعلومة مجهولة المصدر",
+        "الرجوع إلى المصادر الدينية الموثوقة",
+        "تجاهل الاختلافات الفقهية"
+      ]
+    },
+    "DEEN-U11-S05-011": {
+      "question_ar": "كيف نصحح عبارة: «الصيام ليس إلا الجوع»؟",
+      "correct_answer_ar": "العبودية والتقوى والصبر والمسؤولية",
+      "explanation_ar": "يرتبط الصيام بالتقوى والصبر والمسؤولية إلى جانب معنى العبادة.",
+      "source_question_tr": "“Oruç yalnızca aç kalmaktan ibarettir.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+      "source_correct_answer_tr": "Kulluk, takva, sabır ve sorumluluk",
+      "source_options_tr": [
+        "Sadece aç kalmak",
+        "Yalnızca sosyal görünürlük",
+        "Kulluk, takva, sabır ve sorumluluk",
+        "Gündelik hayatı tamamen durdurmak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Diyanet, Oruç İlmihali; Kur’an 2:183-184, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "مجرد الامتناع عن الطعام",
+        "مجرد الظهور الاجتماعي",
+        "العبودية والتقوى والصبر والمسؤولية",
+        "إيقاف الحياة اليومية تمامًا"
+      ]
+    },
+    "DEEN-U11-S05-012": {
+      "question_ar": "كيف نصحح عبارة: «لا علاقة بين العبادة والسلوك الأخلاقي»؟",
+      "correct_answer_ar": "أن يدعم وعي العبودية السلوك الحسن وتدعمه الأخلاق",
+      "explanation_ar": "تلفت المصادر التعليمية إلى الوظيفة التربوية والأخلاقية للعبادة.",
+      "source_question_tr": "“İbadet ile ahlaki davranışların hiçbir ilişkisi yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?",
+      "source_correct_answer_tr": "Kulluk bilinci ile güzel davranışların birbirini desteklemesi",
+      "source_options_tr": [
+        "İbadetin ahlaktan tamamen kopuk olması",
+        "Ahlakın ibadeti gereksiz kılması",
+        "Kulluk bilinci ile güzel davranışların birbirini desteklemesi",
+        "İbadetin sadece görünüş olması"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "أن تكون العبادة منفصلة تمامًا عن الأخلاق",
+        "أن تجعل الأخلاق العبادة غير ضرورية",
+        "أن يدعم وعي العبودية السلوك الحسن وتدعمه الأخلاق",
+        "أن تكون العبادة مجرد مظهر"
+      ]
+    },
+    "DEEN-U11-S05-013": {
+      "question_ar": "استدعاء نشط: أكمل الفراغ: في روح العبادة ___ والصدق.",
+      "correct_answer_ar": "الإخلاص",
+      "explanation_ar": "تؤكد البينة 98:5 إخلاص الدين لله.",
+      "source_question_tr": "Aktif hatırlama: boşluğu tamamla: İbadetin ruhunda ___ ve samimiyet bulunur.",
+      "source_correct_answer_tr": "ihlas",
+      "source_options_tr": [
+        "kulluk",
+        "yöneliş",
+        "ihlas",
+        "ibadet"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "العبودية",
+        "التوجه",
+        "الإخلاص",
+        "العبادة"
+      ]
+    },
+    "DEEN-U11-S05-014": {
+      "question_ar": "استدعاء نشط: أكمل الفراغ: الدعاء يعبّر عن ___ العبد إلى الله.",
+      "correct_answer_ar": "توجّهِ",
+      "explanation_ar": "الدعاء من أبرز صور توجه العبد إلى الله.",
+      "source_question_tr": "Aktif hatırlama: boşluğu tamamla: Dua kulun Allah'a ___ ifade eder.",
+      "source_correct_answer_tr": "yönelişini",
+      "source_options_tr": [
+        "kulluk",
+        "ihlas",
+        "yönelişini",
+        "yöneliş"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "العبودية",
+        "الإخلاص",
+        "توجّهِ",
+        "التوجه"
+      ]
+    },
+    "DEEN-U11-S05-015": {
+      "question_ar": "ما المنهج الأكثر أمانًا عند تعلّم العبادة؟",
+      "correct_answer_ar": "الرجوع إلى المصادر الدينية الموثوقة",
+      "explanation_ar": "ينبغي تعلّم العبادة من مصادر موثوقة وفهم الاختلافات في سياقها الصحيح.",
+      "source_question_tr": "İbadeti öğrenirken en güvenli yaklaşım hangisidir?",
+      "source_correct_answer_tr": "Güvenilir dinî kaynaklara başvurmak",
+      "source_options_tr": [
+        "Her duyulanı kesin hüküm kabul etmek",
+        "Kaynağı belirsiz bilgiyi yaymak",
+        "Güvenilir dinî kaynaklara başvurmak",
+        "Mezhep farklarını yok saymak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "اعتبار كل ما يُسمع حكمًا قطعيًّا",
+        "نشر المعلومة مجهولة المصدر",
+        "الرجوع إلى المصادر الدينية الموثوقة",
+        "تجاهل الاختلافات الفقهية"
+      ]
+    },
+    "DEEN-U11-S05-016": {
+      "question_ar": "أي عبارة صحيحة عن الصيام؟ اختر العبارة الأوسع والأدق.",
+      "correct_answer_ar": "العبودية والتقوى والصبر والمسؤولية",
+      "explanation_ar": "يرتبط الصيام بالتقوى والصبر والمسؤولية إلى جانب معنى العبادة.",
+      "source_question_tr": "Oruç konusunda doğru ifade hangisidir? En kapsayıcı doğru ifadeyi seç.",
+      "source_correct_answer_tr": "Kulluk, takva, sabır ve sorumluluk",
+      "source_options_tr": [
+        "Sadece aç kalmak",
+        "Yalnızca sosyal görünürlük",
+        "Kulluk, takva, sabır ve sorumluluk",
+        "Gündelik hayatı tamamen durdurmak"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet, Oruç İlmihali; Kur’an 2:183-184, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "مجرد الامتناع عن الطعام",
+        "مجرد الظهور الاجتماعي",
+        "العبودية والتقوى والصبر والمسؤولية",
+        "إيقاف الحياة اليومية تمامًا"
+      ]
+    },
+    "DEEN-U11-S06-001": {
+      "question_ar": "مراجعة سريعة: أي عبارة صحيحة عن الطهارة؟",
+      "correct_answer_ar": "ترتبط مباشرةً بالاستعداد والشروط لبعض العبادات",
+      "explanation_ar": "ترتبط الطهارة خصوصًا بالاستعداد لعبادات مثل الصلاة.",
+      "source_question_tr": "Hızlı tekrar: Temizlik hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+      "source_correct_answer_tr": "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+      "source_options_tr": [
+        "İbadetlerle hiçbir ilişkisi yoktur",
+        "Sadece estetik amaçlıdır",
+        "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+        "Yalnızca seyahatle ilgilidir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Diyanet, İbadetim; Diyanet, Namaz İlmihali; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "لا علاقة لها بالعبادات",
+        "غايتها جمالية فقط",
+        "ترتبط مباشرةً بالاستعداد والشروط لبعض العبادات",
+        "تتعلق بالسفر فقط"
+      ]
+    },
+    "DEEN-U11-S06-002": {
+      "question_ar": "مراجعة سريعة: ما العبارة الأكثر توازنًا عن الشكل والمعنى في العبادة؟",
+      "correct_answer_ar": "الشكل المقرر مهم، والنية والإخلاص يمثلان روح العبادة",
+      "explanation_ar": "يجتمع في العبادة الشكل المعتبر مع النية والإخلاص بوصفهما من روحها.",
+      "source_question_tr": "Hızlı tekrar: İbadette şekil ile anlam arasındaki en dengeli ifade hangisidir?",
+      "source_correct_answer_tr": "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+      "source_options_tr": [
+        "Sadece şekil önemlidir niyet gereksizdir",
+        "Sadece niyet yeterlidir ibadet biçimi önemsizdir",
+        "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+        "Ne şeklin ne niyetin önemi vardır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "الشكل وحده مهم والنية غير ضرورية",
+        "النية وحدها تكفي والشكل غير مهم",
+        "الشكل المقرر مهم، والنية والإخلاص يمثلان روح العبادة",
+        "لا الشكل ولا النية مهمان"
+      ]
+    },
+    "DEEN-U11-S06-003": {
+      "question_ar": "مراجعة سريعة: أي عبارة صحيحة عن الزكاة؟",
+      "correct_answer_ar": "المشاركة والمسؤولية الاجتماعية",
+      "explanation_ar": "ترتبط الزكاة بالمشاركة والتكافل والمسؤولية الاجتماعية.",
+      "source_question_tr": "Hızlı tekrar: Zekât konusunda doğru ifade hangisidir?",
+      "source_correct_answer_tr": "Paylaşma ve toplumsal sorumluluk",
+      "source_options_tr": [
+        "Gösteriş için harcama",
+        "Sadece bireysel birikimi artırma",
+        "Paylaşma ve toplumsal sorumluluk",
+        "Yardımlaşmayı azaltma"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "الإنفاق للرياء",
+        "زيادة الادخار الفردي فقط",
+        "المشاركة والمسؤولية الاجتماعية",
+        "تقليل التعاون"
+      ]
+    },
+    "DEEN-U11-S06-004": {
+      "question_ar": "مراجعة سريعة: أي عبارة صحيحة عن الانضباط؟",
+      "correct_answer_ar": "تنمية الشعور بالمسؤولية والانضباط",
+      "explanation_ar": "يمكن للعبادات أن تدعم المسؤولية والانضباط.",
+      "source_question_tr": "Hızlı tekrar: düzen hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+      "source_correct_answer_tr": "Sorumluluk ve düzen bilincini",
+      "source_options_tr": [
+        "Sorumluluktan kaçmayı",
+        "Zamanı tamamen önemsiz görmeyi",
+        "Sorumluluk ve düzen bilincini",
+        "Başkalarını küçümsemeyi"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "الهروب من المسؤولية",
+        "اعتبار الوقت بلا قيمة",
+        "تنمية الشعور بالمسؤولية والانضباط",
+        "احتقار الآخرين"
+      ]
+    },
+    "DEEN-U11-S06-005": {
+      "question_ar": "أي عبارة صحيحة عن النية؟",
+      "correct_answer_ar": "توجّه العمل ليُفعل بوعي طلبًا لرضا الله",
+      "explanation_ar": "تقوّي النية وعي الإنسان وتوجهه في العبادة.",
+      "source_question_tr": "Niyet hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+      "source_correct_answer_tr": "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+      "source_options_tr": [
+        "İbadetin kaynağını insan tercihine dönüştürür",
+        "Bütün şekil ve şartları gereksiz kılar",
+        "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+        "İbadeti sadece bir alışkanlığa çevirir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "تحوّل مصدر العبادة إلى الاختيار الشخصي",
+        "تلغي كل الشروط والأشكال",
+        "توجّه العمل ليُفعل بوعي طلبًا لرضا الله",
+        "تحوّل العبادة إلى عادة فقط"
+      ]
+    },
+    "DEEN-U11-S06-006": {
+      "question_ar": "مراجعة سريعة: لماذا تعد الطهارة مهمة في باب العبادة؟",
+      "correct_answer_ar": "ترتبط مباشرةً بالاستعداد والشروط لبعض العبادات",
+      "explanation_ar": "ترتبط الطهارة خصوصًا بالاستعداد لعبادات مثل الصلاة.",
+      "source_question_tr": "Hızlı tekrar: temizlik neden ibadet bölümünde önemlidir?",
+      "source_correct_answer_tr": "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+      "source_options_tr": [
+        "İbadetlerle hiçbir ilişkisi yoktur",
+        "Sadece estetik amaçlıdır",
+        "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+        "Yalnızca seyahatle ilgilidir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet, İbadetim; Diyanet, Namaz İlmihali; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "لا علاقة لها بالعبادات",
+        "غايتها جمالية فقط",
+        "ترتبط مباشرةً بالاستعداد والشروط لبعض العبادات",
+        "تتعلق بالسفر فقط"
+      ]
+    },
+    "DEEN-U11-S06-007": {
+      "question_ar": "صح أم خطأ؟ لا صلة بين الشكل المقرر للعبادة والنية.",
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "يجتمع في العبادة الشكل المعتبر مع النية والإخلاص.",
+      "source_question_tr": "Doğru mu, yanlış mı? İbadette belirlenmiş şekil ile niyet arasında hiçbir bağ yoktur.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ]
+    },
+    "DEEN-U11-S06-008": {
+      "question_ar": "صح أم خطأ؟ للزكاة صلة بالمشاركة والمسؤولية الاجتماعية.",
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "ترتبط الزكاة بالمشاركة والتكافل والمسؤولية الاجتماعية.",
+      "source_question_tr": "Doğru mu, yanlış mı? Zekâtın paylaşma ve toplumsal sorumlulukla ilişkisi vardır.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ]
+    },
+    "DEEN-U11-S06-009": {
+      "question_ar": "أكمل الفراغ: يمكن للعبادة المنتظمة أن تدعم وعي المسؤولية و___.",
+      "correct_answer_ar": "الانضباط",
+      "explanation_ar": "يمكن للعبادات أن تدعم المسؤولية والانضباط.",
+      "source_question_tr": "Boşluğu tamamla: Düzenli ibadet sorumluluk ve ___ bilincini destekleyebilir.",
+      "source_correct_answer_tr": "düzen",
+      "source_options_tr": [
+        "kulluk",
+        "ihlas",
+        "düzen",
+        "yöneliş"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "العبودية",
+        "الإخلاص",
+        "الانضباط",
+        "التوجه"
+      ]
+    },
+    "DEEN-U11-S06-010": {
+      "question_ar": "أكمل الفراغ: تمنح النية العبادة ___ واعيًا.",
+      "correct_answer_ar": "توجهًا",
+      "explanation_ar": "تقوّي النية الوعي والتوجه في العبادة.",
+      "source_question_tr": "Boşluğu tamamla: Niyet ibadete bilinçli bir ___ kazandırır.",
+      "source_correct_answer_tr": "yöneliş",
+      "source_options_tr": [
+        "kulluk",
+        "ihlas",
+        "yöneliş",
+        "ibadet"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "العبودية",
+        "الإخلاص",
+        "توجهًا",
+        "العبادة"
+      ]
+    },
+    "DEEN-U11-S06-011": {
+      "question_ar": "مراجعة سريعة: صِل المفاهيم بتعريفاتها: المعرفة الصحيحة، الإخلاص، الصيام، الدعاء.",
+      "correct_answer_ar": null,
+      "explanation_ar": "ترتبط هذه المفاهيم بوعي العبادة ومصادره وروحه.",
+      "source_question_tr": "Hızlı tekrar: şu kavramları doğru açıklamalarıyla eşleştir: Doğru bilgi, İhlas, Oruç ve Dua.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Doğru bilgi",
+          "right": "Güvenilir dinî kaynaklara başvurmak"
+        },
+        {
+          "left": "İhlas",
+          "right": "Allah'a içtenlikle yönelmek"
+        },
+        {
+          "left": "Oruç",
+          "right": "Kulluk takva sabır ve sorumluluk"
+        },
+        {
+          "left": "Dua",
+          "right": "Kulun Allah'a yönelmesi ve O'ndan istemesi"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Diyanet, İbadetim; Diyanet, Namaz İlmihali; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "pairs_ar": [
+        {
+          "left": "المعرفة الصحيحة",
+          "right": "الرجوع إلى المصادر الدينية الموثوقة"
+        },
+        {
+          "left": "الإخلاص",
+          "right": "التوجه إلى الله بصدق"
+        },
+        {
+          "left": "الصيام",
+          "right": "العبودية والتقوى والصبر والمسؤولية"
+        },
+        {
+          "left": "الدعاء",
+          "right": "توجه العبد إلى الله وسؤاله"
+        }
+      ]
+    },
+    "DEEN-U11-S06-012": {
+      "question_ar": "مراجعة سريعة: صِل المفاهيم بتعريفاتها: معنى العبادة، الصلاة، الحج، مصدر العبادة.",
+      "correct_answer_ar": null,
+      "explanation_ar": "تجمع هذه المفاهيم بين معنى العبادة وأشكالها الأساسية ومصدرها.",
+      "source_question_tr": "Hızlı tekrar: şu kavramları doğru açıklamalarıyla eşleştir: İbadetin anlamı, Namaz, Hac ve İbadetin kaynağı.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "İbadetin anlamı",
+          "right": "Allah'a bilinçli kulluk ve itaat"
+        },
+        {
+          "left": "Namaz",
+          "right": "Allah'a kulluğun temel ibadetlerinden biri"
+        },
+        {
+          "left": "Hac",
+          "right": "Belirli şartları bulunan temel ibadetlerden biri"
+        },
+        {
+          "left": "İbadetin kaynağı",
+          "right": "Kur'an ve Hz. Peygamber'in sünneti temel alınarak"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "pairs_ar": [
+        {
+          "left": "معنى العبادة",
+          "right": "عبودية واعية لله وطاعة له"
+        },
+        {
+          "left": "الصلاة",
+          "right": "إحدى العبادات الأساسية لله"
+        },
+        {
+          "left": "الحج",
+          "right": "إحدى العبادات الأساسية ذات الشروط المحددة"
+        },
+        {
+          "left": "مصدر العبادة",
+          "right": "الاعتماد على القرآن وسنة النبي ﷺ"
+        }
+      ]
+    },
+    "DEEN-U11-S07-001": {
+      "question_ar": "التحدي: لماذا تعد الطهارة مهمة في باب العبادة؟",
+      "correct_answer_ar": "ترتبط مباشرةً بالاستعداد والشروط لبعض العبادات",
+      "explanation_ar": "ترتبط الطهارة خصوصًا بالاستعداد لعبادات مثل الصلاة.",
+      "source_question_tr": "Challenge: temizlik neden ibadet bölümünde önemlidir?",
+      "source_correct_answer_tr": "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+      "source_options_tr": [
+        "İbadetlerle hiçbir ilişkisi yoktur",
+        "Sadece estetik amaçlıdır",
+        "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+        "Yalnızca seyahatle ilgilidir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Diyanet, İbadetim; Diyanet, Namaz İlmihali; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "لا علاقة لها بالعبادات",
+        "غايتها جمالية فقط",
+        "ترتبط مباشرةً بالاستعداد والشروط لبعض العبادات",
+        "تتعلق بالسفر فقط"
+      ]
+    },
+    "DEEN-U11-S07-002": {
+      "question_ar": "أي عبارة صحيحة عن الشكل والروح؟",
+      "correct_answer_ar": "الشكل المقرر مهم، والنية والإخلاص يمثلان روح العبادة",
+      "explanation_ar": "يجتمع في العبادة الشكل المعتبر مع النية والإخلاص.",
+      "source_question_tr": "Şekil ve ruh konusunda doğru ifade hangisidir?",
+      "source_correct_answer_tr": "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+      "source_options_tr": [
+        "Sadece şekil önemlidir niyet gereksizdir",
+        "Sadece niyet yeterlidir ibadet biçimi önemsizdir",
+        "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+        "Ne şeklin ne niyetin önemi vardır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "الشكل وحده مهم والنية غير ضرورية",
+        "النية وحدها تكفي والشكل غير مهم",
+        "الشكل المقرر مهم، والنية والإخلاص يمثلان روح العبادة",
+        "لا الشكل ولا النية مهمان"
+      ]
+    },
+    "DEEN-U11-S07-003": {
+      "question_ar": "أي عبارة صحيحة عن الزكاة؟",
+      "correct_answer_ar": "المشاركة والمسؤولية الاجتماعية",
+      "explanation_ar": "ترتبط الزكاة بالمشاركة والتكافل والمسؤولية الاجتماعية.",
+      "source_question_tr": "Zekât hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+      "source_correct_answer_tr": "Paylaşma ve toplumsal sorumluluk",
+      "source_options_tr": [
+        "Gösteriş için harcama",
+        "Sadece bireysel birikimi artırma",
+        "Paylaşma ve toplumsal sorumluluk",
+        "Yardımlaşmayı azaltma"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "الإنفاق للرياء",
+        "زيادة الادخار الفردي فقط",
+        "المشاركة والمسؤولية الاجتماعية",
+        "تقليل التعاون"
+      ]
+    },
+    "DEEN-U11-S07-004": {
+      "question_ar": "التحدي: أي عبارة صحيحة عن الانضباط؟",
+      "correct_answer_ar": "تنمية الشعور بالمسؤولية والانضباط",
+      "explanation_ar": "يمكن للعبادات أن تدعم المسؤولية والانضباط.",
+      "source_question_tr": "Challenge: düzen hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+      "source_correct_answer_tr": "Sorumluluk ve düzen bilincini",
+      "source_options_tr": [
+        "Sorumluluktan kaçmayı",
+        "Zamanı tamamen önemsiz görmeyi",
+        "Sorumluluk ve düzen bilincini",
+        "Başkalarını küçümsemeyi"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "الهروب من المسؤولية",
+        "اعتبار الوقت بلا قيمة",
+        "تنمية الشعور بالمسؤولية والانضباط",
+        "احتقار الآخرين"
+      ]
+    },
+    "DEEN-U11-S07-005": {
+      "question_ar": "يقول طالب: «لا علاقة للنية بوعي العبادة». ما العبارة التي تصحح ذلك أفضل؟",
+      "correct_answer_ar": "توجّه العمل ليُفعل بوعي طلبًا لرضا الله",
+      "explanation_ar": "تقوّي النية الوعي والتوجه في العبادة.",
+      "source_question_tr": "Bir öğrenci “Niyetin ibadet bilinciyle hiçbir ilişkisi yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+      "source_correct_answer_tr": "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+      "source_options_tr": [
+        "İbadetin kaynağını insan tercihine dönüştürür",
+        "Bütün şekil ve şartları gereksiz kılar",
+        "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+        "İbadeti sadece bir alışkanlığa çevirir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "تحوّل مصدر العبادة إلى الاختيار الشخصي",
+        "تلغي كل الشروط والأشكال",
+        "توجّه العمل ليُفعل بوعي طلبًا لرضا الله",
+        "تحوّل العبادة إلى عادة فقط"
+      ]
+    },
+    "DEEN-U11-S07-006": {
+      "question_ar": "أي عبارة تعكس الأساس المشترك للطهارة بصورة صحيحة؟",
+      "correct_answer_ar": "ترتبط مباشرةً بالاستعداد والشروط لبعض العبادات",
+      "explanation_ar": "ترتبط الطهارة خصوصًا بالاستعداد لعبادات مثل الصلاة.",
+      "source_question_tr": "Temizlik konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+      "source_correct_answer_tr": "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+      "source_options_tr": [
+        "İbadetlerle hiçbir ilişkisi yoktur",
+        "Sadece estetik amaçlıdır",
+        "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+        "Yalnızca seyahatle ilgilidir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Diyanet, İbadetim; Diyanet, Namaz İlmihali; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "لا علاقة لها بالعبادات",
+        "غايتها جمالية فقط",
+        "ترتبط مباشرةً بالاستعداد والشروط لبعض العبادات",
+        "تتعلق بالسفر فقط"
+      ]
+    },
+    "DEEN-U11-S07-007": {
+      "question_ar": "يسألك صديق عن الشكل والروح في العبادة. ماذا تقول له؟",
+      "correct_answer_ar": "الشكل المقرر مهم، والنية والإخلاص يمثلان روح العبادة",
+      "explanation_ar": "يجتمع في العبادة الشكل المعتبر مع النية والإخلاص.",
+      "source_question_tr": "Bir arkadaşın Şekil ve ruh hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_correct_answer_tr": "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+      "source_options_tr": [
+        "Sadece şekil önemlidir niyet gereksizdir",
+        "Sadece niyet yeterlidir ibadet biçimi önemsizdir",
+        "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+        "Ne şeklin ne niyetin önemi vardır"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "الشكل وحده مهم والنية غير ضرورية",
+        "النية وحدها تكفي والشكل غير مهم",
+        "الشكل المقرر مهم، والنية والإخلاص يمثلان روح العبادة",
+        "لا الشكل ولا النية مهمان"
+      ]
+    },
+    "DEEN-U11-S07-008": {
+      "question_ar": "كيف نصحح عبارة: «لا علاقة للزكاة بالمشاركة والتكافل»؟",
+      "correct_answer_ar": "المشاركة والمسؤولية الاجتماعية",
+      "explanation_ar": "ترتبط الزكاة بالمشاركة والتكافل والمسؤولية الاجتماعية.",
+      "source_question_tr": "“Zekâtın paylaşma ve yardımlaşmayla ilgisi yoktur.” ifadesindeki hatayı hangi seçenek düzeltir?",
+      "source_correct_answer_tr": "Paylaşma ve toplumsal sorumluluk",
+      "source_options_tr": [
+        "Gösteriş için harcama",
+        "Sadece bireysel birikimi artırma",
+        "Paylaşma ve toplumsal sorumluluk",
+        "Yardımlaşmayı azaltma"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "الإنفاق للرياء",
+        "زيادة الادخار الفردي فقط",
+        "المشاركة والمسؤولية الاجتماعية",
+        "تقليل التعاون"
+      ]
+    },
+    "DEEN-U11-S07-009": {
+      "question_ar": "كيف نصحح عبارة: «العبادة المنتظمة تهدف إلى إضعاف الشعور بالمسؤولية»؟",
+      "correct_answer_ar": "تنمية الشعور بالمسؤولية والانضباط",
+      "explanation_ar": "يمكن للعبادات أن تدعم المسؤولية والانضباط.",
+      "source_question_tr": "“Düzenli ibadet sorumluluk duygusunu zayıflatmayı amaçlar.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+      "source_correct_answer_tr": "Sorumluluk ve düzen bilincini",
+      "source_options_tr": [
+        "Sorumluluktan kaçmayı",
+        "Zamanı tamamen önemsiz görmeyi",
+        "Sorumluluk ve düzen bilincini",
+        "Başkalarını küçümsemeyi"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "الهروب من المسؤولية",
+        "اعتبار الوقت بلا قيمة",
+        "تنمية الشعور بالمسؤولية والانضباط",
+        "احتقار الآخرين"
+      ]
+    },
+    "DEEN-U11-S07-010": {
+      "question_ar": "أكمل بلا تلميح: تمنح النية العبادة ___ واعيًا.",
+      "correct_answer_ar": "توجهًا",
+      "explanation_ar": "تقوّي النية الوعي والتوجه في العبادة.",
+      "source_question_tr": "İpucu olmadan tamamla: Niyet ibadete bilinçli bir ___ kazandırır.",
+      "source_correct_answer_tr": "yöneliş",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U11-S07-011": {
+      "question_ar": "أكمل بلا تلميح: الطهارة تُعد ___ لبعض العبادات.",
+      "correct_answer_ar": "استعدادًا",
+      "explanation_ar": "ترتبط الطهارة خصوصًا بالاستعداد لعبادات مثل الصلاة.",
+      "source_question_tr": "İpucu olmadan tamamla: Temizlik bazı ibadetlere ___ niteliği taşır.",
+      "source_correct_answer_tr": "hazırlık",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Diyanet, İbadetim; Diyanet, Namaz İlmihali; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U11-S07-012": {
+      "question_ar": "صِل المفاهيم بتعريفاتها: الإخلاص، الصيام، الدعاء، العبادة والأخلاق.",
+      "correct_answer_ar": null,
+      "explanation_ar": "تجمع هذه المفاهيم بين روح العبادة وأثرها الأخلاقي.",
+      "source_question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: İhlas, Oruç, Dua ve İbadet ve ahlak.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "İhlas",
+          "right": "Allah'a içtenlikle yönelmek"
+        },
+        {
+          "left": "Oruç",
+          "right": "Kulluk takva sabır ve sorumluluk"
+        },
+        {
+          "left": "Dua",
+          "right": "Kulun Allah'a yönelmesi ve O'ndan istemesi"
+        },
+        {
+          "left": "İbadet ve ahlak",
+          "right": "Kulluk bilinci ile güzel davranışların birbirini desteklemesi"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "pairs_ar": [
+        {
+          "left": "الإخلاص",
+          "right": "التوجه إلى الله بصدق"
+        },
+        {
+          "left": "الصيام",
+          "right": "العبودية والتقوى والصبر والمسؤولية"
+        },
+        {
+          "left": "الدعاء",
+          "right": "توجه العبد إلى الله وسؤاله"
+        },
+        {
+          "left": "العبادة والأخلاق",
+          "right": "دعم وعي العبودية للسلوك الحسن"
+        }
+      ]
+    },
+    "DEEN-U11-S07-013": {
+      "question_ar": "أكمل الفراغ: تحمل الزكاة مع العبادة بُعد ___ والتكافل.",
+      "correct_answer_ar": "المشاركة",
+      "explanation_ar": "ترتبط الزكاة بالمشاركة والتكافل.",
+      "source_question_tr": "Boşluğu tamamla: Zekât ibadetle birlikte ___ ve yardımlaşma boyutu taşır.",
+      "source_correct_answer_tr": "paylaşma",
+      "source_options_tr": [
+        "kulluk",
+        "ihlas",
+        "paylaşma",
+        "yöneliş"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "العبودية",
+        "الإخلاص",
+        "المشاركة",
+        "التوجه"
+      ]
+    },
+    "DEEN-U11-S07-014": {
+      "question_ar": "صح أم خطأ؟ تهدف العبادة المنتظمة إلى إضعاف الشعور بالمسؤولية.",
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "يمكن للعبادات أن تدعم المسؤولية والانضباط.",
+      "source_question_tr": "Doğru mu, yanlış mı? Düzenli ibadet sorumluluk duygusunu zayıflatmayı amaçlar.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Din İşleri Yüksek Kurulu, “İbadet ne demektir ve kaç kısma ayrılır?”; Diyanet, İbadetim; Kur’an 98:5, Diyanet Kur’an Yolu; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ]
     }
   }
 }
