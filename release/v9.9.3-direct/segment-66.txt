@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9345arabicuilastmile2'
+  version:'9346u01arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -189,7 +189,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9345arabicuilastmile2';
+   const token='9346u01arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -502,6 +502,95 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  };
  Object.assign(chromeMap,turkishUnitNames);
 
+ const u01ChromeMap={
+  "İslam'la Tanış":'تعرّف إلى الإسلام',
+  'Müslüman Kimdir?':'من هو المسلم؟',
+  'Kavramları Eşleştir':'طابق المفاهيم',
+  'Günlük Hayat':'الحياة اليومية',
+  'Bildiklerini Kullan':'طبّق ما تعلمته',
+  'Akıllı Tekrar':'مراجعة ذكية',
+  'Ünite Challenge':'تحدّي الوحدة',
+  'Pekiştir ve Hatırla':'عزّز وتذكّر',
+  'ÖĞREN':'تعلّم',
+  'ANLA':'افهم',
+  'UYGULA':'طبّق',
+  'HATIRLA':'تذكّر',
+  'USTALAŞ':'أتقن',
+  'DİNLE':'استمع',
+  'KISA DERS':'درس قصير',
+  'PEKİŞTİRME':'تعزيز',
+  'USTALIK':'إتقان',
+  'SIRADAKİ AŞAMA':'المرحلة التالية',
+  'Önceki aşamayı tamamla':'أكمل المرحلة السابقة',
+  'Aşama tamamlandı':'اكتملت المرحلة',
+  'Bu aşama':'هذه المرحلة',
+  'Sıradaki mini ders':'الدرس المصغّر التالي',
+  'Hedef':'الهدف',
+  'İlerleme':'التقدّم',
+  'Aşama ilerlemesi':'تقدّم المرحلة',
+  'Neden kilitli?':'لماذا هذه المرحلة مقفلة؟',
+  'Bu aşama için doğrulanmış medya gerekiyor.':'تحتاج هذه المرحلة إلى وسائط موثّقة.',
+  'Bağlantı gelene kadar enerji harcanmaz.':'لن تُستهلك الطاقة حتى يتوفر الاتصال.',
+  'PEKİŞTİRMEYE BAŞLA':'ابدأ التعزيز',
+  'KALDIĞIN YERDEN DEVAM':'تابع من حيث توقفت',
+  'AŞAMAYA BAŞLA':'ابدأ المرحلة',
+  'Her mini ders bir öncekinin üzerine kurulur; soru seçimi sadece rastgele değildir.':'كل درس مصغّر يبنى على ما قبله؛ واختيار الأسئلة ليس عشوائيًا فقط.',
+  'BU AŞAMADA':'في هذه المرحلة',
+  'XP KAZAN':'اكسب XP',
+  'Bu aşama henüz kilitli':'هذه المرحلة ما زالت مقفلة',
+  'Önce bir önceki ünitenin son aşamasını tamamla.':'أكمل أولًا المرحلة الأخيرة من الوحدة السابقة.',
+  'İslam, Müslüman, iman, ibadet ve ahlak gibi temel kavramlarla tanış.':'تعرّف إلى المفاهيم الأساسية مثل الإسلام والمسلم والإيمان والعبادة والأخلاق.',
+  'Çok Kolay Tanışma':'تعارف سهل جدًا',
+  'Konuyla güvenli ve düşük eforlu bir ilk temas kur.':'ابدأ تعارفًا أوليًا آمنًا وسهلًا مع الموضوع.',
+  'Temel Kavram Tanıma':'التعرّف على المفاهيم الأساسية',
+  'Ana kavramları örnekler ve karşıtları üzerinden tanı.':'تعرّف على المفاهيم الأساسية من خلال الأمثلة وما يقابلها.',
+  'Kontrollü Recall':'استرجاع موجّه',
+  'İpuçları azalırken temel bilgiyi kontrollü biçimde geri çağır.':'استرجع المعلومات الأساسية تدريجيًا مع تقليل التلميحات.',
+  'Ayrım Yap':'ميّز بين المفاهيم',
+  'Yakın kavramları birbirinden ayır ve sınırlarını fark et.':'ميّز بين المفاهيم المتقاربة وحدّد الفروق بينها.',
+  'Eşleştir & Doğrula':'طابق وتحقّق',
+  'Kavramı doğru anlam, örnek veya ifadeyle eşleştir.':'طابق المفهوم مع معناه أو مثاله الصحيح.',
+  'Boşluğu Doldur':'املأ الفراغ',
+  'Kavramı görmeden eksik bilgiyi zihninden tamamla.':'أكمل المعلومة الناقصة من ذاكرتك دون رؤية المفهوم.',
+  'Karma Kavram Kontrolü':'مراجعة مفاهيم متنوعة',
+  'Farklı soru biçimleriyle kavramsal anlayışını doğrula.':'تحقّق من فهمك للمفاهيم عبر أنواع مختلفة من الأسئلة.',
+  'Basit Senaryo':'موقف بسيط',
+  'Öğrendiğin ilkeyi açık ve basit bir duruma uygula.':'طبّق المبدأ الذي تعلمته على موقف واضح وبسيط.',
+  'Bilgiyi günlük bir karar veya davranış bağlamında kullan.':'استخدم معرفتك في قرار أو سلوك من الحياة اليومية.',
+  'Hatayı Yakala':'اكتشف الخطأ',
+  'Yanlış genellemeyi veya hatalı uygulamayı fark et.':'اكتشف التعميم الخاطئ أو التطبيق غير الصحيح.',
+  'Zor Uygulama Karması':'تطبيقات متقدمة متنوعة',
+  'Farklı durumlarda bilgiyi daha bağımsız ve seçici kullan.':'استخدم معرفتك باستقلالية أكبر في مواقف متنوعة.',
+  'Boşluktan Hatırla':'استرجاع عبر الفراغ',
+  'Cevabı görmeden bilgiyi zihninden geri çağır.':'استرجع المعلومة من ذاكرتك دون رؤية الإجابة.',
+  'Aşamalı Hatırlama':'استرجاع تدريجي',
+  'İpuçlarını azaltarak daha bağımsız hatırlamaya geç.':'قلّل التلميحات تدريجيًا وانتقل إلى الاسترجاع المستقل.',
+  'Aralıklı Karma Tekrar':'مراجعة متباعدة متنوعة',
+  'Önceki mini derslerden karışık ve vadesi gelen bilgileri pekiştir.':'عزّز معلومات متنوعة ومستحقة للمراجعة من الدروس المصغّرة السابقة.',
+  'Önceki derslerden karışık ve vadesi gelen bilgileri pekiştir.':'عزّز معلومات متنوعة ومستحقة للمراجعة من الدروس السابقة.',
+  'Ustalık Provası':'تمرين الإتقان',
+  'Challenge öncesi karma ve daha zor bir prova yap.':'أجرِ تدريبًا متنوعًا وأكثر صعوبة قبل تحدّي الإتقان.',
+  'Recognition, recall ve application karışımıyla üniteni ustalık seviyesinde sınırla.':'اختبر إتقانك للوحدة بمزيج من التعرّف والاسترجاع والتطبيق.',
+  'Son cevaplarda zorlandı':'واجه صعوبة في الإجابات الأخيرة',
+  'Hafıza gücü düşük':'ثبات الذاكرة منخفض',
+  'Yeni soru varyasyonu':'نسخة سؤال جديدة',
+  'Karma pekiştirme':'تعزيز متنوع',
+  'öğrenme özeti':'ملخّص التعلّم',
+  'HAFIZA PLANI AKTİF':'خطة الذاكرة مفعّلة',
+  'ETKİNLİK TÜRÜ':'نوع النشاط',
+  'TEKRAR ÖNCELİĞİ':'أولوية المراجعة',
+  'KALICI PLAN':'الخطة طويلة الأمد',
+  'Bu macro aşama tamamlandı; bir sonraki düğüm artık açılabilir.':'اكتملت هذه المرحلة؛ يمكن الآن فتح المحطة التالية.',
+  'Aynı atanmış soru seti korunur; tekrar denemesi yeni first-pass içeriği tüketmez.':'سيتم الاحتفاظ بمجموعة الأسئلة نفسها؛ إعادة المحاولة لا تستهلك محتوى جديدًا.',
+  'Ünite tamamlandı':'اكتملت الوحدة',
+  'Bu aşamada ilerliyorsun':'أنت تتقدّم في هذه المرحلة',
+  'Aynı aşama tamamlanmadan sonraki düğüm açılmaz.':'لن تُفتح المحطة التالية قبل إكمال هذه المرحلة.',
+  'mevcut aşamaya git':'انتقل إلى المرحلة الحالية',
+  '5 aşamalı öğrenme yolu':'مسار تعلّم من 5 مراحل'
+ };
+ Object.assign(chromeMap,u01ChromeMap);
+ const u01PhrasePairs=Object.entries(u01ChromeMap).sort((a,b)=>b[0].length-a[0].length);
+
  function arabizeDynamicText(input){
   let out=String(input??'');
 
@@ -515,6 +604,24 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   out=out.replace(/ÜNİTE\s*(\d+)\s*·\s*AŞAMA\s*(\d+)\s*\/\s*(\d+)/gi,
    (m,u,s,t)=>'الوحدة '+u+' · المرحلة '+s+'/'+t);
   out=out.replace(/(\d+)\.\s*KISIM\s*·\s*(\d+)\.\s*ÜNİTE/gi,'القسم $1 · الوحدة $2');
+  out=out.replace(/(\d+)\s*\/\s*5\s*aşama\s*·\s*Ustalık\s*%\s*(\d+)/gi,'$1/5 مراحل · الإتقان $2٪');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*mini ders tamamlandı/gi,'أُكمل $1/$2 من الدروس المصغّرة');
+  out=out.replace(/(\d+)\s*mini ders tamamlandı/gi,'أُكمل $1 من الدروس المصغّرة');
+  out=out.replace(/(\d+)\s*mini ders/gi,'$1 دروس مصغّرة');
+  out=out.replace(/(\d+)\s*soru/gi,'$1 أسئلة');
+  out=out.replace(/Ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس $1/$2');
+  out=out.replace(/Ustalık\s*%\s*(\d+)/gi,'الإتقان $1٪');
+  out=out.replace(/Ustalık challenge\s*·\s*(\d+)\s*أسئلة/gi,'تحدّي الإتقان · $1 أسئلة');
+  out=out.replace(/Ustalık challenge\s*·\s*(\d+)\s*soru/gi,'تحدّي الإتقان · $1 أسئلة');
+  out=out.replace(/(\d+)\.\s*Aşama\s*·\s*(\d+)\s*dk/gi,'المرحلة $1 · $2 دقائق');
+  out=out.replace(/Etkinlik\s*·\s*(\d+)\s*dk/gi,'نشاط · $1 دقائق');
+  out=out.replace(/Uygulama\s*·\s*(\d+)\s*dk/gi,'تطبيق · $1 دقائق');
+  out=out.replace(/Karma Tekrar\s*·\s*(\d+)\s*dk/gi,'مراجعة متنوعة · $1 دقائق');
+  out=out.replace(/Tekrar\s*·\s*(\d+)\s*dk/gi,'مراجعة · $1 دقائق');
+  out=out.replace(/Meydan Okuma\s*·\s*(\d+)\s*dk/gi,'تحدٍّ · $1 دقائق');
+  out=out.replace(/Sıradaki:\s*/gi,'التالي: ');
+  out=out.replace(/✓\s*TAMAMLANDI/gi,'✓ مكتمل');
+  for(const [tr,ar] of u01PhrasePairs)if(out.includes(tr))out=out.split(tr).join(ar);
   const exact=chromeMap[out.trim()];
   if(exact)return out.replace(out.trim(),exact);
 
@@ -648,6 +755,14 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    }
    if(out)node.nodeValue=raw.replace(trim,out);
   }
+  root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+   for(const attr of ['aria-label','title','placeholder']){
+    const raw=el.getAttribute?.(attr);
+    if(!raw)continue;
+    const converted=arabizeDynamicText(raw);
+    if(converted!==raw)el.setAttribute(attr,converted);
+   }
+  });
   localizeLearningLoop(root);
 
   const rv=document.getElementById('resultView');
