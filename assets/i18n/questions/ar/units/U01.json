@@ -3812,6 +3812,156 @@
       "activity_type": "card_choice",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U01-S04-007": {
+      "question_ar": "يقول صديق: «أستطيع أن أحكم حكمًا قاطعًا على أخلاق الإنسان كلها بمجرد النظر إلى عباداته». ما المشكلة في هذه العبارة؟",
+      "options_ar": [
+        "يحكم حكمًا قاطعًا على أخلاق الإنسان كلها انطلاقًا من سلوك واحد.",
+        "يقول إن العبادة لا علاقة لها بالأخلاق مطلقًا.",
+        "يزعم أن الأخلاق مهمة في وقت العبادة فقط.",
+        "يخطئ لأنه يرى العبادة مجرد اختيار شخصي."
+      ],
+      "correct_answer_ar": "يحكم حكمًا قاطعًا على أخلاق الإنسان كلها انطلاقًا من سلوك واحد.",
+      "explanation_ar": "العبادة والأخلاق مترابطتان لكنهما ليستا مفهومًا واحدًا، ولا يصح التسرع في الحكم القاطع على باطن الإنسان وظاهره كله من مظهر واحد.",
+      "source_question_tr": "Bir arkadaşın \"Bir kişinin ibadet hayatına bakarak onun bütün ahlakı hakkında kesin hüküm verebilirim\" diyor. Bu ifadedeki sorun nedir?",
+      "source_correct_answer_tr": "Tek bir davranıştan kişinin bütün ahlakı hakkında kesin hüküm veriyor.",
+      "source_options_tr": [
+        "Tek bir davranıştan kişinin bütün ahlakı hakkında kesin hüküm veriyor.",
+        "İbadetin ahlakla hiçbir ilişkisi olmadığını söylüyor.",
+        "Ahlakın yalnızca ibadet sırasında önemli olduğunu savunuyor.",
+        "İbadetin kişisel bir tercih olduğunu düşündüğü için yanılıyor."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 53:32 (Diyanet meali/tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.363; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "final_runtime_repair": true
+    },
+    "DEEN-U01-S06-001": {
+      "question_ar": "يقول صديق: «الإسلام مجرد نظام يتكوّن من عبادات محددة». كيف تشرح له الإطار الأساسي الذي تعلمته؟",
+      "options_ar": [
+        "الإسلام منهج حياة يجمع الإيمان والعبادة والأخلاق.",
+        "الإسلام مجال يقتصر على عبادات محددة فقط.",
+        "الإسلام يتعلق أساسًا بتعلم التاريخ والثقافة.",
+        "الإسلام تقليد شخصي يُعاش في أماكن العبادة فقط."
+      ],
+      "correct_answer_ar": "الإسلام منهج حياة يجمع الإيمان والعبادة والأخلاق.",
+      "explanation_ar": "الإسلام لا يقتصر على العبادة وحدها، بل يشمل الاعتقاد والعبادة والأخلاق في إطار مترابط.",
+      "source_question_tr": "Bir arkadaşın \"İslam sadece belirli ibadetlerden oluşan bir sistemdir\" diyor. Öğrendiğin temel çerçeveye göre ona nasıl bir açıklama yaparsın?",
+      "source_correct_answer_tr": "İslam; iman, ibadet ve ahlakı birlikte ele alan bir yaşam anlayışıdır.",
+      "source_options_tr": [
+        "İslam; iman, ibadet ve ahlakı birlikte ele alan bir yaşam anlayışıdır.",
+        "İslam yalnızca belirli ibadetlerden oluşan bir uygulama alanıdır.",
+        "İslam daha çok tarih ve kültür bilgisini öğrenmekle ilgilidir.",
+        "İslam sadece ibadet mekânlarında yaşanan kişisel bir gelenektir."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:112 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.363; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "final_runtime_repair": true
+    },
+    "DEEN-U01-S06-005": {
+      "question_ar": "يقول صديق: «الدين يُعاش في المسجد فقط ولا علاقة له بالحياة اليومية». كيف ترد وفق ما تعلمته؟",
+      "options_ar": [
+        "ينعكس الدين في السلوك اليومي كالصدق والاحترام، كما ينعكس في العبادة.",
+        "الدين يُعاش فقط في المسجد وغيره من أماكن العبادة.",
+        "لا صلة مباشرة بين السلوك اليومي والحياة الدينية.",
+        "المظهر الوحيد للدين في الحياة اليومية هو أداء عبادات محددة."
+      ],
+      "correct_answer_ar": "ينعكس الدين في السلوك اليومي كالصدق والاحترام، كما ينعكس في العبادة.",
+      "explanation_ar": "القيم الأخلاقية في الإسلام لا تقتصر على أماكن العبادة، بل تمتد إلى العلاقات والحياة اليومية.",
+      "source_question_tr": "Bir arkadaşın \"Din sadece camide/mescitte yaşanır, günlük hayatla ilgisi yoktur\" diyor. Öğrendiklerine göre bu görüşe nasıl bir açıklama getirirsin?",
+      "source_correct_answer_tr": "Din; ibadet kadar dürüstlük ve saygı gibi günlük davranışlara da yansır.",
+      "source_options_tr": [
+        "Din; ibadet kadar dürüstlük ve saygı gibi günlük davranışlara da yansır.",
+        "Din yalnızca cami ve diğer ibadet mekânlarında yaşanır.",
+        "Günlük davranışların dinî hayatla doğrudan bir ilişkisi yoktur.",
+        "Dinin günlük hayattaki tek karşılığı belirli ibadetleri yapmaktır."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:90 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.13; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "final_runtime_repair": true
+    },
+    "DEEN-U01-S06-008": {
+      "question_ar": "يقول صديق: «الإيمان مجرد جملة تُقال باللسان ولا علاقة له بالقلب». كيف تشرح له الأمر؟",
+      "options_ar": [
+        "الإيمان يتعلق بالتصديق والقبول في القلب، والقول أحد مظاهر التعبير عنه.",
+        "الإيمان عبارة لفظية تكتمل بمجرد قول الجمل الصحيحة.",
+        "لا علاقة للإيمان بالقلب؛ المهم فقط ما يسمعه الناس من الأقوال.",
+        "الإيمان عادة تتكوّن فقط من ترديد كلمات معينة في أوقات محددة."
+      ],
+      "correct_answer_ar": "الإيمان يتعلق بالتصديق والقبول في القلب، والقول أحد مظاهر التعبير عنه.",
+      "explanation_ar": "في هذا المدخل التعليمي يُقدَّم الإيمان أساسًا بوصفه تصديقًا وقبولًا في القلب، ويعبّر اللسان عنه.",
+      "source_question_tr": "Bir arkadaşın \"İman sadece dilden söylenen bir cümledir, kalple ilgisi yoktur\" diyor. Ona nasıl bir açıklama yaparsın?",
+      "source_correct_answer_tr": "İman kalpteki inanç ve kabulle ilgilidir; söz bunun dışa vurumlarından biridir.",
+      "source_options_tr": [
+        "İman kalpteki inanç ve kabulle ilgilidir; söz bunun dışa vurumlarından biridir.",
+        "İman yalnızca doğru cümleleri söylemekle tamamlanan sözlü bir ifadedir.",
+        "İmanın kalple ilgisi yoktur; önemli olan yalnızca insanların duyduğu sözlerdir.",
+        "İman sadece belirli zamanlarda tekrar edilen sözlerden oluşan bir alışkanlıktır."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 49:14-15 (Diyanet meali/tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.563; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "final_runtime_repair": true
+    },
+    "DEEN-U01-S06-011": {
+      "question_ar": "(مراجعة سريعة) ما المعنى الأساسي لكلمة «العبادة»؟",
+      "options_ar": [
+        "أعمال يقصد بها التعبّد لله عن وعي.",
+        "أعمال تقليدية تُفعل للحصول على قبول المجتمع.",
+        "حركات يكررها الإنسان لمجرد العادة.",
+        "قواعد اجتماعية تُطبق في أوقات محددة فقط."
+      ],
+      "correct_answer_ar": "أعمال يقصد بها التعبّد لله عن وعي.",
+      "explanation_ar": "العبادة هي التوجّه إلى الله بأعمال التعبّد مع قصد رضاه.",
+      "source_question_tr": "(Hızlı Tekrar) \"İbadet\" kelimesi en temelde neyi ifade eder?",
+      "source_correct_answer_tr": "Allah’a bilinçli kulluk amacı taşıyan davranışlar.",
+      "source_options_tr": [
+        "Allah’a bilinçli kulluk amacı taşıyan davranışlar.",
+        "Toplumda kabul görmek için yapılan geleneksel davranışlar.",
+        "Kişinin yalnızca alışkanlık olarak tekrarladığı hareketler.",
+        "Sadece belirli zamanlarda uygulanan toplumsal kurallar."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 98:5 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.139-140; REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "final_runtime_repair": true
+    },
+    "DEEN-U01-S07-007": {
+      "question_ar": "أيُّ عبارة تلخّص الدور الأساسي للنبي في الإسلام؟",
+      "options_ar": [
+        "رسول يبلّغ رسالة الله ويكون قدوة للناس بسيرته.",
+        "شخصية تاريخية تروي أحداث الماضي فقط.",
+        "قائد سياسي يضع القواعد الاجتماعية فقط.",
+        "معلّم يقدّم المعلومات لأهل عصره فقط."
+      ],
+      "correct_answer_ar": "رسول يبلّغ رسالة الله ويكون قدوة للناس بسيرته.",
+      "explanation_ar": "النبي محمد ﷺ رسول يبلّغ رسالة الله وقدوة للمسلمين في سيرته.",
+      "source_question_tr": "Peygamberin İslam'daki temel rolü aşağıdakilerden hangisiyle en iyi özetlenir?",
+      "source_correct_answer_tr": "Allah’ın mesajını ileten ve yaşamıyla insanlara örnek olan peygamber.",
+      "source_options_tr": [
+        "Allah’ın mesajını ileten ve yaşamıyla insanlara örnek olan peygamber.",
+        "Sadece geçmiş olayları anlatan tarihî bir kişi.",
+        "Yalnızca toplumsal kurallar koyan siyasi bir lider.",
+        "Sadece kendi dönemindeki insanlara bilgi veren bir öğretici."
+      ],
+      "source_pairs_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 33:39; 33:21 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review",
+      "final_runtime_repair": true
     }
   },
   "generated_from": "DEEN Turkish source bank",
@@ -3819,5 +3969,13 @@
   "notes": [
     "Answer indices, matching pair counts and blank structures are mechanically validated.",
     "Religious expert/native Arabic certification is still pending."
+  ],
+  "runtime_repairs_checked": [
+    "DEEN-U01-S04-007",
+    "DEEN-U01-S06-001",
+    "DEEN-U01-S06-005",
+    "DEEN-U01-S06-008",
+    "DEEN-U01-S06-011",
+    "DEEN-U01-S07-007"
   ]
 }
