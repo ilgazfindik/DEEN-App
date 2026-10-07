@@ -1101,6 +1101,440 @@
       "source_ref": "Kur'an 4:165; 5:67; 33:38-39 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
       "expert_approved": false,
       "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-001": {
+      "question_ar": "وفقًا لسورة الأنبياء 21:25، ما جوهر الدعوة المشتركة لجميع الرسل؟",
+      "options_ar": [
+        "أنه لا إله إلا الله وأن العبادة له وحده",
+        "أن لكل أمة إلهًا مختلفًا",
+        "أن تُعبد الأنبياء",
+        "أن الوحي غير ضروري"
+      ],
+      "correct_answer_ar": "أنه لا إله إلا الله وأن العبادة له وحده",
+      "explanation_ar": "تذكر الآية أن الله أوحى إلى كل رسول: «لا إله إلا أنا فاعبدون».",
+      "source_question_tr": "Enbiyâ 21:25'e göre bütün peygamberlerin ortak çağrısının özü nedir?",
+      "source_correct_answer_tr": "Allah'tan başka ilah olmadığı ve yalnız O'na kulluk edilmesi",
+      "source_options_tr": [
+        "Allah'tan başka ilah olmadığı ve yalnız O'na kulluk edilmesi",
+        "Her toplumun farklı ilaha kulluk etmesi",
+        "Peygamberlere ibadet edilmesi",
+        "Vahyin gereksiz görülmesi"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-002": {
+      "question_ar": "تؤكد سورة النحل 16:36 أن من جوهر دعوة الرسل إلى الأمم عبادة الله.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "تذكر الآية أن الله بعث في كل أمة رسولًا يدعو إلى عبادة الله واجتناب الطاغوت.",
+      "source_question_tr": "Nahl 16:36, farklı ümmetlere gönderilen elçilerin ortak çağrısında Allah'a kulluğu vurgular.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-003": {
+      "question_ar": "إرسال الأنبياء إلى أمم مختلفة يعني أن رسالاتهم في التوحيد كانت متعارضة.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "خطأ",
+      "explanation_ar": "تقرر الأنبياء 21:25 وحدة دعوة الرسل إلى توحيد الله وعبادته.",
+      "source_question_tr": "Peygamberlerin farklı toplumlara gönderilmesi, tevhid mesajlarının birbirine zıt olduğu anlamına gelir.",
+      "source_correct_answer_tr": "Yanlış",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "true_false",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-004": {
+      "question_ar": "تذكر سورة الأنبياء 21:25 أن رسالة الرسل هي: «لا إله إلا أنا فـ______».",
+      "options_ar": [
+        "اعبدون",
+        "اعترضوا",
+        "أشركوا",
+        "استكبروا"
+      ],
+      "correct_answer_ar": "اعبدون",
+      "explanation_ar": "تلخّص الآية دعوة الرسل المشتركة إلى التوحيد وعبادة الله.",
+      "source_question_tr": "Enbiyâ 21:25 bütün peygamberlerin 'Benden başka ilah yoktur; bana ______ edin' mesajını taşıdığını bildirir.",
+      "source_correct_answer_tr": "kulluk",
+      "source_options_tr": [
+        "kulluk",
+        "itiraz",
+        "ortaklık",
+        "üstünlük"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "fill_blank",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-005": {
+      "question_ar": "يقول طالب: «كل نبي دعا إلى إله مختلف». ما الجواب الأكثر مباشرة؟",
+      "options_ar": [
+        "تذكر الأنبياء 21:25 أن جميع الرسل دعوا إلى عبادة الله الواحد",
+        "يدعو القرآن إلى آلهة متعددة",
+        "الرسل يدعون إلى أنفسهم فقط",
+        "الوحي لا صلة له بالإله"
+      ],
+      "correct_answer_ar": "تذكر الأنبياء 21:25 أن جميع الرسل دعوا إلى عبادة الله الواحد",
+      "explanation_ar": "يعلّم القرآن وحدة جوهر دعوة الرسل في التوحيد.",
+      "source_question_tr": "Bir öğrenci 'Her peygamber farklı bir tanrıya çağırmıştır' diyor. En doğrudan cevap hangisidir?",
+      "source_correct_answer_tr": "Enbiyâ 21:25 bütün peygamberlerin tek Allah'a kulluk çağrısını bildirir",
+      "source_options_tr": [
+        "Enbiyâ 21:25 bütün peygamberlerin tek Allah'a kulluk çağrısını bildirir",
+        "Kur'an çok sayıda ilaha çağırır",
+        "Peygamberler yalnız kendi adlarına çağrı yapar",
+        "Vahyin ilahla ilgisi yoktur"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-006": {
+      "question_ar": "يقول شخص: «الإيمان بالرسل يسمح بقبول بعضهم وإنكار بعضهم». أي مبدأ يصحح ذلك؟",
+      "options_ar": [
+        "عدم التفريق بين رسل الله في أصل الإيمان كما في البقرة 2:285",
+        "الإيمان بأحدث رسول فقط",
+        "قبول رسول قوم واحد فقط",
+        "اعتبار الرسل قادة عاديين"
+      ],
+      "correct_answer_ar": "عدم التفريق بين رسل الله في أصل الإيمان كما في البقرة 2:285",
+      "explanation_ar": "تذكر الآية أن المؤمنين لا يفرّقون بين أحد من رسل الله من جهة الإيمان.",
+      "source_question_tr": "Bir kişi 'Peygamberlere iman, birini kabul edip diğerini inkâr etmeye izin verir' diyor. Hangi ilke bunu düzeltir?",
+      "source_correct_answer_tr": "Bakara 2:285'te elçiler arasında iman bakımından ayrım yapmama",
+      "source_options_tr": [
+        "Bakara 2:285'te elçiler arasında iman bakımından ayrım yapmama",
+        "Yalnız en yeni peygambere inanma",
+        "Yalnız bir kavmin peygamberini kabul etme",
+        "Peygamberleri sıradan lider sayma"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 2:285; 4:136 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-007": {
+      "question_ar": "يقول كتاب دراسي: «أسماء جميع الأنبياء موجودة في القرآن». ما المعلومة التي تنقض هذا التعميم؟",
+      "options_ar": [
+        "تذكر النساء 4:164 أن من الرسل من لم يُقصص على النبي ﷺ",
+        "تذكر البقرة 2:285 رسولًا واحدًا فقط",
+        "تنكر الأنبياء 21:25 النبوة",
+        "تقول النحل 16:36 إنه لم يُرسل رسل"
+      ],
+      "correct_answer_ar": "تذكر النساء 4:164 أن من الرسل من لم يُقصص على النبي ﷺ",
+      "explanation_ar": "لا يذكر القرآن أنه سرد أسماء جميع الأنبياء.",
+      "source_question_tr": "Bir ders kitabı 'Bütün peygamberlerin Kur'an'da isimleri vardır' diyor. Hangi bilgi bu genellemeyi bozar?",
+      "source_correct_answer_tr": "Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir",
+      "source_options_tr": [
+        "Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir",
+        "Bakara 2:285 yalnız bir peygamberden söz eder",
+        "Enbiyâ 21:25 peygamberliği reddeder",
+        "Nahl 16:36 peygamber olmadığını söyler"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "scenario",
+      "source_ref": "Kur'an 4:163-164 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-008": {
+      "question_ar": "كُتب في ملاحظة: «الرسالة المشتركة للأنبياء هي أن يُعبدوا هم». أين الخطأ؟",
+      "options_ar": [
+        "دعوتهم المشتركة هي عبادة الله وحده",
+        "الأنبياء أعلنوا أنفسهم آلهة",
+        "لا وجود للتوحيد في النبوة",
+        "الأنبياء لا يتلقون الوحي"
+      ],
+      "correct_answer_ar": "دعوتهم المشتركة هي عبادة الله وحده",
+      "explanation_ar": "تصرح الأنبياء 21:25 بأن الرسل يدعون الناس إلى عبادة الله لا إلى عبادة أنفسهم.",
+      "source_question_tr": "Bir notta 'Peygamberlerin ortak mesajı kendilerine ibadet edilmesidir' yazıyor. Hata nedir?",
+      "source_correct_answer_tr": "Ortak çağrı yalnız Allah'a kulluktur",
+      "source_options_tr": [
+        "Ortak çağrı yalnız Allah'a kulluktur",
+        "Peygamberler kendilerini ilah ilan eder",
+        "Tevhid peygamberlikte yoktur",
+        "Peygamberler vahiy almaz"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "error_spotting",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-009": {
+      "question_ar": "صِل الآيات المتعلقة بالإيمان بالرسل برسائلها الرئيسة.",
+      "pairs_ar": [
+        {
+          "left": "البقرة 2:285",
+          "right": "عدم التفريق بين الرسل في أصل الإيمان"
+        },
+        {
+          "left": "الأنبياء 21:25",
+          "right": "دعوة جميع الرسل إلى التوحيد"
+        },
+        {
+          "left": "النساء 4:164",
+          "right": "وجود رسل لم تُذكر قصصهم في القرآن"
+        }
+      ],
+      "explanation_ar": "تميّز هذه الآيات بين شمول الإيمان، ووحدة الرسالة، وحدود ما سُمّي من الرسل.",
+      "source_question_tr": "Peygamberlere imanla ilgili ayetleri ana mesajlarıyla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Bakara 2:285",
+          "right": "Elçiler arasında iman bakımından ayrım yapmamak"
+        },
+        {
+          "left": "Enbiyâ 21:25",
+          "right": "Bütün peygamberlerin tevhid çağrısı"
+        },
+        {
+          "left": "Nisâ 4:164",
+          "right": "Bazı peygamberlerin Kur'an'da anlatılmaması"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-010": {
+      "question_ar": "صِل التوحيد والرسالة ووحدة الإيمان بمعانيها الصحيحة.",
+      "pairs_ar": [
+        {
+          "left": "التوحيد",
+          "right": "الإقرار بأن الله وحده هو الإله"
+        },
+        {
+          "left": "الرسالة",
+          "right": "إيصال رسالة الله بوظيفة الرسول"
+        },
+        {
+          "left": "وحدة الإيمان",
+          "right": "ألا يكون الإيمان انتقائيًّا بإنكار بعض رسل الله"
+        }
+      ],
+      "explanation_ar": "يُفهم الإيمان بالرسل في إطار التوحيد والرسالة وتصديق جميع رسل الله.",
+      "source_question_tr": "Tevhid, risalet ve iman bütünlüğünü doğru anlamlarıyla eşleştir.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": [
+        {
+          "left": "Tevhid",
+          "right": "Yalnız Allah'ın ilah oluşunu kabul etmek"
+        },
+        {
+          "left": "Risalet",
+          "right": "Allah'ın mesajını elçilik göreviyle ulaştırmak"
+        },
+        {
+          "left": "İman bütünlüğü",
+          "right": "Allah'ın peygamberlerinden birini inkâr ederek seçmeci davranmamak"
+        }
+      ],
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "matching",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-011": {
+      "question_ar": "وجود رسل لم تُذكر أسماؤهم في القرآن يدل على أن الإيمان بالرسل لا ينبغي اختزاله في حفظ الأسماء فقط.",
+      "options_ar": [
+        "صحيح",
+        "خطأ"
+      ],
+      "correct_answer_ar": "صحيح",
+      "explanation_ar": "تذكر النساء 4:164 صراحةً أن من الرسل من لم يُقصص على النبي ﷺ.",
+      "source_question_tr": "Kur'an'da adı verilmeyen peygamberlerin bulunması, peygamberlere imanı yalnız isim ezberine indirgememek gerektiğini gösterir.",
+      "source_correct_answer_tr": "Doğru",
+      "source_options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "speed_review",
+      "source_ref": "Kur'an 4:163-164 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-012": {
+      "question_ar": "لخّص بإيجاز الدعوة المشتركة لجميع الرسل.",
+      "correct_answer_ar": "عبادة الله وحده، وعدم اتخاذ إله سواه، واجتناب الطاغوت.",
+      "explanation_ar": "تؤكد الأنبياء 21:25 والنحل 16:36 وحدة دعوة التوحيد.",
+      "source_question_tr": "Bütün peygamberlerin ortak çağrısını kısa biçimde özetle.",
+      "source_correct_answer_tr": "Yalnız Allah'a kulluk etmek, O'ndan başka ilah kabul etmemek ve sahte ilahlardan uzak durmak.",
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "progressive_recall",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-013": {
+      "question_ar": "وفقًا للنحل 16:36، دعا الرسل إلى: «اعبدوا الله واجتنبوا ______».",
+      "options_ar": [
+        "الطاغوت",
+        "العلم",
+        "الخير",
+        "الوحي"
+      ],
+      "correct_answer_ar": "الطاغوت",
+      "explanation_ar": "تلخّص الآية دعوة الرسل إلى عبادة الله واجتناب الطاغوت.",
+      "source_question_tr": "Nahl 16:36'ya göre elçiler, 'Allah'a kulluk edin ve ______ uzak durun' çağrısını yapmıştır.",
+      "source_correct_answer_tr": "sahte tanrılardan",
+      "source_options_tr": [
+        "sahte tanrılardan",
+        "bilgiden",
+        "iyilikten",
+        "vahiyden"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "missing_item",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-014": {
+      "question_ar": "رتّب الخطوات الصحيحة عند التفكير في وحدة الإيمان بالرسل.",
+      "items_ar": [
+        "أقرّ بأن مصدر الوحي هو الله",
+        "أقرّ بأن الله أرسل الرسل",
+        "اعرف دعوة الرسل المشتركة إلى التوحيد",
+        "لا تكن انتقائيًّا بإنكار أحد من رسل الله"
+      ],
+      "correct_order_ar": [
+        "أقرّ بأن مصدر الوحي هو الله",
+        "أقرّ بأن الله أرسل الرسل",
+        "اعرف دعوة الرسل المشتركة إلى التوحيد",
+        "لا تكن انتقائيًّا بإنكار أحد من رسل الله"
+      ],
+      "correct_answer_ar": null,
+      "explanation_ar": "يجمع هذا الترتيب بين مصدر الوحي وإرسال الرسل ووحدة دعوتهم وشمول الإيمان بهم.",
+      "source_question_tr": "Peygamberlere iman bütünlüğünü düşünürken doğru sırayı oluştur.",
+      "source_correct_answer_tr": null,
+      "source_options_tr": null,
+      "source_pairs_tr": null,
+      "source_items_tr": [
+        "Vahyin kaynağının Allah olduğunu kabul et",
+        "Allah'ın elçiler gönderdiğini kabul et",
+        "Elçilerin ortak tevhid çağrısını tanı",
+        "Elçilerden birini inkâr ederek seçmeci davranma"
+      ],
+      "source_correct_order_tr": [
+        "Vahyin kaynağının Allah olduğunu kabul et",
+        "Allah'ın elçiler gönderdiğini kabul et",
+        "Elçilerin ortak tevhid çağrısını tanı",
+        "Elçilerden birini inkâr ederek seçmeci davranma"
+      ],
+      "activity_type": "build_sequence",
+      "source_ref": "Kur'an 2:253,285; 3:144; 4:136,163-165; 5:67; 16:36; 18:110; 21:7-8,25; 33:21,38-40; 34:28 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-015": {
+      "question_ar": "عند الجمع بين البقرة 2:253 و2:285، ما النتيجة الأكثر توازنًا؟",
+      "options_ar": [
+        "قد تختلف درجات الرسل وبعض خصائصهم، لكننا لا ننكر أحدًا منهم في الإيمان",
+        "كل صفات الرسل متطابقة تمامًا",
+        "لا يؤمن إلا بأعلى الرسل درجة",
+        "اختلاف الدرجة يوجب إنكار بعض الرسل"
+      ],
+      "correct_answer_ar": "قد تختلف درجات الرسل وبعض خصائصهم، لكننا لا ننكر أحدًا منهم في الإيمان",
+      "explanation_ar": "تذكر البقرة 2:253 تفاوتًا بين الرسل، وتؤكد 2:285 عدم التفريق بينهم في أصل الإيمان.",
+      "source_question_tr": "Bakara 2:253 ile 2:285 birlikte düşünüldüğünde en dengeli sonuç hangisidir?",
+      "source_correct_answer_tr": "Peygamberlerin dereceleri ve bazı özellikleri farklı olabilir; iman bakımından hiçbirini inkâr etmeyiz",
+      "source_options_tr": [
+        "Peygamberlerin dereceleri ve bazı özellikleri farklı olabilir; iman bakımından hiçbirini inkâr etmeyiz",
+        "Bütün peygamberlerin her özelliği aynıdır",
+        "Yalnız en yüksek dereceli peygambere iman edilir",
+        "Derece farkı peygamberlerin bir kısmını inkâr etmeyi gerektirir"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 2:253; 2:285 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
+    },
+    "DEEN-U08-S04-016": {
+      "question_ar": "وفقًا للنحل 16:36، أي عبارة هي الأوفق بغاية إرسال الرسل؟",
+      "options_ar": [
+        "دعوة الناس إلى عبادة الله واجتناب الطاغوت",
+        "دعوة الناس إلى عبادة الرسل",
+        "إبعاد المجتمعات عن الوحي",
+        "تعليم كل أمة إلهًا مختلفًا"
+      ],
+      "correct_answer_ar": "دعوة الناس إلى عبادة الله واجتناب الطاغوت",
+      "explanation_ar": "تربط الآية إرسال الرسل بدعوة التوحيد والعبادة لله وحده.",
+      "source_question_tr": "Nahl 16:36'ya göre peygamberlerin gönderiliş gayesiyle en uyumlu ifade hangisidir?",
+      "source_correct_answer_tr": "İnsanları Allah'a kulluğa ve sahte ilahlardan uzak durmaya çağırmak",
+      "source_options_tr": [
+        "İnsanları Allah'a kulluğa ve sahte ilahlardan uzak durmaya çağırmak",
+        "İnsanları kendilerine ibadet ettirmek",
+        "Toplumları vahiyden uzaklaştırmak",
+        "Her ümmete ayrı bir ilah öğretmek"
+      ],
+      "source_pairs_tr": null,
+      "source_items_tr": null,
+      "source_correct_order_tr": null,
+      "activity_type": "multiple_choice",
+      "source_ref": "Kur'an 16:36; 21:25 (Diyanet/Kur'an Yolu); REQUIRES_EXPERT_VERIFICATION",
+      "expert_approved": false,
+      "status": "model_translated_pending_expert_review"
     }
   }
 }
