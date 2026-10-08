@@ -392,7 +392,11 @@
         "memory": "تلميح قصير: الدين الإسلام · الشخص مسلم"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "“Müslüman” deyince kimi kastediyoruz?": "من نقصد عندما نقول «مسلم»؟"
+      },
+      "source_evidence_note_ar": "إطار مصدري يدعم عدم اختزال الهوية الإسلامية في شرط النسب أو الجنسية."
     },
     "DEEN-U01-S02-P02": {
       "question_ar": "طابق مفاهيم الإيمان والعبادة والأخلاق والمسلم مع شروحها الصحيحة.",
@@ -449,7 +453,11 @@
         "memory": "تلميح قصير: آمن · اعبد · أحسن السلوك"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kavramları doğru açıklamalarına götür.": "صِل المفاهيم بتعريفاتها الصحيحة."
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S02-P03": {
       "question_ar": "يتصل الإيمان بما في قلب الإنسان من تصديق، وتؤدي العبادات دورًا مهمًّا في ظهور أثر هذا الإيمان في الحياة.",
@@ -478,7 +486,11 @@
         "memory": "تلميح قصير: يبدأ القبول من القلب"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İman kalpte başlar; ibadetler de onun hayata yansımasına yardım eder. Doğru mu?": "يبدأ الإيمان في القلب، وتساعد العبادات على ظهوره في الحياة. هل هذا صحيح؟"
+      },
+      "source_evidence_note_ar": "يدعم صلة الإيمان بالقلب وإطار الإيمان في حديث جبريل."
     },
     "DEEN-U01-S02-P04": {
       "question_ar": "أكمل الفراغ: الغاية من العبادة هي ___ لله وابتغاء رضاه.",
@@ -511,7 +523,8 @@
         "memory": "تلميح قصير: عبودية · إخلاص · رضا"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم مبدأ الإخلاص وطلب رضا الله في العبادة."
     },
     "DEEN-U01-S02-P05": {
       "question_ar": "ما دور النبي محمد ﷺ في الإسلام؟",
@@ -539,7 +552,11 @@
       "original_question_id": "DEEN-U01-S02-010",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Peygamberin görevi neydi?": "ما مهمة النبي؟"
+      },
+      "source_evidence_note_ar": "يدعم مهمة الرسل في تبليغ وحي الله والاقتداء بهم."
     },
     "DEEN-U01-S02-P06": {
       "question_ar": "ثلاثة شروح صحيحة. أيّها لا ينسجم مع خريطة المفاهيم؟",
@@ -567,7 +584,8 @@
       "original_question_id": "DEEN-U01-S02-014",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم مبادئ الأمانة والعدل والسلوك الصادق."
     },
     "DEEN-U01-S02-P07": {
       "question_ar": "ما أهمية القرآن بالنسبة إلى المسلمين؟",
@@ -595,7 +613,11 @@
       "original_question_id": "DEEN-U01-S02-009",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kur’an’ın hayatımızdaki yeri nedir?": "ما مكانة القرآن في حياتنا؟"
+      },
+      "source_evidence_note_ar": "يدعم وظيفة القرآن في الهداية والإرشاد."
     },
     "DEEN-U01-S02-P08": {
       "question_ar": "طابق المفاهيم الآتية بالمجالات المرتبطة بها.",
@@ -639,7 +661,11 @@
       "original_question_id": "DEEN-U01-S02-012",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kavramları ait oldukları alanlarla eşleştir.": "صِل المفاهيم بالمجالات التي تنتمي إليها."
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S02-P09": {
       "question_ar": "الإيمان والعبادة والأخلاق مفاهيم مستقلة تمامًا ولا علاقة بينها.",
@@ -663,7 +689,11 @@
       "original_question_id": "DEEN-U01-S02-011",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İman, ibadet ve ahlak birbirinden tamamen kopuk mudur?": "هل الإيمان والعبادة والأخلاق منفصلة تمامًا عن بعضها؟"
+      },
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S02-P10": {
       "question_ar": "الشخص الذي يعتنق الإسلام هو «___».",
@@ -691,7 +721,11 @@
       "original_question_id": "DEEN-U01-S02-005",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kayıp kelime: İslam’ı benimseyen kişiye “___” denir.": "الكلمة الناقصة: يُسمّى من يعتنق الإسلام «___»."
+      },
+      "source_evidence_note_ar": "يدعم التسليم لله والتسمية بكلمة «مسلم»."
     },
     "DEEN-U01-S02-P11": {
       "question_ar": "ما الوجهة الأساسية للعبادة؟",
@@ -719,7 +753,11 @@
       "original_question_id": "DEEN-U01-S02-004",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İbadetin yönü kime doğrudur?": "لمن تُوجّه العبادة؟"
+      },
+      "source_evidence_note_ar": "يدعم مبدأ الإخلاص وطلب رضا الله في العبادة."
     },
     "DEEN-U01-S02-P12": {
       "question_ar": "أيٌّ مما يلي ليس من العبارات التي تصف مفهوم الإيمان؟",
@@ -747,7 +785,8 @@
       "original_question_id": "DEEN-U01-S02-002",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم صلة الإيمان بالقلب وإطار الإيمان في حديث جبريل."
     },
     "DEEN-U01-S03-P01": {
       "question_ar": "أيّ العبارات الآتية تشرح الفرق بين «الإيمان» و«العبادة» على نحو أدقّ للمبتدئين؟",
@@ -780,7 +819,11 @@
         "memory": "تلميح قصير: الإيمان قبول · العبادة عبودية"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İmanla ibadet arasındaki farkı hangisi iyi anlatıyor?": "أيّ عبارة تشرح الفرق بين الإيمان والعبادة جيدًا؟"
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S03-P02": {
       "question_ar": "طابق مفاهيم الإسلام والمسلم والإيمان والعبادة مع شروحها الصحيحة.",
@@ -837,7 +880,11 @@
         "memory": "تلميح قصير: لكل مفهوم دور واضح"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Dört kavram, dört açıklama. Eşleri bul.": "أربعة مفاهيم وأربعة تعريفات. اعثر على الأزواج المتطابقة."
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S03-P03": {
       "question_ar": "الإسلام اسم الدين، والمسلم هو من يعتنق الإسلام.",
@@ -866,7 +913,8 @@
         "memory": "تلميح قصير: الإسلام ← الدين · المسلم ← الشخص"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم التسليم لله والتسمية بكلمة «مسلم»."
     },
     "DEEN-U01-S03-P04": {
       "question_ar": "أكمل الفراغ: الإيمان والعبادة و___ مجالات مترابطة.",
@@ -899,7 +947,8 @@
         "memory": "تلميح قصير: آمن · اعبد · أحسن السلوك"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S03-P05": {
       "question_ar": "كيف يرتبط دور النبي محمد ﷺ بالمفاهيم التي نتعلمها في هذه الوحدة؟",
@@ -927,7 +976,11 @@
       "original_question_id": "DEEN-U01-S03-008",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Hz. Muhammed’in rehberliği hangi iki yönü birlikte taşır?": "أيّ جانبين تجمعهما هداية النبي محمد؟"
+      },
+      "source_evidence_note_ar": "يدعم مهمة الرسل في تبليغ وحي الله والاقتداء بهم."
     },
     "DEEN-U01-S03-P06": {
       "question_ar": "أيّ عبارة لا تنسجم مع العلاقة بين الإيمان والعبادة والأخلاق؟",
@@ -955,7 +1008,8 @@
       "original_question_id": "DEEN-U01-S03-006",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S03-P07": {
       "question_ar": "أيُّ عبارة تشرح العلاقة بين الإيمان والعبادة والأخلاق بأكثر صورة متوازنة؟",
@@ -983,7 +1037,11 @@
       "original_question_id": "DEEN-U01-S03-012",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İman, ibadet ve ahlakın ilişkisini hangisi dengeli anlatıyor?": "أيّ عبارة تشرح العلاقة بين الإيمان والعبادة والأخلاق بصورة متوازنة؟"
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S03-P08": {
       "question_ar": "طابق مفاهيم الأخلاق والقرآن والنبي مع شروحها الصحيحة.",
@@ -1027,7 +1085,11 @@
       "original_question_id": "DEEN-U01-S03-002",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Ahlak, Kur’an ve peygamber… Doğru eşleri bul.": "الأخلاق والقرآن والنبي… اعثر على الأزواج الصحيحة."
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S03-P09": {
       "question_ar": "ظهور الإيمان في أفعال التعبّد يرتبط بمفهوم العبادة.",
@@ -1051,7 +1113,8 @@
       "original_question_id": "DEEN-U01-S03-007",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S03-P10": {
       "question_ar": "أكمل الفراغ: الكتاب المقدس الأساسي للمسلمين هو ___.",
@@ -1079,7 +1142,8 @@
       "original_question_id": "DEEN-U01-S03-014",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S03-P11": {
       "question_ar": "يقول صديقك: «الإسلام والمسلم كلمتان بالمعنى نفسه». ما التوضيح الأدق؟",
@@ -1107,7 +1171,8 @@
       "original_question_id": "DEEN-U01-S03-010",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم التسليم لله والتسمية بكلمة «مسلم»."
     },
     "DEEN-U01-S03-P12": {
       "question_ar": "ثلاثة تطابقات صحيحة. أيّها خاطئ؟",
@@ -1135,7 +1200,8 @@
       "original_question_id": "DEEN-U01-S03-009",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S04-P01": {
       "question_ar": "أيُّ عبارة تصف نظرة الإسلام إلى الحياة اليومية على نحو صحيح؟",
@@ -1168,7 +1234,11 @@
         "memory": "تلميح قصير: حوّل ما تعلمته إلى سلوك"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İslam günlük hayata da dokunur mu?": "هل يشمل الإسلام الحياة اليومية أيضًا؟"
+      },
+      "source_evidence_note_ar": "يدعم إطار العدل والإحسان وحسن الخلق."
     },
     "DEEN-U01-S04-P02": {
       "question_ar": "صِل السلوك بالقيمة التي يبرزها.",
@@ -1227,7 +1297,8 @@
         "memory": "تلميح قصير: السلوك ← القيمة"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S04-P03": {
       "question_ar": "قول الحقيقة حتى عندما لا يراك أحد جزء من الأمانة.",
@@ -1256,7 +1327,8 @@
         "memory": "تلميح قصير: المهم أن تفعل الصواب"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم مبادئ الأمانة والعدل والسلوك الصادق."
     },
     "DEEN-U01-S04-P04": {
       "question_ar": "أكمل الفراغ: إعادة المبلغ الزائد من الباقي مثال على قيمة ___.",
@@ -1289,7 +1361,8 @@
         "memory": "تلميح قصير: ما ليس لك فأعده"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم مبادئ الأمانة والعدل والسلوك الصادق."
     },
     "DEEN-U01-S04-P05": {
       "question_ar": "أتيحت لزينب فرصة الغش في الاختبار، لكنها امتنعت لأنها فكرت: «الله يرى كل شيء». بأي علاقة يرتبط هذا السلوك؟",
@@ -1317,7 +1390,11 @@
       "original_question_id": "DEEN-U01-S04-002",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Zeynep kopya çekmiyor çünkü Allah’ın her şeyi gördüğünü düşünüyor. Burada hangi iki alan birlikte çalışıyor?": "لا تغشّ زينب لأنها تعتقد أن الله يرى كل شيء. أيّ مجالين يجتمعان هنا؟"
+      },
+      "source_evidence_note_ar": "يدعم الوعي بمراقبة الله والصدق في السر والعلن."
     },
     "DEEN-U01-S04-P06": {
       "question_ar": "أيّ عبارة لا تنسجم مع العلاقة بين العبادة والأخلاق؟",
@@ -1345,7 +1422,8 @@
       "original_question_id": "DEEN-U01-S04-003",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S04-P07": {
       "question_ar": "اهتمام الإنسان بعباداته مع التزامه بالصدق والاحترام يوضح أي علاقة في هذه الوحدة؟",
@@ -1373,7 +1451,11 @@
       "original_question_id": "DEEN-U01-S04-013",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İbadetlerine önem veren biri aynı zamanda dürüst ve saygılı davranıyor. Bu bize ne gösteriyor?": "يهتم شخص بعباداته ويتصرّف أيضًا بصدق واحترام. ماذا يبيّن لنا ذلك؟"
+      },
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S04-P08": {
       "question_ar": "صِل المواقف بالسلوك الصحيح.",
@@ -1427,7 +1509,8 @@
       "original_question_id": "DEEN-U01-S04-014",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم مبدأ الحكمة والموعظة الحسنة والجدال بالتي هي أحسن."
     },
     "DEEN-U01-S04-P09": {
       "question_ar": "يتكوّن الإسلام من العبادات فقط ولا علاقة له بالسلوك اليومي.",
@@ -1451,7 +1534,8 @@
       "original_question_id": "DEEN-U01-S04-011",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم إطار العدل والإحسان وحسن الخلق."
     },
     "DEEN-U01-S04-P10": {
       "question_ar": "أكمل الفراغ: القدرة على البقاء هادئًا عند الغضب تدل على قيمة ___.",
@@ -1479,7 +1563,8 @@
       "original_question_id": "DEEN-U01-S04-016",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم كظم الغيظ والعفو وحسن السلوك."
     },
     "DEEN-U01-S04-P11": {
       "question_ar": "كان محمد على وشك كتابة تعليق فظّ على وسائل التواصل، ثم عدل عنه وكتب عبارة ألطف. بأي مفهوم يرتبط هذا الاختيار؟",
@@ -1507,7 +1592,11 @@
       "original_question_id": "DEEN-U01-S04-005",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Mehmet kaba bir yorum yazacakken vazgeçip daha nazik bir cümle kuruyor. Bu seçim neyi gösteriyor?": "يتراجع محمد عن كتابة تعليق فظّ ويختار عبارة ألطف. ماذا يدلّ هذا الاختيار؟"
+      },
+      "source_evidence_note_ar": "يدعم إطار العدل والإحسان وحسن الخلق."
     },
     "DEEN-U01-S04-P12": {
       "question_ar": "ثلاثة سلوكيات تنسجم مع المسؤولية الأخلاقية. أيّها لا ينسجم؟",
@@ -1535,7 +1624,8 @@
       "original_question_id": "DEEN-U01-S04-015",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S05-P01": {
       "question_ar": "يسألك صديق: «ما التصور الذي يقدّمه الإسلام للدين والحياة؟» ما أنسب جواب وفق ما تعلمته في هذه الوحدة؟",
@@ -1568,7 +1658,11 @@
         "memory": "تلميح قصير: إيمان + عبادة + أخلاق"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Bir arkadaşın “İslam nasıl bir yaşam anlayışı sunar?” diye sordu. Ne dersin?": "سألك صديق: «أيّ رؤية للحياة يقدّمها الإسلام؟» ماذا تقول؟"
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S05-P02": {
       "question_ar": "طابق مفاهيم الإسلام والإيمان والعبادة والأخلاق مع شروحها الصحيحة.",
@@ -1625,7 +1719,11 @@
         "memory": "تلميح قصير: أربعة مفاهيم · أربعة أدوار"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Dört kavramı doğru açıklamalarına götür.": "صِل المفاهيم الأربعة بتعريفاتها الصحيحة."
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S05-P03": {
       "question_ar": "الإيمان مفهوم يمكن قياسه بالكامل من خلال السلوك الظاهر فقط.",
@@ -1654,7 +1752,11 @@
         "memory": "تلميح قصير: الداخل قبل المظهر"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İman sadece dışarıdan gördüğümüz davranışlarla ölçülebilir mi?": "هل يمكن قياس الإيمان بالسلوك الظاهر وحده؟"
+      },
+      "source_evidence_note_ar": "يدعم صلة الإيمان بالقلب وإطار الإيمان في حديث جبريل."
     },
     "DEEN-U01-S05-P04": {
       "question_ar": "الغاية الأساسية في العبادة أن تكون خالصة لله وأن يُبتغى بها «___».",
@@ -1687,7 +1789,11 @@
         "memory": "تلميح قصير: لا رياء · بل رضا"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kayıp kelimeyi bul: İbadette Allah’ın ___ gözetilir.": "اعثر على الكلمة الناقصة: يُراعى في العبادة ___ الله."
+      },
+      "source_evidence_note_ar": "يدعم مبدأ الإخلاص وطلب رضا الله في العبادة."
     },
     "DEEN-U01-S05-P05": {
       "question_ar": "يقول صديق: «العبادة هي الصلاة فقط». كيف تشرح له مفهوم العبادة في الإسلام بصورة أدق؟",
@@ -1715,7 +1821,11 @@
       "original_question_id": "DEEN-U01-S05-004",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Arkadaşın “İbadet sadece namazdır.” dedi. Ona ne söylersin?": "قال صديقك: «العبادة هي الصلاة فقط». ماذا تقول له؟"
+      },
+      "source_evidence_note_ar": "يدعم مبدأ الإخلاص وطلب رضا الله في العبادة."
     },
     "DEEN-U01-S05-P06": {
       "question_ar": "ثلاث عبارات تميّز المفاهيم بشكل صحيح. أيّها خاطئ؟",
@@ -1743,7 +1853,8 @@
       "original_question_id": "DEEN-U01-S05-008",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S05-P07": {
       "question_ar": "ما مكانة الأخلاق في الإسلام؟",
@@ -1771,7 +1882,11 @@
       "original_question_id": "DEEN-U01-S05-005",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Ahlak İslam’ın neresinde duruyor?": "ما مكانة الأخلاق في الإسلام؟"
+      },
+      "source_evidence_note_ar": "يدعم إطار العدل والإحسان وحسن الخلق."
     },
     "DEEN-U01-S05-P08": {
       "question_ar": "طابق مفاهيم القرآن والنبي والعبادة والأخلاق مع شروحها الصحيحة.",
@@ -1823,7 +1938,11 @@
       "original_question_id": "DEEN-U01-S05-015",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kur’an, peygamber, ibadet ve ahlak… Eşleri bul.": "القرآن والنبي والعبادة والأخلاق… اعثر على الأزواج المتطابقة."
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S05-P09": {
       "question_ar": "القرآن مصدر يوجّه المسلمين أيضًا في حياتهم اليومية.",
@@ -1847,7 +1966,11 @@
       "original_question_id": "DEEN-U01-S05-011",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kur’an günlük yaşamımıza da yön verir mi?": "هل يوجّه القرآن حياتنا اليومية أيضًا؟"
+      },
+      "source_evidence_note_ar": "يدعم وظيفة القرآن في الهداية والإرشاد."
     },
     "DEEN-U01-S05-P10": {
       "question_ar": "بصرف النظر عن الجنسية أو اللغة، يُسمّى كل من يؤمن بالله ويعتنق الإسلام «___».",
@@ -1875,7 +1998,11 @@
       "original_question_id": "DEEN-U01-S05-002",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kayıp kelime: Dili ve milliyeti ne olursa olsun İslam’ı benimseyen kişiye “___” denir.": "الكلمة الناقصة: يُسمّى من يعتنق الإسلام «___» مهما كانت لغته أو جنسيته."
+      },
+      "source_evidence_note_ar": "إطار مصدري يدعم عدم اختزال الهوية الإسلامية في شرط النسب أو الجنسية."
     },
     "DEEN-U01-S05-P11": {
       "question_ar": "يقول صديق: «أنا أصلي، لكنني لا أساعد أحدًا، وهذا يكفي». ما النقص في هذا التصور؟",
@@ -1903,7 +2030,11 @@
       "original_question_id": "DEEN-U01-S05-014",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Birisi “Namaz kılıyorum, kimseye yardım etmesem de olur.” diyor. Burada ne eksik?": "يقول شخص: «أنا أصلّي، ولا بأس إن لم أساعد أحدًا». ما الذي ينقص هنا؟"
+      },
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S05-P12": {
       "question_ar": "أيّ عبارة لا تنسجم مع التكامل الذي توضحه الوحدة؟",
@@ -1931,7 +2062,8 @@
       "original_question_id": "DEEN-U01-S05-013",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S06-P01": {
       "question_ar": "أيُّ عبارة تلخّص العلاقة بين الإيمان والعبادة والأخلاق في هذه الوحدة بأكثر صورة متوازنة؟",
@@ -1964,7 +2096,11 @@
         "memory": "تلميح قصير: إيمان · عبادة · سلوك"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İman + ibadet + ahlak ilişkisini hangisi iyi özetliyor?": "أيّ عبارة تلخّص العلاقة بين الإيمان والعبادة والأخلاق جيدًا؟"
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S06-P02": {
       "question_ar": "صِل المفاهيم بأدوارها.",
@@ -2023,7 +2159,8 @@
         "memory": "تلميح قصير: لكل مفهوم دور واضح"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S06-P03": {
       "question_ar": "سيرة النبي محمد ﷺ تمثل للمسلمين قدوة يمكن الاستفادة منها في السلوك اليومي.",
@@ -2052,7 +2189,11 @@
         "memory": "تلميح قصير: يبلّغ الرسالة · ويقدّم القدوة"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Peygamberin hayatı günlük davranışlarımız için de örnek olabilir mi?": "هل يمكن أن تكون حياة النبي قدوة لسلوكنا اليومي أيضًا؟"
+      },
+      "source_evidence_note_ar": "يدعم الاقتداء بالنبي ﷺ وسمو أخلاقه."
     },
     "DEEN-U01-S06-P04": {
       "question_ar": "أكمل الفراغ: يتعلق الإيمان أساسًا بالتصديق والقبول ___.",
@@ -2085,7 +2226,8 @@
         "memory": "تلميح قصير: اللسان يعبّر · والقلب يصدّق"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم صلة الإيمان بالقلب وإطار الإيمان في حديث جبريل."
     },
     "DEEN-U01-S06-P05": {
       "question_ar": "يقول صديق: «الإسلام مجرد نظام يتكوّن من عبادات محددة». كيف تشرح له الإطار الأساسي الذي تعلمته؟",
@@ -2113,7 +2255,11 @@
       "original_question_id": "DEEN-U01-S06-001",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Arkadaşın “İslam sadece birkaç ibadetten oluşur.” diyor. Ona nasıl cevap verirsin?": "يقول صديقك: «الإسلام يتكوّن من بضع عبادات فقط». كيف تجيبه؟"
+      },
+      "source_evidence_note_ar": "يدعم التسليم لله وأبعاد الدين الإيمانية والسلوكية."
     },
     "DEEN-U01-S06-P06": {
       "question_ar": "ثلاث عبارات تنسجم مع هداية القرآن. أيّها لا ينسجم؟",
@@ -2141,7 +2287,8 @@
       "original_question_id": "DEEN-U01-S06-007",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم وظيفة القرآن في الهداية والإرشاد."
     },
     "DEEN-U01-S06-P07": {
       "question_ar": "يقول صديق: «لكي يكون الإنسان مسلمًا يجب أن ينتمي إلى نسب معيّن». ما أدق ردّ؟",
@@ -2169,7 +2316,11 @@
       "original_question_id": "DEEN-U01-S06-002",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Arkadaşın “Müslüman olmak için belli bir soydan gelmek gerekir.” diyor. Ne dersin?": "يقول صديقك: «يجب أن ينتمي المرء إلى نسب معيّن ليكون مسلمًا». ماذا تقول؟"
+      },
+      "source_evidence_note_ar": "إطار مصدري يدعم عدم اختزال الهوية الإسلامية في شرط النسب أو الجنسية."
     },
     "DEEN-U01-S06-P08": {
       "question_ar": "صِل المفاهيم بتعريفاتها القصيرة.",
@@ -2223,7 +2374,8 @@
       "original_question_id": "DEEN-U01-S06-011",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم مبدأ الإخلاص وطلب رضا الله في العبادة."
     },
     "DEEN-U01-S06-P09": {
       "question_ar": "الغاية الوحيدة من العبادة أن يبدو الإنسان حسنًا أمام المجتمع.",
@@ -2247,7 +2399,11 @@
       "original_question_id": "DEEN-U01-S06-003",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İbadetin amacı toplumda iyi görünmek midir?": "هل الغرض من العبادة أن يبدو المرء حسنًا أمام الناس؟"
+      },
+      "source_evidence_note_ar": "يدعم مبدأ الإخلاص وطلب رضا الله في العبادة."
     },
     "DEEN-U01-S06-P10": {
       "question_ar": "أكمل الفراغ: تقييم سلوكك وتصحيحه يدل على ___ أخلاقي.",
@@ -2275,7 +2431,8 @@
       "original_question_id": "DEEN-U01-S06-010",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم كظم الغيظ والعفو وحسن السلوك."
     },
     "DEEN-U01-S06-P11": {
       "question_ar": "يقول صديق: «الدين يُعاش في المسجد فقط ولا علاقة له بالحياة اليومية». كيف ترد وفق ما تعلمته؟",
@@ -2303,7 +2460,11 @@
       "original_question_id": "DEEN-U01-S06-005",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Arkadaşın “Din sadece camide yaşanır.” diyor. Ona ne söylersin?": "يقول صديقك: «الدين يُعاش في المسجد فقط». ماذا تقول له؟"
+      },
+      "source_evidence_note_ar": "يدعم إطار العدل والإحسان وحسن الخلق."
     },
     "DEEN-U01-S06-P12": {
       "question_ar": "أيّ عبارة لا تنسجم مع العلاقة بين الإيمان والعبادة والأخلاق؟",
@@ -2331,7 +2492,8 @@
       "original_question_id": "DEEN-U01-S06-004",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S07-P01": {
       "question_ar": "وفق الإطار العام لهذه الوحدة، أيُّ عبارة تشرح الإسلام بأفضل صورة؟",
@@ -2364,7 +2526,11 @@
         "memory": "تلميح قصير: توجّه · آمن · عِش"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Son tur: İslam’ı tek cümlede nasıl anlatırsın?": "الجولة الأخيرة: كيف تشرح الإسلام في جملة واحدة؟"
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S07-P02": {
       "question_ar": "طابق مفاهيم الإيمان والعبادة والأخلاق والقرآن مع شروحها الصحيحة.",
@@ -2421,7 +2587,11 @@
         "memory": "تلميح قصير: أربعة مفاهيم · أربعة معانٍ واضحة"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Final eşleştirme: iman, ibadet, ahlak ve Kur’an.": "المطابقة النهائية: الإيمان والعبادة والأخلاق والقرآن."
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S07-P03": {
       "question_ar": "الإيمان لا يتعلق بمجرد المشاركة في طقوس معيّنة، بل يتعلق أيضًا بالتصديق والقبول في القلب.",
@@ -2450,7 +2620,11 @@
         "memory": "تلميح قصير: صدّق واقبل بقلبك"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İman sadece törenlere katılmak değil, kalben inanmakla da ilgilidir. Doğru mu?": "لا يقتصر الإيمان على المشاركة في الطقوس، بل يرتبط أيضًا بالتصديق القلبي. هل هذا صحيح؟"
+      },
+      "source_evidence_note_ar": "يدعم صلة الإيمان بالقلب وإطار الإيمان في حديث جبريل."
     },
     "DEEN-U01-S07-P04": {
       "question_ar": "أكمل الفراغ: الفكرة المركزية في الإسلام هي ___ لله واتباع هديه.",
@@ -2483,7 +2657,8 @@
         "memory": "تلميح قصير: توجّه إلى الله · واتبع هديه"
       },
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم التسليم لله وأبعاد الدين الإيمانية والسلوكية."
     },
     "DEEN-U01-S07-P05": {
       "question_ar": "يستمر صديقك في التصرف بصدق في العمل حتى عندما لا يراه أحد. مع أي تعليم ينسجم هذا السلوك؟",
@@ -2511,7 +2686,11 @@
       "original_question_id": "DEEN-U01-S07-002",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kimse görmese bile dürüst davranmak neyi gösterir?": "ماذا يدلّ الصدق حتى عندما لا يراك أحد؟"
+      },
+      "source_evidence_note_ar": "يدعم الوعي بمراقبة الله والصدق في السر والعلن."
     },
     "DEEN-U01-S07-P06": {
       "question_ar": "ثلاث عبارات تنسجم مع الفكرة الأساسية للوحدة. أيّها لا ينسجم؟",
@@ -2539,7 +2718,8 @@
       "original_question_id": "DEEN-U01-S07-005",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم الصلة بين العبادة والإحسان والمسؤولية الاجتماعية والسلوك الأخلاقي."
     },
     "DEEN-U01-S07-P07": {
       "question_ar": "أيُّ عبارة تلخّص الدور الأساسي للنبي في الإسلام؟",
@@ -2567,7 +2747,11 @@
       "original_question_id": "DEEN-U01-S07-007",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Peygamberin temel rolünü hangisi en iyi anlatıyor?": "أيّ عبارة تشرح دور النبي الأساسي على أفضل وجه؟"
+      },
+      "source_evidence_note_ar": "يدعم مهمة الرسل في تبليغ وحي الله والاقتداء بهم."
     },
     "DEEN-U01-S07-P08": {
       "question_ar": "طابق مفاهيم الإسلام والمسلم والنبي مع شروحها الصحيحة.",
@@ -2611,7 +2795,11 @@
       "original_question_id": "DEEN-U01-S07-012",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "İslam, Müslüman ve peygamber… Üç doğru eşleşmeyi bul.": "الإسلام والمسلم والنبي… اعثر على ثلاثة أزواج صحيحة."
+      },
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     },
     "DEEN-U01-S07-P09": {
       "question_ar": "القرآن مصدر للهداية في الأخلاق أيضًا، وليس في العبادات وحدها.",
@@ -2635,7 +2823,11 @@
       "original_question_id": "DEEN-U01-S07-011",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Kur’an ahlaki konularda da rehberlik eder mi?": "هل يوجّه القرآن أيضًا في مسائل الأخلاق؟"
+      },
+      "source_evidence_note_ar": "يدعم وظيفة القرآن في الهداية والإرشاد."
     },
     "DEEN-U01-S07-P10": {
       "question_ar": "أكمل الفراغ: الغاية الأساسية من العبادة هي نيل ___ الله.",
@@ -2663,7 +2855,8 @@
       "original_question_id": "DEEN-U01-S07-009",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم مبدأ الإخلاص وطلب رضا الله في العبادة."
     },
     "DEEN-U01-S07-P11": {
       "question_ar": "يجتمع في مسجد واحد أشخاص من بلدان مختلفة ويتحدثون لغات متعددة. ماذا يوضح ذلك عن مفهوم «المسلم»؟",
@@ -2691,7 +2884,11 @@
       "original_question_id": "DEEN-U01-S07-006",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "prompt_variants": {
+        "Farklı ülkelerden insanlar aynı camide buluşuyor. Bu, Müslüman kimliği hakkında ne anlatıyor?": "يلتقي أشخاص من بلدان مختلفة في مسجد واحد. ماذا يبيّن ذلك عن الهوية الإسلامية؟"
+      },
+      "source_evidence_note_ar": "إطار مصدري يدعم عدم اختزال الهوية الإسلامية في شرط النسب أو الجنسية."
     },
     "DEEN-U01-S07-P12": {
       "question_ar": "أيّ عبارة لا تشرح الإسلام وفق الإطار الذي تقدمه هذه الوحدة؟",
@@ -2719,7 +2916,8 @@
       "original_question_id": "DEEN-U01-S07-014",
       "teaching_card_ar": null,
       "expert_approved": false,
-      "status": "model_translated_pending_expert_review"
+      "status": "model_translated_pending_expert_review",
+      "source_evidence_note_ar": "يدعم تناول الإيمان والعبادة والسلوك الأخلاقي والاجتماعي معًا."
     }
   }
 }
