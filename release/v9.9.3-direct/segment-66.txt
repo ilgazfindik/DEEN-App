@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.35 — U01–U05 Arabic verified UI + U05 3/3 final-flow audit fixes + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.36 — U01–U05 Arabic verified UI + U06 stage-2 localization + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9355u05arabicstage3'
+  version:'9356u06arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -89,6 +89,62 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   belief_daily_life:'أثر الإيمان في الحياة اليومية',
   responsibility_from_belief:'المسؤولية الناتجة عن الإيمان'
  };
+ Object.assign(arabicU02ConceptNames,{
+  angels_article:'الإيمان بالملائكة',
+  source_discipline:'الانضباط بالمصدر',
+  angels_servants:'الملائكة عباد الله',
+  basic_distinctions:'الفروق الأساسية',
+  angels_messengers:'الملائكة رسل',
+  appearance_limits:'حدود وصف هيئة الملائكة',
+  tawhid_boundary:'حدود التوحيد',
+  belief_definition:'تعريف الإيمان بالملائكة',
+  source_method:'منهج التعامل مع المصادر',
+  angel_obedience:'طاعة الملائكة',
+  angel_worship:'عبادة الملائكة لله',
+  angel_no_arrogance:'عدم استكبار الملائكة',
+  angel_traits_sources:'مصادر صفات الملائكة',
+  angel_dependency:'افتقار الملائكة إلى الله',
+  angel_wings:'أجنحة الملائكة',
+  angel_worship_summary:'ملخّص عبادة الملائكة',
+  jibril_revelation:'جبريل والوحي',
+  revelation_permission:'الوحي بإذن الله',
+  revelation_source:'مصدر الوحي',
+  mikail_named:'ذكر ميكال بالاسم',
+  revelation_roles:'أدوار الوحي',
+  respect_angels:'توقير الملائكة',
+  revelation_flow:'مسار الوحي',
+  recording_angels:'الملائكة الكَتَبة',
+  accountability:'المسؤولية',
+  divine_knowledge_recording:'الكتابة وعلم الله',
+  angel_tasks_sources:'مصادر وظائف الملائكة',
+  death_angel:'مَلَك الموت',
+  azrail_source_literacy:'الوعي بالمصدر في اسم عزرائيل',
+  angel_tasks:'وظائف الملائكة',
+  source_limits:'حدود المصدر',
+  angels_pray_believers:'دعاء الملائكة للمؤمنين',
+  prayer_not_independent:'دعاء الملائكة غير مستقل عن الله',
+  accountability_flow:'مسار المسؤولية',
+  task_source_method:'منهج مصادر وظائف الملائكة',
+  belief_application:'أثر الإيمان بالملائكة',
+  unseen_belief:'الإيمان بالغيب',
+  source_accuracy:'دقة المصدر',
+  belief_meaning:'معنى الإيمان بالملائكة',
+  learning_method:'منهج التعلّم',
+  iblis_not_angel:'إبليس ليس من الملائكة',
+  wing_misconception:'تصحيح التصور الخاطئ عن الأجنحة',
+  misconceptions:'تصحيح المفاهيم الخاطئة',
+  mastery_sources:'إتقان التعامل مع المصادر',
+  mastery_accountability:'إتقان مفهوم المسؤولية',
+  mastery_tawhid:'إتقان التوحيد',
+  mastery_revelation:'إتقان مفهوم الوحي',
+  mastery_iblis:'إتقان مسألة إبليس',
+  mastery_summary:'مراجعة الإتقان',
+  mastery_source_discipline:'إتقان الانضباط بالمصدر',
+  mastery_names:'إتقان الأسماء',
+  mastery_prayer:'إتقان مسألة دعاء الملائكة',
+  mastery_wings:'إتقان مسألة الأجنحة',
+  mastery_source_method:'إتقان منهج المصادر'
+ });
  Object.assign(arabicU02ConceptNames,{
   faith_concept_basic:'مفهوم الإيمان',
   six_articles_basic:'أركان الإيمان الستة',
@@ -245,7 +301,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9355u05arabicstage3';
+   const token='9356u06arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1179,12 +1235,61 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "Kısım 2 · İman":"القسم الثاني · الإيمان"
  };
  Object.assign(chromeMap,u05ChromeMap);
+
+ const u06ChromeMap={
+  "Melekler Kimdir?":"من هم الملائكة؟",
+  "Meleklerin Özellikleri":"صفات الملائكة",
+  "Cebrâil ve Vahiy":"جبريل والوحي",
+  "Kur'an'da Meleklerin Görevleri":"وظائف الملائكة في القرآن",
+  "Meleklere İmanın Anlamı":"معنى الإيمان بالملائكة",
+  "Yanlış Anlamaları Düzelt":"صحّح المفاهيم الخاطئة",
+  "Melekler Ustalığı":"إتقان الإيمان بالملائكة",
+  "İman Esası":"ركن من أركان الإيمان",
+  "Kaynak Bilinci":"الوعي بالمصدر",
+  "Tevhid Sınırı":"حدود التوحيد",
+  "Temel Ayrımlar":"الفروق الأساسية",
+  "Elçilik":"الرسالة",
+  "Kaynak Sınırı":"حدود المصدر",
+  "Tevhid":"التوحيد",
+  "İmanın Anlamı":"معنى الإيمان",
+  "Kaynak Okuryazarlığı":"الوعي بالمصادر",
+  "Kulluk":"العبودية",
+  "İtaat":"الطاعة",
+  "İbadet":"العبادة",
+  "Ayetlerle Özellikler":"صفات الملائكة في الآيات",
+  "Kanatlar":"الأجنحة",
+  "Tesbih":"التسبيح",
+  "Kulluk Özeti":"ملخّص العبودية",
+  "Cebrâil":"جبريل",
+  "Vahiy":"الوحي",
+  "Mîkâil":"ميكال",
+  "Vahiy Rolleri":"أدوار الوحي",
+  "Meleklere Saygı":"توقير الملائكة",
+  "Vahiy Akışı":"مسار الوحي",
+  "Amellerin Kaydı":"تسجيل الأعمال",
+  "Sorumluluk":"المسؤولية",
+  "Kayıt ve İlahi Bilgi":"التسجيل وعلم الله",
+  "Görevler":"وظائف الملائكة",
+  "Ölüm Meleği":"مَلَك الموت",
+  "Görev Çeşitliliği":"تنوع وظائف الملائكة",
+  "Bilginin Sınırı":"حدود المعرفة",
+  "Müminler İçin Dua":"دعاء الملائكة للمؤمنين",
+  "Tevhid ve Dua":"التوحيد والدعاء",
+  "İman ve Hayat":"الإيمان والحياة",
+  "Gayba İman":"الإيمان بالغيب",
+  "Öğrenme Yöntemi":"منهج التعلّم",
+  "İblîs ve Melekler":"إبليس والملائكة",
+  "Yanlış Bilgiyi Düzeltme":"تصحيح المعلومة الخاطئة",
+  "Ustalık":"الإتقان"
+ };
+ Object.assign(chromeMap,u06ChromeMap);
  const arabicPhrasePairs=[
   ...Object.entries(u01ChromeMap),
   ...Object.entries(u02ChromeMap),
   ...Object.entries(u03ChromeMap),
   ...Object.entries(u04ChromeMap),
-  ...Object.entries(u05ChromeMap)
+  ...Object.entries(u05ChromeMap),
+  ...Object.entries(u06ChromeMap)
  ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
@@ -1434,7 +1539,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9355u05arabicstage3',
+  version:'9356u06arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1454,11 +1559,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9355u05arabicstage3',
+  version:'9356u06arabicstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9355u05arabicstage3',
+  version:'9356u06arabicstage2',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1484,7 +1589,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9355u05arabicstage3',
+  version:'9356u06arabicstage2',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -1511,7 +1616,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9355u05arabicstage3',
+  version:'9356u06arabicstage2',
   coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
@@ -1535,6 +1640,33 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     });
    }
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,220)};
+  }
+ };
+ window.DEEN_U06_ARABIC_AUDIT={
+  version:'9356u06arabicstage2',
+  coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0},
+  scan(root=document.body){
+   const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u06ChromeMap);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u06-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u06-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,240)};
   }
  };
  window.DEEN_ARABIC_FULL_BANK={
