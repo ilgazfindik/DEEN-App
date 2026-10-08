@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.30 — U01–U02 Arabic verified UI + U03 stage-2 localization + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.31 — U01–U02 Arabic verified UI + U03 3/3 audited localization + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9350u03arabicstage2'
+  version:'9351u03arabicstage3'
  };
 
  const sameArray=(a,b)=>{
@@ -218,7 +218,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9350u03arabicstage2';
+   const token='9351u03arabicstage3';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -876,7 +876,40 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "Son kelime doğruluk testi":"اختبار دقة الكلمة الأخيرة",
   "Sesli tamamlama analizi":"تحليل الإكمال الصوتي",
   "Gerçek inanç vurgusu":"التأكيد على الإيمان الصادق",
-  "Final kelime dizilimi":"الترتيب النهائي للكلمات"
+  "Final kelime dizilimi":"الترتيب النهائي للكلمات",
+  "Eksik kelimeyi tamamlayarak devam et.":"أكمل الكلمة الناقصة ثم تابع.",
+  "Boşluğu doldurarak öğrendiklerini hatırla.":"املأ الفراغ لاسترجاع ما تعلمته.",
+  "Kavramları doğru eşleştirerek ilerle.":"طابق المفاهيم بصورة صحيحة ثم تابع.",
+  "Adımları doğru sıraya dizerek devam et.":"رتّب الأجزاء بالترتيب الصحيح ثم تابع.",
+  "Doğru seçimi yaparak öğrenmeye devam et.":"اختر الإجابة الصحيحة لمواصلة التعلّم.",
+  "Doğru cevabı seçerek yolculuğuna devam et.":"اختر الإجابة الصحيحة لمواصلة رحلتك.",
+  "TEMEL BİLGİLER":"المعلومات الأساسية",
+  "HIZLI KONTROL":"تحقق سريع",
+  "BOŞLUĞU TAMAMLA":"أكمل الفراغ",
+  "EKSİĞİ BUL":"اعثر على الناقص",
+  "BİLGİNİ PEKİŞTİR":"عزّز معرفتك",
+  "HATAYI YAKALA":"اكتشف الخطأ",
+  "HATIRLA VE TAMAMLA":"تذكّر وأكمل",
+  "KAVRAMLARI EŞLEŞTİR":"طابق المفاهيم",
+  "HIZLI TEKRAR":"مراجعة سريعة",
+  "SIRALA":"رتّب",
+  "ÖĞRENME ADIMI":"خطوة تعلّم",
+  "Parçalara dokunarak doğru sırayı oluştur. Üstteki parçaya dokunursan geri alabilirsin.":"اضغط على الأجزاء لتكوين الترتيب الصحيح. يمكنك الضغط على الجزء في الأعلى لإعادته.",
+  "SIRAYI KONTROL ET":"تحقّق من الترتيب",
+  "Kavram:":"المفهوم:",
+  "Eş:":"المطابقة:",
+  "Kelime-i Şehadet · Resmî yayın kaynağı":"الشهادتان · مصدر رسمي",
+  "DiyanetTV · Dinleyerek soruyu cevapla":"DiyanetTV · استمع ثم أجب عن السؤال",
+  "KAYNAK DOĞRULANDI":"تم التحقق من المصدر",
+  "DiyanetTV — Kelime-i Şehadet":"DiyanetTV — الشهادتان",
+  "Bu aşamada yapay telaffuz kullanılmaz. Bağlantı geldiğinde resmî DiyanetTV kaydı kullanılabilir.":"لا يُستخدم نطق اصطناعي في هذه المرحلة. عند توفر الاتصال يمكن استخدام تسجيل DiyanetTV الرسمي.",
+  "Kaynak: DiyanetTV · resmî yayın provenance’ı doğrulandı.":"المصدر: DiyanetTV · تم التحقق من نسبة المادة إلى الناشر الرسمي.",
+  "Bu işaret “kaynağın resmî yayıncıya ait olduğunu” belirtir; dinî uzman incelemesinin tamamlandığı anlamına gelmez.":"تشير هذه العلامة إلى أن المصدر يعود إلى الناشر الرسمي؛ ولا تعني اكتمال مراجعة مختص ديني.",
+  "Ders tamamlandı":"اكتمل الدرس",
+  "Dersi tekrar et":"أعد الدرس",
+  "AŞAMAYI TAMAMLA":"أكمل المرحلة",
+  "SONRAKİ DERS":"الدرس التالي",
+  "DERSİ TEKRARLA":"أعد الدرس"
  };
  Object.assign(chromeMap,u03ChromeMap);
  const arabicPhrasePairs=[
@@ -903,12 +936,14 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    (m,u,s,t)=>'الوحدة '+u+' · المرحلة '+s+'/'+t);
   out=out.replace(/(\d+)\.\s*KISIM\s*·\s*(\d+)\.\s*ÜNİTE/gi,'القسم $1 · الوحدة $2');
   out=out.replace(/(\d+)\s*\/\s*5\s*aşama\s*·\s*Ustalık\s*%\s*(\d+)/gi,'$1/5 مراحل · الإتقان $2٪');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*aşama\b/gi,'$1/$2 مراحل');
   out=out.replace(/(\d+)\s*\/\s*(\d+)\s*mini ders tamamlandı/gi,'أُكمل $1/$2 من الدروس المصغّرة');
   out=out.replace(/(\d+)\s*mini ders tamamlandı/gi,'أُكمل $1 من الدروس المصغّرة');
   out=out.replace(/(\d+)\s*mini ders/gi,'$1 دروس مصغّرة');
   out=out.replace(/(\d+)\s*soru/gi,'$1 أسئلة');
   out=out.replace(/Mini ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس المصغّر $1/$2');
   out=out.replace(/Ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس $1/$2');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*ders\b/gi,'$1/$2 دروس');
   out=out.replace(/الدرس\s*(\d+)\s*\/\s*(\d+)\s*GEÇİLDİ/gi,'تم اجتياز الدرس $1/$2');
   out=out.replace(/الدرس\s*(\d+)\s*\/\s*(\d+)\s*TEKRAR/gi,'مراجعة الدرس $1/$2');
   out=out.replace(/Ustalık\s*%\s*(\d+)/gi,'الإتقان $1٪');
@@ -1128,7 +1163,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9350u03arabicstage2',
+  version:'9351u03arabicstage3',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1148,11 +1183,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9350u03arabicstage2',
+  version:'9351u03arabicstage3',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9350u03arabicstage2',
+  version:'9351u03arabicstage3',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
