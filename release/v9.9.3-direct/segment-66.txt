@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.32 — U01–U03 Arabic verified UI + U04 stage-2 localization + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.33 — U01–U04 Arabic verified UI + U04 3/3 audit fixes + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9352u04arabicstage2'
+  version:'9353u04arabicstage3'
  };
 
  const sameArray=(a,b)=>{
@@ -231,7 +231,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9352u04arabicstage2';
+   const token='9353u04arabicstage3';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1024,7 +1024,10 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "Challenge: Şartları Sayma":"التحدّي: عدّ أركان الإسلام",
   "Challenge: Günlük Kullanım":"التحدّي: التطبيق في الحياة اليومية",
   "Challenge: Hatırlama":"التحدّي: الاسترجاع",
-  "Challenge: Kapsayıcı Senaryo":"التحدّي: موقف شامل"
+  "Challenge: Kapsayıcı Senaryo":"التحدّي: موقف شامل",
+  "CEVABINI YAZ":"اكتب إجابتك",
+  "Eksik kelimeyi yaz…":"اكتب الكلمة الناقصة…",
+  "Bu aşamayı açmak için bu dersi %70 veya üzeriyle tamamlaman gerekiyor.":"لفتح هذه المرحلة، يجب أن تُكمل هذا الدرس بنسبة 70٪ أو أكثر."
  };
  Object.assign(chromeMap,u04ChromeMap);
  const arabicPhrasePairs=[
@@ -1279,7 +1282,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9352u04arabicstage2',
+  version:'9353u04arabicstage3',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1299,11 +1302,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9352u04arabicstage2',
+  version:'9353u04arabicstage3',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9352u04arabicstage2',
+  version:'9353u04arabicstage3',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1329,7 +1332,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9352u04arabicstage2',
+  version:'9353u04arabicstage3',
+  coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
