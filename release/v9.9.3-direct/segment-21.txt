@@ -96,7 +96,8 @@
  document.documentElement.dataset.deenLessonOrchestrator='ready';
 })();
 </script>
-\n<!-- DEEN v8.6.3 — Question Coverage Audit -->
+
+<!-- DEEN v8.6.3 — Question Coverage Audit -->
 <script id="deen-v863-coverage-runtime">
 (()=>{
  if(window.__deenV863Coverage)return;window.__deenV863Coverage=true;
@@ -206,7 +207,8 @@
  document.documentElement.dataset.deenCoverageAudit='loaded';
  schedule();
 })();
-</script>\n
+</script>
+
 <!-- DEEN v8.6.4 — U01 S03 Content Enrichment -->
 <script id="deen-v864-u01-s03-runtime">
 (()=>{

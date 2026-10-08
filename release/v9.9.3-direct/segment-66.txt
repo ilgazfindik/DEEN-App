@@ -714,6 +714,10 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
 
   "Açıklamayı dinle":"استمع إلى الشرح",
   "Bugünkü yeni öğrenmeye devam et.":"واصل تعلّم معلومات جديدة اليوم.",
+  "GÜNLÜK PLAN":"الخطة اليومية",
+  "İslam'a giriş":"مدخل إلى الإسلام",
+  "Temel kavramlar":"المفاهيم الأساسية",
+  "Müslüman kimliği":"الهوية الإسلامية",
   "SIRADAKİ MİNİ DERS":"الدرس المصغّر التالي",
   "Tanı":"تعرّف",
   "Bağ Kur":"اربط المفاهيم",
@@ -1930,7 +1934,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   out=out.replace(/Bir adım daha\s*—\s*/g,'خطوة أخرى — ');
   out=out.replace(/\s+gururla yanında\./g,' معك بفخر.');
   out=out.replace(/\s+yanında\./g,' معك.');
-  out=out.replace(/\s+seninle kutluyor!/g,' يحتفل معك!');
+  out=out.replace(/\s+seninle kutluyor!/g,' يحتفل معك!').replace(/(البومة|السلحفاة|القطة) يحتفل معك!/g,'$1 تحتفل معك!');
   out=out.replace(/\s+seninle\./g,' معك.');
   out=out.replace(/Harika gidiyorsun!/g,'رائع، استمر!');
   out=out.replace(/Mükemmel seri!/g,'سلسلة ممتازة!');
