@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.43 — U01–U08 Arabic UI review + U09 stage-3 audit + unit-aware concept labels + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.44 — U01–U09 Arabic UI review + U10 stage-2 localization + unit-aware concept labels + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9363u09arabicstage3'
+  version:'9364u10arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -187,6 +187,17 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  });
 
  const arabicConceptNamesByUnit={
+  U10:{
+   destiny_article:'الإيمان بالقدر',qadar:'القدر',qada:'القضاء',divine_knowledge:'علم الله',
+   divine_will:'مشيئة الله',divine_decree:'تقدير الله',human_will:'إرادة الإنسان',
+   free_choice:'اختيار الإنسان',human_responsibility:'مسؤولية الإنسان',
+   moral_responsibility:'المسؤولية الأخلاقية',effort:'الأخذ بالأسباب',
+   reliance_on_god:'التوكل على الله',tawakkul:'التوكل',patience:'الصبر',
+   gratitude:'الشكر',trial:'الابتلاء',causality:'الأسباب والمسببات',
+   knowledge_and_will:'العلم والمشيئة',destiny_and_action:'القدر والعمل',
+   destiny_and_responsibility:'القدر والمسؤولية',misconceptions:'تصحيح المفاهيم الخاطئة',
+   source_literacy:'الوعي بالمصادر',belief_definition:'معنى الإيمان بالقدر'
+  },
   U09:{
    afterlife_article:'الإيمان باليوم الآخر',
    belief_afterlife:'الإيمان بالآخرة',
@@ -429,7 +440,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9363u09arabicstage3';
+   const token='9364u10arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1505,6 +1516,29 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "Ahirete iman konusunu adım adım pekiştir.":"عزّز فهمك للإيمان باليوم الآخر خطوةً خطوةً."
  };
  Object.assign(chromeMap,u09ChromeMap);
+ const u10ChromeMap={
+  "Kadere İman Nedir?":"ما معنى الإيمان بالقدر؟",
+  "Kadere İman":"الإيمان بالقدر",
+  "Kader ve Kaza":"القدر والقضاء",
+  "Kaza ve Kader":"القضاء والقدر",
+  "Allah'ın İlmi":"علم الله",
+  "İlahi İlim":"العلم الإلهي",
+  "Allah'ın İradesi":"مشيئة الله",
+  "İlahi İrade":"المشيئة الإلهية",
+  "İnsanın İradesi":"إرادة الإنسان",
+  "İnsan İradesi":"إرادة الإنسان",
+  "İrade ve Sorumluluk":"الإرادة والمسؤولية",
+  "Kader ve Sorumluluk":"القدر والمسؤولية",
+  "Kader ve İnsan":"القدر والإنسان",
+  "Kader ve Çaba":"القدر والسعي",
+  "Çaba ve Tevekkül":"السعي والتوكل",
+  "Tevekkül ve Tedbir":"التوكل والأخذ بالأسباب",
+  "Sabır ve Şükür":"الصبر والشكر",
+  "Kaderle İlgili Yanlış Anlamalar":"المفاهيم الخاطئة عن القدر",
+  "Kadere İman Ustalığı":"إتقان الإيمان بالقدر",
+  "Kadere iman konusunu adım adım pekiştir.":"عزّز فهمك للإيمان بالقدر خطوةً خطوةً."
+ };
+ Object.assign(chromeMap,u10ChromeMap);
  const arabicPhrasePairs=[
   ...Object.entries(u01ChromeMap),
   ...Object.entries(u02ChromeMap),
@@ -1514,7 +1548,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   ...Object.entries(u06ChromeMap),
   ...Object.entries(u07ChromeMap),
   ...Object.entries(u08ChromeMap),
-  ...Object.entries(u09ChromeMap)
+  ...Object.entries(u09ChromeMap),
+  ...Object.entries(u10ChromeMap)
  ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
@@ -1765,7 +1800,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9363u09arabicstage3',
+  version:'9364u10arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1785,11 +1820,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9363u09arabicstage3',
+  version:'9364u10arabicstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9363u09arabicstage3',
+  version:'9364u10arabicstage2',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1815,7 +1850,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9363u09arabicstage3',
+  version:'9364u10arabicstage2',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -1842,7 +1877,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9363u09arabicstage3',
+  version:'9364u10arabicstage2',
   coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
@@ -1869,7 +1904,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U06_ARABIC_AUDIT={
-  version:'9363u09arabicstage3',
+  version:'9364u10arabicstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,macroRuntimeFixes:3},
   scan(root=document.body){
    const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
@@ -1896,7 +1931,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U07_ARABIC_AUDIT={
-  version:'9363u09arabicstage3',
+  version:'9364u10arabicstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:35,concepts:60,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,unitScopedConcepts:60},
   scan(root=document.body){
    const base=window.DEEN_U06_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u06-audit-unavailable'}]};
@@ -1928,7 +1963,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U08_ARABIC_AUDIT={
-  version:'9363u09arabicstage3',
+  version:'9364u10arabicstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U07_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u07-audit-unavailable'}]};
@@ -1958,7 +1993,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U09_ARABIC_AUDIT={
-  version:'9363u09arabicstage3',
+  version:'9364u10arabicstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:79,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U08_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u08-audit-unavailable'}]};
@@ -1985,6 +2020,31 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     });
    }
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,320)};
+  }
+ };
+ window.DEEN_U10_ARABIC_AUDIT={
+  version:'9364u10arabicstage2',
+  coverage:{questions:100,legacyStages:7,optionQuestions:80,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U09_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u09-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u10ChromeMap).sort((a,b)=>b.length-a.length);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u10-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u10-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,340)};
   }
  };
  window.DEEN_ARABIC_FULL_BANK={
