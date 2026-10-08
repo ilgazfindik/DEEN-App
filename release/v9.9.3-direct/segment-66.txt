@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.55 — U01–U14 Arabic UI review + U15 stage-3 audit + unit-aware concept labels + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.56 — U01–U14 Arabic UI review + U15 stage-3 audit + unit-aware concept labels + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9375u15arabicstage3'
+  version:'9376arabicfinalstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -450,12 +450,42 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
 
  pilot.canStart=id=>pilot.ready&&supportedStages.has(id);
 
+ // Diagnostic only: never substitutes Turkish text for an untranslated question.
+ pilot.diagnostics={stageFailures:Object.create(null)};
+ pilot.inspectBank=function(bank){
+  const rows=Array.isArray(bank)?bank:[];
+  const report={sourceCount:rows.length,translatedCount:0,failedIds:[],missingConceptIds:[],byStage:Object.create(null)};
+  for(const q of rows){
+   if(!q?.id)continue;
+   const stage=q.stage_id||'unknown';
+   const row=report.byStage[stage]??={source:0,translated:0,failedIds:[]};
+   row.source++;
+   if(pilot.translateQuestion(q)){row.translated++;report.translatedCount++}
+   else{row.failedIds.push(q.id);report.failedIds.push(q.id)}
+   if(q.concept_id&&!arabicConceptName(q))report.missingConceptIds.push({id:q.id,concept_id:q.concept_id,stage});
+  }
+  return report;
+ };
+ pilot.inspectVisibleArabic=function(root=document.body){
+  if(locale()!=='ar')return {active:false,offenders:[]};
+  const offenders=[];
+  if(!root||typeof document==='undefined')return {active:true,offenders};
+  const inspect=(value,where)=>{const v=String(value||'').trim();if(!v)return;if(/[ÇĞİÖŞÜçğıöşü]/.test(v)||(/[A-Za-z]/.test(v)&&/[\u0600-\u06FF]/.test(v)&&!/\bDEEN\b/.test(v)))offenders.push({where,text:v.slice(0,200)})};
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+  while((node=walker.nextNode())){if(node.parentElement?.closest?.('script,style'))continue;inspect(node.nodeValue,'text')}
+  root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{for(const attr of ['aria-label','title','placeholder','alt','data-tooltip'])inspect(el.getAttribute(attr),attr)});
+  return {active:true,count:offenders.length,offenders:offenders.slice(0,300)};
+ };
  pilot.questionsFor=function(bank,stageId,count,shuffleFn){
   if(!pilot.ready||!Array.isArray(bank)||!supportedStages.has(stageId))return [];
   const sourcePool=bank.filter(q=>q.stage_id===stageId);
   if(!sourcePool.length)return [];
   const pool=sourcePool.map(q=>pilot.translateQuestion(q)).filter(Boolean);
-  if(pool.length!==sourcePool.length)return [];
+  if(pool.length!==sourcePool.length){
+   pilot.diagnostics.stageFailures[stageId]={source:sourcePool.length,translated:pool.length,failedIds:sourcePool.filter(q=>!pilot.translateQuestion(q)).map(q=>q.id)};
+   return [];
+  }
+  delete pilot.diagnostics.stageFailures[stageId];
   const random=typeof shuffleFn==='function'?shuffleFn:(list=>[...list]);
   const target=stageId.endsWith('S07')?10:(Number.isFinite(Number(count))?Number(count):7);
   const groups={};
@@ -501,7 +531,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9375u15arabicstage3';
+   const token='9376arabicfinalstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1966,7 +1996,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1986,11 +2016,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -2016,7 +2046,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -2043,7 +2073,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
@@ -2070,7 +2100,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U06_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,macroRuntimeFixes:3},
   scan(root=document.body){
    const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
@@ -2097,7 +2127,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U07_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:35,concepts:60,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,unitScopedConcepts:60},
   scan(root=document.body){
    const base=window.DEEN_U06_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u06-audit-unavailable'}]};
@@ -2129,7 +2159,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U08_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U07_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u07-audit-unavailable'}]};
@@ -2159,7 +2189,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U09_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:79,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U08_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u08-audit-unavailable'}]};
@@ -2189,7 +2219,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U10_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:80,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U09_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u09-audit-unavailable'}]};
@@ -2219,7 +2249,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U11_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U10_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u10-audit-unavailable'}]};
@@ -2249,7 +2279,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U12_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U11_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u11-audit-unavailable'}]};
@@ -2279,7 +2309,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U13_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U12_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u12-audit-unavailable'}]};
@@ -2309,7 +2339,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U14_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U13_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u13-audit-unavailable'}]};
@@ -2339,7 +2369,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U15_ARABIC_AUDIT={
-  version:'9375u15arabicstage3',
+  version:'9376arabicfinalstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U14_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u14-audit-unavailable'}]};
@@ -2376,6 +2406,9 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   runtimeVariantCount:()=>Object.keys(pilot.runtime_variants||{}).length,
   liveRuntimeCount:()=>Object.keys(pilot.live_translations||{}).length,
   supportedStageCount:()=>pilot.supportedStages.size,
+  inspectBank:bank=>pilot.inspectBank(bank),
+  inspectVisibleArabic:root=>pilot.inspectVisibleArabic(root),
+  stageFailures:()=>pilot.diagnostics.stageFailures,
   audit:()=>({
    ready:pilot.ready,
    base:Object.keys(pilot.translations||{}).length,
