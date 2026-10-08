@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.12.59</title>
+<title>DEEN v9.12.60</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -19,7 +19,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9379arabicobserverfix2';
+ const BUILD='9380languagegate1';
  const SEGMENT_COUNT=67;
  const CONCURRENCY=6;
  const CACHE_NAME='deen-release-'+BUILD;
@@ -320,6 +320,34 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
  }
 
  try{
+   // Render a lightweight first-run gate before the 67-segment application starts.
+   // This keeps the entry screen responsive even if the legacy application hangs.
+   await new Promise(resolve=>{
+     const parent=status.parentElement;
+     status.textContent='Önce dilini seç, ardından uygulamaya geç.';
+     const panel=document.createElement('div');
+     panel.style.cssText='margin:20px auto 0;max-width:320px;display:grid;gap:12px;text-align:left';
+     const label=document.createElement('label');
+     label.textContent='Uygulama dili';
+     label.style.cssText='display:block;color:#dff8ef;font-size:14px;font-weight:700';
+     const select=document.createElement('select');
+     select.setAttribute('aria-label','Uygulama dili');
+     select.style.cssText='width:100%;box-sizing:border-box;padding:14px;border-radius:12px;background:#0e3039;color:#fff;border:1px solid #507a76;font-size:16px';
+     for(const [value,title] of [['tr','Türkçe'],['ar','العربية'],['en','English'],['de','Deutsch'],['es','Español'],['fr','Français']]){
+       const option=document.createElement('option');option.value=value;option.textContent=title;select.appendChild(option);
+     }
+     const start=document.createElement('button');start.type='button';start.textContent='Devam et';
+     start.style.cssText='padding:14px;border:0;border-radius:12px;background:#31efcf;color:#06212b;font-size:16px;font-weight:800;cursor:pointer';
+     const help=document.createElement('div');help.textContent='Dilini seçtikten sonra DEEN hazırlanacak. Mevcut ilerlemen silinmez.';
+     help.style.cssText='color:#93afb3;font-size:12px;line-height:1.5;text-align:center';
+     panel.append(label,select,start,help);parent.appendChild(panel);
+     start.addEventListener('click',()=>{
+       window.__DEEN_BOOT_SELECTED_LANGUAGE__=select.value;
+       // Expose preference for the main app; its original onboarding remains authoritative.
+       try{sessionStorage.setItem('deen_boot_language',select.value)}catch(_){}
+       panel.remove();resolve();
+     },{once:true});
+   });
    status.textContent='DEEN hazırlanıyor…';
    await cleanupOldCaches();
    const cache=await cacheOpen();
