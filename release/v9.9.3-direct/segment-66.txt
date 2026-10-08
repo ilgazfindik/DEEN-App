@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.37 — U01–U06 Arabic verified UI + U06 3/3 macro-path audit fixes + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.38 — U01–U06 Arabic verified UI + U07 stage-2 localization + unit-aware concept labels + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9357u06arabicstage3'
+  version:'9358u07arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -186,6 +186,75 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   shahada_application:'تطبيق معاني الشهادتين'
  });
 
+ const arabicConceptNamesByUnit={
+  U07:{
+   books_article:"الإيمان بالكتب",
+   prior_revelations:"الوحي السابق",
+   revelation_source:"مصدر الوحي",
+   basic_distinctions:"الفروق الأساسية",
+   belief_definition:"تعريف الإيمان بالكتب",
+   source_method:"منهج التعامل مع المصادر",
+   torah_gospel_named:"ذكر التوراة والإنجيل بالاسم",
+   torah_guidance:"هداية التوراة",
+   gospel_jesus:"الإنجيل وعيسى عليه السلام",
+   torah_revelation:"إنزال التوراة",
+   zabur_david:"الزبور وداود عليه السلام",
+   books_prophets:"الكتب والرسل",
+   suhuf_ibrahim_musa:"صحف إبراهيم وموسى",
+   suhuf_source_literacy:"الوعي بمصادر معلومات الصحف",
+   named_books:"الكتب المذكورة بالاسم",
+   quran_confirms_oversees:"القرآن مصدِّق ومهيمن",
+   quran_confirms:"تصديق القرآن لما سبقه",
+   quran_oversees:"هيمنة القرآن على ما سبقه",
+   quran_relation_terms:"مصطلحات علاقة القرآن بالوحي السابق",
+   revelation_vs_interpretation:"الوحي والتفسير",
+   quran_relation_summary:"خلاصة علاقة القرآن بالوحي السابق",
+   quran_relation_method:"منهج فهم علاقة القرآن بالوحي السابق",
+   source_unity:"وحدة مصدر الوحي",
+   gospel_revelation:"إنزال الإنجيل",
+   books_descriptions:"أوصاف الكتب الإلهية",
+   guidance_light:"الهدى والنور",
+   guidance_function:"وظيفة الهداية",
+   revelation_functions:"وظائف الوحي",
+   source_and_guidance:"المصدر والهداية",
+   gospel_guidance:"هداية الإنجيل",
+   balanced_relation:"الفهم المتوازن لعلاقة الوحي",
+   revelation_flow:"مسار الوحي",
+   revelation_continuity:"استمرارية الوحي",
+   quran_guidance:"هداية القرآن",
+   quran_preservation:"حفظ القرآن",
+   quran_qualities:"صفات القرآن",
+   quran_integrity:"سلامة القرآن وحفظه",
+   quran_guidance_application:"تطبيق هداية القرآن",
+   guidance_preservation:"الهداية والحفظ",
+   quran_identity:"هوية القرآن",
+   quran_relationship:"علاقة القرآن بالوحي السابق",
+   misconception_prior_books:"تصحيح التصور الخاطئ عن الكتب السابقة",
+   revelation_vs_human_text:"الوحي وكلام البشر",
+   misattribution_warning:"التحذير من نسبة ما ليس وحيًا إلى الوحي",
+   misconception_quran_prior:"تصحيح التصور عن القرآن والوحي السابق",
+   source_discipline:"الانضباط بالمصدر",
+   common_misconceptions:"المفاهيم الخاطئة الشائعة",
+   misconception_guidance:"تصحيح مفهوم الهداية",
+   mastery_named_books:"إتقان أسماء الكتب",
+   mastery_quran_position:"إتقان مكانة القرآن",
+   mastery_source_unity:"إتقان وحدة مصدر الوحي",
+   mastery_source:"إتقان مصدر الوحي",
+   mastery_quran_qualities:"إتقان صفات القرآن",
+   mastery_summary:"مراجعة الإتقان",
+   mastery_source_literacy:"إتقان الوعي بالمصادر",
+   mastery_sources:"إتقان التعامل مع المصادر",
+   mastery_preservation:"إتقان مفهوم حفظ القرآن",
+   mastery_guidance:"إتقان مفهوم الهداية",
+   mastery_method:"إتقان المنهج",
+   mastery_meaning:"إتقان معنى الإيمان بالكتب"
+  }
+ };
+ function arabicConceptName(base){
+  const unit=String(base?.stage_id||base?.id||'').slice(0,3);
+  return arabicConceptNamesByUnit[unit]?.[base?.concept_id]||arabicU02ConceptNames[base?.concept_id]||'';
+ }
+
  function asDisplayQuestion(base,translated,isRuntimeVariant=false){
   if(!base||!validArabicEntry(translated))return null;
   if(base.question_tr!==translated.source_question_tr)return null;
@@ -231,7 +300,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    correct_order:Array.isArray(translated.correct_order_ar)?[...translated.correct_order_ar]:base.correct_order,
    explanation_tr:translated.explanation_ar,
    stage_title:typeof arabizeDynamicText==='function'?arabizeDynamicText(base.stage_title||''):base.stage_title,
-   topic:arabicU02ConceptNames[base.concept_id]||(typeof arabizeDynamicText==='function'?arabizeDynamicText(base.topic||''):base.topic),
+   topic:arabicConceptName(base)||(typeof arabizeDynamicText==='function'?arabizeDynamicText(base.topic||''):base.topic),
    teaching_card:translated.teaching_card_ar?{...translated.teaching_card_ar}:base.teaching_card,
    __deenArabicPilot:true,
    __deenArabicFullBank:true,
@@ -301,7 +370,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9357u06arabicstage3';
+   const token='9358u07arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1285,13 +1354,60 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "KISIM 2 · İMAN":"القسم الثاني · الإيمان"
  };
  Object.assign(chromeMap,u06ChromeMap);
+
+ const u07ChromeMap={
+  "Kitaplara İman Nedir?":"ما معنى الإيمان بالكتب؟",
+  "Tevrat, İncil, Zebur ve Sahifeler":"التوراة والإنجيل والزبور والصحف",
+  "Kur'an'ın Konumu":"مكانة القرآن",
+  "İlahi Kitapların Ortak Kaynağı":"المصدر المشترك للكتب الإلهية",
+  "Kur'an'ın Rehberliği ve Korunması":"هداية القرآن وحفظه",
+  "Yanlış Anlamaları Düzelt":"صحّح المفاهيم الخاطئة",
+  "Kitaplara İman Ustalığı":"إتقان الإيمان بالكتب",
+  "İman Esası":"ركن من أركان الإيمان",
+  "Önceki Vahiyler":"الوحي السابق",
+  "Vahyin Kaynağı":"مصدر الوحي",
+  "Temel Kavramlar":"المفاهيم الأساسية",
+  "İmanın Anlamı":"معنى الإيمان",
+  "Kaynak Okuryazarlığı":"الوعي بالمصادر",
+  "Tevrat ve İncil":"التوراة والإنجيل",
+  "Tevrat":"التوراة",
+  "İncil":"الإنجيل",
+  "Zebur":"الزبور",
+  "Kitap ve Peygamber":"الكتاب والرسول",
+  "Sahifeler":"الصحف",
+  "Kitapların İsimleri":"أسماء الكتب",
+  "Vahiy ve Yorum":"الوحي والتفسير",
+  "Kur'an'ın Ölçüsü":"معيار القرآن",
+  "Kaynak Birliği":"وحدة المصدر",
+  "Kitapların Nitelikleri":"صفات الكتب الإلهية",
+  "Hidayet ve Nur":"الهدى والنور",
+  "Hidayet":"الهداية",
+  "Vahyin İşlevi":"وظيفة الوحي",
+  "Kaynak ve Rehberlik":"المصدر والهداية",
+  "Kur'an ve Önceki Vahiy":"القرآن والوحي السابق",
+  "Vahyin Akışı":"مسار الوحي",
+  "Vahiy Sürekliliği":"استمرارية الوحي",
+  "Kur'an'ın Rehberliği":"هداية القرآن",
+  "Kur'an'ın Korunması":"حفظ القرآن",
+  "Kur'an'ın Nitelikleri":"صفات القرآن",
+  "Kur'an'la İlişki":"العلاقة بالقرآن",
+  "Kur'an'ın Kimliği":"هوية القرآن",
+  "Yanlış Bilgiyi Düzeltme":"تصحيح المعلومة الخاطئة",
+  "Vahiy ve İnsan Sözü":"الوحي وكلام البشر",
+  "Kaynak Ahlakı":"أمانة التعامل مع المصادر",
+  "Kaynak Bilinci":"الوعي بالمصدر",
+  "Ustalık":"الإتقان",
+  "Kitaplara imanla ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالإيمان بالكتب."
+ };
+ Object.assign(chromeMap,u07ChromeMap);
  const arabicPhrasePairs=[
   ...Object.entries(u01ChromeMap),
   ...Object.entries(u02ChromeMap),
   ...Object.entries(u03ChromeMap),
   ...Object.entries(u04ChromeMap),
   ...Object.entries(u05ChromeMap),
-  ...Object.entries(u06ChromeMap)
+  ...Object.entries(u06ChromeMap),
+  ...Object.entries(u07ChromeMap)
  ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
@@ -1542,7 +1658,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9357u06arabicstage3',
+  version:'9358u07arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1562,11 +1678,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9357u06arabicstage3',
+  version:'9358u07arabicstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9357u06arabicstage3',
+  version:'9358u07arabicstage2',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1592,7 +1708,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9357u06arabicstage3',
+  version:'9358u07arabicstage2',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -1619,7 +1735,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9357u06arabicstage3',
+  version:'9358u07arabicstage2',
   coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
@@ -1646,7 +1762,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U06_ARABIC_AUDIT={
-  version:'9357u06arabicstage3',
+  version:'9358u07arabicstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,macroRuntimeFixes:3},
   scan(root=document.body){
    const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
@@ -1670,6 +1786,33 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     });
    }
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,240)};
+  }
+ };
+ window.DEEN_U07_ARABIC_AUDIT={
+  version:'9358u07arabicstage2',
+  coverage:{questions:100,legacyStages:7,macroStages:5,topics:35,concepts:60,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,unitScopedConcepts:60},
+  scan(root=document.body){
+   const base=window.DEEN_U06_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u06-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u07ChromeMap);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u07-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u07-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,260)};
   }
  };
  window.DEEN_ARABIC_FULL_BANK={
