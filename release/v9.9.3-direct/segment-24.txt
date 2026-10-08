@@ -13183,8 +13183,8 @@ if(typeof LEGACY_RENDER==='function'){
   const a=root.querySelector('.v9912-authico.applemark');
   if(a&&a.dataset.premiumApple!=='1'){a.innerHTML=apple;a.dataset.premiumApple='1';}
  }
- const mo=new MutationObserver(()=>queueMicrotask(apply));
- mo.observe(document.documentElement,{childList:true,subtree:true});
+ // Avoid expensive whole-document observers during app startup.
+ document.addEventListener('deen:navigated',()=>setTimeout(apply,0));
  document.addEventListener('click',()=>setTimeout(apply,0),true);
  setTimeout(apply,0);setTimeout(apply,100);setTimeout(apply,500);
  window.DEEN_WELCOME_PREMIUM={version:'10.6.5',apply};
@@ -13490,8 +13490,8 @@ if(typeof LEGACY_RENDER==='function'){
     if(a&&a.dataset.logoFixed!=='1'){a.innerHTML=APPLE;a.dataset.logoFixed='1';}
     if(m&&m.dataset.logoFixed!=='1'){m.innerHTML=EMAIL;m.dataset.logoFixed='1';}
   }
-  const mo=new MutationObserver(()=>queueMicrotask(apply));
-  mo.observe(document.documentElement,{childList:true,subtree:true});
+  // Avoid expensive whole-document observers during app startup.
+  document.addEventListener('deen:navigated',()=>setTimeout(apply,0));
   document.addEventListener('click',()=>setTimeout(apply,0),true);
   setTimeout(apply,0);setTimeout(apply,100);setTimeout(apply,500);
   window.DEEN_AUTH_LOGOS={version:'10.6.7',apply,verify:()=>({
