@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.34 — U01–U04 Arabic verified UI + U05 stage-2 localization + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.35 — U01–U05 Arabic verified UI + U05 3/3 final-flow audit fixes + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9354u05arabicstage2'
+  version:'9355u05arabicstage3'
  };
 
  const sameArray=(a,b)=>{
@@ -245,7 +245,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9354u05arabicstage2';
+   const token='9355u05arabicstage3';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1170,7 +1170,13 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "✓ TEMELLER USTASI":"✓ متقن الأساسيات",
   "↻ SMART REVIEW ÖNERİLİYOR":"↻ يُنصح بالمراجعة الذكية",
   "KISIM 1’İ TAMAMLA":"أكمل القسم الأول",
-  "AKILLI TEKRARA GİT":"انتقل إلى المراجعة الذكية"
+  "AKILLI TEKRARA GİT":"انتقل إلى المراجعة الذكية",
+  "BİLGİ":"المعرفة",
+  "HATIRLAMA":"الاحتفاظ",
+  "GÜÇLÜ ALANLAR":"نقاط القوة",
+  "TEKRAR ET":"راجع",
+  "TEMELLER USTALIĞI":"إتقان الأساسيات",
+  "Kısım 2 · İman":"القسم الثاني · الإيمان"
  };
  Object.assign(chromeMap,u05ChromeMap);
  const arabicPhrasePairs=[
@@ -1428,7 +1434,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9354u05arabicstage2',
+  version:'9355u05arabicstage3',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1448,11 +1454,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9354u05arabicstage2',
+  version:'9355u05arabicstage3',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9354u05arabicstage2',
+  version:'9355u05arabicstage3',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1478,7 +1484,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9354u05arabicstage2',
+  version:'9355u05arabicstage3',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -1505,8 +1511,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9354u05arabicstage2',
-  coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0},
+  version:'9355u05arabicstage3',
+  coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
