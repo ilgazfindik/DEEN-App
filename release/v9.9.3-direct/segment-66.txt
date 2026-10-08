@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.47 — U01–U10 Arabic UI review + U11 stage-3 audit + unit-aware concept labels + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.48 — U01–U11 Arabic UI review + U12 stage-2 localization + unit-aware concept labels + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9367u11arabicstage3'
+  version:'9368u12arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -187,6 +187,18 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  });
 
  const arabicConceptNamesByUnit={
+  U12:{
+   ablution:'الوضوء',wudu:'الوضوء',ablution_intention:'النية في الوضوء',
+   ablution_obligations:'فرائض الوضوء',ablution_sunnahs:'سنن الوضوء',
+   ablution_steps:'خطوات الوضوء',ablution_sequence:'ترتيب الوضوء',
+   washing_face:'غسل الوجه',washing_arms:'غسل اليدين إلى المرفقين',
+   wiping_head:'مسح الرأس',washing_feet:'غسل الرجلين إلى الكعبين',
+   ablution_invalidators:'نواقض الوضوء',ritual_purity:'الطهارة الشرعية',
+   cleanliness:'النظافة',water_for_purification:'ماء الطهارة',
+   worship_preparation:'الاستعداد للعبادة',ablution_and_prayer:'الوضوء والصلاة',
+   fiqh_differences:'الخلاف الفقهي',legal_school_views:'آراء المذاهب الفقهية',
+   source_literacy:'الوعي بالمصادر',ablution_review:'مراجعة أحكام الوضوء'
+  },
   U11:{
    worship_article:'العبادة',worship_source:'مصدر العبادة',worship_definition:'معنى العبادة',
    sincerity:'الإخلاص',intention:'النية',worship_intention:'النية في العبادة',
@@ -451,7 +463,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9367u11arabicstage3';
+   const token='9368u12arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1569,6 +1581,25 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "İbadetle ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالعبادة."
  };
  Object.assign(chromeMap,u11ChromeMap);
+ const u12ChromeMap={
+  "Abdest Nedir?":"ما الوضوء؟",
+  "Abdest":"الوضوء",
+  "Abdestin Farzları":"فرائض الوضوء",
+  "Abdestin Sünnetleri":"سنن الوضوء",
+  "Abdest Nasıl Alınır?":"كيف نتوضأ؟",
+  "Abdestin Alınışı":"كيفية الوضوء",
+  "Abdestin Aşamaları":"مراحل الوضوء",
+  "Abdestte Niyet":"النية في الوضوء",
+  "Abdestte Sıralama":"ترتيب الوضوء",
+  "Abdesti Bozan Durumlar":"نواقض الوضوء",
+  "Abdesti Bozan Şeyler":"نواقض الوضوء",
+  "Abdest ve Temizlik":"الوضوء والنظافة",
+  "Abdest ve Namaz":"الوضوء والصلاة",
+  "Abdestte Mezhep Farklılıkları":"اختلاف المذاهب في أحكام الوضوء",
+  "Abdest Ustalığı":"إتقان أحكام الوضوء",
+  "Abdestle ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالوضوء."
+ };
+ Object.assign(chromeMap,u12ChromeMap);
  const arabicPhrasePairs=[
   ...Object.entries(u01ChromeMap),
   ...Object.entries(u02ChromeMap),
@@ -1580,7 +1611,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   ...Object.entries(u08ChromeMap),
   ...Object.entries(u09ChromeMap),
   ...Object.entries(u10ChromeMap),
-  ...Object.entries(u11ChromeMap)
+  ...Object.entries(u11ChromeMap),
+  ...Object.entries(u12ChromeMap)
  ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
@@ -1831,7 +1863,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1851,11 +1883,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1881,7 +1913,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -1908,7 +1940,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
@@ -1935,7 +1967,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U06_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,macroRuntimeFixes:3},
   scan(root=document.body){
    const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
@@ -1962,7 +1994,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U07_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:35,concepts:60,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,unitScopedConcepts:60},
   scan(root=document.body){
    const base=window.DEEN_U06_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u06-audit-unavailable'}]};
@@ -1994,7 +2026,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U08_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U07_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u07-audit-unavailable'}]};
@@ -2024,7 +2056,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U09_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:79,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U08_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u08-audit-unavailable'}]};
@@ -2054,7 +2086,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U10_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:80,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U09_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u09-audit-unavailable'}]};
@@ -2084,7 +2116,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U11_ARABIC_AUDIT={
-  version:'9367u11arabicstage3',
+  version:'9368u12arabicstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U10_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u10-audit-unavailable'}]};
@@ -2111,6 +2143,31 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     });
    }
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,360)};
+  }
+ };
+ window.DEEN_U12_ARABIC_AUDIT={
+  version:'9368u12arabicstage2',
+  coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U11_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u11-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u12ChromeMap).sort((a,b)=>b.length-a.length);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u12-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u12-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,380)};
   }
  };
  window.DEEN_ARABIC_FULL_BANK={
