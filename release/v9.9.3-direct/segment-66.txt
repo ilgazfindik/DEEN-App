@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.45 — U01–U09 Arabic UI review + U10 stage-3 audit + unit-aware concept labels + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.46 — U01–U10 Arabic UI review + U11 stage-2 localization + unit-aware concept labels + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9365u10arabicstage3'
+  version:'9366u11arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -187,6 +187,17 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  });
 
  const arabicConceptNamesByUnit={
+  U11:{
+   worship_article:'العبادة',worship_source:'مصدر العبادة',worship_definition:'معنى العبادة',
+   sincerity:'الإخلاص',intention:'النية',worship_intention:'النية في العبادة',
+   worship_conditions:'شروط العبادة',following_prophet:'اتباع النبي ﷺ',
+   worship_and_obedience:'العبادة والطاعة',servitude:'العبودية',
+   worship_and_life:'العبادة في الحياة',daily_worship:'العبادة اليومية',
+   righteous_deeds:'الأعمال الصالحة',worship_types:'أنواع العبادة',
+   prayer:'الصلاة',fasting:'الصوم',charity:'الزكاة',pilgrimage:'الحج',
+   accepted_worship:'قبول العبادة',worship_misconceptions:'تصحيح المفاهيم الخاطئة عن العبادة',
+   source_literacy:'الوعي بالمصادر',tawhid_in_worship:'توحيد العبادة'
+  },
   U10:{
    destiny_article:'الإيمان بالقدر',qadar:'القدر',qada:'القضاء',divine_knowledge:'علم الله',
    divine_will:'مشيئة الله',divine_decree:'تقدير الله',human_will:'إرادة الإنسان',
@@ -440,7 +451,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9365u10arabicstage3';
+   const token='9366u11arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1539,6 +1550,25 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "Kadere iman konusunu adım adım pekiştir.":"عزّز فهمك للإيمان بالقدر خطوةً خطوةً."
  };
  Object.assign(chromeMap,u10ChromeMap);
+ const u11ChromeMap={
+  "İbadet Nedir?":"ما معنى العبادة؟",
+  "İbadet Bilinci":"الوعي بالعبادة",
+  "İbadetin Kaynağı":"مصدر العبادة",
+  "İbadetin Anlamı":"معنى العبادة",
+  "İbadette Niyet":"النية في العبادة",
+  "Niyet ve İhlas":"النية والإخلاص",
+  "İbadette İhlas":"الإخلاص في العبادة",
+  "İbadetin Şartları":"شروط العبادة",
+  "İbadet ve Kulluk":"العبادة والعبودية",
+  "İbadet ve İtaat":"العبادة والطاعة",
+  "İbadet Çeşitleri":"أنواع العبادة",
+  "Günlük Hayatta İbadet":"العبادة في الحياة اليومية",
+  "Salih Amel":"العمل الصالح",
+  "İbadette Yanlış Anlamalar":"المفاهيم الخاطئة عن العبادة",
+  "İbadet Ustalığı":"إتقان العبادة",
+  "İbadetle ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالعبادة."
+ };
+ Object.assign(chromeMap,u11ChromeMap);
  const arabicPhrasePairs=[
   ...Object.entries(u01ChromeMap),
   ...Object.entries(u02ChromeMap),
@@ -1549,7 +1579,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   ...Object.entries(u07ChromeMap),
   ...Object.entries(u08ChromeMap),
   ...Object.entries(u09ChromeMap),
-  ...Object.entries(u10ChromeMap)
+  ...Object.entries(u10ChromeMap),
+  ...Object.entries(u11ChromeMap)
  ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
@@ -1800,7 +1831,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1820,11 +1851,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1850,7 +1881,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -1877,7 +1908,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
@@ -1904,7 +1935,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U06_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,macroRuntimeFixes:3},
   scan(root=document.body){
    const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
@@ -1931,7 +1962,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U07_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:35,concepts:60,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,unitScopedConcepts:60},
   scan(root=document.body){
    const base=window.DEEN_U06_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u06-audit-unavailable'}]};
@@ -1963,7 +1994,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U08_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U07_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u07-audit-unavailable'}]};
@@ -1993,7 +2024,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U09_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:79,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U08_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u08-audit-unavailable'}]};
@@ -2023,7 +2054,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U10_ARABIC_AUDIT={
-  version:'9365u10arabicstage3',
+  version:'9366u11arabicstage2',
   coverage:{questions:100,legacyStages:7,optionQuestions:80,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U09_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u09-audit-unavailable'}]};
@@ -2050,6 +2081,31 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     });
    }
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,340)};
+  }
+ };
+ window.DEEN_U11_ARABIC_AUDIT={
+  version:'9366u11arabicstage2',
+  coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U10_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u10-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u11ChromeMap).sort((a,b)=>b.length-a.length);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u11-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u11-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,360)};
   }
  };
  window.DEEN_ARABIC_FULL_BANK={
