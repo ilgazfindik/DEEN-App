@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.12.64</title>
+<title>DEEN v9.12.65</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -19,7 +19,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9384bootprogress1';
+ const BUILD='9385bootprogresslabel';
  // Load Arabic question bank only when Arabic is chosen at the entry gate.
  let SEGMENT_COUNT=66;
  const CONCURRENCY=6;
@@ -363,7 +363,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    const parts=await loadAll(cache);
    const html=assemble(parts);
    validateRelease(html);
-   progressFill.style.width='100%';status.textContent='DEEN hazır · %100';
+   progressFill.style.width='100%';status.textContent='Dosyalar yüklendi · %100 · uygulama başlatılıyor…';
    await new Promise(resolve=>setTimeout(resolve,180));
 
    try{
