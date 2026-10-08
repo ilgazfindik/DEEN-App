@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.39 — U01–U07 Arabic UI review + U07 stage-3 audit + unit-aware concept labels + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.40 — U01–U07 Arabic UI review + U08 stage-2 localization + unit-aware concept labels + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9359u07arabicstage3'
+  version:'9360u08arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -187,6 +187,35 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  });
 
  const arabicConceptNamesByUnit={
+  U08:{
+   messengers_article:'الإيمان بالرسل',
+   prophets_article:'الإيمان بالأنبياء',
+   prophethood:'النبوة',
+   messengerhood:'الرسالة',
+   prophet_messenger:'النبي والرسول',
+   revelation_source:'مصدر الوحي',
+   revelation:'الوحي',
+   divine_message:'الرسالة الإلهية',
+   human_nature:'بشرية الأنبياء',
+   messenger_humanity:'بشرية الرسل',
+   prophetic_example:'القدوة النبوية',
+   prophet_example:'الاقتداء بالأنبياء',
+   messenger_obedience:'طاعة الرسل',
+   prophetic_morals:'أخلاق الأنبياء',
+   prophets_duties:'مهام الأنبياء',
+   messengers_duties:'مهام الرسل',
+   teaching_guidance:'التبليغ والهداية',
+   message_delivery:'تبليغ الرسالة',
+   common_message:'وحدة دعوة الرسل',
+   monotheism_message:'الدعوة إلى التوحيد',
+   last_prophet:'خاتم النبيين',
+   muhammad_final_prophet:'محمد ﷺ خاتم النبيين',
+   belief_all_messengers:'الإيمان بجميع الرسل',
+   no_distinction_in_belief:'عدم التفريق بين الرسل في أصل الإيمان',
+   source_literacy:'الوعي بالمصادر',
+   prophetic_sources:'مصادر معرفة الأنبياء',
+   quran_guidance:'هداية القرآن'
+  },
   U07:{
    books_article:"الإيمان بالكتب",
    prior_revelations:"الوحي السابق",
@@ -370,7 +399,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9359u07arabicstage3';
+   const token='9360u08arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1400,6 +1429,36 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "Kitaplara imanla ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالإيمان بالكتب."
  };
  Object.assign(chromeMap,u07ChromeMap);
+ const u08ChromeMap={
+  "Peygamberlere İman":"الإيمان بالرسل",
+  "Peygamberlere İman Nedir?":"ما معنى الإيمان بالرسل؟",
+  "Peygamber ve Resul":"النبي والرسول",
+  "Peygamber ve Elçi":"النبي والرسول",
+  "Peygamberlerin Görevleri":"مهام الأنبياء",
+  "Peygamberlerin Özellikleri":"صفات الأنبياء",
+  "Peygamberlerin Ortak Mesajı":"الرسالة المشتركة للأنبياء",
+  "Peygamberlerin Örnekliği":"الاقتداء بالأنبياء",
+  "Peygamberlerin İnsan Oluşu":"بشرية الأنبياء",
+  "Peygamberlerin İnsanlığı":"بشرية الأنبياء",
+  "Peygamberlik ve Vahiy":"النبوة والوحي",
+  "Peygamberlere İmanın Anlamı":"معنى الإيمان بالرسل",
+  "Peygamberlere İman Ustalığı":"إتقان الإيمان بالرسل",
+  "Hz. Muhammed Son Peygamberdir":"محمد ﷺ خاتم النبيين",
+  "Son Peygamber":"خاتم النبيين",
+  "Bütün Peygamberlere İman":"الإيمان بجميع الأنبياء",
+  "Tebliğ ve Rehberlik":"التبليغ والهداية",
+  "Tebliğ":"التبليغ",
+  "Resul":"الرسول",
+  "Nebi":"النبي",
+  "Peygamber":"النبي",
+  "Risalet":"الرسالة",
+  "Nübüvvet":"النبوة",
+  "Örnek Olma":"القدوة الحسنة",
+  "Ortak Mesaj":"الرسالة المشتركة",
+  "İnsan Olma":"البشرية",
+  "Peygamberlere iman konusunu adım adım pekiştir.":"عزّز فهمك للإيمان بالرسل خطوةً خطوةً."
+ };
+ Object.assign(chromeMap,u08ChromeMap);
  const arabicPhrasePairs=[
   ...Object.entries(u01ChromeMap),
   ...Object.entries(u02ChromeMap),
@@ -1407,7 +1466,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   ...Object.entries(u04ChromeMap),
   ...Object.entries(u05ChromeMap),
   ...Object.entries(u06ChromeMap),
-  ...Object.entries(u07ChromeMap)
+  ...Object.entries(u07ChromeMap),
+  ...Object.entries(u08ChromeMap)
  ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
@@ -1658,7 +1718,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9359u07arabicstage3',
+  version:'9360u08arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1678,11 +1738,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9359u07arabicstage3',
+  version:'9360u08arabicstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9359u07arabicstage3',
+  version:'9360u08arabicstage2',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1708,7 +1768,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9359u07arabicstage3',
+  version:'9360u08arabicstage2',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -1735,7 +1795,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9359u07arabicstage3',
+  version:'9360u08arabicstage2',
   coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
@@ -1762,7 +1822,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U06_ARABIC_AUDIT={
-  version:'9359u07arabicstage3',
+  version:'9360u08arabicstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,macroRuntimeFixes:3},
   scan(root=document.body){
    const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
@@ -1789,7 +1849,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U07_ARABIC_AUDIT={
-  version:'9359u07arabicstage3',
+  version:'9360u08arabicstage2',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:35,concepts:60,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,unitScopedConcepts:60},
   scan(root=document.body){
    const base=window.DEEN_U06_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u06-audit-unavailable'}]};
@@ -1818,6 +1878,31 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     });
    }
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,260)};
+  }
+ };
+ window.DEEN_U08_ARABIC_AUDIT={
+  version:'9360u08arabicstage2',
+  coverage:{questions:100,legacyStages:7,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U07_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u07-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u08ChromeMap).sort((a,b)=>b.length-a.length);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u08-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u08-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,300)};
   }
  };
  window.DEEN_ARABIC_FULL_BANK={
