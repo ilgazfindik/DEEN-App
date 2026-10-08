@@ -97,18 +97,14 @@ function rootFor(c){
 function cardFor(root){
   return root?.querySelector?.('.deen-ikhlas-card')||null;
 }
-function isListenCard(card){
-  if(!card)return false;
-  const stage=card.querySelector?.('.deen-ikhlas-kicker')?.textContent||'';
-  return /DİNLE/i.test(stage);
-}
+function isListenCard(card){return card?.dataset?.deenLearningStep==='listen'}
 function visibleAyah(c,root=rootFor(c)){
   if(!c)return 1;
   const text=root?.querySelector?.('.deen-ikhlas-progresshead b')?.textContent||
              root?.querySelector?.('.deen-ikhlas-card h2')?.textContent||'';
-  const m=String(text).match(/Ayet\s*(\d+)/i);
+  const m=String(text).match(/(?:Ayet|الآية|آية)\s*(\d+)/i);
   const fallback=Number(q()?.profile?.currentAyah)||1;
-  const n=m?Number(m[1]):fallback;
+  const n=Number(root?.dataset?.deenAyah)||(m?Number(m[1]):fallback);
   return Math.max(1,Math.min(c.count,Number.isFinite(n)?n:1));
 }
 function fileFor(c,n){
@@ -411,7 +407,7 @@ function decorate(){
     h.className='deen-ayah-inline-hint';
     row?.insertAdjacentElement('afterend',h);
   }
-  if(h&&!h.classList.contains('error'))h.textContent='Hoparlöre dokun: Ayet '+visibleAyah(c,root)+' kaydını dinle.';
+  if(h&&!h.classList.contains('error')){const text='Hoparlöre dokun: Ayet '+visibleAyah(c,root)+' kaydını dinle.';const value=window.DEEN_ARABIC_UI?.active?.()?DEEN_ARABIC_UI.translate(text):text;if(h.textContent!==value)h.textContent=value;}
 
   const n=visibleAyah(c,root);
   if(activeSurah&&activeSurah!==c.id)stop();

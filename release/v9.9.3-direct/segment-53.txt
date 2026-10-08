@@ -48,7 +48,7 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&
 const shuffle=a=>{const o=[...a];for(let i=o.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[o[i],o[j]]=[o[j],o[i]]}return o};
 const uniqBy=(a,key)=>{const s=new Set();return a.filter(x=>{const k=key(x);if(s.has(k))return false;s.add(k);return true})};
 function qs(){try{return DEEN_QURAN?.ensureState?.()||state?.quranJourney||{}}catch(_){return state?.quranJourney||{}}}
-function row(id,n){const r=DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n));if(!r)return null;return{id,ayah:Number(n),name:META[id]?.name||id,arabic:String(r.arabic?.text||''),translation:String(r.translation?.text||''),record:r}}
+function row(id,n){const r=DEEN_QURAN_CONTENT?.getAyah?.(id,Number(n));if(!r)return null;return{id,ayah:Number(n),name:META[id]?.name||id,arabic:String(r.arabic?.text||''),translation:String(window.DEEN_QURAN_LEARNING_TRANSLATION?.get?.(r)?.text||''),record:r}}
 function allRows(){const out=[];for(const id of IDS)for(let n=1;n<=META[id].count;n++){const r=row(id,n);if(r?.arabic)out.push(r)}return out}
 function learnedRows(){const q=qs(),out=[];for(const id of IDS){const s=q.progress?.surahs?.[id];for(let n=1;n<=META[id].count;n++)if(s?.ayahs?.[n]?.completedAt){const r=row(id,n);if(r)out.push(r)}}return out}
 function weakRows(){
@@ -91,7 +91,7 @@ function makeContinuation(pool,target){
  return{type:'continuation',target,prompt,answer:ans,options:shuffle([option('c',ans,ans,'ar'),...ds.map((x,i)=>option('d'+i,x,x,'ar'))])};
 }
 function makeMeaning(pool,target){
- if(!target.translation)return makeSurah(pool,target);
+ if(!target.translation)return null;
  const others=uniqBy(shuffle(pool).filter(x=>x.translation&&x.translation!==target.translation),x=>x.translation).slice(0,3);
  return{type:'meaning',target,prompt:target.arabic,answer:target.translation,options:shuffle([option('c',target.translation,target.translation),...others.map((x,i)=>option('d'+i,x.translation,x.translation))])};
 }
@@ -116,9 +116,9 @@ function makeAyahNumber(pool,target){
 function makeQuestion(){
  const pool=scopeRows();if(!pool.length)return null;
  const target=pick(pool);let type=A.type;
- if(type==='mixed')type=pick(['fill_blank','continuation','meaning','surah','audio','next_ayah','ayah_number']);
+ if(type==='mixed')type=pick(['fill_blank','continuation','surah','audio','next_ayah','ayah_number',...(pool.every(x=>x.translation)?['meaning']:[])]);
  const q=type==='fill_blank'?makeFill(pool,target):type==='continuation'?makeContinuation(pool,target):type==='meaning'?makeMeaning(pool,target):type==='surah'?makeSurah(pool,target):type==='audio'?makeAudio(pool,target):type==='next_ayah'?makeNext(pool,target):makeAyahNumber(pool,target);
- q.sourceCount=pool.length;return q;
+ if(!q)return null; q.sourceCount=pool.length;return q;
 }
 function titleFor(q){return({fill_blank:'Eksik kelimeyi bul',continuation:'Ayetin devamını seç',meaning:'Doğru meali bul',surah:'Bu ayet hangi surede?',audio:'Dinlediğin ayeti bul',next_ayah:'Bundan sonra hangi ayet gelir?',ayah_number:'Bu kaçıncı ayet?'})[q.type]||'Kur’an sorusu'}
 function kickerFor(q){return({fill_blank:'BOŞLUK DOLDURMA',continuation:'DEVAMINI BUL',meaning:'AYET · MEAL',surah:'SUREYİ BUL',audio:'SESİ BUL',next_ayah:'AYET SIRASI',ayah_number:'AYET NUMARASI'})[q.type]||'KUR’AN PRATİĞİ'}
@@ -134,7 +134,7 @@ function optionsHtml(q){
  }).join('')+'</div>';
 }
 function body(){
- const q=A.q;if(!q)return'<div class="deen-quran-pending">Soru havuzu hazırlanamadı.</div>';
+ const q=A.q;if(!q)return'<div class="deen-quran-pending">'+(A.type==='meaning'?'Seçilen dilde doğrulanmış meal henüz hazır değil.':'Soru havuzu hazırlanamadı.')+'</div>';
  const feedback=A.answered?'<div class="deen-qarena-feedback '+(A.choice===q.answer?'good':'bad')+'">'+(A.choice===q.answer?'Doğru. Devam edebilirsin.':'Doğru cevap işaretlendi. Bir sonraki soruda tekrar dene.')+'</div>':'';
  return'<div class="deen-qarena">'+
   '<div class="deen-qarena-top"><span><b>Soru Arenası</b><small>'+q.target.name+' · Ayet '+q.target.ayah+' · '+q.sourceCount+' ayetlik havuz</small></span><span class="deen-qarena-score">✓ '+A.score+' · 🔥 '+A.streak+'</span></div>'+

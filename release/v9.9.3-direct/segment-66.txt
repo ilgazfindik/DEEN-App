@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9387arabicallstages1'
+  version:'9388centralarabic1'
  };
 
  const sameArray=(a,b)=>{
@@ -388,9 +388,10 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
 
  function asDisplayQuestion(base,translated,isRuntimeVariant=false){
   if(!base||!validArabicEntry(translated))return null;
-  if(base.question_tr!==translated.source_question_tr)return null;
+  const prompt=base.question_tr===translated.source_question_tr?translated.question_ar:translated.prompt_variants?.[base.question_tr];
+  if(!prompt)return null;
   if(base.activity_type!==translated.activity_type)return null;
-  if(blankCount(base.question_tr)!==blankCount(translated.question_ar))return null;
+  if(blankCount(base.question_tr)!==blankCount(prompt))return null;
 
   if(isRuntimeVariant){
    if(base.activity_type==='matching'){
@@ -403,6 +404,12 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    if(!sameArray(base.correct_order,translated.source_correct_order_tr))return null;
   }
 
+  if(!isRuntimeVariant){
+   if(translated.source_options_tr&&!sameArray(base.options_tr,translated.source_options_tr))return null;
+   if(translated.source_pairs_tr&&!samePairs(base.pairs,translated.source_pairs_tr))return null;
+   if(translated.source_items_tr&&!sameArray(base.items,translated.source_items_tr))return null;
+   if(translated.source_correct_order_tr&&!sameArray(base.correct_order,translated.source_correct_order_tr))return null;
+  }
   if(base.activity_type!=='matching' && base.activity_type!=='build_sequence' &&
      base.correct_answer!==translated.source_correct_answer_tr)return null;
 
@@ -423,13 +430,14 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
 
   return {
    ...base,
-   question_tr:translated.question_ar,
-   options_tr:Array.isArray(translated.options_ar)?[...translated.options_ar]:null,
+   question_tr:prompt,
+   options_tr:base.activity_type==='matching'?null:(Array.isArray(translated.options_ar)?[...translated.options_ar]:null),
    correct_answer:translated.correct_answer_ar||null,
    pairs:Array.isArray(translated.pairs_ar)?translated.pairs_ar.map(p=>({...p})):base.pairs,
    items:Array.isArray(translated.items_ar)?[...translated.items_ar]:base.items,
    correct_order:Array.isArray(translated.correct_order_ar)?[...translated.correct_order_ar]:base.correct_order,
    explanation_tr:translated.explanation_ar,
+   source_evidence_note:translated.source_evidence_note_ar||pilot.translations[base.id]?.source_evidence_note_ar||'يرجى مراجعة روابط المصدر الأصلي؛ ترجمة الملاحظة التفصيلية لهذا السجل قيد المراجعة.',
    stage_title:typeof arabizeDynamicText==='function'?arabizeDynamicText(base.stage_title||''):base.stage_title,
    topic:arabicConceptName(base)||(typeof arabizeDynamicText==='function'?arabizeDynamicText(base.topic||''):base.topic),
    teaching_card:translated.teaching_card_ar?{...translated.teaching_card_ar}:base.teaching_card,
@@ -444,8 +452,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   if(!pilot.ready||!base)return null;
   const live=pilot.live_translations[base.id];
   const variant=pilot.runtime_variants[base.id];
-  const translated=live||variant||pilot.translations[base.id];
-  return asDisplayQuestion(base,translated,!!live||!!variant);
+  if(base.__deenArabicFullBank)return base;
+  for(const [entry,runtime] of [[live,true],[variant,true],[pilot.translations[base.id],false]]){
+   const result=asDisplayQuestion(base,entry,runtime);if(result)return result;
+  }
+  return null;
  };
 
  pilot.canStart=id=>pilot.ready&&supportedStages.has(id);
@@ -511,7 +522,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    :pilot.failure
     ?'تعذّر تحميل بنك الأسئلة العربي بالكامل. تم منع عرض الأسئلة التركية.'
     :'تعذّر تجهيز هذا السؤال بالعربية، لذلك لن يُعرض النص التركي.';
-  try{if(typeof sheet==='function'){sheet('الأسئلة العربية','<p dir="rtl">'+msg+'</p>');return true}}catch(_){}
+  try{if(typeof sheet==='function'){sheet('الأسئلة العربية','<p dir="rtl">'+msg+'</p><code>'+String(id||'AR_BANK').replace(/[<>&]/g,'')+'</code>');return true}}catch(_){}
   window.alert?.(msg);
   return true;
  };
@@ -524,15 +535,14 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  };
 
  async function fetchJson(url){
-  const r=await fetch(url,{cache:'no-store'});
-  if(!r.ok)throw Error('HTTP '+r.status+' '+url);
-  return r.json();
+  const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),12000);
+  try{const r=await fetch(url,{cache:'no-store',signal:controller.signal});if(!r.ok)throw Error('HTTP '+r.status+' '+url);const result=await r.json();pilot.loadedFiles++;window.DEEN_BOOT?.progress?.(pilot.loadedFiles,18);return result}finally{clearTimeout(timer)}
  }
 
  async function preload(){
-  pilot.loading=true;pilot.failure='';pilot.ready=false;
+  pilot.loading=true;pilot.failure='';pilot.ready=false;pilot.loadedFiles=0;
   try{
-   const token='9387arabicallstages1';
+   const token='9388centralarabic1';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -559,7 +569,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    pilot.translations=translations;
    pilot.runtime_variants=variants;
    pilot.live_translations=live;
-   pilot.ready=true;
+   pilot.ready=true;window.DEEN_BOOT?.progress?.(18,18);
   }catch(e){
    pilot.failure=String(e?.message||e);
    pilot.ready=false;
@@ -571,115 +581,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  }
 
  window.DEEN_ARABIC_PILOT=pilot;
- pilot.promise=preload();
-
- // The legacy U01-S01 pilot owns startStage and bypasses the normal locale selector.
- // In Arabic mode only, start it with all 12 translated Pxx questions.
- if(typeof window.startStage==='function'){
-  const previousStartStage=window.startStage;
-  const fullStartStage=function(id,...args){
-   if(locale()!=='ar')return previousStartStage.apply(this,[id,...args]);
-   if(!pilot.ready)return pilot.notice(id);
-   // All Arabic units must use translated lesson questions, not the legacy Turkish launcher.
-   if(id!=='U01-S01'){
-    if(!supportedStages.has(id))return pilot.notice(id);
-    const st=STAGES.find(x=>x.id===id);if(!st)return pilot.notice(id);
-    const qs=pilot.questionsFor(QUESTIONS,id,id.endsWith('S07')?10:7,typeof shuffle==='function'?shuffle:null);
-    if(!qs.length)return pilot.notice(id);
-    if(!state.premium&&state.energy<st.energy){showEnergy();return}
-    if(!state.premium)state.energy-=st.energy;
-    session={stage:st,questions:qs,index:0,correct:0,combo:0,bestCombo:0,startedAt:Date.now(),v5responses:[],deenArabicPilot:true};
-    if(typeof openQuiz==='function')openQuiz();
-    else{
-     const lesson=document.getElementById('lesson');if(!lesson)return pilot.notice(id);
-     lesson.classList.add('active');
-     document.getElementById('quizView').style.display='flex';
-     resetResultView(false);setLessonStatus(false);renderQuestion();
-    }
-    try{saveState();updateUI()}catch(_){}
-    pilot.decorate?.();return true;
-   }
-   const st=STAGES.find(x=>x.id===id);if(!st)return;
-   if(!state.premium&&state.energy<st.energy){showEnergy();return}
-   if(!state.premium)state.energy-=st.energy;
-   const sourcePool=QUESTIONS.filter(q=>q.stage_id===id).sort((a,b)=>(Number(a.pilot_order)||0)-(Number(b.pilot_order)||0));
-   const qs=sourcePool.map(q=>pilot.translateQuestion(q));
-   if(sourcePool.length!==12||qs.some(q=>!q))return pilot.notice(id);
-   session={stage:st,questions:qs,index:0,correct:0,combo:0,bestCombo:0,__v900Pilot:true,__v862Planned:true,__v873Planned:true,__v890Planned:true,deenArabicPilot:true};
-   const lesson=document.getElementById('lesson');if(!lesson)return;
-   lesson.classList.add('active');document.getElementById('quizView').style.display='flex';
-   resetResultView(false);setLessonStatus(false);
-   try{saveState()}catch(_){}try{updateUI()}catch(err){console.error('DEEN Arabic U01-S01 updateUI',err)}
-   renderQuestion();pilot.decorate?.();return true;
-  };
-  fullStartStage.__deenArabicFullBank=true;
-  window.startStage=fullStartStage;
-  try{startStage=fullStartStage}catch(_){}
- }
-
- // Override the old two-stage macro guard with a complete U01–U15 mapper.
- if(typeof window.startMacroStage==='function'){
-  const previousMacro=window.startMacroStage;
-  const fullMacro=function(id,...args){
-   if(locale()!=='ar')return previousMacro.apply(this,[id,...args]);
-   const legacy=stageMap[id]||id;
-   if(!supportedStages.has(legacy)||!pilot.ready)return pilot.notice(id);
-   try{if(typeof closeSheet==='function')closeSheet()}catch(_){}
-   return typeof window.startStage==='function'?window.startStage(legacy):pilot.notice(id);
-  };
-  fullMacro.__deenArabicFullBank=true;
-  window.startMacroStage=fullMacro;
-  try{startMacroStage=fullMacro}catch(_){}
- }
-
- // Restore Arabic Smart Review using the same translated bank instead of the old pilot block.
- if(typeof window.startSmartReview==='function'){
-  const previousReview=window.startSmartReview;
-  const fullReview=function(mode='smart',unit=null){
-   if(locale()!=='ar')return previousReview.apply(this,arguments);
-   if(!pilot.ready)return pilot.notice('SMART');
-   try{
-    if(typeof mode!=='string')mode='smart';
-    let p=typeof reviewPool==='function'?reviewPool(mode,unit):[];
-    if(!Array.isArray(p)||!p.length){
-     try{
-      if(typeof sheet==='function'){
-       sheet('المراجعة غير جاهزة بعد','<p dir="rtl">لا توجد أسئلة في قائمة المراجعة هذه بعد.</p>');
-       return true;
-      }
-     }catch(_){}
-     return true;
-    }
-    if(typeof refillEnergy==='function')refillEnergy();
-    const cost=mode==='quick'?0:3;
-    if(!state.premium&&state.energy<cost){showEnergy();return}
-    if(!state.premium)state.energy-=cost;
-    const recent=new Set(state.lastReviewIds||[]);
-    const fresh=p.filter(q=>!recent.has(q.id));
-    if(fresh.length>=Math.min(7,p.length))p=fresh;
-    const target=mode==='quick'?5:7;
-    const base=(typeof shuffle==='function'?shuffle(p):[...p]).slice(0,target);
-    const qs=base.map(q=>pilot.translateQuestion(q));
-    if(qs.some(q=>!q))return pilot.notice('SMART');
-    state.lastReviewIds=base.map(q=>q.id);
-    session={
-     stage:{id:'SMART',title:mode==='quick'?'مراجعة سريعة':'مراجعة ذكية',xp:45,energy:cost},
-     questions:qs,index:0,correct:0,combo:0,bestCombo:0,review:true,
-     startedAt:Date.now(),v5responses:[],deenArabicPilot:true
-    };
-    if(typeof openQuiz==='function')openQuiz();
-    pilot.decorate();
-    try{saveState();updateUI()}catch(_){}
-    return true;
-   }catch(e){
-    console.error('[DEEN Arabic review]',e);
-    return pilot.notice('SMART');
-   }
-  };
-  fullReview.__deenArabicFullBank=true;
-  window.startSmartReview=fullReview;
-  try{startSmartReview=fullReview}catch(_){}
- }
+ pilot.preload=()=>{if(!pilot.promise||(!pilot.loading&&!pilot.ready))pilot.promise=preload();return pilot.promise};
+ pilot.loading=false;pilot.promise=null;
 
  if(typeof window.completeQuestion==='function'){
   const previousComplete=window.completeQuestion;
@@ -697,11 +600,136 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    return result;
   };
   fullComplete.__deenArabicFullBank=true;
+  fullComplete.__deen9953=previousComplete.__deen9953;
   window.completeQuestion=fullComplete;
   try{completeQuestion=fullComplete}catch(_){}
  }
 
  const chromeMap={
+"Doğru sıraya koy":"رتّب ترتيبًا صحيحًا",
+"Cümleyi tamamla":"أكمل الجملة",
+"Yanlışı bul":"اعثر على الخطأ",
+"Sırala":"رتّب",
+"Devamı":"التكملة",
+"Eşleştir":"طابق",
+"Sonraki Parça":"الجزء التالي",
+"Önce ayeti dinle, sonra metni gözünle takip et.":"استمع إلى الآية أولًا، ثم تابع النص بعينيك.",
+
+"Sure Yolculuğu":"رحلة السورة",
+"Henüz çalışma yok":"لم تبدأ الدراسة بعد",
+"Son çalışma":"آخر دراسة",
+"Sırayı kontrol et":"تحقّق من الترتيب",
+"SIRAYI KONTROL ET":"تحقّق من الترتيب",
+
+"Dinlediğim cevabı kilitle":"أكّد الإجابة التي سمعتها",
+"Dinle ve yanıtla":"استمع وأجب",
+"Ses kaydını oynat":"شغّل التسجيل الصوتي",
+"Bu dinleme sorusu puanlanmaz. Yapay telaffuz kullanılmaz.":"لا تُحتسب نقاط لهذا السؤال، ولا يُستخدم نطق اصطناعي.",
+"Doğrulanmış ses kaydı henüz bağlı değil.":"لم يُربط تسجيل صوتي موثّق بعد.",
+
+"Fâtiha":"الفاتحة",
+"İhlâs":"الإخلاص",
+"Felak":"الفلق",
+"Nâs":"الناس",
+"Kâfirûn":"الكافرون",
+"Nasr":"النصر",
+"Tebbet":"المسد",
+"Fîl":"الفيل",
+"Kureyş":"قريش",
+"Mâûn":"الماعون",
+"İnşirah":"الشرح",
+"Tîn":"التين",
+"Beyyine":"البينة",
+"Zilzâl":"الزلزلة",
+"Kevser":"الكوثر",
+"Asr":"العصر",
+"SIFIRLA":"إعادة البدء",
+"HATIRLADIM":"تذكّرت",
+"TEK DOKUNUŞTA CEVAPLA":"أجب بلمسة واحدة",
+"TAM İSABET!":"إجابة دقيقة!",
+"DEVAM!":"واصل!",
+"GÜZEL!":"أحسنت!",
+"Zorlandığın ayetler öncelik alır":"تُعطى الأولوية للآيات التي تجد فيها صعوبة",
+"Seçilen dilde doğrulanmış meal henüz hazır değil.":"لا يتوفر معنى موثّق باللغة المختارة بعد.",
+"Soru havuzu hazırlanamadı.":"تعذّر تجهيز مجموعة الأسئلة.",
+"16 sure · 90 ayet · yorum/tefsir sorusu üretmez; yalnız kayıtlı metin, meal, sıra ve ses eşleşmesini kullanır.":"١٦ سورة · ٩٠ آية · لا تُنشأ أسئلة في التفسير؛ تُستخدم النصوص والمعاني والترتيب والتلاوات المسجّلة فقط.",
+"Fâtiha Yolculuğu":"رحلة الفاتحة",
+"İhlâs Yolculuğu":"رحلة الإخلاص",
+"Felak Yolculuğu":"رحلة الفلق",
+"Nâs Yolculuğu":"رحلة الناس",
+"Kâfirûn Yolculuğu":"رحلة الكافرون",
+"Nasr Yolculuğu":"رحلة النصر",
+"Tebbet Yolculuğu":"رحلة المسد",
+"Fîl Yolculuğu":"رحلة الفيل",
+"Kureyş Yolculuğu":"رحلة قريش",
+"Mâûn Yolculuğu":"رحلة الماعون",
+"İnşirah Yolculuğu":"رحلة الشرح",
+"Tîn Yolculuğu":"رحلة التين",
+"Beyyine Yolculuğu":"رحلة البينة",
+"Zilzâl Yolculuğu":"رحلة الزلزلة",
+"Kevser Yolculuğu":"رحلة الكوثر",
+"Asr Yolculuğu":"رحلة العصر",
+
+"ANLATIM PROFİLİ":"أسلوب الشرح",
+"AKTİF PROFİL":"الأسلوب الحالي",
+"Değiştir →":"تغيير ←",
+"Doğruluk: Henüz ders yok":"الدقة: لم تُكمل درسًا بعد",
+"Ezber araçları":"أدوات الحفظ",
+"FÂTIHA İLE BAŞLA":"ابدأ بالفاتحة",
+"FÂTIHA İLE ابدأ":"ابدأ بالفاتحة",
+"Fâtiha Yolculuğu":"رحلة الفاتحة",
+"İhlâs Yolculuğu":"رحلة الإخلاص",
+"Felak Yolculuğu":"رحلة الفلق",
+"Nâs Yolculuğu":"رحلة الناس",
+"✦ Sure madalyaları":"✦ أوسمة السور",
+"Zorlandığın ayetleri tekrar edip yeniden dene.":"راجع الآيات التي تجد فيها صعوبة، ثم حاول مجددًا.",
+"İsim:":"الاسم:",
+"Anlatım:":"أسلوب الشرح:",
+"Yol arkadaşı:":"رفيق الرحلة:",
+"Günlük süre:":"الوقت اليومي:",
+"Günlük hedef:":"الهدف اليومي:",
+"Soruların ve geri bildirimlerin dili seçilen yaş grubuna göre ayarlanır.":"يُضبط أسلوب الأسئلة والملاحظات حسب الفئة العمرية المختارة.",
+
+"Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler.":"لا تُحتسب الاختلافات المذهبية المعتبرة أخطاءً؛ وجميع المحتويات الجديدة تنتظر مراجعة مختص.",
+"Öğren. Anla. Hatırla. Uygula.":"تعلّم. افهم. تذكّر. طبّق.",
+"İçerikler uzman incelemesi bekliyor.":"المحتويات تنتظر مراجعة مختص.",
+
+"Bu durumda en doğru karar hangisi?":"ما القرار الأنسب في هذا الموقف؟",
+"Bu durumda en doğru seçim hangisi?":"ما الاختيار الأنسب في هذا الموقف؟",
+"Durumu değerlendir · en doğru davranışı seç.":"قيّم الموقف واختر التصرف الأنسب.",
+"GÜNLÜK KARAR":"قرار من الحياة اليومية",
+"Günlük hayat":"الحياة اليومية",
+"NASIL DAVRANIRSIN?":"كيف تتصرف؟",
+"Şüpheli ifadeyi incele ve hatayı bul.":"افحص العبارة واعثر على الخطأ.",
+"Durumu değerlendir ve en doğru cevabı seç.":"قيّم الموقف واختر الإجابة الأنسب.",
+"Kararın sonucu düşünme biçimini ölçer":"تكشف نتيجة قرارك طريقة تفكيرك",
+"Günlük hayat senaryosu":"موقف من الحياة اليومية",
+"1 HATA SAKLANIYOR":"يوجد خطأ واحد",
+"Hatayı işaretle":"حدّد الخطأ",
+"Kararı kilitle":"أكّد القرار",
+"Bu yolu seçtin. Son kararınsa kilitle; emin değilsen başka bir yolu deneyebilirsin.":"اخترت هذا المسار. أكّد قرارك، أو جرّب مسارًا آخر إن لم تكن متأكدًا.",
+"Karar sende.":"القرار لك.",
+"Hatayı yakala!":"اعثر على الخطأ!",
+"Eşleri bul!":"اعثر على الأزواج!",
+
+  "Açıklamayı dinle":"استمع إلى الشرح",
+  "Bugünkü yeni öğrenmeye devam et.":"واصل تعلّم معلومات جديدة اليوم.",
+  "SIRADAKİ MİNİ DERS":"الدرس المصغّر التالي",
+  "Tanı":"تعرّف",
+  "Bağ Kur":"اربط المفاهيم",
+  "Duruma Uyarla":"طبّق في موقف",
+  "Aktif Hatırlama":"استرجاع نشط",
+  "Sesi Tanı":"تعرّف على الصوت",
+  "Temel kavramı güvenli biçimde tanı.":"تعرّف على المفهوم الأساسي بوضوح.",
+  "Kavramları doğru anlam ve örneklerle bağla.":"اربط المفاهيم بمعانيها الصحيحة وأمثلتها.",
+  "Öğrendiğin ilkeyi basit bir duruma uygula.":"طبّق المبدأ الذي تعلّمته في موقف بسيط.",
+  "Ünitenin temel kavramlarını farklı soru biçimleriyle ustalık seviyesinde kullan.":"استخدم مفاهيم الوحدة الأساسية بإتقان عبر أنواع مختلفة من الأسئلة.",
+  "Resmî kaydı dinleyerek doğru ifadeyi tanı.":"استمع إلى التسجيل الرسمي وتعرّف على العبارة الصحيحة.",
+  "Sonraki ödül":"المكافأة التالية",
+  "Kaynak ve içerik notu":"المصدر وملاحظات المحتوى",
+  "Uzman incelemesi bekliyor. Bu içerik dinî yayın onayı değildir.":"هذا المحتوى ينتظر مراجعة مختص ولم يحصل على اعتماد ديني للنشر.",
+  "Soruda belirtilen terminoloji çerçevesini dikkate al. Geçerli Mâtürîdî / Eş’arî kullanım farkları inanç hatası değildir.":"راعِ الإطار الاصطلاحي المذكور في السؤال. الاختلافات المعتبرة بين الاستعمال الماتريدي والأشعري ليست خطأ في العقيدة.",
+
   'PEKİŞTİRME TURU':'جولة التعزيز',
   'Pekiştirme turu':'جولة التعزيز',
   'Yanlış yaptığın soruları tamamlıyoruz.':'نُكمل الأسئلة التي أخطأت فيها.',
@@ -1770,11 +1798,32 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
 
  function arabizeDynamicText(input){
   let out=String(input??'');
+  if(out.length>1600||!/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(out))return out;
   // Exact UI strings must win before substring replacements; otherwise e.g. "Bu aşamadaki..."
   // can be corrupted by the shorter "Bu aşama" phrase.
   const initialExact=chromeMap[out.trim()];
   if(initialExact)return out.replace(out.trim(),initialExact);
 
+  out=out.split(/(\s*[·:]\s*)/).map(part=>chromeMap[part.trim()]?part.replace(part.trim(),chromeMap[part.trim()]):part).join('');
+  out=out.replace(/Sonraki ödül\s*/g,'المكافأة التالية ');
+  out=out.replace(/Mevcut günlük görevler:\s*(\d+)\/(\d+)\s*tamamlandı/g,'المهام اليومية الحالية: أُكمل $1/$2');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*ayet\b/gi,'$1/$2 آيات');
+  out=out.replace(/(\d+)\s*zayıf ayet/gi,'$1 آيات تحتاج إلى مراجعة');
+  out=out.replace(/(\d+)\s*görev\b/gi,'$1 مهام');
+  out=out.replace(/(\d+)\s*ders\b/gi,'$1 دروس');
+  out=out.replace(/(\d+)\s*dk\b/gi,'$1 دقائق');
+  out=out.replace(/\b(Çocuk|Genç|Yetişkin)(?=\s*·)/g,m=>({Çocuk:'طفل',Genç:'يافع',Yetişkin:'بالغ'}[m]));
+  out=out.replace(/(\d+)\s+(Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)\b/g,(m,n,month)=>n+' '+({Oca:'يناير',Şub:'فبراير',Mar:'مارس',Nis:'أبريل',May:'مايو',Haz:'يونيو',Tem:'يوليو',Ağu:'أغسطس',Eyl:'سبتمبر',Eki:'أكتوبر',Kas:'نوفمبر',Ara:'ديسمبر'}[month]));
+  out=out.replace(/öğrenildi/g,'تم تعلّمها').replace(/Solid/g,'متقن');
+  out=out.replace(/Hoparlöre dokun: Ayet\s*(\d+)\s*kaydını dinle\./g,'المس رمز الصوت للاستماع إلى الآية $1.');
+  out=out.replace(/EZBER KADEMESİ\s*(\d+)\s*\/\s*(\d+)/g,'مستوى الحفظ $1/$2');
+  out=out.replace(/Ayet\s*(\d+)\s*\/\s*(\d+)/gi,'الآية $1/$2').replace(/Ayet\s*(\d+)/g,'الآية $1');
+  out=out.replace(/(\d+)\s*doğru\b/gi,'$1 إجابات صحيحة');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*eşleşme/gi,'$1/$2 أزواج متطابقة');
+  out=out.replace(/Kaynaklı ayet metni/g,'نص الآية الموثّق');
+  out=out.replace(/Seçilen kelime:\s*/g,'الكلمة المختارة: ');
+  out=out.replace(/DEEN user-provided ElevenLabs generation/g,'تسجيل مولّد بواسطة ElevenLabs قدّمه صاحب DEEN').replace(/User-provided generated asset/g,'ملف صوتي مولّد قدّمه صاحب التطبيق');
+  out=out.replace(/Son çalışma:\s*Henüz çalışma yok/g,'آخر دراسة: لم تبدأ الدراسة بعد').replace(/Son çalışma:\s*/g,'آخر دراسة: ').replace(/Henüz çalışma yok/g,'لم تبدأ الدراسة بعد');
   // Last-mile Arabic UI patterns that are generated dynamically by review/lesson flows.
   out=out.replace(/PEK[İI]ŞT[İI]RME\s+TURU/gi,'جولة التعزيز');
   out=out.replace(/Yanlış yaptığın soruları tamamlıyoruz\.?/gi,'نُكمل الأسئلة التي أخطأت فيها.');
@@ -1945,57 +1994,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    if(!/[\u0600-\u06FF]/.test(el.textContent||''))el.innerHTML='اعثر على <span>الأزواج المتطابقة</span>';
   });
   root.querySelectorAll?.('.v1017-subtitle').forEach(el=>{const ar='صِل المفاهيم بمعانيها الصحيحة.';if(el.textContent!==ar)el.textContent=ar;});
-  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
-  const nodes=[];let n;
-  while((n=walker.nextNode()))nodes.push(n);
-  for(const node of nodes){
-   const raw=node.nodeValue||'',trim=raw.trim();
-   let out=chromeMap[trim];
-   if(!out){
-    const m=trim.match(/^(\d+)\s*\/\s*(\d+)\s*eşleşme$/i);
-    if(m)out=m[1]+' / '+m[2]+' مطابقات';
-   }
-   if(!out&&trim.startsWith('Öğrenme döngüsü · ')){
-    const phase=trim.slice('Öğrenme döngüsü · '.length);
-    const phaseAr=chromeMap[phase]||phase;
-    out='مسار التعلّم · '+phaseAr;
-   }
-   if(!out){
-    const dynamic=arabizeDynamicText(trim);
-    if(dynamic!==trim)out=dynamic;
-   }
-   if(out)node.nodeValue=raw.replace(trim,out);
-  }
-  root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
-   for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
-    const raw=el.getAttribute?.(attr);
-    if(!raw)continue;
-    const converted=arabizeDynamicText(raw);
-    if(converted!==raw)el.setAttribute(attr,converted);
-   }
-  });
+  window.DEEN_ARABIC_UI?.localize?.(root);
   localizeLearningLoop(root);
-
-  const rv=document.getElementById('resultView');
-  if(rv){
-   if(rv.getAttribute('dir')!=='rtl')rv.setAttribute('dir','rtl');
-   rv.querySelectorAll('*').forEach(el=>{
-    if(el.children.length)return;
-    const raw=el.textContent||'',trim=raw.trim();
-    if(!trim)return;
-    const converted=arabizeDynamicText(trim);
-    if(converted!==trim)el.textContent=raw.replace(trim,converted);
-   });
-
-   const conceptLine=rv.querySelector('#v5ResultExtra > p:not(.v5-muted)');
-   if(conceptLine){
-    const t=(conceptLine.textContent||'').trim();
-    if(/[ÇĞİÖŞÜçğıöşü]/.test(t)||/\b(İslam|Temel|kavram|kimliği|namaz|oruç|iman|ibadet|ahlak|peygamber|vahiy|kader)\b/i.test(t)){
-     conceptLine.textContent='مفاهيم الدرس · مراجعة وتطبيق';
-    }
-   }
-  }
  }
+ window.DEEN_ARABIC_UI?.register?.(arabizeDynamicText,chromeMap);
+ pilot.localizeChrome=localizeChrome;
  let chromeQueued=false;
  const queueChrome=()=>{
   if(locale()!=='ar'||chromeQueued)return;
@@ -2011,7 +2014,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  else queueChrome();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -2031,11 +2034,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -2061,7 +2064,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -2088,7 +2091,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
@@ -2115,7 +2118,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U06_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,macroRuntimeFixes:3},
   scan(root=document.body){
    const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
@@ -2142,7 +2145,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U07_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:35,concepts:60,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,unitScopedConcepts:60},
   scan(root=document.body){
    const base=window.DEEN_U06_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u06-audit-unavailable'}]};
@@ -2174,7 +2177,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U08_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U07_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u07-audit-unavailable'}]};
@@ -2204,7 +2207,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U09_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:79,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U08_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u08-audit-unavailable'}]};
@@ -2234,7 +2237,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U10_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:80,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U09_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u09-audit-unavailable'}]};
@@ -2264,7 +2267,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U11_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U10_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u10-audit-unavailable'}]};
@@ -2294,7 +2297,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U12_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U11_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u11-audit-unavailable'}]};
@@ -2324,7 +2327,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U13_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U12_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u12-audit-unavailable'}]};
@@ -2354,7 +2357,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U14_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U13_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u13-audit-unavailable'}]};
@@ -2384,7 +2387,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U15_ARABIC_AUDIT={
-  version:'9387arabicallstages1',
+  version:'9388centralarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U14_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u14-audit-unavailable'}]};
@@ -2413,6 +2416,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,440)};
   }
  };
+ pilot.translateBatch=function(rows){const results=rows.map(q=>pilot.translateQuestion(q));const failedIds=rows.filter((q,i)=>!results[i]).map(q=>q.id);if(failedIds.length){pilot.failure='AR_SOURCE_MISMATCH: '+failedIds.join(', ');pilot.notice(failedIds[0]);return null}return results};
  window.DEEN_ARABIC_FULL_BANK={
   version:pilot.version,
   ready:()=>pilot.ready,

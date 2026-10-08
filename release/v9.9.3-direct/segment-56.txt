@@ -122,7 +122,7 @@ function ensureStructure(shell){
 }
 function move(node,target){if(node&&target&&node.parentElement!==target)target.appendChild(node)}
 function updateBadges(root){
- const s=stats(),set=(id,v)=>{const x=root.querySelector('[data-qia-badge="'+id+'"]');if(x)x.textContent=v};
+ const s=stats(),set=(id,v)=>{const x=root.querySelector('[data-qia-badge="'+id+'"]');const value=window.DEEN_ARABIC_UI?.active?.()?DEEN_ARABIC_UI.translate(v):String(v);if(x&&x.textContent!==value)x.textContent=value};
  set('today',s.missionsDone+'/3 görev');
  set('learn',s.learned+'/90 ayet');
  set('play',s.weak?(''+s.weak+' zayıf ayet'):'Challenge hazır');

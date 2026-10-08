@@ -430,13 +430,16 @@
   window.startMacroStage=function(id,lessonNo=null){
     const d=defById(id);if(!d)return;const st=window.DEEN_FIVE_STAGE.state(id);if(st.locked)return previewMacro(id);
     ensureState();const m=macroMeta(d),no=Math.max(1,Math.min(d.lessons,Number(lessonNo)||nextLesson(d))),p=profile(d,no);
-    const qs=compose(d,no,{persist:false});
+    const selected=compose(d,no,{persist:false});
+    const qs=window.DEEN_APP_LOCALE?.get?.()==='ar'?window.DEEN_ARABIC_PILOT?.translateBatch?.(selected):selected;
+    if(!qs)return;
     if(!qs.length){
       sheet('Doğrulanmış medya gerekiyor','<p>Bu mini ders yalnızca doğrulanmış DiyanetTV medya sistemiyle çalışır.</p><p>Medya hazır değilken soru oturumu başlamaz, enerji harcanmaz ve yapay/TTS Arapça telaffuz kullanılmaz.</p>'+list('Öğrenme yoluna dön',"closeSheet();navigate('learnScreen')",'←'));return;
     }
     if(!state.premium&&state.energy<d.energy){if(window.DEEN_V624)DEEN_V624.pendingStage=id;showEnergy();return}
     if(!state.premium)state.energy-=d.energy;
-    const committedQs=compose(d,no,{persist:true});
+    compose(d,no,{persist:true});
+    const committedQs=qs;
     m.lastLessonNo=no;
     session={stage:{id:d.id,unit:d.unit,title:d.title,kind:d.kind,xp:d.xp,energy:d.energy,meta:d.role},questions:committedQs,index:0,correct:0,combo:0,bestCombo:0,macroStage:true,macroId:d.id,macroRole:d.role,macroDef:d,lessonNo:no,lessonTotal:d.lessons,pedagogyProfile:clone(p),pedagogyVersion:'6.3.3',unitExposureAtStart:exposure(d.unit),startedAt:Date.now(),previousStreak:state.streak,beforeMastery:(()=>{try{const a=defs(d.unit);return Math.round(a.reduce((sum,x)=>{const mm=macroMeta(x),v=Object.values(mm.lessonScores).map(Number).filter(Number.isFinite);return sum+(v.length?v.reduce((a,b)=>a+b,0)/v.length:0)},0)/a.length)}catch(e){return 0}})(),wasCompleted:st.done,v5responses:[]};
     $('lesson').classList.add('active');$('quizView').style.display='flex';resetResultView(false);setLessonStatus(false);saveState();updateUI();renderQuestion();
@@ -579,8 +582,17 @@
   const finite640=(x,f=0,min=-Infinity,max=Infinity)=>{x=Number(x);return Number.isFinite(x)?Math.max(min,Math.min(max,x)):f};
   const unitId=n=>'U'+String(n).padStart(2,'0');
   const qUnit=q=>q?.stage_id?.slice(0,3)||'';
-  const firstPassIds=u=>new Set(state.unitPedagogyMeta?.[u]?.firstPassSeenIds||[]);
-  const completedStages=()=>new Set(state.completed||[]);
+  let eligibilityCache640=null;
+  const clearEligibility640=()=>{eligibilityCache640=null};
+  function eligibility640(){
+    if(!eligibilityCache640||eligibilityCache640.owner!==state||eligibilityCache640.bankSize!==QUESTIONS.length||eligibilityCache640.completedSize!==(state.completed||[]).length||eligibilityCache640.answered!==state.answered){
+      eligibilityCache640={owner:state,bankSize:QUESTIONS.length,completedSize:(state.completed||[]).length,answered:state.answered,completed:new Set(state.completed||[]),firstPass:new Map(),concepts:new Map()};
+    }
+    return eligibilityCache640;
+  }
+  const firstPassIds=u=>{const cache=eligibility640();if(!cache.firstPass.has(u))cache.firstPass.set(u,new Set(state.unitPedagogyMeta?.[u]?.firstPassSeenIds||[]));return cache.firstPass.get(u)};
+  const completedStages=()=>eligibility640().completed;
+  for(const event of ['deen:state-saving','deen:lesson-result','deen:question-graded'])document.addEventListener(event,clearEligibility640);
   const now640=()=>Date.now();
   function hash640(s){let h=2166136261>>>0;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0}return h>>>0}
   function jitter640(id,salt=''){return (hash640(day()+'|'+salt+'|'+id)%1000)/1000}
@@ -602,12 +614,13 @@
   function attempted640(q){return !!state.reviewSchedule?.[q.id]}
   function completedFirstPass640(q){const u=qUnit(q);return firstPassIds(u).has(q.id)&&completedStages().has(q.stage_id)}
   function learnedConceptSet640(u){
+    const cache=eligibility640();if(cache.concepts.has(u))return cache.concepts.get(u);
     const set=new Set();
     for(const q of QUESTIONS){
       if(qUnit(q)!==u)continue;
       if((attempted640(q)||completedFirstPass640(q))&&q.concept_id)set.add(q.concept_id);
     }
-    return set;
+    cache.concepts.set(u,set);return set;
   }
   function allowed640(q){
     if(!safe640(q))return false;
@@ -751,6 +764,7 @@
       if(typeof BASE_START_REVIEW==='function')return BASE_START_REVIEW(mode,unit);
       sheet('Tekrar listen hazır değil','<p>Bu listede henüz soru yok. Yeni bir ders tamamladığında tekrar planın oluşur.</p>'+primary('Öğrenmeye dön',"closeSheet();navigate('learnScreen')"));return;
     }
+    if(window.DEEN_APP_LOCALE?.get?.()==='ar'){const translated=window.DEEN_ARABIC_PILOT?.translateBatch?.(p.questions);if(!translated)return;p.questions=translated}
     refillEnergy();const cost=mode==='quick'?0:3;if(!state.premium&&state.energy<cost){showEnergy();return}if(!state.premium)state.energy-=cost;
     state.lastReviewIds=p.questions.map(q=>q.id);rememberPlan(p);
     const before=unit?unitMastery(unit):globalMastery();

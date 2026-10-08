@@ -724,7 +724,7 @@
    })
   };
  })();
-</script>\n
+</script>
 <!-- DEEN v9.0.0 — U01-S01 Turkish Pilot -->
 <script id="deen-v900-u01-s01-pilot">(function runtime(items){
   if(window.__deenV900U01S01Pilot)return;window.__deenV900U01S01Pilot=true;
@@ -781,8 +781,8 @@
    install();
    const st=STAGES.find(x=>x.id===id);if(!st)return;
    if(!state.premium&&state.energy<st.energy){showEnergy();return}
+   const originalQs=pilotQuestions();const qs=window.DEEN_APP_LOCALE?.get?.()==='ar'?window.DEEN_ARABIC_PILOT?.translateBatch?.(originalQs):originalQs;if(!qs)return;if(qs.length!==12){console.error('DEEN pilot question pool invalid',audit());return}
    if(!state.premium)state.energy-=st.energy;
-   const qs=pilotQuestions();if(qs.length!==12){console.error('DEEN pilot question pool invalid',audit());return}
    session={stage:st,questions:qs,index:0,correct:0,combo:0,bestCombo:0,__v900Pilot:true,__v862Planned:true,__v873Planned:true,__v890Planned:true};
    const lesson=document.getElementById('lesson');if(!lesson)return;
    lesson.classList.add('active');document.getElementById('quizView').style.display='flex';

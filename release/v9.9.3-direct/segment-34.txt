@@ -1222,11 +1222,11 @@ html:lang(ur){
 
   // One initial pass is enough because these styles ship in the final release segment.
   // A second delayed pass covers any late parser/layout timing without a permanent observer.
-  enforce();
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',enforce,{once:true});
-  }
-  setTimeout(enforce,120);
+  // Moving parser-owned style nodes during document.write can stall the parser.
+  // Enforce the cascade only after the assembled document has finished parsing.
+  const ready=()=>{enforce();setTimeout(enforce,120)};
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready,{once:true});
+  else ready();
 
   window.DEEN_TYPOGRAPHY_LOCK={
     version:'10.9.6',
@@ -5391,10 +5391,10 @@ window.DEEN_REWARD_BADGE_ART={
 
     if(stage==='listen'){
       body=
-        '<div class="deen-ikhlas-card">'+
+        '<div class="deen-ikhlas-card" data-deen-learning-step="listen">'+
           '<div class="deen-ikhlas-kicker">1 · DİNLE</div>'+
           '<h2>Ayet '+session.ayah+' / 4</h2>'+
-          '<p>Önce ayetin sesini dinlemek ideal akıştır. Kıraat kaydı 8/14 ses sistemi aşamasında bağlanacak.</p>'+
+          '<p>Önce ayeti dinle, sonra metni gözünle takip et.</p>'+
           '<div class="deen-ikhlas-listen"><i>▶</i><span><b>Kıraat henüz bağlı değil</b><small>Yanlış veya kaynaksız ses oynatmak yerine bu adımı güvenli biçimde pasif tutuyoruz.</small></span></div>'+
           '<div class="deen-ikhlas-arabic" lang="ar">'+esc(record.arabic.text)+'</div>'+translated(record)+
           '<div class="deen-ikhlas-source">'+esc(sourceLine(record))+'</div>'+
@@ -7549,7 +7549,7 @@ window.DEEN_REWARD_BADGE_ART={
       '<section class="deen-dailyverse-card">'+
         '<div class="deen-dailyverse-kicker">İHLÂS · '+item.ayah+'. AYET</div>'+
         '<div class="deen-dailyverse-arabic" lang="ar">'+esc(r.arabic.text)+'</div>'+
-        '<div class="deen-dailyverse-meaning"><b>TÜRKÇE MEAL</b><p>'+esc(r.translation.text)+'</p></div>'+
+        (window.DEEN_QURAN_LEARNING_TRANSLATION?.html?.(r)||'')+
         '<div class="deen-dailyverse-note"><b>KISA ÖĞRENME NOTU</b><p>'+esc(note.text)+'</p></div>'+
         '<div class="deen-dailyverse-source">Arapça: '+esc(r.arabic.source.provider||'—')+' · Meal/Not: Muhammed Hamdi Yazır (1938), Vikikaynak</div>'+
       '</section>'+

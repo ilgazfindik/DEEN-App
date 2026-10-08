@@ -674,7 +674,7 @@
     const target = totalLessons===1 ? lessonTargetFor(stageId) : (lessonNo>=4 ? 6 : 5);
     const meta = getStageMeta(stageId);
     const seenSet = new Set(meta.seenIds||[]);
-    let pool = (typeof poolFor==='function' ? poolFor(stageId) : []).filter(q => !(window.audioBlocked && audioBlocked(q)));
+    let pool = ((window.DEEN_APP_LOCALE?.get?.()==='ar' ? QUESTIONS.filter(q=>q.stage_id===stageId) : (typeof poolFor==='function' ? poolFor(stageId) : []))).filter(q => !(window.audioBlocked && audioBlocked(q)));
     if(!pool.length) return [];
     const recipe = pickLessonRecipe(stageId, lessonNo);
     const groups = {};
@@ -722,9 +722,10 @@
     const lessonNo = Math.max(1, Math.min(totalLessons, Number(lessonNoOverride)||nextLessonNo(stageId)));
     const lessonEnergy = totalLessons===1 ? st.energy : Math.max(1, Math.min(3, Math.round(st.energy/2)));
     if(!state.premium && state.energy < lessonEnergy){ if(typeof showEnergy==='function') showEnergy(); return; }
-    if(!state.premium) state.energy -= lessonEnergy;
-    const qs = chooseMultiLessonQuestions(stageId, lessonNo);
+    let qs = chooseMultiLessonQuestions(stageId, lessonNo);
+    if(window.DEEN_APP_LOCALE?.get?.()==='ar'){qs=window.DEEN_ARABIC_PILOT?.translateBatch?.(qs);if(!qs)return;}
     if(!Array.isArray(qs) || !qs.length){ console.error('Multi-lesson stage question pool empty', stageId, lessonNo); return; }
+    if(!state.premium) state.energy -= lessonEnergy;
     meta.lastLessonNo = lessonNo;
     state.stageAttemptCounts[stageId] = (state.stageAttemptCounts[stageId]||0) + 1;
     qs.forEach(q=>{ if(!meta.seenIds.includes(q.id)) meta.seenIds.push(q.id); });
