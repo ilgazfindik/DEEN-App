@@ -1,7 +1,7 @@
 # DEEN v9.12.68 — Arapça çalışma zamanı ve kararlılık raporu
 
 Build: `9388centralarabic1`. Başlangıç: `main@0881bde7c3d4c1083159ba8181cec852b7d17e08`.
-Testler gerçek 67 release segmentini birleştiren uygulamada, ayrı ve geçici Chromium profillerinde çalıştırıldı. Kullanıcı hesabının kayıtları test amacıyla değiştirilmedi. Bu dosya yayın öncesi test kanıtıdır; canlı Pages doğrulaması ayrıca yapılır.
+Testler gerçek 67 release segmentini birleştiren uygulamada, ayrı ve geçici Chromium profillerinde çalıştırıldı. Kullanıcı hesabının kayıtları test amacıyla değiştirilmedi. Bu dosya yerel/CI test kanıtını ve aşağıdaki yayın/erişim sonucunu içerir.
 
 ## Donmanın kanıtlanan nedenleri
 
@@ -84,3 +84,21 @@ Soru, seçenek ve açıklama kanıtları: [arabic-question.png](arabic-question.
 ## Son sayısal ölçüm
 
 Beş saniye boşta CDP TaskDuration: 0.900 s; uzun görev: 0. Heap: 15,978,164 → 16,490,532 byte; 1.584 render sonrasında GC ile 18,190,748 byte. İlk 12 saniyede 54 uzun görev, en uzunu 942 ms. Gözlemci oluşturma sayısı render taramasının öncesi/sonrası 29/29, aktif 26. Global listener kaydı 423/423. Bu sayılar aynı headless çalışma ortamındaki ölçümlerdir.
+
+## GitHub yayın sonucu ve erişim sınırı
+
+Çalışma dalı `fix/arabic-runtime-stability`; uygulama kodu `main@0cca631f16250918d085a513e08a7d46766105ae` olarak yayımlandı. GitHub üzerindeki Git ağacı, yerelde test edilen ağaçla birebir aynı: `eb4b7c738d88b01f9067c17b8b5b0fbbe0cfbaab`.
+
+Uygulama commitleri:
+
+1. [adf35e0c1f3d652b5dce40ff0ecd8c87cb7462a5](https://github.com/ilgazfindik/DEEN-App/commit/adf35e0c1f3d652b5dce40ff0ecd8c87cb7462a5)
+2. [d91ff1a7d58bdf7634fb3a551fe109a009556579](https://github.com/ilgazfindik/DEEN-App/commit/d91ff1a7d58bdf7634fb3a551fe109a009556579)
+3. [6cc1a8fa466232595c25c654d6485a8d05610a3b](https://github.com/ilgazfindik/DEEN-App/commit/6cc1a8fa466232595c25c654d6485a8d05610a3b)
+4. [434bd1e66e63239385d0aff57c6221ebc48520ed](https://github.com/ilgazfindik/DEEN-App/commit/434bd1e66e63239385d0aff57c6221ebc48520ed)
+5. [0cca631f16250918d085a513e08a7d46766105ae](https://github.com/ilgazfindik/DEEN-App/commit/0cca631f16250918d085a513e08a7d46766105ae)
+
+[Çalışma dalı CI](https://github.com/ilgazfindik/DEEN-App/actions/runs/37847887640) ve [main CI](https://github.com/ilgazfindik/DEEN-App/actions/runs/37848664537) başarılı. Her iki CI aynı uygulama commitinde tam banka ve beş Chromium testini çalıştırdı. [GitHub Pages build/deploy](https://github.com/ilgazfindik/DEEN-App/actions/runs/37848663888) bu commit için başarılı.
+
+Yayımlanan kodun sürümü `v9.12.68`, build `9388centralarabic1`; yapılandırılmış adres: https://ilgazfindik.github.io/DEEN-App/ . Pages dağıtım kaydı doğrulandı. **Canlı URL üzerinde Arapça ders etkileşimi gözlemlenemedi:** Cloud Browser `409 environment_offline — Environment is not connected` hatası verdi; doğrudan sayfa erişim aracı da URLyi açamadı. Bu erişim sınırı site arızası olarak yorumlanmaz. Rapordaki soru/seçenek/feedback ekran görüntüleri gerçek yerel uygulama testindendir; canlı Pages ekran görüntüsü olarak sunulmaz. Sonuç, bağımsız CI tarafından da doğrulandı.
+
+Bu sonuç kaydını ekleyen sonraki commit yalnızca QA belgelerini değiştirir; uygulama kodu, build ve test edilen release dosyaları aynı kalır.
