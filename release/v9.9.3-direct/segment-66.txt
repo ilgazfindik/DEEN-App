@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.31 — U01–U02 Arabic verified UI + U03 3/3 audited localization + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.32 — U01–U03 Arabic verified UI + U04 stage-2 localization + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9351u03arabicstage3'
+  version:'9352u04arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -89,6 +89,19 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   belief_daily_life:'أثر الإيمان في الحياة اليومية',
   responsibility_from_belief:'المسؤولية الناتجة عن الإيمان'
  };
+ Object.assign(arabicU02ConceptNames,{
+  five_pillars_basic:'أركان الإسلام',
+  five_pillars_recognition:'التعرّف على أركان الإسلام',
+  shahada_as_pillar:'الشهادتان ركن من أركان الإسلام',
+  prayer_as_pillar:'الصلاة ركن من أركان الإسلام',
+  hajj_as_pillar:'الحج ركن من أركان الإسلام',
+  fasting_as_pillar:'الصيام ركن من أركان الإسلام',
+  pillars_vs_articles_of_faith:'أركان الإسلام وأركان الإيمان',
+  five_pillars_relationships:'العلاقات بين أركان الإسلام',
+  zakat_as_pillar:'الزكاة ركن من أركان الإسلام',
+  pillar_definition_match:'مطابقة الركن بتعريفه',
+  five_pillars_application:'تطبيق أركان الإسلام'
+ });
  Object.assign(arabicU02ConceptNames,{
   shahada_basic:'أساسيات الشهادتين',
   shahada_two_parts:'جزآ الشهادتين',
@@ -218,7 +231,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9351u03arabicstage3';
+   const token='9352u04arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -912,10 +925,113 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "DERSİ TEKRARLA":"أعد الدرس"
  };
  Object.assign(chromeMap,u03ChromeMap);
+
+ const u04ChromeMap={
+  "Beş Şartı Tanı":"تعرّف على الأركان الخمسة",
+  "Şehadet ve Namaz":"الشهادتان والصلاة",
+  "Oruç, Zekât ve Hac":"الصيام والزكاة والحج",
+  "Hangisi Hangi Şart?":"أيٌّ منها أيُّ ركن؟",
+  "Beş Şart Challenge":"تحدّي أركان الإسلام الخمسة",
+  "Şehadet, namaz, oruç, zekât ve hac kavramlarını tanı; doğru bağlamlarla eşleştir.":"تعرّف على الشهادتين والصلاة والصيام والزكاة والحج، واربط كل مفهوم بسياقه الصحيح.",
+  "İslam'ın Beş Şartı":"أركان الإسلام الخمسة",
+  "İslam'ın Şartları Nelerdir?":"ما أركان الإسلام؟",
+  "Şehadet'in Yeri":"مكانة الشهادتين بين أركان الإسلام",
+  "İbadet Olarak Namaz":"الصلاة عبادة",
+  "Mekke ve İbadet":"مكة والعبادة",
+  "Şartların Sayısı":"عدد أركان الإسلام",
+  "Ramazan ve Oruç":"رمضان والصيام",
+  "İslam'ın Şartları Listesi":"قائمة أركان الإسلام",
+  "Şartlar ve İnançlar":"أركان الإسلام وأركان الإيمان",
+  "Kelime-i Şehadet":"الشهادتان",
+  "Şehadetin Anlamı":"معنى الشهادتين",
+  "Düzenli İbadet Namaz":"الصلاة عبادة منتظمة",
+  "İlk Şartın Yeri":"مكانة الركن الأول",
+  "Namazın Kapsamı":"مفهوم الصلاة",
+  "Şehadet ve Namaz İlişkisi":"العلاقة بين الشهادتين والصلاة",
+  "Şehadetin Yeri":"مكانة الشهادتين",
+  "Namazın Önemi":"أهمية الصلاة",
+  "İnanç Beyanı":"إعلان الإيمان",
+  "Düzenli İbadet":"العبادة المنتظمة",
+  "Şehadet ve Namazın Kapsamı":"مفهوم الشهادتين والصلاة",
+  "Kelime-i Şehadet'in Yeri":"مكانة الشهادتين بين أركان الإسلام",
+  "İlk İki Şart":"الركنان الأولان",
+  "Namaz Kavramı":"مفهوم الصلاة",
+  "Malî İbadet Zekât":"الزكاة عبادة مالية",
+  "Mekke'ye Yolculuk":"السفر إلى مكة",
+  "Zekât Kavramı":"مفهوم الزكاة",
+  "Oruç Kavramı":"مفهوم الصيام",
+  "Son Üç Şartın Özellikleri":"خصائص الأركان الثلاثة الأخيرة",
+  "Hac Kavramı":"مفهوم الحج",
+  "Zekâtın Doğası":"طبيعة الزكاة",
+  "Oruç ve İbadet":"الصيام والعبادة",
+  "Hac Şartı":"الحج ركن من أركان الإسلام",
+  "Zekât Uygulaması":"تطبيق الزكاة",
+  "Oruç, Zekât, Hac Eşleştirme":"مطابقة الصيام والزكاة والحج",
+  "Hac İbadeti":"عبادة الحج",
+  "İbadet ve Tanım Eşleştirme":"مطابقة العبادة بتعريفها",
+  "Şehadet ve Hac Eşleştirme":"مطابقة الشهادتين والحج",
+  "Hatalı Eşleştirme Bulma":"اكتشاف المطابقة الخاطئة",
+  "Doğru Eşleştirme Seçimi":"اختيار المطابقة الصحيحة",
+  "Kavram Eşleştirme":"مطابقة المفاهيم",
+  "Hatalı Eşleştirme Bulma 2":"اكتشاف المطابقة الخاطئة 2",
+  "Şartlar ve Esaslar Ayrımı":"التمييز بين أركان الإسلام وأركان الإيمان",
+  "Hatalı İfadeyi Bul":"اعثر على العبارة الخاطئة",
+  "İbadet Eşleştirme":"مطابقة العبادات",
+  "Kavram Karşılaştırma":"مقارنة المفاهيم",
+  "Hatalı Kavramı Bulma":"اكتشاف المفهوم الخاطئ",
+  "Geniş Eşleştirme":"مطابقة موسّعة",
+  "Hac ve Oruç Eşleştirme":"مطابقة الحج والصيام",
+  "Kavram Testi":"اختبار المفاهيم",
+  "Son Eşleştirme":"المطابقة النهائية",
+  "Temel Kavram Seçimi":"اختيار المفهوم الأساسي",
+  "Günlük Hayatta Oruç":"الصيام في الحياة اليومية",
+  "Günlük Hayatta Zekât":"الزكاة في الحياة اليومية",
+  "Günlük Hayatta Namaz":"الصلاة في الحياة اليومية",
+  "Uygulama Hatası":"خطأ في التطبيق",
+  "Hac İbadeti Uygulaması":"تطبيق عبادة الحج",
+  "Şehadet Uygulaması":"تطبيق معنى الشهادتين",
+  "Hatalı Düşünce Tespiti":"اكتشاف الفكرة الخاطئة",
+  "Senaryo: Yardım Kuruluşu":"موقف: مؤسسة خيرية",
+  "Senaryo: Seyahat":"موقف: سفر",
+  "Hata Bulma: Şart ve İman Karışımı":"اكتشاف الخطأ: الخلط بين أركان الإسلام وأركان الإيمان",
+  "Senaryo: Arkadaşın Sorusu":"موقف: سؤال صديق",
+  "Senaryo: Aile Sohbeti":"موقف: حوار عائلي",
+  "Senaryo: Televizyon Programı":"موقف: برنامج تلفزيوني",
+  "Hata Bulma: Eksik Şart":"اكتشاف الخطأ: ركن ناقص",
+  "Senaryo: İftar Vakti":"موقف: وقت الإفطار",
+  "Senaryo: İşçi ve İşveren":"موقف: العامل وصاحب العمل",
+  "Şartların Temeli":"أساس أركان الإسلام",
+  "Esaslar Ayrımı":"التمييز بين أركان الإيمان",
+  "Namaz Kavramı Tekrarı":"مراجعة مفهوم الصلاة",
+  "Zekât Kavramı Tekrarı":"مراجعة مفهوم الزكاة",
+  "Şehadet Hatırlama":"استرجاع الشهادتين",
+  "Oruç Hatırlama":"استرجاع مفهوم الصيام",
+  "Hac İbadeti Hatırlama":"استرجاع عبادة الحج",
+  "Namaz ve Vakit":"الصلاة والوقت",
+  "Zekât Eksik Bilgi":"معلومة ناقصة عن الزكاة",
+  "İmanın Şartı mı İslam'ın Şartı mı?":"من أركان الإيمان أم من أركان الإسلام؟",
+  "Genel Tekrar":"مراجعة عامة",
+  "Challenge: Tüm Şartlar":"التحدّي: جميع أركان الإسلام",
+  "Challenge: Hata Bulma":"التحدّي: اكتشف الخطأ",
+  "Challenge: İlişkiler":"التحدّي: العلاقات بين المفاهيم",
+  "Challenge: Oruç Senaryosu":"التحدّي: موقف عن الصيام",
+  "Challenge: Esas ve Şart Ayrımı":"التحدّي: التمييز بين أركان الإسلام وأركان الإيمان",
+  "Challenge: Şehadet":"التحدّي: الشهادتان",
+  "Challenge: Namaz":"التحدّي: الصلاة",
+  "Challenge: Hac Mekânı":"التحدّي: مكان الحج",
+  "Challenge: Karmaşık Senaryo":"التحدّي: موقف مركّب",
+  "Challenge: Kavram Hatası 2":"التحدّي: خطأ مفاهيمي 2",
+  "Challenge: Şartları Sayma":"التحدّي: عدّ أركان الإسلام",
+  "Challenge: Günlük Kullanım":"التحدّي: التطبيق في الحياة اليومية",
+  "Challenge: Hatırlama":"التحدّي: الاسترجاع",
+  "Challenge: Kapsayıcı Senaryo":"التحدّي: موقف شامل"
+ };
+ Object.assign(chromeMap,u04ChromeMap);
  const arabicPhrasePairs=[
   ...Object.entries(u01ChromeMap),
   ...Object.entries(u02ChromeMap),
-  ...Object.entries(u03ChromeMap)
+  ...Object.entries(u03ChromeMap),
+  ...Object.entries(u04ChromeMap)
  ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
@@ -1163,7 +1279,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9351u03arabicstage3',
+  version:'9352u04arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1183,11 +1299,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9351u03arabicstage3',
+  version:'9352u04arabicstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9351u03arabicstage3',
+  version:'9352u04arabicstage2',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1210,6 +1326,32 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     });
    }
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,150)};
+  }
+ };
+ window.DEEN_U04_ARABIC_AUDIT={
+  version:'9352u04arabicstage2',
+  scan(root=document.body){
+   const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u04ChromeMap);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u04-text',text:t.slice(0,220),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u04-'+attr,text:t.slice(0,220),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,180)};
   }
  };
  window.DEEN_ARABIC_FULL_BANK={
