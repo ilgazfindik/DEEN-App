@@ -1,4 +1,4 @@
-<!-- DEEN v9.12.33 — U01–U04 Arabic verified UI + U04 3/3 audit fixes + full question-bank runtime (U01–U15) -->
+<!-- DEEN v9.12.34 — U01–U04 Arabic verified UI + U05 stage-2 localization + full question-bank runtime (U01–U15) -->
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9353u04arabicstage3'
+  version:'9354u05arabicstage2'
  };
 
  const sameArray=(a,b)=>{
@@ -89,6 +89,20 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   belief_daily_life:'أثر الإيمان في الحياة اليومية',
   responsibility_from_belief:'المسؤولية الناتجة عن الإيمان'
  };
+ Object.assign(arabicU02ConceptNames,{
+  faith_concept_basic:'مفهوم الإيمان',
+  six_articles_basic:'أركان الإيمان الستة',
+  belief_in_allah_article:'الإيمان بالله',
+  belief_in_qadar_basic:'الإيمان بالقدر',
+  belief_in_angels_basic:'الإيمان بالملائكة',
+  belief_in_afterlife_basic:'الإيمان باليوم الآخر',
+  belief_in_prophets_basic:'الإيمان بالرسل',
+  belief_in_books_basic:'الإيمان بالكتب',
+  articles_classification:'تصنيف أركان الإيمان',
+  pillars_vs_articles:'أركان الإسلام وأركان الإيمان',
+  articles_application:'تطبيق أركان الإيمان',
+  section_one_review:'مراجعة القسم الأول'
+ });
  Object.assign(arabicU02ConceptNames,{
   five_pillars_basic:'أركان الإسلام',
   five_pillars_recognition:'التعرّف على أركان الإسلام',
@@ -231,7 +245,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;
   try{
-   const token='9353u04arabicstage3';
+   const token='9354u05arabicstage2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -1030,11 +1044,141 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   "Bu aşamayı açmak için bu dersi %70 veya üzeriyle tamamlaman gerekiyor.":"لفتح هذه المرحلة، يجب أن تُكمل هذا الدرس بنسبة 70٪ أو أكثر."
  };
  Object.assign(chromeMap,u04ChromeMap);
+
+ const u05ChromeMap={
+  "İman Ne Demektir?":"ما الإيمان؟",
+  "Altı Esası Tanı":"تعرّف على أركان الإيمان الستة",
+  "Kavramları Ayır":"ميّز بين المفاهيم",
+  "Şart mı, İman Esası mı?":"ركن من أركان الإسلام أم من أركان الإيمان؟",
+  "Günlük Hayatta Kavramlar":"المفاهيم في الحياة اليومية",
+  "Kısım Öncesi Akıllı Tekrar":"مراجعة ذكية قبل القسم",
+  "İman Esasları Challenge":"تحدّي أركان الإيمان",
+  "Altı iman esasını tanı; her kavramı doğru başlıkla ilişkilendir ve İslam'ın şartlarıyla karıştırma.":"تعرّف على أركان الإيمان الستة، واربط كل مفهوم بعنوانه الصحيح، ولا تخلط بينها وبين أركان الإسلام.",
+  "İmanın Esasları":"أركان الإيمان",
+  "İman Kavramı":"مفهوم الإيمان",
+  "İman Esasları":"أركان الإيمان",
+  "İmanın Temeli":"أساس الإيمان",
+  "İmanın Kapsamı":"نطاق الإيمان",
+  "Allah'a İman":"الإيمان بالله",
+  "İman Esasları Sayısı":"عدد أركان الإيمان",
+  "İman ve İnanç":"الإيمان والاعتقاد",
+  "İman Kavramı Özeti":"ملخّص مفهوم الإيمان",
+  "İmanın 6 Esası":"أركان الإيمان الستة",
+  "Kader ve Kaza":"القضاء والقدر",
+  "Meleklere İman":"الإيمان بالملائكة",
+  "İmanın 6 Esası Eşleştirme":"مطابقة أركان الإيمان الستة",
+  "Ahirete İman":"الإيمان باليوم الآخر",
+  "İmanın 6 Esası Liste":"قائمة أركان الإيمان الستة",
+  "Hızlı Liste Eşleştirme":"مطابقة سريعة للقائمة",
+  "Peygamberlere İman":"الإيمان بالرسل",
+  "İmanın 6 Esası Toplu":"أركان الإيمان الستة مجتمعة",
+  "Kitaplara İman":"الإيمان بالكتب",
+  "Kavram Ayrımı":"التمييز بين المفاهيم",
+  "İmanın 6 Esası Eşleştirme 2":"مطابقة أركان الإيمان الستة 2",
+  "Genel Tekrar":"مراجعة عامة",
+  "Ahirete İman Tanımı":"تعريف الإيمان باليوم الآخر",
+  "Meleklere İman Tanımı":"تعريف الإيمان بالملائكة",
+  "İman Esasları Anlamları":"معاني أركان الإيمان",
+  "Kitaplara İman Tanımı":"تعريف الإيمان بالكتب",
+  "Kadere İman Tanımı":"تعريف الإيمان بالقدر",
+  "İman Esaslarını Eşleştirme 3":"مطابقة أركان الإيمان 3",
+  "Kadere İman Özelliği":"معنى الإيمان بالقدر",
+  "İman Esaslarını Eşleştirme 4":"مطابقة أركان الإيمان 4",
+  "İman Esaslarını Eşleştirme 5":"مطابقة أركان الإيمان 5",
+  "Ahirete İman Vurgusu":"التأكيد على الإيمان باليوم الآخر",
+  "Kavramları Ayırma Özeti":"ملخّص التمييز بين المفاهيم",
+  "Namaz ve Melekler":"الصلاة والملائكة",
+  "Sınıflandırma":"التصنيف",
+  "Kategori Eşleştirme":"مطابقة الفئات",
+  "Öğrenci Hatası":"خطأ الطالب",
+  "Hac vs Kitaplar":"الحج والكتب: تمييز الفئة",
+  "Senaryo - Sınıflandırma":"موقف: التصنيف",
+  "Ortak Kategori":"الفئة المشتركة",
+  "Hata Bulma 2":"اكتشاف الخطأ 2",
+  "Eşleştirme":"المطابقة",
+  "Kategori Ayrımı":"التمييز بين الفئات",
+  "Hata Bulma 3":"اكتشاف الخطأ 3",
+  "Kategori Farkı":"الفرق بين الفئات",
+  "Sınıflandırma Eşleştirme":"مطابقة التصنيف",
+  "Sınıflandırma Özeti":"ملخّص التصنيف",
+  "Senaryo Analizi":"تحليل موقف",
+  "Karışık Liste":"قائمة مختلطة",
+  "Ölüm Sonrası Hayat":"الحياة بعد الموت",
+  "Vahiy ve Kitaplar":"الوحي والكتب",
+  "Elçiler":"الرسل",
+  "Allah'ın Bilgisi":"علم الله",
+  "Melekler":"الملائكة",
+  "Yanlış Bağlam":"سياق خاطئ",
+  "Hata Bulma 4":"اكتشاف الخطأ 4",
+  "Senaryo Tanıma":"التعرّف على الموقف",
+  "Senaryo Tanıma 2":"التعرّف على الموقف 2",
+  "Genel Soru":"سؤال عام",
+  "Hata Bulma 5":"اكتشاف الخطأ 5",
+  "Senaryo":"موقف",
+  "Kavram Genelleme":"تعميم المفهوم",
+  "Senaryo Çoktan Seçmeli":"موقف: اختيار من متعدد",
+  "Kavram Çoktan Seçmeli":"مفهوم: اختيار من متعدد",
+  "Senaryo Özeti":"ملخّص الموقف",
+  "U1-U5 Tekrar":"مراجعة الوحدات 1–5",
+  "Kelime-i Şehadet ve İman":"الشهادتان والإيمان",
+  "Şartlar ve Esaslar Sayısı":"عدد أركان الإسلام وأركان الإيمان",
+  "Hata Bulma":"اكتشاف الخطأ",
+  "Senaryo Tekrarı":"مراجعة المواقف",
+  "Temel Kavramlar":"المفاهيم الأساسية",
+  "Hac ve Kader":"الحج والقدر",
+  "Zekât Kavramı":"مفهوم الزكاة",
+  "Genel Bilgi":"معلومات عامة",
+  "Hata Bulma Kısım Özeti":"ملخّص القسم: اكتشاف الخطأ",
+  "Senaryo Özeti 2":"ملخّص الموقف 2",
+  "Kadere İman Senaryo":"موقف: الإيمان بالقدر",
+  "Eşleştirme Challenge":"تحدّي المطابقة",
+  "Kategori Farkı 2":"الفرق بين الفئات 2",
+  "Eşleştirme Challenge 2":"تحدّي المطابقة 2",
+  "Temel Kural":"القاعدة الأساسية",
+  "Kadere İman Kapsamı":"نطاق الإيمان بالقدر",
+  "Peygamberlere İman Kapsamı":"نطاق الإيمان بالرسل",
+  "Kavram Geneli":"نظرة عامة على المفهوم",
+  "Final Sorusu":"السؤال النهائي",
+  "KISIM 1 FİNALİ":"نهائي القسم الأول",
+  "KİLİTLİ · USTALIK SINAVI":"مقفل · اختبار الإتقان",
+  "HAZIR · USTALIK SINAVI":"جاهز · اختبار الإتقان",
+  "KISIM 1 TAMAMLANDI":"اكتمل القسم الأول",
+  "USTALIK":"الإتقان",
+  "ALTIN USTALIK":"الإتقان الذهبي",
+  "Temeller Ustalığı":"إتقان الأساسيات",
+  "İlk 5 ünitedeki 500 sorudan adaptif seçilen 20 soruyla Kısım 1 bilgisini ölç.":"اختبر معرفتك بالقسم الأول عبر 20 سؤالًا مختارة تكيفيًا من 500 سؤال في الوحدات الخمس الأولى.",
+  "20 SORU":"20 سؤالًا",
+  "0 ENERJİ":"0 طاقة",
+  "%80 GEÇİŞ":"النجاح 80٪",
+  "En iyi skor":"أفضل نتيجة",
+  "En iyi skor · —":"أفضل نتيجة · —",
+  "ÜNİTE 5 CHALLENGE'I TAMAMLA":"أكمل تحدّي الوحدة 5",
+  "FİNALİ TEKRARLA · 20 SORU":"أعد النهائي · 20 سؤالًا",
+  "TEMELLER USTALIĞINI BAŞLAT":"ابدأ إتقان الأساسيات",
+  "SONRAKİ KISIM · AÇILDI":"القسم التالي · مفتوح",
+  "SONRAKİ KISIM · KİLİTLİ":"القسم التالي · مقفل",
+  "Kısım 1 tamamlandı. Kısım 2 müfredatı eklenmeye hazır.":"اكتمل القسم الأول. أصبح منهج القسم الثاني جاهزًا للإضافة.",
+  "Temeller Ustalığı sınavını %80 veya üzeriyle tamamladığında açılır.":"يُفتح عند إكمال اختبار إتقان الأساسيات بنسبة 80٪ أو أكثر.",
+  "Altın Ustalık":"الإتقان الذهبي",
+  "Kısım 1 tamamlandı":"اكتمل القسم الأول",
+  "Biraz daha pekiştirelim":"لنُعزّز المعرفة قليلًا",
+  "Temeller Ustalığı başarıyla tamamlandı":"اكتمل إتقان الأساسيات بنجاح",
+  "Geçiş için %80 gerekiyor":"يتطلب النجاح 80٪",
+  "Henüz belirgin bir güçlü alan yok":"لا توجد نقطة قوة بارزة بعد",
+  "Belirgin tekrar ihtiyacı yok":"لا توجد حاجة واضحة للمراجعة",
+  "✦ ALTIN USTALIK":"✦ الإتقان الذهبي",
+  "✓ TEMELLER USTASI":"✓ متقن الأساسيات",
+  "↻ SMART REVIEW ÖNERİLİYOR":"↻ يُنصح بالمراجعة الذكية",
+  "KISIM 1’İ TAMAMLA":"أكمل القسم الأول",
+  "AKILLI TEKRARA GİT":"انتقل إلى المراجعة الذكية"
+ };
+ Object.assign(chromeMap,u05ChromeMap);
  const arabicPhrasePairs=[
   ...Object.entries(u01ChromeMap),
   ...Object.entries(u02ChromeMap),
   ...Object.entries(u03ChromeMap),
-  ...Object.entries(u04ChromeMap)
+  ...Object.entries(u04ChromeMap),
+  ...Object.entries(u05ChromeMap)
  ].sort((a,b)=>b[0].length-a[0].length);
 
  function arabizeDynamicText(input){
@@ -1072,6 +1216,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   out=out.replace(/Etkinlik\s*·\s*(\d+)\s*dk/gi,'نشاط · $1 دقائق');
   out=out.replace(/Dinleme\s*·\s*(\d+)\s*dk/gi,'استماع · $1 دقائق');
   out=out.replace(/Uygulama\s*·\s*(\d+)\s*dk/gi,'تطبيق · $1 دقائق');
+  out=out.replace(/Sınıflandırma\s*·\s*(\d+)\s*dk/gi,'تصنيف · $1 دقائق');
+  out=out.replace(/En iyi skor\s*·\s*(\d+)%/gi,'أفضل نتيجة · $1٪');
   out=out.replace(/Karma Tekrar\s*·\s*(\d+)\s*dk/gi,'مراجعة متنوعة · $1 دقائق');
   out=out.replace(/Tekrar\s*·\s*(\d+)\s*dk/gi,'مراجعة · $1 دقائق');
   out=out.replace(/Meydan Okuma\s*·\s*(\d+)\s*dk/gi,'تحدٍّ · $1 دقائق');
@@ -1282,7 +1428,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  queueChromeBurst();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9353u04arabicstage3',
+  version:'9354u05arabicstage2',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -1302,11 +1448,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9353u04arabicstage3',
+  version:'9354u05arabicstage2',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9353u04arabicstage3',
+  version:'9354u05arabicstage2',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -1332,7 +1478,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9353u04arabicstage3',
+  version:'9354u05arabicstage2',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -1356,6 +1502,33 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
     });
    }
    return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,180)};
+  }
+ };
+ window.DEEN_U05_ARABIC_AUDIT={
+  version:'9354u05arabicstage2',
+  coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0},
+  scan(root=document.body){
+   const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u05ChromeMap);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u05-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u05-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,220)};
   }
  };
  window.DEEN_ARABIC_FULL_BANK={
