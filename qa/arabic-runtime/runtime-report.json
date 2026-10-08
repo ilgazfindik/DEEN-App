@@ -1,0 +1,4148 @@
+{
+  "stages": [
+    {
+      "id": "U01-S01",
+      "started": true,
+      "questions": 12,
+      "render": {
+        "id": "DEEN-U01-S01-P01",
+        "ar": true,
+        "text": "عند ذكر الإسلام، ما الفكرة المركزية؟",
+        "type": "card_choice"
+      }
+    },
+    {
+      "id": "U01-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U01-S02-P10",
+        "ar": true,
+        "text": "الكلمة الناقصة: يُسمّى من يعتنق الإسلام «    ».",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U01-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U01-S03-P09",
+        "ar": true,
+        "text": "ظهور الإيمان في أفعال التعبّد يرتبط بمفهوم العبادة.",
+        "type": "true_false"
+      }
+    },
+    {
+      "id": "U01-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U01-S04-P01",
+        "ar": true,
+        "text": "هل يشمل الإسلام الحياة اليومية أيضًا؟",
+        "type": "card_choice"
+      }
+    },
+    {
+      "id": "U01-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U01-S05-P04",
+        "ar": true,
+        "text": "اعثر على الكلمة الناقصة: يُراعى في العبادة      الله.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U01-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U01-S06-P08",
+        "ar": true,
+        "text": "صِل المفاهيم بتعريفاتها القصيرة.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U01-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U01-S07-P10",
+        "ar": true,
+        "text": "أكمل الفراغ: الغاية الأساسية من العبادة هي نيل      الله.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U02-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U02-S01-008",
+        "ar": true,
+        "text": "الإيمان بالله موضوع أساسي في «•••».",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U02-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U02-S02-007",
+        "ar": true,
+        "text": "وفق العقيدة الإسلامية، الله «•••» لا شريك له.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U02-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U02-S03-008",
+        "ar": true,
+        "text": "طابق مفاهيم الخالق والمخلوق والنعمة مع شروحها الصحيحة.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U02-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U02-S04-006",
+        "ar": true,
+        "text": "المفهوم الذي يدل على إدراك النعمة وشكر الله عليها هو «______».",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U02-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U02-S05-001",
+        "ar": true,
+        "text": "ما القرار الأنسب في هذا الموقف؟",
+        "type": "scenario"
+      }
+    },
+    {
+      "id": "U02-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U02-S06-008",
+        "ar": true,
+        "text": "(مراجعة سريعة) إلى من يُنسب مفهوم «الخالق» مباشرة في هذه الوحدة؟",
+        "type": "speed_review"
+      }
+    },
+    {
+      "id": "U02-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U02-S07-002",
+        "ar": true,
+        "text": "أيُّ مفهوم تذكّر به أكثر عبارة «الله واحد، والعبادة تُوجَّه إليه وحده»؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U03-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U03-S01-007",
+        "ar": true,
+        "text": "تذكّر اسم العبارة: ما التعبير الأساسي الذي يشهد بوحدانية الله وبأن محمدًا ﷺ عبده ورسوله؟",
+        "type": "progressive_recall"
+      }
+    },
+    {
+      "id": "U03-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U03-S02-008",
+        "ar": true,
+        "text": "أكمل معنى «لا إله إلا الله»: «لا إله ••• الله».",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U03-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U03-S03-006",
+        "ar": true,
+        "text": "كم مرة تسمع كلمة «أشهد»، التي تعني الإقرار بالشهادة، في التسجيل؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U03-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U03-S04-012",
+        "ar": true,
+        "text": "أكمل الجملة: «أشهد أن _________ إله إلا الله»",
+        "type": "next_word"
+      }
+    },
+    {
+      "id": "U03-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U03-S05-006",
+        "ar": true,
+        "text": "تعبّر الشهادتان عن الإيمان بالتوحيد و••• معًا.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U03-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U03-S06-009",
+        "ar": true,
+        "text": "في الشهادة الأولى، أيُّ كلمة تأتي بين «أشهد» و«لا إله إلا الله»؟",
+        "type": "next_word"
+      }
+    },
+    {
+      "id": "U03-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U03-S07-005",
+        "ar": true,
+        "text": "أكمل أداة الربط في الشهادة الثانية: «...وأشهد _________ محمدًا عبده ورسوله»",
+        "type": "next_word"
+      }
+    },
+    {
+      "id": "U04-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U04-S01-009",
+        "ar": true,
+        "text": "العبادة التي يؤديها المستطيع في أماكن محددة بمكة وما حولها تُسمّى •••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U04-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U04-S02-011",
+        "ar": true,
+        "text": "العبارة التي تأتي في مقدمة أركان الإسلام وتشهد بأنه لا إله إلا الله وأن محمدًا ﷺ عبد الله ورسوله تُسمّى _________.",
+        "type": "progressive_recall"
+      }
+    },
+    {
+      "id": "U04-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U04-S03-002",
+        "ar": true,
+        "text": "ما السمة الأساسية التي تميّز الزكاة عن بعض أركان الإسلام الأخرى؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U04-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U04-S04-014",
+        "ar": true,
+        "text": "أيٌّ مما يلي ليس مفهومًا مرتبطًا مباشرة بأركان الإسلام؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U04-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U04-S05-003",
+        "ar": true,
+        "text": "ما القرار الأنسب في هذا الموقف؟",
+        "type": "scenario"
+      }
+    },
+    {
+      "id": "U04-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U04-S06-011",
+        "ar": true,
+        "text": "الإيمان بالكتب من أركان الإيمان، أما الحج فمن أركان __________.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U04-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U04-S07-008",
+        "ar": true,
+        "text": "ما المدينة الرئيسة التي ترتبط بها عبادة الحج، وهي أحد أركان الإسلام؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U05-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U05-S01-012",
+        "ar": true,
+        "text": "يُطلق على عناوين الاعتقاد الأساسية في الإسلام اسم «••• الإيمان».",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U05-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U05-S02-014",
+        "ar": true,
+        "text": "من أركان الإيمان الستة الإيمان بوجود الملائكة.",
+        "type": "speed_review"
+      }
+    },
+    {
+      "id": "U05-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U05-S03-013",
+        "ar": true,
+        "text": "الإيمان بأن الحياة الدنيا مؤقتة وأن الحياة الأبدية تبدأ بعد الموت هو الإيمان بـ•••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U05-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U05-S04-010",
+        "ar": true,
+        "text": "الشهادتان واحدة من ••• الإسلام الخمسة.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U05-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U05-S05-010",
+        "ar": true,
+        "text": "كيف ينبغي للمسلم أن يقبل أركان الإيمان؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U05-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U05-S06-010",
+        "ar": true,
+        "text": "أيُّ خيار يصف العلاقة بين أركان الإسلام الخمسة وأركان الإيمان وصفًا أدق؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U05-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U05-S07-013",
+        "ar": true,
+        "text": "الاسم العام للعناوين الستة الأساسية للاعتقاد في الإسلام هو «••• الإيمان».",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U06-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U06-S01-003",
+        "ar": true,
+        "text": "يُخبرنا القرآن في سورة البقرة 2:285 بأن المؤمنين آمنوا بالله و••• وكتبه ورسله.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U06-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U06-S02-007",
+        "ar": true,
+        "text": "صِل كل آية بالصفة التي تؤكدها في شأن الملائكة.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U06-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U06-S03-002",
+        "ar": true,
+        "text": "تذكر سورة البقرة 2:97 أن الوحي نزل على قلب النبي بإذن     .",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U06-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U06-S04-006",
+        "ar": true,
+        "text": "صِل كل تعبير عن وظيفة الملائكة بمصدره.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U06-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U06-S05-003",
+        "ar": true,
+        "text": "الإيمان بالملائكة لا يعني أن نجعلهم      لله.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U06-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U06-S06-006",
+        "ar": true,
+        "text": "يمكن للملائكة أن يضعوا أحكامًا مستقلة من دون أمر الله.",
+        "type": "speed_review"
+      }
+    },
+    {
+      "id": "U06-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U06-S07-014",
+        "ar": true,
+        "text": "أي عبارة تلخّص وحدة الإيمان بالملائكة على أفضل وجه؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U07-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U07-S01-014",
+        "ar": true,
+        "text": "الإيمان بالكتب يشمل الإقرار بأن مصدر الوحي هو •••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U07-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U07-S02-012",
+        "ar": true,
+        "text": "وفقًا لسورة النساء 4:163، أُعطي داود عليه السلام ______.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U07-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U07-S03-013",
+        "ar": true,
+        "text": "تذكر سورة آل عمران 3:3 أن القرآن نُزِّل ______ لما بين يديه.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U07-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U07-S04-003",
+        "ar": true,
+        "text": "السمة الأساسية المشتركة للكتب الإلهية أنها ••• من عند الله.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U07-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U07-S05-005",
+        "ar": true,
+        "text": "ماذا يخبر الله عن الذكر في سورة الحجر 15:9؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U07-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U07-S06-006",
+        "ar": true,
+        "text": "تصديق القرآن للوحي السابق يعني أنه يصدّق كل رواية مجهولة المصدر.",
+        "type": "speed_review"
+      }
+    },
+    {
+      "id": "U07-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U07-S07-014",
+        "ar": true,
+        "text": "أي جملة تلخّص وحدة الإيمان بالكتب أفضل تلخيص؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U08-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U08-S01-010",
+        "ar": true,
+        "text": "عرّف الإيمان بالرسل في جملة واحدة.",
+        "type": "progressive_recall"
+      }
+    },
+    {
+      "id": "U08-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U08-S02-012",
+        "ar": true,
+        "text": "وفقًا للأنبياء 21:8، لم يكن الرسل أجسادًا لا تأكل الطعام، ولم يكونوا ______.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U08-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U08-S03-010",
+        "ar": true,
+        "text": "اكتب ثلاثًا من وظائف الرسل الأساسية بإيجاز.",
+        "type": "progressive_recall"
+      }
+    },
+    {
+      "id": "U08-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U08-S04-013",
+        "ar": true,
+        "text": "وفقًا للنحل 16:36، دعا الرسل إلى: «اعبدوا الله واجتنبوا ______».",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U08-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U08-S05-011",
+        "ar": true,
+        "text": "ورد في القرآن بلفظ صريح أن محمدًا ﷺ خاتم النبيين.",
+        "type": "speed_review"
+      }
+    },
+    {
+      "id": "U08-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U08-S06-003",
+        "ar": true,
+        "text": "لا ينقل الأنبياء إلى الناس ما يصدر عن أنفسهم، بل ينقلون ••• الآتي من الله.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U08-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U08-S07-001",
+        "ar": true,
+        "text": "كتب طالب الجمل الثلاث الآتية: (1) الأنبياء بشر يتلقون الوحي. (2) جوهر دعوتهم المشتركة هو التوحيد. (3) محمد ﷺ خاتم النبيين. أيّها يوافق القرآن؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U09-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U09-S01-003",
+        "ar": true,
+        "text": "تذكر البقرة 2:4 أن المتقين بالآخرة •••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U09-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U09-S02-011",
+        "ar": true,
+        "text": "تذكر المؤمنون 23:100 وجود ______ بين الموت والبعث يمنع الرجوع إلى الدنيا.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U09-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U09-S03-010",
+        "ar": true,
+        "text": "تذكر الحج 22:7 أن الله يبعث من في ______.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U09-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U09-S04-011",
+        "ar": true,
+        "text": "وفقًا للزلزلة 99:7، فمن يعمل مثقال ذرة ______ يره.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U09-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U09-S05-015",
+        "ar": true,
+        "text": "ما الصلة الأكثر توازنًا بين الإيمان بالآخرة والرجاء؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U09-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U09-S06-006",
+        "ar": true,
+        "text": "ينبغي أن يقود الإيمان بالآخرة الإنسان إلى عدم المبالاة بما يفعله من ظلم.",
+        "type": "speed_review"
+      }
+    },
+    {
+      "id": "U09-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U09-S07-012",
+        "ar": true,
+        "text": "أي مطابقة من آيات وحدة الآخرة غير صحيحة؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U10-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U10-S01-004",
+        "ar": true,
+        "text": "تذكر سورة القمر 54:49 أن كل شيء خُلق بــ •••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U10-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U10-S02-011",
+        "ar": true,
+        "text": "وفقًا للرعد 13:9، يعلم الله الشهادة و______ أيضًا.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U10-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U10-S03-006",
+        "ar": true,
+        "text": "صِل مفاهيم الإرادة والمسؤولية بتعريفاتها.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U10-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U10-S04-016",
+        "ar": true,
+        "text": "أي مثال يعبّر عن توازن «الأخذ بالأسباب + التوكل»؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U10-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U10-S05-001",
+        "ar": true,
+        "text": "ما التوازن الذي تعلّمه سورة الحديد 57:22-23 عند المصيبة والنعمة؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U10-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U10-S06-006",
+        "ar": true,
+        "text": "تحميل الفشل على القدر وعدم مراجعة النفس أبدًا هو وعي صحي بالقدر.",
+        "type": "speed_review"
+      }
+    },
+    {
+      "id": "U10-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U10-S07-001",
+        "ar": true,
+        "text": "أيّ الجمل الثلاث الآتية توافق الفهم الصحيح للقدر؟ (1) الله خلق كل شيء بقدر. (2) الإنسان مسؤول عن اختياراته. (3) التوكل لا يعني ترك السعي.",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U11-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U11-S01-010",
+        "ar": true,
+        "text": "أكمل الفراغ: الصلاة نوع أساسي من •••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U11-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U11-S02-014",
+        "ar": true,
+        "text": "أكمل الفراغ: في العبادة، الشكل المقرر مهم، وكذلك النية و•••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U11-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U11-S03-001",
+        "ar": true,
+        "text": "صِل المفاهيم بتعريفاتها الصحيحة: الزكاة، الطهارة، الانضباط، الشكل والروح.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U11-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U11-S04-013",
+        "ar": true,
+        "text": "تطبيق: أي عبارة صحيحة في موضوع الرياء؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U11-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U11-S05-015",
+        "ar": true,
+        "text": "ما المنهج الأكثر أمانًا عند تعلّم العبادة؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U11-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U11-S06-011",
+        "ar": true,
+        "text": "مراجعة سريعة: صِل المفاهيم بتعريفاتها: المعرفة الصحيحة، الإخلاص، الصيام، الدعاء.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U11-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U11-S07-004",
+        "ar": true,
+        "text": "التحدي: أي عبارة صحيحة عن الانضباط؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U12-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U12-S01-011",
+        "ar": true,
+        "text": "أكمل الفراغ: في حكم النية في الوضوء يوجد ••• بين المذاهب.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U12-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U12-S02-013",
+        "ar": true,
+        "text": "أكمل الفراغ: الغسل طهارة حكمية تتم بغسل جميع •••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U12-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U12-S03-014",
+        "ar": true,
+        "text": "املأ الفراغ: في آية الوضوء أُمر بغسل ___.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U12-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U12-S04-013",
+        "ar": true,
+        "text": "تطبيق: أي عبارة صحيحة عند تعذر استعمال الماء؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U12-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U12-S05-016",
+        "ar": true,
+        "text": "ما العبارة الصحيحة بشأن القدمين في الوضوء؟ اختر الأعم والأدق.",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U12-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U12-S06-004",
+        "ar": true,
+        "text": "مراجعة سريعة: أي عبارة صحيحة عن مقدار مسح الرأس؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U12-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U12-S07-001",
+        "ar": true,
+        "text": "تحدٍّ: أي عبارة أدق في تعريف الغسل؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U13-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U13-S01-010",
+        "ar": true,
+        "text": "أكمل الفراغ: عدد ركعات فرض صلاة الظهر هو •••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U13-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U13-S02-014",
+        "ar": true,
+        "text": "أكمل الفراغ: بُيِّنت تفاصيل تطبيق الصلاة من خلال ••• النبي ﷺ.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U13-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U13-S03-005",
+        "ar": true,
+        "text": "صِل المفاهيم بتعريفاتها الصحيحة: الاستعداد بالتيمم، الصلوات الخمس، فرض صلاة العصر، والقبلة.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U13-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U13-S04-014",
+        "ar": true,
+        "text": "كم عدد ركعات فرض صلاة الظهر؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U13-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U13-S05-016",
+        "ar": true,
+        "text": "كم عدد ركعات فرض صلاة العصر؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U13-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U13-S06-005",
+        "ar": true,
+        "text": "كم عدد ركعات فرض صلاة الفجر؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U13-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U13-S07-003",
+        "ar": true,
+        "text": "كم عدد ركعات فرض صلاة المغرب؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U14-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U14-S01-011",
+        "ar": true,
+        "text": "أكمل الفراغ: تُؤدّى أركان الصلاة دون عجلة وبـ•••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U14-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U14-S02-014",
+        "ar": true,
+        "text": "أكمل الفراغ: لا تُعلَّم الفروق المذهبية المعتبرة بوصفها إجابات •••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U14-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U14-S03-013",
+        "ar": true,
+        "text": "اختر المفهوم الناقص: بين السجدتين ___ قصير.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U14-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U14-S04-012",
+        "ar": true,
+        "text": "تطبيق: ما أفضل تعريف للركعة؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U14-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U14-S05-016",
+        "ar": true,
+        "text": "ما العبارة الصحيحة عن السجود؟ اختر العبارة الأعم والأدق.",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U14-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U14-S06-005",
+        "ar": true,
+        "text": "أي عبارة صحيحة عن القراءة في الصلاة؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U14-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U14-S07-012",
+        "ar": true,
+        "text": "صِل المفاهيم بتعريفاتها الصحيحة: القيام، السجود، السجدتان، والجلوس بين السجدتين.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U15-S01",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U15-S01-011",
+        "ar": true,
+        "text": "أكمل الفراغ: السحور وقت للأكل والشرب قبل     .",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U15-S02",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U15-S02-013",
+        "ar": true,
+        "text": "أكمل الفراغ: يُعرف رمضان بأنه الشهر الذي أُنزل فيه •••.",
+        "type": "fill_blank"
+      }
+    },
+    {
+      "id": "U15-S03",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U15-S03-012",
+        "ar": true,
+        "text": "اختر المفهوم الناقص: يمتنع الصائم في وقت الصوم عن ___.",
+        "type": "missing_item"
+      }
+    },
+    {
+      "id": "U15-S04",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U15-S04-012",
+        "ar": true,
+        "text": "تطبيق: إلى أي مقصد من مقاصد الصوم تشير البقرة 2:183؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U15-S05",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U15-S05-015",
+        "ar": true,
+        "text": "لا ينبغي اختزال الصوم في ترك الأكل والشرب فقط؛ أي سلوك آخر مهم أيضًا؟",
+        "type": "multiple_choice"
+      }
+    },
+    {
+      "id": "U15-S06",
+      "started": true,
+      "questions": 5,
+      "render": {
+        "id": "DEEN-U15-S06-012",
+        "ar": true,
+        "text": "صِل المفاهيم بتعريفاتها الصحيحة: الصوم، الأكل في وقت الصوم، التقوى، والسحور.",
+        "type": "matching"
+      }
+    },
+    {
+      "id": "U15-S07",
+      "started": true,
+      "questions": 10,
+      "render": {
+        "id": "DEEN-U15-S07-004",
+        "ar": true,
+        "text": "تحدٍّ: أي عبارة صحيحة عن الأكل ناسيًا أثناء الصوم؟",
+        "type": "multiple_choice"
+      }
+    }
+  ],
+  "macros": [
+    {
+      "id": "U01-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U01-S01-P10",
+        "DEEN-U01-S01-P07",
+        "DEEN-U01-S01-P02",
+        "DEEN-U01-S01-P09",
+        "DEEN-U01-S01-P04"
+      ]
+    },
+    {
+      "id": "U01-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U01-S01-P02",
+        "DEEN-U01-S03-P05",
+        "DEEN-U01-S03-P10",
+        "DEEN-U01-S01-P08",
+        "DEEN-U01-S01-P05"
+      ]
+    },
+    {
+      "id": "U01-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U01-S04-P10",
+        "DEEN-U01-S04-P11",
+        "DEEN-U01-S04-P02",
+        "DEEN-U01-S01-P05",
+        "DEEN-U01-S01-P11"
+      ]
+    },
+    {
+      "id": "U01-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U01-S01-P08",
+        "DEEN-U01-S01-P05",
+        "DEEN-U01-S06-P10",
+        "DEEN-U01-S04-P08",
+        "DEEN-U01-S04-P05",
+        "DEEN-U01-S05-P05"
+      ]
+    },
+    {
+      "id": "U01-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U01-S07-P08",
+        "DEEN-U01-S03-P05",
+        "DEEN-U01-S07-P09",
+        "DEEN-U01-S04-P10",
+        "DEEN-U01-S03-P11",
+        "DEEN-U01-S01-P08",
+        "DEEN-U01-S06-P04",
+        "DEEN-U01-S06-P11",
+        "DEEN-U01-S04-P05",
+        "DEEN-U01-S06-P05"
+      ]
+    },
+    {
+      "id": "U02-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U02-S01-008",
+        "DEEN-U02-S01-005",
+        "DEEN-U02-S01-012",
+        "DEEN-U02-S01-003",
+        "DEEN-U02-S01-011"
+      ]
+    },
+    {
+      "id": "U02-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U02-S01-003",
+        "DEEN-U02-S03-011",
+        "DEEN-U02-S03-008",
+        "DEEN-U02-S03-012",
+        "DEEN-U02-S02-012"
+      ]
+    },
+    {
+      "id": "U02-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U02-S01-008",
+        "DEEN-U02-S04-008",
+        "DEEN-U02-S02-012",
+        "DEEN-U02-S04-015",
+        "DEEN-U02-S03-013"
+      ]
+    },
+    {
+      "id": "U02-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U02-S03-010",
+        "DEEN-U02-S05-009",
+        "DEEN-U02-S04-008",
+        "DEEN-U02-S05-004",
+        "DEEN-U02-S05-016",
+        "DEEN-U02-S05-013"
+      ]
+    },
+    {
+      "id": "U02-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U02-S04-016",
+        "DEEN-U02-S07-008",
+        "DEEN-U02-S05-005",
+        "DEEN-U02-S07-013",
+        "DEEN-U02-S03-010",
+        "DEEN-U02-S05-004",
+        "DEEN-U02-S06-005",
+        "DEEN-U02-S06-002",
+        "DEEN-U02-S05-006",
+        "DEEN-U02-S05-012"
+      ]
+    },
+    {
+      "id": "U03-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U03-S01-003",
+        "DEEN-U03-S01-012",
+        "DEEN-U03-S01-014",
+        "DEEN-U03-S01-009",
+        "DEEN-U03-S01-007"
+      ]
+    },
+    {
+      "id": "U03-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U03-S02-008",
+        "DEEN-U03-S01-012",
+        "DEEN-U03-S02-003",
+        "DEEN-U03-S02-013",
+        "DEEN-U03-S02-010"
+      ]
+    },
+    {
+      "id": "U03-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U03-S03-007",
+        "DEEN-U03-S03-010",
+        "DEEN-U03-S03-005",
+        "DEEN-U03-S03-014",
+        "DEEN-U03-S03-009"
+      ]
+    },
+    {
+      "id": "U03-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U03-S01-014",
+        "DEEN-U03-S05-013",
+        "DEEN-U03-S05-005",
+        "DEEN-U03-S01-008",
+        "DEEN-U03-S05-002",
+        "DEEN-U03-S06-008"
+      ]
+    },
+    {
+      "id": "U03-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U03-S04-016",
+        "DEEN-U03-S07-010",
+        "DEEN-U03-S05-016",
+        "DEEN-U03-S03-012",
+        "DEEN-U03-S05-013",
+        "DEEN-U03-S01-014",
+        "DEEN-U03-S02-006",
+        "DEEN-U03-S01-013",
+        "DEEN-U03-S01-008",
+        "DEEN-U03-S06-008"
+      ]
+    },
+    {
+      "id": "U04-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U04-S01-009",
+        "DEEN-U04-S01-012",
+        "DEEN-U04-S01-005",
+        "DEEN-U04-S01-004",
+        "DEEN-U04-S01-013"
+      ]
+    },
+    {
+      "id": "U04-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U04-S01-005",
+        "DEEN-U04-S02-004",
+        "DEEN-U04-S03-012",
+        "DEEN-U04-S03-014",
+        "DEEN-U04-S02-007"
+      ]
+    },
+    {
+      "id": "U04-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U04-S03-005",
+        "DEEN-U04-S02-007",
+        "DEEN-U04-S04-011",
+        "DEEN-U04-S03-011",
+        "DEEN-U04-S02-010"
+      ]
+    },
+    {
+      "id": "U04-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U04-S02-012",
+        "DEEN-U04-S05-001",
+        "DEEN-U04-S04-008",
+        "DEEN-U04-S03-011",
+        "DEEN-U04-S05-007",
+        "DEEN-U04-S05-016"
+      ]
+    },
+    {
+      "id": "U04-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U04-S04-003",
+        "DEEN-U04-S03-003",
+        "DEEN-U04-S02-012",
+        "DEEN-U04-S07-011",
+        "DEEN-U04-S03-005",
+        "DEEN-U04-S07-013",
+        "DEEN-U04-S05-007",
+        "DEEN-U04-S03-011",
+        "DEEN-U04-S05-005",
+        "DEEN-U04-S05-008"
+      ]
+    },
+    {
+      "id": "U05-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U05-S01-010",
+        "DEEN-U05-S01-014",
+        "DEEN-U05-S01-004",
+        "DEEN-U05-S01-008",
+        "DEEN-U05-S01-007"
+      ]
+    },
+    {
+      "id": "U05-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U05-S01-004",
+        "DEEN-U05-S02-008",
+        "DEEN-U05-S03-014",
+        "DEEN-U05-S03-001",
+        "DEEN-U05-S03-005"
+      ]
+    },
+    {
+      "id": "U05-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U05-S02-010",
+        "DEEN-U05-S04-006",
+        "DEEN-U05-S01-013",
+        "DEEN-U05-S03-014",
+        "DEEN-U05-S04-015"
+      ]
+    },
+    {
+      "id": "U05-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U05-S06-003",
+        "DEEN-U05-S04-015",
+        "DEEN-U05-S01-013",
+        "DEEN-U05-S05-012",
+        "DEEN-U05-S04-008",
+        "DEEN-U05-S05-002"
+      ]
+    },
+    {
+      "id": "U05-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U05-S07-011",
+        "DEEN-U05-S07-005",
+        "DEEN-U05-S04-015",
+        "DEEN-U05-S06-004",
+        "DEEN-U05-S07-007",
+        "DEEN-U05-S07-006",
+        "DEEN-U05-S01-005",
+        "DEEN-U05-S07-012",
+        "DEEN-U05-S05-003",
+        "DEEN-U05-S07-010"
+      ]
+    },
+    {
+      "id": "U06-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U06-S01-014",
+        "DEEN-U06-S01-007",
+        "DEEN-U06-S01-003",
+        "DEEN-U06-S01-013",
+        "DEEN-U06-S01-010"
+      ]
+    },
+    {
+      "id": "U06-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U06-S03-007",
+        "DEEN-U06-S01-014",
+        "DEEN-U06-S01-005",
+        "DEEN-U06-S02-001",
+        "DEEN-U06-S02-003"
+      ]
+    },
+    {
+      "id": "U06-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U06-S01-007",
+        "DEEN-U06-S04-013",
+        "DEEN-U06-S04-005",
+        "DEEN-U06-S04-004",
+        "DEEN-U06-S02-010"
+      ]
+    },
+    {
+      "id": "U06-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U06-S03-008",
+        "DEEN-U06-S02-010",
+        "DEEN-U06-S03-006",
+        "DEEN-U06-S03-004",
+        "DEEN-U06-S06-001",
+        "DEEN-U06-S02-004"
+      ]
+    },
+    {
+      "id": "U06-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U06-S07-001",
+        "DEEN-U06-S05-012",
+        "DEEN-U06-S02-004",
+        "DEEN-U06-S06-001",
+        "DEEN-U06-S03-008",
+        "DEEN-U06-S06-003",
+        "DEEN-U06-S04-005",
+        "DEEN-U06-S02-010",
+        "DEEN-U06-S05-005",
+        "DEEN-U06-S05-010"
+      ]
+    },
+    {
+      "id": "U07-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U07-S01-014",
+        "DEEN-U07-S01-001",
+        "DEEN-U07-S01-010",
+        "DEEN-U07-S01-007",
+        "DEEN-U07-S01-003"
+      ]
+    },
+    {
+      "id": "U07-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U07-S03-007",
+        "DEEN-U07-S01-003",
+        "DEEN-U07-S02-006",
+        "DEEN-U07-S02-001",
+        "DEEN-U07-S01-013"
+      ]
+    },
+    {
+      "id": "U07-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U07-S04-012",
+        "DEEN-U07-S03-004",
+        "DEEN-U07-S03-006",
+        "DEEN-U07-S02-004",
+        "DEEN-U07-S04-004"
+      ]
+    },
+    {
+      "id": "U07-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U07-S05-013",
+        "DEEN-U07-S02-010",
+        "DEEN-U07-S03-006",
+        "DEEN-U07-S02-004",
+        "DEEN-U07-S05-006",
+        "DEEN-U07-S03-011"
+      ]
+    },
+    {
+      "id": "U07-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U07-S07-009",
+        "DEEN-U07-S05-008",
+        "DEEN-U07-S03-004",
+        "DEEN-U07-S06-004",
+        "DEEN-U07-S03-008",
+        "DEEN-U07-S04-008",
+        "DEEN-U07-S02-006",
+        "DEEN-U07-S02-010",
+        "DEEN-U07-S03-011",
+        "DEEN-U07-S02-004"
+      ]
+    },
+    {
+      "id": "U08-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U08-S01-003",
+        "DEEN-U08-S01-001",
+        "DEEN-U08-S01-014",
+        "DEEN-U08-S01-007",
+        "DEEN-U08-S01-010"
+      ]
+    },
+    {
+      "id": "U08-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U08-S02-003",
+        "DEEN-U08-S02-014",
+        "DEEN-U08-S02-005",
+        "DEEN-U08-S02-006",
+        "DEEN-U08-S02-001"
+      ]
+    },
+    {
+      "id": "U08-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U08-S04-016",
+        "DEEN-U08-S04-006",
+        "DEEN-U08-S01-005",
+        "DEEN-U08-S03-004",
+        "DEEN-U08-S04-007"
+      ]
+    },
+    {
+      "id": "U08-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U08-S06-011",
+        "DEEN-U08-S05-005",
+        "DEEN-U08-S06-008",
+        "DEEN-U08-S02-008",
+        "DEEN-U08-S05-009",
+        "DEEN-U08-S02-004"
+      ]
+    },
+    {
+      "id": "U08-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U08-S07-001",
+        "DEEN-U08-S06-011",
+        "DEEN-U08-S02-004",
+        "DEEN-U08-S04-008",
+        "DEEN-U08-S05-012",
+        "DEEN-U08-S04-006",
+        "DEEN-U08-S06-008",
+        "DEEN-U08-S03-006",
+        "DEEN-U08-S05-004",
+        "DEEN-U08-S04-005"
+      ]
+    },
+    {
+      "id": "U09-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U09-S01-003",
+        "DEEN-U09-S01-007",
+        "DEEN-U09-S01-014",
+        "DEEN-U09-S01-001",
+        "DEEN-U09-S01-010"
+      ]
+    },
+    {
+      "id": "U09-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U09-S02-006",
+        "DEEN-U09-S01-014",
+        "DEEN-U09-S01-005",
+        "DEEN-U09-S01-007",
+        "DEEN-U09-S03-001"
+      ]
+    },
+    {
+      "id": "U09-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U09-S03-014",
+        "DEEN-U09-S04-012",
+        "DEEN-U09-S04-006",
+        "DEEN-U09-S02-008",
+        "DEEN-U09-S04-013"
+      ]
+    },
+    {
+      "id": "U09-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U09-S03-009",
+        "DEEN-U09-S05-006",
+        "DEEN-U09-S02-005",
+        "DEEN-U09-S02-008",
+        "DEEN-U09-S06-001",
+        "DEEN-U09-S04-004"
+      ]
+    },
+    {
+      "id": "U09-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U09-S07-001",
+        "DEEN-U09-S03-009",
+        "DEEN-U09-S05-005",
+        "DEEN-U09-S02-005",
+        "DEEN-U09-S04-010",
+        "DEEN-U09-S02-004",
+        "DEEN-U09-S01-005",
+        "DEEN-U09-S05-006",
+        "DEEN-U09-S04-004",
+        "DEEN-U09-S04-013"
+      ]
+    },
+    {
+      "id": "U10-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U10-S01-004",
+        "DEEN-U10-S01-008",
+        "DEEN-U10-S01-014",
+        "DEEN-U10-S01-009",
+        "DEEN-U10-S01-011"
+      ]
+    },
+    {
+      "id": "U10-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U10-S01-007",
+        "DEEN-U10-S02-003",
+        "DEEN-U10-S01-006",
+        "DEEN-U10-S03-008",
+        "DEEN-U10-S01-008"
+      ]
+    },
+    {
+      "id": "U10-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U10-S04-016",
+        "DEEN-U10-S03-004",
+        "DEEN-U10-S01-006",
+        "DEEN-U10-S02-004",
+        "DEEN-U10-S04-004"
+      ]
+    },
+    {
+      "id": "U10-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U10-S05-011",
+        "DEEN-U10-S04-004",
+        "DEEN-U10-S06-004",
+        "DEEN-U10-S04-013",
+        "DEEN-U10-S01-006",
+        "DEEN-U10-S05-009"
+      ]
+    },
+    {
+      "id": "U10-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U10-S07-012",
+        "DEEN-U10-S04-011",
+        "DEEN-U10-S02-004",
+        "DEEN-U10-S02-005",
+        "DEEN-U10-S06-008",
+        "DEEN-U10-S06-003",
+        "DEEN-U10-S01-006",
+        "DEEN-U10-S04-008",
+        "DEEN-U10-S03-004",
+        "DEEN-U10-S03-012"
+      ]
+    },
+    {
+      "id": "U11-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U11-S01-011",
+        "DEEN-U11-S01-002",
+        "DEEN-U11-S01-010",
+        "DEEN-U11-S01-014",
+        "DEEN-U11-S01-012"
+      ]
+    },
+    {
+      "id": "U11-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U11-S01-006",
+        "DEEN-U11-S03-003",
+        "DEEN-U11-S03-010",
+        "DEEN-U11-S01-005",
+        "DEEN-U11-S03-001"
+      ]
+    },
+    {
+      "id": "U11-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U11-S04-014",
+        "DEEN-U11-S04-002",
+        "DEEN-U11-S04-008",
+        "DEEN-U11-S04-006",
+        "DEEN-U11-S04-005"
+      ]
+    },
+    {
+      "id": "U11-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U11-S04-001",
+        "DEEN-U11-S05-001",
+        "DEEN-U11-S05-010",
+        "DEEN-U11-S04-004",
+        "DEEN-U11-S05-012",
+        "DEEN-U11-S05-008"
+      ]
+    },
+    {
+      "id": "U11-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U11-S06-005",
+        "DEEN-U11-S04-003",
+        "DEEN-U11-S05-005",
+        "DEEN-U11-S07-009",
+        "DEEN-U11-S05-009",
+        "DEEN-U11-S05-003",
+        "DEEN-U11-S04-010",
+        "DEEN-U11-S04-007",
+        "DEEN-U11-S05-007",
+        "DEEN-U11-S05-006"
+      ]
+    },
+    {
+      "id": "U12-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U12-S01-011",
+        "DEEN-U12-S01-004",
+        "DEEN-U12-S01-012",
+        "DEEN-U12-S01-010",
+        "DEEN-U12-S01-013"
+      ]
+    },
+    {
+      "id": "U12-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U12-S01-004",
+        "DEEN-U12-S03-001",
+        "DEEN-U12-S03-010",
+        "DEEN-U12-S02-002",
+        "DEEN-U12-S03-004"
+      ]
+    },
+    {
+      "id": "U12-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U12-S04-014",
+        "DEEN-U12-S04-003",
+        "DEEN-U12-S04-011",
+        "DEEN-U12-S04-005",
+        "DEEN-U12-S04-002"
+      ]
+    },
+    {
+      "id": "U12-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U12-S05-009",
+        "DEEN-U12-S05-003",
+        "DEEN-U12-S04-009",
+        "DEEN-U12-S04-002",
+        "DEEN-U12-S05-010",
+        "DEEN-U12-S04-005"
+      ]
+    },
+    {
+      "id": "U12-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U12-S06-006",
+        "DEEN-U12-S04-006",
+        "DEEN-U12-S05-003",
+        "DEEN-U12-S04-008",
+        "DEEN-U12-S05-006",
+        "DEEN-U12-S07-010",
+        "DEEN-U12-S05-012",
+        "DEEN-U12-S05-009",
+        "DEEN-U12-S04-002",
+        "DEEN-U12-S04-005"
+      ]
+    },
+    {
+      "id": "U13-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U13-S01-010",
+        "DEEN-U13-S01-001",
+        "DEEN-U13-S01-012",
+        "DEEN-U13-S01-013",
+        "DEEN-U13-S01-011"
+      ]
+    },
+    {
+      "id": "U13-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U13-S01-002",
+        "DEEN-U13-S03-001",
+        "DEEN-U13-S03-010",
+        "DEEN-U13-S02-003",
+        "DEEN-U13-S03-004"
+      ]
+    },
+    {
+      "id": "U13-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U13-S04-012",
+        "DEEN-U13-S04-001",
+        "DEEN-U13-S04-008",
+        "DEEN-U13-S04-004",
+        "DEEN-U13-S04-005"
+      ]
+    },
+    {
+      "id": "U13-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U13-S04-007",
+        "DEEN-U13-S05-003",
+        "DEEN-U13-S04-010",
+        "DEEN-U13-S04-006",
+        "DEEN-U13-S04-008",
+        "DEEN-U13-S05-007"
+      ]
+    },
+    {
+      "id": "U13-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U13-S04-012",
+        "DEEN-U13-S05-008",
+        "DEEN-U13-S07-010",
+        "DEEN-U13-S05-010",
+        "DEEN-U13-S05-007",
+        "DEEN-U13-S05-001",
+        "DEEN-U13-S07-009",
+        "DEEN-U13-S05-009",
+        "DEEN-U13-S04-004",
+        "DEEN-U13-S04-003"
+      ]
+    },
+    {
+      "id": "U14-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U14-S01-011",
+        "DEEN-U14-S01-003",
+        "DEEN-U14-S01-010",
+        "DEEN-U14-S01-012",
+        "DEEN-U14-S01-014"
+      ]
+    },
+    {
+      "id": "U14-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U14-S01-003",
+        "DEEN-U14-S03-004",
+        "DEEN-U14-S03-010",
+        "DEEN-U14-S02-003",
+        "DEEN-U14-S03-001"
+      ]
+    },
+    {
+      "id": "U14-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U14-S04-013",
+        "DEEN-U14-S04-002",
+        "DEEN-U14-S04-009",
+        "DEEN-U14-S04-006",
+        "DEEN-U14-S04-005"
+      ]
+    },
+    {
+      "id": "U14-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U14-S04-001",
+        "DEEN-U14-S05-001",
+        "DEEN-U14-S04-008",
+        "DEEN-U14-S04-002",
+        "DEEN-U14-S04-010",
+        "DEEN-U14-S05-008"
+      ]
+    },
+    {
+      "id": "U14-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U14-S05-015",
+        "DEEN-U14-S04-001",
+        "DEEN-U14-S07-011",
+        "DEEN-U14-S04-008",
+        "DEEN-U14-S04-005",
+        "DEEN-U14-S07-010",
+        "DEEN-U14-S07-009",
+        "DEEN-U14-S05-009",
+        "DEEN-U14-S04-002",
+        "DEEN-U14-S04-004"
+      ]
+    },
+    {
+      "id": "U15-M01",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U15-S01-012",
+        "DEEN-U15-S01-001",
+        "DEEN-U15-S01-010",
+        "DEEN-U15-S01-014",
+        "DEEN-U15-S01-011"
+      ]
+    },
+    {
+      "id": "U15-M02",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U15-S01-001",
+        "DEEN-U15-S03-004",
+        "DEEN-U15-S03-008",
+        "DEEN-U15-S01-004",
+        "DEEN-U15-S03-002"
+      ]
+    },
+    {
+      "id": "U15-M03",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U15-S04-013",
+        "DEEN-U15-S04-002",
+        "DEEN-U15-S04-011",
+        "DEEN-U15-S04-005",
+        "DEEN-U15-S04-004"
+      ]
+    },
+    {
+      "id": "U15-M04",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U15-S04-002",
+        "DEEN-U15-S05-003",
+        "DEEN-U15-S04-011",
+        "DEEN-U15-S04-003",
+        "DEEN-U15-S05-010",
+        "DEEN-U15-S05-009"
+      ]
+    },
+    {
+      "id": "U15-M05",
+      "started": true,
+      "macro": true,
+      "questions": [
+        "DEEN-U15-S04-014",
+        "DEEN-U15-S05-006",
+        "DEEN-U15-S07-011",
+        "DEEN-U15-S05-010",
+        "DEEN-U15-S05-007",
+        "DEEN-U15-S07-010",
+        "DEEN-U15-S04-008",
+        "DEEN-U15-S04-007",
+        "DEEN-U15-S04-006",
+        "DEEN-U15-S05-008"
+      ]
+    }
+  ],
+  "types": {
+    "multiple_choice": 337,
+    "true_false": 161,
+    "fill_blank": 158,
+    "matching": 153,
+    "missing_item": 90,
+    "scenario": 288,
+    "error_spotting": 146,
+    "speed_review": 67,
+    "progressive_recall": 99,
+    "listening_select": 7,
+    "listening_meaning": 6,
+    "build_sequence": 38,
+    "next_word": 6,
+    "card_choice": 14,
+    "odd_one_out": 14
+  },
+  "reviews": [
+    {
+      "mode": "smart",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    },
+    {
+      "mode": "quick",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    },
+    {
+      "mode": "mistakes",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    },
+    {
+      "mode": "weak",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    },
+    {
+      "mode": "due",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    }
+  ],
+  "errors": [],
+  "boot": {
+    "phase": "ready",
+    "ready": true,
+    "progress": 100,
+    "taskCount": 18,
+    "error": null
+  },
+  "regression": {
+    "version": "9.10.9-RUNTIME-REGRESSION",
+    "build": "9109wolfhd1",
+    "at": 1791495046052,
+    "run": 5,
+    "pass": true,
+    "failed": [],
+    "checks": {
+      "renderOwner": true,
+      "gradeOwner": true,
+      "resultOwner": true,
+      "uiOwner": true,
+      "startOwner": true,
+      "finishOwner": true,
+      "nextOwner": true,
+      "closeOwner": true,
+      "navigateOwner": true,
+      "reviewOwner": true,
+      "macroOwner": true,
+      "finalOwners": true,
+      "streakOwner": true,
+      "energyOwner": true,
+      "rewardOwner": true,
+      "scheduler": true,
+      "arbiter": true,
+      "noLateRenderWrapper": true,
+      "noLateStartWrapper": true,
+      "build": true
+    }
+  },
+  "preserved": {
+    "xp": 777,
+    "companion": "owl",
+    "name": "QA"
+  },
+  "performance": {
+    "idleSeconds": 5,
+    "taskSeconds": 0.900189,
+    "heapBefore": 15978164,
+    "heapAfter": 16490532,
+    "idleLongTasks": []
+  },
+  "observerCountBefore": 29,
+  "listenersBefore": 423,
+  "listenersAfter": 423,
+  "observers": [
+    {
+      "fn": "(entries) => {\n      const newDocumentElement = entries.some((entry) => Array.from(entry.addedNodes).includes(this.document.documentElement));\n      if (!newDoc",
+      "callbacks": 1,
+      "mutations": 3,
+      "ms": 0.2999999998137355,
+      "active": true
+    },
+    {
+      "fn": "records=>{\n    for(const rec of records){\n      const el=rec.target;if(!(el instanceof HTMLElement)||!el.classList.contains('v710-match-card'))continue;\n      i",
+      "callbacks": 0,
+      "mutations": 0,
+      "ms": 0
+    },
+    {
+      "fn": "mutations=>{\n  const overlayAdded=mutations.some(m=>[...m.addedNodes].some(node=>{\n   if(node?.nodeType!==1)return false;\n   return node.matches?.('.v910-overla",
+      "callbacks": 16709,
+      "mutations": 77166,
+      "ms": 215.8999999742955,
+      "active": true
+    },
+    {
+      "fn": "()=>setTimeout(retire,0)",
+      "callbacks": 3,
+      "mutations": 6,
+      "ms": 0,
+      "active": true
+    },
+    {
+      "fn": "mutations=>{\n   if(busy)return;\n   // Only react to actual child-tree changes. Attribute changes from configure()\n   // are deliberately not observed, preventin",
+      "callbacks": 0,
+      "mutations": 0,
+      "ms": 0,
+      "active": false
+    },
+    {
+      "fn": "mutations=>{\n      let needsKill=false;\n      for(const m of mutations){\n        if(m.addedNodes?.length){needsKill=true;break}\n      }\n      if(needsKill)kill(",
+      "callbacks": 16709,
+      "mutations": 77166,
+      "ms": 1026.5999999977648,
+      "active": true
+    },
+    {
+      "fn": "mutations=>{\n   const relevant=mutations.some(m=>\n     m.type==='childList' &&\n     m.target?.id==='answerArea' &&\n     (m.addedNodes.length||m.removedNodes.len",
+      "callbacks": 3364,
+      "mutations": 7825,
+      "ms": 22.100000008009374,
+      "active": true
+    },
+    {
+      "fn": "records=>{\n    for(const r of records){\n      for(const node of r.addedNodes||[]){\n        if(node?.nodeType===1){\n          if(node.matches?.('[data-badge-id] ",
+      "callbacks": 17513,
+      "mutations": 164752,
+      "ms": 245.89999996870756,
+      "active": true
+    },
+    {
+      "fn": "function schedule(){\n   requestAnimationFrame(apply);\n   setTimeout(apply,40);\n   setTimeout(apply,120);\n }",
+      "callbacks": 0,
+      "mutations": 0,
+      "ms": 0,
+      "active": true
+    },
+    {
+      "fn": "()=>{\n      if(d.querySelector('.deen-stage-intro')&&!d.classList.contains('deen-intro-dialog')){\n        d.classList.add('deen-intro-dialog');\n      }\n    }",
+      "callbacks": 0,
+      "mutations": 0,
+      "ms": 0,
+      "active": true
+    },
+    {
+      "fn": "()=>{\n      const active=lesson.classList.contains('active');\n      if(active&&!wasActive&&!document.getElementById('deenStageLaunchCurtain')){\n        let sid=",
+      "callbacks": 5845,
+      "mutations": 8478,
+      "ms": 13.100000005215406,
+      "active": true
+    },
+    {
+      "fn": "m=>{if(m.some(x=>x.addedNodes?.length||x.removedNodes?.length))schedule()}",
+      "callbacks": 0,
+      "mutations": 0,
+      "ms": 0,
+      "active": true
+    },
+    {
+      "fn": "()=>{if(document.getElementById('deenAdminBody')&&!document.getElementById('deenQuranReviewAdmin'))setTimeout(inject,0)}",
+      "callbacks": 17474,
+      "mutations": 164513,
+      "ms": 21.699999993667006,
+      "active": true
+    },
+    {
+      "fn": "()=>{clearTimeout(t);t=setTimeout(decorate,60)}",
+      "callbacks": 17472,
+      "mutations": 164501,
+      "ms": 125.70000001601875,
+      "active": true
+    },
+    {
+      "fn": "()=>remove()",
+      "callbacks": 17467,
+      "mutations": 164469,
+      "ms": 423.50000002235174,
+      "active": true
+    },
+    {
+      "fn": "function injectAdmin(){const b=document.getElementById('deenAdminBody');if(!b||document.getElementById('deenQuranAnalyticsAdmin'))return false;const s=summary(3",
+      "callbacks": 17466,
+      "mutations": 164463,
+      "ms": 14.600000005215406,
+      "active": true
+    },
+    {
+      "fn": "()=>{injectDashboard();injectAdmin()}",
+      "callbacks": 17465,
+      "mutations": 164457,
+      "ms": 339.10000001452863,
+      "active": true
+    },
+    {
+      "fn": "records=>{\n   for(const r of records){const el=r.target.nodeType===1?r.target:r.target.parentElement;if(el&&!excluded(el))dirty.add(el)}\n   if(dirtyQueued||!dir",
+      "callbacks": 18953,
+      "mutations": 167008,
+      "ms": 378.59999999403954,
+      "active": true
+    },
+    {
+      "fn": "function injectDashboard(){\n const q=document.querySelector?.('.deen-quran-quick');if(!q||q.querySelector('[data-qjourney-v2]'))return false;\n const b=document.",
+      "callbacks": 17460,
+      "mutations": 164420,
+      "ms": 203.50000002607703,
+      "active": true
+    },
+    {
+      "fn": "function schedule(){clearTimeout(timer);timer=setTimeout(patchMounted,30)}",
+      "callbacks": 17459,
+      "mutations": 164414,
+      "ms": 64.30000002495944,
+      "active": true
+    },
+    {
+      "fn": "function schedule(){clearTimeout(timer);timer=setTimeout(inject,35)}",
+      "callbacks": 17458,
+      "mutations": 164408,
+      "ms": 51.79999998304993,
+      "active": true
+    },
+    {
+      "fn": "function schedule(){\n  clearTimeout(timer);\n  timer=setTimeout(decorate,25);\n}",
+      "callbacks": 17457,
+      "mutations": 164402,
+      "ms": 56.000000019557774,
+      "active": true
+    },
+    {
+      "fn": "()=>{install();injectHub()}",
+      "callbacks": 17455,
+      "mutations": 164386,
+      "ms": 328.0999999800697,
+      "active": true
+    },
+    {
+      "fn": "()=>{installArena();injectWeak();injectDaily()}",
+      "callbacks": 17454,
+      "mutations": 164378,
+      "ms": 210.30000004451722,
+      "active": true
+    },
+    {
+      "fn": "function schedule(){clearTimeout(timer);timer=setTimeout(organize,35)}",
+      "callbacks": 17453,
+      "mutations": 164370,
+      "ms": 52.09999999869615,
+      "active": true
+    },
+    {
+      "fn": "mutations=>{\n   if(busy)return;\n   // Only react to actual child-tree changes. Attribute changes from configure()\n   // are deliberately not observed, preventin",
+      "callbacks": 0,
+      "mutations": 0,
+      "ms": 0,
+      "active": false
+    },
+    {
+      "fn": "mutations=>{\n     if(repairing)return;\n     if(!mutations.some(m=>m.type==='childList'&&(m.addedNodes.length||m.removedNodes.length)))return;\n     const avatar=",
+      "callbacks": 16130,
+      "mutations": 59958,
+      "ms": 71.39999998081475,
+      "active": true
+    },
+    {
+      "fn": "mutations=>{\n   if(busy)return;\n   // Only react to actual child-tree changes. Attribute changes from configure()\n   // are deliberately not observed, preventin",
+      "callbacks": 0,
+      "mutations": 0,
+      "ms": 0,
+      "active": true
+    },
+    {
+      "fn": "()=>{\n     const root=document.getElementById('v998Onboarding');\n     if(root?.dataset?.step==='3')root.dataset.hqAtlasReady='1';\n   }",
+      "callbacks": 17372,
+      "mutations": 159670,
+      "ms": 20.499999994412065,
+      "active": true
+    }
+  ],
+  "observerCountAfter": 29,
+  "activeObservers": 26,
+  "longTasks": [
+    {
+      "start": 920.9000000003725,
+      "ms": 182
+    },
+    {
+      "start": 1283,
+      "ms": 70
+    },
+    {
+      "start": 1355.5999999996275,
+      "ms": 942
+    },
+    {
+      "start": 2303.4000000003725,
+      "ms": 282
+    },
+    {
+      "start": 2643.7000000001863,
+      "ms": 192
+    },
+    {
+      "start": 2875,
+      "ms": 121
+    },
+    {
+      "start": 2996.5999999996275,
+      "ms": 246
+    },
+    {
+      "start": 3243.5,
+      "ms": 64
+    },
+    {
+      "start": 3347.5999999996275,
+      "ms": 147
+    },
+    {
+      "start": 3504.2999999998137,
+      "ms": 64
+    },
+    {
+      "start": 3568.5,
+      "ms": 86
+    },
+    {
+      "start": 3654.5999999996275,
+      "ms": 197
+    },
+    {
+      "start": 3855.2999999998137,
+      "ms": 71
+    },
+    {
+      "start": 3926.5999999996275,
+      "ms": 56
+    },
+    {
+      "start": 3983.2999999998137,
+      "ms": 120
+    },
+    {
+      "start": 4105.5999999996275,
+      "ms": 57
+    },
+    {
+      "start": 4162.700000000186,
+      "ms": 63
+    },
+    {
+      "start": 4226.4000000003725,
+      "ms": 128
+    },
+    {
+      "start": 4354.9000000003725,
+      "ms": 65
+    },
+    {
+      "start": 4425.200000000186,
+      "ms": 53
+    },
+    {
+      "start": 4478.700000000186,
+      "ms": 153
+    },
+    {
+      "start": 4633.299999999814,
+      "ms": 122
+    },
+    {
+      "start": 4755.4000000003725,
+      "ms": 112
+    },
+    {
+      "start": 4873.4000000003725,
+      "ms": 84
+    },
+    {
+      "start": 4998,
+      "ms": 92
+    },
+    {
+      "start": 5269.299999999814,
+      "ms": 96
+    },
+    {
+      "start": 5370.299999999814,
+      "ms": 95
+    },
+    {
+      "start": 5465.700000000186,
+      "ms": 95
+    },
+    {
+      "start": 5563.0999999996275,
+      "ms": 92
+    },
+    {
+      "start": 5655.4000000003725,
+      "ms": 92
+    },
+    {
+      "start": 5781.5999999996275,
+      "ms": 80
+    },
+    {
+      "start": 5884.700000000186,
+      "ms": 94
+    },
+    {
+      "start": 5982.5999999996275,
+      "ms": 85
+    },
+    {
+      "start": 6068.0999999996275,
+      "ms": 89
+    },
+    {
+      "start": 6161.5,
+      "ms": 103
+    },
+    {
+      "start": 6268.799999999814,
+      "ms": 68
+    },
+    {
+      "start": 6343,
+      "ms": 59
+    },
+    {
+      "start": 6445.4000000003725,
+      "ms": 98
+    },
+    {
+      "start": 6546.5,
+      "ms": 92
+    },
+    {
+      "start": 6639.4000000003725,
+      "ms": 100
+    },
+    {
+      "start": 6742.5,
+      "ms": 100
+    },
+    {
+      "start": 6845.5999999996275,
+      "ms": 98
+    },
+    {
+      "start": 6945.299999999814,
+      "ms": 91
+    },
+    {
+      "start": 7039.4000000003725,
+      "ms": 94
+    },
+    {
+      "start": 7133.5999999996275,
+      "ms": 75
+    },
+    {
+      "start": 7211.700000000186,
+      "ms": 92
+    },
+    {
+      "start": 7304,
+      "ms": 257
+    },
+    {
+      "start": 7580.5,
+      "ms": 366
+    },
+    {
+      "start": 7947.200000000186,
+      "ms": 59
+    },
+    {
+      "start": 8007.299999999814,
+      "ms": 125
+    },
+    {
+      "start": 8142.4000000003725,
+      "ms": 70
+    },
+    {
+      "start": 8212.799999999814,
+      "ms": 83
+    },
+    {
+      "start": 8309,
+      "ms": 72
+    },
+    {
+      "start": 8381.599999999627,
+      "ms": 96
+    },
+    {
+      "start": 20613.799999999814,
+      "ms": 257
+    },
+    {
+      "start": 20871,
+      "ms": 127
+    },
+    {
+      "start": 21077.700000000186,
+      "ms": 157
+    },
+    {
+      "start": 21235.599999999627,
+      "ms": 169
+    },
+    {
+      "start": 21505.700000000186,
+      "ms": 189
+    },
+    {
+      "start": 21695.5,
+      "ms": 112
+    },
+    {
+      "start": 21869.799999999814,
+      "ms": 179
+    },
+    {
+      "start": 22049.099999999627,
+      "ms": 122
+    },
+    {
+      "start": 22230.299999999814,
+      "ms": 211
+    },
+    {
+      "start": 22441.700000000186,
+      "ms": 130
+    },
+    {
+      "start": 22651.299999999814,
+      "ms": 256
+    },
+    {
+      "start": 22907.799999999814,
+      "ms": 127
+    },
+    {
+      "start": 23099.599999999627,
+      "ms": 212
+    },
+    {
+      "start": 23311.900000000373,
+      "ms": 117
+    },
+    {
+      "start": 23510.299999999814,
+      "ms": 227
+    },
+    {
+      "start": 23738.299999999814,
+      "ms": 112
+    },
+    {
+      "start": 23924.599999999627,
+      "ms": 175
+    },
+    {
+      "start": 24100.299999999814,
+      "ms": 87
+    },
+    {
+      "start": 24289.5,
+      "ms": 201
+    },
+    {
+      "start": 24490.599999999627,
+      "ms": 106
+    },
+    {
+      "start": 24628.700000000186,
+      "ms": 201
+    },
+    {
+      "start": 24830.599999999627,
+      "ms": 156
+    },
+    {
+      "start": 25032.200000000186,
+      "ms": 273
+    },
+    {
+      "start": 25306.200000000186,
+      "ms": 121
+    },
+    {
+      "start": 25479.799999999814,
+      "ms": 206
+    },
+    {
+      "start": 25686.299999999814,
+      "ms": 126
+    },
+    {
+      "start": 25888,
+      "ms": 227
+    },
+    {
+      "start": 26115.5,
+      "ms": 132
+    },
+    {
+      "start": 26343.5,
+      "ms": 334
+    },
+    {
+      "start": 26678.400000000373,
+      "ms": 98
+    },
+    {
+      "start": 26841.5,
+      "ms": 213
+    },
+    {
+      "start": 27055.299999999814,
+      "ms": 112
+    },
+    {
+      "start": 27239.700000000186,
+      "ms": 218
+    },
+    {
+      "start": 27458.200000000186,
+      "ms": 146
+    },
+    {
+      "start": 27659,
+      "ms": 232
+    },
+    {
+      "start": 27891.799999999814,
+      "ms": 108
+    },
+    {
+      "start": 28056.700000000186,
+      "ms": 169
+    },
+    {
+      "start": 28226,
+      "ms": 95
+    },
+    {
+      "start": 28420.900000000373,
+      "ms": 226
+    },
+    {
+      "start": 28647.5,
+      "ms": 112
+    },
+    {
+      "start": 28853.5,
+      "ms": 224
+    },
+    {
+      "start": 29077.599999999627,
+      "ms": 109
+    },
+    {
+      "start": 29249.700000000186,
+      "ms": 181
+    },
+    {
+      "start": 29431.200000000186,
+      "ms": 127
+    },
+    {
+      "start": 29644.299999999814,
+      "ms": 58
+    },
+    {
+      "start": 29703.200000000186,
+      "ms": 235
+    },
+    {
+      "start": 29939.099999999627,
+      "ms": 111
+    },
+    {
+      "start": 30115.299999999814,
+      "ms": 203
+    },
+    {
+      "start": 30318.299999999814,
+      "ms": 121
+    },
+    {
+      "start": 30512.599999999627,
+      "ms": 170
+    },
+    {
+      "start": 30682.599999999627,
+      "ms": 104
+    },
+    {
+      "start": 30831.900000000373,
+      "ms": 193
+    },
+    {
+      "start": 31025.799999999814,
+      "ms": 128
+    },
+    {
+      "start": 31187.299999999814,
+      "ms": 220
+    },
+    {
+      "start": 31408,
+      "ms": 118
+    },
+    {
+      "start": 31571.900000000373,
+      "ms": 196
+    },
+    {
+      "start": 31768.299999999814,
+      "ms": 108
+    },
+    {
+      "start": 31937.599999999627,
+      "ms": 234
+    },
+    {
+      "start": 32171.799999999814,
+      "ms": 112
+    },
+    {
+      "start": 32358.200000000186,
+      "ms": 197
+    },
+    {
+      "start": 32555.5,
+      "ms": 108
+    },
+    {
+      "start": 32719.700000000186,
+      "ms": 143
+    },
+    {
+      "start": 32863.09999999963,
+      "ms": 116
+    },
+    {
+      "start": 33035,
+      "ms": 221
+    },
+    {
+      "start": 33257,
+      "ms": 109
+    },
+    {
+      "start": 33422.5,
+      "ms": 194
+    },
+    {
+      "start": 33616.90000000037,
+      "ms": 96
+    },
+    {
+      "start": 33747.299999999814,
+      "ms": 156
+    },
+    {
+      "start": 33903.799999999814,
+      "ms": 136
+    },
+    {
+      "start": 34095.799999999814,
+      "ms": 225
+    },
+    {
+      "start": 34321.5,
+      "ms": 98
+    },
+    {
+      "start": 34483.59999999963,
+      "ms": 197
+    },
+    {
+      "start": 34681.5,
+      "ms": 106
+    },
+    {
+      "start": 34865.09999999963,
+      "ms": 188
+    },
+    {
+      "start": 35054.09999999963,
+      "ms": 134
+    },
+    {
+      "start": 35248.59999999963,
+      "ms": 199
+    },
+    {
+      "start": 35447.59999999963,
+      "ms": 99
+    },
+    {
+      "start": 35607.299999999814,
+      "ms": 221
+    },
+    {
+      "start": 35828.59999999963,
+      "ms": 120
+    },
+    {
+      "start": 36055.40000000037,
+      "ms": 266
+    },
+    {
+      "start": 36321.799999999814,
+      "ms": 150
+    },
+    {
+      "start": 36550.09999999963,
+      "ms": 214
+    },
+    {
+      "start": 36764.09999999963,
+      "ms": 334
+    },
+    {
+      "start": 37239.59999999963,
+      "ms": 228
+    },
+    {
+      "start": 37468.40000000037,
+      "ms": 127
+    },
+    {
+      "start": 37658.299999999814,
+      "ms": 192
+    },
+    {
+      "start": 37850.700000000186,
+      "ms": 99
+    },
+    {
+      "start": 38038.90000000037,
+      "ms": 218
+    },
+    {
+      "start": 38257.200000000186,
+      "ms": 106
+    },
+    {
+      "start": 38427.90000000037,
+      "ms": 204
+    },
+    {
+      "start": 38632,
+      "ms": 129
+    },
+    {
+      "start": 38830.5,
+      "ms": 240
+    },
+    {
+      "start": 39070.799999999814,
+      "ms": 120
+    },
+    {
+      "start": 39309.5,
+      "ms": 201
+    },
+    {
+      "start": 39511.59999999963,
+      "ms": 98
+    },
+    {
+      "start": 39670.799999999814,
+      "ms": 163
+    },
+    {
+      "start": 39834.299999999814,
+      "ms": 97
+    },
+    {
+      "start": 39983.299999999814,
+      "ms": 178
+    },
+    {
+      "start": 40162,
+      "ms": 105
+    },
+    {
+      "start": 40298,
+      "ms": 169
+    },
+    {
+      "start": 40467.700000000186,
+      "ms": 93
+    },
+    {
+      "start": 40616.09999999963,
+      "ms": 219
+    },
+    {
+      "start": 40835.09999999963,
+      "ms": 123
+    },
+    {
+      "start": 41019.700000000186,
+      "ms": 235
+    },
+    {
+      "start": 41254.90000000037,
+      "ms": 112
+    },
+    {
+      "start": 41417.5,
+      "ms": 170
+    },
+    {
+      "start": 41588.40000000037,
+      "ms": 115
+    },
+    {
+      "start": 41760.200000000186,
+      "ms": 205
+    },
+    {
+      "start": 41966,
+      "ms": 121
+    },
+    {
+      "start": 42113.59999999963,
+      "ms": 200
+    },
+    {
+      "start": 42314.59999999963,
+      "ms": 110
+    },
+    {
+      "start": 42848.799999999814,
+      "ms": 184
+    },
+    {
+      "start": 43033,
+      "ms": 99
+    },
+    {
+      "start": 43182.40000000037,
+      "ms": 155
+    },
+    {
+      "start": 43338.299999999814,
+      "ms": 102
+    },
+    {
+      "start": 43531.799999999814,
+      "ms": 216
+    },
+    {
+      "start": 43748.59999999963,
+      "ms": 108
+    },
+    {
+      "start": 43920.700000000186,
+      "ms": 215
+    },
+    {
+      "start": 44136,
+      "ms": 86
+    },
+    {
+      "start": 44284.700000000186,
+      "ms": 148
+    },
+    {
+      "start": 44433.40000000037,
+      "ms": 98
+    },
+    {
+      "start": 44541.40000000037,
+      "ms": 439
+    },
+    {
+      "start": 45044.799999999814,
+      "ms": 175
+    },
+    {
+      "start": 45220.700000000186,
+      "ms": 112
+    },
+    {
+      "start": 45377.200000000186,
+      "ms": 168
+    },
+    {
+      "start": 45546.200000000186,
+      "ms": 93
+    },
+    {
+      "start": 45678.09999999963,
+      "ms": 167
+    },
+    {
+      "start": 45845.40000000037,
+      "ms": 100
+    },
+    {
+      "start": 45981.09999999963,
+      "ms": 157
+    },
+    {
+      "start": 46138.40000000037,
+      "ms": 132
+    },
+    {
+      "start": 46326.90000000037,
+      "ms": 181
+    },
+    {
+      "start": 46508,
+      "ms": 95
+    },
+    {
+      "start": 46655.200000000186,
+      "ms": 160
+    },
+    {
+      "start": 46816,
+      "ms": 90
+    },
+    {
+      "start": 46965.59999999963,
+      "ms": 172
+    },
+    {
+      "start": 47138,
+      "ms": 93
+    },
+    {
+      "start": 47297.90000000037,
+      "ms": 155
+    },
+    {
+      "start": 47453.299999999814,
+      "ms": 103
+    },
+    {
+      "start": 47606.700000000186,
+      "ms": 158
+    },
+    {
+      "start": 47765.09999999963,
+      "ms": 84
+    },
+    {
+      "start": 47885.09999999963,
+      "ms": 145
+    },
+    {
+      "start": 48030.799999999814,
+      "ms": 113
+    },
+    {
+      "start": 48181.700000000186,
+      "ms": 195
+    },
+    {
+      "start": 48376.90000000037,
+      "ms": 93
+    },
+    {
+      "start": 48533,
+      "ms": 191
+    },
+    {
+      "start": 48724.200000000186,
+      "ms": 111
+    },
+    {
+      "start": 48847,
+      "ms": 52
+    },
+    {
+      "start": 48990.5,
+      "ms": 162
+    },
+    {
+      "start": 49153,
+      "ms": 91
+    },
+    {
+      "start": 49307.59999999963,
+      "ms": 178
+    },
+    {
+      "start": 49485.799999999814,
+      "ms": 83
+    },
+    {
+      "start": 49622.40000000037,
+      "ms": 156
+    },
+    {
+      "start": 49778.59999999963,
+      "ms": 110
+    },
+    {
+      "start": 49930.09999999963,
+      "ms": 189
+    },
+    {
+      "start": 50119.90000000037,
+      "ms": 114
+    },
+    {
+      "start": 50292,
+      "ms": 185
+    },
+    {
+      "start": 50477.799999999814,
+      "ms": 92
+    },
+    {
+      "start": 50636.40000000037,
+      "ms": 151
+    },
+    {
+      "start": 50788.09999999963,
+      "ms": 92
+    },
+    {
+      "start": 50950.90000000037,
+      "ms": 163
+    },
+    {
+      "start": 51114,
+      "ms": 82
+    },
+    {
+      "start": 51246.799999999814,
+      "ms": 159
+    },
+    {
+      "start": 51406.299999999814,
+      "ms": 82
+    },
+    {
+      "start": 51524.40000000037,
+      "ms": 141
+    },
+    {
+      "start": 51666.299999999814,
+      "ms": 80
+    },
+    {
+      "start": 51783.90000000037,
+      "ms": 148
+    },
+    {
+      "start": 51932.200000000186,
+      "ms": 110
+    },
+    {
+      "start": 52085,
+      "ms": 171
+    },
+    {
+      "start": 52256.09999999963,
+      "ms": 96
+    },
+    {
+      "start": 52406.59999999963,
+      "ms": 161
+    },
+    {
+      "start": 52568.299999999814,
+      "ms": 91
+    },
+    {
+      "start": 52705.5,
+      "ms": 153
+    },
+    {
+      "start": 52859.299999999814,
+      "ms": 85
+    },
+    {
+      "start": 53018.09999999963,
+      "ms": 163
+    },
+    {
+      "start": 53181.5,
+      "ms": 88
+    },
+    {
+      "start": 53328,
+      "ms": 164
+    },
+    {
+      "start": 53492.799999999814,
+      "ms": 101
+    },
+    {
+      "start": 53651.299999999814,
+      "ms": 165
+    },
+    {
+      "start": 53816.90000000037,
+      "ms": 86
+    },
+    {
+      "start": 53953,
+      "ms": 169
+    },
+    {
+      "start": 54122.90000000037,
+      "ms": 82
+    },
+    {
+      "start": 54246.09999999963,
+      "ms": 140
+    },
+    {
+      "start": 54386.59999999963,
+      "ms": 83
+    },
+    {
+      "start": 54510.799999999814,
+      "ms": 139
+    },
+    {
+      "start": 54650.700000000186,
+      "ms": 81
+    },
+    {
+      "start": 54771.200000000186,
+      "ms": 142
+    },
+    {
+      "start": 54913.5,
+      "ms": 86
+    },
+    {
+      "start": 55063.59999999963,
+      "ms": 154
+    },
+    {
+      "start": 55218.700000000186,
+      "ms": 88
+    },
+    {
+      "start": 55359.59999999963,
+      "ms": 159
+    },
+    {
+      "start": 55519.299999999814,
+      "ms": 126
+    },
+    {
+      "start": 55699.90000000037,
+      "ms": 168
+    },
+    {
+      "start": 55867.90000000037,
+      "ms": 83
+    },
+    {
+      "start": 56000.09999999963,
+      "ms": 154
+    },
+    {
+      "start": 56154.59999999963,
+      "ms": 86
+    },
+    {
+      "start": 56288.700000000186,
+      "ms": 148
+    },
+    {
+      "start": 56437.59999999963,
+      "ms": 86
+    },
+    {
+      "start": 56572.299999999814,
+      "ms": 148
+    },
+    {
+      "start": 56721.200000000186,
+      "ms": 87
+    },
+    {
+      "start": 56832.5,
+      "ms": 144
+    },
+    {
+      "start": 56977,
+      "ms": 90
+    },
+    {
+      "start": 57133.90000000037,
+      "ms": 190
+    },
+    {
+      "start": 57324.59999999963,
+      "ms": 109
+    },
+    {
+      "start": 57489.59999999963,
+      "ms": 174
+    },
+    {
+      "start": 57663.90000000037,
+      "ms": 93
+    },
+    {
+      "start": 57803.700000000186,
+      "ms": 158
+    },
+    {
+      "start": 57962.299999999814,
+      "ms": 96
+    },
+    {
+      "start": 58101.700000000186,
+      "ms": 165
+    },
+    {
+      "start": 58267.200000000186,
+      "ms": 93
+    },
+    {
+      "start": 58410.200000000186,
+      "ms": 177
+    },
+    {
+      "start": 58587.90000000037,
+      "ms": 102
+    },
+    {
+      "start": 58740.5,
+      "ms": 158
+    },
+    {
+      "start": 58899.299999999814,
+      "ms": 89
+    },
+    {
+      "start": 59092.40000000037,
+      "ms": 192
+    },
+    {
+      "start": 59285,
+      "ms": 94
+    },
+    {
+      "start": 59423,
+      "ms": 196
+    },
+    {
+      "start": 59619.799999999814,
+      "ms": 78
+    },
+    {
+      "start": 59731.700000000186,
+      "ms": 170
+    },
+    {
+      "start": 59902.09999999963,
+      "ms": 87
+    },
+    {
+      "start": 60018.40000000037,
+      "ms": 244
+    },
+    {
+      "start": 60262.700000000186,
+      "ms": 92
+    },
+    {
+      "start": 60393.5,
+      "ms": 173
+    },
+    {
+      "start": 60566.5,
+      "ms": 83
+    },
+    {
+      "start": 60677.59999999963,
+      "ms": 186
+    },
+    {
+      "start": 60863.90000000037,
+      "ms": 96
+    },
+    {
+      "start": 60992.200000000186,
+      "ms": 173
+    },
+    {
+      "start": 61165.700000000186,
+      "ms": 81
+    },
+    {
+      "start": 61276.90000000037,
+      "ms": 169
+    },
+    {
+      "start": 61446,
+      "ms": 84
+    },
+    {
+      "start": 61556.700000000186,
+      "ms": 167
+    },
+    {
+      "start": 61723.799999999814,
+      "ms": 84
+    },
+    {
+      "start": 61827.799999999814,
+      "ms": 189
+    },
+    {
+      "start": 62016.799999999814,
+      "ms": 76
+    },
+    {
+      "start": 62110.200000000186,
+      "ms": 159
+    },
+    {
+      "start": 62270,
+      "ms": 87
+    },
+    {
+      "start": 62385.200000000186,
+      "ms": 183
+    },
+    {
+      "start": 62568.5,
+      "ms": 87
+    },
+    {
+      "start": 62679.5,
+      "ms": 209
+    },
+    {
+      "start": 62888.5,
+      "ms": 91
+    },
+    {
+      "start": 63013.200000000186,
+      "ms": 168
+    },
+    {
+      "start": 63181.299999999814,
+      "ms": 81
+    },
+    {
+      "start": 63282,
+      "ms": 179
+    },
+    {
+      "start": 63461.799999999814,
+      "ms": 82
+    },
+    {
+      "start": 63569.59999999963,
+      "ms": 177
+    },
+    {
+      "start": 63746.799999999814,
+      "ms": 110
+    },
+    {
+      "start": 63892.799999999814,
+      "ms": 178
+    },
+    {
+      "start": 64071,
+      "ms": 77
+    },
+    {
+      "start": 64180.299999999814,
+      "ms": 160
+    },
+    {
+      "start": 64340.5,
+      "ms": 88
+    },
+    {
+      "start": 64452.200000000186,
+      "ms": 207
+    },
+    {
+      "start": 64660,
+      "ms": 99
+    },
+    {
+      "start": 64784.200000000186,
+      "ms": 179
+    },
+    {
+      "start": 64963.90000000037,
+      "ms": 81
+    },
+    {
+      "start": 65074.5,
+      "ms": 183
+    },
+    {
+      "start": 65257.59999999963,
+      "ms": 82
+    },
+    {
+      "start": 65380.40000000037,
+      "ms": 184
+    },
+    {
+      "start": 65564.5,
+      "ms": 91
+    },
+    {
+      "start": 65683.09999999963,
+      "ms": 179
+    },
+    {
+      "start": 65862.59999999963,
+      "ms": 85
+    },
+    {
+      "start": 65972.29999999981,
+      "ms": 170
+    },
+    {
+      "start": 66142.79999999981,
+      "ms": 81
+    },
+    {
+      "start": 66237.09999999963,
+      "ms": 229
+    },
+    {
+      "start": 66467,
+      "ms": 115
+    },
+    {
+      "start": 66604.29999999981,
+      "ms": 185
+    },
+    {
+      "start": 66789.5,
+      "ms": 91
+    },
+    {
+      "start": 66910.90000000037,
+      "ms": 208
+    },
+    {
+      "start": 67119.70000000019,
+      "ms": 182
+    },
+    {
+      "start": 67338.40000000037,
+      "ms": 225
+    },
+    {
+      "start": 67563.59999999963,
+      "ms": 90
+    },
+    {
+      "start": 67683.40000000037,
+      "ms": 172
+    },
+    {
+      "start": 67855.5,
+      "ms": 90
+    },
+    {
+      "start": 67977.29999999981,
+      "ms": 162
+    },
+    {
+      "start": 68139.40000000037,
+      "ms": 82
+    },
+    {
+      "start": 68238.29999999981,
+      "ms": 154
+    },
+    {
+      "start": 68392.79999999981,
+      "ms": 85
+    },
+    {
+      "start": 68525.29999999981,
+      "ms": 188
+    },
+    {
+      "start": 68714.09999999963,
+      "ms": 81
+    },
+    {
+      "start": 68821.90000000037,
+      "ms": 165
+    },
+    {
+      "start": 68987.59999999963,
+      "ms": 80
+    },
+    {
+      "start": 69099.59999999963,
+      "ms": 165
+    },
+    {
+      "start": 69264.79999999981,
+      "ms": 83
+    },
+    {
+      "start": 69370.29999999981,
+      "ms": 167
+    },
+    {
+      "start": 69537.59999999963,
+      "ms": 86
+    },
+    {
+      "start": 69653.09999999963,
+      "ms": 179
+    },
+    {
+      "start": 69832.29999999981,
+      "ms": 87
+    },
+    {
+      "start": 69957.20000000019,
+      "ms": 177
+    },
+    {
+      "start": 70134.59999999963,
+      "ms": 94
+    },
+    {
+      "start": 70251.40000000037,
+      "ms": 198
+    },
+    {
+      "start": 70449.90000000037,
+      "ms": 83
+    },
+    {
+      "start": 70558.09999999963,
+      "ms": 166
+    },
+    {
+      "start": 70724.79999999981,
+      "ms": 85
+    },
+    {
+      "start": 70841.59999999963,
+      "ms": 162
+    },
+    {
+      "start": 71004.59999999963,
+      "ms": 79
+    },
+    {
+      "start": 71105.5,
+      "ms": 154
+    },
+    {
+      "start": 71260.29999999981,
+      "ms": 80
+    },
+    {
+      "start": 71370.09999999963,
+      "ms": 192
+    },
+    {
+      "start": 71562.29999999981,
+      "ms": 105
+    },
+    {
+      "start": 71706.40000000037,
+      "ms": 178
+    },
+    {
+      "start": 71885.09999999963,
+      "ms": 82
+    },
+    {
+      "start": 71991.70000000019,
+      "ms": 213
+    },
+    {
+      "start": 72204.70000000019,
+      "ms": 87
+    },
+    {
+      "start": 72318.20000000019,
+      "ms": 166
+    },
+    {
+      "start": 72484.5,
+      "ms": 90
+    },
+    {
+      "start": 72598,
+      "ms": 166
+    },
+    {
+      "start": 72764.70000000019,
+      "ms": 95
+    },
+    {
+      "start": 72896.29999999981,
+      "ms": 180
+    },
+    {
+      "start": 73076.90000000037,
+      "ms": 109
+    },
+    {
+      "start": 73216.29999999981,
+      "ms": 172
+    },
+    {
+      "start": 73389,
+      "ms": 78
+    },
+    {
+      "start": 73481.90000000037,
+      "ms": 174
+    },
+    {
+      "start": 73656.59999999963,
+      "ms": 96
+    },
+    {
+      "start": 73774.09999999963,
+      "ms": 199
+    },
+    {
+      "start": 73973.90000000037,
+      "ms": 104
+    },
+    {
+      "start": 74098.70000000019,
+      "ms": 167
+    },
+    {
+      "start": 74265.90000000037,
+      "ms": 94
+    },
+    {
+      "start": 74401.59999999963,
+      "ms": 180
+    },
+    {
+      "start": 74582.20000000019,
+      "ms": 85
+    },
+    {
+      "start": 74698.90000000037,
+      "ms": 170
+    },
+    {
+      "start": 74869.20000000019,
+      "ms": 83
+    },
+    {
+      "start": 74973.90000000037,
+      "ms": 171
+    },
+    {
+      "start": 75145.20000000019,
+      "ms": 86
+    },
+    {
+      "start": 75248.20000000019,
+      "ms": 176
+    },
+    {
+      "start": 75424.70000000019,
+      "ms": 107
+    },
+    {
+      "start": 75554.20000000019,
+      "ms": 280
+    },
+    {
+      "start": 75834.40000000037,
+      "ms": 120
+    },
+    {
+      "start": 75988.20000000019,
+      "ms": 215
+    },
+    {
+      "start": 76203.5,
+      "ms": 116
+    },
+    {
+      "start": 76350.70000000019,
+      "ms": 191
+    },
+    {
+      "start": 76542.40000000037,
+      "ms": 77
+    },
+    {
+      "start": 76643.09999999963,
+      "ms": 161
+    },
+    {
+      "start": 76805,
+      "ms": 80
+    },
+    {
+      "start": 76904.79999999981,
+      "ms": 177
+    },
+    {
+      "start": 77082.70000000019,
+      "ms": 108
+    },
+    {
+      "start": 77218.20000000019,
+      "ms": 212
+    },
+    {
+      "start": 77430.79999999981,
+      "ms": 88
+    },
+    {
+      "start": 77550,
+      "ms": 230
+    },
+    {
+      "start": 77780.79999999981,
+      "ms": 88
+    },
+    {
+      "start": 77898.29999999981,
+      "ms": 199
+    },
+    {
+      "start": 78097.59999999963,
+      "ms": 123
+    },
+    {
+      "start": 78243.29999999981,
+      "ms": 180
+    },
+    {
+      "start": 78423.5,
+      "ms": 99
+    },
+    {
+      "start": 78549.20000000019,
+      "ms": 185
+    },
+    {
+      "start": 78734.20000000019,
+      "ms": 101
+    },
+    {
+      "start": 78862.79999999981,
+      "ms": 221
+    },
+    {
+      "start": 79084.40000000037,
+      "ms": 90
+    },
+    {
+      "start": 79209.40000000037,
+      "ms": 212
+    },
+    {
+      "start": 79421.5,
+      "ms": 82
+    },
+    {
+      "start": 79525.70000000019,
+      "ms": 215
+    },
+    {
+      "start": 79740.79999999981,
+      "ms": 107
+    },
+    {
+      "start": 79872.29999999981,
+      "ms": 187
+    },
+    {
+      "start": 80060,
+      "ms": 82
+    },
+    {
+      "start": 80175.90000000037,
+      "ms": 228
+    },
+    {
+      "start": 80404.5,
+      "ms": 88
+    },
+    {
+      "start": 80521.09999999963,
+      "ms": 175
+    },
+    {
+      "start": 80697,
+      "ms": 88
+    },
+    {
+      "start": 80814,
+      "ms": 211
+    },
+    {
+      "start": 81025.20000000019,
+      "ms": 80
+    },
+    {
+      "start": 81128.70000000019,
+      "ms": 182
+    },
+    {
+      "start": 81311.59999999963,
+      "ms": 96
+    },
+    {
+      "start": 81427.5,
+      "ms": 227
+    },
+    {
+      "start": 81655.09999999963,
+      "ms": 86
+    },
+    {
+      "start": 81761.90000000037,
+      "ms": 189
+    },
+    {
+      "start": 81951.5,
+      "ms": 85
+    },
+    {
+      "start": 102240.20000000019,
+      "ms": 50
+    },
+    {
+      "start": 103301.5,
+      "ms": 53
+    },
+    {
+      "start": 147567,
+      "ms": 123
+    }
+  ],
+  "heapAfterRender": 18190748,
+  "rendered": 1584,
+  "baseRendered": 1500,
+  "activeBankCount": 1484,
+  "feedback": "رائع!\nالمقصود بالاستسلام هنا التوجّه إلى الله واتباع هديه.\n🔊\nمتابعة",
+  "localeReload": true,
+  "turkish": "İslam denince merkezde hangi fikir vardır?"
+}

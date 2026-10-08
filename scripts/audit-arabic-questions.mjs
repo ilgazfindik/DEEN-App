@@ -14,7 +14,8 @@ if(!assembled.startsWith(header))throw Error('Question-bank prefix changed');
 if(!assembled.trimEnd().endsWith('];'))throw Error('Question-bank suffix changed');
 const sourceQuestions=JSON.parse(assembled.slice(header.length).trim().replace(/;$/,''));
 const locale=JSON.parse(readFileSync(resolve(root,'assets/i18n/questions.ar.draft.json'),'utf8'));
-const drafts=locale.translations||{};
+const drafts={};
+for(let n=1;n<=15;n++){const file=JSON.parse(readFileSync(resolve(root,'assets/i18n/questions/ar/units/U'+String(n).padStart(2,'0')+'.json'),'utf8'));Object.assign(drafts,file.translations||{})}
 const ids=new Set(),typeCount={},unitCount={},issues=[];
 let sourceReviewNeeded=0,approved=0,structurallyValid=0,matched=0,readyForPublication=0,wrongOptionPositions=0;
 function missing(entry,field){return !entry||typeof entry[field]!=='string'||!entry[field].trim();}

@@ -1,0 +1,97 @@
+{
+  "build": "9387arabicallstages1",
+  "scenario": "Completed profile, home/review eligibility calculation, paused Chromium debugger",
+  "frames": [
+    {
+      "name": "learnedConceptSet640",
+      "url": "",
+      "line": 35,
+      "scriptId": "27"
+    },
+    {
+      "name": "allowed640",
+      "url": "",
+      "line": 51,
+      "scriptId": "27"
+    },
+    {
+      "name": "",
+      "url": "",
+      "line": 263,
+      "scriptId": "27"
+    },
+    {
+      "name": "eligible",
+      "url": "",
+      "line": 263,
+      "scriptId": "27"
+    },
+    {
+      "name": "dueCount",
+      "url": "",
+      "line": 28,
+      "scriptId": "28"
+    },
+    {
+      "name": "status",
+      "url": "",
+      "line": 46,
+      "scriptId": "28"
+    },
+    {
+      "name": "evaluate",
+      "url": "",
+      "line": 72,
+      "scriptId": "28"
+    },
+    {
+      "name": "evaluate",
+      "url": "",
+      "line": 103,
+      "scriptId": "28"
+    },
+    {
+      "name": "renderHome",
+      "url": "",
+      "line": 45,
+      "scriptId": "31"
+    },
+    {
+      "name": "",
+      "url": "",
+      "line": 80,
+      "scriptId": "31"
+    },
+    {
+      "name": "dispatch",
+      "url": "",
+      "line": 117,
+      "scriptId": "111"
+    },
+    {
+      "name": "guardedReturnCard",
+      "url": "",
+      "line": 185,
+      "scriptId": "111"
+    },
+    {
+      "name": "updateUI",
+      "url": "",
+      "line": 1126,
+      "scriptId": "8"
+    },
+    {
+      "name": "guardedUpdate",
+      "url": "",
+      "line": 639,
+      "scriptId": "111"
+    },
+    {
+      "name": "",
+      "url": "",
+      "line": 1548,
+      "scriptId": "8"
+    }
+  ],
+  "limitation": "Old frozen renderer did not produce a completed numerical CPU profile; no before/after speedup percentage is claimed."
+}

@@ -2,18 +2,16 @@ name: Arabic question bank audit
 on:
   push:
     paths:
-      - 'assets/i18n/questions.ar.draft.json'
-      - 'scripts/audit-arabic-questions.mjs'
-      - 'scripts/audit-arabic-pilot.mjs'
-      - 'release/v9.9.3-direct/segment-21.txt'
-      - 'release/v9.9.3-direct/segment-22.txt'
-      - 'release/v9.9.3-direct/segment-48.txt'
-      - 'release/v9.9.3-direct/segment-0*.txt'
+      - 'assets/i18n/**'
+      - 'index.html'
+      - 'scripts/**'
+      - 'release/v9.9.3-direct/**'
       - '.github/workflows/arabic-question-audit.yml'
   workflow_dispatch:
 jobs:
   audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: read
     steps:
@@ -23,5 +21,28 @@ jobs:
           node-version: '22'
       - name: Audit all base questions and Arabic translation drafts
         run: node scripts/audit-arabic-questions.mjs
-      - name: Audit Arabic live first-stage preview and fail-closed policy
-        run: node scripts/audit-arabic-pilot.mjs
+      - name: Audit complete Arabic bank and fail-closed policy
+        run: node scripts/audit-arabic-fullbank.mjs
+      - name: Verify release segment hashes and inline scripts
+        run: |
+          node scripts/build-release-manifest.mjs --check
+          node scripts/audit-release.mjs
+      - name: Install Chromium test runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install --with-deps chromium
+      - name: Exercise real application with disposable profiles
+        env:
+          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-qa
+        run: |
+          node scripts/test-arabic-startup.cjs
+          node scripts/test-arabic-interactions.cjs
+          node scripts/test-arabic-quran.cjs
+          node scripts/test-arabic-regression.cjs
+          node scripts/test-arabic-runtime.cjs
+      - name: Upload runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deen-arabic-runtime-evidence
+          path: ${{ runner.temp }}/deen-qa
