@@ -5044,7 +5044,7 @@
  window.__DEEN_COMPANION_ASSET_MODE=true;
 
  const VERSION='9.9.56-EVENT-COMPANION-LOCK';
- let observer=null;
+ let observer=null,observedFrame=null;
  let repairing=false;
  let scheduled=false;
  let lastMood='lesson_idle';
@@ -5090,18 +5090,20 @@
  }
 
  function watch(){
-   try{observer?.disconnect?.()}catch(_){}
    const f=frame();
-   if(!f||!('MutationObserver' in window))return;
+   if(!f||!('MutationObserver' in window)){observer?.disconnect?.();observedFrame=null;return;}
+   if(observer&&observedFrame===f)return;
+   observer?.disconnect?.();
+   observedFrame=f;
 
    /*
      Watch only structural replacement. No characterData/attribute watching,
      no polling timer. If a legacy renderer swaps the avatar node, repair once.
    */
-   observer=new MutationObserver(mutations=>{
+   if(!observer)observer=new MutationObserver(mutations=>{
      if(repairing)return;
      if(!mutations.some(m=>m.type==='childList'&&(m.addedNodes.length||m.removedNodes.length)))return;
-     const avatar=f.querySelector('.deen-character-question-avatar');
+     const avatar=observedFrame?.querySelector('.deen-character-question-avatar');
      if(!avatar)return;
      if(!avatar.querySelector('.deen-companion-runtime-img'))queueRepair();
    });
