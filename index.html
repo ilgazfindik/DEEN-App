@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.12.61</title>
+<title>DEEN v9.12.62</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -19,9 +19,9 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9381recoverywithoutaddon';
- // Recovery build: the optional segment 66 Arabic full-bank add-on is temporarily isolated.
- const SEGMENT_COUNT=66;
+ const BUILD='9382arabicbankrestored';
+ // Load Arabic question bank only when Arabic is chosen at the entry gate.
+ let SEGMENT_COUNT=66;
  const CONCURRENCY=6;
  const CACHE_NAME='deen-release-'+BUILD;
  const segmentName=i=>'segment-'+String(i).padStart(2,'0')+'.txt';
@@ -344,6 +344,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
      panel.append(label,select,start,help);parent.appendChild(panel);
      start.addEventListener('click',()=>{
        window.__DEEN_BOOT_SELECTED_LANGUAGE__=select.value;
+       SEGMENT_COUNT=select.value==='ar'?67:66;
        // Expose preference for the main app; its original onboarding remains authoritative.
        try{sessionStorage.setItem('deen_boot_language',select.value)}catch(_){}
        panel.remove();resolve();
