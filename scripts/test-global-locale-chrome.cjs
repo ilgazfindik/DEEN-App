@@ -35,6 +35,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
    await page.screenshot({path:path.join(out,'chrome-'+lang+'-blocked.png')});
    report.languages[lang]={entry:'PASS Chrome',onboarding:'PASS Chrome',resources:'BLOCKED missing question pack',globalUI:'INCOMPLETE',screens,errors};
   }
+  console.log('CHROME RESULT',JSON.stringify({locale:lang,browser:report.browser,version:report.version,...Object.fromEntries(Object.entries(report.languages[lang]).filter(([k])=>k!=='screens'))}));
   assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'global-locale-chrome.json'),JSON.stringify(report,null,2));await context.close();
  }
  await browser.close();server.close();console.log('PASS entry and resource gates; full six-language support remains INCOMPLETE');

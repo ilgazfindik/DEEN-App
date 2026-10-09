@@ -5,7 +5,7 @@
  const locale=()=>window.DEEN_APP_LOCALE.get();
  const T=key=>window.DEEN_I18N.t(key);
  let overlay=null,ongoing=null,completion=null,changing=false;
- function removeOverlay(){overlay?.remove();overlay=null;const phone=document.querySelector('.phone');if(phone)phone.inert=!!document.getElementById('v998Onboarding');}
+ function removeOverlay(){const onboarding=document.getElementById('v998Onboarding');if(onboarding)onboarding.inert=false;overlay?.remove();overlay=null;const phone=document.querySelector('.phone');if(phone)phone.inert=!!document.getElementById('v998Onboarding');}
  function chooseLanguage(){
   window.DEEN_I18N.showGate(async next=>{
    const accepted=await changeLanguage(next,{recover:true});
@@ -19,6 +19,7 @@
    overlay.innerHTML='<div><b class="deen-prep-brand">DEEN</b><h1></h1><p class="deen-prep-status" role="status"></p><progress max="100" value="0"></progress><strong class="deen-prep-percent"></strong><div class="deen-prep-actions"><button type="button" data-retry hidden></button><button type="button" data-language hidden></button></div></div>';
    document.body.append(overlay);overlay.querySelector('[data-retry]').onclick=()=>prepare();overlay.querySelector('[data-language]').onclick=chooseLanguage;
   }
+  const onboarding=document.getElementById('v998Onboarding');if(onboarding)onboarding.inert=true;
   const blocked=boot.phase==='blocked';overlay.lang=locale();overlay.dir=locale()==='ar'?'rtl':'ltr';
   overlay.querySelector('h1').textContent=T(blocked?'unavailableTitle':'preparing');
   overlay.querySelector('p').textContent=T(blocked?'unavailableSub':boot.error?'prepareError':'verifying');

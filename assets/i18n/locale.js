@@ -67,14 +67,15 @@
  function showGate(onContinue){
   document.getElementById('deenLanguageGate')?.remove();
   const root=document.createElement('section');root.id='deenLanguageGate';root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');
+  const blocked=[document.querySelector('.phone'),document.getElementById('v998Onboarding'),document.getElementById('deenPreparation')].filter(Boolean).map(el=>({el,inert:el.inert}));blocked.forEach(({el})=>el.inert=true);
   let chosen=null,display=get();
   function render(){
    root.lang=display;root.dir=display==='ar'?'rtl':'ltr';root.setAttribute('aria-label',t('languageTitle',{},display));
    root.innerHTML='<div class="deen-language-shell"><div class="deen-language-brand">DEEN</div><div class="deen-language-symbol" aria-hidden="true">文</div><h1>'+escape(t('languageTitle',{},display))+'</h1><p>'+escape(t('languageSub',{},display))+'</p><div class="deen-language-cards" role="group" aria-label="'+escape(t('languageTitle',{},display))+'">'+languages.map(l=>'<button type="button" data-locale="'+l.id+'" aria-pressed="'+(l.id===chosen)+'" lang="'+l.id+'" dir="'+(l.id==='ar'?'rtl':'ltr')+'"><span>'+l.name+'</span><i aria-hidden="true">'+(l.id===chosen?'✓':'')+'</i></button>').join('')+'</div><button type="button" class="deen-language-continue" '+(!chosen?'disabled':'')+'>'+escape(t('next',{},display))+'</button></div>';
-   root.querySelectorAll('[data-locale]').forEach(button=>button.onclick=()=>{chosen=button.dataset.locale;display=chosen;render();});
-   root.querySelector('.deen-language-continue').onclick=()=>{if(!chosen)return;root.remove();onContinue(chosen);};
+   root.querySelectorAll('[data-locale]').forEach(button=>button.onclick=()=>{chosen=button.dataset.locale;display=chosen;render();root.querySelector('[data-locale="'+chosen+'"]').focus();});
+   root.querySelector('.deen-language-continue').onclick=()=>{if(!chosen)return;root.remove();blocked.forEach(({el,inert})=>{if(el.isConnected)el.inert=inert;});onContinue(chosen);};
   }
-  render();document.body.append(root);return root;
+  render();document.body.append(root);root.tabIndex=-1;root.focus();return root;
  }
  function hasPreference(){return !!normalize(read(window.localStorage,KEY))||!!legacyPreference()}
  window.DEEN_I18N=Object.freeze({t,showGate,hasPreference,languages:()=>languages.map(l=>({...l})),keys:()=>Object.keys(copy.tr),version:'global-locale-entry-v1'});
