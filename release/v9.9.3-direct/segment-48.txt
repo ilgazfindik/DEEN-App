@@ -495,6 +495,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   return null;
  }
 
+ Object.assign(dict,{'Dinledikten sonra ifadeyi ve anlamını daha az ipucuyla geri çağır.':'بعد الاستماع، استرجع العبارة ومعناها بمساعدة أقل من التلميحات.','Cevap seçenekleri':'خيارات الإجابة','Eksik kelime':'الكلمة الناقصة','Test ilerlemesi':'تقدّم الاختبار','Yeni ilerleme':'تقدّم جديد','Seri detayları':'تفاصيل سلسلة الأيام','aşama':'مراحل','Soruyu dinle':'استمع إلى السؤال','BÖLÜME BAŞLA':'ابدأ المرحلة','Ders ilerlemesi':'تقدّم الدرس','Dersten çık':'اخرج من الدرس','Pencereyi kapat':'أغلق النافذة','Bölüm girişinden geri dön':'عُد من مقدمة المرحلة'});
  const extensions=[];
  function register(fn,entries={}){Object.assign(dict,entries);if(typeof fn==='function'&&!extensions.includes(fn))extensions.push(fn);originals=new WeakMap();attrs=new WeakMap();}
  function translate(value){
@@ -562,6 +563,15 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   if(!out)out=translateQuranToastUI(trim);
   if(!out)out=translateQuranDashboardMetricUI(trim);
   if(!out)out=translateReviewBadgeUI(trim);
+  // Translate complete components before phrase decorators can replace only part of a title.
+  // The same path handles visible text and accessibility attributes.
+  if(!out&&/[·—]/.test(trim))out=trim.split(/(\s*[·—]\s*)/).map(part=>/[·—]/.test(part)?part:translate(part)).join('');
+  if(!out){const audio=trim.match(/^(?:Ayet|الآية)\s+(\d+)\s+sesini dinle$/);if(audio)out='استمع إلى تلاوة الآية '+audio[1];}
+  if(!out){const companion=trim.match(/^Yol arkadaşın (.+)\. Değiştirmek için dokun\.$/);if(companion)out='رفيق رحلتك: '+translate(companion[1])+'. اضغط لتغييره.';}
+  if(!out){const item=trim.match(/^İfade\s+(\d+):\s*(.+)$/);if(item)out='العبارة '+item[1]+': '+translate(item[2]);}
+  if(!out){const unit=trim.match(/^ÜNİTE\s+(\d+)$/i);if(unit)out='الوحدة '+unit[1];}
+  if(!out){const streak=trim.match(/^(\d+) Seri$/);if(streak)out=streak[1]+' أيام متتالية';}
+  if(!out){const jump=trim.match(/^(.+?)\s+mevcut aşamaya git$/);if(jump)out=translate(jump[1])+' · انتقل إلى المرحلة الحالية';}
   out=out||trim;for(const fn of extensions)out=fn(out);
   return out?text.replace(trim,out):text;
  }
@@ -569,7 +579,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   if(!active())return String(html);
   return String(html).replace(/>([^<]*)</g,(all,v)=>'>'+translate(v)+'<').replace(/(placeholder|aria-label|title)="([^"]*)"/g,(all,k,v)=>k+'="'+translate(v)+'"');
  }
- function excluded(el){return !el||['STYLE','SCRIPT','NOSCRIPT','CODE','SVG','TEXTAREA'].includes(el.nodeName)||el.isContentEditable||el.closest?.('.deen-ikhlas-arabic,.deen-mem-arabic,[data-deen-no-translate]')}
+ function excluded(el){return !el||['STYLE','SCRIPT','NOSCRIPT','CODE','TEXTAREA'].includes(el.nodeName)||el.isContentEditable||el.closest?.('.deen-ikhlas-arabic,.deen-mem-arabic,[data-deen-no-translate]')}
  function localize(root){
   if(!root)return 0;const stack=[root];let count=0;
   while(stack.length){
@@ -594,6 +604,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
      else if(!active()&&value===item.ar&&item.tr!==value)n.setAttribute(key,item.tr);
     }
    }
+   if(n.nodeName==='SVG')continue; // Localize accessible attributes without touching vector contents.
    for(let i=(n.childNodes||[]).length-1;i>=0;i--)stack.push(n.childNodes[i]);
   }
   return count;
@@ -611,11 +622,11 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,register,pending,active,dictionarySize:Object.keys(dict).length,version:'9388centralarabic1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,register,pending,active,dictionarySize:Object.keys(dict).length,version:'9389onboardingarabic1'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  // One bounded observer handles dynamic sheet/onboarding content. It disconnects during writes.
  let observer=null,dirty=new Set(),dirtyQueued=false;
- const watch=()=>observer?.observe(document.body,{subtree:true,childList:true,characterData:true});
+ const watch=()=>observer?.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-label','title','alt','placeholder']});
  if(typeof MutationObserver!=='undefined'){
   observer=new MutationObserver(records=>{
    for(const r of records){const el=r.target.nodeType===1?r.target:r.target.parentElement;if(el&&!excluded(el))dirty.add(el)}

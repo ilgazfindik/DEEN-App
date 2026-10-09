@@ -41,6 +41,20 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  console.log('MACRO_DEFS',defs.length);
  // Retrieve IDs from actual user-facing path buttons, not the legacy seven-stage mapping.
  const macroIds=await page.evaluate(()=>{state.sectionFinal={completed:true};state.section2Final={completed:true};DEEN_FIVE_STAGE.sync();return DEEN_FIVE_STAGE.all().map(d=>d.id)});
+ report.introductions=[];const introductionLeaks=[];
+ for(const id of macroIds){
+  await page.evaluate(id=>previewMacro(id),id);await page.waitForTimeout(85);
+  const leaks=await page.evaluate(()=>{
+   const root=document.getElementById('v5Sheet'),values=[];
+   for(const el of root.querySelectorAll('*')){
+    for(const name of ['aria-label','title','alt'])if(el.hasAttribute(name))values.push(el.getAttribute(name));
+    if(!el.children.length&&el.getClientRects().length)values.push(el.innerText||'');
+   }
+   return values.filter(t=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(t.replace(/DEEN|XP/g,'')));
+  });
+  if(leaks.length)introductionLeaks.push({id,leaks});report.introductions.push(id);await page.evaluate(()=>closeSheet());
+ }
+ assert.deepEqual(introductionLeaks,[]);
  for(const id of macroIds){const result=await page.evaluate(id=>{state.energy=30;session=null;startMacroStage(id);return {id,started:!!session,macro:session?.macroStage,questions:session?.questions?.map(q=>({id:q.id,ar:q.__deenArabicFullBank===true}))}},id);assert(result.started,JSON.stringify(result));if(result.started){assert.equal(result.macro,true);assert(result.questions.every(q=>q.ar),JSON.stringify(result));await page.evaluate(()=>closeLesson())}report.macros.push(result);}
  // Render every active record using the canonical renderer, including each question type.
  report.observerCountBefore=await page.evaluate(()=>__qa.observers.length);report.listenersBefore=await page.evaluate(()=>__qa.globalListeners);const active=await page.evaluate(()=>{window.__qaBank=[...new Map([...DEEN_BASE_QUESTIONS,...QUESTIONS].map(q=>[q.id,q])).values()];return __qaBank.map(q=>q.id)});

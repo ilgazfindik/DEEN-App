@@ -25,6 +25,8 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const id=await page.evaluate(type=>QUESTIONS.find(q=>q.activity_type===type)?.id,type);
  const q=await page.evaluate(id=>{closeSheet();closeLesson();const q=QUESTIONS.find(x=>x.id===id);session={stage:STAGES.find(s=>s.id===q.stage_id),questions:[q],index:0,correct:0,combo:0,bestCombo:0,startedAt:Date.now(),v5responses:[]};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);renderQuestion();return session.questions[0]},id);
  await page.waitForTimeout(180);if(await page.locator('.v910-overlay .v910-card-button').count()){await page.locator('.v910-overlay .v910-card-button').click();await page.waitForTimeout(100)}
+ const accessibilityLeaks=await page.locator('#lesson [aria-label],#lesson [title],#lesson img[alt]').evaluateAll(els=>els.flatMap(el=>['aria-label','title','alt'].filter(k=>el.hasAttribute(k)).map(k=>({tag:el.tagName,id:el.id,text:el.getAttribute(k)}))).filter(t=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(t.text.replace(/DEEN|XP/g,''))));
+ assert.deepEqual(accessibilityLeaks,[],type);
  const texts=await page.locator('#lesson').innerText();for(const line of texts.split('\n'))if(/[ÇĞİÖŞÜçğıöşü]|\b(?:DERS|SIRAYI|KAVRAM|doğru|yanlış|soru|ders|tekrar|eşleşme|kelime|cevap|Devam|Kontrol)\b/i.test(line))residual.add(line);
  fs.writeFileSync(path.join(out,'last-question.html'),await page.locator('#lesson').innerHTML());fs.writeFileSync(path.join(out,'residual.json'),JSON.stringify([...residual]));const area=page.locator('#answerArea');
  if(type==='matching'){

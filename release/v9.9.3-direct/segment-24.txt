@@ -1225,7 +1225,7 @@
 
   if(step===2)return frame(2,
     hero('v998-minihero')+
-    '<div class="v998-copy"><h1>Sana en uygun <span class="mint">anlatımı</span> seçelim</h1><p>Yaşını yazmana gerek yok; sana en rahat gelen öğrenme stilini seç.</p></div>'+
+    '<div class="v998-copy"><h1>'+(window.DEEN_APP_LOCALE?.get?.()==='ar'?'اختر <span class="mint">أسلوب التعلّم</span> الأنسب لك':'Sana en uygun <span class="mint">anlatımı</span> seçelim')+'</h1><p>Yaşını yazmana gerek yok; sana en rahat gelen öğrenme stilini seç.</p></div>'+
     ageCards(),
     {bottom:primary('Devam et','onboarding(3)')}
   );
@@ -1584,7 +1584,7 @@
  function compactHeader(){
    if(!mobile())return;
    const close=document.querySelector('#lesson .close');
-   if(close){close.setAttribute('aria-label','Dersten çık');close.title='Dersten çık'}
+   if(close){const label=window.DEEN_ARABIC_UI?.active?.()?'اخرج من الدرس':'Dersten çık';if(close.getAttribute('aria-label')!==label)close.setAttribute('aria-label',label);if(close.title!==label)close.title=label}
    const status=document.getElementById('lessonStatus');
    if(status&&session&&!session.final){
      const e=state?.premium?'∞':Math.max(0,Number(state?.energy)||0);
@@ -2001,8 +2001,8 @@
      exit.id='v9914ExitLesson';
      exit.type='button';
      exit.innerHTML='‹';
-     exit.setAttribute('aria-label','Dersten çık');
-     exit.title='Dersten çık';
+     exit.setAttribute('aria-label',window.DEEN_ARABIC_UI?.active?.()?'اخرج من الدرس':'Dersten çık');
+     exit.title=window.DEEN_ARABIC_UI?.active?.()?'اخرج من الدرس':'Dersten çık';
      exit.onclick=e=>{e.preventDefault();e.stopPropagation();try{closeLesson()}catch(_){window.closeLesson?.()}};
    }
    if(exit.parentElement!==frame)frame.prepend(exit);
@@ -2011,7 +2011,7 @@
    if(!prog){
      prog=document.createElement('div');
      prog.id='v9914MiniProgress';
-     prog.setAttribute('aria-label','Ders ilerlemesi');
+     prog.setAttribute('aria-label',window.DEEN_ARABIC_UI?.active?.()?'تقدّم الدرس':'Ders ilerlemesi');
      prog.innerHTML='<i></i>';
    }
    if(prog.parentElement!==frame)frame.prepend(prog);
@@ -3046,8 +3046,8 @@
        b.type='button';
        b.className='deen-character-question-audio';
        b.textContent='🔊';
-       b.setAttribute('aria-label','Soruyu dinle');
-       b.title='Soruyu dinle';
+       b.setAttribute('aria-label',window.DEEN_ARABIC_UI?.active?.()?'استمع إلى السؤال':'Soruyu dinle');
+       b.title=window.DEEN_ARABIC_UI?.active?.()?'استمع إلى السؤال':'Soruyu dinle';
        b.onclick=e=>{e.preventDefault();e.stopPropagation();trigger()};
        bubble.appendChild(b);
      }
@@ -3422,8 +3422,8 @@
      b.textContent='🔊';
      bubble.appendChild(b);
    }
-   b.setAttribute('aria-label','Soruyu dinle');
-   b.title='Soruyu dinle';
+   b.setAttribute('aria-label',window.DEEN_ARABIC_UI?.active?.()?'استمع إلى السؤال':'Soruyu dinle');
+   b.title=window.DEEN_ARABIC_UI?.active?.()?'استمع إلى السؤال':'Soruyu dinle';
    b.onclick=e=>{
      e.preventDefault();
      e.stopPropagation();
@@ -3636,8 +3636,8 @@
          b.textContent='🔊';
          bubble.appendChild(b);
        }
-       b.setAttribute('aria-label','Soruyu dinle');
-       b.title='Soruyu dinle';
+       b.setAttribute('aria-label',window.DEEN_ARABIC_UI?.active?.()?'استمع إلى السؤال':'Soruyu dinle');
+       b.title=window.DEEN_ARABIC_UI?.active?.()?'استمع إلى السؤال':'Soruyu dinle';
        b.onclick=e=>{
          e.preventDefault();e.stopPropagation();
          try{window.DEEN_NARRATION.stop?.('bubble-replay')}catch(_){}
@@ -5295,8 +5295,8 @@
    button.type='button';
    button.className='deen-character-question-audio deen-boolean-narration';
    button.textContent='🔊';
-   button.setAttribute('aria-label','Soruyu dinle');
-   button.title='Soruyu dinle';
+   button.setAttribute('aria-label',window.DEEN_ARABIC_UI?.active?.()?'استمع إلى السؤال':'Soruyu dinle');
+   button.title=window.DEEN_ARABIC_UI?.active?.()?'استمع إلى السؤال':'Soruyu dinle';
    button.onclick=e=>{
      e.preventDefault();
      e.stopPropagation();
@@ -10435,7 +10435,7 @@ if(typeof LEGACY_RENDER==='function'){
 })();
 </script>
 
-<script id="deen-v993-production-guard">(()=>{const VERSION='9.12.68-PRODUCTION',BUILD='9388centralarabic1',TITLE='DEEN v9.12.68';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
+<script id="deen-v993-production-guard">(()=>{const VERSION='9.12.69-PRODUCTION',BUILD='9389onboardingarabic1',TITLE='DEEN v9.12.69';const clean=()=>{try{['deen_admin_question_inspector','deen_admin_unlimited_money','deen_admin_unlock_all','deen_beta_user_test_v1'].forEach(k=>localStorage.removeItem(k))}catch(_){}};const lockDev=()=>{let premiumChanged=false;try{document.getElementById('deenAdminTestPanel')?.remove();delete window.DEEN_ADMIN_PANEL}catch(_){}try{document.getElementById('previewToggle')?.remove();previewMode=false}catch(_){}try{if(typeof state==='object'&&state?.premium&&!window.DEEN_PREMIUM_ENTITLEMENT?.active){state.premium=false;premiumChanged=true;window.saveState?.()}}catch(_){}if(premiumChanged)try{window.updateUI?.()}catch(_){}};const apply=()=>{clean();lockDev();document.title=TITLE;window.DEEN_RELEASE_VERSION=VERSION;window.DEEN_BUILD_ID=BUILD;document.documentElement.dataset.deenRelease=VERSION;document.documentElement.dataset.deenEnvironment='production'};apply();window.addEventListener('load',apply,{once:true});[100,500,1600,3600,5000,6500].forEach(ms=>setTimeout(apply,ms));})();</script>
 <!-- DEEN v9.9.88 — Final release freeze manifest -->
 <script id="deen-v9988-release-freeze-js">
 (()=>{
