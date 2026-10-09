@@ -2855,17 +2855,18 @@ window.DEEN_REWARD_BADGE_ART={
     delete state.stageScores[id];
     persist(id+' geri alındı.');
   }
+  let adminPreviewRevision=0;
   function startSelectedStage(){
     const id=document.getElementById('deenAdminStage')?.value;
     if(!id)return;
     close();
-    const prev=previewMode;
+    const prev=previewMode,revision=adminPreviewRevision;
     try{
       previewMode=true;
       if(typeof preview==='function')preview(id);
       else if(typeof startStage==='function')startStage(id);
     }finally{
-      setTimeout(()=>{try{previewMode=prev}catch(_){}},0);
+      setTimeout(()=>{if(revision===adminPreviewRevision)try{previewMode=prev}catch(_){}},0);
     }
   }
   function passSelectedUnit(){
@@ -2971,6 +2972,7 @@ window.DEEN_REWARD_BADGE_ART={
     persist('Seri: '+n+' gün.');
   }
   function previewUnlock(on){
+    adminPreviewRevision++;
     try{previewMode=!!on}catch(_){}
     refreshRuntime(); // Re-render actual stage paths and UI after unlock mode changes.
     render();
