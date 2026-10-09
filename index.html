@@ -55,7 +55,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
  async function loadAsset(name){
    const expected=ASSET_HASHES[name];if(!expected)throw Error('ASSET_NOT_IN_MANIFEST:'+name);
    const local='./assets/i18n/'+name+'?v='+BUILD;
-   const snapshot='af8c158a013ee7ef0a0b71cf28e7cac96a565e01';
+   const snapshot='94b9b538c279eadce2c2bbaa10a20ed0074dfb30';
    const sources=[local,'https://raw.githubusercontent.com/ilgazfindik/DEEN-App/'+snapshot+'/assets/i18n/'+name];
    for(const source of sources){
      try{
@@ -104,7 +104,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 
    // Immutable source fallback: never mix 'main' revisions during a release.
    // Both sources are checked against the exact same SHA-256 manifest.
-   const snapshot='af8c158a013ee7ef0a0b71cf28e7cac96a565e01';
+   const snapshot='94b9b538c279eadce2c2bbaa10a20ed0074dfb30';
    const immutable='https://raw.githubusercontent.com/ilgazfindik/DEEN-App/'+snapshot+'/release/v9.9.3-direct/'+name;
    const attempts=[{url:localKey,timeout:6500},{url:local+'?v='+BUILD+'&retry=1',timeout:6500},{url:immutable+'?build='+BUILD,timeout:12000}];
 
