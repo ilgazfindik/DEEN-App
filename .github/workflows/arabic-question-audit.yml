@@ -29,12 +29,15 @@ jobs:
           node scripts/audit-release.mjs
       - name: Install Chromium test runtime
         run: |
-          npm install --no-save --package-lock=false playwright@1.62.1
+          npm install --no-save --package-lock=false playwright@1.62.1 jsdom@30.1.2
           npx playwright install --with-deps chromium
+          npx playwright install chrome
       - name: Exercise real application with disposable profiles
         env:
           DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-qa
         run: |
+          node scripts/test-global-locale.mjs
+          node scripts/test-global-locale-chrome.cjs
           node scripts/test-arabic-startup.cjs
           node scripts/test-arabic-interactions.cjs
           node scripts/test-arabic-quran.cjs

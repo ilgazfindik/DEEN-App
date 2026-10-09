@@ -273,8 +273,8 @@ function verifiedMeal(id,n){
  return m&&String(m.language||'').split('-')[0]===locale()&&m.verification_status==='production_ready'&&m.source?.provider&&m.text?m.text:null;
 }
 function mealReady(id){return Array.from({length:COUNTS[id]},(_,i)=>verifiedMeal(id,i+1)).every(Boolean)}
-function setQuizLanguage(l){
- if(!window.DEEN_APP_LOCALE?.set?.(l))return false;
+async function setQuizLanguage(l){
+ if(!await window.DEEN_APP_LOCALE?.set?.(l))return false;
  stopQuizAudio();ignoreClick=null;discardDrag();quiz=null;
  sheet(NAMES[currentSurah]+' · '+(locale()==='en'?'Surah Journey':'Sure Yolculuğu'),journeyHtml(currentSurah));return true;
 }

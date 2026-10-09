@@ -9,10 +9,10 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const browser=await chromium.launch({headless:true,...(process.env.DEEN_CHROMIUM?{executablePath:process.env.DEEN_CHROMIUM}:{}),args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-zygote']});
 
  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[],report={};page.on('pageerror',e=>errors.push(e.message));
- await page.goto(url);assert.equal(await page.locator('select option').count(),6);assert.equal(await page.locator('.v9912-authbtn').count(),0);
- await page.getByLabel('Uygulama dili').selectOption('ar');assert.equal(await page.getByLabel('لغة التطبيق').count(),1);assert.equal(await page.locator('html').getAttribute('lang'),'ar');await page.getByRole('button',{name:'متابعة',exact:true}).click();
+ await page.goto(url);await page.waitForSelector('#deenLanguageGate');assert.equal(await page.locator('[data-locale]').count(),6);assert.equal(await page.locator('.v9912-authbtn').count(),0);
+ await page.locator('[data-locale="ar"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),'ar');await page.getByRole('button',{name:'متابعة',exact:true}).click();
  await page.waitForSelector('#v998Onboarding');await page.waitForFunction(()=>window.DEEN_BOOT?.status().phase==='onboarding');
- assert.equal(await page.evaluate(()=>DEEN_APP_LOCALE.get()),'ar');assert.equal(await page.locator('.v9912-authbtn').count(),3);
+ assert.equal(await page.evaluate(()=>DEEN_APP_LOCALE.get()),'ar');assert.equal(await page.locator('.v9912-authbtn').count(),0);
  await page.locator('[onclick="onboarding(1)"]').click();await page.locator('#v998Name').fill('اختبار');await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.nameNext()"]').click();
  assert.equal(await page.locator('#v998Onboarding h1').innerText(),'اختر أسلوب التعلّم الأنسب لك');
  for(const id of ['child','teen','adult'])await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.age(\''+id+'\')"]').click();
@@ -24,7 +24,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  let fail=true;await page.route('**/assets/i18n/questions/ar/units/U07.json*',r=>fail?r.fulfill({status:503,body:'offline'}):r.continue());
  await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.finish()"]').click();await page.waitForFunction(()=>DEEN_BOOT.status().phase==='error');
  report.failedLoad=await page.evaluate(()=>({boot:DEEN_BOOT.status(),onboarded:state.onboarded,progress:__progress}));assert(report.failedLoad.boot.progress<100);assert(!report.failedLoad.onboarded);assert(!report.failedLoad.progress.includes(100));
- fail=false;await page.locator('#deenPreparation button').click();await page.waitForFunction(()=>DEEN_BOOT.isReady()&&state.onboarded);await page.waitForSelector('#v998Onboarding',{state:'detached'});
+ fail=false;await page.locator('#deenPreparation [data-retry]').click();await page.waitForFunction(()=>DEEN_BOOT.isReady()&&state.onboarded);await page.waitForSelector('#v998Onboarding',{state:'detached'});
  report.onboarding=await page.evaluate(()=>({snapshot:DEEN_PREMIUM_ONBOARDING.snapshot(),progress:__progress,locale:DEEN_APP_LOCALE.get()}));assert.equal(report.onboarding.snapshot.animal,'cat');assert.equal(report.onboarding.snapshot.age,'adult');assert.equal(report.onboarding.snapshot.minutes,15);assert(report.onboarding.progress.includes(0)&&report.onboarding.progress.includes(100));
  await page.waitForTimeout(250);
  // Inspect attributes as well as visible text; prior scans missed mixed-language screen-reader labels.

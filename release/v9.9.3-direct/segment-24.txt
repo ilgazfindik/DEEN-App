@@ -681,7 +681,7 @@
  function current(){ensure();const id=String(state?.profile?.companion||'');return ANIMALS[id]?{id,...ANIMALS[id]}:null}
  function cards(){
   const active=current()?.id||'';
-  return '<div class="v994-animal-grid">'+Object.entries(ANIMALS).map(([id,a])=>'<button type="button" class="v994-animal-card '+(active===id?'selected':'')+'" onclick="DEEN_COMPANION.select(\''+id+'\')"><span class="animal" aria-hidden="true">'+a.emoji+'</span><b>'+esc(a.name)+'</b><small>'+esc(a.trait)+'</small></button>').join('')+'</div>';
+  return '<div class="v994-animal-grid">'+Object.entries(ANIMALS).map(([id,a])=>'<button type="button" class="v994-animal-card '+(active===id?'selected':'')+'" onclick="DEEN_COMPANION.select(\''+id+'\')"><span class="animal" aria-hidden="true">'+a.emoji+'</span><b>'+esc(T(id))+'</b><small>'+esc(T(id+'Trait'))+'</small></button>').join('')+'</div>';
  }
  function setRequired(on){
   const d=document.getElementById('v5Sheet');if(!d)return;
@@ -1119,7 +1119,8 @@
 <script id="deen-v998-premium-onboarding-js">
 (()=>{
  if(window.__deenV998PremiumOnboarding)return;window.__deenV998PremiumOnboarding=true;
- const VERSION='9.9.59-PREMIUM-ONBOARDING-6-SCREEN',ONBOARDING_VERSION=5;
+ const VERSION='9.12.77-LOCALIZED-ONBOARDING',ONBOARDING_VERSION=5;
+ const T=(key,params)=>window.DEEN_I18N.t(key,params);
  const AGES={
   child:{label:'Çocuk',range:'8–12',icon:'📚',desc:'Kısa, sade ve görsel ağırlıklı anlatım'},
   teen:{label:'Genç',range:'13–17',icon:'🎓',desc:'Açık, akıcı ve günlük hayata yakın örnekler'},
@@ -1142,6 +1143,7 @@
 
  function close(){
   document.getElementById('v998Onboarding')?.remove();
+  const phone=document.querySelector('.phone');if(phone)phone.inert=false;
   try{document.getElementById('v5Sheet')?.close?.()}catch(e){}
  }
 
@@ -1155,11 +1157,13 @@
   const root=document.createElement('div');
   root.id='v998Onboarding';
   root.dataset.step=String(step);
-  root.dataset.totalSteps='6';
+  root.dataset.totalSteps='7';
   root.innerHTML='<div class="v998-shell"><div class="v998-screen"><div class="v998-top">'+
-    (back?'<button class="v998-back" type="button" onclick="onboarding('+(step-1)+')" aria-label="Geri">‹</button>':'')+
+    (back?'<button class="v998-back" type="button" onclick="onboarding('+(step-1)+')" aria-label="'+esc(T('back'))+'">‹</button>':'')+
     brand()+'</div>'+content+(dotsOn?dots(step):'')+'<div class="v998-bottom">'+bottom+'</div></div></div>';
-  if(window.DEEN_ARABIC_UI?.active?.())root.innerHTML=window.DEEN_ARABIC_UI.markup(root.innerHTML);
+  root.lang=window.DEEN_APP_LOCALE.get();
+  root.querySelectorAll('.v998-copy,.v998-helper').forEach(el=>el.dir=root.lang==='ar'?'rtl':'ltr');
+  const phone=document.querySelector('.phone');if(phone)phone.inert=true;
   document.body.appendChild(root);
   return root;
  }
@@ -1167,22 +1171,21 @@
  function ageCards(){
   return '<div class="v998-list">'+Object.entries(AGES).map(([id,a])=>
     '<button class="v998-choice '+(state.learningProfile===id?'selected':'')+'" type="button" onclick="DEEN_PREMIUM_ONBOARDING.age(\''+id+'\')">'+
-    '<span class="choice-ico">'+a.icon+'</span><span><b>'+a.label+' ('+a.range+')</b><small>'+a.desc+'</small></span><span class="v998-radio"></span></button>'
+    '<span class="choice-ico">'+a.icon+'</span><span><b>'+esc(T(id))+' ('+a.range+')</b><small>'+esc(T(id+'Desc'))+'</small></span><span class="v998-radio"></span></button>'
   ).join('')+'</div>';
  }
 
  function animalCards(){
   return '<div class="v998-animal-grid">'+Object.entries(ANIMALS).map(([id,a])=>
     '<button data-animal="'+id+'" class="v998-animal '+(state.profile.companion===id?'selected':'')+'" type="button" onclick="DEEN_PREMIUM_ONBOARDING.animal(\''+id+'\')">'+
-    '<span class="check"></span><span class="emoji">'+a.emoji+'</span><b>'+esc(a.name)+'</b><small>'+esc(a.trait)+'</small></button>'
+    '<span class="check"></span><span class="emoji">'+a.emoji+'</span><b>'+esc(T(id))+'</b><small>'+esc(T(id+'Trait'))+'</small></button>'
   ).join('')+'</div>';
  }
 
  function timeCards(){
   return '<div class="v998-list">'+[5,10,15].map(n=>
     '<button class="v998-choice '+(Number(state.minutes)===n?'selected':'')+'" type="button" onclick="DEEN_PREMIUM_ONBOARDING.minutes('+n+')">'+
-    '<span class="choice-ico">◷</span><span><b>'+n+' dakika</b><small>'+
-    (n===5?'Hızlı ve hafif tempo · 1 mini ders':n===10?'Dengeli günlük ritim · 2 mini ders':'Daha yoğun öğrenme · 3 mini ders')+
+    '<span class="choice-ico">◷</span><span><b>'+esc(T('minutes',{n}))+'</b><small>'+esc(T('time'+n))+
     '</small></span><span class="v998-radio"></span></button>'
   ).join('')+'</div>';
  }
@@ -1191,11 +1194,11 @@
   const a=ANIMALS[state.profile.companion]||ANIMALS.owl;
   const p=AGES[state.learningProfile]||AGES.teen;
   return '<div class="v998-summary">'+
-   [['♙','İsim',esc(state.profile.name||'Yolcu')],
-    ['⌂','Anlatım',p.label],
-    ['✦','Yol arkadaşı',a.name],
-    ['◷','Günlük süre',state.minutes+' dakika'],
-    ['◎','Günlük hedef',state.dailyGoal+' mini ders']]
+   [['♙',T('nameLabel'),esc(state.profile.name==='Yolcu'?T('traveller'):state.profile.name||T('traveller'))],
+    ['⌂',T('ageLabel'),T(state.learningProfile||'teen')],
+    ['✦',T('animalLabel'),T(state.profile.companion||'owl')],
+    ['◷',T('timeLabel'),T('minutes',{n:state.minutes})],
+    ['◎',T('goalLabel'),T('lessons',{n:state.dailyGoal})]]
    .map(x=>'<div class="v998-summary-row"><span class="ico">'+x[0]+'</span><span>'+x[1]+':</span><b>'+x[2]+'</b></div>').join('')+
   '</div>';
  }
@@ -1209,50 +1212,46 @@
 
   if(step===0)return frame(0,
     hero('v9912-login-hero')+
-    '<div class="v998-copy"><h1><span class="mint">DEEN</span>’e hoş geldin</h1><p>İslam’ı adım adım, sakin ve düzenli şekilde öğren.</p></div>'+
-    '<div class="v9912-authmock"><p class="v9912-auth-title">Hesabını koru, ilerlemeni kaybetme</p>'+
-    '<button type="button" class="v9912-authbtn google" onclick="DEEN_AUTH_MOCK.notice(\'Google\')"><span class="v9912-authico g">G</span><b>Google ile devam et</b></button>'+
-    '<button type="button" class="v9912-authbtn apple" onclick="DEEN_AUTH_MOCK.notice(\'Apple\')"><span class="v9912-authico applemark">●</span><b>Apple ile devam et</b></button>'+
-    '<button type="button" class="v9912-authbtn email" onclick="DEEN_AUTH_MOCK.notice(\'E-posta\')"><span class="v9912-authico">✉</span><b>E-posta ile devam et</b></button>'+
-    '<div class="v9912-or"><span></span><em>veya</em><span></span></div></div>',
-    {back:false,bottom:primary('Başlayalım','onboarding(1)')+'<button class="v998-secondary" type="button" onclick="DEEN_PREMIUM_ONBOARDING.skip()">Daha sonra</button>'}
+    '<div class="v998-copy"><h1>'+esc(T('welcome'))+'</h1><p>'+esc(T('welcomeSub'))+'</p></div>'+
+    '<p class="deen-guest-note">'+esc(T('guestNote'))+'</p>',
+    {back:false,bottom:primary(esc(T('guest')),'onboarding(1)')}
   );
 
   if(step===1)return frame(1,
     hero('v998-minihero')+
-    '<div class="v998-copy"><h1>Sana nasıl hitap edelim?</h1><p>İstersen gerçek adını, istersen kısa bir kullanıcı adı yazabilirsin.</p></div>'+
-    '<label class="v998-field"><span class="ico">♙</span><input id="v998Name" maxlength="24" autocomplete="name" placeholder="Adın veya kullanıcı adın" value="'+esc(state.profile.name==='Yolcu'?'':state.profile.name)+'"></label>'+
-    '<p class="v998-helper">Bu isim profilinde görünecek.</p>',
-    {bottom:primary('Devam et','DEEN_PREMIUM_ONBOARDING.nameNext()')}
+    '<div class="v998-copy"><h1>'+esc(T('nameTitle'))+'</h1><p>'+esc(T('nameSub'))+'</p></div>'+
+    '<label class="v998-field"><span class="ico">♙</span><input id="v998Name" maxlength="24" autocomplete="name" placeholder="'+esc(T('namePlaceholder'))+'" value="'+esc(state.profile.name==='Yolcu'?'':state.profile.name)+'"></label>'+
+    '<p class="v998-helper">'+esc(T('nameHelp'))+'</p>',
+    {bottom:primary(esc(T('next')),'DEEN_PREMIUM_ONBOARDING.nameNext()')}
   );
 
   if(step===2)return frame(2,
     hero('v998-minihero')+
-    '<div class="v998-copy"><h1>'+(window.DEEN_APP_LOCALE?.get?.()==='ar'?'اختر <span class="mint">أسلوب التعلّم</span> الأنسب لك':'Sana en uygun <span class="mint">anlatımı</span> seçelim')+'</h1><p>Yaşını yazmana gerek yok; sana en rahat gelen öğrenme stilini seç.</p></div>'+
+    '<div class="v998-copy"><h1>'+esc(T('ageTitle'))+'</h1><p>'+esc(T('ageSub'))+'</p></div>'+
     ageCards(),
-    {bottom:primary('Devam et','onboarding(3)')}
+    {bottom:primary(esc(T('next')),'onboarding(3)')}
   );
 
   if(step===3)return frame(3,
-    '<div class="v998-copy" style="margin-top:28px"><h1>Yol arkadaşını seç</h1><p>Seçtiğin hayvan profilinde, serilerinde ve ders sonunda sana eşlik edecek.</p></div>'+
+    '<div class="v998-copy" style="margin-top:28px"><h1>'+esc(T('animalTitle'))+'</h1><p>'+esc(T('animalSub'))+'</p></div>'+
     animalCards(),
-    {bottom:primary(state.profile.companion?'Devam et':'Önce bir hayvan seç','DEEN_PREMIUM_ONBOARDING.animalNext()')}
+    {bottom:primary(esc(T(state.profile.companion?'next':'chooseAnimal')),'DEEN_PREMIUM_ONBOARDING.animalNext()')}
   );
 
   if(step===4)return frame(4,
     hero('v998-minihero')+
-    '<div class="v998-copy"><h1>Günde ne kadar zaman ayırabilirsin?</h1><p>Kısa ama düzenli ilerlemek daha iyi sonuç verir.</p></div>'+
+    '<div class="v998-copy"><h1>'+esc(T('timeTitle'))+'</h1><p>'+esc(T('timeSub'))+'</p></div>'+
     timeCards()+
-    '<p class="v998-helper">ⓘ Günlük mini ders hedefin seçtiğin süreye göre otomatik ayarlanır. Bunu daha sonra değiştirebilirsin.</p>',
-    {bottom:primary('Devam et','onboarding(5)')}
+    '<p class="v998-helper">ⓘ '+esc(T('timeHelp'))+'</p>',
+    {bottom:primary(esc(T('next')),'onboarding(5)')}
   );
 
   const a=ANIMALS[state.profile.companion]||ANIMALS.owl;
   return frame(5,
     hero('v998-minihero').replace('</div>','<span class="v998-companion-hero" data-animal="'+(state.profile.companion||'owl')+'"></span></div>')+
-    '<div class="v998-copy"><span class="v998-tag">✓ KURULUM TAMAMLANDI</span><h1>Hazırsın</h1><p>Artık öğrenmeye başlayabilirsin.</p></div>'+
+    '<div class="v998-copy"><span class="v998-tag">✓ '+esc(T('setupDone'))+'</span><h1>'+esc(T('ready'))+'</h1><p>'+esc(T('readySub'))+'</p></div>'+
     summary(),
-    {dotsOn:false,bottom:primary('Başla','DEEN_PREMIUM_ONBOARDING.finish()')+'<button class="v998-secondary" type="button" onclick="onboarding(1)">Düzenle</button>'}
+    {dotsOn:false,bottom:primary(esc(T('start')),'DEEN_PREMIUM_ONBOARDING.finish()')+'<button class="v998-secondary" type="button" onclick="onboarding(1)">'+esc(T('edit'))+'</button>'}
   );
  }
 
@@ -1282,7 +1281,7 @@
 
  function animalNext(){
   if(!state.profile.companion){
-    try{toast?.('Devam etmek için bir yol arkadaşı seç.')}catch(e){}
+    try{toast?.(T('chooseAnimal'))}catch(e){}
     return;
   }
   render(4);
@@ -1347,7 +1346,7 @@
     onboarded:state.onboarded,
     version:state.onboardingVersion,
     step:Number(document.getElementById('v998Onboarding')?.dataset?.step||-1),
-    totalSteps:6
+    totalSteps:7
   })
  };
 })();
@@ -8022,6 +8021,12 @@ if(typeof LEGACY_RENDER==='function'){
        index:(()=>{try{return Number(session?.index)||0}catch(_){return 0}})(),
        key:questionKey()
      });
+     const renderLocale=window.DEEN_APP_LOCALE?.get?.()||'tr';
+     if(!['tr','ar'].includes(renderLocale)){
+       const translated=window.DEEN_CONTENT_LOCALE?.translateQuestion?.(session?.questions?.[session.index],renderLocale);
+       if(!translated){renderBusy=false;window.DEEN_BOOT?.unavailable?.();return false;}
+       session.questions[session.index]=translated;
+     }
      if(window.DEEN_APP_LOCALE?.get?.()==='ar'){
        const bank=window.DEEN_ARABIC_PILOT;
        const q=session?.questions?.[session.index];
