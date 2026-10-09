@@ -305,6 +305,7 @@
  function currentQuestion(){const s=getSession();return s?.questions?.[Number(s?.index)||0]||null}
  function setBase(el,qid){if(!el)return'';if(el.dataset.v950Qid!==String(qid||'')){el.dataset.v950Qid=String(qid||'');el.dataset.v950Base=el.textContent||''}return el.dataset.v950Base||''}
  function applyQuestionUI(){
+  if(window.DEEN_APP_LOCALE?.get?.()==='ar')return false; // Arabic translated questions must not be rewritten by Turkish age profile.
   const q=currentQuestion();if(!q||!String(q.stage_id||'').startsWith('U01-'))return false;
   const profile=active(),qid=q.id||q.original_question_id||('u01-'+(getSession()?.index||0));
   const lesson=document.getElementById('lesson');lesson?.classList.remove('v950-child','v950-teen','v950-adult');lesson?.classList.add('v950-'+profile);
@@ -319,6 +320,7 @@
   renders++;return true;
  }
  function applyFeedback(correct,q=currentQuestion()){
+  if(window.DEEN_APP_LOCALE?.get?.()==='ar')return false;
   if(!q||!String(q.stage_id||'').startsWith('U01-'))return false;const profile=active();
   const title=document.getElementById('feedbackTitle'),text=document.getElementById('feedbackText');
   if(title){if(profile==='child')title.textContent=correct?'Evet, doğru!':'Birlikte düzeltelim';else if(profile==='teen')title.textContent=correct?'Doğru.':'Bir kez daha netleştirelim'}
@@ -326,6 +328,7 @@
   feedbacks++;return true;
  }
  function adaptOverlay(root=document){
+  if(window.DEEN_APP_LOCALE?.get?.()==='ar')return false;
   const q=currentQuestion();if(!q||!String(q.stage_id||'').startsWith('U01-'))return false;const profile=active();
   root.querySelectorAll?.('.v910-overlay .v910-card').forEach(card=>{
    const title=card.querySelector('h2'),body=card.querySelector('p'),memory=card.querySelector('.v910-memory'),qid=q.id||'u01';
