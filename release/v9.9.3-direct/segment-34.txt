@@ -2972,6 +2972,7 @@ window.DEEN_REWARD_BADGE_ART={
   }
   function previewUnlock(on){
     try{previewMode=!!on}catch(_){}
+    refreshRuntime(); // Re-render actual stage paths and UI after unlock mode changes.
     render();
     notify(on?'Tüm kilitler geçici açıldı.':'Normal kilit sistemi geri açıldı.');
   }
