@@ -38,6 +38,7 @@ jobs:
         run: |
           node scripts/test-global-locale.mjs
           node scripts/test-global-locale-chrome.cjs
+          node scripts/test-global-feedback-chrome.cjs
           node scripts/test-arabic-startup.cjs
           node scripts/test-arabic-interactions.cjs
           node scripts/test-arabic-quran.cjs

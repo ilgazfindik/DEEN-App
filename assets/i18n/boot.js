@@ -74,7 +74,7 @@
    DEEN_APP_LOCALE.commit(next);window.__DEEN_BOOT_SELECTED_LANGUAGE__=next;
    state.settings.onboardingLanguageConfirmed=true;saveState();
    window.DEEN_ARABIC_UI?.localize?.(document.body);
-   if(state.onboarded){try{updateUI();}catch(_){}if(recover)await prepare();}
+   if(state.onboarded){boot.phase='preparing';boot.ready=false;boot.error=null;boot.progress=0;render();setTimeout(()=>window.location.reload(),0);}
    else if(!recover){const step=Number(document.getElementById('v998Onboarding')?.dataset.step||0);window.DEEN_PREMIUM_ONBOARDING?.render?.(step);}
    return true;
   }catch(e){console.error('[DEEN language]',String(e?.message||e));try{toast(T('languageFailed'));}catch(_){}return false;}
