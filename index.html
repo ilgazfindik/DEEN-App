@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.12.74</title>
+<title>DEEN v9.12.75</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -19,7 +19,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9394adminhashsync1';
+ const BUILD='9395consistentbackup1';
  // Keep both locales available for safe in-app language changes.
  let SEGMENT_COUNT=67;
  const CONCURRENCY=6;
@@ -88,7 +88,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 
    // Immutable source fallback: never mix 'main' revisions during a release.
    // Both sources are checked against the exact same SHA-256 manifest.
-   const snapshot='4c30d26c5ea6a19b37eca5c283be7487339f3f72';
+   const snapshot='d453933a0d4a2e8f9b3ab840cdd9eca1f0654f20';
    const immutable='https://raw.githubusercontent.com/ilgazfindik/DEEN-App/'+snapshot+'/release/v9.9.3-direct/'+name;
    const attempts=[{url:localKey,timeout:6500},{url:local+'?v='+BUILD+'&retry=1',timeout:6500},{url:immutable+'?build='+BUILD,timeout:12000}];
 
