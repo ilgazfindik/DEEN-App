@@ -287,7 +287,8 @@ function syncButton(c=currentCfg()){
   const playing=status==='playing'&&activeSurah===c.id&&currentAyah===n&&player&&!player.paused;
   b.classList.toggle('playing',playing);
   b.textContent=playing?'Ⅱ':'🔊';
-  b.setAttribute('aria-label',playing?'Ayet sesini duraklat':'Ayet '+n+' sesini dinle');
+  const label=window.DEEN_ARABIC_UI?.active?.()?(playing?'أوقف تلاوة الآية مؤقتًا':'استمع إلى تلاوة الآية '+n):(playing?'Ayet sesini duraklat':'Ayet '+n+' sesini dinle');
+  if(b.getAttribute('aria-label')!==label)b.setAttribute('aria-label',label);
   b.setAttribute('data-ayah-audio',String(n));
   b.setAttribute('data-surah-audio',c.id);
   return true;
