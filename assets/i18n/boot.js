@@ -1,6 +1,6 @@
 /* DEEN startup state machine. No progress/state reset and no fabricated auth. */
 (()=>{
- const build='9389onboardingarabic1';
+ const build='9390cssarabic1';
  const boot={phase:'onboarding',ready:false,progress:0,taskCount:0,error:null};
  const ar=()=>window.DEEN_APP_LOCALE?.get?.()==='ar';
  const text=(tr,arabic)=>ar()?arabic:tr;
@@ -30,7 +30,7 @@
     window.DEEN_ARABIC_PILOT?.localizeChrome?.(document.body);
     boot.progress=100;boot.ready=true;boot.phase='ready';render();
     document.documentElement.dataset.deenStartup='ready';
-    document.title='DEEN v9.12.69';window.DEEN_BUILD_ID=build;window.DEEN_RELEASE_VERSION='9.12.69';
+    document.title='DEEN v9.12.70';window.DEEN_BUILD_ID=build;window.DEEN_RELEASE_VERSION='9.12.70';
     const cb=completion;completion=null;if(cb)cb();
     await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
     overlay?.remove();overlay=null;

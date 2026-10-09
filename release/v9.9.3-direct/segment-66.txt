@@ -44,7 +44,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   supportedStages,
   stageMap,
   sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
-  version:'9389onboardingarabic1'
+  version:'9390cssarabic1'
  };
 
  const sameArray=(a,b)=>{
@@ -542,7 +542,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;pilot.loadedFiles=0;
   try{
-   const token='9389onboardingarabic1';
+   const token='9390cssarabic1';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
@@ -2018,7 +2018,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  else queueChrome();
 
  window.DEEN_U01_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   scan(root=document.body){
    const offenders=[];
    if(!root)return {ok:false,count:0,offenders:['no-root']};
@@ -2038,11 +2038,11 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U02_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
  };
  window.DEEN_U03_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   scan(root=document.body){
    const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
    const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
@@ -2068,7 +2068,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U04_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
   scan(root=document.body){
    const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
@@ -2095,7 +2095,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U05_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
   scan(root=document.body){
    const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
@@ -2122,7 +2122,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U06_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,macroRuntimeFixes:3},
   scan(root=document.body){
    const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
@@ -2149,7 +2149,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U07_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,macroStages:5,topics:35,concepts:60,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,unitScopedConcepts:60},
   scan(root=document.body){
    const base=window.DEEN_U06_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u06-audit-unavailable'}]};
@@ -2181,7 +2181,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U08_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U07_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u07-audit-unavailable'}]};
@@ -2211,7 +2211,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U09_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:79,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U08_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u08-audit-unavailable'}]};
@@ -2241,7 +2241,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U10_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:80,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U09_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u09-audit-unavailable'}]};
@@ -2271,7 +2271,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U11_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U10_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u10-audit-unavailable'}]};
@@ -2301,7 +2301,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U12_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U11_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u11-audit-unavailable'}]};
@@ -2331,7 +2331,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U13_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U12_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u12-audit-unavailable'}]};
@@ -2361,7 +2361,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U14_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U13_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u13-audit-unavailable'}]};
@@ -2391,7 +2391,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   }
  };
  window.DEEN_U15_ARABIC_AUDIT={
-  version:'9389onboardingarabic1',
+  version:'9390cssarabic1',
   coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
   scan(root=document.body){
    const base=window.DEEN_U14_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u14-audit-unavailable'}]};
@@ -2444,3 +2444,19 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  };
 })();
 </script>
+<style id="deen-arabic-generated-content">
+html[lang="ar"] .sequence-zone.empty::before{content:"اختر الأجزاء بالترتيب من الأسفل"!important}
+html[lang="ar"] .v710-builder-zone.empty::before{content:"انقل الكلمات إلى هنا أو اضغط عليها"!important}
+html[lang="ar"] .lp-unlocking::after{content:"فُتح درس جديد"!important}
+html[lang="ar"] .options.grid.premium-grid.v852-card-grid .option::after,
+html[lang="ar"] .v858-odd-card::after{content:"اضغط"!important}
+html[lang="ar"] .options.grid.premium-grid.v852-card-grid .option.correct::after{content:"صحيح ✓"!important}
+html[lang="ar"] .options.grid.premium-grid.v852-card-grid .option.wrong::after{content:"راجع مجددًا"!important}
+html[lang="ar"] .v853-match-card.selected::after{content:"تم الاختيار"!important}
+html[lang="ar"] .v855-fill-slot::before{content:"ضع الكلمة في الفراغ"!important}
+html[lang="ar"] .v858-odd-card.wrong-pick::after{content:"ليست هذه"!important}
+html[lang="ar"] .v858-odd-card.target::after{content:"وجدتها ✓"!important}
+html[lang="ar"] #profileScreenBody .v5-profilehead .v5-avatar.large.v994-companion-avatar::after,
+html[lang="ar"] #profileScreenBody .v997-companion-avatar::after{content:"تغيير"!important}
+html[lang="ar"] .gf-reward-modal .gf-reward-medal.deen-reward-badge-missing::after{content:"شارة"!important}
+</style>

@@ -622,7 +622,7 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   try{if(typeof sheet==='function'){sheet(title,html);return true}}catch(_){}
   window.alert?.(title);return true;
  }
- window.DEEN_ARABIC_UI={translate,markup,localize,register,pending,active,dictionarySize:Object.keys(dict).length,version:'9389onboardingarabic1'};
+ window.DEEN_ARABIC_UI={translate,markup,localize,register,pending,active,dictionarySize:Object.keys(dict).length,version:'9390cssarabic1'};
  for(const event of ['deen:language-changed','deen:ui-updated','deen:navigated','deen:profile-rendered','deen:settings-rendered'])document.addEventListener(event,schedule);
  // One bounded observer handles dynamic sheet/onboarding content. It disconnects during writes.
  let observer=null,dirty=new Set(),dirtyQueued=false;
