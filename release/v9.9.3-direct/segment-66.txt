@@ -2,9 +2,12 @@
 <style id="deen-v91223-arabic-fullbank-css">
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
+/* Preserve spatial layout of lesson cards; change only text direction. */
 html:lang(ar) #lesson #answerArea,
 html:lang(ar) #lesson .v1017-hero,
-html:lang(ar) #lesson .v1017-board{direction:rtl}
+html:lang(ar) #lesson .v1017-board{direction:ltr}
+html:lang(ar) #lesson #answerArea :is(.option-label,.fill-choice,input),
+html:lang(ar) #lesson :is(#questionText,#feedbackText,.v1017-title,.v1017-subtitle){direction:rtl;unicode-bidi:plaintext}
 html:lang(ar) #lesson #questionText,
 html:lang(ar) #lesson #feedbackText,
 html:lang(ar) #lesson .v1017-title,
