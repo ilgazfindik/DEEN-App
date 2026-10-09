@@ -8,8 +8,12 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
  const browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']}),report={browser:'Google Chrome',version:browser.version(),languages:{}};
  for(const lang of ['tr','ar']){
   const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('dialog',dialog=>dialog.accept());
-  await page.addInitScript(lang=>{if(window.top!==window)return;if(!localStorage.getItem('deen_v4_1_state')){localStorage.setItem('deen_app_language_v1',lang);localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,energy:30,xp:321,learningProfile:'adult',profile:{name:'QA',companion:'cat'},settings:{language:lang,onboardingLanguageConfirmed:true},completed:['U01-S01'],badges:['first'],mistakes:[]}));}},lang);
-  await page.goto(url);await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());const feedback=[];
+  await page.goto(url);await page.waitForSelector('#deenLanguageGate');await page.locator('[data-locale="'+lang+'"]').click();await page.locator('.deen-language-continue').click();await page.waitForSelector('#v998Onboarding');
+  await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Name').fill('QA');await page.locator('#v998Onboarding .v998-primary').click();
+  await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.age(\'adult\')"]').click();await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Onboarding [data-animal="cat"]').click();await page.locator('#v998Onboarding .v998-primary').click();
+  await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.minutes(15)"]').click();await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Onboarding .v998-primary').click();
+  await page.waitForFunction(()=>window.DEEN_BOOT?.isReady()&&state.onboarded);await page.waitForSelector('#v998Onboarding',{state:'detached'});
+  await page.evaluate(()=>{state.xp=321;state.completed=['U01-S01'];saveState();});const feedback=[];
   for(const correct of [false,true]){
    await page.evaluate(()=>{closeSheet();closeLesson();const q=QUESTIONS.find(q=>q.stage_id==='U02-S01'&&q.activity_type==='multiple_choice');session={stage:STAGES.find(s=>s.id===q.stage_id),questions:[q],index:0,correct:0,combo:0,bestCombo:0,startedAt:Date.now(),v5responses:[]};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);renderQuestion();});
    await page.waitForTimeout(250);if(await page.locator('.v910-overlay .v910-card-button').count())await page.locator('.v910-overlay .v910-card-button').click();
