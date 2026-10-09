@@ -1,5 +1,7 @@
 # DEEN v9.12.68 — Arapça çalışma zamanı ve kararlılık raporu
 
+Güncel takip raporu: [9 Ekim 2026 — v9.12.70](VERIFICATION-2026-10-09.md). Aşağıdaki bilgiler önceki sürümün tarihsel ölçüm ve yayın kaydıdır.
+
 Build: `9388centralarabic1`. Başlangıç: `main@0881bde7c3d4c1083159ba8181cec852b7d17e08`.
 Testler gerçek 67 release segmentini birleştiren uygulamada, ayrı ve geçici Chromium profillerinde çalıştırıldı. Kullanıcı hesabının kayıtları test amacıyla değiştirilmedi. Bu dosya yerel/CI test kanıtını ve aşağıdaki yayın/erişim sonucunu içerir.
 

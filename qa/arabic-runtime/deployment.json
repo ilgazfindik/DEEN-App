@@ -1,27 +1,41 @@
 {
-  "build": "9388centralarabic1",
-  "version": "9.12.68",
-  "applicationCommit": "0cca631f16250918d085a513e08a7d46766105ae",
-  "applicationTree": "eb4b7c738d88b01f9067c17b8b5b0fbbe0cfbaab",
+  "version": "9.12.70",
+  "build": "9390cssarabic1",
+  "applicationCommit": "7adccae95f2628a6d10f7a0ca7b765319a37f302",
+  "applicationTree": "53f71ec6625015a4749f928fcbf550dfe3a9b7a4",
   "branchCI": {
-    "run": 37847887640,
+    "id": 37898995751,
+    "name": "Arabic question bank audit",
+    "branch": "fix/arabic-live-verification",
+    "status": "completed",
     "conclusion": "success",
-    "url": "https://github.com/ilgazfindik/DEEN-App/actions/runs/37847887640"
+    "url": "https://github.com/ilgazfindik/DEEN-App/actions/runs/37898995751"
   },
   "mainCI": {
-    "run": 37848664537,
+    "id": 37898997235,
+    "name": "Arabic question bank audit",
+    "branch": "main",
+    "status": "completed",
     "conclusion": "success",
-    "url": "https://github.com/ilgazfindik/DEEN-App/actions/runs/37848664537"
+    "url": "https://github.com/ilgazfindik/DEEN-App/actions/runs/37898997235"
   },
   "pages": {
-    "run": 37848663888,
+    "id": 37898996669,
+    "name": "pages build and deployment",
+    "branch": "main",
+    "status": "completed",
     "conclusion": "success",
-    "url": "https://github.com/ilgazfindik/DEEN-App/actions/runs/37848663888"
+    "url": "https://github.com/ilgazfindik/DEEN-App/actions/runs/37898996669"
   },
-  "configuredPublicURL": "https://ilgazfindik.github.io/DEEN-App/",
-  "liveBrowserInteractionVerified": false,
-  "liveLimitation": "Cloud Browser returned 409 environment_offline: Environment is not connected. Direct web-open tool also could not access the Pages URL. No claim of observed live Arabic gameplay is made.",
-  "runtimeEvidenceLocation": "qa/arabic-runtime/",
+  "verifiedPublicURL": "https://ilgazfindik.github.io/DEEN-App/?build=9390cssarabic1",
+  "liveBrowserInteractionVerified": true,
+  "liveEvidence": {
+    "question": "qa/arabic-runtime/live-question-2026-10-09.jpg",
+    "feedback": "qa/arabic-runtime/live-feedback-2026-10-09.jpg",
+    "questionText": "عند ذكر الإسلام، ما الفكرة المركزية؟",
+    "selectedAnswer": "التوجّه إلى الله واتباع هديه",
+    "explanation": "يعلّم الإسلام التوجّه إلى الله واتباع هديه في الحياة."
+  },
   "arabicExpertApproved": 0,
   "verifiedArabicQuranMeaningAvailable": false,
   "exactAudioTimingAyahs": 0
