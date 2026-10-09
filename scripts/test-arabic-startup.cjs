@@ -6,9 +6,10 @@ const server=http.createServer((req,res)=>{const url=req.url.split('?')[0],file=
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port;
- const browser=await chromium.launch({headless:true,...(process.env.DEEN_CHROMIUM?{executablePath:process.env.DEEN_CHROMIUM}:{}),args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-zygote']});
+ const browser=await chromium.launch({channel:'chrome',headless:true,...(process.env.DEEN_CHROMIUM?{executablePath:process.env.DEEN_CHROMIUM}:{}),args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-zygote']});
 
  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[],report={};page.on('pageerror',e=>errors.push(e.message));
+ report.browser={name:'Google Chrome',version:browser.version()};
  await page.goto(url);await page.waitForSelector('#deenLanguageGate');assert.equal(await page.locator('[data-locale]').count(),6);assert.equal(await page.locator('.v9912-authbtn').count(),0);
  await page.locator('[data-locale="ar"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),'ar');await page.getByRole('button',{name:'متابعة',exact:true}).click();
  await page.waitForSelector('#v998Onboarding');await page.waitForFunction(()=>window.DEEN_BOOT?.status().phase==='onboarding');

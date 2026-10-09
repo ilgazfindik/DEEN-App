@@ -6,8 +6,9 @@ const server=http.createServer((req,res)=>{const url=req.url.split('?')[0],file=
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port;
- const browser=await chromium.launch({headless:true,...(process.env.DEEN_CHROMIUM?{executablePath:process.env.DEEN_CHROMIUM}:{}),args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-zygote']});
+ const browser=await chromium.launch({channel:'chrome',headless:true,...(process.env.DEEN_CHROMIUM?{executablePath:process.env.DEEN_CHROMIUM}:{}),args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-zygote']});
  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[],report={stages:[],macros:[],types:{},reviews:[],errors};
+ report.browser={name:'Google Chrome',version:browser.version()};
  page.on('pageerror',e=>{errors.push(e.message);console.log('ERROR',e.message)});
  await page.addInitScript(()=>{
   if(window.top!==window)return;
