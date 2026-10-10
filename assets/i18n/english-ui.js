@@ -165,6 +165,7 @@ function t(value){
  const guarded=window.DEEN_CONTENT_LOCALE?.translateText(n,'en');if(guarded&&guarded!==n)return s.replace(n,guarded);
  if(D[n])return s.replace(n,D[n]);
  let m;
+ if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
  // Quran hub counters and Turkish-short-month dates: match whole labels, not fragments.
  if((m=n.match(/^(\d{1,2})\s+(Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)\.?$/))){
   const months={Oca:'Jan',Şub:'Feb',Mar:'Mar',Nis:'Apr',May:'May',Haz:'Jun',Tem:'Jul',Ağu:'Aug',Eyl:'Sep',Eki:'Oct',Kas:'Nov',Ara:'Dec'};
