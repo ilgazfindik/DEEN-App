@@ -11,8 +11,8 @@ const {JSDOM}=require(process.env.DEEN_JSDOM_MODULE||'jsdom');
 const root=fileURLToPath(new URL('../',import.meta.url)),read=p=>readFileSync(root+p,'utf8');
 const seg=n=>read('release/v9.9.3-direct/segment-'+String(n).padStart(2,'0')+'.txt');
 const base=JSON.parse(Array.from({length:7},(_,i)=>seg(i+2)).join('').replace(/^const QUESTIONS=/,'').trim().replace(/;$/,''));
-const live=JSON.parse(read('assets/i18n/questions/ar/runtime/U01.live.json'));
-const liveSources=Object.entries(live.translations).map(([id,t])=>({id,stage_id:'U01-S01',question_tr:t.source_question_tr,activity_type:t.activity_type,options_tr:t.source_options_tr,correct_answer:t.source_correct_answer_tr,pairs:t.source_pairs_tr,items:t.source_items_tr,correct_order:t.source_correct_order_tr}));
+// Use exact first-party Chrome-captured live source entries, including explanations and real stage IDs.
+const liveSources=JSON.parse(read('assets/i18n/questions/en/runtime/source-fixture.json')).live;
 // Runtime-source fixtures from the source guards; actual game rendering still needs Chrome QA.
 const active=base.filter(q=>!q.id.startsWith('DEEN-U01-')).concat(liveSources);
 assert.equal(active.length,1484);
