@@ -9,7 +9,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const browser=await chromium.launch({channel:'chrome',headless:true,...(process.env.DEEN_CHROMIUM?{executablePath:process.env.DEEN_CHROMIUM}:{}),args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-zygote']});
  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[],report={stages:[],macros:[],types:{},reviews:[],errors};
  report.browser={name:'Google Chrome',version:browser.version()};
- page.on('pageerror',e=>{errors.push(e.message);console.log('ERROR',e.message)});
+ page.on('console',m=>{if(m.type()==='error')console.log('BROWSER',m.text())});page.on('pageerror',e=>{errors.push(e.message);console.log('ERROR',e.message)});
  await page.addInitScript(()=>{
   if(window.top!==window)return;window.__DEEN_LOCALIZATION_QA__=true;
   // This test data exists only in this disposable browser context.
