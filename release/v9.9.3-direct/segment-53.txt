@@ -128,9 +128,9 @@ function promptHtml(q){
  return'<div class="deen-qarena-ar" lang="ar">'+esc(q.prompt)+'</div>';
 }
 function optionsHtml(q){
- return'<div class="deen-qarena-options">'+q.options.map(o=>{
+ return'<div class="deen-qarena-options">'+q.options.map((o,i)=>{
   const cls=A.answered?(o.value===q.answer?' good':(A.choice===o.value?' bad':'')):'';
-  return'<button class="deen-qarena-option'+(o.kind==='ar'?' ar':'')+cls+'" type="button" '+(A.answered?'disabled':'')+' onclick="DEEN_QURAN_QUESTION_ARENA.choose(\''+esc(o.value).replace(/'/g,'&#39;')+'\')">'+esc(o.text)+'</button>';
+  return'<button class="deen-qarena-option'+(o.kind==='ar'?' ar':'')+cls+'" type="button" '+(A.answered?'disabled':'')+' data-qarena-choice-index="'+i+'">'+esc(o.text)+'</button>';
  }).join('')+'</div>';
 }
 function body(){
@@ -178,6 +178,13 @@ function injectHub(){
 }
 const base=DEEN_QURAN.dashboardRender||DEEN_QURAN.render;
 if(typeof base==='function'&&!base.__deenQuranArenaWrapped){const w=function(){const r=base.apply(this,arguments);setTimeout(injectHub,0);return r};w.__deenQuranArenaWrapped=true;DEEN_QURAN.dashboardRender=w;DEEN_QURAN.render=w;window.leagueView=w;try{leagueView=w}catch(_){}}
+document.addEventListener('click',event=>{
+ const button=event.target?.closest?.('.deen-qarena-option[data-qarena-choice-index]');
+ if(!button||button.disabled||!button.closest('.deen-qarena')||!A.q||A.answered)return;
+ const index=Number(button.dataset.qarenaChoiceIndex);
+ if(!Number.isInteger(index)||index<0||index>=A.q.options.length)return;
+ choose(A.q.options[index].value);
+});
 document.addEventListener?.('deen:navigated',()=>setTimeout(injectHub,0));
 window.DEEN_QURAN_QUESTION_ARENA={open,choose,next,setType,setScope,play,injectHub,state:()=>JSON.parse(JSON.stringify(A)),weakRows:()=>weakRows().map(x=>({id:x.id,ayah:x.ayah,risk:x.risk})),audit:()=>({build:BUILD,surahs:IDS.length,rows:allRows().length,learned:learnedRows().length,weak:weakRows().length,types:TYPES.length-1,scopes:[...SCOPES],audioReady:!!DEEN_QURAN_AYAH_AUDIO?.play})};
 setTimeout(injectHub,0);document.documentElement.dataset.deenQuranQuestionArena='v10963';
