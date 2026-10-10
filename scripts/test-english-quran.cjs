@@ -25,6 +25,40 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  async function capture(name){await page.waitForTimeout(200);const data=await page.evaluate(()=>{const texts=[],walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;while(node=walker.nextNode()){const el=node.parentElement;if(!el||el.closest('script,style,[data-deen-no-translate],.deen-ikhlas-arabic,.deen-mem-arabic,.deen-qj2-ar,.deen-qj2-option.ar')||!el.getClientRects().length||getComputedStyle(el).visibility==='hidden')continue;const text=node.nodeValue.trim();if(text&&/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(text))texts.push(text)}for(const el of document.querySelectorAll('[aria-label],[title],img[alt]')){if(!el.getClientRects().length||getComputedStyle(el).visibility==='hidden')continue;for(const key of ['aria-label','title','alt']){const value=el.getAttribute(key);if(value&&/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(value))texts.push(value)}}return [...new Set(texts)]});snapshots.push({name,texts:data});console.log('SURFACE',name,JSON.stringify(data));}
  await capture('home');
  for(const tab of ['review','profile','league']){await page.evaluate(tab=>navigate(tab+'Screen'),tab);await capture(tab)}
+ // Quran home screen audit: ASCII-only Turkish words must be detected, not just Turkish diacritics.
+ await page.waitForSelector('#leagueScreenBody [data-qia-root] [data-qia-section]',{timeout:15000});
+ await page.waitForFunction(()=>[...document.querySelectorAll('#leagueScreenBody [data-qia-nav] button')].map(x=>x.textContent.trim()).join('|')==='Today|Learn|Play|Memorize|Progress',null,{timeout:15000});
+ const hub=await page.evaluate(()=>{
+  const root=document.querySelector('#leagueScreenBody [data-qia-root]'),nav=document.querySelector('#leagueScreenBody [data-qia-nav]');
+  const visible=el=>el?.getClientRects().length&&getComputedStyle(el).visibility!=='hidden';
+  const attrs=[...document.querySelectorAll('#leagueScreenBody [aria-label],#leagueScreenBody [title]')].filter(visible).flatMap(el=>['aria-label','title'].map(k=>el.getAttribute(k)).filter(Boolean));
+  return {lang:DEEN_APP_LOCALE.get(),nav:[...nav.querySelectorAll('button')].map(x=>x.textContent.trim()),sections:root.querySelectorAll('[data-qia-section]').length,copy:root.innerText,attrs};
+ });
+ assert.equal(hub.lang,'en');assert.equal(hub.sections,5);
+ assert.deepEqual(hub.nav,['Today','Learn','Play','Memorize','Progress']);
+ for(const phrase of ['Surahs','Surah Game','Surah Tests','Common Words','Continuous Memorization','Start Memorizing','Progress Center','16 SURAHS · 90 AYAHS']){
+  assert(hub.copy.includes(phrase),'Quran hub missing English phrase: '+phrase);
+ }
+ assert(hub.attrs.some(x=>x.includes('Quran sections')),'Quran tabs accessibility text must be English');
+ const asciiTurkish=/\\b(?:Oyna|Ezber|Sureler|Oyunu|Testleri|Ezbere|Kesintisiz|Merkezi|kütüphanesi|görev|ayet|hafıza|zayıf|hazır|İlerleme|kavram|sıralaması|tamamla|suretler|Surah Oyunu)\\b/i;
+ const allHub=hub.copy+' '+hub.attrs.join(' ');
+ assert(!asciiTurkish.test(allHub)&&!/[ÇĞİÖŞÜçğıöşü]/.test(allHub),'Turkish Quran hub UI: '+allHub.match(asciiTurkish)?.[0]);
+ const exacts={
+  '10 Eki':'10 Oct',
+  '12 zayıf ayet':'12 weaker ayahs',
+  '2 tekrar bugün':'2 reviews due today',
+  '11/90 ayet':'11/90 ayahs',
+  '1/3 görev':'1/3 tasks',
+  'Ustalık %75':'Mastery 75%',
+  '%75 hafıza':'75% memory strength',
+  '16 sure · 90 ayet':'16 surahs · 90 ayahs'
+ };
+ for(const [source,expected]of Object.entries(exacts)){
+  const actual=await page.evaluate(source=>DEEN_ENGLISH_UI.t(source),source);
+  assert.equal(actual,expected,'Quran dashboard dynamic label '+source);
+ }
+ console.log('PASS ENGLISH QURAN HUB ASCII RESIDUE GATE',JSON.stringify({nav:hub.nav,sections:hub.sections,checks:Object.keys(exacts).length,copyLength:hub.copy.length}));
+
  const translations=await page.evaluate(()=>DEEN_QURAN_CONTENT.inventory().map(x=>DEEN_QURAN_LEARNING_TRANSLATION.get(DEEN_QURAN_CONTENT.getAyah(x.surah_id,x.ayah_number))));assert.equal(translations.length,90);assert(translations.every(x=>x?.text&&x.language==='en'),JSON.stringify(translations.filter(x=>!x?.text||x.language!=='en')));
  const quran=await page.evaluate(()=>({keys:Object.keys(DEEN_QURAN),audio:Object.keys(DEEN_QURAN_AYAH_AUDIO),practice:DEEN_QURAN_PRACTICE.types}));console.log('QURAN',JSON.stringify(quran));
  for(const id of Object.keys(await page.evaluate(()=>DEEN_QURAN_AYAH_AUDIO.configs()))){await page.evaluate(id=>DEEN_QURAN.openSurah(id),id);await capture('journey-'+id);await page.evaluate(()=>DEEN_QURAN_JOURNEY_V2.startStage('learn'));await capture('learn-'+id);const audio=await page.evaluate(id=>DEEN_QURAN_AYAH_AUDIO.play(1,id),id);assert(audio,id);await page.waitForFunction(()=>DEEN_QURAN_AYAH_AUDIO.state().currentTime>0,null,{timeout:10000});const audioState=await page.evaluate(()=>DEEN_QURAN_AYAH_AUDIO.state());console.log('AUDIO',id,audio,JSON.stringify(audioState));assert(audioState.currentTime>0,id);await page.evaluate(()=>DEEN_QURAN_AYAH_AUDIO.stop());await page.screenshot({path:path.join(out,'quran-'+id+'.png')})}
