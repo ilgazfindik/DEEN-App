@@ -19,7 +19,9 @@ jobs:
         with:
           node-version: '22'
       - name: Audit all 1500 English base translations
-        run: node scripts/audit-english-questions.mjs --require-complete
+        run: |
+          node scripts/audit-english-questions.mjs --require-complete
+          node scripts/audit-english-runtime.mjs
       - name: Verify release integrity
         run: |
           node scripts/build-release-manifest.mjs --check
