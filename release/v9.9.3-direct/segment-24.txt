@@ -294,8 +294,8 @@
   replacements.forEach(([a,b])=>s=s.replace(a,b));s=tidy(s);
   return prefix&&s?'Kısaca: '+s:s;
  }
- function presentQuestion(text,profile=active()){return profile==='child'?childQuestion(text):profile==='teen'?teenQuestion(text):String(text??'')}
- function presentExplanation(text,profile=active(),prefix=true){return profile==='child'?childExplain(text,prefix):profile==='teen'?(prefix&&text?'Özet: '+teenExplain(text):teenExplain(text)):String(text??'')}
+ function presentQuestion(text,profile=active()){if(window.DEEN_APP_LOCALE?.get?.()==='en')return String(text??'');return profile==='child'?childQuestion(text):profile==='teen'?teenQuestion(text):String(text??'')}
+ function presentExplanation(text,profile=active(),prefix=true){if(window.DEEN_APP_LOCALE?.get?.()==='en')return (prefix&&text?(profile==='child'?'In brief: ':profile==='teen'?'Summary: ':''):'')+String(text??'');return profile==='child'?childExplain(text,prefix):profile==='teen'?(prefix&&text?'Özet: '+teenExplain(text):teenExplain(text)):String(text??'')}
  function promptFor(q,profile=active()){
   const t=String(q?.activity_type||q?.question_type||'');
   const child={matching:'Kavramı doğru açıklamayla eşleştir.',true_false:'Doğru mu, yanlış mı? Kararını ver.',fill_blank:'Boşluğu doğru kelimeyle tamamla.',scenario:'Durumu oku. En doğru davranışı seç.',odd_one_out:'Üçü uyuyor, biri uymuyor. Farklı olanı bul.',card_choice:'Kartları oku. En doğru olanı seç.',multiple_choice:'Soruyu oku. En doğru cevabı seç.',missing_item:'Eksik olan doğru parçayı bul.',speed_review:'Hızlı düşün ve doğru cevabı seç.'};

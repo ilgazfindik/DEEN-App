@@ -1,6 +1,6 @@
 /* Startup and language changes validate resources before admitting the learner. */
 (()=>{
- const build=window.__DEEN_DEPLOY_ID__||'9397globalentrydraft1';
+ const build=window.__DEEN_DEPLOY_ID__||'9398englishdraft1';
  const boot={phase:'onboarding',ready:false,progress:0,taskCount:0,error:null};
  const locale=()=>window.DEEN_APP_LOCALE.get();
  const T=key=>window.DEEN_I18N.t(key);
@@ -46,9 +46,9 @@
    try{
     await verify(locale());
     if(locale()!==document.documentElement.lang)throw Error('LOCALE_MISMATCH');
-    window.DEEN_ARABIC_UI?.localize?.(document.body);window.DEEN_ARABIC_PILOT?.localizeChrome?.(document.body);
+    window.DEEN_ENGLISH_UI?.localize?.(document.body);window.DEEN_ARABIC_UI?.localize?.(document.body);window.DEEN_ARABIC_PILOT?.localizeChrome?.(document.body);
     boot.progress=100;boot.ready=true;boot.phase='ready';render();document.documentElement.dataset.deenStartup='ready';
-    document.title='DEEN v9.12.77';window.DEEN_BUILD_ID=build;window.DEEN_RELEASE_VERSION='9.12.77';
+    document.title='DEEN v9.12.78';window.DEEN_BUILD_ID=build;window.DEEN_RELEASE_VERSION='9.12.78';
     const cb=completion;completion=null;if(cb)cb();
     await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
     removeOverlay();return true;
