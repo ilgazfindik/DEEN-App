@@ -63,7 +63,7 @@ const server=http.createServer((req,res)=>{
   {index:8,contains:['STAGE 3 · RECALL','START RECALL ROUND']}
  ];
  assert((await page.evaluate(()=>session.questions.length))>=9,'U01 pilot must have at least nine questions');
- const oldTurkish=/[ÇĞİÖŞÜçğıöşü]|\\b(?:İslam|İman|ibadet|ahlak|Öğrenme|öğrenme|aşama|şimdi|dört|önce|soruda|tekrar|soruya|başla|ipucu|İpuçları|kendi|hatırla|yönel|güven|teslim)\\b/i;
+ const oldTurkish=/[ÇĞİÖŞÜçğıöşü]|\b(?:İslam|İman|ibadet|ahlak|Öğrenme|öğrenme|aşama|şimdi|dört|önce|soruda|tekrar|soruya|başla|ipucu|İpuçları|kendi|hatırla|yönel|güven|teslim)\b/i;
  report.teachingAudit=[];
  for(const plan of cardPlan){
   if(plan.index!==0)await page.evaluate(i=>{document.querySelector('.v910-overlay')?.remove();session.index=i;renderQuestion()},plan.index);
