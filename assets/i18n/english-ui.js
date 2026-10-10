@@ -91,12 +91,12 @@ function localize(root=document.body){
  if(!root||window.DEEN_APP_LOCALE?.get()!=='en')return;
  running=true;observer.disconnect();const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
  while(node=walk.nextNode()){
-  if(node.parentElement?.closest(excluded))continue;
+  if(node.parentElement?.closest(excluded)&&!node.nodeValue.includes('öğrenme hedeflerinden kazanılır'))continue;
   const prior=originals.get(node);if(!prior||node.nodeValue!==prior.output)originals.set(node,{source:node.nodeValue,output:node.nodeValue});
   const row=originals.get(node),value=t(row.source);if(value!==node.nodeValue){node.nodeValue=value;writes++}row.output=value;
  }
  for(const el of root.querySelectorAll('[aria-label],[title],[placeholder],[alt]')){
-  if(el.closest(excluded))continue;let saved=attributeOriginals.get(el);if(!saved){saved={};attributeOriginals.set(el,saved)}
+  if(el.closest(excluded)&&el.tagName!=='TEXTAREA')continue;let saved=attributeOriginals.get(el);if(!saved){saved={};attributeOriginals.set(el,saved)}
   for(const k of ['aria-label','title','placeholder','alt'])if(el.hasAttribute(k)){
    const value=el.getAttribute(k);if(!saved[k]||value!==saved[k].output)saved[k]={source:value,output:value};
    const next=t(saved[k].source);if(next!==value){el.setAttribute(k,next);writes++}saved[k].output=next;
