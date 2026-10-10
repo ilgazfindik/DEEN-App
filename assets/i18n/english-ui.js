@@ -20,8 +20,8 @@ function t(value){
  const s=String(value||''),n=s.trim();if(!n)return s;
  const guarded=window.DEEN_CONTENT_LOCALE?.translateText(n,'en');if(guarded&&guarded!==n)return s.replace(n,guarded);
  if(D[n])return s.replace(n,D[n]);
- if((m=n.match(/^(\d+)\s+sn$/)))return s.replace(n,m[1]+' sec');
  let m;
+ if((m=n.match(/^(\d+)\s+sn$/)))return s.replace(n,m[1]+' sec');
  if(m=n.match(/^(?:Ayet|Verse) (\d+) sesini dinle$/))return 'Listen to Verse '+m[1];
  if(m=n.match(/^(.+) kelimesini boşluğa yerleştir$/))return 'Place '+t(m[1])+' in the blank';
  if(m=n.match(/^(Kavram|Eş):\s*(.+)$/))return (m[1]==='Kavram'?'Concept: ':'Match: ')+t(m[2]);
