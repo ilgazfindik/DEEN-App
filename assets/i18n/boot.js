@@ -35,7 +35,7 @@
   if(!await window.DEEN_CONTENT_LOCALE.preload(lang))throw Error('CONTENT_LOAD_FAILED:'+lang);
   const base=window.DEEN_CONTENT_LOCALE.inspectBank(window.DEEN_BASE_QUESTIONS||[],lang);
   const active=window.DEEN_CONTENT_LOCALE.inspectBank(QUESTIONS,lang);
-  if(base.sourceCount!==1500||base.failedIds.length||active.sourceCount!==1484||active.failedIds.length)throw Error('CONTENT_SOURCE_MISMATCH:'+lang);
+  if(base.sourceCount!==1500||base.failedIds.length||active.sourceCount!==1484||active.failedIds.length)throw Error('CONTENT_SOURCE_MISMATCH:'+lang+':base='+base.sourceCount+':active='+active.sourceCount+':baseFailed='+base.failedIds.slice(0,8).join(',')+':activeFailed='+active.failedIds.slice(0,8).join(','));
  }
  function unavailable(){boot.phase='blocked';boot.ready=false;boot.error='CONTENT_PACK_MISSING:'+locale();document.documentElement.dataset.deenStartup='blocked';render();return false;}
  async function prepare(){

@@ -64,9 +64,9 @@
     }else{const pack=await json({path:config.bank});if(pack.locale!==lang||pack.schema_version!==1||pack.expert_approved!==false||!pack.questions)return false;Object.assign(questions,pack.questions);}
     loaded.set(lang,{questions});
     const base=inspectBank(window.DEEN_BASE_QUESTIONS||[],lang),active=inspectBank(QUESTIONS,lang);
-    if(base.sourceCount!==manifest().required_base_questions||active.sourceCount!==manifest().required_active_questions||base.failedIds.length||active.failedIds.length){loaded.delete(lang);return false;}
+    if(base.sourceCount!==manifest().required_base_questions||active.sourceCount!==manifest().required_active_questions||base.failedIds.length||active.failedIds.length){console.error('[DEEN content source]',JSON.stringify({locale:lang,base:base.sourceCount,active:active.sourceCount,baseFailed:base.failedIds.slice(0,8),activeFailed:active.failedIds.slice(0,8)}));loaded.delete(lang);return false;}
     return true;
-   }catch(_){return false;}finally{loading.delete(lang);}
+   }catch(error){console.error('[DEEN content]',String(error?.message||error));return false;}finally{loading.delete(lang);}
   })();loading.set(lang,job);return job;
  }
  function qaReady(lang,config){return config?.global_qa==='passed'||lang==='en'&&config?.global_qa==='pending'&&window.__DEEN_LOCALIZATION_QA__===true}
