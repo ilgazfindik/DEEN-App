@@ -37,6 +37,8 @@ jobs:
         run: |
           node scripts/capture-english-runtime-source.cjs
           node scripts/capture-english-ui-candidate.cjs
+          node scripts/test-english-runtime.cjs
+          node scripts/test-english-regression.cjs
       - name: Preserve test evidence
         if: always()
         uses: actions/upload-artifact@v4
