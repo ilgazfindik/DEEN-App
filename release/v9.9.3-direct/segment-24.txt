@@ -457,6 +457,7 @@
  }
  function selectVoice(){
   if(!supported())return null;const voices=window.speechSynthesis.getVoices?.()||[];
+  if(window.DEEN_APP_LOCALE?.get?.()==='en'){const english=voices.filter(v=>/^en([_-]|$)/i.test(v.lang||''));const voice=english.find(v=>v.localService)||english[0]||null;lastVoice=voice?.name||'';return voice;}
   const tr=voices.filter(v=>/^tr([_-]|$)/i.test(v.lang||''));
   const voice=tr.find(v=>v.localService)||tr[0]||voices.find(v=>/^tr/i.test(v.lang||''))||null;
   lastVoice=voice?.name||'';return voice;
@@ -469,7 +470,7 @@
   const q=currentQuestion();if(isMediaQuestion(q)){try{toast?.('Bu içerikte yalnız doğrulanmış ses kaydı kullanılır.')}catch(_){}return false}
   const value=clean(text);if(!value)return false;stop('replace');
   try{
-   const u=new SpeechSynthesisUtterance(value);u.lang='tr-TR';u.rate=rateMap[s.settings.narrationRate]||.95;u.pitch=1;u.volume=1;
+   const u=new SpeechSynthesisUtterance(value);u.lang=window.DEEN_APP_LOCALE?.get?.()==='en'?'en-US':'tr-TR';u.rate=rateMap[s.settings.narrationRate]||.95;u.pitch=1;u.volume=1;
    const voice=selectVoice();if(voice)u.voice=voice;
    if(button){button.classList.add('active');button.setAttribute('aria-pressed','true');const label=button.querySelector('[data-v960-label]');if(label)label.textContent='Durdur'}
    document.documentElement.dataset.deenNarrating=kind;speaks++;

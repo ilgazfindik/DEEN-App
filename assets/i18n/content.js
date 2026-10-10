@@ -5,7 +5,7 @@
  const manifest=()=>window.__DEEN_CONTENT_MANIFEST__;
  const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
  const blanks=s=>(String(s||'').match(/_{2,}|\[\s*\]|\{blank\}/g)||[]).length;
- function raw(question){const source=question?.__deenSourceQuestion||question;return source?.playful_pilot===true&&source.playful_version==='7.3.0'&&typeof source.legacy_question_tr==='string'?{...source,question_tr:source.legacy_question_tr}:source}
+ function raw(question){return question?.__deenSourceQuestion||question}
  function validate(source,entry){
   if(!source||!entry||!entry.source||!entry.display)return false;
   for(const field of ['question_tr','explanation_tr','activity_type','options_tr','correct_answer','pairs','items','correct_order'])if(!same(source[field],entry.source[field]))return false;
@@ -27,9 +27,11 @@
   return true;
  }
  function translateQuestion(question,lang=window.DEEN_APP_LOCALE.get()){
-  const source=raw(question);if(lang==='tr')return source;
+  let source=raw(question);if(lang==='tr')return source;
   if(lang==='ar')return window.DEEN_ARABIC_PILOT?.translateQuestion?.(source)||null;
-  const candidates=loaded.get(lang)?.questions?.[source?.id];const entry=Array.isArray(candidates)?candidates.find(e=>validate(source,e)):candidates;if(!validate(source,entry))return null;
+  const candidates=loaded.get(lang)?.questions?.[source?.id];const entries=Array.isArray(candidates)?candidates:[candidates];let entry=entries.find(e=>validate(source,e));
+  if(!entry&&lang==='en'&&source?.playful_pilot===true&&source.playful_version==='7.3.0'&&typeof source.legacy_question_tr==='string'){const canonical={...source,question_tr:source.legacy_question_tr};entry=entries.find(e=>validate(canonical,e));if(entry)source=canonical;}
+  if(!entry)return null;
   return {...source,...entry.display,__deenContentLocale:lang,__deenSourceQuestion:source};
  }
  function inspectBank(rows,lang=window.DEEN_APP_LOCALE.get()){

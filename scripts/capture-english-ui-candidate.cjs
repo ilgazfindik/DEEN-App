@@ -32,7 +32,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   state.completed=STAGES.map(s=>s.id);state.energy=30;state.sectionFinal={completed:true};state.section2Final={completed:true};DEEN_FIVE_STAGE.sync();
  });
  async function capture(){
-  await page.waitForTimeout(90);
+  await page.waitForTimeout(180);
   const rows=await page.evaluate(()=>{
    const out=new Set(),walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
    let n;while(n=walker.nextNode()){
@@ -72,7 +72,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  for(const profile of ['child','teen','adult']){
   await page.evaluate(profile=>{state.learningProfile=profile;state.energy=30;startMacroStage('U01-M01')},profile);await capture();await page.evaluate(()=>closeLesson());
  }
- const snapshot={texts:[...texts],failures,screenIds,macros:macros.length};
+ const localization=await page.evaluate(()=>DEEN_ENGLISH_UI.audit());console.log('ENGLISH_UI_STATS='+JSON.stringify(localization));const snapshot={localization,texts:[...texts],failures,screenIds,macros:macros.length};
  snapshot.leaks=snapshot.texts.filter(s=>/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(s)&&!/^AR:|Quran.com/.test(s));console.log('DEEN_ENGLISH_UI_CANDIDATE='+JSON.stringify(snapshot));
  fs.writeFileSync(path.join(out,'english-ui-candidate.json'),JSON.stringify(snapshot,null,2));
  await browser.close();server.close();
