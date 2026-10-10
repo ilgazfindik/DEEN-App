@@ -38,7 +38,8 @@ Object.assign(D,{
  "TEKRAR ET":"REVIEW",
  "TEMELLER USTALIĞI":"FOUNDATIONS MASTERY",
  "YOLCULUĞA DEVAM":"CONTINUE JOURNEY",
- "Anla":"Understand"
+ "Anla":"Understand",
+ "ödülü hazır":"reward is ready"
 });
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
@@ -51,6 +52,7 @@ function t(value){
  if(m=n.match(/^(?:Ayet|Verse) (\d+) sesini dinle$/))return 'Listen to Verse '+m[1];
  if(m=n.match(/^(.+) kelimesini boşluğa yerleştir$/))return 'Place '+t(m[1])+' in the blank';
  if(m=n.match(/^(Kavram|Eş):\s*(.+)$/))return (m[1]==='Kavram'?'Concept: ':'Match: ')+t(m[2]);
+ if(m=n.match(/^İfade\s+(\d+):\s*(.+)$/))return 'Statement '+m[1]+': '+t(m[2]);
  if(m=n.match(/^(\d+) soruda hata tekrar ediyor\. Akıllı tekrar bu sinyalleri önceliklendirecek\.$/))return 'Mistakes recur in '+m[1]+' questions. Smart review will prioritize these signals.';
  if(m=n.match(/^Doğru cevap:\s*([\s\S]+)$/))return 'Correct answer: '+t(m[1]);
  if(m=n.match(/^(Kısaca|Özet):\s*([\s\S]+)$/))return (m[1]==='Kısaca'?'In brief: ':'Summary: ')+t(m[2]);
