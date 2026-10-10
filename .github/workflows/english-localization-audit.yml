@@ -1,0 +1,43 @@
+name: English localization audit
+on:
+  push:
+    branches: [codex/global-locale-20261009]
+    paths:
+      - 'assets/i18n/**'
+      - 'scripts/**'
+      - '.github/workflows/english-localization-audit.yml'
+  workflow_dispatch:
+jobs:
+  english-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit all 1500 English base translations
+        run: node scripts/audit-english-questions.mjs --require-complete
+      - name: Verify release integrity
+        run: |
+          node scripts/build-release-manifest.mjs --check
+          node scripts/audit-release.mjs
+      - name: Install actual Google Chrome
+        run: |
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install --with-deps chromium
+          npx playwright install chrome
+      - name: Capture actual runtime source records in Google Chrome
+        env:
+          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
+        run: |
+          node scripts/capture-english-runtime-source.cjs
+          node scripts/capture-english-ui-source.cjs
+      - name: Preserve test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deen-english-runtime-evidence
+          path: ${{ runner.temp }}/deen-english-qa

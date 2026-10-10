@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "required_base_questions": 1500,
+  "required_live_u01_questions": 84,
+  "required_active_questions": 1484,
+  "required_runtime_variants": 20,
+  "languages": {
+    "tr": {"entry": "complete", "question_data": "source", "bank": null, "global_qa": "pending"},
+    "ar": {"entry": "complete", "question_data": "arabic_existing", "bank": null, "global_qa": "pending", "religious_expert_approved": false},
+    "en": {"entry": "complete", "question_data": "missing", "bank": null, "global_qa": "blocked", "religious_expert_approved": false},
+    "de": {"entry": "complete", "question_data": "missing", "bank": null, "global_qa": "blocked", "religious_expert_approved": false},
+    "es": {"entry": "complete", "question_data": "missing", "bank": null, "global_qa": "blocked", "religious_expert_approved": false},
+    "fr": {"entry": "complete", "question_data": "missing", "bank": null, "global_qa": "blocked", "religious_expert_approved": false}
+  }
+}

@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>DEEN v9.12.76</title>
+<title>DEEN v9.12.77</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
@@ -19,7 +19,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9396arabicageguard1';
+ const BUILD='9397globalentrydraft1';
  // Keep both locales available for safe in-app language changes.
  let SEGMENT_COUNT=67;
  const CONCURRENCY=6;
@@ -27,7 +27,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
  const segmentName=i=>'segment-'+String(i).padStart(2,'0')+'.txt';
  const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 
- const SEGMENT_HASHES=/* DEEN_HASHES_START */["2f3dda424353e8c42dd5edddfff9724c326a32b98435275a0a3575ffdd186510","22205ef93e4f66efc4987ce5fc2fbf1608a27234fe4b750925289fab253f5aef","38ff099fb69f578815c870077ebdb119a112707bca945e30ae7aa40226dd43e8","8b10da8f5432ae9dfdd131a1aa4915af5a3c6bade73aba868ef1dce8062d9d97","63082642ccf06eef7f2ecbaaef7ee2f93638d40533a5cba7525db57307048ce2","a1876af3b8a3bc9e39c53983242252b03f017d744ed3eb80709492ecd0293731","672d4a8a779373d82932dc594a933fb18c4af831f942e45dba6059d526518887","42ff201a271151ed3e8bee9f18c4d591e8ae347c0ca2967e8fe9f6983ac5d067","03eb8b1a05a0fa03d269a4a7ce32de460bd158bb0f9999c299ad5ba69a72bf5d","616b9677908b80169848a118023301a749cb702a90d682eae08b54ba322eae56","c9ae27e52929713187573f7d0d8d433a8e31ea850211b6b661f374b9aa83e46d","14d582d9aa3c4b838dbcc64a1ecffbce74ed774cae57cb481647437b92d52c49","d7e80475b595eff06ff9830bb51931f8eeb538975935f6b2be21735ff52f121b","90ecb8c5087e2b5b996bd0da981cf519dc9468793944aafccbcd94eb0cf16e69","384f02bde09cdb3633926e2206e829bcd3d19a91934c807100982798f0d97d2b","af985a92bf93906a2bbb30280dc14821745a325759c8885a217fad097b8338a7","89128a4318864e6022edd4b112d095a7fadd7906214fa7832cc8778b916052c2","402512b0ab34d0e557f60e75010fd7fb9d9a48ff84088309e54c66878fe1e244","a5376cc1afa515664c1a94850b7375a8a4f9309fd0946da391b7ce81954cf581","e7439df531fa199871af8a1afc526c87dad056e68683b8c2a635cac802899a57","18fece069c5ebbe6ddd3904c53092f82fb6b99b5295a142949871c332f121cfb","0016ae67c21f9e6ba882fc466ab70bf892e6af5394ae4bef93e6220709d158ab","3b059355e5fa395511072211027ef2e1bf793d8eb2806370678344d4d57cc184","e9d0f060d737c697644faa9fe73f833cfc9068d19a40178f497732712a43bbfc","477389ca71ce61303c6999dca265d4aa2c516173127ae3b7f61e4f7e20706b01","d793b439089cce1d4ff8fb3e4e7d4b375d0048703915907a3abb192d2b38e796","995a89b0db94499f336e3deb9519aad072fc4f00f09baa79e4a26662696c70ed","466f7d074d805ee29d2cee0e439026ce80628f3699c6aabe4d4ff2d994cc2ca9","695f65d57482d57ceb4d795f9dfb2581fcb9e70fa01cc426516449155423a17c","a31af4efc96ceb41b9612d61f8632d9e2ef8a4345b99dc30e0be74285703a132","0496b2977b9a2c8fe7962900fb1f095e572785465443b46b27786f4bcb1facf8","7e716e94409fd55c35de28e24433d282144ab2ee4453001e460b4d665edcd3dc","3c95657e9fcee7435a36fd916f3d155dc0646a836b1871871df057bfc6848902","eaf2b54e6f4a6b56d2579db266d589352d5662854fbb048ea10f70b2ed9bbec7","87d26e0d086fad3e6ae317bd6da0afec162e30d3e9cef5c6ec32d832827f4bae","cdbddda49634578d0bb9dfc7f9f74c0155be4d09884863c4809f10c4d25d6483","31793dd2b0d7dc39f211e1051112776b5b6b98619ecefd46127afc23feb161b3","c6c0bde93f0beafa14f9f43a819880f0ec737776d43de911044353e9d450f3e6","23df90daf3440bc9207590972e856a145ecc0d82727beb82de59b096eeaea5dd","4b636cc6cff96becc572f91b7bfe3f2833515fd709beefda2f801827b657cc87","4f8765bd8a97ab3933a71320eeeb7a3c838194bc88878c44fc99915fd41435ee","b07488d819bc99e8149bab4da1dcd5f492c9cc08d45ac16218284fa55edc0ef8","5615ef2cf4a699545b659f0ff10213b9af2e1813d83cb28051148faaddbb8b12","df9b5dc7eb247ad64995e6e089477cfcd7ae6c0075ccfa35b5f9dabd2606cda0","2736decd3b145d04c1252a995f57fa4917d5a36adfdd3bd10cdcd0b1b1f8d515","d35c1dfe7010afce9f10f62914b45f13f40041b33753eb1747db34d8e71b004d","b29abe41a2fe262982f6bba15b4352b829f769c0be26eaab73cf2cdd6672ce5e","41fb77ad7e247ffa349697611dbacc6e4ed50432fb90a56809bd19224d4005a3","0fff8c03c0767568330627289eecea07f2f4575ce426364886fec372aca21938","edbeca72a55cc99ab71c9846054cd84c56373d6e474e4e99eb8d4b9cdde796b8","e0eb15b331b4cba2cf25228881f335e366a2e21b89c80168bd6186c21f372936","58a17e0755902717e8e7a43f581c1ea1dbb809e86e0391528a2fc07a9280e1d5","ac505ed3c15c13b35c04604673bb146b3182f74207b596d5ccfc447e7b02ae28","b527e1bf0f9cef2ffca11c75045aed5a281b2fdac05fb37185efd48e73dc4c32","5281aa8e3f82b22d22729dbaeee36b97587407bf17740eb61e66e690dbd91460","e9b914e20c240eb86d43c55d7913c04c04422efeb5c87b950653aa5a21c28799","5bbcf9a697ef79e43870ffd87602c69aa9af1c4775ad88a506133e1074e563e8","7975801598f2b66f0a2af6593a54c6b870026742f8999bd6e32f7ab6d94d224b","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","0c2e1f42599ed83d611c065f0be4cb654180be2bc51b1bc37a10efb5af12616d","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","9d03fe6c3aef090c366e6b7a737edff49c4d953115dfcfa1b7786ec643efdde3"]/* DEEN_HASHES_END */;
+ const SEGMENT_HASHES=/* DEEN_HASHES_START */["2f3dda424353e8c42dd5edddfff9724c326a32b98435275a0a3575ffdd186510","22205ef93e4f66efc4987ce5fc2fbf1608a27234fe4b750925289fab253f5aef","38ff099fb69f578815c870077ebdb119a112707bca945e30ae7aa40226dd43e8","8b10da8f5432ae9dfdd131a1aa4915af5a3c6bade73aba868ef1dce8062d9d97","63082642ccf06eef7f2ecbaaef7ee2f93638d40533a5cba7525db57307048ce2","a1876af3b8a3bc9e39c53983242252b03f017d744ed3eb80709492ecd0293731","672d4a8a779373d82932dc594a933fb18c4af831f942e45dba6059d526518887","42ff201a271151ed3e8bee9f18c4d591e8ae347c0ca2967e8fe9f6983ac5d067","03eb8b1a05a0fa03d269a4a7ce32de460bd158bb0f9999c299ad5ba69a72bf5d","616b9677908b80169848a118023301a749cb702a90d682eae08b54ba322eae56","c9ae27e52929713187573f7d0d8d433a8e31ea850211b6b661f374b9aa83e46d","14d582d9aa3c4b838dbcc64a1ecffbce74ed774cae57cb481647437b92d52c49","d7e80475b595eff06ff9830bb51931f8eeb538975935f6b2be21735ff52f121b","90ecb8c5087e2b5b996bd0da981cf519dc9468793944aafccbcd94eb0cf16e69","384f02bde09cdb3633926e2206e829bcd3d19a91934c807100982798f0d97d2b","af985a92bf93906a2bbb30280dc14821745a325759c8885a217fad097b8338a7","89128a4318864e6022edd4b112d095a7fadd7906214fa7832cc8778b916052c2","402512b0ab34d0e557f60e75010fd7fb9d9a48ff84088309e54c66878fe1e244","a5376cc1afa515664c1a94850b7375a8a4f9309fd0946da391b7ce81954cf581","e7439df531fa199871af8a1afc526c87dad056e68683b8c2a635cac802899a57","18fece069c5ebbe6ddd3904c53092f82fb6b99b5295a142949871c332f121cfb","0016ae67c21f9e6ba882fc466ab70bf892e6af5394ae4bef93e6220709d158ab","3b059355e5fa395511072211027ef2e1bf793d8eb2806370678344d4d57cc184","e9d0f060d737c697644faa9fe73f833cfc9068d19a40178f497732712a43bbfc","0c410c3581721f5dd55d0255a9c8b12086d4c90361cc0392c99e2c1883513709","d793b439089cce1d4ff8fb3e4e7d4b375d0048703915907a3abb192d2b38e796","995a89b0db94499f336e3deb9519aad072fc4f00f09baa79e4a26662696c70ed","466f7d074d805ee29d2cee0e439026ce80628f3699c6aabe4d4ff2d994cc2ca9","695f65d57482d57ceb4d795f9dfb2581fcb9e70fa01cc426516449155423a17c","a31af4efc96ceb41b9612d61f8632d9e2ef8a4345b99dc30e0be74285703a132","0496b2977b9a2c8fe7962900fb1f095e572785465443b46b27786f4bcb1facf8","7e716e94409fd55c35de28e24433d282144ab2ee4453001e460b4d665edcd3dc","3c95657e9fcee7435a36fd916f3d155dc0646a836b1871871df057bfc6848902","eaf2b54e6f4a6b56d2579db266d589352d5662854fbb048ea10f70b2ed9bbec7","87d26e0d086fad3e6ae317bd6da0afec162e30d3e9cef5c6ec32d832827f4bae","cdbddda49634578d0bb9dfc7f9f74c0155be4d09884863c4809f10c4d25d6483","31793dd2b0d7dc39f211e1051112776b5b6b98619ecefd46127afc23feb161b3","c6c0bde93f0beafa14f9f43a819880f0ec737776d43de911044353e9d450f3e6","23df90daf3440bc9207590972e856a145ecc0d82727beb82de59b096eeaea5dd","4b636cc6cff96becc572f91b7bfe3f2833515fd709beefda2f801827b657cc87","4f8765bd8a97ab3933a71320eeeb7a3c838194bc88878c44fc99915fd41435ee","b07488d819bc99e8149bab4da1dcd5f492c9cc08d45ac16218284fa55edc0ef8","5615ef2cf4a699545b659f0ff10213b9af2e1813d83cb28051148faaddbb8b12","df9b5dc7eb247ad64995e6e089477cfcd7ae6c0075ccfa35b5f9dabd2606cda0","2736decd3b145d04c1252a995f57fa4917d5a36adfdd3bd10cdcd0b1b1f8d515","d35c1dfe7010afce9f10f62914b45f13f40041b33753eb1747db34d8e71b004d","b29abe41a2fe262982f6bba15b4352b829f769c0be26eaab73cf2cdd6672ce5e","41fb77ad7e247ffa349697611dbacc6e4ed50432fb90a56809bd19224d4005a3","53884d3816a368c247aa4379670a44be91f489fe05d088a6de004886162395ad","c7355196ff0ca1cc6b9501924373ef8d4a632f358508cfaceb4cbefebf9751ed","e0eb15b331b4cba2cf25228881f335e366a2e21b89c80168bd6186c21f372936","58a17e0755902717e8e7a43f581c1ea1dbb809e86e0391528a2fc07a9280e1d5","ac505ed3c15c13b35c04604673bb146b3182f74207b596d5ccfc447e7b02ae28","b527e1bf0f9cef2ffca11c75045aed5a281b2fdac05fb37185efd48e73dc4c32","5281aa8e3f82b22d22729dbaeee36b97587407bf17740eb61e66e690dbd91460","e9b914e20c240eb86d43c55d7913c04c04422efeb5c87b950653aa5a21c28799","5bbcf9a697ef79e43870ffd87602c69aa9af1c4775ad88a506133e1074e563e8","7975801598f2b66f0a2af6593a54c6b870026742f8999bd6e32f7ab6d94d224b","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","0c2e1f42599ed83d611c065f0be4cb654180be2bc51b1bc37a10efb5af12616d","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","9d03fe6c3aef090c366e6b7a737edff49c4d953115dfcfa1b7786ec643efdde3"]/* DEEN_HASHES_END */;
+ const ASSET_HASHES=/* DEEN_ASSET_HASHES_START */{"locale.js":"571967c580257dc3439433ddfa5ed4b6c869f7222dbc8b237ce6e43261b36058","locale.css":"0344fdd36a4166fdfaf43fcc6a6fb9aecd4f406ae68096be9f7c15b902260e4e","content.js":"57a8228ea578046da55870336617d7e4619fa46a79230434953fecdb290a9e17","content-support.json":"ec604b5b8c83e82d0a1e627b8fd1dbd595b877726a9343e166476ed92f41b87d","boot.js":"2f07e53aadd51786961be69041d64e3cc68bc7c2a6abe9735e81fb0924c1d78e","boot.css":"928d7a9de82bc45e36fa50fda673464adc3e2c8c3d9e5f1dad0652e4fc8f272c"}/* DEEN_ASSET_HASHES_END */;
  async function validSegment(i,text){
    if(typeof text!=='string')return false;
    if(i===0&&!/^\s*<!doctype html>/i.test(text))return false;
@@ -49,6 +50,21 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    }finally{
      clearTimeout(timer);
    }
+ }
+
+ async function loadAsset(name){
+   const expected=ASSET_HASHES[name];if(!expected)throw Error('ASSET_NOT_IN_MANIFEST:'+name);
+   const local='./assets/i18n/'+name+'?v='+BUILD;
+   const snapshot='69f36e13b99afa7b2b7daf56720ae0f5e92ae839';
+   const sources=[local,'https://raw.githubusercontent.com/ilgazfindik/DEEN-App/'+snapshot+'/assets/i18n/'+name];
+   for(const source of sources){
+     try{
+       const text=await fetchText(source,12000),digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
+       const hash=Array.from(new Uint8Array(digest),n=>n.toString(16).padStart(2,'0')).join('');
+       if(hash===expected)return text;
+     }catch(_){}
+   }
+   throw Error('ASSET_INTEGRITY_FAILED:'+name);
  }
 
  async function cacheOpen(){
@@ -88,7 +104,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 
    // Immutable source fallback: never mix 'main' revisions during a release.
    // Both sources are checked against the exact same SHA-256 manifest.
-   const snapshot='9720f6ed54e68f3ea8a29c6c7c41fb676abf1658';
+   const snapshot='69f36e13b99afa7b2b7daf56720ae0f5e92ae839';
    const immutable='https://raw.githubusercontent.com/ilgazfindik/DEEN-App/'+snapshot+'/release/v9.9.3-direct/'+name;
    const attempts=[{url:localKey,timeout:6500},{url:local+'?v='+BUILD+'&retry=1',timeout:6500},{url:immutable+'?build='+BUILD,timeout:12000}];
 
@@ -117,7 +133,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
        out[index]=await loadSegment(index,cache);
        done++;
        const progress=Math.floor(done/SEGMENT_COUNT*90);
-       status.textContent=window.__DEEN_BOOT_SELECTED_LANGUAGE__==='ar'?'جارٍ فتح DEEN…':'DEEN açılıyor…';
+       status.textContent=window.DEEN_I18N?DEEN_I18N.t('loading'):'DEEN açılıyor…';
        const bar=document.getElementById('deen-boot-progress-fill');
        if(bar)bar.style.width=progress+'%';
      }
@@ -312,14 +328,14 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
  function showError(err){
    console.error(err);
    status.className='sub err';
-   status.textContent=(window.__DEEN_BOOT_SELECTED_LANGUAGE__==='ar'?'تعذّر فتح DEEN: ':'DEEN açılamadı: ')+(err?.message||err);
+   status.textContent=window.DEEN_I18N?DEEN_I18N.t('loadError'):'DEEN açılamadı. Lütfen yeniden dene.';
 
    const wrap=document.createElement('div');
    wrap.style.marginTop='16px';
 
    const retry=document.createElement('button');
    retry.type='button';
-   retry.textContent=window.__DEEN_BOOT_SELECTED_LANGUAGE__==='ar'?'حاول مجددًا':'Tekrar dene';
+   retry.textContent=window.DEEN_I18N?DEEN_I18N.t('retry'):'Tekrar dene';
    retry.style.cssText='border:1px solid #47726d;background:#0b302f;color:#dff8ef;border-radius:12px;padding:10px 16px;font-weight:800;cursor:pointer';
    retry.onclick=()=>location.reload();
 
@@ -328,63 +344,28 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
  }
 
  try{
-   // Render a lightweight first-run gate before the 67-segment application starts.
-   // This keeps the entry screen responsive even if the legacy application hangs.
+   const [entryJs,entryCss]=await Promise.all([loadAsset('locale.js'),loadAsset('locale.css')]);
+   const css=document.createElement('style');css.textContent=entryCss;document.head.append(css);
+   const script=document.createElement('script');script.textContent=entryJs;document.head.append(script);
    await new Promise(resolve=>{
-     const saved=localStorage.getItem('deen_app_language_v1');
-     if(['tr','ar','en','de','es','fr'].includes(saved)){window.__DEEN_BOOT_SELECTED_LANGUAGE__=saved;resolve();return}
-     const parent=status.parentElement;
-     status.textContent='Önce dilini seç, ardından uygulamaya geç.';
-     const panel=document.createElement('div');
-     panel.style.cssText='margin:20px auto 0;max-width:320px;display:grid;gap:12px;text-align:left';
-     const label=document.createElement('label');
-     label.textContent='Uygulama dili';
-     label.style.cssText='display:block;color:#dff8ef;font-size:14px;font-weight:700';
-     const select=document.createElement('select');
-     select.setAttribute('aria-label','Uygulama dili');
-     select.style.cssText='width:100%;box-sizing:border-box;padding:14px;border-radius:12px;background:#0e3039;color:#fff;border:1px solid #507a76;font-size:16px';
-     for(const [value,title] of [['tr','Türkçe'],['ar','العربية'],['en','English'],['de','Deutsch'],['es','Español'],['fr','Français']]){
-       const option=document.createElement('option');option.value=value;option.textContent=title;select.appendChild(option);
-     }
-     const start=document.createElement('button');start.type='button';start.textContent='Devam et';
-     start.style.cssText='padding:14px;border:0;border-radius:12px;background:#31efcf;color:#06212b;font-size:16px;font-weight:800;cursor:pointer';
-     const help=document.createElement('div');help.textContent='Dilini seçtikten sonra DEEN hazırlanacak. Mevcut ilerlemen silinmez.';
-     help.style.cssText='color:#93afb3;font-size:12px;line-height:1.5;text-align:center';
-     // The chosen locale applies to the language gate itself, before app code loads.
-     const gateCopy={
-       tr:['Önce dilini seç, ardından uygulamaya geç.','Uygulama dili','Devam et','Dilini seçtikten sonra DEEN hazırlanacak. Mevcut ilerlemen silinmez.'],
-       ar:['اختر لغتك أولًا، ثم تابع إلى التطبيق.','لغة التطبيق','متابعة','سيتم تجهيز DEEN بعد اختيار اللغة. سيُحفظ تقدّمك الحالي.'],
-       en:['Choose your language, then continue.','App language','Continue','DEEN will be prepared after you choose a language. Your progress is preserved.'],
-       de:['Wähle deine Sprache und fahre fort.','App-Sprache','Weiter','DEEN wird nach der Sprachauswahl vorbereitet. Dein Fortschritt bleibt erhalten.'],
-       es:['Elige tu idioma y continúa.','Idioma de la aplicación','Continuar','DEEN se preparará después de elegir el idioma. Tu progreso se conserva.'],
-       fr:['Choisis ta langue, puis continue.','Langue de l’application','Continuer','DEEN sera préparé après le choix de la langue. Ta progression est conservée.']
-     };
-     function renderGate(){
-       const copy=gateCopy[select.value];
-       status.textContent=copy[0];label.textContent=copy[1];select.setAttribute('aria-label',copy[1]);
-       start.textContent=copy[2];help.textContent=copy[3];
-       document.documentElement.lang=select.value;panel.dir=select.value==='ar'?'rtl':'ltr';panel.style.textAlign='start';
-     }
-     select.addEventListener('change',renderGate);renderGate();
-     panel.append(label,select,start,help);parent.appendChild(panel);
-     start.addEventListener('click',()=>{
-       window.__DEEN_BOOT_SELECTED_LANGUAGE__=select.value;
-       SEGMENT_COUNT=67;
-       // Expose preference for the main app; its original onboarding remains authoritative.
-       try{sessionStorage.setItem('deen_boot_language',select.value);localStorage.setItem('deen_app_language_v1',select.value)}catch(_){}
-       panel.remove();resolve();
-     },{once:true});
+     const preview=new URL(location.href).searchParams.get('previewLanguage')==='1';
+     if(DEEN_I18N.hasPreference()&&!preview){window.__DEEN_BOOT_SELECTED_LANGUAGE__=DEEN_APP_LOCALE.get();DEEN_APP_LOCALE.persist();resolve();return;}
+     DEEN_I18N.showGate(lang=>{DEEN_APP_LOCALE.commit(lang);window.__DEEN_BOOT_SELECTED_LANGUAGE__=lang;resolve();});
    });
-   status.textContent=window.__DEEN_BOOT_SELECTED_LANGUAGE__==='ar'?'جارٍ فتح DEEN…':'DEEN açılıyor…';
+   status.textContent=DEEN_I18N.t('loading');
    await cleanupOldCaches();
    const cache=await cacheOpen();
    const parts=await loadAll(cache);
    let html=assemble(parts);
-   html=html.replace('<head>','<head><link rel="stylesheet" href="./assets/i18n/boot.css?v='+BUILD+'"><script src="./assets/i18n/boot.js?v='+BUILD+'"><\/script>');
+   const [bootJs,bootCss,contentJs,support]=await Promise.all(['boot.js','boot.css','content.js','content-support.json'].map(loadAsset));
+   window.__DEEN_CONTENT_MANIFEST__=JSON.parse(support);
+   window.__DEEN_DEPLOY_ID__=BUILD;
+   const safeScript=text=>text.replace(/<\/script/gi,'<\\/script');
+   html=html.replace('<head>','<head><style>'+entryCss+'\n'+bootCss+'</style><script>'+safeScript(entryJs)+'<\/script><script>'+safeScript(contentJs)+'<\/script><script>'+safeScript(bootJs)+'<\/script>');
    html+='<script>DEEN_BOOT.start()<\/script>';
 
    validateRelease(html);
-   status.textContent=window.__DEEN_BOOT_SELECTED_LANGUAGE__==='ar'?'جارٍ بدء DEEN…':'DEEN başlatılıyor…';
+   status.textContent=DEEN_I18N.t('starting');
    await new Promise(resolve=>setTimeout(resolve,180));
 
    try{
