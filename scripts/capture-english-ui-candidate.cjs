@@ -47,7 +47,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  await capture();
  const screenIds=await page.evaluate(()=>[...document.querySelectorAll('.screen[id]')].map(e=>e.id));
  for(const id of screenIds){await page.evaluate(id=>navigate(id),id);await capture();}
- for(const expression of ['openSettings()','openShop()','openBadges()','DEEN_ADMIN.open()']){
+ for(const expression of ['settingsPanel()','shopPanel()','badgePanel()','DEEN_ADMIN.open()']){
   try{await page.evaluate(expression=>eval(expression),expression);await capture();await page.evaluate(()=>{DEEN_ADMIN.close();closeSheet()});}catch(e){failures.push({expression,error:String(e)})}
  }
  const macros=await page.evaluate(()=>DEEN_FIVE_STAGE.all().map(d=>d.id));
