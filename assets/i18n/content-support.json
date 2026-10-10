@@ -113,8 +113,14 @@
           "path": "./assets/i18n/questions/en/runtime/U01.variants.json",
           "count": 20,
           "sha256": "a9987d534364a0671c2d8ba3d4dff912f2ee61ae8f0a36f0e02b492ed9007c39"
+        },
+        {
+          "path": "./assets/i18n/questions/en/runtime/U01.legacy-renderer.json",
+          "count": 100,
+          "sha256": "e06485288b3482e0ab0682fadfff01eb1cf4548f28461d57d09ccacaa1193896"
         }
-      ]
+      ],
+      "legacy_renderer_variants": 100
     },
     "de": {
       "entry": "complete",
