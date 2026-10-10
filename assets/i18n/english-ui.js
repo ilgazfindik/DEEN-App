@@ -14,6 +14,32 @@ Object.assign(D,{
  "Perfect lessons ödülü hazır":"Perfect lesson reward is ready",
  "Kusursuz dersler ödülü hazır":"Perfect lesson reward is ready"
 });
+
+Object.assign(D,{
+ "Doğru sıraya koy":"Put the parts in the correct order",
+ "True sıraya koy":"Put the parts in the correct order",
+ "Sırayı kontrol et":"Check order",
+ "KELİME BLOKLARI":"WORD BLOCKS",
+ "Parçaları doğru sıraya kur. İstersen dokun, istersen sürükle.":"Arrange the parts in the correct order. Tap or drag to reorder.",
+ "Parçaları correct sıraya kur. İstersen dokun, istersen sürükle.":"Arrange the parts in the correct order. Tap or drag to reorder.",
+ "Dokunarak ekle. Üstteki bir bloğa dokunursan geri gider; sürükleyerek blokların sırasını da değiştirebilirsin.":"Tap a block to add it. Tap a selected block to return it, or drag blocks to reorder.",
+ "Soru ve ekrandaki seçenekler okunur.":"The question and on-screen choices will be read aloud.",
+ "Learn · Anla · Recall":"Learn · Understand · Recall",
+ "TAM İSABET!":"SPOT ON!",
+ "DEVAM!":"KEEP GOING!",
+ "GÜZEL!":"GREAT!",
+ "Bilgi küçük adımlarla büyür.":"Knowledge grows one small step at a time.",
+ "Her doğru cevap, daha sağlam bir yarın demektir.":"Every correct answer helps build a stronger tomorrow.",
+ "Her correct answers, daha sağlam bir yarın demektir.":"Every correct answer helps build a stronger tomorrow.",
+ "Learning doğruluğu":"Learning accuracy",
+ "GÜÇLÜ ALANLAR":"STRONG AREAS",
+ "HATIRLAMA":"RECALL",
+ "BİLGİ":"KNOWLEDGE",
+ "TEKRAR ET":"REVIEW",
+ "TEMELLER USTALIĞI":"FOUNDATIONS MASTERY",
+ "YOLCULUĞA DEVAM":"CONTINUE JOURNEY",
+ "Anla":"Understand"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
