@@ -39,6 +39,13 @@ Object.assign(D,{
  "TEMELLER USTALIĞI":"FOUNDATIONS MASTERY",
  "YOLCULUĞA DEVAM":"CONTINUE JOURNEY",
  "Anla":"Understand",
+ "Cümleyi tamamla":"Complete the sentence",
+ "Boşluğu doldur":"Fill in the blank",
+ "Eksik kelime":"Missing word",
+ "Doğru sözcüğü seç":"Choose the correct word",
+ "Kelimeyi seç":"Choose the word",
+ "İpucunu göster":"Show hint",
+ "İpucu":"Hint",
  "ödülü hazır":"reward is ready"
 });
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
