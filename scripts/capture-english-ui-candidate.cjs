@@ -24,6 +24,9 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
 
  const texts=new Set(),failures=[];
+ const shopSource='Pırıltı öğrenme hedeflerinden kazanılır. Dinî içerik satın alınmaz.';const shopExpected='Earn sparkles through learning goals. Religious content is not purchased.';
+ assert.equal(await page.evaluate(t=>DEEN_ENGLISH_UI.t(t),shopSource),shopExpected,'English shop policy copy must translate as one sentence');
+
  await page.evaluate(()=>{
   window.__qaContentTexts=new Set();
   const collect=v=>{if(typeof v==='string')__qaContentTexts.add(v.trim());else if(Array.isArray(v))v.forEach(collect);else if(v&&typeof v==='object')Object.values(v).forEach(collect)};
