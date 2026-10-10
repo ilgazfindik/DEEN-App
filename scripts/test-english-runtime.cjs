@@ -60,7 +60,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  // Render every active record using the canonical renderer, including each question type.
  report.observerCountBefore=await page.evaluate(()=>__qa.observers.length);report.listenersBefore=await page.evaluate(()=>__qa.globalListeners);const active=await page.evaluate(()=>{window.__qaBank=[...new Map([...DEEN_BASE_QUESTIONS,...QUESTIONS].map(q=>[q.id,q])).values()];return __qaBank.map(q=>q.id)});
  for(let i=0;i<active.length;i++){
-  const row=await page.evaluate(id=>{const q=__qaBank.find(x=>x.id===id);session={stage:STAGES.find(s=>s.id===q.stage_id),questions:[q],index:0,correct:0,combo:0,bestCombo:0,startedAt:Date.now(),v5responses:[]};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);renderQuestion();const rendered=session.questions[0];return {id,ar:rendered.__deenContentLocale==='en',type:rendered.activity_type,text:document.getElementById('questionText').innerText,options:rendered.options_tr,answer:rendered.correct_answer,explanation:rendered.explanation_tr}},active[i]);
+  const row=await page.evaluate(id=>{const q=__qaBank.find(x=>x.id===id);session={stage:STAGES.find(s=>s.id===q.stage_id),questions:[q],index:0,correct:0,combo:0,bestCombo:0,startedAt:Date.now(),v5responses:[]};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);renderQuestion();const rendered=session.questions[0];return {id,ar:rendered.__deenContentLocale==='en',type:rendered.activity_type,text:document.getElementById('questionText').innerText,options:rendered.options_tr,pairs:rendered.pairs,items:rendered.items,answer:rendered.correct_answer,explanation:rendered.explanation_tr}},active[i]);
   assert(row.ar,JSON.stringify(row));assert(/[A-Za-z]/.test(row.explanation),row.id);report.types[row.type]=(report.types[row.type]||0)+1;
   if(i%100===0)console.log('RENDERED',i+1,'/',active.length);
   // Yield to actual question-rendered decorators, ensuring asynchronous UI work executes.
@@ -68,7 +68,14 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   if(await page.locator('.v910-overlay .v910-card-button').count()){await page.locator('.v910-overlay .v910-card-button').click();await page.waitForTimeout(30)}
   const dom=await page.evaluate(()=>({question:document.querySelector('#questionText').innerText,answers:document.querySelector('#answerArea').innerText}));
   assert(/[A-Za-z]/.test(dom.question+dom.answers),row.id);
-  assert(!/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(dom.question+dom.answers),row.id+' '+JSON.stringify(dom));if(row.options?.length)for(const option of row.options)assert(dom.answers.includes(option)||dom.question.includes(option),row.id+' missing displayed Arabic option: '+option);
+  assert(!/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(dom.question+dom.answers),row.id+' '+JSON.stringify(dom));if(row.type==='matching'){
+   assert(row.pairs?.length,row.id+' missing matching pairs');
+   for(const pair of row.pairs)for(const label of [pair.left,pair.right])assert(dom.answers.includes(label),row.id+' missing displayed matching label: '+label);
+  }else if(row.items?.length){
+   for(const item of row.items)assert(dom.answers.includes(item)||dom.question.includes(item),row.id+' missing displayed sequence item: '+item);
+  }else if(row.options?.length){
+   for(const option of row.options)assert(dom.answers.includes(option)||dom.question.includes(option),row.id+' missing displayed English option: '+option);
+  }
  }
  // Render all 100 generated legacy U01 variants through the same canonical game renderer.
  const legacyPack=JSON.parse(fs.readFileSync(path.join(root,'assets/i18n/questions/en/runtime/U01.legacy-renderer.json'),'utf8'));
