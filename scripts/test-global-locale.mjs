@@ -23,7 +23,7 @@ function fixture(stored={}){
  w.state={onboarded:false,profile:{name:'Yolcu',companion:null},settings:{},xp:321,completed:['U02-S03'],badges:['retained'],mistakes:[],learningProfile:'teen',minutes:10,dailyGoal:2,quranJourney:{quizLocale:'tr'}};
  w.saveState=()=>w.localStorage.setItem('deen_v4_1_state',JSON.stringify(w.state));w.updateUI=()=>{};w.scrollToCurrent=()=>{};w.toast=()=>{};w.sheet=()=>{};
  w.QUESTIONS=active;w.DEEN_BASE_QUESTIONS=base;w.__DEEN_CONTENT_MANIFEST__=JSON.parse(read('assets/i18n/content-support.json'));
- w.fetch=async url=>({ok:true,text:async()=>read(String(url).split('?')[0].replace(/^\.\//,''))});
+ w.fetch=async url=>{const body=read(String(url).split('?')[0].replace(/^\.\//,''));return {ok:true,text:async()=>body,json:async()=>JSON.parse(body)}};;
  w.eval(read('assets/i18n/locale.js'));w.eval(read('assets/i18n/content.js'));
  w.eval(seg(66).match(/<script id="deen-v91223-arabic-fullbank-js">([\s\S]*?)<\/script>/)[1]);
  w.eval(read('assets/i18n/boot.js'));w.eval(premium);return dom;
