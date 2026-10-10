@@ -73,7 +73,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   await page.evaluate(profile=>{state.learningProfile=profile;state.energy=30;startMacroStage('U01-M01')},profile);await capture();await page.evaluate(()=>closeLesson());
  }
  const snapshot={texts:[...texts],failures,screenIds,macros:macros.length};
- snapshot.leaks=snapshot.texts.filter(s=>/[ÇĞİÖŞÜçğıöşü\\u0600-\\u06ff]/.test(s)&&!/^AR:|Quran.com/.test(s));console.log('DEEN_ENGLISH_UI_CANDIDATE='+JSON.stringify(snapshot));
+ snapshot.leaks=snapshot.texts.filter(s=>/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(s)&&!/^AR:|Quran.com/.test(s));console.log('DEEN_ENGLISH_UI_CANDIDATE='+JSON.stringify(snapshot));
  fs.writeFileSync(path.join(out,'english-ui-candidate.json'),JSON.stringify(snapshot,null,2));
  await browser.close();server.close();
 })().catch(e=>{console.error(e);server.close();process.exit(1)});

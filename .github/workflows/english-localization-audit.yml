@@ -31,17 +31,41 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.62.1
           npx playwright install --with-deps chromium
           npx playwright install chrome
-      - name: Capture actual runtime source records in Google Chrome
+      - name: capture-english-runtime-source
+        if: ${{ !cancelled() }}
         env:
           DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
-        run: |
-          node scripts/capture-english-runtime-source.cjs
-          node scripts/capture-english-ui-candidate.cjs
-          node scripts/test-english-runtime.cjs
-          node scripts/test-english-regression.cjs
-          node scripts/test-english-interactions.cjs
-          node scripts/test-english-quran.cjs
-          node scripts/test-english-onboarding.cjs
+        run: node scripts/capture-english-runtime-source.cjs
+      - name: capture-english-ui-candidate
+        if: ${{ !cancelled() }}
+        env:
+          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
+        run: node scripts/capture-english-ui-candidate.cjs
+      - name: test-english-runtime
+        if: ${{ !cancelled() }}
+        env:
+          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
+        run: node scripts/test-english-runtime.cjs
+      - name: test-english-regression
+        if: ${{ !cancelled() }}
+        env:
+          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
+        run: node scripts/test-english-regression.cjs
+      - name: test-english-interactions
+        if: ${{ !cancelled() }}
+        env:
+          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
+        run: node scripts/test-english-interactions.cjs
+      - name: test-english-quran
+        if: ${{ !cancelled() }}
+        env:
+          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
+        run: node scripts/test-english-quran.cjs
+      - name: test-english-onboarding
+        if: ${{ !cancelled() }}
+        env:
+          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
+        run: node scripts/test-english-onboarding.cjs
       - name: Preserve test evidence
         if: always()
         uses: actions/upload-artifact@v4

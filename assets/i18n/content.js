@@ -5,7 +5,7 @@
  const manifest=()=>window.__DEEN_CONTENT_MANIFEST__;
  const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
  const blanks=s=>(String(s||'').match(/_{2,}|\[\s*\]|\{blank\}/g)||[]).length;
- function raw(question){return question?.__deenSourceQuestion||question}
+ function raw(question){const source=question?.__deenSourceQuestion||question;return source?.playful_pilot===true&&source.playful_version==='7.3.0'&&typeof source.legacy_question_tr==='string'?{...source,question_tr:source.legacy_question_tr}:source}
  function validate(source,entry){
   if(!source||!entry||!entry.source||!entry.display)return false;
   for(const field of ['question_tr','explanation_tr','activity_type','options_tr','correct_answer','pairs','items','correct_order'])if(!same(source[field],entry.source[field]))return false;
