@@ -1,6 +1,8 @@
 /* DOM/logic tests; these do not claim to be Chrome integration tests.
    Install jsdom separately; set DEEN_JSDOM_MODULE to its package entry if needed. */
 import assert from 'node:assert/strict';
+import {webcrypto} from 'node:crypto';
+import {TextEncoder} from 'node:util';
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {createRequire} from 'node:module';
@@ -17,11 +19,11 @@ assert.equal(active.length,1484);
 const premium=seg(24).match(/<script id="deen-v998-premium-onboarding-js">([\s\S]*?)<\/script>/)[1];
 function fixture(stored={}){
  const dom=new JSDOM('<!doctype html><html><head></head><body><div class="phone"></div><div id="lesson"></div><div id="v5SheetTitle">Ayarlar</div><div id="v5SheetBody"></div></body></html>',{url:'https://deen.test/',runScripts:'dangerously',pretendToBeVisual:true});
- const w=dom.window;for(const [k,v]of Object.entries(stored))w.localStorage.setItem(k,typeof v==='string'?v:JSON.stringify(v));
+ const w=dom.window;Object.defineProperty(w.crypto,'subtle',{configurable:true,value:webcrypto.subtle});w.TextEncoder=TextEncoder;for(const [k,v]of Object.entries(stored))w.localStorage.setItem(k,typeof v==='string'?v:JSON.stringify(v));
  w.state={onboarded:false,profile:{name:'Yolcu',companion:null},settings:{},xp:321,completed:['U02-S03'],badges:['retained'],mistakes:[],learningProfile:'teen',minutes:10,dailyGoal:2,quranJourney:{quizLocale:'tr'}};
  w.saveState=()=>w.localStorage.setItem('deen_v4_1_state',JSON.stringify(w.state));w.updateUI=()=>{};w.scrollToCurrent=()=>{};w.toast=()=>{};w.sheet=()=>{};
  w.QUESTIONS=active;w.DEEN_BASE_QUESTIONS=base;w.__DEEN_CONTENT_MANIFEST__=JSON.parse(read('assets/i18n/content-support.json'));
- w.fetch=async url=>({ok:true,json:async()=>JSON.parse(read(String(url).split('?')[0].replace(/^\.\//,'')))});
+ w.fetch=async url=>({ok:true,text:async()=>read(String(url).split('?')[0].replace(/^\.\//,''))});
  w.eval(read('assets/i18n/locale.js'));w.eval(read('assets/i18n/content.js'));
  w.eval(seg(66).match(/<script id="deen-v91223-arabic-fullbank-js">([\s\S]*?)<\/script>/)[1]);
  w.eval(read('assets/i18n/boot.js'));w.eval(premium);return dom;
@@ -52,7 +54,7 @@ for(const lang of ['tr','ar','en','de','es','fr']){
  w.state.profile.companion='cat';w.DEEN_PREMIUM_ONBOARDING.finish();
  // finish() is intentionally asynchronous; explicitly await the same in-flight validation.
  const ready=await w.DEEN_BOOT.prepare();
- if(['tr','ar'].includes(lang)){assert(ready);assert(w.state.onboarded);assert(!w.document.getElementById('v998Onboarding'));assert(!w.document.querySelector('.phone').inert);}
+ if(['tr','ar','en'].includes(lang)){assert(ready);assert(w.state.onboarded);assert(!w.document.getElementById('v998Onboarding'));assert(!w.document.querySelector('.phone').inert);if(lang==='en'){assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(base,'en').translated,1500);assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(active,'en').translated,1484);assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.en.global_qa,'passed');}}
  else{assert(!ready);assert(!w.state.onboarded);assert.equal(w.DEEN_BOOT.status().phase,'blocked');assert(w.document.getElementById('deenPreparation').textContent.includes(w.DEEN_I18N.t('unavailableTitle')));assert.equal(w.DEEN_CONTENT_LOCALE.translateQuestion(base[0],lang),null);}
  assert.equal(JSON.stringify({xp:w.state.xp,completed:w.state.completed,badges:w.state.badges}),progressBefore);
  report.languages[lang]={entry:'PASS DOM',onboarding:'PASS DOM',preparation:ready?'PASS data verification':'BLOCKED missing question pack',screens};d.window.close();
