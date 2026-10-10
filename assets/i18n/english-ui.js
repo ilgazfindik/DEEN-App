@@ -93,7 +93,7 @@ function localize(root=document.body){
  if(!root||window.DEEN_APP_LOCALE?.get()!=='en')return;
  running=true;observer.disconnect();const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
  while(node=walk.nextNode()){
-  if(node.parentElement?.closest(excluded)&&!node.nodeValue.includes('öğrenme hedeflerinden kazanılır'))continue;
+  if(node.parentElement?.closest(excluded))continue;
   const prior=originals.get(node);if(!prior||node.nodeValue!==prior.output)originals.set(node,{source:node.nodeValue,output:node.nodeValue});
   const row=originals.get(node),value=t(row.source);if(value!==node.nodeValue){node.nodeValue=value;writes++}row.output=value;
  }

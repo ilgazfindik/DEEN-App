@@ -21,6 +21,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  await page.goto(url);await page.waitForFunction(()=>window.DEEN_BOOT?.status().phase==='ready'||window.DEEN_BOOT?.status().phase==='error',{timeout:30000});
  const boot=await page.evaluate(()=>DEEN_BOOT.status());assert.equal(boot.phase,'ready',JSON.stringify(boot));report.boot=boot;
 
+ const scriptsUntouched=await page.evaluate(()=>{const scripts=[...document.querySelectorAll('script')].filter(s=>s.textContent.length>10000),before=scripts.map(s=>s.textContent);DEEN_ENGLISH_UI.localize(document.body);return scripts.length>0&&scripts.every((s,i)=>s.textContent===before[i]);});assert(scriptsUntouched,'English localization must never rewrite embedded source scripts');
  const types=await page.evaluate(()=>[...new Set(QUESTIONS.map(q=>q.activity_type))]);const interactions=[],residual=new Set();
  async function checkGeneratedContent(type){const leaks=await page.locator('#lesson').evaluate(root=>[root,...root.querySelectorAll('*')].filter(el=>el.getClientRects().length&&getComputedStyle(el).visibility!=='hidden').flatMap(el=>['::before','::after'].map(pseudo=>({class:el.className,pseudo,text:getComputedStyle(el,pseudo).content}))).filter(x=>x.text&&!['none','normal'].includes(x.text)&&/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(x.text.replace(/DEEN|XP|^"i"$/g,''))));assert.deepEqual(leaks,[],type+' generated content');}
  for(const type of types){
