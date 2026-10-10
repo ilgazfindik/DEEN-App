@@ -33,7 +33,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  fs.writeFileSync(path.join(out,'last-question.html'),await page.locator('#lesson').innerHTML());fs.writeFileSync(path.join(out,'residual.json'),JSON.stringify([...residual]));const area=page.locator('#answerArea');
  if(type==='matching'){
  for(let i=0;i<q.pairs.length;i++){await area.locator('[data-side="left"][data-pair="'+i+'"]').click();await area.locator('[data-side="right"][data-pair="'+i+'"]').click()}
- }else if(q.items?.length){for(const text of q.correct_order){const bank=area.locator('.sequence-bank,.v710-word-bank');await bank.getByRole('button',{name:text,exact:true}).first().click()}await area.locator('button:not([disabled])').filter({hasText:/Check|Verify/}).last().click();
+ }else if(q.items?.length){for(const text of q.correct_order){const bank=area.locator('.sequence-bank,.v710-word-bank');await bank.getByRole('button',{name:text,exact:true}).first().click()}console.log('SEQUENCE CONTROLS',await area.innerText());await area.locator('button:not([disabled])').filter({hasText:/check|verify|confirm|submit/i}).last().click();
  }else if(await area.locator('input:visible').count()){
  await area.locator('input:visible').fill(q.correct_answer);await area.locator('button:not([disabled])').last().click();
  }else{
