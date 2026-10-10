@@ -53,6 +53,31 @@ const server=http.createServer((req,res)=>{
  console.log('PUBLIC STAGE PROBE',JSON.stringify(stageProbe));
  await page.waitForFunction(()=>typeof session!=='undefined'&&!!session&&session.questions?.length>0,null,{timeout:15000});
  assert.equal(await page.locator('#lesson.active').count(),1,'Normal English lesson must open');
+ // Non-QA first-run test: inspect real learning-loop cards and transitions, not just question data.
+ const cardPlan=[
+  {index:0,contains:['1 · MAIN IDEA','Islam means turning to Allah.','GOT IT · GO TO QUESTION']},
+  {index:1,contains:['THREE KEY CONCEPTS','Faith, worship and good character reinforce one another.']},
+  {index:2,contains:['UNIVERSAL IDENTITY','Being Muslim is not tied to one country.']},
+  {index:3,contains:['SUBMISSION',"Submission means accepting Allah's guidance."]},
+  {index:4,contains:['STAGE 2 · APPLY','START APPLYING']},
+  {index:8,contains:['STAGE 3 · RECALL','START RECALL ROUND']}
+ ];
+ assert((await page.evaluate(()=>session.questions.length))>=9,'U01 pilot must have at least nine questions');
+ const oldTurkish=/[ÇĞİÖŞÜçğıöşü]|\\b(?:İslam|İman|ibadet|ahlak|Öğrenme|öğrenme|aşama|şimdi|dört|önce|soruda|tekrar|soruya|başla|ipucu|İpuçları|kendi|hatırla|yönel|güven|teslim)\\b/i;
+ report.teachingAudit=[];
+ for(const plan of cardPlan){
+  if(plan.index!==0)await page.evaluate(i=>{document.querySelector('.v910-overlay')?.remove();session.index=i;renderQuestion()},plan.index);
+  await page.waitForSelector('.v910-overlay',{timeout:12000});
+  await page.waitForFunction(needles=>needles.every(t=>(document.querySelector('.v910-overlay')?.innerText||'').includes(t)),plan.contains,{timeout:15000});
+  const item=await page.evaluate(()=>({overlay:document.querySelector('.v910-overlay')?.innerText||'',phase:document.querySelector('.v910-phasebar')?.innerText||''}));
+  assert(!oldTurkish.test(item.overlay+' '+item.phase),JSON.stringify({index:plan.index,...item}));
+  report.teachingAudit.push({index:plan.index,translated:true,phase:item.phase});
+ }
+ const rawTeaching=await page.evaluate(()=>Object.values(DEEN_U01_S01_LEARNING_LOOP.teaching).flatMap(c=>Object.values(c)).map(value=>({source:value,display:DEEN_ENGLISH_UI.t(value)})));
+ assert(rawTeaching.length>=16);
+ for(const v of rawTeaching)assert(v.display!==v.source&&!oldTurkish.test(v.display),JSON.stringify(v));
+ report.teachingTextCount=rawTeaching.length;
+ console.log('PASS ENGLISH U01 TEACHING AND TRANSITIONS',JSON.stringify({cards:report.teachingAudit.length,fields:report.teachingTextCount}));
  report.lesson={stage:await page.evaluate(()=>session.stage.id),questionId:await page.evaluate(()=>session.questions[0].id)};
  await page.evaluate(()=>{closeLesson();state.xp=543;state.completed=['U01-S01'];saveState()});
  const before=await page.evaluate(()=>({xp:state.xp,completed:state.completed,companion:state.profile.companion}));
