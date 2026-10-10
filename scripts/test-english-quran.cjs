@@ -40,7 +40,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   assert(hub.copy.includes(phrase),'Quran hub missing English phrase: '+phrase);
  }
  assert(hub.attrs.some(x=>x.includes('Quran sections')),'Quran tabs accessibility text must be English');
- const asciiTurkish=/\\b(?:Oyna|Ezber|Sureler|Oyunu|Testleri|Ezbere|Kesintisiz|Merkezi|kütüphanesi|görev|ayet|hafıza|zayıf|hazır|İlerleme|kavram|sıralaması|tamamla|suretler|Surah Oyunu)\\b/i;
+ const asciiTurkish=/\b(?:Oyna|Ezber|Sureler|Oyunu|Testleri|Ezbere|Kesintisiz|Merkezi|kütüphanesi|görev|ayet|hafıza|zayıf|hazır|İlerleme|kavram|sıralaması|tamamla|suretler|Surah Oyunu)\b/i;
  const allHub=hub.copy+' '+hub.attrs.join(' ');
  assert(!asciiTurkish.test(allHub)&&!/[ÇĞİÖŞÜçğıöşü]/.test(allHub),'Turkish Quran hub UI: '+allHub.match(asciiTurkish)?.[0]);
  const exacts={
