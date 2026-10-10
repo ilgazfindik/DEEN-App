@@ -76,5 +76,6 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const localization=await page.evaluate(()=>DEEN_ENGLISH_UI.audit());console.log('ENGLISH_UI_STATS='+JSON.stringify(localization));const snapshot={localization,texts:[...texts],failures,screenIds,macros:macros.length};
  snapshot.leaks=snapshot.texts.filter(s=>/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(s)&&!/^AR:|Quran.com/.test(s));console.log('DEEN_ENGLISH_UI_CANDIDATE='+JSON.stringify(snapshot));
  fs.writeFileSync(path.join(out,'english-ui-candidate.json'),JSON.stringify(snapshot,null,2));
+ snapshot.turkishLeaks=snapshot.leaks.filter(s=>/[ÇĞİÖŞÜçğıöşü]/.test(s));console.log('TURKISH_UI_LEAKS='+JSON.stringify(snapshot.turkishLeaks));assert.deepEqual(snapshot.turkishLeaks,[],'English UI still displays Turkish copy');
  await browser.close();server.close();
 })().catch(e=>{console.error(e);server.close();process.exit(1)});
