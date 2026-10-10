@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "required_base_questions": 1500,
+  "required_live_u01_questions": 84,
+  "required_active_questions": 1484,
+  "required_runtime_variants": 20,
+  "languages": {
+    "tr": {
+      "entry": "complete",
+      "question_data": "source",
+      "bank": null,
+      "global_qa": "pending"
+    },
+    "ar": {
+      "entry": "complete",
+      "question_data": "arabic_existing",
+      "bank": null,
+      "global_qa": "pending",
+      "religious_expert_approved": false
+    },
+    "en": {
+      "entry": "complete",
+      "question_data": "complete",
+      "bank": null,
+      "global_qa": "passed",
+      "religious_expert_approved": false,
+      "ui": "passed_chrome_qa",
+      "base_questions": 1500,
+      "live_u01_questions": 84,
+      "stored_runtime_variants": 20,
+      "parts": [
+        {
+          "path": "./assets/i18n/questions/en/units/U01.json",
+          "count": 100,
+          "sha256": "b57b2ab7976e44d8f389db7f5b32b4bc616adc8ec05945d5e702d39ab16a24c7"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U02.json",
+          "count": 100,
+          "sha256": "bfe6491599738dd3ac71d07d21628145de4ec7fbba403128e50f84d0efd51cab"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U03.json",
+          "count": 100,
+          "sha256": "fc0e3d0df5e26b3460343904bad1686488a48e9c3598d999f7ee45923a29d90e"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U04.json",
+          "count": 100,
+          "sha256": "8741fef5e2939319eae883403112e186e7d73ee29a3745b4ef2172510cdc53f5"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U05.json",
+          "count": 100,
+          "sha256": "6c8ae38ba80ebe934370db41c3e21190e78371f3962a2056ee3c5b4ed5b108a3"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U06.json",
+          "count": 100,
+          "sha256": "1b57ed14beb4efd54b1660e8d68a4c479988ce10972309307dbc7753f98a7ac8"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U07.json",
+          "count": 100,
+          "sha256": "e402d5388bb3de4929218ec908852fc538bc51bdaa4c869461def04c14c4437a"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U08.json",
+          "count": 100,
+          "sha256": "0459b6ac4a48dbc9bee69fcdbb46f219e8a3b2b2e624ae3f66a6dd0fcfc6008e"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U09.json",
+          "count": 100,
+          "sha256": "e2a219d685a0551c135273bebb8288349189e741ce75298aaceffa2eccd43060"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U10.json",
+          "count": 100,
+          "sha256": "f7d706ba7da3a8988653326b85c53f5bc2db890e8fd37ea3a675687314578c01"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U11.json",
+          "count": 100,
+          "sha256": "bcfabddc9b905a7b778de48471a85308cbeeab7dec99615ba09d8fe95abea03b"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U12.json",
+          "count": 100,
+          "sha256": "72b3b46a1bc4984b6323d88fbadc4c351c9dc2e4511bfb50c0454881e827926b"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U13.json",
+          "count": 100,
+          "sha256": "81630ab959fc711708f7c70d15781169aec902d1fb5ab43e8fb0a851d43ad0cd"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U14.json",
+          "count": 100,
+          "sha256": "3b291c9cd0788060be2d3b518efe3a896d3f958f9d7e75eb79739f72481b7bad"
+        },
+        {
+          "path": "./assets/i18n/questions/en/units/U15.json",
+          "count": 100,
+          "sha256": "0f1b85074556cd5f0b95c419f042eecaa02ac278c26cc7a4b4c72e84d5f470b5"
+        },
+        {
+          "path": "./assets/i18n/questions/en/runtime/U01.live.json",
+          "count": 84,
+          "sha256": "0e2f6d7188d55329c9942d60256342e21b09f98660d87dcd5667df5e8e305f4e"
+        },
+        {
+          "path": "./assets/i18n/questions/en/runtime/U01.variants.json",
+          "count": 20,
+          "sha256": "a9987d534364a0671c2d8ba3d4dff912f2ee61ae8f0a36f0e02b492ed9007c39"
+        },
+        {
+          "path": "./assets/i18n/questions/en/runtime/U01.legacy-renderer.json",
+          "count": 100,
+          "sha256": "e06485288b3482e0ab0682fadfff01eb1cf4548f28461d57d09ccacaa1193896"
+        }
+      ],
+      "legacy_renderer_variants": 100
+    },
+    "de": {
+      "entry": "complete",
+      "question_data": "missing",
+      "bank": null,
+      "global_qa": "blocked",
+      "religious_expert_approved": false
+    },
+    "es": {
+      "entry": "complete",
+      "question_data": "missing",
+      "bank": null,
+      "global_qa": "blocked",
+      "religious_expert_approved": false
+    },
+    "fr": {
+      "entry": "complete",
+      "question_data": "missing",
+      "bank": null,
+      "global_qa": "blocked",
+      "religious_expert_approved": false
+    }
+  }
+}

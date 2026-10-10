@@ -273,8 +273,8 @@ function verifiedMeal(id,n){
  return m&&String(m.language||'').split('-')[0]===locale()&&m.verification_status==='production_ready'&&m.source?.provider&&m.text?m.text:null;
 }
 function mealReady(id){return Array.from({length:COUNTS[id]},(_,i)=>verifiedMeal(id,i+1)).every(Boolean)}
-function setQuizLanguage(l){
- if(!window.DEEN_APP_LOCALE?.set?.(l))return false;
+async function setQuizLanguage(l){
+ if(!await window.DEEN_APP_LOCALE?.set?.(l))return false;
  stopQuizAudio();ignoreClick=null;discardDrag();quiz=null;
  sheet(NAMES[currentSurah]+' · '+(locale()==='en'?'Surah Journey':'Sure Yolculuğu'),journeyHtml(currentSurah));return true;
 }
@@ -652,7 +652,7 @@ function quizHtml(){
  const slotClass=picked?(quiz.answered?(quiz.lastCorrect?' correct':' incorrect'):' filled'):'';
  const slotLabel=picked?esc(picked.text):'ــــــ';
  const slot='<span class="deen-qj2-gap'+slotClass+'" data-qj2-fill-slot="1" aria-label="'+
-  (picked?'Seçilen kelime: '+esc(picked.text):'Eksik kelime')+'">'+slotLabel+'</span>';
+  (picked?(locale()==='en'?'Selected word: ':locale()==='ar'?'الكلمة المختارة: ':'Seçilen kelime: ')+esc(picked.text):(locale()==='en'?'Missing word':locale()==='ar'?'الكلمة الناقصة':'Eksik kelime'))+'">'+slotLabel+'</span>';
  const arabicHtml=q.kind==='fill'?esc(q.display).replace('_____',slot):esc(q.display);
  const prompt=q.type==='audio'
   ?'<div class="deen-qj2-audio-prompt" role="group" aria-label="'+(locale()==='en'?'Audio ayah question':'Sesli ayet sorusu')+'"><span class="deen-qj2-audio-symbol" aria-hidden="true">♫</span><button type="button" class="deen-qj2-audio-play" '+(quiz.answered?'disabled':'')+' onclick="DEEN_QURAN_JOURNEY_V2.playQuizAudio()">'+esc(T('play'))+'</button><span class="deen-qj2-audio-status" role="status" aria-live="polite">'+esc(T(mealReady(currentSurah)?'hint':'hintNum'))+'</span></div>'

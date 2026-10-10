@@ -1,0 +1,3857 @@
+{
+  "schema_version": 1,
+  "unit": "U05",
+  "locale": "en",
+  "question_count": 100,
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_commit": "41bc042c8365dcb532d1b7fffde0ca96ea7455ea",
+  "translations": {
+    "DEEN-U05-S01-001": {
+      "source": {
+        "question_tr": "İslam dininde, temel inanç esaslarını kalp ile onaylayıp kabul etmeye ne ad verilir?",
+        "explanation_tr": "İman, İslam'ın temel inanç esaslarını kalpten kabul etmek demektir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İman",
+          "Oruç",
+          "Ahlak",
+          "Zekât"
+        ],
+        "correct_answer": "İman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In Islam, what is accepting and affirming the main beliefs in the heart called?",
+        "explanation_tr": "Faith means accepting Islam's main beliefs in the heart.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Faith",
+          "Fasting",
+          "Good character",
+          "Zakat"
+        ],
+        "correct_answer": "Faith",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The concept of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-002": {
+      "source": {
+        "question_tr": "İman, sadece davranışlarla ilgili kuralları içerir, inançla ilgisi yoktur.",
+        "explanation_tr": "İman öncelikle kalp ile onaylanan temel inanç esaslarıyla ilgilidir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Faith includes only rules about behaviour and has nothing to do with belief.",
+        "explanation_tr": "Faith principally concerns fundamental beliefs affirmed in the heart.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The concept of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-003": {
+      "source": {
+        "question_tr": "İslam dininde inanç temellerini oluşturan kurallara genel olarak ne isim verilir?",
+        "explanation_tr": "İnanç temellerini oluşturan kavramlar 'İmanın Esasları' olarak adlandırılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İmanın Esasları",
+          "İslam'ın Şartları",
+          "Gündelik İbadetler",
+          "Ahlak Kuralları"
+        ],
+        "correct_answer": "İmanın Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "What are the principles forming the foundations of belief in Islam generally called?",
+        "explanation_tr": "The concepts forming the foundations of belief are called the articles of faith.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "The articles of faith",
+          "The pillars of Islam",
+          "Daily acts of worship",
+          "Moral rules"
+        ],
+        "correct_answer": "The articles of faith",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The articles of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-004": {
+      "source": {
+        "question_tr": "Allah'ın varlığına ve birliğine, peygamberlerine ve kitaplarına kalpten inanmaya ______ denir.",
+        "explanation_tr": "Bu temel inanç esaslarını kabul etmenin karşılığı 'iman'dır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iman",
+          "ibadet",
+          "ahlak",
+          "niyet"
+        ],
+        "correct_answer": "iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Believing wholeheartedly in Allah's existence and oneness, His prophets and His books is called ______.",
+        "explanation_tr": "Accepting these main beliefs is called faith.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "faith",
+          "worship",
+          "good character",
+          "intention"
+        ],
+        "correct_answer": "faith",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The concept of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-005": {
+      "source": {
+        "question_tr": "Bir öğrenci, 'İman esasları sadece bedensel hareketlerden oluşur' diyor. Bu cümledeki hata nedir?",
+        "explanation_tr": "Diyanet'in akaid açıklamalarında imanın aslî unsurunun kalbin tasdiki olduğu; ikrar ve amelle ilişkisinin ayrıca ele alındığı belirtilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İmanı yalnız bedensel hareketlere indirgemesidir; imanın temelinde kalbin tasdiki bulunur.",
+          "İmanın yalnızca tarih bilgisi olduğunu söylemesidir.",
+          "İmanın sadece dil öğrenmek olduğunu söylemesidir.",
+          "Cümlede hata yoktur."
+        ],
+        "correct_answer": "İmanı yalnız bedensel hareketlere indirgemesidir; imanın temelinde kalbin tasdiki bulunur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A learner says, 'The articles of faith consist only of bodily movements.' What is wrong with this sentence?",
+        "explanation_tr": "Diyanet's explanations of Islamic belief state that affirmation in the heart is the essential element of faith, while its connection with spoken affirmation and deeds is considered separately.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "It reduces faith to bodily movements, although affirmation in the heart is at its foundation.",
+          "It says faith is only historical knowledge.",
+          "It says faith is only learning a language.",
+          "There is no mistake."
+        ],
+        "correct_answer": "It reduces faith to bodily movements, although affirmation in the heart is at its foundation.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The concept of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-006": {
+      "source": {
+        "question_tr": "İmanın esasları, İslam dininin temel inanç yapısını oluşturur.",
+        "explanation_tr": "İmanın esasları, İslam inancının ana omurgasıdır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "The articles of faith form the basic structure of belief in Islam.",
+        "explanation_tr": "The articles of faith are the backbone of Islamic belief.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The foundation of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-007": {
+      "source": {
+        "question_tr": "Bu ünitede iki farklı temel başlığı ayırıyoruz: inanç konuları 'İmanın Esasları', namaz ve oruç gibi uygulamalar ise 'İslam'ın ______' başlığında ele alınır.",
+        "explanation_tr": "İmanın esasları inanç başlıklarını; İslam'ın şartları ise Kelime-i Şehadet, namaz, oruç, zekât ve hac gibi temel şartları ifade eder.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Şartları",
+          "Esasları",
+          "Tarihi",
+          "Ahlakı"
+        ],
+        "correct_answer": "Şartları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In this unit, we distinguish two main categories: beliefs are 'the articles of faith', while practices such as prayer and fasting are covered by 'the ______ of Islam'.",
+        "explanation_tr": "The articles of faith describe beliefs; the pillars of Islam describe the main pillars, such as the Shahada, prayer, fasting, zakat and Hajj.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "pillars",
+          "principles",
+          "history",
+          "morality"
+        ],
+        "correct_answer": "pillars",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The scope of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-008": {
+      "source": {
+        "question_tr": "Önceki ünitede öğrendiğimiz Allah'a iman, bu ünitedeki hangi ana başlığın içinde yer alır?",
+        "explanation_tr": "Allah'a iman, imanın altı esasından biridir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İmanın Esasları",
+          "İslam'ın Beş Şartı",
+          "Günlük Ahlak",
+          "Hac Uygulamaları"
+        ],
+        "correct_answer": "İmanın Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in Allah, which we learned about in an earlier unit, belongs to which main category in this unit?",
+        "explanation_tr": "Belief in Allah is one of the six articles of faith.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "The articles of faith",
+          "The five pillars of Islam",
+          "Everyday good character",
+          "Hajj practices"
+        ],
+        "correct_answer": "The articles of faith",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "Belief in Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-009": {
+      "source": {
+        "question_tr": "Ayşe, arkadaşına 'İslam'da bazı şeyler kalpten inançla ilgilidir, bazıları ise namaz kılmak gibi eylemlerdir' diyor. Ayşe'nin 'kalpten inançla ilgili' dediği bölüm hangi kategoriye girer?",
+        "explanation_tr": "Kalpten inanılması gereken temel öğretiler İmanın Esasları kategorisindedir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İmanın Esasları",
+          "İslam'ın Şartları",
+          "Görgü Kuralları",
+          "Sosyal İlişkiler"
+        ],
+        "correct_answer": "İmanın Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Aisha tells her friend, 'Some things in Islam concern belief in the heart, while others are actions such as performing prayer.' Which category covers what Aisha calls 'belief in the heart'?",
+        "explanation_tr": "The main teachings to be believed in the heart belong to the articles of faith.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "The articles of faith",
+          "The pillars of Islam",
+          "Rules of etiquette",
+          "Social relationships"
+        ],
+        "correct_answer": "The articles of faith",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The concept of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-010": {
+      "source": {
+        "question_tr": "İmanın temel esasları toplam ______ tanedir.",
+        "explanation_tr": "Bu giriş ünitesinde imanın altı temel esası tanıtılır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "6",
+          "5",
+          "4",
+          "7"
+        ],
+        "correct_answer": "6",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "There are ______ main articles of faith.",
+        "explanation_tr": "This introductory unit presents the six main articles of faith.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "6",
+          "5",
+          "4",
+          "7"
+        ],
+        "correct_answer": "6",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The number of articles of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-011": {
+      "source": {
+        "question_tr": "İmanın esasları, sadece Allah'a inanmaktan ibarettir, başka bir kural yoktur.",
+        "explanation_tr": "Allah'a inanmak temeli oluştursa da melekler, kitaplar, peygamberler, ahiret ve kadere iman gibi esaslar da vardır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "The articles of faith consist only of belief in Allah, with no other principles.",
+        "explanation_tr": "Although belief in Allah forms the foundation, there are also articles such as belief in angels, books, prophets, the Hereafter and divine decree.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The scope of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-012": {
+      "source": {
+        "question_tr": "İslam inancının temel inanç başlıklarına genel olarak 'İmanın ______' adı verilir.",
+        "explanation_tr": "Bu temel inanç başlıkları 'İmanın Esasları' olarak adlandırılır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Esasları",
+          "Mekânları",
+          "Tarihi",
+          "Gelenekleri"
+        ],
+        "correct_answer": "Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "The main beliefs of Islam are generally called 'the ______ of faith'.",
+        "explanation_tr": "These main beliefs are called the articles of faith.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "articles",
+          "places",
+          "history",
+          "traditions"
+        ],
+        "correct_answer": "articles",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "The concept of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-013": {
+      "source": {
+        "question_tr": "Ali: 'Namaz, oruç, zekât ve hac imanın esaslarıdır.' Ali'nin ifadesindeki hata nedir?",
+        "explanation_tr": "Namaz, oruç gibi ibadetler İslam'ın şartları arasındadır; imanın esasları inanç temellidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bunlar imanın esasları değil, İslam'ın şartlarıdır.",
+          "Oruç imanın bir esasıdır.",
+          "Zekât imanın esaslarındandır.",
+          "Bu sayılanlar inançla ilgilidir."
+        ],
+        "correct_answer": "Bunlar imanın esasları değil, İslam'ın şartlarıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ali says, 'Prayer, fasting, zakat and Hajj are articles of faith.' What is wrong with his statement?",
+        "explanation_tr": "Acts of worship such as prayer and fasting are pillars of Islam, while the articles of faith concern beliefs.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "These are pillars of Islam, rather than articles of faith.",
+          "Fasting is an article of faith.",
+          "Zakat is an article of faith.",
+          "The things listed are beliefs."
+        ],
+        "correct_answer": "These are pillars of Islam, rather than articles of faith.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "Faith and belief"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-014": {
+      "source": {
+        "question_tr": "Diyanet'in akaid çerçevesinde imanın temelindeki 'tasdik' boyutunu en iyi hangi ifade anlatır?",
+        "explanation_tr": "İmanın aslî unsuru kalbin tasdiki olarak açıklanır; bu, imanın dil ve davranışla ilişkisini bütünüyle yok saymak anlamına gelmez.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnanç esaslarını kalpten onaylamak",
+          "Her gün fiziksel ibadet yapmak",
+          "Kutsal yerleri ziyaret etmek",
+          "Yalnızca iyilik yapmak"
+        ],
+        "correct_answer": "İnanç esaslarını kalpten onaylamak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which statement best describes the 'affirmation' at the foundation of faith in Diyanet's account of Islamic belief?",
+        "explanation_tr": "The essential element of faith is explained as affirmation in the heart. This does not mean disregarding faith's connection with speech and behaviour completely.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Wholeheartedly affirming the articles of faith",
+          "Performing physical worship every day",
+          "Visiting sacred places",
+          "Only doing good deeds"
+        ],
+        "correct_answer": "Wholeheartedly affirming the articles of faith",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "What Does Faith Mean?",
+        "topic": "Reviewing the concept of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-001": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi imanın altı esasından biri değildir?",
+        "explanation_tr": "Namaz kılmak imanın esası değil, İslam'ın şartıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz kılmak",
+          "Meleklere iman",
+          "Peygamberlere iman",
+          "Ahiret gününe iman"
+        ],
+        "correct_answer": "Namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which is not one of the six articles of faith?",
+        "explanation_tr": "Performing prayer is a pillar of Islam, rather than an article of faith.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Performing prayer",
+          "Belief in angels",
+          "Belief in the prophets",
+          "Belief in the Last Day"
+        ],
+        "correct_answer": "Performing prayer",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "The six articles of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-002": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi imanın esasları arasında yer alır?",
+        "explanation_tr": "İlahi kitaplara iman etmek, imanın altı esasından biridir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman",
+          "Oruç tutmak",
+          "Zekât vermek",
+          "Hacca gitmek"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which belongs to the articles of faith?",
+        "explanation_tr": "Belief in the divine books is one of the six articles of faith.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the books",
+          "Fasting",
+          "Giving zakat",
+          "Performing Hajj"
+        ],
+        "correct_answer": "Belief in the books",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "The six articles of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-003": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman etmek, imanın altı esasından biridir.",
+        "explanation_tr": "Kader ve kazaya iman, imanın altı esasından biridir. Bu ünitede konu yalnızca başlangıç düzeyinde tanıtılır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in divine decree and its fulfilment is one of the six articles of faith.",
+        "explanation_tr": "Belief in divine decree and its fulfilment is one of the six articles of faith. This unit introduces the subject only at a beginner level.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "Divine decree and its fulfilment"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-004": {
+      "source": {
+        "question_tr": "Allah'a iman, _______ iman, Kitaplara iman. Boşluğa hangi iman esası gelmelidir?",
+        "explanation_tr": "Allah'ın yarattığı meleklere inanmak, imanın esaslarından biridir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Meleklere",
+          "Oruca",
+          "Sadakaya",
+          "Camiye"
+        ],
+        "correct_answer": "Meleklere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in Allah, belief in _______, belief in the books. Which article of faith fills the blank?",
+        "explanation_tr": "Belief in the angels created by Allah is an article of faith.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "angels",
+          "fasting",
+          "voluntary charity",
+          "the mosque"
+        ],
+        "correct_answer": "angels",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "Belief in angels"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-005": {
+      "source": {
+        "question_tr": "Verilenleri ilgili oldukları grup ile eşleştirin.",
+        "explanation_tr": "İman esasları inançla, İslam'ın şartları ibadetlerle ilgilidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Meleklere iman",
+            "right": "İmanın esası"
+          },
+          {
+            "left": "Kader ve kazaya iman",
+            "right": "İmanın esası"
+          },
+          {
+            "left": "Namaz kılmak",
+            "right": "İslam'ın şartı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match each entry to its group.",
+        "explanation_tr": "The articles of faith concern belief, while the pillars of Islam concern worship.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Belief in angels",
+            "right": "An article of faith"
+          },
+          {
+            "left": "Belief in divine decree and its fulfilment",
+            "right": "An article of faith"
+          },
+          {
+            "left": "Performing prayer",
+            "right": "A pillar of Islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "Matching the six articles of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-006": {
+      "source": {
+        "question_tr": "Ahiret gününe inanmak, İslam'da imanın altı esasından biri değildir.",
+        "explanation_tr": "Ahiret gününe (ölümden sonraki hayata) iman etmek imanın temel esaslarındandır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in the Last Day is not one of the six articles of faith in Islam.",
+        "explanation_tr": "Belief in the Hereafter, life after death, is a main article of faith.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "Belief in the Hereafter"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-007": {
+      "source": {
+        "question_tr": "Allah'a, Meleklere, Kitaplara, Peygamberlere, Ahirete ve ______ iman. Listede eksik olan iman esası hangisidir?",
+        "explanation_tr": "Listede eksik olan iman esası kader ve kazaya imandır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Kader ve Kazaya",
+          "Namaz Kılmaya",
+          "Oruç Tutmaya",
+          "Kâbe'ye"
+        ],
+        "correct_answer": "Kader ve Kazaya",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in Allah, angels, books, prophets, the Hereafter and ______. Which article of faith is missing?",
+        "explanation_tr": "The missing article is belief in divine decree and its fulfilment.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "divine decree and its fulfilment",
+          "performing prayer",
+          "fasting",
+          "the Kaaba"
+        ],
+        "correct_answer": "divine decree and its fulfilment",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "List of the six articles of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-008": {
+      "source": {
+        "question_tr": "Kavramları doğru kategorileriyle eşleştirin.",
+        "explanation_tr": "İnançla ilgili olanlar iman esaslarına, pratik ibadetler İslam'ın şartlarına aittir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Peygamberlere iman",
+            "right": "İmanın esasları"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın esasları"
+          },
+          {
+            "left": "Hacca gitmek",
+            "right": "İslam'ın şartları"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match each concept to its correct category.",
+        "explanation_tr": "Beliefs belong to the articles of faith, while practical acts of worship belong to the pillars of Islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Belief in the prophets",
+            "right": "The articles of faith"
+          },
+          {
+            "left": "Belief in the Hereafter",
+            "right": "The articles of faith"
+          },
+          {
+            "left": "Performing Hajj",
+            "right": "The pillars of Islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "Quick list matching"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-009": {
+      "source": {
+        "question_tr": "Peygamberlere iman, İslam'ın şartlarından biridir.",
+        "explanation_tr": "Peygamberlere iman, İslam'ın değil 'İmanın Esasları'ndan biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in the prophets is a pillar of Islam.",
+        "explanation_tr": "Belief in the prophets is an article of faith, rather than a pillar of Islam.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "Belief in the prophets"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-010": {
+      "source": {
+        "question_tr": "Aşağıdaki seçeneklerden hangisinde İmanın Esaslarından iki tanesi birlikte verilmiştir?",
+        "explanation_tr": "Kitaplara ve Ahirete inanmak, altı iman esası içindedir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman - Ahirete iman",
+          "Namaz kılmak - Zekât vermek",
+          "Meleklere iman - Oruç tutmak",
+          "Hacca gitmek - Kadere iman"
+        ],
+        "correct_answer": "Kitaplara iman - Ahirete iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which option lists two articles of faith together?",
+        "explanation_tr": "Belief in the books and the Hereafter are both among the six articles of faith.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the books - Belief in the Hereafter",
+          "Performing prayer - Giving zakat",
+          "Belief in angels - Fasting",
+          "Performing Hajj - Belief in divine decree"
+        ],
+        "correct_answer": "Belief in the books - Belief in the Hereafter",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "The six articles together"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-011": {
+      "source": {
+        "question_tr": "Allah'ın peygamberlere vahiy yoluyla gönderdiği ilahi kitaplara ______ iman denir.",
+        "explanation_tr": "Allah'ın peygamberlere vahiy yoluyla gönderdiği ilahi kitaplara iman, imanın esaslarından biridir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Kitaplara",
+          "Meleklere",
+          "Kadere",
+          "Ahirete"
+        ],
+        "correct_answer": "Kitaplara",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in the divine books that Allah revealed to the prophets is called belief in ______.",
+        "explanation_tr": "Belief in the divine books that Allah revealed to the prophets is an article of faith.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "the books",
+          "angels",
+          "divine decree",
+          "the Hereafter"
+        ],
+        "correct_answer": "the books",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "Belief in the books"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-012": {
+      "source": {
+        "question_tr": "Hangi kavram 'İmanın Esasları' listesinde yer almaz?",
+        "explanation_tr": "Zekât vermek İslam'ın şartlarındandır, imanın esaslarından değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek",
+          "Allah'a iman",
+          "Kadere iman",
+          "Peygamberlere iman"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which concept is not on the list of the articles of faith?",
+        "explanation_tr": "Giving zakat is a pillar of Islam, rather than an article of faith.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Giving zakat",
+          "Belief in Allah",
+          "Belief in divine decree",
+          "Belief in the prophets"
+        ],
+        "correct_answer": "Giving zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "Distinguishing concepts"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-013": {
+      "source": {
+        "question_tr": "Maddeleri ait oldukları inanç esaslarıyla eşleştirin.",
+        "explanation_tr": "Her esasın farklı bir inanç alanı vardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'ın varlığı ve birliği",
+            "right": "Allah'a iman"
+          },
+          {
+            "left": "Ölümden sonraki hayat",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "İlahi mesajların elçileri",
+            "right": "Peygamberlere iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match each description to its article of faith.",
+        "explanation_tr": "Each article concerns a different area of belief.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah's existence and oneness",
+            "right": "Belief in Allah"
+          },
+          {
+            "left": "Life after death",
+            "right": "Belief in the Hereafter"
+          },
+          {
+            "left": "The messengers of divine guidance",
+            "right": "Belief in the prophets"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "Matching the six articles of faith 2"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-014": {
+      "source": {
+        "question_tr": "İmanın altı esasından biri de meleklerin varlığına inanmaktır.",
+        "explanation_tr": "Meleklere iman, inanç esaslarının ikincisi olarak sayılır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in the existence of angels is one of the six articles of faith.",
+        "explanation_tr": "Belief in angels is listed as the second article of faith.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet the Six Articles",
+        "topic": "General review"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-001": {
+      "source": {
+        "question_tr": "Ölümden sonra yeni bir hayatın başlayacağına ve hesap gününe inanmak, hangi iman esasıdır?",
+        "explanation_tr": "Ölüm sonrası hayat ve hesap inancı, ahiret gününe iman kapsamındadır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which article of faith concerns belief in a new life after death and the Day of Reckoning?",
+        "explanation_tr": "Belief in life after death and the reckoning falls under belief in the Last Day.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the Last Day",
+          "Belief in angels",
+          "Belief in the books",
+          "Belief in divine decree"
+        ],
+        "correct_answer": "Belief in the Last Day",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Defining belief in the Hereafter"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-002": {
+      "source": {
+        "question_tr": "Allah'ın yarattığı meleklerin varlığını kabul etmek 'Peygamberlere iman' başlığına girer.",
+        "explanation_tr": "Meleklerin varlığını kabul etmek, 'Meleklere iman' başlığının konusudur.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Accepting the existence of the angels created by Allah belongs under 'belief in the prophets'.",
+        "explanation_tr": "Accepting the existence of angels belongs under 'belief in angels'.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Defining belief in angels"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-003": {
+      "source": {
+        "question_tr": "İman esaslarını temel tanımlarıyla eşleştirin.",
+        "explanation_tr": "Peygamberler, ilahi kitaplar ve kader-kaza farklı iman esaslarıyla ilişkilidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'ın insanlara peygamberler göndermesi",
+            "right": "Peygamberlere iman"
+          },
+          {
+            "left": "Allah'ın peygamberlere vahiy yoluyla kitaplar göndermesi",
+            "right": "Kitaplara iman"
+          },
+          {
+            "left": "Olayların Allah'ın bilgisi ve takdiriyle ilişkili olması",
+            "right": "Kader ve kazaya iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match each article of faith to its basic definition.",
+        "explanation_tr": "Prophets, divine books, and divine decree and its fulfilment relate to different articles of faith.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah sends prophets to humanity",
+            "right": "Belief in the prophets"
+          },
+          {
+            "left": "Allah reveals books to the prophets",
+            "right": "Belief in the books"
+          },
+          {
+            "left": "Events are connected to Allah's knowledge and decree",
+            "right": "Belief in divine decree and its fulfilment"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Meanings of the articles of faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-004": {
+      "source": {
+        "question_tr": "Allah'ın vahyini insanlara tebliğ etmek üzere seçtiği elçilere inanmaya ______ iman denir.",
+        "explanation_tr": "Allah'ın vahyini tebliğ etmek üzere seçtiği elçilere iman, peygamberlere iman başlığıdır.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Peygamberlere",
+          "Meleklere",
+          "Kitaplara",
+          "Kadere"
+        ],
+        "correct_answer": "Peygamberlere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in the messengers whom Allah chose to convey His revelation to humanity is called belief in ______.",
+        "explanation_tr": "Belief in the messengers whom Allah chose to convey His revelation belongs under belief in the prophets.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "the prophets",
+          "angels",
+          "the books",
+          "divine decree"
+        ],
+        "correct_answer": "the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Belief in the prophets"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-005": {
+      "source": {
+        "question_tr": "Bir açıklamada Allah'ın peygamberlere vahiy yoluyla ilahi kitaplar gönderdiği anlatılıyor. Açıklamanın ait olduğu iman başlığı hangisidir?",
+        "explanation_tr": "Bu açıklama ilahi kitaplarla ilgili olduğu için Kitaplara iman başlığına aittir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman",
+          "Ahirete iman",
+          "Kader ve kazaya iman",
+          "Meleklere iman"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "An explanation describes Allah revealing divine books to the prophets. Which article of faith does this explanation concern?",
+        "explanation_tr": "Because this explanation concerns divine books, it belongs under belief in the books.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the books",
+          "Belief in the Hereafter",
+          "Belief in divine decree and its fulfilment",
+          "Belief in angels"
+        ],
+        "correct_answer": "Belief in the books",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Defining belief in the books"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-006": {
+      "source": {
+        "question_tr": "Olayların Allah'ın bilgisi ve takdiriyle ilişkili olduğuna iman, ______ ve kazaya iman başlığıyla ifade edilir.",
+        "explanation_tr": "Bu başlangıç düzeyindeki kavram 'Kader ve kazaya iman' olarak adlandırılır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kader",
+          "ahiret",
+          "melek",
+          "kitap"
+        ],
+        "correct_answer": "kader",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief that events are connected to Allah's knowledge and decree is expressed as belief in ______ and its fulfilment.",
+        "explanation_tr": "At this introductory level, this concept is called belief in divine decree and its fulfilment.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "divine decree",
+          "the Hereafter",
+          "angels",
+          "the books"
+        ],
+        "correct_answer": "divine decree",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Defining belief in divine decree"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-007": {
+      "source": {
+        "question_tr": "Kavramları doğru açıklamalarıyla eşleştirin.",
+        "explanation_tr": "Kavramların doğru anlamlarını bilmek, imanın temellerini anlamayı kolaylaştırır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'ın birliği",
+            "right": "Allah'a iman"
+          },
+          {
+            "left": "Ölümden sonra hayat ve hesap",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "Allah'ın yarattığı meleklerin varlığı",
+            "right": "Meleklere iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match the concepts to their correct explanations.",
+        "explanation_tr": "Knowing the correct meanings of these concepts helps us understand the foundations of faith.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah's oneness",
+            "right": "Belief in Allah"
+          },
+          {
+            "left": "Life and reckoning after death",
+            "right": "Belief in the Hereafter"
+          },
+          {
+            "left": "The existence of angels created by Allah",
+            "right": "Belief in angels"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Matching articles of faith 3"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-008": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman, İslam'ın beş şartından biridir.",
+        "explanation_tr": "Kader ve kazaya iman, İslam'ın beş şartından değil imanın esaslarından biridir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in divine decree and its fulfilment is one of the five pillars of Islam.",
+        "explanation_tr": "Belief in divine decree and its fulfilment is an article of faith, rather than one of the five pillars of Islam.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "A feature of belief in divine decree"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-009": {
+      "source": {
+        "question_tr": "Esasları, neye inanıldığı ile eşleştirin.",
+        "explanation_tr": "İman esasları farklı varlık ve kavramlara yönelik inançları içerir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İlahi kitaplar",
+            "right": "Kitaplara iman"
+          },
+          {
+            "left": "Allah'ın bilgisi ve takdiriyle ilişkili oluş",
+            "right": "Kader ve kazaya iman"
+          },
+          {
+            "left": "Allah'ın gönderdiği peygamberler",
+            "right": "Peygamberlere iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match each article to what is believed in.",
+        "explanation_tr": "The articles of faith include beliefs concerning different beings and concepts.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "The divine books",
+            "right": "Belief in the books"
+          },
+          {
+            "left": "Connection to Allah's knowledge and decree",
+            "right": "Belief in divine decree and its fulfilment"
+          },
+          {
+            "left": "The prophets sent by Allah",
+            "right": "Belief in the prophets"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Matching articles of faith 4"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-010": {
+      "source": {
+        "question_tr": "Allah'ın insanlara rehberlik için peygamberler gönderdiğine inanmak hangi esastır?",
+        "explanation_tr": "Bu başlık, peygamberlere iman esasıyla ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Kitaplara iman",
+          "Meleklere iman",
+          "Ahirete iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which article concerns belief that Allah sends prophets to guide humanity?",
+        "explanation_tr": "This subject relates to the article of belief in the prophets.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the prophets",
+          "Belief in the books",
+          "Belief in angels",
+          "Belief in the Hereafter"
+        ],
+        "correct_answer": "Belief in the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Belief in the prophets"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-011": {
+      "source": {
+        "question_tr": "Üç açıklamayı ait oldukları temel başlıklarla eşleştirin.",
+        "explanation_tr": "İmanın her bir esası, İslam inancının bir parçasını oluşturur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Yeniden diriliş",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "Allah'ın vahyi",
+            "right": "Kitaplara iman"
+          },
+          {
+            "left": "Namaz",
+            "right": "İslam'ın şartı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match the three descriptions to their main categories.",
+        "explanation_tr": "Each article of faith forms a part of Islamic belief.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Resurrection",
+            "right": "Belief in the Hereafter"
+          },
+          {
+            "left": "Allah's revelation",
+            "right": "Belief in the books"
+          },
+          {
+            "left": "Prayer",
+            "right": "A pillar of Islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Matching articles of faith 5"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-012": {
+      "source": {
+        "question_tr": "Allah'ın yarattığı meleklerin varlığını kabul etmeye ______ iman denir.",
+        "explanation_tr": "Meleklerin varlığına iman, imanın altı esasından biridir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Meleklere",
+          "Peygamberlere",
+          "Kitaplara",
+          "Ahirete"
+        ],
+        "correct_answer": "Meleklere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Accepting the existence of the angels created by Allah is called belief in ______.",
+        "explanation_tr": "Belief in the existence of angels is one of the six articles of faith.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "angels",
+          "the prophets",
+          "the books",
+          "the Hereafter"
+        ],
+        "correct_answer": "angels",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Belief in angels"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-013": {
+      "source": {
+        "question_tr": "Dünya hayatının geçici olduğuna, asıl sonsuz hayatın ölümden sonra başlayacağına inanç, ______ gününe imandır.",
+        "explanation_tr": "Ahiret, ölümden sonraki sonsuz hayattır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Ahiret",
+          "Kıyamet",
+          "Kader",
+          "Dünya"
+        ],
+        "correct_answer": "Ahiret",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief that worldly life is temporary and that everlasting life begins after death is belief in the ______.",
+        "explanation_tr": "The Hereafter is the everlasting life after death.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Hereafter",
+          "Day of Resurrection",
+          "divine decree",
+          "world"
+        ],
+        "correct_answer": "Hereafter",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Emphasising belief in the Hereafter"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S03-014": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi 'Peygamberlere iman' ile 'Kitaplara iman' arasındaki temel farkı ifade eder?",
+        "explanation_tr": "Peygamberler elçidir, kitaplar ise onlara verilen ilahi mesajlardır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Biri Allah'ın seçtiği elçilere, diğeri o elçilere indirilen vahiylere inanmaktır.",
+          "Biri meleklerle, diğeri insanlarla ilgilidir.",
+          "Biri ölümden sonra, diğeri dünyada gerçekleşir.",
+          "İkisi arasında hiçbir fark yoktur."
+        ],
+        "correct_answer": "Biri Allah'ın seçtiği elçilere, diğeri o elçilere indirilen vahiylere inanmaktır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which statement describes the main difference between belief in the prophets and belief in the books?",
+        "explanation_tr": "The prophets are messengers, while the books are the divine messages given to them.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "One is belief in the messengers chosen by Allah; the other is belief in the revelations sent to those messengers.",
+          "One concerns angels and the other concerns humans.",
+          "One takes place after death and the other in this world.",
+          "There is no difference between them."
+        ],
+        "correct_answer": "One is belief in the messengers chosen by Allah; the other is belief in the revelations sent to those messengers.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguish the Concepts",
+        "topic": "Review: distinguishing concepts"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-001": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın şartlarından biri olup, imanın esaslarından değildir?",
+        "explanation_tr": "Namaz kılmak pratik bir ibadet olarak İslam'ın şartlarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz kılmak",
+          "Meleklere iman",
+          "Ahirete iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which is a pillar of Islam, rather than an article of faith?",
+        "explanation_tr": "Performing prayer is a practical act of worship and a pillar of Islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Performing prayer",
+          "Belief in angels",
+          "Belief in the Hereafter",
+          "Belief in divine decree"
+        ],
+        "correct_answer": "Performing prayer",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Prayer and angels"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-002": {
+      "source": {
+        "question_tr": "Oruç tutmak, İslam'ın şartları kategorisindedir.",
+        "explanation_tr": "Oruç, İslam'ın beş şartından biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasting belongs to the category of the pillars of Islam.",
+        "explanation_tr": "Fasting is one of the five pillars of Islam.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Classification"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-003": {
+      "source": {
+        "question_tr": "İfadeleri doğru sınıflandırmayla eşleştirin.",
+        "explanation_tr": "İnanç esasları (kalple tasdik) ile ibadetler (beden ve malla yapılan) birbirinden ayrılır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hacca gitmek",
+            "right": "İslam'ın Şartı"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın Esası"
+          },
+          {
+            "left": "Zekât vermek",
+            "right": "İslam'ın Şartı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match each entry to its correct classification.",
+        "explanation_tr": "Articles of faith, affirmed in the heart, are distinguished from acts of worship performed through the body and wealth.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Performing Hajj",
+            "right": "A pillar of Islam"
+          },
+          {
+            "left": "Belief in the Hereafter",
+            "right": "An article of faith"
+          },
+          {
+            "left": "Giving zakat",
+            "right": "A pillar of Islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Category matching"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-004": {
+      "source": {
+        "question_tr": "Bir listede 'Meleklere iman' doğru biçimde yer alıyor. Aynı listeye eklenen 'Namaz kılmak' ise imanın esası değil, İslam'ın ______ olarak sınıflandırılmalıdır.",
+        "explanation_tr": "Namaz, imanın esaslarından değil İslam'ın beş şartından biridir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "şartı",
+          "iman esası",
+          "kitabı",
+          "peygamberi"
+        ],
+        "correct_answer": "şartı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A list correctly includes 'belief in angels'. 'Performing prayer', added to the same list, should be classified as a ______ of Islam, rather than an article of faith.",
+        "explanation_tr": "Prayer is one of the five pillars of Islam, rather than an article of faith.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "pillar",
+          "article of faith",
+          "book",
+          "prophet"
+        ],
+        "correct_answer": "pillar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "A learner's mistake"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-005": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İmanın Esasları kategorisindedir?",
+        "explanation_tr": "Diğer üç seçenek İslam'ın (ibadet) şartlarıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman",
+          "Hacca gitmek",
+          "Namaz kılmak",
+          "Oruç tutmak"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which belongs to the articles of faith?",
+        "explanation_tr": "The other three options are pillars of Islam involving worship.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the books",
+          "Performing Hajj",
+          "Performing prayer",
+          "Fasting"
+        ],
+        "correct_answer": "Belief in the books",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Hajj and the books"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-006": {
+      "source": {
+        "question_tr": "Ali, din kültürü dersinde 'Kalpten inandığımız temel esaslar' sütununa 'Zekât vermek' yazmıştır. Öğretmeni bunun yanlış olduğunu söylüyor. Sizce 'Zekât vermek' hangi sütuna yazılmalıydı?",
+        "explanation_tr": "Zekât vermek, kalpten inancın yanında fiziki/mali bir ibadet olup İslam'ın şartıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İslam'ın Şartları (İbadetler)",
+          "İmanın Esasları (İnanç)",
+          "İhlâs",
+          "Kader"
+        ],
+        "correct_answer": "İslam'ın Şartları (İbadetler)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In religious studies, Ali writes 'giving zakat' under 'main principles we believe in the heart'. His teacher says this is wrong. Which column should 'giving zakat' be in?",
+        "explanation_tr": "Alongside belief in the heart, giving zakat is a physical or financial act of worship and a pillar of Islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "The pillars of Islam (worship)",
+          "The articles of faith (belief)",
+          "Sincerity",
+          "Divine decree"
+        ],
+        "correct_answer": "The pillars of Islam (worship)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Scenario: classification"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-007": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın Şartları grubuna ait değildir?",
+        "explanation_tr": "Peygamberlere iman, İslam'ın şartı değil İmanın esasıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Zekât vermek",
+          "Kelime-i Şehadet getirmek",
+          "Namaz kılmak"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which does not belong to the pillars of Islam?",
+        "explanation_tr": "Belief in the prophets is an article of faith, rather than a pillar of Islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the prophets",
+          "Giving zakat",
+          "Reciting the Shahada",
+          "Performing prayer"
+        ],
+        "correct_answer": "Belief in the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "A shared category"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-008": {
+      "source": {
+        "question_tr": "Tabloda bir hata var:\n1. Allah'a iman (İman esası)\n2. Kadere iman (İman esası)\n3. Oruç tutmak (İman esası)\nHatalı olan numara hangisidir?",
+        "explanation_tr": "Oruç tutmak imanın esası değil, İslam'ın şartıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "3. Oruç tutmak (İman esası)",
+          "1. Allah'a iman (İman esası)",
+          "2. Kadere iman (İman esası)",
+          "Tabloda hata yoktur."
+        ],
+        "correct_answer": "3. Oruç tutmak (İman esası)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "There is a mistake in this table:\n1. Belief in Allah (article of faith)\n2. Belief in divine decree (article of faith)\n3. Fasting (article of faith)\nWhich numbered entry is incorrect?",
+        "explanation_tr": "Fasting is a pillar of Islam, rather than an article of faith.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "3. Fasting (article of faith)",
+          "1. Belief in Allah (article of faith)",
+          "2. Belief in divine decree (article of faith)",
+          "There is no mistake in the table."
+        ],
+        "correct_answer": "3. Fasting (article of faith)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Finding the mistake 2"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-009": {
+      "source": {
+        "question_tr": "İlgili alanları eşleştirin.",
+        "explanation_tr": "İslam'ın şartları ameli, imanın şartları itikadi (inanç) konularıdır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Meleklere iman",
+            "right": "İmanın Esası"
+          },
+          {
+            "left": "Oruç tutmak",
+            "right": "İslam'ın Şartı"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın Esası"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match the related categories.",
+        "explanation_tr": "The pillars of Islam concern practice, while the articles of faith concern belief.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Belief in angels",
+            "right": "An article of faith"
+          },
+          {
+            "left": "Fasting",
+            "right": "A pillar of Islam"
+          },
+          {
+            "left": "Belief in the Hereafter",
+            "right": "An article of faith"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Matching"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-010": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet, İslam'ın beş ______ arasında yer alır.",
+        "explanation_tr": "Kelime-i Şehadet, İslam'ın beş şartından biridir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "şartı",
+          "iman esası",
+          "ahlak kuralı",
+          "tarih konusu"
+        ],
+        "correct_answer": "şartı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "The Shahada is one of the five ______ of Islam.",
+        "explanation_tr": "The Shahada is one of the five pillars of Islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "pillars",
+          "articles of faith",
+          "moral rules",
+          "historical topics"
+        ],
+        "correct_answer": "pillars",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Distinguishing categories"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-011": {
+      "source": {
+        "question_tr": "Pano hazırlayan Ayşe, 'İslam'ın Şartları' başlığı altına şunları yazdı:\n- Namaz kılmak\n- Oruç tutmak\n- Peygamberlere iman\n- Zekât vermek\nAyşe'nin tablosunda hangi madde yanlıştır?",
+        "explanation_tr": "Peygamberlere iman, İslam'ın şartı değil imanın esasıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Namaz kılmak",
+          "Oruç tutmak",
+          "Zekât vermek"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Aisha prepares a display headed 'The pillars of Islam' and writes:\n- Performing prayer\n- Fasting\n- Belief in the prophets\n- Giving zakat\nWhich entry is incorrect?",
+        "explanation_tr": "Belief in the prophets is an article of faith, rather than a pillar of Islam.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Belief in the prophets",
+          "Performing prayer",
+          "Fasting",
+          "Giving zakat"
+        ],
+        "correct_answer": "Belief in the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Finding the mistake 3"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-012": {
+      "source": {
+        "question_tr": "Kitaplara iman, imanın esasları kategorisindedir.",
+        "explanation_tr": "Kitaplara iman, imanın altı esasından biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in the books belongs to the category of the articles of faith.",
+        "explanation_tr": "Belief in the books is one of the six articles of faith.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Category difference"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-013": {
+      "source": {
+        "question_tr": "Eylemleri/İnançları kategorileriyle eşleştirin.",
+        "explanation_tr": "Temel inançlar iman, ibadetler İslam'ın şartlarındandır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Namaz kılmak",
+            "right": "İslam'ın Şartı"
+          },
+          {
+            "left": "Allah'a iman",
+            "right": "İmanın Esası"
+          },
+          {
+            "left": "Kadere iman",
+            "right": "İmanın Esası"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match each action or belief to its category.",
+        "explanation_tr": "Fundamental beliefs belong to faith, while acts of worship belong to the pillars of Islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Performing prayer",
+            "right": "A pillar of Islam"
+          },
+          {
+            "left": "Belief in Allah",
+            "right": "An article of faith"
+          },
+          {
+            "left": "Belief in divine decree",
+            "right": "An article of faith"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Classification matching"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-014": {
+      "source": {
+        "question_tr": "İslam'ın şartları ile imanın esasları eşleştirmelerinden hangisi yanlıştır?",
+        "explanation_tr": "Zekât vermek İslam'ın şartıdır, imanın esası değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek - İmanın Esası",
+          "Ahirete iman - İmanın Esası",
+          "Hacca gitmek - İslam'ın Şartı",
+          "Meleklere iman - İmanın Esası"
+        ],
+        "correct_answer": "Zekât vermek - İmanın Esası",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which match between the pillars of Islam and the articles of faith is incorrect?",
+        "explanation_tr": "Giving zakat is a pillar of Islam, rather than an article of faith.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Giving zakat - An article of faith",
+          "Belief in the Hereafter - An article of faith",
+          "Performing Hajj - A pillar of Islam",
+          "Belief in angels - An article of faith"
+        ],
+        "correct_answer": "Giving zakat - An article of faith",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Classification review"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-015": {
+      "source": {
+        "question_tr": "Ömer dedesine sorar: 'Dede, Ramazan ayında tuttuğumuz oruç imanın esası mıdır?' Dedesi ne cevap vermelidir?",
+        "explanation_tr": "Oruç bedeni bir ibadet olup İslam'ın beş şartından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır, oruç tutmak İslam'ın şartlarından biridir.",
+          "Evet, imanın altı esasından biridir.",
+          "Oruç hem imanın esası hem İslam'ın şartıdır.",
+          "Oruç inançla ilgilidir, ibadet değildir."
+        ],
+        "correct_answer": "Hayır, oruç tutmak İslam'ın şartlarından biridir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Omar asks his grandfather, 'Is the fasting we observe during Ramadan an article of faith?' How should his grandfather answer?",
+        "explanation_tr": "Fasting is bodily worship and one of the five pillars of Islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "No, fasting is a pillar of Islam.",
+          "Yes, it is one of the six articles of faith.",
+          "Fasting is both an article of faith and a pillar of Islam.",
+          "Fasting is a belief, rather than an act of worship."
+        ],
+        "correct_answer": "No, fasting is a pillar of Islam.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Scenario analysis"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-016": {
+      "source": {
+        "question_tr": "Hangi seçenekteki her iki ifade de 'İmanın Esasları'ndandır?",
+        "explanation_tr": "Diğer seçeneklerde en az bir tane İslam'ın şartı bulunmaktadır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman - Kadere iman",
+          "Namaz kılmak - Ahirete iman",
+          "Oruç tutmak - Zekât vermek",
+          "Meleklere iman - Hacca gitmek"
+        ],
+        "correct_answer": "Kitaplara iman - Kadere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In which option are both entries articles of faith?",
+        "explanation_tr": "The other options contain at least one pillar of Islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the books - Belief in divine decree",
+          "Performing prayer - Belief in the Hereafter",
+          "Fasting - Giving zakat",
+          "Belief in angels - Performing Hajj"
+        ],
+        "correct_answer": "Belief in the books - Belief in divine decree",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Pillar or Article of Faith?",
+        "topic": "Mixed list"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-001": {
+      "source": {
+        "question_tr": "Bir kişi 'Dünyadaki amellerimizin hesabı ve karşılığı ahiret hayatıyla ilişkilidir' diyorsa hangi iman esasına vurgu yapmaktadır?",
+        "explanation_tr": "Ölüm sonrası diriliş, hesap ve karşılık ahiret inancı kapsamında ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Peygamberlere iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Someone says, 'The reckoning and recompense for our deeds in this world relate to life in the Hereafter.' Which article of faith are they emphasising?",
+        "explanation_tr": "Resurrection after death, reckoning and recompense are considered within belief in the Hereafter.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the Last Day",
+          "Belief in angels",
+          "Belief in the books",
+          "Belief in the prophets"
+        ],
+        "correct_answer": "Belief in the Last Day",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Life after death"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-002": {
+      "source": {
+        "question_tr": "Ahmet, 'Allah insanlara doğru yolu göstermek için peygamberlerine ilahî kitaplar indirmiştir' diyor. Bu düşünce öncelikle hangi iman esasıyla ilgilidir?",
+        "explanation_tr": "Allah'ın peygamberlerine indirdiği ilahî kitaplara iman, kitaplara iman başlığıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kitaplara iman",
+          "Kadere iman",
+          "Ahirete iman",
+          "Zekât"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ahmet says, 'Allah revealed divine books to His prophets to guide people to the right path.' Which article of faith does this mainly concern?",
+        "explanation_tr": "Belief in the divine books revealed by Allah to His prophets belongs under belief in the books.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the books",
+          "Belief in divine decree",
+          "Belief in the Hereafter",
+          "Zakat"
+        ],
+        "correct_answer": "Belief in the books",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Revelation and the books"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-003": {
+      "source": {
+        "question_tr": "Zeynep, 'Allah insanlara rehberlik için peygamberler göndermiştir' diyor. Bu ifade hangi iman esasıyla ilişkilidir?",
+        "explanation_tr": "Allah'ın insanlara peygamberler gönderdiğine iman, imanın esaslarından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Kitaplara iman",
+          "Meleklere iman",
+          "Ahiret gününe iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zeynep says, 'Allah sent prophets to guide humanity.' Which article of faith does this relate to?",
+        "explanation_tr": "Belief that Allah sent prophets to humanity is an article of faith.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the prophets",
+          "Belief in the books",
+          "Belief in angels",
+          "Belief in the Last Day"
+        ],
+        "correct_answer": "Belief in the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Messengers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-004": {
+      "source": {
+        "question_tr": "'Olayların Allah'ın bilgisi ve takdiriyle ilişkili olduğuna inanıyorum' diyen biri hangi iman esasından söz etmektedir?",
+        "explanation_tr": "Bu ifade kader ve kazaya iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kader ve kazaya iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Peygamberlere iman"
+        ],
+        "correct_answer": "Kader ve kazaya iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Someone says, 'I believe that events are connected to Allah's knowledge and decree.' Which article of faith are they describing?",
+        "explanation_tr": "This statement relates to belief in divine decree and its fulfilment.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in divine decree and its fulfilment",
+          "Belief in angels",
+          "Belief in the books",
+          "Belief in the prophets"
+        ],
+        "correct_answer": "Belief in divine decree and its fulfilment",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Allah's knowledge"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-005": {
+      "source": {
+        "question_tr": "Meleklere iman, imanın altı esasından biridir.",
+        "explanation_tr": "Allah'ın yarattığı meleklerin varlığına iman, imanın esaslarından biridir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in angels is one of the six articles of faith.",
+        "explanation_tr": "Belief in the existence of the angels created by Allah is an article of faith.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Angels"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-006": {
+      "source": {
+        "question_tr": "Bir öğrenci 'ölümden sonra hayat ve hesap' kavramını 'Meleklere iman' başlığına yazıyor. Hatası nedir?",
+        "explanation_tr": "Ölümden sonra hayat ve hesap, başlangıç düzeyinde ahiret gününe iman başlığı altında ele alınır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bu kavram Ahiret gününe iman başlığıyla ilişkilidir.",
+          "Bu kavram yalnızca Kitaplara imanla ilgilidir.",
+          "Bu kavram İslam'ın beş şartıdır.",
+          "Sınıflandırmada hata yoktur."
+        ],
+        "correct_answer": "Bu kavram Ahiret gününe iman başlığıyla ilişkilidir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A learner places 'life and reckoning after death' under 'belief in angels'. What is the mistake?",
+        "explanation_tr": "At an introductory level, life and reckoning after death are considered under belief in the Last Day.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "This concept relates to belief in the Last Day.",
+          "This concept relates only to belief in the books.",
+          "This concept is the five pillars of Islam.",
+          "There is no classification mistake."
+        ],
+        "correct_answer": "This concept relates to belief in the Last Day.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Incorrect context"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-007": {
+      "source": {
+        "question_tr": "'Allah'ın vahyini insanlara tebliğ etmek üzere seçilmiş insanlar' tanımını duyan biri, 'Bu, Kitaplara imandır' diyor. Bu kişinin hatası nedir?",
+        "explanation_tr": "Vahyi tebliğ etmek üzere seçilen elçiler peygamberlerdir; bu tanım peygamberlere imanla ilgilidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bu tanım Kitaplara değil, Peygamberlere imanı açıklar.",
+          "Bu tanım Meleklere imanı açıklar.",
+          "Bu tanım Ahirete imanı açıklar.",
+          "Seçilmiş insanlar kelimesi yanlış."
+        ],
+        "correct_answer": "Bu tanım Kitaplara değil, Peygamberlere imanı açıklar.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Someone hears the definition 'people chosen to convey Allah's revelation to humanity' and says, 'This is belief in the books.' What is the mistake?",
+        "explanation_tr": "The messengers chosen to convey revelation are prophets. This definition relates to belief in the prophets.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "This definition explains belief in the prophets, rather than belief in the books.",
+          "This definition explains belief in angels.",
+          "This definition explains belief in the Hereafter.",
+          "The words 'chosen people' are wrong."
+        ],
+        "correct_answer": "This definition explains belief in the prophets, rather than belief in the books.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Finding the mistake 4"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-008": {
+      "source": {
+        "question_tr": "Bir ders kartında 'ölümden sonra hayatın devam etmesi' ifadesi yer alıyor. Bu kart hangi iman esasıyla ilişkilidir?",
+        "explanation_tr": "Ölümden sonra hayat, ahiret gününe iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Kader ve kazaya iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A lesson card says 'the continuation of life after death'. Which article of faith does this card relate to?",
+        "explanation_tr": "Life after death relates to belief in the Last Day.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the Last Day",
+          "Belief in angels",
+          "Belief in the books",
+          "Belief in divine decree and its fulfilment"
+        ],
+        "correct_answer": "Belief in the Last Day",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Recognising a scenario"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-009": {
+      "source": {
+        "question_tr": "Bir öğrenci, Allah'ın peygamberlere vahiy yoluyla ilahi kitaplar gönderdiğini öğreniyor. Bu bilgi hangi iman esasıyla ilişkilidir?",
+        "explanation_tr": "Allah'ın peygamberlere vahiy yoluyla gönderdiği ilahi kitaplara iman, imanın esaslarından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kitaplara iman",
+          "Meleklere iman",
+          "Ahiret gününe iman",
+          "Kader ve kazaya iman"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A learner discovers that Allah revealed divine books to the prophets. Which article of faith does this information relate to?",
+        "explanation_tr": "Belief in the divine books Allah revealed to the prophets is an article of faith.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the books",
+          "Belief in angels",
+          "Belief in the Last Day",
+          "Belief in divine decree and its fulfilment"
+        ],
+        "correct_answer": "Belief in the books",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Recognising a scenario 2"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-010": {
+      "source": {
+        "question_tr": "Müslümanlar imanın esaslarını hangi şekilde kabul etmelidir?",
+        "explanation_tr": "İmanın altı esası birbirini tamamlar ve hepsi birlikte kalpten onaylanmalıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hepsini bir bütün olarak eksiksiz kabul etmelidir.",
+          "Sadece içlerinden birkaçını seçebilir.",
+          "Sadece namaz kılana inanmak yeterlidir.",
+          "İman esasları kişiye göre değişebilir."
+        ],
+        "correct_answer": "Hepsini bir bütün olarak eksiksiz kabul etmelidir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "How should Muslims accept the articles of faith?",
+        "explanation_tr": "The six articles of faith complement one another and should all be affirmed together in the heart.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "They should accept all of them completely as a whole.",
+          "They may choose only a few of them.",
+          "Believing only in someone who performs prayer is enough.",
+          "The articles of faith may differ from person to person."
+        ],
+        "correct_answer": "They should accept all of them completely as a whole.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "General question"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-011": {
+      "source": {
+        "question_tr": "Bir kavram kartında 'Allah'ın yarattığı meleklerin varlığı' yazıyor. Kartın başlığı ______ iman olmalıdır.",
+        "explanation_tr": "Meleklerin varlığına iman, 'Meleklere iman' başlığı altında ele alınır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Meleklere",
+          "Peygamberlere",
+          "Kitaplara",
+          "Ahirete"
+        ],
+        "correct_answer": "Meleklere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A concept card says 'the existence of the angels created by Allah'. Its heading should be 'belief in ______'.",
+        "explanation_tr": "Belief in the existence of angels is considered under belief in angels.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "angels",
+          "the prophets",
+          "the books",
+          "the Hereafter"
+        ],
+        "correct_answer": "angels",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Finding the mistake 5"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-012": {
+      "source": {
+        "question_tr": "Bir ders kartında 'olayların Allah'ın bilgisi ve takdiriyle ilişkili olduğuna iman' ifadesi yer alıyor. Bu kart hangi iman esasını anlatmaktadır?",
+        "explanation_tr": "Bu tanım, başlangıç düzeyinde kader ve kazaya iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kader ve kazaya iman",
+          "Ahiret gününe iman",
+          "Meleklere iman",
+          "Kitaplara iman"
+        ],
+        "correct_answer": "Kader ve kazaya iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A lesson card says 'belief that events are connected to Allah's knowledge and decree'. Which article of faith does it describe?",
+        "explanation_tr": "At an introductory level, this definition relates to belief in divine decree and its fulfilment.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in divine decree and its fulfilment",
+          "Belief in the Last Day",
+          "Belief in angels",
+          "Belief in the books"
+        ],
+        "correct_answer": "Belief in divine decree and its fulfilment",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Scenario"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-013": {
+      "source": {
+        "question_tr": "Bir kişi Allah'ın birliğine inandığını söylüyor, fakat Allah'ın elçiler göndermediğini savunuyor. Bu görüş imanın hangi esasıyla çelişir?",
+        "explanation_tr": "Allah'ın elçiler gönderdiğini reddeden bu görüş, peygamberlere iman esasıyla çelişir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Ahirete iman",
+          "Meleklere iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Someone says they believe in Allah's oneness but argues that Allah did not send messengers. Which article of faith does this view contradict?",
+        "explanation_tr": "Denying that Allah sent messengers contradicts the article of belief in the prophets.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the prophets",
+          "Belief in the Hereafter",
+          "Belief in angels",
+          "Belief in divine decree"
+        ],
+        "correct_answer": "Belief in the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Generalising concepts"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-014": {
+      "source": {
+        "question_tr": "Bir derste 'Allah'ın insanlara peygamberler göndermesi ve onlara vahiy iletmesi' anlatılıyor. Bu anlatım en doğrudan hangi iki iman başlığıyla ilişkilidir?",
+        "explanation_tr": "Peygamberler ve onlara vahyedilen ilahi mesajlar, peygamberlere ve kitaplara iman başlıklarıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberlere iman / Kitaplara iman",
+          "Meleklere iman / Ahirete iman",
+          "Kader ve kazaya iman / Ahirete iman",
+          "Allah'a iman / Hac"
+        ],
+        "correct_answer": "Peygamberlere iman / Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A lesson describes 'Allah sending prophets to humanity and conveying revelation to them'. Which two articles of faith does this most directly relate to?",
+        "explanation_tr": "The prophets and the divine messages revealed to them relate to belief in the prophets and the books.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the prophets / Belief in the books",
+          "Belief in angels / Belief in the Hereafter",
+          "Belief in divine decree and its fulfilment / Belief in the Hereafter",
+          "Belief in Allah / Hajj"
+        ],
+        "correct_answer": "Belief in the prophets / Belief in the books",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Multiple-choice scenario"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-015": {
+      "source": {
+        "question_tr": "Kıyamet koptuktan sonra insanların yeniden diriltilmesi inancı aşağıdakilerden hangisiyle ilgilidir?",
+        "explanation_tr": "Kıyamet ve yeniden diriliş (ba's), ahiret inancının konularıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Kitaplara iman",
+          "Kadere iman",
+          "Meleklere iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which article concerns belief that people will be resurrected after the end of the world?",
+        "explanation_tr": "The end of the world and resurrection (ba'th) are subjects of belief in the Hereafter.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the Last Day",
+          "Belief in the books",
+          "Belief in divine decree",
+          "Belief in angels"
+        ],
+        "correct_answer": "Belief in the Last Day",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Multiple-choice concept question"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-016": {
+      "source": {
+        "question_tr": "Elif, 'Allah insanları sahipsiz bırakmamış; onlara peygamberler göndermiş ve bu peygamberlere ilahî kitaplar/vahiy indirmiştir' diyor. Bu ifade en doğrudan hangi iki iman esasını birlikte hatırlatır?",
+        "explanation_tr": "Peygamberler ve onlara indirilen ilahî kitaplar, peygamberlere ve kitaplara iman başlıklarını birlikte işaret eder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberlere ve Kitaplara iman",
+          "Ahirete ve Kadere iman",
+          "Meleklere ve Ahirete iman",
+          "Sadece Allah'a iman"
+        ],
+        "correct_answer": "Peygamberlere ve Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Elif says, 'Allah did not leave people without guidance: He sent prophets and revealed divine books or revelation to them.' Which two articles of faith does this most directly recall together?",
+        "explanation_tr": "The prophets and the divine books revealed to them point together to belief in the prophets and the books.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the prophets and the books",
+          "Belief in the Hereafter and divine decree",
+          "Belief in angels and the Hereafter",
+          "Only belief in Allah"
+        ],
+        "correct_answer": "Belief in the prophets and the books",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Concepts in Daily Life",
+        "topic": "Scenario summary"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-001": {
+      "source": {
+        "question_tr": "Bir tabloda 'Namaz' ve 'Meleklere iman' aynı kategoriye (İslam'ın Şartları) yazılmış. Buradaki sorun nedir?",
+        "explanation_tr": "Namaz pratik bir ibadet (İslam'ın şartı), meleklere iman ise bir inanç (iman esası) konusudur.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Meleklere iman İslam'ın şartı değil, imanın esasıdır.",
+          "Namaz imanın esasıdır.",
+          "Meleklere iman diye bir şey yoktur.",
+          "Hiçbir sorun yoktur, tablo doğrudur."
+        ],
+        "correct_answer": "Meleklere iman İslam'ın şartı değil, imanın esasıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A table places 'prayer' and 'belief in angels' in the same category: the pillars of Islam. What is the problem?",
+        "explanation_tr": "Prayer is practical worship and a pillar of Islam, while belief in angels is a matter of belief and an article of faith.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in angels is an article of faith, rather than a pillar of Islam.",
+          "Prayer is an article of faith.",
+          "There is no such thing as belief in angels.",
+          "There is no problem; the table is correct."
+        ],
+        "correct_answer": "Belief in angels is an article of faith, rather than a pillar of Islam.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "U01-U05 review"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-002": {
+      "source": {
+        "question_tr": "Ali, Kelime-i Şehadet'in İslam'ın temel beyanı olduğunu ve iman esaslarından iki başlığı açıkça vurguladığını fark ediyor. Bu iki başlık hangileridir?",
+        "explanation_tr": "Kelime-i Şehadet tevhid beyanını ve Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği açıkça içerir; bu da Allah'a ve peygamberlere iman başlıklarıyla ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'a ve Peygamberlere iman",
+          "Meleklere ve Ahirete iman",
+          "Kitaplara ve Kadere iman",
+          "Kadere ve Meleklere iman"
+        ],
+        "correct_answer": "Allah'a ve Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ali notices that the Shahada is Islam's main declaration and explicitly emphasises two articles of faith. Which two are they?",
+        "explanation_tr": "The Shahada explicitly includes the declaration of tawhid and testimony that Muhammad is Allah's servant and messenger. This relates to belief in Allah and the prophets.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in Allah and the prophets",
+          "Belief in angels and the Hereafter",
+          "Belief in the books and divine decree",
+          "Belief in divine decree and angels"
+        ],
+        "correct_answer": "Belief in Allah and the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "The Shahada and faith"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-003": {
+      "source": {
+        "question_tr": "İslam'ın şartları 5 tanedir. Peki imanın esasları toplam kaç tanedir?",
+        "explanation_tr": "İslam'ın şartları 5, imanın esasları 6'dır.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "6",
+          "4",
+          "5",
+          "7"
+        ],
+        "correct_answer": "6",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "There are five pillars of Islam. How many articles of faith are there?",
+        "explanation_tr": "There are five pillars of Islam and six articles of faith.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "6",
+          "4",
+          "5",
+          "7"
+        ],
+        "correct_answer": "6",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "The number of pillars and articles"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-004": {
+      "source": {
+        "question_tr": "Bir kişi 'Tevhid, Allah'ın var ve bir olmasıdır ve bu durum İslam'ın 5 şartından biridir' diyor. Hata nerededir?",
+        "explanation_tr": "Tevhid Allah'ın birliğini ifade eder. İslam'ın beş şartı listesinde ayrı bir ibadet maddesi olarak sayılmaz; Kelime-i Şehadet'in ve Allah'a iman konusunun temel içeriğidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tevhid, İslam'ın beş şartı listesinde ayrı bir ibadet maddesi değildir; Allah'a iman ve Kelime-i Şehadet'in temel içeriğiyle ilgilidir.",
+          "Tevhid, sadece Ramazan'da geçerlidir.",
+          "Tevhid, Peygamberlere imanın diğer adıdır.",
+          "Cümlede hata yoktur."
+        ],
+        "correct_answer": "Tevhid, İslam'ın beş şartı listesinde ayrı bir ibadet maddesi değildir; Allah'a iman ve Kelime-i Şehadet'in temel içeriğiyle ilgilidir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Someone says, 'Tawhid means that Allah exists and is one, and it is one of the five pillars of Islam.' Where is the mistake?",
+        "explanation_tr": "Tawhid expresses Allah's oneness. It is not listed as a separate act of worship among the five pillars; it is the main content of the Shahada and belief in Allah.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tawhid is not a separate act of worship on the list of five pillars; it relates to belief in Allah and the main content of the Shahada.",
+          "Tawhid applies only during Ramadan.",
+          "Tawhid is another name for belief in the prophets.",
+          "There is no mistake."
+        ],
+        "correct_answer": "Tawhid is not a separate act of worship on the list of five pillars; it relates to belief in Allah and the main content of the Shahada.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "Finding the mistake"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-005": {
+      "source": {
+        "question_tr": "Ayşe oruç tutarken, iftar vaktinde, 'Allahım senin rızan için oruç tuttum ve bana verdiğin rızıkla orucumu açıyorum, ahirette de bizi sevindir' diye dua ediyor. Ayşe'nin bu eylemi ve duası hangi iki kavramı birleştirir?",
+        "explanation_tr": "Oruç tutması İslam'ın şartı, ahirete inancı ise imanın esasıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İslam'ın şartı (Oruç) ile İmanın esası (Ahirete iman)",
+          "İslam'ın şartı (Hac) ile İmanın esası (Meleklere iman)",
+          "Sadece İslam'ın şartlarını",
+          "Sadece İmanın esaslarını"
+        ],
+        "correct_answer": "İslam'ın şartı (Oruç) ile İmanın esası (Ahirete iman)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "When breaking her fast, Aisha supplicates, 'O Allah, I fasted to seek Your pleasure and break my fast with the provision You have given me. Grant us joy in the Hereafter too.' Which two concepts do her action and supplication combine?",
+        "explanation_tr": "Her fasting is a pillar of Islam, while her belief in the Hereafter is an article of faith.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "A pillar of Islam (fasting) and an article of faith (belief in the Hereafter)",
+          "A pillar of Islam (Hajj) and an article of faith (belief in angels)",
+          "Only the pillars of Islam",
+          "Only the articles of faith"
+        ],
+        "correct_answer": "A pillar of Islam (fasting) and an article of faith (belief in the Hereafter)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "Scenario review"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-006": {
+      "source": {
+        "question_tr": "İslam dinini benimseyen ve Allah'a teslimiyet bilinciyle bağlanan kişiye ne ad verilir?",
+        "explanation_tr": "İslam dinini benimseyen kişiye Müslüman denir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Müslüman",
+          "Melek",
+          "Peygamber",
+          "Alim"
+        ],
+        "correct_answer": "Müslüman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "What is a person who embraces Islam and commits to it with awareness of submission to Allah called?",
+        "explanation_tr": "A person who embraces Islam is called a Muslim.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "A Muslim",
+          "An angel",
+          "A prophet",
+          "A scholar"
+        ],
+        "correct_answer": "A Muslim",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "Main concepts"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-007": {
+      "source": {
+        "question_tr": "Bir kişi 'Hacca gitmek, imanın şartlarındandır' diyor. Bu cümledeki hata nedir?",
+        "explanation_tr": "Hac ibadeti, İslam'ın temel 5 şartından biridir, inanç esaslarından (imanın şartları) değildir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hacca gitmek imanın değil, İslam'ın şartlarındandır.",
+          "Hacca gitmek farz değildir.",
+          "İmanın şartlarında hacca gitmek vardır ancak namaz yoktur.",
+          "Bu cümlede hata yoktur."
+        ],
+        "correct_answer": "Hacca gitmek imanın değil, İslam'ın şartlarındandır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Someone says, 'Performing Hajj is an article of faith.' What is wrong with this sentence?",
+        "explanation_tr": "Hajj is one of the five main pillars of Islam, rather than a principle of belief or article of faith.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Performing Hajj is a pillar of Islam, rather than an article of faith.",
+          "Performing Hajj is not obligatory.",
+          "The articles of faith include performing Hajj but not prayer.",
+          "There is no mistake."
+        ],
+        "correct_answer": "Performing Hajj is a pillar of Islam, rather than an article of faith.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "Hajj and divine decree"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-008": {
+      "source": {
+        "question_tr": "Zekât yükümlülüğü doğan bir Müslümanın, malından dinen belirlenen payı hak sahiplerine vermesi İslam'ın şartlarından olan ______ ibadetidir.",
+        "explanation_tr": "Zekât, gerekli şartları taşıyan maldan dinen belirlenen payın Kur'an'da belirtilen hak sahiplerine verilmesiyle ilgili malî ibadettir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "zekât",
+          "oruç",
+          "namaz",
+          "iman"
+        ],
+        "correct_answer": "zekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "When zakat becomes obligatory for a Muslim, giving the religiously prescribed share of wealth to eligible recipients is the pillar of Islam called ______.",
+        "explanation_tr": "Zakat is worship involving wealth: when the necessary conditions are met, a religiously prescribed share is given to recipients specified in the Quran.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "zakat",
+          "fasting",
+          "prayer",
+          "faith"
+        ],
+        "correct_answer": "zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "The concept of zakat"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-009": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Allah'a iman' ile 'Ahiret gününe iman' başlıklarından yalnızca birini imanın esasları listesine yazıyor. Listede hangi kavramsal eksiklik vardır?",
+        "explanation_tr": "Allah'a iman ve ahiret gününe iman, imanın esasları içinde ayrı başlıklardır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret gününe iman da imanın esaslarındandır.",
+          "Ahiret gününe iman İslam'ın beş şartındandır.",
+          "Allah'a iman İslam'ın beş şartındandır.",
+          "Listede kavramsal eksiklik yoktur."
+        ],
+        "correct_answer": "Ahiret gününe iman da imanın esaslarındandır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A learner considers 'belief in Allah' and 'belief in the Last Day' but lists only one of them among the articles of faith. What is missing from the list?",
+        "explanation_tr": "Belief in Allah and belief in the Last Day are separate entries among the articles of faith.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the Last Day is also an article of faith.",
+          "Belief in the Last Day is one of the five pillars of Islam.",
+          "Belief in Allah is one of the five pillars of Islam.",
+          "Nothing is conceptually missing."
+        ],
+        "correct_answer": "Belief in the Last Day is also an article of faith.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "Scenario analysis"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-010": {
+      "source": {
+        "question_tr": "İslam'ın beş şartları ile imanın esasları arasındaki ilişkiyi en doğru anlatan seçenek hangisidir?",
+        "explanation_tr": "Cibrîl hadisi ve 'İslam beş esas üzerine kurulmuştur' hadisi, iman esasları ile İslam'ın beş temel esasını farklı fakat ilişkili başlıklar halinde öğretir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İmanın esasları temel inanç başlıklarını; İslam'ın beş şartı ise şehadet ile temel ibadetleri sınıflandıran ayrı ama ilişkili iki çerçevedir.",
+          "İkisi tamamen aynı listedir.",
+          "İmanın esasları yalnız davranışlardan, İslam'ın şartları yalnız düşüncelerden oluşur.",
+          "Sadece İslam'ın şartlarını kabul etmek iman esaslarının yerini tutar."
+        ],
+        "correct_answer": "İmanın esasları temel inanç başlıklarını; İslam'ın beş şartı ise şehadet ile temel ibadetleri sınıflandıran ayrı ama ilişkili iki çerçevedir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which option best describes the connection between the five pillars of Islam and the articles of faith?",
+        "explanation_tr": "The Hadith of Gabriel and the hadith stating that Islam is built on five foundations teach the articles of faith and the five main foundations of Islam as distinct but related categories.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "The articles of faith classify main beliefs, while the five pillars classify the Shahada and main acts of worship: two distinct but related frameworks.",
+          "They are exactly the same list.",
+          "The articles of faith consist only of behaviour, while the pillars of Islam consist only of thoughts.",
+          "Accepting only the pillars of Islam replaces the articles of faith."
+        ],
+        "correct_answer": "The articles of faith classify main beliefs, while the five pillars classify the Shahada and main acts of worship: two distinct but related frameworks.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "General knowledge"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-011": {
+      "source": {
+        "question_tr": "'Kelime-i Şehadet yalnızca ezberlenecek bir söz dizisidir; taşıdığı inanç anlamı önemli değildir' diyen birinin kavramsal hatası nedir?",
+        "explanation_tr": "Kelime-i Şehadet yalnız ezberlenecek seslerden ibaret değildir; Allah'tan başka ilah olmadığına ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna ilişkin bir inanç beyanıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Şehadetin bir inanç beyanı olduğunu gözden kaçırmıştır.",
+          "Şehadeti namazla karıştırmıştır.",
+          "Şehadeti hacla karıştırmıştır.",
+          "İfadede hata yoktur."
+        ],
+        "correct_answer": "Şehadetin bir inanç beyanı olduğunu gözden kaçırmıştır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Someone says, 'The Shahada is only a sequence of words to memorise; the belief it expresses is unimportant.' What conceptual mistake have they made?",
+        "explanation_tr": "The Shahada is more than sounds to memorise. It declares the belief that there is no deity except Allah and that Muhammad is Allah's servant and messenger.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "They have overlooked that the Shahada is a declaration of faith.",
+          "They have confused the Shahada with prayer.",
+          "They have confused the Shahada with Hajj.",
+          "There is no mistake."
+        ],
+        "correct_answer": "They have overlooked that the Shahada is a declaration of faith.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "Section review: finding mistakes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-012": {
+      "source": {
+        "question_tr": "Bir tabloda 'Namaz, Oruç, Zekât, Hac' ile 'Meleklere iman' aynı başlık altında toplanmış. Bu sınıflandırmadaki sorun nedir?",
+        "explanation_tr": "Namaz, oruç, zekât ve hac İslam'ın şartlarıyla; meleklere iman ise imanın esaslarıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Meleklere iman, imanın esasları başlığında yer almalıdır.",
+          "Namaz imanın esasıdır.",
+          "Oruç imanın esasıdır.",
+          "Tabloda sorun yoktur."
+        ],
+        "correct_answer": "Meleklere iman, imanın esasları başlığında yer almalıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A table groups 'prayer, fasting, zakat and Hajj' with 'belief in angels' under the same heading. What is wrong with this classification?",
+        "explanation_tr": "Prayer, fasting, zakat and Hajj relate to the pillars of Islam, while belief in angels relates to the articles of faith.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in angels belongs under the articles of faith.",
+          "Prayer is an article of faith.",
+          "Fasting is an article of faith.",
+          "There is no problem with the table."
+        ],
+        "correct_answer": "Belief in angels belongs under the articles of faith.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Smart Review Before the Next Section",
+        "topic": "Scenario summary 2"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-001": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi hem bir iman esasıdır hem de Kelime-i Şehadet'in açıkça vurguladığı bir konudur?",
+        "explanation_tr": "Kelime-i Şehadet, Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği açıkça içerdiği için peygamberlere iman başlığıyla doğrudan ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Meleklere iman",
+          "Kadere iman",
+          "Ahirete iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which is both an article of faith and a subject explicitly emphasised in the Shahada?",
+        "explanation_tr": "The Shahada explicitly includes testimony that Muhammad is Allah's servant and messenger, so it directly relates to belief in the prophets.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in the prophets",
+          "Belief in angels",
+          "Belief in divine decree",
+          "Belief in the Hereafter"
+        ],
+        "correct_answer": "Belief in the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "General knowledge"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-002": {
+      "source": {
+        "question_tr": "Bir kavram kartında 'Allah'ın bilgisi ve takdiriyle ilişkili oluş' ifadesi yazıyor. Bu kart hangi iman esasına aittir?",
+        "explanation_tr": "Bu ifade kader ve kazaya iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kader ve kazaya iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Ahiret gününe iman"
+        ],
+        "correct_answer": "Kader ve kazaya iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A concept card says 'connection to Allah's knowledge and decree'. Which article of faith does it belong to?",
+        "explanation_tr": "This description relates to belief in divine decree and its fulfilment.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in divine decree and its fulfilment",
+          "Belief in angels",
+          "Belief in the books",
+          "Belief in the Last Day"
+        ],
+        "correct_answer": "Belief in divine decree and its fulfilment",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Scenario: belief in divine decree"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-003": {
+      "source": {
+        "question_tr": "Tanımları ait oldukları esaslarla eşleştirin.",
+        "explanation_tr": "Farklı iman esasları İslam inancının çeşitli yapı taşlarını oluşturur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ölümden sonra hayat ve hesap",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "Allah'ın yarattığı meleklerin varlığı",
+            "right": "Meleklere iman"
+          },
+          {
+            "left": "Allah'ın peygamberlere vahiy yoluyla kitaplar göndermesi",
+            "right": "Kitaplara iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match each definition to its article of faith.",
+        "explanation_tr": "Different articles of faith form the various building blocks of Islamic belief.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Life and reckoning after death",
+            "right": "Belief in the Hereafter"
+          },
+          {
+            "left": "The existence of angels created by Allah",
+            "right": "Belief in angels"
+          },
+          {
+            "left": "Allah reveals books to the prophets",
+            "right": "Belief in the books"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Matching challenge"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-004": {
+      "source": {
+        "question_tr": "Allah'ın bizlere doğru yolu göstermek için seçtiği örnek insanlara inanmaya ______ iman denir.",
+        "explanation_tr": "İlahi mesajı ileten seçilmiş örnek insanlar peygamberlerdir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Peygamberlere",
+          "Meleklere",
+          "Kadere",
+          "Kitaplara"
+        ],
+        "correct_answer": "Peygamberlere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in the exemplary people Allah chose to guide us to the right path is called belief in ______.",
+        "explanation_tr": "The chosen, exemplary people who convey the divine message are prophets.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "the prophets",
+          "angels",
+          "divine decree",
+          "the books"
+        ],
+        "correct_answer": "the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Belief in the prophets"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-005": {
+      "source": {
+        "question_tr": "Allah'ın yarattığı meleklerin varlığına inanmak imanın hangi esasıdır?",
+        "explanation_tr": "Meleklerin varlığına iman, imanın altı esasından biridir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Ahiret gününe iman",
+          "Kader ve kazaya iman"
+        ],
+        "correct_answer": "Meleklere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which article of faith concerns belief in the existence of the angels created by Allah?",
+        "explanation_tr": "Belief in the existence of angels is one of the six articles of faith.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Belief in angels",
+          "Belief in the books",
+          "Belief in the Last Day",
+          "Belief in divine decree and its fulfilment"
+        ],
+        "correct_answer": "Belief in angels",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Belief in angels"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-006": {
+      "source": {
+        "question_tr": "'Dünyadaki davranışlarımdan ahirette hesaba çekileceğime inanıyorum' diyen bir kişi hangi iman esasına vurgu yapmaktadır?",
+        "explanation_tr": "Hesap ve ölüm sonrası hayat bilinci ahirete iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Kitaplara iman",
+          "Kadere iman",
+          "Peygamberlere iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Someone says, 'I believe I will be called to account in the Hereafter for my actions in this world.' Which article of faith are they emphasising?",
+        "explanation_tr": "Awareness of the reckoning and life after death relates to belief in the Hereafter.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the Last Day",
+          "Belief in the books",
+          "Belief in divine decree",
+          "Belief in the prophets"
+        ],
+        "correct_answer": "Belief in the Last Day",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Belief in the Hereafter"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-007": {
+      "source": {
+        "question_tr": "Allah'ın vahiylerini içeren, peygamberlere gönderilen ilahi metinlere inanmaya ______ iman denir.",
+        "explanation_tr": "İlahi vahiyler kitap (suhuf veya kitap) olarak isimlendirilir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Kitaplara",
+          "Meleklere",
+          "Kadere",
+          "Ahirete"
+        ],
+        "correct_answer": "Kitaplara",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Belief in the divine texts containing Allah's revelations and sent to the prophets is called belief in ______.",
+        "explanation_tr": "Divine revelations are referred to as scriptures, whether scrolls or books.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "the books",
+          "angels",
+          "divine decree",
+          "the Hereafter"
+        ],
+        "correct_answer": "the books",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Belief in the books"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-008": {
+      "source": {
+        "question_tr": "Hangisi bir inanç esası olmayıp pratik bir ibadettir?",
+        "explanation_tr": "Oruç tutmak İslam'ın şartlarından (ameli/pratik) bir ibadettir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Oruç tutmak",
+          "Ahirete iman",
+          "Meleklere iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Oruç tutmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which is a practical act of worship, rather than a principle of belief?",
+        "explanation_tr": "Fasting is a practical act of worship and a pillar of Islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Fasting",
+          "Belief in the Hereafter",
+          "Belief in angels",
+          "Belief in divine decree"
+        ],
+        "correct_answer": "Fasting",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Category difference 2"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-009": {
+      "source": {
+        "question_tr": "Senaryoları ilgili iman esası ile eşleştirin.",
+        "explanation_tr": "Günlük düşüncelerimiz iman esaslarıyla şekillenir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'ın takdiri olduğuna inanmak",
+            "right": "Kadere iman"
+          },
+          {
+            "left": "Hesap gününü düşünüp haksızlık yapmamak",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "Kur'an'ın Allah sözü olduğuna inanmak",
+            "right": "Kitaplara iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match each scenario to the relevant article of faith.",
+        "explanation_tr": "Our everyday thoughts are shaped by the articles of faith.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Believing in Allah's decree",
+            "right": "Belief in divine decree"
+          },
+          {
+            "left": "Avoiding injustice while remembering the Day of Reckoning",
+            "right": "Belief in the Hereafter"
+          },
+          {
+            "left": "Believing that the Quran is Allah's word",
+            "right": "Belief in the books"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Matching challenge 2"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-010": {
+      "source": {
+        "question_tr": "Bir öğrenci altı iman esasını sıralarken 'Meleklere iman' başlığını çıkarıyor. Bu listede hangi hata oluşur?",
+        "explanation_tr": "Meleklere iman, imanın altı esasından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İmanın esaslarından biri eksik kalır.",
+          "İslam'ın beş şartlarından biri eksik kalır.",
+          "Namazla ilgili bir başlık eksik kalır.",
+          "Listede hata oluşmaz."
+        ],
+        "correct_answer": "İmanın esaslarından biri eksik kalır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A learner omits 'belief in angels' when listing the six articles of faith. What mistake does this create?",
+        "explanation_tr": "Belief in angels is one of the six articles of faith.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "One article of faith is missing.",
+          "One of the five pillars of Islam is missing.",
+          "A subject concerning prayer is missing.",
+          "It creates no mistake."
+        ],
+        "correct_answer": "One article of faith is missing.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Main principle"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-011": {
+      "source": {
+        "question_tr": "İmanın esaslarından biri 'Kader ve ______ iman' ifadesiyle tamamlanır.",
+        "explanation_tr": "Bu iman esasının tam adı 'Kader ve kazaya iman'dır.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Kazaya",
+          "Ahirete",
+          "Meleklere",
+          "Kitaplara"
+        ],
+        "correct_answer": "Kazaya",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "One article of faith is completed as 'belief in divine decree and ______'.",
+        "explanation_tr": "The full name of this article is belief in divine decree and its fulfilment.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "its fulfilment",
+          "the Hereafter",
+          "angels",
+          "the books"
+        ],
+        "correct_answer": "its fulfilment",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "The scope of belief in divine decree"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-012": {
+      "source": {
+        "question_tr": "Cem, 'Allah insanlara vahyini iletecek peygamberler göndermemiştir' diyor. Bu görüş hangi iman esasıyla çelişir?",
+        "explanation_tr": "Allah'ın seçip vahyi tebliğ etmekle görevlendirdiği elçilere inanmak, peygamberlere iman esasıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Meleklere iman",
+          "Ahirete iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Cem says, 'Allah did not send prophets to convey His revelation to humanity.' Which article of faith does this view contradict?",
+        "explanation_tr": "Belief in the messengers Allah chose and appointed to convey revelation is the article of belief in the prophets.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Belief in the prophets",
+          "Belief in angels",
+          "Belief in the Hereafter",
+          "Belief in divine decree"
+        ],
+        "correct_answer": "Belief in the prophets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "The scope of belief in the prophets"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-013": {
+      "source": {
+        "question_tr": "İslam'daki altı temel inanç başlığının genel adı 'İmanın ______'dır.",
+        "explanation_tr": "Bu altı temel inanç başlığı 'İmanın Esasları' olarak adlandırılır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Esasları",
+          "Şehirleri",
+          "Tarihleri",
+          "Uygulamaları"
+        ],
+        "correct_answer": "Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "The general name of the six main beliefs in Islam is 'the ______ of faith'.",
+        "explanation_tr": "These six main beliefs are called the articles of faith.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "articles",
+          "cities",
+          "histories",
+          "practices"
+        ],
+        "correct_answer": "articles",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Concept overview"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S07-014": {
+      "source": {
+        "question_tr": "İmanın esasları arasında Allah'a, Meleklere, Kitaplara, Peygamberlere, Ahirete ve ______ iman yer alır.",
+        "explanation_tr": "Listeyi tamamlayan iman esası kader ve kazaya imandır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Kader ve Kazaya",
+          "Namaz kılmaya",
+          "Zekât vermeye",
+          "Hacca gitmeye"
+        ],
+        "correct_answer": "Kader ve Kazaya",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "The articles of faith include belief in Allah, angels, books, prophets, the Hereafter and ______.",
+        "explanation_tr": "The article that completes the list is belief in divine decree and its fulfilment.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "divine decree and its fulfilment",
+          "performing prayer",
+          "giving zakat",
+          "performing Hajj"
+        ],
+        "correct_answer": "divine decree and its fulfilment",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Articles of Faith Challenge",
+        "topic": "Final question"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

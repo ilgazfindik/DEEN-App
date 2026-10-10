@@ -6,8 +6,9 @@ const server=http.createServer((req,res)=>{const url=req.url.split('?')[0],file=
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port;
- const browser=await chromium.launch({headless:true,...(process.env.DEEN_CHROMIUM?{executablePath:process.env.DEEN_CHROMIUM}:{}),args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-zygote']});
+ const browser=await chromium.launch({channel:'chrome',headless:true,...(process.env.DEEN_CHROMIUM?{executablePath:process.env.DEEN_CHROMIUM}:{}),args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-zygote']});
  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[],report={stages:[],macros:[],types:{},reviews:[],errors};
+ report.browser={name:'Google Chrome',version:browser.version()};
  page.on('pageerror',e=>{errors.push(e.message);console.log('ERROR',e.message)});
  await page.addInitScript(()=>{
   if(window.top!==window)return;
@@ -76,7 +77,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  await page.evaluate(()=>completeQuestion(true,session.questions[session.index]));await page.waitForTimeout(150);report.feedback=await page.locator('#feedback').innerText();assert(/[\u0600-\u06ff]/.test(report.feedback));await page.screenshot({path:path.join(out,'arabic-feedback.png')});await page.evaluate(()=>closeLesson());
  // Reload tests the actual stored locale and progress without fresh initialization.
  fs.writeFileSync(path.join(out,'pre-reload-state.json'),await page.evaluate(()=>localStorage.getItem('deen_v4_1_state')));await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady()||window.DEEN_BOOT?.status().phase==='error',{timeout:30000});assert.equal((await page.evaluate(()=>DEEN_BOOT.status())).phase,'ready',JSON.stringify(await page.evaluate(()=>DEEN_BOOT.status())));assert.equal(await page.evaluate(()=>DEEN_APP_LOCALE.get()),'ar');report.localeReload=true;
- await page.evaluate(()=>DEEN_APP_LOCALE.set('tr'));await page.waitForFunction(()=>DEEN_BOOT.isReady()&&DEEN_APP_LOCALE.get()==='tr');await page.evaluate(()=>{state.energy=30;startMacroStage('U01-M01')});await page.waitForTimeout(150);report.turkish=await page.locator('#questionText').innerText();assert(/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(report.turkish));
+ await page.evaluate(()=>DEEN_APP_LOCALE.set('tr'));await page.waitForFunction(()=>window.DEEN_BOOT?.isReady()&&window.DEEN_APP_LOCALE?.get()==='tr');await page.evaluate(()=>{state.energy=30;startMacroStage('U01-M01')});await page.waitForTimeout(150);report.turkish=await page.locator('#questionText').innerText();assert(/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(report.turkish));
  report.errors=errors;assert.deepEqual(errors,[]);
  fs.writeFileSync(path.join(out,'runtime-report.json'),JSON.stringify(report,null,2));console.log('PASS',JSON.stringify({stages:report.stages.length,started:report.stages.filter(s=>s.started).length,macros:report.macros.length,rendered:report.rendered,types:report.types,reviews:report.reviews,performance:report.performance}));
  await browser.close();server.close();

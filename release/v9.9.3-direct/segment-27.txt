@@ -16,7 +16,7 @@
   const isFill=()=>{
     const q=currentQuestion();
     const type=String(q?.activity_type||q?.question_type||q?.type||'').toLowerCase();
-    return type==='fill_blank'||!!frame()?.classList.contains('v1040-fill-interactive');
+    return type?type==='fill_blank':!!frame()?.classList.contains('v1040-fill-interactive');
   };
 
   function inspect(reason='manual'){
@@ -33,22 +33,25 @@
     const check=f.querySelector('.v1039-fill-check,.v1040-fill-check');
     const slot=f.querySelector('.v1039-fill-slot,.v1040-fill-slot');
     const continueBtn=document.getElementById('continueBtn');
+    const question=currentQuestion();
+    const chipMode=Array.isArray(question?.options_tr)&&question.options_tr.length>0;
+    const input=f.querySelector('.fill-input');
 
     const checks={
-      renderer:f.dataset.deenFillRenderer==='core09-v1041',
-      interactive:f.classList.contains('v1040-fill-interactive'),
+      renderer:f.dataset.deenFillRenderer===(chipMode?'core09-v1041':'core09-v1034'),
+      interactive:f.classList.contains('v1040-fill-interactive')===chipMode,
       noABCD:f.querySelectorAll('#answerArea .option,#answerArea .option-badge').length===0,
-      slotPresent:!!slot,
-      pregradeBank:graded||!!bank,
-      pregradeCheck:graded||!!check,
-      chipCount:graded||f.querySelectorAll('.v1039-fill-chip,.v1040-fill-chip').length>=2,
-      dragCapable:graded||[...f.querySelectorAll('.v1040-fill-chip')].every(el=>el.draggable===true),
+      slotPresent:chipMode?!!slot:!!input,
+      pregradeBank:graded||(chipMode?!!bank:!!input),
+      pregradeCheck:graded||(chipMode?!!check:!!area?.querySelector('.template-action')),
+      chipCount:graded||(!chipMode?!!input:f.querySelectorAll('.v1039-fill-chip,.v1040-fill-chip').length>=2),
+      dragCapable:graded||(!chipMode||[...f.querySelectorAll('.v1040-fill-chip')].every(el=>el.draggable===true)),
       feedbackVisible:!graded||feedbackVisible,
       answerHidden:!graded||!area||getComputedStyle(area).display==='none',
       continueReady:!graded||(
         !!continueBtn &&
         continueBtn.disabled===false &&
-        /devam/i.test(continueBtn.textContent||'')
+        /(?:devam|continue|متابعة)/i.test(continueBtn.textContent||'')
       ),
       handoffRuntime:typeof window.DEEN_FILL_FEEDBACK_HANDOFF?.snapshot==='function',
       arbiter:!!window.completeQuestion?.__deen9953&&!!window.nextQuestion?.__deen9953
@@ -63,6 +66,7 @@
       reason,
       active:true,
       graded,
+      mode:chipMode?'chip':'typed',
       pass:failed.length===0,
       failed,
       checks,

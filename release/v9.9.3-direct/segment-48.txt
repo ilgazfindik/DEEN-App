@@ -128,6 +128,17 @@ document.documentElement.dataset.deenQuranPhase2='complete';
 <script id="deen-v91207-language-first-js">
 (()=>{
  if(window.DEEN_LANGUAGE_ONBOARDING)return;
+ if(window.DEEN_I18N){
+  const premium=window.DEEN_PREMIUM_ONBOARDING;
+  const render=()=>window.DEEN_I18N.showGate(async lang=>{
+   if(!await window.DEEN_APP_LOCALE.set(lang))return render();
+   state.settings.onboardingLanguageConfirmed=true;saveState();
+   if(state.onboarded){updateUI();return;}
+   premium.render(0);
+  });
+  window.DEEN_LANGUAGE_ONBOARDING={render,choose:lang=>window.DEEN_APP_LOCALE.set(lang),confirmed:()=>state.settings.onboardingLanguageConfirmed===true,options:window.DEEN_I18N.languages,version:'global-locale-entry-v1'};
+  return;
+ }
  const premium=window.DEEN_PREMIUM_ONBOARDING;
  if(!premium||typeof premium.render!=='function')return;
  const original=premium.render.bind(premium);
