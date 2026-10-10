@@ -2,73 +2,45 @@ name: English localization audit
 on:
   push:
     branches: [codex/global-locale-20261009]
-    paths:
-      - 'assets/i18n/**'
-      - 'scripts/**'
-      - '.github/workflows/english-localization-audit.yml'
+    paths: ['assets/i18n/**', 'scripts/**', 'release/**', 'index.html', '.github/workflows/english-localization-audit.yml']
   workflow_dispatch:
 jobs:
-  english-audit:
+  structure:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      contents: read
+    permissions: {contents: read}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Audit all 1500 English base translations
-        run: |
+        with: {node-version: '22'}
+      - run: |
           node scripts/audit-english-questions.mjs --require-complete
           node scripts/audit-english-runtime.mjs
-      - name: Verify release integrity
-        run: |
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs
+  chrome:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions: {contents: read}
+    strategy:
+      fail-fast: false
+      matrix:
+        script: [capture-english-ui-candidate, test-english-runtime, test-english-regression, test-english-interactions, test-english-quran, test-english-onboarding]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
       - name: Install actual Google Chrome
         run: |
           npm install --no-save --package-lock=false playwright@1.62.1
           npx playwright install --with-deps chromium
           npx playwright install chrome
-      - name: capture-english-runtime-source
-        if: ${{ !cancelled() }}
+      - name: Test real segmented app
         env:
           DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
-        run: node scripts/capture-english-runtime-source.cjs
-      - name: capture-english-ui-candidate
-        if: ${{ !cancelled() }}
-        env:
-          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
-        run: node scripts/capture-english-ui-candidate.cjs
-      - name: test-english-runtime
-        if: ${{ !cancelled() }}
-        env:
-          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
-        run: node scripts/test-english-runtime.cjs
-      - name: test-english-regression
-        if: ${{ !cancelled() }}
-        env:
-          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
-        run: node scripts/test-english-regression.cjs
-      - name: test-english-interactions
-        if: ${{ !cancelled() }}
-        env:
-          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
-        run: node scripts/test-english-interactions.cjs
-      - name: test-english-quran
-        if: ${{ !cancelled() }}
-        env:
-          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
-        run: node scripts/test-english-quran.cjs
-      - name: test-english-onboarding
-        if: ${{ !cancelled() }}
-        env:
-          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
-        run: node scripts/test-english-onboarding.cjs
-      - name: Preserve test evidence
+        run: node scripts/${{ matrix.script }}.cjs
+      - name: Preserve screenshots and DOM evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: deen-english-runtime-evidence
+          name: deen-english-${{ matrix.script }}
           path: ${{ runner.temp }}/deen-english-qa
