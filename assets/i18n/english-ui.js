@@ -166,17 +166,17 @@ function t(value){
  if(D[n])return s.replace(n,D[n]);
  let m;
  // Quran hub counters and Turkish-short-month dates: match whole labels, not fragments.
- if((m=n.match(/^(\\d{1,2})\\s+(Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)\\.?$/))){
+ if((m=n.match(/^(\d{1,2})\s+(Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)\.?$/))){
   const months={Oca:'Jan',Şub:'Feb',Mar:'Mar',Nis:'Apr',May:'May',Haz:'Jun',Tem:'Jul',Ağu:'Aug',Eyl:'Sep',Eki:'Oct',Kas:'Nov',Ara:'Dec'};
   return m[1]+' '+months[m[2]];
  }
- if((m=n.match(/^(\\d+)\\s+zayıf ayet$/)))return m[1]+' weaker ayahs';
- if((m=n.match(/^(\\d+)\\s+tekrar bugün$/)))return m[1]+' reviews due today';
- if((m=n.match(/^(\\d+)\\/90 ayet$/)))return m[1]+'/90 ayahs';
- if((m=n.match(/^(\\d+)\\/3 görev$/)))return m[1]+'/3 tasks';
- if((m=n.match(/^(\\d+)\\s+sure\\s*·\\s*(\\d+)\\s+ayet$/i)))return m[1]+' surahs · '+m[2]+' ayahs';
- if((m=n.match(/^Ustalık\\s*%(\\d+)$/)))return 'Mastery '+m[1]+'%';
- if((m=n.match(/^%(\\d+)\\s+hafıza$/)))return m[1]+'% memory strength';
+ if((m=n.match(/^(\d+)\s+zayıf ayet$/)))return m[1]+' weaker ayahs';
+ if((m=n.match(/^(\d+)\s+tekrar bugün$/)))return m[1]+' reviews due today';
+ if((m=n.match(/^(\d+)\/90 ayet$/)))return m[1]+'/90 ayahs';
+ if((m=n.match(/^(\d+)\/3 görev$/)))return m[1]+'/3 tasks';
+ if((m=n.match(/^(\d+)\s+sure\s*·\s*(\d+)\s+ayet$/i)))return m[1]+' surahs · '+m[2]+' ayahs';
+ if((m=n.match(/^Ustalık\s*%(\d+)$/)))return 'Mastery '+m[1]+'%';
+ if((m=n.match(/^%(\d+)\s+hafıza$/)))return m[1]+'% memory strength';
  if((m=n.match(/^(\d+)\s+sn$/)))return s.replace(n,m[1]+' sec');
  if(m=n.match(/^(?:Ayet|Verse) (\d+) sesini dinle$/))return 'Listen to Verse '+m[1];
  if(m=n.match(/^(.+) kelimesini boşluğa yerleştir$/))return 'Place '+t(m[1])+' in the blank';
