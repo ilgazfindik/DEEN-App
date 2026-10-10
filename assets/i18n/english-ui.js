@@ -63,6 +63,48 @@ Object.assign(D,{
  "İpucu":"Hint",
  "ödülü hazır":"reward is ready"
 });
+/* U01 English learning-loop audit: translate complete teaching cards and stage transitions before phrase matching. */
+Object.assign(D,{
+  "Öğrenme döngüsü": "Learning cycle",
+  "Önce fikri keşfet": "Discover the main idea",
+  "Şimdi bilgiyi kullan": "Apply what you have learned",
+  "Bakmadan hatırla": "Recall without hints",
+  "Kaçırdığını tamamla": "Review what you missed",
+  "ÖĞRENDİM · SORUYA GEÇ": "GOT IT · GO TO QUESTION",
+  "2. AŞAMA · UYGULA": "STAGE 2 · APPLY",
+  "Şimdi bilgiyi kullan.": "Now put your knowledge into practice.",
+  "İlk dört kartta ana fikirleri gördün. Sıradaki sorularda bu bilgileri yeni durumlara uygulayacaksın.": "You explored the main ideas in the first four cards. Now apply them to new situations in the next questions.",
+  "UYGULAMAYA BAŞLA": "START APPLYING",
+  "3. AŞAMA · HATIRLA": "STAGE 3 · RECALL",
+  "Şimdi kendi başına hatırla.": "Now try to recall it on your own.",
+  "İpuçları geride kaldı. Son dört soruda öğrendiklerini hafızandan çağır.": "The hints are gone. In the final four questions, recall what you have learned from memory.",
+  "HATIRLAMA TURUNA BAŞLA": "START RECALL ROUND",
+  "1 · ANA FİKİR": "1 · MAIN IDEA",
+  "İslam, Allah'a yönelmektir.": "Islam means turning to Allah.",
+  "İslam; Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.": "Islam teaches trust in Allah, acceptance of His guidance, and putting that guidance into practice.",
+  "Kısa ipucu: Yönel · Güven · Yaşa": "Quick hint: Turn to Allah · Trust · Live by it",
+  "2 · ÜÇLÜ HARİTA": "2 · THREE KEY CONCEPTS",
+  "İman, ibadet ve ahlak birlikte anlam kazanır.": "Faith, worship and good character reinforce one another.",
+  "İman kalpteki kabul, ibadet Allah'a kulluk, ahlak ise bunun davranışlara yansımasıdır.": "Faith is inner belief and acceptance; worship is devotion to Allah; good character is how these are reflected in our actions.",
+  "Kısa ipucu: İnan · Kulluk et · Güzel davran": "Quick hint: Believe · Worship · Act kindly",
+  "3 · EVRENSEL KİMLİK": "3 · UNIVERSAL IDENTITY",
+  "Müslümanlık bir ülkeye bağlı değildir.": "Being Muslim is not tied to one country.",
+  "Farklı dilleri konuşan ve farklı kültürlerde yaşayan insanlar İslam'ı benimseyebilir.": "People of different languages and cultures can embrace Islam.",
+  "Kısa ipucu: İnanç var, coğrafya şartı yok": "Quick hint: Faith, not geography, defines this identity",
+  "4 · TESLİMİYET": "4 · SUBMISSION",
+  "Teslim olmak, Allah'ın rehberliğini benimsemektir.": "Submission means accepting Allah's guidance.",
+  "Bu ifade düşünmeden hareket etmek değil; Allah’a güvenerek O’nun gösterdiği iyi yolu seçmek anlamına gelir.": "This does not mean acting without thought; it means trusting Allah and choosing the good path He has shown.",
+  "Kısa ipucu: Yönünü Allah’ın rehberliğine çevir": "Quick hint: Follow Allah's guidance",
+  "ÖĞREN": "LEARN",
+  "UYGULA": "APPLY",
+  "HATIRLA": "RECALL",
+  "PEKİŞTİR": "REINFORCE",
+  "Yardım almadan doğru": "Correct without hints",
+  "ÖĞRENİLEN": "MASTERED",
+  "Tekrarlarla tamamlanan": "Completed through review",
+  "GERİ KAZANILAN": "RECOVERED",
+  "Yanlıştan doğruya": "Corrected after a mistake"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
