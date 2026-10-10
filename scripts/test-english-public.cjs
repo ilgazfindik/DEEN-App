@@ -48,10 +48,10 @@ const server=http.createServer((req,res)=>{
  assert.equal(ready.questionCount,1500);assert.equal(ready.activeCount,1484);assert.equal(ready.translated,true);assert.equal(ready.qaOverride,false);
  report.ready=ready;
  await page.screenshot({path:path.join(out,'english-public-onboarded.png')});
- await page.evaluate(()=>{state.energy=30;startStage('U02-S01')});
+ await page.evaluate(()=>{state.energy=30;startStage('U01-S01')});
  const stageProbe=await page.evaluate(()=>({hasSession:!!session,stageId:session?.stage?.id,energy:state.energy,lessonActive:document.getElementById('lesson')?.classList.contains('active'),startup:DEEN_BOOT.status().phase,buttons:[...document.querySelectorAll('button')].filter(el=>el.getClientRects().length).map(el=>el.textContent.trim()).slice(-15)}));
  console.log('PUBLIC STAGE PROBE',JSON.stringify(stageProbe));
- await page.waitForFunction(()=>!!window.session&&session.questions?.length>0,null,{timeout:15000});
+ await page.waitForFunction(()=>typeof session!=='undefined'&&!!session&&session.questions?.length>0,null,{timeout:15000});
  assert.equal(await page.locator('#lesson.active').count(),1,'Normal English lesson must open');
  report.lesson={stage:await page.evaluate(()=>session.stage.id),questionId:await page.evaluate(()=>session.questions[0].id)};
  await page.evaluate(()=>{closeLesson();state.xp=543;state.completed=['U01-S01'];saveState()});
