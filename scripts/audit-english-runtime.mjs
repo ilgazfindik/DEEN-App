@@ -7,8 +7,9 @@ const root=fileURLToPath(new URL('../',import.meta.url)),read=p=>JSON.parse(read
 const fixture=read('assets/i18n/questions/en/runtime/source-fixture.json');
 const w={DEEN_APP_LOCALE:{get:()=> 'en'}};vm.runInNewContext(readFileSync(root+'assets/i18n/content.js','utf8'),{window:w});
 const strings=v=>typeof v==='string'?[v]:Array.isArray(v)?v.flatMap(strings):v&&typeof v==='object'?Object.values(v).flatMap(strings):[];
-const report={locale:'en',live:0,variants:0,issues:[],religious_expert_approved:0,native_reviewer_approved:0};
-for(const [name,file,expected] of [['live','U01.live.json',84],['variants','U01.variants.json',20]]){
+const segments=Array.from({length:67},(_,i)=>readFileSync(root+'release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt','utf8'));const all=segments.join('\n'),rewrites=JSON.parse(all.match(/const REWRITES=(\{[^\n]+\});/)[1]),fill=JSON.parse(all.match(/const FILL_CHOICES=(\{[^\n]+\});/)[1]);const base=JSON.parse(segments.slice(2,9).join('').replace(/^const QUESTIONS=/,'').trim().replace(/;$/,''));fixture.legacy=base.filter(q=>q.id.startsWith('DEEN-U01-')).map(q=>({...q,question_tr:rewrites[q.id]||q.question_tr,options_tr:Array.isArray(q.options_tr)?q.options_tr:fill[q.id]||q.options_tr}));
+const report={locale:'en',live:0,variants:0,legacy:0,issues:[],religious_expert_approved:0,native_reviewer_approved:0};
+for(const [name,file,expected] of [['live','U01.live.json',84],['variants','U01.variants.json',20],['legacy','U01.legacy-renderer.json',100]]){
  const pack=read('assets/i18n/questions/en/runtime/'+file);
  assert.equal(pack.locale,'en');assert.equal(pack.release_ready,false);assert.equal(pack.expert_approved,false);
  assert.equal(Object.keys(pack.translations).length,expected);assert.equal(fixture[name].length,expected);
@@ -24,4 +25,4 @@ for(const [name,file,expected] of [['live','U01.live.json',84],['variants','U01.
 }
 console.log(JSON.stringify(report,null,2));
 if(process.env.DEEN_QA_OUTPUT){mkdirSync(process.env.DEEN_QA_OUTPUT,{recursive:true});writeFileSync(process.env.DEEN_QA_OUTPUT+'/english-runtime-audit.json',JSON.stringify(report,null,2));}
-assert.deepEqual(report.issues,[]);assert.equal(report.live,84);assert.equal(report.variants,20);
+assert.deepEqual(report.issues,[]);assert.equal(report.live,84);assert.equal(report.variants,20);assert.equal(report.legacy,100);

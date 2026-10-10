@@ -70,6 +70,13 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   assert(/[A-Za-z]/.test(dom.question+dom.answers),row.id);
   assert(!/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(dom.question+dom.answers),row.id+' '+JSON.stringify(dom));if(row.options?.length)for(const option of row.options)assert(dom.answers.includes(option)||dom.question.includes(option),row.id+' missing displayed Arabic option: '+option);
  }
+ // Render all 100 generated legacy U01 variants through the same canonical game renderer.
+ const legacyPack=JSON.parse(fs.readFileSync(path.join(root,'assets/i18n/questions/en/runtime/U01.legacy-renderer.json'),'utf8'));
+ for(const [id,entry] of Object.entries(legacyPack.translations)){
+  await page.evaluate(({id,source})=>{const base=DEEN_BASE_QUESTIONS.find(q=>q.id===id);const q={...base,...source};session={stage:STAGES.find(s=>s.id===q.stage_id),questions:[q],index:0,correct:0,combo:0,bestCombo:0,startedAt:Date.now(),v5responses:[]};renderQuestion()}, {id,source:entry.source});
+  await page.waitForTimeout(65);const visible=await page.locator('#questionText').innerText();assert(!/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(visible),id+':'+visible);
+  assert.equal(await page.evaluate(()=>session.questions[0].__deenContentLocale),'en');
+ }report.legacyRendered=100;
  report.listenersAfter=await page.evaluate(()=>__qa.globalListeners);assert.equal(report.listenersAfter,report.listenersBefore);report.observers=await page.evaluate(()=>__qa.observers);report.observerCountAfter=report.observers.length;assert(report.observerCountAfter-report.observerCountBefore<=8);report.activeObservers=report.observers.filter(x=>x.active).length;report.longTasks=await page.evaluate(()=>__qa.long);await cdp.send('HeapProfiler.collectGarbage');report.heapAfterRender=metric(await cdp.send('Performance.getMetrics'),'JSHeapUsedSize');report.rendered=active.length;report.baseRendered=1500;report.activeBankCount=1484;await page.evaluate(()=>closeLesson());
  for(const mode of ['smart','quick','mistakes','weak','due']){const result=await page.evaluate(mode=>{state.energy=30;state.mistakes=QUESTIONS.slice(0,10).map(q=>q.id);for(const q of QUESTIONS.slice(0,10))state.reviewSchedule[q.id]={nextReview:Date.now()-100,lastSeen:Date.now()-100000,correctCount:0,wrongCount:1};session=null;startSmartReview(mode);return {mode,started:!!session,adaptive:session?.adaptiveReview,arabic:session?.questions.every(q=>!!DEEN_CONTENT_LOCALE.translateQuestion(q,'en'))}},mode);assert(result.started&&result.arabic,JSON.stringify(result));report.reviews.push(result);await page.evaluate(()=>closeLesson());}
  // Capture an actual macro question and its feedback.
