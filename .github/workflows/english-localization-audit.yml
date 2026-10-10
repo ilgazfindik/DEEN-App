@@ -1,7 +1,7 @@
 name: English localization audit
 on:
   push:
-    branches: [codex/global-locale-20261009, codex/english-visible-copy-fix-20261011]
+    branches: [codex/global-locale-20261009, codex/english-visible-copy-fix-20261011, codex/en-quran-hub-20261011]
     paths: ['assets/i18n/**', 'scripts/**', 'release/**', 'index.html', '.github/workflows/english-localization-audit.yml']
   workflow_dispatch:
 jobs:

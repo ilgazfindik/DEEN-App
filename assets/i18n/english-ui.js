@@ -105,6 +105,59 @@ Object.assign(D,{
   "GERİ KAZANILAN": "RECOVERED",
   "Yanlıştan doğruya": "Corrected after a mistake"
 });
+/* English Quran hub: exact labels and card copy must precede partial word replacement. */
+Object.assign(D,{
+  "Kur’an bölümleri": "Quran sections",
+  "Bugün": "Today",
+  "Öğren": "Learn",
+  "Oyna": "Play",
+  "Ezber": "Memorize",
+  "İlerleme": "Progress",
+  "Günlük akış": "Daily journey",
+  "Şu an ne yapman gerektiğini tek yerde gör.": "See your next steps in one place.",
+  "Sureleri keşfet, anlamı ve yapıyı adım adım çalış.": "Explore surahs and study their meaning and structure step by step.",
+  "16 sure · 90 ayet": "16 surahs · 90 ayahs",
+  "Sureler": "Surahs",
+  "16 surelik öğrenme kütüphanesi": "A learning library of 16 surahs",
+  "Sure Oyunu": "Surah Game",
+  "Öğren · ezberle · test et": "Learn · Memorize · Test",
+  "Öğren · ezberle · test et · ustalaş": "Learn · Memorize · Test · Master",
+  "Sık Kelimeler": "Common Words",
+  "Tekrar eden kelimeleri tanı": "Recognize recurring words",
+  "Cüz Amma Haritası": "Juz Amma Map",
+  "Hazır ve sıradaki sureleri gör": "See available and upcoming surahs",
+  "Bilgiyi aktif hatırlamayla sınayıp güçlendir.": "Test and strengthen what you know through active recall.",
+  "7+ soru modu": "7+ question modes",
+  "Sure Testleri": "Surah Tests",
+  "Sure Testleri · Ayet Testi, Anlam Testi, Sure Finali": "Surah Tests · Ayah Test, Meaning Test, Surah Final",
+  "Seçtiğin sureye özel Ayet · Anlam · Final": "Ayah Test · Meaning Test · Final for your selected surah",
+  "Hatırlamayı ve ayet sırasını ayrı egzersizlerle çalış.": "Practice recall and ayah order in separate exercises.",
+  "Ezber araçları": "Memorization tools",
+  "Ezbere Başla": "Start Memorizing",
+  "Mevcut surede hatırlama turu": "A recall round for the current surah",
+  "Kesintisiz Ezber": "Continuous Memorization",
+  "Öğrendiğin ayetleri art arda çağır": "Recall the ayahs you have learned in order",
+  "Zayıf Ayetler": "Weaker Ayahs",
+  "Riskli ayetleri önce güçlendir": "Strengthen the ayahs you find difficult first",
+  "Ayet Sıralaması": "Ayah Sequence",
+  "Sure içindeki doğru sırayı kur": "Arrange ayahs in the correct order within the surah",
+  "Öğrenme, tekrar ve sure ustalığını birlikte izle.": "Track learning, reviews and surah mastery together.",
+  "Kişisel ölçüm": "Personal progress",
+  "İlerleme Merkezi": "Progress Center",
+  "Hedefler ve hafıza gücü": "Goals and memory strength",
+  "Sure Ustalığı": "Surah Mastery",
+  "Seviye ve performans puanları": "Levels and performance scores",
+  "Tekrar Planı": "Review Plan",
+  "Bugün zamanı gelen ayetler": "Ayahs due today",
+  "Kişisel Plan": "Personal Plan",
+  "Günlük çalışma temposunu ayarla": "Set your daily practice pace",
+  "Kur’an alanı yalnız kayıtlı ayet, meal, ses ve ilerleme verilerini kullanır.": "The Quran section uses only registered ayah text, translations, audio and progress data.",
+  "16 SURE · 90 AYET": "16 SURAHS · 90 AYAHS",
+  "Challenge hazır": "Challenge ready",
+  "0/3 görev": "0/3 tasks",
+  "0/90 ayet": "0/90 ayahs",
+  "24 zayıf ayet": "24 weaker ayahs"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -112,6 +165,19 @@ function t(value){
  const guarded=window.DEEN_CONTENT_LOCALE?.translateText(n,'en');if(guarded&&guarded!==n)return s.replace(n,guarded);
  if(D[n])return s.replace(n,D[n]);
  let m;
+ if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
+ // Quran hub counters and Turkish-short-month dates: match whole labels, not fragments.
+ if((m=n.match(/^(\d{1,2})\s+(Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)\.?$/))){
+  const months={Oca:'Jan',Şub:'Feb',Mar:'Mar',Nis:'Apr',May:'May',Haz:'Jun',Tem:'Jul',Ağu:'Aug',Eyl:'Sep',Eki:'Oct',Kas:'Nov',Ara:'Dec'};
+  return m[1]+' '+months[m[2]];
+ }
+ if((m=n.match(/^(\d+)\s+zayıf ayet$/)))return m[1]+' weaker ayahs';
+ if((m=n.match(/^(\d+)\s+tekrar bugün$/)))return m[1]+' reviews due today';
+ if((m=n.match(/^(\d+)\/90 ayet$/)))return m[1]+'/90 ayahs';
+ if((m=n.match(/^(\d+)\/3 görev$/)))return m[1]+'/3 tasks';
+ if((m=n.match(/^(\d+)\s+sure\s*·\s*(\d+)\s+ayet$/i)))return m[1]+' surahs · '+m[2]+' ayahs';
+ if((m=n.match(/^Ustalık\s*%(\d+)$/)))return 'Mastery '+m[1]+'%';
+ if((m=n.match(/^%(\d+)\s+hafıza$/)))return m[1]+'% memory strength';
  if((m=n.match(/^(\d+)\s+sn$/)))return s.replace(n,m[1]+' sec');
  if(m=n.match(/^(?:Ayet|Verse) (\d+) sesini dinle$/))return 'Listen to Verse '+m[1];
  if(m=n.match(/^(.+) kelimesini boşluğa yerleştir$/))return 'Place '+t(m[1])+' in the blank';
