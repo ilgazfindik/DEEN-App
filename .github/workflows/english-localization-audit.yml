@@ -32,7 +32,9 @@ jobs:
       - name: Capture actual runtime source records in Google Chrome
         env:
           DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-english-qa
-        run: node scripts/capture-english-runtime-source.cjs
+        run: |
+          node scripts/capture-english-runtime-source.cjs
+          node scripts/capture-english-ui-source.cjs
       - name: Preserve test evidence
         if: always()
         uses: actions/upload-artifact@v4
