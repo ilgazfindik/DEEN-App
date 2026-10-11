@@ -26,13 +26,14 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  async function capture(name){
   await page.waitForTimeout(100);
   const data=await page.evaluate(()=>{
-   const scope=document.querySelector('#sheetBody')||document.body;
+   const scope=document.querySelector('#v5Sheet')||document.body;
    const texts=[],attrs=[],walker=document.createTreeWalker(scope,NodeFilter.SHOW_TEXT);let n;
    while(n=walker.nextNode())if(n.parentElement?.getClientRects().length&&!n.parentElement.closest('script,style,[lang="ar"],[data-deen-no-translate]')){const s=n.textContent.trim();if(s)texts.push(s)}
    for(const el of scope.querySelectorAll('[aria-label],[title],[alt]'))if(el.getClientRects().length)for(const k of ['aria-label','title','alt'])if(el.getAttribute(k))attrs.push(el.getAttribute(k));
    return {texts,attrs,overflow:document.documentElement.scrollWidth>innerWidth+2,html:scope.outerHTML};
   });
   fs.writeFileSync(path.join(out,name+'.html'),data.html);delete data.html;surfaces.push({name,...data});
+  fs.writeFileSync(path.join(out,'deep-surfaces.json'),JSON.stringify({browser:report.browser,surfaces,errors},null,2));
   if(name.startsWith('fatiha-')||name.startsWith('arena-'))await page.screenshot({path:path.join(out,name+'.png')});
  }
  await page.evaluate(()=>navigate('leagueScreen'));
@@ -61,6 +62,9 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  }
  fs.writeFileSync(path.join(out,'deep-surfaces.json'),JSON.stringify({browser:report.browser,surfaces,errors},null,2));
  console.log('DEEP_SURFACES',surfaces.length,'ERRORS',JSON.stringify(errors));
+ const leaks=surfaces.flatMap(s=>[...s.texts,...s.attrs].filter(t=>/[ÇĞİÖŞÜçğıöşü]|\b(?:Ezberi|Tamamla|TAMAMLA|Anlam|ANLAM|Oku|OKU|Hatırla|HATIRLA|Motoru|metin|turunu|kaydı|Pratik)\b/.test(t)).map(text=>({surface:s.name,text})));
+ console.log('LANGUAGE_LEAKS',JSON.stringify(leaks));assert.deepEqual(leaks,[]);
+ assert(!surfaces.some(s=>s.overflow),'Horizontal viewport overflow');
  assert.deepEqual(errors,[]);
  await browser.close();server.close();
 })().catch(e=>{console.error(e);server.close();process.exit(1)});
