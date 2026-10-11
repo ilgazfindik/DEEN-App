@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U06",
+  "stage": "U06-S01",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U06-S01-001": {
+      "source": {
+        "question_tr": "Bakara 2:285'e göre melekler, müminlerin iman ettiği unsurlardan biri midir?",
+        "explanation_tr": "Bakara 2:285, Allah'a, meleklerine, kitaplarına ve peygamberlerine imanı birlikte zikreder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Meleklere iman",
+          "Sadece tarih bilgisine iman",
+          "Belirli bir kavme iman",
+          "Maddi başarıya iman"
+        ],
+        "correct_answer": "Meleklere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Gehören Engel nach Sure Al-Baqara 2:285 zu den Glaubensinhalten der Gläubigen?",
+        "explanation_tr": "In Al-Baqara 2:285 werden Allah, Seine Engel, Seine Bücher und Seine Gesandten gemeinsam als Glaubensinhalte genannt.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an Engel",
+          "Glaube ausschließlich an geschichtliches Wissen",
+          "Glaube an ein bestimmtes Volk",
+          "Glaube an materiellen Erfolg"
+        ],
+        "correct_answer": "Glaube an Engel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-002": {
+      "source": {
+        "question_tr": "Meleklere iman, İslam'ın temel iman konularından biridir.",
+        "explanation_tr": "Kur'an'da melekler iman edilen esaslar arasında açıkça zikredilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an Engel gehört zu den grundlegenden Glaubensinhalten des Islam.",
+        "explanation_tr": "Der Koran nennt Engel ausdrücklich unter den Glaubensinhalten.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-003": {
+      "source": {
+        "question_tr": "Bakara 2:285'te müminlerin Allah'a, ______, kitaplarına ve peygamberlerine iman ettikleri bildirilir.",
+        "explanation_tr": "Ayette melekler iman edilen esaslar arasında yer alır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "meleklerine",
+          "şehirlerine",
+          "servetlerine",
+          "geleneklerine"
+        ],
+        "correct_answer": "meleklerine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Baqara 2:285 glauben die Gläubigen an Allah, ______, Seine Bücher und Seine Gesandten.",
+        "explanation_tr": "Dieser Vers nennt Engel als Gegenstand des Glaubens.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Seine Engel",
+          "ihre Städte",
+          "ihr Vermögen",
+          "ihre Traditionen"
+        ],
+        "correct_answer": "Seine Engel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-004": {
+      "source": {
+        "question_tr": "Bir öğrenci, 'Melekler hakkında ancak vahyin bildirdiği kadar kesin konuşmalıyız' diyor. Bu yaklaşımın en güçlü yönü nedir?",
+        "explanation_tr": "Melekler hakkında kesin bilgi verirken vahyin sınırlarını aşmamak, kaynak disiplinini korur.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Gayb alanında kaynağa bağlı kalması",
+          "Her hayalî anlatımı doğru sayması",
+          "Melekleri maddi deneyle ölçmesi",
+          "Kaynakları gereksiz görmesi"
+        ],
+        "correct_answer": "Gayb alanında kaynağa bağlı kalması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Über Engel sollten wir nur das mit Gewissheit behaupten, was uns die Offenbarung mitteilt.“ Was zeichnet diese Haltung aus?",
+        "explanation_tr": "Bei Aussagen über Engel sollten gesicherte Informationen aus der Offenbarung nicht mit Spekulation verwechselt werden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sie stützt Aussagen über das Verborgene auf verlässliche Quellen",
+          "Sie hält alle erfundenen Geschichten für wahr",
+          "Sie erforscht Engel ausschließlich mit physischen Experimenten",
+          "Sie hält Quellen für überflüssig"
+        ],
+        "correct_answer": "Sie stützt Aussagen über das Verborgene auf verlässliche Quellen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-005": {
+      "source": {
+        "question_tr": "Bir kişi, 'Melekler Allah'ın yanında bağımsız ilahî varlıklardır' diyor. Hata nedir?",
+        "explanation_tr": "Enbiyâ 21:26-28 melekleri Allah'ın onurlandırılmış kulları olarak tanıtır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Melekler Allah'ın kullarıdır; ilah değildirler",
+          "Melekler sadece insan isimleridir",
+          "Melekler peygamberdir",
+          "Melekler kutsal kitapların adıdır"
+        ],
+        "correct_answer": "Melekler Allah'ın kullarıdır; ilah değildirler",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand behauptet: „Engel sind neben Allah eigenständige göttliche Wesen.“ Was ist daran falsch?",
+        "explanation_tr": "Sure Al-Anbiya 21:26–28 beschreibt Engel als geehrte Diener Allahs.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Engel sind Diener Allahs und keine Gottheiten",
+          "Engel sind nur menschliche Namen",
+          "Engel sind Propheten",
+          "Engel sind Bezeichnungen heiliger Bücher"
+        ],
+        "correct_answer": "Engel sind Diener Allahs und keine Gottheiten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-006": {
+      "source": {
+        "question_tr": "Meleklerle ilgili temel kavramları açıklamalarıyla eşleştir.",
+        "explanation_tr": "Meleklere iman bir inanç esasıdır; melekler ilah değil Allah'ın kullarıdır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Meleklere iman",
+            "right": "İman esaslarından biri"
+          },
+          {
+            "left": "Melekler",
+            "right": "Allah'ın kulları"
+          },
+          {
+            "left": "Allah",
+            "right": "Tek ilah"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Begriffe über Engel mit ihren Erklärungen.",
+        "explanation_tr": "Der Glaube an Engel ist ein Glaubensartikel. Engel sind Diener Allahs und keine Gottheiten.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaube an Engel",
+            "right": "Glaubensartikel"
+          },
+          {
+            "left": "Engel",
+            "right": "Diener Allahs"
+          },
+          {
+            "left": "Allah",
+            "right": "Die einzige Gottheit"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-007": {
+      "source": {
+        "question_tr": "Fâtır 35:1'de melekler hangi genel görev ifadesiyle anılır?",
+        "explanation_tr": "Fâtır 35:1'de meleklerin elçiler kılındığı bildirilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elçiler",
+          "Hükümdarlar",
+          "İlahlar",
+          "Peygamberler"
+        ],
+        "correct_answer": "Elçiler",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mit welcher allgemeinen Aufgabe beschreibt Sure Fatir 35:1 Engel?",
+        "explanation_tr": "Fatir 35:1 bezeichnet Engel als Gesandte.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Als Gesandte",
+          "Als Herrscher",
+          "Als Gottheiten",
+          "Als Propheten"
+        ],
+        "correct_answer": "Als Gesandte",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-008": {
+      "source": {
+        "question_tr": "Bir uygulamada melek çizimi için 'Meleklerin gerçek görünüşü kesin olarak böyledir' etiketi kullanılmak isteniyor. En uygun düzeltme hangisidir?",
+        "explanation_tr": "Fâtır 35:1 kanatlardan söz eder; ancak mahiyet ve biçim hakkında kesin ayrıntılar üretmek doğru değildir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bunun temsili bir görsel olduğu belirtilmeli",
+          "Kesin görünüş diye sunulmalı",
+          "Her ayrıntı vahiy sayılmalı",
+          "Kaynak belirtilmesine gerek yok"
+        ],
+        "correct_answer": "Bunun temsili bir görsel olduğu belirtilmeli",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine App möchte eine Zeichnung mit „So sehen Engel ganz sicher aus“ beschriften. Was wäre richtig?",
+        "explanation_tr": "Fatir 35:1 erwähnt Flügel. Konkrete Einzelheiten ihres Aussehens sollten nicht als gesichertes Wissen ausgegeben werden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Darauf hinweisen, dass es eine sinnbildliche Illustration ist",
+          "Die Darstellung als zweifelsfreies Aussehen ausgeben",
+          "Jedes Bilddetail als Offenbarung behandeln",
+          "Auf jede Quellenangabe verzichten"
+        ],
+        "correct_answer": "Darauf hinweisen, dass es eine sinnbildliche Illustration ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-009": {
+      "source": {
+        "question_tr": "Melekler, Allah'a ortak koşulacak varlıklar değildir.",
+        "explanation_tr": "Kur'an melekleri Allah'ın kulları olarak tanıtır ve ulûhiyyeti yalnız Allah'a verir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Engel dürfen Allah nicht als Teilhaber zur Seite gestellt werden.",
+        "explanation_tr": "Der Koran beschreibt Engel als Diener Allahs; Göttlichkeit kommt allein Allah zu.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-010": {
+      "source": {
+        "question_tr": "Meleklere iman denince en kısa ve güvenli biçimde neyi kabul ederiz?",
+        "explanation_tr": "Meleklere iman, onların varlığını ve güvenilir kaynaklarda bildirilen özelliklerini tasdik etmeyi içerir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah'ın meleklerinin varlığını ve vahiyde bildirilen nitelik ve görevlerini kabul ederiz.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was glauben Muslime über Engel? Gib eine kurze, sorgfältig formulierte Antwort.",
+        "explanation_tr": "Zum Glauben an Engel gehört, ihre Existenz sowie die in verlässlichen Quellen genannten Eigenschaften und Aufgaben anzuerkennen.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Wir glauben an die Existenz der Engel Allahs und an die durch Offenbarung mitgeteilten Eigenschaften und Aufgaben.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-011": {
+      "source": {
+        "question_tr": "Melekler hakkında yeni bir iddiayı değerlendirirken en sağlıklı sıralama hangisidir?",
+        "explanation_tr": "Gayb alanında kaynak kontrolü ve kesinlik derecesini ayırmak yanlış bilgiyi azaltır.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "İddiayı oku",
+          "Kur'an ve güvenilir kaynakla karşılaştır",
+          "Kesin olanla yorumu ayır",
+          "Sonucu ihtiyatlı ifade et"
+        ],
+        "correct_order": [
+          "İddiayı oku",
+          "Kur'an ve güvenilir kaynakla karşılaştır",
+          "Kesin olanla yorumu ayır",
+          "Sonucu ihtiyatlı ifade et"
+        ]
+      },
+      "display": {
+        "question_tr": "In welcher Reihenfolge solltest du eine neue Behauptung über Engel prüfen?",
+        "explanation_tr": "Durch Quellenprüfung und die Unterscheidung zwischen Gewissheit und Deutung lassen sich Fehlinformationen über das Verborgene vermeiden.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Lies die Behauptung",
+          "Vergleiche sie mit dem Koran und verlässlichen Quellen",
+          "Trenne gesicherte Informationen von Deutungen",
+          "Formuliere die Schlussfolgerung vorsichtig"
+        ],
+        "correct_order": [
+          "Lies die Behauptung",
+          "Vergleiche sie mit dem Koran und verlässlichen Quellen",
+          "Trenne gesicherte Informationen von Deutungen",
+          "Formuliere die Schlussfolgerung vorsichtig"
+        ],
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-012": {
+      "source": {
+        "question_tr": "Kur'an'da meleklerden söz edilmesi, onların iman konularıyla ilgisiz olduğunu gösterir.",
+        "explanation_tr": "Aksine Bakara 2:285 melekleri doğrudan iman edilen esaslar arasında sayar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dass der Koran Engel erwähnt, zeigt, dass sie nichts mit den Glaubensinhalten zu tun haben.",
+        "explanation_tr": "Im Gegenteil: Al-Baqara 2:285 nennt Engel ausdrücklich unter den Glaubensinhalten.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-013": {
+      "source": {
+        "question_tr": "Enbiyâ 21:26-28'e göre melekler için hangi ifade daha uygundur?",
+        "explanation_tr": "Ayette melekler Allah'ın onurlandırılmış kulları olarak anlatılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Onurlandırılmış kullar",
+          "Bağımsız tanrılar",
+          "İnsanların ortakları",
+          "Peygamberlerden üstün ilahlar"
+        ],
+        "correct_answer": "Onurlandırılmış kullar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Beschreibung der Engel passt zu Al-Anbiya 21:26–28?",
+        "explanation_tr": "Diese Verse beschreiben Engel als geehrte Diener Allahs.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Geehrte Diener",
+          "Unabhängige Gottheiten",
+          "Teilhaber der Menschen",
+          "Gottheiten, die über den Propheten stehen"
+        ],
+        "correct_answer": "Geehrte Diener",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S01-014": {
+      "source": {
+        "question_tr": "Melekler hakkında kesin bilgi verirken ______ sınırlarını aşmamak gerekir.",
+        "explanation_tr": "Gayb alanındaki bilgiler vahye dayalı olarak ele alınmalıdır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vahyin",
+          "söylentinin",
+          "hayalin",
+          "sosyal medyanın"
+        ],
+        "correct_answer": "vahyin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wenn wir über Engel Gewissheit beanspruchen, sollten wir nicht über die Grenzen der ______ hinausgehen.",
+        "explanation_tr": "Aussagen über das Verborgene sollten sich auf die Offenbarung stützen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Offenbarung",
+          "Gerüchte",
+          "Fantasie",
+          "sozialen Medien"
+        ],
+        "correct_answer": "Offenbarung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer sind Engel?",
+        "topic": "Glaube an Engel und die Aussagen des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
