@@ -41,8 +41,44 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   else{await page.evaluate(answer=>{const b=[...document.querySelectorAll('#answerArea button')].find(x=>x.dataset.value===answer||(x.querySelector('.option-label')?.textContent||x.textContent).trim()===answer);if(b)b.dataset.qaAnswer='1'},q.correct_answer);await area.locator('[data-qa-answer]').click();if(!await page.locator('#feedback.show').count()){const c=area.locator('.v710-action:not([disabled]),.template-action:not([disabled])').last();if(await c.count())await c.click()}}
   await page.waitForSelector('#feedback.show');const previous=await page.evaluate(()=>session.index);await page.locator('#continueBtn').click();await page.waitForFunction(i=>!session||session.index>i||document.getElementById('resultView').classList.contains('show'),previous);answered++;console.log('ANSWERED',answered);assert(answered<60);
  }
+
+ // Assert the real, short-lived result toast (not just a dictionary lookup).
+ await page.locator('.deen-fx-banner').last().waitFor({state:'visible',timeout:5000});
+ await page.waitForTimeout(160);
+ report.resultToast=await page.locator('.deen-fx-banner').last().innerText();
+ assert(/stage.*(complete|unlocked)/i.test(report.resultToast),'New stage toast did not translate: '+report.resultToast);
+ assert(!/(?:artık|bitti|düğüm|açıldı|sıradaki|aşama|ders|yeni)/i.test(report.resultToast),'Turkish result toast: '+report.resultToast);
+ const expectedResultCopy={
+  "Meet Islam artık bitti. Sıradaki düğüm açıldı.": "Meet Islam is complete. The next stage is unlocked.",
+  "Who Is a Muslim? artık oynanabilir.": "Who Is a Muslim? is now available.",
+  "Sıradaki aşama · Who Is a Muslim?": "Next stage · Who Is a Muslim?",
+  "Sonraki mini ders · Hatırla": "Next mini lesson · Recall",
+  "3 derslik bu aşamada 2/3 ilerlemedesin.": "You have completed 2 of 3 mini lessons in this stage.",
+  "Ders 2/3": "Lesson 2/3",
+  "Görevler 0/3 · Haftalık ritim 1/5 gün": "Daily tasks 0/3 · Weekly rhythm 1/5 days",
+  "Görevler 2/3 · Haftalık ritim 4/5 gün · 1 tekrar": "Daily tasks 2/3 · Weekly rhythm 4/5 days · 1 review",
+  "1 soru tekrar bekliyor.": "1 question is due for review.",
+  "5 soru tekrar bekliyor.": "5 questions are due for review.",
+  "AŞAMA ÖĞRENME DÖNGÜSÜ": "STAGE LEARNING CYCLE",
+  "Bu mini dersi %70 ve üzeri ile geçmen gerekiyor.": "You need at least 70% to pass this mini lesson.",
+  "Bir tur daha": "Try again",
+  "Yeni ders açıldı": "New stage unlocked",
+  "Altın performans": "Gold performance",
+  "FİNAL KAPISINA GİT": "GO TO THE FINAL",
+  "SIRADA NE VAR?": "WHAT'S NEXT?",
+  "İbadet Temelleri Ustalığı hazır.": "Foundations of Worship mastery is ready.",
+  "25 soru · 0 enerji · %80 geçiş.": "25 questions · 0 energy · 80% to pass.",
+  "BUGÜN TAMAM": "DONE FOR TODAY"
+};
+ for(const [source,expected] of Object.entries(expectedResultCopy)){
+  const actual=await page.evaluate(value=>DEEN_ENGLISH_UI.t(value),source);
+  assert.equal(actual,expected,'English result/transition copy: '+source);
+ }
+ console.log('PASS ENGLISH RESULT FLOW',JSON.stringify({liveToast:report.resultToast,translations:Object.keys(expectedResultCopy).length}));
  await page.waitForTimeout(1400);report.result=await page.locator('#resultView').innerText();report.rewards=await page.evaluate(()=>({xp:state.xp,currency:state.currency,completed:[...state.completed]}));report.answered=answered;assert(answered>0);assert(report.rewards.xp>rewardBefore.xp);assert(report.rewards.completed.includes('U01-S01'));
- assert(!/[ÇĞİÖŞÜçğıöşü]|\b(?:Ders|Soru|Devam|Doğru|Ödül|DENE)\b/.test(report.result),report.result);await page.screenshot({path:path.join(out,'english-result.png')});
+ assert(!/[ÇĞİÖŞÜçğıöşü]|\b(?:Ders|Soru|Devam|Doğru|Ödül|DENE)\b/.test(report.result),report.result);
+ assert(/Next stage/i.test(report.result),'Result next-stage CTA missing');
+ assert(!/SIRADAKİ EN İYİ ADIM|Bu aşamadaki/.test(report.result),'Turkish bottom result copy');await page.screenshot({path:path.join(out,'english-result.png')});
  await page.evaluate(()=>{finishLesson();state.energy=10;rewardAd()});report.energy=await page.evaluate(()=>state.energy);assert.equal(report.energy,20);
  await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());assert.equal(await page.evaluate(()=>state.xp),report.rewards.xp);assert(await page.evaluate(()=>state.completed.includes('U01-S01')));report.persisted=true;
  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'regression-report.json'),JSON.stringify(report,null,2));console.log('PASS REGRESSION',JSON.stringify(report));await browser.close();server.close();

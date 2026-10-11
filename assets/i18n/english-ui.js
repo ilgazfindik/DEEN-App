@@ -261,6 +261,64 @@ Object.assign(D,{
   "yanlış önceliği": "mistake priority",
   "Eşleşen kavramlar": "Matching concepts"
 });
+
+/* EN result and progression flow: transient toasts, failure states, bottom CTAs and ceremonies. */
+Object.assign(D,{
+  "Yeni ders açıldı":"New stage unlocked",
+  "Bir tur daha":"Try again",
+  "Ders geçildi":"Lesson passed",
+  "Bu mini derste hepsini doğru yaptın.":"You answered every question correctly in this mini lesson.",
+  "Sonraki mini derse geçebilirsin.":"You can now move on to the next mini lesson.",
+  "Bu mini dersi %70 ve üzeri ile geçmen gerekiyor.":"You need at least 70% to pass this mini lesson.",
+  "AŞAMA ÖĞRENME DÖNGÜSÜ":"STAGE LEARNING CYCLE",
+  "Uygula":"Apply",
+  "Ustalaş":"Master",
+  "Altın performans":"Gold performance",
+  "Final geçildi":"Final passed",
+  "Tekrar öneriliyor":"Review recommended",
+  "Mini dersi tekrar et":"Retry mini lesson",
+  "Mini ders geçildi":"Mini lesson passed",
+  "Ünite kapısı hazır":"Unit gateway unlocked",
+  "Büyük ödül seremonisi hazır":"Final reward ceremony ready",
+  "Smart Review ile güçlendir":"Strengthen your knowledge with Smart Review",
+  "Devam ettiğinde final ödül sandığı ve yeni kısım geçişi açılacak.":"Continue to unlock the final reward chest and the next section.",
+  "Geçiş için %80 gerekiyor. Zayıf alanlarını tekrar ederek yeniden deneyebilirsin.":"You need at least 80% to advance. Review weaker topics and try again.",
+  "Aşamayı tamamla":"Complete the stage",
+  "Yolculuğa devam et":"Continue learning",
+  "Bu dersi başarıyla tamamladın. Öğrenme yolunda bir sonraki adıma geçebilirsin.":"You completed this lesson. Continue to the next step on your learning path.",
+  "Bu dersi tekrar et":"Retry this lesson",
+  "Yanlış yaptığın sorular tekrar sistemine eklendi. %70 ve üzeriyle geçtiğinde ilerleme açılır.":"Your missed questions were added to your review plan. Score at least 70% to advance.",
+  "SIRADA NE VAR?":"WHAT'S NEXT?",
+  "Bir adım daha?":"Ready for the next step?",
+  "Şimdi hatırlamayı güçlendir.":"Strengthen your recall.",
+  "Bugünün yolculuğu tamamlandı.":"Today's learning journey is complete.",
+  "Ders hedefin ve 3 günlük görevin bitti.":"Your lesson goal and three daily tasks are complete.",
+  "Bugünün yolculuğu tamam.":"Today's journey is complete.",
+  "Ders tamamlandı.":"Lesson completed.",
+  "Kısa bir tekrar istersen hazır.":"You can take a short review if you like.",
+  "İSTEĞE BAĞLI TEKRAR":"OPTIONAL REVIEW",
+  "YOLA DÖN":"BACK TO LEARNING PATH",
+  "ÖNCE KISA TEKRAR":"REVIEW FIRST",
+  "BUGÜN TAMAM":"DONE FOR TODAY",
+  "SIRADAKİ ADIM":"NEXT STEP",
+  "Yeni bir öğrenme bölümü hazır. İlk aşamayla başlayabilirsin.":"A new learning unit is ready. Start with its first stage.",
+  "YENİ ÜNİTEYE BAŞLA":"START NEW UNIT",
+  "İbadet Temelleri Ustalığı hazır.":"Foundations of Worship mastery is ready.",
+  "İbadet Temelleri Ustalığı Finali":"Foundations of Worship Mastery Final",
+  "İbadet Temelleri Ustalığı":"Foundations of Worship Mastery",
+  "25 soru · 0 enerji · %80 geçiş.":"25 questions · 0 energy · 80% to pass.",
+  "YOLCULUĞA DEVAM":"CONTINUE LEARNING",
+  "FİNAL KAPISINA GİT":"GO TO THE FINAL",
+  "Güçlü alan":"Strength",
+  "Tekrar önerisi":"Suggested review",
+  "SKOR":"SCORE",
+  "BİLGİ":"KNOWLEDGE",
+  "HATIRLAMA":"RECALL",
+  "YENİ":"NEW",
+  "Günün görevleri tamamlandı":"Daily tasks completed",
+  "Haftalık ritim tamamlandı":"Weekly learning goal completed",
+  "Görev tamamlandı":"Task completed"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -269,6 +327,17 @@ function t(value){
  if(D[n])return s.replace(n,D[n]);
  let m;
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
+ // EN result/progression: translate complete composed strings before middot splitting.
+ if((m=n.match(/^(.+?) artık bitti\\. Sıradaki düğüm açıldı\\.$/)))return t(m[1])+' is complete. The next stage is unlocked.';
+ if((m=n.match(/^(.+?) artık oynanabilir\\.$/)))return t(m[1])+' is now available.';
+ if((m=n.match(/^Sıradaki aşama\\s*·\\s*(.+)$/)))return 'Next stage · '+t(m[1]);
+ if((m=n.match(/^Sonraki mini ders\\s*·\\s*(.+)$/)))return 'Next mini lesson · '+t(m[1]);
+ if((m=n.match(/^(\\d+) derslik bu aşamada (\\d+)\\/(\\d+) ilerlemedesin\\.$/)))return 'You have completed '+m[2]+' of '+m[3]+' mini lessons in this stage.';
+ if((m=n.match(/^Ders\\s+(\\d+)\\/(\\d+)$/)))return 'Lesson '+m[1]+'/'+m[2];
+ if((m=n.match(/^Görevler\\s+(\\d+)\\/3\\s*·\\s*Haftalık ritim\\s+(\\d+)\\/(\\d+)\\s+gün(?:\\s*·\\s*(\\d+) tekrar)?$/)))return 'Daily tasks '+m[1]+'/3 · Weekly rhythm '+m[2]+'/'+m[3]+' days'+(m[4]?' · '+m[4]+(m[4]==='1'?' review':' reviews'):'');
+ if((m=n.match(/^(.+?)\\s*·\\s*(\\d+)\\s+soru\\.$/)))return t(m[1])+' · '+m[2]+(m[2]==='1'?' question':' questions');
+ if((m=n.match(/^(\\d+) soru tekrar bekliyor\\.$/)))return m[1]+(m[1]==='1'?' question is':' questions are')+' due for review.';
+ if((m=n.match(/^(.+) açıldı\\.$/)))return t(m[1])+' is unlocked.';
  // Review tab dynamic counters: translate whole values before the generic separator/token fallback.
  if((m=n.match(/^(\d+)\s+kavram\s*·\s*(\d+)\s+enerji$/)))return m[1]+(m[1]==='1'?' concept':' concepts')+' · '+m[2]+' energy';
  if((m=n.match(/^(\d+)\s+kavram$/)))return m[1]+(m[1]==='1'?' concept':' concepts');
