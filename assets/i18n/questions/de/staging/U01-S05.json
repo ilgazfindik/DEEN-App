@@ -1,0 +1,611 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U01",
+  "stage": "U01-S05",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U01-S05-001": {
+      "source": {
+        "question_tr": "Bir arkadaşın sana \"İslam nasıl bir din anlayışı sunar?\" diye soruyor. Bu ünitede öğrendiklerine göre en uygun cevap hangisidir?",
+        "explanation_tr": "Bu ünitede İslam, Allah'a yönelişin inanç, kulluk ve güzel davranışlarla birlikte ele alındığı bütünsel bir çerçeve olarak tanıtılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'a yönelişi; inanç, ibadet ve güzel ahlakla birlikte ele alan bir anlayış",
+          "Yalnızca belirli ritüellerin isimlerini ezberlemeyi amaçlayan bir anlayış",
+          "Sadece belirli bir toplumun kültürel geleneklerini koruyan bir anlayış",
+          "Günlük hayatla bağlantısı olmayan yalnızca tarihî bir anlayış"
+        ],
+        "correct_answer": "Allah'a yönelişi; inanç, ibadet ve güzel ahlakla birlikte ele alan bir anlayış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund fragt dich: „Welches Verständnis von Religion vermittelt der Islam?“ Welche Antwort entspricht dem, was du in dieser Einheit gelernt hast?",
+        "explanation_tr": "In dieser Einheit wird der Islam als umfassende Lebensweise vorgestellt, in der die Hinwendung zu Allah, Glaube, Gottesverehrung und gutes Handeln zusammengehören.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Er verbindet die Hinwendung zu Allah mit Glauben, Gottesverehrung und gutem Verhalten",
+          "Es geht nur darum, die Namen bestimmter Rituale auswendig zu lernen",
+          "Er bewahrt ausschließlich die kulturellen Bräuche einer bestimmten Gemeinschaft",
+          "Er beschäftigt sich nur mit Geschichte und hat nichts mit dem Alltag zu tun"
+        ],
+        "correct_answer": "Er verbindet die Hinwendung zu Allah mit Glauben, Gottesverehrung und gutem Verhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-002": {
+      "source": {
+        "question_tr": "Milliyeti veya dili ne olursa olsun, Allah'a inanan ve İslam'ı benimseyen her insana \"___\" denir.",
+        "explanation_tr": "Bu tanım Müslümanlığın evrensel, inanca dayalı bir kimlik olduğunu gösterir.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Müslüman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Menschen, die unabhängig von Herkunft oder Sprache an Allah glauben und den Islam annehmen, nennt man „___“.",
+        "explanation_tr": "Die Zugehörigkeit zum Islam hängt vom Glauben ab, nicht von der Nationalität oder Muttersprache.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Muslime",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-003": {
+      "source": {
+        "question_tr": "İman, sadece dışarıdan görülen davranışlarla ölçülebilecek bir kavramdır.",
+        "explanation_tr": "İman öncelikle kalpte gerçekleşen bir kabul halidir; dışarıdan tam olarak ölçülemez, ancak davranışlara yansıyabilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Glaube lässt sich ausschließlich an äußerlich sichtbarem Verhalten messen.",
+        "explanation_tr": "Glaube umfasst eine innere Überzeugung. Er kann sich im Verhalten zeigen, lässt sich von außen aber nicht vollständig beurteilen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-004": {
+      "source": {
+        "question_tr": "Bir arkadaşın \"İbadet sadece namazdır\" diyor. Ona İslam'daki ibadet anlayışını en doğru şekilde nasıl açıklarsın?",
+        "explanation_tr": "İbadet, namaz dahil olmak üzere Allah rızası gözetilerek yapılan geniş bir davranış yelpazesini kapsar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İbadetin, Allah rızası için yapılan pek çok davranışı kapsadığını söylerim",
+          "Ona hak verip başka bir şey söylemem",
+          "Sadece namazın önemli olduğunu onaylarım",
+          "İbadetin gereksiz olduğunu söylerim"
+        ],
+        "correct_answer": "İbadetin, Allah rızası için yapılan pek çok davranışı kapsadığını söylerim",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Gottesdienst bedeutet nur, das Gebet zu verrichten.“ Wie kannst du ihm erklären, was Gottesverehrung im Islam umfasst?",
+        "explanation_tr": "Im Islam beschränkt sich Gottesverehrung nicht auf das Gebet. Auch andere Handlungen können dazugehören, wenn sie um Allahs willen ausgeführt werden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ich erkläre, dass viele Handlungen im Streben nach Allahs Wohlgefallen zur Gottesverehrung gehören können",
+          "Ich stimme ihm zu und sage sonst nichts",
+          "Ich bestätige, dass ausschließlich das Gebet wichtig ist",
+          "Ich sage, Gottesverehrung sei überflüssig"
+        ],
+        "correct_answer": "Ich erkläre, dass viele Handlungen im Streben nach Allahs Wohlgefallen zur Gottesverehrung gehören können",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-005": {
+      "source": {
+        "question_tr": "Ahlak kavramı İslam'da nasıl bir yere sahiptir?",
+        "explanation_tr": "Ahlak, İslam'da imandan ve ibadetten ayrı düşünülemeyecek, bütünün önemli bir parçasıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnanç ve ibadetle birlikte İslam'ın önemli bir parçasıdır",
+          "İnançtan tamamen bağımsız, önemsiz bir konudur",
+          "Sadece toplumsal bir zorunluluktur",
+          "Sadece kanunlarla ilgilidir"
+        ],
+        "correct_answer": "İnanç ve ibadetle birlikte İslam'ın önemli bir parçasıdır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Bedeutung hat gutes Verhalten im Islam?",
+        "explanation_tr": "Guter Charakter und verantwortungsbewusstes Handeln sind im Islam eng mit Glauben und Gottesverehrung verbunden.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Es ist neben Glauben und Gottesverehrung ein wichtiger Bestandteil des Islam",
+          "Es ist völlig unabhängig vom Glauben und ohne Bedeutung",
+          "Es ist nur eine gesellschaftliche Pflicht",
+          "Es hat ausschließlich mit staatlichen Gesetzen zu tun"
+        ],
+        "correct_answer": "Es ist neben Glauben und Gottesverehrung ein wichtiger Bestandteil des Islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-006": {
+      "source": {
+        "question_tr": "İbadette temel amaç, kulluğu Allah'a has kılmak ve O'nun ___ gözetmektir.",
+        "explanation_tr": "İhlas anlayışında ibadet Allah'a has kılınır ve O'nun rızası gözetilir.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "rızasını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Bei gottesdienstlichen Handlungen geht es darum, allein Allah zu dienen und Sein ___ zu suchen.",
+        "explanation_tr": "Aufrichtigkeit bedeutet, gottesdienstliche Handlungen Allah zu widmen und nach Seinem Wohlgefallen zu streben.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Wohlgefallen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-007": {
+      "source": {
+        "question_tr": "İslam, iman, ibadet ve ahlak kavramlarını doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "Bu dört kavram, İslam'ın inançtan davranışa uzanan bütünlüğünü özetler.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Din"
+          },
+          {
+            "left": "İman",
+            "right": "İçsel inanç"
+          },
+          {
+            "left": "İbadet",
+            "right": "Uygulanan kulluk"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Dışa yansıyan davranış"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe Islam, Iman, Ibada und Akhlaq ihren passenden Erklärungen zu.",
+        "explanation_tr": "Diese vier Begriffe helfen dabei, das Zusammenspiel von Religion, Glauben, Gottesverehrung und Verhalten zu verstehen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "Religion"
+          },
+          {
+            "left": "Iman (Glaube)",
+            "right": "Innere Überzeugung"
+          },
+          {
+            "left": "Ibada (Gottesverehrung)",
+            "right": "Gelebter Dienst an Allah"
+          },
+          {
+            "left": "Akhlaq (guter Charakter)",
+            "right": "Verhalten gegenüber anderen Menschen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-008": {
+      "source": {
+        "question_tr": "Bir şemada \"İman = ibadet = ahlak; üçü tamamen aynı kavramdır\" yazıyor. Bu şemadaki hata nedir?",
+        "explanation_tr": "İman inançla, ibadet kulluk davranışlarıyla, ahlak ise doğru ve güzel davranışlarla ilgilidir. Birbirleriyle ilişkili olsalar da aynı kavram değildirler.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bu kavramlar ilişkili olsa da farklı anlamlara sahip oldukları için birbirine eşitlenmemelidir",
+          "İman ve ibadet aynı kavramdır, yalnızca ahlak farklıdır",
+          "Ahlak ve ibadet aynı kavramdır, yalnızca iman farklıdır",
+          "Şema doğrudur; üç kavram arasında hiçbir anlam farkı yoktur"
+        ],
+        "correct_answer": "Bu kavramlar ilişkili olsa da farklı anlamlara sahip oldukları için birbirine eşitlenmemelidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Übersicht steht: „Glaube = Gottesverehrung = guter Charakter. Alle drei Begriffe bedeuten genau dasselbe.“ Was ist daran falsch?",
+        "explanation_tr": "Glaube betrifft die innere Überzeugung, Gottesverehrung die Hinwendung zu Allah im Handeln und guter Charakter das richtige Verhalten. Sie sind miteinander verbunden, aber nicht identisch.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Die Begriffe hängen zusammen, haben aber unterschiedliche Bedeutungen und dürfen nicht gleichgesetzt werden",
+          "Glaube und Gottesverehrung bedeuten genau dasselbe, nur guter Charakter ist anders",
+          "Guter Charakter und Gottesverehrung bedeuten genau dasselbe, nur Glaube ist anders",
+          "Die Übersicht ist richtig; zwischen den Begriffen gibt es keinen Unterschied"
+        ],
+        "correct_answer": "Die Begriffe hängen zusammen, haben aber unterschiedliche Bedeutungen und dürfen nicht gleichgesetzt werden",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-009": {
+      "source": {
+        "question_tr": "Bir arkadaşın derste kopya çekmeyi teklif ediyor ama sen \"Bu doğru değil\" diyerek reddediyorsun. Bu tepkin hangi kavramla en çok ilişkilidir?",
+        "explanation_tr": "Bu tür bir tepki, öğrenilen ahlaki değerlerin günlük kararlara yansımasının bir göstergesidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahlaki değerlerin günlük hayata yansıması",
+          "Sadece öğretmen korkusu",
+          "Sadece kural takibi",
+          "Sadece arkadaş kaybetme korkusu"
+        ],
+        "correct_answer": "Ahlaki değerlerin günlük hayata yansıması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund schlägt dir vor, bei einer Klassenarbeit abzuschreiben. Du lehnst ab und sagst: „Das wäre nicht richtig.“ Wofür ist deine Reaktion ein Beispiel?",
+        "explanation_tr": "Wer eine unehrliche Handlung aus Überzeugung ablehnt, setzt moralische Werte im Alltag um.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dafür, dass moralische Werte Entscheidungen im Alltag beeinflussen",
+          "Nur für Angst vor der Lehrkraft",
+          "Nur dafür, dass du Regeln befolgst",
+          "Nur für Angst, einen Freund zu verlieren"
+        ],
+        "correct_answer": "Dafür, dass moralische Werte Entscheidungen im Alltag beeinflussen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-010": {
+      "source": {
+        "question_tr": "Bir arkadaşın \"Peygamber sadece tarihi bir figürdür\" diyor. Bu görüşe en uygun cevap hangisidir?",
+        "explanation_tr": "Müslümanlar için peygamber, sadece tarihte kalmış biri değil, günlük yaşamda örnek alınan bir rehberdir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamber, Müslümanlar için hâlâ hayatına örnek alınan bir rehberdir",
+          "Tamamen haklı, sadece tarihi bir figürdür",
+          "Peygamberin hiçbir önemi yoktur",
+          "Bu konuda konuşmak gereksizdir"
+        ],
+        "correct_answer": "Peygamber, Müslümanlar için hâlâ hayatına örnek alınan bir rehberdir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Der Prophet ist nur eine Person aus der Geschichte.“ Welche Antwort passt zur Sichtweise vieler Muslime?",
+        "explanation_tr": "Muslime betrachten den Propheten nicht nur als historische Persönlichkeit, sondern auch als Vorbild für ihr Leben.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Der Prophet ist für Muslime auch heute ein Vorbild für ihre Lebensführung",
+          "Das stimmt vollständig: Er ist nur eine historische Person",
+          "Der Prophet hat keinerlei Bedeutung",
+          "Es ist unnötig, darüber zu sprechen"
+        ],
+        "correct_answer": "Der Prophet ist für Muslime auch heute ein Vorbild für ihre Lebensführung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-011": {
+      "source": {
+        "question_tr": "Kur'an, Müslümanların günlük yaşamlarına da yön veren bir kaynaktır.",
+        "explanation_tr": "Kur'an sadece ibadetle değil, ahlak ve günlük yaşamla ilgili temel ilkeleri de içerir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Koran ist für Muslime auch eine Orientierung für den Alltag.",
+        "explanation_tr": "Der Koran enthält nicht nur Aussagen über Gottesverehrung, sondern auch grundlegende Orientierung für gutes Verhalten und das tägliche Leben.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-012": {
+      "source": {
+        "question_tr": "Ahlak, insanın başkalarına karşı sergilediği güzel ve ___ davranışları ifade eder.",
+        "explanation_tr": "Ahlak kavramının merkezinde dürüstlük ve güzel davranış yer alır.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "dürüst",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Guter Charakter umfasst ein freundliches und ___ Verhalten gegenüber anderen.",
+        "explanation_tr": "Ehrlichkeit und gutes Verhalten gegenüber anderen gehören zu den Grundlagen eines guten Charakters.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "ehrliches",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-013": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlak İslam'da birbirinden bağımsız üç ayrı din gibi düşünülmelidir.",
+        "explanation_tr": "Bu üç kavram ayrı dinler değil, İslam'ın bir bütün olarak işleyen farklı boyutlarıdır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Glaube, Gottesverehrung und gutes Verhalten sollte man im Islam wie drei voneinander unabhängige Religionen betrachten.",
+        "explanation_tr": "Das sind keine drei Religionen, sondern unterschiedliche, miteinander verbundene Bereiche des Islam.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-014": {
+      "source": {
+        "question_tr": "Bir arkadaşın \"Ben namaz kılıyorum ama kimseye yardım etmem, bu yeterli\" diyor. Bu görüşteki eksiklik nedir?",
+        "explanation_tr": "İslam'da ibadet ile toplumsal/ahlaki sorumluluk birbirini tamamlar; biri diğerinin yerine geçmez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İbadeti ahlaki sorumluluktan ayırması",
+          "Hiçbir eksiklik yok",
+          "Namazın önemsiz olduğunu düşünmesi",
+          "Yardımın gereksiz olduğunu doğru söylemesi"
+        ],
+        "correct_answer": "İbadeti ahlaki sorumluluktan ayırması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Ich bete, aber anderen helfe ich nicht. Das genügt.“ Was fehlt bei dieser Sichtweise?",
+        "explanation_tr": "Im Islam gehören Gottesverehrung und Verantwortung für andere zusammen. Das eine ersetzt nicht das andere.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Er trennt die Gottesverehrung von seiner moralischen Verantwortung gegenüber anderen",
+          "An seiner Sichtweise fehlt überhaupt nichts",
+          "Er hält das Gebet für unwichtig",
+          "Er hat recht, dass es unnötig ist, anderen zu helfen"
+        ],
+        "correct_answer": "Er trennt die Gottesverehrung von seiner moralischen Verantwortung gegenüber anderen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-015": {
+      "source": {
+        "question_tr": "Kur'an, peygamber, ibadet ve ahlak kavramlarını doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "Bu kavramların her biri farklı bir alanı ifade eder; birlikte düşünüldüğünde ünitenin temel çerçevesini oluştururlar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kur'an",
+            "right": "Müslümanların temel kutsal kitabı"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Allah'ın mesajını ileten ve örnek olan rehber"
+          },
+          {
+            "left": "İbadet",
+            "right": "Allah'a kulluk amacı taşıyan davranış"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Doğru ve güzel davranışlarla ilgili tutum"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Koran, Prophet, Gottesverehrung und guten Charakter den passenden Erklärungen zu.",
+        "explanation_tr": "Die Begriffe bezeichnen unterschiedliche Bereiche. Zusammen machen sie die Grundlagen dieser Einheit verständlich.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Koran",
+            "right": "Heilige Schrift der Muslime"
+          },
+          {
+            "left": "Prophet",
+            "right": "Überbringer von Allahs Botschaft und Vorbild"
+          },
+          {
+            "left": "Gottesverehrung (Ibada)",
+            "right": "Handlungen, mit denen man Allah dient"
+          },
+          {
+            "left": "Guter Charakter (Akhlaq)",
+            "right": "Haltung, die sich in richtigem und gutem Verhalten zeigt"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-016": {
+      "source": {
+        "question_tr": "Bir arkadaşın \"İslam hakkında bilgi sahibi olmak yeterlidir; öğrendiklerinin davranışlarla hiçbir ilgisi yoktur\" diyor. Bu ünitede öğrendiğin çerçeveye göre en uygun cevap hangisidir?",
+        "explanation_tr": "Bu ünitede İslam, yalnızca bilgi edinmekten ibaret değil; inanç, ibadet ve ahlakın yaşamla ilişkilendirildiği bir çerçeve olarak ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İslam'ın yalnızca bilgi değil; inanç, kulluk ve güzel davranışlarla da ilişkili olduğunu söylerim",
+          "Bilginin tek başına bütün dini yaşamı açıkladığını söylerim",
+          "İnanç ile davranış arasında hiçbir bağ kurulamayacağını söylerim",
+          "Ahlakın bu konuyla tamamen ilgisiz olduğunu söylerim"
+        ],
+        "correct_answer": "İslam'ın yalnızca bilgi değil; inanç, kulluk ve güzel davranışlarla da ilişkili olduğunu söylerim",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Es reicht, etwas über den Islam zu wissen. Das Gelernte hat nichts mit meinem Verhalten zu tun.“ Wie antwortest du anhand dieser Einheit?",
+        "explanation_tr": "In dieser Einheit geht es nicht allein um Wissen, sondern auch darum, wie Glauben, Gottesverehrung und gutes Verhalten mit dem Alltag zusammenhängen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ich erkläre, dass der Islam nicht nur Wissen umfasst, sondern auch Glauben, Gottesverehrung und gutes Verhalten",
+          "Ich sage, dass Wissen allein das gesamte religiöse Leben erklärt",
+          "Ich behaupte, zwischen Glauben und Verhalten könne es keinen Zusammenhang geben",
+          "Ich sage, guter Charakter habe mit diesem Thema nichts zu tun"
+        ],
+        "correct_answer": "Ich erkläre, dass der Islam nicht nur Wissen umfasst, sondern auch Glauben, Gottesverehrung und gutes Verhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gelerntes anwenden",
+        "topic": "Grundlagen des Islam im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
