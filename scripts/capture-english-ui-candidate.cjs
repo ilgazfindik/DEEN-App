@@ -77,7 +77,9 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   'Temel kavramlar · %75':'Core concepts · 75%',
   '1 soruda hata tekrar ediyor. Akıllı tekrar bu sinyalleri önceliklendirecek.':'Mistakes recur in 1 question. Smart review will prioritize these signals.',
   '2 soruda hata tekrar ediyor. Akıllı tekrar bu sinyalleri önceliklendirecek.':'Mistakes recur in 2 questions. Smart review will prioritize these signals.',
-  'Hafıza planı:':'Memory plan:'
+  'Hafıza planı:':'Memory plan:',
+  'Vadesi gelen bilgiler önce geliyor.':'Due review items are prioritized.',
+  'Vadesi gelen soru yok; plan zayıf kavramlar ve kontrollü varyasyonlarla dengeleniyor.':'No questions are due; the plan balances weaker concepts with controlled variations.'
  };
  for(const [source,expected] of Object.entries(expectedReviewLabels)){
   const actual=await page.evaluate(x=>DEEN_ENGLISH_UI.t(x),source);
