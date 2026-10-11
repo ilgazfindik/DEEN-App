@@ -158,6 +158,60 @@ Object.assign(D,{
   "0/90 ayet": "0/90 ayahs",
   "24 zayıf ayet": "24 weaker ayahs"
 });
+/* English Quran submodules: vocabulary, memorization, sequence and Juz Amma. */
+Object.assign(D,{
+  "Sık Kur’an Kelimeleri": "Common Quran Words",
+  "ÖĞRENDİM": "LEARNED",
+  "Türkçe kelime anlamı yalnız uzman doğrulanmış word-by-word kaydı varsa gösterilir; bu ekran frekans/tanıma takibi yapar.": "Turkish word meanings are shown only when an expert-verified word-by-word record is available; this screen tracks word frequency and recognition.",
+  "Kesintisiz Ezber": "Continuous Memorization",
+  "Kontrol et ve kendini değerlendir.": "Check the text and assess your recall.",
+  "Önce ayeti tamamen ezberden söyle. Başlangıç ipucu aşağıda.": "First recite the full ayah from memory. A starting hint is shown below.",
+  "METNİ GÖSTER": "SHOW TEXT",
+  "ZORLANDIM": "I STRUGGLED",
+  "HATIRLADIM": "I REMEMBERED",
+  "Bu ezber turu tamamlandı.": "This memorization round is complete.",
+  "Ayet sıralaması": "Ayah Sequence",
+  "Ayet başlangıçlarını sure sırasına göre seç.": "Select the opening words of the ayahs in surah order.",
+  "Zayıf Ayetler": "Weaker Ayahs",
+  "Cüz Amma": "Juz Amma",
+  "HAZIR": "READY",
+  "UZMAN REVIEW": "EXPERT REVIEW REQUIRED",
+  "Yeni Arapça metin için kaynak: Tanzil Uthmani (CC BY 3.0, verbatim + attribution). Türkçe meal ayrıca hak/uzman kontrolünden geçmeden live olmaz.": "Source for new Arabic text: Tanzil Uthmani (CC BY 3.0, verbatim with attribution). Turkish translations must not go live without rights clearance and expert review.",
+  "Nebe": "An-Naba",
+  "Nâziât": "An-Nazi'at",
+  "Abese": "Abasa",
+  "Tekvîr": "At-Takwir",
+  "İnfitâr": "Al-Infitar",
+  "Mutaffifîn": "Al-Mutaffifin",
+  "İnşikâk": "Al-Inshiqaq",
+  "Burûc": "Al-Buruj",
+  "Târık": "At-Tariq",
+  "A‘lâ": "Al-A'la",
+  "Gâşiye": "Al-Ghashiyah",
+  "Fecr": "Al-Fajr",
+  "Beled": "Al-Balad",
+  "Şems": "Ash-Shams",
+  "Leyl": "Al-Layl",
+  "Duhâ": "Ad-Duha",
+  "İnşirâh": "Ash-Sharh",
+  "Tîn": "At-Tin",
+  "Alak": "Al-'Alaq",
+  "Kadir": "Al-Qadr",
+  "Beyyine": "Al-Bayyinah",
+  "Zilzâl": "Az-Zalzalah",
+  "Âdiyât": "Al-'Adiyat",
+  "Kâria": "Al-Qari'ah",
+  "Tekâsür": "At-Takathur",
+  "Asr": "Al-Asr",
+  "Hümeze": "Al-Humazah",
+  "Fîl": "Al-Fil",
+  "Kureyş": "Quraysh",
+  "Maûn": "Al-Ma'un",
+  "Kevser": "Al-Kawthar",
+  "Kâfirûn": "Al-Kafirun",
+  "Nasr": "An-Nasr",
+  "Tebbet": "Al-Masad"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -166,6 +220,9 @@ function t(value){
  if(D[n])return s.replace(n,D[n]);
  let m;
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
+ // Word-frequency counters in Quran vocabulary use complete English units.
+ if((m=n.match(/^(\d+) tekrar$/)))return m[1]+(m[1]==='1'?' occurrence':' occurrences');
+ if((m=n.match(/^(\d+) sure$/)))return m[1]+(m[1]==='1'?' surah':' surahs');
  // Quran hub counters and Turkish-short-month dates: match whole labels, not fragments.
  if((m=n.match(/^(\d{1,2})\s+(Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)\.?$/))){
   const months={Oca:'Jan',Şub:'Feb',Mar:'Mar',Nis:'Apr',May:'May',Haz:'Jun',Tem:'Jul',Ağu:'Aug',Eyl:'Sep',Eki:'Oct',Kas:'Nov',Ara:'Dec'};
