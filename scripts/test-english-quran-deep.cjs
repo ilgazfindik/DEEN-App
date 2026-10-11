@@ -47,10 +47,21 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   }
   await page.locator(id==='ikhlas'?'[onclick="DEEN_QURAN_IKHLAS.finishAyah()"]':'[onclick="DEEN_QURAN_MULTI.finish()"]' ).click();
   await capture(id+'-learn-finished');
-  await page.evaluate(id=>{closeSheet();id==='ikhlas'?DEEN_QURAN_MEM.open(1):DEEN_QURAN_MULTI.openMem(id,1)},id);
-  await capture(id+'-mem');
-  await page.evaluate(id=>id==='ikhlas'?DEEN_QURAN_MEM.reveal():DEEN_QURAN_MULTI.memReveal(),id);
-  await capture(id+'-mem-revealed');
+
+  const count=await page.evaluate(id=>DEEN_QURAN_AYAH_AUDIO.config(id).count,id);
+  for(let ayah=2;ayah<=count;ayah++){
+   await page.evaluate(({id,ayah})=>{closeSheet();id==='ikhlas'?DEEN_QURAN_IKHLAS.open(ayah):DEEN_QURAN_MULTI.openLearning(id,ayah)},{id,ayah});
+   await capture(id+'-ayah-'+ayah+'-learn');
+  }
+  await page.evaluate(id=>{for(let i=0;i<4;i++)id==='ikhlas'?DEEN_QURAN_IKHLAS.next():DEEN_QURAN_MULTI.next();id==='ikhlas'?DEEN_QURAN_IKHLAS.finishAyah():DEEN_QURAN_MULTI.finish()},id);
+  await capture(id+'-surah-finished');
+  for(let level=1;level<=5;level++){
+   await page.evaluate(({id,level})=>{closeSheet();DEEN_QURAN.updateAyah(id,1,{completedAt:new Date().toISOString(),memorizationLevel:level-1});id==='ikhlas'?DEEN_QURAN_MEM.open(1):DEEN_QURAN_MULTI.openMem(id,1)},{id,level});
+   await capture(id+'-mem-level-'+level);
+   await page.evaluate(id=>id==='ikhlas'?DEEN_QURAN_MEM.reveal():DEEN_QURAN_MULTI.memReveal(),id);
+   await capture(id+'-mem-level-'+level+'-revealed');
+  }
+
  }
  for(const type of ['fill_blank','continuation','surah','audio','next_ayah','ayah_number','meaning']){
   await page.evaluate(type=>DEEN_QURAN_QUESTION_ARENA.open(type,'all'),type);await capture('arena-'+type);

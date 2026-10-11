@@ -29,6 +29,17 @@ const server=http.createServer((req,res)=>{const name=decodeURIComponent(req.url
  await surface('settings','settingsPanel()','#v5Sheet',['Animations','Haptic feedback','Reduce motion'],['Animasyon','Dokunsal geri bildirim','Hareketi azalt']);
  await surface('store','storePanel()','#v5Sheet',['1 missed day · Maximum 2'],['missed days','kaçırılan','En fazla']);
  await surface('profile',"navigate('profileScreen')",'#profileScreenBody',['2 mini lessons · 10 min'],['mini lessons · 10 dk']);
+ const counters={
+ '7 güne 2 gün kaldı · +15 Pırıltı':'2 days until the 7-day streak milestone · +15 Sparkles',
+ '7 güne 1 gün kaldı · +15 Pırıltı':'1 day until the 7-day streak milestone · +15 Sparkles',
+ '1 zayıf ayet':'1 weaker ayah','0 zayıf ayet':'0 weaker ayahs',
+ '1 tekrar bugün':'1 review due today','2 tekrar bugün':'2 reviews due today',
+ '1 sure · 1 ayet':'1 surah · 1 ayah','16 sure · 90 ayet':'16 surahs · 90 ayahs',
+ '1 soru':'1 question','2 soru':'2 questions','1 görev':'1 task','2 görev':'2 tasks',
+ '1 gün':'1 day','1 ders':'1 lesson','90 verse pool':'90-ayah pool','90 verse':'90 ayahs'
+ };
+ for(const [source,expected]of Object.entries(counters))assert.equal(await page.evaluate(s=>DEEN_ENGLISH_UI.t(s),source),expected,source);
+ report.counters=Object.keys(counters).length;
  assert.deepEqual(errors,[],errors.join('\n'));
  fs.writeFileSync(path.join(out,'english-sheets.json'),JSON.stringify({report,errors},null,2));
  console.log('PASS ENGLISH SHEETS',JSON.stringify(Object.fromEntries(Object.entries(report).map(([k,v])=>[k,v.length]))));

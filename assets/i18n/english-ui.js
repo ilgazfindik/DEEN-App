@@ -440,18 +440,29 @@ function t(value){
  const guarded=window.DEEN_CONTENT_LOCALE?.translateText(n,'en');if(guarded&&guarded!==n)return s.replace(n,guarded);
  if(D[n])return s.replace(n,D[n]);
  let m;
+ if((m=n.match(/^(.+?) · (?:Ayet|Verse) (\d+)(.*)$/))&&D[m[1]])return D[m[1]]+' · Verse '+m[2]+t(m[3]);
+
+ // Counted nouns must be translated together; word substitution loses plural agreement.
+ if((m=n.match(/^(\d+)\s+(?:ayet|verse)$/i)))return m[1]+(m[1]==='1'?' ayah':' ayahs');
+ if((m=n.match(/^(\d+)\s+(?:ayetlik|verselik|verse) havuz$/)))return m[1]+'-ayah pool';
+ if((m=n.match(/^(\d+) verse pool$/)))return m[1]+'-ayah pool';
+ if((m=n.match(/^(\d+)\s+(?:soru|questions)$/)))return m[1]+(m[1]==='1'?' question':' questions');
+ if((m=n.match(/^(\d+)\s+(?:görev|tasks)$/)))return m[1]+(m[1]==='1'?' task':' tasks');
+ if((m=n.match(/^(\d+)\s+(?:gün|days)$/)))return m[1]+(m[1]==='1'?' day':' days');
+ if((m=n.match(/^(\d+)\s+(?:ders|lessons)$/)))return m[1]+(m[1]==='1'?' lesson':' lessons');
+
  if((m=n.match(/^Hoparlöre dokun: (?:Ayet|Verse) (\d+) kaydını dinle\.$/)))return 'Tap the speaker to listen to the recording of Verse '+m[1]+'.';
  if((m=n.match(/^(\d+)\/(\d+) SAĞLAM$/)))return m[1]+'/'+m[2]+' MASTERED';
  if((m=n.match(/^AYET (\d+)$/)))return 'AYAH '+m[1];
 
- if((m=n.match(/^(.+?) (\d+)\. ayeti hatırla$/)))return 'Recall ayah '+m[2]+' of '+t(m[1]);
- if((m=n.match(/^(.+?) Ezberi$/)))return t(m[1])+' Memorization';
+ if((m=n.match(/^(.+?) (\d+)\. ayeti hatırla$/)))return 'Recall ayah '+m[2]+' of '+(D[m[1]]||t(m[1]));
+ if((m=n.match(/^(.+?) Ezberi$/)))return (D[m[1]]||t(m[1]))+' Memorization';
  if((m=n.match(/^(.+?) için tüm ayetlerin ilk öğrenme turu bitti\. Ezber ve tekrar motorları şimdi hafızayı güçlendirebilir\.$/)))return 'You completed the first learning round for every ayah of '+t(m[1])+'. Continue with memorization and review to strengthen your recall.';
  if((m=n.match(/^Self-check toplamı: (\d+) başarılı hatırlama · (\d+) tekrar isteği$/)))return 'Self-check total: '+m[1]+(m[1]==='1'?' successful recall':' successful recalls')+' · '+m[2]+(m[2]==='1'?' retry':' retries');
 
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
  // Full dynamic copy before the generic middot / token replacement. Keep numerals and grammar intact.
- if((m=n.match(/^(\d+)\s+güne\s+(\d+)\s+gün(?:\s+kaldı)?\s*·\s*\+(\d+)\s+Pırıltı(?:\s*·\s*\+(\d+)\s+seri koruma)?$/)))return m[1]+' days until the '+m[1]+'-day streak milestone'+' · +'+m[3]+' Sparkles'+(m[4]?' · +'+m[4]+' streak protection':'');
+ if((m=n.match(/^(\d+)\s+güne\s+(\d+)\s+gün(?:\s+kaldı)?\s*·\s*\+(\d+)\s+Pırıltı(?:\s*·\s*\+(\d+)\s+seri koruma)?$/)))return m[2]+(m[2]==='1'?' day':' days')+' until the '+m[1]+'-day streak milestone'+' · +'+m[3]+' Sparkles'+(m[4]?' · +'+m[4]+' streak protection':'');
  if((m=n.match(/^(.+?)\s+seninle\s*·\s*(\d+)\s*(?:günlük seri|-day streak)$/)))return t(m[1])+' is with you · '+m[2]+'-day streak';
  if((m=n.match(/^(\d+)\s+mini\s+(?:ders|lessons)\s*·\s*(\d+)\s+dk$/)))return m[1]+(m[1]==='1'?' mini lesson':' mini lessons')+' · '+m[2]+' min';
  if((m=n.match(/^(\d+)\s+kaçırılan\s+gün\s*·\s*En fazla\s+(\d+)$/)))return m[1]+' missed '+(m[1]==='1'?'day':'days')+' · Maximum '+m[2];
@@ -492,11 +503,11 @@ function t(value){
   const months={Oca:'Jan',Şub:'Feb',Mar:'Mar',Nis:'Apr',May:'May',Haz:'Jun',Tem:'Jul',Ağu:'Aug',Eyl:'Sep',Eki:'Oct',Kas:'Nov',Ara:'Dec'};
   return m[1]+' '+months[m[2]];
  }
- if((m=n.match(/^(\d+)\s+zayıf ayet$/)))return m[1]+' weaker ayahs';
- if((m=n.match(/^(\d+)\s+tekrar bugün$/)))return m[1]+' reviews due today';
+ if((m=n.match(/^(\d+)\s+zayıf ayet$/)))return m[1]+(m[1]==='1'?' weaker ayah':' weaker ayahs');
+ if((m=n.match(/^(\d+)\s+tekrar bugün$/)))return m[1]+(m[1]==='1'?' review':' reviews')+' due today';
  if((m=n.match(/^(\d+)\/90 ayet$/)))return m[1]+'/90 ayahs';
  if((m=n.match(/^(\d+)\/3 görev$/)))return m[1]+'/3 tasks';
- if((m=n.match(/^(\d+)\s+sure\s*·\s*(\d+)\s+ayet$/i)))return m[1]+' surahs · '+m[2]+' ayahs';
+ if((m=n.match(/^(\d+)\s+sure\s*·\s*(\d+)\s+ayet$/i)))return m[1]+(m[1]==='1'?' surah':' surahs')+' · '+m[2]+(m[2]==='1'?' ayah':' ayahs');
  if((m=n.match(/^Ustalık\s*%(\d+)$/)))return 'Mastery '+m[1]+'%';
  if((m=n.match(/^%(\d+)\s+hafıza$/)))return m[1]+'% memory strength';
  if((m=n.match(/^(\d+)\s+sn$/)))return s.replace(n,m[1]+' sec');

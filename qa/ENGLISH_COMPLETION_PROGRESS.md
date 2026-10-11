@@ -23,3 +23,13 @@ Pending browser evidence and independent UX review. Do not merge or deploy until
 - Root cause: these legacy routes were absent from previous tests; complete instructional strings were missing from English presentation and partial translations produced mixed sentences.
 - Added complete learning/memorization copy, recall prompts, speaker labels, completion messages and counters. Arabic text and progress logic unchanged. Added a failing-on-residue gate to the deep test.
 - Local Chrome remains blocked by socket permissions. Fixed Chrome run pending; do not merge/deploy.
+
+### Legacy module verification
+- Fix commit `d0faeb7`: Actions `38168306641` deep Quran Chrome test passed: 161 captures, zero detected Turkish residues, zero page errors, zero document-level horizontal overflow.
+- Downloaded DOM/screenshots; visually reviewed Fatiha meaning and memorization. All five learning steps and first progressive memorization screens across 16 surahs are English.
+- Extending checks to all 90 ayah learning entries, all five memorization levels, and final surah completion messages; these extended checks are not yet passed.
+
+### Dynamic copy and duplicate matching module
+- Corrected streak milestone remaining-days value (used milestone number instead of remaining number), singular/plural ayah/review/task/day/lesson/question labels, and arena pool labels.
+- Keep surah names in surah headers instead of context-free question translations (e.g. Al-Ikhlas vs Sincerity).
+- Added adversarial duplicate-label gameplay: all eight source records, selecting identical right labels with different hidden pair IDs. No labels or grading logic changed; Chrome result pending.
