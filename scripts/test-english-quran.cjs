@@ -115,6 +115,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   'Bu ezber turu tamamlandı.':'This memorization round is complete.',
   'Ayet sıralaması':'Ayah Sequence',
   'Cüz Amma':'Juz Amma',
+  '112 · İhlâs':'112 · Al-Ikhlas',
   'HAZIR':'READY',
   'UZMAN REVIEW':'EXPERT REVIEW REQUIRED'
  };
