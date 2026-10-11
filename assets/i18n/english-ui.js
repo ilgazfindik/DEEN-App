@@ -274,7 +274,7 @@ function t(value){
  if((m=n.match(/^(\d+)\s+HAZIR$/)))return m[1]+' READY';
  if((m=n.match(/^(\d+)\s+kontrol noktası tamamlandı$/)))return m[1]+(m[1]==='1'?' checkpoint completed':' checkpoints completed');
  if((m=n.match(/^(\d+)\s+tekrar bekliyor$/)))return m[1]+(m[1]==='1'?' review due':' reviews due');
- if((m=n.match(/^(.+)\s*·\s*%(\d+)$/)))return t(m[1])+' · '+m[2]+'%';
+ if((m=n.match(/^(.+)\s*·\s*%(\d+)$/)))return t(m[1].trim())+' · '+m[2]+'%';
  if((m=n.match(/^%(\d+)$/)))return m[1]+'%';
  // Learning path: translate the entire composed completion label before middot splitting.
  if((m=n.match(/^(\d+)\.\s*(?:KISIM|SECTION)\s*·\s*(\d+)\.\s*(?:ÜNİTE|UNIT)\s*·\s*✓\s*TAMAMLANDI$/i)))return 'SECTION '+m[1]+' · UNIT '+m[2]+' · ✓ COMPLETED';
