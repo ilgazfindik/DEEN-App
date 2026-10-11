@@ -1,0 +1,605 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U02",
+  "stage": "U02-S05",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U02-S05-001": {
+      "source": {
+        "question_tr": "Bir öğrenci beklediğinden iyi bir not alıyor. Allah'a iman ve şükür anlayışıyla en uyumlu tutum hangisidir?",
+        "explanation_tr": "Şükür, elde edilen iyiliğin farkına varmak ve minnettarlık göstermektir; başarıyı kibir aracına dönüştürmek değildir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Başarısına sevinirken nimetin farkına varıp şükretmek",
+          "Başarısını sadece başkalarına üstünlük göstermek için kullanmak",
+          "Başarının hiçbir sorumluluk doğurmadığını düşünmek",
+          "Notu küçümseyip hiçbir değer vermemek"
+        ],
+        "correct_answer": "Başarısına sevinirken nimetin farkına varıp şükretmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler bekommt eine bessere Note als erwartet. Welche Reaktion passt zu Glauben und Dankbarkeit?",
+        "explanation_tr": "Dankbarkeit bedeutet, etwas Gutes bewusst wahrzunehmen und Wertschätzung zu zeigen, statt überheblich zu werden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sich über die Leistung freuen, die Gabe erkennen und dankbar sein",
+          "Die gute Note nur nutzen, um anderen die eigene Überlegenheit zu zeigen",
+          "Annehmen, dass Erfolg keinerlei Verantwortung mit sich bringt",
+          "Die Note geringschätzen und ihr keinen Wert beimessen"
+        ],
+        "correct_answer": "Sich über die Leistung freuen, die Gabe erkennen und dankbar sein",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-002": {
+      "source": {
+        "question_tr": "Bir grup ödevinde sana düşen işi zamanında yapman, bu ünitedeki hangi anlayışla daha çok ilişkilidir?",
+        "explanation_tr": "Allah'a imanla ilişkilendirilen sorumluluk anlayışı, kişinin üzerine düşen görevi ciddiye almasını destekler.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sorumluluk",
+          "Tevhidi yalnızca ezberleme",
+          "Yaratıcı-yaratılan ayrımını unutma",
+          "Şükrü sadece sözle sınırlama"
+        ],
+        "correct_answer": "Sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Du erledigst deinen Teil einer Gruppenarbeit pünktlich. Welcher Begriff aus dieser Einheit passt dazu?",
+        "explanation_tr": "Verantwortung bedeutet, die eigenen Aufgaben ernst zu nehmen. Diese Haltung kann mit dem Glauben an Allah verbunden sein.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Verantwortung",
+          "Tauhid nur auswendig lernen",
+          "Den Unterschied zwischen Schöpfer und Geschöpf vergessen",
+          "Dankbarkeit auf bloße Worte beschränken"
+        ],
+        "correct_answer": "Verantwortung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-003": {
+      "source": {
+        "question_tr": "Önemli bir sınav öncesinde Allah'a güven anlayışıyla en uyumlu davranış hangisidir?",
+        "explanation_tr": "Allah'a güven, çabayı terk etmek değil; sorumluluğu yerine getirip sonucu Allah'a bırakmaktır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Düzenli çalışıp elinden geleni yaptıktan sonra sonucu Allah'a bırakmak",
+          "Hiç hazırlanmadan yalnızca sonucu beklemek",
+          "Çalışmayı gereksiz görüp sorumluluğu tamamen bırakmak",
+          "Sınav sonucunu başkalarının sorumluluğu saymak"
+        ],
+        "correct_answer": "Düzenli çalışıp elinden geleni yaptıktan sonra sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie handelst du vor einer wichtigen Prüfung, wenn du auf Allah vertraust?",
+        "explanation_tr": "Auf Allah zu vertrauen bedeutet nicht, auf eigene Anstrengung zu verzichten. Du tust, was du kannst, und überlässt das Ergebnis Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Regelmäßig lernen, dein Bestes geben und das Ergebnis Allah überlassen",
+          "Dich überhaupt nicht vorbereiten und nur auf das Ergebnis warten",
+          "Lernen für unnötig halten und die Verantwortung abgeben",
+          "Andere für das Prüfungsergebnis verantwortlich machen"
+        ],
+        "correct_answer": "Regelmäßig lernen, dein Bestes geben und das Ergebnis Allah überlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-004": {
+      "source": {
+        "question_tr": "Ailene ait sofrada yemeğin hazır olduğunu görmek, şükür kavramını günlük hayatta nasıl düşünmeye yardımcı olabilir?",
+        "explanation_tr": "Şükür yalnızca büyük olaylarla değil, günlük hayattaki nimetlerin farkına varmakla da ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nimetin farkına varıp teşekkür etmeyi hatırlatarak",
+          "Yemeği sıradan görüp hiçbir anlam yüklemeyerek",
+          "Sadece başkalarının ne yediğine bakarak",
+          "Şükrü yalnızca büyük başarılarla sınırlandırarak"
+        ],
+        "correct_answer": "Nimetin farkına varıp teşekkür etmeyi hatırlatarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Du siehst, dass zu Hause das Essen bereitsteht. Wie kann dich das im Alltag an Dankbarkeit erinnern?",
+        "explanation_tr": "Dankbarkeit bezieht sich nicht nur auf außergewöhnliche Ereignisse, sondern auch auf alltägliche Gaben.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Gabe bewusst wahrnehmen und dich dafür bedanken",
+          "Das Essen für selbstverständlich halten und nicht darüber nachdenken",
+          "Nur schauen, was andere Menschen essen",
+          "Nur bei großen Erfolgen dankbar sein"
+        ],
+        "correct_answer": "Die Gabe bewusst wahrnehmen und dich dafür bedanken",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-005": {
+      "source": {
+        "question_tr": "Kasada sana yanlışlıkla fazla para üstü verildiğini fark ettin. Sorumluluk ve dürüstlük anlayışıyla en uyumlu davranış hangisidir?",
+        "explanation_tr": "Sorumluluk ve dürüstlük, kişinin kendisine avantaj sağlasa bile bir hatayı düzeltmesini destekleyen değerlerdir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Fazla verilen parayı görevliye bildirmek",
+          "Kimse fark etmez diye parayı saklamak",
+          "Durumu arkadaşına bırakmak",
+          "Yanlışı kendi lehine olduğu için önemsememek"
+        ],
+        "correct_answer": "Fazla verilen parayı görevliye bildirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "An der Kasse bekommst du versehentlich zu viel Wechselgeld. Was passt zu Ehrlichkeit und Verantwortung?",
+        "explanation_tr": "Ehrliches Handeln bedeutet, Fehler auch dann zu korrigieren, wenn man selbst davon profitieren könnte.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Person an der Kasse auf den Fehler aufmerksam machen",
+          "Das Geld behalten, weil es niemand bemerkt",
+          "Es einem Freund überlassen, sich darum zu kümmern",
+          "Den Fehler ignorieren, weil du davon profitierst"
+        ],
+        "correct_answer": "Die Person an der Kasse auf den Fehler aufmerksam machen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-006": {
+      "source": {
+        "question_tr": "Sosyal medyada doğruluğundan emin olmadığın bir bilgiyi paylaşmadan önce kontrol etmek, bu ünitedeki hangi tutumla daha çok uyumludur?",
+        "explanation_tr": "Sorumluluk, paylaştığımız bilgilerin başkaları üzerindeki etkisini de düşünmeyi gerektirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sorumluluk",
+          "Kayıtsızlık",
+          "Gösteriş",
+          "Aceleciliği önemsememe"
+        ],
+        "correct_answer": "Sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Du überprüfst eine Information, bevor du sie in sozialen Medien teilst, weil du nicht weißt, ob sie stimmt. Welche Haltung zeigt das?",
+        "explanation_tr": "Verantwortung schließt ein, die möglichen Folgen geteilter Informationen für andere zu bedenken.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Verantwortung",
+          "Gleichgültigkeit",
+          "Angeberei",
+          "Gedankenlosigkeit"
+        ],
+        "correct_answer": "Verantwortung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-007": {
+      "source": {
+        "question_tr": "Sahip olduğun bir imkânı israf etmeden kullanmak, şükür ve sorumluluk ilişkisini nasıl gösterir?",
+        "explanation_tr": "Şükür, nimetin farkına varmakla; sorumluluk ise onu bilinçli ve özenli kullanmakla ilişkilendirilebilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nimetin değerini bilip onu özenli kullanarak",
+          "Nimetin değerini sadece sözle ifade ederek",
+          "İmkânı başkalarına gösteriş için kullanarak",
+          "Sorumluluğu tamamen başkasına bırakarak"
+        ],
+        "correct_answer": "Nimetin değerini bilip onu özenli kullanarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was zeigt es, wenn du etwas, das du besitzt, nicht verschwendest, sondern sorgsam verwendest?",
+        "explanation_tr": "Dankbarkeit beginnt damit, eine Gabe wertzuschätzen. Verantwortung zeigt sich darin, sorgsam mit ihr umzugehen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Du schätzt die Gabe und gehst verantwortungsvoll mit ihr um",
+          "Du zeigst Dankbarkeit nur durch Worte",
+          "Du nutzt die Gabe, um andere zu beeindrucken",
+          "Du überlässt die Verantwortung vollständig anderen"
+        ],
+        "correct_answer": "Du schätzt die Gabe und gehst verantwortungsvoll mit ihr um",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-008": {
+      "source": {
+        "question_tr": "Bir iş görüşmesine hazırlanıyorsun. Allah'a güven anlayışıyla en dengeli yaklaşım hangisidir?",
+        "explanation_tr": "Güven ile sorumluluk birlikte ele alınır: kişi yapabileceğini yapar, kontrol edemediği sonucu Allah'a bırakır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hazırlığını yapıp sonucu Allah'a bırakmak",
+          "Hazırlık yapmadan sadece iyi sonuç beklemek",
+          "Sonucu tamamen kendi kontrolünde görmek",
+          "Kaygılandığın için hiçbir adım atmamak"
+        ],
+        "correct_answer": "Hazırlığını yapıp sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Du bereitest dich auf ein Vorstellungsgespräch vor. Welche Haltung verbindet Vertrauen auf Allah mit Eigenverantwortung?",
+        "explanation_tr": "Vertrauen auf Allah und Verantwortung gehören zusammen: Man bereitet sich vor und überlässt das Ungewisse Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dich vorbereiten und das Ergebnis Allah überlassen",
+          "Ohne Vorbereitung nur auf einen guten Ausgang hoffen",
+          "So tun, als hättest du das Ergebnis vollständig unter Kontrolle",
+          "Aus Angst überhaupt nichts unternehmen"
+        ],
+        "correct_answer": "Dich vorbereiten und das Ergebnis Allah überlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-009": {
+      "source": {
+        "question_tr": "Evde sana verilen bir görevi kimse hatırlatmadan yerine getirmek, bu ünitedeki hangi kavramın günlük örneğidir?",
+        "explanation_tr": "Sorumluluk, kişinin üzerine düşen görevi dış baskı olmadan da önemsemesiyle ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sorumluluk",
+          "Tevhid terimini ezberleme",
+          "Yaratıcı-yaratılan ayrımını tekrar etme",
+          "Şükrü yalnızca sözle ifade etme"
+        ],
+        "correct_answer": "Sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Du erledigst zu Hause eine Aufgabe, ohne daran erinnert zu werden. Welchen Begriff setzt du damit im Alltag um?",
+        "explanation_tr": "Verantwortung bedeutet auch, Aufgaben ohne äußeren Druck ernst zu nehmen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Verantwortung",
+          "Den Begriff Tauhid auswendig lernen",
+          "Den Unterschied zwischen Schöpfer und Geschöpf wiederholen",
+          "Dankbarkeit nur mit Worten ausdrücken"
+        ],
+        "correct_answer": "Verantwortung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-010": {
+      "source": {
+        "question_tr": "Bir gün planladığın gibi gitmedi ama yine de sahip olduğun destek ve imkânların farkına vardın. Bu tutum hangi kavramla daha çok ilişkilidir?",
+        "explanation_tr": "Şükür, yalnızca her şey yolunda olduğunda değil, mevcut nimetlerin farkına varma tutumuyla da ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Şükür",
+          "Ortaklık",
+          "Yaratılmışlık",
+          "Kavram ezberi"
+        ],
+        "correct_answer": "Şükür",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Tag verläuft nicht wie geplant, aber du bemerkst trotzdem, welche Unterstützung und Möglichkeiten du hast. Welche Haltung zeigst du?",
+        "explanation_tr": "Dankbarkeit bedeutet, vorhandene Gaben auch dann wahrzunehmen, wenn nicht alles nach Plan läuft.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dankbarkeit",
+          "Allah Teilhaber zuschreiben",
+          "Geschöpflichkeit",
+          "Begriffe auswendig lernen"
+        ],
+        "correct_answer": "Dankbarkeit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-011": {
+      "source": {
+        "question_tr": "Parkta kullandığın alanı temiz bırakmak, Allah'a imanla ilişkilendirilen sorumluluk anlayışına nasıl örnek olabilir?",
+        "explanation_tr": "Sorumluluk, kişinin çevresi üzerindeki etkisini önemsemesini de kapsayan bir tutum olarak ele alınabilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Çevreye karşı özenli davranarak",
+          "Sadece başkaları görürken dikkat ederek",
+          "Sorumluluğu tamamen görevlilere bırakarak",
+          "Kendi davranışının etkisini önemsemeyerek"
+        ],
+        "correct_answer": "Çevreye karşı özenli davranarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Du hinterlässt einen Bereich im Park sauber, nachdem du ihn benutzt hast. Wie zeigst du damit Verantwortung?",
+        "explanation_tr": "Verantwortung bedeutet auch, auf die Auswirkungen des eigenen Handelns auf die Umwelt zu achten.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Du gehst sorgsam mit deiner Umgebung um",
+          "Du achtest nur darauf, wenn andere zuschauen",
+          "Du überlässt die Verantwortung vollständig dem Reinigungspersonal",
+          "Dir ist egal, welche Folgen dein Verhalten hat"
+        ],
+        "correct_answer": "Du gehst sorgsam mit deiner Umgebung um",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-012": {
+      "source": {
+        "question_tr": "Bir arkadaşın zorlanırken yardım istemesi karşısında, merhamet ve sorumluluk anlayışıyla en uygun yaklaşım hangisidir?",
+        "explanation_tr": "İnanç ve ahlak ilişkisi, başkalarına karşı duyarlı ve sorumlu davranışlarla görünür hale gelebilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İmkânın ölçüsünde yardımcı olmaya çalışmak",
+          "Onu küçümsemek",
+          "Durumu eğlence konusu yapmak",
+          "Sadece başkalarının yardım etmesini beklemek"
+        ],
+        "correct_answer": "İmkânın ölçüsünde yardımcı olmaya çalışmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund hat Schwierigkeiten und bittet dich um Hilfe. Welche Reaktion passt zu Mitgefühl und Verantwortung?",
+        "explanation_tr": "Glaube und gutes Verhalten können sich darin zeigen, dass man anderen aufmerksam und verantwortungsvoll begegnet.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Im Rahmen deiner Möglichkeiten versuchen zu helfen",
+          "Den Freund herabsetzen",
+          "Sich über seine Schwierigkeiten lustig machen",
+          "Nur darauf warten, dass andere helfen"
+        ],
+        "correct_answer": "Im Rahmen deiner Möglichkeiten versuchen zu helfen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-013": {
+      "source": {
+        "question_tr": "Uzun süre hazırlandığın bir plan beklenmedik şekilde bozuldu. Allah'a güven anlayışıyla en dengeli tepki hangisidir?",
+        "explanation_tr": "Allah'a güven, pasiflik değil; yeni koşullarda sorumluluğu sürdürürken kontrol edilemeyen sonucu Allah'a bırakmaktır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Elinden geleni yeniden değerlendirip yeni adımlar atarken sonucu Allah'a bırakmak",
+          "Hiçbir şey yapmadan tüm sorumluluğu bırakmak",
+          "Öfkeyle herkesi suçlamak",
+          "Bir daha hiçbir plan yapmamak"
+        ],
+        "correct_answer": "Elinden geleni yeniden değerlendirip yeni adımlar atarken sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Plan, auf den du lange hingearbeitet hast, scheitert unerwartet. Was passt zum Vertrauen auf Allah?",
+        "explanation_tr": "Vertrauen auf Allah bedeutet nicht Passivität. Es verbindet weiteres verantwortliches Handeln mit dem Vertrauen auf Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Lage neu beurteilen, weitere Schritte unternehmen und das Ergebnis Allah überlassen",
+          "Nichts mehr tun und jede Verantwortung aufgeben",
+          "Wütend allen anderen die Schuld geben",
+          "Nie wieder Pläne machen"
+        ],
+        "correct_answer": "Die Lage neu beurteilen, weitere Schritte unternehmen und das Ergebnis Allah überlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-014": {
+      "source": {
+        "question_tr": "Bir proje sonunda övgü aldın. Şükür ile sağlıklı öz değerlendirmeyi birlikte koruyan tutum hangisidir?",
+        "explanation_tr": "Şükür, emeği inkâr etmek değil; elde edilen imkân ve başarıda nimetin farkına varıp minnettarlık göstermektir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Emeğini kabul edip nimetin ve desteğin farkına vararak şükretmek",
+          "Başarıyı yalnızca kendine bağlayıp başkalarını küçümsemek",
+          "Kendi emeğini tamamen değersiz saymak",
+          "Övgüyü yalnızca gösteriş için kullanmak"
+        ],
+        "correct_answer": "Emeğini kabul edip nimetin ve desteğin farkına vararak şükretmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Am Ende eines Projekts wirst du gelobt. Wie kannst du dankbar sein und zugleich deine eigene Leistung richtig einschätzen?",
+        "explanation_tr": "Dankbarkeit verlangt nicht, die eigene Mühe zu leugnen. Sie bedeutet auch, Unterstützung und Möglichkeiten bewusst wahrzunehmen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die eigene Anstrengung anerkennen und gleichzeitig für Unterstützung und Gaben dankbar sein",
+          "Den ganzen Erfolg nur dir selbst zuschreiben und andere herabsetzen",
+          "Deine eigene Anstrengung für völlig wertlos halten",
+          "Das Lob nur nutzen, um anzugeben"
+        ],
+        "correct_answer": "Die eigene Anstrengung anerkennen und gleichzeitig für Unterstützung und Gaben dankbar sein",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-015": {
+      "source": {
+        "question_tr": "Bir kişi “Allah'a güveniyorsam hiçbir hazırlık yapmama gerek yok” diyor. Bu düşüncedeki temel hata nedir?",
+        "explanation_tr": "Bu ünitede Allah'a güven, kişinin üzerine düşeni yapmasıyla birlikte ele alınır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Güveni sorumluluk ve çabadan koparması",
+          "Allah'a güven kavramını kullanması",
+          "Hazırlıktan söz etmesi",
+          "Sonucu önemsemesi"
+        ],
+        "correct_answer": "Güveni sorumluluk ve çabadan koparması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Wenn ich auf Allah vertraue, muss ich mich auf nichts vorbereiten.“ Was ist an diesem Gedanken falsch?",
+        "explanation_tr": "In dieser Einheit wird das Vertrauen auf Allah zusammen mit eigenverantwortlichem Handeln vermittelt.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Er trennt Vertrauen von eigener Anstrengung und Verantwortung",
+          "Er spricht vom Vertrauen auf Allah",
+          "Er erwähnt die Vorbereitung",
+          "Er interessiert sich für das Ergebnis"
+        ],
+        "correct_answer": "Er trennt Vertrauen von eigener Anstrengung und Verantwortung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S05-016": {
+      "source": {
+        "question_tr": "Bir açıklama “Allah'a iman günlük davranışlarla hiçbir şekilde ilişkili değildir” diyor. Bu ünitenin yaklaşımına göre eksik olan nokta hangisidir?",
+        "explanation_tr": "DEEN bu ünitede Allah'a imanı yalnızca tanım olarak değil, kişinin değerleri ve tutumlarıyla ilişkisi üzerinden de ele alır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İnancın sorumluluk, şükür ve güven gibi tutumlarla ilişki kurabileceğini göz ardı etmesi",
+          "Her davranışın otomatik olarak ibadet olduğunu söylememesi",
+          "Tüm davranışların aynı değerde olduğunu savunmaması",
+          "Sadece tarih bilgisinden söz etmemesi"
+        ],
+        "correct_answer": "İnancın sorumluluk, şükür ve güven gibi tutumlarla ilişki kurabileceğini göz ardı etmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand behauptet: „Der Glaube an Allah hat überhaupt nichts mit unserem täglichen Verhalten zu tun.“ Was fehlt an dieser Sichtweise?",
+        "explanation_tr": "Diese Einheit betrachtet den Glauben an Allah nicht nur als Definition, sondern auch in seiner Verbindung zu Werten und Einstellungen.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sie übersieht, dass Glaube mit Verantwortung, Dankbarkeit und Vertrauen verbunden sein kann",
+          "Sie behauptet nicht, dass jede Handlung automatisch Gottesdienst ist",
+          "Sie behauptet nicht, dass jede Handlung gleich viel wert ist",
+          "Sie spricht nicht ausschließlich über geschichtliche Fakten"
+        ],
+        "correct_answer": "Sie übersieht, dass Glaube mit Verantwortung, Dankbarkeit und Vertrauen verbunden sein kann",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag verantwortungsvoll handeln",
+        "topic": "Dankbarkeit, Verantwortung und Vertrauen auf Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

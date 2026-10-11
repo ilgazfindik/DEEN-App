@@ -22,21 +22,28 @@ Last updated: 2026-10-12
 | U01-S03 / 14 base questions | 14 staged | 0 |
 | U01-S04 / 16 base questions | 16 staged | 0 |
 | U01-S05 / 16 base questions | 16 staged | 0 |
-| U01-S06–S07 base questions | 0 | 26 |
-| U02–U15 | 0 | 1,400 |
+| U01-S06 / 12 base questions | 12 staged | 0 |
+| U01-S07 / 14 base questions | 14 staged | 0 |
+| U02-S01 / 14 base questions | 14 staged | 0 |
+| U02-S02 / 14 base questions | 14 staged | 0 |
+| U02-S03 / 14 base questions | 14 staged | 0 |
+| U02-S04 / 16 base questions | 16 staged | 0 |
+| U02-S05 / 16 base questions | 16 staged | 0 |
+| U02-S06–S07 base questions | 0 | 26 |
+| U03–U15 | 0 | 1,300 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 74 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 174 / 1,500 base questions translated in staging; 0 German game questions published.**
 
-The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json` and `U01-S05.json` retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
+The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 74 source IDs across five stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 174 source IDs across twelve stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-Continue with U01-S06 (12 questions) and S07 (14) to complete the 26 remaining U01 base questions. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+The next 100-question batch is U02-S06 (12) + U02-S07 (14) + U03-S01 through U03-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -54,3 +61,9 @@ Continue with U01-S06 (12 questions) and S07 (14) to complete the 26 remaining U
 - Added 16 German staging translations: 3 multiple choice, 3 fill-blank, 3 true/false, 4 scenarios, 2 matching exercises and 1 error-spotting task.
 - Preserved Turkish source fields, option order, correct-answer index, blank count and matching-cardinality/identity constraints. German explanations and stage instructions were also translated.
 - Human German native-speaker and religious expert approval are **not** claimed. All German game screens and incomplete bank remain unavailable in runtime.
+
+## Batch 100 — U01 closure and U02-S01 through S05
+- Added **exactly 100 new base-question translations**: U01-S06/S07 (26) and U02-S01 through U02-S05 (74).
+- Cumulative U01: **100/100**; U02: **74/100**; German staged bank: **174/1500**.
+- All 12 stage packs preserve source snapshots, activity types, answer choice order and correct index, blank counts and matching structure.
+- German remains staging-only, with no native or religious expert approval and no activation of German gameplay.

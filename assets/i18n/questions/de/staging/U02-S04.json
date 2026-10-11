@@ -1,0 +1,731 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U02",
+  "stage": "U02-S04",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U02-S04-001": {
+      "source": {
+        "question_tr": "Tevhid, yaratıcı, kulluk ve şükür kavramlarını temel anlamlarıyla eşleştir.",
+        "explanation_tr": "Bu dört kavram Allah'a iman ünitesinin farklı yönlerini açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tevhid",
+            "right": "Allah'ın birliği inancı"
+          },
+          {
+            "left": "Yaratıcı",
+            "right": "Bu ünitede Allah için kullanılan temel nitelendirme"
+          },
+          {
+            "left": "Kulluk",
+            "right": "İbadet ve bağlılığın Allah'a yönelmesi"
+          },
+          {
+            "left": "Şükür",
+            "right": "Nimet karşısında teşekkür ve minnettarlık"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Tauhid, Schöpfer, Gottesverehrung und Dankbarkeit ihren Bedeutungen zu.",
+        "explanation_tr": "Die vier Begriffe beschreiben unterschiedliche Seiten des Glaubens an Allah.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tauhid",
+            "right": "Glaube an Allahs Einzigkeit"
+          },
+          {
+            "left": "Schöpfer",
+            "right": "Bezeichnung für Allah in dieser Einheit"
+          },
+          {
+            "left": "Gottesverehrung",
+            "right": "Dienst und Hingabe an Allah"
+          },
+          {
+            "left": "Dankbarkeit (Schukr)",
+            "right": "Dank und Wertschätzung für eine erhaltene Gabe"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-002": {
+      "source": {
+        "question_tr": "Kavramları en yakın açıklamalarıyla eşleştir.",
+        "explanation_tr": "İnanç kavramları ile davranış kavramlarını birbirinden ayırmak, aralarındaki ilişkiyi daha net görmeyi sağlar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'a iman",
+            "right": "Allah'ın varlığı ve birliğine inanmak"
+          },
+          {
+            "left": "Tevhid",
+            "right": "Allah'ın bir ve tek oluşunu vurgulamak"
+          },
+          {
+            "left": "Sorumluluk",
+            "right": "Davranışlarının sonuçlarını önemsemek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Begriffe mit der jeweils passenden Erklärung.",
+        "explanation_tr": "Wer zwischen Glaubens- und Verhaltensbegriffen unterscheidet, kann ihren Zusammenhang besser verstehen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaube an Allah",
+            "right": "An Allahs Existenz und Einzigkeit glauben"
+          },
+          {
+            "left": "Tauhid",
+            "right": "Allahs Einzigkeit hervorheben"
+          },
+          {
+            "left": "Verantwortung",
+            "right": "Die Folgen des eigenen Handelns ernst nehmen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-003": {
+      "source": {
+        "question_tr": "“Tevhid — birlik, şükür — minnettarlık, kulluk — ______” eşleştirmesinde boşluğa hangisi gelir?",
+        "explanation_tr": "Kulluk, bu ünitede ibadet ve bağlılığın Allah'a yönelmesiyle ilişkilendirilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Allah'a yönelen ibadet ve bağlılık",
+          "Yaratılmış olmak",
+          "Bir nimetin adı",
+          "Birlik kavramı"
+        ],
+        "correct_answer": "Allah'a yönelen ibadet ve bağlılık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was ergänzt die Zuordnung richtig: „Tauhid – Einzigkeit; Dankbarkeit – Wertschätzung; Gottesverehrung – ______“?",
+        "explanation_tr": "Gottesverehrung bedeutet in dieser Einheit, Dienst und Hingabe an Allah auszurichten.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Dienst und Hingabe an Allah",
+          "Geschaffen sein",
+          "Name einer Gabe",
+          "Begriff der Einzigkeit"
+        ],
+        "correct_answer": "Dienst und Hingabe an Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-004": {
+      "source": {
+        "question_tr": "Yaratıcı-yaratılan başlığındaki kavramları eşleştir.",
+        "explanation_tr": "Bu eşleştirme, Allah'ın yaratıcı oluşu ile yaratılmışların konumunu ayırmaya yardımcı olur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah",
+            "right": "Yaratıcı"
+          },
+          {
+            "left": "İnsan",
+            "right": "Yaratılmış"
+          },
+          {
+            "left": "Nimet",
+            "right": "Şükürle ilişkilendirilen iyilik veya imkân"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe zum Verhältnis von Schöpfer und Geschöpf zu.",
+        "explanation_tr": "Diese Zuordnung hilft, Allah als Schöpfer von Seinen Geschöpfen zu unterscheiden.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah",
+            "right": "Schöpfer"
+          },
+          {
+            "left": "Mensch",
+            "right": "Geschöpf"
+          },
+          {
+            "left": "Gabe",
+            "right": "Etwas Gutes, für das man dankbar sein kann"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-005": {
+      "source": {
+        "question_tr": "Aşağıdaki çiftlerden hangisi doğru ilişkilendirilmiştir?",
+        "explanation_tr": "Tevhid doğrudan Allah'ın birliği inancıyla ilgilidir; diğer eşleştirmeler kavramların anlamlarını karıştırır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tevhid — Allah'ın birliği",
+          "Şükür — yaratıcı-yaratılan ayrımı",
+          "Kulluk — Allah'ın yaratılmış olması",
+          "Yaratıcı — yalnızca insan emeği"
+        ],
+        "correct_answer": "Tevhid — Allah'ın birliği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung ist richtig?",
+        "explanation_tr": "Tauhid bezeichnet den Glauben an Allahs Einzigkeit. Die anderen Zuordnungen vermischen die Begriffe.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tauhid – Allahs Einzigkeit",
+          "Dankbarkeit – Unterschied zwischen Schöpfer und Geschöpf",
+          "Gottesverehrung – Allah ist erschaffen",
+          "Schöpfer – ausschließlich menschliche Arbeit"
+        ],
+        "correct_answer": "Tauhid – Allahs Einzigkeit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-006": {
+      "source": {
+        "question_tr": "Bir nimetin farkına varıp Allah'a teşekkür etmeyi ifade eden kavram ______dür.",
+        "explanation_tr": "Şükür, nimet karşısında minnettarlık ve teşekkürle ilişkilendirilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "şükür",
+          "tevhid",
+          "yaratılmışlık",
+          "kulluk"
+        ],
+        "correct_answer": "şükür",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was bezeichnet es, wenn man eine Gabe erkennt und Allah dafür dankt? ______",
+        "explanation_tr": "Schukr bedeutet Dankbarkeit und Wertschätzung für empfangene Gaben.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Dankbarkeit (Schukr)",
+          "Tauhid",
+          "Geschöpflichkeit",
+          "Gottesverehrung"
+        ],
+        "correct_answer": "Dankbarkeit (Schukr)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-007": {
+      "source": {
+        "question_tr": "Her kavramı bu ünitedeki işleviyle eşleştir.",
+        "explanation_tr": "Aynı ünitedeki kavramlar farklı sorulara cevap verir; bu farkları bilmek kavram karışıklığını azaltır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tevhid",
+            "right": "Birlik inancını açıklar"
+          },
+          {
+            "left": "Şükür",
+            "right": "Nimet karşısındaki tutumu açıklar"
+          },
+          {
+            "left": "Güven",
+            "right": "Çaba sonrasında Allah'a dayanmayı anlatır"
+          },
+          {
+            "left": "Sorumluluk",
+            "right": "Davranışlarını ciddiye almayı anlatır"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne jeden Begriff seiner Bedeutung in dieser Einheit zu.",
+        "explanation_tr": "Die Begriffe beantworten unterschiedliche Fragen. Ihre Bedeutungen zu unterscheiden verhindert Verwechslungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tauhid",
+            "right": "Beschreibt den Glauben an Allahs Einzigkeit"
+          },
+          {
+            "left": "Dankbarkeit",
+            "right": "Beschreibt die Haltung gegenüber erhaltenen Gaben"
+          },
+          {
+            "left": "Vertrauen auf Allah",
+            "right": "Sich nach eigener Anstrengung auf Allah verlassen"
+          },
+          {
+            "left": "Verantwortung",
+            "right": "Das eigene Handeln ernst nehmen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-008": {
+      "source": {
+        "question_tr": "Bir öğrenci “Tevhid, nimetlere teşekkür etmek demektir” diyor. Hangi düzeltme en uygundur?",
+        "explanation_tr": "Tevhid ve şükür birbirine bağlı olabilir ama aynı anlama gelmez; biri birlik inancı, diğeri minnettarlık tutumudur.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tevhid Allah'ın birliğiyle, şükür ise nimet karşısında teşekkürle ilgilidir",
+          "Tevhid ve şükür tamamen aynı kavramdır",
+          "Şükür Allah'ın birliği anlamına gelir",
+          "Her iki kavram da yalnızca ibadetlerin sayısını anlatır"
+        ],
+        "correct_answer": "Tevhid Allah'ın birliğiyle, şükür ise nimet karşısında teşekkürle ilgilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler sagt: „Tauhid bedeutet, für Gaben dankbar zu sein.“ Welche Korrektur passt?",
+        "explanation_tr": "Tauhid und Schukr können zusammenhängen, bedeuten aber nicht dasselbe: Einzigkeit ist ein Glaubensinhalt, Dankbarkeit eine Haltung.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tauhid betrifft Allahs Einzigkeit, Schukr den Dank für Gaben",
+          "Tauhid und Schukr bedeuten genau dasselbe",
+          "Schukr bedeutet Allahs Einzigkeit",
+          "Beide Begriffe bezeichnen nur die Anzahl der Gebete"
+        ],
+        "correct_answer": "Tauhid betrifft Allahs Einzigkeit, Schukr den Dank für Gaben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-009": {
+      "source": {
+        "question_tr": "Aşağıdaki kavram çiftlerini doğru bağlantılarıyla eşleştir.",
+        "explanation_tr": "Bu eşleştirmeler, ünitede tekrar eden temel ilişkileri tek tabloda görmeyi sağlar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'a iman",
+            "right": "Varlık ve birlik inancı"
+          },
+          {
+            "left": "Tevhid",
+            "right": "Birlik vurgusu"
+          },
+          {
+            "left": "Kulluk",
+            "right": "Allah'a yönelen ibadet"
+          },
+          {
+            "left": "Şükür",
+            "right": "Nimet karşısında minnettarlık"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die folgenden Begriffe ihren Bedeutungen zu.",
+        "explanation_tr": "Die Zuordnungen zeigen wichtige Beziehungen der Einheit auf einen Blick.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaube an Allah",
+            "right": "Glaube an Seine Existenz und Einzigkeit"
+          },
+          {
+            "left": "Tauhid",
+            "right": "Betonung der Einzigkeit"
+          },
+          {
+            "left": "Gottesverehrung",
+            "right": "Dienst an Allah"
+          },
+          {
+            "left": "Dankbarkeit",
+            "right": "Wertschätzung für eine erhaltene Gabe"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-010": {
+      "source": {
+        "question_tr": "Kişinin üzerine düşeni yaptıktan sonra sonucu Allah'a bırakması, bu ünitede Allah'a ______ kavramıyla ilişkilendirilir.",
+        "explanation_tr": "Allah'a güven, sorumluluğu bırakmak değil; çaba gösterdikten sonra sonucu Allah'a havale etme anlayışıyla ele alınır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "güven",
+          "ortaklık",
+          "benzerlik",
+          "yaratılmışlık"
+        ],
+        "correct_answer": "güven",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wenn jemand alles ihm Mögliche getan hat und das Ergebnis Allah überlässt, nennt diese Einheit das ______ auf Allah.",
+        "explanation_tr": "Auf Allah zu vertrauen bedeutet hier nicht, die Verantwortung aufzugeben, sondern nach eigener Anstrengung das Ergebnis Ihm zu überlassen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Vertrauen",
+          "Beigesellen von Teilhabern",
+          "Ähnlichkeit",
+          "Geschöpflichkeit"
+        ],
+        "correct_answer": "Vertrauen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-011": {
+      "source": {
+        "question_tr": "Bir kişi bir nimetin farkına varıyor, teşekkür ediyor ve onu sorumlu biçimde kullanıyor. Hangi iki kavram bu tutumu en iyi açıklar?",
+        "explanation_tr": "Nimetin farkına varmak ve teşekkür etmek şükürle, onu özenli kullanmak ise sorumlulukla ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Şükür ve sorumluluk",
+          "Tevhid ve yaratıcı-yaratılan ayrımı",
+          "Kulluk ve birlik",
+          "Güven ve yaratılmışlık"
+        ],
+        "correct_answer": "Şükür ve sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand erkennt eine Gabe, bedankt sich dafür und geht sorgsam damit um. Welche zwei Begriffe passen am besten?",
+        "explanation_tr": "Die Gabe wahrzunehmen und dafür zu danken zeigt Dankbarkeit; sorgsam damit umzugehen zeigt Verantwortung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Dankbarkeit und Verantwortung",
+          "Tauhid und der Unterschied zwischen Schöpfer und Geschöpf",
+          "Gottesverehrung und Einzigkeit",
+          "Vertrauen und Geschöpflichkeit"
+        ],
+        "correct_answer": "Dankbarkeit und Verantwortung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-012": {
+      "source": {
+        "question_tr": "Açıklamaları uygun kavramlarla eşleştir.",
+        "explanation_tr": "Tanımdan kavramı hatırlamak, yalnızca kavram adını tanımaktan daha güçlü bir öğrenme ölçümüdür.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Bir ve tek olduğuna inanmak",
+            "right": "Tevhid"
+          },
+          {
+            "left": "Nimet karşısında minnettarlık",
+            "right": "Şükür"
+          },
+          {
+            "left": "Çaba sonrası dayanma",
+            "right": "Allah'a güven"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Beschreibungen mit den passenden Begriffen.",
+        "explanation_tr": "Die passende Bezeichnung aus einer Erklärung abzuleiten trainiert ein tieferes Begriffsverständnis.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glauben, dass Allah einzig ist",
+            "right": "Tauhid"
+          },
+          {
+            "left": "Wertschätzung für eine Gabe",
+            "right": "Dankbarkeit"
+          },
+          {
+            "left": "Nach eigener Anstrengung auf Allah vertrauen",
+            "right": "Vertrauen auf Allah"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-013": {
+      "source": {
+        "question_tr": "Tevhid anlayışıyla uyumlu olarak ibadet ve kulluk yalnızca ______ yöneltilir.",
+        "explanation_tr": "Tevhid anlayışında kulluk ve ibadet yalnızca Allah'a yöneltilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Allah'a",
+          "yaratılmışlara",
+          "toplumsal beklentiye",
+          "kişisel şöhrete"
+        ],
+        "correct_answer": "Allah'a",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Im Sinne des Tauhid werden Gottesverehrung und Hingabe ausschließlich an ______ gerichtet.",
+        "explanation_tr": "Nach dem Verständnis des Tauhid gelten Gottesverehrung und Hingabe allein Allah.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Allah",
+          "Geschöpfe",
+          "gesellschaftliche Erwartungen",
+          "persönlichen Ruhm"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-014": {
+      "source": {
+        "question_tr": "Her durumu en uygun kavramla eşleştir.",
+        "explanation_tr": "Bu kavramlar yalnızca tanım olarak değil, günlük tutumlarla ilişkilendirildiğinde daha anlamlı hale gelir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Başarı sonrası nimetin farkına varıp teşekkür etmek",
+            "right": "Şükür"
+          },
+          {
+            "left": "Hazırlığını yapıp sonucu Allah'a bırakmak",
+            "right": "Allah'a güven"
+          },
+          {
+            "left": "Verilen görevi dürüstçe tamamlamak",
+            "right": "Sorumluluk"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Situationen ihren passenden Begriffen zu.",
+        "explanation_tr": "Die Begriffe werden anschaulicher, wenn man sie mit Alltagssituationen verbindet.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Sich nach einem Erfolg über eine Gabe freuen und dafür danken",
+            "right": "Dankbarkeit"
+          },
+          {
+            "left": "Sich vorbereiten und dann Allah das Ergebnis überlassen",
+            "right": "Vertrauen auf Allah"
+          },
+          {
+            "left": "Eine übertragene Aufgabe gewissenhaft erledigen",
+            "right": "Verantwortung"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-015": {
+      "source": {
+        "question_tr": "Bir öğrenci “Allah'a güveniyorsam sınava çalışmama gerek yok” diyor. Buradaki temel hata nedir?",
+        "explanation_tr": "Bu ünitede Allah'a güven, kişinin üzerine düşeni yapmasıyla birlikte ele alınır; sorumluluktan kaçmak olarak öğretilmez.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Allah'a güveni, üzerine düşen sorumluluğu terk etmek sanması",
+          "Sınavdan söz etmesi",
+          "Güven kavramını kullanması",
+          "Çalışmanın zor olduğunu düşünmesi"
+        ],
+        "correct_answer": "Allah'a güveni, üzerine düşen sorumluluğu terk etmek sanması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler sagt: „Wenn ich auf Allah vertraue, muss ich nicht für die Prüfung lernen.“ Was ist daran falsch?",
+        "explanation_tr": "In dieser Einheit wird Vertrauen auf Allah mit eigener Anstrengung verbunden, nicht mit dem Vermeiden von Verantwortung.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Er verwechselt das Vertrauen auf Allah mit der Aufgabe seiner eigenen Verantwortung",
+          "Er erwähnt eine Prüfung",
+          "Er benutzt das Wort Vertrauen",
+          "Er findet Lernen anstrengend"
+        ],
+        "correct_answer": "Er verwechselt das Vertrauen auf Allah mit der Aufgabe seiner eigenen Verantwortung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U02-S04-016": {
+      "source": {
+        "question_tr": "Cevabı açmadan önce zihninden tamamla: Tevhid = ______; şükür = ______; Allah'a güven = çaba sonrası ______.",
+        "explanation_tr": "Üç kavramı birlikte hatırlamak, aralarındaki farkları ve bağlantıları pekiştirir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah'ın birliği; nimet karşısında minnettarlık; sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Erinnere dich, bevor du die Lösung ansiehst: Tauhid = ______; Dankbarkeit = ______; Vertrauen auf Allah = nach eigener Anstrengung ______.",
+        "explanation_tr": "Die drei Begriffe zusammen abzurufen verdeutlicht sowohl ihre Unterschiede als auch ihre Zusammenhänge.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allahs Einzigkeit; Wertschätzung für Gaben; Allah das Ergebnis überlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe richtig verbinden",
+        "topic": "Allahs Einzigkeit, Schöpfung und Dankbarkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
