@@ -247,6 +247,20 @@ Object.assign(D,{
   "Tamamlanan dersler": "Completed lessons",
   "USTALIK SINAVINI BAŞLAT": "START MASTERY TEST"
 });
+/* Review dashboard card labels and return-to-learn summary. */
+Object.assign(D,{
+  "Vadesi gelen bilgiler önce geliyor.": "Due review items are prioritized.",
+  "Vadesi gelen soru yok; plan zayıf kavramlar ve kontrollü varyasyonlarla dengeleniyor.": "No questions are due; the plan balances weaker concepts with controlled variations.",
+  "Hafıza planı:": "Memory plan:",
+  "öğrenilmiş kavram": "learned concept",
+  "öğrenilmiş kavramlar": "learned concepts",
+  "kontrol noktası tamamlandı": "checkpoint completed",
+  "kontrol noktaları tamamlandı": "checkpoints completed",
+  "güçlendirilecek": "to strengthen",
+  "vadesi gelen": "due",
+  "yanlış önceliği": "mistake priority",
+  "Eşleşen kavramlar": "Matching concepts"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -255,6 +269,15 @@ function t(value){
  if(D[n])return s.replace(n,D[n]);
  let m;
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
+ // Review tab dynamic counters: translate whole values before the generic separator/token fallback.
+ if((m=n.match(/^(\d+)\s+kavram\s*·\s*(\d+)\s+enerji$/)))return m[1]+(m[1]==='1'?' concept':' concepts')+' · '+m[2]+' energy';
+ if((m=n.match(/^(\d+)\s+kavram$/)))return m[1]+(m[1]==='1'?' concept':' concepts');
+ if((m=n.match(/^(\d+)\s+enerji$/)))return m[1]+' energy';
+ if((m=n.match(/^(\d+)\s+HAZIR$/)))return m[1]+' READY';
+ if((m=n.match(/^(\d+)\s+kontrol noktası tamamlandı$/)))return m[1]+(m[1]==='1'?' checkpoint completed':' checkpoints completed');
+ if((m=n.match(/^(\d+)\s+tekrar bekliyor$/)))return m[1]+(m[1]==='1'?' review due':' reviews due');
+ if((m=n.match(/^(.+)\s*·\s*%(\d+)$/)))return t(m[1].trim())+' · '+m[2]+'%';
+ if((m=n.match(/^%(\d+)$/)))return m[1]+'%';
  // Learning path: translate the entire composed completion label before middot splitting.
  if((m=n.match(/^(\d+)\.\s*(?:KISIM|SECTION)\s*·\s*(\d+)\.\s*(?:ÜNİTE|UNIT)\s*·\s*✓\s*TAMAMLANDI$/i)))return 'SECTION '+m[1]+' · UNIT '+m[2]+' · ✓ COMPLETED';
  if((m=n.match(/^ÜNİTE\s*(\d+)\s*·\s*✓\s*TAMAMLANDI$/)))return 'UNIT '+m[1]+' · ✓ COMPLETED';
@@ -282,7 +305,7 @@ function t(value){
  if(m=n.match(/^(.+) kelimesini boşluğa yerleştir$/))return 'Place '+t(m[1])+' in the blank';
  if(m=n.match(/^(Kavram|Eş):\s*(.+)$/))return (m[1]==='Kavram'?'Concept: ':'Match: ')+t(m[2]);
  if(m=n.match(/^İfade\s+(\d+):\s*(.+)$/))return 'Statement '+m[1]+': '+t(m[2]);
- if(m=n.match(/^(\d+) soruda hata tekrar ediyor\. Akıllı tekrar bu sinyalleri önceliklendirecek\.$/))return 'Mistakes recur in '+m[1]+' questions. Smart review will prioritize these signals.';
+ if(m=n.match(/^(\d+) soruda hata tekrar ediyor\. Akıllı tekrar bu sinyalleri önceliklendirecek\.$/))return 'Mistakes recur in '+m[1]+(m[1]==='1'?' question':' questions')+'. Smart review will prioritize these signals.';
  if(m=n.match(/^Doğru cevap:\s*([\s\S]+)$/))return 'Correct answer: '+t(m[1]);
  if(m=n.match(/^(Kısaca|Özet):\s*([\s\S]+)$/))return (m[1]==='Kısaca'?'In brief: ':'Summary: ')+t(m[2]);
  if(m=n.match(/^(\d+)\. KISIM\s*·\s*(\d+)\. ÜNİTE$/))return 'SECTION '+m[1]+' · UNIT '+m[2];
