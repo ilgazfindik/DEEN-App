@@ -30,7 +30,7 @@ for(let n=0;n<entries.length;n++){
  const texts=[d.question_tr,d.explanation_tr,...(d.options_tr||[]),d.correct_answer];
  for(const text of texts){
   if(!text?.trim()){fail('empty_display');continue}
-  if(/[ÇĞİÖŞÜçğıöşü]/.test(text))fail('turkish_character_residue');
+  if(/[ÇĞİŞçğıış]/.test(text))fail('turkish_character_residue');
   if(/\b(?:sadece|doğru|yanlış|yapmak|ibadet|peygamber|müslüman|soru|cevap|öğrenme)\b/i.test(text))fail('turkish_word_residue');
   if(/\b(?:which|the|only|faith|worship|because)\b/i.test(text))fail('english_word_residue');
  }
