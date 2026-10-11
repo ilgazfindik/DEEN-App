@@ -78,7 +78,23 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  await page.waitForTimeout(1400);report.result=await page.locator('#resultView').innerText();report.rewards=await page.evaluate(()=>({xp:state.xp,currency:state.currency,completed:[...state.completed]}));report.answered=answered;assert(answered>0);assert(report.rewards.xp>rewardBefore.xp);assert(report.rewards.completed.includes('U01-S01'));
  assert(!/[ÇĞİÖŞÜçğıöşü]|\b(?:Ders|Soru|Devam|Doğru|Ödül|DENE)\b/.test(report.result),report.result);
  assert(/Next stage/i.test(report.result),'Result next-stage CTA missing');
- assert(!/SIRADAKİ EN İYİ ADIM|Bu aşamadaki/.test(report.result),'Turkish bottom result copy');await page.screenshot({path:path.join(out,'english-result.png')});
+ assert(!/SIRADAKİ EN İYİ ADIM|Bu aşamadaki/.test(report.result),'Turkish bottom result copy');
+
+ report.visibleNextCards=await page.locator('#resultView .v624-next-card:visible, #resultView .v680-result-next:visible').count();
+ assert.equal(report.visibleNextCards,1,'Duplicate visible next-step cards in English result');
+ assert.equal((report.result.match(/YOUR BEST NEXT STEP/g)||[]).length,1,'Repeated next-step heading in English result');
+ await page.locator('#resultView .v680-result-next').screenshot({path:path.join(out,'english-result-next-step.png')});
+ for(const [source,expected] of Object.entries({
+   'Ders öğrenildi':'Lesson completed',
+   'Tekrarlarla tamamlanan':'Correct by lesson end',
+   'Önce bu adımı sağlamlaştır.':'Strengthen this step before moving on.',
+   'Aşama tamamlandı. Yeni düğüm açıldı.':'Stage complete. A new stage has unlocked.',
+   'Geçiş için %70 gerekiyor. Aynı atanmış soru seti korunacak; yeni first-pass içerik tüketilmeyecek.':'You need at least 70% to advance. The same question set will be reused without consuming new first-pass content.'
+ })){
+   assert.equal(await page.evaluate(v=>DEEN_ENGLISH_UI.t(v),source),expected,'Next-action English: '+source);
+ }
+ console.log('PASS RESULT NEXT STEP',JSON.stringify({visibleCards:report.visibleNextCards,repeatedHeadings:0}));
+await page.screenshot({path:path.join(out,'english-result.png')});
  await page.evaluate(()=>{finishLesson();state.energy=10;rewardAd()});report.energy=await page.evaluate(()=>state.energy);assert.equal(report.energy,20);
  await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());assert.equal(await page.evaluate(()=>state.xp),report.rewards.xp);assert(await page.evaluate(()=>state.completed.includes('U01-S01')));report.persisted=true;
  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'regression-report.json'),JSON.stringify(report,null,2));console.log('PASS REGRESSION',JSON.stringify(report));await browser.close();server.close();

@@ -319,6 +319,24 @@ Object.assign(D,{
   "Haftalık ritim tamamlandı":"Weekly learning goal completed",
   "Görev tamamlandı":"Task completed"
 });
+
+/* Finish the post-lesson Next Best Action card and disambiguate the result summary. */
+Object.assign(D,{
+ "Ders öğrenildi":"Lesson completed",
+ "Tekrarlarla tamamlanan":"Correct by lesson end",
+ "Önce bu adımı sağlamlaştır.":"Strengthen this step before moving on.",
+ "Ustalık sonucu hazır.":"Your mastery result is ready.",
+ "Ünite tamamlandı. Büyük ödül akışı hazır.":"Unit complete. Your final reward is ready.",
+ "Aşama tamamlandı. Yeni düğüm açıldı.":"Stage complete. A new stage has unlocked.",
+ "Final sonucunu kapat; ilerleme ve ustalık akışı ardından güncellenecek.":"Continue to finish the final and update your mastery progress.",
+ "Önce ünite tamamlama akışını kapat; günlük plan yeni duruma göre yeniden hesaplanacak.":"Complete the unit reward first; your daily plan will update afterward.",
+ "Önce yeni aşamayı aç; günlük plan ardından yeni ilerleme durumuna göre yeniden hesaplanacak.":"Unlock the next stage first; your daily plan will update afterward.",
+ "TEKRAR":"RETRY",
+ "İLERLEME":"PROGRESS",
+ "İSTEĞE BAĞLI":"OPTIONAL",
+ "GÜNLÜK PLAN":"DAILY PLAN",
+ "MİNİ DERSİ TEKRARLA":"RETRY MINI LESSON"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -338,6 +356,7 @@ function t(value){
  if((m=n.match(/^(.+?)\s*·\s*(\d+)\s+soru\.$/)))return t(m[1])+' · '+m[2]+(m[2]==='1'?' question':' questions');
  if((m=n.match(/^(\d+) soru tekrar bekliyor\.$/)))return m[1]+(m[1]==='1'?' question is':' questions are')+' due for review.';
  if((m=n.match(/^(.+) açıldı\.$/)))return t(m[1])+' is unlocked.';
+ if((m=n.match(/^Geçiş için %(\d+) gerekiyor\. Aynı atanmış soru seti korunacak; yeni first-pass içerik tüketilmeyecek\.$/)))return 'You need at least '+m[1]+'% to advance. The same question set will be reused without consuming new first-pass content.';
  // Review tab dynamic counters: translate whole values before the generic separator/token fallback.
  if((m=n.match(/^(\d+)\s+kavram\s*·\s*(\d+)\s+enerji$/)))return m[1]+(m[1]==='1'?' concept':' concepts')+' · '+m[2]+' energy';
  if((m=n.match(/^(\d+)\s+kavram$/)))return m[1]+(m[1]==='1'?' concept':' concepts');
@@ -384,7 +403,7 @@ function t(value){
  if(/REQUIRES_EXPERT_VERIFICATION|Diyanet|Quran Path/.test(out))out=out.replace(/Kur['’]an/g,'Quran').replace(/Cilt\s*(\d+)/g,'Vol. $1').replace(/\bs\.(\d+)/g,'p. $1').replace(/\bve\b/g,'and').replace(/\bbölümü\b/g,'chapter').replace(/Buhârî/g,'Al-Bukhari').replace(/Müslim/g,'Muslim').replace(/Îmân/g,'Faith').replace(/Maûn/g,"Al-Ma'un");
  return s.replace(n,out);
 }
-const style=document.createElement('style');style.id='deen-english-presentation-css';style.textContent="html[lang=\"en\"] .sequence-zone.empty::before{content:\"Select the parts below in order\"!important}\nhtml[lang=\"en\"] .v710-builder-zone.empty::before{content:\"Drag words here or tap them\"!important}\nhtml[lang=\"en\"] .lp-unlocking::after{content:\"NEW LESSON UNLOCKED\"!important}\nhtml[lang=\"en\"] #profileScreenBody .v994-companion-avatar::after,html[lang=\"en\"] #profileScreenBody .v997-companion-avatar::after{content:\"change\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option::after,html[lang=\"en\"] .v858-odd-card::after{content:\"TAP\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.correct::after{content:\"CORRECT ✓\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.wrong::after{content:\"LOOK AGAIN\"!important}\nhtml[lang=\"en\"] .v853-match-card.selected::after{content:\"SELECTED\"!important}\nhtml[lang=\"en\"] .v855-fill-slot::before{content:\"PLACE IN THE BLANK\"!important}\nhtml[lang=\"en\"] .v858-odd-card.wrong-pick::after{content:\"TRY AGAIN\"!important}\nhtml[lang=\"en\"] .v858-odd-card.target::after{content:\"FOUND ✓\"!important}\nhtml[lang=\"en\"] .deen-reward-badge-missing::after{content:\"BADGE\"!important}\nhtml[lang=\"en\"] .v5-btn,html[lang=\"en\"] .v5-list-title,html[lang=\"en\"] .deen-language-card{overflow-wrap:anywhere}";document.head.append(style);
+const style=document.createElement('style');style.id='deen-english-presentation-css';style.textContent="html[lang=\"en\"] .sequence-zone.empty::before{content:\"Select the parts below in order\"!important}\nhtml[lang=\"en\"] .v710-builder-zone.empty::before{content:\"Drag words here or tap them\"!important}\nhtml[lang=\"en\"] .lp-unlocking::after{content:\"NEW LESSON UNLOCKED\"!important}\nhtml[lang=\"en\"] #profileScreenBody .v994-companion-avatar::after,html[lang=\"en\"] #profileScreenBody .v997-companion-avatar::after{content:\"change\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option::after,html[lang=\"en\"] .v858-odd-card::after{content:\"TAP\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.correct::after{content:\"CORRECT ✓\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.wrong::after{content:\"LOOK AGAIN\"!important}\nhtml[lang=\"en\"] .v853-match-card.selected::after{content:\"SELECTED\"!important}\nhtml[lang=\"en\"] .v855-fill-slot::before{content:\"PLACE IN THE BLANK\"!important}\nhtml[lang=\"en\"] .v858-odd-card.wrong-pick::after{content:\"TRY AGAIN\"!important}\nhtml[lang=\"en\"] .v858-odd-card.target::after{content:\"FOUND ✓\"!important}\nhtml[lang=\"en\"] .deen-reward-badge-missing::after{content:\"BADGE\"!important}\nhtml[lang=\"en\"] .v5-btn,html[lang=\"en\"] .v5-list-title,html[lang=\"en\"] .deen-language-card{overflow-wrap:anywhere}";style.textContent+="\nhtml[lang=\"en\"] #resultView.v624-premium-result:has(.v680-result-next) #v624NextCard{display:none!important}";document.head.append(style);
 const originals=new WeakMap(),attributeOriginals=new WeakMap();
 const excluded='script,style,noscript,code,textarea,[contenteditable="true"],[data-deen-no-translate],.deen-ikhlas-arabic,.deen-mem-arabic,.deen-qj2-ar,.deen-qj2-option.ar';
 let running=false,queued=false,writes=0,passes=0;const observer=new MutationObserver(records=>{if(records.length&&!running)schedule()});
