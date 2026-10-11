@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U03",
+  "stage": "U03-S06",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U03-S06-001": {
+      "source": {
+        "question_tr": "Bir ifadede yalnızca Allah'ın birliğinden bahsediliyor ancak mesajın kimin aracılığıyla geldiğinden bahsedilmiyorsa, Kelime-i Şehadet açısından hangi bölüm eksik kalmıştır?",
+        "explanation_tr": "Kelime-i Şehadet'in tam metni, tevhid beyanından sonra Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitlik beyanını da içerir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hz. Muhammed'in elçi olduğuna şahitlik edilen bölüm.",
+          "Meleklere iman edildiğini gösteren bölüm.",
+          "Ahiret gününe inancı anlatan bölüm.",
+          "Sadece 'Lâ ilâhe' diyerek bitirilen bölüm."
+        ],
+        "correct_answer": "Hz. Muhammed'in elçi olduğuna şahitlik edilen bölüm.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage fehlt in der Schahada, wenn nur Allahs Einzigkeit erwähnt wird, nicht aber die Person, die Seine Botschaft überbrachte?",
+        "explanation_tr": "Nach der Erklärung des Tauhid enthält die vollständige Schahada auch das Zeugnis, dass Muhammad Allahs Diener und Gesandter ist.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Das Zeugnis, dass Muhammad Allahs Gesandter ist",
+          "Das Bekenntnis zum Glauben an Engel",
+          "Das Bekenntnis zum Jüngsten Tag",
+          "Ein Teil, der nur mit „La ilaha“ endet"
+        ],
+        "correct_answer": "Das Zeugnis, dass Muhammad Allahs Gesandter ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-002": {
+      "source": {
+        "question_tr": "Akıllı tekrar: İfadeleri temel kavramlarla eşleştir.",
+        "explanation_tr": "Bu tekrar, metnin parçalarını doğrudan kavramlarla ilişkilendirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Lâ ilâhe illallah",
+            "right": "Tevhid"
+          },
+          {
+            "left": "Muhammeden abdühû ve resûlüh",
+            "right": "Kulluk ve elçilik / peygamberlik"
+          },
+          {
+            "left": "Eşhedü",
+            "right": "Şahitlik ederim"
+          },
+          {
+            "left": "Kelime-i Şehadet",
+            "right": "İki ana beyanın bütünü"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne bei dieser Wiederholung jeden Ausdruck seinem Grundbegriff zu.",
+        "explanation_tr": "Diese Übung verbindet die Teile des Wortlauts mit ihren Bedeutungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "La ilaha illallah",
+            "right": "Tauhid"
+          },
+          {
+            "left": "Muhammadan abduhu wa rasuluh",
+            "right": "Dienerschaft und Gesandtentum"
+          },
+          {
+            "left": "Aschhadu",
+            "right": "Ich bezeuge"
+          },
+          {
+            "left": "Die Schahada",
+            "right": "Beide Glaubenszeugnisse zusammen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-003": {
+      "source": {
+        "question_tr": "Kontrollü standart şehadet metninde 'Muhammeden' kelimesinden sonra 'abdühû' gelir.",
+        "explanation_tr": "Diyanet'in standart öğretim metninde ikinci bölüm '...Muhammeden abdühû ve resûlüh' şeklindedir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Im überprüften Lehrwortlaut der Schahada folgt auf „Muhammadan“ das Wort „abduhu“.",
+        "explanation_tr": "Der zweite Teil lautet im gebräuchlichen Lehrwortlaut „...Muhammadan abduhu wa rasuluh“.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-004": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta, tevhid bölümünü peygamberlik bölümünden ayıran ve iki beyanı birleştiren bağlaç ifadesi nerede geçmektedir?",
+        "explanation_tr": "'...illallah' ile ilk kısım biter, hemen ardından 've eşhedü...' diyerek ikinci şahitliğe bağlanır.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "illallah kelimesinden hemen sonra duyulan 've' hecesinde.",
+          "Kayıdın en başında.",
+          "Kayıdın en sonunda.",
+          "Muhammeden kelimesinden sonra."
+        ],
+        "correct_answer": "illallah kelimesinden hemen sonra duyulan 've' hecesinde.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "An welcher Stelle des Hörbeispiels steht das Bindewort zwischen dem Tauhid und dem Zeugnis über das Gesandtentum?",
+        "explanation_tr": "Auf „...illallah“ folgt „wa aschhadu...“; damit beginnt das zweite Zeugnis.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Beim Wort „wa“ direkt nach „illallah“",
+          "Ganz am Anfang des Hörbeispiels",
+          "Ganz am Ende des Hörbeispiels",
+          "Nach „Muhammadan“"
+        ],
+        "correct_answer": "Beim Wort „wa“ direkt nach „illallah“",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-005": {
+      "source": {
+        "question_tr": "Zeynep 'Şehadet kelimesinde neden tanıklık dili kullanılıyor?' diye soruyor. Bu ünitenin düzeyine göre en uygun açıklama hangisidir?",
+        "explanation_tr": "Şehadet, kişinin inandığı temel anlamlara sözle tanıklık etmesini ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Çünkü kişi inandığı temel beyanı sözle ifade ettiğini belirtir",
+          "Çünkü bu yalnızca mahkeme dilinden alınmıştır",
+          "Çünkü kelimenin anlamı sadece ezberlemektir",
+          "Çünkü şahitlik yalnız peygamberlere özgüdür"
+        ],
+        "correct_answer": "Çünkü kişi inandığı temel beyanı sözle ifade ettiğini belirtir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zeynep fragt: „Warum verwendet die Schahada die Formulierung eines Zeugnisses?“ Welche Erklärung passt?",
+        "explanation_tr": "Die Schahada drückt ein persönliches, gesprochenes Glaubenszeugnis aus.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Weil eine Person ihre grundlegende Glaubensüberzeugung mit Worten bekennt",
+          "Weil die Formulierung nur aus der Gerichtssprache stammt",
+          "Weil das Wort nur Auswendiglernen bedeutet",
+          "Weil nur Propheten etwas bezeugen können"
+        ],
+        "correct_answer": "Weil eine Person ihre grundlegende Glaubensüberzeugung mit Worten bekennt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-006": {
+      "source": {
+        "question_tr": "Cümlenin Türkçe anlamını mantıksal olarak doğru sıraya diz.",
+        "explanation_tr": "Önce Allah'ın tek ilah olduğu, sonra Hz. Muhammed'in kulluğu ve elçiliği ifade edilir ve genel şahitlikle bağlanır.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "olduğuna şahitlik ederim.",
+          "Allah'tan başka ilah olmadığına",
+          "ve Muhammed'in O'nun kulu ve elçisi"
+        ],
+        "correct_order": [
+          "Allah'tan başka ilah olmadığına",
+          "ve Muhammed'in O'nun kulu ve elçisi",
+          "olduğuna şahitlik ederim."
+        ]
+      },
+      "display": {
+        "question_tr": "Bringe die deutsche Bedeutung des Bekenntnisses in eine sinnvolle Reihenfolge.",
+        "explanation_tr": "Das Zeugnis umfasst zunächst Allah als einzige Gottheit und danach Muhammads Stellung als Sein Diener und Gesandter. Beide Aussagen werden gemeinsam bezeugt.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Ich bezeuge dies.",
+          "Es gibt keine Gottheit außer Allah,",
+          "und Muhammad ist Sein Diener und Gesandter:"
+        ],
+        "correct_order": [
+          "Es gibt keine Gottheit außer Allah,",
+          "und Muhammad ist Sein Diener und Gesandter:",
+          "Ich bezeuge dies."
+        ],
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-007": {
+      "source": {
+        "question_tr": "Şehadet içindeki kavramları tanımlarıyla eşleştir.",
+        "explanation_tr": "Lâ ilâhe illallah tevhid; abdühû 'O'nun kulu'; resûlüh ise 'O'nun elçisi' anlamını taşır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Lâ ilâhe illallah",
+            "right": "Tevhid"
+          },
+          {
+            "left": "Muhammeden abdühû ve resûlüh",
+            "right": "Allah'ın kulu ve elçisi"
+          },
+          {
+            "left": "Eşhedü",
+            "right": "Şahitlik ederim"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Begriffe der Schahada mit ihren Erklärungen.",
+        "explanation_tr": "„La ilaha illallah“ steht für Tauhid, „abduhu“ bedeutet „Sein Diener“ und „rasuluh“ „Sein Gesandter“.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "La ilaha illallah",
+            "right": "Tauhid"
+          },
+          {
+            "left": "Muhammadan abduhu wa rasuluh",
+            "right": "Allahs Diener und Gesandter"
+          },
+          {
+            "left": "Aschhadu",
+            "right": "Ich bezeuge"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-008": {
+      "source": {
+        "question_tr": "Bir açıklama Allah'ın birliğini anlatıyor fakat peygamberlik/elçilik bölümünü tamamen atlıyor. Şehadet açısından hangi düzeltme gerekir?",
+        "explanation_tr": "Şehadetin iki temel beyanı birlikte öğrenilir: tevhid ve Hz. Muhammed'in kulluğu ve elçiliği.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik bölümü eklenmelidir",
+          "Namazın rekâtları eklenmelidir",
+          "Hac adımları eklenmelidir",
+          "Kur'an'daki sure sayısı eklenmelidir"
+        ],
+        "correct_answer": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik bölümü eklenmelidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Erklärung beschreibt Allahs Einzigkeit, lässt aber den Teil über das Prophetentum völlig aus. Was muss für die vollständige Schahada ergänzt werden?",
+        "explanation_tr": "Die beiden Grundzeugnisse der Schahada gehören zusammen: Tauhid und Muhammads Gesandtentum.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Das Zeugnis, dass Muhammad Allahs Diener und Gesandter ist",
+          "Die Anzahl der Gebetseinheiten",
+          "Die Schritte der Pilgerfahrt",
+          "Die Anzahl der Koransuren"
+        ],
+        "correct_answer": "Das Zeugnis, dass Muhammad Allahs Diener und Gesandter ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-009": {
+      "source": {
+        "question_tr": "İlk şahitlikte 'Eşhedü' ile 'lâ ilâhe illallah' arasına hangi kelime gelir?",
+        "explanation_tr": "'En' kelimesi '...olduğuna' anlamı katarak 'ilah olmadığına (en lâ ilâhe)' bağlantısını sağlar.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "en",
+          "ve",
+          "enne",
+          "resul"
+        ],
+        "correct_answer": "en",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welches Wort steht im ersten Zeugnis zwischen „Aschhadu“ und „la ilaha illallah“?",
+        "explanation_tr": "Das Wort „an“ verbindet das Zeugnis mit der Aussage, dass es keine Gottheit außer Allah gibt.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "an",
+          "wa",
+          "anna",
+          "rasul"
+        ],
+        "correct_answer": "an",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-010": {
+      "source": {
+        "question_tr": "Şehadetin ilk bölümünün bağlantılı olduğu temel kavramı yaz.",
+        "explanation_tr": "'Lâ ilâhe illallah' bölümü Allah'ın birliği yani tevhid kavramıyla bağlantılıdır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Tevhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Schreibe den Grundbegriff auf, der mit dem ersten Teil der Schahada verbunden ist.",
+        "explanation_tr": "„La ilaha illallah“ steht für Allahs Einzigkeit, den Tauhid.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Tauhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-011": {
+      "source": {
+        "question_tr": "Aşağıdaki çalışma biçimlerinden hangisi şehadetin anlamını öğrenme hedefi açısından eksiktir?",
+        "explanation_tr": "Bu ünitede amaç, doğru söyleyiş ve sıralamanın yanında metnin ne ifade ettiğini de kavramaktır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Yalnızca hızlı söylemeye çalışıp anlamını hiç incelememek",
+          "İki bölümü anlamlarıyla ayırmak",
+          "Tevhid bağlantısını öğrenmek",
+          "Elçilik bölümünü tanımak"
+        ],
+        "correct_answer": "Yalnızca hızlı söylemeye çalışıp anlamını hiç incelememek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Lernweise ist unvollständig, wenn man die Bedeutung der Schahada verstehen möchte?",
+        "explanation_tr": "Diese Einheit lehrt sowohl die Bedeutung als auch die richtige Aussprache und Reihenfolge des Textes.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Nur möglichst schnell sprechen, ohne die Bedeutung zu lernen",
+          "Die beiden Teile und ihre Bedeutungen unterscheiden",
+          "Die Verbindung zum Tauhid lernen",
+          "Den Teil über das Gesandtentum erkennen"
+        ],
+        "correct_answer": "Nur möglichst schnell sprechen, ohne die Bedeutung zu lernen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S06-012": {
+      "source": {
+        "question_tr": "'Eşhedü' kelimesindeki kişi kimdir?",
+        "explanation_tr": "'Eşhedü' Türkçede 'Ben şahitlik ederim' anlamında kullanılan bir ifadedir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Konuşan kişinin kendisi: 'Ben şahitlik ederim'",
+          "Yalnızca öğretmen",
+          "Yalnızca imam",
+          "Belirsiz bir üçüncü kişi"
+        ],
+        "correct_answer": "Konuşan kişinin kendisi: 'Ben şahitlik ederim'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Auf wen bezieht sich „Aschhadu“?",
+        "explanation_tr": "„Aschhadu“ bedeutet auf Deutsch „Ich bezeuge“.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Auf die sprechende Person: „Ich bezeuge“",
+          "Nur auf die Lehrperson",
+          "Nur auf den Imam",
+          "Auf eine nicht genannte dritte Person"
+        ],
+        "correct_answer": "Auf die sprechende Person: „Ich bezeuge“",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada wiederholen",
+        "topic": "Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
