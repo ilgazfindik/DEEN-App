@@ -50,21 +50,28 @@ Last updated: 2026-10-12
 | U05-S03 / 14 base questions | 14 staged | 0 |
 | U05-S04 / 16 base questions | 16 staged | 0 |
 | U05-S05 / 16 base questions | 16 staged | 0 |
-| U05-S06–S07 base questions | 0 | 26 |
-| U06–U15 | 0 | 1,000 |
+| U05-S06 / 12 base questions | 12 staged | 0 |
+| U05-S07 / 14 base questions | 14 staged | 0 |
+| U06-S01 / 14 base questions | 14 staged | 0 |
+| U06-S02 / 14 base questions | 14 staged | 0 |
+| U06-S03 / 14 base questions | 14 staged | 0 |
+| U06-S04 / 16 base questions | 16 staged | 0 |
+| U06-S05 / 16 base questions | 16 staged | 0 |
+| U06-S06–S07 base questions | 0 | 26 |
+| U07–U15 | 0 | 900 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 474 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 574 / 1,500 base questions translated in staging; 0 German game questions published.**
 
 The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 474 source IDs across thirty-three stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 574 source IDs across forty stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-The next 100-question batch is U05-S06 (12) + U05-S07 (14) + U06-S01 through U06-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+The next 100-question batch is U06-S06 (12) + U06-S07 (14) + U07-S01 through U07-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -108,3 +115,10 @@ The next 100-question batch is U05-S06 (12) + U05-S07 (14) + U06-S01 through U06
 - Cumulative 474/1500. U01–U04 each 100/100; U05 74/100.
 - Model-translated German question text, every option/answer, explanation, missing-word choices and matching pair. Turkish source snapshots retained.
 - No German runtime publication, audio check, native German-speaker review or Islamic religious expert approval is claimed.
+
+## Batch 100E — U05 completion and U06-S01 through S05
+- Added **100 new German staging translations**: U05-S06 (12) and S07 (14), plus U06-S01 (14), S02 (14), S03 (14), S04 (16), S05 (16).
+- Overall **574 / 1500**; U01–U05 complete 100/100; U06 at 74/100.
+- U06 cites Al-Baqara 2:285/97/98, Al-Anbiya 21:26–28, An-Nahl 16:49–50, At-Tahrim 66:6, Al-Infitar 82:10–12, As-Sadschda 32:11 and other verses. The reference claims are source-derived and remain pending qualified religious review.
+- Preserves Turkish source snapshots, option order and answer indexes, fill slots, matching pairs and sequence order. No claim of expert or audio verification.
+- No German question pack is activated in production until all content, native-language and religious review gates pass.
