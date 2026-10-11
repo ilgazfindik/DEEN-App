@@ -370,6 +370,66 @@ Object.assign(D,{
  "kaçırılan gün":"missed day",
  "Streak koruması":"Streak protection"
 });
+// Legacy five-step learning and progressive memorization share these complete labels.
+Object.assign(D,{
+ "Metni gözünle takip et": "Follow the text",
+ "Ayetin tamamını yavaşça oku.": "Read the whole ayah slowly.",
+ "Meal ile bağ kur": "Connect with the translation",
+ "Yalnız kaynaklı meal gösterilir.": "Only a sourced translation is shown.",
+ "Metne bakmadan getir": "Recall without looking",
+ "Önce zihninden söyle, sonra kontrol et.": "Recite from memory first, then check.",
+ "Ayet turunu bitir": "Complete this ayah",
+ "İlk öğrenme tamamlanır; ezber ayrı güçlendirilir.": "Finish the first learning round, then strengthen your memorization through practice.",
+ "Tam metin": "Full text",
+ "Bazı kelimeler gizli": "Some words hidden",
+ "Çoğu kelime gizli": "Most words hidden",
+ "Başlangıç ipucu": "Opening word hint",
+ "Tamamen ezberden": "Entirely from memory",
+ "Metin gizli": "Text hidden",
+ "Ayeti tamamen ezberden söyle.": "Recite the whole ayah from memory.",
+ "İlk öğrenme turu tamamlandı": "First learning round complete",
+ "Önce bu ayetin öğrenme turunu tamamla.": "Complete the learning round for this ayah first.",
+ "Doğrulanmamış içerik gösterilmedi.": "Unverified content is not displayed.",
+ "AYETİ TAMAMLA": "COMPLETE AYAH",
+ "AYETİ GÖSTER": "SHOW AYAH",
+ "BAŞTAN GÖZDEN GEÇİR": "REVIEW FROM THE START",
+ "Ayetin tamamını yavaşça oku. Bu turda telaffuza otomatik doğru/yanlış hükmü vermiyoruz.": "Read the whole ayah slowly. Your pronunciation is not automatically graded in this round.",
+ "Ayetin mealini bağla": "Connect the ayah with its translation",
+ "Bu aşamada yalnız kaynaklı meal gösterilir; yorum veya tefsir eklemiyoruz.": "This step shows only a sourced translation, without added commentary or tafsir.",
+ "Önce ayeti zihninden söylemeye çalış. Sonra kontrol etmek için metni aç.": "Try reciting the ayah from memory first. Then reveal the text to check.",
+ "Bu ayeti ilk öğrenme turunda tamamladığını işaretle. Ezber seviyesi daha sonra tekrarlarla güçlenecek.": "Mark this ayah as complete for your first learning round. Reviews will strengthen your memorization.",
+ "İhlâs’ın 4 ayetini Dinle → Oku → Anlam → Hatırla → Tamamla akışıyla bitirdin. Bu henüz “ezberlendi” sayılmaz; sonraki ezber ve tekrar motorları hafızayı güçlendirecek.": "You completed all four ayahs of Al-Ikhlas through listening, reading, understanding, recall and completion. Continue with memorization and review to strengthen your recall.",
+ "Metnin tamamını görerek oku ve zihninde sesini kur.": "Read the full text and recall how it sounds.",
+ "Yaklaşık üç kelimeden biri gizli. Eksik parçaları zihninden tamamla.": "About one in three words is hidden. Recall the missing words.",
+ "Yalnız birkaç güçlü ipucu görünür; geri kalanını hatırla.": "Only a few hints remain visible. Recall the rest.",
+ "Sadece ilk kelime görünür. Ayetin devamını tamamen sen getir.": "Only the first word is visible. Recite the rest of the ayah from memory.",
+ "Hiçbir metin ipucu yok. Ayeti baştan sona ezberden söyle.": "There are no text hints. Recite the ayah from beginning to end.",
+ "Ayetin tamamını ezberden söyle. Kontrol etmek istersen “Metni göster”e dokun.": "Recite the whole ayah from memory. Tap “Show text” to check.",
+ "Bu sürüm self-check kullanır: uygulama kıraatini otomatik olarak “doğru” ilan etmez. Metni zihninden söyledikten sonra kendin kontrol et.": "Check your own recitation against the text. The app does not automatically grade your recitation.",
+ "İhlâs Ezber Motoru": "Al-Ikhlas Memorization",
+ "Ezber motorunu açmadan önce İhlâs’ın öğrenme turunda en az bir ayeti tamamla.": "Complete at least one ayah in the Al-Ikhlas learning round before starting memorization.",
+ "ÖĞRENME TURUNU AÇ": "OPEN LEARNING ROUND",
+ "Bu ayet öğrenme turunda henüz tamamlanmadı. Önce ayeti öğren, sonra ezber kademesine geç.": "Complete the learning round for this ayah before starting memorization.",
+ "Doğrulanmamış içerik ezber ekranında gösterilmedi.": "Unverified content is not displayed in memorization.",
+ "Kıraat yalnız hakları temizlenmiş kayıt bağlanırsa oynatılır.": "Recitation is available when a licensed recording is linked."
+});
+Object.assign(D,{
+ "GERİ": "BACK",
+ "Tamamla": "Complete",
+ "TAMAMLA": "COMPLETE",
+ "Anlam": "Meaning",
+ "ANLAM": "MEANING",
+ "Oku": "Read",
+ "OKU": "READ",
+ "Hatırla": "Recall",
+ "HATIRLA": "RECALL",
+ "Al-Ikhlas Memorize Motoru": "Al-Ikhlas Memorization",
+ "Translation ile bağ kur": "Connect with the translation",
+ "Verse turunu bitir": "Complete this ayah",
+ "Ayetin tamamını yavaşça oku. Bu turda telaffuza otomatik correct/incorrect hükmü vermiyoruz.": "Read the whole ayah slowly. Your pronunciation is not automatically graded in this round.",
+ "Bu ayeti ilk öğrenme turunda tamamladığını işaretle. Memorize seviyesi daha sonra tekrarlarla güçlenecek.": "Mark this ayah as complete for your first learning round. Reviews will strengthen your memorization.",
+ "Bu sürüm self-check kullanır: uygulama kıraatini otomatik olarak “correct” ilan etmez. Metni zihninden söyledikten sonra kendin kontrol et.": "Check your own recitation against the text. The app does not automatically grade your recitation."
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -377,12 +437,34 @@ function t(value){
  // Normalize already-English dynamic summary strings emitted by the legacy card renderer.
  const englishSummary=n.match(/^Daily tasks\s*(\d+)\/3\s*·\s*Weekly rhythm\s*(\d+)\/(\d+)\s*days$/);
  if(englishSummary)return 'Daily tasks '+englishSummary[1]+'/3 · Weekly rhythm '+englishSummary[2]+'/'+englishSummary[3]+' days';
+ // Preserve full correct-answer feedback before the generic word translator mixes languages.
+ if(/^(?:Doğru|Correct)\.\s*Devam edebilirsin\.$/.test(n))return s.replace(n,'Correct. You can continue.');
  const guarded=window.DEEN_CONTENT_LOCALE?.translateText(n,'en');if(guarded&&guarded!==n)return s.replace(n,guarded);
  if(D[n])return s.replace(n,D[n]);
  let m;
+ if((m=n.match(/^(.+?) · (?:Ayet|Verse) (\d+)(.*)$/))&&D[m[1]])return D[m[1]]+' · Verse '+m[2]+t(m[3]);
+
+ // Counted nouns must be translated together; word substitution loses plural agreement.
+ if((m=n.match(/^(\d+)\s+(?:ayet|verse)$/i)))return m[1]+(m[1]==='1'?' ayah':' ayahs');
+ if((m=n.match(/^(\d+)\s+(?:ayetlik|verselik|verse) havuz$/)))return m[1]+'-ayah pool';
+ if((m=n.match(/^(\d+) verse pool$/)))return m[1]+'-ayah pool';
+ if((m=n.match(/^(\d+)\s+(?:soru|questions)$/)))return m[1]+(m[1]==='1'?' question':' questions');
+ if((m=n.match(/^(\d+)\s+(?:görev|tasks)$/)))return m[1]+(m[1]==='1'?' task':' tasks');
+ if((m=n.match(/^(\d+)\s+(?:gün|days)$/)))return m[1]+(m[1]==='1'?' day':' days');
+ if((m=n.match(/^(\d+)\s+(?:ders|lessons)$/)))return m[1]+(m[1]==='1'?' lesson':' lessons');
+
+ if((m=n.match(/^Hoparlöre dokun: (?:Ayet|Verse) (\d+) kaydını dinle\.$/)))return 'Tap the speaker to listen to the recording of Verse '+m[1]+'.';
+ if((m=n.match(/^(\d+)\/(\d+) SAĞLAM$/)))return m[1]+'/'+m[2]+' MASTERED';
+ if((m=n.match(/^AYET (\d+)$/)))return 'AYAH '+m[1];
+
+ if((m=n.match(/^(.+?) (\d+)\. ayeti hatırla$/)))return 'Recall ayah '+m[2]+' of '+(D[m[1]]||t(m[1]));
+ if((m=n.match(/^(.+?) Ezberi$/)))return (D[m[1]]||t(m[1]))+' Memorization';
+ if((m=n.match(/^(.+?) için tüm ayetlerin ilk öğrenme turu bitti\. Ezber ve tekrar motorları şimdi hafızayı güçlendirebilir\.$/)))return 'You completed the first learning round for every ayah of '+t(m[1])+'. Continue with memorization and review to strengthen your recall.';
+ if((m=n.match(/^Self-check toplamı: (\d+) başarılı hatırlama · (\d+) tekrar isteği$/)))return 'Self-check total: '+m[1]+(m[1]==='1'?' successful recall':' successful recalls')+' · '+m[2]+(m[2]==='1'?' retry':' retries');
+
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
  // Full dynamic copy before the generic middot / token replacement. Keep numerals and grammar intact.
- if((m=n.match(/^(\d+)\s+güne\s+(\d+)\s+gün(?:\s+kaldı)?\s*·\s*\+(\d+)\s+Pırıltı(?:\s*·\s*\+(\d+)\s+seri koruma)?$/)))return m[1]+' days until the '+m[1]+'-day streak milestone'+' · +'+m[3]+' Sparkles'+(m[4]?' · +'+m[4]+' streak protection':'');
+ if((m=n.match(/^(\d+)\s+güne\s+(\d+)\s+gün(?:\s+kaldı)?\s*·\s*\+(\d+)\s+Pırıltı(?:\s*·\s*\+(\d+)\s+seri koruma)?$/)))return m[2]+(m[2]==='1'?' day':' days')+' until the '+m[1]+'-day streak milestone'+' · +'+m[3]+' Sparkles'+(m[4]?' · +'+m[4]+' streak protection':'');
  if((m=n.match(/^(.+?)\s+seninle\s*·\s*(\d+)\s*(?:günlük seri|-day streak)$/)))return t(m[1])+' is with you · '+m[2]+'-day streak';
  if((m=n.match(/^(\d+)\s+mini\s+(?:ders|lessons)\s*·\s*(\d+)\s+dk$/)))return m[1]+(m[1]==='1'?' mini lesson':' mini lessons')+' · '+m[2]+' min';
  if((m=n.match(/^(\d+)\s+kaçırılan\s+gün\s*·\s*En fazla\s+(\d+)$/)))return m[1]+' missed '+(m[1]==='1'?'day':'days')+' · Maximum '+m[2];
@@ -423,11 +505,11 @@ function t(value){
   const months={Oca:'Jan',Şub:'Feb',Mar:'Mar',Nis:'Apr',May:'May',Haz:'Jun',Tem:'Jul',Ağu:'Aug',Eyl:'Sep',Eki:'Oct',Kas:'Nov',Ara:'Dec'};
   return m[1]+' '+months[m[2]];
  }
- if((m=n.match(/^(\d+)\s+zayıf ayet$/)))return m[1]+' weaker ayahs';
- if((m=n.match(/^(\d+)\s+tekrar bugün$/)))return m[1]+' reviews due today';
+ if((m=n.match(/^(\d+)\s+zayıf ayet$/)))return m[1]+(m[1]==='1'?' weaker ayah':' weaker ayahs');
+ if((m=n.match(/^(\d+)\s+tekrar bugün$/)))return m[1]+(m[1]==='1'?' review':' reviews')+' due today';
  if((m=n.match(/^(\d+)\/90 ayet$/)))return m[1]+'/90 ayahs';
  if((m=n.match(/^(\d+)\/3 görev$/)))return m[1]+'/3 tasks';
- if((m=n.match(/^(\d+)\s+sure\s*·\s*(\d+)\s+ayet$/i)))return m[1]+' surahs · '+m[2]+' ayahs';
+ if((m=n.match(/^(\d+)\s+sure\s*·\s*(\d+)\s+ayet$/i)))return m[1]+(m[1]==='1'?' surah':' surahs')+' · '+m[2]+(m[2]==='1'?' ayah':' ayahs');
  if((m=n.match(/^Ustalık\s*%(\d+)$/)))return 'Mastery '+m[1]+'%';
  if((m=n.match(/^%(\d+)\s+hafıza$/)))return m[1]+'% memory strength';
  if((m=n.match(/^(\d+)\s+sn$/)))return s.replace(n,m[1]+' sec');
@@ -451,11 +533,21 @@ const excluded='script,style,noscript,code,textarea,[contenteditable="true"],[da
 let running=false,queued=false,writes=0,passes=0;const observer=new MutationObserver(records=>{if(records.length&&!running)schedule()});
 function localize(root=document.body){
  if(!root||window.DEEN_APP_LOCALE?.get()!=='en')return;
- running=true;observer.disconnect();const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+ running=true;observer.disconnect();
+ // The surah-choice labels are proper names, not the meanings of religious concepts.
+ // Use the actual option value ID to preserve the answer identity without changing grading.
+ const surahNames={fatiha:'Al-Fatihah',ikhlas:'Al-Ikhlas',falaq:'Al-Falaq',nas:'An-Nas',kafirun:'Al-Kafirun',nasr:'An-Nasr',masad:'Al-Masad',fil:'Al-Fil',quraysh:'Quraysh',maun:"Al-Ma'un",sharh:'Ash-Sharh',tin:'At-Tin',bayyina:'Al-Bayyinah',zilzal:'Az-Zalzalah',kawthar:'Al-Kawthar',asr:'Al-Asr'};
+ const activeSurahQuestion=window.DEEN_QURAN_QUESTION_ARENA?.state?.()?.q;
+ const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
  while(node=walk.nextNode()){
   if(node.parentElement?.closest(excluded))continue;
   const prior=originals.get(node);if(!prior||node.nodeValue!==prior.output)originals.set(node,{source:node.nodeValue,output:node.nodeValue});
-  const row=originals.get(node),value=t(row.source);if(value!==node.nodeValue){node.nodeValue=value;writes++}row.output=value;
+  const row=originals.get(node);let value=t(row.source);
+  if(activeSurahQuestion?.type==='surah'&&node.parentElement?.matches('.deen-qarena-option')){
+   const i=Number(node.parentElement.dataset.qarenaChoiceIndex),answerId=activeSurahQuestion.options?.[i]?.value;
+   if(Object.prototype.hasOwnProperty.call(surahNames,answerId))value=surahNames[answerId];
+  }
+  if(value!==node.nodeValue){node.nodeValue=value;writes++}row.output=value;
  }
  for(const el of root.querySelectorAll('[aria-label],[title],[placeholder],[alt]')){
   if(el.closest(excluded)&&el.tagName!=='TEXTAREA')continue;let saved=attributeOriginals.get(el);if(!saved){saved={};attributeOriginals.set(el,saved)}
