@@ -337,6 +337,39 @@ Object.assign(D,{
  "GÜNLÜK PLAN":"DAILY PLAN",
  "MİNİ DERSİ TEKRARLA":"RETRY MINI LESSON"
 });
+
+/* Independent screenshot audit: Streak, XP, settings, profile and shop language. */
+Object.assign(D,{
+ "Her gün bir adım":"One Step Every Day",
+ "Her days bir adım":"One Step Every Day",
+ "mevcut seri":"Current streak",
+ "en uzun seri":"Longest streak",
+ "seri koruması":"Streak protection",
+ "Sıradaki seri kilometre taşı":"Next streak milestone",
+ "Next seri kilometre taşı":"Next streak milestone",
+ "365 günlük kilometre taşını tamamladın.":"You reached the 365-day streak milestone.",
+ "Bir günde tamamladığın ilk ders seriyi artırır. Aynı gün daha fazla ders seriyi tekrar artırmaz.":"Your first lesson of the day extends your streak. More lessons on the same day do not increase it again.",
+ "Seri koruması tek bir kaçırılan günü korur. Korunan gün aktif öğrenme günü sayılmaz.":"Streak protection covers one missed day. Protected days do not count as active learning days.",
+ "Seri koruması mağazası →":"Streak protection shop →",
+ "Seri ilk öğrenme oturumuyla korunur; ödül kilometre taşları yalnız Bugünkü Yolculuk tamamlandığında verilir. Seri koruması ibadet puanı değildir.":"Your streak is maintained by your first learning session. Milestone rewards require completing Today's Journey. Streak protection is not a score for worship.",
+ "Streak ilk öğrenme oturumuyla korunur; ödül kilometre taşları yalnız Today's Journey tamamlandığında verilir. Streak koruması ibadet puanı değildir.":"Your streak is maintained by your first learning session. Milestone rewards require completing Today's Journey. Streak protection is not a score for worship.",
+ "Bugün de küçük bir adım yeter.":"A small step today is enough.",
+ "Today de küçük bir adım yeter.":"A small step today is enough.",
+ "Öğrenme · Bilgelik · Bugün de küçük bir adım yeter.":"Learning · Wisdom · A small step today is enough.",
+ "Learning · Wisdom · Today de küçük bir adım yeter.":"Learning · Wisdom · A small step today is enough.",
+ "Pzt":"Mon","Sal":"Tue","Çar":"Wed","Per":"Thu","Cum":"Fri","Cmt":"Sat","Paz":"Sun",
+ "Bir sonraki seviyede":"At the next level,",
+ "kazanırsın.":"you will earn this reward.",
+ "XP yalnızca öğrenme, quiz ve tekrar etkinliklerini ölçer. İbadetlere puan verilmez.":"XP measures learning, quizzes and review activities only. Worship is never scored.",
+ "Aynı ders aynı gün tekrarlandığında baz XP: %100 → %50 → %25 → %0.":"When you repeat the same lesson on the same day, base XP decreases: 100% → 50% → 25% → 0%.",
+ "Aynı lessons aynı days tekrarlandığında baz XP: %100 → 50% → 25% → %0.":"When you repeat the same lesson on the same day, base XP decreases: 100% → 50% → 25% → 0%.",
+ "Animasyon":"Animations",
+ "Dokunsal geri bildirim":"Haptic feedback",
+ "Hareketi azalt":"Reduce motion",
+ "En fazla 2":"Maximum 2",
+ "kaçırılan gün":"missed day",
+ "Streak koruması":"Streak protection"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -348,6 +381,12 @@ function t(value){
  if(D[n])return s.replace(n,D[n]);
  let m;
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
+ // Full dynamic copy before the generic middot / token replacement. Keep numerals and grammar intact.
+ if((m=n.match(/^(\d+)\s+güne\s+(\d+)\s+gün(?:\s+kaldı)?\s*·\s*\+(\d+)\s+Pırıltı(?:\s*·\s*\+(\d+)\s+seri koruma)?$/)))return m[1]+'-day streak milestone in '+m[2]+(m[2]==='1'?' day':' days')+' · +'+m[3]+' Sparkles'+(m[4]?' · +'+m[4]+' streak protection':'');
+ if((m=n.match(/^(.+?)\s+seninle\s*·\s*(\d+)\s*(?:günlük seri|-day streak)$/)))return t(m[1])+' is with you · '+m[2]+'-day streak';
+ if((m=n.match(/^(\d+)\s+mini\s+(?:ders|lessons)\s*·\s*(\d+)\s+dk$/)))return m[1]+(m[1]==='1'?' mini lesson':' mini lessons')+' · '+m[2]+' min';
+ if((m=n.match(/^(\d+)\s+kaçırılan\s+gün\s*·\s*En fazla\s+(\d+)$/)))return m[1]+' missed '+(m[1]==='1'?'day':'days')+' · Maximum '+m[2];
+ if((m=n.match(/^(\d+)\s+missed days\s*·\s*Maximum\s+(\d+)$/)))return m[1]+' missed '+(m[1]==='1'?'day':'days')+' · Maximum '+m[2];
  // EN result/progression: translate complete composed strings before middot splitting.
  if((m=n.match(/^(.+?) artık bitti\. Sıradaki düğüm açıldı\.$/)))return t(m[1])+' is complete. The next stage is unlocked.';
  if((m=n.match(/^(.+?) artık oynanabilir\.$/)))return t(m[1])+' is now available.';
