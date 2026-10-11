@@ -11,7 +11,8 @@ const source=new Map(baseQuestions.map(q=>[q.id,q]));
 // Full stage boundaries. No German content is exposed in runtime until all gates pass.
 const stages=[
  ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U01',stage:'S'+String(i+1).padStart(2,'0'),count})),
- ...[14,14,14,16,16].map((count,i)=>({unit:'U02',stage:'S'+String(i+1).padStart(2,'0'),count})),
+ ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U02',stage:'S'+String(i+1).padStart(2,'0'),count})),
+ ...[14,14,14,16,16].map((count,i)=>({unit:'U03',stage:'S'+String(i+1).padStart(2,'0'),count})),
 ];
 const expectedCounts=Object.fromEntries(stages.map(({unit,stage,count})=>[unit+'-'+stage,count]));
 const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
@@ -40,9 +41,20 @@ for(const {unit,stage,count} of stages){
   if(d.question_tr===s.question_tr||d.explanation_tr===s.explanation_tr)problem(id,'untranslated_field');
   if(blankCount(s.question_tr)!==blankCount(d.question_tr))problem(id,'blank_count_changed');
   if(entry.expert_approved!==false||entry.native_reviewer_approved!==false)problem(id,'approval_claim');
-  if(d.items!==null||d.correct_order!==null)problem(id,'unexpected_sequence_fields');
+  if(s.activity_type==='build_sequence'){
+   if(d.options_tr!==null||d.correct_answer!==null||d.pairs!==null)problem(id,'sequence_unexpected_options');
+   if(!Array.isArray(d.items)||!Array.isArray(d.correct_order)||d.items.length!==s.items?.length||d.correct_order.length!==s.correct_order?.length)problem(id,'sequence_cardinality');
+   else {
+    const sorted=x=>[...x].sort().join('\u0000');
+    if(sorted(d.items)!==sorted(d.correct_order))problem(id,'sequence_card_multiset');
+    if(new Set(d.items).size!==new Set(s.items).size)problem(id,'sequence_card_distinctness');
+    const sourcePosition=s.items.map(x=>s.correct_order.indexOf(x));
+    const germanPosition=d.items.map(x=>d.correct_order.indexOf(x));
+    if(!same(sourcePosition,germanPosition))problem(id,'sequence_correct_order_changed');
+   }
+  }else if(d.items!==null||d.correct_order!==null)problem(id,'unexpected_sequence_fields');
   // ö and ü are standard German letters. Only flag Turkish-specific letters and words.
-  const strings=[d.question_tr,d.explanation_tr,...(d.options_tr||[]),d.correct_answer,...(d.pairs||[]).flatMap(x=>[x.left,x.right])];
+  const strings=[d.question_tr,d.explanation_tr,...(d.options_tr||[]),d.correct_answer,...(d.pairs||[]).flatMap(x=>[x.left,x.right]),...(d.items||[]),...(d.correct_order||[])];
   for(const value of strings){
    if(value===null||value===undefined)continue;
    if(typeof value!=='string'||!value.trim()){problem(id,'bad_string');continue;}
@@ -63,6 +75,8 @@ for(const {unit,stage,count} of stages){
     const translatedDistinct=new Set(d.pairs.map(p=>p[side])).size;
     if(translatedDistinct!==sourceDistinct)problem(id,'matching_label_identity:'+side);
    }
+  }else if(s.activity_type==='build_sequence'){
+   // Sequence-card checks are handled separately above; no scalar answer is expected.
   }else{
    if(d.pairs!==null)problem(id,'unexpected_matching_pairs');
    if(Array.isArray(s.options_tr)){
@@ -84,6 +98,6 @@ for(const {unit,stage,count} of stages){
   translated++;
  }
 }
-const report={locale:'de',phase:'U01 complete and U02-S01 through U02-S05 staged',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:100,u02_staged:74,u01_remaining:0,u02_remaining:26,stages:expectedCounts,types,issue_count:issues.length,issues};
+const report={locale:'de',phase:'U01 and U02 complete; U03-S01 through U03-S05 staged',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:100,u02_staged:100,u03_staged:74,u01_remaining:0,u02_remaining:0,u03_remaining:26,stages:expectedCounts,types,issue_count:issues.length,issues};
 console.log(JSON.stringify(report,null,2));
 if(issues.length)process.exitCode=1;

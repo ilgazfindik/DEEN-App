@@ -29,21 +29,28 @@ Last updated: 2026-10-12
 | U02-S03 / 14 base questions | 14 staged | 0 |
 | U02-S04 / 16 base questions | 16 staged | 0 |
 | U02-S05 / 16 base questions | 16 staged | 0 |
-| U02-S06–S07 base questions | 0 | 26 |
-| U03–U15 | 0 | 1,300 |
+| U02-S06 / 12 base questions | 12 staged | 0 |
+| U02-S07 / 14 base questions | 14 staged | 0 |
+| U03-S01 / 14 base questions | 14 staged | 0 |
+| U03-S02 / 14 base questions | 14 staged | 0 |
+| U03-S03 / 14 base questions | 14 staged | 0 |
+| U03-S04 / 16 base questions | 16 staged | 0 |
+| U03-S05 / 16 base questions | 16 staged | 0 |
+| U03-S06–S07 base questions | 0 | 26 |
+| U04–U15 | 0 | 1,200 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 174 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 274 / 1,500 base questions translated in staging; 0 German game questions published.**
 
 The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 174 source IDs across twelve stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 274 source IDs across nineteen stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-The next 100-question batch is U02-S06 (12) + U02-S07 (14) + U03-S01 through U03-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+The next 100-question batch is U03-S06 (12) + U03-S07 (14) + U04-S01 through U04-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -67,3 +74,10 @@ The next 100-question batch is U02-S06 (12) + U02-S07 (14) + U03-S01 through U03
 - Cumulative U01: **100/100**; U02: **74/100**; German staged bank: **174/1500**.
 - All 12 stage packs preserve source snapshots, activity types, answer choice order and correct index, blank counts and matching structure.
 - German remains staging-only, with no native or religious expert approval and no activation of German gameplay.
+
+## Batch 100B — U02 closure and U03-S01 through S05
+- Added **100 new translated questions**: U02-S06/S07 (26) and U03-S01 through U03-S05 (74).
+- Overall staged: **274 / 1500**. U01 **100/100**, U02 **100/100**, U03 **74/100**.
+- U03-S03 contains listening-style questions whose German translations are text-only and do **not** establish audio QA.
+- U03-S04 contains sequence exercises. Their German cards retain the original correct ordering permutation; transliterated Arabic fragments are preserved, with a localized German-meaning sequence.
+- No native German-speaker or qualified religious expert approval. German gameplay remains fail-closed.

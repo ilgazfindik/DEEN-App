@@ -1,0 +1,543 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U03",
+  "stage": "U03-S02",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U03-S02-001": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet'in 'Allah'tan başka ilah olmadığına şahitlik ederim' bölümü, İslam'ın hangi temel kavramını ifade eder?",
+        "explanation_tr": "Tevhid, Allah'ın tek ve eşsiz olmasıdır. 'Lâ ilâhe illallah' ifadesi tevhid inancının temelidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tevhid (Allah'ın birliği)",
+          "Nübüvvet (Peygamberlik)",
+          "Ahiret (Ölümden sonraki hayat)",
+          "Kader"
+        ],
+        "correct_answer": "Tevhid (Allah'ın birliği)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher islamische Grundbegriff wird durch „Ich bezeuge, dass es keine Gottheit außer Allah gibt“ ausgedrückt?",
+        "explanation_tr": "Tauhid beschreibt Allahs Einzigkeit. „La ilaha illallah“ drückt diesen Glauben aus.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tauhid: Allahs Einzigkeit",
+          "Prophetentum",
+          "Das Leben nach dem Tod",
+          "Göttliche Vorherbestimmung"
+        ],
+        "correct_answer": "Tauhid: Allahs Einzigkeit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-002": {
+      "source": {
+        "question_tr": "Şehadetin ikinci bölümü olan 've eşhedü enne Muhammeden abdühû ve resûlüh', tevhid beyanından sonra Hz. Muhammed'in Allah'ın kulu ve elçisi oluşunu ifade eder.",
+        "explanation_tr": "İkinci bölüm Hz. Muhammed'i ilah olarak değil, Allah'ın kulu ve elçisi olarak tanımlar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach dem ersten Zeugnis über Allahs Einzigkeit besagt „wa aschhadu anna Muhammadan abduhu wa rasuluh“, dass Muhammad Allahs Diener und Gesandter ist.",
+        "explanation_tr": "Der zweite Teil bezeichnet Muhammad als Allahs Diener und Gesandten, nicht als Gottheit.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-003": {
+      "source": {
+        "question_tr": "Şehadetin bölümlerini ifade ettikleri kavramlarla doğru şekilde eşleştir.",
+        "explanation_tr": "Birinci bölüm (Allah'tan başka ilah yoktur) tevhidi; ikinci bölüm (Muhammed Allah'ın elçisidir) peygamberliği ifade eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'tan başka ilah yoktur",
+            "right": "Tevhid (Allah'ın birliği)"
+          },
+          {
+            "left": "Muhammed Allah'ın elçisidir",
+            "right": "Peygamberlik / risalet"
+          },
+          {
+            "left": "Eşhedü",
+            "right": "Şahitlik ederim"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Teile der Schahada den Glaubensinhalten zu, die sie ausdrücken.",
+        "explanation_tr": "Der erste Teil bezeugt Allahs Einzigkeit, der zweite Muhammads Gesandtentum.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Es gibt keine Gottheit außer Allah",
+            "right": "Tauhid: Allahs Einzigkeit"
+          },
+          {
+            "left": "Muhammad ist Allahs Gesandter",
+            "right": "Prophetentum und Gesandtentum"
+          },
+          {
+            "left": "Aschhadu",
+            "right": "Ich bezeuge"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-004": {
+      "source": {
+        "question_tr": "'Allah'tan başka ilah yoktur' ifadesi bu ünitede en temel olarak neyi anlatır?",
+        "explanation_tr": "Bu ifade tevhid ile ilişkilidir: Allah'ın tek ilah olduğunun kabulünü ve kulluğun O'na yöneltilmesini anlatır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbadetin yalnızca Allah'a yöneltilmesini ve O'nun tek ilah kabul edilmesini",
+          "Peygamberlerin birbirinden üstünlük sırasını",
+          "Meleklerin görevlerinin ayrıntılarını",
+          "Ahiret hayatının aşamalarını"
+        ],
+        "correct_answer": "İbadetin yalnızca Allah'a yöneltilmesini ve O'nun tek ilah kabul edilmesini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was bedeutet „Es gibt keine Gottheit außer Allah“ in dieser Einheit hauptsächlich?",
+        "explanation_tr": "Die Aussage gehört zum Tauhid: Allah als einzige Gottheit anzuerkennen und die Verehrung allein auf Ihn auszurichten.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah als einzige Gottheit anzuerkennen und nur Ihn zu verehren",
+          "Die Rangfolge der Propheten",
+          "Einzelheiten zu den Aufgaben der Engel",
+          "Die Stufen des Lebens im Jenseits"
+        ],
+        "correct_answer": "Allah als einzige Gottheit anzuerkennen und nur Ihn zu verehren",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-005": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet, 'Allah'tan başka ilah olmadığına ve _______________ Allah'ın elçisi olduğuna şahitlik ederim' anlamına gelir.",
+        "explanation_tr": "İslam, tüm peygamberleri kabul etmekle birlikte, Kelime-i Şehadet metninde son peygamber olan Hz. Muhammed'in ismini anar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Muhammed'in",
+          "İsa'nın",
+          "Musa'nın",
+          "İbrahim'in"
+        ],
+        "correct_answer": "Muhammed'in",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Schahada bedeutet: „Ich bezeuge, dass es keine Gottheit außer Allah gibt und dass _______________ Allahs Gesandter ist.“",
+        "explanation_tr": "Der Islam erkennt alle Propheten an, doch in der Schahada wird Muhammad, der letzte Prophet, genannt.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Muhammad",
+          "Jesus",
+          "Mose",
+          "Abraham"
+        ],
+        "correct_answer": "Muhammad",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-006": {
+      "source": {
+        "question_tr": "Bir açıklama şehadeti yalnızca 'Allah'ın birliğine şahitlik' diye tanımlıyor. Hangi temel unsur eksiktir?",
+        "explanation_tr": "Şehadet iki temel beyan içerir. Tevhid beyanının yanında Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik de yer alır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+          "Namazın rekât sayıları",
+          "Oruç vakitleri",
+          "Hac ibadetinin ayrıntıları"
+        ],
+        "correct_answer": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Erklärung beschreibt die Schahada nur als „Zeugnis über Allahs Einzigkeit“. Welche Grundkomponente fehlt?",
+        "explanation_tr": "Die Schahada besteht aus zwei Aussagen. Neben dem Tauhid umfasst sie das Zeugnis über Muhammads Gesandtentum.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Das Zeugnis, dass Muhammad Allahs Diener und Gesandter ist",
+          "Die Anzahl der Gebetseinheiten",
+          "Die Fastenzeiten",
+          "Einzelheiten zur Pilgerfahrt"
+        ],
+        "correct_answer": "Das Zeugnis, dass Muhammad Allahs Diener und Gesandter ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-007": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi Kelime-i Şehadet'in temel içeriğinde yer almaz?",
+        "explanation_tr": "Kelime-i Şehadet tevhid ve elçilik beyanını içerir; namazın uygulama ayrıntıları başka bir öğrenme konusudur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazın nasıl kılındığının ayrıntılı anlatımı",
+          "Allah'ın birliğine şahitlik",
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+          "İki temel beyanın tek ifadede bir araya gelmesi"
+        ],
+        "correct_answer": "Namazın nasıl kılındığının ayrıntılı anlatımı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was gehört nicht zum grundlegenden Inhalt der Schahada?",
+        "explanation_tr": "Die Schahada bezeugt Allahs Einzigkeit und Muhammads Gesandtentum. Gebetsabläufe sind ein eigenes Lernthema.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Detaillierte Anweisungen zur Ausführung des Gebets",
+          "Das Zeugnis über Allahs Einzigkeit",
+          "Das Zeugnis, dass Muhammad Allahs Diener und Gesandter ist",
+          "Die Verbindung zweier Grundzeugnisse in einem Bekenntnis"
+        ],
+        "correct_answer": "Detaillierte Anweisungen zur Ausführung des Gebets",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-008": {
+      "source": {
+        "question_tr": "'Lâ ilâhe illallah' ifadesinin Türkçe karşılığını tamamla: '_____ başka ilah yoktur.'",
+        "explanation_tr": "Bu bölüm 'Allah'tan başka ilah yoktur' anlamıyla tevhid kavramına bağlanır.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Allah'tan",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze die deutsche Bedeutung von „La ilaha illallah“: „Es gibt keine Gottheit außer _____.“",
+        "explanation_tr": "Der Satz bedeutet, dass es keine Gottheit außer Allah gibt, und ist mit Tauhid verbunden.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-009": {
+      "source": {
+        "question_tr": "Hızlı tekrar: Şehadetin iki ana kavramsal bağlantısı hangisidir?",
+        "explanation_tr": "İlk bölüm tevhidle, ikinci bölüm Hz. Muhammed'in kulluğu ve elçiliği yani peygamberlikle bağlantılıdır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Tevhid ve peygamberlik",
+          "Namaz ve oruç",
+          "Zekât ve hac",
+          "Kader ve ahiret"
+        ],
+        "correct_answer": "Tevhid ve peygamberlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "(Schnellwiederholung) Mit welchen zwei Begriffen hängt die Schahada hauptsächlich zusammen?",
+        "explanation_tr": "Der erste Teil gehört zum Tauhid, der zweite bezeugt Muhammads Stellung als Allahs Diener und Gesandter.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Tauhid und Prophetentum",
+          "Gebet und Fasten",
+          "Zakat und Pilgerfahrt",
+          "Vorherbestimmung und Jenseits"
+        ],
+        "correct_answer": "Tauhid und Prophetentum",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-010": {
+      "source": {
+        "question_tr": "'Lâ ilâhe illallah' ifadesindeki iki bölümün anlam ilişkisi hangisidir?",
+        "explanation_tr": "İfade bir bütün olarak Allah'ın tek ilah olduğu anlamını taşır. Bu, tevhid kavramıyla bağlantılıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'tan başka ilah olmadığını belirtir ve Allah'ı tek ilah olarak ifade eder",
+          "Önce peygamberliği reddeder, sonra kabul eder",
+          "Meleklerin görevlerini iki gruba ayırır",
+          "Namazın iki bölümünü açıklar"
+        ],
+        "correct_answer": "Allah'tan başka ilah olmadığını belirtir ve Allah'ı tek ilah olarak ifade eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie hängen die beiden Bedeutungsteile von „La ilaha illallah“ zusammen?",
+        "explanation_tr": "Der vollständige Ausdruck bezeugt, dass Allah die einzige Gottheit ist, und gehört zum Tauhid.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sie verneinen andere Gottheiten und bekennen Allah als einzige Gottheit",
+          "Sie verneinen zuerst das Prophetentum und erkennen es dann an",
+          "Sie teilen die Aufgaben der Engel in zwei Gruppen",
+          "Sie erklären zwei Teile des Gebets"
+        ],
+        "correct_answer": "Sie verneinen andere Gottheiten und bekennen Allah als einzige Gottheit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-011": {
+      "source": {
+        "question_tr": "'Şahitlik etmek / tanıklık etmek' anlamıyla bu ünitede öğrendiğin dini terimi yaz.",
+        "explanation_tr": "Şehadet kelimesi bu ünitede bir inanca tanıklık etmeyi ve onu sözle ifade etmeyi anlatır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Şehadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nenne den religiösen Begriff aus dieser Einheit für das Ablegen eines Glaubenszeugnisses.",
+        "explanation_tr": "Die Schahada bezeichnet das Bezeugen einer Glaubensüberzeugung und ihren Ausdruck in Worten.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Schahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-012": {
+      "source": {
+        "question_tr": "Şehadetin Türkçe anlamındaki 'O'nun kulu ve elçisi' ifadesi, metindeki 'Muhammeden abdühû ve resûlüh' bölümünün karşılığıdır.",
+        "explanation_tr": "Standart Diyanet metninde 'abdühû ve resûlüh' ifadesi Hz. Muhammed'in Allah'ın kulu ve elçisi oluşunu bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In der deutschen Bedeutung der Schahada entspricht „Sein Diener und Gesandter“ den Worten „Muhammadan abduhu wa rasuluh“.",
+        "explanation_tr": "Der gebräuchliche Wortlaut „abduhu wa rasuluh“ bezeichnet Muhammad als Allahs Diener und Gesandten.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-013": {
+      "source": {
+        "question_tr": "Bir cümlede 'Allah'tan başka ilah olmadığına şahitlik ederim' deniyor ama şehadetin ikinci bölümü yer almıyor. Eksik bölüm hangisidir?",
+        "explanation_tr": "Kelime-i Şehadet'in tam öğrenme çerçevesinde ikinci bölüm Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitliktir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+          "Meleklerin isimlerini saymak",
+          "Namaz vakitlerini söylemek",
+          "Hac ibadetini tarif etmek"
+        ],
+        "correct_answer": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Satz lautet „Ich bezeuge, dass es keine Gottheit außer Allah gibt“, lässt aber den zweiten Teil der Schahada aus. Was fehlt?",
+        "explanation_tr": "Im vollständigen Glaubensbekenntnis dieser Einheit bezeugt der zweite Teil Muhammads Stellung als Allahs Diener und Gesandter.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Das Zeugnis, dass Muhammad Allahs Diener und Gesandter ist",
+          "Eine Aufzählung der Engelnamen",
+          "Die Gebetszeiten",
+          "Eine Beschreibung der Pilgerfahrt"
+        ],
+        "correct_answer": "Das Zeugnis, dass Muhammad Allahs Diener und Gesandter ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S02-014": {
+      "source": {
+        "question_tr": "Şehadetle ilgili temel kavramları anlamlarıyla eşleştir.",
+        "explanation_tr": "Bu kavramlar şehadetin anlam yapısını kurar: şahitlik, tevhid ve Hz. Muhammed'in kulluğu ve elçiliği.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tevhid",
+            "right": "Allah'ın birliği ve tek ilah oluşu"
+          },
+          {
+            "left": "Şehadet",
+            "right": "Şahitlik / tanıklık beyanı"
+          },
+          {
+            "left": "Abdühû ve resûlüh",
+            "right": "O'nun kulu ve elçisi"
+          },
+          {
+            "left": "Kelime-i Şehadet",
+            "right": "Tevhid ve Hz. Muhammed'in kulluğu/elçiliği beyanını birlikte ifade eden cümle"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Grundbegriffe der Schahada mit ihren Bedeutungen.",
+        "explanation_tr": "Die Begriffe verdeutlichen die Bedeutung der Schahada: Zeugnis, Tauhid und Muhammads Stellung als Allahs Diener und Gesandter.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tauhid",
+            "right": "Allahs Einzigkeit und die Anerkennung der einzigen Gottheit"
+          },
+          {
+            "left": "Schahada",
+            "right": "Glaubenszeugnis oder Bezeugung"
+          },
+          {
+            "left": "Abduhu wa rasuluh",
+            "right": "Sein Diener und Gesandter"
+          },
+          {
+            "left": "Das Schahada-Bekenntnis",
+            "right": "Satz, der Tauhid und Muhammads Gesandtentum verbindet"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada verstehen",
+        "topic": "Glaubensbekenntnis, Tauhid und Gesandtentum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
