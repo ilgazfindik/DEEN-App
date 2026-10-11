@@ -432,6 +432,16 @@ function localize(root=document.body){
   const fixed=raw.replace(/(Daily tasks\s*\d+\/3)\s*·\s*(Weekly rhythm)\s*(\d+\/\d+\s*days)/,'$1 · $2 $3');
   if(fixed!==raw){el.textContent=fixed;writes++}
  }
+ // The v5.4 result summary contains bold numeric nodes; normalize whitespace in their
+ // adjacent text nodes instead of replacing the entire container or its numbers.
+ for(const summary of root.querySelectorAll('#resultView .v54-result-loop')){
+  if(!summary.textContent.includes('Daily tasks')||!summary.textContent.includes('Weekly rhythm'))continue;
+  for(const bold of summary.querySelectorAll('b')){
+   const before=bold.previousSibling,after=bold.nextSibling;
+   if(before?.nodeType===3&&before.nodeValue&&!/\s$/.test(before.nodeValue)){before.nodeValue+=' ';writes++}
+   if(after?.nodeType===3&&after.nodeValue&&!/^\s/.test(after.nodeValue)){after.nodeValue=' '+after.nodeValue;writes++}
+  }
+ }
  passes++;running=false;observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-label','title','placeholder','alt']});
 }
 function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;localize()})}
