@@ -425,6 +425,13 @@ function localize(root=document.body){
    const next=t(saved[k].source);if(next!==value){el.setAttribute(k,next);writes++}saved[k].output=next;
   }
  }
+ // Result summary is sometimes built from separate text nodes. Normalize the complete
+ // rendered small-label text once, without touching any progress numbers or controls.
+ for(const el of root.querySelectorAll('.v55-return-summary,#resultView small')){
+  const raw=el.textContent||'';
+  const fixed=raw.replace(/(Daily tasks\s*\d+\/3)\s*·\s*(Weekly rhythm)\s*(\d+\/\d+\s*days)/,'$1 · $2 $3');
+  if(fixed!==raw){el.textContent=fixed;writes++}
+ }
  passes++;running=false;observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-label','title','placeholder','alt']});
 }
 function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;localize()})}
