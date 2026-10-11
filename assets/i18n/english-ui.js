@@ -213,6 +213,40 @@ Object.assign(D,{
   "Nasr": "An-Nasr",
   "Tebbet": "Al-Masad"
 });
+/* English learning path completion and XP reward copy, including previously untranslated ASCII labels. */
+Object.assign(D,{
+  "TAMAMLANDI": "COMPLETED",
+  "✓ TAMAMLANDI": "✓ COMPLETED",
+  "XP KAZAN": "EARN XP",
+  "ÜNİTE TAMAMLANDI": "UNIT COMPLETED",
+  "AŞAMA TAMAMLANDI": "STAGE COMPLETED",
+  "En iyi skor": "Best score",
+  "ÜNİTE XP": "UNIT XP",
+  "ÜNİTE UNVANI": "UNIT TITLE",
+  "Kusursuz dersler": "Perfect lessons",
+  "öğrenme zinciri tamamlandı": "learning sequence completed",
+  "ÖĞRENME ZİNCİRİ TAMAMLANDI": "LEARNING SEQUENCE COMPLETED",
+  "Sıradaki mini ders": "Next mini lesson",
+  "Sıradaki:": "Next:",
+  "Sıradaki": "Next",
+  "sonraki adım": "next step",
+  "ÜNİTE": "UNIT",
+  "AŞAMA": "STAGE",
+  "Ünite": "Unit",
+  "aşama": "stage",
+  "İLERLEME": "PROGRESS",
+  "En iyi": "Best",
+  "ÜNİTE SONU": "UNIT COMPLETE",
+  "Mini ders tamamlandı": "Mini lesson completed",
+  "Ödülleri topla": "Collect rewards",
+  "Final kapısı açıldı": "Final stage unlocked",
+  "Ünite tamamlandı": "Unit completed",
+  "Bir sonraki öğrenme adımı": "Your next learning step",
+  "SONRAKİ AŞAMA": "NEXT STAGE",
+  "Aşama ilerlemesi": "Stage progress",
+  "Tamamlanan dersler": "Completed lessons",
+  "USTALIK SINAVINI BAŞLAT": "START MASTERY TEST"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -221,6 +255,13 @@ function t(value){
  if(D[n])return s.replace(n,D[n]);
  let m;
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
+ // Learning path: translate the entire composed completion label before middot splitting.
+ if((m=n.match(/^(\d+)\.\s*(?:KISIM|SECTION)\s*·\s*(\d+)\.\s*(?:ÜNİTE|UNIT)\s*·\s*✓\s*TAMAMLANDI$/i)))return 'SECTION '+m[1]+' · UNIT '+m[2]+' · ✓ COMPLETED';
+ if((m=n.match(/^ÜNİTE\s*(\d+)\s*·\s*✓\s*TAMAMLANDI$/)))return 'UNIT '+m[1]+' · ✓ COMPLETED';
+ if((m=n.match(/^KISIM\s*(\d+)\s*TAMAMLANDI$/)))return 'SECTION '+m[1]+' COMPLETED';
+ if((m=n.match(/^(\d+)\s*\/\s*(\d+)\s*aşama$/)))return m[1]+'/'+m[2]+' stages';
+ if((m=n.match(/^(\d+)\s*\/\s*(\d+)\s*mini ders\s*·\s*öğrenme zinciri tamamlandı$/)))return m[1]+'/'+m[2]+' mini lessons · learning sequence completed';
+ if((m=n.match(/^Kusursuz dersler:\s*(\d+)$/)))return 'Perfect lessons: '+m[1];
  // Word-frequency counters in Quran vocabulary use complete English units.
  if((m=n.match(/^(\d+) tekrar$/)))return m[1]+(m[1]==='1'?' occurrence':' occurrences');
  if((m=n.match(/^(\d+) sure$/)))return m[1]+(m[1]==='1'?' surah':' surahs');

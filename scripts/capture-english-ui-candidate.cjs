@@ -79,6 +79,30 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const localization=await page.evaluate(()=>DEEN_ENGLISH_UI.audit());console.log('ENGLISH_UI_STATS='+JSON.stringify(localization));const snapshot={localization,texts:[...texts],failures,screenIds,macros:macros.length};
  snapshot.leaks=snapshot.texts.filter(s=>/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(s)&&!/^AR:|Quran.com/.test(s));console.log('DEEN_ENGLISH_UI_CANDIDATE='+JSON.stringify(snapshot));
  fs.writeFileSync(path.join(out,'english-ui-candidate.json'),JSON.stringify(snapshot,null,2));
+ // Catch ASCII-only Turkish completion badges that character-based leak scans missed.
+ const completedLabels=snapshot.texts.filter(s=>/^SECTION \d+ · UNIT \d+ · ✓ COMPLETED$/.test(s));
+ assert.equal(completedLabels.length,15,'All 15 completed learning unit labels must be fully English: '+JSON.stringify(completedLabels));
+ assert(snapshot.texts.includes('EARN XP'),'Learning stage introduction must display EARN XP in English');
+ const learningLeaks=snapshot.texts.filter(s=>/\b(?:TAMAMLANDI|XP KAZAN|ÜNİTE UNVANI|ÜNİTE XP|USTALIK SINAVINI BAŞLAT)\b/i.test(s));
+ assert.deepEqual(learningLeaks,[],'Learning path still contains ASCII Turkish copy');
+ const expectedLearningLabels={
+  '1. SECTION · 1. UNIT · ✓ TAMAMLANDI':'SECTION 1 · UNIT 1 · ✓ COMPLETED',
+  '3. KISIM · 15. ÜNİTE · ✓ TAMAMLANDI':'SECTION 3 · UNIT 15 · ✓ COMPLETED',
+  '✓ TAMAMLANDI':'✓ COMPLETED',
+  'XP KAZAN':'EARN XP',
+  'ÜNİTE TAMAMLANDI':'UNIT COMPLETED',
+  'KISIM 2 TAMAMLANDI':'SECTION 2 COMPLETED',
+  '2/7 aşama':'2/7 stages',
+  '5/5 aşama':'5/5 stages',
+  '3/3 mini ders · öğrenme zinciri tamamlandı':'3/3 mini lessons · learning sequence completed',
+  'Kusursuz dersler: 2':'Perfect lessons: 2',
+  'En iyi skor':'Best score'
+ };
+ for(const [source,expected] of Object.entries(expectedLearningLabels)){
+  const actual=await page.evaluate(s=>DEEN_ENGLISH_UI.t(s),source);
+  assert.equal(actual,expected,'Learning screen i18n: '+source);
+ }
+ console.log('PASS ENGLISH LEARNING PATH COMPLETION GATE',JSON.stringify({completedUnitLabels:completedLabels.length,xpReward:true,assertions:Object.keys(expectedLearningLabels).length,asciiTurkishLeaks:learningLeaks.length}));
  snapshot.turkishLeaks=snapshot.leaks.filter(s=>/[ÇĞİÖŞÜçğıöşü]/.test(s));console.log('TURKISH_UI_LEAKS='+JSON.stringify(snapshot.turkishLeaks));assert.deepEqual(snapshot.turkishLeaks,[],'English UI still displays Turkish copy');
  await browser.close();server.close();
 })().catch(e=>{console.error(e);server.close();process.exit(1)});
