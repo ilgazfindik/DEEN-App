@@ -1,0 +1,26 @@
+name: German localization staging audit
+on:
+  push:
+    branches: [codex/german-u01-foundation-20261012]
+    paths:
+      - 'assets/i18n/questions/de/**'
+      - 'assets/i18n/content-support.json'
+      - 'scripts/audit-german-staging.mjs'
+      - 'qa/GERMAN_LOCALIZATION_PROGRESS.md'
+      - '.github/workflows/german-localization-audit.yml'
+  workflow_dispatch:
+jobs:
+  german-staging:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions: {contents: read}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Verify German stage, answers and blocked runtime
+        run: node scripts/audit-german-staging.mjs
+      - name: Existing English question bank remains complete
+        run: node scripts/audit-english-questions.mjs --require-complete
+      - name: Release hashes remain valid
+        run: node scripts/build-release-manifest.mjs --check
