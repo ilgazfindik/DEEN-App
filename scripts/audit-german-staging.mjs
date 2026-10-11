@@ -42,7 +42,10 @@ for(const stage of stages){
   for(const value of strings){
    if(value===null||value===undefined)continue;
    if(typeof value!=='string'||!value.trim()){problem(id,'bad_string');continue;}
-   if(/[ÇĞİŞçğıış]/.test(value))problem(id,'turkish_specific_letter');
+   // Preserve a person's original name (Ayşe, including German genitive Ayşes):
+   // a Turkish-specific letter inside a proper noun is not an untranslated interface string.
+   const contentWithoutProperNames=value.replace(/Ayşe(?:s)?/g,'PERSON');
+   if(/[ÇĞİŞçğıış]/.test(contentWithoutProperNames))problem(id,'turkish_specific_letter');
    if(/\b(?:sadece|doğru|yanlış|yapmak|ibadet|peygamber|müslüman|soru|cevap|öğrenme)\b/i.test(value))problem(id,'turkish_word');
    if(/\b(?:which|the|only|faith|worship|because)\b/i.test(value))problem(id,'english_word');
   }
