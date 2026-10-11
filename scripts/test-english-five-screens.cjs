@@ -23,7 +23,9 @@ const server=http.createServer((req,res)=>{const n=decodeURIComponent((req.url||
   await page.screenshot({path:path.join(out,name+'.png')});
   return t;
  }
- await show('01-first-stage',"previewMacro('U01-S01')",'#v5SheetBody',
+ const firstMacroId=await page.evaluate(()=>DEEN_FIVE_STAGE.defs('U01')[0].id);
+ assert.equal(firstMacroId,'U01-M01');
+ await show('01-first-stage',"previewMacro('"+firstMacroId+"')",'#v5SheetBody',
   ['IN THIS STAGE','Get a gentle, easy introduction to this topic.','START STAGE'],
   ['Konuyla','BÖLÜME','BAŞLA','BÖLÜME START']);
  await page.evaluate(()=>closeSheet());
