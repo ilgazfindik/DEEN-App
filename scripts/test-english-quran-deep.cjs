@@ -66,6 +66,34 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  for(const type of ['fill_blank','continuation','surah','audio','next_ayah','ayah_number','meaning']){
   await page.evaluate(type=>DEEN_QURAN_QUESTION_ARENA.open(type,'all'),type);await capture('arena-'+type);
   await page.locator('.deen-qarena-option').first().click();await capture('arena-'+type+'-feedback');
+  // Exercise both outcomes for every type, not just the first randomly ordered choice.
+  await page.evaluate(()=>DEEN_QURAN_QUESTION_ARENA.next());
+  const correct=await page.evaluate(()=>{const q=DEEN_QURAN_QUESTION_ARENA.state().q;return q.options.find(o=>String(o.value)===String(q.answer))?.value});
+  assert.notEqual(correct,undefined,'No correct arena option: '+type);
+  await page.evaluate(value=>DEEN_QURAN_QUESTION_ARENA.choose(value),correct);
+  await page.waitForTimeout(120);
+  const goodText=await page.locator('.deen-qarena-feedback.good').innerText();
+  assert.equal(goodText,'Correct. You can continue.','Mixed-language correct feedback in '+type);
+  await capture('arena-'+type+'-correct');
+  await page.evaluate(()=>DEEN_QURAN_QUESTION_ARENA.next());
+  const wrong=await page.evaluate(()=>{const q=DEEN_QURAN_QUESTION_ARENA.state().q;return q.options.find(o=>String(o.value)!==String(q.answer))?.value});
+  assert.notEqual(wrong,undefined,'No incorrect arena option: '+type);
+  await page.evaluate(value=>DEEN_QURAN_QUESTION_ARENA.choose(value),wrong);
+  await page.waitForTimeout(120);
+  const wrongText=await page.locator('.deen-qarena-feedback.bad').innerText();
+  assert.equal(wrongText,'The correct answer has been marked. Try again on the next question.','Incorrect feedback in '+type);
+  await capture('arena-'+type+'-wrong');
+ }
+ // Verify all seven-teen surah-option spellings with the real question state,
+ // without changing the Quran engine or correctness indices.
+ const surahNames={fatiha:'Al-Fatihah',ikhlas:'Al-Ikhlas',falaq:'Al-Falaq',nas:'An-Nas',kafirun:'Al-Kafirun',nasr:'An-Nasr',masad:'Al-Masad',fil:'Al-Fil',quraysh:'Quraysh',maun:"Al-Ma'un",sharh:'Ash-Sharh',tin:'At-Tin',bayyina:'Al-Bayyinah',zilzal:'Az-Zalzalah',kawthar:'Al-Kawthar',asr:'Al-Asr'};
+ await page.evaluate(()=>DEEN_QURAN_QUESTION_ARENA.open('surah','all'));
+ for(let i=0;i<64;i++){
+  await page.waitForTimeout(35);
+  const check=await page.evaluate(()=>({q:DEEN_QURAN_QUESTION_ARENA.state().q,rendered:[...document.querySelectorAll('.deen-qarena-options .deen-qarena-option')].map(e=>e.textContent.trim())}));
+  const expected=check.q.options.map(o=>surahNames[o.value]);assert(expected.every(Boolean),'Unknown surah choice ID');
+  assert.deepEqual(check.rendered,expected,'Surah names incorrectly localized to semantic meanings');
+  await page.evaluate(()=>DEEN_QURAN_QUESTION_ARENA.next());
  }
  for(const width of [320,768,1440]){
   await page.setViewportSize({width,height:900});
@@ -73,7 +101,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  }
  fs.writeFileSync(path.join(out,'deep-surfaces.json'),JSON.stringify({browser:report.browser,surfaces,errors},null,2));
  console.log('DEEP_SURFACES',surfaces.length,'ERRORS',JSON.stringify(errors));
- const leaks=surfaces.flatMap(s=>[...s.texts,...s.attrs].filter(t=>/[ÇĞİÖŞÜçğıöşü]|\b(?:Ezberi|Tamamla|TAMAMLA|Anlam|ANLAM|Oku|OKU|Hatırla|HATIRLA|Motoru|metin|turunu|kaydı|Pratik)\b/.test(t)).map(text=>({surface:s.name,text})));
+ const leaks=surfaces.flatMap(s=>[...s.texts,...s.attrs].filter(t=>/[ÇĞİÖŞÜçğıöşü]|\b(?:Ezberi|Tamamla|TAMAMLA|Anlam|ANLAM|Oku|OKU|Hatırla|HATIRLA|Motoru|metin|turunu|kaydı|Pratik|Devam edebilirsin)\b/.test(t)).map(text=>({surface:s.name,text})));
  console.log('LANGUAGE_LEAKS',JSON.stringify(leaks));assert.deepEqual(leaks,[]);
  assert(!surfaces.some(s=>s.overflow),'Horizontal viewport overflow');
  assert.deepEqual(errors,[]);

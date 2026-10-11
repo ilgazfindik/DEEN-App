@@ -437,6 +437,8 @@ function t(value){
  // Normalize already-English dynamic summary strings emitted by the legacy card renderer.
  const englishSummary=n.match(/^Daily tasks\s*(\d+)\/3\s*·\s*Weekly rhythm\s*(\d+)\/(\d+)\s*days$/);
  if(englishSummary)return 'Daily tasks '+englishSummary[1]+'/3 · Weekly rhythm '+englishSummary[2]+'/'+englishSummary[3]+' days';
+ // Preserve full correct-answer feedback before the generic word translator mixes languages.
+ if(/^(?:Doğru|Correct)\.\s*Devam edebilirsin\.$/.test(n))return s.replace(n,'Correct. You can continue.');
  const guarded=window.DEEN_CONTENT_LOCALE?.translateText(n,'en');if(guarded&&guarded!==n)return s.replace(n,guarded);
  if(D[n])return s.replace(n,D[n]);
  let m;
@@ -531,11 +533,21 @@ const excluded='script,style,noscript,code,textarea,[contenteditable="true"],[da
 let running=false,queued=false,writes=0,passes=0;const observer=new MutationObserver(records=>{if(records.length&&!running)schedule()});
 function localize(root=document.body){
  if(!root||window.DEEN_APP_LOCALE?.get()!=='en')return;
- running=true;observer.disconnect();const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+ running=true;observer.disconnect();
+ // The surah-choice labels are proper names, not the meanings of religious concepts.
+ // Use the actual option value ID to preserve the answer identity without changing grading.
+ const surahNames={fatiha:'Al-Fatihah',ikhlas:'Al-Ikhlas',falaq:'Al-Falaq',nas:'An-Nas',kafirun:'Al-Kafirun',nasr:'An-Nasr',masad:'Al-Masad',fil:'Al-Fil',quraysh:'Quraysh',maun:"Al-Ma'un",sharh:'Ash-Sharh',tin:'At-Tin',bayyina:'Al-Bayyinah',zilzal:'Az-Zalzalah',kawthar:'Al-Kawthar',asr:'Al-Asr'};
+ const activeSurahQuestion=window.DEEN_QURAN_QUESTION_ARENA?.state?.()?.q;
+ const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
  while(node=walk.nextNode()){
   if(node.parentElement?.closest(excluded))continue;
   const prior=originals.get(node);if(!prior||node.nodeValue!==prior.output)originals.set(node,{source:node.nodeValue,output:node.nodeValue});
-  const row=originals.get(node),value=t(row.source);if(value!==node.nodeValue){node.nodeValue=value;writes++}row.output=value;
+  const row=originals.get(node);let value=t(row.source);
+  if(activeSurahQuestion?.type==='surah'&&node.parentElement?.matches('.deen-qarena-option')){
+   const i=Number(node.parentElement.dataset.qarenaChoiceIndex),answerId=activeSurahQuestion.options?.[i]?.value;
+   if(Object.prototype.hasOwnProperty.call(surahNames,answerId))value=surahNames[answerId];
+  }
+  if(value!==node.nodeValue){node.nodeValue=value;writes++}row.output=value;
  }
  for(const el of root.querySelectorAll('[aria-label],[title],[placeholder],[alt]')){
   if(el.closest(excluded)&&el.tagName!=='TEXTAREA')continue;let saved=attributeOriginals.get(el);if(!saved){saved={};attributeOriginals.set(el,saved)}

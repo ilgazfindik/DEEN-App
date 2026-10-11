@@ -33,3 +33,11 @@ Pending browser evidence and independent UX review. Do not merge or deploy until
 - Corrected streak milestone remaining-days value (used milestone number instead of remaining number), singular/plural ayah/review/task/day/lesson/question labels, and arena pool labels.
 - Keep surah names in surah headers instead of context-free question translations (e.g. Al-Ikhlas vs Sincerity).
 - Added adversarial duplicate-label gameplay: all eight source records, selecting identical right labels with different hidden pair IDs. No labels or grading logic changed; Chrome result pending.
+
+### Handoff follow-up — independent artifact verification
+- Latest pre-change Actions `38168521636`: 11/11 completed successfully (10 real Chrome jobs plus structure).
+- Inspected 379 actual Quran UI surfaces captured across 16 surahs, 90 ayahs, five memorization levels and seven arena types. Found unflagged ASCII-only mixed feedback `Correct. Devam edebilirsin.` in real successful arena answers, despite 0 Turkish-character leaks.
+- Found `Sincerity` in the **surah identification** choice instead of the proper name `Al-Ikhlas`; source dictionary translates the religious concept correctly, but not the surah-choice context.
+- Patched complete feedback before the generic translator, and use canonical surah names by the real choice value ID without modifying the question bank.
+- Extended Chrome tests to check correct AND wrong outcomes for all seven Quran types, 64 real surah-choice sets, and both strings as release blockers.
+- Validation for this follow-up commit pending; previous green checks must not be attributed to new changes.
