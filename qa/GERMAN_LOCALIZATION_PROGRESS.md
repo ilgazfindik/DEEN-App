@@ -36,21 +36,28 @@ Last updated: 2026-10-12
 | U03-S03 / 14 base questions | 14 staged | 0 |
 | U03-S04 / 16 base questions | 16 staged | 0 |
 | U03-S05 / 16 base questions | 16 staged | 0 |
-| U03-S06–S07 base questions | 0 | 26 |
-| U04–U15 | 0 | 1,200 |
+| U03-S06 / 12 base questions | 12 staged | 0 |
+| U03-S07 / 14 base questions | 14 staged | 0 |
+| U04-S01 / 14 base questions | 14 staged | 0 |
+| U04-S02 / 14 base questions | 14 staged | 0 |
+| U04-S03 / 14 base questions | 14 staged | 0 |
+| U04-S04 / 16 base questions | 16 staged | 0 |
+| U04-S05 / 16 base questions | 16 staged | 0 |
+| U04-S06–S07 base questions | 0 | 26 |
+| U05–U15 | 0 | 1,100 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 274 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 374 / 1,500 base questions translated in staging; 0 German game questions published.**
 
 The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 274 source IDs across nineteen stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 374 source IDs across twenty-six stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-The next 100-question batch is U03-S06 (12) + U03-S07 (14) + U04-S01 through U04-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+The next 100-question batch is U04-S06 (12) + U04-S07 (14) + U05-S01 through U05-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -81,3 +88,10 @@ The next 100-question batch is U03-S06 (12) + U03-S07 (14) + U04-S01 through U04
 - U03-S03 contains listening-style questions whose German translations are text-only and do **not** establish audio QA.
 - U03-S04 contains sequence exercises. Their German cards retain the original correct ordering permutation; transliterated Arabic fragments are preserved, with a localized German-meaning sequence.
 - No native German-speaker or qualified religious expert approval. German gameplay remains fail-closed.
+
+## Batch 100C — U03 completion and U04-S01 through S05
+- Added **exactly 100 new German basic questions**: U03-S06 and S07 (26) + U04-S01 through S05 (74).
+- Cumulative staging: **374/1500**; U01, U02, and U03 are 100/100, U04 is 74/100.
+- Included translated answer choices, explanations, matching pairs and Shahada listening/sequence prompt texts.
+- Sequence permutations and fill-blank placeholder counts require release-gated structural verification. German listening translations are text-only and do not imply audio verification.
+- German-native language review and religious expert review are outstanding. Incomplete German gameplay remains blocked.
