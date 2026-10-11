@@ -337,6 +337,39 @@ Object.assign(D,{
  "GÜNLÜK PLAN":"DAILY PLAN",
  "MİNİ DERSİ TEKRARLA":"RETRY MINI LESSON"
 });
+
+/* Independent screenshot audit: Streak, XP, settings, profile and shop language. */
+Object.assign(D,{
+ "Her gün bir adım":"One Step Every Day",
+ "Her days bir adım":"One Step Every Day",
+ "mevcut seri":"Current streak",
+ "en uzun seri":"Longest streak",
+ "seri koruması":"Streak protection",
+ "Sıradaki seri kilometre taşı":"Next streak milestone",
+ "Next seri kilometre taşı":"Next streak milestone",
+ "365 günlük kilometre taşını tamamladın.":"You reached the 365-day streak milestone.",
+ "Bir günde tamamladığın ilk ders seriyi artırır. Aynı gün daha fazla ders seriyi tekrar artırmaz.":"Your first lesson of the day extends your streak. More lessons on the same day do not increase it again.",
+ "Seri koruması tek bir kaçırılan günü korur. Korunan gün aktif öğrenme günü sayılmaz.":"Streak protection covers one missed day. Protected days do not count as active learning days.",
+ "Seri koruması mağazası →":"Streak protection shop →",
+ "Seri ilk öğrenme oturumuyla korunur; ödül kilometre taşları yalnız Bugünkü Yolculuk tamamlandığında verilir. Seri koruması ibadet puanı değildir.":"Your streak is maintained by your first learning session. Milestone rewards require completing Today's Journey. Streak protection is not a score for worship.",
+ "Streak ilk öğrenme oturumuyla korunur; ödül kilometre taşları yalnız Today's Journey tamamlandığında verilir. Streak koruması ibadet puanı değildir.":"Your streak is maintained by your first learning session. Milestone rewards require completing Today's Journey. Streak protection is not a score for worship.",
+ "Bugün de küçük bir adım yeter.":"A small step today is enough.",
+ "Today de küçük bir adım yeter.":"A small step today is enough.",
+ "Öğrenme · Bilgelik · Bugün de küçük bir adım yeter.":"Learning · Wisdom · A small step today is enough.",
+ "Learning · Wisdom · Today de küçük bir adım yeter.":"Learning · Wisdom · A small step today is enough.",
+ "Pzt":"Mon","Sal":"Tue","Çar":"Wed","Per":"Thu","Cum":"Fri","Cmt":"Sat","Paz":"Sun",
+ "Bir sonraki seviyede":"You will earn",
+ "kazanırsın.":"at the next level.",
+ "XP yalnızca öğrenme, quiz ve tekrar etkinliklerini ölçer. İbadetlere puan verilmez.":"XP measures learning, quizzes and review activities only. Worship is never scored.",
+ "Aynı ders aynı gün tekrarlandığında baz XP: %100 → %50 → %25 → %0.":"When you repeat the same lesson on the same day, base XP decreases: 100% → 50% → 25% → 0%.",
+ "Aynı lessons aynı days tekrarlandığında baz XP: %100 → 50% → 25% → %0.":"When you repeat the same lesson on the same day, base XP decreases: 100% → 50% → 25% → 0%.",
+ "Animasyon":"Animations",
+ "Dokunsal geri bildirim":"Haptic feedback",
+ "Hareketi azalt":"Reduce motion",
+ "En fazla 2":"Maximum 2",
+ "kaçırılan gün":"missed day",
+ "Streak koruması":"Streak protection"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -348,6 +381,12 @@ function t(value){
  if(D[n])return s.replace(n,D[n]);
  let m;
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
+ // Full dynamic copy before the generic middot / token replacement. Keep numerals and grammar intact.
+ if((m=n.match(/^(\d+)\s+güne\s+(\d+)\s+gün(?:\s+kaldı)?\s*·\s*\+(\d+)\s+Pırıltı(?:\s*·\s*\+(\d+)\s+seri koruma)?$/)))return m[1]+' days until the '+m[1]+'-day streak milestone'+' · +'+m[3]+' Sparkles'+(m[4]?' · +'+m[4]+' streak protection':'');
+ if((m=n.match(/^(.+?)\s+seninle\s*·\s*(\d+)\s*(?:günlük seri|-day streak)$/)))return t(m[1])+' is with you · '+m[2]+'-day streak';
+ if((m=n.match(/^(\d+)\s+mini\s+(?:ders|lessons)\s*·\s*(\d+)\s+dk$/)))return m[1]+(m[1]==='1'?' mini lesson':' mini lessons')+' · '+m[2]+' min';
+ if((m=n.match(/^(\d+)\s+kaçırılan\s+gün\s*·\s*En fazla\s+(\d+)$/)))return m[1]+' missed '+(m[1]==='1'?'day':'days')+' · Maximum '+m[2];
+ if((m=n.match(/^(\d+)\s+missed days\s*·\s*Maximum\s+(\d+)$/)))return m[1]+' missed '+(m[1]==='1'?'day':'days')+' · Maximum '+m[2];
  // EN result/progression: translate complete composed strings before middot splitting.
  if((m=n.match(/^(.+?) artık bitti\. Sıradaki düğüm açıldı\.$/)))return t(m[1])+' is complete. The next stage is unlocked.';
  if((m=n.match(/^(.+?) artık oynanabilir\.$/)))return t(m[1])+' is now available.';
@@ -406,7 +445,7 @@ function t(value){
  if(/REQUIRES_EXPERT_VERIFICATION|Diyanet|Quran Path/.test(out))out=out.replace(/Kur['’]an/g,'Quran').replace(/Cilt\s*(\d+)/g,'Vol. $1').replace(/\bs\.(\d+)/g,'p. $1').replace(/\bve\b/g,'and').replace(/\bbölümü\b/g,'chapter').replace(/Buhârî/g,'Al-Bukhari').replace(/Müslim/g,'Muslim').replace(/Îmân/g,'Faith').replace(/Maûn/g,"Al-Ma'un");
  return s.replace(n,out);
 }
-const style=document.createElement('style');style.id='deen-english-presentation-css';style.textContent="html[lang=\"en\"] .sequence-zone.empty::before{content:\"Select the parts below in order\"!important}\nhtml[lang=\"en\"] .v710-builder-zone.empty::before{content:\"Drag words here or tap them\"!important}\nhtml[lang=\"en\"] .lp-unlocking::after{content:\"NEW LESSON UNLOCKED\"!important}\nhtml[lang=\"en\"] #profileScreenBody .v994-companion-avatar::after,html[lang=\"en\"] #profileScreenBody .v997-companion-avatar::after{content:\"change\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option::after,html[lang=\"en\"] .v858-odd-card::after{content:\"TAP\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.correct::after{content:\"CORRECT ✓\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.wrong::after{content:\"LOOK AGAIN\"!important}\nhtml[lang=\"en\"] .v853-match-card.selected::after{content:\"SELECTED\"!important}\nhtml[lang=\"en\"] .v855-fill-slot::before{content:\"PLACE IN THE BLANK\"!important}\nhtml[lang=\"en\"] .v858-odd-card.wrong-pick::after{content:\"TRY AGAIN\"!important}\nhtml[lang=\"en\"] .v858-odd-card.target::after{content:\"FOUND ✓\"!important}\nhtml[lang=\"en\"] .deen-reward-badge-missing::after{content:\"BADGE\"!important}\nhtml[lang=\"en\"] .v5-btn,html[lang=\"en\"] .v5-list-title,html[lang=\"en\"] .deen-language-card{overflow-wrap:anywhere}";style.textContent+="\nhtml[lang=\"en\"] #resultView.v624-premium-result:has(.v680-result-next) #v624NextCard{display:none!important}";document.head.append(style);
+const style=document.createElement('style');style.id='deen-english-presentation-css';style.textContent="html[lang=\"en\"] .sequence-zone.empty::before{content:\"Select the parts below in order\"!important}\nhtml[lang=\"en\"] .v710-builder-zone.empty::before{content:\"Drag words here or tap them\"!important}\nhtml[lang=\"en\"] .lp-unlocking::after{content:\"NEW LESSON UNLOCKED\"!important}\nhtml[lang=\"en\"] #profileScreenBody .v994-companion-avatar::after,html[lang=\"en\"] #profileScreenBody .v997-companion-avatar::after{content:\"change\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option::after,html[lang=\"en\"] .v858-odd-card::after{content:\"TAP\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.correct::after{content:\"CORRECT ✓\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.wrong::after{content:\"LOOK AGAIN\"!important}\nhtml[lang=\"en\"] .v853-match-card.selected::after{content:\"SELECTED\"!important}\nhtml[lang=\"en\"] .v855-fill-slot::before{content:\"PLACE IN THE BLANK\"!important}\nhtml[lang=\"en\"] .v858-odd-card.wrong-pick::after{content:\"TRY AGAIN\"!important}\nhtml[lang=\"en\"] .v858-odd-card.target::after{content:\"FOUND ✓\"!important}\nhtml[lang=\"en\"] .deen-reward-badge-missing::after{content:\"BADGE\"!important}\nhtml[lang=\"en\"] .v5-btn,html[lang=\"en\"] .v5-list-title,html[lang=\"en\"] .deen-language-card{overflow-wrap:anywhere}";style.textContent+="\nhtml[lang=\"en\"] #resultView.v624-premium-result:has(.v680-result-next) #v624NextCard{display:none!important}";style.textContent+="\nhtml[lang=\"en\"] .v54-week-card .v5-row>div{display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0}\nhtml[lang=\"en\"] .v54-week-card .v5-row>div>strong,html[lang=\"en\"] .v54-week-card .v5-row>div>small{display:block;white-space:normal;overflow-wrap:break-word}";style.textContent+="\nhtml[lang=\"en\"] .v660-chest-card .row>div{display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-width:0}\nhtml[lang=\"en\"] .v660-chest-card .row>div>strong,html[lang=\"en\"] .v660-chest-card .row>div>small{display:block;white-space:normal;overflow-wrap:anywhere}";document.head.append(style);
 const originals=new WeakMap(),attributeOriginals=new WeakMap();
 const excluded='script,style,noscript,code,textarea,[contenteditable="true"],[data-deen-no-translate],.deen-ikhlas-arabic,.deen-mem-arabic,.deen-qj2-ar,.deen-qj2-option.ar';
 let running=false,queued=false,writes=0,passes=0;const observer=new MutationObserver(records=>{if(records.length&&!running)schedule()});
