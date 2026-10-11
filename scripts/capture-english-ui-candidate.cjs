@@ -50,6 +50,40 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  await capture();
  const screenIds=await page.evaluate(()=>[...document.querySelectorAll('.screen[id]')].map(e=>e.id));
  for(const id of screenIds){await page.evaluate(id=>navigate(id),id);await capture();}
+ // Review screen: assert rendered live UI, including ASCII Turkish leaks missed by diacritic checks.
+ await page.evaluate(()=>navigate('reviewScreen'));
+ await page.waitForTimeout(240);
+ const reviewScreenText=await page.locator('#reviewScreen').innerText();
+ assert(reviewScreenText.includes("Today's memory plan"),"Review header missing");
+ assert(/\b\d+ concepts · \d+ energy\b/.test(reviewScreenText),"Review concept/energy card is not fully English");
+ assert(/\b\d+ READY\b/.test(reviewScreenText),"Spaced-review ready count must be English");
+ assert(/\b\d+ checkpoints? completed\b/.test(reviewScreenText),"Review checkpoints label must be English");
+ assert(reviewScreenText.includes('SPACED REVIEW'),"Spaced-review panel missing");
+ assert(!/\b(?:kavram|enerji|HAZIR|tekrar bekliyor)\b/i.test(reviewScreenText)&&!/[ÇĞİÖŞÜçğıöşü]/.test(reviewScreenText),'Turkish review UI residue');
+ await page.screenshot({path:path.join(out,'english-review-dashboard.png')});
+ const expectedReviewLabels={
+  '462 kavram · 3 enerji':'462 concepts · 3 energy',
+  '1 kavram · 3 enerji':'1 concept · 3 energy',
+  '0 kavram':'0 concepts',
+  '1 kavram':'1 concept',
+  '30 enerji':'30 energy',
+  '0 HAZIR':'0 READY',
+  '5 HAZIR':'5 READY',
+  '0 kontrol noktası tamamlandı':'0 checkpoints completed',
+  '1 kontrol noktası tamamlandı':'1 checkpoint completed',
+  '1 tekrar bekliyor':'1 review due',
+  '2 tekrar bekliyor':'2 reviews due',
+  'Eşleşen kavramlar · %0':'Matching concepts · 0%',
+  'Temel kavramlar · %75':'Core concepts · 75%',
+  '1 soruda hata tekrar ediyor. Akıllı tekrar bu sinyalleri önceliklendirecek.':'Mistakes recur in 1 question. Smart review will prioritize these signals.',
+  '2 soruda hata tekrar ediyor. Akıllı tekrar bu sinyalleri önceliklendirecek.':'Mistakes recur in 2 questions. Smart review will prioritize these signals.',
+  'Hafıza planı:':'Memory plan:'
+ };
+ for(const [source,expected] of Object.entries(expectedReviewLabels)){
+  const actual=await page.evaluate(x=>DEEN_ENGLISH_UI.t(x),source);
+  assert.equal(actual,expected,'Review English UI: '+source);
+ }
+ console.log('PASS ENGLISH REVIEW DASHBOARD GATE',JSON.stringify({rendered:true,counters:true,ready:true,checkpoint:true,labels:Object.keys(expectedReviewLabels).length}));
  for(const expression of ['settingsPanel()','storePanel()','DEEN_ADMIN.open()']){
   try{await page.evaluate(expression=>eval(expression),expression);await capture();await page.evaluate(()=>{DEEN_ADMIN.close();closeSheet()});}catch(e){failures.push({expression,error:String(e)})}
  }
