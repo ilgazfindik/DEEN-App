@@ -8,8 +8,8 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const read=p=>JSON.parse(readFileSync(root+p,'utf8'));
 const manifest=read('assets/i18n/content-support.json');
 const source=new Map(baseQuestions.map(q=>[q.id,q]));
-const stages=['S01','S02','S03'];
-const expectedCounts={S01:14,S02:14,S03:14};
+const stages=['S01','S02','S03','S04'];
+const expectedCounts={S01:14,S02:14,S03:14,S04:16};
 const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
 const blankCount=s=>(String(s||'').match(/_{2,}|\[\s*\]|\{blank\}/g)||[]).length;
 const types={},issues=[],ids=new Set();
@@ -42,7 +42,10 @@ for(const stage of stages){
   for(const value of strings){
    if(value===null||value===undefined)continue;
    if(typeof value!=='string'||!value.trim()){problem(id,'bad_string');continue;}
-   if(/[ÇĞİŞçğıış]/.test(value))problem(id,'turkish_specific_letter');
+   // Preserve a person's original name (Ayşe, including German genitive Ayşes):
+   // a Turkish-specific letter inside a proper noun is not an untranslated interface string.
+   const contentWithoutProperNames=value.replace(/Ayşe(?:s)?/g,'PERSON');
+   if(/[ÇĞİŞçğıış]/.test(contentWithoutProperNames))problem(id,'turkish_specific_letter');
    if(/\b(?:sadece|doğru|yanlış|yapmak|ibadet|peygamber|müslüman|soru|cevap|öğrenme)\b/i.test(value))problem(id,'turkish_word');
    if(/\b(?:which|the|only|faith|worship|because)\b/i.test(value))problem(id,'english_word');
   }
