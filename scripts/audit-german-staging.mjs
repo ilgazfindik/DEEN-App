@@ -8,8 +8,8 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const read=p=>JSON.parse(readFileSync(root+p,'utf8'));
 const manifest=read('assets/i18n/content-support.json');
 const source=new Map(baseQuestions.map(q=>[q.id,q]));
-const stages=['S01','S02','S03','S04'];
-const expectedCounts={S01:14,S02:14,S03:14,S04:16};
+const stages=['S01','S02','S03','S04','S05'];
+const expectedCounts={S01:14,S02:14,S03:14,S04:16,S05:16};
 const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
 const blankCount=s=>(String(s||'').match(/_{2,}|\[\s*\]|\{blank\}/g)||[]).length;
 const types={},issues=[],ids=new Set();
@@ -80,6 +80,6 @@ for(const stage of stages){
   translated++;
  }
 }
-const report={locale:'de',phase:'U01-S01 through U01-S03 staging',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:translated,u01_remaining:100-translated,stages:expectedCounts,types,issue_count:issues.length,issues};
+const report={locale:'de',phase:'U01-S01 through U01-S05 staging',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:translated,u01_remaining:100-translated,stages:expectedCounts,types,issue_count:issues.length,issues};
 console.log(JSON.stringify(report,null,2));
 if(issues.length)process.exitCode=1;
