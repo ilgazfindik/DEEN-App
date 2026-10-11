@@ -18,18 +18,26 @@ Last updated: 2026-10-12
 | Content | Completed | Remaining |
 | --- | --- | --- |
 | U01-S01 / 14 base questions | 14 staged | 0 |
-| U01 remaining base questions | 0 | 86 |
+| U01-S02 / 14 base questions | 14 staged | 0 |
+| U01-S03 / 14 base questions | 14 staged | 0 |
+| U01-S04–S07 base questions | 0 | 58 |
 | U02–U15 | 0 | 1,400 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 14 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 42 / 1,500 base questions translated in staging; 0 German game questions published.**
 
-The file `assets/i18n/questions/de/staging/U01-S01.json` retains original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
+The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json` and `U01-S03.json` retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 14 source IDs, source metadata, blanks, options, correct answers and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 42 source IDs across three stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-Translate U01-S02 and remaining U01 questions in batches. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+Continue with U01-S04 (16 questions), then S05 (16), S06 (12), S07 (14) to complete the 58 remaining U01 base questions. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+
+## Latest stage batch: S02 and S03
+- S02: 14 questions including three matching exercises and three fill-blank exercises.
+- S03: 14 questions including six matching exercises and four missing-item questions.
+- Structural coverage: stable IDs, same Turkish source snapshot, answer indices, blank counts, matching cardinality and label uniqueness.
+- Native German and religious expert review remain pending. Status stays staging-only; no gameplay unlock and no user-content fallback.
