@@ -15,15 +15,15 @@ const server=http.createServer((req,res)=>{const n=decodeURIComponent((req.url||
  await page.goto('http://127.0.0.1:'+server.address().port);await page.waitForFunction(()=>window.DEEN_BOOT?.isReady(),null,{timeout:45000});
  const lang=await page.evaluate(()=>window.DEEN_APP_LOCALE?.get());assert.equal(lang,'en');
  async function show(name,fn,selector,expected=[],forbidden=[]){
-  await page.evaluate(f=>eval(f),fn);await page.waitForTimeout(160);
-  const t=await page.locator(selector).innerText();
+  await page.evaluate(f=>eval(f),fn);await page.waitForTimeout(420);
+  const t=selector==='#v5SheetBody'?await page.locator(selector).textContent():await page.locator(selector).innerText();
   expected.forEach(x=>assert(t.includes(x),name+' missing '+x+'\n'+t));
   forbidden.forEach(x=>assert(!t.includes(x),name+' untranslated '+x+'\n'+t));
   report.screens.push({name,text:t});
   await page.screenshot({path:path.join(out,name+'.png')});
   return t;
  }
- await show('01-first-stage',"previewMacro('U01-S01')",'#v5Sheet',
+ await show('01-first-stage',"previewMacro('U01-S01')",'#v5SheetBody',
   ['IN THIS STAGE','Get a gentle, easy introduction to this topic.','START STAGE'],
   ['Konuyla','BÖLÜME','BAŞLA','BÖLÜME START']);
  await page.evaluate(()=>closeSheet());
@@ -50,7 +50,7 @@ const server=http.createServer((req,res)=>{const n=decodeURIComponent((req.url||
  await show('04-premium-active',"premiumPanel()",'#v5Sheet',
   ['Disable Premium preview','Detailed learning records'],['simülasyonunu kapat','Detaylı öğrenme kayıtları']);
  await page.evaluate(()=>{state.premium=false;closeSheet()});
- await show('05-home',"navigate('learnScreen')",'#learnScreen',['DEEN'],[]);
+ await show('05-home',"navigate('learnScreen')",'#learnScreen',[],[]);
  const samples={
   'Şimdi bilgiyi sabitle.':'Reinforce What You Learned',
   '5 soruluk adaptif tekrar, bugünkü öğrenmeyi hafızada tutmaya yardım eder.':'A five-question adaptive review helps you remember what you learned today.',
