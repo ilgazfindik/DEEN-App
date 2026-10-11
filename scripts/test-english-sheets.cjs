@@ -15,14 +15,17 @@ const server=http.createServer((req,res)=>{const name=decodeURIComponent(req.url
   await page.waitForTimeout(520);
   const text=await page.locator(selector).innerText();
   for(const phrase of required)assert(text.includes(phrase),name+' missing "'+phrase+'"\n'+text);
+  if(name==='xp')assert(text.includes('You will earn +5 Sparkles at the next level.'),'XP reward sentence is grammatically broken: '+text);
+  if(name==='streak')assert(!text.includes('chestComplete'),'Weekly chest title is joined to description: '+text);
+
   for(const phrase of forbidden)assert(!text.includes(phrase),name+' Turkish/mixed text "'+phrase+'"\n'+text);
   report[name]=text;
   await page.screenshot({path:path.join(out,'english-'+name+'.png')});
   console.log('SHEET VERIFIED',name,JSON.stringify({length:text.length,required:required.length}));
   if(name!=='profile')await page.evaluate(()=>closeSheet());
  }
- await surface('streak','streakPanel()','#v5Sheet',['One Step Every Day','Current streak','Longest streak','Streak protection','Next streak milestone','Mon','Tue','Wed','Thu','Fri','Sat','Sun','3-day streak milestone in 3 days'],['Her days','seninle','seri kilometre','seri koruması','Çar','güne 3','kaldı','ibadet puanı değildir']);
- await surface('xp','xpPanel()','#v5Sheet',['At the next level,','you will earn this reward.','XP measures learning, quizzes and review activities only.','When you repeat the same lesson on the same day'],['Bir sonraki','kazanırsın','Aynı lessons','İbadetlere','tekrarlandığında']);
+ await surface('streak','streakPanel()','#v5Sheet',['One Step Every Day','Current streak','Longest streak','Streak protection','Next streak milestone','Mon','Tue','Wed','Thu','Fri','Sat','Sun','3 days until the 3-day streak milestone'],['Her days','seninle','seri kilometre','seri koruması','Çar','güne 3','kaldı','ibadet puanı değildir']);
+ await surface('xp','xpPanel()','#v5Sheet',['You will earn','at the next level.','XP measures learning, quizzes and review activities only.','When you repeat the same lesson on the same day'],['Bir sonraki','kazanırsın','Aynı lessons','İbadetlere','tekrarlandığında']);
  await surface('settings','settingsPanel()','#v5Sheet',['Animations','Haptic feedback','Reduce motion'],['Animasyon','Dokunsal geri bildirim','Hareketi azalt']);
  await surface('store','storePanel()','#v5Sheet',['1 missed day · Maximum 2'],['missed days','kaçırılan','En fazla']);
  await surface('profile',"navigate('profileScreen')",'#profileScreenBody',['2 mini lessons · 10 min'],['mini lessons · 10 dk']);
