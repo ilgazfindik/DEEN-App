@@ -341,6 +341,9 @@ const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.lengt
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
  const s=String(value||''),n=s.trim();if(!n)return s;
+ // Normalize already-English dynamic summary strings emitted by the legacy card renderer.
+ const englishSummary=n.match(/^Daily tasks\s*(\d+)\/3\s*·\s*Weekly rhythm\s*(\d+)\/(\d+)\s*days$/);
+ if(englishSummary)return 'Daily tasks '+englishSummary[1]+'/3 · Weekly rhythm '+englishSummary[2]+'/'+englishSummary[3]+' days';
  const guarded=window.DEEN_CONTENT_LOCALE?.translateText(n,'en');if(guarded&&guarded!==n)return s.replace(n,guarded);
  if(D[n])return s.replace(n,D[n]);
  let m;

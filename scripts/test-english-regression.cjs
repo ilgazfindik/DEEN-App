@@ -77,6 +77,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  console.log('PASS ENGLISH RESULT FLOW',JSON.stringify({liveToast:report.resultToast,translations:Object.keys(expectedResultCopy).length}));
  await page.waitForTimeout(1400);report.result=await page.locator('#resultView').innerText();report.rewards=await page.evaluate(()=>({xp:state.xp,currency:state.currency,completed:[...state.completed]}));report.answered=answered;assert(answered>0);assert(report.rewards.xp>rewardBefore.xp);assert(report.rewards.completed.includes('U01-S01'));
  assert(!/[ÇĞİÖŞÜçğıöşü]|\b(?:Ders|Soru|Devam|Doğru|Ödül|DENE)\b/.test(report.result),report.result);
+ assert(/Daily tasks 0\/3 · Weekly rhythm 1\/5 days/.test(report.result),'English daily-summary spacing regression: '+report.result.slice(-850));
  assert(/Next stage/i.test(report.result),'Result next-stage CTA missing');
  assert(!/SIRADAKİ EN İYİ ADIM|Bu aşamadaki/.test(report.result),'Turkish bottom result copy');
 
