@@ -261,14 +261,105 @@ Object.assign(D,{
   "yanlış önceliği": "mistake priority",
   "Eşleşen kavramlar": "Matching concepts"
 });
+
+/* EN result and progression flow: transient toasts, failure states, bottom CTAs and ceremonies. */
+Object.assign(D,{
+  "Yeni ders açıldı":"New stage unlocked",
+  "Bir tur daha":"Try again",
+  "Ders geçildi":"Lesson passed",
+  "Bu mini derste hepsini doğru yaptın.":"You answered every question correctly in this mini lesson.",
+  "Sonraki mini derse geçebilirsin.":"You can now move on to the next mini lesson.",
+  "Bu mini dersi %70 ve üzeri ile geçmen gerekiyor.":"You need at least 70% to pass this mini lesson.",
+  "AŞAMA ÖĞRENME DÖNGÜSÜ":"STAGE LEARNING CYCLE",
+  "Uygula":"Apply",
+  "Ustalaş":"Master",
+  "Altın performans":"Gold performance",
+  "Final geçildi":"Final passed",
+  "Tekrar öneriliyor":"Review recommended",
+  "Mini dersi tekrar et":"Retry mini lesson",
+  "Mini ders geçildi":"Mini lesson passed",
+  "Ünite kapısı hazır":"Unit gateway unlocked",
+  "Büyük ödül seremonisi hazır":"Final reward ceremony ready",
+  "Smart Review ile güçlendir":"Strengthen your knowledge with Smart Review",
+  "Devam ettiğinde final ödül sandığı ve yeni kısım geçişi açılacak.":"Continue to unlock the final reward chest and the next section.",
+  "Geçiş için %80 gerekiyor. Zayıf alanlarını tekrar ederek yeniden deneyebilirsin.":"You need at least 80% to advance. Review weaker topics and try again.",
+  "Aşamayı tamamla":"Complete the stage",
+  "Yolculuğa devam et":"Continue learning",
+  "Bu dersi başarıyla tamamladın. Öğrenme yolunda bir sonraki adıma geçebilirsin.":"You completed this lesson. Continue to the next step on your learning path.",
+  "Bu dersi tekrar et":"Retry this lesson",
+  "Yanlış yaptığın sorular tekrar sistemine eklendi. %70 ve üzeriyle geçtiğinde ilerleme açılır.":"Your missed questions were added to your review plan. Score at least 70% to advance.",
+  "SIRADA NE VAR?":"WHAT'S NEXT?",
+  "Bir adım daha?":"Ready for the next step?",
+  "Şimdi hatırlamayı güçlendir.":"Strengthen your recall.",
+  "Bugünün yolculuğu tamamlandı.":"Today's learning journey is complete.",
+  "Ders hedefin ve 3 günlük görevin bitti.":"Your lesson goal and three daily tasks are complete.",
+  "Bugünün yolculuğu tamam.":"Today's journey is complete.",
+  "Ders tamamlandı.":"Lesson completed.",
+  "Kısa bir tekrar istersen hazır.":"You can take a short review if you like.",
+  "İSTEĞE BAĞLI TEKRAR":"OPTIONAL REVIEW",
+  "YOLA DÖN":"BACK TO LEARNING PATH",
+  "ÖNCE KISA TEKRAR":"REVIEW FIRST",
+  "BUGÜN TAMAM":"DONE FOR TODAY",
+  "SIRADAKİ ADIM":"NEXT STEP",
+  "Yeni bir öğrenme bölümü hazır. İlk aşamayla başlayabilirsin.":"A new learning unit is ready. Start with its first stage.",
+  "YENİ ÜNİTEYE BAŞLA":"START NEW UNIT",
+  "İbadet Temelleri Ustalığı hazır.":"Foundations of Worship mastery is ready.",
+  "İbadet Temelleri Ustalığı Finali":"Foundations of Worship Mastery Final",
+  "İbadet Temelleri Ustalığı":"Foundations of Worship Mastery",
+  "25 soru · 0 enerji · %80 geçiş.":"25 questions · 0 energy · 80% to pass.",
+  "YOLCULUĞA DEVAM":"CONTINUE LEARNING",
+  "FİNAL KAPISINA GİT":"GO TO THE FINAL",
+  "Güçlü alan":"Strength",
+  "Tekrar önerisi":"Suggested review",
+  "SKOR":"SCORE",
+  "BİLGİ":"KNOWLEDGE",
+  "HATIRLAMA":"RECALL",
+  "YENİ":"NEW",
+  "Günün görevleri tamamlandı":"Daily tasks completed",
+  "Haftalık ritim tamamlandı":"Weekly learning goal completed",
+  "Görev tamamlandı":"Task completed"
+});
+
+/* Finish the post-lesson Next Best Action card and disambiguate the result summary. */
+Object.assign(D,{
+ "Ders öğrenildi":"Lesson completed",
+ "Tekrarlarla tamamlanan":"Correct by lesson end",
+ "Önce bu adımı sağlamlaştır.":"Strengthen this step before moving on.",
+ "Ustalık sonucu hazır.":"Your mastery result is ready.",
+ "Ünite tamamlandı. Büyük ödül akışı hazır.":"Unit complete. Your final reward is ready.",
+ "Aşama tamamlandı. Yeni düğüm açıldı.":"Stage complete. A new stage has unlocked.",
+ "Final sonucunu kapat; ilerleme ve ustalık akışı ardından güncellenecek.":"Continue to finish the final and update your mastery progress.",
+ "Önce ünite tamamlama akışını kapat; günlük plan yeni duruma göre yeniden hesaplanacak.":"Complete the unit reward first; your daily plan will update afterward.",
+ "Önce yeni aşamayı aç; günlük plan ardından yeni ilerleme durumuna göre yeniden hesaplanacak.":"Unlock the next stage first; your daily plan will update afterward.",
+ "TEKRAR":"RETRY",
+ "İLERLEME":"PROGRESS",
+ "İSTEĞE BAĞLI":"OPTIONAL",
+ "GÜNLÜK PLAN":"DAILY PLAN",
+ "MİNİ DERSİ TEKRARLA":"RETRY MINI LESSON"
+});
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
  const s=String(value||''),n=s.trim();if(!n)return s;
+ // Normalize already-English dynamic summary strings emitted by the legacy card renderer.
+ const englishSummary=n.match(/^Daily tasks\s*(\d+)\/3\s*·\s*Weekly rhythm\s*(\d+)\/(\d+)\s*days$/);
+ if(englishSummary)return 'Daily tasks '+englishSummary[1]+'/3 · Weekly rhythm '+englishSummary[2]+'/'+englishSummary[3]+' days';
  const guarded=window.DEEN_CONTENT_LOCALE?.translateText(n,'en');if(guarded&&guarded!==n)return s.replace(n,guarded);
  if(D[n])return s.replace(n,D[n]);
  let m;
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
+ // EN result/progression: translate complete composed strings before middot splitting.
+ if((m=n.match(/^(.+?) artık bitti\. Sıradaki düğüm açıldı\.$/)))return t(m[1])+' is complete. The next stage is unlocked.';
+ if((m=n.match(/^(.+?) artık oynanabilir\.$/)))return t(m[1])+' is now available.';
+ if((m=n.match(/^Sıradaki aşama\s*·\s*(.+)$/)))return 'Next stage · '+t(m[1]);
+ if((m=n.match(/^Sonraki mini ders\s*·\s*(.+)$/)))return 'Next mini lesson · '+t(m[1]);
+ if((m=n.match(/^(\d+) derslik bu aşamada (\d+)\/(\d+) ilerlemedesin\.$/)))return 'You have completed '+m[2]+' of '+m[3]+' mini lessons in this stage.';
+ if((m=n.match(/^Ders\s+(\d+)\/(\d+)$/)))return 'Lesson '+m[1]+'/'+m[2];
+ if((m=n.match(/^Görevler\s+(\d+)\/3\s*·\s*Haftalık ritim\s+(\d+)\/(\d+)\s+gün(?:\s*·\s*(\d+) tekrar)?$/)))return 'Daily tasks '+m[1]+'/3 · Weekly rhythm '+m[2]+'/'+m[3]+' days'+(m[4]?' · '+m[4]+(m[4]==='1'?' review':' reviews'):'');
+ if((m=n.match(/^(.+?)\s*·\s*(\d+)\s+soru\.$/)))return t(m[1])+' · '+m[2]+(m[2]==='1'?' question':' questions');
+ if((m=n.match(/^(\d+) soru tekrar bekliyor\.$/)))return m[1]+(m[1]==='1'?' question is':' questions are')+' due for review.';
+ if((m=n.match(/^(.+) açıldı\.$/)))return t(m[1])+' is unlocked.';
+ if((m=n.match(/^Geçiş için %(\d+) gerekiyor\. Aynı atanmış soru seti korunacak; yeni first-pass içerik tüketilmeyecek\.$/)))return 'You need at least '+m[1]+'% to advance. The same question set will be reused without consuming new first-pass content.';
  // Review tab dynamic counters: translate whole values before the generic separator/token fallback.
  if((m=n.match(/^(\d+)\s+kavram\s*·\s*(\d+)\s+enerji$/)))return m[1]+(m[1]==='1'?' concept':' concepts')+' · '+m[2]+' energy';
  if((m=n.match(/^(\d+)\s+kavram$/)))return m[1]+(m[1]==='1'?' concept':' concepts');
@@ -315,7 +406,7 @@ function t(value){
  if(/REQUIRES_EXPERT_VERIFICATION|Diyanet|Quran Path/.test(out))out=out.replace(/Kur['’]an/g,'Quran').replace(/Cilt\s*(\d+)/g,'Vol. $1').replace(/\bs\.(\d+)/g,'p. $1').replace(/\bve\b/g,'and').replace(/\bbölümü\b/g,'chapter').replace(/Buhârî/g,'Al-Bukhari').replace(/Müslim/g,'Muslim').replace(/Îmân/g,'Faith').replace(/Maûn/g,"Al-Ma'un");
  return s.replace(n,out);
 }
-const style=document.createElement('style');style.id='deen-english-presentation-css';style.textContent="html[lang=\"en\"] .sequence-zone.empty::before{content:\"Select the parts below in order\"!important}\nhtml[lang=\"en\"] .v710-builder-zone.empty::before{content:\"Drag words here or tap them\"!important}\nhtml[lang=\"en\"] .lp-unlocking::after{content:\"NEW LESSON UNLOCKED\"!important}\nhtml[lang=\"en\"] #profileScreenBody .v994-companion-avatar::after,html[lang=\"en\"] #profileScreenBody .v997-companion-avatar::after{content:\"change\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option::after,html[lang=\"en\"] .v858-odd-card::after{content:\"TAP\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.correct::after{content:\"CORRECT ✓\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.wrong::after{content:\"LOOK AGAIN\"!important}\nhtml[lang=\"en\"] .v853-match-card.selected::after{content:\"SELECTED\"!important}\nhtml[lang=\"en\"] .v855-fill-slot::before{content:\"PLACE IN THE BLANK\"!important}\nhtml[lang=\"en\"] .v858-odd-card.wrong-pick::after{content:\"TRY AGAIN\"!important}\nhtml[lang=\"en\"] .v858-odd-card.target::after{content:\"FOUND ✓\"!important}\nhtml[lang=\"en\"] .deen-reward-badge-missing::after{content:\"BADGE\"!important}\nhtml[lang=\"en\"] .v5-btn,html[lang=\"en\"] .v5-list-title,html[lang=\"en\"] .deen-language-card{overflow-wrap:anywhere}";document.head.append(style);
+const style=document.createElement('style');style.id='deen-english-presentation-css';style.textContent="html[lang=\"en\"] .sequence-zone.empty::before{content:\"Select the parts below in order\"!important}\nhtml[lang=\"en\"] .v710-builder-zone.empty::before{content:\"Drag words here or tap them\"!important}\nhtml[lang=\"en\"] .lp-unlocking::after{content:\"NEW LESSON UNLOCKED\"!important}\nhtml[lang=\"en\"] #profileScreenBody .v994-companion-avatar::after,html[lang=\"en\"] #profileScreenBody .v997-companion-avatar::after{content:\"change\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option::after,html[lang=\"en\"] .v858-odd-card::after{content:\"TAP\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.correct::after{content:\"CORRECT ✓\"!important}\nhtml[lang=\"en\"] .v852-card-grid .option.wrong::after{content:\"LOOK AGAIN\"!important}\nhtml[lang=\"en\"] .v853-match-card.selected::after{content:\"SELECTED\"!important}\nhtml[lang=\"en\"] .v855-fill-slot::before{content:\"PLACE IN THE BLANK\"!important}\nhtml[lang=\"en\"] .v858-odd-card.wrong-pick::after{content:\"TRY AGAIN\"!important}\nhtml[lang=\"en\"] .v858-odd-card.target::after{content:\"FOUND ✓\"!important}\nhtml[lang=\"en\"] .deen-reward-badge-missing::after{content:\"BADGE\"!important}\nhtml[lang=\"en\"] .v5-btn,html[lang=\"en\"] .v5-list-title,html[lang=\"en\"] .deen-language-card{overflow-wrap:anywhere}";style.textContent+="\nhtml[lang=\"en\"] #resultView.v624-premium-result:has(.v680-result-next) #v624NextCard{display:none!important}";document.head.append(style);
 const originals=new WeakMap(),attributeOriginals=new WeakMap();
 const excluded='script,style,noscript,code,textarea,[contenteditable="true"],[data-deen-no-translate],.deen-ikhlas-arabic,.deen-mem-arabic,.deen-qj2-ar,.deen-qj2-option.ar';
 let running=false,queued=false,writes=0,passes=0;const observer=new MutationObserver(records=>{if(records.length&&!running)schedule()});
@@ -332,6 +423,23 @@ function localize(root=document.body){
   for(const k of ['aria-label','title','placeholder','alt'])if(el.hasAttribute(k)){
    const value=el.getAttribute(k);if(!saved[k]||value!==saved[k].output)saved[k]={source:value,output:value};
    const next=t(saved[k].source);if(next!==value){el.setAttribute(k,next);writes++}saved[k].output=next;
+  }
+ }
+ // Result summary is sometimes built from separate text nodes. Normalize the complete
+ // rendered small-label text once, without touching any progress numbers or controls.
+ for(const el of root.querySelectorAll('.v55-return-summary,#resultView small')){
+  const raw=el.textContent||'';
+  const fixed=raw.replace(/(Daily tasks\s*\d+\/3)\s*·\s*(Weekly rhythm)\s*(\d+\/\d+\s*days)/,'$1 · $2 $3');
+  if(fixed!==raw){el.textContent=fixed;writes++}
+ }
+ // The v5.4 result summary contains bold numeric nodes; normalize whitespace in their
+ // adjacent text nodes instead of replacing the entire container or its numbers.
+ for(const summary of root.querySelectorAll('#resultView .v54-result-loop')){
+  if(!summary.textContent.includes('Daily tasks')||!summary.textContent.includes('Weekly rhythm'))continue;
+  for(const bold of summary.querySelectorAll('b')){
+   const before=bold.previousSibling,after=bold.nextSibling;
+   if(before?.nodeType===3&&before.nodeValue&&!/\s$/.test(before.nodeValue)){before.nodeValue+=' ';writes++}
+   if(after?.nodeType===3&&after.nodeValue&&!/^\s/.test(after.nodeValue)){after.nodeValue=' '+after.nodeValue;writes++}
   }
  }
  passes++;running=false;observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-label','title','placeholder','alt']});
