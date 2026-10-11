@@ -1,0 +1,701 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U04",
+  "stage": "U04-S04",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U04-S04-001": {
+      "source": {
+        "question_tr": "Şartları temel anlamlarıyla eşleştirin.",
+        "explanation_tr": "Her şartın odaklandığı farklı bir alan vardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Düzenli ibadet",
+            "right": "Namaz"
+          },
+          {
+            "left": "Malî paylaşma",
+            "right": "Zekât"
+          },
+          {
+            "left": "Ramazan ayı",
+            "right": "Oruç"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne jeder Säule ihre wichtigste Bedeutung zu.",
+        "explanation_tr": "Jede dieser Säulen hat einen eigenen Schwerpunkt.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Regelmäßige Gottesverehrung",
+            "right": "Gebet"
+          },
+          {
+            "left": "Vermögen teilen",
+            "right": "Zakat"
+          },
+          {
+            "left": "Der Monat Ramadan",
+            "right": "Fasten"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-002": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları eşleştirin.",
+        "explanation_tr": "Şehadet inanç ilanı, Hac ise kutsal mekân ziyaretidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İnanç beyanı",
+            "right": "Kelime-i Şehadet"
+          },
+          {
+            "left": "Kâbe ve Arafat merkezli menâsik",
+            "right": "Hac"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die folgenden Begriffe.",
+        "explanation_tr": "Die Schahada ist ein Glaubensbekenntnis, während die Hadsch mit der Pilgerfahrt verbunden ist.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaubensbekenntnis",
+            "right": "Schahada"
+          },
+          {
+            "left": "Riten an der Kaaba und bei Arafat",
+            "right": "Hadsch"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-003": {
+      "source": {
+        "question_tr": "Aşağıdaki eşleştirmelerden hangisi yanlıştır?",
+        "explanation_tr": "Mekke'ye ziyaret 'Hac' ibadetidir; 'Zekât' ise malî bir paylaşma ibadetidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Zekât = Mekke'ye ziyaret",
+          "Oruç = Ramazan ayında tutulması",
+          "Namaz = Düzenli kulluk ibadeti",
+          "Kelime-i Şehadet = İnanç beyanı"
+        ],
+        "correct_answer": "Zekât = Mekke'ye ziyaret",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung ist falsch?",
+        "explanation_tr": "Die Pilgerfahrt nach Mekka ist die Hadsch; Zakat ist eine vermögensbezogene Pflicht.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Zakat = Pilgerfahrt nach Mekka",
+          "Fasten = religiöse Pflicht im Ramadan",
+          "Gebet = regelmäßige Gottesverehrung",
+          "Schahada = Glaubensbekenntnis"
+        ],
+        "correct_answer": "Zakat = Pilgerfahrt nach Mekka",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-004": {
+      "source": {
+        "question_tr": "Aşağıdaki seçeneklerden hangisinde bir ibadet ve ilgili olduğu kavram doğru verilmiştir?",
+        "explanation_tr": "Namaz, gün içinde düzenli olarak kılınan ibadettir. Diğer seçeneklerdeki kavramlar karışık verilmiştir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Oruç - Paylaşma ve zenginlik vergisi",
+          "Hac - Günlük kulluk ibadeti",
+          "Namaz - Düzenli olarak yerine getirilen ibadet",
+          "Zekât - Ramazan ayında aç kalmak"
+        ],
+        "correct_answer": "Namaz - Düzenli olarak yerine getirilen ibadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung zwischen religiöser Handlung und ihrer Bedeutung ist richtig?",
+        "explanation_tr": "Das Gebet wird regelmäßig verrichtet. Die anderen Antworten verwechseln die Begriffe.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Fasten – Vermögensabgabe",
+          "Hadsch – tägliche Gottesverehrung",
+          "Gebet – regelmäßige Gottesverehrung",
+          "Zakat – Hunger im Ramadan"
+        ],
+        "correct_answer": "Gebet – regelmäßige Gottesverehrung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-005": {
+      "source": {
+        "question_tr": "İslam'ın şartlarını odak noktalarıyla eşleştirin.",
+        "explanation_tr": "Bu ibadetlerin her biri Müslümanın farklı bir fedakârlığını ve kulluğunu temsil eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Dil ile ikrar (ilan etmek)",
+            "right": "Şehadet"
+          },
+          {
+            "left": "Mal ile ibadet",
+            "right": "Zekât"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne den Säulen ihren Schwerpunkt zu.",
+        "explanation_tr": "Jede Säule drückt eine andere Form religiöser Hingabe aus.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gesprochenes Glaubensbekenntnis",
+            "right": "Schahada"
+          },
+          {
+            "left": "Gottesverehrung durch Vermögensabgabe",
+            "right": "Zakat"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-006": {
+      "source": {
+        "question_tr": "Hangi eşleştirme İslam'ın şartları açısından hatalıdır?",
+        "explanation_tr": "Malî paylaşım zekâtla ilişkilidir; namaz ise düzenli kulluk ibadetidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hac = Mekke ile ilişkili ibadet",
+          "Oruç = Ramazan ile ilişkili ibadet",
+          "Namaz = Malî paylaşım ibadeti",
+          "Şehadet = İnanç beyanı"
+        ],
+        "correct_answer": "Namaz = Malî paylaşım ibadeti",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung der Säulen ist falsch?",
+        "explanation_tr": "Vermögensabgaben gehören zur Zakat; das Gebet ist eine regelmäßige Form der Gottesverehrung.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hadsch = Pilgerfahrt nach Mekka",
+          "Fasten = religiöse Handlung im Ramadan",
+          "Gebet = Vermögensabgabe",
+          "Schahada = Glaubensbekenntnis"
+        ],
+        "correct_answer": "Gebet = Vermögensabgabe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-007": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları ait oldukları kategori ile eşleştirin.",
+        "explanation_tr": "Oruç ve namaz İslam'ın şartlarındandır; ahirete ve meleklere inanmak ise imanın esaslarındandır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Oruç tutmak",
+            "right": "İslam'ın Şartları"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın Esasları"
+          },
+          {
+            "left": "Namaz kılmak",
+            "right": "İslam'ın Şartları"
+          },
+          {
+            "left": "Meleklere iman",
+            "right": "İmanın Esasları"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe ihrer Kategorie zu.",
+        "explanation_tr": "Fasten und Gebet sind Säulen; der Glaube an Engel und das Jenseits gehört zu den Glaubensinhalten.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Fasten",
+            "right": "Säule des Islam"
+          },
+          {
+            "left": "Glaube an das Jenseits",
+            "right": "Glaubensinhalt"
+          },
+          {
+            "left": "Gebet verrichten",
+            "right": "Säule des Islam"
+          },
+          {
+            "left": "Glaube an Engel",
+            "right": "Glaubensinhalt"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-008": {
+      "source": {
+        "question_tr": "Aşağıdaki açıklamalardan hangisi iki farklı İslam şartını birbirine karıştırır?",
+        "explanation_tr": "Maldan pay verme zekâtla ilişkilidir; namaz düzenli kulluk ibadetidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Oruç = Ramazan'la ilişkili ibadet",
+          "Zekât = Malî ibadet",
+          "Hac = Mekke ile ilişkili ibadet",
+          "Namaz = Maldan pay verme ibadeti"
+        ],
+        "correct_answer": "Namaz = Maldan pay verme ibadeti",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Erklärung verwechselt zwei Säulen?",
+        "explanation_tr": "Die vorgeschriebene Vermögensabgabe gehört zur Zakat, nicht zum Gebet.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Fasten = religiöse Handlung im Ramadan",
+          "Zakat = vermögensbezogene Pflicht",
+          "Hadsch = Pilgerfahrt nach Mekka",
+          "Gebet = Abgabe eines Vermögensanteils"
+        ],
+        "correct_answer": "Gebet = Abgabe eines Vermögensanteils",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-009": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet ile ilgili kavramları eşleştirin.",
+        "explanation_tr": "Kelime-i Şehadet tevhid beyanı ile Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği birlikte içerir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'tan başka ilah yoktur",
+            "right": "Tevhid"
+          },
+          {
+            "left": "Hz. Muhammed",
+            "right": "Allah'ın kulu ve elçisi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Aussagen im Zusammenhang mit der Schahada zu.",
+        "explanation_tr": "Die Schahada vereint den Tauhid mit dem Zeugnis über Muhammads Gesandtentum.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Es gibt keine Gottheit außer Allah",
+            "right": "Tauhid"
+          },
+          {
+            "left": "Muhammad",
+            "right": "Allahs Diener und Gesandter"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-010": {
+      "source": {
+        "question_tr": "Hangi ikili, İslam'ın şartları bağlamında doğru ilişkilendirilmiştir?",
+        "explanation_tr": "Hac ibadeti Mekke ve çevresindeki belirli mekânlarla doğrudan ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hac - Mekke",
+          "Oruç - Malî paylaşım",
+          "Namaz - Ramazan ayına özgü ibadet",
+          "Zekât - Kutsal mekân yolculuğu"
+        ],
+        "correct_answer": "Hac - Mekke",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung ist bei den Säulen des Islam richtig?",
+        "explanation_tr": "Die Hadsch ist mit bestimmten Pilgerstätten in und um Mekka verbunden.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hadsch – Mekka",
+          "Fasten – Vermögensabgabe",
+          "Gebet – nur im Ramadan",
+          "Zakat – Reise zu heiligen Orten"
+        ],
+        "correct_answer": "Hadsch – Mekka",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-011": {
+      "source": {
+        "question_tr": "Aşağıdaki ibadet-bağlam eşleştirmelerinden hangisi hatalıdır?",
+        "explanation_tr": "Kutsal mekân yolculuğu hacla ilişkilidir; zekât malî bir ibadettir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namaz = Belirli vakitlerde düzenli kulluk",
+          "Oruç = Ramazan",
+          "Hac = Mekke ile ilişkili ibadet",
+          "Zekât = Kutsal mekân yolculuğu"
+        ],
+        "correct_answer": "Zekât = Kutsal mekân yolculuğu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung zwischen einer Handlung und ihrem Zusammenhang ist falsch?",
+        "explanation_tr": "Die Reise zu heiligen Pilgerstätten gehört zur Hadsch; Zakat ist eine vermögensbezogene Pflicht.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Gebet = regelmäßige Gottesverehrung zu festen Zeiten",
+          "Fasten = Ramadan",
+          "Hadsch = Pilgerfahrt nach Mekka",
+          "Zakat = Reise zu heiligen Orten"
+        ],
+        "correct_answer": "Zakat = Reise zu heiligen Orten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-012": {
+      "source": {
+        "question_tr": "İbadetleri kısa tanımlarıyla eşleştirin.",
+        "explanation_tr": "Bu eşleştirmeler, beş şartın temel anlam çerçevesini gösterir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Düzenli ibadet",
+            "right": "Namaz"
+          },
+          {
+            "left": "Malî ibadet",
+            "right": "Zekât"
+          },
+          {
+            "left": "İnanç beyanı",
+            "right": "Şehadet"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne jeder religiösen Handlung ihre kurze Erklärung zu.",
+        "explanation_tr": "Die Zuordnungen beschreiben die Grundbedeutungen der Säulen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Regelmäßige Gottesverehrung",
+            "right": "Gebet"
+          },
+          {
+            "left": "Vermögensbezogene Pflicht",
+            "right": "Zakat"
+          },
+          {
+            "left": "Glaubensbekenntnis",
+            "right": "Schahada"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-013": {
+      "source": {
+        "question_tr": "İfadeleri uygun ibadetle eşleştirin.",
+        "explanation_tr": "Her şart, belirli zaman veya mekânlarla ilişkilidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ramazan ayında farz kılınmış ibadet",
+            "right": "Oruç"
+          },
+          {
+            "left": "Belirli hac aylarında Kâbe/Arafat merkezli ibadet",
+            "right": "Hac"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Erklärung mit der entsprechenden Handlung.",
+        "explanation_tr": "Die Säulen sind mit unterschiedlichen Zeiten und Orten verbunden.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Religiöse Pflicht im Ramadan",
+            "right": "Fasten"
+          },
+          {
+            "left": "Riten an der Kaaba und bei Arafat zu festgelegter Zeit",
+            "right": "Hadsch"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-014": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın şartlarıyla doğrudan ilgili bir kavram değildir?",
+        "explanation_tr": "Zebur, kitaplara iman esasıyla ilgilidir; Mekke (Hac), Ramazan (Oruç) ve Zekât İslam'ın şartlarıyla ilgilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zebur",
+          "Mekke",
+          "Ramazan",
+          "Zekât"
+        ],
+        "correct_answer": "Zebur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff gehört nicht unmittelbar zu den fünf Säulen des Islam?",
+        "explanation_tr": "Der Zabur gehört zum Thema der heiligen Schriften. Mekka, Ramadan und Zakat hängen mit den Säulen zusammen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Der Zabur",
+          "Mekka",
+          "Ramadan",
+          "Zakat"
+        ],
+        "correct_answer": "Der Zabur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-015": {
+      "source": {
+        "question_tr": "Kavramları doğru ibadetle eşleştirin.",
+        "explanation_tr": "Kavramların ibadetlerle olan ilişkisi.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Dinen belirlenmiş malî pay",
+            "right": "Zekât"
+          },
+          {
+            "left": "Kâbe ve Arafat merkezli menâsik",
+            "right": "Hac"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne jede Erklärung der passenden Handlung zu.",
+        "explanation_tr": "Diese Zuordnungen zeigen die Beziehung zwischen den Begriffen und den religiösen Handlungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Vorgeschriebener Anteil des Vermögens",
+            "right": "Zakat"
+          },
+          {
+            "left": "Riten an der Kaaba und bei Arafat",
+            "right": "Hadsch"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S04-016": {
+      "source": {
+        "question_tr": "İslam'ın beş şartı içerisinde, günün belirli zaman dilimlerine yayılmış olan ve düzenli kulluk ifadesi olan ibadet hangisidir?",
+        "explanation_tr": "Gün içine yayılmış olan ve düzenli tekrar edilen ibadet namazdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz",
+          "Oruç",
+          "Hac",
+          "Zekât"
+        ],
+        "correct_answer": "Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Säule wird als regelmäßige Gottesverehrung zu festgelegten Zeiten über den Tag verteilt verrichtet?",
+        "explanation_tr": "Das Gebet wird wiederholt zu festgelegten Tageszeiten verrichtet.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Das Gebet",
+          "Fasten",
+          "Hadsch",
+          "Zakat"
+        ],
+        "correct_answer": "Das Gebet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen zuordnen",
+        "topic": "Gottesverehrung und religiöse Pflichten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

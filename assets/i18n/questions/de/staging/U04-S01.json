@@ -1,0 +1,507 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U04",
+  "stage": "U04-S01",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U04-S01-001": {
+      "source": {
+        "question_tr": "İslam dininin üzerine kurulduğu temel esaslara genel olarak ne ad verilir?",
+        "explanation_tr": "İslam'ın temeli olarak kabul edilen beş ana göreve 'İslam'ın Şartları' adı verilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İslam'ın Şartları",
+          "İmanın Esasları",
+          "Ahlak Kuralları",
+          "Güzel Davranışlar"
+        ],
+        "correct_answer": "İslam'ın Şartları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie nennt man die wichtigsten Grundlagen, auf denen der Islam aufbaut?",
+        "explanation_tr": "Die fünf grundlegenden Pflichten des Islam heißen seine fünf Säulen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die fünf Säulen des Islam",
+          "Die Glaubensartikel",
+          "Moralische Regeln",
+          "Gutes Benehmen"
+        ],
+        "correct_answer": "Die fünf Säulen des Islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-002": {
+      "source": {
+        "question_tr": "İslam'ın temel şartları toplam beş tanedir.",
+        "explanation_tr": "İslam'ın temel ibadet ve esasları beş şart altında toplanmıştır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Islam hat fünf grundlegende Säulen.",
+        "explanation_tr": "Die wichtigsten religiösen Pflichten werden in fünf Säulen zusammengefasst.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-003": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın beş şartından biridir?",
+        "explanation_tr": "Namaz kılmak İslam'ın beş şartından biridir. Diğer seçenekler imanın esaslarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz kılmak",
+          "Meleklere inanmak",
+          "Ahiret gününe inanmak",
+          "Kutsal kitaplara inanmak"
+        ],
+        "correct_answer": "Namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Handlung gehört zu den fünf Säulen des Islam?",
+        "explanation_tr": "Das rituelle Gebet ist eine Säule des Islam. Die übrigen Antworten gehören zu den Glaubensinhalten.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Das Gebet verrichten",
+          "An Engel glauben",
+          "An den Jüngsten Tag glauben",
+          "An die heiligen Schriften glauben"
+        ],
+        "correct_answer": "Das Gebet verrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-004": {
+      "source": {
+        "question_tr": "Hangisi İslam'ın beş şartı arasında yer almaz?",
+        "explanation_tr": "Peygamberlere inanmak inançla ilgili olup imanın esaslarındandır. Zekât, hac ve oruç İslam'ın şartlarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek",
+          "Hacca gitmek",
+          "Oruç tutmak",
+          "Peygamberlere inanmak"
+        ],
+        "correct_answer": "Peygamberlere inanmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was gehört nicht zu den fünf Säulen des Islam?",
+        "explanation_tr": "Der Glaube an die Propheten gehört zu den Glaubensinhalten; Zakat, Hadsch und Fasten gehören zu den Säulen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zakat entrichten",
+          "Die Hadsch vollziehen",
+          "Fasten",
+          "An die Propheten glauben"
+        ],
+        "correct_answer": "An die Propheten glauben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-005": {
+      "source": {
+        "question_tr": "İslam'ın beş şartının temelini oluşturan, inanç beyanı niteliğindeki ilk şarta __________ getirmek denir.",
+        "explanation_tr": "İslam'a girişin ve şartların temeli olan inanç beyanı Kelime-i Şehadet'tir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Kelime-i Şehadet",
+          "Tekbir",
+          "Salavat",
+          "Ezan"
+        ],
+        "correct_answer": "Kelime-i Şehadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die erste Säule, das grundlegende Glaubensbekenntnis, ist das Sprechen der ________.",
+        "explanation_tr": "Die Schahada ist das grundlegende Glaubensbekenntnis des Islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Schahada",
+          "Takbir",
+          "Salawat",
+          "Adhan"
+        ],
+        "correct_answer": "Schahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-006": {
+      "source": {
+        "question_tr": "Ramazan ayında yerine getirilen temel ibadet İslam'ın şartlarından biri midir?",
+        "explanation_tr": "Ramazan ayında oruç tutmak İslam'ın beş şartından biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Evet",
+          "Hayır"
+        ],
+        "correct_answer": "Evet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Gehört das Fasten im Ramadan zu den Säulen des Islam?",
+        "explanation_tr": "Das Fasten im Ramadan zählt zu den fünf Säulen des Islam.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Ja",
+          "Nein"
+        ],
+        "correct_answer": "Ja",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-007": {
+      "source": {
+        "question_tr": "Namaz, Allah'a kulluk kapsamında düzenli olarak yerine getirilen ve İslam'ın şartlarından olan bir ibadettir.",
+        "explanation_tr": "Namaz, Müslümanların Allah'a kulluklarını düzenli olarak ifade ettikleri temel bir şarttır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Das Gebet ist eine regelmäßige Form der Gottesverehrung und eine Säule des Islam.",
+        "explanation_tr": "Muslime drücken im Gebet regelmäßig ihre Hingabe an Allah aus.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-008": {
+      "source": {
+        "question_tr": "Belirli şartlar oluştuğunda, maldan belirli bir payın hak sahiplerine verilmesiyle ilgili İslam şartı hangisidir?",
+        "explanation_tr": "Zekât, belirli şartlara bağlı malî bir ibadettir ve maldan bir payın hak sahiplerine verilmesini içerir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek",
+          "Hacca gitmek",
+          "Oruç tutmak",
+          "Kelime-i Şehadet getirmek"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Bei welcher Säule wird unter bestimmten Voraussetzungen ein festgelegter Teil des Vermögens an berechtigte Menschen gegeben?",
+        "explanation_tr": "Zakat ist eine vermögensbezogene religiöse Pflicht, bei der ein Anteil an Berechtigte gegeben wird.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zakat entrichten",
+          "Die Hadsch vollziehen",
+          "Fasten",
+          "Die Schahada sprechen"
+        ],
+        "correct_answer": "Zakat entrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-009": {
+      "source": {
+        "question_tr": "İmkânı olanlar için Mekke ve çevresindeki belirli mekânlarda yerine getirilen ibadete __________ denir.",
+        "explanation_tr": "Hac, imkânı olanlar için Mekke ve çevresindeki belirli mekânlarla bağlantılı olarak yerine getirilen bir ibadettir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Hac",
+          "Oruç",
+          "Zekât",
+          "Namaz"
+        ],
+        "correct_answer": "Hac",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Pilgerfahrt an festgelegten Orten in und um Mekka, die für Menschen mit den erforderlichen Möglichkeiten vorgesehen ist, heißt ________.",
+        "explanation_tr": "Die Hadsch ist eine Pilgerfahrt mit festgelegten religiösen Handlungen in und um Mekka.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Hadsch",
+          "Fasten",
+          "Zakat",
+          "Gebet"
+        ],
+        "correct_answer": "Hadsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-010": {
+      "source": {
+        "question_tr": "Oruç ve hac, İslam'ın beş şartı içinde birbirinden farklı iki ibadettir.",
+        "explanation_tr": "Oruç Ramazan'la, hac ise Mekke ve çevresindeki belirli mekânlarla ilişkili ayrı ibadetlerdir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasten und Hadsch sind zwei unterschiedliche Formen der Gottesverehrung unter den fünf Säulen.",
+        "explanation_tr": "Das Fasten ist mit dem Ramadan verbunden, die Hadsch mit festgelegten Orten in und um Mekka.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-011": {
+      "source": {
+        "question_tr": "Oruç tutmak, yalnızca aç kalmak değil, Allah'a kulluk niyetiyle yerine getirilen temel bir ibadettir.",
+        "explanation_tr": "Oruç, basit bir açlıktan öte, Ramazan ayında bilinçli olarak yerine getirilen manevi bir ibadettir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasten bedeutet mehr als Hunger: Es ist eine bewusst für Allah vollzogene religiöse Handlung.",
+        "explanation_tr": "Fasten ist mehr als Hunger. Es ist eine bewusste Form der Gottesverehrung während des Ramadan.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-012": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet, Namaz, Oruç ve Hac ile birlikte İslam'ın beş şartını tamamlayan beşinci ibadet hangisidir?",
+        "explanation_tr": "Diğer temel ibadetlerle birlikte İslam'ın beş şartını oluşturan malî ibadet zekât vermektir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek",
+          "Sadaka vermek",
+          "Kurban kesmek",
+          "Dua etmek"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Säule ergänzt Schahada, Gebet, Fasten und Hadsch zu den fünf Säulen?",
+        "explanation_tr": "Zakat ergänzt die anderen vier Säulen als vermögensbezogene Pflicht.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zakat entrichten",
+          "Freiwillig spenden",
+          "Ein Opfertier darbringen",
+          "Ein Bittgebet sprechen"
+        ],
+        "correct_answer": "Zakat entrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-013": {
+      "source": {
+        "question_tr": "Meleklere ve ahirete inanmak İmanın Esasları iken; namaz kılmak ve oruç tutmak __________ Şartlarındandır.",
+        "explanation_tr": "Namaz ve oruç gibi eylemsel ibadetler İslam'ın şartları kategorisinde yer alır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "İslam'ın",
+          "Ahlakın",
+          "Toplumun",
+          "İbadetin"
+        ],
+        "correct_answer": "İslam'ın",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an Engel und das Jenseits gehört zu den Glaubensinhalten, Gebet und Fasten dagegen zu den Säulen des ________.",
+        "explanation_tr": "Gebet und Fasten gehören zu den fünf Säulen des Islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Islam",
+          "Charakters",
+          "Zusammenlebens",
+          "Gottesdienstes"
+        ],
+        "correct_answer": "Islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S01-014": {
+      "source": {
+        "question_tr": "İslam'ın beş şartından ilki Kelime-i Şehadet getirmektir.",
+        "explanation_tr": "İslam'a girişin ve diğer şartların kabulünün temeli olan Kelime-i Şehadet ilk şart kabul edilir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Das Sprechen der Schahada gilt als die erste der fünf Säulen des Islam.",
+        "explanation_tr": "Die Schahada ist das grundlegende Glaubensbekenntnis und die erste Säule.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen des Islam",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

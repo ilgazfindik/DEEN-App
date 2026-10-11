@@ -12,7 +12,8 @@ const source=new Map(baseQuestions.map(q=>[q.id,q]));
 const stages=[
  ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U01',stage:'S'+String(i+1).padStart(2,'0'),count})),
  ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U02',stage:'S'+String(i+1).padStart(2,'0'),count})),
- ...[14,14,14,16,16].map((count,i)=>({unit:'U03',stage:'S'+String(i+1).padStart(2,'0'),count})),
+ ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U03',stage:'S'+String(i+1).padStart(2,'0'),count})),
+ ...[14,14,14,16,16].map((count,i)=>({unit:'U04',stage:'S'+String(i+1).padStart(2,'0'),count})),
 ];
 const expectedCounts=Object.fromEntries(stages.map(({unit,stage,count})=>[unit+'-'+stage,count]));
 const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
@@ -98,6 +99,6 @@ for(const {unit,stage,count} of stages){
   translated++;
  }
 }
-const report={locale:'de',phase:'U01 and U02 complete; U03-S01 through U03-S05 staged',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:100,u02_staged:100,u03_staged:74,u01_remaining:0,u02_remaining:0,u03_remaining:26,stages:expectedCounts,types,issue_count:issues.length,issues};
+const report={locale:'de',phase:'U01-U03 complete; U04-S01 through U04-S05 staged',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:100,u02_staged:100,u03_staged:100,u04_staged:74,u01_remaining:0,u02_remaining:0,u03_remaining:0,u04_remaining:26,stages:expectedCounts,types,issue_count:issues.length,issues};
 console.log(JSON.stringify(report,null,2));
 if(issues.length)process.exitCode=1;

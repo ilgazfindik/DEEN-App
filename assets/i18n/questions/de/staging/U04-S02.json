@@ -1,0 +1,539 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U04",
+  "stage": "U04-S02",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U04-S02-001": {
+      "source": {
+        "question_tr": "İslam'ın beş şartı içinde ilk sırada anılan Kelime-i Şehadet temel olarak neyi beyan eder?",
+        "explanation_tr": "Diyanet'in standart öğretim metni tevhid beyanı ile Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği birlikte verir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'tan başka ilah olmadığına ve Hz. Muhammed'in O'nun kulu ve elçisi olduğuna şahitliği",
+          "Yalnızca namaz vakitlerini bilmeyi",
+          "Sadece hac yolculuğunu",
+          "Yalnızca zekât vermeyi"
+        ],
+        "correct_answer": "Allah'tan başka ilah olmadığına ve Hz. Muhammed'in O'nun kulu ve elçisi olduğuna şahitliği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was bezeugt die Schahada als erste der fünf Säulen des Islam?",
+        "explanation_tr": "Das Glaubensbekenntnis erklärt Allahs Einzigkeit und Muhammads Gesandtentum.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Dass es keine Gottheit außer Allah gibt und Muhammad Sein Diener und Gesandter ist",
+          "Nur die Gebetszeiten zu kennen",
+          "Nur die Pilgerreise nach Mekka",
+          "Nur Zakat zu entrichten"
+        ],
+        "correct_answer": "Dass es keine Gottheit außer Allah gibt und Muhammad Sein Diener und Gesandter ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-002": {
+      "source": {
+        "question_tr": "Namaz, yaşa veya maddi duruma göre tanımlanan bir gelenek değil; İslam'ın beş şartından biri olan düzenli bir kulluk ibadetidir.",
+        "explanation_tr": "Bu ünitede namazı, İslam'ın beş şartından biri olan düzenli kulluk ibadeti olarak tanıyoruz.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Das Gebet ist keine bloße Tradition nach Alter oder Vermögen, sondern regelmäßige Gottesverehrung und eine Säule des Islam.",
+        "explanation_tr": "Das Gebet wird in dieser Einheit als regelmäßig ausgeübte religiöse Pflicht vorgestellt.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-003": {
+      "source": {
+        "question_tr": "İslam'ın beş şartı içinde inanç beyanı niteliği taşıyan şart hangisidir?",
+        "explanation_tr": "Kelime-i Şehadet, Allah'ın birliği ve Hz. Muhammed'in elçiliğine ilişkin inanç beyanıdır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Kelime-i Şehadet",
+          "Namaz",
+          "Oruç",
+          "Zekât"
+        ],
+        "correct_answer": "Kelime-i Şehadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche der fünf Säulen ist ein Glaubensbekenntnis?",
+        "explanation_tr": "Die Schahada bezeugt Allahs Einzigkeit und Muhammads Gesandtentum.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Die Schahada",
+          "Das Gebet",
+          "Das Fasten",
+          "Die Zakat"
+        ],
+        "correct_answer": "Die Schahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-004": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi namaz ibadetinin İslam'daki yerini en doğru şekilde açıklar?",
+        "explanation_tr": "Namaz, Müslümanın hayatına yayılan, Allah ile bağını sürekli canlı tuttuğu düzenli bir kulluk görevidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'a kulluğun düzenli bir ifadesi olan temel ibadettir.",
+          "Sadece Ramazan ayında yerine getirilen özel bir törendir.",
+          "Yalnızca Mekke'de yapılabilen fiziksel bir görevdir.",
+          "Sadece zor zamanlarda başvurulan bir korunma duasıdır."
+        ],
+        "correct_answer": "Allah'a kulluğun düzenli bir ifadesi olan temel ibadettir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Erklärung beschreibt das Gebet im Islam am besten?",
+        "explanation_tr": "Das Gebet ist eine regelmäßig verrichtete Pflicht, durch die Muslime sich Allah zuwenden.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Eine grundlegende religiöse Pflicht, die regelmäßig die Hingabe an Allah ausdrückt",
+          "Eine besondere Zeremonie nur im Ramadan",
+          "Eine körperliche Pflicht, die nur in Mekka ausgeübt werden kann",
+          "Nur ein Bittgebet für schwierige Zeiten"
+        ],
+        "correct_answer": "Eine grundlegende religiöse Pflicht, die regelmäßig die Hingabe an Allah ausdrückt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-005": {
+      "source": {
+        "question_tr": "İfadeleri ilgili oldukları İslam'ın şartı ile eşleştirin.",
+        "explanation_tr": "Kelime-i Şehadet İslam'a girişin inanç beyanı iken, namaz günlük hayatın içindeki düzenli ibadettir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'ın birliğini dile getirmek",
+            "right": "Kelime-i Şehadet"
+          },
+          {
+            "left": "Düzenli kulluk ibadeti",
+            "right": "Namaz"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Erklärungen den passenden Säulen zu.",
+        "explanation_tr": "Die Schahada ist das Glaubensbekenntnis, das Gebet die regelmäßige Gottesverehrung.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allahs Einzigkeit bezeugen",
+            "right": "Die Schahada"
+          },
+          {
+            "left": "Regelmäßige Gottesverehrung",
+            "right": "Das Gebet"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-006": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet yalnızca seslerden oluşan bir söz değil; Allah'tan başka ilah olmadığına ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna ilişkin bir inanç beyanıdır.",
+        "explanation_tr": "Standart şehadet metni tevhid ile Hz. Muhammed'in kulluğu ve elçiliğini birlikte ifade eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Schahada ist mehr als eine Lautfolge: Sie bezeugt Allahs Einzigkeit und Muhammads Stellung als Sein Diener und Gesandter.",
+        "explanation_tr": "Der überlieferte Wortlaut verbindet Tauhid mit dem Zeugnis über Muhammads Gesandtentum.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-007": {
+      "source": {
+        "question_tr": "Bir kişinin günün belirli vakitlerinde yönelerek Allah'a kulluğunu sunduğu İslam'ın temel şartı aşağıdakilerden hangisidir?",
+        "explanation_tr": "Günlük olarak belirli vakitlerde yerine getirilen temel kulluk görevi namazdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz",
+          "Oruç",
+          "Zekât",
+          "Hac"
+        ],
+        "correct_answer": "Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Bei welcher Säule wendet man sich zu festgelegten Tageszeiten im Gebet Allah zu?",
+        "explanation_tr": "Das rituelle Gebet wird täglich zu festgelegten Zeiten verrichtet.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Das Gebet",
+          "Das Fasten",
+          "Die Zakat",
+          "Die Hadsch"
+        ],
+        "correct_answer": "Das Gebet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-008": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi, Allah'tan başka ilah olmadığına ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitliği ifade eden İslam şartıdır?",
+        "explanation_tr": "Bu beyan Kelime-i Şehadet'tir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kelime-i Şehadet getirmek",
+          "Namaz kılmak",
+          "Ahirete iman",
+          "Kader ve kazaya iman"
+        ],
+        "correct_answer": "Kelime-i Şehadet getirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Säule bezeugt, dass es keine Gottheit außer Allah gibt und Muhammad Sein Diener und Gesandter ist?",
+        "explanation_tr": "Dieses Glaubensbekenntnis heißt Schahada.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die Schahada sprechen",
+          "Das Gebet verrichten",
+          "Der Glaube an das Jenseits",
+          "Der Glaube an die Vorherbestimmung"
+        ],
+        "correct_answer": "Die Schahada sprechen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-009": {
+      "source": {
+        "question_tr": "Bir kişi İslam'ın beş şartını sayarken 'Kelime-i Şehadet getirmek, __________, Oruç tutmak, Zekât vermek, Hacca gitmek' diyerek bir şartı unutuyor. Boşluğa ne gelmelidir?",
+        "explanation_tr": "Sayılmayan temel ibadet, İslam'ın şartlarından olan namaz kılmaktır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Namaz kılmak",
+          "Kuran okumak",
+          "Dua etmek",
+          "Umre yapmak"
+        ],
+        "correct_answer": "Namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "„Schahada sprechen, _________, fasten, Zakat entrichten und Hadsch vollziehen“: Welche Säule fehlt?",
+        "explanation_tr": "Das Gebet ist eine der fünf grundlegenden Säulen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "das Gebet verrichten",
+          "den Koran lesen",
+          "ein Bittgebet sprechen",
+          "die Umra vollziehen"
+        ],
+        "correct_answer": "das Gebet verrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-010": {
+      "source": {
+        "question_tr": "Bir açıklama 'inanç beyanı'ndan, başka bir açıklama ise 'günün belirli vakitlerinde düzenli kulluk ibadeti'nden söz ediyor. Bu iki açıklama sırasıyla hangi şartlarla ilgilidir?",
+        "explanation_tr": "İnanç beyanı Kelime-i Şehadetle, düzenli kulluk ibadeti ise namazla ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kelime-i Şehadet / Namaz",
+          "Zekât / Oruç",
+          "Oruç / Hac",
+          "Kelime-i Şehadet / Zekât"
+        ],
+        "correct_answer": "Kelime-i Şehadet / Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Erklärung nennt das Glaubensbekenntnis, eine andere die regelmäßige Gottesverehrung zu festen Zeiten. Welche Säulen sind gemeint?",
+        "explanation_tr": "Die Schahada ist das Glaubensbekenntnis, das Gebet die regelmäßige Gottesverehrung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Schahada / Gebet",
+          "Zakat / Fasten",
+          "Fasten / Hadsch",
+          "Schahada / Zakat"
+        ],
+        "correct_answer": "Schahada / Gebet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-011": {
+      "source": {
+        "question_tr": "İslam'ın beş şartı içinde ilk sırada anılan, Allah'tan başka ilah olmadığına ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik eden ifadeye _________ denir.",
+        "explanation_tr": "Diyanet'in standart metni Kelime-i Şehadet'i bu iki beyanla öğretir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Kelime-i Şehadet",
+          "Salavat",
+          "Fatiha",
+          "Tekbir"
+        ],
+        "correct_answer": "Kelime-i Şehadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Das Bekenntnis zu Allahs Einzigkeit und Muhammads Gesandtentum heißt _________.",
+        "explanation_tr": "Der gebräuchliche Lehrwortlaut der Schahada enthält beide Zeugnisse.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Schahada",
+          "Salawat",
+          "Fatiha",
+          "Takbir"
+        ],
+        "correct_answer": "Schahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-012": {
+      "source": {
+        "question_tr": "Müslümanların günün belirli vakitlerinde Allah'a kulluklarını ifade ettikleri, İslam'ın şartlarından olan ibadetin adı nedir?",
+        "explanation_tr": "Belirli vakitlerde yerine getirilen düzenli kulluk ibadeti namazdır.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Namaz",
+          "Zekât",
+          "Hac",
+          "Oruç"
+        ],
+        "correct_answer": "Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie heißt die Säule, bei der Muslime sich zu bestimmten Tageszeiten regelmäßig Allah zuwenden?",
+        "explanation_tr": "Das Gebet ist eine regelmäßig ausgeübte Gottesverehrung zu festgelegten Zeiten.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Das Gebet",
+          "Zakat",
+          "Hadsch",
+          "Fasten"
+        ],
+        "correct_answer": "Das Gebet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-013": {
+      "source": {
+        "question_tr": "Özellikleri doğru şart ile eşleştirin.",
+        "explanation_tr": "İnancı ilan etmek şehadetle, gün içindeki ibadet disiplini ise namazla sağlanır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam'ın inanç özeti ve ilanıdır.",
+            "right": "Şehadet"
+          },
+          {
+            "left": "Günlük kulluk disiplinidir.",
+            "right": "Namaz"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne jede Erklärung der richtigen Säule zu.",
+        "explanation_tr": "Die Schahada bekennt den Glauben; das Gebet prägt den religiösen Tagesablauf.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Zusammenfassung und Bekenntnis des islamischen Glaubens",
+            "right": "Die Schahada"
+          },
+          {
+            "left": "Tägliche regelmäßige Gottesverehrung",
+            "right": "Das Gebet"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S02-014": {
+      "source": {
+        "question_tr": "İslam'da namaz ibadeti için aşağıdakilerden hangisi söylenebilir?",
+        "explanation_tr": "Namaz, İslam'ın üzerine kurulduğu beş temel şarttan biridir, inanç esaslarından veya özel aylara mahsus bir durumdan ibaret değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İslam'ın beş temel şartından biridir.",
+          "İmanın altı esasından biridir.",
+          "Sadece Ramazan ayına özgü bir görevdir.",
+          "Sadece Mekke'de gerçekleştirilir."
+        ],
+        "correct_answer": "İslam'ın beş temel şartından biridir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über das Gebet im Islam stimmt?",
+        "explanation_tr": "Das Gebet gehört zu den fünf Säulen und ist weder bloß ein Glaubensartikel noch auf einen bestimmten Monat begrenzt.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Es ist eine der fünf Säulen des Islam",
+          "Es gehört zu den sechs Glaubensartikeln",
+          "Es ist nur im Ramadan Pflicht",
+          "Es kann nur in Mekka verrichtet werden"
+        ],
+        "correct_answer": "Es ist eine der fünf Säulen des Islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Schahada und Gebet",
+        "topic": "Die fünf Säulen kennen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
