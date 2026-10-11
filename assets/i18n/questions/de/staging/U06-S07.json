@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U06",
+  "stage": "U06-S07",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U06-S07-001": {
+      "source": {
+        "question_tr": "Bir öğrenci şu üç cümleyi yazıyor: (1) Melekler Allah'ın kullarıdır. (2) Cebrâil vahyi Allah'ın izniyle iletir. (3) Ölüm meleğinin Kur'an'daki özel adı Azrâil'dir. Hangileri kaynaklarla uyumludur?",
+        "explanation_tr": "İlk iki ifade Kur'an'la uyumludur; Secde 32:11 'ölüm meleği' der, Azrâil adını vermez.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1 ve 2",
+          "Yalnız 3",
+          "2 ve 3",
+          "1, 2 ve 3"
+        ],
+        "correct_answer": "1 ve 2",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender schreibt: (1) Engel sind Diener Allahs. (2) Gabriel übermittelt die Offenbarung mit Allahs Erlaubnis. (3) Im Koran heißt der Todesengel Azrail. Welche Aussagen sind belegt?",
+        "explanation_tr": "Die ersten beiden Aussagen stimmen mit dem Koran überein. As-Sadschda 32:11 nennt den Todesengel ohne den Namen Azrail.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1 und 2",
+          "Nur 3",
+          "2 und 3",
+          "1, 2 und 3"
+        ],
+        "correct_answer": "1 und 2",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-002": {
+      "source": {
+        "question_tr": "Bir genç, kimsenin görmediği ortamda yaptığı davranışların önemsiz olduğunu düşünüyor. Meleklere iman açısından en dengeli hatırlatma hangisidir?",
+        "explanation_tr": "Yazıcı meleklerle ilgili ayetler kişinin davranışlarında sorumluluk bilincini canlı tutar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İnfitâr 82:10-12 sorumluluk ve kayıt bilincini hatırlatır",
+          "Yalnız toplumun gördüğü davranışlar önemlidir",
+          "Melekler sadece büyük olayları bilir",
+          "Gizli davranışların hesapla ilgisi yoktur"
+        ],
+        "correct_answer": "İnfitâr 82:10-12 sorumluluk ve kayıt bilincini hatırlatır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Jugendlicher findet Handlungen unwichtig, wenn ihn niemand beobachtet. Welche Erinnerung vermittelt der Glaube an Engel?",
+        "explanation_tr": "Die Verse über die aufzeichnenden Engel stärken das Bewusstsein für Verantwortung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Infitar 82:10–12 erinnert an Verantwortung und die Aufzeichnung der Taten",
+          "Nur öffentlich beobachtete Taten zählen",
+          "Engel kennen nur besonders große Ereignisse",
+          "Verborgene Taten haben mit der Abrechnung nichts zu tun"
+        ],
+        "correct_answer": "Al-Infitar 82:10–12 erinnert an Verantwortung und die Aufzeichnung der Taten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-003": {
+      "source": {
+        "question_tr": "Meleklerin farklı görevleri bulunması, onların Allah'tan bağımsız otoriteler olduğu anlamına gelir.",
+        "explanation_tr": "Kur'an görevlerini anlatırken aynı zamanda onların Allah'ın kulları ve emriyle hareket eden varlıklar olduğunu vurgular.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dass Engel unterschiedliche Aufgaben erfüllen, macht sie zu Mächten, die unabhängig von Allah sind.",
+        "explanation_tr": "Auch bei unterschiedlichen Aufgaben bleiben Engel Diener Allahs und handeln nach Seinem Befehl.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-004": {
+      "source": {
+        "question_tr": "Cebrâil'in vahiydeki rolünü doğru anlamak için 'Allah'ın ______' ifadesi anahtar önemdedir.",
+        "explanation_tr": "Bakara 2:97 Cebrâil'in vahyi Allah'ın izniyle indirdiğini belirtir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "izniyle",
+          "yerine",
+          "ortağı olarak",
+          "bilgisi dışında"
+        ],
+        "correct_answer": "izniyle",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze zur Rolle Gabriels bei der Offenbarung: „______ Allahs“.",
+        "explanation_tr": "Al-Baqara 2:97 sagt, dass Gabriel die Offenbarung mit Allahs Erlaubnis übermittelte.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "mit Erlaubnis",
+          "an Stelle",
+          "als Teilhaber",
+          "ohne Wissen"
+        ],
+        "correct_answer": "mit Erlaubnis",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-005": {
+      "source": {
+        "question_tr": "Bir özet kartında 'Melekler Allah'a isyan edebilir; İblîs bunun örneğidir' yazıyor. En kapsamlı düzeltme hangisidir?",
+        "explanation_tr": "Tahrîm 66:6 meleklerin emre itaatini, Kehf 18:50 ise İblîs'in cinlerden olduğunu bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Meleklerin itaat ettiği bildirilir; Kehf 18:50 İblîs'i cinlerden sayar",
+          "İblîs Cebrâil'in diğer adıdır",
+          "Melekler hiç anılmaz",
+          "İblîs ölüm meleğidir"
+        ],
+        "correct_answer": "Meleklerin itaat ettiği bildirilir; Kehf 18:50 İblîs'i cinlerden sayar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Auf einer Lernkarte steht: „Engel lehnen sich gegen Allah auf; Iblis ist ein Beispiel.“ Welche Korrektur ist richtig?",
+        "explanation_tr": "At-Tahrim 66:6 beschreibt Engel als gehorsam; Al-Kahf 18:50 ordnet Iblis den Dschinn zu.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Engel werden als gehorsam beschrieben; Al-Kahf 18:50 zählt Iblis zu den Dschinn",
+          "Iblis ist ein anderer Name für Gabriel",
+          "Engel kommen im Koran nicht vor",
+          "Iblis ist der Todesengel"
+        ],
+        "correct_answer": "Engel werden als gehorsam beschrieben; Al-Kahf 18:50 zählt Iblis zu den Dschinn",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-006": {
+      "source": {
+        "question_tr": "Meleklere iman ünitesinde kaynak, bilgi ve sonucu eşleştir.",
+        "explanation_tr": "Ustalık, ayetleri yalnız ezberlemek değil doğru anlamla eşleştirmeyi gerektirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Bakara 2:97",
+            "right": "Cebrâil vahyi Allah'ın izniyle iletir"
+          },
+          {
+            "left": "İnfitâr 82:10-12",
+            "right": "Davranışlar kayıt ve sorumluluk taşır"
+          },
+          {
+            "left": "Enbiyâ 21:26-28",
+            "right": "Melekler Allah'ın kullarıdır"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Koranstellen ihren Aussagen über Engel zu.",
+        "explanation_tr": "Die Koranstellen sollen mit ihrer tatsächlichen Aussage verbunden werden, nicht nur auswendig gelernt werden.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Baqara 2:97",
+            "right": "Gabriel übermittelt Offenbarung mit Allahs Erlaubnis"
+          },
+          {
+            "left": "Al-Infitar 82:10–12",
+            "right": "Taten werden aufgezeichnet und sind mit Verantwortung verbunden"
+          },
+          {
+            "left": "Al-Anbiya 21:26–28",
+            "right": "Engel sind Diener Allahs"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-007": {
+      "source": {
+        "question_tr": "Melekler konusunda üç temel güvenlik ilkesini yaz: tevhid, kaynak ve sorumluluk.",
+        "explanation_tr": "Bu üç ilke melekler konusundaki temel inanç, bilgi ve davranış çerçevesini özetler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Melekleri Allah'ın kulları bilmek; vahyin bildirdiği sınırda konuşmak; yapılanların kayda geçtiği sorumluluk bilincini korumak.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nenne drei Grundsätze für einen sorgfältigen Umgang mit dem Wissen über Engel: Tauhid, Quellen und Verantwortung.",
+        "explanation_tr": "Diese drei Grundsätze fassen den Zusammenhang von Glauben, Wissen und Verhalten zusammen.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Engel als Diener Allahs ansehen, nur durch Offenbarung belegte Aussagen als sicher darstellen und sich wegen der Aufzeichnung der Taten verantwortungsvoll verhalten.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-008": {
+      "source": {
+        "question_tr": "Bir uygulama Cebrâil için doğru bilgi veriyor ama melek çizimini 'fotoğrafik gerçek görünüş' etiketiyle sunuyor. Ne yapılmalı?",
+        "explanation_tr": "Vahiyde bildirilen görev ile sanatsal tasvirin kesinlik derecesi aynı değildir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bilgi korunup görselin temsili olduğu açıkça belirtilmeli",
+          "Görsel vahiy diye sunulmalı",
+          "Cebrâil bilgisi silinmeli",
+          "Her çizim gerçek kabul edilmeli"
+        ],
+        "correct_answer": "Bilgi korunup görselin temsili olduğu açıkça belirtilmeli",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lern-App erklärt Gabriels Aufgabe richtig, beschriftet ein Engelbild aber mit „Echtes fotografisches Aussehen“. Was sollte sie ändern?",
+        "explanation_tr": "Eine durch Offenbarung bekannte Aufgabe hat einen anderen Gewissheitsgrad als eine künstlerische Darstellung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die sachliche Information beibehalten und das Bild eindeutig als sinnbildliche Illustration kennzeichnen",
+          "Das Bild als Offenbarung ausgeben",
+          "Die Information über Gabriel löschen",
+          "Jede Zeichnung als reale Darstellung anerkennen"
+        ],
+        "correct_answer": "Die sachliche Information beibehalten und das Bild eindeutig als sinnbildliche Illustration kennzeichnen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-009": {
+      "source": {
+        "question_tr": "Meleklere iman ünitesindeki eşleştirmelerden hangisi yanlıştır?",
+        "explanation_tr": "Diyanet tefsirine göre Azrâil adı Kur'an'da geçmez; Secde 32:11 'ölüm meleği' der.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mîkâil — Bakara 2:98'de adı geçer",
+          "Cebrâil — Bakara 2:97'de vahiy ile ilişkilidir",
+          "Ölüm meleği — Secde 32:11'de anılır",
+          "Azrâil — Kur'an'da özel adı açıkça verilir"
+        ],
+        "correct_answer": "Azrâil — Kur'an'da özel adı açıkça verilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung ist falsch?",
+        "explanation_tr": "Nach der Diyanet-Auslegung kommt der Name Azrail im Koran nicht vor. As-Sadschda 32:11 spricht vom Todesengel.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Michael – wird in Al-Baqara 2:98 erwähnt",
+          "Gabriel – mit Offenbarung in Al-Baqara 2:97 verbunden",
+          "Der Todesengel – in As-Sadschda 32:11 erwähnt",
+          "Azrail – im Koran ausdrücklich als Eigenname genannt"
+        ],
+        "correct_answer": "Azrail – im Koran ausdrücklich als Eigenname genannt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-010": {
+      "source": {
+        "question_tr": "Bir kişi Mü'min 40:7'de meleklerin müminler için bağışlanma dilemesini 'bağışlama yetkisi meleklere aittir' diye okuyor. Hangi okuma daha doğrudur?",
+        "explanation_tr": "Ayet meleklerin Allah'a yönelerek müminler için bağışlanma istediğini gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Melekler Allah'a dua eder; bağışlayan Allah'tır",
+          "Melekler Allah'tan bağımsız bağışlar",
+          "Ayet Allah'tan söz etmez",
+          "Melekler insanlara ibadet eder"
+        ],
+        "correct_answer": "Melekler Allah'a dua eder; bağışlayan Allah'tır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand schließt aus den Bittgebeten der Engel in Ghafir 40:7, dass Engel selbst die Macht zur Vergebung haben. Was trifft zu?",
+        "explanation_tr": "Der Vers beschreibt Engel, die Allah um Vergebung für Gläubige bitten.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Engel bitten Allah um Vergebung; Allah vergibt",
+          "Engel vergeben unabhängig von Allah",
+          "Der Vers erwähnt Allah nicht",
+          "Engel verehren Menschen"
+        ],
+        "correct_answer": "Engel bitten Allah um Vergebung; Allah vergibt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-011": {
+      "source": {
+        "question_tr": "Fâtır 35:1'de melekler '______' olarak anılır ve kanatlardan söz edilir.",
+        "explanation_tr": "Ayet melekleri elçiler kılan Allah'a hamd ile başlar.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "elçiler",
+          "ilahlar",
+          "hükümdarlar",
+          "insanlar"
+        ],
+        "correct_answer": "elçiler",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fatir 35:1 bezeichnet Engel als „______“ und erwähnt Flügel.",
+        "explanation_tr": "Der Vers lobt Allah, der die Engel zu Gesandten bestimmt.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Gesandte",
+          "Gottheiten",
+          "Herrscher",
+          "Menschen"
+        ],
+        "correct_answer": "Gesandte",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-012": {
+      "source": {
+        "question_tr": "Melekler hakkında bilgi üretirken aşağıdaki yöntemlerden hangisi en güvenilirdir?",
+        "explanation_tr": "Gayb alanındaki konularda kaynak disiplini, yanlış kesinliklerden korunmanın temel yoludur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Açık ayet bilgisini temel alıp kaynakta olmayan ayrıntıyı kesinleştirmemek",
+          "En popüler anlatıyı ayet saymak",
+          "Sosyal medya görselini delil kabul etmek",
+          "Her kültürel ismi Kur'an'da geçiyor saymak"
+        ],
+        "correct_answer": "Açık ayet bilgisini temel alıp kaynakta olmayan ayrıntıyı kesinleştirmemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie erstellst du am zuverlässigsten Lerninhalte über Engel?",
+        "explanation_tr": "Sorgfältige Quellenprüfung verhindert falsche Gewissheit über das Verborgene.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ausdrückliche Aussagen der Verse nutzen und unbelegte Details nicht als sicher ausgeben",
+          "Die populärste Erzählung als Koranvers behandeln",
+          "Ein Bild aus sozialen Medien als Beweis ansehen",
+          "Annehmen, jeder verbreitete Name stehe im Koran"
+        ],
+        "correct_answer": "Ausdrückliche Aussagen der Verse nutzen und unbelegte Details nicht als sicher ausgeben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-013": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Melekler çok yüce varlıklar olduğuna göre onlara ibadet etmek gerekir' diyor. En temel düzeltme hangisidir?",
+        "explanation_tr": "Enbiyâ 21:26-28 melekleri onurlandırılmış kullar olarak tanıtır; ibadet yalnız Allah'a yönelir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Yücelik veya görev, ilahlık anlamına gelmez; melekler Allah'ın kullarıdır",
+          "Her görevli varlığa ibadet edilir",
+          "Melekler Allah'ın ortaklarıdır",
+          "Kur'an tevhidi melekler için kaldırır"
+        ],
+        "correct_answer": "Yücelik veya görev, ilahlık anlamına gelmez; melekler Allah'ın kullarıdır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Engel sind erhabene Wesen, also müssen wir sie anbeten.“ Welche Korrektur ist grundlegend?",
+        "explanation_tr": "Al-Anbiya 21:26–28 nennt die Engel geehrte Diener Allahs. Die Gottesverehrung gilt allein Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ein hoher Rang oder eine Aufgabe bedeutet keine Göttlichkeit; Engel sind Diener Allahs",
+          "Jedes beauftragte Wesen muss angebetet werden",
+          "Engel sind Allahs Teilhaber",
+          "Der Tauhid gilt für Engel nicht"
+        ],
+        "correct_answer": "Ein hoher Rang oder eine Aufgabe bedeutet keine Göttlichkeit; Engel sind Diener Allahs",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S07-014": {
+      "source": {
+        "question_tr": "Meleklere iman ünitesini en iyi özetleyen cümle hangisidir?",
+        "explanation_tr": "Ünite; iman esası, tevhid, vahiy, görevler, kaynak disiplini ve sorumluluk bilincini birlikte ele alır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Meleklere iman; vahye dayalı bilgiyi kabul etmeyi, onları Allah'ın kulları bilmeyi ve bu inancın sorumluluk anlamını kavramayı içerir",
+          "Meleklere iman yalnız isim ezberidir",
+          "Melekler Allah'tan bağımsız güçlerdir",
+          "Kaynakta olmayan her ayrıntı iman şartıdır"
+        ],
+        "correct_answer": "Meleklere iman; vahye dayalı bilgiyi kabul etmeyi, onları Allah'ın kulları bilmeyi ve bu inancın sorumluluk anlamını kavramayı içerir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage fasst die Einheit über Engel am besten zusammen?",
+        "explanation_tr": "Diese Einheit verbindet die Glaubenslehre mit Tauhid, Offenbarung, Aufgaben, Quellenkritik und Verantwortungsbewusstsein.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "An Engel zu glauben bedeutet, Offenbarungswissen anzunehmen, sie als Diener Allahs zu verstehen und die damit verbundene Verantwortung ernst zu nehmen",
+          "Der Glaube an Engel besteht nur darin, Namen auswendig zu lernen",
+          "Engel besitzen Macht unabhängig von Allah",
+          "Jedes unbelegte Detail gehört zum verpflichtenden Glauben"
+        ],
+        "correct_answer": "An Engel zu glauben bedeutet, Offenbarungswissen anzunehmen, sie als Diener Allahs zu verstehen und die damit verbundene Verantwortung ernst zu nehmen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Engelwissen überprüfen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
