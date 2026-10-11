@@ -328,16 +328,16 @@ function t(value){
  let m;
  if((m=n.match(/^(\d+) kavram henüz dengeli değil\. Review planında bunlar daha görünür olacak\.$/)))return m[1]+(m[1]==='1'?' concept still needs':' concepts still need')+' more practice. Your review plan will prioritize '+(m[1]==='1'?'it.':'them.');
  // EN result/progression: translate complete composed strings before middot splitting.
- if((m=n.match(/^(.+?) artık bitti\\. Sıradaki düğüm açıldı\\.$/)))return t(m[1])+' is complete. The next stage is unlocked.';
- if((m=n.match(/^(.+?) artık oynanabilir\\.$/)))return t(m[1])+' is now available.';
- if((m=n.match(/^Sıradaki aşama\\s*·\\s*(.+)$/)))return 'Next stage · '+t(m[1]);
- if((m=n.match(/^Sonraki mini ders\\s*·\\s*(.+)$/)))return 'Next mini lesson · '+t(m[1]);
- if((m=n.match(/^(\\d+) derslik bu aşamada (\\d+)\\/(\\d+) ilerlemedesin\\.$/)))return 'You have completed '+m[2]+' of '+m[3]+' mini lessons in this stage.';
- if((m=n.match(/^Ders\\s+(\\d+)\\/(\\d+)$/)))return 'Lesson '+m[1]+'/'+m[2];
- if((m=n.match(/^Görevler\\s+(\\d+)\\/3\\s*·\\s*Haftalık ritim\\s+(\\d+)\\/(\\d+)\\s+gün(?:\\s*·\\s*(\\d+) tekrar)?$/)))return 'Daily tasks '+m[1]+'/3 · Weekly rhythm '+m[2]+'/'+m[3]+' days'+(m[4]?' · '+m[4]+(m[4]==='1'?' review':' reviews'):'');
- if((m=n.match(/^(.+?)\\s*·\\s*(\\d+)\\s+soru\\.$/)))return t(m[1])+' · '+m[2]+(m[2]==='1'?' question':' questions');
- if((m=n.match(/^(\\d+) soru tekrar bekliyor\\.$/)))return m[1]+(m[1]==='1'?' question is':' questions are')+' due for review.';
- if((m=n.match(/^(.+) açıldı\\.$/)))return t(m[1])+' is unlocked.';
+ if((m=n.match(/^(.+?) artık bitti\. Sıradaki düğüm açıldı\.$/)))return t(m[1])+' is complete. The next stage is unlocked.';
+ if((m=n.match(/^(.+?) artık oynanabilir\.$/)))return t(m[1])+' is now available.';
+ if((m=n.match(/^Sıradaki aşama\s*·\s*(.+)$/)))return 'Next stage · '+t(m[1]);
+ if((m=n.match(/^Sonraki mini ders\s*·\s*(.+)$/)))return 'Next mini lesson · '+t(m[1]);
+ if((m=n.match(/^(\d+) derslik bu aşamada (\d+)\/(\d+) ilerlemedesin\.$/)))return 'You have completed '+m[2]+' of '+m[3]+' mini lessons in this stage.';
+ if((m=n.match(/^Ders\s+(\d+)\/(\d+)$/)))return 'Lesson '+m[1]+'/'+m[2];
+ if((m=n.match(/^Görevler\s+(\d+)\/3\s*·\s*Haftalık ritim\s+(\d+)\/(\d+)\s+gün(?:\s*·\s*(\d+) tekrar)?$/)))return 'Daily tasks '+m[1]+'/3 · Weekly rhythm '+m[2]+'/'+m[3]+' days'+(m[4]?' · '+m[4]+(m[4]==='1'?' review':' reviews'):'');
+ if((m=n.match(/^(.+?)\s*·\s*(\d+)\s+soru\.$/)))return t(m[1])+' · '+m[2]+(m[2]==='1'?' question':' questions');
+ if((m=n.match(/^(\d+) soru tekrar bekliyor\.$/)))return m[1]+(m[1]==='1'?' question is':' questions are')+' due for review.';
+ if((m=n.match(/^(.+) açıldı\.$/)))return t(m[1])+' is unlocked.';
  // Review tab dynamic counters: translate whole values before the generic separator/token fallback.
  if((m=n.match(/^(\d+)\s+kavram\s*·\s*(\d+)\s+enerji$/)))return m[1]+(m[1]==='1'?' concept':' concepts')+' · '+m[2]+' energy';
  if((m=n.match(/^(\d+)\s+kavram$/)))return m[1]+(m[1]==='1'?' concept':' concepts');
