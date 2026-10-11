@@ -8,8 +8,12 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const read=p=>JSON.parse(readFileSync(root+p,'utf8'));
 const manifest=read('assets/i18n/content-support.json');
 const source=new Map(baseQuestions.map(q=>[q.id,q]));
-const stages=['S01','S02','S03','S04','S05'];
-const expectedCounts={S01:14,S02:14,S03:14,S04:16,S05:16};
+// Full stage boundaries. No German content is exposed in runtime until all gates pass.
+const stages=[
+ ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U01',stage:'S'+String(i+1).padStart(2,'0'),count})),
+ ...[14,14,14,16,16].map((count,i)=>({unit:'U02',stage:'S'+String(i+1).padStart(2,'0'),count})),
+];
+const expectedCounts=Object.fromEntries(stages.map(({unit,stage,count})=>[unit+'-'+stage,count]));
 const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
 const blankCount=s=>(String(s||'').match(/_{2,}|\[\s*\]|\{blank\}/g)||[]).length;
 const types={},issues=[],ids=new Set();
@@ -18,15 +22,15 @@ assert.equal(source.size,1500);
 assert.equal(manifest.languages.de.question_data,'missing','German must not launch with partial packs');
 assert.equal(manifest.languages.de.global_qa,'blocked','German must remain blocked');
 assert(!manifest.languages.de.bank&&!manifest.languages.de.parts?.length,'No incomplete German parts in manifest');
-for(const stage of stages){
- const pack=read('assets/i18n/questions/de/staging/U01-'+stage+'.json');
- for(const [key,expected] of Object.entries({schema_version:1,locale:'de',unit:'U01',stage:'U01-'+stage,status:'staging_not_available_in_runtime',expert_approved:false,verified_by_religious_expert:false,native_reviewer_approved:false}))assert.equal(pack[key],expected,'pack:'+stage+':'+key);
+for(const {unit,stage,count} of stages){
+ const pack=read('assets/i18n/questions/de/staging/'+unit+'-'+stage+'.json');
+ for(const [key,expected] of Object.entries({schema_version:1,locale:'de',unit,stage:unit+'-'+stage,status:'staging_not_available_in_runtime',expert_approved:false,verified_by_religious_expert:false,native_reviewer_approved:false}))assert.equal(pack[key],expected,'pack:'+unit+'-'+stage+':'+key);
  const entries=Object.entries(pack.translations);
- assert.equal(entries.length,expectedCounts[stage],stage+' count');
+ assert.equal(entries.length,count,unit+'-'+stage+' count');
  const problem=(id,what)=>issues.push(id+':'+what);
  for(let n=0;n<entries.length;n++){
   const [id,entry]=entries[n],original=source.get(id),s=entry.source,d=entry.display;
-  if(id!=='DEEN-U01-'+stage+'-'+String(n+1).padStart(3,'0'))problem(id,'stage_id_or_order');
+  if(id!=='DEEN-'+unit+'-'+stage+'-'+String(n+1).padStart(3,'0'))problem(id,'stage_id_or_order');
   if(ids.has(id))problem(id,'duplicate_translation');
   ids.add(id);
   if(!original||!s||!d){problem(id,'source_or_display_missing');continue;}
@@ -80,6 +84,6 @@ for(const stage of stages){
   translated++;
  }
 }
-const report={locale:'de',phase:'U01-S01 through U01-S05 staging',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:translated,u01_remaining:100-translated,stages:expectedCounts,types,issue_count:issues.length,issues};
+const report={locale:'de',phase:'U01 complete and U02-S01 through U02-S05 staged',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:100,u02_staged:74,u01_remaining:0,u02_remaining:26,stages:expectedCounts,types,issue_count:issues.length,issues};
 console.log(JSON.stringify(report,null,2));
 if(issues.length)process.exitCode=1;
