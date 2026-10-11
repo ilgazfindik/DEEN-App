@@ -1,0 +1,539 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U06",
+  "stage": "U06-S03",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U06-S03-001": {
+      "source": {
+        "question_tr": "Bakara 2:97'ye göre Kur'an'ı Hz. Peygamber'in kalbine Allah'ın izniyle indiren melek kimdir?",
+        "explanation_tr": "Bakara 2:97 Cebrâil'in Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirdiğini bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Cebrâil",
+          "Mîkâil",
+          "Ölüm meleği",
+          "İsmi verilmeyen yazıcı melek"
+        ],
+        "correct_answer": "Cebrâil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Engel brachte nach Al-Baqara 2:97 den Koran mit Allahs Erlaubnis zum Herzen des Propheten?",
+        "explanation_tr": "Al-Baqara 2:97 beschreibt, dass Gabriel den Koran mit Allahs Erlaubnis zum Herzen des Propheten herabbrachte.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Dschibril (Gabriel)",
+          "Mikail (Michael)",
+          "Der Todesengel",
+          "Ein nicht genannter schreibender Engel"
+        ],
+        "correct_answer": "Dschibril (Gabriel)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-002": {
+      "source": {
+        "question_tr": "Bakara 2:97'de vahyin Peygamber'in kalbine ______ izniyle indirildiği belirtilir.",
+        "explanation_tr": "Ayet, Cebrâil'in vahyi Allah'ın izniyle indirdiğini açıkça vurgular.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah'ın",
+          "Cebrâil'in kendi",
+          "insanların",
+          "meleklerin ortak"
+        ],
+        "correct_answer": "Allah'ın",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Baqara 2:97 wurde die Offenbarung mit der Erlaubnis ______ zum Herzen des Propheten herabgebracht.",
+        "explanation_tr": "Der Vers betont ausdrücklich, dass Gabriel die Offenbarung mit Allahs Erlaubnis übermittelte.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allahs",
+          "Gabriels selbst",
+          "der Menschen",
+          "aller Engel gemeinsam"
+        ],
+        "correct_answer": "Allahs",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-003": {
+      "source": {
+        "question_tr": "Cebrâil vahyi kendi bağımsız iradesiyle oluşturur ve peygambere getirir.",
+        "explanation_tr": "Bakara 2:97 vahyin Allah'ın izniyle indirildiğini bildirir; Cebrâil bağımsız vahiy kaynağı değildir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Gabriel erschafft die Offenbarung aus eigenem Willen und überbringt sie dem Propheten.",
+        "explanation_tr": "Nach Al-Baqara 2:97 geschieht die Übermittlung der Offenbarung mit Allahs Erlaubnis. Gabriel ist keine unabhängige Quelle der Offenbarung.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Cebrâil vahyin kaynağıdır' diyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Bakara 2:97 vahyin Allah'ın izniyle Cebrâil tarafından indirildiğini belirtir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Vahyin kaynağı Allah'tır; Cebrâil Allah'ın izniyle iletir",
+          "Cebrâil vahyi insanlardan toplar",
+          "Vahyin kaynağı meleğin kendisidir",
+          "Vahiyde Allah'ın izni aranmaz"
+        ],
+        "correct_answer": "Vahyin kaynağı Allah'tır; Cebrâil Allah'ın izniyle iletir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender behauptet: „Gabriel ist die Quelle der Offenbarung.“ Was ist die richtige Korrektur?",
+        "explanation_tr": "Al-Baqara 2:97 erklärt, dass Gabriel die Offenbarung mit Allahs Erlaubnis überbringt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah ist die Quelle der Offenbarung; Gabriel übermittelt sie mit Allahs Erlaubnis",
+          "Gabriel sammelt die Offenbarung von Menschen",
+          "Gabriel ist selbst die Quelle der Offenbarung",
+          "Für Offenbarung ist Allahs Erlaubnis nicht nötig"
+        ],
+        "correct_answer": "Allah ist die Quelle der Offenbarung; Gabriel übermittelt sie mit Allahs Erlaubnis",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-005": {
+      "source": {
+        "question_tr": "Bakara 2:98'de Cebrâil ile birlikte adı geçen melek hangisidir?",
+        "explanation_tr": "Bakara 2:98'de Cebrâil ve Mîkâil birlikte zikredilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mîkâil",
+          "Azrâil",
+          "İsrâfil",
+          "Münker"
+        ],
+        "correct_answer": "Mîkâil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Engel wird in Al-Baqara 2:98 gemeinsam mit Gabriel genannt?",
+        "explanation_tr": "Al-Baqara 2:98 nennt Gabriel und Michael gemeinsam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mikail (Michael)",
+          "Azrail",
+          "Israfil",
+          "Munkar"
+        ],
+        "correct_answer": "Mikail (Michael)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-006": {
+      "source": {
+        "question_tr": "Bir notta 'Bakara 2:97 Cebrâil'i Allah'tan bağımsız bir güç olarak tanıtır' yazıyor. Hata nedir?",
+        "explanation_tr": "Cebrâil vahyin kaynağı değil, Allah'ın izniyle onu ileten melektir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ayet Cebrâil'in Allah'ın izniyle hareket ettiğini söyler",
+          "Ayet Cebrâil'den hiç söz etmez",
+          "Ayet vahyi reddeder",
+          "Ayet melekleri ilah sayar"
+        ],
+        "correct_answer": "Ayet Cebrâil'in Allah'ın izniyle hareket ettiğini söyler",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Al-Baqara 2:97 beschreibt Gabriel als eine von Allah unabhängige Macht.“ Was ist daran falsch?",
+        "explanation_tr": "Gabriel ist nicht der Ursprung der Offenbarung, sondern ihr Überbringer mit Allahs Erlaubnis.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Der Vers sagt, dass Gabriel mit Allahs Erlaubnis handelt",
+          "Gabriel wird im Vers überhaupt nicht erwähnt",
+          "Der Vers lehnt Offenbarung ab",
+          "Der Vers bezeichnet Engel als Gottheiten"
+        ],
+        "correct_answer": "Der Vers sagt, dass Gabriel mit Allahs Erlaubnis handelt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-007": {
+      "source": {
+        "question_tr": "Cebrâil ve vahiy konusundaki ifadeleri eşleştir.",
+        "explanation_tr": "Bakara 2:97 vahyin kaynağı ile onu ileten meleğin rolünü birbirinden ayırır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Cebrâil",
+            "right": "Vahyi Allah'ın izniyle ileten melek"
+          },
+          {
+            "left": "Allah",
+            "right": "Vahyin kaynağı"
+          },
+          {
+            "left": "Kur'an",
+            "right": "Peygamber'in kalbine indirilen vahiy"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe über Gabriel und Offenbarung zu.",
+        "explanation_tr": "Al-Baqara 2:97 unterscheidet zwischen der Quelle der Offenbarung und dem Engel, der sie überbringt.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gabriel",
+            "right": "Engel, der die Offenbarung mit Allahs Erlaubnis überbringt"
+          },
+          {
+            "left": "Allah",
+            "right": "Quelle der Offenbarung"
+          },
+          {
+            "left": "Der Koran",
+            "right": "Offenbarung, die zum Herzen des Propheten herabgebracht wurde"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-008": {
+      "source": {
+        "question_tr": "Bakara 2:97'ye göre Cebrâil'in vahiydeki rolünü tek cümleyle anlat.",
+        "explanation_tr": "Ayet Cebrâil'in vahyi Allah'ın izniyle ilettiğini belirtir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Cebrâil, Kur'an'ı Allah'ın izniyle Hz. Peygamber'in kalbine indiren melektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Beschreibe Gabriels Aufgabe bei der Offenbarung nach Al-Baqara 2:97 in einem Satz.",
+        "explanation_tr": "Der Vers betont, dass Gabriel die Offenbarung mit Allahs Erlaubnis überbringt.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Gabriel brachte den Koran mit Allahs Erlaubnis zum Herzen des Propheten herab.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-009": {
+      "source": {
+        "question_tr": "Cebrâil'e düşmanlık, Kur'an'ın melekler hakkındaki öğretisiyle uyumludur.",
+        "explanation_tr": "Bakara 2:98 Allah'a, meleklerine, peygamberlerine, Cebrâil'e ve Mîkâil'e düşmanlığı reddeder.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Feindschaft gegenüber Gabriel entspricht der koranischen Lehre über Engel.",
+        "explanation_tr": "Al-Baqara 2:98 verurteilt Feindschaft gegenüber Allah, Seinen Engeln und Gesandten sowie Gabriel und Michael.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-010": {
+      "source": {
+        "question_tr": "Bakara 2:97'de Cebrâil'in Kur'an'ı Peygamber'in ______ indirdiği ifade edilir.",
+        "explanation_tr": "Ayette Kur'an'ın Peygamber'in kalbine indirildiği ifade edilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "kalbine",
+          "evine",
+          "şehrine",
+          "kitaplığına"
+        ],
+        "correct_answer": "kalbine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Baqara 2:97 sagt, dass Gabriel den Koran zum ______ des Propheten herabbrachte.",
+        "explanation_tr": "Der Vers beschreibt ausdrücklich das Herabbringen zum Herzen des Propheten.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Herzen",
+          "Haus",
+          "Wohnort",
+          "Bücherregal"
+        ],
+        "correct_answer": "Herzen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-011": {
+      "source": {
+        "question_tr": "Bir içerik üreticisi Cebrâil için 'Allah'tan bağımsız olarak dilediğine vahiy verir' yazıyor. Hangi değişiklik gerekir?",
+        "explanation_tr": "Bakara 2:97 Cebrâil'in vahiyde bağımsız bir kaynak olmadığını gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "'Allah'ın izniyle vahyi iletir' denmeli",
+          "'Vahyi kendisi oluşturur' denmeli",
+          "'İnsanlara danışır' denmeli",
+          "'Hiçbir görevi yoktur' denmeli"
+        ],
+        "correct_answer": "'Allah'ın izniyle vahyi iletir' denmeli",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Autor schreibt: „Gabriel gibt Offenbarungen unabhängig von Allah weiter, wem er will.“ Was muss geändert werden?",
+        "explanation_tr": "Al-Baqara 2:97 stellt Gabriel nicht als unabhängige Quelle der Offenbarung dar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Schreibe: „Er übermittelt Offenbarung mit Allahs Erlaubnis“",
+          "Schreibe: „Er erschafft Offenbarungen selbst“",
+          "Schreibe: „Er berät sich mit Menschen“",
+          "Schreibe: „Er hat keine Aufgabe“"
+        ],
+        "correct_answer": "Schreibe: „Er übermittelt Offenbarung mit Allahs Erlaubnis“",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-012": {
+      "source": {
+        "question_tr": "Cebrâil hakkında aşağıdaki bilgilerden hangisi doğrudan Bakara 2:97 ile desteklenir?",
+        "explanation_tr": "Bakara 2:97'nin açık vurgusu Cebrâil'in vahyi Allah'ın izniyle indirmesidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirmesi",
+          "Yağmuru tek başına yönetmesi",
+          "İnsanların kaderini belirlemesi",
+          "Allah'tan bağımsız hüküm vermesi"
+        ],
+        "correct_answer": "Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über Gabriel wird durch Al-Baqara 2:97 unmittelbar gestützt?",
+        "explanation_tr": "Der Vers erwähnt ausdrücklich das Überbringen der Offenbarung durch Gabriel mit Allahs Erlaubnis.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Er brachte den Koran mit Allahs Erlaubnis zum Herzen des Propheten herab",
+          "Er lenkt den Regen völlig unabhängig",
+          "Er bestimmt das Schicksal der Menschen",
+          "Er erlässt unabhängig von Allah religiöse Regeln"
+        ],
+        "correct_answer": "Er brachte den Koran mit Allahs Erlaubnis zum Herzen des Propheten herab",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-013": {
+      "source": {
+        "question_tr": "Bakara 2:98'de Allah'ın düşmanlığıyla karşılık verilen tutumlardan biri, O'nun meleklerine ve ______ düşmanlıktır.",
+        "explanation_tr": "Ayette Allah, melekler, peygamberler, Cebrâil ve Mîkâil birlikte zikredilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "peygamberlerine",
+          "şehirlerine",
+          "mallarına",
+          "mevsimlere"
+        ],
+        "correct_answer": "peygamberlerine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Baqara 2:98 erwähnt Feindschaft gegenüber Allah, Seinen Engeln, Seinen ______, Gabriel und Michael.",
+        "explanation_tr": "Dieser Vers nennt Allah, Engel, Gesandte, Gabriel und Michael zusammen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Gesandten",
+          "Städten",
+          "Besitztümern",
+          "Jahreszeiten"
+        ],
+        "correct_answer": "Gesandten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S03-014": {
+      "source": {
+        "question_tr": "Bakara 2:97'nin verdiği vahiy ilişkisini öğretim amacıyla sırala.",
+        "explanation_tr": "Bu sıralama ayetin vurguladığı kaynak-izin-iletim ilişkisini özetler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah'ın vahyi",
+          "Allah'ın izni",
+          "Cebrâil'in iletmesi",
+          "Hz. Peygamber'in kalbine iniş"
+        ],
+        "correct_order": [
+          "Allah'ın vahyi",
+          "Allah'ın izni",
+          "Cebrâil'in iletmesi",
+          "Hz. Peygamber'in kalbine iniş"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne zur Wiederholung die Beziehung zwischen Offenbarung, Erlaubnis und Übermittlung nach Al-Baqara 2:97.",
+        "explanation_tr": "Diese Reihenfolge fasst zusammen, dass Allah die Quelle ist, die Erlaubnis von Ihm stammt und Gabriel die Offenbarung übermittelt.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allahs Offenbarung",
+          "Allahs Erlaubnis",
+          "Übermittlung durch Gabriel",
+          "Herabkommen zum Herzen des Propheten"
+        ],
+        "correct_order": [
+          "Allahs Offenbarung",
+          "Allahs Erlaubnis",
+          "Übermittlung durch Gabriel",
+          "Herabkommen zum Herzen des Propheten"
+        ],
+        "stage_title": "Gabriel und die Offenbarung",
+        "topic": "Engel im Koran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
