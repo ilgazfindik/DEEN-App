@@ -160,6 +160,7 @@ Object.assign(D,{
 });
 /* English Quran submodules: vocabulary, memorization, sequence and Juz Amma. */
 Object.assign(D,{
+  "112 · İhlâs": "112 · Al-Ikhlas",
   "Sık Kur’an Kelimeleri": "Common Quran Words",
   "ÖĞRENDİM": "LEARNED",
   "Türkçe kelime anlamı yalnız uzman doğrulanmış word-by-word kaydı varsa gösterilir; bu ekran frekans/tanıma takibi yapar.": "Turkish word meanings are shown only when an expert-verified word-by-word record is available; this screen tracks word frequency and recognition.",
