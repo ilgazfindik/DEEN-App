@@ -1,0 +1,643 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U01",
+  "stage": "U01-S03",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U01-S03-001": {
+      "source": {
+        "question_tr": "İslam, Müslüman, iman ve ibadet kavramlarını doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "Bu dört kavram İslam'ın temel çerçevesini oluşturur ve birbirinden farklı ama tamamlayıcı roller üstlenir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Allah'a teslimiyet dini"
+          },
+          {
+            "left": "Müslüman",
+            "right": "Bu dine inanan kişi"
+          },
+          {
+            "left": "İman",
+            "right": "Kalben inanma"
+          },
+          {
+            "left": "İbadet",
+            "right": "Kulluk davranışı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Islam, Muslim, Iman und Gottesdienst ihren richtigen Bedeutungen zu.",
+        "explanation_tr": "Diese vier Begriffe gehören zu den Grundlagen des Islam. Sie haben unterschiedliche, aber einander ergänzende Bedeutungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "Die Religion der Hingabe an Allah"
+          },
+          {
+            "left": "Muslim",
+            "right": "Ein Mensch, der an diese Religion glaubt"
+          },
+          {
+            "left": "Iman (Glaube)",
+            "right": "Die innere Glaubensüberzeugung"
+          },
+          {
+            "left": "Gottesdienst",
+            "right": "Handlungen der Hingabe an Allah"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-002": {
+      "source": {
+        "question_tr": "Ahlak, Kur'an ve peygamber kavramlarını doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "Ahlak, Kur'an ve peygamber kavramları İslam'ın farklı boyutlarını temsil eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ahlak",
+            "right": "Güzel davranış"
+          },
+          {
+            "left": "Kur'an",
+            "right": "Temel kaynak"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Örnek öğretici"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne gutes Verhalten, Koran und Prophet ihren richtigen Bedeutungen zu.",
+        "explanation_tr": "Gutes Verhalten, der Koran und das Prophetentum stehen für unterschiedliche Aspekte des Islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gutes Verhalten",
+            "right": "Richtiges und gutes Handeln"
+          },
+          {
+            "left": "Koran",
+            "right": "Die zentrale heilige Quelle"
+          },
+          {
+            "left": "Prophet",
+            "right": "Ein vorbildlicher Lehrer"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-003": {
+      "source": {
+        "question_tr": "İslam'ın temel unsurları arasında iman, ibadet ve ______ sayılır. Boşluğa en uygun kavram hangisidir?",
+        "explanation_tr": "Bu ünitede iman, ibadet ve ahlak; İslam'ın temel çerçevesini anlamaya yardımcı olan ilişkili kavramlar olarak ele alınır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "ahlak",
+          "kültür",
+          "gelenek",
+          "tarih"
+        ],
+        "correct_answer": "ahlak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Glaube, Gottesdienst und ______ gehören zu den grundlegenden Bereichen des Islam. Welcher Begriff ergänzt den Satz?",
+        "explanation_tr": "In dieser Einheit betrachten wir Glauben, Gottesdienst und gutes Verhalten als miteinander verbundene Bereiche, die uns helfen, die Grundzüge des Islam zu verstehen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "gutes Verhalten",
+          "Kultur",
+          "Tradition",
+          "Geschichte"
+        ],
+        "correct_answer": "gutes Verhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-004": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi \"iman\" ile \"ibadet\" arasındaki farkı başlangıç düzeyinde daha doğru açıklar?",
+        "explanation_tr": "İman ve ibadet birbirleriyle ilişkili olsa da aynı kavram değildir: iman inancı, ibadet ise kulluk amacı taşıyan uygulamaları ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İman inançla, ibadet ise Allah'a kulluk amacı taşıyan davranışlarla ilgilidir",
+          "İman ve ibadet her durumda aynı kavramdır",
+          "İman yalnızca bedensel hareketlerden oluşur",
+          "İbadet yalnızca zihinde gerçekleşen bir düşüncedir"
+        ],
+        "correct_answer": "İman inançla, ibadet ise Allah'a kulluk amacı taşıyan davranışlarla ilgilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt den Unterschied zwischen Iman (Glaube) und Gottesdienst am treffendsten?",
+        "explanation_tr": "Glaube und Gottesdienst sind miteinander verbunden, aber nicht dasselbe: Iman bezeichnet die innere Überzeugung, während Gottesdienst Handlungen der Hingabe an Allah umfasst.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Iman betrifft den Glauben, Gottesdienst hingegen Handlungen der Hingabe an Allah",
+          "Iman und Gottesdienst bedeuten immer genau dasselbe",
+          "Iman besteht ausschließlich aus körperlichen Bewegungen",
+          "Gottesdienst ist nur ein Gedanke im Kopf"
+        ],
+        "correct_answer": "Iman betrifft den Glauben, Gottesdienst hingegen Handlungen der Hingabe an Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-005": {
+      "source": {
+        "question_tr": "Müslüman, iman ve ibadet kavramlarını doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "Bu üç kavram bir zincir gibi birbirine bağlıdır: önce inanç, sonra bu inancın uygulamaya geçirilmesi.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Müslüman",
+            "right": "İnanan kişi"
+          },
+          {
+            "left": "İman",
+            "right": "İnancın kendisi"
+          },
+          {
+            "left": "İbadet",
+            "right": "İnancın uygulanması"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Muslim, Iman und Gottesdienst ihren richtigen Bedeutungen zu.",
+        "explanation_tr": "Die Begriffe hängen zusammen: aus dem Glauben kann gelebte Hingabe an Allah erwachsen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Muslim",
+            "right": "Ein gläubiger Mensch, der den Islam annimmt"
+          },
+          {
+            "left": "Iman (Glaube)",
+            "right": "Die innere Glaubensüberzeugung"
+          },
+          {
+            "left": "Gottesdienst",
+            "right": "Den Glauben in Taten der Hingabe umsetzen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-006": {
+      "source": {
+        "question_tr": "Bir örnekte kişi ibadetlerine önem veriyor fakat insanlara karşı dürüst davranmıyor. Bu örnekte özellikle hangi alanın geliştirilmesi gerektiği görülür?",
+        "explanation_tr": "Örnekte ibadet bulunduğu hâlde dürüst davranış eksiktir; bu nedenle senaryo özellikle ahlak alanındaki eksikliği gösterir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Ahlak",
+          "İbadetin varlığı",
+          "İslam kelimesinin anlamı",
+          "Kur'an'ın kitap olarak tanınması"
+        ],
+        "correct_answer": "Ahlak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Person achtet auf ihren Gottesdienst, verhält sich anderen Menschen gegenüber aber unehrlich. Welcher Bereich sollte hier besonders verbessert werden?",
+        "explanation_tr": "Im Beispiel nimmt die Person ihren Gottesdienst ernst, doch es fehlt an Ehrlichkeit. Deshalb wird vor allem eine Schwäche im Bereich des guten Verhaltens deutlich.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Gutes Verhalten",
+          "Die Tatsache, dass Gottesdienst stattfindet",
+          "Die Bedeutung des Wortes Islam",
+          "Das Erkennen des Korans als Buch"
+        ],
+        "correct_answer": "Gutes Verhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-007": {
+      "source": {
+        "question_tr": "İnancın günlük yaşamda kulluk davranışlarıyla görünür hâle gelmesi en doğrudan hangi kavramla ilişkilidir?",
+        "explanation_tr": "İbadet, Allah'a kulluğun davranış ve uygulamalarla ifade edilmesidir. Ahlak ise kişinin davranış karakteriyle ilgili daha geniş bir alandır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "İbadet",
+          "Ahlak",
+          "Kültür",
+          "Gelenek"
+        ],
+        "correct_answer": "İbadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff beschreibt am unmittelbarsten, dass sich Glaube im Alltag durch Handlungen der Hingabe an Allah zeigt?",
+        "explanation_tr": "Gottesdienst bedeutet, Hingabe an Allah durch Handlungen und gelebte Praxis auszudrücken. Gutes Verhalten umfasst darüber hinaus die allgemeine Haltung eines Menschen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Gottesdienst",
+          "Gutes Verhalten",
+          "Kultur",
+          "Tradition"
+        ],
+        "correct_answer": "Gottesdienst",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-008": {
+      "source": {
+        "question_tr": "Hz. Muhammed'in peygamberlik rolü, bu ünitede öğrendiğimiz kavramlarla nasıl ilişkilendirilir?",
+        "explanation_tr": "Bu ünitede Hz. Muhammed, Allah'ın mesajını ileten ve Müslümanlar için yaşayışıyla örnek olan peygamber olarak tanıtılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın mesajını iletmesi ve yaşayışıyla örnek olmasıyla",
+          "Yalnızca tarihî olaylarda yer almasıyla",
+          "Kur'an'ın yerine geçen bağımsız bir kaynak olmasıyla",
+          "Sadece siyasi görevler üstlenmesiyle"
+        ],
+        "correct_answer": "Allah'ın mesajını iletmesi ve yaşayışıyla örnek olmasıyla",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie hängt die Rolle des Propheten Muhammad mit den Begriffen dieser Einheit zusammen?",
+        "explanation_tr": "Muhammad wird in dieser Einheit als Prophet vorgestellt, der Allahs Botschaft überbrachte und den Muslimen durch sein Leben ein Vorbild gab.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Er überbrachte Allahs Botschaft und war durch sein Leben ein Vorbild",
+          "Seine Rolle beschränkte sich auf die Teilnahme an historischen Ereignissen",
+          "Er war eine unabhängige Quelle, die den Koran ersetzte",
+          "Seine Aufgabe bestand ausschließlich in politischen Pflichten"
+        ],
+        "correct_answer": "Er überbrachte Allahs Botschaft und war durch sein Leben ein Vorbild",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-009": {
+      "source": {
+        "question_tr": "Kur'an, peygamber ve ahlak kavramlarını doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "Kur'an temel kaynak, peygamber örnek rehber, ahlak ise doğru ve güzel davranış boyutudur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kur'an",
+            "right": "Yazılı temel kaynak"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Örnek rehber"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Doğru ve güzel davranış boyutu"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Koran, Prophet und gutes Verhalten ihren richtigen Bedeutungen zu.",
+        "explanation_tr": "Der Koran ist die zentrale heilige Quelle, der Prophet ein vorbildlicher Wegweiser und gutes Verhalten die praktische Seite eines aufrichtigen Charakters.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Koran",
+            "right": "Die zentrale schriftliche Quelle"
+          },
+          {
+            "left": "Prophet",
+            "right": "Ein vorbildlicher Wegweiser"
+          },
+          {
+            "left": "Gutes Verhalten",
+            "right": "Richtig und gut mit anderen umgehen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-010": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi \"Müslüman\" ile \"İslam\" arasındaki ilişkiyi doğru açıklar?",
+        "explanation_tr": "İslam bir din, Müslüman ise bu dine inanan ve onu yaşamaya çalışan kişidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Müslüman, İslam dinine inanan ve onu yaşamaya çalışan kişidir",
+          "Müslüman ve İslam aynı anlama gelir",
+          "İslam bir kişi, Müslüman bir dindir",
+          "Bu iki kavram arasında hiçbir bağlantı yoktur"
+        ],
+        "correct_answer": "Müslüman, İslam dinine inanan ve onu yaşamaya çalışan kişidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt das Verhältnis zwischen Muslim und Islam richtig?",
+        "explanation_tr": "Der Islam ist eine Religion. Ein Muslim ist ein Mensch, der an diese Religion glaubt und versucht, nach ihr zu leben.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ein Muslim glaubt an den Islam und versucht, nach ihm zu leben",
+          "Muslim und Islam bedeuten genau dasselbe",
+          "Islam ist ein Mensch, und Muslim ist eine Religion",
+          "Zwischen den beiden Begriffen besteht kein Zusammenhang"
+        ],
+        "correct_answer": "Ein Muslim glaubt an den Islam und versucht, nach ihm zu leben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-011": {
+      "source": {
+        "question_tr": "İslam, Müslüman, iman ve ahlak kavramlarını doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "Bu dört kavram, dinin kendisinden kişinin davranışına uzanan bir bütünlüğü gösterir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Din"
+          },
+          {
+            "left": "Müslüman",
+            "right": "Bu dine mensup kişi"
+          },
+          {
+            "left": "İman",
+            "right": "İçsel inanç"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Dışa yansıyan güzel davranış"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Islam, Muslim, Iman und gutes Verhalten ihren richtigen Bedeutungen zu.",
+        "explanation_tr": "Diese vier Begriffe zeigen einen Zusammenhang von der Religion selbst über den inneren Glauben bis zum Verhalten eines Menschen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "Die Religion"
+          },
+          {
+            "left": "Muslim",
+            "right": "Ein Mensch, der dieser Religion angehört"
+          },
+          {
+            "left": "Iman (Glaube)",
+            "right": "Die innere Glaubensüberzeugung"
+          },
+          {
+            "left": "Gutes Verhalten",
+            "right": "Gute Taten und respektvoller Umgang"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-012": {
+      "source": {
+        "question_tr": "Aşağıdaki ifadelerden hangisi iman, ibadet ve ahlakın ilişkisini en dengeli biçimde açıklar?",
+        "explanation_tr": "İman, ibadet ve ahlak aynı şey değildir; bu ünitede bunların İslam'ın genel çerçevesinde birbirini tamamlayan yönleri öğretilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Farklı kavramlardır; ancak inanç, kulluk ve davranış bakımından birbirleriyle ilişkilidirler",
+          "Üçü de tamamen aynı anlama gelir",
+          "Yalnızca ibadet önemlidir; iman ve ahlak ikincildir",
+          "Yalnızca ahlak önemlidir; iman ve ibadetin ilişkisi yoktur"
+        ],
+        "correct_answer": "Farklı kavramlardır; ancak inanç, kulluk ve davranış bakımından birbirleriyle ilişkilidirler",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage erklärt das Verhältnis von Glauben, Gottesdienst und gutem Verhalten am ausgewogensten?",
+        "explanation_tr": "Glaube, Gottesdienst und gutes Verhalten sind nicht dasselbe. In dieser Einheit lernst du, wie sie sich innerhalb der Grundzüge des Islam ergänzen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Es sind verschiedene Begriffe, die durch Glauben, Hingabe und Verhalten miteinander verbunden sind",
+          "Alle drei bedeuten genau dasselbe",
+          "Nur der Gottesdienst zählt; Glaube und gutes Verhalten sind zweitrangig",
+          "Nur gutes Verhalten zählt; Glaube und Gottesdienst haben damit nichts zu tun"
+        ],
+        "correct_answer": "Es sind verschiedene Begriffe, die durch Glauben, Hingabe und Verhalten miteinander verbunden sind",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-013": {
+      "source": {
+        "question_tr": "İbadet, ahlak ve iman kavramlarını doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "Bu üç kavram, inançtan davranışa uzanan bir süreci temsil eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İbadet",
+            "right": "Kulluğun uygulanması"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Güzel davranışın gösterilmesi"
+          },
+          {
+            "left": "İman",
+            "right": "İnancın temeli"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Gottesdienst, gutes Verhalten und Iman ihren richtigen Bedeutungen zu.",
+        "explanation_tr": "Diese drei Begriffe stehen für einen Zusammenhang zwischen innerem Glauben und äußerem Handeln.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gottesdienst",
+            "right": "Hingabe an Allah in die Praxis umsetzen"
+          },
+          {
+            "left": "Gutes Verhalten",
+            "right": "Richtiges und gutes Handeln zeigen"
+          },
+          {
+            "left": "Iman (Glaube)",
+            "right": "Die Grundlage der inneren Überzeugung"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-014": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlakın yanında bu ünitede temel kutsal kaynak olarak hangi kavram tanıtıldı?",
+        "explanation_tr": "Bu başlangıç ünitesinde Kur'an, Müslümanların temel kutsal kitabı ve ana rehber kaynağı olarak tanıtılır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Kur'an",
+          "Hadis",
+          "İlmihal",
+          "Siyer"
+        ],
+        "correct_answer": "Kur'an",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff wurde in dieser Einheit neben Glauben, Gottesdienst und gutem Verhalten als zentrale heilige Quelle vorgestellt?",
+        "explanation_tr": "Diese Einführung stellt den Koran als die zentrale heilige Schrift der Muslime und wichtigste Quelle der Rechtleitung vor.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Koran",
+          "Hadith",
+          "Ein Handbuch für gottesdienstliche Handlungen",
+          "Die Biografie des Propheten"
+        ],
+        "correct_answer": "Koran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Grundbegriffe zuordnen",
+        "topic": "Glaube, Gottesdienst und gutes Verhalten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
