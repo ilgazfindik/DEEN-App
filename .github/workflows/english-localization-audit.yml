@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        script: [capture-english-ui-candidate, test-english-runtime, test-english-regression, test-english-interactions, test-english-quran, test-english-onboarding, test-english-public, test-english-sheets]
+        script: [capture-english-ui-candidate, test-english-runtime, test-english-regression, test-english-interactions, test-english-quran, test-english-onboarding, test-english-public, test-english-sheets, test-english-quran-deep]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
