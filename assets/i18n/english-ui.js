@@ -249,6 +249,8 @@ Object.assign(D,{
 });
 /* Review dashboard card labels and return-to-learn summary. */
 Object.assign(D,{
+  "Vadesi gelen bilgiler önce geliyor.": "Due review items are prioritized.",
+  "Vadesi gelen soru yok; plan zayıf kavramlar ve kontrollü varyasyonlarla dengeleniyor.": "No questions are due; the plan balances weaker concepts with controlled variations.",
   "Hafıza planı:": "Memory plan:",
   "öğrenilmiş kavram": "learned concept",
   "öğrenilmiş kavramlar": "learned concepts",
