@@ -1,7 +1,7 @@
 name: German localization staging audit
 on:
   push:
-    branches: [codex/german-u01-foundation-20261012]
+    branches: ['codex/german-*', main]
     paths:
       - 'assets/i18n/questions/de/**'
       - 'assets/i18n/content-support.json'

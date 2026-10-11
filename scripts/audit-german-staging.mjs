@@ -1,48 +1,82 @@
-// Source-guarded German staging audit. A partial pack must never activate gameplay.
+// Staging-only German translation audit. Incomplete packs must remain unavailable.
 import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
 import {baseQuestions,sourceFields} from './english-source.mjs';
+
 const root=fileURLToPath(new URL('../',import.meta.url));
 const read=p=>JSON.parse(readFileSync(root+p,'utf8'));
-const pack=read('assets/i18n/questions/de/staging/U01-S01.json');
 const manifest=read('assets/i18n/content-support.json');
 const source=new Map(baseQuestions.map(q=>[q.id,q]));
-assert.equal(baseQuestions.length,1500);
-for(const [key,expected] of Object.entries({schema_version:1,locale:'de',unit:'U01',stage:'U01-S01',status:'staging_not_available_in_runtime',expert_approved:false,verified_by_religious_expert:false,native_reviewer_approved:false}))assert.equal(pack[key],expected,key);
-assert.equal(manifest.languages.de.question_data,'missing','Incomplete German bank must stay unavailable');
-assert.equal(manifest.languages.de.global_qa,'blocked');
-assert(!manifest.languages.de.parts?.length&&!manifest.languages.de.bank);
-const entries=Object.entries(pack.translations),same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
-const blanks=s=>(String(s||'').match(/_{2,}|\[\s*\]|\{blank\}/g)||[]).length;
-const issues=[],types={};
-assert.equal(entries.length,14);
-for(let n=0;n<entries.length;n++){
- const [id,e]=entries[n],src=source.get(id),s=e.source,d=e.display;
- const fail=reason=>issues.push(id+':'+reason);
- if(id!=='DEEN-U01-S01-'+String(n+1).padStart(3,'0'))fail('id_order');
- if(!src||!s||!d){fail('missing_source');continue}
- for(const key of sourceFields)if(!same(src[key],s[key]))fail('source_mismatch:'+key);
- if(d.activity_type!==s.activity_type)fail('type_changed');
- if(!d.question_tr?.trim()||!d.explanation_tr?.trim())fail('missing_text');
- if(blanks(s.question_tr)!==blanks(d.question_tr))fail('blank_changed');
- if(e.expert_approved!==false||e.native_reviewer_approved!==false)fail('unsupported_approval');
- const texts=[d.question_tr,d.explanation_tr,...(d.options_tr||[]),d.correct_answer];
- for(const text of texts){
-  if(!text?.trim()){fail('empty_display');continue}
-  if(/[ÇĞİŞçğıış]/.test(text))fail('turkish_character_residue');
-  if(/\b(?:sadece|doğru|yanlış|yapmak|ibadet|peygamber|müslüman|soru|cevap|öğrenme)\b/i.test(text))fail('turkish_word_residue');
-  if(/\b(?:which|the|only|faith|worship|because)\b/i.test(text))fail('english_word_residue');
+const stages=['S01','S02','S03'];
+const expectedCounts={S01:14,S02:14,S03:14};
+const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
+const blankCount=s=>(String(s||'').match(/_{2,}|\[\s*\]|\{blank\}/g)||[]).length;
+const types={},issues=[],ids=new Set();
+let translated=0;
+assert.equal(source.size,1500);
+assert.equal(manifest.languages.de.question_data,'missing','German must not launch with partial packs');
+assert.equal(manifest.languages.de.global_qa,'blocked','German must remain blocked');
+assert(!manifest.languages.de.bank&&!manifest.languages.de.parts?.length,'No incomplete German parts in manifest');
+for(const stage of stages){
+ const pack=read('assets/i18n/questions/de/staging/U01-'+stage+'.json');
+ for(const [key,expected] of Object.entries({schema_version:1,locale:'de',unit:'U01',stage:'U01-'+stage,status:'staging_not_available_in_runtime',expert_approved:false,verified_by_religious_expert:false,native_reviewer_approved:false}))assert.equal(pack[key],expected,'pack:'+stage+':'+key);
+ const entries=Object.entries(pack.translations);
+ assert.equal(entries.length,expectedCounts[stage],stage+' count');
+ const problem=(id,what)=>issues.push(id+':'+what);
+ for(let n=0;n<entries.length;n++){
+  const [id,entry]=entries[n],original=source.get(id),s=entry.source,d=entry.display;
+  if(id!=='DEEN-U01-'+stage+'-'+String(n+1).padStart(3,'0'))problem(id,'stage_id_or_order');
+  if(ids.has(id))problem(id,'duplicate_translation');
+  ids.add(id);
+  if(!original||!s||!d){problem(id,'source_or_display_missing');continue;}
+  for(const key of sourceFields)if(!same(s[key],original[key]))problem(id,'source_mismatch:'+key);
+  if(d.activity_type!==s.activity_type)problem(id,'activity_type_changed');
+  if(!d.question_tr?.trim()||!d.explanation_tr?.trim())problem(id,'empty_question_or_explanation');
+  if(d.question_tr===s.question_tr||d.explanation_tr===s.explanation_tr)problem(id,'untranslated_field');
+  if(blankCount(s.question_tr)!==blankCount(d.question_tr))problem(id,'blank_count_changed');
+  if(entry.expert_approved!==false||entry.native_reviewer_approved!==false)problem(id,'approval_claim');
+  if(d.items!==null||d.correct_order!==null)problem(id,'unexpected_sequence_fields');
+  // ö and ü are standard German letters. Only flag Turkish-specific letters and words.
+  const strings=[d.question_tr,d.explanation_tr,...(d.options_tr||[]),d.correct_answer,...(d.pairs||[]).flatMap(x=>[x.left,x.right])];
+  for(const value of strings){
+   if(value===null||value===undefined)continue;
+   if(typeof value!=='string'||!value.trim()){problem(id,'bad_string');continue;}
+   if(/[ÇĞİŞçğıış]/.test(value))problem(id,'turkish_specific_letter');
+   if(/\b(?:sadece|doğru|yanlış|yapmak|ibadet|peygamber|müslüman|soru|cevap|öğrenme)\b/i.test(value))problem(id,'turkish_word');
+   if(/\b(?:which|the|only|faith|worship|because)\b/i.test(value))problem(id,'english_word');
+  }
+  if(s.activity_type==='matching'){
+   if(d.options_tr!==null||d.correct_answer!==null)problem(id,'matching_options_or_answer');
+   if(!Array.isArray(d.pairs)||d.pairs.length!==s.pairs?.length)problem(id,'matching_pair_count');
+   else for(const side of ['left','right']){
+    if(d.pairs.some(pair=>typeof pair?.[side]!=='string'||!pair[side].trim()))problem(id,'empty_matching_label:'+side);
+    // Preserve source ambiguity count; never convert distinct source labels to duplicates.
+    const sourceDistinct=new Set(s.pairs.map(p=>p[side])).size;
+    const translatedDistinct=new Set(d.pairs.map(p=>p[side])).size;
+    if(translatedDistinct!==sourceDistinct)problem(id,'matching_label_identity:'+side);
+   }
+  }else{
+   if(d.pairs!==null)problem(id,'unexpected_matching_pairs');
+   if(Array.isArray(s.options_tr)){
+    if(!Array.isArray(d.options_tr)||d.options_tr.length!==s.options_tr.length)problem(id,'options_count');
+    else{
+     const originalIndex=s.options_tr.indexOf(s.correct_answer);
+     const translatedIndex=d.options_tr.indexOf(d.correct_answer);
+     if(originalIndex<0||translatedIndex!==originalIndex)problem(id,'correct_answer_index');
+     if(new Set(d.options_tr).size!==d.options_tr.length)problem(id,'duplicate_translation_options');
+     if(d.options_tr.filter(x=>x===d.correct_answer).length!==1)problem(id,'correct_answer_ambiguity');
+    }
+   }else{
+    if(d.options_tr!==null)problem(id,'unexpected_options');
+    if(typeof d.correct_answer!=='string'||!d.correct_answer.trim())problem(id,'missing_fill_answer');
+   }
+  }
+  if(s.activity_type==='fill_blank'&&blankCount(d.question_tr)!==1)problem(id,'fill_slot');
+  types[s.activity_type]=(types[s.activity_type]||0)+1;
+  translated++;
  }
- if(Array.isArray(s.options_tr)){
-  if(!Array.isArray(d.options_tr)||d.options_tr.length!==s.options_tr.length)fail('options_count');
-  if(s.options_tr.indexOf(s.correct_answer)!==d.options_tr?.indexOf(d.correct_answer))fail('correct_choice_index');
-  if(new Set(d.options_tr||[]).size!==d.options_tr?.length)fail('duplicate_options');
- }else if(d.options_tr!==null)fail('unexpected_options');
- if(!same(s.pairs,d.pairs)||!same(s.items,d.items)||!same(s.correct_order,d.correct_order))fail('structure_changed');
- if(s.activity_type==='fill_blank'&&blanks(d.question_tr)!==1)fail('fill_slot_count');
- types[s.activity_type]=(types[s.activity_type]||0)+1;
 }
-const report={locale:'de',stage:'U01-S01 staging',translated:entries.length,total_unit:100,total_bank:1500,production_ready:false,question_types:types,issues};
+const report={locale:'de',phase:'U01-S01 through U01-S03 staging',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:translated,u01_remaining:100-translated,stages:expectedCounts,types,issue_count:issues.length,issues};
 console.log(JSON.stringify(report,null,2));
 if(issues.length)process.exitCode=1;
