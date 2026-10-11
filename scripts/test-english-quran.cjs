@@ -99,6 +99,8 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  await page.waitForFunction(()=>document.querySelector('.deen-juzamma')?.innerText.includes('EXPERT REVIEW REQUIRED'),null,{timeout:8000});
  const juz=await page.locator('.deen-juzamma').innerText();
  assert.equal(await page.locator('.deen-juz-row').count(),37);
+ console.log('DEEN_JUZ_EN_LABELS='+JSON.stringify(await page.locator('.deen-juz-row b').allInnerTexts()));
+ console.log('DEEN_JUZ_EN_TRANSLATION='+JSON.stringify(await page.evaluate(()=>['İhlâs','112 · İhlâs','Nâs','114 · Nâs'].map(s=>({s,t:DEEN_ENGLISH_UI.t(s)})))));
  for(const text of ['An-Naba','An-Nazi\'at','Ash-Shams','Ash-Sharh','Al-Ikhlas','An-Nas','EXPERT REVIEW REQUIRED','READY','Turkish translations must not go live without rights clearance and expert review.'])assert(juz.includes(text),'Juz Amma missing English: '+text);
  const badEnglish=/\b(?:HAZIR|UZMAN|ayet|sure|öğrenildi|tekrar|ZORLANDIM|HATIRLADIM|Tebbet|İnşirâh|Nâziât)\b/i;
  assert(!badEnglish.test(juz)&&!/[ÇĞİÖŞÜçğıöşü]/.test(juz),'Turkish residue in Juz Amma');
