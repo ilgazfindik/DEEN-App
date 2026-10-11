@@ -430,6 +430,79 @@ Object.assign(D,{
  "Bu ayeti ilk öğrenme turunda tamamladığını işaretle. Memorize seviyesi daha sonra tekrarlarla güçlenecek.": "Mark this ayah as complete for your first learning round. Reviews will strengthen your memorization.",
  "Bu sürüm self-check kullanır: uygulama kıraatini otomatik olarak “correct” ilan etmez. Metni zihninden söyledikten sonra kendin kontrol et.": "Check your own recitation against the text. The app does not automatically grade your recitation."
 });
+
+// Screenshot-backed 2026-10-12 English completion: exact stage, plan, goal, premium and feedback copy.
+Object.assign(D,{
+ "Konuyla güvenli ve düşük eforlu bir ilk temas kur.": "Get a gentle, easy introduction to this topic.",
+ "Ana kavramları örnekler ve karşıtları üzerinden tanı.": "Recognize the main concepts through examples and contrasts.",
+ "İpuçları azalırken temel bilgiyi kontrollü biçimde geri çağır.": "Recall the essentials step by step as the hints fade.",
+ "Yakın kavramları birbirinden ayır ve sınırlarını fark et.": "Distinguish related concepts and understand their differences.",
+ "Kavramı doğru anlam, örnek veya ifadeyle eşleştir.": "Match each concept to its correct meaning, example, or statement.",
+ "Kavramı görmeden eksik bilgiyi zihninden tamamla.": "Fill in the missing information from memory.",
+ "Farklı soru biçimleriyle kavramsal anlayışını doğrula.": "Check your understanding using different question types.",
+ "Öğrendiğin ilkeyi açık ve basit bir duruma uygula.": "Apply what you learned to a simple situation.",
+ "Bilgiyi günlük bir karar veya davranış bağlamında kullan.": "Apply your knowledge to an everyday choice or action.",
+ "Yanlış genellemeyi veya hatalı uygulamayı fark et.": "Spot incorrect generalizations or applications.",
+ "Farklı durumlarda bilgiyi daha bağımsız ve seçici kullan.": "Apply your knowledge independently across different situations.",
+ "Cevabı görmeden bilgiyi zihninden geri çağır.": "Recall the information before revealing the answer.",
+ "İpuçlarını azaltarak daha bağımsız hatırlamaya geç.": "Build independent recall with fewer hints.",
+ "Önceki mini derslerden karışık ve vadesi gelen bilgileri pekiştir.": "Review mixed and due concepts from earlier mini lessons.",
+ "Cevabı görmeden temel yapıyı geri çağır.": "Recall the core structure without seeing the answer.",
+ "Önceki derslerden karışık ve vadesi gelen bilgileri pekiştir.": "Strengthen mixed and due knowledge from previous lessons.",
+ "Challenge öncesi karma ve daha zor bir prova yap.": "Practice a tougher mix of questions before the challenge.",
+ "Resmî DiyanetTV kaydını dinleyerek ifadeyi tanı.": "Identify the phrase by listening to the official DiyanetTV recording.",
+ "Dinlediğin ifadenin anlamını doğru seçenekle bağla.": "Match the phrase you heard to its meaning.",
+ "Benzer parçalar arasında duyduğun ifadeyi doğru biçimde ayırt et.": "Distinguish the phrase you heard from similar options.",
+ "Dinledikten sonra ifadeyi ve anlamını daha az ipucuyla geri çağır.": "Recall the phrase and meaning with fewer hints after listening.",
+ "Recognition, recall ve application karışımıyla üniteni ustalık seviyesinde sınırla.": "Test your mastery with recognition, recall, and application questions.",
+ "Çok Kolay Tanışma": "Easy Introduction",
+ "Temel Kavram Tanıma": "Recognizing Core Concepts",
+ "Kontrollü Recall": "Guided Recall",
+ "BÖLÜME BAŞLA": "START STAGE",
+ "BÖLÜME START": "START STAGE",
+ "Bölüm girişinden geri dön": "Return from the stage introduction",
+ "Bu aşama için resmî medya kaynağı gerekiyor.": "This stage requires an official media source.",
+ "BU AŞAMADA": "IN THIS STAGE",
+ "Şimdi bilgiyi sabitle.": "Reinforce What You Learned",
+ "Önce hafızanı ısıt.": "Warm Up Your Memory",
+ "5 soruluk adaptif tekrar, bugünkü öğrenmeyi hafızada tutmaya yardım eder.": "A five-question adaptive review helps you remember what you learned today.",
+ "5 soruluk adaptif tekrar, bugünkü öğrenmeyi hafızanda sağlamlaştırır.": "A five-question adaptive review helps strengthen what you learned today.",
+ "5 SORULUK HATIRLAMA": "5-QUESTION RECALL",
+ "5 SORULUK RECALL": "5-QUESTION RECALL",
+ "5 SORULUK ISINMA": "5-QUESTION WARM-UP",
+ "5 SORULUK TEKRAR": "5-QUESTION REVIEW",
+ "0/3 Task": "0/3 Tasks",
+ "Kendi ritmini seç": "Choose Your Learning Pace",
+ "Hedef yalnız öğrenme oturumlarını düzenler. Review ayrı bir hatırlama adımıdır; ibadetler hedefe sayılmaz.": "Your goal only schedules learning sessions. Review is a separate recall activity; acts of worship do not count toward it.",
+ "Hafif": "Light",
+ "Normal": "Normal",
+ "Yoğun": "Intensive",
+ "Hedefi değiştirmek mevcut progression, mastery veya streak kayıtlarını silmez.": "Changing your goal will not erase your progress, mastery, or streak records.",
+ "BİLGİ HERKESE AÇIK": "KNOWLEDGE IS FOR EVERYONE",
+ "Premium içerik değil,": "Premium is about comfort,",
+ "konfor katmanıdır.": "not exclusive content.",
+ "Premium içerik değil, konfor katmanıdır.": "Premium is about comfort, not exclusive content.",
+ "Dinî öğrenme içeriği ödeme duvarıyla kilitlenmez.": "Religious learning content is never locked behind a paywall.",
+ "ÖZELLİK": "FEATURE",
+ "15 ünite ve tüm ana dersler": "15 units and all core lessons",
+ "Kısım finalleri": "Section finals",
+ "Section finalleri": "Section finals",
+ "Smart Review / adaptive tekrar": "Smart Review / adaptive review",
+ "U03 resmî DiyanetTV medya hattı": "U03 official DiyanetTV media",
+ "Enerji": "Energy",
+ "Gelişmiş soru geçmişi": "Extended question history",
+ "Temel": "Basic",
+ "Detaylı": "Detailed",
+ "Altın yol / kozmetik": "Gold path / cosmetics",
+ "Premium simülasyonunu aç": "Enable Premium preview",
+ "Premium simülasyonunu kapat": "Disable Premium preview",
+ "Bu prototipte gerçek ödeme, abonelik veya reklam entegrasyonu yoktur.": "This prototype has no real payments, subscriptions, or ad integration.",
+ "Detaylı öğrenme kayıtları": "Detailed learning records",
+ "Harika!": "Great!",
+ "HARİKA!": "GREAT!",
+ "0/1 · Recall": "0/1 · Recall"
+});
+const SCREENSHOT_PRIORITY=new Set(["Konuyla güvenli ve düşük eforlu bir ilk temas kur.","Ana kavramları örnekler ve karşıtları üzerinden tanı.","İpuçları azalırken temel bilgiyi kontrollü biçimde geri çağır.","Yakın kavramları birbirinden ayır ve sınırlarını fark et.","Kavramı doğru anlam, örnek veya ifadeyle eşleştir.","Kavramı görmeden eksik bilgiyi zihninden tamamla.","Farklı soru biçimleriyle kavramsal anlayışını doğrula.","Öğrendiğin ilkeyi açık ve basit bir duruma uygula.","Bilgiyi günlük bir karar veya davranış bağlamında kullan.","Yanlış genellemeyi veya hatalı uygulamayı fark et.","Farklı durumlarda bilgiyi daha bağımsız ve seçici kullan.","Cevabı görmeden bilgiyi zihninden geri çağır.","İpuçlarını azaltarak daha bağımsız hatırlamaya geç.","Önceki mini derslerden karışık ve vadesi gelen bilgileri pekiştir.","Cevabı görmeden temel yapıyı geri çağır.","Önceki derslerden karışık ve vadesi gelen bilgileri pekiştir.","Challenge öncesi karma ve daha zor bir prova yap.","Resmî DiyanetTV kaydını dinleyerek ifadeyi tanı.","Dinlediğin ifadenin anlamını doğru seçenekle bağla.","Benzer parçalar arasında duyduğun ifadeyi doğru biçimde ayırt et.","Dinledikten sonra ifadeyi ve anlamını daha az ipucuyla geri çağır.","Recognition, recall ve application karışımıyla üniteni ustalık seviyesinde sınırla.","Çok Kolay Tanışma","Temel Kavram Tanıma","Kontrollü Recall","BÖLÜME BAŞLA","BÖLÜME START","Bölüm girişinden geri dön","Bu aşama için resmî medya kaynağı gerekiyor.","BU AŞAMADA","Şimdi bilgiyi sabitle.","Önce hafızanı ısıt.","5 soruluk adaptif tekrar, bugünkü öğrenmeyi hafızada tutmaya yardım eder.","5 soruluk adaptif tekrar, bugünkü öğrenmeyi hafızanda sağlamlaştırır.","5 SORULUK HATIRLAMA","5 SORULUK RECALL","5 SORULUK ISINMA","5 SORULUK TEKRAR","0/3 Task","Kendi ritmini seç","Hedef yalnız öğrenme oturumlarını düzenler. Review ayrı bir hatırlama adımıdır; ibadetler hedefe sayılmaz.","Hafif","Normal","Yoğun","Hedefi değiştirmek mevcut progression, mastery veya streak kayıtlarını silmez.","BİLGİ HERKESE AÇIK","Premium içerik değil,","konfor katmanıdır.","Premium içerik değil, konfor katmanıdır.","Dinî öğrenme içeriği ödeme duvarıyla kilitlenmez.","ÖZELLİK","15 ünite ve tüm ana dersler","Kısım finalleri","Section finalleri","Smart Review / adaptive tekrar","U03 resmî DiyanetTV medya hattı","Enerji","Gelişmiş soru geçmişi","Temel","Detaylı","Altın yol / kozmetik","Premium simülasyonunu aç","Premium simülasyonunu kapat","Bu prototipte gerçek ödeme, abonelik veya reklam entegrasyonu yoktur.","Detaylı öğrenme kayıtları","Harika!","HARİKA!","0/1 · Recall"]);
 const literals=Object.keys(D).filter(k=>k.length>2).sort((a,b)=>b.length-a.length);
 const phrases=new RegExp(literals.map(escape).join('|'),'g');
 function t(value){
@@ -439,6 +512,12 @@ function t(value){
  if(englishSummary)return 'Daily tasks '+englishSummary[1]+'/3 · Weekly rhythm '+englishSummary[2]+'/'+englishSummary[3]+' days';
  // Preserve full correct-answer feedback before the generic word translator mixes languages.
  if(/^(?:Doğru|Correct)\.\s*Devam edebilirsin\.$/.test(n))return s.replace(n,'Correct. You can continue.');
+ // Translate counted mini-lesson goal cards as a unit, before partial word replacement.
+ let goalMatch=n.match(/^(\d+) mini (?:ders|lessons) · yaklaşık (\d+) (?:dakika|minutes)$/);
+ if(goalMatch)return goalMatch[1]+(goalMatch[1]==='1'?' mini lesson':' mini lessons')+' · about '+goalMatch[2]+' minutes';
+ let taskMatch=n.match(/^(\d+)\/(\d+) (?:Görev|Task|Tasks)$/);
+ if(taskMatch)return taskMatch[1]+'/'+taskMatch[2]+' Tasks';
+ if(SCREENSHOT_PRIORITY.has(n))return s.replace(n,D[n]);
  const guarded=window.DEEN_CONTENT_LOCALE?.translateText(n,'en');if(guarded&&guarded!==n)return s.replace(n,guarded);
  if(D[n])return s.replace(n,D[n]);
  let m;
