@@ -1,0 +1,35 @@
+name: Independent English section sweep
+on:
+  push:
+    branches: [codex/sectional-en-audit-20261011]
+    paths: ['scripts/audit-english-by-section.cjs','.github/workflows/english-section-sweep.yml']
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions: {contents: read}
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [screens, units, quran]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Install Chrome and Playwright
+        run: |
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install --with-deps chromium
+          npx playwright install chrome
+      - name: Independently exercise full UI sections
+        env:
+          DEEN_AUDIT_SCOPE: ${{ matrix.scope }}
+          DEEN_QA_OUTPUT: ${{ runner.temp }}/deen-section-audit
+        run: node scripts/audit-english-by-section.cjs
+      - name: Preserve screen findings and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deen-section-audit-${{ matrix.scope }}
+          path: ${{ runner.temp }}/deen-section-audit
