@@ -65,6 +65,65 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  await page.evaluate(()=>{for(const id of Object.keys(DEEN_QURAN_AYAH_AUDIO.configs()))for(let n=1;n<=DEEN_QURAN_AYAH_AUDIO.config(id).count;n++)DEEN_QURAN.updateAyah(id,n,{completedAt:new Date().toISOString()});DEEN_QURAN.openSurah('fatiha');DEEN_QURAN_JOURNEY_V2.startStage('memorize')});await capture('memorize');
  for(const type of quran.practice){await page.evaluate(type=>DEEN_QURAN_PRACTICE.open(type,1),type);await capture('practice-'+type)}
 
+ // Phase 2: real English UI audit of the deeper Quran modules. Arabic ayah text is intentionally retained.
+ await page.evaluate(()=>{closeSheet();DEEN_QURAN_WORD_INTEL.open()});
+ await page.waitForFunction(()=>document.querySelector('.deen-qwi')?.innerText.includes('occurrences')&&document.querySelector('.deen-qwi')?.innerText.includes('surahs'),null,{timeout:12000});
+ let wordScreen=await page.locator('.deen-qwi').innerText();
+ assert.equal(await page.locator('.deen-qwi-row').count(),24);
+ assert(wordScreen.includes('Turkish word meanings are shown only when an expert-verified word-by-word record is available;'),wordScreen);
+ assert((await page.locator('.deen-qwi-row button').first().innerText())==='LEARNED','Common-word action must be English');
+ assert(await page.locator('.deen-qwi-row b[lang="ar"]').first().evaluate(x=>/[\u0600-\u06ff]/.test(x.textContent)),'Arabic word must not be transliterated');
+ await capture('common-quran-words');
+ await page.evaluate(()=>DEEN_QURAN_WORD_INTEL.toggle(DEEN_QURAN_WORD_INTEL.top(1)[0].key));
+ await page.waitForFunction(()=>document.querySelector('.deen-qwi-row button')?.textContent.trim()==='✓',null,{timeout:8000});
+ await page.evaluate(()=>{closeSheet();DEEN_QURAN_MEM_V2.openContinuous('fatiha')});
+ await page.waitForFunction(()=>document.querySelector('.deen-qm2')?.innerText.includes('Continuous Memorization')&&document.querySelector('.deen-qm2')?.innerText.includes('First recite the full ayah from memory.'),null,{timeout:8000});
+ assert(await page.locator('.deen-qm2-ar').first().evaluate(x=>/[\u0600-\u06ff]/.test(x.textContent)),'Arabic ayah must remain Arabic');
+ assert.equal((await page.locator('.deen-qm2-btn').first().innerText()).trim(),'SHOW TEXT');
+ await capture('continuous-memorization-before-reveal');
+ await page.evaluate(()=>DEEN_QURAN_MEM_V2.reveal());
+ await page.waitForFunction(()=>document.querySelector('.deen-qm2')?.innerText.includes('Check the text and assess your recall.'),null,{timeout:8000});
+ const actions=await page.locator('.deen-qm2-btn').allInnerTexts();
+ assert.deepEqual(actions,['I STRUGGLED','I REMEMBERED']);
+ await capture('continuous-memorization-after-reveal');
+ await page.evaluate(()=>DEEN_QURAN_MEM_V2.grade(true));
+ await page.evaluate(()=>{closeSheet();DEEN_QURAN_MEM_V2.openWeak()});
+ await page.waitForSelector('.deen-qm2',{timeout:8000});
+ await page.waitForFunction(()=>document.querySelector('.deen-qm2')?.innerText.includes('First recite the full ayah from memory.'),null,{timeout:8000});
+ await capture('weak-ayahs-recall');
+ await page.evaluate(()=>{closeSheet();DEEN_QURAN_MEM_V2.openSequence('fatiha')});
+ await page.waitForFunction(()=>document.querySelector('.deen-qm2')?.innerText.includes('Select the opening words of the ayahs in surah order.'),null,{timeout:8000});
+ assert((await page.locator('.deen-qm2-seq button').count())>=2);
+ await capture('ayah-sequence');
+ await page.evaluate(()=>{closeSheet();DEEN_QURAN_JUZ_AMMA.open()});
+ await page.waitForFunction(()=>document.querySelector('.deen-juzamma')?.innerText.includes('EXPERT REVIEW REQUIRED'),null,{timeout:8000});
+ const juz=await page.locator('.deen-juzamma').innerText();
+ assert.equal(await page.locator('.deen-juz-row').count(),37);
+ console.log('DEEN_JUZ_EN_LABELS='+JSON.stringify(await page.locator('.deen-juz-row b').allInnerTexts()));
+ console.log('DEEN_JUZ_EN_TRANSLATION='+JSON.stringify(await page.evaluate(()=>['İhlâs','112 · İhlâs','Nâs','114 · Nâs'].map(s=>({s,t:DEEN_ENGLISH_UI.t(s)})))));
+ for(const text of ['An-Naba','An-Nazi\'at','Ash-Shams','Ash-Sharh','Al-Ikhlas','An-Nas','EXPERT REVIEW REQUIRED','READY','Turkish translations must not go live without rights clearance and expert review.'])assert(juz.includes(text),'Juz Amma missing English: '+text);
+ const badEnglish=/\b(?:HAZIR|UZMAN|ayet|sure|öğrenildi|tekrar|ZORLANDIM|HATIRLADIM|Tebbet|İnşirâh|Nâziât)\b/i;
+ assert(!badEnglish.test(juz)&&!/[ÇĞİÖŞÜçğıöşü]/.test(juz),'Turkish residue in Juz Amma');
+ await capture('juz-amma-map');
+ const labels={
+  'Sık Kur’an Kelimeleri':'Common Quran Words',
+  '3 tekrar':'3 occurrences',
+  '1 tekrar':'1 occurrence',
+  '5 sure':'5 surahs',
+  '1 sure':'1 surah',
+  'Kesintisiz Ezber · ikhlas 1':'Continuous Memorization · ikhlas 1',
+  'Bu ezber turu tamamlandı.':'This memorization round is complete.',
+  'Ayet sıralaması':'Ayah Sequence',
+  'Cüz Amma':'Juz Amma',
+  '112 · İhlâs':'112 · Al-Ikhlas',
+  'HAZIR':'READY',
+  'UZMAN REVIEW':'EXPERT REVIEW REQUIRED'
+ };
+ for(const [source,expected]of Object.entries(labels))assert.equal(await page.evaluate(x=>DEEN_ENGLISH_UI.t(x),source),expected,source);
+ console.log('PASS ENGLISH QURAN INNER MODULES',JSON.stringify({words:24,juzSurahs:37,memorization:true,weakAyah:true,ayahSequence:true,englishLabelChecks:Object.keys(labels).length}));
+ await page.evaluate(()=>closeSheet());
+
+
  const quiz=[];for(const id of ['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','bayyina','zilzal','kawthar','asr']){
  const ready=await page.evaluate(id=>DEEN_QURAN_AYET_TEST.start(id),id);assert(ready,id);await capture('ayah-test-'+id);
  const questions=await page.evaluate(()=>DEEN_QURAN_JOURNEY_V2.buildQuestions('ayah',1));assert.equal(questions.length,5);for(const q of questions)assert.equal(q.options.filter(o=>o.text===q.answer).length,1);
