@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U04",
+  "stage": "U04-S07",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U04-S07-001": {
+      "source": {
+        "question_tr": "Bir öğrenci, 'İslam'ın beş şartı' listesine 'Meleklere iman' ifadesini ekliyor. Bu ifade neden listeden çıkarılmalıdır?",
+        "explanation_tr": "İslam'ın beş şartı ile imanın esasları aynı kategori değildir; meleklere iman, imanın esaslarıyla ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Meleklere iman, İslam'ın beş şartından değil imanın esaslarından biridir.",
+          "Meleklere iman yalnızca hacla ilgilidir.",
+          "Meleklere iman zekâtın başka adıdır.",
+          "Listeden çıkarılmasına gerek yoktur."
+        ],
+        "correct_answer": "Meleklere iman, İslam'ın beş şartından değil imanın esaslarından biridir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand ergänzt „Glaube an Engel“ zur Liste der fünf Säulen. Warum ist das falsch?",
+        "explanation_tr": "Die fünf Säulen und die Glaubensinhalte sind verschiedene Kategorien.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Der Glaube an Engel gehört zu den Glaubensinhalten, nicht zu den fünf Säulen",
+          "Der Glaube an Engel gehört ausschließlich zur Hadsch",
+          "Der Glaube an Engel ist ein anderer Name für Zakat",
+          "Der Eintrag muss nicht entfernt werden"
+        ],
+        "correct_answer": "Der Glaube an Engel gehört zu den Glaubensinhalten, nicht zu den fünf Säulen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-002": {
+      "source": {
+        "question_tr": "Aşağıdaki ifadelerden hangisinde kavramsal bir hata vardır?",
+        "explanation_tr": "Hac ibadeti Kudüs'te değil, Mekke'deki kutsal mekânlarda (Kâbe vb.) yerine getirilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hac ibadeti için Kudüs'e gitmek şarttır.",
+          "Oruç Ramazan ayında tutulur.",
+          "Zekât malî bir ibadettir.",
+          "Namaz düzenli bir kulluk görevidir."
+        ],
+        "correct_answer": "Hac ibadeti için Kudüs'e gitmek şarttır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage enthält einen inhaltlichen Fehler?",
+        "explanation_tr": "Die Hadsch wird an heiligen Stätten in und um Mekka verrichtet, nicht in Jerusalem.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Für die Hadsch muss man nach Jerusalem reisen",
+          "Fasten wird im Ramadan praktiziert",
+          "Zakat ist eine vermögensbezogene religiöse Pflicht",
+          "Das Gebet ist eine regelmäßige Gottesverehrung"
+        ],
+        "correct_answer": "Für die Hadsch muss man nach Jerusalem reisen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-003": {
+      "source": {
+        "question_tr": "Aşağıdaki eşleştirmelerden hangisi İslam'ın şartlarını doğru ayırt eder?",
+        "explanation_tr": "Başlangıç düzeyinde namaz düzenli kulluk ibadeti, zekât ise malî ibadet olarak ayırt edilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz = düzenli kulluk / Zekât = malî ibadet",
+          "Zekât = düzenli kulluk / Oruç = malî ibadet",
+          "Hac = yalnızca malî ibadet / Oruç = Mekke ziyareti",
+          "Namaz = malî ibadet / Şehadet = Ramazan ibadeti"
+        ],
+        "correct_answer": "Namaz = düzenli kulluk / Zekât = malî ibadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung unterscheidet die Säulen korrekt?",
+        "explanation_tr": "Das Gebet ist eine regelmäßig ausgeübte Gottesverehrung; Zakat bezieht sich auf Vermögen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Gebet = regelmäßige Gottesverehrung / Zakat = vermögensbezogene Pflicht",
+          "Zakat = regelmäßiges Gebet / Fasten = Vermögensabgabe",
+          "Hadsch = ausschließlich Vermögensabgabe / Fasten = Reise nach Mekka",
+          "Gebet = Vermögensabgabe / Schahada = Gottesdienst im Ramadan"
+        ],
+        "correct_answer": "Gebet = regelmäßige Gottesverehrung / Zakat = vermögensbezogene Pflicht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-004": {
+      "source": {
+        "question_tr": "Ramazan ayında gün boyunca yeme ve içmeden uzak durulan ibadetten söz ediliyor. Bahsedilen İslam şartı hangisidir?",
+        "explanation_tr": "Bu açıklama Ramazan orucunu tanımlar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Oruç",
+          "Zekât",
+          "Hac",
+          "Namaz"
+        ],
+        "correct_answer": "Oruç",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Beschreibung nennt den Verzicht auf Essen und Trinken tagsüber im Ramadan. Welche Säule ist gemeint?",
+        "explanation_tr": "Das ist eine Beschreibung des Fastens im Ramadan.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Fasten",
+          "Zakat",
+          "Hadsch",
+          "Gebet"
+        ],
+        "correct_answer": "Fasten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-005": {
+      "source": {
+        "question_tr": "Bir sınıflandırma etkinliğinde aşağıdakilerden hangisi 'İslam'ın beş şartı' kategorisine yerleştirilmelidir?",
+        "explanation_tr": "Zekât İslam'ın beş şartından biridir; diğer seçenekler iman esaslarıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zekât vermek",
+          "Kader ve kazaya inanmak",
+          "Kitaplara inanmak",
+          "Meleklere inanmak"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Eintrag gehört in die Kategorie „Fünf Säulen des Islam“?",
+        "explanation_tr": "Zakat gehört zu den fünf Säulen. Die anderen Optionen sind Glaubensinhalte.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zakat entrichten",
+          "Glaube an die göttliche Vorherbestimmung",
+          "Glaube an die Bücher",
+          "Glaube an Engel"
+        ],
+        "correct_answer": "Zakat entrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-006": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet getirmek, yalnızca 'Allah'a inanıyorum' demekten ibarettir; Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitlik kısmı gerekli değildir.",
+        "explanation_tr": "Yanlış. Standart Kelime-i Şehadet metni hem tevhid beyanını hem de Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği içerir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Schahada lautet lediglich „Ich glaube an Allah“. Das Zeugnis, dass Muhammad Sein Diener und Gesandter ist, gehört nicht dazu.",
+        "explanation_tr": "Die vollständige Schahada enthält sowohl das Bekenntnis zum Tauhid als auch das Zeugnis über Muhammads Gesandtentum.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-007": {
+      "source": {
+        "question_tr": "Günlük hayatı durdurup, belirli zamanlarda Allah'a yönelerek gerçekleştirilen düzenli ibadet __________.",
+        "explanation_tr": "Namaz, müminin gün içinde tekrar ettiği düzenli bir yöneliştir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Namazdır",
+          "Oruçtur",
+          "Zekâttır",
+          "Hactır"
+        ],
+        "correct_answer": "Namazdır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die regelmäßige religiöse Handlung, bei der man zu bestimmten Tageszeiten innehalten und sich Allah zuwenden kann, heißt __________.",
+        "explanation_tr": "Muslime wenden sich Allah im Gebet regelmäßig über den Tag verteilt zu.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Gebet",
+          "Fasten",
+          "Zakat",
+          "Hadsch"
+        ],
+        "correct_answer": "Gebet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-008": {
+      "source": {
+        "question_tr": "İslam'ın şartlarından biri olan hac ibadetinin gerçekleştirildiği ana şehir hangisidir?",
+        "explanation_tr": "Hac ibadeti, Mekke şehri ve çevresindeki Arafat, Müzdelife gibi alanlarda yapılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mekke",
+          "Medine",
+          "Kudüs",
+          "Kahire"
+        ],
+        "correct_answer": "Mekke",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In welcher Stadt liegt der Mittelpunkt der Hadsch?",
+        "explanation_tr": "Die Hadsch findet in Mekka und an Pilgerstätten ihrer Umgebung statt, etwa bei Arafat und Muzdalifa.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mekka",
+          "Medina",
+          "Jerusalem",
+          "Kairo"
+        ],
+        "correct_answer": "Mekka",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-009": {
+      "source": {
+        "question_tr": "Ahmet Bey Ramazan'da oruç tutuyor ve ayrıca zekât için ayırdığı payı hak sahiplerine ulaştırıyor. Bu iki davranış İslam'ın hangi iki şartıyla ilişkilidir?",
+        "explanation_tr": "Ramazan orucu ve zekât, İslam'ın beş şartı içinde iki ayrı ibadettir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Oruç ve Zekât",
+          "Namaz ve Oruç",
+          "Zekât ve Hac",
+          "Oruç ve Hac"
+        ],
+        "correct_answer": "Oruç ve Zekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ahmet fastet im Ramadan und gibt zudem Zakat an berechtigte Empfänger. Welche zwei Säulen übt er aus?",
+        "explanation_tr": "Fasten und Zakat sind zwei verschiedene Säulen des Islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Fasten und Zakat",
+          "Gebet und Fasten",
+          "Zakat und Hadsch",
+          "Fasten und Hadsch"
+        ],
+        "correct_answer": "Fasten und Zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-010": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Namaz malî bir ibadettir; zekât ise günün belirli vakitlerinde yapılan düzenli kulluk ibadetidir.' diyor. Bu ifadede hangi hata vardır?",
+        "explanation_tr": "Namaz düzenli kulluk ibadeti, zekât ise malî ibadettir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namaz ve zekâtın temel özellikleri birbiriyle karıştırılmıştır.",
+          "Yalnızca namazla ilgili bölüm doğrudur.",
+          "Yalnızca zekâtla ilgili bölüm doğrudur.",
+          "İfadede hata yoktur."
+        ],
+        "correct_answer": "Namaz ve zekâtın temel özellikleri birbiriyle karıştırılmıştır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Gebet ist eine Vermögensabgabe, Zakat eine regelmäßige Gottesverehrung zu festen Tageszeiten.“ Was stimmt nicht?",
+        "explanation_tr": "Das Gebet ist eine regelmäßig verrichtete Gottesverehrung; Zakat betrifft die Abgabe eines Vermögensanteils.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Er hat die Hauptmerkmale von Gebet und Zakat vertauscht",
+          "Nur der Teil über das Gebet stimmt",
+          "Nur der Teil über Zakat stimmt",
+          "Die Aussage enthält keinen Fehler"
+        ],
+        "correct_answer": "Er hat die Hauptmerkmale von Gebet und Zakat vertauscht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-011": {
+      "source": {
+        "question_tr": "İslam'ın beş şartı eksiksiz ve doğru olarak hangi seçenekte verilmiştir?",
+        "explanation_tr": "Diğer seçenekler İmanın Esasları (melek, ahiret) veya farklı ibadetler (kurban) ile karıştırılmıştır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Şehadet getirmek, Namaz kılmak, Oruç tutmak, Zekât vermek, Hacca gitmek",
+          "Namaz kılmak, Oruç tutmak, Meleklere inanmak, Zekât vermek, Hacca gitmek",
+          "Şehadet getirmek, Namaz kılmak, Oruç tutmak, Ahirete inanmak, Hacca gitmek",
+          "Namaz kılmak, Oruç tutmak, Zekât vermek, Kurban kesmek, Hacca gitmek"
+        ],
+        "correct_answer": "Şehadet getirmek, Namaz kılmak, Oruç tutmak, Zekât vermek, Hacca gitmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aufzählung enthält alle fünf Säulen des Islam korrekt?",
+        "explanation_tr": "Die anderen Antworten vermischen die fünf Säulen mit Glaubensinhalten oder anderen religiösen Handlungen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Schahada, Gebet, Fasten, Zakat und Hadsch",
+          "Gebet, Fasten, Glaube an Engel, Zakat und Hadsch",
+          "Schahada, Gebet, Fasten, Glaube an das Jenseits und Hadsch",
+          "Gebet, Fasten, Zakat, Opfertier darbringen und Hadsch"
+        ],
+        "correct_answer": "Schahada, Gebet, Fasten, Zakat und Hadsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-012": {
+      "source": {
+        "question_tr": "Arkadaşın, 'Eşhedü...' diye başlayan inanç beyanının İslam'ın beş şartı içindeki adını soruyor. Hangi şarttan bahsetmelisin?",
+        "explanation_tr": "Bu ifade Kelime-i Şehadet ile ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kelime-i Şehadet getirmek",
+          "Namaz kılmak",
+          "Hacca gitmek",
+          "Oruç tutmak"
+        ],
+        "correct_answer": "Kelime-i Şehadet getirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund fragt, wie das mit „Aschhadu ...“ beginnende Glaubensbekenntnis unter den fünf Säulen heißt. Was antwortest du?",
+        "explanation_tr": "Das mit „Aschhadu“ beginnende Glaubensbekenntnis ist die Schahada.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Schahada sprechen",
+          "Gebet verrichten",
+          "Hadsch vollziehen",
+          "Fasten"
+        ],
+        "correct_answer": "Schahada sprechen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-013": {
+      "source": {
+        "question_tr": "İslam'ın beş şartı; Şehadet, Namaz, Oruç, Zekât ve __________.",
+        "explanation_tr": "Listeyi tamamlayan beşinci şart Hac ibadetidir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Hac",
+          "Umre",
+          "Cihat",
+          "Dua"
+        ],
+        "correct_answer": "Hac",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die fünf Säulen sind Schahada, Gebet, Fasten, Zakat und __________.",
+        "explanation_tr": "Die Hadsch vervollständigt die Liste der fünf Säulen.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Hadsch",
+          "Umra",
+          "Dschihad",
+          "Bittgebet"
+        ],
+        "correct_answer": "Hadsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U04-S07-014": {
+      "source": {
+        "question_tr": "Bir özet kartında inanç beyanı, namaz, Ramazan orucu, zekât ve hac yan yana verilmiş. Bu beşli hangi temel kavramı temsil eder?",
+        "explanation_tr": "Bu beş kavram birlikte İslam'ın beş şartını oluşturur.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İslam'ın Beş Şartını",
+          "İmanın Altı Esasını",
+          "Ahlakın Şartlarını",
+          "Muamelat Kurallarını"
+        ],
+        "correct_answer": "İslam'ın Beş Şartını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lernkarte nennt Glaubensbekenntnis, Gebet, Ramadan-Fasten, Zakat und Hadsch. Was verbindet diese fünf Begriffe?",
+        "explanation_tr": "Diese fünf grundlegenden Handlungen bilden die Säulen des Islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die fünf Säulen des Islam",
+          "Die sechs Glaubensinhalte",
+          "Die Grundbedingungen des guten Charakters",
+          "Regeln des gesellschaftlichen Umgangs"
+        ],
+        "correct_answer": "Die fünf Säulen des Islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die fünf Säulen überprüfen",
+        "topic": "Die fünf Säulen des Islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
