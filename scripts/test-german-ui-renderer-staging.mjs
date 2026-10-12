@@ -10,7 +10,8 @@ const packPaths=[
  'assets/i18n/german-ui.lesson-flow.staging.json',
  'assets/i18n/german-ui.premium-shop.staging.json',
  'assets/i18n/german-ui.quran-controls.staging.json',
- ...Array.from({length:8},(_,i)=>'assets/i18n/german-ui.reference-batch-'+String(i+1).padStart(2,'0')+'.staging.json')
+ ...Array.from({length:8},(_,i)=>'assets/i18n/german-ui.reference-batch-'+String(i+1).padStart(2,'0')+'.staging.json'),
+ 'assets/i18n/german-ui.real-lesson.staging.json'
 ];
 const packs=packPaths.map(read);
 const application=readFileSync(root+'index.html','utf8');
@@ -36,14 +37,26 @@ const manifest=read('assets/i18n/content-support.json').languages.de;
 assert.equal(manifest.question_data,'missing');
 assert.equal(manifest.global_qa,'blocked');
 assert.equal(manifest.religious_expert_approved,false);
+const actualLesson=lessonSegment.slice(lessonSegment.indexOf('<section class="lesson" id="lesson">'),
+ lessonSegment.indexOf('</section>',lessonSegment.indexOf('<section class="lesson" id="lesson">')));
+const mappedLesson=read('assets/i18n/german-ui.real-lesson.staging.json');
+assert.equal(mappedLesson.translation_count,9);
+for(const key of Object.keys(mappedLesson.translations)){
+ assert(actualLesson.includes('>'+key+'<'),'Literal lesson UI source key missing: '+key);
+}
+assert(!Object.hasOwn(mappedLesson.translations,'gün'),'Ambiguous standalone plural day must not be translated');
 const renderer=createGermanUIStagingRenderer({packs,englishReference:english});
-assert.deepEqual(renderer.stats(),{entries:1442,matchedReference:1087,passes:0,writes:0});
+assert.deepEqual(renderer.stats(),{entries:1451,matchedReference:1087,passes:0,writes:0});
 assert.equal(renderer.translate('  Devam Et  '),'  Weiter  ');
 assert.equal(renderer.translate('Namaza Hazırlık'),'Vorbereitung auf das Gebet');
 assert.equal(renderer.translate('KISIM 1 FİNALİ'),'FINALE VON ABSCHNITT 1');
 assert.equal(renderer.translate('3 soru'),'3 Fragen');
 assert.equal(renderer.translate('1 soru'),'1 Frage');
 assert.equal(renderer.translate('9 ayet'),'9 Verse');
+assert.equal(renderer.translate('Ünite 1 · Aşama 1'),'Einheit 1 · Etappe 1');
+assert.equal(renderer.translate('Ders tamamlandı'),'Lektion abgeschlossen');
+assert.equal(renderer.translate('TEMEL BİLGİLER'),'GRUNDWISSEN');
+assert.equal(renderer.translate('DOĞRU'),'RICHTIG');
 assert.equal(renderer.translate('Sıradaki aşama · Namaza Hazırlık'),'Nächste Etappe · Vorbereitung auf das Gebet');
 assert.equal(renderer.translate('Sıradaki aşama · Bu bilinmeyen bölüm'),null,
  'A dynamic mixed-language fallback must not be fabricated');
