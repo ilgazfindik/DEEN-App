@@ -824,6 +824,48 @@ try{
  assert.equal(persistedAfter.score,100);
  assert.equal(persistedAfter.xp,persistedBefore.xp);
  assert.equal(persistedAfter.synthetic,true);
+
+ // Returning user: exercise the real app language-switch API in both
+ // directions, including its hard reload and original saved-progress store.
+ // Synthetic German approval exists only in this disposable QA browser.
+ report.complete_stage.language_switch={};
+ for(const targetLocale of ['tr','de']){
+  const source=await page.evaluate(()=>({
+   locale:window.DEEN_APP_LOCALE?.get?.(),
+   phase:window.DEEN_BOOT?.status?.()?.phase||null,
+   completed:state?.completed?.includes('U01-S01'),
+   xp:state?.xp||0
+  }));
+  const navigation=page.waitForEvent('framenavigated',{
+   predicate:frame=>frame===page.mainFrame(),timeout:40000});
+  const accepted=await page.evaluate(next=>window.DEEN_BOOT.changeLanguage(next),targetLocale);
+  assert.equal(accepted,true,'DEEN_BOOT rejected supported language switch to '+targetLocale);
+  await navigation;
+  await page.waitForFunction(expected=>window.DEEN_APP_LOCALE?.get()===expected&&
+   window.DEEN_BOOT?.status?.()?.phase==='ready'&&
+   typeof state==='object'&&state?.completed?.includes('U01-S01'),
+   targetLocale,{timeout:100000});
+  const after=await page.evaluate(()=>({
+   locale:window.DEEN_APP_LOCALE.get(),
+   docLang:document.documentElement.lang,
+   phase:window.DEEN_BOOT.status().phase,
+   completed:state.completed.includes('U01-S01'),
+   score:state.stageScores['U01-S01'],
+   xp:state.xp,
+   savedLocale:localStorage.getItem('deen_app_language_v1'),
+   syntheticGermanQA:window.__DEEN_CONTENT_MANIFEST__?.__deenSyntheticGermanQA===true
+  }));
+  report.complete_stage.language_switch[targetLocale]={source,accepted,after};
+  assert.equal(after.locale,targetLocale);
+  assert.equal(after.docLang,targetLocale);
+  assert.equal(after.savedLocale,targetLocale);
+  assert.equal(after.phase,'ready');
+  assert.equal(after.completed,true);
+  assert.equal(after.score,100);
+  assert.equal(after.xp,persistedBefore.xp);
+  assert.equal(after.syntheticGermanQA,true);
+ }
+
  const newErrors=report.errors.slice(priorErrors);
  const knownDiagnosticPrefix='console:DEEN fill freeze regression failed ';
  const fillMessages=newErrors.filter(line=>line.startsWith(knownDiagnosticPrefix));
