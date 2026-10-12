@@ -7,6 +7,7 @@ on:
       - 'scripts/test-german-browser-staging.mjs'
       - 'scripts/test-german-stateful-browser-staging.mjs'
       - 'scripts/test-german-question-adapter-staging.mjs'
+      - 'scripts/build-german-browser-question-fixture.mjs'
       - 'assets/i18n/german-question.adapter.staging.mjs'
       - 'assets/i18n/questions/de/**'
       - 'assets/i18n/german-ui*'
@@ -38,6 +39,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Audit every staged German question signature and grader
         run: node scripts/test-german-question-adapter-staging.mjs
+      - name: Bundle source-guarded staged questions for local browser-only QA
+        run: node scripts/build-german-browser-question-fixture.mjs
       - name: Exercise mobile and desktop preview plus assembled DEEN shell
         shell: bash
         run: |
