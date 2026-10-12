@@ -88,6 +88,14 @@ assert.equal(adapter.adaptQuestionPrompt('Birlikte düşün: '+sample.question_t
  {...sample,__deenQANotForRelease:false},{qaMode:true}),null);
 assert.throws(()=>adapter.adaptQuestionPrompt('Birlikte düşün: '+sample.question_tr,
  sample,{qaMode:false}),/DE_QA_UNAPPROVED_CONTENT/);
+assert.equal(adapter.adaptFeedbackExplanation('Kısaca: '+sample.explanation_tr,sample,
+ {qaMode:true}),'Kurz gesagt: '+sample.explanation_tr);
+assert.equal(adapter.adaptFeedbackExplanation(sample.explanation_tr,sample,
+ {qaMode:true}),sample.explanation_tr);
+assert.equal(adapter.adaptFeedbackExplanation('Yabancı: '+sample.explanation_tr,sample,
+ {qaMode:true}),null);
+assert.throws(()=>adapter.adaptFeedbackExplanation('Kısaca: '+sample.explanation_tr,
+ sample,{qaMode:false}),/DE_QA_UNAPPROVED_CONTENT/);
 const totals=Object.fromEntries(Object.entries(records).map(([k,v])=>[k,v.length]));
 console.log(JSON.stringify({status:'passed',staging_only:true,release_ready:false,
  scopes:totals,total_versions:Object.values(totals).reduce((a,b)=>a+b,0),
