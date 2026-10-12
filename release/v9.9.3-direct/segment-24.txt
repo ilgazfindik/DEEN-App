@@ -670,6 +670,13 @@
   cat:{emoji:'🐈',name:'Kedi',trait:'Sakinlik'}
  };
  const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ // Resolve animal copy through the central locale owner. Previously cards() called an undefined T.
+ const T=key=>{
+  const localized=window.DEEN_I18N?.t?.(key);
+  if(typeof localized==='string'&&localized.trim()&&localized!==key)return localized;
+  const m=String(key).match(/^(lion|wolf|owl|turtle|eagle|cat)(Trait)?$/);
+  return m?ANIMALS[m[1]][m[2]?'trait':'name']:key;
+ };
  let pickerMode='profile',entryPromptShown=false;
  function ensure(){
   try{
