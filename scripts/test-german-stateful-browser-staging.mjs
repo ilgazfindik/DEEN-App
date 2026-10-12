@@ -62,6 +62,7 @@ async function auditNavTabs(){
   // A new-profile onboarding layer blocks taps. Remove it ONLY in this
   // disposable QA page to exercise the already assembled application's nav.
   // This deliberately does not test production onboarding completion.
+  await page.waitForFunction(()=>typeof QUESTIONS!=='undefined'&&Array.isArray(QUESTIONS)&&QUESTIONS.length===1484,null,{timeout:25000});
   const qaBoot=await page.evaluate(async()=>{
    // Disposable QA profile; first complete the actual Turkish boot validation.
    if(typeof state!=='undefined'&&state?.settings){
