@@ -542,3 +542,14 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - Refreshed the [370-key untranslated UI source inventory](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md). The original Turkish, English, Arabic, 90 Quran ayah source/audio and current live deployment are unchanged.
 - Remaining blockers: 370 untranslated-reference keys; staged text not yet wired to a German production DOM renderer; full browser E2E not completed; native German, Islamic subject-matter and licensing/rights signoffs pending. **No main merge or live deploy**.
 - Next: German UI reference batch 05, targeting 120 of the 370 remaining source keys with the same source and QA validation.
+
+
+## German UI reference remediation batch 05 — 2026-10-12
+
+- Added **120 original German staging UI labels** in `assets/i18n/german-ui.reference-batch-05.staging.json` for review/classification, faith pillars, angels, divine knowledge, revelation and earlier scriptures. Each source key is associated with its unchanged Turkish key and English reference meaning.
+- Five batches now cover **600/850** of the original missing English-reference key matches; **250 reference keys remain missing**. Nine German UI staging dictionaries contain **1,192 distinct UI labels**, with **837/1,087 English baseline reference keys** matched and 355 additional labels for modern/dynamic UI.
+- Flagged **25 religious or context-sensitive terms** for independent native German and Islamic expert review, including `Gayba İman`, `Kadere İman Kapsamı`, angel-related doctrines, names of revealed scriptures, and Quran revelation/preservation.
+- Added `scripts/test-german-ui-reference-batch-05.mjs` to staging CI: checks all 600 exact sequential source keys and English reference strings, duplicate-key conflicts, new 120-label integrity, 250 remaining reference gaps, and fail-closed Quran/German production gates.
+- Updated `scripts/audit-german-full-release-readiness.mjs` for the ninth German UI dictionary and regenerated the [250-key full unmatched reference report](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md).
+- Original Arabic Quran text/audio, other languages, question grading and all 90 unapproved German Quran meaning drafts were not changed. **No main merge, no live deploy, no claim of complete end-to-end German readiness.**
+- Next batch: 120 of the remaining 250 German UI source reference labels; continue to require source-key, scholarly/native/rights and browser UI checks before production activation.
