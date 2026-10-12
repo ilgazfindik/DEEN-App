@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U14",
+  "stage": "U14-S02",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U14-S02-001": {
+      "source": {
+        "question_tr": "Kavram kontrolü: mazerette kıyam hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Hz. Peygamber'in hasta kişiye yönelik öğretisinde gücü yetmeyenin oturarak namaz kılabileceği bildirilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazı tamamen terk eder",
+          "Her durumda ayakta kalmak zorundadır",
+          "Namazını oturarak kılabilir",
+          "Sadece abdest alır"
+        ],
+        "correct_answer": "Namazını oturarak kılabilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Begriffstest: Welche Erleichterung gilt, wenn jemand beim Gebet nicht stehen kann?",
+        "explanation_tr": "Nach der überlieferten Lehre des Propheten Muhammad darf eine Person, die nicht stehen kann, im Sitzen beten.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ganz auf das Gebet verzichten",
+          "Unter allen Umständen stehen müssen",
+          "Im Sitzen beten dürfen",
+          "Nur die Gebetswaschung vollziehen"
+        ],
+        "correct_answer": "Im Sitzen beten dürfen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Stehen bei Einschränkungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-002": {
+      "source": {
+        "question_tr": "Kıraat namazda neyi ifade eder?",
+        "explanation_tr": "Kıraat namaz içinde Kur'an'dan okuma rüknünü ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece sessiz durmayı",
+          "Rükû yapmayı",
+          "Kur'an'dan okumayı",
+          "Ayakları yıkamayı"
+        ],
+        "correct_answer": "Kur'an'dan okumayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was bedeutet Qira'a (Rezitation) im Gebet?",
+        "explanation_tr": "Qira'a bezeichnet die Koranrezitation als Bestandteil des Gebets.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nur still zu sein",
+          "Die Verbeugung auszuführen",
+          "Aus dem Koran zu rezitieren",
+          "Die Füße zu waschen"
+        ],
+        "correct_answer": "Aus dem Koran zu rezitieren",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Koranrezitation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-003": {
+      "source": {
+        "question_tr": "Namazın öğrenilmesi konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu namazın ayrıntılarının Hz. Peygamber'in uygulamasıyla belirlendiğini açıklar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazın Kur'an'la ilgisini kaldırır",
+          "Her kişiye farklı rekât verir",
+          "Kur'an'daki genel emrin nasıl uygulanacağını gösterir",
+          "Vakit şartını ortadan kaldırır"
+        ],
+        "correct_answer": "Kur'an'daki genel emrin nasıl uygulanacağını gösterir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über das Erlernen des Gebets ist richtig?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten erläutert, dass Einzelheiten der Gebetspraxis durch das Vorbild des Propheten Muhammad vermittelt werden.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Es löst das Gebet vom Koran",
+          "Es legt für jede Person andere Rakʿa-Zahlen fest",
+          "Es zeigt, wie das allgemeine Gebot im Koran praktisch umgesetzt wird",
+          "Es hebt die Gebetszeiten auf"
+        ],
+        "correct_answer": "Es zeigt, wie das allgemeine Gebot im Koran praktisch umgesetzt wird",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Das Gebet erlernen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-004": {
+      "source": {
+        "question_tr": "Kısa kontrol: kavram kontrolü: bu dersteki fıkıh yaklaşımı hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Bu sürüm namazın ortak yapısını öğretir teknik farklılıkları tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tek bir mezhebi bütün Müslümanlar için tek doğru ilan eder",
+          "Mezhep farklılıklarını kaynaksız biçimde karıştırır",
+          "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz",
+          "Rükünlerin tamamını görmezden gelir"
+        ],
+        "correct_answer": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Kurzer Begriffstest: Wie geht diese Lektion mit anerkannten Unterschieden zwischen Rechtsschulen um?",
+        "explanation_tr": "Diese Version vermittelt die gemeinsamen Gebetsbestandteile und bewertet anerkannte Unterschiede in rechtlichen Einzelheiten nicht so, als sei nur eine Rechtsschule richtig.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Eine Rechtsschule für alle Muslime zur einzig richtigen erklären",
+          "Unterschiede zwischen Rechtsschulen ohne Quellen vermischen",
+          "Die gemeinsamen Gebetsbestandteile lehren und anerkannte Detailunterschiede nicht als falsch bewerten",
+          "Alle Gebetsbestandteile ignorieren"
+        ],
+        "correct_answer": "Die gemeinsamen Gebetsbestandteile lehren und anerkannte Detailunterschiede nicht als falsch bewerten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Umgang mit Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-005": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Namazın sonunda oturuş diye bir bölüm yoktur.",
+        "explanation_tr": "Diyanet'in namaz rükünleri açıklamasında son oturuş namazın rükünleri arasında sayılır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Am Ende des Gebets gibt es keinen abschließenden Sitzteil.",
+        "explanation_tr": "In der Erläuterung der Diyanet gehört der letzte Sitzteil zu den wesentlichen Gebetsbestandteilen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Letzter Sitzteil"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-006": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Ayakta duramayan kişi namazını oturarak kılabilir.",
+        "explanation_tr": "Hz. Peygamber'in hasta kişiye yönelik öğretisinde gücü yetmeyenin oturarak namaz kılabileceği bildirilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Wer nicht stehen kann, darf im Sitzen beten.",
+        "explanation_tr": "Nach der überlieferten Lehre des Propheten Muhammad darf eine Person, die nicht stehen kann, im Sitzen beten.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Stehen bei Einschränkungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Kıraat namazda Kur'an okumakla ilgili değildir.",
+        "explanation_tr": "Kıraat namaz içinde Kur'an'dan okuma rüknünü ifade eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Qira'a hat nichts mit der Koranrezitation im Gebet zu tun.",
+        "explanation_tr": "Qira'a bezeichnet die Koranrezitation als Bestandteil des Gebets.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Koranrezitation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-008": {
+      "source": {
+        "question_tr": "Bir arkadaşın Namazın öğrenilmesi hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu namazın ayrıntılarının Hz. Peygamber'in uygulamasıyla belirlendiğini açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namazın Kur'an'la ilgisini kaldırır",
+          "Her kişiye farklı rekât verir",
+          "Kur'an'daki genel emrin nasıl uygulanacağını gösterir",
+          "Vakit şartını ortadan kaldırır"
+        ],
+        "correct_answer": "Kur'an'daki genel emrin nasıl uygulanacağını gösterir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund fragt, wie man die Ausführung des Gebets lernt. Was antwortest du?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten erläutert, dass Einzelheiten der Gebetspraxis durch das Vorbild des Propheten Muhammad vermittelt werden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Es löst das Gebet vom Koran",
+          "Es legt für jede Person andere Rakʿa-Zahlen fest",
+          "Es zeigt, wie das allgemeine Gebot im Koran praktisch umgesetzt wird",
+          "Es hebt die Gebetszeiten auf"
+        ],
+        "correct_answer": "Es zeigt, wie das allgemeine Gebot im Koran praktisch umgesetzt wird",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Das Gebet erlernen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-009": {
+      "source": {
+        "question_tr": "Kısa kontrol: kavram kontrolü: bu dersteki fıkıh yaklaşımı konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Bu sürüm namazın ortak yapısını öğretir teknik farklılıkları tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Tek bir mezhebi bütün Müslümanlar için tek doğru ilan eder",
+          "Mezhep farklılıklarını kaynaksız biçimde karıştırır",
+          "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz",
+          "Rükünlerin tamamını görmezden gelir"
+        ],
+        "correct_answer": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Kurzer Begriffstest: Wie bewertet diese Lektion anerkannte Unterschiede zwischen Rechtsschulen?",
+        "explanation_tr": "Diese Version vermittelt die gemeinsamen Gebetsbestandteile und bewertet anerkannte Unterschiede in rechtlichen Einzelheiten nicht so, als sei nur eine Rechtsschule richtig.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Eine Rechtsschule für alle Muslime zur einzig richtigen erklären",
+          "Unterschiede zwischen Rechtsschulen ohne Quellen vermischen",
+          "Die gemeinsamen Gebetsbestandteile lehren und anerkannte Detailunterschiede nicht als falsch bewerten",
+          "Alle Gebetsbestandteile ignorieren"
+        ],
+        "correct_answer": "Die gemeinsamen Gebetsbestandteile lehren und anerkannte Detailunterschiede nicht als falsch bewerten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Umgang mit Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-010": {
+      "source": {
+        "question_tr": "Bir öğrenci “Namazın sonunda oturuş diye bir bölüm yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Diyanet'in namaz rükünleri açıklamasında son oturuş namazın rükünleri arasında sayılır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İmsak",
+          "Teyemmüm",
+          "Ka'de-i ahire veya son oturuş",
+          "İftitah"
+        ],
+        "correct_answer": "Ka'de-i ahire veya son oturuş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler sagt: „Am Ende des Gebets gibt es keinen Sitzteil.“ Was ist die richtige Korrektur?",
+        "explanation_tr": "In der Erläuterung der Diyanet gehört der letzte Sitzteil zu den wesentlichen Gebetsbestandteilen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Beginn der Fastenzeit",
+          "Tayammum",
+          "Qaʿda al-akhira (der letzte Sitzteil)",
+          "Eröffnung"
+        ],
+        "correct_answer": "Qaʿda al-akhira (der letzte Sitzteil)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Letzter Sitzteil"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-011": {
+      "source": {
+        "question_tr": "“Ayakta duramayan kişi için namazı oturarak kılma kolaylığı yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Hz. Peygamber'in hasta kişiye yönelik öğretisinde gücü yetmeyenin oturarak namaz kılabileceği bildirilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namazı tamamen terk eder",
+          "Her durumda ayakta kalmak zorundadır",
+          "Namazını oturarak kılabilir",
+          "Sadece abdest alır"
+        ],
+        "correct_answer": "Namazını oturarak kılabilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Antwort korrigiert die Behauptung: „Wer nicht stehen kann, darf nicht im Sitzen beten“?",
+        "explanation_tr": "Nach der überlieferten Lehre des Propheten Muhammad darf eine Person, die nicht stehen kann, im Sitzen beten.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ganz auf das Gebet verzichten",
+          "Unter allen Umständen stehen müssen",
+          "Im Sitzen beten dürfen",
+          "Nur die Gebetswaschung vollziehen"
+        ],
+        "correct_answer": "Im Sitzen beten dürfen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Stehen bei Einschränkungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-012": {
+      "source": {
+        "question_tr": "Kıraat hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Kıraat namaz içinde Kur'an'dan okuma rüknünü ifade eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sadece sessiz durmayı",
+          "Rükû yapmayı",
+          "Kur'an'dan okumayı",
+          "Ayakları yıkamayı"
+        ],
+        "correct_answer": "Kur'an'dan okumayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage korrigiert eine falsche Behauptung über Qira'a?",
+        "explanation_tr": "Qira'a bezeichnet die Koranrezitation als Bestandteil des Gebets.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Nur still zu sein",
+          "Die Verbeugung auszuführen",
+          "Aus dem Koran zu rezitieren",
+          "Die Füße zu waschen"
+        ],
+        "correct_answer": "Aus dem Koran zu rezitieren",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Koranrezitation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-013": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Namazın uygulama ayrıntıları Hz. Peygamber'in ___ ile öğrenilir.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu namazın ayrıntılarının Hz. Peygamber'in uygulamasıyla belirlendiğini açıklar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "uygulaması",
+          "okumayı"
+        ],
+        "correct_answer": "uygulaması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Die Einzelheiten des Gebets lernt man anhand der ______ des Propheten Muhammad.",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten erläutert, dass Einzelheiten der Gebetspraxis durch das Vorbild des Propheten Muhammad vermittelt werden.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Eröffnung",
+          "Stehen",
+          "Praxis",
+          "Rezitation"
+        ],
+        "correct_answer": "Praxis",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Das Gebet erlernen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S02-014": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Geçerli mezhep farklılıkları ___ cevap olarak işaretlenmez.",
+        "explanation_tr": "Bu sürüm namazın ortak yapısını öğretir teknik farklılıkları tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "yanlış",
+          "okumayı"
+        ],
+        "correct_answer": "yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Anerkannte Unterschiede zwischen Rechtsschulen werden nicht als ______ bewertet.",
+        "explanation_tr": "Diese Version vermittelt die gemeinsamen Gebetsbestandteile und bewertet anerkannte Unterschiede in rechtlichen Einzelheiten nicht so, als sei nur eine Rechtsschule richtig.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Eröffnung",
+          "Stehen",
+          "falsch",
+          "Rezitation"
+        ],
+        "correct_answer": "falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Stehen, Rezitation, Verbeugung und Niederwerfung",
+        "topic": "Umgang mit Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
