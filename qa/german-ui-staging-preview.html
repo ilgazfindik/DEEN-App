@@ -38,7 +38,7 @@ input{display:block;margin-top:9px;width:100%;background:#123e45;border:1px soli
 <div id="stagingFixture" class="dashboard">
 <section><h2 data-deen-no-translate>ONBOARDING</h2><div class="mock"><strong>DEEN’e hoş geldin</strong><p>Sana nasıl hitap edelim?</p><input type="text" placeholder="Adın veya kullanıcı adın" aria-label="Sana nasıl hitap edelim?"><button type="button">Devam Et</button></div></section>
 <section><h2 data-deen-no-translate>LEARN</h2><div class="mock"><strong>Allah’a İman</strong><p>İslam’ın Beş Şartı</p><p>3 soru</p><button type="button">USTALIK SINAVINI BAŞLAT</button></div></section>
-<section><h2 data-deen-no-translate>LESSON</h2><div class="mock"><strong>Namaza Hazırlık</strong><p>Ders 2/3</p><button type="button">Kontrol Et</button><button type="button">Geri</button></div></section>
+<section><h2 data-deen-no-translate>LESSON</h2><div class="mock"><strong>Namaza Hazırlık</strong><p>Ders 2/3</p><p class="lesson-chip fire">🔥 <span id="lessonStreakMini">7</span> gün</p><button type="button">Kontrol Et</button><button type="button">Geri</button></div></section>
 <section><h2 data-deen-no-translate>QURAN</h2><div class="mock"><strong>Kur’an bölümleri</strong><p>Fâtiha</p><p>7 ayet</p><p lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p><button type="button">Sure Testleri</button></div></section>
 <section><h2 data-deen-no-translate>PROGRESS / PREMIUM</h2><div class="mock"><strong>HAFTALIK RİTİM</strong><p>İlk Adım</p><p>Premium içerik değil, konfor katmanıdır.</p><button type="button">Ayarlar</button></div></section>
 <section><h2 data-deen-no-translate>FALLBACK MONITOR</h2><div class="mock"><strong>KISIM 1 FİNALİ</strong><p>Bilinmeyen aşama metni</p><button type="button" aria-label="Geri">Geri</button></div></section>
@@ -82,6 +82,8 @@ try{
  document.getElementById('rerender').addEventListener('click',()=>{
   const target=fixture.querySelector('section:nth-child(3) .mock p');
   target.textContent='Ders 2/3';
+  const streak=fixture.querySelector('#lessonStreakMini');
+  if(streak)streak.textContent=streak.textContent.trim()==='1'?'7':'1';
   apply();
  });
  document.getElementById('reset').addEventListener('click',()=>{fixture.innerHTML=snapshot;apply()});
