@@ -367,6 +367,29 @@ try{
  assert.equal(matching.cards.length,matching.pairs.length*2);
  const matchingTeaching=page.locator('#lesson .v910-card-button:visible');
  if(await matchingTeaching.count())await matchingTeaching.first().click({timeout:15000});
+ // QA-only property write trace. Capture every replacement of the active
+ // matching state, including the call site responsible for unexpected resets.
+ await page.evaluate(()=>{
+  const obj=session,initial=obj?.__deenMatchingState;
+  if(!obj)throw Error('No lesson session to instrument');
+  window.__DEEN_MATCH_SET_TRACE__=[];
+  let current=initial;
+  Object.defineProperty(obj,'__deenMatchingState',{
+   configurable:true,enumerable:true,
+   get(){return current},
+   set(value){
+    window.__DEEN_MATCH_SET_TRACE__.push({
+     key:value?.key,count:value?.matchedLeft?.length??null,
+     selected:value?.selected?.pair??null,
+     previous_count:current?.matchedLeft?.length??null,
+     same_reference:current===value,
+     stack:(new Error()).stack?.split('\n').slice(1,5).join(' | ')
+    });
+    current=value;
+   }
+  });
+  window.__DEEN_MATCH_OBSERVED_SESSION__=obj;
+ });
  report.matching.tapTrace=[];
  for(let i=0;i<matching.pairs.length;i++){
   // Pair order changes by shuffle, so select the SOURCE-GUARDED semantic pair
@@ -393,7 +416,10 @@ try{
     finished:session.__deenMatchingState.finished}:null,
    dom_matched:document.querySelectorAll('#answerArea .v1017-card.matched').length,
    footer:document.querySelector('#answerArea .v1017-count')?.textContent,
-   progress:document.documentElement.dataset.deenMatchingProgress
+   progress:document.documentElement.dataset.deenMatchingProgress,
+   writes:(window.__DEEN_MATCH_SET_TRACE__||[]).slice(-12),
+   same_session:window.__DEEN_MATCH_OBSERVED_SESSION__===session,
+   card_element_connected:!!document.querySelector('#answerArea .v1017-card.matched')?.isConnected
   }));
   report.matching.tapTrace.push({i,after_left:selected,after_right:count,
    last:await page.locator('html').getAttribute('data-deen-matching-last')});
