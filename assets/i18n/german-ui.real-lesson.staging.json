@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "scope": "actual_lesson_static_ui_staging",
+  "status": "translation_draft_requires_native_and_subject_expert_review",
+  "source_reference": "release/v9.9.3-direct/segment-01.txt#lesson",
+  "release_ready": false,
+  "global_qa": "blocked",
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "rights_reviewed": false,
+  "translation_count": 9,
+  "translations": {
+    "Daha İyi Bir Sen": "Eine bessere Version deiner selbst",
+    "TEMEL BİLGİLER": "GRUNDWISSEN",
+    "Doğru cevabı seçerek yolculuğuna devam et.": "Wähle die richtige Antwort und setze deine Lernreise fort.",
+    "Ders tamamlandı": "Lektion abgeschlossen",
+    "Öğrenme doğruluğu": "Antwortgenauigkeit",
+    "DOĞRU": "RICHTIG",
+    "GÜÇLÜ ALANLAR": "STÄRKEN",
+    "TEKRAR ET": "WIEDERHOLEN",
+    "TEMELLER USTALIĞI": "MEISTERPRÜFUNG: GRUNDLAGEN"
+  },
+  "review_required_keys": [
+    "DOĞRU",
+    "TEMELLER USTALIĞI"
+  ],
+  "not_translated_contextual": [
+    "gün",
+    "Ünite 1 · Aşama 1"
+  ],
+  "context_note_tr": "Bu paket gerçek yayın segmentindeki #lesson statik etiketleridir. 'gün' sayıya bağlı tekil/çoğul çekim nedeniyle bilinçli olarak çevrilmedi; 'Ünite X · Aşama Y' ayrı dinamik kalıba aktarılacaktır. Sorular/şıklar/geri bildirim açıklamaları, Arapça ayet ve sure mealleri değiştirilmez."
+}
