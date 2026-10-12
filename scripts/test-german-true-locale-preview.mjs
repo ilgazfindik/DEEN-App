@@ -420,16 +420,29 @@ try{
  assert.equal(blank.translated,true);
  assert(blank.options.includes(blank.correct_answer));
  assert.notEqual(blank.source_answer,blank.correct_answer);
+ const blankTeaching=page.locator('#lesson .v910-card-button:visible');
+ if(await blankTeaching.count())await blankTeaching.first().click({timeout:15000});
  if(blank.chips.length){
   const chip=page.locator('#answerArea .fill-choice')
    .filter({hasText:blank.correct_answer});
   assert.equal(await chip.count(),1);
-  await chip.click({timeout:15000,force:true});
+  await chip.click({timeout:15000});
  }else if(blank.input){
   await page.locator('#answerArea input').first().fill(blank.correct_answer);
  }else throw Error('German fill-blank has no interactive word choice or input');
+ const selectedFill=await page.evaluate(()=>({
+  word:[...document.querySelectorAll('#answerArea .fill-choice.selected')]
+   .map(x=>x.dataset.value),
+  filled:document.querySelector('#lesson .v1040-fill-slot')?.dataset.filled,
+  check:[...document.querySelectorAll('#answerArea .template-action')]
+   .map(x=>({disabled:x.disabled,text:x.textContent?.trim()}))
+ }));
+ report.fill_blank.selected=selectedFill;
+ assert(selectedFill.word.includes(blank.correct_answer),
+  'Correct German word was not selected via real click: '+JSON.stringify(selectedFill));
  const confirm=page.locator('#answerArea .template-action:visible:not([disabled])');
- assert(await confirm.count()>0,'Fill-blank lacks a usable answer confirmation');
+ assert(await confirm.count()>0,
+  'Fill-blank lacks a usable answer confirmation: '+JSON.stringify(selectedFill));
  await confirm.first().click({timeout:15000,force:true});
  await page.waitForTimeout(550);
  const filled=await page.evaluate(()=>({
