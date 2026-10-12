@@ -32,13 +32,29 @@
         "language": "de",
         "url": "https://quran.com/sq/al-fatihah/translation/de-bubenheim",
         "text_copied_verbatim": false
+      },
+      {
+        "publisher": "QuranEnc / Ruwwad Translation Center",
+        "language": "de",
+        "version": "1.0.15",
+        "url": "https://quranenc.com/en/browse/german_rwwad/112",
+        "text_copied_verbatim": false,
+        "comparison_scope": "Surah 112 Al-Ikhlas"
+      },
+      {
+        "publisher": "QuranEnc / Frank Bubenheim and Nadim Elias",
+        "language": "de",
+        "version": "1.1.4",
+        "url": "https://www.sultan.org/quran/translation/german_bubenheim/112/",
+        "text_copied_verbatim": false,
+        "comparison_scope": "Surah 112 Al-Ikhlas"
       }
     ],
     "licensing_note_tr": "QuranEnc yayımlanan kendi meallerini değişiklik yapmama, yayıncı+kaynak+sürüm atfı, güncelleme ve uygunsuz reklam yasağı koşullarıyla yeniden yayımlatıyor. Bu pakette o mealler birebir yeniden yayımlanmıyor; DEEN taslak ifadeleri bağımsız uzman incelemesine sunuluyor. İşletme/telif hukuku incelemesi tamamlanmadan yayımlama yapılmamalı.",
     "commercial_content_policy": "no_translation_display_with_advertisements_pending_legal_review",
     "external_translation_imported": false
   },
-  "ayah_count": 7,
+  "ayah_count": 11,
   "translations": {
     "fatiha:1": {
       "surah_id": "fatiha",
@@ -144,6 +160,66 @@
       "rights_reviewed": false,
       "meaning_reviewed": false,
       "reviewer_note_tr": "al-maġḍūbi ʿalayhim / aḍ-ḍāllīn: özne ve yorum çağrışımları, etnik/dinî grup ataması olmadan kaynak ve uzman görüşüyle kontrol edilmeli."
+    },
+    "ikhlas:1": {
+      "surah_id": "ikhlas",
+      "ayah_number": 1,
+      "source_ayah_key": "ikhlas:1",
+      "source_arabic_text": "قُلْ هُوَ ٱللَّهُ أَحَدٌ",
+      "source_audio_path": "assets/quran/audio/ikhlas/ihlas_1.mp3",
+      "text": "Sprich: Allah ist der Eine, der Einzige.",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Ahad: tek ve eşsiz olma vurgusu; 'der Eine, der Einzige' lafızların eşitliği değil yorumlayıcı anlam aktarımıdır. Dinî uzman incelesin."
+    },
+    "ikhlas:2": {
+      "surah_id": "ikhlas",
+      "ayah_number": 2,
+      "source_ayah_key": "ikhlas:2",
+      "source_arabic_text": "ٱللَّهُ ٱلصَّمَدُ",
+      "source_audio_path": "assets/quran/audio/ikhlas/ihlas_2.mp3",
+      "text": "Allah ist auf niemanden angewiesen; alle sind auf Ihn angewiesen.",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "As-Samad: muhtaç olmama ve bütün varlığın O'na muhtaç olması açıklayıcı/yorumlayıcı çeviridir; tefsir ve mezhep duyarlılığıyla uzman incelesin."
+    },
+    "ikhlas:3": {
+      "surah_id": "ikhlas",
+      "ayah_number": 3,
+      "source_ayah_key": "ikhlas:3",
+      "source_arabic_text": "لَمْ يَلِدْ وَلَمْ يُولَدْ",
+      "source_audio_path": "assets/quran/audio/ikhlas/ihlas_3.mp3",
+      "text": "Er hat keine Nachkommen gezeugt und wurde selbst nicht gezeugt.",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Lam yalid wa-lam yulad: 'zeugt nicht/wurde nicht gezeugt' yönü korunmalı; 'Nachkommen' tercihi kapsam açısından incelensin."
+    },
+    "ikhlas:4": {
+      "surah_id": "ikhlas",
+      "ayah_number": 4,
+      "source_ayah_key": "ikhlas:4",
+      "source_arabic_text": "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ",
+      "source_audio_path": "assets/quran/audio/ikhlas/ihlas_4.mp3",
+      "text": "Und niemand ist Ihm in irgendeiner Weise ebenbürtig.",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Kufuwan ahad: Allah'a hiç kimsenin denk olmadığı; 'in irgendeiner Weise' yorumlayıcı genişlemesinin doğruluğu incelensin."
     }
   }
 }
