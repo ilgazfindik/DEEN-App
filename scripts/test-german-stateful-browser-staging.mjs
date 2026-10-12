@@ -97,7 +97,7 @@ async function auditNavTabs(){
   for(const id of init.navs.slice(0,4)){
    const button=page.locator('.bottomnav [data-screen="'+id+'"]').first();
    await button.click({timeout:20000});
-   await page.waitForFunction(target=>document.querySelector('.screen.active')?.id===target,null,{timeout:2500}).catch(()=>{});
+   await page.waitForFunction(target=>document.querySelector('.screen.active')?.id===target,id,{timeout:5000}).catch(()=>{});
    await page.waitForTimeout(500);
    const state=await page.evaluate(target=>{
     const root=document.querySelector('.phone');
