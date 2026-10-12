@@ -944,6 +944,20 @@ function renderMatching(q,area){
  }
 
  function pick(card){
+  // A second render can replace session.__deenMatchingState while a card
+  // from an older view still holds this handler. Never write a stale snapshot.
+  // Prefer the current session state when both views belong to the same question.
+  const current=session?.__deenMatchingState;
+  if(!current||current.key!==persistentKey||!area.contains(card))return;
+  if(current!==persistent){
+   persistent=current;
+   matchState={
+    left:persistent.selected?Number(persistent.selected.pair):null,
+    matched:new Set(persistent.matchedLeft||[]),
+    errors:Number(persistent.errors)||0
+   };
+   finished=!!persistent.finished;
+  }
   if(finished||persistent.finished||card.disabled)return;
 
   const selectedDesc=persistent.selected;
