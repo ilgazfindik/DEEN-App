@@ -17,8 +17,8 @@ assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(pack.locale,'de');
 assert.equal(pack.scope,'quran_ayah_meanings_staging');
-assert.equal(pack.ayah_count,58);
-assert.equal(Object.keys(pack.translations).length,58);
+assert.equal(pack.ayah_count,66);
+assert.equal(Object.keys(pack.translations).length,66);
 for(const flag of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[flag],false,flag+' must remain false');
 const quraysh=manifest.entries.filter(e=>e.surahId==='quraysh').sort((a,b)=>a.ayah-b.ayah);
 assert.deepEqual(quraysh.map(e=>e.key),['quraysh:1','quraysh:2','quraysh:3','quraysh:4']);
@@ -52,19 +52,19 @@ for(const ayah of quraysh){
  assert.equal(resolveGermanAyahMeaning(ayah,fakeApprovals),null,'per-verse false approval must override fake pack flags');tamperingRejected++;
 }
 assert.equal(resolveGermanAyahMeaning(quraysh[0],{...pack,locale:'tr'},{preview:true}),null);tamperingRejected++;
-assert.equal(resolveGermanAyahMeaning(manifest.entries.find(e=>e.surahId==='sharh'),pack,{preview:true}),null);tamperingRejected++;
+assert.equal(resolveGermanAyahMeaning(manifest.entries.find(e=>e.surahId==='tin'),pack,{preview:true}),null);tamperingRejected++;
 let previewed=0,publicVisible=0;
 for(const ayah of manifest.entries){
  if(resolveGermanAyahMeaning(ayah,pack,{preview:true})!==null)previewed++;
  if(resolveGermanAyahMeaning(ayah,pack)!==null)publicVisible++;
 }
-assert.equal(previewed,58);
+assert.equal(previewed,66);
 assert.equal(publicVisible,0);
 const comparison=pack.sources.comparative_only.filter(r=>r.comparison_scope==='Surah 106 Quraysh');
 assert.equal(comparison.length,2);
 assert(comparison.every(x=>x.text_copied_verbatim===false&&/^https:\/\//.test(x.url)));
 console.log(JSON.stringify({
- status:'passed',surah:'Quraysh',new_ayah_drafts:4,total_staged_meanings:58,
+ status:'passed',surah:'Quraysh',new_ayah_drafts:4,total_staged_meanings:66,
  pending_meanings:39,verified_qa_preview_matches:4,public_meanings:0,
  negative_source_tests:tamperingRejected,source_arabic_audio_unchanged:true,
  qualified_native_religious_rights_review:'pending'
