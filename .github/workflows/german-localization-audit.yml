@@ -16,6 +16,7 @@ on:
       - 'index.html'
       - 'scripts/audit-german-lesson-flow-staging.mjs'
       - 'scripts/test-german-dynamic-ui-staging.mjs'
+      - 'scripts/test-german-ui-renderer-staging.mjs'
       - 'scripts/audit-german-quran-premium-staging.mjs'
       - 'scripts/audit-german-quran-meaning-inventory.mjs'
       - 'scripts/test-german-fatiha-meaning-staging.mjs'
@@ -39,6 +40,7 @@ on:
       - 'assets/i18n/german-ui.quran-controls.staging.json'
       - 'assets/i18n/german-ui.premium-shop.staging.json'
       - 'assets/i18n/german-ui.dynamic.staging.mjs'
+      - 'assets/i18n/german-ui.renderer.staging.mjs'
       - 'assets/i18n/german-ui.lesson-flow.staging.json'
       - 'assets/i18n/english-ui.js'
       - 'assets/i18n/german-ui.staging.json'
@@ -104,6 +106,8 @@ jobs:
         run: node scripts/audit-german-lesson-flow-staging.mjs
       - name: Verify German dynamic counters, results and fail-closed fallback
         run: node scripts/test-german-dynamic-ui-staging.mjs
+      - name: Verify isolated German source-guarded UI DOM preview and preserve live language gate
+        run: node scripts/test-german-ui-renderer-staging.mjs
       - name: Verify German Quran and Premium UI staging without verse fallback
         run: node scripts/audit-german-quran-premium-staging.mjs
       - name: Verify 90 Quran ayahs, audio and outstanding German meaning coverage
