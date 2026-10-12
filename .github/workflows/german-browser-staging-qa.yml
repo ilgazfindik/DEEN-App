@@ -10,6 +10,9 @@ on:
       - 'scripts/build-german-browser-question-fixture.mjs'
       - 'scripts/build-german-e2e-preview-config.mjs'
       - 'scripts/export-german-human-review.mjs'
+      - 'scripts/test-german-quran-source-integrity.mjs'
+      - 'assets/i18n/quran/de/**'
+      - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'scripts/test-german-true-locale-preview.mjs'
       - 'assets/i18n/german-question.adapter.staging.mjs'
       - 'assets/i18n/questions/de/**'
@@ -42,6 +45,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Audit every staged German question signature and grader
         run: node scripts/test-german-question-adapter-staging.mjs
+      - name: Verify 90 German Quran meanings match unchanged Arabic and audio sources
+        run: node scripts/test-german-quran-source-integrity.mjs
       - name: Bundle source-guarded staged questions for local browser-only QA
         run: node scripts/build-german-browser-question-fixture.mjs
       - name: Generate local-only SHA-pinned German acceptance manifest
