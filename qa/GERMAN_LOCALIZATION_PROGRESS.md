@@ -269,3 +269,15 @@ The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-
 - Staged the 100 U01 legacy presenter records in `assets/i18n/questions/de/runtime/staging/U01.legacy-renderer.json`. All 100 have question text different from the canonical bank and **seven** have a distinct choice list. Unchanged Turkish explanations, choices and matching structures reuse the existing German base translations; changed questions and seven choice banks were translated separately.
 - Extended `scripts/audit-german-runtime-staging.mjs` to compare stored and legacy Turkish source fields to source fixtures, validate option count, correct index, matching and blanks, and keep the production manifest blocked.
 - The presence of staging files does not mean they are connected to the active renderer. No claim of native-language, religious expert, end-to-end browser validation or production deploy is made.
+
+## German runtime adapter integration — 2026-10-12
+- Exercised the **actual** \`assets/i18n/content.js\` production adapter in an isolated Node VM; no German production language gate was enabled.
+- An **in-memory-only** German QA manifest emulates full pack loading from 105 base stage packs, seven U01 live packs, 20 stored variants and 100 legacy presenter translations (114 total staged JSON files).
+- Regression runner: \`node scripts/test-german-content-adapter.mjs\`. It asserts 1,500 base / 1,484 active selections and resolves **1,704** distinct stage-entry versions, including all 20 stored and all 100 legacy records. The 8 stored/base ID overlaps and 100 legacy/base ID overlaps are explicitly tested against source structure, not just ID.
+- \`translateText\` now supports German **when verified content is loaded**, prioritizes the active source variant, and refuses to borrow German text from a different variant with the same ID. Globally shared German strings map only when their translations are unambiguous. Existing English behavior is retained.
+- German preloading now validates *every entry* in all staged packs, including non-active variants. A deliberately corrupted stored-only answer is rejected as a fatal preload failure.
+- The startup integrity checksum for \`assets/i18n/content.js\` in \`index.html\` was updated after code changes.
+- This is a **Node VM integration test**, not a real-browser UI E2E test or production deployment. Human native-German and religious content review remain outstanding. \`assets/i18n/content-support.json\` still blocks German gameplay.
+
+### Next slice
+Audit remaining German visible UI strings: lesson frames, stage titles, question templates, result/XP/streak messages, Quran tab (surah titles, ayah meaning, memorization, review), audio controls and premium/purchase screen. Only after all content, UI, accessibility and qualified reviews pass should the production language gate be considered.
