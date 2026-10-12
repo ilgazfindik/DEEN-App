@@ -126,6 +126,8 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   "YENİLENME":"AUFFÜLLUNG",
   "ÖDÜLLÜ REKLAM SİMÜLASYONU · +10":"SIMULIERTE BELOHNUNGSWERBUNG · +10",
   "ŞİMDİLİK KAPAT":"VORERST SCHLIESSEN",
+  "Öğrenme analizi":"Lernanalyse",
+  "Henüz analiz edilecek cevap yok. İlk mini dersi tamamladığında doğruluk, cevap süresi, soru türleri ve tekrar eden hatalar burada oluşacak.":"Es gibt noch keine Antworten zur Auswertung. Nach deiner ersten Mini-Lektion erscheinen hier Antwortgenauigkeit, Antwortdauer, Aufgabentypen und wiederkehrende Fehler.",
   'Enerji azaldı':'Energie aufgebraucht',
   'Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.':
    'Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.',
@@ -155,6 +157,7 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
 
  if((m=n.match(/^([+-]?\d+)\s+Pırıltı$/)))return emit(m[1]+' Glanzpunkte');
  if((m=n.match(/^Günlük hedef\s*·\s*(\d+)\s+mini ders$/)))return emit('Tagesziel · '+m[1]+' '+(m[1]==='1'?'Mini-Lektion':'Mini-Lektionen'));
+ if((m=n.match(/^Seviye\s+(\d+)$/)))return emit('Stufe '+m[1]);
  // A numeric energy reward can vary from the literal +10 observed in Chromium.
  if((m=n.match(/^REKLAM İZLE\s*·\s*\+(\d+)\s+ENERJİ$/)))
   return emit('WERBUNG ANSEHEN · +'+m[1]+' ENERGIE');
