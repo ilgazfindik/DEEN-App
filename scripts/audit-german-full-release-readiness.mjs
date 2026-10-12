@@ -30,9 +30,9 @@ for(let i=0;i<dictionaries.length;i++){
  byLayer.push({path:layerPaths[i],entries:layer.translation_count});
 }
 assert.equal(conflicts.length,0,'Conflicting German translations for the same Turkish source label');
-assert.equal(notCovered.length,730,'The first 120 explicitly reviewed German UI reference keys must remain present; unexpected source/catalog drift');
 const baseline=Object.keys(english);
 const overlap=baseline.filter(key=>merged.has(key)),notCovered=baseline.filter(key=>!merged.has(key));
+assert.equal(notCovered.length,730,'The first 120 explicitly reviewed German UI reference keys must remain present; unexpected source/catalog drift');
 const stagedOnly=[...merged.keys()].filter(key=>!Object.hasOwn(english,key));
 const manifest=read('assets/i18n/content-support.json'),german=manifest.languages.de;
 const quran=read('assets/i18n/quran/de/ayah-meanings.staging.json');
