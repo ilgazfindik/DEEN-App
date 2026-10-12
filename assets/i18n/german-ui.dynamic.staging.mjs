@@ -94,6 +94,38 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   "DEEN boyunca sana eşlik edecek hayvanı seç. Bu bir kişilik testi değil; sadece senin görsel yol arkadaşın.":"Wähle ein Tier, das dich bei DEEN begleitet. Dies ist kein Persönlichkeitstest, sondern dein Lernbegleiter.",
   "Seçimini daha sonra Profil ekranındaki hayvana dokunarak değiştirebilirsin.":"Du kannst deinen Lernbegleiter später ändern, indem du im Profil auf das Tier tippst.",
   "Öğrenme ve bilgelik":"Lernen und Weisheit",
+  "Kalıcı kozmetik":"Dauerhafte kosmetische Anpassung",
+  "◇ Altın profil çerçevesi":"◇ Goldener Profilrahmen",
+  "★ Altın yol vurgusu":"★ Goldene Lernpfad-Hervorhebung",
+  "❄ Seri koruması":"❄ Serienschutz",
+  "AKTİF PROFİL":"AKTIVES PROFIL",
+  "Açıklamayı otomatik oku":"Erklärungen automatisch vorlesen",
+  "Başlangıçta mezhep seçimi istenmez.":"Zu Beginn ist keine Auswahl einer Rechtsschule erforderlich.",
+  "DEEN önce mezheplerin ortak çekirdeğini öğretir. Mezhep-hassas içerikler başka geçerli bir görüşü yanlış diye puanlamaz ve uzman incelemesi önceliğini korur.":"DEEN vermittelt zunächst gemeinsame Grundlagen der Rechtsschulen. Bei Fragen mit unterschiedlichen anerkannten Auffassungen werden andere gültige Meinungen nicht als falsch gewertet; eine fachliche Prüfung hat Vorrang.",
+  "Dinî içerik ödeme duvarının arkasında değildir.":"Religiöse Lerninhalte befinden sich nicht hinter einer Bezahlschranke.",
+  "Dinî telaffuz için yapay/TTS ses üretilmez. Bulut senkronizasyonu bu tek-dosya prototipte yoktur.":"Für religiöse Aussprache wird keine künstliche oder synthetische Sprachausgabe erzeugt. Dieses Prototyp unterstützt keine Cloud-Synchronisierung.",
+  "ERİŞİLEBİLİRLİK & GERİ BİLDİRİM":"BARRIEREFREIHEIT & RÜCKMELDUNG",
+  "Hızlı":"Schnell",
+  "SESLİ ANLATIM":"SPRACHAUSGABE",
+  "Sesli anlatım düğmeleri":"Schaltflächen zum Vorlesen",
+  "Soru, seçenek ve açıklama metinlerini cihazın Türkçe konuşma motoruyla dinle. Kur’an kıraati, şehadet telaffuzu ve doğrulanmış dinleme içerikleri yapay sesle okunmaz.":"Fragen, Antwortmöglichkeiten und Erklärungen können über die türkische Sprachausgabe des Geräts vorgelesen werden. Koranrezitation, Schahāda-Aussprache und geprüfte Hörinhalte werden nicht künstlich vorgelesen.",
+  "Soruların ve geri bildirimlerin dili seçilen yaş grubuna göre ayarlanır.":"Die Formulierungen der Fragen und Rückmeldungen werden an die gewählte Altersgruppe angepasst.",
+  "VERİ & İLERLEME":"DATEN & FORTSCHRITT",
+  "Yavaş":"Langsam",
+  "Yedeği içe aktar":"Sicherung importieren",
+  "ÖĞRENME RİTMİ":"LERNRHYTHMUS",
+  "ÜRÜN POLİTİKASI":"PRODUKTRICHTLINIEN",
+  "Üniteler, finaller, Smart Review ve U03 resmî medya içeriği Free kullanıcılar için erişilebilir kalır. Premium yalnız kullanım konforu sağlar.":"Einheiten, Abschlusstests, Smart Review und die offiziellen Medien zu U03 bleiben auch in der kostenlosen Version verfügbar. Premium bietet lediglich zusätzliche Komfortfunktionen.",
+  "İlerlemeyi sıfırla":"Fortschritt zurücksetzen",
+  "İlerlemeyi yedekle":"Fortschritt sichern",
+  "5 farklı günde Bugünkü Yolculuk'u tamamla.":"Schließe „Deine heutige Reise“ an fünf verschiedenen Tagen ab.",
+  "Bu derse devam etmek için enerjini yenile. Mevcut sistemde yanlış cevap ayrıca enerji düşürmez.":"Fülle deine Energie auf, um mit dieser Lektion fortzufahren. Falsche Antworten kosten hier keine zusätzliche Energie.",
+  "EKSİK":"FEHLEND",
+  "ENERJİ":"ENERGIE",
+  "Enerji 5 dakikada +1 yenilenir. Premium yalnız konfor sağlar; dinî içerik kilitlenmez. Ödüllü reklam bu HTML prototipinde simülasyondur.":"Alle fünf Minuten wird ein Energiepunkt wiederhergestellt. Premium bietet nur Komfort; religiöse Inhalte werden nicht gesperrt. Die belohnte Werbung ist in diesem HTML-Prototyp simuliert.",
+  "YENİLENME":"AUFFÜLLUNG",
+  "ÖDÜLLÜ REKLAM SİMÜLASYONU · +10":"SIMULIERTE BELOHNUNGSWERBUNG · +10",
+  "ŞİMDİLİK KAPAT":"VORERST SCHLIESSEN",
   'Enerji azaldı':'Energie aufgebraucht',
   'Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.':
    'Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.',
@@ -121,6 +153,8 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  if((m=n.match(/^Ödül:\s*\+(\d+)\s+XP\s*·\s*\+(\d+)\s+Pırıltı\s*·\s*\+(\d+)\s+seri koruma$/)))
   return emit('Belohnung: +'+m[1]+' XP · +'+m[2]+' Glanzpunkte · +'+m[3]+' Serienschutz');
 
+ if((m=n.match(/^([+-]?\d+)\s+Pırıltı$/)))return emit(m[1]+' Glanzpunkte');
+ if((m=n.match(/^Günlük hedef\s*·\s*(\d+)\s+mini ders$/)))return emit('Tagesziel · '+m[1]+' '+(m[1]==='1'?'Mini-Lektion':'Mini-Lektionen'));
  // A numeric energy reward can vary from the literal +10 observed in Chromium.
  if((m=n.match(/^REKLAM İZLE\s*·\s*\+(\d+)\s+ENERJİ$/)))
   return emit('WERBUNG ANSEHEN · +'+m[1]+' ENERGIE');
