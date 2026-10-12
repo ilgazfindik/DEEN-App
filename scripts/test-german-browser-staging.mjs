@@ -159,8 +159,8 @@ async function realShell(){
    '0 ENERJİ'
   ])assert(!result.full_shell_qa.unresolved.includes(priorLeak),
    'German QA learning-map residual: '+priorLeak);
-  assert(result.full_shell_qa.unresolved_count<183,
-   'German QA remediation did not reduce the 183 observed full-shell Turkish leftovers');
+  assert.equal(result.full_shell_qa.unresolved_count,0,
+   'Assembled QA shell still exposes source-detected Turkish chrome labels');
   assert(Array.isArray(result.full_shell_qa.screens),
    'Named screen-level untranslated text inventories were not generated');
   assert.deepEqual(result.audit.unresolved,[], 'Real lesson shell has uncovered Turkish chrome labels');
