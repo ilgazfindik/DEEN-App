@@ -24,6 +24,7 @@ on:
       - 'scripts/test-german-masad-meaning-staging.mjs'
       - 'scripts/test-german-fil-meaning-staging.mjs'
       - 'scripts/test-german-quraysh-meaning-staging.mjs'
+      - 'scripts/test-german-maun-meaning-staging.mjs'
       - 'assets/i18n/quran/de/**'
       - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'assets/i18n/german-ui.quran-controls.staging.json'
@@ -84,6 +85,8 @@ jobs:
         run: node scripts/test-german-fil-meaning-staging.mjs
       - name: Verify Quraysh 4 German meaning drafts and original Quran audio/Arabic gate
         run: node scripts/test-german-quraysh-meaning-staging.mjs
+      - name: Verify Al-Maun 7-ayah German meaning drafts, source integrity and release gate
+        run: node scripts/test-german-maun-meaning-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
