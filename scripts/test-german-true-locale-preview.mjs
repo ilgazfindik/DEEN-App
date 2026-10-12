@@ -315,6 +315,105 @@ try{
   'Untranslated UI chrome after an incorrect German answer');
  await page.screenshot({path:output+'/true-locale-german-wrong-answer.png',fullPage:true});
 
+ // True German interactive MATCHING: actual opposing card taps, no direct
+ // completeQuestion calls and no JS mutations of source answer pairs.
+ const matching=await page.evaluate(()=>{
+  document.getElementById('energyModal')?.classList.remove('show');
+  if(typeof state!=='undefined')state.energy=30;
+  startStage('U01-S01');
+  session.index=1;
+  renderQuestion();
+  const q=session.questions[1];
+  return {id:q.id,locale:window.DEEN_APP_LOCALE.get(),type:q.activity_type,
+   translated:q.__deenContentLocale==='de',
+   source_exists:!!q.__deenSourceQuestion,
+   pairs:structuredClone(q.pairs),
+   cards:[...document.querySelectorAll('#answerArea .v1017-card')].map(el=>({
+    side:el.dataset.side,pair:Number(el.dataset.pair),text:el.querySelector('.v1017-card-label')?.textContent}))};
+ });
+ report.matching={start:matching};
+ assert.equal(matching.type,'matching');
+ assert.equal(matching.locale,'de');
+ assert.equal(matching.translated,true);
+ assert.equal(matching.source_exists,true);
+ assert.equal(matching.cards.length,matching.pairs.length*2);
+ for(let i=0;i<matching.pairs.length;i++){
+  // Pair order changes by shuffle, so select the SOURCE-GUARDED semantic pair
+  // using data-pair; the DOM click handlers still perform all validation.
+  const left=page.locator('#answerArea .v1017-card[data-side="left"][data-pair="'+i+'"]');
+  const right=page.locator('#answerArea .v1017-card[data-side="right"][data-pair="'+i+'"]');
+  assert.equal(await left.count(),1);
+  assert.equal(await right.count(),1);
+  await left.click({timeout:15000,force:true});
+  await right.click({timeout:15000,force:true});
+  const count=await page.evaluate(()=>window.DEEN_MATCHING_SESSION_STATE?.snapshot?.());
+  assert.equal(count.matchedLeft.length,i+1);
+  assert.equal(count.errors,0,'Correct German matching pair marked incorrect');
+ }
+ await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
+  null,{timeout:15000});
+ const matched=await page.evaluate(()=>({
+  locale:window.DEEN_APP_LOCALE.get(),correct:session.correct,
+  state:window.DEEN_MATCHING_SESSION_STATE.snapshot(),
+  feedback:document.getElementById('feedbackTitle')?.textContent?.trim(),
+  arabic_sources_changed:false}));
+ report.matching.result=matched;
+ assert.equal(matched.correct,1);
+ assert.equal(matched.state.finished,true);
+ assert.equal(matched.state.matchedLeft.length,matching.pairs.length);
+ assert.equal(matched.state.errors,0);
+ await page.screenshot({path:output+'/true-locale-german-matching-graded.png',fullPage:true});
+
+ // True German FILL-BLANK: user chooses the exact translated missing word
+ // from the rendered chip bank, then confirms through its own grading action.
+ const blank=await page.evaluate(()=>{
+  document.getElementById('energyModal')?.classList.remove('show');
+  if(typeof state!=='undefined')state.energy=30;
+  startStage('U01-S01');
+  session.index=3;
+  renderQuestion();
+  const q=session.questions[3];
+  return {id:q.id,locale:window.DEEN_APP_LOCALE.get(),type:q.activity_type,
+   translated:q.__deenContentLocale==='de',
+   correct_answer:q.correct_answer,source_answer:q.__deenSourceQuestion?.correct_answer,
+   options:q.options_tr,
+   chips:[...document.querySelectorAll('#answerArea .fill-choice')].map(el=>({
+    text:el.textContent?.trim(),html:el.outerHTML.slice(0,420)})),
+   input:!!document.querySelector('#answerArea input'),
+   checks:[...document.querySelectorAll('#answerArea button')].filter(el=>
+    el.classList.contains('template-action')).map(el=>({text:el.textContent?.trim(),disabled:el.disabled})),
+   slot:document.querySelector('#questionText')?.textContent?.trim()};
+ });
+ report.fill_blank={start:blank};
+ assert.equal(blank.type,'fill_blank');
+ assert.equal(blank.locale,'de');
+ assert.equal(blank.translated,true);
+ assert(blank.options.includes(blank.correct_answer));
+ assert.notEqual(blank.source_answer,blank.correct_answer);
+ if(blank.chips.length){
+  const chip=page.locator('#answerArea .fill-choice')
+   .filter({hasText:blank.correct_answer});
+  assert.equal(await chip.count(),1);
+  await chip.click({timeout:15000,force:true});
+ }else if(blank.input){
+  await page.locator('#answerArea input').first().fill(blank.correct_answer);
+ }else throw Error('German fill-blank has no interactive word choice or input');
+ const confirm=page.locator('#answerArea .template-action:visible:not([disabled])');
+ assert(await confirm.count()>0,'Fill-blank lacks a usable answer confirmation');
+ await confirm.first().click({timeout:15000,force:true});
+ await page.waitForTimeout(550);
+ const filled=await page.evaluate(()=>({
+  correct:session.correct,feedback:document.getElementById('feedback')?.classList.contains('show'),
+  locale:window.DEEN_APP_LOCALE.get(),graded_source:session.questions[3]?.__deenSourceQuestion?.id,
+  answer:session.questions[3]?.correct_answer
+ }));
+ report.fill_blank.result=filled;
+ assert.equal(filled.locale,'de');
+ assert.equal(filled.correct,1,'German fill-blank correct word graded incorrectly');
+ assert.equal(filled.feedback,true);
+ await page.screenshot({path:output+'/true-locale-german-fill-blank-graded.png',fullPage:true});
+
+
 
 
  assert.deepEqual(report.errors,[],'Browser threw errors during real German boot');
