@@ -12,6 +12,7 @@ on:
       - 'scripts/audit-german-full-release-readiness.mjs'
       - 'assets/i18n/boot.js'
       - 'assets/i18n/locale.js'
+      - 'index.html'
       - 'scripts/audit-german-lesson-flow-staging.mjs'
       - 'scripts/test-german-dynamic-ui-staging.mjs'
       - 'scripts/audit-german-quran-premium-staging.mjs'
