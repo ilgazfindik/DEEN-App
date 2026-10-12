@@ -33,7 +33,7 @@ export function createGermanUIStagingRenderer({packs,englishReference}={}){
   }
  }
  if(conflicts.length)throw Error('DE_STAGING_CONFLICT:'+conflicts.join(','));
- if(dictionary.size!==1451)throw Error('DE_STAGING_DICTIONARY_DRIFT:'+dictionary.size);
+ if(dictionary.size!==1452)throw Error('DE_STAGING_DICTIONARY_DRIFT:'+dictionary.size);
  const sourceKeys=Object.keys(englishReference);
  if(sourceKeys.length!==1087||sourceKeys.some(key=>!dictionary.has(key)))throw Error('DE_STAGING_BASELINE_GAP');
  const originals=new WeakMap(),attributeOriginals=new WeakMap();
