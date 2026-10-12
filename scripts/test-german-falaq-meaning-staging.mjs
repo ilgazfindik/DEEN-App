@@ -13,8 +13,8 @@ assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(stage.locale,'de');
 assert.equal(stage.scope,'quran_ayah_meanings_staging');
-assert.equal(stage.ayah_count,58);
-assert.equal(Object.keys(stage.translations).length,58);
+assert.equal(stage.ayah_count,66);
+assert.equal(Object.keys(stage.translations).length,66);
 for(const prop of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(stage[prop],false,prop);
 const falaq=original.entries.filter(e=>e.surahId==='falaq').sort((a,b)=>a.ayah-b.ayah);
 assert.deepEqual(falaq.map(e=>e.ayah),[1,2,3,4,5]);
@@ -56,13 +56,13 @@ for(const entry of original.entries){
  if(resolveGermanAyahMeaning(entry,stage,{preview:true})!==null)qa++;
  if(resolveGermanAyahMeaning(entry,stage)!==null)production++;
 }
-assert.equal(qa,58);
+assert.equal(qa,66);
 assert.equal(production,0);
 assert.equal(resolveGermanAyahMeaning(falaq[0],{...stage,locale:'en'},{preview:true}),null);negatives++;
-assert.equal(resolveGermanAyahMeaning(original.entries.find(e=>e.surahId==='sharh'),stage,{preview:true}),null);negatives++;
+assert.equal(resolveGermanAyahMeaning(original.entries.find(e=>e.surahId==='tin'),stage,{preview:true}),null);negatives++;
 const comparative=stage.sources.comparative_only.filter(r=>r.comparison_scope==='Surah 113 Al-Falaq');
 assert.equal(comparative.length,2);
 assert(comparative.every(ref=>ref.text_copied_verbatim===false&&/^https:\/\//.test(ref.url)));
-console.log(JSON.stringify({status:'passed',surah:'Al-Falaq',staged_ayahs:5,total_drafts:58,remaining_ayah_meanings:32,
+console.log(JSON.stringify({status:'passed',surah:'Al-Falaq',staged_ayahs:5,total_drafts:66,remaining_ayah_meanings:24,
  preview_matching:5,production_exposed:0,negative_checks:negatives,original_arabic_audio_modified:false,
  native_religious_rights_approval:'pending'},null,2));
