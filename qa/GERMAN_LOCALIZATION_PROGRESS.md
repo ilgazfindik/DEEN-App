@@ -531,3 +531,14 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - Updated `scripts/audit-german-full-release-readiness.mjs` for seven source-key catalogs and 490 remaining reference gaps. Rebuilt [full exact remaining 490-key list](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md).
 - Original Arabic Quran, all 90 Arabic ayah/audio sources, older languages, grading logic and German 90/90 *unapproved meaning draft* corpus remain unchanged.
 - **Deployment remains blocked.** UI renderer and full German browser E2E, 490 remaining keys, rights/religious/native review and final source discrepancies are not yet finished. Next pack can cover the following 120 keys with the same strict checks.
+
+
+## German UI reference remediation batch 04 — 2026-10-12
+
+- Added **120 source-key-aligned German UI drafts** in `assets/i18n/german-ui.reference-batch-04.staging.json` for Islam's five pillars, Shahada, ritual prayer, zakat, fasting and Hajj, study challenges, and all six articles of faith.
+- Initial English-reference UI unmatched source keys: **850**. Four 120-key staging batches now address **480**, leaving **370** unmatched. Staging German UI dictionaries hold **1,072 unique entries**, with **717/1,087** English UI source-key matches and 355 other newer/dynamic UI labels.
+- **20** religious/context-sensitive phrases flagged for native German and Islamic scholarly review (especially `Kader ve Kaza`, zakat, Hajj and articles-of-faith vs pillars-of-Islam distinctions). All release, rights, expert and native review flags remain blocked.
+- Created `scripts/test-german-ui-reference-batch-04.mjs`; it tests exact sequential source-key matches, no collisions across eight German UI staging catalogs, 120 new translations, 370 remaining source keys, preserved Quran meaning draft and German language release embargo. Integrated into `.github/workflows/german-localization-audit.yml`.
+- Refreshed the [370-key untranslated UI source inventory](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md). The original Turkish, English, Arabic, 90 Quran ayah source/audio and current live deployment are unchanged.
+- Remaining blockers: 370 untranslated-reference keys; staged text not yet wired to a German production DOM renderer; full browser E2E not completed; native German, Islamic subject-matter and licensing/rights signoffs pending. **No main merge or live deploy**.
+- Next: German UI reference batch 05, targeting 120 of the 370 remaining source keys with the same source and QA validation.
