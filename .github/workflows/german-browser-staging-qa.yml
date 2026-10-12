@@ -8,6 +8,8 @@ on:
       - 'scripts/test-german-stateful-browser-staging.mjs'
       - 'scripts/test-german-question-adapter-staging.mjs'
       - 'scripts/build-german-browser-question-fixture.mjs'
+      - 'scripts/build-german-e2e-preview-config.mjs'
+      - 'scripts/test-german-true-locale-preview.mjs'
       - 'assets/i18n/german-question.adapter.staging.mjs'
       - 'assets/i18n/questions/de/**'
       - 'assets/i18n/german-ui*'
@@ -41,6 +43,8 @@ jobs:
         run: node scripts/test-german-question-adapter-staging.mjs
       - name: Bundle source-guarded staged questions for local browser-only QA
         run: node scripts/build-german-browser-question-fixture.mjs
+      - name: Generate local-only SHA-pinned German acceptance manifest
+        run: node scripts/build-german-e2e-preview-config.mjs
       - name: Exercise mobile and desktop preview plus assembled DEEN shell
         shell: bash
         run: |
@@ -51,6 +55,7 @@ jobs:
           curl --fail --silent --show-error --retry 12 --retry-connrefused --retry-delay 1 http://127.0.0.1:8765/ > /dev/null
           node scripts/test-german-browser-staging.mjs
           node scripts/test-german-stateful-browser-staging.mjs
+          node scripts/test-german-true-locale-preview.mjs
       - name: Upload browser evidence and audit summary
         if: always()
         uses: actions/upload-artifact@v4
