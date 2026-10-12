@@ -12,7 +12,8 @@ const layerPaths=[
  'assets/i18n/german-ui.staging.json',
  'assets/i18n/german-ui.lesson-flow.staging.json',
  'assets/i18n/german-ui.premium-shop.staging.json',
- 'assets/i18n/german-ui.quran-controls.staging.json'
+ 'assets/i18n/german-ui.quran-controls.staging.json',
+ 'assets/i18n/german-ui.reference-batch-01.staging.json'
 ];
 const dictionaries=layerPaths.map(p=>read(p));
 const merged=new Map(),conflicts=[],byLayer=[];
@@ -29,6 +30,7 @@ for(let i=0;i<dictionaries.length;i++){
  byLayer.push({path:layerPaths[i],entries:layer.translation_count});
 }
 assert.equal(conflicts.length,0,'Conflicting German translations for the same Turkish source label');
+assert.equal(notCovered.length,730,'The first 120 explicitly reviewed German UI reference keys must remain present; unexpected source/catalog drift');
 const baseline=Object.keys(english);
 const overlap=baseline.filter(key=>merged.has(key)),notCovered=baseline.filter(key=>!merged.has(key));
 const stagedOnly=[...merged.keys()].filter(key=>!Object.hasOwn(english,key));
