@@ -12,8 +12,8 @@ assert.equal(gate.question_data,'missing');
 assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(pack.locale,'de');
-assert.equal(pack.ayah_count,51);
-assert.equal(Object.keys(pack.translations).length,51);
+assert.equal(pack.ayah_count,58);
+assert.equal(Object.keys(pack.translations).length,58);
 assert.equal(pack.scope,'quran_ayah_meanings_staging');
 for(const prop of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[prop],false,'Pack gate must remain closed: '+prop);
 const ikhlas=canonical.entries.filter(x=>x.surahId==='ikhlas').sort((a,b)=>a.ayah-b.ayah);
@@ -53,17 +53,17 @@ for(const src of ikhlas){
 }
 const wrongLocale={...pack,locale:'tr'};
 for(const src of ikhlas){assert.equal(resolveGermanAyahMeaning(src,wrongLocale,{preview:true}),null);negativeGuards++;}
-assert.equal(resolveGermanAyahMeaning(canonical.entries.find(x=>x.surahId==='maun'),pack,{preview:true}),null);negativeGuards++;
+assert.equal(resolveGermanAyahMeaning(canonical.entries.find(x=>x.surahId==='sharh'),pack,{preview:true}),null);negativeGuards++;
 let inQa=0,inPublic=0;
 for(const src of canonical.entries){
  if(resolveGermanAyahMeaning(src,pack,{preview:true})!==null)inQa++;
  if(resolveGermanAyahMeaning(src,pack)!==null)inPublic++;
 }
-assert.equal(inQa,51);
+assert.equal(inQa,58);
 assert.equal(inPublic,0);
 const sources=pack.sources.comparative_only.filter(r=>String(r.url).includes('112'));
 assert.equal(sources.length,2);
 assert(sources.every(s=>s.text_copied_verbatim===false));
 console.log(JSON.stringify({status:'passed',locale:'de',surah:'ikhlas',source_ayahs:4,correct_qa_previews:4,
- total_german_drafts:51,untranslated_source_ayahs:39,production_exposed:0,
+ total_german_drafts:58,untranslated_source_ayahs:32,production_exposed:0,
  negative_guards:negativeGuards,arabic_and_audio_not_modified:true,religious_and_native_approval:'pending'},null,2));
