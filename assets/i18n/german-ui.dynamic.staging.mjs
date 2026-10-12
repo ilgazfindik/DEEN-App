@@ -12,6 +12,30 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   const v=translateLabel(text.trim());
   return typeof v==='string'&&v.trim()&&v!==text.trim()?v:null;
  };
+ const observedResult={
+  'AŞAMA ÖDÜLÜ':'ETAPPENBELOHNUNG',
+  'Bu ders zincirini geçtin. Sonraki düğüm ve ünite ilerleyişi daha güçlü hissettirilecek.':'Du hast diese Lernreihe abgeschlossen. Der nächste Lernschritt und dein Fortschritt werden deutlicher hervorgehoben.',
+  'Bu mini dersi hatasız bitirdin. Devam ettiğinde daha güçlü bir ödül hissi göreceksin.':'Du hast diese Mini-Lektion fehlerfrei abgeschlossen. Beim Fortfahren wird dein Erfolg besonders hervorgehoben.',
+  'DERS RİTMİ':'LERNRHYTHMUS',
+  'Ders süresi':'Lektionsdauer',
+  'GERİ KAZANILAN':'ZURÜCKGEWONNEN',
+  'Kusursuz ders ödülü hazır':'Belohnung für eine fehlerfreie Lektion ist bereit',
+  'SIRADAKİ EN İYİ ADIM':'NÄCHSTER SINNVOLLER SCHRITT',
+  'Ustalık puanı':'Kenntnisstand',
+  'Yanlıştan doğruya':'Vom Fehler zur richtigen Antwort',
+  'Yardım almadan doğru':'Ohne Hilfe richtig',
+  'Yeni düğüm açıldı':'Neuer Lernschritt freigeschaltet',
+  'Yeni rozet · İlk Adım':'Neues Abzeichen · Erster Schritt',
+  '· Haftalık ritim':'· Wochenrhythmus',
+  'ÖDÜLÜ AL VE DEVAM ET':'BELOHNUNG ABHOLEN UND WEITER',
+  'Öğrendiklerin aralıklı tekrar planına eklendi.':'Deine Lerninhalte wurden deinem Wiederholungsplan hinzugefügt.',
+  'İLK DENEME':'ERSTER VERSUCH',
+  'İlk deneme doğruluğu':'Genauigkeit beim ersten Versuch',
+  '✦ KUSURSUZ DERS':'✦ FEHLERFREIE LEKTION'
+ };
+ // Real U01-S01 result DOM (Chromium 38317812063); QA-only source-exact chrome.
+ // No answer values, source citations or religious content are translated here.
+ if(Object.prototype.hasOwnProperty.call(observedResult,n))return emit(observedResult[n]);
  let m;
  if((m=n.match(/^Ünite\s+(\d+)\s*·\s*Aşama\s+(\d+)$/)))return emit('Einheit '+m[1]+' · Etappe '+m[2]);
  // Source-observed companion chrome; retain proper name and translate only the UI role.
@@ -49,8 +73,11 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  if((m=n.match(/^%(\d+)\s*GEÇİŞ$/)))return emit('ÜBERGANGSSCHWELLE '+m[1]+' %');
  if((m=n.match(/^aşama\s*·\s*Ustalık\s*%(\d+)$/)))
   return emit('Etappe · Kenntnisstand '+m[1]+' %');
- if((m=n.match(/^(.+?)\s*·\s*ÖĞREN\s*·\s*Mini ders\s+(\d+)\/(\d+)$/))){
-  const name=label(m[1]);return name?emit(name+' · LERNEN · Mini-Lektion '+m[2]+'/'+m[3]):null;
+ if((m=n.match(/^(.+?)\s*·\s*(ÖĞREN|ANLA|DİNLE|UYGULA|HATIRLA|USTALAŞ)\s*·\s*Mini ders\s+(\d+)\/(\d+)$/))){
+  const kinds={'ÖĞREN':'LERNEN','ANLA':'VERSTEHEN','DİNLE':'ZUHÖREN',
+   'UYGULA':'ANWENDEN','HATIRLA':'ERINNERN','USTALAŞ':'MEISTERN'};
+  const name=label(m[1]);
+  return name?emit(name+' · '+kinds[m[2]]+' · Mini-Lektion '+m[3]+'/'+m[4]):null;
  }
  if((m=n.match(/^(.+?)\s*—\s*(\d+)\/(\d+)\s+mini ders tamamlandı$/))){
   const name=label(m[1]);return name?emit(name+' — '+m[2]+'/'+m[3]+' Mini-Lektionen abgeschlossen'):null;
