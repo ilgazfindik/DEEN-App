@@ -127,7 +127,7 @@ try{
  assert(stage.renders.every(q=>q.source_distinct),
   'German question content did not retain its original source');
  const normalizeSentence=s=>String(s||'')
-  .replace(/_{2,}|[\\u00a0]+/g,' ').replace(/\\s+/g,' ').trim();
+  .replace(/_{2,}|[\u00a0]+/g,' ').replace(/\s+/g,' ').trim();
  const mismatched=stage.renders.filter(q=>
   normalizeSentence(q.displayed_text)!==normalizeSentence(q.question));
  assert.deepEqual(mismatched.map(q=>({id:q.id,rendered:q.displayed_text,expected:q.question})),[],
