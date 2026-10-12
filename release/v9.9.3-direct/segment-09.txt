@@ -784,18 +784,6 @@ function renderMatching(q,area){
  }
 
  function persist(){
-  // Passive diagnostic only when the isolated QA harness explicitly opts in.
-  if(window.__DEEN_MATCH_OBSERVED_SESSION__){
-   const observed=window.__DEEN_MATCH_OBSERVED_SESSION__;
-   (window.__DEEN_MATCH_ENGINE_TRACE__??=[]).push({
-    kind:'persist',same_session:session===observed,
-    owner_exists:!!session,owner_key:session?.__deenMatchingState?.key,
-    owner_count:session?.__deenMatchingState?.matchedLeft?.length??null,
-    local_count:persistent.matchedLeft.length,
-    same_object:session?.__deenMatchingState===persistent,
-    stack:(new Error()).stack?.split('\n').slice(1,4).join(' | ')
-   });
-  }
   if(!session)return;
   persistent.matchedLeft=[...new Set(persistent.matchedLeft.map(Number))];
   persistent.matchedRight=[...new Set(persistent.matchedRight.map(Number))];
@@ -812,53 +800,6 @@ function renderMatching(q,area){
   if(fill)fill.style.width=Math.round(done/pairs.length*100)+'%';
   document.documentElement.dataset.deenMatchingProgress=done+'/'+pairs.length;
  }
-
-
- // The visible matching buttons can retain an old click closure after an
- // asynchronous re-render. Reconcile only semantically VERIFIED completed
- // pairs into the current lesson state, never award points from DOM alone.
- function reconcileRenderedPairs(wasErrors){
-  if(!session||session.questions?.[session.index]?.id!==q.id||
-     session.__deenMatchingState?.key!==persistentKey||!area.isConnected)return;
-  if(session.__deenMatchingState!==persistent)persistent=session.__deenMatchingState;
-  const verified=[];
-  for(let i=0;i<pairs.length;i++){
-   const leftCard=area.querySelector('.v1017-card[data-side="left"][data-pair="'+i+'"]');
-   const rightCard=area.querySelector('.v1017-card[data-side="right"][data-pair="'+i+'"]');
-   if(!leftCard||!rightCard)return;
-   const leftDone=leftCard.classList.contains('matched');
-   const rightDone=rightCard.classList.contains('matched');
-   if(leftDone!==rightDone)return;
-   if(!leftDone)continue;
-   if(normalize(cardText(leftCard))!==normalize(pairs[i].left)||
-      normalize(cardText(rightCard))!==normalize(pairs[i].right))return;
-   verified.push(i);
-  }
-  if(verified.length<persistent.matchedLeft.length)return;
-  persistent.matchedLeft=verified;
-  persistent.matchedRight=[...verified];
-  const selected=area.querySelector('.v1017-card.selected');
-  persistent.selected=selected?descriptor(selected):null;
-  if(document.documentElement.dataset.deenMatchingLast==='wrong'&&
-     Number(persistent.errors||0)===wasErrors)persistent.errors=wasErrors+1;
-  if(verified.length===pairs.length)persistent.finished=true;
-  matchState={left:persistent.selected?Number(persistent.selected.pair):null,
-   matched:new Set(verified),errors:Number(persistent.errors)||0};
-  persist();
-  update();
- }
- if(area.__deenMatchReconcileHandler){
-  area.removeEventListener('click',area.__deenMatchReconcileHandler,true);
- }
- const reconcileOnClick=event=>{
-  const card=event.target.closest?.('.v1017-card');
-  if(!card||!area.contains(card))return;
-  const priorErrors=Number(session?.__deenMatchingState?.errors)||0;
-  queueMicrotask(()=>reconcileRenderedPairs(priorErrors));
-  setTimeout(()=>reconcileRenderedPairs(priorErrors),0);
- };
- area.__deenMatchReconcileHandler=reconcileOnClick;
- area.addEventListener('click',reconcileOnClick,true);
 
  function paintMatched(card){
   if(!card)return;
@@ -1003,20 +944,6 @@ function renderMatching(q,area){
  }
 
  function pick(card){
-  // A second render can replace session.__deenMatchingState while a card
-  // from an older view still holds this handler. Never write a stale snapshot.
-  // Prefer the current session state when both views belong to the same question.
-  const current=session?.__deenMatchingState;
-  if(!current||current.key!==persistentKey||!area.contains(card))return;
-  if(current!==persistent){
-   persistent=current;
-   matchState={
-    left:persistent.selected?Number(persistent.selected.pair):null,
-    matched:new Set(persistent.matchedLeft||[]),
-    errors:Number(persistent.errors)||0
-   };
-   finished=!!persistent.finished;
-  }
   if(finished||persistent.finished||card.disabled)return;
 
   const selectedDesc=persistent.selected;
