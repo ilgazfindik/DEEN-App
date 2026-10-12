@@ -373,6 +373,11 @@ try{
    translated:q.__deenContentLocale==='de',
    source_exists:!!q.__deenSourceQuestion,
    pairs:structuredClone(q.pairs),
+   handler_sources:[...document.querySelectorAll('#answerArea .v1017-card')].slice(0,3).map(el=>({
+    side:el.dataset.side,pair:el.dataset.pair,
+    onclick:el.onclick?.toString().slice(0,350)||null,
+    click_attr:el.getAttribute('onclick')
+   })),
    cards:[...document.querySelectorAll('#answerArea .v1017-card')].map(el=>({
     side:el.dataset.side,pair:Number(el.dataset.pair),text:el.querySelector('.v1017-card-label')?.textContent}))};
  });
@@ -483,6 +488,8 @@ try{
    writes:(window.__DEEN_MATCH_SET_TRACE__||[]).slice(-12),
    engine_persists:(window.__DEEN_MATCH_ENGINE_TRACE__||[]).slice(-12),
    click_events:(window.__DEEN_MATCH_CLICK_EVENTS__||[]).slice(-12),
+   source_handler:document.querySelector('#answerArea .v1017-card')?.onclick?.toString().slice(0,350),
+   last_event_target:document.documentElement.dataset.deenMatchingLast,
    same_session:window.__DEEN_MATCH_OBSERVED_SESSION__===session,
    card_element_connected:!!document.querySelector('#answerArea .v1017-card.matched')?.isConnected
   }));
