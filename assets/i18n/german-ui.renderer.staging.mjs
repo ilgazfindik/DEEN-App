@@ -50,16 +50,25 @@ export function createGermanUIStagingRenderer({packs,englishReference}={}){
   if(!el||typeof el.closest!=='function')return true;
   return !el.closest(EXCLUDED);
  }
+ function contextualStreakDay(source,element){
+  if(typeof source!=='string'||source.trim()!=='gün')return null;
+  // The shipped lesson header uses a *separate* #lessonStreakMini node.
+  // Translating the isolated word as 'Tag' for every value would be wrong.
+  const host=element?.closest?.('.lesson-chip.fire');
+  const count=host?.querySelector?.('#lessonStreakMini')?.textContent?.trim();
+  if(!/^(?:0|[1-9][0-9]*)$/.test(count||''))return null;
+  return source.replace('gün',count==='1'?'Tag':'Tage');
+ }
  function render(root,{locale='de',qaMode=false,documentRef=globalThis.document}={}){
   // Production must never invoke this renderer implicitly, even if DE is selected.
   if(qaMode!==true||locale!=='de'||!root||!documentRef?.createTreeWalker)
    throw Error('DE_GERMAN_UI_STAGING_PREVIEW_ONLY');
   const audit={mode:'staging-only',passes:++passes,writes:0,unresolved:new Set(),skipped:0,scanned:0};
-  function convert(node,current,remember,set){
+  function convert(node,current,remember,set,contextual=null){
    let row=remember.get(node);
    if(!row||row.output!==current){row={source:current,output:current};remember.set(node,row)}
    audit.scanned++;
-   const translated=translate(row.source);
+   const translated=contextual?.(row.source)??translate(row.source);
    if(translated===null){
     if(TURKISH_SIGNALS.test(row.source))audit.unresolved.add(row.source.trim());
     return;
@@ -71,7 +80,7 @@ export function createGermanUIStagingRenderer({packs,englishReference}={}){
   const walker=documentRef.createTreeWalker(root,nf);let node;
   while((node=walker.nextNode())){
    if(!eligible(node.parentElement)){audit.skipped++;continue}
-   convert(node,node.nodeValue,originals,value=>{node.nodeValue=value});
+   convert(node,node.nodeValue,originals,value=>{node.nodeValue=value},source=>contextualStreakDay(source,node.parentElement));
   }
   for(const el of root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt]')||[]){
    if(!eligible(el)){audit.skipped++;continue}
