@@ -72,8 +72,19 @@ async function auditNavTabs(){
    for(const id of ['v998Onboarding','deenPreparation','deenLanguageGate'])
     document.getElementById(id)?.remove();
    const phone=document.querySelector('.phone');phone.inert=false;
+   const active=typeof QUESTIONS!=='undefined'&&Array.isArray(QUESTIONS)?QUESTIONS:[];
+   const base=Array.isArray(window.DEEN_BASE_QUESTIONS)?window.DEEN_BASE_QUESTIONS:[];
+   const ids=items=>items.map(q=>String(q?.id||q?.questionId||'')).filter(Boolean);
+   const activeIds=ids(active),baseIds=ids(base),baseSet=new Set(baseIds);
+   const unique=new Set(activeIds),frequency=new Map();
+   for(const id of activeIds)frequency.set(id,(frequency.get(id)||0)+1);
    return {ready,boot:window.DEEN_BOOT.status(),overlays:
-    [...document.querySelectorAll('[aria-modal="true"]')].map(el=>el.id)};
+    [...document.querySelectorAll('[aria-modal="true"]')].map(el=>el.id),
+    question_inventory:{active_count:active.length,base_count:base.length,
+     active_unique_ids:unique.size,active_duplicate_id_count:activeIds.length-unique.size,
+     non_base_ids:[...unique].filter(id=>!baseSet.has(id)).slice(0,60),
+     duplicate_ids:[...frequency.entries()].filter(([,count])=>count>1).slice(0,25)}};
+
   });
   report.qa_boot=qaBoot;
   // A pre-onboarding Turkish session may not satisfy the fully onboarded
@@ -147,6 +158,7 @@ async function auditNavTabs(){
    assert.equal(state.german_available,false);
    assert.equal(state.graded_content_unchanged,true);
    assert.equal(state.arabic_unchanged,true);
+   assert.deepEqual(state.unresolved,[], 'Navigated '+id+' has untranslated Turkish-signal UI chrome');
    await page.screenshot({path:output+'/stateful-tab-'+id+'.png',fullPage:true});
   }
   return init;
