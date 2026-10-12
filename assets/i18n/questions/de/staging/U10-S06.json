@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U10",
+  "stage": "U10-S06",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U10-S06-001": {
+      "source": {
+        "question_tr": "Bir içerikte 'Kader, insanın hiçbir seçim yapamadığı zorunlu bir senaryodur' deniyor. Düzeltme hangisidir?",
+        "explanation_tr": "Kader insan iradesini yok sayan fatalizm değildir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an insanın tercih ve sorumluluk alanını kabul eder",
+          "İnsan tamamen iradesizdir",
+          "İnsan Allah'tan bağımsız yaratıcıdır",
+          "Kader yalnız tesadüftür"
+        ],
+        "correct_answer": "Kur'an insanın tercih ve sorumluluk alanını kabul eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Text behauptet: „Bei der Vorherbestimmung folgen Menschen einem Zwangsplan und können nichts selbst entscheiden.“ Was stimmt daran nicht?",
+        "explanation_tr": "Die göttliche Vorherbestimmung ist kein Fatalismus, der den menschlichen Willen verneint.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Der Koran erkennt menschliche Entscheidungsfreiheit und Verantwortung an",
+          "Menschen haben überhaupt keinen Willen",
+          "Menschen erschaffen unabhängig von Allah",
+          "Vorherbestimmung bedeutet bloßen Zufall"
+        ],
+        "correct_answer": "Der Koran erkennt menschliche Entscheidungsfreiheit und Verantwortung an",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-002": {
+      "source": {
+        "question_tr": "Günah işledikten sonra 'Allah böyle yazmış, ben ne yapayım?' diyerek sorumluluktan kaçmak doğru kader anlayışıdır.",
+        "explanation_tr": "Diyanet bu yaklaşımı açıkça yanlış sayar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach einer Sünde zu sagen: „Allah hat es so bestimmt, was hätte ich tun können?“, und damit Verantwortung abzulehnen, entspricht einem richtigen Verständnis der Vorherbestimmung.",
+        "explanation_tr": "Die Diyanet bezeichnet diese Rechtfertigung ausdrücklich als falsch.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-003": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Tedbir almak kadere karşı çıkmaktır' diyor. En doğru cevap hangisidir?",
+        "explanation_tr": "Diyanet sebeplere sarılmayı gerekli görür.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Tedbir insanın sorumluluğudur ve kaderle çelişmez",
+          "Tedbir güvensizliktir",
+          "Sebepler anlamsızdır",
+          "Tevekkül hiçbir şey yapmamaktır"
+        ],
+        "correct_answer": "Tedbir insanın sorumluluğudur ve kaderle çelişmez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Vorsichtsmaßnahmen widersprechen der göttlichen Vorherbestimmung.“ Was ist richtig?",
+        "explanation_tr": "Die Diyanet betont den Einsatz der verfügbaren Mittel.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Vorsorge gehört zur menschlichen Verantwortung und widerspricht der Vorherbestimmung nicht",
+          "Vorsichtsmaßnahmen zeigen Misstrauen",
+          "Ursachen sind bedeutungslos",
+          "Gottvertrauen heißt, nichts zu tun"
+        ],
+        "correct_answer": "Vorsorge gehört zur menschlichen Verantwortung und widerspricht der Vorherbestimmung nicht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-004": {
+      "source": {
+        "question_tr": "Bir notta 'Tevekkül, hiçbir çaba göstermeden sonucu Allah'tan beklemektir' yazıyor. Hata nedir?",
+        "explanation_tr": "Tevekkül pasiflik değildir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tevekkül çaba ve tedbirden sonra Allah'a güvenmektir",
+          "Tevekkül tembelliktir",
+          "Plan yapmak yanlıştır",
+          "Sonuç tamamen insanın elindedir"
+        ],
+        "correct_answer": "Tevekkül çaba ve tedbirden sonra Allah'a güvenmektir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Gottvertrauen heißt, ohne jede Anstrengung ein Ergebnis von Allah zu erwarten.“ Was ist daran falsch?",
+        "explanation_tr": "Gottvertrauen bedeutet nicht passives Warten.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Gottvertrauen bedeutet, sich nach Anstrengung und Vorsorge auf Allah zu verlassen",
+          "Gottvertrauen ist Faulheit",
+          "Planung ist falsch",
+          "Das Ergebnis liegt vollständig in menschlicher Hand"
+        ],
+        "correct_answer": "Gottvertrauen bedeutet, sich nach Anstrengung und Vorsorge auf Allah zu verlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-005": {
+      "source": {
+        "question_tr": "Kader konusunda en sorunlu cümle hangisidir?",
+        "explanation_tr": "İlahî bilgi zorlama ile eşitlenemez.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Allah biliyorsa ben zorla yapıyorum ve sorumlu değilim'",
+          "'Allah her şeyi ölçüyle yaratır'",
+          "'İnsan sınırlı tercih alanına sahiptir'",
+          "'Tedbir ve tevekkül birlikte düşünülebilir'"
+        ],
+        "correct_answer": "'Allah biliyorsa ben zorla yapıyorum ve sorumlu değilim'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über Vorherbestimmung ist am problematischsten?",
+        "explanation_tr": "Göttliches Wissen darf nicht mit Zwang gleichgesetzt werden.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "„Wenn Allah etwas weiß, handle ich unter Zwang und trage keine Verantwortung“",
+          "„Allah erschafft alles nach einem Maß“",
+          "„Menschen besitzen einen begrenzten Entscheidungsspielraum“",
+          "„Vorsorge und Gottvertrauen gehören zusammen“"
+        ],
+        "correct_answer": "„Wenn Allah etwas weiß, handle ich unter Zwang und trage keine Verantwortung“",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-006": {
+      "source": {
+        "question_tr": "Başarısızlığı kadere yükleyip hiç öz değerlendirme yapmamak sağlıklı kader bilincidir.",
+        "explanation_tr": "Kader öz değerlendirme ve yeniden çabayı engellemez.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Einen Misserfolg ohne Selbstkritik ausschließlich auf die Vorherbestimmung zu schieben, zeugt von einem ausgewogenen Verständnis.",
+        "explanation_tr": "Der Glaube an die Vorherbestimmung verhindert weder Selbstkritik noch erneute Bemühungen.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-007": {
+      "source": {
+        "question_tr": "Yaygın kader yanlışlarını doğru düzeltmeleriyle eşleştir.",
+        "explanation_tr": "Bu üç yanlış kaderi fatalizme dönüştürür.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kader = tembellik",
+            "right": "Kader inancı çabayı kaldırmaz"
+          },
+          {
+            "left": "Tevekkül = tedbirsizlik",
+            "right": "Tevekkül çaba sonrası Allah'a güvendir"
+          },
+          {
+            "left": "Allah'ın bilmesi = zorlamak",
+            "right": "Bilgi ile zorlama aynı şey değildir"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne verbreitete Missverständnisse über die Vorherbestimmung ihren Korrekturen zu.",
+        "explanation_tr": "Diese drei Irrtümer verwechseln Vorherbestimmung mit Fatalismus.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Vorherbestimmung bedeutet Faulheit",
+            "right": "Der Glaube an Vorherbestimmung hebt Anstrengung nicht auf"
+          },
+          {
+            "left": "Gottvertrauen bedeutet Verzicht auf Vorsorge",
+            "right": "Gottvertrauen folgt auf Anstrengung und Vorsorge"
+          },
+          {
+            "left": "Allahs Wissen bedeutet Zwang",
+            "right": "Wissen und Zwang sind nicht dasselbe"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-008": {
+      "source": {
+        "question_tr": "Kaderin yanlış kullanımına iki örnek ver.",
+        "explanation_tr": "Diyanet her iki yaklaşımı da yanlış bulur.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Günaha 'kaderim böyleydi' diye mazeret üretmek ve gerekli çaba/tedbiri 'nasıl olsa kader' diyerek terk etmek.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nenne zwei Beispiele dafür, wie die Vorherbestimmung als Ausrede missbraucht werden kann.",
+        "explanation_tr": "Die Diyanet betrachtet beide Haltungen als falsch.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Eine Sünde mit „Das war mein Schicksal“ entschuldigen und notwendige Anstrengungen oder Vorsichtsmaßnahmen mit derselben Begründung unterlassen.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-009": {
+      "source": {
+        "question_tr": "Mâtürîdî ve Eş'arî terminolojide kader/kaza kelimelerinin yer değiştirebilmesi, iki geleneğin hiçbir ortak inanca sahip olmadığı anlamına gelir.",
+        "explanation_tr": "Terminoloji farkı inanç içeriğinin tamamen zıt olduğu anlamına gelmez.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dass Qadar und Qada in der maturidischen und ascharitischen Terminologie teilweise unterschiedlich verwendet werden, bedeutet, dass beide Traditionen keinerlei gemeinsame Glaubensinhalte haben.",
+        "explanation_tr": "Unterschiede in der Terminologie bedeuten keinen vollständigen Gegensatz im Glaubensinhalt.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-010": {
+      "source": {
+        "question_tr": "Bir uygulama Eş'arî terminolojideki kader/kaza kullanımını otomatik olarak 'yanlış inanç' sayıyor. Ne yapılmalı?",
+        "explanation_tr": "Diyanet terminoloji farkını açıkça belirtir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Anlam değerlendirilip geçerli terminoloji farkı yanlış sayılmamalı",
+          "Bütün alternatif kullanımlar reddedilmeli",
+          "Kader konusu silinmeli",
+          "Sadece kelime ezberi ölçülmeli"
+        ],
+        "correct_answer": "Anlam değerlendirilip geçerli terminoloji farkı yanlış sayılmamalı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine App markiert die ascharitische Verwendung der Begriffe Qadar und Qada automatisch als „falschen Glauben“. Was sollte geändert werden?",
+        "explanation_tr": "Die Diyanet weist ausdrücklich auf die terminologischen Unterschiede hin.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die gemeinte Bedeutung bewerten und gültige terminologische Unterschiede nicht als Fehler markieren",
+          "Jede andere Fachbezeichnung grundsätzlich ablehnen",
+          "Das Thema Vorherbestimmung entfernen",
+          "Nur auswendig gelernte Begriffe bewerten"
+        ],
+        "correct_answer": "Die gemeinte Bedeutung bewerten und gültige terminologische Unterschiede nicht als Fehler markieren",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-011": {
+      "source": {
+        "question_tr": "Kaderi kötü davranışa ______ yapmak insanın sorumluluğunu kaldırmaz.",
+        "explanation_tr": "İradeli kötülük kader mazeretiyle meşrulaştırılamaz.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "mazeret",
+          "ölçü",
+          "bilgi",
+          "tedbir"
+        ],
+        "correct_answer": "mazeret",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wer die Vorherbestimmung als ______ für schlechtes Verhalten benutzt, bleibt für freiwillige Entscheidungen verantwortlich.",
+        "explanation_tr": "Freiwilliges Fehlverhalten wird nicht dadurch gerechtfertigt, dass man sich auf die Vorherbestimmung beruft.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Ausrede",
+          "Maß",
+          "Wissen",
+          "Vorsorge"
+        ],
+        "correct_answer": "Ausrede",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S06-012": {
+      "source": {
+        "question_tr": "Bir uygulama 'Başına gelen her musibet kesinlikle kişisel günahının cezasıdır' diye öğretiyor. Düzeltme hangisidir?",
+        "explanation_tr": "Diyanet musibetleri insan iradesinin rolüne göre farklı değerlendirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Musibetlerin sebepleri tek kalıba indirgenemez",
+          "Her musibet tek bir günahın cezasıdır",
+          "Peygamberler musibet yaşamamıştır",
+          "Tedbir gereksizdir"
+        ],
+        "correct_answer": "Musibetlerin sebepleri tek kalıba indirgenemez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine App lehrt: „Jedes Leid ist zweifelsfrei eine Strafe für deine eigene Sünde.“ Was ist die richtige Korrektur?",
+        "explanation_tr": "Die Diyanet unterscheidet Schwierigkeiten auch anhand des Einflusses menschlicher Entscheidungen.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Die Ursachen von Schwierigkeiten dürfen nicht auf ein einziges Muster reduziert werden",
+          "Jedes Leid ist die Strafe für genau eine Sünde",
+          "Propheten haben nie Leid erfahren",
+          "Vorsorge ist unnötig"
+        ],
+        "correct_answer": "Die Ursachen von Schwierigkeiten dürfen nicht auf ein einziges Muster reduziert werden",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über die Vorherbestimmung",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
