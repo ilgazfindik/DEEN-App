@@ -65,7 +65,8 @@
   next=DEEN_APP_LOCALE.normalize(next);if(!next||changing)return false;
   if(document.getElementById('lesson')?.classList.contains('active')){try{toast(T('activeLesson'));}catch(_){}DEEN_APP_LOCALE.renderSettings();return false;}
   if(state.onboarded&&!window.DEEN_CONTENT_LOCALE.available(next)){
-   try{sheet(T('unavailableTitle'),'<p>'+T('unavailableSub')+'</p>');}catch(_){}
+   // Show the requested language's explanation; a German selection must not fail in Turkish.
+   try{const title=window.DEEN_I18N.t('unavailableTitle',{},next),detail=window.DEEN_I18N.t('unavailableSub',{},next);sheet(title,'<p>'+detail+'</p>');}catch(_){}
    DEEN_APP_LOCALE.renderSettings();return false;
   }
   changing=true;
