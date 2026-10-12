@@ -15,13 +15,15 @@ const ATTRIBUTES=['aria-label','title','placeholder','alt'];
 const TURKISH_SIGNALS=/[ığşçİĞŞÇ]|\b(?:devam|geri|soru|ders|ayet|sure|görev|yanlış|doğru|hatırla|öğren|aşama|ünite|namaz|abdest|rozet)\b/i;
 
 export function createGermanUIStagingRenderer({packs,englishReference}={}){
- if(!Array.isArray(packs)||packs.length!==12)throw Error('DE_STAGING_PACKS_INCOMPLETE');
+ if(!Array.isArray(packs)||packs.length!==13)throw Error('DE_STAGING_PACKS_INCOMPLETE');
  if(!englishReference||typeof englishReference!=='object')throw Error('DE_STAGING_SOURCE_REFERENCE_MISSING');
  const dictionary=new Map(),conflicts=[];
  for(const [index,pack] of packs.entries()){
   if(pack?.locale!=='de'||pack?.release_ready!==false||pack?.global_qa!=='blocked'||
       pack?.verified_by_religious_expert!==false||pack?.native_reviewer_approved!==false)
    throw Error('DE_STAGING_RELEASE_GUARD:'+index);
+  if(index===12&&(pack.scope!=='actual_lesson_static_ui_staging'||pack.source_reference!=='release/v9.9.3-direct/segment-01.txt#lesson'))
+   throw Error('DE_REAL_LESSON_SOURCE_IDENTITY');
   if(!pack.translations||pack.translation_count!==Object.keys(pack.translations).length)
    throw Error('DE_STAGING_COUNT:'+index);
   for(const [key,value] of Object.entries(pack.translations)){
@@ -31,7 +33,7 @@ export function createGermanUIStagingRenderer({packs,englishReference}={}){
   }
  }
  if(conflicts.length)throw Error('DE_STAGING_CONFLICT:'+conflicts.join(','));
- if(dictionary.size!==1442)throw Error('DE_STAGING_DICTIONARY_DRIFT:'+dictionary.size);
+ if(dictionary.size!==1451)throw Error('DE_STAGING_DICTIONARY_DRIFT:'+dictionary.size);
  const sourceKeys=Object.keys(englishReference);
  if(sourceKeys.length!==1087||sourceKeys.some(key=>!dictionary.has(key)))throw Error('DE_STAGING_BASELINE_GAP');
  const originals=new WeakMap(),attributeOriginals=new WeakMap();
