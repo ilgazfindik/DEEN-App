@@ -122,10 +122,10 @@ Last updated: 2026-10-12
 | U15-S05 / 16 base questions | 16 staged | 0 |
 | U15-S06 / 12 base questions | 12 staged | 0 |
 | U15-S07 / 14 base questions | 14 staged | 0 |
-| U01 live runtime questions (separate IDs) | 84 staged | 0 / 84 remaining |\n| U01 stored format variants (8 overlap, 12 new IDs) | 0 staged | 20 / 20 pending |\n| U01 legacy renderer records (overlap U01 IDs) | 0 separately reviewed | 100 / 100 pending |
+| U01 live runtime questions (separate IDs) | 84 staged | 0 / 84 remaining |\n| U01 stored format variants (8 overlap, 12 new IDs) | 20 staged | 0 |\n| U01 legacy renderer records (overlap U01 IDs) | 100 staged | 0 (linguistic review pending) |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 1,500 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Staging: 1,500/1,500 base questions, 84/84 distinct U01 live questions, 20/20 stored variants and 100/100 legacy presenter records. Published German gameplay questions: 0.**
 
 The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
@@ -134,7 +134,7 @@ The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-**Base-question bank completed in staging (1,500/1,500).** Next: inventory and translate the separate 1,484 active runtime question variants, then full German UI, Quran display, audio behavior, expert review, and real-browser QA. Release remains blocked. Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+**All identified German question layers have model-translated staging content.** Next priority: validate locale-specific content switching in the actual lesson renderer. The same ID can represent *different* base, stored-variant and legacy prompt text, so lookup must include the question's active source/variant context, not ID alone. After that, audit German UI, Quran translation surfaces, lesson-result/review feedback, and real Chrome behavior. Native German and religious expert review remain unperformed. Never publish German gameplay or mark global QA passed before all these gates succeed.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -263,3 +263,9 @@ The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-
 - Added U01-S03 through S07: **60 new live questions** (12 each), in addition to the prior S01 and S02 (24). Total **84/84 German U01 live questions staged**, distinct from the 1,500 base IDs.
 - Translated prompt text, answer options, exact answer values, matching pairs, explanations, stage/topic metadata and 20 additional teaching cards. All Turkish source snapshots remain unchanged.
 - No German runtime activated: manifest still `question_data=missing` and `global_qa=blocked`. Native German/religious expert review, 20 stored variants, 100 legacy presenter records, app-wide UI, Quran/audio and browser QA are still pending.
+
+## Runtime coverage closure — 2026-10-12
+- Staged the 20 stored alternative U01 questions in `assets/i18n/questions/de/runtime/staging/U01.variants.json`; eight reuse basic question IDs with *different* question structure, twelve have additional IDs. The local precommit inspection checked activity types, answer indices and blank/matching cardinalities.
+- Staged the 100 U01 legacy presenter records in `assets/i18n/questions/de/runtime/staging/U01.legacy-renderer.json`. All 100 have question text different from the canonical bank and **seven** have a distinct choice list. Unchanged Turkish explanations, choices and matching structures reuse the existing German base translations; changed questions and seven choice banks were translated separately.
+- Extended `scripts/audit-german-runtime-staging.mjs` to compare stored and legacy Turkish source fields to source fixtures, validate option count, correct index, matching and blanks, and keep the production manifest blocked.
+- The presence of staging files does not mean they are connected to the active renderer. No claim of native-language, religious expert, end-to-end browser validation or production deploy is made.
