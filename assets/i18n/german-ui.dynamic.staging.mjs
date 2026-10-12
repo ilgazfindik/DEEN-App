@@ -31,7 +31,10 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   'Öğrendiklerin aralıklı tekrar planına eklendi.':'Deine Lerninhalte wurden deinem Wiederholungsplan hinzugefügt.',
   'İLK DENEME':'ERSTER VERSUCH',
   'İlk deneme doğruluğu':'Genauigkeit beim ersten Versuch',
-  '✦ KUSURSUZ DERS':'✦ FEHLERFREIE LEKTION'
+  '✦ KUSURSUZ DERS':'✦ FEHLERFREIE LEKTION',
+  'Bu aşamadaki tüm mini dersleri tamamladın. Yol üzerindeki bir sonraki düğüm açıldı.':'Du hast alle Mini-Lektionen dieser Etappe abgeschlossen. Der nächste Lernschritt auf dem Lernpfad ist freigeschaltet.',
+  'YENİ AŞAMAYI AÇ':'NEUE ETAPPE ÖFFNEN',
+  'ÖĞRENME YOLUNA DÖN':'ZUM LERNPFAD ZURÜCK'
  };
  // Real U01-S01 result DOM (Chromium 38317812063); QA-only source-exact chrome.
  // No answer values, source citations or religious content are translated here.
