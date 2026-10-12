@@ -119,6 +119,23 @@ for(const candidate of [canonical,stored,oldPresenter]){
 runtimeContext.session={questions:[],index:0};
 const uniqueLive=fileData[runtimePacks[0]].translations['DEEN-U01-S01-P01'];
 assert.equal(adapter.translateText(uniqueLive.source.question_tr,'de'),uniqueLive.display.question_tr,'Safe unique global translation missing');
+// Reject a corrupted stored-only variant even when all 1,500 base and 1,484
+// active questions are correct. Previously this corruption escaped preload QA.
+const badPath='assets/i18n/questions/de/runtime/staging/U01.variants.json';
+const malformed=JSON.parse(JSON.stringify(fileData[badPath]));
+malformed.translations['DEEN-U01-S01-001'].display.correct_answer='absichtlich-falsche-Antwort';
+const tamperedFiles={...fileData,[badPath]:malformed};
+const tamperedErrors=[];
+const badWindow={...sandboxWindow,DEEN_APP_LOCALE:{get:()=> 'de'}};
+const tamperedFetch=async url=>{
+ const pathname=String(url).split('?')[0].replace(/^\.\//,'');
+ return {ok:pathname in tamperedFiles,text:async()=>JSON.stringify(tamperedFiles[pathname])};
+};
+vm.runInNewContext(readFileSync(root+'assets/i18n/content.js','utf8'),
+ {window:badWindow,QUESTIONS:active,fetch:tamperedFetch,console:{error:(...a)=>tamperedErrors.push(a.join(' ')),log:()=>{}}});
+assert.equal(await badWindow.DEEN_CONTENT_LOCALE.preload('de'),false,'Malformed non-active German variant must block preload');
+assert(tamperedErrors.some(s=>s.includes('CONTENT_VARIANT_INVALID')),'Expected fail-closed invalid-variant error');
+
 // The VM's green staged manifest is a test fixture, NEVER written to disk.
 assert.equal(readJSON('assets/i18n/content-support.json').languages.de.question_data,'missing');
 assert.equal(readJSON('assets/i18n/content-support.json').languages.de.global_qa,'blocked');
@@ -127,6 +144,6 @@ console.log(JSON.stringify({
  base:base.length,active:active.length,checked,
  duplicate_entries:duplicates,collision_ids:collisions.length,
  stored_variants:variants,legacy,production_manifest:'blocked',
- negative_guards:['wrong_source','wrong_activity_type','wrong_options','cross_variant_text','contextual_translation'],
+ negative_guards:['wrong_source','wrong_activity_type','wrong_options','cross_variant_text','contextual_translation','invalid_stored_variant_preload'],
  request_count:files.length
 },null,2));
