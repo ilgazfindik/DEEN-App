@@ -8,6 +8,8 @@ assert.equal(manifest.languages.de.question_data,'missing','German lessons must 
 assert.equal(manifest.languages.de.global_qa,'blocked','German release must remain blocked');
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
+ ['Ünite 1 · Aşama 1','Einheit 1 · Etappe 1'],
+ ['Ünite 15 · Aşama 3','Einheit 15 · Etappe 3'],
  ['1 mini ders · yaklaşık 5 dakika','1 Mini-Lektion · etwa 5 Minuten'],
  ['3 mini ders · yaklaşık 15 dakika','3 Mini-Lektionen · etwa 15 Minuten'],
  ['0/3 Görev','0/3 Aufgaben'],
