@@ -120,20 +120,21 @@ Last updated: 2026-10-12
 | U15-S03 / 14 base questions | 14 staged | 0 |
 | U15-S04 / 16 base questions | 16 staged | 0 |
 | U15-S05 / 16 base questions | 16 staged | 0 |
-| U15-S06–S07 base questions | 0 | 26 |
+| U15-S06 / 12 base questions | 12 staged | 0 |
+| U15-S07 / 14 base questions | 14 staged | 0 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 1,474 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 1,500 / 1,500 base questions translated in staging; 0 German game questions published.**
 
 The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 1,474 source IDs across one hundred and three stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 1,500 source IDs across one hundred and five stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-The next batch is U15-S06 (12) + U15-S07 (14), completing the 1,500 base question set. This does not complete runtime/UI/Quran. Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+**Base-question bank completed in staging (1,500/1,500).** Next: inventory and translate the separate 1,484 active runtime question variants, then full German UI, Quran display, audio behavior, expert review, and real-browser QA. Release remains blocked. Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -249,3 +250,11 @@ The next batch is U15-S06 (12) + U15-S07 (14), completing the 1,500 base questio
 - U14 covers prayer structure, sitting/recitation and recognized differences of fiqh interpretation. U15 covers Ramadan, Suhur, Iftar, fasting boundaries, voluntary/unintentional actions, make-up days, and differences in Kaffara rules.
 - **Model-authored staging only**. Expert religious and native German-language approval not granted. Remaining German runtime variants, comprehensive app UI, Quran/audio, and real-device/browser QA are still outstanding; production German gameplay remains fail-closed.
 - Built on PR #52 head. This batch must not be promoted to main until its parent PRs and Arabic regression pass.
+
+## Batch 26 — U15-S06 and S07; all base questions complete in German staging
+- U15-S06: 12 new German translations. U15-S07: 14 new German translations. **26 added; 1,500/1,500 base questions staged across 105 stages.**
+- Translated every prompt, explanation, option, answer, matching-pair label and stage/topic metadata. Turkish source snapshots and answer positions remain unchanged.
+- Covered Ramadan as the Quran's revelation month (Al-Baqara 2:185), fasting boundaries (2:187), eating out of forgetfulness, abstinence and school-specific Kaffara details.
+- **Unresolved semantic QA:** Some original matching exercises reuse explanation text about the month of the Quran or Kaffara that does not directly explain the matching task (U15-S06-011, U15-S06-012 and U15-S07-012). The translation follows the source. This requires a separate source-content review before release.
+- **Important:** Base-question staging completion is not a production release: 1,484 runtime question variants, complete app UI, Quran/recitation, audio, native-language/religious-expert approvals and real browser coverage remain outstanding. `question_data=missing` and `global_qa=blocked` must remain unchanged.
+- This stacked change is based on PR #53 while its parent dependencies remain open. Merge only after Arabic regression and reviewer gates pass.
