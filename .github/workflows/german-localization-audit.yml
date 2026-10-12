@@ -9,6 +9,9 @@ on:
       - 'scripts/audit-german-runtime-staging.mjs'
       - 'scripts/test-german-content-adapter.mjs'
       - 'scripts/audit-german-ui-staging.mjs'
+      - 'scripts/audit-german-full-release-readiness.mjs'
+      - 'assets/i18n/boot.js'
+      - 'assets/i18n/locale.js'
       - 'scripts/audit-german-lesson-flow-staging.mjs'
       - 'scripts/test-german-dynamic-ui-staging.mjs'
       - 'scripts/audit-german-quran-premium-staging.mjs'
@@ -59,6 +62,8 @@ jobs:
         run: node scripts/test-german-content-adapter.mjs
       - name: Audit staged German UI strings and preserved release gate
         run: node scripts/audit-german-ui-staging.mjs
+      - name: Report German UI gaps and assert live release remains blocked
+        run: node scripts/audit-german-full-release-readiness.mjs
       - name: Verify German lesson intro, feedback, result and XP staging
         run: node scripts/audit-german-lesson-flow-staging.mjs
       - name: Verify German dynamic counters, results and fail-closed fallback
