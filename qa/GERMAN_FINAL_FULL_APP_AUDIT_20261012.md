@@ -52,7 +52,7 @@
 - `scripts/test-german-ui-reference-batch-07.mjs` checks source ordering across all seven batches, reference gloss fidelity, numeric integrity, overlapping keys, the exact ten missing references and the unreleased manifest/Quran review state. CI now invokes this test and the full readiness counter covers all eleven staged dictionaries. **No main merge, production language activation or deploy.**
 
 - **Batch 08 — 2026-10-12:** filled the last **10 source-identified German UI reference labels** in `assets/i18n/german-ui.reference-batch-08.staging.json`: section 1 final, mastery lock/heading, a fiqh school-differences disclaimer and six Latin-script surah titles. Original Arabic ayahs/audio unchanged.
-- English-reference key coverage is now **1,087/1,087 (100% of this static catalog)**, with **0 catalog gaps**. There are **1,442 unique staged German UI labels in twelve dictionaries**, including 355 dynamic/modern UI strings outside the reference baseline. This is **not** proof of German-only runtime screens.
+- English-reference key coverage is now **1,087/1,087 (100% of this static catalog)**, with **0 catalog gaps**. There are **1,451 unique staged German UI labels in thirteen dictionaries**, including 355 dynamic/modern UI strings outside the reference baseline. This is **not** proof of German-only runtime screens.
 - `scripts/test-german-ui-reference-batch-08.mjs` verifies the exact source ordering and English glosses across batches 01–08, count integrity, approved-language flags remaining false, unchanged Quran source metadata and no duplicate keys. The full-release audit now enforces zero reference gaps; CI invokes batch 08.
 - All ten additions await native German/Islamic expert review, including the accuracy of romanized surah headings and the mezhep legal-differences note. **No production activation, qualified human signoff, main merge or deploy.**
 
@@ -65,6 +65,15 @@
 - Added `qa/german-ui-staging-preview.html` as a **standalone static QA fixture**, not the live DEEN application. It tests representative onboarding, home, lesson, Quran, Premium and progress labels, preserving Arabic Quran lines, and reports unresolved Turkish labels.
 - Added `scripts/test-german-ui-renderer-staging.mjs` in German CI for exact/dynamic strings, text and attribute passes, whitespace, unknown-label accounting, Arabic-exclusion, repeated render and language/release-gate rejection. QA preview can be opened locally from a checkout of the PR branch using a static HTTP server.
 - **Not yet completed:** mounting this on the actual full app in a controlled release-candidate environment; observing every dynamically rendered screen; real Chrome/mobile E2E; source/signature-aware question feedback UI; human language/subject-matter and rights approval. There is **no full German production activation or deploy**.
+
+## Real legacy lesson DOM integration QA — 2026-10-12
+
+- Inspected the **actual release asset** `release/v9.9.3-direct/segment-01.txt`, not just the isolated HTML fixture. Verified real `#lesson`, `#quizView`, `#qStage`, `#qMeta`, `#questionText`, `#answerArea`, `#feedbackTitle`, `#feedbackText`, `#resultView`, `#finalStrengths` and `#finalReview` selector identities in CI.
+- **Critical translation safety fix:** the staging DOM adapter now excludes answer/source-signature-sensitive lesson sections (`#questionText`, `#answerArea`, `#feedbackText`, feedback body and result concept fields), question-arena alternatives, Quran meaning and Arabic text surfaces. Generic UI dictionary replacement MUST NOT modify graded question answers; they require the separate source-verified German question adapter.
+- Static source inventory identified nine real lesson shell strings absent from the 1,442-key catalog. Added `assets/i18n/german-ui.real-lesson.staging.json` with the exact nine Turkish source labels and drafted German copies, tied to the shipped `#lesson` source markup; `scripts/test-german-ui-renderer-staging.mjs` checks the exact source strings still exist in `segment-01.txt`.
+- Added a source-guarded `Ünite N · Aşama M` number formatter to the existing dynamic staging module with tests for units 1 and 15. A standalone `gün` after a separate streak number remains **context-dependent** (Tag/Tage) and is deliberately not translated by the current generic dictionary. `DEEN`, `XP` and `COMBO` are preserved international tokens, not Turkish leaks.
+- The **QA staging inventory now contains 1,451 unique German interface mappings in 13 dictionaries**, covering all 1,087 English baseline references and 364 additional strings outside that static reference. This is **not** a production German-screen completeness measurement.
+- The staged renderer and test suites remain inaccessible from `index.html`/`boot.js`; `de.question_data=missing`, `de.global_qa=blocked` are unchanged. **No main merge or live deployment.**
 
 ## Remaining release blockers (priority order)
 
