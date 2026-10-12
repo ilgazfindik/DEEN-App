@@ -81,6 +81,16 @@ export function createGermanQuestionStagingAdapter({packs}={}){
   return {...question,...d,__deenSourceQuestion:question,__deenQAScope:matches[0].scope,
    __deenQANotForRelease:true};
  }
+ function adaptFeedbackExplanation(rendered,localizedQuestion,{qaMode=false,locale='de'}={}){
+  if(qaMode!==true||locale!=='de')throw Error('DE_QA_UNAPPROVED_CONTENT');
+  if(localizedQuestion?.__deenQANotForRelease!==true||!localizedQuestion.__deenSourceQuestion)
+   return null;
+  const wording=localizedQuestion.explanation_tr;
+  if(typeof rendered!=='string'||!wording)return null;
+  if(rendered===wording)return rendered;
+  if(rendered==='Kısaca: '+wording)return 'Kurz gesagt: '+wording;
+  return null;
+ }
  function adaptQuestionPrompt(rendered,localizedQuestion,{qaMode=false,locale='de'}={}){
   if(qaMode!==true||locale!=='de')throw Error('DE_QA_UNAPPROVED_CONTENT');
   if(localizedQuestion?.__deenQANotForRelease!==true||!localizedQuestion.__deenSourceQuestion)
@@ -91,7 +101,7 @@ export function createGermanQuestionStagingAdapter({packs}={}){
   if(rendered==='Birlikte düşün: '+wording)return 'Überlege mit: '+wording;
   return null; // no substring/global rewrite of protected question text
  }
- return Object.freeze({translate,adaptQuestionPrompt,inspect:(questions,options={})=>{
+ return Object.freeze({translate,adaptQuestionPrompt,adaptFeedbackExplanation,inspect:(questions,options={})=>{
   const unresolved=[];
   for(const source of questions)if(!translate(source,{...options,qaMode:true,locale:'de'}))unresolved.push(source?.id);
   return {sourceCount:questions.length,translated:questions.length-unresolved.length,unresolved};
