@@ -17,8 +17,8 @@ assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(stage.locale,'de');
 assert.equal(stage.scope,'quran_ayah_meanings_staging');
-assert.equal(stage.ayah_count,34);
-assert.equal(Object.keys(stage.translations).length,34);
+assert.equal(stage.ayah_count,37);
+assert.equal(Object.keys(stage.translations).length,37);
 for(const k of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(stage[k],false,k+': unexpected approval');
 const asr=manifest.entries.filter(e=>e.surahId==='asr').sort((a,b)=>a.ayah-b.ayah);
 assert.deepEqual(asr.map(e=>e.key),['asr:1','asr:2','asr:3']);
@@ -54,18 +54,18 @@ for(const original of asr){
  rejected++;
 }
 assert.equal(resolveGermanAyahMeaning(asr[0],{...stage,locale:'en'},{preview:true}),null);rejected++;
-assert.equal(resolveGermanAyahMeaning(manifest.entries.find(e=>e.surahId==='nasr'),stage,{preview:true}),null);rejected++;
+assert.equal(resolveGermanAyahMeaning(manifest.entries.find(e=>e.surahId==='masad'),stage,{preview:true}),null);rejected++;
 let previews=0,production=0;
 for(const source of manifest.entries){
  if(resolveGermanAyahMeaning(source,stage,{preview:true})!==null)previews++;
  if(resolveGermanAyahMeaning(source,stage)!==null)production++;
 }
-assert.equal(previews,34);
+assert.equal(previews,37);
 assert.equal(production,0);
 const compared=stage.sources.comparative_only.filter(r=>r.comparison_scope==='Surah 103 Al-Asr');
 assert.equal(compared.length,2);
 assert(compared.every(r=>r.text_copied_verbatim===false&&/^https:\/\//.test(r.url)));
 console.log(JSON.stringify({status:'passed',surah:'Al-Asr',source_ayahs:3,qa_preview_matches:3,
- quran_meaning_drafts:34,missing_meaning_drafts:56,production_visible:0,
+ quran_meaning_drafts:37,missing_meaning_drafts:53,production_visible:0,
  negative_source_guards:rejected,arabic_verses_modified:false,audio_modified:false,
  native_religious_rights_review:'pending'},null,2));
