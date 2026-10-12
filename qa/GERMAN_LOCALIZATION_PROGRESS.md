@@ -281,3 +281,12 @@ The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-
 
 ### Next slice
 Audit remaining German visible UI strings: lesson frames, stage titles, question templates, result/XP/streak messages, Quran tab (surah titles, ayah meaning, memorization, review), audio controls and premium/purchase screen. Only after all content, UI, accessibility and qualified reviews pass should the production language gate be considered.
+
+## German visible UI staging — 2026-10-12
+- Source comparison: \`assets/i18n/english-ui.draft.json\` contains **1,087** text keys (including subject and lesson metadata, not only UI chrome). It is a reference inventory, not a guarantee that every dynamic runtime label is captured.
+- New **staging-only** pack: \`assets/i18n/german-ui.staging.json\`, with **211** German translations grouped as: navigation **48**, lesson/review **37**, Quran hub **35**, Quran lesson/tests **49**, profile/analytics **42**. Relative to the English draft reference, **876** keys are still without a German staged counterpart (**19.4% reference-key coverage**).
+- The existing \`assets/i18n/locale.js\` German onboarding copy was preserved. The additional 211 German strings are NOT connected to the visible production game renderer yet.
+- \`scripts/audit-german-ui-staging.mjs\` enforces source-key membership, per-surface ownership, nonempty German strings, Turkish residue screening and preservation of numeric goals or template tokens. The initial audit caught a missing explicit \`1\` in a Quran challenge CTA and it was fixed.
+- [CI: German localization staging audit #38237901236](https://github.com/ilgazfindik/DEEN-App/actions/runs/38237901236) **passed**, including existing German content adapter, English regression and startup integrity tests.
+- No real Chrome UI smoke test for German has been performed. Quran meanings/translation selection, age-specific feedback and premium/checkout copy are NOT cleared. No native German/religious expert approval. \`content-support.json\` retains \`question_data=missing\` and \`global_qa=blocked\` for German.
+- **Next priority**: remaining stage intro/lesson transitions and result/combo feedback, then Quran learning and memorization subflows/meaning display, premium/store/badges/dynamic counters, then isolated German Chrome screenshots and accessibility review. Keep fail-closed staging until the full release gates pass.
