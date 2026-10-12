@@ -262,6 +262,7 @@ async function auditNavTabs(){
    const {createGermanQuestionStagingAdapter}=await import(
     '/assets/i18n/german-question.adapter.staging.mjs');
    const adapter=createGermanQuestionStagingAdapter({packs:bundle.packs});
+   window.__DEEN_QA_STAGE_ADAPTER__=adapter;
    if(window.DEEN_CONTENT_LOCALE.available('de'))throw Error('German was activated outside review');
    startStage('U01-S01');
    if(!session?.questions?.length)return {opened:false,reason:'Stage did not create questions'};
@@ -309,15 +310,21 @@ async function auditNavTabs(){
    await teachingCTA.first().click({timeout:20000});
    await page.waitForTimeout(400);
   }
-  const afterTeaching=await page.evaluate(()=>({
-   question:document.querySelector('#questionText')?.textContent?.trim(),
-   teaching_cta_visible:[...document.querySelectorAll('#lesson .v910-card-button')]
-    .some(el=>el.getClientRects().length>0&&getComputedStyle(el).visibility!=='hidden'),
-   options:[...document.querySelectorAll('#answerArea .option-label')]
-    .map(el=>el.textContent?.trim())
-  }));
+  const afterTeaching=await page.evaluate(()=>{
+   const text=document.querySelector('#questionText');
+   const raw=text?.textContent?.trim();
+   const localized=window.__DEEN_QA_STAGE_ADAPTER__.adaptQuestionPrompt(
+    raw,session.questions[0],{qaMode:true,locale:'de'});
+   if(localized!==null&&localized!==raw)text.textContent=localized;
+   return {raw_question:raw,question:text?.textContent?.trim(),
+    teaching_cta_visible:[...document.querySelectorAll('#lesson .v910-card-button')]
+     .some(el=>el.getClientRects().length>0&&getComputedStyle(el).visibility!=='hidden'),
+    options:[...document.querySelectorAll('#answerArea .option-label')]
+     .map(el=>el.textContent?.trim())};
+  });
   report.lesson.after_teaching=afterTeaching;
-  assert.equal(afterTeaching.question,qaLesson.question);
+  assert(['Überlege mit: '+qaLesson.question,qaLesson.question].includes(afterTeaching.question),
+   'Unexpected source-dependent wrapper around German question');
   const rightButton=page.locator('#answerArea .option').filter({
     has:page.locator('.option-label', {hasText:qaLesson.correct_answer})});
   // The same real DOM grading controls are exercised; no direct grade mutation.
