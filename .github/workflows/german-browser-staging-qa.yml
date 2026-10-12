@@ -9,6 +9,7 @@ on:
       - 'scripts/test-german-question-adapter-staging.mjs'
       - 'scripts/build-german-browser-question-fixture.mjs'
       - 'scripts/build-german-e2e-preview-config.mjs'
+      - 'scripts/export-german-human-review.mjs'
       - 'scripts/test-german-true-locale-preview.mjs'
       - 'assets/i18n/german-question.adapter.staging.mjs'
       - 'assets/i18n/questions/de/**'
@@ -45,6 +46,8 @@ jobs:
         run: node scripts/build-german-browser-question-fixture.mjs
       - name: Generate local-only SHA-pinned German acceptance manifest
         run: node scripts/build-german-e2e-preview-config.mjs
+      - name: Export question and Quran meaning human-review dossier
+        run: node scripts/export-german-human-review.mjs
       - name: Exercise mobile and desktop preview plus assembled DEEN shell
         shell: bash
         run: |
@@ -64,3 +67,12 @@ jobs:
           path: qa-artifacts/german-browser/
           if-no-files-found: warn
           retention-days: 7
+
+      - name: Upload pending German expert review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: german-review-required-1704-plus-90
+          path: qa-artifacts/german-review/
+          if-no-files-found: warn
+          retention-days: 14
