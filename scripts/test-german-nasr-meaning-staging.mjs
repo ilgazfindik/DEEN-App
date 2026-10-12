@@ -17,8 +17,8 @@ assert.equal(lang.global_qa,'blocked');
 assert.equal(lang.religious_expert_approved,false);
 assert.equal(pack.locale,'de');
 assert.equal(pack.scope,'quran_ayah_meanings_staging');
-assert.equal(pack.ayah_count,58);
-assert.equal(Object.keys(pack.translations).length,58);
+assert.equal(pack.ayah_count,66);
+assert.equal(Object.keys(pack.translations).length,66);
 for(const flag of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[flag],false,'Global German meaning release gate must be blocked: '+flag);
 const nasr=source.entries.filter(e=>e.surahId==='nasr').sort((x,y)=>x.ayah-y.ayah);
 assert.deepEqual(nasr.map(x=>x.key),['nasr:1','nasr:2','nasr:3']);
@@ -55,19 +55,19 @@ for(const ayah of nasr){
  assert.equal(resolveGermanAyahMeaning(ayah,forgedPack),null,'Per-ayah false approval must override forged pack approval');rejected++;
 }
 assert.equal(resolveGermanAyahMeaning(nasr[0],{...pack,locale:'tr'},{preview:true}),null);rejected++;
-assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='sharh'),pack,{preview:true}),null);rejected++;
+assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='tin'),pack,{preview:true}),null);rejected++;
 let qa=0,publicAllowed=0;
 for(const e of source.entries){
  if(resolveGermanAyahMeaning(e,pack,{preview:true})!==null)qa++;
  if(resolveGermanAyahMeaning(e,pack)!==null)publicAllowed++;
 }
-assert.equal(qa,58);
+assert.equal(qa,66);
 assert.equal(publicAllowed,0);
 const compared=pack.sources.comparative_only.filter(r=>r.comparison_scope==='Surah 110 An-Nasr');
 assert.equal(compared.length,2);
 assert(compared.every(ref=>ref.text_copied_verbatim===false&&/^https:\/\//.test(ref.url)));
 console.log(JSON.stringify({
- status:'passed',surah:'An-Nasr',new_ayah_drafts:3,combined_staging_meanings:58,
- remaining_meanings:32,source_matched_QA_previews:3,public_meanings:0,negative_guard_checks:rejected,
+ status:'passed',surah:'An-Nasr',new_ayah_drafts:3,combined_staging_meanings:66,
+ remaining_meanings:24,source_matched_QA_previews:3,public_meanings:0,negative_guard_checks:rejected,
  arabic_or_audio_modified:false,native_religious_rights_approved:false,release_gate:'blocked'
 },null,2));
