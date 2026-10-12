@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U12",
+  "stage": "U12-S01",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U12-S01-001": {
+      "source": {
+        "question_tr": "Temel kavram: abdestte niyetin hükmü hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefîlerde niyetin sünnet diğer üç mezhepte farz kabul edildiğini belirtir. DEEN bu farkı tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Bütün mezhepler niyeti aynı kategoride değerlendirir",
+          "Hiçbir mezhep niyete önem vermez",
+          "Mezhepler arasında hüküm farklılığı vardır",
+          "Niyet bütün mezheplerde abdesti bozar"
+        ],
+        "correct_answer": "Mezhepler arasında hüküm farklılığı vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Welche Einstufung der Absicht bei der Gebetswaschung stimmt?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten bezeichnet die Absicht in der hanafitischen Rechtsschule als Sunna, in den drei anderen als verpflichtend. DEEN bewertet diese gültige Meinungsverschiedenheit nicht einseitig.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Alle Rechtsschulen ordnen die Absicht derselben Kategorie zu",
+          "Keine Rechtsschule hält die Absicht für wichtig",
+          "Die rechtliche Einstufung unterscheidet sich zwischen den Rechtsschulen",
+          "Die Absicht macht die Gebetswaschung in allen Rechtsschulen ungültig"
+        ],
+        "correct_answer": "Die rechtliche Einstufung unterscheidet sich zwischen den Rechtsschulen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-002": {
+      "source": {
+        "question_tr": "Abdest hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Abdest belirli organların yıkanması veya mesh edilmesiyle yapılan özel bir hükmî temizliktir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece günlük duş",
+          "Yalnızca el yıkama",
+          "Bazı ibadetler için yapılan hükmî temizlik",
+          "Sadece kıyafet temizliği"
+        ],
+        "correct_answer": "Bazı ibadetler için yapılan hükmî temizlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über die Gebetswaschung stimmt?",
+        "explanation_tr": "Die Gebetswaschung ist eine bestimmte rituelle Reinigung durch Waschen oder feuchtes Abstreichen bestimmter Körperteile.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nur eine alltägliche Dusche",
+          "Nur das Waschen der Hände",
+          "Rituelle Reinigung für bestimmte gottesdienstliche Handlungen",
+          "Nur das Waschen der Kleidung"
+        ],
+        "correct_answer": "Rituelle Reinigung für bestimmte gottesdienstliche Handlungen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-003": {
+      "source": {
+        "question_tr": "Temel kavram: su bulunmadığında veya kullanmak mümkün olmadığında hangi ruhsat gündeme gelir?",
+        "explanation_tr": "Kur'an su bulunmadığında temiz toprakla teyemmüm ruhsatını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât",
+          "Hac",
+          "Teyemmüm",
+          "Ezan"
+        ],
+        "correct_answer": "Teyemmüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Welche Erleichterung ist vorgesehen, wenn Wasser fehlt oder nicht verwendet werden kann?",
+        "explanation_tr": "Der Koran erlaubt die rituelle Trockenreinigung mit reiner Erde, wenn Wasser nicht zur Verfügung steht.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zakat",
+          "Hadsch",
+          "Tayammum (rituelle Trockenreinigung)",
+          "Gebetsruf"
+        ],
+        "correct_answer": "Tayammum (rituelle Trockenreinigung)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-004": {
+      "source": {
+        "question_tr": "Temel kavram: su kullanamama konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Diyanet'in teyemmüm açıklaması suyu kullanma imkânı olmadığında da teyemmüm ruhsatını kapsar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazı tamamen terk etmek",
+          "Rastgele başka bir ibadet yapmak",
+          "Teyemmüm ruhsatı",
+          "Abdesti sadece niyetle tamamlamak"
+        ],
+        "correct_answer": "Teyemmüm ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Was gilt, wenn Wasser nicht benutzt werden kann?",
+        "explanation_tr": "Die Diyanet erläutert, dass Tayammum auch gestattet sein kann, wenn Wasser nicht verwendet werden kann.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ganz auf das Gebet verzichten",
+          "Beliebig eine andere gottesdienstliche Handlung ausführen",
+          "Erlaubnis zur rituellen Trockenreinigung (Tayammum)",
+          "Gebetswaschung allein durch die Absicht vollenden"
+        ],
+        "correct_answer": "Erlaubnis zur rituellen Trockenreinigung (Tayammum)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-005": {
+      "source": {
+        "question_tr": "Temel kavram: başı mesh hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Mâide 5:6'da başın mesh edilmesi zikredilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Başı tamamen suya sokmak",
+          "Saçı kesmek",
+          "Başı mesh etmek",
+          "Baş yerine omuzları yıkamak"
+        ],
+        "correct_answer": "Başı mesh etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Was wird beim Kopf während der Gebetswaschung gemacht?",
+        "explanation_tr": "Al-Maida 5:6 erwähnt das feuchte Abstreichen des Kopfes.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Den ganzen Kopf ins Wasser tauchen",
+          "Die Haare schneiden",
+          "Den Kopf feucht abstreichen",
+          "Anstelle des Kopfes die Schultern waschen"
+        ],
+        "correct_answer": "Den Kopf feucht abstreichen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-006": {
+      "source": {
+        "question_tr": "Kısa kontrol: temel kavram: abdestte niyetin hükmü hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefîlerde niyetin sünnet diğer üç mezhepte farz kabul edildiğini belirtir. DEEN bu farkı tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Bütün mezhepler niyeti aynı kategoride değerlendirir",
+          "Hiçbir mezhep niyete önem vermez",
+          "Mezhepler arasında hüküm farklılığı vardır",
+          "Niyet bütün mezheplerde abdesti bozar"
+        ],
+        "correct_answer": "Mezhepler arasında hüküm farklılığı vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Schnellkontrolle: Wie wird die Absicht bei der Gebetswaschung eingestuft?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten bezeichnet die Absicht in der hanafitischen Rechtsschule als Sunna, in den drei anderen als verpflichtend. DEEN bewertet diese gültige Meinungsverschiedenheit nicht einseitig.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Alle Rechtsschulen ordnen die Absicht derselben Kategorie zu",
+          "Keine Rechtsschule hält die Absicht für wichtig",
+          "Die rechtliche Einstufung unterscheidet sich zwischen den Rechtsschulen",
+          "Die Absicht macht die Gebetswaschung in allen Rechtsschulen ungültig"
+        ],
+        "correct_answer": "Die rechtliche Einstufung unterscheidet sich zwischen den Rechtsschulen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Abdest, bazı ibadetler için yapılan hükmî bir temizliktir.",
+        "explanation_tr": "Abdest belirli organların yıkanması veya mesh edilmesiyle yapılan özel bir hükmî temizliktir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Die Gebetswaschung ist eine rituelle Reinigung für bestimmte Gottesdienste.",
+        "explanation_tr": "Die Gebetswaschung ist eine bestimmte rituelle Reinigung durch Waschen oder feuchtes Abstreichen bestimmter Körperteile.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-008": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Su bulunmadığında hükmî temizlik için hiçbir kolaylık yoktur.",
+        "explanation_tr": "Kur'an su bulunmadığında temiz toprakla teyemmüm ruhsatını bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Bei Wassermangel gibt es keine Erleichterung bei der rituellen Reinigung.",
+        "explanation_tr": "Der Koran erlaubt die rituelle Trockenreinigung mit reiner Erde, wenn Wasser nicht zur Verfügung steht.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-009": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Su bulunmadığında veya kullanılamadığında, şartlarına göre teyemmüm ruhsatı vardır.",
+        "explanation_tr": "Diyanet'in teyemmüm açıklaması suyu kullanma imkânı olmadığında da teyemmüm ruhsatını kapsar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Wenn Wasser fehlt oder nicht verwendet werden kann, ist unter den vorgeschriebenen Voraussetzungen Tayammum erlaubt.",
+        "explanation_tr": "Die Diyanet erläutert, dass Tayammum auch gestattet sein kann, wenn Wasser nicht verwendet werden kann.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-010": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Abdestte baş ___ edilir.",
+        "explanation_tr": "Mâide 5:6'da başın mesh edilmesi zikredilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "mesh",
+          "dirseklerle"
+        ],
+        "correct_answer": "mesh",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Bei der Gebetswaschung wird der Kopf feucht ______.",
+        "explanation_tr": "Al-Maida 5:6 erwähnt das feuchte Abstreichen des Kopfes.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "abgestrichen",
+          "Ellenbogen"
+        ],
+        "correct_answer": "abgestrichen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-011": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Abdestte niyetin hükmünde mezhepler arasında ___ vardır.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefîlerde niyetin sünnet diğer üç mezhepte farz kabul edildiğini belirtir. DEEN bu farkı tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "farklılık",
+          "dirseklerle"
+        ],
+        "correct_answer": "farklılık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: In den Rechtsschulen bestehen ______ bezüglich der Einstufung der Absicht bei der Gebetswaschung.",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten bezeichnet die Absicht in der hanafitischen Rechtsschule als Sunna, in den drei anderen als verpflichtend. DEEN bewertet diese gültige Meinungsverschiedenheit nicht einseitig.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "Unterschiede",
+          "Ellenbogen"
+        ],
+        "correct_answer": "Unterschiede",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-012": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Abdest bazı ibadetler için yapılan hükmî ___ türüdür.",
+        "explanation_tr": "Abdest belirli organların yıkanması veya mesh edilmesiyle yapılan özel bir hükmî temizliktir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "yüz",
+          "dirseklerle",
+          "temizlik",
+          "mesh"
+        ],
+        "correct_answer": "temizlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Die Gebetswaschung ist eine Form der rituellen ______ für bestimmte gottesdienstliche Handlungen.",
+        "explanation_tr": "Die Gebetswaschung ist eine bestimmte rituelle Reinigung durch Waschen oder feuchtes Abstreichen bestimmter Körperteile.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Gesicht",
+          "Ellenbogen",
+          "Reinigung",
+          "abgestrichen"
+        ],
+        "correct_answer": "Reinigung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Su kullanılamadığında hükmî temizlik için ___ yapılabilir.",
+        "explanation_tr": "Kur'an su bulunmadığında temiz toprakla teyemmüm ruhsatını bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "teyemmüm",
+          "dirseklerle"
+        ],
+        "correct_answer": "teyemmüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff fehlt? Wenn Wasser nicht benutzt werden kann, ist zur rituellen Reinigung unter bestimmten Voraussetzungen ______ erlaubt.",
+        "explanation_tr": "Der Koran erlaubt die rituelle Trockenreinigung mit reiner Erde, wenn Wasser nicht zur Verfügung steht.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "Tayammum",
+          "Ellenbogen"
+        ],
+        "correct_answer": "Tayammum",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S01-014": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Suyu kullanmak mümkün değilse ___ ruhsatı gündeme gelebilir.",
+        "explanation_tr": "Diyanet'in teyemmüm açıklaması suyu kullanma imkânı olmadığında da teyemmüm ruhsatını kapsar.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "teyemmüm",
+          "dirseklerle"
+        ],
+        "correct_answer": "teyemmüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff fehlt? Kann Wasser nicht verwendet werden, kann die Erlaubnis zum ______ gelten.",
+        "explanation_tr": "Die Diyanet erläutert, dass Tayammum auch gestattet sein kann, wenn Wasser nicht verwendet werden kann.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "Tayammum",
+          "Ellenbogen"
+        ],
+        "correct_answer": "Tayammum",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Grundlagen der Gebetswaschung",
+        "topic": "Wudu, Ghusl und Tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
