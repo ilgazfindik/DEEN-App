@@ -33,7 +33,10 @@ export function localizeGermanActivityA11y(question,root,{qaMode=false,locale='d
   const options=new Set(question.options_tr||[]);
   root.querySelectorAll('.fill-choice[data-value]').forEach(card=>{
    const word=card.dataset.value;
-   if(!options.has(word)||card.querySelector('.v1040-fill-chip-label')?.textContent?.trim()!==word)
+   const visibleLabel=card.querySelector('.v1040-fill-chip-label');
+   // Runtime may replace the chip's visible label after a selection. The
+   // canonical data-value must still equal an approved question option.
+   if(!options.has(word)||(visibleLabel&&visibleLabel.textContent?.trim()!==word))
     throw Error('DE_FILL_WORD_SOURCE_DRIFT');
    label(card,word+' in die Lücke einsetzen');
   });
