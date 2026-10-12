@@ -6,6 +6,7 @@ on:
       - 'assets/i18n/questions/de/**'
       - 'assets/i18n/content-support.json'
       - 'scripts/audit-german-staging.mjs'
+      - 'scripts/audit-german-runtime-staging.mjs'
       - 'qa/GERMAN_LOCALIZATION_PROGRESS.md'
       - '.github/workflows/german-localization-audit.yml'
   workflow_dispatch:
@@ -20,6 +21,8 @@ jobs:
         with: {node-version: '22'}
       - name: Verify German stage, answers and blocked runtime
         run: node scripts/audit-german-staging.mjs
+      - name: Verify active U01 German runtime staging and ID inventory
+        run: node scripts/audit-german-runtime-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Release hashes remain valid
