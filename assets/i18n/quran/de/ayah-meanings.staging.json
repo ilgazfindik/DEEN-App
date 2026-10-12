@@ -48,13 +48,28 @@
         "url": "https://www.sultan.org/quran/translation/german_bubenheim/112/",
         "text_copied_verbatim": false,
         "comparison_scope": "Surah 112 Al-Ikhlas"
+      },
+      {
+        "publisher": "QuranEnc / Ruwwad Translation Center",
+        "language": "de",
+        "version": "1.0.15",
+        "url": "https://quranenc.com/de/browse/german_rwwad/113",
+        "text_copied_verbatim": false,
+        "comparison_scope": "Surah 113 Al-Falaq"
+      },
+      {
+        "publisher": "QuranEnc / Abu Rida",
+        "language": "de",
+        "url": "https://quranenc.com/en/browse/german_aburida/113",
+        "text_copied_verbatim": false,
+        "comparison_scope": "Surah 113 Al-Falaq"
       }
     ],
     "licensing_note_tr": "QuranEnc yayımlanan kendi meallerini değişiklik yapmama, yayıncı+kaynak+sürüm atfı, güncelleme ve uygunsuz reklam yasağı koşullarıyla yeniden yayımlatıyor. Bu pakette o mealler birebir yeniden yayımlanmıyor; DEEN taslak ifadeleri bağımsız uzman incelemesine sunuluyor. İşletme/telif hukuku incelemesi tamamlanmadan yayımlama yapılmamalı.",
     "commercial_content_policy": "no_translation_display_with_advertisements_pending_legal_review",
     "external_translation_imported": false
   },
-  "ayah_count": 11,
+  "ayah_count": 16,
   "translations": {
     "fatiha:1": {
       "surah_id": "fatiha",
@@ -220,6 +235,81 @@
       "rights_reviewed": false,
       "meaning_reviewed": false,
       "reviewer_note_tr": "Kufuwan ahad: Allah'a hiç kimsenin denk olmadığı; 'in irgendeiner Weise' yorumlayıcı genişlemesinin doğruluğu incelensin."
+    },
+    "falaq:1": {
+      "surah_id": "falaq",
+      "ayah_number": 1,
+      "source_ayah_key": "falaq:1",
+      "source_arabic_text": "قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ",
+      "source_audio_path": "assets/quran/audio/falaq/felak_1.mp3",
+      "text": "Sprich: Ich suche Schutz beim Herrn des anbrechenden Morgens,",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Al-Falaq: Tagesanbruch/Morgendämmerung; Übersetzung 'anbrechender Morgen' gegenüber 'Tagesanbruch' auf Genauigkeit prüfen."
+    },
+    "falaq:2": {
+      "surah_id": "falaq",
+      "ayah_number": 2,
+      "source_ayah_key": "falaq:2",
+      "source_arabic_text": "مِن شَرِّ مَا خَلَقَ",
+      "source_audio_path": "assets/quran/audio/falaq/felak_2.mp3",
+      "text": "vor dem Unheil, das von dem ausgehen kann, was Er erschaffen hat,",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Min šarri mā ḫalaq: Negatives aus der Schöpfung, nicht die gesamte Schöpfung als böse definieren; 'kann' als interpretierende Ergänzung prüfen."
+    },
+    "falaq:3": {
+      "surah_id": "falaq",
+      "ayah_number": 3,
+      "source_ayah_key": "falaq:3",
+      "source_arabic_text": "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+      "source_audio_path": "assets/quran/audio/falaq/felak_3.mp3",
+      "text": "und vor dem Übel der Dunkelheit, wenn sie hereinbricht,",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Ghāsiq iḏā waqab: nächtliche Dunkelheit und deren Hereinbrechen; Wortwahl und Kontext prüfen."
+    },
+    "falaq:4": {
+      "surah_id": "falaq",
+      "ayah_number": 4,
+      "source_ayah_key": "falaq:4",
+      "source_arabic_text": "وَمِن شَرِّ ٱلنَّفَّـٰثَـٰتِ فِى ٱلْعُقَدِ",
+      "source_audio_path": "assets/quran/audio/falaq/felak_4.mp3",
+      "text": "und vor dem Unheil derjenigen, die auf Knoten hauchen,",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "An-naffāṯāti fī l-ʿuqad: feminine Pluralform, überlieferter Kontext von Zauberei/Knoten; 'derjenigen' schwächt Geschlechtsreferenz ab; mit Fachgutachten klären."
+    },
+    "falaq:5": {
+      "surah_id": "falaq",
+      "ayah_number": 5,
+      "source_ayah_key": "falaq:5",
+      "source_arabic_text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+      "source_audio_path": "assets/quran/audio/falaq/felak_5.mp3",
+      "text": "und vor dem Übel eines neidischen Menschen, wenn er seinen Neid auslebt.",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Ḥāsid iḏā ḥasad: Neider während/sofern er neidet; 'seinen Neid auslebt' ist interpretierend und bedarf Korrekturprüfung."
     }
   }
 }
