@@ -813,6 +813,53 @@ function renderMatching(q,area){
   document.documentElement.dataset.deenMatchingProgress=done+'/'+pairs.length;
  }
 
+
+ // The visible matching buttons can retain an old click closure after an
+ // asynchronous re-render. Reconcile only semantically VERIFIED completed
+ // pairs into the current lesson state, never award points from DOM alone.
+ function reconcileRenderedPairs(wasErrors){
+  if(!session||session.questions?.[session.index]?.id!==q.id||
+     session.__deenMatchingState?.key!==persistentKey||!area.isConnected)return;
+  if(session.__deenMatchingState!==persistent)persistent=session.__deenMatchingState;
+  const verified=[];
+  for(let i=0;i<pairs.length;i++){
+   const leftCard=area.querySelector('.v1017-card[data-side="left"][data-pair="'+i+'"]');
+   const rightCard=area.querySelector('.v1017-card[data-side="right"][data-pair="'+i+'"]');
+   if(!leftCard||!rightCard)return;
+   const leftDone=leftCard.classList.contains('matched');
+   const rightDone=rightCard.classList.contains('matched');
+   if(leftDone!==rightDone)return;
+   if(!leftDone)continue;
+   if(normalize(cardText(leftCard))!==normalize(pairs[i].left)||
+      normalize(cardText(rightCard))!==normalize(pairs[i].right))return;
+   verified.push(i);
+  }
+  if(verified.length<persistent.matchedLeft.length)return;
+  persistent.matchedLeft=verified;
+  persistent.matchedRight=[...verified];
+  const selected=area.querySelector('.v1017-card.selected');
+  persistent.selected=selected?descriptor(selected):null;
+  if(document.documentElement.dataset.deenMatchingLast==='wrong'&&
+     Number(persistent.errors||0)===wasErrors)persistent.errors=wasErrors+1;
+  if(verified.length===pairs.length)persistent.finished=true;
+  matchState={left:persistent.selected?Number(persistent.selected.pair):null,
+   matched:new Set(verified),errors:Number(persistent.errors)||0};
+  persist();
+  update();
+ }
+ if(area.__deenMatchReconcileHandler){
+  area.removeEventListener('click',area.__deenMatchReconcileHandler,true);
+ }
+ const reconcileOnClick=event=>{
+  const card=event.target.closest?.('.v1017-card');
+  if(!card||!area.contains(card))return;
+  const priorErrors=Number(session?.__deenMatchingState?.errors)||0;
+  queueMicrotask(()=>reconcileRenderedPairs(priorErrors));
+  setTimeout(()=>reconcileRenderedPairs(priorErrors),0);
+ };
+ area.__deenMatchReconcileHandler=reconcileOnClick;
+ area.addEventListener('click',reconcileOnClick,true);
+
  function paintMatched(card){
   if(!card)return;
   card.classList.remove('selected','wrong');
