@@ -15,8 +15,8 @@ assert.equal(german.global_qa,'blocked');
 assert.equal(german.religious_expert_approved,false);
 assert.equal(pack.locale,'de');
 assert.equal(pack.scope,'quran_ayah_meanings_staging');
-assert.equal(pack.ayah_count,51);
-assert.equal(Object.keys(pack.translations).length,51);
+assert.equal(pack.ayah_count,58);
+assert.equal(Object.keys(pack.translations).length,58);
 for(const flag of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[flag],false,'Global Quran German release blocked');
 const masad=source.entries.filter(x=>x.surahId==='masad').sort((x,y)=>x.ayah-y.ayah);
 assert.deepEqual(masad.map(x=>x.key),['masad:1','masad:2','masad:3','masad:4','masad:5']);
@@ -54,17 +54,17 @@ for(const aya of masad){
  negativeCases++;
 }
 assert.equal(resolveGermanAyahMeaning(masad[0],{...pack,locale:'en'},{preview:true}),null);negativeCases++;
-assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='maun'),pack,{preview:true}),null);negativeCases++;
+assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='sharh'),pack,{preview:true}),null);negativeCases++;
 let previewCount=0,productionCount=0;
 for(const aya of source.entries){
  if(resolveGermanAyahMeaning(aya,pack,{preview:true})!==null)previewCount++;
  if(resolveGermanAyahMeaning(aya,pack)!==null)productionCount++;
 }
-assert.equal(previewCount,51);
+assert.equal(previewCount,58);
 assert.equal(productionCount,0);
 const sources=pack.sources.comparative_only.filter(s=>s.comparison_scope==='Surah 111 Al-Masad');
 assert.equal(sources.length,3);
 assert(sources.every(s=>s.text_copied_verbatim===false&&/^https:\/\//.test(s.url)));
-console.log(JSON.stringify({status:'passed',surah:'Al-Masad',new_drafts:5,total_quran_meaning_drafts:51,
- pending_drafts:39,previewed_correctly:5,public_meanings:0,negative_source_guard_cases:negativeCases,
+console.log(JSON.stringify({status:'passed',surah:'Al-Masad',new_drafts:5,total_quran_meaning_drafts:58,
+ pending_drafts:32,previewed_correctly:5,public_meanings:0,negative_source_guard_cases:negativeCases,
  original_arabic_modified:false,original_audio_modified:false,expert_rights_native_approval:'pending'},null,2));
