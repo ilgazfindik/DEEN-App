@@ -13,39 +13,6 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   return typeof v==='string'&&v.trim()&&v!==text.trim()?v:null;
  };
  let m;
- // Patterns observed in the assembled DEEN learn/review screens in Chromium.
- // Dynamic stage titles MUST resolve through the exact German staging catalog.
- const phases={ÖĞREN:'LERNEN',ANLA:'VERSTEHEN',UYGULA:'ANWENDEN',HATIRLA:'ERINNERN',USTALAŞ:'VERTIEFEN',DİNLE:'HÖREN'};
- const lessonKinds={
-  'Aktif Hatırlama':'Aktives Erinnern',Tanı:'Erkennen','Bağ Kur':'Verknüpfen',
-  'Duruma Uyarla':'Auf Situationen anwenden','Sesi Tanı':'Den Klang erkennen'
- };
- if((m=n.match(/^(\\d+)\\. KISIM\\s*·\\s*(\\d+)\\. ÜNİTE$/)))
-  return emit(m[1]+'. ABSCHNITT · '+m[2]+'. EINHEIT');
- if((m=n.match(/^(.+?)\\s*·\\s*(ÖĞREN|ANLA|UYGULA|HATIRLA|USTALAŞ|DİNLE)\\s*·\\s*Aşama\\s+(\\d+)\\/(\\d+)$/))){
-  const name=label(m[1]);return name?emit(name+' · '+phases[m[2]]+' · Etappe '+m[3]+'/'+m[4]):null;
- }
- if((m=n.match(/^(.+?)\\s+—\\s+Önceki aşamayı tamamla$/))){
-  const name=label(m[1]);return name?emit(name+' — Schließe zuerst die vorherige Etappe ab'):null;
- }
- if((m=n.match(/^(.+?)\\s+mevcut aşamaya git$/))){
-  const name=label(m[1]);return name?emit('Zur aktuellen Etappe: '+name):null;
- }
- if((m=n.match(/^(.+?)\\s*·\\s*(\\d+) aşamalı öğrenme yolu$/))){
-  const name=label(m[1]);return name?emit(name+' · Lernpfad mit '+m[2]+' Etappen'):null;
- }
- if((m=n.match(/^Ders\\s+(\\d+)\\/(\\d+)\\s*·\\s*(.+)$/))){
-  const kind=lessonKinds[m[3]];return kind?emit('Lektion '+m[1]+'/'+m[2]+' · '+kind):null;
- }
- if((m=n.match(/^Ders\\s+(\\d+)$/)))return emit('Lektion '+m[1]);
- if((m=n.match(/^(\\d+)\\/(\\d+)\\s*·\\s*Ders\\s+(\\d+)$/)))
-  return emit(m[1]+'/'+m[2]+' · Lektion '+m[3]);
- if((m=n.match(/^(\\d+)\\s+ENERJİ$/)))return emit(m[1]+' ENERGIE');
- if(n==='Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.')
-  return emit('Nach der ersten abgeschlossenen U01-Lektion erscheint hier dein Wiederholungsplan.');
- if(n==='Enerji azaldı')return emit('Wenig Energie übrig');
- if(n==='Derse devam etmek için enerjini yenileyebilirsin. Premium enerji sınırını kaldırır, reklam ise hızlı bir destek verir.')
-  return emit('Du kannst deine Energie auffüllen, um die Lektion fortzusetzen. Premium hebt das Energielimit auf; Werbung bietet eine schnelle Unterstützung.');
  if((m=n.match(/^Ünite\s+(\d+)\s*·\s*Aşama\s+(\d+)$/)))return emit('Einheit '+m[1]+' · Etappe '+m[2]);
 
  // Patterns observed in the real assembled learning-path and review DOM (Chromium 38291180334).
