@@ -49,6 +49,7 @@ on:
       - 'assets/i18n/german-ui.reference-batch-05.staging.json'
       - 'assets/i18n/german-ui.reference-batch-06.staging.json'
       - 'assets/i18n/german-ui.reference-batch-07.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-08.staging.json'
       - 'scripts/test-german-ui-reference-batch-01.mjs'
       - 'scripts/test-german-ui-reference-batch-02.mjs'
       - 'scripts/test-german-ui-reference-batch-03.mjs'
@@ -56,6 +57,7 @@ on:
       - 'scripts/test-german-ui-reference-batch-05.mjs'
       - 'scripts/test-german-ui-reference-batch-06.mjs'
       - 'scripts/test-german-ui-reference-batch-07.mjs'
+      - 'scripts/test-german-ui-reference-batch-08.mjs'
       - 'assets/i18n/english-ui.draft.json'
       - 'assets/i18n/content.js'
       - 'qa/GERMAN_LOCALIZATION_PROGRESS.md'
@@ -96,6 +98,8 @@ jobs:
         run: node scripts/test-german-ui-reference-batch-06.mjs
       - name: Verify seventh German UI batch, 840 source keys and 10 remaining reference gaps
         run: node scripts/test-german-ui-reference-batch-07.mjs
+      - name: Verify final ten German UI reference keys and zero baseline gaps
+        run: node scripts/test-german-ui-reference-batch-08.mjs
       - name: Verify German lesson intro, feedback, result and XP staging
         run: node scripts/audit-german-lesson-flow-staging.mjs
       - name: Verify German dynamic counters, results and fail-closed fallback
