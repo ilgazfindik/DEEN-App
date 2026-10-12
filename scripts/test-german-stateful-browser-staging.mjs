@@ -172,6 +172,8 @@ async function auditNavTabs(){
      screen_exists:!!targetScreen,selected_button:
       document.querySelector('.bottomnav .navbtn.active')?.dataset.screen||null,
      language:window.DEEN_APP_LOCALE.get(),german_available:window.DEEN_CONTENT_LOCALE.available('de'),
+     energy_modal_exists:name==='showEnergy'?!!energy:undefined,
+     energy_modal_classes:name==='showEnergy'?energy?.className:undefined,
      scanned:audit.scanned,writes:audit.writes,unresolved:audit.unresolved,
      graded_content_unchanged:JSON.stringify(before)===JSON.stringify(after),
      arabic_unchanged:originalArabic===arabicAfter,
@@ -217,7 +219,12 @@ async function auditNavTabs(){
      question:document.querySelector('#questionText')?.textContent,
      choices:document.querySelector('#answerArea')?.innerHTML,
      feedback:document.querySelector('#feedbackText')?.textContent};
-    return {panel:name,is_open:!!sheet?.open,
+    const energy=document.getElementById('energyModal');
+    const energyVisible=!!energy&&
+      !energy.hidden&&window.getComputedStyle(energy).display!=='none'&&
+      window.getComputedStyle(energy).visibility!=='hidden'&&
+      energy.getClientRects().length>0;
+    return {panel:name,is_open:!!sheet?.open||(name==='showEnergy'&&energyVisible),
      heading:document.getElementById('v5SheetTitle')?.textContent||null,
      scanned:audit.scanned,writes:audit.writes,unresolved:audit.unresolved,
      arabic_unchanged:beforeArabic===afterArabic,
