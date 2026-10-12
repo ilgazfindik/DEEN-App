@@ -354,6 +354,37 @@ async function auditNavTabs(){
   }));
   report.lesson.grading=graded;
   assert.equal(graded.score,1,'Real quiz engine did not award correct German response');
+
+  const feedbackLocale=await page.evaluate(()=>{
+   const q=session?.questions?.[0];
+   const before={
+    title:document.getElementById('feedbackTitle')?.textContent?.trim(),
+    explanation:document.getElementById('feedbackText')?.textContent?.trim(),
+    expectedExplanation:q?.explanation_tr,
+    speakLabels:[...document.querySelectorAll('#lesson .v960-speak')]
+     .map(el=>el.textContent?.trim()),
+    continueLabel:document.getElementById('continueBtn')?.textContent?.trim()
+   };
+   const audit=window.__DEEN_GERMAN_NAV_QA__.render(
+    document.getElementById('lesson'),{qaMode:true,locale:'de',documentRef:document});
+   const after={
+    title:document.getElementById('feedbackTitle')?.textContent?.trim(),
+    explanation:document.getElementById('feedbackText')?.textContent?.trim(),
+    speakLabels:[...document.querySelectorAll('#lesson .v960-speak')]
+     .map(el=>el.textContent?.trim()),
+    continueLabel:document.getElementById('continueBtn')?.textContent?.trim()
+   };
+   return {before,after,unresolved:audit.unresolved,scanned:audit.scanned,
+    graded_explanation_preserved:before.explanation===after.explanation};
+  });
+  report.lesson.feedback_locale=feedbackLocale;
+  assert.equal(feedbackLocale.graded_explanation_preserved,true,
+   'DOM UI renderer mutated source-dependent feedback');
+  assert.deepEqual(feedbackLocale.unresolved,[],
+   'Untranslated German QA feedback shell');
+  assert.equal(feedbackLocale.after.explanation,feedbackLocale.before.expectedExplanation,
+   'Actual grading explanation does not use the source-verified German explanation');
+
   await page.screenshot({path:output+'/stateful-german-lesson-graded-qa.png',fullPage:true});
   return init;
  }finally{await page.close()}
