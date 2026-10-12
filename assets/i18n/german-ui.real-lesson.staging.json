@@ -9,7 +9,7 @@
   "verified_by_religious_expert": false,
   "native_reviewer_approved": false,
   "rights_reviewed": false,
-  "translation_count": 9,
+  "translation_count": 10,
   "translations": {
     "Daha İyi Bir Sen": "Eine bessere Version deiner selbst",
     "TEMEL BİLGİLER": "GRUNDWISSEN",
@@ -19,7 +19,8 @@
     "DOĞRU": "RICHTIG",
     "GÜÇLÜ ALANLAR": "STÄRKEN",
     "TEKRAR ET": "WIEDERHOLEN",
-    "TEMELLER USTALIĞI": "MEISTERPRÜFUNG: GRUNDLAGEN"
+    "TEMELLER USTALIĞI": "MEISTERPRÜFUNG: GRUNDLAGEN",
+    "Öğren · Anla · Hatırla": "Lernen · Verstehen · Erinnern"
   },
   "review_required_keys": [
     "DOĞRU",
@@ -28,5 +29,9 @@
   "not_translated_contextual": [
     "Ünite 1 · Aşama 1"
   ],
-  "context_note_tr": "Bu paket gerçek yayın segmentindeki #lesson sabit etiketleridir. Ayrı sayısal #lessonStreakMini ile sunulan 'gün' metni, yalnız QA DOM motorunda sayıya göre Tag/Tage olarak çevrilir; eksik veya geçersiz sayıda tahmin yapılmaz. 'Ünite X · Aşama Y' ayrı dinamik kalıpla çevrilir. Sorular/şıklar/geri bildirim açıklamaları, Arapça ayet ve sure mealleri değiştirilmez."
+  "context_note_tr": "İlk 9 kaynak anahtarı release segment-01 içindeki ders HTML'siyle eşleşir. 'Öğren · Anla · Hatırla' ifadesi gerçek çalışan ders ekranında Chromium 38290675221 denetiminde gözlenmiş dinamik metindir; kaynak HTML'sinde sabit etiket olduğu iddia edilmez. Ayrı #lessonStreakMini ile sunulan gün Tag/Tage olarak çevrilir. Sorular, şıklar, ayetler, anlamlar ve notlar genel UI çeviri motoruna dahil edilmez.",
+  "browser_observed_keys": [
+    "Öğren · Anla · Hatırla"
+  ],
+  "browser_evidence": "GitHub Actions Chromium real assembled shell run 38290675221, unresolved_real_shell"
 }
