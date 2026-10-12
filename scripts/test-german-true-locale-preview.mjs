@@ -697,6 +697,12 @@ try{
  }
  await page.waitForFunction(()=>document.getElementById('resultView')?.classList.contains('show'),
   null,{timeout:20000});
+ // DEENFeel intentionally animates both counters from 0 over ~620ms.
+ // Read the final displayed score, not an intermediate animation frame.
+ await page.waitForFunction(()=>
+  document.getElementById('resultCorrect')?.textContent?.trim()==='12/12'&&
+  document.getElementById('resultPct')?.textContent?.trim()==='100%',
+  null,{timeout:10000});
  const completion=await page.evaluate(()=>{
   const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
    document.getElementById('resultView'),{qaMode:true,locale:'de',documentRef:document});
