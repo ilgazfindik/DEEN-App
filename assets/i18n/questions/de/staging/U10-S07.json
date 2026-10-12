@@ -1,0 +1,543 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U10",
+  "stage": "U10-S07",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U10-S07-001": {
+      "source": {
+        "question_tr": "Şu üç cümleden hangileri doğru kader anlayışıyla uyumludur? (1) Allah her şeyi ölçüyle yaratır. (2) İnsan tercihlerinden sorumludur. (3) Tevekkül çabayı bırakmak değildir.",
+        "explanation_tr": "Ünitenin üç ana dengesi bunlardır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 ve 3",
+          "Yalnız 1",
+          "1 ve 2",
+          "2 ve 3"
+        ],
+        "correct_answer": "1, 2 ve 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussagen entsprechen einem ausgewogenen Verständnis der Vorherbestimmung? (1) Allah erschafft alles nach einem Maß. (2) Menschen sind für ihre Entscheidungen verantwortlich. (3) Gottvertrauen schließt Anstrengung ein.",
+        "explanation_tr": "Diese drei Grundsätze stehen gemeinsam im Mittelpunkt der Einheit.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 und 3",
+          "Nur 1",
+          "1 und 2",
+          "2 und 3"
+        ],
+        "correct_answer": "1, 2 und 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-002": {
+      "source": {
+        "question_tr": "Allah'ın kuşatıcı iradesine iman ile insanın sınırlı tercih alanını kabul etmek zorunlu olarak çelişir.",
+        "explanation_tr": "Tekvîr 81:28-29 bu iki boyutu birlikte zikreder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Allahs umfassender Wille widerspricht notwendigerweise dem begrenzten Entscheidungsspielraum der Menschen.",
+        "explanation_tr": "At-Takwir 81:28–29 nennt beide Aspekte zusammen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-003": {
+      "source": {
+        "question_tr": "Sağlıklı kader anlayışında insan sebeplere ______ ve sonucu Allah'a bırakır.",
+        "explanation_tr": "Kader sebepleri terk etmeyi öğretmez.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "sarılır",
+          "sırt çevirir",
+          "inanmaz",
+          "engel olur"
+        ],
+        "correct_answer": "sarılır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Im richtigen Verständnis der Vorherbestimmung ______ Menschen die verfügbaren Mittel und überlassen das Ergebnis Allah.",
+        "explanation_tr": "Vorherbestimmung bedeutet nicht, verfügbare Mittel ungenutzt zu lassen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "nutzen",
+          "meiden",
+          "leugnen",
+          "behindern"
+        ],
+        "correct_answer": "nutzen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-004": {
+      "source": {
+        "question_tr": "Bir kişi 'Kaderimde ne varsa olur' diyerek emniyet kurallarına uymuyor. En kapsamlı düzeltme hangisidir?",
+        "explanation_tr": "İnsan kendi kader ayrıntısını bilmediği için tedbir alır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kader bilinmediği için tedbir gerekir; iradeli ihmal sorumluluğu kaldırmaz",
+          "Tedbir kadere aykırıdır",
+          "Kurallar gereksizdir",
+          "İhmal sonuç doğurmaz"
+        ],
+        "correct_answer": "Kader bilinmediği için tedbir gerekir; iradeli ihmal sorumluluğu kaldırmaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand ignoriert Sicherheitsregeln und sagt: „Es geschieht ohnehin nur, was mir bestimmt ist.“ Welche Korrektur ist umfassend?",
+        "explanation_tr": "Menschen treffen Vorsichtsmaßnahmen, weil sie die Einzelheiten ihrer Zukunft nicht kennen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Vorsorge ist erforderlich, weil die Zukunft unbekannt ist; freiwillige Fahrlässigkeit hebt Verantwortung nicht auf",
+          "Vorsorge widerspricht der Vorherbestimmung",
+          "Regeln sind unnötig",
+          "Fahrlässigkeit hat keine Folgen"
+        ],
+        "correct_answer": "Vorsorge ist erforderlich, weil die Zukunft unbekannt ist; freiwillige Fahrlässigkeit hebt Verantwortung nicht auf",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-005": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Allah biliyorsa benim tercihimin anlamı yok' diyor. En dengeli cevap hangisidir?",
+        "explanation_tr": "İlahî bilgi ile insan sorumluluğu birlikte korunur.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'ın bilgisi kuşatıcıdır; bu bilgi insanın sınırlı iradesini ve sorumluluğunu yok etmez",
+          "Allah geleceği bilmez",
+          "İnsan Allah'tan bağımsızdır",
+          "İnsan sorumlu değildir"
+        ],
+        "correct_answer": "Allah'ın bilgisi kuşatıcıdır; bu bilgi insanın sınırlı iradesini ve sorumluluğunu yok etmez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender behauptet: „Wenn Allah meine Entscheidungen kennt, sind sie bedeutungslos.“ Welche Antwort ist ausgewogen?",
+        "explanation_tr": "Göttliches Wissen und menschliche Verantwortung werden gemeinsam berücksichtigt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allahs Wissen umfasst alles, hebt jedoch menschlichen Willen und Verantwortung nicht auf",
+          "Allah kennt die Zukunft nicht",
+          "Menschen sind von Allah unabhängig",
+          "Menschen tragen keine Verantwortung"
+        ],
+        "correct_answer": "Allahs Wissen umfasst alles, hebt jedoch menschlichen Willen und Verantwortung nicht auf",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-006": {
+      "source": {
+        "question_tr": "Bir özet kartında 'Kader = hiçbir şey yapma, sonucu bekle' yazıyor. Düzeltme hangisidir?",
+        "explanation_tr": "Kader pasiflik değildir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kadere iman çaba, tedbir, sorumluluk ve tevekkülü birlikte taşır",
+          "Kader tembelliktir",
+          "Tedbir güvensizliktir",
+          "Plan kaderi bozar"
+        ],
+        "correct_answer": "Kadere iman çaba, tedbir, sorumluluk ve tevekkülü birlikte taşır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lernkarte setzt „Vorherbestimmung“ mit „nichts tun und nur abwarten“ gleich. Was stimmt?",
+        "explanation_tr": "Vorherbestimmung bedeutet keine Untätigkeit.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Vorherbestimmung verbindet Anstrengung, Vorsorge, Verantwortung und Gottvertrauen",
+          "Vorherbestimmung heißt Faulheit",
+          "Vorsorge ist ein Zeichen von Misstrauen",
+          "Planung stört das Schicksal"
+        ],
+        "correct_answer": "Vorherbestimmung verbindet Anstrengung, Vorsorge, Verantwortung und Gottvertrauen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-007": {
+      "source": {
+        "question_tr": "Kader ünitesinin temel kaynaklarını ana mesajlarıyla eşleştir.",
+        "explanation_tr": "Bu kaynaklar ölçü, irade ve çaba boyutlarını birleştirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kamer 54:49",
+            "right": "Her şeyin ölçüyle yaratılması"
+          },
+          {
+            "left": "Tekvîr 81:28-29",
+            "right": "İnsan iradesi ile ilahî irade dengesi"
+          },
+          {
+            "left": "Ra'd 13:11",
+            "right": "Değişim için insanın çaba ve sorumluluğu"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die wichtigsten Quellen ihren Aussagen zur Vorherbestimmung zu.",
+        "explanation_tr": "Diese Quellen verbinden Maß, Willen und Anstrengung.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Qamar 54:49",
+            "right": "Alles wurde nach einem Maß erschaffen"
+          },
+          {
+            "left": "At-Takwir 81:28–29",
+            "right": "Das Verhältnis von menschlichem und göttlichem Willen"
+          },
+          {
+            "left": "Ar-Rad 13:11",
+            "right": "Menschliche Anstrengung und Verantwortung für Veränderung"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-008": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman ünitesini dört anahtar kavramla özetle.",
+        "explanation_tr": "Bu kavramlar kader öğretisinin Allah'a ve insana bakan yönlerini dengeler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "İlahî ilim, ölçü/takdir, insan iradesi ve sorumluluk.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasse die Einheit über die göttliche Vorherbestimmung mit vier Begriffen zusammen.",
+        "explanation_tr": "Diese Begriffe verbinden den göttlichen und menschlichen Aspekt der Vorherbestimmungslehre.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Göttliches Wissen, Maß und Vorherbestimmung, menschlicher Wille und Verantwortung.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-009": {
+      "source": {
+        "question_tr": "Kamer 54:49'a göre Allah her şeyi bir ______ göre yaratmıştır.",
+        "explanation_tr": "Ayet ölçü vurgusu yapar.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "ölçüye",
+          "tesadüfe",
+          "söylentiye",
+          "insan arzusuna"
+        ],
+        "correct_answer": "ölçüye",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Qamar 54:49 hat Allah alles nach einem bestimmten ______ erschaffen.",
+        "explanation_tr": "Der Vers betont das Maß.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Maß",
+          "Zufall",
+          "Gerücht",
+          "menschlichen Wunsch"
+        ],
+        "correct_answer": "Maß",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-010": {
+      "source": {
+        "question_tr": "Ra'd 13:11 insan ve toplumun kendi durumunu ______ sorumluluğuna dikkat çeker.",
+        "explanation_tr": "Ayet çaba ve değişime dikkat çeker.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "değiştirme",
+          "unutma",
+          "gizleme",
+          "reddetme"
+        ],
+        "correct_answer": "değiştirme",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ar-Rad 13:11 erinnert daran, dass Menschen und Gemeinschaften sich bemühen sollen, ihren Zustand zu ______.",
+        "explanation_tr": "Der Vers verweist auf Anstrengung und Veränderung.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "verändern",
+          "vergessen",
+          "verbergen",
+          "ablehnen"
+        ],
+        "correct_answer": "verändern",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-011": {
+      "source": {
+        "question_tr": "Kader inancını günlük hayata uygulama sırasını oluştur.",
+        "explanation_tr": "Bu sıra kader, tevekkül ve sorumluluk dengesini korur.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Sorumluluk alanını belirle",
+          "Gerekli çaba ve tedbiri göster",
+          "Sonucu Allah'a bırak",
+          "Sonuçtan ders çıkarıp sorumluluğa devam et"
+        ],
+        "correct_order": [
+          "Sorumluluk alanını belirle",
+          "Gerekli çaba ve tedbiri göster",
+          "Sonucu Allah'a bırak",
+          "Sonuçtan ders çıkarıp sorumluluğa devam et"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne die Schritte, wie man den Glauben an die Vorherbestimmung im Alltag anwendet.",
+        "explanation_tr": "Diese Reihenfolge wahrt das Verhältnis von Vorherbestimmung, Gottvertrauen und Verantwortung.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Den eigenen Verantwortungsbereich erkennen",
+          "Sich bemühen und Vorsichtsmaßnahmen treffen",
+          "Das Ergebnis Allah überlassen",
+          "Aus dem Ergebnis lernen und die Pflichten fortsetzen"
+        ],
+        "correct_order": [
+          "Den eigenen Verantwortungsbereich erkennen",
+          "Sich bemühen und Vorsichtsmaßnahmen treffen",
+          "Das Ergebnis Allah überlassen",
+          "Aus dem Ergebnis lernen und die Pflichten fortsetzen"
+        ],
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-012": {
+      "source": {
+        "question_tr": "Kader ve tevekkül eşleştirmelerinden hangisi yanlıştır?",
+        "explanation_tr": "Tevekkül çaba ve tedbirden sonra Allah'a güvendir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kamer 54:49 — ölçü",
+          "Ra'd 13:11 — değişim ve çaba",
+          "Tekvîr 81:28-29 — insan ve ilahî irade",
+          "Tevekkül — hiçbir tedbir almamak"
+        ],
+        "correct_answer": "Tevekkül — hiçbir tedbir almamak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung von Vorherbestimmung und Gottvertrauen ist falsch?",
+        "explanation_tr": "Gottvertrauen bedeutet, nach Anstrengung und Vorsorge auf Allah zu vertrauen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Al-Qamar 54:49 – Maß",
+          "Ar-Rad 13:11 – Veränderung und Anstrengung",
+          "At-Takwir 81:28–29 – Menschlicher und göttlicher Wille",
+          "Gottvertrauen – Keine Vorsichtsmaßnahmen treffen"
+        ],
+        "correct_answer": "Gottvertrauen – Keine Vorsichtsmaßnahmen treffen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-013": {
+      "source": {
+        "question_tr": "Mâtürîdî ve Eş'arî terminolojide kader/kaza kelimelerinin yer değiştirebildiğini bilen uygulama nasıl davranmalı?",
+        "explanation_tr": "Terim ile inanç içeriğini ayırmak gerekir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kullanıcının ifade ettiği anlamı değerlendirip geçerli terminoloji farkını yanlış saymamalı",
+          "Yalnız tek kelime kullanımını iman ölçüsü yapmalı",
+          "Alternatif terminolojiyi yasaklamalı",
+          "Kader konusunu puanlamamalı"
+        ],
+        "correct_answer": "Kullanıcının ifade ettiği anlamı değerlendirip geçerli terminoloji farkını yanlış saymamalı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie sollte eine App mit den unterschiedlichen maturidischen und ascharitischen Verwendungen von Qadar und Qada umgehen?",
+        "explanation_tr": "Terminologie ist vom Inhalt des Glaubens zu unterscheiden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die gemeinte Bedeutung bewerten und gültige Begriffsunterschiede nicht als Fehler markieren",
+          "Nur eine Formulierung zum Maßstab für den Glauben machen",
+          "Andere Fachbegriffe verbieten",
+          "Die Vorherbestimmung nicht prüfen"
+        ],
+        "correct_answer": "Die gemeinte Bedeutung bewerten und gültige Begriffsunterschiede nicht als Fehler markieren",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S07-014": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman ünitesini en iyi özetleyen cümle hangisidir?",
+        "explanation_tr": "Ünite ilahî ölçü ile insan sorumluluğunu birlikte ele alır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kadere iman, Allah'ın ilim ve takdirini kabul ederken insanın iradesini, sorumluluğunu, çabasını ve tevekkülünü de korur",
+          "Kadere iman insanın sorumsuzluğudur",
+          "Kadere iman sebepleri reddetmektir",
+          "Kadere iman geleceği ayrıntılarıyla bilmektir"
+        ],
+        "correct_answer": "Kadere iman, Allah'ın ilim ve takdirini kabul ederken insanın iradesini, sorumluluğunu, çabasını ve tevekkülünü de korur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage fasst die Einheit über die Vorherbestimmung am besten zusammen?",
+        "explanation_tr": "Die Einheit betrachtet göttliches Maß und menschliche Verantwortung gemeinsam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sie bejaht Allahs Wissen und Bestimmung sowie menschlichen Willen, Verantwortung, Anstrengung und Gottvertrauen",
+          "Vorherbestimmung hebt menschliche Verantwortung auf",
+          "Vorherbestimmung bedeutet, Ursachen abzulehnen",
+          "Vorherbestimmung bedeutet, die Zukunft im Einzelnen zu kennen"
+        ],
+        "correct_answer": "Sie bejaht Allahs Wissen und Bestimmung sowie menschlichen Willen, Verantwortung, Anstrengung und Gottvertrauen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Vorherbestimmung verstehen",
+        "topic": "Qadar, Wille und Gottvertrauen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
