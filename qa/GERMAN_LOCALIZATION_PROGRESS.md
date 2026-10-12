@@ -553,3 +553,14 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - Updated `scripts/audit-german-full-release-readiness.mjs` for the ninth German UI dictionary and regenerated the [250-key full unmatched reference report](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md).
 - Original Arabic Quran text/audio, other languages, question grading and all 90 unapproved German Quran meaning drafts were not changed. **No main merge, no live deploy, no claim of complete end-to-end German readiness.**
 - Next batch: 120 of the remaining 250 German UI source reference labels; continue to require source-key, scholarly/native/rights and browser UI checks before production activation.
+
+
+## German UI reference remediation batch 06 — 2026-10-12
+
+- Added **120 original German UI meaning drafts** to `assets/i18n/german-ui.reference-batch-06.staging.json`. Topics: the prophets' human nature, revelation and messengership, the Hereafter, divine decree, prayer, ritual purity, Ramadan fasting and the first-run onboarding screens.
+- Six 120-label packs now cover **720/850 originally unmatched English baseline references**, leaving **130 outstanding**. Ten German staged UI dictionaries hold **1,312 distinct labels**, **957/1,087** present in the reference set and 355 in additional dynamic UI surfaces.
+- Flagged **20** doctrinal or sensitive contextual phrases for qualified scholarly and native German review. No review flag has been switched to true, and no German Quran meaning, question text or religious translation was approved for production.
+- Added `scripts/test-german-ui-reference-batch-06.mjs`: enforces all 720 exact ordered source keys, 120 new translations, no duplicate source-key overwrites, 130 remaining reference keys, correct first-run German onboarding labels, and continuing `de.question_data=missing`/`de.global_qa=blocked` release gates.
+- German CI workflow now runs batch 06 and source coverage check. Updated the [remaining 130-key full UI report](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md).
+- **Still required:** 130 missing UI reference mappings, real production German rendering across dynamic screens, complete mobile/desktop browser E2E, scholarly/native linguistic/rights review for 1,704 question variants and 90 Quran meaning drafts, and release authorization. Original Arabic Quran and audio and other live languages untouched; **no main merge / live deploy**.
+- Next: UI batch 07 to close the next **120/130** remaining catalog gaps; after that 10 keys will remain, followed by dynamic runtime and review work.
