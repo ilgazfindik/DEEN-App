@@ -58,7 +58,12 @@
      for(let i=0;i<packs.length;i++){
       const pack=packs[i];
       if(pack.locale!==lang||pack.schema_version!==1||pack.expert_approved!==false||pack.verified_by_religious_expert!==false||Object.keys(pack.translations||{}).length!==config.parts[i].count)throw Error('CONTENT_SCHEMA:'+config.parts[i].path);
-      for(const [id,entry] of Object.entries(pack.translations)) (questions[id]||(questions[id]=[])).push(entry);
+      for(const [id,entry] of Object.entries(pack.translations)) {
+       // German must not admit an invalid stored/legacy variant merely because it
+       // is absent from the initial 1,484 active-question snapshot.
+       if(lang==='de'&&!validate(entry?.source,entry))throw Error('CONTENT_VARIANT_INVALID:'+id);
+       (questions[id]||(questions[id]=[])).push(entry);
+      }
       window.DEEN_BOOT?.progress?.(i+1,packs.length);
      }
     }else{const pack=await json({path:config.bank});if(pack.locale!==lang||pack.schema_version!==1||pack.expert_approved!==false||!pack.questions)return false;Object.assign(questions,pack.questions);}
