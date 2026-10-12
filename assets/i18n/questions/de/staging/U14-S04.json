@@ -1,0 +1,597 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U14",
+  "stage": "U14-S04",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U14-S04-001": {
+      "source": {
+        "question_tr": "İftitah tekbiri konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İftar duası",
+          "Teyemmüm",
+          "İftitah tekbiri",
+          "Zekât verme"
+        ],
+        "correct_answer": "İftitah tekbiri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Antwort beschreibt den Eröffnungstakbir richtig?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten nennt den Eröffnungstakbir unter den wesentlichen Gebetsbestandteilen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bittgebet zum Fastenbrechen",
+          "Tayammum",
+          "Eröffnungstakbir",
+          "Zakat entrichten"
+        ],
+        "correct_answer": "Eröffnungstakbir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Eröffnungstakbir"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-002": {
+      "source": {
+        "question_tr": "Bir arkadaşın Rekât hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Rekât namazın tekrarlanan temel bölümünü ifade eder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namaz vaktinin adı",
+          "Abdest organı",
+          "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+          "Oruç günü"
+        ],
+        "correct_answer": "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund fragt, was eine Rakʿa ist. Was erklärst du?",
+        "explanation_tr": "Eine Rakʿa bezeichnet einen wiederkehrenden grundlegenden Abschnitt des Gebets.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Name einer Gebetszeit",
+          "Ein Körperteil der Gebetswaschung",
+          "Ein Gebetsabschnitt mit Stehen, Rezitation, Verbeugung und Niederwerfungen",
+          "Ein Fastentag"
+        ],
+        "correct_answer": "Ein Gebetsabschnitt mit Stehen, Rezitation, Verbeugung und Niederwerfungen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Rakʿa"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-003": {
+      "source": {
+        "question_tr": "Mazerette secde konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu hastalık ve özür hâlinde rükünlerin güce göre yerine getirilmesini açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namazı daima terk etme",
+          "Secde yerine koşma",
+          "Gücüne göre îmâ ile kılma ruhsatı",
+          "Kıbleyi kaldırma"
+        ],
+        "correct_answer": "Gücüne göre îmâ ile kılma ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Erleichterung gilt bei gesundheitlichen Einschränkungen der Niederwerfung?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten erläutert Erleichterungen bei Krankheit oder Einschränkungen: Gebetsbestandteile werden nach den eigenen Möglichkeiten ausgeführt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Immer ganz auf das Gebet verzichten",
+          "Statt der Niederwerfung laufen",
+          "Bei entsprechender Einschränkung nach den eigenen Möglichkeiten mit Gesten beten dürfen",
+          "Die Qibla abschaffen"
+        ],
+        "correct_answer": "Bei entsprechender Einschränkung nach den eigenen Möglichkeiten mit Gesten beten dürfen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Niederwerfung bei Einschränkungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-004": {
+      "source": {
+        "question_tr": "Bir öğrenci “Rükû namazda secdeyle aynı harekettir.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Kur'an ve sünnette rükû namazın temel rükünlerinden biri olarak yer alır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Yere iki kez secde etmek",
+          "Namazı selamla bitirmek",
+          "Belirli şekilde eğilmek",
+          "Abdest almak"
+        ],
+        "correct_answer": "Belirli şekilde eğilmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler sagt: „Ruku und Niederwerfung sind dieselbe Bewegung.“ Wie korrigierst du ihn?",
+        "explanation_tr": "Im Koran und in der Sunna wird Ruku (Verbeugung) als wesentlicher Bestandteil des Gebets behandelt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sich zweimal niederwerfen",
+          "Das Gebet mit dem Friedensgruß abschließen",
+          "Sich auf vorgeschriebene Weise verbeugen",
+          "Die Gebetswaschung vollziehen"
+        ],
+        "correct_answer": "Sich auf vorgeschriebene Weise verbeugen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Verbeugung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-005": {
+      "source": {
+        "question_tr": "Sükûnet konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Namaz rükünleri bilinçli ölçülü ve sükûnetle yerine getirilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hareketleri mümkün olduğunca karıştırmak",
+          "Rükûyu atlamak",
+          "Rükünleri sükûnet ve ölçüyle yerine getirmek",
+          "Secdeyi rastgele yapmak"
+        ],
+        "correct_answer": "Rükünleri sükûnet ve ölçüyle yerine getirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt Ruhe und Besonnenheit im Gebet richtig?",
+        "explanation_tr": "Die wesentlichen Gebetsbestandteile werden aufmerksam, ruhig und besonnen ausgeführt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Gebetsbewegungen möglichst durcheinander ausführen",
+          "Ruku auslassen",
+          "Die Gebetsbestandteile ruhig und besonnen ausführen",
+          "Niederwerfungen beliebig ausführen"
+        ],
+        "correct_answer": "Die Gebetsbestandteile ruhig und besonnen ausführen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Ruhe und Besonnenheit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-006": {
+      "source": {
+        "question_tr": "Bir arkadaşın İftitah tekbiri hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İftar duası",
+          "Teyemmüm",
+          "İftitah tekbiri",
+          "Zekât verme"
+        ],
+        "correct_answer": "İftitah tekbiri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund fragt dich nach dem Eröffnungstakbir. Was antwortest du?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten nennt den Eröffnungstakbir unter den wesentlichen Gebetsbestandteilen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bittgebet zum Fastenbrechen",
+          "Tayammum",
+          "Eröffnungstakbir",
+          "Zakat entrichten"
+        ],
+        "correct_answer": "Eröffnungstakbir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Eröffnungstakbir"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-007": {
+      "source": {
+        "question_tr": "Rekât konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Rekât namazın tekrarlanan temel bölümünü ifade eder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namaz vaktinin adı",
+          "Abdest organı",
+          "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+          "Oruç günü"
+        ],
+        "correct_answer": "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über eine Rakʿa ist richtig?",
+        "explanation_tr": "Eine Rakʿa bezeichnet einen wiederkehrenden grundlegenden Abschnitt des Gebets.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Name einer Gebetszeit",
+          "Ein Körperteil der Gebetswaschung",
+          "Ein Gebetsabschnitt mit Stehen, Rezitation, Verbeugung und Niederwerfungen",
+          "Ein Fastentag"
+        ],
+        "correct_answer": "Ein Gebetsabschnitt mit Stehen, Rezitation, Verbeugung und Niederwerfungen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Rakʿa"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-008": {
+      "source": {
+        "question_tr": "“Secde yapamayan kişi için hiçbir kolaylaştırma yoktur.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu hastalık ve özür hâlinde rükünlerin güce göre yerine getirilmesini açıklar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namazı daima terk etme",
+          "Secde yerine koşma",
+          "Gücüne göre îmâ ile kılma ruhsatı",
+          "Kıbleyi kaldırma"
+        ],
+        "correct_answer": "Gücüne göre îmâ ile kılma ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Antwort korrigiert die Behauptung: „Wenn man sich nicht niederwerfen kann, gibt es keine Erleichterung“?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten erläutert Erleichterungen bei Krankheit oder Einschränkungen: Gebetsbestandteile werden nach den eigenen Möglichkeiten ausgeführt.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Immer ganz auf das Gebet verzichten",
+          "Statt der Niederwerfung laufen",
+          "Bei entsprechender Einschränkung nach den eigenen Möglichkeiten mit Gesten beten dürfen",
+          "Die Qibla abschaffen"
+        ],
+        "correct_answer": "Bei entsprechender Einschränkung nach den eigenen Möglichkeiten mit Gesten beten dürfen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Niederwerfung bei Einschränkungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-009": {
+      "source": {
+        "question_tr": "“Rükû namazda secdeyle aynı harekettir.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Kur'an ve sünnette rükû namazın temel rükünlerinden biri olarak yer alır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Yere iki kez secde etmek",
+          "Namazı selamla bitirmek",
+          "Belirli şekilde eğilmek",
+          "Abdest almak"
+        ],
+        "correct_answer": "Belirli şekilde eğilmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Antwort korrigiert die Aussage: „Ruku ist dieselbe Bewegung wie die Niederwerfung“?",
+        "explanation_tr": "Im Koran und in der Sunna wird Ruku (Verbeugung) als wesentlicher Bestandteil des Gebets behandelt.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sich zweimal niederwerfen",
+          "Das Gebet mit dem Friedensgruß abschließen",
+          "Sich auf vorgeschriebene Weise verbeugen",
+          "Die Gebetswaschung vollziehen"
+        ],
+        "correct_answer": "Sich auf vorgeschriebene Weise verbeugen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Verbeugung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-010": {
+      "source": {
+        "question_tr": "Sükûnet hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Namaz rükünleri bilinçli ölçülü ve sükûnetle yerine getirilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hareketleri mümkün olduğunca karıştırmak",
+          "Rükûyu atlamak",
+          "Rükünleri sükûnet ve ölçüyle yerine getirmek",
+          "Secdeyi rastgele yapmak"
+        ],
+        "correct_answer": "Rükünleri sükûnet ve ölçüyle yerine getirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage widerspricht der falschen Behauptung, auf Ruhe im Gebet komme es nicht an?",
+        "explanation_tr": "Die wesentlichen Gebetsbestandteile werden aufmerksam, ruhig und besonnen ausgeführt.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Die Gebetsbewegungen möglichst durcheinander ausführen",
+          "Ruku auslassen",
+          "Die Gebetsbestandteile ruhig und besonnen ausführen",
+          "Niederwerfungen beliebig ausführen"
+        ],
+        "correct_answer": "Die Gebetsbestandteile ruhig und besonnen ausführen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Ruhe und Besonnenheit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-011": {
+      "source": {
+        "question_tr": "“Namazın başlangıcında iftitah tekbirinin hiçbir yeri yoktur.” ifadesindeki hatayı hangi seçenek düzeltir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İftar duası",
+          "Teyemmüm",
+          "İftitah tekbiri",
+          "Zekât verme"
+        ],
+        "correct_answer": "İftitah tekbiri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Antwort korrigiert die Behauptung: „Der Eröffnungstakbir hat am Anfang des Gebets keine Bedeutung“?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten nennt den Eröffnungstakbir unter den wesentlichen Gebetsbestandteilen.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bittgebet zum Fastenbrechen",
+          "Tayammum",
+          "Eröffnungstakbir",
+          "Zakat entrichten"
+        ],
+        "correct_answer": "Eröffnungstakbir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Eröffnungstakbir"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-012": {
+      "source": {
+        "question_tr": "Uygulama: rekât kavramı en iyi nasıl açıklanır?",
+        "explanation_tr": "Rekât namazın tekrarlanan temel bölümünü ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz vaktinin adı",
+          "Abdest organı",
+          "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+          "Oruç günü"
+        ],
+        "correct_answer": "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Anwendung: Wie lässt sich eine Rakʿa am besten beschreiben?",
+        "explanation_tr": "Eine Rakʿa bezeichnet einen wiederkehrenden grundlegenden Abschnitt des Gebets.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Der Name einer Gebetszeit",
+          "Ein Körperteil der Gebetswaschung",
+          "Ein Gebetsabschnitt mit Stehen, Rezitation, Verbeugung und Niederwerfungen",
+          "Ein Fastentag"
+        ],
+        "correct_answer": "Ein Gebetsabschnitt mit Stehen, Rezitation, Verbeugung und Niederwerfungen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Rakʿa"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-013": {
+      "source": {
+        "question_tr": "Uygulama: mazerette secde konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu hastalık ve özür hâlinde rükünlerin güce göre yerine getirilmesini açıklar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazı daima terk etme",
+          "Secde yerine koşma",
+          "Gücüne göre îmâ ile kılma ruhsatı",
+          "Kıbleyi kaldırma"
+        ],
+        "correct_answer": "Gücüne göre îmâ ile kılma ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Anwendung: Welche Regel gilt, wenn man sich nicht niederwerfen kann?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten erläutert Erleichterungen bei Krankheit oder Einschränkungen: Gebetsbestandteile werden nach den eigenen Möglichkeiten ausgeführt.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Immer ganz auf das Gebet verzichten",
+          "Statt der Niederwerfung laufen",
+          "Bei entsprechender Einschränkung nach den eigenen Möglichkeiten mit Gesten beten dürfen",
+          "Die Qibla abschaffen"
+        ],
+        "correct_answer": "Bei entsprechender Einschränkung nach den eigenen Möglichkeiten mit Gesten beten dürfen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Niederwerfung bei Einschränkungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-014": {
+      "source": {
+        "question_tr": "Uygulama: rükû hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Kur'an ve sünnette rükû namazın temel rükünlerinden biri olarak yer alır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Yere iki kez secde etmek",
+          "Namazı selamla bitirmek",
+          "Belirli şekilde eğilmek",
+          "Abdest almak"
+        ],
+        "correct_answer": "Belirli şekilde eğilmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Anwendung: Was bedeutet Ruku im Gebet?",
+        "explanation_tr": "Im Koran und in der Sunna wird Ruku (Verbeugung) als wesentlicher Bestandteil des Gebets behandelt.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sich zweimal niederwerfen",
+          "Das Gebet mit dem Friedensgruß abschließen",
+          "Sich auf vorgeschriebene Weise verbeugen",
+          "Die Gebetswaschung vollziehen"
+        ],
+        "correct_answer": "Sich auf vorgeschriebene Weise verbeugen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Verbeugung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-015": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Namazda rükünleri mümkün olduğunca aceleyle ve karışık yapmak esastır.",
+        "explanation_tr": "Namaz rükünleri bilinçli ölçülü ve sükûnetle yerine getirilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Beim Gebet soll man alle Bestandteile möglichst hastig und durcheinander ausführen.",
+        "explanation_tr": "Die wesentlichen Gebetsbestandteile werden aufmerksam, ruhig und besonnen ausgeführt.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Ruhe und Besonnenheit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S04-016": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Namaza girişte alınan tekbire iftitah tekbiri denir.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Der Takbir zu Beginn des Gebets heißt Eröffnungstakbir.",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten nennt den Eröffnungstakbir unter den wesentlichen Gebetsbestandteilen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ablauf des Gebets",
+        "topic": "Eröffnungstakbir"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

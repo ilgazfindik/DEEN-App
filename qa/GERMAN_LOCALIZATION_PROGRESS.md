@@ -106,21 +106,28 @@ Last updated: 2026-10-12
 | U13-S03 / 14 base questions | 14 staged | 0 |
 | U13-S04 / 16 base questions | 16 staged | 0 |
 | U13-S05 / 16 base questions | 16 staged | 0 |
-| U13-S06–S07 base questions | 0 | 26 |
-| U14–U15 | 0 | 200 |
+| U13-S06 / 12 base questions | 12 staged | 0 |
+| U13-S07 / 14 base questions | 14 staged | 0 |
+| U14-S01 / 14 base questions | 14 staged | 0 |
+| U14-S02 / 14 base questions | 14 staged | 0 |
+| U14-S03 / 14 base questions | 14 staged | 0 |
+| U14-S04 / 16 base questions | 16 staged | 0 |
+| U14-S05 / 16 base questions | 16 staged | 0 |
+| U14-S06–S07 base questions | 0 | 26 |
+| U15 | 0 | 100 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 1,274 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 1,374 / 1,500 base questions translated in staging; 0 German game questions published.**
 
 The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 1,274 source IDs across eighty-nine stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 1,374 source IDs across ninety-six stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-The next 100-question batch is U13-S06 (12) + U13-S07 (14) + U14-S01 through U14-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+The next 100-question batch is U14-S06 (12) + U14-S07 (14) + U15-S01 through U15-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -220,3 +227,11 @@ The next 100-question batch is U13-S06 (12) + U13-S07 (14) + U14-S01 through U14
 - Translated German prompts, explanations, choices, correct answers, fill blanks, matching cards and free recall preserving the Turkish source snapshots and question ordering.
 - U12 maintains legitimate Sunni fiqh-school differences in ritual purification and head wiping. U13 covers prayer timings, Rakʿa counts, Adhan, Qibla, physical purity, and Tayammum.
 - German is still **blocked in runtime**: missing base questions, active variants, UI, Quran translations, audio, real browser checks, native German and Islamic religious review.
+
+## Batch 100M — U13 completion and U14-S01 through S05
+- Added **exactly 100 German staging base questions**: U13-S06 (12), U13-S07 (14), U14-S01 (14), S02 (14), S03 (14), S04 (16) and S05 (16).
+- Cumulative: **1,374 / 1,500** staged. U01–U13 now complete (100/100 each), U14 is 74/100; 126 base questions remain.
+- Translated questions, explanations, answer choices, fill/recall prompts and answers, and matching labels. Original Turkish source snapshots, answer indices, blank counts and pairing identities are preserved.
+- Covers prayer preparation and obligatory Rakʿa counts (U13); the prayer sequence, Qiyam, Qira'a, Ruku, Sujud, last sitting, accommodation for disability and recognized fiqh differences (U14).
+- German native-speaker/religious expert approval and remaining German UI, Quran, runtime variations, audio and browser QA are **not complete**; production gameplay stays blocked.
+- Based on PR #51 head while its Arabic regression gate is pending. This batch should be reviewed as a stacked PR; do not merge its parent before that regression passes.

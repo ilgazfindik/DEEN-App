@@ -1,0 +1,675 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U14",
+  "stage": "U14-S03",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U14-S03-001": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Son oturuş, Namazın öğrenilmesi, Mazerette kıyam ve Bu dersteki fıkıh yaklaşımı.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefî ve Şâfiî yaklaşımlarda kıraat ve Fâtiha hükmünün teknik sınıflandırmasında fark bulunduğunu belirtir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Son oturuş",
+            "right": "Ka'de-i ahire veya son oturuş"
+          },
+          {
+            "left": "Namazın öğrenilmesi",
+            "right": "Kur'an'daki genel emrin nasıl uygulanacağını gösterir"
+          },
+          {
+            "left": "Mazerette kıyam",
+            "right": "Namazını oturarak kılabilir"
+          },
+          {
+            "left": "Fıkıh yaklaşımı",
+            "right": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne den letzten Sitzteil, das Erlernen des Gebets, das Stehen bei Krankheit und die rechtliche Herangehensweise zu.",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten weist auf Unterschiede zwischen hanafitischer und schafiitischer Rechtsschule bei der rechtlichen Einordnung der Koranrezitation und der Fatiha hin.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Letzter Sitzteil",
+            "right": "Qaʿda al-akhira (der letzte Sitzteil)"
+          },
+          {
+            "left": "Das Erlernen des Gebets",
+            "right": "Es zeigt, wie das allgemeine Gebot im Koran praktisch umgesetzt wird"
+          },
+          {
+            "left": "Stehen bei gesundheitlicher Einschränkung",
+            "right": "Im Sitzen beten dürfen"
+          },
+          {
+            "left": "Rechtliche Herangehensweise",
+            "right": "Die gemeinsamen Gebetsbestandteile lehren und anerkannte Detailunterschiede nicht als falsch bewerten"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Rechtliche Einordnung der Fatiha"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-002": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: İki secde, Secdeler arası oturuş, Fâtiha hükmü ve Kıyam.",
+        "explanation_tr": "Kur'an rükû ve secdeyi kulluk bağlamında zikreder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İki secde",
+            "right": "İki secde yapılır"
+          },
+          {
+            "left": "Secdeler arası oturuş",
+            "right": "Kısa oturuş"
+          },
+          {
+            "left": "Fâtiha hükmü",
+            "right": "Mezhepler arasında ayrıntı farklılığı vardır"
+          },
+          {
+            "left": "Kıyam",
+            "right": "Namazda ayakta durmayı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die zwei Niederwerfungen, das Sitzen dazwischen, die rechtliche Einordnung der Fatiha und Qiyam zu.",
+        "explanation_tr": "Der Koran nennt Verbeugung und Niederwerfung im Zusammenhang mit der Anbetung Allahs.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Zwei Niederwerfungen",
+            "right": "Zwei Niederwerfungen ausführen"
+          },
+          {
+            "left": "Sitzen zwischen den Niederwerfungen",
+            "right": "Kurzer Sitzteil"
+          },
+          {
+            "left": "Rechtliche Einordnung der Fatiha",
+            "right": "Es gibt Unterschiede in den Einzelheiten zwischen den Rechtsschulen"
+          },
+          {
+            "left": "Qiyam (Stehen)",
+            "right": "Das Stehen während des Gebets"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Niederwerfung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-003": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Sükûnet, Mazerette secde, İftitah tekbiri ve Rükû.",
+        "explanation_tr": "Namazın rekât akışında iki secde arasında oturuş vardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Sükûnet",
+            "right": "Rükünleri sükûnet ve ölçüyle yerine getirmek"
+          },
+          {
+            "left": "Mazerette secde",
+            "right": "Gücüne göre îmâ ile kılma ruhsatı"
+          },
+          {
+            "left": "İftitah tekbiri",
+            "right": "Namaza girişte alınan tekbir"
+          },
+          {
+            "left": "Rükû",
+            "right": "Belirli şekilde eğilmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Ruhe und Besonnenheit, Niederwerfung bei Krankheit, Eröffnungstakbir und Ruku zu.",
+        "explanation_tr": "Innerhalb einer Rakʿa folgt zwischen den beiden Niederwerfungen ein kurzer Sitzteil.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ruhe und Besonnenheit",
+            "right": "Die Gebetsbestandteile ruhig und besonnen ausführen"
+          },
+          {
+            "left": "Niederwerfung bei gesundheitlicher Einschränkung",
+            "right": "Bei entsprechender Einschränkung nach den eigenen Möglichkeiten mit Gesten beten dürfen"
+          },
+          {
+            "left": "Eröffnungstakbir",
+            "right": "Der Takbir zu Beginn des Gebets"
+          },
+          {
+            "left": "Ruku (Verbeugung)",
+            "right": "Sich auf vorgeschriebene Weise verbeugen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Sitzen zwischen den Niederwerfungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-004": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Mazerette kıyam, Bu dersteki fıkıh yaklaşımı, Kıraat ve Son oturuş.",
+        "explanation_tr": "Kıyam gücü yeten kişinin farz namazda ayakta durmasıyla ilgili namaz rüknüdür.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Mazerette kıyam",
+            "right": "Namazını oturarak kılabilir"
+          },
+          {
+            "left": "Fıkıh yaklaşımı",
+            "right": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz"
+          },
+          {
+            "left": "Kıraat",
+            "right": "Kur'an'dan okumayı"
+          },
+          {
+            "left": "Son oturuş",
+            "right": "Ka'de-i ahire veya son oturuş"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne das Stehen bei Krankheit, die rechtliche Herangehensweise, Qira'a und den letzten Sitzteil zu.",
+        "explanation_tr": "Qiyam bezeichnet das Stehen als Gebetsbestandteil für Personen, die dazu in der Lage sind.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Stehen bei gesundheitlicher Einschränkung",
+            "right": "Im Sitzen beten dürfen"
+          },
+          {
+            "left": "Rechtliche Herangehensweise",
+            "right": "Die gemeinsamen Gebetsbestandteile lehren und anerkannte Detailunterschiede nicht als falsch bewerten"
+          },
+          {
+            "left": "Qira'a (Koranrezitation)",
+            "right": "Aus dem Koran zu rezitieren"
+          },
+          {
+            "left": "Letzter Sitzteil",
+            "right": "Qaʿda al-akhira (der letzte Sitzteil)"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Stehen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-005": {
+      "source": {
+        "question_tr": "Eşleştirme: şu kavramları doğru açıklamalarıyla eşleştir: Fâtiha hükmü, Kıyam, Secde ve İki secde.",
+        "explanation_tr": "Namazın yerleşik sünnet uygulamasında her rekâtta iki secde bulunur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Fâtiha hükmü",
+            "right": "Mezhepler arasında ayrıntı farklılığı vardır"
+          },
+          {
+            "left": "Kıyam",
+            "right": "Namazda ayakta durmayı"
+          },
+          {
+            "left": "Secde",
+            "right": "Allah'a kulluk için yere kapanmayı ifade eden rükün"
+          },
+          {
+            "left": "İki secde",
+            "right": "İki secde yapılır"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zuordnung: Verbinde die rechtliche Einordnung der Fatiha, Qiyam, Niederwerfung und zwei Niederwerfungen mit den Erklärungen.",
+        "explanation_tr": "Nach der überlieferten Gebetspraxis umfasst jede Rakʿa zwei Niederwerfungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Rechtliche Einordnung der Fatiha",
+            "right": "Es gibt Unterschiede in den Einzelheiten zwischen den Rechtsschulen"
+          },
+          {
+            "left": "Qiyam (Stehen)",
+            "right": "Das Stehen während des Gebets"
+          },
+          {
+            "left": "Niederwerfung",
+            "right": "Gebetsbestandteil, bei dem man sich in Anbetung Allahs niederwirft"
+          },
+          {
+            "left": "Zwei Niederwerfungen",
+            "right": "Zwei Niederwerfungen ausführen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Zwei Niederwerfungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-006": {
+      "source": {
+        "question_tr": "Eşleştirme: şu kavramları doğru açıklamalarıyla eşleştir: İftitah tekbiri, Rükû, Rekât ve Sükûnet.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefî ve Şâfiî yaklaşımlarda kıraat ve Fâtiha hükmünün teknik sınıflandırmasında fark bulunduğunu belirtir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İftitah tekbiri",
+            "right": "Namaza girişte alınan tekbir"
+          },
+          {
+            "left": "Rükû",
+            "right": "Belirli şekilde eğilmek"
+          },
+          {
+            "left": "Rekât",
+            "right": "Namaz içinde kıyam kıraat rükû ve secdeleri içeren temel bölüm"
+          },
+          {
+            "left": "Sükûnet",
+            "right": "Rükünleri sükûnet ve ölçüyle yerine getirmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zuordnung: Verbinde Eröffnungstakbir, Ruku, Rakʿa und Ruhe mit den Erklärungen.",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten weist auf Unterschiede zwischen hanafitischer und schafiitischer Rechtsschule bei der rechtlichen Einordnung der Koranrezitation und der Fatiha hin.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Eröffnungstakbir",
+            "right": "Der Takbir zu Beginn des Gebets"
+          },
+          {
+            "left": "Ruku (Verbeugung)",
+            "right": "Sich auf vorgeschriebene Weise verbeugen"
+          },
+          {
+            "left": "Rakʿa",
+            "right": "Gebetsabschnitt mit Stehen, Rezitation, Verbeugung und Niederwerfungen"
+          },
+          {
+            "left": "Ruhe und Besonnenheit",
+            "right": "Die Gebetsbestandteile ruhig und besonnen ausführen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Rechtliche Einordnung der Fatiha"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-007": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Secde namazda yere ___ ifade eden rükündür.",
+        "explanation_tr": "Kur'an rükû ve secdeyi kulluk bağlamında zikreder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "kapanmayı",
+          "okumayı"
+        ],
+        "correct_answer": "kapanmayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Die Niederwerfung bedeutet, sich im Gebet vor Allah ______.",
+        "explanation_tr": "Der Koran nennt Verbeugung und Niederwerfung im Zusammenhang mit der Anbetung Allahs.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Eröffnung",
+          "Stehen",
+          "niederzuwerfen",
+          "Rezitation"
+        ],
+        "correct_answer": "niederzuwerfen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Niederwerfung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-008": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İki secde arasında kısa bir ___ bulunur.",
+        "explanation_tr": "Namazın rekât akışında iki secde arasında oturuş vardır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "oturuş",
+          "okumayı"
+        ],
+        "correct_answer": "oturuş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Zwischen zwei Niederwerfungen gibt es ein kurzes ______.",
+        "explanation_tr": "Innerhalb einer Rakʿa folgt zwischen den beiden Niederwerfungen ein kurzer Sitzteil.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Eröffnung",
+          "Stehen",
+          "Sitzen",
+          "Rezitation"
+        ],
+        "correct_answer": "Sitzen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Sitzen zwischen den Niederwerfungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-009": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Kıyam namazda ___ durmayı ifade eder.",
+        "explanation_tr": "Kıyam gücü yeten kişinin farz namazda ayakta durmasıyla ilgili namaz rüknüdür.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "okumayı",
+          "ayakta",
+          "eğilme"
+        ],
+        "correct_answer": "ayakta",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zuordnung: Ergänze: Qiyam bezeichnet im Gebet das ______.",
+        "explanation_tr": "Qiyam bezeichnet das Stehen als Gebetsbestandteil für Personen, die dazu in der Lage sind.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Eröffnung",
+          "Rezitation",
+          "Stehen",
+          "Verbeugung"
+        ],
+        "correct_answer": "Stehen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Stehen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-010": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Bir rekâtta ___ secde yapılır.",
+        "explanation_tr": "Namazın yerleşik sünnet uygulamasında her rekâtta iki secde bulunur.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "iki",
+          "okumayı"
+        ],
+        "correct_answer": "iki",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zuordnung: Ergänze: In einer Rakʿa gibt es ______ Niederwerfungen.",
+        "explanation_tr": "Nach der überlieferten Gebetspraxis umfasst jede Rakʿa zwei Niederwerfungen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Eröffnung",
+          "Stehen",
+          "zwei",
+          "Rezitation"
+        ],
+        "correct_answer": "zwei",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Zwei Niederwerfungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-011": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Fâtiha'nın teknik hükmünde mezhepler arasında ___ bulunur.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefî ve Şâfiî yaklaşımlarda kıraat ve Fâtiha hükmünün teknik sınıflandırmasında fark bulunduğunu belirtir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "farklılık",
+          "okumayı"
+        ],
+        "correct_answer": "farklılık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wähle den fehlenden Begriff: Bei der rechtlichen Einordnung der Fatiha bestehen zwischen den Rechtsschulen ______.",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten weist auf Unterschiede zwischen hanafitischer und schafiitischer Rechtsschule bei der rechtlichen Einordnung der Koranrezitation und der Fatiha hin.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Eröffnung",
+          "Stehen",
+          "Unterschiede",
+          "Rezitation"
+        ],
+        "correct_answer": "Unterschiede",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Rechtliche Einordnung der Fatiha"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-012": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Secde namazda yere ___ ifade eden rükündür.",
+        "explanation_tr": "Kur'an rükû ve secdeyi kulluk bağlamında zikreder.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "kapanmayı",
+          "okumayı"
+        ],
+        "correct_answer": "kapanmayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wähle den fehlenden Begriff: Die Niederwerfung bedeutet, sich im Gebet vor Allah ______.",
+        "explanation_tr": "Der Koran nennt Verbeugung und Niederwerfung im Zusammenhang mit der Anbetung Allahs.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Eröffnung",
+          "Stehen",
+          "niederzuwerfen",
+          "Rezitation"
+        ],
+        "correct_answer": "niederzuwerfen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Niederwerfung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: İki secde arasında kısa bir ___ bulunur.",
+        "explanation_tr": "Namazın rekât akışında iki secde arasında oturuş vardır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "oturuş",
+          "okumayı"
+        ],
+        "correct_answer": "oturuş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wähle den fehlenden Begriff: Zwischen zwei Niederwerfungen gibt es ein kurzes ______.",
+        "explanation_tr": "Innerhalb einer Rakʿa folgt zwischen den beiden Niederwerfungen ein kurzer Sitzteil.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Eröffnung",
+          "Stehen",
+          "Sitzen",
+          "Rezitation"
+        ],
+        "correct_answer": "Sitzen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Sitzen zwischen den Niederwerfungen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U14-S03-014": {
+      "source": {
+        "question_tr": "Boşluğu doldur: Kıyam namazda ___ durmayı ifade eder.",
+        "explanation_tr": "Kıyam gücü yeten kişinin farz namazda ayakta durmasıyla ilgili namaz rüknüdür.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "iftitah",
+          "okumayı",
+          "ayakta",
+          "eğilme"
+        ],
+        "correct_answer": "ayakta",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Qiyam bezeichnet im Gebet das ______.",
+        "explanation_tr": "Qiyam bezeichnet das Stehen als Gebetsbestandteil für Personen, die dazu in der Lage sind.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Eröffnung",
+          "Rezitation",
+          "Stehen",
+          "Verbeugung"
+        ],
+        "correct_answer": "Stehen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Eine Rakʿa zusammensetzen",
+        "topic": "Stehen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
