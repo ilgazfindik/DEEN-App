@@ -119,7 +119,7 @@ async function realShell(){
    const byScreen=[...document.querySelectorAll('.screen')].map(screen=>{
     const result=renderer.render(screen,{qaMode:true,locale:'de',documentRef:document});
     return {screen_id:screen.id||'(unnamed)',scanned:result.scanned,
-     unresolved_count:result.unresolved.length,examples:result.unresolved.slice(0,25)};
+     unresolved_count:result.unresolved.length,examples:result.unresolved};
    }).filter(record=>record.scanned>0);
    const gradedAfterWhole={
     question:document.querySelector('#questionText')?.textContent,
@@ -131,7 +131,7 @@ async function realShell(){
     before.explanation===gradedAfterWhole.explanation;
    return {locale:lang,germanAvailable:window.DEEN_CONTENT_LOCALE.available('de'),
     full_shell_qa:{scanned:allChrome.scanned,writes:allChrome.writes,
-     unresolved_count:allChrome.unresolved.length,unresolved:allChrome.unresolved.slice(0,100),
+     unresolved_count:allChrome.unresolved.length,unresolved:allChrome.unresolved,
      screens:byScreen,graded_content_unchanged:fullProtected},
     startup:document.documentElement.dataset.deenStartup||'unknown',
     assembledLesson:Boolean(document.querySelector('#lesson .question-frame')),
@@ -150,6 +150,17 @@ async function realShell(){
    'Whole-shell audit must scan more elements than lesson-only smoke');
   assert(result.full_shell_qa.graded_content_unchanged,
    'Whole-shell QA must not rewrite question/answer/explanation content');
+  // Check actual non-graded learning-path strings observed in baseline browser inventory.
+  for(const priorLeak of [
+   '1. KISIM · 1. ÜNİTE',
+   'Namaza Hazırlık · ÖĞREN · Aşama 1/5',
+   'Namaza Hazırlık — Önceki aşamayı tamamla',
+   '0/3 · Ders 1',
+   '0 ENERJİ'
+  ])assert(!result.full_shell_qa.unresolved.includes(priorLeak),
+   'German QA learning-map residual: '+priorLeak);
+  assert(result.full_shell_qa.unresolved_count<183,
+   'German QA remediation did not reduce the 183 observed full-shell Turkish leftovers');
   assert(Array.isArray(result.full_shell_qa.screens),
    'Named screen-level untranslated text inventories were not generated');
   assert.deepEqual(result.audit.unresolved,[], 'Real lesson shell has uncovered Turkish chrome labels');
