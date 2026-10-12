@@ -11,6 +11,9 @@ on:
       - 'scripts/audit-german-ui-staging.mjs'
       - 'scripts/audit-german-lesson-flow-staging.mjs'
       - 'scripts/test-german-dynamic-ui-staging.mjs'
+      - 'scripts/audit-german-quran-premium-staging.mjs'
+      - 'assets/i18n/german-ui.quran-controls.staging.json'
+      - 'assets/i18n/german-ui.premium-shop.staging.json'
       - 'assets/i18n/german-ui.dynamic.staging.mjs'
       - 'assets/i18n/german-ui.lesson-flow.staging.json'
       - 'assets/i18n/english-ui.js'
@@ -41,6 +44,8 @@ jobs:
         run: node scripts/audit-german-lesson-flow-staging.mjs
       - name: Verify German dynamic counters, results and fail-closed fallback
         run: node scripts/test-german-dynamic-ui-staging.mjs
+      - name: Verify German Quran and Premium UI staging without verse fallback
+        run: node scripts/audit-german-quran-premium-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
