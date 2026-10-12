@@ -6,6 +6,9 @@ on:
     paths:
       - 'scripts/test-german-browser-staging.mjs'
       - 'scripts/test-german-stateful-browser-staging.mjs'
+      - 'scripts/test-german-question-adapter-staging.mjs'
+      - 'assets/i18n/german-question.adapter.staging.mjs'
+      - 'assets/i18n/questions/de/**'
       - 'assets/i18n/german-ui*'
       - 'assets/i18n/english-ui.draft.json'
       - 'assets/i18n/content-support.json'
@@ -33,6 +36,8 @@ jobs:
         run: npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
       - name: Install Chrome-based Playwright browser
         run: npx playwright install --with-deps chromium
+      - name: Audit every staged German question signature and grader
+        run: node scripts/test-german-question-adapter-staging.mjs
       - name: Exercise mobile and desktop preview plus assembled DEEN shell
         shell: bash
         run: |
