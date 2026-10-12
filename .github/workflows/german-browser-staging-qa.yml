@@ -1,0 +1,51 @@
+name: German real-browser staging QA
+
+on:
+  push:
+    branches: ['codex/german-*']
+    paths:
+      - 'scripts/test-german-browser-staging.mjs'
+      - 'assets/i18n/german-ui*'
+      - 'assets/i18n/english-ui.draft.json'
+      - 'assets/i18n/content-support.json'
+      - 'assets/i18n/boot.js'
+      - 'assets/i18n/locale.js'
+      - 'release/v9.9.3-direct/**'
+      - 'qa/german-ui-staging-preview.html'
+      - '.github/workflows/german-browser-staging-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  german-browser-staging:
+    name: Chromium German UI and real app-shell smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated browser test dependency
+        run: npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Install Chrome-based Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Exercise mobile and desktop preview plus assembled DEEN shell
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory . > "${RUNNER_TEMP}/deen-local-http.log" 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          curl --fail --silent --show-error --retry 12 --retry-connrefused --retry-delay 1 http://127.0.0.1:8765/ > /dev/null
+          node scripts/test-german-browser-staging.mjs
+      - name: Upload browser evidence and audit summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: german-staging-browser-evidence
+          path: qa-artifacts/german-browser/
+          if-no-files-found: warn
+          retention-days: 7
