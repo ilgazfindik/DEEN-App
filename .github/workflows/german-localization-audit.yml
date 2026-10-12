@@ -12,6 +12,8 @@ on:
       - 'scripts/audit-german-lesson-flow-staging.mjs'
       - 'scripts/test-german-dynamic-ui-staging.mjs'
       - 'scripts/audit-german-quran-premium-staging.mjs'
+      - 'scripts/audit-german-quran-meaning-inventory.mjs'
+      - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'assets/i18n/german-ui.quran-controls.staging.json'
       - 'assets/i18n/german-ui.premium-shop.staging.json'
       - 'assets/i18n/german-ui.dynamic.staging.mjs'
@@ -46,6 +48,8 @@ jobs:
         run: node scripts/test-german-dynamic-ui-staging.mjs
       - name: Verify German Quran and Premium UI staging without verse fallback
         run: node scripts/audit-german-quran-premium-staging.mjs
+      - name: Verify 90 Quran ayahs, audio and outstanding German meaning coverage
+        run: node scripts/audit-german-quran-meaning-inventory.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
