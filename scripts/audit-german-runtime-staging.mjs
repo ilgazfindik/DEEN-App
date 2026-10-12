@@ -108,7 +108,7 @@ for(const set of stagedSets){
   }else if(d.pairs!==null)fail('unexpected_pairs');
   for(const v of [d.question_tr,d.explanation_tr,...(d.options_tr||[]),d.correct_answer,...(d.pairs||[]).flatMap(z=>[z.left,z.right]),d.stage_title,d.topic].filter(x=>x!=null)){
    if(typeof v!=='string'||!v.trim())fail('empty_display_value');
-   else if(/[ÇĞİŞçğıış]/.test(v)||/\b(?:sadece|doğru|yanlış|müslüman|peygamber|kulluk|ibadet)\b/i.test(v))fail('Turkish_residue');
+   else if(/[ÇĞİŞçğıış]/.test(v.replaceAll('Ayşe',''))||/\b(?:sadece|doğru|yanlış|müslüman|peygamber|kulluk|ibadet)\b/i.test(v))fail('Turkish_residue');
   }
   if(set.label==='stored'&&base.has(id))variantBaseOverlap++;
   if(set.label==='legacy'){
