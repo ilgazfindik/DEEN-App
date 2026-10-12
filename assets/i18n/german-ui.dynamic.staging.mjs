@@ -47,6 +47,44 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  if(n==='Derse devam etmek için enerjini yenileyebilirsin. Premium enerji sınırını kaldırır, reklam ise hızlı bir destek verir.')
   return emit('Du kannst deine Energie auffüllen, um die Lektion fortzusetzen. Premium hebt das Energielimit auf; Werbung bietet eine schnelle Unterstützung.');
  if((m=n.match(/^Ünite\s+(\d+)\s*·\s*Aşama\s+(\d+)$/)))return emit('Einheit '+m[1]+' · Etappe '+m[2]);
+
+ // Patterns observed in the real assembled learning-path and review DOM (Chromium 38291180334).
+ // Title-bearing patterns must resolve the COMPLETE Turkish source title: never substitute substrings.
+ if((m=n.match(/^(\d+)\.\s*KISIM\s*·\s*(\d+)\.\s*ÜNİTE$/)))
+  return emit('ABSCHNITT '+m[1]+' · EINHEIT '+m[2]);
+ if((m=n.match(/^Ders\s+(\d+)$/)))return emit('Lektion '+m[1]);
+ if((m=n.match(/^(\d+)\/(\d+)\s*·\s*Ders\s+(\d+)$/)))
+  return emit(m[1]+'/'+m[2]+' · Lektion '+m[3]);
+ if((m=n.match(/^(\d+)\s+ENERJİ$/)))return emit(m[1]+' ENERGIE');
+ if((m=n.match(/^Ders\s+(\d+)\/(\d+)\s*·\s*(Aktif Hatırlama|Tanı|Bağ Kur|Duruma Uyarla|Sesi Tanı)$/))){
+  const lessonKinds={'Aktif Hatırlama':'Aktives Abrufen',Tanı:'Erkennen','Bağ Kur':'Verknüpfen',
+   'Duruma Uyarla':'Auf Situationen anwenden','Sesi Tanı':'Hören und erkennen'};
+  return emit('Lektion '+m[1]+'/'+m[2]+' · '+lessonKinds[m[3]]);
+ }
+ if((m=n.match(/^(.+?)\s*·\s*(ÖĞREN|ANLA|DİNLE|UYGULA|USTALAŞ)\s*·\s*Aşama\s+(\d+)\/(\d+)$/))){
+  const stageKinds={'ÖĞREN':'LERNEN','ANLA':'VERSTEHEN','DİNLE':'ZUHÖREN',
+   'UYGULA':'ANWENDEN','USTALAŞ':'MEISTERN'};
+  const title=label(m[1]);return title?emit(title+' · '+stageKinds[m[2]]+' · Etappe '+m[3]+'/'+m[4]):null;
+ }
+ if((m=n.match(/^(.+?)\s*—\s*Önceki aşamayı tamamla$/))){
+  const title=label(m[1]);return title?emit(title+' — Schließe zuerst die vorherige Etappe ab'):null;
+ }
+ if((m=n.match(/^(.+?)\s+mevcut aşamaya git$/))){
+  const title=label(m[1]);return title?emit('Zur aktuellen Etappe von '+title+' springen'):null;
+ }
+ if((m=n.match(/^(.+?)\s*·\s*(\d+)\s+aşamalı öğrenme yolu$/))){
+  const title=label(m[1]);return title?emit(title+' · Lernpfad mit '+m[2]+' Etappen'):null;
+ }
+ // Exact texts recorded in the ungraded app chrome, not Quran, answers or teaching content.
+ const observedUI={
+  'Enerji azaldı':'Energie aufgebraucht',
+  'Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.':
+   'Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.',
+  'Derse devam etmek için enerjini yenileyebilirsin. Premium enerji sınırını kaldırır, reklam ise hızlı bir destek verir.':
+   'Fülle deine Energie auf, um weiterzulernen. Mit Premium entfällt das Energielimit. Alternativ kannst du dir eine Werbung ansehen.',
+ };
+ if(Object.hasOwn(observedUI,n))return emit(observedUI[n]);
+
  if(n==='Doğru. Devam edebilirsin.')return emit('Richtig. Du kannst weitermachen.');
  if((m=n.match(/^(\d+)\s+mini ders\s*·\s*yaklaşık (\d+) dakika$/)))return emit(m[1]+' Mini-Lektion'+(m[1]==='1'?'':'en')+' · etwa '+m[2]+' Minuten');
  if((m=n.match(/^(\d+)\/(\d+)\s+(?:Görev|Görevler)$/)))return emit(m[1]+'/'+m[2]+' Aufgaben');
