@@ -438,6 +438,7 @@ try{
    footer:document.querySelector('#answerArea .v1017-count')?.textContent,
    progress:document.documentElement.dataset.deenMatchingProgress,
    writes:(window.__DEEN_MATCH_SET_TRACE__||[]).slice(-12),
+   engine_persists:(window.__DEEN_MATCH_ENGINE_TRACE__||[]).slice(-12),
    same_session:window.__DEEN_MATCH_OBSERVED_SESSION__===session,
    card_element_connected:!!document.querySelector('#answerArea .v1017-card.matched')?.isConnected
   }));
