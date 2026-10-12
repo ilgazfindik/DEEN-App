@@ -13,6 +13,8 @@ on:
       - 'scripts/test-german-dynamic-ui-staging.mjs'
       - 'scripts/audit-german-quran-premium-staging.mjs'
       - 'scripts/audit-german-quran-meaning-inventory.mjs'
+      - 'scripts/test-german-fatiha-meaning-staging.mjs'
+      - 'assets/i18n/quran/de/**'
       - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'assets/i18n/german-ui.quran-controls.staging.json'
       - 'assets/i18n/german-ui.premium-shop.staging.json'
@@ -50,6 +52,8 @@ jobs:
         run: node scripts/audit-german-quran-premium-staging.mjs
       - name: Verify 90 Quran ayahs, audio and outstanding German meaning coverage
         run: node scripts/audit-german-quran-meaning-inventory.mjs
+      - name: Test Fatiha seven-ayah German draft and production fail-closed gate
+        run: node scripts/test-german-fatiha-meaning-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
