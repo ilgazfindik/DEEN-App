@@ -10,6 +10,7 @@ on:
       - 'scripts/test-german-content-adapter.mjs'
       - 'scripts/audit-german-ui-staging.mjs'
       - 'scripts/audit-german-full-release-readiness.mjs'
+      - 'scripts/test-german-unavailable-language-notice.mjs'
       - 'assets/i18n/boot.js'
       - 'assets/i18n/locale.js'
       - 'index.html'
@@ -65,6 +66,8 @@ jobs:
         run: node scripts/audit-german-ui-staging.mjs
       - name: Report German UI gaps and assert live release remains blocked
         run: node scripts/audit-german-full-release-readiness.mjs
+      - name: Verify selecting German from Turkish settings never shows Turkish failure text
+        run: node scripts/test-german-unavailable-language-notice.mjs
       - name: Verify German lesson intro, feedback, result and XP staging
         run: node scripts/audit-german-lesson-flow-staging.mjs
       - name: Verify German dynamic counters, results and fail-closed fallback
