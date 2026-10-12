@@ -520,3 +520,14 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - Updated `scripts/audit-german-full-release-readiness.mjs` and [full key-by-key audit list](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md) to show **610** remaining reference UI labels.
 - Original Quran Arabic and audio, previously staged 90/90 German verse meaning drafts and other live languages remain unchanged. Draft UI coverage is not verified live runtime coverage; **no PR merge or deploy**.
 - Next batch: remaining U02/U03 lesson topic labels including shahada and worship, with precise case-sensitive source keys, further native German and religious review.
+
+
+## German UI reference remediation batch 03 — 2026-10-12
+
+- Added **120 more source-identified German UI draft translations** for U02/U03 Islamic topics: shahada sections and meanings, listening, word arrangement, fill-in-the-blank, tawhid, prophecy and the five pillars. Saved to `assets/i18n/german-ui.reference-batch-03.staging.json` without modifying the original Turkish or English strings.
+- **360/850 initially missing English UI-reference source keys** have now been mapped into three new batches, leaving **490** still missing. All seven German UI staging catalogs contain **952 distinct entries**, including **597/1,087 reference key overlaps** and 355 additional UI-specific keys.
+- Marked **21** entries for native German / Islamic expert review. Two source-key naming discrepancies were retained rather than silently rewritten: Turkish `Şehadetin Türkçe anlamı` and `Türkçe anlam sıralama` refer to *Turkish* meanings, but their English reference values say *English*. The German draft follows the original Turkish key, and both are flagged for expert/source-owner review.
+- Added `scripts/test-german-ui-reference-batch-03.mjs`: validates all 360 new German UI translations for exact Turkish key, English comparison source, no duplicate/colliding keys, preserved religious/native/rights and production release gate, and 490 remaining untranslated reference keys. Wired into `.github/workflows/german-localization-audit.yml`.
+- Updated `scripts/audit-german-full-release-readiness.mjs` for seven source-key catalogs and 490 remaining reference gaps. Rebuilt [full exact remaining 490-key list](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md).
+- Original Arabic Quran, all 90 Arabic ayah/audio sources, older languages, grading logic and German 90/90 *unapproved meaning draft* corpus remain unchanged.
+- **Deployment remains blocked.** UI renderer and full German browser E2E, 490 remaining keys, rights/religious/native review and final source discrepancies are not yet finished. Next pack can cover the following 120 keys with the same strict checks.
