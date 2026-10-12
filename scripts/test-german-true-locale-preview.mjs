@@ -249,6 +249,62 @@ try{
  assert(feedbackChrome.visible_feedback.endsWith(grading.expected_explanation));
  await page.screenshot({path:output+'/true-locale-german-graded.png',fullPage:true});
 
+ // A fresh stage in the same ephemeral German profile exercises the WRONG
+ // answer branch without touching the 1,500/1,484 verified question banks.
+ const wrongStage=await page.evaluate(()=>{
+  document.getElementById('energyModal')?.classList.remove('show');
+  if(typeof state!=='undefined')state.energy=30;
+  startStage('U01-S01');
+  if(!session?.questions?.length)throw Error('Unable to restart lesson for negative QA');
+  const q=session.questions[0];
+  return {id:q.id,language:q.__deenContentLocale,correct:q.correct_answer,
+   options:[...(q.options_tr||[])],source_unchanged:!!q.__deenSourceQuestion};
+ });
+ assert.equal(wrongStage.language,'de');
+ assert.equal(wrongStage.source_unchanged,true);
+ const teachingAgain=page.locator('#lesson .v910-card-button:visible');
+ if(await teachingAgain.count())await teachingAgain.first().click({timeout:20000});
+ const incorrect=wrongStage.options.find(value=>value!==wrongStage.correct);
+ assert(incorrect,'No alternative answer for negative grading check');
+ const wrongButton=page.locator('#answerArea .option')
+  .filter({has:page.locator('.option-label',{hasText:incorrect})});
+ assert.equal(await wrongButton.count(),1);
+ await wrongButton.click({timeout:20000});
+ await page.waitForTimeout(500);
+ const initiallyShown=await page.locator('#feedback').evaluate(el=>el.classList.contains('show'));
+ if(!initiallyShown){
+  const confirm=page.locator('#answerArea .template-action:visible:not([disabled])');
+  if(await confirm.count())await confirm.first().click({timeout:12000});
+ }
+ const wrong=await page.evaluate(()=>{
+  const q=session?.questions?.[0],source=q?.__deenSourceQuestion;
+  const verified=source&&window.DEEN_CONTENT_LOCALE.translateQuestion(source,'de');
+  return {app_locale:window.DEEN_APP_LOCALE.get(),session_score:session?.correct,
+   feedback_visible:document.getElementById('feedback')?.classList.contains('show'),
+   message:document.getElementById('feedbackTitle')?.textContent?.trim(),
+   explanation:document.getElementById('feedbackText')?.textContent?.trim(),
+   translated_answer:q?.correct_answer,verified_answer:verified?.correct_answer,
+   verified_explanation:verified?.explanation_tr};
+ });
+ report.wrong_answer=wrong;
+ assert.equal(wrong.app_locale,'de');
+ assert.equal(wrong.feedback_visible,true,'Incorrect German answer did not show feedback');
+ assert.equal(wrong.session_score,0,'Incorrect German answer was marked correct');
+ assert.equal(wrong.translated_answer,wrong.verified_answer);
+ assert(wrong.explanation.includes(wrong.verified_explanation),
+  'Wrong-answer feedback omitted source-matched German explanation');
+ const wrongUI=await page.evaluate(()=>{
+  const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+   document.getElementById('lesson'),{qaMode:true,locale:'de',documentRef:document});
+  return {unresolved:audit.unresolved,heading:document.getElementById('feedbackTitle')?.textContent?.trim(),
+   explanation:document.getElementById('feedbackText')?.textContent?.trim()};
+ });
+ report.wrong_answer.ui=wrongUI;
+ assert.deepEqual(wrongUI.unresolved,[],
+  'Untranslated UI chrome after an incorrect German answer');
+ await page.screenshot({path:output+'/true-locale-german-wrong-answer.png',fullPage:true});
+
+
 
  assert.deepEqual(report.errors,[],'Browser threw errors during real German boot');
  report.status='passed';
