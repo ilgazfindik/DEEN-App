@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U07",
+  "stage": "U07-S07",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U07-S07-001": {
+      "source": {
+        "question_tr": "Bir öğrenci şu cümleleri yazıyor: (1) Tevrat ve İncil Allah tarafından indirilmiştir. (2) Hz. Dâvûd'a Zebur verilmiştir. (3) Kur'an önceki vahiyleri tasdik eder. Hangileri Kur'an'la uyumludur?",
+        "explanation_tr": "Âl-i İmrân 3:3-4, Nisâ 4:163 ve Mâide 5:48 bu üç bilgiyi destekler.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 ve 3",
+          "Yalnız 1",
+          "Yalnız 2",
+          "2 ve 3"
+        ],
+        "correct_answer": "1, 2 ve 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender schreibt: (1) Tora und Evangelium stammen als Offenbarung von Allah. (2) David erhielt den Zabur. (3) Der Koran bestätigt frühere Offenbarungen. Welche Aussagen stimmen?",
+        "explanation_tr": "Al-Imran 3:3–4, An-Nisa 4:163 und Al-Maida 5:48 stützen alle drei Aussagen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 und 3",
+          "Nur 1",
+          "Nur 2",
+          "2 und 3"
+        ],
+        "correct_answer": "1, 2 und 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-002": {
+      "source": {
+        "question_tr": "Bir kişi 'Allah'ın önceki vahiylerini kabul etmekle Kur'an'ın ölçüsünü kabul etmek çelişir' diyor. En iyi cevap hangisidir?",
+        "explanation_tr": "Ayet önceki vahiylerin tasdiki ile Kur'an'ın ölçü belirleyici konumunu bir arada sunar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mâide 5:48 hem tasdiki hem Kur'an'ın denetleyici konumunu birlikte bildirir",
+          "Önceki vahiyler reddedilmelidir",
+          "Kur'an denetleyici değildir",
+          "Vahiyler arasında hiçbir ilişki yoktur"
+        ],
+        "correct_answer": "Mâide 5:48 hem tasdiki hem Kur'an'ın denetleyici konumunu birlikte bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Frühere Offenbarungen Allahs anzuerkennen, widerspricht der maßgebenden Stellung des Korans.“ Welche Antwort passt?",
+        "explanation_tr": "Der Vers stellt die Bestätigung früherer Offenbarungen und die maßgebende Stellung des Korans gemeinsam dar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Maida 5:48 verbindet die Bestätigung früherer Offenbarungen mit der maßgebenden Stellung des Korans",
+          "Frühere Offenbarungen müssen verworfen werden",
+          "Der Koran besitzt keine maßgebende Stellung",
+          "Zwischen Offenbarungen besteht kein Zusammenhang"
+        ],
+        "correct_answer": "Al-Maida 5:48 verbindet die Bestätigung früherer Offenbarungen mit der maßgebenden Stellung des Korans",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-003": {
+      "source": {
+        "question_tr": "İlahî kitapların farklı peygamberlere indirilmesi, vahyin kaynağının farklı olduğu anlamına gelmez.",
+        "explanation_tr": "Kur'an Tevrat, İncil ve Kur'an'ı aynı Allah'ın indirdiği vahiyler olarak anlatır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dass göttliche Bücher verschiedenen Propheten offenbart wurden, bedeutet nicht, dass sie unterschiedliche göttliche Ursprünge haben.",
+        "explanation_tr": "Der Koran beschreibt Tora, Evangelium und Koran als Offenbarungen desselben Allah.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-004": {
+      "source": {
+        "question_tr": "Kitaplara imanın temelinde vahyin kaynağının ______ olduğu inancı bulunur.",
+        "explanation_tr": "İlahî kitapların ortak kaynağı Allah'tır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "toplum",
+          "peygamberin kendisi",
+          "tarihçi"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Grundlage des Glaubens an die Bücher ist die Überzeugung, dass die Offenbarung von ______ stammt.",
+        "explanation_tr": "Allah ist nach islamischem Glauben der gemeinsame Ursprung der göttlichen Bücher.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "der Gesellschaft",
+          "den Propheten selbst",
+          "einem Historiker"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-005": {
+      "source": {
+        "question_tr": "Bir özet kartında 'Kur'an önceki kitapları reddeder ve onları vahiy saymaz' yazıyor. En kapsamlı düzeltme hangisidir?",
+        "explanation_tr": "Mâide 5:48 tasdik ve denetim ifadelerini birlikte kullanır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an önceki ilahî vahiyleri tasdik eder ve kendisini onlar üzerinde denetleyici olarak bildirir",
+          "Kur'an önceki vahiylerden hiç söz etmez",
+          "Kur'an yalnız Zebur'u kabul eder",
+          "Kur'an vahyi tamamen reddeder"
+        ],
+        "correct_answer": "Kur'an önceki ilahî vahiyleri tasdik eder ve kendisini onlar üzerinde denetleyici olarak bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lernkarte sagt: „Der Koran verwirft frühere Bücher und erkennt sie nicht als Offenbarung an.“ Welche Korrektur ist umfassend?",
+        "explanation_tr": "Al-Maida 5:48 verbindet Bestätigung und die maßgebende Stellung des Korans.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Der Koran bestätigt frühere göttliche Offenbarungen und beschreibt sich als maßgebend über sie",
+          "Der Koran erwähnt frühere Offenbarungen nie",
+          "Der Koran erkennt nur den Zabur an",
+          "Der Koran verwirft jede Offenbarung"
+        ],
+        "correct_answer": "Der Koran bestätigt frühere göttliche Offenbarungen und beschreibt sich als maßgebend über sie",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-006": {
+      "source": {
+        "question_tr": "Kitaplara iman ünitesinde kaynak, bilgi ve sonucu eşleştir.",
+        "explanation_tr": "Bu ayetler Kur'an'ın kimliği, işlevi ve önceki vahiylerle ilişkisini üç farklı yönden açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hicr 15:9",
+            "right": "Kur'an'ın korunması"
+          },
+          {
+            "left": "İsrâ 17:9",
+            "right": "Kur'an'ın rehberliği"
+          },
+          {
+            "left": "Mâide 5:48",
+            "right": "Önceki kitapları tasdik ve denetim"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Koranstellen mit den Aussagen über den Glauben an die Bücher.",
+        "explanation_tr": "Diese Verse behandeln Herkunft, Aufgabe und Verhältnis des Korans zu früheren Offenbarungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Hidschr 15:9",
+            "right": "Die Bewahrung des Korans"
+          },
+          {
+            "left": "Al-Isra 17:9",
+            "right": "Die Rechtleitung des Korans"
+          },
+          {
+            "left": "Al-Maida 5:48",
+            "right": "Bestätigung früherer Bücher und maßgebende Stellung"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-007": {
+      "source": {
+        "question_tr": "Kitaplara iman konusunda üç temel ilkeyi yaz: kaynak, ilişki ve rehberlik.",
+        "explanation_tr": "Bu üç ilke ünitenin vahiy kaynağı, Kur'an'ın konumu ve rehberlik boyutlarını özetler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kaynak Allah'tır; Kur'an önceki ilahî vahiyleri tasdik eder ve ölçü sunar; Kur'an insanı doğruya yönelten rehberdir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nenne drei Grundsätze zum Glauben an die Bücher: Ursprung, Verhältnis und Rechtleitung.",
+        "explanation_tr": "Diese drei Grundsätze fassen den Ursprung der Offenbarung, die Stellung des Korans und seine Rechtleitung zusammen.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah ist der Ursprung der Offenbarung; der Koran bestätigt frühere göttliche Offenbarungen und dient als Maßstab; er leitet zu richtigem Handeln.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-008": {
+      "source": {
+        "question_tr": "Bir eğitim uygulaması sahife rivayetlerindeki sayıları 'Kur'an ayeti' etiketiyle sunuyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "A'lâ 87:18-19 İbrâhim ve Mûsâ'nın sahifelerini zikreder; diğer ayrıntıların kaynak seviyesi ayrıca belirtilmelidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ayet bilgisini rivayet ayrıntısından ayırıp yalnız açık Kur'an bilgisini ayet olarak etiketlemek",
+          "Bütün rivayetleri ayet saymak",
+          "Sahifeler konusunu tamamen silmek",
+          "Kaynak türünü gizlemek"
+        ],
+        "correct_answer": "Ayet bilgisini rivayet ayrıntısından ayırıp yalnız açık Kur'an bilgisini ayet olarak etiketlemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lern-App bezeichnet Zahlen aus Überlieferungen über Schriftrollen als „Koranverse“. Wie korrigiert man das?",
+        "explanation_tr": "Al-Ala 87:18–19 nennt die Schriftrollen Abrahams und Moses. Andere Einzelheiten benötigen eine gesonderte Quellenkennzeichnung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Aussagen der Verse von Berichten unterscheiden und nur ausdrücklich koranische Angaben als solche kennzeichnen",
+          "Jede Überlieferung als Vers ausgeben",
+          "Die Schriftrollen vollständig streichen",
+          "Die Quellenart verbergen"
+        ],
+        "correct_answer": "Aussagen der Verse von Berichten unterscheiden und nur ausdrücklich koranische Angaben als solche kennzeichnen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-009": {
+      "source": {
+        "question_tr": "Kitaplara iman ünitesindeki eşleştirmelerden hangisi yanlıştır?",
+        "explanation_tr": "Mâide 5:48 Kur'an'ın önceki kitapları tasdik ettiğini, ayrıca denetleyici konumda olduğunu bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tevrat — Mâide 5:44'te hidayet ve nur",
+          "İncil — Mâide 5:46'da Hz. Îsâ'ya verilmiştir",
+          "Zebur — Nisâ 4:163'te Hz. Dâvûd'a verilmiştir",
+          "Kur'an — Mâide 5:48'de önceki vahiyleri bütünüyle reddeder"
+        ],
+        "correct_answer": "Kur'an — Mâide 5:48'de önceki vahiyleri bütünüyle reddeder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung ist beim Glauben an die Bücher falsch?",
+        "explanation_tr": "Al-Maida 5:48 betont, dass der Koran frühere Bücher bestätigt und maßgebend über sie ist.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tora – Rechtleitung und Licht in Al-Maida 5:44",
+          "Evangelium – Jesus gegeben in Al-Maida 5:46",
+          "Zabur – David gegeben in An-Nisa 4:163",
+          "Koran – verwirft frühere Offenbarungen völlig nach Al-Maida 5:48"
+        ],
+        "correct_answer": "Koran – verwirft frühere Offenbarungen völlig nach Al-Maida 5:48",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-010": {
+      "source": {
+        "question_tr": "Bir kişi Kur'an'ın korunmasını 'yalnız insanların çabasına bağlı bir iddia' diye açıklıyor. Hangi ayet bu ifadeyi eksik bırakır?",
+        "explanation_tr": "Hicr 15:9 korunmayı doğrudan Allah'ın güvencesiyle ilişkilendirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hicr 15:9",
+          "A'lâ 87:19",
+          "Nisâ 4:163",
+          "Mâide 5:46"
+        ],
+        "correct_answer": "Hicr 15:9",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Die Bewahrung des Korans beruht ausschließlich auf menschlichen Bemühungen.“ Welcher Vers zeigt, was hier fehlt?",
+        "explanation_tr": "Al-Hidschr 15:9 verbindet die Bewahrung ausdrücklich mit Allahs Zusage.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Hidschr 15:9",
+          "Al-Ala 87:19",
+          "An-Nisa 4:163",
+          "Al-Maida 5:46"
+        ],
+        "correct_answer": "Al-Hidschr 15:9",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-011": {
+      "source": {
+        "question_tr": "Kur'an'ın rehberliğiyle ilgili cümleyi tamamla: Bu kitap insanı en ______ olana yöneltir.",
+        "explanation_tr": "Ayette Kur'an'ın en doğru olana yönelten rehberlik işlevi belirtilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "doğru",
+          "eski",
+          "gizli",
+          "karmaşık"
+        ],
+        "correct_answer": "doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Koran leitet die Menschen zu dem, was am ______ ist.",
+        "explanation_tr": "Al-Isra 17:9 beschreibt den Koran als Rechtleitung zum geradesten Weg.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "geradesten",
+          "ältesten",
+          "verborgensten",
+          "kompliziertesten"
+        ],
+        "correct_answer": "geradesten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-012": {
+      "source": {
+        "question_tr": "Kitaplara iman konusunda güvenilir öğrenme yöntemi hangisidir?",
+        "explanation_tr": "Vahiy, tefsir ve beşerî yorum arasındaki farkı korumak kaynak doğruluğunun temelidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Açık ayet bilgisini temel alıp yorum ve rivayetin kaynak seviyesini ayrıca belirtmek",
+          "Her söylentiyi vahiy saymak",
+          "Kaynak göstermeden kesin hüküm vermek",
+          "İnsan sözünü Allah sözü diye sunmak"
+        ],
+        "correct_answer": "Açık ayet bilgisini temel alıp yorum ve rivayetin kaynak seviyesini ayrıca belirtmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie kann man den Glauben an die Bücher anhand verlässlicher Quellen lernen?",
+        "explanation_tr": "Die Unterscheidung zwischen Offenbarung, Kommentar und menschlicher Deutung ist für verlässliche Informationen wichtig.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Aussagen in Versen als Grundlage nehmen und Deutungen sowie Überlieferungen gesondert kennzeichnen",
+          "Jedes Gerücht als Offenbarung betrachten",
+          "Ohne Quellen eindeutige Urteile fällen",
+          "Menschenworte als Worte Allahs ausgeben"
+        ],
+        "correct_answer": "Aussagen in Versen als Grundlage nehmen und Deutungen sowie Überlieferungen gesondert kennzeichnen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-013": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kitaplara iman sadece kitap isimlerini ezberlemektir' diyor. En dengeli cevap hangisidir?",
+        "explanation_tr": "Ünite boyunca kitapların kaynağı, rehberliği ve Kur'an'ın önceki vahiylerle ilişkisi birlikte ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İsim bilgisi yanında vahyin Allah'tan gelişi, rehberliği ve Kur'an'ın konumunu anlamak gerekir",
+          "Evet, yalnız isim ezberidir",
+          "Kitaplara iman davranışla ilgisizdir",
+          "Rehberlik kavramı vahiyde yoktur"
+        ],
+        "correct_answer": "İsim bilgisi yanında vahyin Allah'tan gelişi, rehberliği ve Kur'an'ın konumunu anlamak gerekir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „An die Bücher zu glauben heißt, ihre Namen auswendig zu lernen.“ Welche Antwort ist ausgewogen?",
+        "explanation_tr": "Die Einheit verbindet den Ursprung der Bücher, ihre Rechtleitung und das Verhältnis des Korans zu früheren Offenbarungen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Neben den Namen sind Allah als Ursprung der Offenbarung, ihre Rechtleitung und die Stellung des Korans zu verstehen",
+          "Ja, nur die Namen auswendig zu lernen genügt",
+          "Der Glaube an Bücher betrifft unser Verhalten nicht",
+          "Offenbarung kennt keine Rechtleitung"
+        ],
+        "correct_answer": "Neben den Namen sind Allah als Ursprung der Offenbarung, ihre Rechtleitung und die Stellung des Korans zu verstehen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S07-014": {
+      "source": {
+        "question_tr": "Kitaplara iman ünitesini en iyi özetleyen cümle hangisidir?",
+        "explanation_tr": "Ünite; iman esası, isimleri bilinen kitaplar, kaynak birliği, Kur'an'ın konumu, rehberliği ve korunmasını birlikte işler.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman, Allah'ın indirdiği vahiyleri tasdik etmeyi, Kur'an'ın rehberliğini ve önceki vahiylerle ilişkisini doğru anlamayı içerir",
+          "Kitaplara iman yalnız eski metinleri tarihî eser saymaktır",
+          "Her dinî yazı vahiydir",
+          "Kur'an önceki bütün vahiyleri reddeder"
+        ],
+        "correct_answer": "Kitaplara iman, Allah'ın indirdiği vahiyleri tasdik etmeyi, Kur'an'ın rehberliğini ve önceki vahiylerle ilişkisini doğru anlamayı içerir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage fasst den Glauben an die Bücher am besten zusammen?",
+        "explanation_tr": "Die Einheit behandelt Glaubensartikel, einzelne Bücher, gemeinsamen Ursprung, die Stellung des Korans, Rechtleitung und Bewahrung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Der Glaube an die Bücher bedeutet, Allahs Offenbarungen anzuerkennen und die Rechtleitung sowie das Verhältnis des Korans zu früheren Offenbarungen richtig zu verstehen",
+          "Der Glaube an Bücher betrachtet nur alte historische Texte",
+          "Jede religiöse Schrift ist göttliche Offenbarung",
+          "Der Koran verwirft alle früheren Offenbarungen"
+        ],
+        "correct_answer": "Der Glaube an die Bücher bedeutet, Allahs Offenbarungen anzuerkennen und die Rechtleitung sowie das Verhältnis des Korans zu früheren Offenbarungen richtig zu verstehen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher im Überblick",
+        "topic": "Offenbarung, Bücher und Rechtleitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
