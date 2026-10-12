@@ -143,6 +143,49 @@ try{
  });
  report.content=content;
  assert.deepEqual(content.failedIds,[]);
+ // Apply the existing German UI staging adapter only inside the disposable
+ // DE-language browser. Production still has no implicit DE DOM renderer.
+ const chrome=await page.evaluate(async()=>{
+  const files=['german-ui.staging.json','german-ui.lesson-flow.staging.json',
+   'german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
+   ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+
+    String(i+1).padStart(2,'0')+'.staging.json'),'german-ui.real-lesson.staging.json'];
+  const json=async path=>{
+   const res=await fetch('/assets/i18n/'+path,{cache:'no-store'});
+   if(!res.ok)throw Error('German QA UI pack not served: '+path);
+   return res.json();
+  };
+  const [packs,reference]=await Promise.all([
+   Promise.all(files.map(json)),json('english-ui.draft.json')]);
+  const {createGermanUIStagingRenderer}=await import(
+   '/assets/i18n/german-ui.renderer.staging.mjs');
+  const renderer=createGermanUIStagingRenderer({packs,
+   englishReference:reference.translations});
+  const root=document.querySelector('.phone');
+  const arabicBefore=[...root.querySelectorAll('[lang="ar"]')]
+   .map(x=>x.textContent).join('|');
+  const answerBefore=document.getElementById('answerArea')?.innerHTML;
+  const questionBefore=document.getElementById('questionText')?.textContent;
+  const audit=renderer.render(root,{qaMode:true,locale:'de',documentRef:document});
+  window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__=renderer;
+  return {scanned:audit.scanned,writes:audit.writes,unresolved:audit.unresolved,
+   current_locale:window.DEEN_APP_LOCALE.get(),
+   arabic_unchanged:arabicBefore===
+    [...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent).join('|'),
+   graded_content_unchanged:answerBefore===document.getElementById('answerArea')?.innerHTML&&
+    questionBefore===document.getElementById('questionText')?.textContent,
+   release_enabled:window.__DEEN_CONTENT_MANIFEST__.languages.de
+    .religious_expert_approved===true};
+ });
+ report.chrome=chrome;
+ assert.equal(chrome.current_locale,'de');
+ assert(chrome.scanned>100,'German app UI shell not scanned');
+ assert.deepEqual(chrome.unresolved,[],'Turkish UI chrome remains in true German QA session');
+ assert.equal(chrome.arabic_unchanged,true);
+ assert.equal(chrome.graded_content_unchanged,true);
+ assert.equal(chrome.release_enabled,false);
+ await page.screenshot({path:output+'/true-locale-german-ui-staging.png',fullPage:true});
+
  assert.deepEqual(report.errors,[],'Browser threw errors during real German boot');
  report.status='passed';
  console.log(JSON.stringify(report,null,2));
