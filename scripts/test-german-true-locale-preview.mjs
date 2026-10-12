@@ -438,8 +438,22 @@ try{
  // Reapply the QA-only UI dictionary after grading; the matching engine
  // writes feedback chrome later than the initial localized lesson render.
  const matchingChrome=await page.evaluate(()=>{
+  const root=document.getElementById('lesson'),q=session.questions[1];
+  // The age-profile decorator redraws the task title after grading. Reapply
+  // the source-pinned, QA-only matching shell localization after that redraw.
+  const activity=window.__DEEN_ACTIVITY_A11Y_QA__(q,root,{
+   qaMode:true,locale:'de',
+   verifySource:source=>window.DEEN_CONTENT_LOCALE.translateQuestion(source,'de')});
+  const citationsBefore=[...root.querySelectorAll('details.v5-source p')]
+   .map(el=>el.textContent.trim());
   const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
-   document.getElementById('lesson'),{qaMode:true,locale:'de',documentRef:document});
+   root,{qaMode:true,locale:'de',documentRef:document});
+  const citationsAfter=[...root.querySelectorAll('details.v5-source p')]
+   .map(el=>el.textContent.trim());
+  const sourceCitationResidue=audit.unresolved.filter(source=>
+   citationsBefore.includes(source));
+  const unresolvedUI=audit.unresolved.filter(source=>
+   !sourceCitationResidue.includes(source));
   const details=audit.unresolved.map(source=>({
    source,
    nodes:[...document.querySelectorAll('#lesson *')]
@@ -449,12 +463,17 @@ try{
      klass:String(el.className||'').slice(0,100),
      ancestor:el.parentElement?.outerHTML.slice(0,420)}))
   }));
-  return {unresolved:audit.unresolved,details,
+  return {unresolved:audit.unresolved,unresolvedUI,
+   sourceCitationResidue,sourceCitationUnchanged:
+    JSON.stringify(citationsBefore)===JSON.stringify(citationsAfter),
+   activity,details,
    heading:document.getElementById('feedbackTitle')?.textContent?.trim()};
  });
  report.matching.feedback_chrome=matchingChrome;
- assert.deepEqual(matchingChrome.unresolved,[],
+ assert.deepEqual(matchingChrome.unresolvedUI,[],
   'Matching grading left Turkish UI chrome in the true German session');
+ assert.equal(matchingChrome.sourceCitationUnchanged,true,
+  'The QA renderer must never rewrite unapproved source citations');
  assert.notEqual(matchingChrome.heading,'Harika!',
   'Matching feedback heading was not localized into German');
  // Calling rehydrate must not erase matches in the authoritative engine.
