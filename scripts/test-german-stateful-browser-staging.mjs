@@ -87,6 +87,15 @@ async function auditNavTabs(){
    const base=Array.isArray(window.DEEN_BASE_QUESTIONS)?window.DEEN_BASE_QUESTIONS:[];
    const ids=items=>items.map(q=>String(q?.id||q?.questionId||'')).filter(Boolean);
    const activeIds=ids(active),baseIds=ids(base),baseSet=new Set(baseIds);
+   const approvedU01=await fetch('/assets/i18n/questions/en/runtime/U01.live.json')
+    .then(r=>r.ok?r.json():Promise.reject(Error('Missing English approved U01 live pack')));
+   const knownU01=new Set(Object.keys(approvedU01.translations||{}));
+   const unmapped=active.filter(q=>q?.id?.startsWith('DEEN-U01-')&&!knownU01.has(q.id));
+   const uncovered=unmapped.map(q=>({
+    id:q.id,stage:q.stage_id,type:q.activity_type,question_tr:q.question_tr,
+    explanation_tr:q.explanation_tr,options_tr:q.options_tr,
+    correct_answer:q.correct_answer,pairs:q.pairs,items:q.items,correct_order:q.correct_order
+   }));
    const unique=new Set(activeIds),frequency=new Map();
    const byUnit={};
    for(const id of activeIds){const m=id.match(/-U(\d{2})-/);const unit=m?'U'+m[1]:'other';byUnit[unit]=(byUnit[unit]||0)+1;}
@@ -98,7 +107,9 @@ async function auditNavTabs(){
      active_unique_ids:unique.size,active_duplicate_id_count:activeIds.length-unique.size,
      active_by_unit:byUnit,
      non_base_ids:[...unique].filter(id=>!baseSet.has(id)).slice(0,60),
-     duplicate_ids:[...frequency.entries()].filter(([,count])=>count>1).slice(0,25)}};
+     duplicate_ids:[...frequency.entries()].filter(([,count])=>count>1).slice(0,25),
+     approved_live_u01_count:knownU01.size,uncovered_live_u01_count:uncovered.length,
+     uncovered_live_u01:uncovered}};
 
   });
   report.qa_boot=qaBoot;
