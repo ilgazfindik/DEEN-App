@@ -305,7 +305,13 @@ async function auditNavTabs(){
   // The same real DOM grading controls are exercised; no direct grade mutation.
   assert.equal(await rightButton.count(),1,'The correct German answer must be selectable once');
   await rightButton.click({timeout:20000,force:true});
-  await page.locator('#answerArea .template-action').click({timeout:20000,force:true});
+  // The shipped card-choice UI may grade immediately and hide its legacy confirm
+  // button (v852-hidden-confirm). Never try to click a hidden/disabled control.
+  const feedback=page.locator('#feedback');
+  if(!(await feedback.evaluate(el=>el.classList.contains('show')))){
+   const confirm=page.locator('#answerArea .template-action:visible:not([disabled])');
+   if(await confirm.count())await confirm.first().click({timeout:10000});
+  }
   await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
    null,{timeout:7000});
   const graded=await page.evaluate(()=>({
