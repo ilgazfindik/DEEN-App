@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>DEEN · German UI Staging Preview (NOT RELEASED)</title>
+<style>
+:root{color-scheme:dark;font:15px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#071d25;color:#eafcf8}
+*{box-sizing:border-box}
+body{margin:0;padding:26px 16px;background:radial-gradient(circle at 10% 0%,#18434b 0%,#071d25 48%);min-height:100vh}
+main{max-width:1060px;margin:auto}
+header{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:24px}
+h1{font-size:clamp(23px,4vw,37px);margin:8px 0 3px}
+h2{font-size:17px;margin:0 0 15px}
+p{line-height:1.55}
+small,.muted{color:#a9c1c2}
+.pill{border-radius:100px;border:1px solid #c7a773;color:#f2d79b;padding:7px 11px;font-size:12px;letter-spacing:.07em;font-weight:700}
+.dashboard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+section{background:#10313b;border:1px solid #2c5c5e;border-radius:20px;padding:22px;min-width:0}
+section p,section button,section label{margin:12px 0}
+.mock{background:#071f27;border:1px solid #2e5558;border-radius:12px;padding:14px;color:#eafcf8;line-height:1.5}
+button{background:#3be6c6;border:0;border-radius:11px;color:#06272a;font-weight:750;padding:11px 15px;cursor:pointer}
+button.secondary{background:#15373e;color:#d6fff7;border:1px solid #447a77}
+input{display:block;margin-top:9px;width:100%;background:#123e45;border:1px solid #397f7b;padding:11px;border-radius:10px;color:white}
+#status{font-variant-numeric:tabular-nums}
+#unresolved{white-space:pre-wrap;overflow-wrap:anywhere;max-height:160px;overflow-y:auto}
+.notice{margin-top:16px;border-left:3px solid #c7a773;padding:13px 18px;background:#1a3035}
+@media(max-width:700px){.dashboard{grid-template-columns:1fr}section{padding:18px}}
+</style>
+</head>
+<body>
+<main>
+<header data-deen-no-translate>
+<div><div class="pill">QA PREVIEW · NOT FOR PRODUCTION</div><h1>DEEN German UI</h1><p class="muted">Source-guarded DOM staging renderer · independent of the live lesson runtime</p></div>
+<div><button id="rerender" class="secondary" type="button">Simulate UI update</button><button id="reset" class="secondary" type="button">Reset fixture</button></div>
+</header>
+<div id="stagingFixture" class="dashboard">
+<section><h2 data-deen-no-translate>ONBOARDING</h2><div class="mock"><strong>DEEN’e hoş geldin</strong><p>Sana nasıl hitap edelim?</p><input type="text" placeholder="Adın veya kullanıcı adın" aria-label="Sana nasıl hitap edelim?"><button type="button">Devam Et</button></div></section>
+<section><h2 data-deen-no-translate>LEARN</h2><div class="mock"><strong>Allah’a İman</strong><p>İslam’ın Beş Şartı</p><p>3 soru</p><button type="button">USTALIK SINAVINI BAŞLAT</button></div></section>
+<section><h2 data-deen-no-translate>LESSON</h2><div class="mock"><strong>Namaza Hazırlık</strong><p>Ders 2/3</p><button type="button">Kontrol Et</button><button type="button">Geri</button></div></section>
+<section><h2 data-deen-no-translate>QURAN</h2><div class="mock"><strong>Kur’an bölümleri</strong><p>Fâtiha</p><p>7 ayet</p><p lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p><button type="button">Sure Testleri</button></div></section>
+<section><h2 data-deen-no-translate>PROGRESS / PREMIUM</h2><div class="mock"><strong>HAFTALIK RİTİM</strong><p>İlk Adım</p><p>Premium içerik değil, konfor katmanıdır.</p><button type="button">Ayarlar</button></div></section>
+<section><h2 data-deen-no-translate>FALLBACK MONITOR</h2><div class="mock"><strong>KISIM 1 FİNALİ</strong><p>Bilinmeyen aşama metni</p><button type="button" aria-label="Geri">Geri</button></div></section>
+</div>
+<section style="margin-top:16px" data-deen-no-translate>
+<h2>Validation summary</h2>
+<p id="status" role="status">Loading staged catalogs…</p>
+<small>Unresolved labels are logged, not silently substituted. Arabic ayah text and lesson grading are never mutated in this isolated fixture.</small>
+<pre id="unresolved"></pre>
+</section>
+<p class="notice" data-deen-no-translate><b>Release gate remains blocked.</b> This standalone fixture proves only the staged text/attribute renderer. It is not the DEEN production app, not a Chrome end-to-end certification, and not native-language or Islamic expert approval.</p>
+</main>
+<script type="module">
+import {createGermanUIStagingRenderer} from '../assets/i18n/german-ui.renderer.staging.mjs';
+const paths=[
+ 'german-ui.staging.json','german-ui.lesson-flow.staging.json','german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
+ ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+String(i+1).padStart(2,'0')+'.staging.json')
+];
+const load=async path=>{
+ const response=await fetch(path,{cache:'no-store'});
+ if(!response.ok)throw Error('Unable to load '+path+': '+response.status);
+ return response.json();
+};
+const status=document.getElementById('status'),pending=document.getElementById('unresolved'),fixture=document.getElementById('stagingFixture');
+const snapshot=fixture.innerHTML;
+let renderer=null;
+function apply(){
+ if(!renderer)return;
+ const audit=renderer.render(fixture,{locale:'de',qaMode:true,documentRef:document});
+ status.textContent='Matched reference keys: '+renderer.stats().matchedReference+' / 1087 · Catalog entries: '+renderer.stats().entries+' · DOM writes: '+audit.writes+' · Unresolved: '+audit.unresolved.length;
+ pending.textContent=audit.unresolved.join('\n')||'No Turkish candidates detected in this fixture.';
+}
+try{
+ const [packs,english]=await Promise.all([
+  Promise.all(paths.map(name=>load('../assets/i18n/'+name))),
+  load('../assets/i18n/english-ui.draft.json')
+ ]);
+ renderer=createGermanUIStagingRenderer({packs,englishReference:english.translations});
+ apply();
+ document.getElementById('rerender').addEventListener('click',()=>{
+  const target=fixture.querySelector('section:nth-child(3) .mock p');
+  target.textContent='Ders 2/3';
+  apply();
+ });
+ document.getElementById('reset').addEventListener('click',()=>{fixture.innerHTML=snapshot;apply()});
+}catch(error){status.textContent='QA preview unavailable: '+String(error.message||error);pending.textContent='Check staging pack identity and run node scripts/test-german-ui-renderer-staging.mjs.';console.error(error)}
+</script>
+</body>
+</html>
