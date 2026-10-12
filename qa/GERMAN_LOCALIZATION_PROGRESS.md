@@ -509,3 +509,14 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - Existing live Turkish, Arabic and English apps, all 90 Arabic Quran ayahs and all recitation MP3 assets were untouched. \`assets/i18n/content-support.json\` still keeps German \`question_data=missing\` and \`global_qa=blocked\`, with Islamic/native/rights reviews pending.
 - **Still blocked:** 730 German UI reference gaps, lack of a released German dynamic DOM renderer, real full German browser E2E and expert/native/copyright review. CI green is a staging integrity result, not deployment authorization.
 - **Next batch:** further U01/U02 learning-unit titles and dynamic UI terms from the remaining 730 source keys; each new pack must preserve grading/source identity and pass explicit regression tests before another update. DO NOT deploy yet.
+
+
+## German UI reference remediation batch 02 — 2026-10-12
+
+- Added **120 more independently worded German UI drafts**, for U01/U02 learning-path and lesson headings, review controls, trust/gratitude/behavior topics, faith in Allah and tawhid. Stored separately as `assets/i18n/german-ui.reference-batch-02.staging.json`, retaining source keys and English comparative reference text.
+- Now **240/850 original reference-key gaps have German staging translations**, leaving **610** unmatched. Across six staging dictionaries there are **832 distinct German UI labels**: **477/1,087 English-reference source keys match**, with 355 additional UI-source labels in other UI surfaces.
+- Marked **20 interpretation-sensitive or religious labels** (Allah, faith, tawhid, Muslim identity and worship) for independent native German and subject-matter expert review; `release_ready=false`, `global_qa=blocked`, `native_reviewer_approved=false`, `verified_by_religious_expert=false`, `rights_reviewed=false` remain unchanged.
+- Added `scripts/test-german-ui-reference-batch-02.mjs` to `.github/workflows/german-localization-audit.yml`. This compares exactly 240 keys to the original Turkish and English sources, forbids conflicts/overlaps, checks counts and requires the German production release gates to remain closed.
+- Updated `scripts/audit-german-full-release-readiness.mjs` and [full key-by-key audit list](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md) to show **610** remaining reference UI labels.
+- Original Quran Arabic and audio, previously staged 90/90 German verse meaning drafts and other live languages remain unchanged. Draft UI coverage is not verified live runtime coverage; **no PR merge or deploy**.
+- Next batch: remaining U02/U03 lesson topic labels including shahada and worship, with precise case-sensitive source keys, further native German and religious review.
