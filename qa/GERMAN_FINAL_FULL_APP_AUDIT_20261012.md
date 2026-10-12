@@ -93,3 +93,12 @@
 The catalog comparison uses the English reference file, which is not itself a complete enumeration of every dynamically assembled Turkish screen string. Runtime/browser QA may still reveal **additional** Turkish strings. The zero count above therefore does **not** certify German-only UI runtime coverage.
 
 **Do not merge or deploy the German release until all blocker conditions are cleared.**
+
+## Chromium staging browser smoke and observed German UI residue — 2026-10-12
+
+- Created **separate** `.github/workflows/german-browser-staging-qa.yml` using real headless Chromium/Playwright, running a local HTTP server from the PR branch; `scripts/test-german-browser-staging.mjs` captures mobile 390×844 and desktop 1280×820 staging screenshots, redraw tests, accessibility labels, Quran Arabic preservation, and a QA-only pass over the actual assembled DEEN lesson DOM.
+- The first verified browser run was [38290675221](https://github.com/ilgazfindik/DEEN-App/actions/runs/38290675221), **success**. Both preview sizes passed without JS exceptions, the full DEEN shell assembled, `de` remained unavailable in the production manifest, original question/answer/explanation HTML was unchanged, and `#resultTitle`/`#resultContinueBtn` rendered German on the QA page. The runner uploaded screenshots and a JSON report as the `german-staging-browser-evidence` artifact.
+- **Real browser finding:** among 88 scanned actual lesson-shell text nodes, one Turkish UI expression remained unresolved: `Öğren · Anla · Hatırla`. The first browser run explicitly reported this, so the pass was not a claim of complete German UI.
+- Fixed that observed runtime expression as `Lernen · Verstehen · Erinnern` in the source-guarded lesson staging layer. The dictionary now contains **1,452 distinct UI mappings in 13 packs**. The 10th lesson label is verified by actual browser observation, while the original nine are tied to literal shipped `segment-01.txt` HTML. The Chromium test now requires **no unresolved Turkish candidates in the scanned lesson shell**.
+- This does **not** certify the Quran app, profile, Premium, all lesson modes, user navigation or any domain-expert review. No live German language release, main merge or deploy occurred.
+
