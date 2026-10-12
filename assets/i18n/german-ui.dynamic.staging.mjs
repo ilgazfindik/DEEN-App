@@ -74,6 +74,23 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   'Sıradaki: Ünite Challenge · Ünitenin temel kavramlarını farklı soru biçimleriyle ustalık seviyesinde kullan.':
    'Als Nächstes: Kapitel-Challenge · Wende die Grundbegriffe der Einheit in verschiedenen Aufgabenformen vertieft an.',
 
+  "Henüz yeterli cevap geçmişi yok. Birkaç ders sonra zayıf kavramlar burada görünür.":"Es liegen noch nicht genügend Antworten vor. Nach einigen Lektionen siehst du hier die Themen, die du noch üben solltest.",
+  "İLK DERSİ TAMAMLA":"SCHLIESSE DEINE ERSTE LEKTION AB",
+  "İlk dersinden sonra kişiselleşir":"Wird nach deiner ersten Lektion personalisiert",
+  "İlk mini dersini tamamladığında kişisel tekrar planın burada oluşacak.":"Nach deiner ersten Mini-Lektion erscheint hier dein persönlicher Wiederholungsplan.",
+  "İlk üniteni oynadıkça burada kişisel hafıza skoru oluşur.":"Beim Üben deiner ersten Einheit entsteht hier dein persönlicher Erinnerungswert.",
+  "Bugünkü küçük çalışma akışı":"Dein kurzer Lernablauf für heute",
+  "FÂTIHA İLE BAŞLA":"MIT AL-FĀTIHA BEGINNEN",
+  "Günlük anlam çalışması":"Tägliche Bedeutungsübung",
+  "Hatırlama çalışması":"Erinnerungsübung",
+  "Hedefler ve hafıza":"Ziele und Gedächtnis",
+  "Riskli ayetleri önce çalış":"Übe zuerst Verse, die du noch festigen solltest",
+  "Çalışma alanları":"Lernbereiche",
+  "Öğrenme kütüphanesi":"Lernbibliothek",
+  "ANLATIM PROFİLİ":"LERNSTILPROFIL",
+  "Değiştir →":"Ändern →",
+  "Doğruluk: Henüz ders yok":"Antwortgenauigkeit: Noch keine Lektion",
+  "🌱 Çocuk · 8–12":"🌱 Kind · 8–12",
   'Enerji azaldı':'Energie aufgebraucht',
   'Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.':
    'Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.',
@@ -81,6 +98,25 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
    'Fülle deine Energie auf, um weiterzulernen. Mit Premium entfällt das Energielimit. Alternativ kannst du dir eine Werbung ansehen.',
  };
  if(Object.hasOwn(observedUI,n))return emit(observedUI[n]);
+
+
+ // Browser-observed dynamic review, Quran hub and profile chrome, not scripture or graded answers.
+ if((m=n.match(/^(\d+)\s+soru\s*·\s*Ücretsiz$/)))
+  return emit(m[1]+' '+(m[1]==='1'?'Frage':'Fragen')+' · Kostenlos');
+ if((m=n.match(/^(\d+)\s*\/\s*(\d+)\s+ayet$/)))
+  return emit(m[1]+' / '+m[2]+' '+(m[2]==='1'?'Vers':'Verse'));
+ if((m=n.match(/^(\d+)\s+riskli ayetten kişisel tur$/)))
+  return emit('Persönliche Übungsrunde mit '+m[1]+' '+(m[1]==='1'?'Vers':'Versen')+' mit Wiederholungsbedarf');
+ if((m=n.match(/^(\d+)\s+surelik kontrollü genişleme$/)))
+  return emit('Schrittweise Erweiterung auf '+m[1]+' '+(m[1]==='1'?'Sure':'Suren'));
+ if((m=n.match(/^Ayet\s+(\d+)\s*\/\s*(\d+)\s*·\s*Son çalışma:\s*Henüz çalışma yok$/)))
+  return emit('Vers '+m[1]+' / '+m[2]+' · Zuletzt geübt: Noch keine Übung');
+ if((m=n.match(/^(\d+)\s+doğru cevap$/)))
+  return emit(m[1]+' '+(m[1]==='1'?'richtige Antwort':'richtige Antworten'));
+ if((m=n.match(/^Günlük hedef\s*·\s*(\d+)\s+ders$/)))
+  return emit('Tagesziel · '+m[1]+' '+(m[1]==='1'?'Lektion':'Lektionen'));
+ if((m=n.match(/^Ödül:\s*\+(\d+)\s+XP\s*·\s*\+(\d+)\s+Pırıltı\s*·\s*\+(\d+)\s+seri koruma$/)))
+  return emit('Belohnung: +'+m[1]+' XP · +'+m[2]+' Glanzpunkte · +'+m[3]+' Serienschutz');
 
  // A numeric energy reward can vary from the literal +10 observed in Chromium.
  if((m=n.match(/^REKLAM İZLE\s*·\s*\+(\d+)\s+ENERJİ$/)))
