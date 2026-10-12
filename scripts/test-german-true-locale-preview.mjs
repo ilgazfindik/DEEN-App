@@ -440,7 +440,16 @@ try{
  const matchingChrome=await page.evaluate(()=>{
   const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
    document.getElementById('lesson'),{qaMode:true,locale:'de',documentRef:document});
-  return {unresolved:audit.unresolved,
+  const details=audit.unresolved.map(source=>({
+   source,
+   nodes:[...document.querySelectorAll('#lesson *')]
+    .filter(el=>[...el.childNodes].some(node=>
+     node.nodeType===3&&node.nodeValue.trim()===source))
+    .slice(0,3).map(el=>({tag:el.tagName,id:el.id,
+     klass:String(el.className||'').slice(0,100),
+     ancestor:el.parentElement?.outerHTML.slice(0,420)}))
+  }));
+  return {unresolved:audit.unresolved,details,
    heading:document.getElementById('feedbackTitle')?.textContent?.trim()};
  });
  report.matching.feedback_chrome=matchingChrome;
