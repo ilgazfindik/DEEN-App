@@ -8,6 +8,20 @@ assert.equal(manifest.languages.de.question_data,'missing','German lessons must 
 assert.equal(manifest.languages.de.global_qa,'blocked','German release must remain blocked');
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
+ ['%80 GEÇİŞ','ÜBERGANGSSCHWELLE 80 %'],
+ ['PREMIUM · SINIRSIZ ENERJİ','PREMIUM · UNBEGRENZTE ENERGIE'],
+ ['Premium yalnızca konfor özelliğidir. Dini içerik herkese açıktır. Reklam butonu bu HTML önizlemesinde simülasyondur.','Premium bietet nur Komfortfunktionen. Religiöse Lerninhalte sind für alle frei zugänglich. Der Werbebutton ist in dieser HTML-Vorschau eine Simulation.'],
+ ['REKLAM İZLE · +10 ENERJİ','WERBUNG ANSEHEN · +10 ENERGIE'],
+ ['SERİ KORUMA','SERIENSCHUTZ'],
+ ['SONRAKİ ENERJİ','NÄCHSTE ENERGIEAUFFÜLLUNG'],
+ ['Sıradaki: Aktif Hatırlama · Cevabı görmeden bilgiyi zihninden geri çağır.','Als Nächstes: Aktives Abrufen · Rufe das Wissen ab, ohne die Antwort zu sehen.'],
+ ['Sıradaki: Bağ Kur · Kavramları doğru anlam ve örneklerle bağla.','Als Nächstes: Verknüpfen · Verbinde Begriffe mit den passenden Bedeutungen und Beispielen.'],
+ ['Sıradaki: Duruma Uyarla · Öğrendiğin ilkeyi basit bir duruma uygula.','Als Nächstes: Auf Situationen anwenden · Wende den gelernten Grundsatz auf eine einfache Situation an.'],
+ ['Sıradaki: Sesi Tanı · Resmî kaydı dinleyerek doğru ifadeyi tanı.','Als Nächstes: Hören und erkennen · Höre die offizielle Aufnahme und erkenne die richtige Aussage.'],
+ ['Sıradaki: Tanı · Temel kavramı güvenli biçimde tanı.','Als Nächstes: Erkennen · Lerne den Grundbegriff behutsam kennen.'],
+ ['Sıradaki: Ünite Challenge · Ünitenin temel kavramlarını farklı soru biçimleriyle ustalık seviyesinde kullan.','Als Nächstes: Kapitel-Challenge · Wende die Grundbegriffe der Einheit in verschiedenen Aufgabenformen vertieft an.'],
+ ['aşama · Ustalık %0','Etappe · Kenntnisstand 0 %'],
+
 
  ['1. KISIM · 1. ÜNİTE','ABSCHNITT 1 · EINHEIT 1'],
  ['3. KISIM · 15. ÜNİTE','ABSCHNITT 3 · EINHEIT 15'],
@@ -77,6 +91,8 @@ const approved={
  'Namaza Hazırlık':'Vorbereitung auf das Gebet',
  'Melekler Kimdir?':'Wer sind die Engel?',
  'Meleklere İman':'Glaube an die Engel',
+ 'Pekiştir ve Hatırla':'Festigen und Erinnern',
+ "İslam'la Tanış":'Den Islam kennenlernen',
 };
 const resolve=s=>approved[s]??null;
 for(const [input,expected]of [
@@ -90,6 +106,9 @@ for(const [input,expected]of [
  ['Melekler Kimdir? — Önceki aşamayı tamamla','Wer sind die Engel? — Schließe zuerst die vorherige Etappe ab'],
  ['Meleklere İman mevcut aşamaya git','Zur aktuellen Etappe von Glaube an die Engel springen'],
  ['Meleklere İman · 5 aşamalı öğrenme yolu','Glaube an die Engel · Lernpfad mit 5 Etappen'],
+ ['Pekiştir ve Hatırla · HATIRLA · Aşama 4/5','Festigen und Erinnern · ERINNERN · Etappe 4/5'],
+ ["İslam'la Tanış · ÖĞREN · Mini ders 1/3",'Den Islam kennenlernen · LERNEN · Mini-Lektion 1/3'],
+ ["İslam'la Tanış — 0/3 mini ders tamamlandı",'Den Islam kennenlernen — 0/3 Mini-Lektionen abgeschlossen'],
  ['İslam Nedir? artık bitti. Sıradaki düğüm açıldı.','Was ist der Islam? ist abgeschlossen. Die nächste Etappe wurde freigeschaltet.']
 ])assert.equal(fmt(input,{translateLabel:resolve}),expected,input);
 for(const input of [
