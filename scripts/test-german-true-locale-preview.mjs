@@ -355,20 +355,35 @@ try{
     .filter(el=>el.getClientRects().length).map(el=>el.textContent?.trim())
   }));
   await right.click({timeout:15000});
-  const count=await page.evaluate(()=>window.DEEN_MATCHING_SESSION_STATE?.snapshot?.());
+  const count=await page.evaluate(()=>({
+   public_snapshot:window.DEEN_MATCHING_SESSION_STATE?.snapshot?.(),
+   session_state:session?.__deenMatchingState?{
+    key:session.__deenMatchingState.key,
+    matchedLeft:[...session.__deenMatchingState.matchedLeft],
+    matchedRight:[...session.__deenMatchingState.matchedRight],
+    errors:session.__deenMatchingState.errors,
+    finished:session.__deenMatchingState.finished}:null,
+   dom_matched:document.querySelectorAll('#answerArea .v1017-card.matched').length,
+   footer:document.querySelector('#answerArea .v1017-count')?.textContent,
+   progress:document.documentElement.dataset.deenMatchingProgress
+  }));
   report.matching.tapTrace.push({i,after_left:selected,after_right:count,
    last:await page.locator('html').getAttribute('data-deen-matching-last')});
-  assert.equal(count.matchedLeft.length,i+1,
-    'Correct pair click did not increment German matching count: '+JSON.stringify(report.matching.tapTrace));
-  assert.equal(count.errors,0,'Correct German matching pair marked incorrect');
+  assert.equal(count.session_state?.matchedLeft.length,i+1,
+    'Actual session did not persist correct German pairing: '+JSON.stringify(report.matching.tapTrace));
+  assert.equal(count.session_state.errors,0,'Correct German matching pair marked incorrect');
+  assert.equal(count.dom_matched,(i+1)*2,'Matched German cards not marked in DOM');
  }
  await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
   null,{timeout:15000});
  const matched=await page.evaluate(()=>({
   locale:window.DEEN_APP_LOCALE.get(),correct:session.correct,
-  state:window.DEEN_MATCHING_SESSION_STATE.snapshot(),
-  feedback:document.getElementById('feedbackTitle')?.textContent?.trim(),
-  arabic_sources_changed:false}));
+  state:session?.__deenMatchingState?{
+   finished:session.__deenMatchingState.finished,
+   errors:session.__deenMatchingState.errors,
+   matchedLeft:[...session.__deenMatchingState.matchedLeft]}:null,
+  global_snapshot:window.DEEN_MATCHING_SESSION_STATE?.snapshot?.(),
+  feedback:document.getElementById('feedbackTitle')?.textContent?.trim()}));
  report.matching.result=matched;
  assert.equal(matched.correct,1);
  assert.equal(matched.state.finished,true);
