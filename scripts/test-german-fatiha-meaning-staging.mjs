@@ -13,14 +13,14 @@ assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(original.ayahCount,90);
 assert.equal(original.entries.length,90);
-assert.equal(stage.ayah_count,28);
-assert.equal(Object.keys(stage.translations).length,28);
+assert.equal(stage.ayah_count,34);
+assert.equal(Object.keys(stage.translations).length,34);
 assert.equal(stage.scope,'quran_ayah_meanings_staging');
 assert.equal(stage.locale,'de');
 for(const k of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(stage[k],false,'pack_not_approved:'+k);
 assert.equal(stage.sources.canonical_arabic,'assets/quran/audio/ayah-audio-manifest.json');
 assert.equal(stage.sources.external_translation_imported,false);
-assert.equal(stage.sources.comparative_only.length,14);
+assert.equal(stage.sources.comparative_only.length,16);
 for(const ref of stage.sources.comparative_only){
  assert.equal(ref.text_copied_verbatim,false);
  assert(/^https:\/\//.test(ref.url));
@@ -59,8 +59,8 @@ for(const ayah of original.entries){
  if(preview!==null)found++;
  else assert.notEqual(ayah.surahId,'fatiha','Missing Fatiha draft '+ayah.key);
 }
-assert.equal(found,28,'Fatiha 7 + Ikhlas 4 + Falaq 5 + Nas 6 + Kawthar 3 + Asr 3 drafts must all resolve in isolated QA');
-assert.equal(original.entries.length-found,62);
+assert.equal(found,34,'Fatiha 7 + Ikhlas 4 + Falaq 5 + Nas 6 + Kawthar 3 + Asr 3 + Kafirun 6 drafts must all resolve in isolated QA');
+assert.equal(original.entries.length-found,56);
 assert.equal(resolveGermanAyahMeaning(null,stage,{preview:true}),null);
 assert.equal(resolveGermanAyahMeaning({key:'fatiha:99'},stage,{preview:true}),null);
 assert.equal(resolveGermanAyahMeaning(fixtures[0],{...stage,locale:'tr'},{preview:true}),null);
@@ -69,8 +69,8 @@ assert.equal(resolveGermanAyahMeaning(fixtures[0],stage,{preview:false}),null);
 const forgedPack={...stage,release_ready:true,expert_approved:true,native_reviewer_approved:true,verified_by_religious_expert:true,rights_reviewed:true};
 assert.equal(resolveGermanAyahMeaning(fixtures[0],forgedPack),null,'One unapproved entry cannot inherit approval from its pack');
 const report={
- status:'passed',locale:'de',surah:'fatiha',total_ayahs:90,staged_german_meanings:28,
- remaining_german_meanings:62,qa_preview_valid:28,production_allowed:0,
+ status:'passed',locale:'de',surah:'fatiha',total_ayahs:90,staged_german_meanings:34,
+ remaining_german_meanings:56,qa_preview_valid:34,production_allowed:0,
  negative_source_guards:7*5+6,production_release_gate:'blocked',
  arabic_and_audio_unchanged:true,expert_native_rights_approved:false
 };
