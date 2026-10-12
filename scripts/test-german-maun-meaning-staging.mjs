@@ -15,8 +15,8 @@ assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(pack.locale,'de');
 assert.equal(pack.scope,'quran_ayah_meanings_staging');
-assert.equal(pack.ayah_count,82);
-assert.equal(Object.keys(pack.translations).length,82);
+assert.equal(pack.ayah_count,90);
+assert.equal(Object.keys(pack.translations).length,90);
 for(const f of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[f],false,'Global review incomplete '+f);
 const maun=canonical.entries.filter(x=>x.surahId==='maun').sort((a,b)=>a.ayah-b.ayah);
 assert.deepEqual(maun.map(x=>x.key),['maun:1','maun:2','maun:3','maun:4','maun:5','maun:6','maun:7']);
@@ -52,18 +52,18 @@ for(const original of maun){
  assert.equal(resolveGermanAyahMeaning(original,forged),null,'Per-ayah false reviews must block forged global release');tamperingGuards++;
 }
 assert.equal(resolveGermanAyahMeaning(maun[0],{...pack,locale:'en'},{preview:true}),null);tamperingGuards++;
-assert.equal(resolveGermanAyahMeaning(canonical.entries.find(x=>x.surahId==='zilzal'),pack,{preview:true}),null);tamperingGuards++;
+assert.equal(resolveGermanAyahMeaning({...canonical.entries[0],key:'missing:1',surahId:'missing'},pack,{preview:true}),null);tamperingGuards++;
 let qaDrafts=0,publicDrafts=0;
 for(const x of canonical.entries){
  if(resolveGermanAyahMeaning(x,pack,{preview:true})!==null)qaDrafts++;
  if(resolveGermanAyahMeaning(x,pack)!==null)publicDrafts++;
 }
-assert.equal(qaDrafts,82);
+assert.equal(qaDrafts,90);
 assert.equal(publicDrafts,0);
 const compared=pack.sources.comparative_only.filter(x=>x.comparison_scope==='Surah 107 Al-Maun');
 assert.equal(compared.length,3);
 assert(compared.every(x=>x.text_copied_verbatim===false&&/^https:\/\//.test(x.url)));
 console.log(JSON.stringify({status:'passed',locale:'de',surah:'Al-Maun',new_ayah_drafts:7,
- staged_total:82,remaining_missing:8,qa_previews:7,production_exposed:0,
+ staged_total:90,remaining_missing:0,qa_previews:7,production_exposed:0,
  negative_integrity_checks:tamperingGuards,verse_4_5_warning_context_preserved:true,
  canonical_arabic_audio_modified:false,religious_native_rights_review:'pending'},null,2));
