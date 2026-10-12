@@ -148,6 +148,8 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   "İslam, Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.":"Der Islam lehrt, Allah zu vertrauen, seine Rechtleitung anzunehmen und sie im Alltag umzusetzen.",
   "İslam, Allah'a yönelmektir.":"Islam bedeutet, sich Allah zuzuwenden.",
   "Evet, doğru!":"Ja, richtig!",
+  "Olmadı ama sorun değil; açıklama bize yolu gösterir.":"Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen.",
+  "Birlikte düzeltelim":"Korrigieren wir es gemeinsam.",
   'Enerji azaldı':'Energie aufgebraucht',
   'Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.':
    'Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.',
