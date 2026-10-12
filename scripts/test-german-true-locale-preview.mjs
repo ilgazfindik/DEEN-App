@@ -332,6 +332,20 @@ try{
     side:el.dataset.side,pair:Number(el.dataset.pair),text:el.querySelector('.v1017-card-label')?.textContent}))};
  });
  report.matching={start:matching};
+ const matchingA11y=await page.evaluate(async()=>{
+  const {localizeGermanActivityA11y}=await import('/assets/i18n/german-activity-a11y.staging.mjs');
+  window.__DEEN_ACTIVITY_A11Y_QA__=localizeGermanActivityA11y;
+  const q=session.questions[1];
+  const result=localizeGermanActivityA11y(q,document.getElementById('lesson'),{
+   qaMode:true,locale:'de',verifySource:source=>
+    window.DEEN_CONTENT_LOCALE.translateQuestion(source,'de')});
+  const labels=[...document.querySelectorAll('#answerArea .v1017-card')].map(el=>el.getAttribute('aria-label'));
+  return {...result,labels};
+ });
+ report.matching.a11y=matchingA11y;
+ assert.equal(matchingA11y.labels.length,matching.pairs.length*2);
+ assert(matchingA11y.labels.every(label=>label.startsWith('Begriff: ')||label.startsWith('Zuordnung: ')),
+  'A German matching screen-reader label remained in Turkish');
  assert.equal(matching.type,'matching');
  assert.equal(matching.locale,'de');
  assert.equal(matching.translated,true);
@@ -415,6 +429,17 @@ try{
    slot:document.querySelector('#questionText')?.textContent?.trim()};
  });
  report.fill_blank={start:blank};
+ const fillA11y=await page.evaluate(()=>{
+  const q=session.questions[3];
+  const result=window.__DEEN_ACTIVITY_A11Y_QA__(q,document.getElementById('lesson'),{
+   qaMode:true,locale:'de',verifySource:source=>
+    window.DEEN_CONTENT_LOCALE.translateQuestion(source,'de')});
+  return {...result,labels:[...document.querySelectorAll('#answerArea .fill-choice')]
+   .map(el=>el.getAttribute('aria-label'))};
+ });
+ report.fill_blank.a11y=fillA11y;
+ assert(fillA11y.labels.every(label=>label.endsWith(' in die Lücke einsetzen')),
+  'A German fill-blank screen-reader label remained in Turkish');
  assert.equal(blank.type,'fill_blank');
  assert.equal(blank.locale,'de');
  assert.equal(blank.translated,true);
@@ -438,6 +463,14 @@ try{
    .map(x=>({disabled:x.disabled,text:x.textContent?.trim()}))
  }));
  report.fill_blank.selected=selectedFill;
+ const selectedA11y=await page.evaluate(()=>{
+  const result=window.__DEEN_ACTIVITY_A11Y_QA__(session.questions[3],
+   document.getElementById('lesson'),{qaMode:true,locale:'de',
+    verifySource:source=>window.DEEN_CONTENT_LOCALE.translateQuestion(source,'de')});
+  return {...result,slot_label:document.querySelector('.v1040-fill-slot')?.getAttribute('aria-label')};
+ });
+ report.fill_blank.selected_a11y=selectedA11y;
+ assert.equal(selectedA11y.slot_label,'Ausgewähltes Wort: '+blank.correct_answer);
  assert(selectedFill.word.includes(blank.correct_answer),
   'Correct German word was not selected via real click: '+JSON.stringify(selectedFill));
  const confirm=page.locator('#answerArea .template-action:visible:not([disabled])');
