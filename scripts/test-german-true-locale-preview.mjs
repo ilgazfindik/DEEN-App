@@ -439,9 +439,11 @@ try{
   await right.click({timeout:15000});
   // The delegated state repair runs after the normal click event. Do not
   // confuse event-loop ordering with a persisted progress regression.
-  await page.waitForFunction(expected=>
+  let observedProgress=true;
+  try{await page.waitForFunction(expected=>
    session?.__deenMatchingState?.matchedLeft?.length===expected,
-   i+1,{timeout:4000});
+   i+1,{timeout:1500});}
+  catch(_){observedProgress=false}
   const count=await page.evaluate(()=>({
    public_snapshot:window.DEEN_MATCHING_SESSION_STATE?.snapshot?.(),
    session_state:session?.__deenMatchingState?{
@@ -453,12 +455,21 @@ try{
    dom_matched:document.querySelectorAll('#answerArea .v1017-card.matched').length,
    footer:document.querySelector('#answerArea .v1017-count')?.textContent,
    progress:document.documentElement.dataset.deenMatchingProgress,
+   sync_probe:{
+    area_count:document.querySelectorAll('#answerArea').length,
+    handler_installed:typeof document.getElementById('answerArea')?.__deenMatchReconcileHandler==='function',
+    current_question_id:session?.questions?.[session?.index]?.id,
+    session_index:session?.index,
+    active_key:session?.__deenMatchingState?.key,
+    original_source_present:!!session?.questions?.[session?.index]?.__deenSourceQuestion,
+    matcher_has_reconcile:String(renderMatching).includes('reconcileRenderedPairs')
+   },
    writes:(window.__DEEN_MATCH_SET_TRACE__||[]).slice(-12),
    engine_persists:(window.__DEEN_MATCH_ENGINE_TRACE__||[]).slice(-12),
    same_session:window.__DEEN_MATCH_OBSERVED_SESSION__===session,
    card_element_connected:!!document.querySelector('#answerArea .v1017-card.matched')?.isConnected
   }));
-  report.matching.tapTrace.push({i,after_left:selected,after_right:count,
+  report.matching.tapTrace.push({i,observedProgress,after_left:selected,after_right:count,
    last:await page.locator('html').getAttribute('data-deen-matching-last')});
   // Both the DOM and the authoritative session must move together. A stale
   // match-card handler must not be allowed to simulate visual success only.
@@ -466,7 +477,7 @@ try{
   assert.equal(count.progress,(i+1)+'/'+matching.pairs.length,
    'Visual German matching progress failed to advance');
   assert.equal(count.session_state?.matchedLeft.length,i+1,
-   'Matching game did not persist the matched pair in the current lesson session');
+   'Matching game did not persist the pair: '+JSON.stringify(report.matching.tapTrace));
   assert.equal(count.session_state?.matchedRight.length,i+1);
   assert.equal(count.public_snapshot?.matchedLeft.length,i+1,
    'Public matching snapshot diverged from the current session');
