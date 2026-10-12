@@ -34,6 +34,21 @@ const cases=[
  ['Ders 1/4 · Duruma Uyarla','Lektion 1/4 · Auf Situationen anwenden'],
  ['Ders 1/4 · Sesi Tanı','Lektion 1/4 · Hören und erkennen'],
  ['Enerji azaldı','Energie aufgebraucht'],
+
+ ['%80 GEÇİŞ','80 % BESTEHENSGRENZE'],
+ ['PREMIUM · SINIRSIZ ENERJİ','PREMIUM · UNBEGRENZTE ENERGIE'],
+ ['SERİ KORUMA','SERIENSCHUTZ'],
+ ['SONRAKİ ENERJİ','NÄCHSTE ENERGIEAUFLADUNG'],
+ ['REKLAM İZLE · +10 ENERJİ','WERBUNG ANSEHEN · +10 ENERGIE'],
+ ['aşama · Ustalık %0','Etappe · Kenntnisstand 0 %'],
+ ['Premium yalnızca konfor özelliğidir. Dini içerik herkese açıktır. Reklam butonu bu HTML önizlemesinde simülasyondur.','Premium bietet nur Komfortfunktionen. Religiöse Inhalte sind für alle zugänglich. Die Werbeschaltfläche ist in dieser HTML-Vorschau simuliert.'],
+ ['Sıradaki: Aktif Hatırlama · Cevabı görmeden bilgiyi zihninden geri çağır.','Als Nächstes: Aktives Abrufen · Rufe das Gelernte aus dem Gedächtnis ab, ohne die Antwort anzusehen.'],
+ ['Sıradaki: Bağ Kur · Kavramları doğru anlam ve örneklerle bağla.','Als Nächstes: Verknüpfen · Verbinde Begriffe mit passenden Bedeutungen und Beispielen.'],
+ ['Sıradaki: Duruma Uyarla · Öğrendiğin ilkeyi basit bir duruma uygula.','Als Nächstes: Auf Situationen anwenden · Wende das Gelernte auf eine einfache Situation an.'],
+ ['Sıradaki: Sesi Tanı · Resmî kaydı dinleyerek doğru ifadeyi tanı.','Als Nächstes: Hören und erkennen · Höre die offizielle Aufnahme und erkenne die richtige Formulierung.'],
+ ['Sıradaki: Tanı · Temel kavramı güvenli biçimde tanı.','Als Nächstes: Erkennen · Lerne den Grundbegriff auf verlässliche Weise kennen.'],
+ ['Sıradaki: Ünite Challenge · Ünitenin temel kavramlarını farklı soru biçimleriyle ustalık seviyesinde kullan.','Als Nächstes: Kapitel-Challenge · Wende die Grundbegriffe der Einheit in verschiedenen Aufgabenformaten sicher an.'],
+
  ['Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.','Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.'],
  ['Derse devam etmek için enerjini yenileyebilirsin. Premium enerji sınırını kaldırır, reklam ise hızlı bir destek verir.','Fülle deine Energie auf, um weiterzulernen. Mit Premium entfällt das Energielimit. Alternativ kannst du dir eine Werbung ansehen.'],
 
@@ -93,6 +108,8 @@ const approved={
  'Meleklere İman':'Glaube an die Engel',
  'Pekiştir ve Hatırla':'Festigen und Erinnern',
  "İslam'la Tanış":'Den Islam kennenlernen',
+ 'Pekiştir ve Hatırla':'Festigen und Erinnern',
+ "İslam'la Tanış":'Den Islam kennenlernen',
 };
 const resolve=s=>approved[s]??null;
 for(const [input,expected]of [
@@ -102,6 +119,9 @@ for(const [input,expected]of [
  ['Kısaca: Temel Kavramlar','Kurz gesagt: Grundbegriffe'],
  ['Özet: Temel Kavramlar','Zusammenfassung: Grundbegriffe'],
  ['Namaza Hazırlık · ÖĞREN · Aşama 1/5','Vorbereitung auf das Gebet · LERNEN · Etappe 1/5'],
+ ['Pekiştir ve Hatırla · HATIRLA · Aşama 4/5','Festigen und Erinnern · ERINNERN · Etappe 4/5'],
+ ["İslam'la Tanış · ÖĞREN · Mini ders 1/3",'Den Islam kennenlernen · LERNEN · Mini-Lektion 1/3'],
+ ["İslam'la Tanış — 0/3 mini ders tamamlandı",'Den Islam kennenlernen — 0/3 Mini-Lektionen abgeschlossen'],
  ['Melekler Kimdir? · ANLA · Aşama 2/5','Wer sind die Engel? · VERSTEHEN · Etappe 2/5'],
  ['Melekler Kimdir? — Önceki aşamayı tamamla','Wer sind die Engel? — Schließe zuerst die vorherige Etappe ab'],
  ['Meleklere İman mevcut aşamaya git','Zur aktuellen Etappe von Glaube an die Engel springen'],
@@ -127,7 +147,7 @@ for(const input of [
  const got=fmt(input);
  assert.equal(got,null,'Unknown text must fail closed: '+input);
 }
-const report={locale:'de',status:'passed',staging_only:true,positive_cases:cases.length+11,
+const report={locale:'de',status:'passed',staging_only:true,positive_cases:cases.length+14,
  whitespace_cases:cases.length,negative_cases:12,
  release_ready:false,production_manifest:'blocked'};
 console.log(JSON.stringify(report,null,2));
