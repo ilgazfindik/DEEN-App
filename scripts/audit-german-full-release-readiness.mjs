@@ -20,7 +20,8 @@ const layerPaths=[
  'assets/i18n/german-ui.reference-batch-05.staging.json',
  'assets/i18n/german-ui.reference-batch-06.staging.json',
  'assets/i18n/german-ui.reference-batch-07.staging.json',
- 'assets/i18n/german-ui.reference-batch-08.staging.json'
+ 'assets/i18n/german-ui.reference-batch-08.staging.json',
+ 'assets/i18n/german-ui.real-lesson.staging.json'
 ];
 const dictionaries=layerPaths.map(p=>read(p));
 const merged=new Map(),conflicts=[],byLayer=[];
