@@ -664,20 +664,17 @@ try{
    await check.first().click({timeout:15000});
   }else{
    assert(q.answer,'Choice answer missing in German stage: '+q.id);
-   const options=page.locator('#answerArea .option');
-   const exact=options.filter({has:page.locator('.option-label',{hasText:q.answer})});
-   const diagnostic=await page.evaluate(()=>({
-    buttons:[...document.querySelectorAll('#answerArea button')].map(el=>({
-     text:el.textContent?.trim(),html:el.outerHTML.slice(0,450)})),
-    other:[...document.querySelectorAll('#lesson button')].filter(el=>
-     !document.getElementById('answerArea')?.contains(el)).map(el=>({
-     text:el.textContent?.trim(),html:el.outerHTML.slice(0,300)})).slice(0,20),
-    feedback:document.getElementById('feedback')?.className,
-    answerArea:document.getElementById('answerArea')?.innerHTML.slice(0,1800)
-   }));
-   assert.equal(await exact.count(),1,'No unique German correct choice: '+q.id+
-    ' DOM='+JSON.stringify(diagnostic));
-   await exact.click({timeout:15000});
+   const options=page.locator('#answerArea .option')
+    .filter({has:page.locator('.option-label',{hasText:q.answer})});
+   // The binary-answer renderer uses data-value buttons, not .option labels.
+   const binary=page.locator('#answerArea .v710-binary button[data-value]')
+    .filter({hasText:q.answer});
+   const chosen=q.type==='true_false'?binary:options;
+   const optionDOM=await page.locator('#answerArea button').evaluateAll(list=>
+    list.map(el=>({text:el.textContent?.trim(),value:el.dataset.value||null})));
+   assert.equal(await chosen.count(),1,'No unique German correct choice: '+q.id+
+    ' DOM='+JSON.stringify(optionDOM));
+   await chosen.click({timeout:15000});
    if(!(await page.locator('#feedback').evaluate(el=>el.classList.contains('show')))){
     const check=page.locator('#answerArea .template-action:visible:not([disabled])');
     if(await check.count())await check.first().click({timeout:15000});
