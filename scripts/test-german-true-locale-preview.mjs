@@ -329,23 +329,22 @@ try{
   'Untranslated UI chrome after an incorrect German answer');
  await page.screenshot({path:output+'/true-locale-german-wrong-answer.png',fullPage:true});
 
- // True German interactive MATCHING: actual opposing card taps, no direct
- // completeQuestion calls and no JS mutations of source answer pairs.
- // Reach the matching question as an actual player: answer P01, then
- // continue normally. Never assign session.index or call renderQuestion here.
+ // True German matching under the authoritative v10.5.7 isolated engine.
+ // The older session.__deenMatchingState and DEEN_MATCHING_SESSION_STATE
+ // are LEGACY compatibility snapshots; v10.5.7 deliberately clears onclick
+ // and handles input at window pointerdown capture instead.
  const entered=await page.evaluate(()=>{
   document.getElementById('energyModal')?.classList.remove('show');
   if(typeof state!=='undefined')state.energy=30;
   startStage('U01-S01');
-  return {index:session?.index,first:session?.questions?.[0]?.id,
-   answer:session?.questions?.[0]?.correct_answer};
+  return {index:session?.index,answer:session?.questions?.[0]?.correct_answer};
  });
  assert.equal(entered.index,0);
  const firstTeaching=page.locator('#lesson .v910-card-button:visible');
  if(await firstTeaching.count())await firstTeaching.first().click({timeout:15000});
  const firstCard=page.locator('#answerArea .option')
   .filter({has:page.locator('.option-label',{hasText:entered.answer})});
- assert.equal(await firstCard.count(),1,'Cannot choose first German card in natural lesson');
+ assert.equal(await firstCard.count(),1,'First German lesson answer not selectable');
  await firstCard.click({timeout:15000});
  if(!(await page.locator('#feedback').evaluate(el=>el.classList.contains('show')))){
   const firstConfirm=page.locator('#answerArea .template-action:visible:not([disabled])');
@@ -355,177 +354,97 @@ try{
   null,{timeout:15000});
  await page.locator('#continueBtn:visible').click({timeout:15000});
  await page.waitForFunction(()=>session?.index===1&&
-    session.questions[1]?.activity_type==='matching',null,{timeout:15000});
+  session.questions[1]?.activity_type==='matching',null,{timeout:15000});
  const matching=await page.evaluate(()=>{
   const q=session.questions[1];
-  const renderer=typeof renderMatching==='function'?String(renderMatching):'';
-  const scripts=[...document.scripts].map((script,index)=>({
-   index,id:script.id||'',source:script.src||'',
-   owner:script.textContent.includes('DEEN_MATCHING_SESSION_STATE'),
-   has_fix:script.textContent.includes('current=session?.__deenMatchingState'),
-   has_probe:script.textContent.includes('__DEEN_MATCH_ENGINE_TRACE__')
-  })).filter(x=>x.owner);
-  return {renderer_probe:{core_length:renderer.length,
-   has_fix:renderer.includes('current=session?.__deenMatchingState'),
-   has_probe:renderer.includes('__DEEN_MATCH_ENGINE_TRACE__'),
-   scripts},
-   id:q.id,locale:window.DEEN_APP_LOCALE.get(),type:q.activity_type,
-   translated:q.__deenContentLocale==='de',
-   source_exists:!!q.__deenSourceQuestion,
+  const engine=window.DEEN_ISOLATED_MATCHING?.snapshot?.();
+  return {id:q.id,locale:window.DEEN_APP_LOCALE.get(),type:q.activity_type,
+   translated:q.__deenContentLocale==='de',source_exists:!!q.__deenSourceQuestion,
    pairs:structuredClone(q.pairs),
-   handler_sources:[...document.querySelectorAll('#answerArea .v1017-card')].slice(0,3).map(el=>({
-    side:el.dataset.side,pair:el.dataset.pair,
-    onclick:el.onclick?.toString().slice(0,350)||null,
-    click_attr:el.getAttribute('onclick')
-   })),
+   engine:engine?{version:engine.version,active:engine.active,key:engine.key}:null,
    cards:[...document.querySelectorAll('#answerArea .v1017-card')].map(el=>({
-    side:el.dataset.side,pair:Number(el.dataset.pair),text:el.querySelector('.v1017-card-label')?.textContent}))};
+    side:el.dataset.side,pair:Number(el.dataset.pair),
+    text:el.querySelector('.v1017-card-label')?.textContent}))};
  });
- report.matching={start:matching};
+ report.matching={start:matching,tapTrace:[],authority:'DEEN_ISOLATED_MATCHING/v10.5.7'};
+ assert.equal(matching.type,'matching');
+ assert.equal(matching.locale,'de');
+ assert.equal(matching.translated,true);
+ assert.equal(matching.source_exists,true);
+ assert.equal(matching.engine?.version,'10.5.7-DOM-STATE-MATCHING');
+ assert.equal(matching.engine?.active,true);
+ assert.equal(matching.cards.length,matching.pairs.length*2);
  const matchingA11y=await page.evaluate(async()=>{
   const {localizeGermanActivityA11y}=await import('/assets/i18n/german-activity-a11y.staging.mjs');
   window.__DEEN_ACTIVITY_A11Y_QA__=localizeGermanActivityA11y;
   const q=session.questions[1];
   const result=localizeGermanActivityA11y(q,document.getElementById('lesson'),{
-   qaMode:true,locale:'de',verifySource:source=>
-    window.DEEN_CONTENT_LOCALE.translateQuestion(source,'de')});
-  const labels=[...document.querySelectorAll('#answerArea .v1017-card')].map(el=>el.getAttribute('aria-label'));
-  return {...result,labels};
+   qaMode:true,locale:'de',
+   verifySource:source=>window.DEEN_CONTENT_LOCALE.translateQuestion(source,'de')});
+  return {...result,labels:[...document.querySelectorAll('#answerArea .v1017-card')]
+   .map(el=>el.getAttribute('aria-label'))};
  });
  report.matching.a11y=matchingA11y;
  assert.equal(matchingA11y.labels.length,matching.pairs.length*2);
- assert(matchingA11y.labels.every(label=>label.startsWith('Begriff: ')||label.startsWith('Zuordnung: ')),
-  'A German matching screen-reader label remained in Turkish');
- assert.equal(matching.type,'matching');
- assert.equal(matching.locale,'de');
- assert.equal(matching.translated,true);
- assert.equal(matching.source_exists,true);
- assert.equal(matching.cards.length,matching.pairs.length*2);
+ assert(matchingA11y.labels.every(label=>
+  label.startsWith('Begriff: ')||label.startsWith('Zuordnung: ')));
  const matchingTeaching=page.locator('#lesson .v910-card-button:visible');
  if(await matchingTeaching.count())await matchingTeaching.first().click({timeout:15000});
- // QA-only property write trace. Capture every replacement of the active
- // matching state, including the call site responsible for unexpected resets.
- await page.evaluate(()=>{
-  const obj=session,initial=obj?.__deenMatchingState;
-  if(!obj)throw Error('No lesson session to instrument');
-  window.__DEEN_MATCH_SET_TRACE__=[];
-  let current=initial;
-  Object.defineProperty(obj,'__deenMatchingState',{
-   configurable:true,enumerable:true,
-   get(){return current},
-   set(value){
-    window.__DEEN_MATCH_SET_TRACE__.push({
-     key:value?.key,count:value?.matchedLeft?.length??null,
-     selected:value?.selected?.pair??null,
-     previous_count:current?.matchedLeft?.length??null,
-     same_reference:current===value,
-     stack:(new Error()).stack?.split('\n').slice(1,5).join(' | ')
-    });
-    current=value;
-   }
-  });
-  window.__DEEN_MATCH_OBSERVED_SESSION__=obj;
-  window.__DEEN_MATCH_CLICK_EVENTS__=[];
-  const area=document.getElementById('answerArea');
-  const observe=(scope,e)=>{
-   const card=e.target.closest?.('.v1017-card');
-   if(!card)return;
-   window.__DEEN_MATCH_CLICK_EVENTS__.push({
-    scope,pair:card.dataset.pair,side:card.dataset.side,
-    connected:card.isConnected,in_area:area.contains(card),
-    area_connected:area.isConnected,disabled:card.disabled,
-    last:document.documentElement.dataset.deenMatchingLast,
-    matched:[...area.querySelectorAll('.v1017-card.matched')].length
-   });
-  };
-  area.addEventListener('click',e=>observe('area_capture',e),true);
-  document.addEventListener('click',e=>observe('document_capture',e),true);
- });
- report.matching.tapTrace=[];
  for(let i=0;i<matching.pairs.length;i++){
-  // Pair order changes by shuffle, so select the SOURCE-GUARDED semantic pair
-  // using data-pair; the DOM click handlers still perform all validation.
   const left=page.locator('#answerArea .v1017-card[data-side="left"][data-pair="'+i+'"]');
   const right=page.locator('#answerArea .v1017-card[data-side="right"][data-pair="'+i+'"]');
-  assert.equal(await left.count(),1);
-  assert.equal(await right.count(),1);
+  assert.equal(await left.count(),1);assert.equal(await right.count(),1);
   await left.click({timeout:15000});
-  const selected=await page.evaluate(()=>({
-   snapshot:window.DEEN_MATCHING_SESSION_STATE?.snapshot?.(),
-   last:document.documentElement.dataset.deenMatchingLast,
-   overlays:[...document.querySelectorAll('#lesson .v910-card-button')]
-    .filter(el=>el.getClientRects().length).map(el=>el.textContent?.trim())
-  }));
   await right.click({timeout:15000});
-  // The delegated state repair runs after the normal click event. Do not
-  // confuse event-loop ordering with a persisted progress regression.
-  let observedProgress=true;
-  try{await page.waitForFunction(expected=>
-   session?.__deenMatchingState?.matchedLeft?.length===expected,
-   i+1,{timeout:1500});}
-  catch(_){observedProgress=false}
-  const count=await page.evaluate(()=>({
-   public_snapshot:window.DEEN_MATCHING_SESSION_STATE?.snapshot?.(),
-   session_state:session?.__deenMatchingState?{
-    key:session.__deenMatchingState.key,
-    matchedLeft:[...session.__deenMatchingState.matchedLeft],
-    matchedRight:[...session.__deenMatchingState.matchedRight],
-    errors:session.__deenMatchingState.errors,
-    finished:session.__deenMatchingState.finished}:null,
-   dom_matched:document.querySelectorAll('#answerArea .v1017-card.matched').length,
-   footer:document.querySelector('#answerArea .v1017-count')?.textContent,
-   progress:document.documentElement.dataset.deenMatchingProgress,
-   sync_probe:{
-    area_count:document.querySelectorAll('#answerArea').length,
-    handler_installed:typeof document.getElementById('answerArea')?.__deenMatchReconcileHandler==='function',
-    area_connected:document.getElementById('answerArea')?.isConnected,
-    current_question_id:session?.questions?.[session?.index]?.id,
-    session_index:session?.index,
-    active_key:session?.__deenMatchingState?.key,
-    original_source_present:!!session?.questions?.[session?.index]?.__deenSourceQuestion,
-    matcher_has_reconcile:String(renderMatching).includes('reconcileRenderedPairs')
-   },
-   writes:(window.__DEEN_MATCH_SET_TRACE__||[]).slice(-12),
-   engine_persists:(window.__DEEN_MATCH_ENGINE_TRACE__||[]).slice(-12),
-   click_events:(window.__DEEN_MATCH_CLICK_EVENTS__||[]).slice(-12),
-   source_handler:document.querySelector('#answerArea .v1017-card')?.onclick?.toString().slice(0,350),
-   last_event_target:document.documentElement.dataset.deenMatchingLast,
-   same_session:window.__DEEN_MATCH_OBSERVED_SESSION__===session,
-   card_element_connected:!!document.querySelector('#answerArea .v1017-card.matched')?.isConnected
+  await page.waitForFunction(expected=>{
+   const s=window.DEEN_ISOLATED_MATCHING?.snapshot?.();
+   return s?.matchedLeft===expected&&s?.matchedRight===expected;
+  },i+1,{timeout:6000});
+  const actual=await page.evaluate(()=>({
+   isolated:window.DEEN_ISOLATED_MATCHING.snapshot(),
+   matchedDom:document.querySelectorAll('#answerArea .v1017-card.matched').length,
+   progress:document.documentElement.dataset.deenMatchingProgress
   }));
-  report.matching.tapTrace.push({i,observedProgress,after_left:selected,after_right:count,
-   last:await page.locator('html').getAttribute('data-deen-matching-last')});
-  // Both the DOM and the authoritative session must move together. A stale
-  // match-card handler must not be allowed to simulate visual success only.
-  assert.equal(count.dom_matched,(i+1)*2,'Matched German cards not marked in DOM');
-  assert.equal(count.progress,(i+1)+'/'+matching.pairs.length,
-   'Visual German matching progress failed to advance');
-  assert.equal(count.session_state?.matchedLeft.length,i+1,
-   'Matching game did not persist the pair: '+JSON.stringify(report.matching.tapTrace));
-  assert.equal(count.session_state?.matchedRight.length,i+1);
-  assert.equal(count.public_snapshot?.matchedLeft.length,i+1,
-   'Public matching snapshot diverged from the current session');
-  assert.equal(count.session_state.errors,0);
-  report.matching.session_snapshot_diverged=false;
+  const snap=actual.isolated;
+  assert.equal(snap.version,'10.5.7-DOM-STATE-MATCHING');
+  assert.equal(snap.active,true);
+  assert.equal(snap.matchedLeft,i+1);
+  assert.equal(snap.matchedRight,i+1);
+  assert.equal(snap.errors,0);
+  assert.equal(snap.lastEngineError,null);
+  assert.equal(actual.matchedDom,(i+1)*2);
+  assert.equal(actual.progress,(i+1)+'/'+matching.pairs.length);
+  report.matching.tapTrace.push({pair:i,progress:actual.progress,
+   authority:snap.version,inputSource:snap.inputSource,clicks:snap.clicks,
+   matchedLeft:snap.matchedLeft,matchedRight:snap.matchedRight});
  }
  await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
   null,{timeout:15000});
  const matched=await page.evaluate(()=>({
   locale:window.DEEN_APP_LOCALE.get(),correct:session.correct,
-  state:session?.__deenMatchingState?{
-   finished:session.__deenMatchingState.finished,
-   errors:session.__deenMatchingState.errors,
-   matchedLeft:[...session.__deenMatchingState.matchedLeft]}:null,
-  global_snapshot:window.DEEN_MATCHING_SESSION_STATE?.snapshot?.(),
-  feedback:document.getElementById('feedbackTitle')?.textContent?.trim()}));
+  state:window.DEEN_ISOLATED_MATCHING.snapshot(),
+  feedback:document.getElementById('feedbackTitle')?.textContent?.trim()
+ }));
  report.matching.result=matched;
+ assert.equal(matched.locale,'de');
  assert.equal(matched.correct,1);
- assert.equal(matched.state?.matchedLeft.length,matching.pairs.length,
-  'Matching state was lost when the feedback panel appeared');
- assert.equal(matched.state?.finished,true);
- assert.equal(matched.global_snapshot?.matchedLeft.length,matching.pairs.length);
- report.matching.result_state_diverged=false;
+ assert.equal(matched.state?.matchedLeft,matching.pairs.length);
+ assert.equal(matched.state?.matchedRight,matching.pairs.length);
  assert.equal(matched.state?.errors,0);
+ assert.equal(matched.state?.finished,true);
+ assert.equal(matched.state?.lastEngineError,null);
+ // Calling rehydrate must not erase matches in the authoritative engine.
+ const rehydrated=await page.evaluate(()=>{
+  const success=window.DEEN_ISOLATED_MATCHING.rehydrate();
+  const state=window.DEEN_ISOLATED_MATCHING.snapshot();
+  return {success,matchedLeft:state.matchedLeft,matchedRight:state.matchedRight,
+   finished:state.finished,errors:state.errors};
+ });
+ report.matching.rehydrated=rehydrated;
+ assert.equal(rehydrated.success,true);
+ assert.equal(rehydrated.matchedLeft,matching.pairs.length);
+ assert.equal(rehydrated.matchedRight,matching.pairs.length);
+ assert.equal(rehydrated.finished,true);
  await page.screenshot({path:output+'/true-locale-german-matching-graded.png',fullPage:true});
 
  // True German FILL-BLANK: user chooses the exact translated missing word
@@ -631,7 +550,7 @@ try{
  report.qa_transient_monitor={count:transient.length,
   expectedTransient,diagnosticLines:diagnosticLines.length,
   finalMonitorPassed:report.fill_freeze_diagnostics.monitor?.pass===true,
-  matching_session_snapshot_diverged:report.matching.session_snapshot_diverged===true,
+  matching_authoritative_engine:'10.5.7-DOM-STATE-MATCHING',
   productionReleaseApproved:false};
  assert.equal(report.fill_blank.result.correct,1,'German chip grading failed');
  assert.equal(report.fill_freeze_diagnostics.monitor?.pass,true,
