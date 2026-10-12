@@ -37,7 +37,7 @@ async function preview(width,height,name){
    };
   });
   assert(initial.status?.includes('Matched reference keys: 1087 / 1087'));
-  assert(initial.status?.includes('Catalog entries: 1451'));
+  assert(initial.status?.includes('Catalog entries: 1452'));
   assert(initial.onboarding?.includes('Willkommen bei DEEN'), 'German welcome not rendered');
   assert(initial.quran?.includes('Al-Fātiha'), 'Sura heading not localized');
   assert(initial.arabic?.includes('بِسْمِ'), 'Original Quran Arabic must remain');
@@ -58,7 +58,7 @@ async function preview(width,height,name){
   await page.waitForFunction(()=>/7\s+Tage/.test(document.querySelector('#lessonStreakMini')?.parentElement?.textContent||''));
   await page.screenshot({path:OUTPUT+'/'+name+'-reset.png',fullPage:true});
   assert.deepEqual(errors,[], 'Browser JS exception during German preview');
-  return {viewport:name,width,height,preview_http:200,baseline:'1087/1087',dictionary:1451,
+  return {viewport:name,width,height,preview_http:200,baseline:'1087/1087',dictionary:1452,
     german_welcome:true,quran_arabic_original:true,
     qa_unresolved_example:'Bilinmeyen aşama metni',streak_plural_and_singular:true,
     aria_localized:true,reset_passed:true,js_exceptions:0};
@@ -124,7 +124,8 @@ async function realShell(){
   assert.equal(result.assembledLesson,true,'Real DEEN lesson DOM did not assemble');
   assert.equal(result.unchangedGradedContent,true,
    'Staging UI renderer must never mutate source-dependent question/answer content');
-  assert.equal(result.entries,1451);
+  assert.equal(result.entries,1452);
+  assert.deepEqual(result.audit.unresolved,[], 'Real lesson shell has uncovered Turkish chrome labels');
   assert.equal(result.after.title,'Lektion abgeschlossen','Real result title not localized by QA');
   assert.equal(result.after.cta,'LERNREISE FORTSETZEN','Real result CTA not localized by QA');
   assert(result.audit.scanned>10,'Real lesson shell not scanned');
