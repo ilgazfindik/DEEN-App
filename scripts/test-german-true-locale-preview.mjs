@@ -667,9 +667,11 @@ try{
    const options=page.locator('#answerArea .option')
     .filter({has:page.locator('.option-label',{hasText:q.answer})});
    // The binary-answer renderer uses data-value buttons, not .option labels.
-   const binary=page.locator('#answerArea .v710-binary button[data-value]')
+   const sourceValue=page.locator('#answerArea button[data-value]')
     .filter({hasText:q.answer});
-   const chosen=q.type==='true_false'?binary:options;
+   // First-generation cards expose .option-label, while true/false and
+   // odd-one-out use source-valued buttons in their own adapters.
+   const chosen=(await options.count())===1?options:sourceValue;
    const optionDOM=await page.locator('#answerArea button').evaluateAll(list=>
     list.map(el=>({text:el.textContent?.trim(),value:el.dataset.value||null})));
    assert.equal(await chosen.count(),1,'No unique German correct choice: '+q.id+
