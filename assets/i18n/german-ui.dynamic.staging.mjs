@@ -91,6 +91,9 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   "Değiştir →":"Ändern →",
   "Doğruluk: Henüz ders yok":"Antwortgenauigkeit: Noch keine Lektion",
   "🌱 Çocuk · 8–12":"🌱 Kind · 8–12",
+  "DEEN boyunca sana eşlik edecek hayvanı seç. Bu bir kişilik testi değil; sadece senin görsel yol arkadaşın.":"Wähle ein Tier, das dich bei DEEN begleitet. Dies ist kein Persönlichkeitstest, sondern dein Lernbegleiter.",
+  "Seçimini daha sonra Profil ekranındaki hayvana dokunarak değiştirebilirsin.":"Du kannst deinen Lernbegleiter später ändern, indem du im Profil auf das Tier tippst.",
+  "Öğrenme ve bilgelik":"Lernen und Weisheit",
   'Enerji azaldı':'Energie aufgebraucht',
   'Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.':
    'Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.',
