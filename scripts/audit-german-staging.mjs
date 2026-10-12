@@ -18,7 +18,8 @@ const stages=[
  ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U06',stage:'S'+String(i+1).padStart(2,'0'),count})),
  ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U07',stage:'S'+String(i+1).padStart(2,'0'),count})),
  ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U08',stage:'S'+String(i+1).padStart(2,'0'),count})),
- ...[14,14,14,16,16].map((count,i)=>({unit:'U09',stage:'S'+String(i+1).padStart(2,'0'),count})),
+ ...[14,14,14,16,16,12,14].map((count,i)=>({unit:'U09',stage:'S'+String(i+1).padStart(2,'0'),count})),
+ ...[14,14,14,16,16].map((count,i)=>({unit:'U10',stage:'S'+String(i+1).padStart(2,'0'),count})),
 ];
 const expectedCounts=Object.fromEntries(stages.map(({unit,stage,count})=>[unit+'-'+stage,count]));
 const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
@@ -104,6 +105,6 @@ for(const {unit,stage,count} of stages){
   translated++;
  }
 }
-const report={locale:'de',phase:'U01-U08 complete; U09-S01 through U09-S05 staged',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:100,u02_staged:100,u03_staged:100,u04_staged:100,u05_staged:100,u06_staged:100,u07_staged:100,u08_staged:100,u09_staged:74,u01_remaining:0,u02_remaining:0,u03_remaining:0,u04_remaining:0,u05_remaining:0,u06_remaining:0,u07_remaining:0,u08_remaining:0,u09_remaining:26,stages:expectedCounts,types,issue_count:issues.length,issues};
+const report={locale:'de',phase:'U01-U09 complete; U10-S01 through U10-S05 staged',production_ready:false,base_question_total:1500,staged_questions:translated,u01_staged:100,u02_staged:100,u03_staged:100,u04_staged:100,u05_staged:100,u06_staged:100,u07_staged:100,u08_staged:100,u09_staged:100,u10_staged:74,u01_remaining:0,u02_remaining:0,u03_remaining:0,u04_remaining:0,u05_remaining:0,u06_remaining:0,u07_remaining:0,u08_remaining:0,u09_remaining:0,u10_remaining:26,stages:expectedCounts,types,issue_count:issues.length,issues};
 console.log(JSON.stringify(report,null,2));
 if(issues.length)process.exitCode=1;

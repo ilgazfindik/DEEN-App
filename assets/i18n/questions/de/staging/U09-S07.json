@@ -1,0 +1,543 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U09",
+  "stage": "U09-S07",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U09-S07-001": {
+      "source": {
+        "question_tr": "Bir öğrenci şu üç cümleyi yazıyor: (1) Ölüm herkes için kaçınılmazdır. (2) Allah ölüleri yeniden diriltecektir. (3) Küçük hayır ve şer dahi karşılıksız kalmaz. Hangileri Kur'an'la uyumludur?",
+        "explanation_tr": "Âl-i İmrân 3:185, Hac 22:7 ve Zilzâl 99:7-8 bu üç bilgiyi destekler.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 ve 3",
+          "Yalnız 1",
+          "1 ve 2",
+          "2 ve 3"
+        ],
+        "correct_answer": "1, 2 ve 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender schreibt: (1) Jeder wird den Tod erfahren. (2) Allah wird die Toten auferwecken. (3) Auch kleinste Taten bleiben nicht ohne Vergeltung. Welche Aussagen stimmen mit dem Koran überein?",
+        "explanation_tr": "Al-Imran 3:185, Al-Hadsch 22:7 und Az-Zalzala 99:7–8 stützen alle drei Aussagen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 und 3",
+          "Nur 1",
+          "1 und 2",
+          "2 und 3"
+        ],
+        "correct_answer": "1, 2 und 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-002": {
+      "source": {
+        "question_tr": "Ahiret inancında ilahî adalet, insanın dünya hayatındaki sorumluluğuyla bağlantılıdır.",
+        "explanation_tr": "Enbiyâ 21:47 ve Zilzâl 99:7-8 yapılanların adaletle karşılık bulacağını bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Im Glauben an das Jenseits hängen göttliche Gerechtigkeit und menschliche Verantwortung im Diesseits zusammen.",
+        "explanation_tr": "Al-Anbiya 21:47 und Az-Zalzala 99:7–8 betonen die gerechte Vergeltung der Taten.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-003": {
+      "source": {
+        "question_tr": "Ahiret hesabında kimseye ______ yapılmayacağı Enbiyâ 21:47'de vurgulanır.",
+        "explanation_tr": "Ayet kıyamet günü ilahî adaletin eksiksiz olacağını bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "haksızlık",
+          "iyilik",
+          "hatırlatma",
+          "yardım"
+        ],
+        "correct_answer": "haksızlık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Anbiya 21:47 betont, dass bei der Abrechnung im Jenseits niemandem ______ zugefügt wird.",
+        "explanation_tr": "Der Vers betont die vollständige göttliche Gerechtigkeit am Tag der Auferstehung.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Unrecht",
+          "Gutes",
+          "eine Erinnerung",
+          "Hilfe"
+        ],
+        "correct_answer": "Unrecht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-004": {
+      "source": {
+        "question_tr": "Bir kişi 'Kimse görmezse kötülük hesaba girmez' diyor. Hangi iki kavram bu düşünceyi en iyi düzeltir?",
+        "explanation_tr": "Kehf 18:49 yapılanların kayıtlı oluşunu, Enbiyâ 21:47 ise adaletli hesabı vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Amel kaydı ve ilahî adalet",
+          "Sadece toplumsal itibar",
+          "Yalnız ceza korkusu",
+          "Kıyamet tarihi ve soy bağı"
+        ],
+        "correct_answer": "Amel kaydı ve ilahî adalet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Ein Unrecht zählt nicht, wenn niemand es sieht.“ Welche zwei Begriffe widerlegen das am besten?",
+        "explanation_tr": "Al-Kahf 18:49 erinnert an die Aufzeichnung von Taten und Al-Anbiya 21:47 an die gerechte Abrechnung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Aufzeichnung der Taten und die göttliche Gerechtigkeit",
+          "Nur das gesellschaftliche Ansehen",
+          "Nur die Angst vor Strafe",
+          "Das Datum des Weltendes und die Abstammung"
+        ],
+        "correct_answer": "Die Aufzeichnung der Taten und die göttliche Gerechtigkeit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-005": {
+      "source": {
+        "question_tr": "Bir arkadaşın küçük iyilikleri değersiz görüyor. Ahiret inancından hangi ilke en uygun cevabı verir?",
+        "explanation_tr": "Zilzâl 99:7 küçük iyiliğin de değer taşıdığını bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zerre kadar hayrın bile karşılığının görüleceği",
+          "Yalnız büyük işler önemlidir",
+          "İyilik yalnız tanınmak için yapılır",
+          "Küçük işler hesaba katılmaz"
+        ],
+        "correct_answer": "Zerre kadar hayrın bile karşılığının görüleceği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund hält kleine gute Taten für wertlos. Welcher Grundsatz des Jenseitsglaubens antwortet darauf?",
+        "explanation_tr": "Az-Zalzala 99:7 betont den Wert selbst kleiner guter Taten.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Auch die kleinste gute Tat bleibt nicht ohne Vergeltung",
+          "Nur große Taten zählen",
+          "Gutes wird nur für Anerkennung getan",
+          "Kleine Taten werden nicht berücksichtigt"
+        ],
+        "correct_answer": "Auch die kleinste gute Tat bleibt nicht ohne Vergeltung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-006": {
+      "source": {
+        "question_tr": "Bir özet kartında 'Ahiret inancı: ölümden sonra dünyaya tekrar tekrar dönüş' yazıyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Kur'an dünyaya tekrar dönüşten değil, ölüm sonrası diriliş ve hesap sürecinden söz eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ahiret inancı yeniden diriliş ve hesaba dayanır; Mü'minûn 23:99-100 dünyaya geri dönüşü reddeder",
+          "Ahiret reenkarnasyonla aynıdır",
+          "Kur'an dirilişi reddeder",
+          "Ölüm sonrası hiçbir hayat yoktur"
+        ],
+        "correct_answer": "Ahiret inancı yeniden diriliş ve hesaba dayanır; Mü'minûn 23:99-100 dünyaya geri dönüşü reddeder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Zusammenfassung behauptet: „Jenseitsglaube bedeutet, nach dem Tod wiederholt ins Diesseits zurückzukehren.“ Was stimmt?",
+        "explanation_tr": "Der Koran beschreibt die Auferstehung und Abrechnung nach dem Tod, nicht die wiederholte Rückkehr ins Diesseits.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Der Jenseitsglaube umfasst Auferstehung und Abrechnung; Al-Muminun 23:99–100 weist die Rückkehr ins Diesseits zurück",
+          "Jenseits und Reinkarnation bedeuten dasselbe",
+          "Der Koran lehnt die Auferstehung ab",
+          "Nach dem Tod gibt es kein Leben"
+        ],
+        "correct_answer": "Der Jenseitsglaube umfasst Auferstehung und Abrechnung; Al-Muminun 23:99–100 weist die Rückkehr ins Diesseits zurück",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-007": {
+      "source": {
+        "question_tr": "Ahiret ünitesinde kaynak, bilgi ve sonucu eşleştir.",
+        "explanation_tr": "Bu ayetler ölüm, diriliş ve hesap zincirini farklı yönlerden açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Âl-i İmrân 3:185",
+            "right": "Ölümün kaçınılmazlığı ve kıyamet günündeki karşılık"
+          },
+          {
+            "left": "Hac 22:7",
+            "right": "Kıyametin kesinliği ve yeniden diriliş"
+          },
+          {
+            "left": "Enbiyâ 21:47",
+            "right": "Adaletli hesap"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Quellen zu den Aussagen über das Jenseits zu.",
+        "explanation_tr": "Die Verse beschreiben Tod, Auferstehung und Abrechnung aus verschiedenen Blickwinkeln.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Imran 3:185",
+            "right": "Unvermeidbarkeit des Todes und Vergeltung am Tag der Auferstehung"
+          },
+          {
+            "left": "Al-Hadsch 22:7",
+            "right": "Gewissheit der Stunde und der Auferstehung"
+          },
+          {
+            "left": "Al-Anbiya 21:47",
+            "right": "Gerechte Abrechnung"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-008": {
+      "source": {
+        "question_tr": "Ahiret gününe iman ünitesini dört anahtar kavramla özetle.",
+        "explanation_tr": "Bu dört kavram ahiret öğretisinin temel akışını ve anlamını özetler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Ölüm, yeniden diriliş, hesap ve ilahî adalet.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasse die Einheit zum Glauben an den Jüngsten Tag mit vier Grundbegriffen zusammen.",
+        "explanation_tr": "Diese vier Begriffe fassen die wesentlichen Inhalte der Jenseitslehre zusammen.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Tod, Auferstehung, Abrechnung und göttliche Gerechtigkeit.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-009": {
+      "source": {
+        "question_tr": "Yeniden diriliş itirazına verilen cevabı tamamla: Çürümüş kemikleri onları ilk defa ______ diriltecektir.",
+        "explanation_tr": "Ayet ilk yaratmanın yeniden yaratmaya delil oluşunu vurgular.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "yaratan",
+          "gören",
+          "sayan",
+          "unutmayan"
+        ],
+        "correct_answer": "yaratan",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze die Antwort auf einen Einwand gegen die Auferstehung: Zerfallene Knochen werden von Dem wiederbelebt, der sie zuerst ______ hat.",
+        "explanation_tr": "Der Vers verweist auf die erste Schöpfung als Beleg für die Wiedererschaffung.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "erschaffen",
+          "gesehen",
+          "gezählt",
+          "nicht vergessen"
+        ],
+        "correct_answer": "erschaffen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-010": {
+      "source": {
+        "question_tr": "Cümleyi tamamla: Kim zerre kadar ______ işlerse onun karşılığını görür.",
+        "explanation_tr": "Ayet en küçük kötülüğün dahi karşılıksız kalmayacağını bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "şer",
+          "servet",
+          "yolculuk",
+          "uyku"
+        ],
+        "correct_answer": "şer",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vervollständige den Satz: Wer auch nur eine winzige Menge ______ tut, wird die Vergeltung dafür sehen.",
+        "explanation_tr": "Der Vers betont, dass auch das kleinste Unrecht nicht ohne Vergeltung bleibt.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Böses",
+          "Reichtum",
+          "Reisen",
+          "Schlaf"
+        ],
+        "correct_answer": "Böses",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-011": {
+      "source": {
+        "question_tr": "Ahiret öğretisinin temel akışını sırala.",
+        "explanation_tr": "Bu sıra dünya sorumluluğu ile ahiret hesabı arasındaki bağı özetler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Dünya hayatında insan seçim yapar",
+          "Ölüm gerçekleşir",
+          "Allah yeniden diriltir",
+          "Hesap ve karşılık gerçekleşir"
+        ],
+        "correct_order": [
+          "Dünya hayatında insan seçim yapar",
+          "Ölüm gerçekleşir",
+          "Allah yeniden diriltir",
+          "Hesap ve karşılık gerçekleşir"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne die Grundbegriffe der Jenseitslehre in eine sinnvolle Reihenfolge.",
+        "explanation_tr": "Die Reihenfolge verdeutlicht den Zusammenhang zwischen irdischer Verantwortung und der Abrechnung im Jenseits.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Menschen treffen im Diesseits Entscheidungen",
+          "Der Tod tritt ein",
+          "Allah erweckt die Menschen auf",
+          "Abrechnung und Vergeltung finden statt"
+        ],
+        "correct_order": [
+          "Menschen treffen im Diesseits Entscheidungen",
+          "Der Tod tritt ein",
+          "Allah erweckt die Menschen auf",
+          "Abrechnung und Vergeltung finden statt"
+        ],
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-012": {
+      "source": {
+        "question_tr": "Ahiret ünitesindeki ayet-eşleştirmelerden hangisi yanlıştır?",
+        "explanation_tr": "A'râf 7:187 kıyametin vaktinin bilgisini Allah'a nispet eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mü'minûn 23:99-100 — dünyaya geri dönüş talebinin reddi",
+          "Hac 22:7 — yeniden diriliş",
+          "Enbiyâ 21:47 — ilahî adalet",
+          "A'râf 7:187 — kıyametin kesin tarihini insanların bileceği"
+        ],
+        "correct_answer": "A'râf 7:187 — kıyametin kesin tarihini insanların bileceği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung zwischen Koranvers und Aussage ist falsch?",
+        "explanation_tr": "Al-Araf 7:187 schreibt das Wissen über den Zeitpunkt der Stunde Allah zu.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Al-Muminun 23:99–100 – Die Bitte um Rückkehr ins Diesseits wird abgelehnt",
+          "Al-Hadsch 22:7 – Auferstehung",
+          "Al-Anbiya 21:47 – Göttliche Gerechtigkeit",
+          "Al-Araf 7:187 – Menschen kennen das genaue Datum des Weltendes"
+        ],
+        "correct_answer": "Al-Araf 7:187 – Menschen kennen das genaue Datum des Weltendes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-013": {
+      "source": {
+        "question_tr": "Ahiret inancı sağlıklı biçimde öğrenildiğinde dünya hayatında hangi dengeyi destekler?",
+        "explanation_tr": "Kur'an ahiret hesabını adalet, iyiliğin karşılığı ve insan sorumluluğuyla birlikte anlatır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sorumluluk, adalet ve umutla yaşamayı",
+          "Dünyadan tamamen kopmayı",
+          "Sürekli umutsuzluğu",
+          "Davranışları önemsiz görmeyi"
+        ],
+        "correct_answer": "Sorumluluk, adalet ve umutla yaşamayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was fördert ein ausgewogenes Verständnis des Jenseitsglaubens im irdischen Leben?",
+        "explanation_tr": "Der Koran verbindet die Abrechnung im Jenseits mit Gerechtigkeit, Vergeltung des Guten und menschlicher Verantwortung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Verantwortungsvolles, gerechtes und hoffnungsvolles Leben",
+          "Vollständigen Rückzug aus dem Diesseits",
+          "Ständige Verzweiflung",
+          "Handlungen für unwichtig halten"
+        ],
+        "correct_answer": "Verantwortungsvolles, gerechtes und hoffnungsvolles Leben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S07-014": {
+      "source": {
+        "question_tr": "Ahiret gününe iman ünitesini en iyi özetleyen cümle hangisidir?",
+        "explanation_tr": "Ünite ölüm, yeniden diriliş, hesap, adalet ve sorumluluk bilincini birlikte ele alır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ahiret gününe iman; ölümden sonra dirilişi, adaletli hesabı ve dünya hayatındaki davranışların karşılığını tasdik etmeyi içerir",
+          "Ahiret yalnız kıyamet tarihi tahminidir",
+          "Ahiret yalnız korku üretmek için anlatılır",
+          "Ahiret dünya davranışlarından tamamen bağımsızdır"
+        ],
+        "correct_answer": "Ahiret gününe iman; ölümden sonra dirilişi, adaletli hesabı ve dünya hayatındaki davranışların karşılığını tasdik etmeyi içerir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage fasst den Glauben an den Jüngsten Tag am besten zusammen?",
+        "explanation_tr": "Die Einheit behandelt Tod, Auferstehung, Abrechnung, Gerechtigkeit und Verantwortungsbewusstsein.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nach dem Tod finden Auferstehung, gerechte Abrechnung und Vergeltung der Taten aus dem Diesseits statt",
+          "Im Jenseits geht es nur um die Vorhersage des Weltendes",
+          "Die Jenseitslehre soll ausschließlich Angst erzeugen",
+          "Das Jenseits ist unabhängig von irdischen Handlungen"
+        ],
+        "correct_answer": "Nach dem Tod finden Auferstehung, gerechte Abrechnung und Vergeltung der Taten aus dem Diesseits statt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Jenseitsglaube im Überblick",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

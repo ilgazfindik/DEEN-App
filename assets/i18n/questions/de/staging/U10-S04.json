@@ -1,0 +1,613 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U10",
+  "stage": "U10-S04",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U10-S04-001": {
+      "source": {
+        "question_tr": "Tevekkülün en doğru anlamı hangisidir?",
+        "explanation_tr": "Tevekkül pasiflik değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Gerekli çaba ve tedbirden sonra sonucu Allah'a bırakmak",
+          "Hiçbir şey yapmadan beklemek",
+          "Sebepleri inkâr etmek",
+          "Plan yapmayı yanlış görmek"
+        ],
+        "correct_answer": "Gerekli çaba ve tedbirden sonra sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was bedeutet *Tawakkul*, das Vertrauen auf Allah, am treffendsten?",
+        "explanation_tr": "Das Vertrauen auf Allah ist keine Untätigkeit.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nach angemessener Anstrengung und Vorsorge das Ergebnis Allah überlassen",
+          "Ohne etwas zu tun einfach warten",
+          "Ursachen grundsätzlich leugnen",
+          "Planung für falsch halten"
+        ],
+        "correct_answer": "Nach angemessener Anstrengung und Vorsorge das Ergebnis Allah überlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-002": {
+      "source": {
+        "question_tr": "Tevekkül, gerekli tedbirleri almadan sonucu Allah'tan beklemektir.",
+        "explanation_tr": "Tevekkül sorumluluğu yerine getirip Allah'a güvenmektir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Auf Allah zu vertrauen bedeutet, notwendige Vorsichtsmaßnahmen auszulassen und trotzdem ein gutes Ergebnis zu erwarten.",
+        "explanation_tr": "Auf Allah zu vertrauen heißt, die eigene Verantwortung zu erfüllen und sich auf Ihn zu verlassen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-003": {
+      "source": {
+        "question_tr": "Sağlıklı tevekkülde insan önce elinden gelen ______ gösterir, sonra sonucu Allah'a bırakır.",
+        "explanation_tr": "Çaba tevekkülün karşıtı değildir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "çabayı",
+          "tembelliği",
+          "kaçışı",
+          "mazereti"
+        ],
+        "correct_answer": "çabayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wer auf Allah vertraut, unternimmt zuerst die möglichen ______ und überlässt danach das Ergebnis Allah.",
+        "explanation_tr": "Sich anzustrengen widerspricht dem Gottvertrauen nicht.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Anstrengungen",
+          "Beweise der Faulheit",
+          "Fluchtversuche",
+          "Ausreden"
+        ],
+        "correct_answer": "Anstrengungen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-004": {
+      "source": {
+        "question_tr": "Bir öğrenci sınava hiç çalışmadan 'Allah'a tevekkül ettim' diyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Diyanet çalışmayı bırakmayı tevekkül saymaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Tevekkül çalışmayı terk etmek değil; çalışıp sonucu Allah'a bırakmaktır",
+          "Hiç çalışmamak tevekküldür",
+          "Plan yapmak kadere karşıdır",
+          "Başarısızlıkta hiç sorumluluğu yoktur"
+        ],
+        "correct_answer": "Tevekkül çalışmayı terk etmek değil; çalışıp sonucu Allah'a bırakmaktır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler lernt überhaupt nicht und sagt: „Ich habe auf Allah vertraut.“ Was wäre richtig?",
+        "explanation_tr": "Die Diyanet bezeichnet den Verzicht auf Anstrengung nicht als Gottvertrauen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Gottvertrauen bedeutet, zu lernen und das Ergebnis Allah zu überlassen, statt auf das Lernen zu verzichten",
+          "Überhaupt nicht zu lernen ist Gottvertrauen",
+          "Planung widerspricht der Vorherbestimmung",
+          "Der Schüler trägt keine Verantwortung für ein Scheitern"
+        ],
+        "correct_answer": "Gottvertrauen bedeutet, zu lernen und das Ergebnis Allah zu überlassen, statt auf das Lernen zu verzichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-005": {
+      "source": {
+        "question_tr": "Bir notta 'Tedbir almak Allah'a güvenmemek demektir' yazıyor. Hata nedir?",
+        "explanation_tr": "İnsan sebeplere sarılır, ardından Allah'a güvenir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tedbir ile tevekkül birbirine zıt değildir",
+          "Tedbir her zaman güvensizliktir",
+          "Sebepler anlamsızdır",
+          "Kader planı yasaklar"
+        ],
+        "correct_answer": "Tedbir ile tevekkül birbirine zıt değildir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Notiz behauptet: „Wer Vorsichtsmaßnahmen trifft, vertraut nicht auf Allah.“ Was ist daran falsch?",
+        "explanation_tr": "Menschen nutzen die verfügbaren Mittel und vertrauen anschließend auf Allah.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Vorsicht und Gottvertrauen stehen nicht im Widerspruch",
+          "Vorsicht beweist immer fehlendes Vertrauen",
+          "Ursachen sind bedeutungslos",
+          "Vorherbestimmung verbietet jede Planung"
+        ],
+        "correct_answer": "Vorsicht und Gottvertrauen stehen nicht im Widerspruch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-006": {
+      "source": {
+        "question_tr": "Çaba, tedbir ve tevekkülü doğru açıklamalarla eşleştir.",
+        "explanation_tr": "Bu üç kavram birlikte düşünülmelidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Çaba",
+            "right": "Sorumluluk alanında emek vermek"
+          },
+          {
+            "left": "Tedbir",
+            "right": "Muhtemel zararı azaltacak önlem almak"
+          },
+          {
+            "left": "Tevekkül",
+            "right": "Çaba sonrası sonucu Allah'a bırakmak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Anstrengung, Vorsicht und Gottvertrauen ihren Erklärungen zu.",
+        "explanation_tr": "Diese drei Grundsätze gehören zusammen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Anstrengung",
+            "right": "Im eigenen Verantwortungsbereich tätig werden"
+          },
+          {
+            "left": "Vorsichtsmaßnahmen",
+            "right": "Maßnahmen zur Verringerung möglicher Schäden treffen"
+          },
+          {
+            "left": "Gottvertrauen",
+            "right": "Nach den Bemühungen das Ergebnis Allah überlassen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-007": {
+      "source": {
+        "question_tr": "Ra'd 13:11 hangi yanlış kader anlayışını zayıflatır?",
+        "explanation_tr": "Ayet insanın değişim çabasına dikkat çeker.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Hiçbir değişim için insan çabasına gerek yoktur' düşüncesini",
+          "Allah'ın ilmini",
+          "Tevekkülü",
+          "Dua etmeyi"
+        ],
+        "correct_answer": "'Hiçbir değişim için insan çabasına gerek yoktur' düşüncesini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welchem Missverständnis über die göttliche Vorherbestimmung widerspricht Ar-Rad 13:11?",
+        "explanation_tr": "Der Vers betont das Bemühen der Menschen um Veränderungen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Der Vorstellung, menschliche Anstrengung sei für Veränderungen unnötig",
+          "Allahs Wissen",
+          "Dem Gottvertrauen",
+          "Dem Bittgebet"
+        ],
+        "correct_answer": "Der Vorstellung, menschliche Anstrengung sei für Veränderungen unnötig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-008": {
+      "source": {
+        "question_tr": "Bir kişi sağlık sorununda 'Kaderimde varsa olur' diyerek doktora gitmeyi reddediyor. En dengeli yaklaşım hangisidir?",
+        "explanation_tr": "Sebeplere sarılmak kaderle çelişmez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Uygun tedavi ve tedbir yollarına başvurup sonucu Allah'a bırakmak",
+          "Bütün tedbiri terk etmek",
+          "Hastalığı inkâr etmek",
+          "Tedaviyi kadere karşı çıkmak saymak"
+        ],
+        "correct_answer": "Uygun tedavi ve tedbir yollarına başvurup sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand lehnt bei einem gesundheitlichen Problem ärztliche Hilfe ab und sagt: „Wenn es mein Schicksal ist, wird es geschehen.“ Was ist ausgewogen?",
+        "explanation_tr": "Die verfügbaren Mittel einzusetzen widerspricht der göttlichen Vorherbestimmung nicht.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Angemessene medizinische Behandlung und Vorsorge nutzen und das Ergebnis Allah überlassen",
+          "Jede Vorsorge aufgeben",
+          "Die Krankheit leugnen",
+          "Behandlung als Widerspruch zur Vorherbestimmung betrachten"
+        ],
+        "correct_answer": "Angemessene medizinische Behandlung und Vorsorge nutzen und das Ergebnis Allah überlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-009": {
+      "source": {
+        "question_tr": "Bir girişim başarısız olduğunda kader inancıyla uyumlu tepki hangisidir?",
+        "explanation_tr": "Kader öz değerlendirmeyi engellemez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hata ve eksikleri değerlendirip yeniden çaba göstermek ve sonucu Allah'a bırakmak",
+          "Bütün sorumluluğu kadere yüklemek",
+          "Bir daha hiçbir şey denememek",
+          "Sebepleri incelememek"
+        ],
+        "correct_answer": "Hata ve eksikleri değerlendirip yeniden çaba göstermek ve sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Reaktion auf einen gescheiterten Versuch passt zum Glauben an die Vorherbestimmung?",
+        "explanation_tr": "Die Vorherbestimmung steht der Selbstkritik und dem erneuten Bemühen nicht entgegen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Eigene Fehler prüfen, es erneut versuchen und das Ergebnis Allah überlassen",
+          "Für alle eigenen Fehler die Vorherbestimmung verantwortlich machen",
+          "Nie wieder etwas versuchen",
+          "Die Ursachen nicht untersuchen"
+        ],
+        "correct_answer": "Eigene Fehler prüfen, es erneut versuchen und das Ergebnis Allah überlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-010": {
+      "source": {
+        "question_tr": "Sebeplere sarılmak kadere aykırıdır.",
+        "explanation_tr": "Diyanet gerekli sebeplere sarılmayı insan sorumluluğu içinde görür.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die verfügbaren Mittel einzusetzen widerspricht der göttlichen Vorherbestimmung.",
+        "explanation_tr": "Die Diyanet betrachtet notwendige Mittel als Teil menschlicher Verantwortung.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-011": {
+      "source": {
+        "question_tr": "Tevekkülü tek cümleyle tanımla.",
+        "explanation_tr": "Tevekkül pasif bekleyiş değildir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Gerekli çaba ve tedbirden sonra sonucu Allah'a bırakıp O'na güvenmektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Definiere das Gottvertrauen in einem Satz.",
+        "explanation_tr": "Gottvertrauen bedeutet nicht passives Abwarten.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Gottvertrauen heißt, nach angemessener Anstrengung und Vorsorge das Ergebnis Allah zu überlassen und sich auf Ihn zu verlassen.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-012": {
+      "source": {
+        "question_tr": "Tevekkül, sorumluluğu yerine getirdikten sonra sonucu ______ bırakmaktır.",
+        "explanation_tr": "Tevekkül çaba ile güveni birlikte taşır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Allah'a",
+          "tesadüfe",
+          "insanlara",
+          "şansa"
+        ],
+        "correct_answer": "Allah'a",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Auf Allah zu vertrauen bedeutet, nach Erfüllung der eigenen Pflichten das Ergebnis ______ zu überlassen.",
+        "explanation_tr": "Gottvertrauen verbindet Anstrengung und Vertrauen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Allah",
+          "dem Zufall",
+          "den Menschen",
+          "dem Glück"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-013": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kader varsa plan yapmanın anlamı yok' diyor. En iyi cevap hangisidir?",
+        "explanation_tr": "Diyanet sebeplere sarılmayı gerekli görür.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Plan ve tedbir insanın sorumluluk alanındadır; kader bunları anlamsızlaştırmaz",
+          "Plan yapmak Allah'ın iradesini iptal eder",
+          "Plan yapmak yanlıştır",
+          "Sonuç tamamen insanın kontrolündedir"
+        ],
+        "correct_answer": "Plan ve tedbir insanın sorumluluk alanındadır; kader bunları anlamsızlaştırmaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Wenn es Vorherbestimmung gibt, ist Planen sinnlos.“ Was antwortest du?",
+        "explanation_tr": "Die Diyanet betont den Einsatz der verfügbaren Mittel.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Planung und Vorsorge gehören zur Verantwortung; Vorherbestimmung macht sie nicht bedeutungslos",
+          "Planung hebt Allahs Willen auf",
+          "Planung ist falsch",
+          "Das Ergebnis steht vollständig unter menschlicher Kontrolle"
+        ],
+        "correct_answer": "Planung und Vorsorge gehören zur Verantwortung; Vorherbestimmung macht sie nicht bedeutungslos",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-014": {
+      "source": {
+        "question_tr": "Sağlıklı tevekkül sürecini sırala.",
+        "explanation_tr": "Bu sıra sorumluluk ve güven dengesini korur.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Durumu değerlendir",
+          "Plan ve tedbir al",
+          "Elinden gelen çabayı göster",
+          "Sonucu Allah'a bırak"
+        ],
+        "correct_order": [
+          "Durumu değerlendir",
+          "Plan ve tedbir al",
+          "Elinden gelen çabayı göster",
+          "Sonucu Allah'a bırak"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne die Schritte eines ausgewogenen Gottvertrauens.",
+        "explanation_tr": "Diese Reihenfolge verbindet Verantwortung und Vertrauen.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Die Lage einschätzen",
+          "Planen und Vorsichtsmaßnahmen treffen",
+          "Sich nach Kräften bemühen",
+          "Das Ergebnis Allah überlassen"
+        ],
+        "correct_order": [
+          "Die Lage einschätzen",
+          "Planen und Vorsichtsmaßnahmen treffen",
+          "Sich nach Kräften bemühen",
+          "Das Ergebnis Allah überlassen"
+        ],
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-015": {
+      "source": {
+        "question_tr": "Kader ile tevekkül ilişkisini en iyi anlatan ifade hangisidir?",
+        "explanation_tr": "Sağlıklı kader anlayışı çaba ve güveni birlikte taşır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsan sebeplere sarılır, sonucu Allah'ın takdirine bırakır",
+          "Kader bütün çabayı gereksiz yapar",
+          "Tevekkül yalnız kötü sonuçta kullanılır",
+          "İnsan sonucu kesin kontrol eder"
+        ],
+        "correct_answer": "İnsan sebeplere sarılır, sonucu Allah'ın takdirine bırakır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie hängen Vorherbestimmung und Gottvertrauen zusammen?",
+        "explanation_tr": "Ein ausgewogenes Verständnis der Vorherbestimmung verbindet Bemühung und Vertrauen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Menschen nutzen die verfügbaren Mittel und überlassen das Ergebnis Allahs Bestimmung",
+          "Die Vorherbestimmung macht jede Anstrengung unnötig",
+          "Gottvertrauen gilt nur bei schlechten Ergebnissen",
+          "Menschen können das Ergebnis vollständig bestimmen"
+        ],
+        "correct_answer": "Menschen nutzen die verfügbaren Mittel und überlassen das Ergebnis Allahs Bestimmung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S04-016": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi 'tedbir + tevekkül' dengesine örnektir?",
+        "explanation_tr": "Tedbir insan sorumluluğudur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Emniyet kemerini takıp güvenli araç kullanmak ve sonucu Allah'a bırakmak",
+          "Kemeri kaderi bozuyor diye takmamak",
+          "Kuralları gereksiz görmek",
+          "Kazayı tamamen kendi kontrolünde sanmak"
+        ],
+        "correct_answer": "Emniyet kemerini takıp güvenli araç kullanmak ve sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welches Beispiel zeigt eine gute Verbindung von Vorsicht und Gottvertrauen?",
+        "explanation_tr": "Vorsichtsmaßnahmen zu treffen ist menschliche Verantwortung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sich anschnallen, sicher fahren und das Ergebnis Allah überlassen",
+          "Auf den Sicherheitsgurt verzichten, weil er das Schicksal verändert",
+          "Verkehrsregeln für unnötig halten",
+          "Einen Unfall als vollständig selbst kontrollierbar betrachten"
+        ],
+        "correct_answer": "Sich anschnallen, sicher fahren und das Ergebnis Allah überlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottvertrauen und Vorsorge",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
