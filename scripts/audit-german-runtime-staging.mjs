@@ -70,6 +70,66 @@ for(const file of stageFiles){
   types[s.activity_type]=(types[s.activity_type]||0)+1;
  }
 }
-const report={locale:'de',base_questions_staged:base.size,active_questions:activeBase.length+sourceIds.length,active_base_reuse:activeBase.length,unique_active_u01_questions:sourceIds.length,unique_active_u01_translated_staged:covered.size,unique_active_u01_remaining:sourceIds.length-covered.size,stored_variants:20,stored_variants_overlapping_base_ids:storedVariantOverlap,stored_variants_not_in_base:20-storedVariantOverlap,legacy_renderer_records:100,legacy_overlapping_base_ids:legacyOverlap,stage_packs:stageFiles,activity_types:types,production_ready:false,issue_count:problems.length,issues:problems};
+
+/* Separate-ID variation coverage is necessary: some variants reuse a base ID but
+   change its question type or choice bank. Never select by ID alone. */
+const sourceFields=['question_tr','explanation_tr','activity_type','options_tr','correct_answer','pairs','items','correct_order'];
+const stagedSets=[
+ {label:'stored',filename:'U01.variants.json',original:variants,scope:'stored_runtime_variants_staging',expected:20},
+ {label:'legacy',filename:'U01.legacy-renderer.json',original:legacy,scope:'legacy_u01_presenter_staging',expected:100}
+];
+const stages={stored:0,legacy:0};
+let variantBaseOverlap=0,legacyChangedPrompts=0,legacyChangedOptions=0;
+for(const set of stagedSets){
+ const p=read(folder+set.filename), expectedIds=Object.keys(set.original.translations);
+ for(const [key,value] of Object.entries({
+  schema_version:1,locale:'de',unit:'U01',scope:set.scope,
+  question_count:set.expected,release_ready:false,expert_approved:false,
+  verified_by_religious_expert:false,native_reviewer_approved:false
+ }))assert.equal(p[key],value,set.filename+':'+key);
+ assert.equal(expectedIds.length,set.expected,set.filename+':source_count');
+ assert.deepEqual(Object.keys(p.translations).sort(),expectedIds.sort(),set.filename+':id_set');
+ for(const id of expectedIds){
+  const old=set.original.translations[id],entry=p.translations[id],s=entry?.source,d=entry?.display;
+  const fail=reason=>problems.push(set.label+':'+id+':'+reason);
+  if(!entry||!s||!d){fail('missing_entry');continue}
+  for(const key of sourceFields)if(!eq(s[key],old.source[key]))fail('source_mismatch:'+key);
+  if(d.activity_type!==s.activity_type)fail('activity_type');
+  if(!d.question_tr?.trim()||!d.explanation_tr?.trim()||!d.stage_title?.trim()||!d.topic?.trim())fail('missing_display_text');
+  if(blank(s.question_tr)!==blank(d.question_tr))fail('blank_count');
+  if(entry.expert_approved!==false||entry.native_reviewer_approved!==false)fail('approval_flag');
+  if(s.options_tr){
+   if(!Array.isArray(d.options_tr)||d.options_tr.length!==s.options_tr.length||s.options_tr.indexOf(s.correct_answer)!==d.options_tr.indexOf(d.correct_answer))fail('answer_index');
+   if(new Set(d.options_tr||[]).size!==d.options_tr?.length)fail('duplicate_options');
+  }else if(d.options_tr!==null)fail('unexpected_options');
+  if(s.pairs){
+   if(!Array.isArray(d.pairs)||d.pairs.length!==s.pairs.length)fail('matching_count');
+   else for(const side of ['left','right'])if(new Set(d.pairs.map(x=>x[side])).size!==new Set(s.pairs.map(x=>x[side])).size)fail('matching_identity_'+side);
+  }else if(d.pairs!==null)fail('unexpected_pairs');
+  for(const v of [d.question_tr,d.explanation_tr,...(d.options_tr||[]),d.correct_answer,...(d.pairs||[]).flatMap(z=>[z.left,z.right]),d.stage_title,d.topic].filter(x=>x!=null)){
+   if(typeof v!=='string'||!v.trim())fail('empty_display_value');
+   else if(/[ÇĞİŞçğıış]/.test(v)||/\b(?:sadece|doğru|yanlış|müslüman|peygamber|kulluk|ibadet)\b/i.test(v))fail('Turkish_residue');
+  }
+  if(set.label==='stored'&&base.has(id))variantBaseOverlap++;
+  if(set.label==='legacy'){
+   if(!base.has(id))fail('legacy_id_not_in_base');
+   if(!eq(s.question_tr,old.source.question_tr))fail('legacy_question_source');
+   if(!eq(s.question_tr,read('assets/i18n/questions/de/staging/'+id.slice(5,12)+'.json')?.translations?.[id]?.source?.question_tr))legacyChangedPrompts++;
+   // Options may differ from the canonical bank; a separate localized choice bank
+   // must then exist and retain the correct answer index.
+   const st=id.match(/DEEN-(U\d\d-S\d\d)-/)[1],canonical=read('assets/i18n/questions/de/staging/'+st+'.json').translations[id];
+   if(!eq(s.options_tr,canonical.source.options_tr))legacyChangedOptions++;
+   for(const key of ['explanation_tr','activity_type','correct_answer','pairs','items','correct_order'])if(!eq(s[key],canonical.source[key]))fail('legacy_unexpected_source_difference:'+key);
+  }
+  stages[set.label]++;
+ }
+}
+assert.equal(stages.stored,20);
+assert.equal(variantBaseOverlap,8);
+assert.equal(stages.legacy,100);
+assert.equal(legacyChangedPrompts,100);
+assert.equal(legacyChangedOptions,7);
+
+const report={locale:'de',base_questions_staged:base.size,active_questions:activeBase.length+sourceIds.length,active_base_reuse:activeBase.length,unique_active_u01_questions:sourceIds.length,unique_active_u01_translated_staged:covered.size,unique_active_u01_remaining:sourceIds.length-covered.size,stored_variants:20,stored_variants_overlapping_base_ids:storedVariantOverlap,stored_variants_not_in_base:20-storedVariantOverlap,legacy_renderer_records:100,legacy_overlapping_base_ids:legacyOverlap,stage_packs:stageFiles,activity_types:types,stored_variants_translated_staged:stages.stored,stored_variant_base_id_overlap:variantBaseOverlap,legacy_renderer_translated_staged:stages.legacy,legacy_changed_prompts:legacyChangedPrompts,legacy_changed_options:legacyChangedOptions,production_ready:false,issue_count:problems.length,issues:problems};
 console.log(JSON.stringify(report,null,2));
 assert.equal(problems.length,0,problems.join('\n'));
