@@ -47,7 +47,7 @@ for(const source of fixtures){
   {...source,text:source.text+'۞'},
   {...source,audio:source.audio+'.incorrect'},
   {...source,ayah:source.ayah+1},
-  {...source,key:'fatiha:7'},
+  {...source,key:'fatiha:'+(source.ayah===7?1:7)},
   {...source,surahId:'ikhlas'}
  ])assert.equal(resolveGermanAyahMeaning(mutation,stage,{preview:true}),null,'Wrong Arabic source/audio/index accepted '+key);
 }
