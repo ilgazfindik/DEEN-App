@@ -62,6 +62,12 @@ async function auditNavTabs(){
   // disposable QA page to exercise the already assembled application's nav.
   // This deliberately does not test production onboarding completion.
   await page.evaluate(()=>{
+   // This is a disposable QA profile, not a production learner's saved state.
+   if(typeof state!=='undefined'&&state?.settings){
+    state.settings.onboardingLanguageConfirmed=true;
+    state.onboarded=true;
+   }
+   for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
    for(const id of ['v998Onboarding','deenPreparation','deenLanguageGate'])
     document.getElementById(id)?.remove();
    const phone=document.querySelector('.phone');phone.inert=false;
@@ -90,7 +96,8 @@ async function auditNavTabs(){
   assert.deepEqual(init.navs.slice(0,4),['learnScreen','reviewScreen','leagueScreen','profileScreen']);
   for(const id of init.navs.slice(0,4)){
    const button=page.locator('.bottomnav [data-screen="'+id+'"]').first();
-   await button.click({timeout:20000,force:true});
+   await button.click({timeout:20000});
+   await page.waitForFunction(target=>document.querySelector('.screen.active')?.id===target,null,{timeout:2500}).catch(()=>{});
    await page.waitForTimeout(500);
    const state=await page.evaluate(target=>{
     const root=document.querySelector('.phone');
@@ -121,6 +128,8 @@ async function auditNavTabs(){
    },id);
    report.tabs.push(state);
    assert(state.screen_exists,'Target screen is missing: '+id);
+   assert(state.screen_active,'Navigation did not activate target screen: '+id);
+   assert.equal(state.selected_button,id,'Navigation did not select target tab: '+id);
    assert.equal(state.language,'tr','QA navigation must not activate German runtime');
    assert.equal(state.german_available,false);
    assert.equal(state.graded_content_unchanged,true);
