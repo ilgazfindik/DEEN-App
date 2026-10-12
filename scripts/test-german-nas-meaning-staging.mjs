@@ -15,8 +15,8 @@ assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(pack.locale,'de');
 assert.equal(pack.scope,'quran_ayah_meanings_staging');
-assert.equal(pack.ayah_count,42);
-assert.equal(Object.keys(pack.translations).length,42);
+assert.equal(pack.ayah_count,47);
+assert.equal(Object.keys(pack.translations).length,47);
 for(const key of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[key],false,'Whole-pack approval may not be assumed');
 const nas=original.entries.filter(e=>e.surahId==='nas').sort((a,b)=>a.ayah-b.ayah);
 assert.equal(nas.length,6);
@@ -56,19 +56,19 @@ for(const src of nas){
  tamperingRejected++;
 }
 assert.equal(resolveGermanAyahMeaning(nas[0],{...pack,locale:'tr'},{preview:true}),null);tamperingRejected++;
-assert.equal(resolveGermanAyahMeaning(original.entries.find(x=>x.surahId==='fil'),pack,{preview:true}),null);tamperingRejected++;
+assert.equal(resolveGermanAyahMeaning(original.entries.find(x=>x.surahId==='quraysh'),pack,{preview:true}),null);tamperingRejected++;
 let qa=0,publicCount=0;
 for(const src of original.entries){
  if(resolveGermanAyahMeaning(src,pack,{preview:true})!==null)qa++;
  if(resolveGermanAyahMeaning(src,pack)!==null)publicCount++;
 }
-assert.equal(qa,42);
+assert.equal(qa,47);
 assert.equal(publicCount,0);
 const refs=pack.sources.comparative_only.filter(s=>s.comparison_scope==='Surah 114 An-Nas');
 assert.equal(refs.length,2);
 assert(refs.every(r=>r.text_copied_verbatim===false&&/^https:\/\//.test(r.url)));
 console.log(JSON.stringify({
- locale:'de',status:'passed',surah:'An-Nas',nas_drafts:6,total_quran_meaning_drafts:42,remaining_without_draft:48,
+ locale:'de',status:'passed',surah:'An-Nas',nas_drafts:6,total_quran_meaning_drafts:47,remaining_without_draft:43,
  correctly_matched_qa_previews:6,production_meanings_exposed:0,tamper_guard_negative_checks:tamperingRejected,
  arabic_quran_modified:false,original_audio_modified:false,native_religious_rights_approved:false,
  release_gate:'blocked'
