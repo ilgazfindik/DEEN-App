@@ -147,6 +147,7 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   "Hatırla: Yönel · Güven · Yaşa":"Merke: Hinwenden · Vertrauen · Leben",
   "İslam, Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.":"Der Islam lehrt, Allah zu vertrauen, seine Rechtleitung anzunehmen und sie im Alltag umzusetzen.",
   "İslam, Allah'a yönelmektir.":"Islam bedeutet, sich Allah zuzuwenden.",
+  "Evet, doğru!":"Ja, richtig!",
   'Enerji azaldı':'Energie aufgebraucht',
   'Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.':
    'Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.',
