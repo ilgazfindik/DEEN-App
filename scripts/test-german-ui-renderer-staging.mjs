@@ -13,6 +13,15 @@ const packPaths=[
  ...Array.from({length:8},(_,i)=>'assets/i18n/german-ui.reference-batch-'+String(i+1).padStart(2,'0')+'.staging.json')
 ];
 const packs=packPaths.map(read);
+const application=readFileSync(root+'index.html','utf8');
+const boot=readFileSync(root+'assets/i18n/boot.js','utf8');
+const preview=readFileSync(root+'qa/german-ui-staging-preview.html','utf8');
+assert(!application.includes('german-ui.renderer.staging.mjs'),'Staging renderer must not load in the production app');
+assert(!boot.includes('german-ui.renderer.staging.mjs'),'Production startup must not invoke staging preview');
+assert(preview.includes("import {createGermanUIStagingRenderer}"),'QA preview must import the tested adapter');
+assert(preview.includes("qaMode:true"),'QA preview must explicitly opt in');
+assert(preview.includes('lang="ar" dir="rtl"'),'Quran Arabic fixture missing');
+assert(preview.includes('Bilinmeyen aşama metni'),'Unknown-label visibility check missing');
 const manifest=read('assets/i18n/content-support.json').languages.de;
 assert.equal(manifest.question_data,'missing');
 assert.equal(manifest.global_qa,'blocked');
