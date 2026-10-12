@@ -34,7 +34,8 @@ assert.equal(Object.keys(variants.translations).length,manifest.required_runtime
 assert.equal(Object.keys(legacy.translations).length,100);
 const storedVariantOverlap=Object.keys(variants.translations).filter(id=>base.has(id)).length;
 const legacyOverlap=Object.keys(legacy.translations).filter(id=>base.has(id)).length;
-assert.equal(storedVariantOverlap,20);
+assert.equal(storedVariantOverlap,8);
+assert.equal(Object.keys(variants.translations).length-storedVariantOverlap,12);
 assert.equal(legacyOverlap,100);
 const folder='assets/i18n/questions/de/runtime/staging/';
 const stageFiles=readdirSync(root+folder).filter(name=>/^U01-S\d\d\.live\.json$/.test(name)).sort();
@@ -69,6 +70,6 @@ for(const file of stageFiles){
   types[s.activity_type]=(types[s.activity_type]||0)+1;
  }
 }
-const report={locale:'de',base_questions_staged:base.size,active_questions:activeBase.length+sourceIds.length,active_base_reuse:activeBase.length,unique_active_u01_questions:sourceIds.length,unique_active_u01_translated_staged:covered.size,unique_active_u01_remaining:sourceIds.length-covered.size,stored_variants:20,stored_variants_overlapping_base_ids:storedVariantOverlap,legacy_renderer_records:100,legacy_overlapping_base_ids:legacyOverlap,stage_packs:stageFiles,activity_types:types,production_ready:false,issue_count:problems.length,issues:problems};
+const report={locale:'de',base_questions_staged:base.size,active_questions:activeBase.length+sourceIds.length,active_base_reuse:activeBase.length,unique_active_u01_questions:sourceIds.length,unique_active_u01_translated_staged:covered.size,unique_active_u01_remaining:sourceIds.length-covered.size,stored_variants:20,stored_variants_overlapping_base_ids:storedVariantOverlap,stored_variants_not_in_base:20-storedVariantOverlap,legacy_renderer_records:100,legacy_overlapping_base_ids:legacyOverlap,stage_packs:stageFiles,activity_types:types,production_ready:false,issue_count:problems.length,issues:problems};
 console.log(JSON.stringify(report,null,2));
 assert.equal(problems.length,0,problems.join('\n'));
