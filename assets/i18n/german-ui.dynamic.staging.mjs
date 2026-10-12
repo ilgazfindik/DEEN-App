@@ -14,6 +14,8 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  };
  let m;
  if((m=n.match(/^Ünite\s+(\d+)\s*·\s*Aşama\s+(\d+)$/)))return emit('Einheit '+m[1]+' · Etappe '+m[2]);
+ // Source-observed companion chrome; retain proper name and translate only the UI role.
+ if(n==='Meryem · MİNİ GÖREV')return emit('Meryem · MINI-AUFGABE');
 
  // Patterns observed in the real assembled learning-path and review DOM (Chromium 38291180334).
  // Title-bearing patterns must resolve the COMPLETE Turkish source title: never substitute substrings.
