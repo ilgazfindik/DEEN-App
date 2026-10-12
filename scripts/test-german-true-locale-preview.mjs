@@ -331,12 +331,32 @@ try{
 
  // True German interactive MATCHING: actual opposing card taps, no direct
  // completeQuestion calls and no JS mutations of source answer pairs.
- const matching=await page.evaluate(()=>{
+ // Reach the matching question as an actual player: answer P01, then
+ // continue normally. Never assign session.index or call renderQuestion here.
+ const entered=await page.evaluate(()=>{
   document.getElementById('energyModal')?.classList.remove('show');
   if(typeof state!=='undefined')state.energy=30;
   startStage('U01-S01');
-  session.index=1;
-  renderQuestion();
+  return {index:session?.index,first:session?.questions?.[0]?.id,
+   answer:session?.questions?.[0]?.correct_answer};
+ });
+ assert.equal(entered.index,0);
+ const firstTeaching=page.locator('#lesson .v910-card-button:visible');
+ if(await firstTeaching.count())await firstTeaching.first().click({timeout:15000});
+ const firstCard=page.locator('#answerArea .option')
+  .filter({has:page.locator('.option-label',{hasText:entered.answer})});
+ assert.equal(await firstCard.count(),1,'Cannot choose first German card in natural lesson');
+ await firstCard.click({timeout:15000});
+ if(!(await page.locator('#feedback').evaluate(el=>el.classList.contains('show')))){
+  const firstConfirm=page.locator('#answerArea .template-action:visible:not([disabled])');
+  if(await firstConfirm.count())await firstConfirm.first().click({timeout:15000});
+ }
+ await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
+  null,{timeout:15000});
+ await page.locator('#continueBtn:visible').click({timeout:15000});
+ await page.waitForFunction(()=>session?.index===1&&
+    session.questions[1]?.activity_type==='matching',null,{timeout:15000});
+ const matching=await page.evaluate(()=>{
   const q=session.questions[1];
   return {id:q.id,locale:window.DEEN_APP_LOCALE.get(),type:q.activity_type,
    translated:q.__deenContentLocale==='de',
