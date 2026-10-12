@@ -1,0 +1,459 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U08",
+  "stage": "U08-S06",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U08-S06-001": {
+      "source": {
+        "question_tr": "Bir içerikte 'Peygamberler insan değil melektir' deniyor. Kur'an'a göre temel hata nedir?",
+        "explanation_tr": "Kur'an peygamberlerin beşerî özelliklere sahip insanlardan seçildiğini öğretir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Enbiyâ 21:7-8 ve Kehf 18:110 peygamberlerin insan oluşunu açıkça bildirir",
+          "Kur'an peygamberleri melek sayar",
+          "Peygamberler yalnız ruhtur",
+          "Vahiy insanlara gelmez"
+        ],
+        "correct_answer": "Enbiyâ 21:7-8 ve Kehf 18:110 peygamberlerin insan oluşunu açıkça bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Text behauptet: „Propheten sind Engel, keine Menschen.“ Was ist daran laut Koran falsch?",
+        "explanation_tr": "Der Koran beschreibt Propheten als erwählte Menschen mit menschlichen Eigenschaften.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Anbiya 21:7–8 und Al-Kahf 18:110 erklären ausdrücklich, dass Propheten Menschen sind",
+          "Der Koran bezeichnet Propheten als Engel",
+          "Propheten sind ausschließlich Geistwesen",
+          "Menschen können keine Offenbarung empfangen"
+        ],
+        "correct_answer": "Al-Anbiya 21:7–8 und Al-Kahf 18:110 erklären ausdrücklich, dass Propheten Menschen sind",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-002": {
+      "source": {
+        "question_tr": "Kur'an'da adı geçmeyen hiçbir peygamber gönderilmemiştir.",
+        "explanation_tr": "Nisâ 4:164 bazı peygamberlerin anlatıldığını, bazılarının ise anlatılmadığını bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Es wurden niemals Propheten gesandt, deren Namen nicht im Koran stehen.",
+        "explanation_tr": "An-Nisa 4:164 besagt, dass manche Propheten beschrieben werden und andere nicht.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-003": {
+      "source": {
+        "question_tr": "Peygamberler kendi adlarına değil, Allah'tan gelen ______ insanlara ulaştırırlar.",
+        "explanation_tr": "Peygamberlik görevinin merkezinde Allah'tan gelen mesajı tebliğ etmek bulunur.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vahyi",
+          "serveti",
+          "saltanatı",
+          "soy üstünlüğünü"
+        ],
+        "correct_answer": "vahyi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Propheten übermitteln den Menschen ______ von Allah und sprechen dabei nicht aus eigener göttlicher Vollmacht.",
+        "explanation_tr": "Die Übermittlung von Allahs Botschaft steht im Mittelpunkt des Prophetentums.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Offenbarung",
+          "Reichtum",
+          "Königsherrschaft",
+          "Vorrang ihrer Abstammung"
+        ],
+        "correct_answer": "Offenbarung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-004": {
+      "source": {
+        "question_tr": "Bir sınav sorusu 'Peygamberler arasında ayrım yapmayız demek, hepsinin bütün özellik ve derecelerinin tamamen aynı olmasıdır' diyor. En doğru değerlendirme hangisidir?",
+        "explanation_tr": "Bakara 2:285 iman bütünlüğünü, Bakara 2:253 ise bazı peygamberlere farklı dereceler verildiğini bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Yanlıştır; iman bakımından ayrım yapmamak, derece ve özel lütuf farklarını inkâr etmek değildir",
+          "Doğrudur; hiçbir fark olamaz",
+          "Yalnız bir peygamber vardır",
+          "Derece farkı diğerlerini inkâr etmeyi gerektirir"
+        ],
+        "correct_answer": "Yanlıştır; iman bakımından ayrım yapmamak, derece ve özel lütuf farklarını inkâr etmek değildir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Prüfung steht: „Zwischen Propheten keinen Unterschied zu machen bedeutet, dass alle denselben Rang und dieselben Eigenschaften haben.“ Was stimmt?",
+        "explanation_tr": "Al-Baqara 2:285 betrifft die Anerkennung aller Gesandten, während Al-Baqara 2:253 unterschiedliche Ränge erwähnt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Falsch: Die Anerkennung aller Propheten im Glauben schließt Rangunterschiede und besondere Gaben nicht aus",
+          "Richtig: Unterschiede sind ausgeschlossen",
+          "Es gibt nur einen Propheten",
+          "Rangunterschiede erfordern, andere Propheten abzulehnen"
+        ],
+        "correct_answer": "Falsch: Die Anerkennung aller Propheten im Glauben schließt Rangunterschiede und besondere Gaben nicht aus",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-005": {
+      "source": {
+        "question_tr": "Bir kişi 'Hz. Muhammed peygamber olduğu için ölümsüzdür' diyor. Hangi ayet bu iddiayı doğrudan düzeltir?",
+        "explanation_tr": "Ayette Hz. Muhammed'in bir elçi olduğu ve önceki elçiler gibi fâni olduğu hatırlatılır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Âl-i İmrân 3:144",
+          "Ahzâb 33:40",
+          "Sebe 34:28",
+          "Bakara 2:285"
+        ],
+        "correct_answer": "Âl-i İmrân 3:144",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Muhammad ist unsterblich, weil er Prophet ist.“ Welcher Vers korrigiert das?",
+        "explanation_tr": "Der Vers erinnert daran, dass Muhammad wie frühere Gesandte sterblich ist.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Imran 3:144",
+          "Al-Ahzab 33:40",
+          "Saba 34:28",
+          "Al-Baqara 2:285"
+        ],
+        "correct_answer": "Al-Imran 3:144",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-006": {
+      "source": {
+        "question_tr": "Bir sosyal medya paylaşımı 'Peygamberler vahyin kaynağıdır; mesajı kendileri oluşturur' diyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Nisâ 4:163 ve Mâide 5:67 vahyin Allah'tan gelişi ile tebliğ görevini birbirinden ayırır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Vahyin kaynağı Allah'tır; peygamberler vahyi alıp tebliğ eder",
+          "Vahyin kaynağı toplumdur",
+          "Peygamberler mesajı rastgele üretir",
+          "Vahiy diye bir şey yoktur"
+        ],
+        "correct_answer": "Vahyin kaynağı Allah'tır; peygamberler vahyi alıp tebliğ eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Beitrag behauptet: „Die Propheten erschaffen selbst die Offenbarung.“ Welche Korrektur stimmt?",
+        "explanation_tr": "An-Nisa 4:163 und Al-Maida 5:67 unterscheiden den göttlichen Ursprung und die Aufgabe der Übermittlung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah ist die Quelle der Offenbarung; Propheten empfangen und übermitteln sie",
+          "Die Gesellschaft ist die Quelle der Offenbarung",
+          "Propheten erzeugen Botschaften zufällig",
+          "Offenbarung gibt es nicht"
+        ],
+        "correct_answer": "Allah ist die Quelle der Offenbarung; Propheten empfangen und übermitteln sie",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-007": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Her peygamber farklı bir ilaha kulluğu öğretmiştir' diyor. En açık düzeltme hangisidir?",
+        "explanation_tr": "Ayet bütün peygamberlerin ortak tevhid çağrısını açıkça ortaya koyar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Enbiyâ 21:25 bütün peygamberlerin tek Allah'a kulluk çağrısını bildirir",
+          "Kur'an çok ilahlılığı öğretir",
+          "Peygamberler kendilerine ibadet ister",
+          "Vahyin ortak mesajı yoktur"
+        ],
+        "correct_answer": "Enbiyâ 21:25 bütün peygamberlerin tek Allah'a kulluk çağrısını bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender behauptet: „Jeder Prophet rief zur Verehrung einer anderen Gottheit auf.“ Wie antwortest du?",
+        "explanation_tr": "Der Vers betont ausdrücklich den gemeinsamen Aufruf zum Tauhid.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Anbiya 21:25 beschreibt den gemeinsamen Aufruf aller Propheten zur Verehrung des einen Allah",
+          "Der Koran lehrt mehrere Gottheiten",
+          "Propheten verlangen ihre eigene Anbetung",
+          "Offenbarung hat keine gemeinsame Botschaft"
+        ],
+        "correct_answer": "Al-Anbiya 21:25 beschreibt den gemeinsamen Aufruf aller Propheten zur Verehrung des einen Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-008": {
+      "source": {
+        "question_tr": "Bir notta 'Hz. Muhammed yalnız Araplara gönderilmiştir' yazıyor. Düzeltme hangisidir?",
+        "explanation_tr": "Ayet Hz. Muhammed'in peygamberliğinin evrenselliğini açıkça vurgular.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sebe 34:28 onun bütün insanlara gönderildiğini bildirir",
+          "Kur'an onun yalnız ailesine gönderildiğini söyler",
+          "Risalet Mekke ile sınırlıdır",
+          "Hz. Muhammed peygamber değildir"
+        ],
+        "correct_answer": "Sebe 34:28 onun bütün insanlara gönderildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Muhammad wurde nur zu Arabern gesandt.“ Welche Korrektur ist richtig?",
+        "explanation_tr": "Der Vers hebt den universellen Umfang von Muhammads Sendung hervor.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Saba 34:28 beschreibt seine Sendung an die gesamte Menschheit",
+          "Der Koran begrenzt seine Sendung auf die Familie",
+          "Seine Sendung gilt nur für Mekka",
+          "Muhammad ist kein Prophet"
+        ],
+        "correct_answer": "Saba 34:28 beschreibt seine Sendung an die gesamte Menschheit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-009": {
+      "source": {
+        "question_tr": "Bir uygulama 'Hz. Muhammed'den sonra yeni peygamberler gelmeye devam eder' diye öğretiyor. Hangi düzeltme gerekir?",
+        "explanation_tr": "Ayet Hz. Muhammed'in Allah'ın elçisi ve peygamberlerin sonuncusu olduğunu açıkça bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ahzâb 33:40 Hz. Muhammed'i peygamberlerin sonuncusu olarak tanımlar",
+          "Kur'an son peygamber hakkında bilgi vermez",
+          "Ahzâb 33:40 yalnız soy bağı anlatır, elçilikten söz etmez",
+          "Hz. Muhammed sonuncu değil ilk peygamberdir"
+        ],
+        "correct_answer": "Ahzâb 33:40 Hz. Muhammed'i peygamberlerin sonuncusu olarak tanımlar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine App lehrt: „Auch nach Muhammad erscheinen weiterhin neue Propheten.“ Was muss korrigiert werden?",
+        "explanation_tr": "Der Vers bezeichnet Muhammad als Allahs Gesandten und letzten Propheten.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Ahzab 33:40 bezeichnet Muhammad als letzten der Propheten",
+          "Der Koran enthält darüber keine Angabe",
+          "Al-Ahzab 33:40 behandelt nur Abstammung, nicht Gesandtentum",
+          "Muhammad war der erste und nicht der letzte Prophet"
+        ],
+        "correct_answer": "Al-Ahzab 33:40 bezeichnet Muhammad als letzten der Propheten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-010": {
+      "source": {
+        "question_tr": "Peygamberlerle ilgili yanlış iddiaları doğru düzeltmeleriyle eşleştir.",
+        "explanation_tr": "Bu üç yanlış, insan oluş, kaynak sınırı ve tevhid çağrısı konularının birbirinden ayrılmasıyla düzeltilir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Peygamberler melektir",
+            "right": "Kur'an peygamberlerin insan oluşunu bildirir"
+          },
+          {
+            "left": "Bütün peygamberler Kur'an'da isim isim sayılır",
+            "right": "Nisâ 4:164 bazılarını anlatmadığını bildirir"
+          },
+          {
+            "left": "Her peygamber farklı ilaha çağırır",
+            "right": "Enbiyâ 21:25 ortak tevhid çağrısını bildirir"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die falschen Aussagen über Propheten ihren Korrekturen zu.",
+        "explanation_tr": "Diese drei Irrtümer betreffen das Menschsein der Propheten, die Grenzen unseres Wissens und den Tauhid.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Propheten sind Engel",
+            "right": "Der Koran beschreibt Propheten als Menschen"
+          },
+          {
+            "left": "Der Koran nennt alle Propheten einzeln",
+            "right": "An-Nisa 4:164: Einige werden nicht beschrieben"
+          },
+          {
+            "left": "Jeder Prophet ruft zu einer anderen Gottheit auf",
+            "right": "Al-Anbiya 21:25: Gemeinsamer Aufruf zum Tauhid"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-011": {
+      "source": {
+        "question_tr": "Peygamberlerle ilgili kaynaksız bir iddiayı değerlendirirken hangi iki ilkeyi korumalısın?",
+        "explanation_tr": "Peygamberlik alanında kaynak seviyesini ayırmak, iman bilgisini efsane ve varsayımdan korur.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kur'an ve güvenilir kaynaklara dönmek; açık vahiy bilgisi ile yorum veya söylentiyi birbirine karıştırmamak.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche zwei Grundsätze helfen dir, unbelegte Behauptungen über Propheten zu prüfen?",
+        "explanation_tr": "Wer Offenbarung und menschliche Deutung unterscheidet, schützt die Glaubenslehre vor Gerüchten und Legenden.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Den Koran und verlässliche Quellen prüfen; ausdrückliche Offenbarung nicht mit Deutungen oder Gerüchten verwechseln.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S06-012": {
+      "source": {
+        "question_tr": "Peygamberlere iman konusunda en sorunlu ifade hangisidir?",
+        "explanation_tr": "Bakara 2:285 Allah'ın elçileri arasında iman bakımından ayrım yapmamayı öğretir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Bir peygamberi kabul edip Allah'ın diğer elçilerini inkâr edebilirim'",
+          "'Peygamberler vahiy alan insanlardır'",
+          "'Ortak çağrının özü tevhiddir'",
+          "'Hz. Muhammed Allah'ın elçisidir'"
+        ],
+        "correct_answer": "'Bir peygamberi kabul edip Allah'ın diğer elçilerini inkâr edebilirim'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über den Glauben an die Propheten ist besonders problematisch?",
+        "explanation_tr": "Al-Baqara 2:285 betont, dass die Gesandten beim Glauben nicht selektiv angenommen werden.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "„Ich kann einen Propheten anerkennen und andere Gesandte Allahs ablehnen“",
+          "„Propheten sind Menschen, die Offenbarung empfangen“",
+          "„Ihr gemeinsamer Aufruf beruht auf Tauhid“",
+          "„Muhammad ist Allahs Gesandter“"
+        ],
+        "correct_answer": "„Ich kann einen Propheten anerkennen und andere Gesandte Allahs ablehnen“",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U09",
+  "stage": "U09-S02",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U09-S02-001": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:185'in ölüm hakkında verdiği temel mesaj nedir?",
+        "explanation_tr": "Ayet ölümün bütün insanlar için kaçınılmaz olduğunu bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Herkes ölümü tadacaktır",
+          "Yalnız yaşlılar ölür",
+          "İman edenler hiç ölmez",
+          "Ölüm sadece semboldür"
+        ],
+        "correct_answer": "Herkes ölümü tadacaktır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche zentrale Botschaft über den Tod enthält Al-Imran 3:185?",
+        "explanation_tr": "Der Vers stellt die Unvermeidbarkeit des Todes für jeden Menschen fest.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Jeder Mensch wird den Tod erfahren",
+          "Nur alte Menschen sterben",
+          "Gläubige sterben niemals",
+          "Der Tod ist nur ein Symbol"
+        ],
+        "correct_answer": "Jeder Mensch wird den Tod erfahren",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-002": {
+      "source": {
+        "question_tr": "Kur'an'a göre ölüm, yalnız bazı insanlara özgü bir olaydır.",
+        "explanation_tr": "Âl-i İmrân 3:185 herkesin ölümü tadacağını açıkça bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach dem Koran betrifft der Tod nur einen Teil der Menschen.",
+        "explanation_tr": "Al-Imran 3:185 erklärt ausdrücklich, dass jeder Mensch den Tod erfahren wird.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-003": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:185'e göre herkes ______ tadacaktır.",
+        "explanation_tr": "Ayet ölümün evrenselliğini açıkça ifade eder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "ölümü",
+          "sonsuz dünyayı",
+          "ölümsüzlüğü",
+          "yalnız mutluluğu"
+        ],
+        "correct_answer": "ölümü",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Imran 3:185 wird jeder den ______ erfahren.",
+        "explanation_tr": "Der Vers betont die Allgemeingültigkeit des Todes.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Tod",
+          "ewige Weltlichkeit",
+          "Unsterblichkeit",
+          "nur Freude"
+        ],
+        "correct_answer": "Tod",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-004": {
+      "source": {
+        "question_tr": "Bir kişi 'Genç olduğum için ölüm ve sorumluluk bilincini düşünmeme gerek yok' diyor. En dengeli hatırlatma hangisidir?",
+        "explanation_tr": "Âl-i İmrân 3:185 ölümün herkes için geçerli olduğunu, Mü'minûn 23:99-100 ise ölüm geldiğinde geri dönüp düzeltme isteğinin kabul edilmeyeceğini hatırlatır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ölüm herkes için kaçınılmazdır ve iyi davranışın değeri ertelenmemelidir",
+          "Yalnız yaşlılar sorumludur",
+          "Gençlerin davranışları hesaba katılmaz",
+          "Ölüm yalnız tahmin konusudur"
+        ],
+        "correct_answer": "Ölüm herkes için kaçınılmazdır ve iyi davranışın değeri ertelenmemelidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand meint: „Weil ich jung bin, muss ich über Tod und Verantwortung nicht nachdenken.“ Welche Erinnerung passt?",
+        "explanation_tr": "Al-Imran 3:185 erinnert an den Tod für jeden Menschen. Al-Muminun 23:99–100 betont, dass nach dem Tod die Bitte um Rückkehr nicht angenommen wird.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Tod betrifft alle Menschen; gute Taten sollte man nicht aufschieben",
+          "Nur ältere Menschen sind verantwortlich",
+          "Die Handlungen junger Menschen zählen nicht",
+          "Der Tod ist nur eine Frage der Vorhersage"
+        ],
+        "correct_answer": "Der Tod betrifft alle Menschen; gute Taten sollte man nicht aufschieben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-005": {
+      "source": {
+        "question_tr": "Bir notta 'İnsan ölünce istediği zaman dünyaya geri dönüp eksiklerini tamamlayabilir' yazıyor. Hata nedir?",
+        "explanation_tr": "Ayetler ölümden sonra dünyaya geri dönüp salih amel yapma talebinin reddedildiğini açıkça ifade eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Mü'minûn 23:99-100 ölümden sonra dünyaya geri dönüş isteğinin kabul edilmeyeceğini bildirir",
+          "Kur'an sınırsız geri dönüş öğretir",
+          "Ölüm geçici uyku oyunudur",
+          "Her insan defalarca dünyaya döner"
+        ],
+        "correct_answer": "Mü'minûn 23:99-100 ölümden sonra dünyaya geri dönüş isteğinin kabul edilmeyeceğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Notiz behauptet: „Nach dem Tod kann jeder beliebig ins Diesseits zurückkehren und Versäumtes nachholen.“ Was ist falsch?",
+        "explanation_tr": "Die Verse beschreiben die abgelehnte Bitte, noch einmal zurückzukehren und gute Taten zu verrichten.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Muminun 23:99–100 besagt, dass die Bitte um Rückkehr nicht angenommen wird",
+          "Der Koran lehrt unbegrenzte Rückkehr",
+          "Der Tod ist nur ein vorübergehendes Schlafspiel",
+          "Alle kehren immer wieder ins Diesseits zurück"
+        ],
+        "correct_answer": "Al-Muminun 23:99–100 besagt, dass die Bitte um Rückkehr nicht angenommen wird",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-006": {
+      "source": {
+        "question_tr": "Ölüm, berzah ve salih amel kavramlarını doğru açıklamalarla eşleştir.",
+        "explanation_tr": "Mü'minûn 23:99-100 ölümden sonra dünyaya geri dönüş olmadığını ve dirilişe kadar bir perde bulunduğunu bildirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ölüm",
+            "right": "Dünya hayatının sona ermesi"
+          },
+          {
+            "left": "Berzah",
+            "right": "Dirilişe kadar geri dönüşü engelleyen ara/perde"
+          },
+          {
+            "left": "Salih amel",
+            "right": "Dünyada yapılması gereken iyi ve doğru davranış"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Tod, Barzach und gute Taten ihren Erklärungen zu.",
+        "explanation_tr": "Al-Muminun 23:99–100 beschreibt eine Schranke, die bis zur Auferstehung eine Rückkehr verhindert.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tod",
+            "right": "Ende des irdischen Lebens"
+          },
+          {
+            "left": "Barzach",
+            "right": "Zwischenzustand oder Schranke bis zur Auferstehung"
+          },
+          {
+            "left": "Gute Taten",
+            "right": "Rechtes Handeln im Diesseits"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-007": {
+      "source": {
+        "question_tr": "Mü'minûn 23:99-100'de ölüm anında pişman olan kişinin temel isteği nedir?",
+        "explanation_tr": "Ayet ölüm geldiğinde kişinin dünyaya dönüp salih amel yapma isteğini, fakat bunun kabul edilmeyeceğini anlatır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Dünyaya dönüp salih amel yapmak",
+          "Kıyametin tarihini öğrenmek",
+          "Başka bir bedende yaşamak",
+          "Geçmişi tamamen silmek"
+        ],
+        "correct_answer": "Dünyaya dönüp salih amel yapmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was wünscht sich nach Al-Muminun 23:99–100 ein Mensch, der beim Tod seine Taten bereut?",
+        "explanation_tr": "Die Verse beschreiben diesen Wunsch, betonen jedoch, dass die Rückkehr nicht gestattet wird.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ins Diesseits zurückzukehren, um gute Taten zu verrichten",
+          "Das Datum des Weltendes zu erfahren",
+          "In einem anderen Körper weiterzuleben",
+          "Die Vergangenheit vollständig zu löschen"
+        ],
+        "correct_answer": "Ins Diesseits zurückzukehren, um gute Taten zu verrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-008": {
+      "source": {
+        "question_tr": "Bir paylaşım Mü'minûn 23:99-100'ü 'reenkarnasyon mümkündür' şeklinde yorumluyor. En doğru değerlendirme hangisidir?",
+        "explanation_tr": "Diyanet tefsiri bu ayetlerin dünyaya tekrar dönüş/reenkarnasyon anlayışını reddettiğini açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ayet tam tersine ölümden sonra dünyaya geri dönüş talebinin reddedildiğini bildirir",
+          "Ayet sınırsız beden değişimini öğretir",
+          "Ayet dünyada yeniden doğmayı zorunlu kılar",
+          "Ayet ölümden hiç söz etmez"
+        ],
+        "correct_answer": "Ayet tam tersine ölümden sonra dünyaya geri dönüş talebinin reddedildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Beitrag interpretiert Al-Muminun 23:99–100 als „Wiedergeburt im Diesseits ist möglich“. Welche Bewertung stimmt?",
+        "explanation_tr": "Die Diyanet-Auslegung beschreibt diese Verse als Ablehnung einer Rückkehr ins Diesseits beziehungsweise der Reinkarnation.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Verse erklären das Gegenteil: Eine Rückkehr nach dem Tod wird abgelehnt",
+          "Die Verse lehren unbegrenzte Körperwechsel",
+          "Die Verse verlangen Wiedergeburt in dieser Welt",
+          "Die Verse erwähnen den Tod überhaupt nicht"
+        ],
+        "correct_answer": "Die Verse erklären das Gegenteil: Eine Rückkehr nach dem Tod wird abgelehnt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-009": {
+      "source": {
+        "question_tr": "Mü'minûn 23:99-100, ölümden sonra dünya hayatına geri dönüp yeni bir hayat başlatmayı öğretir.",
+        "explanation_tr": "Ayetlerde geri dönüş isteğinin reddedildiği ve dirilişe kadar bir perde bulunduğu bildirilir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Muminun 23:99–100 lehrt, dass Menschen nach dem Tod ins Diesseits zurückkehren und ein neues Leben beginnen.",
+        "explanation_tr": "Die Verse besagen, dass die Bitte um Rückkehr zurückgewiesen wird und eine Schranke bis zur Auferstehung besteht.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-010": {
+      "source": {
+        "question_tr": "Ölüm bilincinin 'bugün iyi davranmak' ile ilişkisini bir cümleyle anlat.",
+        "explanation_tr": "Mü'minûn 23:99-100 pişmanlığın ölümden sonra dünyaya geri dönüş sağlamayacağını hatırlatır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Ölümden sonra dünyaya dönüp eksikleri tamamlama imkânı olmadığı için insan iyi ve doğru davranışı ertelememelidir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie kann das Bewusstsein des Todes uns zu gutem Handeln motivieren? Antworte in einem Satz.",
+        "explanation_tr": "Al-Muminun 23:99–100 erinnert daran, dass Reue nach dem Tod keine Rückkehr ins Diesseits ermöglicht.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Weil wir nach dem Tod nicht ins Diesseits zurückkehren können, sollten wir gute und richtige Taten nicht aufschieben.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-011": {
+      "source": {
+        "question_tr": "Mü'minûn 23:100'de ölüm ile yeniden diriliş arasında geri dönüşü engelleyen bir ______ bulunduğu bildirilir.",
+        "explanation_tr": "Ayette dirilişe kadar devam eden bir perde/berzah bulunduğu ifade edilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "berzah",
+          "yolculuk bileti",
+          "yeni beden",
+          "dünya kapısı"
+        ],
+        "correct_answer": "berzah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Muminun 23:100 spricht von einer ______ zwischen Tod und Auferstehung, die eine Rückkehr verhindert.",
+        "explanation_tr": "Der Vers bezeichnet eine bis zur Auferstehung bestehende Schranke als Barzach.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Barzach",
+          "Fahrkarte",
+          "neuem Körper",
+          "Tür ins Diesseits"
+        ],
+        "correct_answer": "Barzach",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-012": {
+      "source": {
+        "question_tr": "Ölüm bilincinin davranışa etkisini sırala.",
+        "explanation_tr": "Ölüm bilinci korku üretmekten çok sorumluluk ve anlamlı yaşama bilinci geliştirmelidir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Hayatın sınırlı olduğunu fark et",
+          "Davranışların sorumluluk taşıdığını hatırla",
+          "İyiliği ertelememeye karar ver",
+          "Daha bilinçli seçimler yap"
+        ],
+        "correct_order": [
+          "Hayatın sınırlı olduğunu fark et",
+          "Davranışların sorumluluk taşıdığını hatırla",
+          "İyiliği ertelememeye karar ver",
+          "Daha bilinçli seçimler yap"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne die Auswirkungen des Bewusstseins über den Tod auf unser Verhalten.",
+        "explanation_tr": "Die Erinnerung an den Tod sollte Verantwortung und ein bewusstes Leben stärken, nicht nur Angst auslösen.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Erkennen, dass das Leben begrenzt ist",
+          "Sich an die Verantwortung für Taten erinnern",
+          "Gute Taten nicht aufschieben wollen",
+          "Bewusstere Entscheidungen treffen"
+        ],
+        "correct_order": [
+          "Erkennen, dass das Leben begrenzt ist",
+          "Sich an die Verantwortung für Taten erinnern",
+          "Gute Taten nicht aufschieben wollen",
+          "Bewusstere Entscheidungen treffen"
+        ],
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-013": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:185 ölüm ile ahiret arasındaki ilişkiyi nasıl kurar?",
+        "explanation_tr": "Ayet ölümün evrenselliğini ve kıyamet günündeki karşılığı aynı bağlamda zikreder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ölümün ardından yapılanların karşılığının kıyamet gününde eksiksiz verileceğini bildirir",
+          "Ölümle her şeyin tamamen anlamsızlaştığını söyler",
+          "Hesabın yalnız dünyada bittiğini söyler",
+          "Ölümden sonra hiçbir karşılık olmadığını bildirir"
+        ],
+        "correct_answer": "Ölümün ardından yapılanların karşılığının kıyamet gününde eksiksiz verileceğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie verbindet Al-Imran 3:185 den Tod mit dem Jenseits?",
+        "explanation_tr": "Der Vers erwähnt die Unvermeidbarkeit des Todes und die Vergeltung am Tag der Auferstehung gemeinsam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nach dem Tod erfolgt am Tag der Auferstehung die vollständige Vergeltung für Taten",
+          "Mit dem Tod wird alles völlig bedeutungslos",
+          "Die Abrechnung endet ausschließlich im Diesseits",
+          "Nach dem Tod gibt es keine Vergeltung"
+        ],
+        "correct_answer": "Nach dem Tod erfolgt am Tag der Auferstehung die vollständige Vergeltung für Taten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S02-014": {
+      "source": {
+        "question_tr": "Berzah hakkında Kur'an'ın verdiği temel bilgi, ölümden sonra dirilişe kadar dünyaya dönüşü engelleyen bir ara/perde bulunmasıdır.",
+        "explanation_tr": "Mü'minûn 23:99-100 bu temel çerçeveyi bildirir; ayrıntılarda kaynak sınırını aşmamak gerekir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die wichtigste Koranaussage zum Barzach ist, dass bis zur Auferstehung eine Schranke die Rückkehr ins Diesseits verhindert.",
+        "explanation_tr": "Al-Muminun 23:99–100 beschreibt diesen Zusammenhang. Darüber hinaus sollte man zu Einzelheiten keine unbelegten Behauptungen aufstellen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tod und Barzach",
+        "topic": "Auferstehung und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
