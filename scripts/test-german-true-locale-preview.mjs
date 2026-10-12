@@ -358,7 +358,18 @@ try{
     session.questions[1]?.activity_type==='matching',null,{timeout:15000});
  const matching=await page.evaluate(()=>{
   const q=session.questions[1];
-  return {id:q.id,locale:window.DEEN_APP_LOCALE.get(),type:q.activity_type,
+  const renderer=typeof renderMatching==='function'?String(renderMatching):'';
+  const scripts=[...document.scripts].map((script,index)=>({
+   index,id:script.id||'',source:script.src||'',
+   owner:script.textContent.includes('DEEN_MATCHING_SESSION_STATE'),
+   has_fix:script.textContent.includes('current=session?.__deenMatchingState'),
+   has_probe:script.textContent.includes('__DEEN_MATCH_ENGINE_TRACE__')
+  })).filter(x=>x.owner);
+  return {renderer_probe:{core_length:renderer.length,
+   has_fix:renderer.includes('current=session?.__deenMatchingState'),
+   has_probe:renderer.includes('__DEEN_MATCH_ENGINE_TRACE__'),
+   scripts},
+   id:q.id,locale:window.DEEN_APP_LOCALE.get(),type:q.activity_type,
    translated:q.__deenContentLocale==='de',
    source_exists:!!q.__deenSourceQuestion,
    pairs:structuredClone(q.pairs),
