@@ -13,6 +13,7 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   return typeof v==='string'&&v.trim()&&v!==text.trim()?v:null;
  };
  let m;
+ if((m=n.match(/^Ünite\s+(\d+)\s*·\s*Aşama\s+(\d+)$/)))return emit('Einheit '+m[1]+' · Etappe '+m[2]);
  if(n==='Doğru. Devam edebilirsin.')return emit('Richtig. Du kannst weitermachen.');
  if((m=n.match(/^(\d+)\s+mini ders\s*·\s*yaklaşık (\d+) dakika$/)))return emit(m[1]+' Mini-Lektion'+(m[1]==='1'?'':'en')+' · etwa '+m[2]+' Minuten');
  if((m=n.match(/^(\d+)\/(\d+)\s+(?:Görev|Görevler)$/)))return emit(m[1]+'/'+m[2]+' Aufgaben');
