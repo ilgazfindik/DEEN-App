@@ -360,6 +360,7 @@ try{
   const engine=window.DEEN_ISOLATED_MATCHING?.snapshot?.();
   return {id:q.id,locale:window.DEEN_APP_LOCALE.get(),type:q.activity_type,
    translated:q.__deenContentLocale==='de',source_exists:!!q.__deenSourceQuestion,
+   correctBefore:session.correct,
    pairs:structuredClone(q.pairs),
    engine:engine?{version:engine.version,active:engine.active,key:engine.key}:null,
    cards:[...document.querySelectorAll('#answerArea .v1017-card')].map(el=>({
@@ -427,12 +428,26 @@ try{
  }));
  report.matching.result=matched;
  assert.equal(matched.locale,'de');
- assert.equal(matched.correct,1);
+ assert.equal(matched.correct,matching.correctBefore+1,
+  'Matching must increment the current lesson score exactly once');
  assert.equal(matched.state?.matchedLeft,matching.pairs.length);
  assert.equal(matched.state?.matchedRight,matching.pairs.length);
  assert.equal(matched.state?.errors,0);
  assert.equal(matched.state?.finished,true);
  assert.equal(matched.state?.lastEngineError,null);
+ // Reapply the QA-only UI dictionary after grading; the matching engine
+ // writes feedback chrome later than the initial localized lesson render.
+ const matchingChrome=await page.evaluate(()=>{
+  const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+   document.getElementById('lesson'),{qaMode:true,locale:'de',documentRef:document});
+  return {unresolved:audit.unresolved,
+   heading:document.getElementById('feedbackTitle')?.textContent?.trim()};
+ });
+ report.matching.feedback_chrome=matchingChrome;
+ assert.deepEqual(matchingChrome.unresolved,[],
+  'Matching grading left Turkish UI chrome in the true German session');
+ assert.notEqual(matchingChrome.heading,'Harika!',
+  'Matching feedback heading was not localized into German');
  // Calling rehydrate must not erase matches in the authoritative engine.
  const rehydrated=await page.evaluate(()=>{
   const success=window.DEEN_ISOLATED_MATCHING.rehydrate();
