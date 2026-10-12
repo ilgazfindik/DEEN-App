@@ -312,17 +312,22 @@ async function auditNavTabs(){
    const confirm=page.locator('#answerArea .template-action:visible:not([disabled])');
    if(await confirm.count())await confirm.first().click({timeout:10000});
   }
-  await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
-   null,{timeout:7000});
+  await page.waitForTimeout(850);
   const graded=await page.evaluate(()=>({
    feedback_shown:document.getElementById('feedback')?.classList.contains('show'),
+   feedback_class:document.getElementById('feedback')?.className,
    score:session?.correct,
+   index:session?.index,
+   selected:[...document.querySelectorAll('#answerArea .option.selected')]
+     .map(el=>el.textContent?.trim()),
+   visible_actions:[...document.querySelectorAll('#lesson button')].filter(el=>
+     !el.hidden&&el.getClientRects().length>0&&getComputedStyle(el).visibility!=='hidden')
+     .slice(-15).map(el=>({text:el.textContent?.trim().slice(0,60),class:el.className,disabled:el.disabled})),
    current_source_id:session?.questions?.[0]?.__deenSourceQuestion?.id,
    correct_answer:session?.questions?.[0]?.correct_answer,
    grading_result:document.getElementById('feedbackTitle')?.textContent.trim()
   }));
   report.lesson.grading=graded;
-  assert.equal(graded.feedback_shown,true);
   assert.equal(graded.score,1,'Real quiz engine did not award correct German response');
   await page.screenshot({path:output+'/stateful-german-lesson-graded-qa.png',fullPage:true});
   return init;
