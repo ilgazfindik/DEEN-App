@@ -21,6 +21,7 @@ on:
       - 'scripts/test-german-asr-meaning-staging.mjs'
       - 'scripts/test-german-kafirun-meaning-staging.mjs'
       - 'scripts/test-german-nasr-meaning-staging.mjs'
+      - 'scripts/test-german-masad-meaning-staging.mjs'
       - 'assets/i18n/quran/de/**'
       - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'assets/i18n/german-ui.quran-controls.staging.json'
@@ -75,6 +76,8 @@ jobs:
         run: node scripts/test-german-kafirun-meaning-staging.mjs
       - name: Verify An-Nasr 3-ayah German meaning drafts and original Arabic/audio release protection
         run: node scripts/test-german-nasr-meaning-staging.mjs
+      - name: Test Al-Masad five German meaning drafts against Arabic/audio and blocked release
+        run: node scripts/test-german-masad-meaning-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
