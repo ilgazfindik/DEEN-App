@@ -40,6 +40,20 @@ try{
    }
   });
  },{preview:fixture.preview_language_config});
+ await page.addInitScript(()=>{
+  const old=console.error;
+  window.__DEEN_FILL_FREEZE_QA_LOG__=[];
+  console.error=function(...args){
+   if(args[0]==='DEEN fill freeze regression failed'&&args[1]){
+    const o=args[1];
+    window.__DEEN_FILL_FREEZE_QA_LOG__.push({
+     reason:o.reason,mode:o.mode,graded:o.graded,
+     failed:[...(o.failed||[])],checks:{...(o.checks||{})},
+     run:o.run,renderer:o.renderer});
+   }
+   return old.apply(this,args);
+  };
+ });
  const response=await page.goto(origin+'/?previewLanguage=1',
   {waitUntil:'domcontentloaded',timeout:60000});
  assert.equal(response?.status(),200);
@@ -492,6 +506,10 @@ try{
 
 
 
+ report.fill_freeze_diagnostics=await page.evaluate(()=>({
+  monitor:window.DEEN_FILL_FREEZE?.snapshot?.(),
+  failures:[...(window.__DEEN_FILL_FREEZE_QA_LOG__||[])]
+ }));
  assert.deepEqual(report.errors,[],'Browser threw errors during real German boot');
  report.status='passed';
  console.log(JSON.stringify(report,null,2));
