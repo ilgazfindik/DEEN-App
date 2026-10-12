@@ -17,8 +17,8 @@ assert.equal(de.global_qa,'blocked');
 assert.equal(de.religious_expert_approved,false);
 assert.equal(draft.locale,'de');
 assert.equal(draft.scope,'quran_ayah_meanings_staging');
-assert.equal(draft.ayah_count,82);
-assert.equal(Object.keys(draft.translations).length,82);
+assert.equal(draft.ayah_count,90);
+assert.equal(Object.keys(draft.translations).length,90);
 for(const flag of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])
  assert.equal(draft[flag],false,flag+': German Quran may not be released');
 const verses=canonical.entries.filter(v=>v.surahId==='bayyina').sort((a,b)=>a.ayah-b.ayah);
@@ -64,20 +64,20 @@ for(const src of verses){
  tamperRejections++;
 }
 assert.equal(resolveGermanAyahMeaning(verses[0],{...draft,locale:'tr'},{preview:true}),null);tamperRejections++;
-assert.equal(resolveGermanAyahMeaning(canonical.entries.find(v=>v.surahId==='zilzal'),draft,{preview:true}),null);tamperRejections++;
+assert.equal(resolveGermanAyahMeaning({...canonical.entries[0],key:'missing:1',surahId:'missing'},draft,{preview:true}),null);tamperRejections++;
 let previews=0,publicVisible=0;
 for(const src of canonical.entries){
  if(resolveGermanAyahMeaning(src,draft,{preview:true})!==null)previews++;
  if(resolveGermanAyahMeaning(src,draft)!==null)publicVisible++;
 }
-assert.equal(previews,82);
+assert.equal(previews,90);
 assert.equal(publicVisible,0);
 const sources=draft.sources.comparative_only.filter(r=>r.comparison_scope==='Surah 98 Al-Bayyina');
 assert.equal(sources.length,3);
 assert(sources.every(r=>r.text_copied_verbatim===false&&/^https:\/\//.test(r.url)));
 console.log(JSON.stringify({
  status:'passed',locale:'de',surah:'Al-Bayyina',new_ayah_drafts:8,
- overall_staged:82,remaining:8,source_matched_qa_previews:8,public_exposed:0,
+ overall_staged:90,remaining:0,source_matched_qa_previews:8,public_exposed:0,
  negative_source_checks:tamperRejections,verses_1_to_3_context_preserved:true,
  verse_5_prayer_and_zakat_preserved:true,verses_6_to_8_contrast_preserved:true,
  original_arabic_audio_modified:false,expert_native_rights_review:'pending'
