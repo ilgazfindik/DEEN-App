@@ -75,6 +75,9 @@ assert.throws(()=>createGermanUIStagingRenderer({packs:copies,englishReference:e
 
 const parent=excluded=>({closest:selector=>
  excluded===true?{}:typeof excluded==='string'&&selector.split(',').map(x=>x.trim()).includes(excluded)?{}:null});
+const streakNumber={textContent:'7'};
+const streakParent={closest:selector=>selector==='.lesson-chip.fire'?
+ {querySelector:id=>id==='#lessonStreakMini'?streakNumber:null}:null};
 const nodes=[
  {nodeValue:'  Devam Et  ',parentElement:parent(false)},
  {nodeValue:'3 soru',parentElement:parent(false)},
@@ -92,7 +95,8 @@ const nodes=[
  {nodeValue:'Geri',parentElement:parent('[data-qj2-fill-slot]')},
  {nodeValue:'Namaza Hazırlık',parentElement:parent('[lang="ar"]')},
  // Nearby header chrome remains translatable.
- {nodeValue:'Kontrol Et',parentElement:parent(false)}
+ {nodeValue:'Kontrol Et',parentElement:parent(false)},
+ {nodeValue:' gün',parentElement:streakParent}
 ];
 function element(attrs,excluded=false){
  const a=new Map(Object.entries(attrs));
@@ -132,22 +136,25 @@ for(let i=7;i<=13;i++){
  assert.equal(nodes[i].nodeValue,before,'Protected question/Quran node was modified at '+i);
 }
 assert.equal(nodes[14].nodeValue,'Prüfen','Ordinary lesson CTA should be localized');
+assert.equal(nodes[15].nodeValue,' Tage','Separate numeric streak must receive German plural');
 assert(first.skipped>=9,'Graded answer/Quran guards were not exercised');
 assert(first.unresolved.includes('Bilinmeyen aşama metni'));
-assert.equal(first.writes,7);
+assert.equal(first.writes,8);
 const again=renderer.render(fixture,{locale:'de',qaMode:true,documentRef:doc});
 assert.equal(again.writes,0,'Repeated DOM application must be idempotent');
 nodes[0].nodeValue='Namaza Hazırlık';
 button.setAttribute('aria-label','Devam Et');
+streakNumber.textContent='1';
 const changed=renderer.render(fixture,{locale:'de',qaMode:true,documentRef:doc});
-assert.equal(changed.writes,2,'Newly re-rendered Turkish labels must be processed');
+assert.equal(changed.writes,3,'New Turkish labels and number-derived inflection must update');
 assert.equal(nodes[0].nodeValue,'Vorbereitung auf das Gebet');
 assert.equal(button.getAttribute('aria-label'),'Weiter');
+assert.equal(nodes[15].nodeValue,' Tag','A one-day streak must use singular German');
 assert.equal(renderer.stats().passes,3);
-assert.equal(renderer.stats().writes,9);
+assert.equal(renderer.stats().writes,11);
 console.log(JSON.stringify({status:'passed',locale:'de',staging_only:true,preview_required:true,
  dictionary_keys:renderer.stats().entries,english_reference_keys:renderer.stats().matchedReference,
  exact_translation:true,dynamic_counts:true,dom_text:true,dom_attributes:true,whitespace:true,
- quran_arabic_untouched:true,question_answers_protected:true,actual_lesson_dom_selectors_verified:12,
+ quran_arabic_untouched:true,question_answers_protected:true,contextual_streak_day_inflection:true,actual_lesson_dom_selectors_verified:12,
  unknown_strings_reported:true,repeat_render_idempotent:true,
  live_de_manifest:'blocked',browser_e2e:'not_claimed'},null,2));
