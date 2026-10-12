@@ -15,8 +15,8 @@ assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(pack.locale,'de');
 assert.equal(pack.scope,'quran_ayah_meanings_staging');
-assert.equal(pack.ayah_count,82);
-assert.equal(Object.keys(pack.translations).length,82);
+assert.equal(pack.ayah_count,90);
+assert.equal(Object.keys(pack.translations).length,90);
 for(const flag of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[flag],false,flag+': pending review cannot be bypassed');
 const verses=canonical.entries.filter(e=>e.surahId==='tin').sort((a,b)=>a.ayah-b.ayah);
 assert.deepEqual(verses.map(x=>x.key),Array.from({length:8},(_,i)=>'tin:'+(i+1)));
@@ -56,19 +56,19 @@ for(const aya of verses){
  rejected++;
 }
 assert.equal(resolveGermanAyahMeaning(verses[0],{...pack,locale:'tr'},{preview:true}),null);rejected++;
-assert.equal(resolveGermanAyahMeaning(canonical.entries.find(x=>x.surahId==='zilzal'),pack,{preview:true}),null);rejected++;
+assert.equal(resolveGermanAyahMeaning({...canonical.entries[0],key:'missing:1',surahId:'missing'},pack,{preview:true}),null);rejected++;
 let preview=0,publicMeanings=0;
 for(const aya of canonical.entries){
  if(resolveGermanAyahMeaning(aya,pack,{preview:true})!==null)preview++;
  if(resolveGermanAyahMeaning(aya,pack)!==null)publicMeanings++;
 }
-assert.equal(preview,82);
+assert.equal(preview,90);
 assert.equal(publicMeanings,0);
 const refs=pack.sources.comparative_only.filter(r=>r.comparison_scope==='Surah 95 At-Tin');
 assert.equal(refs.length,3);
 assert(refs.every(r=>r.text_copied_verbatim===false&&/^https:\/\//.test(r.url)));
 console.log(JSON.stringify({
- status:'passed',surah:'At-Tin',new_ayah_meaning_drafts:8,staged_total:82,remaining:8,
+ status:'passed',surah:'At-Tin',new_ayah_meaning_drafts:8,staged_total:90,remaining:0,
  source_matched_previews:8,public_meanings:0,negative_source_guards:rejected,
  verse_4_to_6_context_preserved:true,original_arabic_or_audio_modified:false,
  scholarly_native_rights_review:'pending',release_gate:'blocked'
