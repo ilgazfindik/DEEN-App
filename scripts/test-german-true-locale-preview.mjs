@@ -18,6 +18,10 @@ const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 const report={scope:'TRUE_GERMAN_RUNTIME_LOCAL_ONLY',real_manifest_modified:false,
  synthetic_approval_only_in_browser_memory:true,locale:'de',production_release:false,errors:[]};
 const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
+report.networkErrors=[];
+page.on('requestfailed',req=>report.networkErrors.push({
+ url:req.url().slice(0,280),method:req.method(),failure:req.failure()?.errorText||null
+}));
 page.on('pageerror',e=>report.errors.push(String(e.stack||e)));
 page.on('console',m=>{if(m.type()==='error')report.errors.push('console:'+m.text())});
 try{
@@ -744,7 +748,16 @@ try{
  await page.reload({waitUntil:'domcontentloaded',timeout:60000});
  const reloadInitial=await page.evaluate(()=>{
   const raw=JSON.parse(localStorage.getItem('deen_v4_1_state')||'null');
-  return {url:location.href,readyState:document.readyState,
+  return {url:location.href,title:document.title,
+   readyState:document.readyState,
+   bodyPreview:document.body?.innerText?.slice(0,430)||null,
+   scriptCount:document.scripts.length,
+   scriptIds:[...document.scripts].map(e=>e.id||e.src||'inline').slice(-16),
+   version:window.DEEN_RELEASE_VERSION||null,
+   gatePresent:!!document.getElementById('deenLanguageGate'),
+   preparationPresent:!!document.getElementById('deenPreparation'),
+   lessonPresent:!!document.getElementById('lesson'),
+   swController:navigator.serviceWorker?.controller?.scriptURL||null,
    locale:window.DEEN_APP_LOCALE?.get?.()||null,
    docLang:document.documentElement.lang,
    hasState:typeof state==='object',
@@ -758,6 +771,7 @@ try{
  });
  report.complete_stage.persistence.reloadInitial=reloadInitial;
  console.log('DE_GERMAN_RELOAD_PROBE '+JSON.stringify(reloadInitial));
+ await page.screenshot({path:output+'/true-locale-german-reload-state.png',fullPage:true});
  await page.waitForFunction(()=>window.DEEN_APP_LOCALE?.get()==='de'&&
   typeof state==='object'&&state?.completed?.includes('U01-S01'),
   null,{timeout:20000});
