@@ -564,3 +564,13 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - German CI workflow now runs batch 06 and source coverage check. Updated the [remaining 130-key full UI report](GERMAN_FINAL_FULL_APP_AUDIT_20261012.md).
 - **Still required:** 130 missing UI reference mappings, real production German rendering across dynamic screens, complete mobile/desktop browser E2E, scholarly/native linguistic/rights review for 1,704 question variants and 90 Quran meaning drafts, and release authorization. Original Arabic Quran and audio and other live languages untouched; **no main merge / live deploy**.
 - Next: UI batch 07 to close the next **120/130** remaining catalog gaps; after that 10 keys will remain, followed by dynamic runtime and review work.
+
+## German UI reference remediation batch 07 — 2026-10-12
+
+- Added **120 newly authored, source-matched German UI drafts** to `assets/i18n/german-ui.reference-batch-07.staging.json`, maintaining original Turkish lookup keys and the exact English reference glosses. Scopes: section summaries, iman/ibadet learning objectives, recall and XP badges, developer/admin controls and Quran expert panel.
+- Original missing baseline reference keys remediated: **840/850**, leaving **10**. Complete baseline key overlap **1,077/1,087**, staged UI labels **1,432** across eleven dictionaries. **355** staged UI keys live outside the English reference inventory.
+- Marked **38** context-sensitive or religious expressions for human native-German and Islamic expert review. `TÜRKÇE MEAL` is correctly described as a **Turkish** meaning/translation; no claim of a German Quran meaning is introduced. Arabic Quran verses and original audio remain untouched.
+- Created `scripts/test-german-ui-reference-batch-07.mjs` with cross-batch source order/uniqueness/reference checks, number parity, exact remaining 10 and fail-closed German release/Quran state. Updated German CI and full readiness audit to include batch 07.
+- Updated `qa/GERMAN_FINAL_FULL_APP_AUDIT_20261012.md` with the final ten reference keys and new baseline counts.
+- No release authorization: `de.question_data=missing` and `de.global_qa=blocked` stay fixed. End-to-end German app runtime, complete real-browser coverage, native/German expert and rights approvals still need work. **Do not merge/deploy**.
+- Next: batch 08 should address the last **10** baseline reference keys, then a separate comprehensive runtime-only residue audit and qualified reviews.
