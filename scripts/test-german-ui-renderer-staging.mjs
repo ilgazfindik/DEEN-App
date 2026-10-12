@@ -118,7 +118,7 @@ for(let i=7;i<=13;i++){
  const before=['Namaza Hazırlık','Geri','Namaza Hazırlık','Geri','Fâtiha','Geri','Namaza Hazırlık'][i-7];
  assert.equal(nodes[i].nodeValue,before,'Protected question/Quran node was modified at '+i);
 }
-assert.equal(nodes[14].nodeValue,'Überprüfen','Ordinary lesson CTA should be localized');
+assert.equal(nodes[14].nodeValue,'Prüfen','Ordinary lesson CTA should be localized');
 assert(first.skipped>=9,'Graded answer/Quran guards were not exercised');
 assert(first.unresolved.includes('Bilinmeyen aşama metni'));
 assert.equal(first.writes,7);
