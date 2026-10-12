@@ -18,6 +18,7 @@ on:
       - 'scripts/test-german-falaq-meaning-staging.mjs'
       - 'scripts/test-german-nas-meaning-staging.mjs'
       - 'scripts/test-german-kawthar-meaning-staging.mjs'
+      - 'scripts/test-german-asr-meaning-staging.mjs'
       - 'assets/i18n/quran/de/**'
       - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'assets/i18n/german-ui.quran-controls.staging.json'
@@ -66,6 +67,8 @@ jobs:
         run: node scripts/test-german-nas-meaning-staging.mjs
       - name: Test Al-Kawthar meaning drafts and original Arabic/audio guard
         run: node scripts/test-german-kawthar-meaning-staging.mjs
+      - name: Test Al-Asr meaning draft Arabic/audio identity and embargo
+        run: node scripts/test-german-asr-meaning-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
