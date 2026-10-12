@@ -8,9 +8,9 @@
 |---|---|
 | German entry/onboarding | German copy exists; no evidence of an end-to-end approved production German lesson flow |
 | English UI translation reference | 1087 source strings |
-| German staged UI dictionaries | 1312 distinct German strings across ten files |
-| Source-key overlap with English reference | 957/1087 |
-| **English reference keys without German catalog match** | **130** |
+| German staged UI dictionaries | 1432 distinct German strings across eleven files |
+| Source-key overlap with English reference | 1077/1087 |
+| **English reference keys without German catalog match** | **10** |
 | German strings outside English reference | 355 (dynamic, lesson, Quran controls and Premium screens) |
 | German base question staging | 1,500 questions (not live/approved) |
 | German active lesson questions | 1,484 source questions, source-matched in staging only |
@@ -46,9 +46,14 @@
 
 - **Batch 06 — 2026-10-12:** added another **120 German UI wording drafts**, covering prophets, the Hereafter, divine decree, prayer, ritual purity, fasting and first-run onboarding. Cumulative reference remediation: **720/850 source keys**, leaving **130** unmatched. Total: **1,312 unique staged UI translations** across ten catalogs, **957/1,087** English reference key matches and 355 other dynamically used strings. **20** religious terms require expert/native review. The batch's onboarding labels are staged only; runtime is NOT German enabled. CI validates all six batches and unchanged release gates.
 
+- **Batch 07 — 2026-10-12:** added **120 independent German UI drafts** for the faith/worship section overview and learning goals, learning-series badges, review/progress, developer controls, expert-verification panel and lesson metadata to `assets/i18n/german-ui.reference-batch-07.staging.json`. All source keys and 120 English glosses are pinned to the unchanged baseline.
+- The seven 120-key batches now remediate **840/850** originally missing baseline keys; **10** remain. Across eleven staged UI dictionaries there are **1,432 distinct German strings**, of which **1,077/1,087** align to English reference keys and 355 belong to dynamic/other UI surfaces.
+- **38** doctrinal, review-status or potentially misleading interface expressions need explicit expert/native-language attention, particularly fiqh/mezhep, the distinction between learning points and worship, and the panel's Turkish translation label. The last label remains accurately marked *Turkish*, not deceptively called *German*.
+- `scripts/test-german-ui-reference-batch-07.mjs` checks source ordering across all seven batches, reference gloss fidelity, numeric integrity, overlapping keys, the exact ten missing references and the unreleased manifest/Quran review state. CI now invokes this test and the full readiness counter covers all eleven staged dictionaries. **No main merge, production language activation or deploy.**
+
 ## Remaining release blockers (priority order)
 
-1. **Translate/verify and wire the remaining GUI reference keys.** The full-app baseline has 850 keys without a match in any of the four German staging catalogs. This is not proof every key appears on the same screen, but each is a possible source of Turkish fallback. Cover every active screen before claiming 'German-only'.
+1. **Translate/verify and wire the remaining GUI reference keys.** The baseline originally had 850 English-reference source keys with no German catalog match; 840 now have staging drafts and the last ten are listed below. This is not proof every key appears on the same screen, but each is a possible source of Turkish fallback. Staging catalog coverage alone does not prove active screens are fully localized. Cover all runtime strings before claiming 'German-only'.
 2. **Install a German DOM/runtime UI renderer** equivalent in quality to the English renderer, including dynamic values, result panels, progression, profile, Premium and every Quran control. The current startup injects English and Arabic rendering, not a released German renderer.
 3. **Complete independent religious/native German review** of 1,500 base questions, live variants and 90 Quran meaning drafts, maintaining exact right-answer source identity, Qur'an verse identity and unmodified Arabic recitation.
 4. **Complete rights/copyright and source attribution review** of Quran meaning publication and any other translated religious content.
@@ -57,140 +62,20 @@
 
 ## Exhaustive unmatched German UI source-key list
 
-The current **130** unmatched source keys after 6 batches covering 720 of 850 originally unmapped reference keys. English comparison entries below are context only, not approved German text.
+Exactly **10** English-reference keys remain without a source-matched German staging entry after batches 01–07 (840/850 originally missing keys remediated). These are not proof of the full active UI's translation coverage.
 
 | # | Turkish source key | English reference meaning |
 |---:|---|---|
-| 1 | Allah’a İman | Belief in Allah |
-| 2 | Tevhidi ve imanın hayata yansımalarını öğren. | Learn about Allah's oneness and how faith is reflected in life. |
-| 3 | Şehadetin anlamını tanı; parçaları arasında bağ kur. | Learn the meaning of the testimony of faith and connect its parts. |
-| 4 | İslam’ın Beş Şartı | The Five Pillars of Islam |
-| 5 | Beş şartı tanı, doğru bağlamlarıyla eşleştir. | Recognise the five pillars and match them with their correct contexts. |
-| 6 | İmanın Esaslarına Giriş | Introduction to the Articles of Faith |
-| 7 | Altı iman esasını öğren ve birbirinden ayırt et. | Learn the six articles of faith and distinguish between them. |
-| 8 | İlk 5 ünitedeki bilgini tek bir ustalık sınavında bir araya getir. | Bring together what you learned in the first five units in one mastery test. |
-| 9 | KISIM 2 · İMAN | SECTION 2 · FAITH |
-| 10 | Meleklere iman konusunu adım adım pekiştir. | Reinforce belief in angels step by step. |
-| 11 | Kitaplara imanla ilgili temel kavramları keşfet. | Discover the main concepts of belief in the revealed books. |
-| 12 | Peygamberlere iman konusundaki bilgini güçlendir. | Strengthen your knowledge of belief in the prophets. |
-| 13 | Ahiret Gününe İman | Belief in the Last Day |
-| 14 | Ahiret inancını tanı, hatırla ve pekiştir. | Recognise, recall and reinforce belief in the Hereafter. |
-| 15 | Kader ve kaza kavramlarını kaynak notlarıyla öğren. | Learn the concepts of divine decree and its fulfilment with source notes. |
-| 16 | KISIM 2 FİNALİ | SECTION 2 FINAL |
-| 17 | İman Ustalığı | Faith Mastery |
-| 18 | İman bölümündeki 5 ünitenin bilgisini bir araya getir. | Bring together your knowledge from the five units on faith. |
-| 19 | KISIM 3 · İBADET | SECTION 3 · WORSHIP |
-| 20 | Fıkıh kapsamı · Ortak temel | Scope of Islamic jurisprudence · Shared foundation |
-| 21 | Bu sürüm mezheplerin ortak çekirdeğini öğretir. | This version teaches the shared core of the schools of law. |
-| 22 | İbadet Bilinci | Awareness of Worship |
-| 23 | İbadetin anlamını, niyet ve ihlası; ibadet bilgisinin nasıl öğrenildiğini kavra. | Understand the meaning of worship, intention and sincerity, and how to learn about worship. |
-| 24 | Temizlik ve Abdest | Cleanliness and Ablution |
-| 25 | Taharetin anlamını, abdestin Kur’an’daki ortak temelini ve teyemmümdeki kolaylığı öğren. | Learn the meaning of ritual purification, ablution's shared foundation in the Quran, and the ease offered by dry ablution. |
-| 26 | Namaz vakti, kıble, temizlik, niyet ve beş vakit farz rekâtların temelini öğren. | Learn the foundations of prayer time, direction, purification, intention and obligatory units in the five daily prayers. |
-| 27 | Namazın temel rükünlerini, bir rekâtın akışını ve mazeretteki kolaylık ilkesini öğren. | Learn the main pillars of prayer, the sequence of a unit, and the principle of ease when difficulties arise. |
-| 28 | Oruç ve Ramazan | Fasting and Ramadan |
-| 29 | Ramazan orucunun anlamını, imsak-iftar sınırını, takva amacını ve temel mazeretleri öğren. | Learn the meaning of fasting in Ramadan, its dawn-to-sunset limits, its aim of mindfulness of Allah, and the main concessions. |
-| 30 | KISIM 3 FİNALİ | SECTION 3 FINAL |
-| 31 | İbadet Temelleri Ustalığı | Foundations of Worship Mastery |
-| 32 | İbadet bölümündeki ortak-temel bilgileri bir araya getir. | Bring together the shared foundations from the units on worship. |
-| 33 | Seri detayları | Streak details |
-| 34 | Neden şimdi? | Why now? |
-| 35 | Yeni ilerleme | New progress |
-| 36 | HAFTALIK RİTİM | WEEKLY RHYTHM |
-| 37 | USTALIK SINAVINI BAŞLAT | START THE MASTERY TEST |
-| 38 | ADAPTIVE MEMORY ENGINE · v6.4 | ADAPTIVE MEMORY ENGINE · v6.4 |
-| 39 | Ünite bazında | By unit |
-| 40 | Bu skor yalnız öğrenme ve hatırlama performansını yönetir; dinî yeterlilik veya ibadet değeri değildir. | This score manages learning and recall performance only; it does not measure religious competence or the value of worship. |
-| 41 | 1. gün + 7. gün | Day 1 + day 7 |
-| 42 | Dersi bitirdiğin gün değil, unutma başlamadan hemen önce hatırla. | Recall just before forgetting begins, rather than only on the day you finish a lesson. |
-| 43 | Yarın | Tomorrow |
-| 44 | 5 farklı günde Bugünkü Yolculuk'u tamamla | Complete Today's Journey on 5 different days |
-| 45 | İlk Adım | First Step |
-| 46 | İlk dersini tamamla | Complete your first lesson |
-| 47 | İstikrar | Consistency |
-| 48 | Bilgi Yolcusu | Knowledge Traveller |
-| 49 | 25 ders tamamla | Complete 25 lessons |
-| 50 | Usta Öğrenci | Master Learner |
-| 51 | Bir ünitede %100 ustalık | Reach 100% mastery in one unit |
-| 52 | Kısım Ustası | Section Master |
-| 53 | Bir kısım finalini geç | Pass a section final |
-| 54 | Öğrenerek 1000 XP kazan | Earn 1000 XP through learning |
-| 55 | Keskin Odak | Sharp Focus |
-| 56 | 10 kusursuz ders tamamla | Complete 10 perfect lessons |
-| 57 | Hatırlama Ritmi | Recall Rhythm |
-| 58 | 10 tekrar dersi tamamla | Complete 10 review lessons |
-| 59 | Uzun Yol | Long Journey |
-| 60 | 50 ders tamamla | Complete 50 lessons |
-| 61 | Bilgi Birikimi | Knowledge Gained |
-| 62 | Öğrenerek 5000 XP kazan | Earn 5000 XP through learning |
-| 63 | Öğrenme oyunlaştırılır; ibadet puanlanmaz. Dinî içerikler uzman incelemesi bekler. | Learning uses game elements; worship is not scored. Religious content awaits expert review. |
-| 64 | DEEN ADMIN | DEEN ADMIN |
-| 65 | P · DEVELOPER CONTROL CENTER | P · DEVELOPER CONTROL CENTRE |
-| 66 | HIZLI İLERLEME | QUICK PROGRESS |
-| 67 | TÜM BÖLÜMLERİ GEÇ | COMPLETE ALL SECTIONS |
-| 68 | TÜM BÖLÜMLERİ SIFIRLA | RESET ALL SECTIONS |
-| 69 | KISIM 1’İ GEÇ | COMPLETE SECTION 1 |
-| 70 | KISIM 1’İ SIFIRLA | RESET SECTION 1 |
-| 71 | KISIM 2’Yİ GEÇ | COMPLETE SECTION 2 |
-| 72 | KISIM 2’Yİ SIFIRLA | RESET SECTION 2 |
-| 73 | KISIM 3’Ü GEÇ | COMPLETE SECTION 3 |
-| 74 | KISIM 3’Ü SIFIRLA | RESET SECTION 3 |
-| 75 | TÜM ROZETLERİ AÇ | UNLOCK ALL BADGES |
-| 76 | TÜM KİLİTLERİ AÇ | UNLOCK EVERYTHING |
-| 77 | TEK AŞAMA KONTROLÜ | INDIVIDUAL STAGE CONTROL |
-| 78 | SEÇİLİ AŞAMAYI GEÇ | COMPLETE SELECTED STAGE |
-| 79 | AŞAMAYI GERİ AL | UNDO STAGE |
-| 80 | ÖĞREN EKRANINA DÖN | RETURN TO LEARN |
-| 81 | ÜNİTE KONTROLÜ | UNIT CONTROL |
-| 82 | SEÇİLİ ÜNİTEYİ GEÇ | COMPLETE SELECTED UNIT |
-| 83 | ÜNİTEYİ GERİ AL | UNDO UNIT |
-| 84 | KISIM 1 FİNALİNİ GEÇ | COMPLETE SECTION 1 FINAL |
-| 85 | KISIM 2 FİNALİNİ GEÇ | COMPLETE SECTION 2 FINAL |
-| 86 | KISIM 3 FİNALİNİ GEÇ | COMPLETE SECTION 3 FINAL |
-| 87 | SINIRSIZ ENERJİ | UNLIMITED ENERGY |
-| 88 | 100 GÜN SERİ | 100-DAY STREAK |
-| 89 | NORMAL ENERJİ | NORMAL ENERGY |
-| 90 | ROZETLERİ KİLİTLE | LOCK BADGES |
-| 91 | GİRİŞ EKRANINA DÖN | RETURN TO ENTRY |
-| 92 | ONBOARDING’İ BAŞTAN AÇ | RESTART ONBOARDING |
-| 93 | PROFİLE GİT | GO TO PROFILE |
-| 94 | ÖĞREN EKRANINA GİT | GO TO LEARN |
-| 95 | “Giriş ekranına dön” mevcut progress’i silmez. “Onboarding’i baştan aç” sadece onboarding tamamlandı bayrağını sıfırlar. | 'Return to entry' preserves progress. 'Restart onboarding' resets only the onboarding completion flag. |
-| 96 | ROZET + RUNTIME AUDIT | BADGE + RUNTIME AUDIT |
-| 97 | STATE JSON KOPYALA | COPY STATE JSON |
-| 98 | İLERLEMEYİ SIFIRLA | RESET PROGRESS |
-| 99 | TAM SIFIRLAMA | FULL RESET |
-| 100 | KUR’AN · PRODUCT ANALYTICS | QURAN · PRODUCT ANALYTICS |
-| 101 | KUR’AN · UZMAN DOĞRULAMA | QURAN · EXPERT VERIFICATION |
-| 102 | KAYNAK GÖRÜNÜR | SOURCE VISIBLE |
-| 103 | SES KAYDI HAZIR | AUDIO RECORDING READY |
-| 104 | UZMAN ONAYLI | EXPERT APPROVED |
-| 105 | İNCELEMEDE | UNDER REVIEW |
-| 106 | TÜRKÇE MEAL | TURKISH TRANSLATION |
-| 107 | ÖĞRENME NOTU | LEARNING NOTE |
-| 108 | Tanımlı değil | Not defined |
-| 109 | TASLAĞI KAYDET | SAVE DRAFT |
-| 110 | YAYINA ONAYLA | APPROVE FOR PUBLICATION |
-| 111 | İNCELEMEYE GERİ AL | RETURN TO REVIEW |
-| 112 | SONRAKİ BEKLEYEN | NEXT PENDING ITEM |
-| 113 | Henüz uzman işlemi yok. | No expert action yet. |
-| 114 | Admin panelini kapat | Close admin panel |
-| 115 | Pencereyi kapat | Close window |
-| 116 | Belirgin tekrar eden hata yok. Sistem yeni cevaplarla öğrenme profilini güncellemeye devam edecek. | No clear repeated mistakes. The system will keep updating your learning profile with new answers. |
-| 117 | Biriktirilebilir ilerleme madalyaları. Ek XP verilmez. | Collectible progress medals. No extra XP is awarded. |
-| 118 | Kaynaklı Arapça metin ve kayıtlı meal verisinden otomatik oluşturuldu. | Generated from sourced Arabic text and recorded translation data. |
-| 119 | Beyyine | Al-Bayyinah |
-| 120 | SON ÜNİTE | LAST UNIT |
-| 121 | KISIM 1 FİNALİ | SECTION 1 FINAL |
-| 122 | KİLİTLİ · USTALIK SINAVI | LOCKED · MASTERY TEST |
-| 123 | Temeller Ustalığı | Foundations Mastery |
-| 124 | Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler. | Valid differences between schools of law are not graded as incorrect; all new content awaits expert review. |
-| 125 | Fâtiha | Al-Fatihah |
-| 126 | Felak | Al-Falaq |
-| 127 | Nâs | An-Nas |
-| 128 | Mâûn | Al-Ma'un |
-| 129 | İnşirah | Ash-Sharh |
-| 130 | Zilzâl | Az-Zalzalah |
+| 1 | KISIM 1 FİNALİ | SECTION 1 FINAL |
+| 2 | KİLİTLİ · USTALIK SINAVI | LOCKED · MASTERY TEST |
+| 3 | Temeller Ustalığı | Foundations Mastery |
+| 4 | Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler. | Valid differences between schools of law are not graded as incorrect; all new content awaits expert review. |
+| 5 | Fâtiha | Al-Fatihah |
+| 6 | Felak | Al-Falaq |
+| 7 | Nâs | An-Nas |
+| 8 | Mâûn | Al-Ma'un |
+| 9 | İnşirah | Ash-Sharh |
+| 10 | Zilzâl | Az-Zalzalah |
 
 ## Audit scope limitation
 
