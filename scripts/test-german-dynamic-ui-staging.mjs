@@ -8,6 +8,10 @@ assert.equal(manifest.languages.de.question_data,'missing','German lessons must 
 assert.equal(manifest.languages.de.global_qa,'blocked','German release must remain blocked');
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
+ ["Öğrenme analizi","Lernanalyse"],
+ ["Henüz analiz edilecek cevap yok. İlk mini dersi tamamladığında doğruluk, cevap süresi, soru türleri ve tekrar eden hatalar burada oluşacak.","Es gibt noch keine Antworten zur Auswertung. Nach deiner ersten Mini-Lektion erscheinen hier Antwortgenauigkeit, Antwortdauer, Aufgabentypen und wiederkehrende Fehler."],
+ ["Seviye 1","Stufe 1"],
+ ["Seviye 12","Stufe 12"],
  ["Kalıcı kozmetik","Dauerhafte kosmetische Anpassung"],
  ["◇ Altın profil çerçevesi","◇ Goldener Profilrahmen"],
  ["★ Altın yol vurgusu","★ Goldene Lernpfad-Hervorhebung"],
