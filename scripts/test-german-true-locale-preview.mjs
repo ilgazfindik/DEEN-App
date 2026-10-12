@@ -450,8 +450,13 @@ try{
    root,{qaMode:true,locale:'de',documentRef:document});
   const citationsAfter=[...root.querySelectorAll('details.v5-source p')]
    .map(el=>el.textContent.trim());
+  // The first source-panel paragraphs are translatable UI notices; preserve
+  // the exact reference and scholarly note paragraphs at the end instead.
+  // Bibliographic titles must not be translated by a generic UI dictionary.
+  const protectedSourceBefore=citationsBefore.slice(-2);
+  const protectedSourceAfter=citationsAfter.slice(-2);
   const sourceCitationResidue=audit.unresolved.filter(source=>
-   citationsBefore.includes(source));
+   protectedSourceBefore.includes(source));
   const unresolvedUI=audit.unresolved.filter(source=>
    !sourceCitationResidue.includes(source));
   const details=audit.unresolved.map(source=>({
@@ -465,7 +470,7 @@ try{
   }));
   return {unresolved:audit.unresolved,unresolvedUI,
    sourceCitationResidue,sourceCitationUnchanged:
-    JSON.stringify(citationsBefore)===JSON.stringify(citationsAfter),
+    JSON.stringify(protectedSourceBefore)===JSON.stringify(protectedSourceAfter),
    activity,details,
    heading:document.getElementById('feedbackTitle')?.textContent?.trim()};
  });
