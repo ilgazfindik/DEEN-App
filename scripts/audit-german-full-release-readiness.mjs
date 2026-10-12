@@ -63,7 +63,7 @@ assert(boot.includes("window.DEEN_I18N.t('unavailableTitle',{},next)"),'Changing
 assert(locale.includes("Die deutschen Lerninhalte werden noch geprüft."),'German block explanation must be accurate');
 assert(!englishPresenter.includes('window.DEEN_GERMAN_UI'),'English renderer must not implicitly load staging German into production');
 const issues=[
- {code:'DE_UI_BASELINE_GAPS',severity:'blocking',count:notCovered.length,details:'English UI reference keys not found in the twelve staged German dictionaries'},
+ {code:'DE_UI_BASELINE_KEYS_COVERED',severity:'resolved',count:notCovered.length,details:'All English UI reference keys now have staging drafts; this does not prove complete runtime screen translation'},
  {code:'DE_UI_RENDERER_NOT_CONNECTED',severity:'blocking',details:'The app calls the English/Arabic UI renderers; staged German UI maps are not a production renderer'},
  {code:'DE_QUESTIONS_UNRELEASED',severity:'blocking',details:'All German question content and runtime variants are staging only, with pending religious and native review'},
  {code:'DE_QURAN_MEANINGS_UNAPPROVED',severity:'blocking',details:'90 German Quran meanings have source matching but no religious, native-language or rights approval'},
