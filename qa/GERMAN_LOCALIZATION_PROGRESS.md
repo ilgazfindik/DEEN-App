@@ -385,3 +385,14 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - [German staging CI #38245288403](https://github.com/ilgazfindik/DEEN-App/actions/runs/38245288403): new Kâfirûn QA and earlier regressions integrated; ensure final green outcome on current head before claiming overall success.
 - Expert, native, meaning and rights approval flags remain **false** on every verse; the German release gate is unchanged: \`de.question_data=missing\`, \`de.global_qa=blocked\`, \`de.religious_expert_approved=false\`. PR is **not merged/deployed**.
 - Next canonical Quran manifest order: **Nasr (\`nasr:1\`–\`nasr:3\`)**, meanings only, preserving Arabic Quran and audio.
+
+
+## Nasr (An-Nasr) German Quran meaning drafts — 2026-10-12
+- Added three original-style German **meaning drafts** for \`nasr:1\`–\`nasr:3\` to \`assets/i18n/quran/de/ayah-meanings.staging.json\`. All earlier seven surah sets remain intact. Quran meaning drafts now **37/90**, missing **53/90**, **publicly released 0**.
+- Source Arabic is unchanged. Each nasr entry is tied to the exact canonical Arabic ayah and original \`assets/quran/audio/nasr/nasr_1.mp3\`–\`nasr_3.mp3\` path (from \`assets/quran/audio/ayah-audio-manifest.json\`); no recitation tracks, Arabic text, Turkish/English Quran translations or language fallback were modified.
+- Compared [QuranEnc Ruwwad An-Nasr](https://quranenc.com/de/browse/german_rwwad/110) and [QuranEnc Bubenheim/Nadim Elias An-Nasr](https://quranenc.com/de/browse/german_bubenheim/110). External translations are comparative references only, **not verbatim imports** into the original DEEN draft wording.
+- Scholarly review concerns preserved per ayah: \`naṣr Allāh\` / \`al-fatḥ\` (victory / conquest of Mecca), entering Allah's religion \`afwājan\` (in crowds/groups), \`tasbīḥ/ḥamd\` plus \`istighfār\` and \`tawwāb\` (glorification, seeking forgiveness and acceptance of repentance).
+- Added \`scripts/test-german-nasr-meaning-staging.mjs\`, executed in CI. Exact canonical source IDs, Arabic and audio paths, 3 QA preview entries, incorrect Arabic/ID/surah/audio, forged approval and wrong-locale checks; **0 of all 90 German public Quran meaning lookups permitted**.
+- Updated seven earlier per-surah regression scripts to expect 37 staged entries and 53 absent meanings. Missing-surah negative fixtures moved from now-staged \`nasr\` to not-yet-staged \`masad\`.
+- The existing release gate remains **blocked**: \`de.question_data=missing\`, \`de.global_qa=blocked\`, \`de.religious_expert_approved=false\`; all meanings still have false native, theological, rights and meaning approvals. No main merge or live deploy.
+- Next source-order Quran surah: **Tebbet / Al-Masad** (\`masad:1\`–\`masad:5\`), stage meanings only with exact Arabic/audio source guards.
