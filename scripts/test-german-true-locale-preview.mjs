@@ -745,7 +745,10 @@ try{
  assert.equal(persistedBefore.completed,true);
  assert.equal(persistedBefore.storedCompleted,true);
  assert.equal(persistedBefore.storedScore,100);
- await page.reload({waitUntil:'domcontentloaded',timeout:60000});
+ // The forced first-entry ?previewLanguage=1 always opens the locale chooser.
+ // For a normal returning user, navigate to the canonical app URL; the
+ // persisted German preference must resume automatically without a new gate.
+ await page.goto(origin+'/',{waitUntil:'domcontentloaded',timeout:60000});
  const reloadInitial=await page.evaluate(()=>{
   const raw=JSON.parse(localStorage.getItem('deen_v4_1_state')||'null');
   return {url:location.href,title:document.title,
