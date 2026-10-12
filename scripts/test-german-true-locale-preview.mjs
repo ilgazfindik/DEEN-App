@@ -91,23 +91,45 @@ try{
   document.querySelector('.phone').inert=false;
   startStage('U01-S01');
   if(!session?.questions?.length)return {opened:false};
-  return {opened:true,questions:session.questions.map(q=>({
-   id:q.id,language:q.__deenContentLocale||null,question:q.question_tr,
-   source_question:q.__deenSourceQuestion?.question_tr||null,activity:q.activity_type,
-   options:q.options_tr,answer:q.correct_answer})),
+  const selectedIds=session.questions.map(q=>q.id);
+  const initiallyLocalized=session.questions.filter(q=>q.__deenContentLocale==='de').length;
+  // The stage translates lazily as each question enters the real renderer.
+  const renders=[];
+  for(let i=0;i<selectedIds.length;i++){
+   session.index=i;
+   renderQuestion();
+   const question=session.questions[i];
+   const source=question.__deenSourceQuestion;
+   renders.push({index:i,id:question.id,type:question.activity_type,
+    language:question.__deenContentLocale||null,
+    localized:question.__deenContentLocale==='de',
+    source_distinct:!!source&&source.question_tr!==question.question_tr,
+    displayed_text:document.getElementById('questionText')?.textContent?.trim()||null,
+    question:question.question_tr,answer:question.correct_answer,
+    options:question.options_tr,pairs:question.pairs,items:question.items,
+    order:question.correct_order});
+  }
+  session.index=0;renderQuestion();
+  return {opened:true,selected_count:selectedIds.length,initially_localized:initiallyLocalized,
+   renders,question_order_stable:selectedIds.every((id,i)=>session.questions[i]?.id===id),
    rendered:document.getElementById('questionText')?.textContent||null,
    answerLabels:[...document.querySelectorAll('#answerArea .option-label')]
     .map(el=>el.textContent?.trim())};
  });
  report.lesson=stage;
  assert.equal(stage.opened,true,'Stage did not open under German actual locale');
- assert.equal(stage.questions.length,7,'Unexpected U01 first lesson question count');
- assert(stage.questions.every(q=>q.language==='de'),
-  'Real DE runtime startStage returned source/Turkish questions');
- assert(stage.questions.every(q=>q.source_question&&q.source_question!==q.question),
-  'Question did not retain original Turkish source');
- assert(stage.questions.every(q=>q.answer&&q.options?.includes(q.answer)),
-  'German correct option not included in German displayed options');
+ assert.equal(stage.selected_count,12,'Unexpected active U01 lesson question count');
+ assert.equal(stage.question_order_stable,true,'German rendering mutated lesson question order');
+ assert.equal(stage.renders.length,12);
+ assert(stage.renders.every(q=>q.localized),
+  'The real lesson renderer failed to translate one or more questions: '+
+  JSON.stringify(stage.renders.filter(q=>!q.localized).map(q=>q.id)));
+ assert(stage.renders.every(q=>q.source_distinct),
+  'German question content did not retain its original source');
+ assert(stage.renders.every(q=>q.displayed_text.includes(q.question)),
+  'A rendered lesson question leaked Turkish or failed to display the German text');
+ assert(stage.renders.filter(q=>Array.isArray(q.options)).every(q=>
+  q.options.includes(q.answer)),'Rendered German answers did not contain the correct choice');
  await page.screenshot({path:output+'/true-locale-german-first-lesson.png',fullPage:true});
  const content=await page.evaluate(()=>{
   const source=window.DEEN_CONTENT_LOCALE.inspectBank(QUESTIONS,'de');
