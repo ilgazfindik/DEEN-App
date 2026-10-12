@@ -17,8 +17,8 @@ assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(pack.locale,'de');
 assert.equal(pack.scope,'quran_ayah_meanings_staging');
-assert.equal(pack.ayah_count,66);
-assert.equal(Object.keys(pack.translations).length,66);
+assert.equal(pack.ayah_count,74);
+assert.equal(Object.keys(pack.translations).length,74);
 for(const flag of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[flag],false);
 const fil=source.entries.filter(x=>x.surahId==='fil').sort((x,y)=>x.ayah-y.ayah);
 assert.deepEqual(fil.map(x=>x.key),['fil:1','fil:2','fil:3','fil:4','fil:5']);
@@ -54,16 +54,16 @@ for(const aya of fil){
  assert.equal(resolveGermanAyahMeaning(aya,forged),null,'Per-ayah review cannot be bypassed');rejected++;
 }
 assert.equal(resolveGermanAyahMeaning(fil[0],{...pack,locale:'tr'},{preview:true}),null);rejected++;
-assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='tin'),pack,{preview:true}),null);rejected++;
+assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='bayyina'),pack,{preview:true}),null);rejected++;
 let draftCount=0,productionCount=0;
 for(const x of source.entries){
  if(resolveGermanAyahMeaning(x,pack,{preview:true})!==null)draftCount++;
  if(resolveGermanAyahMeaning(x,pack)!==null)productionCount++;
 }
-assert.equal(draftCount,66);
+assert.equal(draftCount,74);
 assert.equal(productionCount,0);
 const refs=pack.sources.comparative_only.filter(ref=>ref.comparison_scope==='Surah 105 Al-Fil');
 assert.equal(refs.length,3);
 assert(refs.every(x=>x.text_copied_verbatim===false&&/^https:\/\//.test(x.url)));
-console.log(JSON.stringify({status:'passed',surah:'Al-Fil',new_ayah_drafts:5,total_staging_meanings:66,missing_meanings:24,
+console.log(JSON.stringify({status:'passed',surah:'Al-Fil',new_ayah_drafts:5,total_staging_meanings:74,missing_meanings:16,
  correct_qa_previews:5,public_meanings:0,negative_checks:rejected,original_arabic_and_audio_unchanged:true,approvals:'pending'},null,2));
