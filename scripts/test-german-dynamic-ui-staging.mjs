@@ -8,6 +8,21 @@ assert.equal(manifest.languages.de.question_data,'missing','German lessons must 
 assert.equal(manifest.languages.de.global_qa,'blocked','German release must remain blocked');
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
+
+ ['1. KISIM · 1. ÜNİTE','ABSCHNITT 1 · EINHEIT 1'],
+ ['3. KISIM · 15. ÜNİTE','ABSCHNITT 3 · EINHEIT 15'],
+ ['Ders 1','Lektion 1'],['Ders 2','Lektion 2'],
+ ['0/3 · Ders 1','0/3 · Lektion 1'],['2/4 · Ders 3','2/4 · Lektion 3'],
+ ['0 ENERJİ','0 ENERGIE'],
+ ['Ders 1/3 · Aktif Hatırlama','Lektion 1/3 · Aktives Abrufen'],
+ ['Ders 1/3 · Tanı','Lektion 1/3 · Erkennen'],
+ ['Ders 1/4 · Bağ Kur','Lektion 1/4 · Verknüpfen'],
+ ['Ders 1/4 · Duruma Uyarla','Lektion 1/4 · Auf Situationen anwenden'],
+ ['Ders 1/4 · Sesi Tanı','Lektion 1/4 · Hören und erkennen'],
+ ['Enerji azaldı','Energie aufgebraucht'],
+ ['Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.','Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.'],
+ ['Derse devam etmek için enerjini yenileyebilirsin. Premium enerji sınırını kaldırır, reklam ise hızlı bir destek verir.','Fülle deine Energie auf, um weiterzulernen. Mit Premium entfällt das Energielimit. Alternativ kannst du dir eine Werbung ansehen.'],
+
  ['Ünite 1 · Aşama 1','Einheit 1 · Etappe 1'],
  ['Ünite 15 · Aşama 3','Einheit 15 · Etappe 3'],
  ['1 mini ders · yaklaşık 5 dakika','1 Mini-Lektion · etwa 5 Minuten'],
@@ -59,6 +74,9 @@ const approved={
  'İslam Nedir?':'Was ist der Islam?',
  "Allah'a iman":'Glaube an Allah',
  'Temel Kavramlar':'Grundbegriffe',
+ 'Namaza Hazırlık':'Vorbereitung auf das Gebet',
+ 'Melekler Kimdir?':'Wer sind die Engel?',
+ 'Meleklere İman':'Glaube an die Engel',
 };
 const resolve=s=>approved[s]??null;
 for(const [input,expected]of [
@@ -67,6 +85,11 @@ for(const [input,expected]of [
  ["Doğru cevap: Allah'a iman",'Richtige Antwort: Glaube an Allah'],
  ['Kısaca: Temel Kavramlar','Kurz gesagt: Grundbegriffe'],
  ['Özet: Temel Kavramlar','Zusammenfassung: Grundbegriffe'],
+ ['Namaza Hazırlık · ÖĞREN · Aşama 1/5','Vorbereitung auf das Gebet · LERNEN · Etappe 1/5'],
+ ['Melekler Kimdir? · ANLA · Aşama 2/5','Wer sind die Engel? · VERSTEHEN · Etappe 2/5'],
+ ['Melekler Kimdir? — Önceki aşamayı tamamla','Wer sind die Engel? — Schließe zuerst die vorherige Etappe ab'],
+ ['Meleklere İman mevcut aşamaya git','Zur aktuellen Etappe von Glaube an die Engel springen'],
+ ['Meleklere İman · 5 aşamalı öğrenme yolu','Glaube an die Engel · Lernpfad mit 5 Etappen'],
  ['İslam Nedir? artık bitti. Sıradaki düğüm açıldı.','Was ist der Islam? ist abgeschlossen. Die nächste Etappe wurde freigeschaltet.']
 ])assert.equal(fmt(input,{translateLabel:resolve}),expected,input);
 for(const input of [
@@ -75,6 +98,9 @@ for(const input of [
  'Özet: Henüz çevrilmemiş açıklama',
  "Allah'a iman artık bitti. Sıradaki düğüm açıldı.",
  '0/3 Görev: Türkçe metin',
+ 'Bilinmeyen ders adı · ÖĞREN · Aşama 1/5',
+ 'Bilinmeyen ders adı — Önceki aşamayı tamamla',
+ 'Bilinmeyen ünite mevcut aşamaya git',
  '7 güne ? gün kaldı · +5 Pırıltı',
  '',
  null
@@ -82,7 +108,7 @@ for(const input of [
  const got=fmt(input);
  assert.equal(got,null,'Unknown text must fail closed: '+input);
 }
-const report={locale:'de',status:'passed',staging_only:true,positive_cases:cases.length+6,
- whitespace_cases:cases.length,negative_cases:9,
+const report={locale:'de',status:'passed',staging_only:true,positive_cases:cases.length+11,
+ whitespace_cases:cases.length,negative_cases:12,
  release_ready:false,production_manifest:'blocked'};
 console.log(JSON.stringify(report,null,2));
