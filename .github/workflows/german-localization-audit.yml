@@ -8,6 +8,9 @@ on:
       - 'scripts/audit-german-staging.mjs'
       - 'scripts/audit-german-runtime-staging.mjs'
       - 'scripts/test-german-content-adapter.mjs'
+      - 'scripts/audit-german-ui-staging.mjs'
+      - 'assets/i18n/german-ui.staging.json'
+      - 'assets/i18n/english-ui.draft.json'
       - 'assets/i18n/content.js'
       - 'qa/GERMAN_LOCALIZATION_PROGRESS.md'
       - '.github/workflows/german-localization-audit.yml'
@@ -27,6 +30,8 @@ jobs:
         run: node scripts/audit-german-runtime-staging.mjs
       - name: Verify German staging against the real source-guarded question adapter
         run: node scripts/test-german-content-adapter.mjs
+      - name: Audit staged German UI strings and preserved release gate
+        run: node scripts/audit-german-ui-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
