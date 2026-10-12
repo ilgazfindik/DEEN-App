@@ -31,13 +31,15 @@ export function localizeGermanActivityA11y(question,root,{qaMode=false,locale='d
   });
  }else if(question.activity_type==='fill_blank'){
   const options=new Set(question.options_tr||[]);
-  root.querySelectorAll('.fill-choice[data-value]').forEach(card=>{
+  const activeBank=root.querySelector('#answerArea');
+  if(!activeBank)throw Error('DE_FILL_BANK_MISSING');
+  activeBank.querySelectorAll('.fill-choice[data-value]').forEach(card=>{
    const word=card.dataset.value;
    const visibleLabel=card.querySelector('.v1040-fill-chip-label');
    // Runtime may replace the chip's visible label after a selection. The
    // canonical data-value must still equal an approved question option.
    if(!options.has(word)||(visibleLabel&&visibleLabel.textContent?.trim()!==word))
-    throw Error('DE_FILL_WORD_SOURCE_DRIFT');
+    throw Error('DE_FILL_WORD_SOURCE_DRIFT:'+JSON.stringify({word,options:[...options],label:visibleLabel?.textContent}));
    label(card,word+' in die Lücke einsetzen');
   });
   root.querySelectorAll('.v1040-fill-slot').forEach(slot=>{
