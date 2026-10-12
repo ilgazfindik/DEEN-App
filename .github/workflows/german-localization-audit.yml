@@ -16,6 +16,7 @@ on:
       - 'scripts/test-german-fatiha-meaning-staging.mjs'
       - 'scripts/test-german-ikhlas-meaning-staging.mjs'
       - 'scripts/test-german-falaq-meaning-staging.mjs'
+      - 'scripts/test-german-nas-meaning-staging.mjs'
       - 'assets/i18n/quran/de/**'
       - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'assets/i18n/german-ui.quran-controls.staging.json'
@@ -60,6 +61,8 @@ jobs:
         run: node scripts/test-german-ikhlas-meaning-staging.mjs
       - name: Test Al-Falaq 5-ayah meaning source/audio identity and production block
         run: node scripts/test-german-falaq-meaning-staging.mjs
+      - name: Test An-Nas six-ayah source/audio identity and production meaning embargo
+        run: node scripts/test-german-nas-meaning-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
