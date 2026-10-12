@@ -29,5 +29,7 @@ jobs:
         run: node scripts/test-german-content-adapter.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
+      - name: Existing English runtime adapter remains valid
+        run: node scripts/audit-english-runtime.mjs
       - name: Release hashes remain valid
         run: node scripts/build-release-manifest.mjs --check
