@@ -28,9 +28,9 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
    'Duruma Uyarla':'Auf Situationen anwenden','Sesi Tanı':'Hören und erkennen'};
   return emit('Lektion '+m[1]+'/'+m[2]+' · '+lessonKinds[m[3]]);
  }
- if((m=n.match(/^(.+?)\s*·\s*(ÖĞREN|ANLA|DİNLE|UYGULA|USTALAŞ)\s*·\s*Aşama\s+(\d+)\/(\d+)$/))){
+ if((m=n.match(/^(.+?)\s*·\s*(ÖĞREN|ANLA|DİNLE|UYGULA|USTALAŞ|HATIRLA)\s*·\s*Aşama\s+(\d+)\/(\d+)$/))){
   const stageKinds={'ÖĞREN':'LERNEN','ANLA':'VERSTEHEN','DİNLE':'ZUHÖREN',
-   'UYGULA':'ANWENDEN','USTALAŞ':'MEISTERN'};
+   'UYGULA':'ANWENDEN','USTALAŞ':'MEISTERN','HATIRLA':'ERINNERN'};
   const title=label(m[1]);return title?emit(title+' · '+stageKinds[m[2]]+' · Etappe '+m[3]+'/'+m[4]):null;
  }
  if((m=n.match(/^(.+?)\s*—\s*Önceki aşamayı tamamla$/))){
@@ -42,8 +42,38 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  if((m=n.match(/^(.+?)\s*·\s*(\d+)\s+aşamalı öğrenme yolu$/))){
   const title=label(m[1]);return title?emit(title+' · Lernpfad mit '+m[2]+' Etappen'):null;
  }
+ // Further templated chrome observed by real Chromium across the assembled app.
+ if((m=n.match(/^(\d+)\s*%\s*GEÇİŞ$/)))return emit('ÜBERGANGSSCHWELLE '+m[1]+' %');
+ if((m=n.match(/^%(\d+)\s*GEÇİŞ$/)))return emit('ÜBERGANGSSCHWELLE '+m[1]+' %');
+ if((m=n.match(/^aşama\s*·\s*Ustalık\s*%(\d+)$/)))
+  return emit('Etappe · Kenntnisstand '+m[1]+' %');
+ if((m=n.match(/^(.+?)\s*·\s*ÖĞREN\s*·\s*Mini ders\s+(\d+)\/(\d+)$/))){
+  const name=label(m[1]);return name?emit(name+' · LERNEN · Mini-Lektion '+m[2]+'/'+m[3]):null;
+ }
+ if((m=n.match(/^(.+?)\s*—\s*(\d+)\/(\d+)\s+mini ders tamamlandı$/))){
+  const name=label(m[1]);return name?emit(name+' — '+m[2]+'/'+m[3]+' Mini-Lektionen abgeschlossen'):null;
+ }
  // Exact texts recorded in the ungraded app chrome, not Quran, answers or teaching content.
  const observedUI={
+  'PREMIUM · SINIRSIZ ENERJİ':'PREMIUM · UNBEGRENZTE ENERGIE',
+  'Premium yalnızca konfor özelliğidir. Dini içerik herkese açıktır. Reklam butonu bu HTML önizlemesinde simülasyondur.':
+   'Premium bietet nur Komfortfunktionen. Religiöse Lerninhalte sind für alle frei zugänglich. Der Werbebutton ist in dieser HTML-Vorschau eine Simulation.',
+  'REKLAM İZLE · +10 ENERJİ':'WERBUNG ANSEHEN · +10 ENERGIE',
+  'SERİ KORUMA':'SERIENSCHUTZ',
+  'SONRAKİ ENERJİ':'NÄCHSTE ENERGIEAUFFÜLLUNG',
+  'Sıradaki: Aktif Hatırlama · Cevabı görmeden bilgiyi zihninden geri çağır.':
+   'Als Nächstes: Aktives Abrufen · Rufe das Wissen ab, ohne die Antwort zu sehen.',
+  'Sıradaki: Bağ Kur · Kavramları doğru anlam ve örneklerle bağla.':
+   'Als Nächstes: Verknüpfen · Verbinde Begriffe mit den passenden Bedeutungen und Beispielen.',
+  'Sıradaki: Duruma Uyarla · Öğrendiğin ilkeyi basit bir duruma uygula.':
+   'Als Nächstes: Auf Situationen anwenden · Wende den gelernten Grundsatz auf eine einfache Situation an.',
+  'Sıradaki: Sesi Tanı · Resmî kaydı dinleyerek doğru ifadeyi tanı.':
+   'Als Nächstes: Hören und erkennen · Höre die offizielle Aufnahme und erkenne die richtige Aussage.',
+  'Sıradaki: Tanı · Temel kavramı güvenli biçimde tanı.':
+   'Als Nächstes: Erkennen · Lerne den Grundbegriff behutsam kennen.',
+  'Sıradaki: Ünite Challenge · Ünitenin temel kavramlarını farklı soru biçimleriyle ustalık seviyesinde kullan.':
+   'Als Nächstes: Kapitel-Challenge · Wende die Grundbegriffe der Einheit in verschiedenen Aufgabenformen vertieft an.',
+
   'Enerji azaldı':'Energie aufgebraucht',
   'Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.':
    'Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.',
