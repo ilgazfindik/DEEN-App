@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U07",
+  "stage": "U07-S02",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U07-S02-001": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:3-4'te Kur'an'dan önce indirildiği açıkça zikredilen iki kitap hangisidir?",
+        "explanation_tr": "Âl-i İmrân 3:3-4 Tevrat ve İncil'in daha önce insanlara hidayet için indirildiğini bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tevrat ve İncil",
+          "Zebur ve Kur'an",
+          "Sahifeler ve Kur'an",
+          "Yalnız Zebur"
+        ],
+        "correct_answer": "Tevrat ve İncil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche zwei Bücher wurden nach Al-Imran 3:3–4 bereits vor dem Koran offenbart?",
+        "explanation_tr": "Al-Imran 3:3–4 nennt die zuvor offenbarte Tora und das Evangelium als Rechtleitung für die Menschen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die Tora und das Evangelium (Indschil)",
+          "Der Zabur und der Koran",
+          "Die Schriftrollen und der Koran",
+          "Nur der Zabur"
+        ],
+        "correct_answer": "Die Tora und das Evangelium (Indschil)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-002": {
+      "source": {
+        "question_tr": "Mâide 5:44 Tevrat'ı içinde hidayet ve nur bulunan bir kitap olarak tanımlar.",
+        "explanation_tr": "Ayette Tevrat'ın Allah tarafından indirildiği ve içinde hidayet ve nur bulunduğu belirtilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Maida 5:44 beschreibt die Tora als ein Buch mit Rechtleitung und Licht.",
+        "explanation_tr": "Der Vers sagt, dass Allah die Tora offenbart hat und dass sie Rechtleitung und Licht enthält.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-003": {
+      "source": {
+        "question_tr": "Mâide 5:46'ya göre İncil kime verilmiştir?",
+        "explanation_tr": "Mâide 5:46 Hz. Îsâ'ya İncil'in verildiğini açıkça bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hz. Îsâ'ya",
+          "Hz. Dâvûd'a",
+          "Hz. Mûsâ'ya",
+          "Hz. İbrâhim'e"
+        ],
+        "correct_answer": "Hz. Îsâ'ya",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wem wurde nach Al-Maida 5:46 das Evangelium (Indschil) gegeben?",
+        "explanation_tr": "Al-Maida 5:46 besagt ausdrücklich, dass Jesus das Evangelium gegeben wurde.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Jesus",
+          "David",
+          "Mose",
+          "Abraham"
+        ],
+        "correct_answer": "Jesus",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kur'an'da Tevrat'ın Allah tarafından indirildiği söylenmez' diyor. Hangi bilgi bunu düzeltir?",
+        "explanation_tr": "Mâide 5:44 Tevrat'ın Allah tarafından indirildiğini açıkça bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mâide 5:44 Tevrat'ı 'biz indirdik' ifadesiyle anlatır",
+          "Kur'an Tevrat'tan hiç söz etmez",
+          "Tevrat yalnız tarih kitabı diye anılır",
+          "Tevrat İncil'in başka adıdır"
+        ],
+        "correct_answer": "Mâide 5:44 Tevrat'ı 'biz indirdik' ifadesiyle anlatır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand behauptet: „Der Koran sagt nicht, dass Allah die Tora offenbarte.“ Welche Information widerlegt das?",
+        "explanation_tr": "Al-Maida 5:44 bezeichnet die Tora ausdrücklich als von Allah offenbart.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Maida 5:44 beschreibt die Tora als Offenbarung Allahs",
+          "Der Koran erwähnt die Tora nie",
+          "Die Tora wird nur als Geschichtsbuch erwähnt",
+          "Tora ist ein anderer Name für das Evangelium"
+        ],
+        "correct_answer": "Al-Maida 5:44 beschreibt die Tora als Offenbarung Allahs",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-005": {
+      "source": {
+        "question_tr": "Mâide 5:46'ya göre Hz. Îsâ'ya ______ verilmiştir.",
+        "explanation_tr": "Ayette Hz. Îsâ'ya içinde hidayet ve nur bulunan İncil'in verildiği belirtilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "İncil",
+          "Zebur",
+          "Tevrat",
+          "Kur'an"
+        ],
+        "correct_answer": "İncil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Maida 5:46 wurde Jesus das ______ gegeben.",
+        "explanation_tr": "Der Vers erklärt, dass Jesus das Evangelium erhielt, das Rechtleitung und Licht enthält.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Evangelium (Indschil)",
+          "Zabur",
+          "Tora",
+          "Koran"
+        ],
+        "correct_answer": "Evangelium (Indschil)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-006": {
+      "source": {
+        "question_tr": "Bir notta 'Zebur Hz. Mûsâ'ya verilmiştir' yazıyor. Doğru düzeltme hangisidir?",
+        "explanation_tr": "Nisâ 4:163, Allah'ın Dâvûd'a Zebur'u verdiğini bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Zebur Hz. Dâvûd'a verilmiştir",
+          "Zebur Hz. Îsâ'ya verilmiştir",
+          "Zebur Hz. İbrâhim'e verilmiştir",
+          "Kur'an Zebur'dan söz etmez"
+        ],
+        "correct_answer": "Zebur Hz. Dâvûd'a verilmiştir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Der Zabur wurde Mose gegeben.“ Was ist die richtige Korrektur?",
+        "explanation_tr": "An-Nisa 4:163 erklärt, dass Allah David den Zabur gab.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Der Zabur wurde David gegeben",
+          "Der Zabur wurde Jesus gegeben",
+          "Der Zabur wurde Abraham gegeben",
+          "Der Koran erwähnt den Zabur nicht"
+        ],
+        "correct_answer": "Der Zabur wurde David gegeben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-007": {
+      "source": {
+        "question_tr": "Kitapları ilgili peygamberlerle eşleştir.",
+        "explanation_tr": "Kur'an Tevrat'ı Mûsâ geleneğiyle, İncil'i Îsâ'yla ve Zebur'u Dâvûd'la ilişkilendirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tevrat",
+            "right": "Hz. Mûsâ ile ilişkilidir"
+          },
+          {
+            "left": "İncil",
+            "right": "Hz. Îsâ'ya verilmiştir"
+          },
+          {
+            "left": "Zebur",
+            "right": "Hz. Dâvûd'a verilmiştir"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Bücher mit den dazugehörigen Propheten.",
+        "explanation_tr": "Der Koran verbindet die Tora mit Mose, das Evangelium mit Jesus und den Zabur mit David.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tora",
+            "right": "Mit Mose verbunden"
+          },
+          {
+            "left": "Evangelium (Indschil)",
+            "right": "Jesus gegeben"
+          },
+          {
+            "left": "Zabur",
+            "right": "David gegeben"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-008": {
+      "source": {
+        "question_tr": "Nisâ 4:163'te Hz. Dâvûd'a Zebur verildiği bildirilir.",
+        "explanation_tr": "Ayette Dâvûd'a Zebur'un verildiği açıkça ifade edilir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "An-Nisa 4:163 sagt, dass David den Zabur erhielt.",
+        "explanation_tr": "Der Vers bestätigt ausdrücklich, dass David den Zabur erhielt.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-009": {
+      "source": {
+        "question_tr": "A'lâ 87:18-19'da önceki vahiyler bağlamında hangi iki peygamberin sahifeleri zikredilir?",
+        "explanation_tr": "A'lâ 87:18-19 İbrâhim ve Mûsâ'nın sahifelerinden söz eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbrâhim ve Mûsâ",
+          "Îsâ ve Dâvûd",
+          "Nûh ve Yûnus",
+          "Süleyman ve Eyyûb"
+        ],
+        "correct_answer": "İbrâhim ve Mûsâ",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wessen Schriftrollen werden in Al-Ala 87:18–19 im Zusammenhang mit früheren Offenbarungen erwähnt?",
+        "explanation_tr": "Al-Ala 87:18–19 nennt die Schriftrollen Abrahams und Moses.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Abraham und Mose",
+          "Jesus und David",
+          "Noah und Jona",
+          "Salomo und Hiob"
+        ],
+        "correct_answer": "Abraham und Mose",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-010": {
+      "source": {
+        "question_tr": "Bir içerik, sahifeler konusunda Kur'an'ın vermediği kesin sayıları 'ayet bilgisi' diye sunuyor. En uygun yaklaşım hangisidir?",
+        "explanation_tr": "A'lâ 87:18-19 İbrâhim ve Mûsâ'nın sahifelerini zikreder; ayrıntıların kaynak türü ayrıca belirtilmelidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an'ın açıkça verdiği isimlerle yetinip rivayetleri ayet diye sunmamak",
+          "Bütün rivayetleri Kur'an ayeti saymak",
+          "Sahifeleri inkâr etmek",
+          "Her sayıyı zorunlu iman konusu yapmak"
+        ],
+        "correct_answer": "Kur'an'ın açıkça verdiği isimlerle yetinip rivayetleri ayet diye sunmamak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einem Lerntext werden genaue Anzahlen von Schriftrollen, die der Koran nicht angibt, als „Koranvers“ ausgegeben. Was ist richtig?",
+        "explanation_tr": "Al-Ala 87:18–19 erwähnt die Schriftrollen Abrahams und Moses; weitere Einzelheiten benötigen eine eigene Quellenangabe.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bei den ausdrücklich im Koran genannten Angaben bleiben und andere Überlieferungen nicht als Verse ausgeben",
+          "Jede Überlieferung als Koranvers behandeln",
+          "Die Schriftrollen leugnen",
+          "Jede genannte Zahl zum verpflichtenden Glauben erklären"
+        ],
+        "correct_answer": "Bei den ausdrücklich im Koran genannten Angaben bleiben und andere Überlieferungen nicht als Verse ausgeben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-011": {
+      "source": {
+        "question_tr": "Kur'an'da açıkça adı geçen başlıca ilahî kitaplardan dördünü yaz.",
+        "explanation_tr": "Kur'an bu kitapları farklı ayetlerde isimleriyle zikreder.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Tevrat, İncil, Zebur ve Kur'an.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nenne vier bedeutende göttliche Bücher, die der Koran ausdrücklich erwähnt.",
+        "explanation_tr": "Diese Bücher werden im Koran an verschiedenen Stellen namentlich erwähnt.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Tora, Evangelium (Indschil), Zabur und Koran.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-012": {
+      "source": {
+        "question_tr": "Nisâ 4:163'e göre Hz. Dâvûd'a ______ verilmiştir.",
+        "explanation_tr": "Ayette Dâvûd'a Zebur verildiği açıkça bildirilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Zebur",
+          "İncil",
+          "Tevrat",
+          "Kur'an"
+        ],
+        "correct_answer": "Zebur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach An-Nisa 4:163 erhielt David den ______.",
+        "explanation_tr": "Der Vers sagt ausdrücklich, dass David den Zabur erhielt.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Zabur",
+          "das Evangelium",
+          "die Tora",
+          "den Koran"
+        ],
+        "correct_answer": "Zabur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-013": {
+      "source": {
+        "question_tr": "Kur'an'da adı geçen kitap-peygamber ilişkilerini öğretim amacıyla sırala.",
+        "explanation_tr": "Bu sıra kronolojik bir öğretim özetidir; dört kitabın ilgili peygamberlerle ilişkisini hatırlatır.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Hz. Mûsâ — Tevrat",
+          "Hz. Dâvûd — Zebur",
+          "Hz. Îsâ — İncil",
+          "Hz. Muhammed — Kur'an"
+        ],
+        "correct_order": [
+          "Hz. Mûsâ — Tevrat",
+          "Hz. Dâvûd — Zebur",
+          "Hz. Îsâ — İncil",
+          "Hz. Muhammed — Kur'an"
+        ]
+      },
+      "display": {
+        "question_tr": "Bringe die im Koran genannten Zuordnungen von Büchern und Propheten in die Reihenfolge dieser Lernübersicht.",
+        "explanation_tr": "Diese chronologische Lernübersicht verbindet die vier Bücher mit den entsprechenden Propheten.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Mose – Tora",
+          "David – Zabur",
+          "Jesus – Evangelium",
+          "Muhammad – Koran"
+        ],
+        "correct_order": [
+          "Mose – Tora",
+          "David – Zabur",
+          "Jesus – Evangelium",
+          "Muhammad – Koran"
+        ],
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S02-014": {
+      "source": {
+        "question_tr": "A'lâ 87:18-19'da İbrâhim ve Mûsâ'nın sahifelerinden söz edilir.",
+        "explanation_tr": "Ayetler önceki sahifeler içinde İbrâhim ve Mûsâ'nın sahifelerini zikreder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Ala 87:18–19 erwähnt die Schriftrollen von Abraham und Mose.",
+        "explanation_tr": "Die Verse nennen die Schriftrollen Abrahams und Moses unter den früheren Schriften.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die offenbarten Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

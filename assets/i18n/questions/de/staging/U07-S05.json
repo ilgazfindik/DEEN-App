@@ -1,0 +1,603 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U07",
+  "stage": "U07-S05",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U07-S05-001": {
+      "source": {
+        "question_tr": "İsrâ 17:9'a göre Kur'an'ın temel işlevlerinden biri nedir?",
+        "explanation_tr": "İsrâ 17:9 Kur'an'ın insanları en doğru olana ilettiğini bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "En doğru olana iletmek",
+          "Yalnız geçmiş olayları sıralamak",
+          "Sadece dil çalışması sunmak",
+          "İnsanların bütün yorumlarını doğrulamak"
+        ],
+        "correct_answer": "En doğru olana iletmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wozu dient der Koran nach Al-Isra 17:9 unter anderem?",
+        "explanation_tr": "Al-Isra 17:9 besagt, dass der Koran zum geradesten Weg leitet.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zum geradesten Weg zu leiten",
+          "Nur frühere Ereignisse aufzuzählen",
+          "Nur Sprachübungen bereitzustellen",
+          "Sämtliche menschlichen Deutungen zu bestätigen"
+        ],
+        "correct_answer": "Zum geradesten Weg zu leiten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-002": {
+      "source": {
+        "question_tr": "İsrâ 17:9 Kur'an'ı rehberlik eden bir kitap olarak tanımlar.",
+        "explanation_tr": "Ayette Kur'an'ın en doğru olana ilettiği açıkça belirtilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Isra 17:9 beschreibt den Koran als Buch der Rechtleitung.",
+        "explanation_tr": "Der Vers sagt ausdrücklich, dass der Koran zu dem leitet, was am geradesten ist.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-003": {
+      "source": {
+        "question_tr": "İsrâ 17:9'a göre Kur'an en ______ olana iletir.",
+        "explanation_tr": "Ayette Kur'an'ın en doğru olana ilettiği ifade edilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "doğru",
+          "kazançlı",
+          "eski",
+          "gizli"
+        ],
+        "correct_answer": "doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Isra 17:9 leitet der Koran zum ______ Weg.",
+        "explanation_tr": "Der Vers hebt hervor, dass der Koran zum geradesten Weg führt.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "geradesten",
+          "gewinnbringendsten",
+          "ältesten",
+          "verborgensten"
+        ],
+        "correct_answer": "geradesten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kur'an'ın ana amacı yalnız bilimsel ayrıntılar vermektir' diyor. Diyanet tefsirindeki vurguya göre hangi cevap daha uygundur?",
+        "explanation_tr": "İsrâ 17:9 tefsiri Kur'an'ın asıl işlevini insanlık için rehberlik olarak açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an'ın temel işlevi insanı doğru inanç ve güzel amele yönelten rehberliktir",
+          "Kur'an yalnız deney kitabıdır",
+          "Kur'an rehberlik etmez",
+          "Kur'an sadece kronoloji verir"
+        ],
+        "correct_answer": "Kur'an'ın temel işlevi insanı doğru inanç ve güzel amele yönelten rehberliktir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Der Koran soll vor allem wissenschaftliche Einzelheiten liefern.“ Welche Antwort entspricht der Diyanet-Auslegung besser?",
+        "explanation_tr": "Die Auslegung zu Al-Isra 17:9 beschreibt die Rechtleitung der Menschen als zentrale Aufgabe des Korans.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die wichtigste Aufgabe des Korans ist die Rechtleitung zu richtigem Glauben und guten Taten",
+          "Der Koran ist ausschließlich eine Versuchsanleitung",
+          "Der Koran vermittelt keine Rechtleitung",
+          "Der Koran enthält nur chronologische Listen"
+        ],
+        "correct_answer": "Die wichtigste Aufgabe des Korans ist die Rechtleitung zu richtigem Glauben und guten Taten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-005": {
+      "source": {
+        "question_tr": "Hicr 15:9'da Allah Kur'an hakkında neyi bildirir?",
+        "explanation_tr": "Hicr 15:9 vahyin Allah tarafından indirildiğini ve korunacağını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Onu indirdiğini ve koruyacağını",
+          "İnsanların onu dilediği gibi değiştireceğini",
+          "Korunmasının imkânsız olduğunu",
+          "Yalnız sözlü kalacağını"
+        ],
+        "correct_answer": "Onu indirdiğini ve koruyacağını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was sagt Allah in Al-Hidschr 15:9 über den Koran?",
+        "explanation_tr": "Al-Hidschr 15:9 erklärt, dass Allah die Offenbarung herabgesandt hat und sie bewahrt.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Er hat ihn offenbart und wird ihn bewahren",
+          "Menschen können ihn nach Belieben verändern",
+          "Seine Bewahrung ist unmöglich",
+          "Er bleibt ausschließlich mündlich erhalten"
+        ],
+        "correct_answer": "Er hat ihn offenbart und wird ihn bewahren",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-006": {
+      "source": {
+        "question_tr": "Bir notta 'Kur'an'ın korunması tamamen tesadüfe bırakılmıştır' yazıyor. En doğrudan düzeltme hangisidir?",
+        "explanation_tr": "Ayette vahyin korunmasının Allah'ın güvencesinde olduğu belirtilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hicr 15:9 Allah'ın onu koruyacağını bildirir",
+          "Kur'an korunma hakkında hiçbir şey söylemez",
+          "Kur'an yalnız insan sözü sayılır",
+          "Fussılet 41:42 Kur'an'ı değersiz sayar"
+        ],
+        "correct_answer": "Hicr 15:9 Allah'ın onu koruyacağını bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Notiz lautet: „Die Bewahrung des Korans bleibt völlig dem Zufall überlassen.“ Was ist die direkte Korrektur?",
+        "explanation_tr": "Der Vers versichert die Bewahrung der Offenbarung durch Allah.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Hidschr 15:9 sagt, dass Allah ihn bewahren wird",
+          "Der Koran erwähnt seine Bewahrung nicht",
+          "Der Koran ist nur menschliche Rede",
+          "Fussilat 41:42 bezeichnet den Koran als wertlos"
+        ],
+        "correct_answer": "Al-Hidschr 15:9 sagt, dass Allah ihn bewahren wird",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-007": {
+      "source": {
+        "question_tr": "Kur'an'ın niteliklerini ayetlerle eşleştir.",
+        "explanation_tr": "Bu ayetler Kur'an'ın rehberlik, korunma ve sağlamlık niteliklerini farklı yönlerden anlatır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İsrâ 17:9",
+            "right": "En doğru olana iletir"
+          },
+          {
+            "left": "Hicr 15:9",
+            "right": "Allah'ın koruması"
+          },
+          {
+            "left": "Fussılet 41:41-42",
+            "right": "Batılın yaklaşamayacağı değerli kitap"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Eigenschaften des Korans den Versen zu.",
+        "explanation_tr": "Die Verse beschreiben Rechtleitung, Bewahrung und Unversehrtheit des Korans.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Isra 17:9",
+            "right": "Leitet zum geradesten Weg"
+          },
+          {
+            "left": "Al-Hidschr 15:9",
+            "right": "Bewahrung durch Allah"
+          },
+          {
+            "left": "Fussilat 41:41–42",
+            "right": "Ein geehrtes Buch, dem sich Falschheit nicht nähern kann"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-008": {
+      "source": {
+        "question_tr": "Hicr 15:9'un Kur'an'ın korunmasıyla ilgili mesajını tek cümleyle özetle.",
+        "explanation_tr": "Ayet vahyin hem kaynağını hem de korunmasını Allah'a nispet eder.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kur'an'ı Allah indirmiştir ve onun korunmasını da Allah güvence altına almıştır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasse Al-Hidschr 15:9 über die Bewahrung des Korans in einem Satz zusammen.",
+        "explanation_tr": "Der Vers schreibt Allah sowohl die Offenbarung als auch ihre Bewahrung zu.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah hat den Koran offenbart und seine Bewahrung zugesichert.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-009": {
+      "source": {
+        "question_tr": "Fussılet 41:42, Kur'an'a asılsız bir şeyin yaklaşamayacağını bildirir.",
+        "explanation_tr": "Ayette Kur'an'a batılın ne önünden ne ardından yaklaşamayacağı ifade edilir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Fussilat 41:42 kann sich Falschheit dem Koran nicht nähern.",
+        "explanation_tr": "Der Vers besagt, dass Falschheit sich ihm weder von vorn noch von hinten nähern kann.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-010": {
+      "source": {
+        "question_tr": "Fussılet 41:41-42 Kur'an'ı nasıl niteler?",
+        "explanation_tr": "Ayetler Kur'an'ı değerli, batılın yaklaşamayacağı ve Allah katından indirilmiş bir kitap olarak tanımlar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Değerli ve Allah katından indirilmiş bir kitap",
+          "İnsanlarca oluşturulmuş sıradan metin",
+          "Yalnız tarihî belge",
+          "Önceki vahiyleri reddeden anonim metin"
+        ],
+        "correct_answer": "Değerli ve Allah katından indirilmiş bir kitap",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie beschreiben Fussilat 41:41–42 den Koran?",
+        "explanation_tr": "Die Verse beschreiben den Koran als geehrtes, von Allah offenbartes Buch, dem sich Falschheit nicht nähern kann.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Als geehrtes Buch, das Allah offenbart hat",
+          "Als gewöhnlichen, von Menschen verfassten Text",
+          "Nur als historisches Dokument",
+          "Als unbekannten Text, der frühere Offenbarungen ablehnt"
+        ],
+        "correct_answer": "Als geehrtes Buch, das Allah offenbart hat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-011": {
+      "source": {
+        "question_tr": "Bir kişi Kur'an'ın rehberlik işlevini yalnız 'okunup seslendirilmesi' ile sınırlandırıyor. En dengeli yaklaşım hangisidir?",
+        "explanation_tr": "İsrâ 17:9 Kur'an'ın insanı en doğru olana ilettiğini vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an'ı okumak yanında mesajını anlayıp doğruya yönelme amacı da önemlidir",
+          "Anlamın hiçbir önemi yoktur",
+          "Kur'an rehberlik etmez",
+          "Yalnız ezber sayısı önemlidir"
+        ],
+        "correct_answer": "Kur'an'ı okumak yanında mesajını anlayıp doğruya yönelme amacı da önemlidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand beschränkt die Rechtleitung des Korans auf das bloße Lesen und Vortragen. Was ist ausgewogener?",
+        "explanation_tr": "Al-Isra 17:9 betont, dass der Koran zu dem leitet, was am geradesten ist.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Neben dem Lesen sind auch das Verstehen der Botschaft und die Suche nach Rechtleitung wichtig",
+          "Die Bedeutung ist unwichtig",
+          "Der Koran leitet nicht recht",
+          "Es zählt nur die Menge des Auswendiggelernten"
+        ],
+        "correct_answer": "Neben dem Lesen sind auch das Verstehen der Botschaft und die Suche nach Rechtleitung wichtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-012": {
+      "source": {
+        "question_tr": "Fussılet 41:42'ye göre Kur'an'a ne önünden ne ardından ______ yaklaşabilir.",
+        "explanation_tr": "Ayette Kur'an'a batılın yaklaşamayacağı bildirilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "batıl",
+          "nur",
+          "hidayet",
+          "rahmet"
+        ],
+        "correct_answer": "batıl",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Fussilat 41:42 kann sich ______ dem Koran weder von vorn noch von hinten nähern.",
+        "explanation_tr": "Der Vers sagt, dass Falschheit sich dem Koran nicht nähern kann.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Falschheit",
+          "Licht",
+          "Rechtleitung",
+          "Barmherzigkeit"
+        ],
+        "correct_answer": "Falschheit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-013": {
+      "source": {
+        "question_tr": "Kur'an'ın rehberlik ve korunma özelliklerini iki kısa cümleyle ifade et.",
+        "explanation_tr": "İsrâ 17:9 rehberliği, Hicr 15:9 ise korunmayı vurgular.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kur'an insanı en doğru olana ileten bir rehberdir. Allah onun korunmasını güvence altına almıştır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Drücke die Rechtleitung und Bewahrung des Korans in zwei kurzen Sätzen aus.",
+        "explanation_tr": "Al-Isra 17:9 betont Rechtleitung, Al-Hidschr 15:9 Bewahrung.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Der Koran leitet die Menschen zum geradesten Weg. Allah hat seine Bewahrung zugesichert.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-014": {
+      "source": {
+        "question_tr": "Bir eğitim uygulaması Kur'an'ı yalnız 'eski bir metin' etiketiyle tanıtıyor. Hangi iki nitelik eksik kalır?",
+        "explanation_tr": "Kur'an Allah'tan indirilen ve insanı en doğru olana ileten bir vahiy olarak tanıtılır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Rehberlik ve ilahî vahiy oluşu",
+          "Yalnız sayfa sayısı ve yazı tipi",
+          "Sadece tarih ve coğrafya",
+          "Yalnız şiir ve müzik"
+        ],
+        "correct_answer": "Rehberlik ve ilahî vahiy oluşu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lern-App bezeichnet den Koran lediglich als „alten Text“. Welche zwei Eigenschaften fehlen dabei?",
+        "explanation_tr": "Der Koran wird als von Allah offenbarte Schrift vorgestellt, die zum geradesten Weg leitet.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Seine Rechtleitung und sein Wesen als göttliche Offenbarung",
+          "Nur Seitenzahl und Schriftart",
+          "Nur Geschichte und Geografie",
+          "Nur Poesie und Musik"
+        ],
+        "correct_answer": "Seine Rechtleitung und sein Wesen als göttliche Offenbarung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-015": {
+      "source": {
+        "question_tr": "Kur'an'ın korunması konusunda aşağıdaki ifadelerden hangisi kaynaklarla en uyumludur?",
+        "explanation_tr": "Hicr 15:9 bu konuda açık bir koruma ifadesi taşır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah Kur'an'ı indirdiğini ve koruyacağını bildirir",
+          "Kur'an'ın korunmasıyla ilgili hiçbir ayet yoktur",
+          "Kur'an değişime açık insan yorumu olarak tanımlanır",
+          "Kur'an kendi kaynağını belirsiz bırakır"
+        ],
+        "correct_answer": "Allah Kur'an'ı indirdiğini ve koruyacağını bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über die Bewahrung des Korans stimmt am ehesten mit den Quellen überein?",
+        "explanation_tr": "Al-Hidschr 15:9 enthält eine ausdrückliche Zusicherung der Bewahrung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah erklärt, dass Er den Koran offenbart hat und bewahren wird",
+          "Es gibt keinen Vers über seine Bewahrung",
+          "Der Koran ist eine beliebig veränderbare menschliche Deutung",
+          "Der Koran lässt seine Herkunft ungeklärt"
+        ],
+        "correct_answer": "Allah erklärt, dass Er den Koran offenbart hat und bewahren wird",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S05-016": {
+      "source": {
+        "question_tr": "Kur'an'la sağlıklı ilişki kurma akışını sırala.",
+        "explanation_tr": "İsrâ 17:9'un rehberlik vurgusu Kur'an'la ilişkinin yalnız okumada kalmamasını destekler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Kur'an'ın Allah'tan gelen vahiy olduğunu kabul et",
+          "Metni dikkatle oku",
+          "Anlam ve rehberliği kavramaya çalış",
+          "Öğrenileni doğru davranışa yansıt"
+        ],
+        "correct_order": [
+          "Kur'an'ın Allah'tan gelen vahiy olduğunu kabul et",
+          "Metni dikkatle oku",
+          "Anlam ve rehberliği kavramaya çalış",
+          "Öğrenileni doğru davranışa yansıt"
+        ]
+      },
+      "display": {
+        "question_tr": "Bringe die Schritte eines bewussten Umgangs mit dem Koran in die richtige Reihenfolge.",
+        "explanation_tr": "Die Betonung der Rechtleitung in Al-Isra 17:9 legt nahe, über das bloße Lesen hinauszugehen.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Den Koran als Offenbarung Allahs annehmen",
+          "Den Text sorgfältig lesen",
+          "Seine Bedeutung und Rechtleitung verstehen wollen",
+          "Das Gelernte im richtigen Handeln umsetzen"
+        ],
+        "correct_order": [
+          "Den Koran als Offenbarung Allahs annehmen",
+          "Den Text sorgfältig lesen",
+          "Seine Bedeutung und Rechtleitung verstehen wollen",
+          "Das Gelernte im richtigen Handeln umsetzen"
+        ],
+        "stage_title": "Der Koran als Rechtleitung",
+        "topic": "Rechtleitung und Bewahrung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

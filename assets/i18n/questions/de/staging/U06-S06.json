@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U06",
+  "stage": "U06-S06",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U06-S06-001": {
+      "source": {
+        "question_tr": "Bir içerikte 'İblîs bir melekti, sonra cin oldu' deniyor. Kur'an'a göre temel hata nedir?",
+        "explanation_tr": "Kehf 18:50 İblîs'in cinlerden olduğunu açıkça belirtir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kehf 18:50 İblîs'in cinlerden olduğunu bildirir",
+          "Kur'an İblîs'i Cebrâil sayar",
+          "İblîs ölüm meleğidir",
+          "Kur'an İblîs'ten hiç söz etmez"
+        ],
+        "correct_answer": "Kehf 18:50 İblîs'in cinlerden olduğunu bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einem Text steht: „Iblis war ein Engel und wurde dann ein Dschinn.“ Welcher Fehler liegt darin laut Koran?",
+        "explanation_tr": "Al-Kahf 18:50 erklärt ausdrücklich, dass Iblis einer der Dschinn war.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Kahf 18:50 sagt, dass Iblis zu den Dschinn gehörte",
+          "Der Koran bezeichnet Iblis als Gabriel",
+          "Iblis ist der Todesengel",
+          "Der Koran erwähnt Iblis überhaupt nicht"
+        ],
+        "correct_answer": "Al-Kahf 18:50 sagt, dass Iblis zu den Dschinn gehörte",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-002": {
+      "source": {
+        "question_tr": "Kehf 18:50'ye göre İblîs cinlerdendir.",
+        "explanation_tr": "Ayette İblîs'in cinlerden olduğu açıkça bildirilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Kahf 18:50 gehörte Iblis zu den Dschinn.",
+        "explanation_tr": "Der Vers bezeichnet Iblis ausdrücklich als einen der Dschinn.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-003": {
+      "source": {
+        "question_tr": "Bir sınav sorusu 'Kur'an'da ölüm meleğinin özel adı nedir?' diye sorup doğru cevap olarak 'Azrâil' veriyor. En doğru değerlendirme hangisidir?",
+        "explanation_tr": "Secde 32:11 özel isim vermeden 'ölüm meleği' der; Diyanet tefsiri Azrâil adının Kur'an'da geçmediğini belirtir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Soru bu biçimiyle hatalıdır; Kur'an 'ölüm meleği' ifadesini kullanır",
+          "Soru bütünüyle doğrudur",
+          "Doğru cevap Cebrâil olmalıdır",
+          "Doğru cevap Mîkâil olmalıdır"
+        ],
+        "correct_answer": "Soru bu biçimiyle hatalıdır; Kur'an 'ölüm meleği' ifadesini kullanır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Prüfungsfrage lautet: „Welchen Eigennamen nennt der Koran für den Todesengel?“ Als Lösung steht „Azrail“. Was stimmt nicht?",
+        "explanation_tr": "As-Sadschda 32:11 erwähnt den Todesengel ohne Eigennamen. Laut Diyanet-Auslegung kommt „Azrail“ als Name im Koran nicht vor.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Frage ist falsch formuliert: Im Koran steht „der Todesengel“",
+          "Die Frage ist vollständig korrekt",
+          "Die Antwort müsste Gabriel lauten",
+          "Die Antwort müsste Michael lauten"
+        ],
+        "correct_answer": "Die Frage ist falsch formuliert: Im Koran steht „der Todesengel“",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Fâtır 35:1 bütün meleklerin tam dört kanatlı olduğunu kanıtlar' diyor. Hata nedir?",
+        "explanation_tr": "Fâtır 35:1 ikişer, üçer, dörder ifadesinin ardından yaratmada artıştan söz eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ayet farklı sayılardan söz eder ve Allah'ın yaratmada dilediğini artırdığını bildirir",
+          "Ayet meleklerden söz etmez",
+          "Ayet yalnız bir meleği anlatır",
+          "Ayet kanat kavramını reddeder"
+        ],
+        "correct_answer": "Ayet farklı sayılardan söz eder ve Allah'ın yaratmada dilediğini artırdığını bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand behauptet: „Fatir 35:1 beweist, dass alle Engel genau vier Flügel haben.“ Was ist daran falsch?",
+        "explanation_tr": "Fatir 35:1 erwähnt zwei, drei und vier und sagt anschließend, dass Allah in der Schöpfung vermehrt, wie Er will.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Der Vers nennt unterschiedliche Zahlen und sagt, dass Allah Seiner Schöpfung hinzufügt, was Er will",
+          "Der Vers erwähnt keine Engel",
+          "Der Vers beschreibt nur einen einzigen Engel",
+          "Der Vers lehnt die Vorstellung von Flügeln ab"
+        ],
+        "correct_answer": "Der Vers nennt unterschiedliche Zahlen und sagt, dass Allah Seiner Schöpfung hinzufügt, was Er will",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-005": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi melekler hakkında kaynak disiplini açısından en sorunlu cümledir?",
+        "explanation_tr": "Kur'an bazı özellikler bildirir; bütün meleklerin görünüşünü ayrıntısıyla bildiğimizi söylemek kaynak sınırını aşar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Bütün meleklerin görünüşünü ayrıntısıyla biliyoruz'",
+          "'Kur'an meleklerden söz eder'",
+          "'Cebrâil vahyi Allah'ın izniyle iletir'",
+          "'Melekler Allah'ın emrine itaat eder'"
+        ],
+        "correct_answer": "'Bütün meleklerin görünüşünü ayrıntısıyla biliyoruz'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über Engel geht besonders weit über verlässliche Quellen hinaus?",
+        "explanation_tr": "Der Koran beschreibt einige Eigenschaften. Daraus lässt sich nicht jedes Detail über das Aussehen aller Engel ableiten.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "„Wir kennen jedes Detail vom Aussehen aller Engel“",
+          "„Der Koran erwähnt Engel“",
+          "„Gabriel überbringt die Offenbarung mit Allahs Erlaubnis“",
+          "„Engel befolgen Allahs Gebote“"
+        ],
+        "correct_answer": "„Wir kennen jedes Detail vom Aussehen aller Engel“",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-006": {
+      "source": {
+        "question_tr": "Melekler Allah'ın emri olmadan bağımsız hüküm koyabilir.",
+        "explanation_tr": "Kur'an melekleri Allah'ın emriyle hareket eden kullar olarak anlatır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Engel können unabhängig von Allahs Geboten eigene verbindliche Regeln erlassen.",
+        "explanation_tr": "Der Koran beschreibt Engel als Diener, die nach Allahs Befehl handeln.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-007": {
+      "source": {
+        "question_tr": "Meleklerle ilgili yanlış iddiaları doğru düzeltmeleriyle eşleştir.",
+        "explanation_tr": "Bu üç örnek, kaynağın söylediğiyle yaygın anlatıları ayırmanın önemini gösterir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İblîs melektir",
+            "right": "Kehf 18:50: İblîs cinlerdendir"
+          },
+          {
+            "left": "Kur'an Azrâil adını verir",
+            "right": "Secde 32:11: Ölüm meleği ifadesi"
+          },
+          {
+            "left": "Her melek tam dört kanatlıdır",
+            "right": "Fâtır 35:1: Farklı sayılar ve artış"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne jede falsche Aussage ihrer Korrektur zu.",
+        "explanation_tr": "Diese Beispiele zeigen, wie wichtig es ist, Quellenangaben von verbreiteten Erzählungen zu unterscheiden.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Iblis ist ein Engel",
+            "right": "Al-Kahf 18:50: Iblis gehört zu den Dschinn"
+          },
+          {
+            "left": "Der Koran nennt den Namen Azrail",
+            "right": "As-Sadschda 32:11: die Bezeichnung „Todesengel“"
+          },
+          {
+            "left": "Alle Engel haben genau vier Flügel",
+            "right": "Fatir 35:1: verschiedene Zahlen und Vermehrung"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-008": {
+      "source": {
+        "question_tr": "İblîs ile melekleri ayıran Kur'an bilgisini tek cümleyle yaz.",
+        "explanation_tr": "Bu ayrım, İblîs'i melek kabul eden yaygın yanlışın düzeltilmesine yardımcı olur.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kehf 18:50 İblîs'in cinlerden olduğunu; meleklerle ilgili ayetler ise onların Allah'ın emrine itaat ettiğini bildirir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Erkläre in einem Satz, wie der Koran Iblis von Engeln unterscheidet.",
+        "explanation_tr": "Diese Unterscheidung korrigiert die häufige Verwechslung, Iblis sei ein Engel gewesen.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Al-Kahf 18:50 bezeichnet Iblis als Dschinn; andere Verse beschreiben die Engel als gehorsam gegenüber Allahs Geboten.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-009": {
+      "source": {
+        "question_tr": "Kur'an'da adı verilmeyen her meleğin ismini kesin biçimde biliyormuş gibi sunmak güvenilir bir yöntemdir.",
+        "explanation_tr": "Kaynakta verilmeyen isim ve ayrıntıları kesin dinî bilgi gibi sunmamak gerekir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die unbekannten Namen aller im Koran nicht namentlich genannten Engel als sicher bekannt darzustellen, ist eine verlässliche Methode.",
+        "explanation_tr": "Nicht belegte Namen oder Einzelheiten dürfen nicht als gesichertes religiöses Wissen ausgegeben werden.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-010": {
+      "source": {
+        "question_tr": "Bir video, 'Melekler Allah'ın çocuklarıdır' iddiasını dinî bilgi diye sunuyor. Hangi ayet grubu bunu doğrudan reddeder?",
+        "explanation_tr": "Enbiyâ 21:26-28 bu iddiayı reddeder ve melekleri Allah'ın onurlandırılmış kulları olarak tanıtır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Enbiyâ 21:26-28",
+          "İnfitâr 82:10-12",
+          "Secde 32:11",
+          "Bakara 2:97"
+        ],
+        "correct_answer": "Enbiyâ 21:26-28",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einem Video heißt es: „Engel sind Kinder Allahs.“ Welche Verse weisen diese Behauptung ausdrücklich zurück?",
+        "explanation_tr": "Al-Anbiya 21:26–28 weist diese Behauptung zurück und bezeichnet die Engel als geehrte Diener Allahs.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Anbiya 21:26–28",
+          "Al-Infitar 82:10–12",
+          "As-Sadschda 32:11",
+          "Al-Baqara 2:97"
+        ],
+        "correct_answer": "Al-Anbiya 21:26–28",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-011": {
+      "source": {
+        "question_tr": "Melekleri Allah'ın çocukları veya ilahî ortakları saymak, ______ inancıyla bağdaşmaz.",
+        "explanation_tr": "Kur'an melekleri Allah'ın kulları olarak tanıtır; ulûhiyyet yalnız Allah'a aittir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "tevhid",
+          "sorumluluk",
+          "okuma",
+          "tarih"
+        ],
+        "correct_answer": "tevhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Engel als Kinder Allahs oder als göttliche Teilhaber zu betrachten, widerspricht dem Glauben an ______.",
+        "explanation_tr": "Der Koran stellt Engel als Diener Allahs dar; Gottheit kommt allein Allah zu.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Tauhid",
+          "Verantwortung",
+          "Lesen",
+          "Geschichte"
+        ],
+        "correct_answer": "Tauhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U06-S06-012": {
+      "source": {
+        "question_tr": "Bir notta 'Cebrâil Kur'an'ı kendi kararıyla oluşturup Peygamber'e verdi' yazıyor. Düzeltme hangisidir?",
+        "explanation_tr": "Bakara 2:97 vahyin kaynağı ile Cebrâil'in iletici rolünü ayırır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Cebrâil Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirdi",
+          "Cebrâil vahyi insanlardan topladı",
+          "Cebrâil bağımsız bir ilah olarak vahiy verdi",
+          "Kur'an Cebrâil'i reddeder"
+        ],
+        "correct_answer": "Cebrâil Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirdi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Gabriel erschuf den Koran aus eigenem Entschluss und überbrachte ihn dem Propheten.“ Welche Korrektur passt?",
+        "explanation_tr": "Al-Baqara 2:97 unterscheidet zwischen dem Ursprung der Offenbarung und Gabriels Übermittlung.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Gabriel brachte den Koran mit Allahs Erlaubnis zum Herzen des Propheten herab",
+          "Gabriel sammelte die Offenbarung von Menschen",
+          "Gabriel handelte als unabhängige Gottheit",
+          "Der Koran lehnt Gabriel ab"
+        ],
+        "correct_answer": "Gabriel brachte den Koran mit Allahs Erlaubnis zum Herzen des Propheten herab",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Irrtümer über Engel erkennen",
+        "topic": "Engel und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
