@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U01",
+  "scope": "live_runtime_staging",
+  "stage": "U01-S02",
+  "question_count": 12,
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_commit": "a3ab868b762c4431410057fa8e937d87c73048a9",
+  "translations": {
+    "DEEN-U01-S02-P01": {
+      "source": {
+        "question_tr": "“Müslüman” deyince kimi kastediyoruz?",
+        "explanation_tr": "Müslümanlık milliyet, dil veya doğum yerine göre değil; kişinin İslam'ı benimsemesiyle ilgili bir inanç kimliğidir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İslam dinini benimseyen kişi",
+          "Belirli bir ülkede doğmuş kişi",
+          "Belirli bir dili konuşan kişi",
+          "Yalnızca Müslüman bir ailede büyümüş kişi"
+        ],
+        "correct_answer": "İslam dinini benimseyen kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was bedeutet es, Muslim zu sein?",
+        "explanation_tr": "Muslim zu sein ist eine religiöse Zugehörigkeit, die auf der Annahme des Islam beruht, nicht auf Nationalität, Sprache oder Geburtsort.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Einen Menschen, der den Islam annimmt",
+          "Ein Mensch, der in einem bestimmten Land geboren wurde",
+          "Ein Mensch, der eine bestimmte Sprache spricht",
+          "Ein Mensch, der lediglich in einer muslimischen Familie aufgewachsen ist"
+        ],
+        "correct_answer": "Einen Menschen, der den Islam annimmt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Was bedeutet es, Muslim zu sein?",
+        "teaching_card": {
+          "eyebrow": "1 · IDENTITÄT",
+          "title": "Ein Muslim ist ein Mensch, der den Islam annimmt.",
+          "body": "Diese Identität beruht auf dem Glauben und nicht auf Herkunftsland, Sprache oder Nationalität.",
+          "memory": "Merkhilfe: Islam = Religion · Muslim = Person"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P02": {
+      "source": {
+        "question_tr": "Kavramları doğru açıklamalarına götür.",
+        "explanation_tr": "İman, ibadet, ahlak ve Müslüman kavramları birbiriyle ilişkili ama farklı anlamlar taşır; bu farkları ayırt etmek temel anlayış için önemlidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İman",
+            "right": "Kalben inanma"
+          },
+          {
+            "left": "İbadet",
+            "right": "Allah'a yönelik bilinçli kulluk davranışı"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Güzel davranış ve doğruluk"
+          },
+          {
+            "left": "Müslüman",
+            "right": "Allah'a inanan ve İslam'ı benimseyen kişi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe ihren richtigen Erklärungen zu.",
+        "explanation_tr": "Diese Begriffe hängen zusammen, bedeuten aber nicht dasselbe. Für das Grundverständnis ist es wichtig, die Unterschiede zu kennen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaube",
+            "right": "Im Herzen glauben"
+          },
+          {
+            "left": "Gottesdienst",
+            "right": "Bewusste Hingabe an Allah durch Handlungen"
+          },
+          {
+            "left": "Guter Charakter",
+            "right": "Aufrichtigkeit und richtiges Handeln"
+          },
+          {
+            "left": "Muslim",
+            "right": "Ein Mensch, der an Allah glaubt und den Islam annimmt"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Begriffe zuordnen",
+        "teaching_card": {
+          "eyebrow": "2 · BEGRIFFE",
+          "title": "Vier Begriffe mit vier unterschiedlichen Bedeutungen.",
+          "body": "Glaube bedeutet inneres Überzeugtsein, Gottesdienst bedeutet Hingabe an Allah, guter Charakter zeigt sich im Verhalten, und ein Muslim nimmt den Islam an.",
+          "memory": "Merkhilfe: Glauben · Dienen · Gutes tun"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P03": {
+      "source": {
+        "question_tr": "İman kalpte başlar; ibadetler de onun hayata yansımasına yardım eder. Doğru mu?",
+        "explanation_tr": "İman kalpte başlar, ancak ibadetler bu imanın davranışa dönüşmesinde ve güçlenmesinde önemli bir yer tutar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube beginnt im Herzen und der Gottesdienst hilft, ihn im Alltag zu leben. Richtig oder falsch?",
+        "explanation_tr": "Der Glaube beginnt im Herzen. Gottesdienstliche Handlungen sind wichtig, um ihn im Alltag zu leben und zu stärken.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Glaube und Gottesdienst",
+        "teaching_card": {
+          "eyebrow": "3 · GLAUBE",
+          "title": "Glaube bedeutet, im Herzen zu glauben und anzunehmen.",
+          "body": "Glaube ist nicht nur ein äußerliches Verhalten. Er umfasst die innere Überzeugung eines Menschen.",
+          "memory": "Merkhilfe: Der Glaube beginnt im Herzen"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P04": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İbadetin amacı Allah’a ___ ve O’nun rızasını gözetmektir.",
+        "explanation_tr": "İbadetin temel yönelişi Allah’a kulluk etmek ve O’nun rızasını gözetmektir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk etmek",
+          "gösteriş yapmak",
+          "üstün görünmek",
+          "yarışmak"
+        ],
+        "correct_answer": "kulluk etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Gottesdienst bedeutet, Allah ______ und sein Wohlgefallen zu suchen.",
+        "explanation_tr": "Der Gottesdienst richtet sich darauf, Allah zu dienen und sein Wohlgefallen zu suchen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "zu dienen",
+          "anzugeben",
+          "überlegen zu wirken",
+          "zu wetteifern"
+        ],
+        "correct_answer": "zu dienen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Ziel des Gottesdienstes",
+        "teaching_card": {
+          "eyebrow": "4 · GOTTESDIENST",
+          "title": "Gottesdienst ist auf Allahs Wohlgefallen ausgerichtet.",
+          "body": "Man dient Allah aus Aufrichtigkeit und sucht sein Wohlgefallen, statt sich vor anderen zur Schau zu stellen.",
+          "memory": "Merkhilfe: Hingabe · Aufrichtigkeit · Allahs Wohlgefallen"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P05": {
+      "source": {
+        "question_tr": "Peygamberin görevi neydi?",
+        "explanation_tr": "Hz. Muhammed'in peygamberlik rolü, Allah'ın mesajını insanlara iletmesi ve bu mesajı yaşayışıyla örneklemesiyle açıklanır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'ın mesajını insanlara iletmek ve yaşayışıyla örnek olmak",
+          "Yalnızca toplumsal düzeni yönetmek",
+          "Kendi görüşlerini dinin kaynağı hâline getirmek",
+          "Sadece tarihî olayları kaydetmek"
+        ],
+        "correct_answer": "Allah'ın mesajını insanlara iletmek ve yaşayışıyla örnek olmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aufgabe hatte der Prophet Muhammad?",
+        "explanation_tr": "Muhammads Rolle als Prophet besteht darin, Allahs Botschaft den Menschen zu übermitteln und sie durch sein eigenes Leben beispielhaft vorzuleben.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allahs Botschaft den Menschen zu überbringen und durch sein Leben ein Vorbild zu sein",
+          "Ausschließlich die Gesellschaft zu verwalten",
+          "Seine eigenen Ansichten zur Grundlage der Religion zu machen",
+          "Lediglich historische Ereignisse aufzuzeichnen"
+        ],
+        "correct_answer": "Allahs Botschaft den Menschen zu überbringen und durch sein Leben ein Vorbild zu sein",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Aufgabe des Propheten",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P06": {
+      "source": {
+        "question_tr": "Üç açıklama doğrudur. Hangisi kavram haritasına uymaz?",
+        "explanation_tr": "Müslümanlık belirli bir millete değil, İslam’ı benimsemeye dayanır.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman: kalben inanıp kabul etmek",
+          "İbadet: Allah’a kulluk etmek",
+          "Ahlak: güzel davranış ve tutumlar",
+          "Müslüman: yalnızca belli bir milletten kişi"
+        ],
+        "correct_answer": "Müslüman: yalnızca belli bir milletten kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Drei Erklärungen stimmen. Welche passt nicht zur Begriffsübersicht?",
+        "explanation_tr": "Muslim zu sein hängt davon ab, den Islam anzunehmen, und nicht von einer bestimmten Nationalität.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Iman: im Herzen glauben und annehmen",
+          "Gottesdienst: Allah dienen",
+          "Guter Charakter: gute Taten und Haltungen",
+          "Muslim: Person, die nur einer bestimmten Nationalität angehört"
+        ],
+        "correct_answer": "Muslim: Person, die nur einer bestimmten Nationalität angehört",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Was ist guter Charakter?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P07": {
+      "source": {
+        "question_tr": "Kur’an’ın hayatımızdaki yeri nedir?",
+        "explanation_tr": "Kur'an, Müslümanlar için inanç ve yaşam konusunda temel rehber kabul edilen kutsal kitaptır.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İnanç ve yaşamlarına yön veren temel kutsal kaynak olması",
+          "Yalnızca İslam tarihindeki olayları kronolojik olarak anlatması",
+          "Sadece ibadetlerin isimlerini listeleyen bir metin olması",
+          "Peygamberin hayatını anlatan tek biyografi kaynağı olması"
+        ],
+        "correct_answer": "İnanç ve yaşamlarına yön veren temel kutsal kaynak olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Bedeutung hat der Koran für unser Leben?",
+        "explanation_tr": "Der Koran gilt den Muslimen als heilige Schrift und als wichtigste Rechtleitung für den Glauben und das Leben.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Er ist die zentrale heilige Quelle, die ihren Glauben und ihr Leben leitet",
+          "Er berichtet ausschließlich in zeitlicher Reihenfolge über Ereignisse der islamischen Geschichte",
+          "Er zählt lediglich die Namen gottesdienstlicher Handlungen auf",
+          "Er ist die einzige biografische Quelle über das Leben des Propheten"
+        ],
+        "correct_answer": "Er ist die zentrale heilige Quelle, die ihren Glauben und ihr Leben leitet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Bedeutung des Korans",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P08": {
+      "source": {
+        "question_tr": "Kavramları ait oldukları alanlarla eşleştir.",
+        "explanation_tr": "Kur'an, peygamber ve ibadet kavramları İslam'ın farklı ama birbirine bağlı yönlerini temsil eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kur'an",
+            "right": "Temel kutsal kaynak"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Örnek alınan öğretici"
+          },
+          {
+            "left": "İbadet",
+            "right": "Uygulamaya dökülen kulluk"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe ihren jeweiligen Bereichen zu.",
+        "explanation_tr": "Koran, Prophet und Gottesdienst stehen für verschiedene, aber miteinander verbundene Aspekte des Islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Koran",
+            "right": "Die zentrale heilige Quelle"
+          },
+          {
+            "left": "Prophet",
+            "right": "Ein Lehrer und Vorbild"
+          },
+          {
+            "left": "Gottesdienst",
+            "right": "Gelebte Hingabe an Allah"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Begriffe zuordnen",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P09": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlak birbirinden tamamen kopuk mudur?",
+        "explanation_tr": "İman, ibadet ve ahlak birbirini besleyen ve tamamlayan kavramlardır; İslam bu üçünü bir bütün olarak görür.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Sind Glaube, Gottesdienst und guter Charakter völlig voneinander getrennt?",
+        "explanation_tr": "Glaube, Gottesdienst und gutes Verhalten ergänzen und stärken einander. Der Islam betrachtet sie in ihrem Zusammenhang.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Zusammenhang der drei Begriffe",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P10": {
+      "source": {
+        "question_tr": "Kayıp kelime: İslam’ı benimseyen kişiye “___” denir.",
+        "explanation_tr": "Müslüman kelimesi, İslam dinini benimseyen kişiyi ifade eder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Müslüman",
+          "peygamber",
+          "melek",
+          "misafir"
+        ],
+        "correct_answer": "Müslüman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Wer den Islam annimmt, wird „______“ genannt.",
+        "explanation_tr": "Das Wort „Muslim“ bezeichnet einen Menschen, der den Islam annimmt.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Muslim",
+          "Prophet",
+          "Engel",
+          "Gast"
+        ],
+        "correct_answer": "Muslim",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Was bedeutet es, Muslim zu sein?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P11": {
+      "source": {
+        "question_tr": "İbadetin yönü kime doğrudur?",
+        "explanation_tr": "İbadetin özü, kulluğu Allah'a has kılmak ve samimi biçimde O'nun rızasını gözetmektir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'a kulluk etmek ve O'nun rızasını gözetmek",
+          "İnsanların beğenisini kazanmak",
+          "Sadece gelenekleri sürdürmek",
+          "Toplumda üstün görünmek"
+        ],
+        "correct_answer": "Allah'a kulluk etmek ve O'nun rızasını gözetmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Auf wen ist der Gottesdienst ausgerichtet?",
+        "explanation_tr": "Das Wesentliche des Gottesdienstes ist, sich allein Allah zuzuwenden und aufrichtig Sein Wohlgefallen anzustreben.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah dienen und Sein Wohlgefallen suchen",
+          "Die Bewunderung anderer Menschen gewinnen",
+          "Lediglich Traditionen fortführen",
+          "In der Gesellschaft überlegen erscheinen"
+        ],
+        "correct_answer": "Allah dienen und Sein Wohlgefallen suchen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Ziel des Gottesdienstes",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-P12": {
+      "source": {
+        "question_tr": "Hangisi iman kavramını anlatan ifadelerden biri değildir?",
+        "explanation_tr": "İman içten inanma ve kabul ile ilgilidir; başkalarına görünmek iman tanımı değildir.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Kalben inanmak",
+          "Doğru olduğunu kabul etmek",
+          "İçten güvenmek",
+          "Yalnızca başkalarına görünmek"
+        ],
+        "correct_answer": "Yalnızca başkalarına görünmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt den Begriff Glaube nicht richtig?",
+        "explanation_tr": "Glaube bedeutet inneres Überzeugtsein und Annehmen; andere beeindrucken zu wollen, ist keine Definition von Glauben.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Im Herzen glauben",
+          "Etwas als wahr anerkennen",
+          "Aufrichtig vertrauen",
+          "Nur den Eindruck auf andere suchen"
+        ],
+        "correct_answer": "Nur den Eindruck auf andere suchen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wer ist ein Muslim?",
+        "topic": "Was ist Glaube?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
