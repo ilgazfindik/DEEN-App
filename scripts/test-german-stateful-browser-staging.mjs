@@ -247,6 +247,9 @@ async function auditNavTabs(){
   const qaLesson=await page.evaluate(async()=>{
    for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
    window.hideEnergy?.();
+   // The separately implemented energyModal uses .show rather than a dialog.
+   // Close the earlier QA-opened energy sheet before tapping the lesson card.
+   document.getElementById('energyModal')?.classList.remove('show');
    document.getElementById('deenPreparation')?.remove();
    document.querySelector('.phone').inert=false;
    if(typeof state!=='undefined')state.energy=30;
