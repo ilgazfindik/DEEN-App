@@ -227,9 +227,12 @@ async function auditNavTabs(){
    assert.equal(modal.is_open,true,'App failed to open '+name);
    assert.equal(modal.arabic_unchanged,true,name+': original Arabic changed');
    assert.equal(modal.graded_content_unchanged,true,name+': source-dependent content changed');
-   assert.deepEqual(modal.unresolved,[],name+': untranslated modal chrome');
+   // Collect all modal gaps in one run; fail the combined report afterward.
    await page.screenshot({path:output+'/stateful-modal-'+name+'.png',fullPage:true});
   }
+  const unresolved=report.modals.filter(m=>m.unresolved.length).map(m=>({panel:m.panel,strings:m.unresolved}));
+  report.modal_unresolved=unresolved;
+  assert.deepEqual(unresolved,[],'Turkish text remains across real app modals');
   return init;
  }finally{await page.close()}
 }
