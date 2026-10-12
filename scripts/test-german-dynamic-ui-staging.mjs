@@ -8,6 +8,11 @@ assert.equal(manifest.languages.de.question_data,'missing','German lessons must 
 assert.equal(manifest.languages.de.global_qa,'blocked','German release must remain blocked');
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
+ ["1 · ANA FİKİR","1 · KERNGEDANKE"],
+ ["Bunu bir arkadaşına nasıl anlatırdın?","Wie würdest du es einer Freundin oder einem Freund erklären?"],
+ ["Hatırla: Yönel · Güven · Yaşa","Merke: Hinwenden · Vertrauen · Leben"],
+ ["İslam, Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.","Der Islam lehrt, Allah zu vertrauen, seine Rechtleitung anzunehmen und sie im Alltag umzusetzen."],
+ ["İslam, Allah'a yönelmektir.","Islam bedeutet, sich Allah zuzuwenden."],
  ["Öğrenme analizi","Lernanalyse"],
  ["Henüz analiz edilecek cevap yok. İlk mini dersi tamamladığında doğruluk, cevap süresi, soru türleri ve tekrar eden hatalar burada oluşacak.","Es gibt noch keine Antworten zur Auswertung. Nach deiner ersten Mini-Lektion erscheinen hier Antwortgenauigkeit, Antwortdauer, Aufgabentypen und wiederkehrende Fehler."],
  ["Seviye 1","Stufe 1"],
