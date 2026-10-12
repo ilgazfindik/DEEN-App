@@ -11,7 +11,7 @@ const origin=process.env.DEEN_QA_ORIGIN||'http://127.0.0.1:8765';
 const output=process.env.DEEN_QA_OUTPUT||'qa-artifacts/german-browser';
 mkdirSync(output,{recursive:true});
 const report={schema_version:1,scope:'QA-only language gate and navigated tabs',
- staging_only:true,release_enabled:false,gate:null,tabs:[],modals:[],errors:[]};
+ staging_only:true,release_enabled:false,gate:null,tabs:[],modals:[],lesson:null,errors:[]};
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 async function verifyGermanGate(){
  const page=await browser.newPage({viewport:{width:390,height:844}});
@@ -240,6 +240,85 @@ async function auditNavTabs(){
   const unresolved=report.modals.filter(m=>m.unresolved.length).map(m=>({panel:m.panel,strings:m.unresolved}));
   report.modal_unresolved=unresolved;
   assert.deepEqual(unresolved,[],'Turkish text remains across real app modals');
+  // Full real engine smoke in a disposable TURKISH QA session; German staged
+  // questions are inserted into only this page's current lesson session.
+  // This is not production German activation and never changes the source bank.
+  currentProbe='lesson';
+  const qaLesson=await page.evaluate(async()=>{
+   for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
+   window.hideEnergy?.();
+   document.getElementById('deenPreparation')?.remove();
+   document.querySelector('.phone').inert=false;
+   if(typeof state!=='undefined')state.energy=30;
+   const response=await fetch('/qa-artifacts/german-browser/qa-question-packs.json',
+    {cache:'no-store'});
+   if(!response.ok)throw Error('No local QA-only German pack bundle '+response.status);
+   const bundle=await response.json();
+   if(bundle.staging_only!==true||bundle.release_approved!==false)
+    throw Error('German QA pack guard missing');
+   const {createGermanQuestionStagingAdapter}=await import(
+    '/assets/i18n/german-question.adapter.staging.mjs');
+   const adapter=createGermanQuestionStagingAdapter({packs:bundle.packs});
+   if(window.DEEN_CONTENT_LOCALE.available('de'))throw Error('German was activated outside review');
+   startStage('U01-S01');
+   if(!session?.questions?.length)return {opened:false,reason:'Stage did not create questions'};
+   const source=session.questions.map(q=>q);
+   const german=source.map(q=>adapter.translate(q,{qaMode:true,
+    locale:'de',scope:'live_runtime_staging'}));
+   const unresolved=source.filter((q,i)=>!german[i]).map(q=>q.id);
+   if(unresolved.length)return {opened:true,unresolved};
+   const candidate=german.find(q=>Array.isArray(q.options_tr)&&
+    q.options_tr.length>=2&&q.correct_answer&&
+    ['card_choice','multiple_choice','scenario','error_spotting'].includes(q.activity_type));
+   if(!candidate)return {opened:true,unresolved:[],no_choice_example:true,
+    question_types:german.map(q=>q.activity_type)};
+   session.questions=[candidate,...german.filter(q=>q.id!==candidate.id)];
+   session.index=0;
+   renderQuestion();
+   const choices=[...document.querySelectorAll('#answerArea .option-label')]
+    .map(el=>el.textContent.trim());
+   return {opened:document.querySelector('#lesson')?.classList.contains('active')||false,
+    app_locale:window.DEEN_APP_LOCALE.get(),
+    staged_question_id:candidate.id,question:candidate.question_tr,
+    rendered_question:document.querySelector('#questionText')?.textContent.trim(),
+    choices,expected_choices:candidate.options_tr,
+    correct_answer:candidate.correct_answer,
+    source_question_unchanged:candidate.__deenSourceQuestion===source.find(q=>q.id===candidate.id),
+    source_bank_count:QUESTIONS.length,unresolved:[],
+    sample_type:candidate.activity_type,qa_only:candidate.__deenQANotForRelease===true};
+  });
+  report.lesson=qaLesson;
+  assert.equal(qaLesson.opened,true,'Actual stage did not start');
+  assert.equal(qaLesson.app_locale,'tr','QA German overlay must not enable German release');
+  assert.equal(qaLesson.qa_only,true);
+  assert.equal(qaLesson.source_question_unchanged,true);
+  assert.deepEqual(qaLesson.unresolved,[],'Actual U01 lesson pack signatures drifted');
+  assert.equal(qaLesson.rendered_question,qaLesson.question,
+   'German question did not render in actual lesson template');
+  assert.equal(qaLesson.choices.length,qaLesson.expected_choices.length,
+   'Real answer buttons differ from staged German source count');
+  assert.deepEqual([...qaLesson.choices].sort(),[...qaLesson.expected_choices].sort(),
+   'German answer button text does not match source-verified staging choices');
+  await page.screenshot({path:output+'/stateful-german-lesson-qa.png',fullPage:true});
+  const rightButton=page.locator('#answerArea .option').filter({
+    has:page.locator('.option-label', {hasText:qaLesson.correct_answer})});
+  // The same real DOM grading controls are exercised; no direct grade mutation.
+  assert.equal(await rightButton.count(),1,'The correct German answer must be selectable once');
+  await rightButton.click({timeout:20000,force:true});
+  await page.locator('#answerArea .template-action').click({timeout:20000,force:true});
+  await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
+   null,{timeout:7000});
+  const graded=await page.evaluate(()=>({
+   feedback_shown:document.getElementById('feedback')?.classList.contains('show'),
+   score:session?.correct,
+   current_source_id:session?.questions?.[0]?.__deenSourceQuestion?.id,
+   correct_answer:session?.questions?.[0]?.correct_answer,
+   grading_result:document.getElementById('feedbackTitle')?.textContent.trim()
+  }));
+  report.lesson.grading=graded;
+  assert.equal(graded.feedback_shown,true);
+  assert.equal(graded.score,1,'Real quiz engine did not award correct German response');
+  await page.screenshot({path:output+'/stateful-german-lesson-graded-qa.png',fullPage:true});
   return init;
  }finally{await page.close()}
 }
