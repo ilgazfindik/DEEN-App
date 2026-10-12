@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U08",
+  "stage": "U08-S01",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U08-S01-001": {
+      "source": {
+        "question_tr": "Bakara 2:285'e göre Allah'ın peygamberlerine iman, müminlerin iman ettiği esaslardan biri midir?",
+        "explanation_tr": "Bakara 2:285 Allah'a, meleklerine, kitaplarına ve peygamberlerine imanı birlikte zikreder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın peygamberlerine iman",
+          "Yalnız bir peygambere iman",
+          "Sadece tarihî kişilere inanmak",
+          "Her lideri peygamber kabul etmek"
+        ],
+        "correct_answer": "Allah'ın peygamberlerine iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Gehört nach Al-Baqara 2:285 der Glaube an Allahs Propheten zu den Glaubensartikeln?",
+        "explanation_tr": "Al-Baqara 2:285 nennt den Glauben an Allah, Seine Engel, Seine Bücher und Seine Gesandten gemeinsam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an Allahs Propheten",
+          "Glaube nur an einen Propheten",
+          "Nur an historische Persönlichkeiten glauben",
+          "Jeden Anführer als Propheten anerkennen"
+        ],
+        "correct_answer": "Glaube an Allahs Propheten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-002": {
+      "source": {
+        "question_tr": "Peygamberlere iman, Kur'an'da iman bütünlüğünün bir parçası olarak zikredilir.",
+        "explanation_tr": "Bakara 2:285 ve Nisâ 4:136 peygamberlere imanı açıkça iman çerçevesine dahil eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Koran nennt den Glauben an die Propheten als Bestandteil des umfassenden Glaubens.",
+        "explanation_tr": "Al-Baqara 2:285 und An-Nisa 4:136 beziehen den Glauben an die Gesandten ausdrücklich ein.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-003": {
+      "source": {
+        "question_tr": "Bakara 2:285'te müminlerin Allah'ın elçileri arasında ______ yapmadıkları bildirilir.",
+        "explanation_tr": "Ayette müminlerin Allah'ın elçileri arasında iman bakımından ayrım yapmadıkları belirtilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "ayrım",
+          "alışveriş",
+          "sıra dışı ibadet",
+          "soy bağı"
+        ],
+        "correct_answer": "ayrım",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Baqara 2:285 machen Gläubige zwischen Allahs Gesandten keinen ______.",
+        "explanation_tr": "Der Vers erklärt, dass die Gläubigen die Gesandten im Glauben nicht unterschiedlich annehmen oder ablehnen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Unterschied",
+          "Handel",
+          "außergewöhnlichen Gottesdienst",
+          "familiären Zusammenhang"
+        ],
+        "correct_answer": "Unterschied",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Ben yalnız sevdiğim peygamberlere inanırım, diğerlerini kabul etmem' diyor. En doğrudan düzeltme hangisidir?",
+        "explanation_tr": "Bakara 2:285, Allah'ın elçileri arasında iman bakımından ayrım yapmamayı vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberlere iman seçmeci değil, Allah'ın elçilerinin tümünü tasdik eden bir imandır",
+          "Yalnız en eski peygamber kabul edilir",
+          "Peygamberlere iman gerekli değildir",
+          "Her toplum kendi peygamberini uydurur"
+        ],
+        "correct_answer": "Peygamberlere iman seçmeci değil, Allah'ın elçilerinin tümünü tasdik eden bir imandır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Ich glaube nur an die Propheten, die ich mag.“ Was ist die richtige Korrektur?",
+        "explanation_tr": "Al-Baqara 2:285 betont, alle Gesandten im Glauben anzuerkennen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zum Glauben an die Propheten gehört, alle Gesandten Allahs anzuerkennen statt einige auszuwählen",
+          "Nur der früheste Prophet muss anerkannt werden",
+          "An Propheten zu glauben ist unnötig",
+          "Jede Gesellschaft erfindet ihre eigenen Propheten"
+        ],
+        "correct_answer": "Zum Glauben an die Propheten gehört, alle Gesandten Allahs anzuerkennen statt einige auszuwählen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-005": {
+      "source": {
+        "question_tr": "Bir notta 'Peygamberlik kişinin kendi isteğiyle kazandığı sıradan bir meslektir' yazıyor. Temel hata nedir?",
+        "explanation_tr": "Kur'an peygamberliği Allah'ın vahiy verdiği ve görevlendirdiği elçilik olarak anlatır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Peygamberler Allah tarafından seçilip vahiy alan elçilerdir",
+          "Peygamberlik yalnız eğitim diplomasıdır",
+          "Peygamberi toplum oyla belirler",
+          "Peygamberlik her insanda kendiliğinden oluşur"
+        ],
+        "correct_answer": "Peygamberler Allah tarafından seçilip vahiy alan elçilerdir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Notiz behauptet: „Prophetentum ist ein gewöhnlicher Beruf, den man selbst wählt.“ Was ist daran falsch?",
+        "explanation_tr": "Im Koran wird das Prophetentum als Berufung durch Allah und als Empfang von Offenbarung beschrieben.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Propheten sind von Allah erwählte Gesandte, die Offenbarung empfangen",
+          "Prophetentum ist lediglich ein Bildungsabschluss",
+          "Die Gesellschaft wählt Propheten durch Abstimmung",
+          "Jeder Mensch entwickelt von selbst das Prophetentum"
+        ],
+        "correct_answer": "Propheten sind von Allah erwählte Gesandte, die Offenbarung empfangen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-006": {
+      "source": {
+        "question_tr": "Peygamberlik, vahiy ve iman kavramlarını doğru açıklamalarla eşleştir.",
+        "explanation_tr": "Peygamberlik, vahiy ve iman kavramları birbirini tamamlayan ama aynı anlama gelmeyen kavramlardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Peygamber",
+            "right": "Allah'ın vahiy verip görevlendirdiği elçi"
+          },
+          {
+            "left": "Vahiy",
+            "right": "Allah'tan gelen ilahî bildirim"
+          },
+          {
+            "left": "Peygamberlere iman",
+            "right": "Allah'ın elçilerini tasdik etmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Prophetentum, Offenbarung und Glauben ihren Erklärungen zu.",
+        "explanation_tr": "Prophetentum, Offenbarung und Glaube gehören zusammen, haben aber unterschiedliche Bedeutungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Prophet",
+            "right": "Ein von Allah erwählter Gesandter, der Offenbarung empfängt"
+          },
+          {
+            "left": "Offenbarung",
+            "right": "Göttliche Mitteilung von Allah"
+          },
+          {
+            "left": "Glaube an die Propheten",
+            "right": "Allahs Gesandte anerkennen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-007": {
+      "source": {
+        "question_tr": "Nisâ 4:164 peygamberler hakkında hangi önemli bilgiyi verir?",
+        "explanation_tr": "Nisâ 4:164 bazı peygamberlerin Hz. Muhammed'e anlatıldığını, bazılarının ise anlatılmadığını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kur'an'da bazı peygamberlerin anlatıldığını, bazılarının anlatılmadığını",
+          "Bütün peygamberlerin tek tek isimlerinin verildiğini",
+          "Peygamberlerin yalnız bir toplumdan çıktığını",
+          "Peygamberlerin sayısının ayette açıkça belirtildiğini"
+        ],
+        "correct_answer": "Kur'an'da bazı peygamberlerin anlatıldığını, bazılarının anlatılmadığını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was sagt An-Nisa 4:164 über die Propheten?",
+        "explanation_tr": "An-Nisa 4:164 erklärt, dass Muhammad von manchen Gesandten berichtet wurde und von anderen nicht.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Einige Propheten werden im Koran beschrieben, andere nicht",
+          "Jeder Prophet wird einzeln namentlich genannt",
+          "Propheten stammen nur aus einem Volk",
+          "Der Vers nennt die genaue Gesamtzahl der Propheten"
+        ],
+        "correct_answer": "Einige Propheten werden im Koran beschrieben, andere nicht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-008": {
+      "source": {
+        "question_tr": "Bir uygulama 'Kur'an bütün peygamberlerin isimlerini eksiksiz listeler' diyor. Ne yapılmalı?",
+        "explanation_tr": "Kur'an peygamberlerin tamamını isim isim saydığını söylemez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İfade düzeltilmeli; Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir",
+          "Aynen bırakılmalı",
+          "Peygamber isimleri tamamen silinmeli",
+          "Her tarihî kişiye peygamber etiketi konmalı"
+        ],
+        "correct_answer": "İfade düzeltilmeli; Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine App behauptet: „Der Koran nennt ausnahmslos alle Propheten beim Namen.“ Was muss geändert werden?",
+        "explanation_tr": "Der Koran beansprucht nicht, alle Propheten einzeln zu nennen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "An-Nisa 4:164 sagt, dass nicht über alle Propheten berichtet wurde",
+          "Die Aussage unverändert lassen",
+          "Alle Prophetennamen entfernen",
+          "Jede historische Figur als Prophet bezeichnen"
+        ],
+        "correct_answer": "An-Nisa 4:164 sagt, dass nicht über alle Propheten berichtet wurde",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-009": {
+      "source": {
+        "question_tr": "Peygamberlere iman, Kur'an'da adı geçmeyen hiçbir peygamberin gönderilmediğini söylemeyi gerektirir.",
+        "explanation_tr": "Nisâ 4:164 bazı peygamberlerin anlatıldığını, bazılarının ise anlatılmadığını bildirir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "An die Propheten zu glauben verlangt zu behaupten, dass keine ungenannten Propheten gesandt wurden.",
+        "explanation_tr": "An-Nisa 4:164 erwähnt ausdrücklich, dass einige Gesandte nicht beschrieben werden.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-010": {
+      "source": {
+        "question_tr": "Peygamberlere imanı tek cümleyle tanımla.",
+        "explanation_tr": "Peygamberlere iman, Allah'ın görevlendirdiği elçileri tasdik etmeyi ve aralarında inkâr edici ayrım yapmamayı içerir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah'ın insanlara gönderdiği peygamberlerin hak olduğuna ve Allah'ın elçileri olduklarına iman etmektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Definiere den Glauben an die Propheten in einem Satz.",
+        "explanation_tr": "Zum Glauben an die Propheten gehört, alle von Allah berufenen Gesandten anzuerkennen, ohne einige zu leugnen.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Wir glauben, dass die Propheten, die Allah zu den Menschen sandte, wahrhaftige Propheten und Seine Gesandten sind.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-011": {
+      "source": {
+        "question_tr": "Bir peygamberlik iddiasını değerlendirirken sağlıklı sıralamayı oluştur.",
+        "explanation_tr": "Peygamberlik gibi vahye bağlı bir konuda kaynak düzeyini ayırmak yanlış kesinlikleri azaltır.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "İddianın kaynağını belirle",
+          "Kur'an'daki açık bilgiyi kontrol et",
+          "Kesin bilgi ile yorumu ayır",
+          "Kaynaksız ayrıntıyı iman maddesi yapma"
+        ],
+        "correct_order": [
+          "İddianın kaynağını belirle",
+          "Kur'an'daki açık bilgiyi kontrol et",
+          "Kesin bilgi ile yorumu ayır",
+          "Kaynaksız ayrıntıyı iman maddesi yapma"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne die Schritte einer sorgfältigen Prüfung von Aussagen über Propheten.",
+        "explanation_tr": "Bei Fragen über Offenbarung schützt die Unterscheidung zwischen Quellen und Deutungen vor falscher Gewissheit.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Die Quelle der Behauptung feststellen",
+          "Ausdrückliche Angaben des Korans prüfen",
+          "Gesicherte Aussagen von Auslegungen unterscheiden",
+          "Unbelegte Einzelheiten nicht zum Glaubensartikel erklären"
+        ],
+        "correct_order": [
+          "Die Quelle der Behauptung feststellen",
+          "Ausdrückliche Angaben des Korans prüfen",
+          "Gesicherte Aussagen von Auslegungen unterscheiden",
+          "Unbelegte Einzelheiten nicht zum Glaubensartikel erklären"
+        ],
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-012": {
+      "source": {
+        "question_tr": "Bakara 2:285'te 'peygamberler arasında ayrım yapmayız' ifadesi, her peygamberin bütün özellik ve derecelerinin aynı olduğu anlamına gelir.",
+        "explanation_tr": "Bakara 2:285 iman bakımından ayrım yapmamayı vurgularken Bakara 2:253 peygamberlerin farklı dereceleri ve özellikleri bulunduğunu bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "„Wir machen keinen Unterschied zwischen den Gesandten“ bedeutet, dass alle Propheten genau dieselben Eigenschaften und denselben Rang haben.",
+        "explanation_tr": "Al-Baqara 2:285 betrifft ihre Anerkennung im Glauben. Al-Baqara 2:253 spricht zugleich von unterschiedlichen Rängen und Gaben.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-013": {
+      "source": {
+        "question_tr": "Peygamberlere iman açısından en dengeli yaklaşım hangisidir?",
+        "explanation_tr": "Kur'an hem peygamberler arasında iman bakımından ayrım yapmamayı hem de bazılarına farklı lütuflar ve dereceler verildiğini bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Bütün Allah elçilerini tasdik etmek, fakat kaynakta bildirilen farklı özellikleri de inkâr etmemek",
+          "Yalnız bir peygamberi kabul etmek",
+          "Bütün peygamberleri tek kişi saymak",
+          "Peygamberlerin özelliklerinin hiç farklı olmadığını söylemek"
+        ],
+        "correct_answer": "Bütün Allah elçilerini tasdik etmek, fakat kaynakta bildirilen farklı özellikleri de inkâr etmemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Haltung zum Glauben an die Propheten ist ausgewogen?",
+        "explanation_tr": "Der Koran betont sowohl die Anerkennung aller Gesandten als auch unterschiedliche Gaben und Ränge.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Alle Gesandten Allahs anerkennen und zugleich ihre in den Quellen genannten unterschiedlichen Eigenschaften beachten",
+          "Nur einen Propheten anerkennen",
+          "Alle Propheten als dieselbe Person betrachten",
+          "Behaupten, ihre Eigenschaften unterscheiden sich nie"
+        ],
+        "correct_answer": "Alle Gesandten Allahs anerkennen und zugleich ihre in den Quellen genannten unterschiedlichen Eigenschaften beachten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S01-014": {
+      "source": {
+        "question_tr": "Nisâ 4:163-164, peygamberliğin temelinde Allah'tan gelen ______ bulunduğunu gösterir.",
+        "explanation_tr": "Ayetlerde çok sayıda peygambere vahyedildiği bildirilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vahyin",
+          "servetin",
+          "saltanatın",
+          "soy üstünlüğünün"
+        ],
+        "correct_answer": "vahyin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "An-Nisa 4:163–164 zeigt, dass ______ von Allah eine Grundlage des Prophetentums ist.",
+        "explanation_tr": "Die Verse beschreiben, dass zahlreiche Propheten Offenbarung empfingen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Offenbarung",
+          "Reichtum",
+          "Königsherrschaft",
+          "Abstammungsvorrang"
+        ],
+        "correct_answer": "Offenbarung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaube an die Propheten",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

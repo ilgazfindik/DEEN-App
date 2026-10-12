@@ -64,21 +64,28 @@ Last updated: 2026-10-12
 | U07-S03 / 14 base questions | 14 staged | 0 |
 | U07-S04 / 16 base questions | 16 staged | 0 |
 | U07-S05 / 16 base questions | 16 staged | 0 |
-| U07-S06–S07 base questions | 0 | 26 |
-| U08–U15 | 0 | 800 |
+| U07-S06 / 12 base questions | 12 staged | 0 |
+| U07-S07 / 14 base questions | 14 staged | 0 |
+| U08-S01 / 14 base questions | 14 staged | 0 |
+| U08-S02 / 14 base questions | 14 staged | 0 |
+| U08-S03 / 14 base questions | 14 staged | 0 |
+| U08-S04 / 16 base questions | 16 staged | 0 |
+| U08-S05 / 16 base questions | 16 staged | 0 |
+| U08-S06–S07 base questions | 0 | 26 |
+| U09–U15 | 0 | 700 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 674 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 774 / 1,500 base questions translated in staging; 0 German game questions published.**
 
 The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 674 source IDs across forty-seven stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 774 source IDs across fifty-four stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-The next 100-question batch is U07-S06 (12) + U07-S07 (14) + U08-S01 through U08-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+The next 100-question batch is U08-S06 (12) + U08-S07 (14) + U09-S01 through U09-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -136,3 +143,10 @@ The next 100-question batch is U07-S06 (12) + U07-S07 (14) + U08-S01 through U08
 - Included translated prompts, options, answer positions, explanations, matching pairs, fill blanks, recall answers, and sequence cards. Turkish source snapshots are unchanged.
 - Faith content includes claims involving revealed books, Al-Maida 5:48, Al-Imran 3:3–4, Al-Isra 17:9, Al-Hidschr 15:9 and source-specific book/profhet distinctions; religious-source validation remains pending expert approval.
 - No German audio, Quran section, in-game runtime variants, UI localization or native-speaker review is claimed complete. Locale remains unavailable to game runtime.
+
+## Batch 100G — U07 completion and U08-S01 through S05
+- Added exactly **100 German base questions in staging**: U07-S06 (12) and U07-S07 (14); U08-S01 (14), S02 (14), S03 (14), S04 (16), S05 (16).
+- Total: **774/1500** staged. U01–U07 complete at 100/100 each; U08 at 74/100.
+- Includes translated questions, explanations, answer choices, fill-blank prompts, matching pairs, free recall answers, and shuffled sequence cards.
+- U07 distinguishes Quranic verses from human interpretation; U08 covers prophethood, revelation, tawhid, prophets' humanity, conveyance and Muhammad's role.
+- Human native-German and religious expert approval, runtime variations, UI, Quran, audio, and in-browser German gameplay are outstanding. The German game question gate stays blocked.
