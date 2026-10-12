@@ -8,6 +8,9 @@ assert.equal(manifest.languages.de.question_data,'missing','German lessons must 
 assert.equal(manifest.languages.de.global_qa,'blocked','German release must remain blocked');
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
+ ["DEEN boyunca sana eşlik edecek hayvanı seç. Bu bir kişilik testi değil; sadece senin görsel yol arkadaşın.","Wähle ein Tier, das dich bei DEEN begleitet. Dies ist kein Persönlichkeitstest, sondern dein Lernbegleiter."],
+ ["Seçimini daha sonra Profil ekranındaki hayvana dokunarak değiştirebilirsin.","Du kannst deinen Lernbegleiter später ändern, indem du im Profil auf das Tier tippst."],
+ ["Öğrenme ve bilgelik","Lernen und Weisheit"],
  ["5 soru · Ücretsiz","5 Fragen · Kostenlos"],
  ["1 soru · Ücretsiz","1 Frage · Kostenlos"],
  ["0 / 1 ayet","0 / 1 Vers"],
