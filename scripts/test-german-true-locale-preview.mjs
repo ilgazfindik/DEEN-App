@@ -420,6 +420,21 @@ try{
    }
   });
   window.__DEEN_MATCH_OBSERVED_SESSION__=obj;
+  window.__DEEN_MATCH_CLICK_EVENTS__=[];
+  const area=document.getElementById('answerArea');
+  const observe=(scope,e)=>{
+   const card=e.target.closest?.('.v1017-card');
+   if(!card)return;
+   window.__DEEN_MATCH_CLICK_EVENTS__.push({
+    scope,pair:card.dataset.pair,side:card.dataset.side,
+    connected:card.isConnected,in_area:area.contains(card),
+    area_connected:area.isConnected,disabled:card.disabled,
+    last:document.documentElement.dataset.deenMatchingLast,
+    matched:[...area.querySelectorAll('.v1017-card.matched')].length
+   });
+  };
+  area.addEventListener('click',e=>observe('area_capture',e),true);
+  document.addEventListener('click',e=>observe('document_capture',e),true);
  });
  report.matching.tapTrace=[];
  for(let i=0;i<matching.pairs.length;i++){
@@ -458,6 +473,7 @@ try{
    sync_probe:{
     area_count:document.querySelectorAll('#answerArea').length,
     handler_installed:typeof document.getElementById('answerArea')?.__deenMatchReconcileHandler==='function',
+    area_connected:document.getElementById('answerArea')?.isConnected,
     current_question_id:session?.questions?.[session?.index]?.id,
     session_index:session?.index,
     active_key:session?.__deenMatchingState?.key,
@@ -466,6 +482,7 @@ try{
    },
    writes:(window.__DEEN_MATCH_SET_TRACE__||[]).slice(-12),
    engine_persists:(window.__DEEN_MATCH_ENGINE_TRACE__||[]).slice(-12),
+   click_events:(window.__DEEN_MATCH_CLICK_EVENTS__||[]).slice(-12),
    same_session:window.__DEEN_MATCH_OBSERVED_SESSION__===session,
    card_element_connected:!!document.querySelector('#answerArea .v1017-card.matched')?.isConnected
   }));
