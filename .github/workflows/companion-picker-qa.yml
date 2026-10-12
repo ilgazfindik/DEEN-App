@@ -1,0 +1,24 @@
+name: Companion picker runtime QA
+on:
+  push:
+    branches: [main, codex/companion-localization-crash-fix-20261012]
+    paths:
+      - release/v9.9.3-direct/segment-24.txt
+      - index.html
+      - scripts/test-companion-localization-hotfix.mjs
+      - .github/workflows/companion-picker-qa.yml
+  pull_request:
+    paths:
+      - release/v9.9.3-direct/segment-24.txt
+      - index.html
+      - scripts/test-companion-localization-hotfix.mjs
+      - .github/workflows/companion-picker-qa.yml
+jobs:
+  companion-picker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-companion-localization-hotfix.mjs
