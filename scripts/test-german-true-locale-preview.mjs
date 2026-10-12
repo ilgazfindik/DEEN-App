@@ -186,6 +186,70 @@ try{
  assert.equal(chrome.release_enabled,false);
  await page.screenshot({path:output+'/true-locale-german-ui-staging.png',fullPage:true});
 
+ // Exercise the ACTUAL grader under the actual 'de' locale, not a Turkish page
+ // with a translated source injected. The lesson's own teaching card remains.
+ const teaching=page.locator('#lesson .v910-card-button:visible');
+ if(await teaching.count())await teaching.first().click({timeout:20000});
+ const correct=stage.renders[0].answer;
+ const answer=page.locator('#answerArea .option')
+  .filter({has:page.locator('.option-label',{hasText:correct})});
+ assert.equal(await answer.count(),1,'Exactly one correct German answer must be shown');
+ await answer.click({timeout:20000});
+ await page.waitForTimeout(550);
+ const beforeGrade=await page.evaluate(()=>({
+  feedback:document.getElementById('feedback')?.classList.contains('show')||false
+ }));
+ if(!beforeGrade.feedback){
+  const confirm=page.locator('#answerArea .template-action:visible:not([disabled])');
+  if(await confirm.count())await confirm.first().click({timeout:12000});
+ }
+ const grading=await page.evaluate(()=>{
+  const question=session?.questions?.[0],source=question?.__deenSourceQuestion;
+  const resolved=source&&window.DEEN_CONTENT_LOCALE.translateQuestion(source,'de');
+  const explanation=document.getElementById('feedbackText')?.textContent?.trim();
+  return {app_locale:window.DEEN_APP_LOCALE.get(),
+   selected_question:question?.id,
+   translated_answer:question?.correct_answer,
+   resolved_answer:resolved?.correct_answer,
+   source_answer:source?.correct_answer,
+   answered_correct:session?.correct,
+   feedback_visible:document.getElementById('feedback')?.classList.contains('show'),
+   feedback_title:document.getElementById('feedbackTitle')?.textContent?.trim(),
+   feedback_text:explanation,expected_explanation:resolved?.explanation_tr};
+ });
+ report.grading=grading;
+ assert.equal(grading.app_locale,'de');
+ assert.equal(grading.feedback_visible,true,'German response did not reach grading feedback');
+ assert.equal(grading.answered_correct,1,'German answer was graded incorrectly');
+ assert.equal(grading.translated_answer,grading.resolved_answer);
+ assert.notEqual(grading.source_answer,grading.translated_answer);
+ assert(grading.feedback_text?.includes(grading.expected_explanation),
+  'German answer feedback did not retain the source-matched German explanation');
+ // The actual app may still contain Turkish wrapper chrome in the feedback;
+ // apply only staged QA UI chrome and report source wrappers separately.
+ const feedbackChrome=await page.evaluate(()=>{
+  const q=session.questions[0],el=document.getElementById('feedbackText');
+  const old=el?.textContent?.trim()||'';
+  let wrapperTranslated=false;
+  if(q.__deenContentLocale==='de'&&q.__deenSourceQuestion&&
+     window.DEEN_CONTENT_LOCALE.translateQuestion(q.__deenSourceQuestion,'de')
+      ?.explanation_tr===q.explanation_tr&&old==='Kısaca: '+q.explanation_tr){
+   el.textContent='Kurz gesagt: '+q.explanation_tr;
+   wrapperTranslated=true;
+  }
+  const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+   document.getElementById('lesson'),{qaMode:true,locale:'de',documentRef:document});
+  return {wrapperTranslated,unresolved:audit.unresolved,
+   visible_feedback:document.getElementById('feedbackText')?.textContent?.trim(),
+   heading:document.getElementById('feedbackTitle')?.textContent?.trim()};
+ });
+ report.feedback_chrome=feedbackChrome;
+ assert.deepEqual(feedbackChrome.unresolved,[],
+  'German graded feedback UI contains Turkish text');
+ assert(feedbackChrome.visible_feedback.endsWith(grading.expected_explanation));
+ await page.screenshot({path:output+'/true-locale-german-graded.png',fullPage:true});
+
+
  assert.deepEqual(report.errors,[],'Browser threw errors during real German boot');
  report.status='passed';
  console.log(JSON.stringify(report,null,2));
