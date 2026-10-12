@@ -618,6 +618,131 @@ try{
  assert.deepEqual(otherErrors,[],'JavaScript exceptions or unrelated console errors occurred');
  if(transient.length)report.qa_transient_warnings=transient;
 
+ // Full real-controller U01-S01 stage (not an index jump): submit all twelve
+ // source-matched German questions using actual visible controls, follow every
+ // Continue action, then verify XP/completion and language/state persistence.
+ const priorErrors=report.errors.length;
+ const stageOpen=await page.evaluate(()=>{
+  closeLesson();
+  state.energy=100;
+  const before={xp:state.xp,completed:[...state.completed]};
+  document.getElementById('energyModal')?.classList.remove('show');
+  startStage('U01-S01');
+  return {before,questionCount:session?.questions.length||0,
+   locale:window.DEEN_APP_LOCALE.get(),stageId:session?.stage?.id};
+ });
+ report.complete_stage={open:stageOpen,questions:[]};
+ assert.equal(stageOpen.locale,'de');
+ assert.equal(stageOpen.stageId,'U01-S01');
+ assert.equal(stageOpen.questionCount,12,'Unexpected stage selection for full German lesson');
+ for(let index=0;index<stageOpen.questionCount;index++){
+  await page.waitForFunction(i=>session?.index===i,index,{timeout:20000});
+  const q=await page.evaluate(i=>{
+   const item=session.questions[i];
+   return {id:item.id,index:i,type:item.activity_type,answer:item.correct_answer,
+    pairs:item.pairs,translated:item.__deenContentLocale==='de',
+    source:!!item.__deenSourceQuestion,question:item.question_tr,
+    explanation:item.explanation_tr};
+  },index);
+  assert.equal(q.translated,true,'Question locale lost in full stage: '+q.id);
+  assert.equal(q.source,true,'Source signature missing in full stage: '+q.id);
+  const teaching=page.locator('#lesson .v910-card-button:visible');
+  if(await teaching.count())await teaching.first().click({timeout:15000});
+  if(q.type==='matching'){
+   for(let pair=0;pair<q.pairs.length;pair++){
+    await page.locator('#answerArea .v1017-card[data-side="left"][data-pair="'+pair+'"]').click({timeout:15000});
+    await page.locator('#answerArea .v1017-card[data-side="right"][data-pair="'+pair+'"]').click({timeout:15000});
+    await page.waitForFunction(n=>window.DEEN_ISOLATED_MATCHING?.snapshot?.().matchedLeft===n,
+     pair+1,{timeout:15000});
+   }
+  }else if(q.type==='fill_blank'){
+   const choice=page.locator('#answerArea .fill-choice[data-value="'+q.answer+'"]');
+   if(await choice.count())await choice.click({timeout:15000});
+   else await page.locator('#answerArea input').first().fill(q.answer);
+   const check=page.locator('#answerArea .template-action:visible:not([disabled])');
+   assert((await check.count())>0,'Fill question cannot be confirmed: '+q.id);
+   await check.first().click({timeout:15000});
+  }else{
+   assert(q.answer,'Choice answer missing in German stage: '+q.id);
+   const options=page.locator('#answerArea .option');
+   const exact=options.filter({has:page.locator('.option-label',{hasText:q.answer})});
+   assert.equal(await exact.count(),1,'No unique German correct choice: '+q.id);
+   await exact.click({timeout:15000});
+   if(!(await page.locator('#feedback').evaluate(el=>el.classList.contains('show')))){
+    const check=page.locator('#answerArea .template-action:visible:not([disabled])');
+    if(await check.count())await check.first().click({timeout:15000});
+   }
+  }
+  await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
+   null,{timeout:15000});
+  const graded=await page.evaluate(()=>({
+   correct:session.correct,index:session.index,locale:window.DEEN_APP_LOCALE.get(),
+   explanation:document.getElementById('feedbackText')?.textContent?.trim()||''
+  }));
+  report.complete_stage.questions.push({...q,graded,passed:graded.correct===index+1});
+  assert.equal(graded.locale,'de');
+  assert.equal(graded.correct,index+1,'Wrong German grading at stage question '+q.id);
+  assert(graded.explanation.includes(q.explanation),
+   'Source-matched German explanation missing at stage question '+q.id);
+  await page.locator('#continueBtn:visible').click({timeout:15000});
+ }
+ await page.waitForFunction(()=>document.getElementById('resultView')?.classList.contains('show'),
+  null,{timeout:20000});
+ const completion=await page.evaluate(()=>{
+  const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+   document.getElementById('resultView'),{qaMode:true,locale:'de',documentRef:document});
+  return {locale:window.DEEN_APP_LOCALE.get(),
+   completed:state.completed.includes('U01-S01'),
+   score:state.stageScores['U01-S01'],
+   xp:state.xp,title:document.getElementById('resultTitle')?.textContent?.trim(),
+   subtitle:document.getElementById('resultSubtitle')?.textContent?.trim(),
+   correct:document.getElementById('resultCorrect')?.textContent?.trim(),
+   percentage:document.getElementById('resultPct')?.textContent?.trim(),
+   unresolved:audit.unresolved};
+ });
+ report.complete_stage.result=completion;
+ assert.equal(completion.locale,'de');
+ assert.equal(completion.completed,true);
+ assert.equal(completion.score,100);
+ assert(completion.xp>stageOpen.before.xp);
+ assert.equal(completion.correct,'12/12');
+ assert.equal(completion.percentage,'100%');
+ assert.deepEqual(completion.unresolved,[],'Result screen leaks Turkish text');
+ await page.screenshot({path:output+'/true-locale-german-full-stage-results.png',fullPage:true});
+ // Persisted language and completed stage must survive a browser reload.
+ await page.locator('#resultContinueBtn:visible').click({timeout:15000});
+ const persistedBefore=await page.evaluate(()=>{
+  saveState();
+  return {locale:window.DEEN_APP_LOCALE.get(),
+   completed:state.completed.includes('U01-S01'),xp:state.xp,
+   key:localStorage.getItem('deen_app_language_v1')};
+ });
+ assert.equal(persistedBefore.key,'de');
+ await page.reload({waitUntil:'domcontentloaded',timeout:60000});
+ await page.waitForFunction(()=>window.DEEN_APP_LOCALE?.get()==='de'&&
+  typeof state==='object'&&state?.completed?.includes('U01-S01'),
+  null,{timeout:100000});
+ const persistedAfter=await page.evaluate(()=>({
+  locale:window.DEEN_APP_LOCALE.get(),
+  docLang:document.documentElement.lang,
+  completed:state.completed.includes('U01-S01'),
+  score:state.stageScores['U01-S01'],xp:state.xp,
+  key:localStorage.getItem('deen_app_language_v1'),
+  release:window.__DEEN_CONTENT_MANIFEST__?.languages?.de?.global_qa,
+  synthetic:window.__DEEN_CONTENT_MANIFEST__?.__deenSyntheticGermanQA===true
+ }));
+ report.complete_stage.persistence={before:persistedBefore,after:persistedAfter};
+ assert.equal(persistedAfter.locale,'de');
+ assert.equal(persistedAfter.docLang,'de');
+ assert.equal(persistedAfter.key,'de');
+ assert.equal(persistedAfter.completed,true);
+ assert.equal(persistedAfter.score,100);
+ assert.equal(persistedAfter.xp,persistedBefore.xp);
+ assert.equal(persistedAfter.synthetic,true);
+ const newErrors=report.errors.slice(priorErrors);
+ report.complete_stage.browserErrors=newErrors;
+ assert.deepEqual(newErrors,[],'Full German lesson / reload emitted console errors');
+
  report.status='passed';
  console.log(JSON.stringify(report,null,2));
 }catch(e){report.status='failed';report.error=String(e.stack||e);
