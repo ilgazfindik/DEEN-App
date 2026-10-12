@@ -1,0 +1,613 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U09",
+  "stage": "U09-S05",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U09-S05-001": {
+      "source": {
+        "question_tr": "Ahiret bilinci günlük hayatta en çok hangi tutumu destekler?",
+        "explanation_tr": "Ahirette yapılanların karşılığının görüleceğine iman, davranışların anlam ve sorumluluk taşıdığını hatırlatır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sorumluluk ve adalet bilincini",
+          "Kayıtsızlığı",
+          "Haksızlığın önemsizliğini",
+          "İyiliği sürekli ertelemeyi"
+        ],
+        "correct_answer": "Sorumluluk ve adalet bilincini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Haltung fördert der Glaube an das Jenseits im Alltag besonders?",
+        "explanation_tr": "Der Glaube an die Vergeltung im Jenseits erinnert an die Bedeutung und Verantwortung menschlicher Handlungen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Verantwortungsbewusstsein und Gerechtigkeit",
+          "Gleichgültigkeit",
+          "Ungerechtigkeit als unwichtig ansehen",
+          "Gute Taten ständig aufschieben"
+        ],
+        "correct_answer": "Verantwortungsbewusstsein und Gerechtigkeit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-002": {
+      "source": {
+        "question_tr": "Ahiret inancı, yalnız ölüm sonrası hakkında bilgi verir; dünya davranışlarıyla hiçbir ilişkisi yoktur.",
+        "explanation_tr": "Kur'an ahiret hesabını dünya hayatındaki iyilik, kötülük, adalet ve sorumlulukla doğrudan ilişkilendirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an das Jenseits betrifft ausschließlich die Zeit nach dem Tod und hat mit unserem Handeln im Diesseits nichts zu tun.",
+        "explanation_tr": "Der Koran verbindet die Abrechnung im Jenseits unmittelbar mit gutem und schlechtem Handeln im Diesseits.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-003": {
+      "source": {
+        "question_tr": "Zilzâl 99:7-8'in mesajı, küçük davranışların bile ______ taşıdığını hatırlatır.",
+        "explanation_tr": "Ayetler küçük hayır ve şerrin dahi karşılığının görüleceğini bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "sorumluluk",
+          "anlamsızlık",
+          "görünmezlik",
+          "tesadüf"
+        ],
+        "correct_answer": "sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Az-Zalzala 99:7–8 erinnert uns daran, dass selbst kleine Taten ______ mit sich bringen.",
+        "explanation_tr": "Die Verse besagen, dass selbst kleine gute und schlechte Taten nicht unbeachtet bleiben.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Verantwortung",
+          "Bedeutungslosigkeit",
+          "Unsichtbarkeit",
+          "Zufall"
+        ],
+        "correct_answer": "Verantwortung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-004": {
+      "source": {
+        "question_tr": "Bir öğrenci sınavda kopya çekmeyi 'Kimse görmezse sorun yok' diye savunuyor. Ahiret bilinci açısından en uygun hatırlatma hangisidir?",
+        "explanation_tr": "Ahiret hesabı ve ilahî adalet inancı, görünmeyen davranışlarda da sorumluluk bilincini destekler.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Doğru davranış yalnız insanların görmesine bağlı değildir; insan yaptıklarından sorumludur",
+          "Kimse görmezse davranış hesaba girmez",
+          "Sadece büyük suçlar önemlidir",
+          "Başarılı sonuç her yöntemi haklı çıkarır"
+        ],
+        "correct_answer": "Doğru davranış yalnız insanların görmesine bağlı değildir; insan yaptıklarından sorumludur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler rechtfertigt das Schummeln in der Prüfung: „Solange mich niemand sieht, ist es in Ordnung.“ Welche Erinnerung passt?",
+        "explanation_tr": "Der Glaube an die Abrechnung und göttliche Gerechtigkeit erinnert auch bei verborgenen Handlungen an Verantwortung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Richtiges Handeln hängt nicht nur davon ab, ob Menschen zusehen; jeder ist für sein Verhalten verantwortlich",
+          "Was niemand sieht, zählt nicht",
+          "Nur schwere Verbrechen sind wichtig",
+          "Ein gutes Ergebnis rechtfertigt jedes Mittel"
+        ],
+        "correct_answer": "Richtiges Handeln hängt nicht nur davon ab, ob Menschen zusehen; jeder ist für sein Verhalten verantwortlich",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-005": {
+      "source": {
+        "question_tr": "Bir kişi 'Küçük bir iyilik yapmanın ne faydası var?' diyor. Hangi ayet ilkesi en uygun cevaptır?",
+        "explanation_tr": "Zilzâl 99:7 küçük iyiliğin dahi değersiz olmadığını bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zerre kadar hayrın bile karşılığının görüleceği",
+          "Yalnız büyük bağışların değerli olduğu",
+          "İyiliğin ancak alkışlanırsa anlamlı olduğu",
+          "Küçük iyiliğin silindiği"
+        ],
+        "correct_answer": "Zerre kadar hayrın bile karşılığının görüleceği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand fragt: „Warum soll ich eine kleine gute Tat tun?“ Welcher Grundsatz antwortet darauf?",
+        "explanation_tr": "Az-Zalzala 99:7 erklärt, dass selbst eine kleine gute Tat nicht wertlos ist.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Auch die kleinste gute Tat bleibt nicht ohne Vergeltung",
+          "Nur große Spenden zählen",
+          "Gutes zählt nur bei öffentlichem Lob",
+          "Kleine gute Taten werden gelöscht"
+        ],
+        "correct_answer": "Auch die kleinste gute Tat bleibt nicht ohne Vergeltung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-006": {
+      "source": {
+        "question_tr": "Birisi 'Nasıl olsa ahiret var, dünya hayatındaki sorumluluklar önemsizdir' diyor. En dengeli cevap hangisidir?",
+        "explanation_tr": "Kur'an ahiret hesabını dünya hayatındaki davranışlarla doğrudan bağlantılı kurar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret inancı dünyadaki sorumluluğu azaltmaz; aksine davranışların hesabını hatırlatır",
+          "Ahiret inancı çalışmayı gereksiz kılar",
+          "Dünya hayatındaki adalet önemsizdir",
+          "İnsan hiçbir tercihten sorumlu değildir"
+        ],
+        "correct_answer": "Ahiret inancı dünyadaki sorumluluğu azaltmaz; aksine davranışların hesabını hatırlatır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Wegen des Jenseits sind die Pflichten im Diesseits unwichtig.“ Was ist die ausgewogene Antwort?",
+        "explanation_tr": "Der Koran verbindet die spätere Abrechnung direkt mit den Handlungen in diesem Leben.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Glaube an das Jenseits mindert unsere Verantwortung im Diesseits nicht, sondern erinnert an die Abrechnung",
+          "Durch den Jenseitsglauben wird Arbeit unnötig",
+          "Gerechtigkeit im Diesseits ist unwichtig",
+          "Menschen tragen für keine Entscheidung Verantwortung"
+        ],
+        "correct_answer": "Der Glaube an das Jenseits mindert unsere Verantwortung im Diesseits nicht, sondern erinnert an die Abrechnung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-007": {
+      "source": {
+        "question_tr": "Bir notta 'Ahiret inancı insanı sadece korkutmak içindir' yazıyor. En kapsamlı düzeltme hangisidir?",
+        "explanation_tr": "Zilzâl 99:7 iyiliğin karşılığını, Enbiyâ 21:47 adaleti, Âl-i İmrân 3:185 ise nihai karşılığı vurgular.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ahiret inancı sorumluluk, adalet, umut ve yapılan iyiliğin değerini de öğretir",
+          "Ahiret yalnız korku üretir",
+          "İyilik ahiretle ilgisizdir",
+          "Adalet yalnız dünyada mümkündür"
+        ],
+        "correct_answer": "Ahiret inancı sorumluluk, adalet, umut ve yapılan iyiliğin değerini de öğretir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Der Glaube an das Jenseits soll Menschen nur Angst machen.“ Welche Korrektur ist umfassend?",
+        "explanation_tr": "Az-Zalzala 99:7 betont die Vergeltung des Guten, Al-Anbiya 21:47 die Gerechtigkeit und Al-Imran 3:185 die endgültige Vergeltung.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Er vermittelt auch Verantwortung, Gerechtigkeit, Hoffnung und den Wert guter Taten",
+          "Das Jenseits bewirkt ausschließlich Angst",
+          "Gutes hat nichts mit dem Jenseits zu tun",
+          "Gerechtigkeit ist nur im Diesseits möglich"
+        ],
+        "correct_answer": "Er vermittelt auch Verantwortung, Gerechtigkeit, Hoffnung und den Wert guter Taten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-008": {
+      "source": {
+        "question_tr": "Ahiret bilincini davranışlarla eşleştir.",
+        "explanation_tr": "Ahiret inancı dünya hayatındaki ahlaki seçimleri güçlendiren bir sorumluluk çerçevesi oluşturur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hesap bilinci",
+            "right": "Gizli-açık davranışta sorumluluk"
+          },
+          {
+            "left": "İlahi adalet",
+            "right": "Haksızlıktan kaçınma"
+          },
+          {
+            "left": "Küçük iyiliğin değeri",
+            "right": "İyiliği küçümsememe"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Gedanken zum Jenseits dem passenden Verhalten zu.",
+        "explanation_tr": "Der Glaube an das Jenseits kann verantwortungsvolle Entscheidungen im Diesseits fördern.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Bewusstsein der Abrechnung",
+            "right": "Verantwortung für sichtbare und verborgene Handlungen"
+          },
+          {
+            "left": "Göttliche Gerechtigkeit",
+            "right": "Ungerechtigkeit vermeiden"
+          },
+          {
+            "left": "Der Wert kleiner guter Taten",
+            "right": "Gutes nicht geringschätzen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-009": {
+      "source": {
+        "question_tr": "Ahiret inancı, bir insanın yalnızca başkalarının gördüğü zaman dürüst olması gerektiğini öğretir.",
+        "explanation_tr": "Ahiret hesabı insan gözetiminden bağımsız bir sorumluluk bilinci doğurur.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an das Jenseits verlangt Ehrlichkeit nur dann, wenn andere Menschen zuschauen.",
+        "explanation_tr": "Das Bewusstsein der Abrechnung erinnert an Verantwortung unabhängig von menschlicher Kontrolle.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-010": {
+      "source": {
+        "question_tr": "Ahiret inancının günlük hayata iki olumlu etkisini yaz.",
+        "explanation_tr": "Kur'an yapılanların karşılığının görüleceğini bildirerek davranış bilincini canlı tutar.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "İnsanın sorumluluk ve adalet bilincini güçlendirir; küçük iyilikleri küçümsememesine ve kötülükten sakınmasına yardımcı olur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nenne zwei positive Auswirkungen des Jenseitsglaubens auf deinen Alltag.",
+        "explanation_tr": "Der Koran erinnert durch die Vergeltung der Taten immer wieder an die Bedeutung unseres Handelns.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Der Glaube an das Jenseits stärkt Verantwortung und Gerechtigkeit und hilft, kleine gute Taten zu schätzen und Schlechtes zu vermeiden.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-011": {
+      "source": {
+        "question_tr": "Ahiret hesabına iman, insanı gizli ve açık davranışlarında daha ______ olmaya yöneltebilir.",
+        "explanation_tr": "Hesap inancı davranışların sonuç ve anlam taşıdığını hatırlatır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "sorumlu",
+          "kayıtsız",
+          "haksız",
+          "rastgele"
+        ],
+        "correct_answer": "sorumlu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an die Abrechnung im Jenseits kann helfen, bei sichtbaren und verborgenen Handlungen ______ zu handeln.",
+        "explanation_tr": "Der Glaube an die Abrechnung erinnert an die Bedeutung und Folgen unseres Handelns.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "verantwortungsbewusst",
+          "gleichgültig",
+          "ungerecht",
+          "willkürlich"
+        ],
+        "correct_answer": "verantwortungsbewusst",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-012": {
+      "source": {
+        "question_tr": "Bir arkadaşın yaptığı küçük bir hatayı 'Nasıl olsa küçücük bir şey' diye önemsiz görüyor. En dengeli yaklaşım hangisidir?",
+        "explanation_tr": "Zilzâl 99:8 küçük kötülüğün bile karşılıksız olmadığını hatırlatır; amaç umutsuzluk değil sorumluluk ve düzeltmedir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Küçük davranışları da ciddiye alıp düzeltmeye çalışmak",
+          "Küçük kötülüklerin hiçbir hesabı olmadığını düşünmek",
+          "Hataları sürekli büyütmek",
+          "Hiçbir davranışı değerlendirmemek"
+        ],
+        "correct_answer": "Küçük davranışları da ciddiye alıp düzeltmeye çalışmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt nach einem kleinen Fehler: „Das ist doch nur eine Kleinigkeit.“ Wie reagierst du ausgewogen?",
+        "explanation_tr": "Az-Zalzala 99:8 erinnert daran, dass selbst kleine Verfehlungen nicht unbeachtet bleiben. Ziel ist Verantwortung statt Hoffnungslosigkeit.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Auch kleine Handlungen ernst nehmen und versuchen, Fehler wiedergutzumachen",
+          "Annehmen, dass kleine Fehler nie abgerechnet werden",
+          "Kleine Fehler ständig übertreiben",
+          "Handlungen überhaupt nicht bewerten"
+        ],
+        "correct_answer": "Auch kleine Handlungen ernst nehmen und versuchen, Fehler wiedergutzumachen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-013": {
+      "source": {
+        "question_tr": "Ahiret inancını sağlıklı biçimde öğrenen biri hata yaptığında hangi tutum daha uygundur?",
+        "explanation_tr": "Ahiret bilinci sorumluluğu ve iyiliğe yönelmeyi desteklemelidir; ölüm sonrası pişmanlık yerine dünyada düzeltme imkânını değerlendirmek önemlidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hatayı fark edip düzeltmeye ve iyiliğe yönelmeye çalışmak",
+          "Nasıl olsa hesap var diye umutsuzluğa kapılmak",
+          "Hatasını inkâr etmek",
+          "Sorumluluğu başkasına yüklemek"
+        ],
+        "correct_answer": "Hatayı fark edip düzeltmeye ve iyiliğe yönelmeye çalışmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Haltung ist nach einem Fehler für jemanden sinnvoll, der den Glauben an das Jenseits verstanden hat?",
+        "explanation_tr": "Der Glaube an das Jenseits soll zu Verantwortung und guten Taten motivieren. Fehler sollten im Diesseits korrigiert werden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Den Fehler anerkennen, versuchen ihn zu korrigieren und sich dem Guten zuwenden",
+          "Wegen der Abrechnung verzweifeln",
+          "Den Fehler leugnen",
+          "Die Verantwortung auf andere schieben"
+        ],
+        "correct_answer": "Den Fehler anerkennen, versuchen ihn zu korrigieren und sich dem Guten zuwenden",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-014": {
+      "source": {
+        "question_tr": "Ahiret bilincini günlük karara uygulama sırasını oluştur.",
+        "explanation_tr": "Ahiret inancı karar anında sorumluluk ve adalet ölçüsünü hatırlatabilir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Karşımdaki seçeneği fark et",
+          "Doğru ve yanlış sonuçlarını düşün",
+          "Sorumluluğumu hatırla",
+          "Adil ve iyi olanı seç"
+        ],
+        "correct_order": [
+          "Karşımdaki seçeneği fark et",
+          "Doğru ve yanlış sonuçlarını düşün",
+          "Sorumluluğumu hatırla",
+          "Adil ve iyi olanı seç"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne diese Schritte, um bei einer Alltagsentscheidung an das Jenseits zu denken.",
+        "explanation_tr": "Das Bewusstsein des Jenseits kann bei Entscheidungen an Gerechtigkeit und Verantwortung erinnern.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Meine Entscheidungsmöglichkeit erkennen",
+          "Ihre guten und schlechten Folgen abwägen",
+          "Mich an meine Verantwortung erinnern",
+          "Gerecht und gut handeln"
+        ],
+        "correct_order": [
+          "Meine Entscheidungsmöglichkeit erkennen",
+          "Ihre guten und schlechten Folgen abwägen",
+          "Mich an meine Verantwortung erinnern",
+          "Gerecht und gut handeln"
+        ],
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-015": {
+      "source": {
+        "question_tr": "Ahiret inancı ile umut arasındaki en dengeli bağ hangisidir?",
+        "explanation_tr": "Zilzâl 99:7 iyiliğin karşılığını, Enbiyâ 21:47 ise nihai adaleti hatırlatır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Yapılan iyiliğin kaybolmayacağı ve adaletin sonunda gerçekleşeceği ümidi",
+          "Hiçbir davranışın önem taşımadığı düşüncesi",
+          "Dünya sorumluluklarından kaçma isteği",
+          "Her hatanın düzeltilemez olduğu inancı"
+        ],
+        "correct_answer": "Yapılan iyiliğin kaybolmayacağı ve adaletin sonunda gerçekleşeceği ümidi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie hängen der Glaube an das Jenseits und Hoffnung zusammen?",
+        "explanation_tr": "Az-Zalzala 99:7 erinnert an die Vergeltung des Guten und Al-Anbiya 21:47 an die endgültige Gerechtigkeit.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Gute Taten gehen nicht verloren, und letztlich wird Gerechtigkeit verwirklicht",
+          "Keine Handlung hat Bedeutung",
+          "Pflichten im Diesseits können ignoriert werden",
+          "Jeder Fehler ist unwiderruflich und kann nicht korrigiert werden"
+        ],
+        "correct_answer": "Gute Taten gehen nicht verloren, und letztlich wird Gerechtigkeit verwirklicht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S05-016": {
+      "source": {
+        "question_tr": "Dünya hayatı ile ahiret arasındaki ilişkiyi en doğru anlatan ifade hangisidir?",
+        "explanation_tr": "Kur'an ahiret karşılığını dünya hayatında yapılanlarla doğrudan ilişkilendirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Dünya hayatındaki seçimler ahiret hesabıyla ilişkilidir",
+          "Ahiret dünya davranışlarından tamamen kopuktur",
+          "Dünya hayatı hiçbir sorumluluk içermez",
+          "Ahiret yalnız teorik bilgi konusudur"
+        ],
+        "correct_answer": "Dünya hayatındaki seçimler ahiret hesabıyla ilişkilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage verbindet Diesseits und Jenseits am besten?",
+        "explanation_tr": "Der Koran verbindet die Vergeltung im Jenseits unmittelbar mit Taten im Diesseits.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Entscheidungen im Diesseits stehen mit der Abrechnung im Jenseits in Verbindung",
+          "Das Jenseits ist vollkommen unabhängig von irdischen Taten",
+          "Das Diesseits bringt keine Verantwortung",
+          "Das Jenseits ist bloß theoretisches Wissen"
+        ],
+        "correct_answer": "Entscheidungen im Diesseits stehen mit der Abrechnung im Jenseits in Verbindung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Das Jenseits und mein Handeln",
+        "topic": "Hoffnung, Gerechtigkeit und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
