@@ -126,8 +126,12 @@ try{
   JSON.stringify(stage.renders.filter(q=>!q.localized).map(q=>q.id)));
  assert(stage.renders.every(q=>q.source_distinct),
   'German question content did not retain its original source');
- assert(stage.renders.every(q=>q.displayed_text.includes(q.question)),
-  'A rendered lesson question leaked Turkish or failed to display the German text');
+ const normalizeSentence=s=>String(s||'')
+  .replace(/_{2,}|[\\u00a0]+/g,' ').replace(/\\s+/g,' ').trim();
+ const mismatched=stage.renders.filter(q=>
+  normalizeSentence(q.displayed_text)!==normalizeSentence(q.question));
+ assert.deepEqual(mismatched.map(q=>({id:q.id,rendered:q.displayed_text,expected:q.question})),[],
+  'A rendered lesson question differs from verified German (blank slots normalized)');
  assert(stage.renders.filter(q=>Array.isArray(q.options)).every(q=>
   q.options.includes(q.answer)),'Rendered German answers did not contain the correct choice');
  await page.screenshot({path:output+'/true-locale-german-first-lesson.png',fullPage:true});
