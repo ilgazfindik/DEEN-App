@@ -77,6 +77,17 @@ assert.equal(adapter.translate({...records.base_staging[0],id:'MISSING'},
  {qaMode:true,scope:'base_staging'}),null);
 assert.equal(adapter.translate({...records.base_staging[0],correct_answer:'tampered'},
  {qaMode:true,scope:'base_staging'}),null);
+const sample=adapter.translate(records.live_runtime_staging[0],
+ {qaMode:true,scope:'live_runtime_staging'});
+assert(sample);
+assert.equal(adapter.adaptQuestionPrompt('Birlikte düşün: '+sample.question_tr,sample,
+ {qaMode:true}),'Überlege mit: '+sample.question_tr);
+assert.equal(adapter.adaptQuestionPrompt(sample.question_tr,sample,{qaMode:true}),sample.question_tr);
+assert.equal(adapter.adaptQuestionPrompt('Different: '+sample.question_tr,sample,{qaMode:true}),null);
+assert.equal(adapter.adaptQuestionPrompt('Birlikte düşün: '+sample.question_tr,
+ {...sample,__deenQANotForRelease:false},{qaMode:true}),null);
+assert.throws(()=>adapter.adaptQuestionPrompt('Birlikte düşün: '+sample.question_tr,
+ sample,{qaMode:false}),/DE_QA_UNAPPROVED_CONTENT/);
 const totals=Object.fromEntries(Object.entries(records).map(([k,v])=>[k,v.length]));
 console.log(JSON.stringify({status:'passed',staging_only:true,release_ready:false,
  scopes:totals,total_versions:Object.values(totals).reduce((a,b)=>a+b,0),
