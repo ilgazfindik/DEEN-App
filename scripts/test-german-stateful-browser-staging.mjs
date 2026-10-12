@@ -11,7 +11,7 @@ const origin=process.env.DEEN_QA_ORIGIN||'http://127.0.0.1:8765';
 const output=process.env.DEEN_QA_OUTPUT||'qa-artifacts/german-browser';
 mkdirSync(output,{recursive:true});
 const report={schema_version:1,scope:'QA-only language gate and navigated tabs',
- staging_only:true,release_enabled:false,gate:null,tabs:[],errors:[]};
+ staging_only:true,release_enabled:false,gate:null,tabs:[],modals:[],errors:[]};
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 async function verifyGermanGate(){
  const page=await browser.newPage({viewport:{width:390,height:844}});
@@ -189,6 +189,47 @@ async function auditNavTabs(){
    assert.deepEqual(state.unresolved,[], 'Navigated '+id+' has untranslated Turkish-signal UI chrome');
    await page.screenshot({path:output+'/stateful-tab-'+id+'.png',fullPage:true});
   }
+  // Open real, read-only application dialogs; capture lazy UI unavailable in the
+  // initial shell. No purchases, answers, resets or other mutating controls are used.
+  const dialogs=['storePanel','premiumPanel','settingsPanel','goalPanel',
+   'streakPanel','xpPanel','showEnergy','editProfile','analyticsPanel','companion'];
+  for(const name of dialogs){
+   currentProbe='dialog:'+name;
+   const modal=await page.evaluate(name=>{
+    const dialog=document.getElementById('v5Sheet');
+    if(dialog?.open)dialog.close();
+    if(name==='companion')window.DEEN_COMPANION.open('profile');
+    else{
+     const fn=window[name];
+     if(typeof fn!=='function')throw Error('Missing app panel: '+name);
+     fn();
+    }
+    const root=document.querySelector('.phone'),sheet=document.getElementById('v5Sheet');
+    const beforeArabic=[...document.querySelectorAll('[lang="ar"]')].map(e=>e.textContent).join('|');
+    const before={
+     question:document.querySelector('#questionText')?.textContent,
+     choices:document.querySelector('#answerArea')?.innerHTML,
+     feedback:document.querySelector('#feedbackText')?.textContent};
+    const audit=window.__DEEN_GERMAN_NAV_QA__.render(root,{
+     qaMode:true,locale:'de',documentRef:document});
+    const afterArabic=[...document.querySelectorAll('[lang="ar"]')].map(e=>e.textContent).join('|');
+    const after={
+     question:document.querySelector('#questionText')?.textContent,
+     choices:document.querySelector('#answerArea')?.innerHTML,
+     feedback:document.querySelector('#feedbackText')?.textContent};
+    return {panel:name,is_open:!!sheet?.open,
+     heading:document.getElementById('v5SheetTitle')?.textContent||null,
+     scanned:audit.scanned,writes:audit.writes,unresolved:audit.unresolved,
+     arabic_unchanged:beforeArabic===afterArabic,
+     graded_content_unchanged:JSON.stringify(before)===JSON.stringify(after)};
+   },name);
+   report.modals.push(modal);
+   assert.equal(modal.is_open,true,'App failed to open '+name);
+   assert.equal(modal.arabic_unchanged,true,name+': original Arabic changed');
+   assert.equal(modal.graded_content_unchanged,true,name+': source-dependent content changed');
+   assert.deepEqual(modal.unresolved,[],name+': untranslated modal chrome');
+   await page.screenshot({path:output+'/stateful-modal-'+name+'.png',fullPage:true});
+  }
   return init;
  }finally{await page.close()}
 }
@@ -196,6 +237,7 @@ try{
  report.gate=await verifyGermanGate();
  report.init=await auditNavTabs();
  assert.equal(report.tabs.length,4);
+ assert.equal(report.modals.length,10);
  assert.deepEqual(report.errors,[],'Browser errors during German staging navigation');
  report.status='passed';
  console.log(JSON.stringify(report,null,2));
