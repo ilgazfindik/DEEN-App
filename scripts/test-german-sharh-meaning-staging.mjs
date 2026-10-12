@@ -17,8 +17,8 @@ assert.equal(gate.global_qa,'blocked');
 assert.equal(gate.religious_expert_approved,false);
 assert.equal(stage.locale,'de');
 assert.equal(stage.scope,'quran_ayah_meanings_staging');
-assert.equal(stage.ayah_count,74);
-assert.equal(Object.keys(stage.translations).length,74);
+assert.equal(stage.ayah_count,82);
+assert.equal(Object.keys(stage.translations).length,82);
 for(const flag of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(stage[flag],false,'The release gate must remain blocked');
 const verses=original.entries.filter(x=>x.surahId==='sharh').sort((a,b)=>a.ayah-b.ayah);
 assert.deepEqual(verses.map(x=>x.key),Array.from({length:8},(_,i)=>'sharh:'+(i+1)));
@@ -56,20 +56,20 @@ for(const src of verses){
  assert.equal(resolveGermanAyahMeaning(src,forged),null,'Per-verse unapproved flags remain authoritative');negativeChecks++;
 }
 assert.equal(resolveGermanAyahMeaning(verses[0],{...stage,locale:'tr'},{preview:true}),null);negativeChecks++;
-assert.equal(resolveGermanAyahMeaning(original.entries.find(x=>x.surahId==='bayyina'),stage,{preview:true}),null);negativeChecks++;
+assert.equal(resolveGermanAyahMeaning(original.entries.find(x=>x.surahId==='zilzal'),stage,{preview:true}),null);negativeChecks++;
 let qaCount=0,publicCount=0;
 for(const src of original.entries){
  if(resolveGermanAyahMeaning(src,stage,{preview:true})!==null)qaCount++;
  if(resolveGermanAyahMeaning(src,stage)!==null)publicCount++;
 }
-assert.equal(qaCount,74);
+assert.equal(qaCount,82);
 assert.equal(publicCount,0);
 const sources=stage.sources.comparative_only.filter(x=>x.comparison_scope==='Surah 94 Ash-Sharh');
 assert.equal(sources.length,2);
 assert(sources.every(s=>s.text_copied_verbatim===false&&/^https:\/\//.test(s.url)));
 console.log(JSON.stringify({
- status:'passed',locale:'de',surah:'Ash-Sharh',new_drafts:8,total_staged:74,
- missing_meanings:16,correct_qa_previews:8,public_exposed:0,negative_guard_checks:negativeChecks,
+ status:'passed',locale:'de',surah:'Ash-Sharh',new_drafts:8,total_staged:82,
+ missing_meanings:8,correct_qa_previews:8,public_exposed:0,negative_guard_checks:negativeChecks,
  preserved_verse_2_3_connection:true,preserved_verse_5_6_repetition:true,
  canonical_arabic_audio_untouched:true,expert_native_rights_review:'pending'
 },null,2));
