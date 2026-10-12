@@ -142,6 +142,11 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   "Öğrenme döngüsü · ÖĞREN":"Lernzyklus · LERNEN",
   "İslam ve teslimiyet kavramının temel çerçevesini destekler.":"Unterstützt ein grundlegendes Verständnis von Islam und Hingabe.",
   "🌱 ÇOCUK ANLATIM":"🌱 KINDGERECHTE ERKLÄRUNG",
+  "1 · ANA FİKİR":"1 · KERNGEDANKE",
+  "Bunu bir arkadaşına nasıl anlatırdın?":"Wie würdest du es einer Freundin oder einem Freund erklären?",
+  "Hatırla: Yönel · Güven · Yaşa":"Merke: Hinwenden · Vertrauen · Leben",
+  "İslam, Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.":"Der Islam lehrt, Allah zu vertrauen, seine Rechtleitung anzunehmen und sie im Alltag umzusetzen.",
+  "İslam, Allah'a yönelmektir.":"Islam bedeutet, sich Allah zuzuwenden.",
   'Enerji azaldı':'Energie aufgebraucht',
   'Bir U01 dersi tamamladığında tekrar takvimin burada oluşacak.':
    'Sobald du eine Lektion in U01 abgeschlossen hast, erscheint hier dein Wiederholungsplan.',
