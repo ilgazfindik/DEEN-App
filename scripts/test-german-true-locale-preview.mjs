@@ -337,6 +337,9 @@ try{
  assert.equal(matching.translated,true);
  assert.equal(matching.source_exists,true);
  assert.equal(matching.cards.length,matching.pairs.length*2);
+ const matchingTeaching=page.locator('#lesson .v910-card-button:visible');
+ if(await matchingTeaching.count())await matchingTeaching.first().click({timeout:15000});
+ report.matching.tapTrace=[];
  for(let i=0;i<matching.pairs.length;i++){
   // Pair order changes by shuffle, so select the SOURCE-GUARDED semantic pair
   // using data-pair; the DOM click handlers still perform all validation.
@@ -344,10 +347,19 @@ try{
   const right=page.locator('#answerArea .v1017-card[data-side="right"][data-pair="'+i+'"]');
   assert.equal(await left.count(),1);
   assert.equal(await right.count(),1);
-  await left.click({timeout:15000,force:true});
-  await right.click({timeout:15000,force:true});
+  await left.click({timeout:15000});
+  const selected=await page.evaluate(()=>({
+   snapshot:window.DEEN_MATCHING_SESSION_STATE?.snapshot?.(),
+   last:document.documentElement.dataset.deenMatchingLast,
+   overlays:[...document.querySelectorAll('#lesson .v910-card-button')]
+    .filter(el=>el.getClientRects().length).map(el=>el.textContent?.trim())
+  }));
+  await right.click({timeout:15000});
   const count=await page.evaluate(()=>window.DEEN_MATCHING_SESSION_STATE?.snapshot?.());
-  assert.equal(count.matchedLeft.length,i+1);
+  report.matching.tapTrace.push({i,after_left:selected,after_right:count,
+   last:await page.locator('html').getAttribute('data-deen-matching-last')});
+  assert.equal(count.matchedLeft.length,i+1,
+    'Correct pair click did not increment German matching count: '+JSON.stringify(report.matching.tapTrace));
   assert.equal(count.errors,0,'Correct German matching pair marked incorrect');
  }
  await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
