@@ -6,7 +6,11 @@
  */
 import {formatGermanDynamicText} from './german-ui.dynamic.staging.mjs';
 
-const EXCLUDED='script,style,noscript,code,textarea,[contenteditable="true"],[data-deen-no-translate],[data-deen-quran-ayah],[lang="ar"],[dir="rtl"],.deen-ikhlas-arabic,.deen-mem-arabic,.deen-qj2-ar,.deen-qj2-option.ar';
+// Do not process graded/source-signature-dependent lesson content with a generic UI lookup.
+// Only the question adapter, after source/answer verification, may translate these fields.
+// Protect Quran meaning/recitation and listening exercise surfaces independently.
+const SOURCE_SENSITIVE='#questionText,#answerArea,#feedbackText,#feedbackBody,#finalStrengths,#finalReview,.deen-qarena-option,.deen-qj2-option,.deen-qj2-fill-slot,[data-qj2-fill-slot],[data-qj2-drag-word],[data-deen-source-question],[data-deen-question-answer],[data-deen-quran-meaning],[data-quran-meaning],[data-ayah-meaning],.deen-ayah-translation,.deen-verse-meaning';
+const EXCLUDED='script,style,noscript,code,textarea,svg,[contenteditable="true"],[data-deen-no-translate],[data-deen-quran-ayah],[lang="ar"],[dir="rtl"],.deen-ikhlas-arabic,.deen-mem-arabic,.deen-qj2-ar,.deen-qj2-option.ar,'+SOURCE_SENSITIVE;
 const ATTRIBUTES=['aria-label','title','placeholder','alt'];
 const TURKISH_SIGNALS=/[ığşçİĞŞÇ]|\b(?:devam|geri|soru|ders|ayet|sure|görev|yanlış|doğru|hatırla|öğren|aşama|ünite|namaz|abdest|rozet)\b/i;
 
