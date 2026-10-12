@@ -397,14 +397,18 @@ try{
   }));
   report.matching.tapTrace.push({i,after_left:selected,after_right:count,
    last:await page.locator('html').getAttribute('data-deen-matching-last')});
-  // The DOM and live session snapshot can be backed by different render
-  // instances. Keep tracking that anomaly, but finish the real player flow to
-  // determine whether the result and grade are actually affected.
+  // Both the DOM and the authoritative session must move together. A stale
+  // match-card handler must not be allowed to simulate visual success only.
   assert.equal(count.dom_matched,(i+1)*2,'Matched German cards not marked in DOM');
   assert.equal(count.progress,(i+1)+'/'+matching.pairs.length,
    'Visual German matching progress failed to advance');
-  report.matching.session_snapshot_diverged=report.matching.session_snapshot_diverged||
-   count.session_state?.matchedLeft.length!==i+1;
+  assert.equal(count.session_state?.matchedLeft.length,i+1,
+   'Matching game did not persist the matched pair in the current lesson session');
+  assert.equal(count.session_state?.matchedRight.length,i+1);
+  assert.equal(count.public_snapshot?.matchedLeft.length,i+1,
+   'Public matching snapshot diverged from the current session');
+  assert.equal(count.session_state.errors,0);
+  report.matching.session_snapshot_diverged=false;
  }
  await page.waitForFunction(()=>document.getElementById('feedback')?.classList.contains('show'),
   null,{timeout:15000});
@@ -418,7 +422,11 @@ try{
   feedback:document.getElementById('feedbackTitle')?.textContent?.trim()}));
  report.matching.result=matched;
  assert.equal(matched.correct,1);
- report.matching.result_state_diverged=matched.state?.matchedLeft.length!==matching.pairs.length;
+ assert.equal(matched.state?.matchedLeft.length,matching.pairs.length,
+  'Matching state was lost when the feedback panel appeared');
+ assert.equal(matched.state?.finished,true);
+ assert.equal(matched.global_snapshot?.matchedLeft.length,matching.pairs.length);
+ report.matching.result_state_diverged=false;
  assert.equal(matched.state?.errors,0);
  await page.screenshot({path:output+'/true-locale-german-matching-graded.png',fullPage:true});
 
