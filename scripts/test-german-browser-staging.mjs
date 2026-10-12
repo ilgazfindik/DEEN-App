@@ -148,6 +148,8 @@ async function realShell(){
   assert.equal(result.entries,1452);
   assert(result.full_shell_qa.scanned>result.audit.scanned,
    'Whole-shell audit must scan more elements than lesson-only smoke');
+  assert.equal(result.full_shell_qa.unresolved_count,0,
+   'Turkish source-like strings remain in initial assembled app shell: '+result.full_shell_qa.unresolved.slice(0,12).join(' | '));
   assert(result.full_shell_qa.graded_content_unchanged,
    'Whole-shell QA must not rewrite question/answer/explanation content');
   // Check actual non-graded learning-path strings observed in baseline browser inventory.
