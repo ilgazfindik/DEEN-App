@@ -1,0 +1,539 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U10",
+  "stage": "U10-S02",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U10-S02-001": {
+      "source": {
+        "question_tr": "Ra'd 13:8'de Allah'ın katında her şeyin nasıl olduğu bildirilir?",
+        "explanation_tr": "Ayet ölçü vurgusu yapar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Bir ölçü ile",
+          "Tamamen rastgele",
+          "Sadece insan bilgisi kadar",
+          "Sebepsiz"
+        ],
+        "correct_answer": "Bir ölçü ile",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie beschreibt Ar-Rad 13:8 alle Dinge bei Allah?",
+        "explanation_tr": "Der Vers betont das Maß.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nach einem bestimmten Maß",
+          "Völlig zufällig",
+          "Nur im Rahmen menschlichen Wissens",
+          "Ohne Ursache"
+        ],
+        "correct_answer": "Nach einem bestimmten Maß",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-002": {
+      "source": {
+        "question_tr": "Ra'd 13:9 Allah'ın görüleni ve görülmeyeni bildiğini bildirir.",
+        "explanation_tr": "Ayet ilahî bilginin kuşatıcılığını ifade eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ar-Rad 13:9 erklärt, dass Allah sowohl das Sichtbare als auch das Verborgene kennt.",
+        "explanation_tr": "Der Vers betont die umfassende Reichweite von Allahs Wissen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-003": {
+      "source": {
+        "question_tr": "Hadîd 57:22'ye göre bazı olaylar gerçekleşmeden önce bir ______ yazılıdır.",
+        "explanation_tr": "Ayet olayların ilahî bilgide kayıtlı oluşunu bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kitapta",
+          "gazetede",
+          "insan planında",
+          "söylentide"
+        ],
+        "correct_answer": "kitapta",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Hadid 57:22 sind Ereignisse vor ihrem Eintreten in einem ______ verzeichnet.",
+        "explanation_tr": "Der Vers beschreibt Ereignisse als im göttlichen Wissen verzeichnet.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Buch",
+          "Zeitungsartikel",
+          "menschlichen Plan",
+          "Gerücht"
+        ],
+        "correct_answer": "Buch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Allah ancak olay olduktan sonra onu bilir' diyor. En uygun düzeltme hangisidir?",
+        "explanation_tr": "Hadîd 57:22 bu çerçeveyi destekler.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an Allah'ın bilgisini olaylardan önce de kuşatıcı olarak anlatır",
+          "Allah yalnız geçmişi bilir",
+          "Allah geleceği tahmin eder",
+          "İlahî bilgi insan bilgisiyle aynıdır"
+        ],
+        "correct_answer": "Kur'an Allah'ın bilgisini olaylardan önce de kuşatıcı olarak anlatır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Allah erfährt von einem Ereignis erst, nachdem es eingetreten ist.“ Welche Korrektur stimmt?",
+        "explanation_tr": "Al-Hadid 57:22 stützt diese Erklärung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Koran beschreibt Allahs Wissen als allumfassend, auch bevor Ereignisse eintreten",
+          "Allah kennt nur die Vergangenheit",
+          "Allah kann die Zukunft bloß erraten",
+          "Göttliches Wissen ist mit menschlichem Wissen identisch"
+        ],
+        "correct_answer": "Der Koran beschreibt Allahs Wissen als allumfassend, auch bevor Ereignisse eintreten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-005": {
+      "source": {
+        "question_tr": "Bir notta 'Allah'ın bilmesi insanı zorla o davranışı yapmaya mecbur eder' yazıyor. Hata nedir?",
+        "explanation_tr": "İlahî bilgi insanın sorumluluğunu otomatik olarak kaldırmaz.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bilmek ile zorlamak aynı şey değildir",
+          "Allah hiçbir şeyi bilmez",
+          "İnsan Allah'tan bağımsızdır",
+          "Sorumluluk yoktur"
+        ],
+        "correct_answer": "Bilmek ile zorlamak aynı şey değildir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Notiz behauptet: „Wenn Allah etwas weiß, zwingt Er einen Menschen dazu, es zu tun.“ Wo liegt der Fehler?",
+        "explanation_tr": "Göttliches Wissen hebt die Verantwortung des Menschen nicht automatisch auf.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Etwas zu wissen und jemanden zu zwingen sind nicht dasselbe",
+          "Allah weiß nichts",
+          "Menschen sind unabhängig von Allah",
+          "Es gibt keine Verantwortung"
+        ],
+        "correct_answer": "Etwas zu wissen und jemanden zu zwingen sind nicht dasselbe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-006": {
+      "source": {
+        "question_tr": "Kaderin ölçü ve ilim kaynaklarını eşleştir.",
+        "explanation_tr": "Bu ayetler kaderin ölçü ve bilgi boyutlarını destekler.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kamer 54:49",
+            "right": "Her şeyin bir ölçüye göre yaratılması"
+          },
+          {
+            "left": "Ra'd 13:9",
+            "right": "Görülen ve görülmeyenin bilinmesi"
+          },
+          {
+            "left": "Hadîd 57:22",
+            "right": "Olayların ilahî bilgide kayıtlı oluşu"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Koranstellen zu Maß und Wissen bei der göttlichen Vorherbestimmung zu.",
+        "explanation_tr": "Diese Verse erläutern unterschiedliche Aspekte von Maß und Wissen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Qamar 54:49",
+            "right": "Alles ist nach einem bestimmten Maß erschaffen"
+          },
+          {
+            "left": "Ar-Rad 13:9",
+            "right": "Wissen über das Sichtbare und Verborgene"
+          },
+          {
+            "left": "Al-Hadid 57:22",
+            "right": "Ereignisse sind im göttlichen Wissen verzeichnet"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-007": {
+      "source": {
+        "question_tr": "Kamer 54:49'daki 'ölçü' vurgusunu en iyi açıklayan ifade hangisidir?",
+        "explanation_tr": "Diyanet tefsiri ayeti ölçü ve takdir çerçevesinde açıklar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Varlığın düzen, denge ve ilahî takdir içinde yaratılması",
+          "Kâinatın rastgele oluşu",
+          "İnsan iradesinin yokluğu",
+          "Sebeplerin anlamsızlığı"
+        ],
+        "correct_answer": "Varlığın düzen, denge ve ilahî takdir içinde yaratılması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie lässt sich die Betonung des Maßes in Al-Qamar 54:49 am besten erklären?",
+        "explanation_tr": "Die Diyanet-Auslegung erläutert den Vers im Zusammenhang mit Maß und Vorherbestimmung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die Schöpfung unterliegt Ordnung, Gleichgewicht und göttlicher Vorherbestimmung",
+          "Das Universum entsteht rein zufällig",
+          "Der menschliche Wille existiert nicht",
+          "Ursachen haben keine Bedeutung"
+        ],
+        "correct_answer": "Die Schöpfung unterliegt Ordnung, Gleichgewicht und göttlicher Vorherbestimmung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-008": {
+      "source": {
+        "question_tr": "Birisi 'Kader, bütün olayların plansız olmasıdır' diyor. En doğru cevap hangisidir?",
+        "explanation_tr": "Ayetler ölçü ve bilgi vurgusu taşır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an kaderi ölçü ve ilahî bilgiyle ilişkilendirir",
+          "Kader kaos demektir",
+          "Kader yalnız şanstır",
+          "Kader insan planıdır"
+        ],
+        "correct_answer": "Kur'an kaderi ölçü ve ilahî bilgiyle ilişkilendirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Vorherbestimmung heißt, alle Ereignisse seien ungeplant.“ Welche Antwort passt?",
+        "explanation_tr": "Die Verse betonen Maß und Wissen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Koran verbindet Vorherbestimmung mit Maß und göttlichem Wissen",
+          "Vorherbestimmung ist Chaos",
+          "Vorherbestimmung bedeutet nur Glück",
+          "Vorherbestimmung ist ein menschlicher Plan"
+        ],
+        "correct_answer": "Der Koran verbindet Vorherbestimmung mit Maß und göttlichem Wissen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-009": {
+      "source": {
+        "question_tr": "Allah'ın bir şeyi bilmesi, insanın onu istemeden yapmak zorunda kalmasıyla aynı anlama gelir.",
+        "explanation_tr": "İlahî bilgi zorlama ile eşitlenemez.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wenn Allah etwas weiß, ist das gleichbedeutend damit, dass ein Mensch gegen seinen Willen dazu gezwungen wird.",
+        "explanation_tr": "Göttliches Wissen darf nicht mit Zwang gleichgesetzt werden.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-010": {
+      "source": {
+        "question_tr": "Kaderin 'ilim ve ölçü' boyutunu iki kısa cümleyle açıkla.",
+        "explanation_tr": "İlahî ilim ve ölçü kader öğretisinin ana boyutlarındandır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah bütün varlık ve olayları kuşatan bir ilme sahiptir. Her şeyi bir ölçü ve düzen içinde yaratır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Erläutere die beiden Aspekte Wissen und Maß bei der göttlichen Vorherbestimmung in zwei kurzen Sätzen.",
+        "explanation_tr": "Göttliches Wissen und Maß gehören zu den grundlegenden Aspekten der Vorherbestimmungslehre.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allahs Wissen umfasst alle Wesen und Ereignisse. Er erschafft alles nach Maß und Ordnung.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-011": {
+      "source": {
+        "question_tr": "Ra'd 13:9'a göre Allah görüleni de ______ de bilir.",
+        "explanation_tr": "Ayet ilahî bilginin kuşatıcılığını bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "görülmeyeni",
+          "yalnız geçmişi",
+          "yalnız bugünü",
+          "yalnız insanı"
+        ],
+        "correct_answer": "görülmeyeni",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ar-Rad 13:9 besagt, dass Allah sowohl das Sichtbare als auch das ______ kennt.",
+        "explanation_tr": "Der Vers beschreibt das umfassende göttliche Wissen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Verborgene",
+          "nur Vergangene",
+          "nur Heutige",
+          "nur Menschen"
+        ],
+        "correct_answer": "Verborgene",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-012": {
+      "source": {
+        "question_tr": "İnsan kendi geleceğini ayrıntılarıyla bilmediğine göre hangi tutum daha uygundur?",
+        "explanation_tr": "İnsan kader ayrıntısını bilmediği için sorumluluğunu yerine getirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Akıl, irade ve imkânlarıyla görevini yapıp sonucu Allah'a bırakmak",
+          "Hiçbir şey yapmamak",
+          "Geleceği kesin bildiğini iddia etmek",
+          "Tedbiri terk etmek"
+        ],
+        "correct_answer": "Akıl, irade ve imkânlarıyla görevini yapıp sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Weil Menschen ihre eigene Zukunft nicht im Einzelnen kennen, welche Haltung ist sinnvoll?",
+        "explanation_tr": "Menschen bleiben verantwortlich, gerade weil sie die Einzelheiten der Vorherbestimmung nicht kennen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mit Verstand, Willen und verfügbaren Mitteln seine Pflichten erfüllen und das Ergebnis Allah überlassen",
+          "Überhaupt nichts unternehmen",
+          "Vorgeben, die Zukunft sicher zu kennen",
+          "Auf Vorsicht verzichten"
+        ],
+        "correct_answer": "Mit Verstand, Willen und verfügbaren Mitteln seine Pflichten erfüllen und das Ergebnis Allah überlassen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-013": {
+      "source": {
+        "question_tr": "İlahî ilim ile insan sorumluluğunu karıştırmadan düşünme sırasını oluştur.",
+        "explanation_tr": "Bu sıra ilahî bilgiyi insanı zorlayan bir sebep gibi yorumlamayı önler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah'ın bilgisinin kuşatıcı olduğunu kabul et",
+          "İnsanın bilgisinin sınırlı olduğunu fark et",
+          "İnsanın tercih alanını tanı",
+          "Tercihlerde sorumluluğu koru"
+        ],
+        "correct_order": [
+          "Allah'ın bilgisinin kuşatıcı olduğunu kabul et",
+          "İnsanın bilgisinin sınırlı olduğunu fark et",
+          "İnsanın tercih alanını tanı",
+          "Tercihlerde sorumluluğu koru"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne die Gedanken so, dass göttliches Wissen und menschliche Verantwortung nicht verwechselt werden.",
+        "explanation_tr": "Diese Reihenfolge verhindert, göttliches Wissen als Ursache von Zwang zu verstehen.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Anerkennen, dass Allahs Wissen allumfassend ist",
+          "Verstehen, dass menschliches Wissen begrenzt ist",
+          "Den Entscheidungsspielraum der Menschen erkennen",
+          "Verantwortung für Entscheidungen bewahren"
+        ],
+        "correct_order": [
+          "Anerkennen, dass Allahs Wissen allumfassend ist",
+          "Verstehen, dass menschliches Wissen begrenzt ist",
+          "Den Entscheidungsspielraum der Menschen erkennen",
+          "Verantwortung für Entscheidungen bewahren"
+        ],
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S02-014": {
+      "source": {
+        "question_tr": "Hadîd 57:22-23'ün insana verdiği denge mesajı hangisidir?",
+        "explanation_tr": "Ayetler kayıp ve kazanımda ölçü öğretir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kaybedilene aşırı yıkılmamak ve verilene aşırı böbürlenmemek",
+          "Hiç üzülmemek",
+          "Hiç sevinmemek",
+          "Tedbiri terk etmek"
+        ],
+        "correct_answer": "Kaybedilene aşırı yıkılmamak ve verilene aşırı böbürlenmemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche ausgewogene Haltung vermitteln Al-Hadid 57:22–23?",
+        "explanation_tr": "Die Verse lehren Maßhalten bei Verlust und Gewinn.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Bei Verlust nicht maßlos verzweifeln und über Erhaltenes nicht überheblich prahlen",
+          "Niemals traurig sein",
+          "Niemals Freude empfinden",
+          "Auf Vorsichtsmaßnahmen verzichten"
+        ],
+        "correct_answer": "Bei Verlust nicht maßlos verzweifeln und über Erhaltenes nicht überheblich prahlen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen und Maß",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
