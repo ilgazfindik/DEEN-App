@@ -1,0 +1,675 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U15",
+  "stage": "U15-S03",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U15-S03-001": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları doğru açıklamalarıyla eşleştir: Oruç vaktinde cinsel ilişki, Kur'an ayı, Orucu unutarak yemek ve Kefaret ayrıntısı.",
+        "explanation_tr": "Diyanet Oruç İlmihali orucun irade sorumluluk sabır ve samimiyet eğitimi olduğuna dikkat çeker.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Oruç vaktinde cinsel ilişki",
+            "right": "Oruç vaktinde cinsel ilişkiden uzak durmak"
+          },
+          {
+            "left": "Kur'an ayı",
+            "right": "Kur'an'ın indirildiği ay olması"
+          },
+          {
+            "left": "Orucu unutarak yemek",
+            "right": "Hatırlayınca orucuna devam eder"
+          },
+          {
+            "left": "Kefaret ayrıntısı",
+            "right": "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Geschlechtsverkehr während der Fastenzeit, den Monat des Korans, Essen aus Vergessen und Kaffara-Details zu.",
+        "explanation_tr": "Das Fastenhandbuch der Diyanet betont beim Fasten Selbstbeherrschung, Verantwortung, Geduld und Aufrichtigkeit.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Geschlechtsverkehr während der Fastenzeit",
+            "right": "Während der Fastenzeit auf Geschlechtsverkehr verzichten"
+          },
+          {
+            "left": "Monat des Korans",
+            "right": "Weil der Koran in diesem Monat herabgesandt wurde"
+          },
+          {
+            "left": "Aus Vergessen beim Fasten essen",
+            "right": "Sich nach dem Erinnern wieder an das Fasten halten und es fortsetzen"
+          },
+          {
+            "left": "Einzelheiten der Kaffara",
+            "right": "Bei manchen Fällen unterscheiden sich die Einzelheiten der Kaffara zwischen den Rechtsschulen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Gutes Verhalten beim Fasten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-002": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları doğru açıklamalarıyla eşleştir: Hastalık ve yolculuk, İftar, Oruç ahlakı ve Ramazan.",
+        "explanation_tr": "İçmekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hastalık ve yolculuk",
+            "right": "Tutamadığı günleri başka günlerde tamamlamak"
+          },
+          {
+            "left": "İftar",
+            "right": "Güneş battıktan sonra orucu açma"
+          },
+          {
+            "left": "Oruç ahlakı",
+            "right": "Söz ve davranışlarda kötü olandan kaçınmak"
+          },
+          {
+            "left": "Ramazan",
+            "right": "Farz orucun tutulduğu ay"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Krankheit und Reise, Iftar, gutes Verhalten beim Fasten und Ramadan zu.",
+        "explanation_tr": "Der Verzicht auf Trinken während der festgelegten Fastenzeit gehört zu den Grundlagen des Fastens.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Krankheit und Reise",
+            "right": "Versäumte Fastentage an anderen Tagen nachholen"
+          },
+          {
+            "left": "Iftar (Fastenbrechen)",
+            "right": "Nach Sonnenuntergang das Fasten brechen"
+          },
+          {
+            "left": "Gutes Verhalten beim Fasten",
+            "right": "Schlechtes Reden und Verhalten vermeiden"
+          },
+          {
+            "left": "Ramadan",
+            "right": "Der Monat des vorgeschriebenen Fastens"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Trinken"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-003": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları doğru açıklamalarıyla eşleştir: Sahur, Oruç vaktinde bilerek yemek, Oruç ve Oruç vaktinde yeme.",
+        "explanation_tr": "Bakara 2:187 orucun geceye yani güneş batımına kadar tamamlanmasını bildirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Sahur",
+            "right": "İmsak öncesinde yenilen yemek"
+          },
+          {
+            "left": "Oruç vaktinde bilerek yemek",
+            "right": "Orucu bozar"
+          },
+          {
+            "left": "Oruç",
+            "right": "İbadet niyetiyle belirli süre yeme içme ve cinsel ilişkiden uzak durmak"
+          },
+          {
+            "left": "Oruç vaktinde yeme",
+            "right": "Oruç vaktinde yemekten uzak durmak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Suhur, absichtliches Essen, Fasten und den Verzicht auf Essen zu.",
+        "explanation_tr": "Al-Baqara 2:187 weist an, das Fasten bis zum Einbruch der Nacht, also bis zum Sonnenuntergang, zu vollenden.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Suhur (Mahlzeit vor der Morgendämmerung)",
+            "right": "Mahlzeit vor Beginn der Fastenzeit"
+          },
+          {
+            "left": "Absichtlich während der Fastenzeit essen",
+            "right": "Es bricht das Fasten"
+          },
+          {
+            "left": "Fasten",
+            "right": "Aus Gottesdienstabsicht während einer festgelegten Zeit auf Essen, Trinken und Geschlechtsverkehr verzichten"
+          },
+          {
+            "left": "Essen während der Fastenzeit",
+            "right": "Während der Fastenzeit auf Essen verzichten"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Iftar – Fastenbrechen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-004": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları doğru açıklamalarıyla eşleştir: Orucu unutarak yemek, Kefaret ayrıntısı, Vakit ve Oruç vaktinde cinsel ilişki.",
+        "explanation_tr": "Bakara 2:183-185 Ramazan orucunun farz oluşunu açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Orucu unutarak yemek",
+            "right": "Hatırlayınca orucuna devam eder"
+          },
+          {
+            "left": "Kefaret ayrıntısı",
+            "right": "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır"
+          },
+          {
+            "left": "Vakit",
+            "right": "Fecr-i sadıktan güneş batıncaya kadar"
+          },
+          {
+            "left": "Oruç vaktinde cinsel ilişki",
+            "right": "Oruç vaktinde cinsel ilişkiden uzak durmak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Essen aus Vergessen, Kaffara-Details, Fastenzeit und Geschlechtsverkehr während des Fastens zu.",
+        "explanation_tr": "Al-Baqara 2:183–185 erläutert die Verpflichtung zum Fasten im Ramadan.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Aus Vergessen beim Fasten essen",
+            "right": "Sich nach dem Erinnern wieder an das Fasten halten und es fortsetzen"
+          },
+          {
+            "left": "Einzelheiten der Kaffara",
+            "right": "Bei manchen Fällen unterscheiden sich die Einzelheiten der Kaffara zwischen den Rechtsschulen"
+          },
+          {
+            "left": "Fastenzeit",
+            "right": "Von der wahren Morgendämmerung bis zum Sonnenuntergang"
+          },
+          {
+            "left": "Geschlechtsverkehr während der Fastenzeit",
+            "right": "Während der Fastenzeit auf Geschlechtsverkehr verzichten"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Ramadan"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-005": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları doğru açıklamalarıyla eşleştir: Oruç ahlakı, Ramazan, Oruç vaktinde içme ve Hastalık ve yolculuk.",
+        "explanation_tr": "Ayet hasta veya yolcu olan kişinin tutamadığı günleri başka günlerde tamamlamasına ruhsat verir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Oruç ahlakı",
+            "right": "Söz ve davranışlarda kötü olandan kaçınmak"
+          },
+          {
+            "left": "Ramazan",
+            "right": "Farz orucun tutulduğu ay"
+          },
+          {
+            "left": "Oruç vaktinde içme",
+            "right": "Oruç vaktinde içmekten uzak durmak"
+          },
+          {
+            "left": "Hastalık ve yolculuk",
+            "right": "Tutamadığı günleri başka günlerde tamamlamak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne gutes Verhalten, Ramadan, den Verzicht auf Trinken sowie Krankheit und Reise zu.",
+        "explanation_tr": "Der Koran erlaubt Kranken und Reisenden, unter den dafür geltenden Voraussetzungen versäumte Fastentage später nachzuholen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gutes Verhalten beim Fasten",
+            "right": "Schlechtes Reden und Verhalten vermeiden"
+          },
+          {
+            "left": "Ramadan",
+            "right": "Der Monat des vorgeschriebenen Fastens"
+          },
+          {
+            "left": "Trinken während der Fastenzeit",
+            "right": "Während der Fastenzeit auf Trinken verzichten"
+          },
+          {
+            "left": "Krankheit und Reise",
+            "right": "Versäumte Fastentage an anderen Tagen nachholen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Krankheit und Reise"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-006": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları doğru açıklamalarıyla eşleştir: Oruç, Oruç vaktinde yeme, Takva ve Sahur.",
+        "explanation_tr": "Diyanet Oruç İlmihali orucun irade sorumluluk sabır ve samimiyet eğitimi olduğuna dikkat çeker.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Oruç",
+            "right": "İbadet niyetiyle belirli süre yeme içme ve cinsel ilişkiden uzak durmak"
+          },
+          {
+            "left": "Oruç vaktinde yeme",
+            "right": "Oruç vaktinde yemekten uzak durmak"
+          },
+          {
+            "left": "Takva",
+            "right": "Allah'a karşı sorumluluk bilinci"
+          },
+          {
+            "left": "Sahur",
+            "right": "İmsak öncesinde yenilen yemek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Fasten, den Verzicht auf Essen, Gottesbewusstsein (Taqwa) und Suhur zu.",
+        "explanation_tr": "Das Fastenhandbuch der Diyanet betont beim Fasten Selbstbeherrschung, Verantwortung, Geduld und Aufrichtigkeit.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Fasten",
+            "right": "Aus Gottesdienstabsicht während einer festgelegten Zeit auf Essen, Trinken und Geschlechtsverkehr verzichten"
+          },
+          {
+            "left": "Essen während der Fastenzeit",
+            "right": "Während der Fastenzeit auf Essen verzichten"
+          },
+          {
+            "left": "Taqwa (Gottesbewusstsein)",
+            "right": "Bewusstsein der Verantwortung vor Allah"
+          },
+          {
+            "left": "Suhur (Mahlzeit vor der Morgendämmerung)",
+            "right": "Mahlzeit vor Beginn der Fastenzeit"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Gutes Verhalten beim Fasten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-007": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Oruçlu kişi oruç vaktinde ___ uzak durur.",
+        "explanation_tr": "İçmekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "içmekten",
+          "batıncaya"
+        ],
+        "correct_answer": "içmekten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zuordnung: Ergänze: Während der Fastenzeit verzichtet man auf das ______.",
+        "explanation_tr": "Der Verzicht auf Trinken während der festgelegten Fastenzeit gehört zu den Grundlagen des Fastens.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "Trinken",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "Trinken",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Trinken"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-008": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İftar güneş ___ yapılır.",
+        "explanation_tr": "Bakara 2:187 orucun geceye yani güneş batımına kadar tamamlanmasını bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "battığında",
+          "batıncaya"
+        ],
+        "correct_answer": "battığında",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Iftar findet statt, sobald die Sonne ______ ist.",
+        "explanation_tr": "Al-Baqara 2:187 weist an, das Fasten bis zum Einbruch der Nacht, also bis zum Sonnenuntergang, zu vollenden.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "untergegangen",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "untergegangen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Iftar – Fastenbrechen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-009": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Ramazan ayında ___ ibadeti farzdır.",
+        "explanation_tr": "Bakara 2:183-185 Ramazan orucunun farz oluşunu açıklar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "batıncaya",
+          "oruç",
+          "yemekten"
+        ],
+        "correct_answer": "oruç",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zuordnung: Ergänze: Im Ramadan ist das ______ vorgeschrieben.",
+        "explanation_tr": "Al-Baqara 2:183–185 erläutert die Verpflichtung zum Fasten im Ramadan.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "fernzuhalten",
+          "Sonnenuntergang",
+          "Fasten",
+          "Essen"
+        ],
+        "correct_answer": "Fasten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Ramadan"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-010": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Hasta veya yolcu tutamadığı günleri başka günlerde ___ eder.",
+        "explanation_tr": "Ayet hasta veya yolcu olan kişinin tutamadığı günleri başka günlerde tamamlamasına ruhsat verir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "kaza",
+          "batıncaya"
+        ],
+        "correct_answer": "kaza",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zuordnung: Ergänze: Versäumte Fastentage können nach den geltenden Regeln ______ werden.",
+        "explanation_tr": "Der Koran erlaubt Kranken und Reisenden, unter den dafür geltenden Voraussetzungen versäumte Fastentage später nachzuholen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "nachgeholt",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "nachgeholt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Krankheit und Reise"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-011": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Oruçlu kişi söz ve davranışlarında da ___ özen gösterir.",
+        "explanation_tr": "Diyanet Oruç İlmihali orucun irade sorumluluk sabır ve samimiyet eğitimi olduğuna dikkat çeker.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "ahlaka",
+          "batıncaya"
+        ],
+        "correct_answer": "ahlaka",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wähle den fehlenden Begriff: Beim Fasten achtet man auch auf ______.",
+        "explanation_tr": "Das Fastenhandbuch der Diyanet betont beim Fasten Selbstbeherrschung, Verantwortung, Geduld und Aufrichtigkeit.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "gutes Verhalten",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "gutes Verhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Gutes Verhalten beim Fasten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-012": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Oruçlu kişi oruç vaktinde ___ uzak durur.",
+        "explanation_tr": "İçmekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "içmekten",
+          "batıncaya"
+        ],
+        "correct_answer": "içmekten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wähle den fehlenden Begriff: Während der Fastenzeit verzichtet man auf das ______.",
+        "explanation_tr": "Der Verzicht auf Trinken während der festgelegten Fastenzeit gehört zu den Grundlagen des Fastens.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "Trinken",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "Trinken",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Trinken"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: İftar güneş ___ yapılır.",
+        "explanation_tr": "Bakara 2:187 orucun geceye yani güneş batımına kadar tamamlanmasını bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "battığında",
+          "batıncaya"
+        ],
+        "correct_answer": "battığında",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wähle den fehlenden Begriff: Iftar findet statt, sobald die Sonne ______ ist.",
+        "explanation_tr": "Al-Baqara 2:187 weist an, das Fasten bis zum Einbruch der Nacht, also bis zum Sonnenuntergang, zu vollenden.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "untergegangen",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "untergegangen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Iftar – Fastenbrechen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S03-014": {
+      "source": {
+        "question_tr": "Boşluğu doldur: Ramazan ayında ___ ibadeti farzdır.",
+        "explanation_tr": "Bakara 2:183-185 Ramazan orucunun farz oluşunu açıklar.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "uzak",
+          "batıncaya",
+          "oruç",
+          "yemekten"
+        ],
+        "correct_answer": "oruç",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Im Ramadan ist das ______ vorgeschrieben.",
+        "explanation_tr": "Al-Baqara 2:183–185 erläutert die Verpflichtung zum Fasten im Ramadan.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "fernzuhalten",
+          "Sonnenuntergang",
+          "Fasten",
+          "Essen"
+        ],
+        "correct_answer": "Fasten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Beginn und Ende des Fastens",
+        "topic": "Ramadan"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

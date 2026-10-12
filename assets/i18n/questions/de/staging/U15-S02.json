@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U15",
+  "stage": "U15-S02",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U15-S02-001": {
+      "source": {
+        "question_tr": "Kavram kontrolü: unutarak yemek hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Sahih hadisler ve Diyanet ilmihalinde unutarak yeme içmenin orucu bozmadığı açıklanır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Oruç mutlaka bilerek bozulmuş sayılır",
+          "Ramazan'ın tamamını baştan tutar",
+          "Hatırlayınca orucuna devam eder",
+          "Namaz kılamaz"
+        ],
+        "correct_answer": "Hatırlayınca orucuna devam eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Begriffstest: Was gilt, wenn jemand während des Fastens aus Vergessen isst?",
+        "explanation_tr": "Authentische Hadithe und das Fastenhandbuch der Diyanet erläutern, dass Essen und Trinken aus Vergessen das Fasten nicht brechen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Das Fasten gilt in jedem Fall als absichtlich gebrochen",
+          "Den gesamten Ramadan von vorn beginnen",
+          "Sich nach dem Erinnern wieder an das Fasten halten und es fortsetzen",
+          "Nicht beten dürfen"
+        ],
+        "correct_answer": "Sich nach dem Erinnern wieder an das Fasten halten und es fortsetzen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Essen aus Vergessen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-002": {
+      "source": {
+        "question_tr": "Ramazan orucunun günlük vakit sınırı nedir?",
+        "explanation_tr": "Bakara 2:187 yeme içmenin fecre kadar serbest olduğunu sonra orucun geceye kadar tamamlanmasını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Öğleden gece yarısına kadar",
+          "Sadece sabah namazı süresince",
+          "Fecr-i sadıktan güneş batıncaya kadar",
+          "Günün rastgele iki saati"
+        ],
+        "correct_answer": "Fecr-i sadıktan güneş batıncaya kadar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Von wann bis wann wird an einem Ramadan-Tag gefastet?",
+        "explanation_tr": "Al-Baqara 2:187 erklärt, dass Essen und Trinken bis zur Morgendämmerung erlaubt sind und das Fasten danach bis zum Einbruch der Nacht fortgesetzt wird.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Von Mittag bis Mitternacht",
+          "Nur während des Morgengebets",
+          "Von der wahren Morgendämmerung bis zum Sonnenuntergang",
+          "Zwei beliebige Stunden am Tag"
+        ],
+        "correct_answer": "Von der wahren Morgendämmerung bis zum Sonnenuntergang",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Fastenzeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-003": {
+      "source": {
+        "question_tr": "Kur'an ayı konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Bakara 2:185 Ramazan'ı Kur'an'ın indirildiği ay olarak tanıtır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kur'an okumakla ilgisiz olması",
+          "Sadece tarihî bir ay olması",
+          "Kur'an'ın indirildiği ay olması",
+          "Namaz vakitlerini kaldırması"
+        ],
+        "correct_answer": "Kur'an'ın indirildiği ay olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Warum wird der Ramadan als Monat des Korans bezeichnet?",
+        "explanation_tr": "Al-Baqara 2:185 bezeichnet den Ramadan als den Monat, in dem der Koran herabgesandt wurde.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Weil er nichts mit dem Koran zu tun hat",
+          "Weil er nur ein historischer Monat ist",
+          "Weil der Koran in diesem Monat herabgesandt wurde",
+          "Weil er die Gebetszeiten aufhebt"
+        ],
+        "correct_answer": "Weil der Koran in diesem Monat herabgesandt wurde",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Monat des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-004": {
+      "source": {
+        "question_tr": "Kefaret hükümlerindeki ayrıntılar hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu bazı kefaret hükümlerinde mezhepler arası ayrıntı farklarını açıkça gösterir. DEEN bu ayrıntıyı evrensel tek cevap yapmaz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Bütün mezhepler her durumda tamamen aynı kefaret hükmünü verir",
+          "Kefaret kavramı İslam hukukunda yoktur",
+          "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır",
+          "Her oruç hatası otomatik aynı kefareti gerektirir"
+        ],
+        "correct_answer": "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage zu Einzelheiten der Sühnepflicht (Kaffara) bei Verstößen gegen das Fasten trifft zu?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten erläutert Unterschiede zwischen Rechtsschulen bei einzelnen Kaffara-Regeln. DEEN bewertet diese Detailfragen nicht pauschal nach nur einer Rechtsauffassung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Alle Rechtsschulen beurteilen jede Kaffara-Frage völlig gleich",
+          "Der Begriff Kaffara kommt im islamischen Recht nicht vor",
+          "Bei manchen Fällen unterscheiden sich die Einzelheiten der Kaffara zwischen den Rechtsschulen",
+          "Jeder Fehler beim Fasten erfordert automatisch dieselbe Kaffara"
+        ],
+        "correct_answer": "Bei manchen Fällen unterscheiden sich die Einzelheiten der Kaffara zwischen den Rechtsschulen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Kaffara – Unterschiede der Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-005": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Oruç vaktinde cinsel ilişki orucun temel sınırlarıyla ilgisizdir.",
+        "explanation_tr": "Bakara 2:187 oruç gecesi ile gündüzü ayırarak gündüz oruç sınırlarını açıklar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Der Verzicht auf Geschlechtsverkehr während der Fastenzeit gehört nicht zu den Fastenregeln.",
+        "explanation_tr": "Al-Baqara 2:187 unterscheidet zwischen Nacht und Fastentag und erläutert die Grenzen des Fastens bei Tageslicht.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Geschlechtsverkehr"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-006": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Orucunu unutarak yiyen kişi hatırlayınca orucuna devam eder.",
+        "explanation_tr": "Sahih hadisler ve Diyanet ilmihalinde unutarak yeme içmenin orucu bozmadığı açıklanır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Wer aus Vergessen während des Fastens isst, setzt sein Fasten fort, sobald er sich erinnert.",
+        "explanation_tr": "Authentische Hadithe und das Fastenhandbuch der Diyanet erläutern, dass Essen und Trinken aus Vergessen das Fasten nicht brechen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Essen aus Vergessen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Ramazan orucu yalnız öğle ile ikindi arasında tutulur.",
+        "explanation_tr": "Bakara 2:187 yeme içmenin fecre kadar serbest olduğunu sonra orucun geceye kadar tamamlanmasını bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Das Ramadan-Fasten dauert nur vom Mittags- bis zum Nachmittagsgebet.",
+        "explanation_tr": "Al-Baqara 2:187 erklärt, dass Essen und Trinken bis zur Morgendämmerung erlaubt sind und das Fasten danach bis zum Einbruch der Nacht fortgesetzt wird.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Fastenzeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-008": {
+      "source": {
+        "question_tr": "Bir arkadaşın Kur'an ayı hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Bakara 2:185 Ramazan'ı Kur'an'ın indirildiği ay olarak tanıtır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an okumakla ilgisiz olması",
+          "Sadece tarihî bir ay olması",
+          "Kur'an'ın indirildiği ay olması",
+          "Namaz vakitlerini kaldırması"
+        ],
+        "correct_answer": "Kur'an'ın indirildiği ay olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund fragt dich, warum der Ramadan als Monat des Korans gilt. Was antwortest du?",
+        "explanation_tr": "Al-Baqara 2:185 bezeichnet den Ramadan als den Monat, in dem der Koran herabgesandt wurde.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Weil er nichts mit dem Koran zu tun hat",
+          "Weil er nur ein historischer Monat ist",
+          "Weil der Koran in diesem Monat herabgesandt wurde",
+          "Weil er die Gebetszeiten aufhebt"
+        ],
+        "correct_answer": "Weil der Koran in diesem Monat herabgesandt wurde",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Monat des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-009": {
+      "source": {
+        "question_tr": "Kefaret hükümlerindeki ayrıntılar konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu bazı kefaret hükümlerinde mezhepler arası ayrıntı farklarını açıkça gösterir. DEEN bu ayrıntıyı evrensel tek cevap yapmaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bütün mezhepler her durumda tamamen aynı kefaret hükmünü verir",
+          "Kefaret kavramı İslam hukukunda yoktur",
+          "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır",
+          "Her oruç hatası otomatik aynı kefareti gerektirir"
+        ],
+        "correct_answer": "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über Unterschiede zwischen Rechtsschulen bei der Kaffara ist richtig?",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten erläutert Unterschiede zwischen Rechtsschulen bei einzelnen Kaffara-Regeln. DEEN bewertet diese Detailfragen nicht pauschal nach nur einer Rechtsauffassung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Alle Rechtsschulen beurteilen jede Kaffara-Frage völlig gleich",
+          "Der Begriff Kaffara kommt im islamischen Recht nicht vor",
+          "Bei manchen Fällen unterscheiden sich die Einzelheiten der Kaffara zwischen den Rechtsschulen",
+          "Jeder Fehler beim Fasten erfordert automatisch dieselbe Kaffara"
+        ],
+        "correct_answer": "Bei manchen Fällen unterscheiden sich die Einzelheiten der Kaffara zwischen den Rechtsschulen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Kaffara – Unterschiede der Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-010": {
+      "source": {
+        "question_tr": "Bir öğrenci “Oruç vaktinde cinsel ilişki orucun temel sınırlarıyla ilgisizdir.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Bakara 2:187 oruç gecesi ile gündüzü ayırarak gündüz oruç sınırlarını açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Uyumamak",
+          "Konuşmamak",
+          "Cinsel ilişkiden uzak durmak",
+          "Evden çıkmamak"
+        ],
+        "correct_answer": "Cinsel ilişkiden uzak durmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler sagt: „Geschlechtsverkehr tagsüber hat nichts mit den Regeln des Fastens zu tun.“ Wie korrigierst du ihn?",
+        "explanation_tr": "Al-Baqara 2:187 unterscheidet zwischen Nacht und Fastentag und erläutert die Grenzen des Fastens bei Tageslicht.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nicht schlafen",
+          "Nicht sprechen",
+          "Auf Geschlechtsverkehr verzichten",
+          "Das Haus nicht verlassen"
+        ],
+        "correct_answer": "Auf Geschlechtsverkehr verzichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Geschlechtsverkehr"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-011": {
+      "source": {
+        "question_tr": "“Unutarak bir lokma yiyen kişinin orucu bilerek bozulmuş kabul edilir.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Sahih hadisler ve Diyanet ilmihalinde unutarak yeme içmenin orucu bozmadığı açıklanır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Oruç mutlaka bilerek bozulmuş sayılır",
+          "Ramazan'ın tamamını baştan tutar",
+          "Hatırlayınca orucuna devam eder",
+          "Namaz kılamaz"
+        ],
+        "correct_answer": "Hatırlayınca orucuna devam eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie korrigierst du: „Wer beim Fasten versehentlich einen Bissen isst, hat das Fasten absichtlich gebrochen“?",
+        "explanation_tr": "Authentische Hadithe und das Fastenhandbuch der Diyanet erläutern, dass Essen und Trinken aus Vergessen das Fasten nicht brechen.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Das Fasten gilt in jedem Fall als absichtlich gebrochen",
+          "Den gesamten Ramadan von vorn beginnen",
+          "Sich nach dem Erinnern wieder an das Fasten halten und es fortsetzen",
+          "Nicht beten dürfen"
+        ],
+        "correct_answer": "Sich nach dem Erinnern wieder an das Fasten halten und es fortsetzen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Essen aus Vergessen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-012": {
+      "source": {
+        "question_tr": "Vakit hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Bakara 2:187 yeme içmenin fecre kadar serbest olduğunu sonra orucun geceye kadar tamamlanmasını bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Öğleden gece yarısına kadar",
+          "Sadece sabah namazı süresince",
+          "Fecr-i sadıktan güneş batıncaya kadar",
+          "Günün rastgele iki saati"
+        ],
+        "correct_answer": "Fecr-i sadıktan güneş batıncaya kadar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Antwort korrigiert eine falsche Behauptung über die tägliche Fastenzeit?",
+        "explanation_tr": "Al-Baqara 2:187 erklärt, dass Essen und Trinken bis zur Morgendämmerung erlaubt sind und das Fasten danach bis zum Einbruch der Nacht fortgesetzt wird.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Von Mittag bis Mitternacht",
+          "Nur während des Morgengebets",
+          "Von der wahren Morgendämmerung bis zum Sonnenuntergang",
+          "Zwei beliebige Stunden am Tag"
+        ],
+        "correct_answer": "Von der wahren Morgendämmerung bis zum Sonnenuntergang",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Fastenzeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-013": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Ramazan ___ indirildiği ay olarak anılır.",
+        "explanation_tr": "Bakara 2:185 Ramazan'ı Kur'an'ın indirildiği ay olarak tanıtır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "Kur'an'ın",
+          "batıncaya"
+        ],
+        "correct_answer": "Kur'an'ın",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Der Ramadan wird als Monat bezeichnet, in dem der ______ herabgesandt wurde.",
+        "explanation_tr": "Al-Baqara 2:185 bezeichnet den Ramadan als den Monat, in dem der Koran herabgesandt wurde.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "Koran",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "Koran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Monat des Korans"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S02-014": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Kefaretin bazı ayrıntılarında mezhep ___ bulunabilir.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu bazı kefaret hükümlerinde mezhepler arası ayrıntı farklarını açıkça gösterir. DEEN bu ayrıntıyı evrensel tek cevap yapmaz.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "farklılığı",
+          "batıncaya"
+        ],
+        "correct_answer": "farklılığı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Bei manchen Fragen zur Kaffara gibt es ______ zwischen den Rechtsschulen.",
+        "explanation_tr": "Der Hohe Rat für Religionsangelegenheiten erläutert Unterschiede zwischen Rechtsschulen bei einzelnen Kaffara-Regeln. DEEN bewertet diese Detailfragen nicht pauschal nach nur einer Rechtsauffassung.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "Unterschiede",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "Unterschiede",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Ramadan und Gottesbewusstsein",
+        "topic": "Kaffara – Unterschiede der Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
