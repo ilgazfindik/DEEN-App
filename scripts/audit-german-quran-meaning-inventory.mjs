@@ -39,10 +39,15 @@ if(existsSync(root+germanPath)){
  assert.equal(pack.verified_by_religious_expert,false);
  staged=pack.translations||{};
  for(const [id,entry]of Object.entries(staged)){
+  const original=audio.entries.find(e=>e.key===id);
   if(!seen.has(id))issues.push('unknown_ayah_translation:'+id);
   if(typeof entry?.text!=='string'||!entry.text.trim())issues.push('empty_german_ayah_meaning:'+id);
-  if(entry.expert_approved!==false||entry.native_reviewer_approved!==false)issues.push('incorrect_ayah_approval:'+id);
+  if(entry.expert_approved!==false||entry.native_reviewer_approved!==false||entry.rights_reviewed!==false||entry.meaning_reviewed!==false)issues.push('incorrect_ayah_approval:'+id);
+  if(original&&(entry.source_ayah_key!==id||entry.surah_id!==original.surahId||entry.ayah_number!==original.ayah||entry.source_arabic_text!==original.text||entry.source_audio_path!==original.audio))issues.push('source_ayah_or_audio_mismatch:'+id);
+  if(entry.language!=='de'||entry.status!=='draft_review_required')issues.push('unexpected_german_draft_status:'+id);
  }
+ assert.equal(pack.ayah_count,Object.keys(staged).length,'German staged meaning count mismatch');
+ for(const field of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[field],false,'German Quran translations must not be marked approved');
 }
 const missing=[...seen].filter(k=>!Object.hasOwn(staged,k));
 const report={locale:'de',quran_surahs:16,source_ayahs:90,registered_audio:audio.entries.length,
