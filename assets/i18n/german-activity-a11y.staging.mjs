@@ -20,6 +20,28 @@ export function localizeGermanActivityA11y(question,root,{qaMode=false,locale='d
  };
  if(question.activity_type==='matching'){
   if(!Array.isArray(question.pairs))throw Error('DE_MATCHING_PAIR_MISSING');
+  // Matching chrome is recreated after each question render, *after* the
+  // general QA UI pass. Translate only exact, source-observed UI phrases,
+  // and only for a verified German matching question. Never edit answer cards,
+  // #questionText, #feedbackText, Arabic, or religious/source citations.
+  const textIfExact=(selector,source,german)=>{
+   for(const node of root.querySelectorAll(selector)){
+    if(node.textContent?.trim()===source){
+     node.textContent=german;changes++;
+    }
+   }
+  };
+  textIfExact('.v1017-subtitle,.v1013-match-subtitle',
+   'Doğru kavramları anlamlarıyla eşleştir.',
+   'Ordne die Begriffe ihren Bedeutungen zu.');
+  textIfExact('#qType',
+   'Kavramı doğru açıklamayla eşleştir.',
+   'Ordne jedem Begriff die passende Erklärung zu.');
+  for(const title of root.querySelectorAll('.v1017-title,.v9916-task-title')){
+   if(title.textContent?.replace(/\\s+/g,' ').trim()!=='Eşleşen çiftleri bul')continue;
+   const klass=title.classList.contains('v9916-task-title')?' class="v1013-mint"':'';
+   title.innerHTML='Finde <span'+klass+'>passende Paare</span>';changes++;
+  }
   root.querySelectorAll('.v1017-card[data-side][data-pair]').forEach(card=>{
    const side=card.dataset.side,index=Number(card.dataset.pair);
    if(!Number.isInteger(index)||index<0||index>=question.pairs.length||
