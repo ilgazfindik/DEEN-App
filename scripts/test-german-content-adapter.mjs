@@ -49,8 +49,9 @@ const sourceFetch=async url=>{
  return {ok:true,status:200,text:async()=>JSON.stringify(fileData[pathname])};
 };
 const consoleProxy={error:(...args)=>errors.push(args.map(String).join(' ')),log:()=>{}};
+const runtimeContext={window:sandboxWindow,QUESTIONS:active,fetch:sourceFetch,console:consoleProxy,session:null};
 vm.runInNewContext(readFileSync(root+'assets/i18n/content.js','utf8'),
- {window:sandboxWindow,QUESTIONS:active,fetch:sourceFetch,console:consoleProxy},{filename:'assets/i18n/content.js'});
+ runtimeContext,{filename:'assets/i18n/content.js'});
 const adapter=sandboxWindow.DEEN_CONTENT_LOCALE;
 assert(adapter);
 assert.equal(await adapter.preload('de'),true,'Actual content adapter could not preload all staged German questions: '+errors.join(' | '));
@@ -92,6 +93,32 @@ assert.equal(adapter.translateQuestion({id:'DEEN-U01-S01-001',question_tr:'not t
 const variantQuestion=fileData['assets/i18n/questions/de/runtime/staging/U01.variants.json'].translations['DEEN-U01-S01-001'];
 assert.equal(adapter.translateQuestion({id:'DEEN-U01-S01-001',...variantQuestion.source,activity_type:'multiple_choice'},'de'),null,'Type mismatch must fail closed');
 assert.equal(adapter.translateQuestion({id:'DEEN-U01-S01-001',...variantQuestion.source,options_tr:['corrupted']},'de'),null,'Option mismatch must fail closed');
+// The generic lesson-text resolver must use the active variant, never the first
+// translation matching an ID or an ambiguous piece of Turkish copy.
+const sharedId='DEEN-U01-S01-001';
+const canonical=fileData[basePacks[0]].translations[sharedId];
+const stored=fileData['assets/i18n/questions/de/runtime/staging/U01.variants.json'].translations[sharedId];
+const oldPresenter=fileData['assets/i18n/questions/de/runtime/staging/U01.legacy-renderer.json'].translations[sharedId];
+for(const candidate of [canonical,stored,oldPresenter]){
+ const q={id:sharedId,...candidate.source};
+ runtimeContext.session={questions:[adapter.translateQuestion(q,'de')],index:0};
+ assert.equal(adapter.translateText(candidate.source.question_tr,'de'),candidate.display.question_tr,'Wrong in-session prompt '+candidate.source.activity_type);
+ assert.equal(adapter.translateText(candidate.source.explanation_tr,'de'),candidate.display.explanation_tr,'Wrong in-session explanation '+candidate.source.activity_type);
+ if(candidate.source.options_tr?.length){
+  const option=candidate.source.options_tr[0];
+  assert.equal(adapter.translateText(option,'de'),candidate.display.options_tr[0],'Wrong in-session option '+candidate.source.activity_type);
+ }
+ for(const other of [canonical,stored,oldPresenter]){
+  if(other===candidate)continue;
+  if(other.source.question_tr!==candidate.source.question_tr){
+   assert.equal(adapter.translateText(other.source.question_tr,'de'),other.source.question_tr,
+    'Wrong cross-variant text leaked into lesson '+candidate.source.activity_type);
+  }
+ }
+}
+runtimeContext.session={questions:[],index:0};
+const uniqueLive=fileData[runtimePacks[0]].translations['DEEN-U01-S01-P01'];
+assert.equal(adapter.translateText(uniqueLive.source.question_tr,'de'),uniqueLive.display.question_tr,'Safe unique global translation missing');
 // The VM's green staged manifest is a test fixture, NEVER written to disk.
 assert.equal(readJSON('assets/i18n/content-support.json').languages.de.question_data,'missing');
 assert.equal(readJSON('assets/i18n/content-support.json').languages.de.global_qa,'blocked');
@@ -100,6 +127,6 @@ console.log(JSON.stringify({
  base:base.length,active:active.length,checked,
  duplicate_entries:duplicates,collision_ids:collisions.length,
  stored_variants:variants,legacy,production_manifest:'blocked',
- negative_guards:['wrong_source','wrong_activity_type','wrong_options'],
+ negative_guards:['wrong_source','wrong_activity_type','wrong_options','cross_variant_text','contextual_translation'],
  request_count:files.length
 },null,2));
