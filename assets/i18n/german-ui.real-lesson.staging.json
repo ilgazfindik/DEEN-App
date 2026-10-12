@@ -26,8 +26,7 @@
     "TEMELLER USTALIĞI"
   ],
   "not_translated_contextual": [
-    "gün",
     "Ünite 1 · Aşama 1"
   ],
-  "context_note_tr": "Bu paket gerçek yayın segmentindeki #lesson statik etiketleridir. 'gün' sayıya bağlı tekil/çoğul çekim nedeniyle bilinçli olarak çevrilmedi; 'Ünite X · Aşama Y' ayrı dinamik kalıba aktarılacaktır. Sorular/şıklar/geri bildirim açıklamaları, Arapça ayet ve sure mealleri değiştirilmez."
+  "context_note_tr": "Bu paket gerçek yayın segmentindeki #lesson sabit etiketleridir. Ayrı sayısal #lessonStreakMini ile sunulan 'gün' metni, yalnız QA DOM motorunda sayıya göre Tag/Tage olarak çevrilir; eksik veya geçersiz sayıda tahmin yapılmaz. 'Ünite X · Aşama Y' ayrı dinamik kalıpla çevrilir. Sorular/şıklar/geri bildirim açıklamaları, Arapça ayet ve sure mealleri değiştirilmez."
 }
