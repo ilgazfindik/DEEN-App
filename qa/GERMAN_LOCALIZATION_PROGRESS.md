@@ -113,21 +113,27 @@ Last updated: 2026-10-12
 | U14-S03 / 14 base questions | 14 staged | 0 |
 | U14-S04 / 16 base questions | 16 staged | 0 |
 | U14-S05 / 16 base questions | 16 staged | 0 |
-| U14-S06–S07 base questions | 0 | 26 |
-| U15 | 0 | 100 |
+| U14-S06 / 12 base questions | 12 staged | 0 |
+| U14-S07 / 14 base questions | 14 staged | 0 |
+| U15-S01 / 14 base questions | 14 staged | 0 |
+| U15-S02 / 14 base questions | 14 staged | 0 |
+| U15-S03 / 14 base questions | 14 staged | 0 |
+| U15-S04 / 16 base questions | 16 staged | 0 |
+| U15-S05 / 16 base questions | 16 staged | 0 |
+| U15-S06–S07 base questions | 0 | 26 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 1,374 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 1,474 / 1,500 base questions translated in staging; 0 German game questions published.**
 
 The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 1,374 source IDs across ninety-six stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 1,474 source IDs across one hundred and three stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-The next 100-question batch is U14-S06 (12) + U14-S07 (14) + U15-S01 through U15-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+The next batch is U15-S06 (12) + U15-S07 (14), completing the 1,500 base question set. This does not complete runtime/UI/Quran. Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -235,3 +241,11 @@ The next 100-question batch is U14-S06 (12) + U14-S07 (14) + U15-S01 through U15
 - Covers prayer preparation and obligatory Rakʿa counts (U13); the prayer sequence, Qiyam, Qira'a, Ruku, Sujud, last sitting, accommodation for disability and recognized fiqh differences (U14).
 - German native-speaker/religious expert approval and remaining German UI, Quran, runtime variations, audio and browser QA are **not complete**; production gameplay stays blocked.
 - Based on PR #51 head while its Arabic regression gate is pending. This batch should be reviewed as a stacked PR; do not merge its parent before that regression passes.
+
+## Batch 100N — U14 completion and U15-S01 through S05
+- Added **exactly 100 new German base-question staging translations**: U14-S06 (12), U14-S07 (14); U15-S01 (14), S02 (14), S03 (14), S04 (16), S05 (16).
+- Cumulative **1,474 / 1,500 base questions staged** in **103 stage packs**. U01–U14 are complete at 100/100; U15 is 74/100. Remaining: **26 base questions**.
+- Preserved Turkish source snapshots, question IDs/order, activity types, correct answer indexes, answer choices, fill slots and matching-pair label identity. Translated German prompts, answer options, explanations, matching cards, stage titles and topics.
+- U14 covers prayer structure, sitting/recitation and recognized differences of fiqh interpretation. U15 covers Ramadan, Suhur, Iftar, fasting boundaries, voluntary/unintentional actions, make-up days, and differences in Kaffara rules.
+- **Model-authored staging only**. Expert religious and native German-language approval not granted. Remaining German runtime variants, comprehensive app UI, Quran/audio, and real-device/browser QA are still outstanding; production German gameplay remains fail-closed.
+- Built on PR #52 head. This batch must not be promoted to main until its parent PRs and Arabic regression pass.
