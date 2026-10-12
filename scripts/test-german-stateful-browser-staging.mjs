@@ -24,6 +24,7 @@ async function verifyGermanGate(){
   assert.equal(await page.locator('#deenLanguageGate .deen-language-continue').textContent(),'Weiter');
   await page.locator('#deenLanguageGate .deen-language-continue').click();
   await page.waitForFunction(()=>window.DEEN_APP_LOCALE?.get()==='de',{timeout:25000});
+  await page.waitForFunction(()=>Boolean(window.DEEN_CONTENT_LOCALE?.available&&window.DEEN_BOOT?.prepare),null,{timeout:100000});
   const blocked=await page.evaluate(async()=>{
    const available=window.DEEN_CONTENT_LOCALE.available('de');
    const result=await window.DEEN_BOOT.prepare();
