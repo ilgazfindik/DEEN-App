@@ -126,7 +126,7 @@ const malformed=JSON.parse(JSON.stringify(fileData[badPath]));
 malformed.translations['DEEN-U01-S01-001'].display.correct_answer='absichtlich-falsche-Antwort';
 const tamperedFiles={...fileData,[badPath]:malformed};
 const tamperedErrors=[];
-const badWindow={...sandboxWindow,DEEN_APP_LOCALE:{get:()=> 'de'}};
+const badWindow={...sandboxWindow,DEEN_CONTENT_LOCALE:undefined,DEEN_APP_LOCALE:{get:()=> 'de'}};
 const tamperedFetch=async url=>{
  const pathname=String(url).split('?')[0].replace(/^\.\//,'');
  return {ok:pathname in tamperedFiles,text:async()=>JSON.stringify(tamperedFiles[pathname])};
