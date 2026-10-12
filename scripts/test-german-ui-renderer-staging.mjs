@@ -37,7 +37,8 @@ assert.throws(()=>createGermanUIStagingRenderer({packs:packs.map((p,i)=>i===11?{
 const humanApproved=packs.map((p,i)=>i===11?{...p,verified_by_religious_expert:true}:p);
 assert.throws(()=>createGermanUIStagingRenderer({packs:humanApproved,englishReference:english}),/RELEASE_GUARD/);
 const copies=packs.map(p=>structuredClone(p));
-copies[11].translations['Fâtiha']='Another rendering';
+delete copies[11].translations['Fâtiha'];
+copies[11].translations['Geri']='Falsch';
 assert.throws(()=>createGermanUIStagingRenderer({packs:copies,englishReference:english}),/DE_STAGING_DICTIONARY_DRIFT|DE_STAGING_CONFLICT/);
 
 const parent=excluded=>({closest:()=>excluded?{}:null});
