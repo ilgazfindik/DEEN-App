@@ -300,6 +300,21 @@ async function auditNavTabs(){
   assert.deepEqual([...qaLesson.choices].sort(),[...qaLesson.expected_choices].sort(),
    'German answer button text does not match source-verified staging choices');
   await page.screenshot({path:output+'/stateful-german-lesson-qa.png',fullPage:true});
+  // Follow the actual U01 teaching-card lifecycle before answering.
+  const teachingCTA=page.locator('#lesson .v910-card-button:visible');
+  if(await teachingCTA.count()){
+   await teachingCTA.first().click({timeout:20000});
+   await page.waitForTimeout(400);
+  }
+  const afterTeaching=await page.evaluate(()=>({
+   question:document.querySelector('#questionText')?.textContent?.trim(),
+   teaching_cta_visible:[...document.querySelectorAll('#lesson .v910-card-button')]
+    .some(el=>el.getClientRects().length>0&&getComputedStyle(el).visibility!=='hidden'),
+   options:[...document.querySelectorAll('#answerArea .option-label')]
+    .map(el=>el.textContent?.trim())
+  }));
+  report.lesson.after_teaching=afterTeaching;
+  assert.equal(afterTeaching.question,qaLesson.question);
   const rightButton=page.locator('#answerArea .option').filter({
     has:page.locator('.option-label', {hasText:qaLesson.correct_answer})});
   // The same real DOM grading controls are exercised; no direct grade mutation.
