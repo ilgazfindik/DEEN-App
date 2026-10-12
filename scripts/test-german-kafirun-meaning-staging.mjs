@@ -17,8 +17,8 @@ assert.equal(language.global_qa,'blocked');
 assert.equal(language.religious_expert_approved,false);
 assert.equal(pack.locale,'de');
 assert.equal(pack.scope,'quran_ayah_meanings_staging');
-assert.equal(pack.ayah_count,47);
-assert.equal(Object.keys(pack.translations).length,47);
+assert.equal(pack.ayah_count,51);
+assert.equal(Object.keys(pack.translations).length,51);
 for(const flag of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(pack[flag],false,'Global gate must remain blocked');
 const kafirun=source.entries.filter(e=>e.surahId==='kafirun').sort((a,b)=>a.ayah-b.ayah);
 assert.deepEqual(kafirun.map(e=>e.key),['kafirun:1','kafirun:2','kafirun:3','kafirun:4','kafirun:5','kafirun:6']);
@@ -59,21 +59,21 @@ for(const original of kafirun){
 }
 assert.equal(resolveGermanAyahMeaning(kafirun[0],{...pack,locale:'tr'},{preview:true}),null);
 rejected++;
-assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='quraysh'),pack,{preview:true}),null);
+assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='maun'),pack,{preview:true}),null);
 rejected++;
 let qa=0,prod=0;
 for(const entry of source.entries){
  if(resolveGermanAyahMeaning(entry,pack,{preview:true})!==null)qa++;
  if(resolveGermanAyahMeaning(entry,pack)!==null)prod++;
 }
-assert.equal(qa,47);
+assert.equal(qa,51);
 assert.equal(prod,0);
 const sources=pack.sources.comparative_only.filter(r=>r.comparison_scope==='Surah 109 Al-Kafirun');
 assert.equal(sources.length,2);
 assert(sources.every(s=>s.text_copied_verbatim===false&&/^https:\/\//.test(s.url)));
 console.log(JSON.stringify({
- status:'passed',surah:'Al-Kafirun',new_ayah_drafts:6,all_german_draft_meanings:47,
- still_missing:43,arabic_repeat_verses_3_and_5_checked:true,source_matched_previews:6,
+ status:'passed',surah:'Al-Kafirun',new_ayah_drafts:6,all_german_draft_meanings:51,
+ still_missing:39,arabic_repeat_verses_3_and_5_checked:true,source_matched_previews:6,
  production_visible:0,negative_guard_checks:rejected,arabic_or_audio_changed:false,
  qualified_religious_native_rights_approvals:false
 },null,2));
