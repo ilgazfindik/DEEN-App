@@ -8,9 +8,9 @@
 |---|---|
 | German entry/onboarding | German copy exists; no evidence of an end-to-end approved production German lesson flow |
 | English UI translation reference | 1087 source strings |
-| German staged UI dictionaries | 1432 distinct German strings across eleven files |
-| Source-key overlap with English reference | 1077/1087 |
-| **English reference keys without German catalog match** | **10** |
+| German staged UI dictionaries | 1442 distinct German strings across twelve files |
+| Source-key overlap with English reference | 1087/1087 |
+| **English reference keys without German catalog match** | **0 (catalog only; runtime not certified)** |
 | German strings outside English reference | 355 (dynamic, lesson, Quran controls and Premium screens) |
 | German base question staging | 1,500 questions (not live/approved) |
 | German active lesson questions | 1,484 source questions, source-matched in staging only |
@@ -51,34 +51,26 @@
 - **38** doctrinal, review-status or potentially misleading interface expressions need explicit expert/native-language attention, particularly fiqh/mezhep, the distinction between learning points and worship, and the panel's Turkish translation label. The last label remains accurately marked *Turkish*, not deceptively called *German*.
 - `scripts/test-german-ui-reference-batch-07.mjs` checks source ordering across all seven batches, reference gloss fidelity, numeric integrity, overlapping keys, the exact ten missing references and the unreleased manifest/Quran review state. CI now invokes this test and the full readiness counter covers all eleven staged dictionaries. **No main merge, production language activation or deploy.**
 
+- **Batch 08 — 2026-10-12:** filled the last **10 source-identified German UI reference labels** in `assets/i18n/german-ui.reference-batch-08.staging.json`: section 1 final, mastery lock/heading, a fiqh school-differences disclaimer and six Latin-script surah titles. Original Arabic ayahs/audio unchanged.
+- English-reference key coverage is now **1,087/1,087 (100% of this static catalog)**, with **0 catalog gaps**. There are **1,442 unique staged German UI labels in twelve dictionaries**, including 355 dynamic/modern UI strings outside the reference baseline. This is **not** proof of German-only runtime screens.
+- `scripts/test-german-ui-reference-batch-08.mjs` verifies the exact source ordering and English glosses across batches 01–08, count integrity, approved-language flags remaining false, unchanged Quran source metadata and no duplicate keys. The full-release audit now enforces zero reference gaps; CI invokes batch 08.
+- All ten additions await native German/Islamic expert review, including the accuracy of romanized surah headings and the mezhep legal-differences note. **No production activation, qualified human signoff, main merge or deploy.**
+
 ## Remaining release blockers (priority order)
 
-1. **Translate/verify and wire the remaining GUI reference keys.** The baseline originally had 850 English-reference source keys with no German catalog match; 840 now have staging drafts and the last ten are listed below. This is not proof every key appears on the same screen, but each is a possible source of Turkish fallback. Staging catalog coverage alone does not prove active screens are fully localized. Cover all runtime strings before claiming 'German-only'.
+1. **Verify all runtime UI strings and connect an approved renderer.** The initial 850 missing English-reference keys now have German staging drafts, but the baseline is not an exhaustive inventory of live/dynamic UI; browser/state-dependent Turkish leftovers must still be identified and handled.
 2. **Install a German DOM/runtime UI renderer** equivalent in quality to the English renderer, including dynamic values, result panels, progression, profile, Premium and every Quran control. The current startup injects English and Arabic rendering, not a released German renderer.
 3. **Complete independent religious/native German review** of 1,500 base questions, live variants and 90 Quran meaning drafts, maintaining exact right-answer source identity, Qur'an verse identity and unmodified Arabic recitation.
 4. **Complete rights/copyright and source attribution review** of Quran meaning publication and any other translated religious content.
 5. **Run real mobile and desktop Chrome E2E on a full German release candidate**, including first-run language selection, changing language while logged in, all tabs, multiple question types, wrong/correct feedback, audio, results, Premium, Quran, review and profile.
 6. **Only after those gates and explicit QA acceptance**, update release manifest and assets, verify startup hashes, merge to main and inspect the actual GitHub Pages URL.
 
-## Exhaustive unmatched German UI source-key list
+## Remaining unmatched baseline UI reference keys
 
-Exactly **10** English-reference keys remain without a source-matched German staging entry after batches 01–07 (840/850 originally missing keys remediated). These are not proof of the full active UI's translation coverage.
-
-| # | Turkish source key | English reference meaning |
-|---:|---|---|
-| 1 | KISIM 1 FİNALİ | SECTION 1 FINAL |
-| 2 | KİLİTLİ · USTALIK SINAVI | LOCKED · MASTERY TEST |
-| 3 | Temeller Ustalığı | Foundations Mastery |
-| 4 | Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler. | Valid differences between schools of law are not graded as incorrect; all new content awaits expert review. |
-| 5 | Fâtiha | Al-Fatihah |
-| 6 | Felak | Al-Falaq |
-| 7 | Nâs | An-Nas |
-| 8 | Mâûn | Al-Ma'un |
-| 9 | İnşirah | Ash-Sharh |
-| 10 | Zilzâl | Az-Zalzalah |
+**0 / 1,087.** All static English-reference keys have German staging entries after batches 01–08. The 10 keys listed after batch 07 have been individually translated. This is catalog inventory coverage, **not verified native German wording approval or full interactive UI coverage**.
 
 ## Audit scope limitation
 
-The catalog comparison uses the English reference file, which is not itself a complete enumeration of every dynamically assembled Turkish screen string. Runtime/browser QA may reveal **additional** Turkish strings. The count above is therefore **not a certified ceiling** on remaining German work.
+The catalog comparison uses the English reference file, which is not itself a complete enumeration of every dynamically assembled Turkish screen string. Runtime/browser QA may still reveal **additional** Turkish strings. The zero count above therefore does **not** certify German-only UI runtime coverage.
 
 **Do not merge or deploy the German release until all blocker conditions are cleared.**
