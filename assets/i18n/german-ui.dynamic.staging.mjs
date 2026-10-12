@@ -28,8 +28,8 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
    'Duruma Uyarla':'Auf Situationen anwenden','Sesi Tanı':'Hören und erkennen'};
   return emit('Lektion '+m[1]+'/'+m[2]+' · '+lessonKinds[m[3]]);
  }
- if((m=n.match(/^(.+?)\s*·\s*(ÖĞREN|ANLA|DİNLE|UYGULA|USTALAŞ|HATIRLA)\s*·\s*Aşama\s+(\d+)\/(\d+)$/))){
-  const stageKinds={'ÖĞREN':'LERNEN','ANLA':'VERSTEHEN','DİNLE':'ZUHÖREN',
+ if((m=n.match(/^(.+?)\s*·\s*(ÖĞREN|ANLA|DİNLE|UYGULA|HATIRLA|USTALAŞ|HATIRLA)\s*·\s*Aşama\s+(\d+)\/(\d+)$/))){
+  const stageKinds={'ÖĞREN':'LERNEN','ANLA':'VERSTEHEN','DİNLE':'ZUHÖREN','HATIRLA':'ERINNERN',
    'UYGULA':'ANWENDEN','USTALAŞ':'MEISTERN','HATIRLA':'ERINNERN'};
   const title=label(m[1]);return title?emit(title+' · '+stageKinds[m[2]]+' · Etappe '+m[3]+'/'+m[4]):null;
  }
@@ -81,6 +81,42 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
    'Fülle deine Energie auf, um weiterzulernen. Mit Premium entfällt das Energielimit. Alternativ kannst du dir eine Werbung ansehen.',
  };
  if(Object.hasOwn(observedUI,n))return emit(observedUI[n]);
+
+ // Follow-on actual-app Chromium inventory: source-pinned non-graded UI only.
+ const followOnUI={
+  '%80 GEÇİŞ':'80 % BESTEHENSGRENZE',
+  'PREMIUM · SINIRSIZ ENERJİ':'PREMIUM · UNBEGRENZTE ENERGIE',
+  'SERİ KORUMA':'SERIENSCHUTZ',
+  'SONRAKİ ENERJİ':'NÄCHSTE ENERGIEAUFLADUNG',
+  'Premium yalnızca konfor özelliğidir. Dini içerik herkese açıktır. Reklam butonu bu HTML önizlemesinde simülasyondur.':
+   'Premium bietet nur Komfortfunktionen. Religiöse Inhalte sind für alle zugänglich. Die Werbeschaltfläche ist in dieser HTML-Vorschau simuliert.',
+  'Sıradaki: Aktif Hatırlama · Cevabı görmeden bilgiyi zihninden geri çağır.':
+   'Als Nächstes: Aktives Abrufen · Rufe das Gelernte aus dem Gedächtnis ab, ohne die Antwort anzusehen.',
+  'Sıradaki: Bağ Kur · Kavramları doğru anlam ve örneklerle bağla.':
+   'Als Nächstes: Verknüpfen · Verbinde Begriffe mit passenden Bedeutungen und Beispielen.',
+  'Sıradaki: Duruma Uyarla · Öğrendiğin ilkeyi basit bir duruma uygula.':
+   'Als Nächstes: Auf Situationen anwenden · Wende das Gelernte auf eine einfache Situation an.',
+  'Sıradaki: Sesi Tanı · Resmî kaydı dinleyerek doğru ifadeyi tanı.':
+   'Als Nächstes: Hören und erkennen · Höre die offizielle Aufnahme und erkenne die richtige Formulierung.',
+  'Sıradaki: Tanı · Temel kavramı güvenli biçimde tanı.':
+   'Als Nächstes: Erkennen · Lerne den Grundbegriff auf verlässliche Weise kennen.',
+  'Sıradaki: Ünite Challenge · Ünitenin temel kavramlarını farklı soru biçimleriyle ustalık seviyesinde kullan.':
+   'Als Nächstes: Kapitel-Challenge · Wende die Grundbegriffe der Einheit in verschiedenen Aufgabenformaten sicher an.',
+ };
+ if(Object.hasOwn(followOnUI,n))return emit(followOnUI[n]);
+ if((m=n.match(/^REKLAM İZLE\s*·\s*\+(\d+)\s+ENERJİ$/)))
+  return emit('WERBUNG ANSEHEN · +'+m[1]+' ENERGIE');
+ if((m=n.match(/^aşama\s*·\s*Ustalık\s*%(\d+)$/)))
+  return emit('Etappe · Kenntnisstand '+m[1]+' %');
+ if((m=n.match(/^(.+?)\s*·\s*ÖĞREN\s*·\s*Mini ders\s+(\d+)\/(\d+)$/))){
+  const title=label(m[1]);
+  return title?emit(title+' · LERNEN · Mini-Lektion '+m[2]+'/'+m[3]):null;
+ }
+ if((m=n.match(/^(.+?)\s*—\s*(\d+)\/(\d+)\s+mini ders tamamlandı$/))){
+  const title=label(m[1]);
+  return title?emit(title+' — '+m[2]+'/'+m[3]+' Mini-Lektionen abgeschlossen'):null;
+ }
+
 
  if(n==='Doğru. Devam edebilirsin.')return emit('Richtig. Du kannst weitermachen.');
  if((m=n.match(/^(\d+)\s+mini ders\s*·\s*yaklaşık (\d+) dakika$/)))return emit(m[1]+' Mini-Lektion'+(m[1]==='1'?'':'en')+' · etwa '+m[2]+' Minuten');
