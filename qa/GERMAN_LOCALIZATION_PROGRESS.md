@@ -583,3 +583,12 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - Added `scripts/test-german-ui-reference-batch-08.mjs`, wired to German staging workflow and updated full German readiness audit to assert zero baseline missing keys, *without* changing production localization gates.
 - Replaced the former ten-key gap list in `qa/GERMAN_FINAL_FULL_APP_AUDIT_20261012.md` with an accurate zero-baseline-gap statement and a clear runtime coverage caveat.
 - **No merge or deploy.** Next high-priority stage is to audit actual browser-rendered dynamic/conditional strings and build a source-guarded German UI renderer, followed by native German and qualified Islamic review, rights checks and end-to-end browser testing.
+
+## German UI source-guarded QA DOM renderer — 2026-10-12
+
+- Built `assets/i18n/german-ui.renderer.staging.mjs` for 12 German UI catalogs and 1,442 unique staged labels. Exact Turkish source matches are rendered into German, with the existing staged dynamic formatter for supported number/label templates.
+- Covers text nodes and title/aria-label/alt/placeholder, preserves whitespace, skips original Quran Arabic and editable/no-translate areas, is idempotent and records Turkish source strings with no known exact translation.
+- Enforced `qaMode:true` plus `locale:'de'`; the stage parser rejects missing layers, overlapping conflicting keys, drift in counts and premature approval flags. No changes to the live `index.html`, language selection, `boot.js`, question grading, Arabic ayahs/audio or published manifest.
+- Added separate `qa/german-ui-staging-preview.html` fixture illustrating UI labels for onboarding, learning, lesson, Quran, progress and Premium; it reports unresolved strings. This is **not a functional full-app preview or a browser E2E certification**.
+- Added `scripts/test-german-ui-renderer-staging.mjs` and German Actions workflow coverage for staged exact/dynamic UI translations, text/attributes, re-render idempotence, QA-only behavior, original Arabic preservation, and non-inclusion in production boot. Release remains blocked and qualified native German/Islamic/rights reviewers remain required.
+- Next: inventory and validate actual dynamic screen fragments in controlled QA, integrate the adapter into a German release-candidate runtime only once question/Quran approval gates permit, complete Chrome E2E and language expertise review; no production merge/deploy.
