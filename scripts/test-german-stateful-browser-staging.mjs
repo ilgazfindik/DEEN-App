@@ -73,6 +73,16 @@ async function auditNavTabs(){
    for(const id of ['v998Onboarding','deenPreparation','deenLanguageGate'])
     document.getElementById(id)?.remove();
    const phone=document.querySelector('.phone');phone.inert=false;
+   const scriptOrigin=[...document.scripts].map((script,index)=>{
+    const source=script.textContent||'';
+    const lines=source.split('\n');
+    const hits=lines.map((line,i)=>({i,line})).filter(row=>
+     /function\s+cards\s*\(|\bconst\s+T\s*=|\bfunction\s+T\s*\(|\bT\s*\(/.test(row.line));
+    return {index,id:script.id||'',src:script.src||'',lineCount:lines.length,
+     candidates:hits.filter(row=>/function\s+cards\s*\(|\bconst\s+T\s*=|\bfunction\s+T\s*\(/.test(row.line))
+      .slice(0,8).map(row=>({line:row.i+1,text:row.line.slice(0,220)})),
+     tCalls:hits.filter(row=>/\bT\s*\(/.test(row.line)).length};
+   }).filter(x=>x.candidates.length||x.tCalls>8);
    const active=typeof QUESTIONS!=='undefined'&&Array.isArray(QUESTIONS)?QUESTIONS:[];
    const base=Array.isArray(window.DEEN_BASE_QUESTIONS)?window.DEEN_BASE_QUESTIONS:[];
    const ids=items=>items.map(q=>String(q?.id||q?.questionId||'')).filter(Boolean);
@@ -83,6 +93,7 @@ async function auditNavTabs(){
    for(const id of activeIds)frequency.set(id,(frequency.get(id)||0)+1);
    return {ready,boot:window.DEEN_BOOT.status(),overlays:
     [...document.querySelectorAll('[aria-modal="true"]')].map(el=>el.id),
+    script_origin:scriptOrigin,
     question_inventory:{active_count:active.length,base_count:base.length,
      active_unique_ids:unique.size,active_duplicate_id_count:activeIds.length-unique.size,
      active_by_unit:byUnit,
