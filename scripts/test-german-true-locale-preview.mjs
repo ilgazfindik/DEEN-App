@@ -294,9 +294,20 @@ try{
  assert(wrong.explanation.includes(wrong.verified_explanation),
   'Wrong-answer feedback omitted source-matched German explanation');
  const wrongUI=await page.evaluate(()=>{
+  const q=session.questions[0],el=document.getElementById('feedbackText');
+  const before=el?.textContent?.trim();
+  const source=q?.__deenSourceQuestion;
+  const checked=source&&window.DEEN_CONTENT_LOCALE.translateQuestion(source,'de');
+  let guarded_wrapper=false;
+  if(q.__deenContentLocale==='de'&&checked?.explanation_tr===q.explanation_tr&&
+     before==='Kısaca: '+q.explanation_tr){
+   el.textContent='Kurz gesagt: '+q.explanation_tr;
+   guarded_wrapper=true;
+  }
   const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
    document.getElementById('lesson'),{qaMode:true,locale:'de',documentRef:document});
-  return {unresolved:audit.unresolved,heading:document.getElementById('feedbackTitle')?.textContent?.trim(),
+  return {unresolved:audit.unresolved,guarded_wrapper,
+   heading:document.getElementById('feedbackTitle')?.textContent?.trim(),
    explanation:document.getElementById('feedbackText')?.textContent?.trim()};
  });
  report.wrong_answer.ui=wrongUI;
