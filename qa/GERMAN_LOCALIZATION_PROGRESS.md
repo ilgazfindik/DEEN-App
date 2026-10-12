@@ -85,21 +85,28 @@ Last updated: 2026-10-12
 | U10-S03 / 14 base questions | 14 staged | 0 |
 | U10-S04 / 16 base questions | 16 staged | 0 |
 | U10-S05 / 16 base questions | 16 staged | 0 |
-| U10-S06–S07 base questions | 0 | 26 |
-| U11–U15 | 0 | 500 |
+| U10-S06 / 12 base questions | 12 staged | 0 |
+| U10-S07 / 14 base questions | 14 staged | 0 |
+| U11-S01 / 14 base questions | 14 staged | 0 |
+| U11-S02 / 14 base questions | 14 staged | 0 |
+| U11-S03 / 14 base questions | 14 staged | 0 |
+| U11-S04 / 16 base questions | 16 staged | 0 |
+| U11-S05 / 16 base questions | 16 staged | 0 |
+| U11-S06–S07 base questions | 0 | 26 |
+| U12–U15 | 0 | 400 |
 | Active U01 questions and runtime variants | 0 | Pending inventory |
 | German game UI, Quran and premium interface | 0 | Complete localization pending |
 
-**Total: 974 / 1,500 base questions translated in staging; 0 German game questions published.**
+**Total: 1,074 / 1,500 base questions translated in staging; 0 German game questions published.**
 
 The files `assets/i18n/questions/de/staging/U01-S01.json`, `U01-S02.json`, `U01-S03.json`, `U01-S04.json`, `U01-S05.json`, `U01-S06.json`, `U01-S07.json`, and U02-S01 through U02-S05 retain original Turkish question metadata and a separate German display for each question. Multiple choice, true/false and fill-in-the-blank structure and correct-answer indices are preserved. `expert_approved`, `verified_by_religious_expert` and `native_reviewer_approved` are false.
 
 ## Gates and tests
-- `node scripts/audit-german-staging.mjs` verifies all 974 source IDs across sixty-eight stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
+- `node scripts/audit-german-staging.mjs` verifies all 1,074 source IDs across seventy-five stages, source metadata, blanks, options, correct answer indices, matching pair identity and the still-blocked German language manifest.
 - Do **not** activate German gameplay or set `global_qa: passed` while any part of the 1,500-question bank, active runtime variations or screen translation is missing.
 
 ## Next slice
-The next 100-question batch is U10-S06 (12) + U10-S07 (14) + U11-S01 through U11-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
+The next 100-question batch is U11-S06 (12) + U11-S07 (14) + U12-S01 through U12-S05 (74). Keep German staging blocked until bank, runtime variants, UI, Quran and qualified reviews are complete. Add German runtime variations, screen translation, real Chrome checks and linguistic/religious review before production readiness.
 
 ## Latest stage batch: S02 and S03
 - S02: 14 questions including three matching exercises and three fill-blank exercises.
@@ -178,3 +185,10 @@ The next 100-question batch is U10-S06 (12) + U10-S07 (14) + U11-S01 through U11
 - Translated prompts, option sets, answer text and indices, explanations, matching pairs, fill-blank, progressive recall, and build-sequence cards while preserving Turkish source metadata.
 - U10 covers Qadar/Qada terminology including Maturidi and Ashari differences, Allah's encompassing knowledge, human will, accountability, precautions, trust in Allah, and hardship. Qualified religious review remains pending.
 - German runtime language release blocked: no native German reviewer, Islamic religious expert approval, comprehensive UI/Quran translation, runtime variants, audio and browser gameplay audit yet.
+
+## Batch 100J — U10 completion and U11-S01 through S05
+- Added exactly **100 new German staged base questions**: U10-S06 (12) and S07 (14) plus U11-S01 (14), S02 (14), S03 (14), S04 (16), S05 (16).
+- Cumulative: **1074/1500** staged. U01-U10 complete at 100/100 each; U11 at 74/100.
+- Translated German question text, explanations, choices and answer identities, matching cards, missing words and open recall; retained original Turkish source data and release safeguards.
+- U10 covers Qadar/Qada, divine decree and human responsibility; U11 covers forms of worship, Quran/Sunnah, prayer, Hajj, fasting, Zakat, sincerity, cleanliness, intention and supplication. Qualified religious review is still required.
+- German remains production-blocked pending native-language/religious approvals, remaining base questions, runtime variations, Quran, UI, audio and real browser gameplay QA.
