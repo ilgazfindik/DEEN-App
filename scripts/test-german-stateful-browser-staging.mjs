@@ -49,7 +49,7 @@ async function verifyGermanGate(){
 }
 async function auditNavTabs(){
  const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
- page.on('pageerror',error=>report.errors.push('tabs: '+String(error)));
+ page.on('pageerror',error=>report.errors.push('tabs: '+String(error.stack||error)));
  await page.addInitScript(()=>{
   try{localStorage.setItem('deen_app_language_v1','tr')}catch(_){}
  });
@@ -61,17 +61,22 @@ async function auditNavTabs(){
   // A new-profile onboarding layer blocks taps. Remove it ONLY in this
   // disposable QA page to exercise the already assembled application's nav.
   // This deliberately does not test production onboarding completion.
-  await page.evaluate(()=>{
-   // This is a disposable QA profile, not a production learner's saved state.
+  const qaBoot=await page.evaluate(async()=>{
+   // Disposable QA profile; first complete the actual Turkish boot validation.
    if(typeof state!=='undefined'&&state?.settings){
     state.settings.onboardingLanguageConfirmed=true;
     state.onboarded=true;
    }
+   const ready=await window.DEEN_BOOT.prepare();
    for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
    for(const id of ['v998Onboarding','deenPreparation','deenLanguageGate'])
     document.getElementById(id)?.remove();
    const phone=document.querySelector('.phone');phone.inert=false;
+   return {ready,boot:window.DEEN_BOOT.status(),overlays:
+    [...document.querySelectorAll('[aria-modal="true"]')].map(el=>el.id)};
   });
+  assert.equal(qaBoot.ready,true,'Turkish QA boot must be complete before navigation');
+  assert.equal(qaBoot.boot.phase,'ready');
   const init=await page.evaluate(async()=>{
    const files=['german-ui.staging.json','german-ui.lesson-flow.staging.json',
     'german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
