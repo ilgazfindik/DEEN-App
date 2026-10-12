@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "scope": "quran_ayah_meanings_staging",
+  "authoring_date": "2026-10-12",
+  "translation_kind": "original_DEEN_German_meaning_draft_not_verbatim_external_translation",
+  "release_ready": false,
+  "expert_approved": false,
+  "native_reviewer_approved": false,
+  "verified_by_religious_expert": false,
+  "rights_reviewed": false,
+  "meaning_release_gate": "blocked_pending_native_language_religious_and_rights_review",
+  "sources": {
+    "canonical_arabic": "assets/quran/audio/ayah-audio-manifest.json",
+    "comparative_only": [
+      {
+        "publisher": "QuranEnc / Ruwwad Translation Center",
+        "language": "de",
+        "version": "1.0.15",
+        "url": "https://quranenc.com/de/browse/german_rwwad/1",
+        "text_copied_verbatim": false
+      },
+      {
+        "publisher": "QuranEnc / Frank Bubenheim and Nadim Elias",
+        "language": "de",
+        "version": "1.1.4",
+        "url": "https://quranenc.com/de",
+        "text_copied_verbatim": false
+      },
+      {
+        "publisher": "Quran.com / Frank Bubenheim and Nadim Elias",
+        "language": "de",
+        "url": "https://quran.com/sq/al-fatihah/translation/de-bubenheim",
+        "text_copied_verbatim": false
+      }
+    ],
+    "licensing_note_tr": "QuranEnc yayımlanan kendi meallerini değişiklik yapmama, yayıncı+kaynak+sürüm atfı, güncelleme ve uygunsuz reklam yasağı koşullarıyla yeniden yayımlatıyor. Bu pakette o mealler birebir yeniden yayımlanmıyor; DEEN taslak ifadeleri bağımsız uzman incelemesine sunuluyor. İşletme/telif hukuku incelemesi tamamlanmadan yayımlama yapılmamalı.",
+    "commercial_content_policy": "no_translation_display_with_advertisements_pending_legal_review",
+    "external_translation_imported": false
+  },
+  "ayah_count": 7,
+  "translations": {
+    "fatiha:1": {
+      "surah_id": "fatiha",
+      "ayah_number": 1,
+      "source_ayah_key": "fatiha:1",
+      "source_arabic_text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
+      "source_audio_path": "assets/quran/audio/fatiha/fatiha_1.mp3",
+      "text": "Im Namen Allahs, des Allerbarmenden, des Barmherzigen.",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Besmele repo verisinde Fâtiha 1. ayet olarak sayılıyor; ayet numaralandırması kaynakla eşleştirilmeli."
+    },
+    "fatiha:2": {
+      "surah_id": "fatiha",
+      "ayah_number": 2,
+      "source_ayah_key": "fatiha:2",
+      "source_arabic_text": "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ",
+      "source_audio_path": "assets/quran/audio/fatiha/fatiha_2.mp3",
+      "text": "Alles Lob gebührt Allah, dem Herrn aller Welten,",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Rabb al-ʿālamīn: 'Herr aller Welten' deyiminin kapsamı uzman incelemesinde doğrulanmalı."
+    },
+    "fatiha:3": {
+      "surah_id": "fatiha",
+      "ayah_number": 3,
+      "source_ayah_key": "fatiha:3",
+      "source_arabic_text": "ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
+      "source_audio_path": "assets/quran/audio/fatiha/fatiha_3.mp3",
+      "text": "dem Allerbarmenden, dem Barmherzigen,",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Raḥmān / Raḥīm niteliklerinin birbirinden ayrımı Almanca dinî dil uzmanına sunulmalı."
+    },
+    "fatiha:4": {
+      "surah_id": "fatiha",
+      "ayah_number": 4,
+      "source_ayah_key": "fatiha:4",
+      "source_arabic_text": "مَـٰلِكِ يَوْمِ ٱلدِّينِ",
+      "source_audio_path": "assets/quran/audio/fatiha/fatiha_4.mp3",
+      "text": "dem Herrscher am Tag des Gerichts.",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Mālik / Malik kıraat farklılığı ve 'Herrscher' ifadesi uzman tarafından değerlendirilmeli."
+    },
+    "fatiha:5": {
+      "surah_id": "fatiha",
+      "ayah_number": 5,
+      "source_ayah_key": "fatiha:5",
+      "source_arabic_text": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+      "source_audio_path": "assets/quran/audio/fatiha/fatiha_5.mp3",
+      "text": "Dir allein dienen wir, und allein bei Dir suchen wir Hilfe.",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Iyyāka naʿbudu wa-iyyāka nastaʿīn: ibadet ve yardım talebinin yalnızca Allah'a yönelişi kontrol edilmeli."
+    },
+    "fatiha:6": {
+      "surah_id": "fatiha",
+      "ayah_number": 6,
+      "source_ayah_key": "fatiha:6",
+      "source_arabic_text": "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ",
+      "source_audio_path": "assets/quran/audio/fatiha/fatiha_6.mp3",
+      "text": "Führe uns auf den geraden Weg,",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "Ṣirāṭ al-mustaqīm: doğru yol bağlamı korunmalı."
+    },
+    "fatiha:7": {
+      "surah_id": "fatiha",
+      "ayah_number": 7,
+      "source_ayah_key": "fatiha:7",
+      "source_arabic_text": "صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ",
+      "source_audio_path": "assets/quran/audio/fatiha/fatiha_7.mp3",
+      "text": "den Weg derjenigen, denen Du Gutes erwiesen hast, nicht den Weg derer, die Zorn auf sich gezogen haben, und nicht den der Irregehenden.",
+      "language": "de",
+      "status": "draft_review_required",
+      "native_reviewer_approved": false,
+      "expert_approved": false,
+      "rights_reviewed": false,
+      "meaning_reviewed": false,
+      "reviewer_note_tr": "al-maġḍūbi ʿalayhim / aḍ-ḍāllīn: özne ve yorum çağrışımları, etnik/dinî grup ataması olmadan kaynak ve uzman görüşüyle kontrol edilmeli."
+    }
+  }
+}
