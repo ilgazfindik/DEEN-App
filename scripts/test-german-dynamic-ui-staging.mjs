@@ -8,6 +8,8 @@ assert.equal(manifest.languages.de.question_data,'missing','German lessons must 
 assert.equal(manifest.languages.de.global_qa,'blocked','German release must remain blocked');
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
+ ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
+ ["Birlikte düzeltelim","Korrigieren wir es gemeinsam."],
  ["Evet, doğru!","Ja, richtig!"],
  ["1 · ANA FİKİR","1 · KERNGEDANKE"],
  ["Bunu bir arkadaşına nasıl anlatırdın?","Wie würdest du es einer Freundin oder einem Freund erklären?"],
