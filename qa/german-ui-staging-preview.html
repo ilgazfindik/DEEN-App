@@ -55,7 +55,8 @@ input{display:block;margin-top:9px;width:100%;background:#123e45;border:1px soli
 import {createGermanUIStagingRenderer} from '../assets/i18n/german-ui.renderer.staging.mjs';
 const paths=[
  'german-ui.staging.json','german-ui.lesson-flow.staging.json','german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
- ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+String(i+1).padStart(2,'0')+'.staging.json')
+ ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+String(i+1).padStart(2,'0')+'.staging.json'),
+ 'german-ui.real-lesson.staging.json'
 ];
 const load=async path=>{
  const response=await fetch(path,{cache:'no-store'});
