@@ -28,6 +28,7 @@ on:
       - 'scripts/test-german-sharh-meaning-staging.mjs'
       - 'scripts/test-german-tin-meaning-staging.mjs'
       - 'scripts/test-german-bayyina-meaning-staging.mjs'
+      - 'scripts/test-german-zilzal-meaning-staging.mjs'
       - 'assets/i18n/quran/de/**'
       - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'assets/i18n/german-ui.quran-controls.staging.json'
@@ -96,6 +97,8 @@ jobs:
         run: node scripts/test-german-tin-meaning-staging.mjs
       - name: Test Al-Bayyina 8 Quran meaning drafts, Arabic/audio provenance and blocked production
         run: node scripts/test-german-bayyina-meaning-staging.mjs
+      - name: Verify all 90 Quran German meaning drafts source/audio identity and 0 published
+        run: node scripts/test-german-zilzal-meaning-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
