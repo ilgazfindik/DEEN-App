@@ -15,8 +15,8 @@ assert.equal(support.global_qa,'blocked');
 assert.equal(support.religious_expert_approved,false);
 assert.equal(draft.locale,'de');
 assert.equal(draft.scope,'quran_ayah_meanings_staging');
-assert.equal(draft.ayah_count,37);
-assert.equal(Object.keys(draft.translations).length,37);
+assert.equal(draft.ayah_count,42);
+assert.equal(Object.keys(draft.translations).length,42);
 for(const flag of ['release_ready','expert_approved','native_reviewer_approved','verified_by_religious_expert','rights_reviewed'])assert.equal(draft[flag],false);
 const kawthar=source.entries.filter(e=>e.surahId==='kawthar').sort((a,b)=>a.ayah-b.ayah);
 assert.deepEqual(kawthar.map(e=>e.key),['kawthar:1','kawthar:2','kawthar:3']);
@@ -53,19 +53,19 @@ for(const ayah of kawthar){
  failClosedCases++;
 }
 assert.equal(resolveGermanAyahMeaning(kawthar[0],{...draft,locale:'tr'},{preview:true}),null);failClosedCases++;
-assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='masad'),draft,{preview:true}),null);failClosedCases++;
+assert.equal(resolveGermanAyahMeaning(source.entries.find(e=>e.surahId==='fil'),draft,{preview:true}),null);failClosedCases++;
 let previews=0,publicMeanings=0;
 for(const ayah of source.entries){
  if(resolveGermanAyahMeaning(ayah,draft,{preview:true})!==null)previews++;
  if(resolveGermanAyahMeaning(ayah,draft)!==null)publicMeanings++;
 }
-assert.equal(previews,37);
+assert.equal(previews,42);
 assert.equal(publicMeanings,0);
 const citations=draft.sources.comparative_only.filter(x=>x.comparison_scope==='Surah 108 Al-Kawthar');
 assert.equal(citations.length,3);
 assert(citations.every(x=>x.text_copied_verbatim===false&&/^https:\/\//.test(x.url)));
 console.log(JSON.stringify({
- status:'passed',surah:'Al-Kawthar',new_ayahs:3,total_german_meaning_drafts:37,remaining:53,
+ status:'passed',surah:'Al-Kawthar',new_ayahs:3,total_german_meaning_drafts:42,remaining:48,
  correctly_matched_qa_previews:3,negative_guard_cases:failClosedCases,public_meanings:0,
  arabic_verses_or_audio_modified:false,religious_native_rights_approval:'pending'
 },null,2));
