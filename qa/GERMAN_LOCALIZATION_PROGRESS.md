@@ -592,3 +592,12 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - Added separate `qa/german-ui-staging-preview.html` fixture illustrating UI labels for onboarding, learning, lesson, Quran, progress and Premium; it reports unresolved strings. This is **not a functional full-app preview or a browser E2E certification**.
 - Added `scripts/test-german-ui-renderer-staging.mjs` and German Actions workflow coverage for staged exact/dynamic UI translations, text/attributes, re-render idempotence, QA-only behavior, original Arabic preservation, and non-inclusion in production boot. Release remains blocked and qualified native German/Islamic/rights reviewers remain required.
 - Next: inventory and validate actual dynamic screen fragments in controlled QA, integrate the adapter into a German release-candidate runtime only once question/Quran approval gates permit, complete Chrome E2E and language expertise review; no production merge/deploy.
+
+## Actual lesson DOM QA + German legacy lesson shell — 2026-10-12
+
+- Anchored tests to `release/v9.9.3-direct/segment-01.txt`, enforcing the actual `#questionText`, `#answerArea`, `#feedbackText`, `#quizView`, `#resultView` and related lesson/result selector contract.
+- Protected graded answer choices, question prompts, source-dependent feedback and Quran meanings from generic DOM translations; the source-guarded question adapter remains the only permitted path for translating graded content.
+- Staged 9 previously unmapped lesson-shell labels at `assets/i18n/german-ui.real-lesson.staging.json`; these are matched against the literal source HTML, not inferred from the English reference bank.
+- Updated stage selector grammar `Ünite N · Aşama M` → `Einheit N · Etappe M` and associated dynamic QA cases. Left context-sensitive standalone streak-day `gün` for a future explicitly number-aware DOM fix rather than guessing the wrong German plural.
+- German staged UI coverage: **1,451 keys in 13 dictionaries**, unchanged English baseline match **1,087/1,087**. Initial dictionary baseline is complete but real-screen audit is still incomplete.
+- New QA-only safety and actual DOM tests are in German Actions; nothing here activates German lessons or alters Arabic recitation, Quran meaning approval, question-answer grading, native/religious/rights release gates or live deployment.
