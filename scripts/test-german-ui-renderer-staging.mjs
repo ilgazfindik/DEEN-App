@@ -22,6 +22,16 @@ assert(preview.includes("import {createGermanUIStagingRenderer}"),'QA preview mu
 assert(preview.includes("qaMode:true"),'QA preview must explicitly opt in');
 assert(preview.includes('lang="ar" dir="rtl"'),'Quran Arabic fixture missing');
 assert(preview.includes('Bilinmeyen aşama metni'),'Unknown-label visibility check missing');
+// Assert against the actual shipping lesson DOM, not only a handcrafted preview.
+const lessonSegment=readFileSync(root+'release/v9.9.3-direct/segment-01.txt','utf8');
+for(const id of ['lesson','quizView','qStage','qMeta','qType','questionText',
+ 'answerArea','feedbackTitle','feedbackText','resultView','finalStrengths','finalReview']){
+ assert(lessonSegment.includes('id="'+id+'"'),'Production lesson DOM selector changed: #'+id);
+}
+assert(lessonSegment.includes('<div class="question" id="questionText">'),
+ 'Source-dependent prompt container has changed');
+assert(lessonSegment.includes('<div id="answerArea">'),
+ 'Source-dependent options container has changed');
 const manifest=read('assets/i18n/content-support.json').languages.de;
 assert.equal(manifest.question_data,'missing');
 assert.equal(manifest.global_qa,'blocked');
@@ -50,7 +60,8 @@ delete copies[11].translations['Fâtiha'];
 copies[11].translations['Geri']='Falsch';
 assert.throws(()=>createGermanUIStagingRenderer({packs:copies,englishReference:english}),/DE_STAGING_DICTIONARY_DRIFT|DE_STAGING_CONFLICT/);
 
-const parent=excluded=>({closest:()=>excluded?{}:null});
+const parent=excluded=>({closest:selector=>
+ excluded===true?{}:typeof excluded==='string'&&selector.split(',').map(x=>x.trim()).includes(excluded)?{}:null});
 const nodes=[
  {nodeValue:'  Devam Et  ',parentElement:parent(false)},
  {nodeValue:'3 soru',parentElement:parent(false)},
@@ -58,7 +69,17 @@ const nodes=[
  {nodeValue:'Namaza Hazırlık',parentElement:parent(false)},
  {nodeValue:'Bilinmeyen aşama metni',parentElement:parent(false)},
  {nodeValue:'بِسْمِ اللَّهِ',parentElement:parent(true)},
- {nodeValue:'Geri',parentElement:parent(true)}
+ {nodeValue:'Geri',parentElement:parent(true)},
+ // Real DOM selectors: generic UI replacement must never touch graded answer data.
+ {nodeValue:'Namaza Hazırlık',parentElement:parent('#questionText')},
+ {nodeValue:'Geri',parentElement:parent('#answerArea')},
+ {nodeValue:'Namaza Hazırlık',parentElement:parent('#feedbackText')},
+ {nodeValue:'Geri',parentElement:parent('.deen-qarena-option')},
+ {nodeValue:'Fâtiha',parentElement:parent('[data-deen-quran-meaning]')},
+ {nodeValue:'Geri',parentElement:parent('[data-qj2-fill-slot]')},
+ {nodeValue:'Namaza Hazırlık',parentElement:parent('[lang="ar"]')},
+ // Nearby header chrome remains translatable.
+ {nodeValue:'Kontrol Et',parentElement:parent(false)}
 ];
 function element(attrs,excluded=false){
  const a=new Map(Object.entries(attrs));
@@ -67,8 +88,10 @@ function element(attrs,excluded=false){
 }
 const button=element({'aria-label':' Geri ','title':'Namaza Hazırlık'});
 const skip=element({'alt':'Geri'},true);
+const questionChoice=element({'aria-label':'Geri','title':'Namaza Hazırlık'},'#answerArea');
+const arabicAyah=element({'alt':'Geri'},'[lang="ar"]');
 const fixture={
- querySelectorAll:()=>[button,skip],
+ querySelectorAll:()=>[button,skip,questionChoice,arabicAyah],
  nodes
 };
 const doc={defaultView:{NodeFilter:{SHOW_TEXT:4}},createTreeWalker:root=>{
@@ -88,8 +111,17 @@ assert.equal(nodes[6].nodeValue,'Geri');
 assert.equal(button.getAttribute('aria-label'),' Zurück ');
 assert.equal(button.getAttribute('title'),'Vorbereitung auf das Gebet');
 assert.equal(skip.getAttribute('alt'),'Geri');
+assert.equal(questionChoice.getAttribute('aria-label'),'Geri');
+assert.equal(questionChoice.getAttribute('title'),'Namaza Hazırlık');
+assert.equal(arabicAyah.getAttribute('alt'),'Geri');
+for(let i=7;i<=13;i++){
+ const before=['Namaza Hazırlık','Geri','Namaza Hazırlık','Geri','Fâtiha','Geri','Namaza Hazırlık'][i-7];
+ assert.equal(nodes[i].nodeValue,before,'Protected question/Quran node was modified at '+i);
+}
+assert.equal(nodes[14].nodeValue,'Überprüfen','Ordinary lesson CTA should be localized');
+assert(first.skipped>=9,'Graded answer/Quran guards were not exercised');
 assert(first.unresolved.includes('Bilinmeyen aşama metni'));
-assert.equal(first.writes,6);
+assert.equal(first.writes,7);
 const again=renderer.render(fixture,{locale:'de',qaMode:true,documentRef:doc});
 assert.equal(again.writes,0,'Repeated DOM application must be idempotent');
 nodes[0].nodeValue='Namaza Hazırlık';
@@ -99,9 +131,10 @@ assert.equal(changed.writes,2,'Newly re-rendered Turkish labels must be processe
 assert.equal(nodes[0].nodeValue,'Vorbereitung auf das Gebet');
 assert.equal(button.getAttribute('aria-label'),'Weiter');
 assert.equal(renderer.stats().passes,3);
-assert.equal(renderer.stats().writes,8);
+assert.equal(renderer.stats().writes,9);
 console.log(JSON.stringify({status:'passed',locale:'de',staging_only:true,preview_required:true,
  dictionary_keys:renderer.stats().entries,english_reference_keys:renderer.stats().matchedReference,
  exact_translation:true,dynamic_counts:true,dom_text:true,dom_attributes:true,whitespace:true,
- quran_arabic_untouched:true,unknown_strings_reported:true,repeat_render_idempotent:true,
+ quran_arabic_untouched:true,question_answers_protected:true,actual_lesson_dom_selectors_verified:12,
+ unknown_strings_reported:true,repeat_render_idempotent:true,
  live_de_manifest:'blocked',browser_e2e:'not_claimed'},null,2));
