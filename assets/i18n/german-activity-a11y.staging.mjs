@@ -38,7 +38,7 @@ export function localizeGermanActivityA11y(question,root,{qaMode=false,locale='d
    'Kavramı doğru açıklamayla eşleştir.',
    'Ordne jedem Begriff die passende Erklärung zu.');
   for(const title of root.querySelectorAll('.v1017-title,.v9916-task-title')){
-   if(title.textContent?.replace(/\\s+/g,' ').trim()!=='Eşleşen çiftleri bul')continue;
+   if(title.textContent?.replace(/\s+/g,' ').trim()!=='Eşleşen çiftleri bul')continue;
    const klass=title.classList.contains('v9916-task-title')?' class="v1013-mint"':'';
    title.innerHTML='Finde <span'+klass+'>passende Paare</span>';changes++;
   }
