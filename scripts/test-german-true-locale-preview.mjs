@@ -728,15 +728,39 @@ try{
  await page.locator('#resultContinueBtn:visible').click({timeout:15000});
  const persistedBefore=await page.evaluate(()=>{
   saveState();
+  const raw=JSON.parse(localStorage.getItem('deen_v4_1_state')||'null');
   return {locale:window.DEEN_APP_LOCALE.get(),
    completed:state.completed.includes('U01-S01'),xp:state.xp,
-   key:localStorage.getItem('deen_app_language_v1')};
+   key:localStorage.getItem('deen_app_language_v1'),
+   storedCompleted:raw?.completed?.includes('U01-S01'),
+   storedXP:raw?.xp,storedLanguage:raw?.settings?.language,
+   storedScore:raw?.stageScores?.['U01-S01']};
  });
+ report.complete_stage.persistence={before:persistedBefore};
  assert.equal(persistedBefore.key,'de');
+ assert.equal(persistedBefore.completed,true);
+ assert.equal(persistedBefore.storedCompleted,true);
+ assert.equal(persistedBefore.storedScore,100);
  await page.reload({waitUntil:'domcontentloaded',timeout:60000});
+ const reloadInitial=await page.evaluate(()=>{
+  const raw=JSON.parse(localStorage.getItem('deen_v4_1_state')||'null');
+  return {url:location.href,readyState:document.readyState,
+   locale:window.DEEN_APP_LOCALE?.get?.()||null,
+   docLang:document.documentElement.lang,
+   hasState:typeof state==='object',
+   restoredCompleted:typeof state==='object'&&state?.completed?.includes('U01-S01'),
+   restoredXP:typeof state==='object'?state?.xp:null,
+   storedCompleted:raw?.completed?.includes('U01-S01'),
+   storedXP:raw?.xp,storedScore:raw?.stageScores?.['U01-S01'],
+   storedLanguage:localStorage.getItem('deen_app_language_v1'),
+   synthetic:window.__DEEN_CONTENT_MANIFEST__?.__deenSyntheticGermanQA===true,
+   boot:window.DEEN_BOOT?.status?.()?.phase||null};
+ });
+ report.complete_stage.persistence.reloadInitial=reloadInitial;
+ console.log('DE_GERMAN_RELOAD_PROBE '+JSON.stringify(reloadInitial));
  await page.waitForFunction(()=>window.DEEN_APP_LOCALE?.get()==='de'&&
   typeof state==='object'&&state?.completed?.includes('U01-S01'),
-  null,{timeout:100000});
+  null,{timeout:20000});
  const persistedAfter=await page.evaluate(()=>({
   locale:window.DEEN_APP_LOCALE.get(),
   docLang:document.documentElement.lang,
@@ -746,7 +770,7 @@ try{
   release:window.__DEEN_CONTENT_MANIFEST__?.languages?.de?.global_qa,
   synthetic:window.__DEEN_CONTENT_MANIFEST__?.__deenSyntheticGermanQA===true
  }));
- report.complete_stage.persistence={before:persistedBefore,after:persistedAfter};
+ report.complete_stage.persistence.after=persistedAfter;
  assert.equal(persistedAfter.locale,'de');
  assert.equal(persistedAfter.docLang,'de');
  assert.equal(persistedAfter.key,'de');
