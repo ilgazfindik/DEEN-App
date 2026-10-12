@@ -5,6 +5,7 @@ on:
     branches: ['codex/german-*']
     paths:
       - 'scripts/test-german-browser-staging.mjs'
+      - 'scripts/test-german-stateful-browser-staging.mjs'
       - 'assets/i18n/german-ui*'
       - 'assets/i18n/english-ui.draft.json'
       - 'assets/i18n/content-support.json'
@@ -41,6 +42,7 @@ jobs:
           trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
           curl --fail --silent --show-error --retry 12 --retry-connrefused --retry-delay 1 http://127.0.0.1:8765/ > /dev/null
           node scripts/test-german-browser-staging.mjs
+          node scripts/test-german-stateful-browser-staging.mjs
       - name: Upload browser evidence and audit summary
         if: always()
         uses: actions/upload-artifact@v4
