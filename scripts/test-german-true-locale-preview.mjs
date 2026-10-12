@@ -453,8 +453,14 @@ try{
   // The first source-panel paragraphs are translatable UI notices; preserve
   // the exact reference and scholarly note paragraphs at the end instead.
   // Bibliographic titles must not be translated by a generic UI dictionary.
-  const protectedSourceBefore=citationsBefore.slice(-2);
-  const protectedSourceAfter=citationsAfter.slice(-2);
+  // In this fixed U01-S01 matching fixture, protect the identified
+  // bibliographic citation and scholarly review note by exact source text.
+  // The UI status paragraphs can be translated or consolidated independently.
+  const isProtectedSource=value=>
+   value.includes('REQUIRES_EXPERT_VERIFICATION')||
+   value==='İman, kulluk ve davranış boyutlarının birlikte ele alınmasını destekler.';
+  const protectedSourceBefore=citationsBefore.filter(isProtectedSource);
+  const protectedSourceAfter=citationsAfter.filter(isProtectedSource);
   const sourceCitationResidue=audit.unresolved.filter(source=>
    protectedSourceBefore.includes(source));
   const unresolvedUI=audit.unresolved.filter(source=>
@@ -469,7 +475,8 @@ try{
      ancestor:el.parentElement?.outerHTML.slice(0,420)}))
   }));
   return {unresolved:audit.unresolved,unresolvedUI,
-   sourceCitationResidue,sourceCitationUnchanged:
+   sourceCitationResidue,sourceBefore:protectedSourceBefore,
+   sourceAfter:protectedSourceAfter,sourceCitationUnchanged:
     JSON.stringify(protectedSourceBefore)===JSON.stringify(protectedSourceAfter),
    activity,details,
    heading:document.getElementById('feedbackTitle')?.textContent?.trim()};
@@ -477,6 +484,8 @@ try{
  report.matching.feedback_chrome=matchingChrome;
  assert.deepEqual(matchingChrome.unresolvedUI,[],
   'Matching grading left Turkish UI chrome in the true German session');
+ assert.equal(matchingChrome.sourceBefore.length,2,
+  'The source attribution and review note must both be present before QA rendering');
  assert.equal(matchingChrome.sourceCitationUnchanged,true,
   'The QA renderer must never rewrite unapproved source citations');
  assert.notEqual(matchingChrome.heading,'Harika!',
