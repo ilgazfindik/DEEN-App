@@ -10,6 +10,8 @@ on:
       - 'scripts/test-german-content-adapter.mjs'
       - 'scripts/audit-german-ui-staging.mjs'
       - 'scripts/audit-german-lesson-flow-staging.mjs'
+      - 'scripts/test-german-dynamic-ui-staging.mjs'
+      - 'assets/i18n/german-ui.dynamic.staging.mjs'
       - 'assets/i18n/german-ui.lesson-flow.staging.json'
       - 'assets/i18n/english-ui.js'
       - 'assets/i18n/german-ui.staging.json'
@@ -37,6 +39,8 @@ jobs:
         run: node scripts/audit-german-ui-staging.mjs
       - name: Verify German lesson intro, feedback, result and XP staging
         run: node scripts/audit-german-lesson-flow-staging.mjs
+      - name: Verify German dynamic counters, results and fail-closed fallback
+        run: node scripts/test-german-dynamic-ui-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
       - name: Existing English runtime adapter remains valid
