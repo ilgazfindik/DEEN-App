@@ -49,7 +49,8 @@ async function verifyGermanGate(){
 }
 async function auditNavTabs(){
  const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
- page.on('pageerror',error=>report.errors.push('tabs: '+String(error.stack||error)));
+ let currentProbe='boot';
+ page.on('pageerror',error=>report.errors.push('tabs['+currentProbe+']: '+String(error.stack||error)));
  await page.addInitScript(()=>{
   try{localStorage.setItem('deen_app_language_v1','tr')}catch(_){}
  });
@@ -77,11 +78,14 @@ async function auditNavTabs(){
    const ids=items=>items.map(q=>String(q?.id||q?.questionId||'')).filter(Boolean);
    const activeIds=ids(active),baseIds=ids(base),baseSet=new Set(baseIds);
    const unique=new Set(activeIds),frequency=new Map();
+   const byUnit={};
+   for(const id of activeIds){const m=id.match(/-U(\d{2})-/);const unit=m?'U'+m[1]:'other';byUnit[unit]=(byUnit[unit]||0)+1;}
    for(const id of activeIds)frequency.set(id,(frequency.get(id)||0)+1);
    return {ready,boot:window.DEEN_BOOT.status(),overlays:
     [...document.querySelectorAll('[aria-modal="true"]')].map(el=>el.id),
     question_inventory:{active_count:active.length,base_count:base.length,
      active_unique_ids:unique.size,active_duplicate_id_count:activeIds.length-unique.size,
+     active_by_unit:byUnit,
      non_base_ids:[...unique].filter(id=>!baseSet.has(id)).slice(0,60),
      duplicate_ids:[...frequency.entries()].filter(([,count])=>count>1).slice(0,25)}};
 
@@ -113,6 +117,7 @@ async function auditNavTabs(){
   assert.equal(init.german_available,false);
   assert.deepEqual(init.navs.slice(0,4),['learnScreen','reviewScreen','leagueScreen','profileScreen']);
   for(const id of init.navs.slice(0,4)){
+   currentProbe=id;
    const button=page.locator('.bottomnav [data-screen="'+id+'"]').first();
    await page.evaluate(()=>{
     for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
