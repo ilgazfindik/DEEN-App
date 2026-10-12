@@ -44,8 +44,10 @@ on:
       - 'assets/i18n/german-ui.staging.json'
       - 'assets/i18n/german-ui.reference-batch-01.staging.json'
       - 'assets/i18n/german-ui.reference-batch-02.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-03.staging.json'
       - 'scripts/test-german-ui-reference-batch-01.mjs'
       - 'scripts/test-german-ui-reference-batch-02.mjs'
+      - 'scripts/test-german-ui-reference-batch-03.mjs'
       - 'assets/i18n/english-ui.draft.json'
       - 'assets/i18n/content.js'
       - 'qa/GERMAN_LOCALIZATION_PROGRESS.md'
@@ -76,6 +78,8 @@ jobs:
         run: node scripts/test-german-ui-reference-batch-01.mjs
       - name: Verify second 120 German UI reference translations and cross-batch source integrity
         run: node scripts/test-german-ui-reference-batch-02.mjs
+      - name: Verify 120 Shahada and five pillars UI drafts plus full batch 01-03 source integrity
+        run: node scripts/test-german-ui-reference-batch-03.mjs
       - name: Verify German lesson intro, feedback, result and XP staging
         run: node scripts/audit-german-lesson-flow-staging.mjs
       - name: Verify German dynamic counters, results and fail-closed fallback
