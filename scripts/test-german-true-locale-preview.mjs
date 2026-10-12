@@ -437,6 +437,11 @@ try{
     .filter(el=>el.getClientRects().length).map(el=>el.textContent?.trim())
   }));
   await right.click({timeout:15000});
+  // The delegated state repair runs after the normal click event. Do not
+  // confuse event-loop ordering with a persisted progress regression.
+  await page.waitForFunction(expected=>
+   session?.__deenMatchingState?.matchedLeft?.length===expected,
+   i+1,{timeout:4000});
   const count=await page.evaluate(()=>({
    public_snapshot:window.DEEN_MATCHING_SESSION_STATE?.snapshot?.(),
    session_state:session?.__deenMatchingState?{
