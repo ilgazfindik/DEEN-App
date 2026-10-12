@@ -1,0 +1,597 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U11",
+  "stage": "U11-S04",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U11-S04-001": {
+      "source": {
+        "question_tr": "İbadetin anlamı konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "İbadet Allah'a yönelen bilinçli kulluk ve itaat çerçevesinde ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece kültürel alışkanlık",
+          "Yalnızca toplumsal gelenek",
+          "Allah'a bilinçli kulluk ve itaat",
+          "Sadece bilgi ezberi"
+        ],
+        "correct_answer": "Allah'a bilinçli kulluk ve itaat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt die gemeinsame Grundlage der Gottesverehrung richtig?",
+        "explanation_tr": "Gottesverehrung wird als bewusste Hingabe und Gehorsam gegenüber Allah verstanden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nur eine kulturelle Gewohnheit",
+          "Nur eine gesellschaftliche Tradition",
+          "Bewusste Hingabe und Gehorsam gegenüber Allah",
+          "Nur das Auswendiglernen von Informationen"
+        ],
+        "correct_answer": "Bewusste Hingabe und Gehorsam gegenüber Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-002": {
+      "source": {
+        "question_tr": "Bir arkadaşın Hac hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Hac İslam'ın temel ibadetleri arasında ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece turistik gezi",
+          "Yalnızca tarih dersi",
+          "Belirli şartları bulunan temel ibadetlerden biri",
+          "Kültürel festival"
+        ],
+        "correct_answer": "Belirli şartları bulunan temel ibadetlerden biri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund fragt nach der Bedeutung der Hadsch. Was antwortest du?",
+        "explanation_tr": "Die Hadsch gehört zu den grundlegenden gottesdienstlichen Handlungen des Islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nur eine touristische Reise",
+          "Nur eine Geschichtsstunde",
+          "Eine grundlegende gottesdienstliche Handlung mit festgelegten Bedingungen",
+          "Ein kulturelles Fest"
+        ],
+        "correct_answer": "Eine grundlegende gottesdienstliche Handlung mit festgelegten Bedingungen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-003": {
+      "source": {
+        "question_tr": "Gösteriş konusunda hangi ilke doğrudur?",
+        "explanation_tr": "İhlas ibadetin Allah için yapılmasını ve gösterişten uzak durmayı gerektirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İbadetin anlamını öğrenmek",
+          "Allah rızasını gözetmek",
+          "İbadeti insanların övgüsünü kazanmak için sergilemek",
+          "Samimiyeti korumaya çalışmak"
+        ],
+        "correct_answer": "İbadeti insanların övgüsünü kazanmak için sergilemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Grundsatz über religiöse Zurschaustellung ist richtig?",
+        "explanation_tr": "Zur Aufrichtigkeit gehört, Allah zu dienen und religiöse Zurschaustellung zu vermeiden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Bedeutung der Gottesverehrung lernen",
+          "Allahs Wohlgefallen suchen",
+          "Den Gottesdienst zeigen, um Lob von Menschen zu erhalten",
+          "Sich um Aufrichtigkeit bemühen"
+        ],
+        "correct_answer": "Den Gottesdienst zeigen, um Lob von Menschen zu erhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-004": {
+      "source": {
+        "question_tr": "Bir öğrenci “Namaz yalnızca kültürel bir gelenektir.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Diyanet kaynaklarında namaz temel ibadetler arasında ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece kültürel bir toplantı",
+          "Yalnızca kişisel spor",
+          "Allah'a kulluğun temel ibadetlerinden biri",
+          "Din dışı bir gelenek"
+        ],
+        "correct_answer": "Allah'a kulluğun temel ibadetlerinden biri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler behauptet: „Das Gebet ist nur eine kulturelle Tradition.“ Was entgegnest du?",
+        "explanation_tr": "Die Diyanet zählt das Gebet zu den grundlegenden gottesdienstlichen Handlungen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nur eine kulturelle Zusammenkunft",
+          "Nur körperliche Bewegung",
+          "Eine grundlegende gottesdienstliche Handlung als Hingabe an Allah",
+          "Eine nicht religiöse Tradition"
+        ],
+        "correct_answer": "Eine grundlegende gottesdienstliche Handlung als Hingabe an Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-005": {
+      "source": {
+        "question_tr": "İbadetin kaynağı konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "İbadetlerin genel hükümleri vahiyde uygulama ayrıntıları Hz. Peygamber'in sünnetinde açıklanır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kişinin istediği gibi yeni biçimler üretmesiyle",
+          "Sadece yerel geleneklerle",
+          "Kur'an ve Hz. Peygamber'in sünneti temel alınarak",
+          "Kaynağı belirsiz paylaşımlarla"
+        ],
+        "correct_answer": "Kur'an ve Hz. Peygamber'in sünneti temel alınarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über die Grundlagen der Gottesverehrung stimmt?",
+        "explanation_tr": "Die Grundregeln des Gottesdienstes werden in der Offenbarung erläutert; die Sunna erklärt Einzelheiten seiner Ausübung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Beliebig neue Formen erfinden",
+          "Allein lokalen Traditionen folgen",
+          "Sich auf Koran und Sunna des Propheten stützen",
+          "Beiträge ungeklärter Herkunft übernehmen"
+        ],
+        "correct_answer": "Sich auf Koran und Sunna des Propheten stützen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-006": {
+      "source": {
+        "question_tr": "Bir arkadaşın İbadetin anlamı hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "İbadet Allah'a yönelen bilinçli kulluk ve itaat çerçevesinde ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece kültürel alışkanlık",
+          "Yalnızca toplumsal gelenek",
+          "Allah'a bilinçli kulluk ve itaat",
+          "Sadece bilgi ezberi"
+        ],
+        "correct_answer": "Allah'a bilinçli kulluk ve itaat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund möchte wissen, was Gottesverehrung bedeutet. Was sagst du?",
+        "explanation_tr": "Gottesverehrung wird als bewusste Hingabe und Gehorsam gegenüber Allah verstanden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nur eine kulturelle Gewohnheit",
+          "Nur eine gesellschaftliche Tradition",
+          "Bewusste Hingabe und Gehorsam gegenüber Allah",
+          "Nur das Auswendiglernen von Informationen"
+        ],
+        "correct_answer": "Bewusste Hingabe und Gehorsam gegenüber Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-007": {
+      "source": {
+        "question_tr": "Hac konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Hac İslam'ın temel ibadetleri arasında ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece turistik gezi",
+          "Yalnızca tarih dersi",
+          "Belirli şartları bulunan temel ibadetlerden biri",
+          "Kültürel festival"
+        ],
+        "correct_answer": "Belirli şartları bulunan temel ibadetlerden biri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über die Hadsch trifft zu?",
+        "explanation_tr": "Die Hadsch gehört zu den grundlegenden gottesdienstlichen Handlungen des Islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nur eine touristische Reise",
+          "Nur eine Geschichtsstunde",
+          "Eine grundlegende gottesdienstliche Handlung mit festgelegten Bedingungen",
+          "Ein kulturelles Fest"
+        ],
+        "correct_answer": "Eine grundlegende gottesdienstliche Handlung mit festgelegten Bedingungen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-008": {
+      "source": {
+        "question_tr": "“İbadette gösteriş ihlasın bir parçasıdır.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "İhlas ibadetin Allah için yapılmasını ve gösterişten uzak durmayı gerektirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İbadetin anlamını öğrenmek",
+          "Allah rızasını gözetmek",
+          "İbadeti insanların övgüsünü kazanmak için sergilemek",
+          "Samimiyeti korumaya çalışmak"
+        ],
+        "correct_answer": "İbadeti insanların övgüsünü kazanmak için sergilemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie korrigierst du: „Religiöse Zurschaustellung gehört zur Aufrichtigkeit“?",
+        "explanation_tr": "Zur Aufrichtigkeit gehört, Allah zu dienen und religiöse Zurschaustellung zu vermeiden.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Die Bedeutung der Gottesverehrung lernen",
+          "Allahs Wohlgefallen suchen",
+          "Den Gottesdienst zeigen, um Lob von Menschen zu erhalten",
+          "Sich um Aufrichtigkeit bemühen"
+        ],
+        "correct_answer": "Den Gottesdienst zeigen, um Lob von Menschen zu erhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-009": {
+      "source": {
+        "question_tr": "“Namaz yalnızca kültürel bir gelenektir.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Diyanet kaynaklarında namaz temel ibadetler arasında ele alınır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sadece kültürel bir toplantı",
+          "Yalnızca kişisel spor",
+          "Allah'a kulluğun temel ibadetlerinden biri",
+          "Din dışı bir gelenek"
+        ],
+        "correct_answer": "Allah'a kulluğun temel ibadetlerinden biri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie korrigierst du die Behauptung: „Das Gebet ist ausschließlich eine kulturelle Tradition“?",
+        "explanation_tr": "Die Diyanet zählt das Gebet zu den grundlegenden gottesdienstlichen Handlungen.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Nur eine kulturelle Zusammenkunft",
+          "Nur körperliche Bewegung",
+          "Eine grundlegende gottesdienstliche Handlung als Hingabe an Allah",
+          "Eine nicht religiöse Tradition"
+        ],
+        "correct_answer": "Eine grundlegende gottesdienstliche Handlung als Hingabe an Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-010": {
+      "source": {
+        "question_tr": "İbadetin kaynağı hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "İbadetlerin genel hükümleri vahiyde uygulama ayrıntıları Hz. Peygamber'in sünnetinde açıklanır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kişinin istediği gibi yeni biçimler üretmesiyle",
+          "Sadece yerel geleneklerle",
+          "Kur'an ve Hz. Peygamber'in sünneti temel alınarak",
+          "Kaynağı belirsiz paylaşımlarla"
+        ],
+        "correct_answer": "Kur'an ve Hz. Peygamber'in sünneti temel alınarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage berichtigt ein Missverständnis über die Quellen des Gottesdienstes?",
+        "explanation_tr": "Die Grundregeln des Gottesdienstes werden in der Offenbarung erläutert; die Sunna erklärt Einzelheiten seiner Ausübung.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Beliebig neue Formen erfinden",
+          "Allein lokalen Traditionen folgen",
+          "Sich auf Koran und Sunna des Propheten stützen",
+          "Beiträge ungeklärter Herkunft übernehmen"
+        ],
+        "correct_answer": "Sich auf Koran und Sunna des Propheten stützen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-011": {
+      "source": {
+        "question_tr": "“İbadet yalnızca kültürel bir alışkanlıktır.” ifadesindeki hatayı hangi seçenek düzeltir?",
+        "explanation_tr": "İbadet Allah'a yönelen bilinçli kulluk ve itaat çerçevesinde ele alınır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sadece kültürel alışkanlık",
+          "Yalnızca toplumsal gelenek",
+          "Allah'a bilinçli kulluk ve itaat",
+          "Sadece bilgi ezberi"
+        ],
+        "correct_answer": "Allah'a bilinçli kulluk ve itaat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie korrigierst du die Behauptung: „Gottesverehrung ist nur eine kulturelle Gewohnheit“?",
+        "explanation_tr": "Gottesverehrung wird als bewusste Hingabe und Gehorsam gegenüber Allah verstanden.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Nur eine kulturelle Gewohnheit",
+          "Nur eine gesellschaftliche Tradition",
+          "Bewusste Hingabe und Gehorsam gegenüber Allah",
+          "Nur das Auswendiglernen von Informationen"
+        ],
+        "correct_answer": "Bewusste Hingabe und Gehorsam gegenüber Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-012": {
+      "source": {
+        "question_tr": "Uygulama: hac hangi başlık altında yer alır?",
+        "explanation_tr": "Hac İslam'ın temel ibadetleri arasında ele alınır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece turistik gezi",
+          "Yalnızca tarih dersi",
+          "Belirli şartları bulunan temel ibadetlerden biri",
+          "Kültürel festival"
+        ],
+        "correct_answer": "Belirli şartları bulunan temel ibadetlerden biri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Anwendung: Wie wird die Hadsch eingeordnet?",
+        "explanation_tr": "Die Hadsch gehört zu den grundlegenden gottesdienstlichen Handlungen des Islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nur eine touristische Reise",
+          "Nur eine Geschichtsstunde",
+          "Eine grundlegende gottesdienstliche Handlung mit festgelegten Bedingungen",
+          "Ein kulturelles Fest"
+        ],
+        "correct_answer": "Eine grundlegende gottesdienstliche Handlung mit festgelegten Bedingungen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-013": {
+      "source": {
+        "question_tr": "Uygulama: gösteriş konusunda doğru ifade hangisidir?",
+        "explanation_tr": "İhlas ibadetin Allah için yapılmasını ve gösterişten uzak durmayı gerektirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbadetin anlamını öğrenmek",
+          "Allah rızasını gözetmek",
+          "İbadeti insanların övgüsünü kazanmak için sergilemek",
+          "Samimiyeti korumaya çalışmak"
+        ],
+        "correct_answer": "İbadeti insanların övgüsünü kazanmak için sergilemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Anwendung: Was bedeutet religiöse Zurschaustellung?",
+        "explanation_tr": "Zur Aufrichtigkeit gehört, Allah zu dienen und religiöse Zurschaustellung zu vermeiden.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die Bedeutung der Gottesverehrung lernen",
+          "Allahs Wohlgefallen suchen",
+          "Den Gottesdienst zeigen, um Lob von Menschen zu erhalten",
+          "Sich um Aufrichtigkeit bemühen"
+        ],
+        "correct_answer": "Den Gottesdienst zeigen, um Lob von Menschen zu erhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-014": {
+      "source": {
+        "question_tr": "Uygulama: namaz hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Diyanet kaynaklarında namaz temel ibadetler arasında ele alınır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece kültürel bir toplantı",
+          "Yalnızca kişisel spor",
+          "Allah'a kulluğun temel ibadetlerinden biri",
+          "Din dışı bir gelenek"
+        ],
+        "correct_answer": "Allah'a kulluğun temel ibadetlerinden biri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Anwendung: Welche Aussage über das Gebet ist richtig?",
+        "explanation_tr": "Die Diyanet zählt das Gebet zu den grundlegenden gottesdienstlichen Handlungen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nur eine kulturelle Zusammenkunft",
+          "Nur körperliche Bewegung",
+          "Eine grundlegende gottesdienstliche Handlung als Hingabe an Allah",
+          "Eine nicht religiöse Tradition"
+        ],
+        "correct_answer": "Eine grundlegende gottesdienstliche Handlung als Hingabe an Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-015": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Belirli şekli olan ibadetler tamamen kişisel tercihle yeniden tasarlanabilir.",
+        "explanation_tr": "İbadetlerin genel hükümleri vahiyde uygulama ayrıntıları Hz. Peygamber'in sünnetinde açıklanır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Vorgeschriebene Formen der Gottesverehrung dürfen nach persönlichen Vorlieben vollständig neu gestaltet werden.",
+        "explanation_tr": "Die Grundregeln des Gottesdienstes werden in der Offenbarung erläutert; die Sunna erklärt Einzelheiten seiner Ausübung.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U11-S04-016": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? İbadet, Allah’a bilinçli kulluk ve itaat etmeyi içerir.",
+        "explanation_tr": "İbadet Allah'a yönelen bilinçli kulluk ve itaat çerçevesinde ele alınır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Gottesverehrung beinhaltet bewusste Hingabe und Gehorsam gegenüber Allah.",
+        "explanation_tr": "Gottesverehrung wird als bewusste Hingabe und Gehorsam gegenüber Allah verstanden.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gottesverehrung im Alltag",
+        "topic": "Gottesdienst und Aufrichtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
