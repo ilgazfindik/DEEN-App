@@ -574,3 +574,12 @@ Audit remaining German visible UI strings: lesson frames, stage titles, question
 - Updated `qa/GERMAN_FINAL_FULL_APP_AUDIT_20261012.md` with the final ten reference keys and new baseline counts.
 - No release authorization: `de.question_data=missing` and `de.global_qa=blocked` stay fixed. End-to-end German app runtime, complete real-browser coverage, native/German expert and rights approvals still need work. **Do not merge/deploy**.
 - Next: batch 08 should address the last **10** baseline reference keys, then a separate comprehensive runtime-only residue audit and qualified reviews.
+
+## German UI baseline final remediation batch 08 — 2026-10-12
+
+- Added `assets/i18n/german-ui.reference-batch-08.staging.json` with **10 source-matched German UI drafts**: section 1 final, locked mastery assessment, basic mastery, legal school-differences scoring notice, and six surah display-name transliterations. Turkish lookup keys and English context are retained exactly; original Arabic Quran text and audio remain unmodified.
+- Initial missing baseline catalog keys now **850/850 remediated**; English-reference key overlap **1,087/1,087**; **0 missing static reference keys**. Staged German UI labels **1,442 distinct keys across twelve files**, including **355** dynamic/other text mappings outside the English reference baseline.
+- All 10 added labels flagged for native-German/Islamic expert review. No approver flags raised and no Quran meaning publication approval implied. `de.question_data=missing`, `de.global_qa=blocked` still apply.
+- Added `scripts/test-german-ui-reference-batch-08.mjs`, wired to German staging workflow and updated full German readiness audit to assert zero baseline missing keys, *without* changing production localization gates.
+- Replaced the former ten-key gap list in `qa/GERMAN_FINAL_FULL_APP_AUDIT_20261012.md` with an accurate zero-baseline-gap statement and a clear runtime coverage caveat.
+- **No merge or deploy.** Next high-priority stage is to audit actual browser-rendered dynamic/conditional strings and build a source-guarded German UI renderer, followed by native German and qualified Islamic review, rights checks and end-to-end browser testing.
