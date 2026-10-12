@@ -111,7 +111,28 @@ async function realShell(){
     title:document.querySelector('#resultTitle')?.textContent?.trim(),
     cta:document.querySelector('#resultContinueBtn')?.textContent?.trim()
    };
+   const fullRoot=document.querySelector('.phone');
+   if(!fullRoot)throw Error('Actual DEEN application phone root is missing');
+   // Inventory all assembled tabs in this disposable QA browser, including hidden DOM.
+   // This is deliberately *not* an assertion that all app workflows are translated.
+   const allChrome=renderer.render(fullRoot,{qaMode:true,locale:'de',documentRef:document});
+   const byScreen=[...document.querySelectorAll('.screen')].map(screen=>{
+    const result=renderer.render(screen,{qaMode:true,locale:'de',documentRef:document});
+    return {screen_id:screen.id||'(unnamed)',scanned:result.scanned,
+     unresolved_count:result.unresolved.length,examples:result.unresolved.slice(0,25)};
+   }).filter(record=>record.scanned>0);
+   const gradedAfterWhole={
+    question:document.querySelector('#questionText')?.textContent,
+    answers:document.querySelector('#answerArea')?.innerHTML,
+    explanation:document.querySelector('#feedbackText')?.textContent
+   };
+   const fullProtected=before.question===gradedAfterWhole.question &&
+    before.answers===gradedAfterWhole.answers &&
+    before.explanation===gradedAfterWhole.explanation;
    return {locale:lang,germanAvailable:window.DEEN_CONTENT_LOCALE.available('de'),
+    full_shell_qa:{scanned:allChrome.scanned,writes:allChrome.writes,
+     unresolved_count:allChrome.unresolved.length,unresolved:allChrome.unresolved.slice(0,100),
+     screens:byScreen,graded_content_unchanged:fullProtected},
     startup:document.documentElement.dataset.deenStartup||'unknown',
     assembledLesson:Boolean(document.querySelector('#lesson .question-frame')),
     originalResultTitle:sourceTitle,unchangedGradedContent:
@@ -125,6 +146,12 @@ async function realShell(){
   assert.equal(result.unchangedGradedContent,true,
    'Staging UI renderer must never mutate source-dependent question/answer content');
   assert.equal(result.entries,1452);
+  assert(result.full_shell_qa.scanned>result.audit.scanned,
+   'Whole-shell audit must scan more elements than lesson-only smoke');
+  assert(result.full_shell_qa.graded_content_unchanged,
+   'Whole-shell QA must not rewrite question/answer/explanation content');
+  assert(Array.isArray(result.full_shell_qa.screens),
+   'Named screen-level untranslated text inventories were not generated');
   assert.deepEqual(result.audit.unresolved,[], 'Real lesson shell has uncovered Turkish chrome labels');
   assert.equal(result.after.title,'Lektion abgeschlossen','Real result title not localized by QA');
   assert.equal(result.after.cta,'LERNREISE FORTSETZEN','Real result CTA not localized by QA');
@@ -135,6 +162,7 @@ async function realShell(){
     source_sensitive_content_unchanged:true,real_result_title:result.after.title,
     real_result_cta:result.after.cta,source_labels_scanned:result.audit.scanned,
     unresolved_real_shell:result.audit.unresolved,
+    full_app_qa_inventory:result.full_shell_qa,
     protected_quran_or_answer_inputs:true,js_exceptions:errors.length};
  }finally{await page.close()}
 }
