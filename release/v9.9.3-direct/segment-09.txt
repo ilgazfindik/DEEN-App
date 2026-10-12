@@ -784,6 +784,18 @@ function renderMatching(q,area){
  }
 
  function persist(){
+  // Passive diagnostic only when the isolated QA harness explicitly opts in.
+  if(window.__DEEN_MATCH_OBSERVED_SESSION__){
+   const observed=window.__DEEN_MATCH_OBSERVED_SESSION__;
+   (window.__DEEN_MATCH_ENGINE_TRACE__??=[]).push({
+    kind:'persist',same_session:session===observed,
+    owner_exists:!!session,owner_key:session?.__deenMatchingState?.key,
+    owner_count:session?.__deenMatchingState?.matchedLeft?.length??null,
+    local_count:persistent.matchedLeft.length,
+    same_object:session?.__deenMatchingState===persistent,
+    stack:(new Error()).stack?.split('\n').slice(1,4).join(' | ')
+   });
+  }
   if(!session)return;
   persistent.matchedLeft=[...new Set(persistent.matchedLeft.map(Number))];
   persistent.matchedRight=[...new Set(persistent.matchedRight.map(Number))];
