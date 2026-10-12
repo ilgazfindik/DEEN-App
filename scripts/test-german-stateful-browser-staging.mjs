@@ -367,6 +367,11 @@ async function auditNavTabs(){
    };
    const audit=window.__DEEN_GERMAN_NAV_QA__.render(
     document.getElementById('lesson'),{qaMode:true,locale:'de',documentRef:document});
+   const explanationEl=document.getElementById('feedbackText');
+   const afterGeneric=explanationEl?.textContent?.trim();
+   const safe=window.__DEEN_QA_STAGE_ADAPTER__.adaptFeedbackExplanation(
+    afterGeneric,q,{qaMode:true,locale:'de'});
+   if(safe!==null&&safe!==afterGeneric)explanationEl.textContent=safe;
    const after={
     title:document.getElementById('feedbackTitle')?.textContent?.trim(),
     explanation:document.getElementById('feedbackText')?.textContent?.trim(),
@@ -375,14 +380,16 @@ async function auditNavTabs(){
     continueLabel:document.getElementById('continueBtn')?.textContent?.trim()
    };
    return {before,after,unresolved:audit.unresolved,scanned:audit.scanned,
-    graded_explanation_preserved:before.explanation===after.explanation};
+    generic_renderer_preserved:before.explanation===afterGeneric,
+    source_bound_feedback_localized:safe!==null};
   });
   report.lesson.feedback_locale=feedbackLocale;
-  assert.equal(feedbackLocale.graded_explanation_preserved,true,
+  assert.equal(feedbackLocale.generic_renderer_preserved,true,
    'DOM UI renderer mutated source-dependent feedback');
   assert.deepEqual(feedbackLocale.unresolved,[],
    'Untranslated German QA feedback shell');
-  assert.equal(feedbackLocale.after.explanation,feedbackLocale.before.expectedExplanation,
+  assert.equal(feedbackLocale.source_bound_feedback_localized,true);
+  assert.equal(feedbackLocale.after.explanation,'Kurz gesagt: '+feedbackLocale.before.expectedExplanation,
    'Actual grading explanation does not use the source-verified German explanation');
 
   await page.screenshot({path:output+'/stateful-german-lesson-graded-qa.png',fullPage:true});
