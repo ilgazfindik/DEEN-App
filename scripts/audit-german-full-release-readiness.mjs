@@ -16,7 +16,8 @@ const layerPaths=[
  'assets/i18n/german-ui.reference-batch-01.staging.json',
  'assets/i18n/german-ui.reference-batch-02.staging.json',
  'assets/i18n/german-ui.reference-batch-03.staging.json',
- 'assets/i18n/german-ui.reference-batch-04.staging.json'
+ 'assets/i18n/german-ui.reference-batch-04.staging.json',
+ 'assets/i18n/german-ui.reference-batch-05.staging.json'
 ];
 const dictionaries=layerPaths.map(p=>read(p));
 const merged=new Map(),conflicts=[],byLayer=[];
@@ -35,7 +36,7 @@ for(let i=0;i<dictionaries.length;i++){
 assert.equal(conflicts.length,0,'Conflicting German translations for the same Turkish source label');
 const baseline=Object.keys(english);
 const overlap=baseline.filter(key=>merged.has(key)),notCovered=baseline.filter(key=>!merged.has(key));
-assert.equal(notCovered.length,370,'The first 480 source-matched German UI reference translations must remain present; unexpected source/catalog drift');
+assert.equal(notCovered.length,250,'The first 600 source-matched German UI reference translations must remain present; unexpected source/catalog drift');
 const stagedOnly=[...merged.keys()].filter(key=>!Object.hasOwn(english,key));
 const manifest=read('assets/i18n/content-support.json'),german=manifest.languages.de;
 const quran=read('assets/i18n/quran/de/ayah-meanings.staging.json');
@@ -59,7 +60,7 @@ assert(boot.includes("window.DEEN_I18N.t('unavailableTitle',{},next)"),'Changing
 assert(locale.includes("Die deutschen Lerninhalte werden noch geprüft."),'German block explanation must be accurate');
 assert(!englishPresenter.includes('window.DEEN_GERMAN_UI'),'English renderer must not implicitly load staging German into production');
 const issues=[
- {code:'DE_UI_BASELINE_GAPS',severity:'blocking',count:notCovered.length,details:'English UI reference keys not found in the eight staged German dictionaries'},
+ {code:'DE_UI_BASELINE_GAPS',severity:'blocking',count:notCovered.length,details:'English UI reference keys not found in the nine staged German dictionaries'},
  {code:'DE_UI_RENDERER_NOT_CONNECTED',severity:'blocking',details:'The app calls the English/Arabic UI renderers; staged German UI maps are not a production renderer'},
  {code:'DE_QUESTIONS_UNRELEASED',severity:'blocking',details:'All German question content and runtime variants are staging only, with pending religious and native review'},
  {code:'DE_QURAN_MEANINGS_UNAPPROVED',severity:'blocking',details:'90 German Quran meanings have source matching but no religious, native-language or rights approval'},
