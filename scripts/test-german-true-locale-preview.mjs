@@ -1044,6 +1044,131 @@ try{
   'German Fatiha journey still exposes English UI labels');
  await page.screenshot({path:output+'/true-locale-german-fatiha-surah.png',fullPage:true});
 
+ // Do not mistake the Journey overview or the language picker for a Quran
+ // ayah/audio pass. Enter the real Fatiha "Learn" flow using its visible
+ // first-stage button and exercise the actual inline audio controls.
+ const learnCTA=page.locator('#v5Sheet[open] .deen-qj2-stage .deen-qj2-btn').first();
+ assert.match(await learnCTA.getAttribute('onclick')||'',/startStage\('learn'\)/,
+  'First Fatiha Journey action is not the Learn stage');
+ assert.equal(await learnCTA.isDisabled(),false,'Fatiha Learn stage unexpectedly locked');
+ await learnCTA.click({timeout:20000});
+ await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session[data-deen-ayah="1"] .deen-ikhlas-arabic[lang="ar"]',
+  {timeout:20000});
+ await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session .deen-ayah-inline-speaker',
+  {timeout:15000});
+
+ const fatihaManifest=await page.evaluate(async()=>{
+  const response=await fetch('/assets/quran/audio/ayah-audio-manifest.json',
+   {cache:'no-store'});
+  if(!response.ok)throw Error('Quran audio manifest unavailable: HTTP '+response.status);
+  const manifest=await response.json();
+  return manifest.entries.filter(row=>row.surahId==='fatiha')
+   .map(row=>({ayah:row.ayah,text:row.text,audio:row.audio}));
+ });
+ assert.equal(fatihaManifest.length,7,'Fatiha audio manifest must have seven ayahs');
+ const readRealAyah=()=>page.evaluate(()=>{
+  const session=document.querySelector('#v5Sheet[open] .deen-qmulti-session');
+  const arabic=session?.querySelector('.deen-ikhlas-arabic[lang="ar"]');
+  const audioButton=session?.querySelector('.deen-ayah-inline-speaker');
+  const ayah=Number(session?.dataset?.deenAyah);
+  const registry=window.DEEN_QURAN_CONTENT?.internalGet?.('fatiha',ayah);
+  const cfg=window.DEEN_QURAN_AYAH_AUDIO?.config?.('fatiha');
+  return {sessionPresent:!!session,ayah,arabic:arabic?.textContent?.replace(/\s+/g,' ').trim(),
+   originalArabic:registry?.arabic?.text?.replace(/\s+/g,' ').trim(),
+   registeredAudio:registry?.recitation?.audio_url||null,
+   audioButtonVisible:!!audioButton&&audioButton.getClientRects().length>0,
+   buttonSurah:audioButton?.dataset?.surahAudio,
+   buttonAyah:audioButton?.dataset?.ayahAudio,
+   audioConfig:cfg?{base:cfg.base,file:cfg.files?.[ayah-1]}:null,
+   nativeStatus:window.DEEN_QURAN_AYAH_AUDIO?.state?.()};
+ });
+ report.quran_fatiha.real_ayah_audio={source:'real Fatiha Learn CTA, browser DOM and native audio',
+  ayahs:[],playback:[]};
+ const checkAyah=(view,expected)=>{
+  assert.equal(view.sessionPresent,true);
+  assert.equal(view.ayah,expected.ayah);
+  assert.equal(view.arabic,expected.text.replace(/\s+/g,' ').trim(),
+   'Displayed Arabic differs from pinned original for Fatiha '+expected.ayah);
+  assert.equal(view.originalArabic,view.arabic,'Arabic registry and DOM disagree');
+  assert.equal(view.audioButtonVisible,true,'Real inline Quran speaker not visible');
+  assert.equal(view.buttonSurah,'fatiha');
+  assert.equal(view.buttonAyah,String(expected.ayah));
+  assert.equal(view.audioConfig?.base+view.audioConfig?.file,'./'+expected.audio,
+   'Audio configuration differs from immutable ayah-audio manifest');
+  assert.equal(view.registeredAudio?.replace(/^\.\//,''),expected.audio,
+   'Registered recitation differs from pinned audio asset');
+ };
+ const firstAyah=await readRealAyah();
+ checkAyah(firstAyah,fatihaManifest[0]);
+ report.quran_fatiha.real_ayah_audio.ayahs.push(firstAyah);
+ await page.screenshot({path:output+'/true-locale-german-fatiha-ayah-1.png',fullPage:true});
+
+ const speaker=page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ayah-inline-speaker');
+ await speaker.click({timeout:15000});
+ await page.waitForFunction(()=>
+  ['playing','error'].includes(window.DEEN_QURAN_AYAH_AUDIO?.state?.()?.status),
+  null,{timeout:20000});
+ await page.waitForFunction(()=>
+  Number(window.DEEN_QURAN_AYAH_AUDIO?.state?.()?.duration)>0||
+  window.DEEN_QURAN_AYAH_AUDIO?.state?.()?.status==='error',
+  null,{timeout:20000});
+ const startedAudio=await page.evaluate(()=>({
+  ...window.DEEN_QURAN_AYAH_AUDIO.state(),
+  words:document.querySelectorAll('#v5Sheet[open] .deen-qmulti-session .deen-ayah-sync-word').length,
+  progress:!!document.querySelector('#v5Sheet[open] .deen-qmulti-session .deen-ayah-sync-track')
+ }));
+ report.quran_fatiha.real_ayah_audio.playback.push({event:'play_ayah_1',...startedAudio});
+ assert.equal(startedAudio.status,'playing','Actual Fatiha ayah playback failed');
+ assert.equal(startedAudio.activeSurah,'fatiha');
+ assert.equal(startedAudio.currentAyah,1);
+ assert(startedAudio.src?.includes('/assets/quran/audio/fatiha/fatiha_1.mp3'),
+  'Audio element did not request original Fatiha ayah 1 asset');
+ assert(startedAudio.duration>0,'Chromium failed to decode original audio metadata');
+ assert(startedAudio.words>0&&startedAudio.progress,
+  'Arabic word-by-word audio synchronization was not initialized');
+ await speaker.click({timeout:15000});
+ await page.waitForFunction(()=>
+  window.DEEN_QURAN_AYAH_AUDIO?.state?.()?.status==='paused',
+  null,{timeout:15000});
+ report.quran_fatiha.real_ayah_audio.playback.push({event:'pause_ayah_1',
+  ...await page.evaluate(()=>window.DEEN_QURAN_AYAH_AUDIO.state())});
+
+ // The user-facing learning controls must advance to ayah 2; don't change
+ // the ayah index or state through a QA shortcut.
+ for(let step=0;step<4;step++){
+  await page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)')
+   .first().click({timeout:15000});
+ }
+ await page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)')
+  .first().click({timeout:15000});
+ await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session[data-deen-ayah="2"] .deen-ikhlas-arabic[lang="ar"]',
+  {timeout:20000});
+ await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session[data-deen-ayah="2"] .deen-ayah-inline-speaker',
+  {timeout:15000});
+ const secondAyah=await readRealAyah();
+ checkAyah(secondAyah,fatihaManifest[1]);
+ report.quran_fatiha.real_ayah_audio.ayahs.push(secondAyah);
+ assert.notEqual(secondAyah.arabic,firstAyah.arabic,'Ayah navigation reused the first verse');
+ await page.screenshot({path:output+'/true-locale-german-fatiha-ayah-2.png',fullPage:true});
+ const secondSpeaker=page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ayah-inline-speaker');
+ await secondSpeaker.click({timeout:15000});
+ await page.waitForFunction(()=>
+  ['playing','error'].includes(window.DEEN_QURAN_AYAH_AUDIO?.state?.()?.status),
+  null,{timeout:20000});
+ const secondAudio=await page.evaluate(()=>window.DEEN_QURAN_AYAH_AUDIO.state());
+ report.quran_fatiha.real_ayah_audio.playback.push({event:'play_ayah_2',...secondAudio});
+ assert.equal(secondAudio.status,'playing');
+ assert.equal(secondAudio.currentAyah,2);
+ assert(secondAudio.src?.includes('/assets/quran/audio/fatiha/fatiha_2.mp3'),
+  'Ayah 2 played the wrong recording');
+ await secondSpeaker.click({timeout:15000});
+ assert.equal((await page.evaluate(()=>window.DEEN_QURAN_AYAH_AUDIO.state())).status,'paused');
+ // No native-German/theological/rights sign-off or public Quran meanings
+ // are implied by successful Arabic and MP3 control checks.
+ report.quran_fatiha.real_ayah_audio.review_approved=false;
+ report.quran_fatiha.real_ayah_audio.production_release=false;
+
+
  // Exercise full first-run onboarding without assigning state.onboarded in QA.
  // A new browser context intentionally has no prior localStorage or progress.
  const fresh=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
