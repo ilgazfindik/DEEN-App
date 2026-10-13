@@ -1,0 +1,607 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U04",
+  "stage": "U04-S05",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U04-S05-001": {
+      "source": {
+        "question_tr": "Ali, sabah erkenden kalkıp sahurunu yaptı ve güneş batana kadar hiçbir şey yiyip içmemeye niyet etti. Ali İslam'ın hangi şartını yerine getirmektedir?",
+        "explanation_tr": "Ramazan'da oruca niyet edip gün boyunca yeme ve içmeden uzak durmak oruç ibadetiyle ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Oruç tutmak",
+          "Namaz kılmak",
+          "Zekât vermek",
+          "Hacca gitmek"
+        ],
+        "correct_answer": "Oruç tutmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ali se lève tôt pour le repas de l’aube et décide de ne pas manger ni boire jusqu’au coucher du soleil. Quel pilier accomplit-il ?",
+        "explanation_tr": "L’intention de jeûner et l’abstinence de nourriture et de boisson pendant la journée sont caractéristiques du jeûne du Ramadan.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Observer le jeûne",
+          "Accomplir la prière",
+          "Verser la zakat",
+          "Effectuer le hajj"
+        ],
+        "correct_answer": "Observer le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-002": {
+      "source": {
+        "question_tr": "Ayşe Hanım, zekât için ayırdığı dinen belirlenmiş payı hak sahiplerine ulaştırıyor. Bu davranış hangi şartla ilgilidir?",
+        "explanation_tr": "Bu örnek, maldan zekât için ayrılan payın hak sahiplerine verilmesini anlatır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zekât vermek",
+          "Oruç tutmak",
+          "Hacca gitmek",
+          "Kelime-i Şehadet getirmek"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Madame Ayşe remet aux bénéficiaires la part de ses biens religieusement destinée à la zakat. Quel pilier accomplit-elle ?",
+        "explanation_tr": "Cet exemple illustre le versement de la part de zakat aux personnes qui y ont droit.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Verser la zakat",
+          "Observer le jeûne",
+          "Effectuer le hajj",
+          "Prononcer la chahada"
+        ],
+        "correct_answer": "Verser la zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-003": {
+      "source": {
+        "question_tr": "Okulda öğle arası olduğunda Hasan mescide giderek ibadetini yerine getirdi. Hasan İslam'ın şartlarından hangisini uyguladı?",
+        "explanation_tr": "Gün içindeki vakitlerde mescitte veya uygun bir yerde kılınan ibadet namazdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namaz kılmak",
+          "Zekât vermek",
+          "Oruç tutmak",
+          "Hacca gitmek"
+        ],
+        "correct_answer": "Namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Pendant la pause de midi à l’école, Hasan se rend à l’espace de prière pour accomplir son acte d’adoration. De quel pilier s’agit-il ?",
+        "explanation_tr": "La prière rituelle peut être accomplie aux heures prescrites dans un espace approprié.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Accomplir la prière",
+          "Verser la zakat",
+          "Observer le jeûne",
+          "Effectuer le hajj"
+        ],
+        "correct_answer": "Accomplir la prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-004": {
+      "source": {
+        "question_tr": "Bir kişi 'Ramazan ayı geldiğinde kutsal toprakları ziyaret etmek üzere Mekke'ye giderek orucumu tutacağım, böylece hac ibadetimi de yapmış olacağım.' diyor. Bu kişinin düşüncesindeki kavramsal hata nedir?",
+        "explanation_tr": "Bakara 2:197 'Hac bilinen aylardadır' buyurur; hac Ramazan ayına özgü değildir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Haccın Ramazan ayına bağlı bir ibadet sanılmasıdır; hac bilinen hac aylarında ve belirli menâsikle yerine getirilir.",
+          "Oruç ile hac aynı ibadettir.",
+          "Mekke'de oruç tutulamaz.",
+          "Hac yalnızca zekât verenlere aittir."
+        ],
+        "correct_answer": "Haccın Ramazan ayına bağlı bir ibadet sanılmasıdır; hac bilinen hac aylarında ve belirli menâsikle yerine getirilir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne affirme : « Je vais à La Mecque au Ramadan pour jeûner, ce qui me permettra d’avoir également accompli le hajj. » Quelle est son erreur ?",
+        "explanation_tr": "Le verset 2:197 de la sourate Al-Baqara précise que le hajj se déroule pendant des mois connus ; ce pèlerinage ne se confond pas avec le jeûne du Ramadan.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Elle suppose que le hajj est lié au Ramadan alors qu’il possède ses propres mois et rites prescrits",
+          "Le jeûne et le hajj sont exactement le même acte d’adoration",
+          "On ne peut pas jeûner à La Mecque",
+          "Le hajj ne concerne que les personnes qui versent la zakat"
+        ],
+        "correct_answer": "Elle suppose que le hajj est lié au Ramadan alors qu’il possède ses propres mois et rites prescrits",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-005": {
+      "source": {
+        "question_tr": "Zehra'nın annesi ve babası, ibadet amacıyla Mekke'ye gidip hac menâsikini yerine getirmeye hazırlanıyor. Bu durum İslam'ın hangi şartı ile ilgilidir?",
+        "explanation_tr": "Bu durum hacca gitmek şartıyla ilgilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hacca gitmek",
+          "Namaz kılmak",
+          "Oruç tutmak",
+          "Zekât vermek"
+        ],
+        "correct_answer": "Hacca gitmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Les parents de Zehra se préparent à se rendre à La Mecque pour accomplir les rites du pèlerinage. De quel pilier s’agit-il ?",
+        "explanation_tr": "Cette situation correspond au hajj, l’un des cinq piliers de l’islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Effectuer le hajj",
+          "Accomplir la prière",
+          "Observer le jeûne",
+          "Verser la zakat"
+        ],
+        "correct_answer": "Effectuer le hajj",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-006": {
+      "source": {
+        "question_tr": "İslam'ı öğrenen John, 'Eşhedü en lâ ilâhe illallah...' diye başlayan inanç beyanını söylüyor. Bu ifade İslam'ın hangi şartıyla ilişkilidir?",
+        "explanation_tr": "Bu inanç beyanı Kelime-i Şehadet ile ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kelime-i Şehadet getirmek",
+          "Zekât vermek",
+          "Namaz kılmak",
+          "Hacca gitmek"
+        ],
+        "correct_answer": "Kelime-i Şehadet getirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "John découvre l’islam et prononce la profession de foi commençant par « Eşhedü en lâ ilâhe illallah... ». À quel pilier cela correspond-il ?",
+        "explanation_tr": "Cette déclaration de foi est la chahada.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Prononcer la chahada",
+          "Verser la zakat",
+          "Accomplir la prière",
+          "Effectuer le hajj"
+        ],
+        "correct_answer": "Prononcer la chahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-007": {
+      "source": {
+        "question_tr": "Bir ders notunda 'Kelime-i Şehadet yalnızca içten düşünülen bir inançtır; sözlü bir beyan içermez.' yazıyor. Bu açıklamadaki hata nedir?",
+        "explanation_tr": "Diyanet, şehadeti dil ile ikrar edilen bir beyan olarak açıklar; aynı zamanda imanın kalbin tasdikiyle ilişkisini de vurgular.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kelime-i Şehadet sözlü bir beyan içerir; ancak iman yalnız sözden ibaret değildir.",
+          "Kelime-i Şehadet yalnız kalpten geçen bir düşüncedir.",
+          "Kelime-i Şehadet sadece hac sırasında söylenir.",
+          "Kelime-i Şehadet namazın başka adıdır."
+        ],
+        "correct_answer": "Kelime-i Şehadet sözlü bir beyan içerir; ancak iman yalnız sözden ibaret değildir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note de cours affirme : « La chahada n’est qu’une conviction intérieure ; elle ne comporte aucune déclaration orale. » Quelle est l’erreur ?",
+        "explanation_tr": "La chahada est exprimée oralement, même si la foi implique aussi une adhésion intérieure et ne se réduit pas à des mots.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "La chahada comprend une déclaration orale, mais la foi ne se réduit pas à cette déclaration",
+          "La chahada n’est qu’une pensée intérieure",
+          "La chahada se prononce uniquement pendant le hajj",
+          "La chahada est un autre nom de la prière"
+        ],
+        "correct_answer": "La chahada comprend une déclaration orale, mais la foi ne se réduit pas à cette déclaration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-008": {
+      "source": {
+        "question_tr": "Bir yardım kuruluşu, özellikle zekât niyetiyle ayrılmış payları toplayıp uygun hak sahiplerine ulaştırıyor. Bu kuruluş hangi ibadetin yerine getirilmesine aracılık ediyor olabilir?",
+        "explanation_tr": "Zekât için ayrılmış payın hak sahiplerine ulaştırılması zekât ibadetiyle ilgilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zekât",
+          "Hac",
+          "Oruç",
+          "Namaz"
+        ],
+        "correct_answer": "Zekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une association collecte des sommes expressément réservées à la zakat pour les remettre aux bénéficiaires remplissant les conditions. Quel acte facilite-t-elle ?",
+        "explanation_tr": "L’acheminement de la part destinée à la zakat aux personnes qui y ont droit relève de cette obligation.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La zakat",
+          "Le hajj",
+          "Le jeûne",
+          "La prière"
+        ],
+        "correct_answer": "La zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-009": {
+      "source": {
+        "question_tr": "Ailesiyle seyahate çıkan Ömer, yolda dinlenme tesisinde mola verdiklerinde abdest alarak vakit ibadetini yerine getiriyor. Ömer hangi şartı uyguladı?",
+        "explanation_tr": "Vakit girdikçe abdest alınarak kılınan ibadet namazdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namaz",
+          "Hac",
+          "Oruç",
+          "Zekât"
+        ],
+        "correct_answer": "Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Pendant un voyage familial, Ömer s’arrête dans une aire de repos, fait ses ablutions et accomplit la prière prescrite. Quel pilier pratique-t-il ?",
+        "explanation_tr": "L’acte d’adoration accompli aux heures prescrites après les ablutions est la prière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La prière",
+          "Le hajj",
+          "Le jeûne",
+          "La zakat"
+        ],
+        "correct_answer": "La prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-010": {
+      "source": {
+        "question_tr": "Biri 'İslam'ın beş şartından biri de meleklere inanmaktır.' dediğinde, bu ifadedeki hata nedir?",
+        "explanation_tr": "İslam'ın şartları ameli (eylemsel) görevleri, imanın esasları ise inanç ilkelerini kapsar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Meleklere inanmak İslam'ın şartlarından değil, imanın esaslarındandır.",
+          "İslam'ın şartları altı tanedir.",
+          "Meleklere inanmak Kelime-i Şehadet'in diğer adıdır.",
+          "İslam'ın şartları sadece fiziksel hareketlerden oluşur."
+        ],
+        "correct_answer": "Meleklere inanmak İslam'ın şartlarından değil, imanın esaslarındandır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un affirme : « Croire aux anges fait partie des cinq piliers de l’islam. » Quelle confusion commet-il ?",
+        "explanation_tr": "Les piliers de l’islam regroupent des devoirs pratiques ; croire aux anges relève des articles de la foi.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Il confond un article de la foi avec un pilier de l’islam",
+          "Il pense qu’il existe six piliers de l’islam",
+          "Il appelle la croyance aux anges « chahada »",
+          "Il suppose que les piliers sont uniquement des mouvements physiques"
+        ],
+        "correct_answer": "Il confond un article de la foi avec un pilier de l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-011": {
+      "source": {
+        "question_tr": "Müslüman olmayan bir arkadaşın sana, 'Müslümanlar yılda bir ay boyunca gündüzleri yemek yemiyorlar, bu nedir?' diye sordu. Ona İslam'ın hangi şartından bahsetmelisin?",
+        "explanation_tr": "Yılda bir ay (Ramazan) gündüzleri yeme içmeyi terk etmek oruç ibadetidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Oruç tutmak",
+          "Zekât vermek",
+          "Namaz kılmak",
+          "Kelime-i Şehadet getirmek"
+        ],
+        "correct_answer": "Oruç tutmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami non musulman te demande : « Pourquoi les musulmans s’abstiennent-ils de manger pendant la journée durant un mois de l’année ? » De quel pilier lui parlerais-tu ?",
+        "explanation_tr": "S’abstenir de manger et de boire pendant la journée du mois de Ramadan correspond au jeûne.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Du jeûne",
+          "De la zakat",
+          "De la prière",
+          "De la chahada"
+        ],
+        "correct_answer": "Du jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-012": {
+      "source": {
+        "question_tr": "Evde yapılan bir sohbette deden, 'Gençliğimde Mekke'ye gidip hac menâsikini yerine getirmiştim.' diyor. Deden İslam'ın hangi şartından bahsediyor?",
+        "explanation_tr": "Bu anlatım hac ibadetini ifade eder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hac",
+          "Zekât",
+          "Oruç",
+          "Namaz"
+        ],
+        "correct_answer": "Hac",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ton grand-père raconte qu’il est allé à La Mecque dans sa jeunesse pour accomplir les rites du pèlerinage. De quel pilier parle-t-il ?",
+        "explanation_tr": "Il décrit le hajj.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Du hajj",
+          "De la zakat",
+          "Du jeûne",
+          "De la prière"
+        ],
+        "correct_answer": "Du hajj",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-013": {
+      "source": {
+        "question_tr": "Bir belgeselde, insanların mallarından zekât için dinen belirlenmiş bir payı hak sahiplerine ulaştırdığı anlatılıyor. Bu belgesel İslam'ın hangi şartını konu edinmektedir?",
+        "explanation_tr": "Bu anlatım, malî ibadet olan zekâtla ilgilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zekât",
+          "Oruç",
+          "Hac",
+          "Kelime-i Şehadet"
+        ],
+        "correct_answer": "Zekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un documentaire montre des personnes qui remettent aux bénéficiaires la part de leurs biens réservée à la zakat. Quel pilier présente-t-il ?",
+        "explanation_tr": "Il s’agit de la zakat, une obligation financière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La zakat",
+          "Le jeûne",
+          "Le hajj",
+          "La chahada"
+        ],
+        "correct_answer": "La zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-014": {
+      "source": {
+        "question_tr": "Birisi 'Zekât İslam'ın beş şartından biri değildir; yalnızca isteğe bağlı bir yardım türüdür.' diyor. Bu ifadede hangi kavramsal hata vardır?",
+        "explanation_tr": "Bu ünitede zekât, İslam'ın beş şartından biri olan malî ibadet olarak öğretilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Zekâtın İslam'ın beş şartından biri olduğu gözden kaçırılmıştır.",
+          "Zekât oruçla aynı ibadet sanılmıştır.",
+          "Hac namazın başka adı sanılmıştır.",
+          "İfadede kavramsal hata yoktur."
+        ],
+        "correct_answer": "Zekâtın İslam'ın beş şartından biri olduğu gözden kaçırılmıştır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un affirme : « La zakat n’est pas un pilier de l’islam ; c’est simplement un don facultatif. » Quelle est son erreur ?",
+        "explanation_tr": "Cette unité présente la zakat comme une obligation financière figurant parmi les cinq piliers de l’islam.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Il oublie que la zakat fait partie des cinq piliers de l’islam",
+          "Il confond la zakat avec le jeûne",
+          "Il croit que le hajj est un autre nom de la prière",
+          "Cette affirmation ne contient aucune erreur"
+        ],
+        "correct_answer": "Il oublie que la zakat fait partie des cinq piliers de l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-015": {
+      "source": {
+        "question_tr": "Ezanın okunmasıyla birlikte ailenin hep beraber su içerek yemek yemeye başlaması, gün boyu tuttukları hangi ibadeti tamamladıklarını gösterir?",
+        "explanation_tr": "Gün boyunca tutulan orucun akşam sona erdirilmesi bu senaryoda oruç ibadetini gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Oruç",
+          "Zekât",
+          "Namaz",
+          "Hac"
+        ],
+        "correct_answer": "Oruç",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une famille commence à manger et boire ensemble au coucher du soleil après une journée d’abstinence. Quel acte d’adoration vient-elle de terminer ?",
+        "explanation_tr": "Rompre le jeûne le soir après une journée d’abstinence correspond à la pratique du jeûne.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le jeûne",
+          "La zakat",
+          "La prière",
+          "Le hajj"
+        ],
+        "correct_answer": "Le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S05-016": {
+      "source": {
+        "question_tr": "Bir işveren, yanında çalışan kişilerin ibadetlerini yapabilmeleri için gün içinde onlara belirli vakitlerde mola hakkı tanıyor. Bu mola, ağırlıklı olarak İslam'ın hangi şartı için kullanılmaktadır?",
+        "explanation_tr": "Gün içindeki vakitlerde mola verilerek yapılan ibadet namazdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namaz",
+          "Oruç",
+          "Zekât",
+          "Hac"
+        ],
+        "correct_answer": "Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un employeur accorde aux personnes qu’il emploie des pauses à certaines heures pour qu’elles puissent accomplir leur culte. Quel pilier ces pauses facilitent-elles principalement ?",
+        "explanation_tr": "Les pauses à des moments déterminés de la journée facilitent l’accomplissement de la prière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La prière",
+          "Le jeûne",
+          "La zakat",
+          "Le hajj"
+        ],
+        "correct_answer": "La prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les piliers dans la vie quotidienne",
+        "topic": "Scénarios et bonnes associations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
