@@ -101,3 +101,11 @@
 - Yanlış pozitif uyarısı: Fransızca **élève** sözcüğünün sonundaki **ve**, ASCII sözcük sınırıyla yazılmış Türkçe `ve` taramasında eşleşebilir; bu Türkçe sızıntısı değildir.
 - Dilsel ve dinî uzman onayları henüz verilmedi; açıklamalar dinî yönden ayrıca incelenecek. Kur'an Arapçası ve sesler değişmedi.
 - `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` kilitleri korunur. Main/Pages değişmez.
+
+## 2026-10-14 — U11 100/100 Fransızca taslağı
+- U11-S01–S07: **14+14+14+16+16+12+14 = 100/100**.
+- Konular: ibadet kaynakları ve anlamı, namaz/salât ve dua/du‘â ayrımı, niyet, ihlas, gösteriş, temizlik, hac, zekât, oruç, davranış ve kaynak disiplini.
+- Genel temel soru taslağı: **1.100/1.500**, U12–U15 için **400 soru** kaldı.
+- İlk oluşturma kontrolünde **84 seçenekli soru, 36 eşleştirme çifti**; seçenek cevap pozisyonları, eşleştirme tekilliği ve boşluk sayıları eşleşti.
+- `scripts/audit-french-u11-complete.mjs` için bağımsız kaynak, ID, cevap konumu, matching, blank ve üretim kilit denetimi eklendi. GitHub Actions sonuçları ayrıca doğrulanır.
+- Dinî ve anadili Fransızca uzman onayı yapılmadı. `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` korunur; canlı `main` veya Pages deploy'u yoktur.
