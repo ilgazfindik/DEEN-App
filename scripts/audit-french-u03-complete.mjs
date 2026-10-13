@@ -48,7 +48,7 @@ for(let i=1;i<=7;i++){
    // Do not mistake the preserved Turkish-standard transliteration for untranslated labels.
    const withoutProperNames=text.replace(/(?:Eşhedü|eşhedü|Resûlüh|resûlüh|abdühû|Allahüekber|Sübhanallah|İllallah)/gu,'ARABIC_PHONETIC');
    if(/[İıĞğŞş]/u.test(withoutProperNames))bad('Turkish_locale_letters');
-   if(/\b(?:sadece|yanlış|doğru|günlük|öğrenme|peygamber|kavramları)\b/iu.test(text))
+   if(/\b(?:sadece|yanlış|doğru|günlük|öğrenme|peygamber|kavramları|peygamberlik|Tevhid|Risalet|Kelime-i Şehadet)\b/iu.test(text))
      bad('Turkish_word');
    if(/\b(?:which|because|nicht|welche|worship|that)\b/iu.test(text))
      bad('English_German_word');
