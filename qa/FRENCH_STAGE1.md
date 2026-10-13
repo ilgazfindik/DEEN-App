@@ -190,3 +190,14 @@
 - CI: [French localization staging workflow #38477794557](https://github.com/ilgazfindik/DEEN-App/actions/runs/38477794557); bağımsız başarı doğrulaması rapora göre yapılmalıdır.
 - **Üretim kapısı kapalı:** `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`. `main`/GitHub Pages değişmedi; Arapça ayetler, kıraat ve meal kaynakları dokunulmaz. U13 eşleştirme kaynak hataları, aktif U01 varyantları, dil sızıntısı, mobil ve uzman QA hâlâ bekliyor.
 - Sıradaki UI: referans-batch-03–08, gerçek ders/sure/dinamik DOM ve sonrasında uzman değerlendirmesi.
+
+## 2026-10-14 — Fransızca UI P05 — 240 U03–U05 konu başlığı
+- Önceki **843/1452** statik UI referansı üzerine **240** yeni kaynak-bağlı Fransızca konu etiketi eklendi: toplam **1083/1452** (%74,59), **369** statik kaynak kaldı.
+- `assets/i18n/fr/ui.reference-batch-03.staging.json`: **120** Şehadet, tevhid ve risalet, dinleme/kelime sıralama etkinliği, günlük hayat örnekleri ve beş şartın giriş başlıkları.
+- `assets/i18n/fr/ui.reference-batch-04.staging.json`: **120** İslam'ın beş şartı (şehadet, namaz, oruç, zekât, hac), altı iman esası, karşılaştırma/tekrar ve mini challenge başlıkları.
+- Sözlükten otomatik bir başka dilin görüntü metinleri kopyalanmadı; özgün Türkçe kaynak ID'lerinden bağımsız Fransızca taslak üretildi. Fıkıh/kelâm açısından `Lâ ilâhe illallah`, şehadetin anlamı, kader/kaza, hac yükümlülüğü ve iman esasları **insan dinî/dilsel incelemesi bekler**.
+- `scripts/inventory-french-ui.mjs` 15 ayrı statik UI taslak dosyasını sayar: **1083/1452**, kalan **369**. Önceki **9 dinamik şablon** ayrı ve hâlâ runtime’a bağlı değil; statik sayıya eklenmez.
+- `scripts/audit-french-ui-reference-batches-03-04.mjs` kaynak ID sırasını, çakışmaları, boşlukları, `{token}` interpolasyonunu, anlam açısından riskli konu anahtarlarının review bayrağını ve üretim kilitlerini kontrol eder.
+- CI: [GitHub Actions #38478173600](https://github.com/ilgazfindik/DEEN-App/actions/runs/38478173600) (başarı sonucu ayrıca doğrulanır).
+- Üretim hâlâ kapalı: `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`. Arapça ayet, orijinal kıraat, Kur’an meal kaynakları ve diğer dillerin üretim altyapısı değiştirilmedi. Canlı Pages'e aktarım yok.
+- Kalan: batch 05–08 ve diğer UI kaynakları, U01 aktif varyantları, U13 eşleştirme kaynak problemi, dinamik tekil/çoğul ve gerçek Chromium/mobil denetimleri, Fransızca/dinî uzman onayları.
