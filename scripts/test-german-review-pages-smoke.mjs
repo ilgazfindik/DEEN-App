@@ -30,6 +30,9 @@ try{
  await page.goto(origin,{waitUntil:'domcontentloaded',timeout:120000});
  await page.waitForFunction(()=>window.DEEN_CONTENT_LOCALE&&window.DEEN_APP_LOCALE&&
   window.__DEEN_CONTENT_MANIFEST__?.__deenSyntheticGermanQA===true,null,{timeout:120000});
+ await page.waitForFunction(()=>window.DEEN_BOOT &&
+  ['onboarding','ready'].includes(document.documentElement.dataset.deenStartup) &&
+  document.documentElement.lang==='de',null,{timeout:120000});
  const boot=await page.evaluate(()=>({
   locale:window.DEEN_APP_LOCALE.get(),documentLocale:document.documentElement.lang,
   parts:window.__DEEN_CONTENT_MANIFEST__.languages.de.parts?.length,
