@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U09",
+  "stage": "U09-S06",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U09-S06-001": {
+      "source": {
+        "question_tr": "Bir içerikte 'Kur'an ölümden sonra dirilişi reddeder' deniyor. Düzeltme hangisidir?",
+        "explanation_tr": "Kur'an yeniden dirilişi ahiret inancının temel parçalarından biri olarak öğretir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hac 22:7 ve Yâsîn 36:79 yeniden dirilişi açıkça bildirir",
+          "Kur'an yalnız dünya hayatını kabul eder",
+          "Diriliş ayetlerde hiç geçmez",
+          "Kıyamet yalnız tarihî bir olaydır"
+        ],
+        "correct_answer": "Hac 22:7 ve Yâsîn 36:79 yeniden dirilişi açıkça bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un article affirme : « Le Coran rejette la résurrection après la mort. » Comment le corriger ?",
+        "explanation_tr": "Le Coran enseigne explicitement la résurrection comme un élément essentiel de la foi en l’au-delà.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Hajj 22:7 et Ya-Sin 36:79 affirment clairement la résurrection",
+          "Le Coran n’admet que la vie terrestre",
+          "La résurrection n’est jamais mentionnée",
+          "La fin du monde n’est qu’un événement historique"
+        ],
+        "correct_answer": "Al-Hajj 22:7 et Ya-Sin 36:79 affirment clairement la résurrection",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-002": {
+      "source": {
+        "question_tr": "Kıyametin kesin tarihini hesaplamak ahirete imanın zorunlu bir parçasıdır.",
+        "explanation_tr": "Kur'an kıyametin vaktinin bilgisini Allah'a nispet eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Calculer la date exacte de la fin du monde est une obligation de la foi en l’au-delà.",
+        "explanation_tr": "Le Coran réserve à Allah la connaissance du moment de l’Heure.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-003": {
+      "source": {
+        "question_tr": "Bir sosyal medya hesabı 'Kıyamet kesin olarak şu tarihte olacak' diyor. En uygun yaklaşım hangisidir?",
+        "explanation_tr": "A'râf 7:187 ve Lokmân 31:34 kıyametin vaktinin bilgisini Allah'a nispet eder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kesin tarih iddiasını Kur'an'ın kıyamet vaktini Allah'a nispet eden öğretisiyle karşılaştırmak",
+          "Tarihi hemen dinî hüküm saymak",
+          "Her hesaplamayı vahiy kabul etmek",
+          "Kıyametin hiç gelmeyeceğini söylemek"
+        ],
+        "correct_answer": "Kesin tarih iddiasını Kur'an'ın kıyamet vaktini Allah'a nispet eden öğretisiyle karşılaştırmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un compte sur les réseaux sociaux affirme : « La fin du monde aura lieu précisément à telle date. » Comment réagir ?",
+        "explanation_tr": "Al-Araf 7:187 et Luqman 31:34 attribuent à Allah la connaissance du moment de l’Heure.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Confronter cette affirmation à l’enseignement coranique réservant à Allah la connaissance de l’Heure",
+          "Accepter immédiatement cette date comme vérité religieuse",
+          "Considérer chaque calcul comme une révélation",
+          "Affirmer que la fin du monde ne viendra jamais"
+        ],
+        "correct_answer": "Confronter cette affirmation à l’enseignement coranique réservant à Allah la connaissance de l’Heure",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-004": {
+      "source": {
+        "question_tr": "Bir notta 'Ölümden sonra insan defalarca dünyaya başka bedenlerle döner' yazıyor. Hangi düzeltme gerekir?",
+        "explanation_tr": "Ayetler ölümden sonra dünyaya geri dönüş olmadığını bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Mü'minûn 23:99-100 dünyaya geri dönüş isteğinin reddedildiğini bildirir",
+          "Kur'an reenkarnasyonu zorunlu kılar",
+          "Her ölüm yeni dünya hayatı başlatır",
+          "Berzah dünyaya dönüş kapısıdır"
+        ],
+        "correct_answer": "Mü'minûn 23:99-100 dünyaya geri dönüş isteğinin reddedildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note affirme : « Après la mort, les humains reviennent sans cesse sur terre dans de nouveaux corps. » Quelle correction convient ?",
+        "explanation_tr": "Ces versets indiquent que le retour à la vie terrestre après la mort est refusé.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Muminun 23:99-100 indique que le retour sur terre demandé après la mort est refusé",
+          "Le Coran impose la réincarnation",
+          "Chaque mort déclenche une nouvelle vie terrestre",
+          "Le barzakh est une porte de retour sur terre"
+        ],
+        "correct_answer": "Al-Muminun 23:99-100 indique que le retour sur terre demandé après la mort est refusé",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-005": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi ahiret konusunda en sorunlu cümledir?",
+        "explanation_tr": "Zilzâl 99:7-8 en küçük hayır ve şerrin dahi karşılığının görüleceğini bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Küçük iyilik ve kötülüklerin hiçbir karşılığı yoktur'",
+          "'Allah kıyamet günü adaletle hesap görür'",
+          "'Ölüm herkes için kaçınılmazdır'",
+          "'Yeniden diriliş Kur'an'da anlatılır'"
+        ],
+        "correct_answer": "'Küçük iyilik ve kötülüklerin hiçbir karşılığı yoktur'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation sur l’au-delà est la plus problématique ?",
+        "explanation_tr": "Az-Zalzala 99:7-8 indique que même les plus petites bonnes et mauvaises actions seront vues.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "« Les petites bonnes et mauvaises actions n’auront aucune conséquence »",
+          "« Allah jugera avec justice au Jour de la résurrection »",
+          "« La mort est inévitable pour tous »",
+          "« Le Coran parle de la résurrection »"
+        ],
+        "correct_answer": "« Les petites bonnes et mauvaises actions n’auront aucune conséquence »",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-006": {
+      "source": {
+        "question_tr": "Ahiret inancı, insanın yaptığı haksızlıkları önemsememesine yol açmalıdır.",
+        "explanation_tr": "Ahiret inancı tam tersine hesap ve ilahî adalet bilincini güçlendirir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi en l’au-delà devrait pousser chacun à ne pas se soucier des injustices qu’il commet.",
+        "explanation_tr": "Au contraire, la foi en l’au-delà renforce le sens du jugement et de la justice divine.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-007": {
+      "source": {
+        "question_tr": "Ahiret hakkındaki yanlış iddiaları doğru düzeltmeleriyle eşleştir.",
+        "explanation_tr": "Bu üç konu ahiret öğretisinde kaynak disiplininin önemli olduğu alanlardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kıyametin tarihini herkes bilebilir",
+            "right": "Vakti Allah'ın bilgisine aittir"
+          },
+          {
+            "left": "Ölümden sonra dünyaya tekrar dönülür",
+            "right": "Mü'minûn 23:99-100 geri dönüşü reddeder"
+          },
+          {
+            "left": "Küçük ameller önemsizdir",
+            "right": "Zilzâl 99:7-8 küçük amellerin karşılığını bildirir"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les fausses affirmations concernant l’au-delà à leur correction.",
+        "explanation_tr": "Ces trois thèmes exigent une lecture attentive des sources.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "« Tout le monde peut connaître la date de l’Heure »",
+            "right": "Sa connaissance appartient à Allah"
+          },
+          {
+            "left": "« Après la mort, on peut revenir sur terre »",
+            "right": "Al-Muminun 23:99-100 refuse le retour"
+          },
+          {
+            "left": "« Les petits actes ne comptent pas »",
+            "right": "Az-Zalzala 99:7-8 confirme leurs conséquences"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-008": {
+      "source": {
+        "question_tr": "Ahiret konusunda kaynaksız bir iddiayı değerlendirirken hangi iki ilkeyi korumalısın?",
+        "explanation_tr": "Ahiret gayb alanına ilişkin olduğundan kaynak ve kesinlik derecesini ayırmak özellikle önemlidir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kur'an'ın açık bilgisini temel almak ve ayrıntı, yorum veya tahmini kesin vahiy bilgisi gibi sunmamak.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quels deux principes respecter pour examiner une affirmation non sourcée au sujet de l’au-delà ?",
+        "explanation_tr": "Puisque l’au-delà relève de l’invisible, il importe de distinguer ce qui est explicitement révélé des conjectures.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "S’appuyer sur les indications explicites du Coran et ne pas présenter les détails ou suppositions comme des révélations certaines.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-009": {
+      "source": {
+        "question_tr": "Berzah hakkında Kur'an'ın açıkça bildirmediği her ayrıntıyı kesin iman maddesi gibi öğretmek güvenli bir yöntemdir.",
+        "explanation_tr": "Mü'minûn 23:99-100 temel bir berzah çerçevesi verir; ayrıntılarda kaynak seviyesini belirtmek gerekir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Enseigner comme vérités obligatoires tous les détails du barzakh que le Coran ne précise pas est une méthode fiable.",
+        "explanation_tr": "Al-Muminun 23:99-100 présente le cadre général du barzakh, sans justifier d’inventer des détails.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-010": {
+      "source": {
+        "question_tr": "Bir içerik ahireti yalnız dehşet ve korku diliyle anlatıyor, adalet ve iyiliğin karşılığını hiç zikretmiyor. En dengeli düzeltme hangisidir?",
+        "explanation_tr": "Enbiyâ 21:47 ilahî adaleti, Zilzâl 99:7 iyiliğin karşılığını vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret öğretisinde hesap ve uyarının yanında adalet, iyiliğin karşılığı ve umut da yer alır",
+          "Ahiret yalnız korkudur",
+          "İyiliğin karşılığı yoktur",
+          "Adalet ahiretle ilgisizdir"
+        ],
+        "correct_answer": "Ahiret öğretisinde hesap ve uyarının yanında adalet, iyiliğin karşılığı ve umut da yer alır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un contenu présente l’au-delà uniquement par des images de terreur, sans parler de justice ni de rétribution du bien. Quelle correction serait équilibrée ?",
+        "explanation_tr": "Al-Anbiya 21:47 parle de justice et Az-Zalzala 99:7 de la valeur des bonnes actions.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Parler aussi de justice, de l’espérance et de la rétribution du bien, en plus du jugement et de l’avertissement",
+          "Décrire l’au-delà uniquement par la peur",
+          "Nier toute rétribution des bonnes actions",
+          "Affirmer que la justice n’a aucun rapport avec l’au-delà"
+        ],
+        "correct_answer": "Parler aussi de justice, de l’espérance et de la rétribution du bien, en plus du jugement et de l’avertissement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-011": {
+      "source": {
+        "question_tr": "Kıyametin vaktiyle ilgili kesin tarih vermek yerine, Kur'an'ın ______ sınırında kalmak gerekir.",
+        "explanation_tr": "Gayb alanında açık kaynak bilgisi ile tahmini ayırmak gerekir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "açık bilgi",
+          "söylenti",
+          "tahmin",
+          "sosyal medya"
+        ],
+        "correct_answer": "açık bilgi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Au lieu de donner une date précise pour la fin du monde, il faut s’en tenir aux ______ explicites du Coran.",
+        "explanation_tr": "Pour ce qui relève de l’invisible, on doit distinguer les sources certaines des suppositions.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "informations",
+          "rumeurs",
+          "prédictions",
+          "publications sur les réseaux sociaux"
+        ],
+        "correct_answer": "informations",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S06-012": {
+      "source": {
+        "question_tr": "Bir uygulama 'Ahiret inancı yalnız ölümden korkmayı öğretir' diyor. Düzeltme hangisidir?",
+        "explanation_tr": "Kur'an ahiret öğretisini adalet ve yapılan iyilik-kötülüğün karşılığıyla birlikte sunar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ahiret inancı sorumluluk, adalet, umut ve iyiliğin değerini de öğretir",
+          "Ahiret yalnız korku üretir",
+          "Ahiret davranışla ilgisizdir",
+          "Ahiret yalnız yaşlılar içindir"
+        ],
+        "correct_answer": "Ahiret inancı sorumluluk, adalet, umut ve iyiliğin değerini de öğretir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une application déclare : « La foi en l’au-delà enseigne seulement la peur de mourir. » Comment la corriger ?",
+        "explanation_tr": "Le Coran présente la justice et la rétribution du bien comme des composantes importantes de l’enseignement sur l’au-delà.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "La foi en l’au-delà enseigne aussi la responsabilité, la justice, l’espérance et la valeur du bien",
+          "Elle ne produit que de la peur",
+          "Elle ne concerne pas le comportement humain",
+          "Elle ne s’adresse qu’aux personnes âgées"
+        ],
+        "correct_answer": "La foi en l’au-delà enseigne aussi la responsabilité, la justice, l’espérance et la valeur du bien",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître les erreurs",
+        "topic": "L’au-delà et la rigueur des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
