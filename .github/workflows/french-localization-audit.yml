@@ -31,6 +31,7 @@ on:
       - 'scripts/audit-french-ui-premium-quran.mjs'
       - 'scripts/audit-french-ui-topic-batches.mjs'
       - 'scripts/audit-french-ui-reference-batches-03-04.mjs'
+      - 'scripts/audit-french-ui-reference-batches-05-06.mjs'
       - 'qa/FRENCH_STAGE1.md'
       - '.github/workflows/french-localization-audit.yml'
   workflow_dispatch:
@@ -86,6 +87,8 @@ jobs:
         run: node scripts/audit-french-ui-topic-batches.mjs
       - name: Validate 240 unit/faith/shahada UI headings from reference batches 03 and 04
         run: node scripts/audit-french-ui-reference-batches-03-04.mjs
+      - name: Validate 240 angels, scripture, worship and onboarding French text drafts
+        run: node scripts/audit-french-ui-reference-batches-05-06.mjs
       - name: Report all 15 units and 1452 UI source keys
         run: node scripts/inventory-french-ui.mjs
       - name: Ensure production English questions remain complete
