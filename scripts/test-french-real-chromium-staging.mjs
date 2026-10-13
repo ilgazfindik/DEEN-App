@@ -173,9 +173,22 @@ async function visit(width,height,label){
   assert.equal(lesson.id,lesson.sourceId);
   assert(lesson.options?.includes(lesson.correct));
   await page.screenshot({path:output+'/'+label+'-french-lesson.png',fullPage:true});
-  const teaching=page.locator('#lesson .v910-card-button:visible');
-  if(await teaching.count())await teaching.first().click({timeout:15000});
-  await page.waitForTimeout(300);
+  // v9.10 lesson loop may show a teaching card again after the asynchronous
+  // question decorator runs. Finish actual cards via user clicks, never remove
+  // them programmatically or bypass the learning lifecycle.
+  const teaching=page.locator('#lesson .v910-overlay .v910-card-button:visible');
+  const teachingSteps=[];
+  for(let i=0;i<5;i++){
+   if(!(await teaching.count()))break;
+   teachingSteps.push(await teaching.first().textContent());
+   await teaching.first().click({timeout:15000,force:true});
+   await page.waitForTimeout(260);
+  }
+  console.log('FR_REAL_CHROMIUM_TEACHING',JSON.stringify({viewport:label,steps:teachingSteps,
+   stillVisible:await teaching.count()}));
+  assert.equal(await teaching.count(),0,'Teaching overlay still blocks card choice');
+  const questionAfterTeaching=await page.evaluate(()=>session?.questions?.[session?.index]?.id);
+  assert.equal(questionAfterTeaching,lesson.id,'Teaching lifecycle unexpectedly changed target question');
   const rendered=await page.evaluate(expected=>{
    const el=document.querySelector('#questionText');
    const raw=el?.textContent?.trim()||'';
