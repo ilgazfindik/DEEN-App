@@ -32,6 +32,7 @@ on:
       - 'scripts/audit-french-ui-topic-batches.mjs'
       - 'scripts/audit-french-ui-reference-batches-03-04.mjs'
       - 'scripts/audit-french-ui-reference-batches-05-06.mjs'
+      - 'scripts/audit-french-ui-final-static.mjs'
       - 'qa/FRENCH_STAGE1.md'
       - '.github/workflows/french-localization-audit.yml'
   workflow_dispatch:
@@ -89,6 +90,8 @@ jobs:
         run: node scripts/audit-french-ui-reference-batches-03-04.mjs
       - name: Validate 240 angels, scripture, worship and onboarding French text drafts
         run: node scripts/audit-french-ui-reference-batches-05-06.mjs
+      - name: Verify final 129 French UI source keys and full 1452/1452 draft inventory
+        run: node scripts/audit-french-ui-final-static.mjs
       - name: Report all 15 units and 1452 UI source keys
         run: node scripts/inventory-french-ui.mjs
       - name: Ensure production English questions remain complete
