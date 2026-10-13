@@ -1858,6 +1858,178 @@ try{
   currentLevel:afterRemember.model.currentLevel,meaningUnlocked:afterRemember.stats.meaningUnlocked};
  await page.screenshot({path:output+'/true-locale-german-ikhlas-memorization.png',fullPage:true});
 
+
+ // Stage 8: exhaust the ELEVEN shared-engine Quran surahs not yet covered
+ // by prior 5-surah acceptance. Real browser / synthetic in-memory de only.
+ // Entire original Arabic verse registry + MP3 manifest covered, while a real
+ // user-facing first quiz question and first ayah audio play are exercised for
+ // every remaining surah. No synthetic learning completions/approvals.
+ const remainingSurahs=[
+  ['nas',6],['kafirun',6],['masad',5],['fil',5],['quraysh',4],
+  ['maun',7],['sharh',8],['tin',8],['zilzal',8],['kawthar',3],['asr',3]
+ ];
+ report.quran_remaining_surahs={scope:'11 remaining surahs, 63 ayahs; German synthetic browser staging only',
+  verses:[],flows:[],sourcesChecked:0,audioPlayed:0,questionsGraded:0};
+ const remaining=report.quran_remaining_surahs;
+ const sourceAudioManifest=await page.evaluate(async()=>{
+  const response=await fetch('/assets/quran/audio/ayah-audio-manifest.json',{cache:'no-store'});
+  assertHttp: if(!response.ok)throw Error('Original source audio manifest unavailable: '+response.status);
+  return response.json();
+ });
+ assert.equal(sourceAudioManifest.entries?.length,90,'Quran recitation manifest count drift');
+ const indexedAudio=new Map(sourceAudioManifest.entries.map(r=>[r.key,r]));
+ const registry=await page.evaluate(()=>{
+  const j=window.DEEN_QURAN_JOURNEY_V2;
+  const manifest=window.__DEEN_CONTENT_MANIFEST__;
+  return {locale:window.DEEN_APP_LOCALE.get(),approved:manifest.languages.de.religious_expert_approved,
+   germanQA:manifest.__deenSyntheticGermanQA,journeyReady:!!j,sharedReady:!!window.DEEN_QURAN_MULTI?.openLearning};
+ });
+ assert.deepEqual(registry,{locale:'de',approved:false,germanQA:true,journeyReady:true,sharedReady:true});
+ for(const [id,count] of remainingSurahs){
+  const audioRows=sourceAudioManifest.entries.filter(r=>r.surahId===id);
+  assert.equal(audioRows.length,count,'Original audio registry count for '+id);
+  const before=await page.evaluate(id=>{
+   const j=window.DEEN_QURAN_JOURNEY_V2;
+   if(!j.open(id))throw Error('Native Quran Journey cannot open '+id);
+   const stats=j.stats(id);
+   const cfg=window.DEEN_QURAN_AYAH_AUDIO?.config?.(id);
+   return {sourceReady:stats.sourceReady,ayahUnlocked:stats.ayahUnlocked,
+    learned:stats.learned,mealReady:j.mealReady(id),meaningUnlocked:stats.meaningUnlocked,
+    finalUnlocked:stats.finalUnlocked,audioFiles:cfg?.files||[],
+    current:window.DEEN_APP_LOCALE.get()};
+  },id);
+  assert.equal(before.current,'de');
+  assert.equal(before.sourceReady,true,'Source Quran verses missing: '+id);
+  assert.equal(before.ayahUnlocked,true,'Arabic verse quiz disabled: '+id);
+  assert.equal(before.mealReady,false,'German meaning unlocked without expert review: '+id);
+  assert.equal(before.meaningUnlocked,false);
+  assert.equal(before.finalUnlocked,false);
+  assert.equal(before.audioFiles.length,count,'Universal Quran audio count drift: '+id);
+  for(let verse=1;verse<=count;verse++){
+   const rec=indexedAudio.get(id+':'+verse);
+   assert(rec,'Missing MP3 manifest entry: '+id+':'+verse);
+   assert.equal(before.audioFiles[verse-1],rec.audio.split('/').at(-1),
+    'Quran audio configuration and source manifest disagree: '+id+':'+verse);
+  }
+  await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',
+   {timeout:15000});
+  const rows=page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage');
+  assert.equal(await rows.nth(2).locator('button').isDisabled(),false);
+  assert.equal(await rows.nth(3).locator('button').isDisabled(),true);
+  assert.equal(await rows.nth(4).locator('button').isDisabled(),true);
+  const locked=await page.evaluate(()=>{
+   const j=window.DEEN_QURAN_JOURNEY_V2,original=j.quizSnapshot();
+   const meaning=j.startStage('meaning'),final=j.startStage('final');
+   return {meaning,final,unmodified:JSON.stringify(original)===JSON.stringify(j.quizSnapshot())};
+  });
+  assert.deepEqual(locked,{meaning:false,final:false,unmodified:true},
+   'Unreviewed German Quran meaning quiz leaked: '+id);
+  await rows.nth(2).locator('button').click({timeout:15000});
+  await page.waitForSelector('#v5Sheet[open] .deen-qj2-quiz[data-quiz-stage="ayah"]',
+   {timeout:15000});
+  const question=await page.evaluate(()=>{
+   const dialog=document.querySelector('#v5Sheet[open]'),root=dialog.querySelector('.deen-qj2-quiz');
+   const ar=[...root.querySelectorAll('[lang="ar"]')].map(el=>el.textContent);
+   const opts=[...root.querySelectorAll('.deen-qj2-option')].map(el=>el.outerHTML);
+   const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(dialog,
+    {qaMode:true,locale:'de',documentRef:document});
+   return {unresolved:audit.unresolved,heading:root.querySelector('.deen-qj2-qcard h3')?.textContent?.trim(),
+    button:root.querySelector('.deen-qj2-next')?.textContent?.trim(),
+    options:root.querySelectorAll('.deen-qj2-option').length,
+    arabicUnchanged:JSON.stringify(ar)===
+     JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(el=>el.textContent)),
+    optionsUnchanged:JSON.stringify(opts)===
+     JSON.stringify([...root.querySelectorAll('.deen-qj2-option')].map(el=>el.outerHTML))};
+  });
+  assert.deepEqual(question.unresolved,[],'German Ayah Test Turkish leak: '+id);
+  assert.equal(question.button,'PRÜFEN','Wrong German quiz CTA: '+id);
+  assert(question.options>=2,'Unanswerable Quran test: '+id);
+  assert.equal(question.arabicUnchanged,true,'Source Arabic mutated in test: '+id);
+  assert.equal(question.optionsUnchanged,true,'Graded answer HTML changed: '+id);
+  await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-option').first().click({timeout:15000});
+  await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next').click({timeout:15000});
+  const graded=await page.evaluate(()=>{
+   const q=window.DEEN_QURAN_JOURNEY_V2.quizSnapshot();
+   return {answered:q.answered,answers:q.answers,stage:q.stage};
+  });
+  assert.deepEqual(graded,{answered:true,answers:1,stage:'ayah'},'First Quran question did not grade: '+id);
+  remaining.questionsGraded++;
+
+  // Actually open the native Learn control and play/pause the first MP3.
+  assert.equal(await page.evaluate(id=>window.DEEN_QURAN_JOURNEY_V2.open(id),id),true);
+  await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',{timeout:15000});
+  await page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage')
+   .first().locator('button').click({timeout:15000});
+  await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session[data-deen-ayah="1"]',
+   {timeout:15000});
+  const speaker=page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ayah-inline-speaker');
+  await speaker.waitFor({state:'visible',timeout:15000});
+  await speaker.click({timeout:12000});
+  await page.waitForFunction(id=>{
+   const state=window.DEEN_QURAN_AYAH_AUDIO.state();
+   return state?.status==='playing'&&state?.activeSurah===id&&Number(state.currentAyah)===1;
+  },id,{timeout:20000});
+  const played=await page.evaluate(()=>window.DEEN_QURAN_AYAH_AUDIO.state());
+  assert(played.src.includes('/'+indexedAudio.get(id+':1').audio),
+   'Playing MP3 belongs to the wrong surah/ayah: '+id);
+  remaining.audioPlayed++;
+  // Avoid letting an old clip leak into another surah's learning session.
+  await speaker.click({timeout:12000});
+  await page.waitForFunction(()=>window.DEEN_QURAN_AYAH_AUDIO.state()?.status==='paused',
+   null,{timeout:15000});
+
+  // Traverse every verse via the genuine shared-engine openLearning API,
+  // without fabricating "completedAt" or rewriting the user's Quran progress.
+  for(let verse=1;verse<=count;verse++){
+   const item=indexedAudio.get(id+':'+verse);
+   const snapshot=await page.evaluate(({id,verse})=>{
+    if(!window.DEEN_QURAN_MULTI.openLearning(id,verse))
+     throw Error('Shared Quran Learn cannot render '+id+':'+verse);
+    const dialog=document.querySelector('#v5Sheet[open]');
+    const root=dialog?.querySelector('.deen-qmulti-session');
+    if(!root)throw Error('Missing genuine shared Quran Learn card '+id+':'+verse);
+    const first=[...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent);
+    const sources=[...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src'));
+    const original=window.DEEN_QURAN_CONTENT.getAyah(id,verse)?.arabic?.text;
+    const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+     dialog,{qaMode:true,locale:'de',documentRef:document});
+    const shown=root.querySelector('.deen-ikhlas-arabic[lang="ar"]')
+     ?.textContent?.replace(/\s+/g,' ').trim();
+    return {id,verse,renderedVerse:Number(root.dataset.deenAyah),
+     unresolved:audit.unresolved,
+     progress:root.querySelector('.deen-ikhlas-progresshead b')?.textContent?.trim(),
+     kicker:root.querySelector('.deen-ikhlas-kicker')?.textContent?.trim(),
+     cta:root.querySelector('.deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)')?.textContent?.trim(),
+     arabicSource:original,arabicRendered:shown,unchanged:JSON.stringify(first)===
+      JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent)),
+     sourcesUnchanged:JSON.stringify(sources)===
+      JSON.stringify([...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src')))};
+   },{id,verse});
+   assert.equal(snapshot.renderedVerse,verse,'Wrong rendered Quran verse: '+id+':'+verse);
+   assert.deepEqual(snapshot.unresolved,[],'Turkish on German Quran Learn: '+id+':'+verse);
+   assert.equal(snapshot.kicker,'1 · ANHÖREN');
+   assert.equal(snapshot.cta,'WEITER');
+   assert(snapshot.progress.includes('Vers '+verse+'/'+count),
+    'German Quran verse counter not localized: '+id+':'+verse+' = '+snapshot.progress);
+   assert.equal(snapshot.unchanged,true,'Arabic changed by German translation renderer');
+   assert.equal(snapshot.sourcesUnchanged,true,'Quran MP3 sources changed by German renderer');
+   assert.equal(snapshot.arabicRendered,snapshot.arabicSource?.replace(/\s+/g,' ').trim(),
+    'Original Quran Arabic does not match learned card: '+id+':'+verse);
+   assert.equal(snapshot.arabicSource,item.text,
+    'Quran manifest Arabic and runtime registry disagree: '+id+':'+verse);
+   remaining.verses.push({id,verse,audio:item.audio,progress:snapshot.progress,
+    unresolved:snapshot.unresolved});
+   remaining.sourcesChecked++;
+  }
+  remaining.flows.push({id,verses:count,meaningLocked:true,finalLocked:true,
+   questionGraded:graded.answers,originalAudioPlayed:played.src,
+   firstQuestionOptions:question.options,allVersesSourceChecked:true});
+ }
+ assert.equal(remaining.flows.length,11,'Not all remaining Quran surahs tested');
+ assert.equal(remaining.sourcesChecked,63,'Quran remaining source verse count drift');
+ assert.equal(remaining.audioPlayed,11,'Not every remaining surah played its own recitation');
+ assert.equal(remaining.questionsGraded,11,'Not every remaining surah graded a real Arabic question');
+
  report.quran_fatiha.real_ayah_audio.review_approved=false;
  report.quran_fatiha.real_ayah_audio.production_release=false;
 
