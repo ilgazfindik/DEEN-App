@@ -245,3 +245,11 @@
 - **Further verification:** full German Chromium and Arabic regression jobs were running during this note; their success must be established separately. The fast Node worker test does not substitute for app-level browser or mobile QA.
 
 **Next:** complete Chromium/Arabic regression checks for v15, then exercise a real two-tab online worker upgrade and iOS/Android offline recitation before the expert-review release gate.
+
+
+### PWA v15 browser follow-up — Chromium PASS
+
+- [German real-browser staging QA #38428927021](https://github.com/ilgazfindik/DEEN-App/actions/runs/38428927021) **PASSED** on `0edec44c9b9f777cfd44b864d1182d2d41e6c48a`. The browser executed the source-guarded German scenarios with PWA `pwa15`, loaded 1,484 active questions, selected `de`, rebuilt the 73,976-byte HQ onboarding animal atlas and retained an offline-ready Quran quiz engine with German meaning/final gates closed.
+- The original `ihlas_1.mp3` remained cache-backed; an offline 128-byte range request returned HTTP `206`. The 27-original-recording sample, 24-file bounded FIFO cache and 4-surah offline range/invalid-range tests passed. `offlineMissingAssetWarnings.count=0` in this warmed-browser test.
+- The independently passing lifecycle/unit test [#38429154592](https://github.com/ilgazfindik/DEEN-App/actions/runs/38429154592) verified upgrade activation policy, interrupted-install rollback, recoverable and unrecoverable quota writes and same-origin boundaries. A genuine multi-tab update and quota error on iOS/Android remain unverified; this is not production German or all-device PWA certification.
+- **Arabic application regression:** latest parallel checks [#38428926819](https://github.com/ilgazfindik/DEEN-App/actions/runs/38428926819) and [#38429112668](https://github.com/ilgazfindik/DEEN-App/actions/runs/38429112668) had not completed at time of this browser note. Previously [#38419171494](https://github.com/ilgazfindik/DEEN-App/actions/runs/38419171494) had passed. Preserve `de.global_qa=blocked`, `de.question_data=missing`, `de.religious_expert_approved=false`; PR #55 remains unmerged and not deployed.
