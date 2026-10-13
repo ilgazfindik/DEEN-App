@@ -208,11 +208,18 @@ async function visit(width,height,label){
   await page.waitForTimeout(700);
   const grade=await page.evaluate(()=>({
    shown:document.querySelector('#feedback')?.classList.contains('show')||false,
+   feedbackClass:document.querySelector('#feedback')?.className,
    correct:session?.correct,answer:session?.questions?.[0]?.correct_answer,
    sourceLocale:window.DEEN_APP_LOCALE.get(),
    title:document.querySelector('#feedbackTitle')?.textContent?.trim(),
-   body:document.querySelector('#feedbackText')?.textContent?.trim()}));
-  assert.equal(grade.shown,true,'Real engine did not show graded feedback');
+   body:document.querySelector('#feedbackText')?.textContent?.trim(),
+   selected:[...document.querySelectorAll('#answerArea .option.selected')].map(e=>e.textContent.trim()),
+   controls:[...document.querySelectorAll('#lesson button')]
+    .filter(e=>!e.hidden&&e.getClientRects().length>0)
+    .map(e=>({text:e.textContent.trim().slice(0,65),class:e.className,disabled:e.disabled})).slice(-25)
+  }));
+  console.log('FR_REAL_CHROMIUM_GRADE_DIAGNOSTIC',JSON.stringify({viewport:label,grade}));
+  assert.equal(grade.shown,true,'Real engine did not show graded feedback: '+JSON.stringify(grade));
   assert(grade.correct>=1,'French answer not counted as correct in real game');
   assert.equal(grade.sourceLocale,'tr');
   await page.screenshot({path:output+'/'+label+'-french-graded.png',fullPage:true});
