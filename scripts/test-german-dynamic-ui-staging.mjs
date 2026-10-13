@@ -186,6 +186,16 @@ for(const [turkish,german,count] of remainingQuranSurahs){
   'Out-of-range Arabic source must not be reformatted');
 }
 
+// Source registry has up to eight verses (Beyyine/İnşirah/Tîn/Zilzâl).
+for(const [src,de] of [
+ ['5. question · Ayah 8','Frage 5 · Vers 8'],
+ ['1. soru · Ayet 8','Frage 1 · Vers 8']]){
+ assert.equal(fmt(src),de,'German eighth-verse result row');
+}
+for(const src of ['6. question · Ayah 8','5. question · Ayah 9',
+ '6. soru · Ayet 8','5. soru · Ayet 9'])
+ assert.equal(fmt(src),null,'Out-of-registry quiz-row index rejected');
+
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
