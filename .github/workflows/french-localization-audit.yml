@@ -19,6 +19,8 @@ on:
       - 'scripts/audit-french-u11-complete.mjs'
       - 'scripts/audit-french-u12-complete.mjs'
       - 'scripts/audit-french-u13-complete.mjs'
+      - 'scripts/audit-french-u14-complete.mjs'
+      - 'qa/FRENCH_U14_TRANSLATION_GLOSSARY.json'
       - 'qa/FRENCH_U13_TRANSLATION_GLOSSARY.json'
       - 'qa/FRENCH_U12_TRANSLATION_GLOSSARY.json'
       - 'scripts/inventory-french-ui.mjs'
@@ -63,6 +65,8 @@ jobs:
         run: node scripts/audit-french-u12-complete.mjs
       - name: Verify all 100 U13 prayer questions and source mappings
         run: node scripts/audit-french-u13-complete.mjs
+      - name: Verify U14 100 French prayer movements and original answer mappings
+        run: node scripts/audit-french-u14-complete.mjs
       - name: Report all 15 units and 1452 UI source keys
         run: node scripts/inventory-french-ui.mjs
       - name: Ensure production English questions remain complete
