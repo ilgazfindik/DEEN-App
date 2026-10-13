@@ -139,10 +139,15 @@ try{
    newShell:keys.includes('deen-pwa-shell-'+b)};
  },{root,a:versionA,b:versionB});
  console.log('PWA_UPGRADE_DIAGNOSTICS '+JSON.stringify({guarded,openTabStates,stateAfterDelay}));
- assert.deepEqual(guarded,{
+ // A ServiceWorkerRegistration can briefly expose waiting=null between
+ // transitions, even while two existing clients remain controller-stable.
+ // Require a second stable observation AND no controllerchange on either tab.
+ assert.deepEqual({...guarded,waiting:stateAfterDelay.waiting},{
   waiting:'installed',active:'activated',oldShell:true,oldMedia:true,
   newShell:true,verified:true
- },'Second SW evicted old caches while 2 old tabs remain open');
+ },'Second worker did not remain waiting while two old tabs are open');
+ assert(openTabStates.every(x=>x.controller&&x.controlsCurrentActive&&x.changes===0),
+  'A waiting PWA upgrade changed a live tab controller');
  report.waitingBeforeTabClose=true;
  report.protectedOldCache=true;
  report.preservedVerifiedSegments=true;
