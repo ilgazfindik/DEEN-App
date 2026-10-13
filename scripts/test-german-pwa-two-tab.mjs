@@ -116,6 +116,13 @@ try{
    newShell:cachesNow.includes('deen-pwa-shell-'+b),
    verified:cachesNow.includes('deen-release-verified-sha256')};
  },{root,a:versionA,b:versionB});
+ const openTabStates=await Promise.all([tabA,tabB].map(tab=>tab.evaluate(async()=>{
+  const reg=await navigator.serviceWorker.getRegistration();
+  return {controller:!!navigator.serviceWorker.controller,
+   controllerState:navigator.serviceWorker.controller?.state,
+   activeState:reg.active?.state,waitingState:reg.waiting?.state};
+ })));
+ console.log('PWA_UPGRADE_DIAGNOSTICS '+JSON.stringify({guarded,openTabStates}));
  assert.deepEqual(guarded,{
   waiting:'installed',active:'activated',oldShell:true,oldMedia:true,
   newShell:true,verified:true
