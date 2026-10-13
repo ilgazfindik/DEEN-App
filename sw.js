@@ -3,7 +3,7 @@
  * The original SHA-256-pinned loader independently verifies all 67 segments.
  */
 'use strict';
-const VERSION='9408enfiveuiscreens1-ikhlasdeqa1-pwa14';
+const VERSION='9408enfiveuiscreens1-ikhlasdeqa1-pwa15';
 const SHELL='deen-pwa-shell-'+VERSION;
 const MEDIA='deen-pwa-ayah-'+VERSION;
 const VISUAL='deen-pwa-visual-'+VERSION;
@@ -55,12 +55,25 @@ async function readFullAudio(url){
  if(!isFullAudio(result))return result;
  try{
   await cache.put(key,result.clone());
+ }catch(error){
+  // A real device can be full even when the 24-file cap has not been reached.
+  // Evict at most ONE old recording and retry once; never fail online audio.
+  if(error?.name==='QuotaExceededError'){
+   try{
+    const oldest=(await cache.keys())[0];
+    if(oldest){
+     await cache.delete(oldest);
+     await cache.put(key,result.clone());
+    }
+   }catch(_){/* Playback can continue without a new offline copy. */}
+  }
+ }
+ try{
   const keys=await cache.keys();
-  // Bound the storage footprint without changing player/progress state.
-  // CacheStorage keys are insertion ordered; this is FIFO, not a full LRU.
+  // CacheStorage keys are insertion ordered: FIFO, not a full LRU.
   for(const old of keys.slice(0,Math.max(0,keys.length-MAX_AUDIO)))
    await cache.delete(old);
- }catch(_){/* Storage quota reached; online playback still works. */}
+ }catch(_){/* Storage failure must not interrupt an online recitation. */}
  return result;
 }
 async function rangeAudio(response,range){
@@ -85,8 +98,16 @@ self.addEventListener('install',event=>{
  event.waitUntil((async()=>{
   const cache=await caches.open(SHELL);
   // Fail installation if shell files are absent. No partial offline-ready claim.
-  await cache.addAll(core.map(path=>new Request(new URL(path,scope),{cache:'reload'})));
-  await self.skipWaiting();
+  try{
+   await cache.addAll(core.map(path=>new Request(new URL(path,scope),{cache:'reload'})));
+  }catch(error){
+   // A partial new shell must never remain as a misleading offline install.
+   // Preserve the previous ACTIVE worker and all of its verified caches.
+   await caches.delete(SHELL).catch(()=>{});
+   throw error;
+  }
+  // Do not skipWaiting: old open tabs keep their worker and cache until closed.
+  // Only then may activate() garbage-collect superseded caches.
  })());
 });
 self.addEventListener('activate',event=>{
