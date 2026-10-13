@@ -139,6 +139,36 @@ const ikhlasRecitationCases=[
 for(const [src,de] of ikhlasRecitationCases)
  assert.equal(fmt(src),de,'German Quran recitation controls '+src);
 
+
+// Eleven source-verified surah identities and bounded native learning labels.
+const remainingQuranSurahs=[
+ ['Nâs','An-Nās',6],['Kâfirûn','Al-Kāfirūn',6],
+ ['Tebbet','Al-Masad',5],['Fîl','Al-Fīl',5],
+ ['Kureyş','Quraisch',4],['Mâûn','Al-Māʿūn',7],
+ ['İnşirah','Asch-Scharh',8],['Tîn','At-Tīn',8],
+ ['Zilzâl','Az-Zalzala',8],['Kevser','Al-Kauthar',3],
+ ['Asr','Al-ʿAsr',3]
+];
+for(const [turkish,german,count] of remainingQuranSurahs){
+ assert.equal(fmt(turkish+' Suresi'),'Sure '+german,
+  'Source-safe remaining surah title '+turkish);
+ assert.equal(fmt(turkish+' Ezberi'),german+' auswendig lernen',
+  'Source-safe memorize title '+turkish);
+ for(const verse of [1,count]){
+  assert.equal(fmt(turkish+' · Ayet '+verse+'/'+count),
+   german+' · Vers '+verse+'/'+count,
+   'Bounded progress for '+turkish+' verse '+verse);
+  assert.equal(fmt(turkish+' '+verse+'. ayeti hatırla'),
+   'Erinnere dich an Vers '+verse+' der Sure '+german);
+ }
+ assert.equal(fmt(turkish+' · Ayet '+(count+1)+'/'+count),null,
+  'Surah progress outside known verse count');
+ assert.equal(fmt(turkish+' · Ayet 1/'+(count+1)),null,
+  'Wrong source surah length must fail closed');
+ assert.equal(fmt(turkish+' '+(count+1)+'. ayeti hatırla'),null,
+  'Out-of-range Arabic source must not be reformatted');
+}
+
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
