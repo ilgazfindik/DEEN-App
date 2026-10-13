@@ -60,6 +60,7 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  };
  // Real U01-S01 result DOM (Chromium 38317812063); QA-only source-exact chrome.
  // No answer values, source citations or religious content are translated here.
+ let m;
  if(Object.prototype.hasOwnProperty.call(observedResult,n))return emit(observedResult[n]);
 
  // Source-exact chrome from the actual Fatiha five-step learning flow
@@ -124,7 +125,6 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   return emit('Verswiedergabe fehlgeschlagen: '+m[1]);
  }
 
- let m;
  // Fatiha journey source-observed UI state counters: preserve all Arabic,
  // audio, Wikimedia Commons attribution and CC0 licence names.
  if((m=n.match(/^LEVEL\s+(\d+)$/)))return emit('STUFE '+m[1]);
