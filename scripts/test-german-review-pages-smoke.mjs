@@ -59,6 +59,65 @@ try{
   null,{timeout:90000});
  const review=await page.evaluate(()=>window.DEEN_GERMAN_REVIEW.audit());
  assert(review.scanned>100,'German DOM preview scan was not initialized');
+ // Regression fixtures from the five user screenshots: dynamic chrome must
+ // localize even after the real page has initialized and mutation observers run.
+ const screen=await page.evaluate(()=>{
+  const samples=[
+   'ADAPTİF TEKRARI BAŞLAT · 7 SORU',
+   'Ayet 1 / 7 · Son çalışma: Bugün',
+   'ÇALIŞMAYA DEVAM ET',
+   'Geçmek için %70 veya üzeri gerekiyor.',
+   'ÖĞREN · AŞAMA 1/5',
+   '0/3 mini ders',
+   'Aynı aşama tamamlanmadan sonraki düğüm açılmaz.',
+   'Tägliche Aufgaben 0/3 · Wochenrhythmus 1/5 gün',
+   'Çok Kolay Tanışma',
+   'öğrenme özeti',
+   'HAFIZA PLANI AKTİF',
+   'AUFGABENTYP',
+   'TEKRAR ÖNCELİĞİ',
+   '1 günlük seri',
+   'Sonraki seri ödülü: 3 gün',
+   'DERS ÖDÜLÜ',
+   'Bu mini ders için akıllı tekrar öneriliyor.'
+  ];
+  const div=document.createElement('section');
+  div.id='de-review-screenshot-fixture';
+  div.innerHTML=samples.map(t=>'<p></p>').join('');
+  for(const [i,node]of [...div.children].entries())node.textContent=samples[i];
+  const arabic=document.createElement('p');arabic.lang='ar';arabic.textContent='بِسْمِ ٱللَّهِ';
+  const protectedNode=document.createElement('p');protectedNode.dataset.deenSourceQuestion='1';
+  protectedNode.textContent='Eşleşen çiftleri bul';
+  div.append(arabic,protectedNode);document.body.append(div);
+  const lesson=document.querySelector('#lesson');
+  const template=document.createElement('div');template.className='question-frame v1013-match-ref';
+  template.innerHTML='<h2 class="v9916-task-title">Eşleşen <span class="v1013-mint">çiftleri</span> bul</h2>'+
+   '<div class="v1013-match-subtitle">Doğru kavramları anlamlarıyla eşleştir.</div>';
+  lesson?.prepend(template);
+  window.DEEN_GERMAN_REVIEW.render();
+  const values=[...div.children].slice(0,samples.length).map(n=>n.textContent);
+  const result={values,heading:template.querySelector('h2')?.textContent,
+   subtitle:template.querySelector('.v1013-match-subtitle')?.textContent,
+   arabic:arabic.textContent,protected:protectedNode.textContent};
+  template.remove();div.remove();return result;
+ });
+ assert.equal(screen.heading,'Finde die passenden Paare');
+ assert.equal(screen.subtitle,'Ordne die Begriffe den passenden Bedeutungen zu.');
+ assert.deepEqual(screen.values,[
+  'ADAPTIVE WIEDERHOLUNG STARTEN · 7 FRAGEN',
+  'Vers 1 / 7 · Zuletzt geübt: Heute','WEITERLERNEN',
+  'Zum Bestehen sind mindestens 70 % erforderlich.',
+  'LERNEN · ETAPPE 1/5','0/3 Mini-Lektionen',
+  'Der nächste Lernschritt wird erst nach Abschluss dieser Etappe freigeschaltet.',
+  'Tagesaufgaben 0/3 · Wochenrhythmus 1/5 Tage',
+  'Einfacher Einstieg','Lernübersicht','WIEDERHOLUNGSPLAN AKTIV',
+  'AUFGABENTYPEN','WIEDERHOLUNGSPRIORITÄT','1-Tage-Serie',
+  'Nächste Serienbelohnung: nach 3 Tagen','LEKTIONSBELOHNUNG',
+  'Für diese Mini-Lektion empfehlen wir eine gezielte Wiederholung.'
+ ]);
+ assert.equal(screen.arabic,'بِسْمِ ٱللَّهِ');
+ assert.equal(screen.protected,'Eşleşen çiftleri bul');
+
  mkdirSync('qa-artifacts',{recursive:true});
  await page.screenshot({path:'qa-artifacts/german-review-public-preview.png',fullPage:true});
  assert.deepEqual(failures,[],'Unhandled review browser errors');
