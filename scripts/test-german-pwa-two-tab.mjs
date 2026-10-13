@@ -81,6 +81,12 @@ try{
  tabB=await context.newPage();
  await tabB.goto(root,{waitUntil:'domcontentloaded'});
  await tabB.waitForFunction(()=>!!navigator.serviceWorker.controller);
+ await Promise.all([tabA,tabB].map(tab=>tab.evaluate(()=>{
+  window.__deenControllerChanges=0;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+   window.__deenControllerChanges++;
+  });
+ })));
  report.oldControlledTabs=2;
  const protectedVersion=await tabA.evaluate(async({a})=>{
   const trusted=await caches.open('deen-release-verified-sha256');
@@ -120,9 +126,19 @@ try{
   const reg=await navigator.serviceWorker.getRegistration();
   return {controller:!!navigator.serviceWorker.controller,
    controllerState:navigator.serviceWorker.controller?.state,
+   controlsCurrentActive:navigator.serviceWorker.controller===reg.active,
+   changes:window.__deenControllerChanges,
    activeState:reg.active?.state,waitingState:reg.waiting?.state};
  })));
- console.log('PWA_UPGRADE_DIAGNOSTICS '+JSON.stringify({guarded,openTabStates}));
+ await new Promise(resolve=>setTimeout(resolve,250));
+ const stateAfterDelay=await observer.evaluate(async({root,a,b})=>{
+  const registration=await navigator.serviceWorker.getRegistration(root);
+  const keys=await caches.keys();
+  return {waiting:registration.waiting?.state,active:registration.active?.state,
+   oldShell:keys.includes('deen-pwa-shell-'+a),
+   newShell:keys.includes('deen-pwa-shell-'+b)};
+ },{root,a:versionA,b:versionB});
+ console.log('PWA_UPGRADE_DIAGNOSTICS '+JSON.stringify({guarded,openTabStates,stateAfterDelay}));
  assert.deepEqual(guarded,{
   waiting:'installed',active:'activated',oldShell:true,oldMedia:true,
   newShell:true,verified:true
