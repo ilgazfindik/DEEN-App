@@ -2484,6 +2484,77 @@ try{
   await offlineContext.close().catch(()=>{});
  }
 
+
+ // Stage 11: WARMED-SHELL offline test. A completely fresh install still needs
+ // network; after a successful online visit the same profile must boot offline.
+ // The worker is release-scoped, and Quran MP3s cache on actual first request.
+ report.quran_offline_pwa={version:'9408enfiveuiscreens1-ikhlasdeqa1-pwa11',
+  worker:null,media:null,offlineRange:null,offlineReload:null};
+ await page.waitForFunction(()=>!!navigator.serviceWorker?.controller,null,{timeout:35000});
+ const swReady=await page.evaluate(async()=>{
+  const reg=await navigator.serviceWorker.ready;
+  return {scope:reg.scope,script:reg.active?.scriptURL,
+   controlled:!!navigator.serviceWorker.controller};
+ });
+ assert(swReady.controlled,'Installed SW did not claim the initial app');
+ assert(swReady.script.endsWith('/sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa11'));
+ report.quran_offline_pwa.worker=swReady;
+ const warmed=await page.evaluate(async()=>{
+  const src=new URL('assets/quran/audio/ikhlas/ihlas_1.mp3',location.href);
+  const online=await fetch(src.href,{cache:'no-store'});
+  if(online.status!==200)throw Error('Online Quran MP3 preload returned '+online.status);
+  const buf=await online.arrayBuffer();
+  if(buf.byteLength<2000)throw Error('Recitation has no real audio bytes');
+  const cache=await caches.open('deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa11');
+  const saved=await cache.match(src.href);
+  return {status:online.status,bytes:buf.byteLength,cached:!!saved,
+   mime:online.headers.get('content-type'),savedStatus:saved?.status};
+ });
+ report.quran_offline_pwa.media=warmed;
+ assert.equal(warmed.cached,true,'Quran MP3 was not cached after genuine online request');
+ assert.equal(warmed.savedStatus,200,'Quran MP3 cache did not retain full audio');
+ await page.context().setOffline(true);
+ try{
+  const range=await page.evaluate(async()=>{
+   const req=new URL('assets/quran/audio/ikhlas/ihlas_1.mp3?v=offline-test',location.href);
+   const resp=await fetch(req.href,{headers:{Range:'bytes=0-127'}});
+   const buf=await resp.arrayBuffer();
+   return {status:resp.status,bytes:buf.byteLength,
+    contentRange:resp.headers.get('content-range'),
+    mime:resp.headers.get('content-type')};
+  });
+  report.quran_offline_pwa.offlineRange=range;
+  assert.equal(range.status,206,'Offline Quran playback did not honor byte Range request');
+  assert.equal(range.bytes,128,'Offline MP3 range returned wrong byte count');
+  assert(range.contentRange?.startsWith('bytes 0-127/'));
+  const response=await page.reload({waitUntil:'domcontentloaded',timeout:40000});
+  assert.equal(response?.status(),200,'Warm Quran PWA could not load shell offline');
+  await page.waitForFunction(()=>window.DEEN_APP_LOCALE?.get?.()==='de'&&
+   window.DEEN_CONTENT_LOCALE?.available?.('de')&&
+   Array.isArray(window.QUESTIONS)&&window.QUESTIONS.length===1484,
+   null,{timeout:55000});
+  const recovered=await page.evaluate(async()=>{
+   const all=await caches.keys();
+   const q=window.DEEN_QURAN_JOURNEY_V2;
+   return {locale:window.DEEN_APP_LOCALE.get(),
+    htmlLang:document.documentElement.lang,
+    controlled:!!navigator.serviceWorker.controller,
+    sourceCount:window.QUESTIONS.length,quizReady:!!q,
+    meaningLocked:!q.stats('ikhlas').meaningUnlocked,
+    releaseCache:all.some(k=>k.startsWith('deen-release-')),
+    audioCache:all.some(k=>k.startsWith('deen-pwa-ayah-'))};
+  });
+  report.quran_offline_pwa.offlineReload=recovered;
+  assert.deepEqual({locale:recovered.locale,htmlLang:recovered.htmlLang,
+   controlled:recovered.controlled,sourceCount:recovered.sourceCount,
+   quizReady:recovered.quizReady,meaningLocked:recovered.meaningLocked},
+   {locale:'de',htmlLang:'de',controlled:true,sourceCount:1484,
+    quizReady:true,meaningLocked:true},
+   'Warm offline reload did not preserve verified German Quran app');
+ }finally{
+  await page.context().setOffline(false);
+ }
+
  report.quran_fatiha.real_ayah_audio.review_approved=false;
  report.quran_fatiha.real_ayah_audio.production_release=false;
 
