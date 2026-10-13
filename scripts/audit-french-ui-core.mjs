@@ -17,7 +17,7 @@ const specs=[
 const seen=new Set(Object.keys(initial.translations));
 assert.equal(seen.size,35);
 const packSummary={};
-const placeholders=s=>[...s.matchAll(/\\{[a-zA-Z][a-zA-Z0-9_]*\\}/g)].map(m=>m[0]).sort();
+const placeholders=s=>[...s.matchAll(/\{[a-zA-Z][a-zA-Z0-9_]*\}/g)].map(m=>m[0]).sort();
 for(const spec of specs){
  const p=read('assets/i18n/fr/'+spec.file);
  assert.equal(p.schema_version,1);
