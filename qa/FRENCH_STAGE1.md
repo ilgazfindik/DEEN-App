@@ -167,3 +167,14 @@
 - CI referansı: [GitHub Actions #38476661279](https://github.com/ilgazfindik/DEEN-App/actions/runs/38476661279) (sonuç ayrı doğrulanır).
 - Bu değişiklikler **yalnız staging**: Kur’an'ın Arapça metni, kıraat ve meal verileri; eski dillerin runtime'ı; release bayrakları; canlı GitHub Pages değiştirilmedi. Önceki U13 eşleştirme kaynak hataları ve uzman incelemeleri beklemektedir.
 - Sonraki UI paketleri: premium/mağaza, ayrıntılı Kur’an ezber kontrolleri, genişletilmiş ünitelere ait kavram/başlıklar ve kalan ekranlar. Mobil/Chromium dil değiştirme ve taşma kontrolleri release öncesi zorunludur.
+
+## 2026-10-14 — Fransızca UI P03 — Premium, Kur’an kontrolleri ve sure adları
+- Bu tur, mevcut **421/1452** UI taslağına **184 benzersiz yeni Türkçe UI kaynak anahtarı** ekledi. Güncel staging: **605/1452 (%41,67)**, eksik **847**. Tamamlanan 1500/1500 temel soru taslağı korunur.
+- `assets/i18n/fr/ui.premium-shop.staging.json`: **41** (25 hedef/Premium özelliği + 10 mağaza/ödül + 6 içerik ve ödeme sınırı açıklaması). Gerçek ödeme veya abonelik eklenmedi; dinî öğrenme içeriğine paywall tanımlanmadı.
+- `assets/i18n/fr/ui.quran-navigation-game.staging.json`: **62** (46 Kur’an gezinmesi/araçları + 16 ezber oyunu/self-check uyarısı).
+- `assets/i18n/fr/ui.quran-learning-surahs.staging.json`: **81** (49 ayet öğrenme/ezber akışı ve doğrulanmamış içerik güvenlik mesajı + 32 sure adının Fransızca Latin harfli **inceleme bekleyen gösterimi**). Sure adları dinî uzman/transliterasyon editörü tarafından teyit edilmeden canlıya alınmaz.
+- Kur’an ayetlerinin Arapça aslı, kıraat sesleri, word-by-word kayıtları, mevcut Türkçe meal ve kaynak verileri **değiştirilmedi**. Fransızca meal veya telaffuz hükmü üretilmedi. Yeni metinlerin tümü staging ve hak/uzman onayı bekliyor.
+- `scripts/inventory-french-ui.mjs` artık 10 UI dosyasından benzersiz anahtar sayar, 605/1452 ve 847 eksik bekler. `scripts/audit-french-ui-premium-quran.mjs` kaynak anahtar sırası, grup sayısı, boş metin, tekrar, varsa `{token}` şablonları, sure adları onay bayrakları ve üretim korumalarını test eder.
+- CI referansı: [French localization GitHub Actions #38477167503](https://github.com/ilgazfindik/DEEN-App/actions/runs/38477167503) (sonuç ayrıca doğrulanır).
+- **Üretim kilitleri korunur:** `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`. PR #57 taslaktır, `main` ve Pages deploy değişmedi. U13 matching kaynak hataları, U01 runtime varyantları, dinamik UI, gerçek Chromium/mobil QA, Fransızca editör, dinî uzman ve lisans kontrolleri ayrıca kapanmalıdır.
+- Sonraki öncelik: 847 kalan statik UI kaynağı içinde genişletilmiş ünite başlıkları ve tekrarlama/gerçek ders ekranları; dinamik sayılar, çoğul ve mobil metin sızıntısı taraması.
