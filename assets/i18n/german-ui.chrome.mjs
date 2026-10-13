@@ -48,6 +48,42 @@ const EXACT=Object.freeze({
  'Ayet':'Vers',
  'Bugün':'Heute'
 });
+
+// Source-identified learning-memory metadata. These source labels are rendered
+// in .v640-weak-row and .v640-unit-card, never in answer/verse surfaces.
+const REVIEW_UNITS=Object.freeze({
+ 'İslam Nedir?':'Was ist der Islam?',
+ "Allah'a İman":'Glaube an Allah',
+ 'Allah’a İman':'Glaube an Allah',
+ 'Kelime-i Şehadet':'Schahāda',
+ "İslam'ın Beş Şartı":'Die fünf Säulen des Islam',
+ 'İslam’ın Beş Şartı':'Die fünf Säulen des Islam',
+ 'İmanın Esaslarına Giriş':'Einführung in die Glaubensgrundlagen',
+ 'Meleklere İman':'Glaube an die Engel',
+ 'Kitaplara İman':'Glaube an die offenbarten Bücher',
+ 'Peygamberlere İman':'Glaube an die Propheten',
+ 'Ahiret Gününe İman':'Glaube an den Jüngsten Tag',
+ 'Kader ve Kazaya İman':'Glaube an die Vorherbestimmung',
+ 'İbadet Bilinci':'Bewusstsein für die Anbetung',
+ 'Temizlik ve Abdest':'Reinheit und Gebetswaschung',
+ 'Namaza Hazırlık':'Vorbereitung auf das Gebet',
+ 'Namazın Yapısı':'Aufbau des Gebets',
+ 'Oruç ve Ramazan':'Fasten und Ramadan'
+});
+const PRIORITY=Object.freeze({'Öncelikli':'Hohe Priorität',
+ 'Gelişiyor':'In Entwicklung','Dengeli':'Ausgeglichen'});
+const MEMORY_TOPICS=Object.freeze({
+ 'Öğüt bütünlük':'Aufrichtigkeit und Integrität',
+ 'Öğüt bütünlüğü':'Aufrichtigkeit und Integrität',
+ 'Kavramları eşleştirme':'Begriffe zuordnen',
+ 'Kavramların eşleşmesi':'Begriffe zuordnen',
+ 'Temel kavramlar':'Grundbegriffe',
+ 'Günlük hayatta ahlak':'Moral im Alltag',
+ 'Kavramların temel dörtlüsü':'Vier grundlegende Begriffe',
+ "Allah'a iman tanımı":'Definition des Glaubens an Allah',
+ 'Allah’a iman tanımı':'Definition des Glaubens an Allah'
+});
+
 const trim=v=>String(v??'').trim();
 export function translateGermanChrome(input){
  if(typeof input!=='string')return null;
@@ -56,6 +92,23 @@ export function translateGermanChrome(input){
  const emit=replacement=>input.replace(text,replacement);
  if(Object.hasOwn(EXACT,text)&&text!=='Sonraki seri ödülü: 3 gün')return emit(EXACT[text]);
  let m;
+
+ // The v6.4 unit mastery widget emits all three counters in one text node.
+ // Preserve counts verbatim and inflect "Begriff" only for the learned count.
+ if((m=/^(\d+)\s+öğrenilmiş kavram\s*·\s*(\d+)\s+güçlendirilecek\s*·\s*(\d+)\s+vadesi gelen$/.exec(text)))
+  return emit(m[1]+' '+(m[1]==='1'?'Begriff':'Begriffe')+' gelernt · '+
+   m[2]+' zu festigen · '+m[3]+' fällige Wiederholungen');
+ // Only named learning units and known urgency states can enter this branch.
+ if((m=/^(.+?)\s*·\s*(Öncelikli|Gelişiyor|Dengeli)(?:\s*·\s*(\d+)\s+tekrar bekliyor)?$/.exec(text))){
+  const unit=REVIEW_UNITS[m[1]];
+  if(!unit)return null;
+  return emit(unit+' · '+PRIORITY[m[2]]+(m[3]?' · '+m[3]+' Wiederholungen fällig':''));
+ }
+ // Topic chips are app metadata (not answer content); percent 0..100 only.
+ if((m=/^(.+?)\s*·\s*%?\s*(\d{1,3})\s*%?$/.exec(text))){
+  const title=MEMORY_TOPICS[m[1]];
+  if(title&&Number(m[2])<=100)return emit(title+' · '+Number(m[2])+' %');
+ }
  // UI metadata only. Do not infer or translate question bodies or options.
  // All patterns anchor the ENTIRE rendered label and preserve all counts.
  if((m=/^(Allah['’]a iman tanımı|Günlük hayatta ahlak|Öğüt bütünlük|Kavramların temel dörtlüsü)\s*[·:]\s*%?\s*(\d{1,3})\s*%?$/.exec(text))){
