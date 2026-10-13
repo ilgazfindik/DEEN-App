@@ -2850,8 +2850,20 @@ try{
  report.quran_offline_pwa.offlineMissingAssetWarnings={
   count:offlineAssetWarnings.length,
   samples:[...new Set(offlineAssetWarnings)].map(x=>x.slice(0,260)).slice(0,5)};
+ // Four intentionally invalid HTTP Range requests above must generate
+ // 416 network diagnostics. Accept only the exact known Chromium message
+ // and ONLY when a matching 416 response was confirmed in the test.
+ const edgeCases=report.quran_offline_pwa?.multiAyahAndEviction?.rangeEdges||[];
+ const expected416=edgeCases.filter(x=>x.status===416).length;
+ const intentional416Text='console:Failed to load resource: the server responded with a status of 416 ()';
+ const actual416=newErrors.filter(x=>x===intentional416Text).length;
+ assert.equal(actual416,expected416,
+  'Unexpected 416 count: every rejection must map to an intentionally invalid Range request');
+ report.quran_offline_pwa.multiAyahAndEviction.rangeConsoleWarnings={
+  expected:expected416,observed:actual416};
  const unexpectedErrors=newErrors.filter(line=>!line.startsWith(knownDiagnosticPrefix)&&
-  !expectedOfflineAsset(line));
+  !expectedOfflineAsset(line)&&
+  !(line===intentional416Text&&expected416>0));
  report.complete_stage.browserErrors=newErrors;
  report.complete_stage.transientQAWarnings={
   count:newFillWarnings.length,consoleCount:fillMessages.length,
