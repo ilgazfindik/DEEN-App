@@ -6,6 +6,39 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const manifest=JSON.parse(readFileSync(root+'assets/i18n/content-support.json','utf8'));
 assert.equal(manifest.languages.de.question_data,'missing','German lessons must remain blocked');
 assert.equal(manifest.languages.de.global_qa,'blocked','German release must remain blocked');
+const fatihaLearningCases=[
+ ['Fâtiha Suresi','Sure Fâtiha'],
+ ['Fâtiha · Ayet 1/7','Fâtiha · Vers 1/7'],
+ ['Fâtiha · Ayet 7/7','Fâtiha · Vers 7/7'],
+ ['Ayet 1 / 7','Vers 1 / 7'],
+ ['Ayet 7 / 7','Vers 7 / 7'],
+ ['1 · DİNLE','1 · ANHÖREN'],
+ ['2 · OKU','2 · LESEN'],
+ ['3 · ANLAM','3 · BEDEUTUNG'],
+ ['4 · HATIRLA','4 · ERINNERN'],
+ ['5 · TAMAMLA','5 · ABSCHLIESSEN'],
+ ['Metni gözünle takip et','Lies den Vers aufmerksam mit'],
+ ['Yalnız kaynaklı meal gösterilir.','Es werden nur Übersetzungen mit Quellenangabe angezeigt.'],
+ ['Önce zihninden söyle, sonra kontrol et.','Sage den Vers zuerst aus dem Gedächtnis auf und überprüfe ihn danach.'],
+ ['Kıraat yalnız hakları temizlenmiş kayıt bağlanırsa oynatılır.','Die Rezitation wird nur abgespielt, wenn eine Aufnahme mit geklärten Nutzungsrechten verfügbar ist.'],
+ ['Fâtiha 1. ayeti hatırla','Erinnere dich an Vers 1 der Sure Fâtiha'],
+ ['AYETİ GÖSTER','VERS ANZEIGEN'],
+ ['AYETİ TAMAMLA','VERS ABSCHLIESSEN'],
+ ['Ayet 1 sesini dinle','Vers 1 anhören'],
+ ['Ayet sesini duraklat','Verswiedergabe pausieren'],
+ ['Hoparlöre dokun: Ayet 2 kaydını dinle.','Tippe auf den Lautsprecher, um Vers 2 anzuhören.'],
+ ['Ayet 2 dinleniyor…','Vers 2 wird abgespielt…'],
+ ['Ayet sesi duraklatıldı.','Verswiedergabe pausiert.']
+];
+for(const [source,german] of fatihaLearningCases){
+ assert.equal(fmt(source),german,'Fatiha UI: '+source);
+ assert.equal(fmt('  '+source+'  '),'  '+german+'  ','Fatiha whitespace: '+source);
+}
+for(const source of ['Fâtiha · Ayet 8/7','Fâtiha 8. ayeti hatırla',
+ 'Hoparlöre dokun: Ayet 9 kaydını dinle.','Ayet 88 sesini dinle']){
+ assert.equal(fmt(source),null,'Unverified Quran UI interpolation must fail closed: '+source);
+}
+
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
