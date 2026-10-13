@@ -154,6 +154,12 @@ for(const [turkish,german,count] of remainingQuranSurahs){
   'Source-safe remaining surah title '+turkish);
  assert.equal(fmt(turkish+' Ezberi'),german+' auswendig lernen',
   'Source-safe memorize title '+turkish);
+ assert.equal(fmt(turkish+' · Ayah Test'),german+' · Verstest',
+  'Stage 9 Quran outcome title '+turkish);
+ assert.equal(fmt(turkish+' · Ayah Test · Review'),german+' · Verstest · Wiederholung',
+  'Stage 9 Quran practice title '+turkish);
+ assert.equal(fmt(turkish+' · Ayet Testi'),german+' · Verstest',
+  'Stage 9 native Turkish fallback title '+turkish);
  assert.equal(fmt(turkish+' · 1 / 5'),german+' · 1 / 5',
   'Source-safe quiz question progress '+turkish);
  assert.equal(fmt(turkish+' · 5 / 5'),german+' · 5 / 5',
