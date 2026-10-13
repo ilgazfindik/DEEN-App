@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U05",
+  "stage": "U05-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U05-S04-001": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın şartlarından biri olup, imanın esaslarından değildir?",
+        "explanation_tr": "Namaz kılmak pratik bir ibadet olarak İslam'ın şartlarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz kılmak",
+          "Meleklere iman",
+          "Ahirete iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Lequel de ces éléments est un pilier de l’islam et non un article de la foi ?",
+        "explanation_tr": "La prière est une pratique d’adoration qui relève des cinq piliers de l’islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Accomplir la prière",
+          "Croire aux anges",
+          "Croire au Jour dernier",
+          "Croire au destin"
+        ],
+        "correct_answer": "Accomplir la prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-002": {
+      "source": {
+        "question_tr": "Oruç tutmak, İslam'ın şartları kategorisindedir.",
+        "explanation_tr": "Oruç, İslam'ın beş şartından biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Observer le jeûne appartient à la catégorie des cinq piliers de l’islam.",
+        "explanation_tr": "Le jeûne est l’un des cinq piliers de l’islam.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-003": {
+      "source": {
+        "question_tr": "İfadeleri doğru sınıflandırmayla eşleştirin.",
+        "explanation_tr": "İnanç esasları (kalple tasdik) ile ibadetler (beden ve malla yapılan) birbirinden ayrılır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hacca gitmek",
+            "right": "İslam'ın Şartı"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın Esası"
+          },
+          {
+            "left": "Zekât vermek",
+            "right": "İslam'ın Şartı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe chaque expression à la bonne catégorie.",
+        "explanation_tr": "Les croyances fondamentales et les pratiques d’adoration appartiennent à des catégories distinctes.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Effectuer le hajj",
+            "right": "Pilier de l’islam"
+          },
+          {
+            "left": "Croire au Jour dernier",
+            "right": "Article de la foi"
+          },
+          {
+            "left": "Verser la zakat",
+            "right": "Pilier de l’islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-004": {
+      "source": {
+        "question_tr": "Bir listede 'Meleklere iman' doğru biçimde yer alıyor. Aynı listeye eklenen 'Namaz kılmak' ise imanın esası değil, İslam'ın ______ olarak sınıflandırılmalıdır.",
+        "explanation_tr": "Namaz, imanın esaslarından değil İslam'ın beş şartından biridir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "şartı",
+          "iman esası",
+          "kitabı",
+          "peygamberi"
+        ],
+        "correct_answer": "şartı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi aux anges figure dans une liste. On y ajoute « accomplir la prière », qui ne relève pas des articles de la foi mais des ______ de l’islam.",
+        "explanation_tr": "La prière est l’un des cinq piliers de l’islam, et non un article de la foi.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "piliers",
+          "articles de la foi",
+          "Livres",
+          "prophètes"
+        ],
+        "correct_answer": "piliers",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-005": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İmanın Esasları kategorisindedir?",
+        "explanation_tr": "Diğer üç seçenek İslam'ın (ibadet) şartlarıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman",
+          "Hacca gitmek",
+          "Namaz kılmak",
+          "Oruç tutmak"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Lequel de ces éléments relève des articles de la foi ?",
+        "explanation_tr": "Les trois autres choix sont des piliers pratiques de l’islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Croire aux Livres révélés",
+          "Effectuer le hajj",
+          "Accomplir la prière",
+          "Observer le jeûne"
+        ],
+        "correct_answer": "Croire aux Livres révélés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-006": {
+      "source": {
+        "question_tr": "Ali, din kültürü dersinde 'Kalpten inandığımız temel esaslar' sütununa 'Zekât vermek' yazmıştır. Öğretmeni bunun yanlış olduğunu söylüyor. Sizce 'Zekât vermek' hangi sütuna yazılmalıydı?",
+        "explanation_tr": "Zekât vermek, kalpten inancın yanında fiziki/mali bir ibadet olup İslam'ın şartıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İslam'ın Şartları (İbadetler)",
+          "İmanın Esasları (İnanç)",
+          "İhlâs",
+          "Kader"
+        ],
+        "correct_answer": "İslam'ın Şartları (İbadetler)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ali a écrit « verser la zakat » dans la colonne des croyances fondamentales approuvées par le cœur. Dans quelle catégorie aurait-il dû placer cette action ?",
+        "explanation_tr": "Le versement de la zakat est une pratique d’adoration financière qui relève des piliers de l’islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Piliers de l’islam (pratiques d’adoration)",
+          "Articles de la foi (croyances)",
+          "Sourate Al-Ikhlas",
+          "Prédestination"
+        ],
+        "correct_answer": "Piliers de l’islam (pratiques d’adoration)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-007": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın Şartları grubuna ait değildir?",
+        "explanation_tr": "Peygamberlere iman, İslam'ın şartı değil İmanın esasıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Zekât vermek",
+          "Kelime-i Şehadet getirmek",
+          "Namaz kılmak"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel élément ne fait pas partie des cinq piliers de l’islam ?",
+        "explanation_tr": "Croire aux prophètes est un article de la foi, et non un pilier de l’islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Croire aux prophètes",
+          "Verser la zakat",
+          "Prononcer la chahada",
+          "Accomplir la prière"
+        ],
+        "correct_answer": "Croire aux prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-008": {
+      "source": {
+        "question_tr": "Tabloda bir hata var:\n1. Allah'a iman (İman esası)\n2. Kadere iman (İman esası)\n3. Oruç tutmak (İman esası)\nHatalı olan numara hangisidir?",
+        "explanation_tr": "Oruç tutmak imanın esası değil, İslam'ın şartıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "3. Oruç tutmak (İman esası)",
+          "1. Allah'a iman (İman esası)",
+          "2. Kadere iman (İman esası)",
+          "Tabloda hata yoktur."
+        ],
+        "correct_answer": "3. Oruç tutmak (İman esası)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Repère l’erreur dans le tableau :\n1. Foi en Allah (article de la foi)\n2. Foi au destin (article de la foi)\n3. Jeûne (article de la foi)\nQuel numéro est incorrect ?",
+        "explanation_tr": "Le jeûne est un pilier de l’islam, et non un article de la foi.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "3. Jeûne (article de la foi)",
+          "1. Foi en Allah (article de la foi)",
+          "2. Foi au destin (article de la foi)",
+          "Le tableau ne contient aucune erreur"
+        ],
+        "correct_answer": "3. Jeûne (article de la foi)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-009": {
+      "source": {
+        "question_tr": "İlgili alanları eşleştirin.",
+        "explanation_tr": "İslam'ın şartları ameli, imanın şartları itikadi (inanç) konularıdır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Meleklere iman",
+            "right": "İmanın Esası"
+          },
+          {
+            "left": "Oruç tutmak",
+            "right": "İslam'ın Şartı"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın Esası"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les expressions à leur catégorie.",
+        "explanation_tr": "Les piliers concernent les pratiques de culte, les articles de la foi les croyances.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Croire aux anges",
+            "right": "Article de la foi"
+          },
+          {
+            "left": "Observer le jeûne",
+            "right": "Pilier de l’islam"
+          },
+          {
+            "left": "Croire au Jour dernier",
+            "right": "Article de la foi"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-010": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet, İslam'ın beş ______ arasında yer alır.",
+        "explanation_tr": "Kelime-i Şehadet, İslam'ın beş şartından biridir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "şartı",
+          "iman esası",
+          "ahlak kuralı",
+          "tarih konusu"
+        ],
+        "correct_answer": "şartı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La chahada figure parmi les cinq ______ de l’islam.",
+        "explanation_tr": "La chahada fait partie des cinq piliers de l’islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "piliers",
+          "articles de la foi",
+          "règles de conduite",
+          "sujets d’histoire"
+        ],
+        "correct_answer": "piliers",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-011": {
+      "source": {
+        "question_tr": "Pano hazırlayan Ayşe, 'İslam'ın Şartları' başlığı altına şunları yazdı:\n- Namaz kılmak\n- Oruç tutmak\n- Peygamberlere iman\n- Zekât vermek\nAyşe'nin tablosunda hangi madde yanlıştır?",
+        "explanation_tr": "Peygamberlere iman, İslam'ın şartı değil imanın esasıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Namaz kılmak",
+          "Oruç tutmak",
+          "Zekât vermek"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ayşe prépare une affiche intitulée « Les cinq piliers de l’islam » :\n- Prière\n- Jeûne\n- Foi aux prophètes\n- Zakat\nQuel élément est mal classé ?",
+        "explanation_tr": "La foi aux prophètes est un article de la foi, et non un pilier de l’islam.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "La foi aux prophètes",
+          "La prière",
+          "Le jeûne",
+          "La zakat"
+        ],
+        "correct_answer": "La foi aux prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-012": {
+      "source": {
+        "question_tr": "Kitaplara iman, imanın esasları kategorisindedir.",
+        "explanation_tr": "Kitaplara iman, imanın altı esasından biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire aux Livres révélés appartient aux articles de la foi.",
+        "explanation_tr": "La foi aux Livres révélés est l’un des six articles de la foi.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-013": {
+      "source": {
+        "question_tr": "Eylemleri/İnançları kategorileriyle eşleştirin.",
+        "explanation_tr": "Temel inançlar iman, ibadetler İslam'ın şartlarındandır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Namaz kılmak",
+            "right": "İslam'ın Şartı"
+          },
+          {
+            "left": "Allah'a iman",
+            "right": "İmanın Esası"
+          },
+          {
+            "left": "Kadere iman",
+            "right": "İmanın Esası"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les croyances et les actes à leurs catégories.",
+        "explanation_tr": "Les croyances fondamentales relèvent des articles de la foi et les pratiques de culte des piliers de l’islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Accomplir la prière",
+            "right": "Pilier de l’islam"
+          },
+          {
+            "left": "Croire en Allah",
+            "right": "Article de la foi"
+          },
+          {
+            "left": "Croire au destin",
+            "right": "Article de la foi"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-014": {
+      "source": {
+        "question_tr": "İslam'ın şartları ile imanın esasları eşleştirmelerinden hangisi yanlıştır?",
+        "explanation_tr": "Zekât vermek İslam'ın şartıdır, imanın esası değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek - İmanın Esası",
+          "Ahirete iman - İmanın Esası",
+          "Hacca gitmek - İslam'ın Şartı",
+          "Meleklere iman - İmanın Esası"
+        ],
+        "correct_answer": "Zekât vermek - İmanın Esası",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle association des piliers de l’islam et des articles de la foi est incorrecte ?",
+        "explanation_tr": "Verser la zakat est un pilier de l’islam, et non un article de la foi.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Verser la zakat — article de la foi",
+          "Croire au Jour dernier — article de la foi",
+          "Effectuer le hajj — pilier de l’islam",
+          "Croire aux anges — article de la foi"
+        ],
+        "correct_answer": "Verser la zakat — article de la foi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-015": {
+      "source": {
+        "question_tr": "Ömer dedesine sorar: 'Dede, Ramazan ayında tuttuğumuz oruç imanın esası mıdır?' Dedesi ne cevap vermelidir?",
+        "explanation_tr": "Oruç bedeni bir ibadet olup İslam'ın beş şartından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır, oruç tutmak İslam'ın şartlarından biridir.",
+          "Evet, imanın altı esasından biridir.",
+          "Oruç hem imanın esası hem İslam'ın şartıdır.",
+          "Oruç inançla ilgilidir, ibadet değildir."
+        ],
+        "correct_answer": "Hayır, oruç tutmak İslam'ın şartlarından biridir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ömer demande à son grand-père : « Le jeûne du Ramadan est-il un article de la foi ? » Quelle devrait être sa réponse ?",
+        "explanation_tr": "Le jeûne est une pratique d’adoration et l’un des cinq piliers de l’islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Non, le jeûne est l’un des cinq piliers de l’islam",
+          "Oui, il est l’un des six articles de la foi",
+          "Le jeûne est à la fois un pilier et un article de la foi",
+          "Le jeûne ne concerne que la croyance et non l’adoration"
+        ],
+        "correct_answer": "Non, le jeûne est l’un des cinq piliers de l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S04-016": {
+      "source": {
+        "question_tr": "Hangi seçenekteki her iki ifade de 'İmanın Esasları'ndandır?",
+        "explanation_tr": "Diğer seçeneklerde en az bir tane İslam'ın şartı bulunmaktadır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman - Kadere iman",
+          "Namaz kılmak - Ahirete iman",
+          "Oruç tutmak - Zekât vermek",
+          "Meleklere iman - Hacca gitmek"
+        ],
+        "correct_answer": "Kitaplara iman - Kadere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle paire contient deux articles de la foi ?",
+        "explanation_tr": "Chacune des autres paires contient au moins un pilier de l’islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Croire aux Livres révélés — croire au destin",
+          "Accomplir la prière — croire au Jour dernier",
+          "Observer le jeûne — verser la zakat",
+          "Croire aux anges — effectuer le hajj"
+        ],
+        "correct_answer": "Croire aux Livres révélés — croire au destin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer foi et pratique",
+        "topic": "Articles de la foi et piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
