@@ -26,7 +26,7 @@ const cases=[
  ['1 günlük seri','1 Tag in Folge'],
  ['Sonraki seri ödülü: 3 gün','Nächste Serienbelohnung: in 3 Tagen'],
 
- ['Allah'a iman tanımı · %43','Definition des Glaubens an Allah · 43 %'],
+ ["Allah'a iman tanımı · %43",'Definition des Glaubens an Allah · 43 %'],
  ['Allah’a iman tanımı · %43','Definition des Glaubens an Allah · 43 %'],
  ['Günlük hayatta ahlak · %45','Moral im Alltag · 45 %'],
  ['Öğüt bütünlük · %45','Aufrichtigkeit und Integrität · 45 %'],
