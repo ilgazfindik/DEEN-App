@@ -78,6 +78,30 @@ assert.equal(adapter.translateQuestion(unknown,'fr'),null,'Unknown French source
 assert.equal(read('assets/i18n/content-support.json'),originalManifestHash,
  'No production manifest file should ever change');
 
+// Negative-path checks: a normal manifest MUST still block French, and modified
+// QA fixture bytes MUST be rejected by the real content hash checker.
+function freshAdapter(manifest,overrideFetch){
+ const w={__DEEN_CONTENT_MANIFEST__:manifest,__DEEN_DEPLOY_ID__:'isolated-fr-qa',
+  DEEN_BASE_QUESTIONS:baseQuestions,DEEN_APP_LOCALE:{get:()=> 'fr'},DEEN_BOOT:{progress:()=>{}}};
+ const context={window:w,QUESTIONS:built.active,fetch:overrideFetch,
+  crypto:webcrypto,TextEncoder,console:{log(){},error(){}}};
+ createContext(context);
+ runInContext(read('assets/i18n/content.js'),context);
+ return w.DEEN_CONTENT_LOCALE;
+}
+const blockedAdapter=freshAdapter(production,async()=>{throw Error('Blocked language tried fetching files');});
+assert.equal(blockedAdapter.available('fr'),false,'Production French release gate was bypassed');
+assert.equal(await blockedAdapter.preload('fr'),false,'Production French packs must stay unavailable');
+let tampered=false;
+const invalidAdapter=freshAdapter(built.manifest,async url=>{
+ const path=String(url).split('?')[0],body=built.content.get(path);
+ if(!tampered){tampered=true;return {ok:true,text:async()=>body+' '};}
+ return {ok:!!body,text:async()=>body??''};
+});
+assert.equal(await invalidAdapter.preload('fr'),false,'Changed QA pack must fail checksum');
+assert(tampered);
+assert.equal(read('assets/i18n/content-support.json'),originalManifestHash);
+
 function uiVm(hostname,flag){
  const rootNode={nodes:[],elements:[],querySelectorAll(){return this.elements;}};
  const document={body:rootNode,createTreeWalker(node){let i=0;return {nextNode:()=>node.nodes[i++]||null};}};
@@ -133,5 +157,5 @@ console.log(JSON.stringify({
  stagedStaticUI:1452,dynamicPatternInputs:9,pluralAndStaticCases:cases.length,
  uiDomRoundTrip:true,quranArabicOriginalProtected:true,
  u13DistinctVisibleMatching:true,productionUnlocked:false,
- actualBrowserGameplayTested:false
+ actualBrowserGameplayTested:false,productionGateNegativeTest:true,tamperedPackRejected:true
 },null,2));
