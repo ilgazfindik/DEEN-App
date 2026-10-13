@@ -196,6 +196,28 @@ for(const src of ['6. question · Ayah 8','5. question · Ayah 9',
  '6. soru · Ayet 8','5. soru · Ayet 9'])
  assert.equal(fmt(src),null,'Out-of-registry quiz-row index rejected');
 
+
+const stage10FourSuras=[
+ ['İhlâs','Al-Ichlās'],['Felak','Al-Falaq'],
+ ['Nasr','An-Nasr'],['Beyyine','Al-Bayyina']
+];
+for(const [source,german] of stage10FourSuras){
+ for(const prefix of ['Ayah Test','Ayet Testi']){
+  assert.equal(fmt(source+' · '+prefix),german+' · Verstest',
+   'Stage 10 results title '+source);
+  assert.equal(fmt(source+' · '+prefix+' · Tekrar'),
+   german+' · Verstest · Wiederholung','Stage 10 mistake result '+source);
+ }
+ for(let total=1;total<=5;total++){
+  for(let i=1;i<=total;i++){
+   assert.equal(fmt(source+' · '+i+' / '+total),german+' · '+i+' / '+total,
+    'Stage 10 graded/practice question counter '+source);
+  }
+ }
+ assert.equal(fmt(source+' · 5 / 4'),null,'Stage 10 index overflow');
+ assert.equal(fmt(source+' · 6 / 5'),null,'Stage 10 quiz cap');
+}
+
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
