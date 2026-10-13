@@ -2247,6 +2247,228 @@ try{
  fullSurahs.persistence={locale:persistence.locale,surahs:persistence.entries.length,
   attemptsPreserved:true,bestPreserved:true,meaningAndFinalGated:true};
 
+
+ // STAGE 10: Complete all five graded Arabic Ayah Test questions in the four
+ // separately verified Quran surahs (Ikhlas, Falaq, Nasr, Bayyina).
+ // Rebuild the source-guarded UI renderer after the Stage 9 reload.
+ report.quran_four_full_quizzes={
+  surahs:[],graded:0,wrongReview:0,offlineColdStart:null,offlineAudioCache:null,persistence:null};
+ const fourSurahs=report.quran_four_full_quizzes;
+ await page.evaluate(async()=>{
+  const files=['german-ui.staging.json','german-ui.lesson-flow.staging.json',
+   'german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
+   ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+String(i+1).padStart(2,'0')+'.staging.json'),
+   'german-ui.real-lesson.staging.json'];
+  const load=async f=>{const r=await fetch('/assets/i18n/'+f,{cache:'no-store'});
+   if(!r.ok)throw Error('Missing German staging UI pack '+f);return r.json()};
+  const [packs,english]=await Promise.all([Promise.all(files.map(load)),load('english-ui.draft.json')]);
+  const {createGermanUIStagingRenderer}=await import('/assets/i18n/german-ui.renderer.staging.mjs');
+  window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__=createGermanUIStagingRenderer(
+   {packs,englishReference:english.translations});
+ });
+ const stage10Sources=[['ikhlas',4],['falaq',5],['nasr',3],['bayyina',8]];
+ for(const [id,count] of stage10Sources){
+  const before=await page.evaluate(id=>{
+   const j=window.DEEN_QURAN_JOURNEY_V2;
+   if(!j.open(id))throw Error('Cannot enter Quran Journey for '+id);
+   const s=j.stats(id);
+   return {learned:s.learned,attempts:s.state.ayah.attempts,
+    best:s.state.ayah.best,meaningUnlocked:s.meaningUnlocked,
+    finalUnlocked:s.finalUnlocked,mealReady:j.mealReady(id)};
+  },id);
+  assert.equal(before.mealReady,false,'Unreviewed German Quran meaning available for '+id);
+  assert.equal(before.meaningUnlocked,false);
+  assert.equal(before.finalUnlocked,false);
+  await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',{timeout:15000});
+  const rows=page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage');
+  assert.equal(await rows.nth(2).locator('button').isDisabled(),false);
+  assert.equal(await rows.nth(3).locator('button').isDisabled(),true);
+  assert.equal(await rows.nth(4).locator('button').isDisabled(),true);
+  await rows.nth(2).locator('button').click({timeout:15000});
+  await page.waitForSelector('#v5Sheet[open] .deen-qj2-quiz[data-quiz-stage="ayah"]',{timeout:15000});
+  const record={id,count,questions:[],before,result:null,review:null};
+  for(let index=0;index<5;index++){
+   const original=await page.evaluate(()=>{
+    const root=document.querySelector('#v5Sheet[open] .deen-qj2-quiz[data-quiz-stage="ayah"]'),
+      dialog=document.querySelector('#v5Sheet[open]');
+    const oldArabic=[...root.querySelectorAll('[lang="ar"]')].map(e=>e.textContent);
+    const oldOpts=[...root.querySelectorAll('.deen-qj2-option')].map(e=>e.outerHTML);
+    const scan=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+      dialog,{qaMode:true,locale:'de',documentRef:document});
+    const q=window.DEEN_QURAN_JOURNEY_V2.quizSnapshot();
+    return {unresolved:scan.unresolved,index:q.index,answered:q.answered,
+     stage:q.stage,options:root.querySelectorAll('.deen-qj2-option').length,
+     action:root.querySelector('.deen-qj2-next')?.textContent?.trim(),
+     arabicSame:JSON.stringify(oldArabic)===
+      JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(e=>e.textContent)),
+     optionsSame:JSON.stringify(oldOpts)===
+      JSON.stringify([...root.querySelectorAll('.deen-qj2-option')].map(e=>e.outerHTML)),
+     meaningLocked:!window.DEEN_QURAN_JOURNEY_V2.stats(q.surah).meaningUnlocked};
+   });
+   assert.deepEqual(original.unresolved,[],'German full quiz UI untranslated '+id+':'+index);
+   assert.equal(original.index,index,'Wrong Quran quiz order '+id+':'+index);
+   assert.equal(original.answered,false);
+   assert.equal(original.stage,'ayah');
+   assert.equal(original.action,'PRÜFEN');
+   assert(original.options>=2);
+   assert.equal(original.arabicSame,true);
+   assert.equal(original.optionsSame,true);
+   assert.equal(original.meaningLocked,true);
+   await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-option').first()
+    .click({timeout:15000});
+   await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next')
+    .click({timeout:15000});
+   const graded=await page.evaluate(()=>{
+    const j=window.DEEN_QURAN_JOURNEY_V2,q=j.quizSnapshot();
+    const root=document.querySelector('#v5Sheet[open] .deen-qj2-quiz');
+    return {answers:q.answers,answered:q.answered,wrong:q.wrong,
+     correct:!!root?.querySelector('.deen-qj2-feedback.good'),
+     incorrect:!!root?.querySelector('.deen-qj2-feedback.bad'),
+     meaningUnlocked:j.stats(q.surah).meaningUnlocked};
+   });
+   assert.equal(graded.answers,index+1,'Native grader lost question '+id+':'+index);
+   assert.equal(graded.answered,true);
+   assert(graded.correct||graded.incorrect,'Missing feedback '+id+':'+index);
+   assert.equal(graded.meaningUnlocked,false);
+   record.questions.push({index,correct:graded.correct,incorrect:graded.incorrect});
+   fourSurahs.graded++;
+   if(index<4)await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next')
+    .click({timeout:15000});
+  }
+  await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next')
+   .click({timeout:15000});
+  await page.waitForSelector('#v5Sheet[open] .deen-qj2-quiz[data-qj2-result-v2="1"]',{timeout:15000});
+  const done=await page.evaluate(id=>{
+   const dialog=document.querySelector('#v5Sheet[open]'),
+     root=dialog.querySelector('.deen-qj2-quiz[data-qj2-result-v2="1"]');
+   const source=[...root.querySelectorAll('[lang="ar"]')].map(e=>e.textContent);
+   const scan=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(dialog,
+    {qaMode:true,locale:'de',documentRef:document});
+   const j=window.DEEN_QURAN_JOURNEY_V2,q=j.quizSnapshot(),stats=j.stats(id);
+   return {unresolved:scan.unresolved,answers:q.answers,wrong:q.wrong,
+    result:q.result,attempts:stats.state.ayah.attempts,best:stats.state.ayah.best,
+    meaningUnlocked:stats.meaningUnlocked,finalUnlocked:stats.finalUnlocked,
+    heading:root.querySelector('.deen-qj2-summary-top')?.textContent?.trim(),
+    buttons:[...root.querySelectorAll('.deen-qj2-result-actions button')]
+      .map(e=>e.textContent.trim()),
+    arabicSame:JSON.stringify(source)===
+     JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(e=>e.textContent))};
+  },id);
+  record.result=done;
+  assert.deepEqual(done.unresolved,[],'German result residual '+id);
+  assert.equal(done.answers,5);
+  assert.equal(done.result?.stage,'ayah');
+  assert.equal(done.result?.practice,false);
+  assert.equal(done.attempts,before.attempts+1);
+  assert.equal(done.best,Math.max(before.best,done.result.score));
+  assert.equal(done.meaningUnlocked,false);
+  assert.equal(done.finalUnlocked,false);
+  assert.equal(done.arabicSame,true);
+  if(done.wrong>0){
+   const practice=page.locator('#v5Sheet[open] .deen-qj2-result-actions button')
+    .filter({hasText:/FEHLER WIEDERHOLEN|REVIEW MISTAKES/});
+   assert.equal(await practice.count(),1,'No wrong-answer practice CTA for '+id);
+   await practice.click({timeout:15000});
+   await page.waitForSelector('#v5Sheet[open] .deen-qj2-quiz[data-quiz-stage="ayah"]',{timeout:15000});
+   for(let i=0;i<done.wrong;i++){
+    const card=await page.evaluate(()=>{
+     const q=window.DEEN_QURAN_JOURNEY_V2.quizSnapshot();
+     const scan=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+      document.querySelector('#v5Sheet[open]'),{qaMode:true,locale:'de',documentRef:document});
+     const btn=document.querySelector('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next');
+     return {index:q.index,practice:q.practice,unresolved:scan.unresolved,
+      action:btn?.textContent?.trim()};
+    });
+    assert.deepEqual(card.unresolved,[],'German review residual '+id+':'+i);
+    assert.equal(card.index,i);
+    assert.equal(card.practice,true);
+    assert.equal(card.action,'PRÜFEN');
+    await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-option').first()
+     .click({timeout:15000});
+    await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next')
+     .click({timeout:15000});
+    assert.equal((await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.quizSnapshot())).answers,i+1);
+    fourSurahs.wrongReview++;
+    if(i<done.wrong-1)await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next')
+     .click({timeout:15000});
+   }
+   await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next')
+    .click({timeout:15000});
+   await page.waitForSelector('#v5Sheet[open] .deen-qj2-quiz[data-qj2-result-v2="1"][data-practice="1"]',
+    {timeout:15000});
+   record.review=await page.evaluate(id=>{
+    const j=window.DEEN_QURAN_JOURNEY_V2,stats=j.stats(id),q=j.quizSnapshot();
+    const scan=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+     document.querySelector('#v5Sheet[open]'),{qaMode:true,locale:'de',documentRef:document});
+    return {unresolved:scan.unresolved,practice:q.practice,
+     resultPractice:q.result?.practice,attempts:stats.state.ayah.attempts,
+     best:stats.state.ayah.best,meaningUnlocked:stats.meaningUnlocked,
+     finalUnlocked:stats.finalUnlocked};
+   },id);
+   assert.deepEqual(record.review.unresolved,[],'German practice result residual '+id);
+   assert.equal(record.review.practice,true);
+   assert.equal(record.review.resultPractice,true);
+   assert.equal(record.review.attempts,done.attempts,'Practice inflated attempts '+id);
+   assert.equal(record.review.best,done.best,'Practice mutated best score '+id);
+   assert.equal(record.review.meaningUnlocked,false);
+   assert.equal(record.review.finalUnlocked,false);
+  }else record.review={skipped:'No actual wrong answers in this run'};
+  fourSurahs.surahs.push(record);
+ }
+ assert.equal(fourSurahs.graded,20);
+ assert.equal(fourSurahs.surahs.length,4);
+ assert(fourSurahs.wrongReview>0,'No wrong answers, review path could not be verified');
+
+ // Persist all four source-tested results across browser navigation/reload.
+ await page.reload({waitUntil:'domcontentloaded',timeout:60000});
+ await page.waitForFunction(()=>!!window.DEEN_QURAN_JOURNEY_V2?.stats?.('bayyina'),
+  null,{timeout:70000});
+ const persisted=await page.evaluate(ids=>({
+  locale:window.DEEN_APP_LOCALE.get(),
+  entries:ids.map(id=>{
+   const s=window.DEEN_QURAN_JOURNEY_V2.stats(id);
+   return {id,attempts:s.state.ayah.attempts,best:s.state.ayah.best,
+    meaningUnlocked:s.meaningUnlocked,finalUnlocked:s.finalUnlocked};
+  })
+ }),stage10Sources.map(x=>x[0]));
+ assert.equal(persisted.locale,'de');
+ for(const item of persisted.entries){
+  const expected=fourSurahs.surahs.find(x=>x.id===item.id);
+  assert.equal(item.attempts,expected.result.attempts,'Quran attempt persistence '+item.id);
+  assert.equal(item.best,expected.result.best,'Quran best persistence '+item.id);
+  assert.equal(item.meaningUnlocked,false);
+  assert.equal(item.finalUnlocked,false);
+ }
+ fourSurahs.persistence={locale:persisted.locale,checked:persisted.entries.length,
+  attemptsAndBestPreserved:true,unreviewedMeaningBlocked:true};
+
+ // Offline cold-launch is diagnostically probed; a pass is NOT assumed.
+ // Distinguish SW-controlled app-shell loading from in-memory offline QA.
+ const control=await page.evaluate(async()=>{
+  const sw=navigator.serviceWorker;
+  const reg=sw?await sw.getRegistration().catch(()=>null):null;
+  const names=typeof caches!=='undefined'?await caches.keys().catch(()=>[]):[];
+  const cachedAudio=typeof caches!=='undefined'?
+   await caches.match(new URL('/assets/quran/audio/ikhlas/ihlas_1.mp3',location.href)).catch(()=>null):null;
+  return {supported:!!sw,controller:!!sw?.controller,registration:!!reg,
+   caches:names,mp3Cached:!!cachedAudio};
+ });
+ fourSurahs.offlineAudioCache=control;
+ const offlinePage=await page.context().newPage();
+ await page.context().setOffline(true);
+ try{
+  let loaded=false,error=null;
+  try{
+   await offlinePage.goto('http://127.0.0.1:8765/index.html',{timeout:9000,waitUntil:'domcontentloaded'});
+   loaded=!!(await offlinePage.locator('body').count());
+  }catch(e){error=String(e.message||e).slice(0,200);}
+  fourSurahs.offlineColdStart={tested:true,loaded,error,
+   serviceWorkerControlled:control.controller,mp3CachePresent:control.mp3Cached};
+ }finally{
+  await page.context().setOffline(false);
+  await offlinePage.close().catch(()=>{});
+ }
+
  report.quran_fatiha.real_ayah_audio.review_approved=false;
  report.quran_fatiha.real_ayah_audio.production_release=false;
 
