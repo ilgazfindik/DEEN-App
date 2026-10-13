@@ -241,6 +241,25 @@ async function visit(width,height,label){
    if(await confirm.count())await confirm.first().click({timeout:10000});
   }
   await page.waitForTimeout(700);
+  const feedbackLocale=await page.evaluate(()=>{
+   const q=session?.questions?.[session?.index];
+   const before={
+    title:document.querySelector('#feedbackTitle')?.textContent.trim(),
+    body:document.querySelector('#feedbackText')?.textContent.trim(),
+    continue:document.querySelector('#continueBtn')?.textContent.trim()};
+   const result=window.DEEN_FRENCH_STAGE_UI.localizeGradedFeedback(q);
+   const after={
+    title:document.querySelector('#feedbackTitle')?.textContent.trim(),
+    body:document.querySelector('#feedbackText')?.textContent.trim(),
+    continue:document.querySelector('#continueBtn')?.textContent.trim()};
+   return {before,after,result};
+  });
+  console.log('FR_REAL_CHROMIUM_FEEDBACK_TRANSLATION',JSON.stringify({
+   viewport:label,feedbackLocale}));
+  assert.equal(feedbackLocale.result?.sourceGuarded,true,'French grading feedback must use source validation');
+  assert.equal(feedbackLocale.after.title,'Bravo !');
+  assert(feedbackLocale.after.body?.startsWith('En bref : '));
+  assert.equal(feedbackLocale.after.continue,'Continuer');
   const grade=await page.evaluate(()=>({
    shown:document.querySelector('#feedback')?.classList.contains('show')||false,
    feedbackClass:document.querySelector('#feedback')?.className,
@@ -270,7 +289,7 @@ async function visit(width,height,label){
   return {viewport:label,width,height,assembledShell:true,sourceValidated:true,
    frenchAvailableInProduction:false,staticAndDynamicPreview:shell,
    lesson:{id:lesson.id,type:lesson.type,question:lesson.question,
-    options:rendered.labels,qaWrapperAdjusted:rendered.qaWrapperAdjusted,graded:grade},
+    options:rendered.labels,qaWrapperAdjusted:rendered.qaWrapperAdjusted,feedbackLocale,graded:grade},
    geometry,errors};
  }finally{
   await context.close();
