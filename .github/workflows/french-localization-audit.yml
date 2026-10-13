@@ -29,6 +29,7 @@ on:
       - 'scripts/audit-french-ui-core.mjs'
       - 'scripts/audit-french-ui-lesson-flow.mjs'
       - 'scripts/audit-french-ui-premium-quran.mjs'
+      - 'scripts/audit-french-ui-topic-batches.mjs'
       - 'qa/FRENCH_STAGE1.md'
       - '.github/workflows/french-localization-audit.yml'
   workflow_dispatch:
@@ -80,6 +81,8 @@ jobs:
         run: node scripts/audit-french-ui-lesson-flow.mjs
       - name: Validate 184 Premium, Quran and surah label draft strings
         run: node scripts/audit-french-ui-premium-quran.mjs
+      - name: Validate 238 unit-topic UI strings and 9 unbound dynamic templates
+        run: node scripts/audit-french-ui-topic-batches.mjs
       - name: Report all 15 units and 1452 UI source keys
         run: node scripts/inventory-french-ui.mjs
       - name: Ensure production English questions remain complete
