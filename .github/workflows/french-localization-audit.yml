@@ -6,6 +6,7 @@ on:
       - 'assets/i18n/questions/fr/**'
       - 'assets/i18n/fr/**'
       - 'scripts/audit-french-staging.mjs'
+      - 'scripts/audit-french-u01-complete.mjs'
       - 'scripts/inventory-french-ui.mjs'
       - 'qa/FRENCH_STAGE1.md'
       - '.github/workflows/french-localization-audit.yml'
@@ -22,6 +23,8 @@ jobs:
         with: {node-version: '22'}
       - name: Validate translated source IDs, answer indices and release gate
         run: node scripts/audit-french-staging.mjs
+      - name: Verify all 100 French U01 questions, including matching and fill-blank
+        run: node scripts/audit-french-u01-complete.mjs
       - name: Report all 15 units and 1452 UI source keys
         run: node scripts/inventory-french-ui.mjs
       - name: Ensure production English questions remain complete
