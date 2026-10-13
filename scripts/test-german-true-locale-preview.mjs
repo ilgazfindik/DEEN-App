@@ -83,6 +83,15 @@ try{
   null,{timeout:100000});
  await page.waitForFunction(()=>typeof QUESTIONS!=='undefined'&&
     Array.isArray(QUESTIONS)&&QUESTIONS.length===1484,null,{timeout:90000});
+ // Language-gate continuation is asynchronous; wait for its DOM transition
+ // and any native preparation still in flight before testing DEEN_BOOT.
+ // Do not force document.lang or override the application's source state.
+ await page.waitForFunction(()=>
+  window.DEEN_APP_LOCALE?.get?.()==='de'&&
+  document.documentElement.lang==='de'&&
+  window.DEEN_BOOT?.status?.().phase!=='preparing',
+  null,{timeout:35000});
+
  const ready=await page.evaluate(async()=>{
   if(typeof state==='undefined'||!state.settings)throw Error('Missing app state');
   // Skip only the personal-data onboarding sequence in this disposable E2E
