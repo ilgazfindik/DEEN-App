@@ -2531,7 +2531,7 @@ try{
   assert.equal(response?.status(),200,'Warm Quran PWA could not load shell offline');
   await page.waitForFunction(()=>window.DEEN_APP_LOCALE?.get?.()==='de'&&
    window.DEEN_CONTENT_LOCALE?.available?.('de')&&
-   Array.isArray(window.QUESTIONS)&&window.QUESTIONS.length===1484,
+   typeof QUESTIONS!=='undefined'&&Array.isArray(QUESTIONS)&&QUESTIONS.length===1484,
    null,{timeout:55000});
   const recovered=await page.evaluate(async()=>{
    const all=await caches.keys();
@@ -2539,7 +2539,7 @@ try{
    return {locale:window.DEEN_APP_LOCALE.get(),
     htmlLang:document.documentElement.lang,
     controlled:!!navigator.serviceWorker.controller,
-    sourceCount:window.QUESTIONS.length,quizReady:!!q,
+    sourceCount:QUESTIONS.length,quizReady:!!q,
     meaningLocked:!q.stats('ikhlas').meaningUnlocked,
     releaseCache:all.some(k=>k.startsWith('deen-release-')),
     audioCache:all.some(k=>k.startsWith('deen-pwa-ayah-'))};
