@@ -2488,7 +2488,7 @@ try{
  // Stage 11: WARMED-SHELL offline test. A completely fresh install still needs
  // network; after a successful online visit the same profile must boot offline.
  // The worker is release-scoped, and Quran MP3s cache on actual first request.
- report.quran_offline_pwa={version:'9408enfiveuiscreens1-ikhlasdeqa1-pwa14',
+ report.quran_offline_pwa={version:'9408enfiveuiscreens1-ikhlasdeqa1-pwa15',
   worker:null,media:null,offlineRange:null,offlineReload:null};
  await page.waitForFunction(()=>!!navigator.serviceWorker?.controller,null,{timeout:35000});
  const swReady=await page.evaluate(async()=>{
@@ -2497,7 +2497,7 @@ try{
    controlled:!!navigator.serviceWorker.controller};
  });
  assert(swReady.controlled,'Installed SW did not claim the initial app');
- assert(swReady.script.endsWith('/sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa14'));
+ assert(swReady.script.endsWith('/sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa15'));
  report.quran_offline_pwa.worker=swReady;
  const warmed=await page.evaluate(async()=>{
   const src=new URL('assets/quran/audio/ikhlas/ihlas_1.mp3',location.href);
@@ -2505,14 +2505,14 @@ try{
   if(online.status!==200)throw Error('Online Quran MP3 preload returned '+online.status);
   const buf=await online.arrayBuffer();
   if(buf.byteLength<2000)throw Error('Recitation has no real audio bytes');
-  const cache=await caches.open('deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa14');
+  const cache=await caches.open('deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa15');
   const saved=await cache.match(src.href);
   return {status:online.status,bytes:buf.byteLength,cached:!!saved,
    mime:online.headers.get('content-type'),savedStatus:saved?.status};
  });
 
  const visualWarm=await page.evaluate(async()=>{
-  const version='9408enfiveuiscreens1-ikhlasdeqa1-pwa14';
+  const version='9408enfiveuiscreens1-ikhlasdeqa1-pwa15';
   const cache=await caches.open('deen-pwa-shell-'+version);
   const files=[
    ...Array.from({length:5},(_,i)=>'release/v9.9.3-direct/assets/onboarding-hq/atlas.part'+i+'.txt'),
@@ -2620,7 +2620,7 @@ try{
    'Missing source-backed three-ayah media sample: '+surah);
  }
  const warmedMedia=await page.evaluate(async entries=>{
-  const name='deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa14';
+  const name='deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa15';
   const cache=await caches.open(name);
   for(const key of await cache.keys())await cache.delete(key);
   const out=[];
