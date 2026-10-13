@@ -2463,19 +2463,25 @@ try{
    caches:names,mp3Cached:!!cachedAudio};
  });
  fourSurahs.offlineAudioCache=control;
- const offlinePage=await page.context().newPage();
- await page.context().setOffline(true);
+ // A *fresh* browser context is deliberately offline before its FIRST
+ // navigation: it cannot inherit the warm app's cache or storage. This is a
+ // diagnostic of first launch, NOT a service-worker installation test.
+ const offlineContext=await browser.newContext();
+ await offlineContext.setOffline(true);
+ const offlinePage=await offlineContext.newPage();
  try{
   let loaded=false,error=null;
   try{
-   await offlinePage.goto('http://127.0.0.1:8765/index.html',{timeout:9000,waitUntil:'domcontentloaded'});
+   await offlinePage.goto('http://127.0.0.1:8765/index.html',
+    {timeout:9000,waitUntil:'domcontentloaded'});
    loaded=!!(await offlinePage.locator('body').count());
   }catch(e){error=String(e.message||e).slice(0,200);}
-  fourSurahs.offlineColdStart={tested:true,loaded,error,
-   serviceWorkerControlled:control.controller,mp3CachePresent:control.mp3Cached};
+  fourSurahs.offlineColdStart={tested:true,freshProfile:true,loaded,error,
+   previousWarmPageSWControlled:control.controller,
+   previousWarmPageMP3Cached:control.mp3Cached};
  }finally{
-  await page.context().setOffline(false);
-  await offlinePage.close().catch(()=>{});
+  await offlineContext.setOffline(false);
+  await offlineContext.close().catch(()=>{});
  }
 
  report.quran_fatiha.real_ayah_audio.review_approved=false;
