@@ -275,6 +275,9 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
 
  // The legacy Journey result card first emits English aliases in non-Turkish
  // locales. Translate only its source-observed UI chrome, never graded answers.
+ // Native badge/medal toast can appear on any quiz-result sheet.
+ // This is an achievement UI message, not Quran or answer content.
+ if(n==='Yeni madalya açıldı!')return emit('Neue Medaille freigeschaltet!');
  const journeyResultChrome={
   'Question breakdown':'Fragenanalyse',
   'Your answer':'Deine Antwort',
