@@ -14,6 +14,18 @@
  #lesson .question-frame.v1013-match-ref .v1013-match-subtitle{
    max-width:100%!important;line-height:1.5!important;
  }
+ html[lang="de"] .phone *,html[lang="de"] #resultView{
+   scrollbar-width:thin;
+   scrollbar-color:#35636a transparent;
+ }
+ html[lang="de"] .phone *::-webkit-scrollbar,
+ html[lang="de"] #resultView::-webkit-scrollbar{width:6px;height:6px}
+ html[lang="de"] .phone *::-webkit-scrollbar-track,
+ html[lang="de"] #resultView::-webkit-scrollbar-track{background:transparent}
+ html[lang="de"] .phone *::-webkit-scrollbar-thumb,
+ html[lang="de"] #resultView::-webkit-scrollbar-thumb{
+   background:#35636a;border-radius:8px
+ }
  `;
  document.head.append(reviewCSS);
  // This heading is assembled from THREE nodes by the matching renderer; it
@@ -36,7 +48,7 @@
   box.id='deenGermanReviewWarning';
   box.dataset.deenNoTranslate='1';
   box.setAttribute('role','note');
-  box.style.cssText='position:fixed;top:calc(env(safe-area-inset-top) + 8px);right:8px;z-index:2147483647;pointer-events:none;max-width:170px;padding:6px 9px;border:1px solid #cca65b;background:rgba(20,30,34,.96);color:#ffe2a0;border-radius:9px;box-shadow:0 5px 16px #0008;font:700 10px/1.35 system-ui;text-align:center';
+  box.style.cssText='position:fixed;top:calc(env(safe-area-inset-top) + 5px);right:calc(env(safe-area-inset-right) + 6px);z-index:2147483647;pointer-events:none;max-width:min(115px,28vw);padding:4px 6px;border:1px solid #cca65b;background:rgba(20,30,34,.96);color:#ffe2a0;border-radius:8px;box-shadow:0 5px 16px #0008;font:700 9px/1.2 system-ui;text-align:center';
   box.textContent='DE · TESTVERSION / TASLAK — uzman onayı yok';
   document.body.append(box);
  }
