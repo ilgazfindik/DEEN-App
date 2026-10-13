@@ -43,6 +43,7 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   'Fâtiha · Surah Journey':'Fâtiha · Suren-Lernpfad',
   'Learn → Memorize → Test → Final → Master':'Lernen → Auswendiglernen → Test → Finale → Meistern',
   'MASTERY':'KENNTNISSTAND',
+  'Mastery':'Meisterschaft',
   'Learn':'Lernen',
   'Memorize':'Auswendiglernen',
   'Ayah Test':'Verstest',
