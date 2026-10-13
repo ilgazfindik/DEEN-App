@@ -33,7 +33,9 @@ const frenchPaths=[
  'ui.quran-learning-surahs.staging.json',
  'ui.reference-batch-01.staging.json',
  'ui.reference-batch-02.staging.json',
- 'ui.real-lesson-extra.staging.json'
+ 'ui.real-lesson-extra.staging.json',
+ 'ui.reference-batch-03.staging.json',
+ 'ui.reference-batch-04.staging.json'
 ];
 const frenchKeys=new Set();
 const frenchPackCounts={};
@@ -87,8 +89,8 @@ const report={locale:'fr',production_ready:false,release_locked:true,
   .map(key=>({source_tr:key,first_seen_in:map.get(key).first_seen_in}))};
 assert(report.ui_missing.length===report.ui_remaining);
 assert.equal(report.question_staged,1500,'French source bank must include U01–U15');
-assert.equal(report.ui_staged,843,'Expected 605 previously staged + 112 + 120 topic keys + 6 real-lesson keys');
-assert.equal(report.ui_remaining,609);
+assert.equal(report.ui_staged,1083,'Expected 843 prior staged + 120 U03 + 120 U04 reference keys');
+assert.equal(report.ui_remaining,369);
 mkdirSync('qa-artifacts',{recursive:true});
 writeFileSync('qa-artifacts/french-ui-inventory.json',JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({locale:report.locale,status:'passed',questions:report.question_staged+'/'+report.question_total,
