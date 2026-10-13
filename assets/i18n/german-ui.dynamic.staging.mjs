@@ -148,6 +148,48 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   'Doğru. Hatırlama turu tamamlandı.':'Richtig. Die Erinnerungsübung ist abgeschlossen.',
   'Henüz değil. Tekrar dene.':'Noch nicht richtig. Versuche es erneut.'
  };
+
+ // The legacy Journey result card first emits English aliases in non-Turkish
+ // locales. Translate only its source-observed UI chrome, never graded answers.
+ const journeyResultChrome={
+  'Question breakdown':'Fragenanalyse',
+  'Your answer':'Deine Antwort',
+  'Correct answer':'Richtige Antwort',
+  'Incorrect':'Falsch',
+  'Correct':'Richtig',
+  'SCORE':'ERGEBNIS',
+  'Personal best':'Bestes Ergebnis',
+  'Progress unchanged':'Fortschritt unverändert',
+  'Practice complete':'Wiederholung abgeschlossen',
+  'Well done!':'Geschafft!',
+  'Keep practicing':'Übe weiter',
+  'New best':'Neuer Bestwert',
+  'Ayahs to review:':'Verse zum Wiederholen:',
+  'TRY AGAIN':'ERNEUT VERSUCHEN',
+  'Test sonuç özeti':'Zusammenfassung der Testergebnisse',
+  'This practice did not change your progress.':
+   'Diese Wiederholung hat deinen Lernfortschritt nicht verändert.',
+  'You passed. Return to Surah Journey to continue.':
+   'Du hast bestanden. Kehre zur Surenlernreise zurück, um fortzufahren.',
+  'BACK TO SURAH JOURNEY':'ZUR SURENLERNREISE'
+ };
+ if(Object.prototype.hasOwnProperty.call(journeyResultChrome,n))
+  return emit(journeyResultChrome[n]);
+ if((m=n.match(/^REVIEW MISTAKES\s*·\s*([1-5])$/)))
+  return emit('FEHLER WIEDERHOLEN · '+m[1]);
+ if((m=n.match(/^Question breakdown\s+(\d+)\/(\d+)\s+correct$/)))
+  return emit('Fragenanalyse '+m[1]+'/'+m[2]+' richtig');
+ if((m=n.match(/^(\d+)\/(\d+)\s+correct$/)))
+  return emit(m[1]+'/'+m[2]+' richtig');
+ if((m=n.match(/^(\d+)\.\s+question\s*·\s*Ayah\s+([1-7])$/)))
+  return emit('Frage '+m[1]+' · Vers '+m[2]);
+ if((m=n.match(/^Ayahs to review:\s*([\d,\s]+)$/)))
+  return emit('Verse zum Wiederholen: '+m[1]);
+ if((m=n.match(/^You need at least\s+(\d{1,3})%\s+to pass\. Review your mistakes and retry\.$/)))
+  return emit('Zum Bestehen sind mindestens '+m[1]+' % nötig. Übe deine Fehler und versuche es erneut.');
+ if((m=n.match(/^(\d+)\/(\d+)\s+correct answers$/)))
+  return emit(m[1]+'/'+m[2]+' richtige Antworten');
+
  if(Object.prototype.hasOwnProperty.call(fatihaMemorizationAndQuiz,n))
   return emit(fatihaMemorizationAndQuiz[n]);
  if((m=n.match(/^Fâtiha\s+·\s+Ayet\s+([1-7])$/)))
