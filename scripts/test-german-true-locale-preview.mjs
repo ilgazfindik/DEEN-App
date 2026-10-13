@@ -870,6 +870,19 @@ try{
  // The Quran tab is still the legacy leagueScreen ID. Exercise its actual
  // navigation under 'de' after both complete reloads, and translate UI
  // chrome only in a disposable browser while retaining original Arabic.
+ // A prior QA-only lesson profile bypassed the *real* companion-selection
+ // onboarding, so its required-companion dialog may remain open on reload.
+ // Close this disposable-test-only overlay through the native dialog API;
+ // genuine onboarding is verified separately in a fresh browser profile.
+ const quranQAOverlay=await page.evaluate(()=>{
+  const dialog=document.getElementById('v5Sheet');
+  const result={wasOpen:!!dialog?.open,
+   companionRequired:dialog?.dataset?.companionRequired==='1',
+   title:document.getElementById('v5SheetTitle')?.textContent?.trim()||null};
+  if(dialog?.open&&result.companionRequired)dialog.close();
+  return result;
+ });
+ report.quran_navigation_overlay=quranQAOverlay;
  await page.locator('.bottomnav [data-screen="leagueScreen"]').click({timeout:20000});
  await page.waitForFunction(()=>
   document.querySelector('.screen.active')?.id==='leagueScreen',null,{timeout:20000});
