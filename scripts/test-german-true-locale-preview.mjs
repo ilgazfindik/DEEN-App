@@ -2693,7 +2693,20 @@ try{
  const newErrors=report.errors.slice(priorErrors);
  const knownDiagnosticPrefix='console:DEEN fill freeze regression failed ';
  const fillMessages=newErrors.filter(line=>line.startsWith(knownDiagnosticPrefix));
- const unexpectedErrors=newErrors.filter(line=>!line.startsWith(knownDiagnosticPrefix));
+ // The warm offline PWA correctly boots and plays cached Quran recitation,
+ // but non-essential artwork that was never visited/downloaded can fail.
+ // Preserve all observed errors in the report rather than hiding them; only
+ // classify known network-disconnected asset warnings separately from JS faults.
+ const expectedOfflineAsset=line=>line===
+  'console:Failed to load resource: net::ERR_INTERNET_DISCONNECTED'||
+  line.startsWith('console:DEEN HQ atlas load failed TypeError: Failed to fetch');
+ const offlineAssetWarnings=report.quran_offline_pwa?.offlineReload
+  ?newErrors.filter(expectedOfflineAsset):[];
+ report.quran_offline_pwa.offlineMissingAssetWarnings={
+  count:offlineAssetWarnings.length,
+  samples:[...new Set(offlineAssetWarnings)].map(x=>x.slice(0,260)).slice(0,5)};
+ const unexpectedErrors=newErrors.filter(line=>!line.startsWith(knownDiagnosticPrefix)&&
+  !expectedOfflineAsset(line));
  report.complete_stage.browserErrors=newErrors;
  report.complete_stage.transientQAWarnings={
   count:newFillWarnings.length,consoleCount:fillMessages.length,
