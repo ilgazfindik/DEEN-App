@@ -1,0 +1,557 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U13",
+  "stage": "U13-S05",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U13-S05-001": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: İkindi namazının farzı ___ rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde ikindi namazının farzı dört rekâttır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "dört",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : la prière obligatoire de l’après-midi (‘asr) comprend ___ rakʿât.",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire de l’après-midi (‘asr) comprend quatre rakʿât.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "quatre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La prière de l’après-midi (‘asr)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-002": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Namazda örtülmesi gereken yerlerin ___ gerekir.",
+        "explanation_tr": "Setr-i avret namazın hazırlık şartlarındandır ayrıntı sınırları fıkıh bağlamında değerlendirilir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "örtülmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : les parties du corps prescrites doivent être ___ pendant la prière.",
+        "explanation_tr": "La prière exige de couvrir les parties du corps prescrites ; les limites précises sont étudiées dans les écoles juridiques musulmanes.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "couvertes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La couverture du corps"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-003": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Günlük farz namazlar ___ vakittir.",
+        "explanation_tr": "Namaz ilmihali günlük farz namazları sabah öğle ikindi akşam ve yatsı olarak ele alır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "beş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : les prières obligatoires quotidiennes sont accomplies à ___ moments prescrits.",
+        "explanation_tr": "Le guide de la prière énumère les cinq prières quotidiennes obligatoires : aube, midi, après-midi, coucher du soleil et soir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "cinq",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "Les cinq prières quotidiennes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-004": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Namazda ___ yönüne dönülür.",
+        "explanation_tr": "Namazda kıble Mekke'deki Kâbe yönüdür.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kâbe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : pendant la prière, on se tourne vers ___.",
+        "explanation_tr": "La prière s’accomplit en direction de la Kaaba, à La Mecque.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "La Kaaba",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La direction de la prière (qibla)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-005": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Su kullanılamadığında namaza hükmî temizlik için ___ yapılabilir.",
+        "explanation_tr": "Kur'an 5:6 ve Diyanet açıklamaları su bulunmadığında veya kullanılamadığında teyemmüm ruhsatını bildirir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "teyemmüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : lorsqu’on ne peut pas utiliser l’eau, ___ peut permettre la purification rituelle avant la prière.",
+        "explanation_tr": "Le Coran (5:6) et les explications de Diyanet autorisent le tayammum lorsque l’eau manque ou ne peut pas être utilisée.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "le tayammum",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La préparation par le tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-006": {
+      "source": {
+        "question_tr": "İkindi namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde ikindi namazının farzı dört rekâttır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "6 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Combien de rakʿât comprend la prière obligatoire de l’après-midi (‘asr) ?",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire de l’après-midi (‘asr) comprend quatre rakʿât.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "2 rakʿât",
+          "3 rakʿât",
+          "4 rakʿât",
+          "6 rakʿât"
+        ],
+        "correct_answer": "4 rakʿât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La prière de l’après-midi (‘asr)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-007": {
+      "source": {
+        "question_tr": "Bir öğrenci “Namazda örtünmenin hiçbir şart niteliği yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Setr-i avret namazın hazırlık şartlarındandır ayrıntı sınırları fıkıh bağlamında değerlendirilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Örtünmenin namazla ilgisi yoktur",
+          "Bütün mezhepler ayrıntıları tamamen aynı sınıflandırır",
+          "Namazda örtülmesi gereken yerlerin örtülmesi temel şarttır; ayrıntılar mezheplere göre ele alınabilir",
+          "Sadece kıyafet rengi önemlidir"
+        ],
+        "correct_answer": "Namazda örtülmesi gereken yerlerin örtülmesi temel şarttır; ayrıntılar mezheplere göre ele alınabilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Couvrir le corps n’est pas une condition de la prière. » Quelle réponse le corrige ?",
+        "explanation_tr": "La prière exige de couvrir les parties du corps prescrites ; les limites précises sont étudiées dans les écoles juridiques musulmanes.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La couverture du corps n’a aucun lien avec la prière",
+          "Toutes les écoles juridiques classent les détails exactement de la même manière",
+          "Couvrir les parties du corps requises est une condition fondamentale de la prière ; les détails se précisent selon les écoles juridiques",
+          "Seule la couleur des vêtements compte"
+        ],
+        "correct_answer": "Couvrir les parties du corps requises est une condition fondamentale de la prière ; les détails se précisent selon les écoles juridiques",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La couverture du corps"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-008": {
+      "source": {
+        "question_tr": "Beş vakit konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Namaz ilmihali günlük farz namazları sabah öğle ikindi akşam ve yatsı olarak ele alır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İki vakit",
+          "Üç vakit",
+          "Beş vakit",
+          "Yedi vakit"
+        ],
+        "correct_answer": "Beş vakit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition décrit correctement le principe des cinq prières quotidiennes ?",
+        "explanation_tr": "Le guide de la prière énumère les cinq prières quotidiennes obligatoires : aube, midi, après-midi, coucher du soleil et soir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Deux prières quotidiennes",
+          "Trois prières quotidiennes",
+          "Cinq prières quotidiennes",
+          "Sept prières quotidiennes"
+        ],
+        "correct_answer": "Cinq prières quotidiennes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "Les cinq prières quotidiennes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-009": {
+      "source": {
+        "question_tr": "Bir arkadaşın Kıble hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Namazda kıble Mekke'deki Kâbe yönüdür.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mescid-i Nebevî'nin minaresi",
+          "Herhangi bir dağ",
+          "Kâbe",
+          "Kişinin evi"
+        ],
+        "correct_answer": "Kâbe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami te demande dans quelle direction prier. Que lui réponds-tu ?",
+        "explanation_tr": "La prière s’accomplit en direction de la Kaaba, à La Mecque.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le minaret de la Mosquée du Prophète",
+          "N’importe quelle montagne",
+          "La Kaaba",
+          "Son propre domicile"
+        ],
+        "correct_answer": "La Kaaba",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La direction de la prière (qibla)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-010": {
+      "source": {
+        "question_tr": "“Su kullanılamadığında namaza hükmî temizlik için hiçbir alternatif yoktur.” ifadesindeki hatayı hangi seçenek düzeltir?",
+        "explanation_tr": "Kur'an 5:6 ve Diyanet açıklamaları su bulunmadığında veya kullanılamadığında teyemmüm ruhsatını bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namazı her durumda tamamen terk ederek",
+          "Sadece kıyafet değiştirerek",
+          "Şartları varsa teyemmümle",
+          "Rekât sayısını azaltarak"
+        ],
+        "correct_answer": "Şartları varsa teyemmümle",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Sans eau, il n’existe aucune autre forme de purification avant la prière » ?",
+        "explanation_tr": "Le Coran (5:6) et les explications de Diyanet autorisent le tayammum lorsque l’eau manque ou ne peut pas être utilisée.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "En renonçant complètement à la prière dans tous les cas",
+          "Uniquement en changeant de vêtements",
+          "Par le tayammum, lorsque ses conditions sont réunies",
+          "En réduisant le nombre de rakʿât"
+        ],
+        "correct_answer": "Par le tayammum, lorsque ses conditions sont réunies",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La préparation par le tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-011": {
+      "source": {
+        "question_tr": "“İkindi namazının farzı üç rekâttır.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde ikindi namazının farzı dört rekâttır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "6 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « La prière obligatoire de l’après-midi comprend trois rakʿât » ?",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire de l’après-midi (‘asr) comprend quatre rakʿât.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "2 rakʿât",
+          "3 rakʿât",
+          "4 rakʿât",
+          "6 rakʿât"
+        ],
+        "correct_answer": "4 rakʿât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La prière de l’après-midi (‘asr)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-012": {
+      "source": {
+        "question_tr": "“Namazda örtünmenin hiçbir şart niteliği yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Setr-i avret namazın hazırlık şartlarındandır ayrıntı sınırları fıkıh bağlamında değerlendirilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Örtünmenin namazla ilgisi yoktur",
+          "Bütün mezhepler ayrıntıları tamamen aynı sınıflandırır",
+          "Namazda örtülmesi gereken yerlerin örtülmesi temel şarttır; ayrıntılar mezheplere göre ele alınabilir",
+          "Sadece kıyafet rengi önemlidir"
+        ],
+        "correct_answer": "Namazda örtülmesi gereken yerlerin örtülmesi temel şarttır; ayrıntılar mezheplere göre ele alınabilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige l’erreur : « Couvrir le corps n’est pas une condition de la prière » ?",
+        "explanation_tr": "La prière exige de couvrir les parties du corps prescrites ; les limites précises sont étudiées dans les écoles juridiques musulmanes.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "La couverture du corps n’a aucun lien avec la prière",
+          "Toutes les écoles juridiques classent les détails exactement de la même manière",
+          "Couvrir les parties du corps requises est une condition fondamentale de la prière ; les détails se précisent selon les écoles juridiques",
+          "Seule la couleur des vêtements compte"
+        ],
+        "correct_answer": "Couvrir les parties du corps requises est une condition fondamentale de la prière ; les détails se précisent selon les écoles juridiques",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La couverture du corps"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-013": {
+      "source": {
+        "question_tr": "Aktif hatırlama: boşluğu tamamla: Günlük farz namazlar ___ vakittir.",
+        "explanation_tr": "Namaz ilmihali günlük farz namazları sabah öğle ikindi akşam ve yatsı olarak ele alır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "iki",
+          "beş",
+          "dört"
+        ],
+        "correct_answer": "beş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Rappel actif : complète : les prières obligatoires quotidiennes sont accomplies à ___ moments prescrits.",
+        "explanation_tr": "Le guide de la prière énumère les cinq prières quotidiennes obligatoires : aube, midi, après-midi, coucher du soleil et soir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "horaire",
+          "deux",
+          "cinq",
+          "quatre"
+        ],
+        "correct_answer": "cinq",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "Les cinq prières quotidiennes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-014": {
+      "source": {
+        "question_tr": "Aktif hatırlama: boşluğu tamamla: Namazda ___ yönüne dönülür.",
+        "explanation_tr": "Namazda kıble Mekke'deki Kâbe yönüdür.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "Kâbe",
+          "iki"
+        ],
+        "correct_answer": "Kâbe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Rappel actif : complète : pendant la prière, on se tourne vers ___.",
+        "explanation_tr": "La prière s’accomplit en direction de la Kaaba, à La Mecque.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "horaire",
+          "cinq",
+          "La Kaaba",
+          "deux"
+        ],
+        "correct_answer": "La Kaaba",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La direction de la prière (qibla)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-015": {
+      "source": {
+        "question_tr": "Su bulunmadığında veya kullanılamadığında namaza hazırlık nasıl sürdürülebilir?",
+        "explanation_tr": "Kur'an 5:6 ve Diyanet açıklamaları su bulunmadığında veya kullanılamadığında teyemmüm ruhsatını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazı her durumda tamamen terk ederek",
+          "Sadece kıyafet değiştirerek",
+          "Şartları varsa teyemmümle",
+          "Rekât sayısını azaltarak"
+        ],
+        "correct_answer": "Şartları varsa teyemmümle",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment se préparer à la prière si l’eau manque ou ne peut être utilisée ?",
+        "explanation_tr": "Le Coran (5:6) et les explications de Diyanet autorisent le tayammum lorsque l’eau manque ou ne peut pas être utilisée.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "En renonçant complètement à la prière dans tous les cas",
+          "Uniquement en changeant de vêtements",
+          "Par le tayammum, lorsque ses conditions sont réunies",
+          "En réduisant le nombre de rakʿât"
+        ],
+        "correct_answer": "Par le tayammum, lorsque ses conditions sont réunies",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La préparation par le tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S05-016": {
+      "source": {
+        "question_tr": "İkindi namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde ikindi namazının farzı dört rekâttır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "6 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Combien de rakʿât comprend la prière obligatoire de l’après-midi (‘asr) ?",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire de l’après-midi (‘asr) comprend quatre rakʿât.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 rakʿât",
+          "3 rakʿât",
+          "4 rakʿât",
+          "6 rakʿât"
+        ],
+        "correct_answer": "4 rakʿât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq prières quotidiennes",
+        "topic": "La prière de l’après-midi (‘asr)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
