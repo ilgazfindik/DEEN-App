@@ -44,13 +44,26 @@ const ui_parts=uiNames.map(name=>{
 const quran=json('assets/i18n/quran/de/ayah-meanings.staging.json');
 assert.equal(Object.keys(quran.translations).length,90);
 assert.equal(quran.release_ready,false,'Quran meanings require human approval');
+const releasedQuran=structuredClone(quran);
+Object.assign(releasedQuran,{release_ready:true,expert_approved:true,
+ native_reviewer_approved:true,verified_by_religious_expert:true,
+ rights_reviewed:true,meaning_release_gate:'approved_with_independent_review_evidence'});
+for(const record of Object.values(releasedQuran.translations)){
+ Object.assign(record,{native_reviewer_approved:true,expert_approved:true,
+  rights_reviewed:true,meaning_reviewed:true,status:'reviewed_for_release'});
+}
+const releasedQuranPath='assets/i18n/quran/de/ayah-meanings.approved.json';
+const releasedQuranText=JSON.stringify(releasedQuran,null,2)+'\n';
+const audioManifestText=read('assets/quran/audio/ayah-audio-manifest.json');
 const bridgeHash=hash(read('assets/i18n/german-ui.production.mjs'));
 assert.equal(bridgeHash,draft.languages.de.production_bridge_sha256,
  'Production bridge changed without updating pinned manifest SHA-256');
 const release={...draft,languages:{...draft.languages,de:{
  ...draft.languages.de,parts,ui_parts,
  ui_reference_sha256:hash(read('assets/i18n/english-ui.draft.json')),
- quran_meanings_sha256:hash(read('assets/i18n/quran/de/ayah-meanings.staging.json')),
+ quran_meanings_sha256:hash(releasedQuranText),
+ quran_meanings_path:'./'+releasedQuranPath,
+ quran_audio_manifest_sha256:hash(audioManifestText),
  production_bridge_sha256:bridgeHash
 }}};
 const applying=process.argv.includes('--apply');
@@ -66,10 +79,17 @@ if(applying){
   assert(/^\d{4}-\d{2}-\d{2}$/.test(item.date||''),role+' date missing');
  }
  assert.equal(approval.reviewed_bridge_sha256,bridgeHash,'Approval evidence from wrong bridge');
+ assert.equal(approval.reviewed_question_versions,1704,
+  'All 1,704 source variant records require review');
+ assert.equal(approval.reviewed_ayah_keys?.length,90,'Every ayah needs explicit approval');
+ assert.deepEqual([...approval.reviewed_ayah_keys].sort(),
+  Object.keys(quran.translations).sort(),'Approved ayah identities do not match sources');
+ assert.equal(approval.reviewed_ui_keys,1452,'All UI keys need review');
  const de=release.languages.de;
  Object.assign(de,{question_data:'complete',global_qa:'passed',
   religious_expert_approved:true,native_reviewer_approved:true,rights_reviewed:true,
   ui_release_ready:true,quran_meanings_approved:true,production_bridge_ready:true});
+ writeFileSync(releasedQuranPath,releasedQuranText);
  writeFileSync('assets/i18n/content-support.json',JSON.stringify(release,null,2)+'\n');
  console.log('Reviewed German candidate written. Update index.html asset hash, run ALL CI and device smoke before merging.');
 }else{
