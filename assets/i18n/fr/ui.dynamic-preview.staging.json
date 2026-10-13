@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "scope": "dynamic_ui_template_review_only",
+  "status": "unbound_dynamic_templates_no_browser_validation",
+  "source_language": "tr",
+  "release_ready": false,
+  "global_qa": "blocked",
+  "native_reviewer_approved": false,
+  "verified_by_religious_expert": false,
+  "runtime_integrated": false,
+  "translation_count": 9,
+  "not_in_static_ui_baseline": true,
+  "qa_note": "These are stage-only suggested translations for dynamic token patterns in source inventory, not proof the production DOM uses or renders them.",
+  "translations": {
+    "{n} öğrenilmiş kavram · {n} güçlendirilecek · {n} vadesi gelen": "{n} notions apprises · {n} à renforcer · {n} à réviser",
+    "{unit} · Öncelikli": "{unit} · Prioritaire",
+    "{topic} · %{n}": "{topic} · {n} %",
+    "{n} günlük seri": "{n} jours de suite",
+    "Sonraki seri ödülü: {n} gün": "Prochaine récompense de série : {n} jours",
+    "{n}. KISIM · {n}. ÜNİTE · ✓ TAMAMLANDI": "SECTION {n} · UNITÉ {n} · ✓ TERMINÉE",
+    "Ayet {n} / {n} · Son çalışma: Bugün": "Verset {n} / {n} · Dernière séance : aujourd’hui",
+    "ÇALIŞMAYA DEVAM ET": "POURSUIVRE L’APPRENTISSAGE",
+    "ADAPTİF TEKRARI BAŞLAT · {n} SORU": "COMMENCER LA RÉVISION ADAPTATIVE · {n} QUESTIONS"
+  }
+}
