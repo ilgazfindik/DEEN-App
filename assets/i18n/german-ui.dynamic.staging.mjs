@@ -34,12 +34,21 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   '✦ KUSURSUZ DERS':'✦ FEHLERFREIE LEKTION',
   'Bu aşamadaki tüm mini dersleri tamamladın. Yol üzerindeki bir sonraki düğüm açıldı.':'Du hast alle Mini-Lektionen dieser Etappe abgeschlossen. Der nächste Lernschritt auf dem Lernpfad ist freigeschaltet.',
   'YENİ AŞAMAYI AÇ':'NEUE ETAPPE ÖFFNEN',
-  'ÖĞRENME YOLUNA DÖN':'ZUM LERNPFAD ZURÜCK'
+  'ÖĞRENME YOLUNA DÖN':'ZUM LERNPFAD ZURÜCK',
+  'DEEN yol arkadaşın':'Dein DEEN-Lernbegleiter',
+  'Fâtiha Yolculuğu':'Fâtiha-Lernreise',
+  'Fâtiha · Wikimedia Commons kıraati':'Fâtiha · Rezitation von Wikimedia Commons',
+  'Zorlandığın ayetleri tekrar edip yeniden dene.':'Wiederhole die schwierigen Verse und versuche es erneut.',
+  '✦ Sure madalyaları':'✦ Surenmedaillen'
  };
  // Real U01-S01 result DOM (Chromium 38317812063); QA-only source-exact chrome.
  // No answer values, source citations or religious content are translated here.
  if(Object.prototype.hasOwnProperty.call(observedResult,n))return emit(observedResult[n]);
  let m;
+ // Fatiha journey QA: source-observed daily challenge chrome only;
+ // Arabic verses, audio and bibliographic attribution are never altered.
+ if((m=n.match(/^Mevcut günlük görevler:\s*(\d+)\/(\d+) tamamlandı\s*·\s*(\d+) tekrar bekliyor$/)))
+  return emit('Aktuelle Tagesaufgaben: '+m[1]+'/'+m[2]+' abgeschlossen · '+m[3]+' Wiederholungen offen');
  if((m=n.match(/^Ünite\s+(\d+)\s*·\s*Aşama\s+(\d+)$/)))return emit('Einheit '+m[1]+' · Etappe '+m[2]);
  // Source-observed companion chrome; retain proper name and translate only the UI role.
  if(n==='Meryem · MİNİ GÖREV')return emit('Meryem · MINI-AUFGABE');
