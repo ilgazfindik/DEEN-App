@@ -1,0 +1,499 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U13",
+  "stage": "U13-S06",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U13-S06-001": {
+      "source": {
+        "question_tr": "Hızlı tekrar: Hükmî temizlik hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Abdest namaza hazırlığın hükmî temizlik boyutudur.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Namazın rekât sayısını değiştirmek",
+          "Kıbleyi belirlemek",
+          "Gerekli hükmî temizliği sağlamak",
+          "Namaz vaktini başlatmak"
+        ],
+        "correct_answer": "Gerekli hükmî temizliği sağlamak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : quelle affirmation sur la purification rituelle est correcte ?",
+        "explanation_tr": "Les ablutions apportent la purification rituelle requise pour se préparer à la prière.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Modifier le nombre de rakʿât",
+          "Déterminer la direction de la prière",
+          "Assurer la purification rituelle requise",
+          "Faire commencer l’horaire de la prière"
+        ],
+        "correct_answer": "Assurer la purification rituelle requise",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La purification rituelle"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-002": {
+      "source": {
+        "question_tr": "Hızlı tekrar: Farz namazların rekât sayıları ve kılınış şekilleri nasıl belirlenmiştir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu namazın genel hüküm ve rükünlerinin Kur'an ayrıntılarının Hz. Peygamber'in sünnetiyle belirlendiğini açıklar.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Her toplumun kendi tercihine göre",
+          "Sadece matematik hesabıyla",
+          "Kur'an'ın genel hükümleri ve Hz. Peygamber'in uygulamasıyla",
+          "Kişinin günlük ruh hâline göre"
+        ],
+        "correct_answer": "Kur'an'ın genel hükümleri ve Hz. Peygamber'in uygulamasıyla",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : d’où proviennent le nombre de rakʿât et les modalités des prières obligatoires ?",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, le Coran établit les prescriptions générales et les piliers de la prière, tandis que la Sunna du Prophète en précise les modalités.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Selon les préférences de chaque communauté",
+          "Uniquement par un calcul mathématique",
+          "À partir des prescriptions générales du Coran et de la pratique du Prophète",
+          "Selon l’humeur du jour"
+        ],
+        "correct_answer": "À partir des prescriptions générales du Coran et de la pratique du Prophète",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La source du nombre de rakʿât"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-003": {
+      "source": {
+        "question_tr": "Akşam namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde akşam namazının farzı üç rekâttır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "2 rekât",
+          "4 rekât",
+          "3 rekât",
+          "5 rekât"
+        ],
+        "correct_answer": "3 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Combien de rakʿât comprend la prière obligatoire du coucher du soleil (maghrib) ?",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire du coucher du soleil (maghrib) comprend trois rakʿât.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "2 rakʿât",
+          "4 rakʿât",
+          "3 rakʿât",
+          "5 rakʿât"
+        ],
+        "correct_answer": "3 rakʿât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La prière du coucher du soleil (maghrib)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-004": {
+      "source": {
+        "question_tr": "Hızlı tekrar: namaz niyeti hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Niyet ibadeti bilinçli olarak Allah'a yöneltme ve kılınacak namazı belirleme boyutudur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kıbleyi değiştirmeyi",
+          "Vakti uzatmayı",
+          "Hangi namazı Allah için kıldığını bilinçle yöneltmeyi",
+          "Rekât sayısını rastgele seçmeyi"
+        ],
+        "correct_answer": "Hangi namazı Allah için kıldığını bilinçle yöneltmeyi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : quelle affirmation sur l’intention de prier est correcte ?",
+        "explanation_tr": "L’intention consiste à orienter consciemment son adoration vers Allah en déterminant la prière que l’on va accomplir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Modifier l’orientation de la prière",
+          "Prolonger le temps imparti",
+          "Formuler consciemment l’intention d’accomplir une prière déterminée pour Allah",
+          "Choisir au hasard le nombre de rakʿât"
+        ],
+        "correct_answer": "Formuler consciemment l’intention d’accomplir une prière déterminée pour Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "L’intention de prier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-005": {
+      "source": {
+        "question_tr": "Sabah namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde sabah namazının farzı iki rekât olarak öğretilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "3 rekât",
+          "4 rekât",
+          "2 rekât",
+          "5 rekât"
+        ],
+        "correct_answer": "2 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Combien de rakʿât comprend la prière obligatoire de l’aube (fajr) ?",
+        "explanation_tr": "Le guide de la prière de Diyanet enseigne que la prière obligatoire de l’aube (fajr) comprend deux rakʿât.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "3 rakʿât",
+          "4 rakʿât",
+          "2 rakʿât",
+          "5 rakʿât"
+        ],
+        "correct_answer": "2 rakʿât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La prière de l’aube (fajr)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-006": {
+      "source": {
+        "question_tr": "Hızlı tekrar: namaza hazırlıkta abdestin görevi nedir?",
+        "explanation_tr": "Abdest namaza hazırlığın hükmî temizlik boyutudur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazın rekât sayısını değiştirmek",
+          "Kıbleyi belirlemek",
+          "Gerekli hükmî temizliği sağlamak",
+          "Namaz vaktini başlatmak"
+        ],
+        "correct_answer": "Gerekli hükmî temizliği sağlamak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : quel est le rôle des ablutions dans la préparation à la prière ?",
+        "explanation_tr": "Les ablutions apportent la purification rituelle requise pour se préparer à la prière.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Modifier le nombre de rakʿât",
+          "Déterminer la direction de la prière",
+          "Assurer la purification rituelle requise",
+          "Faire commencer l’horaire de la prière"
+        ],
+        "correct_answer": "Assurer la purification rituelle requise",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La purification rituelle"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Farz namazların rekât sayıları kişilerin serbest tercihine bırakılmıştır.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu namazın genel hüküm ve rükünlerinin Kur'an ayrıntılarının Hz. Peygamber'in sünnetiyle belirlendiğini açıklar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Le nombre de rakʿât des prières obligatoires dépend des préférences personnelles.",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, le Coran établit les prescriptions générales et les piliers de la prière, tandis que la Sunna du Prophète en précise les modalités.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La source du nombre de rakʿât"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-008": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Akşam namazının farzı üç rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde akşam namazının farzı üç rekâttır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? La prière obligatoire du coucher du soleil comprend trois rakʿât.",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire du coucher du soleil (maghrib) comprend trois rakʿât.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La prière du coucher du soleil (maghrib)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-009": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Namaz niyeti kılınacak ibadete bilinçli ___ ifade eder.",
+        "explanation_tr": "Niyet ibadeti bilinçli olarak Allah'a yöneltme ve kılınacak namazı belirleme boyutudur.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "yönelişi",
+          "iki"
+        ],
+        "correct_answer": "yönelişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : l’intention exprime une ___ consciente vers la prière que l’on va accomplir.",
+        "explanation_tr": "L’intention consiste à orienter consciemment son adoration vers Allah en déterminant la prière que l’on va accomplir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "horaire",
+          "cinq",
+          "orientation",
+          "deux"
+        ],
+        "correct_answer": "orientation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "L’intention de prier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-010": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Sabah namazının farzı ___ rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde sabah namazının farzı iki rekât olarak öğretilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "iki",
+          "dört"
+        ],
+        "correct_answer": "iki",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : la prière obligatoire de l’aube (fajr) comprend ___ rakʿât.",
+        "explanation_tr": "Le guide de la prière de Diyanet enseigne que la prière obligatoire de l’aube (fajr) comprend deux rakʿât.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "horaire",
+          "cinq",
+          "deux",
+          "quatre"
+        ],
+        "correct_answer": "deux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La prière de l’aube (fajr)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-011": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları doğru açıklamalarıyla eşleştir: Teyemmümle hazırlık, Beş vakit, İkindi namazının farzı ve Kıble.",
+        "explanation_tr": "Abdest namaza hazırlığın hükmî temizlik boyutudur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Teyemmümle hazırlık",
+            "right": "Şartları varsa teyemmümle"
+          },
+          {
+            "left": "Beş vakit",
+            "right": "Sabah, öğle, ikindi, akşam ve yatsı namazları"
+          },
+          {
+            "left": "İkindi namazının farzı",
+            "right": "4 rekât"
+          },
+          {
+            "left": "Kıble",
+            "right": "Kâbe"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : associe tayammum, cinq prières quotidiennes, prière de l’après-midi et direction de la prière à leur définition.",
+        "explanation_tr": "Les ablutions apportent la purification rituelle requise pour se préparer à la prière.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "La préparation par le tayammum",
+            "right": "Par le tayammum, lorsque ses conditions sont réunies"
+          },
+          {
+            "left": "Les cinq prières quotidiennes",
+            "right": "Prières de l’aube, de midi, de l’après-midi, du coucher du soleil et du soir"
+          },
+          {
+            "left": "La prière obligatoire de l’après-midi",
+            "right": "4 rakʿât"
+          },
+          {
+            "left": "La direction de la prière",
+            "right": "La Kaaba"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La purification rituelle"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S06-012": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları doğru açıklamalarıyla eşleştir: Vakit, Öğle namazının farzı, Yatsı namazının farzı ve Necasetten temizlik.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu namazın genel hüküm ve rükünlerinin Kur'an ayrıntılarının Hz. Peygamber'in sünnetiyle belirlendiğini açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Vakit",
+            "right": "Farz namaz belirlenmiş vakti girdikten sonra kılınır"
+          },
+          {
+            "left": "Öğle namazının farzı",
+            "right": "4 rekât"
+          },
+          {
+            "left": "Yatsı namazının farzı",
+            "right": "4 rekât"
+          },
+          {
+            "left": "Necasetten temizlik",
+            "right": "Namaza engel necasetten temiz olmaları"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : associe horaire de prière, prière de midi, prière du soir et purification des impuretés matérielles à leur définition.",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, le Coran établit les prescriptions générales et les piliers de la prière, tandis que la Sunna du Prophète en précise les modalités.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "L’horaire de la prière",
+            "right": "La prière obligatoire est accomplie après le début de son horaire prescrit"
+          },
+          {
+            "left": "La prière obligatoire de midi",
+            "right": "4 rakʿât"
+          },
+          {
+            "left": "La prière obligatoire du soir",
+            "right": "4 rakʿât"
+          },
+          {
+            "left": "La purification des impuretés matérielles",
+            "right": "Ne présenter aucune impureté matérielle incompatible avec la prière"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La source du nombre de rakʿât"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
