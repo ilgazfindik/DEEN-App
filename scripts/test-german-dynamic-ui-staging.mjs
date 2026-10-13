@@ -73,6 +73,22 @@ for(const src of ['EZBER KADEMESİ 6 / 5','Fâtiha · Ayet 8','8. soru · Ayet 1
  assert.equal(fmt(src),null,'Quran out of-range/meaning text must fail closed: '+src);
 }
 
+
+const fatihaResultCases=[
+ ['YANLIŞLARI REVIEW ET · 4','FEHLER WIEDERHOLEN · 4'],
+ ['You need at least %80 to pass. Review your mistakes and retry.',
+  'Zum Bestehen sind mindestens 80 % nötig. Übe deine Fehler und versuche es erneut.'],
+ ['Fâtiha · Ayah Test','Fâtiha · Verstest'],
+ ['Keep practicing ✦ New best','Übe weiter ✦ Neuer Bestwert'],
+ ['Well done! ✦ New best','Geschafft! ✦ Neuer Bestwert'],
+ ['Hatalı Sorular · Tekrar','Fehler · Wiederholung'],
+ ['Question breakdown','Fragenanalyse'],
+ ['Personal best','Bestes Ergebnis'],
+ ['REVIEW MISTAKES · 2','FEHLER WIEDERHOLEN · 2']
+];
+for(const [src,dst] of fatihaResultCases)
+ assert.equal(fmt(src),dst,'German Fatiha quiz result: '+src);
+
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
