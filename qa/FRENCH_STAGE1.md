@@ -65,3 +65,12 @@
 - `scripts/audit-french-u06-complete.mjs` kaynak, cevap konumu, matching, boşluk, sequence sırası, güvenlik bayrakları ve temel dil sızıntısı denetimini gerçekleştirir.
 - Kur'an atıflarının çevirileri kaynak anlamına uygun hazırlanmış taslaklardır; **dinî uzman ve anadili Fransızca denetimi yapılmadı**. Arapça ayet metni ve kıraat değiştirilmedi.
 - `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` açıkça korunuyor. Hiçbir `main` veya canlı deploy değişikliği yok.
+
+## 2026-10-14 — U07 100/100 Fransızca taslak
+- U07-S01–S07 toplam: **14 + 14 + 14 + 16 + 16 + 12 + 14 = 100/100**.
+- İçerik: kitaplara iman, Tevrat/İncil/Zebur/sahifeler, Kur'an'ın önceki vahiylerle ilişkisi, hidayeti, korunması ve kaynak disiplini.
+- Fransızca temel soru ilerlemesi **700/1.500**; **800 soru U08–U15'te** kaldı.
+- İlk yapısal karşılaştırma: 100 soru, 78 seçenekli soru, 24 eşleştirme çifti, 8 fill_blank ve 6 sıralama; sıfır yapısal hata. CI'de aynı denetim ayrıca tekrarlanacak.
+- `scripts/audit-french-u07-complete.mjs`: kaynak eşitliği, doğru cevap konumu, eşleştirme, boşluk, sıralama ve üretim kilidi denetimi.
+- Kur'an ayetlerine dayalı dinî açıklamalar **taslaktır**; bağımsız dinî uzman ve anadili Fransızca doğrulaması yapılmadı, üretime açık değil.
+- `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` kilitleri korunur; `main` ve mevcut diller değişmez.
