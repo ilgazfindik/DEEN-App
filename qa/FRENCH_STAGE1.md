@@ -118,3 +118,12 @@
 - `qa/FRENCH_U12_TRANSLATION_GLOSSARY.json` Fransızca terminoloji eşlemelerini dil ve dinî uzman incelemesi için saklar; alanlara göre ayrı eşlemeler kullanılarak seçenek/kavram çakışmaları önlendi.
 - `scripts/audit-french-u12-complete.mjs` ayrı kaynak, ID, cevap pozisyonu, eşleştirme, boşluk ve release kilit kontrollerini CI'de çalıştırır.
 - Fransızca anadili ve dinî uzman onayı yoktur; `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` korunur. main ve canlı Pages değişmedi.
+
+## 2026-10-14 — U13 100/100 Fransızca taslağı
+- U13-S01–S07: **14+14+14+16+16+12+14 = 100/100**.
+- İçerik: namaz öncesi temizlik, niyet, kıble, ezan, namaz vakitleri, beş farz namazın rekât sayıları, örtünme şartı, abdest/teyemmüm ve sünnet kaynakları.
+- Genel Fransızca temel soru taslağı: **1.300/1.500**; U14 ve U15'te **200** soru kaldı.
+- İlk denetim: **100 soru, 84 seçenekli, 36 matching çifti, 14 fill_blank, sıfır kaynak/cevap/boşluk şema sapması**.
+- **Kaynak içerik riski:** `DEEN-U13-S03-006` ve `DEEN-U13-S06-012` matching sorularında Türkçe/İngilizce kaynakta 4 eşleştirmenin sağ tarafında yalnız 3 benzersiz tanım bulunur. Fransızca çeviride aynı çoğulluk korunmuştur; bu bir çeviri hatası değil ancak eşleştirme motoru ve pedagojik ayırt edilebilirlik için ayrı düzeltme gerektirir. Üretimde oynatılmadan önce kaynak onaylı varyantla onarılmalıdır.
+- `qa/FRENCH_U13_TRANSLATION_GLOSSARY.json` terim eşlemelerini ayrı review kaydı olarak tutar, `scripts/audit-french-u13-complete.mjs` CI'da yapısal doğrulamayı çalıştırır.
+- Dinî uzman/Fransızca anadili onayı verilmedi, `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` kilitleri korunur. main/Pages değişmez.
