@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U11",
+  "stage": "U11-S01",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U11-S01-001": {
+      "source": {
+        "question_tr": "Temel kavram: i̇badetin kaynağı hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "İbadetlerin genel hükümleri vahiyde uygulama ayrıntıları Hz. Peygamber'in sünnetinde açıklanır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kişinin istediği gibi yeni biçimler üretmesiyle",
+          "Sadece yerel geleneklerle",
+          "Kur'an ve Hz. Peygamber'in sünneti temel alınarak",
+          "Kaynağı belirsiz paylaşımlarla"
+        ],
+        "correct_answer": "Kur'an ve Hz. Peygamber'in sünneti temel alınarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Notion fondamentale : quelle affirmation sur les sources de l’adoration est correcte ?",
+        "explanation_tr": "Les règles générales de l’adoration sont exposées dans la révélation ; la Sunna du Prophète en précise les modalités de pratique.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "En inventant librement de nouvelles formes",
+          "En se fondant uniquement sur les traditions locales",
+          "En s’appuyant sur le Coran et la Sunna du Prophète",
+          "En se fiant à des publications de provenance incertaine"
+        ],
+        "correct_answer": "En s’appuyant sur le Coran et la Sunna du Prophète",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "Les sources de l’adoration"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-002": {
+      "source": {
+        "question_tr": "İbadetin anlamı hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "İbadet Allah'a yönelen bilinçli kulluk ve itaat çerçevesinde ele alınır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece kültürel alışkanlık",
+          "Yalnızca toplumsal gelenek",
+          "Allah'a bilinçli kulluk ve itaat",
+          "Sadece bilgi ezberi"
+        ],
+        "correct_answer": "Allah'a bilinçli kulluk ve itaat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation décrit correctement le sens de l’adoration ?",
+        "explanation_tr": "L’adoration implique une dévotion consciente et l’obéissance à Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Une simple habitude culturelle",
+          "Une simple tradition sociale",
+          "Une dévotion consciente et l’obéissance à Allah",
+          "La simple mémorisation d’informations"
+        ],
+        "correct_answer": "Une dévotion consciente et l’obéissance à Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "Le sens de l’adoration"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-003": {
+      "source": {
+        "question_tr": "Temel kavram: hac hangi başlık altında yer alır?",
+        "explanation_tr": "Hac İslam'ın temel ibadetleri arasında ele alınır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece turistik gezi",
+          "Yalnızca tarih dersi",
+          "Belirli şartları bulunan temel ibadetlerden biri",
+          "Kültürel festival"
+        ],
+        "correct_answer": "Belirli şartları bulunan temel ibadetlerden biri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Notion fondamentale : comment classe-t-on le pèlerinage (hajj) ?",
+        "explanation_tr": "Le pèlerinage à La Mecque (hajj) fait partie des principaux actes d’adoration en islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Un simple voyage touristique",
+          "Un simple cours d’histoire",
+          "Un acte fondamental d’adoration soumis à des conditions précises",
+          "Une fête culturelle"
+        ],
+        "correct_answer": "Un acte fondamental d’adoration soumis à des conditions précises",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "Le pèlerinage (hajj)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-004": {
+      "source": {
+        "question_tr": "Temel kavram: gösteriş konusunda doğru ifade hangisidir?",
+        "explanation_tr": "İhlas ibadetin Allah için yapılmasını ve gösterişten uzak durmayı gerektirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbadetin anlamını öğrenmek",
+          "Allah rızasını gözetmek",
+          "İbadeti insanların övgüsünü kazanmak için sergilemek",
+          "Samimiyeti korumaya çalışmak"
+        ],
+        "correct_answer": "İbadeti insanların övgüsünü kazanmak için sergilemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Notion fondamentale : quelle proposition décrit l’ostentation ?",
+        "explanation_tr": "La sincérité consiste à adorer Allah sans chercher à se faire remarquer.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Apprendre le sens de l’adoration",
+          "Rechercher l’agrément d’Allah",
+          "Exhiber ses actes d’adoration pour obtenir les éloges des gens",
+          "S’efforcer de préserver la sincérité"
+        ],
+        "correct_answer": "Exhiber ses actes d’adoration pour obtenir les éloges des gens",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "L’ostentation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-005": {
+      "source": {
+        "question_tr": "Temel kavram: namaz hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Diyanet kaynaklarında namaz temel ibadetler arasında ele alınır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece kültürel bir toplantı",
+          "Yalnızca kişisel spor",
+          "Allah'a kulluğun temel ibadetlerinden biri",
+          "Din dışı bir gelenek"
+        ],
+        "correct_answer": "Allah'a kulluğun temel ibadetlerinden biri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Notion fondamentale : quelle affirmation sur la prière rituelle est correcte ?",
+        "explanation_tr": "Les sources de Diyanet présentent la prière rituelle (salât) comme un acte fondamental d’adoration.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Un simple rassemblement culturel",
+          "Un simple exercice physique",
+          "Un acte fondamental d’adoration exprimant la dévotion à Allah",
+          "Une tradition sans dimension religieuse"
+        ],
+        "correct_answer": "Un acte fondamental d’adoration exprimant la dévotion à Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "La prière rituelle (salât)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-006": {
+      "source": {
+        "question_tr": "Kısa kontrol: temel kavram: i̇badetin kaynağı hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "İbadetlerin genel hükümleri vahiyde uygulama ayrıntıları Hz. Peygamber'in sünnetinde açıklanır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kişinin istediği gibi yeni biçimler üretmesiyle",
+          "Sadece yerel geleneklerle",
+          "Kur'an ve Hz. Peygamber'in sünneti temel alınarak",
+          "Kaynağı belirsiz paylaşımlarla"
+        ],
+        "correct_answer": "Kur'an ve Hz. Peygamber'in sünneti temel alınarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vérification rapide : quelle affirmation sur les sources de l’adoration est correcte ?",
+        "explanation_tr": "Les règles générales de l’adoration sont exposées dans la révélation ; la Sunna du Prophète en précise les modalités de pratique.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "En inventant librement de nouvelles formes",
+          "En se fondant uniquement sur les traditions locales",
+          "En s’appuyant sur le Coran et la Sunna du Prophète",
+          "En se fiant à des publications de provenance incertaine"
+        ],
+        "correct_answer": "En s’appuyant sur le Coran et la Sunna du Prophète",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "Les sources de l’adoration"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? İbadet, Allah’a bilinçli kulluk ve itaat etmeyi içerir.",
+        "explanation_tr": "İbadet Allah'a yönelen bilinçli kulluk ve itaat çerçevesinde ele alınır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? L’adoration implique une dévotion consciente et l’obéissance à Allah.",
+        "explanation_tr": "L’adoration implique une dévotion consciente et l’obéissance à Allah.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "Le sens de l’adoration"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-008": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Hac yalnızca turistik bir yolculuktur.",
+        "explanation_tr": "Hac İslam'ın temel ibadetleri arasında ele alınır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Le pèlerinage (hajj) n’est qu’un voyage touristique.",
+        "explanation_tr": "Le pèlerinage à La Mecque (hajj) fait partie des principaux actes d’adoration en islam.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "Le pèlerinage (hajj)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-009": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? İbadeti insanların övgüsünü kazanmak için sergilemek gösteriştir.",
+        "explanation_tr": "İhlas ibadetin Allah için yapılmasını ve gösterişten uzak durmayı gerektirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Montrer ses actes d’adoration pour recevoir des éloges est une forme d’ostentation.",
+        "explanation_tr": "La sincérité consiste à adorer Allah sans chercher à se faire remarquer.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "L’ostentation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-010": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Namaz temel bir ___ türüdür.",
+        "explanation_tr": "Diyanet kaynaklarında namaz temel ibadetler arasında ele alınır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk",
+          "ihlas",
+          "ibadet",
+          "yöneliş"
+        ],
+        "correct_answer": "ibadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : la prière rituelle est un acte fondamental d’___.",
+        "explanation_tr": "Les sources de Diyanet présentent la prière rituelle (salât) comme un acte fondamental d’adoration.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dévotion",
+          "sincérité",
+          "adoration",
+          "orientation"
+        ],
+        "correct_answer": "adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "La prière rituelle (salât)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-011": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Belirli ibadetlerin uygulamasında Kur'an ve ___ temel kaynaktır.",
+        "explanation_tr": "İbadetlerin genel hükümleri vahiyde uygulama ayrıntıları Hz. Peygamber'in sünnetinde açıklanır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk",
+          "ihlas",
+          "sünnet",
+          "yöneliş"
+        ],
+        "correct_answer": "sünnet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : le Coran et ___ sont les principales sources de la pratique des actes d’adoration prescrits.",
+        "explanation_tr": "Les règles générales de l’adoration sont exposées dans la révélation ; la Sunna du Prophète en précise les modalités de pratique.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dévotion",
+          "sincérité",
+          "la Sunna",
+          "orientation"
+        ],
+        "correct_answer": "la Sunna",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "Les sources de l’adoration"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-012": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İbadet Allah'a ___ ve itaat bilinci taşır.",
+        "explanation_tr": "İbadet Allah'a yönelen bilinçli kulluk ve itaat çerçevesinde ele alınır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "ihlas",
+          "yöneliş",
+          "kulluk",
+          "ibadet"
+        ],
+        "correct_answer": "kulluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : l’adoration implique une conscience de la ___ et l’obéissance à Allah.",
+        "explanation_tr": "L’adoration implique une dévotion consciente et l’obéissance à Allah.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "sincérité",
+          "orientation",
+          "dévotion",
+          "adoration"
+        ],
+        "correct_answer": "dévotion",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "Le sens de l’adoration"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Hac temel ___ arasında yer alır.",
+        "explanation_tr": "Hac İslam'ın temel ibadetleri arasında ele alınır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "kulluk",
+          "ihlas",
+          "ibadetler",
+          "yöneliş"
+        ],
+        "correct_answer": "ibadetler",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : le pèlerinage fait partie des principaux ___.",
+        "explanation_tr": "Le pèlerinage à La Mecque (hajj) fait partie des principaux actes d’adoration en islam.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "dévotion",
+          "sincérité",
+          "actes d’adoration",
+          "orientation"
+        ],
+        "correct_answer": "actes d’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "Le pèlerinage (hajj)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S01-014": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: İhlas ibadeti ___ uzak tutmayı gerektirir.",
+        "explanation_tr": "İhlas ibadetin Allah için yapılmasını ve gösterişten uzak durmayı gerektirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "kulluk",
+          "ihlas",
+          "gösterişten",
+          "yöneliş"
+        ],
+        "correct_answer": "gösterişten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : la sincérité exige de préserver l’adoration de toute ___.",
+        "explanation_tr": "La sincérité consiste à adorer Allah sans chercher à se faire remarquer.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "dévotion",
+          "sincérité",
+          "ostentation",
+          "orientation"
+        ],
+        "correct_answer": "ostentation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qu’est-ce que l’adoration ?",
+        "topic": "L’ostentation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
