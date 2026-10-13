@@ -2488,7 +2488,7 @@ try{
  // Stage 11: WARMED-SHELL offline test. A completely fresh install still needs
  // network; after a successful online visit the same profile must boot offline.
  // The worker is release-scoped, and Quran MP3s cache on actual first request.
- report.quran_offline_pwa={version:'9408enfiveuiscreens1-ikhlasdeqa1-pwa11',
+ report.quran_offline_pwa={version:'9408enfiveuiscreens1-ikhlasdeqa1-pwa12',
   worker:null,media:null,offlineRange:null,offlineReload:null};
  await page.waitForFunction(()=>!!navigator.serviceWorker?.controller,null,{timeout:35000});
  const swReady=await page.evaluate(async()=>{
@@ -2497,7 +2497,7 @@ try{
    controlled:!!navigator.serviceWorker.controller};
  });
  assert(swReady.controlled,'Installed SW did not claim the initial app');
- assert(swReady.script.endsWith('/sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa11'));
+ assert(swReady.script.endsWith('/sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa12'));
  report.quran_offline_pwa.worker=swReady;
  const warmed=await page.evaluate(async()=>{
   const src=new URL('assets/quran/audio/ikhlas/ihlas_1.mp3',location.href);
@@ -2505,14 +2505,40 @@ try{
   if(online.status!==200)throw Error('Online Quran MP3 preload returned '+online.status);
   const buf=await online.arrayBuffer();
   if(buf.byteLength<2000)throw Error('Recitation has no real audio bytes');
-  const cache=await caches.open('deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa11');
+  const cache=await caches.open('deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa12');
   const saved=await cache.match(src.href);
   return {status:online.status,bytes:buf.byteLength,cached:!!saved,
    mime:online.headers.get('content-type'),savedStatus:saved?.status};
  });
+
+ const visualWarm=await page.evaluate(async()=>{
+  const version='9408enfiveuiscreens1-ikhlasdeqa1-pwa12';
+  const cache=await caches.open('deen-pwa-shell-'+version);
+  const files=[
+   ...Array.from({length:5},(_,i)=>'release/v9.9.3-direct/assets/onboarding-hq/atlas.part'+i+'.txt'),
+   'assets/companions/owl/owl_avatar.png',
+   'assets/badges/deen-badges-atlas.webp',
+   'assets/combo/companions-sheet.png'];
+  return Promise.all(files.map(async(path)=>{
+   const url=new URL(path,location.href);
+   const response=await cache.match(url.href);
+   return {path,status:response?.status||null,bytes:response?(await response.arrayBuffer()).byteLength:0};
+  }));
+ });
+ report.quran_offline_pwa.visualWarm=visualWarm;
+ assert.equal(visualWarm.length,8);
+ for(const asset of visualWarm){
+  assert.equal(asset.status,200,'Atlas/visual asset not precached: '+asset.path);
+  assert(asset.bytes>1000,'Atlas/visual asset unexpectedly empty: '+asset.path);
+ }
+
  report.quran_offline_pwa.media=warmed;
  assert.equal(warmed.cached,true,'Quran MP3 was not cached after genuine online request');
  assert.equal(warmed.savedStatus,200,'Quran MP3 cache did not retain full audio');
+ const offlineMissingRequests=[];
+ const recordOfflineRequest=req=>offlineMissingRequests.push({
+  url:req.url(),reason:req.failure()?.errorText||'request failed'});
+ page.on('requestfailed',recordOfflineRequest);
  await page.context().setOffline(true);
  try{
   const range=await page.evaluate(async()=>{
@@ -2536,7 +2562,9 @@ try{
   const recovered=await page.evaluate(async()=>{
    const all=await caches.keys();
    const q=window.DEEN_QURAN_JOURNEY_V2;
-   return {locale:window.DEEN_APP_LOCALE.get(),
+   const atlas=window.DEEN_ONBOARDING_ATLAS_HOTFIX;
+   return {atlasReady:atlas?.ready===true,
+    atlasBytes:atlas?.bytes||0,locale:window.DEEN_APP_LOCALE.get(),
     htmlLang:document.documentElement.lang,
     controlled:!!navigator.serviceWorker.controller,
     sourceCount:QUESTIONS.length,quizReady:!!q,
@@ -2545,6 +2573,8 @@ try{
     audioCache:all.some(k=>k.startsWith('deen-pwa-ayah-'))};
   });
   report.quran_offline_pwa.offlineReload=recovered;
+  assert.equal(recovered.atlasReady,true,'HQ onboarding atlas still unavailable offline');
+  assert.equal(recovered.atlasBytes,73976,'HQ atlas did not reconstruct original sprite');
   assert.deepEqual({locale:recovered.locale,htmlLang:recovered.htmlLang,
    controlled:recovered.controlled,sourceCount:recovered.sourceCount,
    quizReady:recovered.quizReady,meaningLocked:recovered.meaningLocked},
@@ -2553,6 +2583,9 @@ try{
    'Warm offline reload did not preserve verified German Quran app');
  }finally{
   await page.context().setOffline(false);
+  page.off('requestfailed',recordOfflineRequest);
+  report.quran_offline_pwa.missingUrls=[...new Map(
+   offlineMissingRequests.map(x=>[x.url,x])).values()];
  }
 
  report.quran_fatiha.real_ayah_audio.review_approved=false;
