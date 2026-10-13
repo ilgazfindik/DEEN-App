@@ -1,0 +1,532 @@
+<!-- DEEN v10.5.3 — Isolated matching interaction engine -->
+<script id="deen-v1053-isolated-matching-engine-js">
+(()=>{
+  if(window.__deenV1053IsolatedMatchingEngine)return;
+  window.__deenV1053IsolatedMatchingEngine=true;
+
+  const VERSION='10.5.7-DOM-STATE-MATCHING';
+  const BUILD='9157domstate1';
+
+  let state=null;
+  let clicks=0;
+  let correctPairs=0;
+  let wrongPairs=0;
+  let arms=0;
+
+  const norm=v=>String(v??'')
+    .toLocaleLowerCase('tr-TR')
+    .trim()
+    .replace(/[.,;:!?'"“”‘’()]/g,'')
+    .replace(/\s+/g,' ');
+
+  function question(){
+    try{return session?.questions?.[Number(session?.index)||0]||null}catch(_){return null}
+  }
+
+  function active(){
+    const q=question();
+    return !!q &&
+      String(q.activity_type||'').toLowerCase()==='matching' &&
+      Array.isArray(q.pairs) &&
+      !!document.querySelector('#lesson .v1017-shell');
+  }
+
+  function key(){
+    const q=question();
+    let idx=0;
+    try{idx=Number(session?.index)||0}catch(_){}
+    let run='lesson';
+    try{
+      if(session && !session.__deenV1053RunId){
+        session.__deenV1053RunId='m-'+Date.now()+'-'+Math.random().toString(36).slice(2,7);
+      }
+      run=session?.__deenV1053RunId||run;
+    }catch(_){}
+    return run+'::'+idx+'::'+String(q?.id||q?.question_id||q?.question_tr||'matching');
+  }
+
+  function sideOf(card){
+    if(!card)return null;
+    if(card.closest('.v1017-left'))return'left';
+    if(card.closest('.v1017-right'))return'right';
+    return null;
+  }
+
+  function textOf(card){
+    return String(card?.querySelector?.('.v1017-card-label')?.textContent||card?.textContent||'').trim();
+  }
+
+  function descriptor(card){
+    const side=sideOf(card);
+    if(!side)return null;
+    return {
+      side,
+      pair:String(card.dataset.pair??''),
+      text:textOf(card),
+      token:side+'::'+String(card.dataset.pair??'')+'::'+norm(textOf(card))
+    };
+  }
+
+  function ensureState(){
+    if(!active())return null;
+    const k=key();
+    if(!state||state.key!==k){
+      state={
+        key:k,
+        selected:null,
+        matchedLeft:new Set(),
+        matchedRight:new Set(),
+        errors:0,
+        finished:false
+      };
+    }
+    return state;
+  }
+
+  function cards(){
+    return [...document.querySelectorAll('#lesson .v1017-card')];
+  }
+
+  function findCard(desc){
+    if(!desc)return null;
+    return cards().find(card=>{
+      const d=descriptor(card);
+      return d &&
+        d.side===desc.side &&
+        d.pair===desc.pair &&
+        norm(d.text)===norm(desc.text);
+    })||null;
+  }
+
+  function clearSelectedVisual(){
+    cards().forEach(card=>card.classList.remove('selected'));
+  }
+
+  function paintSelected(card){
+    clearSelectedVisual();
+    if(card&&!card.disabled&&!card.classList.contains('matched')){
+      card.classList.add('selected');
+    }
+  }
+
+  function paintMatched(card){
+    if(!card)return;
+    card.classList.remove('selected','wrong');
+    card.classList.add('matched');
+    card.disabled=true;
+    const indicator=card.querySelector('.v1017-choice-indicator');
+    if(indicator)indicator.textContent='✓';
+  }
+
+  function setIndicatorNeutral(card){
+    if(!card||card.classList.contains('matched'))return;
+    const indicator=card.querySelector('.v1017-choice-indicator');
+    if(indicator)indicator.textContent='';
+  }
+
+  function updateFooter(s=ensureState()){
+    if(!s)return;
+    const q=question();
+    const total=Array.isArray(q?.pairs)?q.pairs.length:0;
+    const done=document.querySelectorAll('#lesson .v1017-left .v1017-card.matched').length;
+    const count=document.querySelector('#lesson .v1017-count');
+    const fill=document.querySelector('#lesson .v1017-meter i');
+    if(count)count.textContent=done+' / '+total+' eşleşme';
+    if(fill)fill.style.width=(total?Math.round(done/total*100):0)+'%';
+    document.documentElement.dataset.deenMatchingProgress=done+'/'+total;
+  }
+
+  function rehydrate(){
+    if(!active())return false;
+    const s=ensureState();
+    if(!s)return false;
+
+    cards().forEach(card=>{
+      const d=descriptor(card);
+      if(!d)return;
+      card.onclick=null;
+      card.removeAttribute('onclick');
+      card.dataset.deenMatchEngine='v1057';
+
+      if(d.side==='left'&&s.matchedLeft.has(d.token))paintMatched(card);
+      else if(d.side==='right'&&s.matchedRight.has(d.token))paintMatched(card);
+      else{
+        card.disabled=false;
+        card.classList.remove('matched','wrong');
+        setIndicatorNeutral(card);
+      }
+    });
+
+    clearSelectedVisual();
+    if(s.selected){
+      const selected=findCard(s.selected);
+      if(selected&&!selected.disabled)selected.classList.add('selected');
+    }
+
+    updateFooter(s);
+    document.documentElement.dataset.deenMatchingInteraction='dom-state-v1057';
+    return true;
+  }
+
+  function expectedRight(leftDesc){
+    const q=question();
+    if(!q||!Array.isArray(q.pairs)||!leftDesc)return null;
+    const pair=q.pairs.find(p=>norm(p?.left)===norm(leftDesc.text));
+    return pair?String(pair.right??''):null;
+  }
+
+  function correct(leftDesc,rightDesc){
+    const expected=expectedRight(leftDesc);
+    return expected!==null && norm(expected)===norm(rightDesc?.text);
+  }
+
+  function select(card,s){
+    const d=descriptor(card);
+    if(!d)return;
+    s.selected=d;
+    paintSelected(card);
+    document.documentElement.dataset.deenMatchingLast='selected';
+  }
+
+  function clearSelection(s){
+    s.selected=null;
+    clearSelectedVisual();
+  }
+
+  function finish(s){
+    const q=question();
+    if(!s||!q||s.finished)return;
+    const done=document.querySelectorAll('#lesson .v1017-left .v1017-card.matched').length;
+    if(done!==q.pairs.length)return;
+
+    s.finished=true;
+    clearSelection(s);
+    updateFooter(s);
+    document.documentElement.dataset.deenMatchingFinished='1';
+
+    const savedKey=s.key;
+    setTimeout(()=>{
+      if(!state||state.key!==savedKey)return;
+      try{window.completeQuestion?.(s.errors===0,q)}
+      catch(err){console.error('DEEN isolated matching completion failed',err)}
+    },220);
+  }
+
+  function good(leftDesc,rightDesc,s){
+    const leftCard=findCard(leftDesc);
+    const rightCard=findCard(rightDesc);
+    if(!leftCard||!rightCard)return;
+
+    try{navigator.vibrate?.(14)}catch(_){}
+
+    s.matchedLeft.add(leftDesc.token);
+    s.matchedRight.add(rightDesc.token);
+    s.selected=null;
+    correctPairs++;
+
+    paintMatched(leftCard);
+    paintMatched(rightCard);
+    updateFooter(s);
+    document.documentElement.dataset.deenMatchingLast='correct';
+
+    finish(s);
+  }
+
+  function bad(leftDesc,rightDesc,s){
+    const leftCard=findCard(leftDesc);
+    const rightCard=findCard(rightDesc);
+
+    s.errors++;
+    s.selected=null;
+    wrongPairs++;
+    clearSelectedVisual();
+
+    try{navigator.vibrate?.([10,22,10])}catch(_){}
+
+    [leftCard,rightCard].forEach(card=>card?.classList?.add('wrong'));
+    setTimeout(()=>{
+      [leftCard,rightCard].forEach(card=>card?.classList?.remove('wrong'));
+    },300);
+
+    document.documentElement.dataset.deenMatchingLast='wrong';
+  }
+
+  function syncStateFromDOM(s){
+    if(!s)return;
+    s.matchedLeft=new Set(
+      [...document.querySelectorAll('#lesson .v1017-left .v1017-card.matched')]
+        .map(descriptor).filter(Boolean).map(d=>d.token)
+    );
+    s.matchedRight=new Set(
+      [...document.querySelectorAll('#lesson .v1017-right .v1017-card.matched')]
+        .map(descriptor).filter(Boolean).map(d=>d.token)
+    );
+    const selectedCard=document.querySelector('#lesson .v1017-card.selected:not(.matched):not(:disabled)');
+    s.selected=selectedCard?descriptor(selectedCard):null;
+  }
+
+  function handle(card){
+    if(!active()||!card||card.disabled)return false;
+
+    const s=ensureState();
+    const current=descriptor(card);
+    if(!s||!current||s.finished)return false;
+
+    clicks++;
+
+    /*
+      v10.5.7: DOM is authoritative for the transient selection.
+      The visual .selected state is demonstrably stable even when the previous
+      JS selection object is lost between taps. Reconstruct state from DOM
+      before every interaction.
+    */
+    syncStateFromDOM(s);
+
+    const selectedCard=document.querySelector('#lesson .v1017-card.selected:not(.matched):not(:disabled)');
+    const previous=selectedCard?descriptor(selectedCard):null;
+
+    if(!previous){
+      select(card,s);
+      return true;
+    }
+
+    if(previous.token===current.token){
+      clearSelection(s);
+      document.documentElement.dataset.deenMatchingLast='cleared';
+      return true;
+    }
+
+    if(previous.side===current.side){
+      select(card,s);
+      document.documentElement.dataset.deenMatchingLast='reselected';
+      return true;
+    }
+
+    const left=previous.side==='left'?previous:current;
+    const right=previous.side==='right'?previous:current;
+
+    if(correct(left,right))good(left,right,s);
+    else bad(left,right,s);
+
+    syncStateFromDOM(s);
+    updateFooter(s);
+    return true;
+  }
+
+  function arm(){
+    if(!active())return false;
+    arms++;
+    ensureState();
+    cards().forEach(card=>{
+      card.onclick=null;
+      card.removeAttribute('onclick');
+      card.dataset.deenMatchEngine='v1057';
+    });
+    rehydrate();
+    return true;
+  }
+
+  /*
+    v10.5.5: live diagnostics proved the failure happens between pointerdown
+    and click (2 pointerdowns, only 1 click). Matching therefore owns the
+    interaction at pointerdown, which is the reliable event on this screen.
+    The subsequent synthetic/native click is swallowed so one tap is handled
+    exactly once.
+  */
+  let suppressClickUntil=0;
+  let lastPointerCard=null;
+
+  let lastEngineError=null;
+
+  function safeHandle(card,source,event){
+    try{
+      const result=handle(card);
+      lastEngineError=null;
+      document.documentElement.dataset.deenMatchingInputSource=source;
+      delete document.documentElement.dataset.deenMatchingError;
+      return result;
+    }catch(err){
+      lastEngineError=String(err?.stack||err?.message||err);
+      document.documentElement.dataset.deenMatchingError=String(err?.message||err||'unknown').slice(0,180);
+      console.error('DEEN matching input error',err,{source,card});
+      return false;
+    }
+  }
+
+  /*
+    v10.5.6: diagnostics proved pointerdown reaches window even when the
+    corresponding click disappears. Own matching input at the earliest stable
+    capture point: window. stopPropagation still allows other listeners on
+    window (including diagnostics) to observe the same event, while preventing
+    legacy target handlers from competing with this engine.
+  */
+  window.addEventListener('pointerdown',event=>{
+    const card=event.target?.closest?.('#lesson .v1017-card');
+    if(!card||!active())return;
+    if(event.pointerType==='mouse'&&event.button!==0)return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    lastPointerCard=card;
+    suppressClickUntil=Date.now()+700;
+    safeHandle(card,'window-pointerdown',event);
+  },true);
+
+  window.addEventListener('click',event=>{
+    const card=event.target?.closest?.('#lesson .v1017-card');
+    if(!card||!active())return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if(Date.now()<=suppressClickUntil){
+      lastPointerCard=null;
+      return;
+    }
+
+    // Keyboard / assistive activation fallback.
+    safeHandle(card,'window-click-fallback',event);
+  },true);
+
+  document.addEventListener('deen:question-rendering',()=>{
+    const q=question();
+    if(!q||String(q.activity_type||'').toLowerCase()!=='matching'){
+      state=null;
+      document.documentElement.dataset.deenMatchingInteraction='idle';
+    }
+  });
+
+  document.addEventListener('deen:question-rendered',event=>{
+    const run=()=>arm();
+    if(!window.DEEN_RUNTIME_SCHEDULE?.question?.(
+      'v1053-isolated-matching',
+      event?.detail,
+      run,
+      {raf:true,delays:[0,80,220]}
+    )){
+      requestAnimationFrame(run);
+      setTimeout(run,80);
+      setTimeout(run,220);
+    }
+  });
+
+  window.DEEN_ISOLATED_MATCHING={
+    version:VERSION,
+    build:BUILD,
+    arm,
+    rehydrate,
+    snapshot:()=>({
+      version:VERSION,
+      build:BUILD,
+      active:active(),
+      key:state?.key||null,
+      selected:state?.selected?{...state.selected}:null,
+      matchedLeft:document.querySelectorAll('#lesson .v1017-left .v1017-card.matched').length,
+      matchedRight:document.querySelectorAll('#lesson .v1017-right .v1017-card.matched').length,
+      domSelected:descriptor(document.querySelector('#lesson .v1017-card.selected:not(.matched):not(:disabled)')),
+      errors:state?.errors||0,
+      finished:state?.finished||false,
+      clicks,
+      correctPairs,
+      wrongPairs,
+      arms,
+      inputSource:document.documentElement.dataset.deenMatchingInputSource||null,
+      lastEngineError,
+      renderer:document.documentElement.dataset.deenMatchingRenderer||null
+    })
+  };
+})();
+</script>
+
+
+<script id="deen-v1054-matching-debug-js">
+(()=>{
+  if(window.__deenV1054MatchingDebug)return;
+  window.__deenV1054MatchingDebug=true;
+
+  const enabled=new URLSearchParams(location.search).get('debugmatch')==='1';
+  if(!enabled)return;
+
+  let pointerdowns=0,windowClicks=0,lastPointer=null,lastClick=null;
+
+  function q(){
+    try{return session?.questions?.[Number(session?.index)||0]||null}catch(_){return null}
+  }
+
+  function describe(target){
+    const card=target?.closest?.('#lesson .v1017-card');
+    const label=card?.querySelector?.('.v1017-card-label')?.textContent?.trim()||'';
+    return {
+      tag:String(target?.tagName||'').toLowerCase(),
+      cls:String(target?.className||'').slice(0,80),
+      card:!!card,
+      label,
+      side:card?.closest?.('.v1017-left')?'left':(card?.closest?.('.v1017-right')?'right':'?'),
+      pair:card?.dataset?.pair||''
+    };
+  }
+
+  function ensure(){
+    let el=document.getElementById('deenMatchDebug');
+    if(el)return el;
+    el=document.createElement('pre');
+    el.id='deenMatchDebug';
+    el.style.cssText='position:fixed;left:8px;right:8px;bottom:8px;z-index:2147483647;margin:0;padding:9px 10px;border:1px solid rgba(129,236,201,.7);border-radius:10px;background:rgba(1,12,18,.94);color:#bff7e5;font:700 10px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;pointer-events:none;max-height:155px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.45)';
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function paint(){
+    const el=ensure();
+    const snap=window.DEEN_ISOLATED_MATCHING?.snapshot?.()||null;
+    const question=q();
+    const selectedCards=[...document.querySelectorAll('#lesson .v1017-card.selected')].map(x=>x.querySelector('.v1017-card-label')?.textContent?.trim());
+    const matched=[...document.querySelectorAll('#lesson .v1017-card.matched')].map(x=>x.querySelector('.v1017-card-label')?.textContent?.trim());
+    el.textContent=[
+      'MATCH DEBUG v10.5.4',
+      'question: '+String(question?.id||question?.activity_type||'none'),
+      'engine: '+String(snap?.version||'MISSING')+' active='+String(snap?.active),
+      'window pointer/click: '+pointerdowns+'/'+windowClicks+' engineClicks='+String(snap?.clicks??'—'),
+      'last pointer: '+JSON.stringify(lastPointer),
+      'last click: '+JSON.stringify(lastClick),
+      'engine selected: '+JSON.stringify(snap?.selected||null),
+      'DOM selected: '+JSON.stringify(selectedCards),
+      'matched L/R: '+String(snap?.matchedLeft??'—')+'/'+String(snap?.matchedRight??'—')+' DOM='+matched.length,
+      'last state: '+String(document.documentElement.dataset.deenMatchingLast||'—'),
+      'input source: '+String(document.documentElement.dataset.deenMatchingInputSource||'—'),
+      'engine error: '+String(document.documentElement.dataset.deenMatchingError||snap?.lastEngineError||'—'),
+      'renderer: '+String(document.documentElement.dataset.deenMatchingRenderer||'—')
+    ].join('\n');
+  }
+
+  window.addEventListener('pointerdown',e=>{
+    const card=e.target?.closest?.('#lesson .v1017-card');
+    if(!card)return;
+    pointerdowns++;
+    lastPointer=describe(e.target);
+    requestAnimationFrame(paint);
+  },true);
+
+  window.addEventListener('click',e=>{
+    const card=e.target?.closest?.('#lesson .v1017-card');
+    if(!card)return;
+    windowClicks++;
+    lastClick=describe(e.target);
+    setTimeout(paint,0);
+    setTimeout(paint,60);
+  },true);
+
+  document.addEventListener('deen:question-rendered',()=>{
+    setTimeout(paint,100);
+  });
+
+  window.DEEN_MATCHING_DEBUG={
+    version:'10.5.4-MATCH-DEBUG',
+    paint,
+    snapshot:()=>({pointerdowns,windowClicks,lastPointer,lastClick,engine:window.DEEN_ISOLATED_MATCHING?.snapshot?.()||null})
+  };
+
+  setTimeout(paint,300);
+})();
+</script>

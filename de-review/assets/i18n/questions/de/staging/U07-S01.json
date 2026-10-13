@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U07",
+  "stage": "U07-S01",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U07-S01-001": {
+      "source": {
+        "question_tr": "Bakara 2:285'e göre ilahî kitaplara iman, müminlerin iman çerçevesinde yer alır mı?",
+        "explanation_tr": "Bakara 2:285 Allah'a, meleklerine, kitaplarına ve peygamberlerine imanı birlikte zikreder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın kitaplarına iman",
+          "Yalnız kendi dönemindeki yazılı metinlere inanmak",
+          "Sadece tarih kitaplarını kutsal saymak",
+          "Her insan sözünü vahiy kabul etmek"
+        ],
+        "correct_answer": "Allah'ın kitaplarına iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Gehört nach Al-Baqara 2:285 der Glaube an die offenbarten Bücher zu den Glaubensinhalten?",
+        "explanation_tr": "Al-Baqara 2:285 nennt den Glauben an Allah, Seine Engel, Seine Bücher und Seine Gesandten gemeinsam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an Allahs Bücher",
+          "Nur Texte aus der eigenen Zeit anerkennen",
+          "Nur Geschichtsbücher als heilig ansehen",
+          "Jede menschliche Aussage als Offenbarung betrachten"
+        ],
+        "correct_answer": "Glaube an Allahs Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-002": {
+      "source": {
+        "question_tr": "Kitaplara iman, Kur'an'da açıkça zikredilen iman konularından biridir.",
+        "explanation_tr": "Bakara 2:285 ve Nisâ 4:136 kitaplara imanı iman çerçevesinin bir parçası olarak bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an die Bücher wird im Koran ausdrücklich als Glaubensinhalt erwähnt.",
+        "explanation_tr": "Al-Baqara 2:285 und An-Nisa 4:136 nennen den Glauben an die Bücher als Bestandteil des Glaubens.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-003": {
+      "source": {
+        "question_tr": "Nisâ 4:136, Allah'a, peygamberine ve peygamberine indirdiği ______ iman etmeyi emreder.",
+        "explanation_tr": "Ayette Hz. Peygamber'e indirilen kitaba ve daha önce indirilen kitaba iman çağrısı vardır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kitaba",
+          "şehre",
+          "servete",
+          "geleneğe"
+        ],
+        "correct_answer": "kitaba",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "An-Nisa 4:136 ruft dazu auf, an Allah, Seinen Gesandten und das ______ zu glauben, das Er dem Gesandten offenbart hat.",
+        "explanation_tr": "Der Vers fordert den Glauben an das dem Propheten offenbarte Buch und an die zuvor offenbarten Bücher.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Buch",
+          "Stadt",
+          "Vermögen",
+          "Brauchtum"
+        ],
+        "correct_answer": "Buch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kitaplara iman yalnız Kur'an'a inanmak demektir' diyor. En uygun düzeltme hangisidir?",
+        "explanation_tr": "Nisâ 4:136 hem Hz. Peygamber'e indirilen kitaba hem de daha önce indirilen kitaba iman etmeyi emreder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an, kendisine ve daha önce Allah tarafından indirilen kitaplara imanı birlikte öğretir",
+          "Yalnız Tevrat'a inanmak gerekir",
+          "Kitaplara iman diye bir esas yoktur",
+          "Bütün insan yazıları vahiydir"
+        ],
+        "correct_answer": "Kur'an, kendisine ve daha önce Allah tarafından indirilen kitaplara imanı birlikte öğretir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „An die Bücher zu glauben heißt, nur an den Koran zu glauben.“ Welche Korrektur passt?",
+        "explanation_tr": "An-Nisa 4:136 verlangt auch den Glauben an zuvor offenbarte Bücher.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Koran lehrt den Glauben sowohl an ihn selbst als auch an frühere Offenbarungen Allahs",
+          "Man muss nur an die Tora glauben",
+          "Es gibt keinen Glaubensartikel über Bücher",
+          "Alle menschlichen Schriften sind Offenbarung"
+        ],
+        "correct_answer": "Der Koran lehrt den Glauben sowohl an ihn selbst als auch an frühere Offenbarungen Allahs",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-005": {
+      "source": {
+        "question_tr": "Bir notta 'İlahî kitapların kaynağı peygamberlerin kendi düşünceleridir' yazıyor. Temel hata nedir?",
+        "explanation_tr": "Kur'an, kitapların Allah tarafından indirildiğini açıkça bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İlahî vahyin kaynağı Allah'tır",
+          "Her peygamber kitabını halktan derler",
+          "Kitapların kaynağı tarihçilerdir",
+          "Vahiy yalnız insan tecrübesidir"
+        ],
+        "correct_answer": "İlahî vahyin kaynağı Allah'tır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Die göttlichen Bücher stammen aus den eigenen Gedanken der Propheten.“ Welcher Fehler liegt darin?",
+        "explanation_tr": "Der Koran beschreibt die Bücher ausdrücklich als Offenbarungen Allahs.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Allah ist die Quelle der göttlichen Offenbarung",
+          "Jeder Prophet sammelt sein Buch bei den Menschen",
+          "Historiker sind die Quelle der Bücher",
+          "Offenbarung ist nur eine menschliche Erfahrung"
+        ],
+        "correct_answer": "Allah ist die Quelle der göttlichen Offenbarung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-006": {
+      "source": {
+        "question_tr": "Kitaplara imanla ilgili temel kavramları açıklamalarıyla eşleştir.",
+        "explanation_tr": "Kitaplara iman, vahyin kaynağını Allah olarak kabul eden bir iman anlayışıdır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kitaplara iman",
+            "right": "Allah'ın indirdiği vahiyleri tasdik etmek"
+          },
+          {
+            "left": "Vahiy",
+            "right": "Allah'tan gelen ilahî bildirim"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Vahyi insanlara ulaştıran elçi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Grundbegriffe über den Glauben an Bücher ihren Erklärungen zu.",
+        "explanation_tr": "Zum Glauben an die Bücher gehört, Allah als Quelle der Offenbarung anzuerkennen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaube an die Bücher",
+            "right": "Die von Allah offenbarten Schriften als wahr anerkennen"
+          },
+          {
+            "left": "Offenbarung",
+            "right": "Mitteilung von Allah"
+          },
+          {
+            "left": "Prophet",
+            "right": "Ein Gesandter, der den Menschen Offenbarung übermittelt"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-007": {
+      "source": {
+        "question_tr": "Nisâ 4:136'ya göre aşağıdakilerden hangisi iman bütünlüğünün parçasıdır?",
+        "explanation_tr": "Ayette Hz. Peygamber'e indirilen kitaba ve daha önce indirilen kitaba iman birlikte emredilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Daha önce indirilen kitaba iman",
+          "Yalnız sonradan yazılmış yorumlara iman",
+          "Her söylentiyi kutsal görmek",
+          "Vahyi kişisel kanaat saymak"
+        ],
+        "correct_answer": "Daha önce indirilen kitaba iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was gehört nach An-Nisa 4:136 zum umfassenden Glauben?",
+        "explanation_tr": "Der Vers nennt das dem Propheten offenbarte Buch und die früheren Offenbarungen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Auch an die zuvor offenbarten Bücher glauben",
+          "Nur an später verfasste Kommentare glauben",
+          "Jedes Gerücht als heilig betrachten",
+          "Offenbarung als persönliche Meinung behandeln"
+        ],
+        "correct_answer": "Auch an die zuvor offenbarten Bücher glauben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-008": {
+      "source": {
+        "question_tr": "Birisi, 'Allah'ın gönderdiği önceki vahiylerin hiçbir değerini kabul etmiyorum' diyor. Hangi ayet bu yaklaşımı doğrudan problemli hâle getirir?",
+        "explanation_tr": "Nisâ 4:136 daha önce indirilen kitaba da iman etmeyi açıkça emreder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nisâ 4:136",
+          "İsrâ 17:9",
+          "Hicr 15:9",
+          "Fussılet 41:42"
+        ],
+        "correct_answer": "Nisâ 4:136",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Frühere Offenbarungen Allahs haben für mich keinerlei Bedeutung.“ Welcher Vers zeigt das Problem?",
+        "explanation_tr": "An-Nisa 4:136 ruft ausdrücklich auch zum Glauben an frühere Offenbarungen auf.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "An-Nisa 4:136",
+          "Al-Isra 17:9",
+          "Al-Hidschr 15:9",
+          "Fussilat 41:42"
+        ],
+        "correct_answer": "An-Nisa 4:136",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-009": {
+      "source": {
+        "question_tr": "Kitaplara iman, Allah'ın vahiy göndermesini kabul etmeyi de içerir.",
+        "explanation_tr": "İlahî kitaplar Allah'ın peygamberlerine indirdiği vahiylerdir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zum Glauben an die Bücher gehört die Anerkennung, dass Allah Offenbarung herabsendet.",
+        "explanation_tr": "Die göttlichen Bücher sind Offenbarungen, die Allah Seinen Propheten gegeben hat.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-010": {
+      "source": {
+        "question_tr": "Kitaplara imanı tek cümleyle tanımla.",
+        "explanation_tr": "Kitaplara iman, vahyin kaynağının Allah olduğunu ve O'nun peygamberlerine kitaplar indirdiğini tasdik etmeyi içerir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah'ın peygamberlerine indirdiği vahiylerin hak olduğuna ve Kur'an'da bildirilen ilahî kitaplara iman etmektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Definiere den Glauben an die Bücher in einem Satz.",
+        "explanation_tr": "Der Glaube an die Bücher umfasst, Allah als Quelle der Offenbarung zu bejahen und die den Propheten offenbarten Schriften anzuerkennen.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Wir glauben, dass die von Allah Seinen Propheten offenbarten Schriften wahr sind, und erkennen die im Koran genannten göttlichen Bücher an.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-011": {
+      "source": {
+        "question_tr": "Bir ilahî kitap bilgisiyle karşılaşınca en sağlıklı değerlendirme sırasını oluştur.",
+        "explanation_tr": "Vahiy konusunda kaynak ile yorum arasındaki sınırı korumak yanlış kesinliklerden kaçınmayı sağlar.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "İddianın hangi kaynağa dayandığını belirle",
+          "Kur'an'daki açık bilgiyi kontrol et",
+          "Kesin bilgi ile yorumu ayır",
+          "Sonucu ihtiyatlı ifade et"
+        ],
+        "correct_order": [
+          "İddianın hangi kaynağa dayandığını belirle",
+          "Kur'an'daki açık bilgiyi kontrol et",
+          "Kesin bilgi ile yorumu ayır",
+          "Sonucu ihtiyatlı ifade et"
+        ]
+      },
+      "display": {
+        "question_tr": "Bringe die Schritte zur Prüfung einer Aussage über ein göttliches Buch in eine sinnvolle Reihenfolge.",
+        "explanation_tr": "Die Unterscheidung zwischen Quellenlage und Deutung verhindert unbegründete Gewissheit.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Finde heraus, worauf sich die Aussage stützt",
+          "Prüfe die ausdrücklichen Angaben im Koran",
+          "Unterscheide Gewissheit von Auslegung",
+          "Formuliere das Ergebnis vorsichtig"
+        ],
+        "correct_order": [
+          "Finde heraus, worauf sich die Aussage stützt",
+          "Prüfe die ausdrücklichen Angaben im Koran",
+          "Unterscheide Gewissheit von Auslegung",
+          "Formuliere das Ergebnis vorsichtig"
+        ],
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-012": {
+      "source": {
+        "question_tr": "Kur'an, kendisinden önce hiçbir ilahî vahyin indirilmediğini öğretir.",
+        "explanation_tr": "Nisâ 4:136 ve Âl-i İmrân 3:3-4 önceki ilahî kitaplardan açıkça söz eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Koran lehrt, dass vor ihm keinerlei göttliche Offenbarung herabgesandt wurde.",
+        "explanation_tr": "An-Nisa 4:136 und Al-Imran 3:3–4 nennen ausdrücklich frühere göttliche Bücher.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-013": {
+      "source": {
+        "question_tr": "Kitaplara iman açısından 'ilahî kitap' ifadesinin en temel özelliği nedir?",
+        "explanation_tr": "İlahî kitapların ayırt edici özelliği vahiy olarak Allah tarafından indirilmiş olmalarıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah tarafından vahyedilmiş olması",
+          "İnsanlar arasında çok okunması",
+          "Eski olması",
+          "Bir kral tarafından yazdırılması"
+        ],
+        "correct_answer": "Allah tarafından vahyedilmiş olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was ist das wichtigste Kennzeichen eines „göttlichen Buches“ im Glauben an die Bücher?",
+        "explanation_tr": "Göttliche Bücher zeichnen sich dadurch aus, dass Allah sie als Offenbarung herabsandte.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Es wurde von Allah offenbart",
+          "Viele Menschen lesen es",
+          "Es ist besonders alt",
+          "Ein König hat es in Auftrag gegeben"
+        ],
+        "correct_answer": "Es wurde von Allah offenbart",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S01-014": {
+      "source": {
+        "question_tr": "Kitaplara iman, vahyin kaynağının ______ olduğunu kabul etmeyi içerir.",
+        "explanation_tr": "Kur'an ilahî kitapları Allah'ın indirdiği vahiyler olarak tanıtır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "insan",
+          "toplum",
+          "tarihçi"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zum Glauben an die Bücher gehört die Anerkennung, dass die Offenbarung von ______ stammt.",
+        "explanation_tr": "Der Koran beschreibt die göttlichen Bücher als Offenbarungen Allahs.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "einem Menschen",
+          "der Gesellschaft",
+          "einem Historiker"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Bücher",
+        "topic": "Offenbarung und heilige Schriften"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

@@ -1,0 +1,128 @@
+<!-- DEEN v10.6.0 — Matching visual polish only -->
+<style id="deen-v1060-matching-polish-css">
+/*
+  Visual-only layer.
+  Do not modify interaction, state, renderer ownership or observer behavior.
+*/
+
+#lesson .question-frame.v1017-match-screen .v1017-card{
+  will-change:transform,box-shadow,border-color,background;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card:not(:disabled):hover{
+  border-color:rgba(116,192,181,.72)!important;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.035),
+    0 10px 24px rgba(0,0,0,.16),
+    0 0 0 1px rgba(114,226,188,.035)!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card.selected{
+  animation:v1060MatchSelect .34s ease-out both!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card.selected .v1017-choice-indicator{
+  animation:v1060IndicatorPulse .8s ease-in-out infinite alternate!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card.matched{
+  animation:v1060MatchSuccess .46s cubic-bezier(.22,.92,.28,1.22) both!important;
+  opacity:.92!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card.matched .v1017-card-label{
+  opacity:.92!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card.matched .v1017-choice-indicator{
+  animation:v1060CheckPop .42s cubic-bezier(.2,.9,.25,1.3) both!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card.wrong{
+  animation:v1060WrongClean .32s ease both!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-meter{
+  position:relative!important;
+  overflow:hidden!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-meter i{
+  position:relative!important;
+  overflow:hidden!important;
+  transition:width .28s cubic-bezier(.2,.8,.25,1)!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-meter i:after{
+  content:""!important;
+  position:absolute!important;
+  top:0!important;
+  bottom:0!important;
+  left:-34%!important;
+  width:34%!important;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent)!important;
+  transform:skewX(-18deg)!important;
+  animation:v1060MeterShine 1.6s ease-in-out infinite!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-count{
+  transition:transform .18s ease,color .18s ease!important;
+}
+
+#lesson .question-frame.v1017-match-screen .v1017-card:disabled{
+  cursor:default!important;
+}
+
+@keyframes v1060MatchSelect{
+  0%{transform:scale(.985)}
+  55%{transform:scale(1.018)}
+  100%{transform:translateY(-1px) scale(1)}
+}
+
+@keyframes v1060IndicatorPulse{
+  from{box-shadow:inset 0 0 0 5px #123f40,0 0 0 0 rgba(124,230,191,.20)}
+  to{box-shadow:inset 0 0 0 5px #123f40,0 0 0 7px rgba(124,230,191,.035)}
+}
+
+@keyframes v1060MatchSuccess{
+  0%{transform:scale(.97)}
+  55%{transform:scale(1.028)}
+  100%{transform:scale(1)}
+}
+
+@keyframes v1060CheckPop{
+  0%{transform:scale(.55);opacity:.3}
+  65%{transform:scale(1.16);opacity:1}
+  100%{transform:scale(1);opacity:1}
+}
+
+@keyframes v1060WrongClean{
+  0%,100%{transform:translateX(0)}
+  22%{transform:translateX(-5px)}
+  50%{transform:translateX(4px)}
+  76%{transform:translateX(-2px)}
+}
+
+@keyframes v1060MeterShine{
+  0%,30%{left:-36%;opacity:0}
+  48%{opacity:.85}
+  70%,100%{left:108%;opacity:0}
+}
+
+@media(max-width:420px){
+  #lesson .question-frame.v1017-match-screen .v1017-card.matched{
+    opacity:.94!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #lesson .question-frame.v1017-match-screen .v1017-card.selected,
+  #lesson .question-frame.v1017-match-screen .v1017-card.selected .v1017-choice-indicator,
+  #lesson .question-frame.v1017-match-screen .v1017-card.matched,
+  #lesson .question-frame.v1017-match-screen .v1017-card.matched .v1017-choice-indicator,
+  #lesson .question-frame.v1017-match-screen .v1017-card.wrong,
+  #lesson .question-frame.v1017-match-screen .v1017-meter i:after{
+    animation:none!important;
+  }
+}
+</style>

@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U03",
+  "stage": "U03-S03",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U03-S03-001": {
+      "source": {
+        "question_tr": "Dinlediğin ifade aşağıdakilerden hangisidir?",
+        "explanation_tr": "Ses kaydında okunan metin, İslam'ın temel şahitlik beyanı olan Kelime-i Şehadet'tir.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Kelime-i Şehadet (Tam hali)",
+          "Yalnızca Ezan",
+          "Fatiha Suresi",
+          "Sübhaneke Duası"
+        ],
+        "correct_answer": "Kelime-i Şehadet (Tam hali)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welchen Ausdruck hast du gehört?",
+        "explanation_tr": "Im Hörbeispiel wird die Schahada, das grundlegende islamische Glaubensbekenntnis, gesprochen.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Die vollständige Schahada",
+          "Nur den Gebetsruf",
+          "Die Sure Al-Fatiha",
+          "Das Subhanaka-Bittgebet"
+        ],
+        "correct_answer": "Die vollständige Schahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-002": {
+      "source": {
+        "question_tr": "Dinlediğin cümlenin Türkçe anlamı aşağıdakilerden hangisidir?",
+        "explanation_tr": "Standart Kelime-i Şehadet metni tevhid beyanını ve Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği birlikte içerir.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Allah'tan başka ilah olmadığına ve Muhammed'in O'nun kulu ve elçisi olduğuna şahitlik ederim.",
+          "Allah her şeyden büyüktür ve övgü O'nadır.",
+          "Rahman ve Rahim olan Allah'ın adıyla.",
+          "Bizi doğru yola ilet."
+        ],
+        "correct_answer": "Allah'tan başka ilah olmadığına ve Muhammed'in O'nun kulu ve elçisi olduğuna şahitlik ederim.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Antwort gibt die deutsche Bedeutung des gehörten Satzes wieder?",
+        "explanation_tr": "Die vollständige Schahada verbindet das Zeugnis über Allahs Einzigkeit mit dem Zeugnis über Muhammads Stellung als Sein Diener und Gesandter.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Ich bezeuge, dass es keine Gottheit außer Allah gibt und dass Muhammad Sein Diener und Gesandter ist.",
+          "Allah ist größer als alles, und Ihm gebührt das Lob.",
+          "Im Namen Allahs, des Allerbarmers, des Barmherzigen.",
+          "Führe uns den geraden Weg."
+        ],
+        "correct_answer": "Ich bezeuge, dass es keine Gottheit außer Allah gibt und dass Muhammad Sein Diener und Gesandter ist.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-003": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta, Kelime-i Şehadet'in ilk kısmı (tevhid kısmı) nerede bitmekte ve peygamberlik kısmı başlamaktadır?",
+        "explanation_tr": "'Eşhedü en lâ ilâhe illallah' kısmı tevhidi ifade eder; devamındaki 've eşhedü' ile peygamberlik şahitliği başlar.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "...illallah kelimesinden sonra.",
+          "...Eşhedü kelimesinden hemen sonra.",
+          "...Muhammeden kelimesinden sonra.",
+          "...abdühû kelimesinden sonra."
+        ],
+        "correct_answer": "...illallah kelimesinden sonra.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wo endet im Hörbeispiel der erste Teil der Schahada über Tauhid und beginnt der Teil über das Prophetentum?",
+        "explanation_tr": "„Aschhadu an la ilaha illallah“ drückt den Tauhid aus; danach leitet „wa aschhadu“ das Zeugnis über das Prophetentum ein.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Nach dem Wort „illallah“",
+          "Direkt nach dem Wort „Aschhadu“",
+          "Nach dem Wort „Muhammadan“",
+          "Nach dem Wort „abduhu“"
+        ],
+        "correct_answer": "Nach dem Wort „illallah“",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-004": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta, Allah'ın birliği ve Hz. Muhammed'in kulluğu ve elçiliği aynı cümle içinde birleştirilerek okunmaktadır.",
+        "explanation_tr": "Kelime-i Şehadet tek bir bütün ifadedir. Hem tevhid hem de risalet birbiri ardına kesintisiz bir beyanla sunulur.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Im Hörbeispiel werden Allahs Einzigkeit und Muhammads Stellung als Sein Diener und Gesandter in einem zusammenhängenden Bekenntnis gesprochen.",
+        "explanation_tr": "Die Schahada besteht aus einem zusammenhängenden Bekenntnis: Das Zeugnis über Allahs Einzigkeit geht in das über das Gesandtentum über.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-005": {
+      "source": {
+        "question_tr": "Dinlediğin ilk bölüm hangi temel kavramla bağlantılıdır?",
+        "explanation_tr": "Kaydın ilk bölümü 'Eşhedü en lâ ilâhe illallah' ifadesidir ve tevhid inancıyla bağlantılıdır.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Tevhid",
+          "Ahiret",
+          "Kader",
+          "Meleklere iman"
+        ],
+        "correct_answer": "Tevhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Grundbegriff gehört zum ersten gehörten Teil?",
+        "explanation_tr": "Der erste Teil lautet „Aschhadu an la ilaha illallah“ und ist ein Bekenntnis zum Tauhid.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Tauhid",
+          "Das Jenseits",
+          "Göttliche Vorherbestimmung",
+          "Glaube an Engel"
+        ],
+        "correct_answer": "Tauhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-006": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta 'şahitlik ederim' anlamına gelen 'eşhedü' kelimesini kaç kez duyuyorsun?",
+        "explanation_tr": "Kayıtta önce Allah'ın birliğine şahitlik için, sonra da peygamberliğe şahitlik için olmak üzere iki kez duyulur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İki kez",
+          "Bir kez",
+          "Üç kez",
+          "Hiç duymuyorum"
+        ],
+        "correct_answer": "İki kez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie oft hörst du im Hörbeispiel „aschhadu“, also „ich bezeuge“?",
+        "explanation_tr": "Das Wort wird zweimal gesprochen: vor dem Zeugnis über Allahs Einzigkeit und vor dem Zeugnis über Muhammads Gesandtentum.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zweimal",
+          "Einmal",
+          "Dreimal",
+          "Überhaupt nicht"
+        ],
+        "correct_answer": "Zweimal",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-007": {
+      "source": {
+        "question_tr": "Dinlediğin tam ifadede aşağıdaki anlamlardan hangisi birlikte yer alır?",
+        "explanation_tr": "Tam kayıt iki beyanı art arda içerir: tevhid ve Hz. Muhammed'in kulluğu ve elçiliği.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Allah'ın birliği ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+          "Yalnızca Allah'ın birliği",
+          "Yalnızca namaz ibadeti",
+          "Yalnızca güzel ahlak"
+        ],
+        "correct_answer": "Allah'ın birliği ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche beiden Bedeutungen kommen im gehörten vollständigen Bekenntnis zusammen?",
+        "explanation_tr": "Das vollständige Hörbeispiel enthält nacheinander das Zeugnis über den Tauhid und über Muhammads Gesandtentum.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Allahs Einzigkeit und dass Muhammad Allahs Diener und Gesandter ist",
+          "Nur Allahs Einzigkeit",
+          "Nur das Gebet",
+          "Nur guter Charakter"
+        ],
+        "correct_answer": "Allahs Einzigkeit und dass Muhammad Allahs Diener und Gesandter ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-008": {
+      "source": {
+        "question_tr": "Dinlediğin standart Kelime-i Şehadet metni hangi kelime ile sona ermektedir?",
+        "explanation_tr": "Diyanet'in standart öğretim metni '...Muhammeden abdühû ve resûlüh' şeklinde sona erer.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Resûlüh",
+          "İllallah",
+          "Eşhedü",
+          "Muhammeden"
+        ],
+        "correct_answer": "Resûlüh",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mit welchem Wort endet die gehörte Schahada?",
+        "explanation_tr": "Der gebräuchliche Lehrwortlaut endet mit „...Muhammadan abduhu wa rasuluh“.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Rasuluh",
+          "Illallah",
+          "Aschhadu",
+          "Muhammadan"
+        ],
+        "correct_answer": "Rasuluh",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-009": {
+      "source": {
+        "question_tr": "Dinlediğin Kelime-i Şehadet ifadesinin temel işlevini en doğru hangi seçenek açıklar?",
+        "explanation_tr": "Kelime-i Şehadet, Allah'ın birliğini ve Hz. Muhammed'in kulluğu ve elçiliğini tasdik eden temel sözlü iman beyanıdır.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "İslam'a girişin temel iman beyanını sözlü olarak ifade etmek",
+          "Yalnızca maddi bir sözleşme yapmak",
+          "Sadece geçmiş peygamberlerin isimlerini saymak",
+          "Günde beş vakit namazın vakitlerini duyurmak"
+        ],
+        "correct_answer": "İslam'a girişin temel iman beyanını sözlü olarak ifade etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aufgabe hat die gehörte Schahada hauptsächlich?",
+        "explanation_tr": "Mit der Schahada wird der Glaube an Allahs Einzigkeit und an Muhammads Stellung als Sein Diener und Gesandter bekannt.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Das grundlegende Glaubensbekenntnis zum Islam laut auszusprechen",
+          "Nur einen finanziellen Vertrag zu schließen",
+          "Nur die Namen früherer Propheten aufzulisten",
+          "Die Zeiten der fünf täglichen Gebete anzukündigen"
+        ],
+        "correct_answer": "Das grundlegende Glaubensbekenntnis zum Islam laut auszusprechen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-010": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta, cümlenin iki parçasını birbirine bağlayan ve ikinci şahitliği başlatan ifade 've ________' şeklinde duyulur.",
+        "explanation_tr": "Kayıtta 'illallah' dendiğinde ilk kısım biter, hemen ardından 've eşhedü' (ve şahitlik ederim ki) denilerek peygamberlik kısmına geçilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "eşhedü",
+          "lâ",
+          "resul",
+          "Allah"
+        ],
+        "correct_answer": "eşhedü",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Im Hörbeispiel leitet die Verbindung „wa ________“ den zweiten Teil des Bekenntnisses ein.",
+        "explanation_tr": "Der erste Teil endet mit „illallah“; darauf folgt „wa aschhadu“, also „und ich bezeuge“, für das Zeugnis über das Prophetentum.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "aschhadu",
+          "la",
+          "rasul",
+          "Allah"
+        ],
+        "correct_answer": "aschhadu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-011": {
+      "source": {
+        "question_tr": "Dinlediğin kaydın ikinci bölümünde hangi özel isim duyulur?",
+        "explanation_tr": "İkinci bölüm 've eşhedü enne Muhammeden abdühû ve resûlüh' şeklindedir.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Muhammed",
+          "İbrahim",
+          "Musa",
+          "İsa"
+        ],
+        "correct_answer": "Muhammed",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welchen Personennamen hörst du im zweiten Teil?",
+        "explanation_tr": "Der zweite Teil lautet „wa aschhadu anna Muhammadan abduhu wa rasuluh“.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Muhammad",
+          "Abraham",
+          "Mose",
+          "Jesus"
+        ],
+        "correct_answer": "Muhammad",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-012": {
+      "source": {
+        "question_tr": "Dinlediğin metnin Hz. Muhammed'in Allah'ın kulu ve elçisi olduğunu ifade eden bölümü hangisidir?",
+        "explanation_tr": "İkinci bölüm Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+          "Eşhedü en lâ ilâhe illallah",
+          "Lâ ilâhe",
+          "Eşhedü"
+        ],
+        "correct_answer": "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Teil des gehörten Textes erklärt, dass Muhammad Allahs Diener und Gesandter ist?",
+        "explanation_tr": "Der zweite Teil bezeugt, dass Muhammad Allahs Diener und Gesandter ist.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "wa ashhadu anna Muhammadan abduhu wa rasuluh",
+          "Ashhadu an la ilaha illallah",
+          "La ilaha",
+          "Ashhadu"
+        ],
+        "correct_answer": "wa ashhadu anna Muhammadan abduhu wa rasuluh",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-013": {
+      "source": {
+        "question_tr": "Dinlediğin ifadenin iki bölümlü yapısını en doğru hangi seçenek açıklar?",
+        "explanation_tr": "Kelime-i Şehadet'in sırası tevhid beyanından elçilik beyanına ilerler.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Önce Allah'ın birliğine, sonra Hz. Muhammed'in kulluğu ve elçiliğine şahitlik edilir",
+          "Önce namaz, sonra oruç anlatılır",
+          "Önce ahiret, sonra kader anlatılır",
+          "Önce Kur'an, sonra hadis tanımlanır"
+        ],
+        "correct_answer": "Önce Allah'ın birliğine, sonra Hz. Muhammed'in kulluğu ve elçiliğine şahitlik edilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Erklärung beschreibt den Aufbau des gehörten Bekenntnisses richtig?",
+        "explanation_tr": "Die Schahada führt vom Zeugnis über Tauhid zum Zeugnis über das Gesandtentum.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Zuerst das Zeugnis über Allahs Einzigkeit, danach das über Muhammads Stellung als Sein Diener und Gesandter",
+          "Zuerst Gebet, danach Fasten",
+          "Zuerst das Jenseits, danach die Vorherbestimmung",
+          "Zuerst eine Erklärung des Korans, danach eine Erklärung der Hadithe"
+        ],
+        "correct_answer": "Zuerst das Zeugnis über Allahs Einzigkeit, danach das über Muhammads Stellung als Sein Diener und Gesandter",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U03-S03-014": {
+      "source": {
+        "question_tr": "Dinlediğin ifadenin sonunda hangi anlam vurgulanır?",
+        "explanation_tr": "Kaydın son bölümü 'Muhammeden abdühû ve resûlüh' ifadesiyle Hz. Muhammed'in Allah'ın kulu ve elçisi olduğunu belirtir.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+          "Allah'tan başka ilah olmadığı",
+          "Namazın farz olduğu",
+          "Kur'an'ın bölümleri"
+        ],
+        "correct_answer": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Bedeutung steht am Ende des gehörten Bekenntnisses?",
+        "explanation_tr": "Die Schlussworte „Muhammadan abduhu wa rasuluh“ bezeichnen Muhammad als Allahs Diener und Gesandten.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Muhammad ist Allahs Diener und Gesandter",
+          "Es gibt keine Gottheit außer Allah",
+          "Das Gebet ist verpflichtend",
+          "Die Abschnitte des Korans"
+        ],
+        "correct_answer": "Muhammad ist Allahs Diener und Gesandter",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die Schahada hören",
+        "topic": "Schahada: hören, verstehen und ordnen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

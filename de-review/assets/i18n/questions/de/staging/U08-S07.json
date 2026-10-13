@@ -1,0 +1,543 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U08",
+  "stage": "U08-S07",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U08-S07-001": {
+      "source": {
+        "question_tr": "Bir öğrenci şu üç cümleyi yazıyor: (1) Peygamberler vahiy alan insanlardır. (2) Ortak çağrılarının özü tevhiddir. (3) Hz. Muhammed peygamberlerin sonuncusudur. Hangileri Kur'an'la uyumludur?",
+        "explanation_tr": "Kehf 18:110, Enbiyâ 21:25 ve Ahzâb 33:40 bu üç bilgiyi destekler.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 ve 3",
+          "Yalnız 1",
+          "1 ve 2",
+          "2 ve 3"
+        ],
+        "correct_answer": "1, 2 ve 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender schreibt: (1) Propheten sind Menschen und empfangen Offenbarung. (2) Ihr gemeinsamer Aufruf ist Tauhid. (3) Muhammad ist der letzte Prophet. Was stimmt?",
+        "explanation_tr": "Al-Kahf 18:110, Al-Anbiya 21:25 und Al-Ahzab 33:40 bestätigen diese Aussagen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 und 3",
+          "Nur 1",
+          "1 und 2",
+          "2 und 3"
+        ],
+        "correct_answer": "1, 2 und 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-002": {
+      "source": {
+        "question_tr": "Peygamberlerin insan olması ile Allah'tan vahiy almaları Kur'an'a göre birbiriyle çelişir.",
+        "explanation_tr": "Kehf 18:110 insan oluş ile vahiy almayı açıkça birlikte ifade eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dass Propheten Menschen sind, widerspricht nach dem Koran dem Empfang von Offenbarung.",
+        "explanation_tr": "Al-Kahf 18:110 betont Menschsein und Offenbarung zugleich.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-003": {
+      "source": {
+        "question_tr": "Peygamberlerin ortak çağrısının merkezinde yalnız ______ kulluk vardır.",
+        "explanation_tr": "Enbiyâ 21:25 ve Nahl 16:36 peygamberlerin ortak tevhid çağrısını vurgular.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah'a",
+          "peygambere",
+          "topluma",
+          "meleklere"
+        ],
+        "correct_answer": "Allah'a",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Im Mittelpunkt des gemeinsamen Aufrufs der Propheten steht die alleinige Verehrung von ______.",
+        "explanation_tr": "Al-Anbiya 21:25 und An-Nahl 16:36 betonen den Tauhid als gemeinsame Botschaft.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "dem Propheten",
+          "der Gesellschaft",
+          "Engeln"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-004": {
+      "source": {
+        "question_tr": "Bir içerikte Hz. Muhammed hem 'örnek alınacak elçi' hem de 'ilah' diye tanıtılıyor. Hangi düzeltme gerekir?",
+        "explanation_tr": "Kur'an Hz. Muhammed'i insan, elçi ve güzel örnek olarak tanıtır; ilahlık atfetmez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahzâb 33:21 örnekliğini, Kehf 18:110 ise insan oluşunu bildirir; ibadet yalnız Allah'adır",
+          "Örnek olmak ilah olmak demektir",
+          "Hz. Muhammed insan değildir",
+          "Tevhid peygamberler için geçerli değildir"
+        ],
+        "correct_answer": "Ahzâb 33:21 örnekliğini, Kehf 18:110 ise insan oluşunu bildirir; ibadet yalnız Allah'adır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Text beschreibt Muhammad zugleich als „ein Vorbild“ und als „eine Gottheit“. Welche Korrektur ist nötig?",
+        "explanation_tr": "Der Koran stellt Muhammad als menschlichen Gesandten und Vorbild dar, nicht als Gottheit.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Ahzab 33:21 betont sein Vorbild, Al-Kahf 18:110 sein Menschsein; angebetet wird allein Allah",
+          "Ein Vorbild muss eine Gottheit sein",
+          "Muhammad ist kein Mensch",
+          "Tauhid gilt nicht für Propheten"
+        ],
+        "correct_answer": "Al-Ahzab 33:21 betont sein Vorbild, Al-Kahf 18:110 sein Menschsein; angebetet wird allein Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-005": {
+      "source": {
+        "question_tr": "Bir kişi 'Kur'an'da adı olmayan biri kesinlikle peygamber olamaz' diyor. En doğru cevap hangisidir?",
+        "explanation_tr": "Ayet bilgi sınırını gösterir: bütün peygamberler isimlendirilmemiştir; bu durum kaynaksız peygamberlik iddialarını da doğrulamaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir; kaynakta olmayan kişiye de gelişigüzel peygamber denmez",
+          "Kur'an bütün peygamberleri sayar",
+          "Her tarihî kişi peygamberdir",
+          "İsim bilgisi peygamberlik için gereksizdir"
+        ],
+        "correct_answer": "Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir; kaynakta olmayan kişiye de gelişigüzel peygamber denmez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand behauptet: „Wer im Koran nicht namentlich genannt ist, kann keinesfalls Prophet gewesen sein.“ Was ist richtig?",
+        "explanation_tr": "Der Vers zeigt, dass nicht alle Propheten genannt werden, bestätigt aber keine unbelegten Einzelansprüche.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "An-Nisa 4:164 erwähnt unbeschriebene Propheten; das erlaubt aber nicht, beliebige Personen ohne Beleg zu Propheten zu erklären",
+          "Der Koran nennt alle Propheten",
+          "Jede historische Person ist Prophet",
+          "Für Prophetentum sind Namen grundsätzlich bedeutungslos"
+        ],
+        "correct_answer": "An-Nisa 4:164 erwähnt unbeschriebene Propheten; das erlaubt aber nicht, beliebige Personen ohne Beleg zu Propheten zu erklären",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-006": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Hz. Muhammed'in risaleti yalnız belirli bir halka yöneliktir' diyor. Hangi iki bilgi birlikte en güçlü düzeltmeyi sağlar?",
+        "explanation_tr": "Bu iki ayet Hz. Muhammed'in elçilik kimliğini ve risaletinin evrenselliğini birlikte gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sebe 34:28 bütün insanlara gönderilişi ve Ahzâb 33:40 elçiliğini bildirir",
+          "Nisâ 4:164 ve Bakara 2:253",
+          "Enbiyâ 21:8 ve Nisâ 4:165",
+          "Bakara 2:285 ve Nahl 16:36"
+        ],
+        "correct_answer": "Sebe 34:28 bütün insanlara gönderilişi ve Ahzâb 33:40 elçiliğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender behauptet, Muhammads Botschaft sei nur für ein bestimmtes Volk. Welche Belege widersprechen dem?",
+        "explanation_tr": "Diese Verse erläutern sowohl Muhammads Stellung als Gesandter als auch den universellen Umfang seiner Botschaft.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Saba 34:28 nennt die gesamte Menschheit, Al-Ahzab 33:40 sein Gesandtentum",
+          "An-Nisa 4:164 und Al-Baqara 2:253",
+          "Al-Anbiya 21:8 und An-Nisa 4:165",
+          "Al-Baqara 2:285 und An-Nahl 16:36"
+        ],
+        "correct_answer": "Saba 34:28 nennt die gesamte Menschheit, Al-Ahzab 33:40 sein Gesandtentum",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-007": {
+      "source": {
+        "question_tr": "Bir özet kartında 'Peygamberler mesajın kaynağıdır; isterlerse vahyi değiştirirler' yazıyor. En kapsamlı düzeltme hangisidir?",
+        "explanation_tr": "Nisâ 4:163 vahyi Allah'a, Mâide 5:67 ise tebliğ görevini peygambere nispet eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Vahyin kaynağı Allah'tır ve peygamberin görevi kendisine indirileni tebliğ etmektir",
+          "Vahyin kaynağı peygamberin nefsidir",
+          "Toplum vahyi istediği gibi üretir",
+          "Peygamberlerin tebliğ görevi yoktur"
+        ],
+        "correct_answer": "Vahyin kaynağı Allah'tır ve peygamberin görevi kendisine indirileni tebliğ etmektir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Auf einer Karte steht: „Propheten erschaffen ihre Botschaften und können Offenbarung beliebig ändern.“ Wie lautet die richtige Korrektur?",
+        "explanation_tr": "An-Nisa 4:163 nennt Allah als Quelle, Al-Maida 5:67 die Aufgabe zur Übermittlung.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Allah ist die Quelle der Offenbarung; der Prophet übermittelt, was ihm offenbart wurde",
+          "Der Prophet selbst ist die Quelle der Offenbarung",
+          "Die Gesellschaft erschafft Offenbarung nach Belieben",
+          "Propheten haben keine Aufgabe zur Übermittlung"
+        ],
+        "correct_answer": "Allah ist die Quelle der Offenbarung; der Prophet übermittelt, was ihm offenbart wurde",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-008": {
+      "source": {
+        "question_tr": "Peygamberlere iman ünitesinde kaynak, bilgi ve sonucu eşleştir.",
+        "explanation_tr": "Ünite ustalığı, ayetleri yalnız ezberlemek değil doğru kavramla eşleştirmeyi de gerektirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Bakara 2:285",
+            "right": "Elçiler arasında iman bakımından ayrım yapmama"
+          },
+          {
+            "left": "Mâide 5:67",
+            "right": "Vahyin tebliği"
+          },
+          {
+            "left": "Ahzâb 33:40",
+            "right": "Hz. Muhammed'in elçiliği ve son peygamber oluşu"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Verse den Aussagen über den Glauben an Propheten zu.",
+        "explanation_tr": "Zum Verständnis der Einheit gehört, Verse ihren tatsächlichen Aussagen zuzuordnen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Baqara 2:285",
+            "right": "Alle Gesandten im Glauben anerkennen"
+          },
+          {
+            "left": "Al-Maida 5:67",
+            "right": "Offenbarung übermitteln"
+          },
+          {
+            "left": "Al-Ahzab 33:40",
+            "right": "Muhammads Gesandtentum und sein Abschluss des Prophetentums"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-009": {
+      "source": {
+        "question_tr": "Peygamberlere iman ünitesini dört anahtar kavramla özetle.",
+        "explanation_tr": "Bu dört kavram peygamberliğin kaynağını, görevini, mesajını ve iman boyutunu özetler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Vahiy, tebliğ, tevhid ve bütün Allah elçilerini tasdik etmek.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasse den Glauben an die Propheten anhand von vier Begriffen zusammen.",
+        "explanation_tr": "Die vier Begriffe beschreiben den Ursprung, die Aufgabe, die Botschaft und die Anerkennung der Propheten.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Offenbarung, Übermittlung, Tauhid und die Anerkennung aller Gesandten Allahs.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-010": {
+      "source": {
+        "question_tr": "Ahzâb 33:21, Resûlullah'ta güzel bir ______ bulunduğunu bildirir.",
+        "explanation_tr": "Ayet Allah'ı ve âhireti umanlar için Resûlullah'ta güzel örnek bulunduğunu bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "örneklik",
+          "ilahlık",
+          "ölümsüzlük",
+          "soy üstünlüğü"
+        ],
+        "correct_answer": "örneklik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Ahzab 33:21 nennt Allahs Gesandten ein vorzügliches ______.",
+        "explanation_tr": "Der Vers nennt Allahs Gesandten ein vorzügliches Vorbild für die Gläubigen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Vorbild",
+          "göttliches Wesen",
+          "unsterbliches Wesen",
+          "Beispiel erblicher Überlegenheit"
+        ],
+        "correct_answer": "Vorbild",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-011": {
+      "source": {
+        "question_tr": "Ahzâb 33:40, Hz. Muhammed'i peygamberlerin ______ olarak tanımlar.",
+        "explanation_tr": "Ayet Hz. Muhammed'in Allah'ın elçisi ve peygamberlerin sonuncusu olduğunu bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "sonuncusu",
+          "ilk ve tek olanı",
+          "kralı",
+          "babası"
+        ],
+        "correct_answer": "sonuncusu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Ahzab 33:40 bezeichnet Muhammad als den ______ der Propheten.",
+        "explanation_tr": "Der Vers erklärt, dass Muhammad Allahs Gesandter und der letzte Prophet ist.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "letzten",
+          "ersten und einzigen",
+          "König",
+          "Vater"
+        ],
+        "correct_answer": "letzten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-012": {
+      "source": {
+        "question_tr": "Peygamberlere iman bilgisini bütüncül biçimde sırala.",
+        "explanation_tr": "Bu sıra peygamberliğin seçilme, vahiy, ortak mesaj ve iman boyutlarını birleştirir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah insanlardan elçiler seçer",
+          "Onlara vahiy verir",
+          "Elçiler tevhid mesajını tebliğ eder",
+          "Müminler Allah'ın elçilerini tasdik eder"
+        ],
+        "correct_order": [
+          "Allah insanlardan elçiler seçer",
+          "Onlara vahiy verir",
+          "Elçiler tevhid mesajını tebliğ eder",
+          "Müminler Allah'ın elçilerini tasdik eder"
+        ]
+      },
+      "display": {
+        "question_tr": "Bringe diese Aussagen über den Glauben an Propheten in die richtige Reihenfolge.",
+        "explanation_tr": "Die Reihenfolge verbindet die Erwählung, Offenbarung, gemeinsame Botschaft und den Glauben an die Gesandten.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah erwählt Gesandte unter den Menschen",
+          "Er gibt ihnen Offenbarung",
+          "Die Gesandten übermitteln die Botschaft des Tauhid",
+          "Die Gläubigen erkennen Allahs Gesandte an"
+        ],
+        "correct_order": [
+          "Allah erwählt Gesandte unter den Menschen",
+          "Er gibt ihnen Offenbarung",
+          "Die Gesandten übermitteln die Botschaft des Tauhid",
+          "Die Gläubigen erkennen Allahs Gesandte an"
+        ],
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-013": {
+      "source": {
+        "question_tr": "Peygamberlere iman kaynak eşleştirmelerinden hangisi yanlıştır?",
+        "explanation_tr": "Ahzâb 33:40 Hz. Muhammed'i peygamberlerin sonuncusu olarak tanımlar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nisâ 4:165 — müjde ve uyarı",
+          "Kehf 18:110 — insan oluş ve vahiy",
+          "Sebe 34:28 — Hz. Muhammed'in bütün insanlara gönderilişi",
+          "Ahzâb 33:40 — Hz. Muhammed'den sonra peygamberlerin devam edeceği"
+        ],
+        "correct_answer": "Ahzâb 33:40 — Hz. Muhammed'den sonra peygamberlerin devam edeceği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung einer Koranstelle ist falsch?",
+        "explanation_tr": "Al-Ahzab 33:40 bezeichnet Muhammad als letzten der Propheten.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "An-Nisa 4:165 – Frohe Botschaft und Warnung",
+          "Al-Kahf 18:110 – Menschsein und Offenbarung",
+          "Saba 34:28 – Sendung Muhammads an die gesamte Menschheit",
+          "Al-Ahzab 33:40 – Fortsetzung des Prophetentums nach Muhammad"
+        ],
+        "correct_answer": "Al-Ahzab 33:40 – Fortsetzung des Prophetentums nach Muhammad",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S07-014": {
+      "source": {
+        "question_tr": "Peygamberlere iman ünitesini en iyi özetleyen cümle hangisidir?",
+        "explanation_tr": "Ünite iman esası, insan oluş, vahiy, tebliğ, tevhid, iman bütünlüğü ve Hz. Muhammed'in risaletini birlikte ele alır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman; Allah'ın vahiy verdiği insan elçileri tasdik etmeyi, ortak tevhid çağrılarını ve tebliğ görevlerini doğru anlamayı içerir",
+          "Peygamberlere iman yalnız isim ezberidir",
+          "Peygamberler ilahî varlıklardır",
+          "Her peygamber farklı bir ilaha çağırır"
+        ],
+        "correct_answer": "Peygamberlere iman; Allah'ın vahiy verdiği insan elçileri tasdik etmeyi, ortak tevhid çağrılarını ve tebliğ görevlerini doğru anlamayı içerir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage fasst den Glauben an die Propheten am besten zusammen?",
+        "explanation_tr": "Die Einheit verbindet Glaubensartikel, Menschsein, Offenbarung, Übermittlung, Tauhid und Muhammads Gesandtentum.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allahs menschliche Gesandte, die Offenbarung empfangen, anerkennen und ihren gemeinsamen Tauhid-Aufruf sowie die Pflicht zur Übermittlung verstehen",
+          "Der Glaube an Propheten besteht nur darin, Namen auswendig zu lernen",
+          "Propheten sind göttliche Wesen",
+          "Jeder Prophet ruft zu einer anderen Gottheit auf"
+        ],
+        "correct_answer": "Allahs menschliche Gesandte, die Offenbarung empfangen, anerkennen und ihren gemeinsamen Tauhid-Aufruf sowie die Pflicht zur Übermittlung verstehen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Glaube an die Propheten",
+        "topic": "Offenbarung, Gesandtentum und Tauhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

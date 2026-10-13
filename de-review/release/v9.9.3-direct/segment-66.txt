@@ -1,0 +1,2465 @@
+<!-- DEEN v9.12.67 — U01–U14 Arabic UI review + U15 stage-3 audit + unit-aware concept labels + full question-bank runtime (U01–U15) -->
+<style id="deen-v91223-arabic-fullbank-css">
+html:lang(ar) #lesson #questionText,
+html:lang(ar) #lesson #feedbackText,
+/* Preserve spatial layout of lesson cards; change only text direction. */
+html:lang(ar) #lesson #answerArea,
+html:lang(ar) #lesson .v1017-hero,
+html:lang(ar) #lesson .v1017-board{direction:ltr}
+html:lang(ar) #lesson #answerArea :is(.option-label,.fill-choice,input),
+html:lang(ar) #lesson :is(#questionText,#feedbackText,.v1017-title,.v1017-subtitle){direction:rtl;unicode-bidi:plaintext}
+html:lang(ar) #lesson #questionText,
+html:lang(ar) #lesson #feedbackText,
+html:lang(ar) #lesson .v1017-title,
+html:lang(ar) #lesson .v1017-subtitle{text-align:right;unicode-bidi:plaintext}
+html:lang(ar) #lesson #answerArea .option-label,
+html:lang(ar) #lesson #answerArea .fill-choice,
+html:lang(ar) #lesson #answerArea input{direction:rtl;text-align:right;unicode-bidi:plaintext}
+html:lang(ar) #lesson .v1017-hero{direction:rtl!important;text-align:right!important;margin:14px 0 18px!important;padding:0 4px!important;position:relative!important;z-index:2!important}
+html:lang(ar) #lesson .v1017-title{font-size:clamp(24px,7vw,36px)!important;line-height:1.12!important;white-space:normal!important;text-align:right!important;margin:0!important}
+html:lang(ar) #lesson .v1017-subtitle{margin-top:8px!important;text-align:right!important}
+html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!important}
+</style>
+<script id="deen-v91223-arabic-fullbank-js">
+(()=>{
+ if(window.__DEEN_ARABIC_FULL_BANK_V91223__)return;
+ window.__DEEN_ARABIC_FULL_BANK_V91223__=true;
+
+ const locale=()=>window.DEEN_APP_LOCALE?.get?.();
+ const pad=n=>String(n).padStart(2,'0');
+ const supportedStages=new Set();
+ const stageMap={};
+ for(let u=1;u<=15;u++){
+  for(let s=1;s<=7;s++){
+   const unit='U'+pad(u),legacy=unit+'-S'+pad(s),macro=unit+'-M'+pad(s);
+   supportedStages.add(legacy);
+   stageMap[macro]=legacy;
+  }
+ }
+
+ const pilot={
+  ready:false,
+  loading:true,
+  failure:'',
+  translations:Object.create(null),
+  runtime_variants:Object.create(null),
+  live_translations:Object.create(null),
+  supportedStages,
+  stageMap,
+  sourceLabel:'الترجمة العربية متاحة لجميع الأسئلة وتنتظر مراجعة مختص.',
+  version:'9390cssarabic1'
+ };
+
+ const sameArray=(a,b)=>{
+  if(!Array.isArray(a))return !Array.isArray(b);
+  return Array.isArray(b)&&a.length===b.length&&a.every((x,i)=>x===b[i]);
+ };
+ const samePairs=(a,b)=>{
+  if(!Array.isArray(a))return !Array.isArray(b)||b.length===0;
+  return Array.isArray(b)&&a.length===b.length&&a.every((x,i)=>x?.left===b[i]?.left&&x?.right===b[i]?.right);
+ };
+ const blankCount=s=>(String(s||'').match(/___/g)||[]).length;
+
+ function userVisibleStrings(t){
+  const out=[t?.question_ar,t?.correct_answer_ar,t?.explanation_ar];
+  (t?.options_ar||[]).forEach(x=>out.push(x));
+  (t?.pairs_ar||[]).forEach(p=>out.push(p?.left,p?.right));
+  (t?.items_ar||[]).forEach(x=>out.push(x));
+  (t?.correct_order_ar||[]).forEach(x=>out.push(x));
+  return out.filter(x=>typeof x==='string'&&x.trim());
+ }
+
+ function validArabicEntry(t){
+  if(!t||t.expert_approved!==false)return false;
+  if(typeof t.question_ar!=='string'||!t.question_ar.trim())return false;
+  if(typeof t.explanation_ar!=='string'||!t.explanation_ar.trim())return false;
+  const values=userVisibleStrings(t);
+  if(values.some(v=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(v.replace(/\bDEEN\b/g,''))))return false;
+  if(t.teaching_card_ar&&Object.values(t.teaching_card_ar).some(v=>typeof v!=='string'||!v.trim()||/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(v)))return false;
+  return /[\u0600-\u06FF]/.test(t.question_ar)&&/[\u0600-\u06FF]/.test(t.explanation_ar);
+ }
+
+ const arabicU02ConceptNames={
+  belief_in_allah:'الإيمان بالله',
+  tawhid_basic:'التوحيد',
+  allah_one:'وحدانية الله',
+  worship_allah:'عبادة الله وحده',
+  concept_relationships:'العلاقات بين المفاهيم',
+  creator_basic:'الله الخالق',
+  creator_creation_distinction:'التمييز بين الخالق والمخلوق',
+  gratitude_basic:'الشكر',
+  trust_in_allah_basic:'الثقة بالله',
+  belief_daily_life:'أثر الإيمان في الحياة اليومية',
+  responsibility_from_belief:'المسؤولية الناتجة عن الإيمان'
+ };
+ Object.assign(arabicU02ConceptNames,{
+  angels_article:'الإيمان بالملائكة',
+  source_discipline:'الانضباط بالمصدر',
+  angels_servants:'الملائكة عباد الله',
+  basic_distinctions:'الفروق الأساسية',
+  angels_messengers:'الملائكة رسل',
+  appearance_limits:'حدود وصف هيئة الملائكة',
+  tawhid_boundary:'حدود التوحيد',
+  belief_definition:'تعريف الإيمان بالملائكة',
+  source_method:'منهج التعامل مع المصادر',
+  angel_obedience:'طاعة الملائكة',
+  angel_worship:'عبادة الملائكة لله',
+  angel_no_arrogance:'عدم استكبار الملائكة',
+  angel_traits_sources:'مصادر صفات الملائكة',
+  angel_dependency:'افتقار الملائكة إلى الله',
+  angel_wings:'أجنحة الملائكة',
+  angel_worship_summary:'ملخّص عبادة الملائكة',
+  jibril_revelation:'جبريل والوحي',
+  revelation_permission:'الوحي بإذن الله',
+  revelation_source:'مصدر الوحي',
+  mikail_named:'ذكر ميكال بالاسم',
+  revelation_roles:'أدوار الوحي',
+  respect_angels:'توقير الملائكة',
+  revelation_flow:'مسار الوحي',
+  recording_angels:'الملائكة الكَتَبة',
+  accountability:'المسؤولية',
+  divine_knowledge_recording:'الكتابة وعلم الله',
+  angel_tasks_sources:'مصادر وظائف الملائكة',
+  death_angel:'مَلَك الموت',
+  azrail_source_literacy:'الوعي بالمصدر في اسم عزرائيل',
+  angel_tasks:'وظائف الملائكة',
+  source_limits:'حدود المصدر',
+  angels_pray_believers:'دعاء الملائكة للمؤمنين',
+  prayer_not_independent:'دعاء الملائكة غير مستقل عن الله',
+  accountability_flow:'مسار المسؤولية',
+  task_source_method:'منهج مصادر وظائف الملائكة',
+  belief_application:'أثر الإيمان بالملائكة',
+  unseen_belief:'الإيمان بالغيب',
+  source_accuracy:'دقة المصدر',
+  belief_meaning:'معنى الإيمان بالملائكة',
+  learning_method:'منهج التعلّم',
+  iblis_not_angel:'إبليس ليس من الملائكة',
+  wing_misconception:'تصحيح التصور الخاطئ عن الأجنحة',
+  misconceptions:'تصحيح المفاهيم الخاطئة',
+  mastery_sources:'إتقان التعامل مع المصادر',
+  mastery_accountability:'إتقان مفهوم المسؤولية',
+  mastery_tawhid:'إتقان التوحيد',
+  mastery_revelation:'إتقان مفهوم الوحي',
+  mastery_iblis:'إتقان مسألة إبليس',
+  mastery_summary:'مراجعة الإتقان',
+  mastery_source_discipline:'إتقان الانضباط بالمصدر',
+  mastery_names:'إتقان الأسماء',
+  mastery_prayer:'إتقان مسألة دعاء الملائكة',
+  mastery_wings:'إتقان مسألة الأجنحة',
+  mastery_source_method:'إتقان منهج المصادر'
+ });
+ Object.assign(arabicU02ConceptNames,{
+  faith_concept_basic:'مفهوم الإيمان',
+  six_articles_basic:'أركان الإيمان الستة',
+  belief_in_allah_article:'الإيمان بالله',
+  belief_in_qadar_basic:'الإيمان بالقدر',
+  belief_in_angels_basic:'الإيمان بالملائكة',
+  belief_in_afterlife_basic:'الإيمان باليوم الآخر',
+  belief_in_prophets_basic:'الإيمان بالرسل',
+  belief_in_books_basic:'الإيمان بالكتب',
+  articles_classification:'تصنيف أركان الإيمان',
+  pillars_vs_articles:'أركان الإسلام وأركان الإيمان',
+  articles_application:'تطبيق أركان الإيمان',
+  section_one_review:'مراجعة القسم الأول'
+ });
+ Object.assign(arabicU02ConceptNames,{
+  five_pillars_basic:'أركان الإسلام',
+  five_pillars_recognition:'التعرّف على أركان الإسلام',
+  shahada_as_pillar:'الشهادتان ركن من أركان الإسلام',
+  prayer_as_pillar:'الصلاة ركن من أركان الإسلام',
+  hajj_as_pillar:'الحج ركن من أركان الإسلام',
+  fasting_as_pillar:'الصيام ركن من أركان الإسلام',
+  pillars_vs_articles_of_faith:'أركان الإسلام وأركان الإيمان',
+  five_pillars_relationships:'العلاقات بين أركان الإسلام',
+  zakat_as_pillar:'الزكاة ركن من أركان الإسلام',
+  pillar_definition_match:'مطابقة الركن بتعريفه',
+  five_pillars_application:'تطبيق أركان الإسلام'
+ });
+ Object.assign(arabicU02ConceptNames,{
+  shahada_basic:'أساسيات الشهادتين',
+  shahada_two_parts:'جزآ الشهادتين',
+  shahada_meaning:'معنى الشهادتين',
+  shahada_phrase_recognition:'التعرّف على ألفاظ الشهادتين',
+  shahada_tawhid:'التوحيد في الشهادتين',
+  shahada_prophethood:'الرسالة في الشهادتين',
+  shahada_concept_relationships:'ترابط مفاهيم الشهادتين',
+  shahada_word_recognition:'التعرّف على كلمات الشهادتين',
+  shahada_audio_recognition:'التعرّف السمعي على الشهادتين',
+  shahada_sequence:'ترتيب الشهادتين',
+  shahada_application:'تطبيق معاني الشهادتين'
+ });
+
+ const arabicConceptNamesByUnit={
+  U15:{
+   fasting:'الصيام',sawm:'الصوم',suhoor:'السحور',iftar:'الإفطار',
+   intention_for_fasting:'نية الصيام',fasting_intention:'نية الصيام',
+   taqwa:'التقوى',ramadan:'رمضان',fasting_purpose:'مقاصد الصيام',
+   fasting_obligations:'فرائض الصيام',fasting_conditions:'شروط الصيام',
+   fasting_invalidators:'مفسدات الصوم',deliberate_eating:'الأكل عمدا في نهار الصيام',
+   deliberate_drinking:'الشرب عمدا في نهار الصيام',
+   fasting_exemptions:'الأعذار المبيحة للفطر',illness_and_fasting:'المرض والصيام',
+   travel_and_fasting:'السفر والصيام',making_up_fasts:'قضاء الصيام',
+   fidya:'الفدية',kaffarah:'الكفارة',self_control:'ضبط النفس',
+   baqarah_2_183:'سورة البقرة، الآية ١٨٣',
+   fasting_times:'أوقات الصيام',legal_school_views:'آراء المذاهب الفقهية',
+   source_literacy:'الوعي بالمصادر'
+  },
+  U14:{
+   prayer:'الصلاة',salah:'الصلاة',prayer_obligations:'فرائض الصلاة',prayer_pillars:'أركان الصلاة',
+   opening_takbir:'تكبيرة الإحرام',takbiratul_ihram:'تكبيرة الإحرام',
+   rakah:'ركعة',rakat:'ركعة',bowing:'الركوع',ruku:'الركوع',
+   prostration:'السجود',sujud:'السجود',standing:'القيام',qiyam:'القيام',
+   recitation:'القراءة',sitting:'الجلوس',tashahhud:'التشهد',
+   tranquility:'الطمأنينة',prayer_tranquility:'الطمأنينة في الصلاة',
+   khushu:'الخشوع',prayer_intention:'النية في الصلاة',qibla:'القبلة',
+   prayer_times:'أوقات الصلاة',prayer_conditions:'شروط الصلاة',
+   prayer_invalidators:'مبطلات الصلاة',excuse_in_prayer:'الأعذار في الصلاة',
+   prostration_with_excuse:'السجود مع العذر',forgetfulness_prostration:'سجود السهو',
+   prayer_sequence:'ترتيب أعمال الصلاة',legal_school_views:'آراء المذاهب الفقهية'
+  },
+  U13:{
+   ritual_purity:'الطهارة الشرعية',purification:'الطهارة',physical_cleanliness:'النظافة الحسية',
+   najasa:'النجاسة',removing_impurity:'إزالة النجاسة',purification_from_impurity:'التطهر من النجاسة',
+   ritual_impurity:'الحدث',minor_ritual_impurity:'الحدث الأصغر',major_ritual_impurity:'الحدث الأكبر',
+   removing_ritual_impurity:'رفع الحدث',ablution:'الوضوء',full_body_washing:'الغسل',
+   ghusl:'الغسل',dry_ablution:'التيمم',tayammum:'التيمم',
+   pure_water:'الماء الطهور',water_purification:'الطهارة بالماء',
+   purity_for_prayer:'الطهارة للصلاة',purity_of_clothes:'طهارة الثوب',purity_of_place:'طهارة المكان',
+   body_cleanliness:'طهارة البدن',source_literacy:'الوعي بالمصادر',
+   legal_school_views:'آراء المذاهب الفقهية',fiqh_differences:'الخلاف الفقهي'
+  },
+  U12:{
+   ablution:'الوضوء',wudu:'الوضوء',ablution_intention:'النية في الوضوء',
+   ablution_obligations:'فرائض الوضوء',ablution_sunnahs:'سنن الوضوء',
+   ablution_steps:'خطوات الوضوء',ablution_sequence:'ترتيب الوضوء',
+   washing_face:'غسل الوجه',washing_arms:'غسل اليدين إلى المرفقين',
+   wiping_head:'مسح الرأس',washing_feet:'غسل الرجلين إلى الكعبين',
+   ablution_invalidators:'نواقض الوضوء',ritual_purity:'الطهارة الشرعية',
+   cleanliness:'النظافة',water_for_purification:'ماء الطهارة',
+   worship_preparation:'الاستعداد للعبادة',ablution_and_prayer:'الوضوء والصلاة',
+   fiqh_differences:'الخلاف الفقهي',legal_school_views:'آراء المذاهب الفقهية',
+   source_literacy:'الوعي بالمصادر',ablution_review:'مراجعة أحكام الوضوء'
+  },
+  U11:{
+   worship_article:'العبادة',worship_source:'مصدر العبادة',worship_definition:'معنى العبادة',
+   sincerity:'الإخلاص',intention:'النية',worship_intention:'النية في العبادة',
+   worship_conditions:'شروط العبادة',following_prophet:'اتباع النبي ﷺ',
+   worship_and_obedience:'العبادة والطاعة',servitude:'العبودية',
+   worship_and_life:'العبادة في الحياة',daily_worship:'العبادة اليومية',
+   righteous_deeds:'الأعمال الصالحة',worship_types:'أنواع العبادة',
+   prayer:'الصلاة',fasting:'الصوم',charity:'الزكاة',pilgrimage:'الحج',
+   accepted_worship:'قبول العبادة',worship_misconceptions:'تصحيح المفاهيم الخاطئة عن العبادة',
+   source_literacy:'الوعي بالمصادر',tawhid_in_worship:'توحيد العبادة'
+  },
+  U10:{
+   destiny_article:'الإيمان بالقدر',qadar:'القدر',qada:'القضاء',divine_knowledge:'علم الله',
+   divine_will:'مشيئة الله',divine_decree:'تقدير الله',human_will:'إرادة الإنسان',
+   free_choice:'اختيار الإنسان',human_responsibility:'مسؤولية الإنسان',
+   moral_responsibility:'المسؤولية الأخلاقية',effort:'الأخذ بالأسباب',
+   reliance_on_god:'التوكل على الله',tawakkul:'التوكل',patience:'الصبر',
+   gratitude:'الشكر',trial:'الابتلاء',causality:'الأسباب والمسببات',
+   knowledge_and_will:'العلم والمشيئة',destiny_and_action:'القدر والعمل',
+   destiny_and_responsibility:'القدر والمسؤولية',misconceptions:'تصحيح المفاهيم الخاطئة',
+   source_literacy:'الوعي بالمصادر',belief_definition:'معنى الإيمان بالقدر'
+  },
+  U09:{
+   afterlife_article:'الإيمان باليوم الآخر',
+   belief_afterlife:'الإيمان بالآخرة',
+   resurrection:'البعث',
+   resurrection_after_death:'البعث بعد الموت',
+   day_of_judgment:'يوم القيامة',
+   day_of_resurrection:'يوم البعث',
+   accountability:'الحساب',
+   reckoning:'الحساب',
+   deeds:'الأعمال',
+   record_of_deeds:'صحيفة الأعمال',
+   scales:'الميزان',
+   judgment:'الجزاء',
+   paradise:'الجنة',
+   hellfire:'النار',
+   reward:'الثواب',
+   punishment:'العقاب',
+   justice:'العدل',
+   divine_justice:'العدل الإلهي',
+   worldly_life:'الحياة الدنيا',
+   eternal_life:'الحياة الآخرة',
+   unseen:'الغيب',
+   source_literacy:'الوعي بالمصادر',
+   moral_responsibility:'المسؤولية الأخلاقية',
+   repentance:'التوبة',
+   good_deeds:'الأعمال الصالحة',
+   accountability_and_actions:'الحساب والأعمال',
+   afterlife_and_responsibility:'الآخرة والمسؤولية'
+  },
+  U08:{
+   messengers_article:'الإيمان بالرسل',
+   prophets_article:'الإيمان بالأنبياء',
+   prophethood:'النبوة',
+   messengerhood:'الرسالة',
+   prophet_messenger:'النبي والرسول',
+   revelation_source:'مصدر الوحي',
+   revelation:'الوحي',
+   divine_message:'الرسالة الإلهية',
+   human_nature:'بشرية الأنبياء',
+   messenger_humanity:'بشرية الرسل',
+   prophetic_example:'القدوة النبوية',
+   prophet_example:'الاقتداء بالأنبياء',
+   messenger_obedience:'طاعة الرسل',
+   prophetic_morals:'أخلاق الأنبياء',
+   prophets_duties:'مهام الأنبياء',
+   messengers_duties:'مهام الرسل',
+   teaching_guidance:'التبليغ والهداية',
+   message_delivery:'تبليغ الرسالة',
+   common_message:'وحدة دعوة الرسل',
+   monotheism_message:'الدعوة إلى التوحيد',
+   last_prophet:'خاتم النبيين',
+   muhammad_final_prophet:'محمد ﷺ خاتم النبيين',
+   belief_all_messengers:'الإيمان بجميع الرسل',
+   no_distinction_in_belief:'عدم التفريق بين الرسل في أصل الإيمان',
+   source_literacy:'الوعي بالمصادر',
+   prophetic_sources:'مصادر معرفة الأنبياء',
+   quran_guidance:'هداية القرآن'
+  },
+  U07:{
+   books_article:"الإيمان بالكتب",
+   prior_revelations:"الوحي السابق",
+   revelation_source:"مصدر الوحي",
+   basic_distinctions:"الفروق الأساسية",
+   belief_definition:"تعريف الإيمان بالكتب",
+   source_method:"منهج التعامل مع المصادر",
+   torah_gospel_named:"ذكر التوراة والإنجيل بالاسم",
+   torah_guidance:"هداية التوراة",
+   gospel_jesus:"الإنجيل وعيسى عليه السلام",
+   torah_revelation:"إنزال التوراة",
+   zabur_david:"الزبور وداود عليه السلام",
+   books_prophets:"الكتب والرسل",
+   suhuf_ibrahim_musa:"صحف إبراهيم وموسى",
+   suhuf_source_literacy:"الوعي بمصادر معلومات الصحف",
+   named_books:"الكتب المذكورة بالاسم",
+   quran_confirms_oversees:"القرآن مصدِّق ومهيمن",
+   quran_confirms:"تصديق القرآن لما سبقه",
+   quran_oversees:"هيمنة القرآن على ما سبقه",
+   quran_relation_terms:"مصطلحات علاقة القرآن بالوحي السابق",
+   revelation_vs_interpretation:"الوحي والتفسير",
+   quran_relation_summary:"خلاصة علاقة القرآن بالوحي السابق",
+   quran_relation_method:"منهج فهم علاقة القرآن بالوحي السابق",
+   source_unity:"وحدة مصدر الوحي",
+   gospel_revelation:"إنزال الإنجيل",
+   books_descriptions:"أوصاف الكتب الإلهية",
+   guidance_light:"الهدى والنور",
+   guidance_function:"وظيفة الهداية",
+   revelation_functions:"وظائف الوحي",
+   source_and_guidance:"المصدر والهداية",
+   gospel_guidance:"هداية الإنجيل",
+   balanced_relation:"الفهم المتوازن لعلاقة الوحي",
+   revelation_flow:"مسار الوحي",
+   revelation_continuity:"استمرارية الوحي",
+   quran_guidance:"هداية القرآن",
+   quran_preservation:"حفظ القرآن",
+   quran_qualities:"صفات القرآن",
+   quran_integrity:"سلامة القرآن وحفظه",
+   quran_guidance_application:"تطبيق هداية القرآن",
+   guidance_preservation:"الهداية والحفظ",
+   quran_identity:"هوية القرآن",
+   quran_relationship:"علاقة القرآن بالوحي السابق",
+   misconception_prior_books:"تصحيح التصور الخاطئ عن الكتب السابقة",
+   revelation_vs_human_text:"الوحي وكلام البشر",
+   misattribution_warning:"التحذير من نسبة ما ليس وحيًا إلى الوحي",
+   misconception_quran_prior:"تصحيح التصور عن القرآن والوحي السابق",
+   source_discipline:"الانضباط بالمصدر",
+   common_misconceptions:"المفاهيم الخاطئة الشائعة",
+   misconception_guidance:"تصحيح مفهوم الهداية",
+   mastery_named_books:"إتقان أسماء الكتب",
+   mastery_quran_position:"إتقان مكانة القرآن",
+   mastery_source_unity:"إتقان وحدة مصدر الوحي",
+   mastery_source:"إتقان مصدر الوحي",
+   mastery_quran_qualities:"إتقان صفات القرآن",
+   mastery_summary:"مراجعة الإتقان",
+   mastery_source_literacy:"إتقان الوعي بالمصادر",
+   mastery_sources:"إتقان التعامل مع المصادر",
+   mastery_preservation:"إتقان مفهوم حفظ القرآن",
+   mastery_guidance:"إتقان مفهوم الهداية",
+   mastery_method:"إتقان المنهج",
+   mastery_meaning:"إتقان معنى الإيمان بالكتب"
+  }
+ };
+ function arabicConceptName(base){
+  const identifier=String(base?.stage_id||base?.id||'');
+  const unit=identifier.match(/(?:^|-)U\d{2}(?=-|$)/)?.[0]?.replace(/^-/, '')||'';
+  return arabicConceptNamesByUnit[unit]?.[base?.concept_id]||(unit==='U02'?arabicU02ConceptNames[base?.concept_id]:'')||'';
+ }
+
+ function asDisplayQuestion(base,translated,isRuntimeVariant=false){
+  if(!base||!validArabicEntry(translated))return null;
+  const prompt=base.question_tr===translated.source_question_tr?translated.question_ar:translated.prompt_variants?.[base.question_tr];
+  if(!prompt)return null;
+  if(base.activity_type!==translated.activity_type)return null;
+  if(blankCount(base.question_tr)!==blankCount(prompt))return null;
+
+  if(isRuntimeVariant){
+   if(base.activity_type==='matching'){
+    if(!samePairs(base.pairs,translated.source_pairs_tr))return null;
+   }else{
+    if(!sameArray(base.options_tr,translated.source_options_tr))return null;
+    if(!samePairs(base.pairs,translated.source_pairs_tr))return null;
+   }
+   if(!sameArray(base.items,translated.source_items_tr))return null;
+   if(!sameArray(base.correct_order,translated.source_correct_order_tr))return null;
+  }
+
+  if(!isRuntimeVariant){
+   if(translated.source_options_tr&&!sameArray(base.options_tr,translated.source_options_tr))return null;
+   if(translated.source_pairs_tr&&!samePairs(base.pairs,translated.source_pairs_tr))return null;
+   if(translated.source_items_tr&&!sameArray(base.items,translated.source_items_tr))return null;
+   if(translated.source_correct_order_tr&&!sameArray(base.correct_order,translated.source_correct_order_tr))return null;
+  }
+  if(base.activity_type!=='matching' && base.activity_type!=='build_sequence' &&
+     base.correct_answer!==translated.source_correct_answer_tr)return null;
+
+  if(base.activity_type==='matching'){
+   if(!Array.isArray(base.pairs)||!Array.isArray(translated.pairs_ar)||translated.pairs_ar.length!==base.pairs.length)return null;
+   if(translated.pairs_ar.some(p=>typeof p?.left!=='string'||typeof p?.right!=='string'||!p.left.trim()||!p.right.trim()))return null;
+  }else if(Array.isArray(base.options_tr)){
+   if(!Array.isArray(translated.options_ar)||translated.options_ar.length!==base.options_tr.length)return null;
+   const correctIndex=base.options_tr.indexOf(base.correct_answer);
+   if(correctIndex<0||translated.options_ar[correctIndex]!==translated.correct_answer_ar)return null;
+   if(translated.options_ar.filter(x=>x===translated.correct_answer_ar).length!==1)return null;
+  }else if(base.activity_type==='build_sequence'||Array.isArray(base.correct_order)){
+   if(!Array.isArray(base.items)||!Array.isArray(translated.items_ar)||translated.items_ar.length!==base.items.length)return null;
+   if(!Array.isArray(base.correct_order)||!Array.isArray(translated.correct_order_ar)||translated.correct_order_ar.length!==base.correct_order.length)return null;
+  }else if(!translated.correct_answer_ar){
+   return null;
+  }
+
+  return {
+   ...base,
+   question_tr:prompt,
+   options_tr:base.activity_type==='matching'?null:(Array.isArray(translated.options_ar)?[...translated.options_ar]:null),
+   correct_answer:translated.correct_answer_ar||null,
+   pairs:Array.isArray(translated.pairs_ar)?translated.pairs_ar.map(p=>({...p})):base.pairs,
+   items:Array.isArray(translated.items_ar)?[...translated.items_ar]:base.items,
+   correct_order:Array.isArray(translated.correct_order_ar)?[...translated.correct_order_ar]:base.correct_order,
+   explanation_tr:translated.explanation_ar,
+   source_evidence_note:translated.source_evidence_note_ar||pilot.translations[base.id]?.source_evidence_note_ar||'يرجى مراجعة روابط المصدر الأصلي؛ ترجمة الملاحظة التفصيلية لهذا السجل قيد المراجعة.',
+   stage_title:typeof arabizeDynamicText==='function'?arabizeDynamicText(base.stage_title||''):base.stage_title,
+   topic:arabicConceptName(base)||(typeof arabizeDynamicText==='function'?arabizeDynamicText(base.topic||''):base.topic),
+   teaching_card:translated.teaching_card_ar?{...translated.teaching_card_ar}:base.teaching_card,
+   __deenArabicPilot:true,
+   __deenArabicFullBank:true,
+   __deenSourceQuestion:base,
+   __deenRuntimeVariant:!!isRuntimeVariant
+  };
+ }
+
+ pilot.translateQuestion=function(base){
+  if(!pilot.ready||!base)return null;
+  const live=pilot.live_translations[base.id];
+  const variant=pilot.runtime_variants[base.id];
+  if(base.__deenArabicFullBank)return base;
+  for(const [entry,runtime] of [[live,true],[variant,true],[pilot.translations[base.id],false]]){
+   const result=asDisplayQuestion(base,entry,runtime);if(result)return result;
+  }
+  return null;
+ };
+
+ pilot.canStart=id=>pilot.ready&&supportedStages.has(id);
+
+ // Diagnostic only: never substitutes Turkish text for an untranslated question.
+ pilot.diagnostics={stageFailures:Object.create(null)};
+ pilot.inspectBank=function(bank){
+  const rows=Array.isArray(bank)?bank:[];
+  const report={sourceCount:rows.length,translatedCount:0,failedIds:[],missingConceptIds:[],byStage:Object.create(null)};
+  for(const q of rows){
+   if(!q?.id)continue;
+   const stage=q.stage_id||'unknown';
+   const row=report.byStage[stage]??={source:0,translated:0,failedIds:[]};
+   row.source++;
+   if(pilot.translateQuestion(q)){row.translated++;report.translatedCount++}
+   else{row.failedIds.push(q.id);report.failedIds.push(q.id)}
+   if(q.concept_id&&!arabicConceptName(q))report.missingConceptIds.push({id:q.id,concept_id:q.concept_id,stage});
+  }
+  return report;
+ };
+ pilot.inspectVisibleArabic=function(root=document.body){
+  if(locale()!=='ar')return {active:false,offenders:[]};
+  const offenders=[];
+  if(!root||typeof document==='undefined')return {active:true,offenders};
+  const inspect=(value,where)=>{const v=String(value||'').trim();if(!v)return;if(/[ÇĞİÖŞÜçğıöşü]/.test(v)||(/[A-Za-z]/.test(v)&&/[\u0600-\u06FF]/.test(v)&&!/\bDEEN\b/.test(v)))offenders.push({where,text:v.slice(0,200)})};
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+  while((node=walker.nextNode())){if(node.parentElement?.closest?.('script,style'))continue;inspect(node.nodeValue,'text')}
+  root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{for(const attr of ['aria-label','title','placeholder','alt','data-tooltip'])inspect(el.getAttribute(attr),attr)});
+  return {active:true,count:offenders.length,offenders:offenders.slice(0,300),truncated:offenders.length>300};
+ };
+ pilot.questionsFor=function(bank,stageId,count,shuffleFn){
+  if(!pilot.ready||!Array.isArray(bank)||!supportedStages.has(stageId))return [];
+  const sourcePool=bank.filter(q=>q.stage_id===stageId);
+  if(!sourcePool.length)return [];
+  const results=sourcePool.map(q=>({id:q.id,question:pilot.translateQuestion(q)}));
+  const pool=results.map(r=>r.question).filter(Boolean);
+  if(pool.length!==sourcePool.length){
+   pilot.diagnostics.stageFailures[stageId]={source:sourcePool.length,translated:pool.length,failedIds:results.filter(r=>!r.question).map(r=>r.id)};
+   return [];
+  }
+  delete pilot.diagnostics.stageFailures[stageId];
+  const random=typeof shuffleFn==='function'?shuffleFn:(list=>[...list]);
+  const target=stageId.endsWith('S07')?10:(Number.isFinite(Number(count))?Number(count):7);
+  const groups={};
+  pool.forEach(q=>(groups[q.activity_type]??=[]).push(q));
+  let chosen=[];
+  for(const key of Object.keys(groups)){
+   const g=random(groups[key]);
+   if(g[0])chosen.push(g[0]);
+  }
+  chosen=random(chosen).slice(0,target);
+  const seen=new Set(chosen.map(q=>q.id));
+  for(const q of random(pool)){
+   if(chosen.length>=target)break;
+   if(!seen.has(q.id)){chosen.push(q);seen.add(q.id)}
+  }
+  return random(chosen).slice(0,target);
+ };
+
+ pilot.notice=function(id){
+  const msg=pilot.loading
+   ?'جارٍ تحميل بنك الأسئلة العربي الكامل. حاول مرة أخرى بعد لحظة.'
+   :pilot.failure
+    ?'تعذّر تحميل بنك الأسئلة العربي بالكامل. تم منع عرض الأسئلة التركية.'
+    :'تعذّر تجهيز هذا السؤال بالعربية، لذلك لن يُعرض النص التركي.';
+  try{if(typeof sheet==='function'){sheet('الأسئلة العربية','<p dir="rtl">'+msg+'</p><code>'+String(id||'AR_BANK').replace(/[<>&]/g,'')+'</code>');return true}}catch(_){}
+  window.alert?.(msg);
+  return true;
+ };
+
+ pilot.decorate=function(){
+  if(locale()!=='ar')return;
+  const lesson=document.getElementById('lesson');
+  if(!lesson?.classList.contains('active'))return;
+  document.querySelectorAll('#lesson .deen-arabic-pilot-label').forEach(el=>el.remove());
+ };
+
+ async function fetchJson(url){
+  const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),12000);
+  try{const r=await fetch(url,{cache:'no-store',signal:controller.signal});if(!r.ok)throw Error('HTTP '+r.status+' '+url);const result=await r.json();pilot.loadedFiles++;window.DEEN_BOOT?.progress?.(pilot.loadedFiles,18);return result}finally{clearTimeout(timer)}
+ }
+
+ async function preload(){
+  pilot.loading=true;pilot.failure='';pilot.ready=false;pilot.loadedFiles=0;
+  try{
+   const token='9390cssarabic1';
+   const unitJobs=[];
+   for(let u=1;u<=15;u++){
+    unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
+   }
+   const [units,draft,liveFile]=await Promise.all([
+    Promise.all(unitJobs),
+    fetchJson('./assets/i18n/questions.ar.draft.json?v='+token),
+    fetchJson('./assets/i18n/questions/ar/runtime/U01.live.json?v='+token)
+   ]);
+   const translations=Object.create(null);
+   for(const file of units){
+    if(file?.locale!=='ar'||file?.release_ready!==false||file?.verified_by_religious_expert!==false)throw Error('Unsafe Arabic unit metadata');
+    Object.assign(translations,file.translations||{});
+   }
+   if(Object.keys(translations).length!==1500)throw Error('Arabic base bank count '+Object.keys(translations).length);
+   if(Object.values(translations).some(x=>!validArabicEntry(x)))throw Error('Invalid Arabic base entry');
+   const variants=draft?.runtime_variants||{};
+   if(Object.keys(variants).length!==20)throw Error('Arabic runtime variant count '+Object.keys(variants).length);
+   if(Object.values(variants).some(x=>!validArabicEntry(x)))throw Error('Invalid Arabic runtime variant');
+   if(liveFile?.locale!=='ar'||liveFile?.release_ready!==false||liveFile?.verified_by_religious_expert!==false)throw Error('Unsafe Arabic live metadata');
+   const live=liveFile?.translations||{};
+   if(Object.keys(live).length!==84)throw Error('Arabic live U01 count '+Object.keys(live).length);
+   if(Object.values(live).some(x=>!validArabicEntry(x)))throw Error('Invalid Arabic live U01 entry');
+   pilot.translations=translations;
+   pilot.runtime_variants=variants;
+   pilot.live_translations=live;
+   pilot.ready=true;window.DEEN_BOOT?.progress?.(18,18);
+  }catch(e){
+   pilot.failure=String(e?.message||e);
+   pilot.ready=false;
+   console.error('[DEEN Arabic full bank]',e);
+  }finally{
+   pilot.loading=false;
+  }
+  return pilot.ready;
+ }
+
+ window.DEEN_ARABIC_PILOT=pilot;
+ pilot.preload=()=>{if(!pilot.promise||(!pilot.loading&&!pilot.ready))pilot.promise=preload();return pilot.promise};
+ pilot.loading=false;pilot.promise=null;
+
+ if(typeof window.completeQuestion==='function'){
+  const previousComplete=window.completeQuestion;
+  const fullComplete=function(correct,q){
+   const result=previousComplete.apply(this,arguments);
+   if(locale()==='ar'&&q){
+    const title=document.getElementById('feedbackTitle');
+    const body=document.getElementById('feedbackText');
+    if(title)title.textContent=correct?'إجابة صحيحة':'لنصحّحها معًا';
+    if(body){
+     const answer=q.correct_answer||q.correct_order?.join(' ← ')||q.pairs?.map(p=>p.left+' ← '+p.right).join(' · ')||'';
+     body.textContent=(correct?'':(answer?'الإجابة الصحيحة: '+answer+'. ':''))+(q.explanation_tr||'');
+    }
+   }
+   return result;
+  };
+  fullComplete.__deenArabicFullBank=true;
+  fullComplete.__deen9953=previousComplete.__deen9953;
+  window.completeQuestion=fullComplete;
+  try{completeQuestion=fullComplete}catch(_){}
+ }
+
+ const chromeMap={
+"Doğru sıraya koy":"رتّب ترتيبًا صحيحًا",
+"Cümleyi tamamla":"أكمل الجملة",
+"Yanlışı bul":"اعثر على الخطأ",
+"Sırala":"رتّب",
+"Devamı":"التكملة",
+"Eşleştir":"طابق",
+"Sonraki Parça":"الجزء التالي",
+"Önce ayeti dinle, sonra metni gözünle takip et.":"استمع إلى الآية أولًا، ثم تابع النص بعينيك.",
+
+"Sure Yolculuğu":"رحلة السورة",
+"Henüz çalışma yok":"لم تبدأ الدراسة بعد",
+"Son çalışma":"آخر دراسة",
+"Sırayı kontrol et":"تحقّق من الترتيب",
+"SIRAYI KONTROL ET":"تحقّق من الترتيب",
+
+"Dinlediğim cevabı kilitle":"أكّد الإجابة التي سمعتها",
+"Dinle ve yanıtla":"استمع وأجب",
+"Ses kaydını oynat":"شغّل التسجيل الصوتي",
+"Bu dinleme sorusu puanlanmaz. Yapay telaffuz kullanılmaz.":"لا تُحتسب نقاط لهذا السؤال، ولا يُستخدم نطق اصطناعي.",
+"Doğrulanmış ses kaydı henüz bağlı değil.":"لم يُربط تسجيل صوتي موثّق بعد.",
+
+"Fâtiha":"الفاتحة",
+"İhlâs":"الإخلاص",
+"Felak":"الفلق",
+"Nâs":"الناس",
+"Kâfirûn":"الكافرون",
+"Nasr":"النصر",
+"Tebbet":"المسد",
+"Fîl":"الفيل",
+"Kureyş":"قريش",
+"Mâûn":"الماعون",
+"İnşirah":"الشرح",
+"Tîn":"التين",
+"Beyyine":"البينة",
+"Zilzâl":"الزلزلة",
+"Kevser":"الكوثر",
+"Asr":"العصر",
+"SIFIRLA":"إعادة البدء",
+"HATIRLADIM":"تذكّرت",
+"TEK DOKUNUŞTA CEVAPLA":"أجب بلمسة واحدة",
+"TAM İSABET!":"إجابة دقيقة!",
+"DEVAM!":"واصل!",
+"GÜZEL!":"أحسنت!",
+"Zorlandığın ayetler öncelik alır":"تُعطى الأولوية للآيات التي تجد فيها صعوبة",
+"Seçilen dilde doğrulanmış meal henüz hazır değil.":"لا يتوفر معنى موثّق باللغة المختارة بعد.",
+"Soru havuzu hazırlanamadı.":"تعذّر تجهيز مجموعة الأسئلة.",
+"16 sure · 90 ayet · yorum/tefsir sorusu üretmez; yalnız kayıtlı metin, meal, sıra ve ses eşleşmesini kullanır.":"١٦ سورة · ٩٠ آية · لا تُنشأ أسئلة في التفسير؛ تُستخدم النصوص والمعاني والترتيب والتلاوات المسجّلة فقط.",
+"Fâtiha Yolculuğu":"رحلة الفاتحة",
+"İhlâs Yolculuğu":"رحلة الإخلاص",
+"Felak Yolculuğu":"رحلة الفلق",
+"Nâs Yolculuğu":"رحلة الناس",
+"Kâfirûn Yolculuğu":"رحلة الكافرون",
+"Nasr Yolculuğu":"رحلة النصر",
+"Tebbet Yolculuğu":"رحلة المسد",
+"Fîl Yolculuğu":"رحلة الفيل",
+"Kureyş Yolculuğu":"رحلة قريش",
+"Mâûn Yolculuğu":"رحلة الماعون",
+"İnşirah Yolculuğu":"رحلة الشرح",
+"Tîn Yolculuğu":"رحلة التين",
+"Beyyine Yolculuğu":"رحلة البينة",
+"Zilzâl Yolculuğu":"رحلة الزلزلة",
+"Kevser Yolculuğu":"رحلة الكوثر",
+"Asr Yolculuğu":"رحلة العصر",
+
+"ANLATIM PROFİLİ":"أسلوب الشرح",
+"AKTİF PROFİL":"الأسلوب الحالي",
+"Değiştir →":"تغيير ←",
+"Doğruluk: Henüz ders yok":"الدقة: لم تُكمل درسًا بعد",
+"Ezber araçları":"أدوات الحفظ",
+"FÂTIHA İLE BAŞLA":"ابدأ بالفاتحة",
+"FÂTIHA İLE ابدأ":"ابدأ بالفاتحة",
+"Fâtiha Yolculuğu":"رحلة الفاتحة",
+"İhlâs Yolculuğu":"رحلة الإخلاص",
+"Felak Yolculuğu":"رحلة الفلق",
+"Nâs Yolculuğu":"رحلة الناس",
+"✦ Sure madalyaları":"✦ أوسمة السور",
+"Zorlandığın ayetleri tekrar edip yeniden dene.":"راجع الآيات التي تجد فيها صعوبة، ثم حاول مجددًا.",
+"İsim:":"الاسم:",
+"Anlatım:":"أسلوب الشرح:",
+"Yol arkadaşı:":"رفيق الرحلة:",
+"Günlük süre:":"الوقت اليومي:",
+"Günlük hedef:":"الهدف اليومي:",
+"Soruların ve geri bildirimlerin dili seçilen yaş grubuna göre ayarlanır.":"يُضبط أسلوب الأسئلة والملاحظات حسب الفئة العمرية المختارة.",
+
+"Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler.":"لا تُحتسب الاختلافات المذهبية المعتبرة أخطاءً؛ وجميع المحتويات الجديدة تنتظر مراجعة مختص.",
+"Öğren. Anla. Hatırla. Uygula.":"تعلّم. افهم. تذكّر. طبّق.",
+"İçerikler uzman incelemesi bekliyor.":"المحتويات تنتظر مراجعة مختص.",
+
+"Bu durumda en doğru karar hangisi?":"ما القرار الأنسب في هذا الموقف؟",
+"Bu durumda en doğru seçim hangisi?":"ما الاختيار الأنسب في هذا الموقف؟",
+"Durumu değerlendir · en doğru davranışı seç.":"قيّم الموقف واختر التصرف الأنسب.",
+"GÜNLÜK KARAR":"قرار من الحياة اليومية",
+"Günlük hayat":"الحياة اليومية",
+"NASIL DAVRANIRSIN?":"كيف تتصرف؟",
+"Şüpheli ifadeyi incele ve hatayı bul.":"افحص العبارة واعثر على الخطأ.",
+"Durumu değerlendir ve en doğru cevabı seç.":"قيّم الموقف واختر الإجابة الأنسب.",
+"Kararın sonucu düşünme biçimini ölçer":"تكشف نتيجة قرارك طريقة تفكيرك",
+"Günlük hayat senaryosu":"موقف من الحياة اليومية",
+"1 HATA SAKLANIYOR":"يوجد خطأ واحد",
+"Hatayı işaretle":"حدّد الخطأ",
+"Kararı kilitle":"أكّد القرار",
+"Bu yolu seçtin. Son kararınsa kilitle; emin değilsen başka bir yolu deneyebilirsin.":"اخترت هذا المسار. أكّد قرارك، أو جرّب مسارًا آخر إن لم تكن متأكدًا.",
+"Karar sende.":"القرار لك.",
+"Hatayı yakala!":"اعثر على الخطأ!",
+"Eşleri bul!":"اعثر على الأزواج!",
+
+  "Açıklamayı dinle":"استمع إلى الشرح",
+  "Bugünkü yeni öğrenmeye devam et.":"واصل تعلّم معلومات جديدة اليوم.",
+  "GÜNLÜK PLAN":"الخطة اليومية",
+  "İslam'a giriş":"مدخل إلى الإسلام",
+  "Temel kavramlar":"المفاهيم الأساسية",
+  "Müslüman kimliği":"الهوية الإسلامية",
+  "SIRADAKİ MİNİ DERS":"الدرس المصغّر التالي",
+  "Tanı":"تعرّف",
+  "Bağ Kur":"اربط المفاهيم",
+  "Duruma Uyarla":"طبّق في موقف",
+  "Aktif Hatırlama":"استرجاع نشط",
+  "Sesi Tanı":"تعرّف على الصوت",
+  "Temel kavramı güvenli biçimde tanı.":"تعرّف على المفهوم الأساسي بوضوح.",
+  "Kavramları doğru anlam ve örneklerle bağla.":"اربط المفاهيم بمعانيها الصحيحة وأمثلتها.",
+  "Öğrendiğin ilkeyi basit bir duruma uygula.":"طبّق المبدأ الذي تعلّمته في موقف بسيط.",
+  "Ünitenin temel kavramlarını farklı soru biçimleriyle ustalık seviyesinde kullan.":"استخدم مفاهيم الوحدة الأساسية بإتقان عبر أنواع مختلفة من الأسئلة.",
+  "Resmî kaydı dinleyerek doğru ifadeyi tanı.":"استمع إلى التسجيل الرسمي وتعرّف على العبارة الصحيحة.",
+  "Sonraki ödül":"المكافأة التالية",
+  "Kaynak ve içerik notu":"المصدر وملاحظات المحتوى",
+  "Uzman incelemesi bekliyor. Bu içerik dinî yayın onayı değildir.":"هذا المحتوى ينتظر مراجعة مختص ولم يحصل على اعتماد ديني للنشر.",
+  "Soruda belirtilen terminoloji çerçevesini dikkate al. Geçerli Mâtürîdî / Eş’arî kullanım farkları inanç hatası değildir.":"راعِ الإطار الاصطلاحي المذكور في السؤال. الاختلافات المعتبرة بين الاستعمال الماتريدي والأشعري ليست خطأ في العقيدة.",
+
+  'PEKİŞTİRME TURU':'جولة التعزيز',
+  'Pekiştirme turu':'جولة التعزيز',
+  'Yanlış yaptığın soruları tamamlıyoruz.':'نُكمل الأسئلة التي أخطأت فيها.',
+  'Yanlış yaptığın soruları tamamlıyoruz':'نُكمل الأسئلة التي أخطأت فيها.',
+  'KALDI':'متبقٍ',
+  'Doğru cevabı seç':'اختر الإجابة الصحيحة',
+  'Soruyu dinle':'استمع إلى السؤال',
+  'Önce fikri keşfet':'اكتشف الفكرة أولاً',
+  'YETİŞKİN ANLATIM':'شرح للبالغين',
+  'Yetişkin anlatım':'شرح للبالغين',
+  'Eşleşen':'اعثر على',
+  'çiftleri':'الأزواج',
+  'bul':'المتطابقة',
+  'Doğru kavramları anlamlarıyla eşleştir.':'صِل المفاهيم بمعانيها الصحيحة.',
+  'DOĞRU':'صحيح',
+  'Doğru cevap':'الإجابة الصحيحة',
+  'Birlikte düzeltelim':'لنصحّحها معًا',
+  'Bunu birlikte düzeltelim':'لنصحّحها معًا',
+  'TEKRAR ETMEYE DEĞER':'يستحق المراجعة',
+  'Devam':'متابعة',
+  'Devam Et':'متابعة',
+  'ÖĞREN':'تعلّم',
+  'UYGULA':'طبّق',
+  'HATIRLA':'تذكّر',
+  'PEKİŞTİR':'عزّز',
+  'Önce fikri keşfet':'اكتشف الفكرة أولاً',
+  'Şimdi bilgiyi kullan':'استخدم ما تعلمته الآن',
+  'Bakmadan hatırla':'تذكّر دون النظر',
+  'Kaçırdığını tamamla':'أكمل ما فاتك',
+  '2. AŞAMA · UYGULA':'٢ · المرحلة الثانية · طبّق',
+  'Şimdi bilgiyi kullan.':'استخدم ما تعلمته الآن.',
+  'İlk dört kartta ana fikirleri gördün. Sıradaki sorularda bu bilgileri yeni durumlara uygulayacaksın.':'رأيت الأفكار الرئيسية في البطاقات الأربع الأولى. في الأسئلة التالية ستطبّق ما تعلمته على مواقف جديدة.',
+  'UYGULAMAYA BAŞLA':'ابدأ التطبيق',
+  '3. AŞAMA · HATIRLA':'٣ · المرحلة الثالثة · تذكّر',
+  'Şimdi kendi başına hatırla.':'تذكّر بنفسك الآن.',
+  'İpuçları geride kaldı. Son dört soruda öğrendiklerini hafızandan çağır.':'انتهت التلميحات. في الأسئلة الأربعة الأخيرة استدعِ ما تعلمته من ذاكرتك.',
+  'HATIRLAMA TURUNA BAŞLA':'ابدأ جولة التذكّر',
+  'ÖĞRENDİM · SORUYA GEÇ':'فهمتُ · انتقل إلى السؤال',
+  'Ders öğrenildi':'تم تعلّم الدرس',
+  'Ders tamamlandı':'اكتمل الدرس',
+  'İlk deneme doğruluğu':'دقة المحاولة الأولى',
+  'İLK DENEME':'المحاولة الأولى',
+  'Yardım almadan doğru':'إجابات صحيحة دون مساعدة',
+  'ÖĞRENİLEN':'تم إتقانه',
+  'Tekrarlarla tamamlanan':'اكتمل بالمراجعة',
+  'GERİ KAZANILAN':'تم استعادته',
+  'Yanlıştan doğruya':'من خطأ إلى صحيح',
+  'Başlangıç':'البداية',
+  'Harika!':'رائع!',
+  'Birlikte düzeltelim':'لنصحّحها معًا',
+  'Tekrar dene':'حاول مرة أخرى',
+  'Evet! Tam olarak bu ✦':'نعم! هذا هو تمامًا ✦',
+  'Harika yakaladın!':'أحسنت الالتقاط!',
+  'Süper, parça yerine oturdu.':'رائع، اتضحت الصورة.',
+  'Doğru! Bir adım daha.':'صحيح! خطوة أخرى.',
+  'Yaklaştın. İpucuna birlikte bakalım.':'اقتربت. لننظر إلى التلميح معًا.',
+  'Olmadı ama sorun değil; açıklama bize yolu gösterir.':'ليست صحيحة، لكن لا بأس؛ التفسير يوضح الطريق.',
+  'Bir ayrıntı kaçtı. Hemen düzeltelim.':'فاتتنا تفصيلة. لنصححها الآن.',
+  'Tekrar deneyince daha kolay hatırlayacaksın.':'عند المحاولة مجددًا ستتذكر بسهولة أكبر.',
+  'Ders süresi':'مدة الدرس',
+  'Tekrar sorusu':'سؤال مراجعة',
+  'Ustalık puanı':'نقاط الإتقان',
+  'Günlük hedef':'الهدف اليومي',
+  'Öğrendiklerin aralıklı tekrar planına eklendi.':'تمت إضافة ما تعلمته إلى خطة المراجعة المتباعدة.',
+  'AKILLI TEKRARLA PEKİŞTİR':'عزّز بالمراجعة الذكية',
+  'YOLCULUĞA DEVAM':'واصل الرحلة',
+  'DERS RİTMİ':'إيقاع الدرس',
+  'AŞAMA ÖDÜLÜ':'مكافأة المرحلة',
+  'DERS ÖDÜLÜ':'مكافأة الدرس',
+  'Yeni düğüm açıldı':'تم فتح محطة جديدة',
+  'Ritmini koruyorsun':'أنت تحافظ على إيقاعك',
+  'Bu ders zincirini geçtin. Sonraki düğüm ve ünite ilerleyişi daha güçlü hissettirilecek.':'أكملت سلسلة هذا الدرس. فُتحت لك المحطة التالية والتقدم في الوحدة.',
+  'Mini ders geçti. İstersen hemen sıradaki mini derse atlayabilirsin.':'أكملت الدرس المصغّر. يمكنك الانتقال مباشرة إلى الدرس المصغّر التالي.',
+  'Bu mini ders için akıllı tekrar öneriliyor.':'يوصى بالمراجعة الذكية لهذا الدرس المصغّر.',
+  'SIRADAKİ EN İYİ ADIM':'أفضل خطوة تالية',
+  'Yolculuğa devam et':'واصل الرحلة',
+  'Bu dersi başarıyla tamamladın. Öğrenme yolunda bir sonraki adıma geçebilirsin.':'أكملت هذا الدرس بنجاح. يمكنك الانتقال إلى الخطوة التالية في رحلة التعلّم.',
+  'Bu dersi tekrar et':'أعد هذا الدرس',
+  'Yanlış yaptığın sorular tekrar sistemine eklendi. %70 ve üzeriyle geçtiğinde ilerleme açılır.':'أُضيفت الأسئلة التي أخطأت فيها إلى نظام المراجعة. يُفتح التقدم عند تحقيق 70٪ أو أكثر.',
+  'Büyük ödül seremonisi hazır':'مراسم المكافأة الكبرى جاهزة',
+  'Smart Review ile güçlendir':'عزّز بالمراجعة الذكية',
+  'Devam ettiğinde final ödül sandığı ve yeni kısım geçişi açılacak.':'عند المتابعة سيفتح صندوق المكافأة النهائية والانتقال إلى القسم الجديد.',
+  'Geçiş için %80 gerekiyor. Zayıf alanlarını tekrar ederek yeniden deneyebilirsin.':'يلزم 80٪ للانتقال. راجع نقاط الضعف ثم حاول مجددًا.',
+  'Ünite kapısı hazır':'بوابة الوحدة جاهزة',
+  'Bu aşamadaki tüm mini dersleri tamamladın. Yol üzerindeki bir sonraki düğüm açıldı.':'أكملت جميع الدروس المصغّرة في هذه المرحلة. فُتحت المحطة التالية على المسار.',
+  'Aşamayı tamamla':'أكمل المرحلة',
+  'BÜYÜK ÖDÜLÜ TOPLA':'احصل على المكافأة الكبرى',
+  'TEKRARA DÖN':'عُد إلى المراجعة',
+  'YENİ AŞAMAYI AÇ':'افتح المرحلة الجديدة',
+  'SONRAKİ MİNİ DERS':'الدرس المصغّر التالي',
+  'AŞAMAYI TAMAMLA':'أكمل المرحلة',
+  'DERSİ TEKRARLA':'أعد الدرس',
+  'ÖĞRENME YOLUNA DÖN':'عُد إلى مسار التعلّم',
+  'Haftalık ritim':'الإيقاع الأسبوعي',
+  'MEVCUT SERİ':'السلسلة الحالية',
+  'EN UZUN':'الأطول',
+  'SERİ KORUMA':'حماية السلسلة',
+  'Sonraki seri ödülü':'مكافأة السلسلة التالية',
+  'SERİ DETAYLARINI AÇ':'افتح تفاصيل السلسلة',
+  'COMBO':'تتابع',
+  'XP':'خبرة',
+  'Öğrenme':'تعلّم',
+  'Bilgelik':'حكمة',
+  'Cesaret':'شجاعة',
+  'Kararlılık':'عزيمة',
+  'Sabır':'صبر',
+  'Odak':'تركيز',
+  'Sakinlik':'هدوء',
+  'Baykuş':'البومة',
+  'Aslan':'الأسد',
+  'Kurt':'الذئب',
+  'Kaplumbağa':'السلحفاة',
+  'Kartal':'النسر',
+  'Kedi':'القطة',
+  'Harika gidiyorsun!':'رائع، استمر!',
+  'Mükemmel seri!':'سلسلة ممتازة!',
+  'İnanılmaz odak!':'تركيز مذهل!',
+  'Seri devam ediyor!':'السلسلة مستمرة!',
+  '1 · ANA FİKİR':'١ · الفكرة الرئيسية',
+  "İslam, Allah'a yönelmektir.":'الإسلام هو التوجّه إلى الله.',
+  "İslam; Allah'a güvenmeyi, O'nun rehberliğini kabul etmeyi ve bunu hayata taşımayı öğretir.":'الإسلام يعلّم الثقة بالله، وقبول هدايته، وتحويل ذلك إلى حياة عملية.',
+  'Kısa ipucu: Yönel · Güven · Yaşa':'تلميح قصير: توجّه · ثِق · عِش',
+  'ÖĞRENDİM · SORUYA GEÇ':'فهمتُ · انتقل إلى السؤال'
+ };
+
+
+ const arabicUnitNames={
+  1:'ما الإسلام؟',
+  2:'الإيمان بالله',
+  3:'الشهادتان',
+  4:'أركان الإسلام الخمسة',
+  5:'مدخل إلى أركان الإيمان',
+  6:'الإيمان بالملائكة',
+  7:'الإيمان بالكتب',
+  8:'الإيمان بالرسل',
+  9:'الإيمان باليوم الآخر',
+  10:'الإيمان بالقضاء والقدر',
+  11:'الوعي بالعبادة',
+  12:'الطهارة والوضوء',
+  13:'الاستعداد للصلاة',
+  14:'أركان الصلاة',
+  15:'الصيام ورمضان'
+ };
+ const turkishUnitNames={
+  'İslam Nedir?':arabicUnitNames[1],
+  "Allah'a İman":arabicUnitNames[2],
+  'Kelime-i Şehadet':arabicUnitNames[3],
+  "İslam'ın Beş Şartı":arabicUnitNames[4],
+  'İmanın Esaslarına Giriş':arabicUnitNames[5],
+  'Meleklere İman':arabicUnitNames[6],
+  'Kitaplara İman':arabicUnitNames[7],
+  'Peygamberlere İman':arabicUnitNames[8],
+  'Ahiret Gününe İman':arabicUnitNames[9],
+  'Kadere İman':arabicUnitNames[10],
+  'İbadet Bilinci':arabicUnitNames[11],
+  'Abdest':arabicUnitNames[12],
+  'Taharet':arabicUnitNames[13],
+  'Namaz':arabicUnitNames[14],
+  'Oruç':arabicUnitNames[15]
+ };
+ Object.assign(chromeMap,turkishUnitNames);
+
+ const u01ChromeMap={
+  "İslam'la Tanış":'تعرّف إلى الإسلام',
+  'Müslüman Kimdir?':'من هو المسلم؟',
+  'Kavramları Eşleştir':'طابق المفاهيم',
+  'Günlük Hayat':'الحياة اليومية',
+  'Bildiklerini Kullan':'طبّق ما تعلمته',
+  'Akıllı Tekrar':'مراجعة ذكية',
+  'Ünite Challenge':'تحدّي الوحدة',
+  'Pekiştir ve Hatırla':'عزّز وتذكّر',
+  'ÖĞREN':'تعلّم',
+  'ANLA':'افهم',
+  'UYGULA':'طبّق',
+  'HATIRLA':'تذكّر',
+  'USTALAŞ':'أتقن',
+  'DİNLE':'استمع',
+  'KISA DERS':'درس قصير',
+  'PEKİŞTİRME':'تعزيز',
+  'USTALIK':'إتقان',
+  'SIRADAKİ AŞAMA':'المرحلة التالية',
+  'Önceki aşamayı tamamla':'أكمل المرحلة السابقة',
+  'Aşama tamamlandı':'اكتملت المرحلة',
+  'Bu aşama':'هذه المرحلة',
+  'Sıradaki mini ders':'الدرس المصغّر التالي',
+  'Hedef':'الهدف',
+  'İlerleme':'التقدّم',
+  'Aşama ilerlemesi':'تقدّم المرحلة',
+  'Neden kilitli?':'لماذا هذه المرحلة مقفلة؟',
+  'Bu aşama için doğrulanmış medya gerekiyor.':'تحتاج هذه المرحلة إلى وسائط موثّقة.',
+  'Bağlantı gelene kadar enerji harcanmaz.':'لن تُستهلك الطاقة حتى يتوفر الاتصال.',
+  'PEKİŞTİRMEYE BAŞLA':'ابدأ التعزيز',
+  'KALDIĞIN YERDEN DEVAM':'تابع من حيث توقفت',
+  'AŞAMAYA BAŞLA':'ابدأ المرحلة',
+  'Her mini ders bir öncekinin üzerine kurulur; soru seçimi sadece rastgele değildir.':'كل درس مصغّر يبنى على ما قبله؛ واختيار الأسئلة ليس عشوائيًا فقط.',
+  'BU AŞAMADA':'في هذه المرحلة',
+  'XP KAZAN':'اكسب XP',
+  'Bu aşama henüz kilitli':'هذه المرحلة ما زالت مقفلة',
+  'Önce bir önceki ünitenin son aşamasını tamamla.':'أكمل أولًا المرحلة الأخيرة من الوحدة السابقة.',
+  'İslam, Müslüman, iman, ibadet ve ahlak gibi temel kavramlarla tanış.':'تعرّف إلى المفاهيم الأساسية مثل الإسلام والمسلم والإيمان والعبادة والأخلاق.',
+  'Çok Kolay Tanışma':'تعارف سهل جدًا',
+  'Konuyla güvenli ve düşük eforlu bir ilk temas kur.':'ابدأ تعارفًا أوليًا آمنًا وسهلًا مع الموضوع.',
+  'Temel Kavram Tanıma':'التعرّف على المفاهيم الأساسية',
+  'Ana kavramları örnekler ve karşıtları üzerinden tanı.':'تعرّف على المفاهيم الأساسية من خلال الأمثلة وما يقابلها.',
+  'Kontrollü Recall':'استرجاع موجّه',
+  'İpuçları azalırken temel bilgiyi kontrollü biçimde geri çağır.':'استرجع المعلومات الأساسية تدريجيًا مع تقليل التلميحات.',
+  'Ayrım Yap':'ميّز بين المفاهيم',
+  'Yakın kavramları birbirinden ayır ve sınırlarını fark et.':'ميّز بين المفاهيم المتقاربة وحدّد الفروق بينها.',
+  'Eşleştir & Doğrula':'طابق وتحقّق',
+  'Kavramı doğru anlam, örnek veya ifadeyle eşleştir.':'طابق المفهوم مع معناه أو مثاله الصحيح.',
+  'Boşluğu Doldur':'املأ الفراغ',
+  'Kavramı görmeden eksik bilgiyi zihninden tamamla.':'أكمل المعلومة الناقصة من ذاكرتك دون رؤية المفهوم.',
+  'Karma Kavram Kontrolü':'مراجعة مفاهيم متنوعة',
+  'Farklı soru biçimleriyle kavramsal anlayışını doğrula.':'تحقّق من فهمك للمفاهيم عبر أنواع مختلفة من الأسئلة.',
+  'Basit Senaryo':'موقف بسيط',
+  'Öğrendiğin ilkeyi açık ve basit bir duruma uygula.':'طبّق المبدأ الذي تعلمته على موقف واضح وبسيط.',
+  'Bilgiyi günlük bir karar veya davranış bağlamında kullan.':'استخدم معرفتك في قرار أو سلوك من الحياة اليومية.',
+  'Hatayı Yakala':'اكتشف الخطأ',
+  'Yanlış genellemeyi veya hatalı uygulamayı fark et.':'اكتشف التعميم الخاطئ أو التطبيق غير الصحيح.',
+  'Zor Uygulama Karması':'تطبيقات متقدمة متنوعة',
+  'Farklı durumlarda bilgiyi daha bağımsız ve seçici kullan.':'استخدم معرفتك باستقلالية أكبر في مواقف متنوعة.',
+  'Boşluktan Hatırla':'استرجاع عبر الفراغ',
+  'Cevabı görmeden bilgiyi zihninden geri çağır.':'استرجع المعلومة من ذاكرتك دون رؤية الإجابة.',
+  'Aşamalı Hatırlama':'استرجاع تدريجي',
+  'İpuçlarını azaltarak daha bağımsız hatırlamaya geç.':'قلّل التلميحات تدريجيًا وانتقل إلى الاسترجاع المستقل.',
+  'Aralıklı Karma Tekrar':'مراجعة متباعدة متنوعة',
+  'Önceki mini derslerden karışık ve vadesi gelen bilgileri pekiştir.':'عزّز معلومات متنوعة ومستحقة للمراجعة من الدروس المصغّرة السابقة.',
+  'Önceki derslerden karışık ve vadesi gelen bilgileri pekiştir.':'عزّز معلومات متنوعة ومستحقة للمراجعة من الدروس السابقة.',
+  'Ustalık Provası':'تمرين الإتقان',
+  'Challenge öncesi karma ve daha zor bir prova yap.':'أجرِ تدريبًا متنوعًا وأكثر صعوبة قبل تحدّي الإتقان.',
+  'Recognition, recall ve application karışımıyla üniteni ustalık seviyesinde sınırla.':'اختبر إتقانك للوحدة بمزيج من التعرّف والاسترجاع والتطبيق.',
+  'Son cevaplarda zorlandı':'واجه صعوبة في الإجابات الأخيرة',
+  'Hafıza gücü düşük':'ثبات الذاكرة منخفض',
+  'Yeni soru varyasyonu':'نسخة سؤال جديدة',
+  'Karma pekiştirme':'تعزيز متنوع',
+  'öğrenme özeti':'ملخّص التعلّم',
+  'HAFIZA PLANI AKTİF':'خطة الذاكرة مفعّلة',
+  'ETKİNLİK TÜRÜ':'نوع النشاط',
+  'TEKRAR ÖNCELİĞİ':'أولوية المراجعة',
+  'KALICI PLAN':'الخطة طويلة الأمد',
+  'Bu macro aşama tamamlandı; bir sonraki düğüm artık açılabilir.':'اكتملت هذه المرحلة؛ يمكن الآن فتح المحطة التالية.',
+  'Aynı atanmış soru seti korunur; tekrar denemesi yeni first-pass içeriği tüketmez.':'سيتم الاحتفاظ بمجموعة الأسئلة نفسها؛ إعادة المحاولة لا تستهلك محتوى جديدًا.',
+  'Ünite tamamlandı':'اكتملت الوحدة',
+  'Bu aşamada ilerliyorsun':'أنت تتقدّم في هذه المرحلة',
+  'Aynı aşama tamamlanmadan sonraki düğüm açılmaz.':'لن تُفتح المحطة التالية قبل إكمال هذه المرحلة.',
+  'mevcut aşamaya git':'انتقل إلى المرحلة الحالية',
+  '5 aşamalı öğrenme yolu':'مسار تعلّم من 5 مراحل',
+  'İslam Nedir? · 5 aşamalı öğrenme yolu':'ما الإسلام؟ · مسار تعلّم من 5 مراحل',
+  'SONRAKİ ÜNİTE':'الوحدة التالية',
+  'Aşama içindeki mini dersler:':'الدروس المصغّرة في هذه المرحلة:',
+  'öğrenme → kavrama → hatırlama → uygulama':'تعلّم → فهم → تذكّر → تطبيق',
+  'Challenge':'تحدٍّ',
+  'İnternet bağlantısı gerekiyor':'يتطلب اتصالًا بالإنترنت',
+  'Bu aşama doğrulanmış medya kaynağını kullanır.':'تستخدم هذه المرحلة مصدر وسائط موثّقًا.',
+  'Bağlantı geldiğinde tekrar deneyebilirsin. Yapay/TTS dinî telaffuz kullanılmaz ve enerji harcanmaz.':'يمكنك المحاولة مجددًا عند عودة الاتصال. لا يُستخدم نطق ديني اصطناعي ولا تُستهلك الطاقة.',
+  'Öğrenme yoluna dön':'العودة إلى مسار التعلّم',
+  'AŞAMA TAMAMLANDI':'اكتملت المرحلة',
+  'KUSURSUZ MİNİ DERS':'درس مصغّر مثالي',
+  'Mini ders tamamlandı':'اكتمل الدرس المصغّر',
+  'Bir tur daha':'جولة أخرى',
+  'Bu düğümün tüm mini dersleri tamamlandı.':'اكتملت جميع الدروس المصغّرة في هذه المحطة.',
+  'Aynı aşama içinde bir sonraki mini derse geçebilirsin.':'يمكنك الانتقال إلى الدرس المصغّر التالي ضمن المرحلة نفسها.',
+  'Geçmek için %70 veya üzeri gerekiyor.':'يلزم تحقيق 70٪ أو أكثر للنجاح.',
+  'MİNİ DERSİ TEKRARLA':'أعد الدرس المصغّر',
+  'ÜNİTE ÖDÜLÜNE GEÇ':'انتقل إلى مكافأة الوحدة',
+  'Kusursuz ders':'درس مثالي',
+  'Ders geçildi':'تم اجتياز الدرس',
+  'Bu mini derste hepsini doğru yaptın.':'أجبت عن جميع أسئلة هذا الدرس المصغّر بشكل صحيح.',
+  'Sonraki mini derse geçebilirsin.':'يمكنك الانتقال إلى الدرس المصغّر التالي.',
+  'Bu mini dersi %70 ve üzeri ile geçmen gerekiyor.':'يجب أن تحقق 70٪ أو أكثر لاجتياز هذا الدرس المصغّر.',
+  'Sıradaki ders':'الدرس التالي',
+  'Yeni ders açıldı':'تم فتح درس جديد',
+  'Kusursuz ders ödülü hazır':'مكافأة الدرس المثالي جاهزة',
+  'Yeni aşama ödülü hazır':'مكافأة المرحلة الجديدة جاهزة',
+  'Bu mini dersi hatasız bitirdin. Devam ettiğinde daha güçlü bir ödül hissi göreceksin.':'أنهيت هذا الدرس المصغّر بلا أخطاء. عند المتابعة ستظهر لك مكافأة أقوى.',
+  'Bu düğümü ilk kez geçtin. Devam ettiğinde açılma efekti ve ödül akışı seni bekliyor.':'اجتزت هذه المحطة لأول مرة. عند المتابعة سيظهر تأثير الفتح ومسار المكافأة.',
+  'ÖDÜLÜ AL VE DEVAM ET':'احصل على المكافأة وتابع',
+  'AÇILMA EFEKTİNE GEÇ':'انتقل إلى تأثير الفتح',
+  'Altın performans':'أداء ذهبي',
+  'Final geçildi':'تم اجتياز النهائي',
+  'Tekrar öneriliyor':'يوصى بالمراجعة',
+  'Mini ders geçildi':'تم اجتياز الدرس المصغّر',
+  'Mini dersi tekrar et':'أعد الدرس المصغّر',
+  'AŞAMA ÖĞRENME DÖNGÜSÜ':'دورة تعلّم المرحلة',
+  'öğrenme zinciri tamamlandı':'اكتملت سلسلة التعلّم',
+  'sonraki adım':'الخطوة التالية',
+  'Önceki yanlış':'خطأ سابق',
+  'Tekrar zamanı':'موعد المراجعة',
+  'Zayıf kavram':'مفهوم ضعيف',
+  'Tekrar listen hazır değil':'قائمة المراجعة غير جاهزة',
+  'Doğrulanmış uygun soru henüz bağlı değil. Enerji harcanmaz.':'لا يوجد سؤال موثّق مناسب مرتبط بعد. لن تُستهلك الطاقة.',
+  'TEKRAR BAŞLA':'ابدأ مجددًا',
+  'BAŞLA':'ابدأ',
+  'Bu konuyu pekiştir':'عزّز هذا الموضوع',
+  'HEDEF':'الهدف',
+  'enerji':'طاقة',
+  'baz XP':'XP أساسي',
+  'Yaklaşık':'حوالي',
+  'dakika':'دقائق',
+  'Gün içindeki tekrarlarında XP azalır.':'تنخفض نقاط XP في المراجعات المتكررة خلال اليوم.',
+  'Bu ders henüz kilitli':'هذا الدرس ما زال مقفلًا',
+  'Sıradaki:':'التالي:',
+  'Mini ders':'درس مصغّر',
+  'Aşama':'المرحلة',
+  'Ders':'الدرس'
+ };
+ Object.assign(chromeMap,u01ChromeMap);
+
+ const u02ChromeMap={
+  "Allah'a İman":'الإيمان بالله',
+  "Allah'a İman Nedir?":'ما معنى الإيمان بالله؟',
+  'Allah Birdir':'الله واحد',
+  'Yaratıcı ve Yaratılan':'الخالق والمخلوق',
+  'Kavramları Bağla':'اربط المفاهيم',
+  'İman Hayata Nasıl Yansır?':'كيف ينعكس الإيمان على الحياة؟',
+  "Allah'a İman Challenge":'تحدّي الإيمان بالله',
+  'Tevhid, yaratıcı-yaratılan ayrımı ve imanın hayata yansımasını öğren.':'تعلّم التوحيد، والتمييز بين الخالق والمخلوق، وكيف ينعكس الإيمان على الحياة.',
+  "Allah'a İman · 5 aşamalı öğrenme yolu":'الإيمان بالله · مسار تعلّم من 5 مراحل',
+  'Allah’a İman':'الإيمان بالله',
+  'Allah’a İman Nedir?':'ما معنى الإيمان بالله؟',
+  "Allah'a iman tanımı":'تعريف الإيمان بالله',
+  'Tevhid kavramı':'مفهوم التوحيد',
+  "Allah'ın birliği":'وحدانية الله',
+  'Kulluk ve tevhid':'العبادة والتوحيد',
+  'Tevhid ilişkileri':'علاقات التوحيد بالمفاهيم',
+  'Allah yaratıcıdır':'الله هو الخالق',
+  'Yaratıcı-yaratılan ayrımı':'التمييز بين الخالق والمخلوق',
+  'Şükür kavramı':'مفهوم الشكر',
+  'Güven kavramı':'مفهوم الثقة بالله',
+  'İnançtan günlük tutuma':'من الإيمان إلى السلوك اليومي',
+  'Görev sorumluluğu':'مسؤولية أداء الواجب',
+  'Kontrol Et':'تحقّق',
+  'Doğru veya yanlış seçimini yaparak devam et.':'اختر صحيحًا أو خطأ ثم تابع.',
+  'Şıkları dikkatle inceleyip en doğru cevabı seç.':'راجع الخيارات بعناية واختر الإجابة الأصح.',
+  'Dört kart arasından en doğru seçimi yap.':'اختر الإجابة الأصح من بين البطاقات الأربع.',
+  'Her doğru cevap, daha sağlam bir yarın demektir.':'كل إجابة صحيحة تجعل التعلّم أكثر رسوخًا.',
+  'Hatırladığın cevabı yaz…':'اكتب الإجابة التي تتذكرها…',
+  'Cevabını yaz…':'اكتب إجابتك…',
+  'Cevabını yaz':'اكتب إجابتك',
+  'Bir kart seç':'اختر بطاقة',
+  'Seçilen kelime:':'الكلمة المختارة:',
+  'Boşluk':'الفراغ',
+  'kelimesini boşluğa yerleştir':'ضع الكلمة في الفراغ',
+  'Öğrenme doğruluğu':'دقة التعلّم',
+  'Doğru cevap:':'الإجابة الصحيحة:',
+  '✓ DOĞRU':'✓ صحيح',
+  '× TEKRAR ETMEYE DEĞER':'× يستحق المراجعة',
+  'AŞAMA USTALIĞI':'إتقان المرحلة',
+  'Harika! Bu aşamadaki tüm dersler tamamlandı. Sıradaki aşama şimdi açıldı.':'رائع! اكتملت جميع دروس هذه المرحلة، وفُتحت المرحلة التالية الآن.',
+  'Çok iyi. Şimdi bu aşamadaki sonraki derse geçebilirsin.':'جيد جدًا. يمكنك الآن الانتقال إلى الدرس التالي في هذه المرحلة.',
+  'Çok iyi. Şimdi bu aşamadaki son adıma geçebilirsin.':'جيد جدًا. يمكنك الآن الانتقال إلى الخطوة الأخيرة في هذه المرحلة.',
+  'Bu aşamayı açmak için bu dersi %70 veya üzeriyle tamamla.':'لإكمال هذه المرحلة، حقّق 70٪ أو أكثر في هذا الدرس.',
+  'KUSURSUZ PEKİŞTİRME':'تعزيز مثالي',
+  'Bilgini pekiştirdin.':'عزّزت معرفتك.',
+  'KUSURSUZ DERS':'درس مثالي',
+  'Harika ilerleme.':'تقدّم رائع.',
+  'Birlikte pekiştirelim.':'لنعزّزها معًا.',
+  'Pekiştirme tamamlandı.':'اكتمل التعزيز.',
+  'Bilgin, küçük adımlarla güçleniyor.':'تزداد معرفتك رسوخًا بخطوات صغيرة.',
+  'Aşamayı tamamlamak için en az %70 gerekiyor.':'يلزم 70٪ على الأقل لإكمال المرحلة.',
+  'Temeller Ustalığı için ilerliyorsun.':'أنت تتقدّم نحو إتقان الأساسيات.',
+  'Hızlı ilerleme':'تقدّم سريع',
+  'Bilgini güçlendir':'عزّز معرفتك',
+  'Kartını seç':'اختر بطاقتك',
+  'Bilgi küçük adımlarla büyür.':'تنمو المعرفة بخطوات صغيرة.',
+  'Tekrar listen hazır değil':'قائمة المراجعة غير جاهزة',
+  'Bu listede henüz soru yok. Yeni bir ders tamamladığında tekrar planın oluşur.':'لا توجد أسئلة في هذه القائمة بعد. ستتكوّن خطة المراجعة عندما تكمل درسًا جديدًا.',
+  'Öğrenmeye dön':'العودة إلى التعلّم',
+  'Hızlı Tekrar':'مراجعة سريعة',
+  'Adaptif Akıllı Tekrar':'مراجعة ذكية تكيفية',
+  'Öncelikli':'أولوية عالية',
+  'Gelişiyor':'قيد التحسن',
+  'Dengeli':'متوازن',
+  'ADAPTİF TEKRARI BAŞLAT':'ابدأ المراجعة التكيفية',
+  'İLK DERSİ TAMAMLA':'أكمل الدرس الأول',
+  'ADAPTIVE MEMORY ENGINE · v6.4':'محرك الذاكرة التكيفي · v6.4',
+  'Bugünkü hafıza planın':'خطة الذاكرة لليوم',
+  'Vadesi gelen bilgiler önce geliyor.':'تأتي المعلومات المستحقة للمراجعة أولًا.',
+  'Vadesi gelen soru yok; plan zayıf kavramlar ve kontrollü varyasyonlarla dengeleniyor.':'لا توجد أسئلة مستحقة الآن؛ تتوازن الخطة بين المفاهيم الضعيفة والتنويعات المنضبطة.',
+  'İlk mini dersini tamamladığında kişisel tekrar planın burada oluşacak.':'عندما تكمل أول درس مصغّر ستظهر هنا خطة المراجعة الشخصية.',
+  'SORU':'سؤال',
+  'VADESİ GELEN':'مستحق للمراجعة',
+  'YANLIŞ ÖNCELİĞİ':'أولوية الأخطاء',
+  'İlk dersinden sonra kişiselleşir':'يتخصّص بعد درسك الأول',
+  'HATIRLA · PEKİŞTİR':'تذكّر · عزّز',
+  'Unutmaya göre çalışan tekrar.':'مراجعة تتكيّف مع النسيان.',
+  'Plan, geçmiş cevapların ve tekrar zamanlarınla otomatik değişir.':'تتغيّر الخطة تلقائيًا وفق إجاباتك السابقة ومواعيد المراجعة.',
+  'Yanlışların':'أخطاؤك',
+  'Zayıf Kavramlar':'المفاهيم الضعيفة',
+  'Ücretsiz':'مجاني',
+  'Vadesi Gelen':'المستحق للمراجعة',
+  'Öğrenme hafızası':'ذاكرة التعلّم',
+  'Ünite bazında':'حسب الوحدة',
+  'Henüz yeterli cevap geçmişi yok. Birkaç ders sonra zayıf kavramlar burada görünür.':'لا يوجد سجل إجابات كافٍ بعد. ستظهر المفاهيم الضعيفة هنا بعد بضعة دروس.',
+  'İlk üniteni oynadıkça burada kişisel hafıza skoru oluşur.':'مع تقدّمك في وحدتك الأولى ستظهر هنا درجة الذاكرة الشخصية.',
+  'Bu skor yalnız öğrenme ve hatırlama performansını yönetir; dinî yeterlilik veya ibadet değeri değildir.':'تُستخدم هذه الدرجة فقط لإدارة أداء التعلّم والتذكّر، وليست حكمًا على الكفاءة الدينية أو قيمة العبادة.',
+  'Hafıza planı:':'خطة الذاكرة:',
+  'Adaptif hafıza özeti':'ملخّص الذاكرة التكيفية'
+ };
+ Object.assign(chromeMap,u02ChromeMap);
+
+ const u03ChromeMap={
+  "Şehadet Nedir?":"ما الشهادتان؟",
+  "Anlamını Öğren":"تعلّم معناهما",
+  "Dinle ve Tanı":"استمع وتعرّف",
+  "Şehadeti Oluştur":"رتّب الشهادتين",
+  "Ne Söylediğini Anla":"افهم ما تقول",
+  "Şehadet Challenge":"تحدّي الشهادتين",
+  "Şehadetin anlamını öğren, dinleyerek tanı ve parçalarını doğru şekilde birleştir.":"تعلّم معنى الشهادتين، وتعرّف إليهما بالاستماع، ورتّب أجزائهما ترتيبًا صحيحًا.",
+  "Kelime-i Şehadet'e giriş":"مقدمة إلى الشهادتين",
+  "Şehadetin bölümleri":"جزآ الشهادتين",
+  "Şehadetin anlamı":"معنى الشهادتين",
+  "Şehadetin Türkçe anlamı":"معنى الشهادتين",
+  "Şehadetin içeriği":"مضمون الشهادتين",
+  "Şehadet'in şartı":"شرط الشهادة",
+  "Şahitlik kavramı":"مفهوم الشهادة",
+  "İlk kelime tanıma":"التعرّف على الكلمة الأولى",
+  "İki beyan":"الإقراران",
+  "İmanın kapsayıcılığı":"شمول الإيمان",
+  "Resûlullah kelime anlamı":"معنى كلمة رسول الله",
+  "Genel Anlam":"المعنى العام",
+  "Sözlü beyan":"الإقرار اللفظي",
+  "Tevhid kavramı eşleşmesi":"مطابقة مفهوم التوحيد",
+  "Peygamberlik kavramı eşleşmesi":"مطابقة مفهوم الرسالة",
+  "Bölüm-Anlam Eşleştirme":"مطابقة الجزء بالمعنى",
+  "İlah kavramı":"مفهوم الإله",
+  "Anlam tamamlama":"إكمال المعنى",
+  "Peygamberliğin kabulü":"الإقرار بالرسالة",
+  "Şehadet metni inceleme":"تحليل نص الشهادتين",
+  "Lâ ilâhe illallah eşleşmesi":"مطابقة «لا إله إلا الله»",
+  "Tevhid ve Risalet dengesi":"التكامل بين التوحيد والرسالة",
+  "İlah kelimesinin reddi":"نفي الألوهية",
+  "Şahitlik pratik anlamı":"المعنى العملي للشهادة",
+  "Resûl ve elçi ilişkisi":"معنى الرسول بوصفه مُرسَلًا",
+  "Eksik parça tespiti":"تحديد الجزء الناقص",
+  "İlahiyet Kavramı":"مفهوم الألوهية",
+  "Tam metin tanıma":"التعرّف على النص كاملًا",
+  "Ses-Anlam eşleşmesi":"مطابقة الصوت بالمعنى",
+  "İlk kısım tanıma":"التعرّف على الجزء الأول",
+  "Ses içeriği":"محتوى التسجيل الصوتي",
+  "İşiterek boşluk doldurma":"ملء الفراغ بالاستماع",
+  "Eşhedü tekrarı duyma":"سماع تكرار «أشهد»",
+  "İşitsel hata tespiti bağlamı":"اكتشاف الخطأ بالاستماع",
+  "Son kelime tanıma":"التعرّف على الكلمة الأخيرة",
+  "Kavram eşleme işitsel":"مطابقة المفاهيم بالاستماع",
+  "İki parça birleştirici":"الربط بين الجزأين",
+  "Peygamber ismi tanıma":"التعرّف على اسم النبي",
+  "Peygamberliğin işitsel karşılığı":"التعرّف السمعي على معنى الرسالة",
+  "İlk şahitlik vurgusu":"التركيز على الشهادة الأولى",
+  "Kavram tanıma tekrar":"مراجعة التعرّف على المفاهيم",
+  "Tüm ifade sıralaması":"ترتيب العبارة كاملة",
+  "Son kelime":"الكلمة الأخيرة",
+  "İlk kısım tamamlama":"إكمال الجزء الأول",
+  "Detaylı kelime sıralama":"ترتيب الكلمات بالتفصيل",
+  "Bağlaç bilgisi":"معرفة أداة الربط",
+  "Türkçe anlam sıralama":"ترتيب المعنى",
+  "Başlangıç kelimesi":"الكلمة الأولى",
+  "İkinci kısım sıralama":"ترتيب الجزء الثاني",
+  "Orta kelime":"الكلمة الوسطى",
+  "Anlam eksikliği":"نقص المعنى",
+  "Tüm cümle parçaları sıralama":"ترتيب جميع أجزاء الجملة",
+  "Negatif ifade tanıma":"التعرّف على عبارة النفي",
+  "Kelime kontrolü":"التحقق من الكلمة",
+  "Bütünleyici anlam":"المعنى المتكامل",
+  "Çeviri parça eşleşmesi":"مطابقة أجزاء المعنى",
+  "Hızlı kelime kontrolü":"تحقق سريع من الكلمات",
+  "Senaryo - Eksik anlayış":"موقف: فهم ناقص",
+  "Senaryo - Özümseme":"موقف: استيعاب المعنى",
+  "Doğru kavrama":"الفهم الصحيح",
+  "Senaryo - Elçi konumu":"موقف: مكانة الرسول",
+  "Tevhid Hata Tespiti":"اكتشاف خطأ في فهم التوحيد",
+  "Bütünlük ilkesi":"مبدأ التكامل",
+  "Şahitlik bilinci":"وعي الشهادة",
+  "Parçalar arası anlam":"العلاقة المعنوية بين الأجزاء",
+  "Pratik inanç eşleşmesi":"مطابقة الاعتقاد بالتطبيق",
+  "Senaryo - Söz ve Öz":"موقف: اللفظ والمعنى",
+  "İlah kelimesinin kapsayıcılığı":"دلالة كلمة الإله",
+  "Hata tespiti - Resulullah konumu":"اكتشاف الخطأ: مكانة رسول الله",
+  "Boşluk doldurma uygulama":"تطبيق ملء الفراغ",
+  "Sürekli bilinç":"الوعي المستمر",
+  "Şahitlik hissi":"استحضار معنى الشهادة",
+  "Bağlamsal bağlantı":"الربط بالسياق",
+  "Kavramsal Geri Çağırma 1":"استرجاع المفهوم 1",
+  "İlah reddi zihinsel model":"التصور الذهني لنفي الألوهية",
+  "Anlam eksikliği pratik":"تطبيق على نقص المعنى",
+  "İşitsel Hafıza":"الذاكرة السمعية",
+  "Şahitlik Pratiği":"تطبيق معنى الشهادة",
+  "Çeviri yapı bozumu":"تحليل بنية المعنى",
+  "Kavramları Hızlı Eşleştirme":"مطابقة سريعة للمفاهيم",
+  "Elçi reddi senaryosu":"موقف: إنكار الرسالة",
+  "Kelime tamamlama":"إكمال الكلمة",
+  "Tevhid Kavramı Tekrar":"مراجعة مفهوم التوحيد",
+  "Dil ve Kalp":"اللسان والقلب",
+  "Odaklanma - Eşhedü":"تركيز: «أشهد»",
+  "Kapsamlı Senaryo":"موقف شامل",
+  "Tam metin hız testi":"اختبار سرعة النص الكامل",
+  "Odaklı dinleme hata tespiti":"اكتشاف الخطأ بالاستماع المركّز",
+  "Tevhid özü":"جوهر التوحيد",
+  "Kelimeler arası geçiş":"الانتقال بين الكلمات",
+  "Şehadet ve İman bağlantısı":"العلاقة بين الشهادتين والإيمان",
+  "Ünite temel kavramları":"المفاهيم الأساسية للوحدة",
+  "Hata Bulmaca":"اكتشف الخطأ",
+  "Boşluk doldurma (Bütünleşik)":"ملء الفراغ (متكامل)",
+  "Tevhid ve Pratik Yaşam":"التوحيد والحياة العملية",
+  "Son kelime doğruluk testi":"اختبار دقة الكلمة الأخيرة",
+  "Sesli tamamlama analizi":"تحليل الإكمال الصوتي",
+  "Gerçek inanç vurgusu":"التأكيد على الإيمان الصادق",
+  "Final kelime dizilimi":"الترتيب النهائي للكلمات",
+  "Eksik kelimeyi tamamlayarak devam et.":"أكمل الكلمة الناقصة ثم تابع.",
+  "Boşluğu doldurarak öğrendiklerini hatırla.":"املأ الفراغ لاسترجاع ما تعلمته.",
+  "Kavramları doğru eşleştirerek ilerle.":"طابق المفاهيم بصورة صحيحة ثم تابع.",
+  "Adımları doğru sıraya dizerek devam et.":"رتّب الأجزاء بالترتيب الصحيح ثم تابع.",
+  "Doğru seçimi yaparak öğrenmeye devam et.":"اختر الإجابة الصحيحة لمواصلة التعلّم.",
+  "Doğru cevabı seçerek yolculuğuna devam et.":"اختر الإجابة الصحيحة لمواصلة رحلتك.",
+  "TEMEL BİLGİLER":"المعلومات الأساسية",
+  "HIZLI KONTROL":"تحقق سريع",
+  "BOŞLUĞU TAMAMLA":"أكمل الفراغ",
+  "EKSİĞİ BUL":"اعثر على الناقص",
+  "BİLGİNİ PEKİŞTİR":"عزّز معرفتك",
+  "HATAYI YAKALA":"اكتشف الخطأ",
+  "HATIRLA VE TAMAMLA":"تذكّر وأكمل",
+  "KAVRAMLARI EŞLEŞTİR":"طابق المفاهيم",
+  "HIZLI TEKRAR":"مراجعة سريعة",
+  "SIRALA":"رتّب",
+  "ÖĞRENME ADIMI":"خطوة تعلّم",
+  "Parçalara dokunarak doğru sırayı oluştur. Üstteki parçaya dokunursan geri alabilirsin.":"اضغط على الأجزاء لتكوين الترتيب الصحيح. يمكنك الضغط على الجزء في الأعلى لإعادته.",
+  "SIRAYI KONTROL ET":"تحقّق من الترتيب",
+  "Kavram:":"المفهوم:",
+  "Eş:":"المطابقة:",
+  "Kelime-i Şehadet · Resmî yayın kaynağı":"الشهادتان · مصدر رسمي",
+  "DiyanetTV · Dinleyerek soruyu cevapla":"DiyanetTV · استمع ثم أجب عن السؤال",
+  "KAYNAK DOĞRULANDI":"تم التحقق من المصدر",
+  "DiyanetTV — Kelime-i Şehadet":"DiyanetTV — الشهادتان",
+  "Bu aşamada yapay telaffuz kullanılmaz. Bağlantı geldiğinde resmî DiyanetTV kaydı kullanılabilir.":"لا يُستخدم نطق اصطناعي في هذه المرحلة. عند توفر الاتصال يمكن استخدام تسجيل DiyanetTV الرسمي.",
+  "Kaynak: DiyanetTV · resmî yayın provenance’ı doğrulandı.":"المصدر: DiyanetTV · تم التحقق من نسبة المادة إلى الناشر الرسمي.",
+  "Bu işaret “kaynağın resmî yayıncıya ait olduğunu” belirtir; dinî uzman incelemesinin tamamlandığı anlamına gelmez.":"تشير هذه العلامة إلى أن المصدر يعود إلى الناشر الرسمي؛ ولا تعني اكتمال مراجعة مختص ديني.",
+  "Ders tamamlandı":"اكتمل الدرس",
+  "Dersi tekrar et":"أعد الدرس",
+  "AŞAMAYI TAMAMLA":"أكمل المرحلة",
+  "SONRAKİ DERS":"الدرس التالي",
+  "DERSİ TEKRARLA":"أعد الدرس"
+ };
+ Object.assign(chromeMap,u03ChromeMap);
+
+ const u04ChromeMap={
+  "Beş Şartı Tanı":"تعرّف على الأركان الخمسة",
+  "Şehadet ve Namaz":"الشهادتان والصلاة",
+  "Oruç, Zekât ve Hac":"الصيام والزكاة والحج",
+  "Hangisi Hangi Şart?":"أيٌّ منها أيُّ ركن؟",
+  "Beş Şart Challenge":"تحدّي أركان الإسلام الخمسة",
+  "Şehadet, namaz, oruç, zekât ve hac kavramlarını tanı; doğru bağlamlarla eşleştir.":"تعرّف على الشهادتين والصلاة والصيام والزكاة والحج، واربط كل مفهوم بسياقه الصحيح.",
+  "İslam'ın Beş Şartı":"أركان الإسلام الخمسة",
+  "İslam'ın Şartları Nelerdir?":"ما أركان الإسلام؟",
+  "Şehadet'in Yeri":"مكانة الشهادتين بين أركان الإسلام",
+  "İbadet Olarak Namaz":"الصلاة عبادة",
+  "Mekke ve İbadet":"مكة والعبادة",
+  "Şartların Sayısı":"عدد أركان الإسلام",
+  "Ramazan ve Oruç":"رمضان والصيام",
+  "İslam'ın Şartları Listesi":"قائمة أركان الإسلام",
+  "Şartlar ve İnançlar":"أركان الإسلام وأركان الإيمان",
+  "Kelime-i Şehadet":"الشهادتان",
+  "Şehadetin Anlamı":"معنى الشهادتين",
+  "Düzenli İbadet Namaz":"الصلاة عبادة منتظمة",
+  "İlk Şartın Yeri":"مكانة الركن الأول",
+  "Namazın Kapsamı":"مفهوم الصلاة",
+  "Şehadet ve Namaz İlişkisi":"العلاقة بين الشهادتين والصلاة",
+  "Şehadetin Yeri":"مكانة الشهادتين",
+  "Namazın Önemi":"أهمية الصلاة",
+  "İnanç Beyanı":"إعلان الإيمان",
+  "Düzenli İbadet":"العبادة المنتظمة",
+  "Şehadet ve Namazın Kapsamı":"مفهوم الشهادتين والصلاة",
+  "Kelime-i Şehadet'in Yeri":"مكانة الشهادتين بين أركان الإسلام",
+  "İlk İki Şart":"الركنان الأولان",
+  "Namaz Kavramı":"مفهوم الصلاة",
+  "Malî İbadet Zekât":"الزكاة عبادة مالية",
+  "Mekke'ye Yolculuk":"السفر إلى مكة",
+  "Zekât Kavramı":"مفهوم الزكاة",
+  "Oruç Kavramı":"مفهوم الصيام",
+  "Son Üç Şartın Özellikleri":"خصائص الأركان الثلاثة الأخيرة",
+  "Hac Kavramı":"مفهوم الحج",
+  "Zekâtın Doğası":"طبيعة الزكاة",
+  "Oruç ve İbadet":"الصيام والعبادة",
+  "Hac Şartı":"الحج ركن من أركان الإسلام",
+  "Zekât Uygulaması":"تطبيق الزكاة",
+  "Oruç, Zekât, Hac Eşleştirme":"مطابقة الصيام والزكاة والحج",
+  "Hac İbadeti":"عبادة الحج",
+  "İbadet ve Tanım Eşleştirme":"مطابقة العبادة بتعريفها",
+  "Şehadet ve Hac Eşleştirme":"مطابقة الشهادتين والحج",
+  "Hatalı Eşleştirme Bulma":"اكتشاف المطابقة الخاطئة",
+  "Doğru Eşleştirme Seçimi":"اختيار المطابقة الصحيحة",
+  "Kavram Eşleştirme":"مطابقة المفاهيم",
+  "Hatalı Eşleştirme Bulma 2":"اكتشاف المطابقة الخاطئة 2",
+  "Şartlar ve Esaslar Ayrımı":"التمييز بين أركان الإسلام وأركان الإيمان",
+  "Hatalı İfadeyi Bul":"اعثر على العبارة الخاطئة",
+  "İbadet Eşleştirme":"مطابقة العبادات",
+  "Kavram Karşılaştırma":"مقارنة المفاهيم",
+  "Hatalı Kavramı Bulma":"اكتشاف المفهوم الخاطئ",
+  "Geniş Eşleştirme":"مطابقة موسّعة",
+  "Hac ve Oruç Eşleştirme":"مطابقة الحج والصيام",
+  "Kavram Testi":"اختبار المفاهيم",
+  "Son Eşleştirme":"المطابقة النهائية",
+  "Temel Kavram Seçimi":"اختيار المفهوم الأساسي",
+  "Günlük Hayatta Oruç":"الصيام في الحياة اليومية",
+  "Günlük Hayatta Zekât":"الزكاة في الحياة اليومية",
+  "Günlük Hayatta Namaz":"الصلاة في الحياة اليومية",
+  "Uygulama Hatası":"خطأ في التطبيق",
+  "Hac İbadeti Uygulaması":"تطبيق عبادة الحج",
+  "Şehadet Uygulaması":"تطبيق معنى الشهادتين",
+  "Hatalı Düşünce Tespiti":"اكتشاف الفكرة الخاطئة",
+  "Senaryo: Yardım Kuruluşu":"موقف: مؤسسة خيرية",
+  "Senaryo: Seyahat":"موقف: سفر",
+  "Hata Bulma: Şart ve İman Karışımı":"اكتشاف الخطأ: الخلط بين أركان الإسلام وأركان الإيمان",
+  "Senaryo: Arkadaşın Sorusu":"موقف: سؤال صديق",
+  "Senaryo: Aile Sohbeti":"موقف: حوار عائلي",
+  "Senaryo: Televizyon Programı":"موقف: برنامج تلفزيوني",
+  "Hata Bulma: Eksik Şart":"اكتشاف الخطأ: ركن ناقص",
+  "Senaryo: İftar Vakti":"موقف: وقت الإفطار",
+  "Senaryo: İşçi ve İşveren":"موقف: العامل وصاحب العمل",
+  "Şartların Temeli":"أساس أركان الإسلام",
+  "Esaslar Ayrımı":"التمييز بين أركان الإيمان",
+  "Namaz Kavramı Tekrarı":"مراجعة مفهوم الصلاة",
+  "Zekât Kavramı Tekrarı":"مراجعة مفهوم الزكاة",
+  "Şehadet Hatırlama":"استرجاع الشهادتين",
+  "Oruç Hatırlama":"استرجاع مفهوم الصيام",
+  "Hac İbadeti Hatırlama":"استرجاع عبادة الحج",
+  "Namaz ve Vakit":"الصلاة والوقت",
+  "Zekât Eksik Bilgi":"معلومة ناقصة عن الزكاة",
+  "İmanın Şartı mı İslam'ın Şartı mı?":"من أركان الإيمان أم من أركان الإسلام؟",
+  "Genel Tekrar":"مراجعة عامة",
+  "Challenge: Tüm Şartlar":"التحدّي: جميع أركان الإسلام",
+  "Challenge: Hata Bulma":"التحدّي: اكتشف الخطأ",
+  "Challenge: İlişkiler":"التحدّي: العلاقات بين المفاهيم",
+  "Challenge: Oruç Senaryosu":"التحدّي: موقف عن الصيام",
+  "Challenge: Esas ve Şart Ayrımı":"التحدّي: التمييز بين أركان الإسلام وأركان الإيمان",
+  "Challenge: Şehadet":"التحدّي: الشهادتان",
+  "Challenge: Namaz":"التحدّي: الصلاة",
+  "Challenge: Hac Mekânı":"التحدّي: مكان الحج",
+  "Challenge: Karmaşık Senaryo":"التحدّي: موقف مركّب",
+  "Challenge: Kavram Hatası 2":"التحدّي: خطأ مفاهيمي 2",
+  "Challenge: Şartları Sayma":"التحدّي: عدّ أركان الإسلام",
+  "Challenge: Günlük Kullanım":"التحدّي: التطبيق في الحياة اليومية",
+  "Challenge: Hatırlama":"التحدّي: الاسترجاع",
+  "Challenge: Kapsayıcı Senaryo":"التحدّي: موقف شامل",
+  "CEVABINI YAZ":"اكتب إجابتك",
+  "Eksik kelimeyi yaz…":"اكتب الكلمة الناقصة…",
+  "Bu aşamayı açmak için bu dersi %70 veya üzeriyle tamamlaman gerekiyor.":"لفتح هذه المرحلة، يجب أن تُكمل هذا الدرس بنسبة 70٪ أو أكثر."
+ };
+ Object.assign(chromeMap,u04ChromeMap);
+
+ const u05ChromeMap={
+  "İman Ne Demektir?":"ما الإيمان؟",
+  "Altı Esası Tanı":"تعرّف على أركان الإيمان الستة",
+  "Kavramları Ayır":"ميّز بين المفاهيم",
+  "Şart mı, İman Esası mı?":"ركن من أركان الإسلام أم من أركان الإيمان؟",
+  "Günlük Hayatta Kavramlar":"المفاهيم في الحياة اليومية",
+  "Kısım Öncesi Akıllı Tekrar":"مراجعة ذكية قبل القسم",
+  "İman Esasları Challenge":"تحدّي أركان الإيمان",
+  "Altı iman esasını tanı; her kavramı doğru başlıkla ilişkilendir ve İslam'ın şartlarıyla karıştırma.":"تعرّف على أركان الإيمان الستة، واربط كل مفهوم بعنوانه الصحيح، ولا تخلط بينها وبين أركان الإسلام.",
+  "İmanın Esasları":"أركان الإيمان",
+  "İman Kavramı":"مفهوم الإيمان",
+  "İman Esasları":"أركان الإيمان",
+  "İmanın Temeli":"أساس الإيمان",
+  "İmanın Kapsamı":"نطاق الإيمان",
+  "Allah'a İman":"الإيمان بالله",
+  "İman Esasları Sayısı":"عدد أركان الإيمان",
+  "İman ve İnanç":"الإيمان والاعتقاد",
+  "İman Kavramı Özeti":"ملخّص مفهوم الإيمان",
+  "İmanın 6 Esası":"أركان الإيمان الستة",
+  "Kader ve Kaza":"القضاء والقدر",
+  "Meleklere İman":"الإيمان بالملائكة",
+  "İmanın 6 Esası Eşleştirme":"مطابقة أركان الإيمان الستة",
+  "Ahirete İman":"الإيمان باليوم الآخر",
+  "İmanın 6 Esası Liste":"قائمة أركان الإيمان الستة",
+  "Hızlı Liste Eşleştirme":"مطابقة سريعة للقائمة",
+  "Peygamberlere İman":"الإيمان بالرسل",
+  "İmanın 6 Esası Toplu":"أركان الإيمان الستة مجتمعة",
+  "Kitaplara İman":"الإيمان بالكتب",
+  "Kavram Ayrımı":"التمييز بين المفاهيم",
+  "İmanın 6 Esası Eşleştirme 2":"مطابقة أركان الإيمان الستة 2",
+  "Genel Tekrar":"مراجعة عامة",
+  "Ahirete İman Tanımı":"تعريف الإيمان باليوم الآخر",
+  "Meleklere İman Tanımı":"تعريف الإيمان بالملائكة",
+  "İman Esasları Anlamları":"معاني أركان الإيمان",
+  "Kitaplara İman Tanımı":"تعريف الإيمان بالكتب",
+  "Kadere İman Tanımı":"تعريف الإيمان بالقدر",
+  "İman Esaslarını Eşleştirme 3":"مطابقة أركان الإيمان 3",
+  "Kadere İman Özelliği":"معنى الإيمان بالقدر",
+  "İman Esaslarını Eşleştirme 4":"مطابقة أركان الإيمان 4",
+  "İman Esaslarını Eşleştirme 5":"مطابقة أركان الإيمان 5",
+  "Ahirete İman Vurgusu":"التأكيد على الإيمان باليوم الآخر",
+  "Kavramları Ayırma Özeti":"ملخّص التمييز بين المفاهيم",
+  "Namaz ve Melekler":"الصلاة والملائكة",
+  "Sınıflandırma":"التصنيف",
+  "Kategori Eşleştirme":"مطابقة الفئات",
+  "Öğrenci Hatası":"خطأ الطالب",
+  "Hac vs Kitaplar":"الحج والكتب: تمييز الفئة",
+  "Senaryo - Sınıflandırma":"موقف: التصنيف",
+  "Ortak Kategori":"الفئة المشتركة",
+  "Hata Bulma 2":"اكتشاف الخطأ 2",
+  "Eşleştirme":"المطابقة",
+  "Kategori Ayrımı":"التمييز بين الفئات",
+  "Hata Bulma 3":"اكتشاف الخطأ 3",
+  "Kategori Farkı":"الفرق بين الفئات",
+  "Sınıflandırma Eşleştirme":"مطابقة التصنيف",
+  "Sınıflandırma Özeti":"ملخّص التصنيف",
+  "Senaryo Analizi":"تحليل موقف",
+  "Karışık Liste":"قائمة مختلطة",
+  "Ölüm Sonrası Hayat":"الحياة بعد الموت",
+  "Vahiy ve Kitaplar":"الوحي والكتب",
+  "Elçiler":"الرسل",
+  "Allah'ın Bilgisi":"علم الله",
+  "Melekler":"الملائكة",
+  "Yanlış Bağlam":"سياق خاطئ",
+  "Hata Bulma 4":"اكتشاف الخطأ 4",
+  "Senaryo Tanıma":"التعرّف على الموقف",
+  "Senaryo Tanıma 2":"التعرّف على الموقف 2",
+  "Genel Soru":"سؤال عام",
+  "Hata Bulma 5":"اكتشاف الخطأ 5",
+  "Senaryo":"موقف",
+  "Kavram Genelleme":"تعميم المفهوم",
+  "Senaryo Çoktan Seçmeli":"موقف: اختيار من متعدد",
+  "Kavram Çoktan Seçmeli":"مفهوم: اختيار من متعدد",
+  "Senaryo Özeti":"ملخّص الموقف",
+  "U1-U5 Tekrar":"مراجعة الوحدات 1–5",
+  "Kelime-i Şehadet ve İman":"الشهادتان والإيمان",
+  "Şartlar ve Esaslar Sayısı":"عدد أركان الإسلام وأركان الإيمان",
+  "Hata Bulma":"اكتشاف الخطأ",
+  "Senaryo Tekrarı":"مراجعة المواقف",
+  "Temel Kavramlar":"المفاهيم الأساسية",
+  "Hac ve Kader":"الحج والقدر",
+  "Zekât Kavramı":"مفهوم الزكاة",
+  "Genel Bilgi":"معلومات عامة",
+  "Hata Bulma Kısım Özeti":"ملخّص القسم: اكتشاف الخطأ",
+  "Senaryo Özeti 2":"ملخّص الموقف 2",
+  "Kadere İman Senaryo":"موقف: الإيمان بالقدر",
+  "Eşleştirme Challenge":"تحدّي المطابقة",
+  "Kategori Farkı 2":"الفرق بين الفئات 2",
+  "Eşleştirme Challenge 2":"تحدّي المطابقة 2",
+  "Temel Kural":"القاعدة الأساسية",
+  "Kadere İman Kapsamı":"نطاق الإيمان بالقدر",
+  "Peygamberlere İman Kapsamı":"نطاق الإيمان بالرسل",
+  "Kavram Geneli":"نظرة عامة على المفهوم",
+  "Final Sorusu":"السؤال النهائي",
+  "KISIM 1 FİNALİ":"نهائي القسم الأول",
+  "KİLİTLİ · USTALIK SINAVI":"مقفل · اختبار الإتقان",
+  "HAZIR · USTALIK SINAVI":"جاهز · اختبار الإتقان",
+  "KISIM 1 TAMAMLANDI":"اكتمل القسم الأول",
+  "USTALIK":"الإتقان",
+  "ALTIN USTALIK":"الإتقان الذهبي",
+  "Temeller Ustalığı":"إتقان الأساسيات",
+  "İlk 5 ünitedeki 500 sorudan adaptif seçilen 20 soruyla Kısım 1 bilgisini ölç.":"اختبر معرفتك بالقسم الأول عبر 20 سؤالًا مختارة تكيفيًا من 500 سؤال في الوحدات الخمس الأولى.",
+  "20 SORU":"20 سؤالًا",
+  "0 ENERJİ":"0 طاقة",
+  "%80 GEÇİŞ":"النجاح 80٪",
+  "En iyi skor":"أفضل نتيجة",
+  "En iyi skor · —":"أفضل نتيجة · —",
+  "ÜNİTE 5 CHALLENGE'I TAMAMLA":"أكمل تحدّي الوحدة 5",
+  "FİNALİ TEKRARLA · 20 SORU":"أعد النهائي · 20 سؤالًا",
+  "TEMELLER USTALIĞINI BAŞLAT":"ابدأ إتقان الأساسيات",
+  "SONRAKİ KISIM · AÇILDI":"القسم التالي · مفتوح",
+  "SONRAKİ KISIM · KİLİTLİ":"القسم التالي · مقفل",
+  "Kısım 1 tamamlandı. Kısım 2 müfredatı eklenmeye hazır.":"اكتمل القسم الأول. أصبح منهج القسم الثاني جاهزًا للإضافة.",
+  "Temeller Ustalığı sınavını %80 veya üzeriyle tamamladığında açılır.":"يُفتح عند إكمال اختبار إتقان الأساسيات بنسبة 80٪ أو أكثر.",
+  "Altın Ustalık":"الإتقان الذهبي",
+  "Kısım 1 tamamlandı":"اكتمل القسم الأول",
+  "Biraz daha pekiştirelim":"لنُعزّز المعرفة قليلًا",
+  "Temeller Ustalığı başarıyla tamamlandı":"اكتمل إتقان الأساسيات بنجاح",
+  "Geçiş için %80 gerekiyor":"يتطلب النجاح 80٪",
+  "Henüz belirgin bir güçlü alan yok":"لا توجد نقطة قوة بارزة بعد",
+  "Belirgin tekrar ihtiyacı yok":"لا توجد حاجة واضحة للمراجعة",
+  "✦ ALTIN USTALIK":"✦ الإتقان الذهبي",
+  "✓ TEMELLER USTASI":"✓ متقن الأساسيات",
+  "↻ SMART REVIEW ÖNERİLİYOR":"↻ يُنصح بالمراجعة الذكية",
+  "KISIM 1’İ TAMAMLA":"أكمل القسم الأول",
+  "AKILLI TEKRARA GİT":"انتقل إلى المراجعة الذكية",
+  "BİLGİ":"المعرفة",
+  "HATIRLAMA":"الاحتفاظ",
+  "GÜÇLÜ ALANLAR":"نقاط القوة",
+  "TEKRAR ET":"راجع",
+  "TEMELLER USTALIĞI":"إتقان الأساسيات",
+  "Kısım 2 · İman":"القسم الثاني · الإيمان"
+ };
+ Object.assign(chromeMap,u05ChromeMap);
+
+ const u06ChromeMap={
+  "Melekler Kimdir?":"من هم الملائكة؟",
+  "Meleklerin Özellikleri":"صفات الملائكة",
+  "Cebrâil ve Vahiy":"جبريل والوحي",
+  "Kur'an'da Meleklerin Görevleri":"وظائف الملائكة في القرآن",
+  "Meleklere İmanın Anlamı":"معنى الإيمان بالملائكة",
+  "Yanlış Anlamaları Düzelt":"صحّح المفاهيم الخاطئة",
+  "Melekler Ustalığı":"إتقان الإيمان بالملائكة",
+  "İman Esası":"ركن من أركان الإيمان",
+  "Kaynak Bilinci":"الوعي بالمصدر",
+  "Tevhid Sınırı":"حدود التوحيد",
+  "Temel Ayrımlar":"الفروق الأساسية",
+  "Elçilik":"الرسالة",
+  "Kaynak Sınırı":"حدود المصدر",
+  "Tevhid":"التوحيد",
+  "İmanın Anlamı":"معنى الإيمان",
+  "Kaynak Okuryazarlığı":"الوعي بالمصادر",
+  "Kulluk":"العبودية",
+  "İtaat":"الطاعة",
+  "İbadet":"العبادة",
+  "Ayetlerle Özellikler":"صفات الملائكة في الآيات",
+  "Kanatlar":"الأجنحة",
+  "Tesbih":"التسبيح",
+  "Kulluk Özeti":"ملخّص العبودية",
+  "Cebrâil":"جبريل",
+  "Vahiy":"الوحي",
+  "Mîkâil":"ميكال",
+  "Vahiy Rolleri":"أدوار الوحي",
+  "Meleklere Saygı":"توقير الملائكة",
+  "Vahiy Akışı":"مسار الوحي",
+  "Amellerin Kaydı":"تسجيل الأعمال",
+  "Sorumluluk":"المسؤولية",
+  "Kayıt ve İlahi Bilgi":"التسجيل وعلم الله",
+  "Görevler":"وظائف الملائكة",
+  "Ölüm Meleği":"مَلَك الموت",
+  "Görev Çeşitliliği":"تنوع وظائف الملائكة",
+  "Bilginin Sınırı":"حدود المعرفة",
+  "Müminler İçin Dua":"دعاء الملائكة للمؤمنين",
+  "Tevhid ve Dua":"التوحيد والدعاء",
+  "İman ve Hayat":"الإيمان والحياة",
+  "Gayba İman":"الإيمان بالغيب",
+  "Öğrenme Yöntemi":"منهج التعلّم",
+  "İblîs ve Melekler":"إبليس والملائكة",
+  "Yanlış Bilgiyi Düzeltme":"تصحيح المعلومة الخاطئة",
+  "Ustalık":"الإتقان",
+  "Meleklere iman konusunu adım adım pekiştir.":"عزّز فهمك للإيمان بالملائكة خطوةً خطوةً.",
+  "KISIM 2 · İMAN":"القسم الثاني · الإيمان"
+ };
+ Object.assign(chromeMap,u06ChromeMap);
+
+ const u07ChromeMap={
+  "Kitaplara İman Nedir?":"ما معنى الإيمان بالكتب؟",
+  "Tevrat, İncil, Zebur ve Sahifeler":"التوراة والإنجيل والزبور والصحف",
+  "Kur'an'ın Konumu":"مكانة القرآن",
+  "İlahi Kitapların Ortak Kaynağı":"المصدر المشترك للكتب الإلهية",
+  "Kur'an'ın Rehberliği ve Korunması":"هداية القرآن وحفظه",
+  "Yanlış Anlamaları Düzelt":"صحّح المفاهيم الخاطئة",
+  "Kitaplara İman Ustalığı":"إتقان الإيمان بالكتب",
+  "İman Esası":"ركن من أركان الإيمان",
+  "Önceki Vahiyler":"الوحي السابق",
+  "Vahyin Kaynağı":"مصدر الوحي",
+  "Temel Kavramlar":"المفاهيم الأساسية",
+  "İmanın Anlamı":"معنى الإيمان",
+  "Kaynak Okuryazarlığı":"الوعي بالمصادر",
+  "Tevrat ve İncil":"التوراة والإنجيل",
+  "Tevrat":"التوراة",
+  "İncil":"الإنجيل",
+  "Zebur":"الزبور",
+  "Kitap ve Peygamber":"الكتاب والرسول",
+  "Sahifeler":"الصحف",
+  "Kitapların İsimleri":"أسماء الكتب",
+  "Vahiy ve Yorum":"الوحي والتفسير",
+  "Kur'an'ın Ölçüsü":"معيار القرآن",
+  "Kaynak Birliği":"وحدة المصدر",
+  "Kitapların Nitelikleri":"صفات الكتب الإلهية",
+  "Hidayet ve Nur":"الهدى والنور",
+  "Hidayet":"الهداية",
+  "Vahyin İşlevi":"وظيفة الوحي",
+  "Kaynak ve Rehberlik":"المصدر والهداية",
+  "Kur'an ve Önceki Vahiy":"القرآن والوحي السابق",
+  "Vahyin Akışı":"مسار الوحي",
+  "Vahiy Sürekliliği":"استمرارية الوحي",
+  "Kur'an'ın Rehberliği":"هداية القرآن",
+  "Kur'an'ın Korunması":"حفظ القرآن",
+  "Kur'an'ın Nitelikleri":"صفات القرآن",
+  "Kur'an'la İlişki":"العلاقة بالقرآن",
+  "Kur'an'ın Kimliği":"هوية القرآن",
+  "Yanlış Bilgiyi Düzeltme":"تصحيح المعلومة الخاطئة",
+  "Vahiy ve İnsan Sözü":"الوحي وكلام البشر",
+  "Kaynak Ahlakı":"أمانة التعامل مع المصادر",
+  "Kaynak Bilinci":"الوعي بالمصدر",
+  "Ustalık":"الإتقان",
+  "Kitaplara imanla ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالإيمان بالكتب."
+ };
+ Object.assign(chromeMap,u07ChromeMap);
+ const u08ChromeMap={
+  "Peygamberlere İman":"الإيمان بالرسل",
+  "Peygamberlere İman Nedir?":"ما معنى الإيمان بالرسل؟",
+  "Peygamber ve Resul":"النبي والرسول",
+  "Peygamber ve Elçi":"النبي والرسول",
+  "Peygamberlerin Görevleri":"مهام الأنبياء",
+  "Peygamberlerin Özellikleri":"صفات الأنبياء",
+  "Peygamberlerin Ortak Mesajı":"الرسالة المشتركة للأنبياء",
+  "Peygamberlerin Örnekliği":"الاقتداء بالأنبياء",
+  "Peygamberlerin İnsan Oluşu":"بشرية الأنبياء",
+  "Peygamberlerin İnsanlığı":"بشرية الأنبياء",
+  "Peygamberlik ve Vahiy":"النبوة والوحي",
+  "Peygamberlere İmanın Anlamı":"معنى الإيمان بالرسل",
+  "Peygamberlere İman Ustalığı":"إتقان الإيمان بالرسل",
+  "Hz. Muhammed Son Peygamberdir":"محمد ﷺ خاتم النبيين",
+  "Bütün Peygamberlere İman":"الإيمان بجميع الأنبياء",
+  "Tebliğ ve Rehberlik":"التبليغ والهداية",
+  "Risalet":"الرسالة",
+  "Nübüvvet":"النبوة",
+  "Örnek Olma":"القدوة الحسنة",
+  "Ortak Mesaj":"الرسالة المشتركة",
+  "İnsan Olma":"البشرية",
+  "Peygamberlere iman konusunu adım adım pekiştir.":"عزّز فهمك للإيمان بالرسل خطوةً خطوةً."
+ };
+ Object.assign(chromeMap,u08ChromeMap);
+ const u09ChromeMap={
+  "Ahirete İman Nedir?":"ما معنى الإيمان باليوم الآخر؟",
+  "Ahirete İman":"الإيمان باليوم الآخر",
+  "Ahiret Günü":"اليوم الآخر",
+  "Yeniden Diriliş":"البعث بعد الموت",
+  "Ölümden Sonra Diriliş":"البعث بعد الموت",
+  "Kıyamet Günü":"يوم القيامة",
+  "Hesap ve Mizan":"الحساب والميزان",
+  "Hesap ve Karşılık":"الحساب والجزاء",
+  "Amellerin Hesabı":"الحساب على الأعمال",
+  "Amel Defteri":"صحيفة الأعمال",
+  "Cennet ve Cehennem":"الجنة والنار",
+  "Dünya ve Ahiret":"الدنيا والآخرة",
+  "Ahiret ve Sorumluluk":"الآخرة والمسؤولية",
+  "İlahi Adalet":"العدل الإلهي",
+  "Ahiret İnancının Hayata Etkisi":"أثر الإيمان بالآخرة في الحياة",
+  "Ahirete İman Ustalığı":"إتقان الإيمان باليوم الآخر",
+  "Ahiretle İlgili Yanlış Anlamalar":"المفاهيم الخاطئة عن الآخرة",
+  "Ahirete iman konusunu adım adım pekiştir.":"عزّز فهمك للإيمان باليوم الآخر خطوةً خطوةً."
+ };
+ Object.assign(chromeMap,u09ChromeMap);
+ const u10ChromeMap={
+  "Kadere İman Nedir?":"ما معنى الإيمان بالقدر؟",
+  "Kadere İman":"الإيمان بالقدر",
+  "Kader ve Kaza":"القدر والقضاء",
+  "Kaza ve Kader":"القضاء والقدر",
+  "Allah'ın İlmi":"علم الله",
+  "İlahi İlim":"العلم الإلهي",
+  "Allah'ın İradesi":"مشيئة الله",
+  "İlahi İrade":"المشيئة الإلهية",
+  "İnsanın İradesi":"إرادة الإنسان",
+  "İnsan İradesi":"إرادة الإنسان",
+  "İrade ve Sorumluluk":"الإرادة والمسؤولية",
+  "Kader ve Sorumluluk":"القدر والمسؤولية",
+  "Kader ve İnsan":"القدر والإنسان",
+  "Kader ve Çaba":"القدر والسعي",
+  "Çaba ve Tevekkül":"السعي والتوكل",
+  "Tevekkül ve Tedbir":"التوكل والأخذ بالأسباب",
+  "Sabır ve Şükür":"الصبر والشكر",
+  "Kaderle İlgili Yanlış Anlamalar":"المفاهيم الخاطئة عن القدر",
+  "Kadere İman Ustalığı":"إتقان الإيمان بالقدر",
+  "Kadere iman konusunu adım adım pekiştir.":"عزّز فهمك للإيمان بالقدر خطوةً خطوةً."
+ };
+ Object.assign(chromeMap,u10ChromeMap);
+ const u11ChromeMap={
+  "İbadet Nedir?":"ما معنى العبادة؟",
+  "İbadet Bilinci":"الوعي بالعبادة",
+  "İbadetin Kaynağı":"مصدر العبادة",
+  "İbadetin Anlamı":"معنى العبادة",
+  "İbadette Niyet":"النية في العبادة",
+  "Niyet ve İhlas":"النية والإخلاص",
+  "İbadette İhlas":"الإخلاص في العبادة",
+  "İbadetin Şartları":"شروط العبادة",
+  "İbadet ve Kulluk":"العبادة والعبودية",
+  "İbadet ve İtaat":"العبادة والطاعة",
+  "İbadet Çeşitleri":"أنواع العبادة",
+  "Günlük Hayatta İbadet":"العبادة في الحياة اليومية",
+  "Salih Amel":"العمل الصالح",
+  "İbadette Yanlış Anlamalar":"المفاهيم الخاطئة عن العبادة",
+  "İbadet Ustalığı":"إتقان العبادة",
+  "İbadetle ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالعبادة."
+ };
+ Object.assign(chromeMap,u11ChromeMap);
+ const u12ChromeMap={
+  "Abdest Nedir?":"ما الوضوء؟",
+  "Abdest":"الوضوء",
+  "Abdestin Farzları":"فرائض الوضوء",
+  "Abdestin Sünnetleri":"سنن الوضوء",
+  "Abdest Nasıl Alınır?":"كيف نتوضأ؟",
+  "Abdestin Alınışı":"كيفية الوضوء",
+  "Abdestin Aşamaları":"مراحل الوضوء",
+  "Abdestte Niyet":"النية في الوضوء",
+  "Abdestte Sıralama":"ترتيب الوضوء",
+  "Abdesti Bozan Durumlar":"نواقض الوضوء",
+  "Abdesti Bozan Şeyler":"نواقض الوضوء",
+  "Abdest ve Temizlik":"الوضوء والنظافة",
+  "Abdest ve Namaz":"الوضوء والصلاة",
+  "Abdestte Mezhep Farklılıkları":"اختلاف المذاهب في أحكام الوضوء",
+  "Abdest Ustalığı":"إتقان أحكام الوضوء",
+  "Abdestle ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالوضوء."
+ };
+ Object.assign(chromeMap,u12ChromeMap);
+ const u13ChromeMap={
+  "Temizlik ve Taharet":"النظافة والطهارة",
+  "Temizlik ve Taharet Nedir?":"ما النظافة والطهارة؟",
+  "Taharet Nedir?":"ما الطهارة؟",
+  "Necasetten Temizlik":"التطهر من النجاسة",
+  "Hadesten Temizlik":"الطهارة من الحدث",
+  "Maddi ve Manevi Temizlik":"النظافة الحسية والمعنوية",
+  "Gusül Nedir?":"ما الغسل؟",
+  "Gusül":"الغسل",
+  "Guslün Farzları":"فرائض الغسل",
+  "Teyemmüm Nedir?":"ما التيمم؟",
+  "Teyemmüm":"التيمم",
+  "Teyemmümün Şartları":"شروط التيمم",
+  "Suyun Temizlikte Kullanımı":"استخدام الماء في الطهارة",
+  "Namaz İçin Temizlik":"الطهارة للصلاة",
+  "Beden, Elbise ve Mekân Temizliği":"طهارة البدن والثوب والمكان",
+  "Temizlik ve Taharet Ustalığı":"إتقان أحكام الطهارة",
+  "Temizlikle ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالطهارة."
+ };
+ Object.assign(chromeMap,u13ChromeMap);
+ const u14ChromeMap={
+  "Namaz Nedir?":"ما الصلاة؟",
+  "Namazın Şartları":"شروط الصلاة",
+  "Namazın Farzları":"فرائض الصلاة",
+  "Namazın Rükünleri":"أركان الصلاة",
+  "Namazın Kılınışı":"كيفية أداء الصلاة",
+  "Namaz Nasıl Kılınır?":"كيف نصلّي؟",
+  "İftitah Tekbiri":"تكبيرة الإحرام",
+  "Rekât Kavramı":"مفهوم الركعة",
+  "Rükû ve Secde":"الركوع والسجود",
+  "Namazda Sükûnet":"الطمأنينة في الصلاة",
+  "Namazda Huşû":"الخشوع في الصلاة",
+  "Namaz Vakitleri":"أوقات الصلاة",
+  "Namazı Bozan Durumlar":"مبطلات الصلاة",
+  "Namazda Mazeret":"العذر في الصلاة",
+  "Mazerette Secde":"السجود حال العذر",
+  "Sehiv Secdesi":"سجود السهو",
+  "Namaz Ustalığı":"إتقان أحكام الصلاة",
+  "Namazla ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالصلاة."
+ };
+ Object.assign(chromeMap,u14ChromeMap);
+ const u15ChromeMap={
+  "Oruç Nedir?":"ما الصيام؟",
+  "Orucun Amacı":"مقاصد الصيام",
+  "Orucun Farzları":"فرائض الصيام",
+  "Orucun Şartları":"شروط الصيام",
+  "Oruçta Niyet":"النية في الصيام",
+  "Sahur ve İftar":"السحور والإفطار",
+  "Sahur":"السحور",
+  "İftar":"الإفطار",
+  "Oruç ve Takva":"الصيام والتقوى",
+  "Bakara 2:183":"سورة البقرة، الآية ١٨٣",
+  "Orucu Bozan Durumlar":"مفسدات الصوم",
+  "Orucu Bozan Şeyler":"مفسدات الصوم",
+  "Bilerek Yemek":"الأكل عمدًا",
+  "Oruçta Mazeretler":"الأعذار في الصيام",
+  "Oruç Kazası":"قضاء الصيام",
+  "Ramazan Orucu":"صيام رمضان",
+  "Oruç Ustalığı":"إتقان أحكام الصيام",
+  "Oruçla ilgili temel kavramları keşfet.":"اكتشف المفاهيم الأساسية المتعلقة بالصيام."
+ };
+ Object.assign(chromeMap,u15ChromeMap);
+ const arabicPhrasePairs=[
+  ...Object.entries(u01ChromeMap),
+  ...Object.entries(u02ChromeMap),
+  ...Object.entries(u03ChromeMap),
+  ...Object.entries(u04ChromeMap),
+  ...Object.entries(u05ChromeMap),
+  ...Object.entries(u06ChromeMap),
+  ...Object.entries(u07ChromeMap),
+  ...Object.entries(u08ChromeMap),
+  ...Object.entries(u09ChromeMap),
+  ...Object.entries(u10ChromeMap),
+  ...Object.entries(u11ChromeMap),
+  ...Object.entries(u12ChromeMap),
+  ...Object.entries(u13ChromeMap),
+  ...Object.entries(u14ChromeMap),
+  ...Object.entries(u15ChromeMap)
+ ].sort((a,b)=>b[0].length-a[0].length);
+
+ function arabizeDynamicText(input){
+  let out=String(input??'');
+  if(out.length>1600||!/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(out))return out;
+  // Exact UI strings must win before substring replacements; otherwise e.g. "Bu aşamadaki..."
+  // can be corrupted by the shorter "Bu aşama" phrase.
+  const initialExact=chromeMap[out.trim()];
+  if(initialExact)return out.replace(out.trim(),initialExact);
+
+  out=out.split(/(\s*[·:]\s*)/).map(part=>chromeMap[part.trim()]?part.replace(part.trim(),chromeMap[part.trim()]):part).join('');
+  out=out.replace(/Sonraki ödül\s*/g,'المكافأة التالية ');
+  out=out.replace(/Mevcut günlük görevler:\s*(\d+)\/(\d+)\s*tamamlandı/g,'المهام اليومية الحالية: أُكمل $1/$2');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*ayet\b/gi,'$1/$2 آيات');
+  out=out.replace(/(\d+)\s*zayıf ayet/gi,'$1 آيات تحتاج إلى مراجعة');
+  out=out.replace(/(\d+)\s*görev\b/gi,'$1 مهام');
+  out=out.replace(/(\d+)\s*ders\b/gi,'$1 دروس');
+  out=out.replace(/(\d+)\s*dk\b/gi,'$1 دقائق');
+  out=out.replace(/\b(Çocuk|Genç|Yetişkin)(?=\s*·)/g,m=>({Çocuk:'طفل',Genç:'يافع',Yetişkin:'بالغ'}[m]));
+  out=out.replace(/(\d+)\s+(Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)\b/g,(m,n,month)=>n+' '+({Oca:'يناير',Şub:'فبراير',Mar:'مارس',Nis:'أبريل',May:'مايو',Haz:'يونيو',Tem:'يوليو',Ağu:'أغسطس',Eyl:'سبتمبر',Eki:'أكتوبر',Kas:'نوفمبر',Ara:'ديسمبر'}[month]));
+  out=out.replace(/öğrenildi/g,'تم تعلّمها').replace(/Solid/g,'متقن');
+  out=out.replace(/Hoparlöre dokun: Ayet\s*(\d+)\s*kaydını dinle\./g,'المس رمز الصوت للاستماع إلى الآية $1.');
+  out=out.replace(/EZBER KADEMESİ\s*(\d+)\s*\/\s*(\d+)/g,'مستوى الحفظ $1/$2');
+  out=out.replace(/Ayet\s*(\d+)\s*\/\s*(\d+)/gi,'الآية $1/$2').replace(/Ayet\s*(\d+)/g,'الآية $1');
+  out=out.replace(/(\d+)\s*doğru\b/gi,'$1 إجابات صحيحة');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*eşleşme/gi,'$1/$2 أزواج متطابقة');
+  out=out.replace(/Kaynaklı ayet metni/g,'نص الآية الموثّق');
+  out=out.replace(/Seçilen kelime:\s*/g,'الكلمة المختارة: ');
+  out=out.replace(/DEEN user-provided ElevenLabs generation/g,'تسجيل مولّد بواسطة ElevenLabs قدّمه صاحب DEEN').replace(/User-provided generated asset/g,'ملف صوتي مولّد قدّمه صاحب التطبيق');
+  out=out.replace(/Son çalışma:\s*Henüz çalışma yok/g,'آخر دراسة: لم تبدأ الدراسة بعد').replace(/Son çalışma:\s*/g,'آخر دراسة: ').replace(/Henüz çalışma yok/g,'لم تبدأ الدراسة بعد');
+  // Last-mile Arabic UI patterns that are generated dynamically by review/lesson flows.
+  out=out.replace(/PEK[İI]ŞT[İI]RME\s+TURU/gi,'جولة التعزيز');
+  out=out.replace(/Yanlış yaptığın soruları tamamlıyoruz\.?/gi,'نُكمل الأسئلة التي أخطأت فيها.');
+  out=out.replace(/(\d+)\s*KALDI/gi,'متبقي $1');
+  out=out.replace(/YET[İI]ŞK[İI]N\s+ANLATIM/gi,'شرح للبالغين');
+  out=out.replace(/ÜNİTE\s*(\d+)\s*·\s*([^·]+?)\s*·\s*AŞAMA\s*(\d+)\s*\/\s*(\d+)/gi,
+   (m,u,name,s,t)=>'الوحدة '+u+' · '+(arabicUnitNames[Number(u)]||name.trim())+' · المرحلة '+s+'/'+t);
+  out=out.replace(/ÜNİTE\s*(\d+)\s*·\s*AŞAMA\s*(\d+)\s*\/\s*(\d+)/gi,
+   (m,u,s,t)=>'الوحدة '+u+' · المرحلة '+s+'/'+t);
+  out=out.replace(/(\d+)\.\s*KISIM\s*·\s*(\d+)\.\s*ÜNİTE/gi,'القسم $1 · الوحدة $2');
+  out=out.replace(/(\d+)\s*\/\s*5\s*aşama\s*·\s*Ustalık\s*%\s*(\d+)/gi,'$1/5 مراحل · الإتقان $2٪');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*aşama\b/gi,'$1/$2 مراحل');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*mini ders tamamlandı/gi,'أُكمل $1/$2 من الدروس المصغّرة');
+  out=out.replace(/(\d+)\s*mini ders tamamlandı/gi,'أُكمل $1 من الدروس المصغّرة');
+  out=out.replace(/(\d+)\s*mini ders/gi,'$1 دروس مصغّرة');
+  out=out.replace(/(\d+)\s*soru/gi,'$1 أسئلة');
+  out=out.replace(/Mini ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس المصغّر $1/$2');
+  out=out.replace(/Ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس $1/$2');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*ders\b/gi,'$1/$2 دروس');
+  out=out.replace(/الدرس\s*(\d+)\s*\/\s*(\d+)\s*GEÇİLDİ/gi,'تم اجتياز الدرس $1/$2');
+  out=out.replace(/الدرس\s*(\d+)\s*\/\s*(\d+)\s*TEKRAR/gi,'مراجعة الدرس $1/$2');
+  out=out.replace(/^aşama\s*·\s*Ustalık\s*%\s*(\d+)$/gi,'مراحل · الإتقان $1٪');
+  out=out.replace(/Ustalık\s*%\s*(\d+)/gi,'الإتقان $1٪');
+  out=out.replace(/Ustalık challenge\s*·\s*(\d+)\s*أسئلة/gi,'تحدّي الإتقان · $1 أسئلة');
+  out=out.replace(/Ustalık challenge\s*·\s*(\d+)\s*soru/gi,'تحدّي الإتقان · $1 أسئلة');
+  out=out.replace(/(\d+)\.\s*Aşama\s*·\s*(\d+)\s*dk/gi,'المرحلة $1 · $2 دقائق');
+  out=out.replace(/Etkinlik\s*·\s*(\d+)\s*dk/gi,'نشاط · $1 دقائق');
+  out=out.replace(/Dinleme\s*·\s*(\d+)\s*dk/gi,'استماع · $1 دقائق');
+  out=out.replace(/Uygulama\s*·\s*(\d+)\s*dk/gi,'تطبيق · $1 دقائق');
+  out=out.replace(/Sınıflandırma\s*·\s*(\d+)\s*dk/gi,'تصنيف · $1 دقائق');
+  out=out.replace(/En iyi skor\s*·\s*(\d+)%/gi,'أفضل نتيجة · $1٪');
+  out=out.replace(/Karma Tekrar\s*·\s*(\d+)\s*dk/gi,'مراجعة متنوعة · $1 دقائق');
+  out=out.replace(/Tekrar\s*·\s*(\d+)\s*dk/gi,'مراجعة · $1 دقائق');
+  out=out.replace(/Meydan Okuma\s*·\s*(\d+)\s*dk/gi,'تحدٍّ · $1 دقائق');
+  out=out.replace(/Sıradaki:\s*/gi,'التالي: ');
+  out=out.replace(/✓\s*TAMAMLANDI/gi,'✓ مكتمل');
+  out=out.replace(/Aşama\s*(\d+)\s*\/\s*(\d+)/gi,'المرحلة $1/$2');
+  out=out.replace(/Mini ders\s*(\d+)\s*\/\s*(\d+)/gi,'الدرس المصغّر $1/$2');
+  out=out.replace(/(\d+)\s*\/\s*(\d+)\s*mini ders\s*·\s*öğrenme zinciri tamamlandı/gi,'أُكمل $1/$2 من الدروس المصغّرة · اكتملت سلسلة التعلّم');
+  out=out.replace(/Önce\s*[“"]([^”"]+)[”"]\s*aşamasını tamamla\.?/gi,(m,t)=>'أكمل أولًا مرحلة «'+arabizeDynamicText(t)+'».');
+  out=out.replace(/Aşama içindeki mini dersler:\s*/gi,'الدروس المصغّرة في هذه المرحلة: ');
+  out=out.replace(/Yaklaşık\s*(\d+)\s*dakika/gi,'حوالي $1 دقائق');
+  out=out.replace(/(\d+)\s*soru\s*·\s*(\d+)\s*enerji\s*·\s*\+(\d+)\s*baz XP\s*·\s*Ustalık\s*%\s*(\d+)/gi,'$1 أسئلة · $2 طاقة · +$3 XP أساسي · الإتقان $4٪');
+  out=out.replace(/([^·]+)\s*·\s*Aşama\s*(\d+)\s*\/\s*(\d+)\s*·\s*Mini ders\s*(\d+)\s*\/\s*(\d+)\s*·\s*(\d+)\s*soru\.?/gi,
+   (m,title,a,b,l1,l2,q)=>arabizeDynamicText(title.trim())+' · المرحلة '+a+'/'+b+' · الدرس المصغّر '+l1+'/'+l2+' · '+q+' أسئلة.');
+  out=out.replace(/([^.!؟]+)\s+artık bitti\.\s*Sıradaki düğüm açıldı\./gi,(m,t)=>'اكتملت '+arabizeDynamicText(t.trim())+'. فُتحت المحطة التالية.');
+  out=out.replace(/([^.!؟]+)\s+artık oynanabilir\./gi,(m,t)=>'أصبح '+arabizeDynamicText(t.trim())+' متاحًا الآن.');
+  out=out.replace(/DERS\s*(\d+)\s*\/\s*(\d+)\s*GEÇİLDİ/gi,'تم اجتياز الدرس $1/$2');
+  out=out.replace(/DERS\s*(\d+)\s*\/\s*(\d+)\s*TEKRAR/gi,'مراجعة الدرس $1/$2');
+  out=out.replace(/(\d+)\s*öğrenilmiş kavram\s*·\s*(\d+)\s*güçlendirilecek\s*·\s*(\d+)\s*vadesi gelen/gi,'$1 مفاهيم متعلّمة · $2 تحتاج إلى تعزيز · $3 مستحقة للمراجعة');
+  out=out.replace(/(\d+)\s*kavram\s*·\s*(\d+)\s*enerji/gi,'$1 مفاهيم · $2 طاقة');
+  out=out.replace(/(\d+)\s*tekrar bekliyor/gi,'$1 مراجعات منتظرة');
+  out=out.replace(/(\d+)\s*puan\b/gi,'$1 نقاط');
+  out=out.replace(/(\d+)\s*vadesi gelen\s*·\s*(\d+)\s*yanlış önceliği\s*·\s*(\d+)\s*etkinlik türü işlendi\.\s*Sonraki plan yeni cevaplarına göre yeniden hesaplanacak\./gi,
+    '$1 مستحقة للمراجعة · $2 أولوية أخطاء · تمت معالجة $3 أنواع من الأنشطة. ستُعاد حساب الخطة التالية وفق إجاباتك الجديدة.');
+  out=out.replace(/(\d+)\s*vadesi gelen\s*·\s*(\d+)\s*yanlış önceliği\s*·\s*(\d+)\s*kavram/gi,
+    '$1 مستحقة للمراجعة · $2 أولوية أخطاء · $3 مفاهيم');
+  for(const [tr,ar] of arabicPhrasePairs)if(out.includes(tr))out=out.split(tr).join(ar);
+  const exact=chromeMap[out.trim()];
+  if(exact)return out.replace(out.trim(),exact);
+
+  // Replace fixed phrases even when badges/icons/numbers surround them.
+  const phrasePairs=[
+   ['YETİŞKİN ANLATIM','شرح للبالغين'],
+   ['Harika!','رائع!'],
+   ['Birlikte düzeltelim','لنصحّحها معًا'],
+   ['Neden?','لماذا؟'],
+   ['Ders süresi','مدة الدرس'],
+   ['Tekrar sorusu','سؤال مراجعة'],
+   ['Ustalık puanı','نقاط الإتقان'],
+   ['Günlük hedef','الهدف اليومي'],
+   ['Öğrendiklerin aralıklı tekrar planına eklendi.','تمت إضافة ما تعلمته إلى خطة المراجعة المتباعدة.'],
+   ['AKILLI TEKRARLA PEKİŞTİR','عزّز بالمراجعة الذكية'],
+   ['DERS RİTMİ','إيقاع الدرس'],
+   ['AŞAMA ÖDÜLÜ','مكافأة المرحلة'],
+   ['DERS ÖDÜLÜ','مكافأة الدرس'],
+   ['Ritmini koruyorsun','أنت تحافظ على إيقاعك'],
+   ['SIRADAKİ EN İYİ ADIM','أفضل خطوة تالية'],
+   ['Yolculuğa devam et','واصل الرحلة'],
+   ['Haftalık ritim','الإيقاع الأسبوعي'],
+   ['Sonraki seri ödülü','مكافأة السلسلة التالية'],
+   ['SERİ DETAYLARINI AÇ','افتح تفاصيل السلسلة'],
+   ['ÖĞRENME YOLUNA DÖN','عُد إلى مسار التعلّم'],
+   ['YOLCULUĞA DEVAM','واصل الرحلة']
+  ];
+  for(const [tr,ar] of phrasePairs)if(out.includes(tr))out=out.split(tr).join(ar);
+
+  // Dynamic combo/streak/time/progress strings.
+  out=out.replace(/(\d+)\s*×\s*SERİ\s*·\s*MUHTEŞEM/gi,'سلسلة $1× · رائعة');
+  out=out.replace(/(\d+)\s*SERİ\s*✦/gi,'سلسلة $1 ✦');
+  out=out.replace(/(\d+)\s*SERİ/gi,'سلسلة $1');
+  out=out.replace(/(\d+)×\s*SERİ/gi,'سلسلة $1×');
+  out=out.replace(/(\d+)\s*günlük seri/gi,'سلسلة لمدة $1 يوم');
+  out=out.replace(/Sonraki seri ödülü:\s*(\d+)\s*gün/gi,'مكافأة السلسلة التالية: $1 أيام');
+  out=out.replace(/(\d+)\s*sn\b/gi,'$1 ث');
+  out=out.replace(/(\d+)\s*gün\b/gi,'$1 أيام');
+  out=out.replace(/(\d+)\s*tekrar\b/gi,'$1 مراجعات');
+
+  // Companion/mascot result copy.
+  const animals={Baykuş:'البومة',Aslan:'الأسد',Kurt:'الذئب',Kaplumbağa:'السلحفاة',Kartal:'النسر',Kedi:'القطة'};
+  const traits={Bilgelik:'حكمة',Cesaret:'شجاعة',Kararlılık:'عزيمة',Sabır:'صبر',Odak:'تركيز',Sakinlik:'هدوء',Öğrenme:'تعلّم'};
+  for(const [tr,ar] of Object.entries(animals))out=out.split(tr).join(ar);
+  for(const [tr,ar] of Object.entries(traits))out=out.split(tr).join(ar);
+  out=out.replace(/Bir adım daha\s*—\s*/g,'خطوة أخرى — ');
+  out=out.replace(/\s+gururla yanında\./g,' معك بفخر.');
+  out=out.replace(/\s+yanında\./g,' معك.');
+  out=out.replace(/\s+seninle kutluyor!/g,' يحتفل معك!').replace(/(البومة|السلحفاة|القطة) يحتفل معك!/g,'$1 تحتفل معك!');
+  out=out.replace(/\s+seninle\./g,' معك.');
+  out=out.replace(/Harika gidiyorsun!/g,'رائع، استمر!');
+  out=out.replace(/Mükemmel seri!/g,'سلسلة ممتازة!');
+  out=out.replace(/İnanılmaz odak!/g,'تركيز مذهل!');
+  out=out.replace(/Seri devam ediyor!/g,'السلسلة مستمرة!');
+  out=out.replace(/Tekrar ettikçe güçlenir/g,'يقوى مع التكرار');
+  out=out.replace(/Kusursuz ders/g,'درس مثالي');
+  out=out.replace(/Dersi tamamladın/g,'أكملت الدرس');
+
+  // Result next-step dynamic titles where the Turkish suffix is generated from stage metadata.
+  if(/^Sıradaki aşama\s*·/i.test(out.trim()))out='المرحلة التالية جاهزة';
+  if(/^Sonraki mini ders\s*·/i.test(out.trim()))out='الدرس المصغّر التالي';
+  out=out.replace(/^(\d+) derslik bu aşamada (\d+)\/(\d+) ilerlemedesin\.$/i,'تقدّمك في هذه المرحلة: $2 / $3 من أصل $1 دروس.');
+
+  return out;
+ }
+
+ function localizeLearningLoop(root=document.getElementById('lesson')||document.body){
+  if(locale()!=='ar'||!root)return;
+  const overlay=root.querySelector?.('.v910-overlay');
+  if(overlay){
+   overlay.setAttribute('dir','rtl');
+   overlay.style.direction='rtl';
+   const eyebrow=overlay.querySelector('.v910-card-eyebrow');
+   const title=overlay.querySelector('h2');
+   const body=overlay.querySelector('p');
+   const memory=overlay.querySelector('.v910-memory');
+   const button=overlay.querySelector('button');
+   for(const el of [eyebrow,title,body,memory,button]){
+    if(el){
+     const key=(el.textContent||'').trim();
+     if(chromeMap[key])el.textContent=chromeMap[key];
+     el.style.textAlign='center';
+    }
+   }
+  }
+  root.querySelectorAll?.('.v910-phasebar b,.v910-phasebar span,.v910-phasebar i').forEach(el=>{
+   const key=(el.textContent||'').trim();
+   if(chromeMap[key])el.textContent=chromeMap[key];
+  });
+  const rv=document.getElementById('resultView');
+  if(rv){
+   rv.querySelectorAll('*').forEach(el=>{
+    if(el.children.length)return;
+    const key=(el.textContent||'').trim();
+    if(chromeMap[key])el.textContent=chromeMap[key];
+   });
+  }
+ }
+
+ function localizeChrome(root=document.getElementById('lesson')||document.body){
+  if(locale()!=='ar'||!root)return;
+
+  // Unit titles are keyed by unit number so Turkish source names can never leak into Arabic UI.
+  for(const [n,name] of Object.entries(arabicUnitNames)){
+   document.querySelectorAll('#heroU'+n+' .hero-copy h1,#v5Unit'+n+' .hero-copy h1,[data-unit="U'+String(n).padStart(2,'0')+'"] .hero-copy h1').forEach(el=>{
+    if(el.textContent!==name)el.textContent=name;
+   });
+  }
+  root.querySelectorAll?.('.v1017-title').forEach(el=>{
+   if(!/[\u0600-\u06FF]/.test(el.textContent||''))el.innerHTML='اعثر على <span>الأزواج المتطابقة</span>';
+  });
+  root.querySelectorAll?.('.v1017-subtitle').forEach(el=>{const ar='صِل المفاهيم بمعانيها الصحيحة.';if(el.textContent!==ar)el.textContent=ar;});
+  window.DEEN_ARABIC_UI?.localize?.(root);
+  localizeLearningLoop(root);
+ }
+ window.DEEN_ARABIC_UI?.register?.(arabizeDynamicText,chromeMap);
+ pilot.localizeChrome=localizeChrome;
+ let chromeQueued=false;
+ const queueChrome=()=>{
+  if(locale()!=='ar'||chromeQueued)return;
+  chromeQueued=true;
+  const run=()=>{try{if(locale()==='ar')localizeChrome(document.body)}catch(e){console.warn('Arabic UI localization:',e)}finally{chromeQueued=false}};
+  if(typeof requestAnimationFrame==='function')requestAnimationFrame(run);else setTimeout(run,0);
+ };
+ // Avoid observing characterData on the entire document: the localizer itself writes text.
+ // Run only on explicit navigation, question and language lifecycle events.
+ for(const ev of ['deen:language-changed','deen:navigated','deen:ui-updated','deen:question-rendered','deen:lesson-opened'])
+  document.addEventListener(ev,queueChrome);
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',queueChrome,{once:true});
+ else queueChrome();
+
+ window.DEEN_U01_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  scan(root=document.body){
+   const offenders=[];
+   if(!root)return {ok:false,count:0,offenders:['no-root']};
+   const turkish=/[ÇĞİÖŞÜçğıöşü]|\b(?:aşama|ünite|kısım|ders|soru|tekrar|öğren|hedef|ilerleme|kilitli|yanlış|doğru|ustalık|günlük|sonraki|sıradaki|önceki|başla|tamamlandı|pekiştir|hatırla|anla|uygula)\b/i;
+   const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+   while((node=walker.nextNode())){
+    const t=(node.nodeValue||'').trim();
+    if(t&&turkish.test(t))offenders.push({kind:'text',text:t.slice(0,220)});
+   }
+   root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+    for(const attr of ['aria-label','title','placeholder']){
+     const t=(el.getAttribute(attr)||'').trim();
+     if(t&&turkish.test(t))offenders.push({kind:attr,text:t.slice(0,220)});
+    }
+   });
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,100)};
+  }
+ };
+ window.DEEN_U02_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  scan:window.DEEN_U01_ARABIC_AUDIT?.scan||(()=>({ok:false,count:0,offenders:['audit-unavailable']}))
+ };
+ window.DEEN_U03_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  scan(root=document.body){
+   const base=window.DEEN_U01_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'base-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u03ChromeMap);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u03-text',text:t.slice(0,220),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u03-'+attr,text:t.slice(0,220),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,150)};
+  }
+ };
+ window.DEEN_U04_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,stages:7,topics:92,concepts:11,optionQuestions:88,fillBlank:6,matching:12,structuralErrors:0},
+  scan(root=document.body){
+   const base=window.DEEN_U03_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u03-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u04ChromeMap);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u04-text',text:t.slice(0,220),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u04-'+attr,text:t.slice(0,220),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,180)};
+  }
+ };
+ window.DEEN_U05_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,stages:7,topics:84,concepts:12,optionQuestions:88,fillBlank:7,matching:12,structuralErrors:0,finalFlowLabels:6},
+  scan(root=document.body){
+   const base=window.DEEN_U04_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u04-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u05ChromeMap);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u05-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u05-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,220)};
+  }
+ };
+ window.DEEN_U06_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,macroStages:5,topics:37,concepts:54,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,macroRuntimeFixes:3},
+  scan(root=document.body){
+   const base=window.DEEN_U05_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u05-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u06ChromeMap);
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u06-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u06-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,240)};
+  }
+ };
+ window.DEEN_U07_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,macroStages:5,topics:35,concepts:60,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,structuralErrors:0,unitScopedConcepts:60},
+  scan(root=document.body){
+   const base=window.DEEN_U06_ARABIC_AUDIT?.scan?.(root)||{ok:false,count:0,offenders:[{kind:'audit',text:'u06-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u07ChromeMap);
+   const macroChecks=['Kitaplara İman Nedir?','Tevrat, İncil, Zebur ve Sahifeler',"Kur'an'ın Konumu",'İlahi Kitapların Ortak Kaynağı',"Kur'an'ın Rehberliği ve Korunması"];
+   for(const key of macroChecks){
+    const translated=arabizeDynamicText(key);
+    if(!/[\u0600-\u06FF]/.test(translated)||translated===key)offenders.push({kind:'u07-macro-mapping',text:key});
+   }
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();
+     if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u07-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();
+      if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u07-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,260)};
+  }
+ };
+ window.DEEN_U08_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,optionQuestions:78,fillBlank:8,matching:8,buildSequence:6,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U07_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u07-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u08ChromeMap).sort((a,b)=>b.length-a.length);
+   const macroChecks=['Peygamberlere İman Nedir?','Peygamberlerin Görevleri','Peygamberlerin Özellikleri','Peygamberlerin Ortak Mesajı','Peygamberlere İman Ustalığı'];
+   for(const key of macroChecks){
+    const translated=arabizeDynamicText(key);
+    if(translated===key||!/[\u0600-\u06FF]/.test(translated))offenders.push({kind:'u08-macro-mapping',text:key});
+   }
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u08-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u08-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,300)};
+  }
+ };
+ window.DEEN_U09_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,optionQuestions:79,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U08_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u08-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u09ChromeMap).sort((a,b)=>b.length-a.length);
+   const macroChecks=['Ahirete İman Nedir?','Yeniden Diriliş','Hesap ve Mizan','Cennet ve Cehennem','Ahirete İman Ustalığı'];
+   for(const key of macroChecks){
+    const translated=arabizeDynamicText(key);
+    if(translated===key||!/[\u0600-\u06FF]/.test(translated))offenders.push({kind:'u09-macro-mapping',text:key});
+   }
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u09-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u09-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,320)};
+  }
+ };
+ window.DEEN_U10_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,optionQuestions:80,fillBlank:8,matching:7,buildSequence:6,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U09_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u09-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u10ChromeMap).sort((a,b)=>b.length-a.length);
+   const checks=['Kadere İman Nedir?','Kader ve Kaza',"Allah'ın İlmi",'İnsanın İradesi','Kader ve Sorumluluk','Kadere İman Ustalığı'];
+   for(const key of checks){
+    const value=arabizeDynamicText(key);
+    if(value===key||!/[\u0600-\u06FF]/.test(value))offenders.push({kind:'u10-macro-mapping',text:key});
+   }
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u10-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u10-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,340)};
+  }
+ };
+ window.DEEN_U11_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U10_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u10-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u11ChromeMap).sort((a,b)=>b.length-a.length);
+   const checks=['İbadet Nedir?','İbadetin Kaynağı','Niyet ve İhlas','İbadetin Şartları','İbadet ve Kulluk','İbadet Ustalığı'];
+   for(const key of checks){
+    const translated=arabizeDynamicText(key);
+    if(translated===key||!/[\u0600-\u06FF]/.test(translated))offenders.push({kind:'u11-macro-mapping',text:key});
+   }
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u11-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u11-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,360)};
+  }
+ };
+ window.DEEN_U12_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U11_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u11-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u12ChromeMap).sort((a,b)=>b.length-a.length);
+   const checks=['Abdest Nedir?','Abdestin Farzları','Abdestin Sünnetleri','Abdest Nasıl Alınır?','Abdesti Bozan Durumlar','Abdest Ustalığı'];
+   for(const key of checks){
+    const translated=arabizeDynamicText(key);
+    if(translated===key||!/[\u0600-\u06FF]/.test(translated))offenders.push({kind:'u12-macro-mapping',text:key});
+   }
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u12-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u12-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,380)};
+  }
+ };
+ window.DEEN_U13_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U12_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u12-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u13ChromeMap).sort((a,b)=>b.length-a.length);
+   const checks=['Temizlik ve Taharet','Necasetten Temizlik','Hadesten Temizlik','Gusül Nedir?','Teyemmüm Nedir?','Temizlik ve Taharet Ustalığı'];
+   for(const key of checks){
+    const translated=arabizeDynamicText(key);
+    if(translated===key||!/[\u0600-\u06FF]/.test(translated))offenders.push({kind:'u13-macro-mapping',text:key});
+   }
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u13-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u13-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,400)};
+  }
+ };
+ window.DEEN_U14_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U13_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u13-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u14ChromeMap).sort((a,b)=>b.length-a.length);
+   const checks=['Namaz Nedir?','Namazın Şartları','İftitah Tekbiri','Rekât Kavramı','Namazda Sükûnet','Namaz Ustalığı'];
+   for(const key of checks){
+    const translated=arabizeDynamicText(key);
+    if(translated===key||!/[\u0600-\u06FF]/.test(translated))offenders.push({kind:'u14-macro-mapping',text:key});
+   }
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u14-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u14-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,420)};
+  }
+ };
+ window.DEEN_U15_ARABIC_AUDIT={
+  version:'9390cssarabic1',
+  coverage:{questions:100,legacyStages:7,optionQuestions:84,fillBlank:14,matching:9,expertVerified:false},
+  scan(root=document.body){
+   const base=window.DEEN_U14_ARABIC_AUDIT?.scan?.(root)||{ok:false,offenders:[{kind:'audit',text:'u14-audit-unavailable'}]};
+   const offenders=Array.isArray(base.offenders)?[...base.offenders]:[];
+   const forbidden=Object.keys(u15ChromeMap).sort((a,b)=>b.length-a.length);
+   const checks=['Oruç Nedir?','Orucun Amacı','Sahur ve İftar','Oruç ve Takva','Orucu Bozan Durumlar','Oruç Ustalığı'];
+   for(const key of checks){
+    const translated=arabizeDynamicText(key);
+    if(translated===key||!/[\u0600-\u06FF]/.test(translated))offenders.push({kind:'u15-macro-mapping',text:key});
+   }
+   if(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+     const t=(node.nodeValue||'').trim();if(!t)continue;
+     const hit=forbidden.find(x=>t.includes(x));
+     if(hit)offenders.push({kind:'u15-text',text:t.slice(0,240),matched:hit});
+    }
+    root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt],[data-tooltip]').forEach(el=>{
+     for(const attr of ['aria-label','title','placeholder','alt','data-tooltip']){
+      const t=(el.getAttribute(attr)||'').trim();if(!t)continue;
+      const hit=forbidden.find(x=>t.includes(x));
+      if(hit)offenders.push({kind:'u15-'+attr,text:t.slice(0,240),matched:hit});
+     }
+    });
+   }
+   return {ok:offenders.length===0,count:offenders.length,offenders:offenders.slice(0,440)};
+  }
+ };
+ pilot.translateBatch=function(rows){const results=rows.map(q=>pilot.translateQuestion(q));const failedIds=rows.filter((q,i)=>!results[i]).map(q=>q.id);if(failedIds.length){pilot.failure='AR_SOURCE_MISMATCH: '+failedIds.join(', ');pilot.notice(failedIds[0]);return null}return results};
+ window.DEEN_ARABIC_FULL_BANK={
+  version:pilot.version,
+  ready:()=>pilot.ready,
+  failure:()=>pilot.failure,
+  baseCount:()=>Object.keys(pilot.translations||{}).length,
+  runtimeVariantCount:()=>Object.keys(pilot.runtime_variants||{}).length,
+  liveRuntimeCount:()=>Object.keys(pilot.live_translations||{}).length,
+  supportedStageCount:()=>pilot.supportedStages.size,
+  inspectBank:bank=>pilot.inspectBank(bank),
+  inspectQuestions:bank=>pilot.inspectBank(bank),
+  inspectVisibleArabic:root=>pilot.inspectVisibleArabic(root),
+  stageFailures:()=>pilot.diagnostics.stageFailures,
+  audit:()=>({
+   ready:pilot.ready,
+   base:Object.keys(pilot.translations||{}).length,
+   runtimeVariants:Object.keys(pilot.runtime_variants||{}).length,
+   liveRuntime:Object.keys(pilot.live_translations||{}).length,
+   stages:pilot.supportedStages.size,
+   failure:pilot.failure
+  })
+ };
+})();
+</script>
+<style id="deen-arabic-generated-content">
+html[lang="ar"] .sequence-zone.empty::before{content:"اختر الأجزاء بالترتيب من الأسفل"!important}
+html[lang="ar"] .v710-builder-zone.empty::before{content:"انقل الكلمات إلى هنا أو اضغط عليها"!important}
+html[lang="ar"] .lp-unlocking::after{content:"فُتح درس جديد"!important}
+html[lang="ar"] .options.grid.premium-grid.v852-card-grid .option::after,
+html[lang="ar"] .v858-odd-card::after{content:"اضغط"!important}
+html[lang="ar"] .options.grid.premium-grid.v852-card-grid .option.correct::after{content:"صحيح ✓"!important}
+html[lang="ar"] .options.grid.premium-grid.v852-card-grid .option.wrong::after{content:"راجع مجددًا"!important}
+html[lang="ar"] .v853-match-card.selected::after{content:"تم الاختيار"!important}
+html[lang="ar"] .v855-fill-slot::before{content:"ضع الكلمة في الفراغ"!important}
+html[lang="ar"] .v858-odd-card.wrong-pick::after{content:"ليست هذه"!important}
+html[lang="ar"] .v858-odd-card.target::after{content:"وجدتها ✓"!important}
+html[lang="ar"] #profileScreenBody .v5-profilehead .v5-avatar.large.v994-companion-avatar::after,
+html[lang="ar"] #profileScreenBody .v997-companion-avatar::after{content:"تغيير"!important}
+html[lang="ar"] .gf-reward-modal .gf-reward-medal.deen-reward-badge-missing::after{content:"شارة"!important}
+</style>

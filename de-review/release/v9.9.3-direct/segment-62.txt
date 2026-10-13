@@ -1,0 +1,42 @@
+<!-- DEEN v10.9.76 — One authoritative Quran test flow, inside each surah -->
+<style id="deen-v10974-quran-ayet-test-css">
+/* The Oyna shortcut opens the actual selected-surah journey; no duplicate test panel. */
+.deen-atest-entry{
+ width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;
+ min-height:74px;margin:0 0 9px;padding:12px 14px;text-align:left;touch-action:manipulation;
+ border:1px solid rgba(105,219,184,.31);border-radius:16px;
+ background:radial-gradient(circle at 95% 0,rgba(98,210,178,.10),transparent 40%),linear-gradient(145deg,#123b3c,#0b2932);
+ color:#e7f8f1
+}
+.deen-atest-entry b{display:block;font:900 12px/1.2 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-atest-entry small{display:block;margin-top:5px;color:#95b7ae;font:650 9px/1.4 var(--deen-font-ui,Inter,system-ui,sans-serif)}
+.deen-atest-arrow{display:grid;place-items:center;flex:0 0 35px;width:35px;height:35px;border-radius:11px;background:#62d3b1;color:#08332a;font:900 18px/1 Inter,system-ui,sans-serif;font-style:normal}
+.deen-atest-entry:focus-visible{outline:2px solid #8ceac9;outline-offset:2px}
+</style>
+<script id="deen-v10974-quran-ayet-test-js">
+(()=>{
+if(window.__deenV10974QuranAyetTest)return;
+window.__deenV10974QuranAyetTest=true;
+const IDS=['fatiha','ikhlas','falaq','nas','kafirun','nasr','masad','fil','quraysh','maun','sharh','tin','bayyina','zilzal','kawthar','asr'];
+function journey(){return window.DEEN_QURAN_JOURNEY_V2}
+function current(){
+ try{const id=String(window.DEEN_QURAN?.ensureState?.()?.profile?.currentSurah||'');return IDS.includes(id)?id:'fatiha'}catch(_){return'fatiha'}
+}
+function open(){return journey()?.open?.(current())||false}
+function start(id){
+ const n=IDS.includes(id)?id:current(),j=journey();
+ if(!j?.open?.(n))return false;
+ return j.startQuiz?.('ayah')||false;
+}
+window.DEEN_QURAN_AYET_TEST={
+ open,start,
+ select:id=>journey()?.choose?.(id)||false,
+ check:()=>journey()?.checkAnswer?.()||false,
+ next:()=>journey()?.nextQuestion?.()||false,
+ snapshot:()=>journey()?.quizSnapshot?.()||{phase:'surah_select'},
+ available:id=>!!journey()?.stats?.(id)?.sourceReady,
+ audit:()=>({build:'9295surahbytest1',mode:'surah_journey',surahs:IDS.length,duplicateTestScreen:false})
+};
+document.documentElement.dataset.deenQuranAyetTest='surah-journey';
+})();
+</script>

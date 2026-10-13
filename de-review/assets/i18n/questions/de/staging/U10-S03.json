@@ -1,0 +1,539 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U10",
+  "stage": "U10-S03",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U10-S03-001": {
+      "source": {
+        "question_tr": "Kehf 18:29 insanın hangi yönüne dikkat çeker?",
+        "explanation_tr": "Ayet insanın tercih ve sorumluluk alanına dikkat çeker.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tercih yapabilmesine",
+          "Hiç seçim yapamamasına",
+          "Allah'tan bağımsız yaratıcı olmasına",
+          "Geleceği bilmesine"
+        ],
+        "correct_answer": "Tercih yapabilmesine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Auf welche Fähigkeit des Menschen weist Al-Kahf 18:29 hin?",
+        "explanation_tr": "Der Vers verweist auf menschliche Entscheidungsfreiheit und Verantwortung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die Fähigkeit, sich zu entscheiden",
+          "Die Unfähigkeit, überhaupt Entscheidungen zu treffen",
+          "Unabhängig von Allah selbst Schöpfer zu sein",
+          "Die eigene Zukunft zu kennen"
+        ],
+        "correct_answer": "Die Fähigkeit, sich zu entscheiden",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-002": {
+      "source": {
+        "question_tr": "İnsan iradesi Allah'ın iradesinden tamamen bağımsız ve sınırsızdır.",
+        "explanation_tr": "Tekvîr 81:28-29 insan iradesini Allah'ın kuşatıcı iradesi içinde ele alır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der menschliche Wille ist vollständig unabhängig von Allahs Willen und unbegrenzt.",
+        "explanation_tr": "At-Takwir 81:28–29 betrachtet den menschlichen Willen im Rahmen von Allahs umfassendem Willen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-003": {
+      "source": {
+        "question_tr": "Tekvîr 81:28 doğru yolda gitmek ______ kimselerden söz eder.",
+        "explanation_tr": "Ayet insanın yönelme isteğini ifade eder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "isteyen",
+          "zorlanan",
+          "hiç seçmeyen",
+          "bilmeden yapan"
+        ],
+        "correct_answer": "isteyen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "At-Takwir 81:28 spricht von Menschen, die ______, den rechten Weg einzuschlagen.",
+        "explanation_tr": "Der Vers bringt den menschlichen Wunsch nach dem rechten Weg zum Ausdruck.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "wünschen",
+          "gezwungen werden",
+          "niemals wählen",
+          "unbewusst handeln"
+        ],
+        "correct_answer": "wünschen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Allah her şeyi biliyorsa kötü davranışımdan ben sorumlu değilim' diyor. En iyi cevap hangisidir?",
+        "explanation_tr": "Diyanet kaderi günaha mazeret yapmayı yanlış sayar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'ın bilmesi insanı zorlamaz; iradeli tercihler sorumluluk doğurur",
+          "Hiç kimse sorumlu değildir",
+          "Allah kötülüğü emreder",
+          "İnsan bağımsız yaratıcıdır"
+        ],
+        "correct_answer": "Allah'ın bilmesi insanı zorlamaz; iradeli tercihler sorumluluk doğurur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Wenn Allah alles weiß, bin ich für mein schlechtes Verhalten nicht verantwortlich.“ Was ist richtig?",
+        "explanation_tr": "Die Diyanet hält es für falsch, die göttliche Vorherbestimmung als Ausrede für eine Sünde zu verwenden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allahs Wissen zwingt die Menschen nicht; freiwillige Entscheidungen bringen Verantwortung mit sich",
+          "Niemand trägt Verantwortung",
+          "Allah befiehlt Böses",
+          "Menschen sind unabhängige Schöpfer"
+        ],
+        "correct_answer": "Allahs Wissen zwingt die Menschen nicht; freiwillige Entscheidungen bringen Verantwortung mit sich",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-005": {
+      "source": {
+        "question_tr": "Bir notta 'Kader varsa insan iradesi yoktur' yazıyor. Hata nedir?",
+        "explanation_tr": "İnsan iradesi ile ilahî irade birlikte düşünülür.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an insanın tercih alanını kabul eder",
+          "İnsan seçim yapamaz",
+          "İnsan Allah'tan bağımsızdır",
+          "Sorumluluk yalnız meleklere aittir"
+        ],
+        "correct_answer": "Kur'an insanın tercih alanını kabul eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Wenn es Vorherbestimmung gibt, existiert kein menschlicher Wille.“ Wo liegt der Fehler?",
+        "explanation_tr": "Menschlicher Wille und göttlicher Wille werden gemeinsam berücksichtigt.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Der Koran erkennt den Entscheidungsspielraum der Menschen an",
+          "Menschen können nicht wählen",
+          "Menschen sind unabhängig von Allah",
+          "Nur Engel tragen Verantwortung"
+        ],
+        "correct_answer": "Der Koran erkennt den Entscheidungsspielraum der Menschen an",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-006": {
+      "source": {
+        "question_tr": "İrade ve sorumluluk kavramlarını eşleştir.",
+        "explanation_tr": "İnsan iradesini ne yok saymak ne de sınırsızlaştırmak doğrudur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İrade",
+            "right": "Alternatifler arasında tercih etme yetisi"
+          },
+          {
+            "left": "Sorumluluk",
+            "right": "İradeli tercihlerden hesaba çekilme"
+          },
+          {
+            "left": "İlahî irade",
+            "right": "Bütün varlığı kuşatan Allah'ın dilemesi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe Wille und Verantwortung ihren Bedeutungen zu.",
+        "explanation_tr": "Weder sollte der menschliche Wille geleugnet noch als unbegrenzt betrachtet werden.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Wille",
+            "right": "Die Fähigkeit, zwischen Möglichkeiten zu wählen"
+          },
+          {
+            "left": "Verantwortung",
+            "right": "Für freiwillige Entscheidungen Rechenschaft tragen"
+          },
+          {
+            "left": "Göttlicher Wille",
+            "right": "Allahs Wille, der alles Dasein umfasst"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-007": {
+      "source": {
+        "question_tr": "Bir kişi günah işledikten sonra 'Kaderimde vardı, yapacak bir şeyim yoktu' diyor. Sorun nedir?",
+        "explanation_tr": "Diyanet bu yaklaşımı doğru bulmaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kaderi iradeli günaha mazeret yapmak sorumluluğu kaldırmaz",
+          "Kader bütün günahı meşru yapar",
+          "İnsan hiç seçim yapmaz",
+          "Sorumluluk yalnız sonuç kötüyse vardır"
+        ],
+        "correct_answer": "Kaderi iradeli günaha mazeret yapmak sorumluluğu kaldırmaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand begeht eine Sünde und sagt danach: „Das war mein Schicksal; ich konnte nichts tun.“ Was ist das Problem?",
+        "explanation_tr": "Die Diyanet betrachtet diese Rechtfertigung nicht als richtig.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Vorherbestimmung als Ausrede für freiwillige Sünden zu benutzen, hebt die Verantwortung nicht auf",
+          "Die Vorherbestimmung macht jede Sünde erlaubt",
+          "Menschen treffen niemals Entscheidungen",
+          "Verantwortung besteht nur bei schlechten Ergebnissen"
+        ],
+        "correct_answer": "Die Vorherbestimmung als Ausrede für freiwillige Sünden zu benutzen, hebt die Verantwortung nicht auf",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-008": {
+      "source": {
+        "question_tr": "Ra'd 13:11'in sorumluluk açısından verdiği mesaj hangisidir?",
+        "explanation_tr": "Ayet değişim çabasına dikkat çeker.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsanların değişim yönünde çaba göstermesi gerektiği",
+          "Hiç çaba gerekmemesi",
+          "Her sonucun sebepsiz olması",
+          "İnsan davranışının anlamsızlığı"
+        ],
+        "correct_answer": "İnsanların değişim yönünde çaba göstermesi gerektiği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Botschaft über Verantwortung enthält Ar-Rad 13:11?",
+        "explanation_tr": "Der Vers betont Bemühungen um Veränderung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Menschen sollen sich um Veränderungen bemühen",
+          "Es ist keine Anstrengung notwendig",
+          "Jedes Ergebnis entsteht ohne Ursache",
+          "Menschliches Handeln ist bedeutungslos"
+        ],
+        "correct_answer": "Menschen sollen sich um Veränderungen bemühen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-009": {
+      "source": {
+        "question_tr": "Kadere inanmak, kişinin kendi seçtiği kötülükten sorumluluğunu kaldırır.",
+        "explanation_tr": "Kader iradeli davranışlara mazeret değildir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an die göttliche Vorherbestimmung hebt die Verantwortung für selbst gewähltes schlechtes Handeln auf.",
+        "explanation_tr": "Göttliche Vorherbestimmung ist keine Ausrede für freiwillige Handlungen.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-010": {
+      "source": {
+        "question_tr": "İnsan iradesi ile Allah'ın iradesi arasındaki dengeyi tek cümleyle açıkla.",
+        "explanation_tr": "Tekvîr 81:28-29 iki boyutu birlikte düşünmeye imkân verir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "İnsan sınırlı bir tercih alanına sahiptir ve seçimlerinden sorumludur; bu irade Allah'ın kuşatıcı iradesinden bağımsız değildir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Beschreibe das Verhältnis von menschlichem Willen und Allahs Willen in einem Satz.",
+        "explanation_tr": "At-Takwir 81:28–29 zeigt, dass beide Aspekte gemeinsam betrachtet werden müssen.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Menschen besitzen einen begrenzten Entscheidungsspielraum und sind dafür verantwortlich; ihr Wille ist jedoch nicht unabhängig von Allahs umfassendem Willen.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-011": {
+      "source": {
+        "question_tr": "Ra'd 13:11'e göre bir toplum kendilerindekini ______ kadar Allah onların durumunu değiştirmez.",
+        "explanation_tr": "Ayet değişim ve çaba vurgusu yapar.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "değiştirinceye",
+          "unutuncaya",
+          "saklayıncaya",
+          "sayıncaya"
+        ],
+        "correct_answer": "değiştirinceye",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Ar-Rad 13:11 verändert Allah den Zustand eines Volkes nicht, bis sie selbst ändern, was in ihnen ______.",
+        "explanation_tr": "Der Vers betont die Veränderung und die Bemühungen der Menschen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "ist",
+          "vergessen wurde",
+          "verborgen bleibt",
+          "gezählt wurde"
+        ],
+        "correct_answer": "ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-012": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Sınava çalışıp çalışmamam fark etmez, sonuç kaderdir' diyor. En uygun yaklaşım hangisidir?",
+        "explanation_tr": "Kader çalışmayı bırakma mazereti değildir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Çalışmak kişinin sorumluluğudur; sonuç için Allah'a tevekkül edilir",
+          "Hiç çalışmamak kader inancıdır",
+          "Tedbir kadere karşı çıkmaktır",
+          "Başarı tamamen insanın yaratmasıdır"
+        ],
+        "correct_answer": "Çalışmak kişinin sorumluluğudur; sonuç için Allah'a tevekkül edilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Ob ich für die Prüfung lerne, ist egal; das Ergebnis ist vorherbestimmt.“ Was ist sinnvoll?",
+        "explanation_tr": "Die göttliche Vorherbestimmung rechtfertigt es nicht, Anstrengungen aufzugeben.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zu lernen gehört zur eigenen Verantwortung; das Ergebnis wird Allah anvertraut",
+          "Nicht zu lernen ist gelebter Glaube an die Vorherbestimmung",
+          "Vorsichtsmaßnahmen widersprechen der Vorherbestimmung",
+          "Menschen erschaffen ihren Erfolg völlig unabhängig"
+        ],
+        "correct_answer": "Zu lernen gehört zur eigenen Verantwortung; das Ergebnis wird Allah anvertraut",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-013": {
+      "source": {
+        "question_tr": "İradeli davranışta sorumluluk akışını sırala.",
+        "explanation_tr": "İradeli seçimler ahlaki sorumluluk doğurur.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Seçeneklerle karşılaş",
+          "Akıl ve iradeni kullan",
+          "Bir tercih yap",
+          "Tercihinin sorumluluğunu üstlen"
+        ],
+        "correct_order": [
+          "Seçeneklerle karşılaş",
+          "Akıl ve iradeni kullan",
+          "Bir tercih yap",
+          "Tercihinin sorumluluğunu üstlen"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne die Schritte, die zur Verantwortung für freiwilliges Handeln führen.",
+        "explanation_tr": "Freiwillige Entscheidungen bringen moralische Verantwortung mit sich.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Verschiedene Möglichkeiten vorfinden",
+          "Verstand und Willen einsetzen",
+          "Eine Entscheidung treffen",
+          "Verantwortung für die Entscheidung übernehmen"
+        ],
+        "correct_order": [
+          "Verschiedene Möglichkeiten vorfinden",
+          "Verstand und Willen einsetzen",
+          "Eine Entscheidung treffen",
+          "Verantwortung für die Entscheidung übernehmen"
+        ],
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S03-014": {
+      "source": {
+        "question_tr": "İnsan iradesini en doğru tanımlayan ifade hangisidir?",
+        "explanation_tr": "Diyanet tefsiri insana bazı eylemlerinde seçme imkânı verildiğini açıklar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın verdiği sınırlı tercih yetisi",
+          "Allah'tan bağımsız yaratma gücü",
+          "Hiç seçim yapamama hali",
+          "Geleceği kesin bilme yetisi"
+        ],
+        "correct_answer": "Allah'ın verdiği sınırlı tercih yetisi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt den menschlichen Willen am besten?",
+        "explanation_tr": "Die Diyanet-Auslegung erläutert, dass Menschen bei einem Teil ihrer Handlungen zwischen Möglichkeiten wählen können.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die von Allah verliehene begrenzte Fähigkeit, Entscheidungen zu treffen",
+          "Die Macht, unabhängig von Allah zu erschaffen",
+          "Die Unfähigkeit, irgendeine Entscheidung zu treffen",
+          "Die Fähigkeit, die Zukunft sicher zu kennen"
+        ],
+        "correct_answer": "Die von Allah verliehene begrenzte Fähigkeit, Entscheidungen zu treffen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Freier Wille und Verantwortung",
+        "topic": "Vorherbestimmung im Alltag"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

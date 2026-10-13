@@ -1,0 +1,798 @@
+{
+  "schema_version": 1,
+  "locale": "en",
+  "unit": "U01",
+  "scope": "stored_runtime_variants",
+  "question_count": 20,
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_commit": "a3ab868b762c4431410057fa8e937d87c73048a9",
+  "translations": {
+    "DEEN-U01-S01-001": {
+      "source": {
+        "question_tr": "İslam’ın temelindeki fikri en iyi hangi kart anlatır?",
+        "explanation_tr": "Bu ünitede İslam, yalnızca bir kültür veya birkaç ibadet olarak değil; Allah'a yönelişi, inancı ve yaşamı birlikte ele alan bir din olarak tanıtılır.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah’a teslimiyeti ve O’nun rehberliğini benimsemek",
+          "Yalnızca belirli ibadetlerin adını öğrenmek",
+          "Sadece belirli bir kültüre ait olmak"
+        ],
+        "correct_answer": "Allah’a teslimiyeti ve O’nun rehberliğini benimsemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which card best describes the central idea in Islam?",
+        "explanation_tr": "This unit introduces Islam as a religion that brings together turning to Allah, belief and life, rather than merely a culture or a few acts of worship.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Accepting submission to Allah and His guidance",
+          "Only learning the names of particular acts of worship",
+          "Belonging only to a particular culture"
+        ],
+        "correct_answer": "Accepting submission to Allah and His guidance",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "Introduction to Islam",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-003": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlakı doğru açıklamalarla eşleştir.",
+        "explanation_tr": "İman, ibadet ve ahlak farklı kavramlardır; başlangıç düzeyinde bunların birbirini tamamlayan yönlerini görmek İslam'ın genel çerçevesini anlamayı kolaylaştırır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İman",
+            "right": "İnanç ve kabul"
+          },
+          {
+            "left": "İbadet",
+            "right": "Allah’a kulluk"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Davranış ve tutumlar"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Match faith, worship and good character with their correct descriptions.",
+        "explanation_tr": "Faith, worship and good character are different concepts. Seeing how they complement one another helps beginners understand the overall framework of Islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Faith",
+            "right": "Belief and acceptance"
+          },
+          {
+            "left": "Worship",
+            "right": "Devotion to Allah"
+          },
+          {
+            "left": "Good character",
+            "right": "Behaviour and attitudes"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "Introduction to Islam",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-004": {
+      "source": {
+        "question_tr": "“Müslüman” denince hangi kart doğru tanımı verir?",
+        "explanation_tr": "Müslüman, İslam dinini benimseyen kişidir; bu kimlik belirli bir soy, dil veya ülkeye bağlı değildir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah’a inanan ve İslam’ın öğretilerini benimseyen kişi",
+          "Sadece belirli bir ülkede doğan kişi",
+          "Sadece Arapça konuşan kişi"
+        ],
+        "correct_answer": "Allah’a inanan ve İslam’ın öğretilerini benimseyen kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which card gives the correct definition of 'Muslim'?",
+        "explanation_tr": "A Muslim is a person who embraces Islam. This identity does not depend on a particular ancestry, language or country.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "A person who believes in Allah and accepts Islam's teachings",
+          "Only someone born in a particular country",
+          "Only someone who speaks Arabic"
+        ],
+        "correct_answer": "A person who believes in Allah and accepts Islam's teachings",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "Who is a Muslim?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-007": {
+      "source": {
+        "question_tr": "Bir arkadaşın “İman, ibadet ve ahlak birbirinden tamamen ayrı şeylerdir.” diyor. Bu bölüme göre en uygun cevap hangisi?",
+        "explanation_tr": "Bu ünitenin temel çerçevesinde iman, ibadet ve ahlak birbirinden farklı fakat ilişkili alanlar olarak ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bu üç alan birbiriyle bağlantılı bir yaşam anlayışı oluşturur.",
+          "Evet; aralarında hiçbir bağlantı yoktur.",
+          "Yalnızca ahlak önemlidir; diğer ikisi ayrı kalır."
+        ],
+        "correct_answer": "Bu üç alan birbiriyle bağlantılı bir yaşam anlayışı oluşturur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A friend says, 'Faith, worship and good character are completely separate things.' According to this section, what is the most appropriate response?",
+        "explanation_tr": "In this unit's basic framework, faith, worship and good character are treated as distinct but related areas.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "These three areas form an interconnected approach to life.",
+          "Yes; there is no connection between them.",
+          "Only good character matters; the other two remain separate."
+        ],
+        "correct_answer": "These three areas form an interconnected approach to life.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "Introduction to the basic concepts",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-008": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Kalben inanma ve kabul etme, bu bölümde ___ kavramını anlatır.",
+        "explanation_tr": "İman, kişinin kalbiyle bir şeyi doğru kabul etmesi ve inanmasıdır; belirli bir ibadetle sınırlı değildir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iman",
+          "ibadet",
+          "ahlak",
+          "rehberlik"
+        ],
+        "correct_answer": "iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complete the sentence: Believing and accepting in the heart describes ___ in this section.",
+        "explanation_tr": "Faith means accepting something as true and believing in it with the heart; it is not limited to a particular act of worship.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "faith",
+          "worship",
+          "good character",
+          "guidance"
+        ],
+        "correct_answer": "faith",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "What is faith?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-012": {
+      "source": {
+        "question_tr": "Kur’an’ın Müslümanlar için yerini doğru anlatan kartı seç.",
+        "explanation_tr": "Kur'an, Müslümanların temel kutsal kitabıdır ve inanç ile yaşam konusunda rehber kabul edilir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Müslümanların temel kutsal kitabı",
+          "Yalnızca tarih olaylarını anlatan bir kitap",
+          "Sadece ibadet adımlarını sıralayan bir el kitabı"
+        ],
+        "correct_answer": "Müslümanların temel kutsal kitabı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choose the card that correctly describes the Quran's place for Muslims.",
+        "explanation_tr": "The Quran is Muslims' central sacred book and is regarded as guidance for belief and life.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Muslims' central sacred book",
+          "A book that only tells historical events",
+          "A handbook that only lists the steps of worship"
+        ],
+        "correct_answer": "Muslims' central sacred book",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "What is the Quran?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-015": {
+      "source": {
+        "question_tr": "İlk kavram haritasını tamamla: kavramları doğru açıklamalarla eşleştir.",
+        "explanation_tr": "Bu dört kavram ünitenin girişinde birbirinden ayrılarak tanıtılıyor; amaç kavramları karıştırmadan temel anlamlarını eşleştirmek.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Allah’a teslimiyet ve kulluk merkezli yaşam anlayışı"
+          },
+          {
+            "left": "Müslüman",
+            "right": "İslam’ı benimseyen kişi"
+          },
+          {
+            "left": "İman",
+            "right": "Kalben inanma ve kabul etme"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Davranış ve tutumlarla ilgili alan"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complete the first concept map: Match the concepts with their correct descriptions.",
+        "explanation_tr": "These four concepts are introduced separately at the start of the unit; the aim is to match their main meanings without confusing them.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "An approach to life centred on submission and devotion to Allah"
+          },
+          {
+            "left": "Muslim",
+            "right": "A person who accepts Islam"
+          },
+          {
+            "left": "Faith",
+            "right": "Believing and accepting with the heart"
+          },
+          {
+            "left": "Good character",
+            "right": "The area concerning behaviour and attitudes"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "Basic Islamic concepts",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-016": {
+      "source": {
+        "question_tr": "İslam’ın temelindeki fikri en iyi hangi kart anlatır?",
+        "explanation_tr": "Ünite girişinde İslam’ın temelinde Allah’a teslimiyet ve kulluk düşüncesi vurgulanıyor.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah’a teslimiyet ve kulluk",
+          "Belirli bir millete ait olmak",
+          "Sadece tarih bilgisi öğrenmek",
+          "Yalnızca tek bir ibadeti yapmak"
+        ],
+        "correct_answer": "Allah’a teslimiyet ve kulluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which card best describes the central idea in Islam?",
+        "explanation_tr": "The unit's introduction emphasises submission and devotion to Allah as central ideas in Islam.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Submission and devotion to Allah",
+          "Belonging to a particular nationality",
+          "Only learning history",
+          "Performing only one act of worship"
+        ],
+        "correct_answer": "Submission and devotion to Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "The central idea in Islam",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-017": {
+      "source": {
+        "question_tr": "Yeni tanıştığın biri “Müslüman olmak belirli bir ülke veya millete bağlı mı?” diye soruyor. En uygun cevap hangisi?",
+        "explanation_tr": "Bu bölüm Müslüman kimliğini belirli bir ülke, millet veya kültüre değil İslam’ı benimsemeye bağlar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.",
+          "Evet; yalnızca belirli bir ülkede doğanlar Müslüman olabilir.",
+          "Sadece aynı dili konuşanlar Müslüman olabilir.",
+          "Müslümanlık yalnızca kültürel kökene göre belirlenir."
+        ],
+        "correct_answer": "Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Someone you have just met asks, 'Is being Muslim tied to a particular country or nationality?' What is the most appropriate response?",
+        "explanation_tr": "This section bases Muslim identity on accepting Islam, rather than on a particular country, nationality or culture.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "No; accepting Islam is not tied to a particular country or nationality.",
+          "Yes; only people born in a particular country can be Muslim.",
+          "Only people who speak the same language can be Muslim.",
+          "Being Muslim is determined only by cultural origin."
+        ],
+        "correct_answer": "No; accepting Islam is not tied to a particular country or nationality.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "Muslim identity",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-018": {
+      "source": {
+        "question_tr": "Üç ifade bu bölümdeki ibadet anlayışıyla uyumlu. Hangisi uyumlu değildir?",
+        "explanation_tr": "Bölümde ibadet yalnızca namazla sınırlandırılmıyor ve kulluk yönüyle anlatılıyor; gösteriş amacı bu çerçeveyle uyumlu değildir.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İbadet Allah’a kullukla ilgilidir.",
+          "İbadet yalnızca namazdan ibaret değildir.",
+          "Farklı kulluk davranışları ibadet kapsamında ele alınabilir.",
+          "İbadet sadece başkalarına iyi görünmek için yapılır."
+        ],
+        "correct_answer": "İbadet sadece başkalarına iyi görünmek için yapılır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Three statements fit this section's understanding of worship. Which does not?",
+        "explanation_tr": "The section describes worship as devotion without limiting it to prayer; showing off does not fit this framework.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Worship involves devotion to Allah.",
+          "Worship is not limited to prayer alone.",
+          "Different acts of devotion can be considered worship.",
+          "Worship is performed only to look good to others."
+        ],
+        "correct_answer": "Worship is performed only to look good to others.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "The concept of worship",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-019": {
+      "source": {
+        "question_tr": "Kur’an Müslümanlar için temel bir rehberdir.",
+        "explanation_tr": "Ünite girişinde Kur’an’ın Müslümanlar için temel rehber olduğu özellikle vurgulanıyor.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "The Quran is a main guide for Muslims.",
+        "explanation_tr": "The unit's introduction specifically emphasises that the Quran is the main guide for Muslims.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "The Quran and guidance",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S01-020": {
+      "source": {
+        "question_tr": "Kur’an ve Hz. Muhammed’in bu ünitedeki rehberlik rolünü en iyi hangi kart özetler?",
+        "explanation_tr": "Bölüm Kur’an’ı temel rehber, Hz. Muhammed’i ise peygamber ve örnek rehber olarak tanıtıyor.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.",
+          "İkisi de yalnızca geçmiş olayları öğrenmek içindir.",
+          "Kur’an günlük hayatla ilgisizdir; peygamberin örnekliği de yalnızca geçmiştedir.",
+          "Rehberlik yalnızca kültürel geleneklerden gelir."
+        ],
+        "correct_answer": "Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which card best summarises the guiding roles of the Quran and Prophet Muhammad in this unit?",
+        "explanation_tr": "The section introduces the Quran as the main guide and Prophet Muhammad as a prophet and an exemplary guide.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "The Quran is the main guide; Prophet Muhammad is a prophet and an exemplary guide.",
+          "Both are only for learning about past events.",
+          "The Quran is unrelated to everyday life, and the prophet's example belongs only to the past.",
+          "Guidance comes only from cultural traditions."
+        ],
+        "correct_answer": "The Quran is the main guide; Prophet Muhammad is a prophet and an exemplary guide.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Meet Islam",
+        "topic": "The guidance of the Quran and the prophet",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-002": {
+      "source": {
+        "question_tr": "İman kavramını en iyi anlatan kartı seç.",
+        "explanation_tr": "İman öncelikle kalpte gerçekleşen bir kabul ve inanma halidir; dışa yansıyan davranışlar bu inancın sonucudur.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Kalben inanmak ve kabul etmek",
+          "Yalnızca bir ibadeti düzenli yapmak",
+          "Sadece dinî bilgi okumak"
+        ],
+        "correct_answer": "Kalben inanmak ve kabul etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choose the card that best describes faith.",
+        "explanation_tr": "Faith is primarily an acceptance and belief that take place in the heart; outward behaviour follows from this belief.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Believing and accepting in the heart",
+          "Only performing one act of worship regularly",
+          "Only reading religious information"
+        ],
+        "correct_answer": "Believing and accepting in the heart",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Who Is a Muslim?",
+        "topic": "What is faith?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-004": {
+      "source": {
+        "question_tr": "Bir arkadaşın “İbadetin amacı yalnızca toplumda saygı görmek midir?” diye soruyor. Bu bölüme göre en uygun cevap hangisi?",
+        "explanation_tr": "İbadetin özü, kulluğu Allah'a has kılmak ve samimi biçimde O'nun rızasını gözetmektir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır; ibadetin amacı Allah’a yakınlaşmak ve O’nun rızasını kazanmaya çalışmaktır.",
+          "Evet; temel amaç insanların takdirini kazanmaktır.",
+          "İbadetin belirli bir amacı yoktur."
+        ],
+        "correct_answer": "Hayır; ibadetin amacı Allah’a yakınlaşmak ve O’nun rızasını kazanmaya çalışmaktır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A friend asks, 'Is the aim of worship only to gain respect in society?' According to this section, what is the most appropriate response?",
+        "explanation_tr": "The essence of worship is to devote oneself to Allah alone and sincerely seek His pleasure.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "No; worship aims to draw closer to Allah and seek His pleasure.",
+          "Yes; the main aim is to gain people's approval.",
+          "Worship has no specific aim."
+        ],
+        "correct_answer": "No; worship aims to draw closer to Allah and seek His pleasure.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Who Is a Muslim?",
+        "topic": "The aim of worship",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-015": {
+      "source": {
+        "question_tr": "“Müslüman” kelimesini en doğru anlatan kart hangisi?",
+        "explanation_tr": "Bu ünitede Müslüman kimliği bir ülke, dil veya millete değil İslam’ı benimsemeye bağlanıyor.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İslam’ı benimseyen kişi",
+          "Belirli bir ülkede doğan kişi",
+          "Sadece Arapça konuşan kişi",
+          "Yalnızca belirli bir kültüre ait kişi"
+        ],
+        "correct_answer": "İslam’ı benimseyen kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which card most accurately describes the word 'Muslim'?",
+        "explanation_tr": "This unit bases Muslim identity on accepting Islam, rather than on a particular country, language or nationality.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "A person who accepts Islam",
+          "A person born in a particular country",
+          "Only someone who speaks Arabic",
+          "Only someone belonging to a particular culture"
+        ],
+        "correct_answer": "A person who accepts Islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Who Is a Muslim?",
+        "topic": "Muslim identity",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-016": {
+      "source": {
+        "question_tr": "Bir arkadaşın “Müslüman olmak için belli bir milletten gelmek gerekir.” diyor. Bu ünitedeki bilgiye göre en uygun cevap hangisi?",
+        "explanation_tr": "Ünitenin temel çerçevesinde Müslüman kimliği belirli bir soy, ülke veya millet şartına bağlanmıyor.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır; İslam’ı benimsemek belirli bir millete bağlı değildir.",
+          "Evet; Müslümanlık yalnızca tek bir millete aittir.",
+          "Sadece aynı dili konuşanlar Müslüman olabilir.",
+          "Müslümanlık yalnızca doğum yerine göre belirlenir."
+        ],
+        "correct_answer": "Hayır; İslam’ı benimsemek belirli bir millete bağlı değildir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A friend says, 'You must come from a particular nationality to be Muslim.' According to this unit, what is the most appropriate response?",
+        "explanation_tr": "The unit's main framework does not make Muslim identity conditional on a particular ancestry, country or nationality.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "No; accepting Islam is not tied to a particular nationality.",
+          "Yes; being Muslim belongs only to one nationality.",
+          "Only people who speak the same language can be Muslim.",
+          "Being Muslim is determined only by birthplace."
+        ],
+        "correct_answer": "No; accepting Islam is not tied to a particular nationality.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Who Is a Muslim?",
+        "topic": "Muslim identity",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-017": {
+      "source": {
+        "question_tr": "Üç açıklama bu ünitedeki kavramlarla uyumlu. Hangisi uyumlu değildir?",
+        "explanation_tr": "İlk üç ifade bölümdeki iman, ibadet ve ahlak ayrımına uygundur; Müslüman kimliği ise belirli bir millete bağlanmaz.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman: kalben inanma ve kabul etme ile ilgilidir.",
+          "İbadet: Allah’a kulluk yönü taşıyan davranışlarla ilgilidir.",
+          "Ahlak: davranış ve tutumlarla ilgilidir.",
+          "Müslümanlık: yalnızca belirli bir millete ait olmaktır."
+        ],
+        "correct_answer": "Müslümanlık: yalnızca belirli bir millete ait olmaktır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Three descriptions fit the concepts in this unit. Which does not?",
+        "explanation_tr": "The first three statements fit the section's distinction between faith, worship and good character; Muslim identity is not tied to a particular nationality.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Faith: involves believing and accepting in the heart.",
+          "Worship: involves actions directed towards devotion to Allah.",
+          "Good character: involves behaviour and attitudes.",
+          "Being Muslim: means belonging only to a particular nationality."
+        ],
+        "correct_answer": "Being Muslim: means belonging only to a particular nationality.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Who Is a Muslim?",
+        "topic": "The concepts of faith, worship and good character",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-018": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlak arasındaki ilişkiyi en iyi hangi kart anlatır?",
+        "explanation_tr": "Bölümde iman, ibadet ve ahlak birbirine eşitlenmeden aralarındaki bağın fark edilmesi hedefleniyor.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Farklı kavramlardır ama birbirinden tamamen kopuk değildir.",
+          "Üçü tam olarak aynı kavramdır.",
+          "Birbirleriyle hiçbir ilişkileri yoktur.",
+          "Sadece ahlak önemlidir; diğer ikisi gereksizdir."
+        ],
+        "correct_answer": "Farklı kavramlardır ama birbirinden tamamen kopuk değildir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Which card best describes the relationship between faith, worship and good character?",
+        "explanation_tr": "The section aims to recognise the connection between faith, worship and good character without treating them as identical.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "They are distinct concepts but are not completely disconnected.",
+          "All three are exactly the same concept.",
+          "They have no relationship with each other.",
+          "Only good character matters; the other two are unnecessary."
+        ],
+        "correct_answer": "They are distinct concepts but are not completely disconnected.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Who Is a Muslim?",
+        "topic": "The relationship between faith, worship and good character",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-019": {
+      "source": {
+        "question_tr": "Bir arkadaşın “Kur’an ve peygamber bu ünitede neden birlikte anlatılıyor?” diye soruyor. En uygun cevap hangisi?",
+        "explanation_tr": "Ünitede Kur’an temel rehber, Hz. Muhammed ise peygamber ve örnek rehber olarak ele alınıyor.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur’an temel rehberdir; Hz. Muhammed de peygamber ve örnek rehberdir.",
+          "İkisi de yalnızca tarih öğrenmek içindir.",
+          "Kur’an günlük hayatla ilgili değildir.",
+          "Peygamberin rehberliği sadece yaşadığı dönemle sınırlıdır."
+        ],
+        "correct_answer": "Kur’an temel rehberdir; Hz. Muhammed de peygamber ve örnek rehberdir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "A friend asks, 'Why are the Quran and the prophet discussed together in this unit?' What is the most appropriate response?",
+        "explanation_tr": "The unit considers the Quran the main guide and Prophet Muhammad a prophet and an exemplary guide.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "The Quran is the main guide; Prophet Muhammad is also a prophet and an exemplary guide.",
+          "Both are only for learning history.",
+          "The Quran is unrelated to everyday life.",
+          "The prophet's guidance is limited only to the period in which he lived."
+        ],
+        "correct_answer": "The Quran is the main guide; Prophet Muhammad is also a prophet and an exemplary guide.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Who Is a Muslim?",
+        "topic": "The guidance of the Quran and the prophet",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S02-020": {
+      "source": {
+        "question_tr": "Üç ifade bölümdeki rehberlik anlayışıyla uyumlu. Hangisi uyumlu değildir?",
+        "explanation_tr": "Ünitede Kur’an yalnızca geçmiş bilgisi veren bir metin olarak değil, Müslümanlar için rehber olarak ele alınıyor.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Kur’an Müslümanlar için temel rehberdir.",
+          "Hz. Muhammed peygamber ve örnek rehberdir.",
+          "Kur’an ve peygamber bilgisi davranışları anlamaya da yardım eder.",
+          "Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır."
+        ],
+        "correct_answer": "Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Three statements fit this section's understanding of guidance. Which does not?",
+        "explanation_tr": "The unit considers the Quran a guide for Muslims, rather than merely a text about the past.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "The Quran is the main guide for Muslims.",
+          "Prophet Muhammad is a prophet and an exemplary guide.",
+          "Knowing about the Quran and the prophet also helps us understand behaviour.",
+          "The Quran is only a history book about past events."
+        ],
+        "correct_answer": "The Quran is only a history book about past events.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Who Is a Muslim?",
+        "topic": "The guidance of the Quran and the prophet",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

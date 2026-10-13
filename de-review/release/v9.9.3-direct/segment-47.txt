@@ -1,0 +1,23 @@
+
+<style id="deen-v10940-quran-analytics-css">
+.deen-qan{margin-top:10px;padding:10px;border:1px solid #27444a;border-radius:12px;background:#09242c;color:#86a39f;font:700 7.5px/1.4 Inter,system-ui,sans-serif}
+</style>
+<script id="deen-v10940-quran-analytics-js">
+(()=>{if(window.__deenV10940QuranAnalytics)return;window.__deenV10940QuranAnalytics=true;
+const ALLOWED_EVENTS=new Set(['learn_open','mem_open','practice_open','review_open','daily_open','word_open','plan_start','audio_play','correct','wrong']);
+const ALLOWED_KEYS=new Set(['surahId','mode','type','outcome']);
+const day=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+function root(){const q=DEEN_QURAN.ensureState();q.analytics=q.analytics&&typeof q.analytics==='object'?q.analytics:{days:{},endpoint:'',enabled:true};q.analytics.days=q.analytics.days||{};return q.analytics}
+function cleanProps(p={}){const o={};for(const [k,v] of Object.entries(p))if(ALLOWED_KEYS.has(k)&&typeof v==='string'&&v.length<=32)o[k]=v;return o}
+function track(event,props={}){if(!ALLOWED_EVENTS.has(event)||root().enabled===false)return false;const a=root(),k=day(),d=a.days[k]=a.days[k]||{events:{},dimensions:{}};d.events[event]=(d.events[event]||0)+1;const c=cleanProps(props);for(const [x,v] of Object.entries(c)){const z=x+':'+v;d.dimensions[z]=(d.dimensions[z]||0)+1}const cutoff=new Date(Date.now()-90*86400000);for(const x of Object.keys(a.days))if(new Date(x+'T12:00:00')<cutoff)delete a.days[x];DEEN_QURAN.persistState?.();return true}
+function summary(days=30){const a=root(),cut=Date.now()-days*86400000,out={events:{},dimensions:{},days:0};for(const [k,d] of Object.entries(a.days)){if(Date.parse(k+'T12:00:00')<cut)continue;out.days++;for(const [e,n] of Object.entries(d.events||{}))out.events[e]=(out.events[e]||0)+n;for(const [x,n] of Object.entries(d.dimensions||{}))out.dimensions[x]=(out.dimensions[x]||0)+n}return out}
+function configure(endpoint){root().endpoint=String(endpoint||'').trim();DEEN_QURAN.persistState?.();return root().endpoint}
+async function flush(){const a=root();if(!/^https:\/\//.test(a.endpoint))return{sent:false,reason:'endpoint_not_configured'};const payload={schema:1,period:summary(30),generatedAt:new Date().toISOString()};const r=await fetch(a.endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)});return{sent:r.ok,status:r.status}}
+function wrap(obj,name,event,props){const b=obj?.[name];if(typeof b!=='function'||b.__qAnalytics)return;const w=function(){track(event,typeof props==='function'?props(arguments):{});return b.apply(this,arguments)};w.__qAnalytics=true;obj[name]=w}
+wrap(DEEN_QURAN,'openSurah','learn_open',a=>({surahId:String(a[0]||'')}));wrap(DEEN_QURAN,'memorize','mem_open',a=>({surahId:String(a[0]||'')}));wrap(DEEN_QURAN,'practice','practice_open',a=>({surahId:String(a[0]||''),type:String(a[1]||'')}));wrap(DEEN_QURAN_SRS,'openReview','review_open');wrap(DEEN_QURAN_DAILY,'open','daily_open');wrap(DEEN_QURAN_WORD_INTEL,'open','word_open');wrap(DEEN_QURAN_PLAN,'start','plan_start');wrap(DEEN_QURAN_AUDIO,'play','audio_play',a=>({surahId:String(a[0]||'')}));
+function audit(){const s=JSON.stringify(root());const banned=['arabic','translation','reviewer','name','email','text'];return{ok:!banned.some(x=>s.includes('"'+x+'"')),days:Object.keys(root().days).length,endpointConfigured:/^https:\/\//.test(root().endpoint)}}
+function injectAdmin(){const b=document.getElementById('deenAdminBody');if(!b||document.getElementById('deenQuranAnalyticsAdmin'))return false;const s=summary(30);b.insertAdjacentHTML('beforeend','<section class="deen-admin-section" id="deenQuranAnalyticsAdmin"><h3>KUR’AN · PRODUCT ANALYTICS</h3><div class="deen-qan">Local-only varsayılan · PII ve ayet/metin içeriği tutulmaz.<br>30 gün event: '+Object.values(s.events).reduce((a,b)=>a+b,0)+' · aktif gün: '+s.days+'<br>Harici endpoint: '+(root().endpoint?'yapılandırıldı':'kapalı')+'</div></section>');return true}
+if(typeof MutationObserver!=='undefined')new MutationObserver(injectAdmin).observe(document.body,{childList:true,subtree:true});
+window.DEEN_QURAN_ANALYTICS={track,summary,configure,flush,audit,allowedEvents:[...ALLOWED_EVENTS]};setTimeout(injectAdmin,0);document.documentElement.dataset.deenQuranAnalytics='v10940';
+})();
+</script>

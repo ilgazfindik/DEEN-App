@@ -1,0 +1,6 @@
+/* DEEN v8.3.3 — single compact face renderer */
+#v812Wardrobe .v832u-avatar-slot>.v831-stack,
+#v812Wardrobe .v832u-avatar-slot>.v832z-face-canvas{display:none!important}
+#v812Wardrobe .v833-face-canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;pointer-events:none!important}
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot{z-index:6!important;overflow:hidden!important}
+#v812Wardrobe .v832u-canvas[data-gender="male"] .v832u-avatar-slot{z-index:6!important;overflow:visible!important;border-radius:0!important}

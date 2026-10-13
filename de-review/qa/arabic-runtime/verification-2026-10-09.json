@@ -1,0 +1,81 @@
+{
+  "performance": {
+    "idleSeconds": 5,
+    "taskSeconds": 0.634699,
+    "heapBefore": 24515092,
+    "heapAfter": 15785312,
+    "idleLongTasks": []
+  },
+  "observerCountBefore": 29,
+  "observerCountAfter": 29,
+  "activeObservers": 26,
+  "listenersBefore": 423,
+  "listenersAfter": 423,
+  "heapAfterRender": 18700808,
+  "rendered": 1584,
+  "baseRendered": 1500,
+  "activeBankCount": 1484,
+  "localeReload": true,
+  "errors": [],
+  "types": {
+    "multiple_choice": 337,
+    "true_false": 161,
+    "fill_blank": 158,
+    "matching": 153,
+    "missing_item": 90,
+    "scenario": 288,
+    "error_spotting": 146,
+    "speed_review": 67,
+    "progressive_recall": 99,
+    "listening_select": 7,
+    "listening_meaning": 6,
+    "build_sequence": 38,
+    "next_word": 6,
+    "card_choice": 14,
+    "odd_one_out": 14
+  },
+  "reviews": [
+    {
+      "mode": "smart",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    },
+    {
+      "mode": "quick",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    },
+    {
+      "mode": "mistakes",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    },
+    {
+      "mode": "weak",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    },
+    {
+      "mode": "due",
+      "started": true,
+      "adaptive": true,
+      "arabic": true
+    }
+  ],
+  "version": "9.12.70",
+  "build": "9390cssarabic1",
+  "applicationCommit": "7adccae95f2628a6d10f7a0ca7b765319a37f302",
+  "stages": 105,
+  "started": 105,
+  "macros": 75,
+  "introductions": 75,
+  "longTaskCount": 404,
+  "maxLongTaskMs": 500,
+  "totalObserverCallbacks": 323329,
+  "totalObservedMutations": 2708245,
+  "totalObserverCallbackMs": 3571.2000000053085
+}

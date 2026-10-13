@@ -1,0 +1,7 @@
+/* DEEN v8.4.5 — clothing UI hidden without touching shared avatar render surfaces */
+#v812Wardrobe [data-v812-cat="outfit"],
+#v812Wardrobe [data-v812-sub="outfit"],
+#v812Wardrobe [data-v812-sub="worldOutfit"],
+#v812Wardrobe .v812-outfit{
+ display:none!important;
+}

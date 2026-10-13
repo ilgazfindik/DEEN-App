@@ -1,0 +1,18 @@
+/* DEEN v8.3.7 — authoritative female wardrobe renderer */
+#v812Wardrobe .v832u-canvas.v837-ready{z-index:80!important;overflow:visible!important}
+#v812Wardrobe .v837-final-canvas{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ display:block!important;z-index:80!important;pointer-events:none!important;
+ image-rendering:auto!important;filter:drop-shadow(0 10px 16px rgba(0,0,0,.18))!important
+}
+#v812Wardrobe .v832u-canvas.v837-ready[data-gender="female"]>.v832u-outfit,
+#v812Wardrobe .v832u-canvas.v837-ready[data-gender="female"]>.v832u-avatar-slot,
+#v812Wardrobe .v832u-canvas.v837-ready[data-gender="female"]>.v834-composite-canvas,
+#v812Wardrobe .v832u-canvas.v837-ready[data-gender="female"]>.v835-face-overlay,
+#v812Wardrobe .v832u-canvas.v837-ready[data-gender="female"]>.v836-final-canvas{
+ display:none!important;opacity:0!important;visibility:hidden!important
+}
+#v812Wardrobe .v832k-mannequin:has(.v832u-canvas.v837-ready)>.v832k-body-svg,
+#v812Wardrobe .v832k-mannequin:has(.v832u-canvas.v837-ready)>.v832k-head-slot,
+#v812Wardrobe .v832k-mannequin:has(.v832u-canvas.v837-ready)>.v832s-garment{display:none!important}
+#v812Wardrobe .v832u-canvas:not(.v837-ready)>.v837-final-canvas{display:none!important}

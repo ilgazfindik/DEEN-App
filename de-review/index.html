@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>DEEN · Almanca İnceleme (Onaysız Taslak)</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
+.logo{font-size:27px;font-weight:900;letter-spacing:5px;color:#91e2ca}
+.sub{margin-top:12px;color:#9db4b8;font-size:13px}.err{color:#f1b0b4}
+</style>
+</head>
+<body>
+<div class="boot"><div><div class="logo">DEEN</div><div class="sub" id="status">DEEN yükleniyor…</div></div></div>
+<script>
+(()=>{'use strict';
+ const ok=location.hostname==='ilgazfindik.github.io'&&location.pathname.startsWith('/DEEN-App/de-review/');
+ if(!ok)return;
+ const realLocal=window.localStorage,realSession=window.sessionStorage;
+ function scoped(storage,prefix){
+  function keys(){const a=[];for(let i=0;i<storage.length;i++){const k=storage.key(i);if(k?.startsWith(prefix))a.push(k.slice(prefix.length))}return a}
+  const api={getItem(k){return storage.getItem(prefix+String(k))},setItem(k,v){storage.setItem(prefix+String(k),String(v))},
+   removeItem(k){storage.removeItem(prefix+String(k))},clear(){for(const k of keys())storage.removeItem(prefix+k)},
+   key(i){return keys()[i]??null},get length(){return keys().length}};
+  return new Proxy(api,{get(t,k){return Reflect.has(t,k)?Reflect.get(t,k):typeof k==='string'?t.getItem(k)??undefined:undefined},
+   set(t,k,v){if(typeof k!=='string'||Reflect.has(t,k))return false;t.setItem(k,v);return true},
+   deleteProperty(t,k){if(typeof k!=='string')return false;t.removeItem(k);return true}});
+ }
+ const local=scoped(realLocal,'deen-review-v1:');
+ Object.defineProperty(window,'localStorage',{configurable:true,value:local});
+ Object.defineProperty(window,'sessionStorage',{configurable:true,value:scoped(realSession,'deen-review-session-v1:')});
+ window.__DEEN_REVIEW_ISOLATED__=true;
+ if(!local.getItem('deen_app_language_v1'))local.setItem('deen_app_language_v1','de');
+})();
+</script>
+<script>
+(async()=>{
+ const status=document.getElementById('status');
+ const BUILD='9408enfiveuiscreens1-ikhlasdeqa1-DE-REVIEW-20261013';
+ if(!window.__DEEN_REVIEW_ISOLATED__)throw Error('DE_REVIEW_STORAGE_ISOLATION_REQUIRED');
+ // Keep both locales available for safe in-app language changes.
+ let SEGMENT_COUNT=67;
+ const CONCURRENCY=6;
+ const CACHE_NAME='deen-review-release-'+BUILD;
+ async function buildGermanReviewParts(){
+  const paths=[];
+  for(let u=1;u<=15;u++)for(let s=1;s<=7;s++)
+   paths.push('./assets/i18n/questions/de/staging/U'+String(u).padStart(2,'0')+'-S'+String(s).padStart(2,'0')+'.json');
+  for(let s=1;s<=7;s++)
+   paths.push('./assets/i18n/questions/de/runtime/staging/U01-S'+String(s).padStart(2,'0')+'.live.json');
+  paths.push('./assets/i18n/questions/de/runtime/staging/U01.variants.json',
+   './assets/i18n/questions/de/runtime/staging/U01.legacy-renderer.json');
+  if(paths.length!==114)throw Error('DE_REVIEW_EXPECTED_114_PACKS');
+  const out=[];
+  for(let n=0;n<paths.length;n+=12){
+   const group=await Promise.all(paths.slice(n,n+12).map(async path=>{
+    const res=await fetch(path+'?review='+encodeURIComponent(BUILD),{cache:'no-store'});
+    if(!res.ok)throw Error('DE_REVIEW_PACK_HTTP:'+path+':'+res.status);
+    const source=await res.text(),record=JSON.parse(source);
+    if(record.locale!=='de'||record.schema_version!==1||
+      record.expert_approved!==false||record.native_reviewer_approved!==false||
+      record.verified_by_religious_expert!==false)
+      throw Error('DE_REVIEW_UNAPPROVED_SOURCE_MISMATCH:'+path);
+    const count=Object.keys(record.translations||{}).length;
+    const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(source));
+    const sha256=[...new Uint8Array(bytes)].map(x=>x.toString(16).padStart(2,'0')).join('');
+    return {path,count,sha256};
+   }));
+   out.push(...group);
+   status.textContent='Almanca test içeriği doğrulanıyor… '+out.length+'/114';
+  }
+  if(out.reduce((sum,x)=>sum+x.count,0)!==1704)throw Error('DE_REVIEW_EXPECTED_1704_VERSIONS');
+  return out;
+ }
+ const reviewPartsPromise=buildGermanReviewParts();
+
+
+ // Install a same-scope offline shell. Failure must not block online startup.
+ // The 67 release segment SHA-256 checks remain the final integrity authority.
+ if(false&&'serviceWorker' in navigator&&window.isSecureContext){
+  navigator.serviceWorker.register('./sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa15',
+   {scope:'./',updateViaCache:'none'}).catch(err=>{
+    console.warn('[DEEN offline]',String(err?.message||err));
+   });
+ }
+
+ const segmentName=i=>'segment-'+String(i).padStart(2,'0')+'.txt';
+ const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+
+ const SEGMENT_HASHES=/* DEEN_HASHES_START */["2f3dda424353e8c42dd5edddfff9724c326a32b98435275a0a3575ffdd186510","22205ef93e4f66efc4987ce5fc2fbf1608a27234fe4b750925289fab253f5aef","38ff099fb69f578815c870077ebdb119a112707bca945e30ae7aa40226dd43e8","8b10da8f5432ae9dfdd131a1aa4915af5a3c6bade73aba868ef1dce8062d9d97","63082642ccf06eef7f2ecbaaef7ee2f93638d40533a5cba7525db57307048ce2","a1876af3b8a3bc9e39c53983242252b03f017d744ed3eb80709492ecd0293731","672d4a8a779373d82932dc594a933fb18c4af831f942e45dba6059d526518887","42ff201a271151ed3e8bee9f18c4d591e8ae347c0ca2967e8fe9f6983ac5d067","03eb8b1a05a0fa03d269a4a7ce32de460bd158bb0f9999c299ad5ba69a72bf5d","616b9677908b80169848a118023301a749cb702a90d682eae08b54ba322eae56","c9ae27e52929713187573f7d0d8d433a8e31ea850211b6b661f374b9aa83e46d","14d582d9aa3c4b838dbcc64a1ecffbce74ed774cae57cb481647437b92d52c49","d7e80475b595eff06ff9830bb51931f8eeb538975935f6b2be21735ff52f121b","90ecb8c5087e2b5b996bd0da981cf519dc9468793944aafccbcd94eb0cf16e69","384f02bde09cdb3633926e2206e829bcd3d19a91934c807100982798f0d97d2b","e4275ee68e48e3a595611589fedf7481d33f7477ae2ea09709a6aebdd6afbb8a","89128a4318864e6022edd4b112d095a7fadd7906214fa7832cc8778b916052c2","402512b0ab34d0e557f60e75010fd7fb9d9a48ff84088309e54c66878fe1e244","a5376cc1afa515664c1a94850b7375a8a4f9309fd0946da391b7ce81954cf581","e7439df531fa199871af8a1afc526c87dad056e68683b8c2a635cac802899a57","18fece069c5ebbe6ddd3904c53092f82fb6b99b5295a142949871c332f121cfb","0016ae67c21f9e6ba882fc466ab70bf892e6af5394ae4bef93e6220709d158ab","3b059355e5fa395511072211027ef2e1bf793d8eb2806370678344d4d57cc184","e9d0f060d737c697644faa9fe73f833cfc9068d19a40178f497732712a43bbfc","8817c0971005940a5079a3536d513d3b91b162954d780990af91cd39d0957d1f","d793b439089cce1d4ff8fb3e4e7d4b375d0048703915907a3abb192d2b38e796","995a89b0db94499f336e3deb9519aad072fc4f00f09baa79e4a26662696c70ed","6ef79d62ed29584186ac7abfce4db8d1e271e40fb576e57521cc4c34c76cc38c","695f65d57482d57ceb4d795f9dfb2581fcb9e70fa01cc426516449155423a17c","a31af4efc96ceb41b9612d61f8632d9e2ef8a4345b99dc30e0be74285703a132","0496b2977b9a2c8fe7962900fb1f095e572785465443b46b27786f4bcb1facf8","7e716e94409fd55c35de28e24433d282144ab2ee4453001e460b4d665edcd3dc","3c95657e9fcee7435a36fd916f3d155dc0646a836b1871871df057bfc6848902","eaf2b54e6f4a6b56d2579db266d589352d5662854fbb048ea10f70b2ed9bbec7","427737ca782885fb717be5eb4582c2148ea786f25eb1e6f2d70ed6e3692a4cbb","cdbddda49634578d0bb9dfc7f9f74c0155be4d09884863c4809f10c4d25d6483","31793dd2b0d7dc39f211e1051112776b5b6b98619ecefd46127afc23feb161b3","c6c0bde93f0beafa14f9f43a819880f0ec737776d43de911044353e9d450f3e6","23df90daf3440bc9207590972e856a145ecc0d82727beb82de59b096eeaea5dd","349309c3f0832f1ddbc45d3d852f2de0f969e9c03f9edc80d61934fdaa0bff74","4f8765bd8a97ab3933a71320eeeb7a3c838194bc88878c44fc99915fd41435ee","b07488d819bc99e8149bab4da1dcd5f492c9cc08d45ac16218284fa55edc0ef8","5615ef2cf4a699545b659f0ff10213b9af2e1813d83cb28051148faaddbb8b12","df9b5dc7eb247ad64995e6e089477cfcd7ae6c0075ccfa35b5f9dabd2606cda0","2736decd3b145d04c1252a995f57fa4917d5a36adfdd3bd10cdcd0b1b1f8d515","d35c1dfe7010afce9f10f62914b45f13f40041b33753eb1747db34d8e71b004d","b29abe41a2fe262982f6bba15b4352b829f769c0be26eaab73cf2cdd6672ce5e","41fb77ad7e247ffa349697611dbacc6e4ed50432fb90a56809bd19224d4005a3","53884d3816a368c247aa4379670a44be91f489fe05d088a6de004886162395ad","af242871cbd9f50252b2ff40fb830059cf88d02de3be782f8381bcf27f6db96a","e0eb15b331b4cba2cf25228881f335e366a2e21b89c80168bd6186c21f372936","58a17e0755902717e8e7a43f581c1ea1dbb809e86e0391528a2fc07a9280e1d5","ac505ed3c15c13b35c04604673bb146b3182f74207b596d5ccfc447e7b02ae28","1147a30672a4798f2fbbd9918c3297884478d67deeb13174fbb7360efdd6b71c","5281aa8e3f82b22d22729dbaeee36b97587407bf17740eb61e66e690dbd91460","e9b914e20c240eb86d43c55d7913c04c04422efeb5c87b950653aa5a21c28799","5bbcf9a697ef79e43870ffd87602c69aa9af1c4775ad88a506133e1074e563e8","7975801598f2b66f0a2af6593a54c6b870026742f8999bd6e32f7ab6d94d224b","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","0c2e1f42599ed83d611c065f0be4cb654180be2bc51b1bc37a10efb5af12616d","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","f2f5bdfba2ea7f8f8bf543581e43e464716f06169a3ba761cbe6136edb9c59ea","9d03fe6c3aef090c366e6b7a737edff49c4d953115dfcfa1b7786ec643efdde3"]/* DEEN_HASHES_END */;
+ const ASSET_HASHES=/* DEEN_ASSET_HASHES_START */{"locale.js":"0c53299666d069da7a308f0275c0b1be296697773f3e7bba502f187adf5b252e","locale.css":"0344fdd36a4166fdfaf43fcc6a6fb9aecd4f406ae68096be9f7c15b902260e4e","content.js":"3eafce8559af0015e589e2422a49a36854b47ea781c55af46cd59b429cf77688","content-support.json":"15c5c0117ef7025f658f2de173e6c6df651918126a21d9e5f86ccbe99eebc296","boot.js":"8644ac627e9502e4a59bd14f68357fea24cbd4a113098dea4d50605dbeba7bdb","boot.css":"928d7a9de82bc45e36fa50fda673464adc3e2c8c3d9e5f1dad0652e4fc8f272c","english-ui.js":"d7609826464e483e2726197fd3f179aa6bb0f79613f94f5d4fefbe8ca16103eb"}/* DEEN_ASSET_HASHES_END */;
+ async function validSegment(i,text){
+   if(typeof text!=='string')return false;
+   if(i===0&&!/^\s*<!doctype html>/i.test(text))return false;
+   if(text.length<128&&!text.includes('DEEN_RETIRED_SEGMENT_OK'))return false;
+   if(!SEGMENT_HASHES[i])return false;
+   const bytes=new TextEncoder().encode(text);
+   const digest=await crypto.subtle.digest('SHA-256',bytes);
+   const hash=Array.from(new Uint8Array(digest),n=>n.toString(16).padStart(2,'0')).join('');
+   return hash===SEGMENT_HASHES[i];
+ }
+
+ async function fetchText(url,timeoutMs){
+   const controller=new AbortController();
+   const timer=setTimeout(()=>controller.abort(),timeoutMs);
+   try{
+     const r=await fetch(url,{cache:'no-store',signal:controller.signal});
+     if(!r.ok)throw new Error('HTTP '+r.status);
+     return await r.text();
+   }finally{
+     clearTimeout(timer);
+   }
+ }
+
+ async function loadAsset(name){
+   const expected=ASSET_HASHES[name];if(!expected)throw Error('ASSET_NOT_IN_MANIFEST:'+name);
+   const local='./assets/i18n/'+name+'?v='+BUILD;
+   const snapshot='5f2a9e62b572a1484410a9c57ac4d0de3411cd64';
+   const sources=[local,'https://raw.githubusercontent.com/ilgazfindik/DEEN-App/'+snapshot+'/assets/i18n/'+name];
+   for(const source of sources){
+     try{
+       const text=await fetchText(source,12000),digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
+       const hash=Array.from(new Uint8Array(digest),n=>n.toString(16).padStart(2,'0')).join('');
+       if(hash===expected)return text;
+     }catch(_){}
+   }
+   throw Error('ASSET_INTEGRITY_FAILED:'+name);
+ }
+
+ async function cacheOpen(){
+   if(!('caches' in window))return null;
+   try{return await caches.open(CACHE_NAME)}catch(_){return null}
+ }
+
+ async function cachedSegment(cache,key,i){
+   if(!cache)return null;
+   try{
+     const hit=await cache.match(key);
+     if(!hit)return null;
+     const text=await hit.text();
+     if(await validSegment(i,text))return text;
+     await cache.delete(key);
+   }catch(_){}
+   return null;
+ }
+
+ async function saveSegment(cache,key,text){
+   if(!cache)return;
+   try{
+     await cache.put(key,new Response(text,{
+       headers:{'Content-Type':'text/plain; charset=utf-8','X-DEEN-Build':BUILD}
+     }));
+   }catch(_){}
+ }
+
+ async function loadSegment(i,cache){
+   const name=segmentName(i);
+   const local='./release/v9.9.3-direct/'+name;
+   const localKey=local+'?v='+BUILD;
+
+   // Exact-build cache is safe: a new release always has a new BUILD token.
+   const cached=await cachedSegment(cache,localKey,i);
+   if(cached)return cached;
+
+   // Immutable source fallback: never mix 'main' revisions during a release.
+   // Both sources are checked against the exact same SHA-256 manifest.
+   const snapshot='5f2a9e62b572a1484410a9c57ac4d0de3411cd64';
+   const immutable='https://raw.githubusercontent.com/ilgazfindik/DEEN-App/'+snapshot+'/release/v9.9.3-direct/'+name;
+   const attempts=[{url:localKey,timeout:6500},{url:local+'?v='+BUILD+'&retry=1',timeout:6500},{url:immutable+'?build='+BUILD,timeout:12000}];
+
+   let lastError=null;
+   for(let n=0;n<attempts.length;n++){
+     try{
+       const text=await fetchText(attempts[n].url,attempts[n].timeout);
+       if(!await validSegment(i,text))throw new Error('geçersiz veya eksik segment');
+       await saveSegment(cache,localKey,text);
+       return text;
+     }catch(err){
+       lastError=err;
+       if(n<attempts.length-1)await sleep(220*(n+1));
+     }
+   }
+   throw new Error('Release segment '+i+' yüklenemedi'+(lastError?.message?' ('+lastError.message+')':''));
+ }
+
+ async function loadAll(cache){
+   const out=new Array(SEGMENT_COUNT);
+   let cursor=0,done=0;
+   async function worker(){
+     while(true){
+       const index=cursor++;
+       if(index>=SEGMENT_COUNT)return;
+       out[index]=await loadSegment(index,cache);
+       done++;
+       const progress=Math.floor(done/SEGMENT_COUNT*90);
+       status.textContent=window.DEEN_I18N?DEEN_I18N.t('loading'):'DEEN açılıyor…';
+       const bar=document.getElementById('deen-boot-progress-fill');
+       if(bar)bar.style.width=progress+'%';
+     }
+   }
+   const workers=Array.from({length:Math.min(CONCURRENCY,SEGMENT_COUNT)},()=>worker());
+   await Promise.all(workers);
+   return out;
+ }
+
+ function assemble(parts){
+   let html=parts[0]+'\n'+parts[1]+'\n';
+   for(let n=2;n<=8;n++)html+=parts[n];
+   html+='\n';
+   for(let n=9;n<parts.length;n++)html+=parts[n]+(n<parts.length-1?'\n':'');
+   html=html.replace('<head>','<head><script>window.__DEEN_WORLD_RETIRED_RUNTIME__=true;window.__DEEN_LEGACY_AVATAR_RETIRED__=true;<\/script>');
+   return html;
+ }
+
+ function validateRelease(html){
+   if(!html.startsWith('<!doctype html>'))throw new Error('Kaynak başlığı doğrulanamadı');
+
+   const forbidden=[
+     'deen-v874-admin-question-inspector-runtime',
+     'deen-v875-admin-control-runtime',
+     'deen-v980-content-audit-js',
+     'DEEN_CONTENT_AUDIT',
+     'deen-v990-beta-js',
+     'DEEN_BETA_TEST',
+     'deen-beta-open',
+     'deen-v9910-admin-test-panel-js'
+   ];
+   const leaked=forbidden.find(marker=>html.includes(marker));
+   if(leaked)throw new Error('Production güvenlik kontrolü başarısız: '+leaked);
+
+   const required=[
+     ['deen-v993-stage-intro-css','v9.9.3 bölüm giriş paketi eksik'],
+     ['deen-v993-production-guard','Production guard eksik'],
+     ['deen-v994-animal-companion-js','Hayvan yol arkadaşı paketi eksik'],
+     ['deen-v995-world-retirement-js','Dünyam retirement paketi eksik'],
+     ['deen-v996-onboarding-flow-js','Onboarding akış düzeltmesi eksik'],
+     ['deen-v997-profile-companion-sync-js','Profil hayvan senkronizasyonu eksik'],
+     ['deen-v998-premium-onboarding-js','Premium onboarding paketi eksik'],
+     ['deen-v999-reference-hero-css','Referans onboarding görseli eksik'],
+     ['deen-v999-animal-art-css','Hayvan görsel paketi eksik'],
+     ['deen-v9912-auth-mock-js','Görsel giriş sağlayıcıları eksik'],
+     ['deen-v9913-mobile-lesson-fit-js','Mobil ders sığdırma paketi eksik'],
+     ['deen-v9914-ultra-clean-lesson-js','Ultra sade ders paketi eksik'],
+     ['deen-v9916-duo-question-templates-js','Odaklı soru şablonları eksik'],
+     ['deen-v9918-character-question-row-js','Karakterli soru satırı eksik'],
+     ['deen-v9920-premium-fill-reference-js','Premium fill lesson paketi eksik'],
+     ['deen-v9921-fill-dom-hotfix-js','Fill DOM hotfix paketi eksik'],
+     ['deen-v9922-premium-fill-polish-js','Premium fill polish paketi eksik'],
+     ['deen-v9923-companion-hero-cleanup-js','Companion hero cleanup paketi eksik'],
+     ['deen-v9925-mascot-medallion-css','Mascot medallion paketi eksik'],
+     ['deen-v9926-mascot-stability-css','Mascot stability paketi eksik'],
+     ['deen-v9927-companion-stage-js','Companion stage paketi eksik'],
+     ['deen-v9930-center-companion-row-js','Centered companion row paketi eksik'],
+     ['deen-v9931-safe-center-rollback-js','Safe center rollback paketi eksik'],
+     ['deen-v9933-screen-center-css','Strong screen center paketi eksik'],
+     ['deen-v9934-fixed-vertical-center-js','Fixed vertical center paketi eksik'],
+     ['deen-v9935-reference-balance-js','Reference balance paketi eksik'],
+     ['deen-v9936-companion-runtime-js','Companion runtime paketi eksik'],
+     ['deen-v9937-companion-lock-js','Companion lock paketi eksik'],
+     ['deen-v9939-all-companions-js','All companions paketi eksik'],
+     ['deen-v9941-boolean-screen-repair-js','Boolean screen repair paketi eksik'],
+     ['deen-v9942-companion-polish-js','Companion polish paketi eksik'],
+     ['deen-v9943-companion-weight-js','Companion visual-weight paketi eksik'],
+     ['deen-v9944-companion-reactions-js','Companion reaction paketi eksik'],
+     ['deen-v9945-feedback-layout-js','Feedback layout paketi eksik'],
+     ['deen-v9946-unified-companion-layout-js','Unified companion layout paketi eksik'],
+     ['deen-v9947-final-companion-stabilization-js','Final companion stabilization paketi eksik'],
+     ['deen-v9948-no-human-guide-js','No-human-guide paketi eksik'],
+     ['deen-v9950-companion-streak-js','Companion streak direct paketi eksik'],
+     ['deen-v9953-runtime-arbiter-js','Runtime arbiter paketi eksik'],
+     ['deen-v9988-runtime-regression-js','Runtime regression guard eksik'],
+     ['deen-v9988-release-freeze-js','Release freeze manifest eksik'],
+     ['deen-v9991-streak-reaction-bridge-js','Streak reaction bridge eksik'],
+     ['deen-v9992-feedback-companion-persistence-js','Feedback companion persistence eksik'],
+     ['deen-v9993-question-transition-js','Question transition stabilizer eksik'],
+     ['deen-v9994-combo-media-js','3x combo media overlay eksik'],
+     ['deen-v9995-combo-ensure-js','Guaranteed 3x combo trigger eksik'],
+     ['deen-v9996-combo-webm-js','3x combo WEBM celebration eksik'],
+     ['deen-v9997-combo-canvas-js','Lion combo canvas transparency fix eksik'],
+     ['deen-v9998-combo-motion-marker','Combo bottom-up motion refinement eksik'],
+     ['deen-v9999-combo-visibility-marker','Combo visibility watchdog eksik'],
+     ['deen-v9100-combo-visibility-final-marker','Combo final visibility fix eksik'],
+     ['deen-v9101-single-companion-combo-js','Single selected companion combo eksik'],
+     ['deen-v9102-authoritative-combo-js','Authoritative selected companion combo eksik'],
+     ['deen-v9103-direct-combo-js','Direct session combo celebration eksik'],
+     ['deen-v9104-lion-hires-marker','High-quality lion combo source eksik'],
+     ['deen-v9105-lion-asset-fix-marker','Complete lion combo asset fix eksik'],
+     ['deen-v9106-combo-tier-marker','3x/5x companion tier system eksik'],
+     ['deen-v1042-fill-balance-css','Fill viewport balance paketi eksik'],
+     ['deen-v1043-fill-feedback-handoff-css','Fill feedback handoff paketi eksik'],
+     ['deen-v1044-fill-freeze-js','Fill regression freeze paketi eksik'],
+     ['deen-v1045-matching-baseline-js','Matching authoritative baseline paketi eksik'],
+     ['deen-v1053-isolated-matching-engine-js','Isolated matching engine eksik'],
+     ['deen-v1054-matching-debug-js','Matching debug paketi eksik'],
+     ['deen-v1059-matching-freeze-js','Matching freeze paketi eksik'],
+     ['deen-v1060-matching-polish-css','Matching visual polish paketi eksik'],
+     ['deen-v1061-matching-final-polish-css','Final matching polish paketi eksik'],
+     ['deen-v1062-badge-art-css','Achievement badge artwork paketi eksik'],
+     ['deen-v10910-badge-surface-audit-js','Badge surface audit paketi eksik'],
+     ['deen-v10913-admin-panel-js','Authoritative kapsamlı admin paneli eksik'],
+     ['deen-v10916-quran-hub-js','Kur’an öğrenme merkezi eksik'],
+     ['deen-v10917-quran-data-js','Kur’an veri mimarisi eksik'],
+     ['deen-v10918-quran-dashboard-js','Kur’an premium dashboard eksik'],
+     ['deen-v10919-quran-library-js','Kur’an sure kütüphanesi eksik'],
+     ['deen-v10920-quran-content-registry-js','Kur’an doğrulanmış içerik altyapısı eksik'],
+     ['deen-v10921-ikhlas-learning-js','İhlâs gerçek öğrenme motoru eksik'],
+     ['deen-v10922-ikhlas-memorization-js','İhlâs ezber motoru eksik'],
+     ['deen-v10923-quran-interactive-practice-js','Kur’an etkileşimli pratik motoru eksik'],
+     ['deen-v10924-quran-audio-engine-js','Kur’an ses motoru eksik'],
+     ['deen-v10925-quran-srs-js','Kur’an spaced repetition motoru eksik'],
+     ['deen-v10926-quran-daily-verse-js','Bugünün Ayeti doğrulanmış günlük kartı eksik'],
+     ['deen-v10927-quran-word-by-word-js','Kur’an kelime kelime öğrenme katmanı eksik'],
+     ['deen-v10928-quran-goals-progress-js','Kur’an hedefler ve ilerleme merkezi eksik'],
+     ['deen-v10929-quran-six-surah-js','Altı sure ortak öğrenme motoru eksik'],
+     ['deen-v10930-quran-final-qa-js','Kur’an final QA guard eksik'],
+     ['deen-v10931-quran-device-audit-js','Kur’an mobil cihaz QA katmanı eksik'],
+     ['deen-v10932-quran-expert-review-js','Kur’an uzman doğrulama paneli eksik'],
+     ['deen-v10933-quran-audio-provider-js','Kur’an backend-safe kıraat provider eksik'],
+     ['deen-v10934-quran-mascot-ux-js','Kur’an companion UX eksik'],
+     ['deen-v10935-juz-amma-js','Cüz Amma expansion catalog eksik'],
+     ['deen-v10936-quran-word-intel-js','Kur’an sık kelime zekâsı eksik'],
+     ['deen-v10937-quran-mem-v2-js','Kur’an ezber v2 eksik'],
+     ['deen-v10938-quran-personal-plan-js','Kur’an kişisel plan eksik'],
+     ['deen-v10939-quran-daily-center-js','Kur’an günlük merkez eksik'],
+     ['deen-v10940-quran-analytics-js','Kur’an analytics eksik'],
+     ['deen-v10941-quran-phase2-hub-js','Kur’an Phase 2 entegrasyon hub eksik'],
+     ['deen-v10942-quran-journey-v2-js','Kur’an Journey v2 progression motoru eksik'],
+     ['deen-qj2-gap','Sure bazlı Ayet ve Anlam Testi arayüzü eksik'],
+     ['data-qj2-fill-slot','Ayet Testi boşluk doldurma kelime yerleştirme eksik'],
+     ['data-qj2-drag-word','Ayet Testi sürükle bırak kelime mekanizması eksik'],
+     ['deen-qj2-audio-prompt','Ayet Testi sesli ayet soruları eksik'],
+     ['data-qj2-result-v2','Kur’an gelişmiş sonuç ekranı eksik'],
+     ['deen-qj2-language','Kur’an seçili dil soru sistemi eksik'],
+     ['deen-v91202-app-language-js','Merkezi uygulama dili sistemi eksik'],
+     ['deen-v91203-pickthall-english-js','İngilizce meal veri paketi eksik'],
+     ['function adaptiveSummary(id)','Akıllı soru motoru eksik'],
+     ['data-qj2-medals','Sure madalyaları paneli eksik'],
+     ['deen-v91206-verse-translation-js','Ayet altı seçili dil çevirisi eksik'],
+     ['deen-v91207-language-first-js','Altı dilde başlangıç seçim ekranı eksik'],
+     ['waitForLanguageFirst','Dil seçiminden önce karşılama açılmamalı'],
+     ['Hard prerequisite: even a direct onboarding(5) must ask for language first.','Dil sorusu hiçbir adımda atlanamaz'],
+     ['deen-v91210-arabic-js','Arapça arayüz dili katmanı eksik'],
+     ['function dailyJourney(id)','Kur’an günlük hedef sistemi eksik'],
+     ['deen-v10943-quran-audio-clickfix-js','Kur’an kıraat tıklama düzeltmesi eksik'],
+     ['deen-v10944-quran-chapter-audio-js','Kur’an sure seviyesinde gerçek ses oynatma eksik'],
+     ['deen-v10962-quran-universal-audio-js','Universal ayet sesi ve kelime senkron motoru eksik'],
+     ['deen-v10963-quran-question-arena-js','Kur’an soru arenası eksik'],
+     ['deen-v10964-quran-challenge-js','Kur’an challenge ve ustalık sistemi eksik'],
+     ['deen-v10965-quran-rewards-js','Kur’an ödül, günlük görev ve zayıf ayet sistemi eksik'],
+     ['deen-v10966-quran-hub-ia-js','Kur’an ana ekran bilgi mimarisi eksik'],
+     ['deen-v10973-quran-mobile-integration-js','Kur’an mobil entegrasyon katmanı eksik'],
+     ['deen-v10974-quran-ayet-test-js','Kur’an Ayet Testi ilk aşaması eksik'],
+     ['deen-v9960-lion-cat-streak-repair','Aslan ve kedi streak dosya onarımı eksik'],
+     ['deen-v9293-live-combo-source-fix','Aktif aslan ve kedi combo kaynak düzeltmesi eksik'],
+     ['deen-v1064-premium-welcome-css','Premium welcome screen paketi eksik'],
+     ['deen-v1065-welcome-rebuild-css','Welcome rebuild paketi eksik'],
+     ['deen-v1066-welcome-final-polish-css','Welcome final polish paketi eksik'],
+     ['deen-v1067-auth-logo-fix-css','Auth logo fix paketi eksik'],
+     ['deen-v1069-onboarding-animal-hq-css','HQ onboarding hayvan görsel paketi eksik'],
+     ['deen-v1070-animal-cards-individual-css','Bireysel HQ hayvan kartları paketi eksik'],
+     ['deen-v1072-onboarding-atlas-loader-css','HQ hayvan atlası asset loader eksik'],
+     ['deen-v1073-onboarding-inline-atlas-css','Inline HQ hayvan atlası eksik'],
+     ['deen-v1077-profile-avatar-assets-css','Profil şeffaf maskot görsel paketi eksik'],
+     ['deen-v1088-legacy-neon-persist-css','Kalıcı legacy neon ve bölüm giriş paketi eksik'],
+     ['deen-v1089-multilingual-typography-css','Çok dilli tipografi paketi eksik'],
+     ['deen-v1090-readability-guard-css','Global okunabilirlik paketi eksik'],
+     ['deen-v1091-typography-freeze-css','Tipografi freeze paketi eksik'],
+     ['deen-v1092-luxury-neon-home-css','Luxury neon ana ekran paketi eksik'],
+     ['deen-v1093-stage-transition-css','Animasyonlu bölüm giriş paketi eksik'],
+     ['deen-v1094-stage-launch-css','Animasyonlu ders başlatma paketi eksik'],
+     ['deenLiquidWipeMain','Liquid ders geçiş paketi eksik']
+   ];
+   const missing=required.find(([marker])=>!html.includes(marker));
+   if(missing)throw new Error(missing[1]);
+   return true;
+ }
+
+ async function cleanupOldCaches(){
+   if(!('caches' in window))return;
+   try{
+     const keys=await caches.keys();
+     await Promise.all(keys
+       .filter(k=>k.startsWith('deen-release-')&&k!==CACHE_NAME)
+       .map(k=>caches.delete(k)));
+   }catch(_){}
+ }
+
+ function showError(err){
+   console.error(err);
+   status.className='sub err';
+   status.textContent=window.DEEN_I18N?DEEN_I18N.t('loadError'):'DEEN açılamadı. Lütfen yeniden dene.';
+
+   const wrap=document.createElement('div');
+   wrap.style.marginTop='16px';
+
+   const retry=document.createElement('button');
+   retry.type='button';
+   retry.textContent=window.DEEN_I18N?DEEN_I18N.t('retry'):'Tekrar dene';
+   retry.style.cssText='border:1px solid #47726d;background:#0b302f;color:#dff8ef;border-radius:12px;padding:10px 16px;font-weight:800;cursor:pointer';
+   retry.onclick=()=>location.reload();
+
+   wrap.appendChild(retry);
+   status.parentElement?.appendChild(wrap);
+ }
+
+ try{
+   const [entryJs,entryCss]=await Promise.all([loadAsset('locale.js'),loadAsset('locale.css')]);
+   const css=document.createElement('style');css.textContent=entryCss;document.head.append(css);
+   const script=document.createElement('script');script.textContent=entryJs;document.head.append(script);
+   await new Promise(resolve=>{
+     const preview=new URL(location.href).searchParams.get('previewLanguage')==='1';
+     if(DEEN_I18N.hasPreference()&&!preview){window.__DEEN_BOOT_SELECTED_LANGUAGE__=DEEN_APP_LOCALE.get();DEEN_APP_LOCALE.persist();resolve();return;}
+     DEEN_I18N.showGate(lang=>{DEEN_APP_LOCALE.commit(lang);window.__DEEN_BOOT_SELECTED_LANGUAGE__=lang;resolve();});
+   });
+   status.textContent=DEEN_I18N.t('loading');
+   // Review must not delete the production app's caches.
+   // await cleanupOldCaches();
+   const cache=await cacheOpen();
+   const parts=await loadAll(cache);
+   let html=assemble(parts);
+   const [bootJs,bootCss,contentJs,support,englishUiJs]=await Promise.all(['boot.js','boot.css','content.js','content-support.json','english-ui.js'].map(loadAsset));
+   const sourceManifest=JSON.parse(support);
+   const realDE=sourceManifest.languages?.de;
+   if(realDE?.question_data!=='missing'||realDE?.global_qa!=='blocked'||realDE?.religious_expert_approved!==false)
+    throw Error('DE_REVIEW_SOURCE_RELEASE_GATE_CHANGED');
+   const reviewParts=await reviewPartsPromise;
+   window.__DEEN_CONTENT_MANIFEST__={...sourceManifest,__deenSyntheticGermanQA:true,
+    languages:{...sourceManifest.languages,de:{entry:'complete',question_data:'complete',
+     global_qa:'passed',religious_expert_approved:false,parts:reviewParts}}};
+
+   window.__DEEN_DEPLOY_ID__=BUILD;
+   const reviewBoot=bootJs.replace(
+    "['127.0.0.1','localhost'].includes(window.location.hostname)",
+    "window.location.hostname==='ilgazfindik.github.io'&&window.location.pathname.startsWith('/DEEN-App/de-review/')");
+   if(reviewBoot===bootJs)throw Error('DE_REVIEW_BOOT_GUARD_UNPATCHED');
+   const safeScript=text=>text.replace(/<\/script/gi,'<\\/script');
+   html=html.replace('<head>','<head><style>'+entryCss+'\n'+bootCss+'</style><script>'+safeScript(entryJs)+'<\/script><script>'+safeScript(contentJs)+'<\/script><script>'+safeScript(reviewBoot)+'<\/script>');
+   html+='<script>'+safeScript(englishUiJs)+'<\/script><script>DEEN_BOOT.start()<\/script>';
+
+   html+='<script src="./assets/i18n/german-review-bootstrap.js?v='+encodeURIComponent(BUILD)+'"><\/script>';
+
+   validateRelease(html);
+   status.textContent=DEEN_I18N.t('starting');
+   await new Promise(resolve=>setTimeout(resolve,180));
+
+   try{
+     const u=new URL(location.href);
+     if(u.searchParams.get('build')!==BUILD){
+       u.searchParams.set('build',BUILD);
+       history.replaceState(null,'',u.pathname+u.search+u.hash);
+     }
+   }catch(_){}
+
+   window.__DEEN_DEPLOY_ID__=BUILD;
+   document.open();
+   document.write(html);
+   document.close();
+ }catch(err){
+   showError(err);
+ }
+})();
+</script>
+</body>
+</html>

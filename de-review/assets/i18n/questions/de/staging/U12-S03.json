@@ -1,0 +1,675 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U12",
+  "stage": "U12-S03",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U12-S03-001": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Ortak temel, Gusül, Başı mesh etmenin miktarı ve Bu dersteki fıkıh yaklaşımı.",
+        "explanation_tr": "Abdest namazın kendisi değil namaza hazırlık sağlayan hükmî temizliktir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ortak temel",
+            "right": "Yüzü ve kolları yıkamak başı mesh etmek ayakları yıkamak"
+          },
+          {
+            "left": "Gusül",
+            "right": "Boy abdesti gerektiren hâllerde bütün bedenin yıkanması"
+          },
+          {
+            "left": "Mezhep farkı: mesh",
+            "right": "Mezhepler arasında ayrıntı farklılıkları vardır"
+          },
+          {
+            "left": "Fıkıh yaklaşımı",
+            "right": "Ortak temeli öğretir geçerli mezhep farklılıklarını yanlış diye puanlamaz"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne gemeinsame Grundlagen, Ghusl, Umfang des Kopfabstreichens und den Umgang mit Rechtsschulen zu.",
+        "explanation_tr": "Die Gebetswaschung ist nicht selbst das Gebet, sondern eine rituelle Reinigung als Vorbereitung darauf.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gemeinsame Grundlage",
+            "right": "Gesicht und Arme waschen, den Kopf feucht abstreichen und die Füße waschen"
+          },
+          {
+            "left": "Ganzkörperwaschung (Ghusl)",
+            "right": "Den gesamten Körper waschen, wenn die Ganzkörperwaschung vorgeschrieben ist"
+          },
+          {
+            "left": "Unterschiede: Kopfabstreichen",
+            "right": "Die Einzelheiten unterscheiden sich zwischen den Rechtsschulen"
+          },
+          {
+            "left": "Umgang mit islamischem Recht",
+            "right": "Gemeinsame Grundlagen lehren und gültige Unterschiede zwischen Rechtsschulen nicht als falsch bewerten"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-002": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Teyemmüm malzemesi, Mezhep farkı: tertip, Namaza hazırlık ve Abdestte yüz.",
+        "explanation_tr": "Ayette ayakların topuklarla birlikte yıkanması emredilir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Teyemmüm malzemesi",
+            "right": "Temiz toprak veya toprak cinsinden bir yüzey"
+          },
+          {
+            "left": "Mezhep farkı: tertip",
+            "right": "Mezhepler arasında ayrıntı farklılığı vardır"
+          },
+          {
+            "left": "Namaza hazırlık",
+            "right": "Namaz için gerekli hükmî temizliği sağlamaya hizmet eder"
+          },
+          {
+            "left": "Abdestte yüz",
+            "right": "Yüz"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Material für Tayammum, Reihenfolge, Gebetsvorbereitung und Gesicht zu.",
+        "explanation_tr": "Der Vers ordnet an, die Füße einschließlich der Knöchel zu waschen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Material für Tayammum",
+            "right": "Reine Erde oder eine erdhaltige Oberfläche"
+          },
+          {
+            "left": "Unterschiede: Reihenfolge",
+            "right": "Die Einzelheiten unterscheiden sich zwischen den Rechtsschulen"
+          },
+          {
+            "left": "Gebetsvorbereitung",
+            "right": "Die erforderliche rituelle Reinigung für das Gebet ermöglichen"
+          },
+          {
+            "left": "Gesicht bei der Gebetswaschung",
+            "right": "Das Gesicht"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-003": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Abdestte niyetin hükmü, Su kullanamama, Abdest ve Başı mesh.",
+        "explanation_tr": "Abdestte tertibin fıkhî sınıflandırması mezheplere göre farklılaşabilir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Mezhep farkı: niyet",
+            "right": "Mezhepler arasında hüküm farklılığı vardır"
+          },
+          {
+            "left": "Su kullanamama",
+            "right": "Teyemmüm ruhsatı"
+          },
+          {
+            "left": "Abdest",
+            "right": "Bazı ibadetler için yapılan hükmî temizlik"
+          },
+          {
+            "left": "Başı mesh",
+            "right": "Başı mesh etmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Absicht, Wassermangel, Gebetswaschung und Kopfabstreichen zu.",
+        "explanation_tr": "Die rechtliche Einstufung der Reihenfolge bei der Gebetswaschung kann sich zwischen Rechtsschulen unterscheiden.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Unterschiede: Absicht",
+            "right": "Die Einzelheiten unterscheiden sich zwischen den Rechtsschulen"
+          },
+          {
+            "left": "Wasser kann nicht verwendet werden",
+            "right": "Erlaubnis zur rituellen Trockenreinigung"
+          },
+          {
+            "left": "Gebetswaschung",
+            "right": "Rituelle Reinigung für bestimmte gottesdienstliche Handlungen"
+          },
+          {
+            "left": "Kopfabstreichen",
+            "right": "Den Kopf feucht abstreichen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-004": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Başı mesh etmenin miktarı, Bu dersteki fıkıh yaklaşımı, Abdestte kollar ve Ortak temel.",
+        "explanation_tr": "Mâide 5:6 yüzün yıkanmasını abdestin temel unsurları arasında zikreder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Mezhep farkı: mesh",
+            "right": "Mezhepler arasında ayrıntı farklılıkları vardır"
+          },
+          {
+            "left": "Fıkıh yaklaşımı",
+            "right": "Ortak temeli öğretir geçerli mezhep farklılıklarını yanlış diye puanlamaz"
+          },
+          {
+            "left": "Abdestte kollar",
+            "right": "Dirseklerle birlikte"
+          },
+          {
+            "left": "Ortak temel",
+            "right": "Yüzü ve kolları yıkamak başı mesh etmek ayakları yıkamak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Umfang des Kopfabstreichens, Rechtsschulen, Arme und gemeinsame Grundlagen zu.",
+        "explanation_tr": "Al-Maida 5:6 nennt das Waschen des Gesichts als Grundelement der Gebetswaschung.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Unterschiede: Kopfabstreichen",
+            "right": "Die Einzelheiten unterscheiden sich zwischen den Rechtsschulen"
+          },
+          {
+            "left": "Umgang mit islamischem Recht",
+            "right": "Gemeinsame Grundlagen lehren und gültige Unterschiede zwischen Rechtsschulen nicht als falsch bewerten"
+          },
+          {
+            "left": "Arme bei der Gebetswaschung",
+            "right": "Einschließlich der Ellenbogen"
+          },
+          {
+            "left": "Gemeinsame Grundlage",
+            "right": "Gesicht und Arme waschen, den Kopf feucht abstreichen und die Füße waschen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-005": {
+      "source": {
+        "question_tr": "Eşleştirme: şu kavramları doğru açıklamalarıyla eşleştir: Namaza hazırlık, Abdestte yüz, Abdestte ayaklar ve Teyemmüm malzemesi.",
+        "explanation_tr": "Diyanet fetvası teyemmümü temiz toprak veya toprak cinsinden bir şeyle yapılan hükmî temizlik olarak açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Namaza hazırlık",
+            "right": "Namaz için gerekli hükmî temizliği sağlamaya hizmet eder"
+          },
+          {
+            "left": "Abdestte yüz",
+            "right": "Yüz"
+          },
+          {
+            "left": "Abdestte ayaklar",
+            "right": "Topuklarla birlikte"
+          },
+          {
+            "left": "Teyemmüm malzemesi",
+            "right": "Temiz toprak veya toprak cinsinden bir yüzey"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Gebetsvorbereitung, Gesicht, Füße und Material für Tayammum zu.",
+        "explanation_tr": "Die Fatwa der Diyanet beschreibt Tayammum als rituelle Reinigung mit reiner Erde oder erdhaltigem Material.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gebetsvorbereitung",
+            "right": "Die erforderliche rituelle Reinigung für das Gebet ermöglichen"
+          },
+          {
+            "left": "Gesicht bei der Gebetswaschung",
+            "right": "Das Gesicht"
+          },
+          {
+            "left": "Füße bei der Gebetswaschung",
+            "right": "Einschließlich der Knöchel"
+          },
+          {
+            "left": "Material für Tayammum",
+            "right": "Reine Erde oder eine erdhaltige Oberfläche"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-006": {
+      "source": {
+        "question_tr": "Eşleştirme: şu kavramları doğru açıklamalarıyla eşleştir: Abdest, Başı mesh, Teyemmüm ve Abdestte niyetin hükmü.",
+        "explanation_tr": "Abdest namazın kendisi değil namaza hazırlık sağlayan hükmî temizliktir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Abdest",
+            "right": "Bazı ibadetler için yapılan hükmî temizlik"
+          },
+          {
+            "left": "Başı mesh",
+            "right": "Başı mesh etmek"
+          },
+          {
+            "left": "Teyemmüm",
+            "right": "Su bulunmadığında veya kullanılamadığında, şartlarına göre yapılan hükmî temizlik"
+          },
+          {
+            "left": "Mezhep farkı: niyet",
+            "right": "Mezhepler arasında hüküm farklılığı vardır"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Gebetswaschung, Kopfabstreichen, Tayammum und die unterschiedliche Einstufung der Absicht zu.",
+        "explanation_tr": "Die Gebetswaschung ist nicht selbst das Gebet, sondern bereitet durch rituelle Reinigung darauf vor.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gebetswaschung",
+            "right": "Rituelle Reinigung für bestimmte gottesdienstliche Handlungen"
+          },
+          {
+            "left": "Kopfabstreichen",
+            "right": "Den Kopf feucht abstreichen"
+          },
+          {
+            "left": "Tayammum",
+            "right": "Rituelle Reinigung unter den vorgeschriebenen Bedingungen, wenn Wasser fehlt oder nicht verwendet werden kann"
+          },
+          {
+            "left": "Unterschiede: Absicht",
+            "right": "Die Einzelheiten unterscheiden sich zwischen den Rechtsschulen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-007": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Ayaklar ___ birlikte yıkanır.",
+        "explanation_tr": "Ayette ayakların topuklarla birlikte yıkanması emredilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "topuklarla",
+          "dirseklerle"
+        ],
+        "correct_answer": "topuklarla",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Die Füße werden einschließlich der ______ gewaschen.",
+        "explanation_tr": "Der Vers schreibt vor, die Füße einschließlich der Knöchel zu waschen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "Knöchel",
+          "Ellenbogen"
+        ],
+        "correct_answer": "Knöchel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-008": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Abdestte tertibin hükmü mezheplere göre ___ gösterebilir.",
+        "explanation_tr": "Abdestte tertibin fıkhî sınıflandırması mezheplere göre farklılaşabilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "farklılık",
+          "dirseklerle"
+        ],
+        "correct_answer": "farklılık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Bei der rechtlichen Einstufung der Reihenfolge der Gebetswaschung bestehen ______ zwischen Rechtsschulen.",
+        "explanation_tr": "Die Reihenfolge bei der Gebetswaschung kann zwischen den Rechtsschulen unterschiedlich eingestuft werden.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "Unterschiede",
+          "Ellenbogen"
+        ],
+        "correct_answer": "Unterschiede",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-009": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Abdest ayetinde ___ yıkanması emredilir.",
+        "explanation_tr": "Mâide 5:6 yüzün yıkanmasını abdestin temel unsurları arasında zikreder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "dirseklerle",
+          "yüz",
+          "mesh"
+        ],
+        "correct_answer": "yüz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Der Vers über die Gebetswaschung ordnet an, das ______ zu waschen.",
+        "explanation_tr": "Al-Maida 5:6 nennt das Waschen des Gesichts als grundlegenden Bestandteil.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Reinigung",
+          "Ellenbogen",
+          "Gesicht",
+          "abgestrichen"
+        ],
+        "correct_answer": "Gesicht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-010": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Teyemmüm temiz ___ veya toprak cinsinden bir şeyle yapılır.",
+        "explanation_tr": "Diyanet fetvası teyemmümü temiz toprak veya toprak cinsinden bir şeyle yapılan hükmî temizlik olarak açıklar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "toprak",
+          "dirseklerle"
+        ],
+        "correct_answer": "toprak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Tayammum wird mit reiner ______ oder erdhaltigem Material durchgeführt.",
+        "explanation_tr": "Die Diyanet erklärt die Trockenreinigung durch reine Erde oder erdhaltiges Material.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "Erde",
+          "Ellenbogen"
+        ],
+        "correct_answer": "Erde",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-011": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Abdest namazın kendisi değil namaza ___ sağlar.",
+        "explanation_tr": "Abdest namazın kendisi değil namaza hazırlık sağlayan hükmî temizliktir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "hazırlık",
+          "dirseklerle"
+        ],
+        "correct_answer": "hazırlık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff fehlt? Die Gebetswaschung ist nicht das Gebet selbst, sondern dient als ______ darauf.",
+        "explanation_tr": "Die rituelle Reinigung durch Gebetswaschung bereitet auf das Gebet vor.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "Vorbereitung",
+          "Ellenbogen"
+        ],
+        "correct_answer": "Vorbereitung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-012": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Ayaklar ___ birlikte yıkanır.",
+        "explanation_tr": "Ayette ayakların topuklarla birlikte yıkanması emredilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "topuklarla",
+          "dirseklerle"
+        ],
+        "correct_answer": "topuklarla",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff fehlt? Die Füße werden einschließlich der ______ gewaschen.",
+        "explanation_tr": "Der Vers schreibt das Waschen der Füße einschließlich der Knöchel vor.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "Knöchel",
+          "Ellenbogen"
+        ],
+        "correct_answer": "Knöchel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Abdestte tertibin hükmü mezheplere göre ___ gösterebilir.",
+        "explanation_tr": "Abdestte tertibin fıkhî sınıflandırması mezheplere göre farklılaşabilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "farklılık",
+          "dirseklerle"
+        ],
+        "correct_answer": "farklılık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff fehlt? In der Einstufung der Reihenfolge der Gebetswaschung gibt es ______ zwischen Rechtsschulen.",
+        "explanation_tr": "Die rechtliche Einstufung der Reihenfolge kann sich unterscheiden.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Reinigung",
+          "Gesicht",
+          "Unterschiede",
+          "Ellenbogen"
+        ],
+        "correct_answer": "Unterschiede",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U12-S03-014": {
+      "source": {
+        "question_tr": "Boşluğu doldur: Abdest ayetinde ___ yıkanması emredilir.",
+        "explanation_tr": "Mâide 5:6 yüzün yıkanmasını abdestin temel unsurları arasında zikreder.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "dirseklerle",
+          "yüz",
+          "mesh"
+        ],
+        "correct_answer": "yüz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Der Vers über die Gebetswaschung ordnet das Waschen des ______ an.",
+        "explanation_tr": "Al-Maida 5:6 erwähnt das Waschen des Gesichts unter den Grundelementen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Reinigung",
+          "Ellenbogen",
+          "Gesichts",
+          "abgestrichen"
+        ],
+        "correct_answer": "Gesichts",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Rituelle Reinigung zuordnen",
+        "topic": "Abdest, Tayammum und Rechtsschulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

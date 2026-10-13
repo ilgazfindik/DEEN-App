@@ -1,0 +1,601 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U05",
+  "stage": "U05-S05",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U05-S05-001": {
+      "source": {
+        "question_tr": "Bir kişi 'Dünyadaki amellerimizin hesabı ve karşılığı ahiret hayatıyla ilişkilidir' diyorsa hangi iman esasına vurgu yapmaktadır?",
+        "explanation_tr": "Ölüm sonrası diriliş, hesap ve karşılık ahiret inancı kapsamında ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Peygamberlere iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Die Abrechnung und Vergeltung unserer Taten betrifft das Leben nach dem Tod.“ Welcher Glaubensartikel ist gemeint?",
+        "explanation_tr": "Auferstehung, Abrechnung und Vergeltung nach dem Tod gehören zum Glauben an das Jenseits.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube an das Jenseits",
+          "Glaube an Engel",
+          "Glaube an die Bücher",
+          "Glaube an die Propheten"
+        ],
+        "correct_answer": "Glaube an das Jenseits",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-002": {
+      "source": {
+        "question_tr": "Ahmet, 'Allah insanlara doğru yolu göstermek için peygamberlerine ilahî kitaplar indirmiştir' diyor. Bu düşünce öncelikle hangi iman esasıyla ilgilidir?",
+        "explanation_tr": "Allah'ın peygamberlerine indirdiği ilahî kitaplara iman, kitaplara iman başlığıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kitaplara iman",
+          "Kadere iman",
+          "Ahirete iman",
+          "Zekât"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ahmet sagt: „Allah offenbarte Seinen Propheten heilige Bücher, um den Menschen Rechtleitung zu geben.“ Welcher Glaubensartikel ist gemeint?",
+        "explanation_tr": "Der Glaube an die den Propheten offenbarten Bücher gehört zu den Glaubensartikeln.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube an die Bücher",
+          "Glaube an die Vorherbestimmung",
+          "Glaube an das Jenseits",
+          "Zakat"
+        ],
+        "correct_answer": "Glaube an die Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-003": {
+      "source": {
+        "question_tr": "Zeynep, 'Allah insanlara rehberlik için peygamberler göndermiştir' diyor. Bu ifade hangi iman esasıyla ilişkilidir?",
+        "explanation_tr": "Allah'ın insanlara peygamberler gönderdiğine iman, imanın esaslarından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Kitaplara iman",
+          "Meleklere iman",
+          "Ahiret gününe iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zeynep sagt: „Allah sandte Propheten, um die Menschen rechtzuleiten.“ Auf welchen Glaubensartikel bezieht sie sich?",
+        "explanation_tr": "Der Glaube an die von Allah gesandten Propheten ist ein Glaubensartikel.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube an die Propheten",
+          "Glaube an die Bücher",
+          "Glaube an Engel",
+          "Glaube an das Jenseits"
+        ],
+        "correct_answer": "Glaube an die Propheten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-004": {
+      "source": {
+        "question_tr": "'Olayların Allah'ın bilgisi ve takdiriyle ilişkili olduğuna inanıyorum' diyen biri hangi iman esasından söz etmektedir?",
+        "explanation_tr": "Bu ifade kader ve kazaya iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kader ve kazaya iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Peygamberlere iman"
+        ],
+        "correct_answer": "Kader ve kazaya iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Ich glaube, dass Ereignisse mit Allahs Wissen und Bestimmung verbunden sind.“ Welchen Glaubensartikel beschreibt er?",
+        "explanation_tr": "Diese Aussage bezieht sich auf den Glauben an die göttliche Vorherbestimmung und ihr Eintreffen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube an die göttliche Vorherbestimmung und ihr Eintreffen",
+          "Glaube an Engel",
+          "Glaube an die Bücher",
+          "Glaube an die Propheten"
+        ],
+        "correct_answer": "Glaube an die göttliche Vorherbestimmung und ihr Eintreffen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-005": {
+      "source": {
+        "question_tr": "Meleklere iman, imanın altı esasından biridir.",
+        "explanation_tr": "Allah'ın yarattığı meleklerin varlığına iman, imanın esaslarından biridir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an Engel gehört zu den sechs Glaubensartikeln.",
+        "explanation_tr": "Der Glaube an die von Allah erschaffenen Engel zählt zu den Glaubensartikeln.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-006": {
+      "source": {
+        "question_tr": "Bir öğrenci 'ölümden sonra hayat ve hesap' kavramını 'Meleklere iman' başlığına yazıyor. Hatası nedir?",
+        "explanation_tr": "Ölümden sonra hayat ve hesap, başlangıç düzeyinde ahiret gününe iman başlığı altında ele alınır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bu kavram Ahiret gününe iman başlığıyla ilişkilidir.",
+          "Bu kavram yalnızca Kitaplara imanla ilgilidir.",
+          "Bu kavram İslam'ın beş şartıdır.",
+          "Sınıflandırmada hata yoktur."
+        ],
+        "correct_answer": "Bu kavram Ahiret gününe iman başlığıyla ilişkilidir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender ordnet „Leben und Abrechnung nach dem Tod“ dem Glauben an Engel zu. Was ist daran falsch?",
+        "explanation_tr": "Das Leben und die Abrechnung nach dem Tod gehören zum Glauben an das Jenseits.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Diese Begriffe gehören zum Glauben an das Jenseits",
+          "Sie gehören ausschließlich zum Glauben an die Bücher",
+          "Sie gehören zu den fünf Säulen des Islam",
+          "Es liegt kein Zuordnungsfehler vor"
+        ],
+        "correct_answer": "Diese Begriffe gehören zum Glauben an das Jenseits",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-007": {
+      "source": {
+        "question_tr": "'Allah'ın vahyini insanlara tebliğ etmek üzere seçilmiş insanlar' tanımını duyan biri, 'Bu, Kitaplara imandır' diyor. Bu kişinin hatası nedir?",
+        "explanation_tr": "Vahyi tebliğ etmek üzere seçilen elçiler peygamberlerdir; bu tanım peygamberlere imanla ilgilidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bu tanım Kitaplara değil, Peygamberlere imanı açıklar.",
+          "Bu tanım Meleklere imanı açıklar.",
+          "Bu tanım Ahirete imanı açıklar.",
+          "Seçilmiş insanlar kelimesi yanlış."
+        ],
+        "correct_answer": "Bu tanım Kitaplara değil, Peygamberlere imanı açıklar.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender hört „Menschen, die erwählt wurden, Allahs Offenbarung zu überbringen“ und ordnet dies dem Glauben an die Bücher zu. Was ist falsch?",
+        "explanation_tr": "Die von Allah erwählten Überbringer der Offenbarung sind Propheten.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Die Beschreibung betrifft die Propheten, nicht die Bücher",
+          "Die Beschreibung betrifft den Glauben an Engel",
+          "Die Beschreibung betrifft das Jenseits",
+          "Der Ausdruck „erwählte Menschen“ ist falsch"
+        ],
+        "correct_answer": "Die Beschreibung betrifft die Propheten, nicht die Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-008": {
+      "source": {
+        "question_tr": "Bir ders kartında 'ölümden sonra hayatın devam etmesi' ifadesi yer alıyor. Bu kart hangi iman esasıyla ilişkilidir?",
+        "explanation_tr": "Ölümden sonra hayat, ahiret gününe iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Kader ve kazaya iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lernkarte nennt „das Leben nach dem Tod“. Zu welchem Glaubensartikel gehört diese Aussage?",
+        "explanation_tr": "Das Leben nach dem Tod gehört zum Glauben an das Jenseits.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube an das Jenseits",
+          "Glaube an Engel",
+          "Glaube an die Bücher",
+          "Glaube an die Vorherbestimmung"
+        ],
+        "correct_answer": "Glaube an das Jenseits",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-009": {
+      "source": {
+        "question_tr": "Bir öğrenci, Allah'ın peygamberlere vahiy yoluyla ilahi kitaplar gönderdiğini öğreniyor. Bu bilgi hangi iman esasıyla ilişkilidir?",
+        "explanation_tr": "Allah'ın peygamberlere vahiy yoluyla gönderdiği ilahi kitaplara iman, imanın esaslarından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kitaplara iman",
+          "Meleklere iman",
+          "Ahiret gününe iman",
+          "Kader ve kazaya iman"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand erfährt, dass Allah Seinen Propheten heilige Bücher offenbarte. Welcher Glaubensartikel betrifft diese Information?",
+        "explanation_tr": "Die von Allah offenbarten Bücher sind Gegenstand eines eigenen Glaubensartikels.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube an die Bücher",
+          "Glaube an Engel",
+          "Glaube an das Jenseits",
+          "Glaube an die Vorherbestimmung"
+        ],
+        "correct_answer": "Glaube an die Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-010": {
+      "source": {
+        "question_tr": "Müslümanlar imanın esaslarını hangi şekilde kabul etmelidir?",
+        "explanation_tr": "İmanın altı esası birbirini tamamlar ve hepsi birlikte kalpten onaylanmalıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hepsini bir bütün olarak eksiksiz kabul etmelidir.",
+          "Sadece içlerinden birkaçını seçebilir.",
+          "Sadece namaz kılana inanmak yeterlidir.",
+          "İman esasları kişiye göre değişebilir."
+        ],
+        "correct_answer": "Hepsini bir bütün olarak eksiksiz kabul etmelidir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie sollten Muslime die Glaubensartikel annehmen?",
+        "explanation_tr": "Die sechs Glaubensartikel gehören zusammen und sollen im Herzen gemeinsam bejaht werden.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sie sollen alle Glaubensartikel als zusammengehörendes Ganzes annehmen",
+          "Sie können beliebig nur einige auswählen",
+          "Nur an Menschen zu glauben, die beten, genügt",
+          "Die Glaubensartikel können für jede Person unterschiedlich sein"
+        ],
+        "correct_answer": "Sie sollen alle Glaubensartikel als zusammengehörendes Ganzes annehmen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-011": {
+      "source": {
+        "question_tr": "Bir kavram kartında 'Allah'ın yarattığı meleklerin varlığı' yazıyor. Kartın başlığı ______ iman olmalıdır.",
+        "explanation_tr": "Meleklerin varlığına iman, 'Meleklere iman' başlığı altında ele alınır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Meleklere",
+          "Peygamberlere",
+          "Kitaplara",
+          "Ahirete"
+        ],
+        "correct_answer": "Meleklere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Auf einer Lernkarte steht „Existenz der von Allah erschaffenen Engel“. Die Überschrift muss „Glaube an ______“ lauten.",
+        "explanation_tr": "Die Existenz von Engeln anzunehmen, gehört zum Glauben an Engel.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Engel",
+          "die Propheten",
+          "die Bücher",
+          "das Jenseits"
+        ],
+        "correct_answer": "Engel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-012": {
+      "source": {
+        "question_tr": "Bir ders kartında 'olayların Allah'ın bilgisi ve takdiriyle ilişkili olduğuna iman' ifadesi yer alıyor. Bu kart hangi iman esasını anlatmaktadır?",
+        "explanation_tr": "Bu tanım, başlangıç düzeyinde kader ve kazaya iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kader ve kazaya iman",
+          "Ahiret gününe iman",
+          "Meleklere iman",
+          "Kitaplara iman"
+        ],
+        "correct_answer": "Kader ve kazaya iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lernkarte erklärt „Ereignisse stehen mit Allahs Wissen und Bestimmung in Zusammenhang“. Welcher Glaubensartikel ist gemeint?",
+        "explanation_tr": "In dieser einführenden Erklärung geht es um die göttliche Vorherbestimmung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube an die göttliche Vorherbestimmung und ihr Eintreffen",
+          "Glaube an das Jenseits",
+          "Glaube an Engel",
+          "Glaube an die Bücher"
+        ],
+        "correct_answer": "Glaube an die göttliche Vorherbestimmung und ihr Eintreffen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-013": {
+      "source": {
+        "question_tr": "Bir kişi Allah'ın birliğine inandığını söylüyor, fakat Allah'ın elçiler göndermediğini savunuyor. Bu görüş imanın hangi esasıyla çelişir?",
+        "explanation_tr": "Allah'ın elçiler gönderdiğini reddeden bu görüş, peygamberlere iman esasıyla çelişir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Ahirete iman",
+          "Meleklere iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand glaubt an Allahs Einzigkeit, behauptet aber, Allah habe keine Gesandten geschickt. Welchem Glaubensartikel widerspricht das?",
+        "explanation_tr": "Die Leugnung von Allahs Gesandten widerspricht dem Glauben an die Propheten.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an die Propheten",
+          "Glaube an das Jenseits",
+          "Glaube an Engel",
+          "Glaube an die Vorherbestimmung"
+        ],
+        "correct_answer": "Glaube an die Propheten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-014": {
+      "source": {
+        "question_tr": "Bir derste 'Allah'ın insanlara peygamberler göndermesi ve onlara vahiy iletmesi' anlatılıyor. Bu anlatım en doğrudan hangi iki iman başlığıyla ilişkilidir?",
+        "explanation_tr": "Peygamberler ve onlara vahyedilen ilahi mesajlar, peygamberlere ve kitaplara iman başlıklarıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberlere iman / Kitaplara iman",
+          "Meleklere iman / Ahirete iman",
+          "Kader ve kazaya iman / Ahirete iman",
+          "Allah'a iman / Hac"
+        ],
+        "correct_answer": "Peygamberlere iman / Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lektion beschreibt, dass Allah Propheten gesandt und ihnen Offenbarung übermittelt hat. Welche zwei Glaubensartikel betrifft das?",
+        "explanation_tr": "Es geht sowohl um die Propheten als auch um die ihnen offenbarten göttlichen Botschaften.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube an die Propheten / Glaube an die Bücher",
+          "Glaube an Engel / Glaube an das Jenseits",
+          "Glaube an die Vorherbestimmung / Glaube an das Jenseits",
+          "Glaube an Allah / Hadsch"
+        ],
+        "correct_answer": "Glaube an die Propheten / Glaube an die Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-015": {
+      "source": {
+        "question_tr": "Kıyamet koptuktan sonra insanların yeniden diriltilmesi inancı aşağıdakilerden hangisiyle ilgilidir?",
+        "explanation_tr": "Kıyamet ve yeniden diriliş (ba's), ahiret inancının konularıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Kitaplara iman",
+          "Kadere iman",
+          "Meleklere iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Glaubensartikel betrifft die Auferstehung der Menschen nach dem Ende der Welt?",
+        "explanation_tr": "Das Ende der Welt und die Auferstehung gehören zum Glauben an das Jenseits.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an das Jenseits",
+          "Glaube an die Bücher",
+          "Glaube an die Vorherbestimmung",
+          "Glaube an Engel"
+        ],
+        "correct_answer": "Glaube an das Jenseits",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S05-016": {
+      "source": {
+        "question_tr": "Elif, 'Allah insanları sahipsiz bırakmamış; onlara peygamberler göndermiş ve bu peygamberlere ilahî kitaplar/vahiy indirmiştir' diyor. Bu ifade en doğrudan hangi iki iman esasını birlikte hatırlatır?",
+        "explanation_tr": "Peygamberler ve onlara indirilen ilahî kitaplar, peygamberlere ve kitaplara iman başlıklarını birlikte işaret eder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberlere ve Kitaplara iman",
+          "Ahirete ve Kadere iman",
+          "Meleklere ve Ahirete iman",
+          "Sadece Allah'a iman"
+        ],
+        "correct_answer": "Peygamberlere ve Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Elif sagt: „Allah ließ die Menschen nicht ohne Rechtleitung. Er sandte Propheten und offenbarte ihnen göttliche Botschaften.“ An welche zwei Glaubensartikel erinnert das?",
+        "explanation_tr": "Die Propheten und die ihnen offenbarten göttlichen Botschaften stehen mit zwei Glaubensartikeln in Verbindung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube an die Propheten und an die Bücher",
+          "Glaube an das Jenseits und an die Vorherbestimmung",
+          "Glaube an Engel und an das Jenseits",
+          "Nur Glaube an Allah"
+        ],
+        "correct_answer": "Glaube an die Propheten und an die Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glaubensartikel anwenden",
+        "topic": "Glaube an Bücher, Propheten und Jenseits"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

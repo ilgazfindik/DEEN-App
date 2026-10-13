@@ -1,0 +1,121 @@
+<!-- DEEN v10.5.9 — Matching freeze / regression guard -->
+<script id="deen-v1059-matching-freeze-js">
+(()=>{
+  if(window.__deenV1059MatchingFreeze)return;
+  window.__deenV1059MatchingFreeze=true;
+
+  const VERSION='10.5.9-MATCHING-FREEZE';
+  const BUILD='9159matchfreeze1';
+  let runs=0;
+  let last=null;
+
+  function q(){
+    try{return session?.questions?.[Number(session?.index)||0]||null}catch(_){return null}
+  }
+
+  function active(){
+    return String(q()?.activity_type||'').toLowerCase()==='matching';
+  }
+
+  function inspect(reason='manual'){
+    const question=q();
+    const frame=document.querySelector('#lesson .question-frame');
+    const debugEnabled=new URLSearchParams(location.search).get('debugmatch')==='1';
+    const debugPanel=document.getElementById('deenMatchDebug');
+
+    if(!active()||!frame){
+      last={
+        version:VERSION,build:BUILD,run:++runs,at:Date.now(),reason,
+        active:false,pass:true,failed:[],checks:{}
+      };
+      return {...last};
+    }
+
+    const pairs=Array.isArray(question?.pairs)?question.pairs.length:0;
+    const cards=[...frame.querySelectorAll('.v1017-card')];
+    const normalizer=window.DEEN_MATCHING_CARD_NORMALIZER?.check?.()||null;
+    const engine=window.DEEN_ISOLATED_MATCHING?.snapshot?.()||null;
+    const baseline=window.DEEN_MATCHING_BASELINE?.snapshot?.()||null;
+
+    const checks={
+      owner:document.documentElement.dataset.deenMatchingOwner==='segment-09',
+      renderer:document.documentElement.dataset.deenMatchingRenderer==='core09-v1050',
+      engineVersion:window.DEEN_ISOLATED_MATCHING?.version==='10.5.7-DOM-STATE-MATCHING',
+      normalizerVersion:window.DEEN_MATCHING_CARD_NORMALIZER?.version==='10.5.8-CARD-NORMALIZER-STABLE',
+      normalizerDirectOnly:normalizer?.observerMode==='answerArea-direct-child-only',
+      baselinePass:baseline?.pass!==false,
+      cardCount:pairs>=2&&cards.length===pairs*2,
+      noLegacyGrid:!frame.querySelector('.match-grid'),
+      noFrameScale:(frame.style.transform||'')===''||(frame.style.transform||'')==='none',
+      noFitClass:!document.getElementById('lesson')?.classList.contains('v9913-fitted'),
+      debugHiddenByDefault:debugEnabled||!debugPanel,
+      noEngineError:!engine?.lastEngineError&&!document.documentElement.dataset.deenMatchingError
+    };
+
+    const failed=Object.entries(checks).filter(([,ok])=>ok!==true).map(([name])=>name);
+    last={
+      version:VERSION,
+      build:BUILD,
+      run:++runs,
+      at:Date.now(),
+      reason,
+      active:true,
+      pass:failed.length===0,
+      failed,
+      checks,
+      pairs,
+      cards:cards.length,
+      progress:document.documentElement.dataset.deenMatchingProgress||null,
+      engine:engine?{
+        version:engine.version,
+        clicks:engine.clicks,
+        matchedLeft:engine.matchedLeft,
+        matchedRight:engine.matchedRight,
+        errors:engine.errors,
+        finished:engine.finished
+      }:null,
+      normalizer:normalizer?{
+        version:normalizer.version,
+        runs:normalizer.runs,
+        repairs:normalizer.repairs,
+        observerMode:normalizer.observerMode
+      }:null
+    };
+
+    document.documentElement.dataset.deenMatchingFreeze=last.pass?'pass':'fail';
+    if(!last.pass){
+      try{console.error('DEEN matching freeze regression',last)}catch(_){}
+    }
+    return JSON.parse(JSON.stringify(last));
+  }
+
+  function schedule(reason,detail){
+    const run=()=>inspect(reason);
+    if(window.DEEN_RUNTIME_SCHEDULE?.question){
+      window.DEEN_RUNTIME_SCHEDULE.question(
+        'v1059-matching-freeze-'+reason,
+        detail||{},
+        run,
+        {raf:true,delays:[100,320]}
+      );
+    }else{
+      requestAnimationFrame(run);
+      setTimeout(run,180);
+    }
+  }
+
+  document.addEventListener('deen:question-rendered',e=>schedule('rendered',e?.detail));
+  document.addEventListener('deen:question-graded',e=>schedule('graded',e?.detail));
+  document.addEventListener('deen:question-advancing',()=>{
+    document.documentElement.dataset.deenMatchingFreeze='idle';
+  });
+
+  window.DEEN_MATCHING_FREEZE={
+    version:VERSION,
+    build:BUILD,
+    frozen:true,
+    inspect,
+    snapshot:()=>last?JSON.parse(JSON.stringify(last)):inspect('snapshot')
+  };
+})();
+</script>

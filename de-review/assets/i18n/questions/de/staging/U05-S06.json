@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U05",
+  "stage": "U05-S06",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U05-S06-001": {
+      "source": {
+        "question_tr": "Bir tabloda 'Namaz' ve 'Meleklere iman' aynı kategoriye (İslam'ın Şartları) yazılmış. Buradaki sorun nedir?",
+        "explanation_tr": "Namaz pratik bir ibadet (İslam'ın şartı), meleklere iman ise bir inanç (iman esası) konusudur.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Meleklere iman İslam'ın şartı değil, imanın esasıdır.",
+          "Namaz imanın esasıdır.",
+          "Meleklere iman diye bir şey yoktur.",
+          "Hiçbir sorun yoktur, tablo doğrudur."
+        ],
+        "correct_answer": "Meleklere iman İslam'ın şartı değil, imanın esasıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Tabelle stehen „Gebet“ und „Glaube an Engel“ gemeinsam unter „Säulen des Islam“. Wo liegt der Fehler?",
+        "explanation_tr": "Gebet ist eine gottesdienstliche Handlung und eine Säule des Islam. Der Glaube an Engel gehört zu den Glaubensartikeln.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Glaube an Engel ist ein Glaubensartikel, keine Säule des Islam",
+          "Das Gebet gehört zu den Glaubensartikeln",
+          "Es gibt keinen Glauben an Engel",
+          "Die Tabelle ist richtig"
+        ],
+        "correct_answer": "Der Glaube an Engel ist ein Glaubensartikel, keine Säule des Islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-002": {
+      "source": {
+        "question_tr": "Ali, Kelime-i Şehadet'in İslam'ın temel beyanı olduğunu ve iman esaslarından iki başlığı açıkça vurguladığını fark ediyor. Bu iki başlık hangileridir?",
+        "explanation_tr": "Kelime-i Şehadet tevhid beyanını ve Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği açıkça içerir; bu da Allah'a ve peygamberlere iman başlıklarıyla ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'a ve Peygamberlere iman",
+          "Meleklere ve Ahirete iman",
+          "Kitaplara ve Kadere iman",
+          "Kadere ve Meleklere iman"
+        ],
+        "correct_answer": "Allah'a ve Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ali bemerkt, dass die Schahada zwei Glaubensartikel ausdrücklich betont. Welche?",
+        "explanation_tr": "Die Schahada verbindet das Bekenntnis zum Tauhid mit dem Zeugnis, dass Muhammad Allahs Diener und Gesandter ist.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Den Glauben an Allah und an die Propheten",
+          "Den Glauben an Engel und an das Jenseits",
+          "Den Glauben an die Bücher und an die Vorherbestimmung",
+          "Den Glauben an die Vorherbestimmung und an Engel"
+        ],
+        "correct_answer": "Den Glauben an Allah und an die Propheten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-003": {
+      "source": {
+        "question_tr": "İslam'ın şartları 5 tanedir. Peki imanın esasları toplam kaç tanedir?",
+        "explanation_tr": "İslam'ın şartları 5, imanın esasları 6'dır.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "6",
+          "4",
+          "5",
+          "7"
+        ],
+        "correct_answer": "6",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Islam hat fünf Säulen. Wie viele Glaubensartikel gibt es?",
+        "explanation_tr": "Es gibt fünf Säulen des Islam und sechs Glaubensartikel.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "6",
+          "4",
+          "5",
+          "7"
+        ],
+        "correct_answer": "6",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-004": {
+      "source": {
+        "question_tr": "Bir kişi 'Tevhid, Allah'ın var ve bir olmasıdır ve bu durum İslam'ın 5 şartından biridir' diyor. Hata nerededir?",
+        "explanation_tr": "Tevhid Allah'ın birliğini ifade eder. İslam'ın beş şartı listesinde ayrı bir ibadet maddesi olarak sayılmaz; Kelime-i Şehadet'in ve Allah'a iman konusunun temel içeriğidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tevhid, İslam'ın beş şartı listesinde ayrı bir ibadet maddesi değildir; Allah'a iman ve Kelime-i Şehadet'in temel içeriğiyle ilgilidir.",
+          "Tevhid, sadece Ramazan'da geçerlidir.",
+          "Tevhid, Peygamberlere imanın diğer adıdır.",
+          "Cümlede hata yoktur."
+        ],
+        "correct_answer": "Tevhid, İslam'ın beş şartı listesinde ayrı bir ibadet maddesi değildir; Allah'a iman ve Kelime-i Şehadet'in temel içeriğiyle ilgilidir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Tauhid bedeutet, dass Allah existiert und einzig ist. Er ist eine der fünf Säulen.“ Wo liegt der Fehler?",
+        "explanation_tr": "Tauhid bekräftigt Allahs Einzigkeit und ist der Kerngedanke der Schahada, aber keine separate Säule.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tauhid ist keine eigenständige Handlung auf der Liste der fünf Säulen, sondern gehört zum Glauben an Allah und zum Inhalt der Schahada",
+          "Tauhid gilt nur im Ramadan",
+          "Tauhid ist ein anderer Name für den Glauben an die Propheten",
+          "Es gibt keinen Fehler"
+        ],
+        "correct_answer": "Tauhid ist keine eigenständige Handlung auf der Liste der fünf Säulen, sondern gehört zum Glauben an Allah und zum Inhalt der Schahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-005": {
+      "source": {
+        "question_tr": "Ayşe oruç tutarken, iftar vaktinde, 'Allahım senin rızan için oruç tuttum ve bana verdiğin rızıkla orucumu açıyorum, ahirette de bizi sevindir' diye dua ediyor. Ayşe'nin bu eylemi ve duası hangi iki kavramı birleştirir?",
+        "explanation_tr": "Oruç tutması İslam'ın şartı, ahirete inancı ise imanın esasıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İslam'ın şartı (Oruç) ile İmanın esası (Ahirete iman)",
+          "İslam'ın şartı (Hac) ile İmanın esası (Meleklere iman)",
+          "Sadece İslam'ın şartlarını",
+          "Sadece İmanın esaslarını"
+        ],
+        "correct_answer": "İslam'ın şartı (Oruç) ile İmanın esası (Ahirete iman)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Aisha spricht beim Fastenbrechen ein Bittgebet: „Allah, ich habe für Dein Wohlgefallen gefastet. Gewähre uns auch Freude im Jenseits.“ Welche beiden Bereiche verbindet sie?",
+        "explanation_tr": "Das Fasten ist eine Säule des Islam, der Glaube an das Jenseits ein Glaubensartikel.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Eine Säule des Islam (Fasten) und einen Glaubensartikel (Glaube an das Jenseits)",
+          "Eine Säule des Islam (Hadsch) und einen Glaubensartikel (Glaube an Engel)",
+          "Nur die Säulen des Islam",
+          "Nur die Glaubensartikel"
+        ],
+        "correct_answer": "Eine Säule des Islam (Fasten) und einen Glaubensartikel (Glaube an das Jenseits)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-006": {
+      "source": {
+        "question_tr": "İslam dinini benimseyen ve Allah'a teslimiyet bilinciyle bağlanan kişiye ne ad verilir?",
+        "explanation_tr": "İslam dinini benimseyen kişiye Müslüman denir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Müslüman",
+          "Melek",
+          "Peygamber",
+          "Alim"
+        ],
+        "correct_answer": "Müslüman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie heißt eine Person, die den Islam annimmt und sich bewusst Allah hingibt?",
+        "explanation_tr": "Eine Person, die den Islam annimmt, wird Muslim genannt.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Muslim",
+          "Engel",
+          "Prophet",
+          "Gelehrter"
+        ],
+        "correct_answer": "Muslim",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-007": {
+      "source": {
+        "question_tr": "Bir kişi 'Hacca gitmek, imanın şartlarındandır' diyor. Bu cümledeki hata nedir?",
+        "explanation_tr": "Hac ibadeti, İslam'ın temel 5 şartından biridir, inanç esaslarından (imanın şartları) değildir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hacca gitmek imanın değil, İslam'ın şartlarındandır.",
+          "Hacca gitmek farz değildir.",
+          "İmanın şartlarında hacca gitmek vardır ancak namaz yoktur.",
+          "Bu cümlede hata yoktur."
+        ],
+        "correct_answer": "Hacca gitmek imanın değil, İslam'ın şartlarındandır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Die Hadsch ist ein Glaubensartikel.“ Was ist falsch?",
+        "explanation_tr": "Die Hadsch gehört zu den fünf Säulen des Islam und nicht zu den Glaubensartikeln.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Die Hadsch ist eine Säule des Islam, kein Glaubensartikel",
+          "Die Hadsch ist niemals verpflichtend",
+          "Zu den Glaubensartikeln gehört die Hadsch, aber nicht das Gebet",
+          "Die Aussage ist richtig"
+        ],
+        "correct_answer": "Die Hadsch ist eine Säule des Islam, kein Glaubensartikel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-008": {
+      "source": {
+        "question_tr": "Zekât yükümlülüğü doğan bir Müslümanın, malından dinen belirlenen payı hak sahiplerine vermesi İslam'ın şartlarından olan ______ ibadetidir.",
+        "explanation_tr": "Zekât, gerekli şartları taşıyan maldan dinen belirlenen payın Kur'an'da belirtilen hak sahiplerine verilmesiyle ilgili malî ibadettir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "zekât",
+          "oruç",
+          "namaz",
+          "iman"
+        ],
+        "correct_answer": "zekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wenn die Zakat-Pflicht besteht, heißt die vorgeschriebene Abgabe eines Vermögensanteils an Berechtigte ______.",
+        "explanation_tr": "Unter den vorgesehenen Bedingungen wird ein Teil des Vermögens als Zakat an berechtigte Empfänger gegeben.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Zakat",
+          "Fasten",
+          "Gebet",
+          "Glaube"
+        ],
+        "correct_answer": "Zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-009": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Allah'a iman' ile 'Ahiret gününe iman' başlıklarından yalnızca birini imanın esasları listesine yazıyor. Listede hangi kavramsal eksiklik vardır?",
+        "explanation_tr": "Allah'a iman ve ahiret gününe iman, imanın esasları içinde ayrı başlıklardır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret gününe iman da imanın esaslarındandır.",
+          "Ahiret gününe iman İslam'ın beş şartındandır.",
+          "Allah'a iman İslam'ın beş şartındandır.",
+          "Listede kavramsal eksiklik yoktur."
+        ],
+        "correct_answer": "Ahiret gününe iman da imanın esaslarındandır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender zählt den Glauben an Allah zu den Glaubensartikeln, lässt aber den Glauben an den Jüngsten Tag weg. Was fehlt?",
+        "explanation_tr": "Der Glaube an Allah und an das Jenseits sind eigenständige Glaubensartikel.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Auch der Glaube an das Jenseits gehört zu den Glaubensartikeln",
+          "Der Glaube an das Jenseits ist eine Säule des Islam",
+          "Der Glaube an Allah ist eine der fünf Säulen",
+          "Es fehlt nichts"
+        ],
+        "correct_answer": "Auch der Glaube an das Jenseits gehört zu den Glaubensartikeln",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-010": {
+      "source": {
+        "question_tr": "İslam'ın beş şartları ile imanın esasları arasındaki ilişkiyi en doğru anlatan seçenek hangisidir?",
+        "explanation_tr": "Cibrîl hadisi ve 'İslam beş esas üzerine kurulmuştur' hadisi, iman esasları ile İslam'ın beş temel esasını farklı fakat ilişkili başlıklar halinde öğretir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İmanın esasları temel inanç başlıklarını; İslam'ın beş şartı ise şehadet ile temel ibadetleri sınıflandıran ayrı ama ilişkili iki çerçevedir.",
+          "İkisi tamamen aynı listedir.",
+          "İmanın esasları yalnız davranışlardan, İslam'ın şartları yalnız düşüncelerden oluşur.",
+          "Sadece İslam'ın şartlarını kabul etmek iman esaslarının yerini tutar."
+        ],
+        "correct_answer": "İmanın esasları temel inanç başlıklarını; İslam'ın beş şartı ise şehadet ile temel ibadetleri sınıflandıran ayrı ama ilişkili iki çerçevedir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie hängen die fünf Säulen des Islam und die Glaubensartikel zusammen?",
+        "explanation_tr": "Der Hadith von Gabriel und die Überlieferung über die fünf Grundlagen erläutern diese unterschiedlichen, aber zusammengehörenden Bereiche.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die Glaubensartikel beschreiben Grundüberzeugungen, die fünf Säulen das Bekenntnis und grundlegende religiöse Handlungen; es sind verschiedene, verbundene Bereiche",
+          "Es ist genau dieselbe Liste",
+          "Die Glaubensartikel betreffen nur Verhalten, die Säulen nur Gedanken",
+          "Wer die Säulen anerkennt, braucht keine Glaubensartikel"
+        ],
+        "correct_answer": "Die Glaubensartikel beschreiben Grundüberzeugungen, die fünf Säulen das Bekenntnis und grundlegende religiöse Handlungen; es sind verschiedene, verbundene Bereiche",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-011": {
+      "source": {
+        "question_tr": "'Kelime-i Şehadet yalnızca ezberlenecek bir söz dizisidir; taşıdığı inanç anlamı önemli değildir' diyen birinin kavramsal hatası nedir?",
+        "explanation_tr": "Kelime-i Şehadet yalnız ezberlenecek seslerden ibaret değildir; Allah'tan başka ilah olmadığına ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna ilişkin bir inanç beyanıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Şehadetin bir inanç beyanı olduğunu gözden kaçırmıştır.",
+          "Şehadeti namazla karıştırmıştır.",
+          "Şehadeti hacla karıştırmıştır.",
+          "İfadede hata yoktur."
+        ],
+        "correct_answer": "Şehadetin bir inanç beyanı olduğunu gözden kaçırmıştır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Die Schahada ist nur eine Wortfolge zum Auswendiglernen, der Glaube dahinter ist unwichtig.“ Was übersieht diese Person?",
+        "explanation_tr": "Die Schahada bezeugt Allah als einzige Gottheit und Muhammad als Seinen Diener und Gesandten.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Dass die Schahada ein Glaubensbekenntnis ist",
+          "Sie verwechselt die Schahada mit dem Gebet",
+          "Sie verwechselt die Schahada mit der Hadsch",
+          "Es gibt keinen Fehler"
+        ],
+        "correct_answer": "Dass die Schahada ein Glaubensbekenntnis ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S06-012": {
+      "source": {
+        "question_tr": "Bir tabloda 'Namaz, Oruç, Zekât, Hac' ile 'Meleklere iman' aynı başlık altında toplanmış. Bu sınıflandırmadaki sorun nedir?",
+        "explanation_tr": "Namaz, oruç, zekât ve hac İslam'ın şartlarıyla; meleklere iman ise imanın esaslarıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Meleklere iman, imanın esasları başlığında yer almalıdır.",
+          "Namaz imanın esasıdır.",
+          "Oruç imanın esasıdır.",
+          "Tabloda sorun yoktur."
+        ],
+        "correct_answer": "Meleklere iman, imanın esasları başlığında yer almalıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Tabelle ordnet Gebet, Fasten, Zakat, Hadsch und den Glauben an Engel derselben Kategorie zu. Warum ist das falsch?",
+        "explanation_tr": "Gebet, Fasten, Zakat und Hadsch gehören zu den Säulen des Islam; der Glaube an Engel ist ein Glaubensartikel.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Glaube an Engel gehört zu den Glaubensartikeln",
+          "Das Gebet ist ein Glaubensartikel",
+          "Das Fasten ist ein Glaubensartikel",
+          "Die Tabelle ist richtig"
+        ],
+        "correct_answer": "Der Glaube an Engel gehört zu den Glaubensartikeln",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Handeln verstehen",
+        "topic": "Glaubensartikel und die fünf Säulen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

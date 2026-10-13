@@ -1,0 +1,2760 @@
+{
+  "schema_version": 1,
+  "source_commit": "a3ab868b762c4431410057fa8e937d87c73048a9",
+  "live_source": "Google Chrome runtime capture; job 114285140724",
+  "variant_source": "Original base records with the v8.7.6/v8.7.7 format overlays and v8.6.8/v8.6.9 enrichment records; these are stored variants, not all currently active.",
+  "live": [
+    {
+      "id": "DEEN-U01-S01-P01",
+      "stage_id": "U01-S01",
+      "question_tr": "İslam denince merkezde hangi fikir vardır?",
+      "explanation_tr": "İslam, Allah'a yönelmeyi ve O'nun rehberliğini hayatın içinde benimsemeyi öğretir.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "Allah'a yönelmek ve O'nun rehberliğini benimsemek",
+        "Yalnızca belli bir kültüre ait olmak",
+        "Sadece geçmiş olayları öğrenmek",
+        "Yalnızca bazı kelimeleri ezberlemek"
+      ],
+      "correct_answer": "Allah'a yönelmek ve O'nun rehberliğini benimsemek",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "İslam'a giriş",
+      "concept_id": "islam_meaning",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P02",
+      "stage_id": "U01-S01",
+      "question_tr": "Üç temel kavramı doğru açıklamayla eşleştir.",
+      "explanation_tr": "İman, ibadet ve ahlak farklı kavramlardır; birlikte anlamlı bir yaşam çerçevesi oluştururlar.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "İman",
+          "right": "Kalben inanmak ve kabul etmek"
+        },
+        {
+          "left": "İbadet",
+          "right": "Allah'a kulluk etmek"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Davranış ve tutumlar"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "Temel kavramlar",
+      "concept_id": "core_concepts",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P03",
+      "stage_id": "U01-S01",
+      "question_tr": "Müslüman olmak için belirli bir ülkede doğmak gerekir.",
+      "explanation_tr": "Müslüman kimliği ülkeye, dile veya millete değil; İslam’ı benimsemeye dayanır.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Yanlış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "Müslüman kimliği",
+      "concept_id": "muslim_identity",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P04",
+      "stage_id": "U01-S01",
+      "question_tr": "Boşluğu tamamla: İslam’ın temelinde Allah’a ___ olmak vardır.",
+      "explanation_tr": "Buradaki 'teslim olmak', Allah'a yönelmek ve O'nun rehberliğini benimsemek anlamında kullanılır.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "teslim",
+        "uzak",
+        "kayıtsız",
+        "yabancı"
+      ],
+      "correct_answer": "teslim",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "İslam'a giriş",
+      "concept_id": "islam_meaning",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P05",
+      "stage_id": "U01-S01",
+      "question_tr": "Bir arkadaşın “İslam yalnızca tek bir ülkenin dinidir.” diyor. En iyi cevap hangisi?",
+      "explanation_tr": "İslam belirli bir millet veya coğrafyayla sınırlı değildir.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Hayır; farklı ülkelerden ve kültürlerden insanlar Müslüman olabilir.",
+        "Evet; yalnızca aynı dili konuşanlar Müslüman olabilir.",
+        "Evet; doğduğun ülke inancını kesin olarak belirler.",
+        "Bunu öğrenmeye gerek yok; hiçbir önemi yoktur."
+      ],
+      "correct_answer": "Hayır; farklı ülkelerden ve kültürlerden insanlar Müslüman olabilir.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "Müslüman kimliği",
+      "concept_id": "muslim_identity",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P06",
+      "stage_id": "U01-S01",
+      "question_tr": "Üçü bu dersin temel kavramlarından. Hangisi bu gruba ait değil?",
+      "explanation_tr": "Bu derste iman, ibadet ve ahlakın ilişkisini öğreniyoruz. Milliyet bu üçlü kavram grubunun parçası değildir.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İman",
+        "İbadet",
+        "Ahlak",
+        "Milliyet"
+      ],
+      "correct_answer": "Milliyet",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "Temel kavramlar",
+      "concept_id": "core_concepts",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P07",
+      "stage_id": "U01-S01",
+      "question_tr": "Kur’an’ın Müslümanlar için yerini anlatan kartı seç.",
+      "explanation_tr": "Kur’an, Müslümanların temel kutsal kitabı ve hayatlarına rehber kabul ettikleri kaynaktır.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "Temel kutsal kitap ve rehber",
+        "Yalnızca bir tarih kitabı",
+        "Sadece ibadet listesi",
+        "Belli bir ülkenin kültür kitabı"
+      ],
+      "correct_answer": "Temel kutsal kitap ve rehber",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "Kur'an ve rehberlik",
+      "concept_id": "quran_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P08",
+      "stage_id": "U01-S01",
+      "question_tr": "Kavramları doğru açıklamalarıyla buluştur.",
+      "explanation_tr": "Kur’an temel kutsal kitaptır; Hz. Muhammed son peygamber ve örnek rehberdir; Müslüman İslam’ı benimseyen kişidir.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "Kur’an",
+          "right": "Temel kutsal kitap"
+        },
+        {
+          "left": "Hz. Muhammed",
+          "right": "Son peygamber ve örnek rehber"
+        },
+        {
+          "left": "Müslüman",
+          "right": "İslam’ı benimseyen kişi"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "Kavram haritası",
+      "concept_id": "guidance_map",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P09",
+      "stage_id": "U01-S01",
+      "question_tr": "İbadet yalnızca namazdan ibarettir.",
+      "explanation_tr": "Namaz önemli bir ibadettir; fakat ibadet kavramı yalnızca namazla sınırlı değildir.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Yanlış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "İbadet",
+      "concept_id": "worship_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P10",
+      "stage_id": "U01-S01",
+      "question_tr": "Boşluğu tamamla: İslam’ı benimseyen kişiye ___ denir.",
+      "explanation_tr": "Müslüman, İslam’ı benimseyen kişidir.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "Müslüman",
+        "melek",
+        "peygamber",
+        "misafir"
+      ],
+      "correct_answer": "Müslüman",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "Müslüman kimliği",
+      "concept_id": "muslim_identity",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P11",
+      "stage_id": "U01-S01",
+      "question_tr": "Ece kimse görmezken bulduğu kalemi sahibine veriyor. Bu davranış en çok hangi kavramla ilişkilidir?",
+      "explanation_tr": "Dürüstlük ve başkasının hakkını korumak güzel ahlakla ilişkilidir.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Ahlak",
+        "Milliyet",
+        "Şöhret",
+        "Rekabet"
+      ],
+      "correct_answer": "Ahlak",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "Günlük hayat",
+      "concept_id": "faith_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S01-P12",
+      "stage_id": "U01-S01",
+      "question_tr": "Hangisi bu dersin anlattığı bütünlüğe uymaz?",
+      "explanation_tr": "Dersin ana fikri; iman, ibadet ve ahlakın farklı ama birbiriyle ilişkili alanlar olduğudur.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İnanç davranışlara iyilik olarak yansıyabilir.",
+        "İbadet ve ahlak birbirinden tamamen kopuktur.",
+        "Kur’an Müslümanlar için rehberdir.",
+        "Müslümanlık belirli bir millete bağlı değildir."
+      ],
+      "correct_answer": "İbadet ve ahlak birbirinden tamamen kopuktur.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "İslam'la Tanış",
+      "topic": "Ders özeti",
+      "concept_id": "faith_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S02-P01",
+      "stage_id": "U01-S02",
+      "question_tr": "“Müslüman” deyince kimi kastediyoruz?",
+      "explanation_tr": "Müslümanlık milliyet, dil veya doğum yerine göre değil; kişinin İslam'ı benimsemesiyle ilgili bir inanç kimliğidir.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "İslam dinini benimseyen kişi",
+        "Belirli bir ülkede doğmuş kişi",
+        "Belirli bir dili konuşan kişi",
+        "Yalnızca Müslüman bir ailede büyümüş kişi"
+      ],
+      "correct_answer": "İslam dinini benimseyen kişi",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "Müslüman olmanın temeli",
+      "concept_id": "muslim_meaning",
+      "teaching_card": {
+        "eyebrow": "1 · KİMLİK",
+        "title": "Müslüman, İslam’ı benimseyen kişidir.",
+        "body": "Bu kimlik ülkeye, dile veya millete değil; inancı benimsemeye dayanır.",
+        "memory": "Kısa ipucu: Din İslam, kişi Müslüman"
+      }
+    },
+    {
+      "id": "DEEN-U01-S02-P02",
+      "stage_id": "U01-S02",
+      "question_tr": "Kavramları doğru açıklamalarına götür.",
+      "explanation_tr": "İman, ibadet, ahlak ve Müslüman kavramları birbiriyle ilişkili ama farklı anlamlar taşır; bu farkları ayırt etmek temel anlayış için önemlidir.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "İman",
+          "right": "Kalben inanma"
+        },
+        {
+          "left": "İbadet",
+          "right": "Allah'a yönelik bilinçli kulluk davranışı"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Güzel davranış ve doğruluk"
+        },
+        {
+          "left": "Müslüman",
+          "right": "Allah'a inanan ve İslam'ı benimseyen kişi"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "Kavramları eşleştirme",
+      "concept_id": "concept_relationships",
+      "teaching_card": {
+        "eyebrow": "2 · KAVRAM HARİTASI",
+        "title": "Dört kavramın dört ayrı görevi vardır.",
+        "body": "İman inanmayı, ibadet kulluğu, ahlak davranışları, Müslüman ise İslam’ı benimseyen kişiyi anlatır.",
+        "memory": "Kısa ipucu: İnan · Kulluk et · Güzel davran"
+      }
+    },
+    {
+      "id": "DEEN-U01-S02-P03",
+      "stage_id": "U01-S02",
+      "question_tr": "İman kalpte başlar; ibadetler de onun hayata yansımasına yardım eder. Doğru mu?",
+      "explanation_tr": "İman kalpte başlar, ancak ibadetler bu imanın davranışa dönüşmesinde ve güçlenmesinde önemli bir yer tutar.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Doğru",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "İman ve ibadet ilişkisi",
+      "concept_id": "faith_basic",
+      "teaching_card": {
+        "eyebrow": "3 · İMAN",
+        "title": "İman, kalple inanıp kabul etmektir.",
+        "body": "İman yalnızca dışarıdan görülen bir hareket değildir; insanın içten kabulüyle ilgilidir.",
+        "memory": "Kısa ipucu: Önce kalpte kabul"
+      }
+    },
+    {
+      "id": "DEEN-U01-S02-P04",
+      "stage_id": "U01-S02",
+      "question_tr": "Boşluğu tamamla: İbadetin amacı Allah’a ___ ve O’nun rızasını gözetmektir.",
+      "explanation_tr": "İbadetin temel yönelişi Allah’a kulluk etmek ve O’nun rızasını gözetmektir.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "kulluk etmek",
+        "gösteriş yapmak",
+        "üstün görünmek",
+        "yarışmak"
+      ],
+      "correct_answer": "kulluk etmek",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "İbadetin amacı",
+      "concept_id": "worship_basic",
+      "teaching_card": {
+        "eyebrow": "4 · İBADET",
+        "title": "İbadetin yönü Allah’ın rızasıdır.",
+        "body": "İbadet gösteriş için değil, Allah’a kulluk etmek ve O’nun rızasını gözetmek için yapılır.",
+        "memory": "Kısa ipucu: Kulluk · Samimiyet · Rıza"
+      }
+    },
+    {
+      "id": "DEEN-U01-S02-P05",
+      "stage_id": "U01-S02",
+      "question_tr": "Peygamberin görevi neydi?",
+      "explanation_tr": "Hz. Muhammed'in peygamberlik rolü, Allah'ın mesajını insanlara iletmesi ve bu mesajı yaşayışıyla örneklemesiyle açıklanır.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Allah'ın mesajını insanlara iletmek ve yaşayışıyla örnek olmak",
+        "Yalnızca toplumsal düzeni yönetmek",
+        "Kendi görüşlerini dinin kaynağı hâline getirmek",
+        "Sadece tarihî olayları kaydetmek"
+      ],
+      "correct_answer": "Allah'ın mesajını insanlara iletmek ve yaşayışıyla örnek olmak",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "Peygamberin rolü",
+      "concept_id": "prophet_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S02-P06",
+      "stage_id": "U01-S02",
+      "question_tr": "Üç açıklama doğrudur. Hangisi kavram haritasına uymaz?",
+      "explanation_tr": "Müslümanlık belirli bir millete değil, İslam’ı benimsemeye dayanır.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İman: kalben inanıp kabul etmek",
+        "İbadet: Allah’a kulluk etmek",
+        "Ahlak: güzel davranış ve tutumlar",
+        "Müslüman: yalnızca belli bir milletten kişi"
+      ],
+      "correct_answer": "Müslüman: yalnızca belli bir milletten kişi",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "Ahlak nedir",
+      "concept_id": "akhlaq_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S02-P07",
+      "stage_id": "U01-S02",
+      "question_tr": "Kur’an’ın hayatımızdaki yeri nedir?",
+      "explanation_tr": "Kur'an, Müslümanlar için inanç ve yaşam konusunda temel rehber kabul edilen kutsal kitaptır.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "İnanç ve yaşamlarına yön veren temel kutsal kaynak olması",
+        "Yalnızca İslam tarihindeki olayları kronolojik olarak anlatması",
+        "Sadece ibadetlerin isimlerini listeleyen bir metin olması",
+        "Peygamberin hayatını anlatan tek biyografi kaynağı olması"
+      ],
+      "correct_answer": "İnanç ve yaşamlarına yön veren temel kutsal kaynak olması",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "Kur'an'ın önemi",
+      "concept_id": "quran_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S02-P08",
+      "stage_id": "U01-S02",
+      "question_tr": "Kavramları ait oldukları alanlarla eşleştir.",
+      "explanation_tr": "Kur'an, peygamber ve ibadet kavramları İslam'ın farklı ama birbirine bağlı yönlerini temsil eder.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "Kur'an",
+          "right": "Temel kutsal kaynak"
+        },
+        {
+          "left": "Peygamber",
+          "right": "Örnek alınan öğretici"
+        },
+        {
+          "left": "İbadet",
+          "right": "Uygulamaya dökülen kulluk"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "Kavramları eşleştirme",
+      "concept_id": "concept_relationships",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S02-P09",
+      "stage_id": "U01-S02",
+      "question_tr": "İman, ibadet ve ahlak birbirinden tamamen kopuk mudur?",
+      "explanation_tr": "İman, ibadet ve ahlak birbirini besleyen ve tamamlayan kavramlardır; İslam bu üçünü bir bütün olarak görür.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Yanlış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "Üçlü ilişki",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S02-P10",
+      "stage_id": "U01-S02",
+      "question_tr": "Kayıp kelime: İslam’ı benimseyen kişiye “___” denir.",
+      "explanation_tr": "Müslüman kelimesi, İslam dinini benimseyen kişiyi ifade eder.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "Müslüman",
+        "peygamber",
+        "melek",
+        "misafir"
+      ],
+      "correct_answer": "Müslüman",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "Müslüman olmanın temeli",
+      "concept_id": "muslim_meaning",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S02-P11",
+      "stage_id": "U01-S02",
+      "question_tr": "İbadetin yönü kime doğrudur?",
+      "explanation_tr": "İbadetin özü, kulluğu Allah'a has kılmak ve samimi biçimde O'nun rızasını gözetmektir.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Allah'a kulluk etmek ve O'nun rızasını gözetmek",
+        "İnsanların beğenisini kazanmak",
+        "Sadece gelenekleri sürdürmek",
+        "Toplumda üstün görünmek"
+      ],
+      "correct_answer": "Allah'a kulluk etmek ve O'nun rızasını gözetmek",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "İbadetin amacı",
+      "concept_id": "worship_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S02-P12",
+      "stage_id": "U01-S02",
+      "question_tr": "Hangisi iman kavramını anlatan ifadelerden biri değildir?",
+      "explanation_tr": "İman içten inanma ve kabul ile ilgilidir; başkalarına görünmek iman tanımı değildir.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "Kalben inanmak",
+        "Doğru olduğunu kabul etmek",
+        "İçten güvenmek",
+        "Yalnızca başkalarına görünmek"
+      ],
+      "correct_answer": "Yalnızca başkalarına görünmek",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Müslüman Kimdir?",
+      "topic": "İman nedir",
+      "concept_id": "faith_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S03-P01",
+      "stage_id": "U01-S03",
+      "question_tr": "İmanla ibadet arasındaki farkı hangisi iyi anlatıyor?",
+      "explanation_tr": "İman ve ibadet birbirleriyle ilişkili olsa da aynı kavram değildir: iman inancı, ibadet ise kulluk amacı taşıyan uygulamaları ifade eder.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "İman inançla, ibadet ise Allah'a kulluk amacı taşıyan davranışlarla ilgilidir",
+        "İman ve ibadet her durumda aynı kavramdır",
+        "İman yalnızca bedensel hareketlerden oluşur",
+        "İbadet yalnızca zihinde gerçekleşen bir düşüncedir"
+      ],
+      "correct_answer": "İman inançla, ibadet ise Allah'a kulluk amacı taşıyan davranışlarla ilgilidir",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "İman ve ibadet farkı",
+      "concept_id": "concept_relationships",
+      "teaching_card": {
+        "eyebrow": "1 · FARKI GÖR",
+        "title": "İman ve ibadet aynı kavram değildir.",
+        "body": "İman inanıp kabul etmeyi; ibadet ise Allah’a kulluk amacı taşıyan davranışları anlatır.",
+        "memory": "Kısa ipucu: İman kabul, ibadet kulluk"
+      }
+    },
+    {
+      "id": "DEEN-U01-S03-P02",
+      "stage_id": "U01-S03",
+      "question_tr": "Dört kavram, dört açıklama. Eşleri bul.",
+      "explanation_tr": "Bu dört kavram İslam'ın temel çerçevesini oluşturur ve birbirinden farklı ama tamamlayıcı roller üstlenir.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "İslam",
+          "right": "Allah'a teslimiyet dini"
+        },
+        {
+          "left": "Müslüman",
+          "right": "Bu dine inanan kişi"
+        },
+        {
+          "left": "İman",
+          "right": "Kalben inanma"
+        },
+        {
+          "left": "İbadet",
+          "right": "Kulluk davranışı"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "Temel kavramlar",
+      "concept_id": "concept_relationships",
+      "teaching_card": {
+        "eyebrow": "2 · BAĞLANTI KUR",
+        "title": "Kavramları anlamlarıyla eşleştir.",
+        "body": "Bir kavramı ezberlemek yerine, neyi açıkladığını bilmek kalıcı öğrenmeyi sağlar.",
+        "memory": "Kısa ipucu: Her kavrama tek açık görev"
+      }
+    },
+    {
+      "id": "DEEN-U01-S03-P03",
+      "stage_id": "U01-S03",
+      "question_tr": "İslam dinin adıdır; Müslüman ise İslam’ı benimseyen kişidir.",
+      "explanation_tr": "İslam ve Müslüman bağlantılı fakat farklı kavramlardır.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Doğru",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "İslam-Müslüman ilişkisi",
+      "concept_id": "muslim_meaning",
+      "teaching_card": {
+        "eyebrow": "3 · İSİM VE KİŞİ",
+        "title": "İslam dinin, Müslüman kişinin adıdır.",
+        "body": "Bu iki kavram bağlantılıdır ama aynı anlama gelmez.",
+        "memory": "Kısa ipucu: İslam → din · Müslüman → kişi"
+      }
+    },
+    {
+      "id": "DEEN-U01-S03-P04",
+      "stage_id": "U01-S03",
+      "question_tr": "Boşluğu tamamla: İman, ibadet ve ___ birbiriyle ilişkili alanlardır.",
+      "explanation_tr": "Bu ünitede iman, ibadet ve ahlak; İslam'ın temel çerçevesini anlamaya yardımcı olan ilişkili kavramlar olarak ele alınır.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "ahlak",
+        "milliyet",
+        "meslek",
+        "şehir"
+      ],
+      "correct_answer": "ahlak",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "Temel kavramlar",
+      "concept_id": "concept_relationships",
+      "teaching_card": {
+        "eyebrow": "4 · ÜÇLÜ BÜTÜN",
+        "title": "İman, ibadet ve ahlak ilişkilidir.",
+        "body": "İnanç, kulluk ve davranış birbirinden farklıdır; fakat hayatta birbirinden kopuk düşünülmez.",
+        "memory": "Kısa ipucu: İnan · Kulluk et · Güzel davran"
+      }
+    },
+    {
+      "id": "DEEN-U01-S03-P05",
+      "stage_id": "U01-S03",
+      "question_tr": "Hz. Muhammed’in rehberliği hangi iki yönü birlikte taşır?",
+      "explanation_tr": "Bu ünitede Hz. Muhammed, Allah'ın mesajını ileten ve Müslümanlar için yaşayışıyla örnek olan peygamber olarak tanıtılır.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Allah'ın mesajını iletmesi ve yaşayışıyla örnek olmasıyla",
+        "Yalnızca tarihî olaylarda yer almasıyla",
+        "Kur'an'ın yerine geçen bağımsız bir kaynak olmasıyla",
+        "Sadece siyasi görevler üstlenmesiyle"
+      ],
+      "correct_answer": "Allah'ın mesajını iletmesi ve yaşayışıyla örnek olmasıyla",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "Peygamberin bağlantısı",
+      "concept_id": "prophet_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S03-P06",
+      "stage_id": "U01-S03",
+      "question_tr": "Hangisi iman, ibadet ve ahlak ilişkisine uymaz?",
+      "explanation_tr": "Kavramlar farklıdır; ancak ünitede birbirleriyle ilişkili ele alınır.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İman kalpteki kabulle ilgilidir.",
+        "İbadet kulluk davranışlarıyla ilgilidir.",
+        "Ahlak tutum ve davranışlarla ilgilidir.",
+        "Üç kavramın hiçbir bağlantısı yoktur."
+      ],
+      "correct_answer": "Üç kavramın hiçbir bağlantısı yoktur.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "Üçlü bütünlük",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S03-P07",
+      "stage_id": "U01-S03",
+      "question_tr": "İman, ibadet ve ahlakın ilişkisini hangisi dengeli anlatıyor?",
+      "explanation_tr": "İman, ibadet ve ahlak aynı şey değildir; bu ünitede bunların İslam'ın genel çerçevesinde birbirini tamamlayan yönleri öğretilir.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "Farklı kavramlardır; ancak inanç, kulluk ve davranış bakımından birbirleriyle ilişkilidirler",
+        "Üçü de tamamen aynı anlama gelir",
+        "Yalnızca ibadet önemlidir; iman ve ahlak ikincildir",
+        "Yalnızca ahlak önemlidir; iman ve ibadetin ilişkisi yoktur"
+      ],
+      "correct_answer": "Farklı kavramlardır; ancak inanç, kulluk ve davranış bakımından birbirleriyle ilişkilidirler",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "Kavram sınıflandırma",
+      "concept_id": "concept_relationships",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S03-P08",
+      "stage_id": "U01-S03",
+      "question_tr": "Ahlak, Kur’an ve peygamber… Doğru eşleri bul.",
+      "explanation_tr": "Ahlak, Kur'an ve peygamber kavramları İslam'ın farklı boyutlarını temsil eder.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "Ahlak",
+          "right": "Güzel davranış"
+        },
+        {
+          "left": "Kur'an",
+          "right": "Temel kaynak"
+        },
+        {
+          "left": "Peygamber",
+          "right": "Örnek öğretici"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "Temel kavramlar",
+      "concept_id": "concept_relationships",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S03-P09",
+      "stage_id": "U01-S03",
+      "question_tr": "İnancın kulluk davranışlarıyla görünür hâle gelmesi ibadet kavramıyla ilişkilidir.",
+      "explanation_tr": "İbadet, Allah’a kulluk amacı taşıyan davranışları anlatır.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Doğru",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "Kavramların köprüsü",
+      "concept_id": "concept_relationships",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S03-P10",
+      "stage_id": "U01-S03",
+      "question_tr": "Boşluğu tamamla: Müslümanların temel kutsal kitabı ___.",
+      "explanation_tr": "Bu başlangıç ünitesinde Kur'an, Müslümanların temel kutsal kitabı ve ana rehber kaynağı olarak tanıtılır.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "Kur’an’dır",
+        "bir tarih kitabıdır",
+        "bir ülke kitabıdır",
+        "yalnızca sözlü gelenektir"
+      ],
+      "correct_answer": "Kur’an’dır",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "Kavramların temel dörtlüsü",
+      "concept_id": "concept_relationships",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S03-P11",
+      "stage_id": "U01-S03",
+      "question_tr": "Bir arkadaşın “İslam ile Müslüman aynı kelimedir.” diyor. En doğru açıklama hangisi?",
+      "explanation_tr": "İslam bir din, Müslüman ise bu dine inanan ve onu yaşamaya çalışan kişidir.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Müslüman, İslam dinine inanan ve onu yaşamaya çalışan kişidir",
+        "Müslüman ve İslam aynı anlama gelir",
+        "İslam bir kişi, Müslüman bir dindir",
+        "Bu iki kavram arasında hiçbir bağlantı yoktur"
+      ],
+      "correct_answer": "Müslüman, İslam dinine inanan ve onu yaşamaya çalışan kişidir",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "İslam-Müslüman ilişkisi",
+      "concept_id": "muslim_meaning",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S03-P12",
+      "stage_id": "U01-S03",
+      "question_tr": "Üç eşleştirme doğrudur. Hangisi yanlıştır?",
+      "explanation_tr": "İman yalnızca dış görünüş değil, kalben inanma ve kabul ile ilgilidir.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "Kur’an — temel kutsal kitap",
+        "Peygamber — mesajı ileten örnek rehber",
+        "Ahlak — davranış ve tutumlar",
+        "İman — yalnızca dış görünüş"
+      ],
+      "correct_answer": "İman — yalnızca dış görünüş",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Kavramları Eşleştir",
+      "topic": "Temel kavramlar",
+      "concept_id": "concept_relationships",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S04-P01",
+      "stage_id": "U01-S04",
+      "question_tr": "İslam günlük hayata da dokunur mu?",
+      "explanation_tr": "İslam, hayatın her alanına -aileden iş hayatına- yayılan bütünsel bir yaklaşım sunar.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+        "Sadece camide geçerlidir",
+        "Sadece belirli günlerde uygulanır",
+        "Sadece yetişkinler için geçerlidir"
+      ],
+      "correct_answer": "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "İslam'ın kapsamı",
+      "concept_id": "islam_daily_life",
+      "teaching_card": {
+        "eyebrow": "1 · GÜNLÜK HAYAT",
+        "title": "İslam günlük davranışlara da yön verir.",
+        "body": "İnanç yalnızca bilgi olarak kalmaz; dürüstlük, saygı ve sorumluluk gibi davranışlara yansır.",
+        "memory": "Kısa ipucu: Öğrendiğini davranışa taşı"
+      }
+    },
+    {
+      "id": "DEEN-U01-S04-P02",
+      "stage_id": "U01-S04",
+      "question_tr": "Davranışları öne çıkan değerlerle eşleştir.",
+      "explanation_tr": "Güzel ahlak farklı durumlarda dürüstlük, saygı ve sabır olarak görünür.",
+      "activity_type": "matching",
+      "options_tr": [
+        "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+        "İbadet ve ahlakın tamamen aynı kavram olduğunu",
+        "Ahlakın ibadeti gereksiz yaptığını",
+        "Dürüstlüğün dinle ilgisiz olduğunu"
+      ],
+      "correct_answer": "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+      "pairs": [
+        {
+          "left": "Doğruyu söylemek",
+          "right": "Dürüstlük"
+        },
+        {
+          "left": "Kırmadan konuşmak",
+          "right": "Saygı"
+        },
+        {
+          "left": "Öfkeyi kontrol etmek",
+          "right": "Sabır"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "Üçlü bütünlük",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": {
+        "eyebrow": "2 · DEĞER HARİTASI",
+        "title": "Davranışın arkasındaki değeri bul.",
+        "body": "Dürüstlük, saygı, sabır ve sorumluluk farklı durumlarda görünür hâle gelir.",
+        "memory": "Kısa ipucu: Davranış → değer"
+      }
+    },
+    {
+      "id": "DEEN-U01-S04-P03",
+      "stage_id": "U01-S04",
+      "question_tr": "Kimse görmediğinde de doğruyu söylemek dürüstlüğün bir parçasıdır.",
+      "explanation_tr": "Dürüstlük, başkalarının görmesine bağlı olmayan ahlaki bir tutumdur.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Doğru",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "Günlük hayatta ahlak",
+      "concept_id": "akhlaq_basic",
+      "teaching_card": {
+        "eyebrow": "3 · KİMSE GÖRMESE DE",
+        "title": "Dürüstlük seyirciye bağlı değildir.",
+        "body": "Doğru davranış, yalnızca başkaları gördüğünde yapılan davranış değildir.",
+        "memory": "Kısa ipucu: Görülmek değil, doğru olmak"
+      }
+    },
+    {
+      "id": "DEEN-U01-S04-P04",
+      "stage_id": "U01-S04",
+      "question_tr": "Boşluğu tamamla: Fazla para üstünü geri vermek ___ değerine örnektir.",
+      "explanation_tr": "Emre'nin davranışı, İslam'ın önem verdiği dürüstlük ve ahlaki sorumluluğun bir yansımasıdır.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "dürüstlük",
+        "kabalık",
+        "gösteriş",
+        "rekabet"
+      ],
+      "correct_answer": "dürüstlük",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "Günlük hayatta ahlak",
+      "concept_id": "akhlaq_basic",
+      "teaching_card": {
+        "eyebrow": "4 · EMANET VE HAK",
+        "title": "Fazla para üstünü geri vermek dürüstlüktür.",
+        "body": "Sana ait olmayanı sahibine vermek, başkasının hakkını korumaktır.",
+        "memory": "Kısa ipucu: Sana ait değilse geri ver"
+      }
+    },
+    {
+      "id": "DEEN-U01-S04-P05",
+      "stage_id": "U01-S04",
+      "question_tr": "Zeynep kopya çekmiyor çünkü Allah’ın her şeyi gördüğünü düşünüyor. Burada hangi iki alan birlikte çalışıyor?",
+      "explanation_tr": "Zeynep'in davranışı, Allah'a olan inancının (iman) doğru davranışa (ahlak) yansımasının bir örneğidir.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "İman ve ahlakın birlikte işlemesi",
+        "Sadece korku duygusu",
+        "Sadece okul kuralları",
+        "Sadece arkadaş baskısı"
+      ],
+      "correct_answer": "İman ve ahlakın birlikte işlemesi",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "İman-ahlak ilişkisi",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S04-P06",
+      "stage_id": "U01-S04",
+      "question_tr": "Hangisi ibadet ve ahlak ilişkisine uymaz?",
+      "explanation_tr": "Ünite, kulluk ile güzel davranış arasında bağ kurulabileceğini öğretir.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İbadet kulluk bilincini güçlendirebilir.",
+        "Güzel davranışlar günlük hayata yansır.",
+        "İnanç ve davranış arasında bağ kurulabilir.",
+        "İnsanlara nasıl davrandığımızın hiçbir önemi yoktur."
+      ],
+      "correct_answer": "İnsanlara nasıl davrandığımızın hiçbir önemi yoktur.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "İbadet-ahlak bütünlüğü",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S04-P07",
+      "stage_id": "U01-S04",
+      "question_tr": "İbadetlerine önem veren biri aynı zamanda dürüst ve saygılı davranıyor. Bu bize ne gösteriyor?",
+      "explanation_tr": "Bu örnek ibadet ve ahlakın aynı kavram olmadığını, fakat kişinin hayatında birbirini destekleyen biçimde birlikte bulunabileceğini gösterir.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+        "İbadet ve ahlakın tamamen aynı kavram olduğunu",
+        "Ahlakın ibadeti gereksiz yaptığını",
+        "Dürüstlüğün dinle ilgisiz olduğunu"
+      ],
+      "correct_answer": "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "Üçlü bütünlük",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S04-P08",
+      "stage_id": "U01-S04",
+      "question_tr": "Durumları doğru davranışlarla eşleştir.",
+      "explanation_tr": "Ahlaki davranış, farklı durumlarda nazik, adil ve dürüst seçimler yapmayı gerektirir.",
+      "activity_type": "matching",
+      "options_tr": [
+        "Saygılı ve nazik iletişim (ahlak)",
+        "Sadece bilgiçlik taslamak",
+        "Sadece tartışmayı kazanmak isteği",
+        "Sadece kendini haklı çıkarma"
+      ],
+      "correct_answer": "Saygılı ve nazik iletişim (ahlak)",
+      "pairs": [
+        {
+          "left": "Yanlış bilgiyi düzeltmek",
+          "right": "Nazikçe konuşmak"
+        },
+        {
+          "left": "Haksız suçlama",
+          "right": "Sakin ve adil açıklamak"
+        },
+        {
+          "left": "Yapılan hata",
+          "right": "Dürüstçe kabul etmek"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "Günlük hayatta ahlak",
+      "concept_id": "akhlaq_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S04-P09",
+      "stage_id": "U01-S04",
+      "question_tr": "İslam yalnızca ibadetlerden oluşur; günlük davranışlarla ilgisi yoktur.",
+      "explanation_tr": "İslam’ın çerçevesi inanç, ibadet, ahlak ve günlük yaşamı birlikte ele alır.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Yanlış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "İslam'ın kapsamı",
+      "concept_id": "islam_daily_life",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S04-P10",
+      "stage_id": "U01-S04",
+      "question_tr": "Boşluğu tamamla: Öfkelendiğinde sakin kalabilmek ___ değerini gösterir.",
+      "explanation_tr": "Burak'ın sakin ve adil tutumu, İslam'ın önemsediği sabır ve güzel ahlak değerlerinin bir yansımasıdır.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "sabır",
+        "kabalık",
+        "acelecilik",
+        "gösteriş"
+      ],
+      "correct_answer": "sabır",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "Günlük hayatta ahlak",
+      "concept_id": "akhlaq_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S04-P11",
+      "stage_id": "U01-S04",
+      "question_tr": "Mehmet kaba bir yorum yazacakken vazgeçip daha nazik bir cümle kuruyor. Bu seçim neyi gösteriyor?",
+      "explanation_tr": "Mehmet'in tercihi, ahlaki değerleri günlük iletişimine yansıtmasının bir göstergesidir.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Güzel ahlakı günlük davranışa yansıtmak",
+        "Sadece popüler olmak istemek",
+        "Sadece kurallardan korkmak",
+        "Sadece alışkanlık"
+      ],
+      "correct_answer": "Güzel ahlakı günlük davranışa yansıtmak",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "Günlük hayatta ahlak",
+      "concept_id": "islam_daily_life",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S04-P12",
+      "stage_id": "U01-S04",
+      "question_tr": "Üç davranış ahlaki sorumlulukla uyumludur. Hangisi uyumlu değildir?",
+      "explanation_tr": "Dürüstlük, kimsenin görmediği durumda da doğru davranmayı gerektirir.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "Emaneti sahibine vermek",
+        "Kırmadan doğruyu söylemek",
+        "Haksızlık karşısında adil davranmak",
+        "Kimse görmüyorsa yalan söylemek"
+      ],
+      "correct_answer": "Kimse görmüyorsa yalan söylemek",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Günlük Hayat",
+      "topic": "İbadet-yardım ilişkisi",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S05-P01",
+      "stage_id": "U01-S05",
+      "question_tr": "Bir arkadaşın “İslam nasıl bir yaşam anlayışı sunar?” diye sordu. Ne dersin?",
+      "explanation_tr": "Bu ünitede İslam, Allah'a yönelişin inanç, kulluk ve güzel davranışlarla birlikte ele alındığı bütünsel bir çerçeve olarak tanıtılır.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "Allah'a yönelişi; inanç, ibadet ve güzel ahlakla birlikte ele alan bir anlayış",
+        "Yalnızca belirli ritüellerin isimlerini ezberlemeyi amaçlayan bir anlayış",
+        "Sadece belirli bir toplumun kültürel geleneklerini koruyan bir anlayış",
+        "Günlük hayatla bağlantısı olmayan yalnızca tarihî bir anlayış"
+      ],
+      "correct_answer": "Allah'a yönelişi; inanç, ibadet ve güzel ahlakla birlikte ele alan bir anlayış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "İslam'a giriş",
+      "concept_id": "islam_meaning",
+      "teaching_card": {
+        "eyebrow": "1 · BÜTÜN RESİM",
+        "title": "İslam inanç, kulluk ve güzel ahlakı birlikte ele alır.",
+        "body": "Bu alanlardan yalnız birini seçmek, ünitenin anlattığı bütünlüğü eksik bırakır.",
+        "memory": "Kısa ipucu: İman + ibadet + ahlak"
+      }
+    },
+    {
+      "id": "DEEN-U01-S05-P02",
+      "stage_id": "U01-S05",
+      "question_tr": "Dört kavramı doğru açıklamalarına götür.",
+      "explanation_tr": "Bu dört kavram, İslam'ın inançtan davranışa uzanan bütünlüğünü özetler.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "İslam",
+          "right": "Din"
+        },
+        {
+          "left": "İman",
+          "right": "İçsel inanç"
+        },
+        {
+          "left": "İbadet",
+          "right": "Uygulanan kulluk"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Dışa yansıyan davranış"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "Kavramların bütünlüğü",
+      "concept_id": "concept_relationships",
+      "teaching_card": {
+        "eyebrow": "2 · KAVRAMLAR",
+        "title": "Her kavramın yerini doğru bul.",
+        "body": "İslam genel çerçevedir; iman inancı, ibadet kulluğu, ahlak davranışı anlatır.",
+        "memory": "Kısa ipucu: Dört kavram, dört görev"
+      }
+    },
+    {
+      "id": "DEEN-U01-S05-P03",
+      "stage_id": "U01-S05",
+      "question_tr": "İman sadece dışarıdan gördüğümüz davranışlarla ölçülebilir mi?",
+      "explanation_tr": "İman öncelikle kalpte gerçekleşen bir kabul halidir; dışarıdan tam olarak ölçülemez, ancak davranışlara yansıyabilir.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Yanlış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "İman nedir",
+      "concept_id": "faith_basic",
+      "teaching_card": {
+        "eyebrow": "3 · İÇTEN İNANÇ",
+        "title": "İman yalnızca görünür davranış değildir.",
+        "body": "İman insanın kalben inanması ve doğru kabul etmesiyle ilgilidir.",
+        "memory": "Kısa ipucu: Dışarıdan önce içeride"
+      }
+    },
+    {
+      "id": "DEEN-U01-S05-P04",
+      "stage_id": "U01-S05",
+      "question_tr": "Kayıp kelimeyi bul: İbadette Allah’ın ___ gözetilir.",
+      "explanation_tr": "İhlas anlayışında ibadet Allah'a has kılınır ve O'nun rızası gözetilir.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "rızasını",
+        "şöhreti",
+        "alkışı",
+        "yarışını"
+      ],
+      "correct_answer": "rızasını",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "İbadetin amacı",
+      "concept_id": "worship_basic",
+      "teaching_card": {
+        "eyebrow": "4 · NİYET",
+        "title": "İbadette amaç Allah’ın rızasıdır.",
+        "body": "Kulluk, insanların alkışını kazanmak için değil Allah’a yönelmek için yapılır.",
+        "memory": "Kısa ipucu: Gösteriş değil rıza"
+      }
+    },
+    {
+      "id": "DEEN-U01-S05-P05",
+      "stage_id": "U01-S05",
+      "question_tr": "Arkadaşın “İbadet sadece namazdır.” dedi. Ona ne söylersin?",
+      "explanation_tr": "İbadet, namaz dahil olmak üzere Allah rızası gözetilerek yapılan geniş bir davranış yelpazesini kapsar.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "İbadetin, Allah rızası için yapılan pek çok davranışı kapsadığını söylerim",
+        "Ona hak verip başka bir şey söylemem",
+        "Sadece namazın önemli olduğunu onaylarım",
+        "İbadetin gereksiz olduğunu söylerim"
+      ],
+      "correct_answer": "İbadetin, Allah rızası için yapılan pek çok davranışı kapsadığını söylerim",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "İbadetin kapsamı",
+      "concept_id": "worship_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S05-P06",
+      "stage_id": "U01-S05",
+      "question_tr": "Üç ifade kavramları doğru ayırır. Hangisi hatalıdır?",
+      "explanation_tr": "Bu kavramlar ilişkilidir fakat aynı anlama gelmez.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İman inanmayla ilgilidir.",
+        "İbadet kullukla ilgilidir.",
+        "Ahlak davranışlarla ilgilidir.",
+        "İman, ibadet ve ahlak tamamen aynı kelimedir."
+      ],
+      "correct_answer": "İman, ibadet ve ahlak tamamen aynı kelimedir.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "Kavramların ilişkisi",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S05-P07",
+      "stage_id": "U01-S05",
+      "question_tr": "Ahlak İslam’ın neresinde duruyor?",
+      "explanation_tr": "Ahlak, İslam'da imandan ve ibadetten ayrı düşünülemeyecek, bütünün önemli bir parçasıdır.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "İnanç ve ibadetle birlikte İslam'ın önemli bir parçasıdır",
+        "İnançtan tamamen bağımsız, önemsiz bir konudur",
+        "Sadece toplumsal bir zorunluluktur",
+        "Sadece kanunlarla ilgilidir"
+      ],
+      "correct_answer": "İnanç ve ibadetle birlikte İslam'ın önemli bir parçasıdır",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "Ahlakın yeri",
+      "concept_id": "akhlaq_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S05-P08",
+      "stage_id": "U01-S05",
+      "question_tr": "Kur’an, peygamber, ibadet ve ahlak… Eşleri bul.",
+      "explanation_tr": "Bu kavramların her biri farklı bir alanı ifade eder; birlikte düşünüldüğünde ünitenin temel çerçevesini oluştururlar.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "Kur'an",
+          "right": "Müslümanların temel kutsal kitabı"
+        },
+        {
+          "left": "Peygamber",
+          "right": "Allah'ın mesajını ileten ve örnek olan rehber"
+        },
+        {
+          "left": "İbadet",
+          "right": "Allah'a kulluk amacı taşıyan davranış"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Doğru ve güzel davranışlarla ilgili tutum"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "Kaynak-uygulama ilişkisi",
+      "concept_id": "concept_relationships",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S05-P09",
+      "stage_id": "U01-S05",
+      "question_tr": "Kur’an günlük yaşamımıza da yön verir mi?",
+      "explanation_tr": "Kur'an sadece ibadetle değil, ahlak ve günlük yaşamla ilgili temel ilkeleri de içerir.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Doğru",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "Kur'an'ın kapsamı",
+      "concept_id": "quran_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S05-P10",
+      "stage_id": "U01-S05",
+      "question_tr": "Kayıp kelime: Dili ve milliyeti ne olursa olsun İslam’ı benimseyen kişiye “___” denir.",
+      "explanation_tr": "Bu tanım Müslümanlığın evrensel, inanca dayalı bir kimlik olduğunu gösterir.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "Müslüman",
+        "peygamber",
+        "melek",
+        "misafir"
+      ],
+      "correct_answer": "Müslüman",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "Müslüman kimdir",
+      "concept_id": "muslim_meaning",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S05-P11",
+      "stage_id": "U01-S05",
+      "question_tr": "Birisi “Namaz kılıyorum, kimseye yardım etmesem de olur.” diyor. Burada ne eksik?",
+      "explanation_tr": "İslam'da ibadet ile toplumsal/ahlaki sorumluluk birbirini tamamlar; biri diğerinin yerine geçmez.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "İbadeti ahlaki sorumluluktan ayırması",
+        "Hiçbir eksiklik yok",
+        "Namazın önemsiz olduğunu düşünmesi",
+        "Yardımın gereksiz olduğunu doğru söylemesi"
+      ],
+      "correct_answer": "İbadeti ahlaki sorumluluktan ayırması",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "İbadet-ahlak bütünlüğü",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S05-P12",
+      "stage_id": "U01-S05",
+      "question_tr": "Hangisi ünitenin anlattığı bütünlüğe uymaz?",
+      "explanation_tr": "İman, ibadet ve ahlak farklı ancak ilişkili alanlardır.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İman kalben inanmayla ilgilidir.",
+        "İbadet Allah’a kullukla ilgilidir.",
+        "Ahlak güzel davranışlarla ilgilidir.",
+        "Bu üç alan birbirinden tamamen kopuktur."
+      ],
+      "correct_answer": "Bu üç alan birbirinden tamamen kopuktur.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Bildiklerini Kullan",
+      "topic": "Üçlü ilişki",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S06-P01",
+      "stage_id": "U01-S06",
+      "question_tr": "İman + ibadet + ahlak ilişkisini hangisi iyi özetliyor?",
+      "explanation_tr": "Bu kavramları birbirine eşitlemeden aralarındaki ilişkiyi görmek, ünitenin temel öğrenme hedeflerinden biridir.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "İman inancı, ibadet kulluğu, ahlak ise davranış boyutunu anlatır; üçü farklı ama ilişkilidir",
+        "Üçü de aynı kavramın farklı yazılışlarıdır",
+        "İbadet diğer iki kavramın yerini tamamen alır",
+        "Ahlak inanç ve ibadetle hiçbir bağlantı taşımaz"
+      ],
+      "correct_answer": "İman inancı, ibadet kulluğu, ahlak ise davranış boyutunu anlatır; üçü farklı ama ilişkilidir",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "Üçlü ilişki özeti",
+      "concept_id": "concept_relationships",
+      "teaching_card": {
+        "eyebrow": "1 · BÜTÜNLÜK",
+        "title": "İman, ibadet ve ahlak farklı ama ilişkilidir.",
+        "body": "İman inancı, ibadet kulluğu, ahlak davranışı anlatır; birlikte yaşamın bütününü kurarlar.",
+        "memory": "Kısa ipucu: İnanç · Kulluk · Davranış"
+      }
+    },
+    {
+      "id": "DEEN-U01-S06-P02",
+      "stage_id": "U01-S06",
+      "question_tr": "Kavramları rollerine göre eşleştir.",
+      "explanation_tr": "İman, ibadet ve ahlak farklı rollere sahip ancak ilişkili kavramlardır.",
+      "activity_type": "matching",
+      "options_tr": [
+        "İslam'ın öğrettiği bütünlüğün hayata geçirildiğini",
+        "Sadece toplumsal onay aradığını",
+        "Hiçbir özel anlam taşımadığını",
+        "Sadece gelenek takip ettiğini"
+      ],
+      "correct_answer": "İslam'ın öğrettiği bütünlüğün hayata geçirildiğini",
+      "pairs": [
+        {
+          "left": "İman",
+          "right": "Kalben inanmak"
+        },
+        {
+          "left": "İbadet",
+          "right": "Allah’a kulluk etmek"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Güzel davranış ve tutumlar"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "Üçlünün somut örneği",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": {
+        "eyebrow": "2 · ROLLER",
+        "title": "Kavramların görevlerini karıştırma.",
+        "body": "Kur’an rehber, peygamber örnek; iman kabul, ibadet kulluk, ahlak davranıştır.",
+        "memory": "Kısa ipucu: Her kavrama net rol"
+      }
+    },
+    {
+      "id": "DEEN-U01-S06-P03",
+      "stage_id": "U01-S06",
+      "question_tr": "Peygamberin hayatı günlük davranışlarımız için de örnek olabilir mi?",
+      "explanation_tr": "Müslümanlar, peygamberin yaşamını ahlaki ve pratik konularda örnek alınacak bir rehber olarak görür.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Doğru",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "Peygamberin rehberliği",
+      "concept_id": "prophet_basic",
+      "teaching_card": {
+        "eyebrow": "3 · ÖRNEK REHBER",
+        "title": "Peygamberin hayatı davranışlara örnektir.",
+        "body": "Hz. Muhammed yalnızca tarihî bir kişi olarak değil, mesajı ileten ve yaşayışıyla örnek olan peygamber olarak tanıtılır.",
+        "memory": "Kısa ipucu: Mesajı iletir · Yaşayışıyla örnek olur"
+      }
+    },
+    {
+      "id": "DEEN-U01-S06-P04",
+      "stage_id": "U01-S06",
+      "question_tr": "Boşluğu tamamla: İman temelde ___ inanıp kabul etmekle ilgilidir.",
+      "explanation_tr": "İman öncelikle kalpte gerçekleşen bir inanma halidir; söz bu içsel kabulün dışa yansımasıdır.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "kalben",
+        "yalnızca görünüşte",
+        "zorla",
+        "rastgele"
+      ],
+      "correct_answer": "kalben",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "İmanın kalple ilgisi",
+      "concept_id": "faith_basic",
+      "teaching_card": {
+        "eyebrow": "4 · KALPTE KABUL",
+        "title": "İman yalnızca söylenen bir söz değildir.",
+        "body": "Söz imanı ifade edebilir; fakat iman temelde kalbin inanması ve kabulüyle ilgilidir.",
+        "memory": "Kısa ipucu: Söz ifade eder, kalp kabul eder"
+      }
+    },
+    {
+      "id": "DEEN-U01-S06-P05",
+      "stage_id": "U01-S06",
+      "question_tr": "Arkadaşın “İslam sadece birkaç ibadetten oluşur.” diyor. Ona nasıl cevap verirsin?",
+      "explanation_tr": "İslam, yalnızca ibadetten ibaret değildir; inanç ve ahlakı da kapsayan bütünsel bir çerçevedir.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "İslam'ın iman, ibadet ve ahlakı bir arada içeren bütünsel bir yaşam biçimi olduğunu söylerim",
+        "Ona tamamen katılırım",
+        "Sadece ibadetin önemli olduğunu onaylarım",
+        "Bu konuda yorum yapmam"
+      ],
+      "correct_answer": "İslam'ın iman, ibadet ve ahlakı bir arada içeren bütünsel bir yaşam biçimi olduğunu söylerim",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "İslam'ın bütünlüğü",
+      "concept_id": "islam_meaning",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S06-P06",
+      "stage_id": "U01-S06",
+      "question_tr": "Üç ifade Kur’an’ın rehberliğiyle uyumludur. Hangisi uyumlu değildir?",
+      "explanation_tr": "Kur’an’ın işlevi tarih anlatımına indirgenemez; inanç ve ahlak alanlarında da rehberdir.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İnanç konularında yol gösterir.",
+        "Ahlaki konularda rehberlik eder.",
+        "Müslümanların temel kutsal kitabıdır.",
+        "Yalnızca geçmiş olayları anlatan bir tarih kitabıdır."
+      ],
+      "correct_answer": "Yalnızca geçmiş olayları anlatan bir tarih kitabıdır.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "Kur'an'ın rehberlik yönü",
+      "concept_id": "quran_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S06-P07",
+      "stage_id": "U01-S06",
+      "question_tr": "Arkadaşın “Müslüman olmak için belli bir soydan gelmek gerekir.” diyor. Ne dersin?",
+      "explanation_tr": "Müslüman kavramı milliyet, soy veya dil değil; İslam dinini benimseme ile ilgilidir.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "Müslümanlık belirli bir soy veya milliyete değil, İslam'ı benimsemeye dayanır",
+        "Müslümanlık yalnızca belirli bir aile soyundan gelmekle kazanılan bir kimliktir",
+        "Müslümanlık kişinin konuştuğu dile göre belirlenir",
+        "Müslümanlık doğduğu coğrafyaya göre otomatik olarak belirlenir"
+      ],
+      "correct_answer": "Müslümanlık belirli bir soy veya milliyete değil, İslam'ı benimsemeye dayanır",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "Müslümanlığın ölçütü",
+      "concept_id": "muslim_meaning",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S06-P08",
+      "stage_id": "U01-S06",
+      "question_tr": "Kavramları kısa açıklamalarıyla eşleştir.",
+      "explanation_tr": "Kur’an, peygamber ve Müslüman kavramlarının rolleri birbirinden farklıdır.",
+      "activity_type": "matching",
+      "options_tr": [
+        "Allah'a yönelik bilinçli kulluk davranışı",
+        "Sadece gelenek",
+        "Sadece alışkanlık",
+        "Sadece kural"
+      ],
+      "correct_answer": "Allah'a yönelik bilinçli kulluk davranışı",
+      "pairs": [
+        {
+          "left": "Kur’an",
+          "right": "Temel kutsal kitap ve rehber"
+        },
+        {
+          "left": "Peygamber",
+          "right": "Mesajı ileten örnek kişi"
+        },
+        {
+          "left": "Müslüman",
+          "right": "İslam’ı benimseyen kişi"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "İbadetin özü",
+      "concept_id": "worship_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S06-P09",
+      "stage_id": "U01-S06",
+      "question_tr": "İbadetin amacı toplumda iyi görünmek midir?",
+      "explanation_tr": "İbadetin asıl amacı Allah'ın rızasını kazanmaktır; toplumda nasıl görünüldüğü ibadetin özü değildir.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Yanlış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "İbadetin özü",
+      "concept_id": "worship_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S06-P10",
+      "stage_id": "U01-S06",
+      "question_tr": "Boşluğu tamamla: Davranışını değerlendirip düzeltmek ahlaki ___ gösterir.",
+      "explanation_tr": "Kişinin kendi davranışını öğrendiği değerlerle karşılaştırması, ahlaki farkındalığa örnek oluşturur.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "farkındalık",
+        "kayıtsızlık",
+        "gösteriş",
+        "rekabet"
+      ],
+      "correct_answer": "farkındalık",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "Ahlaki öz farkındalık",
+      "concept_id": "islam_daily_life",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S06-P11",
+      "stage_id": "U01-S06",
+      "question_tr": "Arkadaşın “Din sadece camide yaşanır.” diyor. Ona ne söylersin?",
+      "explanation_tr": "İslam'ın öğrettiği ahlaki değerler, sadece ibadet mekânlarıyla sınırlı değildir; günlük yaşamın her anına yansır.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Dinin, dürüstlük ve saygı gibi değerlerle günlük hayatın her alanına yansıdığını söylerim",
+        "Ona tamamen katılırım",
+        "Sadece ibadet yerlerinde geçerli olduğunu onaylarım",
+        "Bu konuda hiçbir şey söylemem"
+      ],
+      "correct_answer": "Dinin, dürüstlük ve saygı gibi değerlerle günlük hayatın her alanına yansıdığını söylerim",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "İslam'ın kapsamı",
+      "concept_id": "islam_daily_life",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S06-P12",
+      "stage_id": "U01-S06",
+      "question_tr": "Hangisi iman, ibadet ve ahlak ilişkisine uymaz?",
+      "explanation_tr": "Ünite iman, ibadet ve ahlakı farklı fakat ilişkili alanlar olarak ele alır.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İman kalpteki kabulü anlatır.",
+        "İbadet kulluk davranışlarını anlatır.",
+        "Ahlak günlük tutumlara yansır.",
+        "İnanç davranışlarla hiçbir şekilde ilişkili değildir."
+      ],
+      "correct_answer": "İnanç davranışlarla hiçbir şekilde ilişkili değildir.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Akıllı Tekrar",
+      "topic": "Üçlünün bütünlüğü",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S07-P01",
+      "stage_id": "U01-S07",
+      "question_tr": "Son tur: İslam’ı tek cümlede nasıl anlatırsın?",
+      "explanation_tr": "Ünite boyunca İslam, yalnızca tek bir davranış alanına indirgenmeyen; inanç, ibadet ve ahlakla ilişkili bütünsel bir din olarak ele alındı.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "Allah'a yönelişi; inanç, kulluk ve güzel davranışlarla birlikte ele alan bir din",
+        "Yalnızca belirli ibadetlerin adını ifade eden bir kavram",
+        "Belirli bir milliyete ait kültürel kimlik",
+        "Sadece tarihsel olaylardan oluşan bir gelenek"
+      ],
+      "correct_answer": "Allah'a yönelişi; inanç, kulluk ve güzel davranışlarla birlikte ele alan bir din",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "İslam'ın özeti",
+      "concept_id": "islam_meaning",
+      "teaching_card": {
+        "eyebrow": "1 · ÜNİTE ÖZETİ",
+        "title": "İslam, Allah’a yönelişi hayatın bütünüyle ele alır.",
+        "body": "İnanç, kulluk ve güzel davranış ünitenin ana çerçevesini oluşturur.",
+        "memory": "Kısa ipucu: Yönel · İnan · Yaşa"
+      }
+    },
+    {
+      "id": "DEEN-U01-S07-P02",
+      "stage_id": "U01-S07",
+      "question_tr": "Final eşleştirme: iman, ibadet, ahlak ve Kur’an.",
+      "explanation_tr": "Bu dört kavram, İslam'ın inançtan davranışa uzanan yapısını özetler.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "İman",
+          "right": "İçsel inanç"
+        },
+        {
+          "left": "İbadet",
+          "right": "Uygulanan kulluk"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Davranışa yansıma"
+        },
+        {
+          "left": "Kur'an",
+          "right": "Temel kaynak"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "Temel kavramlar özeti",
+      "concept_id": "concept_relationships",
+      "teaching_card": {
+        "eyebrow": "2 · FİNAL HARİTA",
+        "title": "Son kez kavramların yerini gör.",
+        "body": "İman kabul, ibadet kulluk, ahlak davranış, Kur’an ise temel rehberdir.",
+        "memory": "Kısa ipucu: Dört kavram, dört açık anlam"
+      }
+    },
+    {
+      "id": "DEEN-U01-S07-P03",
+      "stage_id": "U01-S07",
+      "question_tr": "İman sadece törenlere katılmak değil, kalben inanmakla da ilgilidir. Doğru mu?",
+      "explanation_tr": "İman, dışsal törenlerden çok, kişinin içsel kabulüyle ilgili bir kavramdır.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Doğru",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "İmanın özü",
+      "concept_id": "faith_basic",
+      "teaching_card": {
+        "eyebrow": "3 · İMAN",
+        "title": "İman kalben inanmakla ilgilidir.",
+        "body": "Törenlere katılmak tek başına iman tanımı değildir; içten inanma ve kabul esastır.",
+        "memory": "Kısa ipucu: Kalpte inan ve kabul et"
+      }
+    },
+    {
+      "id": "DEEN-U01-S07-P04",
+      "stage_id": "U01-S07",
+      "question_tr": "Boşluğu tamamla: İslam’ın merkezindeki fikir Allah’a ___ ve O’nun rehberliğini benimsemektir.",
+      "explanation_tr": "Bu ünitede İslam'ın merkezinde Allah'a yönelme, teslimiyet ve O'nun rehberliğini benimseme fikri vurgulanır.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "teslimiyet",
+        "uzaklık",
+        "kayıtsızlık",
+        "rekabet"
+      ],
+      "correct_answer": "teslimiyet",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "İslam'a giriş",
+      "concept_id": "islam_meaning",
+      "teaching_card": {
+        "eyebrow": "4 · MERKEZ FİKİR",
+        "title": "İslam’ın merkezinde Allah’a teslimiyet vardır.",
+        "body": "Teslimiyet, Allah’a yönelmek ve O’nun rehberliğini benimsemek anlamında kullanılır.",
+        "memory": "Kısa ipucu: Allah’a yönel · Rehberliği benimse"
+      }
+    },
+    {
+      "id": "DEEN-U01-S07-P05",
+      "stage_id": "U01-S07",
+      "question_tr": "Kimse görmese bile dürüst davranmak neyi gösterir?",
+      "explanation_tr": "İslam, kişinin sadece görüldüğünde değil, her zaman dürüst ve ahlaklı davranmasını öğütler.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Ahlakın, insanlar görmese bile önemli olduğu öğretisiyle",
+        "Sadece kanun korkusuyla",
+        "Sadece iş güvencesi kaygısıyla",
+        "Hiçbir öğretiyle ilgisi yok"
+      ],
+      "correct_answer": "Ahlakın, insanlar görmese bile önemli olduğu öğretisiyle",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "Görülmeden dürüstlük",
+      "concept_id": "islam_daily_life",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S07-P06",
+      "stage_id": "U01-S07",
+      "question_tr": "Üç ifade ünitenin ana fikriyle uyumludur. Hangisi uyumlu değildir?",
+      "explanation_tr": "Ünite bu kavramları farklı fakat ilişkili alanlar olarak ele alır.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "İman kalben inanmayla ilgilidir.",
+        "İbadet Allah’a kullukla ilgilidir.",
+        "Ahlak davranışlara yansır.",
+        "İman, ibadet ve ahlak tamamen kopuktur."
+      ],
+      "correct_answer": "İman, ibadet ve ahlak tamamen kopuktur.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "Üçlünün bütünlüğü",
+      "concept_id": "belief_worship_ethics",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S07-P07",
+      "stage_id": "U01-S07",
+      "question_tr": "Peygamberin temel rolünü hangisi en iyi anlatıyor?",
+      "explanation_tr": "Peygamber, hem Allah'ın mesajını ileten hem de bu mesajı hayatında örnekleyen bir rehberdir.",
+      "activity_type": "card_choice",
+      "options_tr": [
+        "Allah'ın mesajını ileten ve yaşamıyla örnek olan kişi",
+        "Sadece bir tarihi lider",
+        "Sadece bir yazar",
+        "Sadece bir tüccar"
+      ],
+      "correct_answer": "Allah'ın mesajını ileten ve yaşamıyla örnek olan kişi",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "Peygamberin rolü özeti",
+      "concept_id": "prophet_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S07-P08",
+      "stage_id": "U01-S07",
+      "question_tr": "İslam, Müslüman ve peygamber… Üç doğru eşleşmeyi bul.",
+      "explanation_tr": "Bu üç kavram, dinin kendisinden ona mensup olan kişiye ve örnek rehbere uzanan temel bir çerçeve sunar.",
+      "activity_type": "matching",
+      "options_tr": null,
+      "correct_answer": null,
+      "pairs": [
+        {
+          "left": "İslam",
+          "right": "Din"
+        },
+        {
+          "left": "Müslüman",
+          "right": "Bu dine mensup kişi"
+        },
+        {
+          "left": "Peygamber",
+          "right": "Örnek rehber"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "Temel çerçeve özeti",
+      "concept_id": "concept_relationships",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S07-P09",
+      "stage_id": "U01-S07",
+      "question_tr": "Kur’an ahlaki konularda da rehberlik eder mi?",
+      "explanation_tr": "Kur'an, inanç ve ibadetin yanı sıra ahlaki ilkelere de rehberlik eden kapsamlı bir kaynaktır.",
+      "activity_type": "true_false",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Doğru",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "Kur'an'ın kapsamı",
+      "concept_id": "quran_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S07-P10",
+      "stage_id": "U01-S07",
+      "question_tr": "Boşluğu tamamla: İbadetin temel amacı Allah’ın ___ kazanmaktır.",
+      "explanation_tr": "İbadetin özünde Allah'ın rızasını kazanma isteği vardır.",
+      "activity_type": "fill_blank",
+      "options_tr": [
+        "rızasını",
+        "alkışını",
+        "şöhretini",
+        "yarışını"
+      ],
+      "correct_answer": "rızasını",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "İbadetin amacı",
+      "concept_id": "worship_basic",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S07-P11",
+      "stage_id": "U01-S07",
+      "question_tr": "Farklı ülkelerden insanlar aynı camide buluşuyor. Bu, Müslüman kimliği hakkında ne anlatıyor?",
+      "explanation_tr": "Bu sahne, Müslümanlığın evrensel bir inanç kimliği olduğunu ve milliyetle sınırlı olmadığını gösterir.",
+      "activity_type": "scenario",
+      "options_tr": [
+        "Müslümanlığın milliyet ve dilden bağımsız, inanca dayalı bir kimlik olduğunu",
+        "Sadece belirli bir ülkeye özgü olduğunu",
+        "Sadece belirli bir dile bağlı olduğunu",
+        "Hiçbir şey göstermez"
+      ],
+      "correct_answer": "Müslümanlığın milliyet ve dilden bağımsız, inanca dayalı bir kimlik olduğunu",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "Evrensel kimlik",
+      "concept_id": "muslim_meaning",
+      "teaching_card": null
+    },
+    {
+      "id": "DEEN-U01-S07-P12",
+      "stage_id": "U01-S07",
+      "question_tr": "Hangisi İslam’ı bu ünitenin anlattığı çerçevede açıklamaz?",
+      "explanation_tr": "İslam belirli bir kültüre indirgenemez; inanç, kulluk ve ahlakı kapsayan evrensel bir din olarak tanıtılır.",
+      "activity_type": "odd_one_out",
+      "options_tr": [
+        "Allah’a yönelmeyi öğretir.",
+        "İman, ibadet ve ahlakı birlikte ele alır.",
+        "Kur’an’ı temel rehber kabul eder.",
+        "Yalnızca belli bir kültüre ait gelenektir."
+      ],
+      "correct_answer": "Yalnızca belli bir kültüre ait gelenektir.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "stage_title": "Ünite Challenge",
+      "topic": "Ünite özeti",
+      "concept_id": "concept_relationships",
+      "teaching_card": null
+    }
+  ],
+  "variants": [
+    {
+      "id": "DEEN-U01-S01-001",
+      "world": "foundations",
+      "unit": "islam_nedir",
+      "stage_id": "U01-S01",
+      "stage_title": "İslam'la Tanış",
+      "concept_id": "islam_meaning",
+      "variant_group_id": "VG-islam-meaning-01",
+      "topic": "İslam'a giriş",
+      "activity_type": "card_choice",
+      "difficulty": "easy",
+      "cognitive_level": "recognition",
+      "question_tr": "İslam’ın temelindeki fikri en iyi hangi kart anlatır?",
+      "options_tr": [
+        "Allah’a teslimiyeti ve O’nun rehberliğini benimsemek",
+        "Yalnızca belirli ibadetlerin adını öğrenmek",
+        "Sadece belirli bir kültüre ait olmak"
+      ],
+      "correct_answer": "Allah’a teslimiyeti ve O’nun rehberliğini benimsemek",
+      "explanation_tr": "Bu ünitede İslam, yalnızca bir kültür veya birkaç ibadet olarak değil; Allah'a yönelişi, inancı ve yaşamı birlikte ele alan bir din olarak tanıtılır.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "asset_requirement": null,
+      "source_reference": "Kur'an 34:28; 21:107 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "madhhab_scope": "universal",
+      "verification_status": "needs_review",
+      "tags": [
+        "v4",
+        "section_1",
+        "unit_01",
+        "stage_01",
+        "multiple_choice",
+        "islam_meaning"
+      ],
+      "source_audit_status": "specific_reference_enriched_needs_expert_review",
+      "candidate_source_reference": null,
+      "source_release_ready": false,
+      "religious_release_ready": false,
+      "audit_version": "global_audit_v1",
+      "source_urls": [
+        "https://kuran.diyanet.gov.tr/tefsir/Sebe%27-suresi/3634/28-ayet-tefsiri",
+        "https://kuran.diyanet.gov.tr/mushaf/kuran-tefsir-1/enbiya-suresi-21/ayet-107/diyanet-isleri-baskanligi-meali-1"
+      ],
+      "source_evidence_note": "Hz. Muhammed'in bütün insanlara gönderilişi ve mesajın evrenselliğini destekler.",
+      "source_status": "specific_diyanet_reference_enriched_needs_expert_review",
+      "candidate_source_status": "resolved_to_specific_reference_pending_expert_review"
+    },
+    {
+      "id": "DEEN-U01-S01-003",
+      "world": "foundations",
+      "unit": "islam_nedir",
+      "stage_id": "U01-S01",
+      "stage_title": "İslam'la Tanış",
+      "concept_id": "islam_meaning",
+      "variant_group_id": "VG-islam-meaning-03",
+      "topic": "İslam'a giriş",
+      "activity_type": "matching",
+      "difficulty": "easy",
+      "cognitive_level": "recognition",
+      "question_tr": "İman, ibadet ve ahlakı doğru açıklamalarla eşleştir.",
+      "options_tr": null,
+      "correct_answer": null,
+      "explanation_tr": "İman, ibadet ve ahlak farklı kavramlardır; başlangıç düzeyinde bunların birbirini tamamlayan yönlerini görmek İslam'ın genel çerçevesini anlamayı kolaylaştırır.",
+      "pairs": [
+        {
+          "left": "İman",
+          "right": "İnanç ve kabul"
+        },
+        {
+          "left": "İbadet",
+          "right": "Allah’a kulluk"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Davranış ve tutumlar"
+        }
+      ],
+      "items": null,
+      "correct_order": null,
+      "asset_requirement": null,
+      "source_reference": "Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "madhhab_scope": "universal",
+      "verification_status": "needs_review",
+      "tags": [
+        "v4",
+        "section_1",
+        "unit_01",
+        "stage_01",
+        "islam_meaning",
+        "multiple_choice"
+      ],
+      "source_audit_status": "specific_reference_enriched_needs_expert_review",
+      "candidate_source_reference": null,
+      "source_release_ready": false,
+      "religious_release_ready": false,
+      "audit_version": "global_audit_v1",
+      "source_urls": [
+        "https://hadislerleislam.diyanet.gov.tr/sayfa.php?CILT=1&SAYFA=363",
+        "https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/184/177-ayet-tefsiri"
+      ],
+      "source_evidence_note": "İman, ibadet ve ahlaki/sosyal davranışların birlikte ele alınmasını destekler.",
+      "source_status": "specific_diyanet_reference_enriched_needs_expert_review",
+      "candidate_source_status": "resolved_to_specific_reference_pending_expert_review"
+    },
+    {
+      "id": "DEEN-U01-S01-004",
+      "world": "foundations",
+      "unit": "islam_nedir",
+      "stage_id": "U01-S01",
+      "stage_title": "İslam'la Tanış",
+      "concept_id": "muslim_meaning",
+      "variant_group_id": "VG-muslim-meaning-01",
+      "topic": "Müslüman kimdir",
+      "activity_type": "card_choice",
+      "difficulty": "easy",
+      "cognitive_level": "recognition",
+      "question_tr": "“Müslüman” denince hangi kart doğru tanımı verir?",
+      "options_tr": [
+        "Allah’a inanan ve İslam’ın öğretilerini benimseyen kişi",
+        "Sadece belirli bir ülkede doğan kişi",
+        "Sadece Arapça konuşan kişi"
+      ],
+      "correct_answer": "Allah’a inanan ve İslam’ın öğretilerini benimseyen kişi",
+      "explanation_tr": "Müslüman, İslam dinini benimseyen kişidir; bu kimlik belirli bir soy, dil veya ülkeye bağlı değildir.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "asset_requirement": null,
+      "source_reference": "Kur'an 22:78; 49:13; 34:28 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "madhhab_scope": "universal",
+      "verification_status": "needs_review",
+      "tags": [
+        "v4",
+        "section_1",
+        "unit_01",
+        "stage_01",
+        "multiple_choice",
+        "muslim_meaning"
+      ],
+      "source_audit_status": "specific_reference_enriched_needs_expert_review",
+      "candidate_source_reference": null,
+      "source_release_ready": false,
+      "religious_release_ready": false,
+      "audit_version": "global_audit_v1",
+      "source_urls": [
+        "https://kuran.diyanet.gov.tr/tefsir/Hac-suresi/2672/77-78-ayet-tefsiri",
+        "https://kuran.diyanet.gov.tr/mushaf/meal-2/hucurat-suresi-49/ayet-13/diyanet-isleri-baskanligi-meali-1",
+        "https://kuran.diyanet.gov.tr/tefsir/Sebe%27-suresi/3634/28-ayet-tefsiri"
+      ],
+      "source_evidence_note": "İslam kimliğinin soy/milliyet şartına indirgenemeyeceğini destekleyen kaynak çerçevesi.",
+      "source_status": "specific_diyanet_reference_enriched_needs_expert_review",
+      "candidate_source_status": "resolved_to_specific_reference_pending_expert_review"
+    },
+    {
+      "id": "DEEN-U01-S01-007",
+      "world": "foundations",
+      "unit": "islam_nedir",
+      "stage_id": "U01-S01",
+      "stage_title": "İslam'la Tanış",
+      "concept_id": "concept_relationships",
+      "variant_group_id": "VG-concept-rel-01",
+      "topic": "Temel kavramlara giriş",
+      "activity_type": "scenario",
+      "difficulty": "easy",
+      "cognitive_level": "recognition",
+      "question_tr": "Bir arkadaşın “İman, ibadet ve ahlak birbirinden tamamen ayrı şeylerdir.” diyor. Bu bölüme göre en uygun cevap hangisi?",
+      "options_tr": [
+        "Bu üç alan birbiriyle bağlantılı bir yaşam anlayışı oluşturur.",
+        "Evet; aralarında hiçbir bağlantı yoktur.",
+        "Yalnızca ahlak önemlidir; diğer ikisi ayrı kalır."
+      ],
+      "correct_answer": "Bu üç alan birbiriyle bağlantılı bir yaşam anlayışı oluşturur.",
+      "explanation_tr": "Bu ünitenin temel çerçevesinde iman, ibadet ve ahlak birbirinden farklı fakat ilişkili alanlar olarak ele alınır.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "asset_requirement": null,
+      "source_reference": "Diyanet Hadislerle İslam, Cilt 1, s.363; Kur'an 2:177 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "madhhab_scope": "universal",
+      "verification_status": "needs_review",
+      "tags": [
+        "v4",
+        "section_1",
+        "unit_01",
+        "stage_01",
+        "concept_relationships",
+        "multiple_choice"
+      ],
+      "source_audit_status": "specific_reference_enriched_needs_expert_review",
+      "candidate_source_reference": null,
+      "source_release_ready": false,
+      "religious_release_ready": false,
+      "audit_version": "global_audit_v1",
+      "source_urls": [
+        "https://hadislerleislam.diyanet.gov.tr/sayfa.php?CILT=1&SAYFA=363",
+        "https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/184/177-ayet-tefsiri"
+      ],
+      "source_evidence_note": "İman, ibadet ve ahlaki/sosyal davranışların birlikte ele alınmasını destekler.",
+      "source_status": "specific_diyanet_reference_enriched_needs_expert_review",
+      "candidate_source_status": "resolved_to_specific_reference_pending_expert_review"
+    },
+    {
+      "id": "DEEN-U01-S01-008",
+      "world": "foundations",
+      "unit": "islam_nedir",
+      "stage_id": "U01-S01",
+      "stage_title": "İslam'la Tanış",
+      "concept_id": "faith_basic",
+      "variant_group_id": "VG-faith-basic-01",
+      "topic": "İman nedir",
+      "activity_type": "fill_blank",
+      "difficulty": "easy",
+      "cognitive_level": "recognition",
+      "question_tr": "Boşluğu tamamla: Kalben inanma ve kabul etme, bu bölümde ___ kavramını anlatır.",
+      "options_tr": [
+        "iman",
+        "ibadet",
+        "ahlak",
+        "rehberlik"
+      ],
+      "correct_answer": "iman",
+      "explanation_tr": "İman, kişinin kalbiyle bir şeyi doğru kabul etmesi ve inanmasıdır; belirli bir ibadetle sınırlı değildir.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "asset_requirement": null,
+      "source_reference": "Kur'an 49:14-15 (Diyanet meali/tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.563; REQUIRES_EXPERT_VERIFICATION",
+      "madhhab_scope": "universal",
+      "verification_status": "needs_review",
+      "tags": [
+        "v4",
+        "section_1",
+        "unit_01",
+        "stage_01",
+        "multiple_choice",
+        "faith_basic"
+      ],
+      "source_audit_status": "specific_reference_enriched_needs_expert_review",
+      "candidate_source_reference": null,
+      "source_release_ready": false,
+      "religious_release_ready": false,
+      "audit_version": "global_audit_v1",
+      "source_urls": [
+        "https://kuran.diyanet.gov.tr/mushaf/kuran-tefsir-1/hucurat-suresi-49/ayet-14/diyanet-isleri-baskanligi-meali-1",
+        "https://hadislerleislam.diyanet.gov.tr/sayfa.php?CILT=1&SAYFA=563"
+      ],
+      "source_evidence_note": "İmanın kalple ilişkisi ve Cibrîl hadisindeki iman çerçevesini destekler.",
+      "source_status": "specific_diyanet_reference_enriched_needs_expert_review",
+      "candidate_source_status": "resolved_to_specific_reference_pending_expert_review"
+    },
+    {
+      "id": "DEEN-U01-S01-012",
+      "world": "foundations",
+      "unit": "islam_nedir",
+      "stage_id": "U01-S01",
+      "stage_title": "İslam'la Tanış",
+      "concept_id": "quran_basic",
+      "variant_group_id": "VG-quran-basic-01",
+      "topic": "Kur'an nedir",
+      "activity_type": "card_choice",
+      "difficulty": "easy",
+      "cognitive_level": "recognition",
+      "question_tr": "Kur’an’ın Müslümanlar için yerini doğru anlatan kartı seç.",
+      "options_tr": [
+        "Müslümanların temel kutsal kitabı",
+        "Yalnızca tarih olaylarını anlatan bir kitap",
+        "Sadece ibadet adımlarını sıralayan bir el kitabı"
+      ],
+      "correct_answer": "Müslümanların temel kutsal kitabı",
+      "explanation_tr": "Kur'an, Müslümanların temel kutsal kitabıdır ve inanç ile yaşam konusunda rehber kabul edilir.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "asset_requirement": null,
+      "source_reference": "Kur'an 2:2; 17:9 (Diyanet, Kur'an Yolu Tefsiri); REQUIRES_EXPERT_VERIFICATION",
+      "madhhab_scope": "universal",
+      "verification_status": "needs_review",
+      "tags": [
+        "v4",
+        "section_1",
+        "unit_01",
+        "stage_01",
+        "multiple_choice",
+        "quran_basic"
+      ],
+      "source_audit_status": "specific_reference_enriched_needs_expert_review",
+      "candidate_source_reference": null,
+      "source_release_ready": false,
+      "religious_release_ready": false,
+      "audit_version": "global_audit_v1",
+      "source_urls": [
+        "https://kuran.diyanet.gov.tr/tefsir/Bakara-suresi/9/3-ayet-tefsiri",
+        "https://kuran.diyanet.gov.tr/tefsir/%C4%B0sr%C3%A2-suresi/2038/9-10-ayet-tefsiri"
+      ],
+      "source_evidence_note": "Kur'an'ın rehberlik/kılavuzluk işlevini destekler.",
+      "source_status": "specific_diyanet_reference_enriched_needs_expert_review",
+      "candidate_source_status": "resolved_to_specific_reference_pending_expert_review"
+    },
+    {
+      "id": "DEEN-U01-S01-015",
+      "stage_id": "U01-S01",
+      "unit_id": "U01",
+      "type": "match",
+      "question_type": "match",
+      "activity_type": "matching",
+      "difficulty": 1,
+      "topic": "Temel İslam kavramları",
+      "concept_id": "u01-s01-core-concepts",
+      "question_tr": "İlk kavram haritasını tamamla: kavramları doğru açıklamalarla eşleştir.",
+      "pairs": [
+        {
+          "left": "İslam",
+          "right": "Allah’a teslimiyet ve kulluk merkezli yaşam anlayışı"
+        },
+        {
+          "left": "Müslüman",
+          "right": "İslam’ı benimseyen kişi"
+        },
+        {
+          "left": "İman",
+          "right": "Kalben inanma ve kabul etme"
+        },
+        {
+          "left": "Ahlak",
+          "right": "Davranış ve tutumlarla ilgili alan"
+        }
+      ],
+      "explanation_tr": "Bu dört kavram ünitenin girişinde birbirinden ayrılarak tanıtılıyor; amaç kavramları karıştırmadan temel anlamlarını eşleştirmek.",
+      "source_reference": "DEEN U01-S01 mevcut içerik",
+      "source_evidence_note": "U01-S01-001, U01-S01-004, U01-S01-008 ve U01-S01-007/014 içindeki temel kavramları eşleştirme formatında toplar.",
+      "source_urls": [],
+      "terminology_note": "Yeni dinî hüküm eklemez; mevcut giriş kavramlarını farklı formatta ölçer.",
+      "stage_title": "İslam'la Tanış",
+      "correct_answer": null,
+      "options_tr": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S01-016",
+      "stage_id": "U01-S01",
+      "unit_id": "U01",
+      "type": "card",
+      "question_type": "card",
+      "activity_type": "card_choice",
+      "difficulty": 1,
+      "topic": "İslam’ın merkezindeki fikir",
+      "concept_id": "u01-s01-islam-meaning",
+      "question_tr": "İslam’ın temelindeki fikri en iyi hangi kart anlatır?",
+      "options_tr": [
+        "Allah’a teslimiyet ve kulluk",
+        "Belirli bir millete ait olmak",
+        "Sadece tarih bilgisi öğrenmek",
+        "Yalnızca tek bir ibadeti yapmak"
+      ],
+      "correct_answer": "Allah’a teslimiyet ve kulluk",
+      "explanation_tr": "Ünite girişinde İslam’ın temelinde Allah’a teslimiyet ve kulluk düşüncesi vurgulanıyor.",
+      "source_reference": "DEEN U01-S01 mevcut içerik",
+      "source_evidence_note": "U01-S01-001 ve U01-S01-006 içindeki teslimiyet/kulluk kazanımını kart seçimiyle yeniden ölçer.",
+      "source_urls": [],
+      "terminology_note": "Mevcut ünite ifadesini kullanır; yeni dinî ayrıntı eklemez.",
+      "stage_title": "İslam'la Tanış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S01-017",
+      "stage_id": "U01-S01",
+      "unit_id": "U01",
+      "type": "scenario",
+      "question_type": "scenario",
+      "activity_type": "scenario",
+      "difficulty": 2,
+      "topic": "Müslüman kimliği",
+      "concept_id": "u01-s01-muslim-identity",
+      "question_tr": "Yeni tanıştığın biri “Müslüman olmak belirli bir ülke veya millete bağlı mı?” diye soruyor. En uygun cevap hangisi?",
+      "options_tr": [
+        "Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.",
+        "Evet; yalnızca belirli bir ülkede doğanlar Müslüman olabilir.",
+        "Sadece aynı dili konuşanlar Müslüman olabilir.",
+        "Müslümanlık yalnızca kültürel kökene göre belirlenir."
+      ],
+      "correct_answer": "Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.",
+      "explanation_tr": "Bu bölüm Müslüman kimliğini belirli bir ülke, millet veya kültüre değil İslam’ı benimsemeye bağlar.",
+      "source_reference": "DEEN U01-S01 mevcut içerik",
+      "source_evidence_note": "U01-S01-004, U01-S01-005 ve U01-S01-014 içindeki Müslüman kimliği/evrensellik vurgusunu senaryoya dönüştürür.",
+      "source_urls": [],
+      "terminology_note": "Mevcut U01-S01 kazanımını uygular; yeni hüküm eklemez.",
+      "stage_title": "İslam'la Tanış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S01-018",
+      "stage_id": "U01-S01",
+      "unit_id": "U01",
+      "type": "odd_one_out",
+      "question_type": "odd_one_out",
+      "activity_type": "odd_one_out",
+      "difficulty": 2,
+      "topic": "İbadet kavramı",
+      "concept_id": "u01-s01-worship",
+      "question_tr": "Üç ifade bu bölümdeki ibadet anlayışıyla uyumlu. Hangisi uyumlu değildir?",
+      "options_tr": [
+        "İbadet Allah’a kullukla ilgilidir.",
+        "İbadet yalnızca namazdan ibaret değildir.",
+        "Farklı kulluk davranışları ibadet kapsamında ele alınabilir.",
+        "İbadet sadece başkalarına iyi görünmek için yapılır."
+      ],
+      "correct_answer": "İbadet sadece başkalarına iyi görünmek için yapılır.",
+      "explanation_tr": "Bölümde ibadet yalnızca namazla sınırlandırılmıyor ve kulluk yönüyle anlatılıyor; gösteriş amacı bu çerçeveyle uyumlu değildir.",
+      "source_reference": "DEEN U01-S01 mevcut içerik",
+      "source_evidence_note": "U01-S01-009 ve U01-S01-010 içindeki ibadet kapsamını hata avı formatında yeniden ölçer.",
+      "source_urls": [],
+      "terminology_note": "Yeni bir hüküm eklemez; mevcut ibadet çerçevesini karşılaştırır.",
+      "stage_title": "İslam'la Tanış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S01-019",
+      "stage_id": "U01-S01",
+      "unit_id": "U01",
+      "type": "true_false",
+      "question_type": "true_false",
+      "activity_type": "true_false",
+      "difficulty": 1,
+      "topic": "Kur’an ve rehberlik",
+      "concept_id": "u01-s01-guidance",
+      "question_tr": "Kur’an Müslümanlar için temel bir rehberdir.",
+      "options_tr": [
+        "Doğru",
+        "Yanlış"
+      ],
+      "correct_answer": "Doğru",
+      "explanation_tr": "Ünite girişinde Kur’an’ın Müslümanlar için temel rehber olduğu özellikle vurgulanıyor.",
+      "source_reference": "DEEN U01-S01 mevcut içerik",
+      "source_evidence_note": "U01-S01-012 içindeki Kur’an’ın önemi kazanımını tek bir düşük frekanslı doğru/yanlış etkileşimiyle ölçer.",
+      "source_urls": [],
+      "terminology_note": "Mevcut bölüm bilgisini tekrar eder; yeni dinî hüküm eklemez.",
+      "stage_title": "İslam'la Tanış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S01-020",
+      "stage_id": "U01-S01",
+      "unit_id": "U01",
+      "type": "card",
+      "question_type": "card",
+      "activity_type": "card_choice",
+      "difficulty": 2,
+      "topic": "Kur’an ve peygamber rehberliği",
+      "concept_id": "u01-s01-guidance",
+      "question_tr": "Kur’an ve Hz. Muhammed’in bu ünitedeki rehberlik rolünü en iyi hangi kart özetler?",
+      "options_tr": [
+        "Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.",
+        "İkisi de yalnızca geçmiş olayları öğrenmek içindir.",
+        "Kur’an günlük hayatla ilgisizdir; peygamberin örnekliği de yalnızca geçmiştedir.",
+        "Rehberlik yalnızca kültürel geleneklerden gelir."
+      ],
+      "correct_answer": "Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.",
+      "explanation_tr": "Bölüm Kur’an’ı temel rehber, Hz. Muhammed’i ise peygamber ve örnek rehber olarak tanıtıyor.",
+      "source_reference": "DEEN U01-S01 mevcut içerik",
+      "source_evidence_note": "U01-S01-012 ve U01-S01-013 içindeki Kur’an ve peygamber rehberliğini tek kart sorusunda birleştirir.",
+      "source_urls": [],
+      "terminology_note": "Mevcut giriş içeriğini özetler; yeni dinî ayrıntı eklemez.",
+      "stage_title": "İslam'la Tanış",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S02-002",
+      "world": "foundations",
+      "unit": "islam_nedir",
+      "stage_id": "U01-S02",
+      "stage_title": "Müslüman Kimdir?",
+      "concept_id": "faith_basic",
+      "variant_group_id": "VG-faith-basic-02",
+      "topic": "İman nedir",
+      "activity_type": "card_choice",
+      "difficulty": "easy",
+      "cognitive_level": "recognition",
+      "question_tr": "İman kavramını en iyi anlatan kartı seç.",
+      "options_tr": [
+        "Kalben inanmak ve kabul etmek",
+        "Yalnızca bir ibadeti düzenli yapmak",
+        "Sadece dinî bilgi okumak"
+      ],
+      "correct_answer": "Kalben inanmak ve kabul etmek",
+      "explanation_tr": "İman öncelikle kalpte gerçekleşen bir kabul ve inanma halidir; dışa yansıyan davranışlar bu inancın sonucudur.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "asset_requirement": null,
+      "source_reference": "Kur'an 49:14-15 (Diyanet meali/tefsiri); Diyanet Hadislerle İslam, Cilt 1, s.563; REQUIRES_EXPERT_VERIFICATION",
+      "madhhab_scope": "universal",
+      "verification_status": "needs_review",
+      "tags": [
+        "v4",
+        "section_1",
+        "unit_01",
+        "stage_02",
+        "multiple_choice",
+        "faith_basic"
+      ],
+      "source_audit_status": "specific_reference_enriched_needs_expert_review",
+      "candidate_source_reference": null,
+      "source_release_ready": false,
+      "religious_release_ready": false,
+      "audit_version": "global_audit_v1",
+      "source_urls": [
+        "https://kuran.diyanet.gov.tr/mushaf/kuran-tefsir-1/hucurat-suresi-49/ayet-14/diyanet-isleri-baskanligi-meali-1",
+        "https://hadislerleislam.diyanet.gov.tr/sayfa.php?CILT=1&SAYFA=563"
+      ],
+      "source_evidence_note": "İmanın kalple ilişkisi ve Cibrîl hadisindeki iman çerçevesini destekler.",
+      "source_status": "specific_diyanet_reference_enriched_needs_expert_review",
+      "candidate_source_status": "resolved_to_specific_reference_pending_expert_review"
+    },
+    {
+      "id": "DEEN-U01-S02-004",
+      "world": "foundations",
+      "unit": "islam_nedir",
+      "stage_id": "U01-S02",
+      "stage_title": "Müslüman Kimdir?",
+      "concept_id": "worship_basic",
+      "variant_group_id": "VG-worship-basic-03",
+      "topic": "İbadetin amacı",
+      "activity_type": "scenario",
+      "difficulty": "easy",
+      "cognitive_level": "recognition",
+      "question_tr": "Bir arkadaşın “İbadetin amacı yalnızca toplumda saygı görmek midir?” diye soruyor. Bu bölüme göre en uygun cevap hangisi?",
+      "options_tr": [
+        "Hayır; ibadetin amacı Allah’a yakınlaşmak ve O’nun rızasını kazanmaya çalışmaktır.",
+        "Evet; temel amaç insanların takdirini kazanmaktır.",
+        "İbadetin belirli bir amacı yoktur."
+      ],
+      "correct_answer": "Hayır; ibadetin amacı Allah’a yakınlaşmak ve O’nun rızasını kazanmaya çalışmaktır.",
+      "explanation_tr": "İbadetin özü, kulluğu Allah'a has kılmak ve samimi biçimde O'nun rızasını gözetmektir.",
+      "pairs": null,
+      "items": null,
+      "correct_order": null,
+      "asset_requirement": null,
+      "source_reference": "Kur'an 98:5 (Diyanet, Kur'an Yolu Tefsiri); Diyanet Hadislerle İslam, Cilt 3, s.139-140; REQUIRES_EXPERT_VERIFICATION",
+      "madhhab_scope": "universal",
+      "verification_status": "needs_review",
+      "tags": [
+        "v4",
+        "section_1",
+        "unit_01",
+        "stage_02",
+        "multiple_choice",
+        "worship_basic"
+      ],
+      "source_audit_status": "specific_reference_enriched_needs_expert_review",
+      "candidate_source_reference": null,
+      "source_release_ready": false,
+      "religious_release_ready": false,
+      "audit_version": "global_audit_v1",
+      "source_urls": [
+        "https://kuran.diyanet.gov.tr/tefsir/Beyyine-suresi/6135/5-ayet-tefsiri",
+        "https://hadislerleislam.diyanet.gov.tr/sayfa.php?CILT=3&SAYFA=139",
+        "https://hadislerleislam.diyanet.gov.tr/sayfa.php?CILT=3&SAYFA=140"
+      ],
+      "source_evidence_note": "İbadette ihlas ve Allah rızasını gözetme ilkesini destekler.",
+      "source_status": "specific_diyanet_reference_enriched_needs_expert_review",
+      "candidate_source_status": "resolved_to_specific_reference_pending_expert_review"
+    },
+    {
+      "id": "DEEN-U01-S02-015",
+      "stage_id": "U01-S02",
+      "unit_id": "U01",
+      "type": "card",
+      "question_type": "card",
+      "activity_type": "card_choice",
+      "difficulty": 2,
+      "topic": "Müslüman kimliği",
+      "concept_id": "u01-s02-muslim-identity",
+      "question_tr": "“Müslüman” kelimesini en doğru anlatan kart hangisi?",
+      "options_tr": [
+        "İslam’ı benimseyen kişi",
+        "Belirli bir ülkede doğan kişi",
+        "Sadece Arapça konuşan kişi",
+        "Yalnızca belirli bir kültüre ait kişi"
+      ],
+      "correct_answer": "İslam’ı benimseyen kişi",
+      "explanation_tr": "Bu ünitede Müslüman kimliği bir ülke, dil veya millete değil İslam’ı benimsemeye bağlanıyor.",
+      "source_reference": "DEEN U01-S02 mevcut içerik",
+      "source_evidence_note": "U01-S02-001 ve U01-S02-005 içindeki Müslüman kavramını kart seçim formatında yeniden ölçer.",
+      "source_urls": [],
+      "terminology_note": "Yeni bir dinî hüküm eklemez; mevcut kavram tanımını farklı formatta ölçer.",
+      "stage_title": "Müslüman Kimdir?",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S02-016",
+      "stage_id": "U01-S02",
+      "unit_id": "U01",
+      "type": "scenario",
+      "question_type": "scenario",
+      "activity_type": "scenario",
+      "difficulty": 2,
+      "topic": "Müslüman kimliği",
+      "concept_id": "u01-s02-muslim-identity",
+      "question_tr": "Bir arkadaşın “Müslüman olmak için belli bir milletten gelmek gerekir.” diyor. Bu ünitedeki bilgiye göre en uygun cevap hangisi?",
+      "options_tr": [
+        "Hayır; İslam’ı benimsemek belirli bir millete bağlı değildir.",
+        "Evet; Müslümanlık yalnızca tek bir millete aittir.",
+        "Sadece aynı dili konuşanlar Müslüman olabilir.",
+        "Müslümanlık yalnızca doğum yerine göre belirlenir."
+      ],
+      "correct_answer": "Hayır; İslam’ı benimsemek belirli bir millete bağlı değildir.",
+      "explanation_tr": "Ünitenin temel çerçevesinde Müslüman kimliği belirli bir soy, ülke veya millet şartına bağlanmıyor.",
+      "source_reference": "DEEN U01 mevcut içerik",
+      "source_evidence_note": "U01-S02-001 ve U01-S02-005 kavramını U01 içindeki evrensellik vurgusuyla günlük konuşma senaryosunda tekrar ölçer.",
+      "source_urls": [],
+      "terminology_note": "Mevcut U01 kazanımını uygular; yeni dinî ayrıntı eklemez.",
+      "stage_title": "Müslüman Kimdir?",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S02-017",
+      "stage_id": "U01-S02",
+      "unit_id": "U01",
+      "type": "odd_one_out",
+      "question_type": "odd_one_out",
+      "activity_type": "odd_one_out",
+      "difficulty": 2,
+      "topic": "İman, ibadet ve ahlak kavramları",
+      "concept_id": "u01-s02-core-concepts",
+      "question_tr": "Üç açıklama bu ünitedeki kavramlarla uyumlu. Hangisi uyumlu değildir?",
+      "options_tr": [
+        "İman: kalben inanma ve kabul etme ile ilgilidir.",
+        "İbadet: Allah’a kulluk yönü taşıyan davranışlarla ilgilidir.",
+        "Ahlak: davranış ve tutumlarla ilgilidir.",
+        "Müslümanlık: yalnızca belirli bir millete ait olmaktır."
+      ],
+      "correct_answer": "Müslümanlık: yalnızca belirli bir millete ait olmaktır.",
+      "explanation_tr": "İlk üç ifade bölümdeki iman, ibadet ve ahlak ayrımına uygundur; Müslüman kimliği ise belirli bir millete bağlanmaz.",
+      "source_reference": "DEEN U01-S02 mevcut içerik",
+      "source_evidence_note": "U01-S02-002, U01-S02-004, U01-S02-014 ve Müslüman kavramını tek hata avı etkinliğinde karşılaştırır.",
+      "source_urls": [],
+      "terminology_note": "Mevcut kavram açıklamalarını karşılaştırır; yeni hüküm eklemez.",
+      "stage_title": "Müslüman Kimdir?",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S02-018",
+      "stage_id": "U01-S02",
+      "unit_id": "U01",
+      "type": "card",
+      "question_type": "card",
+      "activity_type": "card_choice",
+      "difficulty": 2,
+      "topic": "İman, ibadet ve ahlak ilişkisi",
+      "concept_id": "u01-s02-core-concepts",
+      "question_tr": "İman, ibadet ve ahlak arasındaki ilişkiyi en iyi hangi kart anlatır?",
+      "options_tr": [
+        "Farklı kavramlardır ama birbirinden tamamen kopuk değildir.",
+        "Üçü tam olarak aynı kavramdır.",
+        "Birbirleriyle hiçbir ilişkileri yoktur.",
+        "Sadece ahlak önemlidir; diğer ikisi gereksizdir."
+      ],
+      "correct_answer": "Farklı kavramlardır ama birbirinden tamamen kopuk değildir.",
+      "explanation_tr": "Bölümde iman, ibadet ve ahlak birbirine eşitlenmeden aralarındaki bağın fark edilmesi hedefleniyor.",
+      "source_reference": "DEEN U01-S02 mevcut içerik",
+      "source_evidence_note": "U01-S02-011 ve U01-S02-012 içindeki ilişki kazanımını büyük kart formatında yeniden ölçer.",
+      "source_urls": [],
+      "terminology_note": "Mevcut ünite ilişkisini yeniden ifade eder; yeni dinî hüküm eklemez.",
+      "stage_title": "Müslüman Kimdir?",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S02-019",
+      "stage_id": "U01-S02",
+      "unit_id": "U01",
+      "type": "scenario",
+      "question_type": "scenario",
+      "activity_type": "scenario",
+      "difficulty": 2,
+      "topic": "Kur’an ve peygamber rehberliği",
+      "concept_id": "u01-s02-guidance",
+      "question_tr": "Bir arkadaşın “Kur’an ve peygamber bu ünitede neden birlikte anlatılıyor?” diye soruyor. En uygun cevap hangisi?",
+      "options_tr": [
+        "Kur’an temel rehberdir; Hz. Muhammed de peygamber ve örnek rehberdir.",
+        "İkisi de yalnızca tarih öğrenmek içindir.",
+        "Kur’an günlük hayatla ilgili değildir.",
+        "Peygamberin rehberliği sadece yaşadığı dönemle sınırlıdır."
+      ],
+      "correct_answer": "Kur’an temel rehberdir; Hz. Muhammed de peygamber ve örnek rehberdir.",
+      "explanation_tr": "Ünitede Kur’an temel rehber, Hz. Muhammed ise peygamber ve örnek rehber olarak ele alınıyor.",
+      "source_reference": "DEEN U01-S02 mevcut içerik",
+      "source_evidence_note": "U01-S02-009 ve U01-S02-010 içindeki Kur’an ve peygamber rollerini senaryo formatında birlikte ölçer.",
+      "source_urls": [],
+      "terminology_note": "Mevcut bölümdeki rehberlik rollerini birleştirir; yeni dinî ayrıntı eklemez.",
+      "stage_title": "Müslüman Kimdir?",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    },
+    {
+      "id": "DEEN-U01-S02-020",
+      "stage_id": "U01-S02",
+      "unit_id": "U01",
+      "type": "odd_one_out",
+      "question_type": "odd_one_out",
+      "activity_type": "odd_one_out",
+      "difficulty": 3,
+      "topic": "Kur’an ve peygamber rehberliği",
+      "concept_id": "u01-s02-guidance",
+      "question_tr": "Üç ifade bölümdeki rehberlik anlayışıyla uyumlu. Hangisi uyumlu değildir?",
+      "options_tr": [
+        "Kur’an Müslümanlar için temel rehberdir.",
+        "Hz. Muhammed peygamber ve örnek rehberdir.",
+        "Kur’an ve peygamber bilgisi davranışları anlamaya da yardım eder.",
+        "Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır."
+      ],
+      "correct_answer": "Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır.",
+      "explanation_tr": "Ünitede Kur’an yalnızca geçmiş bilgisi veren bir metin olarak değil, Müslümanlar için rehber olarak ele alınıyor.",
+      "source_reference": "DEEN U01 mevcut içerik",
+      "source_evidence_note": "U01-S02-009 ve U01-S02-010 içindeki rehberlik kazanımını U01’deki Kur’an vurgusuyla hata avı formatında tekrar ölçer.",
+      "source_urls": [],
+      "terminology_note": "Mevcut U01 içeriğini karşılaştırır; yeni dinî hüküm eklemez.",
+      "stage_title": "Müslüman Kimdir?",
+      "pairs": null,
+      "items": null,
+      "correct_order": null
+    }
+  ]
+}

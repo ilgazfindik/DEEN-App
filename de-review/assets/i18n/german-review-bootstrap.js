@@ -1,0 +1,89 @@
+/* Public DEEN German REVIEW build only: never promoted to main app or used for release approvals. */
+(()=>{'use strict';
+ const PATH='/DEEN-App/de-review/';
+ if(location.hostname!=='ilgazfindik.github.io'||!location.pathname.startsWith(PATH)||!window.__DEEN_REVIEW_ISOLATED__)return;
+ const UI_PACKS=['german-ui.staging.json','german-ui.lesson-flow.staging.json',
+  'german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
+  ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+String(i+1).padStart(2,'0')+'.staging.json'),
+  'german-ui.real-lesson.staging.json'];
+ function banner(){
+  if(!document.body||document.getElementById('deenGermanReviewWarning'))return;
+  const box=document.createElement('aside');
+  box.id='deenGermanReviewWarning';
+  box.dataset.deenNoTranslate='1';
+  box.setAttribute('role','note');
+  box.style.cssText='position:fixed;top:calc(env(safe-area-inset-top) + 8px);right:8px;z-index:2147483647;pointer-events:none;max-width:170px;padding:6px 9px;border:1px solid #cca65b;background:rgba(20,30,34,.96);color:#ffe2a0;border-radius:9px;box-shadow:0 5px 16px #0008;font:700 10px/1.35 system-ui;text-align:center';
+  box.textContent='DE · TESTVERSION / TASLAK — uzman onayı yok';
+  document.body.append(box);
+ }
+ async function start(){
+  banner();
+  if(window.DEEN_APP_LOCALE?.get()!=='de')return;
+  if(!window.__DEEN_CONTENT_MANIFEST__?.__deenSyntheticGermanQA||
+    window.__DEEN_CONTENT_MANIFEST__?.languages?.de?.religious_expert_approved!==false)
+   throw Error('DE_REVIEW_MUST_USE_UNAPPROVED_IN_MEMORY_MANIFEST');
+  const getJSON=async name=>{
+   const response=await fetch('./assets/i18n/'+name,{cache:'no-store'});
+   if(!response.ok)throw Error('DE_REVIEW_UI_PACK_HTTP:'+name);
+   return response.json();
+  };
+  const [packs,reference,{createGermanUIStagingRenderer}]=await Promise.all([
+   Promise.all(UI_PACKS.map(getJSON)),
+   getJSON('english-ui.draft.json'),
+   import('./german-ui.renderer.staging.mjs')
+  ]);
+  const renderer=createGermanUIStagingRenderer({packs,englishReference:reference.translations});
+  let busy=false,queued=false,latest=null,observer;
+  function render(){
+   if(busy||window.DEEN_APP_LOCALE?.get()!=='de')return;
+   busy=true;observer.disconnect();
+   try{
+    banner();
+    latest=renderer.render(document.body,{locale:'de',qaMode:true,documentRef:document});
+   }finally{
+    busy=false;observer.observe(document.body,{subtree:true,childList:true,characterData:true,
+     attributes:true,attributeFilter:['aria-label','title','placeholder','alt']});
+   }
+  }
+  function schedule(){
+   if(queued)return;queued=true;
+   queueMicrotask(()=>{queued=false;render()});
+  }
+  observer=new MutationObserver(rows=>{if(rows.length&&!busy)schedule()});
+  document.addEventListener('deen:question-graded',event=>{
+   if(window.DEEN_APP_LOCALE?.get()!=='de')return;
+   const raw=event.detail?.question?.__deenSourceQuestion||event.detail?.question;
+   const question=raw&&window.DEEN_CONTENT_LOCALE?.translateQuestion(raw,'de');
+   if(!question||question.__deenContentLocale!=='de')return;
+   const correct=event.detail?.correct===true;
+   const answer=question.pairs?.length?question.pairs.map(x=>x.left+' → '+x.right).join(' · '):
+    question.correct_order?.length?question.correct_order.join(' → '):question.correct_answer;
+   if(!correct&&(typeof answer!=='string'||!answer.trim()))return;
+   const title=document.getElementById('feedbackTitle');
+   const text=document.getElementById('feedbackText')||document.getElementById('feedbackBody');
+   if(title)title.textContent=correct?'Richtig!':'Gemeinsam verbessern';
+   if(text)text.textContent=(correct?'':'Richtige Antwort: '+answer+'. ')+question.explanation_tr;
+   schedule();
+  });
+  for(const event of ['deen:language-changed','deen:question-rendered','deen:ui-updated',
+   'deen:navigated','deen:profile-rendered','deen:settings-rendered'])
+    document.addEventListener(event,schedule);
+  render();
+  window.DEEN_GERMAN_REVIEW=Object.freeze({audit:()=>({...(latest||{}),
+   released:false,approvals:false,read_only_presentation:true}),render});
+ }
+ function boot(){
+  banner();
+  start().catch(error=>{
+   console.error('[DEEN German review UI]',error);
+   const message=document.createElement('p');
+   message.dataset.deenNoTranslate='1';
+   message.setAttribute('role','alert');
+   message.style.cssText='position:fixed;bottom:10px;left:10px;right:10px;z-index:2147483647;background:#3b131b;color:white;padding:10px;border-radius:10px;font:12px system-ui';
+   message.textContent='Almanca arayüz testi açılamadı: '+String(error.message||error);
+   document.body?.append(message);
+  });
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});
+ else boot();
+})();

@@ -1,0 +1,539 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U07",
+  "stage": "U07-S03",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U07-S03-001": {
+      "source": {
+        "question_tr": "Mâide 5:48'de Kur'an'ın önceki kitaplarla ilişkisi nasıl açıklanır?",
+        "explanation_tr": "Mâide 5:48 Kur'an'ı önceki kitapları tasdik edici ve onları denetleyici olarak tanımlar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Onları tasdik eden ve üzerlerinde denetleyici olan kitap",
+          "Önceki vahiyleri tamamen yok sayan metin",
+          "Sadece tarih bilgisi veren kitap",
+          "İnsanlarca yazılmış ortak metin"
+        ],
+        "correct_answer": "Onları tasdik eden ve üzerlerinde denetleyici olan kitap",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie erklärt Al-Maida 5:48 das Verhältnis des Korans zu den früheren Büchern?",
+        "explanation_tr": "Al-Maida 5:48 beschreibt den Koran als Bestätigung früherer Bücher und als Maßstab über sie.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Er bestätigt sie und dient als Maßstab über sie",
+          "Er ignoriert frühere Offenbarungen vollständig",
+          "Er enthält ausschließlich geschichtliche Informationen",
+          "Er ist ein gemeinsam von Menschen verfasster Text"
+        ],
+        "correct_answer": "Er bestätigt sie und dient als Maßstab über sie",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-002": {
+      "source": {
+        "question_tr": "Mâide 5:48'e göre Kur'an, önceki kitapları ______ edici olarak indirilmiştir.",
+        "explanation_tr": "Ayette Kur'an'ın kendisinden önceki ilahî kitapları tasdik ettiği belirtilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "tasdik",
+          "inkâr",
+          "gizleme",
+          "değersizleştirme"
+        ],
+        "correct_answer": "tasdik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Maida 5:48 wurde der Koran offenbart, um die früheren Bücher zu ______.",
+        "explanation_tr": "Der Vers sagt, dass der Koran die vorhergehenden göttlichen Bücher bestätigt.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "bestätigen",
+          "verneinen",
+          "verbergen",
+          "entwerten"
+        ],
+        "correct_answer": "bestätigen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-003": {
+      "source": {
+        "question_tr": "Mâide 5:48 Kur'an'ın önceki ilahî kitaplarla hiçbir bağının olmadığını öğretir.",
+        "explanation_tr": "Aksine ayet Kur'an'ın önceki kitapları tasdik ettiğini açıkça bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Maida 5:48 lehrt, dass der Koran keinerlei Verbindung zu früheren göttlichen Büchern hat.",
+        "explanation_tr": "Der Vers sagt im Gegenteil ausdrücklich, dass der Koran frühere Offenbarungen bestätigt.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kur'an önceki vahiylerin Allah'tan geldiğini bütünüyle reddeder' diyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Âl-i İmrân 3:3-4 ve Mâide 5:48 önceki vahiylerle kaynak ve doğrulama ilişkisini açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an önceki ilahî kitapları tasdik ettiğini bildirir",
+          "Kur'an yalnız kendisini tarih metni sayar",
+          "Kur'an Tevrat ve İncil'den hiç söz etmez",
+          "Kur'an vahiy fikrini reddeder"
+        ],
+        "correct_answer": "Kur'an önceki ilahî kitapları tasdik ettiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender behauptet: „Der Koran verneint völlig, dass frühere Offenbarungen von Allah stammen.“ Welche Aussage korrigiert das?",
+        "explanation_tr": "Al-Imran 3:3–4 und Al-Maida 5:48 erläutern den gemeinsamen Ursprung und die Bestätigung früherer Offenbarungen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Koran erklärt, dass er frühere göttliche Bücher bestätigt",
+          "Der Koran bezeichnet sich nur als Geschichtstext",
+          "Der Koran erwähnt die Tora und das Evangelium nie",
+          "Der Koran bestreitet Offenbarung grundsätzlich"
+        ],
+        "correct_answer": "Der Koran erklärt, dass er frühere göttliche Bücher bestätigt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-005": {
+      "source": {
+        "question_tr": "Mâide 5:48'de 'müheymin' anlam alanına en yakın ifade hangisidir?",
+        "explanation_tr": "Diyanet mealinde ayet Kur'an'ı önceki kitapları tasdik eden ve onları denetleyen kitap olarak çevirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Önceki kitaplar üzerinde gözetici/denetleyici",
+          "Önceki vahiylerden bağımsız",
+          "Yalnız şiirsel",
+          "Sadece bir toplumun tarihi"
+        ],
+        "correct_answer": "Önceki kitaplar üzerinde gözetici/denetleyici",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Erklärung kommt der Bedeutung von „Muhaymin“ in Al-Maida 5:48 am nächsten?",
+        "explanation_tr": "Die Diyanet-Übersetzung beschreibt den Koran als Buch, das frühere Bücher bestätigt und über sie wacht.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ein Hüter und Maßstab, der über frühere Bücher wacht",
+          "Von früheren Offenbarungen völlig unabhängig",
+          "Nur eine poetische Bezeichnung",
+          "Nur Geschichte einer einzigen Gesellschaft"
+        ],
+        "correct_answer": "Ein Hüter und Maßstab, der über frühere Bücher wacht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-006": {
+      "source": {
+        "question_tr": "Bir notta 'Kur'an, Tevrat ve İncil'in Allah tarafından indirildiğini reddeder' yazıyor. Hata nedir?",
+        "explanation_tr": "Kur'an önceki ilahî vahiylerin Allah'tan geldiğini açıkça kabul eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Âl-i İmrân 3:3-4 Tevrat ve İncil'in Allah tarafından indirildiğini bildirir",
+          "Kur'an Tevrat'ı insan şiiri sayar",
+          "İncil Kur'an'da hiç anılmaz",
+          "Tevrat yalnız Zebur'un diğer adıdır"
+        ],
+        "correct_answer": "Âl-i İmrân 3:3-4 Tevrat ve İncil'in Allah tarafından indirildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Der Koran bestreitet, dass Allah die Tora und das Evangelium offenbarte.“ Was ist falsch?",
+        "explanation_tr": "Der Koran erkennt frühere göttliche Offenbarungen ausdrücklich als von Allah stammend an.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Imran 3:3–4 sagt, dass Allah die Tora und das Evangelium offenbarte",
+          "Der Koran hält die Tora für menschliche Dichtung",
+          "Das Evangelium wird im Koran nie erwähnt",
+          "Die Tora ist nur ein anderer Name für den Zabur"
+        ],
+        "correct_answer": "Al-Imran 3:3–4 sagt, dass Allah die Tora und das Evangelium offenbarte",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-007": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki vahiylerle ilişkisini kavramlarla eşleştir.",
+        "explanation_tr": "Mâide 5:48 Kur'an'ın önceki kitaplarla ilişkisini tasdik ve denetim kavramlarıyla açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tasdik",
+            "right": "Önceki ilahî vahiylerin aslını doğrulama"
+          },
+          {
+            "left": "Müheymin",
+            "right": "Ölçü ve denetim konumu"
+          },
+          {
+            "left": "Vahiy",
+            "right": "Kaynağı Allah olan ilahî bildirim"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe zum Verhältnis des Korans zu früheren Offenbarungen zu.",
+        "explanation_tr": "Al-Maida 5:48 beschreibt dieses Verhältnis durch Bestätigung und die maßgebende Stellung des Korans.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Bestätigung",
+            "right": "Die ursprünglichen göttlichen Offenbarungen bejahen"
+          },
+          {
+            "left": "Muhaymin",
+            "right": "Maßstab und Aufsicht über frühere Bücher"
+          },
+          {
+            "left": "Offenbarung",
+            "right": "Göttliche Mitteilung, die von Allah stammt"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-008": {
+      "source": {
+        "question_tr": "Mâide 5:48'e göre Kur'an'ın önceki kitaplarla ilişkisini tek cümleyle özetle.",
+        "explanation_tr": "Ayette Kur'an'ın hem doğrulayıcı hem de ölçü/denetim konumu vurgulanır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kur'an önceki ilahî kitapları tasdik eden ve onlar üzerinde denetleyici bir konumda bulunan Allah'ın kitabıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasse nach Al-Maida 5:48 das Verhältnis des Korans zu früheren Büchern in einem Satz zusammen.",
+        "explanation_tr": "Der Vers betont sowohl die Bestätigung als auch die maßgebende Stellung des Korans gegenüber früheren Büchern.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Der Koran ist Allahs Buch, das die früheren göttlichen Bücher bestätigt und als Maßstab über sie wacht.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-009": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki vahiyleri tasdik etmesi, bütün insan yorumlarını vahiy sayması demektir.",
+        "explanation_tr": "Tasdik, Allah'tan gelen vahiylerin aslını doğrulamakla ilgilidir; insan yorumlarını otomatik olarak vahiy yapmaz.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Bestätigung früherer Offenbarungen bedeutet, dass der Koran jede menschliche Deutung für Offenbarung hält.",
+        "explanation_tr": "Die Bestätigung betrifft ursprüngliche Offenbarungen Allahs; menschliche Deutungen werden dadurch nicht automatisch zu Offenbarung.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-010": {
+      "source": {
+        "question_tr": "Mâide 5:48 Kur'an'ı önceki kitapları tasdik edici ve onları ______ bir kitap olarak tanımlar.",
+        "explanation_tr": "Diyanet mealinde ayette Kur'an'ın önceki kitapları denetleyici konumu ifade edilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "denetleyici",
+          "yok sayan",
+          "taklit eden",
+          "insanlaştıran"
+        ],
+        "correct_answer": "denetleyici",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Maida 5:48 beschreibt den Koran als Buch, das frühere Bücher bestätigt und über sie ______.",
+        "explanation_tr": "Die Diyanet-Übersetzung beschreibt die maßgebende Stellung des Korans gegenüber früheren Büchern.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "wacht",
+          "hinwegsieht",
+          "sie nachahmt",
+          "sie menschlich macht"
+        ],
+        "correct_answer": "wacht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-011": {
+      "source": {
+        "question_tr": "Birisi 'Önceki vahiylerle ilgili bir iddia Kur'an'ın açık ölçüsüyle çelişse de aynen kabul edilmelidir' diyor. En uygun cevap nedir?",
+        "explanation_tr": "Kur'an önceki vahiyler konusunda yalnız tasdik değil, denetleyici/ölçü belirleyici bir konum da bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mâide 5:48 Kur'an'a doğrulayıcı ve denetleyici bir konum verir",
+          "Kur'an hiçbir ölçü sunmaz",
+          "Bütün metinler eşit derecede vahiydir",
+          "Kaynak karşılaştırması gereksizdir"
+        ],
+        "correct_answer": "Mâide 5:48 Kur'an'a doğrulayıcı ve denetleyici bir konum verir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand fordert: „Behauptungen über frühere Offenbarungen müssen wir auch dann unverändert annehmen, wenn sie dem ausdrücklichen Maßstab des Korans widersprechen.“ Was antwortest du?",
+        "explanation_tr": "Der Vers spricht nicht nur von Bestätigung, sondern auch von der maßgebenden Stellung des Korans.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Maida 5:48 beschreibt den Koran als Bestätigung und Maßstab über frühere Bücher",
+          "Der Koran bietet keinen Maßstab",
+          "Alle Texte sind im gleichen Sinn Offenbarung",
+          "Quellen zu vergleichen ist unnötig"
+        ],
+        "correct_answer": "Al-Maida 5:48 beschreibt den Koran als Bestätigung und Maßstab über frühere Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-012": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki vahiylerle ilişkisini açıklarken hangi cümle en dengelidir?",
+        "explanation_tr": "Âl-i İmrân 3:3-4 kaynak birliğini, Mâide 5:48 tasdik ve denetim ilişkisini vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Aynı ilahî kaynağı doğrular ve Kur'an kendi ölçüsünü sunar",
+          "Önceki bütün vahiyleri reddeder",
+          "Her tarihî metni koşulsuz vahiy sayar",
+          "Vahiyler arasında hiçbir bağlantı yoktur"
+        ],
+        "correct_answer": "Aynı ilahî kaynağı doğrular ve Kur'an kendi ölçüsünü sunar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt die Verbindung des Korans mit früheren Offenbarungen ausgewogen?",
+        "explanation_tr": "Al-Imran 3:3–4 betont den gemeinsamen Ursprung, Al-Maida 5:48 die Bestätigung und Aufsicht.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Er bestätigt ihren gemeinsamen göttlichen Ursprung und bietet zugleich seinen eigenen Maßstab",
+          "Er verwirft alle früheren Offenbarungen",
+          "Er erklärt bedingungslos jeden historischen Text zur Offenbarung",
+          "Zwischen den Offenbarungen gibt es keinen Zusammenhang"
+        ],
+        "correct_answer": "Er bestätigt ihren gemeinsamen göttlichen Ursprung und bietet zugleich seinen eigenen Maßstab",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-013": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:3'te Kur'an'ın kendinden öncekileri ______ olarak indirildiği belirtilir.",
+        "explanation_tr": "Ayette Kur'an'ın önceki vahiyleri tasdik eden bir kitap olduğu belirtilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "doğrulayıcı",
+          "reddedici",
+          "unutucu",
+          "değiştirici"
+        ],
+        "correct_answer": "doğrulayıcı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Imran 3:3 sagt, dass der Koran offenbart wurde, um das Vorherige zu ______.",
+        "explanation_tr": "Der Vers beschreibt den Koran als Bestätigung früherer Offenbarungen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "bestätigen",
+          "verwerfen",
+          "vergessen",
+          "verändern"
+        ],
+        "correct_answer": "bestätigen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U07-S03-014": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki vahiylerle ilişkisini düşünürken doğru sıralamayı oluştur.",
+        "explanation_tr": "Bu sıra, kaynak birliği ile Kur'an'ın ölçü belirleyici konumunu birlikte anlamayı sağlar.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Önceki vahiylerin Allah'tan geldiğini kabul et",
+          "Kur'an'ın onları tasdik ettiğini bil",
+          "Kur'an'ın denetleyici ölçüsünü dikkate al",
+          "Kaynakta olmayan iddiaları kesinleştirme"
+        ],
+        "correct_order": [
+          "Önceki vahiylerin Allah'tan geldiğini kabul et",
+          "Kur'an'ın onları tasdik ettiğini bil",
+          "Kur'an'ın denetleyici ölçüsünü dikkate al",
+          "Kaynakta olmayan iddiaları kesinleştirme"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne die Aussagen zum Verhältnis des Korans und früherer Offenbarungen in eine sinnvolle Reihenfolge.",
+        "explanation_tr": "Diese Reihenfolge zeigt den gemeinsamen Ursprung und die maßgebende Stellung des Korans.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Anerkennen, dass frühere Offenbarungen von Allah stammen",
+          "Verstehen, dass der Koran sie bestätigt",
+          "Den Koran als Maßstab berücksichtigen",
+          "Unbelegte Behauptungen nicht als gewiss ausgeben"
+        ],
+        "correct_order": [
+          "Anerkennen, dass frühere Offenbarungen von Allah stammen",
+          "Verstehen, dass der Koran sie bestätigt",
+          "Den Koran als Maßstab berücksichtigen",
+          "Unbelegte Behauptungen nicht als gewiss ausgeben"
+        ],
+        "stage_title": "Der Koran und frühere Bücher",
+        "topic": "Bestätigung, Rechtleitung und Quellen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

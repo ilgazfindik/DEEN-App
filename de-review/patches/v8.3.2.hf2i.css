@@ -1,0 +1,17 @@
+/* DEEN v8.3.2 HF2I — real avatar + corrected outfit anchoring on v8.1.2 wardrobe */
+#v812Wardrobe .v812-grid.v832i-real-grid{display:flex!important;gap:10px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:10px 12px 16px!important;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+#v812Wardrobe .v832i-card{flex:0 0 116px!important;min-width:116px!important;min-height:142px!important;scroll-snap-align:start}
+#v812Wardrobe .v832i-thumb{display:block!important;position:relative!important;width:84px!important;height:84px!important;margin:0 auto 7px!important;border-radius:18px!important;overflow:hidden!important;background:radial-gradient(circle at 50% 38%,rgba(255,255,255,.08),rgba(255,255,255,.018))!important}
+#v812Wardrobe .v812-outfit .v832i-thumb:before,#v812Wardrobe .v832i-thumb:before{content:none!important;display:none!important}
+#v812Wardrobe .v832i-sprite{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;z-index:3!important;background-repeat:no-repeat!important}
+#v812Wardrobe .v832i-card.active{border-color:rgba(145,226,202,.72)!important;box-shadow:0 0 0 1px rgba(145,226,202,.12),0 10px 26px rgba(0,0,0,.22)!important}
+#v812Wardrobe .v832i-runtime-badge{display:inline-flex;margin:8px 12px 2px;padding:6px 9px;border:1px solid rgba(145,226,202,.28);border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.08em;color:#91e2ca;background:rgba(18,64,67,.42)}
+#v812Wardrobe .v812-avatar.v832i-real-preview{width:230px!important;height:230px!important;bottom:20px!important;display:grid!important;place-items:center!important;overflow:visible!important}
+#v812Wardrobe .v812-avatar.v832i-real-preview>.v831-stack{width:222px!important;height:222px!important;position:relative!important;overflow:hidden!important;filter:drop-shadow(0 18px 20px rgba(0,0,0,.20))}
+#v812Wardrobe .v812-avatar.v832i-real-preview>.v831-stack>.v831-sprite{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important}
+.v831-stack>.v832i-worn-outfit{position:absolute!important;display:block!important;pointer-events:none!important;background-repeat:no-repeat!important;z-index:2!important;transform-origin:center center!important}
+.v831-stack>.v832i-worn-outfit[data-v832i-gender="male"]{left:0!important;top:0!important;width:100%!important;height:100%!important}
+.v831-stack>.v832i-worn-outfit[data-v832i-gender="female"]{left:7%!important;top:22%!important;width:86%!important;height:86%!important}
+.v831-stack>.layer-base_avatar{z-index:1!important}
+.v831-stack>.layer-face_shapes,.v831-stack>.layer-hair,.v831-stack>.layer-hijabs,.v831-stack>.layer-headwear,.v831-stack>.layer-eyebrows,.v831-stack>.layer-eyes,.v831-stack>.layer-noses,.v831-stack>.layer-mouths,.v831-stack>.layer-mustaches,.v831-stack>.layer-beards,.v831-stack>.layer-glasses,.v831-stack>.layer-sunglasses,.v831-stack>.layer-bangs,.v831-stack>.layer-blush,.v831-stack>.layer-bows_ribbons,.v831-stack>.layer-floral_accessories,.v831-stack>.layer-clips,.v831-stack>.layer-special_accessories{z-index:3!important}
+@media(max-width:430px){#v812Wardrobe .v832i-card{flex-basis:102px!important;min-width:102px!important;min-height:128px!important}#v812Wardrobe .v832i-thumb{width:72px!important;height:72px!important}#v812Wardrobe .v812-avatar.v832i-real-preview{width:214px!important;height:214px!important}#v812Wardrobe .v812-avatar.v832i-real-preview>.v831-stack{width:206px!important;height:206px!important}}

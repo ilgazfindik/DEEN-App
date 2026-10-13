@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U10",
+  "stage": "U10-S01",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U10-S01-001": {
+      "source": {
+        "question_tr": "Cibrîl hadisine göre iman esaslarından biri hangisidir?",
+        "explanation_tr": "Hadiste kadere iman, iman esasları arasında zikredilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kadere iman",
+          "Geleceği ayrıntılarıyla bilmek",
+          "Tedbiri terk etmek",
+          "İnsan iradesini inkâr etmek"
+        ],
+        "correct_answer": "Kadere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Glaubensartikel wird im Hadith von Gabriel genannt?",
+        "explanation_tr": "Der Hadith nennt den Glauben an die göttliche Vorherbestimmung als einen der Glaubensartikel.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an die göttliche Vorherbestimmung",
+          "Die Zukunft im Einzelnen kennen",
+          "Auf Vorsichtsmaßnahmen verzichten",
+          "Den menschlichen Willen leugnen"
+        ],
+        "correct_answer": "Glaube an die göttliche Vorherbestimmung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-002": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman, insanın iradeli tercihlerinden sorumlu olmadığı anlamına gelir.",
+        "explanation_tr": "Diyanet kaderi sorumluluğu kaldıran bir cebir anlayışı olarak açıklamaz.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an die göttliche Vorherbestimmung und ihr Eintreffen bedeutet, dass Menschen für ihre freiwilligen Entscheidungen nicht verantwortlich sind.",
+        "explanation_tr": "Nach der Diyanet-Erklärung bedeutet Vorherbestimmung keinen Zwang, der die menschliche Verantwortung aufhebt.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-003": {
+      "source": {
+        "question_tr": "Kamer 54:49'un temel vurgusu nedir?",
+        "explanation_tr": "Ayet ilahî ölçü ve takdiri vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Her şeyin bir ölçüye göre yaratılması",
+          "Her şeyin rastgele olması",
+          "İnsanın geleceği bilmesi",
+          "Sebeplerin gereksizliği"
+        ],
+        "correct_answer": "Her şeyin bir ölçüye göre yaratılması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was betont Al-Qamar 54:49 hauptsächlich?",
+        "explanation_tr": "Der Vers betont das göttliche Maß und die Vorherbestimmung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Alles wurde nach einem bestimmten Maß erschaffen",
+          "Alles geschieht zufällig",
+          "Menschen kennen ihre Zukunft",
+          "Ursachen sind unnötig"
+        ],
+        "correct_answer": "Alles wurde nach einem bestimmten Maß erschaffen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-004": {
+      "source": {
+        "question_tr": "Kamer 54:49'da her şeyin bir ______ göre yaratıldığı bildirilir.",
+        "explanation_tr": "Ayet ölçü ve düzen vurgusu yapar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "ölçüye",
+          "tesadüfe",
+          "söylentiye",
+          "insan tahminine"
+        ],
+        "correct_answer": "ölçüye",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Qamar 54:49 erklärt, dass alles nach einem bestimmten ______ erschaffen wurde.",
+        "explanation_tr": "Der Vers betont Maß und Ordnung.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Maß",
+          "Zufall",
+          "Gerücht",
+          "menschlichen Plan"
+        ],
+        "correct_answer": "Maß",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-005": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kadere iman, hiçbir seçimimin anlamı yok demektir' diyor. En iyi düzeltme hangisidir?",
+        "explanation_tr": "Kur'an insan tercihine de Allah'ın kuşatıcı iradesine de yer verir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'ın takdirine iman, insanın seçim ve sorumluluğunu ortadan kaldırmaz",
+          "İnsan tamamen iradesizdir",
+          "İnsan Allah'tan bağımsız yaratıcıdır",
+          "Kader yalnız şans demektir"
+        ],
+        "correct_answer": "Allah'ın takdirine iman, insanın seçim ve sorumluluğunu ortadan kaldırmaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender sagt: „Wenn alles vorherbestimmt ist, sind meine Entscheidungen bedeutungslos.“ Was ist die beste Korrektur?",
+        "explanation_tr": "Der Koran berücksichtigt sowohl die menschliche Entscheidung als auch Allahs umfassenden Willen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Glaube an Allahs Vorherbestimmung hebt die menschliche Entscheidungsfreiheit und Verantwortung nicht auf",
+          "Menschen haben überhaupt keinen Willen",
+          "Menschen erschaffen unabhängig von Allah",
+          "Vorherbestimmung bedeutet nur Glück"
+        ],
+        "correct_answer": "Der Glaube an Allahs Vorherbestimmung hebt die menschliche Entscheidungsfreiheit und Verantwortung nicht auf",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-006": {
+      "source": {
+        "question_tr": "Bir notta 'Kader olayların sebepsiz ve rastgele olmasıdır' yazıyor. Hata nedir?",
+        "explanation_tr": "Kader öğretisi rastgelelik değil ölçü vurgusu taşır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an kaderi ölçü ve ilahî bilgiyle ilişkilendirir",
+          "Kader kaos demektir",
+          "Kader yalnız insan planıdır",
+          "Kader sebeplerin yokluğudur"
+        ],
+        "correct_answer": "Kur'an kaderi ölçü ve ilahî bilgiyle ilişkilendirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Notiz behauptet: „Göttliche Vorherbestimmung bedeutet, dass Ereignisse ohne Ursachen und zufällig geschehen.“ Was ist daran falsch?",
+        "explanation_tr": "Die Lehre von der göttlichen Vorherbestimmung betont Maß statt Zufälligkeit.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Der Koran verbindet Vorherbestimmung mit Maß und göttlichem Wissen",
+          "Vorherbestimmung bedeutet Chaos",
+          "Vorherbestimmung ist nur ein menschlicher Plan",
+          "Vorherbestimmung bedeutet das Fehlen von Ursachen"
+        ],
+        "correct_answer": "Der Koran verbindet Vorherbestimmung mit Maß und göttlichem Wissen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-007": {
+      "source": {
+        "question_tr": "İlahî ilim, takdir ve insan sorumluluğunu doğru açıklamalarla eşleştir.",
+        "explanation_tr": "Kader öğretisinin ana kavramları birbirini yok etmeden birlikte anlaşılır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İlahî ilim",
+            "right": "Allah'ın varlık ve olayları kuşatan bilgisi"
+          },
+          {
+            "left": "Takdir/ölçü",
+            "right": "Varlıkların belli düzen ve ölçü içinde oluşu"
+          },
+          {
+            "left": "İnsan sorumluluğu",
+            "right": "İradeli tercihlerden hesaba çekilme"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Begriffe Wissen, Vorherbestimmung und Verantwortung mit ihren Erklärungen.",
+        "explanation_tr": "Die grundlegenden Begriffe der Vorherbestimmung müssen zusammen verstanden werden, ohne einander aufzuheben.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Göttliches Wissen",
+            "right": "Allahs Wissen umfasst alle Wesen und Ereignisse"
+          },
+          {
+            "left": "Vorherbestimmung und Maß",
+            "right": "Alles besteht innerhalb einer bestimmten Ordnung und eines bestimmten Maßes"
+          },
+          {
+            "left": "Menschliche Verantwortung",
+            "right": "Für freiwillige Entscheidungen verantwortlich sein"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-008": {
+      "source": {
+        "question_tr": "Diyanet'in yaygın Mâtürîdî eğitim terminolojisine göre 'kader' nedir?",
+        "explanation_tr": "Bu tanım Mâtürîdî terminolojiye göredir; Eş'arî kullanımda terimler yer değiştirebilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın olacakları ezelî ilmiyle bilip takdir etmesi",
+          "İnsanın zorla davranması",
+          "Sebeplerin iptali",
+          "Kıyamet saatini bilmek"
+        ],
+        "correct_answer": "Allah'ın olacakları ezelî ilmiyle bilip takdir etmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was bedeutet „Qadar“ nach der häufig verwendeten maturidischen Terminologie der Diyanet?",
+        "explanation_tr": "Diese Definition folgt der maturidischen Terminologie. In der ascharitischen Tradition können die Begriffe anders zugeordnet sein.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Dass Allah durch Sein ewiges Wissen alles Kommende kennt und bestimmt",
+          "Dass Menschen unter Zwang handeln",
+          "Dass Ursachen aufgehoben werden",
+          "Dass Menschen den Zeitpunkt der Stunde kennen"
+        ],
+        "correct_answer": "Dass Allah durch Sein ewiges Wissen alles Kommende kennt und bestimmt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-009": {
+      "source": {
+        "question_tr": "Mâtürîdî eğitim terminolojisinde, takdir edilen bir şeyin zamanı gelince meydana getirilmesi hangi terimle adlandırılır?",
+        "explanation_tr": "Bu tanım Mâtürîdî terminolojiye göredir; Eş'arî kullanımda kelimeler yer değiştirebilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Takdir edilenin zamanı gelince Allah tarafından meydana getirilmesi",
+          "Allah'ın hiçbir şeyi bilmemesi",
+          "İnsanın iradesiz olması",
+          "Olayların rastgele oluşu"
+        ],
+        "correct_answer": "Takdir edilenin zamanı gelince Allah tarafından meydana getirilmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie beschreibt die maturidische Terminologie das Eintreten dessen, was zuvor bestimmt wurde?",
+        "explanation_tr": "Diese Erklärung entspricht der maturidischen Begriffsnutzung. In der ascharitischen Tradition können die Bezeichnungen umgekehrt verwendet werden.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah lässt das Bestimmte zu seiner festgesetzten Zeit eintreten",
+          "Allah hat keinerlei Wissen",
+          "Menschen haben keinen Willen",
+          "Ereignisse geschehen rein zufällig"
+        ],
+        "correct_answer": "Allah lässt das Bestimmte zu seiner festgesetzten Zeit eintreten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-010": {
+      "source": {
+        "question_tr": "Mâtürîdî ve Eş'arî geleneklerde kader/kaza kelimelerinin teknik kullanımı farklılaşabilir.",
+        "explanation_tr": "Diyanet bu terminoloji farkını açıkça not eder.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Fachbegriffe Qadar und Qada werden in maturidischen und ascharitischen Lehrtraditionen teilweise unterschiedlich verwendet.",
+        "explanation_tr": "Die Diyanet weist ausdrücklich auf diesen terminologischen Unterschied hin.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-011": {
+      "source": {
+        "question_tr": "Kadere imanı, insan sorumluluğunu da koruyan tek cümleyle özetle.",
+        "explanation_tr": "Sağlıklı kader anlayışı ilahî kuşatıcılık ile insan sorumluluğunu birlikte korur.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah'ın ilim ve takdirini kabul ederken insanın iradeli tercihlerinden sorumlu olduğunu da kabul etmektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasse den Glauben an die göttliche Vorherbestimmung in einem Satz zusammen, ohne die Verantwortung des Menschen aufzuheben.",
+        "explanation_tr": "Ein ausgewogenes Verständnis wahrt zugleich Allahs umfassendes Wissen und die menschliche Verantwortung.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Der Glaube an Allahs Wissen und Vorherbestimmung schließt ein, dass Menschen für ihre freiwilligen Entscheidungen verantwortlich bleiben.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-012": {
+      "source": {
+        "question_tr": "Kader konusunu sağlıklı öğrenme sırasını oluştur.",
+        "explanation_tr": "Bu sıra fatalizme düşmeden kaderi anlamaya yardım eder.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah'ın ilim ve ölçüsünü kabul et",
+          "İnsana verilen iradeyi tanı",
+          "İradeli tercihlerde sorumluluğu koru",
+          "Kaderi mazerete dönüştürme"
+        ],
+        "correct_order": [
+          "Allah'ın ilim ve ölçüsünü kabul et",
+          "İnsana verilen iradeyi tanı",
+          "İradeli tercihlerde sorumluluğu koru",
+          "Kaderi mazerete dönüştürme"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne diese Gedanken zu einem ausgewogenen Verständnis der Vorherbestimmung.",
+        "explanation_tr": "Diese Lernreihenfolge hilft, Vorherbestimmung ohne Fatalismus zu verstehen.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allahs Wissen und Sein Maß anerkennen",
+          "Den Menschen gegebenen Willen erkennen",
+          "Verantwortung für freiwillige Entscheidungen bewahren",
+          "Vorherbestimmung nicht als Ausrede verwenden"
+        ],
+        "correct_order": [
+          "Allahs Wissen und Sein Maß anerkennen",
+          "Den Menschen gegebenen Willen erkennen",
+          "Verantwortung für freiwillige Entscheidungen bewahren",
+          "Vorherbestimmung nicht als Ausrede verwenden"
+        ],
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-013": {
+      "source": {
+        "question_tr": "Kadere iman, gelecekte başımıza gelecek bütün ayrıntıları önceden bildiğimiz anlamına gelir.",
+        "explanation_tr": "Allah'ın ilmi ile insanın sınırlı bilgisi aynı değildir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "An die göttliche Vorherbestimmung zu glauben bedeutet, alle Einzelheiten der eigenen Zukunft im Voraus zu kennen.",
+        "explanation_tr": "Allahs Wissen und das begrenzte Wissen der Menschen sind nicht dasselbe.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U10-S01-014": {
+      "source": {
+        "question_tr": "Kadere iman, Allah'ın bilgisinin varlık ve olayları ______ kabul etmeyi içerir.",
+        "explanation_tr": "Kur'an Allah'ın kuşatıcı bilgisini bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kuşattığını",
+          "sınırladığını",
+          "bilmediğini",
+          "rastgele bıraktığını"
+        ],
+        "correct_answer": "kuşattığını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zum Glauben an die Vorherbestimmung gehört, dass Allahs Wissen alle Wesen und Ereignisse ______.",
+        "explanation_tr": "Der Koran beschreibt Allahs allumfassendes Wissen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "umfasst",
+          "begrenzt",
+          "nicht kennt",
+          "dem Zufall überlässt"
+        ],
+        "correct_answer": "umfasst",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Göttliche Vorherbestimmung",
+        "topic": "Qadar, Qada und Verantwortung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

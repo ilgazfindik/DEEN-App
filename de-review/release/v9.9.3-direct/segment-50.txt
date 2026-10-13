@@ -1,0 +1,134 @@
+
+<style id="deen-v10943-quran-audio-clickfix-css">
+.deen-qaudio-play[data-smart-audio="1"]{cursor:pointer!important;opacity:1!important}
+.deen-qaudio-play[data-smart-audio="1"].fetching{pointer-events:none;opacity:.65!important}
+.deen-qaudio-status.smart-warn{color:#d5bd7b!important}
+.deen-qaudio-status.smart-error{color:#dfa18b!important}
+</style>
+<script id="deen-v10943-quran-audio-clickfix-js">
+(()=>{
+if(window.__deenV10943QuranAudioClickfix)return;window.__deenV10943QuranAudioClickfix=true;
+
+let lastMessage='';
+const esc=v=>String(v??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+const key=(id,n)=>id+':'+Number(n);
+
+function verified(id,n){
+  try{return DEEN_QURAN_AUDIO?.verifiedAudio?.(id,Number(n))||null}catch(_){return null}
+}
+function provider(){
+  try{return DEEN_QURAN_AUDIO_PROVIDER?.status?.()||{configured:false}}catch(_){return{configured:false}}
+}
+function setStatus(id,n,msg,cls=''){
+  lastMessage=String(msg||'');
+  const mount=document.querySelector?.('[data-quran-audio="'+key(id,n)+'"]');
+  const s=mount?.querySelector?.('.deen-qaudio-status');
+  if(s){
+    s.textContent=lastMessage;
+    s.classList.remove('smart-warn','smart-error');
+    if(cls)s.classList.add(cls);
+  }
+  return lastMessage;
+}
+async function playOrFetch(id,n){
+  n=Number(n);
+  const existing=verified(id,n);
+  if(existing){
+    setStatus(id,n,'Kıraat hazırlanıyor…');
+    const ok=await DEEN_QURAN_AUDIO.play(id,n);
+    if(!ok)setStatus(id,n,'Ses oynatılamadı. İnternet bağlantısını kontrol et.','smart-error');
+    return ok;
+  }
+
+  const p=provider();
+  if(!p.configured){
+    setStatus(id,n,'Bu ayet için doğrulanmış kıraat kaydı henüz bağlı değil. Metinden öğrenmeye devam edebilirsin.','smart-warn');
+    return false;
+  }
+
+  const btn=document.querySelector?.('[data-quran-audio="'+key(id,n)+'"] .deen-qaudio-play');
+  btn?.classList.add('fetching');
+  setStatus(id,n,'Doğrulanmış kıraat kaydı hazırlanıyor…');
+  try{
+    await DEEN_QURAN_AUDIO_PROVIDER.fetchAyah(id,n);
+    const ready=verified(id,n);
+    if(!ready)throw Error('Kayıt doğrulama gate’inden geçmedi.');
+    refreshOne(id,n);
+    return await DEEN_QURAN_AUDIO.play(id,n);
+  }catch(e){
+    setStatus(id,n,'Kıraat açılamadı: '+String(e?.message||e),'smart-error');
+    return false;
+  }finally{
+    btn?.classList.remove('fetching');
+  }
+}
+function smartControlsHtml(id,n){
+  const info=verified(id,n),p=provider(),available=!!info,canTry=available||p.configured;
+  const label=available?'▶':p.configured?'↓▶':'!';
+  const sub=available?(info.qari||'Doğrulanmış kıraat'):p.configured?'Kayıt gerektiğinde güvenli backend’den alınır':'Ses kaydı henüz bağlı değil';
+  const status=available?'Dinlemek için oynat düğmesine dokun.':p.configured?'İlk dokunuşta kayıt doğrulanıp hazırlanır.':'Bu kayıt olmadan uygulama sentetik Kur’an sesi üretmez.';
+  return '<div class="deen-qaudio" data-quran-audio="'+esc(key(id,n))+'">'+
+    '<div class="deen-qaudio-top"><span class="deen-qaudio-title"><b>Ayet kıraati</b><small>'+esc(sub)+'</small></span>'+
+    '<button class="deen-qaudio-play" data-smart-audio="1" type="button" onclick="DEEN_QURAN_AUDIO_FIX.playOrFetch(\''+esc(id)+'\','+n+')">'+label+'</button></div>'+
+    '<div class="deen-qaudio-status'+(!canTry?' smart-warn':'')+'">'+esc(status)+'</div>'+
+    (available&&typeof DEEN_QURAN_AUDIO?.settings==='function'
+      ?'<div class="deen-qaudio-rights">Kaynak: '+esc(info.provider||'—')+' · Lisans: '+esc(info.license||'—')+'</div>'
+      :'<div class="deen-qaudio-rights">'+(p.configured?'Backend provider bağlı · rights gate zorunlu.':'Kıraat kaydı production’a yalnız kaynak, lisans ve kullanım hakkı doğrulanınca açılır.')+'</div>')+
+  '</div>';
+}
+function refreshOne(id,n){
+  const mount=document.querySelector?.('[data-quran-audio="'+key(id,n)+'"]');
+  if(!mount)return false;
+  const holder=document.createElement('div');
+  holder.innerHTML=smartControlsHtml(id,n);
+  mount.replaceWith(holder.firstElementChild);
+  return true;
+}
+function patchMounted(){
+  const mounts=document.querySelectorAll?.('.deen-qaudio[data-quran-audio]')||[];
+  let changed=0;
+  for(const mount of mounts){
+    const raw=String(mount.getAttribute('data-quran-audio')||'');
+    const [id,nRaw]=raw.split(':'),n=Number(nRaw);
+    if(!id||!n)continue;
+    if(mount.querySelector?.('[data-smart-audio="1"]'))continue;
+    const holder=document.createElement('div');
+    holder.innerHTML=smartControlsHtml(id,n);
+    mount.replaceWith(holder.firstElementChild);
+    changed++;
+  }
+  return changed;
+}
+function learningAvailability(id,n){
+  return {
+    ready:!!verified(id,n),
+    providerConfigured:provider().configured===true,
+    syntheticFallback:false,
+    reason:verified(id,n)?'ready':provider().configured?'fetch_on_demand':'no_rights_cleared_audio'
+  };
+}
+
+const oldPublicControls=DEEN_QURAN_AUDIO?.controlsHtml;
+if(DEEN_QURAN_AUDIO){
+  DEEN_QURAN_AUDIO.controlsHtml=smartControlsHtml;
+}
+
+let timer=null;
+function schedule(){clearTimeout(timer);timer=setTimeout(patchMounted,30)}
+document.addEventListener?.('click',e=>{
+  if(e.target?.closest?.('#v5Sheet,.deen-quran-quick'))schedule();
+},true);
+document.addEventListener?.('deen:navigated',schedule);
+if(typeof MutationObserver!=='undefined'){
+  new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
+}
+schedule();
+
+window.DEEN_QURAN_AUDIO_FIX={
+  playOrFetch,smartControlsHtml,refreshOne,patchMounted,learningAvailability,
+  lastMessage:()=>lastMessage,
+  originalControlsHtml:oldPublicControls||null
+};
+document.documentElement.dataset.deenQuranAudioClickfix='v10943';
+})();
+</script>

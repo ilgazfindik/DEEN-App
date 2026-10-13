@@ -1,0 +1,218 @@
+    "Belirli bir topluma ait kültürel geleneklerin genel adı":"Sadece bir toplumun kültürü",
+    "Sadece geçmişte yaşanmış olayları anlatan bir tarih anlayışı":"Sadece geçmiş olaylar",
+    "Allah'a inanmayı ve O'nun bildirdiği yaşam biçimini benimsemeyi içeren bir din":"Allah’a inanmak ve O’nun rehberliğini benimsemek",
+    "İnancın, kulluğun ve davranışların birbiriyle ilişkisini anlamaya yardımcı olduğu için":"İnanç, kulluk ve davranış arasındaki bağı görmek",
+    "İnanç, kulluk ve davranışların birbiriyle bağlantılı olduğu bir yaşam anlayışı":"İnanç, kulluk ve davranışın birlikte olması",
+    "İnancın yalnızca düşüncede kaldığı ve davranışla ilgisiz olduğu bir anlayış":"İnancı davranıştan koparmak",
+    "İbadetin ahlaktan tamamen bağımsız görüldüğü bir anlayış":"İbadeti ahlaktan tamamen koparmak",
+    "Ahlakın inanç ve kullukla hiçbir bağının bulunmadığı bir anlayış":"Ahlakı inanç ve kulluktan koparmak",
+    "İman inançla, ibadet ise Allah'a kulluk amacı taşıyan davranışlarla ilgilidir":"İman = inanç; ibadet = kulluk davranışı",
+    "Farklı kavramlardır; ancak inanç, kulluk ve davranış bakımından birbirleriyle ilişkilidirler":"Farklıdırlar ama birbirleriyle ilişkilidirler",
+    "Bu kavramlar ilişkili olsa da farklı anlamlara sahip oldukları için birbirine eşitlenmemelidir":"İlişkilidirler ama aynı kavram değillerdir",
+    "Bu üç kavramın farklı olmakla birlikte İslam'ın genel çerçevesinde birbirleriyle ilişkili olduğunu göz ardı ediyor":"Farklı oldukları hâlde aralarındaki bağı yok sayıyor",
+    "İslam'ın iman, ibadet ve ahlakı bir arada içeren bütünsel bir yaşam biçimi olduğunu söylerim":"İslam; iman, ibadet ve ahlakı birlikte ele alır",
+    "İman inancı, ibadet kulluğu, ahlak ise davranış boyutunu anlatır; üçü farklı ama ilişkilidir":"İman = inanç, ibadet = kulluk, ahlak = davranış; üçü ilişkilidir",
+    "İmanın temelde kalpte gerçekleşen bir kabul olduğunu, sözün ise bunun bir ifadesi olduğunu söylerim":"İman kalpteki kabuldür; söz bunun ifadesidir",
+    "İslam'ın yalnızca bilgi değil; inanç, kulluk ve güzel davranışlarla da ilişkili olduğunu söylerim":"İslam bilgiyle sınırlı değildir; inanç, kulluk ve ahlakla da ilgilidir",
+    "Dinin, dürüstlük ve saygı gibi değerlerle günlük hayatın her alanına yansıdığını söylerim":"Din, dürüstlük ve saygıyla günlük hayata da yansır",
+    "İbadetin, Allah rızası için yapılan pek çok davranışı kapsadığını söylerim":"İbadet, Allah rızası için yapılan birçok davranışı kapsar",
+    "Müslümanlık belirli bir soy veya milliyete değil, İslam'ı benimsemeye dayanır":"Müslümanlık soyla değil, İslam’ı benimsemekle ilgilidir",
+    "Müslümanlığın milliyet ve dilden bağımsız, inanca dayalı bir kimlik olduğunu":"Müslümanlık milliyet ve dilden değil, inançtan gelir",
+    "İbadet ile güzel ahlak arasında kurulabilecek ilişkiyi tamamen göz ardı ediyor":"İbadet ile güzel ahlak arasındaki bağı yok sayıyor",
+    "Bu ünitede öğrenilen iman, ibadet ve ahlak arasındaki ilişkiyi göz ardı ediyor":"İman, ibadet ve ahlak arasındaki bağı yok sayıyor",
+    "İbadet ile ahlaki ve toplumsal sorumluluklar arasında kurulabilecek bağı tamamen koparıyor":"İbadet ile sorumluluklar arasındaki bağı koparıyor",
+    "Tek bir gözlenebilir alandan kişinin bütün ahlaki durumuna dair kesin genelleme yapması":"Tek bir davranıştan kişinin bütün ahlakını kesin sayması"
+   };if(exact[x])return exact[x];
+   x=x.replace(/olduğunu söylerim$/i,'').replace(/söylerim$/i,'').trim();
+   return x;
+ }
+ function applyLabels(q){if(!isU01(q))return;const area=document.getElementById('answerArea');if(!area)return;
+   area.querySelectorAll('.option-label').forEach(el=>{const raw=el.textContent;const btn=el.closest('button');if(btn)btn.dataset.value=raw;el.textContent=friendlyLabel(raw)});
+   area.querySelectorAll('[data-value]').forEach(el=>{if(el.matches('.v710-decision,.v710-clue,.v710-word-chip,.v710-listen-option,.v710-binary button,.fill-choice'))el.textContent=friendlyLabel(el.dataset.value)});
+ }
+ function presenter(q){const f=document.querySelector('.question-frame');if(!f||!isU01(q))return;f.classList.add('v730-playful');f.classList.remove('v730-correct','v730-wrong');
+   f.querySelectorAll(':scope>.v730-presenter').forEach(x=>x.remove());const name=who(q),m=mode(q);const p=document.createElement('div');p.className='v730-presenter';p.innerHTML=`<div class="v730-avatar-wrap"><span class="v730-avatar">${avatar(name)}</span></div><div class="v730-bubble"><span class="v730-speaker">${name==='NUR'?'NUR · REHBER':name+' · BİRLİKTE ÇÖZELİM'}</span><span class="v730-line">${line(q)}</span></div>`;
+   const meta=document.getElementById('qMeta');if(meta){meta.textContent=(name==='NUR'?'NUR':name)+' · '+(MODE_NAMES[m]||'MİNİ GÖREV');meta.after(p)}
+   const question=document.getElementById('questionText');if(question&&!['ar','en'].includes(window.DEEN_APP_LOCALE?.get?.())){if(m==='branch_scenario')question.textContent='Karar sende.';else if(m==='bug_hunt')question.textContent='Hatayı yakala!';else if(m==='drag_match')question.textContent='Eşleri bul!'}
+   const qt=document.getElementById('qType');if(qt){const hints={choice_cards:'Kartlara bak; en iyi anlamı seç.',binary:'Doğru ya da yanlış: karar sende.',rapid_recall:'Hatırla ve işaretle. Süre dolsa da devam edebilirsin.',drag_match:'Bir kartı eşinin üzerine sürükle veya dokunarak eşleştir.',word_choice:'Doğru kelimeyi seçip cümleyi tamamla.',bug_hunt:'Yanlış fikri açıklayan karta dokun.',branch_scenario:'Sahneyi oku ve en iyi yaklaşımı seç.',typed_recall:'Cevabı kendi kelimelerinle yaz.'};qt.textContent=hints[m]||qt.textContent}
+   if(m==='branch_scenario'){const b=f.querySelector('.v710-story-top b'),sm=f.querySelector('.v710-story-top small');if(b)b.textContent='Mini hikâye';if(sm)sm.textContent='Sahneyi oku, kararını ver.'}
+   applyLabels(q);
+ }
+ function applyQuestionData(){let n=0;QUESTIONS.forEach(q=>{if(!isU01(q))return;if(!q.legacy_question_tr)q.legacy_question_tr=q.question_tr;if(REWRITES[q.id]){q.question_tr=REWRITES[q.id];n++}if(FILL_CHOICES[q.id]&&!Array.isArray(q.options_tr))q.options_tr=[...FILL_CHOICES[q.id]];q.playful_pilot=true;q.playful_version=VERSION});return n}
+ const rewritten=applyQuestionData();
+ document.addEventListener('deen:question-rendered',()=>{try{const q=session?.questions?.[session.index];presenter(q)}catch(e){console.warn('V7.3 presenter',e)}});
+ document.addEventListener('deen:question-graded',event=>{const correct=event?.detail?.correct===true,q=event?.detail?.question;try{if(isU01(q)){const f=document.querySelector('.question-frame');f?.classList.toggle('v730-correct',correct);f?.classList.toggle('v730-wrong',!correct);const bubble=f?.querySelector('.v730-line');if(bubble)bubble.textContent=correct?['Evet! Tam olarak bu ✦','Harika yakaladın!','Süper, parça yerine oturdu.','Doğru! Bir adım daha.'][idx(q)%4]:['Yaklaştın. İpucuna birlikte bakalım.','Olmadı ama sorun değil; açıklama bize yolu gösterir.','Bir ayrıntı kaçtı. Hemen düzeltelim.','Tekrar deneyince daha kolay hatırlayacaksın.'][idx(q)%4];const t=document.getElementById('feedbackTitle');if(t)t.textContent=correct?'Harika!':'Birlikte düzeltelim';const ft=document.getElementById('feedbackText');if(ft&&q.explanation_tr)ft.textContent='Neden? '+q.explanation_tr}}catch(e){}});
+ document.addEventListener('deen:profile-rendered',()=>{try{const footer=document.querySelector('#profileScreenBody .v5-footer-note');if(footer)footer.innerHTML='DEEN<br>Öğrenme oyunlaştırılır; ibadet puanlanmaz. Dinî içerikler uzman incelemesi bekler.'}catch(e){}});
+ window.DEEN_PLAYFUL_LEARNING={version:VERSION,pilot:PILOT,rewritten,questionIds:Object.keys(REWRITES),snapshot:()=>({rewritten,playful:QUESTIONS.filter(isU01).filter(q=>q.playful_pilot).length,examPhrases:QUESTIONS.filter(isU01).filter(q=>/Aşağıdakilerden hangisi|en doğru şekilde|hangisi doğrudur|ifade eder/i.test(q.question_tr)).length,wordChoiceBoost:Object.keys(FILL_CHOICES).length}),open:(id)=>{const q=QUESTIONS.find(x=>x.id===id);if(!q)return false;session={stage:{id:q.stage_id,title:q.stage_title,xp:10,energy:0},questions:[q],index:0,correct:0,combo:0,bestCombo:0,responses:[],priorityIds:new Set()};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';try{resetResultView(false)}catch(e){};try{setLessonStatus(false)}catch(e){};renderQuestion();return true}};
+ setTimeout(()=>{try{const q=session?.questions?.[session.index];if(q)presenter(q)}catch(e){}},120);
+})();
+</script>
+<!-- DEEN v7.3.3 — Sound FX Pack: synthesized UI/game feedback only; never religious pronunciation. -->
+<script id="deen-v733-sound-fx-js">
+(() => {
+  if (window.__deenV733SoundFxApplied) return;
+  window.__deenV733SoundFxApplied = true;
+  window.DEEN_SOUND_VERSION = '7.3.3';
+  window.DEEN_RELEASE_VERSION = '7.3.3';
+
+  // Disable the older standalone demo oscillator callbacks so the app has one audible engine.
+  try { if (typeof sfxTap !== 'undefined') sfxTap = () => false; } catch (_) {}
+  try { if (typeof sfxCorrect !== 'undefined') sfxCorrect = () => false; } catch (_) {}
+  try { if (typeof sfxWrong !== 'undefined') sfxWrong = () => false; } catch (_) {}
+  try { if (typeof sfxUnlock !== 'undefined') sfxUnlock = () => false; } catch (_) {}
+  try { if (typeof sfxPerfect !== 'undefined') sfxPerfect = () => false; } catch (_) {}
+
+  const stats = {played:0, byKind:{}, contexts:0, active:0, maxActive:0, unlocked:false, lastKind:null};
+  let ctx = null, master = null, compressor = null, serial = 0, lastAt = 0, tapVariant = 0, correctVariant = 0;
+  const active = new Set();
+
+  function enabled(){
+    try { return !!state?.settings?.sound && !document.hidden; } catch (_) { return !document.hidden; }
+  }
+  function ensure(){
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return null;
+    if (!ctx) {
+      ctx = new Ctx(); stats.contexts++;
+      master = ctx.createGain(); master.gain.value = 0.24;
+      compressor = ctx.createDynamicsCompressor();
+      compressor.threshold.value = -20; compressor.knee.value = 18; compressor.ratio.value = 5;
+      compressor.attack.value = 0.003; compressor.release.value = 0.11;
+      master.connect(compressor).connect(ctx.destination);
+    }
+    return ctx;
+  }
+  function unlock(){
+    if(!enabled()) return false;
+    try {
+      const c=ensure(); if(!c) return false;
+      stats.unlocked=true;
+      if(c.state==='suspended') c.resume().catch(()=>{});
+      return true;
+    } catch (_) { return false; }
+  }
+  function register(node){
+    active.add(node); stats.active=active.size; stats.maxActive=Math.max(stats.maxActive,active.size);
+    const end=()=>{active.delete(node);stats.active=active.size;};
+    return end;
+  }
+  function osc({freq=440,to=null,at=0,dur=.1,type='sine',gain=.05,attack=.004,pan=0}){
+    const c=ensure(); if(!c || c.state==='suspended') return;
+    const t=c.currentTime+at, o=c.createOscillator(), g=c.createGain();
+    let out=g;
+    o.type=type; o.frequency.setValueAtTime(freq,t);
+    if(to) o.frequency.exponentialRampToValueAtTime(Math.max(20,to),t+dur);
+    g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(Math.max(.0002,gain),t+attack); g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    if(c.createStereoPanner){const p=c.createStereoPanner();p.pan.value=Math.max(-1,Math.min(1,pan));g.connect(p);p.connect(master);out=p}else g.connect(master);
+    o.connect(g); const done=register(o); o.onended=()=>{try{o.disconnect();g.disconnect();out!==g&&out.disconnect()}catch(_){}done()};
+    o.start(t);o.stop(t+dur+.015);
+  }
+  function noise({at=0,dur=.055,gain=.025,highpass=1800,lowpass=9000}){
+    const c=ensure(); if(!c || c.state==='suspended') return;
+    const len=Math.max(16,Math.floor(c.sampleRate*dur)),buf=c.createBuffer(1,len,c.sampleRate),d=buf.getChannelData(0);
+    for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*(1-i/len);
+    const src=c.createBufferSource(),hp=c.createBiquadFilter(),lp=c.createBiquadFilter(),g=c.createGain(),t=c.currentTime+at;
+    src.buffer=buf;hp.type='highpass';hp.frequency.value=highpass;lp.type='lowpass';lp.frequency.value=lowpass;
+    g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(gain,t+.004);g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    src.connect(hp).connect(lp).connect(g).connect(master);const done=register(src);src.onended=()=>{try{src.disconnect();hp.disconnect();lp.disconnect();g.disconnect()}catch(_){}done()};src.start(t);src.stop(t+dur+.01);
+  }
+  function notes(arr,type='triangle',baseGain=.035){arr.forEach((n,i)=>osc({freq:n[0],at:n[1],dur:n[2],type:n[3]||type,gain:n[4]||baseGain,pan:(i%2?0.08:-0.08)}));}
+  function shimmer(base=880,at=0){
+    noise({at,dur:.09,gain:.014,highpass:3500});
+    osc({freq:base,at,dur:.15,type:'sine',gain:.022});
+    osc({freq:base*1.5,at:at+.035,dur:.16,type:'triangle',gain:.018});
+  }
+
+  const sounds = {
+    click(){const v=[520,610,690][tapVariant++%3];osc({freq:v,to:v*1.06,dur:.045,type:'sine',gain:.018});},
+    tap(){this.click();},
+    select(){const v=[392,440,466.16][tapVariant++%3];osc({freq:v,to:v*1.16,dur:.065,type:'triangle',gain:.027});noise({at:.005,dur:.026,gain:.008,highpass:4200});},
+    snap(){osc({freq:330,to:520,dur:.07,type:'triangle',gain:.035});osc({freq:784,at:.045,dur:.075,type:'sine',gain:.025});noise({dur:.04,gain:.012,highpass:3200});},
+    correct(){const roots=[523.25,587.33,659.25],r=roots[correctVariant++%roots.length];notes([[r,0,.11],[r*1.25,.055,.14]],'triangle',.04);shimmer(r*2,.065);},
+    correct2(){sounds.correct();},correct3(){sounds.correct();},
+    softWrong(){osc({freq:294,to:247,dur:.13,type:'sine',gain:.032});osc({freq:220,at:.065,dur:.12,type:'triangle',gain:.018});},
+    wrong(){sounds.softWrong();},
+    review(){notes([[330,0,.12],[294,.08,.14]],'sine',.025);},
+    combo(){sounds.combo3();},
+    combo3(){notes([[659.25,0,.10],[783.99,.045,.12],[987.77,.10,.15]],'triangle',.038);shimmer(1174.66,.11);},
+    combo5(){notes([[698.46,0,.10],[880,.04,.12],[1046.5,.085,.14],[1318.5,.145,.17]],'triangle',.042);noise({at:.11,dur:.085,gain:.015,highpass:3800});},
+    combo7(){notes([[783.99,0,.09],[987.77,.035,.11],[1174.66,.075,.12],[1396.91,.12,.14],[1567.98,.18,.18]],'triangle',.043);shimmer(1760,.16);},
+    complete(){notes([[392,0,.14],[523.25,.075,.16],[659.25,.15,.19]],'triangle',.036);},
+    perfect(){notes([[523.25,0,.13],[659.25,.06,.14],[783.99,.12,.16],[1046.5,.20,.24]],'triangle',.043);shimmer(1568,.23);noise({at:.20,dur:.11,gain:.013,highpass:4200});},
+    unlock(){osc({freq:330,to:660,dur:.18,type:'triangle',gain:.028});notes([[523.25,.09,.13],[783.99,.16,.18]],'triangle',.03);shimmer(1174,.18);},
+    reward(){osc({freq:784,dur:.075,type:'triangle',gain:.028});osc({freq:1046.5,at:.07,dur:.12,type:'triangle',gain:.032});noise({at:.055,dur:.055,gain:.011,highpass:4000});},
+    chest(){osc({freq:105,to:78,dur:.13,type:'sine',gain:.055});noise({at:.025,dur:.12,gain:.024,highpass:900,lowpass:6000});notes([[523.25,.13,.16],[659.25,.19,.18],[1046.5,.29,.25]],'triangle',.032);shimmer(1568,.30);},
+    unit(){osc({freq:196,dur:.20,type:'sine',gain:.042});notes([[392,.06,.22],[523.25,.15,.22],[659.25,.25,.24],[783.99,.39,.30]],'triangle',.034);},
+    section(){osc({freq:174.61,dur:.22,type:'sine',gain:.042});notes([[349.23,.07,.21],[523.25,.17,.22],[698.46,.29,.25],[1046.5,.46,.34]],'triangle',.035);shimmer(1396,.47);},
+    gold(){osc({freq:220,dur:.22,type:'sine',gain:.04});notes([[440,.07,.20],[554.37,.15,.22],[659.25,.25,.24],[880,.40,.28],[1108.73,.58,.32]],'triangle',.036);shimmer(1661,.60);},
+    level(){notes([[392,0,.12],[493.88,.07,.14],[659.25,.14,.17],[783.99,.23,.22]],'triangle',.033);},
+    streak(){notes([[523.25,0,.09],[659.25,.045,.10],[783.99,.09,.12]],'triangle',.03);noise({at:.075,dur:.045,gain:.008,highpass:4500});},
+    swoosh(){noise({dur:.13,gain:.017,highpass:900,lowpass:5200});osc({freq:180,to:420,dur:.12,type:'sine',gain:.010});}
+  };
+
+  function play(kind='click'){
+    if(!enabled()) return false;
+    const now=performance.now();
+    if((kind==='click'||kind==='tap'||kind==='select') && now-lastAt<52) return false;
+    lastAt=now; stats.lastKind=kind;
+    const token=++serial;
+    try{
+      const c=ensure(); if(!c) return false;
+      const run=()=>{if(token!==serial&&!['click','tap','select','snap'].includes(kind))return;const fn=sounds[kind]||sounds.reward;fn.call(sounds);stats.played++;stats.byKind[kind]=(stats.byKind[kind]||0)+1;};
+      if(c.state==='suspended'){c.resume().then(run).catch(()=>{});return true;} run(); return true;
+    }catch(_){return false;}
+  }
+  function stop(){serial++;try{active.forEach(n=>{try{n.stop?.();n.disconnect?.()}catch(_){}});active.clear();stats.active=0}catch(_){} }
+  function settingsChanged(){if(!enabled())stop();}
+  const api={play,unlock,stop,settingsChanged,diagnostics:()=>({...stats,active:active.size,contextState:ctx?.state||'none'}),patterns:()=>Object.keys(sounds)};
+
+  // Preserve the object identity used by older DEEN code, but upgrade its implementation.
+  try {
+    if(typeof DEENSound!=='undefined'){
+      DEENSound.play=api.play;DEENSound.unlock=api.unlock;DEENSound.stop=api.stop;DEENSound.settingsChanged=api.settingsChanged;DEENSound.diagnostics=api.diagnostics;DEENSound.patterns=api.patterns;
+    }
+  } catch(_) {}
+  window.DEEN_SFX=api;
+
+  // Answer-selection micro sounds. Submission feedback remains handled centrally by DEENFeel.answer.
+  document.addEventListener('click', e=>{
+    const el=e.target.closest?.('#answerArea .v710-word-chip,#answerArea .v710-decision,#answerArea .v710-clue,#answerArea .v710-listen-option,#answerArea .v710-binary button,#answerArea .fill-choice,#answerArea .option');
+    if(el&&!el.disabled) play('select');
+  },{capture:true});
+
+  // Matching feedback: matched pair = snap, attempted wrong pair = soft correction.
+  const observer=new MutationObserver(records=>{
+    for(const rec of records){
+      const el=rec.target;if(!(el instanceof HTMLElement)||!el.classList.contains('v710-match-card'))continue;
+      if(el.classList.contains('matched')&&!el.dataset.v733Matched){el.dataset.v733Matched='1';play('snap');}
+      if(el.classList.contains('error')&&!el.dataset.v733Error){el.dataset.v733Error='1';play('softWrong');setTimeout(()=>delete el.dataset.v733Error,320);}
+    }
+  });
+  const watchMatch=()=>document.querySelectorAll('.v710-match-card').forEach(el=>observer.observe(el,{attributes:true,attributeFilter:['class']}));
+  document.addEventListener('deen:question-rendered',event=>{
+    if(!window.DEEN_RUNTIME_SCHEDULE?.question?.('v733-match-watch',event?.detail,watchMatch,{delays:[0]}))setTimeout(watchMatch,0);
+  });
+
+  // Word-builder drag/drop and block placement feel.
+  document.addEventListener('drop',e=>{if(e.target.closest?.('.v710-builder-piece,.v710-builder-zone'))play('snap')},{capture:true});
+
+  // Chest opening gets its own low thump + shimmer instead of a generic unlock tone.
+  document.addEventListener('click',e=>{
+    const b=e.target.closest?.('[data-v670-open],.v670-open-btn,.v670-chest-card button,#v670ChestOpen');
+    if(b&&!b.disabled)play('chest');
+  },{capture:true});
+
+  // Developer/QA preview only; no progression or rewards are changed.
+  window.DEEN_SOUND_QA={
+    version:'7.3.3',
+    play:k=>play(k),
+    sequence:()=>['click','select','snap','correct','wrong','combo3','combo5','perfect','unlock','chest'].forEach((k,i)=>setTimeout(()=>play(k),i*420)),
+    diagnostics:()=>api.diagnostics(),
+    soundEnabled:()=>enabled()
+  };
+})();
+</script>
+
+
+<!-- DEEN v7.4.0 — My World & Character Economy -->
+<!-- DEEN v7.4.2 — Avatar Builder Advanced -->

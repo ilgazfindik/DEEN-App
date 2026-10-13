@@ -1,0 +1,645 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U05",
+  "stage": "U05-S04",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U05-S04-001": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın şartlarından biri olup, imanın esaslarından değildir?",
+        "explanation_tr": "Namaz kılmak pratik bir ibadet olarak İslam'ın şartlarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz kılmak",
+          "Meleklere iman",
+          "Ahirete iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was ist eine Säule des Islam und kein Glaubensartikel?",
+        "explanation_tr": "Das Gebet ist eine praktische religiöse Pflicht und eine Säule des Islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Das Gebet verrichten",
+          "Glaube an Engel",
+          "Glaube an das Jenseits",
+          "Glaube an die Vorherbestimmung"
+        ],
+        "correct_answer": "Das Gebet verrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-002": {
+      "source": {
+        "question_tr": "Oruç tutmak, İslam'ın şartları kategorisindedir.",
+        "explanation_tr": "Oruç, İslam'ın beş şartından biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Fasten gehört zu den fünf Säulen des Islam.",
+        "explanation_tr": "Das Fasten ist eine der fünf Säulen des Islam.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-003": {
+      "source": {
+        "question_tr": "İfadeleri doğru sınıflandırmayla eşleştirin.",
+        "explanation_tr": "İnanç esasları (kalple tasdik) ile ibadetler (beden ve malla yapılan) birbirinden ayrılır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hacca gitmek",
+            "right": "İslam'ın Şartı"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın Esası"
+          },
+          {
+            "left": "Zekât vermek",
+            "right": "İslam'ın Şartı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe der richtigen Kategorie zu.",
+        "explanation_tr": "Innere Glaubensüberzeugungen werden von gottesdienstlichen Handlungen unterschieden.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hadsch vollziehen",
+            "right": "Säule des Islam"
+          },
+          {
+            "left": "Glaube an das Jenseits",
+            "right": "Glaubensartikel"
+          },
+          {
+            "left": "Zakat entrichten",
+            "right": "Säule des Islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-004": {
+      "source": {
+        "question_tr": "Bir listede 'Meleklere iman' doğru biçimde yer alıyor. Aynı listeye eklenen 'Namaz kılmak' ise imanın esası değil, İslam'ın ______ olarak sınıflandırılmalıdır.",
+        "explanation_tr": "Namaz, imanın esaslarından değil İslam'ın beş şartından biridir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "şartı",
+          "iman esası",
+          "kitabı",
+          "peygamberi"
+        ],
+        "correct_answer": "şartı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Liste nennt richtig den Glauben an Engel. Das zusätzlich eingetragene „Gebet verrichten“ gehört dagegen zu den ______ des Islam.",
+        "explanation_tr": "Das Gebet zählt zu den fünf Säulen des Islam, nicht zu den Glaubensartikeln.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Säulen",
+          "Glaubensartikeln",
+          "Büchern",
+          "Propheten"
+        ],
+        "correct_answer": "Säulen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-005": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İmanın Esasları kategorisindedir?",
+        "explanation_tr": "Diğer üç seçenek İslam'ın (ibadet) şartlarıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman",
+          "Hacca gitmek",
+          "Namaz kılmak",
+          "Oruç tutmak"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was gehört zu den Glaubensartikeln?",
+        "explanation_tr": "Die anderen drei Antworten sind gottesdienstliche Handlungen unter den fünf Säulen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an die Bücher",
+          "Hadsch vollziehen",
+          "Gebet verrichten",
+          "Fasten"
+        ],
+        "correct_answer": "Glaube an die Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-006": {
+      "source": {
+        "question_tr": "Ali, din kültürü dersinde 'Kalpten inandığımız temel esaslar' sütununa 'Zekât vermek' yazmıştır. Öğretmeni bunun yanlış olduğunu söylüyor. Sizce 'Zekât vermek' hangi sütuna yazılmalıydı?",
+        "explanation_tr": "Zekât vermek, kalpten inancın yanında fiziki/mali bir ibadet olup İslam'ın şartıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İslam'ın Şartları (İbadetler)",
+          "İmanın Esasları (İnanç)",
+          "İhlâs",
+          "Kader"
+        ],
+        "correct_answer": "İslam'ın Şartları (İbadetler)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ali trägt bei „grundlegende Überzeugungen im Herzen“ die „Zakat“ ein. In welche Kategorie gehört Zakat stattdessen?",
+        "explanation_tr": "Zakat ist eine vermögensbezogene religiöse Pflicht und gehört zu den Säulen des Islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zu den Säulen des Islam (Gottesverehrung)",
+          "Zu den Glaubensartikeln (Glaubensüberzeugung)",
+          "Zur Aufrichtigkeit",
+          "Zur Vorherbestimmung"
+        ],
+        "correct_answer": "Zu den Säulen des Islam (Gottesverehrung)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-007": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın Şartları grubuna ait değildir?",
+        "explanation_tr": "Peygamberlere iman, İslam'ın şartı değil İmanın esasıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Zekât vermek",
+          "Kelime-i Şehadet getirmek",
+          "Namaz kılmak"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was gehört nicht zu den fünf Säulen des Islam?",
+        "explanation_tr": "Der Glaube an die Propheten ist ein Glaubensartikel, keine der fünf Säulen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an die Propheten",
+          "Zakat entrichten",
+          "Schahada sprechen",
+          "Gebet verrichten"
+        ],
+        "correct_answer": "Glaube an die Propheten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-008": {
+      "source": {
+        "question_tr": "Tabloda bir hata var:\n1. Allah'a iman (İman esası)\n2. Kadere iman (İman esası)\n3. Oruç tutmak (İman esası)\nHatalı olan numara hangisidir?",
+        "explanation_tr": "Oruç tutmak imanın esası değil, İslam'ın şartıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "3. Oruç tutmak (İman esası)",
+          "1. Allah'a iman (İman esası)",
+          "2. Kadere iman (İman esası)",
+          "Tabloda hata yoktur."
+        ],
+        "correct_answer": "3. Oruç tutmak (İman esası)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In dieser Übersicht ist ein Eintrag falsch: 1. Glaube an Allah (Glaubensartikel), 2. Glaube an die Vorherbestimmung (Glaubensartikel), 3. Fasten (Glaubensartikel). Welcher?",
+        "explanation_tr": "Fasten ist eine Säule des Islam und kein Glaubensartikel.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "3. Fasten (Glaubensartikel)",
+          "1. Glaube an Allah (Glaubensartikel)",
+          "2. Glaube an die Vorherbestimmung (Glaubensartikel)",
+          "Die Tabelle enthält keinen Fehler"
+        ],
+        "correct_answer": "3. Fasten (Glaubensartikel)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-009": {
+      "source": {
+        "question_tr": "İlgili alanları eşleştirin.",
+        "explanation_tr": "İslam'ın şartları ameli, imanın şartları itikadi (inanç) konularıdır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Meleklere iman",
+            "right": "İmanın Esası"
+          },
+          {
+            "left": "Oruç tutmak",
+            "right": "İslam'ın Şartı"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın Esası"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe ihrer Kategorie zu.",
+        "explanation_tr": "Die fünf Säulen betreffen praktische Pflichten; die Glaubensartikel grundlegende Überzeugungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaube an Engel",
+            "right": "Glaubensartikel"
+          },
+          {
+            "left": "Fasten",
+            "right": "Säule des Islam"
+          },
+          {
+            "left": "Glaube an das Jenseits",
+            "right": "Glaubensartikel"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-010": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet, İslam'ın beş ______ arasında yer alır.",
+        "explanation_tr": "Kelime-i Şehadet, İslam'ın beş şartından biridir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "şartı",
+          "iman esası",
+          "ahlak kuralı",
+          "tarih konusu"
+        ],
+        "correct_answer": "şartı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Schahada gehört zu den fünf ______ des Islam.",
+        "explanation_tr": "Die Schahada ist eine der fünf Säulen des Islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Säulen",
+          "Glaubensartikeln",
+          "Moralregeln",
+          "geschichtlichen Themen"
+        ],
+        "correct_answer": "Säulen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-011": {
+      "source": {
+        "question_tr": "Pano hazırlayan Ayşe, 'İslam'ın Şartları' başlığı altına şunları yazdı:\n- Namaz kılmak\n- Oruç tutmak\n- Peygamberlere iman\n- Zekât vermek\nAyşe'nin tablosunda hangi madde yanlıştır?",
+        "explanation_tr": "Peygamberlere iman, İslam'ın şartı değil imanın esasıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Namaz kılmak",
+          "Oruç tutmak",
+          "Zekât vermek"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Aisha schreibt auf ein Plakat „Die fünf Säulen“: Gebet, Fasten, Glaube an Propheten, Zakat. Welcher Eintrag ist falsch?",
+        "explanation_tr": "Der Glaube an Propheten ist ein Glaubensartikel, keine der fünf Säulen.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Glaube an die Propheten",
+          "Gebet verrichten",
+          "Fasten",
+          "Zakat entrichten"
+        ],
+        "correct_answer": "Glaube an die Propheten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-012": {
+      "source": {
+        "question_tr": "Kitaplara iman, imanın esasları kategorisindedir.",
+        "explanation_tr": "Kitaplara iman, imanın altı esasından biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an die Bücher gehört zu den Glaubensartikeln.",
+        "explanation_tr": "Der Glaube an die Bücher ist einer der sechs Glaubensartikel.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-013": {
+      "source": {
+        "question_tr": "Eylemleri/İnançları kategorileriyle eşleştirin.",
+        "explanation_tr": "Temel inançlar iman, ibadetler İslam'ın şartlarındandır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Namaz kılmak",
+            "right": "İslam'ın Şartı"
+          },
+          {
+            "left": "Allah'a iman",
+            "right": "İmanın Esası"
+          },
+          {
+            "left": "Kadere iman",
+            "right": "İmanın Esası"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Handlung oder Überzeugung der richtigen Kategorie zu.",
+        "explanation_tr": "Glaubensüberzeugungen gehören zu den Glaubensartikeln, gottesdienstliche Handlungen zu den Säulen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gebet verrichten",
+            "right": "Säule des Islam"
+          },
+          {
+            "left": "Glaube an Allah",
+            "right": "Glaubensartikel"
+          },
+          {
+            "left": "Glaube an die Vorherbestimmung",
+            "right": "Glaubensartikel"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-014": {
+      "source": {
+        "question_tr": "İslam'ın şartları ile imanın esasları eşleştirmelerinden hangisi yanlıştır?",
+        "explanation_tr": "Zekât vermek İslam'ın şartıdır, imanın esası değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek - İmanın Esası",
+          "Ahirete iman - İmanın Esası",
+          "Hacca gitmek - İslam'ın Şartı",
+          "Meleklere iman - İmanın Esası"
+        ],
+        "correct_answer": "Zekât vermek - İmanın Esası",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Zuordnung ist falsch?",
+        "explanation_tr": "Zakat ist eine der fünf Säulen des Islam und kein Glaubensartikel.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zakat entrichten – Glaubensartikel",
+          "Glaube an das Jenseits – Glaubensartikel",
+          "Hadsch vollziehen – Säule des Islam",
+          "Glaube an Engel – Glaubensartikel"
+        ],
+        "correct_answer": "Zakat entrichten – Glaubensartikel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-015": {
+      "source": {
+        "question_tr": "Ömer dedesine sorar: 'Dede, Ramazan ayında tuttuğumuz oruç imanın esası mıdır?' Dedesi ne cevap vermelidir?",
+        "explanation_tr": "Oruç bedeni bir ibadet olup İslam'ın beş şartından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır, oruç tutmak İslam'ın şartlarından biridir.",
+          "Evet, imanın altı esasından biridir.",
+          "Oruç hem imanın esası hem İslam'ın şartıdır.",
+          "Oruç inançla ilgilidir, ibadet değildir."
+        ],
+        "correct_answer": "Hayır, oruç tutmak İslam'ın şartlarından biridir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Omar fragt, ob das Fasten im Ramadan ein Glaubensartikel ist. Was sollte sein Großvater antworten?",
+        "explanation_tr": "Fasten gehört als Form der Gottesverehrung zu den fünf Säulen des Islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nein, Fasten ist eine Säule des Islam",
+          "Ja, es ist einer der sechs Glaubensartikel",
+          "Fasten ist zugleich Glaubensartikel und Säule des Islam",
+          "Fasten ist eine Überzeugung und keine religiöse Handlung"
+        ],
+        "correct_answer": "Nein, Fasten ist eine Säule des Islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S04-016": {
+      "source": {
+        "question_tr": "Hangi seçenekteki her iki ifade de 'İmanın Esasları'ndandır?",
+        "explanation_tr": "Diğer seçeneklerde en az bir tane İslam'ın şartı bulunmaktadır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman - Kadere iman",
+          "Namaz kılmak - Ahirete iman",
+          "Oruç tutmak - Zekât vermek",
+          "Meleklere iman - Hacca gitmek"
+        ],
+        "correct_answer": "Kitaplara iman - Kadere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In welcher Antwort sind beide Begriffe Glaubensartikel?",
+        "explanation_tr": "Alle anderen Antworten enthalten mindestens eine Säule des Islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an die Bücher – Glaube an die Vorherbestimmung",
+          "Gebet verrichten – Glaube an das Jenseits",
+          "Fasten – Zakat entrichten",
+          "Glaube an Engel – Hadsch vollziehen"
+        ],
+        "correct_answer": "Glaube an die Bücher – Glaube an die Vorherbestimmung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben und Säulen unterscheiden",
+        "topic": "Sechs Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

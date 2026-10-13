@@ -1,0 +1,17 @@
+/* DEEN v8.4.3 — basic wardrobe only: restore full base avatar for female preview */
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot{
+ left:0!important;top:0!important;right:0!important;bottom:0!important;
+ width:100%!important;height:100%!important;overflow:visible!important;
+ z-index:3!important;border-radius:0!important
+}
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot>.v831-stack{
+ left:0!important;top:0!important;width:100%!important;height:100%!important;
+ transform:none!important;overflow:visible!important
+}
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-hair,
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-hijabs,
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-bangs,
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-bows_ribbons,
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-floral_accessories,
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-clips,
+#v812Wardrobe .v832u-canvas[data-gender="female"] .v832u-avatar-slot .layer-special_accessories{display:block!important}

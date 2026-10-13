@@ -1,0 +1,7 @@
+/* DEEN v8.3.5 Wardrobe HQ */
+#v812Wardrobe .v835-face-overlay{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ display:block!important;z-index:32!important;pointer-events:none!important;
+ image-rendering:auto!important;filter:none!important
+}
+#v812Wardrobe .v832u-canvas:not(.v835-face-ready)>.v835-face-overlay{display:none!important}

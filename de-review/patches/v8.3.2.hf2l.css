@@ -1,0 +1,8 @@
+/* DEEN v8.3.2 HF2L — step 2: single female outfit fit test */
+#v812Wardrobe .v832k-head-slot{z-index:6!important}
+#v812Wardrobe .v832k-body-svg{z-index:1!important}
+#v812Wardrobe .v832l-garment{position:absolute!important;left:50%!important;top:72px!important;width:248px!important;height:248px!important;transform:translateX(-50%)!important;display:block!important;z-index:3!important;pointer-events:none!important;background-repeat:no-repeat!important}
+#v812Wardrobe .v832l-step-badge{position:absolute;left:50%;top:8px;transform:translateX(-50%);z-index:8;padding:5px 9px;border-radius:999px;border:1px solid rgba(145,226,202,.28);background:rgba(5,28,34,.86);color:#95ead4;font-size:8px;font-weight:900;letter-spacing:.05em;white-space:nowrap}
+#v812Wardrobe .v832k-card.v832l-disabled{opacity:.48!important;filter:saturate(.55)!important}
+#v812Wardrobe .v832k-card[data-v832k-real="female_01"]{box-shadow:0 0 0 1px rgba(145,226,202,.18)!important}
+@media(max-width:430px){#v812Wardrobe .v832l-garment{top:66px!important;width:224px!important;height:224px!important}}

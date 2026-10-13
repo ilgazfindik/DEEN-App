@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U08",
+  "stage": "U08-S02",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U08-S02-001": {
+      "source": {
+        "question_tr": "Kehf 18:110'da Hz. Muhammed kendisini nasıl tanıtır?",
+        "explanation_tr": "Kehf 18:110 Hz. Muhammed'in insan oluşunu ve onu ayıran vahiy gerçeğini birlikte vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sizin gibi bir insanım; bana vahyediliyor",
+          "İnsanüstü bir ilahım",
+          "Bir melek olduğumu söylüyorum",
+          "Vahiy almayan sıradan bir liderim"
+        ],
+        "correct_answer": "Sizin gibi bir insanım; bana vahyediliyor",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie beschreibt Muhammad sich selbst in Al-Kahf 18:110?",
+        "explanation_tr": "Al-Kahf 18:110 betont zugleich Muhammads Menschlichkeit und den Empfang von Offenbarung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ich bin ein Mensch wie ihr; mir wird Offenbarung zuteil",
+          "Ich bin eine übermenschliche Gottheit",
+          "Ich bin ein Engel",
+          "Ich bin ein gewöhnlicher Anführer ohne Offenbarung"
+        ],
+        "correct_answer": "Ich bin ein Mensch wie ihr; mir wird Offenbarung zuteil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-002": {
+      "source": {
+        "question_tr": "Kur'an, peygamberlerin insan oluşunu peygamberliğe aykırı bir durum olarak görür.",
+        "explanation_tr": "Enbiyâ 21:7-8 ve Kehf 18:110 peygamberlerin insan oluşunu açıkça bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Koran betrachtet das Menschsein als unvereinbar mit dem Prophetentum.",
+        "explanation_tr": "Al-Anbiya 21:7–8 und Al-Kahf 18:110 beschreiben Propheten ausdrücklich als Menschen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-003": {
+      "source": {
+        "question_tr": "Kehf 18:110'da Hz. Muhammed, 'Ben de sizin gibi bir ______' der.",
+        "explanation_tr": "Ayette Hz. Peygamber'in beşer oluşu açıkça belirtilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "insanım",
+          "meleğim",
+          "ilahım",
+          "kralım"
+        ],
+        "correct_answer": "insanım",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Muhammad sagt in Al-Kahf 18:110: „Ich bin ein ______ wie ihr.“",
+        "explanation_tr": "Der Vers betont ausdrücklich, dass der Prophet ein Mensch ist.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Mensch",
+          "Engel",
+          "Gott",
+          "König"
+        ],
+        "correct_answer": "Mensch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-004": {
+      "source": {
+        "question_tr": "Birisi 'Gerçek peygamber insan olamaz, mutlaka melek olmalıdır' diyor. Hangi bilgi bu iddiayı düzeltir?",
+        "explanation_tr": "Kur'an peygamberlerin insanlardan seçildiğini ve kendilerine vahyedildiğini bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Enbiyâ 21:7 daha önce de vahiy alan insan peygamberler gönderildiğini bildirir",
+          "Kur'an bütün peygamberleri melek sayar",
+          "Peygamberlik insanla ilişkisizdir",
+          "Vahiy yalnız meleklere iner"
+        ],
+        "correct_answer": "Enbiyâ 21:7 daha önce de vahiy alan insan peygamberler gönderildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Ein wahrer Prophet muss ein Engel sein und kann kein Mensch sein.“ Welche Information widerlegt das?",
+        "explanation_tr": "Der Koran beschreibt Propheten als von Allah erwählte Menschen, die Offenbarung erhalten.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Anbiya 21:7 sagt, dass schon früher Menschen als Propheten Offenbarung empfingen",
+          "Der Koran bezeichnet alle Propheten als Engel",
+          "Prophetentum hat keinen Bezug zu Menschen",
+          "Offenbarung wird nur Engeln gegeben"
+        ],
+        "correct_answer": "Al-Anbiya 21:7 sagt, dass schon früher Menschen als Propheten Offenbarung empfingen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-005": {
+      "source": {
+        "question_tr": "Bir notta 'Peygamberler yemek yemez ve ölümsüzdür' yazıyor. Düzeltme hangisidir?",
+        "explanation_tr": "Enbiyâ 21:8 peygamberlerin insanî beden özelliklerine sahip olduğunu ve ölümsüz olmadığını vurgular.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Enbiyâ 21:8 onların yemek yiyen ve ölümsüz olmayan insanlar olduğunu bildirir",
+          "Kur'an peygamberleri ölümsüz ilahlar sayar",
+          "Peygamberler yalnız ruhtur",
+          "Peygamberler hiç yaşamamıştır"
+        ],
+        "correct_answer": "Enbiyâ 21:8 onların yemek yiyen ve ölümsüz olmayan insanlar olduğunu bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einer Notiz steht: „Propheten essen nicht und sind unsterblich.“ Welche Korrektur stimmt?",
+        "explanation_tr": "Al-Anbiya 21:8 betont die menschlichen Bedürfnisse und die Sterblichkeit der Propheten.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Anbiya 21:8 zeigt, dass Propheten essen und sterblich sind",
+          "Der Koran beschreibt Propheten als unsterbliche Gottheiten",
+          "Propheten sind nur Geister",
+          "Propheten haben nie gelebt"
+        ],
+        "correct_answer": "Al-Anbiya 21:8 zeigt, dass Propheten essen und sterblich sind",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-006": {
+      "source": {
+        "question_tr": "İfadeleri doğru kavramlarla eşleştir.",
+        "explanation_tr": "Kur'an peygamberlerin insan oluşunu ve vahiy alan elçiler oluşunu birlikte anlatır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İnsan oluş",
+            "right": "Yeme, yaşama ve ölümlülük gibi beşerî özellikler"
+          },
+          {
+            "left": "Vahiy",
+            "right": "Peygamberi sıradan bilgiden ayıran ilahî bildirim"
+          },
+          {
+            "left": "Risalet",
+            "right": "Vahyi insanlara ulaştırma görevi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Beschreibungen den Begriffen zu.",
+        "explanation_tr": "Der Koran beschreibt Propheten als Menschen, die Offenbarung erhalten und übermitteln.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Menschsein",
+            "right": "Eigenschaften wie Essen, Leben und Sterblichkeit"
+          },
+          {
+            "left": "Offenbarung",
+            "right": "Göttliche Mitteilung, die Propheten empfangen"
+          },
+          {
+            "left": "Gesandtentum",
+            "right": "Aufgabe, die Offenbarung den Menschen zu vermitteln"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-007": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:144 Hz. Muhammed hakkında hangi gerçeği hatırlatır?",
+        "explanation_tr": "Ayet Hz. Muhammed'in elçi ve beşer olduğunu, önceki elçiler gibi fâni olduğunu vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Onun bir elçi olduğunu ve kendisinden önce de elçilerin gelip geçtiğini",
+          "Onun ölümsüz olduğunu",
+          "Onun ilah olduğunu",
+          "Ondan önce hiç peygamber gelmediğini"
+        ],
+        "correct_answer": "Onun bir elçi olduğunu ve kendisinden önce de elçilerin gelip geçtiğini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Woran erinnert Al-Imran 3:144 in Bezug auf Muhammad?",
+        "explanation_tr": "Der Vers betont Muhammads Gesandtentum und seine Sterblichkeit wie die Gesandten vor ihm.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Er ist ein Gesandter; auch vor ihm gab es Gesandte, die verstorben sind",
+          "Er ist unsterblich",
+          "Er ist eine Gottheit",
+          "Vor ihm gab es keine Propheten"
+        ],
+        "correct_answer": "Er ist ein Gesandter; auch vor ihm gab es Gesandte, die verstorben sind",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-008": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Peygamber insan olduğu için vahiy alamaz' diyor. En doğru cevap hangisidir?",
+        "explanation_tr": "Enbiyâ 21:7 ve Kehf 18:110 insan oluş ile vahyin birbiriyle çelişmediğini gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an insan peygamberlere vahyedildiğini açıkça bildirir",
+          "Vahiy yalnız cansız varlıklara gelir",
+          "İnsan olmak peygamberliği imkânsız kılar",
+          "Peygamberler kendilerini melek yapar"
+        ],
+        "correct_answer": "Kur'an insan peygamberlere vahyedildiğini açıkça bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Lernender behauptet: „Weil ein Prophet Mensch ist, kann er keine Offenbarung empfangen.“ Was ist richtig?",
+        "explanation_tr": "Al-Anbiya 21:7 und Al-Kahf 18:110 zeigen, dass Menschsein und Offenbarung einander nicht ausschließen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Der Koran sagt ausdrücklich, dass menschliche Propheten Offenbarung empfangen",
+          "Offenbarung kommt nur zu unbelebten Dingen",
+          "Menschsein macht Prophetentum unmöglich",
+          "Propheten verwandeln sich in Engel"
+        ],
+        "correct_answer": "Der Koran sagt ausdrücklich, dass menschliche Propheten Offenbarung empfangen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-009": {
+      "source": {
+        "question_tr": "Peygamberi diğer insanlardan ayıran temel hususlardan biri Allah'tan vahiy almasıdır.",
+        "explanation_tr": "Kehf 18:110 Hz. Muhammed'in insan olduğunu, fakat kendisine vahyedildiğini vurgular.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Offenbarung von Allah zu empfangen ist ein wesentliches Merkmal, das Propheten von anderen Menschen unterscheidet.",
+        "explanation_tr": "Al-Kahf 18:110 betont Muhammads Menschsein und zugleich den Empfang von Offenbarung.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-010": {
+      "source": {
+        "question_tr": "Peygamberlerin insan oluşu ile vahiy almaları arasındaki ilişkiyi bir cümleyle anlat.",
+        "explanation_tr": "Kur'an beşerî özelliklerle vahiy görevini birbirine zıt görmez.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Peygamberler insanlardır; onları peygamber yapan, Allah tarafından seçilip vahiy almaları ve elçilikle görevlendirilmeleridir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie gehören das Menschsein der Propheten und der Empfang von Offenbarung zusammen? Antworte in einem Satz.",
+        "explanation_tr": "Der Koran betrachtet menschliche Eigenschaften und den Empfang von Offenbarung nicht als Gegensatz.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Propheten sind Menschen, die Allah erwählt, denen Er Offenbarung gibt und die Er als Gesandte beauftragt.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-011": {
+      "source": {
+        "question_tr": "Kehf 18:110'un Hz. Muhammed hakkındaki iki temel vurgusunu yaz.",
+        "explanation_tr": "Ayet insan oluş ve vahiy almayı aynı cümlede birlikte vurgular.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Hz. Muhammed bir insandır ve kendisine Allah'ın birliği hakkında vahiy gelmektedir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nenne die beiden Hauptaussagen von Al-Kahf 18:110 über Muhammad.",
+        "explanation_tr": "Dieser Vers verbindet ausdrücklich Menschsein mit dem Empfang von Offenbarung.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Muhammad ist ein Mensch und empfängt die Offenbarung über Allahs Einzigkeit.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-012": {
+      "source": {
+        "question_tr": "Enbiyâ 21:8'e göre peygamberler yemek yemeyen bedenler değildi ve ______ değillerdi.",
+        "explanation_tr": "Ayet peygamberlerin insanî ve fâni oluşunu hatırlatır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "ölümsüz",
+          "insan",
+          "elçi",
+          "vahiy alan"
+        ],
+        "correct_answer": "ölümsüz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach Al-Anbiya 21:8 waren Propheten keine Körper, die keine Nahrung benötigen, und sie waren nicht ______.",
+        "explanation_tr": "Der Vers erinnert an das Menschsein und die Sterblichkeit der Propheten.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "unsterblich",
+          "menschlich",
+          "Gesandte",
+          "Empfänger von Offenbarung"
+        ],
+        "correct_answer": "unsterblich",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-013": {
+      "source": {
+        "question_tr": "Peygamberliği anlamak için kavramları mantıksal sıraya koy.",
+        "explanation_tr": "Bu sıra peygamberliğin seçilme, vahiy ve tebliğ boyutlarını öğretim amacıyla özetler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah bir insanı seçer",
+          "Ona vahiy verir",
+          "Onu elçi olarak görevlendirir",
+          "Elçi vahyi insanlara ulaştırır"
+        ],
+        "correct_order": [
+          "Allah bir insanı seçer",
+          "Ona vahiy verir",
+          "Onu elçi olarak görevlendirir",
+          "Elçi vahyi insanlara ulaştırır"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordne die Schritte, die das Prophetentum in dieser Lernübersicht erklären.",
+        "explanation_tr": "Diese Reihenfolge fasst Erwählung, Offenbarung und Übermittlung zusammen.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah erwählt einen Menschen",
+          "Er gibt ihm Offenbarung",
+          "Er beauftragt ihn als Gesandten",
+          "Der Gesandte übermittelt den Menschen die Offenbarung"
+        ],
+        "correct_order": [
+          "Allah erwählt einen Menschen",
+          "Er gibt ihm Offenbarung",
+          "Er beauftragt ihn als Gesandten",
+          "Der Gesandte übermittelt den Menschen die Offenbarung"
+        ],
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U08-S02-014": {
+      "source": {
+        "question_tr": "Peygamberlerin insan oluşunun eğitsel açıdan önemli sonuçlarından biri hangisidir?",
+        "explanation_tr": "Peygamberlerin insan olması, ilahî mesajın insan hayatında nasıl yaşanabileceğinin görülmesine imkân verir; Hz. Muhammed için Ahzâb 33:21 örnekliği açıkça vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsanların onların hayatından örneklik görebilmesi",
+          "Onların ilah sayılması",
+          "Vahyin gereksizleşmesi",
+          "İnsanların peygamberlere ibadet etmesi"
+        ],
+        "correct_answer": "İnsanların onların hayatından örneklik görebilmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche pädagogische Bedeutung hat es, dass Propheten Menschen sind?",
+        "explanation_tr": "Als Menschen zeigen Propheten, wie man Gottes Botschaft im Alltag leben kann. Al-Ahzab 33:21 betont Muhammads Vorbild.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Menschen können an ihrem Leben Vorbilder für das eigene Handeln erkennen",
+          "Propheten müssen als Gottheiten betrachtet werden",
+          "Offenbarung wird überflüssig",
+          "Menschen müssen Propheten anbeten"
+        ],
+        "correct_answer": "Menschen können an ihrem Leben Vorbilder für das eigene Handeln erkennen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Propheten sind Menschen",
+        "topic": "Gesandtentum und Offenbarung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<!-- DEEN v10.9.72 — Quran Daily Center retired from visible UI -->
+<style id="deen-v10939-quran-daily-center-css">
+.deen-qdc{display:none!important}
+</style>
+<script id="deen-v10939-quran-daily-center-js">
+(()=>{
+if(window.__deenV10939QuranDailyCenter)return;
+window.__deenV10939QuranDailyCenter=true;
+function remove(){
+  let count=0;
+  document.querySelectorAll?.('.deen-qdc')?.forEach?.(node=>{node.remove();count++});
+  return count;
+}
+function inject(){remove();return false}
+function refresh(){remove();return false}
+function html(){return ''}
+window.DEEN_QURAN_DAILY_CENTER={inject,refresh,html,remove,audit:()=>({visible:false,count:document.querySelectorAll?.('.deen-qdc')?.length||0})};
+remove();
+document.addEventListener?.('deen:navigated',remove);
+if(typeof MutationObserver!=='undefined')new MutationObserver(()=>remove()).observe(document.body,{childList:true,subtree:true});
+document.documentElement.dataset.deenQuranDailyCenter='retired';
+})();
+</script>

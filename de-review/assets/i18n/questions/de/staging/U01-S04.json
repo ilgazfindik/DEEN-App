@@ -1,0 +1,605 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U01",
+  "stage": "U01-S04",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U01-S04-001": {
+      "source": {
+        "question_tr": "Ali, arkadaşlarıyla otururken birinin yalan söylediğini fark ediyor ve içinden \"Bu, öğrendiğim değerlere uymuyor\" diye düşünüyor. Ali'nin bu tepkisi hangi kavramla en çok ilişkilidir?",
+        "explanation_tr": "Ali'nin doğruluk konusundaki hassasiyeti, İslam'ın öğrettiği ahlaki değerlerin günlük hayata yansımasıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahlaki farkındalık",
+          "Sadece ibadet bilgisi",
+          "Sadece Kur'an ezberi",
+          "Sadece namaz vakti bilgisi"
+        ],
+        "correct_answer": "Ahlaki farkındalık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ali sitzt mit seinen Freunden zusammen und bemerkt, dass jemand lügt. Er denkt: „Das passt nicht zu den Werten, die ich gelernt habe.“ Welcher Begriff beschreibt seine Reaktion am besten?",
+        "explanation_tr": "Alis Sensibilität für Wahrhaftigkeit zeigt, wie sich die im Islam vermittelten moralischen Werte im Alltag widerspiegeln können.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Moralisches Bewusstsein",
+          "Nur Wissen über gottesdienstliche Handlungen",
+          "Nur das Auswendiglernen des Korans",
+          "Nur die Kenntnis der Gebetszeiten"
+        ],
+        "correct_answer": "Moralisches Bewusstsein",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-002": {
+      "source": {
+        "question_tr": "Zeynep, sınavda kopya çekme fırsatı olmasına rağmen bunu yapmıyor çünkü \"Allah her şeyi görüyor\" diye düşünüyor. Bu davranış hangi kavramla ilişkilidir?",
+        "explanation_tr": "Zeynep'in davranışı, Allah'a olan inancının (iman) doğru davranışa (ahlak) yansımasının bir örneğidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İman ve ahlakın birlikte işlemesi",
+          "Sadece korku duygusu",
+          "Sadece okul kuralları",
+          "Sadece arkadaş baskısı"
+        ],
+        "correct_answer": "İman ve ahlakın birlikte işlemesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zeynep könnte bei einer Prüfung abschreiben, tut es aber nicht, weil sie denkt: „Allah sieht alles.“ Welche Verbindung zeigt dieses Verhalten?",
+        "explanation_tr": "Zeyneps Verhalten ist ein Beispiel dafür, wie sich ihr Glaube an Allah (Iman) in richtigem Handeln und gutem Charakter ausdrückt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Das Zusammenspiel von Glauben und gutem Charakter",
+          "Nur ein Gefühl der Angst",
+          "Nur das Befolgen von Schulregeln",
+          "Nur den Druck ihrer Freunde"
+        ],
+        "correct_answer": "Das Zusammenspiel von Glauben und gutem Charakter",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-003": {
+      "source": {
+        "question_tr": "Bir arkadaşın \"İbadet ile insanlara nasıl davrandığım tamamen ilgisizdir\" diyor. Bu ifadede hangi eksiklik vardır?",
+        "explanation_tr": "Bu ünitenin çerçevesinde ibadet ve ahlak aynı kavram değildir; ancak kişinin inancını ve değerlerini yaşamına yansıtmasında birbirleriyle ilişkilidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İbadet ile güzel ahlak arasında kurulabilecek ilişkiyi tamamen göz ardı ediyor",
+          "İbadetin yalnızca toplumsal davranışlardan oluştuğunu savunuyor",
+          "Ahlak ile ibadetin aynı kavram olduğunu söylüyor",
+          "Peygamber kavramını yanlış tanımlıyor"
+        ],
+        "correct_answer": "İbadet ile güzel ahlak arasında kurulabilecek ilişkiyi tamamen göz ardı ediyor",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Gottesdienst und mein Umgang mit anderen Menschen haben überhaupt nichts miteinander zu tun.“ Was übersieht er dabei?",
+        "explanation_tr": "Gottesdienst und gutes Verhalten sind nicht dasselbe. Beide können jedoch zusammenwirken, wenn jemand seinen Glauben und seine Werte im täglichen Leben umsetzt.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Er übersieht den möglichen Zusammenhang zwischen Gottesdienst und gutem Charakter vollständig",
+          "Er behauptet, Gottesdienst bestehe nur aus sozialem Verhalten",
+          "Er sagt, gutes Verhalten und Gottesdienst seien genau derselbe Begriff",
+          "Er definiert den Begriff Prophet falsch"
+        ],
+        "correct_answer": "Er übersieht den möglichen Zusammenhang zwischen Gottesdienst und gutem Charakter vollständig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-004": {
+      "source": {
+        "question_tr": "Bir arkadaşın \"Müslüman olmak için mutlaka belirli bir ülkede doğmuş olmak gerekir\" diyor. Bu ifadenin hatası nedir?",
+        "explanation_tr": "Müslümanlık, milliyet veya doğum yeriyle değil, kişinin inancıyla ilgilidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Müslüman olmak inanca dayanır, doğum yerine değil",
+          "İfade tamamen doğrudur",
+          "Sadece belirli bir dil konuşmak gerekir",
+          "Sadece aile geleneği önemlidir"
+        ],
+        "correct_answer": "Müslüman olmak inanca dayanır, doğum yerine değil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Um Muslim zu sein, muss man in einem bestimmten Land geboren worden sein.“ Was ist an dieser Aussage falsch?",
+        "explanation_tr": "Ob jemand Muslim ist, hängt mit seinem Glauben zusammen – nicht mit seiner Nationalität oder seinem Geburtsort.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Muslim zu sein beruht auf dem Glauben, nicht auf dem Geburtsort",
+          "Die Aussage ist vollkommen richtig",
+          "Man muss lediglich eine bestimmte Sprache sprechen",
+          "Nur die Familientradition ist entscheidend"
+        ],
+        "correct_answer": "Muslim zu sein beruht auf dem Glauben, nicht auf dem Geburtsort",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-005": {
+      "source": {
+        "question_tr": "Mehmet, sosyal medyada birine kaba bir yorum yazmak üzereyken vazgeçiyor ve daha nazik bir cümle kuruyor. Bu tercih hangi kavramla ilgilidir?",
+        "explanation_tr": "Mehmet'in tercihi, ahlaki değerleri günlük iletişimine yansıtmasının bir göstergesidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Güzel ahlakı günlük davranışa yansıtmak",
+          "Sadece popüler olmak istemek",
+          "Sadece kurallardan korkmak",
+          "Sadece alışkanlık"
+        ],
+        "correct_answer": "Güzel ahlakı günlük davranışa yansıtmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mehmet möchte in den sozialen Medien einen unhöflichen Kommentar schreiben. Dann überlegt er es sich anders und formuliert seine Nachricht freundlicher. Womit hängt seine Entscheidung zusammen?",
+        "explanation_tr": "Mehmets Entscheidung zeigt, wie er moralische Werte in seiner alltäglichen Kommunikation umsetzt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Guten Charakter im täglichen Handeln zeigen",
+          "Nur beliebt sein wollen",
+          "Nur Angst vor Regeln haben",
+          "Lediglich einer Gewohnheit folgen"
+        ],
+        "correct_answer": "Guten Charakter im täglichen Handeln zeigen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-006": {
+      "source": {
+        "question_tr": "Elif, ailesiyle tartıştıktan sonra sakinleşip özür diliyor çünkü \"güzel davranmanın önemli olduğunu\" öğrendi. Bu durum hangi kavramla ilişkilidir?",
+        "explanation_tr": "Elif'in özür dileme davranışı, öğrendiği ahlaki değerleri hayatına uygulamasının bir örneğidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahlak",
+          "Sadece aile kuralları",
+          "Sadece gelenek",
+          "Sadece korku"
+        ],
+        "correct_answer": "Ahlak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nach einem Streit mit ihrer Familie beruhigt sich Elif und entschuldigt sich, weil sie gelernt hat, wie wichtig gutes Verhalten ist. Welcher Begriff passt dazu?",
+        "explanation_tr": "Elifs Entschuldigung ist ein Beispiel dafür, dass sie die gelernten moralischen Werte in ihrem Leben anwendet.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Guter Charakter (Ahlak)",
+          "Nur Familienregeln",
+          "Nur Tradition",
+          "Nur Angst"
+        ],
+        "correct_answer": "Guter Charakter (Ahlak)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-007": {
+      "source": {
+        "question_tr": "Bir arkadaşın \"Bir kişinin ibadet hayatına bakarak onun bütün ahlakı hakkında kesin hüküm verebilirim\" diyor. Bu ifadedeki sorun nedir?",
+        "explanation_tr": "İbadet ve ahlak ilişkili olmakla birlikte aynı kavram değildir; kişilerin bütün iç ve dış durumları hakkında acele ve kesin hüküm kurmak yerine daha ölçülü bir dil gerekir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tek bir gözlenebilir alandan kişinin bütün ahlaki durumuna dair kesin genelleme yapması",
+          "İbadet ile ahlakın aynı kavram olması",
+          "İbadetin hiçbir değeri olmaması",
+          "Ahlakın yalnızca toplum kurallarından ibaret olması"
+        ],
+        "correct_answer": "Tek bir gözlenebilir alandan kişinin bütün ahlaki durumuna dair kesin genelleme yapması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Wenn ich sehe, wie jemand seinen Gottesdienst ausübt, kann ich seinen gesamten Charakter mit Sicherheit beurteilen.“ Wo liegt das Problem?",
+        "explanation_tr": "Gottesdienst und guter Charakter hängen zwar zusammen, sind aber nicht dasselbe. Wir sollten nicht voreilig ein abschließendes Urteil über die innere Haltung und das gesamte Verhalten eines Menschen fällen.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Er schließt von einem einzelnen beobachtbaren Bereich auf den gesamten moralischen Charakter eines Menschen",
+          "Gottesdienst und guter Charakter sind genau derselbe Begriff",
+          "Gottesdienst hat überhaupt keinen Wert",
+          "Guter Charakter besteht nur aus gesellschaftlichen Regeln"
+        ],
+        "correct_answer": "Er schließt von einem einzelnen beobachtbaren Bereich auf den gesamten moralischen Charakter eines Menschen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-008": {
+      "source": {
+        "question_tr": "Can, işte bir hata yaptığında bunu saklamak yerine dürüstçe patronuna anlatıyor. Bu davranış hangi temel değere dayanır?",
+        "explanation_tr": "Can'ın dürüst davranışı, İslam'ın önemsediği ahlaki değerlerden biri olan doğruluğun günlük hayata yansımasıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dürüstlük (ahlak)",
+          "Sadece kural korkusu",
+          "Sadece işten atılma endişesi",
+          "Sadece alışkanlık"
+        ],
+        "correct_answer": "Dürüstlük (ahlak)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Als Can bei der Arbeit einen Fehler macht, erzählt er seinem Vorgesetzten ehrlich davon, anstatt ihn zu verheimlichen. Welcher grundlegende Wert zeigt sich darin?",
+        "explanation_tr": "Cans Ehrlichkeit zeigt, wie sich Wahrhaftigkeit als ein im Islam wichtiger moralischer Wert im Alltag ausdrücken kann.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ehrlichkeit (guter Charakter)",
+          "Nur Angst vor Regeln",
+          "Nur die Sorge, entlassen zu werden",
+          "Lediglich Gewohnheit"
+        ],
+        "correct_answer": "Ehrlichkeit (guter Charakter)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-009": {
+      "source": {
+        "question_tr": "İslam'ın günlük hayata yaklaşımı için hangisi doğrudur?",
+        "explanation_tr": "İslam, hayatın her alanına -aileden iş hayatına- yayılan bütünsel bir yaklaşım sunar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+          "Sadece camide geçerlidir",
+          "Sadece belirli günlerde uygulanır",
+          "Sadece yetişkinler için geçerlidir"
+        ],
+        "correct_answer": "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt die Bedeutung des Islam für den Alltag richtig?",
+        "explanation_tr": "Der Islam vermittelt einen ganzheitlichen Ansatz, der unterschiedliche Lebensbereiche umfasst – von der Familie bis zur Arbeitswelt.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Er beschränkt sich nicht auf Gottesdienste, sondern umfasst auch gutes und verantwortungsbewusstes Verhalten",
+          "Er gilt nur in der Moschee",
+          "Er wird nur an bestimmten Tagen gelebt",
+          "Er ist nur für Erwachsene relevant"
+        ],
+        "correct_answer": "Er beschränkt sich nicht auf Gottesdienste, sondern umfasst auch gutes und verantwortungsbewusstes Verhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-010": {
+      "source": {
+        "question_tr": "Ayşe, bir arkadaşının dedikodusunu yapan gruba katılmıyor çünkü bunun doğru olmadığını düşünüyor. Bu tutum hangi kavramla ilgilidir?",
+        "explanation_tr": "Ayşe'nin tutumu, öğrendiği ahlaki değerleri günlük ilişkilerine yansıtmasının bir örneğidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahlaki duyarlılık",
+          "Sadece utangaçlık",
+          "Sadece grup dışı kalma isteği",
+          "Sadece ilgisizlik"
+        ],
+        "correct_answer": "Ahlaki duyarlılık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ayşe beteiligt sich nicht an einer Gruppe, die über eine Freundin lästert, weil sie das für falsch hält. Welcher Begriff beschreibt ihre Haltung?",
+        "explanation_tr": "Ayşes Haltung zeigt, wie sie gelernte moralische Werte in ihren alltäglichen Beziehungen berücksichtigt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Moralisches Verantwortungsbewusstsein",
+          "Nur Schüchternheit",
+          "Nur der Wunsch, nicht zur Gruppe zu gehören",
+          "Nur Gleichgültigkeit"
+        ],
+        "correct_answer": "Moralisches Verantwortungsbewusstsein",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-011": {
+      "source": {
+        "question_tr": "Bir arkadaşın \"İslam sadece ibadetlerden ibarettir, günlük hayatla ilgisi yoktur\" diyor. Bu ifadedeki temel hata nedir?",
+        "explanation_tr": "İslam bu ünitede yalnızca ibadetlerle sınırlı bir alan olarak değil; inanç, kulluk ve ahlaki yaşamı birlikte ele alan bir çerçeve olarak tanıtılır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İslam'ın inanç, ibadet, ahlak ve günlük yaşamla ilgili yönlerini daraltıyor",
+          "İslam'ın yalnızca ahlak kurallarından oluştuğunu söylüyor",
+          "İbadet ile ahlakın aynı kavram olduğunu savunuyor",
+          "Kur'an'ın temel kaynak olduğunu vurguluyor"
+        ],
+        "correct_answer": "İslam'ın inanç, ibadet, ahlak ve günlük yaşamla ilgili yönlerini daraltıyor",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Im Islam geht es nur um Gottesdienst; mit dem Alltag hat er nichts zu tun.“ Welcher grundlegende Fehler steckt in dieser Aussage?",
+        "explanation_tr": "In dieser Einheit wird der Islam nicht auf Gottesdienste reduziert. Er umfasst Glauben, Hingabe an Allah und ein verantwortungsbewusstes moralisches Leben.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sie blendet aus, dass der Islam auch Glauben, Gottesdienst, gutes Verhalten und den Alltag betrifft",
+          "Sie behauptet, der Islam bestehe ausschließlich aus moralischen Regeln",
+          "Sie setzt Gottesdienst und gutes Verhalten gleich",
+          "Sie betont, dass der Koran eine zentrale Quelle ist"
+        ],
+        "correct_answer": "Sie blendet aus, dass der Islam auch Glauben, Gottesdienst, gutes Verhalten und den Alltag betrifft",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-012": {
+      "source": {
+        "question_tr": "Emre, bir mağazada fazla para üstü aldığını fark edince geri gidip parayı iade ediyor. Bu davranış öncelikle hangi kavramla açıklanabilir?",
+        "explanation_tr": "Emre'nin davranışı, İslam'ın önem verdiği dürüstlük ve ahlaki sorumluluğun bir yansımasıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dürüstlük ve güzel ahlak",
+          "Sadece yasal zorunluluk",
+          "Sadece kamera korkusu",
+          "Sadece alışkanlık"
+        ],
+        "correct_answer": "Dürüstlük ve güzel ahlak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Emre bemerkt, dass er in einem Geschäft zu viel Wechselgeld erhalten hat. Er geht zurück und gibt den überschüssigen Betrag ab. Welcher Begriff erklärt sein Verhalten am besten?",
+        "explanation_tr": "Emres Verhalten zeigt Ehrlichkeit und moralische Verantwortung – zwei Werte, die im Islam einen hohen Stellenwert haben.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ehrlichkeit und guter Charakter",
+          "Nur eine gesetzliche Verpflichtung",
+          "Nur Angst vor einer Kamera",
+          "Lediglich Gewohnheit"
+        ],
+        "correct_answer": "Ehrlichkeit und guter Charakter",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-013": {
+      "source": {
+        "question_tr": "Bir kişinin ibadetlerine önem verirken dürüst ve saygılı davranması bu ünitede hangi ilişkiyi gösterir?",
+        "explanation_tr": "Bu örnek ibadet ve ahlakın aynı kavram olmadığını, fakat kişinin hayatında birbirini destekleyen biçimde birlikte bulunabileceğini gösterir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+          "İbadet ve ahlakın tamamen aynı kavram olduğunu",
+          "Ahlakın ibadeti gereksiz yaptığını",
+          "Dürüstlüğün dinle ilgisiz olduğunu"
+        ],
+        "correct_answer": "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand achtet auf seinen Gottesdienst und verhält sich zugleich ehrlich und respektvoll. Welchen Zusammenhang zeigt das?",
+        "explanation_tr": "Dieses Beispiel zeigt, dass Gottesdienst und guter Charakter zwar unterschiedliche Begriffe sind, im Leben eines Menschen aber einander unterstützen können.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Gottesdienst und guter Charakter können im Leben eines Menschen zusammenwirken",
+          "Gottesdienst und guter Charakter sind genau dasselbe",
+          "Guter Charakter macht Gottesdienst überflüssig",
+          "Ehrlichkeit hat nichts mit Religion zu tun"
+        ],
+        "correct_answer": "Gottesdienst und guter Charakter können im Leben eines Menschen zusammenwirken",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-014": {
+      "source": {
+        "question_tr": "Selin, bir arkadaşı dini konuda yanlış bir bilgi paylaştığında onu küçümsemeden, nazikçe doğru bilgiyi paylaşıyor. Bu tutum hangi değerle ilgilidir?",
+        "explanation_tr": "Selin'in yaklaşımı, bilgiyi paylaşırken bile güzel ahlakı gözetmenin önemini gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Saygılı ve nazik iletişim (ahlak)",
+          "Sadece bilgiçlik taslamak",
+          "Sadece tartışmayı kazanmak isteği",
+          "Sadece kendini haklı çıkarma"
+        ],
+        "correct_answer": "Saygılı ve nazik iletişim (ahlak)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Als ein Freund falsche Informationen über Religion weitergibt, korrigiert Selin ihn freundlich, ohne ihn herabzusetzen. Welcher Wert zeigt sich darin?",
+        "explanation_tr": "Selins Vorgehen verdeutlicht, wie wichtig gutes Verhalten auch beim Weitergeben von Wissen ist.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Respektvolle und freundliche Kommunikation (guter Charakter)",
+          "Nur Besserwisserei",
+          "Nur der Wunsch, einen Streit zu gewinnen",
+          "Nur der Versuch, Recht zu behalten"
+        ],
+        "correct_answer": "Respektvolle und freundliche Kommunikation (guter Charakter)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-015": {
+      "source": {
+        "question_tr": "Bir arkadaşın \"Dua ve ibadet önemli olsa da insanlara karşı sorumluluklarımın bunlarla hiçbir ilgisi yok\" diyor. Bu ifadede hangi eksiklik vardır?",
+        "explanation_tr": "Bu ünitenin yaklaşımında ibadet ve ahlak farklı alanlardır; ancak kişinin değerlerini hayatına yansıtmasında birbirini destekleyen yönleri bulunur.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İbadet ile ahlaki ve toplumsal sorumluluklar arasında kurulabilecek bağı tamamen koparıyor",
+          "İbadet ile ahlakın aynı kelime olduğunu söylüyor",
+          "Duanın bir ibadet olabileceğini reddediyor",
+          "Kur'an'ın temel kaynak olduğunu savunuyor"
+        ],
+        "correct_answer": "İbadet ile ahlaki ve toplumsal sorumluluklar arasında kurulabilecek bağı tamamen koparıyor",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Bittgebet und Gottesdienst sind zwar wichtig, aber meine Verantwortung gegenüber anderen Menschen hat nichts mit ihnen zu tun.“ Was übersieht er?",
+        "explanation_tr": "Gottesdienst und guter Charakter sind unterschiedliche Bereiche. Sie können sich jedoch gegenseitig stärken, wenn ein Mensch seine Werte im Alltag lebt.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Er trennt Gottesdienst und moralische sowie soziale Verantwortung vollständig voneinander",
+          "Er behauptet, Gottesdienst und guter Charakter seien dasselbe Wort",
+          "Er bestreitet, dass ein Bittgebet eine gottesdienstliche Handlung sein kann",
+          "Er erklärt den Koran zur zentralen Quelle"
+        ],
+        "correct_answer": "Er trennt Gottesdienst und moralische sowie soziale Verantwortung vollständig voneinander",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-016": {
+      "source": {
+        "question_tr": "Burak, iş yerinde haksız yere suçlandığında sakin kalıp adil bir şekilde durumu açıklıyor, kızıp bağırmıyor. Bu davranış hangi değere işaret eder?",
+        "explanation_tr": "Burak'ın sakin ve adil tutumu, İslam'ın önemsediği sabır ve güzel ahlak değerlerinin bir yansımasıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sabır ve güzel ahlak",
+          "Sadece korkaklık",
+          "Sadece ilgisizlik",
+          "Sadece kural korkusu"
+        ],
+        "correct_answer": "Sabır ve güzel ahlak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Burak wird bei der Arbeit zu Unrecht beschuldigt. Statt wütend zu schreien, bleibt er ruhig und erklärt die Situation sachlich und fair. Welchen Wert zeigt sein Verhalten?",
+        "explanation_tr": "Buraks ruhiges und faires Verhalten ist ein Beispiel für Geduld und guten Charakter, die im Islam geschätzt werden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Geduld und guter Charakter",
+          "Nur Feigheit",
+          "Nur Gleichgültigkeit",
+          "Nur Angst vor Regeln"
+        ],
+        "correct_answer": "Geduld und guter Charakter",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Werte im Alltag leben",
+        "topic": "Guter Charakter und verantwortungsbewusstes Handeln"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

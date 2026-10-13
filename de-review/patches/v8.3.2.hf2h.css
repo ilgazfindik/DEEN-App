@@ -1,0 +1,12 @@
+/* DEEN v8.3.2 HF2H — real outfits on the actual v8.1.2 wardrobe DOM */
+#v812Wardrobe .v812-grid.v832h-real-grid{display:flex!important;gap:10px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:10px 12px 16px!important;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+#v812Wardrobe .v832h-card{flex:0 0 116px!important;min-width:116px!important;min-height:142px!important;scroll-snap-align:start}
+#v812Wardrobe .v832h-thumb{display:block!important;position:relative!important;width:84px!important;height:84px!important;margin:0 auto 7px!important;border-radius:18px!important;overflow:hidden!important;background:radial-gradient(circle at 50% 38%,rgba(255,255,255,.08),rgba(255,255,255,.018))!important}
+#v812Wardrobe .v832h-sprite{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important}
+#v812Wardrobe .v832h-card.active{border-color:rgba(145,226,202,.72)!important;box-shadow:0 0 0 1px rgba(145,226,202,.12),0 10px 26px rgba(0,0,0,.22)!important}
+#v812Wardrobe .v832h-runtime-badge{display:inline-flex;margin:8px 12px 2px;padding:6px 9px;border:1px solid rgba(145,226,202,.28);border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.08em;color:#91e2ca;background:rgba(18,64,67,.42)}
+#v812Wardrobe .v812-avatar{position:relative!important}
+#v812Wardrobe .v812-avatar>svg{position:relative;z-index:1}
+#v812Wardrobe .v832h-worn-outfit{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;z-index:2!important;pointer-events:none!important;background-repeat:no-repeat!important}
+.v831-stack>.v832h-world-outfit{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;z-index:2!important;pointer-events:none!important;background-repeat:no-repeat!important}
+@media(max-width:430px){#v812Wardrobe .v832h-card{flex-basis:102px!important;min-width:102px!important;min-height:128px!important}#v812Wardrobe .v832h-thumb{width:72px!important;height:72px!important}}

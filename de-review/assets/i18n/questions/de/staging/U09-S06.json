@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U09",
+  "stage": "U09-S06",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U09-S06-001": {
+      "source": {
+        "question_tr": "Bir içerikte 'Kur'an ölümden sonra dirilişi reddeder' deniyor. Düzeltme hangisidir?",
+        "explanation_tr": "Kur'an yeniden dirilişi ahiret inancının temel parçalarından biri olarak öğretir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hac 22:7 ve Yâsîn 36:79 yeniden dirilişi açıkça bildirir",
+          "Kur'an yalnız dünya hayatını kabul eder",
+          "Diriliş ayetlerde hiç geçmez",
+          "Kıyamet yalnız tarihî bir olaydır"
+        ],
+        "correct_answer": "Hac 22:7 ve Yâsîn 36:79 yeniden dirilişi açıkça bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "In einem Beitrag steht: „Der Koran lehnt die Auferstehung nach dem Tod ab.“ Welche Korrektur ist richtig?",
+        "explanation_tr": "Der Koran lehrt die Auferstehung als einen wesentlichen Teil des Glaubens an das Jenseits.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Hadsch 22:7 und Ya-Sin 36:79 bekräftigen die Auferstehung ausdrücklich",
+          "Der Koran kennt nur das irdische Leben",
+          "In den Versen wird die Auferstehung nie erwähnt",
+          "Die Stunde ist bloß ein geschichtliches Ereignis"
+        ],
+        "correct_answer": "Al-Hadsch 22:7 und Ya-Sin 36:79 bekräftigen die Auferstehung ausdrücklich",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-002": {
+      "source": {
+        "question_tr": "Kıyametin kesin tarihini hesaplamak ahirete imanın zorunlu bir parçasıdır.",
+        "explanation_tr": "Kur'an kıyametin vaktinin bilgisini Allah'a nispet eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Das genaue Datum des Weltendes zu errechnen, gehört zu den notwendigen Bestandteilen des Jenseitsglaubens.",
+        "explanation_tr": "Der Koran schreibt das Wissen um den Zeitpunkt der Stunde Allah zu.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-003": {
+      "source": {
+        "question_tr": "Bir sosyal medya hesabı 'Kıyamet kesin olarak şu tarihte olacak' diyor. En uygun yaklaşım hangisidir?",
+        "explanation_tr": "A'râf 7:187 ve Lokmân 31:34 kıyametin vaktinin bilgisini Allah'a nispet eder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kesin tarih iddiasını Kur'an'ın kıyamet vaktini Allah'a nispet eden öğretisiyle karşılaştırmak",
+          "Tarihi hemen dinî hüküm saymak",
+          "Her hesaplamayı vahiy kabul etmek",
+          "Kıyametin hiç gelmeyeceğini söylemek"
+        ],
+        "correct_answer": "Kesin tarih iddiasını Kur'an'ın kıyamet vaktini Allah'a nispet eden öğretisiyle karşılaştırmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Social-Media-Beitrag behauptet: „An diesem Datum geht die Welt ganz sicher unter.“ Welche Haltung ist angebracht?",
+        "explanation_tr": "Al-Araf 7:187 und Luqman 31:34 schreiben das Wissen über den Zeitpunkt der Stunde Allah zu.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Behauptung mit der koranischen Lehre vergleichen, dass Allah allein den Zeitpunkt der Stunde kennt",
+          "Das Datum sofort als religiöses Gebot übernehmen",
+          "Jede Berechnung als Offenbarung betrachten",
+          "Behaupten, die Stunde werde niemals kommen"
+        ],
+        "correct_answer": "Die Behauptung mit der koranischen Lehre vergleichen, dass Allah allein den Zeitpunkt der Stunde kennt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-004": {
+      "source": {
+        "question_tr": "Bir notta 'Ölümden sonra insan defalarca dünyaya başka bedenlerle döner' yazıyor. Hangi düzeltme gerekir?",
+        "explanation_tr": "Ayetler ölümden sonra dünyaya geri dönüş olmadığını bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Mü'minûn 23:99-100 dünyaya geri dönüş isteğinin reddedildiğini bildirir",
+          "Kur'an reenkarnasyonu zorunlu kılar",
+          "Her ölüm yeni dünya hayatı başlatır",
+          "Berzah dünyaya dönüş kapısıdır"
+        ],
+        "correct_answer": "Mü'minûn 23:99-100 dünyaya geri dönüş isteğinin reddedildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Notiz behauptet: „Nach dem Tod kehren Menschen wiederholt in anderen Körpern ins Diesseits zurück.“ Was ist richtig?",
+        "explanation_tr": "Die Verse erklären, dass nach dem Tod keine Rückkehr ins Diesseits gewährt wird.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Muminun 23:99–100 beschreibt, dass die Bitte um Rückkehr ins Diesseits zurückgewiesen wird",
+          "Der Koran verlangt Reinkarnation",
+          "Jeder Tod eröffnet ein weiteres irdisches Leben",
+          "Der Barzach ist ein Weg zurück ins Diesseits"
+        ],
+        "correct_answer": "Al-Muminun 23:99–100 beschreibt, dass die Bitte um Rückkehr ins Diesseits zurückgewiesen wird",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-005": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi ahiret konusunda en sorunlu cümledir?",
+        "explanation_tr": "Zilzâl 99:7-8 en küçük hayır ve şerrin dahi karşılığının görüleceğini bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Küçük iyilik ve kötülüklerin hiçbir karşılığı yoktur'",
+          "'Allah kıyamet günü adaletle hesap görür'",
+          "'Ölüm herkes için kaçınılmazdır'",
+          "'Yeniden diriliş Kur'an'da anlatılır'"
+        ],
+        "correct_answer": "'Küçük iyilik ve kötülüklerin hiçbir karşılığı yoktur'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage über das Jenseits ist besonders problematisch?",
+        "explanation_tr": "Az-Zalzala 99:7–8 betont, dass selbst kleinste gute und schlechte Taten nicht unbeachtet bleiben.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "„Kleine gute und schlechte Taten bleiben ohne Vergeltung“",
+          "„Allah richtet am Tag der Auferstehung gerecht“",
+          "„Der Tod ist für jeden Menschen unvermeidbar“",
+          "„Der Koran beschreibt die Auferstehung“"
+        ],
+        "correct_answer": "„Kleine gute und schlechte Taten bleiben ohne Vergeltung“",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-006": {
+      "source": {
+        "question_tr": "Ahiret inancı, insanın yaptığı haksızlıkları önemsememesine yol açmalıdır.",
+        "explanation_tr": "Ahiret inancı tam tersine hesap ve ilahî adalet bilincini güçlendirir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an das Jenseits sollte Menschen dazu bringen, von ihnen begangenes Unrecht zu ignorieren.",
+        "explanation_tr": "Im Gegenteil stärkt der Glaube an das Jenseits das Bewusstsein für Abrechnung und göttliche Gerechtigkeit.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-007": {
+      "source": {
+        "question_tr": "Ahiret hakkındaki yanlış iddiaları doğru düzeltmeleriyle eşleştir.",
+        "explanation_tr": "Bu üç konu ahiret öğretisinde kaynak disiplininin önemli olduğu alanlardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kıyametin tarihini herkes bilebilir",
+            "right": "Vakti Allah'ın bilgisine aittir"
+          },
+          {
+            "left": "Ölümden sonra dünyaya tekrar dönülür",
+            "right": "Mü'minûn 23:99-100 geri dönüşü reddeder"
+          },
+          {
+            "left": "Küçük ameller önemsizdir",
+            "right": "Zilzâl 99:7-8 küçük amellerin karşılığını bildirir"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne jede falsche Behauptung über das Jenseits ihrer Korrektur zu.",
+        "explanation_tr": "Bei allen drei Themen ist der sorgfältige Umgang mit Quellen entscheidend.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Alle Menschen können das Datum des Weltendes kennen",
+            "right": "Nur Allah kennt den Zeitpunkt der Stunde"
+          },
+          {
+            "left": "Nach dem Tod kehren Menschen ins Diesseits zurück",
+            "right": "Al-Muminun 23:99–100 weist die Rückkehr zurück"
+          },
+          {
+            "left": "Kleine Taten sind unwichtig",
+            "right": "Az-Zalzala 99:7–8 nennt die Vergeltung kleinster Taten"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-008": {
+      "source": {
+        "question_tr": "Ahiret konusunda kaynaksız bir iddiayı değerlendirirken hangi iki ilkeyi korumalısın?",
+        "explanation_tr": "Ahiret gayb alanına ilişkin olduğundan kaynak ve kesinlik derecesini ayırmak özellikle önemlidir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kur'an'ın açık bilgisini temel almak ve ayrıntı, yorum veya tahmini kesin vahiy bilgisi gibi sunmamak.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche zwei Grundsätze helfen bei der Bewertung unbelegter Behauptungen über das Jenseits?",
+        "explanation_tr": "Da das Jenseits zum Verborgenen gehört, müssen Quellen und Gewissheitsgrade klar unterschieden werden.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Sich auf ausdrückliche Aussagen des Korans stützen und Deutungen, Einzelheiten oder Vorhersagen nicht als sichere Offenbarung ausgeben.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-009": {
+      "source": {
+        "question_tr": "Berzah hakkında Kur'an'ın açıkça bildirmediği her ayrıntıyı kesin iman maddesi gibi öğretmek güvenli bir yöntemdir.",
+        "explanation_tr": "Mü'minûn 23:99-100 temel bir berzah çerçevesi verir; ayrıntılarda kaynak seviyesini belirtmek gerekir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Unbelegte Einzelheiten über den Barzach als zweifelsfreie Glaubensartikel darzustellen, ist eine verlässliche Lehrmethode.",
+        "explanation_tr": "Al-Muminun 23:99–100 beschreibt den grundlegenden Rahmen des Barzach. Bei weiteren Einzelheiten muss die Quellenlage angegeben werden.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-010": {
+      "source": {
+        "question_tr": "Bir içerik ahireti yalnız dehşet ve korku diliyle anlatıyor, adalet ve iyiliğin karşılığını hiç zikretmiyor. En dengeli düzeltme hangisidir?",
+        "explanation_tr": "Enbiyâ 21:47 ilahî adaleti, Zilzâl 99:7 iyiliğin karşılığını vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret öğretisinde hesap ve uyarının yanında adalet, iyiliğin karşılığı ve umut da yer alır",
+          "Ahiret yalnız korkudur",
+          "İyiliğin karşılığı yoktur",
+          "Adalet ahiretle ilgisizdir"
+        ],
+        "correct_answer": "Ahiret öğretisinde hesap ve uyarının yanında adalet, iyiliğin karşılığı ve umut da yer alır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine Lektion schildert das Jenseits nur mit Schrecken und Angst, ohne Gerechtigkeit oder die Vergeltung guter Taten zu erwähnen. Welche Ergänzung ist sinnvoll?",
+        "explanation_tr": "Al-Anbiya 21:47 betont die göttliche Gerechtigkeit und Az-Zalzala 99:7 die Vergeltung guter Taten.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zur Jenseitslehre gehören neben Abrechnung und Warnung auch Gerechtigkeit, die Vergeltung des Guten und Hoffnung",
+          "Das Jenseits bedeutet ausschließlich Angst",
+          "Gute Taten erhalten keine Vergeltung",
+          "Gerechtigkeit gehört nicht zum Jenseits"
+        ],
+        "correct_answer": "Zur Jenseitslehre gehören neben Abrechnung und Warnung auch Gerechtigkeit, die Vergeltung des Guten und Hoffnung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-011": {
+      "source": {
+        "question_tr": "Kıyametin vaktiyle ilgili kesin tarih vermek yerine, Kur'an'ın ______ sınırında kalmak gerekir.",
+        "explanation_tr": "Gayb alanında açık kaynak bilgisi ile tahmini ayırmak gerekir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "açık bilgi",
+          "söylenti",
+          "tahmin",
+          "sosyal medya"
+        ],
+        "correct_answer": "açık bilgi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Statt ein genaues Datum für die Stunde zu nennen, sollten wir bei den ______ des Korans bleiben.",
+        "explanation_tr": "Bei Aussagen über das Verborgene ist zwischen ausdrücklichen Quellenangaben und Vorhersagen zu unterscheiden.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "ausdrücklichen Angaben",
+          "Gerüchten",
+          "Vorhersagen",
+          "sozialen Medien"
+        ],
+        "correct_answer": "ausdrücklichen Angaben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U09-S06-012": {
+      "source": {
+        "question_tr": "Bir uygulama 'Ahiret inancı yalnız ölümden korkmayı öğretir' diyor. Düzeltme hangisidir?",
+        "explanation_tr": "Kur'an ahiret öğretisini adalet ve yapılan iyilik-kötülüğün karşılığıyla birlikte sunar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ahiret inancı sorumluluk, adalet, umut ve iyiliğin değerini de öğretir",
+          "Ahiret yalnız korku üretir",
+          "Ahiret davranışla ilgisizdir",
+          "Ahiret yalnız yaşlılar içindir"
+        ],
+        "correct_answer": "Ahiret inancı sorumluluk, adalet, umut ve iyiliğin değerini de öğretir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Eine App behauptet: „Der Glaube an das Jenseits lehrt lediglich Angst vor dem Tod.“ Was ist richtig?",
+        "explanation_tr": "Der Koran verbindet die Jenseitslehre mit gerechter Vergeltung guter und schlechter Taten.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Er lehrt ebenso Verantwortung, Gerechtigkeit, Hoffnung und den Wert guter Taten",
+          "Das Jenseits bewirkt nur Angst",
+          "Das Jenseits hat nichts mit dem Verhalten zu tun",
+          "Das Jenseits betrifft nur alte Menschen"
+        ],
+        "correct_answer": "Er lehrt ebenso Verantwortung, Gerechtigkeit, Hoffnung und den Wert guter Taten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Aussagen über das Jenseits prüfen",
+        "topic": "Auferstehung, Abrechnung und Gerechtigkeit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

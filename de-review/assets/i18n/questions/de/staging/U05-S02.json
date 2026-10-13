@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U05",
+  "stage": "U05-S02",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U05-S02-001": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi imanın altı esasından biri değildir?",
+        "explanation_tr": "Namaz kılmak imanın esası değil, İslam'ın şartıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz kılmak",
+          "Meleklere iman",
+          "Peygamberlere iman",
+          "Ahiret gününe iman"
+        ],
+        "correct_answer": "Namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was gehört nicht zu den sechs Glaubensartikeln?",
+        "explanation_tr": "Das Gebet gehört zu den fünf Säulen des Islam und nicht zu den Glaubensartikeln.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Das Gebet verrichten",
+          "An Engel glauben",
+          "An die Propheten glauben",
+          "An den Jüngsten Tag glauben"
+        ],
+        "correct_answer": "Das Gebet verrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-002": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi imanın esasları arasında yer alır?",
+        "explanation_tr": "İlahi kitaplara iman etmek, imanın altı esasından biridir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman",
+          "Oruç tutmak",
+          "Zekât vermek",
+          "Hacca gitmek"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was gehört zu den Glaubensartikeln?",
+        "explanation_tr": "Der Glaube an die von Allah offenbarten Bücher ist einer der sechs Glaubensartikel.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an die Bücher",
+          "Fasten",
+          "Zakat entrichten",
+          "Hadsch vollziehen"
+        ],
+        "correct_answer": "Glaube an die Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-003": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman etmek, imanın altı esasından biridir.",
+        "explanation_tr": "Kader ve kazaya iman, imanın altı esasından biridir. Bu ünitede konu yalnızca başlangıç düzeyinde tanıtılır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an die göttliche Vorherbestimmung und deren Eintreffen gehört zu den sechs Glaubensartikeln.",
+        "explanation_tr": "Der Glaube an die göttliche Vorherbestimmung zählt zu den Glaubensartikeln; hier wird das Thema nur einführend behandelt.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-004": {
+      "source": {
+        "question_tr": "Allah'a iman, _______ iman, Kitaplara iman. Boşluğa hangi iman esası gelmelidir?",
+        "explanation_tr": "Allah'ın yarattığı meleklere inanmak, imanın esaslarından biridir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Meleklere",
+          "Oruca",
+          "Sadakaya",
+          "Camiye"
+        ],
+        "correct_answer": "Meleklere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Glaube an Allah, Glaube an ______, Glaube an die Bücher: Welcher Glaubensartikel fehlt?",
+        "explanation_tr": "Der Glaube an die von Allah erschaffenen Engel gehört zu den Glaubensartikeln.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Engel",
+          "Fasten",
+          "freiwillige Spenden",
+          "die Moschee"
+        ],
+        "correct_answer": "Engel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-005": {
+      "source": {
+        "question_tr": "Verilenleri ilgili oldukları grup ile eşleştirin.",
+        "explanation_tr": "İman esasları inançla, İslam'ın şartları ibadetlerle ilgilidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Meleklere iman",
+            "right": "İmanın esası"
+          },
+          {
+            "left": "Kader ve kazaya iman",
+            "right": "İmanın esası"
+          },
+          {
+            "left": "Namaz kılmak",
+            "right": "İslam'ın şartı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Begriffe ihrer Kategorie zu.",
+        "explanation_tr": "Glaubensartikel betreffen Überzeugungen, die Säulen grundlegende gottesdienstliche Handlungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaube an Engel",
+            "right": "Glaubensartikel"
+          },
+          {
+            "left": "Glaube an die göttliche Vorherbestimmung",
+            "right": "Glaubensartikel"
+          },
+          {
+            "left": "Das Gebet verrichten",
+            "right": "Säule des Islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-006": {
+      "source": {
+        "question_tr": "Ahiret gününe inanmak, İslam'da imanın altı esasından biri değildir.",
+        "explanation_tr": "Ahiret gününe (ölümden sonraki hayata) iman etmek imanın temel esaslarındandır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an den Jüngsten Tag gehört nicht zu den sechs Glaubensartikeln.",
+        "explanation_tr": "Der Glaube an das Jenseits und das Leben nach dem Tod ist ein grundlegender Glaubensartikel.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-007": {
+      "source": {
+        "question_tr": "Allah'a, Meleklere, Kitaplara, Peygamberlere, Ahirete ve ______ iman. Listede eksik olan iman esası hangisidir?",
+        "explanation_tr": "Listede eksik olan iman esası kader ve kazaya imandır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Kader ve Kazaya",
+          "Namaz Kılmaya",
+          "Oruç Tutmaya",
+          "Kâbe'ye"
+        ],
+        "correct_answer": "Kader ve Kazaya",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Glaube an Allah, Engel, Bücher, Propheten, das Jenseits und ______: Welcher Glaubensartikel fehlt?",
+        "explanation_tr": "Der fehlende Glaubensartikel betrifft die göttliche Vorherbestimmung und ihr Eintreffen.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "die göttliche Vorherbestimmung",
+          "das Gebet",
+          "das Fasten",
+          "die Kaaba"
+        ],
+        "correct_answer": "die göttliche Vorherbestimmung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-008": {
+      "source": {
+        "question_tr": "Kavramları doğru kategorileriyle eşleştirin.",
+        "explanation_tr": "İnançla ilgili olanlar iman esaslarına, pratik ibadetler İslam'ın şartlarına aittir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Peygamberlere iman",
+            "right": "İmanın esasları"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın esasları"
+          },
+          {
+            "left": "Hacca gitmek",
+            "right": "İslam'ın şartları"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verbinde die Begriffe mit ihren Kategorien.",
+        "explanation_tr": "Die Glaubensartikel betreffen Überzeugungen, die Säulen grundlegende religiöse Handlungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaube an die Propheten",
+            "right": "Glaubensartikel"
+          },
+          {
+            "left": "Glaube an das Jenseits",
+            "right": "Glaubensartikel"
+          },
+          {
+            "left": "Hadsch vollziehen",
+            "right": "Säule des Islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-009": {
+      "source": {
+        "question_tr": "Peygamberlere iman, İslam'ın şartlarından biridir.",
+        "explanation_tr": "Peygamberlere iman, İslam'ın değil 'İmanın Esasları'ndan biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an die Propheten ist eine der fünf Säulen des Islam.",
+        "explanation_tr": "Er ist ein Glaubensartikel und keine der fünf Säulen.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-010": {
+      "source": {
+        "question_tr": "Aşağıdaki seçeneklerden hangisinde İmanın Esaslarından iki tanesi birlikte verilmiştir?",
+        "explanation_tr": "Kitaplara ve Ahirete inanmak, altı iman esası içindedir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman - Ahirete iman",
+          "Namaz kılmak - Zekât vermek",
+          "Meleklere iman - Oruç tutmak",
+          "Hacca gitmek - Kadere iman"
+        ],
+        "correct_answer": "Kitaplara iman - Ahirete iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Antwort nennt zwei Glaubensartikel?",
+        "explanation_tr": "Der Glaube an die Bücher und der Glaube an das Jenseits zählen beide zu den sechs Glaubensartikeln.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube an die Bücher – Glaube an das Jenseits",
+          "Gebet verrichten – Zakat entrichten",
+          "Glaube an Engel – Fasten",
+          "Hadsch vollziehen – Glaube an die Vorherbestimmung"
+        ],
+        "correct_answer": "Glaube an die Bücher – Glaube an das Jenseits",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-011": {
+      "source": {
+        "question_tr": "Allah'ın peygamberlere vahiy yoluyla gönderdiği ilahi kitaplara ______ iman denir.",
+        "explanation_tr": "Allah'ın peygamberlere vahiy yoluyla gönderdiği ilahi kitaplara iman, imanın esaslarından biridir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Kitaplara",
+          "Meleklere",
+          "Kadere",
+          "Ahirete"
+        ],
+        "correct_answer": "Kitaplara",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an die von Allah offenbarten heiligen Schriften wird Glaube an ______ genannt.",
+        "explanation_tr": "Der Glaube an die heiligen Bücher ist einer der sechs Glaubensartikel.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "die Bücher",
+          "Engel",
+          "die Vorherbestimmung",
+          "das Jenseits"
+        ],
+        "correct_answer": "die Bücher",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-012": {
+      "source": {
+        "question_tr": "Hangi kavram 'İmanın Esasları' listesinde yer almaz?",
+        "explanation_tr": "Zekât vermek İslam'ın şartlarındandır, imanın esaslarından değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek",
+          "Allah'a iman",
+          "Kadere iman",
+          "Peygamberlere iman"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff gehört nicht zu den Glaubensartikeln?",
+        "explanation_tr": "Zakat gehört zu den Säulen des Islam und nicht zu den Glaubensartikeln.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zakat entrichten",
+          "Glaube an Allah",
+          "Glaube an die Vorherbestimmung",
+          "Glaube an die Propheten"
+        ],
+        "correct_answer": "Zakat entrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-013": {
+      "source": {
+        "question_tr": "Maddeleri ait oldukları inanç esaslarıyla eşleştirin.",
+        "explanation_tr": "Her esasın farklı bir inanç alanı vardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'ın varlığı ve birliği",
+            "right": "Allah'a iman"
+          },
+          {
+            "left": "Ölümden sonraki hayat",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "İlahi mesajların elçileri",
+            "right": "Peygamberlere iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne jede Erklärung dem entsprechenden Glaubensartikel zu.",
+        "explanation_tr": "Jeder Glaubensartikel behandelt einen anderen Bereich des Glaubens.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allahs Existenz und Einzigkeit",
+            "right": "Glaube an Allah"
+          },
+          {
+            "left": "Leben nach dem Tod",
+            "right": "Glaube an das Jenseits"
+          },
+          {
+            "left": "Die Überbringer göttlicher Rechtleitung",
+            "right": "Glaube an die Propheten"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S02-014": {
+      "source": {
+        "question_tr": "İmanın altı esasından biri de meleklerin varlığına inanmaktır.",
+        "explanation_tr": "Meleklere iman, inanç esaslarının ikincisi olarak sayılır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Glaube an die Existenz von Engeln gehört zu den sechs Glaubensartikeln.",
+        "explanation_tr": "Der Glaube an Engel wird als zweiter Glaubensartikel aufgeführt.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Die sechs Glaubensartikel",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

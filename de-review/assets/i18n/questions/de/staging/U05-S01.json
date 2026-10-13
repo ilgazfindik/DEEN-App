@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U05",
+  "stage": "U05-S01",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U05-S01-001": {
+      "source": {
+        "question_tr": "İslam dininde, temel inanç esaslarını kalp ile onaylayıp kabul etmeye ne ad verilir?",
+        "explanation_tr": "İman, İslam'ın temel inanç esaslarını kalpten kabul etmek demektir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İman",
+          "Oruç",
+          "Ahlak",
+          "Zekât"
+        ],
+        "correct_answer": "İman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie heißt im Islam das innere Annehmen und Bekräftigen der grundlegenden Glaubensinhalte?",
+        "explanation_tr": "Iman bedeutet, die grundlegenden islamischen Glaubensinhalte im Herzen anzunehmen.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Glaube (Iman)",
+          "Fasten",
+          "Guter Charakter",
+          "Zakat"
+        ],
+        "correct_answer": "Glaube (Iman)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-002": {
+      "source": {
+        "question_tr": "İman, sadece davranışlarla ilgili kuralları içerir, inançla ilgisi yoktur.",
+        "explanation_tr": "İman öncelikle kalp ile onaylanan temel inanç esaslarıyla ilgilidir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zum Glauben gehören ausschließlich Verhaltensregeln; mit inneren Überzeugungen hat er nichts zu tun.",
+        "explanation_tr": "Der Glaube betrifft vor allem die im Herzen angenommenen grundlegenden Überzeugungen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-003": {
+      "source": {
+        "question_tr": "İslam dininde inanç temellerini oluşturan kurallara genel olarak ne isim verilir?",
+        "explanation_tr": "İnanç temellerini oluşturan kavramlar 'İmanın Esasları' olarak adlandırılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İmanın Esasları",
+          "İslam'ın Şartları",
+          "Gündelik İbadetler",
+          "Ahlak Kuralları"
+        ],
+        "correct_answer": "İmanın Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie werden die grundlegenden Glaubensüberzeugungen im Islam bezeichnet?",
+        "explanation_tr": "Die grundlegenden Überzeugungen des Islam nennt man Glaubensartikel.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die Glaubensartikel",
+          "Die fünf Säulen des Islam",
+          "Tägliche Gottesdienste",
+          "Moralische Regeln"
+        ],
+        "correct_answer": "Die Glaubensartikel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-004": {
+      "source": {
+        "question_tr": "Allah'ın varlığına ve birliğine, peygamberlerine ve kitaplarına kalpten inanmaya ______ denir.",
+        "explanation_tr": "Bu temel inanç esaslarını kabul etmenin karşılığı 'iman'dır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iman",
+          "ibadet",
+          "ahlak",
+          "niyet"
+        ],
+        "correct_answer": "iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Von Herzen an Allahs Existenz und Einzigkeit, Seine Propheten und Seine Bücher zu glauben, nennt man ______.",
+        "explanation_tr": "Diese grundlegenden Überzeugungen anzunehmen, bezeichnet man als Glauben.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Glaube",
+          "Gottesverehrung",
+          "guter Charakter",
+          "Absicht"
+        ],
+        "correct_answer": "Glaube",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-005": {
+      "source": {
+        "question_tr": "Bir öğrenci, 'İman esasları sadece bedensel hareketlerden oluşur' diyor. Bu cümledeki hata nedir?",
+        "explanation_tr": "Diyanet'in akaid açıklamalarında imanın aslî unsurunun kalbin tasdiki olduğu; ikrar ve amelle ilişkisinin ayrıca ele alındığı belirtilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İmanı yalnız bedensel hareketlere indirgemesidir; imanın temelinde kalbin tasdiki bulunur.",
+          "İmanın yalnızca tarih bilgisi olduğunu söylemesidir.",
+          "İmanın sadece dil öğrenmek olduğunu söylemesidir.",
+          "Cümlede hata yoktur."
+        ],
+        "correct_answer": "İmanı yalnız bedensel hareketlere indirgemesidir; imanın temelinde kalbin tasdiki bulunur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Die Glaubensartikel bestehen nur aus körperlichen Bewegungen.“ Wo liegt der Fehler?",
+        "explanation_tr": "Nach den Glaubenserklärungen der Diyanet ist die innere Bejahung ein wesentlicher Bestandteil des Glaubens. Sein Verhältnis zu Worten und Taten wird gesondert betrachtet.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Glaube wird auf körperliche Handlungen reduziert, obwohl die innere Überzeugung grundlegend ist",
+          "Die Aussage setzt Glauben nur mit Geschichtswissen gleich",
+          "Sie setzt Glauben nur mit dem Lernen einer Sprache gleich",
+          "Die Aussage ist richtig"
+        ],
+        "correct_answer": "Glaube wird auf körperliche Handlungen reduziert, obwohl die innere Überzeugung grundlegend ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-006": {
+      "source": {
+        "question_tr": "İmanın esasları, İslam dininin temel inanç yapısını oluşturur.",
+        "explanation_tr": "İmanın esasları, İslam inancının ana omurgasıdır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Glaubensartikel bilden die Grundlage des islamischen Glaubens.",
+        "explanation_tr": "Die Glaubensartikel bilden das Fundament der islamischen Glaubenslehre.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-007": {
+      "source": {
+        "question_tr": "Bu ünitede iki farklı temel başlığı ayırıyoruz: inanç konuları 'İmanın Esasları', namaz ve oruç gibi uygulamalar ise 'İslam'ın ______' başlığında ele alınır.",
+        "explanation_tr": "İmanın esasları inanç başlıklarını; İslam'ın şartları ise Kelime-i Şehadet, namaz, oruç, zekât ve hac gibi temel şartları ifade eder.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Şartları",
+          "Esasları",
+          "Tarihi",
+          "Ahlakı"
+        ],
+        "correct_answer": "Şartları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wir unterscheiden zwei Kategorien: Glaubensüberzeugungen gehören zu den Glaubensartikeln, Gebet und Fasten zu den fünf ______ des Islam.",
+        "explanation_tr": "Glaubensartikel beschreiben Überzeugungen, die fünf Säulen grundlegende religiöse Pflichten wie Gebet, Fasten, Zakat und Hadsch.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Säulen",
+          "Grundsätzen",
+          "geschichtlichen Ereignissen",
+          "Moralregeln"
+        ],
+        "correct_answer": "Säulen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-008": {
+      "source": {
+        "question_tr": "Önceki ünitede öğrendiğimiz Allah'a iman, bu ünitedeki hangi ana başlığın içinde yer alır?",
+        "explanation_tr": "Allah'a iman, imanın altı esasından biridir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İmanın Esasları",
+          "İslam'ın Beş Şartı",
+          "Günlük Ahlak",
+          "Hac Uygulamaları"
+        ],
+        "correct_answer": "İmanın Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zu welcher Kategorie gehört der Glaube an Allah?",
+        "explanation_tr": "Der Glaube an Allah ist einer der sechs Glaubensartikel.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zu den Glaubensartikeln",
+          "Zu den fünf Säulen des Islam",
+          "Zum guten Verhalten im Alltag",
+          "Zu den Riten der Hadsch"
+        ],
+        "correct_answer": "Zu den Glaubensartikeln",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-009": {
+      "source": {
+        "question_tr": "Ayşe, arkadaşına 'İslam'da bazı şeyler kalpten inançla ilgilidir, bazıları ise namaz kılmak gibi eylemlerdir' diyor. Ayşe'nin 'kalpten inançla ilgili' dediği bölüm hangi kategoriye girer?",
+        "explanation_tr": "Kalpten inanılması gereken temel öğretiler İmanın Esasları kategorisindedir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İmanın Esasları",
+          "İslam'ın Şartları",
+          "Görgü Kuralları",
+          "Sosyal İlişkiler"
+        ],
+        "correct_answer": "İmanın Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Aisha erklärt: „Manche Dinge im Islam betreffen das, was wir im Herzen glauben; andere sind Handlungen wie das Gebet.“ Zu welcher Kategorie gehört das innere Glauben?",
+        "explanation_tr": "Die grundlegenden inneren Glaubensüberzeugungen gehören zu den Glaubensartikeln.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zu den Glaubensartikeln",
+          "Zu den fünf Säulen des Islam",
+          "Zu Benimmregeln",
+          "Zu sozialen Beziehungen"
+        ],
+        "correct_answer": "Zu den Glaubensartikeln",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-010": {
+      "source": {
+        "question_tr": "İmanın temel esasları toplam ______ tanedir.",
+        "explanation_tr": "Bu giriş ünitesinde imanın altı temel esası tanıtılır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "6",
+          "5",
+          "4",
+          "7"
+        ],
+        "correct_answer": "6",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Es gibt ______ grundlegende Glaubensartikel.",
+        "explanation_tr": "Diese Einführung stellt die sechs Glaubensartikel vor.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "6",
+          "5",
+          "4",
+          "7"
+        ],
+        "correct_answer": "6",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-011": {
+      "source": {
+        "question_tr": "İmanın esasları, sadece Allah'a inanmaktan ibarettir, başka bir kural yoktur.",
+        "explanation_tr": "Allah'a inanmak temeli oluştursa da melekler, kitaplar, peygamberler, ahiret ve kadere iman gibi esaslar da vardır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die Glaubensartikel bestehen ausschließlich aus dem Glauben an Allah und enthalten keine weiteren Überzeugungen.",
+        "explanation_tr": "Weitere Glaubensartikel betreffen Engel, Bücher, Propheten, das Jenseits und die göttliche Vorherbestimmung.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-012": {
+      "source": {
+        "question_tr": "İslam inancının temel inanç başlıklarına genel olarak 'İmanın ______' adı verilir.",
+        "explanation_tr": "Bu temel inanç başlıkları 'İmanın Esasları' olarak adlandırılır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Esasları",
+          "Mekânları",
+          "Tarihi",
+          "Gelenekleri"
+        ],
+        "correct_answer": "Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Die grundlegenden Überzeugungen des Islam nennt man ______.",
+        "explanation_tr": "Diese grundlegenden Überzeugungen werden Glaubensartikel genannt.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Glaubensartikel",
+          "Orte",
+          "Geschichte",
+          "Bräuche"
+        ],
+        "correct_answer": "Glaubensartikel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-013": {
+      "source": {
+        "question_tr": "Ali: 'Namaz, oruç, zekât ve hac imanın esaslarıdır.' Ali'nin ifadesindeki hata nedir?",
+        "explanation_tr": "Namaz, oruç gibi ibadetler İslam'ın şartları arasındadır; imanın esasları inanç temellidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bunlar imanın esasları değil, İslam'ın şartlarıdır.",
+          "Oruç imanın bir esasıdır.",
+          "Zekât imanın esaslarındandır.",
+          "Bu sayılanlar inançla ilgilidir."
+        ],
+        "correct_answer": "Bunlar imanın esasları değil, İslam'ın şartlarıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ali behauptet: „Gebet, Fasten, Zakat und Hadsch sind Glaubensartikel.“ Was ist daran falsch?",
+        "explanation_tr": "Gebet und Fasten gehören zu den Säulen; Glaubensartikel beschreiben grundlegende Überzeugungen.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Es handelt sich um Säulen des Islam, nicht um Glaubensartikel",
+          "Fasten ist ein Glaubensartikel",
+          "Zakat ist ein Glaubensartikel",
+          "Die genannten Dinge sind reine Glaubensüberzeugungen"
+        ],
+        "correct_answer": "Es handelt sich um Säulen des Islam, nicht um Glaubensartikel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U05-S01-014": {
+      "source": {
+        "question_tr": "Diyanet'in akaid çerçevesinde imanın temelindeki 'tasdik' boyutunu en iyi hangi ifade anlatır?",
+        "explanation_tr": "İmanın aslî unsuru kalbin tasdiki olarak açıklanır; bu, imanın dil ve davranışla ilişkisini bütünüyle yok saymak anlamına gelmez.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnanç esaslarını kalpten onaylamak",
+          "Her gün fiziksel ibadet yapmak",
+          "Kutsal yerleri ziyaret etmek",
+          "Yalnızca iyilik yapmak"
+        ],
+        "correct_answer": "İnanç esaslarını kalpten onaylamak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was bedeutet die innere Bejahung, die nach der islamischen Glaubenserklärung der Diyanet zum Kern des Glaubens gehört?",
+        "explanation_tr": "Wesentlich für den Glauben ist die innere Bejahung. Das bedeutet nicht, dass seine Verbindung zu Worten und Verhalten unwichtig wäre.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Die Glaubensartikel von Herzen anzunehmen",
+          "Jeden Tag körperlichen Gottesdienst zu leisten",
+          "Heilige Orte zu besuchen",
+          "Nur gute Taten zu verrichten"
+        ],
+        "correct_answer": "Die Glaubensartikel von Herzen anzunehmen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Glauben verstehen",
+        "topic": "Glaube und Glaubensartikel"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

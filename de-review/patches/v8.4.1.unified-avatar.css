@@ -1,0 +1,18 @@
+/* DEEN v8.4.1 — single authoritative female avatar canvas */
+#v812Wardrobe .v832u-canvas{position:relative!important;overflow:visible!important}
+#v812Wardrobe .v832u-canvas[data-gender="female"].v841-ready>.v841-unified-canvas{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;
+ z-index:90!important;opacity:1!important;visibility:visible!important;pointer-events:none!important;
+ image-rendering:auto!important;filter:drop-shadow(0 10px 16px rgba(0,0,0,.18))!important
+}
+/* Hide legacy visual surfaces only after v8.4.1 is ready; keep them in DOM for state/fallback safety. */
+#v812Wardrobe .v832u-canvas[data-gender="female"].v841-ready>.v832u-avatar-slot,
+#v812Wardrobe .v832u-canvas[data-gender="female"].v841-ready>.v837-final-canvas,
+#v812Wardrobe .v832u-canvas[data-gender="female"].v841-ready>.v840-final-canvas{
+ display:none!important;opacity:0!important;visibility:hidden!important
+}
+#v812Wardrobe .v832u-canvas[data-gender="female"].v841-ready>canvas:not(.v841-unified-canvas){
+ display:none!important;opacity:0!important;visibility:hidden!important
+}
+/* Male remains on the existing fallback renderer. */
+#v812Wardrobe .v832u-canvas[data-gender="male"]>.v841-unified-canvas{display:none!important}
