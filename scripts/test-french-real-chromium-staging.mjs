@@ -44,6 +44,11 @@ async function visit(width,height,label){
   await page.waitForFunction(()=>!!(window.DEEN_CONTENT_LOCALE&&window.DEEN_BOOT&&
    window.DEEN_APP_LOCALE&&document.querySelector('#lesson .question-frame')&&
    typeof startStage==='function'),null,{timeout:100000});
+  // Initial assembly can briefly hold 1522 source/legacy records before the
+  // runtime normalizes the 1484 active pool. Observe the settled source list.
+  await page.waitForFunction(()=>{
+   try{return Array.isArray(QUESTIONS)&&QUESTIONS.length===1484}catch{return false;}
+  },null,{timeout:50000});
   const initial=await page.evaluate(()=>{
    const app=window.DEEN_APP_LOCALE,content=window.DEEN_CONTENT_LOCALE;
    return {lang:app.get(),available:content.available('fr'),
