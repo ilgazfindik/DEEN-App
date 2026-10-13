@@ -8,6 +8,7 @@ on:
       - 'scripts/audit-french-staging.mjs'
       - 'scripts/audit-french-u01-complete.mjs'
       - 'scripts/audit-french-u01-live-runtime.mjs'
+      - 'scripts/audit-french-u01-stored-variants.mjs'
       - 'scripts/audit-french-u02-complete.mjs'
       - 'scripts/audit-french-u03-complete.mjs'
       - 'scripts/audit-french-u04-complete.mjs'
@@ -53,6 +54,8 @@ jobs:
         run: node scripts/audit-french-u01-complete.mjs
       - name: Verify 84 active U01 French runtime questions and teaching cards
         run: node scripts/audit-french-u01-live-runtime.mjs
+      - name: Verify 20 French U01 stored runtime variants and overlapping source IDs
+        run: node scripts/audit-french-u01-stored-variants.mjs
       - name: Verify all 100 French U02 questions and answer structures
         run: node scripts/audit-french-u02-complete.mjs
       - name: Verify all 100 French U03 questions, recitation labels and sequences
