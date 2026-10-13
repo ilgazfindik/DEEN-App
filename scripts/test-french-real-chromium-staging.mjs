@@ -212,7 +212,26 @@ async function visit(width,height,label){
   const right=page.locator('#answerArea .option').filter({
    has:page.locator('.option-label',{hasText:lesson.correct})});
   assert.equal(await right.count(),1,'French answer card must be unambiguous');
-  await right.click({timeout:15000,force:true});
+  const hitTest=await page.evaluate(correct=>{
+   const element=[...document.querySelectorAll('#answerArea .option')]
+    .find(node=>node.querySelector('.option-label')?.textContent.trim()===correct);
+   if(!element)return {cardFound:false};
+   const box=element.getBoundingClientRect();
+   const center={x:box.x+box.width/2,y:box.y+box.height/2};
+   const top=document.elementFromPoint(center.x,center.y);
+   return {cardFound:true,center,
+    hitTag:top?.tagName,hitClass:top?.className,
+    hitInsideCard:element.contains(top),
+    cardPointerEvents:getComputedStyle(element).pointerEvents,
+    cardVisibility:getComputedStyle(element).visibility,
+    overlayCandidates:[...document.querySelectorAll('#lesson [role="dialog"],#lesson .v910-overlay,.deen-prep-overlay')]
+     .map(node=>({className:node.className,display:getComputedStyle(node).display,
+      visibility:getComputedStyle(node).visibility,pointer:getComputedStyle(node).pointerEvents})),
+    cardHasOnclick:typeof element.onclick==='function',
+    optionOuterHTML:element.outerHTML.slice(0,750)};
+  },lesson.correct);
+  console.log('FR_REAL_CHROMIUM_HIT_TEST',JSON.stringify({viewport:label,hitTest}));
+  await right.click({timeout:15000});
   const feedback=page.locator('#feedback');
   if(!(await feedback.evaluate(e=>e.classList.contains('show')))){
    const confirm=page.locator('#answerArea .template-action:visible:not([disabled])');
