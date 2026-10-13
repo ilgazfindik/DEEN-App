@@ -92,3 +92,13 @@
 - No product release enabled, no production manifest unblocked, no PR merge/main deploy. Original Arabic verses/audio and translation permissions require real surfacing, device playback checks and scholarly/native-language review before German deployment.
 
 **Next work:** open an actual ayah learning/recitation view (the Fâtiha journey dialog by itself has zero visible Arabic ayat/audio players), verify original Arabic + ordered ayah audio at the real control level, inspect other Quran question modes and modal-specific English remnants, then slow-network/offline and smaller mobile viewport regressions. Avoid implying whole app is German-complete based only on Turkish-signal scanning.
+
+
+## 2026-10-13 — Real Fâtiha ayah/audio acceptance (staging-only, passed)
+
+- [German real-browser staging QA #38361979607](https://github.com/ilgazfindik/DEEN-App/actions/runs/38361979607) **passed** at code commit `c52aadae45f6152a579ececbadac800134ba0b4a`.
+- Extended `scripts/test-german-true-locale-preview.mjs` to click the actual first **Learn** button inside the German Fâtiha Journey dialog, opening `#v5Sheet .deen-qmulti-session`. Previous QA stopped at Journey and did not verify any actual verses.
+- Chromium verified Fâtiha **ayah 1 and ayah 2** Arabic DOM text equals both the Quran content registry and unmodified `assets/quran/audio/ayah-audio-manifest.json` records. It clicked the actual inline speaker, decoded and played `fatiha_1.mp3` (2.351 s) and `fatiha_2.mp3` (2.429375 s), verified the player source and ayah number, paused using the real button, and reached ayah 2 using the five real learning-stage actions, without changing question or locale state directly.
+- Ayah 1 verified 4 synced Arabic word elements and a playback progress track. Actual end-user audio audibility on physical devices is **not** claimed from headless Chromium.
+- Release safeguards unchanged: **synthetic German manifest only in disposable localhost Chromium**; no main merge/deploy, no public German Quran meanings, no native-language/religious or rights approval. The 90/90 Arabic/audio source integrity check passed in the same browser workflow.
+- **Next:** audit source-guarded German chrome and untranslated text in the *actual ayah-learning view*, then wider Quran flows and mobile/offline regressions. The Fâtiha Journey modal alone is not sufficient evidence of full German localization.
