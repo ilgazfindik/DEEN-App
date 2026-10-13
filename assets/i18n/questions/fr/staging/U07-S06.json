@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U07",
+  "stage": "U07-S06",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U07-S06-001": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kur'an'da Tevrat ve İncil'in Allah tarafından indirildiği söylenmez' diyor. Düzeltme hangisidir?",
+        "explanation_tr": "Kur'an Tevrat ve İncil'in Allah tarafından indirildiğini açıkça ifade eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Âl-i İmrân 3:3-4 ve Mâide 5:44-46 onların ilahî vahiy olarak verildiğini bildirir",
+          "Kur'an bu kitapları hiç anmaz",
+          "Tevrat ve İncil aynı kitaptır",
+          "İncil Hz. Dâvûd'a verilmiştir"
+        ],
+        "correct_answer": "Âl-i İmrân 3:3-4 ve Mâide 5:44-46 onların ilahî vahiy olarak verildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Le Coran ne dit pas que la Torah et l’Évangile ont été révélés par Allah. » Quelle correction convient ?",
+        "explanation_tr": "Le Coran présente explicitement la Torah et l’Évangile comme des révélations venant d’Allah.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Imran 3:3-4 et Al-Maida 5:44-46 les mentionnent comme des révélations divines",
+          "Le Coran ne nomme jamais ces Livres",
+          "La Torah et l’Évangile sont un même Livre",
+          "L’Évangile a été donné à David"
+        ],
+        "correct_answer": "Al-Imran 3:3-4 et Al-Maida 5:44-46 les mentionnent comme des révélations divines",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-002": {
+      "source": {
+        "question_tr": "Kitaplara iman, insan eliyle yazılmış her dinî metni otomatik olarak Allah'ın vahyi kabul etmeyi gerektirir.",
+        "explanation_tr": "Kur'an vahiy ile insan sözünü birbirinden ayırır; Bakara 2:79 insan sözünü Allah'a nispet etmeyi kınar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire aux Livres implique de considérer automatiquement chaque écrit religieux humain comme une révélation d’Allah.",
+        "explanation_tr": "Le Coran distingue la révélation divine de la parole humaine ; Al-Baqara 2:79 condamne le fait d’attribuer à Allah un écrit humain.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-003": {
+      "source": {
+        "question_tr": "Bir içerik üreticisi kendi yorumunu 'Allah'ın kesin sözü' diye yayımlıyor. Bakara 2:79'un verdiği temel uyarı hangisidir?",
+        "explanation_tr": "Bakara 2:79 insan eliyle yazılan sözü Allah katındanmış gibi göstermeyi ağır biçimde kınar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İnsan sözünü Allah'a nispet etmemek",
+          "Her yorumu vahiy saymak",
+          "Kaynağı gizlemek",
+          "Dinî metni kazanç için istediği gibi değiştirmek"
+        ],
+        "correct_answer": "İnsan sözünü Allah'a nispet etmemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un auteur publie sa propre interprétation en affirmant : « C’est la parole certaine d’Allah. » Quel avertissement fondamental donne Al-Baqara 2:79 ?",
+        "explanation_tr": "Le verset condamne sévèrement le fait de présenter des paroles écrites par des humains comme venant d’Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ne pas attribuer à Allah des paroles humaines",
+          "Considérer chaque interprétation comme une révélation",
+          "Dissimuler les sources",
+          "Modifier les textes religieux à des fins commerciales"
+        ],
+        "correct_answer": "Ne pas attribuer à Allah des paroles humaines",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-004": {
+      "source": {
+        "question_tr": "Bir notta 'Kur'an önceki ilahî kitapları tamamen reddeder' yazıyor. Hata nedir?",
+        "explanation_tr": "Kur'an önceki vahiylerin aslını tasdik eder ve kendisini onlar üzerinde denetleyici olarak tanımlar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Mâide 5:48 Kur'an'ın önceki kitapları tasdik ettiğini bildirir",
+          "Kur'an önceki vahiylerden hiç söz etmez",
+          "Kur'an vahiy fikrini reddeder",
+          "Kur'an yalnız Zebur'u kabul eder"
+        ],
+        "correct_answer": "Mâide 5:48 Kur'an'ın önceki kitapları tasdik ettiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note déclare : « Le Coran rejette totalement les Livres divins antérieurs. » Quelle est l’erreur ?",
+        "explanation_tr": "Le Coran confirme les révélations divines antérieures et affirme jouer à leur égard un rôle de référence.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Maida 5:48 dit que le Coran confirme les Livres antérieurs",
+          "Le Coran ne parle jamais des révélations précédentes",
+          "Le Coran rejette l’idée de révélation",
+          "Le Coran reconnaît uniquement le Zabour"
+        ],
+        "correct_answer": "Al-Maida 5:48 dit que le Coran confirme les Livres antérieurs",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-005": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi kitaplara iman konusunda kaynak disiplini açısından en sorunlu cümledir?",
+        "explanation_tr": "Vahiy iddiası güvenilir kaynağa dayanmalıdır; insan sözünü Allah'a nispet etmek doğru değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Kaynaksız her dinî metin vahiy sayılmalıdır'",
+          "'Tevrat Kur'an'da ilahî kitap olarak anılır'",
+          "'Hz. Dâvûd'a Zebur verilmiştir'",
+          "'Kur'an önceki vahiyleri tasdik eder'"
+        ],
+        "correct_answer": "'Kaynaksız her dinî metin vahiy sayılmalıdır'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation sur la foi aux Livres manque le plus de rigueur à l’égard des sources ?",
+        "explanation_tr": "Une affirmation de révélation doit s’appuyer sur une source fiable ; la parole humaine ne doit pas être attribuée à Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "« Tout texte religieux non sourcé doit être considéré comme une révélation »",
+          "« Le Coran cite la Torah comme un Livre révélé »",
+          "« David a reçu le Zabour »",
+          "« Le Coran confirme les révélations antérieures »"
+        ],
+        "correct_answer": "« Tout texte religieux non sourcé doit être considéré comme une révélation »",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-006": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki vahiyleri tasdik etmesi, kaynağı belirsiz her anlatıyı doğruladığı anlamına gelir.",
+        "explanation_tr": "Tasdik, ilahî vahyin aslını doğrulamakla ilgilidir; kaynağı belirsiz her anlatıyı vahiy yapmaz.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le fait que le Coran confirme les révélations précédentes signifie qu’il confirme toute rumeur sans source.",
+        "explanation_tr": "La confirmation concerne la vérité des révélations divines et ne transforme pas en révélation chaque récit sans source.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-007": {
+      "source": {
+        "question_tr": "İlahî kitaplarla ilgili yanlış iddiaları doğru düzeltmeleriyle eşleştir.",
+        "explanation_tr": "Bu üç düzeltme kitaplara iman konusunda sık karıştırılan temel noktaları ayırır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Zebur Hz. Mûsâ'ya verilmiştir",
+            "right": "Nisâ 4:163: Hz. Dâvûd'a Zebur verildi"
+          },
+          {
+            "left": "Kur'an önceki kitapları reddeder",
+            "right": "Mâide 5:48: Öncekileri tasdik eder"
+          },
+          {
+            "left": "Kur'an korunmaz",
+            "right": "Hicr 15:9: Allah koruyacağını bildirir"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les affirmations erronées à leur rectification concernant les Livres divins.",
+        "explanation_tr": "Ces trois exemples permettent de distinguer des erreurs courantes sur la foi aux Livres.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "« Le Zabour a été donné à Moïse »",
+            "right": "An-Nisa 4:163 : le Zabour a été donné à David"
+          },
+          {
+            "left": "« Le Coran rejette les Livres antérieurs »",
+            "right": "Al-Maida 5:48 : il les confirme"
+          },
+          {
+            "left": "« Le Coran n’est pas préservé »",
+            "right": "Al-Hijr 15:9 : Allah affirme qu’Il le préservera"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-008": {
+      "source": {
+        "question_tr": "İnsan yorumu ile ilahî vahiy arasındaki temel farkı tek cümleyle açıkla.",
+        "explanation_tr": "Bakara 2:79 insan sözünü Allah'ın sözü gibi göstermeye karşı açık bir uyarı içerir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "İlahî vahyin kaynağı Allah'tır; insan yorumu ise vahyi anlamaya çalışan beşerî değerlendirmedir ve vahyin kendisi sayılmaz.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Explique en une phrase la différence entre l’interprétation humaine et la révélation divine.",
+        "explanation_tr": "Al-Baqara 2:79 met en garde contre le fait de présenter des paroles humaines comme celles d’Allah.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "La révélation divine vient d’Allah ; l’interprétation humaine cherche à la comprendre, mais ne constitue pas elle-même une révélation.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-009": {
+      "source": {
+        "question_tr": "Kur'an'ın korunması konusunda Hicr 15:9 açık bir güvence ifade eder.",
+        "explanation_tr": "Ayette Allah vahyi indirdiğini ve onu koruyacağını bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Hijr 15:9 contient une promesse explicite concernant la préservation du Coran.",
+        "explanation_tr": "Le verset dit qu’Allah a fait descendre le Rappel et qu’Il en assurera la préservation.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-010": {
+      "source": {
+        "question_tr": "Bir sınav sorusu 'Sahifelerin bütün sayıları Kur'an'da tek tek verilir' diyor. En doğru değerlendirme hangisidir?",
+        "explanation_tr": "Ayetlerin açık bilgisi ile tefsirlerde aktarılan rivayet ayrıntıları aynı kaynak düzeyinde sunulmamalıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Yanlıştır; A'lâ 87:18-19 İbrâhim ve Mûsâ'nın sahifelerini zikreder ama bütün sayıları vermez",
+          "Doğrudur; bütün sayılar ayettedir",
+          "Kur'an sahifeleri inkâr eder",
+          "Sahifeler yalnız İncil'in adıdır"
+        ],
+        "correct_answer": "Yanlıştır; A'lâ 87:18-19 İbrâhim ve Mûsâ'nın sahifelerini zikreder ama bütün sayıları vermez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un examen affirme : « Le Coran énumère toutes les quantités exactes des Feuillets révélés. » Comment juger cette phrase ?",
+        "explanation_tr": "Il faut distinguer les informations explicites des versets et les détails rapportés dans d’autres sources.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Cette affirmation est fausse : Al-Ala 87:18-19 cite les Feuillets d’Abraham et de Moïse, sans énumérer toutes les quantités",
+          "Elle est vraie : toutes les quantités sont indiquées dans ce passage",
+          "Le Coran nie l’existence des Feuillets",
+          "Les Feuillets sont un autre nom de l’Évangile"
+        ],
+        "correct_answer": "Cette affirmation est fausse : Al-Ala 87:18-19 cite les Feuillets d’Abraham et de Moïse, sans énumérer toutes les quantités",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-011": {
+      "source": {
+        "question_tr": "İnsan sözünü 'Bu Allah katındandır' diyerek vahiy gibi sunmak, Bakara 2:79'da ______.",
+        "explanation_tr": "Ayette insan eliyle yazılan sözün Allah'a nispet edilmesi ağır biçimde eleştirilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kınanır",
+          "önerilir",
+          "zorunlu tutulur",
+          "övülür"
+        ],
+        "correct_answer": "kınanır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Présenter un écrit humain comme venant d’Allah est ______ dans Al-Baqara 2:79.",
+        "explanation_tr": "Le verset condamne sévèrement cette attribution trompeuse.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "condamné",
+          "recommandé",
+          "rendu obligatoire",
+          "encouragé"
+        ],
+        "correct_answer": "condamné",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S06-012": {
+      "source": {
+        "question_tr": "Bir uygulama 'Kur'an'ın ana işlevi yalnız tarihî bilgi vermektir' diye öğretiyor. Düzeltme hangisidir?",
+        "explanation_tr": "Diyanet tefsiri Kur'an'ın temel işlevini insanlık için rehberlik olarak açıklar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İsrâ 17:9 Kur'an'ın en doğru olana ileten rehberlik işlevini vurgular",
+          "Kur'an rehberlik etmez",
+          "Kur'an yalnız kronoloji kitabıdır",
+          "Kur'an hidayet kavramını reddeder"
+        ],
+        "correct_answer": "İsrâ 17:9 Kur'an'ın en doğru olana ileten rehberlik işlevini vurgular",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une application affirme : « Le Coran sert uniquement à transmettre des faits historiques. » Comment corriger ce propos ?",
+        "explanation_tr": "Les commentaires d’Al-Isra 17:9 présentent la guidance comme une fonction fondamentale du Coran.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Isra 17:9 souligne que le Coran guide vers ce qui est le plus droit",
+          "Le Coran n’apporte aucune guidance",
+          "Le Coran n’est qu’un livre de chronologie",
+          "Le Coran rejette la notion de guidance"
+        ],
+        "correct_answer": "Al-Isra 17:9 souligne que le Coran guide vers ce qui est le plus droit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconnaître et corriger les erreurs",
+        "topic": "Révélation, interprétation et sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
