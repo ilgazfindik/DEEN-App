@@ -162,6 +162,12 @@ for(const [turkish,german,count] of remainingQuranSurahs){
   'Stage 9 native Turkish fallback title '+turkish);
  assert.equal(fmt(turkish+' · 1 / 5'),german+' · 1 / 5',
   'Source-safe quiz question progress '+turkish);
+ for(let total=1;total<=5;total++)for(let n=1;n<=total;n++)
+  assert.equal(fmt(turkish+' · '+n+' / '+total),
+    german+' · '+n+' / '+total,
+    'Quran dynamic wrong-answer review counter '+turkish+' '+n+'/'+total);
+ assert.equal(fmt(turkish+' · 2 / 1'),null,
+  'Review question index cannot exceed session length');
  assert.equal(fmt(turkish+' · 5 / 5'),german+' · 5 / 5',
   'Source-safe final question counter '+turkish);
  assert.equal(fmt(turkish+' · 6 / 5'),null,'Reject invalid question progress');
