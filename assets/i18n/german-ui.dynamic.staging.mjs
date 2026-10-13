@@ -1,3 +1,4 @@
+import {translateGermanChrome} from './german-ui.chrome.mjs';
 /*
  * German UI dynamic text formatter — STAGING ONLY.
  * The live app must not load this module until all German release gates pass.
@@ -5,6 +6,8 @@
  * translateLabel MUST be a source-aware, approved locale resolver.
  */
 export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
+ const reviewedUI=translateGermanChrome(value);
+ if(reviewedUI!==null)return reviewedUI;
  const input=String(value??''),n=input.trim();if(!n)return null;
  const emit=text=>input.replace(n,text);
  const label=text=>{
