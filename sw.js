@@ -3,9 +3,11 @@
  * The original SHA-256-pinned loader independently verifies all 67 segments.
  */
 'use strict';
-const VERSION='9408enfiveuiscreens1-ikhlasdeqa1-pwa11';
+const VERSION='9408enfiveuiscreens1-ikhlasdeqa1-pwa12';
 const SHELL='deen-pwa-shell-'+VERSION;
 const MEDIA='deen-pwa-ayah-'+VERSION;
+const VISUAL='deen-pwa-visual-'+VERSION;
+const MAX_VISUAL=120;
 const scope=new URL(self.registration.scope);
 const ROOT=scope.pathname.endsWith('/')?scope.pathname:scope.pathname+'/';
 const core=[
@@ -13,7 +15,12 @@ const core=[
  './assets/i18n/locale.js','./assets/i18n/locale.css',
  './assets/i18n/boot.js','./assets/i18n/boot.css',
  './assets/i18n/content.js','./assets/i18n/content-support.json',
- './assets/i18n/english-ui.js','./assets/quran/audio/ayah-audio-manifest.json'
+ './assets/i18n/english-ui.js','./assets/quran/audio/ayah-audio-manifest.json',
+ // The five pieces form the original 73.9 KB onboarding atlas. They must
+ // all exist together after an offline reload (not a partial/empty sprite).
+ ...Array.from({length:5},(_,i)=>'./release/v9.9.3-direct/assets/onboarding-hq/atlas.part'+i+'.txt'),
+ ...['cat','eagle','lion','owl','turtle','wolf'].map(id=>'./assets/companions/'+id+'/'+id+'_avatar.png'),
+ './assets/badges/deen-badges-atlas.webp','./assets/combo/companions-sheet.png'
 ];
 const sameScope=url=>url.origin===scope.origin&&url.pathname.startsWith(ROOT);
 const isAudio=url=>sameScope(url)&&/^assets\/quran\/audio\/[a-z0-9_-]+\/[a-z0-9_-]+\.mp3$/i
@@ -21,6 +28,11 @@ const isAudio=url=>sameScope(url)&&/^assets\/quran\/audio\/[a-z0-9_-]+\/[a-z0-9_
 const isAssets=url=>sameScope(url)&&
  (/^assets\/i18n\//.test(url.pathname.slice(ROOT.length))||
   url.pathname.slice(ROOT.length)==='assets/quran/audio/ayah-audio-manifest.json');
+const isVisual=url=>sameScope(url)&&
+ (/^assets\/(companions|avatar-runtime|clothing-runtime|visual-runtime|badges|combo)\/.+\.(?:png|webp|avif|gif|svg|b64)$/i
+   .test(url.pathname.slice(ROOT.length))||
+  /^release\/v9\.9\.3-direct\/assets\/onboarding-hq\/atlas\.part[0-4]\.txt$/i
+   .test(url.pathname.slice(ROOT.length)));
 const isSegments=url=>sameScope(url)&&
  /^release\/v9\.9\.3-direct\/segment-\d{2}\.txt$/.test(url.pathname.slice(ROOT.length));
 const canonical=url=>new Request(new URL(url.pathname,scope.origin).href);
@@ -68,7 +80,7 @@ self.addEventListener('install',event=>{
 self.addEventListener('activate',event=>{
  event.waitUntil((async()=>{
   for(const key of await caches.keys()){
-   if(key.startsWith('deen-pwa-')&&key!==SHELL&&key!==MEDIA)
+   if(key.startsWith('deen-pwa-')&&key!==SHELL&&key!==MEDIA&&key!==VISUAL)
     await caches.delete(key);
   }
   await self.clients.claim();
@@ -99,6 +111,26 @@ self.addEventListener('fetch',event=>{
     const result=await cache.match(new URL('./index.html',scope));
     return result||Response.error();
    }
+  })());
+  return;
+ }
+ if(isVisual(url)){
+  event.respondWith((async()=>{
+   const cache=await caches.open(VISUAL),key=canonical(url);
+   const hit=await cache.match(key);
+   if(hit)return hit;
+   try{
+    const result=await fetch(req);
+    if(result.ok&&result.status===200&&result.type!=='opaque'){
+     try{
+      await cache.put(key,result.clone());
+      const keys=await cache.keys();
+      if(keys.length>MAX_VISUAL)
+       await Promise.all(keys.slice(0,keys.length-MAX_VISUAL).map(k=>cache.delete(k)));
+     }catch(_){/* Storage quota: fallback remains online. */}
+    }
+    return result;
+   }catch(_){return Response.error()}
   })());
   return;
  }
