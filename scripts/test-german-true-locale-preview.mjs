@@ -1694,6 +1694,155 @@ try{
  assert.equal(nasrMem.meaningUnlocked,false);
  await page.screenshot({path:output+'/true-locale-german-nasr-memorize.png',fullPage:true});
 
+
+ // İhlâs uses separate v10921 learning and v10922 self-check memorization
+ // engines. Never infer their quality from the shared Fâtiha/Nasr renderer.
+ report.quran_ikhlas={source:'native four-ayah İhlâs browser path',
+  learn:[],memorize:null,audio:[],meaning_gate:null};
+ const ikhlasRows=await page.evaluate(async()=>{
+  const j=window.DEEN_QURAN_JOURNEY_V2;
+  const stats=j.stats('ikhlas');
+  if(!j.open('ikhlas'))throw Error('Native İhlâs journey unavailable');
+  return {learned:stats.learned,meaningUnlocked:stats.meaningUnlocked,
+   finalUnlocked:stats.finalUnlocked,mealReady:j.mealReady('ikhlas'),
+   audioFiles:window.DEEN_QURAN_AYAH_AUDIO?.config?.('ikhlas')?.files||[]};
+ });
+ assert.equal(ikhlasRows.learned,0);
+ assert.equal(ikhlasRows.mealReady,false);
+ assert.equal(ikhlasRows.meaningUnlocked,false);
+ assert.equal(ikhlasRows.finalUnlocked,false);
+ assert.equal(ikhlasRows.audioFiles.length,4);
+ await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',{timeout:15000});
+ const ikRows=page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage');
+ assert.equal(await ikRows.nth(1).locator('button').isDisabled(),true);
+ assert.equal(await ikRows.nth(3).locator('button').isDisabled(),true);
+ assert.equal(await ikRows.nth(4).locator('button').isDisabled(),true);
+ report.quran_ikhlas.meaning_gate={before:false,after:null};
+ await ikRows.nth(0).locator('button').click({timeout:15000});
+ await page.waitForSelector('#v5Sheet[open] .deen-ikhlas-session .deen-ikhlas-card',
+  {timeout:20000});
+ const stageLabels=['1 · ANHÖREN','2 · LESEN','3 · BEDEUTUNG',
+  '4 · ERINNERN','5 · ABSCHLIESSEN'];
+ for(let ayah=1;ayah<=4;ayah++){
+  for(let step=0;step<5;step++){
+   const view=await page.evaluate(({ayah,step})=>{
+    const dialog=document.querySelector('#v5Sheet[open]');
+    const root=dialog?.querySelector('.deen-ikhlas-session');
+    if(!root)throw Error('Native Ikhlas learning session missing');
+    const arBefore=[...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent);
+    const srcBefore=[...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src'));
+    const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+      dialog,{qaMode:true,locale:'de',documentRef:document});
+    const model=window.DEEN_QURAN_IKHLAS.model();
+    const audioCfg=window.DEEN_QURAN_AYAH_AUDIO.config('ikhlas');
+    const textOriginal=window.DEEN_QURAN_CONTENT.getAyah('ikhlas',ayah)?.arabic?.text;
+    const displayed=root.querySelector('.deen-ikhlas-arabic[lang="ar"]')
+     ?.textContent?.replace(/\s+/g,' ').trim()||null;
+    return {ayah,step,modelStep:model.stepIndex,
+     modelAyah:model.ayah,unresolved:audit.unresolved,
+     kicker:root.querySelector('.deen-ikhlas-kicker')?.textContent?.trim(),
+     progress:root.querySelector('.deen-ikhlas-progresshead b')?.textContent?.trim(),
+     button:root.querySelector('.deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)')
+       ?.textContent?.trim(),
+     audioSpeaker:!!root.querySelector('.deen-ayah-inline-speaker'),
+     audioFile:audioCfg.files[ayah-1],
+     arabicUnchanged:JSON.stringify(arBefore)===
+      JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent)),
+     audioSrcUnchanged:JSON.stringify(srcBefore)===
+      JSON.stringify([...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src')),
+     textMatchesOriginal:displayed===textOriginal?.replace(/\s+/g,' ').trim()};
+   },{ayah,step});
+   report.quran_ikhlas.learn.push(view);
+   assert.equal(view.modelAyah,ayah);
+   assert.equal(view.modelStep,step);
+   assert.equal(view.kicker,stageLabels[step],'Native İhlâs step was not German');
+   assert.equal(view.progress,'İhlâs · Vers '+ayah+'/4');
+   assert.equal(view.arabicUnchanged,true,'Original Arabic mutated in İhlâs');
+   assert.equal(view.audioSrcUnchanged,true,'Original recitation source mutated');
+   if(step!==3)assert.equal(view.textMatchesOriginal,true,'İhlâs displayed wrong ayah');
+   assert.deepEqual(view.unresolved,[],'Turkish native İhlâs UI residue at ayah '
+    +ayah+' step '+step);
+   if(step===0){
+    const speaker=page.locator('#v5Sheet[open] .deen-ikhlas-session .deen-ayah-inline-speaker');
+    await speaker.waitFor({state:'visible',timeout:12000});
+    assert.equal(view.audioFile,'ihlas_'+ayah+'.mp3');
+    await speaker.click({timeout:12000});
+    await page.waitForFunction(({ayah})=>{
+     const state=window.DEEN_QURAN_AYAH_AUDIO.state();
+     return state?.status==='playing'&&state?.activeSurah==='ikhlas'&&state.currentAyah===ayah;
+    },{ayah},{timeout:20000});
+    const audio=await page.evaluate(()=>window.DEEN_QURAN_AYAH_AUDIO.state());
+    assert(audio.src.includes('/assets/quran/audio/ikhlas/ihlas_'+ayah+'.mp3'),
+      'İhlâs playback source not its own ayah');
+    report.quran_ikhlas.audio.push({ayah,src:audio.src,status:audio.status});
+    await speaker.click({timeout:12000});
+    await page.waitForFunction(()=>window.DEEN_QURAN_AYAH_AUDIO.state()?.status==='paused',
+     null,{timeout:15000});
+   }
+   const next=page.locator('#v5Sheet[open] .deen-ikhlas-session .deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)');
+   await next.click({timeout:15000});
+  }
+  if(ayah<4)await page.waitForFunction(a=>window.DEEN_QURAN_IKHLAS.model()?.ayah===a,
+   ayah+1,{timeout:15000});
+ }
+ await page.waitForSelector('#v5Sheet[open] .deen-ikhlas-session .deen-ikhlas-complete',
+  {timeout:20000});
+ const ikLearned=await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.stats('ikhlas'));
+ assert.equal(ikLearned.learned,4);
+ assert.equal(ikLearned.learnedReady,true);
+ assert.equal(ikLearned.meaningUnlocked,false);
+ report.quran_ikhlas.meaning_gate.after=ikLearned.meaningUnlocked;
+ assert.equal(await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.backToJourney()),true);
+ await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',{timeout:15000});
+ const ikMem=page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage').nth(1).locator('button');
+ assert.equal(await ikMem.isDisabled(),false,
+  'Native İhlâs Memorize did not unlock after four learned verses');
+ await ikMem.click({timeout:15000});
+ await page.waitForSelector('#v5Sheet[open] .deen-mem-session .deen-mem-card',{timeout:15000});
+ const memorization=await page.evaluate(()=>{
+  const dialog=document.querySelector('#v5Sheet[open]');
+  const root=dialog.querySelector('.deen-mem-session');
+  const arBefore=[...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent);
+  const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+   dialog,{qaMode:true,locale:'de',documentRef:document});
+  const model=window.DEEN_QURAN_MEM.model();
+  return {unresolved:audit.unresolved,title:root.querySelector('.deen-mem-head b')?.textContent?.trim(),
+   kicker:root.querySelector('.deen-mem-kicker')?.textContent?.trim(),
+   level:model.targetLevel,ayah:model.ayah,
+   arabicUnchanged:JSON.stringify(arBefore)===
+    JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent)),
+   reveal:root.querySelector('.deen-mem-btn.secondary.full')?.textContent?.trim(),
+   remembered:root.querySelector('.deen-mem-actions .deen-mem-btn:not(.secondary)')?.textContent?.trim()};
+ });
+ report.quran_ikhlas.memorize=memorization;
+ assert.deepEqual(memorization.unresolved,[],'Turkish residue in native İhlâs Memorize');
+ assert.equal(memorization.title,'İhlâs · Auswendiglernen');
+ assert.match(memorization.kicker,/^AUSWENDIGLERNSTUFE [1-5] \/ 5$/);
+ assert.equal(memorization.arabicUnchanged,true);
+ assert.equal(memorization.reveal,'TEXT ANZEIGEN');
+ assert.equal(memorization.remembered,'ICH HABE MICH ERINNERT');
+ await page.locator('#v5Sheet[open] .deen-mem-session .deen-mem-btn.secondary.full').click({timeout:12000});
+ const revealed=await page.evaluate(()=>{
+  const root=document.querySelector('#v5Sheet[open] .deen-mem-session');
+  const model=window.DEEN_QURAN_MEM.model();
+  const value=root.querySelector('.deen-mem-arabic[lang="ar"]')?.textContent?.replace(/\s+/g,' ').trim();
+  const original=window.DEEN_QURAN_CONTENT.getAyah('ikhlas',model.ayah)?.arabic?.text?.replace(/\s+/g,' ').trim();
+  return {ayah:model.ayah,identical:value===original,visible:!!value};
+ });
+ report.quran_ikhlas.memorize.revealed=revealed;
+ assert.equal(revealed.identical,true,'İhlâs memorization reveal modified Arabic');
+ await page.locator('#v5Sheet[open] .deen-mem-actions .deen-mem-btn:not(.secondary)')
+  .click({timeout:12000});
+ const afterRemember=await page.evaluate(()=>({
+  model:window.DEEN_QURAN_MEM.model(),
+  stats:window.DEEN_QURAN_JOURNEY_V2.stats('ikhlas')
+ }));
+ assert(afterRemember.model.currentLevel>=1,'İhlâs self-check did not record progress');
+ assert.equal(afterRemember.stats.meaningUnlocked,false,'İhlâs unapproved German meanings unlocked');
+ report.quran_ikhlas.memorize.afterRemember={
+  currentLevel:afterRemember.model.currentLevel,meaningUnlocked:afterRemember.stats.meaningUnlocked};
+ await page.screenshot({path:output+'/true-locale-german-ikhlas-memorization.png',fullPage:true});
+
  report.quran_fatiha.real_ayah_audio.review_approved=false;
  report.quran_fatiha.real_ayah_audio.production_release=false;
 
