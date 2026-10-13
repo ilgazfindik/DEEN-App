@@ -11,6 +11,7 @@ on:
       - 'scripts/audit-french-u03-complete.mjs'
       - 'scripts/audit-french-u04-complete.mjs'
       - 'scripts/audit-french-u05-complete.mjs'
+      - 'scripts/audit-french-u06-complete.mjs'
       - 'scripts/inventory-french-ui.mjs'
       - 'qa/FRENCH_STAGE1.md'
       - '.github/workflows/french-localization-audit.yml'
@@ -37,6 +38,8 @@ jobs:
         run: node scripts/audit-french-u04-complete.mjs
       - name: Verify all 100 French U05 questions and source-aligned answer structures
         run: node scripts/audit-french-u05-complete.mjs
+      - name: Verify U06 angels, all 100 French sources, answer positions and ordered tasks
+        run: node scripts/audit-french-u06-complete.mjs
       - name: Report all 15 units and 1452 UI source keys
         run: node scripts/inventory-french-ui.mjs
       - name: Ensure production English questions remain complete

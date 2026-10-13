@@ -56,3 +56,12 @@
 - 100 U05 soru, 88 cevap seçenekli soru, 36 matching çifti, 7 fill_blank yapısı kaynakla karşılaştırıldı.
 - `scripts/audit-french-u05-complete.mjs` yapısal kontrolü, kaynak kimliği, şık indeksi, boşluk adedi ve kelime sızıntısı kontrolü sağlar. Uzman onayı anlamına gelmez.
 - Üretim `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` olarak kilitlidir.
+
+## 2026-10-13 — U06 100/100 Fransızca taslağı
+- U06-S01–S07: **14 + 14 + 14 + 16 + 16 + 12 + 14 = 100/100**.
+- İçerik: meleklere iman, ayetlerde özellikleri, Cebrâil ve vahiy, amel yazıcıları, ölüm meleği, kaynak disiplini ve İblîs-cin ayrımı.
+- Genel Fransızca temel soru taslağı: **600 / 1.500**; kalan **900 (U07–U15)**.
+- Soru ID/cevap pozisyonu kontrolü: 100 soru, 78 seçenekli, 24 matching çifti, 8 fill_blank ve 6 sıralama. Ön kaynak taramasında 0 hata.
+- `scripts/audit-french-u06-complete.mjs` kaynak, cevap konumu, matching, boşluk, sequence sırası, güvenlik bayrakları ve temel dil sızıntısı denetimini gerçekleştirir.
+- Kur'an atıflarının çevirileri kaynak anlamına uygun hazırlanmış taslaklardır; **dinî uzman ve anadili Fransızca denetimi yapılmadı**. Arapça ayet metni ve kıraat değiştirilmedi.
+- `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` açıkça korunuyor. Hiçbir `main` veya canlı deploy değişikliği yok.

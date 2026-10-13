@@ -44,7 +44,7 @@ for(let i=1;i<=15;i++){
  const rows=baseQuestions.filter(q=>q.id.startsWith('DEEN-'+unit+'-'));
  assert.equal(rows.length,100,'Expected 100 source questions in '+unit);
  sourceQuestions[unit]={source_count:rows.length,
-  staged_count:['U01','U02','U03','U04','U05'].includes(unit)?Array.from({length:7},(_,i)=>
+  staged_count:['U01','U02','U03','U04','U05','U06'].includes(unit)?Array.from({length:7},(_,i)=>
     Object.keys(read('assets/i18n/questions/fr/staging/'+unit+'-S'+String(i+1).padStart(2,'0')+'.json').translations).length
    ).reduce((a,b)=>a+b,0):0};
 }
