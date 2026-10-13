@@ -91,3 +91,13 @@
 - `scripts/audit-french-u09-complete.mjs`: kaynak eşitliği, cevap pozisyonları, matching, boşluklar, sıralama ve üretim kilitlerini denetler. CI'ye eklendi.
 - Kur'an ayetlerine dayalı anlamlar **taslaktır**; bağımsız dinî uzman ve anadili Fransızca incelemesi yapılmadı. Arapça ayet ve kıraat değişmedi.
 - `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` kilitleri korunur. Main'e merge veya canlı deploy yapılmaz.
+
+## 2026-10-14 — U10 100/100 Fransızca taslağı
+- U10-S01–S07: **14+14+14+16+16+12+14 = 100/100**.
+- Konular: kader/kaza, ilahî bilgi/ölçü, irade ve sorumluluk, tevekkül, musibet ve sabır; Mâtürîdî–Eş'arî terim farkı korunmuştur.
+- Temel soru toplamı **1.000/1.500**; U11–U15'te **500 soru** kaldı.
+- İlk kaynak taraması: **100 soru, 80 seçenekli, 21 eşleştirme çifti, 8 fill_blank, 6 sıralama; sıfır yapısal hata**.
+- `scripts/audit-french-u10-complete.mjs` kimlik, değişmemiş Türkçe kaynak, cevap indeksleri, boşluk/sıralama/eşleştirme, Fransızca metin varlığı ve üretim kilitlerini CI'de denetler.
+- Yanlış pozitif uyarısı: Fransızca **élève** sözcüğünün sonundaki **ve**, ASCII sözcük sınırıyla yazılmış Türkçe `ve` taramasında eşleşebilir; bu Türkçe sızıntısı değildir.
+- Dilsel ve dinî uzman onayları henüz verilmedi; açıklamalar dinî yönden ayrıca incelenecek. Kur'an Arapçası ve sesler değişmedi.
+- `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` kilitleri korunur. Main/Pages değişmez.
