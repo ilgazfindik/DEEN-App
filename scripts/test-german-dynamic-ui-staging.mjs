@@ -103,6 +103,32 @@ for(const [src,de] of nonFatihaQuranCases)
 for(const src of ['Ayet 8 / 3','Ayet 9 / 8','Ayet 1 / 9'])
  assert.equal(fmt(src),null,'out-of-range Quran counter must fail closed');
 
+
+const ikhlasNativeCases=[
+ ['İhlâs Suresi','Sure İhlâs'],
+ ['İhlâs Ezberi','İhlâs auswendig lernen'],
+ ['İhlâs Ezber Motoru','İhlâs · Auswendiglernen'],
+ ['İhlâs · Ayet 1/4','İhlâs · Vers 1/4'],
+ ['İhlâs · Ayet 4/4','İhlâs · Vers 4/4'],
+ ['İhlâs 4. ayeti hatırla','Erinnere dich an Vers 4 der Sure İhlâs'],
+ ['Ayet 4 / 4 · Bazı kelimeler gizli','Vers 4 / 4 · Einige Wörter ausgeblendet'],
+ ['0/4 SAĞLAM','0/4 GEFESTIGT'],
+ ['2/4 SAĞLAM','2/4 GEFESTIGT'],
+ ['AYET 3','VERS 3'],
+ ['İlk öğrenme turu tamamlandı','Erster Lerndurchgang abgeschlossen'],
+ ['BAŞTAN GÖZDEN GEÇİR','VON VORN WIEDERHOLEN'],
+ ['İhlâs ezberi tamamlandı','İhlâs auswendig gelernt'],
+ ['Ayetin tamamını ezberden söyle. Kontrol etmek istersen “Metni göster”e dokun.',
+  'Sage den Vers vollständig auswendig auf. Tippe zur Kontrolle auf „Text anzeigen“.'],
+ ['Self-check toplamı: 2 başarılı hatırlama · 1 tekrar isteği',
+  'Selbstkontrolle: 2 erfolgreiche Erinnerungen · 1 Wiederholungen']
+];
+for(const [source,german] of ikhlasNativeCases)
+ assert.equal(fmt(source),german,'native İhlâs UI '+source);
+for(const source of ['İhlâs · Ayet 5/4','İhlâs 5. ayeti hatırla',
+ 'Ayet 5 / 4 · Bazı kelimeler gizli','5/4 SAĞLAM','AYET 5'])
+ assert.equal(fmt(source),null,'outside Ikhlas bounds must fail closed: '+source);
+
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
