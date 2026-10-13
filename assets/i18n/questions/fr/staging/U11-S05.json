@@ -1,0 +1,557 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U11",
+  "stage": "U11-S05",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U11-S05-001": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Oruç yalnız açlık değil kulluk ve ___ bilinciyle ilişkilidir.",
+        "explanation_tr": "Oruç kulluk bilinci yanında takva sabır ve sorumluluk eğitimiyle ilişkilendirilir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "takva",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : le jeûne ne concerne pas seulement la faim, mais aussi la dévotion et la ___.",
+        "explanation_tr": "Le jeûne contribue à développer la conscience d’Allah, la patience et la responsabilité, au-delà de l’abstention de nourriture.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "conscience d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "Le jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-002": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: İbadet bilinci güzel ___ desteklemelidir.",
+        "explanation_tr": "Diyanet kaynakları ibadetin bireysel ve ahlaki eğitici işlevine dikkat çeker.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "ahlakı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : la conscience de l’adoration doit favoriser le ___.",
+        "explanation_tr": "Les sources de Diyanet soulignent le rôle de l’adoration dans l’éducation personnelle et morale.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "bon comportement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "L’adoration et le bon comportement"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-003": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: İbadetin ruhunda ___ ve samimiyet bulunur.",
+        "explanation_tr": "Beyyine 98:5 ibadette dini Allah'a has kılma ve ihlas vurgusu taşır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "ihlas",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : l’esprit de l’adoration comprend la ___ et une dévotion de tout cœur.",
+        "explanation_tr": "La sourate Al-Bayyinah (98:5) souligne la sincérité dans la religion consacrée à Allah.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "sincérité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "La sincérité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-004": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Dua kulun Allah'a ___ ifade eder.",
+        "explanation_tr": "Dua kulun Allah'a yönelişinin temel ifadelerinden biridir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "yönelişini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : l’invocation exprime le ___ du serviteur vers Allah.",
+        "explanation_tr": "L’invocation (du‘â) est une manière essentielle pour le serviteur de se tourner vers Allah.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "fait de se tourner",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "L’invocation (du‘â)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-005": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: İbadet bilgisi ___ kaynaklardan öğrenilmelidir.",
+        "explanation_tr": "İbadet bilgisi güvenilir kaynaklarla öğrenilmeli ve farklılıklar doğru bağlamda ele alınmalıdır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "güvenilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : les connaissances relatives à l’adoration doivent provenir de sources ___.",
+        "explanation_tr": "Les connaissances relatives à l’adoration doivent provenir de sources fiables ; les divergences doivent être replacées dans leur contexte.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "fiables",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "Des connaissances fiables"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-006": {
+      "source": {
+        "question_tr": "Oruç konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Oruç kulluk bilinci yanında takva sabır ve sorumluluk eğitimiyle ilişkilendirilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece aç kalmak",
+          "Yalnızca sosyal görünürlük",
+          "Kulluk, takva, sabır ve sorumluluk",
+          "Gündelik hayatı tamamen durdurmak"
+        ],
+        "correct_answer": "Kulluk, takva, sabır ve sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel principe concernant le jeûne est correct ?",
+        "explanation_tr": "Le jeûne contribue à développer la conscience d’Allah, la patience et la responsabilité, au-delà de l’abstention de nourriture.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le simple fait d’avoir faim",
+          "La seule reconnaissance sociale",
+          "La dévotion, la conscience d’Allah, la patience et la responsabilité",
+          "Interrompre entièrement la vie quotidienne"
+        ],
+        "correct_answer": "La dévotion, la conscience d’Allah, la patience et la responsabilité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "Le jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-007": {
+      "source": {
+        "question_tr": "Bir öğrenci “İbadet ile ahlaki davranışların hiçbir ilişkisi yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Diyanet kaynakları ibadetin bireysel ve ahlaki eğitici işlevine dikkat çeker.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İbadetin ahlaktan tamamen kopuk olması",
+          "Ahlakın ibadeti gereksiz kılması",
+          "Kulluk bilinci ile güzel davranışların birbirini desteklemesi",
+          "İbadetin sadece görünüş olması"
+        ],
+        "correct_answer": "Kulluk bilinci ile güzel davranışların birbirini desteklemesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « L’adoration n’a aucun lien avec la morale. » Quelle réponse corrige cette idée ?",
+        "explanation_tr": "Les sources de Diyanet soulignent le rôle de l’adoration dans l’éducation personnelle et morale.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Une adoration complètement séparée du bon comportement",
+          "Un bon comportement qui rendrait l’adoration inutile",
+          "Une conscience de la dévotion et une bonne conduite qui se renforcent mutuellement",
+          "Une adoration réduite aux apparences"
+        ],
+        "correct_answer": "Une conscience de la dévotion et une bonne conduite qui se renforcent mutuellement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "L’adoration et le bon comportement"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-008": {
+      "source": {
+        "question_tr": "İhlas konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Beyyine 98:5 ibadette dini Allah'a has kılma ve ihlas vurgusu taşır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İnsanların takdirini amaçlamak",
+          "Gösterişi öncelik yapmak",
+          "Allah'a içtenlikle yönelmek",
+          "Sadece dış görünüşe odaklanmak"
+        ],
+        "correct_answer": "Allah'a içtenlikle yönelmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation reflète le fondement de la sincérité ?",
+        "explanation_tr": "La sourate Al-Bayyinah (98:5) souligne la sincérité dans la religion consacrée à Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Rechercher l’approbation des gens",
+          "Privilégier l’ostentation",
+          "Se tourner sincèrement vers Allah",
+          "Se préoccuper uniquement de l’apparence extérieure"
+        ],
+        "correct_answer": "Se tourner sincèrement vers Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "La sincérité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-009": {
+      "source": {
+        "question_tr": "Bir arkadaşın Dua hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Dua kulun Allah'a yönelişinin temel ifadelerinden biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Yalnızca ezber yarışması",
+          "Başkalarına gösteriş yapma biçimi",
+          "Kulun Allah'a yönelmesi ve O'ndan istemesi",
+          "İbadetle ilgisiz bir konuşma"
+        ],
+        "correct_answer": "Kulun Allah'a yönelmesi ve O'ndan istemesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami te demande des informations exactes sur l’invocation. Que lui réponds-tu ?",
+        "explanation_tr": "L’invocation (du‘â) est une manière essentielle pour le serviteur de se tourner vers Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Un simple concours de mémorisation",
+          "Une façon de se faire remarquer",
+          "Un serviteur qui se tourne vers Allah pour L’invoquer",
+          "Des paroles sans lien avec l’adoration"
+        ],
+        "correct_answer": "Un serviteur qui se tourne vers Allah pour L’invoquer",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "L’invocation (du‘â)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-010": {
+      "source": {
+        "question_tr": "“Kaynağı belirsiz her bilgi ibadet konusunda güvenilir kabul edilmelidir.” ifadesindeki hatayı hangi seçenek düzeltir?",
+        "explanation_tr": "İbadet bilgisi güvenilir kaynaklarla öğrenilmeli ve farklılıklar doğru bağlamda ele alınmalıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Her duyulanı kesin hüküm kabul etmek",
+          "Kaynağı belirsiz bilgiyi yaymak",
+          "Güvenilir dinî kaynaklara başvurmak",
+          "Mezhep farklarını yok saymak"
+        ],
+        "correct_answer": "Güvenilir dinî kaynaklara başvurmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle option corrige l’erreur : « Toute information de provenance incertaine sur l’adoration est fiable » ?",
+        "explanation_tr": "Les connaissances relatives à l’adoration doivent provenir de sources fiables ; les divergences doivent être replacées dans leur contexte.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tenir tout ce que l’on entend pour une règle religieuse certaine",
+          "Diffuser des informations de provenance incertaine",
+          "Consulter des sources religieuses fiables",
+          "Ignorer les différences entre écoles juridiques"
+        ],
+        "correct_answer": "Consulter des sources religieuses fiables",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "Des connaissances fiables"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-011": {
+      "source": {
+        "question_tr": "“Oruç yalnızca aç kalmaktan ibarettir.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Oruç kulluk bilinci yanında takva sabır ve sorumluluk eğitimiyle ilişkilendirilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sadece aç kalmak",
+          "Yalnızca sosyal görünürlük",
+          "Kulluk, takva, sabır ve sorumluluk",
+          "Gündelik hayatı tamamen durdurmak"
+        ],
+        "correct_answer": "Kulluk, takva, sabır ve sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige l’erreur : « Le jeûne consiste seulement à avoir faim » ?",
+        "explanation_tr": "Le jeûne contribue à développer la conscience d’Allah, la patience et la responsabilité, au-delà de l’abstention de nourriture.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le simple fait d’avoir faim",
+          "La seule reconnaissance sociale",
+          "La dévotion, la conscience d’Allah, la patience et la responsabilité",
+          "Interrompre entièrement la vie quotidienne"
+        ],
+        "correct_answer": "La dévotion, la conscience d’Allah, la patience et la responsabilité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "Le jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-012": {
+      "source": {
+        "question_tr": "“İbadet ile ahlaki davranışların hiçbir ilişkisi yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Diyanet kaynakları ibadetin bireysel ve ahlaki eğitici işlevine dikkat çeker.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İbadetin ahlaktan tamamen kopuk olması",
+          "Ahlakın ibadeti gereksiz kılması",
+          "Kulluk bilinci ile güzel davranışların birbirini desteklemesi",
+          "İbadetin sadece görünüş olması"
+        ],
+        "correct_answer": "Kulluk bilinci ile güzel davranışların birbirini desteklemesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « L’adoration n’a aucun lien avec la morale » ?",
+        "explanation_tr": "Les sources de Diyanet soulignent le rôle de l’adoration dans l’éducation personnelle et morale.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Une adoration complètement séparée du bon comportement",
+          "Un bon comportement qui rendrait l’adoration inutile",
+          "Une conscience de la dévotion et une bonne conduite qui se renforcent mutuellement",
+          "Une adoration réduite aux apparences"
+        ],
+        "correct_answer": "Une conscience de la dévotion et une bonne conduite qui se renforcent mutuellement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "L’adoration et le bon comportement"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-013": {
+      "source": {
+        "question_tr": "Aktif hatırlama: boşluğu tamamla: İbadetin ruhunda ___ ve samimiyet bulunur.",
+        "explanation_tr": "Beyyine 98:5 ibadette dini Allah'a has kılma ve ihlas vurgusu taşır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk",
+          "yöneliş",
+          "ihlas",
+          "ibadet"
+        ],
+        "correct_answer": "ihlas",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Rappel actif : complète : l’esprit de l’adoration comprend la ___ et une dévotion de tout cœur.",
+        "explanation_tr": "La sourate Al-Bayyinah (98:5) souligne la sincérité dans la religion consacrée à Allah.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dévotion",
+          "orientation",
+          "sincérité",
+          "adoration"
+        ],
+        "correct_answer": "sincérité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "La sincérité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-014": {
+      "source": {
+        "question_tr": "Aktif hatırlama: boşluğu tamamla: Dua kulun Allah'a ___ ifade eder.",
+        "explanation_tr": "Dua kulun Allah'a yönelişinin temel ifadelerinden biridir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk",
+          "ihlas",
+          "yönelişini",
+          "yöneliş"
+        ],
+        "correct_answer": "yönelişini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Rappel actif : complète : l’invocation exprime le ___ du serviteur vers Allah.",
+        "explanation_tr": "L’invocation (du‘â) est une manière essentielle pour le serviteur de se tourner vers Allah.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dévotion",
+          "sincérité",
+          "fait de se tourner",
+          "orientation"
+        ],
+        "correct_answer": "fait de se tourner",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "L’invocation (du‘â)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-015": {
+      "source": {
+        "question_tr": "İbadeti öğrenirken en güvenli yaklaşım hangisidir?",
+        "explanation_tr": "İbadet bilgisi güvenilir kaynaklarla öğrenilmeli ve farklılıklar doğru bağlamda ele alınmalıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Her duyulanı kesin hüküm kabul etmek",
+          "Kaynağı belirsiz bilgiyi yaymak",
+          "Güvenilir dinî kaynaklara başvurmak",
+          "Mezhep farklarını yok saymak"
+        ],
+        "correct_answer": "Güvenilir dinî kaynaklara başvurmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle méthode est la plus sûre pour apprendre les règles de l’adoration ?",
+        "explanation_tr": "Les connaissances relatives à l’adoration doivent provenir de sources fiables ; les divergences doivent être replacées dans leur contexte.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tenir tout ce que l’on entend pour une règle religieuse certaine",
+          "Diffuser des informations de provenance incertaine",
+          "Consulter des sources religieuses fiables",
+          "Ignorer les différences entre écoles juridiques"
+        ],
+        "correct_answer": "Consulter des sources religieuses fiables",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "Des connaissances fiables"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S05-016": {
+      "source": {
+        "question_tr": "Oruç konusunda doğru ifade hangisidir? En kapsayıcı doğru ifadeyi seç.",
+        "explanation_tr": "Oruç kulluk bilinci yanında takva sabır ve sorumluluk eğitimiyle ilişkilendirilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece aç kalmak",
+          "Yalnızca sosyal görünürlük",
+          "Kulluk, takva, sabır ve sorumluluk",
+          "Gündelik hayatı tamamen durdurmak"
+        ],
+        "correct_answer": "Kulluk, takva, sabır ve sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation sur le jeûne est la plus complète et la plus juste ?",
+        "explanation_tr": "Le jeûne contribue à développer la conscience d’Allah, la patience et la responsabilité, au-delà de l’abstention de nourriture.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le simple fait d’avoir faim",
+          "La seule reconnaissance sociale",
+          "La dévotion, la conscience d’Allah, la patience et la responsabilité",
+          "Interrompre entièrement la vie quotidienne"
+        ],
+        "correct_answer": "La dévotion, la conscience d’Allah, la patience et la responsabilité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Mets tes connaissances en pratique",
+        "topic": "Le jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
