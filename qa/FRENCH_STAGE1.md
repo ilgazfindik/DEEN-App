@@ -74,3 +74,11 @@
 - `scripts/audit-french-u07-complete.mjs`: kaynak eşitliği, doğru cevap konumu, eşleştirme, boşluk, sıralama ve üretim kilidi denetimi.
 - Kur'an ayetlerine dayalı dinî açıklamalar **taslaktır**; bağımsız dinî uzman ve anadili Fransızca doğrulaması yapılmadı, üretime açık değil.
 - `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` kilitleri korunur; `main` ve mevcut diller değişmez.
+
+## 2026-10-14 — U08 100/100 Fransızca taslak
+- U08-S01–S07: **14+14+14+16+16+12+14 = 100/100**.
+- Konular: peygamberlere iman, peygamberlerin insan oluşu, vahyin tebliği, ortak tevhid çağrısı, Hz. Muhammed'in bütün insanlara gönderilmesi ve son peygamber oluşu, tekrar ve kaynak disiplini.
+- Genel toplam **800/1.500**; **700 soru U09–U15'te** bekliyor.
+- İlk kaynak/şema karşılaştırması: **100 soru, 78 seçenekli soru, 24 eşleştirme çifti, 8 fill_blank ve 6 sıralama; sıfır yapısal hata**.
+- `scripts/audit-french-u08-complete.mjs` yeni bağımsız kaynak/cevap/boşluk/eşleştirme/sıralama denetimidir; CI'ye eklendi.
+- Teknik doğrulama dinî anlamın ve anadili Fransızca doğruluğun uzman onayı değildir. Dinî/Fransızca uzman onayı verilmedi. `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` üretim kilitleri değişmedi.
