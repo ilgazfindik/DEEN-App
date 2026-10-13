@@ -179,8 +179,12 @@ async function visit(width,height,label){
   const rendered=await page.evaluate(()=>({
    question:document.querySelector('#questionText')?.textContent.trim(),
    labels:[...document.querySelectorAll('#answerArea .option-label')].map(e=>e.textContent.trim())}));
+  console.log('FR_REAL_CHROMIUM_RENDER_DIAGNOSTIC',JSON.stringify({
+   viewport:label,expected:lesson.question,actual:rendered.question,
+   expectedChoices:lesson.options,visibleChoices:rendered.labels}));
   assert(rendered.question?.includes(lesson.question),
-   'Real browser does not render French source-matched question');
+   'Real browser does not render French source-matched question: '+
+   JSON.stringify({expected:lesson.question,actual:rendered.question}));
   assert.deepEqual([...rendered.labels].sort(),[...lesson.options].sort(),
    'Correct-answer option display is not source-matched French');
   const right=page.locator('#answerArea .option').filter({
