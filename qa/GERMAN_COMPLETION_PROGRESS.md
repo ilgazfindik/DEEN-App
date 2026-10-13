@@ -125,3 +125,14 @@
 - **Scope:** these are localhost browser/source-exact staging changes only; no PR merge or live deploy. One Ayah Test item was graded, not the entire question set. German academic/native review and religious review are still pending; missing meanings must not be manufactured or auto-approved.
 
 **Next:** exercise all five Ayah Test questions (correct and incorrect paths, replay audio, result/review), broader Surah memorization/practice and real mobile/offline regressions before any release consideration.
+
+
+## 2026-10-13 — Full five-question Fâtiha Ayah Test and mistake-review acceptance (DE staging)
+
+- **Chromium PASS:** [German real-browser staging QA #38371528848](https://github.com/ilgazfindik/DEEN-App/actions/runs/38371528848) on code commit `d78752d910c214489524392130d27af07cbd07a0`; **German staging static audit PASS:** [#38371563959](https://github.com/ilgazfindik/DEEN-App/actions/runs/38371563959) after result-string unit tests.
+- The browser completed the **five real Ayah Test questions**, with both correct and incorrect grading. A deterministic QA run produced 1/5 correct = 20%, 4 wrong. The real audio-identification question played the expected original Fâtiha MP3, replayed it without changing the source, and accepted the correctly identified verse. Original Arabic and graded answer DOM source values remained unchanged. `meaningUnlocked=false` throughout.
+- The result screen rendered entirely in staging German for audited chrome: `Fâtiha · Verstest`, `Übe weiter ✦ Neuer Bestwert`, `Fragenanalyse`, `FEHLER WIEDERHOLEN · 4`, `ERNEUT VERSUCHEN`. Source-observed mixed-language residues from `quizChrome` (partial English substitutions, including `YANLIŞLARI REVIEW ET` and an English passing-threshold notice) were source-exactly translated and pinned in static regression tests; browser `result.unresolved=[]`.
+- The real `FEHLER WIEDERHOLEN` button opened a four-question **practice** session, completed it, and preserved official Ayah Test state **attempts=1, best=20**. Restarting and reloading the app also preserved `attempts=1, best=20, locale=de, learned=7`; after reload, `meaningUnlocked=false` remained enforced.
+- No expert/native Quran meaning approval was asserted. The browser uses a **synthetic QA-only local German manifest**; production remains gated. No `main` merge or live deployment. This test verifies one full five-question attempt plus the linked wrong-answer review; it does not exhaustively prove all user paths, accessibility, offline audio or external rights review.
+
+**Next:** review German Quran Journey result accessibility and broader Surah types/physical-device audio behavior. Prioritize native German and theological verification separately from automated UI passing.
