@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U09",
+  "stage": "U09-S05",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U09-S05-001": {
+      "source": {
+        "question_tr": "Ahiret bilinci günlük hayatta en çok hangi tutumu destekler?",
+        "explanation_tr": "Ahirette yapılanların karşılığının görüleceğine iman, davranışların anlam ve sorumluluk taşıdığını hatırlatır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sorumluluk ve adalet bilincini",
+          "Kayıtsızlığı",
+          "Haksızlığın önemsizliğini",
+          "İyiliği sürekli ertelemeyi"
+        ],
+        "correct_answer": "Sorumluluk ve adalet bilincini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle attitude la conscience de l’au-delà encourage-t-elle particulièrement dans la vie quotidienne ?",
+        "explanation_tr": "Croire à la rétribution des actes rappelle que nos choix ont du sens et engagent notre responsabilité.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le sens de la responsabilité et de la justice",
+          "L’indifférence",
+          "L’idée que l’injustice est insignifiante",
+          "Le report permanent des bonnes actions"
+        ],
+        "correct_answer": "Le sens de la responsabilité et de la justice",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-002": {
+      "source": {
+        "question_tr": "Ahiret inancı, yalnız ölüm sonrası hakkında bilgi verir; dünya davranışlarıyla hiçbir ilişkisi yoktur.",
+        "explanation_tr": "Kur'an ahiret hesabını dünya hayatındaki iyilik, kötülük, adalet ve sorumlulukla doğrudan ilişkilendirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi en l’au-delà ne concerne que la vie après la mort et n’a aucun lien avec notre conduite ici-bas.",
+        "explanation_tr": "Le Coran associe directement le jugement futur aux bonnes et mauvaises actions et à la responsabilité dans la vie terrestre.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-003": {
+      "source": {
+        "question_tr": "Zilzâl 99:7-8'in mesajı, küçük davranışların bile ______ taşıdığını hatırlatır.",
+        "explanation_tr": "Ayetler küçük hayır ve şerrin dahi karşılığının görüleceğini bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "sorumluluk",
+          "anlamsızlık",
+          "görünmezlik",
+          "tesadüf"
+        ],
+        "correct_answer": "sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Az-Zalzala 99:7-8 rappelle que même les petits actes comportent une ______.",
+        "explanation_tr": "Ces versets indiquent que même le plus petit bien ou mal sera vu.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "responsabilité",
+          "absence de sens",
+          "invisibilité",
+          "coïncidence"
+        ],
+        "correct_answer": "responsabilité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-004": {
+      "source": {
+        "question_tr": "Bir öğrenci sınavda kopya çekmeyi 'Kimse görmezse sorun yok' diye savunuyor. Ahiret bilinci açısından en uygun hatırlatma hangisidir?",
+        "explanation_tr": "Ahiret hesabı ve ilahî adalet inancı, görünmeyen davranışlarda da sorumluluk bilincini destekler.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Doğru davranış yalnız insanların görmesine bağlı değildir; insan yaptıklarından sorumludur",
+          "Kimse görmezse davranış hesaba girmez",
+          "Sadece büyük suçlar önemlidir",
+          "Başarılı sonuç her yöntemi haklı çıkarır"
+        ],
+        "correct_answer": "Doğru davranış yalnız insanların görmesine bağlı değildir; insan yaptıklarından sorumludur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève justifie la tricherie à un examen en disant : « Personne ne le saura. » Que lui rappelle la foi en l’au-delà ?",
+        "explanation_tr": "La foi en la justice divine encourage à faire le bien même lorsque personne ne nous observe.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Être honnête ne dépend pas du regard des autres ; chacun est responsable de ses actes",
+          "Si personne ne voit la tricherie, elle ne compte pas",
+          "Seules les fautes graves comptent",
+          "Un bon résultat justifie tous les moyens"
+        ],
+        "correct_answer": "Être honnête ne dépend pas du regard des autres ; chacun est responsable de ses actes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-005": {
+      "source": {
+        "question_tr": "Bir kişi 'Küçük bir iyilik yapmanın ne faydası var?' diyor. Hangi ayet ilkesi en uygun cevaptır?",
+        "explanation_tr": "Zilzâl 99:7 küçük iyiliğin dahi değersiz olmadığını bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zerre kadar hayrın bile karşılığının görüleceği",
+          "Yalnız büyük bağışların değerli olduğu",
+          "İyiliğin ancak alkışlanırsa anlamlı olduğu",
+          "Küçük iyiliğin silindiği"
+        ],
+        "correct_answer": "Zerre kadar hayrın bile karşılığının görüleceği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande : « À quoi sert un tout petit geste de bonté ? » Quel principe coranique lui répondre ?",
+        "explanation_tr": "Az-Zalzala 99:7 enseigne que même les plus petits actes de bien ne sont pas dépourvus de valeur.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Même le plus petit bien sera vu et pris en compte",
+          "Seuls les dons importants comptent",
+          "Une bonne action doit être applaudie pour avoir de la valeur",
+          "Les petits gestes de bonté sont effacés"
+        ],
+        "correct_answer": "Même le plus petit bien sera vu et pris en compte",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-006": {
+      "source": {
+        "question_tr": "Birisi 'Nasıl olsa ahiret var, dünya hayatındaki sorumluluklar önemsizdir' diyor. En dengeli cevap hangisidir?",
+        "explanation_tr": "Kur'an ahiret hesabını dünya hayatındaki davranışlarla doğrudan bağlantılı kurar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret inancı dünyadaki sorumluluğu azaltmaz; aksine davranışların hesabını hatırlatır",
+          "Ahiret inancı çalışmayı gereksiz kılar",
+          "Dünya hayatındaki adalet önemsizdir",
+          "İnsan hiçbir tercihten sorumlu değildir"
+        ],
+        "correct_answer": "Ahiret inancı dünyadaki sorumluluğu azaltmaz; aksine davranışların hesabını hatırlatır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un dit : « Puisqu’il existe une vie future, nos obligations sur terre sont sans importance. » Que répondre ?",
+        "explanation_tr": "Le Coran relie le jugement dans l’au-delà à ce que nous faisons pendant notre vie terrestre.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La foi en l’au-delà renforce la responsabilité ici-bas au lieu de la supprimer",
+          "La foi en l’au-delà rend le travail inutile",
+          "La justice dans ce monde n’a aucune importance",
+          "L’être humain n’est responsable d’aucun de ses choix"
+        ],
+        "correct_answer": "La foi en l’au-delà renforce la responsabilité ici-bas au lieu de la supprimer",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-007": {
+      "source": {
+        "question_tr": "Bir notta 'Ahiret inancı insanı sadece korkutmak içindir' yazıyor. En kapsamlı düzeltme hangisidir?",
+        "explanation_tr": "Zilzâl 99:7 iyiliğin karşılığını, Enbiyâ 21:47 adaleti, Âl-i İmrân 3:185 ise nihai karşılığı vurgular.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ahiret inancı sorumluluk, adalet, umut ve yapılan iyiliğin değerini de öğretir",
+          "Ahiret yalnız korku üretir",
+          "İyilik ahiretle ilgisizdir",
+          "Adalet yalnız dünyada mümkündür"
+        ],
+        "correct_answer": "Ahiret inancı sorumluluk, adalet, umut ve yapılan iyiliğin değerini de öğretir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note affirme : « La foi en l’au-delà vise uniquement à faire peur. » Quelle correction est plus complète ?",
+        "explanation_tr": "Az-Zalzala 99:7 parle de la valeur du bien, Al-Anbiya 21:47 de la justice et Al-Imran 3:185 de la rétribution finale.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "La foi en l’au-delà enseigne aussi la responsabilité, la justice, l’espérance et la valeur des bonnes actions",
+          "L’au-delà ne sert qu’à susciter la peur",
+          "Les bonnes actions n’ont aucun rapport avec l’au-delà",
+          "La justice n’existe que dans cette vie"
+        ],
+        "correct_answer": "La foi en l’au-delà enseigne aussi la responsabilité, la justice, l’espérance et la valeur des bonnes actions",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-008": {
+      "source": {
+        "question_tr": "Ahiret bilincini davranışlarla eşleştir.",
+        "explanation_tr": "Ahiret inancı dünya hayatındaki ahlaki seçimleri güçlendiren bir sorumluluk çerçevesi oluşturur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hesap bilinci",
+            "right": "Gizli-açık davranışta sorumluluk"
+          },
+          {
+            "left": "İlahi adalet",
+            "right": "Haksızlıktan kaçınma"
+          },
+          {
+            "left": "Küçük iyiliğin değeri",
+            "right": "İyiliği küçümsememe"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les dimensions de la conscience de l’au-delà à leurs conséquences sur la conduite.",
+        "explanation_tr": "La foi en l’au-delà aide à prendre des décisions éthiques en gardant à l’esprit la responsabilité personnelle.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Conscience du jugement",
+            "right": "Être responsable même lorsque personne ne regarde"
+          },
+          {
+            "left": "Justice divine",
+            "right": "Éviter l’injustice"
+          },
+          {
+            "left": "Valeur des petits actes de bien",
+            "right": "Ne pas mépriser les petits gestes de bonté"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-009": {
+      "source": {
+        "question_tr": "Ahiret inancı, bir insanın yalnızca başkalarının gördüğü zaman dürüst olması gerektiğini öğretir.",
+        "explanation_tr": "Ahiret hesabı insan gözetiminden bağımsız bir sorumluluk bilinci doğurur.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi en l’au-delà nous demande d’être honnêtes uniquement quand les autres nous regardent.",
+        "explanation_tr": "La responsabilité devant Allah ne dépend pas du regard des autres.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-010": {
+      "source": {
+        "question_tr": "Ahiret inancının günlük hayata iki olumlu etkisini yaz.",
+        "explanation_tr": "Kur'an yapılanların karşılığının görüleceğini bildirerek davranış bilincini canlı tutar.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "İnsanın sorumluluk ve adalet bilincini güçlendirir; küçük iyilikleri küçümsememesine ve kötülükten sakınmasına yardımcı olur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Cite deux effets positifs de la foi en l’au-delà sur la conduite quotidienne.",
+        "explanation_tr": "Le Coran rappelle que les actes auront des conséquences et encourage un comportement responsable.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Elle développe le sens de la responsabilité et de la justice, tout en incitant à apprécier les petites bonnes actions et à éviter le mal.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-011": {
+      "source": {
+        "question_tr": "Ahiret hesabına iman, insanı gizli ve açık davranışlarında daha ______ olmaya yöneltebilir.",
+        "explanation_tr": "Hesap inancı davranışların sonuç ve anlam taşıdığını hatırlatır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "sorumlu",
+          "kayıtsız",
+          "haksız",
+          "rastgele"
+        ],
+        "correct_answer": "sorumlu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire au jugement futur peut nous encourager à être plus ______ dans nos actes publics et privés.",
+        "explanation_tr": "La foi en la rétribution rappelle que nos choix engagent notre responsabilité.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "responsables",
+          "indifférents",
+          "injustes",
+          "incohérents"
+        ],
+        "correct_answer": "responsables",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-012": {
+      "source": {
+        "question_tr": "Bir arkadaşın yaptığı küçük bir hatayı 'Nasıl olsa küçücük bir şey' diye önemsiz görüyor. En dengeli yaklaşım hangisidir?",
+        "explanation_tr": "Zilzâl 99:8 küçük kötülüğün bile karşılıksız olmadığını hatırlatır; amaç umutsuzluk değil sorumluluk ve düzeltmedir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Küçük davranışları da ciddiye alıp düzeltmeye çalışmak",
+          "Küçük kötülüklerin hiçbir hesabı olmadığını düşünmek",
+          "Hataları sürekli büyütmek",
+          "Hiçbir davranışı değerlendirmemek"
+        ],
+        "correct_answer": "Küçük davranışları da ciddiye alıp düzeltmeye çalışmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami minimise une petite faute en disant : « Ce n’est rien du tout. » Quelle réaction serait équilibrée ?",
+        "explanation_tr": "Az-Zalzala 99:8 rappelle que même les petites fautes comptent ; il convient de corriger ses erreurs plutôt que de désespérer.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Prendre même les petites fautes au sérieux et chercher à les corriger",
+          "Considérer que les petites fautes ne comptent jamais",
+          "Amplifier constamment chaque erreur",
+          "Renoncer à évaluer son comportement"
+        ],
+        "correct_answer": "Prendre même les petites fautes au sérieux et chercher à les corriger",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-013": {
+      "source": {
+        "question_tr": "Ahiret inancını sağlıklı biçimde öğrenen biri hata yaptığında hangi tutum daha uygundur?",
+        "explanation_tr": "Ahiret bilinci sorumluluğu ve iyiliğe yönelmeyi desteklemelidir; ölüm sonrası pişmanlık yerine dünyada düzeltme imkânını değerlendirmek önemlidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hatayı fark edip düzeltmeye ve iyiliğe yönelmeye çalışmak",
+          "Nasıl olsa hesap var diye umutsuzluğa kapılmak",
+          "Hatasını inkâr etmek",
+          "Sorumluluğu başkasına yüklemek"
+        ],
+        "correct_answer": "Hatayı fark edip düzeltmeye ve iyiliğe yönelmeye çalışmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne qui comprend la foi en l’au-delà commet une erreur. Quelle réaction convient le mieux ?",
+        "explanation_tr": "Cette foi devrait encourager à assumer ses responsabilités et à réparer ses fautes tant qu’il en est temps.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Reconnaître l’erreur, chercher à la réparer et se tourner vers le bien",
+          "Se laisser gagner par le désespoir",
+          "Nier l’erreur",
+          "Reporter toute responsabilité sur autrui"
+        ],
+        "correct_answer": "Reconnaître l’erreur, chercher à la réparer et se tourner vers le bien",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-014": {
+      "source": {
+        "question_tr": "Ahiret bilincini günlük karara uygulama sırasını oluştur.",
+        "explanation_tr": "Ahiret inancı karar anında sorumluluk ve adalet ölçüsünü hatırlatabilir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Karşımdaki seçeneği fark et",
+          "Doğru ve yanlış sonuçlarını düşün",
+          "Sorumluluğumu hatırla",
+          "Adil ve iyi olanı seç"
+        ],
+        "correct_order": [
+          "Karşımdaki seçeneği fark et",
+          "Doğru ve yanlış sonuçlarını düşün",
+          "Sorumluluğumu hatırla",
+          "Adil ve iyi olanı seç"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe les étapes d’une décision quotidienne éclairée par la foi en l’au-delà.",
+        "explanation_tr": "La conscience de la responsabilité peut aider à choisir ce qui est juste au moment d’agir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Identifier les possibilités qui s’offrent à moi",
+          "Réfléchir aux conséquences bonnes et mauvaises",
+          "Me rappeler ma responsabilité",
+          "Choisir ce qui est juste et bon"
+        ],
+        "correct_order": [
+          "Identifier les possibilités qui s’offrent à moi",
+          "Réfléchir aux conséquences bonnes et mauvaises",
+          "Me rappeler ma responsabilité",
+          "Choisir ce qui est juste et bon"
+        ],
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-015": {
+      "source": {
+        "question_tr": "Ahiret inancı ile umut arasındaki en dengeli bağ hangisidir?",
+        "explanation_tr": "Zilzâl 99:7 iyiliğin karşılığını, Enbiyâ 21:47 ise nihai adaleti hatırlatır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Yapılan iyiliğin kaybolmayacağı ve adaletin sonunda gerçekleşeceği ümidi",
+          "Hiçbir davranışın önem taşımadığı düşüncesi",
+          "Dünya sorumluluklarından kaçma isteği",
+          "Her hatanın düzeltilemez olduğu inancı"
+        ],
+        "correct_answer": "Yapılan iyiliğin kaybolmayacağı ve adaletin sonunda gerçekleşeceği ümidi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel lien équilibré existe entre la foi en l’au-delà et l’espérance ?",
+        "explanation_tr": "Az-Zalzala 99:7 souligne que le bien compte et Al-Anbiya 21:47 rappelle la justice finale.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "L’espérance que les bonnes actions ne sont pas perdues et que la justice se réalisera",
+          "L’idée qu’aucun acte n’a d’importance",
+          "Le désir de fuir les responsabilités de ce monde",
+          "La croyance que chaque erreur est irréparable"
+        ],
+        "correct_answer": "L’espérance que les bonnes actions ne sont pas perdues et que la justice se réalisera",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S05-016": {
+      "source": {
+        "question_tr": "Dünya hayatı ile ahiret arasındaki ilişkiyi en doğru anlatan ifade hangisidir?",
+        "explanation_tr": "Kur'an ahiret karşılığını dünya hayatında yapılanlarla doğrudan ilişkilendirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Dünya hayatındaki seçimler ahiret hesabıyla ilişkilidir",
+          "Ahiret dünya davranışlarından tamamen kopuktur",
+          "Dünya hayatı hiçbir sorumluluk içermez",
+          "Ahiret yalnız teorik bilgi konusudur"
+        ],
+        "correct_answer": "Dünya hayatındaki seçimler ahiret hesabıyla ilişkilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle phrase décrit le mieux le rapport entre la vie terrestre et la vie future ?",
+        "explanation_tr": "Le Coran relie directement la rétribution dans l’au-delà aux actes accomplis ici-bas.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Les choix faits sur terre sont liés au jugement de l’au-delà",
+          "L’au-delà est entièrement séparé de notre conduite terrestre",
+          "La vie terrestre ne comporte aucune responsabilité",
+          "L’au-delà ne concerne que des connaissances théoriques"
+        ],
+        "correct_answer": "Les choix faits sur terre sont liés au jugement de l’au-delà",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi en l’au-delà au quotidien",
+        "topic": "Responsabilité, justice et espérance"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
