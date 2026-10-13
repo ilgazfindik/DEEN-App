@@ -1009,6 +1009,11 @@ try{
    .map(el=>el.getAttribute('src'));
   const messageBefore=panel.textContent;
   const audit=renderer.render(panel,{qaMode:true,locale:'de',documentRef:document});
+  const officialLanguageNames=window.DEEN_I18N.languages().map(row=>row.name);
+  const legitimateLanguageLabels=audit.unresolved.filter(v=>
+   officialLanguageNames.includes(v));
+  const unresolvedUI=audit.unresolved.filter(v=>
+   !officialLanguageNames.includes(v));
   const arabicAfter=[...panel.querySelectorAll('[lang="ar"]')]
    .map(el=>el.outerHTML);
   const sourceAfter=[...panel.querySelectorAll('audio,source')]
@@ -1016,6 +1021,7 @@ try{
   return {heading:panel.querySelector('h1,h2,h3')?.textContent?.trim()||null,
    hasGatedGermanMeaning:messageBefore.includes('Noch keine geprüfte Übersetzung.'),
    scanned:audit.scanned,writes:audit.writes,unresolved:audit.unresolved,
+   legitimateLanguageLabels,unresolvedUI,
    arabicUnchanged:JSON.stringify(arabicBefore)===JSON.stringify(arabicAfter),
    sourcesUnchanged:JSON.stringify(sourceBefore)===JSON.stringify(sourceAfter),
    text:panel.textContent?.trim().slice(0,1000)};
@@ -1025,7 +1031,8 @@ try{
   'Unapproved German Quran meaning was not visibly gated');
  assert.equal(journey.arabicUnchanged,true);
  assert.equal(journey.sourcesUnchanged,true);
- assert.deepEqual(journey.unresolved,[],'German Fatiha journey contains Turkish UI chrome');
+ assert.deepEqual(journey.unresolvedUI,[],
+  'German Fatiha journey contains Turkish UI chrome beyond untranslated language names');
  await page.screenshot({path:output+'/true-locale-german-fatiha-surah.png',fullPage:true});
 
  // Exercise full first-run onboarding without assigning state.onboarded in QA.
