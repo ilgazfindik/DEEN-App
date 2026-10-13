@@ -113,3 +113,15 @@
 - **Scope limitation:** in-memory/source-guarded German DOM renderer is used only in disposable localhost Chromium; shipped production still blocks German (`de.question_data=missing`, `de.global_qa=blocked`, `religious_expert_approved=false`). No `main` merge or live deployment. The test does not certify every Quran view, all seven Fâtiha audio files on devices, offline mode or licensed/native/theological review.
 
 **Next:** inspect real German Quran *memorization*, ayah/meaning tests and mobile/offline behaviors without silently releasing untranslated Quran meanings.
+
+
+## 2026-10-13 — Fâtiha memorization and Arabic ayah test (German staging only)
+
+- **Chromium passed:** [German real-browser staging QA #38369730061](https://github.com/ilgazfindik/DEEN-App/actions/runs/38369730061) at code commit `344eabef78d31f4f5cac87db4fe86c8990b57407`; **static German audit passed:** [#38369540453](https://github.com/ilgazfindik/DEEN-App/actions/runs/38369540453).
+- Expanded `assets/i18n/german-ui.dynamic.staging.mjs` using source-exact QA mappings for the native Fâtiha memorization card, recall/reveal controls, tested question chrome, counters, accessibility labels and unavailable-audio/meaning notices. Source-sensitive Arabic words, rendered answers and approved translations remain excluded from generic replacements.
+- The user-facing 5-step Learn controls completed all seven Fâtiha ayahs without setting progress manually. The *real Journey memorization button* then unlocked and opened an Arabic-backed German card (`Fâtiha auswendig lernen`, `AUSWENDIGLERNSTUFE 2 / 5`). The reveal was byte-identical in displayed text to the original Arabic registry; the QA renderer did not modify Arabic or audio sources. No unhandled Turkish UI signals remained in the tested memorization view.
+- The Journey Ayah Test was playable while German meanings were absent. It exposed four source-preserved choices, a German prompt (`Ergänze das fehlende Wort`) and action (`PRÜFEN`), and the native grader recorded one answer. The DOM QA audit reported `unresolved=[]` and original Arabic/graded choices unchanged.
+- **Critical gating verified:** the real Meaning Test button remained disabled; `DEEN_QURAN_JOURNEY_V2.mealReady('fatiha')===false`, `stats('fatiha').meaningUnlocked===false` and `startStage('meaning')===false` without generating a quiz. No German Quran meanings or Surah Final were released.
+- **Scope:** these are localhost browser/source-exact staging changes only; no PR merge or live deploy. One Ayah Test item was graded, not the entire question set. German academic/native review and religious review are still pending; missing meanings must not be manufactured or auto-approved.
+
+**Next:** exercise all five Ayah Test questions (correct and incorrect paths, replay audio, result/review), broader Surah memorization/practice and real mobile/offline regressions before any release consideration.
