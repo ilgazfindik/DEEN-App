@@ -127,3 +127,11 @@
 - **Kaynak içerik riski:** `DEEN-U13-S03-006` ve `DEEN-U13-S06-012` matching sorularında Türkçe/İngilizce kaynakta 4 eşleştirmenin sağ tarafında yalnız 3 benzersiz tanım bulunur. Fransızca çeviride aynı çoğulluk korunmuştur; bu bir çeviri hatası değil ancak eşleştirme motoru ve pedagojik ayırt edilebilirlik için ayrı düzeltme gerektirir. Üretimde oynatılmadan önce kaynak onaylı varyantla onarılmalıdır.
 - `qa/FRENCH_U13_TRANSLATION_GLOSSARY.json` terim eşlemelerini ayrı review kaydı olarak tutar, `scripts/audit-french-u13-complete.mjs` CI'da yapısal doğrulamayı çalıştırır.
 - Dinî uzman/Fransızca anadili onayı verilmedi, `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` kilitleri korunur. main/Pages değişmez.
+
+## 2026-10-14 — U14 100/100 Fransızca taslağı
+- **Kaynak düzeltmesi:** U14, “Oruç” değil **Namazın Kılınışı / Rükünleri** konularını kapsıyor. İngilizce/Türkçe kaynak ID'leri ve soru anlamları doğrulandı; içerik uydurularak “Oruç”a dönüştürülmedi.
+- S01–S07: **14+14+14+16+16+12+14 = 100/100**. Genel temel soru taslağı: **1.400/1.500**, U15'te **100 soru** kaldı.
+- Kapsam: iftitah tekbiri, kıyam, kıraat, rükû, secde, rekât, secdeler arası oturuş, son oturuş, hasta/engelli için kolaylıklar, Fâtiha hükmündeki mezhep farklılıkları.
+- İlk yapısal tarama: **100 soru, 84 seçenekli, 36 eşleştirme çifti, 14 fill_blank, 0 ön-tarama hatası**. U14 kaynak eşleştirmelerinde tekrar eden sağ taraf saptanmadı.
+- `qa/FRENCH_U14_TRANSLATION_GLOSSARY.json` kaynaklara bağlı Fransızca terminolojiyi tutar; `scripts/audit-french-u14-complete.mjs` ayrı otomatik testtir.
+- **Staging-only**: `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`, onay bayrakları false. İnsan dil/din denetimi ve üretim QA yapılmadan merge veya deploy yapılmaz.
