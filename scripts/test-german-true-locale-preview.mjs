@@ -1018,10 +1018,17 @@ try{
    .map(el=>el.outerHTML);
   const sourceAfter=[...panel.querySelectorAll('audio,source')]
    .map(el=>el.getAttribute('src'));
+  const englishSignals=[
+   'Surah Journey','Learn → Memorize','LEVEL 0','MASTERY',
+   'ayahs learned','ayahs memorized','Ayah Test','Meaning Test',
+   'Surah Final','LOCKED','questions about','Unlock after final'
+  ];
+  const remainingEnglish=englishSignals.filter(value=>
+   panel.textContent.includes(value));
   return {heading:panel.querySelector('h1,h2,h3')?.textContent?.trim()||null,
    hasGatedGermanMeaning:messageBefore.includes('Noch keine geprüfte Übersetzung.'),
    scanned:audit.scanned,writes:audit.writes,unresolved:audit.unresolved,
-   legitimateLanguageLabels,unresolvedUI,
+   legitimateLanguageLabels,unresolvedUI,remainingEnglish,
    arabicUnchanged:JSON.stringify(arabicBefore)===JSON.stringify(arabicAfter),
    sourcesUnchanged:JSON.stringify(sourceBefore)===JSON.stringify(sourceAfter),
    text:panel.textContent?.trim().slice(0,1000)};
@@ -1033,6 +1040,8 @@ try{
  assert.equal(journey.sourcesUnchanged,true);
  assert.deepEqual(journey.unresolvedUI,[],
   'German Fatiha journey contains Turkish UI chrome beyond untranslated language names');
+ assert.deepEqual(journey.remainingEnglish,[],
+  'German Fatiha journey still exposes English UI labels');
  await page.screenshot({path:output+'/true-locale-german-fatiha-surah.png',fullPage:true});
 
  // Exercise full first-run onboarding without assigning state.onboarded in QA.
