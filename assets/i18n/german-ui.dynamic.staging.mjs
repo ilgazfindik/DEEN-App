@@ -317,7 +317,7 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   return emit('Fragenanalyse '+m[1]+'/'+m[2]+' richtig');
  if((m=n.match(/^(\d+)\/(\d+)\s+correct$/)))
   return emit(m[1]+'/'+m[2]+' richtig');
- if((m=n.match(/^(\d+)\.\s+question\s*·\s*Ayah\s+([1-7])$/)))
+ if((m=n.match(/^([1-5])\.\s+question\s*·\s*Ayah\s+([1-8])$/)))
   return emit('Frage '+m[1]+' · Vers '+m[2]);
  if((m=n.match(/^Ayahs to review:\s*([\d,\s]+)$/)))
   return emit('Verse zum Wiederholen: '+m[1]);
@@ -348,7 +348,7 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   return emit('✓ '+m[1]+' '+(m[1]==='1'?'richtig':'richtige Antworten'));
  if((m=n.match(/^Başarı puanı yüzde\s+(\d{1,3})$/)))
   return emit('Ergebnis: '+m[1]+' Prozent');
- if((m=n.match(/^([1-5])\.\s+soru\s*·\s*Ayet\s+([1-7])$/)))
+ if((m=n.match(/^([1-5])\.\s+soru\s*·\s*Ayet\s+([1-8])$/)))
   return emit('Frage '+m[1]+' · Vers '+m[2]);
 
  if((m=n.match(/^Fâtiha\s*·\s*Ayet\s+([1-7])\/7$/)))
