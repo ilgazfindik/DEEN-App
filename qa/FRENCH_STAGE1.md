@@ -41,3 +41,10 @@
 - Toplam **300/1500 temel soru**; kalan **1200 (U04–U15)**. U01 aktif varyantları ve UI ayrı görevler olarak devam ediyor.
 - Dinî anlamlara ilişkin Fransızca metinler uzman incelemesi için staging'dedir; orijinal Arapça kıraat veya ses dosyası değiştirilmedi.
 - `scripts/audit-french-u03-complete.mjs` eşleştirme, doğru cevap indeksi, boşluk, dizi sırası ve kaynak kimliği denetler; Fransızca anadili/dinî onay bu teknik kontrolden çıkarsanmaz.
+
+## 2026-10-13 — U04 100/100 Fransızca taslak
+- U04-S01–S07 paketleri: **14 + 14 + 14 + 16 + 16 + 12 + 14 = 100/100**.
+- Beş şart: şehadet, namaz, oruç, zekât ve hac; kavram eşleştirmeleri, günlük yaşam senaryoları, açıklamalar, tüm seçenekler Fransızcaya çevrildi.
+- Toplam **400/1500** temel soru; **1100** soru U05–U15'te kaldı. U01 canlı varyantları, 1417 bilinen UI anahtarı ve dinamik ekranlar ayrıca eksik.
+- `scripts/audit-french-u04-complete.mjs`: soru kaynak eşleşmesi, cevap konumu, eşleştirme çiftleri, boşluk adedi, dinî metnin kaynak kimliği ve üretim kilitleri kontrolü.
+- Dini/Fransızca uzman onayları henüz verilmedi; yalnız staging.
