@@ -1,0 +1,703 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U04",
+  "stage": "U04-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U04-S04-001": {
+      "source": {
+        "question_tr": "Şartları temel anlamlarıyla eşleştirin.",
+        "explanation_tr": "Her şartın odaklandığı farklı bir alan vardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Düzenli ibadet",
+            "right": "Namaz"
+          },
+          {
+            "left": "Malî paylaşma",
+            "right": "Zekât"
+          },
+          {
+            "left": "Ramazan ayı",
+            "right": "Oruç"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les piliers à leur signification fondamentale.",
+        "explanation_tr": "Chaque pilier se distingue par la dimension de la pratique qu’il représente.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Pratique régulière d’adoration",
+            "right": "Prière"
+          },
+          {
+            "left": "Partage financier",
+            "right": "Zakat"
+          },
+          {
+            "left": "Mois de Ramadan",
+            "right": "Jeûne"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-002": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları eşleştirin.",
+        "explanation_tr": "Şehadet inanç ilanı, Hac ise kutsal mekân ziyaretidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İnanç beyanı",
+            "right": "Kelime-i Şehadet"
+          },
+          {
+            "left": "Kâbe ve Arafat merkezli menâsik",
+            "right": "Hac"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions suivantes.",
+        "explanation_tr": "La chahada est une déclaration de foi ; le hajj est un pèlerinage dans les lieux saints.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Profession de foi",
+            "right": "Chahada"
+          },
+          {
+            "left": "Rites liés à la Kaaba et à Arafat",
+            "right": "Hajj"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-003": {
+      "source": {
+        "question_tr": "Aşağıdaki eşleştirmelerden hangisi yanlıştır?",
+        "explanation_tr": "Mekke'ye ziyaret 'Hac' ibadetidir; 'Zekât' ise malî bir paylaşma ibadetidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Zekât = Mekke'ye ziyaret",
+          "Oruç = Ramazan ayında tutulması",
+          "Namaz = Düzenli kulluk ibadeti",
+          "Kelime-i Şehadet = İnanç beyanı"
+        ],
+        "correct_answer": "Zekât = Mekke'ye ziyaret",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle association est incorrecte ?",
+        "explanation_tr": "Se rendre à La Mecque pour le pèlerinage relève du hajj ; la zakat est une obligation financière.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Zakat = pèlerinage à La Mecque",
+          "Jeûne = pratique du Ramadan",
+          "Prière = acte régulier d’adoration",
+          "Chahada = profession de foi"
+        ],
+        "correct_answer": "Zakat = pèlerinage à La Mecque",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-004": {
+      "source": {
+        "question_tr": "Aşağıdaki seçeneklerden hangisinde bir ibadet ve ilgili olduğu kavram doğru verilmiştir?",
+        "explanation_tr": "Namaz, gün içinde düzenli olarak kılınan ibadettir. Diğer seçeneklerdeki kavramlar karışık verilmiştir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Oruç - Paylaşma ve zenginlik vergisi",
+          "Hac - Günlük kulluk ibadeti",
+          "Namaz - Düzenli olarak yerine getirilen ibadet",
+          "Zekât - Ramazan ayında aç kalmak"
+        ],
+        "correct_answer": "Namaz - Düzenli olarak yerine getirilen ibadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle paire associe correctement un pilier à sa caractéristique ?",
+        "explanation_tr": "La prière est une pratique régulière d’adoration ; les autres propositions mélangent les notions.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Jeûne — contribution financière",
+          "Hajj — pratique quotidienne d’adoration",
+          "Prière — pratique régulière d’adoration",
+          "Zakat — privation de nourriture pendant le Ramadan"
+        ],
+        "correct_answer": "Prière — pratique régulière d’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-005": {
+      "source": {
+        "question_tr": "İslam'ın şartlarını odak noktalarıyla eşleştirin.",
+        "explanation_tr": "Bu ibadetlerin her biri Müslümanın farklı bir fedakârlığını ve kulluğunu temsil eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Dil ile ikrar (ilan etmek)",
+            "right": "Şehadet"
+          },
+          {
+            "left": "Mal ile ibadet",
+            "right": "Zekât"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les piliers à leur dimension principale.",
+        "explanation_tr": "Ces pratiques expriment différentes formes de dévotion à Allah.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Affirmation orale de la foi",
+            "right": "Chahada"
+          },
+          {
+            "left": "Obligation financière",
+            "right": "Zakat"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-006": {
+      "source": {
+        "question_tr": "Hangi eşleştirme İslam'ın şartları açısından hatalıdır?",
+        "explanation_tr": "Malî paylaşım zekâtla ilişkilidir; namaz ise düzenli kulluk ibadetidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hac = Mekke ile ilişkili ibadet",
+          "Oruç = Ramazan ile ilişkili ibadet",
+          "Namaz = Malî paylaşım ibadeti",
+          "Şehadet = İnanç beyanı"
+        ],
+        "correct_answer": "Namaz = Malî paylaşım ibadeti",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle association est incorrecte parmi les piliers de l’islam ?",
+        "explanation_tr": "Le partage financier concerne la zakat, et non la prière.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hajj = pèlerinage lié à La Mecque",
+          "Jeûne = pratique liée au Ramadan",
+          "Prière = contribution financière",
+          "Chahada = profession de foi"
+        ],
+        "correct_answer": "Prière = contribution financière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-007": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları ait oldukları kategori ile eşleştirin.",
+        "explanation_tr": "Oruç ve namaz İslam'ın şartlarındandır; ahirete ve meleklere inanmak ise imanın esaslarındandır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Oruç tutmak",
+            "right": "İslam'ın Şartları"
+          },
+          {
+            "left": "Ahirete iman",
+            "right": "İmanın Esasları"
+          },
+          {
+            "left": "Namaz kılmak",
+            "right": "İslam'ın Şartları"
+          },
+          {
+            "left": "Meleklere iman",
+            "right": "İmanın Esasları"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions à leur catégorie.",
+        "explanation_tr": "Le jeûne et la prière sont des piliers de l’islam ; croire au Jour dernier et aux anges relève des articles de la foi.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Observer le jeûne",
+            "right": "Piliers de l’islam"
+          },
+          {
+            "left": "Croire au Jour dernier",
+            "right": "Articles de la foi"
+          },
+          {
+            "left": "Accomplir la prière",
+            "right": "Piliers de l’islam"
+          },
+          {
+            "left": "Croire aux anges",
+            "right": "Articles de la foi"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-008": {
+      "source": {
+        "question_tr": "Aşağıdaki açıklamalardan hangisi iki farklı İslam şartını birbirine karıştırır?",
+        "explanation_tr": "Maldan pay verme zekâtla ilişkilidir; namaz düzenli kulluk ibadetidir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Oruç = Ramazan'la ilişkili ibadet",
+          "Zekât = Malî ibadet",
+          "Hac = Mekke ile ilişkili ibadet",
+          "Namaz = Maldan pay verme ibadeti"
+        ],
+        "correct_answer": "Namaz = Maldan pay verme ibadeti",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle explication confond deux piliers différents ?",
+        "explanation_tr": "Verser une part de ses biens relève de la zakat ; la prière est un acte régulier d’adoration.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Jeûne = pratique liée au Ramadan",
+          "Zakat = obligation financière",
+          "Hajj = pèlerinage lié à La Mecque",
+          "Prière = versement d’une part de ses biens"
+        ],
+        "correct_answer": "Prière = versement d’une part de ses biens",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-009": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet ile ilgili kavramları eşleştirin.",
+        "explanation_tr": "Kelime-i Şehadet tevhid beyanı ile Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği birlikte içerir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'tan başka ilah yoktur",
+            "right": "Tevhid"
+          },
+          {
+            "left": "Hz. Muhammed",
+            "right": "Allah'ın kulu ve elçisi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions concernant la chahada.",
+        "explanation_tr": "La chahada témoigne de l’unicité d’Allah et du statut de serviteur et messager de Muhammad.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Il n’y a de divinité qu’Allah",
+            "right": "Tawhid"
+          },
+          {
+            "left": "Muhammad",
+            "right": "Serviteur et messager d’Allah"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-010": {
+      "source": {
+        "question_tr": "Hangi ikili, İslam'ın şartları bağlamında doğru ilişkilendirilmiştir?",
+        "explanation_tr": "Hac ibadeti Mekke ve çevresindeki belirli mekânlarla doğrudan ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hac - Mekke",
+          "Oruç - Malî paylaşım",
+          "Namaz - Ramazan ayına özgü ibadet",
+          "Zekât - Kutsal mekân yolculuğu"
+        ],
+        "correct_answer": "Hac - Mekke",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle paire est correctement associée dans le contexte des cinq piliers ?",
+        "explanation_tr": "Le hajj est directement lié à La Mecque et à ses environs.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hajj — La Mecque",
+          "Jeûne — partage financier",
+          "Prière — pratique réservée au Ramadan",
+          "Zakat — voyage vers les lieux saints"
+        ],
+        "correct_answer": "Hajj — La Mecque",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-011": {
+      "source": {
+        "question_tr": "Aşağıdaki ibadet-bağlam eşleştirmelerinden hangisi hatalıdır?",
+        "explanation_tr": "Kutsal mekân yolculuğu hacla ilişkilidir; zekât malî bir ibadettir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namaz = Belirli vakitlerde düzenli kulluk",
+          "Oruç = Ramazan",
+          "Hac = Mekke ile ilişkili ibadet",
+          "Zekât = Kutsal mekân yolculuğu"
+        ],
+        "correct_answer": "Zekât = Kutsal mekân yolculuğu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle association entre une pratique et son contexte est incorrecte ?",
+        "explanation_tr": "Le voyage vers les lieux saints concerne le hajj ; la zakat est une obligation financière.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Prière = acte régulier à des heures déterminées",
+          "Jeûne = Ramadan",
+          "Hajj = pèlerinage à La Mecque",
+          "Zakat = voyage vers les lieux saints"
+        ],
+        "correct_answer": "Zakat = voyage vers les lieux saints",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-012": {
+      "source": {
+        "question_tr": "İbadetleri kısa tanımlarıyla eşleştirin.",
+        "explanation_tr": "Bu eşleştirmeler, beş şartın temel anlam çerçevesini gösterir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Düzenli ibadet",
+            "right": "Namaz"
+          },
+          {
+            "left": "Malî ibadet",
+            "right": "Zekât"
+          },
+          {
+            "left": "İnanç beyanı",
+            "right": "Şehadet"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les actes d’adoration à une courte définition.",
+        "explanation_tr": "Ces associations résument les significations essentielles des piliers.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Pratique régulière d’adoration",
+            "right": "Prière"
+          },
+          {
+            "left": "Obligation financière",
+            "right": "Zakat"
+          },
+          {
+            "left": "Profession de foi",
+            "right": "Chahada"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-013": {
+      "source": {
+        "question_tr": "İfadeleri uygun ibadetle eşleştirin.",
+        "explanation_tr": "Her şart, belirli zaman veya mekânlarla ilişkilidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ramazan ayında farz kılınmış ibadet",
+            "right": "Oruç"
+          },
+          {
+            "left": "Belirli hac aylarında Kâbe/Arafat merkezli ibadet",
+            "right": "Hac"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les caractéristiques aux actes d’adoration.",
+        "explanation_tr": "Chaque pilier peut être associé à des périodes ou des lieux déterminés.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Pratique prescrite pendant le Ramadan",
+            "right": "Jeûne"
+          },
+          {
+            "left": "Pèlerinage pendant les mois du hajj autour de la Kaaba et d’Arafat",
+            "right": "Hajj"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-014": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın şartlarıyla doğrudan ilgili bir kavram değildir?",
+        "explanation_tr": "Zebur, kitaplara iman esasıyla ilgilidir; Mekke (Hac), Ramazan (Oruç) ve Zekât İslam'ın şartlarıyla ilgilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zebur",
+          "Mekke",
+          "Ramazan",
+          "Zekât"
+        ],
+        "correct_answer": "Zebur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Laquelle des notions suivantes n’est pas directement un pilier de l’islam ?",
+        "explanation_tr": "Le Zabur (les Psaumes) se rapporte à la croyance aux Livres révélés, contrairement aux autres propositions.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le Zabur",
+          "La Mecque",
+          "Le Ramadan",
+          "La zakat"
+        ],
+        "correct_answer": "Le Zabur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-015": {
+      "source": {
+        "question_tr": "Kavramları doğru ibadetle eşleştirin.",
+        "explanation_tr": "Kavramların ibadetlerle olan ilişkisi.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Dinen belirlenmiş malî pay",
+            "right": "Zekât"
+          },
+          {
+            "left": "Kâbe ve Arafat merkezli menâsik",
+            "right": "Hac"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe ces caractéristiques au pilier correspondant.",
+        "explanation_tr": "Chaque caractéristique renvoie à la définition de l’acte concerné.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Part financière religieusement déterminée",
+            "right": "Zakat"
+          },
+          {
+            "left": "Rites autour de la Kaaba et d’Arafat",
+            "right": "Hajj"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S04-016": {
+      "source": {
+        "question_tr": "İslam'ın beş şartı içerisinde, günün belirli zaman dilimlerine yayılmış olan ve düzenli kulluk ifadesi olan ibadet hangisidir?",
+        "explanation_tr": "Gün içine yayılmış olan ve düzenli tekrar edilen ibadet namazdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz",
+          "Oruç",
+          "Hac",
+          "Zekât"
+        ],
+        "correct_answer": "Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel pilier de l’islam est pratiqué régulièrement à des moments répartis dans la journée ?",
+        "explanation_tr": "La prière rituelle est accomplie régulièrement à des heures déterminées au cours de la journée.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La prière",
+          "Le jeûne",
+          "Le hajj",
+          "La zakat"
+        ],
+        "correct_answer": "La prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Distinguer les cinq piliers",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
