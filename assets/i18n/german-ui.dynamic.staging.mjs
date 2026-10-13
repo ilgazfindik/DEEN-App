@@ -140,6 +140,35 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  if((m=n.match(/^Self-check toplamı:\s*(\d+)\s+başarılı hatırlama\s*·\s*(\d+)\s+tekrar isteği$/)))
   return emit('Selbstkontrolle: '+m[1]+' erfolgreiche Erinnerungen · '+m[2]+' Wiederholungen');
 
+
+ // Eleven remaining shared-engine surahs (source names/counts in segment-49).
+ // Match only known surah IDs/names, valid ayah bounds and UI-chrome phrases.
+ // Do not transform Arabic verses, audio paths, answer choices or Quran meanings.
+ const remainingSuras={
+  'Nâs':{count:6,german:'An-Nās'},
+  'Kâfirûn':{count:6,german:'Al-Kāfirūn'},
+  'Tebbet':{count:5,german:'Al-Masad'},
+  'Fîl':{count:5,german:'Al-Fīl'},
+  'Kureyş':{count:4,german:'Quraisch'},
+  'Mâûn':{count:7,german:'Al-Māʿūn'},
+  'İnşirah':{count:8,german:'Asch-Scharh'},
+  'Tîn':{count:8,german:'At-Tīn'},
+  'Zilzâl':{count:8,german:'Az-Zalzala'},
+  'Kevser':{count:3,german:'Al-Kauthar'},
+  'Asr':{count:3,german:'Al-ʿAsr'}
+ };
+ if((m=n.match(/^(.+?) Suresi$/))&&remainingSuras[m[1]])
+  return emit('Sure '+remainingSuras[m[1]].german);
+ if((m=n.match(/^(.+?) Ezberi$/))&&remainingSuras[m[1]])
+  return emit(remainingSuras[m[1]].german+' auswendig lernen');
+ if((m=n.match(/^(.+?)\s*·\s*Ayet\s+(\d+)\/(\d+)$/))&&remainingSuras[m[1]]
+   &&Number(m[3])===remainingSuras[m[1]].count
+   &&Number(m[2])>=1&&Number(m[2])<=Number(m[3]))
+  return emit(remainingSuras[m[1]].german+' · Vers '+m[2]+'/'+m[3]);
+ if((m=n.match(/^(.+?)\s+(\d+)\.\s*ayeti hatırla$/))&&remainingSuras[m[1]]
+   &&Number(m[2])>=1&&Number(m[2])<=remainingSuras[m[1]].count)
+  return emit('Erinnere dich an Vers '+m[2]+' der Sure '+remainingSuras[m[1]].german);
+
  // Source-exact chrome from the actual Fatiha five-step learning flow
  // (release/v9.9.3-direct/segment-36.txt) and universal inline audio
  // (segment-52.txt). Only UI; never transform Arabic or an ayah meaning.
