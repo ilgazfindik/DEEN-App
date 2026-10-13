@@ -1,0 +1,537 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U10",
+  "stage": "U10-S01",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U10-S01-001": {
+      "source": {
+        "question_tr": "Cibrîl hadisine göre iman esaslarından biri hangisidir?",
+        "explanation_tr": "Hadiste kadere iman, iman esasları arasında zikredilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kadere iman",
+          "Geleceği ayrıntılarıyla bilmek",
+          "Tedbiri terk etmek",
+          "İnsan iradesini inkâr etmek"
+        ],
+        "correct_answer": "Kadere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon le hadith de Jibril, lequel de ces éléments fait partie des articles de la foi ?",
+        "explanation_tr": "Le hadith de Jibril cite la foi au destin parmi les articles de la foi.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La foi au destin",
+          "Connaître précisément l’avenir",
+          "Renoncer à toute précaution",
+          "Nier la volonté humaine"
+        ],
+        "correct_answer": "La foi au destin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-002": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman, insanın iradeli tercihlerinden sorumlu olmadığı anlamına gelir.",
+        "explanation_tr": "Diyanet kaderi sorumluluğu kaldıran bir cebir anlayışı olarak açıklamaz.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire au destin et au décret divin signifie que l’être humain n’est pas responsable de ses choix volontaires.",
+        "explanation_tr": "L’enseignement de Diyanet ne présente pas le destin comme une contrainte qui supprime la responsabilité humaine.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-003": {
+      "source": {
+        "question_tr": "Kamer 54:49'un temel vurgusu nedir?",
+        "explanation_tr": "Ayet ilahî ölçü ve takdiri vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Her şeyin bir ölçüye göre yaratılması",
+          "Her şeyin rastgele olması",
+          "İnsanın geleceği bilmesi",
+          "Sebeplerin gereksizliği"
+        ],
+        "correct_answer": "Her şeyin bir ölçüye göre yaratılması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle idée principale exprime Al-Qamar 54:49 ?",
+        "explanation_tr": "Ce verset souligne la mesure et le décret divins.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Toute chose est créée selon une mesure",
+          "Tout se produit par pur hasard",
+          "L’être humain connaît l’avenir",
+          "Les causes sont inutiles"
+        ],
+        "correct_answer": "Toute chose est créée selon une mesure",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-004": {
+      "source": {
+        "question_tr": "Kamer 54:49'da her şeyin bir ______ göre yaratıldığı bildirilir.",
+        "explanation_tr": "Ayet ölçü ve düzen vurgusu yapar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "ölçüye",
+          "tesadüfe",
+          "söylentiye",
+          "insan tahminine"
+        ],
+        "correct_answer": "ölçüye",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Qamar 54:49, toute chose est créée selon une ______.",
+        "explanation_tr": "Le verset insiste sur la mesure et l’ordre.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "mesure",
+          "coïncidence",
+          "rumeur",
+          "prévision humaine"
+        ],
+        "correct_answer": "mesure",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-005": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kadere iman, hiçbir seçimimin anlamı yok demektir' diyor. En iyi düzeltme hangisidir?",
+        "explanation_tr": "Kur'an insan tercihine de Allah'ın kuşatıcı iradesine de yer verir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'ın takdirine iman, insanın seçim ve sorumluluğunu ortadan kaldırmaz",
+          "İnsan tamamen iradesizdir",
+          "İnsan Allah'tan bağımsız yaratıcıdır",
+          "Kader yalnız şans demektir"
+        ],
+        "correct_answer": "Allah'ın takdirine iman, insanın seçim ve sorumluluğunu ortadan kaldırmaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Croire au destin signifie qu’aucun de mes choix n’a d’importance. » Quelle réponse convient ?",
+        "explanation_tr": "Le Coran évoque à la fois la volonté humaine et la volonté d’Allah qui englobe toute chose.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Croire au décret d’Allah n’annule ni les choix ni la responsabilité humaine",
+          "L’être humain est totalement privé de volonté",
+          "L’être humain est un créateur indépendant d’Allah",
+          "Le destin signifie uniquement la chance"
+        ],
+        "correct_answer": "Croire au décret d’Allah n’annule ni les choix ni la responsabilité humaine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-006": {
+      "source": {
+        "question_tr": "Bir notta 'Kader olayların sebepsiz ve rastgele olmasıdır' yazıyor. Hata nedir?",
+        "explanation_tr": "Kader öğretisi rastgelelik değil ölçü vurgusu taşır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an kaderi ölçü ve ilahî bilgiyle ilişkilendirir",
+          "Kader kaos demektir",
+          "Kader yalnız insan planıdır",
+          "Kader sebeplerin yokluğudur"
+        ],
+        "correct_answer": "Kur'an kaderi ölçü ve ilahî bilgiyle ilişkilendirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note dit : « Le destin signifie que les événements se produisent sans raison et au hasard. » Quelle est l’erreur ?",
+        "explanation_tr": "L’enseignement sur le destin insiste sur la mesure, et non sur le chaos.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le Coran associe le destin à la mesure et à la science divine",
+          "Le destin signifie le chaos",
+          "Le destin n’est qu’un projet humain",
+          "Le destin suppose l’absence de causes"
+        ],
+        "correct_answer": "Le Coran associe le destin à la mesure et à la science divine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-007": {
+      "source": {
+        "question_tr": "İlahî ilim, takdir ve insan sorumluluğunu doğru açıklamalarla eşleştir.",
+        "explanation_tr": "Kader öğretisinin ana kavramları birbirini yok etmeden birlikte anlaşılır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İlahî ilim",
+            "right": "Allah'ın varlık ve olayları kuşatan bilgisi"
+          },
+          {
+            "left": "Takdir/ölçü",
+            "right": "Varlıkların belli düzen ve ölçü içinde oluşu"
+          },
+          {
+            "left": "İnsan sorumluluğu",
+            "right": "İradeli tercihlerden hesaba çekilme"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe la science divine, le décret et la responsabilité humaine à leur définition.",
+        "explanation_tr": "Les principales notions du destin doivent être comprises ensemble, sans être opposées.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Science divine",
+            "right": "Connaissance d’Allah qui englobe les êtres et les événements"
+          },
+          {
+            "left": "Décret et mesure",
+            "right": "Ordre et mesure selon lesquels les êtres existent"
+          },
+          {
+            "left": "Responsabilité humaine",
+            "right": "Devoir de répondre de ses choix volontaires"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-008": {
+      "source": {
+        "question_tr": "Diyanet'in yaygın Mâtürîdî eğitim terminolojisine göre 'kader' nedir?",
+        "explanation_tr": "Bu tanım Mâtürîdî terminolojiye göredir; Eş'arî kullanımda terimler yer değiştirebilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın olacakları ezelî ilmiyle bilip takdir etmesi",
+          "İnsanın zorla davranması",
+          "Sebeplerin iptali",
+          "Kıyamet saatini bilmek"
+        ],
+        "correct_answer": "Allah'ın olacakları ezelî ilmiyle bilip takdir etmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon la terminologie pédagogique maturidite courante chez Diyanet, que désigne le « qadar » ?",
+        "explanation_tr": "Il s’agit de l’usage maturidite ; dans la terminologie acharite, les termes qadar et qada peuvent être employés à l’inverse.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La science éternelle d’Allah et Sa détermination des événements à venir",
+          "Une conduite imposée de force à l’être humain",
+          "La suppression des causes",
+          "La connaissance de la date de l’Heure"
+        ],
+        "correct_answer": "La science éternelle d’Allah et Sa détermination des événements à venir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-009": {
+      "source": {
+        "question_tr": "Mâtürîdî eğitim terminolojisinde, takdir edilen bir şeyin zamanı gelince meydana getirilmesi hangi terimle adlandırılır?",
+        "explanation_tr": "Bu tanım Mâtürîdî terminolojiye göredir; Eş'arî kullanımda kelimeler yer değiştirebilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Takdir edilenin zamanı gelince Allah tarafından meydana getirilmesi",
+          "Allah'ın hiçbir şeyi bilmemesi",
+          "İnsanın iradesiz olması",
+          "Olayların rastgele oluşu"
+        ],
+        "correct_answer": "Takdir edilenin zamanı gelince Allah tarafından meydana getirilmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans cette terminologie maturidite, à quoi renvoie la réalisation d’un événement décrété au moment voulu ?",
+        "explanation_tr": "La définition suit la terminologie maturidite ; les usages acharites peuvent inverser les termes.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah fait advenir au moment voulu ce qu’Il a décrété",
+          "Allah ignore toute chose",
+          "L’être humain n’a aucune volonté",
+          "Les événements sont entièrement fortuits"
+        ],
+        "correct_answer": "Allah fait advenir au moment voulu ce qu’Il a décrété",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-010": {
+      "source": {
+        "question_tr": "Mâtürîdî ve Eş'arî geleneklerde kader/kaza kelimelerinin teknik kullanımı farklılaşabilir.",
+        "explanation_tr": "Diyanet bu terminoloji farkını açıkça not eder.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "L’emploi technique des termes « qadar » et « qada » peut varier entre les traditions maturidite et acharite.",
+        "explanation_tr": "Diyanet signale explicitement cette différence terminologique.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-011": {
+      "source": {
+        "question_tr": "Kadere imanı, insan sorumluluğunu da koruyan tek cümleyle özetle.",
+        "explanation_tr": "Sağlıklı kader anlayışı ilahî kuşatıcılık ile insan sorumluluğunu birlikte korur.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah'ın ilim ve takdirini kabul ederken insanın iradeli tercihlerinden sorumlu olduğunu da kabul etmektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Résume la foi au destin en une phrase sans supprimer la responsabilité humaine.",
+        "explanation_tr": "Une approche équilibrée tient ensemble la science et le décret d’Allah ainsi que la responsabilité de l’être humain.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Croire à la science et au décret d’Allah tout en reconnaissant que l’être humain répond de ses choix volontaires.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-012": {
+      "source": {
+        "question_tr": "Kader konusunu sağlıklı öğrenme sırasını oluştur.",
+        "explanation_tr": "Bu sıra fatalizme düşmeden kaderi anlamaya yardım eder.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah'ın ilim ve ölçüsünü kabul et",
+          "İnsana verilen iradeyi tanı",
+          "İradeli tercihlerde sorumluluğu koru",
+          "Kaderi mazerete dönüştürme"
+        ],
+        "correct_order": [
+          "Allah'ın ilim ve ölçüsünü kabul et",
+          "İnsana verilen iradeyi tanı",
+          "İradeli tercihlerde sorumluluğu koru",
+          "Kaderi mazerete dönüştürme"
+        ]
+      },
+      "display": {
+        "question_tr": "Remets dans l’ordre les étapes d’une compréhension équilibrée du destin.",
+        "explanation_tr": "Cet ordre aide à comprendre le destin sans tomber dans le fatalisme.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Reconnaître la science et la mesure divines",
+          "Reconnaître la volonté donnée à l’être humain",
+          "Maintenir la responsabilité de ses choix",
+          "Ne pas faire du destin une excuse"
+        ],
+        "correct_order": [
+          "Reconnaître la science et la mesure divines",
+          "Reconnaître la volonté donnée à l’être humain",
+          "Maintenir la responsabilité de ses choix",
+          "Ne pas faire du destin une excuse"
+        ],
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-013": {
+      "source": {
+        "question_tr": "Kadere iman, gelecekte başımıza gelecek bütün ayrıntıları önceden bildiğimiz anlamına gelir.",
+        "explanation_tr": "Allah'ın ilmi ile insanın sınırlı bilgisi aynı değildir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire au destin signifie connaître à l’avance chaque détail de ce qui nous arrivera.",
+        "explanation_tr": "La science d’Allah ne doit pas être confondue avec les connaissances limitées de l’être humain.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S01-014": {
+      "source": {
+        "question_tr": "Kadere iman, Allah'ın bilgisinin varlık ve olayları ______ kabul etmeyi içerir.",
+        "explanation_tr": "Kur'an Allah'ın kuşatıcı bilgisini bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kuşattığını",
+          "sınırladığını",
+          "bilmediğini",
+          "rastgele bıraktığını"
+        ],
+        "correct_answer": "kuşattığını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi au destin implique de reconnaître que la science d’Allah ______ les êtres et les événements.",
+        "explanation_tr": "Le Coran présente la science d’Allah comme englobant toute chose.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "englobe",
+          "limite",
+          "ignore",
+          "abandonne au hasard"
+        ],
+        "correct_answer": "englobe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Introduction au destin et au décret divin",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

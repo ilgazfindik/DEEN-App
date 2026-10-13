@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U10",
+  "stage": "U10-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U10-S03-001": {
+      "source": {
+        "question_tr": "Kehf 18:29 insanın hangi yönüne dikkat çeker?",
+        "explanation_tr": "Ayet insanın tercih ve sorumluluk alanına dikkat çeker.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tercih yapabilmesine",
+          "Hiç seçim yapamamasına",
+          "Allah'tan bağımsız yaratıcı olmasına",
+          "Geleceği bilmesine"
+        ],
+        "correct_answer": "Tercih yapabilmesine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Sur quel aspect de l’être humain Al-Kahf 18:29 attire-t-il l’attention ?",
+        "explanation_tr": "Ce verset souligne la possibilité de choisir et la responsabilité qui l’accompagne.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sa capacité à faire des choix",
+          "Son incapacité à choisir",
+          "Son pouvoir de créer indépendamment d’Allah",
+          "Sa connaissance de l’avenir"
+        ],
+        "correct_answer": "Sa capacité à faire des choix",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-002": {
+      "source": {
+        "question_tr": "İnsan iradesi Allah'ın iradesinden tamamen bağımsız ve sınırsızdır.",
+        "explanation_tr": "Tekvîr 81:28-29 insan iradesini Allah'ın kuşatıcı iradesi içinde ele alır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La volonté humaine est totalement indépendante et illimitée par rapport à celle d’Allah.",
+        "explanation_tr": "At-Takwir 81:28-29 situe la volonté humaine dans la volonté d’Allah qui englobe toute chose.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-003": {
+      "source": {
+        "question_tr": "Tekvîr 81:28 doğru yolda gitmek ______ kimselerden söz eder.",
+        "explanation_tr": "Ayet insanın yönelme isteğini ifade eder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "isteyen",
+          "zorlanan",
+          "hiç seçmeyen",
+          "bilmeden yapan"
+        ],
+        "correct_answer": "isteyen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "At-Takwir 81:28 s’adresse à ceux qui ______ suivre la voie droite.",
+        "explanation_tr": "Ce verset évoque le fait de vouloir emprunter la voie droite.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "veulent",
+          "sont contraints de",
+          "ne choisissent jamais de",
+          "agissent sans le savoir pour"
+        ],
+        "correct_answer": "veulent",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Allah her şeyi biliyorsa kötü davranışımdan ben sorumlu değilim' diyor. En iyi cevap hangisidir?",
+        "explanation_tr": "Diyanet kaderi günaha mazeret yapmayı yanlış sayar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'ın bilmesi insanı zorlamaz; iradeli tercihler sorumluluk doğurur",
+          "Hiç kimse sorumlu değildir",
+          "Allah kötülüğü emreder",
+          "İnsan bağımsız yaratıcıdır"
+        ],
+        "correct_answer": "Allah'ın bilmesi insanı zorlamaz; iradeli tercihler sorumluluk doğurur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Si Allah sait tout, je ne suis pas responsable de mon mauvais comportement. » Que répondre ?",
+        "explanation_tr": "L’enseignement de Diyanet rejette l’usage du destin pour excuser les mauvaises actions.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La science d’Allah ne force pas à agir ; les choix volontaires engagent la responsabilité",
+          "Personne n’est responsable",
+          "Allah ordonne le mal",
+          "L’être humain crée indépendamment d’Allah"
+        ],
+        "correct_answer": "La science d’Allah ne force pas à agir ; les choix volontaires engagent la responsabilité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-005": {
+      "source": {
+        "question_tr": "Bir notta 'Kader varsa insan iradesi yoktur' yazıyor. Hata nedir?",
+        "explanation_tr": "İnsan iradesi ile ilahî irade birlikte düşünülür.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an insanın tercih alanını kabul eder",
+          "İnsan seçim yapamaz",
+          "İnsan Allah'tan bağımsızdır",
+          "Sorumluluk yalnız meleklere aittir"
+        ],
+        "correct_answer": "Kur'an insanın tercih alanını kabul eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note affirme : « Si le destin existe, l’être humain n’a aucune volonté. » Quelle est l’erreur ?",
+        "explanation_tr": "La volonté humaine et la volonté divine doivent être comprises ensemble.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le Coran reconnaît à l’être humain une capacité de choix",
+          "L’être humain ne choisit jamais",
+          "L’être humain est indépendant d’Allah",
+          "Seuls les anges sont responsables"
+        ],
+        "correct_answer": "Le Coran reconnaît à l’être humain une capacité de choix",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-006": {
+      "source": {
+        "question_tr": "İrade ve sorumluluk kavramlarını eşleştir.",
+        "explanation_tr": "İnsan iradesini ne yok saymak ne de sınırsızlaştırmak doğrudur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İrade",
+            "right": "Alternatifler arasında tercih etme yetisi"
+          },
+          {
+            "left": "Sorumluluk",
+            "right": "İradeli tercihlerden hesaba çekilme"
+          },
+          {
+            "left": "İlahî irade",
+            "right": "Bütün varlığı kuşatan Allah'ın dilemesi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe la volonté et la responsabilité à leurs définitions.",
+        "explanation_tr": "Il ne faut ni nier la volonté humaine ni lui attribuer une indépendance absolue.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Volonté humaine",
+            "right": "Capacité de choisir entre plusieurs possibilités"
+          },
+          {
+            "left": "Responsabilité",
+            "right": "Devoir de répondre de ses choix volontaires"
+          },
+          {
+            "left": "Volonté divine",
+            "right": "Volonté d’Allah qui englobe toute chose"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-007": {
+      "source": {
+        "question_tr": "Bir kişi günah işledikten sonra 'Kaderimde vardı, yapacak bir şeyim yoktu' diyor. Sorun nedir?",
+        "explanation_tr": "Diyanet bu yaklaşımı doğru bulmaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kaderi iradeli günaha mazeret yapmak sorumluluğu kaldırmaz",
+          "Kader bütün günahı meşru yapar",
+          "İnsan hiç seçim yapmaz",
+          "Sorumluluk yalnız sonuç kötüyse vardır"
+        ],
+        "correct_answer": "Kaderi iradeli günaha mazeret yapmak sorumluluğu kaldırmaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Après avoir commis une faute, quelqu’un dit : « C’était mon destin, je n’avais pas le choix. » Quel est le problème ?",
+        "explanation_tr": "Selon Diyanet, invoquer le destin ne rend pas une faute volontaire excusable.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Faire du destin une excuse ne supprime pas la responsabilité de ses choix",
+          "Le destin rend toute faute légitime",
+          "L’être humain ne choisit jamais",
+          "La responsabilité existe seulement lorsque le résultat est mauvais"
+        ],
+        "correct_answer": "Faire du destin une excuse ne supprime pas la responsabilité de ses choix",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-008": {
+      "source": {
+        "question_tr": "Ra'd 13:11'in sorumluluk açısından verdiği mesaj hangisidir?",
+        "explanation_tr": "Ayet değişim çabasına dikkat çeker.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsanların değişim yönünde çaba göstermesi gerektiği",
+          "Hiç çaba gerekmemesi",
+          "Her sonucun sebepsiz olması",
+          "İnsan davranışının anlamsızlığı"
+        ],
+        "correct_answer": "İnsanların değişim yönünde çaba göstermesi gerektiği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel message d’Ar-Rad 13:11 concerne la responsabilité humaine ?",
+        "explanation_tr": "Le verset attire l’attention sur les efforts nécessaires au changement.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Les êtres humains doivent agir pour changer leur situation",
+          "Aucun effort n’est nécessaire",
+          "Tous les résultats sont sans cause",
+          "La conduite humaine est sans importance"
+        ],
+        "correct_answer": "Les êtres humains doivent agir pour changer leur situation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-009": {
+      "source": {
+        "question_tr": "Kadere inanmak, kişinin kendi seçtiği kötülükten sorumluluğunu kaldırır.",
+        "explanation_tr": "Kader iradeli davranışlara mazeret değildir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire au destin supprime la responsabilité d’une faute volontairement commise.",
+        "explanation_tr": "Le destin ne peut justifier une action volontaire nuisible.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-010": {
+      "source": {
+        "question_tr": "İnsan iradesi ile Allah'ın iradesi arasındaki dengeyi tek cümleyle açıkla.",
+        "explanation_tr": "Tekvîr 81:28-29 iki boyutu birlikte düşünmeye imkân verir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "İnsan sınırlı bir tercih alanına sahiptir ve seçimlerinden sorumludur; bu irade Allah'ın kuşatıcı iradesinden bağımsız değildir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Explique en une phrase l’équilibre entre la volonté humaine et celle d’Allah.",
+        "explanation_tr": "At-Takwir 81:28-29 mentionne ces deux dimensions ensemble.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "L’être humain dispose d’une capacité limitée de choisir et répond de ses décisions, sans que sa volonté soit indépendante de celle d’Allah.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-011": {
+      "source": {
+        "question_tr": "Ra'd 13:11'e göre bir toplum kendilerindekini ______ kadar Allah onların durumunu değiştirmez.",
+        "explanation_tr": "Ayet değişim ve çaba vurgusu yapar.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "değiştirinceye",
+          "unutuncaya",
+          "saklayıncaya",
+          "sayıncaya"
+        ],
+        "correct_answer": "değiştirinceye",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Ar-Rad 13:11, Allah ne change pas la situation d’un peuple tant qu’il ne ______ pas ce qui est en lui-même.",
+        "explanation_tr": "Ce verset insiste sur l’effort et le changement.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "change",
+          "oublie",
+          "cache",
+          "compte"
+        ],
+        "correct_answer": "change",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-012": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Sınava çalışıp çalışmamam fark etmez, sonuç kaderdir' diyor. En uygun yaklaşım hangisidir?",
+        "explanation_tr": "Kader çalışmayı bırakma mazereti değildir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Çalışmak kişinin sorumluluğudur; sonuç için Allah'a tevekkül edilir",
+          "Hiç çalışmamak kader inancıdır",
+          "Tedbir kadere karşı çıkmaktır",
+          "Başarı tamamen insanın yaratmasıdır"
+        ],
+        "correct_answer": "Çalışmak kişinin sorumluluğudur; sonuç için Allah'a tevekkül edilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Que j’étudie ou non ne change rien : le résultat est écrit. » Quelle attitude est plus juste ?",
+        "explanation_tr": "Croire au destin n’excuse pas l’abandon du travail.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Il est responsable d’étudier et peut s’en remettre à Allah pour le résultat",
+          "Ne pas étudier manifeste la foi au destin",
+          "Prendre des précautions s’oppose au destin",
+          "L’être humain crée seul la réussite"
+        ],
+        "correct_answer": "Il est responsable d’étudier et peut s’en remettre à Allah pour le résultat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-013": {
+      "source": {
+        "question_tr": "İradeli davranışta sorumluluk akışını sırala.",
+        "explanation_tr": "İradeli seçimler ahlaki sorumluluk doğurur.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Seçeneklerle karşılaş",
+          "Akıl ve iradeni kullan",
+          "Bir tercih yap",
+          "Tercihinin sorumluluğunu üstlen"
+        ],
+        "correct_order": [
+          "Seçeneklerle karşılaş",
+          "Akıl ve iradeni kullan",
+          "Bir tercih yap",
+          "Tercihinin sorumluluğunu üstlen"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe les étapes de la responsabilité dans une action volontaire.",
+        "explanation_tr": "Les choix volontaires entraînent une responsabilité morale.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Faire face à plusieurs possibilités",
+          "Utiliser sa raison et sa volonté",
+          "Faire un choix",
+          "Assumer la responsabilité de ce choix"
+        ],
+        "correct_order": [
+          "Faire face à plusieurs possibilités",
+          "Utiliser sa raison et sa volonté",
+          "Faire un choix",
+          "Assumer la responsabilité de ce choix"
+        ],
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S03-014": {
+      "source": {
+        "question_tr": "İnsan iradesini en doğru tanımlayan ifade hangisidir?",
+        "explanation_tr": "Diyanet tefsiri insana bazı eylemlerinde seçme imkânı verildiğini açıklar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın verdiği sınırlı tercih yetisi",
+          "Allah'tan bağımsız yaratma gücü",
+          "Hiç seçim yapamama hali",
+          "Geleceği kesin bilme yetisi"
+        ],
+        "correct_answer": "Allah'ın verdiği sınırlı tercih yetisi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle formule décrit le mieux la volonté humaine ?",
+        "explanation_tr": "L’exégèse de Diyanet indique qu’Allah a accordé à l’être humain la faculté de choisir certains actes.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Une capacité limitée de choisir accordée par Allah",
+          "Un pouvoir créateur indépendant d’Allah",
+          "Une impossibilité totale de choisir",
+          "Une connaissance certaine de l’avenir"
+        ],
+        "correct_answer": "Une capacité limitée de choisir accordée par Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La volonté humaine et la responsabilité",
+        "topic": "La foi au destin et au décret divin"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
