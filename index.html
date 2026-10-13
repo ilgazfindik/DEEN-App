@@ -28,7 +28,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
  // Install a same-scope offline shell. Failure must not block online startup.
  // The 67 release segment SHA-256 checks remain the final integrity authority.
  if('serviceWorker' in navigator&&window.isSecureContext){
-  navigator.serviceWorker.register('./sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa12',
+  navigator.serviceWorker.register('./sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa13',
    {scope:'./',updateViaCache:'none'}).catch(err=>{
     console.warn('[DEEN offline]',String(err?.message||err));
    });
