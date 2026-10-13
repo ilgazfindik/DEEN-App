@@ -136,3 +136,15 @@
 - No expert/native Quran meaning approval was asserted. The browser uses a **synthetic QA-only local German manifest**; production remains gated. No `main` merge or live deployment. This test verifies one full five-question attempt plus the linked wrong-answer review; it does not exhaustively prove all user paths, accessibility, offline audio or external rights review.
 
 **Next:** review German Quran Journey result accessibility and broader Surah types/physical-device audio behavior. Prioritize native German and theological verification separately from automated UI passing.
+
+
+## 2026-10-13 — Cross-surah German Quran QA (staging only)
+
+- **Browser PASS:** [German real-browser staging QA #38377907054](https://github.com/ilgazfindik/DEEN-App/actions/runs/38377907054) at code commit `f7c825941c00cc3337f770db2f77313237cfe3db`. **Static German staging audit PASS:** [#38377936204](https://github.com/ilgazfindik/DEEN-App/actions/runs/38377936204).
+- New real Chromium matrix covers representative shared-engine Quran surahs `nasr` (3 ayahs), `falaq` (5 ayahs), and `bayyina` (8 ayahs): opened their native Journey and Ayah Test controls in synthetic QA-only German, tested first answer grading, verified the Arabic and option DOM remained unchanged and stage labels were source-guardedly localized. All three first-question chrome audits returned `unresolved=[]`.
+- For every surah tested: `sourceReady=true`, `ayahUnlocked=true`, `mealReady=false`, `meaningUnlocked=false`, `finalUnlocked=false`. Disabled Meaning/Final buttons and rejected calls to `startStage('meaning')` and `startStage('final')` did not create questions. The production safety gate is unchanged.
+- Nasr: the real five-step learning buttons completed three original Arabic ayahs, opening Memorize. Its genuine memorization card rendered `Nasr auswendig lernen`, `AUSWENDIGLERNSTUFE 2 / 5`, `ICH HABE MICH ERINNERT` with `unresolved=[]` and Arabic unchanged. Chromium initially found `Nasr Ezberi` and `Ayet 3 / 3` untranslated; the source-exact staging German title and bounded generic verse counters were fixed and retested.
+- These three are samples from the 16-sura registry, not 100% Quran coverage. Nasr full memorization levels, full five-question tests for Falaq/Bayyina, distinct Ikhlas memorization path and offline/physical-device audio still require separate tests.
+- **No live deployment or merge:** this pass runs in disposable localhost with a synthetic German manifest; `assets/i18n/content-support.json` still blocks German question data/global release and flags expert review pending.
+
+**Next:** cover İhlâs-specific lesson/memorization differences, then remaining 12 surahs and real-device audio/offline regressions without weakening translation approval.
