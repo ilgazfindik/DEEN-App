@@ -173,6 +173,18 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
    'Du hast bestanden. Kehre zur Surenlernreise zurück, um fortzufahren.',
   'BACK TO SURAH JOURNEY':'ZUR SURENLERNREISE'
  };
+
+ // Chromium 38371173317: quizChrome performs legacy partial substitutions,
+ // producing mixed English/Turkish strings not caught by Turkish-only signals.
+ if(n==='Fâtiha · Ayah Test')return emit('Fâtiha · Verstest');
+ if(n==='Keep practicing ✦ New best')return emit('Übe weiter ✦ Neuer Bestwert');
+ if(n==='Well done! ✦ New best')return emit('Geschafft! ✦ Neuer Bestwert');
+ if(n==='Hatalı Sorular · Tekrar')return emit('Fehler · Wiederholung');
+ if((m=n.match(/^YANLIŞLARI REVIEW ET\s*·\s*([1-5])/))&&m[0]===n)
+  return emit('FEHLER WIEDERHOLEN · '+m[1]);
+ if((m=n.match(/^You need at least %(\d{1,3}) to pass\. Review your mistakes and retry\./))&&m[0]===n)
+  return emit('Zum Bestehen sind mindestens '+m[1]+' % nötig. Übe deine Fehler und versuche es erneut.');
+
  if(Object.prototype.hasOwnProperty.call(journeyResultChrome,n))
   return emit(journeyResultChrome[n]);
  if((m=n.match(/^REVIEW MISTAKES\s*·\s*([1-5])$/)))
