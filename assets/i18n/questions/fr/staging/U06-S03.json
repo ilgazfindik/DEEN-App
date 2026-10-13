@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U06",
+  "stage": "U06-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U06-S03-001": {
+      "source": {
+        "question_tr": "Bakara 2:97'ye göre Kur'an'ı Hz. Peygamber'in kalbine Allah'ın izniyle indiren melek kimdir?",
+        "explanation_tr": "Bakara 2:97 Cebrâil'in Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirdiğini bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Cebrâil",
+          "Mîkâil",
+          "Ölüm meleği",
+          "İsmi verilmeyen yazıcı melek"
+        ],
+        "correct_answer": "Cebrâil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "D’après Al-Baqara 2:97, quel ange a fait descendre le Coran sur le cœur du Prophète avec la permission d’Allah ?",
+        "explanation_tr": "Al-Baqara 2:97 affirme que Gabriel a fait descendre le Coran sur le cœur du Prophète avec la permission d’Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Gabriel (Jibril)",
+          "Mikaïl",
+          "L’ange de la mort",
+          "Un ange scribe non identifié"
+        ],
+        "correct_answer": "Gabriel (Jibril)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-002": {
+      "source": {
+        "question_tr": "Bakara 2:97'de vahyin Peygamber'in kalbine ______ izniyle indirildiği belirtilir.",
+        "explanation_tr": "Ayet, Cebrâil'in vahyi Allah'ın izniyle indirdiğini açıkça vurgular.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah'ın",
+          "Cebrâil'in kendi",
+          "insanların",
+          "meleklerin ortak"
+        ],
+        "correct_answer": "Allah'ın",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "D’après Al-Baqara 2:97, la révélation est descendue sur le cœur du Prophète avec la permission d’______.",
+        "explanation_tr": "Le verset souligne que Gabriel transmet la révélation avec la permission d’Allah.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "Gabriel lui-même",
+          "les humains",
+          "l’ensemble des anges"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-003": {
+      "source": {
+        "question_tr": "Cebrâil vahyi kendi bağımsız iradesiyle oluşturur ve peygambere getirir.",
+        "explanation_tr": "Bakara 2:97 vahyin Allah'ın izniyle indirildiğini bildirir; Cebrâil bağımsız vahiy kaynağı değildir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Gabriel invente la révélation de manière indépendante, puis la transmet au Prophète.",
+        "explanation_tr": "Al-Baqara 2:97 précise que la révélation descend avec la permission d’Allah ; Gabriel n’en est pas une source indépendante.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Cebrâil vahyin kaynağıdır' diyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Bakara 2:97 vahyin Allah'ın izniyle Cebrâil tarafından indirildiğini belirtir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Vahyin kaynağı Allah'tır; Cebrâil Allah'ın izniyle iletir",
+          "Cebrâil vahyi insanlardan toplar",
+          "Vahyin kaynağı meleğin kendisidir",
+          "Vahiyde Allah'ın izni aranmaz"
+        ],
+        "correct_answer": "Vahyin kaynağı Allah'tır; Cebrâil Allah'ın izniyle iletir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Gabriel est la source de la révélation. » Quelle est la bonne correction ?",
+        "explanation_tr": "Al-Baqara 2:97 indique que Gabriel transmet la révélation avec la permission d’Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La révélation vient d’Allah ; Gabriel la transmet avec Sa permission",
+          "Gabriel recueille les révélations auprès des humains",
+          "L’ange crée lui-même la révélation",
+          "La révélation ne nécessite aucune permission d’Allah"
+        ],
+        "correct_answer": "La révélation vient d’Allah ; Gabriel la transmet avec Sa permission",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-005": {
+      "source": {
+        "question_tr": "Bakara 2:98'de Cebrâil ile birlikte adı geçen melek hangisidir?",
+        "explanation_tr": "Bakara 2:98'de Cebrâil ve Mîkâil birlikte zikredilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mîkâil",
+          "Azrâil",
+          "İsrâfil",
+          "Münker"
+        ],
+        "correct_answer": "Mîkâil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel autre ange est cité avec Gabriel dans Al-Baqara 2:98 ?",
+        "explanation_tr": "Al-Baqara 2:98 mentionne Gabriel et Mikaïl.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mikaïl",
+          "Azraïl",
+          "Israfil",
+          "Munkar"
+        ],
+        "correct_answer": "Mikaïl",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-006": {
+      "source": {
+        "question_tr": "Bir notta 'Bakara 2:97 Cebrâil'i Allah'tan bağımsız bir güç olarak tanıtır' yazıyor. Hata nedir?",
+        "explanation_tr": "Cebrâil vahyin kaynağı değil, Allah'ın izniyle onu ileten melektir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ayet Cebrâil'in Allah'ın izniyle hareket ettiğini söyler",
+          "Ayet Cebrâil'den hiç söz etmez",
+          "Ayet vahyi reddeder",
+          "Ayet melekleri ilah sayar"
+        ],
+        "correct_answer": "Ayet Cebrâil'in Allah'ın izniyle hareket ettiğini söyler",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note dit : « Al-Baqara 2:97 présente Gabriel comme une puissance indépendante d’Allah. » Où est l’erreur ?",
+        "explanation_tr": "Gabriel est chargé de transmettre la révélation avec la permission d’Allah ; il n’en est pas la source.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le verset précise que Gabriel agit avec la permission d’Allah",
+          "Le verset ne mentionne pas Gabriel",
+          "Le verset rejette toute révélation",
+          "Le verset considère les anges comme des divinités"
+        ],
+        "correct_answer": "Le verset précise que Gabriel agit avec la permission d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-007": {
+      "source": {
+        "question_tr": "Cebrâil ve vahiy konusundaki ifadeleri eşleştir.",
+        "explanation_tr": "Bakara 2:97 vahyin kaynağı ile onu ileten meleğin rolünü birbirinden ayırır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Cebrâil",
+            "right": "Vahyi Allah'ın izniyle ileten melek"
+          },
+          {
+            "left": "Allah",
+            "right": "Vahyin kaynağı"
+          },
+          {
+            "left": "Kur'an",
+            "right": "Peygamber'in kalbine indirilen vahiy"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les éléments liés à Gabriel et à la révélation.",
+        "explanation_tr": "Al-Baqara 2:97 distingue l’origine de la révélation de l’ange qui la transmet.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Gabriel",
+            "right": "Ange qui transmet la révélation avec la permission d’Allah"
+          },
+          {
+            "left": "Allah",
+            "right": "Source de la révélation"
+          },
+          {
+            "left": "Le Coran",
+            "right": "Révélation descendue sur le cœur du Prophète"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-008": {
+      "source": {
+        "question_tr": "Bakara 2:97'ye göre Cebrâil'in vahiydeki rolünü tek cümleyle anlat.",
+        "explanation_tr": "Ayet Cebrâil'in vahyi Allah'ın izniyle ilettiğini belirtir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Cebrâil, Kur'an'ı Allah'ın izniyle Hz. Peygamber'in kalbine indiren melektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Décris en une phrase le rôle de Gabriel dans la révélation selon Al-Baqara 2:97.",
+        "explanation_tr": "Le verset explique que Gabriel transmet la révélation avec la permission d’Allah.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Gabriel est l’ange qui a fait descendre le Coran sur le cœur du Prophète avec la permission d’Allah.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-009": {
+      "source": {
+        "question_tr": "Cebrâil'e düşmanlık, Kur'an'ın melekler hakkındaki öğretisiyle uyumludur.",
+        "explanation_tr": "Bakara 2:98 Allah'a, meleklerine, peygamberlerine, Cebrâil'e ve Mîkâil'e düşmanlığı reddeder.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "L’hostilité envers Gabriel est conforme à l’enseignement coranique sur les anges.",
+        "explanation_tr": "Al-Baqara 2:98 condamne l’hostilité envers Allah, Ses anges et Ses messagers, ainsi qu’envers Gabriel et Mikaïl.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-010": {
+      "source": {
+        "question_tr": "Bakara 2:97'de Cebrâil'in Kur'an'ı Peygamber'in ______ indirdiği ifade edilir.",
+        "explanation_tr": "Ayette Kur'an'ın Peygamber'in kalbine indirildiği ifade edilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "kalbine",
+          "evine",
+          "şehrine",
+          "kitaplığına"
+        ],
+        "correct_answer": "kalbine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Baqara 2:97, Gabriel a fait descendre le Coran sur le ______ du Prophète.",
+        "explanation_tr": "Le verset indique que le Coran est descendu sur le cœur du Prophète.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "cœur",
+          "domicile",
+          "pays",
+          "bureau"
+        ],
+        "correct_answer": "cœur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-011": {
+      "source": {
+        "question_tr": "Bir içerik üreticisi Cebrâil için 'Allah'tan bağımsız olarak dilediğine vahiy verir' yazıyor. Hangi değişiklik gerekir?",
+        "explanation_tr": "Bakara 2:97 Cebrâil'in vahiyde bağımsız bir kaynak olmadığını gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "'Allah'ın izniyle vahyi iletir' denmeli",
+          "'Vahyi kendisi oluşturur' denmeli",
+          "'İnsanlara danışır' denmeli",
+          "'Hiçbir görevi yoktur' denmeli"
+        ],
+        "correct_answer": "'Allah'ın izniyle vahyi iletir' denmeli",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un auteur écrit : « Gabriel transmet des révélations à qui il veut sans dépendre d’Allah. » Quelle correction est nécessaire ?",
+        "explanation_tr": "Al-Baqara 2:97 montre que Gabriel n’est pas une source indépendante de la révélation.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Il transmet la révélation avec la permission d’Allah",
+          "Il crée lui-même la révélation",
+          "Il consulte les humains",
+          "Il n’a aucune mission"
+        ],
+        "correct_answer": "Il transmet la révélation avec la permission d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-012": {
+      "source": {
+        "question_tr": "Cebrâil hakkında aşağıdaki bilgilerden hangisi doğrudan Bakara 2:97 ile desteklenir?",
+        "explanation_tr": "Bakara 2:97'nin açık vurgusu Cebrâil'in vahyi Allah'ın izniyle indirmesidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirmesi",
+          "Yağmuru tek başına yönetmesi",
+          "İnsanların kaderini belirlemesi",
+          "Allah'tan bağımsız hüküm vermesi"
+        ],
+        "correct_answer": "Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle information au sujet de Gabriel est directement appuyée par Al-Baqara 2:97 ?",
+        "explanation_tr": "Le verset souligne que la révélation descend sur le cœur du Prophète avec la permission d’Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Il a fait descendre le Coran sur le cœur du Prophète avec la permission d’Allah",
+          "Il commande seul la pluie",
+          "Il décide du destin de l’humanité",
+          "Il prend des décisions indépendantes d’Allah"
+        ],
+        "correct_answer": "Il a fait descendre le Coran sur le cœur du Prophète avec la permission d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-013": {
+      "source": {
+        "question_tr": "Bakara 2:98'de Allah'ın düşmanlığıyla karşılık verilen tutumlardan biri, O'nun meleklerine ve ______ düşmanlıktır.",
+        "explanation_tr": "Ayette Allah, melekler, peygamberler, Cebrâil ve Mîkâil birlikte zikredilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "peygamberlerine",
+          "şehirlerine",
+          "mallarına",
+          "mevsimlere"
+        ],
+        "correct_answer": "peygamberlerine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Baqara 2:98 mentionne l’hostilité envers Allah, Ses anges et Ses ______.",
+        "explanation_tr": "Le verset mentionne Allah, les anges, les messagers, Gabriel et Mikaïl.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "messagers",
+          "villes",
+          "biens",
+          "saisons"
+        ],
+        "correct_answer": "messagers",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S03-014": {
+      "source": {
+        "question_tr": "Bakara 2:97'nin verdiği vahiy ilişkisini öğretim amacıyla sırala.",
+        "explanation_tr": "Bu sıralama ayetin vurguladığı kaynak-izin-iletim ilişkisini özetler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah'ın vahyi",
+          "Allah'ın izni",
+          "Cebrâil'in iletmesi",
+          "Hz. Peygamber'in kalbine iniş"
+        ],
+        "correct_order": [
+          "Allah'ın vahyi",
+          "Allah'ın izni",
+          "Cebrâil'in iletmesi",
+          "Hz. Peygamber'in kalbine iniş"
+        ]
+      },
+      "display": {
+        "question_tr": "Ordonne les éléments de la transmission de la révélation selon Al-Baqara 2:97, à des fins pédagogiques.",
+        "explanation_tr": "Cette séquence résume l’origine de la révélation, la permission d’Allah et sa transmission.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "La révélation d’Allah",
+          "La permission d’Allah",
+          "La transmission par Gabriel",
+          "La descente sur le cœur du Prophète"
+        ],
+        "correct_order": [
+          "La révélation d’Allah",
+          "La permission d’Allah",
+          "La transmission par Gabriel",
+          "La descente sur le cœur du Prophète"
+        ],
+        "stage_title": "Gabriel et la révélation",
+        "topic": "La transmission de la révélation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
