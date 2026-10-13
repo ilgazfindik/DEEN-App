@@ -7,6 +7,7 @@ on:
       - 'assets/i18n/fr/**'
       - 'scripts/audit-french-staging.mjs'
       - 'scripts/audit-french-u01-complete.mjs'
+      - 'scripts/audit-french-u01-live-runtime.mjs'
       - 'scripts/audit-french-u02-complete.mjs'
       - 'scripts/audit-french-u03-complete.mjs'
       - 'scripts/audit-french-u04-complete.mjs'
@@ -50,6 +51,8 @@ jobs:
         run: node scripts/audit-french-staging.mjs
       - name: Verify all 100 French U01 questions, including matching and fill-blank
         run: node scripts/audit-french-u01-complete.mjs
+      - name: Verify 84 active U01 French runtime questions and teaching cards
+        run: node scripts/audit-french-u01-live-runtime.mjs
       - name: Verify all 100 French U02 questions and answer structures
         run: node scripts/audit-french-u02-complete.mjs
       - name: Verify all 100 French U03 questions, recitation labels and sequences
