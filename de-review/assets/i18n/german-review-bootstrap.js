@@ -2,6 +2,30 @@
 (()=>{'use strict';
  const PATH='/DEEN-App/de-review/';
  if(location.hostname!=='ilgazfindik.github.io'||!location.pathname.startsWith(PATH)||!window.__DEEN_REVIEW_ISOLATED__)return;
+ const reviewCSS=document.createElement('style');
+ reviewCSS.id='deen-german-review-visual-fixes';
+ reviewCSS.textContent=`
+ #lesson .question-frame.v1013-match-ref .v9916-task-title{
+   font-size:clamp(18px,4.6vw,22px)!important;
+   line-height:1.17!important;letter-spacing:-.3px!important;
+   white-space:normal!important;overflow-wrap:normal!important;
+   max-width:100%!important;
+ }
+ #lesson .question-frame.v1013-match-ref .v1013-match-subtitle{
+   max-width:100%!important;line-height:1.5!important;
+ }
+ `;
+ document.head.append(reviewCSS);
+ // This heading is assembled from THREE nodes by the matching renderer; it
+ // cannot be localized by translating each fragment independently.
+ function fixMatchingHeading(){
+  const el=document.querySelector('#lesson .question-frame.v1013-match-ref .v9916-task-title');
+  if(el&&el.textContent?.replace(/\\s+/g,' ').trim()==='Eşleşen çiftleri bul'){
+   el.replaceChildren(document.createTextNode('Finde die '));
+   const accent=document.createElement('span');accent.className='v1013-mint';
+   accent.textContent='passenden';el.append(accent,document.createTextNode(' Paare'));
+  }
+ }
  const UI_PACKS=['german-ui.staging.json','german-ui.lesson-flow.staging.json',
   'german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
   ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+String(i+1).padStart(2,'0')+'.staging.json'),
@@ -40,6 +64,7 @@
    try{
     banner();
     latest=renderer.render(document.body,{locale:'de',qaMode:true,documentRef:document});
+    fixMatchingHeading();
    }finally{
     busy=false;observer.observe(document.body,{subtree:true,childList:true,characterData:true,
      attributes:true,attributeFilter:['aria-label','title','placeholder','alt']});
