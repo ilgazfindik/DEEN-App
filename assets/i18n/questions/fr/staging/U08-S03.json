@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U08",
+  "stage": "U08-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U08-S03-001": {
+      "source": {
+        "question_tr": "Nisâ 4:165 peygamberlerin görevlerinden hangilerini açıkça zikreder?",
+        "explanation_tr": "Ayette peygamberler müjdeleyici ve uyarıcı elçiler olarak tanımlanır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Müjdelemek ve uyarmak",
+          "Servet toplamak ve hükümranlık kurmak",
+          "İnsanları zorla inandırmak",
+          "Kendi adına ibadet istemek"
+        ],
+        "correct_answer": "Müjdelemek ve uyarmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelles missions des prophètes An-Nisa 4:165 mentionne-t-il explicitement ?",
+        "explanation_tr": "Le verset présente les prophètes comme des messagers annonçant la bonne nouvelle et avertissant.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Annoncer la bonne nouvelle et avertir",
+          "Amasser des richesses et gouverner",
+          "Contraindre les humains à croire",
+          "Exiger qu’on les adore"
+        ],
+        "correct_answer": "Annoncer la bonne nouvelle et avertir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-002": {
+      "source": {
+        "question_tr": "Peygamberlerin görevi, kendilerine vahyedileni insanlardan saklamaktır.",
+        "explanation_tr": "Mâide 5:67 Hz. Peygamber'e Rabbinden indirileni tebliğ etmesini emreder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La mission des prophètes consiste à cacher aux humains la révélation reçue.",
+        "explanation_tr": "Al-Maida 5:67 ordonne au Prophète de transmettre ce qui lui a été révélé par son Seigneur.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-003": {
+      "source": {
+        "question_tr": "Mâide 5:67'de Hz. Peygamber'e Rabbinden indirileni ______ etmesi emredilir.",
+        "explanation_tr": "Ayet ilahî mesajın eksiksiz biçimde ulaştırılmasının önemini vurgular.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "tebliğ",
+          "gizle",
+          "değiştir",
+          "unut"
+        ],
+        "correct_answer": "tebliğ",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Maida 5:67 ordonne au Prophète de ______ ce qui lui a été révélé par son Seigneur.",
+        "explanation_tr": "Le verset met en avant l’importance de transmettre intégralement le message divin.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "transmettre",
+          "cacher",
+          "modifier",
+          "oublier"
+        ],
+        "correct_answer": "transmettre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-004": {
+      "source": {
+        "question_tr": "Bir kişi 'Peygamber, insanların tepkisinden korkarsa vahyin bir bölümünü saklayabilir' diyor. Hangi ayet bu anlayışı düzeltir?",
+        "explanation_tr": "Mâide 5:67 peygambere Rabbinden indirileni tebliğ etmesini emreder ve bu görevin ihmal edilemeyeceğini vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mâide 5:67",
+          "Kehf 18:110",
+          "Âl-i İmrân 3:144",
+          "Ahzâb 33:21"
+        ],
+        "correct_answer": "Mâide 5:67",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne dit : « Un prophète peut cacher une partie de la révélation s’il redoute la réaction des gens. » Quel verset corrige directement cette idée ?",
+        "explanation_tr": "Al-Maida 5:67 ordonne au Prophète de transmettre ce qui lui a été révélé sans négliger cette mission.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Maida 5:67",
+          "Al-Kahf 18:110",
+          "Al-Imran 3:144",
+          "Al-Ahzab 33:21"
+        ],
+        "correct_answer": "Al-Maida 5:67",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-005": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Peygamberlerin tek işi geleceği haber vermektir' diyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Nisâ 4:165 ve Mâide 5:67 peygamberlerin görevini ilahî mesajı ulaştırma, müjdeleme ve uyarma çerçevesinde açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an onların müjdeleme, uyarma ve vahyi tebliğ etme görevlerini vurgular",
+          "Peygamberler yalnız tarih anlatır",
+          "Peygamberlerin hiçbir mesaj görevi yoktur",
+          "Peygamberler insanlardan ibadet ister"
+        ],
+        "correct_answer": "Kur'an onların müjdeleme, uyarma ve vahyi tebliğ etme görevlerini vurgular",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Le seul rôle des prophètes est de prédire l’avenir. » Quelle correction est juste ?",
+        "explanation_tr": "An-Nisa 4:165 et Al-Maida 5:67 présentent leur mission de transmission du message divin, d’annonce et d’avertissement.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le Coran insiste sur leur mission d’annoncer, d’avertir et de transmettre la révélation",
+          "Les prophètes ne racontent que l’histoire",
+          "Les prophètes n’ont aucun message à transmettre",
+          "Les prophètes exigent qu’on les adore"
+        ],
+        "correct_answer": "Le Coran insiste sur leur mission d’annoncer, d’avertir et de transmettre la révélation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-006": {
+      "source": {
+        "question_tr": "Bir toplum peygamberin mesajını reddedince bu, peygamberin vahyi kendi isteğine göre değiştirmesini gerekli kılar mı?",
+        "explanation_tr": "Mâide 5:67 tebliğ görevinin muhatapların tepkisine göre terk edilemeyeceğini vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır; peygamberin görevi Allah'tan gelen mesajı tebliğ etmektir",
+          "Evet; mesaj her tepkiye göre yeniden yazılır",
+          "Evet; vahyin kaynağı toplumdur",
+          "Hayır; çünkü peygamber zaten mesaj getirmez"
+        ],
+        "correct_answer": "Hayır; peygamberin görevi Allah'tan gelen mesajı tebliğ etmektir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Si une communauté rejette le message d’un prophète, cela l’autorise-t-il à modifier la révélation selon ses préférences ?",
+        "explanation_tr": "Al-Maida 5:67 montre que la transmission de la révélation ne peut être abandonnée en raison de la réaction des destinataires.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Non, il doit transmettre le message venant d’Allah",
+          "Oui, le message doit être réécrit après chaque réaction",
+          "Oui, car la révélation vient de la société",
+          "Non, car les prophètes ne transmettent aucun message"
+        ],
+        "correct_answer": "Non, il doit transmettre le message venant d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-007": {
+      "source": {
+        "question_tr": "Bir notta 'Peygamberler insanları zorla iman ettirmekle görevlidir' yazıyor. En temel hata nedir?",
+        "explanation_tr": "Nisâ 4:165 peygamberleri müjdeleyici ve uyarıcı elçiler olarak tanıtır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an onların görevini mesajı ulaştırma, müjdeleme ve uyarma olarak açıklar",
+          "Peygamberler insanları ilahlaştırır",
+          "Peygamberler yalnız yönetici seçer",
+          "Peygamberlerin görevi vahyi gizlemektir"
+        ],
+        "correct_answer": "Kur'an onların görevini mesajı ulaştırma, müjdeleme ve uyarma olarak açıklar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note dit : « Les prophètes doivent forcer les humains à devenir croyants. » Quelle est l’erreur fondamentale ?",
+        "explanation_tr": "An-Nisa 4:165 les présente comme des messagers chargés d’annoncer la bonne nouvelle et d’avertir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le Coran décrit leur mission comme la transmission du message, l’annonce et l’avertissement",
+          "Les prophètes rendent les humains divins",
+          "Les prophètes ne font qu’élire des dirigeants",
+          "Leur tâche consiste à cacher la révélation"
+        ],
+        "correct_answer": "Le Coran décrit leur mission comme la transmission du message, l’annonce et l’avertissement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-008": {
+      "source": {
+        "question_tr": "Peygamberlik görevlerini açıklamalarıyla eşleştir.",
+        "explanation_tr": "Kur'an peygamberlerin görevini yalnız bir işle sınırlamaz; mesajı ulaştırma, müjde ve uyarı birlikte yer alır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tebliğ",
+            "right": "İlahî mesajı ulaştırmak"
+          },
+          {
+            "left": "Müjdeleme",
+            "right": "İman ve iyiliğin sonucunu haber vermek"
+          },
+          {
+            "left": "Uyarma",
+            "right": "Yanlış yolun sonuçlarına dikkat çekmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les missions prophétiques à leur signification.",
+        "explanation_tr": "La mission ne se limite pas à une action : transmission, annonce et avertissement vont ensemble.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Transmission",
+            "right": "Faire parvenir le message divin"
+          },
+          {
+            "left": "Annonce de la bonne nouvelle",
+            "right": "Informer des conséquences de la foi et des bonnes actions"
+          },
+          {
+            "left": "Avertissement",
+            "right": "Attirer l’attention sur les conséquences d’une mauvaise voie"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-009": {
+      "source": {
+        "question_tr": "Mâide 5:67, tebliğin peygamberlik görevinin merkezî bir parçası olduğunu gösterir.",
+        "explanation_tr": "Ayette ilahî mesajın tebliğ edilmesi açık ve güçlü bir emirle ifade edilir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Maida 5:67 montre que la transmission de la révélation constitue une mission essentielle du Prophète.",
+        "explanation_tr": "Ce verset ordonne expressément de transmettre le message divin.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-010": {
+      "source": {
+        "question_tr": "Peygamberlerin üç temel görevini kısa biçimde yaz.",
+        "explanation_tr": "Nisâ 4:165 ve Mâide 5:67 bu görevleri açıkça destekler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah'tan gelen vahyi tebliğ etmek, insanları müjdelemek ve uyarmak.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Cite brièvement trois missions fondamentales des prophètes.",
+        "explanation_tr": "An-Nisa 4:165 et Al-Maida 5:67 appuient ces trois missions.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Transmettre la révélation venant d’Allah, annoncer la bonne nouvelle et avertir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-011": {
+      "source": {
+        "question_tr": "Nisâ 4:165'te peygamberler 'müjdeleyen ve ______' elçiler olarak anılır.",
+        "explanation_tr": "Ayette peygamberlerin müjdeleme ve uyarma görevi vurgulanır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "uyaran",
+          "gizleyen",
+          "zorlayan",
+          "unutulan"
+        ],
+        "correct_answer": "uyaran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "An-Nisa 4:165 décrit les prophètes comme des messagers annonçant la bonne nouvelle et ______.",
+        "explanation_tr": "Le verset insiste sur l’annonce et l’avertissement.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "avertissant",
+          "cachant",
+          "contraignant",
+          "oubliés"
+        ],
+        "correct_answer": "avertissant",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-012": {
+      "source": {
+        "question_tr": "Mâide 5:67'de tebliğ edilmesi istenen şey, peygambere ______ tarafından indirilendir.",
+        "explanation_tr": "Ayette 'Rabbinden sana indirileni tebliğ et' emri yer alır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Rabbi",
+          "toplum",
+          "kral",
+          "kendi nefsi"
+        ],
+        "correct_answer": "Rabbi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Maida 5:67, ce qui doit être transmis au Prophète lui a été révélé par son ______.",
+        "explanation_tr": "Le verset dit de transmettre ce qui est descendu de son Seigneur.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Seigneur",
+          "peuple",
+          "roi",
+          "propre désir"
+        ],
+        "correct_answer": "Seigneur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-013": {
+      "source": {
+        "question_tr": "Peygamberin tebliğ sürecini öğretim amacıyla sırala.",
+        "explanation_tr": "Nisâ 4:165 ve Mâide 5:67 vahyin kaynağı, elçinin görevi ve insanın sorumluluğu arasındaki ilişkiyi gösterir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Vahiy Allah'tan gelir",
+          "Peygamber vahyi alır",
+          "Mesajı insanlara tebliğ eder",
+          "İnsanlar mesaj karşısında sorumluluk taşır"
+        ],
+        "correct_order": [
+          "Vahiy Allah'tan gelir",
+          "Peygamber vahyi alır",
+          "Mesajı insanlara tebliğ eder",
+          "İnsanlar mesaj karşısında sorumluluk taşır"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe les étapes de la transmission du message prophétique.",
+        "explanation_tr": "Cet ordre pédagogique illustre l’origine du message, la tâche du messager et la responsabilité de ceux qui le reçoivent.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "La révélation vient d’Allah",
+          "Le prophète reçoit la révélation",
+          "Il transmet le message aux humains",
+          "Les humains deviennent responsables face au message"
+        ],
+        "correct_order": [
+          "La révélation vient d’Allah",
+          "Le prophète reçoit la révélation",
+          "Il transmet le message aux humains",
+          "Les humains deviennent responsables face au message"
+        ],
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S03-014": {
+      "source": {
+        "question_tr": "Nisâ 4:165'e göre peygamberlerin gönderilmesinin insan sorumluluğu açısından sonucu nedir?",
+        "explanation_tr": "Ayette peygamberlerin gönderilmesi, insanların Allah'a karşı bir delil/mazeret ileri sürememesiyle ilişkilendirilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsanların Allah'a karşı 'bize mesaj gelmedi' diye mazeret ileri sürmesinin önünü kesmek",
+          "İnsanların sorumluluğunu tamamen kaldırmak",
+          "Peygamberleri ilah yapmak",
+          "Vahyi yalnız seçkinlere saklamak"
+        ],
+        "correct_answer": "İnsanların Allah'a karşı 'bize mesaj gelmedi' diye mazeret ileri sürmesinin önünü kesmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon An-Nisa 4:165, quelle est la conséquence de l’envoi des prophètes pour la responsabilité humaine ?",
+        "explanation_tr": "Le verset lie leur mission au fait que les humains ne puissent prétendre ne pas avoir reçu d’avertissement de la part d’Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Cela empêche d’invoquer l’absence de message comme excuse devant Allah",
+          "Cela supprime toute responsabilité humaine",
+          "Cela transforme les prophètes en divinités",
+          "Cela réserve la révélation à une élite"
+        ],
+        "correct_answer": "Cela empêche d’invoquer l’absence de message comme excuse devant Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La mission des prophètes",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
