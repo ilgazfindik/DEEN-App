@@ -39,6 +39,40 @@ for(const source of ['Fâtiha · Ayet 8/7','Fâtiha 8. ayeti hatırla',
  assert.equal(fmt(source),null,'Unverified Quran UI interpolation must fail closed: '+source);
 }
 
+// Source-exact Fatiha memorization and Arabic-only ayah-test UI chrome.
+// Religious meaning/answer translation remains prohibited and gated.
+const quranStage4Cases=[
+ ['Fâtiha Ezberi','Fâtiha auswendig lernen'],
+ ['EZBER KADEMESİ 2 / 5','AUSWENDIGLERNSTUFE 2 / 5'],
+ ['Tam metin','Vollständiger Vers'],
+ ['Bazı kelimeler gizli','Einige Wörter ausgeblendet'],
+ ['Çoğu kelime gizli','Die meisten Wörter ausgeblendet'],
+ ['Başlangıç ipucu','Anfangshinweis'],
+ ['Tamamen ezberden','Vollständig auswendig'],
+ ['METNİ GÖSTER','TEXT ANZEIGEN'],
+ ['HATIRLADIM','ICH HABE MICH ERINNERT'],
+ ['Fâtiha · Ayet 1','Fâtiha · Vers 1'],
+ ['Ayet 7 · Boşluk','Vers 7 · Lücke'],
+ ['Ayet 1 · Sesi Bul','Vers 1 · Hörübung'],
+ ['✓ 0 doğru','✓ 0 richtige Antworten'],
+ ['✓ 1 doğru','✓ 1 richtig'],
+ ['Test ilerlemesi','Testfortschritt'],
+ ['Cevap seçenekleri','Antwortmöglichkeiten'],
+ ['Sesli ayet sorusu','Hörfrage zum Vers'],
+ ['Zorlandığın ayetler öncelik alır','Verse, die dir schwerfallen, werden zuerst geübt'],
+ ['Meal henüz hazır değil','Die geprüfte Übersetzung steht noch aus'],
+ ['Başarı puanı yüzde 80','Ergebnis: 80 Prozent'],
+ ['1. soru · Ayet 3','Frage 1 · Vers 3']
+];
+for(const [src,de]of quranStage4Cases){
+ assert.equal(fmt(src),de,'Fatiha stage 4 '+src);
+ assert.equal(fmt('  '+src+'  '),'  '+de+'  ','Fatiha UI padding');
+}
+for(const src of ['EZBER KADEMESİ 6 / 5','Fâtiha · Ayet 8','8. soru · Ayet 1',
+ 'Ayet 8 · Boşluk','Anlamsal soru metni kaynak doğrulaması yok']){
+ assert.equal(fmt(src),null,'Quran out of-range/meaning text must fail closed: '+src);
+}
+
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
