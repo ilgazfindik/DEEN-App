@@ -148,3 +148,15 @@
 - **No live deployment or merge:** this pass runs in disposable localhost with a synthetic German manifest; `assets/i18n/content-support.json` still blocks German question data/global release and flags expert review pending.
 
 **Next:** cover İhlâs-specific lesson/memorization differences, then remaining 12 surahs and real-device audio/offline regressions without weakening translation approval.
+
+
+## 2026-10-13 — İhlâs native German learning/memorization and audio acceptance (staging only)
+
+- **Chromium PASS**: [German real-browser staging QA #38399946911](https://github.com/ilgazfindik/DEEN-App/actions/runs/38399946911) on code commit `4323c7336bd013f2ef2fc1393d42061a73da1cbc`. Native İhlâs branch covered **20/20 learning stages** (4 ayahs × 5 steps) with `unresolved=[]`, unchanged Arabic source text, and all four native MP3 records `ihlas_1.mp3`–`ihlas_4.mp3` played from their correct ayah. Arabic content is never localized.
+- **Native separate v10921/v10922 engines**: the genuine İhlâs memorization button unlocked only after learning all four ayahs. The opened card was already independently German-localized as `Al-Ichlās auswendig lernen`; its self-check actions and progressive stage were in German. Revealing the original Arabic showed byte-equivalent normalized text; clicking **ICH HABE MICH ERINNERT** advanced saved level to **2/5**, without unlocking an unapproved German meaning test.
+- **Real code fixes**: `release/v9.9.3-direct/segment-34.txt` now prefers the saved **İhlâs-specific** current ayah over a general profile last-ayah value, preventing a previous Nasr verse 3 from causing the first İhlâs lesson to open at verse 3. German Quran source attribution no longer falls back to `Türkçe meal bekleniyor`; the unapproved translation is plainly unavailable, not manufactured.
+- **Release integrity**: `index.html` segment-34 SHA-256 and cache build marker were updated after source changes, since otherwise the bootloader discards the changed segment and can fall back to the previous immutable revision. A new test asserts the SHA-256 source/manifest identity before launching the browser.
+- **UI-only staging**: source-guarded translations cover native İhlâs learning prompts, five-level memorization descriptions and recitation panel labels (`AYET ARASI BEKLEME`, `Kıraat hazır`, `SEÇİLİ AYETİ LOOP KAPALI`). The German static locale audit and Arabic question bank audit on the preceding branch SHA were green. The final code change at `4323c733` only corrected the test expectation for an already-German heading.
+- **Scope**: success is a disposable localhost Chromium session with an in-memory synthetic German QA manifest, **not** live German release. Full five-level completion across all four verses, all remaining surahs, mobile physical-device audible output, and German native/theological/rights approval remain open. PR #55 is not merged into main.
+
+**Next**: verify all remaining Quran surahs on the shared engine, test offline/mobile device behavior and complete separate German theological/native language review. Keep German production gate closed until approved.
