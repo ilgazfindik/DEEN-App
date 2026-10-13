@@ -48,7 +48,7 @@ for(let i=1;i<=7;i++){
    if(/[İıĞğŞş]/u.test(withoutProperNames))bad('Turkish_locale_letters');
    if(/\b(?:sadece|yanlış|doğru|günlük|öğrenme|peygamber|kavramları)\b/iu.test(text))
      bad('Turkish_word');
-   if(/\b(?:which|because|nicht|welche|purification|that)\b/iu.test(text))
+   if(/\b(?:which|because|nicht|welche|worship|that)\b/iu.test(text))
      bad('English_German_word');
   }
   if(s.pairs){
