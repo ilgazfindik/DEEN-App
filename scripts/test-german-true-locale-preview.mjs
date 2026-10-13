@@ -1105,6 +1105,7 @@ try{
  // safe German QA chrome rendering; protect original Arabic/recitation.
  const expectedSteps=['1 · ANHÖREN','2 · LESEN','3 · BEDEUTUNG','4 · ERINNERN','5 · ABSCHLIESSEN'];
  report.quran_fatiha.real_ayah_audio.chrome=[];
+ report.quran_fatiha.real_ayah_audio.unresolvedChrome=[];
  const auditLearn=async(step,ayah)=>{
   const view=await page.evaluate(({step,ayah})=>{
    const dialog=document.querySelector('#v5Sheet[open]');
@@ -1127,7 +1128,9 @@ try{
     approved:window.__DEEN_CONTENT_MANIFEST__.languages.de.religious_expert_approved};
   },{step,ayah});
   report.quran_fatiha.real_ayah_audio.chrome.push(view);
-  assert.deepEqual(view.unresolved,[],'Untranslated Fatiha card '+step);
+  if(view.unresolved.length)
+   report.quran_fatiha.real_ayah_audio.unresolvedChrome.push({
+    step,ayah,unresolved:view.unresolved});
   assert.equal(view.kicker,expectedSteps[step]);
   assert.equal(view.progress,'Fâtiha · Vers '+ayah+'/7');
   if(step===0)assert.equal(view.title,'Vers '+ayah+' / 7');
@@ -1210,6 +1213,8 @@ try{
   'Ayah 2 played the wrong recording');
  await secondSpeaker.click({timeout:15000});
  assert.equal((await page.evaluate(()=>window.DEEN_QURAN_AYAH_AUDIO.state())).status,'paused');
+ assert.deepEqual(report.quran_fatiha.real_ayah_audio.unresolvedChrome,[],
+  'Untranslated native Fatiha UI across all five stages');
  // No native-German/theological/rights sign-off or public Quran meanings
  // are implied by successful Arabic and MP3 control checks.
  report.quran_fatiha.real_ayah_audio.review_approved=false;
