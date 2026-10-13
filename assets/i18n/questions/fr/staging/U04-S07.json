@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U04",
+  "stage": "U04-S07",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U04-S07-001": {
+      "source": {
+        "question_tr": "Bir öğrenci, 'İslam'ın beş şartı' listesine 'Meleklere iman' ifadesini ekliyor. Bu ifade neden listeden çıkarılmalıdır?",
+        "explanation_tr": "İslam'ın beş şartı ile imanın esasları aynı kategori değildir; meleklere iman, imanın esaslarıyla ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Meleklere iman, İslam'ın beş şartından değil imanın esaslarından biridir.",
+          "Meleklere iman yalnızca hacla ilgilidir.",
+          "Meleklere iman zekâtın başka adıdır.",
+          "Listeden çıkarılmasına gerek yoktur."
+        ],
+        "correct_answer": "Meleklere iman, İslam'ın beş şartından değil imanın esaslarından biridir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève ajoute « croire aux anges » à la liste des cinq piliers de l’islam. Pourquoi faut-il retirer cet élément ?",
+        "explanation_tr": "Les cinq piliers de l’islam et les articles de la foi ne sont pas une même catégorie ; croire aux anges relève de la foi.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La foi aux anges est un article de la foi, et non l’un des cinq piliers de l’islam",
+          "La croyance aux anges ne concerne que le hajj",
+          "La foi aux anges est un autre nom de la zakat",
+          "Il n’est pas nécessaire de retirer cet élément"
+        ],
+        "correct_answer": "La foi aux anges est un article de la foi, et non l’un des cinq piliers de l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-002": {
+      "source": {
+        "question_tr": "Aşağıdaki ifadelerden hangisinde kavramsal bir hata vardır?",
+        "explanation_tr": "Hac ibadeti Kudüs'te değil, Mekke'deki kutsal mekânlarda (Kâbe vb.) yerine getirilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hac ibadeti için Kudüs'e gitmek şarttır.",
+          "Oruç Ramazan ayında tutulur.",
+          "Zekât malî bir ibadettir.",
+          "Namaz düzenli bir kulluk görevidir."
+        ],
+        "correct_answer": "Hac ibadeti için Kudüs'e gitmek şarttır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation contient une erreur ?",
+        "explanation_tr": "Le hajj se déroule dans les lieux prescrits autour de La Mecque, et non à Jérusalem.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Il est obligatoire de se rendre à Jérusalem pour le hajj",
+          "Le jeûne se pratique pendant le Ramadan",
+          "La zakat est une obligation financière",
+          "La prière est une pratique régulière d’adoration"
+        ],
+        "correct_answer": "Il est obligatoire de se rendre à Jérusalem pour le hajj",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-003": {
+      "source": {
+        "question_tr": "Aşağıdaki eşleştirmelerden hangisi İslam'ın şartlarını doğru ayırt eder?",
+        "explanation_tr": "Başlangıç düzeyinde namaz düzenli kulluk ibadeti, zekât ise malî ibadet olarak ayırt edilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz = düzenli kulluk / Zekât = malî ibadet",
+          "Zekât = düzenli kulluk / Oruç = malî ibadet",
+          "Hac = yalnızca malî ibadet / Oruç = Mekke ziyareti",
+          "Namaz = malî ibadet / Şehadet = Ramazan ibadeti"
+        ],
+        "correct_answer": "Namaz = düzenli kulluk / Zekât = malî ibadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle association distingue correctement deux piliers de l’islam ?",
+        "explanation_tr": "La prière est une pratique régulière d’adoration ; la zakat est une obligation financière.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Prière = adoration régulière / zakat = obligation financière",
+          "Zakat = adoration régulière / jeûne = obligation financière",
+          "Hajj = uniquement obligation financière / jeûne = pèlerinage à La Mecque",
+          "Prière = obligation financière / chahada = acte du Ramadan"
+        ],
+        "correct_answer": "Prière = adoration régulière / zakat = obligation financière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-004": {
+      "source": {
+        "question_tr": "Ramazan ayında gün boyunca yeme ve içmeden uzak durulan ibadetten söz ediliyor. Bahsedilen İslam şartı hangisidir?",
+        "explanation_tr": "Bu açıklama Ramazan orucunu tanımlar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Oruç",
+          "Zekât",
+          "Hac",
+          "Namaz"
+        ],
+        "correct_answer": "Oruç",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un acte d’adoration impose de s’abstenir de manger et de boire pendant la journée du Ramadan. De quel pilier s’agit-il ?",
+        "explanation_tr": "Cette description correspond au jeûne du Ramadan.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le jeûne",
+          "La zakat",
+          "Le hajj",
+          "La prière"
+        ],
+        "correct_answer": "Le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-005": {
+      "source": {
+        "question_tr": "Bir sınıflandırma etkinliğinde aşağıdakilerden hangisi 'İslam'ın beş şartı' kategorisine yerleştirilmelidir?",
+        "explanation_tr": "Zekât İslam'ın beş şartından biridir; diğer seçenekler iman esaslarıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zekât vermek",
+          "Kader ve kazaya inanmak",
+          "Kitaplara inanmak",
+          "Meleklere inanmak"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans un exercice de classement, lequel des éléments suivants appartient aux cinq piliers de l’islam ?",
+        "explanation_tr": "La zakat fait partie des piliers ; les autres propositions concernent les articles de la foi.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Verser la zakat",
+          "Croire à la prédestination",
+          "Croire aux Livres révélés",
+          "Croire aux anges"
+        ],
+        "correct_answer": "Verser la zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-006": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet getirmek, yalnızca 'Allah'a inanıyorum' demekten ibarettir; Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitlik kısmı gerekli değildir.",
+        "explanation_tr": "Yanlış. Standart Kelime-i Şehadet metni hem tevhid beyanını hem de Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği içerir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Prononcer la chahada signifie seulement dire « Je crois en Allah » ; il n’est pas nécessaire d’attester que Muhammad est Son serviteur et Son messager.",
+        "explanation_tr": "La chahada complète comprend les deux témoignages : l’unicité d’Allah et le statut de serviteur et messager de Muhammad.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-007": {
+      "source": {
+        "question_tr": "Günlük hayatı durdurup, belirli zamanlarda Allah'a yönelerek gerçekleştirilen düzenli ibadet __________.",
+        "explanation_tr": "Namaz, müminin gün içinde tekrar ettiği düzenli bir yöneliştir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Namazdır",
+          "Oruçtur",
+          "Zekâttır",
+          "Hactır"
+        ],
+        "correct_answer": "Namazdır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La pratique régulière qui consiste à se tourner vers Allah à des moments déterminés de la journée est la ________.",
+        "explanation_tr": "La prière est un acte d’adoration répété à différentes heures de la journée.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "prière",
+          "jeûne",
+          "zakat",
+          "hajj"
+        ],
+        "correct_answer": "prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-008": {
+      "source": {
+        "question_tr": "İslam'ın şartlarından biri olan hac ibadetinin gerçekleştirildiği ana şehir hangisidir?",
+        "explanation_tr": "Hac ibadeti, Mekke şehri ve çevresindeki Arafat, Müzdelife gibi alanlarda yapılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mekke",
+          "Medine",
+          "Kudüs",
+          "Kahire"
+        ],
+        "correct_answer": "Mekke",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans quelle ville principale le pèlerinage du hajj est-il accompli ?",
+        "explanation_tr": "Le hajj se déroule à La Mecque et dans ses environs, notamment à Arafat et Mouzdalifa.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La Mecque",
+          "Médine",
+          "Jérusalem",
+          "Le Caire"
+        ],
+        "correct_answer": "La Mecque",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-009": {
+      "source": {
+        "question_tr": "Ahmet Bey Ramazan'da oruç tutuyor ve ayrıca zekât için ayırdığı payı hak sahiplerine ulaştırıyor. Bu iki davranış İslam'ın hangi iki şartıyla ilişkilidir?",
+        "explanation_tr": "Ramazan orucu ve zekât, İslam'ın beş şartı içinde iki ayrı ibadettir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Oruç ve Zekât",
+          "Namaz ve Oruç",
+          "Zekât ve Hac",
+          "Oruç ve Hac"
+        ],
+        "correct_answer": "Oruç ve Zekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Pendant le Ramadan, Ahmet jeûne et remet également aux bénéficiaires la part de ses biens destinée à la zakat. Quels deux piliers accomplit-il ?",
+        "explanation_tr": "Le jeûne du Ramadan et la zakat sont deux piliers distincts.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le jeûne et la zakat",
+          "La prière et le jeûne",
+          "La zakat et le hajj",
+          "Le jeûne et le hajj"
+        ],
+        "correct_answer": "Le jeûne et la zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-010": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Namaz malî bir ibadettir; zekât ise günün belirli vakitlerinde yapılan düzenli kulluk ibadetidir.' diyor. Bu ifadede hangi hata vardır?",
+        "explanation_tr": "Namaz düzenli kulluk ibadeti, zekât ise malî ibadettir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namaz ve zekâtın temel özellikleri birbiriyle karıştırılmıştır.",
+          "Yalnızca namazla ilgili bölüm doğrudur.",
+          "Yalnızca zekâtla ilgili bölüm doğrudur.",
+          "İfadede hata yoktur."
+        ],
+        "correct_answer": "Namaz ve zekâtın temel özellikleri birbiriyle karıştırılmıştır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « La prière est une obligation financière et la zakat est une adoration accomplie à des heures précises de la journée. » Quelle est son erreur ?",
+        "explanation_tr": "Il inverse les caractéristiques : la prière est une pratique régulière d’adoration et la zakat est une obligation financière.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Il a interverti les principales caractéristiques de la prière et de la zakat",
+          "Seule la description de la prière est correcte",
+          "Seule la description de la zakat est correcte",
+          "Il n’y a aucune erreur"
+        ],
+        "correct_answer": "Il a interverti les principales caractéristiques de la prière et de la zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-011": {
+      "source": {
+        "question_tr": "İslam'ın beş şartı eksiksiz ve doğru olarak hangi seçenekte verilmiştir?",
+        "explanation_tr": "Diğer seçenekler İmanın Esasları (melek, ahiret) veya farklı ibadetler (kurban) ile karıştırılmıştır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Şehadet getirmek, Namaz kılmak, Oruç tutmak, Zekât vermek, Hacca gitmek",
+          "Namaz kılmak, Oruç tutmak, Meleklere inanmak, Zekât vermek, Hacca gitmek",
+          "Şehadet getirmek, Namaz kılmak, Oruç tutmak, Ahirete inanmak, Hacca gitmek",
+          "Namaz kılmak, Oruç tutmak, Zekât vermek, Kurban kesmek, Hacca gitmek"
+        ],
+        "correct_answer": "Şehadet getirmek, Namaz kılmak, Oruç tutmak, Zekât vermek, Hacca gitmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle liste présente exactement les cinq piliers de l’islam ?",
+        "explanation_tr": "Les autres listes mélangent les piliers avec des articles de la foi ou d’autres actes d’adoration.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Chahada, prière, jeûne, zakat et hajj",
+          "Prière, jeûne, foi aux anges, zakat et hajj",
+          "Chahada, prière, jeûne, foi au Jour dernier et hajj",
+          "Prière, jeûne, zakat, sacrifice et hajj"
+        ],
+        "correct_answer": "Chahada, prière, jeûne, zakat et hajj",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-012": {
+      "source": {
+        "question_tr": "Arkadaşın, 'Eşhedü...' diye başlayan inanç beyanının İslam'ın beş şartı içindeki adını soruyor. Hangi şarttan bahsetmelisin?",
+        "explanation_tr": "Bu ifade Kelime-i Şehadet ile ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kelime-i Şehadet getirmek",
+          "Namaz kılmak",
+          "Hacca gitmek",
+          "Oruç tutmak"
+        ],
+        "correct_answer": "Kelime-i Şehadet getirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami te demande le nom du pilier correspondant à la profession de foi qui commence par « Eşhedü… ». Que répondrais-tu ?",
+        "explanation_tr": "La formule évoquée est la chahada.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Prononcer la chahada",
+          "Accomplir la prière",
+          "Effectuer le hajj",
+          "Observer le jeûne"
+        ],
+        "correct_answer": "Prononcer la chahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-013": {
+      "source": {
+        "question_tr": "İslam'ın beş şartı; Şehadet, Namaz, Oruç, Zekât ve __________.",
+        "explanation_tr": "Listeyi tamamlayan beşinci şart Hac ibadetidir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Hac",
+          "Umre",
+          "Cihat",
+          "Dua"
+        ],
+        "correct_answer": "Hac",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Les cinq piliers de l’islam sont la chahada, la prière, le jeûne, la zakat et le ________.",
+        "explanation_tr": "Le dernier pilier de cette liste est le hajj.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "hajj",
+          "‘umra",
+          "djihad",
+          "invocation"
+        ],
+        "correct_answer": "hajj",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S07-014": {
+      "source": {
+        "question_tr": "Bir özet kartında inanç beyanı, namaz, Ramazan orucu, zekât ve hac yan yana verilmiş. Bu beşli hangi temel kavramı temsil eder?",
+        "explanation_tr": "Bu beş kavram birlikte İslam'ın beş şartını oluşturur.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İslam'ın Beş Şartını",
+          "İmanın Altı Esasını",
+          "Ahlakın Şartlarını",
+          "Muamelat Kurallarını"
+        ],
+        "correct_answer": "İslam'ın Beş Şartını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une carte résume la profession de foi, la prière, le jeûne du Ramadan, la zakat et le hajj. Quel ensemble désigne-t-elle ?",
+        "explanation_tr": "Ces cinq pratiques forment les cinq piliers de l’islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Les cinq piliers de l’islam",
+          "Les six articles de la foi",
+          "Les principes de bonne conduite",
+          "Les règles des transactions"
+        ],
+        "correct_answer": "Les cinq piliers de l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des cinq piliers de l’islam",
+        "topic": "Évaluation de l’unité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
