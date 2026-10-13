@@ -156,3 +156,14 @@
 - **Kur’an güvenliği:** Bu pakette yalnızca menü, test ve sure çalışma kontrol metinleri çevrildi. Arapça ayetler, kıraat kayıtları ve Türkçe mealler değişmedi; Fransızca meal, lisans ve dinî uzman kontrolü olmadan canlıya bağlanmaz.
 - **Sonraki UI alanları:** ders giriş/sonuç/seri/XP geçişleri; premium-mağaza; detaylı Kur’an ezber/review; diğer 1.220 bilinen kaynak; gerçek Chromium dil sızıntısı ve taşma taraması.
 - **Yayın engeli sürüyor:** `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`; bütün yeni UI paketlerinde `release_ready=false`. Bu bir üretim deploy'u değildir. Ayrıca U13 kaynak matching çakışmaları açık.
+
+## 2026-10-14 — Fransızca UI P02 — ders döngüsü (189 yeni metin)
+- **197 yeni önceki UI P01** paketi üzerine **189 yeni** kaynak-bağlı Fransızca staging çevirisi eklendi.
+- `assets/i18n/fr/ui.lesson-intro-feedback.staging.json`: **66** (35 aşama tanıtımı + 31 cevap geri bildirimi, sıralama, ipucu, kısa hafıza testi).
+- `assets/i18n/fr/ui.lesson-results.staging.json`: **94** (başarı/sonuç, XP, bölüm, mini ders, ünite finali, ödül sandığı, adaptif tekrar ve sonraki adım).
+- `assets/i18n/fr/ui.streak-xp.staging.json`: **29** (seri/XP kuralları, seri koruması, hafta günleri, hareketi azaltma ve dokunsal geri bildirim).
+- Böylece ilk **35**, P01 **197** ve P02 **189** olmak üzere **421/1452** bilinen UI anahtarı taslak olarak çevrildi; **1031** statik anahtar kaldı.
+- `scripts/inventory-french-ui.mjs` üç yeni staging paketini sayar ve `421/1452` kontrol eder; `scripts/audit-french-ui-lesson-flow.mjs` 189 metin için kaynak sırası, benzersiz anahtarlar, doldurulmuş metin, `{token}` yer tutucularının korunması ve üretim bayraklarını test eder.
+- CI referansı: [GitHub Actions #38476661279](https://github.com/ilgazfindik/DEEN-App/actions/runs/38476661279) (sonuç ayrı doğrulanır).
+- Bu değişiklikler **yalnız staging**: Kur’an'ın Arapça metni, kıraat ve meal verileri; eski dillerin runtime'ı; release bayrakları; canlı GitHub Pages değiştirilmedi. Önceki U13 eşleştirme kaynak hataları ve uzman incelemeleri beklemektedir.
+- Sonraki UI paketleri: premium/mağaza, ayrıntılı Kur’an ezber kontrolleri, genişletilmiş ünitelere ait kavram/başlıklar ve kalan ekranlar. Mobil/Chromium dil değiştirme ve taşma kontrolleri release öncesi zorunludur.
