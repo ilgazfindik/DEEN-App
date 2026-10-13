@@ -145,3 +145,14 @@
 - `scripts/audit-french-u15-complete.mjs` CI'da kaynak, seçenek indeksi, eşleştirme, boşluk ve release bayraklarını kontrol eder.
 - **Engeller hâlâ açık:** Fransızca statik UI kaynakları eksik (önceki envanterde 35/1452), aktif U01 çalışma zamanı varyantları, dinamik UI, sayfa/menü gezinme, locale-switch senaryosu, mobil/Chromium QA, bağımsız anadili Fransızca ve İslami uzman incelemesi. Ayrıca U13 eşleştirmelerindeki kaynak çoğulluk sorunları ayrı çözüm bekler.
 - `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` üretim kilitleri KORUNUR; bu PR draft olup main/Pages'e merge edilmemelidir.
+
+## 2026-10-14 — Fransızca UI P01: temel akışlar (197 yeni anahtar)
+- Kaynak: daha önce Almanca QA sırasında çıkarılmış **1.452 benzersiz Türkçe UI kaynağı**. Almanca görüntü metinleri Fransızcaya kopyalanmadı.
+- Önceki **35/1.452** UI taslağı üzerine eklenen üç bağımsız paket: `assets/i18n/fr/ui.core-navigation-lesson.staging.json` **71** (gezinme 41 + ders kontrolleri 30); `assets/i18n/fr/ui.core-quran.staging.json` **84** (Kur’an merkezi 35 + sure/ders ekranları 49); `assets/i18n/fr/ui.core-profile.staging.json` **42** (profil, seri, rozet, görev ve öğrenme analitiği).
+- Güncel doğrulanmış UI kapsamı **232/1452**, kalan **1220**. Yalnız kaynak envanterindeki statik metinler sayılır; dinamik tarayıcı metinleri ayrıca denetlenmelidir.
+- `scripts/inventory-french-ui.mjs` düzeltildi. Eskiden U11–U15'i saymadığından temel soru ilerlemesini eski gösteriyordu; artık **15/15 ünite, 1500/1500 soru**, dört UI dosyası ve tekilleştirilmiş UI anahtarları hesaplanır.
+- `scripts/audit-french-ui-core.mjs`: 197 anahtarın özgün Türkçe source-key eşleşmesi, grup sırası, çevirilerin doluluğu, tekrar eden ID, varsa `{token}` koruması ve tüm release-gate bayrakları üzerinde çalışır.
+- CI **[GitHub Actions #38476076513 — success](https://github.com/ilgazfindik/DEEN-App/actions/runs/38476076513)**, commit `8614c4c8`: **1500/1500 temel soru**, **232/1452 UI**, **1220 eksik UI**, 12 dinamik risk senaryosu.
+- **Kur’an güvenliği:** Bu pakette yalnızca menü, test ve sure çalışma kontrol metinleri çevrildi. Arapça ayetler, kıraat kayıtları ve Türkçe mealler değişmedi; Fransızca meal, lisans ve dinî uzman kontrolü olmadan canlıya bağlanmaz.
+- **Sonraki UI alanları:** ders giriş/sonuç/seri/XP geçişleri; premium-mağaza; detaylı Kur’an ezber/review; diğer 1.220 bilinen kaynak; gerçek Chromium dil sızıntısı ve taşma taraması.
+- **Yayın engeli sürüyor:** `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`; bütün yeni UI paketlerinde `release_ready=false`. Bu bir üretim deploy'u değildir. Ayrıca U13 kaynak matching çakışmaları açık.
