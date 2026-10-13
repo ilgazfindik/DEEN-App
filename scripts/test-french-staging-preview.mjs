@@ -9,7 +9,7 @@ import {buildFrenchPreview} from './fr-preview-pack-builder.mjs';
 const read=p=>readFileSync(root+p,'utf8'),eq=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
 const built=buildFrenchPreview();
 assert.deepEqual(built.stats,{base:1500,active:1484,live:84,storedVariants:20,legacy:100,
- ui:1452,dynamicTemplates:9,parts:18,sourceVariants:1584});
+ ui:1452,dynamicTemplates:9,parts:18,sourceVariants:1596});
 const production=JSON.parse(read('assets/i18n/content-support.json'));
 assert.equal(production.languages.fr.question_data,'missing');
 assert.equal(production.languages.fr.global_qa,'blocked');
