@@ -32,7 +32,7 @@
  // cannot be localized by translating each fragment independently.
  function fixMatchingHeading(){
   const el=document.querySelector('#lesson .question-frame.v1013-match-ref .v9916-task-title');
-  if(el&&el.textContent?.replace(/\\s+/g,' ').trim()==='Eşleşen çiftleri bul'){
+  if(el&&el.textContent?.replace(/\s+/g,' ').trim()==='Eşleşen çiftleri bul'){
    el.replaceChildren(document.createTextNode('Finde die '));
    const accent=document.createElement('span');accent.className='v1013-mint';
    accent.textContent='passenden';el.append(accent,document.createTextNode(' Paare'));
