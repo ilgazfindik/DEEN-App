@@ -135,3 +135,13 @@
 - İlk yapısal tarama: **100 soru, 84 seçenekli, 36 eşleştirme çifti, 14 fill_blank, 0 ön-tarama hatası**. U14 kaynak eşleştirmelerinde tekrar eden sağ taraf saptanmadı.
 - `qa/FRENCH_U14_TRANSLATION_GLOSSARY.json` kaynaklara bağlı Fransızca terminolojiyi tutar; `scripts/audit-french-u14-complete.mjs` ayrı otomatik testtir.
 - **Staging-only**: `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`, onay bayrakları false. İnsan dil/din denetimi ve üretim QA yapılmadan merge veya deploy yapılmaz.
+
+## 2026-10-14 — U15 100/100 ve temel soru bankası 1500/1500
+- Kaynakla doğrulanan **U15 konusu: Ramazan ve Oruç**. 7 aşama: 14+14+14+16+16+12+14 = **100/100**.
+- Ana Fransızca temel soru bankası: **1.500/1.500 U01–U15** kaynak-bağlı **taslak**. Bu durum üretime hazır olduğu anlamına gelmez.
+- U15 konuları: sahur/imsak/iftar, unutarak yeme-içme ile kasıtlı bozma arasındaki fark, Ramazan ve Kur’an, takva, kefaretle ilgili mezhep farklılıkları, hastalık/yolculuk, kaza, güzel ahlak.
+- İlk yapısal kontrol: **100 soru; 84 seçenekli, 36 eşleştirme çifti, 14 boşluk doldurma; 0 soru/cevap/boşluk şema hatası**.
+- U15 `DEEN-U15-S07-013` seçenek çakışması, `abstinence` isim ve `s’abstenir` fiil ayrımıyla çeviri taslağında giderildi. `qa/FRENCH_U15_TRANSLATION_GLOSSARY.json` çeviri sözlüğü korunur.
+- `scripts/audit-french-u15-complete.mjs` CI'da kaynak, seçenek indeksi, eşleştirme, boşluk ve release bayraklarını kontrol eder.
+- **Engeller hâlâ açık:** Fransızca statik UI kaynakları eksik (önceki envanterde 35/1452), aktif U01 çalışma zamanı varyantları, dinamik UI, sayfa/menü gezinme, locale-switch senaryosu, mobil/Chromium QA, bağımsız anadili Fransızca ve İslami uzman incelemesi. Ayrıca U13 eşleştirmelerindeki kaynak çoğulluk sorunları ayrı çözüm bekler.
+- `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` üretim kilitleri KORUNUR; bu PR draft olup main/Pages'e merge edilmemelidir.
