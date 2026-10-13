@@ -298,6 +298,21 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   'BACK TO SURAH JOURNEY':'ZUR SURENLERNREISE'
  };
 
+ // Four native Quran surahs tested in Stage 10. This maps only heading
+ // chrome, never source Arabic, answer values, meaning data or approval flags.
+ const stage10Titles={
+  'İhlâs':'Al-Ichlās','Felak':'Al-Falaq',
+  'Nasr':'An-Nasr','Beyyine':'Al-Bayyina'
+ };
+ if((m=n.match(/^(.+?) · (?:Ayah Test|Ayet Testi)(?: · (?:Review|Practice|Tekrar))?$/))
+   &&Object.prototype.hasOwnProperty.call(stage10Titles,m[1]))
+  return emit(stage10Titles[m[1]]+' · Verstest'+
+   (/ · (?:Review|Practice|Tekrar)$/.test(n)?' · Wiederholung':''));
+ if((m=n.match(/^(.+?) · ([0-5]) \/ ([1-5])$/))
+   &&Object.prototype.hasOwnProperty.call(stage10Titles,m[1])
+   &&Number(m[2])<=Number(m[3]))
+  return emit(stage10Titles[m[1]]+' · '+m[2]+' / '+m[3]);
+
  // Chromium 38371173317: quizChrome performs legacy partial substitutions,
  // producing mixed English/Turkish strings not caught by Turkish-only signals.
  if(n==='Fâtiha · Ayah Test')return emit('Fâtiha · Verstest');
