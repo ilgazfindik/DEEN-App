@@ -67,6 +67,14 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  // Separate İhlâs native engines: deen-v10921 + deen-v10922 in segment-34.
  // UI-only staging translations. Original Quran Arabic, answers, recitation,
  // sourced translations, approvals and progress values are never rewritten.
+ const quranPlayerChrome={
+  'AYET ARASI BEKLEME':'PAUSE ZWISCHEN VERSEN',
+  'Kıraat hazır':'Rezitation bereit',
+  'SEÇİLİ AYETİ LOOP KAPALI':'WIEDERHOLUNG DES GEWÄHLTEN VERSES AUS',
+  'SEÇİLİ AYETİ LOOP AÇIK':'WIEDERHOLUNG DES GEWÄHLTEN VERSES AN'
+ };
+ if(Object.prototype.hasOwnProperty.call(quranPlayerChrome,n))
+  return emit(quranPlayerChrome[n]);
  const ikhlasNative={
   'İhlâs Suresi':'Sure İhlâs',
   'İhlâs Ezberi':'İhlâs auswendig lernen',
