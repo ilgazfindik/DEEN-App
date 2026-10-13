@@ -1,0 +1,37 @@
+name: French localization staging and UI inventory
+on:
+  push:
+    branches: ['codex/french-*', main]
+    paths:
+      - 'assets/i18n/questions/fr/**'
+      - 'assets/i18n/fr/**'
+      - 'scripts/audit-french-staging.mjs'
+      - 'scripts/inventory-french-ui.mjs'
+      - 'qa/FRENCH_STAGE1.md'
+      - '.github/workflows/french-localization-audit.yml'
+  workflow_dispatch:
+jobs:
+  french-staging:
+    name: French source and coverage audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions: {contents: read}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Validate translated source IDs, answer indices and release gate
+        run: node scripts/audit-french-staging.mjs
+      - name: Report all 15 units and 1452 UI source keys
+        run: node scripts/inventory-french-ui.mjs
+      - name: Ensure production English questions remain complete
+        run: node scripts/audit-english-questions.mjs --require-complete
+      - name: Ensure no main loader hashes have changed
+        run: node scripts/build-release-manifest.mjs --check
+      - name: Store French missing-UI and high-risk dynamic coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: french-staging-inventory
+          path: qa-artifacts/french-ui-inventory.json
+          if-no-files-found: ignore
