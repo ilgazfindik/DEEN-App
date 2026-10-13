@@ -178,3 +178,15 @@
 - CI referansı: [French localization GitHub Actions #38477167503](https://github.com/ilgazfindik/DEEN-App/actions/runs/38477167503) (sonuç ayrıca doğrulanır).
 - **Üretim kilitleri korunur:** `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`. PR #57 taslaktır, `main` ve Pages deploy değişmedi. U13 matching kaynak hataları, U01 runtime varyantları, dinamik UI, gerçek Chromium/mobil QA, Fransızca editör, dinî uzman ve lisans kontrolleri ayrıca kapanmalıdır.
 - Sonraki öncelik: 847 kalan statik UI kaynağı içinde genişletilmiş ünite başlıkları ve tekrarlama/gerçek ders ekranları; dinamik sayılar, çoğul ve mobil metin sızıntısı taraması.
+
+## 2026-10-14 — Fransızca UI P04 — 238 ünite/konu etiketi + 9 dinamik şablon
+- İlk üç UI paketi **605/1452** üzerine, **238 benzersiz statik UI Türkçe kaynak anahtarı** için Fransızca taslak eklendi. Genel **843/1452 (%58,06)**, **609 statik kaynak anahtarı kaldı**.
+- `assets/i18n/fr/ui.reference-batch-01.staging.json`: **112** dinî kavram, ibadet, namaz, abdest, oruç ve ünite/konu başlığı; var olan 8 çeviri tekrar yazılmadı.
+- `assets/i18n/fr/ui.reference-batch-02.staging.json`: **120** U01–U02 iman, tevhid, ahlak, yaratıcı–yaratılan ve günlük yaşam konu başlığı.
+- `assets/i18n/fr/ui.real-lesson-extra.staging.json`: **6** daha önce eksik olan gerçek ders başlıkları/etiketleri.
+- `assets/i18n/fr/ui.dynamic-preview.staging.json`: **9** tekrarlanan `{n}`, `{unit}`, `{topic}` gibi parametreleri koruyan **henüz çalışma zamanına bağlanmamış** dinamik çeviri önerisi. Bunlar **843/1452 statik envanterine sayılmadı**. Uygulamada gerçekten çalıştıklarını söylemek için uygun locale adapter, tekil/çoğul testleri ve DOM taraması gerekir.
+- Terminoloji riskleri `doğru`, `Vakit`, `İhlâs` (sure), `İhlas` (samimiyet), mesh ve Fâtiha hükmü alanlarında işaretlendi. Çeviri **dinî uzman/anadili Fransızca onayı** değildir. Önce kaynak-soru bağlamına göre teyit edilecek.
+- `scripts/inventory-french-ui.mjs` 13 statik staging paketini sayacak biçimde genişletildi. `scripts/audit-french-ui-topic-batches.mjs`: kaynak ID/sıralama, çakışma, yer tutucu çokluğu, Türkçe karakter kalıntısı, üç paket 112+120+6 ve bağımsız dinamik 9 şablonun üretim kilidini kontrol eder.
+- CI: [French localization staging workflow #38477794557](https://github.com/ilgazfindik/DEEN-App/actions/runs/38477794557); bağımsız başarı doğrulaması rapora göre yapılmalıdır.
+- **Üretim kapısı kapalı:** `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`. `main`/GitHub Pages değişmedi; Arapça ayetler, kıraat ve meal kaynakları dokunulmaz. U13 eşleştirme kaynak hataları, aktif U01 varyantları, dil sızıntısı, mobil ve uzman QA hâlâ bekliyor.
+- Sıradaki UI: referans-batch-03–08, gerçek ders/sure/dinamik DOM ve sonrasında uzman değerlendirmesi.
