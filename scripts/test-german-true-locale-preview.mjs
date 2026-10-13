@@ -941,6 +941,45 @@ try{
   'Turkish Quran tab UI chrome remains in German QA');
  await page.screenshot({path:output+'/true-locale-german-quran-tab.png',fullPage:true});
 
+ // In the Quran landing page no ayah or player exists yet. Open Fatiha
+ // through the actual user-facing CTA to verify original Arabic at the surah
+ // level rather than claiming a vacuous "unchanged" check on zero ayahs.
+ await page.locator('#leagueScreen .deen-quran-primary').click({timeout:20000});
+ await page.waitForTimeout(500);
+ const fatihaPanel=await page.evaluate(async()=>{
+  const visible=el=>{
+   const style=getComputedStyle(el),box=el.getBoundingClientRect();
+   return style.display!=='none'&&style.visibility!=='hidden'&&box.width>0&&box.height>0;
+  };
+  const candidates=[...document.querySelectorAll('[lang="ar"],[dir="rtl"],.quran-arabic,.arabic')];
+  const arabic=candidates.filter(visible).map(el=>({
+   tag:el.tagName,className:String(el.className||'').slice(0,110),
+   text:el.textContent?.trim().slice(0,200),html:el.outerHTML.slice(0,380)
+  })).filter(x=>/[\u0600-\u06ff]/u.test(x.text||''));
+  const audio=[...document.querySelectorAll('audio,source')].filter(visible)
+   .map(el=>({tag:el.tagName,src:el.getAttribute('src')}));
+  const dialogs=[...document.querySelectorAll('dialog[open],[role="dialog"],.show')].filter(visible)
+   .map(el=>({id:el.id,className:String(el.className||'').slice(0,70),
+    text:el.textContent?.trim().slice(0,260)})).slice(-16);
+  const buttons=[...document.querySelectorAll('button')].filter(visible)
+   .map(el=>({text:el.textContent?.trim().slice(0,80),
+    cls:String(el.className||'').slice(0,80),html:el.outerHTML.slice(0,230)
+   })).slice(-50);
+  const docText=document.body?.innerText||'';
+  const arabicScriptSamples=docText.match(/[\u0600-\u06ff][\u0600-\u06ff\s\u064b-\u065f]{4,}/gu)||[];
+  return {locale:window.DEEN_APP_LOCALE.get(),
+   arabicCount:arabic.length,arabic:arabic.slice(0,15),
+   arabicSamples:arabicScriptSamples.slice(0,12),
+   audio,dialogs,buttons,
+   activeScreen:document.querySelector('.screen.active')?.id||null,
+   textPreview:docText.slice(-1700)};
+ });
+ report.quran_fatiha=fatihaPanel;
+ assert.equal(fatihaPanel.locale,'de');
+ assert(fatihaPanel.arabicCount>0||fatihaPanel.arabicSamples.length>0,
+  'Opening Fatiha did not reveal its original Arabic script');
+ await page.screenshot({path:output+'/true-locale-german-fatiha-surah.png',fullPage:true});
+
  // Exercise full first-run onboarding without assigning state.onboarded in QA.
  // A new browser context intentionally has no prior localStorage or progress.
  const fresh=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
