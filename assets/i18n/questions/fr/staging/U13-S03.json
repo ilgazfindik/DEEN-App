@@ -345,8 +345,8 @@
         "correct_order": null
       },
       "display": {
-        "question_tr": "Associe à leur définition : horaire de prière, prière de midi, prière du soir et purification des impuretés matérielles.",
-        "explanation_tr": "Le Coran (5:6) et les explications de Diyanet autorisent le tayammum lorsque l’eau manque ou ne peut pas être utilisée.",
+        "question_tr": "Associe chaque condition et chaque prière à sa description : horaire, prière de midi, prière du soir et purification des impuretés matérielles.",
+        "explanation_tr": "La prière obligatoire de midi (dhohr) et celle du soir (‘ichâ) comprennent chacune quatre rakʿât, mais ont des horaires distincts. La purification des impuretés matérielles fait aussi partie des conditions de préparation à la prière.",
         "activity_type": "matching",
         "options_tr": null,
         "correct_answer": null,
@@ -357,11 +357,11 @@
           },
           {
             "left": "La prière obligatoire de midi",
-            "right": "4 rakʿât"
+            "right": "4 rakʿât obligatoires pour la prière de midi (dhohr)"
           },
           {
             "left": "La prière obligatoire du soir",
-            "right": "4 rakʿât"
+            "right": "4 rakʿât obligatoires pour la prière du soir (‘ichâ)"
           },
           {
             "left": "La purification des impuretés matérielles",
@@ -375,7 +375,14 @@
       },
       "expert_approved": false,
       "native_reviewer_approved": false,
-      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise",
+      "review_notes": {
+        "issue": "duplicate_source_right_values",
+        "source_right_duplicate": "4 rekât",
+        "source_turkish_immutable": true,
+        "intervention": "The displayed French matching labels distinguish the two obligatory four-rakʿa prayers by their prescribed prayer times; this is a provisional pedagogical correction only.",
+        "independent_religious_and_native_french_review_required": true
+      }
     },
     "DEEN-U13-S03-007": {
       "source": {
