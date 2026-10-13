@@ -114,6 +114,17 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  // Quran memorization and the *UI chrome only* of the Arabic ayah test.
  // These are source-exact labels in the German staging renderer, not any
  // translation of Quran Arabic, meal, answer options or expert review status.
+ // Verified shared-engine surah chrome; no verse or meaning translations.
+ const otherSurahMemorizationTitles={
+  'Nasr Ezberi':'Nasr auswendig lernen',
+  'Felak Ezberi':'Felak auswendig lernen',
+  'Beyyine Ezberi':'Beyyine auswendig lernen'
+ };
+ if(Object.prototype.hasOwnProperty.call(otherSurahMemorizationTitles,n))
+  return emit(otherSurahMemorizationTitles[n]);
+ if((m=n.match(/^Ayet\s+([1-8])\s*\/\s*([3-8])$/))&&Number(m[1])<=Number(m[2]))
+  return emit('Vers '+m[1]+' / '+m[2]);
+
  const fatihaMemorizationAndQuiz={
   'Fâtiha Ezberi':'Fâtiha auswendig lernen',
   'Tam metin':'Vollständiger Vers',
