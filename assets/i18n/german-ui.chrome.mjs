@@ -1,4 +1,4 @@
-/* German localization: source-exact, presentation-only hotfix for lesson, review,
+/* German production (release-gated): source-exact, presentation-only hotfix for lesson, review,
  * Quran progress and completion chrome. Never touches source-sensitive question
  * nodes, answer choices, verse meanings or Arabic recitation. */
 const EXACT=Object.freeze({
@@ -31,7 +31,7 @@ const EXACT=Object.freeze({
  'TEKRAR ÖNCELİĞİ':'WIEDERHOLUNGSPRIORITÄT',
  'KALICI PLAN':'LANGZEITPLAN',
  'Aynı atanmış soru seti korunur; tekrar denemesi yeni first-pass içeriği tüketmez.':'Das zugewiesene Fragenset bleibt gleich. Ein erneuter Versuch verbraucht keine neuen Fragen für den ersten Durchlauf.',
- 'Sonraki seri ödülü: 3 gün':'Nächste Serienbelohnung: nach 3 Tagen',
+ 'Sonraki seri ödülü: 3 gün':'Nächste Serienbelohnung: in 3 Tagen',
  'DERS ÖDÜLÜ':'LEKTIONSBELOHNUNG',
  'Ritmini koruyorsun':'Du hältst deinen Lernrhythmus',
  'Bu mini ders için akıllı tekrar öneriliyor.':'Für diese Mini-Lektion empfehlen wir eine gezielte Wiederholung.',
@@ -54,8 +54,35 @@ export function translateGermanChrome(input){
  const text=trim(input);
  if(!text||/[\u0600-\u06ff]/u.test(text))return null;
  const emit=replacement=>input.replace(text,replacement);
- if(Object.hasOwn(EXACT,text))return emit(EXACT[text]);
+ if(Object.hasOwn(EXACT,text)&&text!=='Sonraki seri ödülü: 3 gün')return emit(EXACT[text]);
  let m;
+ // UI metadata only. Do not infer or translate question bodies or options.
+ // All patterns anchor the ENTIRE rendered label and preserve all counts.
+ if((m=/^(Allah['’]a iman tanımı|Günlük hayatta ahlak|Öğüt bütünlük|Kavramların temel dörtlüsü)\s*[·:]\s*%?\s*(\d{1,3})\s*%?$/.exec(text))){
+  const topics={"Allah'a iman tanımı":"Definition des Glaubens an Allah",
+   "Allah’a iman tanımı":"Definition des Glaubens an Allah",
+   "Günlük hayatta ahlak":"Moral im Alltag",
+   "Öğüt bütünlük":"Aufrichtigkeit und Integrität",
+   "Kavramların temel dörtlüsü":"Vier grundlegende Begriffe"};
+  const rate=Number(m[2]);
+  return rate<=100?emit(topics[m[1]]+' · '+rate+' %'):null;
+ }
+ if((m=/^(\d{1,2})\.\s*KISIM\s*·\s*(\d{1,2})\.\s*ÜNİTE(\s*·\s*✓\s*TAMAMLANDI)?$/.exec(text)))
+  return emit('ABSCHNITT '+m[1]+' · EINHEIT '+m[2]+(m[3]?' · ✓ ABGESCHLOSSEN':''));
+ // On the result card, the fire icon can live in the same text node.
+ if((m=/^(🔥\s*)?(\d+)\s+günlük\s+seri$/u.exec(text))){
+  const days=Number(m[2]);
+  return emit((m[1]||'')+days+' '+(days===1?'Tag':'Tage')+' in Folge');
+ }
+ // A previous preview rendered the grammatically incorrect "1-Tage-Serie".
+ if((m=/^(\d+)-Tage-Serie$/.exec(text))){
+  const days=Number(m[1]);
+  return emit(days+' '+(days===1?'Tag':'Tage')+' in Folge');
+ }
+ if((m=/^Sonraki ödül\s*:?\s*(\d+)\s+gün$/.exec(text)))
+  return emit('Nächste Belohnung: in '+m[1]+' '+(m[1]==='1'?'Tag':'Tagen'));
+ if((m=/^Sonraki seri ödülü:\s*(\d+)\s+gün$/.exec(text)))
+  return emit('Nächste Serienbelohnung: in '+m[1]+' '+(m[1]==='1'?'Tag':'Tagen'));
  if((m=/^ADAPTİF TEKRARI BAŞLAT\s*·\s*(\d+)\s*SORU$/.exec(text)))
   return emit('ADAPTIVE WIEDERHOLUNG STARTEN · '+m[1]+' FRAGEN');
  if((m=/^Ayet\s+(\d+)\s*\/\s*(\d+)\s*·\s*Son çalışma:\s*(Bugün|Henüz çalışma yok)$/.exec(text)))
@@ -70,8 +97,7 @@ export function translateGermanChrome(input){
   return emit('Tagesaufgaben '+m[1]+'/'+m[2]+' · Wochenrhythmus '+m[3]+'/'+m[4]+' Tage');
  if((m=/^Görevler\s*(\d+)\/(\d+)\s*·\s*Haftalık ritim\s*(\d+)\/(\d+)\s+gün$/.exec(text)))
   return emit('Tagesaufgaben '+m[1]+'/'+m[2]+' · Wochenrhythmus '+m[3]+'/'+m[4]+' Tage');
- if((m=/^(\d+)\s*günlük seri$/.exec(text)))
-  return emit(m[1]+'-Tage-Serie');
+
  if((m=/^Sonraki seri ödülü:\s*(\d+)\s*gün$/.exec(text)))
   return emit('Nächste Serienbelohnung: nach '+m[1]+' Tagen');
  if((m=/^(\d+)\s+AUFGABENTYP$/.exec(text)))
