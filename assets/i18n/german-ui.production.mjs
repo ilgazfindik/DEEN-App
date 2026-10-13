@@ -122,11 +122,13 @@ export function germanReleaseAuthorized(manifest){
     &&HASH.test(c.ui_parts[i]?.sha256||''))
   &&HASH.test(c.ui_reference_sha256||'')
   &&HASH.test(c.production_bridge_sha256||'')
-  &&HASH.test(c.quran_meanings_sha256||'');
+  &&HASH.test(c.quran_meanings_sha256||'')
+  &&HASH.test(c.quran_audio_manifest_sha256||'')
+  &&c.quran_meanings_path==='./assets/i18n/quran/de/ayah-meanings.approved.json';
 }
 const hex=bytes=>[...new Uint8Array(bytes)].map(v=>v.toString(16).padStart(2,'0')).join('');
 async function verifiedJSON(path,sha,build){
- if(!path.startsWith('./assets/i18n/')||!HASH.test(sha))throw Error('DE_UI_SOURCE_NOT_PINNED');
+ if(!(path.startsWith('./assets/i18n/')||path==='./assets/quran/audio/ayah-audio-manifest.json')||!HASH.test(sha))throw Error('DE_UI_SOURCE_NOT_PINNED');
  const response=await fetch(path+'?build='+encodeURIComponent(build),{cache:'no-store'});
  if(!response.ok)throw Error('DE_UI_HTTP:'+response.status+':'+path);
  const text=await response.text();
@@ -141,11 +143,72 @@ export async function installGermanProductionUI({manifest=window.__DEEN_CONTENT_
   throw Error('DE_GERMAN_LOCALE_MISMATCH');
  const c=manifest.languages.de,build=win.__DEEN_DEPLOY_ID__||'';
  // Only source-pinned exact dictionaries are eligible for the production renderer.
- const [packs,reference]=await Promise.all([
+ const [packs,reference,meanings,audioManifest]=await Promise.all([
   Promise.all(c.ui_parts.map(p=>verifiedJSON(p.path,p.sha256,build))),
-  verifiedJSON('./assets/i18n/english-ui.draft.json',c.ui_reference_sha256,build)
+  verifiedJSON('./assets/i18n/english-ui.draft.json',c.ui_reference_sha256,build),
+  verifiedJSON(c.quran_meanings_path,c.quran_meanings_sha256,build),
+  verifiedJSON('./assets/quran/audio/ayah-audio-manifest.json',c.quran_audio_manifest_sha256,build)
  ]);
  const renderer=createGermanUIProductionRenderer({packs,englishReference:reference.translations});
+ // Every released German ayah meaning is source- and rights-gated separately.
+ // This is the same fail-closed resolver used in preview, but without preview.
+ const {resolveGermanAyahMeaning}=await import('./quran/de/meaning-resolver.staging.mjs');
+ const audioRows=audioManifest?.entries;
+ if(!Array.isArray(audioRows)||audioRows.length!==90
+  ||audioManifest.ayahCount!==90||Object.keys(meanings.translations||{}).length!==90)
+  throw Error('DE_QURAN_RELEASE_INCOMPLETE');
+ const audioByKey=new Map(audioRows.map(row=>[row.key,row]));
+ if(audioByKey.size!==90)throw Error('DE_QURAN_AUDIO_IDENTITY_DUPLICATE');
+ if(meanings.release_ready!==true||meanings.expert_approved!==true||
+   meanings.native_reviewer_approved!==true||
+   meanings.verified_by_religious_expert!==true||meanings.rights_reviewed!==true)
+  throw Error('DE_QURAN_RELEASE_PACK_NOT_APPROVED');
+ const registry=win.DEEN_QURAN_CONTENT;
+ if(!registry?.getAyah)throw Error('DE_QURAN_CANONICAL_REGISTRY_MISSING');
+ const meaningFor=(id,ayah)=>{
+  const key=String(id)+':'+String(ayah),source=audioByKey.get(key);
+  const original=registry.getAyah(id,Number(ayah));
+  if(!source||!original||original.arabic?.text!==source.text
+    ||original.surah_id!==source.surahId||original.ayah_number!==source.ayah)
+   return null;
+  return resolveGermanAyahMeaning(source,meanings);
+ };
+ for(const row of audioRows)if(!meaningFor(row.surahId,row.ayah))
+  throw Error('DE_QURAN_MEANING_NOT_SOURCE_APPROVED:'+row.key);
+ function getMeaning(id,ayah){
+  const text=meaningFor(id,ayah);
+  return !text?null:{language:'de',text,verification_status:'production_ready',
+   expert_review_status:'approved',source:{provider:'DEEN',
+   edition:'Geprüfte deutsche Bedeutungsübersetzung',
+   reference:String(id)+':'+Number(ayah)}};
+ }
+ const previousTranslation=win.DEEN_QURAN_LEARNING_TRANSLATION;
+ if(!previousTranslation?.html||!previousTranslation?.sourceLine)
+  throw Error('DE_QURAN_TRANSLATION_UI_MISSING');
+ const escapeHtml=text=>String(text??'').replace(/[&<>"']/g,
+  ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+ const fromRecord=rec=>getMeaning(rec?.surah_id,rec?.ayah_number);
+ win.DEEN_GERMAN_QURAN_MEANINGS=Object.freeze({get:getMeaning,
+  source_verified:90,scope:'review-gated-production'});
+ win.DEEN_QURAN_LEARNING_TRANSLATION={
+  ...previousTranslation,
+  get(rec){return win.DEEN_APP_LOCALE?.get()==='de'?fromRecord(rec):previousTranslation.get(rec)},
+  html(rec){
+   if(win.DEEN_APP_LOCALE?.get()!=='de')return previousTranslation.html(rec);
+   const value=fromRecord(rec);
+   if(!value)return '<div class="deen-ayah-translation deen-ayah-translation-pending" lang="de" role="status">Keine geprüfte deutsche Übersetzung verfügbar.</div>';
+   return '<div class="deen-ayah-translation" data-verse-translation="de" lang="de"><strong>DEUTSCHE BEDEUTUNG</strong><p>'+
+    escapeHtml(value.text)+'</p><small>'+escapeHtml(value.source.edition)+'</small></div>';
+  },
+  sourceLine(rec){
+   if(win.DEEN_APP_LOCALE?.get()!=='de')return previousTranslation.sourceLine(rec);
+   return 'Arabisch: '+String(rec?.arabic?.source?.provider||'—')+
+    ' · Bedeutung: '+(fromRecord(rec)?'DEEN · geprüfte deutsche Bedeutungsübersetzung':
+     'Keine geprüfte deutsche Übersetzung verfügbar');
+  },
+  version:'deen-approved-german-quran-meaning-v1'
+ };
+
  const observer=new win.MutationObserver(records=>{if(records.length&&!busy)schedule()});
  let queued=false,busy=false,feedbackCount=0,passes=0,lastAudit=null;
  function localize(){
