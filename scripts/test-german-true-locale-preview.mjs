@@ -2488,7 +2488,7 @@ try{
  // Stage 11: WARMED-SHELL offline test. A completely fresh install still needs
  // network; after a successful online visit the same profile must boot offline.
  // The worker is release-scoped, and Quran MP3s cache on actual first request.
- report.quran_offline_pwa={version:'9408enfiveuiscreens1-ikhlasdeqa1-pwa12',
+ report.quran_offline_pwa={version:'9408enfiveuiscreens1-ikhlasdeqa1-pwa13',
   worker:null,media:null,offlineRange:null,offlineReload:null};
  await page.waitForFunction(()=>!!navigator.serviceWorker?.controller,null,{timeout:35000});
  const swReady=await page.evaluate(async()=>{
@@ -2497,7 +2497,7 @@ try{
    controlled:!!navigator.serviceWorker.controller};
  });
  assert(swReady.controlled,'Installed SW did not claim the initial app');
- assert(swReady.script.endsWith('/sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa12'));
+ assert(swReady.script.endsWith('/sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa13'));
  report.quran_offline_pwa.worker=swReady;
  const warmed=await page.evaluate(async()=>{
   const src=new URL('assets/quran/audio/ikhlas/ihlas_1.mp3',location.href);
@@ -2505,14 +2505,14 @@ try{
   if(online.status!==200)throw Error('Online Quran MP3 preload returned '+online.status);
   const buf=await online.arrayBuffer();
   if(buf.byteLength<2000)throw Error('Recitation has no real audio bytes');
-  const cache=await caches.open('deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa12');
+  const cache=await caches.open('deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa13');
   const saved=await cache.match(src.href);
   return {status:online.status,bytes:buf.byteLength,cached:!!saved,
    mime:online.headers.get('content-type'),savedStatus:saved?.status};
  });
 
  const visualWarm=await page.evaluate(async()=>{
-  const version='9408enfiveuiscreens1-ikhlasdeqa1-pwa12';
+  const version='9408enfiveuiscreens1-ikhlasdeqa1-pwa13';
   const cache=await caches.open('deen-pwa-shell-'+version);
   const files=[
    ...Array.from({length:5},(_,i)=>'release/v9.9.3-direct/assets/onboarding-hq/atlas.part'+i+'.txt'),
@@ -2559,6 +2559,19 @@ try{
    window.DEEN_CONTENT_LOCALE?.available?.('de')&&
    typeof QUESTIONS!=='undefined'&&Array.isArray(QUESTIONS)&&QUESTIONS.length===1484,
    null,{timeout:55000});
+  await page.waitForFunction(()=>window.DEEN_ONBOARDING_ATLAS_HOTFIX?.ready===true,
+   null,{timeout:15000});
+  const timingOffline=await page.evaluate(async()=>{
+   const url=new URL('assets/quran/audio/word-timings.json?test=offline',location.href);
+   const response=await fetch(url.href,{cache:'no-store'});
+   const text=await response.text();
+   return {status:response.status,bytes:text.length,jsonValid:(()=>{
+    try{return !!JSON.parse(text)}catch(_){return false}
+   })()};
+  });
+  report.quran_offline_pwa.timingOffline=timingOffline;
+  assert.equal(timingOffline.status,200,'Word-timings metadata unavailable offline');
+  assert.equal(timingOffline.jsonValid,true,'Offline word-timings JSON corrupted');
   const recovered=await page.evaluate(async()=>{
    const all=await caches.keys();
    const q=window.DEEN_QURAN_JOURNEY_V2;
