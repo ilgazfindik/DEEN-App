@@ -27,7 +27,10 @@ const frenchPaths=[
  'ui.core-profile.staging.json',
  'ui.lesson-intro-feedback.staging.json',
  'ui.lesson-results.staging.json',
- 'ui.streak-xp.staging.json'
+ 'ui.streak-xp.staging.json',
+ 'ui.premium-shop.staging.json',
+ 'ui.quran-navigation-game.staging.json',
+ 'ui.quran-learning-surahs.staging.json'
 ];
 const frenchKeys=new Set();
 const frenchPackCounts={};
@@ -80,8 +83,8 @@ const report={locale:'fr',production_ready:false,release_locked:true,
   .map(key=>({source_tr:key,first_seen_in:map.get(key).first_seen_in}))};
 assert(report.ui_missing.length===report.ui_remaining);
 assert.equal(report.question_staged,1500,'French source bank must include U01–U15');
-assert.equal(report.ui_staged,421,'Expected 35 baseline + 197 core UI + 189 lesson-flow strings');
-assert.equal(report.ui_remaining,1031);
+assert.equal(report.ui_staged,605,'Expected 421 previous + 41 premium + 143 Quran UI strings');
+assert.equal(report.ui_remaining,847);
 mkdirSync('qa-artifacts',{recursive:true});
 writeFileSync('qa-artifacts/french-ui-inventory.json',JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({locale:report.locale,status:'passed',questions:report.question_staged+'/'+report.question_total,
