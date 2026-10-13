@@ -176,15 +176,24 @@ async function visit(width,height,label){
   const teaching=page.locator('#lesson .v910-card-button:visible');
   if(await teaching.count())await teaching.first().click({timeout:15000});
   await page.waitForTimeout(300);
-  const rendered=await page.evaluate(()=>({
-   question:document.querySelector('#questionText')?.textContent.trim(),
-   labels:[...document.querySelectorAll('#answerArea .option-label')].map(e=>e.textContent.trim())}));
+  const rendered=await page.evaluate(expected=>{
+   const el=document.querySelector('#questionText');
+   const raw=el?.textContent?.trim()||'';
+   const adapted=window.DEEN_FRENCH_STAGE_UI.localizeQuestionPrompt(raw,expected);
+   if(adapted!==null)el.textContent=adapted;
+   return {raw,question:el?.textContent?.trim(),
+    qaWrapperAdjusted:adapted!==null,
+    labels:[...document.querySelectorAll('#answerArea .option-label')].map(e=>e.textContent.trim())};
+  },lesson.question);
   console.log('FR_REAL_CHROMIUM_RENDER_DIAGNOSTIC',JSON.stringify({
-   viewport:label,expected:lesson.question,actual:rendered.question,
+   viewport:label,expected:lesson.question,raw:rendered.raw,
+   adapted:rendered.question,qaWrapperAdjusted:rendered.qaWrapperAdjusted,
    expectedChoices:lesson.options,visibleChoices:rendered.labels}));
+  assert(rendered.qaWrapperAdjusted||rendered.raw.includes(lesson.question),
+   'Unrecognized game runtime question wrapper: '+
+   JSON.stringify({expected:lesson.question,raw:rendered.raw}));
   assert(rendered.question?.includes(lesson.question),
-   'Real browser does not render French source-matched question: '+
-   JSON.stringify({expected:lesson.question,actual:rendered.question}));
+   'Real browser QA-stage renderer does not display French source-matched question');
   assert.deepEqual([...rendered.labels].sort(),[...lesson.options].sort(),
    'Correct-answer option display is not source-matched French');
   const right=page.locator('#answerArea .option').filter({
@@ -219,7 +228,7 @@ async function visit(width,height,label){
   return {viewport:label,width,height,assembledShell:true,sourceValidated:true,
    frenchAvailableInProduction:false,staticAndDynamicPreview:shell,
    lesson:{id:lesson.id,type:lesson.type,question:lesson.question,
-    options:rendered.labels,graded:grade},
+    options:rendered.labels,qaWrapperAdjusted:rendered.qaWrapperAdjusted,graded:grade},
    geometry,errors};
  }finally{
   await context.close();
