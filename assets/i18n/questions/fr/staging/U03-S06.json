@@ -1,0 +1,491 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U03",
+  "stage": "U03-S06",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U03-S06-001": {
+      "source": {
+        "question_tr": "Bir ifadede yalnızca Allah'ın birliğinden bahsediliyor ancak mesajın kimin aracılığıyla geldiğinden bahsedilmiyorsa, Kelime-i Şehadet açısından hangi bölüm eksik kalmıştır?",
+        "explanation_tr": "Kelime-i Şehadet'in tam metni, tevhid beyanından sonra Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitlik beyanını da içerir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hz. Muhammed'in elçi olduğuna şahitlik edilen bölüm.",
+          "Meleklere iman edildiğini gösteren bölüm.",
+          "Ahiret gününe inancı anlatan bölüm.",
+          "Sadece 'Lâ ilâhe' diyerek bitirilen bölüm."
+        ],
+        "correct_answer": "Hz. Muhammed'in elçi olduğuna şahitlik edilen bölüm.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle partie manque si l’on parle seulement de l’unicité d’Allah ?",
+        "explanation_tr": "La chahada témoigne aussi que Muhammad est le serviteur et le messager d’Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le témoignage concernant Muhammad, messager d’Allah",
+          "La foi aux anges",
+          "Le Jour dernier",
+          "La formule qui s’arrête à « lâ ilâha »"
+        ],
+        "correct_answer": "Le témoignage concernant Muhammad, messager d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-002": {
+      "source": {
+        "question_tr": "Akıllı tekrar: İfadeleri temel kavramlarla eşleştir.",
+        "explanation_tr": "Bu tekrar, metnin parçalarını doğrudan kavramlarla ilişkilendirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Lâ ilâhe illallah",
+            "right": "Tevhid"
+          },
+          {
+            "left": "Muhammeden abdühû ve resûlüh",
+            "right": "Kulluk ve elçilik / peygamberlik"
+          },
+          {
+            "left": "Eşhedü",
+            "right": "Şahitlik ederim"
+          },
+          {
+            "left": "Kelime-i Şehadet",
+            "right": "İki ana beyanın bütünü"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe chaque expression à sa notion.",
+        "explanation_tr": "La révision relie les éléments de la chahada à leur sens.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Lâ ilâhe illallah",
+            "right": "Tawhid"
+          },
+          {
+            "left": "Muhammeden abdühû ve resûlüh",
+            "right": "Servitude et mission du messager"
+          },
+          {
+            "left": "Eşhedü",
+            "right": "J’atteste"
+          },
+          {
+            "left": "Kelime-i Şehadet",
+            "right": "La réunion des deux témoignages"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-003": {
+      "source": {
+        "question_tr": "Kontrollü standart şehadet metninde 'Muhammeden' kelimesinden sonra 'abdühû' gelir.",
+        "explanation_tr": "Diyanet'in standart öğretim metninde ikinci bölüm '...Muhammeden abdühû ve resûlüh' şeklindedir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "« Abdühû » suit « Muhammeden » dans la chahada standard.",
+        "explanation_tr": "La seconde partie dit « Muhammeden abdühû ve resûlüh ».",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-004": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta, tevhid bölümünü peygamberlik bölümünden ayıran ve iki beyanı birleştiren bağlaç ifadesi nerede geçmektedir?",
+        "explanation_tr": "'...illallah' ile ilk kısım biter, hemen ardından 've eşhedü...' diyerek ikinci şahitliğe bağlanır.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "illallah kelimesinden hemen sonra duyulan 've' hecesinde.",
+          "Kayıdın en başında.",
+          "Kayıdın en sonunda.",
+          "Muhammeden kelimesinden sonra."
+        ],
+        "correct_answer": "illallah kelimesinden hemen sonra duyulan 've' hecesinde.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "À quel endroit de l’enregistrement entend-on le lien entre les deux témoignages ?",
+        "explanation_tr": "« Ve eşhedü » suit « illallah » et introduit la seconde partie.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Au mot « ve » après « illallah »",
+          "Au début de l’enregistrement",
+          "À la fin de l’enregistrement",
+          "Après « Muhammeden »"
+        ],
+        "correct_answer": "Au mot « ve » après « illallah »",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-005": {
+      "source": {
+        "question_tr": "Zeynep 'Şehadet kelimesinde neden tanıklık dili kullanılıyor?' diye soruyor. Bu ünitenin düzeyine göre en uygun açıklama hangisidir?",
+        "explanation_tr": "Şehadet, kişinin inandığı temel anlamlara sözle tanıklık etmesini ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Çünkü kişi inandığı temel beyanı sözle ifade ettiğini belirtir",
+          "Çünkü bu yalnızca mahkeme dilinden alınmıştır",
+          "Çünkü kelimenin anlamı sadece ezberlemektir",
+          "Çünkü şahitlik yalnız peygamberlere özgüdür"
+        ],
+        "correct_answer": "Çünkü kişi inandığı temel beyanı sözle ifade ettiğini belirtir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zeynep demande pourquoi la chahada emploie le mot « attester ». Que répondre ?",
+        "explanation_tr": "Il s’agit d’exprimer oralement les croyances auxquelles une personne adhère.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle affirme verbalement ce qu’elle croit",
+          "Ce langage vient uniquement des tribunaux",
+          "Cela signifie uniquement mémoriser",
+          "Seuls les prophètes peuvent attester"
+        ],
+        "correct_answer": "Elle affirme verbalement ce qu’elle croit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-006": {
+      "source": {
+        "question_tr": "Cümlenin Türkçe anlamını mantıksal olarak doğru sıraya diz.",
+        "explanation_tr": "Önce Allah'ın tek ilah olduğu, sonra Hz. Muhammed'in kulluğu ve elçiliği ifade edilir ve genel şahitlikle bağlanır.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "olduğuna şahitlik ederim.",
+          "Allah'tan başka ilah olmadığına",
+          "ve Muhammed'in O'nun kulu ve elçisi"
+        ],
+        "correct_order": [
+          "Allah'tan başka ilah olmadığına",
+          "ve Muhammed'in O'nun kulu ve elçisi",
+          "olduğuna şahitlik ederim."
+        ]
+      },
+      "display": {
+        "question_tr": "Remets les parties de la traduction française dans le bon ordre.",
+        "explanation_tr": "Le texte affirme l’unicité d’Allah puis la mission de Muhammad, sous forme de témoignage.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "et que Muhammad est Son serviteur et messager",
+          "j’en atteste.",
+          "Il n’y a de divinité qu’Allah,"
+        ],
+        "correct_order": [
+          "j’en atteste.",
+          "Il n’y a de divinité qu’Allah,",
+          "et que Muhammad est Son serviteur et messager"
+        ],
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-007": {
+      "source": {
+        "question_tr": "Şehadet içindeki kavramları tanımlarıyla eşleştir.",
+        "explanation_tr": "Lâ ilâhe illallah tevhid; abdühû 'O'nun kulu'; resûlüh ise 'O'nun elçisi' anlamını taşır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Lâ ilâhe illallah",
+            "right": "Tevhid"
+          },
+          {
+            "left": "Muhammeden abdühû ve resûlüh",
+            "right": "Allah'ın kulu ve elçisi"
+          },
+          {
+            "left": "Eşhedü",
+            "right": "Şahitlik ederim"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les expressions de la chahada à leur sens.",
+        "explanation_tr": "La première affirme l’unicité d’Allah ; la seconde parle du messager.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Lâ ilâhe illallah",
+            "right": "Tawhid"
+          },
+          {
+            "left": "Muhammeden abdühû ve resûlüh",
+            "right": "Serviteur et messager d’Allah"
+          },
+          {
+            "left": "Eşhedü",
+            "right": "J’atteste"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-008": {
+      "source": {
+        "question_tr": "Bir açıklama Allah'ın birliğini anlatıyor fakat peygamberlik/elçilik bölümünü tamamen atlıyor. Şehadet açısından hangi düzeltme gerekir?",
+        "explanation_tr": "Şehadetin iki temel beyanı birlikte öğrenilir: tevhid ve Hz. Muhammed'in kulluğu ve elçiliği.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik bölümü eklenmelidir",
+          "Namazın rekâtları eklenmelidir",
+          "Hac adımları eklenmelidir",
+          "Kur'an'daki sure sayısı eklenmelidir"
+        ],
+        "correct_answer": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik bölümü eklenmelidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Que faut-il ajouter si une explication oublie la mission du messager ?",
+        "explanation_tr": "On doit étudier ensemble les deux témoignages fondamentaux.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Muhammad est le serviteur et le messager d’Allah",
+          "Le nombre de cycles de prière",
+          "Les étapes du pèlerinage",
+          "Le nombre de sourates"
+        ],
+        "correct_answer": "Muhammad est le serviteur et le messager d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-009": {
+      "source": {
+        "question_tr": "İlk şahitlikte 'Eşhedü' ile 'lâ ilâhe illallah' arasına hangi kelime gelir?",
+        "explanation_tr": "'En' kelimesi '...olduğuna' anlamı katarak 'ilah olmadığına (en lâ ilâhe)' bağlantısını sağlar.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "en",
+          "ve",
+          "enne",
+          "resul"
+        ],
+        "correct_answer": "en",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel mot se trouve entre « Eşhedü » et « lâ ilâhe illallah » ?",
+        "explanation_tr": "« En » introduit la première affirmation.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "en",
+          "ve",
+          "enne",
+          "resul"
+        ],
+        "correct_answer": "en",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-010": {
+      "source": {
+        "question_tr": "Şehadetin ilk bölümünün bağlantılı olduğu temel kavramı yaz.",
+        "explanation_tr": "'Lâ ilâhe illallah' bölümü Allah'ın birliği yani tevhid kavramıyla bağlantılıdır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Tevhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Écris la notion fondamentale associée à la première partie.",
+        "explanation_tr": "« Lâ ilâhe illallah » correspond au tawhid.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "tawhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-011": {
+      "source": {
+        "question_tr": "Aşağıdaki çalışma biçimlerinden hangisi şehadetin anlamını öğrenme hedefi açısından eksiktir?",
+        "explanation_tr": "Bu ünitede amaç, doğru söyleyiş ve sıralamanın yanında metnin ne ifade ettiğini de kavramaktır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Yalnızca hızlı söylemeye çalışıp anlamını hiç incelememek",
+          "İki bölümü anlamlarıyla ayırmak",
+          "Tevhid bağlantısını öğrenmek",
+          "Elçilik bölümünü tanımak"
+        ],
+        "correct_answer": "Yalnızca hızlı söylemeye çalışıp anlamını hiç incelememek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle méthode ne suffit pas pour comprendre la chahada ?",
+        "explanation_tr": "Comprendre le sens des deux témoignages est aussi essentiel que leur prononciation.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "La réciter vite sans jamais en étudier le sens",
+          "Distinguer les deux parties",
+          "Comprendre le tawhid",
+          "Reconnaître le rôle du messager"
+        ],
+        "correct_answer": "La réciter vite sans jamais en étudier le sens",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S06-012": {
+      "source": {
+        "question_tr": "'Eşhedü' kelimesindeki kişi kimdir?",
+        "explanation_tr": "'Eşhedü' Türkçede 'Ben şahitlik ederim' anlamında kullanılan bir ifadedir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Konuşan kişinin kendisi: 'Ben şahitlik ederim'",
+          "Yalnızca öğretmen",
+          "Yalnızca imam",
+          "Belirsiz bir üçüncü kişi"
+        ],
+        "correct_answer": "Konuşan kişinin kendisi: 'Ben şahitlik ederim'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Qui atteste dans le mot « Eşhedü » ?",
+        "explanation_tr": "« Eşhedü » signifie « j’atteste ».",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La personne qui parle : « j’atteste »",
+          "Seulement l’enseignant",
+          "Seulement l’imam",
+          "Une personne indéterminée"
+        ],
+        "correct_answer": "La personne qui parle : « j’atteste »",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente de la chahada",
+        "topic": "Écoute et compréhension"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
