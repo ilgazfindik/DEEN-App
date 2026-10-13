@@ -56,8 +56,28 @@ for(let i=1;i<=7;i++){
     bad('matching_cardinality');
    else {
     for(const side of ['left','right']){
-     if(new Set(s.pairs.map(x=>x[side])).size!==new Set(d.pairs.map(x=>x[side])).size||
-      d.pairs.some(x=>!x?.[side]?.trim()))bad('matching_identity_'+side);
+     const sourceUnique=new Set(s.pairs.map(x=>x[side])).size;
+     const displayUnique=new Set(d.pairs.map(x=>x[side])).size;
+     const knownRepair=(id==='DEEN-U13-S03-006'||id==='DEEN-U13-S06-012');
+     // These two source questions wrongly give both four-rakʿa prayers the same
+     // visible answer. Only the French *draft display* distinguishes the times.
+     // Keep the Turkish source untouched, approval false, and enforce 4 distinct rights.
+     const expected=knownRepair&&side==='right'?4:sourceUnique;
+     if(displayUnique!==expected||d.pairs.some(x=>!x?.[side]?.trim()))
+      bad('matching_identity_'+side);
+     if(knownRepair&&side==='right'){
+      const sourceRights=s.pairs.map(x=>x.right);
+      if(!eq(sourceRights,[sourceRights[0],'4 rekât','4 rekât',sourceRights[3]]))
+       bad('source_matching_regression');
+      if(!d.pairs[1].right.includes('midi (dhohr)')||
+         !d.pairs[2].right.includes('soir (‘ichâ)')||
+         !d.pairs[1].right.includes('4 rakʿât')||
+         !d.pairs[2].right.includes('4 rakʿât'))
+       bad('prayer_ambiguity_persists');
+      if(item.review_notes?.independent_religious_and_native_french_review_required!==true||
+         item.review_notes?.source_turkish_immutable!==true)
+       bad('expert_review_flag_missing');
+     }
     }
     matchingPairs+=d.pairs.length;
    }
