@@ -26,6 +26,7 @@ on:
       - 'qa/FRENCH_U13_TRANSLATION_GLOSSARY.json'
       - 'qa/FRENCH_U12_TRANSLATION_GLOSSARY.json'
       - 'scripts/inventory-french-ui.mjs'
+      - 'scripts/audit-french-ui-core.mjs'
       - 'qa/FRENCH_STAGE1.md'
       - '.github/workflows/french-localization-audit.yml'
   workflow_dispatch:
@@ -71,6 +72,8 @@ jobs:
         run: node scripts/audit-french-u14-complete.mjs
       - name: Verify U15 Ramadan and fasting source, answers, and release safeguards
         run: node scripts/audit-french-u15-complete.mjs
+      - name: Validate 197 new French core navigation, Quran and profile drafts
+        run: node scripts/audit-french-ui-core.mjs
       - name: Report all 15 units and 1452 UI source keys
         run: node scripts/inventory-french-ui.mjs
       - name: Ensure production English questions remain complete
