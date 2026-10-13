@@ -89,6 +89,20 @@ const fatihaResultCases=[
 for(const [src,dst] of fatihaResultCases)
  assert.equal(fmt(src),dst,'German Fatiha quiz result: '+src);
 
+
+const nonFatihaQuranCases=[
+ ['Nasr Ezberi','Nasr auswendig lernen'],
+ ['Felak Ezberi','Felak auswendig lernen'],
+ ['Beyyine Ezberi','Beyyine auswendig lernen'],
+ ['Ayet 3 / 3','Vers 3 / 3'],
+ ['Ayet 1 / 5','Vers 1 / 5'],
+ ['Ayet 8 / 8','Vers 8 / 8']
+];
+for(const [src,de] of nonFatihaQuranCases)
+ assert.equal(fmt(src),de,'source-exact shared-engine Quran UI '+src);
+for(const src of ['Ayet 8 / 3','Ayet 9 / 8','Ayet 1 / 9'])
+ assert.equal(fmt(src),null,'out-of-range Quran counter must fail closed');
+
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
