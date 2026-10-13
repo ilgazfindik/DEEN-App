@@ -1,0 +1,599 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U12",
+  "stage": "U12-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U12-S04-001": {
+      "source": {
+        "question_tr": "Abdest konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Abdest belirli organların yıkanması veya mesh edilmesiyle yapılan özel bir hükmî temizliktir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece günlük duş",
+          "Yalnızca el yıkama",
+          "Bazı ibadetler için yapılan hükmî temizlik",
+          "Sadece kıyafet temizliği"
+        ],
+        "correct_answer": "Bazı ibadetler için yapılan hükmî temizlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation traduit correctement le fondement commun des ablutions ?",
+        "explanation_tr": "Les ablutions (wudû) sont une purification rituelle qui consiste à laver ou à essuyer certaines parties du corps.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Une simple douche quotidienne",
+          "Le simple lavage des mains",
+          "Une purification rituelle accomplie pour certains actes d’adoration",
+          "Le simple nettoyage des vêtements"
+        ],
+        "correct_answer": "Une purification rituelle accomplie pour certains actes d’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Les ablutions (wudû)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-002": {
+      "source": {
+        "question_tr": "Bir arkadaşın Teyemmüm hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Kur'an su bulunmadığında temiz toprakla teyemmüm ruhsatını bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zekât",
+          "Hac",
+          "Teyemmüm",
+          "Ezan"
+        ],
+        "correct_answer": "Teyemmüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande ce qu’est le tayammum. Que lui réponds-tu ?",
+        "explanation_tr": "Le Coran autorise le tayammum avec de la terre propre lorsque l’eau n’est pas disponible.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La zakât",
+          "Le pèlerinage (hajj)",
+          "Le tayammum (ablutions sèches)",
+          "L’appel à la prière"
+        ],
+        "correct_answer": "Le tayammum (ablutions sèches)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Le tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-003": {
+      "source": {
+        "question_tr": "Su kullanamama konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Diyanet'in teyemmüm açıklaması suyu kullanma imkânı olmadığında da teyemmüm ruhsatını kapsar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namazı tamamen terk etmek",
+          "Rastgele başka bir ibadet yapmak",
+          "Teyemmüm ruhsatı",
+          "Abdesti sadece niyetle tamamlamak"
+        ],
+        "correct_answer": "Teyemmüm ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel principe s’applique lorsqu’on ne peut pas utiliser l’eau ?",
+        "explanation_tr": "Selon l’explication de Diyanet, le tayammum peut aussi être permis lorsqu’il n’est pas possible d’utiliser l’eau.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Abandonner complètement la prière",
+          "Accomplir au hasard un autre acte d’adoration",
+          "La possibilité d’effectuer le tayammum",
+          "Accomplir les ablutions par la seule intention"
+        ],
+        "correct_answer": "La possibilité d’effectuer le tayammum",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "L’impossibilité d’utiliser l’eau"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-004": {
+      "source": {
+        "question_tr": "Bir öğrenci “Abdest ayetinde başın mesh edilmesi bulunmaz.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Mâide 5:6'da başın mesh edilmesi zikredilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Başı tamamen suya sokmak",
+          "Saçı kesmek",
+          "Başı mesh etmek",
+          "Baş yerine omuzları yıkamak"
+        ],
+        "correct_answer": "Başı mesh etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Le verset sur les ablutions ne mentionne pas l’essuyage de la tête. » Quelle réponse le corrige ?",
+        "explanation_tr": "La sourate Al-Mâ’ida (5:6) mentionne le fait de passer les mains mouillées sur la tête.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Plonger toute la tête dans l’eau",
+          "Se couper les cheveux",
+          "Passer les mains mouillées sur la tête",
+          "Laver les épaules à la place de la tête"
+        ],
+        "correct_answer": "Passer les mains mouillées sur la tête",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "L’essuyage de la tête"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-005": {
+      "source": {
+        "question_tr": "Abdestte niyetin hükmü konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefîlerde niyetin sünnet diğer üç mezhepte farz kabul edildiğini belirtir. DEEN bu farkı tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bütün mezhepler niyeti aynı kategoride değerlendirir",
+          "Hiçbir mezhep niyete önem vermez",
+          "Mezhepler arasında hüküm farklılığı vardır",
+          "Niyet bütün mezheplerde abdesti bozar"
+        ],
+        "correct_answer": "Mezhepler arasında hüküm farklılığı vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation reflète correctement les différences entre écoles concernant l’intention ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses précise que l’intention est considérée comme une sunna dans l’école hanafite et comme obligatoire dans les trois autres écoles sunnites. DEEN ne présente pas une seule de ces positions comme correcte.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Toutes les écoles classent l’intention dans la même catégorie",
+          "Aucune école n’accorde d’importance à l’intention",
+          "La règle diffère selon les écoles juridiques",
+          "L’intention invalide les ablutions dans toutes les écoles"
+        ],
+        "correct_answer": "La règle diffère selon les écoles juridiques",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Différences entre écoles : l’intention"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-006": {
+      "source": {
+        "question_tr": "Bir arkadaşın Abdest hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Abdest belirli organların yıkanması veya mesh edilmesiyle yapılan özel bir hükmî temizliktir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece günlük duş",
+          "Yalnızca el yıkama",
+          "Bazı ibadetler için yapılan hükmî temizlik",
+          "Sadece kıyafet temizliği"
+        ],
+        "correct_answer": "Bazı ibadetler için yapılan hükmî temizlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande ce que sont les ablutions. Que lui réponds-tu ?",
+        "explanation_tr": "Les ablutions (wudû) sont une purification rituelle qui consiste à laver ou à essuyer certaines parties du corps.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Une simple douche quotidienne",
+          "Le simple lavage des mains",
+          "Une purification rituelle accomplie pour certains actes d’adoration",
+          "Le simple nettoyage des vêtements"
+        ],
+        "correct_answer": "Une purification rituelle accomplie pour certains actes d’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Les ablutions (wudû)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-007": {
+      "source": {
+        "question_tr": "Teyemmüm konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Kur'an su bulunmadığında temiz toprakla teyemmüm ruhsatını bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zekât",
+          "Hac",
+          "Teyemmüm",
+          "Ezan"
+        ],
+        "correct_answer": "Teyemmüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel terme désigne la purification rituelle autorisée lorsque l’eau manque ?",
+        "explanation_tr": "Le Coran autorise le tayammum avec de la terre propre lorsque l’eau n’est pas disponible.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La zakât",
+          "Le pèlerinage (hajj)",
+          "Le tayammum (ablutions sèches)",
+          "L’appel à la prière"
+        ],
+        "correct_answer": "Le tayammum (ablutions sèches)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Le tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-008": {
+      "source": {
+        "question_tr": "“Su sağlığa zarar verse bile teyemmüm ruhsatı hiçbir durumda gündeme gelmez.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Diyanet'in teyemmüm açıklaması suyu kullanma imkânı olmadığında da teyemmüm ruhsatını kapsar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namazı tamamen terk etmek",
+          "Rastgele başka bir ibadet yapmak",
+          "Teyemmüm ruhsatı",
+          "Abdesti sadece niyetle tamamlamak"
+        ],
+        "correct_answer": "Teyemmüm ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Même si l’eau nuit à la santé, le tayammum n’est jamais permis » ?",
+        "explanation_tr": "Selon l’explication de Diyanet, le tayammum peut aussi être permis lorsqu’il n’est pas possible d’utiliser l’eau.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Abandonner complètement la prière",
+          "Accomplir au hasard un autre acte d’adoration",
+          "La possibilité d’effectuer le tayammum",
+          "Accomplir les ablutions par la seule intention"
+        ],
+        "correct_answer": "La possibilité d’effectuer le tayammum",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "L’impossibilité d’utiliser l’eau"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-009": {
+      "source": {
+        "question_tr": "“Abdest ayetinde başın mesh edilmesi bulunmaz.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Mâide 5:6'da başın mesh edilmesi zikredilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Başı tamamen suya sokmak",
+          "Saçı kesmek",
+          "Başı mesh etmek",
+          "Baş yerine omuzları yıkamak"
+        ],
+        "correct_answer": "Başı mesh etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige l’erreur : « Le verset ne mentionne pas l’essuyage de la tête » ?",
+        "explanation_tr": "La sourate Al-Mâ’ida (5:6) mentionne le fait de passer les mains mouillées sur la tête.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Plonger toute la tête dans l’eau",
+          "Se couper les cheveux",
+          "Passer les mains mouillées sur la tête",
+          "Laver les épaules à la place de la tête"
+        ],
+        "correct_answer": "Passer les mains mouillées sur la tête",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "L’essuyage de la tête"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-010": {
+      "source": {
+        "question_tr": "Abdestte niyetin hükmü hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefîlerde niyetin sünnet diğer üç mezhepte farz kabul edildiğini belirtir. DEEN bu farkı tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bütün mezhepler niyeti aynı kategoride değerlendirir",
+          "Hiçbir mezhep niyete önem vermez",
+          "Mezhepler arasında hüküm farklılığı vardır",
+          "Niyet bütün mezheplerde abdesti bozar"
+        ],
+        "correct_answer": "Mezhepler arasında hüküm farklılığı vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation corrige la généralisation erronée sur l’intention dans les ablutions ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses précise que l’intention est considérée comme une sunna dans l’école hanafite et comme obligatoire dans les trois autres écoles sunnites. DEEN ne présente pas une seule de ces positions comme correcte.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Toutes les écoles classent l’intention dans la même catégorie",
+          "Aucune école n’accorde d’importance à l’intention",
+          "La règle diffère selon les écoles juridiques",
+          "L’intention invalide les ablutions dans toutes les écoles"
+        ],
+        "correct_answer": "La règle diffère selon les écoles juridiques",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Différences entre écoles : l’intention"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-011": {
+      "source": {
+        "question_tr": "“Abdest yalnızca günlük hijyen amacıyla yapılan bir el yıkamadır.” ifadesindeki hatayı hangi seçenek düzeltir?",
+        "explanation_tr": "Abdest belirli organların yıkanması veya mesh edilmesiyle yapılan özel bir hükmî temizliktir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sadece günlük duş",
+          "Yalnızca el yıkama",
+          "Bazı ibadetler için yapılan hükmî temizlik",
+          "Sadece kıyafet temizliği"
+        ],
+        "correct_answer": "Bazı ibadetler için yapılan hükmî temizlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Les ablutions consistent seulement à se laver les mains pour l’hygiène » ?",
+        "explanation_tr": "Les ablutions (wudû) sont une purification rituelle qui consiste à laver ou à essuyer certaines parties du corps.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Une simple douche quotidienne",
+          "Le simple lavage des mains",
+          "Une purification rituelle accomplie pour certains actes d’adoration",
+          "Le simple nettoyage des vêtements"
+        ],
+        "correct_answer": "Une purification rituelle accomplie pour certains actes d’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Les ablutions (wudû)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-012": {
+      "source": {
+        "question_tr": "Uygulama: su bulunmadığında veya kullanmak mümkün olmadığında hangi ruhsat gündeme gelir?",
+        "explanation_tr": "Kur'an su bulunmadığında temiz toprakla teyemmüm ruhsatını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât",
+          "Hac",
+          "Teyemmüm",
+          "Ezan"
+        ],
+        "correct_answer": "Teyemmüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mise en pratique : quelle facilité existe si l’eau manque ou ne peut être utilisée ?",
+        "explanation_tr": "Le Coran autorise le tayammum avec de la terre propre lorsque l’eau n’est pas disponible.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La zakât",
+          "Le pèlerinage (hajj)",
+          "Le tayammum (ablutions sèches)",
+          "L’appel à la prière"
+        ],
+        "correct_answer": "Le tayammum (ablutions sèches)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Le tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-013": {
+      "source": {
+        "question_tr": "Uygulama: su kullanamama konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Diyanet'in teyemmüm açıklaması suyu kullanma imkânı olmadığında da teyemmüm ruhsatını kapsar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazı tamamen terk etmek",
+          "Rastgele başka bir ibadet yapmak",
+          "Teyemmüm ruhsatı",
+          "Abdesti sadece niyetle tamamlamak"
+        ],
+        "correct_answer": "Teyemmüm ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mise en pratique : quelle affirmation est correcte si l’eau ne peut pas être utilisée ?",
+        "explanation_tr": "Selon l’explication de Diyanet, le tayammum peut aussi être permis lorsqu’il n’est pas possible d’utiliser l’eau.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Abandonner complètement la prière",
+          "Accomplir au hasard un autre acte d’adoration",
+          "La possibilité d’effectuer le tayammum",
+          "Accomplir les ablutions par la seule intention"
+        ],
+        "correct_answer": "La possibilité d’effectuer le tayammum",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "L’impossibilité d’utiliser l’eau"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-014": {
+      "source": {
+        "question_tr": "Uygulama: başı mesh hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Mâide 5:6'da başın mesh edilmesi zikredilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Başı tamamen suya sokmak",
+          "Saçı kesmek",
+          "Başı mesh etmek",
+          "Baş yerine omuzları yıkamak"
+        ],
+        "correct_answer": "Başı mesh etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mise en pratique : quel geste le verset prescrit-il pour la tête ?",
+        "explanation_tr": "La sourate Al-Mâ’ida (5:6) mentionne le fait de passer les mains mouillées sur la tête.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Plonger toute la tête dans l’eau",
+          "Se couper les cheveux",
+          "Passer les mains mouillées sur la tête",
+          "Laver les épaules à la place de la tête"
+        ],
+        "correct_answer": "Passer les mains mouillées sur la tête",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "L’essuyage de la tête"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-015": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Abdestte niyetin hükmü bütün mezheplerde tamamen aynıdır.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefîlerde niyetin sünnet diğer üç mezhepte farz kabul edildiğini belirtir. DEEN bu farkı tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Le statut de l’intention dans les ablutions est exactement le même dans toutes les écoles juridiques.",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses précise que l’intention est considérée comme une sunna dans l’école hanafite et comme obligatoire dans les trois autres écoles sunnites. DEEN ne présente pas une seule de ces positions comme correcte.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Différences entre écoles : l’intention"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S04-016": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Abdest, bazı ibadetler için yapılan hükmî bir temizliktir.",
+        "explanation_tr": "Abdest belirli organların yıkanması veya mesh edilmesiyle yapılan özel bir hükmî temizliktir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Les ablutions sont une purification rituelle accomplie pour certains actes d’adoration.",
+        "explanation_tr": "Les ablutions (wudû) sont une purification rituelle qui consiste à laver ou à essuyer certaines parties du corps.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Tayammum et facilités",
+        "topic": "Les ablutions (wudû)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
