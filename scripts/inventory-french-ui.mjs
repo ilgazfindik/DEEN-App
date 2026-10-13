@@ -30,7 +30,10 @@ const frenchPaths=[
  'ui.streak-xp.staging.json',
  'ui.premium-shop.staging.json',
  'ui.quran-navigation-game.staging.json',
- 'ui.quran-learning-surahs.staging.json'
+ 'ui.quran-learning-surahs.staging.json',
+ 'ui.reference-batch-01.staging.json',
+ 'ui.reference-batch-02.staging.json',
+ 'ui.real-lesson-extra.staging.json'
 ];
 const frenchKeys=new Set();
 const frenchPackCounts={};
@@ -76,6 +79,7 @@ for(let i=1;i<=15;i++){
 const report={locale:'fr',production_ready:false,release_locked:true,
  question_total:1500,question_staged:Object.values(sourceQuestions).reduce((sum,u)=>sum+u.staged_count,0),
  unit_breakdown:sourceQuestions,ui_source_total:map.size,ui_staged:count,ui_staging_packs:frenchPackCounts,
+ dynamic_template_staging_excluded:9,
  ui_remaining:map.size-count,ui_reference_base:Object.keys(base.translations).length,
  high_risk_dynamic_cases:highRisk,reference_source:'Turkish keys from German QA packs; no German display strings reused',
  review_caveat:'Inventory is a baseline, not proof every runtime DOM string is accounted for',
@@ -83,8 +87,8 @@ const report={locale:'fr',production_ready:false,release_locked:true,
   .map(key=>({source_tr:key,first_seen_in:map.get(key).first_seen_in}))};
 assert(report.ui_missing.length===report.ui_remaining);
 assert.equal(report.question_staged,1500,'French source bank must include U01–U15');
-assert.equal(report.ui_staged,605,'Expected 421 previous + 41 premium + 143 Quran UI strings');
-assert.equal(report.ui_remaining,847);
+assert.equal(report.ui_staged,843,'Expected 605 previously staged + 112 + 120 topic keys + 6 real-lesson keys');
+assert.equal(report.ui_remaining,609);
 mkdirSync('qa-artifacts',{recursive:true});
 writeFileSync('qa-artifacts/french-ui-inventory.json',JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({locale:report.locale,status:'passed',questions:report.question_staged+'/'+report.question_total,
