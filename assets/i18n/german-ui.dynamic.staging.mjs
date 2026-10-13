@@ -61,6 +61,69 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  // Real U01-S01 result DOM (Chromium 38317812063); QA-only source-exact chrome.
  // No answer values, source citations or religious content are translated here.
  if(Object.prototype.hasOwnProperty.call(observedResult,n))return emit(observedResult[n]);
+
+ // Source-exact chrome from the actual Fatiha five-step learning flow
+ // (release/v9.9.3-direct/segment-36.txt) and universal inline audio
+ // (segment-52.txt). Only UI; never transform Arabic or an ayah meaning.
+ // These mappings are confined to disposable staging-QA and are not
+ // wired into the app's production locale resolver.
+ const fatihaLearning={
+  'Fâtiha Suresi':'Sure Fâtiha',
+  'Dinle':'Anhören',
+  'Oku':'Lesen',
+  'Anlam':'Bedeutung',
+  'Hatırla':'Erinnern',
+  'Tamamla':'Abschließen',
+  '1 · DİNLE':'1 · ANHÖREN',
+  '2 · OKU':'2 · LESEN',
+  '3 · ANLAM':'3 · BEDEUTUNG',
+  '4 · HATIRLA':'4 · ERINNERN',
+  '5 · TAMAMLA':'5 · ABSCHLIESSEN',
+  'Kıraat yalnız hakları temizlenmiş kayıt bağlanırsa oynatılır.':
+   'Die Rezitation wird nur abgespielt, wenn eine Aufnahme mit geklärten Nutzungsrechten verfügbar ist.',
+  'Metni gözünle takip et':'Lies den Vers aufmerksam mit',
+  'Ayetin tamamını yavaşça oku.':'Lies den gesamten Vers langsam.',
+  'Meal ile bağ kur':'Verstehe die Bedeutung des Verses',
+  'Yalnız kaynaklı meal gösterilir.':'Es werden nur Übersetzungen mit Quellenangabe angezeigt.',
+  'Metne bakmadan getir':'Erinnere dich, ohne auf den Text zu schauen',
+  'Önce zihninden söyle, sonra kontrol et.':
+   'Sage den Vers zuerst aus dem Gedächtnis auf und überprüfe ihn danach.',
+  'Ayet turunu bitir':'Schließe den Versdurchgang ab',
+  'İlk öğrenme tamamlanır; ezber ayrı güçlendirilir.':
+   'Damit schließt du den ersten Lerndurchgang ab. Das Auswendiglernen wird separat gefestigt.',
+  'AYETİ GÖSTER':'VERS ANZEIGEN',
+  'AYETİ TAMAMLA':'VERS ABSCHLIESSEN',
+  'DEVAM ET':'WEITER',
+  'GERİ':'ZURÜCK',
+  'Ayet sesini duraklat':'Verswiedergabe pausieren',
+  'Ayet sesi duraklatıldı.':'Verswiedergabe pausiert.',
+  'Ayet sesi tamamlandı. Tekrar dinlemek için hoparlöre dokun.':
+   'Verswiedergabe beendet. Tippe auf den Lautsprecher, um den Vers erneut anzuhören.',
+  'Ayet sesi yüklenemedi. Sayfayı yenileyip tekrar dene.':
+   'Die Versaufnahme konnte nicht geladen werden. Lade die Seite erneut und versuche es noch einmal.',
+  'Bu tarayıcı ses oynatmayı desteklemiyor.':
+   'Dieser Browser unterstützt keine Audiowiedergabe.',
+  'Doğrulanmamış içerik gösterilmedi.':
+   'Nicht geprüftes Material wird nicht angezeigt.'
+ };
+ if(Object.prototype.hasOwnProperty.call(fatihaLearning,n))return emit(fatihaLearning[n]);
+ if((m=n.match(/^Fâtiha\s*·\s*Ayet\s+([1-7])\/7$/)))
+  return emit('Fâtiha · Vers '+m[1]+'/7');
+ if((m=n.match(/^Ayet\s+([1-7])\s*\/\s*7$/)))
+  return emit('Vers '+m[1]+' / 7');
+ if((m=n.match(/^Fâtiha\s+([1-7])\.\s*ayeti hatırla$/)))
+  return emit('Erinnere dich an Vers '+m[1]+' der Sure Fâtiha');
+ if((m=n.match(/^Ayet\s+([1-7])\s+sesini dinle$/)))
+  return emit('Vers '+m[1]+' anhören');
+ if((m=n.match(/^Hoparlöre dokun:\s*Ayet\s+([1-7])\s+kaydını dinle\.$/)))
+  return emit('Tippe auf den Lautsprecher, um Vers '+m[1]+' anzuhören.');
+ if((m=n.match(/^Ayet\s+([1-7])\s+dinleniyor…$/)))
+  return emit('Vers '+m[1]+' wird abgespielt…');
+ if((m=n.match(/^Ayet sesi açılamadı:\s*(.+)$/))){
+  // Browser exception text is diagnostics, not an ayah or translated source.
+  return emit('Verswiedergabe fehlgeschlagen: '+m[1]);
+ }
+
  let m;
  // Fatiha journey source-observed UI state counters: preserve all Arabic,
  // audio, Wikimedia Commons attribution and CC0 licence names.
