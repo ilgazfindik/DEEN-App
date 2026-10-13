@@ -63,6 +63,75 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
  let m;
  if(Object.prototype.hasOwnProperty.call(observedResult,n))return emit(observedResult[n]);
 
+
+ // Separate İhlâs native engines: deen-v10921 + deen-v10922 in segment-34.
+ // UI-only staging translations. Original Quran Arabic, answers, recitation,
+ // sourced translations, approvals and progress values are never rewritten.
+ const ikhlasNative={
+  'İhlâs Suresi':'Sure İhlâs',
+  'İhlâs Ezberi':'İhlâs auswendig lernen',
+  'İhlâs Ezber Motoru':'İhlâs · Auswendiglernen',
+  'Önce ayeti dinle, sonra metni gözünle takip et.':'Höre zuerst den Vers an und lies dann aufmerksam mit.',
+  'Kıraat henüz bağlı değil':'Rezitation derzeit nicht verbunden',
+  'Yanlış veya kaynaksız ses oynatmak yerine bu adımı güvenli biçimde pasif tutuyoruz.':
+   'Statt eine falsche oder unbelegte Aufnahme abzuspielen, bleibt dieser Platzhalter deaktiviert.',
+  'Ayetin tamamını yavaşça oku. Bu turda telaffuza otomatik doğru/yanlış hükmü vermiyoruz.':
+   'Lies den ganzen Vers langsam. In diesem Durchgang wird deine Aussprache nicht automatisch bewertet.',
+  'Ayetin mealini bağla':'Verstehe die Bedeutung des Verses',
+  'Bu aşamada yalnız kaynaklı meal gösterilir; yorum veya tefsir eklemiyoruz.':
+   'Hier werden nur Bedeutungen mit Quellenangabe angezeigt, keine zusätzlichen Kommentare oder Auslegungen.',
+  'Önce ayeti zihninden söylemeye çalış. Sonra kontrol etmek için metni aç.':
+   'Versuche zuerst, den Vers auswendig aufzusagen. Zeige anschließend den Text zur Überprüfung an.',
+  'Bu ayeti ilk öğrenme turunda tamamladığını işaretle. Ezber seviyesi daha sonra tekrarlarla güçlenecek.':
+   'Markiere den ersten Lerndurchgang als abgeschlossen. Das Auswendiglernen wird später durch Wiederholungen gefestigt.',
+  'İlk öğrenme turu tamamlandı':'Erster Lerndurchgang abgeschlossen',
+  'İhlâs’ın 4 ayetini Dinle → Oku → Anlam → Hatırla → Tamamla akışıyla bitirdin. Bu henüz “ezberlendi” sayılmaz; sonraki ezber ve tekrar motorları hafızayı güçlendirecek.':
+   'Du hast alle vier Verse der Sure İhlâs durch Anhören, Lesen, Bedeutung, Erinnern und Abschließen bearbeitet. Dies gilt noch nicht als auswendig gelernt; die folgenden Wiederholungen festigen dein Wissen.',
+  'BAŞTAN GÖZDEN GEÇİR':'VON VORN WIEDERHOLEN',
+  'SAĞLAM':'GEFESTIGT',
+  'Metnin tamamını görerek oku ve zihninde sesini kur.':
+   'Lies den vollständigen Vers und verinnerliche seinen Klang.',
+  'Yaklaşık üç kelimeden biri gizli. Eksik parçaları zihninden tamamla.':
+   'Etwa jedes dritte Wort ist ausgeblendet. Ergänze die fehlenden Teile aus dem Gedächtnis.',
+  'Yalnız birkaç güçlü ipucu görünür; geri kalanını hatırla.':
+   'Nur wenige Hinweise bleiben sichtbar; erinnere dich an den Rest.',
+  'Sadece ilk kelime görünür. Ayetin devamını tamamen sen getir.':
+   'Nur das erste Wort ist sichtbar. Sage den Rest des Verses auswendig auf.',
+  'Hiçbir metin ipucu yok. Ayeti baştan sona ezberden söyle.':
+   'Es gibt keine Texthinweise. Sage den gesamten Vers auswendig auf.',
+  'Ayetin tamamını ezberden söyle. Kontrol etmek istersen “Metni göster”e dokun.':
+   'Sage den Vers vollständig auswendig auf. Tippe zur Kontrolle auf „Text anzeigen“.',
+  'Bu sürüm self-check kullanır: uygulama kıraatini otomatik olarak “doğru” ilan etmez. Metni zihninden söyledikten sonra kendin kontrol et.':
+   'Hier überprüfst du dich selbst: Die App bewertet deine Rezitation nicht automatisch als richtig. Prüfe sie selbst, nachdem du den Vers auswendig aufgesagt hast.',
+  'Ezber motorunu açmadan önce İhlâs’ın öğrenme turunda en az bir ayeti tamamla.':
+   'Schließe mindestens einen İhlâs-Vers im Lerndurchgang ab, bevor du mit dem Auswendiglernen beginnst.',
+  'ÖĞRENME TURUNU AÇ':'LERNDURCHGANG ÖFFNEN',
+  'Bu ayet öğrenme turunda henüz tamamlanmadı. Önce ayeti öğren, sonra ezber kademesine geç.':
+   'Dieser Vers wurde im Lerndurchgang noch nicht abgeschlossen. Lerne ihn zuerst.',
+  'Doğrulanmamış içerik ezber ekranında gösterilmedi.':
+   'Nicht geprüftes Material wird auf der Auswendiglernseite nicht angezeigt.',
+  'İhlâs ezberi tamamlandı':'İhlâs auswendig gelernt',
+  'Dört ayetin tamamı 5/5 kademesini geçti. Sure artık ezberlendi statüsünde; 9/14 tekrar motoru geldiğinde hafıza gücü zaman içinde yeniden ölçülecek.':
+   'Alle vier Verse haben Stufe 5/5 erreicht. Die Sure ist als auswendig gelernt markiert; spätere Wiederholungen prüfen, wie gut sie im Gedächtnis bleibt.',
+  'EZBERİ GÖZDEN GEÇİR':'AUSWENDIGLERNEN WIEDERHOLEN'
+ };
+ if(Object.prototype.hasOwnProperty.call(ikhlasNative,n))return emit(ikhlasNative[n]);
+ if((m=n.match(/^İhlâs\s*·\s*Ayet\s+([1-4])\/4$/)))
+  return emit('İhlâs · Vers '+m[1]+'/4');
+ if((m=n.match(/^İhlâs\s+([1-4])\.\s*ayeti hatırla$/)))
+  return emit('Erinnere dich an Vers '+m[1]+' der Sure İhlâs');
+ if((m=n.match(/^Ayet\s+([1-4])\s*\/\s*4\s*·\s*(Tam metin|Bazı kelimeler gizli|Çoğu kelime gizli|Başlangıç ipucu|Tamamen ezberden)$/))){
+  const names={'Tam metin':'Vollständiger Vers',
+   'Bazı kelimeler gizli':'Einige Wörter ausgeblendet',
+   'Çoğu kelime gizli':'Die meisten Wörter ausgeblendet',
+   'Başlangıç ipucu':'Anfangshinweis','Tamamen ezberden':'Vollständig auswendig'};
+  return emit('Vers '+m[1]+' / 4 · '+names[m[2]]);
+ }
+ if((m=n.match(/^([0-4])\/4 SAĞLAM$/)))return emit(m[1]+'/4 GEFESTIGT');
+ if((m=n.match(/^AYET ([1-4])$/)))return emit('VERS '+m[1]);
+ if((m=n.match(/^Self-check toplamı:\s*(\d+)\s+başarılı hatırlama\s*·\s*(\d+)\s+tekrar isteği$/)))
+  return emit('Selbstkontrolle: '+m[1]+' erfolgreiche Erinnerungen · '+m[2]+' Wiederholungen');
+
  // Source-exact chrome from the actual Fatiha five-step learning flow
  // (release/v9.9.3-direct/segment-36.txt) and universal inline audio
  // (segment-52.txt). Only UI; never transform Arabic or an ayah meaning.
