@@ -82,3 +82,12 @@
 - İlk kaynak/şema karşılaştırması: **100 soru, 78 seçenekli soru, 24 eşleştirme çifti, 8 fill_blank ve 6 sıralama; sıfır yapısal hata**.
 - `scripts/audit-french-u08-complete.mjs` yeni bağımsız kaynak/cevap/boşluk/eşleştirme/sıralama denetimidir; CI'ye eklendi.
 - Teknik doğrulama dinî anlamın ve anadili Fransızca doğruluğun uzman onayı değildir. Dinî/Fransızca uzman onayı verilmedi. `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` üretim kilitleri değişmedi.
+
+## 2026-10-14 — U09 100/100 Fransızca taslak
+- U09-S01–S07 toplam: **14 + 14 + 14 + 16 + 16 + 12 + 14 = 100/100**.
+- Konular: ahirete iman, ölüm/berzah, yeniden diriliş, hesap günü, ilahî adalet, küçük iyiliklerin ve kötülüklerin karşılığı, sorumluluk, umut ve kaynak disiplini.
+- Genel toplam **900/1.500**; **600 soru U10–U15'te** bekliyor.
+- İlk kaynak/şema karşılaştırması: **100 soru, 80 seçenekli soru, 21 eşleştirme çifti, 8 fill_blank ve 6 sıralama; 0 yapısal hata**.
+- `scripts/audit-french-u09-complete.mjs`: kaynak eşitliği, cevap pozisyonları, matching, boşluklar, sıralama ve üretim kilitlerini denetler. CI'ye eklendi.
+- Kur'an ayetlerine dayalı anlamlar **taslaktır**; bağımsız dinî uzman ve anadili Fransızca incelemesi yapılmadı. Arapça ayet ve kıraat değişmedi.
+- `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` kilitleri korunur. Main'e merge veya canlı deploy yapılmaz.
