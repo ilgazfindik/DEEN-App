@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U08",
+  "stage": "U08-S07",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U08-S07-001": {
+      "source": {
+        "question_tr": "Bir öğrenci şu üç cümleyi yazıyor: (1) Peygamberler vahiy alan insanlardır. (2) Ortak çağrılarının özü tevhiddir. (3) Hz. Muhammed peygamberlerin sonuncusudur. Hangileri Kur'an'la uyumludur?",
+        "explanation_tr": "Kehf 18:110, Enbiyâ 21:25 ve Ahzâb 33:40 bu üç bilgiyi destekler.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 ve 3",
+          "Yalnız 1",
+          "1 ve 2",
+          "2 ve 3"
+        ],
+        "correct_answer": "1, 2 ve 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève écrit : 1) Les prophètes sont des humains recevant la révélation. 2) Leur appel commun repose sur le tawhid. 3) Muhammad est le dernier des prophètes. Quelles affirmations sont conformes au Coran ?",
+        "explanation_tr": "Al-Kahf 18:110, Al-Anbiya 21:25 et Al-Ahzab 33:40 étayent les trois affirmations.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 et 3",
+          "1 seulement",
+          "1 et 2",
+          "2 et 3"
+        ],
+        "correct_answer": "1, 2 et 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-002": {
+      "source": {
+        "question_tr": "Peygamberlerin insan olması ile Allah'tan vahiy almaları Kur'an'a göre birbiriyle çelişir.",
+        "explanation_tr": "Kehf 18:110 insan oluş ile vahiy almayı açıkça birlikte ifade eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon le Coran, la nature humaine des prophètes est incompatible avec le fait qu’ils reçoivent une révélation d’Allah.",
+        "explanation_tr": "Al-Kahf 18:110 mentionne explicitement ces deux caractéristiques ensemble.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-003": {
+      "source": {
+        "question_tr": "Peygamberlerin ortak çağrısının merkezinde yalnız ______ kulluk vardır.",
+        "explanation_tr": "Enbiyâ 21:25 ve Nahl 16:36 peygamberlerin ortak tevhid çağrısını vurgular.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah'a",
+          "peygambere",
+          "topluma",
+          "meleklere"
+        ],
+        "correct_answer": "Allah'a",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le message commun des prophètes consiste à adorer ______ seul.",
+        "explanation_tr": "Al-Anbiya 21:25 et An-Nahl 16:36 soulignent l’appel commun à l’unicité d’Allah.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "un prophète",
+          "la société",
+          "les anges"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-004": {
+      "source": {
+        "question_tr": "Bir içerikte Hz. Muhammed hem 'örnek alınacak elçi' hem de 'ilah' diye tanıtılıyor. Hangi düzeltme gerekir?",
+        "explanation_tr": "Kur'an Hz. Muhammed'i insan, elçi ve güzel örnek olarak tanıtır; ilahlık atfetmez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahzâb 33:21 örnekliğini, Kehf 18:110 ise insan oluşunu bildirir; ibadet yalnız Allah'adır",
+          "Örnek olmak ilah olmak demektir",
+          "Hz. Muhammed insan değildir",
+          "Tevhid peygamberler için geçerli değildir"
+        ],
+        "correct_answer": "Ahzâb 33:21 örnekliğini, Kehf 18:110 ise insan oluşunu bildirir; ibadet yalnız Allah'adır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un contenu présente Muhammad comme un « messager exemplaire » mais aussi comme une « divinité ». Quelle correction apporter ?",
+        "explanation_tr": "Le Coran le présente comme un être humain, un messager et un bel exemple, sans lui attribuer la divinité.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Ahzab 33:21 souligne son exemplarité et Al-Kahf 18:110 son humanité ; seul Allah est adoré",
+          "Être exemplaire revient à être une divinité",
+          "Muhammad n’est pas humain",
+          "Le tawhid ne s’applique pas aux prophètes"
+        ],
+        "correct_answer": "Al-Ahzab 33:21 souligne son exemplarité et Al-Kahf 18:110 son humanité ; seul Allah est adoré",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-005": {
+      "source": {
+        "question_tr": "Bir kişi 'Kur'an'da adı olmayan biri kesinlikle peygamber olamaz' diyor. En doğru cevap hangisidir?",
+        "explanation_tr": "Ayet bilgi sınırını gösterir: bütün peygamberler isimlendirilmemiştir; bu durum kaynaksız peygamberlik iddialarını da doğrulamaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir; kaynakta olmayan kişiye de gelişigüzel peygamber denmez",
+          "Kur'an bütün peygamberleri sayar",
+          "Her tarihî kişi peygamberdir",
+          "İsim bilgisi peygamberlik için gereksizdir"
+        ],
+        "correct_answer": "Nisâ 4:164 bazı peygamberlerin anlatılmadığını bildirir; kaynakta olmayan kişiye de gelişigüzel peygamber denmez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne dit : « Quelqu’un dont le nom n’apparaît pas dans le Coran ne peut absolument pas avoir été prophète. » Quelle est la meilleure réponse ?",
+        "explanation_tr": "Ce verset souligne les limites de nos connaissances sans justifier d’affirmer sans preuve qu’une personne était prophète.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "An-Nisa 4:164 indique que certains prophètes ne sont pas nommés ; on ne peut pas non plus déclarer prophète une personne sans source fiable",
+          "Le Coran énumère tous les prophètes",
+          "Tout personnage historique est un prophète",
+          "Le nom n’a aucun rapport avec la connaissance des prophètes"
+        ],
+        "correct_answer": "An-Nisa 4:164 indique que certains prophètes ne sont pas nommés ; on ne peut pas non plus déclarer prophète une personne sans source fiable",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-006": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Hz. Muhammed'in risaleti yalnız belirli bir halka yöneliktir' diyor. Hangi iki bilgi birlikte en güçlü düzeltmeyi sağlar?",
+        "explanation_tr": "Bu iki ayet Hz. Muhammed'in elçilik kimliğini ve risaletinin evrenselliğini birlikte gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sebe 34:28 bütün insanlara gönderilişi ve Ahzâb 33:40 elçiliğini bildirir",
+          "Nisâ 4:164 ve Bakara 2:253",
+          "Enbiyâ 21:8 ve Nisâ 4:165",
+          "Bakara 2:285 ve Nahl 16:36"
+        ],
+        "correct_answer": "Sebe 34:28 bütün insanlara gönderilişi ve Ahzâb 33:40 elçiliğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « La mission de Muhammad concernait uniquement un peuple particulier. » Quelles deux informations réfutent le mieux cette idée ?",
+        "explanation_tr": "Ces versets réunissent le caractère universel de sa mission et son identité de messager.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Saba 34:28 indique son envoi à tous les humains et Al-Ahzab 33:40 sa mission de messager",
+          "An-Nisa 4:164 et Al-Baqara 2:253",
+          "Al-Anbiya 21:8 et An-Nisa 4:165",
+          "Al-Baqara 2:285 et An-Nahl 16:36"
+        ],
+        "correct_answer": "Saba 34:28 indique son envoi à tous les humains et Al-Ahzab 33:40 sa mission de messager",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-007": {
+      "source": {
+        "question_tr": "Bir özet kartında 'Peygamberler mesajın kaynağıdır; isterlerse vahyi değiştirirler' yazıyor. En kapsamlı düzeltme hangisidir?",
+        "explanation_tr": "Nisâ 4:163 vahyi Allah'a, Mâide 5:67 ise tebliğ görevini peygambere nispet eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Vahyin kaynağı Allah'tır ve peygamberin görevi kendisine indirileni tebliğ etmektir",
+          "Vahyin kaynağı peygamberin nefsidir",
+          "Toplum vahyi istediği gibi üretir",
+          "Peygamberlerin tebliğ görevi yoktur"
+        ],
+        "correct_answer": "Vahyin kaynağı Allah'tır ve peygamberin görevi kendisine indirileni tebliğ etmektir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une fiche résume : « Les prophètes sont la source du message ; ils peuvent modifier la révélation à leur guise. » Quelle est la correction la plus complète ?",
+        "explanation_tr": "An-Nisa 4:163 attribue la révélation à Allah, tandis qu’Al-Maida 5:67 souligne la tâche de transmission du prophète.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Allah est la source de la révélation et les prophètes doivent transmettre le message qui leur a été révélé",
+          "La révélation vient des désirs du prophète",
+          "La société invente librement la révélation",
+          "Les prophètes n’ont aucune mission de transmission"
+        ],
+        "correct_answer": "Allah est la source de la révélation et les prophètes doivent transmettre le message qui leur a été révélé",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-008": {
+      "source": {
+        "question_tr": "Peygamberlere iman ünitesinde kaynak, bilgi ve sonucu eşleştir.",
+        "explanation_tr": "Ünite ustalığı, ayetleri yalnız ezberlemek değil doğru kavramla eşleştirmeyi de gerektirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Bakara 2:285",
+            "right": "Elçiler arasında iman bakımından ayrım yapmama"
+          },
+          {
+            "left": "Mâide 5:67",
+            "right": "Vahyin tebliği"
+          },
+          {
+            "left": "Ahzâb 33:40",
+            "right": "Hz. Muhammed'in elçiliği ve son peygamber oluşu"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les versets aux thèmes étudiés dans cette unité.",
+        "explanation_tr": "Maîtriser l’unité suppose d’associer les sources coraniques aux notions correctes.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Baqara 2:285",
+            "right": "Croire à tous les messagers sans en rejeter aucun"
+          },
+          {
+            "left": "Al-Maida 5:67",
+            "right": "Transmission de la révélation"
+          },
+          {
+            "left": "Al-Ahzab 33:40",
+            "right": "Muhammad est messager d’Allah et dernier des prophètes"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-009": {
+      "source": {
+        "question_tr": "Peygamberlere iman ünitesini dört anahtar kavramla özetle.",
+        "explanation_tr": "Bu dört kavram peygamberliğin kaynağını, görevini, mesajını ve iman boyutunu özetler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Vahiy, tebliğ, tevhid ve bütün Allah elçilerini tasdik etmek.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Résume la foi aux prophètes en quatre notions essentielles.",
+        "explanation_tr": "Ces quatre notions résument l’origine, la mission, le message commun et la dimension de foi de la prophétie.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Révélation, transmission du message, tawhid et reconnaissance de tous les messagers d’Allah.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-010": {
+      "source": {
+        "question_tr": "Ahzâb 33:21, Resûlullah'ta güzel bir ______ bulunduğunu bildirir.",
+        "explanation_tr": "Ayet Allah'ı ve âhireti umanlar için Resûlullah'ta güzel örnek bulunduğunu bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "örneklik",
+          "ilahlık",
+          "ölümsüzlük",
+          "soy üstünlüğü"
+        ],
+        "correct_answer": "örneklik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Ahzab 33:21 présente le Messager d’Allah comme un bel ______.",
+        "explanation_tr": "Le verset indique que le Messager d’Allah constitue un bel exemple à suivre.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "exemple",
+          "dieu",
+          "être immortel",
+          "héritier supérieur"
+        ],
+        "correct_answer": "exemple",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-011": {
+      "source": {
+        "question_tr": "Ahzâb 33:40, Hz. Muhammed'i peygamberlerin ______ olarak tanımlar.",
+        "explanation_tr": "Ayet Hz. Muhammed'in Allah'ın elçisi ve peygamberlerin sonuncusu olduğunu bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "sonuncusu",
+          "ilk ve tek olanı",
+          "kralı",
+          "babası"
+        ],
+        "correct_answer": "sonuncusu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Ahzab 33:40 décrit Muhammad comme le ______ des prophètes.",
+        "explanation_tr": "Le verset le présente comme le messager d’Allah et le dernier des prophètes.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "dernier",
+          "premier et unique",
+          "roi",
+          "père"
+        ],
+        "correct_answer": "dernier",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-012": {
+      "source": {
+        "question_tr": "Peygamberlere iman bilgisini bütüncül biçimde sırala.",
+        "explanation_tr": "Bu sıra peygamberliğin seçilme, vahiy, ortak mesaj ve iman boyutlarını birleştirir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah insanlardan elçiler seçer",
+          "Onlara vahiy verir",
+          "Elçiler tevhid mesajını tebliğ eder",
+          "Müminler Allah'ın elçilerini tasdik eder"
+        ],
+        "correct_order": [
+          "Allah insanlardan elçiler seçer",
+          "Onlara vahiy verir",
+          "Elçiler tevhid mesajını tebliğ eder",
+          "Müminler Allah'ın elçilerini tasdik eder"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe les notions pour comprendre la foi aux prophètes de manière globale.",
+        "explanation_tr": "Cet ordre associe le choix des prophètes, la révélation, leur message commun et la foi en tous les messagers.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah choisit des messagers parmi les humains",
+          "Il leur transmet la révélation",
+          "Ils transmettent le message du tawhid",
+          "Les croyants reconnaissent tous les messagers d’Allah"
+        ],
+        "correct_order": [
+          "Allah choisit des messagers parmi les humains",
+          "Il leur transmet la révélation",
+          "Ils transmettent le message du tawhid",
+          "Les croyants reconnaissent tous les messagers d’Allah"
+        ],
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-013": {
+      "source": {
+        "question_tr": "Peygamberlere iman kaynak eşleştirmelerinden hangisi yanlıştır?",
+        "explanation_tr": "Ahzâb 33:40 Hz. Muhammed'i peygamberlerin sonuncusu olarak tanımlar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nisâ 4:165 — müjde ve uyarı",
+          "Kehf 18:110 — insan oluş ve vahiy",
+          "Sebe 34:28 — Hz. Muhammed'in bütün insanlara gönderilişi",
+          "Ahzâb 33:40 — Hz. Muhammed'den sonra peygamberlerin devam edeceği"
+        ],
+        "correct_answer": "Ahzâb 33:40 — Hz. Muhammed'den sonra peygamberlerin devam edeceği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle association entre un verset et son enseignement est incorrecte ?",
+        "explanation_tr": "Al-Ahzab 33:40 qualifie Muhammad de dernier des prophètes.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "An-Nisa 4:165 — bonne nouvelle et avertissement",
+          "Al-Kahf 18:110 — nature humaine et révélation",
+          "Saba 34:28 — mission destinée à l’humanité entière",
+          "Al-Ahzab 33:40 — de nouveaux prophètes continueront après Muhammad"
+        ],
+        "correct_answer": "Al-Ahzab 33:40 — de nouveaux prophètes continueront après Muhammad",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S07-014": {
+      "source": {
+        "question_tr": "Peygamberlere iman ünitesini en iyi özetleyen cümle hangisidir?",
+        "explanation_tr": "Ünite iman esası, insan oluş, vahiy, tebliğ, tevhid, iman bütünlüğü ve Hz. Muhammed'in risaletini birlikte ele alır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman; Allah'ın vahiy verdiği insan elçileri tasdik etmeyi, ortak tevhid çağrılarını ve tebliğ görevlerini doğru anlamayı içerir",
+          "Peygamberlere iman yalnız isim ezberidir",
+          "Peygamberler ilahî varlıklardır",
+          "Her peygamber farklı bir ilaha çağırır"
+        ],
+        "correct_answer": "Peygamberlere iman; Allah'ın vahiy verdiği insan elçileri tasdik etmeyi, ortak tevhid çağrılarını ve tebliğ görevlerini doğru anlamayı içerir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle phrase résume le mieux l’unité sur la foi aux prophètes ?",
+        "explanation_tr": "L’unité aborde la foi aux messagers, leur nature humaine, la révélation, la transmission, l’unité du tawhid et la mission de Muhammad.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Croire aux prophètes, c’est reconnaître les messagers humains choisis par Allah, leur révélation, leur mission de transmission et leur appel commun au tawhid",
+          "Croire aux prophètes consiste seulement à mémoriser leurs noms",
+          "Les prophètes sont des êtres divins",
+          "Chaque prophète appelait à adorer une divinité différente"
+        ],
+        "correct_answer": "Croire aux prophètes, c’est reconnaître les messagers humains choisis par Allah, leur révélation, leur mission de transmission et leur appel commun au tawhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux prophètes",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
