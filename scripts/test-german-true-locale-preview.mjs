@@ -976,8 +976,56 @@ try{
  });
  report.quran_fatiha=fatihaPanel;
  assert.equal(fatihaPanel.locale,'de');
- assert(fatihaPanel.arabicCount>0||fatihaPanel.arabicSamples.length>0,
-  'Opening Fatiha did not reveal its original Arabic script');
+ // The language selector text "العربية" is NOT an ayah. The Fatiha CTA
+ // opens a journey dialog, not the actual verse view; never count it as an
+ // original Arabic/audio verification.
+ const realAyaSamples=fatihaPanel.arabicSamples
+  .filter(text=>text.trim()!=='العربية');
+ report.quran_fatiha.actual_ayah_samples=realAyaSamples;
+ report.quran_fatiha.source_ayat_verified=
+  fatihaPanel.arabicCount>0||realAyaSamples.length>0;
+ const journey=await page.evaluate(async()=>{
+  const panel=document.querySelector('#v5Sheet[open]');
+  if(!panel)throw Error('Fatiha journey did not open a modal');
+  const files=['german-ui.staging.json','german-ui.lesson-flow.staging.json',
+   'german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
+   ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+
+    String(i+1).padStart(2,'0')+'.staging.json'),'german-ui.real-lesson.staging.json'];
+  const [packs,english]=await Promise.all([
+   Promise.all(files.map(async name=>{
+    const res=await fetch('/assets/i18n/'+name,{cache:'no-store'});
+    if(!res.ok)throw Error('Missing German modal QA pack '+name);
+    return res.json();
+   })),
+   fetch('/assets/i18n/english-ui.draft.json').then(r=>r.json())
+  ]);
+  const {createGermanUIStagingRenderer}=await import(
+   '/assets/i18n/german-ui.renderer.staging.mjs');
+  const renderer=createGermanUIStagingRenderer({packs,
+   englishReference:english.translations});
+  const arabicBefore=[...panel.querySelectorAll('[lang="ar"]')]
+   .map(el=>el.outerHTML);
+  const sourceBefore=[...panel.querySelectorAll('audio,source')]
+   .map(el=>el.getAttribute('src'));
+  const messageBefore=panel.textContent;
+  const audit=renderer.render(panel,{qaMode:true,locale:'de',documentRef:document});
+  const arabicAfter=[...panel.querySelectorAll('[lang="ar"]')]
+   .map(el=>el.outerHTML);
+  const sourceAfter=[...panel.querySelectorAll('audio,source')]
+   .map(el=>el.getAttribute('src'));
+  return {heading:panel.querySelector('h1,h2,h3')?.textContent?.trim()||null,
+   hasGatedGermanMeaning:messageBefore.includes('Noch keine geprüfte Übersetzung.'),
+   scanned:audit.scanned,writes:audit.writes,unresolved:audit.unresolved,
+   arabicUnchanged:JSON.stringify(arabicBefore)===JSON.stringify(arabicAfter),
+   sourcesUnchanged:JSON.stringify(sourceBefore)===JSON.stringify(sourceAfter),
+   text:panel.textContent?.trim().slice(0,1000)};
+ });
+ report.quran_fatiha.journey=journey;
+ assert.equal(journey.hasGatedGermanMeaning,true,
+  'Unapproved German Quran meaning was not visibly gated');
+ assert.equal(journey.arabicUnchanged,true);
+ assert.equal(journey.sourcesUnchanged,true);
+ assert.deepEqual(journey.unresolved,[],'German Fatiha journey contains Turkish UI chrome');
  await page.screenshot({path:output+'/true-locale-german-fatiha-surah.png',fullPage:true});
 
  // Exercise full first-run onboarding without assigning state.onboarded in QA.
