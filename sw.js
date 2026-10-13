@@ -3,11 +3,14 @@
  * The original SHA-256-pinned loader independently verifies all 67 segments.
  */
 'use strict';
-const VERSION='9408enfiveuiscreens1-ikhlasdeqa1-pwa13';
+const VERSION='9408enfiveuiscreens1-ikhlasdeqa1-pwa14';
 const SHELL='deen-pwa-shell-'+VERSION;
 const MEDIA='deen-pwa-ayah-'+VERSION;
 const VISUAL='deen-pwa-visual-'+VERSION;
 const MAX_VISUAL=120;
+// Keep only the most recent 24 full ayah MP3 responses. Audio remains
+// cache-on-play; older files require internet again after eviction/upgrade.
+const MAX_AUDIO=24;
 const scope=new URL(self.registration.scope);
 const ROOT=scope.pathname.endsWith('/')?scope.pathname:scope.pathname+'/';
 const core=[
@@ -50,7 +53,14 @@ async function readFullAudio(url){
  // Strip Range and cache-busting query; no third-party audio or redirect cache.
  const result=await fetch(new Request(key.url,{cache:'no-store',redirect:'error'}));
  if(!isFullAudio(result))return result;
- try{await cache.put(key,result.clone())}catch(_){/* Storage quota reached; playback still works. */}
+ try{
+  await cache.put(key,result.clone());
+  const keys=await cache.keys();
+  // Bound the storage footprint without changing player/progress state.
+  // CacheStorage keys are insertion ordered; this is FIFO, not a full LRU.
+  for(const old of keys.slice(0,Math.max(0,keys.length-MAX_AUDIO)))
+   await cache.delete(old);
+ }catch(_){/* Storage quota reached; online playback still works. */}
  return result;
 }
 async function rangeAudio(response,range){
