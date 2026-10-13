@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U12",
+  "stage": "U12-S02",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U12-S02-001": {
+      "source": {
+        "question_tr": "Kavram kontrolü: başı mesh etmenin miktarı hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu başı mesh etmenin ortak temel olduğunu miktar gibi ayrıntılarda mezhep farklılıkları bulunduğunu belirtir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Bütün mezhepler aynı oranı zorunlu görür",
+          "Hiçbir mezhep başı mesh etmez",
+          "Mezhepler arasında ayrıntı farklılıkları vardır",
+          "Başın tamamını yıkamak tek ortak hükümdür"
+        ],
+        "correct_answer": "Mezhepler arasında ayrıntı farklılıkları vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vérifie tes connaissances : quelle affirmation sur l’étendue de l’essuyage de la tête est correcte ?",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, l’essuyage de la tête est un principe commun ; l’étendue à essuyer varie cependant selon les écoles juridiques.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Toutes les écoles exigent d’essuyer la même partie de la tête",
+          "Aucune école ne prescrit d’essuyer la tête",
+          "Les détails diffèrent selon les écoles juridiques",
+          "Laver toute la tête serait la seule règle commune"
+        ],
+        "correct_answer": "Les détails diffèrent selon les écoles juridiques",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Différences entre écoles : l’étendue de l’essuyage"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-002": {
+      "source": {
+        "question_tr": "Mâide 5:6'ya göre kollar nasıl yıkanır?",
+        "explanation_tr": "Ayette kolların dirseklerle birlikte yıkanması emredilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece bileklere kadar",
+          "Sadece omuzlara kadar mesh edilir",
+          "Dirseklerle birlikte",
+          "Hiç yıkanmaz"
+        ],
+        "correct_answer": "Dirseklerle birlikte",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Mâ’ida (5:6), jusqu’où faut-il laver les bras ?",
+        "explanation_tr": "Le verset prescrit de laver les bras, coudes compris.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Jusqu’aux poignets seulement",
+          "Il faut seulement les essuyer jusqu’aux épaules",
+          "Y compris les coudes",
+          "Il ne faut pas du tout les laver"
+        ],
+        "correct_answer": "Y compris les coudes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Les bras pendant les ablutions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-003": {
+      "source": {
+        "question_tr": "Gusül konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Gusül büyük hükmî kirlilik hâllerinden çıkmak için bütün bedenin yıkanmasıyla yapılan temizliktir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece ellerin mesh edilmesi",
+          "Sadece yüzün yıkanması",
+          "Boy abdesti gerektiren hâllerde bütün bedenin yıkanması",
+          "Kıyafetin değiştirilmesi"
+        ],
+        "correct_answer": "Boy abdesti gerektiren hâllerde bütün bedenin yıkanması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation concernant le ghusl est correcte ?",
+        "explanation_tr": "Le ghusl (bain rituel complet) est une purification qui consiste à laver tout le corps pour sortir d’un état d’impureté rituelle majeure.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Essuyer uniquement les mains",
+          "Laver uniquement le visage",
+          "Laver tout le corps lorsque le bain rituel complet est requis",
+          "Changer de vêtements"
+        ],
+        "correct_answer": "Laver tout le corps lorsque le bain rituel complet est requis",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Le bain rituel complet (ghusl)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-004": {
+      "source": {
+        "question_tr": "Kavram kontrolü: bu dersteki fıkıh yaklaşımı hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Bu sürüm ortak temeli öğretir ve güvenilir kaynaklardaki geçerli mezhep farklılıklarını tek doğru yanlış ikiliğine indirgemez.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tek bir mezhebi bütün Müslümanlar için tek geçerli görüş sayar",
+          "Mezhep farklılıklarını gizler",
+          "Ortak temeli öğretir geçerli mezhep farklılıklarını yanlış diye puanlamaz",
+          "Kaynağı belirsiz görüşleri eşit derecede doğru sayar"
+        ],
+        "correct_answer": "Ortak temeli öğretir geçerli mezhep farklılıklarını yanlış diye puanlamaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation décrit correctement la méthode de ce cours à l’égard des écoles juridiques ?",
+        "explanation_tr": "Cette version enseigne les fondements communs sans réduire les différences juridiques valides et étayées à une opposition entre bonne et mauvaise réponse.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle considère une seule école comme valable pour tous les musulmans",
+          "Elle dissimule les divergences entre écoles juridiques",
+          "Elle enseigne les fondements communs sans juger erronées les divergences juridiques valides",
+          "Elle tient les avis de provenance incertaine pour également corrects"
+        ],
+        "correct_answer": "Elle enseigne les fondements communs sans juger erronées les divergences juridiques valides",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "La méthode d’enseignement du droit musulman"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-005": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Mezhepler abdestin temel organları konusunda hiçbir ortak noktaya sahip değildir.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu dört mezhebin Mâide 5:6'daki temel organlarda ortaklaştığını ek ayrıntılarda farklılaştığını belirtir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Les écoles juridiques ne s’accordent sur aucune des principales parties du corps à purifier lors des ablutions.",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, les quatre écoles sunnites s’accordent sur les principales parties du corps citées dans Al-Mâ’ida (5:6), tout en divergeant sur certains détails.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Les fondements communs"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-006": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Başı mesh etmenin miktarında mezhepler arasında farklı görüşler vardır.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu başı mesh etmenin ortak temel olduğunu miktar gibi ayrıntılarda mezhep farklılıkları bulunduğunu belirtir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Les écoles juridiques divergent sur l’étendue de la tête à essuyer.",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, l’essuyage de la tête est un principe commun ; l’étendue à essuyer varie cependant selon les écoles juridiques.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Différences entre écoles : l’étendue de l’essuyage"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Abdestte kolların dirseklere kadar yıkanması gerekmez.",
+        "explanation_tr": "Ayette kolların dirseklerle birlikte yıkanması emredilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Il n’est pas nécessaire de laver les bras jusqu’aux coudes pendant les ablutions.",
+        "explanation_tr": "Le verset prescrit de laver les bras, coudes compris.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Les bras pendant les ablutions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-008": {
+      "source": {
+        "question_tr": "Bir arkadaşın Gusül hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Gusül büyük hükmî kirlilik hâllerinden çıkmak için bütün bedenin yıkanmasıyla yapılan temizliktir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece ellerin mesh edilmesi",
+          "Sadece yüzün yıkanması",
+          "Boy abdesti gerektiren hâllerde bütün bedenin yıkanması",
+          "Kıyafetin değiştirilmesi"
+        ],
+        "correct_answer": "Boy abdesti gerektiren hâllerde bütün bedenin yıkanması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande des précisions sur le ghusl. Que lui réponds-tu ?",
+        "explanation_tr": "Le ghusl (bain rituel complet) est une purification qui consiste à laver tout le corps pour sortir d’un état d’impureté rituelle majeure.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Essuyer uniquement les mains",
+          "Laver uniquement le visage",
+          "Laver tout le corps lorsque le bain rituel complet est requis",
+          "Changer de vêtements"
+        ],
+        "correct_answer": "Laver tout le corps lorsque le bain rituel complet est requis",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Le bain rituel complet (ghusl)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-009": {
+      "source": {
+        "question_tr": "Kavram kontrolü: bu dersteki fıkıh yaklaşımı konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Bu sürüm ortak temeli öğretir ve güvenilir kaynaklardaki geçerli mezhep farklılıklarını tek doğru yanlış ikiliğine indirgemez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Tek bir mezhebi bütün Müslümanlar için tek geçerli görüş sayar",
+          "Mezhep farklılıklarını gizler",
+          "Ortak temeli öğretir geçerli mezhep farklılıklarını yanlış diye puanlamaz",
+          "Kaynağı belirsiz görüşleri eşit derecede doğru sayar"
+        ],
+        "correct_answer": "Ortak temeli öğretir geçerli mezhep farklılıklarını yanlış diye puanlamaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel principe est correct concernant la manière dont ce cours présente le droit musulman ?",
+        "explanation_tr": "Cette version enseigne les fondements communs sans réduire les différences juridiques valides et étayées à une opposition entre bonne et mauvaise réponse.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Elle considère une seule école comme valable pour tous les musulmans",
+          "Elle dissimule les divergences entre écoles juridiques",
+          "Elle enseigne les fondements communs sans juger erronées les divergences juridiques valides",
+          "Elle tient les avis de provenance incertaine pour également corrects"
+        ],
+        "correct_answer": "Elle enseigne les fondements communs sans juger erronées les divergences juridiques valides",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "La méthode d’enseignement du droit musulman"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-010": {
+      "source": {
+        "question_tr": "Bir öğrenci “Mezhepler abdestin temel organları konusunda hiçbir ortak noktaya sahip değildir.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu dört mezhebin Mâide 5:6'daki temel organlarda ortaklaştığını ek ayrıntılarda farklılaştığını belirtir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece niyet etmek",
+          "Yalnızca elleri yıkamak",
+          "Yüzü ve kolları yıkamak, başı mesh etmek ve ayakları yıkamak",
+          "Sadece ağza su vermek"
+        ],
+        "correct_answer": "Yüzü ve kolları yıkamak, başı mesh etmek ve ayakları yıkamak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Les écoles juridiques ne s’accordent sur aucune partie du corps à purifier. » Quelle réponse le corrige ?",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, les quatre écoles sunnites s’accordent sur les principales parties du corps citées dans Al-Mâ’ida (5:6), tout en divergeant sur certains détails.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Formuler uniquement l’intention",
+          "Le simple lavage des mains",
+          "Laver le visage et les bras, essuyer la tête et laver les pieds",
+          "Se rincer uniquement la bouche"
+        ],
+        "correct_answer": "Laver le visage et les bras, essuyer la tête et laver les pieds",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Les fondements communs"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-011": {
+      "source": {
+        "question_tr": "“Başı mesh etmenin miktarında bütün mezhepler tamamen aynı görüştedir.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu başı mesh etmenin ortak temel olduğunu miktar gibi ayrıntılarda mezhep farklılıkları bulunduğunu belirtir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Bütün mezhepler aynı oranı zorunlu görür",
+          "Hiçbir mezhep başı mesh etmez",
+          "Mezhepler arasında ayrıntı farklılıkları vardır",
+          "Başın tamamını yıkamak tek ortak hükümdür"
+        ],
+        "correct_answer": "Mezhepler arasında ayrıntı farklılıkları vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige l’erreur : « Toutes les écoles prescrivent exactement la même étendue pour l’essuyage de la tête » ?",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, l’essuyage de la tête est un principe commun ; l’étendue à essuyer varie cependant selon les écoles juridiques.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Toutes les écoles exigent d’essuyer la même partie de la tête",
+          "Aucune école ne prescrit d’essuyer la tête",
+          "Les détails diffèrent selon les écoles juridiques",
+          "Laver toute la tête serait la seule règle commune"
+        ],
+        "correct_answer": "Les détails diffèrent selon les écoles juridiques",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Différences entre écoles : l’étendue de l’essuyage"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-012": {
+      "source": {
+        "question_tr": "Abdestte kollar hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Ayette kolların dirseklerle birlikte yıkanması emredilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sadece bileklere kadar",
+          "Sadece omuzlara kadar mesh edilir",
+          "Dirseklerle birlikte",
+          "Hiç yıkanmaz"
+        ],
+        "correct_answer": "Dirseklerle birlikte",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige une idée erronée concernant les bras pendant les ablutions ?",
+        "explanation_tr": "Le verset prescrit de laver les bras, coudes compris.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Jusqu’aux poignets seulement",
+          "Il faut seulement les essuyer jusqu’aux épaules",
+          "Y compris les coudes",
+          "Il ne faut pas du tout les laver"
+        ],
+        "correct_answer": "Y compris les coudes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Les bras pendant les ablutions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-013": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Gusül bütün ___ yıkanmasıyla yapılan hükmî temizliktir.",
+        "explanation_tr": "Gusül büyük hükmî kirlilik hâllerinden çıkmak için bütün bedenin yıkanmasıyla yapılan temizliktir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "bedenin",
+          "dirseklerle"
+        ],
+        "correct_answer": "bedenin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : le ghusl purifie rituellement en lavant tout le ___.",
+        "explanation_tr": "Le ghusl (bain rituel complet) est une purification qui consiste à laver tout le corps pour sortir d’un état d’impureté rituelle majeure.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "purification",
+          "visage",
+          "corps",
+          "les coudes"
+        ],
+        "correct_answer": "corps",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "Le bain rituel complet (ghusl)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S02-014": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Bu ünitede geçerli mezhep farklılıkları ___ diye puanlanmaz.",
+        "explanation_tr": "Bu sürüm ortak temeli öğretir ve güvenilir kaynaklardaki geçerli mezhep farklılıklarını tek doğru yanlış ikiliğine indirgemez.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "yanlış",
+          "dirseklerle"
+        ],
+        "correct_answer": "yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : cette unité ne considère pas les divergences juridiques valides comme ___.",
+        "explanation_tr": "Cette version enseigne les fondements communs sans réduire les différences juridiques valides et étayées à une opposition entre bonne et mauvaise réponse.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "purification",
+          "visage",
+          "erronées",
+          "les coudes"
+        ],
+        "correct_answer": "erronées",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les bases des ablutions",
+        "topic": "La méthode d’enseignement du droit musulman"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
