@@ -46,7 +46,7 @@ for(let i=1;i<=7;i++){
   for(const text of strings){
    // Shahada phonetic segments are non-UI liturgical source strings.
    // Do not mistake the preserved Turkish-standard transliteration for untranslated labels.
-   const withoutProperNames=text.replace(/(?:Eşhedü|eşhedü|Resûlüh|resûlüh|Allahüekber|Sübhanallah|İllallah)/gu,'ARABIC_PHONETIC');
+   const withoutProperNames=text.replace(/(?:Eşhedü|eşhedü|Resûlüh|resûlüh|abdühû|Allahüekber|Sübhanallah|İllallah)/gu,'ARABIC_PHONETIC');
    if(/[İıĞğŞş]/u.test(withoutProperNames))bad('Turkish_locale_letters');
    if(/\b(?:sadece|yanlış|doğru|günlük|öğrenme|peygamber|kavramları)\b/iu.test(text))
      bad('Turkish_word');
