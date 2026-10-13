@@ -904,6 +904,8 @@ try{
    '/assets/i18n/german-ui.renderer.staging.mjs');
   const renderer=createGermanUIStagingRenderer({packs,
    englishReference:english.translations});
+  // Reload invalidates the previous lesson-only renderer; keep this Quran QA instance.
+  window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__=renderer;
   const arabicBefore=[...root.querySelectorAll('[lang="ar"]')]
    .map(el=>({html:el.outerHTML,text:el.textContent}));
   const srcBefore=[...root.querySelectorAll('audio,source')]
