@@ -129,6 +129,16 @@ for(const source of ['İhlâs · Ayet 5/4','İhlâs 5. ayeti hatırla',
  'Ayet 5 / 4 · Bazı kelimeler gizli','5/4 SAĞLAM','AYET 5'])
  assert.equal(fmt(source),null,'outside Ikhlas bounds must fail closed: '+source);
 
+
+const ikhlasRecitationCases=[
+ ['AYET ARASI BEKLEME','PAUSE ZWISCHEN VERSEN'],
+ ['Kıraat hazır','Rezitation bereit'],
+ ['SEÇİLİ AYETİ LOOP KAPALI','WIEDERHOLUNG DES GEWÄHLTEN VERSES AUS'],
+ ['SEÇİLİ AYETİ LOOP AÇIK','WIEDERHOLUNG DES GEWÄHLTEN VERSES AN']
+];
+for(const [src,de] of ikhlasRecitationCases)
+ assert.equal(fmt(src),de,'German Quran recitation controls '+src);
+
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
