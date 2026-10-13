@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U07",
+  "stage": "U07-S07",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U07-S07-001": {
+      "source": {
+        "question_tr": "Bir öğrenci şu cümleleri yazıyor: (1) Tevrat ve İncil Allah tarafından indirilmiştir. (2) Hz. Dâvûd'a Zebur verilmiştir. (3) Kur'an önceki vahiyleri tasdik eder. Hangileri Kur'an'la uyumludur?",
+        "explanation_tr": "Âl-i İmrân 3:3-4, Nisâ 4:163 ve Mâide 5:48 bu üç bilgiyi destekler.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 ve 3",
+          "Yalnız 1",
+          "Yalnız 2",
+          "2 ve 3"
+        ],
+        "correct_answer": "1, 2 ve 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève écrit : 1) La Torah et l’Évangile ont été révélés par Allah. 2) David a reçu le Zabour. 3) Le Coran confirme les révélations antérieures. Quelles affirmations sont compatibles avec le Coran ?",
+        "explanation_tr": "Al-Imran 3:3-4, An-Nisa 4:163 et Al-Maida 5:48 étayent ces trois affirmations.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 et 3",
+          "1 seulement",
+          "2 seulement",
+          "2 et 3"
+        ],
+        "correct_answer": "1, 2 et 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-002": {
+      "source": {
+        "question_tr": "Bir kişi 'Allah'ın önceki vahiylerini kabul etmekle Kur'an'ın ölçüsünü kabul etmek çelişir' diyor. En iyi cevap hangisidir?",
+        "explanation_tr": "Ayet önceki vahiylerin tasdiki ile Kur'an'ın ölçü belirleyici konumunu bir arada sunar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mâide 5:48 hem tasdiki hem Kur'an'ın denetleyici konumunu birlikte bildirir",
+          "Önceki vahiyler reddedilmelidir",
+          "Kur'an denetleyici değildir",
+          "Vahiyler arasında hiçbir ilişki yoktur"
+        ],
+        "correct_answer": "Mâide 5:48 hem tasdiki hem Kur'an'ın denetleyici konumunu birlikte bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un affirme : « Croire aux révélations antérieures et reconnaître le rôle du Coran comme référence sont contradictoires. » Que répondre ?",
+        "explanation_tr": "Le verset réunit la confirmation des révélations précédentes et le rôle de référence du Coran.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Maida 5:48 présente ensemble la confirmation des révélations précédentes et l’autorité du Coran",
+          "Il faut rejeter toutes les révélations antérieures",
+          "Le Coran n’a aucun rôle de référence",
+          "Il n’y a aucun lien entre les révélations"
+        ],
+        "correct_answer": "Al-Maida 5:48 présente ensemble la confirmation des révélations précédentes et l’autorité du Coran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-003": {
+      "source": {
+        "question_tr": "İlahî kitapların farklı peygamberlere indirilmesi, vahyin kaynağının farklı olduğu anlamına gelmez.",
+        "explanation_tr": "Kur'an Tevrat, İncil ve Kur'an'ı aynı Allah'ın indirdiği vahiyler olarak anlatır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le fait que les Livres divins aient été révélés à différents prophètes ne signifie pas que leur source divine soit différente.",
+        "explanation_tr": "Le Coran présente la Torah, l’Évangile et le Coran comme des révélations venant du même Allah.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-004": {
+      "source": {
+        "question_tr": "Kitaplara imanın temelinde vahyin kaynağının ______ olduğu inancı bulunur.",
+        "explanation_tr": "İlahî kitapların ortak kaynağı Allah'tır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "toplum",
+          "peygamberin kendisi",
+          "tarihçi"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire aux Livres révélés repose sur la conviction qu’______ est la source de la révélation.",
+        "explanation_tr": "La source commune des Livres divins est Allah.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "la société",
+          "le prophète lui-même",
+          "l’historien"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-005": {
+      "source": {
+        "question_tr": "Bir özet kartında 'Kur'an önceki kitapları reddeder ve onları vahiy saymaz' yazıyor. En kapsamlı düzeltme hangisidir?",
+        "explanation_tr": "Mâide 5:48 tasdik ve denetim ifadelerini birlikte kullanır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an önceki ilahî vahiyleri tasdik eder ve kendisini onlar üzerinde denetleyici olarak bildirir",
+          "Kur'an önceki vahiylerden hiç söz etmez",
+          "Kur'an yalnız Zebur'u kabul eder",
+          "Kur'an vahyi tamamen reddeder"
+        ],
+        "correct_answer": "Kur'an önceki ilahî vahiyleri tasdik eder ve kendisini onlar üzerinde denetleyici olarak bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une fiche affirme : « Le Coran rejette les Livres révélés avant lui et ne les considère pas comme des révélations. » Quelle correction complète convient ?",
+        "explanation_tr": "Al-Maida 5:48 associe la confirmation des Livres précédents au rôle de référence du Coran.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le Coran confirme les révélations divines antérieures et affirme son rôle de référence à leur égard",
+          "Le Coran ne mentionne jamais les révélations antérieures",
+          "Le Coran reconnaît uniquement le Zabour",
+          "Le Coran rejette entièrement la révélation"
+        ],
+        "correct_answer": "Le Coran confirme les révélations divines antérieures et affirme son rôle de référence à leur égard",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-006": {
+      "source": {
+        "question_tr": "Kitaplara iman ünitesinde kaynak, bilgi ve sonucu eşleştir.",
+        "explanation_tr": "Bu ayetler Kur'an'ın kimliği, işlevi ve önceki vahiylerle ilişkisini üç farklı yönden açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hicr 15:9",
+            "right": "Kur'an'ın korunması"
+          },
+          {
+            "left": "İsrâ 17:9",
+            "right": "Kur'an'ın rehberliği"
+          },
+          {
+            "left": "Mâide 5:48",
+            "right": "Önceki kitapları tasdik ve denetim"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe chaque référence au thème enseigné dans cette unité.",
+        "explanation_tr": "Ces versets présentent différents aspects de l’origine, de la fonction et du rapport du Coran aux révélations précédentes.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Hijr 15:9",
+            "right": "La préservation du Coran"
+          },
+          {
+            "left": "Al-Isra 17:9",
+            "right": "La guidance du Coran"
+          },
+          {
+            "left": "Al-Maida 5:48",
+            "right": "La confirmation des Livres antérieurs et le rôle de référence"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-007": {
+      "source": {
+        "question_tr": "Kitaplara iman konusunda üç temel ilkeyi yaz: kaynak, ilişki ve rehberlik.",
+        "explanation_tr": "Bu üç ilke ünitenin vahiy kaynağı, Kur'an'ın konumu ve rehberlik boyutlarını özetler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kaynak Allah'tır; Kur'an önceki ilahî vahiyleri tasdik eder ve ölçü sunar; Kur'an insanı doğruya yönelten rehberdir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Résume trois principes de la foi aux Livres : origine, relation et guidance.",
+        "explanation_tr": "Ces trois principes décrivent l’origine divine, le rôle du Coran vis-à-vis des révélations antérieures et sa fonction de guide.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "La révélation vient d’Allah ; le Coran confirme les Livres divins antérieurs et sert de référence ; il guide les humains vers le bien.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-008": {
+      "source": {
+        "question_tr": "Bir eğitim uygulaması sahife rivayetlerindeki sayıları 'Kur'an ayeti' etiketiyle sunuyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "A'lâ 87:18-19 İbrâhim ve Mûsâ'nın sahifelerini zikreder; diğer ayrıntıların kaynak seviyesi ayrıca belirtilmelidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ayet bilgisini rivayet ayrıntısından ayırıp yalnız açık Kur'an bilgisini ayet olarak etiketlemek",
+          "Bütün rivayetleri ayet saymak",
+          "Sahifeler konusunu tamamen silmek",
+          "Kaynak türünü gizlemek"
+        ],
+        "correct_answer": "Ayet bilgisini rivayet ayrıntısından ayırıp yalnız açık Kur'an bilgisini ayet olarak etiketlemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une application éducative affiche des chiffres transmis par des récits sur les Feuillets en les qualifiant de « versets du Coran ». Quelle correction apporter ?",
+        "explanation_tr": "Al-Ala 87:18-19 cite les Feuillets d’Abraham et de Moïse ; les autres détails doivent porter une indication de source distincte.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Distinguer ce que disent les versets de ce que rapportent les récits et n’étiqueter comme verset que le contenu explicite du Coran",
+          "Présenter tous les récits comme des versets",
+          "Supprimer toute mention des Feuillets",
+          "Masquer la nature des sources"
+        ],
+        "correct_answer": "Distinguer ce que disent les versets de ce que rapportent les récits et n’étiqueter comme verset que le contenu explicite du Coran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-009": {
+      "source": {
+        "question_tr": "Kitaplara iman ünitesindeki eşleştirmelerden hangisi yanlıştır?",
+        "explanation_tr": "Mâide 5:48 Kur'an'ın önceki kitapları tasdik ettiğini, ayrıca denetleyici konumda olduğunu bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tevrat — Mâide 5:44'te hidayet ve nur",
+          "İncil — Mâide 5:46'da Hz. Îsâ'ya verilmiştir",
+          "Zebur — Nisâ 4:163'te Hz. Dâvûd'a verilmiştir",
+          "Kur'an — Mâide 5:48'de önceki vahiyleri bütünüyle reddeder"
+        ],
+        "correct_answer": "Kur'an — Mâide 5:48'de önceki vahiyleri bütünüyle reddeder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle association de cette unité est incorrecte ?",
+        "explanation_tr": "Al-Maida 5:48 indique que le Coran confirme les Livres antérieurs et fait autorité à leur égard.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Torah — guidance et lumière selon Al-Maida 5:44",
+          "Évangile — donné à Jésus selon Al-Maida 5:46",
+          "Zabour — donné à David selon An-Nisa 4:163",
+          "Coran — rejette entièrement les révélations antérieures selon Al-Maida 5:48"
+        ],
+        "correct_answer": "Coran — rejette entièrement les révélations antérieures selon Al-Maida 5:48",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-010": {
+      "source": {
+        "question_tr": "Bir kişi Kur'an'ın korunmasını 'yalnız insanların çabasına bağlı bir iddia' diye açıklıyor. Hangi ayet bu ifadeyi eksik bırakır?",
+        "explanation_tr": "Hicr 15:9 korunmayı doğrudan Allah'ın güvencesiyle ilişkilendirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hicr 15:9",
+          "A'lâ 87:19",
+          "Nisâ 4:163",
+          "Mâide 5:46"
+        ],
+        "correct_answer": "Hicr 15:9",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne affirme que la préservation du Coran relève uniquement des efforts humains, sans aucune garantie divine. Quel verset manque-t-il à son explication ?",
+        "explanation_tr": "Al-Hijr 15:9 attribue explicitement à Allah la préservation du Rappel.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Hijr 15:9",
+          "Al-Ala 87:19",
+          "An-Nisa 4:163",
+          "Al-Maida 5:46"
+        ],
+        "correct_answer": "Al-Hijr 15:9",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-011": {
+      "source": {
+        "question_tr": "Kur'an'ın rehberliğiyle ilgili cümleyi tamamla: Bu kitap insanı en ______ olana yöneltir.",
+        "explanation_tr": "Ayette Kur'an'ın en doğru olana yönelten rehberlik işlevi belirtilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "doğru",
+          "eski",
+          "gizli",
+          "karmaşık"
+        ],
+        "correct_answer": "doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète la phrase sur la guidance : « Le Coran guide vers ce qui est le plus ______. »",
+        "explanation_tr": "Le verset décrit la fonction du Coran comme une guidance vers la voie la plus droite.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "droit",
+          "ancien",
+          "caché",
+          "compliqué"
+        ],
+        "correct_answer": "droit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-012": {
+      "source": {
+        "question_tr": "Kitaplara iman konusunda güvenilir öğrenme yöntemi hangisidir?",
+        "explanation_tr": "Vahiy, tefsir ve beşerî yorum arasındaki farkı korumak kaynak doğruluğunun temelidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Açık ayet bilgisini temel alıp yorum ve rivayetin kaynak seviyesini ayrıca belirtmek",
+          "Her söylentiyi vahiy saymak",
+          "Kaynak göstermeden kesin hüküm vermek",
+          "İnsan sözünü Allah sözü diye sunmak"
+        ],
+        "correct_answer": "Açık ayet bilgisini temel alıp yorum ve rivayetin kaynak seviyesini ayrıca belirtmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle méthode d’apprentissage respecte le mieux les sources concernant les Livres révélés ?",
+        "explanation_tr": "La rigueur impose de distinguer les versets explicites, leur exégèse et les interprétations humaines.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Prendre appui sur les versets explicites et préciser le statut des commentaires et des récits",
+          "Considérer toutes les rumeurs comme des révélations",
+          "Affirmer des choses avec certitude sans citer de source",
+          "Présenter la parole humaine comme une parole d’Allah"
+        ],
+        "correct_answer": "Prendre appui sur les versets explicites et préciser le statut des commentaires et des récits",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-013": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kitaplara iman sadece kitap isimlerini ezberlemektir' diyor. En dengeli cevap hangisidir?",
+        "explanation_tr": "Ünite boyunca kitapların kaynağı, rehberliği ve Kur'an'ın önceki vahiylerle ilişkisi birlikte ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İsim bilgisi yanında vahyin Allah'tan gelişi, rehberliği ve Kur'an'ın konumunu anlamak gerekir",
+          "Evet, yalnız isim ezberidir",
+          "Kitaplara iman davranışla ilgisizdir",
+          "Rehberlik kavramı vahiyde yoktur"
+        ],
+        "correct_answer": "İsim bilgisi yanında vahyin Allah'tan gelişi, rehberliği ve Kur'an'ın konumunu anlamak gerekir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève déclare : « Croire aux Livres signifie simplement retenir leurs noms. » Quelle réponse est plus juste ?",
+        "explanation_tr": "Cette unité explique aussi l’origine, la fonction de guidance et les rapports du Coran avec les révélations antérieures.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Il faut aussi comprendre leur origine divine, leur fonction de guidance et le rôle du Coran",
+          "Oui, il suffit de mémoriser des noms",
+          "La foi aux Livres n’a aucun rapport avec la conduite",
+          "La révélation ne comporte aucune guidance"
+        ],
+        "correct_answer": "Il faut aussi comprendre leur origine divine, leur fonction de guidance et le rôle du Coran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S07-014": {
+      "source": {
+        "question_tr": "Kitaplara iman ünitesini en iyi özetleyen cümle hangisidir?",
+        "explanation_tr": "Ünite; iman esası, isimleri bilinen kitaplar, kaynak birliği, Kur'an'ın konumu, rehberliği ve korunmasını birlikte işler.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman, Allah'ın indirdiği vahiyleri tasdik etmeyi, Kur'an'ın rehberliğini ve önceki vahiylerle ilişkisini doğru anlamayı içerir",
+          "Kitaplara iman yalnız eski metinleri tarihî eser saymaktır",
+          "Her dinî yazı vahiydir",
+          "Kur'an önceki bütün vahiyleri reddeder"
+        ],
+        "correct_answer": "Kitaplara iman, Allah'ın indirdiği vahiyleri tasdik etmeyi, Kur'an'ın rehberliğini ve önceki vahiylerle ilişkisini doğru anlamayı içerir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition résume le mieux l’unité sur la foi aux Livres ?",
+        "explanation_tr": "L’unité aborde les fondements de la foi, les Livres nommés, leur source commune, la position du Coran, sa guidance et sa préservation.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Croire aux Livres implique de reconnaître les révélations venues d’Allah, la guidance du Coran et son rapport aux Écritures antérieures",
+          "Croire aux Livres signifie uniquement voir les textes anciens comme des objets historiques",
+          "Tout écrit religieux est une révélation",
+          "Le Coran rejette toutes les révélations antérieures"
+        ],
+        "correct_answer": "Croire aux Livres implique de reconnaître les révélations venues d’Allah, la guidance du Coran et son rapport aux Écritures antérieures",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi aux Livres",
+        "topic": "Origine, guidance et fiabilité des sources"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
