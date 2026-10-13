@@ -140,17 +140,20 @@ async function visit(width,height,label){
   assert.equal(shell.protectedQuestion,true);
   assert.equal(shell.protectedArabic,true);
   await page.screenshot({path:output+'/'+label+'-french-shell-preview.png',fullPage:true});
-  const lesson=await page.evaluate(()=>{
-   const root=document.querySelector('.phone');
-   if(root)root.inert=false;
-   document.getElementById('v998Onboarding')?.remove();
-   document.getElementById('deenPreparation')?.remove();
-   document.getElementById('deenLanguageGate')?.remove();
+  const lesson=await page.evaluate(async()=>{
    if(typeof state!=='undefined'){
     state.energy=30;
     state.onboarded=true;
     if(state.settings)state.settings.onboardingLanguageConfirmed=true;
    }
+   // Do not force a hidden bootstrap view into visibility. Complete the same
+   // resource validation and startup lifecycle required by the real app.
+   const prepared=await window.DEEN_BOOT.prepare();
+   if(!prepared)return {opened:false,boot:window.DEEN_BOOT.status()};
+   document.getElementById('v998Onboarding')?.remove();
+   document.getElementById('deenLanguageGate')?.remove();
+   const root=document.querySelector('.phone');
+   if(root)root.inert=false;
    startStage('U01-S01');
    if(!session?.questions?.length)return {opened:false};
    const original=session.questions.slice();
@@ -168,7 +171,7 @@ async function visit(width,height,label){
     type:target.activity_type,correct:target.correct_answer,
     options:target.options_tr,locale:window.DEEN_APP_LOCALE.get()};
   });
-  assert.equal(lesson.opened,true,'Real lesson renderer not activated');
+  assert.equal(lesson.opened,true,'Real lesson renderer not activated: '+JSON.stringify(lesson));
   assert.equal(lesson.locale,'tr','QA must not commit French locale to app settings');
   assert.equal(lesson.id,lesson.sourceId);
   assert(lesson.options?.includes(lesson.correct));
