@@ -110,9 +110,45 @@
   if(norm(body)!==norm(validatedFrench))return null;
   return 'Réfléchissons ensemble : '+validatedFrench.trim();
  }
+ // Grade feedback is generated AFTER the question UI pass. Adapt the exact
+ // source-verified French explanation and known Turkish chrome in QA only.
+ // Never mutate answer state, grading input, Arabic text or source packs.
+ function localizeGradedFeedback(question,root=window.document){
+  if(!state.ready||state.locale!=='fr'||question?.__deenContentLocale!=='fr')return null;
+  if(!question.__deenSourceQuestion||!question.explanation_tr?.trim())return null;
+  const feedback=root.querySelector('#feedback'),title=root.querySelector('#feedbackTitle'),
+   body=root.querySelector('#feedbackText'),continueBtn=root.querySelector('#continueBtn');
+  if(!feedback?.classList.contains('show'))return null;
+  let writes=0;
+  if(title&&title.textContent.trim()==='Harika!'){
+   title.textContent=translate('Harika!','fr');writes++;
+  }
+  const full=body?.textContent.trim()||'';
+  const expected=question.explanation_tr.trim();
+  for(const [prefix,replacement] of [['Kısaca: ','En bref : '],['Özet: ','Résumé : ']]){
+   if(body&&full===prefix+expected){
+    body.textContent=replacement+expected;writes++;break;
+   }
+  }
+  if(continueBtn&&continueBtn.textContent.trim()==='Devam et'){
+   continueBtn.textContent=translate('Devam et','fr');writes++;
+  }
+  const voiceNames=new Map([['Soruyu dinle','Écouter la question'],
+   ['Açıklamayı dinle','Écouter l’explication']]);
+  for(const button of root.querySelectorAll('#lesson .v960-speak')){
+   const walker=window.document.createTreeWalker(button,window.NodeFilter.SHOW_TEXT);
+   let textNode;
+   while((textNode=walker.nextNode())){
+    const val=textNode.nodeValue,translation=voiceNames.get(val.trim());
+    if(translation){textNode.nodeValue=val.replace(val.trim(),translation);writes++;}
+   }
+  }
+  state.writes+=writes;
+  return {writes,feedbackVisible:true,sourceGuarded:true,productionActivated:false};
+ }
  function audit(){return {ready:state.ready,locale:state.locale,staticKeys:state.table.size,
   dynamicPatterns:state.patterns.length,writes:state.writes,
   unrecognized:[...state.missing],productionActivated:false};}
- window.DEEN_FRENCH_STAGE_UI=Object.freeze({init,translate,localize,setLocale,localizeQuestionPrompt,audit,
+ window.DEEN_FRENCH_STAGE_UI=Object.freeze({init,translate,localize,setLocale,localizeQuestionPrompt,localizeGradedFeedback,audit,
   version:'fr-staging-preview-v1'});
 })();
