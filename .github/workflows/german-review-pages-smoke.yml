@@ -1,0 +1,30 @@
+name: German review Pages browser smoke
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'de-review/**'
+      - 'scripts/test-german-review-pages-smoke.mjs'
+      - '.github/workflows/german-review-pages-smoke.yml'
+  workflow_dispatch:
+jobs:
+  isolated-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions: {contents: read}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Install isolated Chromium for QA
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Launch real DEEN under the exact Pages URL (locally routed)
+        run: node scripts/test-german-review-pages-smoke.mjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: german-review-pages-smoke
+          path: qa-artifacts/
+          if-no-files-found: ignore
