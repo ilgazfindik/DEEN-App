@@ -201,3 +201,13 @@
 - CI: [GitHub Actions #38478173600](https://github.com/ilgazfindik/DEEN-App/actions/runs/38478173600) (başarı sonucu ayrıca doğrulanır).
 - Üretim hâlâ kapalı: `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false`. Arapça ayet, orijinal kıraat, Kur’an meal kaynakları ve diğer dillerin üretim altyapısı değiştirilmedi. Canlı Pages'e aktarım yok.
 - Kalan: batch 05–08 ve diğer UI kaynakları, U01 aktif varyantları, U13 eşleştirme kaynak problemi, dinamik tekil/çoğul ve gerçek Chromium/mobil denetimleri, Fransızca/dinî uzman onayları.
+
+## 2026-10-14 — Fransızca UI P06 — 240 U05-U15 ve onboarding
+- Önceki statik UI taslakları **1083/1452**; iki yeni referans paketinde **120+120 = 240** anahtar çevrildi. Güncel envanter: **1323/1452 (%91,12)**, **129 anahtar kaldı**. Temel soru taslakları 1500/1500 değişmedi.
+- `assets/i18n/fr/ui.reference-batch-05.staging.json`: **120** konu ve etkinlik etiketi. U05 iman/ibadet ayrımları, U06 melekler, vahiy ve Iblîs ayrımı, U07 ilahi kitaplar, Kur’an’ın rehberliği/korunması; uzman incelemesi bekleyen dinî iddialar ayrı `review_required_keys` ile işaretli.
+- `assets/i18n/fr/ui.reference-batch-06.staging.json`: **120** başlık. Peygamberlik, ahiret, kader-kaza, ibadet, abdest, namaz, oruç; ayrıca 34 onboarding/mascot/günlük süre ve tanıtım metni. İlk taslakta 1 satır eksik olduğu tespit edilip kayıt öncesi “Namaza hazırlık senaryoları” çevirisi eklendi; 120/120 tamamlandı.
+- **Bağlam düzeltmesi:** `assets/i18n/fr/ui.reference-batch-01.staging.json` içinde Türkçe `doğru` anahtarının İngilizce referansı “upright” olduğu için önceki Fransızca `debout` ifadesi **`droit`** olarak düzeltildi. Anahtar dinî/dilsel inceleme bayrağında kaldı; başka bağlamlarda `correct` anlamıyla karıştırılmamalı.
+- `scripts/inventory-french-ui.mjs` artık 17 statik FR paketini denetliyor: 1323/1452, kalan 129. `scripts/audit-french-ui-reference-batches-05-06.mjs` özgün Türkçe anahtarlar, dizi sırası, çakışma, interpolasyon, boş değerler, kritik `doğru` düzeltmesi ve release kilitlerini denetliyor.
+- CI bağlantısı: [French localization staging workflow #38478876522](https://github.com/ilgazfindik/DEEN-App/actions/runs/38478876522); tamamlandığında gerçek sonuç teyit edilir.
+- Tüm yeni çeviriler **staging-only**. `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` sabit. Canlı Pages, ana dal, Arapça ayetler/sesler/meal verileri değişmedi.
+- Sıradaki P07: referans-batch-07'deki 119 benzersiz anahtar + batch-08'deki 10 anahtar ile **129 statik kalan**. Dinamik UI, U01 runtime varyantları, U13 matching kaynak hataları, gerçek Chromium/mobil dil QA, Fransızca editör ve dinî/izin onayları üretim için hâlâ gerekli.
