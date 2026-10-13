@@ -110,6 +110,69 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
    'Nicht geprüftes Material wird nicht angezeigt.'
  };
  if(Object.prototype.hasOwnProperty.call(fatihaLearning,n))return emit(fatihaLearning[n]);
+
+ // Quran memorization and the *UI chrome only* of the Arabic ayah test.
+ // These are source-exact labels in the German staging renderer, not any
+ // translation of Quran Arabic, meal, answer options or expert review status.
+ const fatihaMemorizationAndQuiz={
+  'Fâtiha Ezberi':'Fâtiha auswendig lernen',
+  'Tam metin':'Vollständiger Vers',
+  'Bazı kelimeler gizli':'Einige Wörter ausgeblendet',
+  'Çoğu kelime gizli':'Die meisten Wörter ausgeblendet',
+  'Başlangıç ipucu':'Anfangshinweis',
+  'Tamamen ezberden':'Vollständig auswendig',
+  'METNİ GÖSTER':'TEXT ANZEIGEN',
+  'TEKRAR ET':'WIEDERHOLEN',
+  'HATIRLADIM':'ICH HABE MICH ERINNERT',
+  'Metin gizli':'Text ausgeblendet',
+  'Ayeti tamamen ezberden söyle.':'Trage den ganzen Vers auswendig vor.',
+  'Önce bu ayetin öğrenme turunu tamamla.':'Schließe zuerst den Lerndurchgang dieses Verses ab.',
+  'Test ilerlemesi':'Testfortschritt',
+  'Cevap seçenekleri':'Antwortmöglichkeiten',
+  'Sesli ayet sorusu':'Hörfrage zum Vers',
+  'Eksik kelime':'Fehlendes Wort',
+  'Seçilen kelime':'Ausgewähltes Wort',
+  'Zorlandığın ayetler öncelik alır':'Verse, die dir schwerfallen, werden zuerst geübt',
+  'Seçtiğin cevap':'Deine Antwort',
+  'Doğru cevap':'Richtige Antwort',
+  'Meal henüz hazır değil':'Die geprüfte Übersetzung steht noch aus',
+  'Test henüz hazır değil':'Der Test ist noch nicht verfügbar',
+  'Bu sure için doğrulanmış sorular hazırlanamadı.':
+   'Für diese Sure konnten noch keine geprüften Aufgaben bereitgestellt werden.',
+  'Bu surenin Arapça ayet veya meal verisi hazır değil. Eksik içerikten soru üretilmez.':
+   'Die arabischen Verse oder geprüften Bedeutungen dieser Sure fehlen. Aus unvollständigen Quellen werden keine Fragen erzeugt.',
+  'Bu ayetin ses kaydı kullanılamıyor.':'Die Tonaufnahme zu diesem Vers ist nicht verfügbar.',
+  'Ayet sesi hazırlanıyor…':'Die Versaufnahme wird vorbereitet…',
+  'Tekrar dinleyebilirsin.':'Du kannst den Vers erneut anhören.',
+  'Ses oynatılamadı.':'Die Versaufnahme konnte nicht abgespielt werden.',
+  'Doğru. Hatırlama turu tamamlandı.':'Richtig. Die Erinnerungsübung ist abgeschlossen.',
+  'Henüz değil. Tekrar dene.':'Noch nicht richtig. Versuche es erneut.'
+ };
+ if(Object.prototype.hasOwnProperty.call(fatihaMemorizationAndQuiz,n))
+  return emit(fatihaMemorizationAndQuiz[n]);
+ if((m=n.match(/^Fâtiha\s+·\s+Ayet\s+([1-7])$/)))
+  return emit('Fâtiha · Vers '+m[1]);
+ if((m=n.match(/^Ayet\s+([1-7])\s*·\s*(Boşluk|Sırala|Devamı|Eşleştir|Parça|Sesi Bul)$/))){
+  const modes={'Boşluk':'Lücke','Sırala':'Reihenfolge','Devamı':'Fortsetzung',
+   'Eşleştir':'Zuordnung','Parça':'Abschnitt','Sesi Bul':'Hörübung'};
+  return emit('Vers '+m[1]+' · '+modes[m[2]]);
+ }
+ if((m=n.match(/^EZBER KADEMESİ\s+([1-5])\s*\/\s*5$/)))
+  return emit('AUSWENDIGLERNSTUFE '+m[1]+' / 5');
+ if((m=n.match(/^Fâtiha\s+·\s+(\d+)\s*\/\s*5$/)))
+  return emit('Fâtiha · '+m[1]+' / 5');
+ if((m=n.match(/^Seçilen kelime:\s+(.+)$/))){
+  // A selected Arabic word belongs to the source-sensitive fill slot and
+  // is intentionally NOT translated here.
+  return null;
+ }
+ if((m=n.match(/^✓\s+(\d+)\s+doğru$/)))
+  return emit('✓ '+m[1]+' '+(m[1]==='1'?'richtig':'richtige Antworten'));
+ if((m=n.match(/^Başarı puanı yüzde\s+(\d{1,3})$/)))
+  return emit('Ergebnis: '+m[1]+' Prozent');
+ if((m=n.match(/^([1-5])\.\s+soru\s*·\s*Ayet\s+([1-7])$/)))
+  return emit('Frage '+m[1]+' · Vers '+m[2]);
+
  if((m=n.match(/^Fâtiha\s*·\s*Ayet\s+([1-7])\/7$/)))
   return emit('Fâtiha · Vers '+m[1]+'/7');
  if((m=n.match(/^Ayet\s+([1-7])\s*\/\s*7$/)))
