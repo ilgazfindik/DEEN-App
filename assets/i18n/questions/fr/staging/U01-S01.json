@@ -1,0 +1,501 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U01",
+  "stage": "U01-S01",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U01-S01-001": {
+      "source": {
+        "question_tr": "İslam kavramı başlangıç düzeyinde en iyi hangi ifadeyle açıklanır?",
+        "explanation_tr": "Bu ünitede İslam, yalnızca bir kültür veya birkaç ibadet olarak değil; Allah'a yönelişi, inancı ve yaşamı birlikte ele alan bir din olarak tanıtılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'a teslimiyeti ve O'nun rehberliğini benimsemeyi esas alan bir din",
+          "Yalnızca belirli ibadetlerin adını ifade eden bir kavram",
+          "Belirli bir topluma ait kültürel geleneklerin genel adı",
+          "Sadece geçmişte yaşanmış olayları anlatan bir tarih anlayışı"
+        ],
+        "correct_answer": "Allah'a teslimiyeti ve O'nun rehberliğini benimsemeyi esas alan bir din",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle description explique le mieux l’islam à une personne qui débute ?",
+        "explanation_tr": "Dans cette unité, l’islam est présenté comme une religion qui associe la foi, la relation à Allah et la manière de vivre ; il ne se réduit pas à une culture ni à quelques actes d’adoration.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Une religion fondée sur la soumission à Allah et l’acceptation de Sa guidance",
+          "Un terme désignant uniquement certains actes d’adoration",
+          "Le nom général des traditions culturelles d’une communauté particulière",
+          "Une conception de l’histoire qui ne traite que d’événements passés"
+        ],
+        "correct_answer": "Une religion fondée sur la soumission à Allah et l’acceptation de Sa guidance",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Les fondements de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-002": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ı en doğru şekilde tanımlar?",
+        "explanation_tr": "İslam, inanç ve yaşam biçimini bir arada içeren bir dindir; belirli bir topluluğa veya coğrafyaya sıkıştırılamaz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'a inanmayı ve O'nun bildirdiği yaşam biçimini benimsemeyi içeren bir din",
+          "Sadece belirli bir topluma özgü gelenekler bütünü",
+          "Yalnızca tarihte yaşanmış bir olaylar dizisi",
+          "Belirli bir ülkeye özgü kültürel kimlik"
+        ],
+        "correct_answer": "Allah'a inanmayı ve O'nun bildirdiği yaşam biçimini benimsemeyi içeren bir din",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition décrit le plus justement l’islam ?",
+        "explanation_tr": "L’islam englobe la foi et une manière de vivre. Il ne se limite ni à une communauté particulière ni à une région du monde.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Une religion qui comprend la foi en Allah et l’adoption du mode de vie qu’Il a révélé",
+          "Un ensemble de traditions propres à une seule communauté",
+          "Une simple succession d’événements historiques",
+          "Une identité culturelle liée à un seul pays"
+        ],
+        "correct_answer": "Une religion qui comprend la foi en Allah et l’adoption du mode de vie qu’Il a révélé",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Les fondements de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-003": {
+      "source": {
+        "question_tr": "İslam'ı öğrenmeye başlarken aşağıdaki üç alanın birlikte ele alınması neden önemlidir: iman, ibadet ve ahlak?",
+        "explanation_tr": "İman, ibadet ve ahlak farklı kavramlardır; başlangıç düzeyinde bunların birbirini tamamlayan yönlerini görmek İslam'ın genel çerçevesini anlamayı kolaylaştırır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnancın, kulluğun ve davranışların birbiriyle ilişkisini anlamaya yardımcı olduğu için",
+          "Bu üç kavram tamamen aynı anlama geldiği için",
+          "İslam yalnızca ahlak kurallarından oluştuğu için",
+          "İbadetin inanç ve davranışla hiçbir ilişkisi olmadığı için"
+        ],
+        "correct_answer": "İnancın, kulluğun ve davranışların birbiriyle ilişkisini anlamaya yardımcı olduğu için",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Pourquoi est-il important d’étudier ensemble la foi, l’adoration et la morale lorsqu’on découvre l’islam ?",
+        "explanation_tr": "La foi, l’adoration et la morale sont des notions distinctes, mais complémentaires. Comprendre leurs liens aide à saisir les principes généraux de l’islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Parce que cela aide à comprendre les liens entre la croyance, l’adoration et le comportement",
+          "Parce que ces trois notions ont exactement le même sens",
+          "Parce que l’islam ne comprend que des règles de bonne conduite",
+          "Parce que l’adoration n’a aucun lien avec la croyance ni avec le comportement"
+        ],
+        "correct_answer": "Parce que cela aide à comprendre les liens entre la croyance, l’adoration et le comportement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Les fondements de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-004": {
+      "source": {
+        "question_tr": "\"Müslüman\" kelimesi kime denir?",
+        "explanation_tr": "Müslüman, İslam dinini benimseyen kişidir; bu kimlik belirli bir soy, dil veya ülkeye bağlı değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İslam dinini benimseyen kişi",
+          "Belirli bir ülkede doğan kişi",
+          "Yalnızca Arapça konuşan kişi",
+          "Sadece ibadet mekânına giden kişi"
+        ],
+        "correct_answer": "İslam dinini benimseyen kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Qui appelle-t-on « musulman » ?",
+        "explanation_tr": "Un musulman est une personne qui adhère à l’islam. Cette appartenance ne dépend ni de l’origine, ni de la langue, ni du pays.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Une personne qui adhère à l’islam",
+          "Une personne née dans un pays précis",
+          "Une personne qui parle uniquement arabe",
+          "Une personne qui fréquente simplement un lieu de culte"
+        ],
+        "correct_answer": "Une personne qui adhère à l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce qu’un musulman ?"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-005": {
+      "source": {
+        "question_tr": "Müslüman olmak, belirli bir milliyete veya ülkeye ait olmayı gerektirir.",
+        "explanation_tr": "Müslüman olmak inanca dayanır, milliyete değil. Dünyanın her yerinden ve her kültüründen insan Müslüman olabilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Être musulman nécessite d’appartenir à une nationalité ou à un pays particulier.",
+        "explanation_tr": "Être musulman repose sur la foi et non sur la nationalité. Des personnes de tous les pays et de toutes les cultures peuvent être musulmanes.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce qu’un musulman ?"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-006": {
+      "source": {
+        "question_tr": "İslam'ın temelinde Allah'a \"___\" olma düşüncesi yer alır.",
+        "explanation_tr": "Bu ünitede İslam kavramı, Allah'a yönelme ve O'nun rehberliğini benimseme çerçevesinde ele alınır.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "teslim",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Au cœur de l’islam se trouve l’idée de se « ___ » à Allah.",
+        "explanation_tr": "Dans cette unité, l’islam est expliqué à travers l’orientation vers Allah et l’acceptation de Sa guidance.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "soumettre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Les fondements de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-007": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlak birlikte düşünüldüğünde aşağıdakilerden hangisi daha doğru bir çerçeve sunar?",
+        "explanation_tr": "Bu ünitenin temel çerçevesinde iman, ibadet ve ahlak birbirinden farklı fakat ilişkili alanlar olarak ele alınır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnanç, kulluk ve davranışların birbiriyle bağlantılı olduğu bir yaşam anlayışı",
+          "İnancın yalnızca düşüncede kaldığı ve davranışla ilgisiz olduğu bir anlayış",
+          "İbadetin ahlaktan tamamen bağımsız görüldüğü bir anlayış",
+          "Ahlakın inanç ve kullukla hiçbir bağının bulunmadığı bir anlayış"
+        ],
+        "correct_answer": "İnanç, kulluk ve davranışların birbiriyle bağlantılı olduğu bir yaşam anlayışı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Lorsque l’on considère ensemble la foi, l’adoration et la morale, quelle description est la plus juste ?",
+        "explanation_tr": "Dans cette unité, la foi, l’adoration et la morale sont présentées comme des domaines distincts, mais liés.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Une manière de vivre où la croyance, l’adoration et le comportement sont liés",
+          "Une conception dans laquelle la croyance reste une pensée sans lien avec les actes",
+          "Une conception où l’adoration est totalement indépendante de la morale",
+          "Une conception où la morale n’a aucun rapport avec la croyance ni avec l’adoration"
+        ],
+        "correct_answer": "Une manière de vivre où la croyance, l’adoration et le comportement sont liés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Découvrir les notions fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-008": {
+      "source": {
+        "question_tr": "\"İman\" kelimesi en temelde neyi ifade eder?",
+        "explanation_tr": "İman, kişinin kalbiyle bir şeyi doğru kabul etmesi ve inanmasıdır; belirli bir ibadetle sınırlı değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kalben inanma ve kabul etme",
+          "Sadece dua etmek",
+          "Sadece oruç tutmak",
+          "Sadece camiye gitmek"
+        ],
+        "correct_answer": "Kalben inanma ve kabul etme",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Que signifie fondamentalement le mot « foi » ?",
+        "explanation_tr": "La foi consiste à reconnaître intérieurement une chose comme vraie et à y croire ; elle ne se limite pas à un acte d’adoration précis.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Croire et accepter avec le cœur",
+          "Faire uniquement des invocations",
+          "Jeûner uniquement",
+          "Aller uniquement à la mosquée"
+        ],
+        "correct_answer": "Croire et accepter avec le cœur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce que la foi ?"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-009": {
+      "source": {
+        "question_tr": "İbadet, yalnızca namaz kılmaktan ibarettir.",
+        "explanation_tr": "İbadet, Allah'a yönelik pek çok davranışı kapsar; namaz bunlardan sadece biridir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "L’adoration consiste uniquement à accomplir la prière rituelle.",
+        "explanation_tr": "L’adoration comprend de nombreux actes accomplis dans l’intention de se rapprocher d’Allah ; la prière n’en est qu’un exemple.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce que l’adoration ?"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-010": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi \"ibadet\" kavramına örnek olabilir?",
+        "explanation_tr": "İbadet, Allah'a kulluk amacı taşıyan bilinçli davranışları ifade eder; namaz bunun temel örneklerinden biridir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın rızasını gözeterek namaz kılmak",
+          "Yalnızca çevrenin takdirini kazanmak için bir davranış yapmak",
+          "Sadece alışkanlık olduğu için bir hareketi tekrarlamak",
+          "Yalnızca eğlenmek amacıyla bir etkinliğe katılmak"
+        ],
+        "correct_answer": "Allah'ın rızasını gözeterek namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Laquelle de ces actions peut constituer un acte d’adoration ?",
+        "explanation_tr": "L’adoration désigne des actes accomplis consciemment avec l’intention d’adorer Allah. La prière en est l’un des principaux exemples.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Accomplir la prière dans l’intention de rechercher l’agrément d’Allah",
+          "Agir seulement pour obtenir l’approbation des autres",
+          "Répéter un geste uniquement par habitude",
+          "Participer à une activité dans le seul but de se divertir"
+        ],
+        "correct_answer": "Accomplir la prière dans l’intention de rechercher l’agrément d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce que l’adoration ?"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-011": {
+      "source": {
+        "question_tr": "Allah'a inanan ve İslam'ın öğretilerini benimseyen kişiye \"___\" denir.",
+        "explanation_tr": "Bu tanım, Müslüman kelimesinin temel anlamını özetler.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Müslüman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne qui croit en Allah et adhère aux enseignements de l’islam est appelée « ___ ».",
+        "explanation_tr": "Cette définition résume le sens fondamental du mot « musulman ».",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "musulman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce qu’un musulman ?"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-012": {
+      "source": {
+        "question_tr": "Kur'an, Müslümanlar için nedir?",
+        "explanation_tr": "Kur'an, Müslümanların temel kutsal kitabıdır ve inanç ile yaşam konusunda rehber kabul edilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Müslümanların temel kutsal kitabı",
+          "Peygamberlerin hayatını anlatan tek tarih kitabı",
+          "Yalnızca ibadet adımlarını sıralayan bir el kitabı",
+          "Müslümanların bütün dini kaynaklarının ortak adı"
+        ],
+        "correct_answer": "Müslümanların temel kutsal kitabı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Qu’est-ce que le Coran pour les musulmans ?",
+        "explanation_tr": "Le Coran est le livre sacré de référence des musulmans ; ils le considèrent comme un guide pour la foi et la vie.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le livre sacré de référence des musulmans",
+          "Le seul livre d’histoire consacré à la vie des prophètes",
+          "Un manuel qui énumère seulement les étapes de l’adoration",
+          "Le nom collectif de toutes les sources religieuses musulmanes"
+        ],
+        "correct_answer": "Le livre sacré de référence des musulmans",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce que le Coran ?"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-013": {
+      "source": {
+        "question_tr": "Hz. Muhammed, Müslümanlar için nasıl kabul edilir?",
+        "explanation_tr": "Müslümanlar Hz. Muhammed'i Allah'ın mesajını ileten son peygamber ve hayatıyla örnek olan bir rehber olarak kabul eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İslam'ın son peygamberi ve Müslümanlar için örnek bir rehber",
+          "İslam'ın ilk halifesi",
+          "Kur'an'ı kendi görüşleriyle yazan bir düşünür",
+          "Yalnızca siyasi yönüyle tanınan tarihî bir lider"
+        ],
+        "correct_answer": "İslam'ın son peygamberi ve Müslümanlar için örnek bir rehber",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment les musulmans considèrent-ils le prophète Muhammad ?",
+        "explanation_tr": "Les musulmans considèrent Muhammad comme le dernier prophète ayant transmis le message d’Allah et comme un guide dont la vie constitue un exemple.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le dernier prophète de l’islam et un guide exemplaire pour les musulmans",
+          "Le premier calife de l’islam",
+          "Un penseur ayant écrit le Coran selon ses propres opinions",
+          "Un personnage historique connu uniquement pour son rôle politique"
+        ],
+        "correct_answer": "Le dernier prophète de l’islam et un guide exemplaire pour les musulmans",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce qu’un prophète ?"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-014": {
+      "source": {
+        "question_tr": "İslam yalnızca belirli bir kültüre özgü bir gelenektir.",
+        "explanation_tr": "İslam, farklı kültürlerden ve coğrafyalardan insanların benimsediği evrensel bir dindir; belirli bir kültürle sınırlı değildir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "L’islam est uniquement une tradition propre à une culture particulière.",
+        "explanation_tr": "L’islam est une religion à portée universelle, suivie par des personnes de cultures et de régions diverses ; il n’est pas limité à une seule culture.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Les fondements de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
