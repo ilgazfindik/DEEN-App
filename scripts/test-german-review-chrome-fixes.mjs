@@ -23,15 +23,38 @@ const cases=[
  ['2 AUFGABENTYP','2 AUFGABENTYPEN'],
  ['6 TEKRAR ÖNCELİĞİ','6 WIEDERHOLUNGSPRIORITÄTEN'],
  ['11/11 KALICI PLAN','11/11 LANGZEITPLAN'],
- ['1 günlük seri','1-Tage-Serie'],
- ['Sonraki seri ödülü: 3 gün','Nächste Serienbelohnung: nach 3 Tagen'],
- ['DERS ÖDÜLÜ','LEKTIONSBELOHNUNG'],
+ ['1 günlük seri','1 Tag in Folge'],
+ ['Sonraki seri ödülü: 3 gün','Nächste Serienbelohnung: in 3 Tagen'],
+
+ ['Allah'a iman tanımı · %43','Definition des Glaubens an Allah · 43 %'],
+ ['Allah’a iman tanımı · %43','Definition des Glaubens an Allah · 43 %'],
+ ['Günlük hayatta ahlak · %45','Moral im Alltag · 45 %'],
+ ['Öğüt bütünlük · %45','Aufrichtigkeit und Integrität · 45 %'],
+ ['Öğüt bütünlük · %100','Aufrichtigkeit und Integrität · 100 %'],
+ ['1. KISIM · 1. ÜNİTE · ✓ TAMAMLANDI','ABSCHNITT 1 · EINHEIT 1 · ✓ ABGESCHLOSSEN'],
+ ['1. KISIM · 2. ÜNİTE','ABSCHNITT 1 · EINHEIT 2'],
+ ['2. KISIM · 10. ÜNİTE · ✓ TAMAMLANDI','ABSCHNITT 2 · EINHEIT 10 · ✓ ABGESCHLOSSEN'],
+ ['🔥 1 günlük seri','🔥 1 Tag in Folge'],
+ ['🔥 7 günlük seri','🔥 7 Tage in Folge'],
+ ['7 günlük seri','7 Tage in Folge'],
+ ['1-Tage-Serie','1 Tag in Folge'],
+ ['Sonraki ödül 3 gün','Nächste Belohnung: in 3 Tagen'],
+ ['Sonraki ödül 1 gün','Nächste Belohnung: in 1 Tag'],
+ ['Sonraki seri ödülü: 1 gün','Nächste Serienbelohnung: in 1 Tag'],
+  ['DERS ÖDÜLÜ','LEKTIONSBELOHNUNG'],
  ['Ritmini koruyorsun','Du hältst deinen Lernrhythmus'],
  ['Bu mini ders için akıllı tekrar öneriliyor.','Für diese Mini-Lektion empfehlen wir eine gezielte Wiederholung.'],
  ['Aynı atanmış soru seti korunur; tekrar denemesi yeni first-pass içeriği tüketmez.',
   'Das zugewiesene Fragenset bleibt gleich. Ein erneuter Versuch verbraucht keine neuen Fragen für den ersten Durchlauf.']
 ];
 for(const [tr,de] of cases)assert.equal(translateGermanReviewChrome(tr),de,'Wrong German: '+tr);
+for(const unexpected of [
+ "Allah'a iman tanımı · %101",
+ "Öğüt bütünlük · %112",
+ "1. KISIM · 1. ÜNİTE · ✓ HAZIR",
+ "Allah'a iman tanımı herhangi bir cevaptır",
+ "1 günlüğüne seri"
+])assert.equal(translateGermanReviewChrome(unexpected),null,'Unsafe transformation: '+unexpected);
 for(const untouched of [
  'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ',
  'Allah’a teslim olmak İslam’ın temelidir.',
