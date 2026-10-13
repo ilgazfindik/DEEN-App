@@ -102,3 +102,14 @@
 - Ayah 1 verified 4 synced Arabic word elements and a playback progress track. Actual end-user audio audibility on physical devices is **not** claimed from headless Chromium.
 - Release safeguards unchanged: **synthetic German manifest only in disposable localhost Chromium**; no main merge/deploy, no public German Quran meanings, no native-language/religious or rights approval. The 90/90 Arabic/audio source integrity check passed in the same browser workflow.
 - **Next:** audit source-guarded German chrome and untranslated text in the *actual ayah-learning view*, then wider Quran flows and mobile/offline regressions. The Fâtiha Journey modal alone is not sufficient evidence of full German localization.
+
+
+## 2026-10-13 — German Fâtiha learning UI and recitation chrome QA (staging-only)
+
+- **Real Chromium: PASSED** [German real-browser staging QA #38364708257](https://github.com/ilgazfindik/DEEN-App/actions/runs/38364708257) at code commit `8d2b446d68e251dca6cc78373cf35804627f8bb9`; **static German staging audit: PASSED** [#38364333199](https://github.com/ilgazfindik/DEEN-App/actions/runs/38364333199).
+- Source-exact staging German labels added for Fâtiha's five actual learning stages (Listen, Read, Meaning, Recall, Complete), forward/back/reveal/finish controls, ayah counters, recitation rights notice, original audio-playback hints, buttons and accessibility names. Source references: `release/v9.9.3-direct/segment-36.txt` and `segment-52.txt`. Test cases reject out-of-range ayah counters. These **UI strings are not verse translations**.
+- Native browser flow verified all five stages of **Fâtiha ayah 1** plus actual **ayah 2 Listen**, recording **6 distinct chrome snapshots**, each with `unresolved=[]`; combined `unresolvedChrome=[]`. The QA renderer preserved Arabic verse text and original audio-source attributes at each stage. Audio playback/pause for original ayahs 1 and 2 also remained green, with source-identity and synchronized Arabic word checks.
+- QA failures that were identified and corrected: a staging dynamic-match variable declaration order, a German QA renderer instance lost at locale navigation/reload, omitted legacy recitation control texts, and an over-strict speaker state timing assumption in the test. Final code has passed both static and full Chromium QA.
+- **Scope limitation:** in-memory/source-guarded German DOM renderer is used only in disposable localhost Chromium; shipped production still blocks German (`de.question_data=missing`, `de.global_qa=blocked`, `religious_expert_approved=false`). No `main` merge or live deployment. The test does not certify every Quran view, all seven Fâtiha audio files on devices, offline mode or licensed/native/theological review.
+
+**Next:** inspect real German Quran *memorization*, ayah/meaning tests and mobile/offline behaviors without silently releasing untranslated Quran meanings.
