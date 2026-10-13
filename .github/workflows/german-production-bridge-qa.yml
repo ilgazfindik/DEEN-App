@@ -1,0 +1,31 @@
+name: German production bridge (release locked)
+on:
+  push:
+    branches: ['codex/german-*', main]
+    paths:
+      - 'assets/i18n/german-ui.production.mjs'
+      - 'assets/i18n/boot.js'
+      - 'assets/i18n/content-support.json'
+      - 'index.html'
+      - 'scripts/test-german-production-bridge.mjs'
+      - 'scripts/prepare-german-production-config.mjs'
+      - '.github/workflows/german-production-bridge-qa.yml'
+  workflow_dispatch:
+jobs:
+  production-bridge-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    permissions: {contents: read}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Check production bridge and independent approval gates
+        run: node scripts/test-german-production-bridge.mjs
+      - name: Generate blocked candidate with 114 content and 13 UI digests
+        run: node scripts/prepare-german-production-config.mjs
+      - name: Check 67 release segments and startup asset digests
+        run: node scripts/build-release-manifest.mjs --check
+      - name: Confirm German release still blocked
+        run: |
+          node -e "const m=require('./assets/i18n/content-support.json').languages.de;if(m.question_data!=='missing'||m.global_qa!=='blocked'||m.production_bridge_ready!==false)process.exit(1);"
