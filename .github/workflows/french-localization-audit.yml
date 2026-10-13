@@ -23,6 +23,9 @@ on:
       - 'scripts/audit-french-u12-complete.mjs'
       - 'scripts/audit-french-u13-complete.mjs'
       - 'scripts/audit-french-u13-unique-matching.mjs'
+      - 'scripts/fr-preview-pack-builder.mjs'
+      - 'scripts/test-french-staging-preview.mjs'
+      - 'assets/i18n/fr/staging-preview.js'
       - 'qa/FRENCH_U13_MATCHING_SOURCE_REPAIR_PROPOSAL.json'
       - 'scripts/audit-french-u14-complete.mjs'
       - 'scripts/audit-french-u15-complete.mjs'
@@ -87,6 +90,8 @@ jobs:
         run: node scripts/audit-french-u13-complete.mjs
       - name: Verify U13 duplicate matching answers are distinguishable in French drafts
         run: node scripts/audit-french-u13-unique-matching.mjs
+      - name: Execute isolated French content adapter and UI preview round-trip
+        run: node scripts/test-french-staging-preview.mjs
       - name: Verify U14 100 French prayer movements and original answer mappings
         run: node scripts/audit-french-u14-complete.mjs
       - name: Verify U15 Ramadan and fasting source, answers, and release safeguards
