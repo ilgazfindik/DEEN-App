@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U10",
+  "stage": "U10-S07",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U10-S07-001": {
+      "source": {
+        "question_tr": "Şu üç cümleden hangileri doğru kader anlayışıyla uyumludur? (1) Allah her şeyi ölçüyle yaratır. (2) İnsan tercihlerinden sorumludur. (3) Tevekkül çabayı bırakmak değildir.",
+        "explanation_tr": "Ünitenin üç ana dengesi bunlardır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 ve 3",
+          "Yalnız 1",
+          "1 ve 2",
+          "2 ve 3"
+        ],
+        "correct_answer": "1, 2 ve 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Parmi ces trois affirmations, lesquelles correspondent à une foi équilibrée au destin ? 1) Allah crée toute chose selon une mesure. 2) L’être humain répond de ses choix. 3) Faire confiance à Allah ne signifie pas renoncer à l’effort.",
+        "explanation_tr": "Ces trois affirmations résument les principaux équilibres étudiés dans l’unité.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "1, 2 et 3",
+          "1 seulement",
+          "1 et 2",
+          "2 et 3"
+        ],
+        "correct_answer": "1, 2 et 3",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-002": {
+      "source": {
+        "question_tr": "Allah'ın kuşatıcı iradesine iman ile insanın sınırlı tercih alanını kabul etmek zorunlu olarak çelişir.",
+        "explanation_tr": "Tekvîr 81:28-29 bu iki boyutu birlikte zikreder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire à la volonté d’Allah qui englobe toute chose contredit nécessairement l’existence de choix humains limités.",
+        "explanation_tr": "At-Takwir 81:28-29 mentionne la volonté humaine et la volonté d’Allah ensemble.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-003": {
+      "source": {
+        "question_tr": "Sağlıklı kader anlayışında insan sebeplere ______ ve sonucu Allah'a bırakır.",
+        "explanation_tr": "Kader sebepleri terk etmeyi öğretmez.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "sarılır",
+          "sırt çevirir",
+          "inanmaz",
+          "engel olur"
+        ],
+        "correct_answer": "sarılır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans une compréhension équilibrée du destin, l’être humain recourt aux ______ nécessaires puis s’en remet à Allah.",
+        "explanation_tr": "Croire au destin ne signifie pas abandonner les moyens nécessaires.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "moyens",
+          "oppositions aux moyens",
+          "refus des moyens",
+          "obstacles"
+        ],
+        "correct_answer": "moyens",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-004": {
+      "source": {
+        "question_tr": "Bir kişi 'Kaderimde ne varsa olur' diyerek emniyet kurallarına uymuyor. En kapsamlı düzeltme hangisidir?",
+        "explanation_tr": "İnsan kendi kader ayrıntısını bilmediği için tedbir alır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kader bilinmediği için tedbir gerekir; iradeli ihmal sorumluluğu kaldırmaz",
+          "Tedbir kadere aykırıdır",
+          "Kurallar gereksizdir",
+          "İhmal sonuç doğurmaz"
+        ],
+        "correct_answer": "Kader bilinmediği için tedbir gerekir; iradeli ihmal sorumluluğu kaldırmaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un automobiliste néglige les règles de sécurité au motif que « tout est écrit ». Quelle est la correction la plus complète ?",
+        "explanation_tr": "Ignorant les détails de son destin, l’être humain reste responsable de prendre des précautions.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Puisque nous ne connaissons pas notre destin en détail, nous devons être prudents ; une négligence volontaire reste de notre responsabilité",
+          "Les précautions s’opposent au destin",
+          "Les règles sont inutiles",
+          "La négligence n’a aucune conséquence"
+        ],
+        "correct_answer": "Puisque nous ne connaissons pas notre destin en détail, nous devons être prudents ; une négligence volontaire reste de notre responsabilité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-005": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Allah biliyorsa benim tercihimin anlamı yok' diyor. En dengeli cevap hangisidir?",
+        "explanation_tr": "İlahî bilgi ile insan sorumluluğu birlikte korunur.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'ın bilgisi kuşatıcıdır; bu bilgi insanın sınırlı iradesini ve sorumluluğunu yok etmez",
+          "Allah geleceği bilmez",
+          "İnsan Allah'tan bağımsızdır",
+          "İnsan sorumlu değildir"
+        ],
+        "correct_answer": "Allah'ın bilgisi kuşatıcıdır; bu bilgi insanın sınırlı iradesini ve sorumluluğunu yok etmez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Puisqu’Allah sait ce que je choisirai, mon choix n’a aucun sens. » Quelle réponse est la plus équilibrée ?",
+        "explanation_tr": "La science divine et la responsabilité humaine peuvent être affirmées ensemble.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La science d’Allah englobe toute chose sans supprimer les choix limités ni la responsabilité humaine",
+          "Allah ne connaît pas l’avenir",
+          "L’être humain est indépendant d’Allah",
+          "L’être humain n’est responsable de rien"
+        ],
+        "correct_answer": "La science d’Allah englobe toute chose sans supprimer les choix limités ni la responsabilité humaine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-006": {
+      "source": {
+        "question_tr": "Bir özet kartında 'Kader = hiçbir şey yapma, sonucu bekle' yazıyor. Düzeltme hangisidir?",
+        "explanation_tr": "Kader pasiflik değildir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kadere iman çaba, tedbir, sorumluluk ve tevekkülü birlikte taşır",
+          "Kader tembelliktir",
+          "Tedbir güvensizliktir",
+          "Plan kaderi bozar"
+        ],
+        "correct_answer": "Kadere iman çaba, tedbir, sorumluluk ve tevekkülü birlikte taşır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une carte résume : « Destin = ne rien faire et attendre. » Que faut-il corriger ?",
+        "explanation_tr": "La foi au destin ne conduit pas à la passivité.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Elle comprend l’effort, la précaution, la responsabilité et la confiance en Allah",
+          "Le destin signifie la paresse",
+          "Prendre des précautions montre une absence de confiance",
+          "Planifier détruit le destin"
+        ],
+        "correct_answer": "Elle comprend l’effort, la précaution, la responsabilité et la confiance en Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-007": {
+      "source": {
+        "question_tr": "Kader ünitesinin temel kaynaklarını ana mesajlarıyla eşleştir.",
+        "explanation_tr": "Bu kaynaklar ölçü, irade ve çaba boyutlarını birleştirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kamer 54:49",
+            "right": "Her şeyin ölçüyle yaratılması"
+          },
+          {
+            "left": "Tekvîr 81:28-29",
+            "right": "İnsan iradesi ile ilahî irade dengesi"
+          },
+          {
+            "left": "Ra'd 13:11",
+            "right": "Değişim için insanın çaba ve sorumluluğu"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les versets de l’unité au thème principal qu’ils enseignent.",
+        "explanation_tr": "Ces versets rapprochent la mesure, la volonté et l’effort humain.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Qamar 54:49",
+            "right": "Toute chose est créée selon une mesure"
+          },
+          {
+            "left": "At-Takwir 81:28-29",
+            "right": "Rapport entre volonté humaine et volonté divine"
+          },
+          {
+            "left": "Ar-Rad 13:11",
+            "right": "Effort humain et responsabilité dans le changement"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-008": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman ünitesini dört anahtar kavramla özetle.",
+        "explanation_tr": "Bu kavramlar kader öğretisinin Allah'a ve insana bakan yönlerini dengeler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "İlahî ilim, ölçü/takdir, insan iradesi ve sorumluluk.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Résume la foi au destin et au décret divin en quatre notions essentielles.",
+        "explanation_tr": "Ces notions tiennent ensemble les dimensions divine et humaine de l’enseignement sur le destin.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Science divine, mesure et décret, volonté humaine et responsabilité.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-009": {
+      "source": {
+        "question_tr": "Kamer 54:49'a göre Allah her şeyi bir ______ göre yaratmıştır.",
+        "explanation_tr": "Ayet ölçü vurgusu yapar.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "ölçüye",
+          "tesadüfe",
+          "söylentiye",
+          "insan arzusuna"
+        ],
+        "correct_answer": "ölçüye",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Qamar 54:49, Allah a créé chaque chose selon une ______.",
+        "explanation_tr": "Le verset insiste sur la mesure.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "mesure",
+          "coïncidence",
+          "rumeur",
+          "volonté humaine"
+        ],
+        "correct_answer": "mesure",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-010": {
+      "source": {
+        "question_tr": "Ra'd 13:11 insan ve toplumun kendi durumunu ______ sorumluluğuna dikkat çeker.",
+        "explanation_tr": "Ayet çaba ve değişime dikkat çeker.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "değiştirme",
+          "unutma",
+          "gizleme",
+          "reddetme"
+        ],
+        "correct_answer": "değiştirme",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ar-Rad 13:11 rappelle la responsabilité des individus et des communautés de ______ leur propre situation.",
+        "explanation_tr": "Ce verset met en avant l’effort et la transformation.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "changer",
+          "oublier",
+          "cacher",
+          "nier"
+        ],
+        "correct_answer": "changer",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-011": {
+      "source": {
+        "question_tr": "Kader inancını günlük hayata uygulama sırasını oluştur.",
+        "explanation_tr": "Bu sıra kader, tevekkül ve sorumluluk dengesini korur.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Sorumluluk alanını belirle",
+          "Gerekli çaba ve tedbiri göster",
+          "Sonucu Allah'a bırak",
+          "Sonuçtan ders çıkarıp sorumluluğa devam et"
+        ],
+        "correct_order": [
+          "Sorumluluk alanını belirle",
+          "Gerekli çaba ve tedbiri göster",
+          "Sonucu Allah'a bırak",
+          "Sonuçtan ders çıkarıp sorumluluğa devam et"
+        ]
+      },
+      "display": {
+        "question_tr": "Remets dans l’ordre les étapes d’une mise en pratique quotidienne de la foi au destin.",
+        "explanation_tr": "Cette progression associe responsabilité, tawakkul et apprentissage des résultats.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Déterminer son domaine de responsabilité",
+          "Fournir les efforts et prendre les précautions nécessaires",
+          "S’en remettre à Allah pour le résultat",
+          "Tirer les leçons du résultat et poursuivre ses responsabilités"
+        ],
+        "correct_order": [
+          "Déterminer son domaine de responsabilité",
+          "Fournir les efforts et prendre les précautions nécessaires",
+          "S’en remettre à Allah pour le résultat",
+          "Tirer les leçons du résultat et poursuivre ses responsabilités"
+        ],
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-012": {
+      "source": {
+        "question_tr": "Kader ve tevekkül eşleştirmelerinden hangisi yanlıştır?",
+        "explanation_tr": "Tevekkül çaba ve tedbirden sonra Allah'a güvendir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kamer 54:49 — ölçü",
+          "Ra'd 13:11 — değişim ve çaba",
+          "Tekvîr 81:28-29 — insan ve ilahî irade",
+          "Tevekkül — hiçbir tedbir almamak"
+        ],
+        "correct_answer": "Tevekkül — hiçbir tedbir almamak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle association entre destin et tawakkul est incorrecte ?",
+        "explanation_tr": "Le tawakkul suppose l’effort et les précautions avant de faire confiance à Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Al-Qamar 54:49 — mesure",
+          "Ar-Rad 13:11 — changement et effort",
+          "At-Takwir 81:28-29 — volontés humaine et divine",
+          "Tawakkul — renoncer à toute précaution"
+        ],
+        "correct_answer": "Tawakkul — renoncer à toute précaution",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-013": {
+      "source": {
+        "question_tr": "Mâtürîdî ve Eş'arî terminolojide kader/kaza kelimelerinin yer değiştirebildiğini bilen uygulama nasıl davranmalı?",
+        "explanation_tr": "Terim ile inanç içeriğini ayırmak gerekir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kullanıcının ifade ettiği anlamı değerlendirip geçerli terminoloji farkını yanlış saymamalı",
+          "Yalnız tek kelime kullanımını iman ölçüsü yapmalı",
+          "Alternatif terminolojiyi yasaklamalı",
+          "Kader konusunu puanlamamalı"
+        ],
+        "correct_answer": "Kullanıcının ifade ettiği anlamı değerlendirip geçerli terminoloji farkını yanlış saymamalı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment une application doit-elle réagir aux usages différents de qadar et qada dans les traditions maturidite et acharite ?",
+        "explanation_tr": "Il convient de distinguer la terminologie du sens doctrinal.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Examiner le sens exprimé sans considérer comme erronée une différence terminologique reconnue",
+          "Faire d’une seule terminologie une condition de foi",
+          "Interdire tout autre vocabulaire",
+          "Cesser d’évaluer ce thème"
+        ],
+        "correct_answer": "Examiner le sens exprimé sans considérer comme erronée une différence terminologique reconnue",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S07-014": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman ünitesini en iyi özetleyen cümle hangisidir?",
+        "explanation_tr": "Ünite ilahî ölçü ile insan sorumluluğunu birlikte ele alır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kadere iman, Allah'ın ilim ve takdirini kabul ederken insanın iradesini, sorumluluğunu, çabasını ve tevekkülünü de korur",
+          "Kadere iman insanın sorumsuzluğudur",
+          "Kadere iman sebepleri reddetmektir",
+          "Kadere iman geleceği ayrıntılarıyla bilmektir"
+        ],
+        "correct_answer": "Kadere iman, Allah'ın ilim ve takdirini kabul ederken insanın iradesini, sorumluluğunu, çabasını ve tevekkülünü de korur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle phrase résume le mieux la foi au destin et au décret divin ?",
+        "explanation_tr": "Cette unité tient ensemble la mesure divine et la responsabilité humaine.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle consiste à reconnaître la science et le décret d’Allah tout en préservant la volonté humaine, la responsabilité, l’effort et le tawakkul",
+          "Elle supprime la responsabilité humaine",
+          "Elle rejette les causes et les moyens",
+          "Elle permet de connaître tous les détails de l’avenir"
+        ],
+        "correct_answer": "Elle consiste à reconnaître la science et le décret d’Allah tout en préservant la volonté humaine, la responsabilité, l’effort et le tawakkul",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan de la foi au destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

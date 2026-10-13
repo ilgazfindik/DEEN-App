@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U10",
+  "stage": "U10-S06",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U10-S06-001": {
+      "source": {
+        "question_tr": "Bir içerikte 'Kader, insanın hiçbir seçim yapamadığı zorunlu bir senaryodur' deniyor. Düzeltme hangisidir?",
+        "explanation_tr": "Kader insan iradesini yok sayan fatalizm değildir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an insanın tercih ve sorumluluk alanını kabul eder",
+          "İnsan tamamen iradesizdir",
+          "İnsan Allah'tan bağımsız yaratıcıdır",
+          "Kader yalnız tesadüftür"
+        ],
+        "correct_answer": "Kur'an insanın tercih ve sorumluluk alanını kabul eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un texte affirme : « Le destin est un scénario contraignant qui nous empêche totalement de choisir. » Comment le corriger ?",
+        "explanation_tr": "La foi au destin ne signifie pas un fatalisme supprimant toute volonté humaine.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le Coran reconnaît à l’être humain une capacité de choisir et d’en répondre",
+          "L’être humain est entièrement privé de volonté",
+          "L’être humain crée indépendamment d’Allah",
+          "Le destin se réduit au hasard"
+        ],
+        "correct_answer": "Le Coran reconnaît à l’être humain une capacité de choisir et d’en répondre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-002": {
+      "source": {
+        "question_tr": "Günah işledikten sonra 'Allah böyle yazmış, ben ne yapayım?' diyerek sorumluluktan kaçmak doğru kader anlayışıdır.",
+        "explanation_tr": "Diyanet bu yaklaşımı açıkça yanlış sayar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Après une faute, dire « Allah l’a écrit, je n’y peux rien » pour éviter toute responsabilité constitue une juste compréhension du destin.",
+        "explanation_tr": "Diyanet considère cette justification d’une faute volontaire comme incorrecte.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-003": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Tedbir almak kadere karşı çıkmaktır' diyor. En doğru cevap hangisidir?",
+        "explanation_tr": "Diyanet sebeplere sarılmayı gerekli görür.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Tedbir insanın sorumluluğudur ve kaderle çelişmez",
+          "Tedbir güvensizliktir",
+          "Sebepler anlamsızdır",
+          "Tevekkül hiçbir şey yapmamaktır"
+        ],
+        "correct_answer": "Tedbir insanın sorumluluğudur ve kaderle çelişmez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Prendre des précautions revient à s’opposer au destin. » Que répondre ?",
+        "explanation_tr": "Diyanet souligne l’importance de recourir aux moyens nécessaires.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Prendre des précautions est une responsabilité et ne contredit pas le destin",
+          "Les précautions témoignent d’un manque de confiance",
+          "Les causes sont inutiles",
+          "Faire confiance à Allah signifie rester inactif"
+        ],
+        "correct_answer": "Prendre des précautions est une responsabilité et ne contredit pas le destin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-004": {
+      "source": {
+        "question_tr": "Bir notta 'Tevekkül, hiçbir çaba göstermeden sonucu Allah'tan beklemektir' yazıyor. Hata nedir?",
+        "explanation_tr": "Tevekkül pasiflik değildir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tevekkül çaba ve tedbirden sonra Allah'a güvenmektir",
+          "Tevekkül tembelliktir",
+          "Plan yapmak yanlıştır",
+          "Sonuç tamamen insanın elindedir"
+        ],
+        "correct_answer": "Tevekkül çaba ve tedbirden sonra Allah'a güvenmektir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note définit le tawakkul comme l’attente d’un résultat sans aucun effort. Quelle est son erreur ?",
+        "explanation_tr": "La confiance en Allah ne se réduit pas à la passivité.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le tawakkul consiste à faire les efforts nécessaires, puis à faire confiance à Allah",
+          "Le tawakkul est la paresse",
+          "Il ne faut jamais planifier",
+          "Le résultat appartient entièrement à l’être humain"
+        ],
+        "correct_answer": "Le tawakkul consiste à faire les efforts nécessaires, puis à faire confiance à Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-005": {
+      "source": {
+        "question_tr": "Kader konusunda en sorunlu cümle hangisidir?",
+        "explanation_tr": "İlahî bilgi zorlama ile eşitlenemez.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Allah biliyorsa ben zorla yapıyorum ve sorumlu değilim'",
+          "'Allah her şeyi ölçüyle yaratır'",
+          "'İnsan sınırlı tercih alanına sahiptir'",
+          "'Tedbir ve tevekkül birlikte düşünülebilir'"
+        ],
+        "correct_answer": "'Allah biliyorsa ben zorla yapıyorum ve sorumlu değilim'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle phrase traduit la compréhension la plus problématique du destin ?",
+        "explanation_tr": "La science divine ne doit pas être confondue avec la contrainte.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "« Si Allah connaît mon acte, je suis forcé de le faire et n’en suis pas responsable »",
+          "« Allah crée toute chose selon une mesure »",
+          "« L’être humain possède une capacité limitée de choisir »",
+          "« Précaution et tawakkul peuvent aller ensemble »"
+        ],
+        "correct_answer": "« Si Allah connaît mon acte, je suis forcé de le faire et n’en suis pas responsable »",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-006": {
+      "source": {
+        "question_tr": "Başarısızlığı kadere yükleyip hiç öz değerlendirme yapmamak sağlıklı kader bilincidir.",
+        "explanation_tr": "Kader öz değerlendirme ve yeniden çabayı engellemez.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Reporter un échec sur le destin sans jamais examiner ses erreurs est une attitude équilibrée.",
+        "explanation_tr": "Croire au destin n’empêche pas de réfléchir à ses choix ni de faire de nouveaux efforts.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-007": {
+      "source": {
+        "question_tr": "Yaygın kader yanlışlarını doğru düzeltmeleriyle eşleştir.",
+        "explanation_tr": "Bu üç yanlış kaderi fatalizme dönüştürür.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kader = tembellik",
+            "right": "Kader inancı çabayı kaldırmaz"
+          },
+          {
+            "left": "Tevekkül = tedbirsizlik",
+            "right": "Tevekkül çaba sonrası Allah'a güvendir"
+          },
+          {
+            "left": "Allah'ın bilmesi = zorlamak",
+            "right": "Bilgi ile zorlama aynı şey değildir"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les erreurs courantes sur le destin à leur correction.",
+        "explanation_tr": "Ces confusions transforment à tort la foi au destin en fatalisme.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "« Destin = paresse »",
+            "right": "La foi au destin n’annule pas l’effort"
+          },
+          {
+            "left": "« Tawakkul = absence de précautions »",
+            "right": "Faire confiance à Allah après les efforts nécessaires"
+          },
+          {
+            "left": "« Connaître = forcer à agir »",
+            "right": "La connaissance et la contrainte ne sont pas équivalentes"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-008": {
+      "source": {
+        "question_tr": "Kaderin yanlış kullanımına iki örnek ver.",
+        "explanation_tr": "Diyanet her iki yaklaşımı da yanlış bulur.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Günaha 'kaderim böyleydi' diye mazeret üretmek ve gerekli çaba/tedbiri 'nasıl olsa kader' diyerek terk etmek.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Donne deux exemples d’une mauvaise utilisation de la foi au destin.",
+        "explanation_tr": "Diyanet rejette le recours au destin pour excuser les fautes ou abandonner les efforts nécessaires.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Excuser une faute volontaire en disant « C’était mon destin » ; renoncer aux efforts ou aux précautions en invoquant le destin.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-009": {
+      "source": {
+        "question_tr": "Mâtürîdî ve Eş'arî terminolojide kader/kaza kelimelerinin yer değiştirebilmesi, iki geleneğin hiçbir ortak inanca sahip olmadığı anlamına gelir.",
+        "explanation_tr": "Terminoloji farkı inanç içeriğinin tamamen zıt olduğu anlamına gelmez.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La variation des termes qadar et qada entre les traditions maturidite et acharite signifie qu’elles ne partagent aucune croyance fondamentale.",
+        "explanation_tr": "Une différence de terminologie n’implique pas une opposition absolue dans le contenu de la foi.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-010": {
+      "source": {
+        "question_tr": "Bir uygulama Eş'arî terminolojideki kader/kaza kullanımını otomatik olarak 'yanlış inanç' sayıyor. Ne yapılmalı?",
+        "explanation_tr": "Diyanet terminoloji farkını açıkça belirtir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Anlam değerlendirilip geçerli terminoloji farkı yanlış sayılmamalı",
+          "Bütün alternatif kullanımlar reddedilmeli",
+          "Kader konusu silinmeli",
+          "Sadece kelime ezberi ölçülmeli"
+        ],
+        "correct_answer": "Anlam değerlendirilip geçerli terminoloji farkı yanlış sayılmamalı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une application considère automatiquement comme une erreur tout emploi acharite des mots qadar et qada. Comment agir ?",
+        "explanation_tr": "Diyanet mentionne les différences terminologiques entre écoles.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Évaluer le sens exprimé et ne pas pénaliser une variation terminologique reconnue",
+          "Rejeter tous les usages alternatifs",
+          "Supprimer l’enseignement du destin",
+          "Évaluer uniquement la mémorisation des mots"
+        ],
+        "correct_answer": "Évaluer le sens exprimé et ne pas pénaliser une variation terminologique reconnue",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-011": {
+      "source": {
+        "question_tr": "Kaderi kötü davranışa ______ yapmak insanın sorumluluğunu kaldırmaz.",
+        "explanation_tr": "İradeli kötülük kader mazeretiyle meşrulaştırılamaz.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "mazeret",
+          "ölçü",
+          "bilgi",
+          "tedbir"
+        ],
+        "correct_answer": "mazeret",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Faire du destin un ______ pour justifier une mauvaise action n’efface pas la responsabilité.",
+        "explanation_tr": "Le destin ne rend pas légitimes les fautes commises volontairement.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "prétexte",
+          "mesure",
+          "savoir",
+          "moyen de précaution"
+        ],
+        "correct_answer": "prétexte",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S06-012": {
+      "source": {
+        "question_tr": "Bir uygulama 'Başına gelen her musibet kesinlikle kişisel günahının cezasıdır' diye öğretiyor. Düzeltme hangisidir?",
+        "explanation_tr": "Diyanet musibetleri insan iradesinin rolüne göre farklı değerlendirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Musibetlerin sebepleri tek kalıba indirgenemez",
+          "Her musibet tek bir günahın cezasıdır",
+          "Peygamberler musibet yaşamamıştır",
+          "Tedbir gereksizdir"
+        ],
+        "correct_answer": "Musibetlerin sebepleri tek kalıba indirgenemez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une application affirme : « Toute épreuve est nécessairement la punition d’un péché personnel. » Quelle correction convient ?",
+        "explanation_tr": "Diyanet distingue les épreuves et leurs causes, notamment selon le rôle de la volonté humaine.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Les épreuves ne peuvent pas toutes être ramenées à une cause unique",
+          "Chaque épreuve punit nécessairement un péché",
+          "Les prophètes n’ont jamais connu d’épreuves",
+          "Il n’y a aucune raison de prendre des précautions"
+        ],
+        "correct_answer": "Les épreuves ne peuvent pas toutes être ramenées à une cause unique",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Déceler les erreurs sur le destin",
+        "topic": "Science divine, volonté humaine et tawakkul"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
