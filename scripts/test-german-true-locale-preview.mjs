@@ -1021,7 +1021,7 @@ try{
   const englishSignals=[
    'Surah Journey','Learn → Memorize','LEVEL 0','MASTERY',
    'ayahs learned','ayahs memorized','Ayah Test','Meaning Test',
-   'Surah Final','LOCKED','questions about','Unlock after final'
+   'Surah Final','Mastery','LOCKED','questions about','Unlock after final'
   ];
   const remainingEnglish=englishSignals.filter(value=>
    panel.textContent.includes(value));
