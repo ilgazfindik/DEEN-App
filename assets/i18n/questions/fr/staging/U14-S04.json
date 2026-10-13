@@ -1,0 +1,599 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U14",
+  "stage": "U14-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U14-S04-001": {
+      "source": {
+        "question_tr": "İftitah tekbiri konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İftar duası",
+          "Teyemmüm",
+          "İftitah tekbiri",
+          "Zekât verme"
+        ],
+        "correct_answer": "İftitah tekbiri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation reflète correctement la place du takbîr d’ouverture ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses classe le takbîr d’ouverture parmi les piliers de la prière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "L’invocation pour rompre le jeûne",
+          "Le tayammum (ablutions sèches)",
+          "Le takbîr d’ouverture",
+          "Verser la zakât"
+        ],
+        "correct_answer": "Le takbîr d’ouverture",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "Le takbîr d’ouverture"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-002": {
+      "source": {
+        "question_tr": "Bir arkadaşın Rekât hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Rekât namazın tekrarlanan temel bölümünü ifade eder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namaz vaktinin adı",
+          "Abdest organı",
+          "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+          "Oruç günü"
+        ],
+        "correct_answer": "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami te demande ce qu’est une rakʿa. Que lui réponds-tu ?",
+        "explanation_tr": "Une rakʿa est la séquence principale qui se répète pendant la prière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le nom d’un horaire de prière",
+          "Une partie du corps lavée pendant les ablutions",
+          "Une séquence principale de la prière comprenant station debout, récitation, inclinaison et prosternations",
+          "Un jour de jeûne"
+        ],
+        "correct_answer": "Une séquence principale de la prière comprenant station debout, récitation, inclinaison et prosternations",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "La rakʿa"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-003": {
+      "source": {
+        "question_tr": "Mazerette secde konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu hastalık ve özür hâlinde rükünlerin güce göre yerine getirilmesini açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namazı daima terk etme",
+          "Secde yerine koşma",
+          "Gücüne göre îmâ ile kılma ruhsatı",
+          "Kıbleyi kaldırma"
+        ],
+        "correct_answer": "Gücüne göre îmâ ile kılma ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Que peut faire une personne qui ne peut pas se prosterner ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses explique que, face à la maladie ou au handicap, les gestes de la prière sont adaptés aux capacités de la personne.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Renoncer systématiquement à la prière",
+          "Courir au lieu de se prosterner",
+          "La permission de prier par des gestes adaptés à ses capacités",
+          "Supprimer l’orientation vers la qibla"
+        ],
+        "correct_answer": "La permission de prier par des gestes adaptés à ses capacités",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "L’impossibilité de se prosterner"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-004": {
+      "source": {
+        "question_tr": "Bir öğrenci “Rükû namazda secdeyle aynı harekettir.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Kur'an ve sünnette rükû namazın temel rükünlerinden biri olarak yer alır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Yere iki kez secde etmek",
+          "Namazı selamla bitirmek",
+          "Belirli şekilde eğilmek",
+          "Abdest almak"
+        ],
+        "correct_answer": "Belirli şekilde eğilmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « L’inclinaison et la prosternation sont le même geste. » Quelle réponse explique l’inclinaison ?",
+        "explanation_tr": "Selon le Coran et la Sunna, l’inclinaison (rukûʿ) fait partie des principaux piliers de la prière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Se prosterner deux fois au sol",
+          "Terminer la prière par la salutation de paix",
+          "S’incliner de la manière prescrite",
+          "Accomplir les ablutions"
+        ],
+        "correct_answer": "S’incliner de la manière prescrite",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "L’inclinaison (rukûʿ)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-005": {
+      "source": {
+        "question_tr": "Sükûnet konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Namaz rükünleri bilinçli ölçülü ve sükûnetle yerine getirilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hareketleri mümkün olduğunca karıştırmak",
+          "Rükûyu atlamak",
+          "Rükünleri sükûnet ve ölçüyle yerine getirmek",
+          "Secdeyi rastgele yapmak"
+        ],
+        "correct_answer": "Rükünleri sükûnet ve ölçüyle yerine getirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation exprime correctement l’importance du calme pendant la prière ?",
+        "explanation_tr": "Les piliers de la prière doivent être accomplis de façon consciente, équilibrée et calme.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Confondre les mouvements autant que possible",
+          "Omettre l’inclinaison du buste (rukûʿ)",
+          "Accomplir les piliers avec calme et équilibre",
+          "Se prosterner au hasard"
+        ],
+        "correct_answer": "Accomplir les piliers avec calme et équilibre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "Le calme dans la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-006": {
+      "source": {
+        "question_tr": "Bir arkadaşın İftitah tekbiri hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İftar duası",
+          "Teyemmüm",
+          "İftitah tekbiri",
+          "Zekât verme"
+        ],
+        "correct_answer": "İftitah tekbiri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande ce qu’est le takbîr d’ouverture. Que lui réponds-tu ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses classe le takbîr d’ouverture parmi les piliers de la prière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "L’invocation pour rompre le jeûne",
+          "Le tayammum (ablutions sèches)",
+          "Le takbîr d’ouverture",
+          "Verser la zakât"
+        ],
+        "correct_answer": "Le takbîr d’ouverture",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "Le takbîr d’ouverture"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-007": {
+      "source": {
+        "question_tr": "Rekât konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Rekât namazın tekrarlanan temel bölümünü ifade eder.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namaz vaktinin adı",
+          "Abdest organı",
+          "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+          "Oruç günü"
+        ],
+        "correct_answer": "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel principe décrit correctement une rakʿa ?",
+        "explanation_tr": "Une rakʿa est la séquence principale qui se répète pendant la prière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le nom d’un horaire de prière",
+          "Une partie du corps lavée pendant les ablutions",
+          "Une séquence principale de la prière comprenant station debout, récitation, inclinaison et prosternations",
+          "Un jour de jeûne"
+        ],
+        "correct_answer": "Une séquence principale de la prière comprenant station debout, récitation, inclinaison et prosternations",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "La rakʿa"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-008": {
+      "source": {
+        "question_tr": "“Secde yapamayan kişi için hiçbir kolaylaştırma yoktur.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu hastalık ve özür hâlinde rükünlerin güce göre yerine getirilmesini açıklar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namazı daima terk etme",
+          "Secde yerine koşma",
+          "Gücüne göre îmâ ile kılma ruhsatı",
+          "Kıbleyi kaldırma"
+        ],
+        "correct_answer": "Gücüne göre îmâ ile kılma ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Aucune facilité n’existe pour celui qui ne peut pas se prosterner » ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses explique que, face à la maladie ou au handicap, les gestes de la prière sont adaptés aux capacités de la personne.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Renoncer systématiquement à la prière",
+          "Courir au lieu de se prosterner",
+          "La permission de prier par des gestes adaptés à ses capacités",
+          "Supprimer l’orientation vers la qibla"
+        ],
+        "correct_answer": "La permission de prier par des gestes adaptés à ses capacités",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "L’impossibilité de se prosterner"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-009": {
+      "source": {
+        "question_tr": "“Rükû namazda secdeyle aynı harekettir.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Kur'an ve sünnette rükû namazın temel rükünlerinden biri olarak yer alır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Yere iki kez secde etmek",
+          "Namazı selamla bitirmek",
+          "Belirli şekilde eğilmek",
+          "Abdest almak"
+        ],
+        "correct_answer": "Belirli şekilde eğilmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « L’inclinaison et la prosternation sont le même geste » ?",
+        "explanation_tr": "Selon le Coran et la Sunna, l’inclinaison (rukûʿ) fait partie des principaux piliers de la prière.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Se prosterner deux fois au sol",
+          "Terminer la prière par la salutation de paix",
+          "S’incliner de la manière prescrite",
+          "Accomplir les ablutions"
+        ],
+        "correct_answer": "S’incliner de la manière prescrite",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "L’inclinaison (rukûʿ)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-010": {
+      "source": {
+        "question_tr": "Sükûnet hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Namaz rükünleri bilinçli ölçülü ve sükûnetle yerine getirilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hareketleri mümkün olduğunca karıştırmak",
+          "Rükûyu atlamak",
+          "Rükünleri sükûnet ve ölçüyle yerine getirmek",
+          "Secdeyi rastgele yapmak"
+        ],
+        "correct_answer": "Rükünleri sükûnet ve ölçüyle yerine getirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige l’idée erronée sur le calme pendant la prière ?",
+        "explanation_tr": "Les piliers de la prière doivent être accomplis de façon consciente, équilibrée et calme.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Confondre les mouvements autant que possible",
+          "Omettre l’inclinaison du buste (rukûʿ)",
+          "Accomplir les piliers avec calme et équilibre",
+          "Se prosterner au hasard"
+        ],
+        "correct_answer": "Accomplir les piliers avec calme et équilibre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "Le calme dans la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-011": {
+      "source": {
+        "question_tr": "“Namazın başlangıcında iftitah tekbirinin hiçbir yeri yoktur.” ifadesindeki hatayı hangi seçenek düzeltir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İftar duası",
+          "Teyemmüm",
+          "İftitah tekbiri",
+          "Zekât verme"
+        ],
+        "correct_answer": "İftitah tekbiri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Le takbîr d’ouverture n’a pas sa place au début de la prière » ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses classe le takbîr d’ouverture parmi les piliers de la prière.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "L’invocation pour rompre le jeûne",
+          "Le tayammum (ablutions sèches)",
+          "Le takbîr d’ouverture",
+          "Verser la zakât"
+        ],
+        "correct_answer": "Le takbîr d’ouverture",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "Le takbîr d’ouverture"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-012": {
+      "source": {
+        "question_tr": "Uygulama: rekât kavramı en iyi nasıl açıklanır?",
+        "explanation_tr": "Rekât namazın tekrarlanan temel bölümünü ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz vaktinin adı",
+          "Abdest organı",
+          "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+          "Oruç günü"
+        ],
+        "correct_answer": "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mise en pratique : comment décrire une rakʿa ?",
+        "explanation_tr": "Une rakʿa est la séquence principale qui se répète pendant la prière.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le nom d’un horaire de prière",
+          "Une partie du corps lavée pendant les ablutions",
+          "Une séquence principale de la prière comprenant station debout, récitation, inclinaison et prosternations",
+          "Un jour de jeûne"
+        ],
+        "correct_answer": "Une séquence principale de la prière comprenant station debout, récitation, inclinaison et prosternations",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "La rakʿa"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-013": {
+      "source": {
+        "question_tr": "Uygulama: mazerette secde konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu hastalık ve özür hâlinde rükünlerin güce göre yerine getirilmesini açıklar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazı daima terk etme",
+          "Secde yerine koşma",
+          "Gücüne göre îmâ ile kılma ruhsatı",
+          "Kıbleyi kaldırma"
+        ],
+        "correct_answer": "Gücüne göre îmâ ile kılma ruhsatı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mise en pratique : quelle affirmation sur l’impossibilité de se prosterner est correcte ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses explique que, face à la maladie ou au handicap, les gestes de la prière sont adaptés aux capacités de la personne.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Renoncer systématiquement à la prière",
+          "Courir au lieu de se prosterner",
+          "La permission de prier par des gestes adaptés à ses capacités",
+          "Supprimer l’orientation vers la qibla"
+        ],
+        "correct_answer": "La permission de prier par des gestes adaptés à ses capacités",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "L’impossibilité de se prosterner"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-014": {
+      "source": {
+        "question_tr": "Uygulama: rükû hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Kur'an ve sünnette rükû namazın temel rükünlerinden biri olarak yer alır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Yere iki kez secde etmek",
+          "Namazı selamla bitirmek",
+          "Belirli şekilde eğilmek",
+          "Abdest almak"
+        ],
+        "correct_answer": "Belirli şekilde eğilmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mise en pratique : quelle proposition décrit le rukûʿ ?",
+        "explanation_tr": "Selon le Coran et la Sunna, l’inclinaison (rukûʿ) fait partie des principaux piliers de la prière.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Se prosterner deux fois au sol",
+          "Terminer la prière par la salutation de paix",
+          "S’incliner de la manière prescrite",
+          "Accomplir les ablutions"
+        ],
+        "correct_answer": "S’incliner de la manière prescrite",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "L’inclinaison (rukûʿ)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-015": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Namazda rükünleri mümkün olduğunca aceleyle ve karışık yapmak esastır.",
+        "explanation_tr": "Namaz rükünleri bilinçli ölçülü ve sükûnetle yerine getirilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Les piliers de la prière doivent être accomplis avec autant de précipitation et de désordre que possible.",
+        "explanation_tr": "Les piliers de la prière doivent être accomplis de façon consciente, équilibrée et calme.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "Le calme dans la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S04-016": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Namaza girişte alınan tekbire iftitah tekbiri denir.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Le takbîr prononcé au début de la prière s’appelle le takbîr d’ouverture.",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses classe le takbîr d’ouverture parmi les piliers de la prière.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’enchaînement des gestes de la prière",
+        "topic": "Le takbîr d’ouverture"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
