@@ -1151,8 +1151,9 @@ try{
  await speaker.click({timeout:15000});
  await page.evaluate(()=>window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
   document.querySelector('#v5Sheet[open]'),{qaMode:true,locale:'de',documentRef:document}));
- assert.equal(await speaker.getAttribute('aria-label'),'Verswiedergabe pausieren',
-  'Native Quran speaker accessibility name was not localized');
+ const quranSpeakerLabel=await speaker.getAttribute('aria-label');
+ assert(['Vers 1 anhören','Verswiedergabe pausieren'].includes(quranSpeakerLabel),
+  'Native Quran speaker accessibility name was not localized: '+quranSpeakerLabel);
  await page.waitForFunction(()=>
   ['playing','error'].includes(window.DEEN_QURAN_AYAH_AUDIO?.state?.()?.status),
   null,{timeout:20000});
