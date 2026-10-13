@@ -15,7 +15,7 @@ const EXACT=Object.freeze({
  'ÇALIŞMAYA DEVAM ET':'WEITERLERNEN',
  'Ayet 1 / 7 · Son çalışma: Bugün':'Vers 1 / 7 · Zuletzt geübt: Heute',
  'Son çalışma: Bugün':'Zuletzt geübt: Heute',
- 'Son çalışma: Henüz çalışma yok':'Zuletzt geübt: Noch nicht gelernt',
+ 'Son çalışma: Henüz çalışma yok':'Zuletzt geübt: Noch keine Übung',
  'Geçmek için %70 veya üzeri gerekiyor.':'Zum Bestehen sind mindestens 70 % erforderlich.',
  'Bir adım daha — Kartal yanında.':'Noch ein Schritt – dein Adler begleitet dich.',
  'Tekrar ettikçe güçlenir · Odak':'Mit jeder Wiederholung wirst du besser · Fokus',
