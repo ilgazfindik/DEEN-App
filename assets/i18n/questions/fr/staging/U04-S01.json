@@ -1,0 +1,509 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U04",
+  "stage": "U04-S01",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U04-S01-001": {
+      "source": {
+        "question_tr": "İslam dininin üzerine kurulduğu temel esaslara genel olarak ne ad verilir?",
+        "explanation_tr": "İslam'ın temeli olarak kabul edilen beş ana göreve 'İslam'ın Şartları' adı verilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İslam'ın Şartları",
+          "İmanın Esasları",
+          "Ahlak Kuralları",
+          "Güzel Davranışlar"
+        ],
+        "correct_answer": "İslam'ın Şartları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment appelle-t-on les principes fondamentaux sur lesquels repose l’islam ?",
+        "explanation_tr": "Les cinq devoirs fondamentaux de l’islam sont appelés les cinq piliers de l’islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Les cinq piliers de l’islam",
+          "Les articles de la foi",
+          "Les règles morales",
+          "Les bonnes actions"
+        ],
+        "correct_answer": "Les cinq piliers de l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-002": {
+      "source": {
+        "question_tr": "İslam'ın temel şartları toplam beş tanedir.",
+        "explanation_tr": "İslam'ın temel ibadet ve esasları beş şart altında toplanmıştır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Il existe cinq piliers fondamentaux de l’islam.",
+        "explanation_tr": "Les obligations fondamentales de l’islam sont traditionnellement regroupées en cinq piliers.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-003": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın beş şartından biridir?",
+        "explanation_tr": "Namaz kılmak İslam'ın beş şartından biridir. Diğer seçenekler imanın esaslarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namaz kılmak",
+          "Meleklere inanmak",
+          "Ahiret gününe inanmak",
+          "Kutsal kitaplara inanmak"
+        ],
+        "correct_answer": "Namaz kılmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Lequel des éléments suivants est l’un des cinq piliers de l’islam ?",
+        "explanation_tr": "La prière rituelle fait partie des cinq piliers ; les autres propositions relèvent des articles de la foi.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Accomplir la prière rituelle",
+          "Croire aux anges",
+          "Croire au Jour dernier",
+          "Croire aux Livres révélés"
+        ],
+        "correct_answer": "Accomplir la prière rituelle",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-004": {
+      "source": {
+        "question_tr": "Hangisi İslam'ın beş şartı arasında yer almaz?",
+        "explanation_tr": "Peygamberlere inanmak inançla ilgili olup imanın esaslarındandır. Zekât, hac ve oruç İslam'ın şartlarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek",
+          "Hacca gitmek",
+          "Oruç tutmak",
+          "Peygamberlere inanmak"
+        ],
+        "correct_answer": "Peygamberlere inanmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Lequel ne fait pas partie des cinq piliers de l’islam ?",
+        "explanation_tr": "Croire aux prophètes relève des articles de la foi. L’aumône obligatoire, le pèlerinage et le jeûne font partie des piliers de l’islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Verser la zakat",
+          "Effectuer le pèlerinage",
+          "Observer le jeûne",
+          "Croire aux prophètes"
+        ],
+        "correct_answer": "Croire aux prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-005": {
+      "source": {
+        "question_tr": "İslam'ın beş şartının temelini oluşturan, inanç beyanı niteliğindeki ilk şarta __________ getirmek denir.",
+        "explanation_tr": "İslam'a girişin ve şartların temeli olan inanç beyanı Kelime-i Şehadet'tir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Kelime-i Şehadet",
+          "Tekbir",
+          "Salavat",
+          "Ezan"
+        ],
+        "correct_answer": "Kelime-i Şehadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le premier pilier de l’islam, qui constitue une profession de foi, est la ________.",
+        "explanation_tr": "La chahada est la profession de foi fondamentale associée à l’entrée dans l’islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "chahada",
+          "takbir",
+          "salawat",
+          "appel à la prière"
+        ],
+        "correct_answer": "chahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-006": {
+      "source": {
+        "question_tr": "Ramazan ayında yerine getirilen temel ibadet İslam'ın şartlarından biri midir?",
+        "explanation_tr": "Ramazan ayında oruç tutmak İslam'ın beş şartından biridir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Evet",
+          "Hayır"
+        ],
+        "correct_answer": "Evet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le culte accompli pendant le mois de Ramadan fait-il partie des cinq piliers de l’islam ?",
+        "explanation_tr": "Le jeûne du Ramadan fait partie des cinq piliers de l’islam.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Oui",
+          "Non"
+        ],
+        "correct_answer": "Oui",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-007": {
+      "source": {
+        "question_tr": "Namaz, Allah'a kulluk kapsamında düzenli olarak yerine getirilen ve İslam'ın şartlarından olan bir ibadettir.",
+        "explanation_tr": "Namaz, Müslümanların Allah'a kulluklarını düzenli olarak ifade ettikleri temel bir şarttır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La prière est une pratique régulière d’adoration d’Allah et fait partie des cinq piliers de l’islam.",
+        "explanation_tr": "La prière rituelle constitue un pilier fondamental par lequel les musulmans expriment régulièrement leur adoration d’Allah.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-008": {
+      "source": {
+        "question_tr": "Belirli şartlar oluştuğunda, maldan belirli bir payın hak sahiplerine verilmesiyle ilgili İslam şartı hangisidir?",
+        "explanation_tr": "Zekât, belirli şartlara bağlı malî bir ibadettir ve maldan bir payın hak sahiplerine verilmesini içerir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek",
+          "Hacca gitmek",
+          "Oruç tutmak",
+          "Kelime-i Şehadet getirmek"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel pilier prévoit, sous certaines conditions, de remettre une part déterminée de ses biens aux personnes qui y ont droit ?",
+        "explanation_tr": "La zakat est une obligation financière soumise à des conditions et consistant à verser une part des biens aux bénéficiaires concernés.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Verser la zakat",
+          "Effectuer le pèlerinage",
+          "Observer le jeûne",
+          "Prononcer la chahada"
+        ],
+        "correct_answer": "Verser la zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-009": {
+      "source": {
+        "question_tr": "İmkânı olanlar için Mekke ve çevresindeki belirli mekânlarda yerine getirilen ibadete __________ denir.",
+        "explanation_tr": "Hac, imkânı olanlar için Mekke ve çevresindeki belirli mekânlarla bağlantılı olarak yerine getirilen bir ibadettir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Hac",
+          "Oruç",
+          "Zekât",
+          "Namaz"
+        ],
+        "correct_answer": "Hac",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment appelle-t-on le rite accompli dans des lieux déterminés à La Mecque et dans ses environs par les personnes qui en ont les moyens ?",
+        "explanation_tr": "Le hajj est un pèlerinage accompli dans des lieux particuliers à La Mecque et dans ses environs par ceux qui en ont la capacité.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "hajj",
+          "jeûne",
+          "zakat",
+          "prière"
+        ],
+        "correct_answer": "hajj",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-010": {
+      "source": {
+        "question_tr": "Oruç ve hac, İslam'ın beş şartı içinde birbirinden farklı iki ibadettir.",
+        "explanation_tr": "Oruç Ramazan'la, hac ise Mekke ve çevresindeki belirli mekânlarla ilişkili ayrı ibadetlerdir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le jeûne et le hajj constituent deux pratiques distinctes parmi les cinq piliers de l’islam.",
+        "explanation_tr": "Le jeûne est associé au Ramadan ; le hajj se déroule dans les lieux prescrits à La Mecque et dans ses environs.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-011": {
+      "source": {
+        "question_tr": "Oruç tutmak, yalnızca aç kalmak değil, Allah'a kulluk niyetiyle yerine getirilen temel bir ibadettir.",
+        "explanation_tr": "Oruç, basit bir açlıktan öte, Ramazan ayında bilinçli olarak yerine getirilen manevi bir ibadettir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le jeûne ne consiste pas simplement à rester sans manger : c’est une pratique d’adoration accomplie avec l’intention d’obéir à Allah.",
+        "explanation_tr": "Le jeûne du Ramadan est un acte d’adoration spirituel et intentionnel, et pas seulement une privation de nourriture.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-012": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet, Namaz, Oruç ve Hac ile birlikte İslam'ın beş şartını tamamlayan beşinci ibadet hangisidir?",
+        "explanation_tr": "Diğer temel ibadetlerle birlikte İslam'ın beş şartını oluşturan malî ibadet zekât vermektir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zekât vermek",
+          "Sadaka vermek",
+          "Kurban kesmek",
+          "Dua etmek"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel cinquième pilier complète la chahada, la prière, le jeûne et le hajj ?",
+        "explanation_tr": "Le versement de la zakat est l’obligation financière qui complète ces quatre piliers.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Verser la zakat",
+          "Faire une aumône volontaire",
+          "Offrir un sacrifice",
+          "Faire une invocation"
+        ],
+        "correct_answer": "Verser la zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-013": {
+      "source": {
+        "question_tr": "Meleklere ve ahirete inanmak İmanın Esasları iken; namaz kılmak ve oruç tutmak __________ Şartlarındandır.",
+        "explanation_tr": "Namaz ve oruç gibi eylemsel ibadetler İslam'ın şartları kategorisinde yer alır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "İslam'ın",
+          "Ahlakın",
+          "Toplumun",
+          "İbadetin"
+        ],
+        "correct_answer": "İslam'ın",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La croyance aux anges et au Jour dernier relève des articles de la foi, tandis que la prière et le jeûne font partie des piliers de ________.",
+        "explanation_tr": "La prière et le jeûne sont des pratiques rattachées aux piliers de l’islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "l’islam",
+          "la morale",
+          "la société",
+          "l’adoration"
+        ],
+        "correct_answer": "l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S01-014": {
+      "source": {
+        "question_tr": "İslam'ın beş şartından ilki Kelime-i Şehadet getirmektir.",
+        "explanation_tr": "İslam'a girişin ve diğer şartların kabulünün temeli olan Kelime-i Şehadet ilk şart kabul edilir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le premier des cinq piliers de l’islam est la profession de foi, ou chahada.",
+        "explanation_tr": "La chahada est traditionnellement citée en premier parmi les cinq piliers.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les cinq piliers de l’islam",
+        "topic": "Découvrir les cinq piliers"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
