@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U01",
+  "scope": "live_runtime_staging",
+  "stage": "U01-S05",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_language": "tr",
+  "source_reference": "assets/i18n/questions/en/runtime/U01.live.json: original Turkish source retained",
+  "translations": {
+    "DEEN-U01-S05-P01": {
+      "source": {
+        "question_tr": "Bir arkadaşın “İslam nasıl bir yaşam anlayışı sunar?” diye sordu. Ne dersin?",
+        "explanation_tr": "Bu ünitede İslam, Allah'a yönelişin inanç, kulluk ve güzel davranışlarla birlikte ele alındığı bütünsel bir çerçeve olarak tanıtılır.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah'a yönelişi; inanç, ibadet ve güzel ahlakla birlikte ele alan bir anlayış",
+          "Yalnızca belirli ritüellerin isimlerini ezberlemeyi amaçlayan bir anlayış",
+          "Sadece belirli bir toplumun kültürel geleneklerini koruyan bir anlayış",
+          "Günlük hayatla bağlantısı olmayan yalnızca tarihî bir anlayış"
+        ],
+        "correct_answer": "Allah'a yönelişi; inanç, ibadet ve güzel ahlakla birlikte ele alan bir anlayış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande : « Quelle approche de la vie l’islam propose-t-il ? » Que réponds-tu ?",
+        "explanation_tr": "Cette unité présente l’islam comme un cadre global associant le fait de se tourner vers Allah, la foi, la dévotion et une bonne conduite.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Une approche reliant la relation à Allah, la foi, l’adoration et le bon comportement",
+          "Une approche visant uniquement à mémoriser les noms de certains rites",
+          "Une approche qui conserve seulement les traditions culturelles d’une société",
+          "Une compréhension purement historique sans lien avec la vie quotidienne"
+        ],
+        "correct_answer": "Une approche reliant la relation à Allah, la foi, l’adoration et le bon comportement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "Introduction à l’islam",
+        "teaching_card": {
+          "eyebrow": "1 · VUE D’ENSEMBLE",
+          "title": "L’islam considère ensemble la foi, l’adoration et le bon comportement.",
+          "body": "Se concentrer sur un seul de ces domaines ne rend pas compte de leur complémentarité présentée dans cette unité.",
+          "memory": "À retenir : foi + adoration + bon comportement"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P02": {
+      "source": {
+        "question_tr": "Dört kavramı doğru açıklamalarına götür.",
+        "explanation_tr": "Bu dört kavram, İslam'ın inançtan davranışa uzanan bütünlüğünü özetler.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Din"
+          },
+          {
+            "left": "İman",
+            "right": "İçsel inanç"
+          },
+          {
+            "left": "İbadet",
+            "right": "Uygulanan kulluk"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Dışa yansıyan davranış"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les quatre notions à leur définition.",
+        "explanation_tr": "Ces quatre notions résument un ensemble cohérent qui relie croyance et comportement.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "La religion"
+          },
+          {
+            "left": "Foi",
+            "right": "Croyance intérieure"
+          },
+          {
+            "left": "Adoration",
+            "right": "Dévotion mise en pratique"
+          },
+          {
+            "left": "Bon comportement",
+            "right": "Attitudes manifestées dans les actes"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "La complémentarité des notions",
+        "teaching_card": {
+          "eyebrow": "2 · NOTIONS",
+          "title": "Retrouve la place de chaque notion.",
+          "body": "L’islam constitue le cadre général ; la foi concerne la croyance, l’adoration la dévotion et le bon comportement les actes.",
+          "memory": "À retenir : quatre notions, quatre rôles"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P03": {
+      "source": {
+        "question_tr": "İman sadece dışarıdan gördüğümüz davranışlarla ölçülebilir mi?",
+        "explanation_tr": "İman öncelikle kalpte gerçekleşen bir kabul halidir; dışarıdan tam olarak ölçülemez, ancak davranışlara yansıyabilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Peut-on mesurer la foi uniquement à partir des comportements visibles ?",
+        "explanation_tr": "La foi implique avant tout une adhésion intérieure ; même si elle se manifeste dans les actes, on ne peut la mesurer entièrement de l’extérieur.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "Qu’est-ce que la foi ?",
+        "teaching_card": {
+          "eyebrow": "3 · FOI INTÉRIEURE",
+          "title": "La foi n’est pas seulement un comportement visible.",
+          "body": "La foi suppose de croire et d’accepter dans son cœur.",
+          "memory": "À retenir : l’intérieur avant l’extérieur"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P04": {
+      "source": {
+        "question_tr": "Kayıp kelimeyi bul: İbadette Allah’ın ___ gözetilir.",
+        "explanation_tr": "İhlas anlayışında ibadet Allah'a has kılınır ve O'nun rızası gözetilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "rızasını",
+          "şöhreti",
+          "alkışı",
+          "yarışını"
+        ],
+        "correct_answer": "rızasını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : dans l’adoration, on recherche l’___ d’Allah.",
+        "explanation_tr": "L’adoration sincère est consacrée à Allah seul et vise à rechercher Son agrément.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "agrément",
+          "admiration",
+          "applaudissement",
+          "esprit de compétition"
+        ],
+        "correct_answer": "agrément",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "Le but de l’adoration",
+        "teaching_card": {
+          "eyebrow": "4 · INTENTION",
+          "title": "L’adoration recherche l’agrément d’Allah.",
+          "body": "On se consacre à Allah plutôt que de chercher les applaudissements des autres.",
+          "memory": "À retenir : recherche l’agrément d’Allah sans ostentation"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P05": {
+      "source": {
+        "question_tr": "Arkadaşın “İbadet sadece namazdır.” dedi. Ona ne söylersin?",
+        "explanation_tr": "İbadet, namaz dahil olmak üzere Allah rızası gözetilerek yapılan geniş bir davranış yelpazesini kapsar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İbadetin, Allah rızası için yapılan pek çok davranışı kapsadığını söylerim",
+          "Ona hak verip başka bir şey söylemem",
+          "Sadece namazın önemli olduğunu onaylarım",
+          "İbadetin gereksiz olduğunu söylerim"
+        ],
+        "correct_answer": "İbadetin, Allah rızası için yapılan pek çok davranışı kapsadığını söylerim",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ton ami dit : « L’adoration, c’est seulement la prière. » Que lui réponds-tu ?",
+        "explanation_tr": "L’adoration comprend diverses actions, dont la prière, accomplies avec l’intention de rechercher l’agrément d’Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Je lui explique que l’adoration comprend de nombreux actes visant l’agrément d’Allah",
+          "Je suis entièrement d’accord et n’ajoute rien",
+          "Je confirme que seule la prière compte",
+          "Je lui dis que l’adoration est inutile"
+        ],
+        "correct_answer": "Je lui explique que l’adoration comprend de nombreux actes visant l’agrément d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "La portée de l’adoration",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P06": {
+      "source": {
+        "question_tr": "Üç ifade kavramları doğru ayırır. Hangisi hatalıdır?",
+        "explanation_tr": "Bu kavramlar ilişkilidir fakat aynı anlama gelmez.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman inanmayla ilgilidir.",
+          "İbadet kullukla ilgilidir.",
+          "Ahlak davranışlarla ilgilidir.",
+          "İman, ibadet ve ahlak tamamen aynı kelimedir."
+        ],
+        "correct_answer": "İman, ibadet ve ahlak tamamen aynı kelimedir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Trois propositions distinguent correctement les notions. Laquelle est erronée ?",
+        "explanation_tr": "Ces notions sont liées, mais elles n’ont pas le même sens.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "La foi implique de croire.",
+          "L’adoration implique de se consacrer à Allah.",
+          "Le bon comportement concerne les actes et les attitudes.",
+          "Foi, adoration et bon comportement sont exactement le même mot."
+        ],
+        "correct_answer": "Foi, adoration et bon comportement sont exactement le même mot.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "Le lien entre les notions",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P07": {
+      "source": {
+        "question_tr": "Ahlak İslam’ın neresinde duruyor?",
+        "explanation_tr": "Ahlak, İslam'da imandan ve ibadetten ayrı düşünülemeyecek, bütünün önemli bir parçasıdır.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İnanç ve ibadetle birlikte İslam'ın önemli bir parçasıdır",
+          "İnançtan tamamen bağımsız, önemsiz bir konudur",
+          "Sadece toplumsal bir zorunluluktur",
+          "Sadece kanunlarla ilgilidir"
+        ],
+        "correct_answer": "İnanç ve ibadetle birlikte İslam'ın önemli bir parçasıdır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle place le bon comportement occupe-t-il dans l’islam ?",
+        "explanation_tr": "Le bon comportement est important dans l’ensemble de l’islam ; il ne peut être isolé de la foi et de l’adoration.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Il occupe une place importante aux côtés de la foi et de l’adoration",
+          "Il est sans importance et entièrement indépendant de la foi",
+          "Il n’est qu’une obligation sociale",
+          "Il ne concerne que les lois"
+        ],
+        "correct_answer": "Il occupe une place importante aux côtés de la foi et de l’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "La place du bon comportement",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P08": {
+      "source": {
+        "question_tr": "Kur’an, peygamber, ibadet ve ahlak… Eşleri bul.",
+        "explanation_tr": "Bu kavramların her biri farklı bir alanı ifade eder; birlikte düşünüldüğünde ünitenin temel çerçevesini oluştururlar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kur'an",
+            "right": "Müslümanların temel kutsal kitabı"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Allah'ın mesajını ileten ve örnek olan rehber"
+          },
+          {
+            "left": "İbadet",
+            "right": "Allah'a kulluk amacı taşıyan davranış"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Doğru ve güzel davranışlarla ilgili tutum"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le Coran, le Prophète, l’adoration et le bon comportement : retrouve les paires.",
+        "explanation_tr": "Chacune de ces notions correspond à un domaine distinct ; ensemble, elles forment le cadre de cette unité.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Coran",
+            "right": "Le principal Livre sacré des musulmans"
+          },
+          {
+            "left": "Prophète",
+            "right": "Un guide qui transmet le message d’Allah et montre l’exemple"
+          },
+          {
+            "left": "Adoration",
+            "right": "Des actes accomplis pour se consacrer à Allah"
+          },
+          {
+            "left": "Bon comportement",
+            "right": "Des attitudes visant une conduite juste et bonne"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "Le lien entre sources et pratique",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P09": {
+      "source": {
+        "question_tr": "Kur’an günlük yaşamımıza da yön verir mi?",
+        "explanation_tr": "Kur'an sadece ibadetle değil, ahlak ve günlük yaşamla ilgili temel ilkeleri de içerir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le Coran guide-t-il aussi notre vie quotidienne ?",
+        "explanation_tr": "Le Coran contient des principes sur le bon comportement et la vie quotidienne, ainsi que sur l’adoration.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "La portée du Coran",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P10": {
+      "source": {
+        "question_tr": "Kayıp kelime: Dili ve milliyeti ne olursa olsun İslam’ı benimseyen kişiye “___” denir.",
+        "explanation_tr": "Bu tanım Müslümanlığın evrensel, inanca dayalı bir kimlik olduğunu gösterir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Müslüman",
+          "peygamber",
+          "melek",
+          "misafir"
+        ],
+        "correct_answer": "Müslüman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : quelle que soit sa langue ou sa nationalité, une personne qui adhère à l’islam s’appelle un « ___ ».",
+        "explanation_tr": "Cette définition rappelle que l’identité musulmane est fondée sur la foi et ne dépend pas d’une nationalité.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "musulman",
+          "prophète",
+          "ange",
+          "invité"
+        ],
+        "correct_answer": "musulman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "Qui est musulman ?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P11": {
+      "source": {
+        "question_tr": "Birisi “Namaz kılıyorum, kimseye yardım etmesem de olur.” diyor. Burada ne eksik?",
+        "explanation_tr": "İslam'da ibadet ile toplumsal/ahlaki sorumluluk birbirini tamamlar; biri diğerinin yerine geçmez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İbadeti ahlaki sorumluluktan ayırması",
+          "Hiçbir eksiklik yok",
+          "Namazın önemsiz olduğunu düşünmesi",
+          "Yardımın gereksiz olduğunu doğru söylemesi"
+        ],
+        "correct_answer": "İbadeti ahlaki sorumluluktan ayırması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un dit : « Je prie, donc ce n’est pas grave si je n’aide jamais personne. » Qu’est-ce qui manque à cette idée ?",
+        "explanation_tr": "Dans l’islam, l’adoration et les responsabilités sociales et morales se complètent sans se remplacer.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Cette idée sépare l’adoration de la responsabilité morale",
+          "Il ne manque rien",
+          "Cette idée juge la prière sans importance",
+          "Elle affirme à juste titre que l’aide aux autres est inutile"
+        ],
+        "correct_answer": "Cette idée sépare l’adoration de la responsabilité morale",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "L’unité entre adoration et bon comportement",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S05-P12": {
+      "source": {
+        "question_tr": "Hangisi ünitenin anlattığı bütünlüğe uymaz?",
+        "explanation_tr": "İman, ibadet ve ahlak farklı ancak ilişkili alanlardır.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman kalben inanmayla ilgilidir.",
+          "İbadet Allah’a kullukla ilgilidir.",
+          "Ahlak güzel davranışlarla ilgilidir.",
+          "Bu üç alan birbirinden tamamen kopuktur."
+        ],
+        "correct_answer": "Bu üç alan birbirinden tamamen kopuktur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation ne correspond pas à l’ensemble cohérent présenté dans l’unité ?",
+        "explanation_tr": "Foi, adoration et bon comportement sont des domaines distincts mais liés.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "La foi implique de croire dans son cœur.",
+          "L’adoration implique de se consacrer à Allah.",
+          "Le bon comportement se traduit par de bonnes actions.",
+          "Ces trois domaines n’ont absolument aucun lien."
+        ],
+        "correct_answer": "Ces trois domaines n’ont absolument aucun lien.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Relier les notions",
+        "topic": "Les liens entre les trois notions",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
