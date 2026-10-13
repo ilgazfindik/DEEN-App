@@ -1547,6 +1547,153 @@ try{
  assert.equal(saved.locale,'de');
  assert.equal(saved.meaningUnlocked,false,'Reload unlocked unapproved German meanings');
 
+
+ // Non-Fatiha representative Quran flows: short Nasr, medium Falaq and
+ // long Bayyina. Recreate the staging renderer after page.reload().
+ report.quran_other_surahs={source:'real locale-de browser, source-safe Quran staging renderer',
+  matrix:[],nasr_memorize:null};
+ await page.evaluate(async()=>{
+  const files=['german-ui.staging.json','german-ui.lesson-flow.staging.json',
+    'german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
+    ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+
+      String(i+1).padStart(2,'0')+'.staging.json'),'german-ui.real-lesson.staging.json'];
+  const fetchJson=async(name)=>{
+   const res=await fetch('/assets/i18n/'+name,{cache:'no-store'});
+   if(!res.ok)throw Error('Missing source-verified staging language pack '+name);
+   return res.json();
+  };
+  const [packs,en]=await Promise.all([Promise.all(files.map(fetchJson)),
+   fetchJson('english-ui.draft.json')]);
+  const {createGermanUIStagingRenderer}=await import('/assets/i18n/german-ui.renderer.staging.mjs');
+  window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__=createGermanUIStagingRenderer(
+    {packs,englishReference:en.translations});
+ });
+ for(const [id,verseCount] of [['nasr',3],['falaq',5],['bayyina',8]]){
+  const before=await page.evaluate(id=>{
+   const j=window.DEEN_QURAN_JOURNEY_V2;
+   const a=j.stats(id),other=window.DEEN_QURAN_CONTENT.getAyah(id,1);
+   return {name:other?.surahName||id,sourceReady:a.sourceReady,ayahUnlocked:a.ayahUnlocked,
+    meaningUnlocked:a.meaningUnlocked,finalUnlocked:a.finalUnlocked,
+    mealReady:j.mealReady(id),learned:a.learned,profileLocale:window.DEEN_APP_LOCALE?.get?.()};
+  },id);
+  assert.equal(before.profileLocale,'de','The German selection changed between surahs');
+  assert.equal(before.sourceReady,true,'Original Quran source not ready for '+id);
+  assert.equal(before.ayahUnlocked,true,'Arabic-only ayah quiz unexpectedly locked for '+id);
+  assert.equal(before.mealReady,false,'Unreviewed German meaning became available for '+id);
+  assert.equal(before.meaningUnlocked,false);
+  assert.equal(before.finalUnlocked,false);
+  assert.equal(await page.evaluate(id=>window.DEEN_QURAN_JOURNEY_V2.open(id),id),true);
+  await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',{timeout:20000});
+  const rows=page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage');
+  const controls={
+   ayah:await rows.nth(2).locator('button').isDisabled(),
+   meaning:await rows.nth(3).locator('button').isDisabled(),
+   final:await rows.nth(4).locator('button').isDisabled()};
+  assert.equal(controls.ayah,false,'Ayah Test UI incorrectly disabled in '+id);
+  assert.equal(controls.meaning,true,'German meaning should be locked in '+id);
+  assert.equal(controls.final,true,'German final should be locked in '+id);
+  const forbidden=await page.evaluate(()=>{
+   const m=window.DEEN_QURAN_JOURNEY_V2;
+   const snapshot=m.quizSnapshot();
+   const meaning=m.startStage('meaning');
+   const final=m.startStage('final');
+   return {meaning,final,before:snapshot,after:m.quizSnapshot()};
+  });
+  assert.equal(forbidden.meaning,false);
+  assert.equal(forbidden.final,false);
+  assert.deepEqual(forbidden.after,forbidden.before,'Locked Quran tests generated a quiz');
+  await rows.nth(2).locator('button').click({timeout:15000});
+  await page.waitForSelector('#v5Sheet[open] .deen-qj2-quiz[data-quiz-stage="ayah"]',{timeout:20000});
+  const q=await page.evaluate(id=>{
+   const root=document.querySelector('#v5Sheet[open] .deen-qj2-quiz[data-quiz-stage="ayah"]');
+   const a=[...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent);
+   const opts=[...root.querySelectorAll('.deen-qj2-option')].map(x=>x.outerHTML);
+   const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+    document.querySelector('#v5Sheet[open]'),
+    {qaMode:true,locale:'de',documentRef:document});
+   const now=window.DEEN_QURAN_JOURNEY_V2.quizSnapshot();
+   return {id,unresolved:audit.unresolved,title:root.querySelector('h3')?.textContent?.trim(),
+    action:root.querySelector('.deen-qj2-next')?.textContent?.trim(),
+    options:root.querySelectorAll('.deen-qj2-option').length,
+    arabicUnchanged:JSON.stringify(a)===
+      JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent)),
+    optionsUnchanged:JSON.stringify(opts)===
+      JSON.stringify([...root.querySelectorAll('.deen-qj2-option')].map(x=>x.outerHTML)),
+    stage:now?.stage,attempts:window.DEEN_QURAN_JOURNEY_V2.stats(id).state.ayah.attempts};
+  },id);
+  assert.deepEqual(q.unresolved,[],'Untranslated Quran quiz chrome for '+id);
+  assert.equal(q.action,'PRÜFEN');
+  assert.equal(q.stage,'ayah');
+  assert(q.options>=2,'Unanswerable Arabic-only Quran quiz: '+id);
+  assert.equal(q.arabicUnchanged,true);
+  assert.equal(q.optionsUnchanged,true,'Arabic answers were changed for '+id);
+  await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-option').first().click({timeout:15000});
+  await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next').click({timeout:15000});
+  const graded=await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.quizSnapshot());
+  assert.equal(graded.answered,true,'First non-Fatiha question was not graded: '+id);
+  assert.equal(graded.answers,1);
+  report.quran_other_surahs.matrix.push({surah:id,verses:verseCount,source:before,
+   gate:controls,first_ayah_question:q,graded:{answered:graded.answered,correct:graded.correct}});
+ }
+ // Nasr is intentionally the shortest non-Fatiha shared-engine learning case.
+ // Test its real user-click progression and the existing memorization lock.
+ assert.equal(await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.open('nasr')),true);
+ await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',{timeout:20000});
+ const nasrRows=page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage');
+ assert.equal(await nasrRows.nth(1).locator('button').isDisabled(),true,
+  'Nasr memorization was unlocked before learning');
+ await nasrRows.nth(0).locator('button').click({timeout:15000});
+ await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session[data-deen-ayah="1"]',{timeout:20000});
+ for(let n=1;n<=3;n++){
+  const sourceText=await page.evaluate(n=>{
+   const el=document.querySelector('#v5Sheet[open] .deen-qmulti-session .deen-ikhlas-arabic[lang="ar"]');
+   const original=window.DEEN_QURAN_CONTENT.getAyah('nasr',n)?.arabic?.text;
+   return {shown:el?.textContent?.replace(/\s+/g,' ').trim(),
+    original:original?.replace(/\s+/g,' ').trim()};
+  },n);
+  assert.equal(sourceText.shown,sourceText.original,'Nasr Arabic differs from original ayah '+n);
+  for(let st=0;st<5;st++){
+   await page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)')
+    .first().click({timeout:15000});
+  }
+  if(n<3)await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session[data-deen-ayah="'+(n+1)+'"]',
+   {timeout:15000});
+ }
+ const nasrLearned=await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.stats('nasr'));
+ assert.equal(nasrLearned.learned,3);
+ assert.equal(nasrLearned.learnedReady,true);
+ assert.equal(nasrLearned.meaningUnlocked,false);
+ assert.equal(await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.backToJourney()),true);
+ await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',{timeout:15000});
+ const nasrMemBtn=page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage')
+  .nth(1).locator('button');
+ assert.equal(await nasrMemBtn.isDisabled(),false,
+  'Nasr memorization did not unlock after three learned ayahs');
+ await nasrMemBtn.click({timeout:15000});
+ await page.waitForSelector('#v5Sheet[open] .deen-qmulti-mem-session .deen-mem-card',{timeout:15000});
+ const nasrMem=await page.evaluate(()=>{
+  const root=document.querySelector('#v5Sheet[open] .deen-qmulti-mem-session');
+  const ar=[...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent);
+  const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+   document.querySelector('#v5Sheet[open]'),
+   {qaMode:true,locale:'de',documentRef:document});
+  return {unresolved:audit.unresolved,title:root.querySelector('.deen-mem-head b')?.textContent?.trim(),
+   stage:root.querySelector('.deen-mem-kicker')?.textContent?.trim(),
+   remembered:root.querySelector('.deen-mem-actions .deen-mem-btn:not(.secondary)')?.textContent?.trim(),
+   arabicUnchanged:JSON.stringify(ar)===
+     JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent)),
+   learned:window.DEEN_QURAN_JOURNEY_V2.stats('nasr').learned,
+   meaningUnlocked:window.DEEN_QURAN_JOURNEY_V2.stats('nasr').meaningUnlocked};
+ });
+ report.quran_other_surahs.nasr_memorize=nasrMem;
+ assert.deepEqual(nasrMem.unresolved,[],'Untranslated German Nasr memorization chrome');
+ assert.equal(nasrMem.title,'Nasr auswendig lernen');
+ assert.equal(nasrMem.remembered,'ICH HABE MICH ERINNERT');
+ assert.equal(nasrMem.arabicUnchanged,true);
+ assert.equal(nasrMem.learned,3);
+ assert.equal(nasrMem.meaningUnlocked,false);
+ await page.screenshot({path:output+'/true-locale-german-nasr-memorize.png',fullPage:true});
+
  report.quran_fatiha.real_ayah_audio.review_approved=false;
  report.quran_fatiha.real_ayah_audio.production_release=false;
 
