@@ -1,0 +1,531 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U01",
+  "scope": "live_runtime_staging",
+  "stage": "U01-S05",
+  "question_count": 12,
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_commit": "a3ab868b762c4431410057fa8e937d87c73048a9",
+  "translations": {
+    "DEEN-U01-S05-P01": {
+      "source": {
+        "question_tr": "Bir arkadaşın “İslam nasıl bir yaşam anlayışı sunar?” diye sordu. Ne dersin?",
+        "explanation_tr": "Bu ünitede İslam, Allah'a yönelişin inanç, kulluk ve güzel davranışlarla birlikte ele alındığı bütünsel bir çerçeve olarak tanıtılır.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah'a yönelişi; inanç, ibadet ve güzel ahlakla birlikte ele alan bir anlayış",
+          "Yalnızca belirli ritüellerin isimlerini ezberlemeyi amaçlayan bir anlayış",
+          "Sadece belirli bir toplumun kültürel geleneklerini koruyan bir anlayış",
+          "Günlük hayatla bağlantısı olmayan yalnızca tarihî bir anlayış"
+        ],
+        "correct_answer": "Allah'a yönelişi; inanç, ibadet ve güzel ahlakla birlikte ele alan bir anlayış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund fragt: „Welche Lebensweise vermittelt der Islam?“ Was antwortest du?",
+        "explanation_tr": "In dieser Einheit wird der Islam als umfassende Lebensweise vorgestellt, in der die Hinwendung zu Allah, Glaube, Gottesverehrung und gutes Handeln zusammengehören.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Eine Lebensweise, die die Hinwendung zu Allah mit Glauben, Gottesdienst und gutem Charakter verbindet",
+          "Eine Sichtweise, bei der man nur die Namen bestimmter Rituale auswendig lernt",
+          "Eine Sichtweise, die nur die Traditionen einer bestimmten Gemeinschaft bewahrt",
+          "Eine rein historische Sichtweise ohne Bezug zum Alltag"
+        ],
+        "correct_answer": "Eine Lebensweise, die die Hinwendung zu Allah mit Glauben, Gottesdienst und gutem Charakter verbindet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Einführung in den Islam",
+        "teaching_card": {
+          "eyebrow": "1 · DAS GESAMTBILD",
+          "title": "Der Islam verbindet Glauben, Hingabe und guten Charakter.",
+          "body": "Wer nur einen dieser Bereiche betrachtet, verpasst das zusammenhängende Gesamtbild.",
+          "memory": "Merkhilfe: Glaube + Gottesdienst + guter Charakter"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P02": {
+      "source": {
+        "question_tr": "Dört kavramı doğru açıklamalarına götür.",
+        "explanation_tr": "Bu dört kavram, İslam'ın inançtan davranışa uzanan bütünlüğünü özetler.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Din"
+          },
+          {
+            "left": "İman",
+            "right": "İçsel inanç"
+          },
+          {
+            "left": "İbadet",
+            "right": "Uygulanan kulluk"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Dışa yansıyan davranış"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die vier Begriffe ihren richtigen Erklärungen zu.",
+        "explanation_tr": "Diese vier Begriffe helfen dabei, das Zusammenspiel von Religion, Glauben, Gottesverehrung und Verhalten zu verstehen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "Religion"
+          },
+          {
+            "left": "Glaube",
+            "right": "Innerer Glaube"
+          },
+          {
+            "left": "Gottesdienst",
+            "right": "Gelebte Hingabe an Allah"
+          },
+          {
+            "left": "Guter Charakter",
+            "right": "Nach außen sichtbares Verhalten"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Zusammengehörigkeit der Begriffe",
+        "teaching_card": {
+          "eyebrow": "2 · BEGRIFFE",
+          "title": "Finde den passenden Platz für jeden Begriff.",
+          "body": "Islam ist der Gesamtrahmen; Glaube bezeichnet Überzeugung, Gottesdienst die Hingabe und guter Charakter das Verhalten.",
+          "memory": "Merkhilfe: Vier Begriffe, vier Aufgaben"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P03": {
+      "source": {
+        "question_tr": "İman sadece dışarıdan gördüğümüz davranışlarla ölçülebilir mi?",
+        "explanation_tr": "İman öncelikle kalpte gerçekleşen bir kabul halidir; dışarıdan tam olarak ölçülemez, ancak davranışlara yansıyabilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Lässt sich Glaube allein anhand äußerlich sichtbarer Handlungen beurteilen?",
+        "explanation_tr": "Glaube umfasst eine innere Überzeugung. Er kann sich im Verhalten zeigen, lässt sich von außen aber nicht vollständig beurteilen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Was ist Glaube?",
+        "teaching_card": {
+          "eyebrow": "3 · INNERER GLAUBE",
+          "title": "Glaube ist mehr als sichtbares Verhalten.",
+          "body": "Zum Glauben gehören das Glauben im Herzen und das Annehmen als wahr.",
+          "memory": "Merkhilfe: Das Innere zählt vor dem Äußeren"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P04": {
+      "source": {
+        "question_tr": "Kayıp kelimeyi bul: İbadette Allah’ın ___ gözetilir.",
+        "explanation_tr": "İhlas anlayışında ibadet Allah'a has kılınır ve O'nun rızası gözetilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "rızasını",
+          "şöhreti",
+          "alkışı",
+          "yarışını"
+        ],
+        "correct_answer": "rızasını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Beim Gottesdienst sucht man Allahs ______.",
+        "explanation_tr": "Aufrichtigkeit bedeutet, gottesdienstliche Handlungen Allah zu widmen und nach Seinem Wohlgefallen zu streben.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Wohlgefallen",
+          "Ruhm",
+          "Applaus",
+          "Wettbewerb"
+        ],
+        "correct_answer": "Wohlgefallen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Ziel des Gottesdienstes",
+        "teaching_card": {
+          "eyebrow": "4 · ABSICHT",
+          "title": "Beim Gottesdienst geht es um Allahs Wohlgefallen.",
+          "body": "Man wendet sich Allah zu, statt nur Beifall von anderen Menschen zu suchen.",
+          "memory": "Merkhilfe: Suche Allahs Wohlgefallen, nicht die Aufmerksamkeit anderer"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P05": {
+      "source": {
+        "question_tr": "Arkadaşın “İbadet sadece namazdır.” dedi. Ona ne söylersin?",
+        "explanation_tr": "İbadet, namaz dahil olmak üzere Allah rızası gözetilerek yapılan geniş bir davranış yelpazesini kapsar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İbadetin, Allah rızası için yapılan pek çok davranışı kapsadığını söylerim",
+          "Ona hak verip başka bir şey söylemem",
+          "Sadece namazın önemli olduğunu onaylarım",
+          "İbadetin gereksiz olduğunu söylerim"
+        ],
+        "correct_answer": "İbadetin, Allah rızası için yapılan pek çok davranışı kapsadığını söylerim",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Gottesdienst ist nur das Gebet.“ Was erwiderst du?",
+        "explanation_tr": "Im Islam beschränkt sich Gottesverehrung nicht auf das Gebet. Auch andere Handlungen können dazugehören, wenn sie um Allahs willen ausgeführt werden.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ich erkläre, dass Gottesdienst viele Handlungen einschließt, die man um Allahs Wohlgefallen willen tut",
+          "Ich stimme zu und sage nichts weiter",
+          "Ich bestätige, dass nur das Gebet wichtig sei",
+          "Ich sage, Gottesdienst sei überflüssig"
+        ],
+        "correct_answer": "Ich erkläre, dass Gottesdienst viele Handlungen einschließt, die man um Allahs Wohlgefallen willen tut",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Gottesdienst umfasst mehr",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P06": {
+      "source": {
+        "question_tr": "Üç ifade kavramları doğru ayırır. Hangisi hatalıdır?",
+        "explanation_tr": "Bu kavramlar ilişkilidir fakat aynı anlama gelmez.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman inanmayla ilgilidir.",
+          "İbadet kullukla ilgilidir.",
+          "Ahlak davranışlarla ilgilidir.",
+          "İman, ibadet ve ahlak tamamen aynı kelimedir."
+        ],
+        "correct_answer": "İman, ibadet ve ahlak tamamen aynı kelimedir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Drei Aussagen unterscheiden die Begriffe richtig. Welche ist falsch?",
+        "explanation_tr": "Diese Begriffe hängen zusammen, haben aber unterschiedliche Bedeutungen.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Glaube hat mit Überzeugung zu tun.",
+          "Gottesdienst hat mit Hingabe an Allah zu tun.",
+          "Guter Charakter hat mit dem Verhalten zu tun.",
+          "Glaube, Gottesdienst und guter Charakter sind genau dasselbe Wort."
+        ],
+        "correct_answer": "Glaube, Gottesdienst und guter Charakter sind genau dasselbe Wort.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Zusammenhang der Begriffe",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P07": {
+      "source": {
+        "question_tr": "Ahlak İslam’ın neresinde duruyor?",
+        "explanation_tr": "Ahlak, İslam'da imandan ve ibadetten ayrı düşünülemeyecek, bütünün önemli bir parçasıdır.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İnanç ve ibadetle birlikte İslam'ın önemli bir parçasıdır",
+          "İnançtan tamamen bağımsız, önemsiz bir konudur",
+          "Sadece toplumsal bir zorunluluktur",
+          "Sadece kanunlarla ilgilidir"
+        ],
+        "correct_answer": "İnanç ve ibadetle birlikte İslam'ın önemli bir parçasıdır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Rolle spielt guter Charakter im Islam?",
+        "explanation_tr": "Guter Charakter und verantwortungsbewusstes Handeln sind im Islam eng mit Glauben und Gottesverehrung verbunden.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Er ist neben Glauben und Gottesdienst ein wichtiger Teil des Islam",
+          "Er ist völlig unabhängig vom Glauben und unwichtig",
+          "Er ist nur eine gesellschaftliche Pflicht",
+          "Er betrifft nur Gesetze"
+        ],
+        "correct_answer": "Er ist neben Glauben und Gottesdienst ein wichtiger Teil des Islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Guter Charakter im Islam",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P08": {
+      "source": {
+        "question_tr": "Kur’an, peygamber, ibadet ve ahlak… Eşleri bul.",
+        "explanation_tr": "Bu kavramların her biri farklı bir alanı ifade eder; birlikte düşünüldüğünde ünitenin temel çerçevesini oluştururlar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kur'an",
+            "right": "Müslümanların temel kutsal kitabı"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Allah'ın mesajını ileten ve örnek olan rehber"
+          },
+          {
+            "left": "İbadet",
+            "right": "Allah'a kulluk amacı taşıyan davranış"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Doğru ve güzel davranışlarla ilgili tutum"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne Koran, Prophet, Gottesdienst und guten Charakter den Erklärungen zu.",
+        "explanation_tr": "Die Begriffe bezeichnen unterschiedliche Bereiche. Zusammen machen sie die Grundlagen dieser Einheit verständlich.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Koran",
+            "right": "Das grundlegende heilige Buch der Muslime"
+          },
+          {
+            "left": "Prophet",
+            "right": "Ein Vorbild, das Allahs Botschaft überbringt"
+          },
+          {
+            "left": "Gottesdienst",
+            "right": "Eine Handlung der Hingabe an Allah"
+          },
+          {
+            "left": "Guter Charakter",
+            "right": "Haltung, die auf richtiges und gutes Verhalten zielt"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Verbindung zwischen Quelle und Praxis",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P09": {
+      "source": {
+        "question_tr": "Kur’an günlük yaşamımıza da yön verir mi?",
+        "explanation_tr": "Kur'an sadece ibadetle değil, ahlak ve günlük yaşamla ilgili temel ilkeleri de içerir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Gibt der Koran auch Orientierung für unser tägliches Leben?",
+        "explanation_tr": "Der Koran enthält nicht nur Aussagen über Gottesverehrung, sondern auch grundlegende Orientierung für gutes Verhalten und das tägliche Leben.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Der Koran im Alltag",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P10": {
+      "source": {
+        "question_tr": "Kayıp kelime: Dili ve milliyeti ne olursa olsun İslam’ı benimseyen kişiye “___” denir.",
+        "explanation_tr": "Bu tanım Müslümanlığın evrensel, inanca dayalı bir kimlik olduğunu gösterir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Müslüman",
+          "peygamber",
+          "melek",
+          "misafir"
+        ],
+        "correct_answer": "Müslüman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Wer den Islam annimmt, wird unabhängig von Sprache und Nationalität „______“ genannt.",
+        "explanation_tr": "Die Zugehörigkeit zum Islam hängt vom Glauben ab, nicht von der Nationalität oder Muttersprache.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Muslim",
+          "Prophet",
+          "Engel",
+          "Gast"
+        ],
+        "correct_answer": "Muslim",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Wer ist ein Muslim?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P11": {
+      "source": {
+        "question_tr": "Birisi “Namaz kılıyorum, kimseye yardım etmesem de olur.” diyor. Burada ne eksik?",
+        "explanation_tr": "İslam'da ibadet ile toplumsal/ahlaki sorumluluk birbirini tamamlar; biri diğerinin yerine geçmez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İbadeti ahlaki sorumluluktan ayırması",
+          "Hiçbir eksiklik yok",
+          "Namazın önemsiz olduğunu düşünmesi",
+          "Yardımın gereksiz olduğunu doğru söylemesi"
+        ],
+        "correct_answer": "İbadeti ahlaki sorumluluktan ayırması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand sagt: „Ich bete. Anderen zu helfen ist daher unwichtig.“ Was fehlt in dieser Sichtweise?",
+        "explanation_tr": "Im Islam gehören Gottesverehrung und Verantwortung für andere zusammen. Das eine ersetzt nicht das andere.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Er trennt Gottesdienst von moralischer Verantwortung",
+          "Es fehlt nichts",
+          "Er denkt, dass das Gebet unwichtig sei",
+          "Er behauptet zutreffend, dass Hilfe unnötig sei"
+        ],
+        "correct_answer": "Er trennt Gottesdienst von moralischer Verantwortung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Gottesdienst und guter Charakter",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S05-P12": {
+      "source": {
+        "question_tr": "Hangisi ünitenin anlattığı bütünlüğe uymaz?",
+        "explanation_tr": "İman, ibadet ve ahlak farklı ancak ilişkili alanlardır.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman kalben inanmayla ilgilidir.",
+          "İbadet Allah’a kullukla ilgilidir.",
+          "Ahlak güzel davranışlarla ilgilidir.",
+          "Bu üç alan birbirinden tamamen kopuktur."
+        ],
+        "correct_answer": "Bu üç alan birbirinden tamamen kopuktur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage passt nicht zum Zusammenhang der drei Bereiche?",
+        "explanation_tr": "Glaube, Gottesdienst und guter Charakter sind verschiedene, aber miteinander verbundene Bereiche.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Glaube bedeutet, im Herzen zu glauben.",
+          "Gottesdienst bedeutet, Allah zu dienen.",
+          "Guter Charakter zeigt sich in guten Taten.",
+          "Diese drei Bereiche haben überhaupt nichts miteinander zu tun."
+        ],
+        "correct_answer": "Diese drei Bereiche haben überhaupt nichts miteinander zu tun.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Wissen anwenden",
+        "topic": "Die drei Bereiche",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

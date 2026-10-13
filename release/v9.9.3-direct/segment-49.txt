@@ -269,7 +269,7 @@ const T=k=>(I18N[locale()]||EXTRA_I18N[locale()]||I18N.en)[k]||I18N.en[k];
 const verse=n=>T('verse')+' '+n;
 function verifiedMeal(id,n){
  const r=rec(id,n);
- const m=locale()==='en'?r?.translations?.en:locale()==='tr'?r?.translation:null;
+ const m=locale()==='de'?window.DEEN_GERMAN_QURAN_MEANINGS?.get?.(id,n):locale()==='en'?r?.translations?.en:locale()==='tr'?r?.translation:null;
  return m&&String(m.language||'').split('-')[0]===locale()&&m.verification_status==='production_ready'&&m.source?.provider&&m.text?m.text:null;
 }
 function mealReady(id){return Array.from({length:COUNTS[id]},(_,i)=>verifiedMeal(id,i+1)).every(Boolean)}

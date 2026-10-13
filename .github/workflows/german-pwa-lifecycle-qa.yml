@@ -1,0 +1,29 @@
+name: German PWA worker lifecycle QA
+
+on:
+  push:
+    branches: ['codex/german-*']
+    paths:
+      - 'sw.js'
+      - 'index.html'
+      - 'scripts/test-german-pwa-lifecycle.mjs'
+      - '.github/workflows/german-pwa-lifecycle-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  worker-lifecycle:
+    name: Verify safe upgrades and MP3 storage quota recovery
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax-check the scoped service worker
+        run: node --check sw.js
+      - name: Execute service-worker lifecycle and quota regression
+        run: node scripts/test-german-pwa-lifecycle.mjs

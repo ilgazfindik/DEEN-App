@@ -6,6 +6,65 @@ on:
       - 'assets/i18n/questions/de/**'
       - 'assets/i18n/content-support.json'
       - 'scripts/audit-german-staging.mjs'
+      - 'scripts/audit-german-runtime-staging.mjs'
+      - 'scripts/test-german-content-adapter.mjs'
+      - 'scripts/audit-german-ui-staging.mjs'
+      - 'scripts/audit-german-full-release-readiness.mjs'
+      - 'scripts/test-german-unavailable-language-notice.mjs'
+      - 'assets/i18n/boot.js'
+      - 'assets/i18n/locale.js'
+      - 'index.html'
+      - 'scripts/audit-german-lesson-flow-staging.mjs'
+      - 'scripts/test-german-dynamic-ui-staging.mjs'
+      - 'scripts/test-german-ui-renderer-staging.mjs'
+      - 'qa/german-ui-staging-preview.html'
+      - 'scripts/audit-german-quran-premium-staging.mjs'
+      - 'scripts/audit-german-quran-meaning-inventory.mjs'
+      - 'scripts/test-german-fatiha-meaning-staging.mjs'
+      - 'scripts/test-german-ikhlas-meaning-staging.mjs'
+      - 'scripts/test-german-falaq-meaning-staging.mjs'
+      - 'scripts/test-german-nas-meaning-staging.mjs'
+      - 'scripts/test-german-kawthar-meaning-staging.mjs'
+      - 'scripts/test-german-asr-meaning-staging.mjs'
+      - 'scripts/test-german-kafirun-meaning-staging.mjs'
+      - 'scripts/test-german-nasr-meaning-staging.mjs'
+      - 'scripts/test-german-masad-meaning-staging.mjs'
+      - 'scripts/test-german-fil-meaning-staging.mjs'
+      - 'scripts/test-german-quraysh-meaning-staging.mjs'
+      - 'scripts/test-german-maun-meaning-staging.mjs'
+      - 'scripts/test-german-sharh-meaning-staging.mjs'
+      - 'scripts/test-german-tin-meaning-staging.mjs'
+      - 'scripts/test-german-bayyina-meaning-staging.mjs'
+      - 'scripts/test-german-zilzal-meaning-staging.mjs'
+      - 'assets/i18n/quran/de/**'
+      - 'assets/quran/audio/ayah-audio-manifest.json'
+      - 'assets/i18n/german-ui.quran-controls.staging.json'
+      - 'assets/i18n/german-ui.premium-shop.staging.json'
+      - 'assets/i18n/german-ui.dynamic.staging.mjs'
+      - 'assets/i18n/german-ui.chrome.mjs'
+      - 'assets/i18n/german-ui.renderer.staging.mjs'
+      - 'assets/i18n/german-ui.real-lesson.staging.json'
+      - 'assets/i18n/german-ui.lesson-flow.staging.json'
+      - 'assets/i18n/english-ui.js'
+      - 'assets/i18n/german-ui.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-01.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-02.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-03.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-04.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-05.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-06.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-07.staging.json'
+      - 'assets/i18n/german-ui.reference-batch-08.staging.json'
+      - 'scripts/test-german-ui-reference-batch-01.mjs'
+      - 'scripts/test-german-ui-reference-batch-02.mjs'
+      - 'scripts/test-german-ui-reference-batch-03.mjs'
+      - 'scripts/test-german-ui-reference-batch-04.mjs'
+      - 'scripts/test-german-ui-reference-batch-05.mjs'
+      - 'scripts/test-german-ui-reference-batch-06.mjs'
+      - 'scripts/test-german-ui-reference-batch-07.mjs'
+      - 'scripts/test-german-ui-reference-batch-08.mjs'
+      - 'assets/i18n/english-ui.draft.json'
+      - 'assets/i18n/content.js'
       - 'qa/GERMAN_LOCALIZATION_PROGRESS.md'
       - '.github/workflows/german-localization-audit.yml'
   workflow_dispatch:
@@ -20,7 +79,77 @@ jobs:
         with: {node-version: '22'}
       - name: Verify German stage, answers and blocked runtime
         run: node scripts/audit-german-staging.mjs
+      - name: Verify active U01 German runtime staging and ID inventory
+        run: node scripts/audit-german-runtime-staging.mjs
+      - name: Verify German staging against the real source-guarded question adapter
+        run: node scripts/test-german-content-adapter.mjs
+      - name: Audit staged German UI strings and preserved release gate
+        run: node scripts/audit-german-ui-staging.mjs
+      - name: Report German UI gaps and assert live release remains blocked
+        run: node scripts/audit-german-full-release-readiness.mjs
+      - name: Verify selecting German from Turkish settings never shows Turkish failure text
+        run: node scripts/test-german-unavailable-language-notice.mjs
+      - name: Verify first 120 source-matched German UI reference translations remain staging-only
+        run: node scripts/test-german-ui-reference-batch-01.mjs
+      - name: Verify second 120 German UI reference translations and cross-batch source integrity
+        run: node scripts/test-german-ui-reference-batch-02.mjs
+      - name: Verify 120 Shahada and five pillars UI drafts plus full batch 01-03 source integrity
+        run: node scripts/test-german-ui-reference-batch-03.mjs
+      - name: Verify fourth 120 German pillars and faith labels and source integrity
+        run: node scripts/test-german-ui-reference-batch-04.mjs
+      - name: Verify fifth German UI batch, 600 exact source-key drafts and release embargo
+        run: node scripts/test-german-ui-reference-batch-05.mjs
+      - name: Verify 120 German batch 06 onboarding, faith and worship UI labels and 130 missing keys
+        run: node scripts/test-german-ui-reference-batch-06.mjs
+      - name: Verify seventh German UI batch, 840 source keys and 10 remaining reference gaps
+        run: node scripts/test-german-ui-reference-batch-07.mjs
+      - name: Verify final ten German UI reference keys and zero baseline gaps
+        run: node scripts/test-german-ui-reference-batch-08.mjs
+      - name: Verify German lesson intro, feedback, result and XP staging
+        run: node scripts/audit-german-lesson-flow-staging.mjs
+      - name: Verify German dynamic counters, results and fail-closed fallback
+        run: node scripts/test-german-dynamic-ui-staging.mjs
+      - name: Verify isolated German source-guarded UI DOM preview and preserve live language gate
+        run: node scripts/test-german-ui-renderer-staging.mjs
+      - name: Verify German Quran and Premium UI staging without verse fallback
+        run: node scripts/audit-german-quran-premium-staging.mjs
+      - name: Verify 90 Quran ayahs, audio and outstanding German meaning coverage
+        run: node scripts/audit-german-quran-meaning-inventory.mjs
+      - name: Test Fatiha seven-ayah German draft and production fail-closed gate
+        run: node scripts/test-german-fatiha-meaning-staging.mjs
+      - name: Test Ikhlas four-ayah meanings with immutable Arabic and audio guard
+        run: node scripts/test-german-ikhlas-meaning-staging.mjs
+      - name: Test Al-Falaq 5-ayah meaning source/audio identity and production block
+        run: node scripts/test-german-falaq-meaning-staging.mjs
+      - name: Test An-Nas six-ayah source/audio identity and production meaning embargo
+        run: node scripts/test-german-nas-meaning-staging.mjs
+      - name: Test Al-Kawthar meaning drafts and original Arabic/audio guard
+        run: node scripts/test-german-kawthar-meaning-staging.mjs
+      - name: Test Al-Asr meaning draft Arabic/audio identity and embargo
+        run: node scripts/test-german-asr-meaning-staging.mjs
+      - name: Verify Kafirun 6-ayah meaning draft identities and no-public-release checks
+        run: node scripts/test-german-kafirun-meaning-staging.mjs
+      - name: Verify An-Nasr 3-ayah German meaning drafts and original Arabic/audio release protection
+        run: node scripts/test-german-nasr-meaning-staging.mjs
+      - name: Test Al-Masad five German meaning drafts against Arabic/audio and blocked release
+        run: node scripts/test-german-masad-meaning-staging.mjs
+      - name: Verify Al-Fil 5-ayah German Quran drafts and release gate
+        run: node scripts/test-german-fil-meaning-staging.mjs
+      - name: Verify Quraysh 4 German meaning drafts and original Quran audio/Arabic gate
+        run: node scripts/test-german-quraysh-meaning-staging.mjs
+      - name: Verify Al-Maun 7-ayah German meaning drafts, source integrity and release gate
+        run: node scripts/test-german-maun-meaning-staging.mjs
+      - name: Test Ash-Sharh 8-ayah German Quran draft source identities and closed release
+        run: node scripts/test-german-sharh-meaning-staging.mjs
+      - name: Verify At-Tin eight German meaning drafts and Arabic/audio embargo
+        run: node scripts/test-german-tin-meaning-staging.mjs
+      - name: Test Al-Bayyina 8 Quran meaning drafts, Arabic/audio provenance and blocked production
+        run: node scripts/test-german-bayyina-meaning-staging.mjs
+      - name: Verify all 90 Quran German meaning drafts source/audio identity and 0 published
+        run: node scripts/test-german-zilzal-meaning-staging.mjs
       - name: Existing English question bank remains complete
         run: node scripts/audit-english-questions.mjs --require-complete
+      - name: Existing English runtime adapter remains valid
+        run: node scripts/audit-english-runtime.mjs
       - name: Release hashes remain valid
         run: node scripts/build-release-manifest.mjs --check

@@ -51,7 +51,7 @@
       continueReady:!graded||(
         !!continueBtn &&
         continueBtn.disabled===false &&
-        /(?:devam|continue|متابعة)/i.test(continueBtn.textContent||'')
+        /(?:devam|continue|متابعة|weiter|fortfahren)/i.test(continueBtn.textContent||'')
       ),
       handoffRuntime:typeof window.DEEN_FILL_FEEDBACK_HANDOFF?.snapshot==='function',
       arbiter:!!window.completeQuestion?.__deen9953&&!!window.nextQuestion?.__deen9953

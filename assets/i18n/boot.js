@@ -29,8 +29,38 @@
   const language=overlay.querySelector('[data-language]');language.hidden=!boot.error;language.textContent=T('changeLanguage');
   const phone=document.querySelector('.phone');if(phone)phone.inert=true;
  }
+ function localGermanQAPreview(){
+  const m=window.__DEEN_CONTENT_MANIFEST__;
+  return m?.__deenSyntheticGermanQA===true&&['127.0.0.1','localhost'].includes(window.location.hostname);
+ }
+ function germanProductionGate(){
+  const c=window.__DEEN_CONTENT_MANIFEST__?.languages?.de;
+  return c?.question_data==='complete'&&c?.global_qa==='passed'
+   &&c?.religious_expert_approved===true
+   &&c?.native_reviewer_approved===true&&c?.rights_reviewed===true
+   &&c?.ui_release_ready===true&&c?.quran_meanings_approved===true
+   &&c?.production_bridge_ready===true;
+ }
+ async function prepareGermanPresentation(){
+  if(locale()!=='de'||localGermanQAPreview())return;
+  if(!germanProductionGate())throw Error('DE_GERMAN_PRODUCTION_RELEASE_BLOCKED');
+  const c=window.__DEEN_CONTENT_MANIFEST__.languages.de;
+  const path='./assets/i18n/german-ui.production.mjs?build='+encodeURIComponent(build);
+  if(!/^[a-f0-9]{64}$/.test(c.production_bridge_sha256||''))
+   throw Error('DE_GERMAN_PRODUCTION_BRIDGE_HASH_MISSING');
+  const response=await fetch(path,{cache:'no-store'});
+  if(!response.ok)throw Error('DE_GERMAN_BRIDGE_HTTP:'+response.status);
+  const source=await response.text();
+  const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(source));
+  const hash=[...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,'0')).join('');
+  if(hash!==c.production_bridge_sha256)throw Error('DE_GERMAN_BRIDGE_INTEGRITY_FAILED');
+  const module=await import(path);
+  await module.installGermanProductionUI({manifest:window.__DEEN_CONTENT_MANIFEST__,
+   documentRef:document,win:window});
+ }
  function progress(done,total){if(boot.phase!=='preparing')return;boot.taskCount=total;boot.progress=Math.min(95,Math.floor(done/total*90));render();}
  async function verify(lang){
+  if(lang==='de'&&!localGermanQAPreview()&&!germanProductionGate())throw Error('DE_GERMAN_RELEASE_APPROVAL_REQUIRED');
   if(!window.DEEN_CONTENT_LOCALE?.available(lang))throw Error('CONTENT_PACK_MISSING:'+lang);
   if(!await window.DEEN_CONTENT_LOCALE.preload(lang))throw Error('CONTENT_LOAD_FAILED:'+lang);
   const base=window.DEEN_CONTENT_LOCALE.inspectBank(window.DEEN_BASE_QUESTIONS||[],lang);
@@ -45,6 +75,7 @@
   ongoing=(async()=>{
    try{
     await verify(locale());
+    await prepareGermanPresentation();
     if(locale()!==document.documentElement.lang)throw Error('LOCALE_MISMATCH');
     window.DEEN_ENGLISH_UI?.localize?.(document.body);window.DEEN_ARABIC_UI?.localize?.(document.body);window.DEEN_ARABIC_PILOT?.localizeChrome?.(document.body);
     boot.progress=100;boot.ready=true;boot.phase='ready';render();document.documentElement.dataset.deenStartup='ready';
@@ -65,7 +96,8 @@
   next=DEEN_APP_LOCALE.normalize(next);if(!next||changing)return false;
   if(document.getElementById('lesson')?.classList.contains('active')){try{toast(T('activeLesson'));}catch(_){}DEEN_APP_LOCALE.renderSettings();return false;}
   if(state.onboarded&&!window.DEEN_CONTENT_LOCALE.available(next)){
-   try{sheet(T('unavailableTitle'),'<p>'+T('unavailableSub')+'</p>');}catch(_){}
+   // Show the requested language's explanation; a German selection must not fail in Turkish.
+   try{const title=window.DEEN_I18N.t('unavailableTitle',{},next),detail=window.DEEN_I18N.t('unavailableSub',{},next);sheet(title,'<p>'+detail+'</p>');}catch(_){}
    DEEN_APP_LOCALE.renderSettings();return false;
   }
   changing=true;

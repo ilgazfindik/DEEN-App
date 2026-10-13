@@ -58,7 +58,12 @@
      for(let i=0;i<packs.length;i++){
       const pack=packs[i];
       if(pack.locale!==lang||pack.schema_version!==1||pack.expert_approved!==false||pack.verified_by_religious_expert!==false||Object.keys(pack.translations||{}).length!==config.parts[i].count)throw Error('CONTENT_SCHEMA:'+config.parts[i].path);
-      for(const [id,entry] of Object.entries(pack.translations)) (questions[id]||(questions[id]=[])).push(entry);
+      for(const [id,entry] of Object.entries(pack.translations)) {
+       // German must not admit an invalid stored/legacy variant merely because it
+       // is absent from the initial 1,484 active-question snapshot.
+       if(lang==='de'&&!validate(entry?.source,entry))throw Error('CONTENT_VARIANT_INVALID:'+id);
+       (questions[id]||(questions[id]=[])).push(entry);
+      }
       window.DEEN_BOOT?.progress?.(i+1,packs.length);
      }
     }else{const pack=await json({path:config.bank});if(pack.locale!==lang||pack.schema_version!==1||pack.expert_approved!==false||!pack.questions)return false;Object.assign(questions,pack.questions);}
@@ -72,7 +77,7 @@
  function qaReady(lang,config){return config?.global_qa==='passed'||lang==='en'&&config?.global_qa==='pending'&&window.__DEEN_LOCALIZATION_QA__===true}
  function available(lang){const config=manifest()?.languages?.[lang];return ['tr','ar'].includes(lang)||config?.question_data==='complete'&&qaReady(lang,config)}
  function translateText(text,lang=window.DEEN_APP_LOCALE.get()){
-  if(lang!=='en')return text;
+  if(lang!=='en'&&lang!=='de')return text;
   const sourceText=String(text),tables=loaded.get(lang)?.questions;
   if(!tables)return text;
   let current;try{current=session?.questions?.[session.index]}catch(_){}
@@ -87,10 +92,12 @@
   const candidates=tables[source?.id]||[];
   for(const e of Array.isArray(candidates)?candidates:[candidates])if(validate(source,e)){const value=lookup(e);if(value)return value;
    const stripped=String(e.source.question_tr).replace(/^(?:Boşluğu tamamla|Eksik kavramı seç|Kayıp kelime(?:yi bul)?|İpucu olmadan tamamla|Boşluğu doldur):\s*/i,'');
-   if(stripped===sourceText)return e.display.question_tr.replace(/^(?:Complete the sentence|Choose the missing concept|Missing word|Find the missing word|Complete without a hint|Fill in the blank):\s*/i,'');
+   if(stripped===sourceText){const prefix=lang==='de'?/^(?:Ergänze die Lücke|Ergänze den Satz|Finde das fehlende Wort|Wähle den fehlenden Begriff|Fülle die Lücke aus):\s*/i:/^(?:Complete the sentence|Choose the missing concept|Missing word|Find the missing word|Complete without a hint|Fill in the blank):\s*/i;return e.display.question_tr.replace(prefix,'');}
   }
+  // A known German source must never borrow the translation of a different question variant.
+  if(lang==='de'&&source?.id)return text;
   // Shared hints and labels use the same guarded pack entries, never an independent language bank.
-  if(!loaded.get(lang).textMap){const map=new Map();for(const entries of Object.values(tables))for(const e of Array.isArray(entries)?entries:[entries]){const s=e.source,d=e.display;for(const k of ['question_tr','explanation_tr','correct_answer'])if(typeof s[k]==='string'&&!map.has(s[k]))map.set(s[k],d[k]);for(const k of ['options_tr','items','correct_order'])for(let i=0;i<(s[k]?.length||0);i++)if(!map.has(s[k][i]))map.set(s[k][i],d[k][i]);for(let i=0;i<(s.pairs?.length||0);i++)for(const k of ['left','right'])if(!map.has(s.pairs[i][k]))map.set(s.pairs[i][k],d.pairs[i][k]);}loaded.get(lang).textMap=map;}
+  if(!loaded.get(lang).textMap){const map=new Map(),conflicts=new Set();const add=(key,value)=>{if(typeof key!=='string'||typeof value!=='string')return;if(lang==='de'&&map.has(key)&&map.get(key)!==value){map.delete(key);conflicts.add(key);return;}if(!conflicts.has(key)&&!map.has(key))map.set(key,value);};for(const entries of Object.values(tables))for(const e of Array.isArray(entries)?entries:[entries]){const s=e.source,d=e.display;for(const k of ['question_tr','explanation_tr','correct_answer'])add(s[k],d[k]);for(const k of ['options_tr','items','correct_order'])for(let i=0;i<(s[k]?.length||0);i++)add(s[k][i],d[k]?.[i]);for(let i=0;i<(s.pairs?.length||0);i++)for(const k of ['left','right'])add(s.pairs[i][k],d.pairs?.[i]?.[k]);}loaded.get(lang).textMap=map;}
   return loaded.get(lang).textMap.get(sourceText)||text;
  }
  window.DEEN_CONTENT_LOCALE=Object.freeze({preload,translateQuestion,translateText,inspectBank,validate,available,manifest,version:'global-content-guard-v2'});

@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U01",
+  "scope": "live_runtime_staging",
+  "stage": "U01-S03",
+  "question_count": 12,
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_commit": "a3ab868b762c4431410057fa8e937d87c73048a9",
+  "translations": {
+    "DEEN-U01-S03-P01": {
+      "source": {
+        "question_tr": "İmanla ibadet arasındaki farkı hangisi iyi anlatıyor?",
+        "explanation_tr": "İman ve ibadet birbirleriyle ilişkili olsa da aynı kavram değildir: iman inancı, ibadet ise kulluk amacı taşıyan uygulamaları ifade eder.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İman inançla, ibadet ise Allah'a kulluk amacı taşıyan davranışlarla ilgilidir",
+          "İman ve ibadet her durumda aynı kavramdır",
+          "İman yalnızca bedensel hareketlerden oluşur",
+          "İbadet yalnızca zihinde gerçekleşen bir düşüncedir"
+        ],
+        "correct_answer": "İman inançla, ibadet ise Allah'a kulluk amacı taşıyan davranışlarla ilgilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage erklärt den Unterschied zwischen Glauben und Gottesdienst richtig?",
+        "explanation_tr": "Glaube und Gottesdienst sind miteinander verbunden, aber nicht dasselbe: Iman bezeichnet die innere Überzeugung, während Gottesdienst Handlungen der Hingabe an Allah umfasst.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Glaube bedeutet Überzeugung; Gottesdienst umfasst Handlungen, mit denen man Allah dient",
+          "Glaube und Gottesdienst sind immer derselbe Begriff",
+          "Glaube besteht nur aus körperlichen Bewegungen",
+          "Gottesdienst ist nur ein Gedanke im Kopf"
+        ],
+        "correct_answer": "Glaube bedeutet Überzeugung; Gottesdienst umfasst Handlungen, mit denen man Allah dient",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Unterschied zwischen Glauben und Gottesdienst",
+        "teaching_card": {
+          "eyebrow": "1 · UNTERSCHIED",
+          "title": "Glaube und Gottesdienst sind nicht dasselbe.",
+          "body": "Glaube bedeutet, innerlich zu glauben und anzunehmen. Gottesdienst umfasst Handlungen der Hingabe an Allah.",
+          "memory": "Merkhilfe: Glaube ist Überzeugung · Gottesdienst ist Hingabe"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P02": {
+      "source": {
+        "question_tr": "Dört kavram, dört açıklama. Eşleri bul.",
+        "explanation_tr": "Bu dört kavram İslam'ın temel çerçevesini oluşturur ve birbirinden farklı ama tamamlayıcı roller üstlenir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Allah'a teslimiyet dini"
+          },
+          {
+            "left": "Müslüman",
+            "right": "Bu dine inanan kişi"
+          },
+          {
+            "left": "İman",
+            "right": "Kalben inanma"
+          },
+          {
+            "left": "İbadet",
+            "right": "Kulluk davranışı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vier Begriffe und vier Erklärungen: Finde die passenden Paare.",
+        "explanation_tr": "Diese vier Begriffe gehören zu den Grundlagen des Islam. Sie haben unterschiedliche, aber einander ergänzende Bedeutungen.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "Eine Religion der Hingabe an Allah"
+          },
+          {
+            "left": "Muslim",
+            "right": "Ein Mensch, der an diese Religion glaubt"
+          },
+          {
+            "left": "Glaube",
+            "right": "Glaube im Herzen"
+          },
+          {
+            "left": "Gottesdienst",
+            "right": "Handlung der Hingabe an Allah"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Grundbegriffe",
+        "teaching_card": {
+          "eyebrow": "2 · VERBINDUNGEN",
+          "title": "Verbinde die Begriffe mit ihren Bedeutungen.",
+          "body": "Wer Begriffe wirklich versteht statt sie nur auswendig zu lernen, kann sich länger daran erinnern.",
+          "memory": "Merkhilfe: Jeder Begriff hat eine klare Aufgabe"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P03": {
+      "source": {
+        "question_tr": "İslam dinin adıdır; Müslüman ise İslam’ı benimseyen kişidir.",
+        "explanation_tr": "İslam ve Müslüman bağlantılı fakat farklı kavramlardır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Islam ist der Name der Religion und Muslim bezeichnet einen Menschen, der den Islam annimmt.",
+        "explanation_tr": "Islam und Muslim sind miteinander verbunden, aber nicht dasselbe.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Islam und Muslim",
+        "teaching_card": {
+          "eyebrow": "3 · RELIGION UND PERSON",
+          "title": "Islam bezeichnet die Religion, Muslim eine Person.",
+          "body": "Diese beiden Begriffe hängen zusammen, bedeuten aber nicht dasselbe.",
+          "memory": "Merkhilfe: Islam → Religion · Muslim → Person"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P04": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İman, ibadet ve ___ birbiriyle ilişkili alanlardır.",
+        "explanation_tr": "Bu ünitede iman, ibadet ve ahlak; İslam'ın temel çerçevesini anlamaya yardımcı olan ilişkili kavramlar olarak ele alınır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "ahlak",
+          "milliyet",
+          "meslek",
+          "şehir"
+        ],
+        "correct_answer": "ahlak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Glaube, Gottesdienst und ______ gehören zusammen.",
+        "explanation_tr": "In dieser Einheit betrachten wir Glauben, Gottesdienst und gutes Verhalten als miteinander verbundene Bereiche, die uns helfen, die Grundzüge des Islam zu verstehen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "guter Charakter",
+          "Nationalität",
+          "Beruf",
+          "Stadt"
+        ],
+        "correct_answer": "guter Charakter",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Grundbegriffe",
+        "teaching_card": {
+          "eyebrow": "4 · DREI VERBUNDENE BEREICHE",
+          "title": "Glaube, Gottesdienst und guter Charakter gehören zusammen.",
+          "body": "Überzeugung, Hingabe und Verhalten sind verschieden, werden aber im Leben gemeinsam betrachtet.",
+          "memory": "Merkhilfe: Glauben · Dienen · Gutes tun"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P05": {
+      "source": {
+        "question_tr": "Hz. Muhammed’in rehberliği hangi iki yönü birlikte taşır?",
+        "explanation_tr": "Bu ünitede Hz. Muhammed, Allah'ın mesajını ileten ve Müslümanlar için yaşayışıyla örnek olan peygamber olarak tanıtılır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'ın mesajını iletmesi ve yaşayışıyla örnek olmasıyla",
+          "Yalnızca tarihî olaylarda yer almasıyla",
+          "Kur'an'ın yerine geçen bağımsız bir kaynak olmasıyla",
+          "Sadece siyasi görevler üstlenmesiyle"
+        ],
+        "correct_answer": "Allah'ın mesajını iletmesi ve yaşayışıyla örnek olmasıyla",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Inwiefern war der Prophet Muhammad sowohl Überbringer einer Botschaft als auch Vorbild?",
+        "explanation_tr": "Muhammad wird in dieser Einheit als Prophet vorgestellt, der Allahs Botschaft überbrachte und den Muslimen durch sein Leben ein Vorbild gab.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Er überbringt Allahs Botschaft und ist durch sein Leben ein Vorbild",
+          "Er kommt nur in historischen Ereignissen vor",
+          "Er ist eine unabhängige Quelle, die den Koran ersetzt",
+          "Er übernimmt lediglich politische Aufgaben"
+        ],
+        "correct_answer": "Er überbringt Allahs Botschaft und ist durch sein Leben ein Vorbild",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Vorbild des Propheten",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P06": {
+      "source": {
+        "question_tr": "Hangisi iman, ibadet ve ahlak ilişkisine uymaz?",
+        "explanation_tr": "Kavramlar farklıdır; ancak ünitede birbirleriyle ilişkili ele alınır.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman kalpteki kabulle ilgilidir.",
+          "İbadet kulluk davranışlarıyla ilgilidir.",
+          "Ahlak tutum ve davranışlarla ilgilidir.",
+          "Üç kavramın hiçbir bağlantısı yoktur."
+        ],
+        "correct_answer": "Üç kavramın hiçbir bağlantısı yoktur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage passt nicht zum Verhältnis von Glauben, Gottesdienst und gutem Charakter?",
+        "explanation_tr": "Die Begriffe sind verschieden, werden in der Lektion jedoch als zusammengehörig behandelt.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Glaube bedeutet innere Zustimmung.",
+          "Gottesdienst umfasst Handlungen der Hingabe an Allah.",
+          "Guter Charakter zeigt sich in Haltungen und Handlungen.",
+          "Die drei Begriffe haben überhaupt nichts miteinander zu tun."
+        ],
+        "correct_answer": "Die drei Begriffe haben überhaupt nichts miteinander zu tun.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Zusammengehörigkeit der drei Begriffe",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P07": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlakın ilişkisini hangisi dengeli anlatıyor?",
+        "explanation_tr": "İman, ibadet ve ahlak aynı şey değildir; bu ünitede bunların İslam'ın genel çerçevesinde birbirini tamamlayan yönleri öğretilir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Farklı kavramlardır; ancak inanç, kulluk ve davranış bakımından birbirleriyle ilişkilidirler",
+          "Üçü de tamamen aynı anlama gelir",
+          "Yalnızca ibadet önemlidir; iman ve ahlak ikincildir",
+          "Yalnızca ahlak önemlidir; iman ve ibadetin ilişkisi yoktur"
+        ],
+        "correct_answer": "Farklı kavramlardır; ancak inanç, kulluk ve davranış bakımından birbirleriyle ilişkilidirler",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt das Zusammenspiel von Glauben, Gottesdienst und gutem Charakter ausgewogen?",
+        "explanation_tr": "Glaube, Gottesdienst und gutes Verhalten sind nicht dasselbe. In dieser Einheit lernst du, wie sie sich innerhalb der Grundzüge des Islam ergänzen.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Es sind verschiedene Begriffe, die bei Glauben, Hingabe und Verhalten zusammenhängen",
+          "Alle drei bedeuten genau dasselbe",
+          "Nur der Gottesdienst ist wichtig; Glaube und guter Charakter sind nebensächlich",
+          "Nur guter Charakter ist wichtig; Glaube und Gottesdienst spielen keine Rolle"
+        ],
+        "correct_answer": "Es sind verschiedene Begriffe, die bei Glauben, Hingabe und Verhalten zusammenhängen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Begriffe einordnen",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P08": {
+      "source": {
+        "question_tr": "Ahlak, Kur’an ve peygamber… Doğru eşleri bul.",
+        "explanation_tr": "Ahlak, Kur'an ve peygamber kavramları İslam'ın farklı boyutlarını temsil eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ahlak",
+            "right": "Güzel davranış"
+          },
+          {
+            "left": "Kur'an",
+            "right": "Temel kaynak"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Örnek öğretici"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne guten Charakter, Koran und Prophet den richtigen Erklärungen zu.",
+        "explanation_tr": "Gutes Verhalten, der Koran und das Prophetentum stehen für unterschiedliche Aspekte des Islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Guter Charakter",
+            "right": "Gutes Verhalten"
+          },
+          {
+            "left": "Koran",
+            "right": "Grundlegende Quelle"
+          },
+          {
+            "left": "Prophet",
+            "right": "Lehrendes Vorbild"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Grundbegriffe",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P09": {
+      "source": {
+        "question_tr": "İnancın kulluk davranışlarıyla görünür hâle gelmesi ibadet kavramıyla ilişkilidir.",
+        "explanation_tr": "İbadet, Allah’a kulluk amacı taşıyan davranışları anlatır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wenn Glaube durch Handlungen der Hingabe sichtbar wird, ist das mit Gottesdienst verbunden.",
+        "explanation_tr": "Gottesdienst umfasst Handlungen, mit denen man Allah dienen möchte.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Verbindung zwischen Glauben und Handeln",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P10": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Müslümanların temel kutsal kitabı ___.",
+        "explanation_tr": "Bu başlangıç ünitesinde Kur'an, Müslümanların temel kutsal kitabı ve ana rehber kaynağı olarak tanıtılır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Kur’an’dır",
+          "bir tarih kitabıdır",
+          "bir ülke kitabıdır",
+          "yalnızca sözlü gelenektir"
+        ],
+        "correct_answer": "Kur’an’dır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Das grundlegende heilige Buch der Muslime ist der ______.",
+        "explanation_tr": "Diese Einführung stellt den Koran als die zentrale heilige Schrift der Muslime und wichtigste Quelle der Rechtleitung vor.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Koran",
+          "ein Geschichtsbuch",
+          "ein Länderbuch",
+          "nur eine mündliche Überlieferung"
+        ],
+        "correct_answer": "Koran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Vier Grundbegriffe",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P11": {
+      "source": {
+        "question_tr": "Bir arkadaşın “İslam ile Müslüman aynı kelimedir.” diyor. En doğru açıklama hangisi?",
+        "explanation_tr": "İslam bir din, Müslüman ise bu dine inanan ve onu yaşamaya çalışan kişidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Müslüman, İslam dinine inanan ve onu yaşamaya çalışan kişidir",
+          "Müslüman ve İslam aynı anlama gelir",
+          "İslam bir kişi, Müslüman bir dindir",
+          "Bu iki kavram arasında hiçbir bağlantı yoktur"
+        ],
+        "correct_answer": "Müslüman, İslam dinine inanan ve onu yaşamaya çalışan kişidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund sagt: „Islam und Muslim bedeuten dasselbe.“ Was erklärst du?",
+        "explanation_tr": "Der Islam ist eine Religion. Ein Muslim ist ein Mensch, der an diese Religion glaubt und versucht, nach ihr zu leben.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ein Muslim glaubt an den Islam und versucht, nach seiner Lehre zu leben",
+          "Muslim und Islam bedeuten genau dasselbe",
+          "Islam ist eine Person und Muslim ist eine Religion",
+          "Zwischen den beiden Begriffen gibt es keinen Zusammenhang"
+        ],
+        "correct_answer": "Ein Muslim glaubt an den Islam und versucht, nach seiner Lehre zu leben",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Islam und Muslim",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S03-P12": {
+      "source": {
+        "question_tr": "Üç eşleştirme doğrudur. Hangisi yanlıştır?",
+        "explanation_tr": "İman yalnızca dış görünüş değil, kalben inanma ve kabul ile ilgilidir.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Kur’an — temel kutsal kitap",
+          "Peygamber — mesajı ileten örnek rehber",
+          "Ahlak — davranış ve tutumlar",
+          "İman — yalnızca dış görünüş"
+        ],
+        "correct_answer": "İman — yalnızca dış görünüş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Drei Zuordnungen stimmen. Welche ist falsch?",
+        "explanation_tr": "Glaube umfasst inneres Überzeugtsein und Annehmen, nicht bloß den äußeren Anschein.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Koran – das grundlegende heilige Buch",
+          "Prophet – Überbringer der Botschaft und Vorbild",
+          "Guter Charakter – Handlungen und Haltungen",
+          "Glaube – ausschließlich das äußere Erscheinungsbild"
+        ],
+        "correct_answer": "Glaube – ausschließlich das äußere Erscheinungsbild",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Begriffe verbinden",
+        "topic": "Grundbegriffe",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}
