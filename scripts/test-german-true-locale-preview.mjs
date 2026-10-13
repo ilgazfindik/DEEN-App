@@ -867,6 +867,67 @@ try{
  }
 
 
+ // The Quran tab is still the legacy leagueScreen ID. Exercise its actual
+ // navigation under 'de' after both complete reloads, and translate UI
+ // chrome only in a disposable browser while retaining original Arabic.
+ await page.locator('.bottomnav [data-screen="leagueScreen"]').click({timeout:20000});
+ await page.waitForFunction(()=>
+  document.querySelector('.screen.active')?.id==='leagueScreen',null,{timeout:20000});
+ const quranTab=await page.evaluate(async()=>{
+  const root=document.getElementById('leagueScreen');
+  if(!root)throw Error('Quran screen missing');
+  const files=['german-ui.staging.json','german-ui.lesson-flow.staging.json',
+   'german-ui.premium-shop.staging.json','german-ui.quran-controls.staging.json',
+   ...Array.from({length:8},(_,i)=>'german-ui.reference-batch-'+
+    String(i+1).padStart(2,'0')+'.staging.json'),'german-ui.real-lesson.staging.json'];
+  const fetchJson=async name=>{
+   const response=await fetch('/assets/i18n/'+name,{cache:'no-store'});
+   if(!response.ok)throw Error('Quran QA translation pack missing '+name);
+   return response.json();
+  };
+  const [packs,english]=await Promise.all([
+   Promise.all(files.map(fetchJson)),fetchJson('english-ui.draft.json')]);
+  const {createGermanUIStagingRenderer}=await import(
+   '/assets/i18n/german-ui.renderer.staging.mjs');
+  const renderer=createGermanUIStagingRenderer({packs,
+   englishReference:english.translations});
+  const arabicBefore=[...root.querySelectorAll('[lang="ar"]')]
+   .map(el=>({html:el.outerHTML,text:el.textContent}));
+  const srcBefore=[...root.querySelectorAll('audio,source')]
+   .map(el=>({src:el.getAttribute('src'),tag:el.tagName}));
+  const beforeControls=[...root.querySelectorAll('button')]
+   .map(el=>({label:el.textContent?.trim().slice(0,130),
+    title:el.getAttribute('title'),
+    role:el.getAttribute('aria-label'),
+    html:el.outerHTML.slice(0,260)})).slice(0,40);
+  const audit=renderer.render(root,{qaMode:true,locale:'de',documentRef:document});
+  const arabicAfter=[...root.querySelectorAll('[lang="ar"]')]
+   .map(el=>({html:el.outerHTML,text:el.textContent}));
+  const srcAfter=[...root.querySelectorAll('audio,source')]
+   .map(el=>({src:el.getAttribute('src'),tag:el.tagName}));
+  return {locale:window.DEEN_APP_LOCALE.get(),
+   active:document.querySelector('.screen.active')?.id,
+   heading:root.querySelector('h1,h2,.page-title')?.textContent?.trim()||null,
+   scanned:audit.scanned,writes:audit.writes,
+   unresolved:audit.unresolved,
+   arabicCount:arabicBefore.length,
+   arabicUnchanged:JSON.stringify(arabicBefore)===JSON.stringify(arabicAfter),
+   audioReferencesUnchanged:JSON.stringify(srcBefore)===JSON.stringify(srcAfter),
+   audioSources:srcAfter,controls:beforeControls,
+   synthetic:window.__DEEN_CONTENT_MANIFEST__?.__deenSyntheticGermanQA===true};
+ });
+ report.quran_tab=quranTab;
+ assert.equal(quranTab.locale,'de');
+ assert.equal(quranTab.active,'leagueScreen');
+ assert.equal(quranTab.synthetic,true);
+ assert(quranTab.scanned>15,'Quran tab did not render content for German QA');
+ assert.equal(quranTab.arabicUnchanged,true,'Original Quran Arabic was rewritten');
+ assert.equal(quranTab.audioReferencesUnchanged,true,
+  'The German Quran UI renderer rewrote an audio source');
+ assert.deepEqual(quranTab.unresolved,[],
+  'Turkish Quran tab UI chrome remains in German QA');
+ await page.screenshot({path:output+'/true-locale-german-quran-tab.png',fullPage:true});
+
  // Exercise full first-run onboarding without assigning state.onboarded in QA.
  // A new browser context intentionally has no prior localStorage or progress.
  const fresh=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
