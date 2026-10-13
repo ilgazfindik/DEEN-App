@@ -1749,7 +1749,7 @@ try{
      arabicUnchanged:JSON.stringify(arBefore)===
       JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent)),
      audioSrcUnchanged:JSON.stringify(srcBefore)===
-      JSON.stringify([...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src')),
+      JSON.stringify([...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src'))),
      textMatchesOriginal:displayed===textOriginal?.replace(/\s+/g,' ').trim()};
    },{ayah,step});
    report.quran_ikhlas.learn.push(view);
