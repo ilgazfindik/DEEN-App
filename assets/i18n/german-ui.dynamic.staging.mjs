@@ -96,6 +96,8 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   'AYETİ TAMAMLA':'VERS ABSCHLIESSEN',
   'DEVAM ET':'WEITER',
   'GERİ':'ZURÜCK',
+  'Ayet kıraati':'Versrezitation',
+  'Dinlemek için oynat düğmesine dokun.':'Tippe auf die Wiedergabetaste, um den Vers anzuhören.',
   'Ayet sesini duraklat':'Verswiedergabe pausieren',
   'Ayet sesi duraklatıldı.':'Verswiedergabe pausiert.',
   'Ayet sesi tamamlandı. Tekrar dinlemek için hoparlöre dokun.':
