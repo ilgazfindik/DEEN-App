@@ -218,6 +218,9 @@ for(const [source,german] of stage10FourSuras){
  assert.equal(fmt(source+' · 6 / 5'),null,'Stage 10 quiz cap');
 }
 
+// Badge unlock toast from the Bayyina 5th graded-question milestone.
+assert.equal(fmt('Yeni madalya açıldı!'),'Neue Medaille freigeschaltet!',
+ 'Badge toast must remain German after a Quran quiz milestone');
 const cases=[
  ['Doğru. Devam edebilirsin.','Richtig. Du kannst weitermachen.'],
  ["Olmadı ama sorun değil; açıklama bize yolu gösterir.","Das war noch nicht richtig. Die Erklärung hilft dir, es zu verstehen."],
