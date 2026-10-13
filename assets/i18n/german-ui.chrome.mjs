@@ -59,7 +59,7 @@ export function translateGermanChrome(input){
  if((m=/^ADAPTİF TEKRARI BAŞLAT\s*·\s*(\d+)\s*SORU$/.exec(text)))
   return emit('ADAPTIVE WIEDERHOLUNG STARTEN · '+m[1]+' FRAGEN');
  if((m=/^Ayet\s+(\d+)\s*\/\s*(\d+)\s*·\s*Son çalışma:\s*(Bugün|Henüz çalışma yok)$/.exec(text)))
-  return emit('Vers '+m[1]+' / '+m[2]+' · Zuletzt geübt: '+(m[3]==='Bugün'?'Heute':'Noch nicht gelernt'));
+  return emit('Vers '+m[1]+' / '+m[2]+' · Zuletzt geübt: '+(m[3]==='Bugün'?'Heute':'Noch keine Übung'));
  if((m=/^Geçmek için\s*%(\d{1,3})\s*veya üzeri gerekiyor\.$/.exec(text)))
   return emit('Zum Bestehen sind mindestens '+m[1]+' % erforderlich.');
  if((m=/^ÖĞREN\s*·\s*AŞAMA\s*(\d+)\s*\/\s*(\d+)$/.exec(text)))
