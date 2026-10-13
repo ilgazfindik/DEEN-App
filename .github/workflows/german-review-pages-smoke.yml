@@ -5,6 +5,7 @@ on:
     paths:
       - 'de-review/**'
       - 'scripts/test-german-review-pages-smoke.mjs'
+      - 'scripts/test-german-review-chrome-fixes.mjs'
       - '.github/workflows/german-review-pages-smoke.yml'
   workflow_dispatch:
 jobs:
