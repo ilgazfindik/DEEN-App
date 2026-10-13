@@ -5,6 +5,7 @@
  * question answers, untranslated Quran meanings or Arabic recitation.
  */
 import {formatGermanDynamicText} from './german-ui.dynamic.staging.mjs';
+import {translateGermanReviewChrome} from './german-review-chrome-fixes.mjs';
 
 // Do not process graded/source-signature-dependent lesson content with a generic UI lookup.
 // Only the question adapter, after source/answer verification, may translate these fields.
@@ -41,6 +42,8 @@ export function createGermanUIStagingRenderer({packs,englishReference}={}){
  function translate(value){
   if(typeof value!=='string')return null;
   const trimmed=value.trim();if(!trimmed||/[\u0600-\u06ff]/u.test(trimmed))return null;
+  const reviewFix=translateGermanReviewChrome(value);
+  if(reviewFix!==null)return reviewFix;
   const exact=dictionary.get(trimmed);
   if(exact&&exact!==trimmed)return value.replace(trimmed,exact);
   const dynamic=formatGermanDynamicText(value,{translateLabel:text=>dictionary.get(text)||null});
