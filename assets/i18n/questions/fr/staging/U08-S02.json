@@ -1,0 +1,531 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U08",
+  "stage": "U08-S02",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U08-S02-001": {
+      "source": {
+        "question_tr": "Kehf 18:110'da Hz. Muhammed kendisini nasıl tanıtır?",
+        "explanation_tr": "Kehf 18:110 Hz. Muhammed'in insan oluşunu ve onu ayıran vahiy gerçeğini birlikte vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sizin gibi bir insanım; bana vahyediliyor",
+          "İnsanüstü bir ilahım",
+          "Bir melek olduğumu söylüyorum",
+          "Vahiy almayan sıradan bir liderim"
+        ],
+        "correct_answer": "Sizin gibi bir insanım; bana vahyediliyor",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment Muhammad se présente-t-il dans Al-Kahf 18:110 ?",
+        "explanation_tr": "Le verset souligne à la fois l’humanité de Muhammad et le fait qu’il reçoit la révélation.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Je suis un être humain comme vous, auquel la révélation est faite",
+          "Je suis une divinité surhumaine",
+          "Je prétends être un ange",
+          "Je suis un simple chef ne recevant aucune révélation"
+        ],
+        "correct_answer": "Je suis un être humain comme vous, auquel la révélation est faite",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-002": {
+      "source": {
+        "question_tr": "Kur'an, peygamberlerin insan oluşunu peygamberliğe aykırı bir durum olarak görür.",
+        "explanation_tr": "Enbiyâ 21:7-8 ve Kehf 18:110 peygamberlerin insan oluşunu açıkça bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le Coran considère que le fait d’être humain est incompatible avec la mission de prophète.",
+        "explanation_tr": "Al-Anbiya 21:7-8 et Al-Kahf 18:110 présentent explicitement les prophètes comme des êtres humains.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-003": {
+      "source": {
+        "question_tr": "Kehf 18:110'da Hz. Muhammed, 'Ben de sizin gibi bir ______' der.",
+        "explanation_tr": "Ayette Hz. Peygamber'in beşer oluşu açıkça belirtilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "insanım",
+          "meleğim",
+          "ilahım",
+          "kralım"
+        ],
+        "correct_answer": "insanım",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans Al-Kahf 18:110, Muhammad dit : « Je suis un ______ comme vous. »",
+        "explanation_tr": "Le verset rappelle expressément la nature humaine du Prophète.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "être humain",
+          "ange",
+          "dieu",
+          "roi"
+        ],
+        "correct_answer": "être humain",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-004": {
+      "source": {
+        "question_tr": "Birisi 'Gerçek peygamber insan olamaz, mutlaka melek olmalıdır' diyor. Hangi bilgi bu iddiayı düzeltir?",
+        "explanation_tr": "Kur'an peygamberlerin insanlardan seçildiğini ve kendilerine vahyedildiğini bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Enbiyâ 21:7 daha önce de vahiy alan insan peygamberler gönderildiğini bildirir",
+          "Kur'an bütün peygamberleri melek sayar",
+          "Peygamberlik insanla ilişkisizdir",
+          "Vahiy yalnız meleklere iner"
+        ],
+        "correct_answer": "Enbiyâ 21:7 daha önce de vahiy alan insan peygamberler gönderildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un affirme : « Un véritable prophète ne peut pas être humain ; il doit nécessairement être un ange. » Quelle information réfute cette affirmation ?",
+        "explanation_tr": "Le Coran indique que des prophètes humains ont été choisis et ont reçu la révélation.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Anbiya 21:7 indique que des êtres humains recevant la révélation ont été envoyés auparavant",
+          "Le Coran présente tous les prophètes comme des anges",
+          "La prophétie n’a aucun rapport avec l’humanité",
+          "La révélation ne descend que sur les anges"
+        ],
+        "correct_answer": "Al-Anbiya 21:7 indique que des êtres humains recevant la révélation ont été envoyés auparavant",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-005": {
+      "source": {
+        "question_tr": "Bir notta 'Peygamberler yemek yemez ve ölümsüzdür' yazıyor. Düzeltme hangisidir?",
+        "explanation_tr": "Enbiyâ 21:8 peygamberlerin insanî beden özelliklerine sahip olduğunu ve ölümsüz olmadığını vurgular.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Enbiyâ 21:8 onların yemek yiyen ve ölümsüz olmayan insanlar olduğunu bildirir",
+          "Kur'an peygamberleri ölümsüz ilahlar sayar",
+          "Peygamberler yalnız ruhtur",
+          "Peygamberler hiç yaşamamıştır"
+        ],
+        "correct_answer": "Enbiyâ 21:8 onların yemek yiyen ve ölümsüz olmayan insanlar olduğunu bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note déclare : « Les prophètes ne mangent pas et sont immortels. » Comment la corriger ?",
+        "explanation_tr": "Al-Anbiya 21:8 rappelle qu’ils avaient des corps humains et n’étaient pas immortels.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Anbiya 21:8 montre qu’ils mangeaient et n’étaient pas immortels",
+          "Le Coran décrit les prophètes comme des divinités immortelles",
+          "Les prophètes ne sont que des esprits",
+          "Les prophètes n’ont jamais vécu"
+        ],
+        "correct_answer": "Al-Anbiya 21:8 montre qu’ils mangeaient et n’étaient pas immortels",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-006": {
+      "source": {
+        "question_tr": "İfadeleri doğru kavramlarla eşleştir.",
+        "explanation_tr": "Kur'an peygamberlerin insan oluşunu ve vahiy alan elçiler oluşunu birlikte anlatır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İnsan oluş",
+            "right": "Yeme, yaşama ve ölümlülük gibi beşerî özellikler"
+          },
+          {
+            "left": "Vahiy",
+            "right": "Peygamberi sıradan bilgiden ayıran ilahî bildirim"
+          },
+          {
+            "left": "Risalet",
+            "right": "Vahyi insanlara ulaştırma görevi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les expressions aux notions correspondantes.",
+        "explanation_tr": "Le Coran décrit ensemble l’humanité des prophètes et leur mission liée à la révélation.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Humanité",
+            "right": "Caractéristiques humaines telles que se nourrir, vivre et mourir"
+          },
+          {
+            "left": "Révélation",
+            "right": "Message divin distinguant la mission du prophète"
+          },
+          {
+            "left": "Mission prophétique",
+            "right": "Charge de transmettre la révélation aux humains"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-007": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:144 Hz. Muhammed hakkında hangi gerçeği hatırlatır?",
+        "explanation_tr": "Ayet Hz. Muhammed'in elçi ve beşer olduğunu, önceki elçiler gibi fâni olduğunu vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Onun bir elçi olduğunu ve kendisinden önce de elçilerin gelip geçtiğini",
+          "Onun ölümsüz olduğunu",
+          "Onun ilah olduğunu",
+          "Ondan önce hiç peygamber gelmediğini"
+        ],
+        "correct_answer": "Onun bir elçi olduğunu ve kendisinden önce de elçilerin gelip geçtiğini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel fait concernant Muhammad est rappelé dans Al-Imran 3:144 ?",
+        "explanation_tr": "Le verset souligne qu’il est un messager humain et mortel, comme les messagers qui l’ont précédé.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Il est un messager et d’autres messagers sont passés avant lui",
+          "Il est immortel",
+          "Il est une divinité",
+          "Aucun prophète ne l’a précédé"
+        ],
+        "correct_answer": "Il est un messager et d’autres messagers sont passés avant lui",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-008": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Peygamber insan olduğu için vahiy alamaz' diyor. En doğru cevap hangisidir?",
+        "explanation_tr": "Enbiyâ 21:7 ve Kehf 18:110 insan oluş ile vahyin birbiriyle çelişmediğini gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an insan peygamberlere vahyedildiğini açıkça bildirir",
+          "Vahiy yalnız cansız varlıklara gelir",
+          "İnsan olmak peygamberliği imkânsız kılar",
+          "Peygamberler kendilerini melek yapar"
+        ],
+        "correct_answer": "Kur'an insan peygamberlere vahyedildiğini açıkça bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Un prophète ne peut pas recevoir de révélation puisqu’il est humain. » Quelle réponse convient ?",
+        "explanation_tr": "Al-Anbiya 21:7 et Al-Kahf 18:110 montrent que l’humanité et la révélation ne sont pas contradictoires.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le Coran précise que des prophètes humains ont reçu la révélation",
+          "La révélation ne concerne que les objets inanimés",
+          "Être humain rend la prophétie impossible",
+          "Les prophètes se transforment eux-mêmes en anges"
+        ],
+        "correct_answer": "Le Coran précise que des prophètes humains ont reçu la révélation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-009": {
+      "source": {
+        "question_tr": "Peygamberi diğer insanlardan ayıran temel hususlardan biri Allah'tan vahiy almasıdır.",
+        "explanation_tr": "Kehf 18:110 Hz. Muhammed'in insan olduğunu, fakat kendisine vahyedildiğini vurgular.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "L’une des caractéristiques principales distinguant les prophètes des autres humains est qu’ils reçoivent la révélation d’Allah.",
+        "explanation_tr": "Al-Kahf 18:110 décrit Muhammad comme un être humain recevant la révélation.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-010": {
+      "source": {
+        "question_tr": "Peygamberlerin insan oluşu ile vahiy almaları arasındaki ilişkiyi bir cümleyle anlat.",
+        "explanation_tr": "Kur'an beşerî özelliklerle vahiy görevini birbirine zıt görmez.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Peygamberler insanlardır; onları peygamber yapan, Allah tarafından seçilip vahiy almaları ve elçilikle görevlendirilmeleridir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Explique en une phrase le lien entre la nature humaine des prophètes et la révélation qu’ils reçoivent.",
+        "explanation_tr": "Le Coran ne considère pas leur nature humaine comme incompatible avec leur mission divine.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Les prophètes sont des êtres humains choisis par Allah pour recevoir et transmettre Sa révélation.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-011": {
+      "source": {
+        "question_tr": "Kehf 18:110'un Hz. Muhammed hakkındaki iki temel vurgusunu yaz.",
+        "explanation_tr": "Ayet insan oluş ve vahiy almayı aynı cümlede birlikte vurgular.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Hz. Muhammed bir insandır ve kendisine Allah'ın birliği hakkında vahiy gelmektedir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Nomme les deux caractéristiques de Muhammad soulignées dans Al-Kahf 18:110.",
+        "explanation_tr": "Le verset réunit son humanité et la révélation qui lui est faite.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Muhammad est un être humain et reçoit une révélation concernant l’unicité d’Allah.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-012": {
+      "source": {
+        "question_tr": "Enbiyâ 21:8'e göre peygamberler yemek yemeyen bedenler değildi ve ______ değillerdi.",
+        "explanation_tr": "Ayet peygamberlerin insanî ve fâni oluşunu hatırlatır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "ölümsüz",
+          "insan",
+          "elçi",
+          "vahiy alan"
+        ],
+        "correct_answer": "ölümsüz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Anbiya 21:8, les prophètes mangeaient et n’étaient pas ______.",
+        "explanation_tr": "Le verset rappelle la nature humaine et mortelle des prophètes.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "immortels",
+          "humains",
+          "messagers",
+          "destinataires de la révélation"
+        ],
+        "correct_answer": "immortels",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-013": {
+      "source": {
+        "question_tr": "Peygamberliği anlamak için kavramları mantıksal sıraya koy.",
+        "explanation_tr": "Bu sıra peygamberliğin seçilme, vahiy ve tebliğ boyutlarını öğretim amacıyla özetler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah bir insanı seçer",
+          "Ona vahiy verir",
+          "Onu elçi olarak görevlendirir",
+          "Elçi vahyi insanlara ulaştırır"
+        ],
+        "correct_order": [
+          "Allah bir insanı seçer",
+          "Ona vahiy verir",
+          "Onu elçi olarak görevlendirir",
+          "Elçi vahyi insanlara ulaştırır"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe logiquement les notions qui permettent de comprendre la prophétie.",
+        "explanation_tr": "Cet ordre pédagogique résume le choix d’un être humain, la révélation et la mission de transmission.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah choisit un être humain",
+          "Il lui transmet la révélation",
+          "Il le charge d’une mission de messager",
+          "Le messager transmet le message aux humains"
+        ],
+        "correct_order": [
+          "Allah choisit un être humain",
+          "Il lui transmet la révélation",
+          "Il le charge d’une mission de messager",
+          "Le messager transmet le message aux humains"
+        ],
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S02-014": {
+      "source": {
+        "question_tr": "Peygamberlerin insan oluşunun eğitsel açıdan önemli sonuçlarından biri hangisidir?",
+        "explanation_tr": "Peygamberlerin insan olması, ilahî mesajın insan hayatında nasıl yaşanabileceğinin görülmesine imkân verir; Hz. Muhammed için Ahzâb 33:21 örnekliği açıkça vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsanların onların hayatından örneklik görebilmesi",
+          "Onların ilah sayılması",
+          "Vahyin gereksizleşmesi",
+          "İnsanların peygamberlere ibadet etmesi"
+        ],
+        "correct_answer": "İnsanların onların hayatından örneklik görebilmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel enseignement découle de la nature humaine des prophètes ?",
+        "explanation_tr": "Leur humanité permet aux fidèles de voir comment appliquer les enseignements dans la vie. Al-Ahzab 33:21 souligne l’exemplarité de Muhammad.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Les humains peuvent trouver dans leur conduite un exemple",
+          "Il faut les considérer comme des divinités",
+          "La révélation devient inutile",
+          "Les humains doivent adorer les prophètes"
+        ],
+        "correct_answer": "Les humains peuvent trouver dans leur conduite un exemple",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les prophètes sont des êtres humains",
+        "topic": "La foi aux messagers d’Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
