@@ -5473,7 +5473,7 @@ window.DEEN_REWARD_BADGE_ART={
   function open(ayah){
     registerContent();
     const q=DEEN_QURAN?.ensureState?.()||state.quranJourney;
-    const selected=Math.max(1,Math.min(4,Number(ayah||q?.profile?.currentAyah||q?.progress?.surahs?.ikhlas?.currentAyah||1)));
+    const selected=Math.max(1,Math.min(4,Number(ayah||q?.progress?.surahs?.ikhlas?.currentAyah||1)));
     session={ayah:selected,step:0,revealed:false};
     try{DEEN_QURAN?.startSurah?.('ikhlas',selected,'learn')}catch(_){}
     sheet('İhlâs Suresi',bodyHtml());
