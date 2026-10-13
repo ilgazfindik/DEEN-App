@@ -44,10 +44,12 @@ for(let i=1;i<=15;i++){
  const rows=baseQuestions.filter(q=>q.id.startsWith('DEEN-'+unit+'-'));
  assert.equal(rows.length,100,'Expected 100 source questions in '+unit);
  sourceQuestions[unit]={source_count:rows.length,
-  staged_count:unit==='U01'?Array.from({length:7},(_,i)=>Object.keys(read('assets/i18n/questions/fr/staging/U01-S'+String(i+1).padStart(2,'0')+'.json').translations).length).reduce((a,b)=>a+b,0):0};
+  staged_count:['U01','U02'].includes(unit)?Array.from({length:7},(_,i)=>
+    Object.keys(read('assets/i18n/questions/fr/staging/'+unit+'-S'+String(i+1).padStart(2,'0')+'.json').translations).length
+   ).reduce((a,b)=>a+b,0):0};
 }
 const report={locale:'fr',production_ready:false,release_locked:true,
- question_total:1500,question_staged:sourceQuestions.U01.staged_count,
+ question_total:1500,question_staged:Object.values(sourceQuestions).reduce((sum,u)=>sum+u.staged_count,0),
  unit_breakdown:sourceQuestions,ui_source_total:map.size,ui_staged:count,
  ui_remaining:map.size-count,ui_reference_base:Object.keys(base.translations).length,
  high_risk_dynamic_cases:highRisk,reference_source:'Turkish keys from German QA packs; no German display strings reused',

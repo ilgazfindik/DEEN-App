@@ -25,4 +25,12 @@
 - S01–S07: 14 + 14 + 14 + 16 + 16 + 12 + 14 = **100/100**.
 - Tamamlanan içerik yalnızca staging'de; canlı gösterim veya uzman onayı yok.
 - `scripts/audit-french-u01-complete.mjs` tüm U01 soru ID, kaynak, doğru cevap konumu, matching çiftleri, boşluk yapısı, metin sızıntıları ve onay kilitlerini denetler.
-- Kalan: U02–U15 **1.400 temel soru**, U01 canlı varyantları, 1.417 UI metni ve dinamik arayüz testleri.
+- Kalan: U03–U15 **1.300 temel soru**, U01 canlı varyantları, 1.417 UI metni ve dinamik arayüz testleri.
+
+## 2026-10-13 — U02 100/100 taslağı
+- U02-S01..S07: 14 + 14 + 14 + 16 + 16 + 12 + 14 = **100/100**.
+- İşlenen kavramlar: Allah’a iman, tevhid, yaratıcı–yaratılan farkı, şükür, Allah’a güven ve sorumluluk.
+- U01 + U02 temel soru toplamı **200/1.500**, kalan **1.300** (U03–U15).
+- `scripts/audit-french-u02-complete.mjs` kaynak, cevap indeksleri, eşleştirme, boşluk ve release-kilidi testlerini çalıştırır.
+- Kalan arayüz envanteri 1.417 Türkçe kaynak anahtarıdır; gerçek tarayıcıdaki ek dinamik metinler ayrıca kontrol edilecektir.
+- FR dinî uzman/anadili Fransızca onayı **verilmedi**, üretim `fr.question_data=missing`, `fr.global_qa=blocked` korunur.
