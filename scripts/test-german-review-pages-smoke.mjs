@@ -79,7 +79,13 @@ try{
    '1 günlük seri',
    'Sonraki seri ödülü: 3 gün',
    'DERS ÖDÜLÜ',
-   'Bu mini ders için akıllı tekrar öneriliyor.'
+   'Bu mini ders için akıllı tekrar öneriliyor.',
+   "Allah'a iman tanımı · %43",
+   'Öğüt bütünlük · %45',
+   '🔥 1 günlük seri',
+   'Sonraki ödül 3 gün',
+   '1. KISIM · 1. ÜNİTE · ✓ TAMAMLANDI',
+   '1-Tage-Serie'
   ];
   const div=document.createElement('section');
   div.id='de-review-screenshot-fixture';
@@ -111,9 +117,15 @@ try{
   'Der nächste Lernschritt wird erst nach Abschluss dieser Etappe freigeschaltet.',
   'Tagesaufgaben 0/3 · Wochenrhythmus 1/5 Tage',
   'Einfacher Einstieg','Lernübersicht','WIEDERHOLUNGSPLAN AKTIV',
-  'AUFGABENTYPEN','WIEDERHOLUNGSPRIORITÄT','1-Tage-Serie',
-  'Nächste Serienbelohnung: nach 3 Tagen','LEKTIONSBELOHNUNG',
-  'Für diese Mini-Lektion empfehlen wir eine gezielte Wiederholung.'
+  'AUFGABENTYPEN','WIEDERHOLUNGSPRIORITÄT','1 Tag in Folge',
+  'Nächste Serienbelohnung: in 3 Tagen','LEKTIONSBELOHNUNG',
+  'Für diese Mini-Lektion empfehlen wir eine gezielte Wiederholung.',
+  'Definition des Glaubens an Allah · 43 %',
+  'Aufrichtigkeit und Integrität · 45 %',
+  '🔥 1 Tag in Folge',
+  'Nächste Belohnung: in 3 Tagen',
+  'ABSCHNITT 1 · EINHEIT 1 · ✓ ABGESCHLOSSEN',
+  '1 Tag in Folge'
  ]);
  assert.equal(screen.arabic,'بِسْمِ ٱللَّهِ');
  assert.equal(screen.protected,'Eşleşen çiftleri bul');
