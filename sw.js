@@ -3,7 +3,7 @@
  * The original SHA-256-pinned loader independently verifies all 67 segments.
  */
 'use strict';
-const VERSION='9408enfiveuiscreens1-ikhlasdeqa1-pwa12';
+const VERSION='9408enfiveuiscreens1-ikhlasdeqa1-pwa13';
 const SHELL='deen-pwa-shell-'+VERSION;
 const MEDIA='deen-pwa-ayah-'+VERSION;
 const VISUAL='deen-pwa-visual-'+VERSION;
@@ -16,6 +16,7 @@ const core=[
  './assets/i18n/boot.js','./assets/i18n/boot.css',
  './assets/i18n/content.js','./assets/i18n/content-support.json',
  './assets/i18n/english-ui.js','./assets/quran/audio/ayah-audio-manifest.json',
+ './assets/quran/audio/word-timings.json',
  // The five pieces form the original 73.9 KB onboarding atlas. They must
  // all exist together after an offline reload (not a partial/empty sprite).
  ...Array.from({length:5},(_,i)=>'./release/v9.9.3-direct/assets/onboarding-hq/atlas.part'+i+'.txt'),
@@ -27,7 +28,8 @@ const isAudio=url=>sameScope(url)&&/^assets\/quran\/audio\/[a-z0-9_-]+\/[a-z0-9_
  .test(url.pathname.slice(ROOT.length));
 const isAssets=url=>sameScope(url)&&
  (/^assets\/i18n\//.test(url.pathname.slice(ROOT.length))||
-  url.pathname.slice(ROOT.length)==='assets/quran/audio/ayah-audio-manifest.json');
+  ['assets/quran/audio/ayah-audio-manifest.json',
+   'assets/quran/audio/word-timings.json'].includes(url.pathname.slice(ROOT.length)));
 const isVisual=url=>sameScope(url)&&
  (/^assets\/(companions|avatar-runtime|clothing-runtime|visual-runtime|badges|combo)\/.+\.(?:png|webp|avif|gif|svg|b64)$/i
    .test(url.pathname.slice(ROOT.length))||
