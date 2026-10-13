@@ -1218,6 +1218,141 @@ try{
   'Untranslated native Fatiha UI across all five stages');
  // No native-German/theological/rights sign-off or public Quran meanings
  // are implied by successful Arabic and MP3 control checks.
+
+ // Complete Fatiha's remaining six ayahs through the real learn/finish
+ // controls; do not forge 'completedAt' or silently unlock memorization.
+ report.quran_fatiha.memorize_and_tests={
+  learned_by_native_ui:false,memorize:null,ayah_test:null,meaning_test:null};
+ for(let ayah=2;ayah<=7;ayah++){
+  for(let step=0;step<5;step++){
+   await page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)')
+    .first().click({timeout:20000});
+  }
+  if(ayah<7)await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session[data-deen-ayah="'+(ayah+1)+'"]',
+   {timeout:20000});
+ }
+ await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session .deen-ikhlas-complete',{timeout:20000});
+ const completedFatiha=await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.stats('fatiha'));
+ assert.equal(completedFatiha.learned,7,'Native Quran Learn flow did not complete seven ayahs');
+ assert.equal(completedFatiha.learnedReady,true);
+ assert.equal(completedFatiha.memReady,false);
+ assert.equal(completedFatiha.meaningUnlocked,false,'Unapproved German meaning test was unlocked');
+ report.quran_fatiha.memorize_and_tests.learned_by_native_ui=true;
+ assert.equal(await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.backToJourney()),true);
+ await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',{timeout:20000});
+ const qRows=page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage');
+ assert((await qRows.count())>=5,'Surah Journey stage list is missing');
+ const memorizeButton=qRows.nth(1).locator('button');
+ const ayahTestButton=qRows.nth(2).locator('button');
+ const meaningButton=qRows.nth(3).locator('button');
+ assert.equal(await memorizeButton.isDisabled(),false,'Memorization remains locked after seven learned ayahs');
+ assert.equal(await ayahTestButton.isDisabled(),false,'Arabic ayah test must be playable without German meanings');
+ assert.equal(await meaningButton.isDisabled(),true,'Unapproved German meaning quiz button must remain locked');
+ const meaningGate=await page.evaluate(()=>{
+  const m=window.DEEN_QURAN_JOURNEY_V2;
+  const before=m.quizSnapshot();
+  const attempted=m.startStage('meaning');
+  return {mealReady:m.mealReady('fatiha'),meaningUnlocked:m.stats('fatiha').meaningUnlocked,
+   attempted,before,after:m.quizSnapshot()};
+ });
+ assert.equal(meaningGate.mealReady,false);
+ assert.equal(meaningGate.meaningUnlocked,false);
+ assert.equal(meaningGate.attempted,false);
+ assert.deepEqual(meaningGate.after,meaningGate.before,'Blocked German meaning quiz generated a question');
+ report.quran_fatiha.memorize_and_tests.meaning_test={
+  status:'gated',realButtonDisabled:true,...meaningGate};
+
+ await memorizeButton.click({timeout:20000});
+ await page.waitForSelector('#v5Sheet[open] .deen-qmulti-mem-session .deen-mem-card',{timeout:20000});
+ const memorizeView=await page.evaluate(()=>{
+  const dialog=document.querySelector('#v5Sheet[open]'),root=dialog.querySelector('.deen-qmulti-mem-session');
+  const arBefore=[...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent);
+  const audioBefore=[...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src'));
+  const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(dialog,
+   {qaMode:true,locale:'de',documentRef:document});
+  return {unresolved:audit.unresolved,
+   title:root.querySelector('.deen-mem-head b')?.textContent?.trim(),
+   stage:root.querySelector('.deen-mem-kicker')?.textContent?.trim(),
+   card:root.querySelector('.deen-mem-card h2')?.textContent?.trim(),
+   reveal:root.querySelector('.deen-mem-btn.secondary.full')?.textContent?.trim(),
+   retry:root.querySelector('.deen-mem-actions .deen-mem-btn.secondary')?.textContent?.trim(),
+   remembered:root.querySelector('.deen-mem-actions .deen-mem-btn:not(.secondary)')?.textContent?.trim(),
+   arabicUnchanged:JSON.stringify(arBefore)===
+    JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent)),
+   sourcesUnchanged:JSON.stringify(audioBefore)===
+    JSON.stringify([...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src'))),
+   meaningReleased:window.__DEEN_CONTENT_MANIFEST__?.languages?.de?.religious_expert_approved};
+ });
+ report.quran_fatiha.memorize_and_tests.memorize=memorizeView;
+ assert.deepEqual(memorizeView.unresolved,[],'Turkish labels remain on native German memorization card');
+ assert.equal(memorizeView.title,'Fâtiha auswendig lernen');
+ assert.match(memorizeView.stage,/^AUSWENDIGLERNSTUFE [1-5] \/ 5$/);
+ assert.equal(memorizeView.reveal,'TEXT ANZEIGEN');
+ assert.equal(memorizeView.remembered,'ICH HABE MICH ERINNERT');
+ assert.equal(memorizeView.retry,'WIEDERHOLEN');
+ assert.equal(memorizeView.arabicUnchanged,true);
+ assert.equal(memorizeView.sourcesUnchanged,true);
+ assert.equal(memorizeView.meaningReleased,false);
+ await page.locator('#v5Sheet[open] .deen-qmulti-mem-session .deen-mem-btn.secondary.full')
+  .click({timeout:15000});
+ const revealedMem=await page.evaluate(()=>{
+  const root=document.querySelector('#v5Sheet[open] .deen-qmulti-mem-session');
+  const actual=root.querySelector('.deen-mem-arabic[lang="ar"]')?.textContent?.replace(/\s+/g,' ').trim();
+  const original=window.DEEN_QURAN_CONTENT.getAyah('fatiha',7)?.arabic?.text?.replace(/\s+/g,' ').trim();
+  return {actual,original,matching:actual===original};
+ });
+ report.quran_fatiha.memorize_and_tests.memorize.revealed=revealedMem;
+ assert.equal(revealedMem.matching,true,'Memorization reveal changed original Quran text');
+ await page.screenshot({path:output+'/true-locale-german-fatiha-memorize.png',fullPage:true});
+
+ // Back through Journey rather than opening a synthetic quiz in a helper DOM.
+ assert.equal(await page.evaluate(()=>window.DEEN_QURAN_JOURNEY_V2.backToJourney()),true);
+ await page.waitForSelector('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage',{timeout:20000});
+ await page.locator('#v5Sheet[open] .deen-qj2-stages .deen-qj2-stage').nth(2)
+  .locator('button').click({timeout:20000});
+ await page.waitForSelector('#v5Sheet[open] .deen-qj2-quiz[data-quiz-stage="ayah"]',{timeout:20000});
+ const ayahQuiz=await page.evaluate(()=>{
+  const dialog=document.querySelector('#v5Sheet[open]');
+  const root=dialog.querySelector('.deen-qj2-quiz[data-quiz-stage="ayah"]');
+  const optsBefore=[...root.querySelectorAll('.deen-qj2-option')].map(el=>el.outerHTML);
+  const arabicBefore=[...root.querySelectorAll('[lang="ar"]')].map(el=>el.textContent);
+  const result=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(dialog,
+   {qaMode:true,locale:'de',documentRef:document});
+  return {unresolved:result.unresolved,
+   heading:root.querySelector('.deen-qj2-qcard h3')?.textContent?.trim(),
+   action:root.querySelector('.deen-qj2-next')?.textContent?.trim(),
+   options:root.querySelectorAll('.deen-qj2-option').length,
+   arabicUnchanged:JSON.stringify(arabicBefore)===
+    JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(el=>el.textContent)),
+   optionsUnchanged:JSON.stringify(optsBefore)===
+    JSON.stringify([...root.querySelectorAll('.deen-qj2-option')].map(el=>el.outerHTML)),
+   meaningUnlocked:window.DEEN_QURAN_JOURNEY_V2.stats('fatiha').meaningUnlocked,
+   snapshot:window.DEEN_QURAN_JOURNEY_V2.quizSnapshot()};
+ });
+ report.quran_fatiha.memorize_and_tests.ayah_test=ayahQuiz;
+ assert.deepEqual(ayahQuiz.unresolved,[],'Turkish UI in German Quran ayah test');
+ assert.equal(ayahQuiz.snapshot?.stage,'ayah');
+ assert.equal(ayahQuiz.snapshot?.answered,false);
+ assert.equal(ayahQuiz.action,'PRÜFEN');
+ assert(ayahQuiz.options>=2,'Arabic ayah test contains too few choices');
+ assert(ayahQuiz.heading&&/^[A-Za-zÄÖÜäöüß]/u.test(ayahQuiz.heading),'Ayah question title missing');
+ assert.equal(ayahQuiz.arabicUnchanged,true,'German QA changed Arabic test text');
+ assert.equal(ayahQuiz.optionsUnchanged,true,'Generic UI renderer changed graded choice signatures');
+ assert.equal(ayahQuiz.meaningUnlocked,false);
+ await page.screenshot({path:output+'/true-locale-german-fatiha-ayah-test.png',fullPage:true});
+ // Verify at least one question can be answered without changing the
+ // meaning gate or losing its source-checked graded options.
+ await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-option').first().click({timeout:15000});
+ await page.locator('#v5Sheet[open] .deen-qj2-quiz .deen-qj2-next').click({timeout:15000});
+ const gradedAyah=await page.evaluate(()=>({
+  ...window.DEEN_QURAN_JOURNEY_V2.quizSnapshot(),
+  meaningUnlocked:window.DEEN_QURAN_JOURNEY_V2.stats('fatiha').meaningUnlocked
+ }));
+ report.quran_fatiha.memorize_and_tests.ayah_test.graded=gradedAyah;
+ assert.equal(gradedAyah.answered,true,'Real Quran ayah grader did not respond');
+ assert.equal(gradedAyah.answers,1);
+ assert.equal(gradedAyah.meaningUnlocked,false);
+
  report.quran_fatiha.real_ayah_audio.review_approved=false;
  report.quran_fatiha.real_ayah_audio.production_release=false;
 
