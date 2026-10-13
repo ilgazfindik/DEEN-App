@@ -866,6 +866,138 @@ try{
   assert.equal(after.syntheticGermanQA,true);
  }
 
+
+ // Exercise full first-run onboarding without assigning state.onboarded in QA.
+ // A new browser context intentionally has no prior localStorage or progress.
+ const fresh=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
+ report.first_run={screens:[],errors:[]};
+ fresh.on('pageerror',error=>report.first_run.errors.push(String(error.stack||error)));
+ fresh.on('console',message=>{
+  if(message.type()==='error')report.first_run.errors.push('console:'+message.text());
+ });
+ try{
+ await fresh.addInitScript(({preview})=>{
+  if(location.hostname!=='127.0.0.1')throw Error('PREVIEW_HOST_NOT_LOCAL');
+  let current;
+  Object.defineProperty(window,'__DEEN_CONTENT_MANIFEST__',{
+   configurable:true,enumerable:true,
+   get(){return current},
+   set(value){
+    if(!value||value.languages?.de?.question_data!=='missing'||value.languages.de.global_qa!=='blocked')
+     throw Error('PREVIEW_DID_NOT_START_FROM_BLOCKED_RELEASE');
+    if(value.languages.de.religious_expert_approved!==false)
+     throw Error('UNEXPECTED_RELEASE_APPROVAL');
+    current=value;
+    // Synthetic approval for this disposable browser ONLY: all source packs
+    // still retain their literal expert_approved:false flags and SHA-256 checks.
+    current.languages.de=structuredClone(preview);
+    current.__deenSyntheticGermanQA=true;
+   }
+  });
+ },{preview:fixture.preview_language_config});
+ await fresh.addInitScript(()=>{
+  const old=console.error;
+  window.__DEEN_FILL_FREEZE_QA_LOG__=[];
+  console.error=function(...args){
+   if(args[0]==='DEEN fill freeze regression failed'&&args[1]){
+    const o=args[1];
+    window.__DEEN_FILL_FREEZE_QA_LOG__.push({
+     reason:o.reason,mode:o.mode,graded:o.graded,
+     failed:[...(o.failed||[])],checks:{...(o.checks||{})},
+     run:o.run,renderer:o.renderer});
+   }
+   return old.apply(this,args);
+  };
+ });
+  const r=await fresh.goto(origin+'/?previewLanguage=1',
+   {waitUntil:'domcontentloaded',timeout:60000});
+  assert.equal(r?.status(),200);
+  await fresh.waitForSelector('#deenLanguageGate [data-locale="de"]',{timeout:90000});
+  assert.equal(await fresh.evaluate(()=>localStorage.getItem('deen_v4_1_state')),null,
+   'Fresh German profile reused prior lesson data');
+  await fresh.locator('#deenLanguageGate [data-locale="de"]').click();
+  assert.equal(await fresh.locator('#deenLanguageGate .deen-language-continue').innerText(),'Weiter');
+  await fresh.locator('#deenLanguageGate .deen-language-continue').click();
+  const recordStep=async(step,key)=>{
+   await fresh.waitForSelector('#v998Onboarding[data-step="'+step+'"]',{timeout:100000});
+   const entry=await fresh.evaluate(({step,key})=>{
+    const root=document.getElementById('v998Onboarding');
+    return {step:Number(root?.dataset?.step),language:root?.lang,
+     heading:root?.querySelector('.v998-copy h1')?.textContent?.trim(),
+     expected:window.DEEN_I18N?.t(key,{},'de')||null,
+     locale:window.DEEN_APP_LOCALE?.get()||null,
+     premature:typeof state==='object'&&state.onboarded===true};
+   },{step,key});
+   report.first_run.screens.push(entry);
+   assert.equal(entry.step,step);
+   assert.equal(entry.language,'de');
+   assert.equal(entry.locale,'de');
+   assert.equal(entry.heading,entry.expected,
+    'Fresh German onboarding screen was not localized: '+step);
+   assert.equal(entry.premature,false,'User marked onboarded before final step');
+   await fresh.screenshot({path:output+'/true-locale-first-run-step-'+step+'.png',fullPage:true});
+  };
+  await recordStep(0,'welcome');
+  await fresh.locator('#v998Onboarding .v998-primary').click();
+  await recordStep(1,'nameTitle');
+  await fresh.locator('#v998Name').fill('DE QA');
+  await fresh.locator('#v998Onboarding .v998-primary').click();
+  await recordStep(2,'ageTitle');
+  await fresh.locator('#v998Onboarding .v998-choice').filter({hasText:'Jugendlicher'}).click();
+  await fresh.locator('#v998Onboarding .v998-primary').click();
+  await recordStep(3,'animalTitle');
+  await fresh.locator('#v998Onboarding [data-animal="owl"]').click();
+  await fresh.locator('#v998Onboarding .v998-primary').click();
+  await recordStep(4,'timeTitle');
+  await fresh.locator('#v998Onboarding .v998-choice').filter({hasText:'10 Minuten'}).click();
+  await fresh.locator('#v998Onboarding .v998-primary').click();
+  await recordStep(5,'ready');
+  const summary=await fresh.locator('#v998Onboarding .v998-summary').innerText();
+  report.first_run.summary=summary;
+  for(const phrase of ['DE QA','Jugendlicher','Eule','10 Minuten','2 kurze Lektionen'])
+   assert(summary.includes(phrase),'German onboarding summary missing '+phrase);
+  await fresh.locator('#v998Onboarding .v998-primary').click();
+  await fresh.waitForFunction(()=>typeof state==='object'&&state?.onboarded===true&&
+   window.DEEN_BOOT?.status?.()?.phase==='ready'&&
+   !document.getElementById('v998Onboarding'),null,{timeout:100000});
+  const completed=await fresh.evaluate(()=>{
+   const persisted=JSON.parse(localStorage.getItem('deen_v4_1_state')||'null');
+   return {language:window.DEEN_APP_LOCALE.get(),
+    persistedLanguage:localStorage.getItem('deen_app_language_v1'),
+    onboarded:state.onboarded,persistedOnboarded:persisted?.onboarded,
+    profile:state.profile?.name,companion:state.profile?.companion,
+    learningProfile:state.learningProfile,minutes:state.minutes,
+    dailyGoal:state.dailyGoal,boot:window.DEEN_BOOT.status().phase};
+  });
+  report.first_run.completed=completed;
+  assert.equal(completed.language,'de');
+  assert.equal(completed.persistedLanguage,'de');
+  assert.equal(completed.onboarded,true);
+  assert.equal(completed.persistedOnboarded,true);
+  assert.equal(completed.profile,'DE QA');
+  assert.equal(completed.companion,'owl');
+  assert.equal(completed.learningProfile,'teen');
+  assert.equal(completed.minutes,10);
+  assert.equal(completed.dailyGoal,2);
+  assert.equal(completed.boot,'ready');
+  await fresh.goto(origin+'/',{waitUntil:'domcontentloaded',timeout:60000});
+  await fresh.waitForFunction(()=>window.DEEN_APP_LOCALE?.get()==='de'&&
+   typeof state==='object'&&state.onboarded===true&&
+   window.DEEN_BOOT?.status?.()?.phase==='ready',
+   null,{timeout:100000});
+  report.first_run.returned=await fresh.evaluate(()=>({
+   locale:window.DEEN_APP_LOCALE.get(),onboarded:state.onboarded,
+   profile:state.profile.name,companion:state.profile.companion,
+   goal:state.dailyGoal,hasOnboarding:!!document.getElementById('v998Onboarding')
+  }));
+  assert.equal(report.first_run.returned.profile,'DE QA');
+  assert.equal(report.first_run.returned.companion,'owl');
+  assert.equal(report.first_run.returned.goal,2);
+  assert.equal(report.first_run.returned.hasOnboarding,false);
+  assert.deepEqual(report.first_run.errors,[],
+   'Fresh German onboarding emitted JavaScript errors');
+ }finally{await fresh.close()}
+
  const newErrors=report.errors.slice(priorErrors);
  const knownDiagnosticPrefix='console:DEEN fill freeze regression failed ';
  const fillMessages=newErrors.filter(line=>line.startsWith(knownDiagnosticPrefix));
