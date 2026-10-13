@@ -23,6 +23,8 @@ on:
       - 'assets/i18n/content-support.json'
       - 'assets/i18n/boot.js'
       - 'assets/i18n/locale.js'
+      - 'index.html'
+      - 'sw.js'
       - 'release/v9.9.3-direct/**'
       - 'qa/german-ui-staging-preview.html'
       - '.github/workflows/german-browser-staging-qa.yml'
