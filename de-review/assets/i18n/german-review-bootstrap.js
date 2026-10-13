@@ -66,7 +66,7 @@
   const [packs,reference,{createGermanUIStagingRenderer}]=await Promise.all([
    Promise.all(UI_PACKS.map(getJSON)),
    getJSON('english-ui.draft.json'),
-   import('./german-ui.renderer.staging.mjs?review=20261013-r3')
+   import('./german-ui.renderer.staging.mjs?review=20261013-r4')
   ]);
   const renderer=createGermanUIStagingRenderer({packs,englishReference:reference.translations});
   let busy=false,queued=false,latest=null,observer;

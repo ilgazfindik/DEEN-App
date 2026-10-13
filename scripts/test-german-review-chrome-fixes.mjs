@@ -41,6 +41,19 @@ const cases=[
  ['Sonraki ödül 3 gün','Nächste Belohnung: in 3 Tagen'],
  ['Sonraki ödül 1 gün','Nächste Belohnung: in 1 Tag'],
  ['Sonraki seri ödülü: 1 gün','Nächste Serienbelohnung: in 1 Tag'],
+  // The learning-memory screenshots: two source fields in one node and metadata percentages.
+ ['İslam Nedir? · Öncelikli','Was ist der Islam? · Hohe Priorität'],
+ ['Allah’a İman · Öncelikli','Glaube an Allah · Hohe Priorität'],
+ ["Allah'a İman · Öncelikli",'Glaube an Allah · Hohe Priorität'],
+ ['Allah’a İman · Gelişiyor · 2 tekrar bekliyor','Glaube an Allah · In Entwicklung · 2 Wiederholungen fällig'],
+ ['13 öğrenilmiş kavram · 13 güçlendirilecek · 0 vadesi gelen','13 Begriffe gelernt · 13 zu festigen · 0 fällige Wiederholungen'],
+ ['1 öğrenilmiş kavram · 1 güçlendirilecek · 0 vadesi gelen','1 Begriff gelernt · 1 zu festigen · 0 fällige Wiederholungen'],
+ ['0 öğrenilmiş kavram · 0 güçlendirilecek · 0 vadesi gelen','0 Begriffe gelernt · 0 zu festigen · 0 fällige Wiederholungen'],
+ ['Öğüt bütünlük · %45','Aufrichtigkeit und Integrität · 45 %'],
+ ['Kavramları eşleştirme · %45','Begriffe zuordnen · 45 %'],
+ ['Temel kavramlar · %45','Grundbegriffe · 45 %'],
+ ['Allah’a iman tanımı · %40','Definition des Glaubens an Allah · 40 %'],
+ ['Kavramların temel dörtlüsü · %100','Vier grundlegende Begriffe · 100 %'],
   ['DERS ÖDÜLÜ','LEKTIONSBELOHNUNG'],
  ['Ritmini koruyorsun','Du hältst deinen Lernrhythmus'],
  ['Bu mini ders için akıllı tekrar öneriliyor.','Für diese Mini-Lektion empfehlen wir eine gezielte Wiederholung.'],
@@ -53,7 +66,11 @@ for(const unexpected of [
  "Öğüt bütünlük · %112",
  "1. KISIM · 1. ÜNİTE · ✓ HAZIR",
  "Allah'a iman tanımı herhangi bir cevaptır",
- "1 günlüğüne seri"
+ "1 günlüğüne seri",
+ "13 öğrenilmiş kavram · 13 güçlendirilecek · 0 ayet",
+ "İslam Nedir? · Yanlış cevap",
+ "Temel kavramlar · %101",
+ "Başka konu · %45"
 ])assert.equal(translateGermanReviewChrome(unexpected),null,'Unsafe transformation: '+unexpected);
 for(const untouched of [
  'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ',

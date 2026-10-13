@@ -5,7 +5,7 @@
  * question answers, untranslated Quran meanings or Arabic recitation.
  */
 import {formatGermanDynamicText} from './german-ui.dynamic.staging.mjs';
-import {translateGermanReviewChrome} from './german-review-chrome-fixes.mjs?review=20261013-r3';
+import {translateGermanReviewChrome} from './german-review-chrome-fixes.mjs?review=20261013-r4';
 
 // Do not process graded/source-signature-dependent lesson content with a generic UI lookup.
 // Only the question adapter, after source/answer verification, may translate these fields.

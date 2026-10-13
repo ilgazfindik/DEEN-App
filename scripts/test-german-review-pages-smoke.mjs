@@ -85,7 +85,14 @@ try{
    '🔥 1 günlük seri',
    'Sonraki ödül 3 gün',
    '1. KISIM · 1. ÜNİTE · ✓ TAMAMLANDI',
-   '1-Tage-Serie'
+   '1-Tage-Serie',
+   'İslam Nedir? · Öncelikli',
+   'Allah’a İman · Öncelikli',
+   '13 öğrenilmiş kavram · 13 güçlendirilecek · 0 vadesi gelen',
+   '1 öğrenilmiş kavram · 1 güçlendirilecek · 0 vadesi gelen',
+   'Öğüt bütünlük · %45',
+   'Kavramları eşleştirme · %45',
+   'Temel kavramlar · %45'
   ];
   const div=document.createElement('section');
   div.id='de-review-screenshot-fixture';
@@ -125,7 +132,14 @@ try{
   '🔥 1 Tag in Folge',
   'Nächste Belohnung: in 3 Tagen',
   'ABSCHNITT 1 · EINHEIT 1 · ✓ ABGESCHLOSSEN',
-  '1 Tag in Folge'
+  '1 Tag in Folge',
+  'Was ist der Islam? · Hohe Priorität',
+  'Glaube an Allah · Hohe Priorität',
+  '13 Begriffe gelernt · 13 zu festigen · 0 fällige Wiederholungen',
+  '1 Begriff gelernt · 1 zu festigen · 0 fällige Wiederholungen',
+  'Aufrichtigkeit und Integrität · 45 %',
+  'Begriffe zuordnen · 45 %',
+  'Grundbegriffe · 45 %'
  ]);
  assert.equal(screen.arabic,'بِسْمِ ٱللَّهِ');
  assert.equal(screen.protected,'Eşleşen çiftleri bul');
