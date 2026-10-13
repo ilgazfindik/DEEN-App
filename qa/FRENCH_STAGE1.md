@@ -109,3 +109,12 @@
 - İlk oluşturma kontrolünde **84 seçenekli soru, 36 eşleştirme çifti**; seçenek cevap pozisyonları, eşleştirme tekilliği ve boşluk sayıları eşleşti.
 - `scripts/audit-french-u11-complete.mjs` için bağımsız kaynak, ID, cevap konumu, matching, blank ve üretim kilit denetimi eklendi. GitHub Actions sonuçları ayrıca doğrulanır.
 - Dinî ve anadili Fransızca uzman onayı yapılmadı. `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` korunur; canlı `main` veya Pages deploy'u yoktur.
+
+## 2026-10-14 — U12 100/100 Fransızca taslağı
+- U12-S01–S07: **14+14+14+16+16+12+14 = 100/100**.
+- İçerik: abdest (wudû), teyemmüm (tayammum), boy abdesti (ghusl), su yokluğu ve kullanılamaması, yüz/kol/baş/ayak uygulamaları, ayet Al-Mâ’ida 5:6, mezhepler arası niyet, başı mesh miktarı ve işlem sırası farklılıkları.
+- Toplam temel soru taslağı: **1.200 / 1.500**; U13–U15 için **300** kaldı. Bu üretim onayı değildir.
+- U12 teknik ön taraması: **100 soru, 84 seçenekli soru, 36 eşleştirme çifti, 14 fill_blank; 0 ön-tarama yapısal hata**.
+- `qa/FRENCH_U12_TRANSLATION_GLOSSARY.json` Fransızca terminoloji eşlemelerini dil ve dinî uzman incelemesi için saklar; alanlara göre ayrı eşlemeler kullanılarak seçenek/kavram çakışmaları önlendi.
+- `scripts/audit-french-u12-complete.mjs` ayrı kaynak, ID, cevap pozisyonu, eşleştirme, boşluk ve release kilit kontrollerini CI'de çalıştırır.
+- Fransızca anadili ve dinî uzman onayı yoktur; `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` korunur. main ve canlı Pages değişmedi.
