@@ -157,6 +157,8 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   'Kevser':{count:3,german:'Al-Kauthar'},
   'Asr':{count:3,german:'Al-ʿAsr'}
  };
+ if((m=n.match(/^(.+?)\s*·\s*([0-5])\s*\/\s*5$/))&&remainingSuras[m[1]])
+  return emit(remainingSuras[m[1]].german+' · '+m[2]+' / 5');
  if((m=n.match(/^(.+?) Suresi$/))&&remainingSuras[m[1]])
   return emit('Sure '+remainingSuras[m[1]].german);
  if((m=n.match(/^(.+?) Ezberi$/))&&remainingSuras[m[1]])
