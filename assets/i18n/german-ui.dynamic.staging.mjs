@@ -39,12 +39,33 @@ export function formatGermanDynamicText(value,{translateLabel=()=>null}={}){
   'Fâtiha Yolculuğu':'Fâtiha-Lernreise',
   'Fâtiha · Wikimedia Commons kıraati':'Fâtiha · Rezitation von Wikimedia Commons',
   'Zorlandığın ayetleri tekrar edip yeniden dene.':'Wiederhole die schwierigen Verse und versuche es erneut.',
-  '✦ Sure madalyaları':'✦ Surenmedaillen'
+  '✦ Sure madalyaları':'✦ Surenmedaillen',
+  'Fâtiha · Surah Journey':'Fâtiha · Suren-Lernpfad',
+  'Learn → Memorize → Test → Final → Master':'Lernen → Auswendiglernen → Test → Finale → Meistern',
+  'MASTERY':'KENNTNISSTAND',
+  'Learn':'Lernen',
+  'Memorize':'Auswendiglernen',
+  'Ayah Test':'Verstest',
+  '5 questions about this surah':'5 Fragen zu dieser Sure',
+  'START TEST':'TEST STARTEN',
+  'Meaning Test':'Bedeutungstest',
+  '5 questions about meanings':'5 Fragen zu den Bedeutungen',
+  'Surah Final':'Surenfinale',
+  'Pass Ayah + Meaning to unlock · 8 questions':'Schließe den Vers- und Bedeutungstest ab · 8 Fragen',
+  'Unlock after final':'Nach dem Finale freischalten',
+  'LOCKED':'GESPERRT',
+  'START':'STARTEN',
+  'REVIEW':'WIEDERHOLEN'
  };
  // Real U01-S01 result DOM (Chromium 38317812063); QA-only source-exact chrome.
  // No answer values, source citations or religious content are translated here.
  if(Object.prototype.hasOwnProperty.call(observedResult,n))return emit(observedResult[n]);
  let m;
+ // Fatiha journey source-observed UI state counters: preserve all Arabic,
+ // audio, Wikimedia Commons attribution and CC0 licence names.
+ if((m=n.match(/^LEVEL\s+(\d+)$/)))return emit('STUFE '+m[1]);
+ if((m=n.match(/^(\d+)\/(\d+) ayahs learned$/)))return emit(m[1]+'/'+m[2]+' Verse gelernt');
+ if((m=n.match(/^(\d+)\/(\d+) ayahs memorized$/)))return emit(m[1]+'/'+m[2]+' Verse auswendig gelernt');
  // Fatiha journey QA: source-observed daily challenge chrome only;
  // Arabic verses, audio and bibliographic attribution are never altered.
  if((m=n.match(/^Mevcut günlük görevler:\s*(\d+)\/(\d+) tamamlandı\s*·\s*(\d+) tekrar bekliyor$/)))
