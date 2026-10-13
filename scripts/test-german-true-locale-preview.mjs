@@ -5,12 +5,25 @@
  * An alternate browser without this init script MUST remain blocked.
  */
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 import {chromium} from 'playwright';
 const origin=process.env.DEEN_QA_ORIGIN||'http://127.0.0.1:8765';
 const output=process.env.DEEN_QA_OUTPUT||'qa-artifacts/german-browser';
 if(new URL(origin).hostname!=='127.0.0.1')throw Error('QA_PREVIEW_HOST_REQUIRED');
 const fixture=JSON.parse(readFileSync(output+'/qa-preview-config.json','utf8'));
+
+ // Verify the exact segment executing in the browser is the modified source,
+ // rather than an immutable old-source fallback after a SHA mismatch.
+ const shellSource=readFileSync('index.html','utf8');
+ const pinned=shellSource.match(/const SEGMENT_HASHES=\/\* DEEN_HASHES_START \*\/(\[[^\]]+\])\/\* DEEN_HASHES_END \*\//);
+ assert(pinned,'Release loader segment SHA-256 manifest not found');
+ const pinnedHashes=JSON.parse(pinned[1]);
+ const ikhlasSegmentHash=createHash('sha256')
+  .update(readFileSync('release/v9.9.3-direct/segment-34.txt')).digest('hex');
+ assert.equal(pinnedHashes[34],ikhlasSegmentHash,
+  'Release segment-34 integrity mismatch: changed Ikhlas source would be discarded');
+
 assert(fixture.qa_only&&fixture.production_untouched&&fixture.actual_german_approved===false);
 assert.equal(fixture.parts.length,114);
 mkdirSync(output,{recursive:true});
