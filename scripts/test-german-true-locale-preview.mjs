@@ -1098,6 +1098,45 @@ try{
   assert.equal(view.registeredAudio?.replace(/^\.\//,''),expected.audio,
    'Registered recitation differs from pinned audio asset');
  };
+
+ // Independently inspect all FIVE native Fatiha learning cards after source-
+ // safe German QA chrome rendering; protect original Arabic/recitation.
+ const expectedSteps=['1 · ANHÖREN','2 · LESEN','3 · BEDEUTUNG','4 · ERINNERN','5 · ABSCHLIESSEN'];
+ report.quran_fatiha.real_ayah_audio.chrome=[];
+ const auditLearn=async(step,ayah)=>{
+  const view=await page.evaluate(({step,ayah})=>{
+   const dialog=document.querySelector('#v5Sheet[open]');
+   const root=dialog?.querySelector('.deen-qmulti-session');
+   if(!root)throw Error('Native Fatiha ayah learning card missing');
+   const arBefore=[...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent);
+   const sourceBefore=[...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src'));
+   const audit=window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(dialog,{
+    qaMode:true,locale:'de',documentRef:document});
+   return {step,ayah,unresolved:audit.unresolved,writes:audit.writes,
+    kicker:root.querySelector('.deen-ikhlas-kicker')?.textContent?.trim(),
+    title:root.querySelector('.deen-ikhlas-card h2')?.textContent?.trim(),
+    progress:root.querySelector('.deen-ikhlas-progresshead b')?.textContent?.trim(),
+    forward:root.querySelector('.deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)')?.textContent?.trim(),
+    backward:root.querySelector('.deen-ikhlas-actions .deen-ikhlas-btn.secondary')?.textContent?.trim(),
+    originalArabicUnchanged:JSON.stringify(arBefore)===
+     JSON.stringify([...root.querySelectorAll('[lang="ar"]')].map(x=>x.textContent)),
+    originalAudioUnchanged:JSON.stringify(sourceBefore)===
+     JSON.stringify([...root.querySelectorAll('audio,source')].map(x=>x.getAttribute('src'))),
+    approved:window.__DEEN_CONTENT_MANIFEST__.languages.de.religious_expert_approved};
+  },{step,ayah});
+  report.quran_fatiha.real_ayah_audio.chrome.push(view);
+  assert.deepEqual(view.unresolved,[],'Untranslated Fatiha card '+step);
+  assert.equal(view.kicker,expectedSteps[step]);
+  assert.equal(view.progress,'Fâtiha · Vers '+ayah+'/7');
+  if(step===0)assert.equal(view.title,'Vers '+ayah+' / 7');
+  assert.equal(view.forward,step===4?'VERS ABSCHLIESSEN':'WEITER');
+  if(step>0)assert.equal(view.backward,'ZURÜCK');
+  assert.equal(view.originalArabicUnchanged,true);
+  assert.equal(view.originalAudioUnchanged,true);
+  assert.equal(view.approved,false);
+ };
+ await auditLearn(0,1);
+
  const firstAyah=await readRealAyah();
  checkAyah(firstAyah,fatihaManifest[0]);
  report.quran_fatiha.real_ayah_audio.ayahs.push(firstAyah);
@@ -1105,6 +1144,10 @@ try{
 
  const speaker=page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ayah-inline-speaker');
  await speaker.click({timeout:15000});
+ await page.evaluate(()=>window.__DEEN_GERMAN_TRUE_LOCALE_UI_QA__.render(
+  document.querySelector('#v5Sheet[open]'),{qaMode:true,locale:'de',documentRef:document}));
+ assert.equal(await speaker.getAttribute('aria-label'),'Verswiedergabe pausieren',
+  'Native Quran speaker accessibility name was not localized');
  await page.waitForFunction(()=>
   ['playing','error'].includes(window.DEEN_QURAN_AYAH_AUDIO?.state?.()?.status),
   null,{timeout:20000});
@@ -1138,6 +1181,7 @@ try{
  for(let step=0;step<4;step++){
   await page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)')
    .first().click({timeout:15000});
+  await auditLearn(step+1,1);
  }
  await page.locator('#v5Sheet[open] .deen-qmulti-session .deen-ikhlas-actions .deen-ikhlas-btn:not(.secondary)')
   .first().click({timeout:15000});
@@ -1145,6 +1189,7 @@ try{
   {timeout:20000});
  await page.waitForSelector('#v5Sheet[open] .deen-qmulti-session[data-deen-ayah="2"] .deen-ayah-inline-speaker',
   {timeout:15000});
+ await auditLearn(0,2);
  const secondAyah=await readRealAyah();
  checkAyah(secondAyah,fatihaManifest[1]);
  report.quran_fatiha.real_ayah_audio.ayahs.push(secondAyah);
