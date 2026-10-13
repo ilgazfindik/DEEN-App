@@ -2488,7 +2488,7 @@ try{
  // Stage 11: WARMED-SHELL offline test. A completely fresh install still needs
  // network; after a successful online visit the same profile must boot offline.
  // The worker is release-scoped, and Quran MP3s cache on actual first request.
- report.quran_offline_pwa={version:'9408enfiveuiscreens1-ikhlasdeqa1-pwa13',
+ report.quran_offline_pwa={version:'9408enfiveuiscreens1-ikhlasdeqa1-pwa14',
   worker:null,media:null,offlineRange:null,offlineReload:null};
  await page.waitForFunction(()=>!!navigator.serviceWorker?.controller,null,{timeout:35000});
  const swReady=await page.evaluate(async()=>{
@@ -2497,7 +2497,7 @@ try{
    controlled:!!navigator.serviceWorker.controller};
  });
  assert(swReady.controlled,'Installed SW did not claim the initial app');
- assert(swReady.script.endsWith('/sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa13'));
+ assert(swReady.script.endsWith('/sw.js?v=9408enfiveuiscreens1-ikhlasdeqa1-pwa14'));
  report.quran_offline_pwa.worker=swReady;
  const warmed=await page.evaluate(async()=>{
   const src=new URL('assets/quran/audio/ikhlas/ihlas_1.mp3',location.href);
@@ -2505,14 +2505,14 @@ try{
   if(online.status!==200)throw Error('Online Quran MP3 preload returned '+online.status);
   const buf=await online.arrayBuffer();
   if(buf.byteLength<2000)throw Error('Recitation has no real audio bytes');
-  const cache=await caches.open('deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa13');
+  const cache=await caches.open('deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa14');
   const saved=await cache.match(src.href);
   return {status:online.status,bytes:buf.byteLength,cached:!!saved,
    mime:online.headers.get('content-type'),savedStatus:saved?.status};
  });
 
  const visualWarm=await page.evaluate(async()=>{
-  const version='9408enfiveuiscreens1-ikhlasdeqa1-pwa13';
+  const version='9408enfiveuiscreens1-ikhlasdeqa1-pwa14';
   const cache=await caches.open('deen-pwa-shell-'+version);
   const files=[
    ...Array.from({length:5},(_,i)=>'release/v9.9.3-direct/assets/onboarding-hq/atlas.part'+i+'.txt'),
@@ -2600,6 +2600,105 @@ try{
   report.quran_offline_pwa.missingUrls=[...new Map(
    offlineMissingRequests.map(x=>[x.url,x])).values()];
  }
+
+
+ // Stage 12: Browser-tested FIFO media quota and real offline audio byte ranges.
+ // This is a mobile-size Chromium viewport (390x844), not real iOS Safari.
+ report.quran_offline_pwa.multiAyahAndEviction={
+  viewport:'390x844 Chromium',limit:24,onlineWarmed:[],offlineSample:[],rangeEdges:[],
+  evicted:[],retained:0};
+ const stress=report.quran_offline_pwa.multiAyahAndEviction;
+ const stressSources=await page.evaluate(async()=>{
+  const response=await fetch(new URL('assets/quran/audio/ayah-audio-manifest.json',location.href));
+  if(!response.ok)throw Error('Quran source manifest missing for media quota QA');
+  const m=await response.json();
+  return m.entries.slice(0,27).map(x=>({key:x.key,path:x.audio,surah:x.surahId,ayah:x.ayah}));
+ });
+ assert.equal(stressSources.length,27,'Expected 27 original Quran MP3s for eviction boundary');
+ for(const surah of ['fatiha','ikhlas','falaq','nas']){
+  assert(stressSources.filter(x=>x.surah===surah).length>=3,
+   'Missing source-backed three-ayah media sample: '+surah);
+ }
+ const warmedMedia=await page.evaluate(async entries=>{
+  const name='deen-pwa-ayah-9408enfiveuiscreens1-ikhlasdeqa1-pwa14';
+  const cache=await caches.open(name);
+  for(const key of await cache.keys())await cache.delete(key);
+  const out=[];
+  // Sequential loads ensure deterministic CacheStorage insertion ordering.
+  for(const entry of entries){
+   const url=new URL(entry.path,location.href);
+   const response=await fetch(url.href,{cache:'no-store'});
+   const audio=await response.arrayBuffer();
+   if(response.status!==200||audio.byteLength<=2000)
+    throw Error('Invalid original MP3 response '+entry.key+': '+response.status);
+   const expected=await cache.match(url.href);
+   out.push({key:entry.key,path:entry.path,status:response.status,
+    length:audio.byteLength,cachedAfterRequest:!!expected});
+  }
+  const keys=await cache.keys();
+  const first3=await Promise.all(entries.slice(0,3).map(async x=>
+   !!await cache.match(new URL(x.path,location.href))));
+  const kept24=await Promise.all(entries.slice(3).map(async x=>
+   !!await cache.match(new URL(x.path,location.href))));
+  return {loaded:out,cacheEntries:keys.length,first3,kept24};
+ },stressSources);
+ stress.onlineWarmed=warmedMedia.loaded.map(({key,length,cachedAfterRequest})=>
+  ({key,length,cachedAfterRequest}));
+ stress.retained=warmedMedia.cacheEntries;
+ stress.evicted=stressSources.slice(0,3).map((x,i)=>({
+  key:x.key,cached:warmedMedia.first3[i]}));
+ assert.equal(warmedMedia.loaded.length,27,'Not all real source recitations loaded');
+ assert.equal(warmedMedia.cacheEntries,24,'Audio FIFO limit was not enforced');
+ assert.deepEqual(warmedMedia.first3,[false,false,false],
+  'Old MP3s must be evicted once media cache is full');
+ assert(warmedMedia.kept24.every(Boolean),'Recent source MP3s missing after quota check');
+
+ const samplePaths=['fatiha:4','ikhlas:2','falaq:3','nas:2'];
+ const sampleEntries=samplePaths.map(key=>{
+  const entry=stressSources.find(x=>x.key===key);
+  if(!entry)throw Error('Audio source entry missing '+key);
+  return entry;
+ });
+ await page.context().setOffline(true);
+ try{
+  const offline=await page.evaluate(async entries=>{
+   const out=[];
+   for(const entry of entries){
+    const url=new URL(entry.path+'?de-qa=range-offline',location.href);
+    const res=await fetch(url,{headers:{Range:'bytes=0-63'}});
+    const body=await res.arrayBuffer();
+    out.push({key:entry.key,status:res.status,bytes:body.byteLength,
+     range:res.headers.get('content-range')});
+   }
+   const entry=entries[1];
+   const url=new URL(entry.path+'?de-qa=range-edges',location.href);
+   const ranges=['bytes=-32','bytes=0-0','bytes=999999999-',
+    'bytes=0-12,20-24','bytes=-0','bytes=10-9'];
+   const edges=[];
+   for(const value of ranges){
+    const res=await fetch(url,{headers:{Range:value}});
+    const bytes=(await res.arrayBuffer()).byteLength;
+    edges.push({range:value,status:res.status,bytes,
+     contentRange:res.headers.get('content-range')});
+   }
+   return {out,edges};
+  },sampleEntries);
+  stress.offlineSample=offline.out;
+  stress.rangeEdges=offline.edges;
+  for(const x of offline.out){
+   assert.equal(x.status,206,'Offline recitation Range failed: '+x.key);
+   assert.equal(x.bytes,64,'Offline 64-byte range failed: '+x.key);
+   assert.match(x.range,/^bytes 0-63\/\d+$/,
+    'Quran range header malformed: '+x.key);
+  }
+  for(const edge of offline.edges){
+   const valid=edge.range==='bytes=-32'||edge.range==='bytes=0-0';
+   assert.equal(edge.status,valid?206:416,'Unexpected Range status '+edge.range);
+   if(valid)assert.equal(edge.bytes,edge.range==='bytes=-32'?32:1);
+   else assert.match(edge.contentRange,/^bytes \*\/\d+$/,
+    'Invalid range must expose original clip size');
+  }
+ }finally{await page.context().setOffline(false)}
 
  report.quran_fatiha.real_ayah_audio.review_approved=false;
  report.quran_fatiha.real_ayah_audio.production_release=false;
