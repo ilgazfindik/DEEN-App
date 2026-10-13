@@ -1,0 +1,607 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U02",
+  "stage": "U02-S05",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U02-S05-001": {
+      "source": {
+        "question_tr": "Bir öğrenci beklediğinden iyi bir not alıyor. Allah'a iman ve şükür anlayışıyla en uyumlu tutum hangisidir?",
+        "explanation_tr": "Şükür, elde edilen iyiliğin farkına varmak ve minnettarlık göstermektir; başarıyı kibir aracına dönüştürmek değildir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Başarısına sevinirken nimetin farkına varıp şükretmek",
+          "Başarısını sadece başkalarına üstünlük göstermek için kullanmak",
+          "Başarının hiçbir sorumluluk doğurmadığını düşünmek",
+          "Notu küçümseyip hiçbir değer vermemek"
+        ],
+        "correct_answer": "Başarısına sevinirken nimetin farkına varıp şükretmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève obtient une meilleure note que prévu. Quelle attitude est la plus cohérente avec la foi en Allah et la gratitude ?",
+        "explanation_tr": "La gratitude consiste à reconnaître un bienfait et à en être reconnaissant, et non à se servir de sa réussite pour se montrer supérieur aux autres.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Se réjouir de sa réussite tout en reconnaissant le bienfait reçu et en exprimant sa gratitude",
+          "Utiliser sa réussite uniquement pour montrer sa supériorité aux autres",
+          "Penser que la réussite n’entraîne aucune responsabilité",
+          "Mépriser la note obtenue et ne lui accorder aucune valeur"
+        ],
+        "correct_answer": "Se réjouir de sa réussite tout en reconnaissant le bienfait reçu et en exprimant sa gratitude",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-002": {
+      "source": {
+        "question_tr": "Bir grup ödevinde sana düşen işi zamanında yapman, bu ünitedeki hangi anlayışla daha çok ilişkilidir?",
+        "explanation_tr": "Allah'a imanla ilişkilendirilen sorumluluk anlayışı, kişinin üzerine düşen görevi ciddiye almasını destekler.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sorumluluk",
+          "Tevhidi yalnızca ezberleme",
+          "Yaratıcı-yaratılan ayrımını unutma",
+          "Şükrü sadece sözle sınırlama"
+        ],
+        "correct_answer": "Sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans un travail de groupe, à quelle notion de cette unité se rattache le fait de terminer à temps la tâche qui t’a été confiée ?",
+        "explanation_tr": "La responsabilité associée à la foi en Allah implique de prendre au sérieux les tâches qui nous incombent.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La responsabilité",
+          "La simple mémorisation du tawhid",
+          "L’oubli de la différence entre Créateur et créature",
+          "La réduction de la gratitude aux seules paroles"
+        ],
+        "correct_answer": "La responsabilité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-003": {
+      "source": {
+        "question_tr": "Önemli bir sınav öncesinde Allah'a güven anlayışıyla en uyumlu davranış hangisidir?",
+        "explanation_tr": "Allah'a güven, çabayı terk etmek değil; sorumluluğu yerine getirip sonucu Allah'a bırakmaktır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Düzenli çalışıp elinden geleni yaptıktan sonra sonucu Allah'a bırakmak",
+          "Hiç hazırlanmadan yalnızca sonucu beklemek",
+          "Çalışmayı gereksiz görüp sorumluluğu tamamen bırakmak",
+          "Sınav sonucunu başkalarının sorumluluğu saymak"
+        ],
+        "correct_answer": "Düzenli çalışıp elinden geleni yaptıktan sonra sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Avant un examen important, quelle attitude correspond le mieux à la confiance en Allah ?",
+        "explanation_tr": "Faire confiance à Allah ne consiste pas à renoncer aux efforts, mais à assumer sa responsabilité puis à s’en remettre à Lui pour le résultat.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Étudier régulièrement, faire de son mieux, puis s’en remettre à Allah pour le résultat",
+          "Attendre le résultat sans aucune préparation",
+          "Considérer les révisions inutiles et abandonner toute responsabilité",
+          "Attribuer entièrement aux autres la responsabilité du résultat"
+        ],
+        "correct_answer": "Étudier régulièrement, faire de son mieux, puis s’en remettre à Allah pour le résultat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-004": {
+      "source": {
+        "question_tr": "Ailene ait sofrada yemeğin hazır olduğunu görmek, şükür kavramını günlük hayatta nasıl düşünmeye yardımcı olabilir?",
+        "explanation_tr": "Şükür yalnızca büyük olaylarla değil, günlük hayattaki nimetlerin farkına varmakla da ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nimetin farkına varıp teşekkür etmeyi hatırlatarak",
+          "Yemeği sıradan görüp hiçbir anlam yüklemeyerek",
+          "Sadece başkalarının ne yediğine bakarak",
+          "Şükrü yalnızca büyük başarılarla sınırlandırarak"
+        ],
+        "correct_answer": "Nimetin farkına varıp teşekkür etmeyi hatırlatarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment un repas préparé à la maison peut-il nous aider à comprendre la gratitude dans la vie quotidienne ?",
+        "explanation_tr": "La gratitude ne concerne pas seulement les événements exceptionnels, mais aussi les bienfaits ordinaires que l’on reconnaît chaque jour.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "En nous rappelant de reconnaître ce bienfait et d’en remercier Allah",
+          "En considérant le repas comme insignifiant",
+          "En nous intéressant seulement à ce que mangent les autres",
+          "En réservant la gratitude aux seules grandes réussites"
+        ],
+        "correct_answer": "En nous rappelant de reconnaître ce bienfait et d’en remercier Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-005": {
+      "source": {
+        "question_tr": "Kasada sana yanlışlıkla fazla para üstü verildiğini fark ettin. Sorumluluk ve dürüstlük anlayışıyla en uyumlu davranış hangisidir?",
+        "explanation_tr": "Sorumluluk ve dürüstlük, kişinin kendisine avantaj sağlasa bile bir hatayı düzeltmesini destekleyen değerlerdir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Fazla verilen parayı görevliye bildirmek",
+          "Kimse fark etmez diye parayı saklamak",
+          "Durumu arkadaşına bırakmak",
+          "Yanlışı kendi lehine olduğu için önemsememek"
+        ],
+        "correct_answer": "Fazla verilen parayı görevliye bildirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "À la caisse, tu remarques que l’on t’a rendu trop de monnaie. Quelle attitude correspond à la responsabilité et à l’honnêteté ?",
+        "explanation_tr": "L’honnêteté et la responsabilité conduisent à corriger une erreur, même lorsqu’elle pourrait nous avantager.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Signaler au personnel que l’on t’a rendu trop d’argent",
+          "Garder l’argent en pensant que personne ne le remarquera",
+          "Laisser un ami décider à ta place",
+          "Ignorer l’erreur parce qu’elle te favorise"
+        ],
+        "correct_answer": "Signaler au personnel que l’on t’a rendu trop d’argent",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-006": {
+      "source": {
+        "question_tr": "Sosyal medyada doğruluğundan emin olmadığın bir bilgiyi paylaşmadan önce kontrol etmek, bu ünitedeki hangi tutumla daha çok uyumludur?",
+        "explanation_tr": "Sorumluluk, paylaştığımız bilgilerin başkaları üzerindeki etkisini de düşünmeyi gerektirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sorumluluk",
+          "Kayıtsızlık",
+          "Gösteriş",
+          "Aceleciliği önemsememe"
+        ],
+        "correct_answer": "Sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Sur les réseaux sociaux, tu vérifies une information avant de la partager, car tu n’es pas sûr qu’elle soit vraie. À quelle attitude cela correspond-il ?",
+        "explanation_tr": "Être responsable suppose aussi de réfléchir aux conséquences que les informations partagées peuvent avoir sur autrui.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La responsabilité",
+          "L’indifférence",
+          "L’ostentation",
+          "Le manque de réflexion sur la précipitation"
+        ],
+        "correct_answer": "La responsabilité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-007": {
+      "source": {
+        "question_tr": "Sahip olduğun bir imkânı israf etmeden kullanmak, şükür ve sorumluluk ilişkisini nasıl gösterir?",
+        "explanation_tr": "Şükür, nimetin farkına varmakla; sorumluluk ise onu bilinçli ve özenli kullanmakla ilişkilendirilebilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nimetin değerini bilip onu özenli kullanarak",
+          "Nimetin değerini sadece sözle ifade ederek",
+          "İmkânı başkalarına gösteriş için kullanarak",
+          "Sorumluluğu tamamen başkasına bırakarak"
+        ],
+        "correct_answer": "Nimetin değerini bilip onu özenli kullanarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment le fait d’utiliser une ressource sans la gaspiller montre-t-il le lien entre gratitude et responsabilité ?",
+        "explanation_tr": "La gratitude consiste à reconnaître la valeur d’un bienfait ; la responsabilité à l’utiliser avec attention.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "En reconnaissant la valeur d’un bienfait et en l’utilisant avec soin",
+          "En se contentant d’en parler avec gratitude",
+          "En utilisant cette ressource pour impressionner les autres",
+          "En laissant entièrement cette responsabilité à quelqu’un d’autre"
+        ],
+        "correct_answer": "En reconnaissant la valeur d’un bienfait et en l’utilisant avec soin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-008": {
+      "source": {
+        "question_tr": "Bir iş görüşmesine hazırlanıyorsun. Allah'a güven anlayışıyla en dengeli yaklaşım hangisidir?",
+        "explanation_tr": "Güven ile sorumluluk birlikte ele alınır: kişi yapabileceğini yapar, kontrol edemediği sonucu Allah'a bırakır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hazırlığını yapıp sonucu Allah'a bırakmak",
+          "Hazırlık yapmadan sadece iyi sonuç beklemek",
+          "Sonucu tamamen kendi kontrolünde görmek",
+          "Kaygılandığın için hiçbir adım atmamak"
+        ],
+        "correct_answer": "Hazırlığını yapıp sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Tu prépares un entretien d’embauche. Quelle est l’approche la plus équilibrée selon la confiance en Allah ?",
+        "explanation_tr": "La confiance va de pair avec la responsabilité : chacun fait ce qu’il peut, puis s’en remet à Allah pour ce qu’il ne maîtrise pas.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bien se préparer puis s’en remettre à Allah pour le résultat",
+          "Attendre un bon résultat sans se préparer",
+          "Croire que l’on contrôle totalement le résultat",
+          "Ne rien entreprendre à cause de l’inquiétude"
+        ],
+        "correct_answer": "Bien se préparer puis s’en remettre à Allah pour le résultat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-009": {
+      "source": {
+        "question_tr": "Evde sana verilen bir görevi kimse hatırlatmadan yerine getirmek, bu ünitedeki hangi kavramın günlük örneğidir?",
+        "explanation_tr": "Sorumluluk, kişinin üzerine düşen görevi dış baskı olmadan da önemsemesiyle ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sorumluluk",
+          "Tevhid terimini ezberleme",
+          "Yaratıcı-yaratılan ayrımını tekrar etme",
+          "Şükrü yalnızca sözle ifade etme"
+        ],
+        "correct_answer": "Sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Tu accomplis une tâche à la maison sans que personne ait besoin de te la rappeler. De quelle notion étudiée est-ce un exemple ?",
+        "explanation_tr": "La responsabilité consiste notamment à prendre ses devoirs au sérieux, même en l’absence de pression extérieure.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La responsabilité",
+          "La mémorisation du terme « tawhid »",
+          "La répétition de la distinction entre Créateur et créature",
+          "L’expression de la gratitude uniquement par les mots"
+        ],
+        "correct_answer": "La responsabilité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-010": {
+      "source": {
+        "question_tr": "Bir gün planladığın gibi gitmedi ama yine de sahip olduğun destek ve imkânların farkına vardın. Bu tutum hangi kavramla daha çok ilişkilidir?",
+        "explanation_tr": "Şükür, yalnızca her şey yolunda olduğunda değil, mevcut nimetlerin farkına varma tutumuyla da ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Şükür",
+          "Ortaklık",
+          "Yaratılmışlık",
+          "Kavram ezberi"
+        ],
+        "correct_answer": "Şükür",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ta journée ne se déroule pas comme prévu, mais tu remarques quand même le soutien et les possibilités dont tu disposes. À quelle notion cela se rattache-t-il ?",
+        "explanation_tr": "La gratitude consiste à reconnaître les bienfaits présents, même lorsque tout ne se déroule pas comme souhaité.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La gratitude",
+          "L’association à Allah",
+          "La condition de créature",
+          "La mémorisation des notions"
+        ],
+        "correct_answer": "La gratitude",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-011": {
+      "source": {
+        "question_tr": "Parkta kullandığın alanı temiz bırakmak, Allah'a imanla ilişkilendirilen sorumluluk anlayışına nasıl örnek olabilir?",
+        "explanation_tr": "Sorumluluk, kişinin çevresi üzerindeki etkisini önemsemesini de kapsayan bir tutum olarak ele alınabilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Çevreye karşı özenli davranarak",
+          "Sadece başkaları görürken dikkat ederek",
+          "Sorumluluğu tamamen görevlilere bırakarak",
+          "Kendi davranışının etkisini önemsemeyerek"
+        ],
+        "correct_answer": "Çevreye karşı özenli davranarak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "En laissant propre le lieu que tu utilises dans un parc, comment peux-tu manifester la responsabilité liée à la foi en Allah ?",
+        "explanation_tr": "La responsabilité comprend aussi le souci de l’impact de ses actes sur son environnement.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "En prenant soin de l’environnement",
+          "En faisant attention uniquement lorsque les autres regardent",
+          "En laissant toute la responsabilité aux agents d’entretien",
+          "En ne tenant pas compte des conséquences de son comportement"
+        ],
+        "correct_answer": "En prenant soin de l’environnement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-012": {
+      "source": {
+        "question_tr": "Bir arkadaşın zorlanırken yardım istemesi karşısında, merhamet ve sorumluluk anlayışıyla en uygun yaklaşım hangisidir?",
+        "explanation_tr": "İnanç ve ahlak ilişkisi, başkalarına karşı duyarlı ve sorumlu davranışlarla görünür hale gelebilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İmkânın ölçüsünde yardımcı olmaya çalışmak",
+          "Onu küçümsemek",
+          "Durumu eğlence konusu yapmak",
+          "Sadece başkalarının yardım etmesini beklemek"
+        ],
+        "correct_answer": "İmkânın ölçüsünde yardımcı olmaya çalışmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami en difficulté te demande de l’aide. Quelle réponse correspond le mieux à la miséricorde et à la responsabilité ?",
+        "explanation_tr": "Le lien entre foi et morale peut s’exprimer par une attitude attentive et responsable envers les autres.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Essayer de l’aider dans la mesure de ses possibilités",
+          "Se moquer de lui",
+          "Tourner sa difficulté en dérision",
+          "Attendre simplement que d’autres l’aident"
+        ],
+        "correct_answer": "Essayer de l’aider dans la mesure de ses possibilités",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-013": {
+      "source": {
+        "question_tr": "Uzun süre hazırlandığın bir plan beklenmedik şekilde bozuldu. Allah'a güven anlayışıyla en dengeli tepki hangisidir?",
+        "explanation_tr": "Allah'a güven, pasiflik değil; yeni koşullarda sorumluluğu sürdürürken kontrol edilemeyen sonucu Allah'a bırakmaktır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Elinden geleni yeniden değerlendirip yeni adımlar atarken sonucu Allah'a bırakmak",
+          "Hiçbir şey yapmadan tüm sorumluluğu bırakmak",
+          "Öfkeyle herkesi suçlamak",
+          "Bir daha hiçbir plan yapmamak"
+        ],
+        "correct_answer": "Elinden geleni yeniden değerlendirip yeni adımlar atarken sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un projet longuement préparé échoue de manière imprévue. Quelle réaction correspond à la confiance en Allah ?",
+        "explanation_tr": "La confiance en Allah n’est pas de la passivité : elle implique de poursuivre ses responsabilités tout en Lui remettant les résultats hors de notre contrôle.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Réévaluer les moyens disponibles, agir à nouveau et s’en remettre à Allah pour le résultat",
+          "Ne rien faire et abandonner toutes ses responsabilités",
+          "Accuser tout le monde avec colère",
+          "Ne plus jamais élaborer de projet"
+        ],
+        "correct_answer": "Réévaluer les moyens disponibles, agir à nouveau et s’en remettre à Allah pour le résultat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-014": {
+      "source": {
+        "question_tr": "Bir proje sonunda övgü aldın. Şükür ile sağlıklı öz değerlendirmeyi birlikte koruyan tutum hangisidir?",
+        "explanation_tr": "Şükür, emeği inkâr etmek değil; elde edilen imkân ve başarıda nimetin farkına varıp minnettarlık göstermektir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Emeğini kabul edip nimetin ve desteğin farkına vararak şükretmek",
+          "Başarıyı yalnızca kendine bağlayıp başkalarını küçümsemek",
+          "Kendi emeğini tamamen değersiz saymak",
+          "Övgüyü yalnızca gösteriş için kullanmak"
+        ],
+        "correct_answer": "Emeğini kabul edip nimetin ve desteğin farkına vararak şükretmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "À la fin d’un projet, on te félicite. Quelle réaction associe gratitude et juste reconnaissance de tes efforts ?",
+        "explanation_tr": "La gratitude ne signifie pas nier ses efforts, mais reconnaître les bienfaits et les soutiens qui ont contribué à la réussite.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Reconnaître ses efforts tout en exprimant sa gratitude pour les bienfaits et l’aide reçus",
+          "S’attribuer tout le mérite et mépriser les autres",
+          "Considérer ses propres efforts comme entièrement sans valeur",
+          "Utiliser les compliments uniquement pour se mettre en valeur"
+        ],
+        "correct_answer": "Reconnaître ses efforts tout en exprimant sa gratitude pour les bienfaits et l’aide reçus",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-015": {
+      "source": {
+        "question_tr": "Bir kişi “Allah'a güveniyorsam hiçbir hazırlık yapmama gerek yok” diyor. Bu düşüncedeki temel hata nedir?",
+        "explanation_tr": "Bu ünitede Allah'a güven, kişinin üzerine düşeni yapmasıyla birlikte ele alınır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Güveni sorumluluk ve çabadan koparması",
+          "Allah'a güven kavramını kullanması",
+          "Hazırlıktan söz etmesi",
+          "Sonucu önemsemesi"
+        ],
+        "correct_answer": "Güveni sorumluluk ve çabadan koparması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne affirme : « Si je fais confiance à Allah, je n’ai besoin de me préparer à rien. » Quelle est l’erreur principale ?",
+        "explanation_tr": "Dans cette unité, la confiance en Allah est liée au fait d’accomplir ses responsabilités.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Elle sépare la confiance des efforts et des responsabilités",
+          "Elle utilise la notion de confiance en Allah",
+          "Elle évoque une préparation",
+          "Elle accorde de l’importance au résultat"
+        ],
+        "correct_answer": "Elle sépare la confiance des efforts et des responsabilités",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S05-016": {
+      "source": {
+        "question_tr": "Bir açıklama “Allah'a iman günlük davranışlarla hiçbir şekilde ilişkili değildir” diyor. Bu ünitenin yaklaşımına göre eksik olan nokta hangisidir?",
+        "explanation_tr": "DEEN bu ünitede Allah'a imanı yalnızca tanım olarak değil, kişinin değerleri ve tutumlarıyla ilişkisi üzerinden de ele alır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İnancın sorumluluk, şükür ve güven gibi tutumlarla ilişki kurabileceğini göz ardı etmesi",
+          "Her davranışın otomatik olarak ibadet olduğunu söylememesi",
+          "Tüm davranışların aynı değerde olduğunu savunmaması",
+          "Sadece tarih bilgisinden söz etmemesi"
+        ],
+        "correct_answer": "İnancın sorumluluk, şükür ve güven gibi tutumlarla ilişki kurabileceğini göz ardı etmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une explication affirme : « La foi en Allah n’a absolument aucun lien avec les comportements du quotidien. » Que manque-t-il à cette idée dans le cadre de cette unité ?",
+        "explanation_tr": "Cette unité présente la foi en Allah non seulement par sa définition, mais aussi par ses liens avec les valeurs et les attitudes personnelles.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Elle ignore que la foi peut influencer la responsabilité, la gratitude et la confiance",
+          "Elle ne dit pas que tout comportement constitue automatiquement un acte d’adoration",
+          "Elle n’affirme pas que tous les comportements ont la même valeur",
+          "Elle ne se limite pas aux connaissances historiques"
+        ],
+        "correct_answer": "Elle ignore que la foi peut influencer la responsabilité, la gratitude et la confiance",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La foi au quotidien",
+        "topic": "Gratitude, confiance et responsabilité"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
