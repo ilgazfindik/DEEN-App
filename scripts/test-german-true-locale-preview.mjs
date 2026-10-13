@@ -1829,7 +1829,9 @@ try{
  });
  report.quran_ikhlas.memorize=memorization;
  assert.deepEqual(memorization.unresolved,[],'Turkish residue in native İhlâs Memorize');
- assert.equal(memorization.title,'İhlâs · Auswendiglernen');
+ // The permanent verified DE UI pack already provides this German heading.
+ // Do not enforce a different staging-only synonym over a correct translation.
+ assert.equal(memorization.title,'Al-Ichlās auswendig lernen');
  assert.match(memorization.kicker,/^AUSWENDIGLERNSTUFE [1-5] \/ 5$/);
  assert.equal(memorization.arabicUnchanged,true);
  assert.equal(memorization.reveal,'TEXT ANZEIGEN');
