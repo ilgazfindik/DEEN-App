@@ -95,9 +95,24 @@
   if(!['tr','fr'].includes(lang))throw Error('FR_PREVIEW_BAD_LOCALE');
   state.locale=lang;return localize(root,lang);
  }
+ // The real DEEN game wraps some question prompts with an unlocalized Turkish
+ // learning hint and strips French typographic spacing. Rewrite only when the
+ // remaining text matches the source-validated French question exactly.
+ // QA-only, not a general DOM rewrite and never touches the underlying answer.
+ function localizeQuestionPrompt(visible,validatedFrench){
+  if(!state.ready||state.locale!=='fr')return null;
+  if(typeof visible!=='string'||typeof validatedFrench!=='string')return null;
+  const marker='Birlikte düşün:';
+  if(!visible.startsWith(marker))return null;
+  const body=visible.slice(marker.length).trim();
+  const norm=text=>text.normalize('NFC').replace(/\s+(?=[?!;:])/gu,'')
+   .replace(/\s+/gu,' ').trim();
+  if(norm(body)!==norm(validatedFrench))return null;
+  return 'Réfléchissons ensemble : '+validatedFrench.trim();
+ }
  function audit(){return {ready:state.ready,locale:state.locale,staticKeys:state.table.size,
   dynamicPatterns:state.patterns.length,writes:state.writes,
   unrecognized:[...state.missing],productionActivated:false};}
- window.DEEN_FRENCH_STAGE_UI=Object.freeze({init,translate,localize,setLocale,audit,
+ window.DEEN_FRENCH_STAGE_UI=Object.freeze({init,translate,localize,setLocale,localizeQuestionPrompt,audit,
   version:'fr-staging-preview-v1'});
 })();
