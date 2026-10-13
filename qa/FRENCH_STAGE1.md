@@ -48,3 +48,11 @@
 - Toplam **400/1500** temel soru; **1100** soru U05–U15'te kaldı. U01 canlı varyantları, 1417 bilinen UI anahtarı ve dinamik ekranlar ayrıca eksik.
 - `scripts/audit-french-u04-complete.mjs`: soru kaynak eşleşmesi, cevap konumu, eşleştirme çiftleri, boşluk adedi, dinî metnin kaynak kimliği ve üretim kilitleri kontrolü.
 - Dini/Fransızca uzman onayları henüz verilmedi; yalnız staging.
+
+## 2026-10-13 — U05 100/100 Fransızca taslak
+- U05-S01–S07: **14 + 14 + 14 + 16 + 16 + 12 + 14 = 100/100**.
+- İçerik: imanın tanımı, altı iman esası, Allah, melekler, kitaplar, peygamberler, ahiret ve kader/kaza; İslam'ın beş şartından ayrımları, tekrar ve senaryolar.
+- Genel durum: **500/1500 temel soru taslağı**, **1000 kalan** (U06–U15); 35/1452 statik UI taslağı değişmedi.
+- 100 U05 soru, 88 cevap seçenekli soru, 36 matching çifti, 7 fill_blank yapısı kaynakla karşılaştırıldı.
+- `scripts/audit-french-u05-complete.mjs` yapısal kontrolü, kaynak kimliği, şık indeksi, boşluk adedi ve kelime sızıntısı kontrolü sağlar. Uzman onayı anlamına gelmez.
+- Üretim `fr.question_data=missing`, `fr.global_qa=blocked`, `fr.religious_expert_approved=false` olarak kilitlidir.

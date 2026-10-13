@@ -10,6 +10,7 @@ on:
       - 'scripts/audit-french-u02-complete.mjs'
       - 'scripts/audit-french-u03-complete.mjs'
       - 'scripts/audit-french-u04-complete.mjs'
+      - 'scripts/audit-french-u05-complete.mjs'
       - 'scripts/inventory-french-ui.mjs'
       - 'qa/FRENCH_STAGE1.md'
       - '.github/workflows/french-localization-audit.yml'
@@ -34,6 +35,8 @@ jobs:
         run: node scripts/audit-french-u03-complete.mjs
       - name: Verify all 100 French U04 questions and matching and blank structure
         run: node scripts/audit-french-u04-complete.mjs
+      - name: Verify all 100 French U05 questions and source-aligned answer structures
+        run: node scripts/audit-french-u05-complete.mjs
       - name: Report all 15 units and 1452 UI source keys
         run: node scripts/inventory-french-ui.mjs
       - name: Ensure production English questions remain complete
