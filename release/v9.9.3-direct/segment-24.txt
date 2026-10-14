@@ -1130,6 +1130,32 @@
 #v998Onboarding .v998-top{margin-bottom:clamp(14px,2.5vh,24px)}
 #v998Onboarding .v998-copy h1{line-height:1.06}
 @media(max-height:760px){#v998Onboarding .v998-top{margin-bottom:12px}}
+/* Smooth directional onboarding, staggered choices and final mint sweep. */
+@keyframes deenOnboardForward{from{opacity:0;transform:translate3d(22px,0,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes deenOnboardBackward{from{opacity:0;transform:translate3d(-22px,0,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes deenOnboardInitial{from{opacity:0;transform:translate3d(0,12px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes deenOnboardCard{from{opacity:0;transform:translate3d(0,11px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+#v998Onboarding[data-deen-motion="initial"] :is(.v998-copy,.deen-guest-note,.v998-dots){animation:deenOnboardInitial 320ms cubic-bezier(.22,.8,.2,1) both}
+#v998Onboarding[data-deen-motion="forward"] :is(.v998-copy,.v998-field,.v998-helper,.deen-guest-note,.v998-dots){animation:deenOnboardForward 320ms cubic-bezier(.22,.8,.2,1) both}
+#v998Onboarding[data-deen-motion="backward"] :is(.v998-copy,.v998-field,.v998-helper,.deen-guest-note,.v998-dots){animation:deenOnboardBackward 320ms cubic-bezier(.22,.8,.2,1) both}
+#v998Onboarding:is([data-deen-motion="forward"],[data-deen-motion="backward"]) :is(.v998-choice,.v998-animal,.v998-summary-row){animation:deenOnboardCard 300ms cubic-bezier(.22,.8,.2,1) both;animation-delay:calc(var(--deen-card-index,0)*48ms)}
+#v998Onboarding :is(.v998-choice,.v998-animal,.v998-summary-row):nth-child(1){--deen-card-index:0}
+#v998Onboarding :is(.v998-choice,.v998-animal,.v998-summary-row):nth-child(2){--deen-card-index:1}
+#v998Onboarding :is(.v998-choice,.v998-animal,.v998-summary-row):nth-child(3){--deen-card-index:2}
+#v998Onboarding :is(.v998-choice,.v998-animal,.v998-summary-row):nth-child(4){--deen-card-index:3}
+#v998Onboarding :is(.v998-choice,.v998-animal,.v998-summary-row):nth-child(5){--deen-card-index:4}
+#v998Onboarding .v998-animal:nth-child(6){--deen-card-index:5}
+#v998Onboarding .v998-primary{transition:transform 120ms ease}
+#v998Onboarding .v998-primary:active{transform:scale(.985)}
+.deen-onboard-liquid{position:fixed;inset:-12vh 0;z-index:90005;pointer-events:none;background:#31efcf;animation:deenOnboardLiquid 720ms cubic-bezier(.53,.02,.44,1) both}
+.deen-onboard-liquid:after{content:"";position:absolute;bottom:-7vh;left:-15%;width:130%;height:17vh;border-radius:50% 50% 0 0;background:#31efcf}
+@keyframes deenOnboardLiquid{from{transform:translate3d(0,-120%,0)}to{transform:translate3d(0,120%,0)}}
+@media(prefers-reduced-motion:reduce){
+ #v998Onboarding :is(.v998-copy,.deen-guest-note,.v998-dots,.v998-field,.v998-helper,.v998-choice,.v998-animal,.v998-summary-row){animation:none!important}
+ #v998Onboarding .v998-primary{transition:none!important}
+ #v998Onboarding .v998-primary:active{transform:none!important}
+ .deen-onboard-liquid{display:none!important;animation:none!important}
+}
 </style>
 <script id="deen-v998-premium-onboarding-js">
 (()=>{
@@ -1167,10 +1193,14 @@
  function primary(label,action){return '<button class="v998-primary" type="button" onclick="'+action+'"><span>'+label+'</span></button>'}
 
  function frame(step,content,{back=true,dotsOn=true,bottom=''}={}){
+  const previous=document.getElementById('v998Onboarding');
+  const lastStep=previous?Number(previous.dataset.step):null;
+  const direction=lastStep===null?'initial':step===lastStep?'steady':step>lastStep?'forward':'backward';
   close();
   const root=document.createElement('div');
   root.id='v998Onboarding';
   root.dataset.step=String(step);
+  root.dataset.deenMotion=direction;
   root.dataset.totalSteps='7';
   root.innerHTML='<div class="v998-shell"><div class="v998-screen"><div class="v998-top">'+
     (back?'<button class="v998-back" type="button" onclick="onboarding('+(step-1)+')" aria-label="'+esc(T('back'))+'">‹</button>':'')+
@@ -1314,6 +1344,17 @@
   render(4);
  }
 
+ function finishWave(){
+  if(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)return;
+  document.querySelector('.deen-onboard-liquid')?.remove();
+  const wave=document.createElement('div');
+  wave.className='deen-onboard-liquid';
+  wave.setAttribute('aria-hidden','true');
+  wave.addEventListener('animationend',()=>wave.remove(),{once:true});
+  document.body.appendChild(wave);
+  setTimeout(()=>wave.remove(),850);
+ }
+
  function finish(){
   if(state?.settings?.onboardingLanguageConfirmed!==true)return window.DEEN_LANGUAGE_ONBOARDING?.render?.()||false;
   ensure();
@@ -1322,6 +1363,7 @@
   state.onboarded=true;
   state.onboardingVersion=ONBOARDING_VERSION;
   try{saveState()}catch(e){}
+  finishWave();
   close();
   try{updateUI()}catch(e){}
   try{window.DEEN_PROFILE_COMPANION_SYNC?.apply?.()}catch(e){}
@@ -1346,6 +1388,7 @@
  window.DEEN_PREMIUM_ONBOARDING={
   version:VERSION,
   render,nameNext,age,animal,animalNext,minutes,goal,finish,skip,
+  transitions:{type:'soft-slide',durationMs:320,cardDelayMs:48,finish:'mint-liquid',finishDurationMs:720},
   snapshot:()=>({
     name:state.profile?.name,
     age:state.learningProfile,
