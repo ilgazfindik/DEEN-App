@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U05",
+  "stage": "U05-S07",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U05-S07-001": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi hem bir iman esasıdır hem de Kelime-i Şehadet'in açıkça vurguladığı bir konudur?",
+        "explanation_tr": "Kelime-i Şehadet, Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği açıkça içerdiği için peygamberlere iman başlığıyla doğrudan ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Meleklere iman",
+          "Kadere iman",
+          "Ahirete iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel élément est à la fois un article de la foi et un thème expressément évoqué dans la chahada ?",
+        "explanation_tr": "La chahada atteste que Muhammad est le serviteur et messager d’Allah ; elle se rattache donc directement à la foi aux prophètes.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La foi aux prophètes",
+          "La foi aux anges",
+          "La foi au destin",
+          "La foi au Jour dernier"
+        ],
+        "correct_answer": "La foi aux prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-002": {
+      "source": {
+        "question_tr": "Bir kavram kartında 'Allah'ın bilgisi ve takdiriyle ilişkili oluş' ifadesi yazıyor. Bu kart hangi iman esasına aittir?",
+        "explanation_tr": "Bu ifade kader ve kazaya iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kader ve kazaya iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Ahiret gününe iman"
+        ],
+        "correct_answer": "Kader ve kazaya iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une carte de révision porte la mention « les événements sont liés à la science et au décret d’Allah ». À quel article de la foi correspond-elle ?",
+        "explanation_tr": "Cette description introductive renvoie à la foi au destin et au décret divin.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La foi au destin et au décret divin",
+          "La foi aux anges",
+          "La foi aux Livres révélés",
+          "La foi au Jour dernier"
+        ],
+        "correct_answer": "La foi au destin et au décret divin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-003": {
+      "source": {
+        "question_tr": "Tanımları ait oldukları esaslarla eşleştirin.",
+        "explanation_tr": "Farklı iman esasları İslam inancının çeşitli yapı taşlarını oluşturur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ölümden sonra hayat ve hesap",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "Allah'ın yarattığı meleklerin varlığı",
+            "right": "Meleklere iman"
+          },
+          {
+            "left": "Allah'ın peygamberlere vahiy yoluyla kitaplar göndermesi",
+            "right": "Kitaplara iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les définitions aux articles de la foi concernés.",
+        "explanation_tr": "Chaque article correspond à une composante fondamentale de la croyance islamique.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Vie après la mort et jugement",
+            "right": "Foi au Jour dernier"
+          },
+          {
+            "left": "Existence des anges créés par Allah",
+            "right": "Foi aux anges"
+          },
+          {
+            "left": "Allah révèle des Livres aux prophètes",
+            "right": "Foi aux Livres révélés"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-004": {
+      "source": {
+        "question_tr": "Allah'ın bizlere doğru yolu göstermek için seçtiği örnek insanlara inanmaya ______ iman denir.",
+        "explanation_tr": "İlahi mesajı ileten seçilmiş örnek insanlar peygamberlerdir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Peygamberlere",
+          "Meleklere",
+          "Kadere",
+          "Kitaplara"
+        ],
+        "correct_answer": "Peygamberlere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire aux personnes exemplaires choisies par Allah pour guider les hommes relève de la foi aux ______.",
+        "explanation_tr": "Les personnes choisies pour transmettre le message divin sont les prophètes.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "prophètes",
+          "anges",
+          "destin",
+          "Livres révélés"
+        ],
+        "correct_answer": "prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-005": {
+      "source": {
+        "question_tr": "Allah'ın yarattığı meleklerin varlığına inanmak imanın hangi esasıdır?",
+        "explanation_tr": "Meleklerin varlığına iman, imanın altı esasından biridir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Ahiret gününe iman",
+          "Kader ve kazaya iman"
+        ],
+        "correct_answer": "Meleklere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel article de la foi concerne l’existence des anges créés par Allah ?",
+        "explanation_tr": "Croire aux anges fait partie des six articles de la foi.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La foi aux anges",
+          "La foi aux Livres révélés",
+          "La foi au Jour dernier",
+          "La foi au destin et au décret divin"
+        ],
+        "correct_answer": "La foi aux anges",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-006": {
+      "source": {
+        "question_tr": "'Dünyadaki davranışlarımdan ahirette hesaba çekileceğime inanıyorum' diyen bir kişi hangi iman esasına vurgu yapmaktadır?",
+        "explanation_tr": "Hesap ve ölüm sonrası hayat bilinci ahirete iman başlığıyla ilişkilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Kitaplara iman",
+          "Kadere iman",
+          "Peygamberlere iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel article de la foi est mis en avant lorsqu’une personne dit : « Je crois que je rendrai compte de mes actions dans l’au-delà » ?",
+        "explanation_tr": "La notion de jugement et de vie après la mort relève de la foi au Jour dernier.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La foi au Jour dernier",
+          "La foi aux Livres révélés",
+          "La foi au destin",
+          "La foi aux prophètes"
+        ],
+        "correct_answer": "La foi au Jour dernier",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-007": {
+      "source": {
+        "question_tr": "Allah'ın vahiylerini içeren, peygamberlere gönderilen ilahi metinlere inanmaya ______ iman denir.",
+        "explanation_tr": "İlahi vahiyler kitap (suhuf veya kitap) olarak isimlendirilir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Kitaplara",
+          "Meleklere",
+          "Kadere",
+          "Ahirete"
+        ],
+        "correct_answer": "Kitaplara",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire aux Écritures révélées par Allah aux prophètes relève de la foi aux ______.",
+        "explanation_tr": "Les textes de la révélation divine sont appelés Livres révélés ou feuillets.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Livres révélés",
+          "anges",
+          "destin",
+          "Jour dernier"
+        ],
+        "correct_answer": "Livres révélés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-008": {
+      "source": {
+        "question_tr": "Hangisi bir inanç esası olmayıp pratik bir ibadettir?",
+        "explanation_tr": "Oruç tutmak İslam'ın şartlarından (ameli/pratik) bir ibadettir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Oruç tutmak",
+          "Ahirete iman",
+          "Meleklere iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Oruç tutmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Lequel des éléments suivants est une pratique d’adoration plutôt qu’un article de la foi ?",
+        "explanation_tr": "Le jeûne relève des cinq piliers de l’islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Observer le jeûne",
+          "Croire au Jour dernier",
+          "Croire aux anges",
+          "Croire au destin"
+        ],
+        "correct_answer": "Observer le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-009": {
+      "source": {
+        "question_tr": "Senaryoları ilgili iman esası ile eşleştirin.",
+        "explanation_tr": "Günlük düşüncelerimiz iman esaslarıyla şekillenir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'ın takdiri olduğuna inanmak",
+            "right": "Kadere iman"
+          },
+          {
+            "left": "Hesap gününü düşünüp haksızlık yapmamak",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "Kur'an'ın Allah sözü olduğuna inanmak",
+            "right": "Kitaplara iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les situations à l’article de la foi correspondant.",
+        "explanation_tr": "Les convictions peuvent influencer notre regard sur les événements et notre comportement quotidien.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Croire au décret d’Allah",
+            "right": "Foi au destin"
+          },
+          {
+            "left": "Penser au jugement et éviter l’injustice",
+            "right": "Foi au Jour dernier"
+          },
+          {
+            "left": "Croire que le Coran est la parole d’Allah",
+            "right": "Foi aux Livres révélés"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-010": {
+      "source": {
+        "question_tr": "Bir öğrenci altı iman esasını sıralarken 'Meleklere iman' başlığını çıkarıyor. Bu listede hangi hata oluşur?",
+        "explanation_tr": "Meleklere iman, imanın altı esasından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İmanın esaslarından biri eksik kalır.",
+          "İslam'ın beş şartlarından biri eksik kalır.",
+          "Namazla ilgili bir başlık eksik kalır.",
+          "Listede hata oluşmaz."
+        ],
+        "correct_answer": "İmanın esaslarından biri eksik kalır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève oublie « la foi aux anges » en énumérant les six articles de la foi. Quelle erreur commet-il ?",
+        "explanation_tr": "Croire aux anges est l’un des six articles de la foi.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Il omet l’un des articles de la foi",
+          "Il oublie l’un des cinq piliers de l’islam",
+          "Il oublie un élément concernant la prière",
+          "La liste reste correcte"
+        ],
+        "correct_answer": "Il omet l’un des articles de la foi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-011": {
+      "source": {
+        "question_tr": "İmanın esaslarından biri 'Kader ve ______ iman' ifadesiyle tamamlanır.",
+        "explanation_tr": "Bu iman esasının tam adı 'Kader ve kazaya iman'dır.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Kazaya",
+          "Ahirete",
+          "Meleklere",
+          "Kitaplara"
+        ],
+        "correct_answer": "Kazaya",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans le nom de l’article « foi au destin et au ______ », quel terme manque-t-il ?",
+        "explanation_tr": "La formulation complète de cet article est la foi au destin et au décret divin.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "décret divin",
+          "Jour dernier",
+          "anges",
+          "Livres révélés"
+        ],
+        "correct_answer": "décret divin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-012": {
+      "source": {
+        "question_tr": "Cem, 'Allah insanlara vahyini iletecek peygamberler göndermemiştir' diyor. Bu görüş hangi iman esasıyla çelişir?",
+        "explanation_tr": "Allah'ın seçip vahyi tebliğ etmekle görevlendirdiği elçilere inanmak, peygamberlere iman esasıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Meleklere iman",
+          "Ahirete iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Cem affirme : « Allah n’a jamais envoyé de prophètes aux êtres humains pour transmettre Sa révélation. » Quel article de la foi contredit-il ?",
+        "explanation_tr": "Croire aux messagers choisis par Allah pour transmettre Sa révélation relève de la foi aux prophètes.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La foi aux prophètes",
+          "La foi aux anges",
+          "La foi au Jour dernier",
+          "La foi au destin"
+        ],
+        "correct_answer": "La foi aux prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-013": {
+      "source": {
+        "question_tr": "İslam'daki altı temel inanç başlığının genel adı 'İmanın ______'dır.",
+        "explanation_tr": "Bu altı temel inanç başlığı 'İmanın Esasları' olarak adlandırılır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Esasları",
+          "Şehirleri",
+          "Tarihleri",
+          "Uygulamaları"
+        ],
+        "correct_answer": "Esasları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Les six principales croyances de l’islam sont appelées les « ______ de la foi ».",
+        "explanation_tr": "Ces six croyances fondamentales sont appelées les articles de la foi.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "articles",
+          "villes",
+          "époques",
+          "pratiques"
+        ],
+        "correct_answer": "articles",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S07-014": {
+      "source": {
+        "question_tr": "İmanın esasları arasında Allah'a, Meleklere, Kitaplara, Peygamberlere, Ahirete ve ______ iman yer alır.",
+        "explanation_tr": "Listeyi tamamlayan iman esası kader ve kazaya imandır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Kader ve Kazaya",
+          "Namaz kılmaya",
+          "Zekât vermeye",
+          "Hacca gitmeye"
+        ],
+        "correct_answer": "Kader ve Kazaya",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Les articles de la foi comprennent la foi en Allah, aux anges, aux Livres révélés, aux prophètes, au Jour dernier et au ______.",
+        "explanation_tr": "Le dernier élément de cette énumération est la foi au destin et au décret divin.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "destin et au décret divin",
+          "fait d’accomplir la prière",
+          "versement de la zakat",
+          "hajj"
+        ],
+        "correct_answer": "destin et au décret divin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Bilan des articles de la foi",
+        "topic": "Les six articles de la foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

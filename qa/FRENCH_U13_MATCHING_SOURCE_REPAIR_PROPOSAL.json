@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "scope": "U13 duplicate matching rights across language layers",
+  "status": "source_edit_proposed_not_approved",
+  "production_safe": false,
+  "review_required": [
+    "Islamic subject expert",
+    "French native reviewer",
+    "Turkish source editor",
+    "cross-language QA"
+  ],
+  "unchanged_production_source": true,
+  "objective": "Keep both four-rakʿa rules correct while making the two prayer-time descriptions uniquely matchable.",
+  "affected_ids": [
+    "DEEN-U13-S03-006",
+    "DEEN-U13-S06-012"
+  ],
+  "root_cause": {
+    "source_right_values": [
+      "Farz namaz belirlenmiş vakti girdikten sonra kılınır",
+      "4 rekât",
+      "4 rekât",
+      "Namaza engel necasetten temiz olmaları"
+    ],
+    "source_unique_right_values": 3,
+    "cards": 4,
+    "existing_matching_engine_supports_equal_visible_answers": true,
+    "defect": "Pedagogical ambiguity, not independently proven runtime freeze or incorrect fard rakʿa number"
+  },
+  "proposed_turkish_rights": {
+    "Öğle namazının farzı": "Öğle vaktinde kılınan 4 rekât farz namaz",
+    "Yatsı namazının farzı": "Yatsı vaktinde kılınan 4 rekât farz namaz"
+  },
+  "applied_fr_staging_rights": {
+    "La prière obligatoire de midi": "4 rakʿât obligatoires pour la prière de midi (dhohr)",
+    "La prière obligatoire du soir": "4 rakʿât obligatoires pour la prière du soir (‘ichâ)"
+  },
+  "content_caveat": "Both are four rakʿât; differentiating by name and time does not make either count change. French display wording is provisional, not a religious approval.",
+  "source_reference": "https://namaz.diyanet.gov.tr/namaz/html/kutuphane/HTML/NamazIlmihali/assets/common/downloads/publication.pdf",
+  "protected_layers": [
+    "Original Turkish question source",
+    "English/Arabic/German translations",
+    "Arabic Quran verses",
+    "recitation audio",
+    "prod main runtime"
+  ],
+  "required_followups": [
+    "Religiously approve distinctive source definitions",
+    "Align English Arabic German and Turkish simultaneously after approval",
+    "Re-run correct answer / matching gameplay QA with browser",
+    "Verify all 4 matching labels present as unique user-facing cards",
+    "Keep PR draft and French production gates blocked until complete"
+  ]
+}

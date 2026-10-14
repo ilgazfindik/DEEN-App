@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "scope": "ui_reference_batch_08_final_staging",
+  "source_language": "tr",
+  "reference_batch": "08",
+  "status": "translation_draft_requires_native_religious_and_transliteration_review",
+  "release_ready": false,
+  "global_qa": "blocked",
+  "native_reviewer_approved": false,
+  "verified_by_religious_expert": false,
+  "transliteration_reviewed": false,
+  "rights_reviewed": false,
+  "translation_count": 10,
+  "source_reference": "de-review/assets/i18n/german-ui.reference-batch-08.staging.json:Turkish keys only",
+  "review_required_keys": [
+    "Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler.",
+    "Fâtiha",
+    "Felak",
+    "Nâs",
+    "Mâûn",
+    "İnşirah",
+    "Zilzâl"
+  ],
+  "protected_content_note": "Romanized display labels only. Original Arabic ayat, audio and translated verse meaning data are unchanged.",
+  "translations": {
+    "KISIM 1 FİNALİ": "FINALE DE LA SECTION 1",
+    "KİLİTLİ · USTALIK SINAVI": "VERROUILLÉ · ÉPREUVE DE MAÎTRISE",
+    "Temeller Ustalığı": "Maîtrise des fondamentaux",
+    "Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler.": "Les différences valides entre écoles juridiques ne sont pas évaluées comme des réponses incorrectes ; tous les nouveaux contenus attendent une vérification par des spécialistes.",
+    "Fâtiha": "Al-Fâtiha",
+    "Felak": "Al-Falaq",
+    "Nâs": "An-Nâs",
+    "Mâûn": "Al-Mâ‘ûn",
+    "İnşirah": "Ash-Sharh",
+    "Zilzâl": "Az-Zalzala"
+  }
+}

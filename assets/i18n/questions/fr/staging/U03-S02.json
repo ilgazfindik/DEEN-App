@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U03",
+  "stage": "U03-S02",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U03-S02-001": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet'in 'Allah'tan başka ilah olmadığına şahitlik ederim' bölümü, İslam'ın hangi temel kavramını ifade eder?",
+        "explanation_tr": "Tevhid, Allah'ın tek ve eşsiz olmasıdır. 'Lâ ilâhe illallah' ifadesi tevhid inancının temelidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tevhid (Allah'ın birliği)",
+          "Nübüvvet (Peygamberlik)",
+          "Ahiret (Ölümden sonraki hayat)",
+          "Kader"
+        ],
+        "correct_answer": "Tevhid (Allah'ın birliği)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle notion fondamentale de l’islam est exprimée par « J’atteste qu’il n’y a de divinité qu’Allah » ?",
+        "explanation_tr": "Le tawhid est la croyance en l’unicité d’Allah ; la formule « lâ ilâha illâ Allah » en est une expression fondamentale.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tawhid (unicité d’Allah)",
+          "Prophétie (mission des prophètes)",
+          "Vie après la mort",
+          "Prédestination"
+        ],
+        "correct_answer": "Tawhid (unicité d’Allah)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-002": {
+      "source": {
+        "question_tr": "Şehadetin ikinci bölümü olan 've eşhedü enne Muhammeden abdühû ve resûlüh', tevhid beyanından sonra Hz. Muhammed'in Allah'ın kulu ve elçisi oluşunu ifade eder.",
+        "explanation_tr": "İkinci bölüm Hz. Muhammed'i ilah olarak değil, Allah'ın kulu ve elçisi olarak tanımlar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La seconde partie de la chahada, « wa ach-hadou anna Muhammadan abdouhou wa rasûlouhou », affirme après l’unicité d’Allah que Muhammad est Son serviteur et Son messager.",
+        "explanation_tr": "La seconde partie présente Muhammad non comme une divinité, mais comme le serviteur et le messager d’Allah.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-003": {
+      "source": {
+        "question_tr": "Şehadetin bölümlerini ifade ettikleri kavramlarla doğru şekilde eşleştir.",
+        "explanation_tr": "Birinci bölüm (Allah'tan başka ilah yoktur) tevhidi; ikinci bölüm (Muhammed Allah'ın elçisidir) peygamberliği ifade eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'tan başka ilah yoktur",
+            "right": "Tevhid (Allah'ın birliği)"
+          },
+          {
+            "left": "Muhammed Allah'ın elçisidir",
+            "right": "Peygamberlik / risalet"
+          },
+          {
+            "left": "Eşhedü",
+            "right": "Şahitlik ederim"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les parties de la chahada à leur signification.",
+        "explanation_tr": "La première partie (il n’y a de divinité qu’Allah) correspond au tawhid ; la seconde (Muhammad est Son messager) correspond à la prophétie.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Il n’y a de divinité qu’Allah",
+            "right": "Tawhid (unicité d’Allah)"
+          },
+          {
+            "left": "Muhammad est le messager d’Allah",
+            "right": "Prophétie / mission de messager"
+          },
+          {
+            "left": "Ach-hadou",
+            "right": "J’atteste"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-004": {
+      "source": {
+        "question_tr": "'Allah'tan başka ilah yoktur' ifadesi bu ünitede en temel olarak neyi anlatır?",
+        "explanation_tr": "Bu ifade tevhid ile ilişkilidir: Allah'ın tek ilah olduğunun kabulünü ve kulluğun O'na yöneltilmesini anlatır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbadetin yalnızca Allah'a yöneltilmesini ve O'nun tek ilah kabul edilmesini",
+          "Peygamberlerin birbirinden üstünlük sırasını",
+          "Meleklerin görevlerinin ayrıntılarını",
+          "Ahiret hayatının aşamalarını"
+        ],
+        "correct_answer": "İbadetin yalnızca Allah'a yöneltilmesini ve O'nun tek ilah kabul edilmesini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans cette unité, que signifie principalement « Il n’y a de divinité qu’Allah » ?",
+        "explanation_tr": "Cette phrase est liée au tawhid : reconnaître Allah comme l’unique divinité et Lui vouer exclusivement l’adoration.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Reconnaître Allah comme l’unique divinité et Lui vouer l’adoration",
+          "Classer les prophètes par rang",
+          "Décrire les fonctions des anges",
+          "Présenter les étapes de la vie après la mort"
+        ],
+        "correct_answer": "Reconnaître Allah comme l’unique divinité et Lui vouer l’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-005": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet, 'Allah'tan başka ilah olmadığına ve _______________ Allah'ın elçisi olduğuna şahitlik ederim' anlamına gelir.",
+        "explanation_tr": "İslam, tüm peygamberleri kabul etmekle birlikte, Kelime-i Şehadet metninde son peygamber olan Hz. Muhammed'in ismini anar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Muhammed'in",
+          "İsa'nın",
+          "Musa'nın",
+          "İbrahim'in"
+        ],
+        "correct_answer": "Muhammed'in",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La chahada signifie : « J’atteste qu’il n’y a de divinité qu’Allah et que _____ est le messager d’Allah. »",
+        "explanation_tr": "L’islam reconnaît tous les prophètes, mais la chahada mentionne nommément Muhammad, le dernier prophète.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Muhammad",
+          "Jésus",
+          "Moïse",
+          "Abraham"
+        ],
+        "correct_answer": "Muhammad",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-006": {
+      "source": {
+        "question_tr": "Bir açıklama şehadeti yalnızca 'Allah'ın birliğine şahitlik' diye tanımlıyor. Hangi temel unsur eksiktir?",
+        "explanation_tr": "Şehadet iki temel beyan içerir. Tevhid beyanının yanında Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik de yer alır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+          "Namazın rekât sayıları",
+          "Oruç vakitleri",
+          "Hac ibadetinin ayrıntıları"
+        ],
+        "correct_answer": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une explication réduit la chahada au seul témoignage de l’unicité d’Allah. Quel élément essentiel manque-t-il ?",
+        "explanation_tr": "La chahada comprend deux témoignages : celui de l’unicité d’Allah et celui de la mission de Muhammad en tant que serviteur et messager.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Attester que Muhammad est le serviteur et le messager d’Allah",
+          "Le nombre de cycles de prière",
+          "Les horaires du jeûne",
+          "Les détails du pèlerinage"
+        ],
+        "correct_answer": "Attester que Muhammad est le serviteur et le messager d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-007": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi Kelime-i Şehadet'in temel içeriğinde yer almaz?",
+        "explanation_tr": "Kelime-i Şehadet tevhid ve elçilik beyanını içerir; namazın uygulama ayrıntıları başka bir öğrenme konusudur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazın nasıl kılındığının ayrıntılı anlatımı",
+          "Allah'ın birliğine şahitlik",
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+          "İki temel beyanın tek ifadede bir araya gelmesi"
+        ],
+        "correct_answer": "Namazın nasıl kılındığının ayrıntılı anlatımı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Lequel de ces éléments ne fait pas directement partie du contenu de la chahada ?",
+        "explanation_tr": "La chahada affirme l’unicité d’Allah et la mission de Muhammad ; la manière détaillée de prier est un autre sujet.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Les instructions détaillées pour accomplir la prière",
+          "Le témoignage de l’unicité d’Allah",
+          "Le témoignage que Muhammad est Son serviteur et Son messager",
+          "La réunion de deux témoignages dans une seule formule"
+        ],
+        "correct_answer": "Les instructions détaillées pour accomplir la prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-008": {
+      "source": {
+        "question_tr": "'Lâ ilâhe illallah' ifadesinin Türkçe karşılığını tamamla: '_____ başka ilah yoktur.'",
+        "explanation_tr": "Bu bölüm 'Allah'tan başka ilah yoktur' anlamıyla tevhid kavramına bağlanır.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Allah'tan",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète la traduction de « lâ ilâha illâ Allah » : « Il n’y a de divinité qu’_____ ».",
+        "explanation_tr": "Cette première partie signifie « Il n’y a de divinité qu’Allah », expression liée au tawhid.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-009": {
+      "source": {
+        "question_tr": "Hızlı tekrar: Şehadetin iki ana kavramsal bağlantısı hangisidir?",
+        "explanation_tr": "İlk bölüm tevhidle, ikinci bölüm Hz. Muhammed'in kulluğu ve elçiliği yani peygamberlikle bağlantılıdır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Tevhid ve peygamberlik",
+          "Namaz ve oruç",
+          "Zekât ve hac",
+          "Kader ve ahiret"
+        ],
+        "correct_answer": "Tevhid ve peygamberlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : quelles sont les deux notions majeures associées à la chahada ?",
+        "explanation_tr": "La première partie concerne le tawhid ; la seconde la servitude envers Allah et la mission de Muhammad, c’est-à-dire la prophétie.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Tawhid et prophétie",
+          "Prière et jeûne",
+          "Aumône et pèlerinage",
+          "Prédestination et vie après la mort"
+        ],
+        "correct_answer": "Tawhid et prophétie",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-010": {
+      "source": {
+        "question_tr": "'Lâ ilâhe illallah' ifadesindeki iki bölümün anlam ilişkisi hangisidir?",
+        "explanation_tr": "İfade bir bütün olarak Allah'ın tek ilah olduğu anlamını taşır. Bu, tevhid kavramıyla bağlantılıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'tan başka ilah olmadığını belirtir ve Allah'ı tek ilah olarak ifade eder",
+          "Önce peygamberliği reddeder, sonra kabul eder",
+          "Meleklerin görevlerini iki gruba ayırır",
+          "Namazın iki bölümünü açıklar"
+        ],
+        "correct_answer": "Allah'tan başka ilah olmadığını belirtir ve Allah'ı tek ilah olarak ifade eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle est la relation entre les deux éléments de « lâ ilâha illâ Allah » ?",
+        "explanation_tr": "L’expression entière affirme qu’Allah est l’unique divinité, en lien avec la notion de tawhid.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle nie l’existence d’une autre divinité et affirme Allah comme l’unique divinité",
+          "Elle rejette d’abord puis accepte la prophétie",
+          "Elle divise les fonctions des anges en deux groupes",
+          "Elle décrit les deux parties de la prière"
+        ],
+        "correct_answer": "Elle nie l’existence d’une autre divinité et affirme Allah comme l’unique divinité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-011": {
+      "source": {
+        "question_tr": "'Şahitlik etmek / tanıklık etmek' anlamıyla bu ünitede öğrendiğin dini terimi yaz.",
+        "explanation_tr": "Şehadet kelimesi bu ünitede bir inanca tanıklık etmeyi ve onu sözle ifade etmeyi anlatır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Şehadet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Écris le terme religieux appris dans cette unité qui signifie « attester / témoigner ».",
+        "explanation_tr": "La chahada désigne ici l’expression orale d’un témoignage de foi.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "chahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-012": {
+      "source": {
+        "question_tr": "Şehadetin Türkçe anlamındaki 'O'nun kulu ve elçisi' ifadesi, metindeki 'Muhammeden abdühû ve resûlüh' bölümünün karşılığıdır.",
+        "explanation_tr": "Standart Diyanet metninde 'abdühû ve resûlüh' ifadesi Hz. Muhammed'in Allah'ın kulu ve elçisi oluşunu bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans la traduction de la chahada, « Son serviteur et Son messager » correspond à « Muhammadan abdouhou wa rasûlouhou ».",
+        "explanation_tr": "Dans le texte d’enseignement standard, « abdouhou wa rasûlouhou » affirme que Muhammad est le serviteur et le messager d’Allah.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-013": {
+      "source": {
+        "question_tr": "Bir cümlede 'Allah'tan başka ilah olmadığına şahitlik ederim' deniyor ama şehadetin ikinci bölümü yer almıyor. Eksik bölüm hangisidir?",
+        "explanation_tr": "Kelime-i Şehadet'in tam öğrenme çerçevesinde ikinci bölüm Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitliktir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+          "Meleklerin isimlerini saymak",
+          "Namaz vakitlerini söylemek",
+          "Hac ibadetini tarif etmek"
+        ],
+        "correct_answer": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une phrase dit : « J’atteste qu’il n’y a de divinité qu’Allah », mais omet la seconde partie de la chahada. Quelle partie manque-t-il ?",
+        "explanation_tr": "La seconde partie de la chahada affirme que Muhammad est le serviteur et le messager d’Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le témoignage que Muhammad est le serviteur et le messager d’Allah",
+          "L’énumération des noms des anges",
+          "L’indication des heures de prière",
+          "La description du pèlerinage"
+        ],
+        "correct_answer": "Le témoignage que Muhammad est le serviteur et le messager d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S02-014": {
+      "source": {
+        "question_tr": "Şehadetle ilgili temel kavramları anlamlarıyla eşleştir.",
+        "explanation_tr": "Bu kavramlar şehadetin anlam yapısını kurar: şahitlik, tevhid ve Hz. Muhammed'in kulluğu ve elçiliği.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tevhid",
+            "right": "Allah'ın birliği ve tek ilah oluşu"
+          },
+          {
+            "left": "Şehadet",
+            "right": "Şahitlik / tanıklık beyanı"
+          },
+          {
+            "left": "Abdühû ve resûlüh",
+            "right": "O'nun kulu ve elçisi"
+          },
+          {
+            "left": "Kelime-i Şehadet",
+            "right": "Tevhid ve Hz. Muhammed'in kulluğu/elçiliği beyanını birlikte ifade eden cümle"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions fondamentales de la chahada à leur signification.",
+        "explanation_tr": "Ces notions structurent la chahada : témoignage, tawhid, et condition de serviteur et de messager de Muhammad.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tawhid",
+            "right": "Unicité d’Allah et affirmation qu’Il est l’unique divinité"
+          },
+          {
+            "left": "Chahada",
+            "right": "Déclaration de témoignage"
+          },
+          {
+            "left": "Abdouhou wa rasûlouhou",
+            "right": "Son serviteur et Son messager"
+          },
+          {
+            "left": "Formule de la chahada",
+            "right": "Déclaration réunissant le tawhid et la mission de Muhammad"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La signification des deux témoignages",
+        "topic": "Tawhid et mission du Messager"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U03",
+  "stage": "U03-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U03-S04-001": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet metnini doğru sıraya koy.",
+        "explanation_tr": "Şehadet 'Eşhedü en lâ ilâhe illallah' ile başlar ve 've eşhedü enne Muhammeden abdühû ve resûlüh' ile biter.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+          "Eşhedü en lâ ilâhe illallah"
+        ],
+        "correct_order": [
+          "Eşhedü en lâ ilâhe illallah",
+          "ve eşhedü enne Muhammeden abdühû ve resûlüh"
+        ]
+      },
+      "display": {
+        "question_tr": "Remets le texte de la chahada dans le bon ordre.",
+        "explanation_tr": "La chahada commence par « Eşhedü en lâ ilâhe illallah » et se poursuit par « ve eşhedü enne Muhammeden abdühû ve resûlüh ».",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+          "Eşhedü en lâ ilâhe illallah"
+        ],
+        "correct_order": [
+          "Eşhedü en lâ ilâhe illallah",
+          "ve eşhedü enne Muhammeden abdühû ve resûlüh"
+        ],
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-002": {
+      "source": {
+        "question_tr": "Cümleyi doğru şekilde tamamla: '...ve eşhedü enne Muhammeden _________ ve resûlüh'",
+        "explanation_tr": "Standart metinde 'Muhammeden' kelimesinden sonra 'abdühû ve resûlüh' gelir.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "abdühû",
+          "illallah",
+          "eşhedü",
+          "Muhammeden"
+        ],
+        "correct_answer": "abdühû",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : « ...ve eşhedü enne Muhammeden _________ ve resûlüh »",
+        "explanation_tr": "Dans le texte standard, le mot qui suit « Muhammeden » est « abdühû ».",
+        "activity_type": "next_word",
+        "options_tr": [
+          "abdühû",
+          "illallah",
+          "eşhedü",
+          "Muhammeden"
+        ],
+        "correct_answer": "abdühû",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-003": {
+      "source": {
+        "question_tr": "Eksik parçayı tamamla: 'Eşhedü en lâ ilâhe _____'",
+        "explanation_tr": "Kontrollü ifadede ilk bölüm 'Eşhedü en lâ ilâhe illallah' şeklindedir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "illallah",
+          "resûlüh",
+          "Muhammeden",
+          "eşhedü"
+        ],
+        "correct_answer": "illallah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète la partie manquante : « Eşhedü en lâ ilâhe _____ »",
+        "explanation_tr": "La première partie du texte standard est « Eşhedü en lâ ilâhe illallah ».",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "illallah",
+          "resûlüh",
+          "Muhammeden",
+          "eşhedü"
+        ],
+        "correct_answer": "illallah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-004": {
+      "source": {
+        "question_tr": "Şehadetin ilk yarısını (tevhid kısmını) oluşturan kelimeleri doğru sıraya koy.",
+        "explanation_tr": "Cümle 'Eşhedü' (şahitlik ederim) ile başlar, ardından 'en lâ ilâhe' (ilah olmadığına) ve son olarak 'illallah' (Allah'tan başka) ile tamamlanır.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "illallah",
+          "Eşhedü",
+          "en lâ ilâhe"
+        ],
+        "correct_order": [
+          "Eşhedü",
+          "en lâ ilâhe",
+          "illallah"
+        ]
+      },
+      "display": {
+        "question_tr": "Remets dans l’ordre les mots de la première partie de la chahada (le tawhid).",
+        "explanation_tr": "Cette partie commence par « Eşhedü » (« j’atteste »), puis « en lâ ilâhe », et se termine par « illallah ».",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "illallah",
+          "Eşhedü",
+          "en lâ ilâhe"
+        ],
+        "correct_order": [
+          "Eşhedü",
+          "en lâ ilâhe",
+          "illallah"
+        ],
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-005": {
+      "source": {
+        "question_tr": "Cümleyi doğru şekilde tamamla: 'Eşhedü en lâ ilâhe illallah _________ eşhedü enne Muhammeden abdühû ve resûlüh'",
+        "explanation_tr": "İki şahitlik beyanı 've' bağlacı ile birbirine bağlanır. Bu, iki inancın ayrılmaz bir bütün olduğunu gösterir.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "ve",
+          "lâ",
+          "en",
+          "enne"
+        ],
+        "correct_answer": "ve",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : « Eşhedü en lâ ilâhe illallah _________ eşhedü enne Muhammeden abdühû ve resûlüh »",
+        "explanation_tr": "La conjonction « ve » (« et ») relie les deux témoignages.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "ve",
+          "lâ",
+          "en",
+          "enne"
+        ],
+        "correct_answer": "ve",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-006": {
+      "source": {
+        "question_tr": "Şehadetin Türkçe anlamını oluşturan bölümleri doğru mantıksal sıraya koy.",
+        "explanation_tr": "Önce Allah'ın tek ilah olduğu onaylanır, sonra Muhammed'in (s.a.v.) kulu ve elçisi olduğu belirtilir ve tüm bunlara şahitlik edilir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Muhammed'in Allah'ın kulu ve elçisi olduğuna",
+          "şahitlik ederim.",
+          "Allah'tan başka ilah olmadığına ve"
+        ],
+        "correct_order": [
+          "Allah'tan başka ilah olmadığına ve",
+          "Muhammed'in Allah'ın kulu ve elçisi olduğuna",
+          "şahitlik ederim."
+        ]
+      },
+      "display": {
+        "question_tr": "Place les éléments de la traduction française de la chahada dans l’ordre logique.",
+        "explanation_tr": "Le témoignage affirme d’abord l’unicité d’Allah, puis le statut de serviteur et de messager de Muhammad.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "et que Muhammad",
+          "est Son serviteur et Son messager.",
+          "J’atteste qu’il n’y a de divinité qu’Allah"
+        ],
+        "correct_order": [
+          "J’atteste qu’il n’y a de divinité qu’Allah",
+          "et que Muhammad",
+          "est Son serviteur et Son messager."
+        ],
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-007": {
+      "source": {
+        "question_tr": "Eksik parçayı tamamla: '_____ en lâ ilâhe illallah'",
+        "explanation_tr": "Kontrollü ifade 'Eşhedü' kelimesiyle başlar.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Eşhedü",
+          "Resûlüh",
+          "Muhammeden",
+          "Enne"
+        ],
+        "correct_answer": "Eşhedü",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : « _____ en lâ ilâhe illallah »",
+        "explanation_tr": "Le texte standard commence par « Eşhedü ».",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Eşhedü",
+          "Resûlüh",
+          "Muhammeden",
+          "Enne"
+        ],
+        "correct_answer": "Eşhedü",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-008": {
+      "source": {
+        "question_tr": "Şehadetin ikinci yarısını doğru sıraya koy.",
+        "explanation_tr": "İkinci kısım 've eşhedü', 'enne Muhammeden', 'abdühû ve', 'resûlüh' sırasıyla ilerler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "resûlüh",
+          "ve eşhedü",
+          "abdühû ve",
+          "enne Muhammeden"
+        ],
+        "correct_order": [
+          "ve eşhedü",
+          "enne Muhammeden",
+          "abdühû ve",
+          "resûlüh"
+        ]
+      },
+      "display": {
+        "question_tr": "Remets dans l’ordre les éléments de la seconde partie de la chahada.",
+        "explanation_tr": "La seconde partie se compose dans l’ordre de « ve eşhedü », « enne Muhammeden », « abdühû ve », puis « resûlüh ».",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "resûlüh",
+          "ve eşhedü",
+          "abdühû ve",
+          "enne Muhammeden"
+        ],
+        "correct_order": [
+          "ve eşhedü",
+          "enne Muhammeden",
+          "abdühû ve",
+          "resûlüh"
+        ],
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-009": {
+      "source": {
+        "question_tr": "Cümleyi tamamla: 've eşhedü enne _________ abdühû ve resûlüh'",
+        "explanation_tr": "İkinci bölüm Hz. Muhammed'in Allah'ın kulu ve elçisi olduğunu bildirir.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "Muhammeden",
+          "illallah",
+          "eşhedü",
+          "abdühû"
+        ],
+        "correct_answer": "Muhammeden",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : « ve eşhedü enne _________ abdühû ve resûlüh »",
+        "explanation_tr": "La seconde partie déclare que Muhammad est le serviteur et le messager d’Allah.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "Muhammeden",
+          "illallah",
+          "eşhedü",
+          "abdühû"
+        ],
+        "correct_answer": "Muhammeden",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-010": {
+      "source": {
+        "question_tr": "Türkçe anlamı hatırla ve boşluğu yaz: 'Allah'tan başka ilah olmadığına ve Muhammed'in Allah'ın elçisi olduğuna _____ ederim.'",
+        "explanation_tr": "Şehadet kelimesinin temel anlamı şahitlik/tanıklıktır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "şahitlik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Souviens-toi du sens et complète : « J’_____ qu’il n’y a de divinité qu’Allah et que Muhammad est Son messager. »",
+        "explanation_tr": "Le mot chahada exprime l’idée d’attester ou de témoigner.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "atteste",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-011": {
+      "source": {
+        "question_tr": "Kelime-i Şehadet metnini dört parça halinde doğru sıraya diz.",
+        "explanation_tr": "Standart metin önce tevhid beyanını, ardından Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği ifade eder.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "abdühû ve resûlüh",
+          "Eşhedü en lâ ilâhe",
+          "ve eşhedü enne Muhammeden",
+          "illallah"
+        ],
+        "correct_order": [
+          "Eşhedü en lâ ilâhe",
+          "illallah",
+          "ve eşhedü enne Muhammeden",
+          "abdühû ve resûlüh"
+        ]
+      },
+      "display": {
+        "question_tr": "Remets dans l’ordre les quatre parties de la chahada.",
+        "explanation_tr": "Le texte standard commence par la déclaration du tawhid, suivie du témoignage sur Muhammad, serviteur et messager d’Allah.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "abdühû ve resûlüh",
+          "Eşhedü en lâ ilâhe",
+          "ve eşhedü enne Muhammeden",
+          "illallah"
+        ],
+        "correct_order": [
+          "Eşhedü en lâ ilâhe",
+          "illallah",
+          "ve eşhedü enne Muhammeden",
+          "abdühû ve resûlüh"
+        ],
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-012": {
+      "source": {
+        "question_tr": "Cümleyi tamamla: 'Eşhedü en _________ ilâhe illallah'",
+        "explanation_tr": "Metinde 'lâ' olumsuzluk edatıdır ve 'hiçbir ilah yoktur' (lâ ilâhe) manasını vererek tevhidi güçlendirir.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "lâ",
+          "ve",
+          "enne",
+          "resul"
+        ],
+        "correct_answer": "lâ",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : « Eşhedü en _________ ilâhe illallah »",
+        "explanation_tr": "« Lâ » marque la négation et indique ici qu’il n’y a pas d’autre divinité qu’Allah.",
+        "activity_type": "next_word",
+        "options_tr": [
+          "lâ",
+          "ve",
+          "enne",
+          "resul"
+        ],
+        "correct_answer": "lâ",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-013": {
+      "source": {
+        "question_tr": "Hızlı tekrar: Kontrollü şehadet metninde ikinci şahitliği başlatan ifade hangisidir?",
+        "explanation_tr": "'ve eşhedü' ifadesi ikinci şahitliği, yani Hz. Muhammed'in kulluğu ve elçiliğine şahitliği başlatır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "ve eşhedü",
+          "illallah",
+          "Muhammeden",
+          "resûlüh"
+        ],
+        "correct_answer": "ve eşhedü",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : quelle formule introduit le second témoignage dans la chahada ?",
+        "explanation_tr": "« Ve eşhedü » introduit le témoignage que Muhammad est le serviteur et le messager d’Allah.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "ve eşhedü",
+          "illallah",
+          "Muhammeden",
+          "resûlüh"
+        ],
+        "correct_answer": "ve eşhedü",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-014": {
+      "source": {
+        "question_tr": "Bu ünitede şehadet metnini öğrenirken en önemli hedef hangisidir?",
+        "explanation_tr": "DEEN'in hedefi yalnızca ses dizisini ezberletmek değil, metnin iki temel anlamını da öğretmektir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Metnin sırasını tanırken taşıdığı tevhid ve elçilik anlamını da kavramak",
+          "Yalnızca kelimelerin sayısını ezberlemek",
+          "Yalnızca hızlı söyleyebilmek",
+          "Yalnızca yazı biçimini kopyalamak"
+        ],
+        "correct_answer": "Metnin sırasını tanırken taşıdığı tevhid ve elçilik anlamını da kavramak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel est l’objectif le plus important lorsque tu étudies la chahada dans cette unité ?",
+        "explanation_tr": "DEEN veut enseigner le sens des deux témoignages, et pas seulement faire mémoriser une suite de sons.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Comprendre le tawhid et la mission du messager tout en apprenant l’ordre des mots",
+          "Mémoriser uniquement le nombre de mots",
+          "Pouvoir seulement la prononcer rapidement",
+          "Copier uniquement la forme des lettres"
+        ],
+        "correct_answer": "Comprendre le tawhid et la mission du messager tout en apprenant l’ordre des mots",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-015": {
+      "source": {
+        "question_tr": "Arapça parçaları Türkçe anlamlarıyla eşleştir.",
+        "explanation_tr": "'Eşhedü' şahitlik ederim; 'lâ ilâhe illallah' Allah'tan başka ilah yoktur; 'Muhammeden abdühû ve resûlüh' ise Muhammed'in O'nun kulu ve elçisi olduğunu bildirir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Eşhedü",
+            "right": "Şahitlik ederim"
+          },
+          {
+            "left": "Lâ ilâhe illallah",
+            "right": "Allah'tan başka ilah yoktur"
+          },
+          {
+            "left": "Muhammeden abdühû ve resûlüh",
+            "right": "Muhammed Allah'ın elçisidir"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les expressions arabes translittérées à leur signification française.",
+        "explanation_tr": "« Eşhedü » signifie « j’atteste » ; « lâ ilâhe illallah » signifie « il n’y a de divinité qu’Allah » ; la dernière expression concerne Muhammad, serviteur et messager d’Allah.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Eşhedü",
+            "right": "J’atteste"
+          },
+          {
+            "left": "Lâ ilâhe illallah",
+            "right": "Il n’y a de divinité qu’Allah"
+          },
+          {
+            "left": "Muhammeden abdühû ve resûlüh",
+            "right": "Muhammad est le messager d’Allah"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S04-016": {
+      "source": {
+        "question_tr": "Aşağıdaki eşleştirmelerden hangisi hatalıdır?",
+        "explanation_tr": "'illallah' şehadetin tevhid bölümünde yer alır; Hz. Muhammed'in kulluğu ve elçiliği ikinci bölümde ifade edilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "'illallah' → Hz. Muhammed'in kulluğu ve elçiliği",
+          "'Lâ ilâhe illallah' → tevhid",
+          "'Muhammeden abdühû ve resûlüh' → Hz. Muhammed'in kulluğu ve elçiliği",
+          "'Eşhedü' → şahitlik ederim"
+        ],
+        "correct_answer": "'illallah' → Hz. Muhammed'in kulluğu ve elçiliği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Laquelle de ces associations est incorrecte ?",
+        "explanation_tr": "« Illallah » figure dans la partie consacrée au tawhid ; le statut de serviteur et de messager de Muhammad est affirmé dans la seconde partie.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "« illallah » → Muhammad, serviteur et messager d’Allah",
+          "« Lâ ilâhe illallah » → tawhid",
+          "« Muhammeden abdühû ve resûlüh » → Muhammad, serviteur et messager d’Allah",
+          "« Eşhedü » → j’atteste"
+        ],
+        "correct_answer": "« illallah » → Muhammad, serviteur et messager d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Reconstituer la chahada",
+        "topic": "Ordre des mots et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

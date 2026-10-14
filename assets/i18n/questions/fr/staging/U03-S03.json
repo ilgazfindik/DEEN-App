@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U03",
+  "stage": "U03-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U03-S03-001": {
+      "source": {
+        "question_tr": "Dinlediğin ifade aşağıdakilerden hangisidir?",
+        "explanation_tr": "Ses kaydında okunan metin, İslam'ın temel şahitlik beyanı olan Kelime-i Şehadet'tir.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Kelime-i Şehadet (Tam hali)",
+          "Yalnızca Ezan",
+          "Fatiha Suresi",
+          "Sübhaneke Duası"
+        ],
+        "correct_answer": "Kelime-i Şehadet (Tam hali)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle formule entends-tu dans cet enregistrement ?",
+        "explanation_tr": "Le texte récité est la chahada, déclaration fondamentale de foi en islam.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "La chahada (formule complète)",
+          "Uniquement l’appel à la prière",
+          "La sourate Al-Fatiha",
+          "L’invocation Soubhanaka"
+        ],
+        "correct_answer": "La chahada (formule complète)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-002": {
+      "source": {
+        "question_tr": "Dinlediğin cümlenin Türkçe anlamı aşağıdakilerden hangisidir?",
+        "explanation_tr": "Standart Kelime-i Şehadet metni tevhid beyanını ve Hz. Muhammed'in Allah'ın kulu ve elçisi oluşuna şahitliği birlikte içerir.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Allah'tan başka ilah olmadığına ve Muhammed'in O'nun kulu ve elçisi olduğuna şahitlik ederim.",
+          "Allah her şeyden büyüktür ve övgü O'nadır.",
+          "Rahman ve Rahim olan Allah'ın adıyla.",
+          "Bizi doğru yola ilet."
+        ],
+        "correct_answer": "Allah'tan başka ilah olmadığına ve Muhammed'in O'nun kulu ve elçisi olduğuna şahitlik ederim.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle est la signification en français de la phrase entendue ?",
+        "explanation_tr": "La chahada complète réunit la déclaration du tawhid et le témoignage que Muhammad est le serviteur et le messager d’Allah.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "J’atteste qu’il n’y a de divinité qu’Allah et que Muhammad est Son serviteur et Son messager.",
+          "Allah est le Plus Grand et toute louange Lui revient.",
+          "Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux.",
+          "Guide-nous vers le droit chemin."
+        ],
+        "correct_answer": "J’atteste qu’il n’y a de divinité qu’Allah et que Muhammad est Son serviteur et Son messager.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-003": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta, Kelime-i Şehadet'in ilk kısmı (tevhid kısmı) nerede bitmekte ve peygamberlik kısmı başlamaktadır?",
+        "explanation_tr": "'Eşhedü en lâ ilâhe illallah' kısmı tevhidi ifade eder; devamındaki 've eşhedü' ile peygamberlik şahitliği başlar.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "...illallah kelimesinden sonra.",
+          "...Eşhedü kelimesinden hemen sonra.",
+          "...Muhammeden kelimesinden sonra.",
+          "...abdühû kelimesinden sonra."
+        ],
+        "correct_answer": "...illallah kelimesinden sonra.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans l’enregistrement, où se termine la première partie (le tawhid) et où commence la seconde (la prophétie) ?",
+        "explanation_tr": "« Ach-hadou an lâ ilâha illâ Allah » exprime le tawhid ; « wa ach-hadou » introduit ensuite le témoignage concernant le messager.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Après le mot « illallah ».",
+          "Juste après le mot « Ach-hadou ».",
+          "Après le mot « Muhammadan ».",
+          "Après le mot « abdouhou »."
+        ],
+        "correct_answer": "Après le mot « illallah ».",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-004": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta, Allah'ın birliği ve Hz. Muhammed'in kulluğu ve elçiliği aynı cümle içinde birleştirilerek okunmaktadır.",
+        "explanation_tr": "Kelime-i Şehadet tek bir bütün ifadedir. Hem tevhid hem de risalet birbiri ardına kesintisiz bir beyanla sunulur.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans l’enregistrement, l’unicité d’Allah et le fait que Muhammad est Son serviteur et Son messager sont prononcés dans une même déclaration.",
+        "explanation_tr": "La chahada est une déclaration complète : le tawhid puis la mission du messager sont affirmés successivement.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-005": {
+      "source": {
+        "question_tr": "Dinlediğin ilk bölüm hangi temel kavramla bağlantılıdır?",
+        "explanation_tr": "Kaydın ilk bölümü 'Eşhedü en lâ ilâhe illallah' ifadesidir ve tevhid inancıyla bağlantılıdır.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Tevhid",
+          "Ahiret",
+          "Kader",
+          "Meleklere iman"
+        ],
+        "correct_answer": "Tevhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "À quelle notion fondamentale la première partie entendue se rattache-t-elle ?",
+        "explanation_tr": "La première partie, « Ach-hadou an lâ ilâha illâ Allah », se rattache au tawhid.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Le tawhid",
+          "La vie après la mort",
+          "La prédestination",
+          "La foi aux anges"
+        ],
+        "correct_answer": "Le tawhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-006": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta 'şahitlik ederim' anlamına gelen 'eşhedü' kelimesini kaç kez duyuyorsun?",
+        "explanation_tr": "Kayıtta önce Allah'ın birliğine şahitlik için, sonra da peygamberliğe şahitlik için olmak üzere iki kez duyulur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İki kez",
+          "Bir kez",
+          "Üç kez",
+          "Hiç duymuyorum"
+        ],
+        "correct_answer": "İki kez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Combien de fois entends-tu le mot « Ach-hadou », qui signifie « j’atteste » ?",
+        "explanation_tr": "On l’entend une fois pour l’unicité d’Allah, puis une seconde fois pour le témoignage de la mission du messager.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Deux fois",
+          "Une fois",
+          "Trois fois",
+          "Jamais"
+        ],
+        "correct_answer": "Deux fois",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-007": {
+      "source": {
+        "question_tr": "Dinlediğin tam ifadede aşağıdaki anlamlardan hangisi birlikte yer alır?",
+        "explanation_tr": "Tam kayıt iki beyanı art arda içerir: tevhid ve Hz. Muhammed'in kulluğu ve elçiliği.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Allah'ın birliği ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+          "Yalnızca Allah'ın birliği",
+          "Yalnızca namaz ibadeti",
+          "Yalnızca güzel ahlak"
+        ],
+        "correct_answer": "Allah'ın birliği ve Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans la déclaration complète entendue, quels sont les deux sens réunis ?",
+        "explanation_tr": "L’enregistrement comporte successivement les deux témoignages : le tawhid et le fait que Muhammad est le serviteur et le messager d’Allah.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "L’unicité d’Allah et le fait que Muhammad est Son serviteur et Son messager",
+          "Uniquement l’unicité d’Allah",
+          "Uniquement la prière",
+          "Uniquement la bonne conduite"
+        ],
+        "correct_answer": "L’unicité d’Allah et le fait que Muhammad est Son serviteur et Son messager",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-008": {
+      "source": {
+        "question_tr": "Dinlediğin standart Kelime-i Şehadet metni hangi kelime ile sona ermektedir?",
+        "explanation_tr": "Diyanet'in standart öğretim metni '...Muhammeden abdühû ve resûlüh' şeklinde sona erer.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Resûlüh",
+          "İllallah",
+          "Eşhedü",
+          "Muhammeden"
+        ],
+        "correct_answer": "Resûlüh",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel mot termine l’enregistrement standard de la chahada ?",
+        "explanation_tr": "Le texte d’enseignement standard se termine par « … Muhammadan abdouhou wa rasûlouhou ».",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Resûlüh",
+          "İllallah",
+          "Eşhedü",
+          "Muhammeden"
+        ],
+        "correct_answer": "Resûlüh",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-009": {
+      "source": {
+        "question_tr": "Dinlediğin Kelime-i Şehadet ifadesinin temel işlevini en doğru hangi seçenek açıklar?",
+        "explanation_tr": "Kelime-i Şehadet, Allah'ın birliğini ve Hz. Muhammed'in kulluğu ve elçiliğini tasdik eden temel sözlü iman beyanıdır.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "İslam'a girişin temel iman beyanını sözlü olarak ifade etmek",
+          "Yalnızca maddi bir sözleşme yapmak",
+          "Sadece geçmiş peygamberlerin isimlerini saymak",
+          "Günde beş vakit namazın vakitlerini duyurmak"
+        ],
+        "correct_answer": "İslam'a girişin temel iman beyanını sözlü olarak ifade etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition décrit le mieux le rôle fondamental de la chahada entendue ?",
+        "explanation_tr": "La chahada est la déclaration orale fondamentale de foi qui atteste l’unicité d’Allah et le statut de serviteur et de messager de Muhammad.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Exprimer oralement la déclaration fondamentale de foi de l’islam",
+          "Conclure uniquement un contrat matériel",
+          "Énumérer seulement les noms des prophètes du passé",
+          "Annoncer les horaires des cinq prières quotidiennes"
+        ],
+        "correct_answer": "Exprimer oralement la déclaration fondamentale de foi de l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-010": {
+      "source": {
+        "question_tr": "Dinlediğin kayıtta, cümlenin iki parçasını birbirine bağlayan ve ikinci şahitliği başlatan ifade 've ________' şeklinde duyulur.",
+        "explanation_tr": "Kayıtta 'illallah' dendiğinde ilk kısım biter, hemen ardından 've eşhedü' (ve şahitlik ederim ki) denilerek peygamberlik kısmına geçilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "eşhedü",
+          "lâ",
+          "resul",
+          "Allah"
+        ],
+        "correct_answer": "eşhedü",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans l’enregistrement, la formule qui relie les deux parties et introduit le second témoignage s’entend sous la forme « wa ________ ».",
+        "explanation_tr": "Après « illallah », la formule « wa ach-hadou » (« et j’atteste ») ouvre la partie consacrée à la prophétie.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "eşhedü",
+          "lâ",
+          "resul",
+          "Allah"
+        ],
+        "correct_answer": "eşhedü",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-011": {
+      "source": {
+        "question_tr": "Dinlediğin kaydın ikinci bölümünde hangi özel isim duyulur?",
+        "explanation_tr": "İkinci bölüm 've eşhedü enne Muhammeden abdühû ve resûlüh' şeklindedir.",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Muhammed",
+          "İbrahim",
+          "Musa",
+          "İsa"
+        ],
+        "correct_answer": "Muhammed",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel nom propre entends-tu dans la seconde partie de l’enregistrement ?",
+        "explanation_tr": "La seconde partie dit « wa ach-hadou anna Muhammadan abdouhou wa rasûlouhou ».",
+        "activity_type": "listening_select",
+        "options_tr": [
+          "Muhammad",
+          "Ibrahim",
+          "Moussa",
+          "Issa"
+        ],
+        "correct_answer": "Muhammad",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-012": {
+      "source": {
+        "question_tr": "Dinlediğin metnin Hz. Muhammed'in Allah'ın kulu ve elçisi olduğunu ifade eden bölümü hangisidir?",
+        "explanation_tr": "İkinci bölüm Hz. Muhammed'in Allah'ın kulu ve elçisi olduğuna şahitlik eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+          "Eşhedü en lâ ilâhe illallah",
+          "Lâ ilâhe",
+          "Eşhedü"
+        ],
+        "correct_answer": "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle partie du texte entendu affirme que Muhammad est le serviteur et le messager d’Allah ?",
+        "explanation_tr": "La seconde partie témoigne que Muhammad est le serviteur et le messager d’Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+          "Eşhedü en lâ ilâhe illallah",
+          "Lâ ilâhe",
+          "Eşhedü"
+        ],
+        "correct_answer": "ve eşhedü enne Muhammeden abdühû ve resûlüh",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-013": {
+      "source": {
+        "question_tr": "Dinlediğin ifadenin iki bölümlü yapısını en doğru hangi seçenek açıklar?",
+        "explanation_tr": "Kelime-i Şehadet'in sırası tevhid beyanından elçilik beyanına ilerler.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Önce Allah'ın birliğine, sonra Hz. Muhammed'in kulluğu ve elçiliğine şahitlik edilir",
+          "Önce namaz, sonra oruç anlatılır",
+          "Önce ahiret, sonra kader anlatılır",
+          "Önce Kur'an, sonra hadis tanımlanır"
+        ],
+        "correct_answer": "Önce Allah'ın birliğine, sonra Hz. Muhammed'in kulluğu ve elçiliğine şahitlik edilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition décrit correctement les deux parties de la formule entendue ?",
+        "explanation_tr": "La chahada commence par le témoignage du tawhid, puis affirme le statut de serviteur et de messager de Muhammad.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "D’abord le témoignage de l’unicité d’Allah, puis de la condition de serviteur et de messager de Muhammad",
+          "D’abord la prière, puis le jeûne",
+          "D’abord la vie après la mort, puis la prédestination",
+          "D’abord le Coran, puis les hadiths"
+        ],
+        "correct_answer": "D’abord le témoignage de l’unicité d’Allah, puis de la condition de serviteur et de messager de Muhammad",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U03-S03-014": {
+      "source": {
+        "question_tr": "Dinlediğin ifadenin sonunda hangi anlam vurgulanır?",
+        "explanation_tr": "Kaydın son bölümü 'Muhammeden abdühû ve resûlüh' ifadesiyle Hz. Muhammed'in Allah'ın kulu ve elçisi olduğunu belirtir.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+          "Allah'tan başka ilah olmadığı",
+          "Namazın farz olduğu",
+          "Kur'an'ın bölümleri"
+        ],
+        "correct_answer": "Hz. Muhammed'in Allah'ın kulu ve elçisi olduğu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "À la fin de la formule entendue, quelle signification est mise en avant ?",
+        "explanation_tr": "La dernière partie, « Muhammadan abdouhou wa rasûlouhou », affirme que Muhammad est le serviteur et le messager d’Allah.",
+        "activity_type": "listening_meaning",
+        "options_tr": [
+          "Que Muhammad est le serviteur et le messager d’Allah",
+          "Qu’il n’y a de divinité qu’Allah",
+          "Que la prière est obligatoire",
+          "Les chapitres du Coran"
+        ],
+        "correct_answer": "Que Muhammad est le serviteur et le messager d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Écouter et comprendre la chahada",
+        "topic": "Compréhension orale et sens"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

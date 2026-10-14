@@ -4655,7 +4655,8 @@ window.DEEN_REWARD_BADGE_ART={
     {id:'tin',name:'Tîn',order:95,ayahs:8},
     {id:'bayyina',name:'Beyyine',order:98,ayahs:8},
     {id:'kawthar',name:'Kevser',order:108,ayahs:3},
-    {id:'asr',name:'Asr',order:103,ayahs:3}
+    {id:'asr',name:'Asr',order:103,ayahs:3},
+    {id:'zilzal',name:'Zilzâl',order:99,ayahs:8}
   ];
 
   const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));

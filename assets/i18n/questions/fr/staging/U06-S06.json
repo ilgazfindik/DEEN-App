@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U06",
+  "stage": "U06-S06",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U06-S06-001": {
+      "source": {
+        "question_tr": "Bir içerikte 'İblîs bir melekti, sonra cin oldu' deniyor. Kur'an'a göre temel hata nedir?",
+        "explanation_tr": "Kehf 18:50 İblîs'in cinlerden olduğunu açıkça belirtir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kehf 18:50 İblîs'in cinlerden olduğunu bildirir",
+          "Kur'an İblîs'i Cebrâil sayar",
+          "İblîs ölüm meleğidir",
+          "Kur'an İblîs'ten hiç söz etmez"
+        ],
+        "correct_answer": "Kehf 18:50 İblîs'in cinlerden olduğunu bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un texte affirme : « Iblis était un ange, puis il est devenu un djinn. » Quelle est l’erreur principale selon le Coran ?",
+        "explanation_tr": "Al-Kahf 18:50 précise explicitement qu’Iblis était parmi les djinns.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Kahf 18:50 indique qu’Iblis faisait partie des djinns",
+          "Le Coran présente Iblis comme Gabriel",
+          "Iblis est l’ange de la mort",
+          "Le Coran ne mentionne jamais Iblis"
+        ],
+        "correct_answer": "Al-Kahf 18:50 indique qu’Iblis faisait partie des djinns",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-002": {
+      "source": {
+        "question_tr": "Kehf 18:50'ye göre İblîs cinlerdendir.",
+        "explanation_tr": "Ayette İblîs'in cinlerden olduğu açıkça bildirilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Kahf 18:50, Iblis fait partie des djinns.",
+        "explanation_tr": "Le verset dit expressément qu’Iblis était parmi les djinns.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-003": {
+      "source": {
+        "question_tr": "Bir sınav sorusu 'Kur'an'da ölüm meleğinin özel adı nedir?' diye sorup doğru cevap olarak 'Azrâil' veriyor. En doğru değerlendirme hangisidir?",
+        "explanation_tr": "Secde 32:11 özel isim vermeden 'ölüm meleği' der; Diyanet tefsiri Azrâil adının Kur'an'da geçmediğini belirtir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Soru bu biçimiyle hatalıdır; Kur'an 'ölüm meleği' ifadesini kullanır",
+          "Soru bütünüyle doğrudur",
+          "Doğru cevap Cebrâil olmalıdır",
+          "Doğru cevap Mîkâil olmalıdır"
+        ],
+        "correct_answer": "Soru bu biçimiyle hatalıdır; Kur'an 'ölüm meleği' ifadesini kullanır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un examen demande : « Quel nom propre le Coran donne-t-il à l’ange de la mort ? » et indique « Azraïl » comme réponse correcte. Comment évaluer cette question ?",
+        "explanation_tr": "As-Sajda 32:11 parle de « l’ange de la mort » sans nom propre ; le commentaire de Diyanet précise que le nom Azraïl n’apparaît pas dans le Coran.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La question est incorrecte : le Coran emploie l’expression « ange de la mort »",
+          "La question est entièrement correcte",
+          "La bonne réponse doit être Gabriel",
+          "La bonne réponse doit être Mikaïl"
+        ],
+        "correct_answer": "La question est incorrecte : le Coran emploie l’expression « ange de la mort »",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Fâtır 35:1 bütün meleklerin tam dört kanatlı olduğunu kanıtlar' diyor. Hata nedir?",
+        "explanation_tr": "Fâtır 35:1 ikişer, üçer, dörder ifadesinin ardından yaratmada artıştan söz eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ayet farklı sayılardan söz eder ve Allah'ın yaratmada dilediğini artırdığını bildirir",
+          "Ayet meleklerden söz etmez",
+          "Ayet yalnız bir meleği anlatır",
+          "Ayet kanat kavramını reddeder"
+        ],
+        "correct_answer": "Ayet farklı sayılardan söz eder ve Allah'ın yaratmada dilediğini artırdığını bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Fatir 35:1 prouve que tous les anges ont exactement quatre ailes. » Quelle est l’erreur ?",
+        "explanation_tr": "Le verset mentionne deux, trois et quatre ailes, et ajoute qu’Allah accroît Sa création comme Il le veut.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le verset mentionne différents nombres et la possibilité qu’Allah accroisse Sa création",
+          "Le verset ne mentionne pas les anges",
+          "Il ne parle que d’un seul ange",
+          "Le verset nie toute existence d’ailes"
+        ],
+        "correct_answer": "Le verset mentionne différents nombres et la possibilité qu’Allah accroisse Sa création",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-005": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi melekler hakkında kaynak disiplini açısından en sorunlu cümledir?",
+        "explanation_tr": "Kur'an bazı özellikler bildirir; bütün meleklerin görünüşünü ayrıntısıyla bildiğimizi söylemek kaynak sınırını aşar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Bütün meleklerin görünüşünü ayrıntısıyla biliyoruz'",
+          "'Kur'an meleklerden söz eder'",
+          "'Cebrâil vahyi Allah'ın izniyle iletir'",
+          "'Melekler Allah'ın emrine itaat eder'"
+        ],
+        "correct_answer": "'Bütün meleklerin görünüşünü ayrıntısıyla biliyoruz'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Laquelle des affirmations suivantes manque le plus de rigueur quant aux sources sur les anges ?",
+        "explanation_tr": "Le Coran mentionne certaines caractéristiques ; prétendre connaître l’apparence détaillée de tous les anges dépasse ce qu’il indique.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "« Nous connaissons en détail l’apparence de tous les anges »",
+          "« Le Coran mentionne les anges »",
+          "« Gabriel transmet la révélation avec la permission d’Allah »",
+          "« Les anges obéissent aux ordres d’Allah »"
+        ],
+        "correct_answer": "« Nous connaissons en détail l’apparence de tous les anges »",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-006": {
+      "source": {
+        "question_tr": "Melekler Allah'ın emri olmadan bağımsız hüküm koyabilir.",
+        "explanation_tr": "Kur'an melekleri Allah'ın emriyle hareket eden kullar olarak anlatır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Les anges peuvent établir des règles de manière indépendante, sans ordre d’Allah.",
+        "explanation_tr": "Le Coran présente les anges comme des serviteurs agissant selon les ordres d’Allah.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-007": {
+      "source": {
+        "question_tr": "Meleklerle ilgili yanlış iddiaları doğru düzeltmeleriyle eşleştir.",
+        "explanation_tr": "Bu üç örnek, kaynağın söylediğiyle yaygın anlatıları ayırmanın önemini gösterir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İblîs melektir",
+            "right": "Kehf 18:50: İblîs cinlerdendir"
+          },
+          {
+            "left": "Kur'an Azrâil adını verir",
+            "right": "Secde 32:11: Ölüm meleği ifadesi"
+          },
+          {
+            "left": "Her melek tam dört kanatlıdır",
+            "right": "Fâtır 35:1: Farklı sayılar ve artış"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les affirmations erronées sur les anges à leur correction.",
+        "explanation_tr": "Ces exemples montrent pourquoi il est important de distinguer ce que disent les sources des récits courants.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "« Iblis est un ange »",
+            "right": "Al-Kahf 18:50 : Iblis fait partie des djinns"
+          },
+          {
+            "left": "« Le Coran nomme Azraïl »",
+            "right": "As-Sajda 32:11 : l’ange de la mort"
+          },
+          {
+            "left": "« Tous les anges ont quatre ailes »",
+            "right": "Fatir 35:1 : nombres variés et accroissement"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-008": {
+      "source": {
+        "question_tr": "İblîs ile melekleri ayıran Kur'an bilgisini tek cümleyle yaz.",
+        "explanation_tr": "Bu ayrım, İblîs'i melek kabul eden yaygın yanlışın düzeltilmesine yardımcı olur.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kehf 18:50 İblîs'in cinlerden olduğunu; meleklerle ilgili ayetler ise onların Allah'ın emrine itaat ettiğini bildirir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Résume en une phrase la distinction entre Iblis et les anges dans le Coran.",
+        "explanation_tr": "Ce rappel corrige l’erreur consistant à présenter Iblis comme un ange.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Al-Kahf 18:50 indique qu’Iblis faisait partie des djinns, et non des anges.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-009": {
+      "source": {
+        "question_tr": "Kur'an'da adı verilmeyen her meleğin ismini kesin biçimde biliyormuş gibi sunmak güvenilir bir yöntemdir.",
+        "explanation_tr": "Kaynakta verilmeyen isim ve ayrıntıları kesin dinî bilgi gibi sunmamak gerekir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Il est fiable de présenter comme certains les noms et caractéristiques d’anges qui ne sont pas mentionnés dans les sources.",
+        "explanation_tr": "Il faut éviter de présenter comme vérités religieuses certaines des informations absentes des sources.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-010": {
+      "source": {
+        "question_tr": "Bir video, 'Melekler Allah'ın çocuklarıdır' iddiasını dinî bilgi diye sunuyor. Hangi ayet grubu bunu doğrudan reddeder?",
+        "explanation_tr": "Enbiyâ 21:26-28 bu iddiayı reddeder ve melekleri Allah'ın onurlandırılmış kulları olarak tanıtır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Enbiyâ 21:26-28",
+          "İnfitâr 82:10-12",
+          "Secde 32:11",
+          "Bakara 2:97"
+        ],
+        "correct_answer": "Enbiyâ 21:26-28",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une vidéo affirme que « les anges sont les enfants d’Allah ». Quel passage coranique réfute directement cette idée ?",
+        "explanation_tr": "Al-Anbiya 21:26-28 rejette cette affirmation et présente les anges comme des serviteurs honorés d’Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Anbiya 21:26-28",
+          "Al-Infitar 82:10-12",
+          "As-Sajda 32:11",
+          "Al-Baqara 2:97"
+        ],
+        "correct_answer": "Al-Anbiya 21:26-28",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-011": {
+      "source": {
+        "question_tr": "Melekleri Allah'ın çocukları veya ilahî ortakları saymak, ______ inancıyla bağdaşmaz.",
+        "explanation_tr": "Kur'an melekleri Allah'ın kulları olarak tanıtır; ulûhiyyet yalnız Allah'a aittir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "tevhid",
+          "sorumluluk",
+          "okuma",
+          "tarih"
+        ],
+        "correct_answer": "tevhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Considérer les anges comme des enfants d’Allah ou des associés divins est incompatible avec le ______.",
+        "explanation_tr": "Le Coran présente les anges comme des serviteurs d’Allah ; la divinité appartient à Lui seul.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "tawhid",
+          "sens de la responsabilité",
+          "fait de lire",
+          "récit historique"
+        ],
+        "correct_answer": "tawhid",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S06-012": {
+      "source": {
+        "question_tr": "Bir notta 'Cebrâil Kur'an'ı kendi kararıyla oluşturup Peygamber'e verdi' yazıyor. Düzeltme hangisidir?",
+        "explanation_tr": "Bakara 2:97 vahyin kaynağı ile Cebrâil'in iletici rolünü ayırır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Cebrâil Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirdi",
+          "Cebrâil vahyi insanlardan topladı",
+          "Cebrâil bağımsız bir ilah olarak vahiy verdi",
+          "Kur'an Cebrâil'i reddeder"
+        ],
+        "correct_answer": "Cebrâil Kur'an'ı Allah'ın izniyle Peygamber'in kalbine indirdi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note affirme : « Gabriel a créé le Coran de sa propre initiative avant de le transmettre au Prophète. » Quelle correction est juste ?",
+        "explanation_tr": "Al-Baqara 2:97 distingue l’origine divine de la révélation du rôle de Gabriel qui la transmet.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Gabriel a fait descendre le Coran sur le cœur du Prophète avec la permission d’Allah",
+          "Gabriel a recueilli la révélation auprès des humains",
+          "Gabriel est une divinité qui révèle de manière indépendante",
+          "Le Coran rejette Gabriel"
+        ],
+        "correct_answer": "Gabriel a fait descendre le Coran sur le cœur du Prophète avec la permission d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Corriger les idées fausses",
+        "topic": "Fiabilité des informations sur les anges"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

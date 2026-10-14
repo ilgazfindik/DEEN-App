@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U09",
+  "stage": "U09-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U09-S04-001": {
+      "source": {
+        "question_tr": "Enbiyâ 21:47 kıyamet günündeki hesabın hangi özelliğini vurgular?",
+        "explanation_tr": "Ayet kıyamet günü adalet terazilerinin kurulacağını ve kimseye haksızlık edilmeyeceğini bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tam adalet",
+          "Rastgelelik",
+          "Soy üstünlüğü",
+          "Kayırmacılık"
+        ],
+        "correct_answer": "Tam adalet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle qualité du jugement au Jour dernier Al-Anbiya 21:47 souligne-t-il ?",
+        "explanation_tr": "Ce verset annonce l’établissement des balances de justice au Jour de la résurrection et l’absence de toute injustice.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Une justice parfaite",
+          "Le hasard",
+          "La supériorité de la naissance",
+          "Le favoritisme"
+        ],
+        "correct_answer": "Une justice parfaite",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-002": {
+      "source": {
+        "question_tr": "Enbiyâ 21:47'ye göre kıyamet gününde kimseye haksızlık edilmez.",
+        "explanation_tr": "Ayet ilahî hesabın adaletini açıkça vurgular.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Anbiya 21:47, personne ne subira d’injustice au Jour de la résurrection.",
+        "explanation_tr": "Le verset met expressément en avant la justice du jugement divin.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-003": {
+      "source": {
+        "question_tr": "Enbiyâ 21:47'de kıyamet günü için adalet ______ kurulacağı bildirilir.",
+        "explanation_tr": "Ayet hesap ve adaleti 'adalet terazileri' ifadesiyle anlatır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "terazileri",
+          "pazarları",
+          "oyunları",
+          "sarayları"
+        ],
+        "correct_answer": "terazileri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Anbiya 21:47 annonce que les ______ de la justice seront dressées au Jour de la résurrection.",
+        "explanation_tr": "Le verset décrit le jugement et la justice à travers l’image des balances équitables.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "balances",
+          "marchés",
+          "jeux",
+          "palais"
+        ],
+        "correct_answer": "balances",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-004": {
+      "source": {
+        "question_tr": "Bir kişi 'Ahirette küçük haksızlıklar önemsenmez' diyor. Hangi bilgi bunu düzeltir?",
+        "explanation_tr": "Ayet en küçük davranışın bile adaletli hesapta dikkate alınacağını vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Enbiyâ 21:47 hardal tanesi kadar bir şeyin bile ortaya konacağını bildirir",
+          "Yalnız büyük davranışlar hesaba girer",
+          "Hesap tamamen rastgeledir",
+          "Küçük iyilik ve kötülük kaybolur"
+        ],
+        "correct_answer": "Enbiyâ 21:47 hardal tanesi kadar bir şeyin bile ortaya konacağını bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un dit : « Les petites injustices ne comptent pas dans l’au-delà. » Quelle information le contredit ?",
+        "explanation_tr": "Le verset explique que même une action du poids d’un grain de moutarde sera prise en compte.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Anbiya 21:47 mentionne même ce qui a le poids d’un grain de moutarde",
+          "Seuls les grands actes sont jugés",
+          "Le jugement dépend du hasard",
+          "Les petites bonnes et mauvaises actions disparaissent"
+        ],
+        "correct_answer": "Al-Anbiya 21:47 mentionne même ce qui a le poids d’un grain de moutarde",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-005": {
+      "source": {
+        "question_tr": "Zilzâl 99:7-8'in temel mesajı nedir?",
+        "explanation_tr": "Ayetler en küçük hayır ve şerrin dahi karşılığının görüleceğini bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Zerre kadar hayır ve şerrin karşılığının görüleceği",
+          "Yalnız büyük iyiliklerin değerli olduğu",
+          "Kötülüklerin tamamen kaybolduğu",
+          "İyiliklerin hesaba katılmadığı"
+        ],
+        "correct_answer": "Zerre kadar hayır ve şerrin karşılığının görüleceği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel est le message essentiel d’Az-Zalzala 99:7-8 ?",
+        "explanation_tr": "Ces versets enseignent que toute bonne ou mauvaise action, même infime, sera vue.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Même un bien ou un mal du poids d’un atome sera pris en compte",
+          "Seules les grandes bonnes actions ont de la valeur",
+          "Les mauvaises actions disparaissent complètement",
+          "Les bonnes actions ne sont jamais comptées"
+        ],
+        "correct_answer": "Même un bien ou un mal du poids d’un atome sera pris en compte",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-006": {
+      "source": {
+        "question_tr": "Bir notta 'Ahirette soy ve sosyal statü adaletten daha önemlidir' yazıyor. En temel hata nedir?",
+        "explanation_tr": "Enbiyâ 21:47 kimseye haksızlık yapılmayacağını bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an hesabı ilahî adalet ve bireysel sorumluluk üzerinden anlatır",
+          "Soy her zaman hesabı kaldırır",
+          "Zenginlik günahları siler",
+          "Hesap yalnız ailelere yapılır"
+        ],
+        "correct_answer": "Kur'an hesabı ilahî adalet ve bireysel sorumluluk üzerinden anlatır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note affirme : « Dans l’au-delà, le statut social et la famille comptent davantage que la justice. » Quelle est son erreur ?",
+        "explanation_tr": "Al-Anbiya 21:47 indique que personne ne subira d’injustice.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le Coran associe le jugement à la justice divine et à la responsabilité personnelle",
+          "L’origine familiale supprime toujours le jugement",
+          "La richesse efface les fautes",
+          "Seules les familles seront jugées"
+        ],
+        "correct_answer": "Le Coran associe le jugement à la justice divine et à la responsabilité personnelle",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-007": {
+      "source": {
+        "question_tr": "Amel defteri, adalet terazileri ve küçük amelleri anlamlarıyla eşleştir.",
+        "explanation_tr": "Kehf 18:49, Enbiyâ 21:47 ve Zilzâl 99:7-8 hesap bilincini farklı yönlerden açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Amel defteri",
+            "right": "Yapılanların kaydıyla ilişkilendirilen hesap unsuru"
+          },
+          {
+            "left": "Adalet terazileri",
+            "right": "Hesabın haksızlıksız oluşunu simgeler"
+          },
+          {
+            "left": "Zerre kadar amel",
+            "right": "En küçük davranışın bile karşılıksız kalmaması"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe le registre des actes, les balances de justice et les actions infimes à leur signification.",
+        "explanation_tr": "Al-Kahf 18:49, Al-Anbiya 21:47 et Az-Zalzala 99:7-8 éclairent différents aspects du jugement.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Registre des actes",
+            "right": "Élément du jugement qui consigne ce qui a été accompli"
+          },
+          {
+            "left": "Balances de justice",
+            "right": "Symbolisent un jugement sans injustice"
+          },
+          {
+            "left": "Acte infime",
+            "right": "Même le plus petit comportement n’est pas sans conséquence"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-008": {
+      "source": {
+        "question_tr": "Kehf 18:49'daki amel defteri tasviri insan davranışı açısından neyi hatırlatır?",
+        "explanation_tr": "Ayet suçluların amel defterinde küçük-büyük yapılanların yer aldığını görmesini anlatır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Yapılanların unutulup kaybolmadığını",
+          "Yalnız sözlerin önemli olduğunu",
+          "İnsanların hesapsız bırakıldığını",
+          "Hesabın yalnız dünya mahkemesinde bittiğini"
+        ],
+        "correct_answer": "Yapılanların unutulup kaybolmadığını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Que rappelle la description du registre des actes dans Al-Kahf 18:49 à propos de notre comportement ?",
+        "explanation_tr": "Le verset raconte l’étonnement devant le registre contenant les petits et les grands actes.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nos actes ne sont ni effacés ni oubliés",
+          "Seules les paroles ont de l’importance",
+          "Personne n’aura à rendre de comptes",
+          "Le jugement s’achève devant les tribunaux terrestres"
+        ],
+        "correct_answer": "Nos actes ne sont ni effacés ni oubliés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-009": {
+      "source": {
+        "question_tr": "Zerre kadar iyilik yapmak ahiret açısından önemsizdir.",
+        "explanation_tr": "Zilzâl 99:7 zerre miktarı hayır yapanın onun karşılığını göreceğini bildirir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une bonne action, même infime, n’a aucune importance dans l’au-delà.",
+        "explanation_tr": "Az-Zalzala 99:7 indique au contraire que même un bien du poids d’un atome sera vu.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-010": {
+      "source": {
+        "question_tr": "İlahi adaletin ahiret hesabındaki anlamını bir cümleyle açıkla.",
+        "explanation_tr": "Enbiyâ 21:47 ilahî hesabın haksızlıksız ve ayrıntılı oluşunu vurgular.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Ahirette kimseye haksızlık yapılmaz ve küçük-büyük her davranış adaletle değerlendirilir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Explique en une phrase la justice divine dans le jugement de l’au-delà.",
+        "explanation_tr": "Al-Anbiya 21:47 souligne que personne n’est lésé et que tous les actes sont pris en compte.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Dans l’au-delà, personne ne subira d’injustice ; chaque acte, grand ou petit, sera évalué équitablement.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-011": {
+      "source": {
+        "question_tr": "Zilzâl 99:7'ye göre kim zerre miktarı ______ yapmışsa onu görür.",
+        "explanation_tr": "Ayet en küçük iyiliğin dahi karşılığının görüleceğini bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "hayır",
+          "uyku",
+          "servet",
+          "yolculuk"
+        ],
+        "correct_answer": "hayır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Az-Zalzala 99:7, celui qui fait un bien, même infime, le ______.",
+        "explanation_tr": "Ce verset affirme que le plus petit bien sera vu.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "verra",
+          "dormira",
+          "possédera",
+          "voyagera"
+        ],
+        "correct_answer": "verra",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-012": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Benim yaptığım küçük iyiliklerin hiçbir anlamı yok' diyor. En uygun cevap hangisidir?",
+        "explanation_tr": "Ayet küçük iyiliklerin de değer taşıdığını açıkça vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zilzâl 99:7 en küçük hayrın bile karşılığının görüleceğini bildirir",
+          "Yalnız çok büyük iyilikler değerlidir",
+          "İyilik yalnız başkaları görürse anlamlıdır",
+          "Küçük iyilikler hesaba yazılmaz"
+        ],
+        "correct_answer": "Zilzâl 99:7 en küçük hayrın bile karşılığının görüleceğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Les petites bonnes actions n’ont aucun sens. » Quelle est la meilleure réponse ?",
+        "explanation_tr": "Le verset montre explicitement la valeur du plus petit bien.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Az-Zalzala 99:7 enseigne que même le plus petit bien sera vu",
+          "Seules les très grandes bonnes actions comptent",
+          "Une action n’a de valeur que si d’autres l’applaudissent",
+          "Les petits actes ne seront pas inscrits"
+        ],
+        "correct_answer": "Az-Zalzala 99:7 enseigne que même le plus petit bien sera vu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-013": {
+      "source": {
+        "question_tr": "Bir kişi 'Kimse görmediği için yaptığım haksızlık hesaba girmez' diyor. Ahiret inancı açısından hangi cevap uygundur?",
+        "explanation_tr": "Kehf 18:49 ve Enbiyâ 21:47 hesabın insan tanıklığıyla sınırlı olmadığını ve yapılanların ortaya konacağını hatırlatır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İlahi hesap insan gözünden bağımsızdır; yapılanlar karşılıksız kalmaz",
+          "Gizli davranışların hiçbir önemi yoktur",
+          "Hesap yalnız toplumun gördüklerine dayanır",
+          "Yalnız kamuya açık işler değerlendirilir"
+        ],
+        "correct_answer": "İlahi hesap insan gözünden bağımsızdır; yapılanlar karşılıksız kalmaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne dit : « Personne ne m’a vu commettre une injustice ; elle ne comptera donc pas. » Comment répondre selon la foi en l’au-delà ?",
+        "explanation_tr": "Al-Kahf 18:49 et Al-Anbiya 21:47 montrent que le jugement ne dépend pas uniquement des témoins humains.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le jugement divin ne dépend pas du regard des gens et les actes ne restent pas sans conséquence",
+          "Les comportements cachés ne comptent jamais",
+          "Le jugement dépend seulement des actes visibles",
+          "Seuls les événements publics seront examinés"
+        ],
+        "correct_answer": "Le jugement divin ne dépend pas du regard des gens et les actes ne restent pas sans conséquence",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-014": {
+      "source": {
+        "question_tr": "Hesap bilincini mantıksal olarak sırala.",
+        "explanation_tr": "Kur'an kayıt, hesap ve adalet kavramlarını sorumluluk bilinciyle ilişkilendirir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "İnsan davranışta bulunur",
+          "Davranış kaybolmaz",
+          "Hesap gününde ortaya konur",
+          "Adaletle karşılığı verilir"
+        ],
+        "correct_order": [
+          "İnsan davranışta bulunur",
+          "Davranış kaybolmaz",
+          "Hesap gününde ortaya konur",
+          "Adaletle karşılığı verilir"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe logiquement les notions de responsabilité et de jugement.",
+        "explanation_tr": "Le Coran associe la consignation, le jugement et la justice à la responsabilité personnelle.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Une personne accomplit une action",
+          "L’action n’est pas perdue",
+          "Elle est présentée au jugement",
+          "Elle reçoit une juste rétribution"
+        ],
+        "correct_order": [
+          "Une personne accomplit une action",
+          "L’action n’est pas perdue",
+          "Elle est présentée au jugement",
+          "Elle reçoit une juste rétribution"
+        ],
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-015": {
+      "source": {
+        "question_tr": "Enbiyâ 21:47'nin 'hardal tanesi kadar olsa bile' vurgusu en çok hangi anlamı güçlendirir?",
+        "explanation_tr": "Ayet en küçük davranışın bile ilahî adalet dışında kalmayacağını vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hesabın ayrıntılı ve adaletli oluşunu",
+          "Yalnız büyük suçların önemli oluşunu",
+          "Davranışların unutulduğunu",
+          "Hesabın rastgele oluşunu"
+        ],
+        "correct_answer": "Hesabın ayrıntılı ve adaletli oluşunu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Que souligne l’expression « même du poids d’un grain de moutarde » dans Al-Anbiya 21:47 ?",
+        "explanation_tr": "Ce verset indique que même les plus petits comportements ne seront pas exclus du jugement équitable.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le caractère détaillé et équitable du jugement",
+          "L’importance des seules fautes graves",
+          "L’oubli des comportements",
+          "Le caractère aléatoire du jugement"
+        ],
+        "correct_answer": "Le caractère détaillé et équitable du jugement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U09-S04-016": {
+      "source": {
+        "question_tr": "Kehf 18:49'da amel defterini gören suçluların şaşkınlığının temel sebebi nedir?",
+        "explanation_tr": "Ayet yapılanların ayrıntılı biçimde karşılarına çıkmasını vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Küçük-büyük yaptıklarının kayıtlı olduğunu görmeleri",
+          "Defterin tamamen boş olması",
+          "Yalnız iyiliklerin yazılması",
+          "Hesabın iptal edilmesi"
+        ],
+        "correct_answer": "Küçük-büyük yaptıklarının kayıtlı olduğunu görmeleri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Pourquoi les coupables décrits dans Al-Kahf 18:49 sont-ils surpris en découvrant leur registre ?",
+        "explanation_tr": "Le passage souligne la précision avec laquelle les actes sont présentés.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ils constatent que leurs petits et grands actes y sont consignés",
+          "Le registre ne contient rien",
+          "Seuls leurs actes positifs y figurent",
+          "Le jugement a été annulé"
+        ],
+        "correct_answer": "Ils constatent que leurs petits et grands actes y sont consignés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le jugement et la justice",
+        "topic": "La rétribution des actes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

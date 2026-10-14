@@ -1,0 +1,599 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U15",
+  "stage": "U15-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U15-S04-001": {
+      "source": {
+        "question_tr": "Oruç konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Diyanet Oruç İlmihali ve Bakara 2:183-187 orucu belirli vakitte imsakla yapılan ibadet olarak açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece daha az uyumak",
+          "Yalnızca sosyal medyadan uzak durmak",
+          "İbadet niyetiyle belirli süre yeme, içme ve cinsel ilişkiden uzak durmak",
+          "Günün herhangi bir saatinde rastgele aç kalmak"
+        ],
+        "correct_answer": "İbadet niyetiyle belirli süre yeme, içme ve cinsel ilişkiden uzak durmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation présente correctement le fondement du jeûne ?",
+        "explanation_tr": "Le manuel du jeûne de Diyanet et Al-Baqara (2:183-187) présentent le jeûne comme une adoration fondée sur l’abstinence pendant une période prescrite.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dormir moins, et rien d’autre",
+          "Éviter uniquement les réseaux sociaux",
+          "S’abstenir de manger, de boire et d’avoir des rapports sexuels pendant une période déterminée avec l’intention d’adorer Allah",
+          "Rester affamé au hasard à n’importe quelle heure"
+        ],
+        "correct_answer": "S’abstenir de manger, de boire et d’avoir des rapports sexuels pendant une période déterminée avec l’intention d’adorer Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Le jeûne (sawm)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-002": {
+      "source": {
+        "question_tr": "Bir arkadaşın Takva hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Bakara 2:183 orucun sakınma ve takva bilinci amacıyla farz kılındığını bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece kilo vermeye",
+          "Sosyal görünürlüğe",
+          "Takva bilincine",
+          "Uyku süresini artırmaya"
+        ],
+        "correct_answer": "Takva bilincine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande ce que signifie la conscience d’Allah. Quelle réponse lui donner ?",
+        "explanation_tr": "La sourate Al-Baqara (2:183) précise que le jeûne vise à développer la maîtrise de soi et la conscience d’Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Chercher uniquement à perdre du poids",
+          "La visibilité sociale",
+          "La conscience d’Allah",
+          "Augmenter le temps de sommeil"
+        ],
+        "correct_answer": "La conscience d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "La conscience d’Allah (taqwâ)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-003": {
+      "source": {
+        "question_tr": "Bilerek yemek konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Yeme içme orucun temel yasaklarındandır bilerek ihlal edilmesi orucu bozar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Orucu güçlendirir",
+          "Hiçbir etkisi olmaz",
+          "Orucu bozar",
+          "Sadece sevabı artırır"
+        ],
+        "correct_answer": "Orucu bozar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Que se passe-t-il si une personne mange délibérément pendant les heures de jeûne ?",
+        "explanation_tr": "Manger et boire font partie des principales interdictions pendant le jeûne ; les enfreindre délibérément invalide le jeûne.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Cela renforce le jeûne",
+          "Cela n’a aucun effet",
+          "Cela invalide le jeûne",
+          "Cela augmente seulement la récompense"
+        ],
+        "correct_answer": "Cela invalide le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Manger délibérément"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-004": {
+      "source": {
+        "question_tr": "Bir öğrenci “Oruçlu iken gündüz yemenin oruçla hiçbir ilişkisi yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Yemekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Uyumaktan",
+          "Konuşmaktan",
+          "Oruç vaktinde yemekten uzak durmak gerekir.",
+          "Çalışmaktan"
+        ],
+        "correct_answer": "Oruç vaktinde yemekten uzak durmak gerekir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Manger pendant la journée n’a aucun lien avec le jeûne. » Quelle réponse le corrige ?",
+        "explanation_tr": "S’abstenir de manger constitue un élément essentiel du jeûne.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dormir",
+          "Parler",
+          "Il faut s’abstenir de manger pendant les heures de jeûne.",
+          "Travailler"
+        ],
+        "correct_answer": "Il faut s’abstenir de manger pendant les heures de jeûne.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "L’abstention de nourriture"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-005": {
+      "source": {
+        "question_tr": "Sahur konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Bakara 2:187 fecre kadar yeme ve içmenin serbest olduğunu bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Güneş battıktan sonraki iftar anı",
+          "Öğle namazından sonra",
+          "Oruç başlamadan önce fecrden önceki vakit",
+          "İkindi namazından sonra"
+        ],
+        "correct_answer": "Oruç başlamadan önce fecrden önceki vakit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation correspond correctement au repas du sahur ?",
+        "explanation_tr": "La sourate Al-Baqara (2:187) permet de manger et de boire jusqu’à l’aube.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le moment de rompre le jeûne après le coucher du soleil",
+          "Après la prière de midi",
+          "Le moment avant l’aube, avant le début du jeûne",
+          "Après la prière de l’après-midi"
+        ],
+        "correct_answer": "Le moment avant l’aube, avant le début du jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Le repas avant l’aube (sahur)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-006": {
+      "source": {
+        "question_tr": "Bir arkadaşın Oruç hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Diyanet Oruç İlmihali ve Bakara 2:183-187 orucu belirli vakitte imsakla yapılan ibadet olarak açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece daha az uyumak",
+          "Yalnızca sosyal medyadan uzak durmak",
+          "İbadet niyetiyle belirli süre yeme, içme ve cinsel ilişkiden uzak durmak",
+          "Günün herhangi bir saatinde rastgele aç kalmak"
+        ],
+        "correct_answer": "İbadet niyetiyle belirli süre yeme, içme ve cinsel ilişkiden uzak durmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande ce qu’est le jeûne. Que lui réponds-tu ?",
+        "explanation_tr": "Le manuel du jeûne de Diyanet et Al-Baqara (2:183-187) présentent le jeûne comme une adoration fondée sur l’abstinence pendant une période prescrite.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dormir moins, et rien d’autre",
+          "Éviter uniquement les réseaux sociaux",
+          "S’abstenir de manger, de boire et d’avoir des rapports sexuels pendant une période déterminée avec l’intention d’adorer Allah",
+          "Rester affamé au hasard à n’importe quelle heure"
+        ],
+        "correct_answer": "S’abstenir de manger, de boire et d’avoir des rapports sexuels pendant une période déterminée avec l’intention d’adorer Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Le jeûne (sawm)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-007": {
+      "source": {
+        "question_tr": "Takva konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Bakara 2:183 orucun sakınma ve takva bilinci amacıyla farz kılındığını bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece kilo vermeye",
+          "Sosyal görünürlüğe",
+          "Takva bilincine",
+          "Uyku süresini artırmaya"
+        ],
+        "correct_answer": "Takva bilincine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel objectif du jeûne est souligné par Al-Baqara (2:183) ?",
+        "explanation_tr": "La sourate Al-Baqara (2:183) précise que le jeûne vise à développer la maîtrise de soi et la conscience d’Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Chercher uniquement à perdre du poids",
+          "La visibilité sociale",
+          "La conscience d’Allah",
+          "Augmenter le temps de sommeil"
+        ],
+        "correct_answer": "La conscience d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "La conscience d’Allah (taqwâ)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-008": {
+      "source": {
+        "question_tr": "“Oruç vaktinde bilerek yemek orucu bozmaz.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Yeme içme orucun temel yasaklarındandır bilerek ihlal edilmesi orucu bozar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Orucu güçlendirir",
+          "Hiçbir etkisi olmaz",
+          "Orucu bozar",
+          "Sadece sevabı artırır"
+        ],
+        "correct_answer": "Orucu bozar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Manger volontairement pendant le jeûne ne l’invalide pas » ?",
+        "explanation_tr": "Manger et boire font partie des principales interdictions pendant le jeûne ; les enfreindre délibérément invalide le jeûne.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Cela renforce le jeûne",
+          "Cela n’a aucun effet",
+          "Cela invalide le jeûne",
+          "Cela augmente seulement la récompense"
+        ],
+        "correct_answer": "Cela invalide le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Manger délibérément"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-009": {
+      "source": {
+        "question_tr": "“Oruçlu iken gündüz yemenin oruçla hiçbir ilişkisi yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Yemekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Uyumaktan",
+          "Konuşmaktan",
+          "Oruç vaktinde yemekten uzak durmak gerekir.",
+          "Çalışmaktan"
+        ],
+        "correct_answer": "Oruç vaktinde yemekten uzak durmak gerekir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « On peut manger pendant les heures de jeûne sans conséquence » ?",
+        "explanation_tr": "S’abstenir de manger constitue un élément essentiel du jeûne.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Dormir",
+          "Parler",
+          "Il faut s’abstenir de manger pendant les heures de jeûne.",
+          "Travailler"
+        ],
+        "correct_answer": "Il faut s’abstenir de manger pendant les heures de jeûne.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "L’abstention de nourriture"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-010": {
+      "source": {
+        "question_tr": "Sahur hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Bakara 2:187 fecre kadar yeme ve içmenin serbest olduğunu bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Güneş battıktan sonraki iftar anı",
+          "Öğle namazından sonra",
+          "Oruç başlamadan önce fecrden önceki vakit",
+          "İkindi namazından sonra"
+        ],
+        "correct_answer": "Oruç başlamadan önce fecrden önceki vakit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation corrige une idée erronée sur le sahur ?",
+        "explanation_tr": "La sourate Al-Baqara (2:187) permet de manger et de boire jusqu’à l’aube.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le moment de rompre le jeûne après le coucher du soleil",
+          "Après la prière de midi",
+          "Le moment avant l’aube, avant le début du jeûne",
+          "Après la prière de l’après-midi"
+        ],
+        "correct_answer": "Le moment avant l’aube, avant le début du jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Le repas avant l’aube (sahur)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-011": {
+      "source": {
+        "question_tr": "“Oruç yalnızca rastgele aç kalmaktan ibarettir.” ifadesindeki hatayı hangi seçenek düzeltir?",
+        "explanation_tr": "Diyanet Oruç İlmihali ve Bakara 2:183-187 orucu belirli vakitte imsakla yapılan ibadet olarak açıklar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sadece daha az uyumak",
+          "Yalnızca sosyal medyadan uzak durmak",
+          "İbadet niyetiyle belirli süre yeme, içme ve cinsel ilişkiden uzak durmak",
+          "Günün herhangi bir saatinde rastgele aç kalmak"
+        ],
+        "correct_answer": "İbadet niyetiyle belirli süre yeme, içme ve cinsel ilişkiden uzak durmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Jeûner consiste à avoir faim au hasard » ?",
+        "explanation_tr": "Le manuel du jeûne de Diyanet et Al-Baqara (2:183-187) présentent le jeûne comme une adoration fondée sur l’abstinence pendant une période prescrite.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Dormir moins, et rien d’autre",
+          "Éviter uniquement les réseaux sociaux",
+          "S’abstenir de manger, de boire et d’avoir des rapports sexuels pendant une période déterminée avec l’intention d’adorer Allah",
+          "Rester affamé au hasard à n’importe quelle heure"
+        ],
+        "correct_answer": "S’abstenir de manger, de boire et d’avoir des rapports sexuels pendant une période déterminée avec l’intention d’adorer Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Le jeûne (sawm)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-012": {
+      "source": {
+        "question_tr": "Uygulama: bakara 2:183 orucun amaçlarından hangisine dikkat çeker?",
+        "explanation_tr": "Bakara 2:183 orucun sakınma ve takva bilinci amacıyla farz kılındığını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece kilo vermeye",
+          "Sosyal görünürlüğe",
+          "Takva bilincine",
+          "Uyku süresini artırmaya"
+        ],
+        "correct_answer": "Takva bilincine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mise en pratique : quel objectif du jeûne est souligné par Al-Baqara (2:183) ?",
+        "explanation_tr": "La sourate Al-Baqara (2:183) précise que le jeûne vise à développer la maîtrise de soi et la conscience d’Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Chercher uniquement à perdre du poids",
+          "La visibilité sociale",
+          "La conscience d’Allah",
+          "Augmenter le temps de sommeil"
+        ],
+        "correct_answer": "La conscience d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "La conscience d’Allah (taqwâ)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-013": {
+      "source": {
+        "question_tr": "Uygulama: bilerek yemek konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Yeme içme orucun temel yasaklarındandır bilerek ihlal edilmesi orucu bozar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Orucu güçlendirir",
+          "Hiçbir etkisi olmaz",
+          "Orucu bozar",
+          "Sadece sevabı artırır"
+        ],
+        "correct_answer": "Orucu bozar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mise en pratique : que se passe-t-il lorsqu’on mange délibérément pendant les heures de jeûne ?",
+        "explanation_tr": "Manger et boire font partie des principales interdictions pendant le jeûne ; les enfreindre délibérément invalide le jeûne.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Cela renforce le jeûne",
+          "Cela n’a aucun effet",
+          "Cela invalide le jeûne",
+          "Cela augmente seulement la récompense"
+        ],
+        "correct_answer": "Cela invalide le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Manger délibérément"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-014": {
+      "source": {
+        "question_tr": "Oruçlu kişi oruç vaktinde hangisinden uzak durur?",
+        "explanation_tr": "Yemekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Uyumaktan",
+          "Konuşmaktan",
+          "Yemekten",
+          "Çalışmaktan"
+        ],
+        "correct_answer": "Yemekten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "De quoi une personne qui jeûne doit-elle s’abstenir pendant la journée ?",
+        "explanation_tr": "S’abstenir de manger constitue un élément essentiel du jeûne.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Dormir",
+          "Parler",
+          "Manger",
+          "Travailler"
+        ],
+        "correct_answer": "Manger",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "L’abstention de nourriture"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-015": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Sahur güneş battıktan sonra orucu açma anıdır.",
+        "explanation_tr": "Bakara 2:187 fecre kadar yeme ve içmenin serbest olduğunu bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Le sahur désigne le moment de rompre le jeûne après le coucher du soleil.",
+        "explanation_tr": "La sourate Al-Baqara (2:187) permet de manger et de boire jusqu’à l’aube.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Le repas avant l’aube (sahur)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S04-016": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Oruç, ibadet niyetiyle imsak vaktinden güneş batışına kadar yeme, içme ve cinsel ilişkiden uzak durmaktır.",
+        "explanation_tr": "Diyanet Oruç İlmihali ve Bakara 2:183-187 orucu belirli vakitte imsakla yapılan ibadet olarak açıklar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Jeûner consiste à s’abstenir de manger, de boire et d’avoir des rapports sexuels, de l’aube au coucher du soleil, avec l’intention d’adorer Allah.",
+        "explanation_tr": "Le manuel du jeûne de Diyanet et Al-Baqara (2:183-187) présentent le jeûne comme une adoration fondée sur l’abstinence pendant une période prescrite.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne pendant le jeûne",
+        "topic": "Le jeûne (sawm)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

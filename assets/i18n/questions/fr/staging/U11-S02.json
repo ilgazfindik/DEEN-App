@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U11",
+  "stage": "U11-S02",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U11-S02-001": {
+      "source": {
+        "question_tr": "Kavram kontrolü: düzen hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "İbadetlerin eğitici yönleri sorumluluk ve düzen bilincini destekleyebilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sorumluluktan kaçmayı",
+          "Zamanı tamamen önemsiz görmeyi",
+          "Sorumluluk ve düzen bilincini",
+          "Başkalarını küçümsemeyi"
+        ],
+        "correct_answer": "Sorumluluk ve düzen bilincini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vérifie tes connaissances : quelle affirmation sur l’ordre est correcte ?",
+        "explanation_tr": "La dimension éducative de l’adoration peut développer le sens des responsabilités et de l’ordre.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Fuir ses responsabilités",
+          "Considérer le temps comme totalement dépourvu d’importance",
+          "Le sens des responsabilités et de l’ordre",
+          "Rabaisser les autres"
+        ],
+        "correct_answer": "Le sens des responsabilités et de l’ordre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "L’ordre"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-002": {
+      "source": {
+        "question_tr": "Niyet ibadet bilincinde ne sağlar?",
+        "explanation_tr": "Niyet kulluk davranışının bilinç ve yöneliş boyutunu güçlendirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbadetin kaynağını insan tercihine dönüştürür",
+          "Bütün şekil ve şartları gereksiz kılar",
+          "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+          "İbadeti sadece bir alışkanlığa çevirir"
+        ],
+        "correct_answer": "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment l’intention contribue-t-elle à la conscience de l’adoration ?",
+        "explanation_tr": "L’intention renforce la conscience et l’orientation qui accompagnent les actes d’adoration.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle fait dépendre les sources de l’adoration des préférences personnelles",
+          "Elle rend inutiles toutes les formes et conditions prescrites",
+          "Elle oriente les actes vers une pratique consciente recherchant l’agrément d’Allah",
+          "Elle réduit l’adoration à une simple habitude"
+        ],
+        "correct_answer": "Elle oriente les actes vers une pratique consciente recherchant l’agrément d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "L’intention"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-003": {
+      "source": {
+        "question_tr": "Temizlik konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Temizlik özellikle namaz gibi ibadetlerin hazırlığıyla bağlantılıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbadetlerle hiçbir ilişkisi yoktur",
+          "Sadece estetik amaçlıdır",
+          "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+          "Yalnızca seyahatle ilgilidir"
+        ],
+        "correct_answer": "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation sur la propreté est correcte ?",
+        "explanation_tr": "La propreté est notamment liée à la préparation d’actes d’adoration comme la prière rituelle.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle n’a aucun rapport avec l’adoration",
+          "Elle sert uniquement à l’esthétique",
+          "Elle est directement liée à la préparation et aux conditions de certains actes d’adoration",
+          "Elle concerne uniquement les voyages"
+        ],
+        "correct_answer": "Elle est directement liée à la préparation et aux conditions de certains actes d’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "La propreté"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-004": {
+      "source": {
+        "question_tr": "Şekil ve ruh hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Diyanet tefsiri ibadette şeklin vazgeçilmez niyet ve ihlasın ise öz ve ruh olduğunu belirtir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece şekil önemlidir niyet gereksizdir",
+          "Sadece niyet yeterlidir ibadet biçimi önemsizdir",
+          "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+          "Ne şeklin ne niyetin önemi vardır"
+        ],
+        "correct_answer": "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation sur la forme et l’esprit de l’adoration est correcte ?",
+        "explanation_tr": "Selon le commentaire de Diyanet, la forme prescrite est essentielle ; l’intention et la sincérité constituent l’essence et l’esprit de l’adoration.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Seule la forme compte ; l’intention est inutile",
+          "L’intention suffit ; la forme de l’adoration importe peu",
+          "La forme prescrite compte ; l’intention et la sincérité constituent aussi l’esprit de l’adoration",
+          "Ni la forme ni l’intention ne comptent"
+        ],
+        "correct_answer": "La forme prescrite compte ; l’intention et la sincérité constituent aussi l’esprit de l’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "La forme et l’esprit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-005": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Zekâtın paylaşma ve yardımlaşmayla ilgisi yoktur.",
+        "explanation_tr": "Diyanet'in temel ibadet anlatımında zekât paylaşma ve yardımlaşmayla birlikte ele alınır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? La zakât n’a aucun rapport avec le partage et l’entraide.",
+        "explanation_tr": "Dans sa présentation des principaux actes d’adoration, Diyanet associe la zakât au partage et à l’entraide.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "La zakât"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-006": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Düzenli ibadet sorumluluk ve düzen bilincini geliştirebilir.",
+        "explanation_tr": "İbadetlerin eğitici yönleri sorumluluk ve düzen bilincini destekleyebilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? La pratique régulière de l’adoration peut développer le sens des responsabilités et de l’ordre.",
+        "explanation_tr": "La dimension éducative de l’adoration peut développer le sens des responsabilités et de l’ordre.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "L’ordre"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Niyetin ibadet bilinciyle hiçbir ilişkisi yoktur.",
+        "explanation_tr": "Niyet kulluk davranışının bilinç ve yöneliş boyutunu güçlendirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? L’intention n’a aucun rapport avec la conscience de l’adoration.",
+        "explanation_tr": "L’intention renforce la conscience et l’orientation qui accompagnent les actes d’adoration.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "L’intention"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-008": {
+      "source": {
+        "question_tr": "Bir arkadaşın Temizlik hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Temizlik özellikle namaz gibi ibadetlerin hazırlığıyla bağlantılıdır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İbadetlerle hiçbir ilişkisi yoktur",
+          "Sadece estetik amaçlıdır",
+          "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+          "Yalnızca seyahatle ilgilidir"
+        ],
+        "correct_answer": "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande des informations exactes sur la propreté. Que lui réponds-tu ?",
+        "explanation_tr": "La propreté est notamment liée à la préparation d’actes d’adoration comme la prière rituelle.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Elle n’a aucun rapport avec l’adoration",
+          "Elle sert uniquement à l’esthétique",
+          "Elle est directement liée à la préparation et aux conditions de certains actes d’adoration",
+          "Elle concerne uniquement les voyages"
+        ],
+        "correct_answer": "Elle est directement liée à la préparation et aux conditions de certains actes d’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "La propreté"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-009": {
+      "source": {
+        "question_tr": "Şekil ve ruh konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Diyanet tefsiri ibadette şeklin vazgeçilmez niyet ve ihlasın ise öz ve ruh olduğunu belirtir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sadece şekil önemlidir niyet gereksizdir",
+          "Sadece niyet yeterlidir ibadet biçimi önemsizdir",
+          "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+          "Ne şeklin ne niyetin önemi vardır"
+        ],
+        "correct_answer": "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel principe concernant la forme et l’esprit de l’adoration est correct ?",
+        "explanation_tr": "Selon le commentaire de Diyanet, la forme prescrite est essentielle ; l’intention et la sincérité constituent l’essence et l’esprit de l’adoration.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Seule la forme compte ; l’intention est inutile",
+          "L’intention suffit ; la forme de l’adoration importe peu",
+          "La forme prescrite compte ; l’intention et la sincérité constituent aussi l’esprit de l’adoration",
+          "Ni la forme ni l’intention ne comptent"
+        ],
+        "correct_answer": "La forme prescrite compte ; l’intention et la sincérité constituent aussi l’esprit de l’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "La forme et l’esprit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-010": {
+      "source": {
+        "question_tr": "Bir öğrenci “Zekâtın paylaşma ve yardımlaşmayla ilgisi yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Diyanet'in temel ibadet anlatımında zekât paylaşma ve yardımlaşmayla birlikte ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Gösteriş için harcama",
+          "Sadece bireysel birikimi artırma",
+          "Paylaşma ve toplumsal sorumluluk",
+          "Yardımlaşmayı azaltma"
+        ],
+        "correct_answer": "Paylaşma ve toplumsal sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « La zakât n’a aucun rapport avec le partage et l’entraide. » Quelle réponse corrige cette idée ?",
+        "explanation_tr": "Dans sa présentation des principaux actes d’adoration, Diyanet associe la zakât au partage et à l’entraide.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dépenser pour se faire remarquer",
+          "Augmenter uniquement son épargne personnelle",
+          "Le partage et la responsabilité sociale",
+          "Réduire l’entraide"
+        ],
+        "correct_answer": "Le partage et la responsabilité sociale",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "La zakât"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-011": {
+      "source": {
+        "question_tr": "“Düzenli ibadet sorumluluk duygusunu zayıflatmayı amaçlar.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "İbadetlerin eğitici yönleri sorumluluk ve düzen bilincini destekleyebilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sorumluluktan kaçmayı",
+          "Zamanı tamamen önemsiz görmeyi",
+          "Sorumluluk ve düzen bilincini",
+          "Başkalarını küçümsemeyi"
+        ],
+        "correct_answer": "Sorumluluk ve düzen bilincini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige l’erreur suivante : « L’adoration régulière vise à affaiblir le sens des responsabilités » ?",
+        "explanation_tr": "La dimension éducative de l’adoration peut développer le sens des responsabilités et de l’ordre.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Fuir ses responsabilités",
+          "Considérer le temps comme totalement dépourvu d’importance",
+          "Le sens des responsabilités et de l’ordre",
+          "Rabaisser les autres"
+        ],
+        "correct_answer": "Le sens des responsabilités et de l’ordre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "L’ordre"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-012": {
+      "source": {
+        "question_tr": "Niyet hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Niyet kulluk davranışının bilinç ve yöneliş boyutunu güçlendirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İbadetin kaynağını insan tercihine dönüştürür",
+          "Bütün şekil ve şartları gereksiz kılar",
+          "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+          "İbadeti sadece bir alışkanlığa çevirir"
+        ],
+        "correct_answer": "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation corrige l’idée erronée concernant l’intention ?",
+        "explanation_tr": "L’intention renforce la conscience et l’orientation qui accompagnent les actes d’adoration.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Elle fait dépendre les sources de l’adoration des préférences personnelles",
+          "Elle rend inutiles toutes les formes et conditions prescrites",
+          "Elle oriente les actes vers une pratique consciente recherchant l’agrément d’Allah",
+          "Elle réduit l’adoration à une simple habitude"
+        ],
+        "correct_answer": "Elle oriente les actes vers une pratique consciente recherchant l’agrément d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "L’intention"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-013": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Temizlik bazı ibadetlere ___ niteliği taşır.",
+        "explanation_tr": "Temizlik özellikle namaz gibi ibadetlerin hazırlığıyla bağlantılıdır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk",
+          "ihlas",
+          "hazırlık",
+          "yöneliş"
+        ],
+        "correct_answer": "hazırlık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : la propreté sert de ___ à certains actes d’adoration.",
+        "explanation_tr": "La propreté est notamment liée à la préparation d’actes d’adoration comme la prière rituelle.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dévotion",
+          "sincérité",
+          "préparation",
+          "orientation"
+        ],
+        "correct_answer": "préparation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "La propreté"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S02-014": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İbadette belirlenmiş şekil ile niyet ve ___ birlikte önem taşır.",
+        "explanation_tr": "Diyanet tefsiri ibadette şeklin vazgeçilmez niyet ve ihlasın ise öz ve ruh olduğunu belirtir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk",
+          "yöneliş",
+          "ihlas",
+          "ibadet"
+        ],
+        "correct_answer": "ihlas",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : la forme prescrite, l’intention et la ___ comptent toutes dans l’adoration.",
+        "explanation_tr": "Selon le commentaire de Diyanet, la forme prescrite est essentielle ; l’intention et la sincérité constituent l’essence et l’esprit de l’adoration.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dévotion",
+          "orientation",
+          "sincérité",
+          "adoration"
+        ],
+        "correct_answer": "sincérité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Intention et sincérité",
+        "topic": "La forme et l’esprit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

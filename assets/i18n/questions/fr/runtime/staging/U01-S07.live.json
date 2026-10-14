@@ -1,0 +1,525 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U01",
+  "scope": "live_runtime_staging",
+  "stage": "U01-S07",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_language": "tr",
+  "source_reference": "assets/i18n/questions/en/runtime/U01.live.json: original Turkish source retained",
+  "translations": {
+    "DEEN-U01-S07-P01": {
+      "source": {
+        "question_tr": "Son tur: İslam’ı tek cümlede nasıl anlatırsın?",
+        "explanation_tr": "Ünite boyunca İslam, yalnızca tek bir davranış alanına indirgenmeyen; inanç, ibadet ve ahlakla ilişkili bütünsel bir din olarak ele alındı.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah'a yönelişi; inanç, kulluk ve güzel davranışlarla birlikte ele alan bir din",
+          "Yalnızca belirli ibadetlerin adını ifade eden bir kavram",
+          "Belirli bir milliyete ait kültürel kimlik",
+          "Sadece tarihsel olaylardan oluşan bir gelenek"
+        ],
+        "correct_answer": "Allah'a yönelişi; inanç, kulluk ve güzel davranışlarla birlikte ele alan bir din",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dernière étape : comment décrirais-tu l’islam en une phrase ?",
+        "explanation_tr": "Cette unité présente l’islam comme une religion globale associant croyance, adoration et bon comportement, sans le réduire à un seul domaine.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Une religion qui associe le fait de se tourner vers Allah à la foi, à l’adoration et au bon comportement",
+          "Un terme désignant uniquement les noms de certains actes d’adoration",
+          "Une identité culturelle réservée à une nationalité particulière",
+          "Une tradition composée uniquement d’événements historiques"
+        ],
+        "correct_answer": "Une religion qui associe le fait de se tourner vers Allah à la foi, à l’adoration et au bon comportement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "L’essentiel de l’islam",
+        "teaching_card": {
+          "eyebrow": "1 · BILAN DE L’UNITÉ",
+          "title": "L’islam relie la relation à Allah à toute la vie.",
+          "body": "Foi, dévotion et bon comportement constituent le cadre essentiel de cette unité.",
+          "memory": "À retenir : se tourner vers Allah · croire · vivre"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P02": {
+      "source": {
+        "question_tr": "Final eşleştirme: iman, ibadet, ahlak ve Kur’an.",
+        "explanation_tr": "Bu dört kavram, İslam'ın inançtan davranışa uzanan yapısını özetler.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İman",
+            "right": "İçsel inanç"
+          },
+          {
+            "left": "İbadet",
+            "right": "Uygulanan kulluk"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Davranışa yansıma"
+          },
+          {
+            "left": "Kur'an",
+            "right": "Temel kaynak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Association finale : foi, adoration, bon comportement et Coran.",
+        "explanation_tr": "Ces quatre notions résument les fondements de l’islam, de la croyance aux actes.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Foi",
+            "right": "Croyance intérieure"
+          },
+          {
+            "left": "Adoration",
+            "right": "Dévotion mise en pratique"
+          },
+          {
+            "left": "Bon comportement",
+            "right": "Manifestation dans les actes"
+          },
+          {
+            "left": "Coran",
+            "right": "La source centrale"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "Résumé des notions fondamentales",
+        "teaching_card": {
+          "eyebrow": "2 · CARTE FINALE",
+          "title": "Retrouve une dernière fois le rôle de chaque notion.",
+          "body": "La foi est une adhésion, l’adoration une dévotion, le bon comportement concerne les actes et le Coran est le principal guide.",
+          "memory": "À retenir : quatre notions, quatre sens"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P03": {
+      "source": {
+        "question_tr": "İman sadece törenlere katılmak değil, kalben inanmakla da ilgilidir. Doğru mu?",
+        "explanation_tr": "İman, dışsal törenlerden çok, kişinin içsel kabulüyle ilgili bir kavramdır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi implique de croire dans son cœur, et pas seulement de participer à des cérémonies. Vrai ou faux ?",
+        "explanation_tr": "La foi concerne avant tout l’adhésion intérieure d’une personne, au-delà des cérémonies visibles.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "L’essence de la foi",
+        "teaching_card": {
+          "eyebrow": "3 · FOI",
+          "title": "La foi implique de croire dans son cœur.",
+          "body": "Participer à des cérémonies ne définit pas à lui seul la foi ; la croyance et l’adhésion intérieures sont essentielles.",
+          "memory": "À retenir : croire et accepter dans son cœur"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P04": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İslam’ın merkezindeki fikir Allah’a ___ ve O’nun rehberliğini benimsemektir.",
+        "explanation_tr": "Bu ünitede İslam'ın merkezinde Allah'a yönelme, teslimiyet ve O'nun rehberliğini benimseme fikri vurgulanır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "teslimiyet",
+          "uzaklık",
+          "kayıtsızlık",
+          "rekabet"
+        ],
+        "correct_answer": "teslimiyet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : l’idée centrale de l’islam est la ___ à Allah et l’acceptation de Sa guidance.",
+        "explanation_tr": "Cette unité souligne que se tourner vers Allah, se soumettre à Lui et suivre Sa guidance sont des idées centrales de l’islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "soumission",
+          "distance",
+          "indifférence",
+          "compétition"
+        ],
+        "correct_answer": "soumission",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "Introduction à l’islam",
+        "teaching_card": {
+          "eyebrow": "4 · IDÉE CENTRALE",
+          "title": "La soumission à Allah est au cœur de l’islam.",
+          "body": "Se soumettre signifie ici se tourner vers Allah et accepter Sa guidance.",
+          "memory": "À retenir : se tourner vers Allah · suivre Sa guidance"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P05": {
+      "source": {
+        "question_tr": "Kimse görmese bile dürüst davranmak neyi gösterir?",
+        "explanation_tr": "İslam, kişinin sadece görüldüğünde değil, her zaman dürüst ve ahlaklı davranmasını öğütler.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahlakın, insanlar görmese bile önemli olduğu öğretisiyle",
+          "Sadece kanun korkusuyla",
+          "Sadece iş güvencesi kaygısıyla",
+          "Hiçbir öğretiyle ilgisi yok"
+        ],
+        "correct_answer": "Ahlakın, insanlar görmese bile önemli olduğu öğretisiyle",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Qu’indique le fait d’agir honnêtement même lorsque personne ne regarde ?",
+        "explanation_tr": "L’islam encourage l’honnêteté et une bonne conduite en toute circonstance, pas seulement sous le regard des autres.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le bon comportement compte même sans témoin",
+          "Uniquement la peur de la loi",
+          "Uniquement la crainte de perdre son emploi",
+          "Ce geste n’a aucun rapport avec ce qui a été appris"
+        ],
+        "correct_answer": "Le bon comportement compte même sans témoin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "L’honnêteté sans témoin",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P06": {
+      "source": {
+        "question_tr": "Üç ifade ünitenin ana fikriyle uyumludur. Hangisi uyumlu değildir?",
+        "explanation_tr": "Ünite bu kavramları farklı fakat ilişkili alanlar olarak ele alır.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman kalben inanmayla ilgilidir.",
+          "İbadet Allah’a kullukla ilgilidir.",
+          "Ahlak davranışlara yansır.",
+          "İman, ibadet ve ahlak tamamen kopuktur."
+        ],
+        "correct_answer": "İman, ibadet ve ahlak tamamen kopuktur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Trois affirmations correspondent à l’idée principale de l’unité. Laquelle est incorrecte ?",
+        "explanation_tr": "Cette unité présente foi, adoration et bon comportement comme des domaines distincts mais liés.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "La foi suppose de croire dans son cœur.",
+          "L’adoration comprend la dévotion à Allah.",
+          "Le bon comportement se manifeste dans les actes.",
+          "La foi, l’adoration et le bon comportement n’ont aucun lien."
+        ],
+        "correct_answer": "La foi, l’adoration et le bon comportement n’ont aucun lien.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "La complémentarité des trois notions",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P07": {
+      "source": {
+        "question_tr": "Peygamberin temel rolünü hangisi en iyi anlatıyor?",
+        "explanation_tr": "Peygamber, hem Allah'ın mesajını ileten hem de bu mesajı hayatında örnekleyen bir rehberdir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah'ın mesajını ileten ve yaşamıyla örnek olan kişi",
+          "Sadece bir tarihi lider",
+          "Sadece bir yazar",
+          "Sadece bir tüccar"
+        ],
+        "correct_answer": "Allah'ın mesajını ileten ve yaşamıyla örnek olan kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition décrit le mieux le rôle principal du Prophète ?",
+        "explanation_tr": "Le Prophète transmet le message d’Allah et en donne un exemple par sa vie.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Il transmet le message d’Allah et donne l’exemple par sa vie",
+          "Il n’est qu’un dirigeant historique",
+          "Il n’est qu’un écrivain",
+          "Il n’est qu’un commerçant"
+        ],
+        "correct_answer": "Il transmet le message d’Allah et donne l’exemple par sa vie",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "Résumé du rôle du Prophète",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P08": {
+      "source": {
+        "question_tr": "İslam, Müslüman ve peygamber… Üç doğru eşleşmeyi bul.",
+        "explanation_tr": "Bu üç kavram, dinin kendisinden ona mensup olan kişiye ve örnek rehbere uzanan temel bir çerçeve sunar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Din"
+          },
+          {
+            "left": "Müslüman",
+            "right": "Bu dine mensup kişi"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Örnek rehber"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Islam, musulman et Prophète : retrouve les trois associations correctes.",
+        "explanation_tr": "Ces trois notions forment un cadre élémentaire reliant la religion, la personne qui y adhère et un guide exemplaire.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "La religion"
+          },
+          {
+            "left": "Musulman",
+            "right": "Une personne qui adhère à cette religion"
+          },
+          {
+            "left": "Prophète",
+            "right": "Un guide exemplaire"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "Résumé des fondements",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P09": {
+      "source": {
+        "question_tr": "Kur’an ahlaki konularda da rehberlik eder mi?",
+        "explanation_tr": "Kur'an, inanç ve ibadetin yanı sıra ahlaki ilkelere de rehberlik eden kapsamlı bir kaynaktır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le Coran donne-t-il également des repères pour le bon comportement ?",
+        "explanation_tr": "Le Coran est une source de guidance qui aborde la morale ainsi que la foi et l’adoration.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "La portée du Coran",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P10": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İbadetin temel amacı Allah’ın ___ kazanmaktır.",
+        "explanation_tr": "İbadetin özünde Allah'ın rızasını kazanma isteği vardır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "rızasını",
+          "alkışını",
+          "şöhretini",
+          "yarışını"
+        ],
+        "correct_answer": "rızasını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : le principal but de l’adoration est de rechercher l’___ d’Allah.",
+        "explanation_tr": "Le désir de rechercher l’agrément d’Allah est au cœur de l’adoration.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "agrément",
+          "applaudissement",
+          "renommée",
+          "compétition"
+        ],
+        "correct_answer": "agrément",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "Le but de l’adoration",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P11": {
+      "source": {
+        "question_tr": "Farklı ülkelerden insanlar aynı camide buluşuyor. Bu, Müslüman kimliği hakkında ne anlatıyor?",
+        "explanation_tr": "Bu sahne, Müslümanlığın evrensel bir inanç kimliği olduğunu ve milliyetle sınırlı olmadığını gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Müslümanlığın milliyet ve dilden bağımsız, inanca dayalı bir kimlik olduğunu",
+          "Sadece belirli bir ülkeye özgü olduğunu",
+          "Sadece belirli bir dile bağlı olduğunu",
+          "Hiçbir şey göstermez"
+        ],
+        "correct_answer": "Müslümanlığın milliyet ve dilden bağımsız, inanca dayalı bir kimlik olduğunu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Des personnes de plusieurs pays se retrouvent dans une même mosquée. Que montre cette scène sur l’identité musulmane ?",
+        "explanation_tr": "Cette scène rappelle que l’identité musulmane repose sur la foi et n’est pas limitée par la nationalité.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "C’est une identité liée à la foi, indépendante de la nationalité et de la langue",
+          "Elle n’appartient qu’à un seul pays",
+          "Elle dépend d’une langue particulière",
+          "Cette scène ne montre rien"
+        ],
+        "correct_answer": "C’est une identité liée à la foi, indépendante de la nationalité et de la langue",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "Identité universelle",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S07-P12": {
+      "source": {
+        "question_tr": "Hangisi İslam’ı bu ünitenin anlattığı çerçevede açıklamaz?",
+        "explanation_tr": "İslam belirli bir kültüre indirgenemez; inanç, kulluk ve ahlakı kapsayan evrensel bir din olarak tanıtılır.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Allah’a yönelmeyi öğretir.",
+          "İman, ibadet ve ahlakı birlikte ele alır.",
+          "Kur’an’ı temel rehber kabul eder.",
+          "Yalnızca belli bir kültüre ait gelenektir."
+        ],
+        "correct_answer": "Yalnızca belli bir kültüre ait gelenektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation ne correspond pas à la vision de l’islam présentée dans cette unité ?",
+        "explanation_tr": "L’islam ne se réduit pas à une culture particulière ; il est présenté comme une religion universelle incluant foi, adoration et bon comportement.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Il enseigne à se tourner vers Allah.",
+          "Il relie foi, adoration et bon comportement.",
+          "Il reconnaît le Coran comme guide principal.",
+          "Il n’est qu’une tradition propre à une culture particulière."
+        ],
+        "correct_answer": "Il n’est qu’une tradition propre à une culture particulière.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Défi final de l’unité",
+        "topic": "Résumé de l’unité",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

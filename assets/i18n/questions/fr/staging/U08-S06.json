@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U08",
+  "stage": "U08-S06",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U08-S06-001": {
+      "source": {
+        "question_tr": "Bir içerikte 'Peygamberler insan değil melektir' deniyor. Kur'an'a göre temel hata nedir?",
+        "explanation_tr": "Kur'an peygamberlerin beşerî özelliklere sahip insanlardan seçildiğini öğretir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Enbiyâ 21:7-8 ve Kehf 18:110 peygamberlerin insan oluşunu açıkça bildirir",
+          "Kur'an peygamberleri melek sayar",
+          "Peygamberler yalnız ruhtur",
+          "Vahiy insanlara gelmez"
+        ],
+        "correct_answer": "Enbiyâ 21:7-8 ve Kehf 18:110 peygamberlerin insan oluşunu açıkça bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un article affirme : « Les prophètes sont des anges et non des êtres humains. » Quelle est l’erreur selon le Coran ?",
+        "explanation_tr": "Le Coran enseigne que les prophètes choisis ont une nature humaine.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Anbiya 21:7-8 et Al-Kahf 18:110 indiquent que les prophètes sont humains",
+          "Le Coran présente les prophètes comme des anges",
+          "Les prophètes sont seulement des esprits",
+          "Aucun humain ne reçoit la révélation"
+        ],
+        "correct_answer": "Al-Anbiya 21:7-8 et Al-Kahf 18:110 indiquent que les prophètes sont humains",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-002": {
+      "source": {
+        "question_tr": "Kur'an'da adı geçmeyen hiçbir peygamber gönderilmemiştir.",
+        "explanation_tr": "Nisâ 4:164 bazı peygamberlerin anlatıldığını, bazılarının ise anlatılmadığını bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Aucun prophète dont le nom n’apparaît pas dans le Coran n’a été envoyé.",
+        "explanation_tr": "An-Nisa 4:164 indique que certains prophètes sont mentionnés et d’autres non.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-003": {
+      "source": {
+        "question_tr": "Peygamberler kendi adlarına değil, Allah'tan gelen ______ insanlara ulaştırırlar.",
+        "explanation_tr": "Peygamberlik görevinin merkezinde Allah'tan gelen mesajı tebliğ etmek bulunur.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vahyi",
+          "serveti",
+          "saltanatı",
+          "soy üstünlüğünü"
+        ],
+        "correct_answer": "vahyi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Les prophètes ne transmettent pas leur propre message, mais la ______ venant d’Allah.",
+        "explanation_tr": "Leur mission consiste notamment à transmettre ce qu’Allah révèle.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "révélation",
+          "richesse",
+          "royauté",
+          "supériorité de naissance"
+        ],
+        "correct_answer": "révélation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-004": {
+      "source": {
+        "question_tr": "Bir sınav sorusu 'Peygamberler arasında ayrım yapmayız demek, hepsinin bütün özellik ve derecelerinin tamamen aynı olmasıdır' diyor. En doğru değerlendirme hangisidir?",
+        "explanation_tr": "Bakara 2:285 iman bütünlüğünü, Bakara 2:253 ise bazı peygamberlere farklı dereceler verildiğini bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Yanlıştır; iman bakımından ayrım yapmamak, derece ve özel lütuf farklarını inkâr etmek değildir",
+          "Doğrudur; hiçbir fark olamaz",
+          "Yalnız bir peygamber vardır",
+          "Derece farkı diğerlerini inkâr etmeyi gerektirir"
+        ],
+        "correct_answer": "Yanlıştır; iman bakımından ayrım yapmamak, derece ve özel lütuf farklarını inkâr etmek değildir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une question d’examen affirme : « Ne pas faire de distinction entre les prophètes signifie qu’ils ont tous exactement les mêmes attributs et les mêmes rangs. » Quelle évaluation est juste ?",
+        "explanation_tr": "Al-Baqara 2:285 enseigne la foi en tous les messagers, tandis que 2:253 évoque des différences de rang.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "C’est faux : ne rejeter aucun messager ne signifie pas nier les différences de rang et de faveurs",
+          "C’est vrai : aucune différence ne peut exister",
+          "Il n’existe qu’un seul prophète",
+          "Les différences de rang obligent à rejeter certains prophètes"
+        ],
+        "correct_answer": "C’est faux : ne rejeter aucun messager ne signifie pas nier les différences de rang et de faveurs",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-005": {
+      "source": {
+        "question_tr": "Bir kişi 'Hz. Muhammed peygamber olduğu için ölümsüzdür' diyor. Hangi ayet bu iddiayı doğrudan düzeltir?",
+        "explanation_tr": "Ayette Hz. Muhammed'in bir elçi olduğu ve önceki elçiler gibi fâni olduğu hatırlatılır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Âl-i İmrân 3:144",
+          "Ahzâb 33:40",
+          "Sebe 34:28",
+          "Bakara 2:285"
+        ],
+        "correct_answer": "Âl-i İmrân 3:144",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un dit : « Muhammad est immortel parce qu’il est prophète. » Quel verset corrige directement cette affirmation ?",
+        "explanation_tr": "Le verset rappelle que Muhammad est un messager mortel, comme ceux qui l’ont précédé.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Imran 3:144",
+          "Al-Ahzab 33:40",
+          "Saba 34:28",
+          "Al-Baqara 2:285"
+        ],
+        "correct_answer": "Al-Imran 3:144",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-006": {
+      "source": {
+        "question_tr": "Bir sosyal medya paylaşımı 'Peygamberler vahyin kaynağıdır; mesajı kendileri oluşturur' diyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Nisâ 4:163 ve Mâide 5:67 vahyin Allah'tan gelişi ile tebliğ görevini birbirinden ayırır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Vahyin kaynağı Allah'tır; peygamberler vahyi alıp tebliğ eder",
+          "Vahyin kaynağı toplumdur",
+          "Peygamberler mesajı rastgele üretir",
+          "Vahiy diye bir şey yoktur"
+        ],
+        "correct_answer": "Vahyin kaynağı Allah'tır; peygamberler vahyi alıp tebliğ eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une publication affirme : « Les prophètes sont la source de la révélation et créent eux-mêmes leur message. » Quelle correction convient ?",
+        "explanation_tr": "An-Nisa 4:163 et Al-Maida 5:67 distinguent Allah, source de la révélation, des prophètes chargés de la transmettre.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah est la source de la révélation ; les prophètes la reçoivent et la transmettent",
+          "La révélation vient de la société",
+          "Les prophètes créent le message au hasard",
+          "La révélation n’existe pas"
+        ],
+        "correct_answer": "Allah est la source de la révélation ; les prophètes la reçoivent et la transmettent",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-007": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Her peygamber farklı bir ilaha kulluğu öğretmiştir' diyor. En açık düzeltme hangisidir?",
+        "explanation_tr": "Ayet bütün peygamberlerin ortak tevhid çağrısını açıkça ortaya koyar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Enbiyâ 21:25 bütün peygamberlerin tek Allah'a kulluk çağrısını bildirir",
+          "Kur'an çok ilahlılığı öğretir",
+          "Peygamberler kendilerine ibadet ister",
+          "Vahyin ortak mesajı yoktur"
+        ],
+        "correct_answer": "Enbiyâ 21:25 bütün peygamberlerin tek Allah'a kulluk çağrısını bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Chaque prophète enseignait l’adoration d’une divinité différente. » Quelle réponse convient ?",
+        "explanation_tr": "Le verset présente explicitement l’appel commun de tous les prophètes au tawhid.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Anbiya 21:25 indique que tous appelaient à adorer Allah seul",
+          "Le Coran enseigne l’existence de plusieurs dieux",
+          "Les prophètes demandent à être adorés",
+          "La révélation ne comporte aucun message commun"
+        ],
+        "correct_answer": "Al-Anbiya 21:25 indique que tous appelaient à adorer Allah seul",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-008": {
+      "source": {
+        "question_tr": "Bir notta 'Hz. Muhammed yalnız Araplara gönderilmiştir' yazıyor. Düzeltme hangisidir?",
+        "explanation_tr": "Ayet Hz. Muhammed'in peygamberliğinin evrenselliğini açıkça vurgular.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sebe 34:28 onun bütün insanlara gönderildiğini bildirir",
+          "Kur'an onun yalnız ailesine gönderildiğini söyler",
+          "Risalet Mekke ile sınırlıdır",
+          "Hz. Muhammed peygamber değildir"
+        ],
+        "correct_answer": "Sebe 34:28 onun bütün insanlara gönderildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note déclare : « Muhammad a été envoyé uniquement aux Arabes. » Quelle est la correction ?",
+        "explanation_tr": "Le verset souligne le caractère universel de sa mission prophétique.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Saba 34:28 indique qu’il a été envoyé à toute l’humanité",
+          "Le Coran dit qu’il a été envoyé uniquement à sa famille",
+          "Sa mission se limite à La Mecque",
+          "Muhammad n’est pas prophète"
+        ],
+        "correct_answer": "Saba 34:28 indique qu’il a été envoyé à toute l’humanité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-009": {
+      "source": {
+        "question_tr": "Bir uygulama 'Hz. Muhammed'den sonra yeni peygamberler gelmeye devam eder' diye öğretiyor. Hangi düzeltme gerekir?",
+        "explanation_tr": "Ayet Hz. Muhammed'in Allah'ın elçisi ve peygamberlerin sonuncusu olduğunu açıkça bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Ahzâb 33:40 Hz. Muhammed'i peygamberlerin sonuncusu olarak tanımlar",
+          "Kur'an son peygamber hakkında bilgi vermez",
+          "Ahzâb 33:40 yalnız soy bağı anlatır, elçilikten söz etmez",
+          "Hz. Muhammed sonuncu değil ilk peygamberdir"
+        ],
+        "correct_answer": "Ahzâb 33:40 Hz. Muhammed'i peygamberlerin sonuncusu olarak tanımlar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une application enseigne : « De nouveaux prophètes continueront d’être envoyés après Muhammad. » Que faut-il corriger ?",
+        "explanation_tr": "Le verset le présente comme le messager d’Allah et le dernier des prophètes.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Ahzab 33:40 décrit Muhammad comme le dernier des prophètes",
+          "Le Coran ne dit rien du dernier prophète",
+          "Al-Ahzab 33:40 ne concerne que la généalogie",
+          "Muhammad est le premier prophète, mais non le dernier"
+        ],
+        "correct_answer": "Al-Ahzab 33:40 décrit Muhammad comme le dernier des prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-010": {
+      "source": {
+        "question_tr": "Peygamberlerle ilgili yanlış iddiaları doğru düzeltmeleriyle eşleştir.",
+        "explanation_tr": "Bu üç yanlış, insan oluş, kaynak sınırı ve tevhid çağrısı konularının birbirinden ayrılmasıyla düzeltilir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Peygamberler melektir",
+            "right": "Kur'an peygamberlerin insan oluşunu bildirir"
+          },
+          {
+            "left": "Bütün peygamberler Kur'an'da isim isim sayılır",
+            "right": "Nisâ 4:164 bazılarını anlatmadığını bildirir"
+          },
+          {
+            "left": "Her peygamber farklı ilaha çağırır",
+            "right": "Enbiyâ 21:25 ortak tevhid çağrısını bildirir"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les affirmations incorrectes à leur rectification.",
+        "explanation_tr": "Ces trois erreurs concernent la nature humaine des prophètes, les limites des informations et l’unité du tawhid.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "« Les prophètes sont des anges »",
+            "right": "Le Coran les présente comme des êtres humains"
+          },
+          {
+            "left": "« Tous les prophètes sont nommés dans le Coran »",
+            "right": "An-Nisa 4:164 indique que certains ne sont pas mentionnés"
+          },
+          {
+            "left": "« Chaque prophète appelle à une autre divinité »",
+            "right": "Al-Anbiya 21:25 indique leur appel commun au tawhid"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-011": {
+      "source": {
+        "question_tr": "Peygamberlerle ilgili kaynaksız bir iddiayı değerlendirirken hangi iki ilkeyi korumalısın?",
+        "explanation_tr": "Peygamberlik alanında kaynak seviyesini ayırmak, iman bilgisini efsane ve varsayımdan korur.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kur'an ve güvenilir kaynaklara dönmek; açık vahiy bilgisi ile yorum veya söylentiyi birbirine karıştırmamak.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quels deux principes faut-il respecter lorsqu’on examine une affirmation non sourcée sur les prophètes ?",
+        "explanation_tr": "Distinguer les niveaux de sources empêche de confondre les croyances révélées avec les légendes ou les hypothèses.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Consulter le Coran et les sources fiables ; distinguer les informations explicites de la révélation des interprétations et rumeurs.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S06-012": {
+      "source": {
+        "question_tr": "Peygamberlere iman konusunda en sorunlu ifade hangisidir?",
+        "explanation_tr": "Bakara 2:285 Allah'ın elçileri arasında iman bakımından ayrım yapmamayı öğretir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Bir peygamberi kabul edip Allah'ın diğer elçilerini inkâr edebilirim'",
+          "'Peygamberler vahiy alan insanlardır'",
+          "'Ortak çağrının özü tevhiddir'",
+          "'Hz. Muhammed Allah'ın elçisidir'"
+        ],
+        "correct_answer": "'Bir peygamberi kabul edip Allah'ın diğer elçilerini inkâr edebilirim'",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation est la plus problématique concernant la foi aux prophètes ?",
+        "explanation_tr": "Al-Baqara 2:285 appelle à ne rejeter aucun des messagers d’Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "« Je peux accepter un prophète et rejeter les autres messagers d’Allah »",
+          "« Les prophètes sont des humains qui reçoivent la révélation »",
+          "« Leur message commun est le tawhid »",
+          "« Muhammad est le messager d’Allah »"
+        ],
+        "correct_answer": "« Je peux accepter un prophète et rejeter les autres messagers d’Allah »",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Réviser et corriger les erreurs",
+        "topic": "Les messagers, la révélation et le tawhid"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U10",
+  "stage": "U10-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U10-S04-001": {
+      "source": {
+        "question_tr": "Tevekkülün en doğru anlamı hangisidir?",
+        "explanation_tr": "Tevekkül pasiflik değildir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Gerekli çaba ve tedbirden sonra sonucu Allah'a bırakmak",
+          "Hiçbir şey yapmadan beklemek",
+          "Sebepleri inkâr etmek",
+          "Plan yapmayı yanlış görmek"
+        ],
+        "correct_answer": "Gerekli çaba ve tedbirden sonra sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle définition du tawakkul est la plus juste ?",
+        "explanation_tr": "Placer sa confiance en Allah ne signifie pas rester passif.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Faire les efforts et prendre les précautions nécessaires, puis s’en remettre à Allah",
+          "Attendre sans rien faire",
+          "Nier l’existence des causes",
+          "Considérer tout projet comme mauvais"
+        ],
+        "correct_answer": "Faire les efforts et prendre les précautions nécessaires, puis s’en remettre à Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-002": {
+      "source": {
+        "question_tr": "Tevekkül, gerekli tedbirleri almadan sonucu Allah'tan beklemektir.",
+        "explanation_tr": "Tevekkül sorumluluğu yerine getirip Allah'a güvenmektir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le tawakkul consiste à attendre le résultat d’Allah sans prendre les précautions nécessaires.",
+        "explanation_tr": "Le tawakkul signifie accomplir ses responsabilités puis faire confiance à Allah.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-003": {
+      "source": {
+        "question_tr": "Sağlıklı tevekkülde insan önce elinden gelen ______ gösterir, sonra sonucu Allah'a bırakır.",
+        "explanation_tr": "Çaba tevekkülün karşıtı değildir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "çabayı",
+          "tembelliği",
+          "kaçışı",
+          "mazereti"
+        ],
+        "correct_answer": "çabayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans un tawakkul équilibré, on commence par fournir les ______ nécessaires avant de s’en remettre à Allah.",
+        "explanation_tr": "L’effort n’est pas contraire au tawakkul.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "efforts",
+          "prétextes pour ne rien faire",
+          "fuites",
+          "excuses"
+        ],
+        "correct_answer": "efforts",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-004": {
+      "source": {
+        "question_tr": "Bir öğrenci sınava hiç çalışmadan 'Allah'a tevekkül ettim' diyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Diyanet çalışmayı bırakmayı tevekkül saymaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Tevekkül çalışmayı terk etmek değil; çalışıp sonucu Allah'a bırakmaktır",
+          "Hiç çalışmamak tevekküldür",
+          "Plan yapmak kadere karşıdır",
+          "Başarısızlıkta hiç sorumluluğu yoktur"
+        ],
+        "correct_answer": "Tevekkül çalışmayı terk etmek değil; çalışıp sonucu Allah'a bırakmaktır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève déclare : « Je n’ai pas révisé mon examen, car je m’en suis remis à Allah. » Comment le corriger ?",
+        "explanation_tr": "Selon Diyanet, renoncer à travailler ne constitue pas le tawakkul.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le tawakkul signifie travailler puis s’en remettre à Allah pour le résultat",
+          "Ne jamais étudier, c’est le tawakkul",
+          "Planifier va contre le destin",
+          "L’élève n’est responsable d’aucun échec"
+        ],
+        "correct_answer": "Le tawakkul signifie travailler puis s’en remettre à Allah pour le résultat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-005": {
+      "source": {
+        "question_tr": "Bir notta 'Tedbir almak Allah'a güvenmemek demektir' yazıyor. Hata nedir?",
+        "explanation_tr": "İnsan sebeplere sarılır, ardından Allah'a güvenir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Tedbir ile tevekkül birbirine zıt değildir",
+          "Tedbir her zaman güvensizliktir",
+          "Sebepler anlamsızdır",
+          "Kader planı yasaklar"
+        ],
+        "correct_answer": "Tedbir ile tevekkül birbirine zıt değildir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note affirme : « Prendre des précautions signifie ne pas faire confiance à Allah. » Où est l’erreur ?",
+        "explanation_tr": "On prend les moyens nécessaires tout en se confiant à Allah.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Prendre des précautions et placer sa confiance en Allah ne s’opposent pas",
+          "Toute précaution est un signe de méfiance",
+          "Les causes n’ont aucun sens",
+          "Le destin interdit toute planification"
+        ],
+        "correct_answer": "Prendre des précautions et placer sa confiance en Allah ne s’opposent pas",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-006": {
+      "source": {
+        "question_tr": "Çaba, tedbir ve tevekkülü doğru açıklamalarla eşleştir.",
+        "explanation_tr": "Bu üç kavram birlikte düşünülmelidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Çaba",
+            "right": "Sorumluluk alanında emek vermek"
+          },
+          {
+            "left": "Tedbir",
+            "right": "Muhtemel zararı azaltacak önlem almak"
+          },
+          {
+            "left": "Tevekkül",
+            "right": "Çaba sonrası sonucu Allah'a bırakmak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe effort, précaution et tawakkul à leur sens.",
+        "explanation_tr": "Ces trois notions doivent être comprises ensemble.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Effort",
+            "right": "Agir dans son domaine de responsabilité"
+          },
+          {
+            "left": "Précaution",
+            "right": "Prendre des mesures pour réduire les risques"
+          },
+          {
+            "left": "Tawakkul",
+            "right": "S’en remettre à Allah après avoir agi"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-007": {
+      "source": {
+        "question_tr": "Ra'd 13:11 hangi yanlış kader anlayışını zayıflatır?",
+        "explanation_tr": "Ayet insanın değişim çabasına dikkat çeker.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "'Hiçbir değişim için insan çabasına gerek yoktur' düşüncesini",
+          "Allah'ın ilmini",
+          "Tevekkülü",
+          "Dua etmeyi"
+        ],
+        "correct_answer": "'Hiçbir değişim için insan çabasına gerek yoktur' düşüncesini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle mauvaise compréhension du destin Ar-Rad 13:11 remet-il en cause ?",
+        "explanation_tr": "Ce verset souligne le rôle des efforts humains dans le changement.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "« Aucun effort humain n’est nécessaire pour changer une situation »",
+          "La science d’Allah",
+          "Le tawakkul",
+          "L’invocation"
+        ],
+        "correct_answer": "« Aucun effort humain n’est nécessaire pour changer une situation »",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-008": {
+      "source": {
+        "question_tr": "Bir kişi sağlık sorununda 'Kaderimde varsa olur' diyerek doktora gitmeyi reddediyor. En dengeli yaklaşım hangisidir?",
+        "explanation_tr": "Sebeplere sarılmak kaderle çelişmez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Uygun tedavi ve tedbir yollarına başvurup sonucu Allah'a bırakmak",
+          "Bütün tedbiri terk etmek",
+          "Hastalığı inkâr etmek",
+          "Tedaviyi kadere karşı çıkmak saymak"
+        ],
+        "correct_answer": "Uygun tedavi ve tedbir yollarına başvurup sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Face à un problème de santé, quelqu’un refuse de consulter un médecin en disant : « C’est le destin. » Quelle attitude serait équilibrée ?",
+        "explanation_tr": "Recourir aux moyens de soin ne contredit pas la foi au destin.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Chercher des soins adaptés, prendre des précautions, puis s’en remettre à Allah",
+          "Renoncer à toute précaution",
+          "Nier la maladie",
+          "Considérer les soins comme une opposition au destin"
+        ],
+        "correct_answer": "Chercher des soins adaptés, prendre des précautions, puis s’en remettre à Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-009": {
+      "source": {
+        "question_tr": "Bir girişim başarısız olduğunda kader inancıyla uyumlu tepki hangisidir?",
+        "explanation_tr": "Kader öz değerlendirmeyi engellemez.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hata ve eksikleri değerlendirip yeniden çaba göstermek ve sonucu Allah'a bırakmak",
+          "Bütün sorumluluğu kadere yüklemek",
+          "Bir daha hiçbir şey denememek",
+          "Sebepleri incelememek"
+        ],
+        "correct_answer": "Hata ve eksikleri değerlendirip yeniden çaba göstermek ve sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Après l’échec d’un projet, quelle réaction reste conforme à la foi au destin ?",
+        "explanation_tr": "Croire au destin n’empêche pas d’examiner ses erreurs.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Analyser ses erreurs, faire de nouveaux efforts et s’en remettre à Allah",
+          "Attribuer toute responsabilité au destin",
+          "Ne plus jamais essayer",
+          "Refuser d’examiner les causes"
+        ],
+        "correct_answer": "Analyser ses erreurs, faire de nouveaux efforts et s’en remettre à Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-010": {
+      "source": {
+        "question_tr": "Sebeplere sarılmak kadere aykırıdır.",
+        "explanation_tr": "Diyanet gerekli sebeplere sarılmayı insan sorumluluğu içinde görür.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Chercher les moyens nécessaires pour atteindre un objectif contredit la foi au destin.",
+        "explanation_tr": "Diyanet considère la recherche des moyens nécessaires comme relevant de la responsabilité humaine.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-011": {
+      "source": {
+        "question_tr": "Tevekkülü tek cümleyle tanımla.",
+        "explanation_tr": "Tevekkül pasif bekleyiş değildir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Gerekli çaba ve tedbirden sonra sonucu Allah'a bırakıp O'na güvenmektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Définis le tawakkul en une phrase.",
+        "explanation_tr": "Le tawakkul ne consiste pas à attendre passivement.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "C’est faire les efforts nécessaires, prendre les précautions adaptées et faire confiance à Allah pour le résultat.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-012": {
+      "source": {
+        "question_tr": "Tevekkül, sorumluluğu yerine getirdikten sonra sonucu ______ bırakmaktır.",
+        "explanation_tr": "Tevekkül çaba ile güveni birlikte taşır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Allah'a",
+          "tesadüfe",
+          "insanlara",
+          "şansa"
+        ],
+        "correct_answer": "Allah'a",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le tawakkul consiste à s’en remettre à ______ après avoir accompli ses responsabilités.",
+        "explanation_tr": "Le tawakkul associe l’effort à la confiance.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Allah",
+          "la coïncidence",
+          "d’autres personnes",
+          "la chance"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-013": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kader varsa plan yapmanın anlamı yok' diyor. En iyi cevap hangisidir?",
+        "explanation_tr": "Diyanet sebeplere sarılmayı gerekli görür.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Plan ve tedbir insanın sorumluluk alanındadır; kader bunları anlamsızlaştırmaz",
+          "Plan yapmak Allah'ın iradesini iptal eder",
+          "Plan yapmak yanlıştır",
+          "Sonuç tamamen insanın kontrolündedir"
+        ],
+        "correct_answer": "Plan ve tedbir insanın sorumluluk alanındadır; kader bunları anlamsızlaştırmaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Si le destin existe, planifier est inutile. » Que lui répondre ?",
+        "explanation_tr": "Prendre les moyens nécessaires est une responsabilité humaine.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Planifier et prendre des précautions relèvent de la responsabilité humaine ; le destin ne les rend pas inutiles",
+          "Planifier annule la volonté d’Allah",
+          "Planifier est toujours mauvais",
+          "L’être humain contrôle entièrement le résultat"
+        ],
+        "correct_answer": "Planifier et prendre des précautions relèvent de la responsabilité humaine ; le destin ne les rend pas inutiles",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-014": {
+      "source": {
+        "question_tr": "Sağlıklı tevekkül sürecini sırala.",
+        "explanation_tr": "Bu sıra sorumluluk ve güven dengesini korur.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Durumu değerlendir",
+          "Plan ve tedbir al",
+          "Elinden gelen çabayı göster",
+          "Sonucu Allah'a bırak"
+        ],
+        "correct_order": [
+          "Durumu değerlendir",
+          "Plan ve tedbir al",
+          "Elinden gelen çabayı göster",
+          "Sonucu Allah'a bırak"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe les étapes d’un tawakkul équilibré.",
+        "explanation_tr": "Cet ordre préserve à la fois la responsabilité et la confiance.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Évaluer la situation",
+          "Planifier et prendre des précautions",
+          "Faire les efforts possibles",
+          "S’en remettre à Allah pour le résultat"
+        ],
+        "correct_order": [
+          "Évaluer la situation",
+          "Planifier et prendre des précautions",
+          "Faire les efforts possibles",
+          "S’en remettre à Allah pour le résultat"
+        ],
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-015": {
+      "source": {
+        "question_tr": "Kader ile tevekkül ilişkisini en iyi anlatan ifade hangisidir?",
+        "explanation_tr": "Sağlıklı kader anlayışı çaba ve güveni birlikte taşır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsan sebeplere sarılır, sonucu Allah'ın takdirine bırakır",
+          "Kader bütün çabayı gereksiz yapar",
+          "Tevekkül yalnız kötü sonuçta kullanılır",
+          "İnsan sonucu kesin kontrol eder"
+        ],
+        "correct_answer": "İnsan sebeplere sarılır, sonucu Allah'ın takdirine bırakır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle phrase décrit le mieux le lien entre destin et tawakkul ?",
+        "explanation_tr": "Une compréhension équilibrée du destin combine action et confiance.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "On utilise les moyens à sa disposition puis on confie le résultat au décret d’Allah",
+          "Le destin rend tout effort inutile",
+          "Le tawakkul ne sert que lorsque le résultat est négatif",
+          "L’être humain contrôle toujours le résultat"
+        ],
+        "correct_answer": "On utilise les moyens à sa disposition puis on confie le résultat au décret d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U10-S04-016": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi 'tedbir + tevekkül' dengesine örnektir?",
+        "explanation_tr": "Tedbir insan sorumluluğudur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Emniyet kemerini takıp güvenli araç kullanmak ve sonucu Allah'a bırakmak",
+          "Kemeri kaderi bozuyor diye takmamak",
+          "Kuralları gereksiz görmek",
+          "Kazayı tamamen kendi kontrolünde sanmak"
+        ],
+        "correct_answer": "Emniyet kemerini takıp güvenli araç kullanmak ve sonucu Allah'a bırakmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel exemple illustre le mieux l’équilibre entre précaution et tawakkul ?",
+        "explanation_tr": "Prendre des précautions reste une responsabilité humaine.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mettre sa ceinture, conduire prudemment et s’en remettre à Allah pour le résultat",
+          "Refuser la ceinture parce qu’elle changerait le destin",
+          "Ignorer les règles de sécurité",
+          "Penser contrôler absolument tout risque"
+        ],
+        "correct_answer": "Mettre sa ceinture, conduire prudemment et s’en remettre à Allah pour le résultat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le tawakkul : agir et faire confiance",
+        "topic": "Destin, responsabilité et confiance en Allah"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

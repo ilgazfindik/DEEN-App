@@ -1,0 +1,537 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U01",
+  "scope": "live_runtime_staging",
+  "stage": "U01-S04",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_language": "tr",
+  "source_reference": "assets/i18n/questions/en/runtime/U01.live.json: original Turkish source retained",
+  "translations": {
+    "DEEN-U01-S04-P01": {
+      "source": {
+        "question_tr": "İslam günlük hayata da dokunur mu?",
+        "explanation_tr": "İslam, hayatın her alanına -aileden iş hayatına- yayılan bütünsel bir yaklaşım sunar.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+          "Sadece camide geçerlidir",
+          "Sadece belirli günlerde uygulanır",
+          "Sadece yetişkinler için geçerlidir"
+        ],
+        "correct_answer": "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "L’islam concerne-t-il aussi la vie quotidienne ?",
+        "explanation_tr": "L’islam offre une approche globale qui concerne tous les domaines de la vie, de la famille au travail.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Il ne se limite pas aux actes d’adoration ; il comprend aussi le bon comportement",
+          "Il ne s’applique qu’à la mosquée",
+          "Il ne se pratique que certains jours",
+          "Il ne concerne que les adultes"
+        ],
+        "correct_answer": "Il ne se limite pas aux actes d’adoration ; il comprend aussi le bon comportement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "La portée de l’islam",
+        "teaching_card": {
+          "eyebrow": "1 · VIE QUOTIDIENNE",
+          "title": "L’islam guide aussi les comportements au quotidien.",
+          "body": "La foi ne reste pas une simple information : elle se manifeste par l’honnêteté, le respect et la responsabilité.",
+          "memory": "À retenir : mets tes connaissances en pratique"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P02": {
+      "source": {
+        "question_tr": "Davranışları öne çıkan değerlerle eşleştir.",
+        "explanation_tr": "Güzel ahlak farklı durumlarda dürüstlük, saygı ve sabır olarak görünür.",
+        "activity_type": "matching",
+        "options_tr": [
+          "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+          "İbadet ve ahlakın tamamen aynı kavram olduğunu",
+          "Ahlakın ibadeti gereksiz yaptığını",
+          "Dürüstlüğün dinle ilgisiz olduğunu"
+        ],
+        "correct_answer": "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+        "pairs": [
+          {
+            "left": "Doğruyu söylemek",
+            "right": "Dürüstlük"
+          },
+          {
+            "left": "Kırmadan konuşmak",
+            "right": "Saygı"
+          },
+          {
+            "left": "Öfkeyi kontrol etmek",
+            "right": "Sabır"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les comportements aux valeurs qu’ils représentent.",
+        "explanation_tr": "Dans différentes situations, le bon comportement se traduit par l’honnêteté, le respect et la patience.",
+        "activity_type": "matching",
+        "options_tr": [
+          "L’adoration et le bon comportement peuvent coexister dans la vie d’une personne",
+          "Adoration et bon comportement désignent exactement la même notion",
+          "Le bon comportement rend l’adoration inutile",
+          "L’honnêteté n’a aucun lien avec la religion"
+        ],
+        "correct_answer": "L’adoration et le bon comportement peuvent coexister dans la vie d’une personne",
+        "pairs": [
+          {
+            "left": "Dire la vérité",
+            "right": "Honnêteté"
+          },
+          {
+            "left": "Parler sans blesser les autres",
+            "right": "Respect"
+          },
+          {
+            "left": "Maîtriser sa colère",
+            "right": "Patience"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "La complémentarité des trois notions",
+        "teaching_card": {
+          "eyebrow": "2 · CARTE DES VALEURS",
+          "title": "Retrouve la valeur derrière chaque comportement.",
+          "body": "Honnêteté, respect, patience et responsabilité apparaissent dans diverses situations.",
+          "memory": "À retenir : comportement → valeur"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P03": {
+      "source": {
+        "question_tr": "Kimse görmediğinde de doğruyu söylemek dürüstlüğün bir parçasıdır.",
+        "explanation_tr": "Dürüstlük, başkalarının görmesine bağlı olmayan ahlaki bir tutumdur.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dire la vérité même quand personne ne regarde fait partie de l’honnêteté.",
+        "explanation_tr": "L’honnêteté ne dépend pas du regard des autres.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "Le bon comportement au quotidien",
+        "teaching_card": {
+          "eyebrow": "3 · SANS TÉMOIN",
+          "title": "L’honnêteté ne dépend pas du regard des autres.",
+          "body": "Bien agir ne signifie pas seulement se comporter correctement lorsqu’on est observé.",
+          "memory": "À retenir : fais ce qui est juste, même sans témoin"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P04": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Fazla para üstünü geri vermek ___ değerine örnektir.",
+        "explanation_tr": "Emre'nin davranışı, İslam'ın önem verdiği dürüstlük ve ahlaki sorumluluğun bir yansımasıdır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dürüstlük",
+          "kabalık",
+          "gösteriş",
+          "rekabet"
+        ],
+        "correct_answer": "dürüstlük",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : rendre la monnaie reçue en trop est un exemple d’___.",
+        "explanation_tr": "Le comportement d’Emre reflète l’honnêteté et le sens des responsabilités morales enseignés par l’islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "honnêteté",
+          "impolitesse",
+          "ostentation",
+          "esprit de compétition"
+        ],
+        "correct_answer": "honnêteté",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "Le bon comportement au quotidien",
+        "teaching_card": {
+          "eyebrow": "4 · CONFIANCE ET DROITS",
+          "title": "Rendre la monnaie reçue en trop est un acte honnête.",
+          "body": "Restituer ce qui ne nous appartient pas protège les droits d’autrui.",
+          "memory": "À retenir : si ce n’est pas à toi, rends-le"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P05": {
+      "source": {
+        "question_tr": "Zeynep kopya çekmiyor çünkü Allah’ın her şeyi gördüğünü düşünüyor. Burada hangi iki alan birlikte çalışıyor?",
+        "explanation_tr": "Zeynep'in davranışı, Allah'a olan inancının (iman) doğru davranışa (ahlak) yansımasının bir örneğidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İman ve ahlakın birlikte işlemesi",
+          "Sadece korku duygusu",
+          "Sadece okul kuralları",
+          "Sadece arkadaş baskısı"
+        ],
+        "correct_answer": "İman ve ahlakın birlikte işlemesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zeynep ne triche pas parce qu’elle croit qu’Allah voit tout. Quels deux domaines se rejoignent ici ?",
+        "explanation_tr": "Le comportement de Zeynep illustre comment sa foi en Allah se traduit par une bonne conduite.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "La foi et le bon comportement agissent ensemble",
+          "Uniquement un sentiment de peur",
+          "Seulement les règles de l’école",
+          "Seulement la pression des camarades"
+        ],
+        "correct_answer": "La foi et le bon comportement agissent ensemble",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "Le lien entre foi et bon comportement",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P06": {
+      "source": {
+        "question_tr": "Hangisi ibadet ve ahlak ilişkisine uymaz?",
+        "explanation_tr": "Ünite, kulluk ile güzel davranış arasında bağ kurulabileceğini öğretir.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İbadet kulluk bilincini güçlendirebilir.",
+          "Güzel davranışlar günlük hayata yansır.",
+          "İnanç ve davranış arasında bağ kurulabilir.",
+          "İnsanlara nasıl davrandığımızın hiçbir önemi yoktur."
+        ],
+        "correct_answer": "İnsanlara nasıl davrandığımızın hiçbir önemi yoktur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation ne correspond pas au lien entre adoration et bon comportement ?",
+        "explanation_tr": "Cette unité enseigne qu’il existe un lien entre la dévotion et une bonne conduite.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "L’adoration peut renforcer la conscience de sa dévotion.",
+          "Une bonne conduite se manifeste au quotidien.",
+          "Il existe un lien entre la foi et le comportement.",
+          "La manière de traiter les autres n’a aucune importance."
+        ],
+        "correct_answer": "La manière de traiter les autres n’a aucune importance.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "L’unité entre adoration et bon comportement",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P07": {
+      "source": {
+        "question_tr": "İbadetlerine önem veren biri aynı zamanda dürüst ve saygılı davranıyor. Bu bize ne gösteriyor?",
+        "explanation_tr": "Bu örnek ibadet ve ahlakın aynı kavram olmadığını, fakat kişinin hayatında birbirini destekleyen biçimde birlikte bulunabileceğini gösterir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+          "İbadet ve ahlakın tamamen aynı kavram olduğunu",
+          "Ahlakın ibadeti gereksiz yaptığını",
+          "Dürüstlüğün dinle ilgisiz olduğunu"
+        ],
+        "correct_answer": "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne soucieuse de l’adoration se comporte aussi avec honnêteté et respect. Qu’est-ce que cela montre ?",
+        "explanation_tr": "L’adoration et le bon comportement sont des notions distinctes qui peuvent se renforcer dans la vie.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "L’adoration et le bon comportement peuvent coexister dans la vie d’une personne",
+          "Adoration et bon comportement désignent exactement la même notion",
+          "Le bon comportement rend l’adoration inutile",
+          "L’honnêteté n’a aucun lien avec la religion"
+        ],
+        "correct_answer": "L’adoration et le bon comportement peuvent coexister dans la vie d’une personne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "La complémentarité des trois notions",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P08": {
+      "source": {
+        "question_tr": "Durumları doğru davranışlarla eşleştir.",
+        "explanation_tr": "Ahlaki davranış, farklı durumlarda nazik, adil ve dürüst seçimler yapmayı gerektirir.",
+        "activity_type": "matching",
+        "options_tr": [
+          "Saygılı ve nazik iletişim (ahlak)",
+          "Sadece bilgiçlik taslamak",
+          "Sadece tartışmayı kazanmak isteği",
+          "Sadece kendini haklı çıkarma"
+        ],
+        "correct_answer": "Saygılı ve nazik iletişim (ahlak)",
+        "pairs": [
+          {
+            "left": "Yanlış bilgiyi düzeltmek",
+            "right": "Nazikçe konuşmak"
+          },
+          {
+            "left": "Haksız suçlama",
+            "right": "Sakin ve adil açıklamak"
+          },
+          {
+            "left": "Yapılan hata",
+            "right": "Dürüstçe kabul etmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe chaque situation au comportement approprié.",
+        "explanation_tr": "Une bonne conduite suppose des choix bienveillants, justes et honnêtes dans diverses situations.",
+        "activity_type": "matching",
+        "options_tr": [
+          "Une communication respectueuse et bienveillante relève du bon comportement",
+          "Chercher uniquement à montrer son savoir",
+          "Vouloir seulement gagner une discussion",
+          "Chercher uniquement à prouver qu’on a raison"
+        ],
+        "correct_answer": "Une communication respectueuse et bienveillante relève du bon comportement",
+        "pairs": [
+          {
+            "left": "Corriger une fausse information",
+            "right": "Parler avec bienveillance"
+          },
+          {
+            "left": "Faire face à une accusation injuste",
+            "right": "Expliquer calmement et avec équité"
+          },
+          {
+            "left": "Avoir fait une erreur",
+            "right": "La reconnaître honnêtement"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "Le bon comportement au quotidien",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P09": {
+      "source": {
+        "question_tr": "İslam yalnızca ibadetlerden oluşur; günlük davranışlarla ilgisi yoktur.",
+        "explanation_tr": "İslam’ın çerçevesi inanç, ibadet, ahlak ve günlük yaşamı birlikte ele alır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "L’islam se limite aux actes d’adoration et n’a aucun lien avec la conduite quotidienne.",
+        "explanation_tr": "L’islam relie la foi, l’adoration, le bon comportement et la vie quotidienne.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "La portée de l’islam",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P10": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Öfkelendiğinde sakin kalabilmek ___ değerini gösterir.",
+        "explanation_tr": "Burak'ın sakin ve adil tutumu, İslam'ın önemsediği sabır ve güzel ahlak değerlerinin bir yansımasıdır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "sabır",
+          "kabalık",
+          "acelecilik",
+          "gösteriş"
+        ],
+        "correct_answer": "sabır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : rester calme lorsqu’on est en colère témoigne de ___ .",
+        "explanation_tr": "L’attitude calme et juste de Burak reflète la patience et le bon comportement valorisés par l’islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "patience",
+          "impolitesse",
+          "précipitation",
+          "ostentation"
+        ],
+        "correct_answer": "patience",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "Le bon comportement au quotidien",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P11": {
+      "source": {
+        "question_tr": "Mehmet kaba bir yorum yazacakken vazgeçip daha nazik bir cümle kuruyor. Bu seçim neyi gösteriyor?",
+        "explanation_tr": "Mehmet'in tercihi, ahlaki değerleri günlük iletişimine yansıtmasının bir göstergesidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Güzel ahlakı günlük davranışa yansıtmak",
+          "Sadece popüler olmak istemek",
+          "Sadece kurallardan korkmak",
+          "Sadece alışkanlık"
+        ],
+        "correct_answer": "Güzel ahlakı günlük davranışa yansıtmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mehmet renonce à publier un commentaire impoli et écrit un message plus bienveillant. Que montre son choix ?",
+        "explanation_tr": "Le choix de Mehmet illustre la mise en pratique des valeurs morales dans les échanges quotidiens.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Manifester un bon comportement dans la vie quotidienne",
+          "Vouloir seulement devenir populaire",
+          "Avoir uniquement peur des règles",
+          "Agir uniquement par habitude"
+        ],
+        "correct_answer": "Manifester un bon comportement dans la vie quotidienne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "Le bon comportement au quotidien",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S04-P12": {
+      "source": {
+        "question_tr": "Üç davranış ahlaki sorumlulukla uyumludur. Hangisi uyumlu değildir?",
+        "explanation_tr": "Dürüstlük, kimsenin görmediği durumda da doğru davranmayı gerektirir.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Emaneti sahibine vermek",
+          "Kırmadan doğruyu söylemek",
+          "Haksızlık karşısında adil davranmak",
+          "Kimse görmüyorsa yalan söylemek"
+        ],
+        "correct_answer": "Kimse görmüyorsa yalan söylemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Trois comportements relèvent de la responsabilité morale. Lequel n’en fait pas partie ?",
+        "explanation_tr": "L’honnêteté consiste à agir correctement même quand personne ne regarde.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Rendre un objet confié à son propriétaire",
+          "Dire la vérité sans blesser autrui",
+          "Agir équitablement face à une injustice",
+          "Mentir quand personne ne regarde"
+        ],
+        "correct_answer": "Mentir quand personne ne regarde",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "La vie quotidienne",
+        "topic": "Le lien entre adoration et entraide",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

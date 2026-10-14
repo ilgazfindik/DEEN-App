@@ -54,7 +54,13 @@ for(const lang of ['tr','ar','en','de','es','fr']){
  w.state.profile.companion='cat';w.DEEN_PREMIUM_ONBOARDING.finish();
  // finish() is intentionally asynchronous; explicitly await the same in-flight validation.
  const ready=await w.DEEN_BOOT.prepare();
- if(['tr','ar','en'].includes(lang)){assert(ready);assert(w.state.onboarded);assert(!w.document.getElementById('v998Onboarding'));assert(!w.document.querySelector('.phone').inert);if(lang==='en'){assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(base,'en').translated,1500);assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(active,'en').translated,1484);assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.en.global_qa,'passed');}}
+ if(['tr','ar','en','fr'].includes(lang)){assert(ready);assert(w.state.onboarded);assert(!w.document.getElementById('v998Onboarding'));assert(!w.document.querySelector('.phone').inert);if(lang==='en'){assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(base,'en').translated,1500);assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(active,'en').translated,1484);assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.en.global_qa,'passed');}
+  if(lang==='fr'){
+   assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(base,'fr').translated,1500);
+   assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(active,'fr').translated,1484);
+   assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.fr.gameplay_enabled,true);
+   assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.fr.global_qa,'blocked');
+  }}
  else{assert(!ready);assert(!w.state.onboarded);assert.equal(w.DEEN_BOOT.status().phase,'blocked');assert(w.document.getElementById('deenPreparation').textContent.includes(w.DEEN_I18N.t('unavailableTitle')));assert.equal(w.DEEN_CONTENT_LOCALE.translateQuestion(base[0],lang),null);}
  assert.equal(JSON.stringify({xp:w.state.xp,completed:w.state.completed,badges:w.state.badges}),progressBefore);
  report.languages[lang]={entry:'PASS DOM',onboarding:'PASS DOM',preparation:ready?'PASS data verification':'BLOCKED missing question pack',screens};d.window.close();

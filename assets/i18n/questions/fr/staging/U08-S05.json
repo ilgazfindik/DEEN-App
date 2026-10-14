@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U08",
+  "stage": "U08-S05",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U08-S05-001": {
+      "source": {
+        "question_tr": "Ahzâb 33:40 Hz. Muhammed'i hangi iki ifadeyle tanımlar?",
+        "explanation_tr": "Ayet Hz. Muhammed'in Allah'ın elçisi ve peygamberlerin sonuncusu olduğunu açıkça bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın elçisi ve peygamberlerin sonuncusu",
+          "Bir melek ve hükümdar",
+          "Yalnız bir öğretmen ve şair",
+          "İlah ve elçi"
+        ],
+        "correct_answer": "Allah'ın elçisi ve peygamberlerin sonuncusu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment Al-Ahzab 33:40 décrit-il Muhammad ?",
+        "explanation_tr": "Le verset affirme qu’il est le messager d’Allah et le dernier des prophètes.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le messager d’Allah et le dernier des prophètes",
+          "Un ange et un souverain",
+          "Seulement un enseignant et un poète",
+          "Une divinité et un messager"
+        ],
+        "correct_answer": "Le messager d’Allah et le dernier des prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-002": {
+      "source": {
+        "question_tr": "Ahzâb 33:40, Hz. Muhammed'den sonra yeni bir peygamberlik zincirinin devam edeceğini bildirir.",
+        "explanation_tr": "Ayet Hz. Muhammed'i peygamberlerin sonuncusu olarak tanımlar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Ahzab 33:40 annonce que de nouveaux prophètes continueront à être envoyés après Muhammad.",
+        "explanation_tr": "Le verset désigne Muhammad comme le dernier des prophètes.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-003": {
+      "source": {
+        "question_tr": "Ahzâb 33:40'a göre Hz. Muhammed Allah'ın elçisi ve peygamberlerin ______.",
+        "explanation_tr": "Ayet 'peygamberlerin sonuncusu' ifadesini kullanır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "sonuncusudur",
+          "ilki değildir",
+          "öğretmenidir",
+          "kralıdır"
+        ],
+        "correct_answer": "sonuncusudur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Ahzab 33:40, Muhammad est le messager d’Allah et le ______ des prophètes.",
+        "explanation_tr": "Le verset emploie l’expression « dernier des prophètes ».",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dernier",
+          "premier",
+          "professeur",
+          "roi"
+        ],
+        "correct_answer": "dernier",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-004": {
+      "source": {
+        "question_tr": "Bir içerik 'Hz. Muhammed ilahî bir varlıktır, insan değildir' diyor. Hangi ayet bunu doğrudan düzeltir?",
+        "explanation_tr": "Kehf 18:110 Hz. Muhammed'in insan olduğunu ve kendisine vahyedildiğini açıkça bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kehf 18:110",
+          "Ahzâb 33:40 tek başına insan olmadığını söyler",
+          "Nisâ 4:164",
+          "Nahl 16:36"
+        ],
+        "correct_answer": "Kehf 18:110",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un article affirme : « Muhammad est un être divin, pas un humain. » Quel verset le réfute directement ?",
+        "explanation_tr": "Al-Kahf 18:110 précise que Muhammad est un être humain auquel la révélation a été faite.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Kahf 18:110",
+          "Al-Ahzab 33:40 affirme qu’il n’est pas humain",
+          "An-Nisa 4:164",
+          "An-Nahl 16:36"
+        ],
+        "correct_answer": "Al-Kahf 18:110",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-005": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Hz. Muhammed'in ölmesi mümkün değildi; çünkü peygamberdi' diyor. Hangi ayet bu düşünceyi düzeltir?",
+        "explanation_tr": "Ayet Hz. Muhammed'in bir elçi olduğunu ve önceki elçiler gibi fâni olduğunu hatırlatır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Âl-i İmrân 3:144",
+          "Ahzâb 33:21",
+          "Bakara 2:285",
+          "Nisâ 4:165"
+        ],
+        "correct_answer": "Âl-i İmrân 3:144",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Muhammad ne pouvait pas mourir puisqu’il était prophète. » Quel verset corrige cette idée ?",
+        "explanation_tr": "Ce verset rappelle qu’il est un messager mortel comme ceux qui l’ont précédé.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Imran 3:144",
+          "Al-Ahzab 33:21",
+          "Al-Baqara 2:285",
+          "An-Nisa 4:165"
+        ],
+        "correct_answer": "Al-Imran 3:144",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-006": {
+      "source": {
+        "question_tr": "Sebe 34:28'e göre Hz. Muhammed'in risaleti kimlere yöneliktir?",
+        "explanation_tr": "Ayet Hz. Muhammed'in müjdeleyici ve uyarıcı olarak bütün insanlara gönderildiğini bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bütün insanlara",
+          "Yalnız Mekke halkına",
+          "Yalnız Araplara",
+          "Yalnız kendi ailesine"
+        ],
+        "correct_answer": "Bütün insanlara",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "D’après Saba 34:28, à qui la mission de Muhammad s’adresse-t-elle ?",
+        "explanation_tr": "Le verset affirme qu’il a été envoyé à toute l’humanité comme annonciateur et avertisseur.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "À toute l’humanité",
+          "Aux seuls habitants de La Mecque",
+          "Aux seuls Arabes",
+          "À sa famille uniquement"
+        ],
+        "correct_answer": "À toute l’humanité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-007": {
+      "source": {
+        "question_tr": "Bir kişi 'Hz. Muhammed yalnız kendi kavminin peygamberidir' diyor. En açık düzeltme hangisidir?",
+        "explanation_tr": "Ayet Hz. Muhammed'in risaletinin evrenselliğini açıkça vurgular.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Sebe 34:28 onun bütün insanlara gönderildiğini bildirir",
+          "Kur'an onun yalnız ailesine gönderildiğini söyler",
+          "Peygamberliği yalnız Medine ile sınırlıdır",
+          "Risaletinin muhatabı yoktur"
+        ],
+        "correct_answer": "Sebe 34:28 onun bütün insanlara gönderildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un affirme : « Muhammad a été envoyé uniquement à son propre peuple. » Quelle est la correction la plus claire ?",
+        "explanation_tr": "Le verset souligne le caractère universel de sa mission.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Saba 34:28 indique qu’il a été envoyé à toute l’humanité",
+          "Le Coran dit qu’il a été envoyé uniquement à sa famille",
+          "Sa mission se limite à Médine",
+          "Sa mission n’a aucun destinataire"
+        ],
+        "correct_answer": "Saba 34:28 indique qu’il a été envoyé à toute l’humanité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-008": {
+      "source": {
+        "question_tr": "Ahzâb 33:21 Hz. Muhammed'in müminler açısından hangi yönünü vurgular?",
+        "explanation_tr": "Ayet Allah'ı ve âhireti umanlar için Resûlullah'ta güzel bir örneklik bulunduğunu bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Güzel örnek oluşunu",
+          "İlah oluşunu",
+          "Ölümsüz oluşunu",
+          "Vahiyden bağımsız oluşunu"
+        ],
+        "correct_answer": "Güzel örnek oluşunu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle qualité de Muhammad Al-Ahzab 33:21 souligne-t-il pour les croyants ?",
+        "explanation_tr": "Le verset présente le Messager d’Allah comme un bel exemple pour ceux qui espèrent en Allah et au Jour dernier.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Il constitue un bel exemple à suivre",
+          "Il est une divinité",
+          "Il est immortel",
+          "Il agit indépendamment de la révélation"
+        ],
+        "correct_answer": "Il constitue un bel exemple à suivre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-009": {
+      "source": {
+        "question_tr": "Bir notta 'Hz. Muhammed'in örnekliği onun ilah olduğu anlamına gelir' yazıyor. Hata nedir?",
+        "explanation_tr": "Kehf 18:110 Hz. Muhammed'in insan oluşunu; Ahzâb 33:21 ise örnekliğini vurgular.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Örneklik elçilik ve insanî yaşayışla ilgilidir; ibadet yalnız Allah'adır",
+          "Örnek olan herkes ilahtır",
+          "Hz. Muhammed insan değildir",
+          "Kur'an tevhidi kaldırır"
+        ],
+        "correct_answer": "Örneklik elçilik ve insanî yaşayışla ilgilidir; ibadet yalnız Allah'adır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note affirme : « Suivre l’exemple de Muhammad signifie le considérer comme divin. » Quelle est l’erreur ?",
+        "explanation_tr": "Al-Kahf 18:110 indique son humanité et Al-Ahzab 33:21 souligne son exemplarité.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Son exemplarité concerne sa conduite de messager humain ; l’adoration revient à Allah seul",
+          "Toute personne exemplaire est une divinité",
+          "Muhammad n’est pas humain",
+          "Le Coran abolit le tawhid"
+        ],
+        "correct_answer": "Son exemplarité concerne sa conduite de messager humain ; l’adoration revient à Allah seul",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-010": {
+      "source": {
+        "question_tr": "Hz. Muhammed'le ilgili ayetleri ana mesajlarıyla eşleştir.",
+        "explanation_tr": "Bu ayetler Hz. Muhammed'in beşer, örnek elçi ve peygamberlerin sonuncusu oluşunu farklı yönlerden açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kehf 18:110",
+            "right": "İnsan oluş ve vahiy alma"
+          },
+          {
+            "left": "Ahzâb 33:21",
+            "right": "Güzel örneklik"
+          },
+          {
+            "left": "Ahzâb 33:40",
+            "right": "Allah'ın elçisi ve son peygamber"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les versets aux enseignements relatifs à Muhammad.",
+        "explanation_tr": "Ces versets présentent son humanité, son exemplarité et sa place comme dernier prophète.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Kahf 18:110",
+            "right": "Humanité et réception de la révélation"
+          },
+          {
+            "left": "Al-Ahzab 33:21",
+            "right": "Bel exemple pour les croyants"
+          },
+          {
+            "left": "Al-Ahzab 33:40",
+            "right": "Messager d’Allah et dernier des prophètes"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-011": {
+      "source": {
+        "question_tr": "Hz. Muhammed'in son peygamber oluşu Kur'an'da açık bir ifadeyle yer alır.",
+        "explanation_tr": "Ahzâb 33:40 onu 'peygamberlerin sonuncusu' olarak tanımlar.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le Coran affirme explicitement que Muhammad est le dernier des prophètes.",
+        "explanation_tr": "Al-Ahzab 33:40 le qualifie de dernier des prophètes.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-012": {
+      "source": {
+        "question_tr": "Hz. Muhammed'in risaletini üç kısa özellikle özetle.",
+        "explanation_tr": "Sebe 34:28 ve Ahzâb 33:40 bu üç yönü açıkça destekler.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah'ın elçisidir, bütün insanlara gönderilmiştir ve peygamberlerin sonuncusudur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Résume en trois caractéristiques la mission de Muhammad.",
+        "explanation_tr": "Saba 34:28 et Al-Ahzab 33:40 appuient ces trois aspects.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Il est le messager d’Allah, envoyé à toute l’humanité et le dernier des prophètes.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-013": {
+      "source": {
+        "question_tr": "Sebe 34:28'de Hz. Muhammed bütün insanlara müjdeleyici ve ______ olarak gönderilmiştir.",
+        "explanation_tr": "Ayet onun bütün insanlara müjdeleyici ve uyarıcı olarak gönderildiğini bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "uyarıcı",
+          "hükümdar",
+          "ilah",
+          "tüccar"
+        ],
+        "correct_answer": "uyarıcı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Saba 34:28, Muhammad a été envoyé à toute l’humanité comme annonciateur et ______.",
+        "explanation_tr": "Le verset présente la bonne nouvelle et l’avertissement comme les deux dimensions de sa mission.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "avertisseur",
+          "souverain",
+          "divinité",
+          "marchand"
+        ],
+        "correct_answer": "avertisseur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-014": {
+      "source": {
+        "question_tr": "Hz. Muhammed'in risaletini anlamak için kavramları sırala.",
+        "explanation_tr": "Bu sıra risalet, vahiy, tebliğ ve örneklik boyutlarını birlikte gösterir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah onu elçi olarak görevlendirir",
+          "Ona vahiy gönderilir",
+          "Vahyi insanlara tebliğ eder",
+          "Müminler onun örnekliğinden yararlanır"
+        ],
+        "correct_order": [
+          "Allah onu elçi olarak görevlendirir",
+          "Ona vahiy gönderilir",
+          "Vahyi insanlara tebliğ eder",
+          "Müminler onun örnekliğinden yararlanır"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe les notions essentielles pour comprendre la mission de Muhammad.",
+        "explanation_tr": "Cette séquence réunit son choix par Allah, la révélation, la transmission et l’exemple donné aux croyants.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah le charge d’une mission de messager",
+          "Il reçoit la révélation",
+          "Il transmet le message aux humains",
+          "Les croyants tirent enseignement de son exemple"
+        ],
+        "correct_order": [
+          "Allah le charge d’une mission de messager",
+          "Il reçoit la révélation",
+          "Il transmet le message aux humains",
+          "Les croyants tirent enseignement de son exemple"
+        ],
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-015": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:144'ün Hz. Muhammed hakkında verdiği tevhid açısından önemli mesaj hangisidir?",
+        "explanation_tr": "Ayet onun bir elçi ve fâni insan oluşunu hatırlatarak bağlılığın Allah'a ve dine yönelmesini vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Hz. Muhammed bir elçidir; kulluk Allah'a yönelir ve din onun fâniliğine bağlı değildir",
+          "Hz. Muhammed ölümsüzdür",
+          "Hz. Muhammed'e ibadet gerekir",
+          "İslam yalnız onun hayatıyla sınırlıdır"
+        ],
+        "correct_answer": "Hz. Muhammed bir elçidir; kulluk Allah'a yönelir ve din onun fâniliğine bağlı değildir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel est l’enseignement important d’Al-Imran 3:144 au regard du tawhid ?",
+        "explanation_tr": "Le verset rappelle la mortalité du Messager et la nécessité d’orienter l’adoration vers Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Muhammad est un messager mortel ; l’adoration s’adresse à Allah et la religion ne dépend pas de sa mortalité",
+          "Muhammad est immortel",
+          "Les humains doivent adorer Muhammad",
+          "L’islam ne concerne que sa période de vie"
+        ],
+        "correct_answer": "Muhammad est un messager mortel ; l’adoration s’adresse à Allah et la religion ne dépend pas de sa mortalité",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U08-S05-016": {
+      "source": {
+        "question_tr": "Hz. Muhammed'in hem insan hem peygamber oluşunu en iyi ifade eden cümle hangisidir?",
+        "explanation_tr": "Kehf 18:110 insan oluş ve vahiy alma gerçeğini birlikte ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Beşerî özelliklere sahip bir insandır; Allah'tan vahiy alan elçidir",
+          "İnsan olmadığı için örnek olamaz",
+          "Vahiy almayan sıradan bir liderdir",
+          "İlahî yetkiyi Allah'tan bağımsız kullanır"
+        ],
+        "correct_answer": "Beşerî özelliklere sahip bir insandır; Allah'tan vahiy alan elçidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle phrase exprime le mieux à la fois l’humanité et la prophétie de Muhammad ?",
+        "explanation_tr": "Al-Kahf 18:110 mentionne ensemble son humanité et le fait qu’il reçoit la révélation.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Il est un être humain qui reçoit la révélation d’Allah et a pour mission de la transmettre",
+          "Puisqu’il n’est pas humain, il ne peut servir d’exemple",
+          "Il est un simple dirigeant sans révélation",
+          "Il agit avec un pouvoir divin indépendant d’Allah"
+        ],
+        "correct_answer": "Il est un être humain qui reçoit la révélation d’Allah et a pour mission de la transmettre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Muhammad, dernier des prophètes",
+        "topic": "La foi aux prophètes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

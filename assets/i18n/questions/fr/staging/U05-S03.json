@@ -1,0 +1,589 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U05",
+  "stage": "U05-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U05-S03-001": {
+      "source": {
+        "question_tr": "Ölümden sonra yeni bir hayatın başlayacağına ve hesap gününe inanmak, hangi iman esasıdır?",
+        "explanation_tr": "Ölüm sonrası hayat ve hesap inancı, ahiret gününe iman kapsamındadır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ahiret gününe iman",
+          "Meleklere iman",
+          "Kitaplara iman",
+          "Kadere iman"
+        ],
+        "correct_answer": "Ahiret gününe iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire à une vie après la mort et au Jour du jugement correspond à quel article de la foi ?",
+        "explanation_tr": "La foi en la vie après la mort et au jugement relève de l’article de la foi au Jour dernier.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La foi au Jour dernier",
+          "La foi aux anges",
+          "La foi aux Livres révélés",
+          "La foi au destin"
+        ],
+        "correct_answer": "La foi au Jour dernier",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-002": {
+      "source": {
+        "question_tr": "Allah'ın yarattığı meleklerin varlığını kabul etmek 'Peygamberlere iman' başlığına girer.",
+        "explanation_tr": "Meleklerin varlığını kabul etmek, 'Meleklere iman' başlığının konusudur.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire à l’existence des anges créés par Allah relève de la foi aux prophètes.",
+        "explanation_tr": "Croire aux anges relève spécifiquement de l’article de la foi aux anges.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-003": {
+      "source": {
+        "question_tr": "İman esaslarını temel tanımlarıyla eşleştirin.",
+        "explanation_tr": "Peygamberler, ilahi kitaplar ve kader-kaza farklı iman esaslarıyla ilişkilidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'ın insanlara peygamberler göndermesi",
+            "right": "Peygamberlere iman"
+          },
+          {
+            "left": "Allah'ın peygamberlere vahiy yoluyla kitaplar göndermesi",
+            "right": "Kitaplara iman"
+          },
+          {
+            "left": "Olayların Allah'ın bilgisi ve takdiriyle ilişkili olması",
+            "right": "Kader ve kazaya iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe chaque article de la foi à sa définition fondamentale.",
+        "explanation_tr": "Les prophètes, les Livres révélés et la prédestination relèvent de différents articles de la foi.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah envoie des messagers à l’humanité",
+            "right": "Foi aux prophètes"
+          },
+          {
+            "left": "Allah révèle des Livres aux prophètes",
+            "right": "Foi aux Livres révélés"
+          },
+          {
+            "left": "Les événements relèvent de la science et du décret d’Allah",
+            "right": "Foi au destin et au décret divin"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-004": {
+      "source": {
+        "question_tr": "Allah'ın vahyini insanlara tebliğ etmek üzere seçtiği elçilere inanmaya ______ iman denir.",
+        "explanation_tr": "Allah'ın vahyini tebliğ etmek üzere seçtiği elçilere iman, peygamberlere iman başlığıdır.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Peygamberlere",
+          "Meleklere",
+          "Kitaplara",
+          "Kadere"
+        ],
+        "correct_answer": "Peygamberlere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire aux messagers choisis par Allah pour transmettre Sa révélation relève de la foi aux ______.",
+        "explanation_tr": "La foi aux prophètes concerne les messagers choisis par Allah pour transmettre la révélation.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "prophètes",
+          "anges",
+          "Livres révélés",
+          "destin"
+        ],
+        "correct_answer": "prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-005": {
+      "source": {
+        "question_tr": "Bir açıklamada Allah'ın peygamberlere vahiy yoluyla ilahi kitaplar gönderdiği anlatılıyor. Açıklamanın ait olduğu iman başlığı hangisidir?",
+        "explanation_tr": "Bu açıklama ilahi kitaplarla ilgili olduğu için Kitaplara iman başlığına aittir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kitaplara iman",
+          "Ahirete iman",
+          "Kader ve kazaya iman",
+          "Meleklere iman"
+        ],
+        "correct_answer": "Kitaplara iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une explication décrit les Livres qu’Allah a révélés aux prophètes. De quel article de la foi s’agit-il ?",
+        "explanation_tr": "La foi aux Livres révélés est l’article qui concerne les Écritures divines.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La foi aux Livres révélés",
+          "La foi au Jour dernier",
+          "La foi au destin et au décret divin",
+          "La foi aux anges"
+        ],
+        "correct_answer": "La foi aux Livres révélés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-006": {
+      "source": {
+        "question_tr": "Olayların Allah'ın bilgisi ve takdiriyle ilişkili olduğuna iman, ______ ve kazaya iman başlığıyla ifade edilir.",
+        "explanation_tr": "Bu başlangıç düzeyindeki kavram 'Kader ve kazaya iman' olarak adlandırılır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kader",
+          "ahiret",
+          "melek",
+          "kitap"
+        ],
+        "correct_answer": "kader",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire que les événements sont liés à la science et au décret d’Allah relève de la foi au ______ et au décret divin.",
+        "explanation_tr": "Cette idée est introduite dans l’article relatif au destin et au décret divin.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "destin",
+          "Jour dernier",
+          "ange",
+          "Livre"
+        ],
+        "correct_answer": "destin",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-007": {
+      "source": {
+        "question_tr": "Kavramları doğru açıklamalarıyla eşleştirin.",
+        "explanation_tr": "Kavramların doğru anlamlarını bilmek, imanın temellerini anlamayı kolaylaştırır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Allah'ın birliği",
+            "right": "Allah'a iman"
+          },
+          {
+            "left": "Ölümden sonra hayat ve hesap",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "Allah'ın yarattığı meleklerin varlığı",
+            "right": "Meleklere iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions à leur article de foi.",
+        "explanation_tr": "Comprendre les notions aide à distinguer les domaines des croyances.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Unicité d’Allah",
+            "right": "Foi en Allah"
+          },
+          {
+            "left": "Vie après la mort et jugement",
+            "right": "Foi au Jour dernier"
+          },
+          {
+            "left": "Existence des anges créés par Allah",
+            "right": "Foi aux anges"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-008": {
+      "source": {
+        "question_tr": "Kader ve kazaya iman, İslam'ın beş şartından biridir.",
+        "explanation_tr": "Kader ve kazaya iman, İslam'ın beş şartından değil imanın esaslarından biridir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire au destin et au décret divin fait partie des cinq piliers de l’islam.",
+        "explanation_tr": "La foi au destin et au décret divin est un article de la foi, non l’un des cinq piliers.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-009": {
+      "source": {
+        "question_tr": "Esasları, neye inanıldığı ile eşleştirin.",
+        "explanation_tr": "İman esasları farklı varlık ve kavramlara yönelik inançları içerir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İlahi kitaplar",
+            "right": "Kitaplara iman"
+          },
+          {
+            "left": "Allah'ın bilgisi ve takdiriyle ilişkili oluş",
+            "right": "Kader ve kazaya iman"
+          },
+          {
+            "left": "Allah'ın gönderdiği peygamberler",
+            "right": "Peygamberlere iman"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe chaque concept au domaine de foi concerné.",
+        "explanation_tr": "Les articles de la foi couvrent des êtres et des notions différents.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Livres révélés",
+            "right": "Foi aux Livres révélés"
+          },
+          {
+            "left": "Science et décret d’Allah",
+            "right": "Foi au destin et au décret divin"
+          },
+          {
+            "left": "Prophètes envoyés par Allah",
+            "right": "Foi aux prophètes"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-010": {
+      "source": {
+        "question_tr": "Allah'ın insanlara rehberlik için peygamberler gönderdiğine inanmak hangi esastır?",
+        "explanation_tr": "Bu başlık, peygamberlere iman esasıyla ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Peygamberlere iman",
+          "Kitaplara iman",
+          "Meleklere iman",
+          "Ahirete iman"
+        ],
+        "correct_answer": "Peygamberlere iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire qu’Allah envoie des prophètes pour guider les hommes relève de quel article de la foi ?",
+        "explanation_tr": "Cet enseignement appartient à la foi aux prophètes.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La foi aux prophètes",
+          "La foi aux Livres révélés",
+          "La foi aux anges",
+          "La foi au Jour dernier"
+        ],
+        "correct_answer": "La foi aux prophètes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-011": {
+      "source": {
+        "question_tr": "Üç açıklamayı ait oldukları temel başlıklarla eşleştirin.",
+        "explanation_tr": "İmanın her bir esası, İslam inancının bir parçasını oluşturur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Yeniden diriliş",
+            "right": "Ahirete iman"
+          },
+          {
+            "left": "Allah'ın vahyi",
+            "right": "Kitaplara iman"
+          },
+          {
+            "left": "Namaz",
+            "right": "İslam'ın şartı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe ces trois explications à leur catégorie.",
+        "explanation_tr": "Chaque article correspond à une dimension de la croyance islamique.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Résurrection",
+            "right": "Foi au Jour dernier"
+          },
+          {
+            "left": "Révélation divine",
+            "right": "Foi aux Livres révélés"
+          },
+          {
+            "left": "Prière",
+            "right": "Pilier de l’islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-012": {
+      "source": {
+        "question_tr": "Allah'ın yarattığı meleklerin varlığını kabul etmeye ______ iman denir.",
+        "explanation_tr": "Meleklerin varlığına iman, imanın altı esasından biridir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Meleklere",
+          "Peygamberlere",
+          "Kitaplara",
+          "Ahirete"
+        ],
+        "correct_answer": "Meleklere",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire à l’existence des anges créés par Allah relève de la foi aux ______.",
+        "explanation_tr": "Croire aux anges est l’un des six articles de la foi.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "anges",
+          "prophètes",
+          "Livres révélés",
+          "Jour dernier"
+        ],
+        "correct_answer": "anges",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-013": {
+      "source": {
+        "question_tr": "Dünya hayatının geçici olduğuna, asıl sonsuz hayatın ölümden sonra başlayacağına inanç, ______ gününe imandır.",
+        "explanation_tr": "Ahiret, ölümden sonraki sonsuz hayattır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Ahiret",
+          "Kıyamet",
+          "Kader",
+          "Dünya"
+        ],
+        "correct_answer": "Ahiret",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire que la vie terrestre est temporaire et qu’une autre vie commencera après la mort relève de la foi au ______.",
+        "explanation_tr": "Le Jour dernier renvoie à la vie après la mort.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Jour dernier",
+          "Jour de la Résurrection",
+          "destin",
+          "monde terrestre"
+        ],
+        "correct_answer": "Jour dernier",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U05-S03-014": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi 'Peygamberlere iman' ile 'Kitaplara iman' arasındaki temel farkı ifade eder?",
+        "explanation_tr": "Peygamberler elçidir, kitaplar ise onlara verilen ilahi mesajlardır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Biri Allah'ın seçtiği elçilere, diğeri o elçilere indirilen vahiylere inanmaktır.",
+          "Biri meleklerle, diğeri insanlarla ilgilidir.",
+          "Biri ölümden sonra, diğeri dünyada gerçekleşir.",
+          "İkisi arasında hiçbir fark yoktur."
+        ],
+        "correct_answer": "Biri Allah'ın seçtiği elçilere, diğeri o elçilere indirilen vahiylere inanmaktır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation distingue le mieux la foi aux prophètes de la foi aux Livres révélés ?",
+        "explanation_tr": "Les prophètes sont des messagers choisis par Allah ; les Livres révélés constituent les messages qui leur sont transmis.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "L’une concerne les messagers choisis par Allah, l’autre la révélation qui leur a été transmise",
+          "L’une concerne les anges, l’autre les êtres humains",
+          "L’une concerne uniquement l’au-delà, l’autre la vie terrestre",
+          "Aucune différence n’existe entre les deux"
+        ],
+        "correct_answer": "L’une concerne les messagers choisis par Allah, l’autre la révélation qui leur a été transmise",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les articles de la foi",
+        "topic": "Anges, prophètes, Écritures et Jour dernier"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

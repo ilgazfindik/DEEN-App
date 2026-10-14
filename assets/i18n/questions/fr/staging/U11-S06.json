@@ -1,0 +1,499 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U11",
+  "stage": "U11-S06",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U11-S06-001": {
+      "source": {
+        "question_tr": "Hızlı tekrar: Temizlik hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Temizlik özellikle namaz gibi ibadetlerin hazırlığıyla bağlantılıdır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "İbadetlerle hiçbir ilişkisi yoktur",
+          "Sadece estetik amaçlıdır",
+          "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+          "Yalnızca seyahatle ilgilidir"
+        ],
+        "correct_answer": "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : quelle affirmation sur la propreté est correcte ?",
+        "explanation_tr": "La propreté est notamment liée à la préparation d’actes d’adoration comme la prière rituelle.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Elle n’a aucun rapport avec l’adoration",
+          "Elle sert uniquement à l’esthétique",
+          "Elle est directement liée à la préparation et aux conditions de certains actes d’adoration",
+          "Elle concerne uniquement les voyages"
+        ],
+        "correct_answer": "Elle est directement liée à la préparation et aux conditions de certains actes d’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La propreté"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-002": {
+      "source": {
+        "question_tr": "Hızlı tekrar: İbadette şekil ile anlam arasındaki en dengeli ifade hangisidir?",
+        "explanation_tr": "Diyanet tefsiri ibadette şeklin vazgeçilmez niyet ve ihlasın ise öz ve ruh olduğunu belirtir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Sadece şekil önemlidir niyet gereksizdir",
+          "Sadece niyet yeterlidir ibadet biçimi önemsizdir",
+          "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+          "Ne şeklin ne niyetin önemi vardır"
+        ],
+        "correct_answer": "Belirlenmiş şekil önemlidir; niyet ve ihlas da ibadetin ruhunu oluşturur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : quelle affirmation concilie au mieux la forme et le sens de l’adoration ?",
+        "explanation_tr": "Selon le commentaire de Diyanet, la forme prescrite est essentielle ; l’intention et la sincérité constituent l’essence et l’esprit de l’adoration.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Seule la forme compte ; l’intention est inutile",
+          "L’intention suffit ; la forme de l’adoration importe peu",
+          "La forme prescrite compte ; l’intention et la sincérité constituent aussi l’esprit de l’adoration",
+          "Ni la forme ni l’intention ne comptent"
+        ],
+        "correct_answer": "La forme prescrite compte ; l’intention et la sincérité constituent aussi l’esprit de l’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La forme et l’esprit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-003": {
+      "source": {
+        "question_tr": "Hızlı tekrar: Zekât konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Diyanet'in temel ibadet anlatımında zekât paylaşma ve yardımlaşmayla birlikte ele alınır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Gösteriş için harcama",
+          "Sadece bireysel birikimi artırma",
+          "Paylaşma ve toplumsal sorumluluk",
+          "Yardımlaşmayı azaltma"
+        ],
+        "correct_answer": "Paylaşma ve toplumsal sorumluluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : quelle affirmation sur la zakât est correcte ?",
+        "explanation_tr": "Dans sa présentation des principaux actes d’adoration, Diyanet associe la zakât au partage et à l’entraide.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Dépenser pour se faire remarquer",
+          "Augmenter uniquement son épargne personnelle",
+          "Le partage et la responsabilité sociale",
+          "Réduire l’entraide"
+        ],
+        "correct_answer": "Le partage et la responsabilité sociale",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La zakât"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-004": {
+      "source": {
+        "question_tr": "Hızlı tekrar: düzen hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "İbadetlerin eğitici yönleri sorumluluk ve düzen bilincini destekleyebilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sorumluluktan kaçmayı",
+          "Zamanı tamamen önemsiz görmeyi",
+          "Sorumluluk ve düzen bilincini",
+          "Başkalarını küçümsemeyi"
+        ],
+        "correct_answer": "Sorumluluk ve düzen bilincini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : quelle affirmation sur l’ordre est correcte ?",
+        "explanation_tr": "La dimension éducative de l’adoration peut développer le sens des responsabilités et de l’ordre.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Fuir ses responsabilités",
+          "Considérer le temps comme totalement dépourvu d’importance",
+          "Le sens des responsabilités et de l’ordre",
+          "Rabaisser les autres"
+        ],
+        "correct_answer": "Le sens des responsabilités et de l’ordre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "L’ordre"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-005": {
+      "source": {
+        "question_tr": "Niyet hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Niyet kulluk davranışının bilinç ve yöneliş boyutunu güçlendirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbadetin kaynağını insan tercihine dönüştürür",
+          "Bütün şekil ve şartları gereksiz kılar",
+          "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+          "İbadeti sadece bir alışkanlığa çevirir"
+        ],
+        "correct_answer": "Davranışın Allah rızası gözetilerek bilinçli yapılmasına yön verir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation concernant l’intention est correcte ?",
+        "explanation_tr": "L’intention renforce la conscience et l’orientation qui accompagnent les actes d’adoration.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle fait dépendre les sources de l’adoration des préférences personnelles",
+          "Elle rend inutiles toutes les formes et conditions prescrites",
+          "Elle oriente les actes vers une pratique consciente recherchant l’agrément d’Allah",
+          "Elle réduit l’adoration à une simple habitude"
+        ],
+        "correct_answer": "Elle oriente les actes vers une pratique consciente recherchant l’agrément d’Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "L’intention"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-006": {
+      "source": {
+        "question_tr": "Hızlı tekrar: temizlik neden ibadet bölümünde önemlidir?",
+        "explanation_tr": "Temizlik özellikle namaz gibi ibadetlerin hazırlığıyla bağlantılıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İbadetlerle hiçbir ilişkisi yoktur",
+          "Sadece estetik amaçlıdır",
+          "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+          "Yalnızca seyahatle ilgilidir"
+        ],
+        "correct_answer": "Bazı ibadetlerin hazırlık ve şartlarıyla doğrudan ilişkilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : pourquoi la propreté est-elle importante pour l’adoration ?",
+        "explanation_tr": "La propreté est notamment liée à la préparation d’actes d’adoration comme la prière rituelle.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle n’a aucun rapport avec l’adoration",
+          "Elle sert uniquement à l’esthétique",
+          "Elle est directement liée à la préparation et aux conditions de certains actes d’adoration",
+          "Elle concerne uniquement les voyages"
+        ],
+        "correct_answer": "Elle est directement liée à la préparation et aux conditions de certains actes d’adoration",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La propreté"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? İbadette belirlenmiş şekil ile niyet arasında hiçbir bağ yoktur.",
+        "explanation_tr": "Diyanet tefsiri ibadette şeklin vazgeçilmez niyet ve ihlasın ise öz ve ruh olduğunu belirtir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Il n’existe aucun lien entre la forme prescrite et l’intention dans l’adoration.",
+        "explanation_tr": "Selon le commentaire de Diyanet, la forme prescrite est essentielle ; l’intention et la sincérité constituent l’essence et l’esprit de l’adoration.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La forme et l’esprit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-008": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Zekâtın paylaşma ve toplumsal sorumlulukla ilişkisi vardır.",
+        "explanation_tr": "Diyanet'in temel ibadet anlatımında zekât paylaşma ve yardımlaşmayla birlikte ele alınır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? La zakât est liée au partage et à la responsabilité sociale.",
+        "explanation_tr": "Dans sa présentation des principaux actes d’adoration, Diyanet associe la zakât au partage et à l’entraide.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La zakât"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-009": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Düzenli ibadet sorumluluk ve ___ bilincini destekleyebilir.",
+        "explanation_tr": "İbadetlerin eğitici yönleri sorumluluk ve düzen bilincini destekleyebilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk",
+          "ihlas",
+          "düzen",
+          "yöneliş"
+        ],
+        "correct_answer": "düzen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : la pratique régulière de l’adoration peut favoriser la responsabilité et l’___.",
+        "explanation_tr": "La dimension éducative de l’adoration peut développer le sens des responsabilités et de l’ordre.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dévotion",
+          "sincérité",
+          "ordre",
+          "orientation"
+        ],
+        "correct_answer": "ordre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "L’ordre"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-010": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Niyet ibadete bilinçli bir ___ kazandırır.",
+        "explanation_tr": "Niyet kulluk davranışının bilinç ve yöneliş boyutunu güçlendirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk",
+          "ihlas",
+          "yöneliş",
+          "ibadet"
+        ],
+        "correct_answer": "yöneliş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : l’intention donne à l’adoration une ___ consciente.",
+        "explanation_tr": "L’intention renforce la conscience et l’orientation qui accompagnent les actes d’adoration.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dévotion",
+          "sincérité",
+          "orientation",
+          "adoration"
+        ],
+        "correct_answer": "orientation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "L’intention"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-011": {
+      "source": {
+        "question_tr": "Hızlı tekrar: şu kavramları doğru açıklamalarıyla eşleştir: Doğru bilgi, İhlas, Oruç ve Dua.",
+        "explanation_tr": "Temizlik özellikle namaz gibi ibadetlerin hazırlığıyla bağlantılıdır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Doğru bilgi",
+            "right": "Güvenilir dinî kaynaklara başvurmak"
+          },
+          {
+            "left": "İhlas",
+            "right": "Allah'a içtenlikle yönelmek"
+          },
+          {
+            "left": "Oruç",
+            "right": "Kulluk takva sabır ve sorumluluk"
+          },
+          {
+            "left": "Dua",
+            "right": "Kulun Allah'a yönelmesi ve O'ndan istemesi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : associe les notions à leur définition : connaissances fiables, sincérité, jeûne et invocation.",
+        "explanation_tr": "La propreté est notamment liée à la préparation d’actes d’adoration comme la prière rituelle.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Des connaissances fiables",
+            "right": "Consulter des sources religieuses fiables"
+          },
+          {
+            "left": "La sincérité",
+            "right": "Se tourner sincèrement vers Allah"
+          },
+          {
+            "left": "Le jeûne",
+            "right": "La dévotion, la conscience d’Allah, la patience et la responsabilité"
+          },
+          {
+            "left": "L’invocation (du‘â)",
+            "right": "Un serviteur qui se tourne vers Allah pour L’invoquer"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La propreté"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U11-S06-012": {
+      "source": {
+        "question_tr": "Hızlı tekrar: şu kavramları doğru açıklamalarıyla eşleştir: İbadetin anlamı, Namaz, Hac ve İbadetin kaynağı.",
+        "explanation_tr": "Diyanet tefsiri ibadette şeklin vazgeçilmez niyet ve ihlasın ise öz ve ruh olduğunu belirtir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İbadetin anlamı",
+            "right": "Allah'a bilinçli kulluk ve itaat"
+          },
+          {
+            "left": "Namaz",
+            "right": "Allah'a kulluğun temel ibadetlerinden biri"
+          },
+          {
+            "left": "Hac",
+            "right": "Belirli şartları bulunan temel ibadetlerden biri"
+          },
+          {
+            "left": "İbadetin kaynağı",
+            "right": "Kur'an ve Hz. Peygamber'in sünneti temel alınarak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Révision rapide : associe les notions à leur définition : sens de l’adoration, prière rituelle, pèlerinage et sources de l’adoration.",
+        "explanation_tr": "Selon le commentaire de Diyanet, la forme prescrite est essentielle ; l’intention et la sincérité constituent l’essence et l’esprit de l’adoration.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Le sens de l’adoration",
+            "right": "Une dévotion consciente et l’obéissance à Allah"
+          },
+          {
+            "left": "La prière rituelle (salât)",
+            "right": "Un acte fondamental d’adoration exprimant la dévotion à Allah"
+          },
+          {
+            "left": "Le pèlerinage (hajj)",
+            "right": "Un acte fondamental d’adoration soumis à des conditions précises"
+          },
+          {
+            "left": "Les sources de l’adoration",
+            "right": "En s’appuyant sur le Coran et la Sunna du Prophète"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision intelligente",
+        "topic": "La forme et l’esprit"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

@@ -1,0 +1,677 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U14",
+  "stage": "U14-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U14-S03-001": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Son oturuş, Namazın öğrenilmesi, Mazerette kıyam ve Bu dersteki fıkıh yaklaşımı.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefî ve Şâfiî yaklaşımlarda kıraat ve Fâtiha hükmünün teknik sınıflandırmasında fark bulunduğunu belirtir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Son oturuş",
+            "right": "Ka'de-i ahire veya son oturuş"
+          },
+          {
+            "left": "Namazın öğrenilmesi",
+            "right": "Kur'an'daki genel emrin nasıl uygulanacağını gösterir"
+          },
+          {
+            "left": "Mazerette kıyam",
+            "right": "Namazını oturarak kılabilir"
+          },
+          {
+            "left": "Fıkıh yaklaşımı",
+            "right": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe à leur définition : dernière position assise, apprentissage de la prière, impossibilité de rester debout et méthode juridique du cours.",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, les écoles hanafite et chaféite classent différemment certains aspects juridiques de la récitation et d’Al-Fâtiha.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "La dernière position assise",
+            "right": "La dernière position assise, appelée aussi qaʿda akhîra"
+          },
+          {
+            "left": "L’apprentissage de la prière",
+            "right": "Elle montre comment mettre en pratique le commandement général du Coran"
+          },
+          {
+            "left": "L’impossibilité de rester debout",
+            "right": "La possibilité de prier assis"
+          },
+          {
+            "left": "Les divergences entre écoles juridiques",
+            "right": "Elle enseigne les piliers communs sans déclarer erronées les divergences techniques valides"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "Le statut de la récitation d’Al-Fâtiha"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-002": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: İki secde, Secdeler arası oturuş, Fâtiha hükmü ve Kıyam.",
+        "explanation_tr": "Kur'an rükû ve secdeyi kulluk bağlamında zikreder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İki secde",
+            "right": "İki secde yapılır"
+          },
+          {
+            "left": "Secdeler arası oturuş",
+            "right": "Kısa oturuş"
+          },
+          {
+            "left": "Fâtiha hükmü",
+            "right": "Mezhepler arasında ayrıntı farklılığı vardır"
+          },
+          {
+            "left": "Kıyam",
+            "right": "Namazda ayakta durmayı"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe à leur définition : deux prosternations, position assise entre celles-ci, statut d’Al-Fâtiha et station debout.",
+        "explanation_tr": "Le Coran mentionne l’inclinaison et la prosternation dans l’adoration d’Allah.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Les deux prosternations",
+            "right": "Deux prosternations sont accomplies"
+          },
+          {
+            "left": "La position assise entre les prosternations",
+            "right": "Une brève position assise"
+          },
+          {
+            "left": "Le statut de la récitation d’Al-Fâtiha",
+            "right": "Les détails diffèrent selon les écoles juridiques"
+          },
+          {
+            "left": "La station debout (qiyâm)",
+            "right": "Se tenir debout pendant la prière"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "La prosternation (sujûd)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-003": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Sükûnet, Mazerette secde, İftitah tekbiri ve Rükû.",
+        "explanation_tr": "Namazın rekât akışında iki secde arasında oturuş vardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Sükûnet",
+            "right": "Rükünleri sükûnet ve ölçüyle yerine getirmek"
+          },
+          {
+            "left": "Mazerette secde",
+            "right": "Gücüne göre îmâ ile kılma ruhsatı"
+          },
+          {
+            "left": "İftitah tekbiri",
+            "right": "Namaza girişte alınan tekbir"
+          },
+          {
+            "left": "Rükû",
+            "right": "Belirli şekilde eğilmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe à leur définition : calme, impossibilité de se prosterner, takbîr d’ouverture et inclinaison.",
+        "explanation_tr": "La succession des gestes d’une rakʿa comprend une position assise entre les deux prosternations.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Le calme dans la prière",
+            "right": "Accomplir les piliers avec calme et équilibre"
+          },
+          {
+            "left": "L’impossibilité de se prosterner",
+            "right": "La permission de prier par des gestes adaptés à ses capacités"
+          },
+          {
+            "left": "Le takbîr d’ouverture",
+            "right": "Le takbîr qui ouvre la prière"
+          },
+          {
+            "left": "L’inclinaison (rukûʿ)",
+            "right": "S’incliner de la manière prescrite"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "La position assise entre les prosternations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-004": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Mazerette kıyam, Bu dersteki fıkıh yaklaşımı, Kıraat ve Son oturuş.",
+        "explanation_tr": "Kıyam gücü yeten kişinin farz namazda ayakta durmasıyla ilgili namaz rüknüdür.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Mazerette kıyam",
+            "right": "Namazını oturarak kılabilir"
+          },
+          {
+            "left": "Fıkıh yaklaşımı",
+            "right": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz"
+          },
+          {
+            "left": "Kıraat",
+            "right": "Kur'an'dan okumayı"
+          },
+          {
+            "left": "Son oturuş",
+            "right": "Ka'de-i ahire veya son oturuş"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe à leur définition : impossibilité de rester debout, divergences juridiques, récitation et dernière position assise.",
+        "explanation_tr": "La station debout est un pilier de la prière obligatoire pour une personne capable de se tenir debout.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "L’impossibilité de rester debout",
+            "right": "La possibilité de prier assis"
+          },
+          {
+            "left": "Les divergences entre écoles juridiques",
+            "right": "Elle enseigne les piliers communs sans déclarer erronées les divergences techniques valides"
+          },
+          {
+            "left": "La récitation",
+            "right": "Réciter des passages du Coran"
+          },
+          {
+            "left": "La dernière position assise",
+            "right": "La dernière position assise, appelée aussi qaʿda akhîra"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "La station debout (qiyâm)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-005": {
+      "source": {
+        "question_tr": "Eşleştirme: şu kavramları doğru açıklamalarıyla eşleştir: Fâtiha hükmü, Kıyam, Secde ve İki secde.",
+        "explanation_tr": "Namazın yerleşik sünnet uygulamasında her rekâtta iki secde bulunur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Fâtiha hükmü",
+            "right": "Mezhepler arasında ayrıntı farklılığı vardır"
+          },
+          {
+            "left": "Kıyam",
+            "right": "Namazda ayakta durmayı"
+          },
+          {
+            "left": "Secde",
+            "right": "Allah'a kulluk için yere kapanmayı ifade eden rükün"
+          },
+          {
+            "left": "İki secde",
+            "right": "İki secde yapılır"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe à leur définition : statut d’Al-Fâtiha, station debout, prosternation et deux prosternations.",
+        "explanation_tr": "Dans la pratique établie de la Sunna, chaque rakʿa comporte deux prosternations.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Le statut de la récitation d’Al-Fâtiha",
+            "right": "Les détails diffèrent selon les écoles juridiques"
+          },
+          {
+            "left": "La station debout (qiyâm)",
+            "right": "Se tenir debout pendant la prière"
+          },
+          {
+            "left": "La prosternation (sujûd)",
+            "right": "Le pilier consistant à se prosterner devant Allah"
+          },
+          {
+            "left": "Les deux prosternations",
+            "right": "Deux prosternations sont accomplies"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "Les deux prosternations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-006": {
+      "source": {
+        "question_tr": "Eşleştirme: şu kavramları doğru açıklamalarıyla eşleştir: İftitah tekbiri, Rükû, Rekât ve Sükûnet.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefî ve Şâfiî yaklaşımlarda kıraat ve Fâtiha hükmünün teknik sınıflandırmasında fark bulunduğunu belirtir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İftitah tekbiri",
+            "right": "Namaza girişte alınan tekbir"
+          },
+          {
+            "left": "Rükû",
+            "right": "Belirli şekilde eğilmek"
+          },
+          {
+            "left": "Rekât",
+            "right": "Namaz içinde kıyam kıraat rükû ve secdeleri içeren temel bölüm"
+          },
+          {
+            "left": "Sükûnet",
+            "right": "Rükünleri sükûnet ve ölçüyle yerine getirmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe à leur définition : takbîr d’ouverture, inclinaison, rakʿa et calme.",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, les écoles hanafite et chaféite classent différemment certains aspects juridiques de la récitation et d’Al-Fâtiha.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Le takbîr d’ouverture",
+            "right": "Le takbîr qui ouvre la prière"
+          },
+          {
+            "left": "L’inclinaison (rukûʿ)",
+            "right": "S’incliner de la manière prescrite"
+          },
+          {
+            "left": "La rakʿa",
+            "right": "Une séquence principale de la prière comprenant station debout, récitation, inclinaison et prosternations"
+          },
+          {
+            "left": "Le calme dans la prière",
+            "right": "Accomplir les piliers avec calme et équilibre"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "Le statut de la récitation d’Al-Fâtiha"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-007": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Secde namazda yere ___ ifade eden rükündür.",
+        "explanation_tr": "Kur'an rükû ve secdeyi kulluk bağlamında zikreder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "kapanmayı",
+          "okumayı"
+        ],
+        "correct_answer": "kapanmayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : la prosternation est le pilier qui consiste à accomplir une ___ au sol pendant la prière.",
+        "explanation_tr": "Le Coran mentionne l’inclinaison et la prosternation dans l’adoration d’Allah.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "d’ouverture",
+          "debout",
+          "prosternation",
+          "récitation"
+        ],
+        "correct_answer": "prosternation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "La prosternation (sujûd)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-008": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İki secde arasında kısa bir ___ bulunur.",
+        "explanation_tr": "Namazın rekât akışında iki secde arasında oturuş vardır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "oturuş",
+          "okumayı"
+        ],
+        "correct_answer": "oturuş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : il y a une brève ___ entre les deux prosternations.",
+        "explanation_tr": "La succession des gestes d’une rakʿa comprend une position assise entre les deux prosternations.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "d’ouverture",
+          "debout",
+          "position assise",
+          "récitation"
+        ],
+        "correct_answer": "position assise",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "La position assise entre les prosternations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-009": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Kıyam namazda ___ durmayı ifade eder.",
+        "explanation_tr": "Kıyam gücü yeten kişinin farz namazda ayakta durmasıyla ilgili namaz rüknüdür.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "okumayı",
+          "ayakta",
+          "eğilme"
+        ],
+        "correct_answer": "ayakta",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Association : complète : la station debout consiste à rester ___ pendant la prière.",
+        "explanation_tr": "La station debout est un pilier de la prière obligatoire pour une personne capable de se tenir debout.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "d’ouverture",
+          "récitation",
+          "debout",
+          "inclinaison"
+        ],
+        "correct_answer": "debout",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "La station debout (qiyâm)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-010": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Bir rekâtta ___ secde yapılır.",
+        "explanation_tr": "Namazın yerleşik sünnet uygulamasında her rekâtta iki secde bulunur.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "iki",
+          "okumayı"
+        ],
+        "correct_answer": "iki",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Association : complète : chaque rakʿa comporte ___ prosternations.",
+        "explanation_tr": "Dans la pratique établie de la Sunna, chaque rakʿa comporte deux prosternations.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "d’ouverture",
+          "debout",
+          "deux",
+          "récitation"
+        ],
+        "correct_answer": "deux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "Les deux prosternations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-011": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Fâtiha'nın teknik hükmünde mezhepler arasında ___ bulunur.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu Hanefî ve Şâfiî yaklaşımlarda kıraat ve Fâtiha hükmünün teknik sınıflandırmasında fark bulunduğunu belirtir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "farklılık",
+          "okumayı"
+        ],
+        "correct_answer": "farklılık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : des ___ existent entre les écoles concernant le statut juridique de la récitation d’Al-Fâtiha.",
+        "explanation_tr": "Selon le Haut Conseil des affaires religieuses, les écoles hanafite et chaféite classent différemment certains aspects juridiques de la récitation et d’Al-Fâtiha.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "d’ouverture",
+          "debout",
+          "divergences",
+          "récitation"
+        ],
+        "correct_answer": "divergences",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "Le statut de la récitation d’Al-Fâtiha"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-012": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Secde namazda yere ___ ifade eden rükündür.",
+        "explanation_tr": "Kur'an rükû ve secdeyi kulluk bağlamında zikreder.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "kapanmayı",
+          "okumayı"
+        ],
+        "correct_answer": "kapanmayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : la prosternation est le pilier qui consiste à accomplir une ___ au sol.",
+        "explanation_tr": "Le Coran mentionne l’inclinaison et la prosternation dans l’adoration d’Allah.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "d’ouverture",
+          "debout",
+          "prosternation",
+          "récitation"
+        ],
+        "correct_answer": "prosternation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "La prosternation (sujûd)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: İki secde arasında kısa bir ___ bulunur.",
+        "explanation_tr": "Namazın rekât akışında iki secde arasında oturuş vardır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "oturuş",
+          "okumayı"
+        ],
+        "correct_answer": "oturuş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : il y a une brève ___ entre les deux prosternations.",
+        "explanation_tr": "La succession des gestes d’une rakʿa comprend une position assise entre les deux prosternations.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "d’ouverture",
+          "debout",
+          "position assise",
+          "récitation"
+        ],
+        "correct_answer": "position assise",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "La position assise entre les prosternations"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S03-014": {
+      "source": {
+        "question_tr": "Boşluğu doldur: Kıyam namazda ___ durmayı ifade eder.",
+        "explanation_tr": "Kıyam gücü yeten kişinin farz namazda ayakta durmasıyla ilgili namaz rüknüdür.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "iftitah",
+          "okumayı",
+          "ayakta",
+          "eğilme"
+        ],
+        "correct_answer": "ayakta",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : la station debout consiste à rester ___ pendant la prière.",
+        "explanation_tr": "La station debout est un pilier de la prière obligatoire pour une personne capable de se tenir debout.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "d’ouverture",
+          "récitation",
+          "debout",
+          "inclinaison"
+        ],
+        "correct_answer": "debout",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Construis une rakʿa",
+        "topic": "La station debout (qiyâm)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

@@ -1,0 +1,525 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U01",
+  "scope": "live_runtime_staging",
+  "stage": "U01-S02",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_language": "tr",
+  "source_reference": "assets/i18n/questions/en/runtime/U01.live.json: original Turkish source retained",
+  "translations": {
+    "DEEN-U01-S02-P01": {
+      "source": {
+        "question_tr": "“Müslüman” deyince kimi kastediyoruz?",
+        "explanation_tr": "Müslümanlık milliyet, dil veya doğum yerine göre değil; kişinin İslam'ı benimsemesiyle ilgili bir inanç kimliğidir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İslam dinini benimseyen kişi",
+          "Belirli bir ülkede doğmuş kişi",
+          "Belirli bir dili konuşan kişi",
+          "Yalnızca Müslüman bir ailede büyümüş kişi"
+        ],
+        "correct_answer": "İslam dinini benimseyen kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Que signifie le mot « musulman » ?",
+        "explanation_tr": "Être musulman est une identité fondée sur l’adhésion à l’islam, non sur la nationalité, la langue ou le lieu de naissance.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Une personne qui adhère à l’islam",
+          "Une personne née dans un pays particulier",
+          "Une personne parlant une langue particulière",
+          "Une personne qui a simplement grandi dans une famille musulmane"
+        ],
+        "correct_answer": "Une personne qui adhère à l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Les fondements de l’identité musulmane",
+        "teaching_card": {
+          "eyebrow": "1 · IDENTITÉ",
+          "title": "Un musulman est une personne qui adhère à l’islam.",
+          "body": "Cette identité repose sur l’adhésion à la foi, non sur le pays, la langue ou la nationalité.",
+          "memory": "À retenir : islam = religion ; musulman = personne"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P02": {
+      "source": {
+        "question_tr": "Kavramları doğru açıklamalarına götür.",
+        "explanation_tr": "İman, ibadet, ahlak ve Müslüman kavramları birbiriyle ilişkili ama farklı anlamlar taşır; bu farkları ayırt etmek temel anlayış için önemlidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İman",
+            "right": "Kalben inanma"
+          },
+          {
+            "left": "İbadet",
+            "right": "Allah'a yönelik bilinçli kulluk davranışı"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Güzel davranış ve doğruluk"
+          },
+          {
+            "left": "Müslüman",
+            "right": "Allah'a inanan ve İslam'ı benimseyen kişi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe chaque notion à sa définition.",
+        "explanation_tr": "Foi, adoration, bon comportement et musulman sont des termes liés mais différents. Il importe de les distinguer.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Foi",
+            "right": "Croire dans son cœur"
+          },
+          {
+            "left": "Adoration",
+            "right": "Actes conscients de dévotion à Allah"
+          },
+          {
+            "left": "Bon comportement",
+            "right": "Bonne conduite et honnêteté"
+          },
+          {
+            "left": "Musulman",
+            "right": "Une personne qui croit en Allah et adhère à l’islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Associer les notions",
+        "teaching_card": {
+          "eyebrow": "2 · CARTE DES NOTIONS",
+          "title": "Quatre notions remplissent quatre rôles différents.",
+          "body": "La foi désigne la croyance, l’adoration le service d’Allah, le bon comportement les attitudes et le musulman la personne qui accepte l’islam.",
+          "memory": "À retenir : croire · adorer · bien agir"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P03": {
+      "source": {
+        "question_tr": "İman kalpte başlar; ibadetler de onun hayata yansımasına yardım eder. Doğru mu?",
+        "explanation_tr": "İman kalpte başlar, ancak ibadetler bu imanın davranışa dönüşmesinde ve güçlenmesinde önemli bir yer tutar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi commence dans le cœur ; les actes d’adoration permettent aussi de l’exprimer dans la vie. Vrai ou faux ?",
+        "explanation_tr": "La foi commence dans le cœur, mais l’adoration joue un rôle important pour la mettre en pratique et la renforcer.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Le lien entre foi et adoration",
+        "teaching_card": {
+          "eyebrow": "3 · FOI",
+          "title": "La foi implique de croire et d’accepter dans son cœur.",
+          "body": "La foi n’est pas seulement un acte visible : elle suppose une adhésion intérieure.",
+          "memory": "À retenir : l’adhésion intérieure est essentielle"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P04": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İbadetin amacı Allah’a ___ ve O’nun rızasını gözetmektir.",
+        "explanation_tr": "İbadetin temel yönelişi Allah’a kulluk etmek ve O’nun rızasını gözetmektir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "kulluk etmek",
+          "gösteriş yapmak",
+          "üstün görünmek",
+          "yarışmak"
+        ],
+        "correct_answer": "kulluk etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : le but de l’adoration est de ___ et de rechercher Son agrément.",
+        "explanation_tr": "L’adoration est avant tout consacrée à Allah et vise sincèrement à rechercher Son agrément.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "se consacrer à Allah",
+          "se faire remarquer",
+          "se montrer supérieur",
+          "rivaliser"
+        ],
+        "correct_answer": "se consacrer à Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Le but de l’adoration",
+        "teaching_card": {
+          "eyebrow": "4 · ADORATION",
+          "title": "L’adoration recherche l’agrément d’Allah.",
+          "body": "On adore Allah avec sincérité pour rechercher Son agrément, et non pour se montrer.",
+          "memory": "À retenir : adoration · sincérité · agrément d’Allah"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P05": {
+      "source": {
+        "question_tr": "Peygamberin görevi neydi?",
+        "explanation_tr": "Hz. Muhammed'in peygamberlik rolü, Allah'ın mesajını insanlara iletmesi ve bu mesajı yaşayışıyla örneklemesiyle açıklanır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'ın mesajını insanlara iletmek ve yaşayışıyla örnek olmak",
+          "Yalnızca toplumsal düzeni yönetmek",
+          "Kendi görüşlerini dinin kaynağı hâline getirmek",
+          "Sadece tarihî olayları kaydetmek"
+        ],
+        "correct_answer": "Allah'ın mesajını insanlara iletmek ve yaşayışıyla örnek olmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel était le rôle du Prophète ?",
+        "explanation_tr": "Le prophète Muhammad a transmis le message d’Allah et en a donné un exemple par sa vie.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Transmettre le message d’Allah et montrer l’exemple par sa vie",
+          "Seulement administrer la société",
+          "Faire de ses opinions personnelles la source de la religion",
+          "Uniquement consigner les événements historiques"
+        ],
+        "correct_answer": "Transmettre le message d’Allah et montrer l’exemple par sa vie",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Le rôle du Prophète",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P06": {
+      "source": {
+        "question_tr": "Üç açıklama doğrudur. Hangisi kavram haritasına uymaz?",
+        "explanation_tr": "Müslümanlık belirli bir millete değil, İslam’ı benimsemeye dayanır.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman: kalben inanıp kabul etmek",
+          "İbadet: Allah’a kulluk etmek",
+          "Ahlak: güzel davranış ve tutumlar",
+          "Müslüman: yalnızca belli bir milletten kişi"
+        ],
+        "correct_answer": "Müslüman: yalnızca belli bir milletten kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Trois définitions sont correctes. Laquelle ne correspond pas à la carte des notions ?",
+        "explanation_tr": "Être musulman repose sur l’adhésion à l’islam, et non sur une nationalité particulière.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Foi : croire et accepter dans son cœur",
+          "Adoration : se consacrer à Allah",
+          "Bon comportement : bonnes actions et attitudes",
+          "Musulman : uniquement une personne d’une nationalité particulière"
+        ],
+        "correct_answer": "Musulman : uniquement une personne d’une nationalité particulière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Qu’est-ce que le bon comportement ?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P07": {
+      "source": {
+        "question_tr": "Kur’an’ın hayatımızdaki yeri nedir?",
+        "explanation_tr": "Kur'an, Müslümanlar için inanç ve yaşam konusunda temel rehber kabul edilen kutsal kitaptır.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İnanç ve yaşamlarına yön veren temel kutsal kaynak olması",
+          "Yalnızca İslam tarihindeki olayları kronolojik olarak anlatması",
+          "Sadece ibadetlerin isimlerini listeleyen bir metin olması",
+          "Peygamberin hayatını anlatan tek biyografi kaynağı olması"
+        ],
+        "correct_answer": "İnanç ve yaşamlarına yön veren temel kutsal kaynak olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle place le Coran occupe-t-il dans notre vie ?",
+        "explanation_tr": "Les musulmans considèrent le Coran comme leur principal Livre sacré et une guidance pour la foi et la vie.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "La source sacrée centrale guidant leur foi et leur vie",
+          "Seulement un récit chronologique de l’histoire de l’islam",
+          "Un texte ne contenant que des noms d’actes d’adoration",
+          "L’unique source biographique sur la vie du Prophète"
+        ],
+        "correct_answer": "La source sacrée centrale guidant leur foi et leur vie",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "L’importance du Coran",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P08": {
+      "source": {
+        "question_tr": "Kavramları ait oldukları alanlarla eşleştir.",
+        "explanation_tr": "Kur'an, peygamber ve ibadet kavramları İslam'ın farklı ama birbirine bağlı yönlerini temsil eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kur'an",
+            "right": "Temel kutsal kaynak"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Örnek alınan öğretici"
+          },
+          {
+            "left": "İbadet",
+            "right": "Uygulamaya dökülen kulluk"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions aux domaines correspondants.",
+        "explanation_tr": "Le Coran, le Prophète et l’adoration représentent des aspects différents mais liés de l’islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Coran",
+            "right": "La source sacrée centrale"
+          },
+          {
+            "left": "Prophète",
+            "right": "Un modèle et un enseignant à suivre"
+          },
+          {
+            "left": "Adoration",
+            "right": "La dévotion mise en pratique"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Associer les notions",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P09": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlak birbirinden tamamen kopuk mudur?",
+        "explanation_tr": "İman, ibadet ve ahlak birbirini besleyen ve tamamlayan kavramlardır; İslam bu üçünü bir bütün olarak görür.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi, l’adoration et le bon comportement sont-ils totalement indépendants ?",
+        "explanation_tr": "La foi, l’adoration et le bon comportement se renforcent et se complètent ; l’islam les envisage ensemble.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Les liens entre trois notions",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P10": {
+      "source": {
+        "question_tr": "Kayıp kelime: İslam’ı benimseyen kişiye “___” denir.",
+        "explanation_tr": "Müslüman kelimesi, İslam dinini benimseyen kişiyi ifade eder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Müslüman",
+          "peygamber",
+          "melek",
+          "misafir"
+        ],
+        "correct_answer": "Müslüman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : une personne qui adhère à l’islam s’appelle un « ___ ».",
+        "explanation_tr": "Le mot « musulman » désigne une personne qui adhère à l’islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "musulman",
+          "prophète",
+          "ange",
+          "invité"
+        ],
+        "correct_answer": "musulman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Les fondements de l’identité musulmane",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P11": {
+      "source": {
+        "question_tr": "İbadetin yönü kime doğrudur?",
+        "explanation_tr": "İbadetin özü, kulluğu Allah'a has kılmak ve samimi biçimde O'nun rızasını gözetmektir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Allah'a kulluk etmek ve O'nun rızasını gözetmek",
+          "İnsanların beğenisini kazanmak",
+          "Sadece gelenekleri sürdürmek",
+          "Toplumda üstün görünmek"
+        ],
+        "correct_answer": "Allah'a kulluk etmek ve O'nun rızasını gözetmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vers qui l’adoration est-elle dirigée ?",
+        "explanation_tr": "L’adoration consiste essentiellement à se consacrer uniquement à Allah et à rechercher sincèrement Son agrément.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Se consacrer à Allah et rechercher Son agrément",
+          "Obtenir l’admiration des autres",
+          "Ne faire que perpétuer les traditions",
+          "Paraître supérieur aux autres"
+        ],
+        "correct_answer": "Se consacrer à Allah et rechercher Son agrément",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Le but de l’adoration",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-P12": {
+      "source": {
+        "question_tr": "Hangisi iman kavramını anlatan ifadelerden biri değildir?",
+        "explanation_tr": "İman içten inanma ve kabul ile ilgilidir; başkalarına görünmek iman tanımı değildir.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Kalben inanmak",
+          "Doğru olduğunu kabul etmek",
+          "İçten güvenmek",
+          "Yalnızca başkalarına görünmek"
+        ],
+        "correct_answer": "Yalnızca başkalarına görünmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition ne décrit pas la foi ?",
+        "explanation_tr": "La foi implique une croyance et une acceptation intérieures ; être vu des autres ne définit pas la foi.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Croire dans son cœur",
+          "Accepter une chose comme vraie",
+          "Avoir une confiance sincère",
+          "Seulement être vu par les autres"
+        ],
+        "correct_answer": "Seulement être vu par les autres",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Qu’est-ce que la foi ?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

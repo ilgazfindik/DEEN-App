@@ -1,0 +1,79 @@
+name: French isolated Chromium staging QA
+on:
+  push:
+    branches: ['codex/french-*']
+    paths:
+      - 'scripts/test-french-game-live-chromium.mjs'
+      - 'scripts/test-global-locale-chrome.cjs'
+      - 'scripts/test-french-game-pack-audit.mjs'
+      - 'scripts/test-french-isolated-gameplay.mjs'
+      - 'scripts/test-french-quran-chromium-staging.mjs'
+      - 'scripts/test-french-locale-progress-chromium.mjs'
+      - 'scripts/audit-french-quran-audio-readiness.mjs'
+      - 'scripts/audit-french-quran-rights.mjs'
+      - 'scripts/audit-french-release-readiness.mjs'
+      - 'scripts/test-french-webkit-smoke.mjs'
+      - 'qa/FRENCH_P12_HUMAN_REVIEW.staging.json'
+      - 'assets/quran/audio/fr-rights-evidence.staging.json'
+      - 'scripts/quran/**'
+      - 'scripts/test-quran-word-alignment-guard.mjs'
+      - 'scripts/test-quran-word-alignment-plan.mjs'
+      - 'assets/quran/audio/word-timings.json'
+      - 'assets/quran/audio/ayah-audio-manifest.json'
+      - 'scripts/fr-preview-pack-builder.mjs'
+      - 'scripts/test-french-staging-preview.mjs'
+      - 'assets/i18n/fr/**'
+      - 'assets/i18n/questions/fr/**'
+      - 'assets/i18n/content.js'
+      - 'assets/i18n/content-support.json'
+      - 'assets/i18n/boot.js'
+      - 'assets/i18n/locale.js'
+      - 'index.html'
+      - '.github/workflows/french-browser-staging-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-chromium:
+    name: French QA real browser + original game engine
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Playwright
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Verify full French game source translations
+        run: node scripts/test-french-game-pack-audit.mjs
+      - name: Play real French-selected lessons in Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory . > "${RUNNER_TEMP}/deen-fr-game-server.log" 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          curl --fail --silent --show-error --retry 12 --retry-connrefused --retry-delay 1 http://127.0.0.1:8765/ > /dev/null
+          node scripts/test-french-game-live-chromium.mjs
+      - name: Verify native French language selection, onboarding, reload and persisted progress
+        run: |
+          npx playwright install chrome
+          DEEN_QA_OUTPUT=qa-artifacts/french-global-locale node scripts/test-global-locale-chrome.cjs
+      - name: Upload Chrome mobile/desktop screenshots and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: french-isolated-chromium-staging-evidence
+          path: |
+            qa-artifacts/french-browser/
+            qa-artifacts/french-game-live/
+            qa-artifacts/french-quran/
+            qa-artifacts/french-locale-progress/
+            qa-artifacts/french-release/
+            qa-artifacts/french-webkit/
+            qa-artifacts/french-global-locale/
+          if-no-files-found: warn
+          retention-days: 14

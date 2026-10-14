@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U14",
+  "stage": "U14-S02",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U14-S02-001": {
+      "source": {
+        "question_tr": "Kavram kontrolü: mazerette kıyam hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Hz. Peygamber'in hasta kişiye yönelik öğretisinde gücü yetmeyenin oturarak namaz kılabileceği bildirilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazı tamamen terk eder",
+          "Her durumda ayakta kalmak zorundadır",
+          "Namazını oturarak kılabilir",
+          "Sadece abdest alır"
+        ],
+        "correct_answer": "Namazını oturarak kılabilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vérifie tes connaissances : que peut faire une personne qui ne peut pas rester debout pour prier ?",
+        "explanation_tr": "Selon l’enseignement prophétique relatif à la maladie, une personne incapable de rester debout peut prier assise.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Renoncer complètement à la prière",
+          "Rester debout quelles que soient les circonstances",
+          "La possibilité de prier assis",
+          "Accomplir uniquement les ablutions"
+        ],
+        "correct_answer": "La possibilité de prier assis",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "L’impossibilité de rester debout"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-002": {
+      "source": {
+        "question_tr": "Kıraat namazda neyi ifade eder?",
+        "explanation_tr": "Kıraat namaz içinde Kur'an'dan okuma rüknünü ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece sessiz durmayı",
+          "Rükû yapmayı",
+          "Kur'an'dan okumayı",
+          "Ayakları yıkamayı"
+        ],
+        "correct_answer": "Kur'an'dan okumayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Que signifie la récitation pendant la prière ?",
+        "explanation_tr": "La récitation consiste à réciter des passages du Coran pendant la prière.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Rester simplement silencieux",
+          "S’incliner",
+          "Réciter des passages du Coran",
+          "Se laver les pieds"
+        ],
+        "correct_answer": "Réciter des passages du Coran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "La récitation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-003": {
+      "source": {
+        "question_tr": "Namazın öğrenilmesi konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu namazın ayrıntılarının Hz. Peygamber'in uygulamasıyla belirlendiğini açıklar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazın Kur'an'la ilgisini kaldırır",
+          "Her kişiye farklı rekât verir",
+          "Kur'an'daki genel emrin nasıl uygulanacağını gösterir",
+          "Vakit şartını ortadan kaldırır"
+        ],
+        "correct_answer": "Kur'an'daki genel emrin nasıl uygulanacağını gösterir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation sur l’apprentissage de la prière est correcte ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses rappelle que les modalités détaillées de la prière sont transmises par la pratique du Prophète.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle supprime le lien entre la prière et le Coran",
+          "Elle attribue un nombre différent de rakʿât selon les personnes",
+          "Elle montre comment mettre en pratique le commandement général du Coran",
+          "Elle supprime la condition liée à l’horaire de la prière"
+        ],
+        "correct_answer": "Elle montre comment mettre en pratique le commandement général du Coran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "L’apprentissage de la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-004": {
+      "source": {
+        "question_tr": "Kısa kontrol: kavram kontrolü: bu dersteki fıkıh yaklaşımı hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Bu sürüm namazın ortak yapısını öğretir teknik farklılıkları tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tek bir mezhebi bütün Müslümanlar için tek doğru ilan eder",
+          "Mezhep farklılıklarını kaynaksız biçimde karıştırır",
+          "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz",
+          "Rükünlerin tamamını görmezden gelir"
+        ],
+        "correct_answer": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vérification rapide : comment ce cours présente-t-il les divergences juridiques valides ?",
+        "explanation_tr": "Cette version enseigne la structure commune de la prière sans présenter une seule école juridique comme détentrice de l’unique réponse correcte sur les divergences techniques valides.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Elle considère une seule école juridique comme correcte pour tous les musulmans",
+          "Elle mélange les divergences juridiques sans citer de sources",
+          "Elle enseigne les piliers communs sans déclarer erronées les divergences techniques valides",
+          "Elle ignore tous les piliers"
+        ],
+        "correct_answer": "Elle enseigne les piliers communs sans déclarer erronées les divergences techniques valides",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "Les divergences entre écoles juridiques"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-005": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Namazın sonunda oturuş diye bir bölüm yoktur.",
+        "explanation_tr": "Diyanet'in namaz rükünleri açıklamasında son oturuş namazın rükünleri arasında sayılır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Il n’y a pas de position assise à la fin de la prière.",
+        "explanation_tr": "L’explication des piliers de la prière par Diyanet inclut la dernière position assise.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "La dernière position assise"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-006": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Ayakta duramayan kişi namazını oturarak kılabilir.",
+        "explanation_tr": "Hz. Peygamber'in hasta kişiye yönelik öğretisinde gücü yetmeyenin oturarak namaz kılabileceği bildirilir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Une personne incapable de rester debout peut prier assise.",
+        "explanation_tr": "Selon l’enseignement prophétique relatif à la maladie, une personne incapable de rester debout peut prier assise.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "L’impossibilité de rester debout"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Kıraat namazda Kur'an okumakla ilgili değildir.",
+        "explanation_tr": "Kıraat namaz içinde Kur'an'dan okuma rüknünü ifade eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? La récitation dans la prière est sans lien avec le Coran.",
+        "explanation_tr": "La récitation consiste à réciter des passages du Coran pendant la prière.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "La récitation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-008": {
+      "source": {
+        "question_tr": "Bir arkadaşın Namazın öğrenilmesi hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu namazın ayrıntılarının Hz. Peygamber'in uygulamasıyla belirlendiğini açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Namazın Kur'an'la ilgisini kaldırır",
+          "Her kişiye farklı rekât verir",
+          "Kur'an'daki genel emrin nasıl uygulanacağını gösterir",
+          "Vakit şartını ortadan kaldırır"
+        ],
+        "correct_answer": "Kur'an'daki genel emrin nasıl uygulanacağını gösterir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande comment apprendre la prière. Que lui réponds-tu ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses rappelle que les modalités détaillées de la prière sont transmises par la pratique du Prophète.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Elle supprime le lien entre la prière et le Coran",
+          "Elle attribue un nombre différent de rakʿât selon les personnes",
+          "Elle montre comment mettre en pratique le commandement général du Coran",
+          "Elle supprime la condition liée à l’horaire de la prière"
+        ],
+        "correct_answer": "Elle montre comment mettre en pratique le commandement général du Coran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "L’apprentissage de la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-009": {
+      "source": {
+        "question_tr": "Kısa kontrol: kavram kontrolü: bu dersteki fıkıh yaklaşımı konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Bu sürüm namazın ortak yapısını öğretir teknik farklılıkları tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Tek bir mezhebi bütün Müslümanlar için tek doğru ilan eder",
+          "Mezhep farklılıklarını kaynaksız biçimde karıştırır",
+          "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz",
+          "Rükünlerin tamamını görmezden gelir"
+        ],
+        "correct_answer": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel principe ce cours suit-il face aux différences techniques entre écoles juridiques ?",
+        "explanation_tr": "Cette version enseigne la structure commune de la prière sans présenter une seule école juridique comme détentrice de l’unique réponse correcte sur les divergences techniques valides.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Elle considère une seule école juridique comme correcte pour tous les musulmans",
+          "Elle mélange les divergences juridiques sans citer de sources",
+          "Elle enseigne les piliers communs sans déclarer erronées les divergences techniques valides",
+          "Elle ignore tous les piliers"
+        ],
+        "correct_answer": "Elle enseigne les piliers communs sans déclarer erronées les divergences techniques valides",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "Les divergences entre écoles juridiques"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-010": {
+      "source": {
+        "question_tr": "Bir öğrenci “Namazın sonunda oturuş diye bir bölüm yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Diyanet'in namaz rükünleri açıklamasında son oturuş namazın rükünleri arasında sayılır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İmsak",
+          "Teyemmüm",
+          "Ka'de-i ahire veya son oturuş",
+          "İftitah"
+        ],
+        "correct_answer": "Ka'de-i ahire veya son oturuş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Il n’y a pas de position assise à la fin de la prière. » Quelle réponse corrige cette idée ?",
+        "explanation_tr": "L’explication des piliers de la prière par Diyanet inclut la dernière position assise.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le début du jeûne",
+          "Le tayammum (ablutions sèches)",
+          "La dernière position assise, appelée aussi qaʿda akhîra",
+          "L’ouverture"
+        ],
+        "correct_answer": "La dernière position assise, appelée aussi qaʿda akhîra",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "La dernière position assise"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-011": {
+      "source": {
+        "question_tr": "“Ayakta duramayan kişi için namazı oturarak kılma kolaylığı yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Hz. Peygamber'in hasta kişiye yönelik öğretisinde gücü yetmeyenin oturarak namaz kılabileceği bildirilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namazı tamamen terk eder",
+          "Her durumda ayakta kalmak zorundadır",
+          "Namazını oturarak kılabilir",
+          "Sadece abdest alır"
+        ],
+        "correct_answer": "Namazını oturarak kılabilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige l’erreur : « Une personne incapable de rester debout ne peut pas prier assise » ?",
+        "explanation_tr": "Selon l’enseignement prophétique relatif à la maladie, une personne incapable de rester debout peut prier assise.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Renoncer complètement à la prière",
+          "Rester debout quelles que soient les circonstances",
+          "La possibilité de prier assis",
+          "Accomplir uniquement les ablutions"
+        ],
+        "correct_answer": "La possibilité de prier assis",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "L’impossibilité de rester debout"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-012": {
+      "source": {
+        "question_tr": "Kıraat hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Kıraat namaz içinde Kur'an'dan okuma rüknünü ifade eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Sadece sessiz durmayı",
+          "Rükû yapmayı",
+          "Kur'an'dan okumayı",
+          "Ayakları yıkamayı"
+        ],
+        "correct_answer": "Kur'an'dan okumayı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation corrige l’idée erronée sur la récitation dans la prière ?",
+        "explanation_tr": "La récitation consiste à réciter des passages du Coran pendant la prière.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Rester simplement silencieux",
+          "S’incliner",
+          "Réciter des passages du Coran",
+          "Se laver les pieds"
+        ],
+        "correct_answer": "Réciter des passages du Coran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "La récitation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-013": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Namazın uygulama ayrıntıları Hz. Peygamber'in ___ ile öğrenilir.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu namazın ayrıntılarının Hz. Peygamber'in uygulamasıyla belirlendiğini açıklar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "uygulaması",
+          "okumayı"
+        ],
+        "correct_answer": "uygulaması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : les modalités détaillées de la prière s’apprennent par la ___ du Prophète.",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses rappelle que les modalités détaillées de la prière sont transmises par la pratique du Prophète.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "d’ouverture",
+          "debout",
+          "pratique",
+          "récitation"
+        ],
+        "correct_answer": "pratique",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "L’apprentissage de la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U14-S02-014": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Geçerli mezhep farklılıkları ___ cevap olarak işaretlenmez.",
+        "explanation_tr": "Bu sürüm namazın ortak yapısını öğretir teknik farklılıkları tek doğru mezhep varmış gibi puanlamaz.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iftitah",
+          "ayakta",
+          "yanlış",
+          "okumayı"
+        ],
+        "correct_answer": "yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : les divergences juridiques valides ne sont pas considérées comme des réponses ___.",
+        "explanation_tr": "Cette version enseigne la structure commune de la prière sans présenter une seule école juridique comme détentrice de l’unique réponse correcte sur les divergences techniques valides.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "d’ouverture",
+          "debout",
+          "erronées",
+          "récitation"
+        ],
+        "correct_answer": "erronées",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Station debout, récitation, inclinaison et prosternation",
+        "topic": "Les divergences entre écoles juridiques"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U04",
+  "stage": "U04-S06",
+  "question_count": 12,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U04-S06-001": {
+      "source": {
+        "question_tr": "Oruç ve Zekât İslam'ın şartlarındandır.",
+        "explanation_tr": "Hem oruç hem de zekât İslam'ın beş temel şartı arasında yer alır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le jeûne et la zakat font partie des cinq piliers de l’islam.",
+        "explanation_tr": "Le jeûne et la zakat sont tous deux des piliers fondamentaux.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-002": {
+      "source": {
+        "question_tr": "Ahiret gününe inanmak İslam'ın beş şartından biridir.",
+        "explanation_tr": "Ahirete inanmak imanın esaslarından biridir, İslam'ın eylemsel şartlarından değildir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire au Jour dernier est l’un des cinq piliers pratiques de l’islam.",
+        "explanation_tr": "La foi au Jour dernier est un article de la foi, et non l’un des cinq piliers de l’islam.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-003": {
+      "source": {
+        "question_tr": "Müslümanın günün belirli vakitlerinde Allah'a yönelerek yerine getirdiği düzenli ibadete __________ denir.",
+        "explanation_tr": "Belirli vakitlerde yerine getirilen düzenli kulluk ibadeti namazdır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Namaz",
+          "Oruç",
+          "Zekât",
+          "Hac"
+        ],
+        "correct_answer": "Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La pratique régulière d’adoration accomplie à des heures déterminées de la journée s’appelle la ________.",
+        "explanation_tr": "Cette pratique régulière est la prière rituelle.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "prière",
+          "jeûne",
+          "zakat",
+          "hajj"
+        ],
+        "correct_answer": "prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-004": {
+      "source": {
+        "question_tr": "Bir açıklama malî paylaşmadan bahsediyor ancak Mekke yolculuğundan söz etmiyorsa, bu İslam'ın şartlarından __________ ibadeti ile ilgilidir.",
+        "explanation_tr": "Malî paylaşma doğrudan zekât ibadetine işaret eder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Zekât",
+          "Hac",
+          "Oruç",
+          "Namaz"
+        ],
+        "correct_answer": "Zekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une description parle de contribution financière et non d’un voyage à La Mecque. Elle renvoie à la ________.",
+        "explanation_tr": "La contribution financière obligatoire correspond à la zakat.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "zakat",
+          "hajj",
+          "jeûne",
+          "prière"
+        ],
+        "correct_answer": "zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-005": {
+      "source": {
+        "question_tr": "İslam'ın beş şartından hangisi 'Allah'tan başka ilah olmadığına ve Muhammed'in O'nun kulu ve elçisi olduğuna' şahitlik etmeyi ifade eder?",
+        "explanation_tr": "Bu ifade Kelime-i Şehadet'tir.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Kelime-i Şehadet getirmek",
+          "Namaz kılmak",
+          "Oruç tutmak",
+          "Hacca gitmek"
+        ],
+        "correct_answer": "Kelime-i Şehadet getirmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel pilier consiste à témoigner qu’il n’y a de divinité qu’Allah et que Muhammad est Son serviteur et Son messager ?",
+        "explanation_tr": "Cette déclaration est appelée la chahada.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Prononcer la chahada",
+          "Accomplir la prière",
+          "Observer le jeûne",
+          "Effectuer le hajj"
+        ],
+        "correct_answer": "Prononcer la chahada",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-006": {
+      "source": {
+        "question_tr": "İslam'ın beş şartından biri olan ve Ramazan ayında yeme-içmeden uzak durularak yapılan ibadet hangisidir?",
+        "explanation_tr": "Ramazan ayında tutulan bu ibadet oruçtur.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Oruç",
+          "Zekât",
+          "Hac",
+          "Namaz"
+        ],
+        "correct_answer": "Oruç",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel pilier est accompli pendant le Ramadan en s’abstenant de manger et de boire pendant la journée ?",
+        "explanation_tr": "Il s’agit du jeûne du Ramadan.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Le jeûne",
+          "La zakat",
+          "Le hajj",
+          "La prière"
+        ],
+        "correct_answer": "Le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-007": {
+      "source": {
+        "question_tr": "Bir açıklamada ibadetin Mekke ve çevresindeki belirli mekânlarla bağlantısı öne çıkıyor. Bu ibadet __________ olarak adlandırılır.",
+        "explanation_tr": "Bu mekân bağlantısı, İslam'ın beş şartından hac ibadetiyle ilişkilidir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Hac",
+          "Oruç",
+          "Zekât",
+          "Namaz"
+        ],
+        "correct_answer": "Hac",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un acte d’adoration est lié à des lieux précis de La Mecque et de ses environs. Il s’agit du ________.",
+        "explanation_tr": "La référence à ces lieux correspond au hajj.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "hajj",
+          "jeûne",
+          "zakat",
+          "prière"
+        ],
+        "correct_answer": "hajj",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-008": {
+      "source": {
+        "question_tr": "Zekât vermek ve oruç tutmak aynı ibadettir.",
+        "explanation_tr": "Zekât malî bir ibadetken, oruç bedensel bir ibadettir; farklı şartlardır.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Verser la zakat et observer le jeûne désignent un seul et même acte d’adoration.",
+        "explanation_tr": "La zakat est une obligation financière et le jeûne est un acte d’adoration distinct.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-009": {
+      "source": {
+        "question_tr": "Bir özet kartında 'düzenli kulluk' etiketi boş bırakılmış. Beş şarttan hangisi bu etikete yerleşmelidir?",
+        "explanation_tr": "Beş şart içinde düzenli kulluk ibadeti olarak tanıdığımız kavram namazdır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Namaz",
+          "Oruç",
+          "Zekât",
+          "Kelime-i Şehadet"
+        ],
+        "correct_answer": "Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Sur une carte de révision, le libellé « pratique régulière d’adoration » est vide. Quel pilier faut-il y inscrire ?",
+        "explanation_tr": "La prière est le pilier correspondant à cette pratique régulière.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "La prière",
+          "Le jeûne",
+          "La zakat",
+          "La chahada"
+        ],
+        "correct_answer": "La prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-010": {
+      "source": {
+        "question_tr": "Bir ibadet paylaşmayı gerektiriyor ve İslam'ın şartlarından biri olarak sayılıyorsa, bu ibadet __________ vermektir.",
+        "explanation_tr": "Sadaka ve fitre de paylaşmadır ancak İslam'ın beş temel şartı arasında sayılan paylaşma ibadeti zekâttır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Zekât",
+          "Fitre",
+          "Sadaka",
+          "Fidye"
+        ],
+        "correct_answer": "Zekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "L’acte obligatoire consistant à donner une part de ses biens et figurant parmi les cinq piliers est la ________.",
+        "explanation_tr": "Les dons volontaires se distinguent de la zakat, qui est un pilier de l’islam.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "zakat",
+          "aumône de la rupture du jeûne",
+          "aumône volontaire",
+          "compensation financière"
+        ],
+        "correct_answer": "zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-011": {
+      "source": {
+        "question_tr": "Kitaplara inanmak imanın esasıdır; hacca gitmek ise __________ şartıdır.",
+        "explanation_tr": "Hac ibadeti, imanın değil İslam'ın beş şartından biridir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "İslam'ın",
+          "Ahlakın",
+          "İbadetin",
+          "Toplumun"
+        ],
+        "correct_answer": "İslam'ın",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Croire aux Livres révélés est un article de la foi, tandis qu’accomplir le hajj est un pilier de ________.",
+        "explanation_tr": "Le hajj relève des cinq piliers de l’islam.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "l’islam",
+          "la morale",
+          "l’adoration",
+          "la société"
+        ],
+        "correct_answer": "l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S06-012": {
+      "source": {
+        "question_tr": "Bir özet kartında Şehadet, Oruç, Zekât ve Hac yer alıyor; fakat günün belirli vakitlerindeki düzenli kulluk ibadeti eksik bırakılmış. Eksik şart hangisidir?",
+        "explanation_tr": "Beş şart içinden bu tanıma uyan ve listede eksik olan ibadet namazdır.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "Namaz",
+          "Cihat",
+          "Kur'an okumak",
+          "Kurban"
+        ],
+        "correct_answer": "Namaz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une carte récapitulative cite la chahada, le jeûne, la zakat et le hajj. Quel pilier régulier pratiqué à des heures déterminées a été oublié ?",
+        "explanation_tr": "Le pilier manquant est la prière.",
+        "activity_type": "progressive_recall",
+        "options_tr": [
+          "La prière",
+          "Le djihad",
+          "La lecture du Coran",
+          "Le sacrifice"
+        ],
+        "correct_answer": "La prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Révision rapide des cinq piliers",
+        "topic": "Identifier les obligations fondamentales"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

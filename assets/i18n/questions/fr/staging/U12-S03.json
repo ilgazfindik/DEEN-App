@@ -1,0 +1,677 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U12",
+  "stage": "U12-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U12-S03-001": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Ortak temel, Gusül, Başı mesh etmenin miktarı ve Bu dersteki fıkıh yaklaşımı.",
+        "explanation_tr": "Abdest namazın kendisi değil namaza hazırlık sağlayan hükmî temizliktir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ortak temel",
+            "right": "Yüzü ve kolları yıkamak başı mesh etmek ayakları yıkamak"
+          },
+          {
+            "left": "Gusül",
+            "right": "Boy abdesti gerektiren hâllerde bütün bedenin yıkanması"
+          },
+          {
+            "left": "Mezhep farkı: mesh",
+            "right": "Mezhepler arasında ayrıntı farklılıkları vardır"
+          },
+          {
+            "left": "Fıkıh yaklaşımı",
+            "right": "Ortak temeli öğretir geçerli mezhep farklılıklarını yanlış diye puanlamaz"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions à leur définition : fondements communs, ghusl, étendue de l’essuyage de la tête et méthode d’enseignement du droit musulman.",
+        "explanation_tr": "Les ablutions ne sont pas la prière elle-même ; elles constituent une purification rituelle qui y prépare.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Les fondements communs",
+            "right": "Laver le visage et les bras, essuyer la tête et laver les pieds"
+          },
+          {
+            "left": "Le bain rituel complet (ghusl)",
+            "right": "Laver tout le corps lorsque le bain rituel complet est requis"
+          },
+          {
+            "left": "Différences entre écoles : l’étendue de l’essuyage",
+            "right": "Les détails diffèrent selon les écoles juridiques"
+          },
+          {
+            "left": "La méthode d’enseignement du droit musulman",
+            "right": "Elle enseigne les fondements communs sans juger erronées les divergences juridiques valides"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "La préparation à la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-002": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Teyemmüm malzemesi, Mezhep farkı: tertip, Namaza hazırlık ve Abdestte yüz.",
+        "explanation_tr": "Ayette ayakların topuklarla birlikte yıkanması emredilir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Teyemmüm malzemesi",
+            "right": "Temiz toprak veya toprak cinsinden bir yüzey"
+          },
+          {
+            "left": "Mezhep farkı: tertip",
+            "right": "Mezhepler arasında ayrıntı farklılığı vardır"
+          },
+          {
+            "left": "Namaza hazırlık",
+            "right": "Namaz için gerekli hükmî temizliği sağlamaya hizmet eder"
+          },
+          {
+            "left": "Abdestte yüz",
+            "right": "Yüz"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions à leur définition : support du tayammum, ordre des gestes, préparation à la prière et visage.",
+        "explanation_tr": "Le verset prescrit de laver les pieds, chevilles comprises.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Le support du tayammum",
+            "right": "De la terre propre ou une surface de nature terreuse"
+          },
+          {
+            "left": "Différences entre écoles : l’ordre des gestes",
+            "right": "Les détails diffèrent selon les écoles juridiques"
+          },
+          {
+            "left": "La préparation à la prière",
+            "right": "Elles assurent la purification rituelle nécessaire à la prière"
+          },
+          {
+            "left": "Le visage pendant les ablutions",
+            "right": "Le visage"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Les pieds pendant les ablutions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-003": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Abdestte niyetin hükmü, Su kullanamama, Abdest ve Başı mesh.",
+        "explanation_tr": "Abdestte tertibin fıkhî sınıflandırması mezheplere göre farklılaşabilir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Mezhep farkı: niyet",
+            "right": "Mezhepler arasında hüküm farklılığı vardır"
+          },
+          {
+            "left": "Su kullanamama",
+            "right": "Teyemmüm ruhsatı"
+          },
+          {
+            "left": "Abdest",
+            "right": "Bazı ibadetler için yapılan hükmî temizlik"
+          },
+          {
+            "left": "Başı mesh",
+            "right": "Başı mesh etmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions à leur définition : intention, impossibilité d’utiliser l’eau, ablutions et essuyage de la tête.",
+        "explanation_tr": "Le statut juridique de l’ordre des gestes des ablutions peut varier selon les écoles.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Différences entre écoles : l’intention",
+            "right": "La règle diffère selon les écoles juridiques"
+          },
+          {
+            "left": "L’impossibilité d’utiliser l’eau",
+            "right": "La possibilité d’effectuer le tayammum"
+          },
+          {
+            "left": "Les ablutions (wudû)",
+            "right": "Une purification rituelle accomplie pour certains actes d’adoration"
+          },
+          {
+            "left": "L’essuyage de la tête",
+            "right": "Passer les mains mouillées sur la tête"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Différences entre écoles : l’ordre des gestes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-004": {
+      "source": {
+        "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Başı mesh etmenin miktarı, Bu dersteki fıkıh yaklaşımı, Abdestte kollar ve Ortak temel.",
+        "explanation_tr": "Mâide 5:6 yüzün yıkanmasını abdestin temel unsurları arasında zikreder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Mezhep farkı: mesh",
+            "right": "Mezhepler arasında ayrıntı farklılıkları vardır"
+          },
+          {
+            "left": "Fıkıh yaklaşımı",
+            "right": "Ortak temeli öğretir geçerli mezhep farklılıklarını yanlış diye puanlamaz"
+          },
+          {
+            "left": "Abdestte kollar",
+            "right": "Dirseklerle birlikte"
+          },
+          {
+            "left": "Ortak temel",
+            "right": "Yüzü ve kolları yıkamak başı mesh etmek ayakları yıkamak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions à leur définition : étendue de l’essuyage, approche juridique, bras et fondements communs.",
+        "explanation_tr": "La sourate Al-Mâ’ida (5:6) cite le lavage du visage parmi les principaux gestes des ablutions.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Différences entre écoles : l’étendue de l’essuyage",
+            "right": "Les détails diffèrent selon les écoles juridiques"
+          },
+          {
+            "left": "La méthode d’enseignement du droit musulman",
+            "right": "Elle enseigne les fondements communs sans juger erronées les divergences juridiques valides"
+          },
+          {
+            "left": "Les bras pendant les ablutions",
+            "right": "Y compris les coudes"
+          },
+          {
+            "left": "Les fondements communs",
+            "right": "Laver le visage et les bras, essuyer la tête et laver les pieds"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Le visage pendant les ablutions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-005": {
+      "source": {
+        "question_tr": "Eşleştirme: şu kavramları doğru açıklamalarıyla eşleştir: Namaza hazırlık, Abdestte yüz, Abdestte ayaklar ve Teyemmüm malzemesi.",
+        "explanation_tr": "Diyanet fetvası teyemmümü temiz toprak veya toprak cinsinden bir şeyle yapılan hükmî temizlik olarak açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Namaza hazırlık",
+            "right": "Namaz için gerekli hükmî temizliği sağlamaya hizmet eder"
+          },
+          {
+            "left": "Abdestte yüz",
+            "right": "Yüz"
+          },
+          {
+            "left": "Abdestte ayaklar",
+            "right": "Topuklarla birlikte"
+          },
+          {
+            "left": "Teyemmüm malzemesi",
+            "right": "Temiz toprak veya toprak cinsinden bir yüzey"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions à leur définition : préparation à la prière, visage, pieds et support du tayammum.",
+        "explanation_tr": "Une fatwa de Diyanet explique que le tayammum est une purification rituelle effectuée avec de la terre propre ou une matière de nature terreuse.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "La préparation à la prière",
+            "right": "Elles assurent la purification rituelle nécessaire à la prière"
+          },
+          {
+            "left": "Le visage pendant les ablutions",
+            "right": "Le visage"
+          },
+          {
+            "left": "Les pieds pendant les ablutions",
+            "right": "Y compris les chevilles"
+          },
+          {
+            "left": "Le support du tayammum",
+            "right": "De la terre propre ou une surface de nature terreuse"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Le support du tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-006": {
+      "source": {
+        "question_tr": "Eşleştirme: şu kavramları doğru açıklamalarıyla eşleştir: Abdest, Başı mesh, Teyemmüm ve Abdestte niyetin hükmü.",
+        "explanation_tr": "Abdest namazın kendisi değil namaza hazırlık sağlayan hükmî temizliktir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Abdest",
+            "right": "Bazı ibadetler için yapılan hükmî temizlik"
+          },
+          {
+            "left": "Başı mesh",
+            "right": "Başı mesh etmek"
+          },
+          {
+            "left": "Teyemmüm",
+            "right": "Su bulunmadığında veya kullanılamadığında, şartlarına göre yapılan hükmî temizlik"
+          },
+          {
+            "left": "Mezhep farkı: niyet",
+            "right": "Mezhepler arasında hüküm farklılığı vardır"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions à leur définition : ablutions, essuyage de la tête, tayammum et intention.",
+        "explanation_tr": "Les ablutions ne sont pas la prière elle-même ; elles constituent une purification rituelle qui y prépare.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Les ablutions (wudû)",
+            "right": "Une purification rituelle accomplie pour certains actes d’adoration"
+          },
+          {
+            "left": "L’essuyage de la tête",
+            "right": "Passer les mains mouillées sur la tête"
+          },
+          {
+            "left": "Le tayammum (ablutions sèches)",
+            "right": "Purification rituelle permise sous certaines conditions lorsque l’eau manque ou ne peut être utilisée"
+          },
+          {
+            "left": "Différences entre écoles : l’intention",
+            "right": "La règle diffère selon les écoles juridiques"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "La préparation à la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-007": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Ayaklar ___ birlikte yıkanır.",
+        "explanation_tr": "Ayette ayakların topuklarla birlikte yıkanması emredilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "topuklarla",
+          "dirseklerle"
+        ],
+        "correct_answer": "topuklarla",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : il faut laver les pieds, y compris ___.",
+        "explanation_tr": "Le verset prescrit de laver les pieds, chevilles comprises.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "purification",
+          "visage",
+          "les chevilles",
+          "les coudes"
+        ],
+        "correct_answer": "les chevilles",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Les pieds pendant les ablutions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-008": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Abdestte tertibin hükmü mezheplere göre ___ gösterebilir.",
+        "explanation_tr": "Abdestte tertibin fıkhî sınıflandırması mezheplere göre farklılaşabilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "farklılık",
+          "dirseklerle"
+        ],
+        "correct_answer": "farklılık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : le statut de l’ordre des gestes des ablutions peut présenter des ___ selon les écoles juridiques.",
+        "explanation_tr": "Le statut juridique de l’ordre des gestes des ablutions peut varier selon les écoles.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "purification",
+          "visage",
+          "différences",
+          "les coudes"
+        ],
+        "correct_answer": "différences",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Différences entre écoles : l’ordre des gestes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-009": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Abdest ayetinde ___ yıkanması emredilir.",
+        "explanation_tr": "Mâide 5:6 yüzün yıkanmasını abdestin temel unsurları arasında zikreder.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "dirseklerle",
+          "yüz",
+          "mesh"
+        ],
+        "correct_answer": "yüz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Association : complète : le verset sur les ablutions prescrit de laver le ___.",
+        "explanation_tr": "La sourate Al-Mâ’ida (5:6) cite le lavage du visage parmi les principaux gestes des ablutions.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "purification",
+          "les coudes",
+          "visage",
+          "essuyée"
+        ],
+        "correct_answer": "visage",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Le visage pendant les ablutions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-010": {
+      "source": {
+        "question_tr": "Eşleştirme: boşluğu tamamla: Teyemmüm temiz ___ veya toprak cinsinden bir şeyle yapılır.",
+        "explanation_tr": "Diyanet fetvası teyemmümü temiz toprak veya toprak cinsinden bir şeyle yapılan hükmî temizlik olarak açıklar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "toprak",
+          "dirseklerle"
+        ],
+        "correct_answer": "toprak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Association : complète : le tayammum se pratique avec de la ___ propre ou une matière de nature terreuse.",
+        "explanation_tr": "Une fatwa de Diyanet explique que le tayammum est une purification rituelle effectuée avec de la terre propre ou une matière de nature terreuse.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "purification",
+          "visage",
+          "terre",
+          "les coudes"
+        ],
+        "correct_answer": "terre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Le support du tayammum"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-011": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Abdest namazın kendisi değil namaza ___ sağlar.",
+        "explanation_tr": "Abdest namazın kendisi değil namaza hazırlık sağlayan hükmî temizliktir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "hazırlık",
+          "dirseklerle"
+        ],
+        "correct_answer": "hazırlık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : les ablutions ne remplacent pas la prière ; elles servent de ___ à celle-ci.",
+        "explanation_tr": "Les ablutions ne sont pas la prière elle-même ; elles constituent une purification rituelle qui y prépare.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "purification",
+          "visage",
+          "préparation",
+          "les coudes"
+        ],
+        "correct_answer": "préparation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "La préparation à la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-012": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Ayaklar ___ birlikte yıkanır.",
+        "explanation_tr": "Ayette ayakların topuklarla birlikte yıkanması emredilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "topuklarla",
+          "dirseklerle"
+        ],
+        "correct_answer": "topuklarla",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : il faut laver les pieds, y compris ___.",
+        "explanation_tr": "Le verset prescrit de laver les pieds, chevilles comprises.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "purification",
+          "visage",
+          "les chevilles",
+          "les coudes"
+        ],
+        "correct_answer": "les chevilles",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Les pieds pendant les ablutions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Abdestte tertibin hükmü mezheplere göre ___ gösterebilir.",
+        "explanation_tr": "Abdestte tertibin fıkhî sınıflandırması mezheplere göre farklılaşabilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "yüz",
+          "farklılık",
+          "dirseklerle"
+        ],
+        "correct_answer": "farklılık",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : le statut de l’ordre des gestes peut présenter des ___ selon les écoles.",
+        "explanation_tr": "Le statut juridique de l’ordre des gestes des ablutions peut varier selon les écoles.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "purification",
+          "visage",
+          "différences",
+          "les coudes"
+        ],
+        "correct_answer": "différences",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Différences entre écoles : l’ordre des gestes"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U12-S03-014": {
+      "source": {
+        "question_tr": "Boşluğu doldur: Abdest ayetinde ___ yıkanması emredilir.",
+        "explanation_tr": "Mâide 5:6 yüzün yıkanmasını abdestin temel unsurları arasında zikreder.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "temizlik",
+          "dirseklerle",
+          "yüz",
+          "mesh"
+        ],
+        "correct_answer": "yüz",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : le verset sur les ablutions prescrit de laver le ___.",
+        "explanation_tr": "La sourate Al-Mâ’ida (5:6) cite le lavage du visage parmi les principaux gestes des ablutions.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "purification",
+          "les coudes",
+          "visage",
+          "essuyée"
+        ],
+        "correct_answer": "visage",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Apprendre les gestes des ablutions",
+        "topic": "Le visage pendant les ablutions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

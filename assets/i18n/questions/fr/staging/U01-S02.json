@@ -1,0 +1,561 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U01",
+  "stage": "U01-S02",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U01-S02-001": {
+      "source": {
+        "question_tr": "\"Müslüman\" kavramı başlangıç düzeyinde en doğru hangi ifadeyle açıklanır?",
+        "explanation_tr": "Müslümanlık milliyet, dil veya doğum yerine göre değil; kişinin İslam'ı benimsemesiyle ilgili bir inanç kimliğidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İslam dinini benimseyen kişi",
+          "Belirli bir ülkede doğmuş kişi",
+          "Belirli bir dili konuşan kişi",
+          "Yalnızca Müslüman bir ailede büyümüş kişi"
+        ],
+        "correct_answer": "İslam dinini benimseyen kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle définition du mot « musulman » est la plus juste pour débuter ?",
+        "explanation_tr": "Être musulman est une identité fondée sur l’adhésion à l’islam, et non sur la nationalité, la langue ou le lieu de naissance.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Une personne qui adhère à l’islam",
+          "Une personne née dans un pays déterminé",
+          "Une personne qui parle une langue particulière",
+          "Une personne qui a simplement grandi dans une famille musulmane"
+        ],
+        "correct_answer": "Une personne qui adhère à l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Être musulman"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-002": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi \"iman\"ı en iyi tanımlar?",
+        "explanation_tr": "İman öncelikle kalpte gerçekleşen bir kabul ve inanma halidir; dışa yansıyan davranışlar bu inancın sonucudur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kalben inanıp bunu kabul etmek",
+          "Sadece bir ibadeti düzenli yapmak",
+          "Sadece dini bir kitap okumak",
+          "Sadece bir toplulukla vakit geçirmek"
+        ],
+        "correct_answer": "Kalben inanıp bunu kabul etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition définit le mieux la « foi » ?",
+        "explanation_tr": "La foi est avant tout une conviction et une adhésion intérieures ; les actes qui en découlent expriment cette croyance.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Croire et accepter sincèrement avec le cœur",
+          "Pratiquer uniquement un rite de façon régulière",
+          "Lire uniquement un livre religieux",
+          "Passer seulement du temps avec une communauté"
+        ],
+        "correct_answer": "Croire et accepter sincèrement avec le cœur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "La foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-003": {
+      "source": {
+        "question_tr": "İman kişinin kalbindeki inancıyla ilgilidir; ancak ibadetler bu imanın yaşama yansımasında önemli bir rol oynar.",
+        "explanation_tr": "İman kalpte başlar, ancak ibadetler bu imanın davranışa dönüşmesinde ve güçlenmesinde önemli bir yer tutar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi concerne la conviction intérieure, tandis que les actes d’adoration jouent un rôle important dans sa mise en pratique.",
+        "explanation_tr": "La foi prend racine dans le cœur ; l’adoration contribue à la manifester dans les actes et à la renforcer.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Foi et adoration"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-004": {
+      "source": {
+        "question_tr": "İbadetin temel yönelişi aşağıdakilerden hangisidir?",
+        "explanation_tr": "İbadetin özü, kulluğu Allah'a has kılmak ve samimi biçimde O'nun rızasını gözetmektir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'a kulluk etmek ve O'nun rızasını gözetmek",
+          "İnsanların beğenisini kazanmak",
+          "Sadece gelenekleri sürdürmek",
+          "Toplumda üstün görünmek"
+        ],
+        "correct_answer": "Allah'a kulluk etmek ve O'nun rızasını gözetmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle est l’orientation essentielle de l’adoration ?",
+        "explanation_tr": "L’essence de l’adoration consiste à vouer son culte à Allah avec sincérité et à rechercher Son agrément.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Adorer Allah et rechercher Son agrément",
+          "Chercher l’admiration des autres",
+          "Se contenter de perpétuer des traditions",
+          "Paraître supérieur aux autres dans la société"
+        ],
+        "correct_answer": "Adorer Allah et rechercher Son agrément",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Le but de l’adoration"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-005": {
+      "source": {
+        "question_tr": "İslam dinini benimseyen kişiye \"___\" denir.",
+        "explanation_tr": "Müslüman kelimesi, İslam dinini benimseyen kişiyi ifade eder.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Müslüman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne qui adhère à l’islam est appelée « ___ ».",
+        "explanation_tr": "Le mot « musulman » désigne une personne qui adhère à la religion de l’islam.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "musulman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Être musulman"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-006": {
+      "source": {
+        "question_tr": "İbadette temel yöneliş, kulluğu ______ has kılmak ve O'nun rızasını gözetmektir.",
+        "explanation_tr": "Beyyine 98:5 ve ihlas kaynakları, kulluğu Allah'a has kılmayı vurgular.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah'a",
+          "insanlara",
+          "geleneğe",
+          "topluma"
+        ],
+        "correct_answer": "Allah'a",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans l’adoration, l’essentiel est de vouer son culte à ______ et de rechercher Son agrément.",
+        "explanation_tr": "Le verset 98:5 de la sourate Al-Bayyina et les enseignements sur la sincérité soulignent que l’adoration doit être vouée à Allah.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Allah",
+          "des personnes",
+          "la tradition",
+          "la société"
+        ],
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Le but de l’adoration"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-007": {
+      "source": {
+        "question_tr": "İman, bir şeyi ___ ile kabul edip inanmaktır.",
+        "explanation_tr": "İman, öncelikle kalpte gerçekleşen bir kabul sürecidir.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "kalp",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi consiste à accepter et à croire avec le ___ .",
+        "explanation_tr": "La foi est d’abord une adhésion intérieure qui prend naissance dans le cœur.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "cœur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "La foi"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-008": {
+      "source": {
+        "question_tr": "İman, ibadet, ahlak ve Müslüman kavramlarını doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "İman, ibadet, ahlak ve Müslüman kavramları birbiriyle ilişkili ama farklı anlamlar taşır; bu farkları ayırt etmek temel anlayış için önemlidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İman",
+            "right": "Kalben inanma"
+          },
+          {
+            "left": "İbadet",
+            "right": "Allah'a yönelik bilinçli kulluk davranışı"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Güzel davranış ve doğruluk"
+          },
+          {
+            "left": "Müslüman",
+            "right": "Allah'a inanan ve İslam'ı benimseyen kişi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions de foi, d’adoration, de morale et de musulman à leur définition.",
+        "explanation_tr": "La foi, l’adoration, la morale et le fait d’être musulman sont liés, mais ont des sens distincts. Les distinguer aide à comprendre les notions de base.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Foi",
+            "right": "Croire avec le cœur"
+          },
+          {
+            "left": "Adoration",
+            "right": "Acte conscient d’adoration voué à Allah"
+          },
+          {
+            "left": "Morale",
+            "right": "Bon comportement et droiture"
+          },
+          {
+            "left": "Musulman",
+            "right": "Personne qui croit en Allah et adhère à l’islam"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-009": {
+      "source": {
+        "question_tr": "Kur'an'ın Müslümanlar açısından önemi nedir?",
+        "explanation_tr": "Kur'an, Müslümanlar için inanç ve yaşam konusunda temel rehber kabul edilen kutsal kitaptır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnanç ve yaşamlarına yön veren temel kutsal kaynak olması",
+          "Yalnızca İslam tarihindeki olayları kronolojik olarak anlatması",
+          "Sadece ibadetlerin isimlerini listeleyen bir metin olması",
+          "Peygamberin hayatını anlatan tek biyografi kaynağı olması"
+        ],
+        "correct_answer": "İnanç ve yaşamlarına yön veren temel kutsal kaynak olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Pourquoi le Coran est-il important pour les musulmans ?",
+        "explanation_tr": "Le Coran est le livre sacré que les musulmans considèrent comme une source essentielle pour leur foi et leur manière de vivre.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Parce qu’il est leur source sacrée de référence pour la foi et la vie",
+          "Parce qu’il rapporte uniquement les événements de l’histoire de l’islam dans l’ordre chronologique",
+          "Parce qu’il contient seulement une liste des noms des actes d’adoration",
+          "Parce qu’il est l’unique biographie du Prophète"
+        ],
+        "correct_answer": "Parce qu’il est leur source sacrée de référence pour la foi et la vie",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "L’importance du Coran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-010": {
+      "source": {
+        "question_tr": "Peygamberin (Hz. Muhammed) İslam'daki rolü nedir?",
+        "explanation_tr": "Hz. Muhammed'in peygamberlik rolü, Allah'ın mesajını insanlara iletmesi ve bu mesajı yaşayışıyla örneklemesiyle açıklanır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah'ın mesajını insanlara iletmek ve yaşayışıyla örnek olmak",
+          "Yalnızca toplumsal düzeni yönetmek",
+          "Kendi görüşlerini dinin kaynağı hâline getirmek",
+          "Sadece tarihî olayları kaydetmek"
+        ],
+        "correct_answer": "Allah'ın mesajını insanlara iletmek ve yaşayışıyla örnek olmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel est le rôle du prophète Muhammad dans l’islam ?",
+        "explanation_tr": "La mission prophétique de Muhammad consiste à transmettre le message d’Allah et à en montrer l’application par son exemple de vie.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Transmettre le message d’Allah et servir d’exemple par sa vie",
+          "Se limiter à diriger l’organisation sociale",
+          "Faire de ses opinions personnelles la source de la religion",
+          "Se contenter de consigner des faits historiques"
+        ],
+        "correct_answer": "Transmettre le message d’Allah et servir d’exemple par sa vie",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Le rôle du Prophète"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-011": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlak birbirinden tamamen bağımsız, birbiriyle ilgisiz kavramlardır.",
+        "explanation_tr": "İman, ibadet ve ahlak birbirini besleyen ve tamamlayan kavramlardır; İslam bu üçünü bir bütün olarak görür.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La foi, l’adoration et la morale sont des notions entièrement indépendantes, sans lien entre elles.",
+        "explanation_tr": "La foi, l’adoration et la morale se complètent et se nourrissent mutuellement ; l’islam les envisage comme des dimensions liées.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Les liens entre les trois notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-012": {
+      "source": {
+        "question_tr": "Aşağıdaki kavramları ilişkili oldukları alanlarla eşleştir.",
+        "explanation_tr": "Kur'an, peygamber ve ibadet kavramları İslam'ın farklı ama birbirine bağlı yönlerini temsil eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Kur'an",
+            "right": "Temel kutsal kaynak"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Örnek alınan öğretici"
+          },
+          {
+            "left": "İbadet",
+            "right": "Uygulamaya dökülen kulluk"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe chaque notion au domaine qui lui correspond.",
+        "explanation_tr": "Le Coran, le Prophète et l’adoration représentent différentes dimensions de l’islam, distinctes mais liées.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Coran",
+            "right": "Source sacrée fondamentale"
+          },
+          {
+            "left": "Prophète",
+            "right": "Enseignant qui sert d’exemple"
+          },
+          {
+            "left": "Adoration",
+            "right": "Mise en pratique du culte voué à Allah"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-013": {
+      "source": {
+        "question_tr": "Aşağıdaki kavram çiftlerini eşleştir.",
+        "explanation_tr": "Bu kavramlar birbirinden farklı ama tamamlayıcı unsurlardır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Müslüman",
+            "right": "İslam'a inanan kişi"
+          },
+          {
+            "left": "İman",
+            "right": "Kalpteki inanç"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Güzel huy ve davranış"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les éléments de chaque paire.",
+        "explanation_tr": "Ces notions ont des significations distinctes, mais complémentaires.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Musulman",
+            "right": "Personne qui croit en l’islam"
+          },
+          {
+            "left": "Foi",
+            "right": "Conviction intérieure"
+          },
+          {
+            "left": "Morale",
+            "right": "Qualités et comportements vertueux"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "Associer les notions"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-014": {
+      "source": {
+        "question_tr": "\"Ahlak\" kavramı en temelde neyi ifade eder?",
+        "explanation_tr": "Ahlak, kişinin doğru, dürüst, saygılı ve güzel davranışlarla ilgili tutum ve karakterini ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsanın doğru ve güzel davranışlarla ilgili tutum ve karakterini",
+          "İbadetlerin yalnızca biçimsel sırasını",
+          "Bir toplumun bütün geleneklerini",
+          "Yalnızca yazılı hukuk kurallarını"
+        ],
+        "correct_answer": "İnsanın doğru ve güzel davranışlarla ilgili tutum ve karakterini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Que désigne fondamentalement la « morale » ?",
+        "explanation_tr": "La morale concerne les attitudes et le caractère d’une personne, notamment la droiture, l’honnêteté, le respect et les bonnes actions.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Les attitudes et le caractère liés aux comportements justes et vertueux",
+          "Uniquement l’ordre formel des rites religieux",
+          "L’ensemble des traditions d’une société",
+          "Uniquement les règles du droit écrit"
+        ],
+        "correct_answer": "Les attitudes et le caractère liés aux comportements justes et vertueux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Comprendre les notions fondamentales",
+        "topic": "La morale"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

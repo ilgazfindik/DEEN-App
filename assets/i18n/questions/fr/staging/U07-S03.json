@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U07",
+  "stage": "U07-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U07-S03-001": {
+      "source": {
+        "question_tr": "Mâide 5:48'de Kur'an'ın önceki kitaplarla ilişkisi nasıl açıklanır?",
+        "explanation_tr": "Mâide 5:48 Kur'an'ı önceki kitapları tasdik edici ve onları denetleyici olarak tanımlar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Onları tasdik eden ve üzerlerinde denetleyici olan kitap",
+          "Önceki vahiyleri tamamen yok sayan metin",
+          "Sadece tarih bilgisi veren kitap",
+          "İnsanlarca yazılmış ortak metin"
+        ],
+        "correct_answer": "Onları tasdik eden ve üzerlerinde denetleyici olan kitap",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment Al-Maida 5:48 présente-t-il le rapport du Coran aux Écritures antérieures ?",
+        "explanation_tr": "Le verset décrit le Coran comme confirmant les Écritures précédentes et veillant sur elles.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Un Livre qui les confirme et fait autorité à leur égard",
+          "Un texte qui ignore toute révélation précédente",
+          "Un Livre contenant uniquement des connaissances historiques",
+          "Un texte collectif écrit par des humains"
+        ],
+        "correct_answer": "Un Livre qui les confirme et fait autorité à leur égard",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-002": {
+      "source": {
+        "question_tr": "Mâide 5:48'e göre Kur'an, önceki kitapları ______ edici olarak indirilmiştir.",
+        "explanation_tr": "Ayette Kur'an'ın kendisinden önceki ilahî kitapları tasdik ettiği belirtilir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "tasdik",
+          "inkâr",
+          "gizleme",
+          "değersizleştirme"
+        ],
+        "correct_answer": "tasdik",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Maida 5:48, le Coran a été révélé pour ______ les Livres antérieurs.",
+        "explanation_tr": "Le verset indique que le Coran confirme les Écritures divines précédentes.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "confirmer",
+          "nier",
+          "cacher",
+          "dévaloriser"
+        ],
+        "correct_answer": "confirmer",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-003": {
+      "source": {
+        "question_tr": "Mâide 5:48 Kur'an'ın önceki ilahî kitaplarla hiçbir bağının olmadığını öğretir.",
+        "explanation_tr": "Aksine ayet Kur'an'ın önceki kitapları tasdik ettiğini açıkça bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Maida 5:48 enseigne que le Coran n’a aucun lien avec les révélations antérieures.",
+        "explanation_tr": "Au contraire, le verset indique clairement qu’il confirme les Livres précédents.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Kur'an önceki vahiylerin Allah'tan geldiğini bütünüyle reddeder' diyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Âl-i İmrân 3:3-4 ve Mâide 5:48 önceki vahiylerle kaynak ve doğrulama ilişkisini açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an önceki ilahî kitapları tasdik ettiğini bildirir",
+          "Kur'an yalnız kendisini tarih metni sayar",
+          "Kur'an Tevrat ve İncil'den hiç söz etmez",
+          "Kur'an vahiy fikrini reddeder"
+        ],
+        "correct_answer": "Kur'an önceki ilahî kitapları tasdik ettiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « Le Coran nie complètement l’origine divine des révélations antérieures. » Quelle correction faut-il faire ?",
+        "explanation_tr": "Al-Imran 3:3-4 et Al-Maida 5:48 décrivent le lien entre ces révélations et leur origine divine.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le Coran affirme qu’il confirme les Livres précédemment révélés par Allah",
+          "Le Coran se considère uniquement comme un texte historique",
+          "Le Coran ne mentionne jamais la Torah ni l’Évangile",
+          "Le Coran rejette le principe même de la révélation"
+        ],
+        "correct_answer": "Le Coran affirme qu’il confirme les Livres précédemment révélés par Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-005": {
+      "source": {
+        "question_tr": "Mâide 5:48'de 'müheymin' anlam alanına en yakın ifade hangisidir?",
+        "explanation_tr": "Diyanet mealinde ayet Kur'an'ı önceki kitapları tasdik eden ve onları denetleyen kitap olarak çevirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Önceki kitaplar üzerinde gözetici/denetleyici",
+          "Önceki vahiylerden bağımsız",
+          "Yalnız şiirsel",
+          "Sadece bir toplumun tarihi"
+        ],
+        "correct_answer": "Önceki kitaplar üzerinde gözetici/denetleyici",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle expression se rapproche le plus du sens de « muhaymin » dans Al-Maida 5:48 ?",
+        "explanation_tr": "Dans la traduction de Diyanet, le Coran confirme les Écritures antérieures et exerce un rôle de référence et de surveillance à leur égard.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Garant et autorité de référence à l’égard des Livres antérieurs",
+          "Indépendant des révélations précédentes",
+          "Simplement poétique",
+          "Simple histoire d’un seul peuple"
+        ],
+        "correct_answer": "Garant et autorité de référence à l’égard des Livres antérieurs",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-006": {
+      "source": {
+        "question_tr": "Bir notta 'Kur'an, Tevrat ve İncil'in Allah tarafından indirildiğini reddeder' yazıyor. Hata nedir?",
+        "explanation_tr": "Kur'an önceki ilahî vahiylerin Allah'tan geldiğini açıkça kabul eder.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Âl-i İmrân 3:3-4 Tevrat ve İncil'in Allah tarafından indirildiğini bildirir",
+          "Kur'an Tevrat'ı insan şiiri sayar",
+          "İncil Kur'an'da hiç anılmaz",
+          "Tevrat yalnız Zebur'un diğer adıdır"
+        ],
+        "correct_answer": "Âl-i İmrân 3:3-4 Tevrat ve İncil'in Allah tarafından indirildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note dit : « Le Coran nie que la Torah et l’Évangile aient été révélés par Allah. » Quelle est l’erreur ?",
+        "explanation_tr": "Le Coran reconnaît explicitement que les révélations divines antérieures viennent d’Allah.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Al-Imran 3:3-4 indique que la Torah et l’Évangile ont été révélés par Allah",
+          "Le Coran considère la Torah comme une poésie humaine",
+          "L’Évangile n’est jamais mentionné dans le Coran",
+          "La Torah est simplement un autre nom du Zabour"
+        ],
+        "correct_answer": "Al-Imran 3:3-4 indique que la Torah et l’Évangile ont été révélés par Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-007": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki vahiylerle ilişkisini kavramlarla eşleştir.",
+        "explanation_tr": "Mâide 5:48 Kur'an'ın önceki kitaplarla ilişkisini tasdik ve denetim kavramlarıyla açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tasdik",
+            "right": "Önceki ilahî vahiylerin aslını doğrulama"
+          },
+          {
+            "left": "Müheymin",
+            "right": "Ölçü ve denetim konumu"
+          },
+          {
+            "left": "Vahiy",
+            "right": "Kaynağı Allah olan ilahî bildirim"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions décrivant les rapports du Coran aux révélations antérieures.",
+        "explanation_tr": "Al-Maida 5:48 présente le Coran comme confirmant les révélations antérieures et faisant autorité à leur égard.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Confirmation",
+            "right": "Reconnaître la vérité des révélations divines antérieures"
+          },
+          {
+            "left": "Muhaymin",
+            "right": "Rôle de référence et de discernement"
+          },
+          {
+            "left": "Révélation",
+            "right": "Message divin dont Allah est la source"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-008": {
+      "source": {
+        "question_tr": "Mâide 5:48'e göre Kur'an'ın önceki kitaplarla ilişkisini tek cümleyle özetle.",
+        "explanation_tr": "Ayette Kur'an'ın hem doğrulayıcı hem de ölçü/denetim konumu vurgulanır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kur'an önceki ilahî kitapları tasdik eden ve onlar üzerinde denetleyici bir konumda bulunan Allah'ın kitabıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Résume en une phrase le rapport entre le Coran et les Livres précédents selon Al-Maida 5:48.",
+        "explanation_tr": "Le verset souligne que le Coran confirme les révélations précédentes et sert de référence pour les examiner.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Le Coran est un Livre révélé par Allah qui confirme les Écritures divines antérieures et fait autorité à leur égard.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-009": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki vahiyleri tasdik etmesi, bütün insan yorumlarını vahiy sayması demektir.",
+        "explanation_tr": "Tasdik, Allah'tan gelen vahiylerin aslını doğrulamakla ilgilidir; insan yorumlarını otomatik olarak vahiy yapmaz.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Confirmer les révélations antérieures signifie considérer automatiquement tous les commentaires humains comme de la révélation.",
+        "explanation_tr": "La confirmation porte sur l’origine divine des révélations et non sur tous les commentaires humains.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-010": {
+      "source": {
+        "question_tr": "Mâide 5:48 Kur'an'ı önceki kitapları tasdik edici ve onları ______ bir kitap olarak tanımlar.",
+        "explanation_tr": "Diyanet mealinde ayette Kur'an'ın önceki kitapları denetleyici konumu ifade edilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "denetleyici",
+          "yok sayan",
+          "taklit eden",
+          "insanlaştıran"
+        ],
+        "correct_answer": "denetleyici",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Maida 5:48, le Coran confirme les Livres précédents et exerce à leur égard un rôle de ______.",
+        "explanation_tr": "La traduction étudiée souligne le rôle de discernement et de référence du Coran à l’égard des Écritures antérieures.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "référence",
+          "négation",
+          "imitation",
+          "humanisation"
+        ],
+        "correct_answer": "référence",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-011": {
+      "source": {
+        "question_tr": "Birisi 'Önceki vahiylerle ilgili bir iddia Kur'an'ın açık ölçüsüyle çelişse de aynen kabul edilmelidir' diyor. En uygun cevap nedir?",
+        "explanation_tr": "Kur'an önceki vahiyler konusunda yalnız tasdik değil, denetleyici/ölçü belirleyici bir konum da bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mâide 5:48 Kur'an'a doğrulayıcı ve denetleyici bir konum verir",
+          "Kur'an hiçbir ölçü sunmaz",
+          "Bütün metinler eşit derecede vahiydir",
+          "Kaynak karşılaştırması gereksizdir"
+        ],
+        "correct_answer": "Mâide 5:48 Kur'an'a doğrulayıcı ve denetleyici bir konum verir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne affirme : « Même si un récit sur les révélations anciennes contredit clairement les critères coraniques, il doit être accepté tel quel. » Quelle réponse convient ?",
+        "explanation_tr": "Le Coran se présente à la fois comme confirmation et comme référence permettant le discernement.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Maida 5:48 attribue au Coran un rôle de confirmation et d’autorité de référence",
+          "Le Coran ne fournit aucun critère",
+          "Tous les textes sont des révélations au même titre",
+          "Comparer les sources est inutile"
+        ],
+        "correct_answer": "Al-Maida 5:48 attribue au Coran un rôle de confirmation et d’autorité de référence",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-012": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki vahiylerle ilişkisini açıklarken hangi cümle en dengelidir?",
+        "explanation_tr": "Âl-i İmrân 3:3-4 kaynak birliğini, Mâide 5:48 tasdik ve denetim ilişkisini vurgular.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Aynı ilahî kaynağı doğrular ve Kur'an kendi ölçüsünü sunar",
+          "Önceki bütün vahiyleri reddeder",
+          "Her tarihî metni koşulsuz vahiy sayar",
+          "Vahiyler arasında hiçbir bağlantı yoktur"
+        ],
+        "correct_answer": "Aynı ilahî kaynağı doğrular ve Kur'an kendi ölçüsünü sunar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle description des rapports du Coran aux révélations antérieures est la plus équilibrée ?",
+        "explanation_tr": "Al-Imran 3:3-4 souligne leur origine divine commune ; Al-Maida 5:48 évoque la confirmation et la référence.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le Coran confirme leur origine divine et fournit ses propres critères de discernement",
+          "Il rejette toutes les révélations antérieures",
+          "Il tient tous les écrits historiques pour des révélations",
+          "Il n’existe aucun lien entre les révélations"
+        ],
+        "correct_answer": "Le Coran confirme leur origine divine et fournit ses propres critères de discernement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-013": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:3'te Kur'an'ın kendinden öncekileri ______ olarak indirildiği belirtilir.",
+        "explanation_tr": "Ayette Kur'an'ın önceki vahiyleri tasdik eden bir kitap olduğu belirtilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "doğrulayıcı",
+          "reddedici",
+          "unutucu",
+          "değiştirici"
+        ],
+        "correct_answer": "doğrulayıcı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Imran 3:3, le Coran a été révélé comme ______ les Écritures précédentes.",
+        "explanation_tr": "Le verset décrit le Coran comme confirmant les révélations antérieures.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "confirmant",
+          "rejetant",
+          "oubliant",
+          "modifiant"
+        ],
+        "correct_answer": "confirmant",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S03-014": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki vahiylerle ilişkisini düşünürken doğru sıralamayı oluştur.",
+        "explanation_tr": "Bu sıra, kaynak birliği ile Kur'an'ın ölçü belirleyici konumunu birlikte anlamayı sağlar.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Önceki vahiylerin Allah'tan geldiğini kabul et",
+          "Kur'an'ın onları tasdik ettiğini bil",
+          "Kur'an'ın denetleyici ölçüsünü dikkate al",
+          "Kaynakta olmayan iddiaları kesinleştirme"
+        ],
+        "correct_order": [
+          "Önceki vahiylerin Allah'tan geldiğini kabul et",
+          "Kur'an'ın onları tasdik ettiğini bil",
+          "Kur'an'ın denetleyici ölçüsünü dikkate al",
+          "Kaynakta olmayan iddiaları kesinleştirme"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe les étapes d’une réflexion sur le rapport du Coran aux révélations antérieures.",
+        "explanation_tr": "Cette démarche aide à comprendre à la fois l’origine divine commune et le rôle de référence du Coran.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Reconnaître l’origine divine des révélations antérieures",
+          "Comprendre que le Coran les confirme",
+          "Tenir compte de son rôle de référence et de discernement",
+          "Ne pas présenter les affirmations sans source comme certaines"
+        ],
+        "correct_order": [
+          "Reconnaître l’origine divine des révélations antérieures",
+          "Comprendre que le Coran les confirme",
+          "Tenir compte de son rôle de référence et de discernement",
+          "Ne pas présenter les affirmations sans source comme certaines"
+        ],
+        "stage_title": "Le Coran et les révélations antérieures",
+        "topic": "Confirmation et rôle de référence"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

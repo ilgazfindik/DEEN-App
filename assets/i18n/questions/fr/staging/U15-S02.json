@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U15",
+  "stage": "U15-S02",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U15-S02-001": {
+      "source": {
+        "question_tr": "Kavram kontrolü: unutarak yemek hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Sahih hadisler ve Diyanet ilmihalinde unutarak yeme içmenin orucu bozmadığı açıklanır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Oruç mutlaka bilerek bozulmuş sayılır",
+          "Ramazan'ın tamamını baştan tutar",
+          "Hatırlayınca orucuna devam eder",
+          "Namaz kılamaz"
+        ],
+        "correct_answer": "Hatırlayınca orucuna devam eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vérifie tes connaissances : que doit faire une personne ayant mangé par oubli pendant son jeûne ?",
+        "explanation_tr": "Des hadiths authentiques et le manuel de Diyanet précisent que manger ou boire par oubli n’invalide pas le jeûne.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Le jeûne est nécessairement considéré comme volontairement invalidé",
+          "La personne doit recommencer le mois entier de Ramadan",
+          "La personne poursuit son jeûne dès qu’elle s’en souvient",
+          "La personne ne peut plus accomplir la prière"
+        ],
+        "correct_answer": "La personne poursuit son jeûne dès qu’elle s’en souvient",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Manger par oubli"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-002": {
+      "source": {
+        "question_tr": "Ramazan orucunun günlük vakit sınırı nedir?",
+        "explanation_tr": "Bakara 2:187 yeme içmenin fecre kadar serbest olduğunu sonra orucun geceye kadar tamamlanmasını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Öğleden gece yarısına kadar",
+          "Sadece sabah namazı süresince",
+          "Fecr-i sadıktan güneş batıncaya kadar",
+          "Günün rastgele iki saati"
+        ],
+        "correct_answer": "Fecr-i sadıktan güneş batıncaya kadar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelles sont les limites horaires quotidiennes du jeûne de Ramadan ?",
+        "explanation_tr": "La sourate Al-Baqara (2:187) permet de manger et de boire jusqu’à l’aube et ordonne ensuite d’achever le jeûne jusqu’à la nuit.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "De midi à minuit",
+          "Uniquement pendant la prière de l’aube",
+          "De l’aube véritable jusqu’au coucher du soleil",
+          "Deux heures choisies au hasard dans la journée"
+        ],
+        "correct_answer": "De l’aube véritable jusqu’au coucher du soleil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Les horaires du jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-003": {
+      "source": {
+        "question_tr": "Kur'an ayı konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Bakara 2:185 Ramazan'ı Kur'an'ın indirildiği ay olarak tanıtır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Kur'an okumakla ilgisiz olması",
+          "Sadece tarihî bir ay olması",
+          "Kur'an'ın indirildiği ay olması",
+          "Namaz vakitlerini kaldırması"
+        ],
+        "correct_answer": "Kur'an'ın indirildiği ay olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation décrit correctement le lien entre Ramadan et le Coran ?",
+        "explanation_tr": "La sourate Al-Baqara (2:185) présente le Ramadan comme le mois de la révélation du Coran.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Cela n’a aucun rapport avec la lecture du Coran",
+          "C’est seulement un mois historique",
+          "C’est le mois durant lequel le Coran a été révélé",
+          "Cela supprime les horaires de prière"
+        ],
+        "correct_answer": "C’est le mois durant lequel le Coran a été révélé",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Le mois de la révélation du Coran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-004": {
+      "source": {
+        "question_tr": "Kefaret hükümlerindeki ayrıntılar hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu bazı kefaret hükümlerinde mezhepler arası ayrıntı farklarını açıkça gösterir. DEEN bu ayrıntıyı evrensel tek cevap yapmaz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Bütün mezhepler her durumda tamamen aynı kefaret hükmünü verir",
+          "Kefaret kavramı İslam hukukunda yoktur",
+          "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır",
+          "Her oruç hatası otomatik aynı kefareti gerektirir"
+        ],
+        "correct_answer": "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation sur les règles d’expiation (kaffâra) est correcte ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses reconnaît des divergences entre écoles juridiques dans certains détails de l’expiation. DEEN ne transforme pas ces détails en une réponse universelle unique.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Toutes les écoles appliquent exactement le même jugement d’expiation en toute situation",
+          "La notion d’expiation n’existe pas en droit musulman",
+          "Les détails des règles d’expiation diffèrent entre écoles juridiques dans certaines situations",
+          "Toute erreur commise pendant le jeûne exige automatiquement la même expiation"
+        ],
+        "correct_answer": "Les détails des règles d’expiation diffèrent entre écoles juridiques dans certaines situations",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Les détails de l’expiation (kaffâra)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-005": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Oruç vaktinde cinsel ilişki orucun temel sınırlarıyla ilgisizdir.",
+        "explanation_tr": "Bakara 2:187 oruç gecesi ile gündüzü ayırarak gündüz oruç sınırlarını açıklar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Les rapports sexuels pendant les heures de jeûne ne font pas partie des interdictions liées au jeûne.",
+        "explanation_tr": "La sourate Al-Baqara (2:187) distingue la nuit de la journée de jeûne et précise les limites de l’abstinence diurne.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Les rapports sexuels"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-006": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Orucunu unutarak yiyen kişi hatırlayınca orucuna devam eder.",
+        "explanation_tr": "Sahih hadisler ve Diyanet ilmihalinde unutarak yeme içmenin orucu bozmadığı açıklanır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Une personne qui mange par oubli continue son jeûne lorsqu’elle s’en souvient.",
+        "explanation_tr": "Des hadiths authentiques et le manuel de Diyanet précisent que manger ou boire par oubli n’invalide pas le jeûne.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Manger par oubli"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Ramazan orucu yalnız öğle ile ikindi arasında tutulur.",
+        "explanation_tr": "Bakara 2:187 yeme içmenin fecre kadar serbest olduğunu sonra orucun geceye kadar tamamlanmasını bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? Pendant Ramadan, le jeûne ne dure que de midi à l’après-midi.",
+        "explanation_tr": "La sourate Al-Baqara (2:187) permet de manger et de boire jusqu’à l’aube et ordonne ensuite d’achever le jeûne jusqu’à la nuit.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Les horaires du jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-008": {
+      "source": {
+        "question_tr": "Bir arkadaşın Kur'an ayı hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Bakara 2:185 Ramazan'ı Kur'an'ın indirildiği ay olarak tanıtır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an okumakla ilgisiz olması",
+          "Sadece tarihî bir ay olması",
+          "Kur'an'ın indirildiği ay olması",
+          "Namaz vakitlerini kaldırması"
+        ],
+        "correct_answer": "Kur'an'ın indirildiği ay olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande pourquoi Ramadan est appelé le mois du Coran. Que lui réponds-tu ?",
+        "explanation_tr": "La sourate Al-Baqara (2:185) présente le Ramadan comme le mois de la révélation du Coran.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Cela n’a aucun rapport avec la lecture du Coran",
+          "C’est seulement un mois historique",
+          "C’est le mois durant lequel le Coran a été révélé",
+          "Cela supprime les horaires de prière"
+        ],
+        "correct_answer": "C’est le mois durant lequel le Coran a été révélé",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Le mois de la révélation du Coran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-009": {
+      "source": {
+        "question_tr": "Kefaret hükümlerindeki ayrıntılar konusunda hangi ilke doğrudur?",
+        "explanation_tr": "Din İşleri Yüksek Kurulu bazı kefaret hükümlerinde mezhepler arası ayrıntı farklarını açıkça gösterir. DEEN bu ayrıntıyı evrensel tek cevap yapmaz.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bütün mezhepler her durumda tamamen aynı kefaret hükmünü verir",
+          "Kefaret kavramı İslam hukukunda yoktur",
+          "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır",
+          "Her oruç hatası otomatik aynı kefareti gerektirir"
+        ],
+        "correct_answer": "Bazı durumların kefaret hükmünde mezhepler arasında ayrıntı farklılıkları vardır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel principe respecte les différences juridiques concernant l’expiation ?",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses reconnaît des divergences entre écoles juridiques dans certains détails de l’expiation. DEEN ne transforme pas ces détails en une réponse universelle unique.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Toutes les écoles appliquent exactement le même jugement d’expiation en toute situation",
+          "La notion d’expiation n’existe pas en droit musulman",
+          "Les détails des règles d’expiation diffèrent entre écoles juridiques dans certaines situations",
+          "Toute erreur commise pendant le jeûne exige automatiquement la même expiation"
+        ],
+        "correct_answer": "Les détails des règles d’expiation diffèrent entre écoles juridiques dans certaines situations",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Les détails de l’expiation (kaffâra)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-010": {
+      "source": {
+        "question_tr": "Bir öğrenci “Oruç vaktinde cinsel ilişki orucun temel sınırlarıyla ilgisizdir.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Bakara 2:187 oruç gecesi ile gündüzü ayırarak gündüz oruç sınırlarını açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Uyumamak",
+          "Konuşmamak",
+          "Cinsel ilişkiden uzak durmak",
+          "Evden çıkmamak"
+        ],
+        "correct_answer": "Cinsel ilişkiden uzak durmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Les rapports sexuels ne concernent pas les limites du jeûne. » Quelle réponse le corrige ?",
+        "explanation_tr": "La sourate Al-Baqara (2:187) distingue la nuit de la journée de jeûne et précise les limites de l’abstinence diurne.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ne pas dormir",
+          "Ne pas parler",
+          "S’abstenir de rapports sexuels",
+          "Ne pas sortir de chez soi"
+        ],
+        "correct_answer": "S’abstenir de rapports sexuels",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Les rapports sexuels"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-011": {
+      "source": {
+        "question_tr": "“Unutarak bir lokma yiyen kişinin orucu bilerek bozulmuş kabul edilir.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Sahih hadisler ve Diyanet ilmihalinde unutarak yeme içmenin orucu bozmadığı açıklanır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Oruç mutlaka bilerek bozulmuş sayılır",
+          "Ramazan'ın tamamını baştan tutar",
+          "Hatırlayınca orucuna devam eder",
+          "Namaz kılamaz"
+        ],
+        "correct_answer": "Hatırlayınca orucuna devam eder",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Manger une bouchée par oubli invalide volontairement le jeûne » ?",
+        "explanation_tr": "Des hadiths authentiques et le manuel de Diyanet précisent que manger ou boire par oubli n’invalide pas le jeûne.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le jeûne est nécessairement considéré comme volontairement invalidé",
+          "La personne doit recommencer le mois entier de Ramadan",
+          "La personne poursuit son jeûne dès qu’elle s’en souvient",
+          "La personne ne peut plus accomplir la prière"
+        ],
+        "correct_answer": "La personne poursuit son jeûne dès qu’elle s’en souvient",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Manger par oubli"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-012": {
+      "source": {
+        "question_tr": "Vakit hakkında yapılan yanlış genellemeyi hangi ifade düzeltir?",
+        "explanation_tr": "Bakara 2:187 yeme içmenin fecre kadar serbest olduğunu sonra orucun geceye kadar tamamlanmasını bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Öğleden gece yarısına kadar",
+          "Sadece sabah namazı süresince",
+          "Fecr-i sadıktan güneş batıncaya kadar",
+          "Günün rastgele iki saati"
+        ],
+        "correct_answer": "Fecr-i sadıktan güneş batıncaya kadar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige l’idée erronée sur les heures du jeûne ?",
+        "explanation_tr": "La sourate Al-Baqara (2:187) permet de manger et de boire jusqu’à l’aube et ordonne ensuite d’achever le jeûne jusqu’à la nuit.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "De midi à minuit",
+          "Uniquement pendant la prière de l’aube",
+          "De l’aube véritable jusqu’au coucher du soleil",
+          "Deux heures choisies au hasard dans la journée"
+        ],
+        "correct_answer": "De l’aube véritable jusqu’au coucher du soleil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Les horaires du jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-013": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Ramazan ___ indirildiği ay olarak anılır.",
+        "explanation_tr": "Bakara 2:185 Ramazan'ı Kur'an'ın indirildiği ay olarak tanıtır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "Kur'an'ın",
+          "batıncaya"
+        ],
+        "correct_answer": "Kur'an'ın",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : Ramadan est le mois où ___ a été révélé.",
+        "explanation_tr": "La sourate Al-Baqara (2:185) présente le Ramadan comme le mois de la révélation du Coran.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "abstinence",
+          "le jeûne",
+          "le Coran",
+          "jusqu’au coucher du soleil"
+        ],
+        "correct_answer": "le Coran",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Le mois de la révélation du Coran"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S02-014": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Kefaretin bazı ayrıntılarında mezhep ___ bulunabilir.",
+        "explanation_tr": "Din İşleri Yüksek Kurulu bazı kefaret hükümlerinde mezhepler arası ayrıntı farklarını açıkça gösterir. DEEN bu ayrıntıyı evrensel tek cevap yapmaz.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "farklılığı",
+          "batıncaya"
+        ],
+        "correct_answer": "farklılığı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : certains détails de l’expiation présentent ___ entre les écoles juridiques.",
+        "explanation_tr": "Le Haut Conseil des affaires religieuses reconnaît des divergences entre écoles juridiques dans certains détails de l’expiation. DEEN ne transforme pas ces détails en une réponse universelle unique.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "abstinence",
+          "le jeûne",
+          "des différences",
+          "jusqu’au coucher du soleil"
+        ],
+        "correct_answer": "des différences",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Le Ramadan et la conscience d’Allah",
+        "topic": "Les détails de l’expiation (kaffâra)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

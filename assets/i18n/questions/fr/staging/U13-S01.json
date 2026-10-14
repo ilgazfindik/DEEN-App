@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U13",
+  "stage": "U13-S01",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U13-S01-001": {
+      "source": {
+        "question_tr": "Temel kavram: necasetten temizlik hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Namaza hazırlıkta necasetten taharet beden elbise ve yer temizliğini kapsar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mümkün olduğunca kirli olmaları",
+          "Sadece renklerinin aynı olması",
+          "Namaza engel necasetten temiz olmaları",
+          "Yalnızca yeni satın alınmış olmaları"
+        ],
+        "correct_answer": "Namaza engel necasetten temiz olmaları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Notion fondamentale : quelle affirmation sur l’élimination des impuretés matérielles est correcte ?",
+        "explanation_tr": "Se préparer à la prière implique d’éliminer les impuretés matérielles du corps, des vêtements et du lieu de prière.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Être aussi sale que possible",
+          "Porter uniquement des vêtements aux couleurs assorties",
+          "Ne présenter aucune impureté matérielle incompatible avec la prière",
+          "Porter uniquement des vêtements neufs"
+        ],
+        "correct_answer": "Ne présenter aucune impureté matérielle incompatible avec la prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "Purification des impuretés matérielles"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-002": {
+      "source": {
+        "question_tr": "Temel kavram: vakit hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Nisâ 4:103 namazın müminler üzerine vakitleri belirlenmiş bir görev olduğunu bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Her farz namaz günün herhangi saatinde aynı şekilde kılınır",
+          "Vakit sadece isteğe bağlı bir ayrıntıdır",
+          "Farz namaz belirlenmiş vakti girdikten sonra kılınır",
+          "Namaz vakitten tamamen bağımsızdır"
+        ],
+        "correct_answer": "Farz namaz belirlenmiş vakti girdikten sonra kılınır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Notion fondamentale : quelle affirmation sur l’horaire des prières est correcte ?",
+        "explanation_tr": "La sourate An-Nisâ’ (4:103) précise que la prière est prescrite aux croyants à des moments déterminés.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Toute prière obligatoire peut être accomplie de la même manière à n’importe quelle heure",
+          "L’horaire est un simple détail facultatif",
+          "La prière obligatoire est accomplie après le début de son horaire prescrit",
+          "La prière ne dépend absolument pas des horaires"
+        ],
+        "correct_answer": "La prière obligatoire est accomplie après le début de son horaire prescrit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "L’horaire de la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-003": {
+      "source": {
+        "question_tr": "Temel kavram: yatsı namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde yatsı namazının farzı dört rekâttır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "5 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Notion fondamentale : combien de rakʿât comprend la prière obligatoire du soir (‘ichâ’) ?",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire du soir (‘ichâ’) comprend quatre rakʿât.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 rakʿât",
+          "3 rakʿât",
+          "4 rakʿât",
+          "5 rakʿât"
+        ],
+        "correct_answer": "4 rakʿât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "La prière du soir (‘ichâ’)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-004": {
+      "source": {
+        "question_tr": "Temel kavram: ezan konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Ezan namaz vaktini ve topluluğu namaza çağırmayı ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazın yerine geçmek",
+          "Abdesti bozmak",
+          "Namaz vaktini ve namaza çağrıyı duyurmak",
+          "Oruç vaktini tek başına belirlemek"
+        ],
+        "correct_answer": "Namaz vaktini ve namaza çağrıyı duyurmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Notion fondamentale : quel est le rôle de l’appel à la prière (adhân) ?",
+        "explanation_tr": "L’appel à la prière (adhân) annonce son horaire et invite la communauté à prier.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Remplacer la prière",
+          "Invalider les ablutions",
+          "Annoncer l’heure de la prière et appeler les fidèles à prier",
+          "Déterminer à lui seul l’heure du jeûne"
+        ],
+        "correct_answer": "Annoncer l’heure de la prière et appeler les fidèles à prier",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "L’appel à la prière (adhân)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-005": {
+      "source": {
+        "question_tr": "Öğle namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde öğle namazının farzı dört rekâttır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "5 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Combien de rakʿât comprend la prière obligatoire de midi (dhohr) ?",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire de midi (dhohr) comprend quatre rakʿât.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 rakʿât",
+          "3 rakʿât",
+          "4 rakʿât",
+          "5 rakʿât"
+        ],
+        "correct_answer": "4 rakʿât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "La prière de midi (dhohr)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-006": {
+      "source": {
+        "question_tr": "Kısa kontrol: temel kavram: necasetten temizlik hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Namaza hazırlıkta necasetten taharet beden elbise ve yer temizliğini kapsar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mümkün olduğunca kirli olmaları",
+          "Sadece renklerinin aynı olması",
+          "Namaza engel necasetten temiz olmaları",
+          "Yalnızca yeni satın alınmış olmaları"
+        ],
+        "correct_answer": "Namaza engel necasetten temiz olmaları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vérification rapide : quelle affirmation sur l’élimination des impuretés matérielles est correcte ?",
+        "explanation_tr": "Se préparer à la prière implique d’éliminer les impuretés matérielles du corps, des vêtements et du lieu de prière.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Être aussi sale que possible",
+          "Porter uniquement des vêtements aux couleurs assorties",
+          "Ne présenter aucune impureté matérielle incompatible avec la prière",
+          "Porter uniquement des vêtements neufs"
+        ],
+        "correct_answer": "Ne présenter aucune impureté matérielle incompatible avec la prière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "Purification des impuretés matérielles"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Farz namaz, belirlenmiş vakti girdikten sonra kılınır.",
+        "explanation_tr": "Nisâ 4:103 namazın müminler üzerine vakitleri belirlenmiş bir görev olduğunu bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? La prière obligatoire s’accomplit après le début de son horaire prescrit.",
+        "explanation_tr": "La sourate An-Nisâ’ (4:103) précise que la prière est prescrite aux croyants à des moments déterminés.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "L’horaire de la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-008": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Yatsı namazının farzı iki rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde yatsı namazının farzı dört rekâttır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? La prière obligatoire du soir (‘ichâ’) comprend deux rakʿât.",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire du soir (‘ichâ’) comprend quatre rakʿât.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "La prière du soir (‘ichâ’)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-009": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Ezan, namaz vaktini ve namaza çağrıyı duyurur.",
+        "explanation_tr": "Ezan namaz vaktini ve topluluğu namaza çağırmayı ifade eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Vrai ou faux ? L’adhân annonce l’heure de la prière et invite les fidèles à prier.",
+        "explanation_tr": "L’appel à la prière (adhân) annonce son horaire et invite la communauté à prier.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "L’appel à la prière (adhân)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-010": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Öğle namazının farzı ___ rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde öğle namazının farzı dört rekâttır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "dört",
+          "iki"
+        ],
+        "correct_answer": "dört",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : la prière obligatoire de midi (dhohr) comprend ___ rakʿât.",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire de midi (dhohr) comprend quatre rakʿât.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "horaire",
+          "cinq",
+          "quatre",
+          "deux"
+        ],
+        "correct_answer": "quatre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "La prière de midi (dhohr)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-011": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Beden elbise ve namaz yeri namaza engel ___ temizlenir.",
+        "explanation_tr": "Namaza hazırlıkta necasetten taharet beden elbise ve yer temizliğini kapsar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "necasetten",
+          "iki"
+        ],
+        "correct_answer": "necasetten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : le corps, les vêtements et le lieu de prière doivent être débarrassés des ___ incompatibles avec la prière.",
+        "explanation_tr": "Se préparer à la prière implique d’éliminer les impuretés matérielles du corps, des vêtements et du lieu de prière.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "horaire",
+          "cinq",
+          "impuretés matérielles",
+          "deux"
+        ],
+        "correct_answer": "impuretés matérielles",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "Purification des impuretés matérielles"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-012": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Farz namazın belirlenmiş ___ vardır.",
+        "explanation_tr": "Nisâ 4:103 namazın müminler üzerine vakitleri belirlenmiş bir görev olduğunu bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "beş",
+          "iki",
+          "vakti",
+          "dört"
+        ],
+        "correct_answer": "vakti",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : chaque prière obligatoire a un ___ prescrit.",
+        "explanation_tr": "La sourate An-Nisâ’ (4:103) précise que la prière est prescrite aux croyants à des moments déterminés.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "cinq",
+          "deux",
+          "horaire",
+          "quatre"
+        ],
+        "correct_answer": "horaire",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "L’horaire de la prière"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Yatsı namazının farzı ___ rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde yatsı namazının farzı dört rekâttır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "dört",
+          "iki"
+        ],
+        "correct_answer": "dört",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : la prière obligatoire du soir (‘ichâ’) comprend ___ rakʿât.",
+        "explanation_tr": "Le guide de la prière de Diyanet indique que la prière obligatoire du soir (‘ichâ’) comprend quatre rakʿât.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "horaire",
+          "cinq",
+          "quatre",
+          "deux"
+        ],
+        "correct_answer": "quatre",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "La prière du soir (‘ichâ’)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U13-S01-014": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Ezan namaz vaktini ve namaza ___ duyurur.",
+        "explanation_tr": "Ezan namaz vaktini ve topluluğu namaza çağırmayı ifade eder.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "çağrıyı",
+          "iki"
+        ],
+        "correct_answer": "çağrıyı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la notion manquante : l’adhân annonce l’heure de la prière et lance l’___ à la prière.",
+        "explanation_tr": "L’appel à la prière (adhân) annonce son horaire et invite la communauté à prier.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "horaire",
+          "cinq",
+          "appel",
+          "deux"
+        ],
+        "correct_answer": "appel",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Se préparer à la prière",
+        "topic": "L’appel à la prière (adhân)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

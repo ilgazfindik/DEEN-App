@@ -1,0 +1,511 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U02",
+  "stage": "U02-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U02-S03-001": {
+      "source": {
+        "question_tr": "İslam inancında Allah'ın yaratıcı olması neyi ifade eder?",
+        "explanation_tr": "Bu ünitede yaratıcı kavramı, varlıkların Allah'ın yaratmasıyla var olduğu inancı üzerinden öğretilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Varlıkların O'nun yaratmasıyla var olduğunu",
+          "Allah'ın yaratılmışlardan biri olduğunu",
+          "İnsanların yaratma bakımından Allah'la eşit olduğunu",
+          "Evrenin Allah'tan bağımsız bir yaratıcı olduğunu"
+        ],
+        "correct_answer": "Varlıkların O'nun yaratmasıyla var olduğunu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans la foi islamique, que signifie le fait qu’Allah soit le Créateur ?",
+        "explanation_tr": "Cette unité présente la notion de Créateur à partir de la conviction que les êtres existent par la création d’Allah.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Que les êtres existent parce qu’Il les a créés",
+          "Qu’Allah est Lui-même l’une des créatures",
+          "Que les humains sont égaux à Allah dans la création",
+          "Que l’univers possède un créateur indépendant d’Allah"
+        ],
+        "correct_answer": "Que les êtres existent parce qu’Il les a créés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-002": {
+      "source": {
+        "question_tr": "İslam inancında Allah yaratıcı, diğer varlıklar ise yaratılmış kabul edilir.",
+        "explanation_tr": "Yaratıcı ile yaratılan arasındaki bu ayrım, ünitenin temel kavramlarından biridir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon la croyance islamique, Allah est le Créateur et tous les autres êtres sont créés.",
+        "explanation_tr": "Cette distinction entre le Créateur et les créatures est l’une des notions fondamentales de l’unité.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-003": {
+      "source": {
+        "question_tr": "İslam inancına göre Allah ______dır.",
+        "explanation_tr": "Bu kısa ifade, Allah ile yaratılmışlar arasındaki temel ayrımı hatırlatır.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "yaratıcı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon la foi islamique, Allah est le ______.",
+        "explanation_tr": "Cette formule rappelle la distinction fondamentale entre Allah et les êtres créés.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "Créateur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-004": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi yaratıcı ile yaratılan arasındaki ayrımı doğru kurar?",
+        "explanation_tr": "İslam inancında Allah yaratıcıdır; yaratılmışlar ise O'nun yaratmasıyla var olan varlıklardır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah yaratıcıdır; evren ve içindeki varlıklar yaratılmıştır",
+          "Allah ile yaratılmışlar aynı tür varlıklardır",
+          "Yaratılmışlar Allah'ın ortağıdır",
+          "İnsanlar yaratıcı oldukları için Allah'la aynı konumdadır"
+        ],
+        "correct_answer": "Allah yaratıcıdır; evren ve içindeki varlıklar yaratılmıştır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition distingue correctement le Créateur des êtres créés ?",
+        "explanation_tr": "Dans la croyance islamique, Allah est le Créateur ; les êtres de l’univers existent par Sa création.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah est le Créateur ; l’univers et les êtres qu’il contient sont créés",
+          "Allah et les créatures sont des êtres de même nature",
+          "Les créatures sont des associés d’Allah",
+          "Les humains sont à égalité avec Allah parce qu’ils créent"
+        ],
+        "correct_answer": "Allah est le Créateur ; l’univers et les êtres qu’il contient sont créés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-005": {
+      "source": {
+        "question_tr": "Bu ünitede “yaratıcı” sözcüğü Allah için hangi anlamda kullanılır?",
+        "explanation_tr": "Gündelik dilde insanlar için 'yaratıcı' denebilse de bu ünitedeki dinî kullanım Allah'ın yaratması anlamındadır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Varlığı var eden asıl yaratıcı anlamında",
+          "Bir ürünü tasarlayan insan anlamında",
+          "Yeni bir fikir bulan kişi anlamında",
+          "Bir işi yöneten kişi anlamında"
+        ],
+        "correct_answer": "Varlığı var eden asıl yaratıcı anlamında",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans cette unité, en quel sens appelle-t-on Allah « Créateur » ?",
+        "explanation_tr": "Dans la vie courante, on peut qualifier une personne de créative, mais ici le terme religieux désigne l’acte par lequel Allah donne l’existence aux êtres.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Celui qui donne l’existence aux êtres",
+          "Une personne qui conçoit un produit",
+          "Une personne qui trouve une idée nouvelle",
+          "Une personne qui dirige une activité"
+        ],
+        "correct_answer": "Celui qui donne l’existence aux êtres",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-006": {
+      "source": {
+        "question_tr": "Yaratılmış olmak, bir varlığın Allah ile aynı konumda olduğu anlamına gelir.",
+        "explanation_tr": "Yaratılmış olmak, Allah'ın yaratıcı oluşundan farklı bir konumu ifade eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Être créé signifie occuper le même rang qu’Allah.",
+        "explanation_tr": "Être une créature est une condition différente de celle d’Allah, qui est le Créateur.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-007": {
+      "source": {
+        "question_tr": "Allah yaratıcıdır; insanlar ve diğer varlıklar ise ______tır.",
+        "explanation_tr": "Bu ifade, yaratıcı-yaratılan ayrımını kısa biçimde özetler.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "yaratılmış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Allah est le Créateur ; les humains et les autres êtres sont ______.",
+        "explanation_tr": "Cette phrase résume simplement la différence entre le Créateur et les créatures.",
+        "activity_type": "fill_blank",
+        "options_tr": null,
+        "correct_answer": "créés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-008": {
+      "source": {
+        "question_tr": "Yaratıcı ve yaratılmışlarla ilgili kavramları doğru açıklamalarıyla eşleştir.",
+        "explanation_tr": "Kavramları ayırmak, yaratıcı-yaratılan ilişkisini daha açık anlamaya yardımcı olur.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Yaratıcı",
+            "right": "Bu ünitede Allah için kullanılan temel kavram"
+          },
+          {
+            "left": "Yaratılmış",
+            "right": "Allah'ın yaratmasıyla var olan"
+          },
+          {
+            "left": "Nimet",
+            "right": "Şükürle ilişkilendirilen bir iyilik veya imkân"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions liées au Créateur et aux créatures à leur définition.",
+        "explanation_tr": "Distinguer ces notions aide à mieux comprendre le lien entre Créateur et créatures.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Créateur",
+            "right": "Notion fondamentale désignant Allah dans cette unité"
+          },
+          {
+            "left": "Créature",
+            "right": "Être qui existe par la création d’Allah"
+          },
+          {
+            "left": "Bienfait",
+            "right": "Don ou possibilité suscitant la gratitude"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-009": {
+      "source": {
+        "question_tr": "“Allah yaratıcıdır; ______ ise yaratılmıştır.” ifadesindeki boşluğa hangisi en uygun gelir?",
+        "explanation_tr": "İnsan, yaratılmış varlıklardan biridir; tevhid ve kulluk ise varlık türü değil kavramlardır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "insan",
+          "Allah'ın birliği",
+          "tevhid",
+          "kulluk"
+        ],
+        "correct_answer": "insan",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse complète le mieux : « Allah est le Créateur ; ______ est une créature » ?",
+        "explanation_tr": "L’être humain fait partie des créatures ; le tawhid et l’adoration sont des notions, et non des catégories d’êtres.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "l’être humain",
+          "l’unicité d’Allah",
+          "le tawhid",
+          "l’adoration"
+        ],
+        "correct_answer": "l’être humain",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-010": {
+      "source": {
+        "question_tr": "Cevabı görmeden önce hatırla: İslam inancında varlıkları yaratan kimdir?",
+        "explanation_tr": "Bu soru, yaratıcı kavramını doğrudan hatırlamayı amaçlar.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Avant de découvrir la réponse, rappelle-toi : qui crée les êtres selon la croyance islamique ?",
+        "explanation_tr": "Cette question vise à rappeler directement la notion de Créateur.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Allah",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-011": {
+      "source": {
+        "question_tr": "Allah ile yaratılmışlar arasındaki ilişkiyi anlatırken hangisi daha doğru bir başlangıçtır?",
+        "explanation_tr": "Başlangıç seviyesinde temel ayrım, Allah'ın yaratıcı; diğer varlıkların yaratılmış olmasıdır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah yaratıcıdır; yaratılmışlar O'nun yaratmasıyla var olur",
+          "Allah da yaratılmışlardan biridir",
+          "Yaratılmışlar Allah'ın parçalarıdır",
+          "Allah ile yaratılmışlar arasında hiçbir fark yoktur"
+        ],
+        "correct_answer": "Allah yaratıcıdır; yaratılmışlar O'nun yaratmasıyla var olur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle formulation est la plus juste pour présenter le lien entre Allah et les êtres créés ?",
+        "explanation_tr": "Pour débuter, on distingue Allah, le Créateur, des autres êtres qui existent par Sa création.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah est le Créateur ; les créatures existent par Sa création",
+          "Allah est Lui-même une créature",
+          "Les créatures sont des parties d’Allah",
+          "Il n’existe aucune différence entre Allah et les créatures"
+        ],
+        "correct_answer": "Allah est le Créateur ; les créatures existent par Sa création",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-012": {
+      "source": {
+        "question_tr": "Bir insan mevcut malzemelerden masa ürettiğinde, bu neden ünitedeki “Allah her şeyin yaratıcısıdır” ifadesiyle aynı anlamda kullanılmaz?",
+        "explanation_tr": "Gündelik üretme/yapma ile Kur'an'ın Allah için kullandığı yaratıcı kavramı aynı düzeyde ele alınmaz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsan mevcut malzemeleri dönüştürüp bir ürün ortaya koyar; ünitedeki yaratıcı kavramı varlıkların Allah tarafından yaratılmasıyla ilgilidir",
+          "İnsan hiçbir şey üretemez",
+          "Masa yapmak dinî bir davranış değildir",
+          "İnsanların yaptığı her şey ibadettir"
+        ],
+        "correct_answer": "İnsan mevcut malzemeleri dönüştürüp bir ürün ortaya koyar; ünitedeki yaratıcı kavramı varlıkların Allah tarafından yaratılmasıyla ilgilidir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Pourquoi la fabrication d’une table à partir de matériaux existants n’a-t-elle pas le même sens que « Allah est le Créateur de toute chose » ?",
+        "explanation_tr": "Fabriquer un objet avec des matériaux existants n’est pas assimilé à l’acte de création attribué à Allah dans les textes religieux.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "L’être humain transforme des matériaux existants ; ici, « Créateur » désigne Allah, qui donne l’existence aux êtres",
+          "L’être humain ne peut fabriquer aucun objet",
+          "Fabriquer une table n’est pas une activité religieuse",
+          "Tout ce que fabriquent les humains constitue un acte d’adoration"
+        ],
+        "correct_answer": "L’être humain transforme des matériaux existants ; ici, « Créateur » désigne Allah, qui donne l’existence aux êtres",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-013": {
+      "source": {
+        "question_tr": "Bir açıklamada “Allah yaratıcıdır; bu yüzden yaratılmışlardan biri gibi düşünülebilir” deniyor. Temel hata hangisidir?",
+        "explanation_tr": "Bu ünitedeki temel çerçevede Allah yaratıcıdır ve yaratılmışlardan farklıdır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Yaratıcı ile yaratılan arasındaki ayrımı ortadan kaldırması",
+          "Yaratıcı kelimesini kullanması",
+          "Cümleyi kısa tutması",
+          "İnanç konusunu anlatması"
+        ],
+        "correct_answer": "Yaratıcı ile yaratılan arasındaki ayrımı ortadan kaldırması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une explication affirme : « Allah est le Créateur ; on peut donc Le considérer comme l’une des créatures. » Quelle est l’erreur fondamentale ?",
+        "explanation_tr": "Dans cette unité, Allah est présenté comme le Créateur, distinct des êtres créés.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Elle efface la différence entre le Créateur et la créature",
+          "Elle emploie le mot « Créateur »",
+          "Elle exprime l’idée de manière concise",
+          "Elle aborde un sujet de foi"
+        ],
+        "correct_answer": "Elle efface la différence entre le Créateur et la créature",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U02-S03-014": {
+      "source": {
+        "question_tr": "Yaratıcı-yaratılan ayrımını hatırlamak için hangisi en uygun özet cümledir?",
+        "explanation_tr": "Bu cümle, ünitenin bu aşamasındaki temel ayrımı en sade biçimde özetler.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah yaratıcıdır; diğer varlıklar yaratılmıştır",
+          "Her varlık kendi kendisinin yaratıcısıdır",
+          "Yaratıcı ve yaratılmış aynı anlama gelir",
+          "Yaratılmış olmak yaratıcı olmakla aynıdır"
+        ],
+        "correct_answer": "Allah yaratıcıdır; diğer varlıklar yaratılmıştır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle phrase résume le mieux la distinction entre Créateur et créatures ?",
+        "explanation_tr": "Cette phrase présente simplement la distinction centrale de cette étape.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Allah est le Créateur ; tous les autres êtres sont créés",
+          "Chaque être est son propre créateur",
+          "Les mots « Créateur » et « créature » ont le même sens",
+          "Être créé et être le Créateur sont identiques"
+        ],
+        "correct_answer": "Allah est le Créateur ; tous les autres êtres sont créés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Allah, le Créateur",
+        "topic": "Le Créateur et les créatures"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

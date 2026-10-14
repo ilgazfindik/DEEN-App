@@ -1,0 +1,641 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U07",
+  "stage": "U07-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U07-S04-001": {
+      "source": {
+        "question_tr": "Âl-i İmrân 3:3-4'ün ilahî kitaplar hakkında vurguladığı temel ortaklık nedir?",
+        "explanation_tr": "Diyanet tefsiri bu ayetlerde ilahî kitaplar arasında kaynak birliğine dikkat çekildiğini belirtir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Aynı ilahî kaynaktan gelmeleri",
+          "Aynı dilde yazılmış olmaları",
+          "Aynı dönemde inmeleri",
+          "Aynı topluma hitap etmeleri"
+        ],
+        "correct_answer": "Aynı ilahî kaynaktan gelmeleri",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle origine commune des Livres divins Al-Imran 3:3-4 souligne-t-il ?",
+        "explanation_tr": "Ces versets mettent l’accent sur l’origine divine commune des Livres révélés.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ils proviennent de la même source divine",
+          "Ils ont été écrits dans la même langue",
+          "Ils ont été révélés à la même époque",
+          "Ils ont été adressés au même peuple"
+        ],
+        "correct_answer": "Ils proviennent de la même source divine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-002": {
+      "source": {
+        "question_tr": "Kur'an'ın önceki kitapları tasdik etmesi, vahyin kaynağındaki birliğe işaret eder.",
+        "explanation_tr": "Âl-i İmrân 3:3-4 ve Mâide 5:48 ilahî kitaplar arasında kaynak ve mesaj ilişkisini vurgular.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La confirmation des Livres antérieurs par le Coran indique l’unité de leur source divine.",
+        "explanation_tr": "Al-Imran 3:3-4 et Al-Maida 5:48 soulignent le lien entre l’origine et le message de ces révélations.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-003": {
+      "source": {
+        "question_tr": "İlahî kitapların ortak temel özelliği, Allah tarafından ______ olmalarıdır.",
+        "explanation_tr": "İlahî kitapların ortak noktası vahyin Allah'tan gelmesidir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "indirilmiş",
+          "insanlarca uydurulmuş",
+          "krallar tarafından yazılmış",
+          "yalnız sözlü aktarılmış"
+        ],
+        "correct_answer": "indirilmiş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le point commun fondamental des Livres divins est qu’ils ont été ______ par Allah.",
+        "explanation_tr": "L’origine commune des Livres divins est la révélation provenant d’Allah.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "révélés",
+          "inventés par les humains",
+          "écrits par les rois",
+          "transmis uniquement oralement"
+        ],
+        "correct_answer": "révélés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-004": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Tevrat, İncil ve Kur'an farklı peygamberlere geldiği için kaynakları da farklıdır' diyor. En iyi düzeltme hangisidir?",
+        "explanation_tr": "Âl-i İmrân 3:3-4 farklı kitapların aynı Allah tarafından indirildiğini bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Peygamberler farklı olsa da vahyin kaynağı Allah'tır",
+          "Her peygamber kendi ilahını seçer",
+          "Kitaplar yalnız kültürel ürünlerdir",
+          "Kur'an kaynak birliğini reddeder"
+        ],
+        "correct_answer": "Peygamberler farklı olsa da vahyin kaynağı Allah'tır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « La Torah, l’Évangile et le Coran ont été révélés à des prophètes différents ; ils ont donc des sources différentes. » Que répondre ?",
+        "explanation_tr": "Al-Imran 3:3-4 montre que différents Livres ont été révélés par le même Allah.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Les prophètes sont différents, mais Allah est la source de la révélation",
+          "Chaque prophète choisit sa propre divinité",
+          "Ces Livres sont uniquement des produits culturels",
+          "Le Coran nie l’unité de leur origine"
+        ],
+        "correct_answer": "Les prophètes sont différents, mais Allah est la source de la révélation",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-005": {
+      "source": {
+        "question_tr": "Bir içerikte 'İncil'in ilahî kaynağı Kur'an'a göre belirsizdir' deniyor. Hata nedir?",
+        "explanation_tr": "Âl-i İmrân 3:3-4 ve Mâide 5:46 İncil'in ilahî vahiy olarak verildiğini açıkça belirtir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Kur'an İncil'in Allah tarafından verildiğini bildirir",
+          "İncil Kur'an'da hiç anılmaz",
+          "İncil Zebur'un başka adıdır",
+          "İncil yalnız tarih kitabıdır"
+        ],
+        "correct_answer": "Kur'an İncil'in Allah tarafından verildiğini bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un article affirme : « L’origine divine de l’Évangile est incertaine selon le Coran. » Quelle est l’erreur ?",
+        "explanation_tr": "Al-Imran 3:3-4 et Al-Maida 5:46 indiquent que l’Évangile a été donné comme révélation divine.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Le Coran indique qu’Allah a donné l’Évangile à Jésus",
+          "Le Coran ne mentionne pas l’Évangile",
+          "L’Évangile est un autre nom du Zabour",
+          "L’Évangile n’est qu’un livre d’histoire"
+        ],
+        "correct_answer": "Le Coran indique qu’Allah a donné l’Évangile à Jésus",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-006": {
+      "source": {
+        "question_tr": "Kitapların ayetlerdeki niteliklerini eşleştir.",
+        "explanation_tr": "Mâide 5:44, 46 ve 48 kitapların vahiy ve rehberlik işlevlerini farklı ifadelerle açıklar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Tevrat",
+            "right": "Hidayet ve nur içerdiği bildirilir"
+          },
+          {
+            "left": "İncil",
+            "right": "Hidayet, nur ve öğüt olarak anılır"
+          },
+          {
+            "left": "Kur'an",
+            "right": "Öncekileri tasdik eden ve denetleyen kitap"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les Livres aux caractéristiques mentionnées dans les versets.",
+        "explanation_tr": "Al-Maida 5:44, 46 et 48 décrit les Livres sous différents aspects de révélation et de guidance.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Torah",
+            "right": "Contient guidance et lumière"
+          },
+          {
+            "left": "Évangile",
+            "right": "Décrit comme guidance, lumière et exhortation"
+          },
+          {
+            "left": "Coran",
+            "right": "Confirme les Livres antérieurs et fait autorité à leur égard"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-007": {
+      "source": {
+        "question_tr": "Mâide 5:44 ve 5:46'nın ortak vurgularından biri hangisidir?",
+        "explanation_tr": "Her iki ayette de ilgili kitaplar için hidayet ve nur ifadeleri kullanılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Tevrat ve İncil'de hidayet ve nur bulunduğu",
+          "İki kitabın aynı peygambere verildiği",
+          "İki kitabın Kur'an'dan sonra indirildiği",
+          "İki kitabın insan sözü olduğu"
+        ],
+        "correct_answer": "Tevrat ve İncil'de hidayet ve nur bulunduğu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel aspect commun Al-Maida 5:44 et 5:46 soulignent-ils ?",
+        "explanation_tr": "Les deux versets mentionnent la guidance et la lumière à propos des Livres concernés.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La Torah et l’Évangile contiennent guidance et lumière",
+          "Les deux ont été donnés au même prophète",
+          "Les deux ont été révélés après le Coran",
+          "Les deux sont des textes uniquement humains"
+        ],
+        "correct_answer": "La Torah et l’Évangile contiennent guidance et lumière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-008": {
+      "source": {
+        "question_tr": "Birisi 'İlahî kitapların tek işlevi tarih anlatmaktır' diyor. Hangi ayetler bu genellemeyi doğrudan zayıflatır?",
+        "explanation_tr": "Bu ayetlerde Tevrat ve İncil hidayet ve nurla ilişkilendirilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mâide 5:44 ve 5:46",
+          "Yalnız Nisâ 4:163",
+          "Yalnız A'lâ 87:19",
+          "Yalnız Hicr 15:9"
+        ],
+        "correct_answer": "Mâide 5:44 ve 5:46",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne affirme : « Les Livres divins ne servent qu’à raconter des événements historiques. » Quels versets réfutent directement cette généralisation ?",
+        "explanation_tr": "Ces versets associent la Torah et l’Évangile à la guidance et à la lumière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Al-Maida 5:44 et 5:46",
+          "An-Nisa 4:163 seulement",
+          "Al-Ala 87:19 seulement",
+          "Al-Hijr 15:9 seulement"
+        ],
+        "correct_answer": "Al-Maida 5:44 et 5:46",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-009": {
+      "source": {
+        "question_tr": "Hidayet, nur ve tasdik kavramlarını doğru anlamlarıyla eşleştir.",
+        "explanation_tr": "Kur'an ilahî kitapları yalnız bilgi taşıyan metinler olarak değil, hidayet ve doğrulama işlevleriyle anlatır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Hidayet",
+            "right": "Doğru yola rehberlik"
+          },
+          {
+            "left": "Nur",
+            "right": "Aydınlatıcı ilahî yol gösterme"
+          },
+          {
+            "left": "Tasdik",
+            "right": "Önceki ilahî vahyi doğrulama"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les notions de guidance, de lumière et de confirmation à leur signification.",
+        "explanation_tr": "Le Coran présente les Livres divins à travers leur rôle de guidance et de confirmation, et non comme de simples recueils de faits.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Guidance",
+            "right": "Conduire sur la voie droite"
+          },
+          {
+            "left": "Lumière",
+            "right": "Éclairage spirituel apporté par la révélation"
+          },
+          {
+            "left": "Confirmation",
+            "right": "Reconnaissance de la vérité des révélations divines antérieures"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-010": {
+      "source": {
+        "question_tr": "İlahî kitapların ortak kaynağını ve temel işlevini bir cümleyle özetle.",
+        "explanation_tr": "Kur'an kitapların Allah'tan indirildiğini ve hidayet/nur işlevi taşıdığını bildirir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "İlahî kitaplar Allah'tan gelen vahiylerdir ve insanlara doğru yolu göstermek için rehberlik ederler.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Résume en une phrase l’origine commune et la fonction fondamentale des Livres divins.",
+        "explanation_tr": "Le Coran indique que ces Livres ont été révélés par Allah pour guider et éclairer les humains.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Les Livres divins sont des révélations provenant d’Allah qui guident les êtres humains vers le droit chemin.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-011": {
+      "source": {
+        "question_tr": "İlahî kitapların farklı dönemlerde indirilmiş olması, kaynaklarının farklı ilahlar olduğu anlamına gelir.",
+        "explanation_tr": "Kur'an farklı kitapları aynı Allah'ın indirdiğini bildirir.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le fait que les Livres aient été révélés à des époques différentes signifie qu’ils proviennent de divinités différentes.",
+        "explanation_tr": "Le Coran affirme que les différents Livres ont été révélés par Allah.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-012": {
+      "source": {
+        "question_tr": "Mâide 5:46'da İncil'in hangi niteliği ayrıca vurgulanır?",
+        "explanation_tr": "Ayette İncil hidayet, nur ve takvâ sahipleri için öğüt olarak anılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Takvâ sahipleri için öğüt olması",
+          "Sadece tarih listesi olması",
+          "Vahiy sayılmaması",
+          "Hiçbir rehberlik taşımaması"
+        ],
+        "correct_answer": "Takvâ sahipleri için öğüt olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle autre qualité de l’Évangile est soulignée dans Al-Maida 5:46 ?",
+        "explanation_tr": "Le verset présente l’Évangile comme guidance, lumière et exhortation pour les personnes pieuses.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Il est une exhortation pour les personnes pieuses",
+          "Il n’est qu’une liste d’événements historiques",
+          "Il n’est pas une révélation",
+          "Il n’apporte aucune guidance"
+        ],
+        "correct_answer": "Il est une exhortation pour les personnes pieuses",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-013": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Önceki vahiyleri kabul etmek Kur'an'ın önemini azaltır' diyor. En dengeli cevap hangisidir?",
+        "explanation_tr": "Mâide 5:48 tasdik ve denetim ifadelerini birlikte kullanır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur'an önceki vahiyleri tasdik ederken kendi denetleyici konumunu da bildirir",
+          "Önceki vahiyler hiç kabul edilmez",
+          "Kur'an tüm önceki peygamberleri reddeder",
+          "Bütün metinler Kur'an'la aynı konumdadır"
+        ],
+        "correct_answer": "Kur'an önceki vahiyleri tasdik ederken kendi denetleyici konumunu da bildirir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Accepter les révélations précédentes diminue l’importance du Coran. » Quelle réponse est la plus équilibrée ?",
+        "explanation_tr": "Al-Maida 5:48 souligne à la fois la confirmation des Livres précédents et l’autorité du Coran à leur égard.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le Coran confirme les révélations précédentes tout en affirmant son rôle de référence",
+          "Il ne faut accepter aucune révélation antérieure",
+          "Le Coran rejette tous les prophètes antérieurs",
+          "Tous les écrits occupent exactement le même rang que le Coran"
+        ],
+        "correct_answer": "Le Coran confirme les révélations précédentes tout en affirmant son rôle de référence",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-014": {
+      "source": {
+        "question_tr": "Mâide 5:44'te Tevrat için 'hidayet ve ______' ifadesi kullanılır.",
+        "explanation_tr": "Ayette Tevrat'ta hidayet ve nur bulunduğu belirtilir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "nur",
+          "servet",
+          "saltanat",
+          "gizem"
+        ],
+        "correct_answer": "nur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Maida 5:44 emploie à propos de la Torah l’expression « guidance et ______ ».",
+        "explanation_tr": "Le verset indique que la Torah contient guidance et lumière.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "lumière",
+          "richesse",
+          "pouvoir politique",
+          "mystère"
+        ],
+        "correct_answer": "lumière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-015": {
+      "source": {
+        "question_tr": "İlahî kitapların ortaklığını düşünürken mantıksal sırayı oluştur.",
+        "explanation_tr": "Bu sıra ilahî vahyin kaynak, iletim ve rehberlik boyutunu özetler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Kaynak Allah'tır",
+          "Vahiy peygambere indirilir",
+          "Mesaj insanlara ulaştırılır",
+          "Hidayet amacı öne çıkar"
+        ],
+        "correct_order": [
+          "Kaynak Allah'tır",
+          "Vahiy peygambere indirilir",
+          "Mesaj insanlara ulaştırılır",
+          "Hidayet amacı öne çıkar"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe les étapes permettant de comprendre ce que les Livres divins ont en commun.",
+        "explanation_tr": "Cette séquence résume l’origine, la transmission et la fonction de guidance de la révélation.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Allah est la source",
+          "La révélation est transmise au prophète",
+          "Le message est communiqué aux humains",
+          "La guidance constitue son objectif"
+        ],
+        "correct_order": [
+          "Allah est la source",
+          "La révélation est transmise au prophète",
+          "Le message est communiqué aux humains",
+          "La guidance constitue son objectif"
+        ],
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U07-S04-016": {
+      "source": {
+        "question_tr": "Tevrat, İncil ve Kur'an'ın ayetlerdeki ilişkisini öğretim amacıyla sırala.",
+        "explanation_tr": "Mâide 5:44, 46 ve 48 vahiyler arasındaki sürekliliği ve Kur'an'ın konumunu birlikte gösterir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Tevrat daha önce indirilir",
+          "İncil Tevrat'ı tasdik ederek verilir",
+          "Kur'an önceki kitapları tasdik eder",
+          "Kur'an denetleyici ölçü olarak sunulur"
+        ],
+        "correct_order": [
+          "Tevrat daha önce indirilir",
+          "İncil Tevrat'ı tasdik ederek verilir",
+          "Kur'an önceki kitapları tasdik eder",
+          "Kur'an denetleyici ölçü olarak sunulur"
+        ]
+      },
+      "display": {
+        "question_tr": "Replace dans l’ordre pédagogique les liens entre la Torah, l’Évangile et le Coran.",
+        "explanation_tr": "Al-Maida 5:44, 46 et 48 présente la continuité de la révélation ainsi que le rôle du Coran.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "La Torah est révélée auparavant",
+          "L’Évangile est donné en confirmant la Torah",
+          "Le Coran confirme les Livres antérieurs",
+          "Le Coran est présenté comme référence et critère"
+        ],
+        "correct_order": [
+          "La Torah est révélée auparavant",
+          "L’Évangile est donné en confirmant la Torah",
+          "Le Coran confirme les Livres antérieurs",
+          "Le Coran est présenté comme référence et critère"
+        ],
+        "stage_title": "L’origine commune des Livres divins",
+        "topic": "Guidance, lumière et confirmation"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

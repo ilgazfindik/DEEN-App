@@ -1,0 +1,557 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U04",
+  "stage": "U04-S03",
+  "question_count": 14,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U04-S03-001": {
+      "source": {
+        "question_tr": "Müslümanların Ramazan ayında yerine getirdiği temel ibadet hangisidir?",
+        "explanation_tr": "İslam'ın şartlarından olan oruç, temel olarak Ramazan ayında tutulur.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Oruç tutmak",
+          "Zekât vermek",
+          "Hacca gitmek",
+          "Meleklere inanmak"
+        ],
+        "correct_answer": "Oruç tutmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel acte d’adoration fondamental les musulmans pratiquent-ils pendant le mois de Ramadan ?",
+        "explanation_tr": "Le jeûne observé pendant le Ramadan est l’un des cinq piliers de l’islam.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Observer le jeûne",
+          "Verser la zakat",
+          "Effectuer le hajj",
+          "Croire aux anges"
+        ],
+        "correct_answer": "Observer le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-002": {
+      "source": {
+        "question_tr": "Zekâtı diğer bazı İslam şartlarından ayıran temel özellik aşağıdakilerden hangisidir?",
+        "explanation_tr": "Zekât, mal ile ilgili bir ibadet olması yönüyle bu seçeneklerdeki diğer bağlamlardan ayrılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Malî bir ibadet olması",
+          "Ramazan ayına özgü olması",
+          "Mekke'de yerine getirilmesi",
+          "Günün belirli vakitlerinde yapılması"
+        ],
+        "correct_answer": "Malî bir ibadet olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle caractéristique distingue essentiellement la zakat de certains autres piliers ?",
+        "explanation_tr": "La zakat se distingue ici par son caractère d’obligation financière portant sur les biens.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "C’est une obligation financière",
+          "Elle n’est accomplie que pendant le Ramadan",
+          "Elle s’effectue à La Mecque",
+          "Elle doit être accomplie à des heures précises chaque jour"
+        ],
+        "correct_answer": "C’est une obligation financière",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-003": {
+      "source": {
+        "question_tr": "Ahmet'in dedesi, gerekli imkâna sahip olduğu için bu yıl Mekke'ye gidip hac menâsikini yerine getirmeye hazırlanıyor. Dedesinin yerine getireceği İslam'ın şartı hangisidir?",
+        "explanation_tr": "Hac, imkânı olanların belirli zamanda Kâbe ve Arafat merkezli menâsiki yerine getirdiği ibadettir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hac",
+          "Zekât",
+          "Oruç",
+          "Namaz"
+        ],
+        "correct_answer": "Hac",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le grand-père d’Ahmet possède les moyens nécessaires et prévoit de se rendre à La Mecque cette année pour accomplir les rites du pèlerinage. Quel pilier va-t-il réaliser ?",
+        "explanation_tr": "Le hajj est le pèlerinage comportant des rites prescrits, notamment autour de la Kaaba et à Arafat, pour ceux qui en ont la capacité.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le hajj",
+          "La zakat",
+          "Le jeûne",
+          "La prière"
+        ],
+        "correct_answer": "Le hajj",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-004": {
+      "source": {
+        "question_tr": "Zekât, Ramazan orucu gibi yeme ve içmeden uzak durmaya dayanan bir ibadet değil; mal ile ilgili bir ibadettir.",
+        "explanation_tr": "Zekât malî ibadet, oruç ise Ramazan'la ilişkili ayrı bir ibadettir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "La zakat est une obligation financière ; elle ne consiste pas à s’abstenir de manger et de boire comme le jeûne du Ramadan.",
+        "explanation_tr": "La zakat concerne les biens, alors que le jeûne du Ramadan est un acte d’adoration distinct.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-005": {
+      "source": {
+        "question_tr": "Meryem, Ramazan ayında oruca niyet ediyor ve gün boyunca yeme ve içmeden uzak duruyor. Bu durum İslam'ın hangi şartıyla ilişkilidir?",
+        "explanation_tr": "Ramazan orucu, İslam'ın beş şartından biridir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Oruç tutmak",
+          "Zekât vermek",
+          "Namaz kılmak",
+          "Hacca gitmek"
+        ],
+        "correct_answer": "Oruç tutmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Pendant le Ramadan, Meryem a l’intention de jeûner et s’abstient de manger et de boire pendant la journée. À quel pilier cela correspond-il ?",
+        "explanation_tr": "Le jeûne du Ramadan constitue l’un des cinq piliers de l’islam.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Observer le jeûne",
+          "Verser la zakat",
+          "Accomplir la prière",
+          "Effectuer le hajj"
+        ],
+        "correct_answer": "Observer le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-006": {
+      "source": {
+        "question_tr": "Oruç, zekât ve hac kavramlarını temel bağlamlarıyla eşleştirin.",
+        "explanation_tr": "Oruç Ramazan ayıyla, zekât malî ibadetle, hac ise belirli zamanda Kâbe ve Arafat merkezli menâsikle ilişkilidir.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Ramazan ayı",
+            "right": "Oruç"
+          },
+          {
+            "left": "Malî ibadet / belirli pay",
+            "right": "Zekât"
+          },
+          {
+            "left": "Kâbe ve Arafat merkezli menâsik",
+            "right": "Hac"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe le jeûne, la zakat et le hajj à leur contexte principal.",
+        "explanation_tr": "Le jeûne est lié au Ramadan, la zakat à un devoir financier et le hajj aux rites prescrits à La Mecque et à Arafat.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Mois de Ramadan",
+            "right": "Jeûne"
+          },
+          {
+            "left": "Obligation financière / part déterminée",
+            "right": "Zakat"
+          },
+          {
+            "left": "Rites de la Kaaba et d’Arafat",
+            "right": "Hajj"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-007": {
+      "source": {
+        "question_tr": "İslam'ın şartlarından olan hac ibadeti hangi şehirde bulunan Kâbe ve çevresindeki hac mekânlarıyla ilişkilidir?",
+        "explanation_tr": "Hac Mekke'deki Kâbe ve çevresindeki belirli hac mekânlarıyla ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mekke",
+          "Medine",
+          "Kudüs",
+          "İstanbul"
+        ],
+        "correct_answer": "Mekke",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Dans quelle ville se trouvent la Kaaba et les lieux du pèlerinage associés au hajj ?",
+        "explanation_tr": "Le hajj est associé à la Kaaba située à La Mecque et aux lieux de pèlerinage environnants.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "La Mecque",
+          "Médine",
+          "Jérusalem",
+          "Istanbul"
+        ],
+        "correct_answer": "La Mecque",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-008": {
+      "source": {
+        "question_tr": "Malî paylaşım ve ibadetle ilişkili olan İslam şartı __________ vermektir.",
+        "explanation_tr": "Zekât, belirli şartlara bağlı malî bir ibadettir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Zekât",
+          "Borç",
+          "Hediye",
+          "Ödül"
+        ],
+        "correct_answer": "Zekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le pilier lié au partage financier consiste à verser la ________.",
+        "explanation_tr": "La zakat est une obligation financière soumise à des conditions déterminées.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "zakat",
+          "dette",
+          "cadeau",
+          "récompense"
+        ],
+        "correct_answer": "zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-009": {
+      "source": {
+        "question_tr": "İslam'ın şartlarından olan Ramazan orucu, yalnız fiziksel açlık olarak değil Allah'ın emrine uyarak tutulan ve takvâ bilincini destekleyen bir ibadet olarak ele alınır.",
+        "explanation_tr": "Bakara 2:183 orucun amaçlarından birini takvâ ile ilişkilendirir; Diyanet tefsiri orucu yalnız aç kalma olarak açıklamaz.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le jeûne du Ramadan, parmi les cinq piliers, n’est pas seulement une faim physique : il est pratiqué pour obéir à Allah et développer la conscience de la piété.",
+        "explanation_tr": "Le verset 2:183 de la sourate Al-Baqara lie le jeûne à la piété ; il ne se réduit pas à la faim.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-010": {
+      "source": {
+        "question_tr": "Mekke ve çevresindeki belirli mekânlarla bağlantılı olan İslam şartı __________ ibadetidir.",
+        "explanation_tr": "Hac, Mekke ve çevresindeki belirli mekânlarla bağlantılı bir ibadettir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Hac",
+          "Oruç",
+          "Zekât",
+          "Namaz"
+        ],
+        "correct_answer": "Hac",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le pilier associé à des lieux précis de La Mecque et de ses environs est le ________.",
+        "explanation_tr": "Le hajj est le pèlerinage associé à des lieux déterminés autour de La Mecque.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "hajj",
+          "jeûne",
+          "zakat",
+          "prière"
+        ],
+        "correct_answer": "hajj",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-011": {
+      "source": {
+        "question_tr": "Bir kişi, zekât için ayırdığı dinen belirlenmiş payı hak sahiplerine ulaştırıyor. Bu kişi İslam'ın hangi şartını yerine getiriyor?",
+        "explanation_tr": "Maldan zekât için ayrılan payın hak sahiplerine verilmesi zekât ibadetiyle ilgilidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zekât vermek",
+          "Oruç tutmak",
+          "Hacca gitmek",
+          "Kelime-i Şehadet getirmek"
+        ],
+        "correct_answer": "Zekât vermek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne remet aux bénéficiaires la part de ses biens prévue religieusement pour la zakat. Quel pilier accomplit-elle ?",
+        "explanation_tr": "Verser la part requise de ses biens aux personnes qui y ont droit relève de la zakat.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Verser la zakat",
+          "Observer le jeûne",
+          "Effectuer le hajj",
+          "Prononcer la chahada"
+        ],
+        "correct_answer": "Verser la zakat",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-012": {
+      "source": {
+        "question_tr": "İlgili kelimeleri doğru ibadetlerle eşleştirin.",
+        "explanation_tr": "Bu eşleştirmeler ibadetleri yalnız genel çağrışımlarla değil temel kaynak tanımlarıyla ayırt eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Dinen belirlenmiş malî pay",
+            "right": "Zekât"
+          },
+          {
+            "left": "Ramazan ayı",
+            "right": "Oruç"
+          },
+          {
+            "left": "Kâbe ve Arafat merkezli menâsik",
+            "right": "Hac"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe chaque expression à la pratique qui lui correspond.",
+        "explanation_tr": "Ces associations permettent de distinguer les pratiques à partir de leur définition fondamentale.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Part financière définie par la religion",
+            "right": "Zakat"
+          },
+          {
+            "left": "Mois de Ramadan",
+            "right": "Jeûne"
+          },
+          {
+            "left": "Rites liés à la Kaaba et à Arafat",
+            "right": "Hajj"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-013": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi İslam'ın beş şartından biri olan oruç ibadetinin en temel özelliklerinden biridir?",
+        "explanation_tr": "İslam'ın beş şartından olan oruç, Ramazan ayıyla doğrudan ilişkilidir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ramazan ayıyla doğrudan ilişkili olması",
+          "Malî paylaşım ibadeti olması",
+          "Mekke ile ilişkili olması",
+          "İnanç beyanı olması"
+        ],
+        "correct_answer": "Ramazan ayıyla doğrudan ilişkili olması",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle caractéristique fondamentale du jeûne en fait l’un des cinq piliers de l’islam ?",
+        "explanation_tr": "Le jeûne prescrit en islam est directement lié au mois de Ramadan.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Son lien direct avec le Ramadan",
+          "Son caractère de contribution financière",
+          "Son déroulement à La Mecque",
+          "Son statut de profession de foi"
+        ],
+        "correct_answer": "Son lien direct avec le Ramadan",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U04-S03-014": {
+      "source": {
+        "question_tr": "Aşağıdakilerden hangisi hac ibadeti hakkında doğru bir ifadedir?",
+        "explanation_tr": "Âl-i İmrân 3:97 haccı gücü yetenlere yükümlülük olarak bildirir; Diyanet tefsiri haccı Arafat vakfesi ve Kâbe tavafı gibi menâsikle açıklar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İmkânı olanlar için belirli zamanda Kâbe ve Arafat merkezli menâsikle yerine getirilen bir ibadettir.",
+          "Yalnız Ramazan ayında yapılan bir ibadettir.",
+          "Sadece malî paylaşım ibadetidir.",
+          "Günün belirli vakitlerinde kılınan ibadettir."
+        ],
+        "correct_answer": "İmkânı olanlar için belirli zamanda Kâbe ve Arafat merkezli menâsikle yerine getirilen bir ibadettir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle affirmation concernant le hajj est correcte ?",
+        "explanation_tr": "Le verset 3:97 de la sourate Âl ‘Imrân prescrit le pèlerinage à ceux qui en ont la capacité ; ses rites incluent le stationnement à Arafat et la circumambulation de la Kaaba.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "C’est un pèlerinage accompli à une période déterminée autour de la Kaaba et à Arafat par ceux qui en ont les moyens",
+          "Il se pratique uniquement pendant le Ramadan",
+          "Il consiste seulement en un partage financier",
+          "Il est accompli quotidiennement à des heures précises"
+        ],
+        "correct_answer": "C’est un pèlerinage accompli à une période déterminée autour de la Kaaba et à Arafat par ceux qui en ont les moyens",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Jeûne, zakat et pèlerinage",
+        "topic": "Les cinq piliers de l’islam"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

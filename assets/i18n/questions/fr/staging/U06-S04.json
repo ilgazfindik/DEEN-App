@@ -1,0 +1,641 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U06",
+  "stage": "U06-S04",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U06-S04-001": {
+      "source": {
+        "question_tr": "İnfitâr 82:10-12'de insanlarla ilgili görev yapan melekler hangi işle ilişkilendirilir?",
+        "explanation_tr": "Ayetlerde insanları gözetleyen değerli yazıcıların yaptıklarını bildiği anlatılır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Yapılanları kaydetmek",
+          "Vahiy oluşturmak",
+          "İnsanların rızkını bağımsız belirlemek",
+          "İbadetleri değiştirmek"
+        ],
+        "correct_answer": "Yapılanları kaydetmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Infitar 82:10-12, quelle mission des anges est mentionnée au sujet des êtres humains ?",
+        "explanation_tr": "Les versets décrivent de nobles scribes qui connaissent les actes des humains.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Consigner les actes accomplis",
+          "Créer la révélation",
+          "Déterminer seuls la subsistance des humains",
+          "Modifier les actes d’adoration"
+        ],
+        "correct_answer": "Consigner les actes accomplis",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-002": {
+      "source": {
+        "question_tr": "İnfitâr 82:10-12, insanların yaptıklarını bilen ve kayda geçen görevli meleklerden söz eder.",
+        "explanation_tr": "Diyanet tefsiri bu ayetleri yapılanları bilen ve kayda geçen görevli melekler olarak açıklar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Al-Infitar 82:10-12 mentionne des anges chargés de connaître et de consigner les actes humains.",
+        "explanation_tr": "Ces versets parlent de nobles scribes qui connaissent les actes accomplis.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-003": {
+      "source": {
+        "question_tr": "İnfitâr 82:10-12'de insanları gözetleyen değerli ______ bulunduğu bildirilir.",
+        "explanation_tr": "Ayetlerde 'değerli yazıcılar' ifadesi yer alır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "yazıcılar",
+          "tüccarlar",
+          "hükümdarlar",
+          "öğretmenler"
+        ],
+        "correct_answer": "yazıcılar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Al-Infitar 82:10-12, des ______ honorables veillent sur les êtres humains.",
+        "explanation_tr": "Le passage utilise l’expression « nobles scribes ».",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "scribes",
+          "commerçants",
+          "rois",
+          "enseignants"
+        ],
+        "correct_answer": "scribes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-004": {
+      "source": {
+        "question_tr": "Bir kişi yaptığı küçük bir iyiliği 'Nasıl olsa kimse görmedi' diye önemsiz sayıyor. İnfitâr 82:10-12'nin hatırlattığı bilinç hangisidir?",
+        "explanation_tr": "Ayetler insanın başıboş olmadığını ve yaptıklarının kayda geçtiğini hatırlatır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Davranışların kayıt ve hesap sorumluluğu taşıdığı",
+          "Gizli davranışların hiçbir önemi olmadığı",
+          "Yalnız büyük işler kaydedildiği",
+          "İnsanların kendi kendine ilah olduğu"
+        ],
+        "correct_answer": "Davranışların kayıt ve hesap sorumluluğu taşıdığı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelqu’un minimise une petite bonne action en disant : « Personne ne m’a vu. » Quel rappel Al-Infitar 82:10-12 apporte-t-il ?",
+        "explanation_tr": "Les versets rappellent que les êtres humains sont responsables de leurs actes, qui sont consignés.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Nos actes engagent notre responsabilité et sont consignés",
+          "Les actes cachés n’ont aucune importance",
+          "Seuls les grands actes sont consignés",
+          "Les humains sont eux-mêmes des divinités"
+        ],
+        "correct_answer": "Nos actes engagent notre responsabilité et sont consignés",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-005": {
+      "source": {
+        "question_tr": "Bir öğrenci 'Allah insanların yaptıklarını ancak yazıcı meleklerden öğrenir' diyor. Hata nedir?",
+        "explanation_tr": "Diyanet tefsiri Allah'ın kullarının yaptıklarını bildiğini, kaydın hesap ve adalet düzeniyle ilgili olduğunu açıklar.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Allah zaten her şeyi bilir; kayıt melekleri O'nun bilgisine ihtiyaç olduğu için değildir",
+          "Allah yalnız meleklerin bildiğini bilir",
+          "Melekler Allah'tan daha çok bilir",
+          "Ayetler Allah'ın bilgisini reddeder"
+        ],
+        "correct_answer": "Allah zaten her şeyi bilir; kayıt melekleri O'nun bilgisine ihtiyaç olduğu için değildir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève dit : « Allah apprend ce que font les humains uniquement grâce aux anges scribes. » Quelle est l’erreur ?",
+        "explanation_tr": "Allah connaît déjà les actions de Ses serviteurs ; leur consignation s’inscrit dans l’ordre du jugement et de la justice.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Allah sait déjà toute chose ; les scribes ne servent pas à Lui apprendre les actes",
+          "Allah ne sait que ce que savent les anges",
+          "Les anges savent davantage qu’Allah",
+          "Les versets nient la science d’Allah"
+        ],
+        "correct_answer": "Allah sait déjà toute chose ; les scribes ne servent pas à Lui apprendre les actes",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-006": {
+      "source": {
+        "question_tr": "Görev ifadelerini kaynaklarıyla eşleştir.",
+        "explanation_tr": "Kur'an farklı ayetlerde meleklerin farklı görevlerinden söz eder.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İnfitâr 82:10-12",
+            "right": "Yapılanların kaydı"
+          },
+          {
+            "left": "Secde 32:11",
+            "right": "Ölüm meleği"
+          },
+          {
+            "left": "Bakara 2:97",
+            "right": "Cebrâil ve vahiy"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe les missions des anges aux références coraniques correspondantes.",
+        "explanation_tr": "Différents versets présentent des fonctions différentes des anges.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Al-Infitar 82:10-12",
+            "right": "Consignation des actes"
+          },
+          {
+            "left": "As-Sajda 32:11",
+            "right": "L’ange de la mort"
+          },
+          {
+            "left": "Al-Baqara 2:97",
+            "right": "Gabriel et la révélation"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-007": {
+      "source": {
+        "question_tr": "Secde 32:11'de insanların canını almakla görevlendirilen varlık nasıl anılır?",
+        "explanation_tr": "Ayet 'sizin için görevlendirilmiş ölüm meleği' ifadesini kullanır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ölüm meleği",
+          "Cebrâil",
+          "Mîkâil",
+          "Değerli yazıcı"
+        ],
+        "correct_answer": "Ölüm meleği",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Comment As-Sajda 32:11 désigne-t-il l’être chargé de reprendre l’âme des humains ?",
+        "explanation_tr": "Le verset emploie l’expression « l’ange de la mort chargé de vous ».",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "L’ange de la mort",
+          "Gabriel",
+          "Mikaïl",
+          "Un noble scribe"
+        ],
+        "correct_answer": "L’ange de la mort",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-008": {
+      "source": {
+        "question_tr": "Bir ders notunda 'Secde 32:11 ölüm meleğini açıkça Azrâil adıyla tanıtır' yazıyor. En doğru düzeltme hangisidir?",
+        "explanation_tr": "Diyanet tefsiri Azrâil adının Kur'an'da ve sahih hadislerde geçmediğini, ayette 'ölüm meleği' denildiğini belirtir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ayette 'ölüm meleği' denir; Azrâil adı Kur'an'da geçmez",
+          "Ayet Cebrâil der",
+          "Ayet Mîkâil der",
+          "Ayet hiçbir melekten söz etmez"
+        ],
+        "correct_answer": "Ayette 'ölüm meleği' denir; Azrâil adı Kur'an'da geçmez",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une note affirme : « As-Sajda 32:11 appelle explicitement l’ange de la mort Azraïl. » Quelle correction est juste ?",
+        "explanation_tr": "Le commentaire de Diyanet précise que le nom Azraïl ne figure pas dans le Coran ; ce verset parle de l’ange de la mort.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le verset dit « l’ange de la mort » ; le nom Azraïl n’y figure pas",
+          "Le verset nomme Gabriel",
+          "Le verset nomme Mikaïl",
+          "Le verset ne mentionne aucun ange"
+        ],
+        "correct_answer": "Le verset dit « l’ange de la mort » ; le nom Azraïl n’y figure pas",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-009": {
+      "source": {
+        "question_tr": "Meleklerle ilgili ifadeleri doğru başlıkla eşleştir.",
+        "explanation_tr": "Kur'an meleklerin görevlerini tek bir role indirgemez.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Değerli yazıcılar",
+            "right": "Amellerin kaydı"
+          },
+          {
+            "left": "Ölüm meleği",
+            "right": "Canın alınması görevi"
+          },
+          {
+            "left": "Cebrâil",
+            "right": "Vahyin iletilmesi"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe ces expressions aux fonctions des anges.",
+        "explanation_tr": "Le Coran ne réduit pas les fonctions des anges à une seule mission.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Nobles scribes",
+            "right": "Consigner les actes"
+          },
+          {
+            "left": "Ange de la mort",
+            "right": "Reprendre les âmes"
+          },
+          {
+            "left": "Gabriel",
+            "right": "Transmettre la révélation"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-010": {
+      "source": {
+        "question_tr": "İnfitâr 82:10-12'nin insan davranışı açısından verdiği temel mesajı özetle.",
+        "explanation_tr": "Ayetler sorumluluk ve hesap bilincini güçlendiren bir kayıt düzeninden söz eder.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "İnsanların yaptıkları başıboş değildir; görevli melekler yapılanları bilir ve kayda geçirir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Résume le principal enseignement d’Al-Infitar 82:10-12 concernant la conduite humaine.",
+        "explanation_tr": "Ces versets rappellent l’existence d’une consignation des actes, qui renforce la conscience de la responsabilité et du jugement.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Les actes des êtres humains sont consignés, ce qui rappelle à chacun sa responsabilité et le jugement à venir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-011": {
+      "source": {
+        "question_tr": "Kur'an'da her meleğin özel adı ve görevi tek tek listelenmiştir.",
+        "explanation_tr": "Kur'an bazı melekleri ve görevleri bildirir; bütün meleklerin isim ve görevlerini tek tek listelemez.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le Coran donne une liste complète des noms et des fonctions de tous les anges.",
+        "explanation_tr": "Le Coran mentionne certains anges et certaines missions sans en dresser une liste exhaustive.",
+        "activity_type": "speed_review",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Faux",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-012": {
+      "source": {
+        "question_tr": "Mü'min 40:7-9'da arşı taşıyanlar ve çevresindekiler müminler için ne yaparlar?",
+        "explanation_tr": "Ayetlerde bu meleklerin müminlerin bağışlanması için dua ettikleri bildirilir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Bağışlanma dilerler",
+          "Onlara ilahlık verirler",
+          "Vahiy yazarlar",
+          "İbadeti kaldırırlar"
+        ],
+        "correct_answer": "Bağışlanma dilerler",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Selon Ghafir 40:7-9, que font les porteurs du Trône et ceux qui l’entourent pour les croyants ?",
+        "explanation_tr": "Le passage indique que ces anges implorent le pardon d’Allah en faveur des croyants.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Ils demandent pardon pour les croyants",
+          "Ils leur attribuent la divinité",
+          "Ils écrivent eux-mêmes la révélation",
+          "Ils abolissent les actes d’adoration"
+        ],
+        "correct_answer": "Ils demandent pardon pour les croyants",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-013": {
+      "source": {
+        "question_tr": "Bir öğrenci, meleklerin müminler için bağışlanma dilemesini 'Melekler Allah'tan bağımsız bağışlar' diye yorumluyor. Doğru ayrım nedir?",
+        "explanation_tr": "Mü'min 40:7-9 meleklerin Allah'a dua ettiğini gösterir; bağışlama yetkisi Allah'a aittir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Melekler dua eder; bağışlayan Allah'tır",
+          "Melekler bağımsız ilahlardır",
+          "Bağışlama yalnız insanlara aittir",
+          "Ayet dua etmeyi yasaklar"
+        ],
+        "correct_answer": "Melekler dua eder; bağışlayan Allah'tır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève comprend les prières des anges pour le pardon ainsi : « Les anges pardonnent indépendamment d’Allah. » Quelle distinction est juste ?",
+        "explanation_tr": "Ghafir 40:7-9 montre que les anges prient Allah ; c’est Allah qui accorde le pardon.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Les anges prient ; Allah est Celui qui pardonne",
+          "Les anges sont des divinités indépendantes",
+          "Le pardon appartient exclusivement aux êtres humains",
+          "Le passage interdit toute invocation"
+        ],
+        "correct_answer": "Les anges prient ; Allah est Celui qui pardonne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-014": {
+      "source": {
+        "question_tr": "Secde 32:11'de canı almakla görevlendirilen melek '______ meleği' diye anılır.",
+        "explanation_tr": "Ayet açıkça 'ölüm meleği' ifadesini kullanır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "ölüm",
+          "vahiy",
+          "yazı",
+          "rızık"
+        ],
+        "correct_answer": "ölüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "As-Sajda 32:11 désigne l’ange chargé de reprendre l’âme comme l’ange de la ______.",
+        "explanation_tr": "Le verset le nomme explicitement « ange de la mort ».",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "mort",
+          "révélation",
+          "écriture",
+          "subsistance"
+        ],
+        "correct_answer": "mort",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-015": {
+      "source": {
+        "question_tr": "Amellerin kaydıyla ilgili öğretim akışını sırala.",
+        "explanation_tr": "Bu sıra İnfitâr 82:10-12'nin sorumluluk mesajını pedagojik olarak özetler.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "İnsan bir davranışta bulunur",
+          "Davranış sorumluluk taşır",
+          "Görevli melekler yapılanı kaydeder",
+          "İnsan hesap bilincini korur"
+        ],
+        "correct_order": [
+          "İnsan bir davranışta bulunur",
+          "Davranış sorumluluk taşır",
+          "Görevli melekler yapılanı kaydeder",
+          "İnsan hesap bilincini korur"
+        ]
+      },
+      "display": {
+        "question_tr": "Classe les étapes de ce rappel pédagogique au sujet de la consignation des actes.",
+        "explanation_tr": "Cette séquence résume le message de responsabilité d’Al-Infitar 82:10-12.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Une personne accomplit un acte",
+          "Cet acte engage sa responsabilité",
+          "Les anges chargés de la consignation l’enregistrent",
+          "La personne garde conscience du jugement"
+        ],
+        "correct_order": [
+          "Une personne accomplit un acte",
+          "Cet acte engage sa responsabilité",
+          "Les anges chargés de la consignation l’enregistrent",
+          "La personne garde conscience du jugement"
+        ],
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U06-S04-016": {
+      "source": {
+        "question_tr": "Vahiy ve diğer görevleri ayırırken doğru düşünme sırasını oluştur.",
+        "explanation_tr": "Melekler hakkındaki bilgiyi güvenilir tutmak için kaynakta olmayan ayrıntıları eklememek gerekir.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Kaynağı belirle",
+          "Ayette geçen görevi tespit et",
+          "Meleği görevle doğru eşleştir",
+          "Kaynakta olmayan ayrıntıyı ekleme"
+        ],
+        "correct_order": [
+          "Kaynağı belirle",
+          "Ayette geçen görevi tespit et",
+          "Meleği görevle doğru eşleştir",
+          "Kaynakta olmayan ayrıntıyı ekleme"
+        ]
+      },
+      "display": {
+        "question_tr": "Dans quel ordre vérifier les informations sur les différentes missions des anges ?",
+        "explanation_tr": "Pour éviter d’inventer des détails, il faut distinguer les informations établies de ce qui n’est pas mentionné.",
+        "activity_type": "build_sequence",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": null,
+        "items": [
+          "Identifier la source",
+          "Repérer la mission mentionnée dans le verset",
+          "Associer correctement la mission à l’ange",
+          "Ne pas ajouter de détails absents des sources"
+        ],
+        "correct_order": [
+          "Identifier la source",
+          "Repérer la mission mentionnée dans le verset",
+          "Associer correctement la mission à l’ange",
+          "Ne pas ajouter de détails absents des sources"
+        ],
+        "stage_title": "Les missions des anges",
+        "topic": "Consignation des actes et responsabilités"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

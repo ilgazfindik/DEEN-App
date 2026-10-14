@@ -1,0 +1,800 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U01",
+  "scope": "stored_runtime_variants_staging",
+  "question_count": 20,
+  "status": "staging_not_available_in_runtime",
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_language": "tr",
+  "source_reference": "assets/i18n/questions/en/runtime/U01.variants.json: original Turkish source is immutable; translated records are variant-scoped not base-ID merged",
+  "translations": {
+    "DEEN-U01-S01-001": {
+      "source": {
+        "question_tr": "İslam’ın temelindeki fikri en iyi hangi kart anlatır?",
+        "explanation_tr": "Bu ünitede İslam, yalnızca bir kültür veya birkaç ibadet olarak değil; Allah'a yönelişi, inancı ve yaşamı birlikte ele alan bir din olarak tanıtılır.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah’a teslimiyeti ve O’nun rehberliğini benimsemek",
+          "Yalnızca belirli ibadetlerin adını öğrenmek",
+          "Sadece belirli bir kültüre ait olmak"
+        ],
+        "correct_answer": "Allah’a teslimiyeti ve O’nun rehberliğini benimsemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle carte présente le mieux l’idée centrale de l’islam ?",
+        "explanation_tr": "Cette unité présente l’islam comme une religion qui associe la relation à Allah, la foi et la vie, au-delà d’une culture ou de quelques rites.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Se soumettre à Allah et accepter Sa guidance",
+          "Apprendre uniquement le nom de certains actes d’adoration",
+          "Appartenir seulement à une culture particulière"
+        ],
+        "correct_answer": "Se soumettre à Allah et accepter Sa guidance",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Introduction à l’islam",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-003": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlakı doğru açıklamalarla eşleştir.",
+        "explanation_tr": "İman, ibadet ve ahlak farklı kavramlardır; başlangıç düzeyinde bunların birbirini tamamlayan yönlerini görmek İslam'ın genel çerçevesini anlamayı kolaylaştırır.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İman",
+            "right": "İnanç ve kabul"
+          },
+          {
+            "left": "İbadet",
+            "right": "Allah’a kulluk"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Davranış ve tutumlar"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Associe la foi, l’adoration et le bon comportement à leur définition.",
+        "explanation_tr": "La foi, l’adoration et le bon comportement sont différents. Comprendre comment ils se complètent permet de mieux saisir l’ensemble de l’islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Foi",
+            "right": "Croyance et adhésion"
+          },
+          {
+            "left": "Adoration",
+            "right": "Dévotion à Allah"
+          },
+          {
+            "left": "Bon comportement",
+            "right": "Actions et attitudes"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Introduction aux notions fondamentales",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-004": {
+      "source": {
+        "question_tr": "“Müslüman” denince hangi kart doğru tanımı verir?",
+        "explanation_tr": "Müslüman, İslam dinini benimseyen kişidir; bu kimlik belirli bir soy, dil veya ülkeye bağlı değildir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah’a inanan ve İslam’ın öğretilerini benimseyen kişi",
+          "Sadece belirli bir ülkede doğan kişi",
+          "Sadece Arapça konuşan kişi"
+        ],
+        "correct_answer": "Allah’a inanan ve İslam’ın öğretilerini benimseyen kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle carte donne la bonne définition de « musulman » ?",
+        "explanation_tr": "Un musulman est une personne qui adhère à l’islam, indépendamment de son origine, de sa langue ou de son pays.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Une personne qui croit en Allah et accepte les enseignements de l’islam",
+          "Uniquement une personne née dans un pays particulier",
+          "Uniquement une personne parlant arabe"
+        ],
+        "correct_answer": "Une personne qui croit en Allah et accepte les enseignements de l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qui est musulman ?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-007": {
+      "source": {
+        "question_tr": "Bir arkadaşın “İman, ibadet ve ahlak birbirinden tamamen ayrı şeylerdir.” diyor. Bu bölüme göre en uygun cevap hangisi?",
+        "explanation_tr": "Bu ünitenin temel çerçevesinde iman, ibadet ve ahlak birbirinden farklı fakat ilişkili alanlar olarak ele alınır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Bu üç alan birbiriyle bağlantılı bir yaşam anlayışı oluşturur.",
+          "Evet; aralarında hiçbir bağlantı yoktur.",
+          "Yalnızca ahlak önemlidir; diğer ikisi ayrı kalır."
+        ],
+        "correct_answer": "Bu üç alan birbiriyle bağlantılı bir yaşam anlayışı oluşturur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami affirme : « Foi, adoration et bon comportement sont sans aucun lien. » Quelle est la réponse appropriée ?",
+        "explanation_tr": "Cette unité présente la foi, l’adoration et le bon comportement comme des domaines distincts mais liés.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ces trois domaines forment une manière de vivre cohérente.",
+          "Oui, ils n’ont aucun lien entre eux.",
+          "Seul le bon comportement compte ; les autres domaines sont séparés."
+        ],
+        "correct_answer": "Ces trois domaines forment une manière de vivre cohérente.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Introduction aux notions fondamentales",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-008": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Kalben inanma ve kabul etme, bu bölümde ___ kavramını anlatır.",
+        "explanation_tr": "İman, kişinin kalbiyle bir şeyi doğru kabul etmesi ve inanmasıdır; belirli bir ibadetle sınırlı değildir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "iman",
+          "ibadet",
+          "ahlak",
+          "rehberlik"
+        ],
+        "correct_answer": "iman",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète : croire et accepter dans son cœur décrit la ___ dans cette section.",
+        "explanation_tr": "La foi consiste à reconnaître quelque chose comme vrai et à y croire dans son cœur ; elle ne se limite pas à un acte d’adoration.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "foi",
+          "adoration",
+          "bonne conduite",
+          "guidance"
+        ],
+        "correct_answer": "foi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce que la foi ?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-012": {
+      "source": {
+        "question_tr": "Kur’an’ın Müslümanlar için yerini doğru anlatan kartı seç.",
+        "explanation_tr": "Kur'an, Müslümanların temel kutsal kitabıdır ve inanç ile yaşam konusunda rehber kabul edilir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Müslümanların temel kutsal kitabı",
+          "Yalnızca tarih olaylarını anlatan bir kitap",
+          "Sadece ibadet adımlarını sıralayan bir el kitabı"
+        ],
+        "correct_answer": "Müslümanların temel kutsal kitabı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la carte qui décrit correctement la place du Coran pour les musulmans.",
+        "explanation_tr": "Le Coran est le principal Livre sacré des musulmans et un guide pour la foi et la vie.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Le principal Livre sacré des musulmans",
+          "Un livre racontant uniquement des faits historiques",
+          "Un manuel contenant seulement les étapes de l’adoration"
+        ],
+        "correct_answer": "Le principal Livre sacré des musulmans",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Qu’est-ce que le Coran ?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-015": {
+      "source": {
+        "question_tr": "İlk kavram haritasını tamamla: kavramları doğru açıklamalarla eşleştir.",
+        "explanation_tr": "Bu dört kavram ünitenin girişinde birbirinden ayrılarak tanıtılıyor; amaç kavramları karıştırmadan temel anlamlarını eşleştirmek.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Allah’a teslimiyet ve kulluk merkezli yaşam anlayışı"
+          },
+          {
+            "left": "Müslüman",
+            "right": "İslam’ı benimseyen kişi"
+          },
+          {
+            "left": "İman",
+            "right": "Kalben inanma ve kabul etme"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Davranış ve tutumlarla ilgili alan"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète la première carte des notions : associe chaque terme à sa définition.",
+        "explanation_tr": "Ces quatre notions sont présentées séparément au début de l’unité ; le but est de les associer à leur sens principal sans les confondre.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "Une manière de vivre centrée sur la soumission et la dévotion à Allah"
+          },
+          {
+            "left": "Musulman",
+            "right": "Une personne qui adhère à l’islam"
+          },
+          {
+            "left": "Foi",
+            "right": "Croire et accepter dans son cœur"
+          },
+          {
+            "left": "Bon comportement",
+            "right": "Le domaine des actes et des attitudes"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Notions fondamentales de l’islam",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-016": {
+      "source": {
+        "question_tr": "İslam’ın temelindeki fikri en iyi hangi kart anlatır?",
+        "explanation_tr": "Ünite girişinde İslam’ın temelinde Allah’a teslimiyet ve kulluk düşüncesi vurgulanıyor.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah’a teslimiyet ve kulluk",
+          "Belirli bir millete ait olmak",
+          "Sadece tarih bilgisi öğrenmek",
+          "Yalnızca tek bir ibadeti yapmak"
+        ],
+        "correct_answer": "Allah’a teslimiyet ve kulluk",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle carte exprime le mieux l’idée centrale de l’islam ?",
+        "explanation_tr": "L’introduction de l’unité met en avant la soumission et la dévotion à Allah comme principes centraux.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Se soumettre à Allah et se consacrer à Lui",
+          "Appartenir à une nationalité particulière",
+          "Apprendre seulement l’histoire",
+          "Accomplir un seul acte d’adoration"
+        ],
+        "correct_answer": "Se soumettre à Allah et se consacrer à Lui",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "L’idée centrale de l’islam",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-017": {
+      "source": {
+        "question_tr": "Yeni tanıştığın biri “Müslüman olmak belirli bir ülke veya millete bağlı mı?” diye soruyor. En uygun cevap hangisi?",
+        "explanation_tr": "Bu bölüm Müslüman kimliğini belirli bir ülke, millet veya kültüre değil İslam’ı benimsemeye bağlar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.",
+          "Evet; yalnızca belirli bir ülkede doğanlar Müslüman olabilir.",
+          "Sadece aynı dili konuşanlar Müslüman olabilir.",
+          "Müslümanlık yalnızca kültürel kökene göre belirlenir."
+        ],
+        "correct_answer": "Hayır; İslam’ı benimsemek belirli bir ülke veya millete bağlı değildir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Une personne te demande : « Faut-il venir d’un pays particulier pour être musulman ? » Que réponds-tu ?",
+        "explanation_tr": "L’identité musulmane repose sur l’adhésion à l’islam, pas sur une nationalité ou une culture particulière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Non, adhérer à l’islam n’est pas lié à un pays ou à une nationalité particulière.",
+          "Oui, seules les personnes nées dans un pays particulier peuvent être musulmanes.",
+          "Seules les personnes parlant la même langue peuvent être musulmanes.",
+          "Être musulman dépend uniquement de ses origines culturelles."
+        ],
+        "correct_answer": "Non, adhérer à l’islam n’est pas lié à un pays ou à une nationalité particulière.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Identité musulmane",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-018": {
+      "source": {
+        "question_tr": "Üç ifade bu bölümdeki ibadet anlayışıyla uyumlu. Hangisi uyumlu değildir?",
+        "explanation_tr": "Bölümde ibadet yalnızca namazla sınırlandırılmıyor ve kulluk yönüyle anlatılıyor; gösteriş amacı bu çerçeveyle uyumlu değildir.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İbadet Allah’a kullukla ilgilidir.",
+          "İbadet yalnızca namazdan ibaret değildir.",
+          "Farklı kulluk davranışları ibadet kapsamında ele alınabilir.",
+          "İbadet sadece başkalarına iyi görünmek için yapılır."
+        ],
+        "correct_answer": "İbadet sadece başkalarına iyi görünmek için yapılır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Trois affirmations correspondent à la notion d’adoration dans cette section. Laquelle est erronée ?",
+        "explanation_tr": "Cette section décrit l’adoration comme une dévotion qui ne se limite pas à la prière ; se faire remarquer ne correspond pas à cet objectif.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "L’adoration implique de se consacrer à Allah.",
+          "L’adoration ne se limite pas à la prière.",
+          "Différents actes de dévotion peuvent constituer une adoration.",
+          "L’adoration vise seulement à bien paraître aux yeux des autres."
+        ],
+        "correct_answer": "L’adoration vise seulement à bien paraître aux yeux des autres.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "La notion d’adoration",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-019": {
+      "source": {
+        "question_tr": "Kur’an Müslümanlar için temel bir rehberdir.",
+        "explanation_tr": "Ünite girişinde Kur’an’ın Müslümanlar için temel rehber olduğu özellikle vurgulanıyor.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le Coran est un guide essentiel pour les musulmans.",
+        "explanation_tr": "L’introduction souligne que le Coran est le principal guide des musulmans.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Vrai",
+          "Faux"
+        ],
+        "correct_answer": "Vrai",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "Le Coran et la guidance",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S01-020": {
+      "source": {
+        "question_tr": "Kur’an ve Hz. Muhammed’in bu ünitedeki rehberlik rolünü en iyi hangi kart özetler?",
+        "explanation_tr": "Bölüm Kur’an’ı temel rehber, Hz. Muhammed’i ise peygamber ve örnek rehber olarak tanıtıyor.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.",
+          "İkisi de yalnızca geçmiş olayları öğrenmek içindir.",
+          "Kur’an günlük hayatla ilgisizdir; peygamberin örnekliği de yalnızca geçmiştedir.",
+          "Rehberlik yalnızca kültürel geleneklerden gelir."
+        ],
+        "correct_answer": "Kur’an temel rehberdir; Hz. Muhammed peygamber ve örnek rehberdir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle carte résume le mieux le rôle du Coran et du prophète Muhammad dans cette unité ?",
+        "explanation_tr": "Le Coran est présenté comme le principal guide, et le prophète Muhammad comme un prophète et un modèle à suivre.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Le Coran est le principal guide ; Muhammad est un prophète et un modèle exemplaire.",
+          "Tous deux servent uniquement à apprendre le passé.",
+          "Le Coran est sans lien avec la vie quotidienne et l’exemple du Prophète n’appartient qu’au passé.",
+          "La guidance vient uniquement des traditions culturelles."
+        ],
+        "correct_answer": "Le Coran est le principal guide ; Muhammad est un prophète et un modèle exemplaire.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Découvrir l’islam",
+        "topic": "La guidance du Coran et du Prophète",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-002": {
+      "source": {
+        "question_tr": "İman kavramını en iyi anlatan kartı seç.",
+        "explanation_tr": "İman öncelikle kalpte gerçekleşen bir kabul ve inanma halidir; dışa yansıyan davranışlar bu inancın sonucudur.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Kalben inanmak ve kabul etmek",
+          "Yalnızca bir ibadeti düzenli yapmak",
+          "Sadece dinî bilgi okumak"
+        ],
+        "correct_answer": "Kalben inanmak ve kabul etmek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Choisis la carte qui décrit le mieux la foi.",
+        "explanation_tr": "La foi est avant tout une adhésion et une croyance intérieures, qui peuvent ensuite se manifester dans les actes.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Croire et accepter dans son cœur",
+          "Accomplir régulièrement un seul acte d’adoration",
+          "Se limiter à lire des informations religieuses"
+        ],
+        "correct_answer": "Croire et accepter dans son cœur",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Qu’est-ce que la foi ?",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-004": {
+      "source": {
+        "question_tr": "Bir arkadaşın “İbadetin amacı yalnızca toplumda saygı görmek midir?” diye soruyor. Bu bölüme göre en uygun cevap hangisi?",
+        "explanation_tr": "İbadetin özü, kulluğu Allah'a has kılmak ve samimi biçimde O'nun rızasını gözetmektir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır; ibadetin amacı Allah’a yakınlaşmak ve O’nun rızasını kazanmaya çalışmaktır.",
+          "Evet; temel amaç insanların takdirini kazanmaktır.",
+          "İbadetin belirli bir amacı yoktur."
+        ],
+        "correct_answer": "Hayır; ibadetin amacı Allah’a yakınlaşmak ve O’nun rızasını kazanmaya çalışmaktır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande : « L’adoration sert-elle uniquement à être respecté dans la société ? » Que lui réponds-tu ?",
+        "explanation_tr": "L’essentiel de l’adoration est de se consacrer à Allah seul et de rechercher sincèrement Son agrément.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Non, l’adoration vise à se rapprocher d’Allah et à rechercher Son agrément.",
+          "Oui, le but principal est d’obtenir l’approbation des autres.",
+          "L’adoration n’a aucun objectif particulier."
+        ],
+        "correct_answer": "Non, l’adoration vise à se rapprocher d’Allah et à rechercher Son agrément.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Le but de l’adoration",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-015": {
+      "source": {
+        "question_tr": "“Müslüman” kelimesini en doğru anlatan kart hangisi?",
+        "explanation_tr": "Bu ünitede Müslüman kimliği bir ülke, dil veya millete değil İslam’ı benimsemeye bağlanıyor.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İslam’ı benimseyen kişi",
+          "Belirli bir ülkede doğan kişi",
+          "Sadece Arapça konuşan kişi",
+          "Yalnızca belirli bir kültüre ait kişi"
+        ],
+        "correct_answer": "İslam’ı benimseyen kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle carte définit le plus précisément le mot « musulman » ?",
+        "explanation_tr": "L’identité musulmane repose sur l’adhésion à l’islam, non sur le pays, la langue ou la nationalité.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Une personne qui adhère à l’islam",
+          "Une personne née dans un pays particulier",
+          "Uniquement quelqu’un qui parle arabe",
+          "Uniquement une personne issue d’une culture particulière"
+        ],
+        "correct_answer": "Une personne qui adhère à l’islam",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Identité musulmane",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-016": {
+      "source": {
+        "question_tr": "Bir arkadaşın “Müslüman olmak için belli bir milletten gelmek gerekir.” diyor. Bu ünitedeki bilgiye göre en uygun cevap hangisi?",
+        "explanation_tr": "Ünitenin temel çerçevesinde Müslüman kimliği belirli bir soy, ülke veya millet şartına bağlanmıyor.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Hayır; İslam’ı benimsemek belirli bir millete bağlı değildir.",
+          "Evet; Müslümanlık yalnızca tek bir millete aittir.",
+          "Sadece aynı dili konuşanlar Müslüman olabilir.",
+          "Müslümanlık yalnızca doğum yerine göre belirlenir."
+        ],
+        "correct_answer": "Hayır; İslam’ı benimsemek belirli bir millete bağlı değildir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami dit : « Il faut être d’une nationalité particulière pour être musulman. » Que réponds-tu ?",
+        "explanation_tr": "Être musulman n’est pas conditionné par une origine familiale, un pays ou une nationalité particulière.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Non, adhérer à l’islam n’est pas lié à une nationalité particulière.",
+          "Oui, être musulman est réservé à une seule nationalité.",
+          "Seuls les locuteurs d’une même langue peuvent être musulmans.",
+          "Être musulman dépend uniquement du lieu de naissance."
+        ],
+        "correct_answer": "Non, adhérer à l’islam n’est pas lié à une nationalité particulière.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Identité musulmane",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-017": {
+      "source": {
+        "question_tr": "Üç açıklama bu ünitedeki kavramlarla uyumlu. Hangisi uyumlu değildir?",
+        "explanation_tr": "İlk üç ifade bölümdeki iman, ibadet ve ahlak ayrımına uygundur; Müslüman kimliği ise belirli bir millete bağlanmaz.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman: kalben inanma ve kabul etme ile ilgilidir.",
+          "İbadet: Allah’a kulluk yönü taşıyan davranışlarla ilgilidir.",
+          "Ahlak: davranış ve tutumlarla ilgilidir.",
+          "Müslümanlık: yalnızca belirli bir millete ait olmaktır."
+        ],
+        "correct_answer": "Müslümanlık: yalnızca belirli bir millete ait olmaktır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Trois définitions correspondent aux notions de cette unité. Laquelle est erronée ?",
+        "explanation_tr": "Les trois premières définitions respectent la distinction entre foi, adoration et bon comportement ; l’identité musulmane ne dépend pas d’une nationalité.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Foi : croire et accepter dans son cœur.",
+          "Adoration : accomplir des actes pour se consacrer à Allah.",
+          "Bon comportement : actions et attitudes.",
+          "Être musulman : appartenir seulement à une nationalité particulière."
+        ],
+        "correct_answer": "Être musulman : appartenir seulement à une nationalité particulière.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Les notions de foi, d’adoration et de bon comportement",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-018": {
+      "source": {
+        "question_tr": "İman, ibadet ve ahlak arasındaki ilişkiyi en iyi hangi kart anlatır?",
+        "explanation_tr": "Bölümde iman, ibadet ve ahlak birbirine eşitlenmeden aralarındaki bağın fark edilmesi hedefleniyor.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Farklı kavramlardır ama birbirinden tamamen kopuk değildir.",
+          "Üçü tam olarak aynı kavramdır.",
+          "Birbirleriyle hiçbir ilişkileri yoktur.",
+          "Sadece ahlak önemlidir; diğer ikisi gereksizdir."
+        ],
+        "correct_answer": "Farklı kavramlardır ama birbirinden tamamen kopuk değildir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle carte décrit le mieux les liens entre foi, adoration et bon comportement ?",
+        "explanation_tr": "L’unité vise à comprendre leurs liens sans les considérer comme des notions identiques.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Ce sont des notions distinctes, mais liées.",
+          "Les trois sont exactement la même notion.",
+          "Elles n’ont aucun rapport entre elles.",
+          "Seul le bon comportement compte ; les deux autres sont inutiles."
+        ],
+        "correct_answer": "Ce sont des notions distinctes, mais liées.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "Le lien entre foi, adoration et bon comportement",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-019": {
+      "source": {
+        "question_tr": "Bir arkadaşın “Kur’an ve peygamber bu ünitede neden birlikte anlatılıyor?” diye soruyor. En uygun cevap hangisi?",
+        "explanation_tr": "Ünitede Kur’an temel rehber, Hz. Muhammed ise peygamber ve örnek rehber olarak ele alınıyor.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Kur’an temel rehberdir; Hz. Muhammed de peygamber ve örnek rehberdir.",
+          "İkisi de yalnızca tarih öğrenmek içindir.",
+          "Kur’an günlük hayatla ilgili değildir.",
+          "Peygamberin rehberliği sadece yaşadığı dönemle sınırlıdır."
+        ],
+        "correct_answer": "Kur’an temel rehberdir; Hz. Muhammed de peygamber ve örnek rehberdir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande : « Pourquoi étudie-t-on le Coran et le Prophète ensemble ? » Quelle réponse est appropriée ?",
+        "explanation_tr": "L’unité présente le Coran comme le principal guide et Muhammad comme un prophète et un modèle exemplaire.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Le Coran est le principal guide ; Muhammad est un prophète et un modèle à suivre.",
+          "Tous deux ne servent qu’à apprendre l’histoire.",
+          "Le Coran n’a aucun lien avec la vie quotidienne.",
+          "Les enseignements du Prophète ne concernent que son époque."
+        ],
+        "correct_answer": "Le Coran est le principal guide ; Muhammad est un prophète et un modèle à suivre.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "La guidance du Coran et du Prophète",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U01-S02-020": {
+      "source": {
+        "question_tr": "Üç ifade bölümdeki rehberlik anlayışıyla uyumlu. Hangisi uyumlu değildir?",
+        "explanation_tr": "Ünitede Kur’an yalnızca geçmiş bilgisi veren bir metin olarak değil, Müslümanlar için rehber olarak ele alınıyor.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Kur’an Müslümanlar için temel rehberdir.",
+          "Hz. Muhammed peygamber ve örnek rehberdir.",
+          "Kur’an ve peygamber bilgisi davranışları anlamaya da yardım eder.",
+          "Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır."
+        ],
+        "correct_answer": "Kur’an yalnızca geçmiş olayları anlatan bir tarih kitabıdır.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Trois affirmations correspondent à la notion de guidance. Laquelle est erronée ?",
+        "explanation_tr": "Cette unité présente le Coran comme un guide pour les musulmans, pas comme un simple livre sur le passé.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Le Coran est le principal guide pour les musulmans.",
+          "Muhammad est un prophète et un modèle exemplaire.",
+          "Connaître le Coran et le Prophète aide aussi à comprendre le comportement.",
+          "Le Coran n’est qu’un livre d’histoire sur le passé."
+        ],
+        "correct_answer": "Le Coran n’est qu’un livre d’histoire sur le passé.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Qui est musulman ?",
+        "topic": "La guidance du Coran et du Prophète",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}

@@ -1,0 +1,557 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "unit": "U15",
+  "stage": "U15-S05",
+  "question_count": 16,
+  "status": "staging_not_available_in_runtime",
+  "source_language": "tr",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "release_ready": false,
+  "translations": {
+    "DEEN-U15-S05-001": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Oruçlu kişi oruç vaktinde ___ uzak durur.",
+        "explanation_tr": "İçmekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "içmekten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : durant le jeûne, on doit s’abstenir de ___.",
+        "explanation_tr": "S’abstenir de boire est un élément essentiel du jeûne.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "boire",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "L’abstention de boisson"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-002": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: İftar güneş ___ yapılır.",
+        "explanation_tr": "Bakara 2:187 orucun geceye yani güneş batımına kadar tamamlanmasını bildirir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "battığında",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : le jeûne se rompt ___.",
+        "explanation_tr": "La sourate Al-Baqara (2:187) prescrit d’achever le jeûne jusqu’à la nuit, c’est-à-dire jusqu’au coucher du soleil.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "au coucher du soleil",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "La rupture du jeûne (iftar)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-003": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Ramazan ayında ___ ibadeti farzdır.",
+        "explanation_tr": "Bakara 2:183-185 Ramazan orucunun farz oluşunu açıklar.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "oruç",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : pendant le Ramadan, ___ est obligatoire.",
+        "explanation_tr": "Les versets Al-Baqara (2:183-185) établissent l’obligation du jeûne du Ramadan.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "Le Ramadan"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-004": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Hasta veya yolcu tutamadığı günleri başka günlerde ___ eder.",
+        "explanation_tr": "Ayet hasta veya yolcu olan kişinin tutamadığı günleri başka günlerde tamamlamasına ruhsat verir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "kaza",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : une personne malade ou en voyage peut ___ les jours de jeûne manqués.",
+        "explanation_tr": "Le verset autorise les personnes malades ou en voyage à rattraper ultérieurement les jours de jeûne manqués.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "rattraper",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "Maladie et voyage"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-005": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Oruçlu kişi söz ve davranışlarında da ___ özen gösterir.",
+        "explanation_tr": "Diyanet Oruç İlmihali orucun irade sorumluluk sabır ve samimiyet eğitimi olduğuna dikkat çeker.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "ahlaka",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Complète sans indice : la personne qui jeûne cherche à adopter ___ dans ses paroles et son comportement.",
+        "explanation_tr": "Le manuel du jeûne de Diyanet souligne que le jeûne éduque à la volonté, à la responsabilité, à la patience et à la sincérité.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "un bon comportement",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "Le bon comportement pendant le jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-006": {
+      "source": {
+        "question_tr": "Oruçlu kişi oruç vaktinde hangisinden uzak durur?",
+        "explanation_tr": "İçmekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Yürümekten",
+          "Kitap okumaktan",
+          "İçmekten",
+          "Dinlenmekten"
+        ],
+        "correct_answer": "İçmekten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "De quoi la personne qui jeûne doit-elle s’abstenir pendant la journée ?",
+        "explanation_tr": "S’abstenir de boire est un élément essentiel du jeûne.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Marcher",
+          "Lire des livres",
+          "Boire",
+          "Se reposer"
+        ],
+        "correct_answer": "Boire",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "L’abstention de boisson"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-007": {
+      "source": {
+        "question_tr": "Bir öğrenci “İftar fecrin doğduğu anda yapılır.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Bakara 2:187 orucun geceye yani güneş batımına kadar tamamlanmasını bildirir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Fecr doğarken",
+          "Öğle vaktinde",
+          "Güneş battığında oruç tamamlanınca",
+          "İkindi başında"
+        ],
+        "correct_answer": "Güneş battığında oruç tamamlanınca",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un élève affirme : « On rompt le jeûne à l’aube. » Quelle réponse le corrige ?",
+        "explanation_tr": "La sourate Al-Baqara (2:187) prescrit d’achever le jeûne jusqu’à la nuit, c’est-à-dire jusqu’au coucher du soleil.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "À l’aube",
+          "À midi",
+          "Au coucher du soleil, lorsque la journée de jeûne s’achève",
+          "Au début de l’horaire de la prière de l’après-midi"
+        ],
+        "correct_answer": "Au coucher du soleil, lorsque la journée de jeûne s’achève",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "La rupture du jeûne (iftar)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-008": {
+      "source": {
+        "question_tr": "Ramazan konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Bakara 2:183-185 Ramazan orucunun farz oluşunu açıklar.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Her gün hac",
+          "Her gün kurban",
+          "Ramazan orucu",
+          "Sürekli yolculuk"
+        ],
+        "correct_answer": "Ramazan orucu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quel acte d’adoration est obligatoire pendant Ramadan ?",
+        "explanation_tr": "Les versets Al-Baqara (2:183-185) établissent l’obligation du jeûne du Ramadan.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Faire le pèlerinage tous les jours",
+          "Faire un sacrifice animal tous les jours",
+          "Jeûner pendant le Ramadan",
+          "Voyager constamment"
+        ],
+        "correct_answer": "Jeûner pendant le Ramadan",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "Le Ramadan"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-009": {
+      "source": {
+        "question_tr": "Bir arkadaşın Hastalık ve yolculuk hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Ayet hasta veya yolcu olan kişinin tutamadığı günleri başka günlerde tamamlamasına ruhsat verir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Oruç sorumluluğunu her durumda tamamen yok saymak",
+          "Her gün fidye vermek zorunda olmak",
+          "Tutamadığı günleri başka günlerde tamamlamak",
+          "Namazı bırakmak"
+        ],
+        "correct_answer": "Tutamadığı günleri başka günlerde tamamlamak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Un ami demande les dispositions liées à la maladie et au voyage. Que lui réponds-tu ?",
+        "explanation_tr": "Le verset autorise les personnes malades ou en voyage à rattraper ultérieurement les jours de jeûne manqués.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ignorer entièrement et dans tous les cas son devoir de jeûner",
+          "Être obligé de verser une compensation chaque jour",
+          "Rattraper ultérieurement les jours de jeûne manqués",
+          "Abandonner la prière"
+        ],
+        "correct_answer": "Rattraper ultérieurement les jours de jeûne manqués",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "Maladie et voyage"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-010": {
+      "source": {
+        "question_tr": "“Oruç ahlak ve davranışlarla tamamen ilgisizdir.” ifadesindeki hatayı hangi seçenek düzeltir?",
+        "explanation_tr": "Diyanet Oruç İlmihali orucun irade sorumluluk sabır ve samimiyet eğitimi olduğuna dikkat çeker.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "İnsanları kırmayı artırmak",
+          "Yalanı normal görmek",
+          "Söz ve davranışlarda kötü olandan kaçınmak",
+          "Sorumluluğu bırakmak"
+        ],
+        "correct_answer": "Söz ve davranışlarda kötü olandan kaçınmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Le jeûne n’a aucun rapport avec le bon comportement » ?",
+        "explanation_tr": "Le manuel du jeûne de Diyanet souligne que le jeûne éduque à la volonté, à la responsabilité, à la patience et à la sincérité.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Faire encore plus de mal aux autres",
+          "Considérer le mensonge comme normal",
+          "Éviter les paroles et les comportements répréhensibles",
+          "Se décharger de ses responsabilités"
+        ],
+        "correct_answer": "Éviter les paroles et les comportements répréhensibles",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "Le bon comportement pendant le jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-011": {
+      "source": {
+        "question_tr": "“Oruçlu iken gündüz içmenin oruçla hiçbir ilişkisi yoktur.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "İçmekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Yürümekten",
+          "Kitap okumaktan",
+          "Oruç vaktinde içmekten uzak durmak gerekir.",
+          "Dinlenmekten"
+        ],
+        "correct_answer": "Oruç vaktinde içmekten uzak durmak gerekir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle réponse corrige l’erreur : « Boire pendant la journée n’a aucun rapport avec le jeûne » ?",
+        "explanation_tr": "S’abstenir de boire est un élément essentiel du jeûne.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Marcher",
+          "Lire des livres",
+          "Il faut s’abstenir de boire pendant les heures de jeûne.",
+          "Se reposer"
+        ],
+        "correct_answer": "Il faut s’abstenir de boire pendant les heures de jeûne.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "L’abstention de boisson"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-012": {
+      "source": {
+        "question_tr": "“İftar fecrin doğduğu anda yapılır.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Bakara 2:187 orucun geceye yani güneş batımına kadar tamamlanmasını bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Fecr doğarken",
+          "Öğle vaktinde",
+          "Güneş battığında oruç tamamlanınca",
+          "İkindi başında"
+        ],
+        "correct_answer": "Güneş battığında oruç tamamlanınca",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Quelle proposition corrige l’erreur : « On rompt le jeûne à l’aube » ?",
+        "explanation_tr": "La sourate Al-Baqara (2:187) prescrit d’achever le jeûne jusqu’à la nuit, c’est-à-dire jusqu’au coucher du soleil.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "À l’aube",
+          "À midi",
+          "Au coucher du soleil, lorsque la journée de jeûne s’achève",
+          "Au début de l’horaire de la prière de l’après-midi"
+        ],
+        "correct_answer": "Au coucher du soleil, lorsque la journée de jeûne s’achève",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "La rupture du jeûne (iftar)"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-013": {
+      "source": {
+        "question_tr": "Aktif hatırlama: boşluğu tamamla: Ramazan ayında ___ ibadeti farzdır.",
+        "explanation_tr": "Bakara 2:183-185 Ramazan orucunun farz oluşunu açıklar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "batıncaya",
+          "oruç",
+          "yemekten"
+        ],
+        "correct_answer": "oruç",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Rappel actif : complète : pendant le Ramadan, ___ est obligatoire.",
+        "explanation_tr": "Les versets Al-Baqara (2:183-185) établissent l’obligation du jeûne du Ramadan.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "abstinence",
+          "jusqu’au coucher du soleil",
+          "le jeûne",
+          "manger"
+        ],
+        "correct_answer": "le jeûne",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "Le Ramadan"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-014": {
+      "source": {
+        "question_tr": "Aktif hatırlama: boşluğu tamamla: Hasta veya yolcu tutamadığı günleri başka günlerde ___ eder.",
+        "explanation_tr": "Ayet hasta veya yolcu olan kişinin tutamadığı günleri başka günlerde tamamlamasına ruhsat verir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "kaza",
+          "batıncaya"
+        ],
+        "correct_answer": "kaza",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Rappel actif : complète : une personne malade ou en voyage peut ___ les jours de jeûne manqués.",
+        "explanation_tr": "Le verset autorise les personnes malades ou en voyage à rattraper ultérieurement les jours de jeûne manqués.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "abstinence",
+          "le jeûne",
+          "rattraper",
+          "jusqu’au coucher du soleil"
+        ],
+        "correct_answer": "rattraper",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "Maladie et voyage"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-015": {
+      "source": {
+        "question_tr": "Oruç yalnız yeme içmeyi bırakmakla sınırlı düşünülmemelidir hangi tutum da önemlidir?",
+        "explanation_tr": "Diyanet Oruç İlmihali orucun irade sorumluluk sabır ve samimiyet eğitimi olduğuna dikkat çeker.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "İnsanları kırmayı artırmak",
+          "Yalanı normal görmek",
+          "Söz ve davranışlarda kötü olandan kaçınmak",
+          "Sorumluluğu bırakmak"
+        ],
+        "correct_answer": "Söz ve davranışlarda kötü olandan kaçınmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Le jeûne ne se limite pas à renoncer à manger et à boire. Quelle attitude compte également ?",
+        "explanation_tr": "Le manuel du jeûne de Diyanet souligne que le jeûne éduque à la volonté, à la responsabilité, à la patience et à la sincérité.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Faire encore plus de mal aux autres",
+          "Considérer le mensonge comme normal",
+          "Éviter les paroles et les comportements répréhensibles",
+          "Se décharger de ses responsabilités"
+        ],
+        "correct_answer": "Éviter les paroles et les comportements répréhensibles",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "Le bon comportement pendant le jeûne"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    },
+    "DEEN-U15-S05-016": {
+      "source": {
+        "question_tr": "Oruçlu kişi oruç vaktinde hangisinden uzak durur?",
+        "explanation_tr": "İçmekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Yürümekten",
+          "Kitap okumaktan",
+          "İçmekten",
+          "Dinlenmekten"
+        ],
+        "correct_answer": "İçmekten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "De quoi la personne qui jeûne doit-elle s’abstenir pendant la journée ?",
+        "explanation_tr": "S’abstenir de boire est un élément essentiel du jeûne.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Marcher",
+          "Lire des livres",
+          "Boire",
+          "Se reposer"
+        ],
+        "correct_answer": "Boire",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Facilités et rattrapage des jours manqués",
+        "topic": "L’abstention de boisson"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "traduction_provisoire_relecture_francophone_et_religieuse_requise"
+    }
+  }
+}
