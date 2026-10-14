@@ -142,12 +142,13 @@ async function visit(width,height,label){
    'QA browser exposed a French production release gate');
   await page.evaluate(()=>{window.__DEEN_FRENCH_QA__=true});
   await page.addScriptTag({url:origin+'/assets/i18n/fr/staging-preview.js'});
-  const shell=await page.evaluate(({ui,dynamic,observed,quranUi,quranDynamic})=>{
+  const shell=await page.evaluate(({ui,dynamic,observed,quranUi,quranDynamic,p10Ui,p10Dynamic})=>{
    const renderer=window.DEEN_FRENCH_STAGE_UI;
    if(!renderer)throw Error('Missing localhost-only FR UI staging bridge');
    const init=renderer.init({staticTranslations:ui,dynamicTranslations:dynamic,
     runtimeObservedTranslations:observed,
-    quranStaticTranslations:quranUi,quranDynamicTranslations:quranDynamic});
+    quranStaticTranslations:quranUi,quranDynamicTranslations:quranDynamic,
+    p10StaticTranslations:p10Ui,p10DynamicTranslations:p10Dynamic});
    const mock=document.createElement('div');
    mock.id='frQaDynamicFixture';
    mock.innerHTML='<p data-streak>1 günlük seri</p><p data-verse>Ayet 1 / 4 · Son çalışma: Bugün</p>'+
@@ -188,7 +189,10 @@ async function visit(width,height,label){
     protectedArabic:JSON.stringify(protectedQ.beforeArabic)===JSON.stringify(afterArabic),
     sampleVisibleTexts:[...phone.querySelectorAll('.navbtn')].map(n=>n.textContent.trim())};
   },{ui:fixture.ui,dynamic:fixture.dynamic,observed:fixture.observed,
-     quranUi:fixture.quranUi,quranDynamic:fixture.quranDynamic});
+     quranUi:fixture.quranUi,quranDynamic:fixture.quranDynamic,
+     p10Ui:fixture.p10Ui,p10Dynamic:fixture.p10Dynamic});
+  assert.equal(shell.init.p10StaticDraftKeys,54);
+  assert.equal(shell.init.p10DynamicDraftKeys,18);
   assert.equal(shell.examples.streak,'1 jour de suite');
   assert.equal(shell.examples.verse,'Verset 1 / 4 · Dernière séance : aujourd’hui');
   assert.equal(shell.examples.cta,'Retour');
@@ -302,6 +306,9 @@ async function visit(width,height,label){
   });
   const p10Missing=await page.evaluate(()=>DEEN_FRENCH_STAGE_UI.audit().unrecognized);
   console.log('FR_P10_UI_UNRECOGNIZED',JSON.stringify({viewport:label,unrecognized:p10Missing}));
+  assert(!p10Missing.includes('VERİ & İLERLEME')&&!p10Missing.includes('ANLATIM PROFİLİ')&&
+   !p10Missing.includes('İlerlemeyi yedekle')&&!p10Missing.includes('Sonraki seviyeye 300 XP'),
+   'P10 safe settings/progress UI translations were not applied');
     console.log('FR_REAL_CHROMIUM_NAV_AUDIT',JSON.stringify({
    viewport:label,tabs:navAudit.map(x=>({id:x.id,active:x.active,qaWrites:x.uiWrites,
     contentChars:x.visibleChars,overflowCount:x.overflow.length,
