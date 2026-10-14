@@ -8,8 +8,8 @@
   "global_qa": "blocked",
   "native_reviewer_approved": false,
   "verified_by_religious_expert": false,
-  "translation_count": 41,
-  "provenance": "GitHub Actions #38533548807: actual Quran dashboard, library and Ikhlas browser audit; source strings inspected in original app; GitHub Actions #38539017547 source-unrecognized Quran library status and 5 surah-name labels; GitHub Actions #38539686292 Quran library ten more surah-name labels and recorded Ikhlas memorization UI",
+  "translation_count": 54,
+  "provenance": "GitHub Actions #38533548807: actual Quran dashboard, library and Ikhlas browser audit; source strings inspected in original app; GitHub Actions #38539017547 source-unrecognized Quran library status and 5 surah-name labels; GitHub Actions #38539686292 Quran library ten more surah-name labels and recorded Ikhlas memorization UI; Chromium #38565634928 generic İhlâs user route and legacy 5-step lesson, exact Turkish UI source labels",
   "translations": {
     "Fâtiha Suresi": "Sourate Al-Fâtiha",
     "FÂTIHA İLE BAŞLA": "COMMENCER PAR AL-FÂTIHA",
@@ -51,11 +51,25 @@
     "Ayet kıraati": "Récitation du verset",
     "TEKRAR SAYISI": "NOMBRE DE RÉPÉTITIONS",
     "AYET ARASI BEKLEME": "PAUSE ENTRE LES VERSETS",
-    "Arapça metin, meal ve ses kaynakları ayrı izlenir; uzman release onayı admin doğrulama hattında yönetilir.": "Le texte arabe, les traductions du sens et les sources audio font l’objet de vérifications distinctes. Les validations d’experts sont gérées par le processus d’administration."
+    "Arapça metin, meal ve ses kaynakları ayrı izlenir; uzman release onayı admin doğrulama hattında yönetilir.": "Le texte arabe, les traductions du sens et les sources audio font l’objet de vérifications distinctes. Les validations d’experts sont gérées par le processus d’administration.",
+    "İhlâs Yolculuğu": "Parcours d’Al-Ikhlâs",
+    "İhlâs · Sure Yolculuğu": "Al-Ikhlâs · parcours de la sourate",
+    "✦ Sure madalyaları": "✦ Médailles des sourates",
+    "DEEN yol arkadaşın": "Ton compagnon DEEN",
+    "Zorlandığın ayetleri tekrar edip yeniden dene.": "Révise les versets difficiles, puis réessaie.",
+    "Kıraat hazır": "Récitation prête",
+    "Yok": "Aucun",
+    "SEÇİLİ AYETİ LOOP KAPALI": "RÉPÉTITION DU VERSET SÉLECTIONNÉ : DÉSACTIVÉE",
+    "İhlâs · Wikimedia Commons kıraati": "Al-Ikhlâs · récitation Wikimedia Commons",
+    "2 · OKU": "2 · LIRE",
+    "3 · ANLAM": "3 · COMPRENDRE LE SENS",
+    "4 · HATIRLA": "4 · SE RAPPELER",
+    "5 · TAMAMLA": "5 · TERMINER"
   },
   "review_notes": [
     "Surah transliterations and terminology require a native French and independent Islamic expert review.",
     "These are UI labels, not translations of Arabic Quran verses or recitation.",
-    "Other runtime dynamic labels and verified French meanings are not provided or release approved."
+    "Other runtime dynamic labels and verified French meanings are not provided or release approved.",
+    "Source and license bylines, Arabic Quran, and Turkish ayah meanings are intentionally NOT translated by this UI-only package. Native French and independent Islamic review pending."
   ]
 }
