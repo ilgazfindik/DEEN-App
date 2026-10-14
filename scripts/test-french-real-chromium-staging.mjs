@@ -216,7 +216,7 @@ async function visit(width,height,label){
     const fn=window[name];if(typeof fn!=='function')return {name,available:false};
     try{fn()}catch(error){return {name,available:true,error:String(error)};}
     const beforeArabic=[...document.querySelectorAll('[lang="ar"]')].map(e=>e.textContent);
-    const root=document.querySelector('.phone');
+    const root=sheet?.open?sheet:document.querySelector('.screen.active');
     const writes=window.DEEN_FRENCH_STAGE_UI.setLocale('fr',root);
     const afterArabic=[...document.querySelectorAll('[lang="ar"]')].map(e=>e.textContent);
     const nowSheet=document.getElementById('v5Sheet');
