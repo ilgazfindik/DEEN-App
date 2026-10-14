@@ -117,10 +117,12 @@ assert(ui,'Expected loopback UI preview bridge');
 const result=ui.init({staticTranslations:built.ui,dynamicTranslations:built.dynamic,
  runtimeObservedTranslations:built.observed});
 assert.equal(result.staticKeys,1452);
-assert.equal(result.observedKeys,2);
+assert.equal(result.observedKeys,3);
 assert.equal(ui.translate('Öğrenme analizi','fr'),'Analyse de l’apprentissage');
 assert.equal(ui.translate('Seviye 1','fr'),'Niveau 1');
 assert.equal(ui.translate('Seviye 8','fr'),'Niveau 8');
+assert.equal(ui.translate('Günlük hedef · 1 ders','fr'),'Objectif quotidien · 1 leçon');
+assert.equal(ui.translate('Günlük hedef · 2 ders','fr'),'Objectif quotidien · 2 leçons');
 assert.equal(ui.translate('ÖĞRENDİM · SORUYA GEÇ','fr'),'J’AI COMPRIS · PASSER À LA QUESTION');
 assert.equal(result.previewOnly,true);
 const cases=[
