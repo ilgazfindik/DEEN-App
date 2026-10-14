@@ -1,0 +1,26 @@
+/* DEEN account entry: visually independent from onboarding and gameplay. */
+#deenAccountGate{position:fixed;inset:0;z-index:2147482900;background:#03131b;color:#f7f3eb;font-family:Inter,system-ui,-apple-system,sans-serif;overflow-y:auto;display:grid;place-items:center;padding:24px 20px;box-sizing:border-box}
+#deenAccountGate *{box-sizing:border-box}
+#deenAccountGate .da-panel{width:min(100%,440px);background:radial-gradient(circle at 50% 0%,#103c42,#06252e 55%,#041923);border:1px solid #22545b;border-radius:28px;padding:30px 24px;box-shadow:0 30px 70px #0005}
+#deenAccountGate .da-brand{color:#ebca91;text-align:center;font:600 20px Georgia,serif;letter-spacing:7px;margin-bottom:26px}
+#deenAccountGate h1{font-size:clamp(25px,7vw,34px);line-height:1.14;letter-spacing:-.7px;margin:0 0 12px;text-align:center}
+#deenAccountGate p{font-size:13px;line-height:1.55;color:#b7cccd;text-align:center;margin:0 0 22px}
+#deenAccountGate .da-actions{display:grid;gap:12px}
+#deenAccountGate button{border:1px solid #41616a;border-radius:15px;min-height:54px;font-size:15px;font-weight:750;cursor:pointer;background:#0b3139;color:#eaf6f1;width:100%}
+#deenAccountGate button:focus-visible,#deenAccountGate input:focus-visible{outline:2px solid #8cead2;outline-offset:2px}
+#deenAccountGate .da-google{background:#f4f7f7;color:#17272d}
+#deenAccountGate .da-apple{background:#111820;color:#fff}
+#deenAccountGate .da-email{background:#123c43}
+#deenAccountGate .da-guest{background:none;border:0;color:#8cead2;text-decoration:underline;font-size:14px;font-weight:650}
+#deenAccountGate .da-tabs{display:flex;gap:10px;margin:12px 0 18px}
+#deenAccountGate .da-tabs button{min-height:43px;font-size:13px}
+#deenAccountGate .da-tabs button[aria-pressed="true"]{background:#8cead2;color:#092a32;border-color:#8cead2}
+#deenAccountGate form{display:grid;gap:12px}
+#deenAccountGate label{display:grid;gap:6px;font-size:13px;color:#cbdcda}
+#deenAccountGate input{width:100%;border:1px solid #456871;background:#021c25;color:#fff;min-height:50px;border-radius:12px;padding:12px;font-size:16px}
+#deenAccountGate .da-submit{background:#9beed4;color:#06252a;border:0}
+#deenAccountGate button:disabled{opacity:.62;cursor:wait}
+#deenAccountGate .da-note{font-size:11px;color:#a8bdc0;margin-top:18px;margin-bottom:0}
+#deenAccountGate .da-status{min-height:18px;font-size:12px;color:#ffdba4;margin:10px 0 0;word-break:break-word}
+#deenAccountGate .da-back{min-height:36px;background:none;border:none;color:#9bead4;text-align:start;margin-bottom:10px;font-size:13px}
+@media(prefers-reduced-motion:no-preference){#deenAccountGate .da-panel{animation:deenAccountAppear .3s ease-out both}@keyframes deenAccountAppear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
