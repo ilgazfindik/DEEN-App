@@ -72,7 +72,9 @@
  function qaReady(lang,config){return config?.global_qa==='passed'||lang==='en'&&config?.global_qa==='pending'&&window.__DEEN_LOCALIZATION_QA__===true}
  function available(lang){const config=manifest()?.languages?.[lang];return ['tr','ar'].includes(lang)||config?.question_data==='complete'&&qaReady(lang,config)}
  function translateText(text,lang=window.DEEN_APP_LOCALE.get()){
-  if(lang!=='en')return text;
+  // French uses the same verified per-question adapter, never a free-form glossary.
+  // Production remains protected by manifest release gates in preload().
+  if(lang!=='en'&&lang!=='fr')return text;
   const sourceText=String(text),tables=loaded.get(lang)?.questions;
   if(!tables)return text;
   let current;try{current=session?.questions?.[session.index]}catch(_){}
@@ -84,11 +86,17 @@
    for(let i=0;i<(s.pairs?.length||0);i++)for(const k of ['left','right'])if(s.pairs[i][k]===sourceText)return d.pairs[i][k];
    return null;
   }
+  // French has no context-free fallback: shared Turkish terms can have different
+  // theological or pedagogical meanings across different questions.
+  if(lang==='fr'&&!source)return text;
   const candidates=tables[source?.id]||[];
   for(const e of Array.isArray(candidates)?candidates:[candidates])if(validate(source,e)){const value=lookup(e);if(value)return value;
+   if(lang==='en'){
    const stripped=String(e.source.question_tr).replace(/^(?:Boşluğu tamamla|Eksik kavramı seç|Kayıp kelime(?:yi bul)?|İpucu olmadan tamamla|Boşluğu doldur):\s*/i,'');
    if(stripped===sourceText)return e.display.question_tr.replace(/^(?:Complete the sentence|Choose the missing concept|Missing word|Find the missing word|Complete without a hint|Fill in the blank):\s*/i,'');
+   }
   }
+  if(lang==='fr')return text; // Fail closed if this question has no exact source match.
   // Shared hints and labels use the same guarded pack entries, never an independent language bank.
   if(!loaded.get(lang).textMap){const map=new Map();for(const entries of Object.values(tables))for(const e of Array.isArray(entries)?entries:[entries]){const s=e.source,d=e.display;for(const k of ['question_tr','explanation_tr','correct_answer'])if(typeof s[k]==='string'&&!map.has(s[k]))map.set(s[k],d[k]);for(const k of ['options_tr','items','correct_order'])for(let i=0;i<(s[k]?.length||0);i++)if(!map.has(s[k][i]))map.set(s[k][i],d[k][i]);for(let i=0;i<(s.pairs?.length||0);i++)for(const k of ['left','right'])if(!map.has(s.pairs[i][k]))map.set(s.pairs[i][k],d.pairs[i][k]);}loaded.get(lang).textMap=map;}
   return loaded.get(lang).textMap.get(sourceText)||text;
