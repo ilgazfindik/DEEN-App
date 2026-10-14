@@ -81,7 +81,7 @@
   if(!dynamicTranslations||Object.keys(dynamicTranslations).length!==9)throw Error('FR_PREVIEW_DYNAMIC_COVERAGE');
   for(const [key,value] of Object.entries(staticTranslations))
    if(!key.trim()||typeof value!=='string'||!value.trim())throw Error('FR_PREVIEW_EMPTY_UI');
-  if(Object.keys(runtimeObservedTranslations).length!==3)throw Error('FR_PREVIEW_OBSERVED_COVERAGE');
+  if(Object.keys(runtimeObservedTranslations).length!==2)throw Error('FR_PREVIEW_OBSERVED_COVERAGE');
   for(const [key,value] of Object.entries(runtimeObservedTranslations)){
    if(!key.trim()||typeof value!=='string'||!value.trim()||Object.hasOwn(staticTranslations,key))
     throw Error('FR_PREVIEW_INVALID_OBSERVED_KEY:'+key);
