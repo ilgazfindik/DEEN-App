@@ -48,16 +48,21 @@ async function run(device){
   rec.gates=initial.gate;
   await page.evaluate(()=>{window.__DEEN_FRENCH_QA__=true;});
   await page.addScriptTag({url:origin+'/assets/i18n/fr/staging-preview.js'});
-  const init=await page.evaluate(({ui,dynamic,observed})=>{
+  const init=await page.evaluate(({ui,dynamic,observed,quranUi,quranDynamic})=>{
    const bridge=window.DEEN_FRENCH_STAGE_UI;
    if(!bridge)throw Error('Loopback Quran FR QA bridge unavailable');
    const result=bridge.init({staticTranslations:ui,dynamicTranslations:dynamic,
-    runtimeObservedTranslations:observed});
-   if(result.staticKeys!==1452||result.observedKeys!==4)
+    runtimeObservedTranslations:observed,
+    quranStaticTranslations:quranUi,quranDynamicTranslations:quranDynamic});
+   if(result.staticKeys!==1452||result.observedKeys!==4||
+     result.quranStaticDraftKeys!==17||result.quranDynamicDraftKeys!==3)
     throw Error('FR Quran preview source coverage drift');
    return result;
-  },{ui:fixture.ui,dynamic:fixture.dynamic,observed:fixture.observed});
-  rec.localePreview={staticKeys:init.staticKeys,observedKeys:init.observedKeys,productionActivated:false};
+  },{ui:fixture.ui,dynamic:fixture.dynamic,observed:fixture.observed,
+     quranUi:fixture.quranUi,quranDynamic:fixture.quranDynamic});
+  rec.localePreview={staticKeys:init.staticKeys,observedKeys:init.observedKeys,
+   quranStaticDraftKeys:init.quranStaticDraftKeys,quranDynamicDraftKeys:init.quranDynamicDraftKeys,
+   productionActivated:false};
   const nav=page.locator('.bottomnav [data-screen="leagueScreen"]');
   await nav.click({timeout:15000});
   await page.waitForSelector('#leagueScreenBody .deen-quran-dashboard',{timeout:10000});
