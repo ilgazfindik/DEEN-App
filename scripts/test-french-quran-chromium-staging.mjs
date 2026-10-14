@@ -99,6 +99,24 @@ async function run(device){
   await page.screenshot({path:output+'/'+device.name+'-surah-library.png',fullPage:true});
   // Choose İhlâs via the real source-linked library card.
   await page.locator('#v5Sheet .deen-quran-surah-card[onclick*="ikhlas"]').click({timeout:15000});
+  await page.waitForTimeout(320);
+  const selectedRoute=await page.evaluate(()=>({
+   sheetOpen:!!document.querySelector('#v5Sheet[open]'),
+   sheetTitle:document.querySelector('#v5SheetTitle')?.textContent.trim()||'',
+   sheetBody:document.querySelector('#v5SheetBody')?.textContent.slice(0,550)||'',
+   actualIkhlasSession:!!document.querySelector('#v5Sheet[open] .deen-ikhlas-session'),
+   quranLearningNodes:[...document.querySelectorAll('#v5Sheet [class*="surah"],#v5Sheet [class*="quran-learning"]')]
+    .slice(0,12).map(x=>String(x.className).slice(0,85)),
+   current:DEEN_QURAN_IKHLAS.model(),
+   sampleMarkup:document.querySelector('#v5SheetBody')?.innerHTML.slice(0,1000)||''
+  }));
+  rec.surahCardRoute={...selectedRoute,sampleMarkup:selectedRoute.sampleMarkup.slice(0,550)};
+  if(!selectedRoute.actualIkhlasSession){
+   // Source-backed legacy Ikhlas five-step engine remains a supported DEEN
+   // API even if a newer generic surah viewer owns the card route.
+   rec.legacyLearningRouteFallback=true;
+   await page.evaluate(()=>DEEN_QURAN_IKHLAS.open(1));
+  }
   await page.waitForSelector('#v5Sheet[open] .deen-ikhlas-session',{timeout:10000});
   const original=await page.evaluate(()=>{
    const model=DEEN_QURAN_IKHLAS.model();
