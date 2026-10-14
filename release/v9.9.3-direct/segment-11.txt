@@ -343,6 +343,8 @@
 
   const V570_BASE_SAVE=saveState;
   saveState=function(){
+    // Admin full reset must not resurrect deleted progress on pagehide/beforeunload.
+    if(window.__DEEN_FULL_RESET_PENDING__===true)return false;
     try{
       state=sanitizeState(state);
       const raw=JSON.stringify(state);
