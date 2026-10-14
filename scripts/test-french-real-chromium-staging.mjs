@@ -191,7 +191,7 @@ async function visit(width,height,label){
   },{ui:fixture.ui,dynamic:fixture.dynamic,observed:fixture.observed,
      quranUi:fixture.quranUi,quranDynamic:fixture.quranDynamic,
      p10Ui:fixture.p10Ui,p10Dynamic:fixture.p10Dynamic});
-  assert.equal(shell.init.p10StaticDraftKeys,69);
+  assert.equal(shell.init.p10StaticDraftKeys,71);
   assert.equal(shell.init.p10DynamicDraftKeys,34);
   assert.equal(shell.examples.streak,'1 jour de suite');
   assert.equal(shell.examples.verse,'Verset 1 / 4 · Dernière séance : aujourd’hui');
