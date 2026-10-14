@@ -15,6 +15,14 @@
  const T=i=>(strings[lang()]||strings.en)[i];
  const escape=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const configured=()=>/^https:\/\/[a-z0-9.-]+\.supabase\.co\/?$/.test(CONFIG.url)&&/^(sb_publishable_|eyJ)/.test(CONFIG.publishableKey);
+ // Inline vectors keep provider marks crisp without external assets or SDK dependencies.
+ // Decorative to assistive technology: button labels already announce the action.
+ const authIcons=Object.freeze({
+  google:'<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M21.35 12.25c0-.76-.07-1.48-.19-2.18H12v4.12h5.23a4.47 4.47 0 0 1-1.95 2.93v2.43h3.16c1.85-1.7 2.91-4.21 2.91-7.3z"/><path fill="#34A853" d="M12 21.5c2.64 0 4.86-.88 6.48-2.38l-3.16-2.44a5.89 5.89 0 0 1-8.77-3.09H3.29v2.5A9.79 9.79 0 0 0 12 21.5z"/><path fill="#FBBC05" d="M6.55 13.59A5.84 5.84 0 0 1 6.25 12c0-.55.1-1.09.3-1.59v-2.5H3.29a9.55 9.55 0 0 0 0 8.18l3.26-2.5z"/><path fill="#EA4335" d="M12 6.11c1.44 0 2.73.49 3.74 1.46l2.8-2.8A9.36 9.36 0 0 0 12 2.5a9.79 9.79 0 0 0-8.71 5.41l3.26 2.5a5.82 5.82 0 0 1 5.45-4.3z"/></svg>',
+  apple:'<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.6 12.6c0-2.1 1.7-3.1 1.8-3.2-1-1.5-2.6-1.7-3.1-1.7-1.3-.1-2.6.8-3.2.8s-1.6-.8-2.6-.8c-1.4 0-2.7.8-3.4 2-1.5 2.5-.4 6.2 1 8.2.7 1 1.5 2.1 2.5 2.1s1.3-.7 2.6-.7 1.6.7 2.7.7 1.8-1 2.5-2.1a9.1 9.1 0 0 0 1.1-2.1c-.1 0-2.8-1.1-2.8-4.2zM15.7 6.3c.6-.7 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2.1-.5 2.7-1.3z"/></svg>',
+  email:'<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>'
+ });
+ const socialButton=(provider,label)=>'<button type="button" class="da-provider da-'+provider+'" data-social="'+provider+'"><span class="da-provider-icon">'+authIcons[provider]+'</span><span class="da-provider-label">'+escape(label)+'</span><span class="da-provider-spacer" aria-hidden="true"></span></button>';
  let root=null,client=null,loading=null,busy=false;
  async function sdk(){
   if(!configured())throw Error('AUTH_NOT_CONFIGURED');
@@ -48,7 +56,7 @@
   const lock=value=>{busy=value;pane.querySelectorAll('button,input').forEach(el=>{if(!el.classList.contains('da-guest'))el.disabled=value})};
   function render(){
    pane.innerHTML='<div class="da-panel"><div class="da-brand">DEEN</div><h1>'+escape(T(0))+'</h1><p>'+escape(T(1))+'</p>'+
-    (mode==='choice'?'<div class="da-actions"><button type="button" class="da-google" data-social="google">'+escape(T(2))+'</button><button type="button" class="da-apple" data-social="apple">'+escape(T(3))+'</button><button type="button" class="da-email">'+escape(T(4))+'</button></div>':
+    (mode==='choice'?'<div class="da-actions">'+socialButton('google',T(2))+socialButton('apple',T(3))+'<button type="button" class="da-provider da-email"><span class="da-provider-icon">'+authIcons.email+'</span><span class="da-provider-label">'+escape(T(4))+'</span><span class="da-provider-spacer" aria-hidden="true"></span></button></div>':
      '<button class="da-back" type="button">'+escape(T(21))+'</button><div class="da-tabs"><button type="button" data-mode="signup" aria-pressed="'+(mode==='signup')+'">'+escape(T(5))+'</button><button type="button" data-mode="signin" aria-pressed="'+(mode==='signin')+'">'+escape(T(6))+'</button></div><form novalidate><label>'+escape(T(8))+'<input type="email" name="email" inputmode="email" autocomplete="email" maxlength="254" required></label>'+
      (mode==='reset'?'':'<label>'+escape(T(9))+'<input type="password" name="password" minlength="8" autocomplete="'+(mode==='signup'?'new-password':'current-password')+'" required></label>')+
      '<button type="submit" class="da-submit">'+escape(T(mode==='signup'?10:mode==='reset'?12:11))+'</button></form><button type="button" class="da-reset">'+escape(T(7))+'</button>')+

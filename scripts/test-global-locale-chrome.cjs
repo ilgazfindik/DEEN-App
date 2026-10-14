@@ -17,6 +17,22 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   assert.equal(await page.locator('#deenAccountGate').getAttribute('lang'),lang);
   assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
   assert.equal(await page.locator('#deenAccountGate .da-email').count(),1);
+  // All provider buttons carry a real inline SVG, with label visually centered.
+  const providerLayout=await page.evaluate(()=>{
+   const gate=document.querySelector('#deenAccountGate');
+   return [...gate.querySelectorAll('.da-provider')].map(button=>{
+    const svg=button.querySelector('.da-provider-icon svg'),label=button.querySelector('.da-provider-label');
+    const b=button.getBoundingClientRect(),l=label.getBoundingClientRect(),i=svg?.getBoundingClientRect();
+    return {icon:!!svg,hidden:svg?.getAttribute('aria-hidden'),svgWidth:i?.width,
+     labelOffset:Math.abs((l.left+l.width/2)-(b.left+b.width/2)),
+     overflow:label.scrollWidth>label.clientWidth+1,dir:getComputedStyle(button).direction};
+   });
+  });
+  assert.equal(providerLayout.length,3);
+  for(const row of providerLayout){assert(row.icon&&row.hidden==='true','Decorative provider SVG missing');
+   assert.equal(row.svgWidth,20);assert(row.labelOffset<4,'Provider label must stay centered '+JSON.stringify(row));
+   assert(!row.overflow,'Provider label must not overflow '+JSON.stringify(row));}
+  if(lang==='ar')assert(providerLayout.every(x=>x.dir==='rtl'),'Arabic icon/label layout must be RTL');
   if(lang==='tr'){
    await page.locator('#deenAccountGate .da-email').click();
    assert.equal(await page.locator('#deenAccountGate form input[type="email"]').count(),1);
