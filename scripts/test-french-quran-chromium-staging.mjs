@@ -105,6 +105,23 @@ async function run(device){
   assert.equal(dashboard.nav,'leagueScreen');
   assert.equal(dashboard.locale,'tr');
   await page.screenshot({path:output+'/'+device.name+'-quran-dashboard.png',fullPage:true});
+  // Record actual user-visible navigational controls, not only the legacy
+  // shortcut selector. Distinguishes an intentional hidden legacy shortcut
+  // from the absence of any usable library button.
+  const dashboardControls=await page.evaluate(()=>{
+   const root=document.getElementById('leagueScreenBody');
+   return [...root.querySelectorAll('button,a,[role="button"]')].slice(0,45).map(el=>{
+    const box=el.getBoundingClientRect(),css=getComputedStyle(el);
+    const visible=!!(box.width&&box.height&&css.display!=='none'&&css.visibility!=='hidden');
+    return {text:el.textContent.trim().slice(0,85),className:String(el.className).slice(0,70),
+     onclick:el.getAttribute('onclick')?.slice(0,130)||null,
+     visible,display:css.display,visibility:css.visibility,
+     parentClassName:String(el.parentElement?.className||'').slice(0,80)};
+   });
+  });
+  rec.dashboardControls=dashboardControls;
+  console.log('FR_QURAN_DASHBOARD_CONTROLS',JSON.stringify({viewport:device.name,
+   controls:dashboardControls}));
   // Some dashboard revisions leave a non-visible legacy quick action
   // in the DOM. Preserve this as an explicit QA navigation issue; invoke the
   // real native callback as a fallback, never fabricate the library sheet.
