@@ -128,17 +128,24 @@ async function run(device){
   rec.dashboardControls=dashboardControls;
   console.log('FR_QURAN_DASHBOARD_CONTROLS',JSON.stringify({viewport:device.name,
    controls:dashboardControls}));
-  // Some dashboard revisions leave a non-visible legacy quick action
-  // in the DOM. Preserve this as an explicit QA navigation issue; invoke the
-  // real native callback as a fallback, never fabricate the library sheet.
-  const libraryShortcut=page.locator('#leagueScreenBody .deen-quran-quick button[onclick*="surahList"]').first();
-  const clickable=await libraryShortcut.isVisible();
-  rec.libraryNavigation={directUserClick:clickable,hiddenDashboardShortcut:!clickable};
-  if(clickable)await libraryShortcut.click({timeout:15000});
-  else{
-   rec.navigationWarning='Real Quran library dashboard shortcut is present but not visible; QA entered via DEEN_QURAN.surahList()';
-   await page.evaluate(()=>DEEN_QURAN.surahList());
-  }
+  // New Quran dashboard: the legacy quick shortcut is hidden, but there is
+  // a distinct visible primary "Sureler / Bibliothèque" user action.
+  // Always enter through the real clickable UI, never call surahList() directly.
+  const legacyShortcut=page.locator('#leagueScreenBody .deen-quran-quick button[onclick*="surahList"]').first();
+  const legacyVisible=await legacyShortcut.isVisible();
+  const libraryAction=page.locator('#leagueScreenBody .deen-qia-action.primary').first();
+  assert.equal(await libraryAction.count(),1,'Visible Quran library primary action missing');
+  const userFacingLabel=(await libraryAction.textContent()||'').trim();
+  assert(/sure|sourate/i.test(userFacingLabel),
+   'First primary Quran action no longer opens surah library: '+userFacingLabel);
+  assert(await libraryAction.isVisible(),'Real library action is not visible');
+  await libraryAction.click({timeout:15000});
+  rec.libraryNavigation={
+   directUserClick:true,
+   actionText:userFacingLabel,
+   legacyShortcutVisible:legacyVisible,
+   modernQuranDashboard:true
+  };
   await page.waitForSelector('#v5Sheet[open] .deen-quran-surah-card',{timeout:10000});
   const library=await page.evaluate(()=>{
    const sheet=document.getElementById('v5Sheet');
@@ -258,6 +265,7 @@ async function run(device){
    audioRightsControlsChecked:true,frenchMeaningReleased:false,actualLocale:afterPreview.locale,
    nativeLibraryClick:rec.libraryNavigation.directUserClick,
    legacyIkhlasApiFallback:!!rec.legacyLearningRouteFallback,
+   libraryUserClick:rec.libraryNavigation.directUserClick,
    unmappedCount:coverage.unrecognizedCount,unmappedSample:coverage.sourceOnlyExamples.slice(0,22)}));
  }catch(e){
   rec.status='failed';rec.error=String(e?.stack||e);rec.errors=errors;
