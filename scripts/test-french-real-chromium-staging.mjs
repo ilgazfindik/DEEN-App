@@ -94,11 +94,12 @@ async function visit(width,height,label){
    'QA browser exposed a French production release gate');
   await page.evaluate(()=>{window.__DEEN_FRENCH_QA__=true});
   await page.addScriptTag({url:origin+'/assets/i18n/fr/staging-preview.js'});
-  const shell=await page.evaluate(({ui,dynamic,observed})=>{
+  const shell=await page.evaluate(({ui,dynamic,observed,quranUi,quranDynamic})=>{
    const renderer=window.DEEN_FRENCH_STAGE_UI;
    if(!renderer)throw Error('Missing localhost-only FR UI staging bridge');
    const init=renderer.init({staticTranslations:ui,dynamicTranslations:dynamic,
-    runtimeObservedTranslations:observed});
+    runtimeObservedTranslations:observed,
+    quranStaticTranslations:quranUi,quranDynamicTranslations:quranDynamic});
    const mock=document.createElement('div');
    mock.id='frQaDynamicFixture';
    mock.innerHTML='<p data-streak>1 günlük seri</p><p data-verse>Ayet 1 / 4 · Son çalışma: Bugün</p>'+
@@ -138,7 +139,8 @@ async function visit(width,height,label){
      protectedQ.beforeOptions===afterOptions,
     protectedArabic:JSON.stringify(protectedQ.beforeArabic)===JSON.stringify(afterArabic),
     sampleVisibleTexts:[...phone.querySelectorAll('.navbtn')].map(n=>n.textContent.trim())};
-  },{ui:fixture.ui,dynamic:fixture.dynamic,observed:fixture.observed});
+  },{ui:fixture.ui,dynamic:fixture.dynamic,observed:fixture.observed,
+     quranUi:fixture.quranUi,quranDynamic:fixture.quranDynamic});
   assert.equal(shell.examples.streak,'1 jour de suite');
   assert.equal(shell.examples.verse,'Verset 1 / 4 · Dernière séance : aujourd’hui');
   assert.equal(shell.examples.cta,'Retour');
