@@ -184,7 +184,8 @@ const {ui,rootNode}=uiVm('127.0.0.1',true);
 assert(ui,'Expected loopback UI preview bridge');
 const result=ui.init({staticTranslations:built.ui,dynamicTranslations:built.dynamic,
  runtimeObservedTranslations:built.observed,
- quranStaticTranslations:built.quranUi,quranDynamicTranslations:built.quranDynamic});
+ quranStaticTranslations:built.quranUi,quranDynamicTranslations:built.quranDynamic,
+ p10StaticTranslations:built.p10Ui,p10DynamicTranslations:built.p10Dynamic});
 assert.equal(result.staticKeys,1452);
 assert.equal(result.observedKeys,4);
 assert.equal(result.quranStaticDraftKeys,54);
