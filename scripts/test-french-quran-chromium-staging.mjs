@@ -184,12 +184,24 @@ async function run(device){
   rec.frenchMeaningReleased=false;
   rec.audioPlaybackCertified=false;
   rec.chromeAudioRightsGatingChecked=true;
+  const coverage=await page.evaluate(()=>{
+   const audit=DEEN_FRENCH_STAGE_UI.audit();
+   return {unrecognizedCount:audit.unrecognized.length,
+    sourceOnlyExamples:audit.unrecognized.filter(x=>/[A-Za-zÇĞİÖŞÜçğıöşü]/u.test(x))
+     .filter(x=>!/^[\d\W]+$/u.test(x)).slice(0,45),
+    productionLocale:DEEN_APP_LOCALE.get()};
+  });
+  rec.quranRuntimeUnmapped=coverage;
+  assert.equal(coverage.productionLocale,'tr');
   rec.errors=errors;
   assert.deepEqual(errors,[],'Unexpected browser errors in Quran staging');
   rec.status='passed';
   console.log('FR_QURAN_BROWSER',JSON.stringify({viewport:device.name,status:rec.status,
    library:library.count,steps:steps.map(x=>x.step),arabicPreserved:true,
-   audioRightsControlsChecked:true,frenchMeaningReleased:false,actualLocale:afterPreview.locale}));
+   audioRightsControlsChecked:true,frenchMeaningReleased:false,actualLocale:afterPreview.locale,
+   nativeLibraryClick:rec.libraryNavigation.directUserClick,
+   legacyIkhlasApiFallback:!!rec.legacyLearningRouteFallback,
+   unmappedCount:coverage.unrecognizedCount,unmappedSample:coverage.sourceOnlyExamples.slice(0,22)}));
  }catch(e){
   rec.status='failed';rec.error=String(e?.stack||e);rec.errors=errors;
   console.error('FR_QURAN_BROWSER_FAILURE',JSON.stringify({viewport:device.name,
