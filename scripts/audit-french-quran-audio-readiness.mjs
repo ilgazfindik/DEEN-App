@@ -18,6 +18,33 @@ assert.equal(timings.schemaVersion,1,'Unexpected word timings schema');
 assert(timings.entries&&typeof timings.entries==='object'&&!Array.isArray(timings.entries),
   'Invalid word timing entries');
 
+// Source-exact word alignment guard: a plausible timestamp is not evidence
+// that the highlighted Arabic word is the one actually displayed.
+function validateWordSegments(key,sourceWords,segments){
+  let previousEnd=0;
+  for(const [index,word] of segments.entries()){
+    assert(word&&typeof word==='object','Invalid word segment '+key+'['+index+']');
+    assert.equal(word.text,sourceWords[index],
+      'Wrong Arabic source token in word timing '+key+'['+index+']');
+    assert(Number.isFinite(word.start)&&Number.isFinite(word.end)&&
+      word.start>=0&&word.start>=previousEnd-0.025&&word.end>word.start,
+      'Invalid/out-of-order timestamp '+key+'['+index+']');
+    previousEnd=word.end;
+  }
+}
+// Negative tests ensure corruption cannot be marked as a timing candidate,
+// even though the shipped timing manifest currently contains no alignments.
+const fixtureWords=['بِسْمِ','ٱللَّهِ'];
+const fixtureSegments=[{text:fixtureWords[0],start:0,end:0.35},
+ {text:fixtureWords[1],start:0.36,end:0.9}];
+validateWordSegments('fixture',fixtureWords,fixtureSegments);
+assert.throws(()=>validateWordSegments('fixture',fixtureWords,
+ [{...fixtureSegments[0],text:fixtureWords[1]}]),/Wrong Arabic source token/);
+assert.throws(()=>validateWordSegments('fixture',fixtureWords,
+ [fixtureSegments[0],{...fixtureSegments[1],start:0.1}]),/Invalid\/out-of-order timestamp/);
+assert.throws(()=>validateWordSegments('fixture',fixtureWords,
+ [fixtureSegments[0],{...fixtureSegments[1],end:NaN}]),/Invalid\/out-of-order timestamp/);
+
 const audioKeys=new Set(),audioPaths=new Set(),records=[];
 for(const entry of manifest.entries){
   assert(typeof entry.key==='string'&&/^[a-z0-9-]+:[1-9][0-9]*$/.test(entry.key),
@@ -51,14 +78,7 @@ for(const entry of manifest.entries){
     assert.equal(alignment.alignedWords,alignment.words.length,'Alignment count drift '+entry.key);
     assert.equal(alignment.wordCountMatch,alignment.words.length===words.length,
       'Alignment match flag drift '+entry.key);
-    let end=0;
-    for(const word of alignment.words){
-      assert(typeof word.text==='string'&&word.text.trim(),'Empty aligned word '+entry.key);
-      assert(Number.isFinite(word.start)&&Number.isFinite(word.end)&&
-        word.start>=end-0.025&&word.end>word.start,
-        'Invalid/out-of-order timestamp '+entry.key);
-      end=word.end;
-    }
+    validateWordSegments(entry.key,words,alignment.words);
     timingStatus=alignment.wordCountMatch?'candidate_needs_human_review':'incomplete';
   }
   records.push({key:entry.key,bytes:bytes.length,assetHeaderValid:true,
