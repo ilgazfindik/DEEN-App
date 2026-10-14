@@ -9,6 +9,8 @@ on:
       - 'scripts/test-french-locale-progress-chromium.mjs'
       - 'scripts/audit-french-quran-audio-readiness.mjs'
       - 'scripts/audit-french-quran-rights.mjs'
+      - 'scripts/audit-french-release-readiness.mjs'
+      - 'qa/FRENCH_P12_HUMAN_REVIEW.staging.json'
       - 'assets/quran/audio/fr-rights-evidence.staging.json'
       - 'scripts/quran/**'
       - 'scripts/test-quran-word-alignment-guard.mjs'
@@ -52,6 +54,8 @@ jobs:
         run: node scripts/audit-french-quran-rights.mjs
       - name: Audit Quran recitation files and word timing readiness
         run: node scripts/audit-french-quran-audio-readiness.mjs
+      - name: Enforce French production release blockers
+        run: node scripts/audit-french-release-readiness.mjs
       - name: Run assembled DEEN mobile and desktop in real Chromium
         shell: bash
         run: |
@@ -74,5 +78,6 @@ jobs:
             qa-artifacts/french-gameplay/
             qa-artifacts/french-quran/
             qa-artifacts/french-locale-progress/
+            qa-artifacts/french-release/
           if-no-files-found: warn
           retention-days: 14
