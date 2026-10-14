@@ -55,7 +55,7 @@ async function run(device){
     runtimeObservedTranslations:observed,
     quranStaticTranslations:quranUi,quranDynamicTranslations:quranDynamic});
    if(result.staticKeys!==1452||result.observedKeys!==4||
-     result.quranStaticDraftKeys!==54||result.quranDynamicDraftKeys!==15)
+     result.quranStaticDraftKeys!==54||result.quranDynamicDraftKeys!==17)
     throw Error('FR Quran preview source coverage drift');
    return result;
   },{ui:fixture.ui,dynamic:fixture.dynamic,observed:fixture.observed,
@@ -85,6 +85,10 @@ async function run(device){
     learning:bridge.translate('0/4 ayet öğrenildi','fr'),
     listeningStep:bridge.translate('2 · OKU','fr'),
     level:bridge.translate('SEVİYE 0','fr'),
+    date:bridge.translate('14 Eki','fr'),
+    mastery:bridge.translate('Ustalık %50','fr'),
+    mixedProgress:bridge.translate('0/4 ayet 5/5 + Solid','fr'),
+    oneVerseMixed:bridge.translate('0/1 ayet 5/5 + Solid','fr'),
     recurrence:bridge.translate('Mevcut günlük görevler: 0/1 tamamlandı · 1 tekrar bekliyor','fr')
    };
   });
@@ -105,7 +109,11 @@ async function run(device){
    learning:'0/4 versets appris',
    listeningStep:'2 · LIRE',
    level:'NIVEAU 0',
-   recurrence:'Tâches quotidiennes : 0/1 terminée · 1 révision en attente'
+   date:'14 oct.',
+    mastery:'Maîtrise : 50 %',
+    mixedProgress:'0/4 versets · 5/5 + solide',
+    oneVerseMixed:'0/1 verset · 5/5 + solide',
+    recurrence:'Tâches quotidiennes : 0/1 terminée · 1 révision en attente'
   },'Quran UI key and dynamic count translations must remain source-specific');
   rec.quranUiExamples=quranUiExamples;
   const nav=page.locator('.bottomnav [data-screen="leagueScreen"]');
@@ -373,6 +381,36 @@ async function run(device){
     productionLocale:DEEN_APP_LOCALE.get()};
   });
   rec.quranRuntimeUnmapped=coverage;
+  // Keep unreleased Quran meanings, source names and rights notices unchanged.
+  const rightsAndSources=new Set([
+   'Atcovi · CC0 1.0','Muhammed Hamdi Yazır, 1938 ·',
+   'Arapça: Quran.com · Meal: Muhammed Hamdi Yazır, 1938',
+   'Samir - Modern Arabic',
+   'Kaynak: DEEN user-provided ElevenLabs generation · Lisans: User-provided generated asset'
+  ]);
+  const protectedMeanings=new Set(['De, o: Allah tek bir tektir.']);
+  const languageSelfNames=new Set(['Türkçe','English','العربية','Deutsch','Español','Français']);
+  const classified=coverage.allUnrecognized.map(source=>{
+   let category='needs_source_review';
+   if(!/\p{L}/u.test(source))category='number_or_symbol';
+   else if(source==='DEEN')category='brand_name';
+   else if(languageSelfNames.has(source))category='language_self_name';
+   else if(rightsAndSources.has(source))category='source_and_license';
+   else if(protectedMeanings.has(source))category='original_turkish_quran_meaning';
+   return {source,category};
+  });
+  rec.quranUnrecognizedClassification=classified;
+  const ambiguous=classified.filter(x=>x.category==='needs_source_review');
+  assert.deepEqual(ambiguous,[],
+   'Unclassified Quran UI string requires deliberate localization or source review');
+  assert(!coverage.allUnrecognized.some(s=>/^(?:Ustalık %\d+|\d+ \p{L}+|\d+\/\d+ ayet)/u.test(s)),
+   'Known Turkish UI leak remains after French P07 staging bridge');
+  console.log('FR_QURAN_CLASSIFICATION',JSON.stringify({
+   viewport:device.name,remaining:classified.length,
+   categories:classified.reduce((acc,x)=>(acc[x.category]=(acc[x.category]||0)+1,acc),{}),
+   needsSourceReview:ambiguous
+  }));
+
   console.log('FR_QURAN_UNRECOGNIZED',JSON.stringify({viewport:device.name,strings:coverage.allUnrecognized}));
   assert.equal(coverage.productionLocale,'tr');
   rec.errors=errors;
