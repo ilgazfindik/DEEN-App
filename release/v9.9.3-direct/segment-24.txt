@@ -1126,11 +1126,6 @@
 .v998-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid rgba(147,228,208,.22);border-radius:999px;background:rgba(13,54,58,.65);color:#9ee7d5;font-size:10px;font-weight:850;margin:0 auto 10px}
 @media(max-height:760px){.v998-screen{padding-top:18px}.v998-hero{height:26vh;min-height:170px;margin-top:10px}.v998-copy h1{font-size:32px}.v998-copy p{font-size:13px;margin-top:9px}.v998-choice{min-height:68px;padding-top:10px;padding-bottom:10px}.v998-animal{min-height:122px}.v998-animal .emoji{font-size:43px}.v998-primary{min-height:56px}}
 @media(max-width:370px){.v998-screen{padding-left:20px;padding-right:20px}.v998-animal-grid{gap:8px}.v998-animal{min-height:128px}.v998-copy h1{font-size:33px}}
-/* Center the welcome message in the space between the fixed top brand and bottom CTA.
-   Auto margins distribute the free vertical space and collapse on small screens. */
-#v998Onboarding[data-step="0"] .v998-copy{margin-top:auto}
-#v998Onboarding[data-step="0"] .v998-dots{margin-bottom:auto}
-#v998Onboarding[data-step="0"] .v998-bottom{margin-top:0}
 /* Onboarding without decorative top artwork: preserve cards, choices and flow. */
 #v998Onboarding .v998-top{margin-bottom:clamp(14px,2.5vh,24px)}
 #v998Onboarding .v998-copy h1{line-height:1.06}
@@ -13377,6 +13372,11 @@ if(typeof LEGACY_RENDER==='function'){
   #v998Onboarding[data-step="0"] .v998-screen{padding-left:20px!important;padding-right:20px!important}
   #v998Onboarding[data-step="0"] .v998-copy h1{font-size:32px!important}
 }
+/* Keep the welcome message centered despite the legacy !important dot margins.
+   The brand stays at the top, the CTA stays at the bottom, and short screens flex naturally. */
+#v998Onboarding[data-step="0"] .v998-copy{margin-top:auto}
+#v998Onboarding[data-step="0"] .v998-dots{margin-bottom:auto!important}
+#v998Onboarding[data-step="0"] .v998-bottom{margin-top:0}
 </style>
 <script id="deen-v1066-welcome-final-polish-js">
 (()=>{
