@@ -55,7 +55,7 @@ async function run(device){
     runtimeObservedTranslations:observed,
     quranStaticTranslations:quranUi,quranDynamicTranslations:quranDynamic});
    if(result.staticKeys!==1452||result.observedKeys!==4||
-     result.quranStaticDraftKeys!==26||result.quranDynamicDraftKeys!==6)
+     result.quranStaticDraftKeys!==41||result.quranDynamicDraftKeys!==9)
     throw Error('FR Quran preview source coverage drift');
    return result;
   },{ui:fixture.ui,dynamic:fixture.dynamic,observed:fixture.observed,
@@ -73,6 +73,9 @@ async function run(device){
     surahIndex:bridge.translate('1. sure · 7 ayet · Şu an buradasın','fr'),
     completed:bridge.translate('0 / 7 ayet tamamlandı','fr'),
     unstarted:bridge.translate('BAŞLANMADI','fr'),
+    bayyina:bridge.translate('Beyyine Suresi','fr'),
+    listening:bridge.translate('Hoparlöre dokun: Ayet 1 kaydını dinle.','fr'),
+    ayahIndex:bridge.translate('İhlâs · Ayet 1/4','fr'),
     fatiha:bridge.translate('Fâtiha Suresi','fr'),
     verse:bridge.translate('Ayet 1 / 7 · Son çalışma: Henüz çalışma yok','fr'),
     oneAyah:bridge.translate('0 / 1 ayet','fr'),
@@ -86,6 +89,9 @@ async function run(device){
    surahIndex:'Sourate n° 1 · 7 versets · Vous êtes ici',
    completed:'0 / 7 versets étudiés',
    unstarted:'NON COMMENCÉE',
+   bayyina:'Sourate Al-Bayyina',
+   listening:'Appuie sur le haut-parleur pour écouter la récitation du verset 1.',
+   ayahIndex:'Al-Ikhlâs · verset 1/4',
    fatiha:'Sourate Al-Fâtiha',
    verse:'Verset 1 / 7 · Dernière séance : pas encore étudié',
    oneAyah:'0 / 1 verset',sevenAyahs:'2 / 7 versets',
