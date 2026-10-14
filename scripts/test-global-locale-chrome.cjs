@@ -18,7 +18,27 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   assert.equal(await page.locator('#v998Onboarding').getAttribute('lang'),lang);
   const screens=[];
   async function capture(step){assert.equal(await page.locator('#v998Onboarding .v998-hero').count(),0,'No decorative hero on onboarding step '+step);const text=await page.locator('#v998Onboarding').innerText();if(lang!=='tr')assert(!/Yol arkadaşını|Kaplumbağa|Günlük hedef|Sana nasıl|Kısa, sade/.test(text),lang+':'+step);screens.push({step,text});assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1));await page.screenshot({path:path.join(out,'chrome-'+lang+'-onboarding-'+step+'.png')});}
-  await capture(0);await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Name').fill('QA');await capture(1);
+  await capture(0);
+  async function assertWelcomeCentered(label){
+   const box=await page.evaluate(()=>{
+    const rect=selector=>document.querySelector(selector).getBoundingClientRect();
+    const copy=rect('#v998Onboarding .v998-copy'),logo=rect('#v998Onboarding .v998-top');
+    const dots=rect('#v998Onboarding .v998-dots'),bottom=rect('#v998Onboarding .v998-bottom');
+    return {viewport:innerHeight,copyCenter:(copy.top+copy.bottom)/2,copyTop:copy.top,logoBottom:logo.bottom,dotsBottom:dots.bottom,buttonTop:bottom.top,buttonBottom:bottom.bottom};
+   });
+   assert(box.copyCenter/box.viewport>0.36&&box.copyCenter/box.viewport<0.64,lang+':'+label+': welcome text is not vertically centered '+JSON.stringify(box));
+   assert(box.copyTop>box.logoBottom+25,lang+':'+label+': welcome title crowds logo');
+   assert(box.buttonTop>box.dotsBottom+25,lang+':'+label+': dots crowd CTA');
+   assert(box.buttonBottom<=box.viewport+1,lang+':'+label+': bottom CTA is clipped');
+  }
+  await assertWelcomeCentered('390x844');
+  if(lang==='tr'||lang==='fr'){
+   await page.setViewportSize({width:320,height:700});
+   await assertWelcomeCentered('320x700');
+   await page.screenshot({path:path.join(out,'chrome-'+lang+'-welcome-centered-320x700.png')});
+   await page.setViewportSize({width:390,height:844});
+  }
+  await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Name').fill('QA');await capture(1);
   await page.locator('#v998Onboarding .v998-primary').click();await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.age(\'adult\')"]').click();await capture(2);
   await page.locator('#v998Onboarding .v998-primary').click();assert.equal(await page.locator('#v998Onboarding [data-animal]').count(),6);await page.locator('#v998Onboarding [data-animal="cat"]').click();await capture(3);
   await page.locator('#v998Onboarding .v998-primary').click();await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.minutes(15)"]').click();await capture(4);
