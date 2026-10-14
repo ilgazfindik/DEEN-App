@@ -333,6 +333,35 @@ async function run(device){
   assert.deepEqual(steps.map(x=>x.step),['listen','read','meaning','recall','complete']);
   // Do not certify an untranslated/unsourced French Quran verse interpretation.
   rec.frenchMeaningReleased=false;
+  // Decode the actual ayah MP3 files in Chromium without playing them.
+  // Codec success is not permission to publish or proof of audio playback.
+  const audioCodec=await page.evaluate(async()=>{
+   const manifestResponse=await fetch('/assets/quran/audio/ayah-audio-manifest.json',{cache:'no-store'});
+   if(!manifestResponse.ok)throw Error('Audio manifest fetch failed');
+   const manifest=await manifestResponse.json();
+   const ctx=new (window.AudioContext||window.webkitAudioContext)();
+   const records=[];
+   try{
+    for(const key of ['fatiha:1','ikhlas:1']){
+     const entry=manifest.entries.find(x=>x.key===key);
+     if(!entry)throw Error('Missing critical ayah audio entry '+key);
+     const response=await fetch('/'+entry.audio,{cache:'no-store'});
+     if(!response.ok)throw Error('MP3 request failed '+key+' '+response.status);
+     const decoded=await ctx.decodeAudioData(await response.arrayBuffer());
+     records.push({key,durationSeconds:decoded.duration,channels:decoded.numberOfChannels,
+      sampleRate:decoded.sampleRate,decodeSucceeded:true,playbackAttempted:false});
+    }
+   }finally{await ctx.close();}
+   const response=await fetch('/assets/quran/audio/word-timings.json',{cache:'no-store'});
+   if(!response.ok)throw Error('Word timing manifest request failed');
+   const alignment=await response.json();
+   return {records,alignedAyahs:Object.keys(alignment.entries||{}).length,
+    synchronizedHighlightCertified:false,rightsOrPlaybackCertified:false};
+  });
+  assert.equal(audioCodec.records.length,2);
+  assert(audioCodec.records.every(x=>x.decodeSucceeded&&Number.isFinite(x.durationSeconds)&&
+   x.durationSeconds>0&&x.channels>0),'Real browser cannot decode critical recitation MP3s');
+  rec.audioCodecVerification=audioCodec;
   rec.audioPlaybackCertified=false;
   rec.chromeAudioRightsGatingChecked=true;
   const coverage=await page.evaluate(()=>{
