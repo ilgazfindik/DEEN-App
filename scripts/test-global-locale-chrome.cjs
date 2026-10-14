@@ -92,6 +92,15 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   if(['tr','ar','en','fr'].includes(lang)){
    await page.waitForFunction(()=>window.DEEN_BOOT?.isReady()&&state.onboarded);await page.waitForSelector('#v998Onboarding',{state:'detached'});
    const before=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));assert.equal(before.locale,lang);assert.equal(before.profile.companion,'cat');assert.equal(before.minutes,15);
+   if(lang==='tr'){
+    const pButton=page.locator('#deenMobileAdminButton');
+    assert.equal(await pButton.count(),1,'Mobile P shortcut must be mounted');
+    assert(await pButton.isVisible(),'Mobile P shortcut must be visible after game boot');
+    await pButton.click();
+    assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),true,'P button must open the existing admin dialog');
+    await page.locator('#deenAdminPanelV2 .deen-admin-close').click();
+    assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),false,'Admin dialog must close');
+   }
    await page.screenshot({path:path.join(out,'chrome-'+lang+'-home.png')});await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());
    assert.equal(await page.locator('#deenLanguageGate').count(),0);assert.equal(await page.locator('#v998Onboarding').count(),0);
    const after=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));assert.deepEqual(after,before);
