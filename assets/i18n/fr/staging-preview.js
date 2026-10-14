@@ -76,7 +76,8 @@
   }
   state.writes+=changed;return changed;
  }
- function init({staticTranslations,dynamicTranslations,runtimeObservedTranslations={}}){
+ function init({staticTranslations,dynamicTranslations,runtimeObservedTranslations={},
+  quranStaticTranslations={},quranDynamicTranslations={}}){
   if(state.ready)throw Error('FR_PREVIEW_ALREADY_READY');
   if(!staticTranslations||Object.keys(staticTranslations).length!==1452)throw Error('FR_PREVIEW_STATIC_COVERAGE');
   if(!dynamicTranslations||Object.keys(dynamicTranslations).length!==9)throw Error('FR_PREVIEW_DYNAMIC_COVERAGE');
@@ -87,14 +88,24 @@
    if(!key.trim()||typeof value!=='string'||!value.trim()||Object.hasOwn(staticTranslations,key))
     throw Error('FR_PREVIEW_INVALID_OBSERVED_KEY:'+key);
   }
-  state.table=new Map(Object.entries(staticTranslations));
-  for(const [key,value] of Object.entries({...dynamicTranslations,...runtimeObservedTranslations})){
+  if(Object.keys(quranStaticTranslations).length!==17||
+     Object.keys(quranDynamicTranslations).length!==3)
+   throw Error('FR_PREVIEW_QURAN_COVERAGE');
+  for(const [key,value] of Object.entries({...quranStaticTranslations,...quranDynamicTranslations})){
+   if(!key.trim()||typeof value!=='string'||!value.trim()||
+      Object.hasOwn(staticTranslations,key)||Object.hasOwn(runtimeObservedTranslations,key))
+    throw Error('FR_PREVIEW_INVALID_QURAN_KEY:'+key);
+  }
+  state.table=new Map([...Object.entries(staticTranslations),...Object.entries(quranStaticTranslations)]);
+  for(const [key,value] of Object.entries({...dynamicTranslations,...runtimeObservedTranslations,...quranDynamicTranslations})){
    const pattern=template(key,value);
    if(pattern)state.patterns.push(pattern);
    else if(!state.table.has(key))state.table.set(key,value);
   }
   state.ready=true;
   return {staticKeys:Object.keys(staticTranslations).length,observedKeys:Object.keys(runtimeObservedTranslations).length,
+   quranStaticDraftKeys:Object.keys(quranStaticTranslations).length,
+   quranDynamicDraftKeys:Object.keys(quranDynamicTranslations).length,
    dynamicPatterns:state.patterns.length,
    previewOnly:true,productionActivated:false};
  }
