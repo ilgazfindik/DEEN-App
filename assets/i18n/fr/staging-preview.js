@@ -22,6 +22,10 @@
  const state={ready:false,locale:'tr',table:new Map(),patterns:[],originals:new WeakMap(),
   attributes:new WeakMap(),writes:0,missing:new Set()};
  function agree(text,fields,values){
+  // Quran progress fractions use the *denominator* for verse-count agreement:
+  // 0 / 1 verset, but 1 / 7 versets. This is QA-only presentation logic.
+  if(/^\d+ \/ \d+ versets$/u.test(text)&&fields.length>=2&&
+     Number(values[fields.length-1])===1)return text.replace('versets','verset');
   const index=fields.indexOf('n'),n=index<0?NaN:Number(values[index]);
   if(n===1)return text.replace('notions apprises','notion apprise')
     .replace(/\bjours\b/gu,'jour').replace(/\bleçons\b/gu,'leçon')
