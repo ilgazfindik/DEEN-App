@@ -101,6 +101,10 @@ async function scenario(cfg,device){
    slotExists:before.slotExists,answerHTMLPreview:before.answerHTML.slice(0,2100)};
   await page.screenshot({path:out+'/'+device.name+'-'+cfg.name+'-initial.png',fullPage:true});
   if(cfg.name==='fill'){
+   assert.equal(result.preClick.blankCount,1,'French source blank token missing');
+   assert.equal(result.preClick.slotExists,true,'Actual French fill slot missing from displayed question');
+   assert.equal(result.preClick.monitor?.pass,true,
+    'DEEN fill freeze monitor must pass before grading: '+JSON.stringify(result.preClick.monitor));
    const correct=String(contextReady.correct);
    const chips=page.locator('#answerArea .v855-fill-chip');
    result.chipCount=await chips.count();
@@ -150,6 +154,8 @@ async function scenario(cfg,device){
     productionFlag:window.__DEEN_CONTENT_MANIFEST__.languages.fr.question_data
   }));
   assert(result.correct>=1,'Real gameplay did not grade French '+cfg.name+' correct');
+  if(cfg.name==='fill')assert.equal(result.feedback.monitor?.pass,true,
+   'Fill freeze regression monitor must pass after French grading');
   assert.equal(result.feedback.locale,'tr');
   assert.equal(result.feedback.productionFlag,'missing');
   await page.screenshot({path:out+'/'+device.name+'-'+cfg.name+'-graded.png',fullPage:true});
