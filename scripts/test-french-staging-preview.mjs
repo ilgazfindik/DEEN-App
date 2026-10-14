@@ -9,7 +9,7 @@ import {buildFrenchPreview} from './fr-preview-pack-builder.mjs';
 const read=p=>readFileSync(root+p,'utf8'),eq=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
 const built=buildFrenchPreview();
 assert.deepEqual(built.stats,{base:1500,active:1484,live:84,storedVariants:20,legacy:100,
- ui:1452,dynamicTemplates:9,quranStaticDrafts:54,quranDynamicDrafts:17,p10StaticDrafts:54,p10DynamicDrafts:18,parts:18,sourceVariants:1596});
+ ui:1452,dynamicTemplates:9,quranStaticDrafts:54,quranDynamicDrafts:17,p10StaticDrafts:54,p10DynamicDrafts:30,parts:18,sourceVariants:1596});
 const production=JSON.parse(read('assets/i18n/content-support.json'));
 assert.equal(production.languages.fr.question_data,'missing');
 assert.equal(production.languages.fr.global_qa,'blocked');
@@ -191,7 +191,7 @@ assert.equal(result.observedKeys,4);
 assert.equal(result.quranStaticDraftKeys,54);
 assert.equal(result.quranDynamicDraftKeys,17);
 assert.equal(result.p10StaticDraftKeys,54);
-assert.equal(result.p10DynamicDraftKeys,18);
+assert.equal(result.p10DynamicDraftKeys,30);
 assert.equal(ui.translate('İhlâs Yolculuğu','fr'),'Parcours d’Al-Ikhlâs');
 assert.equal(ui.translate('2 · OKU','fr'),'2 · LIRE');
 assert.equal(ui.translate('SEVİYE 0','fr'),'NIVEAU 0');
@@ -213,6 +213,17 @@ assert.equal(ui.translate('7 Seri','fr'),'7 jours de suite');
 assert.equal(ui.translate('1 Enerji','fr'),'1 point d’énergie');
 assert.equal(ui.translate('30 Enerji','fr'),'30 points d’énergie');
 assert.equal(ui.translate('1. KISIM · 1. ÜNİTE','fr'),'PARTIE 1 · UNITÉ 1');
+assert.equal(ui.translate('Müslüman Kimdir? — Önceki aşamayı tamamla','fr'),
+ 'Qui est musulman ? — termine d’abord l’étape précédente');
+assert.equal(ui.translate('Müslüman Kimdir? · ANLA · Aşama 2/5','fr'),
+ 'Qui est musulman ? · COMPRENDRE · étape 2/5');
+assert.equal(ui.translate('İslam Nedir? · 5 aşamalı öğrenme yolu','fr'),
+ 'Qu’est-ce que l’islam ? · parcours d’apprentissage en 5 étapes');
+assert.equal(ui.translate('Kaynakta Bulunmayan U999 — Önceki aşamayı tamamla','fr'),
+ 'Kaynakta Bulunmayan U999 — Önceki aşamayı tamamla',
+ 'Missing theological source translation must fail closed');
+assert.equal(ui.translate('Müslüman Kimdir? — Önceki aşamayı tamamla','tr'),
+ 'Müslüman Kimdir? — Önceki aşamayı tamamla');
 assert.equal(ui.translate('Sonraki seviyeye 300 XP','fr'),'Encore 300 XP avant le prochain niveau');
 assert.equal(ui.translate('1 mini ders · yaklaşık 5 dakika','fr'),'1 mini-leçon · environ 5 minutes');
 assert.equal(ui.translate('3 mini ders · yaklaşık 15 dakika','fr'),'3 mini-leçons · environ 15 minutes');
