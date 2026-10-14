@@ -366,7 +366,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
     const frCode=await fetchText('./assets/i18n/fr/runtime-ui.js?v='+BUILD,15000);
     const sum=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(frCode));
     const actual=Array.from(new Uint8Array(sum),b=>b.toString(16).padStart(2,'0')).join('');
-    if(actual!=='30a37eac7028fa3e04d6567fdee8b8f86f01a2c1b172909bb346ffca02174e93')throw Error('FR_UI_INTEGRITY_FAILED');
+    if(actual!=='3223715b90ec34c7828cccf9fdcac8b4caea01b60866afce5c248b04918af7a0')throw Error('FR_UI_INTEGRITY_FAILED');
     html+='<script>'+safeScript(frCode)+'<\/script>';
    }
    html+='<script>'+safeScript(englishUiJs)+'<\/script><script>DEEN_BOOT.start()<\/script>';
