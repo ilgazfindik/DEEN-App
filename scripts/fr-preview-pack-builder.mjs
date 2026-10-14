@@ -140,6 +140,26 @@ export function buildFrenchPreview(){
   assert(source.trim()&&translation.trim());
   assert(!ui.has(source),'Runtime-discovered string duplicates baseline static French source');
  }
+ const quranStatic=read('assets/i18n/fr/ui.quran-browser-extra.staging.json');
+ const quranDynamic=read('assets/i18n/fr/ui.quran-browser-dynamic.staging.json');
+ for(const [name,pack,count] of [['Quran static',quranStatic,17],['Quran dynamic',quranDynamic,3]]){
+  assert.equal(pack.locale,'fr',name+':locale');
+  assert.equal(pack.release_ready,false,name+':release');
+  assert.equal(pack.global_qa,'blocked',name+':QA gate');
+  assert.equal(pack.native_reviewer_approved,false,name+':native');
+  assert.equal(pack.verified_by_religious_expert,false,name+':religious');
+  assert.equal(pack.translation_count,count,name+':coverage');
+  assert.equal(Object.keys(pack.translations).length,count,name+':count');
+  for(const [key,value] of Object.entries(pack.translations)){
+   assert(key.trim()&&typeof value==='string'&&value.trim(),name+':empty string');
+   assert(!ui.has(key)&&!Object.hasOwn(observed.translations,key),
+    name+':duplicate existing UI source key '+key);
+   if(name==='Quran dynamic'){
+    const vars=str=>[...str.matchAll(/\{(?:n|unit|topic)\}/g)].map(x=>x[0]).sort();
+    assert.deepEqual(vars(value),vars(key),name+':placeholder drift '+key);
+   }
+  }
+ }
  const active=[
   ...baseQuestions.filter(q=>!q.id.startsWith('DEEN-U01-')),
   ...Object.entries(liveEntries).map(([id,row])=>({id,...row.source}))
@@ -154,8 +174,9 @@ export function buildFrenchPreview(){
  };
  assert.equal(prod.languages.fr.question_data,'missing','Must not mutate disk manifest');
  return {manifest,content,base:baseQuestions,active,ui:Object.fromEntries(ui),
-  dynamic:dynamic.translations,observed:observed.translations,stats:{
+  dynamic:dynamic.translations,observed:observed.translations,
+  quranUi:quranStatic.translations,quranDynamic:quranDynamic.translations,stats:{
    base:1500,active:1484,live:84,storedVariants:20,legacy:100,
-   ui:1452,dynamicTemplates:9,parts:packs.length,sourceVariants:sourceMap.size
+   ui:1452,dynamicTemplates:9,quranStaticDrafts:17,quranDynamicDrafts:3,parts:packs.length,sourceVariants:sourceMap.size
   }};
 }
