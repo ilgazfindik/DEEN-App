@@ -114,8 +114,14 @@ assert.equal(uiVm('ilgazfindik.github.io',true).ui,undefined,'Pages hostname mus
 assert.equal(uiVm('127.0.0.1',false).ui,undefined,'QA explicit consent guard');
 const {ui,rootNode}=uiVm('127.0.0.1',true);
 assert(ui,'Expected loopback UI preview bridge');
-const result=ui.init({staticTranslations:built.ui,dynamicTranslations:built.dynamic});
+const result=ui.init({staticTranslations:built.ui,dynamicTranslations:built.dynamic,
+ runtimeObservedTranslations:built.observed});
 assert.equal(result.staticKeys,1452);
+assert.equal(result.observedKeys,3);
+assert.equal(ui.translate('Öğrenme analizi','fr'),'Analyse de l’apprentissage');
+assert.equal(ui.translate('Seviye 1','fr'),'Niveau 1');
+assert.equal(ui.translate('Seviye 8','fr'),'Niveau 8');
+assert.equal(ui.translate('ÖĞRENDİM · SORUYA GEÇ','fr'),'J’AI COMPRIS · PASSER À LA QUESTION');
 assert.equal(result.previewOnly,true);
 const cases=[
  ['Geri','Retour'],
