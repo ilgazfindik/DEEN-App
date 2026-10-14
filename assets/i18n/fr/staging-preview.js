@@ -24,11 +24,12 @@
  function agree(text,fields,values){
   // Quran progress fractions use the *denominator* for verse-count agreement:
   // 0 / 1 verset, but 1 / 7 versets. This is QA-only presentation logic.
-  if(/^\d+ \/ \d+ versets$/u.test(text)&&fields.length>=2&&
-     Number(values[fields.length-1])===1)return text.replace('versets','verset');
+  if(text.includes('versets')&&fields.length>=2&&
+     Number(values[fields.length-1])===1)
+   return text.replace('versets','verset').replace('étudiés','étudié');
   const index=fields.indexOf('n'),n=index<0?NaN:Number(values[index]);
   if(n===1)return text.replace('notions apprises','notion apprise')
-    .replace(/\bjours\b/gu,'jour').replace(/\bleçons\b/gu,'leçon')
+    .replace(/\bjours\b/gu,'jour').replace(/\bleçons\b/gu,'leçon').replace(/\bversets\b/gu,'verset')
     .replace(/\bQUESTIONS\b/gu,'QUESTION');
   return text;
  }
@@ -92,8 +93,8 @@
    if(!key.trim()||typeof value!=='string'||!value.trim()||Object.hasOwn(staticTranslations,key))
     throw Error('FR_PREVIEW_INVALID_OBSERVED_KEY:'+key);
   }
-  if(Object.keys(quranStaticTranslations).length!==17||
-     Object.keys(quranDynamicTranslations).length!==3)
+  if(Object.keys(quranStaticTranslations).length!==26||
+     Object.keys(quranDynamicTranslations).length!==6)
    throw Error('FR_PREVIEW_QURAN_COVERAGE');
   for(const [key,value] of Object.entries({...quranStaticTranslations,...quranDynamicTranslations})){
    if(!key.trim()||typeof value!=='string'||!value.trim()||
