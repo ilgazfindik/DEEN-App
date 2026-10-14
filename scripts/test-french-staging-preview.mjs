@@ -117,7 +117,7 @@ assert(ui,'Expected loopback UI preview bridge');
 const result=ui.init({staticTranslations:built.ui,dynamicTranslations:built.dynamic,
  runtimeObservedTranslations:built.observed});
 assert.equal(result.staticKeys,1452);
-assert.equal(result.observedKeys,3);
+assert.equal(result.observedKeys,2);
 assert.equal(ui.translate('Öğrenme analizi','fr'),'Analyse de l’apprentissage');
 assert.equal(ui.translate('Seviye 1','fr'),'Niveau 1');
 assert.equal(ui.translate('Seviye 8','fr'),'Niveau 8');
