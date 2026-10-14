@@ -17,8 +17,11 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   assert.equal(await page.locator('#deenLanguageGate').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
   assert.equal(await page.locator('#v998Onboarding').getAttribute('lang'),lang);
   const screens=[];
-  async function capture(step){assert.equal(await page.locator('#v998Onboarding .v998-hero').count(),0,'No decorative hero on onboarding step '+step);const text=await page.locator('#v998Onboarding').innerText();if(lang!=='tr')assert(!/Yol arkadaşını|Kaplumbağa|Günlük hedef|Sana nasıl|Kısa, sade/.test(text),lang+':'+step);screens.push({step,text});assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1));await page.screenshot({path:path.join(out,'chrome-'+lang+'-onboarding-'+step+'.png')});}
+  async function capture(step){assert.equal(await page.locator('#v998Onboarding .v998-hero').count(),0,'No decorative hero on onboarding step '+step);const motion=await page.locator('#v998Onboarding').getAttribute('data-deen-motion');assert(['initial','forward','backward','steady'].includes(motion),'Unexpected onboarding motion: '+motion);if(step===0)assert.equal(motion,'initial');if(step===1||step===5)assert.equal(motion,'forward');if(step===2||step===3||step===4)assert.equal(motion,'steady');if(motion!=='steady')await page.waitForTimeout(350);const text=await page.locator('#v998Onboarding').innerText();if(lang!=='tr')assert(!/Yol arkadaşını|Kaplumbağa|Günlük hedef|Sana nasıl|Kısa, sade/.test(text),lang+':'+step);screens.push({step,text});assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1));await page.screenshot({path:path.join(out,'chrome-'+lang+'-onboarding-'+step+'.png')});}
   await capture(0);
+  assert.equal(await page.locator('#v998Onboarding').getAttribute('data-deen-motion'),'initial');
+  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_ONBOARDING.transitions.type),'soft-slide');
+  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_ONBOARDING.transitions.finish),'mint-liquid');
   async function assertWelcomeCentered(label){
    const box=await page.evaluate(()=>{
     const rect=selector=>document.querySelector(selector).getBoundingClientRect();
@@ -32,6 +35,20 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
    assert(box.buttonBottom<=box.viewport+1,lang+':'+label+': bottom CTA is clipped');
   }
   await assertWelcomeCentered('390x844');
+  if(lang==='tr'){
+   await page.evaluate(()=>onboarding(1));assert.equal(await page.locator('#v998Onboarding').getAttribute('data-deen-motion'),'forward');
+   await page.evaluate(()=>onboarding(0));assert.equal(await page.locator('#v998Onboarding').getAttribute('data-deen-motion'),'backward');
+   const direction=await page.locator('#v998Onboarding .v998-copy').evaluate(el=>getComputedStyle(el).animationName);
+   assert(direction.includes('deenOnboardBackward'),'Back transition must animate from left');
+   await page.emulateMedia({reducedMotion:'reduce'});
+   await page.evaluate(()=>onboarding(1));
+   const reduced=await page.locator('#v998Onboarding .v998-copy').evaluate(el=>getComputedStyle(el).animationName);
+   assert.equal(reduced,'none','Reduced motion must disable entrance transitions');
+   await page.evaluate(()=>onboarding(0));
+   await page.emulateMedia({reducedMotion:'no-preference'});
+   await page.waitForTimeout(350);
+   await assertWelcomeCentered('after-back-navigation');
+  }
   if(lang==='tr'||lang==='fr'){
    await page.setViewportSize({width:320,height:700});
    await assertWelcomeCentered('320x700');
