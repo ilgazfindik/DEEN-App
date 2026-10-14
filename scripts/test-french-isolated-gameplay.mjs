@@ -89,10 +89,16 @@ async function scenario(cfg,device){
    question:document.querySelector('#questionText')?.textContent.trim(),
    answerHTML:document.querySelector('#answerArea')?.innerHTML.slice(0,4000),
    freeze:window.DEEN_FILL_BLANK_MINIGAME?.check?.(),
+   monitor:window.DEEN_FILL_FREEZE?.snapshot?.(),
+   sessionQuestion:session?.questions?.[session?.index]?.question_tr,
+   blankCount:(session?.questions?.[session?.index]?.question_tr?.match(/_{3,}/g)||[]).length,
+   slotExists:!!document.querySelector('#lesson .v1040-fill-slot'),
    correct:session?.correct
   }));
   result.preClick={question:before.question,correct:before.correct,
-   freeze:before.freeze,answerHTMLPreview:before.answerHTML.slice(0,2100)};
+   freeze:before.freeze,monitor:before.monitor,
+   sessionQuestion:before.sessionQuestion,blankCount:before.blankCount,
+   slotExists:before.slotExists,answerHTMLPreview:before.answerHTML.slice(0,2100)};
   await page.screenshot({path:out+'/'+device.name+'-'+cfg.name+'-initial.png',fullPage:true});
   if(cfg.name==='fill'){
    const correct=String(contextReady.correct);
@@ -103,11 +109,23 @@ async function scenario(cfg,device){
    if(await chip.count()===1){
     await chip.click({timeout:15000});
    }else{
-    // Alternate modern renderer may use other button types.
-    const alt=page.locator('#answerArea button[data-value]').filter({hasText:correct});
-    assert.equal(await alt.count(),1,'No single visible correct French fill chip');
+    // The current core09-v1041 renderer uses .v1040-fill-chip plus a distinct
+    // submit button: selection is not grading.
+    const alt=page.locator('#answerArea button[data-value="'+correct.replaceAll('"','\\"')+'"]');
+    assert.equal(await alt.count(),1,'No single correct French fill chip');
     await alt.click({timeout:15000});
    }
+   const check=page.locator('#answerArea .template-action:visible');
+   await check.waitFor({state:'visible',timeout:10000});
+   await page.waitForFunction(()=>!!document.querySelector('#answerArea .template-action:not(:disabled)'),
+    null,{timeout:10000});
+   result.selectedState=await page.evaluate(()=>({
+    selected:[...document.querySelectorAll('#answerArea .fill-choice.selected')].map(e=>e.dataset.value),
+    submitText:document.querySelector('#answerArea .template-action')?.textContent?.trim(),
+    slotText:document.querySelector('#lesson .v1040-fill-slot')?.textContent?.trim(),
+    monitor:window.DEEN_FILL_FREEZE?.snapshot?.()
+   }));
+   await check.click({timeout:15000});
   }else{
    const count=contextReady.pairs.length;
    assert(count>=2);
@@ -127,6 +145,7 @@ async function scenario(cfg,device){
     stage:session?.stage?.id,
     currentIndex:session?.index,
     fill:window.DEEN_FILL_BLANK_MINIGAME?.check?.(),
+    monitor:window.DEEN_FILL_FREEZE?.snapshot?.(),
     locale:window.DEEN_APP_LOCALE.get(),
     productionFlag:window.__DEEN_CONTENT_MANIFEST__.languages.fr.question_data
   }));
