@@ -37,6 +37,10 @@
    return Number(total)===1
     ?text.replace('versets','verset').replace('étudiés','étudié'):text;
   }
+  if(source==='{topic} — {n}/{n} mini ders tamamlandı'){
+   return Number(values[2])===1?text.replace('mini-leçons','mini-leçon')
+     .replace('terminées','terminée'):text;
+  }
   if(source==='{n} mini ders · yaklaşık {n} dakika'){
    if(Number(values[0])===1)text=text.replace('mini-leçons','mini-leçon');
    if(Number(values[1])===1)text=text.replace('minutes','minute');
@@ -71,8 +75,16 @@
    for(const pattern of state.patterns){
     const found=pattern.re.exec(key);
     if(!found)continue;
-    const values=found.slice(1);let i=0;
-    text=pattern.translation.replace(tokenRe,()=>values[i++]);
+    const values=found.slice(1);let i=0,unknownTopic=false;
+    text=pattern.translation.replace(tokenRe,(_,field)=>{
+     const value=values[i++];
+     if(field!=='topic')return value;
+     // Never leave an unreviewed Turkish unit/stage title inside French text.
+     const mapped=state.table.get(value);
+     if(!mapped){unknownTopic=true;return value;}
+     return mapped;
+    });
+    if(unknownTopic){text=null;continue;}
     text=agree(text,pattern.fields,values,pattern.source);break;
    }
   }
@@ -136,7 +148,7 @@
   const p10StaticCount=Object.keys(p10StaticTranslations).length;
   const p10DynamicCount=Object.keys(p10DynamicTranslations).length;
   if((p10StaticCount!==0||p10DynamicCount!==0)&&
-     (p10StaticCount!==54||p10DynamicCount!==18))
+     (p10StaticCount!==54||p10DynamicCount!==30))
    throw Error('FR_PREVIEW_P10_COVERAGE');
   const existing=new Set([...Object.keys(staticTranslations),
    ...Object.keys(runtimeObservedTranslations),...Object.keys(quranStaticTranslations),
