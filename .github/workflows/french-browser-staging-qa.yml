@@ -5,6 +5,8 @@ on:
     paths:
       - 'scripts/test-french-real-chromium-staging.mjs'
       - 'scripts/test-french-isolated-gameplay.mjs'
+      - 'scripts/test-french-quran-chromium-staging.mjs'
+      - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'scripts/fr-preview-pack-builder.mjs'
       - 'scripts/test-french-staging-preview.mjs'
       - 'assets/i18n/fr/**'
@@ -44,6 +46,7 @@ jobs:
           curl --fail --silent --show-error --retry 12 --retry-connrefused --retry-delay 1 http://127.0.0.1:8765/ > /dev/null
           node scripts/test-french-real-chromium-staging.mjs
           node scripts/test-french-isolated-gameplay.mjs
+          node scripts/test-french-quran-chromium-staging.mjs
       - name: Upload Chrome mobile/desktop screenshots and diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -52,5 +55,6 @@ jobs:
           path: |
             qa-artifacts/french-browser/
             qa-artifacts/french-gameplay/
+            qa-artifacts/french-quran/
           if-no-files-found: warn
           retention-days: 14
