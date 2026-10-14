@@ -8,8 +8,8 @@
   "global_qa": "blocked",
   "native_reviewer_approved": false,
   "verified_by_religious_expert": false,
-  "translation_count": 30,
-  "provenance": "P10 source-keyed Chromium mobile/desktop inventory GitHub Actions #38584476956; isolated non-production app UI; P10 runtime phase compound level/stage labels observed in Chromium #38586031234",
+  "translation_count": 34,
+  "provenance": "P10 source-keyed Chromium mobile/desktop inventory GitHub Actions #38584476956; isolated non-production app UI; P10 runtime phase compound level/stage labels observed in Chromium #38586031234; residual P10 browser inventory #38586942121.",
   "review_notes": [
     "Product UI drafts only, not user-facing release clearance.",
     "TTS label explicitly refers to Turkish speech synthesis because French voice output is not certified.",
@@ -46,6 +46,10 @@
     "{topic} · USTALAŞ · Aşama {n}/5": "{topic} · MAÎTRISER · étape {n}/5",
     "{topic} — {n}/{n} mini ders tamamlandı": "{topic} — {n}/{n} mini-leçons terminées",
     "Ders {n}/{n} · {topic}": "Leçon {n}/{n} · {topic}",
-    "{topic} · ÖĞREN · Mini ders {n}/{n}": "{topic} · APPRENDRE · mini-leçon {n}/{n}"
+    "{topic} · ÖĞREN · Mini ders {n}/{n}": "{topic} · APPRENDRE · mini-leçon {n}/{n}",
+    "%{n} GEÇİŞ": "SEUIL DE RÉUSSITE : {n} %",
+    "Bugünkü Yolculuk · {n}/{n}": "Parcours du jour · {n}/{n}",
+    "Günlük hedef · {n} mini ders": "Objectif quotidien · {n} mini-leçons",
+    "{n} enerji": "{n} points d’énergie"
   }
 }
