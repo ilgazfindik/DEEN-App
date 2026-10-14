@@ -47,6 +47,74 @@ const frQuestion=adapter.translateQuestion(trQuestion);
 assert.equal(frQuestion.__deenContentLocale,'fr');
 assert.notEqual(frQuestion.question_tr,trQuestion.question_tr);
 assert.equal(frQuestion.__deenSourceQuestion,trQuestion);
+
+// P09 tests the REAL application translateText() API, not UI preview replacement.
+// Only exact source entries belonging to the active question may be translated.
+const contextCases=[
+ trQuestion,
+ baseQuestions.find(q=>q.activity_type==='matching'),
+ baseQuestions.find(q=>q.activity_type==='build_sequence'),
+ baseQuestions.find(q=>q.activity_type==='fill_blank'),
+ baseQuestions.find(q=>Array.isArray(q.options_tr)&&q.options_tr.length>0)
+];
+assert(contextCases.every(Boolean),'Source bank must cover P09 activity contexts');
+let scopedFields=0;
+for(const original of contextCases){
+ const translated=adapter.translateQuestion(original,'fr');
+ assert(translated,'A source-matched French question was missing');
+ env.session={questions:[translated],index:0};
+ assert.equal(adapter.translateText(original.question_tr,'fr'),translated.question_tr,
+  original.id+': question prompt not connected to French engine');
+ assert.equal(adapter.translateText(original.explanation_tr,'fr'),translated.explanation_tr,
+  original.id+': explanation not connected');
+ scopedFields+=2;
+ for(const field of ['correct_answer']){
+  if(typeof original[field]==='string'&&original[field].trim()){
+   assert.equal(adapter.translateText(original[field],'fr'),translated[field],
+    original.id+': answer translation not source-scoped');
+   scopedFields++;
+  }
+ }
+ for(const field of ['options_tr','items','correct_order']){
+  if(!Array.isArray(original[field]))continue;
+  for(let i=0;i<original[field].length;i++){
+   // When the same Turkish token occurs twice within ONE question, lookup
+   // resolves to the first source occurrence, just like the original engine.
+   const first=original[field].indexOf(original[field][i]);
+   if(first!==i)continue;
+   assert.equal(adapter.translateText(original[field][i],'fr'),
+    translated[field][i],original.id+': '+field+'['+i+']');
+   scopedFields++;
+  }
+ }
+ if(Array.isArray(original.pairs)){
+  for(let i=0;i<original.pairs.length;i++)for(const side of ['left','right']){
+   const old=original.pairs[i][side];
+   // Some source concepts are intentionally identical across pairs; test only
+   // unambiguous first occurrences in a source-matched question.
+   const all=original.pairs.flatMap(p=>[p.left,p.right]);
+   if(all.indexOf(old)!==2*i+(side==='right'?1:0))continue;
+   assert.equal(adapter.translateText(old,'fr'),translated.pairs[i][side],
+    original.id+': matching '+side+'['+i+']');
+   scopedFields++;
+  }
+ }
+ assert.equal(adapter.translateText('unregistered instruction '+original.id,'fr'),
+  'unregistered instruction '+original.id,'Unknown helper text must fail closed');
+}
+env.session=null;
+assert.equal(adapter.translateText(trQuestion.question_tr,'fr'),trQuestion.question_tr,
+ 'A French translation without an active question could leak another source context');
+env.session={questions:[{...frQuestion,__deenSourceQuestion:
+ {...trQuestion,question_tr:'SOURCE TAMPERED'}}],index:0};
+assert.equal(adapter.translateText(trQuestion.question_tr,'fr'),trQuestion.question_tr,
+ 'Tampered French question source must never pass the per-question guard');
+env.session={questions:[frQuestion],index:0};
+assert.equal(adapter.translateText(trQuestion.question_tr,'tr'),trQuestion.question_tr,
+ 'Turkish text must remain unchanged in the Turkish language');
+env.session=null;
+assert(scopedFields>15,'P09 requires multiple real source-scoped fields to be exercised');
+
 current='tr';assert.equal(adapter.translateQuestion(trQuestion),trQuestion,'TR must round trip without mutating question');
 current='fr';assert.equal(adapter.translateQuestion(trQuestion,'fr').question_tr,frQuestion.question_tr);
 let grading=0,special=0;
