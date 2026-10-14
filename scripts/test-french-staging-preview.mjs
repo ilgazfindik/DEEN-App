@@ -204,6 +204,8 @@ assert.equal(ui.translate('Mevcut günlük görevler: 0/1 tamamlandı · 1 tekra
 assert.equal(ui.translate('3 sn','fr'),'3 s');
 assert.equal(ui.translate('ANLATIM PROFİLİ','fr'),'PROFIL PÉDAGOGIQUE');
 assert.equal(ui.translate('VERİ & İLERLEME','fr'),'DONNÉES ET PROGRESSION');
+assert.equal(ui.translate('FREE','fr'),'GRATUIT');
+assert.equal(ui.translate('30 max','fr'),'30 au maximum');
 assert.equal(ui.translate('İlerlemeyi yedekle','fr'),'Sauvegarder la progression');
 assert.equal(ui.translate('Ders 1/4 · Sesi Tanı','fr'),'Leçon 1/4 · Reconnaître à l’écoute');
 assert.equal(ui.translate('Bugünkü Yolculuk · 0/3','fr'),'Parcours du jour · 0/3');
