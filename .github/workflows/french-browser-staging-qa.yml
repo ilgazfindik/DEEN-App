@@ -8,6 +8,8 @@ on:
       - 'scripts/test-french-quran-chromium-staging.mjs'
       - 'scripts/test-french-locale-progress-chromium.mjs'
       - 'scripts/audit-french-quran-audio-readiness.mjs'
+      - 'scripts/quran/**'
+      - 'scripts/test-quran-word-alignment-guard.mjs'
       - 'assets/quran/audio/word-timings.json'
       - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'scripts/fr-preview-pack-builder.mjs'
@@ -39,6 +41,8 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Revalidate original staging source and immutable production gate
         run: node scripts/test-french-staging-preview.mjs
+      - name: Reject unsafe forced-alignment API outputs (offline tests)
+        run: node --test scripts/test-quran-word-alignment-guard.mjs
       - name: Audit Quran recitation files and word timing readiness
         run: node scripts/audit-french-quran-audio-readiness.mjs
       - name: Run assembled DEEN mobile and desktop in real Chromium

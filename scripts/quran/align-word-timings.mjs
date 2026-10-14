@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {validateAlignmentCandidate,validateStoredAlignment} from './word-alignment-guard.mjs';
 
 const API='https://api.elevenlabs.io/v1/forced-alignment';
 const KEY=process.env.ELEVENLABS_API_KEY;
@@ -11,26 +12,19 @@ const manifest=JSON.parse(await fs.readFile(manifestPath,'utf8'));
 let output;
 try{ output=JSON.parse(await fs.readFile(outputPath,'utf8')); }
 catch{ output={schemaVersion:1,source:'elevenlabs_forced_alignment',generatedAt:null,entries:{}}; }
-output.entries=output.entries&&typeof output.entries==='object'?output.entries:{};
+if(!output.entries||typeof output.entries!=='object'||Array.isArray(output.entries))
+  throw Error('Invalid existing timing registry; refusing to discard it');
 
 const only=String(process.env.ALIGN_ONLY||'').trim();
 const force=process.env.FORCE_ALIGNMENT==='1';
 const selected=manifest.entries.filter(x=>!only||x.key===only||x.surahId===only);
 if(!selected.length) throw new Error('No manifest entries matched ALIGN_ONLY='+only);
 
-function normalizeWords(words){
-  if(!Array.isArray(words)) return [];
-  return words.map(w=>({
-    text:String(w?.text??'').trim(),
-    start:Number(w?.start),
-    end:Number(w?.end),
-    loss:Number.isFinite(Number(w?.loss))?Number(w.loss):null
-  })).filter(w=>w.text&&Number.isFinite(w.start)&&Number.isFinite(w.end)&&w.end>=w.start);
-}
 
 for(const entry of selected){
-  if(!force&&output.entries[entry.key]?.words?.length){
-    console.log('skip',entry.key,'already aligned');
+  if(!force&&output.entries[entry.key]){
+    validateStoredAlignment(entry,output.entries[entry.key]);
+    console.log('skip',entry.key,'already aligned and structurally valid');
     continue;
   }
   const bytes=await fs.readFile(entry.audio);
@@ -44,22 +38,19 @@ for(const entry of selected){
     throw new Error('Alignment failed '+entry.key+' HTTP '+res.status+' '+body.slice(0,300));
   }
   const data=await res.json();
-  const words=normalizeWords(data.words);
-  const expected=entry.text.trim().split(/\s+/).filter(Boolean).length;
-  if(!words.length) throw new Error('No word timings returned for '+entry.key);
-
-  output.entries[entry.key]={
-    surahId:entry.surahId,
-    ayah:entry.ayah,
-    text:entry.text,
-    audio:entry.audio,
-    expectedWords:expected,
-    alignedWords:words.length,
-    wordCountMatch:words.length===expected,
-    loss:Number.isFinite(Number(data.loss))?Number(data.loss):null,
-    words
-  };
+  // Reject wrong, partial or reordered words BEFORE any persistent write.
+  const candidate=validateAlignmentCandidate(entry,data);
+  output.entries[entry.key]=candidate;
   output.generatedAt=new Date().toISOString();
-  await fs.writeFile(outputPath,JSON.stringify(output,null,2)+'\n');
-  console.log('aligned',entry.key,words.length+'/'+expected,'loss',data.loss);
+  // Commit each accepted ayah atomically; a failed later ayah cannot leave a
+  // partially written JSON registry or save a rejected current candidate.
+  const tmp=outputPath+'.tmp-'+process.pid+'-'+Date.now();
+  try{
+    await fs.writeFile(tmp,JSON.stringify(output,null,2)+'\n','utf8');
+    await fs.rename(tmp,outputPath);
+  }finally{
+    await fs.rm(tmp,{force:true});
+  }
+  console.log('candidate (needs human review)',entry.key,
+    candidate.alignedWords+'/'+candidate.expectedWords,'loss',candidate.loss);
 }
