@@ -142,7 +142,7 @@ export function buildFrenchPreview(){
  }
  const quranStatic=read('assets/i18n/fr/ui.quran-browser-extra.staging.json');
  const quranDynamic=read('assets/i18n/fr/ui.quran-browser-dynamic.staging.json');
- for(const [name,pack,count] of [['Quran static',quranStatic,26],['Quran dynamic',quranDynamic,6]]){
+ for(const [name,pack,count] of [['Quran static',quranStatic,41],['Quran dynamic',quranDynamic,9]]){
   assert.equal(pack.locale,'fr',name+':locale');
   assert.equal(pack.release_ready,false,name+':release');
   assert.equal(pack.global_qa,'blocked',name+':QA gate');
@@ -177,6 +177,6 @@ export function buildFrenchPreview(){
   dynamic:dynamic.translations,observed:observed.translations,
   quranUi:quranStatic.translations,quranDynamic:quranDynamic.translations,stats:{
    base:1500,active:1484,live:84,storedVariants:20,legacy:100,
-   ui:1452,dynamicTemplates:9,quranStaticDrafts:26,quranDynamicDrafts:6,parts:packs.length,sourceVariants:sourceMap.size
+   ui:1452,dynamicTemplates:9,quranStaticDrafts:41,quranDynamicDrafts:9,parts:packs.length,sourceVariants:sourceMap.size
   }};
 }
