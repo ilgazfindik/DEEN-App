@@ -48,7 +48,7 @@
   Tem:'juil.',Ağu:'août',Eyl:'sept.',Eki:'oct.',Kas:'nov.',Ara:'déc.'
  });
  function translatedTurkishDate(source){
-  const match=/^([1-9]|[12]\\d|3[01]) (Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)$/u.exec(source);
+  const match=/^([1-9]|[12]\d|3[01]) (Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)$/u.exec(source);
   return match?match[1]+' '+dateMonths[match[2]]:null;
  }
  function translate(raw,lang=state.locale){
