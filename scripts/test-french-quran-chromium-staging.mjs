@@ -175,6 +175,38 @@ async function run(device){
    sampleMarkup:document.querySelector('#v5SheetBody')?.innerHTML.slice(0,1000)||''
   }));
   rec.surahCardRoute={...selectedRoute,sampleMarkup:selectedRoute.sampleMarkup.slice(0,550)};
+  // Ground the user-facing generic route separately from the legacy API.
+  // The visible library card should expose a usable surah page, not a blank
+  // modal. Preserve all original Arabic script even under French QA overlay.
+  const genericViewer=await page.evaluate(()=>{
+   const root=document.querySelector('#v5Sheet[open]');
+   const content=root?.textContent?.trim()||'';
+   const arabicVisible=[...root?.querySelectorAll('[lang="ar"],.deen-quran-ar,.deen-quran-ayah-arabic,.deen-qj2-ar')||[]]
+     .map(el=>el.textContent.trim()).filter(Boolean);
+   const arabicScript=[...content.matchAll(/[\u0600-\u06ff][\u0600-\u06ff\s\u064b-\u065f\u0670\u06d6-\u06ed]{8,}/gu)]
+     .map(m=>m[0].trim()).slice(0,8);
+   const controls=[...root?.querySelectorAll('button,[role="button"],audio')||[]]
+     .map(el=>({tag:el.tagName.toLowerCase(),text:(el.textContent||'').trim().slice(0,80),
+      aria:el.getAttribute('aria-label'),disabled:!!el.disabled})).slice(0,22);
+   const arabicBefore=arabicVisible.join('||');
+   const arabicTextBefore=arabicScript.join('||');
+   const writes=DEEN_FRENCH_STAGE_UI.setLocale('fr',root);
+   const arabicAfter=[...root?.querySelectorAll('[lang="ar"],.deen-quran-ar,.deen-quran-ayah-arabic,.deen-qj2-ar')||[]]
+     .map(el=>el.textContent.trim()).filter(Boolean).join('||');
+   const arabicTextAfter=[...(root?.textContent||'').matchAll(/[\u0600-\u06ff][\u0600-\u06ff\s\u064b-\u065f\u0670\u06d6-\u06ed]{8,}/gu)]
+     .map(m=>m[0].trim()).slice(0,8).join('||');
+   return {hasModal:!!root,characters:content.length,controls,
+    textPreview:content.slice(0,320),arabicNodeCount:arabicVisible.length,
+    arabicSample:arabicVisible.slice(0,3),scriptMatches:arabicScript.length,
+    arabicUnchanged:arabicBefore===arabicAfter&&arabicTextBefore===arabicTextAfter,
+    writes};
+  });
+  rec.genericViewer=genericViewer;
+  assert(genericViewer.hasModal&&genericViewer.characters>50,
+   'Visible Ikhlas library card opened an empty/nonexistent generic page');
+  assert(genericViewer.arabicUnchanged,'French QA rewrote generic Quran Arabic script');
+  console.log('FR_QURAN_GENERIC_ROUTE',JSON.stringify({viewport:device.name,...genericViewer}));
+  await page.screenshot({path:output+'/'+device.name+'-ikhlas-generic-route.png',fullPage:true});
   if(!selectedRoute.actualIkhlasSession){
    // Source-backed legacy Ikhlas five-step engine remains a supported DEEN
    // API even if a newer generic surah viewer owns the card route.
@@ -252,7 +284,7 @@ async function run(device){
    const audit=DEEN_FRENCH_STAGE_UI.audit();
    return {unrecognizedCount:audit.unrecognized.length,
     sourceOnlyExamples:audit.unrecognized.filter(x=>/[A-Za-zÇĞİÖŞÜçğıöşü]/u.test(x))
-     .filter(x=>!/^[\d\W]+$/u.test(x)).slice(0,45),
+     .filter(x=>!/^[\d\W]+$/u.test(x)).slice(0,80),
     productionLocale:DEEN_APP_LOCALE.get()};
   });
   rec.quranRuntimeUnmapped=coverage;
@@ -266,7 +298,7 @@ async function run(device){
    nativeLibraryClick:rec.libraryNavigation.directUserClick,
    legacyIkhlasApiFallback:!!rec.legacyLearningRouteFallback,
    libraryUserClick:rec.libraryNavigation.directUserClick,
-   unmappedCount:coverage.unrecognizedCount,unmappedSample:coverage.sourceOnlyExamples.slice(0,22)}));
+   unmappedCount:coverage.unrecognizedCount,unmappedSample:coverage.sourceOnlyExamples}));
  }catch(e){
   rec.status='failed';rec.error=String(e?.stack||e);rec.errors=errors;
   console.error('FR_QURAN_BROWSER_FAILURE',JSON.stringify({viewport:device.name,
