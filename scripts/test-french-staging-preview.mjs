@@ -205,6 +205,15 @@ assert.equal(ui.translate('3 sn','fr'),'3 s');
 assert.equal(ui.translate('ANLATIM PROFİLİ','fr'),'PROFIL PÉDAGOGIQUE');
 assert.equal(ui.translate('VERİ & İLERLEME','fr'),'DONNÉES ET PROGRESSION');
 assert.equal(ui.translate('İlerlemeyi yedekle','fr'),'Sauvegarder la progression');
+assert.equal(ui.translate('Ders 1/4 · Sesi Tanı','fr'),'Leçon 1/4 · Reconnaître à l’écoute');
+assert.equal(ui.translate('Bugünkü Yolculuk · 0/3','fr'),'Parcours du jour · 0/3');
+assert.equal(ui.translate('%80 GEÇİŞ','fr'),'SEUIL DE RÉUSSITE : 80 %');
+assert.equal(ui.translate('Günlük hedef · 2 mini ders','fr'),'Objectif quotidien · 2 mini-leçons');
+assert.equal(ui.translate('Günlük hedef · 1 mini ders','fr'),'Objectif quotidien · 1 mini-leçon');
+assert.equal(ui.translate('1 enerji','fr'),'1 point d’énergie');
+assert.equal(ui.translate('30 enerji','fr'),'30 points d’énergie');
+assert.equal(ui.translate('DEEN önce mezheplerin ortak çekirdeğini öğretir. Mezhep-hassas içerikler başka geçerli bir görüşü yanlış diye puanlamaz ve uzman incelemesi önceliğini korur.','fr'),
+ 'DEEN önce mezheplerin ortak çekirdeğini öğretir. Mezhep-hassas içerikler başka geçerli bir görüşü yanlış diye puanlamaz ve uzman incelemesi önceliğini korur.');
 assert.equal(ui.translate('Ders 1','fr'),'Leçon 1');
 assert.equal(ui.translate('1 soru','fr'),'1 question');
 assert.equal(ui.translate('5 soru','fr'),'5 questions');
