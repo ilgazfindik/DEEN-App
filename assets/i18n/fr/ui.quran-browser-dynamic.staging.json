@@ -8,15 +8,18 @@
   "global_qa": "blocked",
   "native_reviewer_approved": false,
   "verified_by_religious_expert": false,
-  "translation_count": 6,
-  "source_evidence": "Real Quran dashboard and İhlâs learning Chromium #38534024469; exact source display strings; GitHub Actions #38539017547 actual library chapter and completion counters",
+  "translation_count": 9,
+  "source_evidence": "Real Quran dashboard and İhlâs learning Chromium #38534024469; exact source display strings; GitHub Actions #38539017547 actual library chapter and completion counters; GitHub Actions #38539686292 Ikhlas Quran learning verse progress and listening instruction labels",
   "translations": {
     "Ayet {n} / {n} · Son çalışma: Henüz çalışma yok": "Verset {n} / {n} · Dernière séance : pas encore étudié",
     "{n} / {n} ayet": "{n} / {n} versets",
     "{n} riskli ayetten kişisel tur": "Parcours personnalisé parmi {n} versets à revoir",
     "{n}. sure · {n} ayet · Şu an buradasın": "Sourate n° {n} · {n} versets · Vous êtes ici",
     "{n}. sure · {n} ayet": "Sourate n° {n} · {n} versets",
-    "{n} / {n} ayet tamamlandı": "{n} / {n} versets étudiés"
+    "{n} / {n} ayet tamamlandı": "{n} / {n} versets étudiés",
+    "İhlâs · Ayet {n}/{n}": "Al-Ikhlâs · verset {n}/{n}",
+    "Ayet {n} / {n}": "Verset {n} / {n}",
+    "Hoparlöre dokun: Ayet {n} kaydını dinle.": "Appuie sur le haut-parleur pour écouter la récitation du verset {n}."
   },
   "review_notes": [
     "Counters and plurals need French native reviewer approval.",
