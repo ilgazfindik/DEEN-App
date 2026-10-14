@@ -6,6 +6,7 @@ on:
       - 'scripts/test-french-real-chromium-staging.mjs'
       - 'scripts/test-french-isolated-gameplay.mjs'
       - 'scripts/test-french-quran-chromium-staging.mjs'
+      - 'scripts/test-french-locale-progress-chromium.mjs'
       - 'scripts/audit-french-quran-audio-readiness.mjs'
       - 'assets/quran/audio/word-timings.json'
       - 'assets/quran/audio/ayah-audio-manifest.json'
@@ -51,6 +52,7 @@ jobs:
           node scripts/test-french-real-chromium-staging.mjs
           node scripts/test-french-isolated-gameplay.mjs
           node scripts/test-french-quran-chromium-staging.mjs
+          node scripts/test-french-locale-progress-chromium.mjs
       - name: Upload Chrome mobile/desktop screenshots and diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -60,5 +62,6 @@ jobs:
             qa-artifacts/french-browser/
             qa-artifacts/french-gameplay/
             qa-artifacts/french-quran/
+            qa-artifacts/french-locale-progress/
           if-no-files-found: warn
           retention-days: 14
