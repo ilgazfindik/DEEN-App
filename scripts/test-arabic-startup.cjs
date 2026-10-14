@@ -12,6 +12,8 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  report.browser={name:'Google Chrome',version:browser.version()};
  await page.goto(url);await page.waitForSelector('#deenLanguageGate');assert.equal(await page.locator('[data-locale]').count(),5);assert.equal(await page.locator('[data-locale="es"]').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
  await page.locator('[data-locale="ar"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),'ar');await page.getByRole('button',{name:'متابعة',exact:true}).click();
+ await page.waitForSelector('#deenAccountGate');assert.equal(await page.locator('#deenAccountGate').getAttribute('dir'),'rtl');
+ await page.locator('#deenAccountGate .da-guest').click();
  await page.waitForSelector('#v998Onboarding');await page.waitForFunction(()=>window.DEEN_BOOT?.status().phase==='onboarding');
  assert.equal(await page.evaluate(()=>DEEN_APP_LOCALE.get()),'ar');assert.equal(await page.locator('.v9912-authbtn').count(),0);
  await page.locator('[onclick="onboarding(1)"]').click();await page.locator('#v998Name').fill('اختبار');await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.nameNext()"]').click();

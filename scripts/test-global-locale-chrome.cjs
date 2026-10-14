@@ -13,7 +13,20 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   assert.equal(await page.locator('[data-locale]').count(),5);assert.equal(await page.locator('[data-locale="es"]').count(),0);assert(!await page.locator('.deen-language-continue').isEnabled());
   await page.locator('[data-locale="'+lang+'"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),lang);
   await page.screenshot({path:path.join(out,'chrome-'+lang+'-language.png')});
-  await page.locator('.deen-language-continue').click();await page.waitForSelector('#v998Onboarding');
+  await page.locator('.deen-language-continue').click();await page.waitForSelector('#deenAccountGate');
+  assert.equal(await page.locator('#deenAccountGate').getAttribute('lang'),lang);
+  assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
+  assert.equal(await page.locator('#deenAccountGate .da-email').count(),1);
+  if(lang==='tr'){
+   await page.locator('#deenAccountGate .da-email').click();
+   assert.equal(await page.locator('#deenAccountGate form input[type="email"]').count(),1);
+   assert.equal(await page.locator('#deenAccountGate form input[type="password"]').count(),1);
+   await page.locator('#deenAccountGate [data-mode="signin"]').click();
+   await page.locator('#deenAccountGate .da-reset').click();
+   assert.equal(await page.locator('#deenAccountGate form input[type="password"]').count(),0);
+  }
+  await page.locator('#deenAccountGate .da-guest').click();await page.waitForSelector('#v998Onboarding');
+  assert.equal(await page.locator('#deenAccountGate').count(),0);
   assert.equal(await page.locator('#deenLanguageGate').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
   assert.equal(await page.locator('#v998Onboarding').getAttribute('lang'),lang);
   const screens=[];
