@@ -17,11 +17,11 @@
    fields.push(match[1]);cursor=match.index+match[0].length;
   }
   regex+=escape(pattern.slice(cursor))+'$';
-  return fields.length?{translation,fields,re:new RegExp(regex,'u')}:null;
+  return fields.length?{source:pattern,translation,fields,re:new RegExp(regex,'u')}:null;
  }
  const state={ready:false,locale:'tr',table:new Map(),patterns:[],originals:new WeakMap(),
   attributes:new WeakMap(),writes:0,missing:new Set()};
- function agree(text,fields,values){
+ function agree(text,fields,values,source=''){
   if(text.startsWith('Tâches quotidiennes : ')&&fields.length===3){
    // First value is progress, second is tasks total, third is pending revisions.
    if(Number(values[1])===1)text=text.replace('terminées','terminée');
@@ -31,9 +31,10 @@
   // Quran progress fractions use the *denominator* for verse-count agreement:
   // 0 / 1 verset, but 1 / 7 versets. This is QA-only presentation logic.
   if(text.includes('versets')&&fields.length>=2){
+   const total=source==='{n}/{n} ayet {n}/{n} + Solid'?values[1]:values[fields.length-1];
    // For chapter numbers and progress fractions, the second token is the
    // total verse count. The first token can be 1 even when there are 7 verses.
-   return Number(values[fields.length-1])===1
+   return Number(total)===1
     ?text.replace('versets','verset').replace('étudiés','étudié'):text;
   }
   const index=fields.indexOf('n'),n=index<0?NaN:Number(values[index]);
@@ -42,18 +43,27 @@
     .replace(/\bQUESTIONS\b/gu,'QUESTION');
   return text;
  }
+ const dateMonths=Object.freeze({
+  Oca:'janv.',Şub:'févr.',Mar:'mars',Nis:'avr.',May:'mai',Haz:'juin',
+  Tem:'juil.',Ağu:'août',Eyl:'sept.',Eki:'oct.',Kas:'nov.',Ara:'déc.'
+ });
+ function translatedTurkishDate(source){
+  const match=/^([1-9]|[12]\\d|3[01]) (Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)$/u.exec(source);
+  return match?match[1]+' '+dateMonths[match[2]]:null;
+ }
  function translate(raw,lang=state.locale){
   const source=String(raw);
   if(lang!=='fr'||!state.ready)return source;
   const lead=source.match(/^\s*/u)?.[0]||'',tail=source.match(/\s*$/u)?.[0]||'',key=source.trim();
   let text=state.table.get(key);
+  if(text==null)text=translatedTurkishDate(key);
   if(text==null){
    for(const pattern of state.patterns){
     const found=pattern.re.exec(key);
     if(!found)continue;
     const values=found.slice(1);let i=0;
     text=pattern.translation.replace(tokenRe,()=>values[i++]);
-    text=agree(text,pattern.fields,values);break;
+    text=agree(text,pattern.fields,values,pattern.source);break;
    }
   }
   if(text==null){if(key)state.missing.add(key);return source;}
@@ -103,7 +113,7 @@
     throw Error('FR_PREVIEW_INVALID_OBSERVED_KEY:'+key);
   }
   if(Object.keys(quranStaticTranslations).length!==54||
-     Object.keys(quranDynamicTranslations).length!==15)
+     Object.keys(quranDynamicTranslations).length!==17)
    throw Error('FR_PREVIEW_QURAN_COVERAGE');
   for(const [key,value] of Object.entries({...quranStaticTranslations,...quranDynamicTranslations})){
    if(!key.trim()||typeof value!=='string'||!value.trim()||
