@@ -345,6 +345,12 @@ async function visit(width,height,label){
   assert(!p10Missing.includes('VERİ & İLERLEME')&&!p10Missing.includes('ANLATIM PROFİLİ')&&
    !p10Missing.includes('İlerlemeyi yedekle')&&!p10Missing.includes('Sonraki seviyeye 300 XP'),
    'P10 safe settings/progress UI translations were not applied');
+  assert(!p10Missing.includes('FREE')&&!p10Missing.includes('30 max'),
+   'P10 remaining unlocalized plan labels');
+  const protectedDoctrine='DEEN önce mezheplerin ortak çekirdeğini öğretir. Mezhep-hassas içerikler başka geçerli bir görüşü yanlış diye puanlamaz ve uzman incelemesi önceliğini korur.';
+  assert.deepEqual(p10Missing.filter(s=>/[ÇĞİÖŞÜçğıöşü]/u.test(s)),[protectedDoctrine],
+   'Unexpected Turkish-specific UI text leaked after P10; keep doctrine pending expert review');
+  
   assert(!p10Missing.includes('Müslüman Kimdir? — Önceki aşamayı tamamla')&&
    !p10Missing.includes('Müslüman Kimdir? · ANLA · Aşama 2/5'),
    'P10 existing stage-title translations were not applied on real learn path');
