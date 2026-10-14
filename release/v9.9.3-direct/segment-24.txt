@@ -307,6 +307,9 @@
  function applyQuestionUI(){
   if(window.DEEN_APP_LOCALE?.get?.()==='ar')return false; // Arabic translated questions must not be rewritten by Turkish age profile.
   const q=currentQuestion();if(!q||!String(q.stage_id||'').startsWith('U01-'))return false;
+  // Source-verified French staging questions must keep their inline fill-slot DOM.
+  // Turkish age-profile textContent rewriting would erase the actual blank span.
+  if(q.__deenContentLocale==='fr')return false;
   const profile=active(),qid=q.id||q.original_question_id||('u01-'+(getSession()?.index||0));
   const lesson=document.getElementById('lesson');lesson?.classList.remove('v950-child','v950-teen','v950-adult');lesson?.classList.add('v950-'+profile);
   const questionEls=[document.getElementById('questionText'),document.querySelector('.v856-swipe-text')].filter(Boolean);
