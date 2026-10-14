@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "scope": "quran_browser_observed_static_ui_staging",
+  "status": "translation_draft_requires_native_and_religious_review",
+  "source_language": "tr",
+  "release_ready": false,
+  "global_qa": "blocked",
+  "native_reviewer_approved": false,
+  "verified_by_religious_expert": false,
+  "translation_count": 17,
+  "provenance": "GitHub Actions #38533548807: actual Quran dashboard, library and Ikhlas browser audit; source strings inspected in original app",
+  "translations": {
+    "Fâtiha Suresi": "Sourate Al-Fâtiha",
+    "FÂTIHA İLE BAŞLA": "COMMENCER PAR AL-FÂTIHA",
+    "Çalışma alanları": "Espaces d’apprentissage",
+    "Öğrenme kütüphanesi": "Bibliothèque d’apprentissage",
+    "Hatırlama çalışması": "Exercices de mémorisation",
+    "Bugünün Ayeti": "Verset du jour",
+    "Günlük anlam çalışması": "Étude quotidienne du sens",
+    "37 surelik kontrollü genişleme": "Extension progressive à 37 sourates",
+    "Riskli ayetleri önce çalış": "Réviser d’abord les versets fragiles",
+    "Bugünkü küçük çalışma akışı": "Petit programme du jour",
+    "Kelime Kelime": "Mot à mot",
+    "Transliterasyon ve anlam": "Translittération et sens",
+    "Hedefler ve hafıza": "Objectifs et mémorisation",
+    "Sure Kütüphanesi": "Bibliothèque des sourates",
+    "16 SURE · ÖĞRENME & EZBER": "16 SOURATES · APPRENTISSAGE ET MÉMORISATION",
+    "Her surenin ilerlemesi ve tekrar durumu ayrı tutulur. Bir sureyi seçtiğinde kaldığın ayetten devam edersin.": "La progression et les révisions sont suivies séparément pour chaque sourate. Choisis-en une pour reprendre au dernier verset étudié.",
+    "BAŞLANAN": "COMMENCÉES"
+  },
+  "review_notes": [
+    "Surah transliterations and terminology require a native French and independent Islamic expert review.",
+    "These are UI labels, not translations of Arabic Quran verses or recitation.",
+    "Other runtime dynamic labels and verified French meanings are not provided or release approved."
+  ]
+}
