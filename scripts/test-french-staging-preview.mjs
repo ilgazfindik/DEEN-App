@@ -9,7 +9,7 @@ import {buildFrenchPreview} from './fr-preview-pack-builder.mjs';
 const read=p=>readFileSync(root+p,'utf8'),eq=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
 const built=buildFrenchPreview();
 assert.deepEqual(built.stats,{base:1500,active:1484,live:84,storedVariants:20,legacy:100,
- ui:1452,dynamicTemplates:9,quranStaticDrafts:54,quranDynamicDrafts:17,parts:18,sourceVariants:1596});
+ ui:1452,dynamicTemplates:9,quranStaticDrafts:54,quranDynamicDrafts:17,p10StaticDrafts:54,p10DynamicDrafts:18,parts:18,sourceVariants:1596});
 const production=JSON.parse(read('assets/i18n/content-support.json'));
 assert.equal(production.languages.fr.question_data,'missing');
 assert.equal(production.languages.fr.global_qa,'blocked');
@@ -189,6 +189,8 @@ assert.equal(result.staticKeys,1452);
 assert.equal(result.observedKeys,4);
 assert.equal(result.quranStaticDraftKeys,54);
 assert.equal(result.quranDynamicDraftKeys,17);
+assert.equal(result.p10StaticDraftKeys,54);
+assert.equal(result.p10DynamicDraftKeys,18);
 assert.equal(ui.translate('İhlâs Yolculuğu','fr'),'Parcours d’Al-Ikhlâs');
 assert.equal(ui.translate('2 · OKU','fr'),'2 · LIRE');
 assert.equal(ui.translate('SEVİYE 0','fr'),'NIVEAU 0');
@@ -199,6 +201,27 @@ assert.equal(ui.translate('Mevcut günlük görevler: 0/3 tamamlandı · 0 tekra
 assert.equal(ui.translate('Mevcut günlük görevler: 0/1 tamamlandı · 1 tekrar bekliyor','fr'),
  'Tâches quotidiennes : 0/1 terminée · 1 révision en attente');
 assert.equal(ui.translate('3 sn','fr'),'3 s');
+assert.equal(ui.translate('ANLATIM PROFİLİ','fr'),'PROFIL PÉDAGOGIQUE');
+assert.equal(ui.translate('VERİ & İLERLEME','fr'),'DONNÉES ET PROGRESSION');
+assert.equal(ui.translate('İlerlemeyi yedekle','fr'),'Sauvegarder la progression');
+assert.equal(ui.translate('Ders 1','fr'),'Leçon 1');
+assert.equal(ui.translate('1 soru','fr'),'1 question');
+assert.equal(ui.translate('5 soru','fr'),'5 questions');
+assert.equal(ui.translate('1 Seri','fr'),'1 jour de suite');
+assert.equal(ui.translate('7 Seri','fr'),'7 jours de suite');
+assert.equal(ui.translate('1 Enerji','fr'),'1 point d’énergie');
+assert.equal(ui.translate('30 Enerji','fr'),'30 points d’énergie');
+assert.equal(ui.translate('1. KISIM · 1. ÜNİTE','fr'),'PARTIE 1 · UNITÉ 1');
+assert.equal(ui.translate('Sonraki seviyeye 300 XP','fr'),'Encore 300 XP avant le prochain niveau');
+assert.equal(ui.translate('1 mini ders · yaklaşık 5 dakika','fr'),'1 mini-leçon · environ 5 minutes');
+assert.equal(ui.translate('3 mini ders · yaklaşık 15 dakika','fr'),'3 mini-leçons · environ 15 minutes');
+assert.equal(ui.translate('1 HAZIR','fr'),'1 PRÊT');
+assert.equal(ui.translate('2 HAZIR','fr'),'2 PRÊTS');
+assert.equal(ui.translate('1 doğru cevap','fr'),'1 bonne réponse');
+assert.equal(ui.translate('10 doğru cevap','fr'),'10 bonnes réponses');
+assert.equal(ui.translate('Arapça: Quran.com · Meal: Muhammed Hamdi Yazır, 1938','fr'),
+ 'Arapça: Quran.com · Meal: Muhammed Hamdi Yazır, 1938');
+assert.equal(ui.translate('İlerlemeyi yedekle','tr'),'İlerlemeyi yedekle');
 assert.equal(ui.translate('14 Eki','fr'),'14 oct.');
 assert.equal(ui.translate('1 Oca','fr'),'1 janv.');
 assert.equal(ui.translate('31 Ara','fr'),'31 déc.');
