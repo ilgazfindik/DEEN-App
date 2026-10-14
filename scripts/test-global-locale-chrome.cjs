@@ -7,10 +7,10 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port;
  const browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
  const report={browser:'Google Chrome',version:browser.version(),languages:{},fullSupport:false};
- for(const lang of ['tr','ar','en','de','es','fr']){
+ for(const lang of ['tr','ar','en','de','fr']){
   const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(url);await page.waitForSelector('#deenLanguageGate');assert.equal(await page.locator('.phone').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
-  assert.equal(await page.locator('[data-locale]').count(),6);assert(!await page.locator('.deen-language-continue').isEnabled());
+  assert.equal(await page.locator('[data-locale]').count(),5);assert.equal(await page.locator('[data-locale="es"]').count(),0);assert(!await page.locator('.deen-language-continue').isEnabled());
   await page.locator('[data-locale="'+lang+'"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),lang);
   await page.screenshot({path:path.join(out,'chrome-'+lang+'-language.png')});
   await page.locator('.deen-language-continue').click();await page.waitForSelector('#v998Onboarding');
@@ -38,5 +38,5 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   console.log('CHROME RESULT',JSON.stringify({locale:lang,browser:report.browser,version:report.version,...Object.fromEntries(Object.entries(report.languages[lang]).filter(([k])=>k!=='screens'))}));
   assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'global-locale-chrome.json'),JSON.stringify(report,null,2));await context.close();
  }
- await browser.close();server.close();console.log('PASS entry and resource gates; full six-language support remains INCOMPLETE');
+ await browser.close();server.close();console.log('PASS entry and resource gates; full five-language support remains INCOMPLETE');
 })().catch(e=>{console.error(e);server.close();process.exit(1);});
