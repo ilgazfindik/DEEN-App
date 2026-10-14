@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "scope": "quran_browser_observed_dynamic_ui_staging",
+  "status": "translation_draft_requires_native_and_religious_review",
+  "source_language": "tr",
+  "release_ready": false,
+  "global_qa": "blocked",
+  "native_reviewer_approved": false,
+  "verified_by_religious_expert": false,
+  "translation_count": 3,
+  "source_evidence": "Real Quran dashboard and İhlâs learning Chromium #38534024469; exact source display strings",
+  "translations": {
+    "Ayet {n} / {n} · Son çalışma: Henüz çalışma yok": "Verset {n} / {n} · Dernière séance : pas encore étudié",
+    "{n} / {n} ayet": "{n} / {n} versets",
+    "{n} riskli ayetten kişisel tur": "Parcours personnalisé parmi {n} versets à revoir"
+  },
+  "review_notes": [
+    "Counters and plurals need French native reviewer approval.",
+    "These are user-facing interface labels, not a French translation of the Quran.",
+    "Arabic verses, translations and recitation must remain unchanged."
+  ]
+}
