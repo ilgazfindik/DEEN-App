@@ -34,7 +34,7 @@ try{
    assert.equal(response?.status(),200);
    await page.waitForFunction(()=>typeof saveState==='function'&&
     typeof state==='object'&&window.DEEN_BOOT&&window.DEEN_APP_LOCALE&&
-    window.DEEN_CONTENT_LOCALE&&document.getElementById('lesson'),null,{timeout:100000});
+    window.DEEN_CONTENT_LOCALE&&window.DEEN_QURAN?.state&&document.getElementById('lesson'),null,{timeout:100000});
 
    const seed=await page.evaluate(async()=>{
     if(DEEN_APP_LOCALE.get()!=='tr')throw Error('QA must start in Turkish');
@@ -59,6 +59,8 @@ try{
     state.completed=['U01-S01','U01-S02'];
     state.stageScores={...(state.stageScores||{}),'U01-S01':100,'U01-S02':90};
     state.achievements=['first','streak7','xp1000'];
+    // Initialize via the product's own Quran model normalizer, never fabricate a schema.
+    DEEN_QURAN.state();
     if(!state.quranJourney||!state.quranJourney.progress?.surahs?.ikhlas)
      throw Error('Original Quran journey storage model unavailable');
     const q=state.quranJourney;
