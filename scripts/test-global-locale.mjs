@@ -44,7 +44,7 @@ for(const lang of ['tr','ar','en','de','fr']){
  w.state.settings.onboardingLanguageConfirmed=true;
  const screens=[];
  for(let step=0;step<=5;step++){
-  w.DEEN_PREMIUM_ONBOARDING.render(step);const el=w.document.getElementById('v998Onboarding');assert.equal(el.lang,lang);assert(w.document.querySelector('.phone').inert);
+  w.DEEN_PREMIUM_ONBOARDING.render(step);const el=w.document.getElementById('v998Onboarding');assert.equal(el.querySelectorAll('.v998-hero').length,0,'No decorative onboarding artwork on '+lang+' step '+step);assert.equal(el.lang,lang);assert(w.document.querySelector('.phone').inert);
   const visible=el.textContent;assert(!/Google ile|Apple ile|E-posta ile/.test(visible));
   if(lang!=='tr')assert(!/Yol arkadaşını|Kaplumbağa|Günlük hedef|Sana nasıl|Kısa, sade/.test(visible),lang+':'+step);
   if(step===3){assert.equal(el.querySelectorAll('[data-animal]').length,6);for(const card of el.querySelectorAll('[data-animal]'))assert.equal(card.querySelector('b').textContent,w.DEEN_I18N.t(card.dataset.animal));}
