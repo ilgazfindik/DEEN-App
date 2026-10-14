@@ -9,7 +9,7 @@ import {buildFrenchPreview} from './fr-preview-pack-builder.mjs';
 const read=p=>readFileSync(root+p,'utf8'),eq=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
 const built=buildFrenchPreview();
 assert.deepEqual(built.stats,{base:1500,active:1484,live:84,storedVariants:20,legacy:100,
- ui:1452,dynamicTemplates:9,quranStaticDrafts:41,quranDynamicDrafts:9,parts:18,sourceVariants:1596});
+ ui:1452,dynamicTemplates:9,quranStaticDrafts:54,quranDynamicDrafts:15,parts:18,sourceVariants:1596});
 const production=JSON.parse(read('assets/i18n/content-support.json'));
 assert.equal(production.languages.fr.question_data,'missing');
 assert.equal(production.languages.fr.global_qa,'blocked');
@@ -119,8 +119,19 @@ const result=ui.init({staticTranslations:built.ui,dynamicTranslations:built.dyna
  quranStaticTranslations:built.quranUi,quranDynamicTranslations:built.quranDynamic});
 assert.equal(result.staticKeys,1452);
 assert.equal(result.observedKeys,4);
-assert.equal(result.quranStaticDraftKeys,41);
-assert.equal(result.quranDynamicDraftKeys,9);
+assert.equal(result.quranStaticDraftKeys,54);
+assert.equal(result.quranDynamicDraftKeys,15);
+assert.equal(ui.translate('İhlâs Yolculuğu','fr'),'Parcours d’Al-Ikhlâs');
+assert.equal(ui.translate('2 · OKU','fr'),'2 · LIRE');
+assert.equal(ui.translate('SEVİYE 0','fr'),'NIVEAU 0');
+assert.equal(ui.translate('0/4 ayet öğrenildi','fr'),'0/4 versets appris');
+assert.equal(ui.translate('1/1 ayet öğrenildi','fr'),'1/1 verset appris');
+assert.equal(ui.translate('Mevcut günlük görevler: 0/3 tamamlandı · 0 tekrar bekliyor','fr'),
+ 'Tâches quotidiennes : 0/3 terminées · 0 révisions en attente');
+assert.equal(ui.translate('Mevcut günlük görevler: 0/1 tamamlandı · 1 tekrar bekliyor','fr'),
+ 'Tâches quotidiennes : 0/1 terminée · 1 révision en attente');
+assert.equal(ui.translate('3 sn','fr'),'3 s');
+assert.equal(ui.translate('İhlâs 1. ayeti hatırla','fr'),'Rappelle-toi le verset 1 d’Al-Ikhlâs');
 assert.equal(ui.translate('Fâtiha Suresi','fr'),'Sourate Al-Fâtiha');
 assert.equal(ui.translate('Sure Kütüphanesi','fr'),'Bibliothèque des sourates');
 assert.equal(ui.translate('Ayet 1 / 7 · Son çalışma: Henüz çalışma yok','fr'),
