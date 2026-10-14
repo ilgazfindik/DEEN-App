@@ -24,9 +24,12 @@
  function agree(text,fields,values){
   // Quran progress fractions use the *denominator* for verse-count agreement:
   // 0 / 1 verset, but 1 / 7 versets. This is QA-only presentation logic.
-  if(text.includes('versets')&&fields.length>=2&&
-     Number(values[fields.length-1])===1)
-   return text.replace('versets','verset').replace('étudiés','étudié');
+  if(text.includes('versets')&&fields.length>=2){
+   // For chapter numbers and progress fractions, the second token is the
+   // total verse count. The first token can be 1 even when there are 7 verses.
+   return Number(values[fields.length-1])===1
+    ?text.replace('versets','verset').replace('étudiés','étudié'):text;
+  }
   const index=fields.indexOf('n'),n=index<0?NaN:Number(values[index]);
   if(n===1)return text.replace('notions apprises','notion apprise')
     .replace(/\bjours\b/gu,'jour').replace(/\bleçons\b/gu,'leçon').replace(/\bversets\b/gu,'verset')
