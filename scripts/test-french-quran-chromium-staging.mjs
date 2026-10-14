@@ -229,10 +229,18 @@ async function run(device){
   const genericStart=await page.evaluate(before=>{
    const sheet=document.getElementById('v5Sheet');
    const raw=sheet?.querySelector('#v5SheetBody')?.innerHTML||'';
-   const arabicBefore=[...sheet?.querySelectorAll('[lang="ar"]')||[]].map(el=>el.textContent);
+   const arabicBefore=[...sheet?.querySelectorAll('[lang="ar"]')||[]].map(el=>el.textContent.trim());
+   const ayahSource=DEEN_QURAN_CONTENT.getAyah('ikhlas',1)?.arabic?.text||null;
+   const exactAyahDisplayed=!!ayahSource&&arabicBefore.includes(ayahSource);
+   const beforeSourceAttribution=(sheet?.innerText||'').includes('Muhammed Hamdi Yazır, 1938');
    const writes=sheet?.open?DEEN_FRENCH_STAGE_UI.setLocale('fr',sheet):0;
-   const arabicAfter=[...sheet?.querySelectorAll('[lang="ar"]')||[]].map(el=>el.textContent);
+   const arabicAfter=[...sheet?.querySelectorAll('[lang="ar"]')||[]].map(el=>el.textContent.trim());
+   const afterSourceAttribution=(sheet?.innerText||'').includes('Muhammed Hamdi Yazır, 1938');
+   const frenchMeaningReady=!!sheet?.querySelector('[data-verse-translation="ready"][lang="fr"]');
    return {changed:raw!==before,open:!!sheet?.open,writes,
+    exactAyahDisplayed,ayahSourceVerified:!!ayahSource,
+    sourceAttributionUnchanged:beforeSourceAttribution===afterSourceAttribution,
+    frenchMeaningReady,
     title:document.getElementById('v5SheetTitle')?.textContent?.trim()||'',
     visibleText:(sheet?.innerText||'').slice(0,600),
     arabicNodeCount:arabicBefore.length,
@@ -244,6 +252,12 @@ async function run(device){
   rec.genericJourneyStart=genericStart;
   assert(genericStart.changed,'Clicking the real Ikhlas start button did not advance the journey');
   assert(genericStart.arabicUnchanged,'French preview changed native Quran Arabic during journey start');
+  assert(genericStart.ayahSourceVerified&&genericStart.exactAyahDisplayed,
+   'Visible native Quran learning route does not display the exact verified Arabic ayah');
+  assert(genericStart.sourceAttributionUnchanged,
+   'French preview modified the Quran translation source attribution');
+  assert.equal(genericStart.frenchMeaningReady,false,
+   'Unapproved Quran French meaning was misleadingly exposed as ready');
   assert.equal(genericStart.appLocale,'tr');
   assert.equal(genericStart.prodGate,'missing');
   console.log('FR_QURAN_GENERIC_START',JSON.stringify({viewport:device.name,...genericStart}));
