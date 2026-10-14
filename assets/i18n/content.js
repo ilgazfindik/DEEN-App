@@ -69,7 +69,7 @@
    }catch(error){console.error('[DEEN content]',String(error?.message||error));return false;}finally{loading.delete(lang);}
   })();loading.set(lang,job);return job;
  }
- function qaReady(lang,config){return config?.global_qa==='passed'||lang==='en'&&config?.global_qa==='pending'&&window.__DEEN_LOCALIZATION_QA__===true}
+ function qaReady(lang,config){return (lang==='fr'&&config?.gameplay_enabled===true&&config?.scope==='game_questions_and_ui_only')||config?.global_qa==='passed'||lang==='en'&&config?.global_qa==='pending'&&window.__DEEN_LOCALIZATION_QA__===true}
  function available(lang){const config=manifest()?.languages?.[lang];return ['tr','ar'].includes(lang)||config?.question_data==='complete'&&qaReady(lang,config)}
  function translateText(text,lang=window.DEEN_APP_LOCALE.get()){
   // French uses the same verified per-question adapter, never a free-form glossary.
