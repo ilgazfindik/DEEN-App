@@ -217,6 +217,37 @@ async function run(device){
   assert(genericViewer.arabicUnchanged,'French QA rewrote generic Quran Arabic script');
   console.log('FR_QURAN_GENERIC_ROUTE',JSON.stringify({viewport:device.name,...genericViewer}));
   await page.screenshot({path:output+'/'+device.name+'-ikhlas-generic-route.png',fullPage:true});
+  // Exercise the actual "Commencer" path from the generic Ikhlas journey,
+  // rather than confusing a successfully opened overview with an ayah lesson.
+  const actualStart=page.locator('#v5Sheet button').filter({hasText:/^(BAŞLA|COMMENCER|Commencer)$/i}).first();
+  assert.equal(await actualStart.count(),1,'Ikhlas journey has no visible start action');
+  assert(await actualStart.isVisible(),'Ikhlas journey start is not visible to learner');
+  assert(await actualStart.isEnabled(),'Ikhlas journey start is unexpectedly disabled');
+  const beforeStart=await page.evaluate(()=>document.querySelector('#v5SheetBody')?.innerHTML||'');
+  await actualStart.click({timeout:15000});
+  await page.waitForTimeout(350);
+  const genericStart=await page.evaluate(before=>{
+   const sheet=document.getElementById('v5Sheet');
+   const raw=sheet?.querySelector('#v5SheetBody')?.innerHTML||'';
+   const arabicBefore=[...sheet?.querySelectorAll('[lang="ar"]')||[]].map(el=>el.textContent);
+   const writes=sheet?.open?DEEN_FRENCH_STAGE_UI.setLocale('fr',sheet):0;
+   const arabicAfter=[...sheet?.querySelectorAll('[lang="ar"]')||[]].map(el=>el.textContent);
+   return {changed:raw!==before,open:!!sheet?.open,writes,
+    title:document.getElementById('v5SheetTitle')?.textContent?.trim()||'',
+    visibleText:(sheet?.innerText||'').slice(0,600),
+    arabicNodeCount:arabicBefore.length,
+    arabicUnchanged:JSON.stringify(arabicBefore)===JSON.stringify(arabicAfter),
+    appLocale:DEEN_APP_LOCALE.get(),
+    prodGate:window.__DEEN_CONTENT_MANIFEST__.languages.fr.question_data
+   };
+  },beforeStart);
+  rec.genericJourneyStart=genericStart;
+  assert(genericStart.changed,'Clicking the real Ikhlas start button did not advance the journey');
+  assert(genericStart.arabicUnchanged,'French preview changed native Quran Arabic during journey start');
+  assert.equal(genericStart.appLocale,'tr');
+  assert.equal(genericStart.prodGate,'missing');
+  console.log('FR_QURAN_GENERIC_START',JSON.stringify({viewport:device.name,...genericStart}));
+  await page.screenshot({path:output+'/'+device.name+'-ikhlas-generic-start.png',fullPage:true});
   if(!selectedRoute.actualIkhlasSession){
    // Source-backed legacy Ikhlas five-step engine remains a supported DEEN
    // API even if a newer generic surah viewer owns the card route.
