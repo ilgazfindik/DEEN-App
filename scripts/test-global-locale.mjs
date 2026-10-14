@@ -29,10 +29,10 @@ function fixture(stored={}){
  w.eval(read('assets/i18n/boot.js'));w.eval(premium);return dom;
 }
 const report={kind:'DOM and logic; not Chrome',languages:{},migration:[],guards:[]};
-for(const lang of ['tr','ar','en','de','es','fr']){
+for(const lang of ['tr','ar','en','de','fr']){
  const d=fixture(),w=d.window;
  let chosen=null;w.DEEN_I18N.showGate(id=>{chosen=id;w.DEEN_APP_LOCALE.commit(id);});
- assert.equal(w.document.querySelectorAll('[data-locale]').length,6);assert(w.document.querySelector('.deen-language-continue').disabled);
+ assert.equal(w.document.querySelectorAll('[data-locale]').length,5);assert.equal(w.document.querySelector('[data-locale="es"]'),null);assert(w.document.querySelector('.deen-language-continue').disabled);
  assert.equal(w.document.querySelectorAll('.v9912-authbtn').length,0);
  w.document.querySelector('[data-locale="'+lang+'"]').click();
  assert.equal(w.document.querySelector('#deenLanguageGate').lang,lang);assert.equal(w.document.querySelector('#deenLanguageGate').dir,lang==='ar'?'rtl':'ltr');
@@ -64,6 +64,22 @@ for(const lang of ['tr','ar','en','de','es','fr']){
  else{assert(!ready);assert(!w.state.onboarded);assert.equal(w.DEEN_BOOT.status().phase,'blocked');assert(w.document.getElementById('deenPreparation').textContent.includes(w.DEEN_I18N.t('unavailableTitle')));assert.equal(w.DEEN_CONTENT_LOCALE.translateQuestion(base[0],lang),null);}
  assert.equal(JSON.stringify({xp:w.state.xp,completed:w.state.completed,badges:w.state.badges}),progressBefore);
  report.languages[lang]={entry:'PASS DOM',onboarding:'PASS DOM',preparation:ready?'PASS data verification':'BLOCKED missing question pack',screens};d.window.close();
+}
+{
+ const d=fixture({deen_app_language_v1:'es'}),w=d.window;
+ assert.equal(w.DEEN_APP_LOCALE.get(),'tr','Saved Spanish must fall back to Turkish');
+ assert.equal(w.DEEN_APP_LOCALE.normalize('es'),null);
+ assert.equal(w.DEEN_APP_LOCALE.set('es'),false);
+ assert.deepEqual([...w.DEEN_APP_LOCALE.supported()],['tr','ar','en','de','fr']);
+ assert.equal(w.DEEN_I18N.showGate(()=>{}).querySelector('[data-locale="es"]'),null);
+ w.document.getElementById('deenLanguageGate')?.remove();
+ w.DEEN_APP_LOCALE.renderSettings();
+ assert.equal(w.document.querySelector('#deenAppLanguage option[value="es"]'),null);
+ assert.equal(w.localStorage.getItem('deen_app_language_v1'),'es','Original stored value must not be overwritten on import');
+ assert.equal(w.state.xp,321);
+ assert.deepEqual(w.state.completed,['U02-S03']);
+ report.guards.push('PASS Spanish hidden from entry/settings, saved es safely falls back without erasing progress');
+ d.window.close();
 }
 for(const key of ['deen_v4_1_state','deen_v57_last_good_state']){
  const saved={onboarded:true,settings:{language:'ar'},xp:777,completed:['U15-S07'],profile:{companion:'owl'}};
