@@ -4,6 +4,7 @@ on:
     branches: ['codex/french-*']
     paths:
       - 'scripts/test-french-game-live-chromium.mjs'
+      - 'scripts/test-global-locale-chrome.cjs'
       - 'scripts/test-french-game-pack-audit.mjs'
       - 'scripts/test-french-isolated-gameplay.mjs'
       - 'scripts/test-french-quran-chromium-staging.mjs'
@@ -57,6 +58,10 @@ jobs:
           trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
           curl --fail --silent --show-error --retry 12 --retry-connrefused --retry-delay 1 http://127.0.0.1:8765/ > /dev/null
           node scripts/test-french-game-live-chromium.mjs
+      - name: Verify native French language selection, onboarding, reload and persisted progress
+        run: |
+          npx playwright install chrome
+          DEEN_QA_OUTPUT=qa-artifacts/french-global-locale node scripts/test-global-locale-chrome.cjs
       - name: Upload Chrome mobile/desktop screenshots and diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -69,5 +74,6 @@ jobs:
             qa-artifacts/french-locale-progress/
             qa-artifacts/french-release/
             qa-artifacts/french-webkit/
+            qa-artifacts/french-global-locale/
           if-no-files-found: warn
           retention-days: 14
