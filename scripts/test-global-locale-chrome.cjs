@@ -15,6 +15,9 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   await page.screenshot({path:path.join(out,'chrome-'+lang+'-language.png')});
   await page.locator('.deen-language-continue').click();await page.waitForSelector('#deenAccountGate');
   assert.equal(await page.locator('#deenAccountGate').getAttribute('lang'),lang);
+  const adminShortcut=page.locator('#deenMobileAdminButton');
+  assert.equal(await adminShortcut.getAttribute('aria-label'),{"tr":"Admin panelini aç","ar":"فتح لوحة الإدارة","en":"Open admin panel","de":"Admin-Panel öffnen","fr":"Ouvrir le panneau d’administration"}[lang],'Mobile admin shortcut label must match selected language');
+  assert.equal(await adminShortcut.isVisible(),false,'P shortcut must stay hidden during account selection');
   assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
   assert.equal(await page.locator('#deenAccountGate .da-email').count(),1);
   // All provider buttons carry a real inline SVG, with label visually centered.
