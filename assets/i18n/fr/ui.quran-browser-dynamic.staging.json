@@ -8,12 +8,15 @@
   "global_qa": "blocked",
   "native_reviewer_approved": false,
   "verified_by_religious_expert": false,
-  "translation_count": 3,
-  "source_evidence": "Real Quran dashboard and İhlâs learning Chromium #38534024469; exact source display strings",
+  "translation_count": 6,
+  "source_evidence": "Real Quran dashboard and İhlâs learning Chromium #38534024469; exact source display strings; GitHub Actions #38539017547 actual library chapter and completion counters",
   "translations": {
     "Ayet {n} / {n} · Son çalışma: Henüz çalışma yok": "Verset {n} / {n} · Dernière séance : pas encore étudié",
     "{n} / {n} ayet": "{n} / {n} versets",
-    "{n} riskli ayetten kişisel tur": "Parcours personnalisé parmi {n} versets à revoir"
+    "{n} riskli ayetten kişisel tur": "Parcours personnalisé parmi {n} versets à revoir",
+    "{n}. sure · {n} ayet · Şu an buradasın": "Sourate n° {n} · {n} versets · Vous êtes ici",
+    "{n}. sure · {n} ayet": "Sourate n° {n} · {n} versets",
+    "{n} / {n} ayet tamamlandı": "{n} / {n} versets étudiés"
   },
   "review_notes": [
     "Counters and plurals need French native reviewer approval.",
