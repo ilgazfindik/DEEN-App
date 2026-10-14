@@ -3,7 +3,7 @@
  'use strict';
  if(window.DEEN_APP_LOCALE?.get?.()!=='fr')return;
  if(window.DEEN_FRENCH_UI)return;
- const excluded='script,style,noscript,code,textarea,[contenteditable="true"],[data-deen-no-translate],[lang="ar"],.deen-ikhlas-arabic,.deen-mem-arabic,.deen-qj2-ar,.deen-qj2-option.ar';
+ const excluded='script,style,noscript,code,textarea,[contenteditable="true"],[data-deen-no-translate],[lang="ar"],.deen-ikhlas-arabic,.deen-mem-arabic,.deen-qj2-ar,.deen-qj2-option.ar,[data-verse-translation],.deen-quran-meaning,.deen-ikhlas-meaning';
  const escape=s=>s.replace(/[\^$.*+?()[\]{}|\\]/g,'\\$&');
  const tokenRe=/\{(n|unit|topic)\}/g;
  function template(pattern,translation){
@@ -105,7 +105,13 @@
   let changed=0,node;const walker=window.document.createTreeWalker(root,window.NodeFilter.SHOW_TEXT);
   while((node=walker.nextNode())){
    if(node.parentElement?.closest?.(excluded)||/[\u0600-\u06ff]/u.test(node.nodeValue))continue;
-   const row=remember(node),value=translate(row.source,lang);
+   const row=remember(node);
+    let validated=null;
+    try{
+     const current=session?.questions?.[session.index];
+     if(current?.__deenContentLocale==='fr')validated=current.question_tr;
+    }catch(_){}
+    const value=localizeQuestionPrompt(row.source,validated)||translate(row.source,lang);
    if(node.nodeValue!==value){node.nodeValue=value;changed++;}
    row.output=value;
   }
