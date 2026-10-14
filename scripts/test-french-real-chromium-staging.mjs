@@ -232,6 +232,10 @@ async function visit(width,height,label){
   }
   assert(panelAudit.every(x=>!x.error&&x.arabicUnchanged!==false),
    'An app panel failed or Arabic changed during French QA');
+  assert.equal(panelAudit.find(x=>x.name==='analyticsPanel')?.heading,'Analyse de l’apprentissage',
+   'Analytics title still Turkish in source-keyed French preview');
+  assert.equal(panelAudit.find(x=>x.name==='xpPanel')?.heading,'Niveau 1',
+   'XP level label still Turkish in source-keyed French preview');
   await page.evaluate(()=>{
    const sheet=document.getElementById('v5Sheet');if(sheet?.open)sheet.close();
    for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
@@ -281,6 +285,17 @@ async function visit(width,height,label){
   // v9.10 lesson loop may show a teaching card again after the asynchronous
   // question decorator runs. Finish actual cards via user clicks, never remove
   // them programmatically or bypass the learning lifecycle.
+  await page.waitForTimeout(160);
+  const localizedCards=await page.evaluate(()=>{
+   const overlays=[...document.querySelectorAll('#lesson .v910-overlay')];
+   let writes=0;
+   for(const card of overlays)writes+=window.DEEN_FRENCH_STAGE_UI.setLocale('fr',card);
+   return {overlays:overlays.length,writes,
+    buttons:overlays.map(el=>el.querySelector('.v910-card-button')?.textContent.trim())};
+  });
+  if(localizedCards.overlays)
+   assert(localizedCards.buttons.every(text=>text!=='ÖĞRENDİM · SORUYA GEÇ'),
+    'U01 teaching CTA still uses Turkish after QA translation');
   const teaching=page.locator('#lesson .v910-overlay .v910-card-button:visible');
   const teachingSteps=[];
   for(let i=0;i<5;i++){
@@ -391,7 +406,8 @@ async function visit(width,height,label){
   return {viewport:label,width,height,assembledShell:true,sourceValidated:true,
    frenchAvailableInProduction:false,staticAndDynamicPreview:shell,
    lesson:{id:lesson.id,type:lesson.type,question:lesson.question,
-    options:rendered.labels,qaWrapperAdjusted:rendered.qaWrapperAdjusted,feedbackLocale,graded:grade},
+    options:rendered.labels,qaWrapperAdjusted:rendered.qaWrapperAdjusted,
+    localizedCards,feedbackLocale,graded:grade},
    geometry,navAudit,panelAudit,errors};
  }finally{
   await context.close();
