@@ -5,6 +5,7 @@ on:
     paths:
       - 'scripts/test-french-real-chromium-staging.mjs'
       - 'scripts/fr-preview-pack-builder.mjs'
+      - 'scripts/test-french-staging-preview.mjs'
       - 'assets/i18n/fr/**'
       - 'assets/i18n/questions/fr/**'
       - 'assets/i18n/content.js'
