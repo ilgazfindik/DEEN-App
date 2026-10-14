@@ -300,7 +300,9 @@ async function visit(width,height,label){
    for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
    const root=document.querySelector('.phone');if(root)root.inert=false;
   });
-  console.log('FR_REAL_CHROMIUM_NAV_AUDIT',JSON.stringify({
+  const p10Missing=await page.evaluate(()=>DEEN_FRENCH_STAGE_UI.audit().unrecognized);
+  console.log('FR_P10_UI_UNRECOGNIZED',JSON.stringify({viewport:label,unrecognized:p10Missing}));
+    console.log('FR_REAL_CHROMIUM_NAV_AUDIT',JSON.stringify({
    viewport:label,tabs:navAudit.map(x=>({id:x.id,active:x.active,qaWrites:x.uiWrites,
     contentChars:x.visibleChars,overflowCount:x.overflow.length,
     overflowSample:x.overflow.slice(0,6),
