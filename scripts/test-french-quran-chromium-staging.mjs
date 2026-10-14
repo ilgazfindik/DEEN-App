@@ -55,7 +55,7 @@ async function run(device){
     runtimeObservedTranslations:observed,
     quranStaticTranslations:quranUi,quranDynamicTranslations:quranDynamic});
    if(result.staticKeys!==1452||result.observedKeys!==4||
-     result.quranStaticDraftKeys!==41||result.quranDynamicDraftKeys!==9)
+     result.quranStaticDraftKeys!==54||result.quranDynamicDraftKeys!==15)
     throw Error('FR Quran preview source coverage drift');
    return result;
   },{ui:fixture.ui,dynamic:fixture.dynamic,observed:fixture.observed,
@@ -80,7 +80,12 @@ async function run(device){
     verse:bridge.translate('Ayet 1 / 7 · Son çalışma: Henüz çalışma yok','fr'),
     oneAyah:bridge.translate('0 / 1 ayet','fr'),
     sevenAyahs:bridge.translate('2 / 7 ayet','fr'),
-    personalReview:bridge.translate('24 riskli ayetten kişisel tur','fr')
+    personalReview:bridge.translate('24 riskli ayetten kişisel tur','fr'),
+    journey:bridge.translate('İhlâs Yolculuğu','fr'),
+    learning:bridge.translate('0/4 ayet öğrenildi','fr'),
+    listeningStep:bridge.translate('2 · OKU','fr'),
+    level:bridge.translate('SEVİYE 0','fr'),
+    recurrence:bridge.translate('Mevcut günlük görevler: 0/1 tamamlandı · 1 tekrar bekliyor','fr')
    };
   });
   assert.deepEqual(quranUiExamples,{
@@ -95,7 +100,12 @@ async function run(device){
    fatiha:'Sourate Al-Fâtiha',
    verse:'Verset 1 / 7 · Dernière séance : pas encore étudié',
    oneAyah:'0 / 1 verset',sevenAyahs:'2 / 7 versets',
-   personalReview:'Parcours personnalisé parmi 24 versets à revoir'
+   personalReview:'Parcours personnalisé parmi 24 versets à revoir',
+   journey:'Parcours d’Al-Ikhlâs',
+   learning:'0/4 versets appris',
+   listeningStep:'2 · LIRE',
+   level:'NIVEAU 0',
+   recurrence:'Tâches quotidiennes : 0/1 terminée · 1 révision en attente'
   },'Quran UI key and dynamic count translations must remain source-specific');
   rec.quranUiExamples=quranUiExamples;
   const nav=page.locator('.bottomnav [data-screen="leagueScreen"]');
