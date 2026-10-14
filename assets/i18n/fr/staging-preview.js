@@ -22,6 +22,12 @@
  const state={ready:false,locale:'tr',table:new Map(),patterns:[],originals:new WeakMap(),
   attributes:new WeakMap(),writes:0,missing:new Set()};
  function agree(text,fields,values){
+  if(text.startsWith('Tâches quotidiennes : ')&&fields.length===3){
+   // First value is progress, second is tasks total, third is pending revisions.
+   if(Number(values[1])===1)text=text.replace('terminées','terminée');
+   if(Number(values[2])===1)text=text.replace('révisions','révision');
+   return text;
+  }
   // Quran progress fractions use the *denominator* for verse-count agreement:
   // 0 / 1 verset, but 1 / 7 versets. This is QA-only presentation logic.
   if(text.includes('versets')&&fields.length>=2){
@@ -96,8 +102,8 @@
    if(!key.trim()||typeof value!=='string'||!value.trim()||Object.hasOwn(staticTranslations,key))
     throw Error('FR_PREVIEW_INVALID_OBSERVED_KEY:'+key);
   }
-  if(Object.keys(quranStaticTranslations).length!==41||
-     Object.keys(quranDynamicTranslations).length!==9)
+  if(Object.keys(quranStaticTranslations).length!==54||
+     Object.keys(quranDynamicTranslations).length!==15)
    throw Error('FR_PREVIEW_QURAN_COVERAGE');
   for(const [key,value] of Object.entries({...quranStaticTranslations,...quranDynamicTranslations})){
    if(!key.trim()||typeof value!=='string'||!value.trim()||
