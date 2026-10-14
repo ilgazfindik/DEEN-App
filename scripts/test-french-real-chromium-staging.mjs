@@ -407,12 +407,49 @@ async function visit(width,height,label){
       clientWidth:el?.clientWidth??null,overflow:(el?.scrollWidth||0)>(el?.clientWidth||0)+3};
    });
   });
+  // Broaden render coverage beyond the graded multiple-choice example.
+  // Observe true/false, fill and matching in the real lesson DOM; their
+  // complete grading lifecycles are a separate, still-open QA requirement.
+  const activityRenders=[];
+  for(const type of ['true_false','fill_blank','matching']){
+   const data=await page.evaluate(type=>{
+    startStage('U01-S01');
+    const source=session?.questions?.find(q=>q.activity_type===type);
+    if(!source)return {type,found:false};
+    const fr=window.DEEN_CONTENT_LOCALE.translateQuestion(source,'fr');
+    if(!fr)return {type,found:true,sourceValidated:false};
+    session.questions=[fr,...session.questions.filter(q=>q.id!==fr.id)];
+    session.index=0;renderQuestion();
+    return {type,found:true,sourceValidated:true,id:fr.id,sourceId:fr.__deenSourceQuestion?.id,
+     frenchPrompt:fr.question_tr,options:fr.options_tr||[],
+     pairs:fr.pairs||[],sourcePrompt:source.question_tr};
+   },type);
+   await page.waitForTimeout(170);
+   const rendered=await page.evaluate(()=>{
+    const area=document.querySelector('#answerArea');
+    const question=document.querySelector('#questionText');
+    return {question:question?.textContent?.trim()||'',
+     answerText:area?.textContent?.trim().slice(0,1100)||'',
+     answerButtons:area?.querySelectorAll('button').length||0,
+     answerChildren:area?.children.length||0,
+     overlay:document.querySelectorAll('#lesson .v910-overlay').length};
+   });
+   const row={...data,rendered};
+   activityRenders.push(row);
+   assert(row.found&&row.sourceValidated&&row.id===row.sourceId,
+    label+': source-guarded runtime exercise missing '+type);
+   assert(row.rendered.answerChildren>0,label+': no real answer controls for '+type);
+   await page.screenshot({path:output+'/'+label+'-'+type+'-render.png',fullPage:true});
+  }
+  console.log('FR_REAL_CHROMIUM_ACTIVITY_RENDER',JSON.stringify({viewport:label,
+   types:activityRenders.map(x=>({type:x.type,id:x.id,controls:x.rendered.answerChildren,
+    questionPreview:x.rendered.question.slice(0,110),answerPreview:x.rendered.answerText.slice(0,160)}))}));
   return {viewport:label,width,height,assembledShell:true,sourceValidated:true,
    frenchAvailableInProduction:false,staticAndDynamicPreview:shell,
    lesson:{id:lesson.id,type:lesson.type,question:lesson.question,
     options:rendered.labels,qaWrapperAdjusted:rendered.qaWrapperAdjusted,
     localizedCards,feedbackLocale,graded:grade},
-   geometry,navAudit,panelAudit,errors};
+   geometry,navAudit,panelAudit,activityRenders,errors};
  }finally{
   await context.close();
  }
@@ -432,6 +469,7 @@ try{
   productionGateLocked:true,realGameplayTested:true,
   navTabsAudited:report.viewportRuns.map(x=>x.navAudit.length),
   panelsAttempted:report.viewportRuns.map(x=>x.panelAudit.length),
+  additionalTypesRendered:report.viewportRuns.map(x=>x.activityRenders.map(y=>y.type)),
   fullFrenchScreensAudited:false,nativeAndReligiousReviewPending:true},null,2));
 }catch(error){
  report.status='failed';report.failure=String(error?.stack||error);
