@@ -96,8 +96,8 @@
    if(!key.trim()||typeof value!=='string'||!value.trim()||Object.hasOwn(staticTranslations,key))
     throw Error('FR_PREVIEW_INVALID_OBSERVED_KEY:'+key);
   }
-  if(Object.keys(quranStaticTranslations).length!==26||
-     Object.keys(quranDynamicTranslations).length!==6)
+  if(Object.keys(quranStaticTranslations).length!==41||
+     Object.keys(quranDynamicTranslations).length!==9)
    throw Error('FR_PREVIEW_QURAN_COVERAGE');
   for(const [key,value] of Object.entries({...quranStaticTranslations,...quranDynamicTranslations})){
    if(!key.trim()||typeof value!=='string'||!value.trim()||
