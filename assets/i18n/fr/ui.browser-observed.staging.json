@@ -8,11 +8,16 @@
   "global_qa": "blocked",
   "native_reviewer_approved": false,
   "verified_by_religious_expert": false,
-  "translation_count": 3,
+  "translation_count": 4,
   "source_evidence": "GitHub Actions Chromium #38508379054: XP panel, Analytics panel and U01 teaching overlay; teaching CTA is already in ui.staging.json and only needs post-render application; Chrome profile-screen visible dynamic text: Günlük hedef · 2 ders (#38508907731)",
   "translations": {
     "Öğrenme analizi": "Analyse de l’apprentissage",
     "Seviye {n}": "Niveau {n}",
-    "Günlük hedef · {n} ders": "Objectif quotidien · {n} leçons"
+    "Günlük hedef · {n} ders": "Objectif quotidien · {n} leçons",
+    "Soruda belirtilen terminoloji çerçevesini dikkate al. Geçerli Mâtürîdî / Eş’arî kullanım farkları inanç hatası değildir.": "Respecte le cadre terminologique indiqué dans la question. Les différences d’usage reconnues entre les traditions maturidite et acharite ne constituent pas, à elles seules, une erreur de croyance."
+  },
+  "review_notes": {
+    "religious_content_warning": "Native French and independent Islamic subject expert review needed for the Mâtürîdî/Ashʿarî terminology; no religious content approval is claimed.",
+    "browser_reference": "French Chromium #38509010618: U01 fill_blank and matching guidance displays exact Turkish source warning."
   }
 }
