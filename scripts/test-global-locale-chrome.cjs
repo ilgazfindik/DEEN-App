@@ -17,7 +17,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   assert.equal(await page.locator('#deenLanguageGate').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
   assert.equal(await page.locator('#v998Onboarding').getAttribute('lang'),lang);
   const screens=[];
-  async function capture(step){const text=await page.locator('#v998Onboarding').innerText();if(lang!=='tr')assert(!/Yol arkadaşını|Kaplumbağa|Günlük hedef|Sana nasıl|Kısa, sade/.test(text),lang+':'+step);screens.push({step,text});assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1));await page.screenshot({path:path.join(out,'chrome-'+lang+'-onboarding-'+step+'.png')});}
+  async function capture(step){assert.equal(await page.locator('#v998Onboarding .v998-hero').count(),0,'No decorative hero on onboarding step '+step);const text=await page.locator('#v998Onboarding').innerText();if(lang!=='tr')assert(!/Yol arkadaşını|Kaplumbağa|Günlük hedef|Sana nasıl|Kısa, sade/.test(text),lang+':'+step);screens.push({step,text});assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1));await page.screenshot({path:path.join(out,'chrome-'+lang+'-onboarding-'+step+'.png')});}
   await capture(0);await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Name').fill('QA');await capture(1);
   await page.locator('#v998Onboarding .v998-primary').click();await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.age(\'adult\')"]').click();await capture(2);
   await page.locator('#v998Onboarding .v998-primary').click();assert.equal(await page.locator('#v998Onboarding [data-animal]').count(),6);await page.locator('#v998Onboarding [data-animal="cat"]').click();await capture(3);
