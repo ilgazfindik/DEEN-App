@@ -160,6 +160,34 @@ export function buildFrenchPreview(){
    }
   }
  }
+
+ const p10Static=read('assets/i18n/fr/ui.p10-browser-safe.staging.json');
+ const p10Dynamic=read('assets/i18n/fr/ui.p10-browser-dynamic.staging.json');
+ const extraUiSources=new Set([
+  ...ui.keys(),...Object.keys(observed.translations),
+  ...Object.keys(quranStatic.translations),...Object.keys(quranDynamic.translations)
+ ]);
+ for(const [label,pack,expected] of [
+  ['P10 static',p10Static,54],['P10 dynamic',p10Dynamic,18]
+ ]){
+  assert.equal(pack.locale,'fr',label+':locale');
+  assert.equal(pack.release_ready,false,label+':release');
+  assert.equal(pack.global_qa,'blocked',label+':global');
+  assert.equal(pack.native_reviewer_approved,false,label+':native');
+  assert.equal(pack.verified_by_religious_expert,false,label+':religious');
+  assert.equal(pack.translation_count,expected,label+':count');
+  assert.equal(Object.keys(pack.translations).length,expected,label+':entries');
+  for(const [source,translation] of Object.entries(pack.translations)){
+   assert(source.trim()&&typeof translation==='string'&&translation.trim(),
+    label+':empty');
+   assert(!extraUiSources.has(source),'Duplicate P10 source '+source);
+   extraUiSources.add(source);
+   if(pack===p10Dynamic){
+    const vars=s=>[...s.matchAll(/\{(?:n|unit|topic)\}/gu)].map(x=>x[0]).sort();
+    assert.deepEqual(vars(source),vars(translation),'P10 placeholder drift: '+source);
+   }
+  }
+ }
  const active=[
   ...baseQuestions.filter(q=>!q.id.startsWith('DEEN-U01-')),
   ...Object.entries(liveEntries).map(([id,row])=>({id,...row.source}))
@@ -175,8 +203,9 @@ export function buildFrenchPreview(){
  assert.equal(prod.languages.fr.question_data,'missing','Must not mutate disk manifest');
  return {manifest,content,base:baseQuestions,active,ui:Object.fromEntries(ui),
   dynamic:dynamic.translations,observed:observed.translations,
-  quranUi:quranStatic.translations,quranDynamic:quranDynamic.translations,stats:{
+  quranUi:quranStatic.translations,quranDynamic:quranDynamic.translations,
+  p10Ui:p10Static.translations,p10Dynamic:p10Dynamic.translations,stats:{
    base:1500,active:1484,live:84,storedVariants:20,legacy:100,
-   ui:1452,dynamicTemplates:9,quranStaticDrafts:54,quranDynamicDrafts:17,parts:packs.length,sourceVariants:sourceMap.size
+   ui:1452,dynamicTemplates:9,quranStaticDrafts:54,quranDynamicDrafts:17,p10StaticDrafts:54,p10DynamicDrafts:18,parts:packs.length,sourceVariants:sourceMap.size
   }};
 }
