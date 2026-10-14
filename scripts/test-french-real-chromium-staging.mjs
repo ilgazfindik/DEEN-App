@@ -140,6 +140,107 @@ async function visit(width,height,label){
   assert.equal(shell.protectedQuestion,true);
   assert.equal(shell.protectedArabic,true);
   await page.screenshot({path:output+'/'+label+'-french-shell-preview.png',fullPage:true});
+  // A real initialized app, not a static mock: exercise every persistent tab
+  // and sample lazy panels before lesson. Missing labels are reported, not
+  // silently passed as a claim of complete French coverage.
+  const qaBoot=await page.evaluate(async()=>{
+   if(typeof state!=='undefined'){
+    state.energy=30;state.onboarded=true;
+    if(state.settings)state.settings.onboardingLanguageConfirmed=true;
+   }
+   const ok=await window.DEEN_BOOT.prepare();
+   if(!ok)return {ok:false,status:window.DEEN_BOOT.status()};
+   for(const element of ['v998Onboarding','deenLanguageGate','deenPreparation'])
+    document.getElementById(element)?.remove();
+   const phone=document.querySelector('.phone');if(phone)phone.inert=false;
+   return {ok:true,locale:window.DEEN_APP_LOCALE.get(),
+    productionFrenchAvailable:window.DEEN_CONTENT_LOCALE.available('fr'),
+    nav:[...document.querySelectorAll('.bottomnav [data-screen]')]
+     .map(el=>el.dataset.screen)};
+  });
+  assert.equal(qaBoot.ok,true,'App did not finish Turkish startup before QA screens');
+  assert.equal(qaBoot.locale,'tr');
+  assert.equal(qaBoot.productionFrenchAvailable,false);
+  const navAudit=[];
+  for(const id of ['learnScreen','reviewScreen','leagueScreen','profileScreen']){
+   const button=page.locator('.bottomnav [data-screen="'+id+'"]').first();
+   assert.equal(await button.count(),1,label+': missing tab '+id);
+   await button.click({timeout:15000});
+   await page.waitForTimeout(250);
+   const state=await page.evaluate(id=>{
+    const node=document.getElementById(id),phone=document.querySelector('.phone');
+    const arabicBefore=[...document.querySelectorAll('[lang="ar"]')].map(e=>e.textContent);
+    const before={q:document.querySelector('#questionText')?.textContent,
+     a:document.querySelector('#answerArea')?.innerHTML,
+     f:document.querySelector('#feedbackText')?.textContent};
+    const writes=window.DEEN_FRENCH_STAGE_UI.setLocale('fr',node);
+    const after={q:document.querySelector('#questionText')?.textContent,
+     a:document.querySelector('#answerArea')?.innerHTML,
+     f:document.querySelector('#feedbackText')?.textContent};
+    const visible=(e)=>{
+     const s=getComputedStyle(e),r=e.getBoundingClientRect();
+     return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0;
+    };
+    const text=[...node.querySelectorAll('h1,h2,h3,button,[role="button"],a,.navbtn')]
+     .filter(visible).map(e=>e.textContent.trim()).filter(Boolean).slice(0,35);
+    const content=node.innerText||'';
+    const overflow=[...node.querySelectorAll('button,h1,h2,h3,.card,.navbtn')]
+     .filter(visible).filter(e=>e.scrollWidth>e.clientWidth+4)
+     .slice(0,12).map(e=>({selector:e.tagName.toLowerCase(),
+      className:String(e.className).slice(0,60),text:e.textContent.trim().slice(0,90),
+      extraPx:e.scrollWidth-e.clientWidth}));
+    const arabicAfter=[...document.querySelectorAll('[lang="ar"]')].map(e=>e.textContent);
+    return {id,exists:!!node,active:node.classList.contains('active'),
+     selected:document.querySelector('.bottomnav .navbtn.active')?.dataset.screen,
+     locale:window.DEEN_APP_LOCALE.get(),frenchProduction:window.DEEN_CONTENT_LOCALE.available('fr'),
+     arabicUnchanged:JSON.stringify(arabicBefore)===JSON.stringify(arabicAfter),
+     gradedFieldsUntouched:JSON.stringify(before)===JSON.stringify(after),
+     textPreview:text,visibleChars:content.length,overflow,
+     uiWrites:writes,streakTurkish:/\\b(?:Günlük hedef|Bugünkü|Öğrenmeye|Tekrarla|İlerleme|Rozetler)\\b/u.test(content),
+     quranNodes:node.querySelectorAll('[lang="ar"],[data-deen-quran]').length,
+     fullPhoneOverflow:phone.scrollWidth>phone.clientWidth+4};
+   },id);
+   navAudit.push(state);
+   assert(state.exists&&state.active,label+': tab failed to open '+id);
+   assert.equal(state.selected,id,label+': active nav mismatch '+id);
+   assert.equal(state.locale,'tr');assert.equal(state.frenchProduction,false);
+   assert(state.arabicUnchanged&&state.gradedFieldsUntouched,id+': protected source changed');
+   await page.screenshot({path:output+'/'+label+'-tab-'+id+'.png',fullPage:true});
+  }
+  const panelAudit=[];
+  for(const name of ['storePanel','premiumPanel','settingsPanel','streakPanel',
+                     'xpPanel','goalPanel','editProfile','analyticsPanel']){
+   const record=await page.evaluate(name=>{
+    const sheet=document.getElementById('v5Sheet');
+    if(sheet?.open)sheet.close();
+    const fn=window[name];if(typeof fn!=='function')return {name,available:false};
+    try{fn()}catch(error){return {name,available:true,error:String(error)};}
+    const beforeArabic=[...document.querySelectorAll('[lang="ar"]')].map(e=>e.textContent);
+    const root=document.querySelector('.phone');
+    const writes=window.DEEN_FRENCH_STAGE_UI.setLocale('fr',root);
+    const afterArabic=[...document.querySelectorAll('[lang="ar"]')].map(e=>e.textContent);
+    const nowSheet=document.getElementById('v5Sheet');
+    return {name,available:true,open:!!nowSheet?.open,
+     heading:document.getElementById('v5SheetTitle')?.textContent?.trim(),
+     writes,arabicUnchanged:JSON.stringify(beforeArabic)===JSON.stringify(afterArabic),
+     locale:window.DEEN_APP_LOCALE.get(),
+     frenchProduction:window.DEEN_CONTENT_LOCALE.available('fr')};
+   },name);
+   panelAudit.push(record);
+   if(record.open)await page.screenshot({path:output+'/'+label+'-panel-'+name+'.png',fullPage:true});
+  }
+  assert(panelAudit.every(x=>!x.error&&x.arabicUnchanged!==false),
+   'An app panel failed or Arabic changed during French QA');
+  await page.evaluate(()=>{
+   const sheet=document.getElementById('v5Sheet');if(sheet?.open)sheet.close();
+   for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
+   const root=document.querySelector('.phone');if(root)root.inert=false;
+  });
+  console.log('FR_REAL_CHROMIUM_NAV_AUDIT',JSON.stringify({
+   viewport:label,tabs:navAudit.map(x=>({id:x.id,active:x.active,qaWrites:x.uiWrites,
+    contentChars:x.visibleChars,overflowCount:x.overflow.length,
+    signalTurkish:x.streakTurkish,quranNodes:x.quranNodes})),
+   panels:panelAudit}));
   const lesson=await page.evaluate(async()=>{
    if(typeof state!=='undefined'){
     state.energy=30;
@@ -290,7 +391,7 @@ async function visit(width,height,label){
    frenchAvailableInProduction:false,staticAndDynamicPreview:shell,
    lesson:{id:lesson.id,type:lesson.type,question:lesson.question,
     options:rendered.labels,qaWrapperAdjusted:rendered.qaWrapperAdjusted,feedbackLocale,graded:grade},
-   geometry,errors};
+   geometry,navAudit,panelAudit,errors};
  }finally{
   await context.close();
  }
@@ -308,6 +409,8 @@ try{
   sourceCounts:[1500,1484],gameplayGrade:report.viewportRuns.map(x=>x.lesson.graded.correct),
   realShellFrenchPreviewWrites:report.viewportRuns.map(x=>x.staticAndDynamicPreview.writes),
   productionGateLocked:true,realGameplayTested:true,
+  navTabsAudited:report.viewportRuns.map(x=>x.navAudit.length),
+  panelsAttempted:report.viewportRuns.map(x=>x.panelAudit.length),
   fullFrenchScreensAudited:false,nativeAndReligiousReviewPending:true},null,2));
 }catch(error){
  report.status='failed';report.failure=String(error?.stack||error);
