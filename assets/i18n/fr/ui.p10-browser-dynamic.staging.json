@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "source_language": "tr",
+  "scope": "p10_safe_dynamic_ui_staging",
+  "status": "draft_requires_native_review",
+  "release_ready": false,
+  "global_qa": "blocked",
+  "native_reviewer_approved": false,
+  "verified_by_religious_expert": false,
+  "translation_count": 18,
+  "provenance": "P10 source-keyed Chromium mobile/desktop inventory GitHub Actions #38584476956; isolated non-production app UI",
+  "review_notes": [
+    "Product UI drafts only, not user-facing release clearance.",
+    "TTS label explicitly refers to Turkish speech synthesis because French voice output is not certified.",
+    "Do not localize Qur'an verses, Turkish meanings, provider/license attribution or question answer keys via this table."
+  ],
+  "translations": {
+    "Ders {n}": "Leçon {n}",
+    "{n} soru": "{n} questions",
+    "{n} SORU": "{n} QUESTIONS",
+    "{n} ENERJİ": "ÉNERGIE : {n}",
+    "{n} PIRILTI": "{n} ÉCLATS",
+    "{n} Seri": "{n} jours de suite",
+    "{n} Enerji": "{n} points d’énergie",
+    "{n}. KISIM · {n}. ÜNİTE": "PARTIE {n} · UNITÉ {n}",
+    "aşama · Ustalık %{n}": "étapes · maîtrise : {n} %",
+    "Sonraki seviyeye {n} XP": "Encore {n} XP avant le prochain niveau",
+    "{n} mini ders · yaklaşık {n} dakika": "{n} mini-leçons · environ {n} minutes",
+    "{n} mini ders · {n} dk": "{n} mini-leçons · {n} min",
+    "{n} kontrol noktası tamamlandı": "{n} points de contrôle terminés",
+    "Sonraki ödül {n} gün": "Prochaine récompense dans {n} jours",
+    "{n} doğru cevap": "{n} bonnes réponses",
+    "{n} soru · Ücretsiz": "{n} questions · Gratuit",
+    "{n}/{n} · Ders {n}": "{n}/{n} · leçon {n}",
+    "{n} HAZIR": "{n} PRÊTS"
+  }
+}
