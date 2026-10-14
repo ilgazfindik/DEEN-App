@@ -79,6 +79,18 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
    await page.screenshot({path:path.join(out,'chrome-'+lang+'-home.png')});await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());
    assert.equal(await page.locator('#deenLanguageGate').count(),0);assert.equal(await page.locator('#v998Onboarding').count(),0);
    const after=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));assert.deepEqual(after,before);
+   if(lang==='tr'){
+    await page.goto(url+'?previewAccount=1');await page.waitForSelector('#deenAccountGate');
+    assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
+    assert.equal(await page.evaluate(()=>window.DEEN_AUTH_GATE.configured()),false);
+    assert.equal(await page.locator('#v998Onboarding').count(),0);
+    await page.screenshot({path:path.join(out,'chrome-returning-user-account-preview.png')});
+    await page.locator('#deenAccountGate .da-guest').click();
+    await page.waitForSelector('#deenAccountGate',{state:'detached'});
+    const preserved=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));
+    assert.deepEqual(preserved,before,'Preview must not alter returning user progress');
+    assert.equal(await page.evaluate(()=>state.onboarded),true);
+   }
    report.languages[lang]={entry:'PASS Chrome',onboarding:'PASS Chrome',reload:'PASS Chrome',resources:'PASS validated',globalUI:lang==='en'?'English release CI separately verified':lang==='fr'?'French game-only UI smoke; Quran meanings excluded':'NOT fully certified',screens,errors};
   }else{
    await page.waitForFunction(()=>window.DEEN_BOOT?.status().phase==='blocked');assert.equal(await page.evaluate(()=>state.onboarded),false);assert.equal(await page.locator('html').getAttribute('lang'),lang);
