@@ -192,7 +192,7 @@ async function visit(width,height,label){
      quranUi:fixture.quranUi,quranDynamic:fixture.quranDynamic,
      p10Ui:fixture.p10Ui,p10Dynamic:fixture.p10Dynamic});
   assert.equal(shell.init.p10StaticDraftKeys,54);
-  assert.equal(shell.init.p10DynamicDraftKeys,18);
+  assert.equal(shell.init.p10DynamicDraftKeys,30);
   assert.equal(shell.examples.streak,'1 jour de suite');
   assert.equal(shell.examples.verse,'Verset 1 / 4 · Dernière séance : aujourd’hui');
   assert.equal(shell.examples.cta,'Retour');
@@ -345,6 +345,9 @@ async function visit(width,height,label){
   assert(!p10Missing.includes('VERİ & İLERLEME')&&!p10Missing.includes('ANLATIM PROFİLİ')&&
    !p10Missing.includes('İlerlemeyi yedekle')&&!p10Missing.includes('Sonraki seviyeye 300 XP'),
    'P10 safe settings/progress UI translations were not applied');
+  assert(!p10Missing.includes('Müslüman Kimdir? — Önceki aşamayı tamamla')&&
+   !p10Missing.includes('Müslüman Kimdir? · ANLA · Aşama 2/5'),
+   'P10 existing stage-title translations were not applied on real learn path');
     console.log('FR_REAL_CHROMIUM_NAV_AUDIT',JSON.stringify({
    viewport:label,tabs:navAudit.map(x=>({id:x.id,active:x.active,qaWrites:x.uiWrites,
     contentChars:x.visibleChars,overflowCount:x.overflow.length,
