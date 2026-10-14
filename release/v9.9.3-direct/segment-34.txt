@@ -2994,6 +2994,8 @@ window.DEEN_REWARD_BADGE_ART={
   }
   function fullReset(){
     if(!confirm('HER ŞEYİ SIFIRLA: Bu cihazdaki DEEN profili, ders ilerlemesi, rozetler, dil seçimi ve ayarlar silinsin mi? Başlangıçta tekrar dil seçip kayıt/giriş ekranını göreceksin.'))return;
+    // Prevent pagehide/beforeunload saveState from restoring deleted progress.
+    window.__DEEN_FULL_RESET_PENDING__=true;
     // Remove all DEEN-specific local and session keys, including the locale gate
     // preference. Never clear all of github.io storage (other apps may share origin).
     // In particular DO NOT saveState() after clearing: that would restore old data.
