@@ -121,7 +121,7 @@
   if(Object.keys(quranStaticTranslations).length!==54||
      Object.keys(quranDynamicTranslations).length!==17)
    throw Error('FR_PREVIEW_QURAN_COVERAGE');
-  for(const [key,value] of Object.entries({...quranStaticTranslations,...quranDynamicTranslations,...p10DynamicTranslations})){
+  for(const [key,value] of Object.entries({...quranStaticTranslations,...quranDynamicTranslations})){
    if(!key.trim()||typeof value!=='string'||!value.trim()||
       Object.hasOwn(staticTranslations,key)||Object.hasOwn(runtimeObservedTranslations,key))
     throw Error('FR_PREVIEW_INVALID_QURAN_KEY:'+key);
@@ -141,7 +141,7 @@
       existing.has(source))throw Error('FR_PREVIEW_P10_SOURCE_COLLISION:'+source);
   }
   state.table=new Map([...Object.entries(staticTranslations),...Object.entries(quranStaticTranslations),...Object.entries(p10StaticTranslations)]);
-  for(const [key,value] of Object.entries({...dynamicTranslations,...runtimeObservedTranslations,...quranDynamicTranslations})){
+  for(const [key,value] of Object.entries({...dynamicTranslations,...runtimeObservedTranslations,...quranDynamicTranslations,...p10DynamicTranslations})){
    const pattern=template(key,value);
    if(pattern)state.patterns.push(pattern);
    else if(!state.table.has(key))state.table.set(key,value);
