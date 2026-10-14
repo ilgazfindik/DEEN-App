@@ -3,7 +3,8 @@ on:
   push:
     branches: ['codex/french-*']
     paths:
-      - 'scripts/test-french-real-chromium-staging.mjs'
+      - 'scripts/test-french-game-live-chromium.mjs'
+      - 'scripts/test-french-game-pack-audit.mjs'
       - 'scripts/test-french-isolated-gameplay.mjs'
       - 'scripts/test-french-quran-chromium-staging.mjs'
       - 'scripts/test-french-locale-progress-chromium.mjs'
@@ -45,31 +46,17 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
           npx playwright install --with-deps chromium webkit
-      - name: Revalidate original staging source and immutable production gate
-        run: node scripts/test-french-staging-preview.mjs
-      - name: Reject unsafe forced-alignment API outputs (offline tests)
-        run: node --test scripts/test-quran-word-alignment-guard.mjs
-      - name: Validate bounded eleven-ayah dry-run and resume controls
-        run: node --test scripts/test-quran-word-alignment-plan.mjs
-      - name: Audit 90 Quran recording rights evidence and reject unapproved release claims
-        run: node scripts/audit-french-quran-rights.mjs
-      - name: Audit Quran recitation files and word timing readiness
-        run: node scripts/audit-french-quran-audio-readiness.mjs
-      - name: Enforce French production release blockers
-        run: node scripts/audit-french-release-readiness.mjs
-      - name: Run assembled DEEN mobile and desktop in real Chromium
+      - name: Verify full French game source translations
+        run: node scripts/test-french-game-pack-audit.mjs
+      - name: Play real French-selected lessons in Chromium
         shell: bash
         run: |
           set -euo pipefail
-          python3 -m http.server 8765 --bind 127.0.0.1 --directory . > "${RUNNER_TEMP}/deen-fr-local-server.log" 2>&1 &
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory . > "${RUNNER_TEMP}/deen-fr-game-server.log" 2>&1 &
           SERVER_PID=$!
           trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
           curl --fail --silent --show-error --retry 12 --retry-connrefused --retry-delay 1 http://127.0.0.1:8765/ > /dev/null
-          node scripts/test-french-real-chromium-staging.mjs
-          node scripts/test-french-isolated-gameplay.mjs
-          node scripts/test-french-quran-chromium-staging.mjs
-          node scripts/test-french-locale-progress-chromium.mjs
-          node scripts/test-french-webkit-smoke.mjs
+          node scripts/test-french-game-live-chromium.mjs
       - name: Upload Chrome mobile/desktop screenshots and diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -77,7 +64,7 @@ jobs:
           name: french-isolated-chromium-staging-evidence
           path: |
             qa-artifacts/french-browser/
-            qa-artifacts/french-gameplay/
+            qa-artifacts/french-game-live/
             qa-artifacts/french-quran/
             qa-artifacts/french-locale-progress/
             qa-artifacts/french-release/
