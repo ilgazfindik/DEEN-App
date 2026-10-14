@@ -40,7 +40,12 @@
   const index=fields.indexOf('n'),n=index<0?NaN:Number(values[index]);
   if(n===1)return text.replace('notions apprises','notion apprise')
     .replace(/\bjours\b/gu,'jour').replace(/\bleçons\b/gu,'leçon').replace(/\bversets\b/gu,'verset')
-    .replace(/\bQUESTIONS\b/gu,'QUESTION');
+    .replace(/\bQUESTIONS\b/gu,'QUESTION').replace(/\bquestions\b/gu,'question')
+    .replace(/\bbonnes réponses\b/gu,'bonne réponse')
+    .replace(/\bpoints d’énergie\b/gu,'point d’énergie')
+    .replace(/\bpoints de contrôle\b/gu,'point de contrôle')
+    .replace(/\bÉCLATS\b/gu,'ÉCLAT').replace(/\bPRÊTS\b/gu,'PRÊT')
+    .replace(/\bminutes\b/gu,'minute');
   return text;
  }
  const dateMonths=Object.freeze({
@@ -101,7 +106,8 @@
   state.writes+=changed;return changed;
  }
  function init({staticTranslations,dynamicTranslations,runtimeObservedTranslations={},
-  quranStaticTranslations={},quranDynamicTranslations={}}){
+  quranStaticTranslations={},quranDynamicTranslations={},
+  p10StaticTranslations={},p10DynamicTranslations={}}){
   if(state.ready)throw Error('FR_PREVIEW_ALREADY_READY');
   if(!staticTranslations||Object.keys(staticTranslations).length!==1452)throw Error('FR_PREVIEW_STATIC_COVERAGE');
   if(!dynamicTranslations||Object.keys(dynamicTranslations).length!==9)throw Error('FR_PREVIEW_DYNAMIC_COVERAGE');
@@ -115,12 +121,26 @@
   if(Object.keys(quranStaticTranslations).length!==54||
      Object.keys(quranDynamicTranslations).length!==17)
    throw Error('FR_PREVIEW_QURAN_COVERAGE');
-  for(const [key,value] of Object.entries({...quranStaticTranslations,...quranDynamicTranslations})){
+  for(const [key,value] of Object.entries({...quranStaticTranslations,...quranDynamicTranslations,...p10DynamicTranslations})){
    if(!key.trim()||typeof value!=='string'||!value.trim()||
       Object.hasOwn(staticTranslations,key)||Object.hasOwn(runtimeObservedTranslations,key))
     throw Error('FR_PREVIEW_INVALID_QURAN_KEY:'+key);
   }
-  state.table=new Map([...Object.entries(staticTranslations),...Object.entries(quranStaticTranslations)]);
+  // P10 runs only when the caller explicitly passes staging packs.
+  // Quran-only QA keeps its previous opt-in scope without P10 assertions.
+  const p10StaticCount=Object.keys(p10StaticTranslations).length;
+  const p10DynamicCount=Object.keys(p10DynamicTranslations).length;
+  if((p10StaticCount!==0||p10DynamicCount!==0)&&
+     (p10StaticCount!==54||p10DynamicCount!==18))
+   throw Error('FR_PREVIEW_P10_COVERAGE');
+  const existing=new Set([...Object.keys(staticTranslations),
+   ...Object.keys(runtimeObservedTranslations),...Object.keys(quranStaticTranslations),
+   ...Object.keys(quranDynamicTranslations)]);
+  for(const [source,value] of Object.entries({...p10StaticTranslations,...p10DynamicTranslations})){
+   if(!source.trim()||typeof value!=='string'||!value.trim()||
+      existing.has(source))throw Error('FR_PREVIEW_P10_SOURCE_COLLISION:'+source);
+  }
+  state.table=new Map([...Object.entries(staticTranslations),...Object.entries(quranStaticTranslations),...Object.entries(p10StaticTranslations)]);
   for(const [key,value] of Object.entries({...dynamicTranslations,...runtimeObservedTranslations,...quranDynamicTranslations})){
    const pattern=template(key,value);
    if(pattern)state.patterns.push(pattern);
@@ -130,6 +150,7 @@
   return {staticKeys:Object.keys(staticTranslations).length,observedKeys:Object.keys(runtimeObservedTranslations).length,
    quranStaticDraftKeys:Object.keys(quranStaticTranslations).length,
    quranDynamicDraftKeys:Object.keys(quranDynamicTranslations).length,
+   p10StaticDraftKeys:p10StaticCount,p10DynamicDraftKeys:p10DynamicCount,
    dynamicPatterns:state.patterns.length,
    previewOnly:true,productionActivated:false};
  }
