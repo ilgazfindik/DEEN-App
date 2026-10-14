@@ -9,7 +9,7 @@ import {buildFrenchPreview} from './fr-preview-pack-builder.mjs';
 const read=p=>readFileSync(root+p,'utf8'),eq=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
 const built=buildFrenchPreview();
 assert.deepEqual(built.stats,{base:1500,active:1484,live:84,storedVariants:20,legacy:100,
- ui:1452,dynamicTemplates:9,parts:18,sourceVariants:1596});
+ ui:1452,dynamicTemplates:9,quranStaticDrafts:17,quranDynamicDrafts:3,parts:18,sourceVariants:1596});
 const production=JSON.parse(read('assets/i18n/content-support.json'));
 assert.equal(production.languages.fr.question_data,'missing');
 assert.equal(production.languages.fr.global_qa,'blocked');
@@ -115,9 +115,20 @@ assert.equal(uiVm('127.0.0.1',false).ui,undefined,'QA explicit consent guard');
 const {ui,rootNode}=uiVm('127.0.0.1',true);
 assert(ui,'Expected loopback UI preview bridge');
 const result=ui.init({staticTranslations:built.ui,dynamicTranslations:built.dynamic,
- runtimeObservedTranslations:built.observed});
+ runtimeObservedTranslations:built.observed,
+ quranStaticTranslations:built.quranUi,quranDynamicTranslations:built.quranDynamic});
 assert.equal(result.staticKeys,1452);
 assert.equal(result.observedKeys,4);
+assert.equal(result.quranStaticDraftKeys,17);
+assert.equal(result.quranDynamicDraftKeys,3);
+assert.equal(ui.translate('Fâtiha Suresi','fr'),'Sourate Al-Fâtiha');
+assert.equal(ui.translate('Sure Kütüphanesi','fr'),'Bibliothèque des sourates');
+assert.equal(ui.translate('Ayet 1 / 7 · Son çalışma: Henüz çalışma yok','fr'),
+ 'Verset 1 / 7 · Dernière séance : pas encore étudié');
+assert.equal(ui.translate('0 / 1 ayet','fr'),'0 / 1 verset');
+assert.equal(ui.translate('2 / 7 ayet','fr'),'2 / 7 versets');
+assert.equal(ui.translate('24 riskli ayetten kişisel tur','fr'),
+ 'Parcours personnalisé parmi 24 versets à revoir');
 assert.equal(ui.translate('Öğrenme analizi','fr'),'Analyse de l’apprentissage');
 assert.equal(ui.translate('Seviye 1','fr'),'Niveau 1');
 assert.equal(ui.translate('Seviye 8','fr'),'Niveau 8');
