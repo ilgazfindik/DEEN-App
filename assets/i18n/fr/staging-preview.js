@@ -37,6 +37,11 @@
    return Number(total)===1
     ?text.replace('versets','verset').replace('étudiés','étudié'):text;
   }
+  if(source==='{n} mini ders · yaklaşık {n} dakika'){
+   if(Number(values[0])===1)text=text.replace('mini-leçons','mini-leçon');
+   if(Number(values[1])===1)text=text.replace('minutes','minute');
+   return text;
+  }
   const index=fields.indexOf('n'),n=index<0?NaN:Number(values[index]);
   if(n===1)return text.replace('notions apprises','notion apprise')
     .replace(/\bjours\b/gu,'jour').replace(/\bleçons\b/gu,'leçon').replace(/\bversets\b/gu,'verset')
@@ -45,7 +50,7 @@
     .replace(/\bpoints d’énergie\b/gu,'point d’énergie')
     .replace(/\bpoints de contrôle\b/gu,'point de contrôle')
     .replace(/\bÉCLATS\b/gu,'ÉCLAT').replace(/\bPRÊTS\b/gu,'PRÊT')
-    .replace(/\bminutes\b/gu,'minute');
+    ;
   return text;
  }
  const dateMonths=Object.freeze({
