@@ -341,34 +341,63 @@ async function run(device){
   assert.deepEqual(steps.map(x=>x.step),['listen','read','meaning','recall','complete']);
   // Do not certify an untranslated/unsourced French Quran verse interpretation.
   rec.frenchMeaningReleased=false;
-  // Decode the actual ayah MP3 files in Chromium without playing them.
-  // Codec success is not permission to publish or proof of audio playback.
+  // Decode EVERY pilot ayah MP3 in Chromium without playback. This checks
+  // media decodability, not tajwid, redistribution rights or French approval.
   const audioCodec=await page.evaluate(async()=>{
    const manifestResponse=await fetch('/assets/quran/audio/ayah-audio-manifest.json',{cache:'no-store'});
    if(!manifestResponse.ok)throw Error('Audio manifest fetch failed');
    const manifest=await manifestResponse.json();
+   const keys=manifest.entries.filter(x=>x.surahId==='fatiha'||x.surahId==='ikhlas');
+   if(keys.length!==11||keys.filter(x=>x.surahId==='fatiha').length!==7||
+      keys.filter(x=>x.surahId==='ikhlas').length!==4)
+    throw Error('11-ayah Fatiha/Ikhlas source pilot changed unexpectedly');
+   const timingResponse=await fetch('/assets/quran/audio/word-timings.json',{cache:'no-store'});
+   if(!timingResponse.ok)throw Error('Word timing manifest request failed');
+   const alignment=await timingResponse.json();
+   if(alignment.schemaVersion!==1||!alignment.entries||
+      typeof alignment.entries!=='object'||Array.isArray(alignment.entries))
+    throw Error('Invalid Quran word timing manifest');
    const ctx=new (window.AudioContext||window.webkitAudioContext)();
-   const records=[];
+   const records=[];let candidatesWithinDuration=0;
    try{
-    for(const key of ['fatiha:1','ikhlas:1']){
-     const entry=manifest.entries.find(x=>x.key===key);
-     if(!entry)throw Error('Missing critical ayah audio entry '+key);
+    for(const entry of keys){
      const response=await fetch('/'+entry.audio,{cache:'no-store'});
-     if(!response.ok)throw Error('MP3 request failed '+key+' '+response.status);
+     if(!response.ok)throw Error('MP3 request failed '+entry.key+' '+response.status);
      const decoded=await ctx.decodeAudioData(await response.arrayBuffer());
-     records.push({key,durationSeconds:decoded.duration,channels:decoded.numberOfChannels,
-      sampleRate:decoded.sampleRate,decodeSucceeded:true,playbackAttempted:false});
+     if(!Number.isFinite(decoded.duration)||decoded.duration<=0||
+        decoded.duration>240||decoded.numberOfChannels<1||decoded.sampleRate<=0)
+      throw Error('Undecodable/unreasonable duration for '+entry.key);
+     const candidate=alignment.entries[entry.key];
+     if(candidate){
+      if(!Array.isArray(candidate.words)||!candidate.words.length)
+       throw Error('Malformed candidate word timings '+entry.key);
+      // The Node source-word guard runs independently. Browser independently
+      // verifies each timestamp fits within the actual decoded media duration.
+      for(const [index,word] of candidate.words.entries()){
+       if(!Number.isFinite(word.start)||!Number.isFinite(word.end)||
+          word.start<0||word.end<=word.start||word.end>decoded.duration+0.15)
+        throw Error('Timing exceeds decoded audio '+entry.key+'['+index+']');
+      }
+      candidatesWithinDuration++;
+     }
+     records.push({key:entry.key,durationSeconds:decoded.duration,
+      channels:decoded.numberOfChannels,sampleRate:decoded.sampleRate,
+      decodeSucceeded:true,playbackAttempted:false,
+      candidateWithinDuration:!!candidate});
     }
    }finally{await ctx.close();}
-   const response=await fetch('/assets/quran/audio/word-timings.json',{cache:'no-store'});
-   if(!response.ok)throw Error('Word timing manifest request failed');
-   const alignment=await response.json();
-   return {records,alignedAyahs:Object.keys(alignment.entries||{}).length,
+   return {records,alignedAyahs:Object.keys(alignment.entries).length,
+    candidatesWithinDuration,
     synchronizedHighlightCertified:false,rightsOrPlaybackCertified:false};
   });
-  assert.equal(audioCodec.records.length,2);
+  assert.equal(audioCodec.records.length,11);
+  assert.deepEqual(audioCodec.records.map(x=>x.key),[
+   ...Array.from({length:7},(_,i)=>'fatiha:'+(i+1)),
+   ...Array.from({length:4},(_,i)=>'ikhlas:'+(i+1))
+  ],'Unexpected 11-ayah audio pilot order');
   assert(audioCodec.records.every(x=>x.decodeSucceeded&&Number.isFinite(x.durationSeconds)&&
-   x.durationSeconds>0&&x.channels>0),'Real browser cannot decode critical recitation MP3s');
+   x.durationSeconds>0&&x.channels>0&&!x.playbackAttempted),
+   'Chromium failed to decode all 11 local pilot recitation audio files');
   rec.audioCodecVerification=audioCodec;
   rec.audioPlaybackCertified=false;
   rec.chromeAudioRightsGatingChecked=true;
