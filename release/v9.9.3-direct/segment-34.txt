@@ -2993,16 +2993,24 @@ window.DEEN_REWARD_BADGE_ART={
     persist('İlerleme sıfırlandı; profil korundu.');
   }
   function fullReset(){
-    if(!confirm('TÜM yerel oyun verisi sıfırlansın mı? Profil, onboarding, ilerleme ve ayarlar silinir.'))return;
-    try{storageRemove?.('deen_v4_1_state')}catch(_){}
-    try{storageRemove?.('deen_v57_last_good_state')}catch(_){}
-    try{
-      const base=clone(DEFAULT_STATE);
-      state=typeof migrate==='function'?migrate(base,false):base;
-      saveState?.();
-    }catch(_){}
+    if(!confirm('HER ŞEYİ SIFIRLA: Bu cihazdaki DEEN profili, ders ilerlemesi, rozetler, dil seçimi ve ayarlar silinsin mi? Başlangıçta tekrar dil seçip kayıt/giriş ekranını göreceksin.'))return;
+    // Remove all DEEN-specific local and session keys, including the locale gate
+    // preference. Never clear all of github.io storage (other apps may share origin).
+    // In particular DO NOT saveState() after clearing: that would restore old data.
+    for(const store of [window.localStorage,window.sessionStorage]){
+      try{
+        const keys=[];
+        for(let i=0;i<store.length;i++){
+          const key=store.key(i);
+          if(key&&/^deen(?:[_-]|$)/i.test(key))keys.push(key);
+        }
+        for(const key of keys)store.removeItem(key);
+      }catch(e){console.warn('[DEEN admin] local reset storage',e)}
+    }
     close();
-    try{window.DEEN_PREMIUM_ONBOARDING?.render?.(0)}catch(_){location.reload()}
+    // A full reload starts the real language -> account -> onboarding sequence.
+    // Strip previewAccount/build and any URL flags so the normal entry flow runs.
+    window.location.replace(window.location.pathname);
   }
   function openEntry(reset=false){
     close();
@@ -3139,7 +3147,7 @@ window.DEEN_REWARD_BADGE_ART={
         '<button class="deen-admin-btn" data-admin="audit">ROZET + RUNTIME AUDIT</button>'+
         '<button class="deen-admin-btn" data-admin="copyState">STATE JSON KOPYALA</button>'+
         '<button class="deen-admin-btn warn" data-admin="clearProgress">İLERLEMEYİ SIFIRLA</button>'+
-        '<button class="deen-admin-btn warn" data-admin="fullReset">TAM SIFIRLAMA</button>'+
+        '<button class="deen-admin-btn warn" data-admin="fullReset">HER ŞEYİ SIFIRLA</button>'+
       '</div><pre class="deen-admin-json" id="deenAdminJson"></pre></section>';
     return d;
   }
