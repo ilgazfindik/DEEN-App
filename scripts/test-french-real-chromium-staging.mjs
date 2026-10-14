@@ -197,7 +197,7 @@ async function visit(width,height,label){
      arabicUnchanged:JSON.stringify(arabicBefore)===JSON.stringify(arabicAfter),
      gradedFieldsUntouched:JSON.stringify(before)===JSON.stringify(after),
      textPreview:text,visibleChars:content.length,overflow,
-     uiWrites:writes,streakTurkish:/\\b(?:Günlük hedef|Bugünkü|Öğrenmeye|Tekrarla|İlerleme|Rozetler)\\b/u.test(content),
+     uiWrites:writes,streakTurkish:/\b(?:Günlük hedef|Bugünkü|Öğrenmeye|Tekrarla|İlerleme|Rozetler)\b/u.test(content),
      quranNodes:node.querySelectorAll('[lang="ar"],[data-deen-quran]').length,
      fullPhoneOverflow:phone.scrollWidth>phone.clientWidth+4};
    },id);
