@@ -63,6 +63,27 @@ async function run(device){
   rec.localePreview={staticKeys:init.staticKeys,observedKeys:init.observedKeys,
    quranStaticDraftKeys:init.quranStaticDraftKeys,quranDynamicDraftKeys:init.quranDynamicDraftKeys,
    productionActivated:false};
+  // Check both staged Quran label categories through the same bridge used in
+  // the assembled Chrome tab. This is interface-only, never a Quran meaning.
+  const quranUiExamples=await page.evaluate(()=>{
+   const bridge=DEEN_FRENCH_STAGE_UI;
+   return {
+    library:bridge.translate('Sure Kütüphanesi','fr'),
+    fatiha:bridge.translate('Fâtiha Suresi','fr'),
+    verse:bridge.translate('Ayet 1 / 7 · Son çalışma: Henüz çalışma yok','fr'),
+    oneAyah:bridge.translate('0 / 1 ayet','fr'),
+    sevenAyahs:bridge.translate('2 / 7 ayet','fr'),
+    personalReview:bridge.translate('24 riskli ayetten kişisel tur','fr')
+   };
+  });
+  assert.deepEqual(quranUiExamples,{
+   library:'Bibliothèque des sourates',
+   fatiha:'Sourate Al-Fâtiha',
+   verse:'Verset 1 / 7 · Dernière séance : pas encore étudié',
+   oneAyah:'0 / 1 verset',sevenAyahs:'2 / 7 versets',
+   personalReview:'Parcours personnalisé parmi 24 versets à revoir'
+  },'Quran UI key and dynamic count translations must remain source-specific');
+  rec.quranUiExamples=quranUiExamples;
   const nav=page.locator('.bottomnav [data-screen="leagueScreen"]');
   await nav.click({timeout:15000});
   await page.waitForSelector('#leagueScreenBody .deen-quran-dashboard',{timeout:10000});
