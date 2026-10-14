@@ -8,7 +8,7 @@
   "global_qa": "blocked",
   "native_reviewer_approved": false,
   "verified_by_religious_expert": false,
-  "translation_count": 9,
+  "translation_count": 15,
   "source_evidence": "Real Quran dashboard and İhlâs learning Chromium #38534024469; exact source display strings; GitHub Actions #38539017547 actual library chapter and completion counters; GitHub Actions #38539686292 Ikhlas Quran learning verse progress and listening instruction labels",
   "translations": {
     "Ayet {n} / {n} · Son çalışma: Henüz çalışma yok": "Verset {n} / {n} · Dernière séance : pas encore étudié",
@@ -19,11 +19,19 @@
     "{n} / {n} ayet tamamlandı": "{n} / {n} versets étudiés",
     "İhlâs · Ayet {n}/{n}": "Al-Ikhlâs · verset {n}/{n}",
     "Ayet {n} / {n}": "Verset {n} / {n}",
-    "Hoparlöre dokun: Ayet {n} kaydını dinle.": "Appuie sur le haut-parleur pour écouter la récitation du verset {n}."
+    "Hoparlöre dokun: Ayet {n} kaydını dinle.": "Appuie sur le haut-parleur pour écouter la récitation du verset {n}.",
+    "SEVİYE {n}": "NIVEAU {n}",
+    "{n}/{n} ayet öğrenildi": "{n}/{n} versets appris",
+    "Mevcut günlük görevler: {n}/{n} tamamlandı · {n} tekrar bekliyor": "Tâches quotidiennes : {n}/{n} terminées · {n} révisions en attente",
+    "{n} sn": "{n} s",
+    "Ayet {n} sesini dinle": "Écouter la récitation du verset {n}",
+    "İhlâs {n}. ayeti hatırla": "Rappelle-toi le verset {n} d’Al-Ikhlâs"
   },
   "review_notes": [
     "Counters and plurals need French native reviewer approval.",
     "These are user-facing interface labels, not a French translation of the Quran.",
-    "Arabic verses, translations and recitation must remain unchanged."
-  ]
+    "Arabic verses, translations and recitation must remain unchanged.",
+    "Source and license bylines, Arabic Quran, and Turkish ayah meanings are intentionally NOT translated by this UI-only package. Native French and independent Islamic review pending."
+  ],
+  "provenance": "Real Quran dashboard and İhlâs learning Chromium #38534024469; exact source display strings; GitHub Actions #38539017547 actual library chapter and completion counters; GitHub Actions #38539686292 Ikhlas Quran learning verse progress and listening instruction labels; Chromium #38565634928 generic İhlâs user route and legacy 5-step lesson, exact Turkish UI source labels"
 }
