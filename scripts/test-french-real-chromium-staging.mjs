@@ -198,6 +198,8 @@ async function visit(width,height,label){
      gradedFieldsUntouched:JSON.stringify(before)===JSON.stringify(after),
      textPreview:text,visibleChars:content.length,overflow,
      uiWrites:writes,streakTurkish:/\b(?:Günlük hedef|Bugünkü|Öğrenmeye|Tekrarla|İlerleme|Rozetler)\b/u.test(content),
+     turkishSignals:[...content.matchAll(/\b(?:Günlük hedef|Bugünkü|Öğrenmeye|Tekrarla|İlerleme|Rozetler)\b/gu)]
+      .slice(0,12).map(match=>content.slice(Math.max(0,match.index-60),match.index+100)),
      quranNodes:node.querySelectorAll('[lang="ar"],[data-deen-quran]').length,
      fullPhoneOverflow:phone.scrollWidth>phone.clientWidth+4};
    },id);
@@ -244,7 +246,9 @@ async function visit(width,height,label){
   console.log('FR_REAL_CHROMIUM_NAV_AUDIT',JSON.stringify({
    viewport:label,tabs:navAudit.map(x=>({id:x.id,active:x.active,qaWrites:x.uiWrites,
     contentChars:x.visibleChars,overflowCount:x.overflow.length,
-    signalTurkish:x.streakTurkish,quranNodes:x.quranNodes})),
+    overflowSample:x.overflow.slice(0,6),
+    signalTurkish:x.streakTurkish,turkishSignals:x.turkishSignals,
+    quranNodes:x.quranNodes})),
    panels:panelAudit}));
   const lesson=await page.evaluate(async()=>{
    if(typeof state!=='undefined'){
