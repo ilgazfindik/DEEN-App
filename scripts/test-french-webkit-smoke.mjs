@@ -37,6 +37,13 @@ try{
      throw Error('WebKit unexpectedly has a released French locale');
     if(DEEN_APP_LOCALE.get()!=='tr'||DEEN_CONTENT_LOCALE.available('fr'))
      throw Error('WebKit wrong initial app locale');
+    // In DEEN, an onboarding user may choose a provisional interface
+    // language. Content availability is enforced for an onboarded learner.
+    // Exercise that production contract, as the Chromium P08 suite does.
+    state.onboarded=true;
+    state.settings=state.settings||{};
+    state.settings.language='tr';
+    state.settings.onboardingLanguageConfirmed=true;
     state.xp=241;state.completed=['U01-S01'];
     saveState();
     const blocked=await DEEN_BOOT.changeLanguage('fr');
