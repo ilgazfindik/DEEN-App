@@ -148,7 +148,7 @@
   const p10StaticCount=Object.keys(p10StaticTranslations).length;
   const p10DynamicCount=Object.keys(p10DynamicTranslations).length;
   if((p10StaticCount!==0||p10DynamicCount!==0)&&
-     (p10StaticCount!==69||p10DynamicCount!==34))
+     (p10StaticCount!==71||p10DynamicCount!==34))
    throw Error('FR_PREVIEW_P10_COVERAGE');
   const existing=new Set([...Object.keys(staticTranslations),
    ...Object.keys(runtimeObservedTranslations),...Object.keys(quranStaticTranslations),
