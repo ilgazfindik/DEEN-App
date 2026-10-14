@@ -85,6 +85,54 @@ async function visit(width,height,label){
   assert.equal(stage.active.sourceCount,1484);
   assert.deepEqual(stage.base.failedIds,[],'Base source mismatch in actual Chromium');
   assert.deepEqual(stage.active.failedIds,[],'Active source mismatch in actual Chromium');
+  // P09: use the assembled runtime's content adapter, never only the DOM QA
+  // overlay. The temporary manifest is already restored to production here.
+  const nativeFrenchRuntime=await page.evaluate(()=>{
+   const adapter=window.DEEN_CONTENT_LOCALE;
+   if(adapter.available('fr'))throw Error('French production gate unexpectedly unlocked');
+   if(typeof session==='undefined')throw Error('No original lesson session binding');
+   const previousSession=session;
+   const cases=[
+    ['options',q=>Array.isArray(q.options_tr)&&q.options_tr.length>0],
+    ['matching',q=>q.activity_type==='matching'],
+    ['build_sequence',q=>q.activity_type==='build_sequence'],
+    ['fill_blank',q=>q.activity_type==='fill_blank']
+   ];
+   const checks=[];
+   try{
+    for(const [kind,predicate] of cases){
+     const original=DEEN_BASE_QUESTIONS.find(predicate);
+     if(!original)throw Error('Missing original activity '+kind);
+     const translated=adapter.translateQuestion(original,'fr');
+     if(!translated?.__deenSourceQuestion)
+      throw Error('No source-validated French content for '+kind);
+     session={questions:[translated],index:0};
+     const prompt=adapter.translateText(original.question_tr,'fr');
+     const explanation=adapter.translateText(original.explanation_tr,'fr');
+     checks.push({kind,id:original.id,
+      questionLinked:prompt===translated.question_tr,
+      explanationLinked:explanation===translated.explanation_tr,
+      unchangedOnUnknown:adapter.translateText('Unknown instruction-'+kind,'fr')==='Unknown instruction-'+kind,
+      scoringIndex:Array.isArray(original.options_tr)?
+       translated.options_tr.indexOf(translated.correct_answer)===
+        original.options_tr.indexOf(original.correct_answer):null});
+    }
+    session=null;
+    checks.push({kind:'no_active_question',failsClosed:
+     adapter.translateText(DEEN_BASE_QUESTIONS[0].question_tr,'fr')===
+      DEEN_BASE_QUESTIONS[0].question_tr});
+   }finally{session=previousSession;}
+   return {checks,originalLocale:DEEN_APP_LOCALE.get(),
+    productionFrenchAvailable:adapter.available('fr')};
+  });
+  assert.equal(nativeFrenchRuntime.originalLocale,'tr');
+  assert.equal(nativeFrenchRuntime.productionFrenchAvailable,false);
+  assert.equal(nativeFrenchRuntime.checks.length,5);
+  assert(nativeFrenchRuntime.checks.every(x=>(x.kind==='no_active_question'?
+   x.failsClosed:x.questionLinked&&x.explanationLinked&&x.unchangedOnUnknown&&
+   x.scoringIndex!==false)), 'P09 French text bridge is not source-scoped');
+  console.log('FR_P09_NATIVE_ADAPTER',JSON.stringify({viewport:label,...nativeFrenchRuntime}));
+
   const gate=await page.evaluate(()=>({
    available:window.DEEN_CONTENT_LOCALE.available('fr'),
    flag:window.__DEEN_CONTENT_MANIFEST__.languages.fr.question_data,
@@ -463,7 +511,7 @@ async function visit(width,height,label){
    types:activityRenders.map(x=>({type:x.type,id:x.id,controls:x.rendered.answerChildren,
     questionPreview:x.rendered.question.slice(0,110),answerPreview:x.rendered.answerText.slice(0,160)}))}));
   return {viewport:label,width,height,assembledShell:true,sourceValidated:true,
-   frenchAvailableInProduction:false,staticAndDynamicPreview:shell,
+   frenchAvailableInProduction:false,nativeFrenchRuntime,staticAndDynamicPreview:shell,
    lesson:{id:lesson.id,type:lesson.type,question:lesson.question,
     options:rendered.labels,qaWrapperAdjusted:rendered.qaWrapperAdjusted,
     localizedCards,feedbackLocale,graded:grade},
