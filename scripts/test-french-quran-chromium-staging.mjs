@@ -367,11 +367,13 @@ async function run(device){
   const coverage=await page.evaluate(()=>{
    const audit=DEEN_FRENCH_STAGE_UI.audit();
    return {unrecognizedCount:audit.unrecognized.length,
+    allUnrecognized:audit.unrecognized,
     sourceOnlyExamples:audit.unrecognized.filter(x=>/[A-Za-zÇĞİÖŞÜçğıöşü]/u.test(x))
      .filter(x=>!/^[\d\W]+$/u.test(x)).slice(0,80),
     productionLocale:DEEN_APP_LOCALE.get()};
   });
   rec.quranRuntimeUnmapped=coverage;
+  console.log('FR_QURAN_UNRECOGNIZED',JSON.stringify({viewport:device.name,strings:coverage.allUnrecognized}));
   assert.equal(coverage.productionLocale,'tr');
   rec.errors=errors;
   assert.deepEqual(errors,[],'Unexpected browser errors in Quran staging');
