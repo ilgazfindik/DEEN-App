@@ -75,20 +75,26 @@
   }
   state.writes+=changed;return changed;
  }
- function init({staticTranslations,dynamicTranslations}){
+ function init({staticTranslations,dynamicTranslations,runtimeObservedTranslations={}}){
   if(state.ready)throw Error('FR_PREVIEW_ALREADY_READY');
   if(!staticTranslations||Object.keys(staticTranslations).length!==1452)throw Error('FR_PREVIEW_STATIC_COVERAGE');
   if(!dynamicTranslations||Object.keys(dynamicTranslations).length!==9)throw Error('FR_PREVIEW_DYNAMIC_COVERAGE');
   for(const [key,value] of Object.entries(staticTranslations))
    if(!key.trim()||typeof value!=='string'||!value.trim())throw Error('FR_PREVIEW_EMPTY_UI');
+  if(Object.keys(runtimeObservedTranslations).length!==3)throw Error('FR_PREVIEW_OBSERVED_COVERAGE');
+  for(const [key,value] of Object.entries(runtimeObservedTranslations)){
+   if(!key.trim()||typeof value!=='string'||!value.trim()||Object.hasOwn(staticTranslations,key))
+    throw Error('FR_PREVIEW_INVALID_OBSERVED_KEY:'+key);
+  }
   state.table=new Map(Object.entries(staticTranslations));
-  for(const [key,value] of Object.entries(dynamicTranslations)){
+  for(const [key,value] of Object.entries({...dynamicTranslations,...runtimeObservedTranslations})){
    const pattern=template(key,value);
    if(pattern)state.patterns.push(pattern);
    else if(!state.table.has(key))state.table.set(key,value);
   }
   state.ready=true;
-  return {staticKeys:Object.keys(staticTranslations).length,dynamicPatterns:state.patterns.length,
+  return {staticKeys:Object.keys(staticTranslations).length,observedKeys:Object.keys(runtimeObservedTranslations).length,
+   dynamicPatterns:state.patterns.length,
    previewOnly:true,productionActivated:false};
  }
  function setLocale(lang,root=window.document?.body){
