@@ -130,6 +130,16 @@ export function buildFrenchPreview(){
  assert.equal(dynamic.runtime_integrated,false);
  assert.equal(dynamic.release_ready,false);
  assert.equal(dynamic.translation_count,9);
+ const observed=read('assets/i18n/fr/ui.browser-observed.staging.json');
+ assert.equal(observed.release_ready,false);
+ assert.equal(observed.global_qa,'blocked');
+ assert.equal(observed.native_reviewer_approved,false);
+ assert.equal(observed.verified_by_religious_expert,false);
+ assert.equal(observed.translation_count,3);
+ for(const [source,translation] of Object.entries(observed.translations)){
+  assert(source.trim()&&translation.trim());
+  assert(!ui.has(source),'Runtime-discovered string duplicates baseline static French source');
+ }
  const active=[
   ...baseQuestions.filter(q=>!q.id.startsWith('DEEN-U01-')),
   ...Object.entries(liveEntries).map(([id,row])=>({id,...row.source}))
@@ -144,7 +154,7 @@ export function buildFrenchPreview(){
  };
  assert.equal(prod.languages.fr.question_data,'missing','Must not mutate disk manifest');
  return {manifest,content,base:baseQuestions,active,ui:Object.fromEntries(ui),
-  dynamic:dynamic.translations,stats:{
+  dynamic:dynamic.translations,observed:observed.translations,stats:{
    base:1500,active:1484,live:84,storedVariants:20,legacy:100,
    ui:1452,dynamicTemplates:9,parts:packs.length,sourceVariants:sourceMap.size
   }};
