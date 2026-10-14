@@ -299,6 +299,42 @@ async function visit(width,height,label){
    'Analytics title still Turkish in source-keyed French preview');
   assert.equal(panelAudit.find(x=>x.name==='xpPanel')?.heading,'Niveau 1',
    'XP level label still Turkish in source-keyed French preview');
+
+  // P10: use the real settings SELECT as a user would. Unapproved French must
+  // be rejected without mutating XP/lesson/achievement/progress storage.
+  const blockedBefore=await page.evaluate(()=>{
+   document.getElementById('v5Sheet')?.close();
+   if(typeof settingsPanel!=='function')throw Error('Settings panel missing');
+   settingsPanel();
+   DEEN_APP_LOCALE.renderSettings();
+   const selector=document.getElementById('deenAppLanguage');
+   if(!selector)throw Error('Real language dropdown absent from settings');
+   const q=state.quranJourney;
+   return {locale:DEEN_APP_LOCALE.get(),pref:localStorage.getItem('deen_app_language_v1'),
+    stateLanguage:state.settings.language,quizLocale:q?.quizLocale??null,
+    xp:state.xp,completed:JSON.stringify(state.completed||[]),
+    badges:JSON.stringify(state.achievements||[]),
+    quranProgress:JSON.stringify(q?.progress?.surahs||{})};
+  });
+  assert.equal(blockedBefore.locale,'tr','QA must start in Turkish');
+  assert.equal(blockedBefore.pref,'tr');
+  await page.locator('#deenAppLanguage').selectOption('fr');
+  await page.waitForTimeout(280);
+  const blockedAfter=await page.evaluate(()=>{
+   const q=state.quranJourney;
+   return {locale:DEEN_APP_LOCALE.get(),pref:localStorage.getItem('deen_app_language_v1'),
+    stateLanguage:state.settings.language,quizLocale:q?.quizLocale??null,
+    xp:state.xp,completed:JSON.stringify(state.completed||[]),
+    badges:JSON.stringify(state.achievements||[]),
+    quranProgress:JSON.stringify(q?.progress?.surahs||{})};
+  });
+  assert.deepEqual(blockedAfter,blockedBefore,
+   'Real settings UI changed user progress or language when French is blocked');
+  console.log('FR_P10_REAL_SETTINGS_BLOCK',JSON.stringify({
+   viewport:label,blocked:true,source:'settings_dropdown_user_selection',
+   locale:blockedAfter.locale,progressUnchanged:true,frenchReleased:false
+  }));
+
   await page.evaluate(()=>{
    const sheet=document.getElementById('v5Sheet');if(sheet?.open)sheet.close();
    for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
