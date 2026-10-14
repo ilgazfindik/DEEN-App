@@ -8,12 +8,13 @@
   "global_qa": "blocked",
   "native_reviewer_approved": false,
   "verified_by_religious_expert": false,
-  "translation_count": 18,
-  "provenance": "P10 source-keyed Chromium mobile/desktop inventory GitHub Actions #38584476956; isolated non-production app UI",
+  "translation_count": 30,
+  "provenance": "P10 source-keyed Chromium mobile/desktop inventory GitHub Actions #38584476956; isolated non-production app UI; P10 runtime phase compound level/stage labels observed in Chromium #38586031234",
   "review_notes": [
     "Product UI drafts only, not user-facing release clearance.",
     "TTS label explicitly refers to Turkish speech synthesis because French voice output is not certified.",
-    "Do not localize Qur'an verses, Turkish meanings, provider/license attribution or question answer keys via this table."
+    "Do not localize Qur'an verses, Turkish meanings, provider/license attribution or question answer keys via this table.",
+    "P10 stage/section labels only localize {topic} when its exact Turkish topic has an already reviewed-pending source-keyed French UI translation; otherwise keep source text unmodified."
   ],
   "translations": {
     "Ders {n}": "Leçon {n}",
@@ -33,6 +34,18 @@
     "{n} doğru cevap": "{n} bonnes réponses",
     "{n} soru · Ücretsiz": "{n} questions · Gratuit",
     "{n}/{n} · Ders {n}": "{n}/{n} · leçon {n}",
-    "{n} HAZIR": "{n} PRÊTS"
+    "{n} HAZIR": "{n} PRÊTS",
+    "{topic} mevcut aşamaya git": "Aller à l’étape actuelle : {topic}",
+    "{topic} · 5 aşamalı öğrenme yolu": "{topic} · parcours d’apprentissage en 5 étapes",
+    "{topic} — Önceki aşamayı tamamla": "{topic} — termine d’abord l’étape précédente",
+    "{topic} · ÖĞREN · Aşama {n}/5": "{topic} · APPRENDRE · étape {n}/5",
+    "{topic} · ANLA · Aşama {n}/5": "{topic} · COMPRENDRE · étape {n}/5",
+    "{topic} · UYGULA · Aşama {n}/5": "{topic} · METTRE EN PRATIQUE · étape {n}/5",
+    "{topic} · HATIRLA · Aşama {n}/5": "{topic} · SE RAPPELER · étape {n}/5",
+    "{topic} · DİNLE · Aşama {n}/5": "{topic} · ÉCOUTER · étape {n}/5",
+    "{topic} · USTALAŞ · Aşama {n}/5": "{topic} · MAÎTRISER · étape {n}/5",
+    "{topic} — {n}/{n} mini ders tamamlandı": "{topic} — {n}/{n} mini-leçons terminées",
+    "Ders {n}/{n} · {topic}": "Leçon {n}/{n} · {topic}",
+    "{topic} · ÖĞREN · Mini ders {n}/{n}": "{topic} · APPRENDRE · mini-leçon {n}/{n}"
   }
 }
