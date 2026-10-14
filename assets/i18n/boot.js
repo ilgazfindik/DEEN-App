@@ -59,7 +59,12 @@
  function start(){
   DEEN_APP_LOCALE.hydrate();state.settings.onboardingLanguageConfirmed=window.DEEN_I18N.hasPreference();DEEN_APP_LOCALE.persist();
   document.documentElement.dataset.deenStartup='onboarding';
-  if(state.onboarded)prepare();
+  if(state.onboarded){
+   const prepared=prepare();
+   // Explicit visual preview for returning users; never changes progress or authentication state.
+   if(new URLSearchParams(window.location.search).get('previewAccount')==='1')
+    Promise.resolve(prepared).then(ready=>{if(ready)window.DEEN_AUTH_GATE?.show?.()}).catch(()=>{});
+  }
   else if(state.settings.onboardingLanguageConfirmed)window.DEEN_AUTH_GATE?.show?.();
  }
  function finishOnboarding(cb){completion=cb;return prepare();}
