@@ -86,6 +86,13 @@
     text=agree(text,pattern.fields,values,pattern.source);break;
    }
   }
+  if(text==null&&key==='Evet, doğru!')text='Oui, c’est correct !';
+  if(text==null&&key==='Harika!')text='Bravo !';
+  if(text==null&&key==='Doğru cevap!')text='Bonne réponse !';
+  if(text==null&&key.startsWith('Kavram: '))text='Concept : '+key.slice(8);
+  const suffix=' kelimesini boşluğa yerleştir';
+  if(text==null&&key.endsWith(suffix))
+   text='Placer « '+key.slice(0,-suffix.length)+' » dans le blanc';
   if(text==null){if(key)state.missing.add(key);return source;}
   return lead+text+tail;
  }
@@ -123,6 +130,12 @@
     if(element.getAttribute(attr)!==value){element.setAttribute(attr,value);changed++;}
     row.output=value;
    }
+  }
+  const feedback=window.document?.getElementById('feedbackTitle');
+  if(lang==='fr'&&feedback){
+   const source=feedback.textContent?.trim()||'';
+   const value=translate(source,'fr');
+   if(value!==source){feedback.textContent=value;changed++;}
   }
   state.writes+=changed;return changed;
  }
