@@ -6,6 +6,8 @@ on:
       - 'scripts/test-french-real-chromium-staging.mjs'
       - 'scripts/test-french-isolated-gameplay.mjs'
       - 'scripts/test-french-quran-chromium-staging.mjs'
+      - 'scripts/audit-french-quran-audio-readiness.mjs'
+      - 'assets/quran/audio/word-timings.json'
       - 'assets/quran/audio/ayah-audio-manifest.json'
       - 'scripts/fr-preview-pack-builder.mjs'
       - 'scripts/test-french-staging-preview.mjs'
@@ -36,6 +38,8 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Revalidate original staging source and immutable production gate
         run: node scripts/test-french-staging-preview.mjs
+      - name: Audit Quran recitation files and word timing readiness
+        run: node scripts/audit-french-quran-audio-readiness.mjs
       - name: Run assembled DEEN mobile and desktop in real Chromium
         shell: bash
         run: |
