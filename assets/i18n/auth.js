@@ -42,7 +42,7 @@
   const onward=()=>{
    if(completed)return;completed=true;close();
    const onboarding=window.DEEN_PREMIUM_ONBOARDING;
-   if(!state.onboarded&&onboarding?.render)onboarding.render(0);
+   if(!state.onboarded&&onboarding?.render){document.getElementById('v998Onboarding')?.remove();onboarding.render(0);}
   };
   const say=message=>{const node=pane.querySelector('.da-status');if(node)node.textContent=message||''};
   const lock=value=>{busy=value;pane.querySelectorAll('button,input').forEach(el=>{if(!el.classList.contains('da-guest'))el.disabled=value})};
