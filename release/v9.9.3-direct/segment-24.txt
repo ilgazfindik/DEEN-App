@@ -13374,9 +13374,9 @@ if(typeof LEGACY_RENDER==='function'){
 }
 /* Keep the welcome message centered despite the legacy !important dot margins.
    The brand stays at the top, the CTA stays at the bottom, and short screens flex naturally. */
-#v998Onboarding[data-step="0"] .v998-copy{margin-top:auto}
+#v998Onboarding[data-step="0"] .v998-copy{margin-top:auto!important}
 #v998Onboarding[data-step="0"] .v998-dots{margin-bottom:auto!important}
-#v998Onboarding[data-step="0"] .v998-bottom{margin-top:0}
+#v998Onboarding[data-step="0"] .v998-bottom{margin-top:0!important}
 </style>
 <script id="deen-v1066-welcome-final-polish-js">
 (()=>{
