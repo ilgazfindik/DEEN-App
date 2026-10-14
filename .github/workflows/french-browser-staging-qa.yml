@@ -8,6 +8,8 @@ on:
       - 'scripts/test-french-quran-chromium-staging.mjs'
       - 'scripts/test-french-locale-progress-chromium.mjs'
       - 'scripts/audit-french-quran-audio-readiness.mjs'
+      - 'scripts/audit-french-quran-rights.mjs'
+      - 'assets/quran/audio/fr-rights-evidence.staging.json'
       - 'scripts/quran/**'
       - 'scripts/test-quran-word-alignment-guard.mjs'
       - 'scripts/test-quran-word-alignment-plan.mjs'
@@ -46,6 +48,8 @@ jobs:
         run: node --test scripts/test-quran-word-alignment-guard.mjs
       - name: Validate bounded eleven-ayah dry-run and resume controls
         run: node --test scripts/test-quran-word-alignment-plan.mjs
+      - name: Audit 90 Quran recording rights evidence and reject unapproved release claims
+        run: node scripts/audit-french-quran-rights.mjs
       - name: Audit Quran recitation files and word timing readiness
         run: node scripts/audit-french-quran-audio-readiness.mjs
       - name: Run assembled DEEN mobile and desktop in real Chromium
