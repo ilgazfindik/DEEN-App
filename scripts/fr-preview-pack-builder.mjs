@@ -135,7 +135,7 @@ export function buildFrenchPreview(){
  assert.equal(observed.global_qa,'blocked');
  assert.equal(observed.native_reviewer_approved,false);
  assert.equal(observed.verified_by_religious_expert,false);
- assert.equal(observed.translation_count,3);
+ assert.equal(observed.translation_count,4);
  for(const [source,translation] of Object.entries(observed.translations)){
   assert(source.trim()&&translation.trim());
   assert(!ui.has(source),'Runtime-discovered string duplicates baseline static French source');
