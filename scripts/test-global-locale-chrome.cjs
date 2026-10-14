@@ -90,8 +90,43 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     const preserved=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));
     assert.deepEqual(preserved,before,'Preview must not alter returning user progress');
     assert.equal(await page.evaluate(()=>state.onboarded),true);
+    // Full reset is destructive for DEEN data, but must retain unrelated origin data.
+    await page.evaluate(()=>{
+     state.xp=789;state.completed=['U01-S01'];saveState();
+     localStorage.setItem('deen_reset_probe','delete me');
+     sessionStorage.setItem('deen_reset_probe','delete me');
+     localStorage.setItem('unrelated_app_reset_probe','preserve me');
+    });
+    page.once('dialog',dialog=>dialog.accept());
+    await page.evaluate(()=>window.DEEN_ADMIN.open());
+    assert.equal(await page.locator('#deenAdminPanelV2 [data-admin="fullReset"]').innerText(),'HER ŞEYİ SIFIRLA');
+    await page.locator('#deenAdminPanelV2 [data-admin="fullReset"]').click();
+    await page.waitForSelector('#deenLanguageGate',{timeout:45000});
+    assert.equal(await page.locator('#deenAccountGate').count(),0,'Account screen must follow language choice');
+    assert.equal(await page.locator('[data-locale]').count(),5);
+    const cleared=await page.evaluate(()=>({
+     lang:localStorage.getItem('deen_app_language_v1'),
+     oldState:localStorage.getItem('deen_v4_1_state'),
+     lastGood:localStorage.getItem('deen_v57_last_good_state'),
+     reset:localStorage.getItem('deen_reset_probe'),
+     session:sessionStorage.getItem('deen_reset_probe'),
+     sessionLang:sessionStorage.getItem('deen_boot_language'),
+     unrelated:localStorage.getItem('unrelated_app_reset_probe')
+    }));
+    for(const key of ['lang','oldState','lastGood','reset','session','sessionLang'])assert.equal(cleared[key],null,'Reset must clear '+key);
+    assert.equal(cleared.unrelated,'preserve me','Do not delete unrelated app data');
+    await page.locator('[data-locale="tr"]').click();
+    await page.locator('.deen-language-continue').click();
+    await page.waitForSelector('#deenAccountGate');
+    assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
+    await page.locator('#deenAccountGate .da-guest').click();
+    await page.waitForSelector('#v998Onboarding[data-step="0"]');
+    const fresh=await page.evaluate(()=>({xp:state.xp,completed:state.completed,onboarded:state.onboarded}));
+    assert.notEqual(fresh.xp,789,'XP must reset');
+    assert(!fresh.completed.includes('U01-S01'),'Completed stages must reset');
+    assert.equal(fresh.onboarded,false,'Onboarding must restart');
    }
-   report.languages[lang]={entry:'PASS Chrome',onboarding:'PASS Chrome',reload:'PASS Chrome',resources:'PASS validated',globalUI:lang==='en'?'English release CI separately verified':lang==='fr'?'French game-only UI smoke; Quran meanings excluded':'NOT fully certified',screens,errors};
+   report.languages[lang]={entry:'PASS Chrome',onboarding:'PASS Chrome',reload:'PASS Chrome',resources:'PASS validated',globalUI:lang==='en'?'English release CI separately verified':lang==='fr'?'French game-only UI smoke; Quran meanings excluded':'NOT fully certified',adminFullReset:lang==='tr'?'PASS language -> account -> welcome':'NOT RUN',screens,errors};
   }else{
    await page.waitForFunction(()=>window.DEEN_BOOT?.status().phase==='blocked');assert.equal(await page.evaluate(()=>state.onboarded),false);assert.equal(await page.locator('html').getAttribute('lang'),lang);
    await page.screenshot({path:path.join(out,'chrome-'+lang+'-blocked.png')});
