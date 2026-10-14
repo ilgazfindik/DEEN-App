@@ -357,11 +357,11 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    const cache=await cacheOpen();
    const parts=await loadAll(cache);
    let html=assemble(parts);
-   const [bootJs,bootCss,contentJs,support,englishUiJs]=await Promise.all(['boot.js','boot.css','content.js','content-support.json','english-ui.js'].map(loadAsset));
+   const [bootJs,bootCss,authJs,authCss,contentJs,support,englishUiJs]=await Promise.all(['boot.js','boot.css','auth.js','auth.css','content.js','content-support.json','english-ui.js'].map(loadAsset));
    window.__DEEN_CONTENT_MANIFEST__=JSON.parse(support);
    window.__DEEN_DEPLOY_ID__=BUILD;
    const safeScript=text=>text.replace(/<\/script/gi,'<\\/script');
-   html=html.replace('<head>','<head><style>'+entryCss+'\n'+bootCss+'</style><script>'+safeScript(entryJs)+'<\/script><script>'+safeScript(contentJs)+'<\/script><script>'+safeScript(bootJs)+'<\/script>');
+   html=html.replace('<head>','<head><style>'+entryCss+'\n'+bootCss+'\n'+authCss+'</style><script>'+safeScript(entryJs)+'<\/script><script>'+safeScript(contentJs)+'<\/script><script>'+safeScript(authJs)+'<\/script><script>'+safeScript(bootJs)+'<\/script>');
    if(window.__DEEN_BOOT_SELECTED_LANGUAGE__==='fr'){
     const frCode=await fetchText('./assets/i18n/fr/runtime-ui.js?v='+BUILD,15000);
     const sum=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(frCode));
