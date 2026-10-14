@@ -168,7 +168,7 @@ export function buildFrenchPreview(){
   ...Object.keys(quranStatic.translations),...Object.keys(quranDynamic.translations)
  ]);
  for(const [label,pack,expected] of [
-  ['P10 static',p10Static,54],['P10 dynamic',p10Dynamic,30]
+  ['P10 static',p10Static,69],['P10 dynamic',p10Dynamic,34]
  ]){
   assert.equal(pack.locale,'fr',label+':locale');
   assert.equal(pack.release_ready,false,label+':release');
@@ -206,6 +206,6 @@ export function buildFrenchPreview(){
   quranUi:quranStatic.translations,quranDynamic:quranDynamic.translations,
   p10Ui:p10Static.translations,p10Dynamic:p10Dynamic.translations,stats:{
    base:1500,active:1484,live:84,storedVariants:20,legacy:100,
-   ui:1452,dynamicTemplates:9,quranStaticDrafts:54,quranDynamicDrafts:17,p10StaticDrafts:54,p10DynamicDrafts:30,parts:packs.length,sourceVariants:sourceMap.size
+   ui:1452,dynamicTemplates:9,quranStaticDrafts:54,quranDynamicDrafts:17,p10StaticDrafts:69,p10DynamicDrafts:34,parts:packs.length,sourceVariants:sourceMap.size
   }};
 }
