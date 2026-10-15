@@ -200,3 +200,28 @@
 #leagueScreenBody .deen-path-word-reset{margin:0 auto 11px;display:block}
 #leagueScreenBody .deen-path-word-reference{text-align:center;font-size:12px}
 @media(max-width:345px){#leagueScreenBody .deen-path-word-pieces{gap:6px}#leagueScreenBody button.deen-path-word-piece{min-height:66px;font-size:30px}}
+
+/* Phase 6: safety-gated listening lessons, no playback before review */
+#leagueScreenBody .deen-path-listening-section{
+ margin:18px 0 14px;padding:17px 13px 9px;border:1px solid rgba(157,197,234,.48);
+ border-radius:18px;background:radial-gradient(ellipse at 95% 0,rgba(106,163,217,.13),transparent 54%),linear-gradient(180deg,#102d3e,#09242d);
+}
+#leagueScreenBody .deen-path-listening-section>.deen-path-shape-subtitle{
+ margin:0 0 7px;font-size:18px;color:#c8e9ff
+}
+#leagueScreenBody .deen-path-listening-section>.deen-path-muted{margin:0 0 12px}
+#leagueScreenBody .deen-path-listening-count{font-size:12px;color:#d3e4f9;margin:0 0 14px}
+#leagueScreenBody .deen-path-listening-item{
+ margin:0 0 10px;border-color:rgba(147,191,230,.43)!important
+}
+#leagueScreenBody .deen-path-listening-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;color:#fff0cf;
+ font:650 clamp(31px,9vw,43px)/1.6 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody .deen-path-listening-item.is-locked{opacity:.57}
+#leagueScreenBody .deen-path-listen-play{min-height:56px;margin:12px auto 18px}
+#leagueScreenBody .deen-path-listening-options{margin-top:12px}
+#leagueScreenBody .deen-path-listening-options .deen-path-option:disabled{
+ opacity:.4;cursor:not-allowed;filter:saturate(.5)
+}
+#leagueScreenBody .deen-path-listen-play:disabled{opacity:.65;cursor:wait}
