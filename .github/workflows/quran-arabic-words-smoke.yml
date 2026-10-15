@@ -14,6 +14,7 @@ on:
       - 'assets/i18n/quran-arabic-adaptive.js'
       - 'assets/i18n/quran-arabic-foundation-review.js'
       - 'assets/i18n/quran-arabic-checkpoint.js'
+      - 'assets/i18n/quran-arabic-remediation.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-quran-listening-chrome.cjs'
@@ -25,6 +26,7 @@ on:
       - 'scripts/test-quran-adaptive-chrome.cjs'
       - 'scripts/test-quran-foundation-review-chrome.cjs'
       - 'scripts/test-quran-checkpoint-chrome.cjs'
+      - 'scripts/test-quran-remediation-chrome.cjs'
       - '.github/workflows/quran-arabic-words-smoke.yml'
   pull_request:
     paths:
@@ -40,6 +42,7 @@ on:
       - 'assets/i18n/quran-arabic-adaptive.js'
       - 'assets/i18n/quran-arabic-foundation-review.js'
       - 'assets/i18n/quran-arabic-checkpoint.js'
+      - 'assets/i18n/quran-arabic-remediation.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-quran-listening-chrome.cjs'
@@ -51,6 +54,7 @@ on:
       - 'scripts/test-quran-adaptive-chrome.cjs'
       - 'scripts/test-quran-foundation-review-chrome.cjs'
       - 'scripts/test-quran-checkpoint-chrome.cjs'
+      - 'scripts/test-quran-remediation-chrome.cjs'
       - '.github/workflows/quran-arabic-words-smoke.yml'
 jobs:
   word-smoke:
@@ -83,3 +87,4 @@ jobs:
           node scripts/test-quran-adaptive-chrome.cjs
           node scripts/test-quran-foundation-review-chrome.cjs
           node scripts/test-quran-checkpoint-chrome.cjs
+          node scripts/test-quran-remediation-chrome.cjs
