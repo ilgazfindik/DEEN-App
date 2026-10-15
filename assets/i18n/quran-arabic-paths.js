@@ -599,7 +599,61 @@
   if(state.view!=='lesson'||state.correct||group().kind!=='meaning-order')return;
   state.pieces=[];state.feedback='';update();
  }
+ function phraseLessonView(){
+  const c=t(),lesson=group(),items=groupLetters(),item=items[state.question],kind=lesson.kind,ordering=kind==='phrase-order';
+  const box=elem('section','deen-path-lesson deen-path-phrase-lesson');
+  box.append(makeButton('←  '+c.arabic,'group','deen-path-back'),elem('div','deen-path-kicker',c.phraseHeading));
+  box.append(elem('p','deen-path-question-count',c.progress+' '+(state.question+1)+' / '+items.length));
+  box.append(elem('h2','deen-path-inner-title',ordering?c.phraseOrderPrompt:kind==='phrase-vocab'?c.phraseVocabPrompt:c.phraseContextPrompt));
+  if(ordering){
+   box.append(elem('div','deen-path-phrase-hint',item.gloss[lang()]||item.gloss.tr));
+   const built=elem('div','deen-path-meaning-built',state.pieces.map(i=>item.parts[i]).join(' ')||'···');
+   built.lang='ar';built.dir='rtl';box.append(built);
+   const parts=elem('div','deen-path-meaning-pieces');
+   for(const i of item.parts.map((_,j)=>j).reverse()){
+    const b=makeButton(item.parts[i],'phrasePiece','deen-path-meaning-piece');b.dataset.pieceIndex=String(i);
+    b.disabled=state.pieces.includes(i);b.lang='ar';b.dir='rtl';parts.append(b);
+   }
+   box.append(parts);const reset=makeButton(c.phraseReset,'resetPhrase','deen-path-back deen-path-word-reset');
+   reset.disabled=!state.pieces.length;box.append(reset);
+  }else{
+   const hint=elem('div','deen-path-phrase-hint',kind==='phrase-vocab'?item.gloss[lang()]:item.glyph);
+   if(kind==='phrase-context'){hint.lang='ar';hint.dir='rtl';hint.classList.add('deen-path-phrase-arabic')}
+   box.append(hint);
+   if(kind==='phrase-vocab'){const verse=elem('div','deen-path-word-excerpt',item.excerpt);verse.lang='ar';verse.dir='rtl';box.append(verse)}
+   const choices=elem('div','deen-path-options');
+   for(const candidate of [...items.slice((state.question+1)%items.length),...items.slice(0,(state.question+1)%items.length)]){
+    const value=kind==='phrase-vocab'?candidate.glyph:candidate.gloss[lang()];
+    const btn=makeButton(value,'answer','deen-path-option deen-path-phrase-option');btn.dataset.letterId=candidate.id;
+    if(kind==='phrase-vocab'){btn.lang='ar';btn.dir='rtl'}
+    if(state.correct&&candidate.id===item.id)btn.classList.add('deen-path-option-correct');
+    choices.append(btn);
+   }
+   box.append(choices);
+  }
+  box.append(elem('p','deen-path-muted deen-path-word-reference',c.phraseVerse+' · '+item.reference));
+  if(state.correct&&item.note)box.append(elem('p','deen-path-muted deen-path-phrase-note',c.phraseNote+' · '+item.note[lang()]));
+  if(state.feedback){const f=elem('p','deen-path-feedback'+(state.correct?' is-correct':' is-wrong'),state.feedback);f.setAttribute('role','status');box.append(f)}
+  if(state.correct)box.append(makeButton(state.question===items.length-1?c.finish:c.next,'next','deen-path-primary'));
+  return box;
+ }
+ function phrasePiece(index){
+  if(state.view!=='lesson'||state.correct||group().kind!=='phrase-order')return;
+  const item=groupLetters()[state.question];index=Number(index);
+  if(!Number.isInteger(index)||index<0||index>=item.parts.length||state.pieces.includes(index))return;
+  state.pieces.push(index);
+  if(state.pieces.length===item.parts.length){
+   state.correct=state.pieces.every((piece,j)=>piece===j);
+   state.feedback=state.correct?t().correct:t().phraseWrongOrder;
+  }
+  update();
+ }
+ function resetPhrase(){
+  if(state.view!=='lesson'||state.correct||group().kind!=='phrase-order')return;
+  state.pieces=[];state.feedback='';update();
+ }
  function lessonView(){
+  if(PHRASE_LESSONS.includes(group()))return phraseLessonView();
   if(MEANING_LESSONS.includes(group()))return meaningLessonView();
   if(LISTENING_LESSONS.includes(group()))return listeningLessonView();
   if(WORD_LESSONS.includes(group()))return wordLessonView();
@@ -628,12 +682,14 @@
  function completedView(){
   const c=t(),box=elem('section','deen-path-completion');
   box.append(elem('div','deen-path-complete-star','✦'),elem('h2','deen-path-inner-title',c.completed));
-  box.append(elem('p','deen-path-muted',(MEANING_LESSONS.includes(group())?c.meaningLesson:LISTENING_LESSONS.includes(group())?c.listenLesson:WORD_LESSONS.includes(group())?c.wordLesson:READING_LESSONS.includes(group())?c.readLesson:group().kind==='recognition'?c.lesson:c.vowelLesson)+' '+(MEANING_LESSONS.includes(group())?state.lessonIndex-MEANING.startIndex+1:LISTENING_LESSONS.includes(group())?state.lessonIndex-LISTENING.startIndex+1:WORD_LESSONS.includes(group())?state.lessonIndex-WORDS.startIndex+1:READING_LESSONS.includes(group())?state.lessonIndex-READING.startIndex+1:group().kind==='recognition'?state.lessonIndex+1:state.lessonIndex-LESSONS.length+1)+' · '+groupLetters().map(x=>x.glyph).join('  ')));
-  box.append(elem('p','deen-path-muted',MEANING_LESSONS.includes(group())?c.meaningFinish:LISTENING_LESSONS.includes(group())?c.listenFinish:WORD_LESSONS.includes(group())?c.wordFinish:READING_LESSONS.includes(group())?c.readFinish:group().kind==='recognition'?(completed().length===LESSONS.length?c.courseCompleteDesc:c.completedDesc):c.vowelFinish));
+  box.append(elem('p','deen-path-muted',(PHRASE_LESSONS.includes(group())?c.phraseLesson:MEANING_LESSONS.includes(group())?c.meaningLesson:LISTENING_LESSONS.includes(group())?c.listenLesson:WORD_LESSONS.includes(group())?c.wordLesson:READING_LESSONS.includes(group())?c.readLesson:group().kind==='recognition'?c.lesson:c.vowelLesson)+' '+(PHRASE_LESSONS.includes(group())?state.lessonIndex-PHRASES.startIndex+1:MEANING_LESSONS.includes(group())?state.lessonIndex-MEANING.startIndex+1:LISTENING_LESSONS.includes(group())?state.lessonIndex-LISTENING.startIndex+1:WORD_LESSONS.includes(group())?state.lessonIndex-WORDS.startIndex+1:READING_LESSONS.includes(group())?state.lessonIndex-READING.startIndex+1:group().kind==='recognition'?state.lessonIndex+1:state.lessonIndex-LESSONS.length+1)+' · '+groupLetters().map(x=>x.glyph).join('  ')));
+  box.append(elem('p','deen-path-muted',PHRASE_LESSONS.includes(group())?c.phraseDone:MEANING_LESSONS.includes(group())?c.meaningFinish:LISTENING_LESSONS.includes(group())?c.listenFinish:WORD_LESSONS.includes(group())?c.wordFinish:READING_LESSONS.includes(group())?c.readFinish:group().kind==='recognition'?(completed().length===LESSONS.length?c.courseCompleteDesc:c.completedDesc):c.vowelFinish));
   if(state.lessonIndex<ALL_LESSONS.length-1&&isUnlocked(state.lessonIndex+1))box.append(makeButton(c.nextLesson,'nextGroup','deen-path-primary'));
   // Phase 6 audio is locked pending independent review: offer an actual next lesson.
   if(state.lessonIndex===WORD_LESSONS[WORD_LESSONS.length-1].index&&isUnlocked(MEANING.startIndex))
    box.append(makeButton(c.meaningCTA,'openMeaning','deen-path-primary'));
+  if(state.lessonIndex===MEANING_LESSONS[MEANING_LESSONS.length-1].index&&isUnlocked(PHRASES.startIndex))
+   box.append(makeButton(c.phraseCTA,'openPhrases','deen-path-primary'));
   box.append(makeButton(c.redo,'start','deen-path-primary'),makeButton('←  '+c.arabic,'arabic','deen-path-back'));
   return box;
  }
@@ -665,6 +721,8 @@
  }
  function answer(id){
   if(state.view!=='lesson'||state.correct)return;
+  if(PHRASE_LESSONS.includes(group())&&group().kind!=='phrase-order')
+   recordReview(groupLetters()[state.question].id,id===groupLetters()[state.question].id);
   if(LISTENING_LESSONS.includes(group())&&!state.listenHeard)return;
   state.correct=id===groupLetters()[state.question].id;
   state.feedback=state.correct?t().correct:t().wrong;
