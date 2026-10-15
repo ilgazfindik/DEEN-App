@@ -319,6 +319,8 @@
   box.appendChild(readingRoadmap());
   box.appendChild(wordRoadmap());
   box.appendChild(meaningRoadmap());
+  box.appendChild(phraseRoadmap());
+  box.appendChild(spacedReviewDashboard());
   box.appendChild(listeningRoadmap());
   if(done===LESSONS.length)box.appendChild(elem('p','deen-path-completed',c.courseComplete+' ✓'));
   const details=elem('details','deen-path-atlas-details');
@@ -408,6 +410,34 @@
   if(done===MEANING_LESSONS.length)box.append(elem('p','deen-path-completed',c.meaningDone+' ✓'));
   return box;
  }
+ function phraseRoadmap(){
+  const c=t(),box=elem('section','deen-path-phrase-section'),done=phraseCompleted().length;
+  box.append(elem('h3','deen-path-shape-subtitle',c.phraseHeading),elem('p','deen-path-muted',c.phraseSub));
+  box.append(elem('p','deen-path-progress-copy',done+' / '+PHRASE_LESSONS.length));
+  const bar=elem('div','deen-path-course-progress'),fill=elem('span');fill.style.width=Math.round(100*done/PHRASE_LESSONS.length)+'%';bar.append(fill);box.append(bar);
+  for(const lesson of PHRASE_LESSONS){
+   const complete=phraseCompleted().includes(lesson.id),locked=!isUnlocked(lesson.index);
+   const title=lesson.kind==='phrase-vocab'?c.phraseVocabTitle:lesson.kind==='phrase-context'?c.phraseContextTitle:c.phraseOrderTitle;
+   const card=makeButton('','group','deen-path-course-item deen-path-phrase-item'+(complete?' is-completed':'')+(locked?' is-locked':''));
+   card.dataset.lessonIndex=String(lesson.index);card.disabled=locked;
+   const top=elem('span','deen-path-course-item-top');
+   top.append(elem('span','deen-path-course-number',c.lesson+' '+(lesson.index+1)+' · '+title),
+    elem('span','deen-path-course-status',complete?'✓ '+c.done:locked?'🔒 '+(lesson.index===PHRASES.startIndex?c.phrasePrereq:c.locked):c.new));
+   const glyph=elem('span','deen-path-course-glyphs',lesson.items.map(x=>x.glyph).join('   '));glyph.lang='ar';glyph.dir='rtl';
+   card.append(top,glyph,elem('span','deen-path-course-item-foot',c.free+' · '+title));box.append(card);
+  }
+  if(done===PHRASE_LESSONS.length)box.append(elem('p','deen-path-completed',c.phraseDone+' ✓'));
+  return box;
+ }
+ function spacedReviewDashboard(){
+  const c=t(),box=elem('section','deen-path-spaced-section'),due=reviewDue(),tracked=Object.keys(reviewRead()).length;
+  box.append(elem('h3','deen-path-shape-subtitle',c.reviewHeading),elem('p','deen-path-muted',c.reviewSub));
+  box.append(elem('p','deen-path-progress-copy',c.reviewTracked+' · '+tracked+' / '+PHRASES.cardIds.length+'   ·   '+c.reviewDue+' · '+due.length));
+  if(due.length){const btn=makeButton(c.reviewButton+' ('+due.length+')','startReview','deen-path-primary');box.append(btn)}
+  else box.append(elem('p','deen-path-muted',c.reviewNone));
+  box.append(elem('p','deen-path-muted',c.reviewSample));
+  return box;
+ }
  function listeningRoadmap(){
   const c=t(),box=elem('section','deen-path-listening-section'),done=listeningCompleted().length;
   box.append(elem('h3','deen-path-shape-subtitle',c.listenHeading),elem('p','deen-path-muted',c.listenSub));
@@ -431,21 +461,21 @@
  function groupView(){
   const c=t(),items=groupLetters(),box=elem('section','deen-path-arabic-landing');
   box.append(makeButton('←  '+c.arabic,'arabic','deen-path-back'));
-  const meaning=MEANING_LESSONS.includes(group()),listening=LISTENING_LESSONS.includes(group()),word=WORD_LESSONS.includes(group()),reading=READING_LESSONS.includes(group()),phonics=group().kind!=='recognition'&&!reading&&!word&&!listening&&!meaning;
-  const label=meaning?c.meaningLesson:listening?c.listenLesson:word?c.wordLesson:reading?c.readLesson:phonics?c.vowelLesson:c.lesson;
-  const num=meaning?state.lessonIndex-MEANING.startIndex+1:listening?state.lessonIndex-LISTENING.startIndex+1:word?state.lessonIndex-WORDS.startIndex+1:reading?state.lessonIndex-READING.startIndex+1:phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1;
-  const size=meaning?MEANING_LESSONS.length:listening?LISTENING_LESSONS.length:word?WORD_LESSONS.length:reading?READING_LESSONS.length:phonics?PHONIC_LESSONS.length:LESSONS.length;
-  const title=meaning?(group().kind==='meaning-gloss'?c.meaningGlossTitle:group().kind==='meaning-role'?c.meaningRoleTitle:c.meaningOrderTitle):listening?(group().kind==='listen-syllable'?c.listenSyllableTitle:c.listenWordTitle):word?(group().kind==='syllable-build'?c.wordSyllablesTitle:group().kind==='word-build'?c.wordWordsTitle:c.wordQuranTitle):reading?c[group().kind+'Title']:phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle;
-  const help=meaning?(group().kind==='meaning-gloss'?c.meaningGlossDetail:group().kind==='meaning-role'?c.meaningRoleDetail:c.meaningOrderDetail):listening?(group().kind==='listen-syllable'?c.listenSyllableDetail:c.listenWordDetail):word?(group().kind==='syllable-build'?c.wordSyllablesDetail:group().kind==='word-build'?c.wordWordsDetail:c.wordQuranDetail):reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo;
+  const phrase=PHRASE_LESSONS.includes(group()),meaning=MEANING_LESSONS.includes(group()),listening=LISTENING_LESSONS.includes(group()),word=WORD_LESSONS.includes(group()),reading=READING_LESSONS.includes(group()),phonics=group().kind!=='recognition'&&!reading&&!word&&!listening&&!meaning&&!phrase;
+  const label=phrase?c.phraseLesson:meaning?c.meaningLesson:listening?c.listenLesson:word?c.wordLesson:reading?c.readLesson:phonics?c.vowelLesson:c.lesson;
+  const num=phrase?state.lessonIndex-PHRASES.startIndex+1:meaning?state.lessonIndex-MEANING.startIndex+1:listening?state.lessonIndex-LISTENING.startIndex+1:word?state.lessonIndex-WORDS.startIndex+1:reading?state.lessonIndex-READING.startIndex+1:phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1;
+  const size=phrase?PHRASE_LESSONS.length:meaning?MEANING_LESSONS.length:listening?LISTENING_LESSONS.length:word?WORD_LESSONS.length:reading?READING_LESSONS.length:phonics?PHONIC_LESSONS.length:LESSONS.length;
+  const title=phrase?(group().kind==='phrase-vocab'?c.phraseVocabTitle:group().kind==='phrase-context'?c.phraseContextTitle:c.phraseOrderTitle):meaning?(group().kind==='meaning-gloss'?c.meaningGlossTitle:group().kind==='meaning-role'?c.meaningRoleTitle:c.meaningOrderTitle):listening?(group().kind==='listen-syllable'?c.listenSyllableTitle:c.listenWordTitle):word?(group().kind==='syllable-build'?c.wordSyllablesTitle:group().kind==='word-build'?c.wordWordsTitle:c.wordQuranTitle):reading?c[group().kind+'Title']:phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle;
+  const help=phrase?(group().kind==='phrase-vocab'?c.phraseVocabDetail:group().kind==='phrase-context'?c.phraseContextDetail:c.phraseOrderDetail):meaning?(group().kind==='meaning-gloss'?c.meaningGlossDetail:group().kind==='meaning-role'?c.meaningRoleDetail:c.meaningOrderDetail):listening?(group().kind==='listen-syllable'?c.listenSyllableDetail:c.listenWordDetail):word?(group().kind==='syllable-build'?c.wordSyllablesDetail:group().kind==='word-build'?c.wordWordsDetail:c.wordQuranDetail):reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo;
   box.append(elem('span','deen-path-pill',label+' '+num+' / '+size+' · '+c.free));
   box.append(elem('h2','deen-path-inner-title',title),elem('p','deen-path-muted',help));
   box.append(lettersStrip(items));
-  if(!reading&&!phonics&&!word&&!listening&&!meaning){
+  if(!reading&&!phonics&&!word&&!listening&&!meaning&&!phrase){
    box.append(elem('h3','deen-path-shape-subtitle',c.shape),shapeAtlas(items));
    if(items.some(item=>!item.joinsNext))box.appendChild(elem('p','deen-path-muted',c.atlasHelp));
   }
-  box.append(elem('p','deen-path-muted deen-path-warning',meaning?c.meaningIntro:listening?c.listenSub:word?c.wordIntro:reading?c.readIntro:phonics?c.audioMissing:c.courseInfo));
-  box.append(makeButton(lessonIsDone()?c.redo:meaning?c.meaningCTA:listening?c.listenPlay:word?c.wordCTA:reading?c.readCTA:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
+  box.append(elem('p','deen-path-muted deen-path-warning',phrase?c.meaningIntro:meaning?c.meaningIntro:listening?c.listenSub:word?c.wordIntro:reading?c.readIntro:phonics?c.audioMissing:c.courseInfo));
+  box.append(makeButton(lessonIsDone()?c.redo:phrase?c.phraseCTA:meaning?c.meaningCTA:listening?c.listenPlay:word?c.wordCTA:reading?c.readCTA:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
   return box;
  }
  function wordLessonView(){
