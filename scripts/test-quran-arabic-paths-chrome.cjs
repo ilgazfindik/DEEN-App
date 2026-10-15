@@ -26,9 +26,10 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-checkpoint.js')});
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-remediation.js')});
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-weekly.js')});
+ await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-weekly-goals.js')});
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-paths.js')});
  const syllabus=await page.evaluate(()=>DEEN_ARABIC_LETTERS.lessons.map(x=>x.letterIds));
- assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.version),'quran-arabic-paths-phase16');
+ assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.version),'quran-arabic-paths-phase17');
  assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTERS.count),28);
  assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTERS.lessonCount),7);
  assert.equal(syllabus.flat().length,28,'Seven lessons must cover all 28 letters');
