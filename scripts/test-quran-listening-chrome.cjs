@@ -13,15 +13,15 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.goto('http://127.0.0.1:'+server.address().port);
   await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
-  for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-paths.js'])
+  for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-paths.js'])
    await page.addScriptTag({path:path.join(root,'assets/i18n',name)});
   const status=await page.evaluate(()=>({
    version:DEEN_QURAN_PATHS.version,modules:DEEN_ARABIC_LISTENING.lessons.map(x=>({id:x.id,index:x.index,kind:x.kind,clips:x.items.map(y=>y.clipId)})),
    approved:DEEN_ARABIC_LISTENING.approvedCount(),required:DEEN_ARABIC_LISTENING.requiredCount,overall:DEEN_QURAN_PATHS.status().overallLessonCount
   }));
-  assert.equal(status.version,'quran-arabic-paths-phase6');
+  assert.equal(status.version,'quran-arabic-paths-phase7');
   assert.deepEqual(status.modules.map(x=>x.index),[16,17]);
-  assert.equal(status.overall,18);
+  assert.equal(status.overall,21);
   assert.deepEqual(status.modules.map(x=>x.kind),['listen-syllable','listen-word']);
   assert.equal(new Set(status.modules.flatMap(x=>x.clips)).size,6);
   assert.equal(status.approved,0);assert.equal(status.required,6);
