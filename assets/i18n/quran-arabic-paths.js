@@ -42,6 +42,9 @@
  const ADAPTIVE=window.DEEN_ARABIC_ADAPTIVE;
  if(!ADAPTIVE||ADAPTIVE.version!==1)throw Error('DEEN_ARABIC_ADAPTIVE_MISSING');
  const ADAPTIVE_STORE='deen_arabic_adaptive_v1';
+ const GOALS=window.DEEN_ARABIC_WEEKLY_GOALS;
+ if(!GOALS||GOALS.version!==1)throw Error('DEEN_WEEKLY_GOALS_MISSING');
+ const WEEKLY_BADGE_STORE='deen_arabic_weekly_badges_v1';
  const WEEKLY=window.DEEN_ARABIC_WEEKLY;
  if(!WEEKLY||WEEKLY.version!==1)throw Error('DEEN_ARABIC_WEEKLY_MISSING');
  const WEEKLY_STORE='deen_arabic_weekly_activity_v1';
@@ -143,7 +146,7 @@
   fr:{"masteryHeading":"Ma progression en arabe","masteryIntro":"Vue fondée sur les leçons écrites et les révisions.","masteryOpen":"Voir ma progression","masteryBack":"Retour aux leçons","masteryPracticed":"Cartes étudiées","masteryWritten":"Leçons écrites terminées","masteryDue":"Révisions dues","masteryWeak":"Cartes avec erreurs","masteryStages":"Étapes de révision","masteryNotStarted":"Non étudiées","masteryNeedsPractice":"À retravailler","masteryLearning":"En apprentissage","masteryStrengthening":"En consolidation","masteryLevelsNote":"Les étapes décrivent l’entraînement, pas la maîtrise orale ni la prononciation.","masteryGroupPhraseVocab":"Vocabulaire","masteryGroupPhrases":"Expressions courtes","masteryGroupPatternVocab":"Nouveaux mots","masteryGroupPatterns":"Structures coraniques","masteryGroupHeading":"Progression par sujet","masteryCardsTitle":"Cartes de mots et d’expressions","masteryFilterAll":"Toutes","masteryFilterDue":"À revoir","masteryFilterWeak":"Difficiles","masteryFilterNew":"Nouvelles","masteryEmpty":"Aucune carte dans cette sélection.","masteryAttempts":"Essais","masteryMistakes":"Erreurs","masteryNext":"Prochaine révision","masteryNextNone":"Non programmée","masteryNow":"Maintenant","masteryPracticeDue":"Réviser les cartes dues","masteryPracticeWeak":"Revoir mes difficultés","masteryContinue":"Continuer les leçons","masteryNotUnlocked":"Termine les leçons précédentes pour débloquer la suite.","masteryPrivacy":"Cet indicateur n’atteste ni récitation ni maîtrise du tajwid.","masteryLocalOnly":"Données de cet appareil uniquement, sans synchronisation automatique."}
  };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
- const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()],masteryUi[lang()],DAILY.ui[lang()],ADAPTIVE.ui[lang()],FOUNDATION.ui[lang()],CHECKPOINT.ui[lang()],REMEDY.ui[lang()],WEEKLY.ui[lang()]);
+ const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()],masteryUi[lang()],DAILY.ui[lang()],ADAPTIVE.ui[lang()],FOUNDATION.ui[lang()],CHECKPOINT.ui[lang()],REMEDY.ui[lang()],WEEKLY.ui[lang()],GOALS.ui[lang()]);
  const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all'};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
@@ -240,6 +243,19 @@
   catch(_){return WEEKLY.clean(null)}
  };
  const weeklySnapshot=()=>WEEKLY.summarize(weeklyLog(),dailyActivity(),checkpointRead());
+ const weeklyGoalSnapshot=()=>GOALS.build({
+  journal:weeklyLog(),daily:dailyActivity(),exams:checkpointRead(),
+  remainingWritten:25-writtenCompletedCount(),reviewEligible:reviewDue().length>0||reviewWeak().length>0
+ });
+ const weeklyBadges=()=>{
+  try{return GOALS.cleanAwards(JSON.parse(localStorage.getItem(WEEKLY_BADGE_STORE)||'null'))}
+  catch(_){return GOALS.cleanAwards(null)}
+ };
+ function weeklySyncBadges(){
+  const before=weeklyBadges(),after=GOALS.syncAwards(before,weeklyGoalSnapshot());
+  if(JSON.stringify(after.weeks)!==JSON.stringify(before.weeks))
+   try{localStorage.setItem(WEEKLY_BADGE_STORE,JSON.stringify(after))}catch(_){}
+ }
  const dailyLessons=()=>ALL_LESSONS.filter(x=>!LISTENING_LESSONS.includes(x)).map(x=>({
   id:x.id,index:x.index,unlocked:isUnlocked(x.index),completed:lessonIsDone(x)
  }));
@@ -255,6 +271,7 @@
   // Phase-16 journal starts recording genuine completions from the update date.
   const weeklyNext=WEEKLY.record(weeklyLog(),type,id);
   try{localStorage.setItem(WEEKLY_STORE,JSON.stringify(weeklyNext))}catch(_){}
+  weeklySyncBadges();
  }
  function setDailyMinutes(value){
   const num=Number(value);if(!DAILY.allowedMinutes.includes(num))return false;
