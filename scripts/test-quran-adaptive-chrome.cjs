@@ -82,6 +82,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.equal(await page.locator('.deen-path-completion').count(),1);
   const completeText=await page.locator('.deen-path-completion h2').innerText();
   assert.match(completeText,/Pekiştirme/);
+  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().adaptive.available),0,'Successfully reinforced cards should not loop before their next due date');
   const saved=await page.evaluate(()=>({daily:JSON.parse(localStorage.getItem('deen_arabic_daily_activity_v1')),
    audio:localStorage.getItem('deen_arabic_listening_v1'),
    pattern:JSON.parse(localStorage.getItem('deen_arabic_patterns_v1')).completed.length}));
