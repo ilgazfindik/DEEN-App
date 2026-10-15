@@ -74,3 +74,47 @@
 @media(prefers-reduced-motion:no-preference){
  #profileScreenBody .dh-main:active,#v5Sheet .dh-comp-primary:active{transform:scale(.985)}
 }
+/* Two tiers: same learning benefits, one ad distinction; vertical on phones. */
+#v5Sheet .deen-hub-tiers .dh-comp-title{margin-bottom:10px}
+#v5Sheet .deen-hub-tiers .dh-comp-desc{margin-bottom:16px}
+#v5Sheet .dh-tier-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin:0 0 12px}
+#v5Sheet .dh-tier{
+ position:relative;min-width:0;overflow:hidden;border-radius:18px;
+ padding:15px 14px 13px;border:1px solid rgba(131,209,184,.39);
+ background:radial-gradient(ellipse at 95% 2%,rgba(91,195,159,.16),transparent 55%),linear-gradient(145deg,#12313b 0%,#0a202a 80%);
+ box-shadow:inset 0 1px rgba(255,252,223,.08),0 9px 23px rgba(0,0,0,.14)
+}
+#v5Sheet .dh-tier-full{border-color:rgba(244,210,147,.67);background:radial-gradient(ellipse at 100% 0%,rgba(223,179,93,.15),transparent 65%),linear-gradient(143deg,#183840 0%,#0a202b 85%)}
+#v5Sheet .dh-tier-selected{outline:2px solid rgba(107,240,196,.73);outline-offset:1px}
+#v5Sheet .dh-tier-full.dh-tier-selected{outline-color:rgba(243,207,137,.82)}
+#v5Sheet .dh-tier-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+#v5Sheet .dh-tier-name{font-size:14px;font-weight:850;color:#fff5da;line-height:1.25}
+#v5Sheet .dh-tier-tag{border-radius:100px;padding:5px 8px;background:rgba(245,211,140,.13);border:1px solid rgba(235,197,121,.39);color:#ffe0a8;font-size:8px;font-weight:900;letter-spacing:.4px}
+#v5Sheet .dh-tier-price{display:flex;align-items:baseline;gap:3px;margin:7px 0 9px;color:#ffebc2}
+#v5Sheet .dh-tier-price .dh-currency{font-family:Georgia,serif;font-size:20px;font-weight:750;align-self:flex-start;margin-top:4px}
+#v5Sheet .dh-tier-price strong{font-family:Georgia,serif;font-size:40px;font-weight:800;line-height:1}
+#v5Sheet .dh-tier-price .dh-usd{font-size:10px;color:#b9cfc8;font-weight:720;margin-inline-start:5px;letter-spacing:.7px}
+#v5Sheet .dh-tier-features{padding:0;margin:0 0 12px;list-style:none;display:grid;gap:7px}
+#v5Sheet .dh-tier-features li{display:flex;align-items:flex-start;gap:9px;color:#e4f1e9;font-size:11px;line-height:1.4;margin:0}
+#v5Sheet .dh-tier-features li>span{font-size:13px;color:#83e7c4;font-weight:900;line-height:1.2;flex:0 0 14px}
+#v5Sheet .dh-tier-features .dh-tier-ad-free{color:#ffe3ac}
+#v5Sheet .dh-tier-features .dh-tier-ad-free>span{color:#e9ca8c}
+#v5Sheet .dh-tier-features .dh-tier-ad-on{color:#c9d9d4}
+#v5Sheet .dh-tier-features .dh-tier-ad-on>span{color:#d0d4d1}
+#v5Sheet .dh-tier button[data-deen-hub-action="select-plan"]{
+ width:100%;min-height:42px;margin:0;padding:9px 12px;border-radius:11px;
+ background:rgba(17,60,65,.7)!important;border:1px solid rgba(143,217,184,.44)!important;
+ color:#e2fbef!important;-webkit-text-fill-color:#e2fbef!important;
+ font-size:12px!important;font-weight:800!important;letter-spacing:0!important;text-transform:none!important;
+}
+#v5Sheet .dh-tier-full button[data-deen-hub-action="select-plan"]{background:linear-gradient(140deg,#d6c088,#eccf94)!important;border-color:#f5e0b1!important;color:#1f3439!important;-webkit-text-fill-color:#1f3439!important}
+#v5Sheet .dh-tier button[data-deen-hub-action="select-plan"][aria-pressed="true"]{box-shadow:0 0 0 2px rgba(99,234,194,.18)}
+#v5Sheet .dh-tier-future{padding:8px 11px;margin:0 0 11px;text-align:center;border:1px solid rgba(221,194,133,.24);border-radius:11px;background:rgba(201,157,70,.05);color:#dfd4b7;font-size:10px;line-height:1.55}
+#v5Sheet .dh-tier-choice{margin:0 0 8px;padding:10px 11px;font-size:11px;line-height:1.5;color:#cce1d8;border-radius:12px;background:rgba(54,133,106,.13);border:1px solid rgba(105,190,155,.25)}
+#v5Sheet .dh-tier-choice strong{color:#ffe1a7}
+#v5Sheet .dh-tier-price-note{font-size:10px;line-height:1.5;text-align:center;color:#a9bbb8;margin:0 0 13px}
+#v5Sheet .deen-hub-tiers .dh-comp-trust{margin-bottom:13px}
+#v5Sheet .deen-hub-tiers .dh-comp-disclaimer{margin:13px 0 0}
+@media(min-width:650px){
+ #v5Sheet .dh-tier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
