@@ -238,19 +238,22 @@
   // release the pending offer after the game's own click handlers finish.
   if(e.target.closest?.('#resultContinueBtn,#v5Sheet button,.navbtn,[data-sheet-close],.v5-close,.dac-close,#lpCeremonyContinue,.lp-ceremony button,.gf-reward-modal button'))setTimeout(attempt,420);
  },true);
- // Both back/close and "continue to learning path" are actual lesson exits.
- // A WeakSet prevents two lifecycle events for the same attempt from duplicating
- // an offer. Merely navigating tabs or opening a chapter preview is not an exit.
+ // Every *real* exit from a played lesson triggers the offer: unfinished,
+ // passed, failed, replayed, review and section-final sessions all qualify.
+ // A WeakSet deduplicates close/finish events for one session, never future
+ // sessions. Screen navigation and unopened chapter previews are not exits.
  const exitedSessions=new WeakSet();
  function afterLessonExit(event){
   const s=event?.detail?.session;
   if(!s||typeof s!=='object'||exitedSessions.has(s))return;
-  if(s.review||s.final||s.final2||s.final3||s.stage?.id==='SMART')return;
-  const stageId=String(s.stage?.id||'');
-  if(!/^U\d{2}-(?:M\d{2}|S\d{2})$/.test(stageId))return;
+  const stageId=String(s.stage?.id||'').trim();
+  // The lifecycle's session is authoritative. Finals/reviews also qualify,
+  // even if they use a non-Uxx stage code.
+  if(!stageId&&!s.final&&!s.final2&&!s.final3&&!s.review)return;
   exitedSessions.add(s);
-  // Keep a queued chapter-completion/section offer ahead of a generic exit offer.
-  if(!pending)enqueue('exit:'+stageId,{repeatable:true});
+  // An already-queued completion reward offer counts as this exit's offer.
+  // Generic exit offers do not use the one-time completion "seen" ledger.
+  if(!pending)enqueue('exit:'+(stageId||'final'),{repeatable:true});
  }
  document.addEventListener('deen:lesson-finished',e=>{afterLessonExit(e);setTimeout(attempt,320)});
  document.addEventListener('deen:lesson-closed',e=>{afterLessonExit(e);setTimeout(attempt,320)});
