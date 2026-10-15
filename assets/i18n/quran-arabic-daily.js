@@ -36,7 +36,7 @@
   const availableCards=unique([...due,...weak]);
   const quotas={5:{lessons:1,reviews:2},10:{lessons:1,reviews:4},15:{lessons:2,reviews:6}}[minutes];
   const lessonQuota=next||activity.lessons.length?quotas.lessons:0;
-  const reviewQuota=Math.min(quotas.reviews,availableCards.length+activity.reviews.length);
+  const reviewQuota=Math.min(quotas.reviews,unique([...availableCards,...activity.reviews]).length);
   const lessonDone=Math.min(lessonQuota,activity.lessons.length);
   const reviewDone=Math.min(reviewQuota,activity.reviews.length);
   const total=lessonQuota+reviewQuota;
