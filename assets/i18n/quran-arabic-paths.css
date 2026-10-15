@@ -225,3 +225,54 @@
  opacity:.4;cursor:not-allowed;filter:saturate(.5)
 }
 #leagueScreenBody .deen-path-listen-play:disabled{opacity:.65;cursor:wait}
+
+/* Phase 7: accessible, independent word meaning comprehension track */
+#leagueScreenBody .deen-path-meaning-section{
+ margin:18px 0 14px;padding:17px 13px 9px;
+ border:1px solid rgba(184,155,243,.47);border-radius:18px;
+ background:radial-gradient(ellipse at 95% 0,rgba(152,111,212,.15),transparent 54%),linear-gradient(180deg,#18303f,#102330)
+}
+#leagueScreenBody .deen-path-meaning-section>.deen-path-shape-subtitle{margin:0 0 8px;color:#edddff;font-size:18px}
+#leagueScreenBody .deen-path-meaning-section>.deen-path-muted{margin:0 0 12px}
+#leagueScreenBody .deen-path-meaning-item{margin:0 0 10px;border-color:rgba(194,168,242,.44)!important}
+#leagueScreenBody .deen-path-meaning-item.is-locked{opacity:.55}
+#leagueScreenBody .deen-path-meaning-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;white-space:normal;word-break:normal;
+ font:650 clamp(26px,7vw,37px)/1.8 "Geeza Pro","Noto Naskh Arabic",serif;color:#f5e9ce
+}
+#leagueScreenBody .deen-path-meaning-hint{
+ text-align:center;border-radius:15px;background:#173643;border:1px solid rgba(194,168,242,.35);
+ margin:13px 0 17px;padding:15px 12px;color:#f6ebff;font-size:17px;line-height:1.55;font-weight:760
+}
+#leagueScreenBody .deen-path-meaning-built{
+ direction:rtl;unicode-bidi:isolate;overflow-wrap:normal;word-break:normal;
+ text-align:center;border-radius:16px;background:#0b2b37;border:1px solid rgba(158,230,205,.35);
+ padding:14px 9px;margin:10px 0 17px;min-height:84px;
+ color:#fff0d2;font:650 clamp(27px,8vw,40px)/1.8 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody .deen-path-meaning-pieces{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:8px 0 15px
+}
+#leagueScreenBody button.deen-path-meaning-piece{
+ min-width:0;min-height:68px;border-radius:14px;border:1px solid rgba(198,170,240,.56);
+ background:#193644;color:#fff1d9;-webkit-text-fill-color:#fff1d9;
+ font:650 clamp(27px,8vw,36px)/1.5 "Geeza Pro","Noto Naskh Arabic",serif;cursor:pointer
+}
+#leagueScreenBody button.deen-path-meaning-piece:disabled{opacity:.32;cursor:default}
+#leagueScreenBody button.deen-path-meaning-piece:focus-visible{outline:3px solid #d8b4fe;outline-offset:2px}
+@media(max-width:345px){#leagueScreenBody .deen-path-meaning-pieces{gap:6px}#leagueScreenBody button.deen-path-meaning-piece{font-size:26px}}
+
+/* Keep long Uthmani words inside their individual touch targets on mobile. */
+#leagueScreenBody .deen-path-meaning-pieces{align-items:stretch}
+#leagueScreenBody button.deen-path-meaning-piece{
+ max-width:100%;width:100%;box-sizing:border-box;overflow:hidden;
+ padding:9px 4px;white-space:nowrap;text-overflow:clip;
+ font-size:clamp(21px,5.8vw,29px);line-height:1.55
+}
+#leagueScreenBody .deen-path-meaning-built{
+ max-width:100%;overflow-wrap:anywhere;white-space:normal
+}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-meaning-pieces{grid-template-columns:minmax(0,1fr)}
+ #leagueScreenBody button.deen-path-meaning-piece{font-size:29px}
+}
