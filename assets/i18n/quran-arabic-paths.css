@@ -181,3 +181,22 @@
 @media(max-width:355px){
  #leagueScreenBody .deen-path-reading-item .deen-path-course-glyphs{font-size:32px}
 }
+
+/* Phase 5: mobile-friendly syllable and Quran word puzzles */
+#leagueScreenBody .deen-path-word-section{margin:18px 0 14px;padding:17px 13px 9px;border-radius:18px;border:1px solid rgba(235,204,151,.48);background:radial-gradient(ellipse at 95% 0,rgba(225,180,115,.15),transparent 54%),linear-gradient(180deg,#103237,#09252d)}
+#leagueScreenBody .deen-path-word-section>.deen-path-shape-subtitle{margin:0 0 7px;font-size:18px;color:#ffe6b4}
+#leagueScreenBody .deen-path-word-section>.deen-path-muted{margin:0 0 12px}
+#leagueScreenBody .deen-path-word-section .deen-path-progress-copy{margin:6px 0 7px}
+#leagueScreenBody .deen-path-word-item{margin-bottom:10px;border-color:rgba(229,201,146,.43)!important}
+#leagueScreenBody .deen-path-word-item .deen-path-course-glyphs{direction:rtl;unicode-bidi:isolate;color:#fff0cc;font:650 clamp(31px,9vw,43px)/1.6 "Geeza Pro","Noto Naskh Arabic",serif}
+#leagueScreenBody .deen-path-word-item.is-locked{opacity:.57}
+#leagueScreenBody .deen-path-word-hint{font-weight:820;color:#c5f5dc;text-align:center;margin:9px 0 15px;font-size:18px}
+#leagueScreenBody .deen-path-word-built,#leagueScreenBody .deen-path-word-excerpt{font:650 clamp(35px,11vw,49px)/1.9 "Geeza Pro","Noto Naskh Arabic",serif;color:#ffedc4;text-align:center;direction:rtl;unicode-bidi:isolate;overflow-wrap:anywhere;border:1px solid rgba(155,220,187,.45);border-radius:18px;padding:12px 9px;background:#0a2830;margin:12px 0 15px;min-height:86px}
+#leagueScreenBody .deen-path-word-excerpt{font-size:clamp(28px,8vw,40px);line-height:2}
+#leagueScreenBody .deen-path-word-pieces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:8px 0 14px}
+#leagueScreenBody button.deen-path-word-piece{min-width:0;min-height:76px;border:1px solid rgba(157,225,196,.5);border-radius:15px;background:#113942;color:#fff0c6;-webkit-text-fill-color:#fff0c6;font:720 clamp(32px,10vw,48px)/1.5 "Geeza Pro","Noto Naskh Arabic",serif;cursor:pointer}
+#leagueScreenBody button.deen-path-word-piece:disabled{opacity:.35;cursor:default}
+#leagueScreenBody button.deen-path-word-piece:focus-visible{outline:3px solid #9df9d8;outline-offset:2px}
+#leagueScreenBody .deen-path-word-reset{margin:0 auto 11px;display:block}
+#leagueScreenBody .deen-path-word-reference{text-align:center;font-size:12px}
+@media(max-width:345px){#leagueScreenBody .deen-path-word-pieces{gap:6px}#leagueScreenBody button.deen-path-word-piece{min-height:66px;font-size:30px}}
