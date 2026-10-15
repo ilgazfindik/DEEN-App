@@ -420,6 +420,134 @@
   }
   return table;
  }
+ function checkpointTitle(id){
+  const c=t(),names={letters:c.examLetters,vowels:c.examVowels,reading:c.examReading,
+   words:c.examWords,meaning:c.examMeaning};
+  return names[id]||id;
+ }
+ function checkpointPanel(){
+  const c=t(),box=elem('section','deen-path-checkpoint-section'),latest=checkpointLatest();
+  box.append(elem('h3','deen-path-shape-subtitle',c.examHeading),
+   elem('p','deen-path-muted',c.examIntro));
+  const progress=writtenCompletedCount();
+  box.append(elem('p','deen-path-progress-copy',progress+' / '+CHECKPOINT.requiredWritten));
+  if(latest)box.append(elem('p','deen-path-checkpoint-last',c.examLast+' · '+latest.correct+' / '+latest.total));
+  if(!checkpointEligible())box.append(elem('p','deen-path-muted',c.examLocked));
+  const b=makeButton(c.examStart,'checkpointOpen','deen-path-primary');
+  b.disabled=!checkpointEligible();box.append(b);
+  if(latest)box.append(makeButton(c.examResults,'checkpointResults','deen-path-secondary'));
+  return box;
+ }
+ function checkpointStart(){
+  if(!checkpointEligible())return false;
+  state.checkpointQuestions=CHECKPOINT.build(checkpointRead().nextAttempt);
+  state.checkpointIndex=0;state.checkpointAnswers=[];state.checkpointPieces=[];
+  state.checkpointFeedback=null;state.checkpointResult=null;
+  return show('checkpointQuestion');
+ }
+ function checkpointItem(){return state.checkpointQuestions[state.checkpointIndex]||null}
+ function checkpointQuestionView(){
+  const c=t(),q=checkpointItem(),box=elem('section','deen-path-lesson deen-path-checkpoint-question');
+  if(!q)return box;
+  box.append(makeButton('←  '+c.examBack,'checkpoint','deen-path-back'),
+   elem('div','deen-path-kicker',c.examHeading));
+  box.append(elem('p','deen-path-question-count',c.examProgress+' '+(state.checkpointIndex+1)+' / '+CHECKPOINT.questionCount),
+   elem('h2','deen-path-inner-title',checkpointTitle(q.domain)));
+  box.append(elem('p','deen-path-muted',q.type==='build'?c.examBuild:c.examPrompt));
+  const prompt=elem('div','deen-path-checkpoint-hint',q.label?.[lang()]||q.label?.tr||q.glyph);
+  box.append(prompt);
+  if(q.type==='build'){
+   const built=elem('div','deen-path-word-built',state.checkpointPieces.map(i=>q.parts[i]).join('')||'···');
+   built.lang='ar';built.dir='rtl';box.append(built);
+   const bank=elem('div','deen-path-word-pieces');
+   for(const i of q.parts.map((_,idx)=>idx).reverse()){
+    const b=makeButton(q.parts[i],'checkpointPiece','deen-path-word-piece');b.dataset.pieceIndex=String(i);
+    b.disabled=state.checkpointPieces.includes(i)||state.checkpointFeedback!==null;
+    b.lang='ar';b.dir='rtl';bank.append(b);
+   }
+   box.append(bank);
+   const reset=makeButton(c.examReset,'checkpointReset','deen-path-back');
+   reset.disabled=state.checkpointFeedback!==null||!state.checkpointPieces.length;box.append(reset);
+  }else{
+   const options=elem('div','deen-path-options');
+   for(const opt of q.options){
+    const b=makeButton(opt.glyph,'checkpointAnswer','deen-path-option');b.dataset.itemId=opt.id;
+    b.disabled=state.checkpointFeedback!==null;b.lang='ar';b.dir='rtl';
+    if(state.checkpointFeedback!==null&&opt.id===q.id)b.classList.add('deen-path-option-correct');
+    options.append(b);
+   }
+   box.append(options);
+  }
+  if(q.reference)box.append(elem('p','deen-path-muted deen-path-word-reference',c.phraseVerse+' · '+q.reference));
+  if(state.checkpointFeedback!==null){
+   const message=elem('p','deen-path-feedback'+(state.checkpointFeedback?' is-correct':' is-wrong'),
+    state.checkpointFeedback?c.examCorrect:c.examWrong);
+   message.setAttribute('role','status');box.append(message);
+   box.append(makeButton(state.checkpointIndex+1===CHECKPOINT.questionCount?c.examFinish:c.examNext,
+    'checkpointNext','deen-path-primary'));
+  }
+  return box;
+ }
+ function checkpointMark(correct){
+  if(state.view!=='checkpointQuestion'||state.checkpointFeedback!==null)return false;
+  const q=checkpointItem();if(!q)return false;
+  state.checkpointFeedback=correct===true;
+  state.checkpointAnswers.push({id:q.id,correct:state.checkpointFeedback});update();return true;
+ }
+ function checkpointAnswer(id){
+  const q=checkpointItem();if(!q||q.type!=='choice'||state.checkpointFeedback!==null||
+     !q.options.some(o=>o.id===id))return false;
+  return checkpointMark(id===q.id);
+ }
+ function checkpointPiece(index){
+  const q=checkpointItem();index=Number(index);
+  if(state.view!=='checkpointQuestion'||!q||q.type!=='build'||state.checkpointFeedback!==null||
+     !Number.isInteger(index)||index<0||index>=q.parts.length||state.checkpointPieces.includes(index))return;
+  state.checkpointPieces.push(index);
+  if(state.checkpointPieces.length===q.parts.length)return checkpointMark(state.checkpointPieces.every((p,i)=>p===i));
+  update();
+ }
+ function checkpointNext(){
+  if(state.view!=='checkpointQuestion'||state.checkpointFeedback===null)return false;
+  if(state.checkpointIndex+1===CHECKPOINT.questionCount){
+   const result=CHECKPOINT.summarize(state.checkpointQuestions,state.checkpointAnswers);
+   if(!result)return false;
+   state.checkpointResult=result;
+   const updated=CHECKPOINT.save(checkpointRead(),result);
+   try{localStorage.setItem(CHECKPOINT_STORE,JSON.stringify(updated))}catch(_){}
+   return show('checkpointResults');
+  }
+  state.checkpointIndex++;state.checkpointPieces=[];state.checkpointFeedback=null;
+  return show('checkpointQuestion');
+ }
+ function checkpointResultView(){
+  const c=t(),s=state.checkpointResult||checkpointLatest(),box=elem('section','deen-path-checkpoint-results');
+  box.append(makeButton('←  '+c.examBack,'arabic','deen-path-back'),
+   elem('h2','deen-path-inner-title',c.examResults));
+  if(!s){box.append(elem('p','deen-path-muted',c.examNone));return box}
+  const number=elem('p','deen-path-checkpoint-score',s.correct+' / '+s.total+'  ·  '+s.accuracy+'%');
+  box.append(elem('p','deen-path-muted',c.examScore),number);
+  const topics=elem('section','deen-path-checkpoint-topics');
+  topics.append(elem('h3','deen-path-shape-subtitle',c.examAreas));
+  for(const topic of s.topics){
+   const line=elem('div','deen-path-checkpoint-topic');
+   line.append(elem('strong','',checkpointTitle(topic.id)),
+    elem('span','deen-path-checkpoint-value',topic.correct+' / '+topic.total));
+   const progress=elem('div','deen-path-course-progress'),fill=elem('span');
+   fill.style.width=Math.round(100*topic.correct/topic.total)+'%';progress.append(fill);line.append(progress);
+   if(topic.needsReview){
+    const btn=makeButton(c.examRevisit,'checkpointTopic','deen-path-secondary');btn.dataset.lessonIndex=String(topic.lessonIndex);
+    line.append(btn);
+   }
+   topics.append(line);
+  }
+  box.append(topics,elem('h3','deen-path-shape-subtitle',c.examReview));
+  const weak=s.topics.filter(x=>x.needsReview);
+  box.append(elem('p','deen-path-muted',weak.length?weak.map(x=>checkpointTitle(x.id)).join(' · '):c.examReady));
+  box.append(elem('p','deen-path-muted deen-path-checkpoint-note',c.examLocal));
+  if(checkpointEligible())box.append(makeButton(c.examRetry,'checkpointStart','deen-path-primary'));
+  return box;
+ }
  function alphabetView(){
   const c=t(),box=elem('section','deen-path-arabic-landing');
   box.append(makeButton('←  '+c.back,'home','deen-path-back'));
