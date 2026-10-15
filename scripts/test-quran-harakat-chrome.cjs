@@ -52,7 +52,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.equal(await page.locator('.deen-path-completion').count(),1);
   assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().vowelCompletedLessons),i+1);
   await page.locator('[data-qpath-action="arabic"]').click();
-  assert.equal(await page.locator('.deen-path-vowel-item:disabled').count(),2-i);
+  assert.equal(await page.locator('.deen-path-vowel-item:disabled').count(),Math.max(0,1-i));
  }
  const vowelSaved=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_harakat_v1')));
  assert.equal(vowelSaved.schema,1);assert.equal(vowelSaved.completed.length,3);
