@@ -81,7 +81,7 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
   await page.locator('[data-qpath-action="surah"]').click();
   assert.equal(await page.locator('#originalSurah').count(),1);
   await page.evaluate(()=>{document.getElementById('leagueScreenBody').innerHTML='<div class="deen-quran-shell">Rebuilt surahs</div>'});
-  await page.locator('#deenQuranPathNav').waitFor();
+  await page.locator('#deenQuranPathNav').waitFor({state:'attached'});
   await page.evaluate(()=>DEEN_QURAN_PATHS.enterArabic());
   await page.locator('.deen-path-word-item').first().waitFor();
   assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().wordCompletedLessons),3);
