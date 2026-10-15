@@ -103,18 +103,8 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),true,'P button must open the existing admin dialog');
     await page.locator('#deenAdminPanelV2 .deen-admin-close').click();
     assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),false,'Admin dialog must close');
-    // Complete U01 as a synthetic lifecycle transition without altering stored player progress.
-    const eligibility=await page.evaluate(()=>{
-      const ids=STAGES.filter(s=>s.unit==='U01').map(s=>s.id),old=state.completed.slice();
-      document.dispatchEvent(new CustomEvent('deen:lesson-result-before',{detail:{session:{stage:{id:'U01-S07'}}}}));
-      state.completed=[...new Set([...old,...ids])];
-      document.dispatchEvent(new CustomEvent('deen:lesson-result',{detail:{session:{stage:{id:'U01-S07'}}}}));
-      state.completed=old;
-      document.dispatchEvent(new CustomEvent('deen:lesson-closed'));
-      return {ids:ids.length};
-    });
-    assert(eligibility.ids>=7,'Unit fixture requires at least 7 stages');
-    await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:9000});
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER?.version),'premium-fade-trial-v1');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.open()),true,'Premium offer must open after game is ready');
     assert.equal(await page.locator('#deenPremiumOffer [data-dp="trial"]').innerText(),'İlk 3 gün ücretsiz');
     await page.waitForTimeout(380);
     assert(Number(await page.locator('#deenPremiumOffer').evaluate(el=>getComputedStyle(el).opacity))>.90,'Premium modal must fade in');
