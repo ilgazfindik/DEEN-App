@@ -94,7 +94,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.equal(result.weekly.lessonCount,1);assert.equal(result.weekly.reviewCount,1);
   assert.equal(result.weekly.activeDays,1);
   const today=await page.evaluate(()=>DEEN_ARABIC_WEEKLY.dayKey());
-  assert.deepEqual(result.journal.days[today].lessons,[DEEN_ARABIC_PATTERNS.lessons?.[2]?.id].filter(Boolean));
+  assert.deepEqual(result.journal.days[today].lessons,['arabic-pattern-structure-01']);
   assert.deepEqual(result.journal.days[today].reviews,[card]);
   assert.equal(result.daily.lessons.length,1);assert.equal(result.audio,null);
   await page.locator('[data-qpath-action="arabic"]').click();
