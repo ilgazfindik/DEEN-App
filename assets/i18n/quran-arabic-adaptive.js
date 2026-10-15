@@ -28,7 +28,7 @@
    });
   }
   const lastLesson=typeof raw?.lastLesson==='string'&&sessions[raw.lastLesson]?raw.lastLesson:null;
-  return Object.freeze({schema:1,lastLesson,sessions:Object.freeze(sessions)});
+  return Object.freeze({schema:1,lastLesson,globalCleanStreak:integer(raw?.globalCleanStreak,999),sessions:Object.freeze(sessions)});
  };
  const recordLesson=(raw,{lessonId,questions,missedIds=[],at=Date.now()}={})=>{
   const state=clean(raw),id=safeId(lessonId);
@@ -44,7 +44,7 @@
    missedCardIds:Object.freeze(missed.filter(x=>validCard.has(x))),
    updatedAt:Number.isFinite(at)&&at>=0?at:Date.now()
   });
-  return Object.freeze({schema:1,lastLesson:id,sessions:Object.freeze({...state.sessions,[id]:session})});
+  return Object.freeze({schema:1,lastLesson:id,globalCleanStreak:cleanRun?Math.min(999,state.globalCleanStreak+1):0,sessions:Object.freeze({...state.sessions,[id]:session})});
  };
  function suggest({history,reviewCards={},now=Date.now(),limit=3,nextLesson=null}={}){
   const state=clean(history),recent=state.lastLesson?state.sessions[state.lastLesson]:null;
@@ -68,7 +68,7 @@
   }).sort((a,b)=>b.score-a.score||cardIds.indexOf(a.id)-cardIds.indexOf(b.id));
   const cardLimit=Math.max(0,Math.min(6,integer(limit,6)));
   const recommended=ranked.slice(0,cardLimit).map(x=>x.id);
-  const cleanStreak=recent?.cleanRunStreak||0;
+  const cleanStreak=state.globalCleanStreak||0;
   return Object.freeze({
    version:1,lastLesson:state.lastLesson,lastMistakes:recent?.lastMistakes??null,
    lastQuestions:recent?.questions??null,cleanRunStreak:cleanStreak,
