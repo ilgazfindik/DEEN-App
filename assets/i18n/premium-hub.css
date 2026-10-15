@@ -1,0 +1,76 @@
+/* DEEN Premium hub — Midnight sapphire / emerald / champagne. */
+#profileScreenBody .deen-hub-profile{
+ position:relative;isolation:isolate;overflow:hidden;
+ margin:16px 0 20px;padding:19px 17px 17px;border-radius:23px;
+ border:1px solid rgba(237,207,144,.58);
+ background:
+  radial-gradient(ellipse at 100% 0,rgba(107,208,172,.2) 0,transparent 57%),
+  radial-gradient(ellipse at 0 110%,rgba(229,191,112,.1),transparent 52%),
+  linear-gradient(145deg,#102d38 5%,#0a222d 53%,#061821 100%);
+ color:#faf8ee;
+ box-shadow:0 15px 38px rgba(0,0,0,.25),inset 0 1px rgba(255,239,196,.13);
+ font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+#profileScreenBody .deen-hub-profile *{box-sizing:border-box}
+#profileScreenBody .deen-hub-profile .dh-halo{position:absolute;top:-40px;right:-6px;color:rgba(233,210,153,.17);font-size:170px;line-height:1;pointer-events:none;z-index:-1}
+#profileScreenBody .dh-topline{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#profileScreenBody .dh-crown{color:#f4d99f;font-size:19px;line-height:1}
+#profileScreenBody .dh-brand{color:#f4dbac;letter-spacing:2px;font-size:11px;font-weight:850}
+#profileScreenBody .dh-status{margin-inline-start:auto;padding:5px 7px;border:1px solid rgba(246,211,142,.36);border-radius:999px;color:#e9d3a1;background:rgba(230,191,110,.08);font-size:9px;font-weight:850;letter-spacing:.35px}
+#profileScreenBody .deen-hub-profile h2.dh-headline{margin:14px 0 8px;font-family:Georgia,"Iowan Old Style",serif;font-size:clamp(23px,6vw,30px);line-height:1.11;letter-spacing:-.3px;font-weight:700;color:#fff6df}
+#profileScreenBody .dh-summary{font-size:12px;line-height:1.58;color:#d0dcda;margin:0 0 10px}
+#profileScreenBody .dh-perks{color:#f6dcab;font-size:10px;line-height:1.5;font-weight:650;letter-spacing:.1px;margin:0 0 14px}
+#profileScreenBody .dh-profile-actions{display:grid;gap:8px}
+#profileScreenBody .dh-profile-actions button{
+ display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:45px;
+ font-family:inherit;font-size:13px;font-weight:850;border-radius:13px;padding:10px 13px;cursor:pointer;text-align:center;
+ text-transform:none;letter-spacing:0;
+}
+#profileScreenBody .dh-main{color:#062d31!important;-webkit-text-fill-color:#062d31!important;background:linear-gradient(145deg,#a3f5cf,#58dfb8 52%,#2eb8aa)!important;border:1px solid #f3dfb1!important;box-shadow:0 8px 23px rgba(48,214,176,.19)}
+#profileScreenBody .dh-compare{background:rgba(4,26,36,.6)!important;color:#f2dcae!important;-webkit-text-fill-color:#f2dcae!important;border:1px solid rgba(233,202,144,.43)!important}
+#profileScreenBody .deen-hub-profile.dh-is-active{border-color:rgba(101,237,190,.63)}
+#profileScreenBody .dh-profile-actions button:focus-visible,#v5Sheet .deen-hub-compare button:focus-visible{outline:3px solid #9df2d1;outline-offset:3px}
+#v5Sheet:has(.deen-hub-compare){border:1px solid rgba(230,195,130,.49);background:linear-gradient(180deg,#0c2631,#071821 78%);color:#f7f6ef}
+#v5Sheet:has(.deen-hub-compare) #v5SheetTitle{font-family:Georgia,serif;color:#f9e5b9}
+#v5Sheet .deen-hub-compare{
+ --dh-gold:#f3dbac;--dh-mint:#80e8cd;
+ margin:0 auto;max-width:470px;padding:0 1px 5px;
+ color:#edf7f1;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+ box-sizing:border-box;
+}
+#v5Sheet .deen-hub-compare *{box-sizing:border-box}
+#v5Sheet .dh-comp-orb{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin:12px auto 13px;border:1px solid rgba(238,205,144,.66);background:radial-gradient(circle at 42% 30%,rgba(224,196,124,.23),rgba(8,40,47,.78));color:#f6dda0;font-size:26px;box-shadow:0 0 32px rgba(216,181,95,.15)}
+#v5Sheet .dh-comp-eyebrow{text-align:center;margin:0 0 7px;font-size:10px;font-weight:850;letter-spacing:2px;color:#e7cb97}
+#v5Sheet .dh-comp-title{font-family:Georgia,"Iowan Old Style",serif;font-weight:730;font-size:clamp(24px,6.8vw,31px);line-height:1.14;text-align:center;color:#fff5db;margin:0 auto 11px;max-width:370px}
+#v5Sheet .dh-comp-desc{font-size:12px;line-height:1.6;text-align:center;color:#c9d7d3;margin:0 auto 18px;max-width:375px}
+#v5Sheet .dh-comp-table{overflow:hidden;border:1px solid rgba(166,213,201,.25);border-radius:15px;background:rgba(5,23,31,.66);margin:0 0 12px}
+#v5Sheet .dh-comp-header,#v5Sheet .dh-comp-row{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(57px,.65fr) minmax(73px,.72fr);align-items:center;gap:5px}
+#v5Sheet .dh-comp-header{background:rgba(26,73,78,.65);padding:11px 9px;color:#e4d09d;letter-spacing:.55px;font-size:9px;font-weight:850}
+#v5Sheet .dh-comp-row{border-top:1px solid rgba(145,189,185,.16);min-height:43px;padding:9px;font-size:11px;line-height:1.3}
+#v5Sheet .dh-comp-row:nth-child(even){background:rgba(29,72,71,.15)}
+#v5Sheet .dh-comp-name{font-weight:620;color:#e9f1ec}
+#v5Sheet .dh-comp-free,#v5Sheet .dh-comp-paid{font-weight:850;text-align:center}
+#v5Sheet .dh-comp-free{color:#bad1ca}
+#v5Sheet .dh-comp-paid{color:#f4dc9c}
+#v5Sheet .dh-comp-trust{text-align:center;border:1px solid rgba(103,211,172,.21);border-radius:12px;background:rgba(45,122,102,.13);font-size:11px;line-height:1.5;color:#b6edcf;padding:10px;margin:0 0 15px}
+#v5Sheet .dh-comp-actions{display:grid;gap:10px}
+#v5Sheet .dh-comp-primary,#v5Sheet .dh-comp-dismiss{
+ display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:48px;border-radius:14px;
+ padding:11px 13px;font-family:inherit;font-size:13px;font-weight:850;letter-spacing:0;text-transform:none;cursor:pointer;
+}
+#v5Sheet .dh-comp-primary{background:linear-gradient(160deg,#a1f1d2,#5fddbb 54%,#2eb6a6)!important;color:#082a30!important;-webkit-text-fill-color:#082a30!important;border:1px solid #f0d8a6!important;box-shadow:0 12px 24px rgba(35,197,166,.19)}
+#v5Sheet .dh-comp-dismiss{background:rgba(11,36,46,.75)!important;color:#f1dcae!important;-webkit-text-fill-color:#f1dcae!important;border:1px solid rgba(245,211,144,.35)!important}
+#v5Sheet .dh-comp-active,#v5Sheet .dh-comp-unavailable{border-radius:13px;text-align:center;padding:13px 9px;font-size:12px;font-weight:850;border:1px solid rgba(215,199,141,.37);color:#f4dbab;background:rgba(237,207,143,.07)}
+#v5Sheet .dh-comp-line{height:1px;margin:17px 0 13px;background:linear-gradient(90deg,transparent,rgba(239,203,144,.42),transparent)}
+#v5Sheet .dh-comp-support{font-size:11px;line-height:1.58;text-align:center;color:#e7e9d9;margin:0 0 7px}
+#v5Sheet .dh-comp-disclaimer{font-size:10px;line-height:1.55;text-align:center;color:#a4b9b7;margin:0}
+#v5Sheet .deen-hub-compare[dir="rtl"] .dh-comp-row,#v5Sheet .deen-hub-compare[dir="rtl"] .dh-comp-header{direction:rtl}
+@media(max-width:375px){
+ #profileScreenBody .deen-hub-profile{padding:16px 13px}
+ #v5Sheet .dh-comp-header,#v5Sheet .dh-comp-row{grid-template-columns:minmax(0,1.25fr) minmax(46px,.5fr) minmax(62px,.62fr);gap:3px}
+ #v5Sheet .dh-comp-header{padding:9px 6px;font-size:8px}
+ #v5Sheet .dh-comp-row{padding:8px 6px;font-size:10px}
+}
+@media(prefers-reduced-motion:no-preference){
+ #profileScreenBody .dh-main:active,#v5Sheet .dh-comp-primary:active{transform:scale(.985)}
+}

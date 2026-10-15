@@ -39,6 +39,7 @@ jobs:
           node scripts/test-global-locale.mjs
           node scripts/test-global-locale-chrome.cjs
           node scripts/test-premium-completion-chrome.cjs
+          node scripts/test-premium-hub-chrome.cjs
           node scripts/test-global-feedback-chrome.cjs
           node scripts/test-arabic-startup.cjs
           node scripts/test-arabic-interactions.cjs
