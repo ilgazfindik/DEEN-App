@@ -9,6 +9,11 @@
  if(!CURRICULUM||CURRICULUM.count!==28||CURRICULUM.lessonCount!==7)throw Error('DEEN_ARABIC_LETTERS_MISSING');
  const LETTERS=CURRICULUM.all;
  const LESSONS=CURRICULUM.lessons;
+ const PHONICS=window.DEEN_ARABIC_HARAKAT;
+ if(!PHONICS||PHONICS.lessonCount!==3)throw Error('DEEN_ARABIC_HARAKAT_MISSING');
+ const PHONIC_LESSONS=PHONICS.lessons;
+ const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS]);
+ const PHONICS_STORE='deen_arabic_harakat_v1';
  const PROGRESS_STORE='deen_arabic_foundations_v2';
  const legacyStore=STORE;
  const extra={
@@ -33,8 +38,15 @@
   ['de','Vokalzeichen, Silben und geprüfte Buchstaben-Audios folgen später.','Du erkennst diese Buchstaben. Weiter geht es mit der nächsten Gruppe.'],
   ['fr','Les voyelles, les syllabes et les sons vérifiés seront ajoutés par la suite.','Tu reconnais les lettres de ce groupe. Tu peux passer au suivant.']
  ]){extra[code].future=future;extra[code].completedDesc=finished}
+ const vowelUi={
+  tr:{vowelHeading:'Harekeler ve İlk Heceler',vowelSubtitle:'Üstün, esre ve ötreyi tanı. Be ve Te ile ilk heceleri oluştur.',vowelLesson:'Hareke Dersi',vowelReady:'Harfler tamamlandı · Başlayabilirsin',vowelLocked:'Önce 28 harfin 7 dersini tamamla',vowelProgress:'Hareke ilerlemesi',markTitle:'Üstün · Esre · Ötre',syllableTitle:'Heceleri Okuyalım',vowelStart:'Hareke Alıştırmasına Başla',syllableStart:'Hece Alıştırmasına Başla',vowelHelp:'Üstün kısa a, esre kısa i, ötre kısa u işaretidir.',syllableHelp:'Öğrendiğin harekeyi ب ve ت harflerinin üzerinde bul. Yazılıştaki küçük işarete dikkat et.',audioMissing:'Sesli telaffuz henüz hazır değil; doğrulanmış harf kayıtları eklenecek.',vowelComplete:'İlk 3 hareke ve hece dersini tamamladın!',vowelFinish:'Bu hareke dersini tamamladın. Sonraki adıma geçebilirsin.',phonicsLetters:'Hareke / Hece'},
+  en:{vowelHeading:'Vowels & First Syllables',vowelSubtitle:'Learn fatḥa, kasra and ḍamma, then read syllables using Bā and Tā.',vowelLesson:'Vowel Lesson',vowelReady:'Letters completed · Ready to learn',vowelLocked:'Complete all 7 letter lessons first',vowelProgress:'Vowel progress',markTitle:'Fatḥa · Kasra · Ḍamma',syllableTitle:'Read the Syllables',vowelStart:'Start Vowel Practice',syllableStart:'Start Syllable Practice',vowelHelp:'Fatḥa marks a short a, kasra a short i, and ḍamma a short u.',syllableHelp:'Find the vowel mark attached to ب or ت. Pay attention to the small sign.',audioMissing:'Verified pronunciation audio has not been added yet.',vowelComplete:'You completed the first 3 vowel and syllable lessons!',vowelFinish:'Vowel exercise completed. Continue to the next step.',phonicsLetters:'Vowels / Syllables'},
+  ar:{vowelHeading:'الحركات والمقاطع الأولى',vowelSubtitle:'تعرّف على الفتحة والكسرة والضمة، ثم اقرأ المقاطع بالباء والتاء.',vowelLesson:'درس الحركات',vowelReady:'أكملت الحروف · جاهز للتعلّم',vowelLocked:'أكمل دروس الحروف السبعة أولًا',vowelProgress:'تقدّم الحركات',markTitle:'الفتحة · الكسرة · الضمة',syllableTitle:'اقرأ المقاطع',vowelStart:'ابدأ تدريب الحركات',syllableStart:'ابدأ تدريب المقاطع',vowelHelp:'الفتحة لحركة a القصيرة، والكسرة لحركة i، والضمة لحركة u.',syllableHelp:'حدّد الحركة على الحرفين ب وت. انتبه للعلامة الصغيرة.',audioMissing:'لم تُضَف بعدُ تسجيلات النطق الموثوقة.',vowelComplete:'أكملت دروس الحركات والمقاطع الثلاثة!',vowelFinish:'أكملت تدريب الحركات. تابع الدرس التالي.',phonicsLetters:'الحركات والمقاطع'},
+  de:{vowelHeading:'Vokalzeichen & erste Silben',vowelSubtitle:'Lerne Fatha, Kasra und Damma. Lies dann Silben mit Bā und Tā.',vowelLesson:'Vokal-Lektion',vowelReady:'Buchstaben fertig · Bereit',vowelLocked:'Zuerst alle 7 Buchstabenlektionen abschließen',vowelProgress:'Fortschritt Vokalzeichen',markTitle:'Fatha · Kasra · Damma',syllableTitle:'Silben lesen',vowelStart:'Vokalzeichen üben',syllableStart:'Silben üben',vowelHelp:'Fatha steht für kurzes a, Kasra für i und Damma für u.',syllableHelp:'Finde das richtige Vokalzeichen auf ب oder ت.',audioMissing:'Geprüfte Ausspracheaufnahmen sind noch nicht verfügbar.',vowelComplete:'Alle 3 Vokal- und Silbenlektionen geschafft!',vowelFinish:'Vokalübung abgeschlossen. Weiter geht’s.',phonicsLetters:'Vokale / Silben'},
+  fr:{vowelHeading:'Voyelles & premières syllabes',vowelSubtitle:'Découvre fatḥa, kasra et ḍamma, puis lis des syllabes avec Bā et Tā.',vowelLesson:'Leçon de voyelles',vowelReady:'Lettres terminées · Prêt à apprendre',vowelLocked:'Termine d’abord les 7 leçons de lettres',vowelProgress:'Progression des voyelles',markTitle:'Fatḥa · Kasra · Ḍamma',syllableTitle:'Lire les syllabes',vowelStart:'Pratiquer les voyelles',syllableStart:'Pratiquer les syllabes',vowelHelp:'Fatḥa indique un a bref, kasra un i bref et ḍamma un u bref.',syllableHelp:'Reconnais la voyelle sur ب ou ت. Observe le petit signe.',audioMissing:'Les enregistrements de prononciation vérifiés ne sont pas encore disponibles.',vowelComplete:'Les 3 leçons de voyelles et syllabes sont terminées !',vowelFinish:'Exercice terminé. Passe à l’étape suivante.',phonicsLetters:'Voyelles / Syllabes'}
+ };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
- const t=()=>Object.assign({},i18n[lang()],extra[lang()]);
+ const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()]);
  const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
@@ -44,17 +56,38 @@
   return {schema:2,completed:[...new Set(completed)]};
  }catch(_){return {schema:2,completed:[]}}};
  const completed=()=>storage().completed;
+ const vowelStorage=()=>{
+  try{const v=JSON.parse(localStorage.getItem(PHONICS_STORE)||'null');
+   const valid=v&&Array.isArray(v.completed)?v.completed.filter(id=>PHONIC_LESSONS.some(item=>item.id===id)):[];
+   return {schema:1,completed:[...new Set(valid)]};
+  }catch(_){return {schema:1,completed:[]}}
+ };
+ const vowelCompleted=()=>vowelStorage().completed;
  const savedComplete=()=>completed().includes(LESSONS[0].id);
+ const group=()=>ALL_LESSONS[state.lessonIndex];
+ const groupLetters=()=>group().letters||group().items;
+ const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):vowelCompleted().includes(g.id);
+ const isUnlocked=i=>{
+  if(i===0)return true;
+  if(i<LESSONS.length)return completed().includes(LESSONS[i-1].id);
+  if(i===LESSONS.length)return completed().length===LESSONS.length;
+  if(i<ALL_LESSONS.length)return vowelCompleted().includes(ALL_LESSONS[i-1].id);
+  return false;
+ };
  function saveCompleted(){
-  const ids=completed(),id=LESSONS[state.lessonIndex].id;
+  const id=group().id;
+  if(group().kind!=='recognition'){
+   const ids=vowelCompleted();
+   if(!ids.includes(id))ids.push(id);
+   try{localStorage.setItem(PHONICS_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
+   return;
+  }
+  const ids=completed();
   if(!ids.includes(id))ids.push(id);
   try{localStorage.setItem(PROGRESS_STORE,JSON.stringify({schema:2,completed:ids,updatedAt:Date.now()}));
    if(state.lessonIndex===0)localStorage.setItem(legacyStore,JSON.stringify({completed:true,completedAt:Date.now(),schema:1}));
   }catch(_){}
  }
- const group=()=>LESSONS[state.lessonIndex];
- const groupLetters=()=>group().letters;
- const isUnlocked=i=>i===0||completed().includes(LESSONS[i-1].id);
  function root(){return document.getElementById('leagueScreenBody')}
  const letterLabel=item=>item.names?.[lang()]||item.names?.tr||item.glyph;
  const elem=(tag,className,text)=>{const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e};
