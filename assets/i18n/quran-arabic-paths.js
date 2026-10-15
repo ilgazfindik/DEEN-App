@@ -563,6 +563,7 @@
    c.masteryPracticed+' · '+mastery.practiced+' / '+mastery.total));
   box.append(masteryButton);
   box.append(foundationPanel());
+  box.append(checkpointPanel());
   const daily=dailySnapshot(),dailyButton=makeButton('','daily','deen-path-daily-teaser');
   dailyButton.append(elem('span','deen-path-daily-teaser-name',c.dailyOpen+' →'),
    elem('span','deen-path-daily-teaser-sub',c.dailyProgress+' · '+daily.completed+' / '+daily.total+
@@ -887,6 +888,7 @@
   }else if(plan.reviewQuota)tasks.append(elem('p','deen-path-daily-check','✓ '+c.dailyReview+' · '+c.dailyCompleted));
   if(plan.total===0||plan.completed===plan.total)tasks.append(elem('p','deen-path-daily-done','✓ '+c.dailyDone));
   box.append(tasks);
+  box.append(checkpointPanel());
   box.append(foundationPanel());
   box.append(adaptivePanel());
   box.append(elem('p','deen-path-muted deen-path-daily-note',c.dailyLocal),
@@ -1330,6 +1332,7 @@
    box.append(makeButton(c.patternCTA,'openPatterns','deen-path-primary'));
   if(state.lessonIndex<16)box.append(foundationPanel());
   else box.append(adaptivePanel());
+  if(checkpointEligible())box.append(checkpointPanel());
   box.append(makeButton(c.redo,'start','deen-path-primary'),makeButton('←  '+c.arabic,'arabic','deen-path-back'));
   return box;
  }
@@ -1402,7 +1405,7 @@
    container.querySelector('#deenQuranPathNav')?.after(returnBar);
   }else{
    const panel=elem('div','deen-path-view');panel.id='deenQuranPathView';
-   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='foundationReview'?foundationReviewView():state.view==='foundationDone'?foundationDoneView():state.view==='daily'?dailyView():state.view==='mastery'?masteryView():state.view==='group'?groupView():state.view==='lesson'?lessonView():state.view==='review'?reviewView():state.view==='reviewDone'?reviewDoneView():completedView());
+   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='checkpoint'?checkpointPanel():state.view==='checkpointQuestion'?checkpointQuestionView():state.view==='checkpointResults'?checkpointResultView():state.view==='foundationReview'?foundationReviewView():state.view==='foundationDone'?foundationDoneView():state.view==='daily'?dailyView():state.view==='mastery'?masteryView():state.view==='group'?groupView():state.view==='lesson'?lessonView():state.view==='review'?reviewView():state.view==='reviewDone'?reviewDoneView():completedView());
    container.querySelector('#deenQuranPathNav')?.after(panel);
   }
  }
@@ -1448,6 +1451,16 @@
    else if(action==='phrasePiece')phrasePiece(b.dataset.pieceIndex);
    else if(action==='resetPhrase')resetPhrase();
    else if(action==='openPhrases')selectGroup(PHRASES.startIndex);
+   else if(action==='checkpointOpen')show('checkpoint');
+   else if(action==='checkpointStart')checkpointStart();
+   else if(action==='checkpointResults'){state.checkpointResult=null;show('checkpointResults')}
+   else if(action==='checkpointAnswer')checkpointAnswer(b.dataset.itemId);
+   else if(action==='checkpointPiece')checkpointPiece(b.dataset.pieceIndex);
+   else if(action==='checkpointReset'){
+    if(state.view==='checkpointQuestion'&&state.checkpointFeedback===null){state.checkpointPieces=[];update()}
+   }
+   else if(action==='checkpointNext')checkpointNext();
+   else if(action==='checkpointTopic')selectGroup(b.dataset.lessonIndex);
    else if(action==='startFoundation')startFoundation();
    else if(action==='foundationAnswer')foundationAnswer(b.dataset.itemId);
    else if(action==='foundationPiece')foundationPiece(b.dataset.pieceIndex);
@@ -1476,5 +1489,5 @@
   });
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
- window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex),phraseCompletedLessons:phraseCompleted().length,phraseTotalLessons:PHRASE_LESSONS.length,phraseAvailable:isUnlocked(PHRASES.startIndex),reviewDue:reviewDue().length,reviewTracked:Object.keys(reviewRead()).length,reviewWeak:reviewWeak().length,foundation:foundationSnapshot(),adaptive:adaptiveSnapshot(),daily:dailySnapshot(),mastery:((s)=>({total:s.total,practiced:s.practiced,due:s.due,weak:s.weak,levels:s.levels,lessonCompleted:s.lessonCompleted,lessonTotal:s.lessonTotal}))(masterySnapshot()),patternCompletedLessons:patternCompleted().length,patternTotalLessons:PATTERN_LESSONS.length,patternAvailable:isUnlocked(PATTERNS.startIndex)}),version:'quran-arabic-paths-phase13'});
+ window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex),phraseCompletedLessons:phraseCompleted().length,phraseTotalLessons:PHRASE_LESSONS.length,phraseAvailable:isUnlocked(PHRASES.startIndex),reviewDue:reviewDue().length,reviewTracked:Object.keys(reviewRead()).length,reviewWeak:reviewWeak().length,checkpoint:{eligible:checkpointEligible(),completedWritten:writtenCompletedCount(),last:checkpointLatest(),attemptCount:checkpointRead().attempts.length},foundation:foundationSnapshot(),adaptive:adaptiveSnapshot(),daily:dailySnapshot(),mastery:((s)=>({total:s.total,practiced:s.practiced,due:s.due,weak:s.weak,levels:s.levels,lessonCompleted:s.lessonCompleted,lessonTotal:s.lessonTotal}))(masterySnapshot()),patternCompletedLessons:patternCompleted().length,patternTotalLessons:PATTERN_LESSONS.length,patternAvailable:isUnlocked(PATTERNS.startIndex)}),version:'quran-arabic-paths-phase14'});
 })();
