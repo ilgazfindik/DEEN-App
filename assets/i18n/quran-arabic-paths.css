@@ -667,3 +667,86 @@
 #leagueScreenBody .deen-path-remedy-trend-topic>span:last-child{
  white-space:nowrap;font-variant-numeric:tabular-nums;color:#66e9d2
 }
+
+/* Phase 16 — seven-day Arabic written-learning activity. No fabricated study minutes. */
+#leagueScreenBody .deen-path-weekly-link{
+ display:block;box-sizing:border-box;width:100%;text-align:start;
+ min-height:52px;margin:12px 0 17px;padding:14px 16px;
+ border:1px solid rgba(126,223,208,.54);border-radius:15px;
+ background:linear-gradient(135deg,#214b48,#193e4a);
+ color:#d0fff0;font-size:15px;font-weight:780;line-height:1.5;cursor:pointer
+}
+#leagueScreenBody .deen-path-weekly-link:focus-visible{outline:3px solid #ffe4ad;outline-offset:3px}
+#leagueScreenBody .deen-path-weekly-screen{max-width:670px;margin:0 auto;padding-bottom:35px}
+#leagueScreenBody .deen-path-weekly-screen>.deen-path-muted{line-height:1.65}
+#leagueScreenBody .deen-path-weekly-metrics{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:11px;margin:18px 0
+}
+#leagueScreenBody .deen-path-weekly-stat{
+ min-width:0;min-height:94px;box-sizing:border-box;
+ display:flex;flex-direction:column;justify-content:center;gap:7px;
+ padding:13px;border:1px solid rgba(126,210,200,.35);
+ border-radius:15px;background:linear-gradient(150deg,#214650,#173641)
+}
+#leagueScreenBody .deen-path-weekly-stat>strong{
+ font-variant-numeric:tabular-nums;color:#5ff1d4;font-size:clamp(26px,7vw,34px);font-weight:860
+}
+#leagueScreenBody .deen-path-weekly-stat>span{
+ color:#e3efeb;font-size:12px;line-height:1.5
+}
+#leagueScreenBody .deen-path-weekly-history,
+#leagueScreenBody .deen-path-weekly-exams{
+ padding:17px 12px;margin:17px 0;border:1px solid rgba(124,206,193,.37);
+ border-radius:16px;background:#143540
+}
+#leagueScreenBody .deen-path-weekly-history>.deen-path-shape-subtitle,
+#leagueScreenBody .deen-path-weekly-exams>.deen-path-shape-subtitle{
+ font-size:17px;margin:0 0 13px;color:#f2f7ea
+}
+#leagueScreenBody .deen-path-weekly-days{
+ display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;
+ align-items:end;min-height:176px;padding:4px 0
+}
+#leagueScreenBody .deen-path-weekly-day{
+ min-width:0;display:flex;align-items:center;flex-direction:column;gap:5px;
+ color:#d9ede9
+}
+#leagueScreenBody .deen-path-weekly-count{
+ font-variant-numeric:tabular-nums;font-size:12px;color:#e9f9f3
+}
+#leagueScreenBody .deen-path-weekly-bar{
+ width:100%;max-width:42px;height:104px;box-sizing:border-box;
+ display:flex;align-items:flex-end;justify-content:center;
+ padding:0 3px;border-radius:9px;background:#20444d;overflow:hidden
+}
+#leagueScreenBody .deen-path-weekly-bar-fill{
+ display:block;width:100%;min-height:0;border-radius:6px 6px 0 0;
+ background:linear-gradient(180deg,#72f9df,#32bcac)
+}
+#leagueScreenBody .deen-path-weekly-day.is-today .deen-path-weekly-bar{outline:1px solid #f1d9a1;outline-offset:2px}
+#leagueScreenBody .deen-path-weekly-daylabel{font-size:10px;color:#ecf5ec;white-space:nowrap}
+#leagueScreenBody .deen-path-weekly-daydate{font-size:10px;color:#a4c9bf}
+#leagueScreenBody .deen-path-weekly-history>.deen-path-muted{
+ margin:15px 2px 2px;font-size:12px;line-height:1.6
+}
+#leagueScreenBody .deen-path-weekly-examrow{
+ display:flex;align-items:center;justify-content:space-between;
+ padding:11px 0;border-bottom:1px solid rgba(161,205,193,.24);
+ color:#e9f2ed;font-size:14px;gap:12px
+}
+#leagueScreenBody .deen-path-weekly-examrow>strong{
+ font-variant-numeric:tabular-nums;color:#53f1ce;font-size:17px
+}
+#leagueScreenBody .deen-path-weekly-delta{
+ margin:14px 0 0;font-size:15px;font-weight:780;color:#e8efe9;
+ font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-weekly-delta.is-up{color:#6cf4cf}
+#leagueScreenBody .deen-path-weekly-delta.is-down{color:#ffcf96}
+#leagueScreenBody .deen-path-weekly-note{font-size:12px;line-height:1.65}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-weekly-days{gap:4px}
+ #leagueScreenBody .deen-path-weekly-daylabel{font-size:9px}
+ #leagueScreenBody .deen-path-weekly-bar{padding:0 2px}
+}
