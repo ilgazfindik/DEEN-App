@@ -985,7 +985,13 @@
  function reviewNext(){
   if(state.view!=='review'||!state.correct)return;
   state.reviewIndex++;state.correct=false;state.feedback='';
-  if(state.reviewIndex>=state.reviewQueue.length)show('reviewDone');
+  if(state.reviewIndex>=state.reviewQueue.length){
+   if(state.reviewMode==='adaptive'){
+    const next=ADAPTIVE.recordFocus(adaptiveHistory(),state.reviewQueue.map(x=>x.id));
+    try{localStorage.setItem(ADAPTIVE_STORE,JSON.stringify(next))}catch(_){}
+   }
+   show('reviewDone');
+  }
   else update();
  }
  function reviewDoneView(){
