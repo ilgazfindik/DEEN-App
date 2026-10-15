@@ -93,6 +93,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    await page.locator('.deen-path-meaning-item[data-lesson-index="18"]').click();
    await page.locator('[data-qpath-action="start"]').click();
    assert.ok((await page.locator('.deen-path-meaning-hint').innerText()).length>1);
+   await page.locator('[data-qpath-action="group"]').click();
    await page.locator('[data-qpath-action="arabic"]').click();
   }
   await page.locator('[data-qpath-action="home"]').click();
