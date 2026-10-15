@@ -26,8 +26,8 @@
   freeze({id:'ikhlas-2',glyph:'ٱللَّهُ ٱلصَّمَدُ',reference:'112:2',parts:freeze(['ٱللَّهُ','ٱلصَّمَدُ']),meaning:freeze({
    tr:'Allah, Samed’dir.',en:'Allah, the Eternal Refuge.',de:'Allah, der Unabhängige, auf den alle angewiesen sind.',fr:'Allah, Celui dont tous dépendent.',ar:'الله الصمد الذي يُقصد في الحوائج.'
   })}),
-  freeze({id:'fatiha-1',glyph:'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',reference:'1:1',
-   parts:freeze(['بِسْمِ','ٱللَّهِ','ٱلرَّحْمَٰنِ','ٱلرَّحِيمِ']),meaning:freeze({
+  freeze({id:'fatiha-1',glyph:'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ',reference:'1:1',
+   parts:freeze(['بِسْمِ','ٱللَّهِ','ٱلرَّحْمَـٰنِ','ٱلرَّحِيمِ']),meaning:freeze({
     tr:'Rahmân ve Rahîm olan Allah’ın adıyla.',en:'In the name of Allah, the Most Compassionate, the Most Merciful.',
     de:'Im Namen Allahs, des Allerbarmers, des Barmherzigen.',
     fr:'Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux.',
