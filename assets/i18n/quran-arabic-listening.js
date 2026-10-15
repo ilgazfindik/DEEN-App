@@ -21,27 +21,32 @@
  // Deliberately fail-closed. Update entries only after independent checks,
  // and store review evidence alongside each reviewed recording.
  const records=Object.freeze(Object.fromEntries(ids.map(id=>[id,Object.freeze({
-  state:'pending-review',file:null,sha256:null,reciter:null,
+  state:'pending-review',file:null,sha256:null,reciter:null,auditedText:null,
   rights:{state:'unverified',evidence:null},
   pronunciation:{state:'pending',reviewRef:null}
  })])));
- const safe=(record)=>{
+ const safe=(record,expectedGlyph)=>{
   if(!record||record.state!=='approved'||typeof record.file!=='string')return false;
   if(!/^assets\/quran\/audio\/arabic-learning\/[a-z0-9][a-z0-9/_-]*\.mp3$/.test(record.file))return false;
   if(!/^[a-f0-9]{64}$/.test(String(record.sha256||'')))return false;
   if(typeof record.reciter!=='string'||record.reciter.trim().length<3)return false;
+  if(typeof expectedGlyph!=='string'||record.auditedText!==expectedGlyph)return false;
   if(record.rights?.state!=='approved'||typeof record.rights.evidence!=='string'||record.rights.evidence.trim().length<8)return false;
   if(record.pronunciation?.state!=='approved'||typeof record.pronunciation.reviewRef!=='string'||record.pronunciation.reviewRef.trim().length<8)return false;
   return true;
  };
- const clipReady=id=>ids.includes(id)&&safe(records[id]);
+ const clipReady=id=>{
+  const item=lessons.flatMap(x=>x.items).find(x=>x.clipId===id);
+  return !!item&&safe(records[id],item.glyph);
+ };
  const lessonReady=id=>{
   const lesson=lessons.find(x=>x.id===id);
   return !!lesson&&lesson.items.every(x=>clipReady(x.clipId));
  };
- let audio=null,blobUrl=null,controller=null,seq=0;
+ let audio=null,blobUrl=null,controller=null,settle=null,seq=0;
  function stop(){
   seq++;
+  if(settle){const resolve=settle;settle=null;resolve(false)}
   if(controller){controller.abort();controller=null}
   if(audio){audio.pause();audio.removeAttribute('src');audio.load();audio=null}
   if(blobUrl){URL.revokeObjectURL(blobUrl);blobUrl=null}
@@ -67,10 +72,20 @@
    if(turn!==seq){URL.revokeObjectURL(objectUrl);return false}
    blobUrl=objectUrl;
    audio=new Audio(objectUrl);audio.preload='none';audio.volume=1;
-   audio.addEventListener('ended',()=>{if(turn===seq)stop()},{once:true});
-   await audio.play();
-   if(turn!==seq){stop();return false}
-   return true;
+   const playing=audio;
+   const finished=new Promise(resolve=>{
+    settle=resolve;
+    playing.addEventListener('ended',()=>{
+     if(turn!==seq)return;
+     const complete=settle;settle=null;if(complete)complete(true);
+     stop();
+    },{once:true});
+    playing.addEventListener('error',()=>{if(turn===seq)stop()},{once:true});
+   });
+   await playing.play();
+   if(turn!==seq)return false;
+   // Learner cannot choose until the reviewed clip has finished playing.
+   return await finished;
   }catch(_){if(turn===seq)stop();return false}
   finally{if(turn===seq)controller=null}
  }
