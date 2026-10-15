@@ -30,6 +30,10 @@
  const PATTERNS=window.DEEN_ARABIC_PATTERNS;
  if(!PATTERNS||PATTERNS.startIndex!==24||PATTERNS.lessonCount!==3)throw Error('DEEN_ARABIC_PATTERNS_MISSING');
  const PATTERN_LESSONS=PATTERNS.lessons;
+ const DAILY=window.DEEN_ARABIC_DAILY;
+ if(!DAILY||DAILY.version!==1)throw Error('DEEN_ARABIC_DAILY_MISSING');
+ const DAILY_ACTIVITY_STORE='deen_arabic_daily_activity_v1';
+ const DAILY_SETTINGS_STORE='deen_arabic_daily_settings_v1';
  const MASTERY=window.DEEN_ARABIC_MASTERY;
  if(!MASTERY||MASTERY.version!==1)throw Error('DEEN_ARABIC_MASTERY_MISSING');
  const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS,...PHRASE_LESSONS,...PATTERN_LESSONS]);
@@ -124,7 +128,7 @@
   fr:{"masteryHeading":"Ma progression en arabe","masteryIntro":"Vue fondée sur les leçons écrites et les révisions.","masteryOpen":"Voir ma progression","masteryBack":"Retour aux leçons","masteryPracticed":"Cartes étudiées","masteryWritten":"Leçons écrites terminées","masteryDue":"Révisions dues","masteryWeak":"Cartes avec erreurs","masteryStages":"Étapes de révision","masteryNotStarted":"Non étudiées","masteryNeedsPractice":"À retravailler","masteryLearning":"En apprentissage","masteryStrengthening":"En consolidation","masteryLevelsNote":"Les étapes décrivent l’entraînement, pas la maîtrise orale ni la prononciation.","masteryGroupPhraseVocab":"Vocabulaire","masteryGroupPhrases":"Expressions courtes","masteryGroupPatternVocab":"Nouveaux mots","masteryGroupPatterns":"Structures coraniques","masteryGroupHeading":"Progression par sujet","masteryCardsTitle":"Cartes de mots et d’expressions","masteryFilterAll":"Toutes","masteryFilterDue":"À revoir","masteryFilterWeak":"Difficiles","masteryFilterNew":"Nouvelles","masteryEmpty":"Aucune carte dans cette sélection.","masteryAttempts":"Essais","masteryMistakes":"Erreurs","masteryNext":"Prochaine révision","masteryNextNone":"Non programmée","masteryNow":"Maintenant","masteryPracticeDue":"Réviser les cartes dues","masteryPracticeWeak":"Revoir mes difficultés","masteryContinue":"Continuer les leçons","masteryNotUnlocked":"Termine les leçons précédentes pour débloquer la suite.","masteryPrivacy":"Cet indicateur n’atteste ni récitation ni maîtrise du tajwid.","masteryLocalOnly":"Données de cet appareil uniquement, sans synchronisation automatique."}
  };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
- const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()],masteryUi[lang()]);
+ const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()],masteryUi[lang()],DAILY.ui[lang()]);
  const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,masteryFilter:'all'};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
@@ -201,12 +205,39 @@
   if(!REVIEW_IDS.includes(id))return;
   const cards=reviewRead(),prev=cards[id]||null;
   const next=PHRASES.schedule(prev,correct);
+  if(correct)dailyMark('review',id);
   cards[id]={...next,mistakes:Math.min(999,Math.max(0,prev?.mistakes||0)+(correct?0:1)),attempts:Math.min(9999,Math.max(0,prev?.attempts||0)+1)};
   try{localStorage.setItem(REVIEW_STORE,JSON.stringify({schema:1,cards,updatedAt:Date.now()}))}catch(_){}
  }
  const writtenCompletedCount=()=>completed().length+vowelCompleted().length+readingCompleted().length+
   wordCompleted().length+meaningCompleted().length+phraseCompleted().length+patternCompleted().length;
  const masterySnapshot=()=>MASTERY.analyze({cards:reviewRead()},writtenCompletedCount(),ALL_LESSONS.length-LISTENING_LESSONS.length);
+ const dailyMinutes=()=>{
+  try{return DAILY.safeMinutes(JSON.parse(localStorage.getItem(DAILY_SETTINGS_STORE)||'null')?.minutes)}
+  catch(_){return 10}
+ };
+ const dailyActivity=()=>{
+  let raw=null;try{raw=JSON.parse(localStorage.getItem(DAILY_ACTIVITY_STORE)||'null')}catch(_){}
+  return DAILY.normalizeActivity(raw);
+ };
+ const dailyLessons=()=>ALL_LESSONS.filter(x=>!LISTENING_LESSONS.includes(x)).map(x=>({
+  id:x.id,index:x.index,unlocked:isUnlocked(x.index),completed:lessonIsDone(x)
+ }));
+ const dailySnapshot=()=>DAILY.suggest({
+  minutes:dailyMinutes(),activity:dailyActivity(),lessons:dailyLessons(),
+  due:reviewDue().map(c=>c.id),weak:reviewWeak().map(c=>c.id)
+ });
+ function dailyMark(type,id){
+  if(type==='lesson'&&!ALL_LESSONS.some(x=>x.id===id&&!LISTENING_LESSONS.includes(x)))return;
+  if(type==='review'&&!REVIEW_IDS.includes(id))return;
+  const next=DAILY.mark(dailyActivity(),type,id);
+  try{localStorage.setItem(DAILY_ACTIVITY_STORE,JSON.stringify(next))}catch(_){}
+ }
+ function setDailyMinutes(value){
+  const num=Number(value);if(!DAILY.allowedMinutes.includes(num))return false;
+  try{localStorage.setItem(DAILY_SETTINGS_STORE,JSON.stringify({schema:1,minutes:num}))}catch(_){}
+  return true;
+ }
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
  const groupLetters=()=>group().letters||group().items;
