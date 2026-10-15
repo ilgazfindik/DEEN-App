@@ -38,7 +38,7 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  await page.locator('[data-qpath-action="arabic"]').click();
  assert.equal(await page.locator('.deen-path-course-grid .deen-path-course-item').count(),7);
  assert.equal(await page.locator('.deen-path-course-grid .deen-path-course-item:disabled').count(),6,'Only first letter lesson unlocked');
- assert.match(await page.locator('.deen-path-progress-copy').innerText(),/0 \/ 7/);
+ assert.match(await page.locator('.deen-path-arabic-landing > .deen-path-progress-copy').innerText(),/0 \/ 7/);
  await page.locator('.deen-path-atlas-details summary').click();
  assert.equal(await page.locator('.deen-path-atlas-details .deen-path-shape-entry').count(),28);
  assert.equal(await page.locator('.deen-path-shape-entry[data-letter-id="alif"] .is-unjoined').count(),1);
