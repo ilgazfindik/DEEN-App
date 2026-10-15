@@ -78,7 +78,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await demo.goto('http://127.0.0.1:'+server.address().port);
   await demo.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
   await demo.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
-  for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js'])
+  for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js'])
    await demo.addScriptTag({path:path.join(root,'assets/i18n',name)});
   await demo.evaluate(()=>{
    const actual=window.DEEN_ARABIC_LISTENING;
