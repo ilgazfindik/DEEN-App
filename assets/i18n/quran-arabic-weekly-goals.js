@@ -80,8 +80,9 @@
  function cleanAwards(raw){
   const weeks=Object.create(null),source=raw?.schema===1&&raw.weeks&&typeof raw.weeks==='object'?raw.weeks:{};
   for(const week of Object.keys(source).filter(k=>/^\d{4}-\d{2}-\d{2}$/.test(k)).sort().slice(-16)){
-   const entry=source[week];if(!entry||!Array.isArray(entry.ids))continue;
-   weeks[week]=Object.freeze(unique(entry.ids).filter(id=>tiers.some(t=>t.id===id)));
+   const entry=source[week],ids=Array.isArray(entry)?entry:entry?.ids;
+   if(!Array.isArray(ids))continue;
+   weeks[week]=Object.freeze(unique(ids).filter(id=>tiers.some(t=>t.id===id)));
   }
   return Object.freeze({schema:1,weeks:Object.freeze(weeks)});
  }
