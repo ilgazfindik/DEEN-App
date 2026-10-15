@@ -12,7 +12,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.goto('http://127.0.0.1:'+server.address().port);
   await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
-  const boot=['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-remediation.js','quran-arabic-paths.js'];
+  const boot=['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-remediation.js','quran-arabic-weekly.js','quran-arabic-paths.js'];
   for(const file of boot)await page.addScriptTag({path:path.join(root,'assets/i18n',file)});
   const pure=await page.evaluate(()=>{
    const E=DEEN_ARABIC_CHECKPOINT,R=DEEN_ARABIC_REMEDIATION,questions=E.build(0);
@@ -28,7 +28,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     delta:trend.delta,topicDeltas:trend.topics.map(t=>t.delta),changed:changed.key!==plan.key,
     empty:R.plan(null).key};
   });
-  assert.equal(pure.version,'quran-arabic-paths-phase15');assert.equal(pure.total,27);
+  assert.equal(pure.version,'quran-arabic-paths-phase16');assert.equal(pure.total,27);
   assert.equal(pure.topicCount,5);assert.equal(pure.questions.length,10);
   assert.deepEqual(pure.questions.reduce((o,x)=>({...o,[x.domain]:(o[x.domain]||0)+1}),{}),
    {letters:2,vowels:2,reading:2,words:2,meaning:2});
