@@ -607,3 +607,63 @@
 #leagueScreenBody .deen-path-checkpoint-topic>button{grid-column:1/-1;min-height:44px;border-radius:12px;padding:7px 10px}
 #leagueScreenBody .deen-path-checkpoint-results>.deen-path-primary{width:100%;min-height:50px;border-radius:13px}
 #leagueScreenBody .deen-path-checkpoint-note{font-size:12px;line-height:1.75}
+
+/* Phase 15: resumeable missed-question plan and written checkpoint trend */
+#leagueScreenBody .deen-path-remedy-section{
+ margin:15px 0 18px;padding:17px 14px;
+ border:1px solid rgba(232,184,123,.58);border-radius:17px;
+ background:radial-gradient(ellipse at 95% 0,rgba(223,174,95,.13),transparent 60%),#1b3440
+}
+#leagueScreenBody .deen-path-remedy-section>.deen-path-shape-subtitle{
+ color:#ffe4b2;font-size:17px;margin:0 0 8px
+}
+#leagueScreenBody .deen-path-remedy-section>.deen-path-muted{
+ margin:9px 0 12px;line-height:1.65;font-size:12px
+}
+#leagueScreenBody .deen-path-remedy-count{
+ color:#4df1d4;font-size:15px;font-weight:820;margin:15px 0 8px;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-remedy-topic{
+ display:flex;align-items:center;justify-content:space-between;gap:12px;
+ border-bottom:1px solid rgba(185,213,211,.16);padding:11px 0
+}
+#leagueScreenBody .deen-path-remedy-topic>strong{font-size:13px;color:#f7e6c4}
+#leagueScreenBody .deen-path-remedy-topic>span{font-size:13px;color:#65ecca;font-variant-numeric:tabular-nums}
+#leagueScreenBody .deen-path-remedy-section>button{
+ width:100%;box-sizing:border-box;min-height:49px;margin:13px 0 2px;
+ padding:10px 12px;border-radius:14px;font-size:14px;font-weight:760;white-space:normal
+}
+#leagueScreenBody .deen-path-remedy-section>.deen-path-secondary{
+ background:#24464c;color:#f6f5ea;border:1px solid rgba(245,205,150,.52)
+}
+#leagueScreenBody .deen-path-remedy-finished{color:#63edc6;font-size:14px;font-weight:740}
+#leagueScreenBody .deen-path-remedy-landing,
+#leagueScreenBody .deen-path-remedy-question,
+#leagueScreenBody .deen-path-remedy-finished-screen{max-width:670px;margin:0 auto;padding-bottom:28px}
+#leagueScreenBody .deen-path-remedy-question .deen-path-checkpoint-hint{margin:13px 0 18px}
+#leagueScreenBody .deen-path-remedy-question .deen-path-options{margin-bottom:16px}
+#leagueScreenBody .deen-path-remedy-question .deen-path-option{min-height:64px;font-size:clamp(24px,6vw,33px)}
+#leagueScreenBody .deen-path-remedy-question .deen-path-word-built{
+ min-height:65px;padding:12px 8px;border:1px solid #4fb9a5;
+ border-radius:13px;background:#18434a;font-size:30px;text-align:center
+}
+#leagueScreenBody .deen-path-remedy-reset{min-height:44px}
+#leagueScreenBody .deen-path-remedy-trend{
+ border:1px solid rgba(136,206,186,.34);background:#14343c;
+ border-radius:16px;padding:16px 13px;margin:16px 0
+}
+#leagueScreenBody .deen-path-remedy-trend .deen-path-shape-subtitle{font-size:16px}
+#leagueScreenBody .deen-path-remedy-delta{
+ font-size:14px;color:#f3f0e1;font-weight:780;line-height:1.6;
+ overflow-wrap:anywhere;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-remedy-delta.is-up{color:#60eec7}
+#leagueScreenBody .deen-path-remedy-delta.is-down{color:#ffd099}
+#leagueScreenBody .deen-path-remedy-trend-topic{
+ display:flex;justify-content:space-between;gap:8px;
+ border-bottom:1px solid rgba(158,198,193,.2);padding:9px 0;
+ font-size:12px;line-height:1.5;color:#e3e9e6
+}
+#leagueScreenBody .deen-path-remedy-trend-topic>span:last-child{
+ white-space:nowrap;font-variant-numeric:tabular-nums;color:#66e9d2
+}

@@ -12,7 +12,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.goto('http://127.0.0.1:'+server.address().port);
   await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
-  for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-paths.js'])
+  for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-remediation.js','quran-arabic-paths.js'])
    await page.addScriptTag({path:path.join(root,'assets/i18n',name)});
   const info=await page.evaluate(()=>{
    const F=DEEN_ARABIC_FOUNDATION_REVIEW;
@@ -28,7 +28,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     catalog:F.catalog.length,counts,wrong:wrong.cards[letter.id],correct:correct.cards[letter.id],
     suggested:summary.ids,focused:delayed.ids,tomorrow:tomorrow.ids,locked:off.ids};
   });
-  assert.equal(info.version,'quran-arabic-paths-phase14');assert.equal(info.total,27);assert.equal(info.catalog,55);
+  assert.equal(info.version,'quran-arabic-paths-phase15');assert.equal(info.total,27);assert.equal(info.catalog,55);
   assert.deepEqual(info.counts,[{kind:'letters',count:28},{kind:'vowels',count:9},{kind:'reading',count:9},{kind:'words',count:9}]);
   assert.equal(info.wrong.dueAt,1600000);
   assert.equal(info.correct.dueAt,1000100+86400000);
