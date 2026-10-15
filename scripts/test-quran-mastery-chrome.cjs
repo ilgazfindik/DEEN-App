@@ -12,7 +12,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.goto('http://127.0.0.1:'+server.address().port);
   await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
-  for(const file of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-paths.js'])
+  for(const file of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-paths.js'])
    await page.addScriptTag({path:path.join(root,'assets/i18n',file)});
   const info=await page.evaluate(()=>{
    const module=DEEN_ARABIC_MASTERY;
@@ -29,7 +29,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     total:s.total,practiced:s.practiced,due:s.due,weak:s.weak,levels:s.levels,lessonCompleted:s.lessonCompleted,
     nextDueAt:s.nextDueAt,topic:s.groupSummary[0],known:module.analyze({cards:{malformed:{step:100}}},0,25,now).practiced};
   });
-  assert.equal(info.version,'quran-arabic-paths-phase12');
+  assert.equal(info.version,'quran-arabic-paths-phase13');
   assert.equal(info.overall,27);
   assert.equal(info.ids,15);assert.deepEqual(info.groups,[4,3,4,4]);
   assert.equal(info.unchanged,true);
