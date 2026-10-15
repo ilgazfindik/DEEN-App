@@ -422,3 +422,55 @@
  #leagueScreenBody .deen-path-mastery-card{grid-template-columns:minmax(66px,32%) 1fr;gap:7px}
  #leagueScreenBody .deen-path-mastery-word{font-size:23px}
 }
+
+/* Phase 11 — daily Arabic learning plan */
+#leagueScreenBody .deen-path-daily-teaser{
+ display:flex;flex-direction:column;gap:7px;width:100%;text-align:start;box-sizing:border-box;
+ margin:12px 0 18px;padding:16px;border:1px solid rgba(235,198,119,.63);
+ border-radius:17px;background:linear-gradient(135deg,#244340,#173043);
+ color:#fbfcf8;cursor:pointer
+}
+#leagueScreenBody .deen-path-daily-teaser-name{font-size:17px;font-weight:780;color:#ffdf97}
+#leagueScreenBody .deen-path-daily-teaser-sub{font-size:12px;line-height:1.55;color:#e3efed}
+#leagueScreenBody .deen-path-daily-screen{max-width:670px;margin:0 auto;padding-bottom:32px}
+#leagueScreenBody .deen-path-daily-screen>.deen-path-muted{line-height:1.65}
+#leagueScreenBody .deen-path-daily-setting,
+#leagueScreenBody .deen-path-daily-progress,
+#leagueScreenBody .deen-path-daily-tasks{
+ margin:15px 0;padding:17px 14px;border-radius:17px;
+ border:1px solid rgba(132,214,201,.33);background:#15313e
+}
+#leagueScreenBody .deen-path-daily-screen .deen-path-shape-subtitle{
+ margin:0 0 13px;font-size:17px;color:#eff8f5
+}
+#leagueScreenBody .deen-path-daily-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#leagueScreenBody .deen-path-daily-choice{
+ min-width:0;min-height:46px;border-radius:12px;
+ border:1px solid rgba(172,219,206,.38);background:#203f4d;color:#eafbf6;
+ cursor:pointer;font-size:14px;font-weight:750;padding:7px 5px
+}
+#leagueScreenBody .deen-path-daily-choice.is-selected{
+ background:#31efcf;color:#0c2f35;border-color:#31efcf
+}
+#leagueScreenBody .deen-path-daily-choice:focus-visible,
+#leagueScreenBody .deen-path-daily-teaser:focus-visible{outline:3px solid #ffe3a9;outline-offset:3px}
+#leagueScreenBody .deen-path-daily-setting>.deen-path-muted{margin:12px 0 0;font-size:12px;line-height:1.6}
+#leagueScreenBody .deen-path-daily-score{
+ font-size:34px;font-weight:850;color:#4af3d3;margin:6px 0 15px;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-daily-breakdown{display:flex;flex-wrap:wrap;gap:10px 18px;margin:11px 0 0;font-size:13px;color:#dbe9e6}
+#leagueScreenBody .deen-path-daily-tasks>button{
+ display:block;box-sizing:border-box;width:100%;min-height:52px;
+ margin:10px 0;padding:11px 10px;border-radius:13px;
+ font-size:14px;font-weight:740;white-space:normal;text-align:center
+}
+#leagueScreenBody .deen-path-daily-tasks>.deen-path-secondary{
+ background:#25434b;border:1px solid #b3d3ca;color:#f7fffd
+}
+#leagueScreenBody .deen-path-daily-check{font-size:14px;color:#65eacc;font-weight:730;line-height:1.5}
+#leagueScreenBody .deen-path-daily-done{font-size:15px;color:#ffe3a1;font-weight:810;line-height:1.6}
+#leagueScreenBody .deen-path-daily-note{font-size:12px;line-height:1.65;color:#c6d7d5}
+@media(max-width:345px){
+ #leagueScreenBody .deen-path-daily-choices{gap:5px}
+ #leagueScreenBody .deen-path-daily-choice{font-size:12px}
+}
