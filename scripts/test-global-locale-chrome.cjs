@@ -104,7 +104,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     await page.locator('#deenAdminPanelV2 .deen-admin-close').click();
     assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),false,'Admin dialog must close');
     // Profile Premium offer is above statistics and is the only profile paywall entry.
-    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_HUB?.version),'premium-profile-hub-v1');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_HUB?.version),'premium-profile-hub-v2');
     await page.evaluate(()=>navigate('profileScreen'));
     await page.locator('#profileScreenBody .deen-hub-profile').waitFor();
     assert.equal(await page.locator('#profileScreenBody .deen-hub-profile').count(),1,'Exactly one premium hero');
