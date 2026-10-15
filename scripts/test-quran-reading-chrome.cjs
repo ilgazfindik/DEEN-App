@@ -11,10 +11,10 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  await page.goto('http://127.0.0.1:'+server.address().port);
  await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
  await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
- for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-paths.js']){
+ for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-paths.js']){
   await page.addScriptTag({path:path.join(root,'assets/i18n',name)});
  }
- assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.version),'quran-arabic-paths-phase12');
+ assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.version),'quran-arabic-paths-phase13');
  const content=await page.evaluate(()=>({
   data:DEEN_ARABIC_READING.lessons.map(x=>({id:x.id,index:x.index,kind:x.kind,items:x.items.map(y=>({id:y.id,glyph:y.glyph}))})),
   audio:DEEN_ARABIC_READING.audioStatus
