@@ -13,7 +13,7 @@
 #deenPremiumOffer .dp-features{padding:0;margin:0 0 20px;list-style:none;display:grid;gap:9px}
 #deenPremiumOffer .dp-features li{display:flex;align-items:center;gap:11px;min-height:46px;border:1px solid rgba(157,218,204,.13);border-radius:13px;padding:9px 11px;color:#ecf8f4;background:rgba(255,255,255,.03);font-size:12px;font-weight:700}
 #deenPremiumOffer .dp-check{display:grid;place-items:center;flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:rgba(76,212,174,.15);color:#84eccc;font-weight:900}
-#deenPremiumOffer button{width:100%;min-height:47px;border-radius:13px;cursor:pointer;font:800 13px/1.2 inherit}
+#deenPremiumOffer button{width:100%;min-height:47px;border-radius:13px;cursor:pointer;font-weight:800;font-size:13px;line-height:1.2;font-family:inherit}
 #deenPremiumOffer .dp-start{border:0;background:linear-gradient(180deg,#70e6c6,#29c5a0);color:#06302f;box-shadow:0 10px 23px rgba(44,215,163,.17)}
 #deenPremiumOffer .dp-start:disabled{opacity:.56;cursor:default}
 #deenPremiumOffer .dp-later{margin-top:9px;border:1px solid #36575a;color:#c7e3db;background:transparent}
