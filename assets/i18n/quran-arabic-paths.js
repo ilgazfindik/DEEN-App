@@ -1049,6 +1049,7 @@
   if(plan.total===0||plan.completed===plan.total)tasks.append(elem('p','deen-path-daily-done','✓ '+c.dailyDone));
   box.append(tasks);
   box.append(checkpointPanel());
+  if(remedyPlan().key)box.append(remedyPanel());
   box.append(foundationPanel());
   box.append(adaptivePanel());
   box.append(elem('p','deen-path-muted deen-path-daily-note',c.dailyLocal),
