@@ -27,7 +27,13 @@
  const PHRASES=window.DEEN_ARABIC_PHRASES;
  if(!PHRASES||PHRASES.startIndex!==21||PHRASES.lessonCount!==3)throw Error('DEEN_ARABIC_PHRASES_MISSING');
  const PHRASE_LESSONS=PHRASES.lessons;
- const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS,...PHRASE_LESSONS]);
+ const PATTERNS=window.DEEN_ARABIC_PATTERNS;
+ if(!PATTERNS||PATTERNS.startIndex!==24||PATTERNS.lessonCount!==3)throw Error('DEEN_ARABIC_PATTERNS_MISSING');
+ const PATTERN_LESSONS=PATTERNS.lessons;
+ const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS,...PHRASE_LESSONS,...PATTERN_LESSONS]);
+ const PATTERN_STORE='deen_arabic_patterns_v1';
+ const REVIEW_CARDS=Object.freeze([...PHRASES.reviewCards,...PATTERNS.reviewCards]);
+ const REVIEW_IDS=Object.freeze(REVIEW_CARDS.map(x=>x.id));
  const PHRASE_STORE='deen_arabic_phrases_v1';
  const REVIEW_STORE='deen_arabic_written_review_v1';
  const MEANING_STORE='deen_arabic_meaning_v1';
@@ -145,6 +151,11 @@
    return [...new Set(valid)];
   }catch(_){return []}
  };
+ const patternCompleted=()=>{
+  try{const raw=JSON.parse(localStorage.getItem(PATTERN_STORE)||'null');
+   return [...new Set(raw&&Array.isArray(raw.completed)?raw.completed.filter(id=>PATTERN_LESSONS.some(x=>x.id===id)):[])];
+  }catch(_){return []}
+ };
  const phraseCompleted=()=>{
   try{const raw=JSON.parse(localStorage.getItem(PHRASE_STORE)||'null');
    return [...new Set(raw&&Array.isArray(raw.completed)?raw.completed.filter(id=>PHRASE_LESSONS.some(x=>x.id===id)):[])];
@@ -153,7 +164,7 @@
  const reviewRead=()=>{
   const cards=Object.create(null);
   try{const raw=JSON.parse(localStorage.getItem(REVIEW_STORE)||'null');
-   if(raw&&raw.cards&&typeof raw.cards==='object')for(const id of PHRASES.cardIds){
+   if(raw&&raw.cards&&typeof raw.cards==='object')for(const id of REVIEW_IDS){
     const r=raw.cards[id];
     if(r&&Number.isFinite(r.dueAt)&&r.dueAt>=0&&Number.isInteger(r.step)&&r.step>=0&&r.step<=5)cards[id]=r;
    }
@@ -162,17 +173,25 @@
  };
  const reviewDue=()=>{
   const cards=reviewRead(),now=Date.now();
-  return PHRASES.reviewCards.filter(item=>cards[item.id]&&cards[item.id].dueAt<=now);
+  return REVIEW_CARDS.filter(item=>cards[item.id]&&cards[item.id].dueAt<=now)
+   .sort((a,b)=>((cards[b.id].mistakes||0)-(cards[a.id].mistakes||0))||(cards[a.id].step-cards[b.id].step)||(cards[a.id].dueAt-cards[b.id].dueAt));
+ };
+ const reviewWeak=()=>{
+  const cards=reviewRead();
+  return REVIEW_CARDS.filter(item=>cards[item.id]&&(cards[item.id].mistakes||0)>0)
+   .sort((a,b)=>(cards[b.id].mistakes||0)-(cards[a.id].mistakes||0)||(cards[a.id].step-cards[b.id].step));
  };
  function recordReview(id,correct){
-  if(!PHRASES.cardIds.includes(id))return;
-  const cards=reviewRead();cards[id]=PHRASES.schedule(cards[id],correct);
+  if(!REVIEW_IDS.includes(id))return;
+  const cards=reviewRead(),prev=cards[id]||null;
+  const next=PHRASES.schedule(prev,correct);
+  cards[id]={...next,mistakes:Math.min(999,Math.max(0,prev?.mistakes||0)+(correct?0:1)),attempts:Math.min(9999,Math.max(0,prev?.attempts||0)+1)};
   try{localStorage.setItem(REVIEW_STORE,JSON.stringify({schema:1,cards,updatedAt:Date.now()}))}catch(_){}
  }
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
  const groupLetters=()=>group().letters||group().items;
- const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):LISTENING_LESSONS.includes(g)?listeningCompleted().includes(g.id):MEANING_LESSONS.includes(g)?meaningCompleted().includes(g.id):PHRASE_LESSONS.includes(g)?phraseCompleted().includes(g.id):vowelCompleted().includes(g.id);
+ const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):LISTENING_LESSONS.includes(g)?listeningCompleted().includes(g.id):MEANING_LESSONS.includes(g)?meaningCompleted().includes(g.id):PHRASE_LESSONS.includes(g)?phraseCompleted().includes(g.id):PATTERN_LESSONS.includes(g)?patternCompleted().includes(g.id):vowelCompleted().includes(g.id);
  const isUnlocked=i=>{
   if(!Number.isInteger(i)||i<0||i>=ALL_LESSONS.length)return false;
   if(i===0)return true;
@@ -190,10 +209,17 @@
   if(i===MEANING.startIndex)return wordCompleted().length===WORD_LESSONS.length;
   if(i<PHRASES.startIndex)return meaningCompleted().includes(ALL_LESSONS[i-1].id);
   if(i===PHRASES.startIndex)return meaningCompleted().length===MEANING_LESSONS.length;
-  return phraseCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i<PATTERNS.startIndex)return phraseCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i===PATTERNS.startIndex)return phraseCompleted().length===PHRASE_LESSONS.length;
+  return patternCompleted().includes(ALL_LESSONS[i-1].id);
  };
  function saveCompleted(){
   const id=group().id;
+  if(PATTERN_LESSONS.includes(group())){
+   const ids=patternCompleted();if(!ids.includes(id))ids.push(id);
+   try{localStorage.setItem(PATTERN_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
+   return;
+  }
   if(PHRASE_LESSONS.includes(group())){
    const ids=phraseCompleted();if(!ids.includes(id))ids.push(id);
    try{localStorage.setItem(PHRASE_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
