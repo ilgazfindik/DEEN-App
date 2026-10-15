@@ -159,3 +159,25 @@
 #leagueScreenBody .deen-path-lesson .deen-path-option[data-letter-id^="damma"]{font-size:clamp(32px,10vw,53px)}
 #leagueScreenBody .deen-path-lesson .deen-path-options button{overflow-wrap:anywhere}
 #leagueScreenBody .deen-path-vowel-section .deen-path-progress-copy{margin:7px 0}
+
+/* Phase 4 · sukūn, shadda and basic madd learning cards */
+#leagueScreenBody .deen-path-reading-section{
+ margin:18px 0 14px;padding:17px 13px 9px;border-radius:18px;
+ border:1px solid rgba(151,224,192,.48);
+ background:radial-gradient(ellipse at 95% 0,rgba(79,203,158,.16),transparent 52%),linear-gradient(180deg,#0f3137,#09242d);
+}
+#leagueScreenBody .deen-path-reading-section>.deen-path-shape-subtitle{margin:0 0 7px;font-size:18px;color:#c0f2d8}
+#leagueScreenBody .deen-path-reading-section>.deen-path-muted{margin:0 0 12px}
+#leagueScreenBody .deen-path-reading-item{margin:0 0 10px;border-color:rgba(144,218,187,.45)!important}
+#leagueScreenBody .deen-path-reading-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;color:#f7e4ac;
+ font:600 clamp(33px,11vw,44px)/1.6 "Geeza Pro","Noto Naskh Arabic",serif;
+ letter-spacing:2px;word-spacing:4px;white-space:normal;
+}
+#leagueScreenBody .deen-path-reading-item.is-locked{opacity:.57}
+#leagueScreenBody .deen-path-course-item:focus-visible{outline:3px solid #a8efd0;outline-offset:2px}
+#leagueScreenBody .deen-path-letter-card .deen-path-glyph{direction:rtl;unicode-bidi:isolate}
+#leagueScreenBody .deen-path-lesson .deen-path-prompt{overflow-wrap:anywhere}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-reading-item .deen-path-course-glyphs{font-size:32px}
+}

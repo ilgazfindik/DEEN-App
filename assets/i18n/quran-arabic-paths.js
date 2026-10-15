@@ -12,7 +12,11 @@
  const PHONICS=window.DEEN_ARABIC_HARAKAT;
  if(!PHONICS||PHONICS.lessonCount!==3)throw Error('DEEN_ARABIC_HARAKAT_MISSING');
  const PHONIC_LESSONS=PHONICS.lessons;
- const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS]);
+ const READING=window.DEEN_ARABIC_READING;
+ if(!READING||READING.lessonCount!==3)throw Error('DEEN_ARABIC_READING_MISSING');
+ const READING_LESSONS=READING.lessons;
+ const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS]);
+ const READING_STORE='deen_arabic_reading_v1';
  const PHONICS_STORE='deen_arabic_harakat_v1';
  const PROGRESS_STORE='deen_arabic_foundations_v2';
  const legacyStore=STORE;
@@ -45,8 +49,15 @@
   de:{vowelHeading:'Vokalzeichen & erste Silben',vowelSubtitle:'Lerne Fatha, Kasra und Damma. Lies dann Silben mit Bā und Tā.',vowelLesson:'Vokal-Lektion',vowelReady:'Buchstaben fertig · Bereit',vowelLocked:'Zuerst alle 7 Buchstabenlektionen abschließen',vowelProgress:'Fortschritt Vokalzeichen',markTitle:'Fatha · Kasra · Damma',syllableTitle:'Silben lesen',vowelStart:'Vokalzeichen üben',syllableStart:'Silben üben',vowelHelp:'Fatha steht für kurzes a, Kasra für i und Damma für u.',syllableHelp:'Finde das richtige Vokalzeichen auf ب oder ت.',audioMissing:'Geprüfte Ausspracheaufnahmen sind noch nicht verfügbar.',vowelComplete:'Alle 3 Vokal- und Silbenlektionen geschafft!',vowelFinish:'Vokalübung abgeschlossen. Weiter geht’s.',phonicsLetters:'Vokale / Silben'},
   fr:{vowelHeading:'Voyelles & premières syllabes',vowelSubtitle:'Découvre fatḥa, kasra et ḍamma, puis lis des syllabes avec Bā et Tā.',vowelLesson:'Leçon de voyelles',vowelReady:'Lettres terminées · Prêt à apprendre',vowelLocked:'Termine d’abord les 7 leçons de lettres',vowelProgress:'Progression des voyelles',markTitle:'Fatḥa · Kasra · Ḍamma',syllableTitle:'Lire les syllabes',vowelStart:'Pratiquer les voyelles',syllableStart:'Pratiquer les syllabes',vowelHelp:'Fatḥa indique un a bref, kasra un i bref et ḍamma un u bref.',syllableHelp:'Reconnais la voyelle sur ب ou ت. Observe le petit signe.',audioMissing:'Les enregistrements de prononciation vérifiés ne sont pas encore disponibles.',vowelComplete:'Les 3 leçons de voyelles et syllabes sont terminées !',vowelFinish:'Exercice terminé. Passe à l’étape suivante.',phonicsLetters:'Voyelles / Syllabes'}
  };
+ const readingUi={
+  tr:{readHeading:'Cezim, Şedde ve Med',readSub:'Üç yeni dersle duraklayan sesi, çift ünsüzü ve uzun ünlüyü ayırt et.',readLesson:'Okuma Dersi',readProgress:'Okuma işaretleri ilerlemen',readLocked:'Önce 3 hareke ve hece dersini bitir',readReady:'Başlamaya hazır',readDone:'3 okuma dersi tamamlandı!',readIntro:'Bu mini dersler işaretleri tanıtır. Doğru telaffuz ve tecvid için doğrulanmış sesli eğitim daha sonra eklenecek.',sukunTitle:'Cezim (Sükûn)',sukunDetail:'Cezim (ْ) harfte kısa ünlü olmadığını gösterir; burada harf adını ve işareti tanıyoruz.',shaddaTitle:'Şedde',shaddaDetail:'Şedde (ّ) ünsüzün çift olduğunu gösterir. Üstün, esre ve ötre ile birleşebilir.',maddTitle:'Med: Uzatma',maddDetail:'Başlangıç örnekleri: بَا = bâ, بِي = bî, بُو = bû. Uzatmanın kuralları daha sonra öğretilecek.',readCTA:'Okuma Alıştırmasına Başla',readFinish:'İşareti ve yazılışını tanıdın. Daha kapsamlı okuma ve doğrulanmış ses eğitimi sonraki aşamada.',readAllDone:'Üç yeni okuma dersini tamamladın!'},
+  en:{readHeading:'Sukūn, Shadda & Madd',readSub:'Three new lessons: no short vowel, doubled consonant and long vowel.',readLesson:'Reading Lesson',readProgress:'Reading mark progress',readLocked:'Complete 3 vowel lessons first',readReady:'Ready to learn',readDone:'3 reading lessons completed!',readIntro:'These mini lessons introduce written signs. Verified pronunciation and fuller tajwid follow later.',sukunTitle:'Sukūn',sukunDetail:'Sukūn (ْ) indicates no short vowel on the consonant. Practice identifying the sign and letter.',shaddaTitle:'Shadda',shaddaDetail:'Shadda (ّ) marks a doubled consonant and may combine with short vowels.',maddTitle:'Madd: Lengthening',maddDetail:'Starter examples: بَا = bā, بِي = bī, بُو = bū. Full lengthening rules come later.',readCTA:'Start Reading Practice',readFinish:'You recognized the written pattern. Verified pronunciation and more reading rules will follow.',readAllDone:'All three reading lessons completed!'},
+  ar:{readHeading:'السكون والشدة والمد',readSub:'ثلاثة دروس جديدة: السكون، والحرف المشدد، والحركات الطويلة.',readLesson:'درس القراءة',readProgress:'تقدّم علامات القراءة',readLocked:'أكمل دروس الحركات الثلاثة أولًا',readReady:'جاهز للتعلّم',readDone:'أكملت دروس القراءة الثلاثة!',readIntro:'هذه مقدمة للعلامات المكتوبة، وليست تعليمًا كاملًا للتجويد. سيُضاف النطق الموثوق لاحقًا.',sukunTitle:'السكون',sukunDetail:'يدل السكون (ْ) على غياب الحركة القصيرة عن الحرف. تدرّب على تمييز العلامة.',shaddaTitle:'الشدة',shaddaDetail:'تدل الشدة (ّ) على تضعيف الحرف، وقد تقترن بالفتحة أو الكسرة أو الضمة.',maddTitle:'المد',maddDetail:'أمثلة أولية: بَا، بِي، بُو. ستأتي قواعد المد التفصيلية لاحقًا.',readCTA:'ابدأ تدريب القراءة',readFinish:'تعرّفت على العلامة المكتوبة. ستُضاف تدريبات صوتية موثوقة لاحقًا.',readAllDone:'أكملت دروس القراءة الثلاثة!'},
+  de:{readHeading:'Sukūn, Schadda & Madd',readSub:'Drei neue Lektionen: kein kurzer Vokal, Doppelkonsonant, langer Vokal.',readLesson:'Leselektion',readProgress:'Fortschritt der Lesezeichen',readLocked:'Erst die 3 Vokallektionen abschließen',readReady:'Bereit',readDone:'3 Leselektionen abgeschlossen!',readIntro:'Diese Übungen zeigen Schriftzeichen. Geprüfte Aussprache und ausführlicher Tadschwīd folgen.',sukunTitle:'Sukūn',sukunDetail:'Sukūn (ْ) zeigt an, dass kein kurzer Vokal folgt. Erkenne das Zeichen.',shaddaTitle:'Schadda',shaddaDetail:'Schadda (ّ) verdoppelt einen Konsonanten und kann mit Vokalzeichen kombiniert werden.',maddTitle:'Madd: Längung',maddDetail:'Erste Beispiele: بَا = bā, بِي = bī, بُو = bū. Weitere Regeln folgen.',readCTA:'Leseübung starten',readFinish:'Du hast das Schriftbild erkannt. Geprüfte Aussprache folgt.',readAllDone:'Alle drei Leselektionen abgeschlossen!'},
+  fr:{readHeading:'Sukūn, Shadda et Madd',readSub:'Trois leçons : absence de voyelle brève, consonne doublée et voyelle longue.',readLesson:'Leçon de lecture',readProgress:'Progression des signes de lecture',readLocked:'Termine d’abord les 3 leçons de voyelles',readReady:'Prêt à commencer',readDone:'3 leçons de lecture terminées !',readIntro:'Ces exercices présentent les signes écrits. Prononciation vérifiée et règles de tajwid suivront.',sukunTitle:'Sukūn',sukunDetail:'Le sukūn (ْ) indique l’absence de voyelle brève sur une consonne.',shaddaTitle:'Shadda',shaddaDetail:'La shadda (ّ) double une consonne et peut accompagner les voyelles brèves.',maddTitle:'Madd : allongement',maddDetail:'Premiers exemples : بَا = bā, بِي = bī, بُو = bū. Les autres règles suivront.',readCTA:'Commencer la lecture',readFinish:'Tu as reconnu le signe écrit. La prononciation vérifiée viendra plus tard.',readAllDone:'Tu as terminé les trois leçons de lecture !'}
+ };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
- const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()]);
+ const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()]);
  const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
@@ -63,28 +74,42 @@
   }catch(_){return {schema:1,completed:[]}}
  };
  const vowelCompleted=()=>vowelStorage().completed;
+ const readingStorage=()=>{
+  try{
+   const raw=JSON.parse(localStorage.getItem(READING_STORE)||'null');
+   const completed=raw&&Array.isArray(raw.completed)?raw.completed.filter(id=>READING_LESSONS.some(l=>l.id===id)):[];
+   return {schema:1,completed:[...new Set(completed)]};
+  }catch(_){return {schema:1,completed:[]}}
+ };
+ const readingCompleted=()=>readingStorage().completed;
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
  const groupLetters=()=>group().letters||group().items;
- const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):vowelCompleted().includes(g.id);
+ const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):vowelCompleted().includes(g.id);
  const isUnlocked=i=>{
+  if(!Number.isInteger(i)||i<0||i>=ALL_LESSONS.length)return false;
   if(i===0)return true;
   if(i<LESSONS.length)return completed().includes(LESSONS[i-1].id);
   if(i===LESSONS.length)return completed().length===LESSONS.length;
-  if(i<ALL_LESSONS.length)return vowelCompleted().includes(ALL_LESSONS[i-1].id);
-  return false;
+  if(i<LESSONS.length+PHONIC_LESSONS.length)return vowelCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i===LESSONS.length+PHONIC_LESSONS.length)return vowelCompleted().length===PHONIC_LESSONS.length;
+  return readingCompleted().includes(ALL_LESSONS[i-1].id);
  };
  function saveCompleted(){
   const id=group().id;
+  if(READING_LESSONS.includes(group())){
+   const ids=readingCompleted();if(!ids.includes(id))ids.push(id);
+   try{localStorage.setItem(READING_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
+   return;
+  }
   if(group().kind!=='recognition'){
-   const ids=vowelCompleted();
-   if(!ids.includes(id))ids.push(id);
+   const ids=vowelCompleted();if(!ids.includes(id))ids.push(id);
    try{localStorage.setItem(PHONICS_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
    return;
   }
-  const ids=completed();
-  if(!ids.includes(id))ids.push(id);
-  try{localStorage.setItem(PROGRESS_STORE,JSON.stringify({schema:2,completed:ids,updatedAt:Date.now()}));
+  const ids=completed();if(!ids.includes(id))ids.push(id);
+  try{
+   localStorage.setItem(PROGRESS_STORE,JSON.stringify({schema:2,completed:ids,updatedAt:Date.now()}));
    if(state.lessonIndex===0)localStorage.setItem(legacyStore,JSON.stringify({completed:true,completedAt:Date.now(),schema:1}));
   }catch(_){}
  }
@@ -173,6 +198,7 @@
   });
   box.appendChild(list);
   box.appendChild(vowelRoadmap());
+  box.appendChild(readingRoadmap());
   if(done===LESSONS.length)box.appendChild(elem('p','deen-path-completed',c.courseComplete+' ✓'));
   const details=elem('details','deen-path-atlas-details');
   const summary=elem('summary','',c.allLetters);details.appendChild(summary);
@@ -202,27 +228,53 @@
   if(vc===PHONIC_LESSONS.length)wrap.append(elem('p','deen-path-completed',c.vowelComplete+' ✓'));
   return wrap;
  }
+ function readingRoadmap(){
+  const c=t(),box=elem('section','deen-path-reading-section'),done=readingCompleted().length;
+  box.append(elem('h3','deen-path-shape-subtitle',c.readHeading),elem('p','deen-path-muted',c.readSub));
+  box.append(elem('p','deen-path-progress-copy',c.readProgress+' · '+done+' / '+READING_LESSONS.length));
+  const bar=elem('div','deen-path-course-progress'),fill=elem('span');
+  fill.style.width=Math.round(done/READING_LESSONS.length*100)+'%';
+  bar.append(fill);box.append(bar);
+  for(const lesson of READING_LESSONS){
+   const locked=!isUnlocked(lesson.index),complete=readingCompleted().includes(lesson.id);
+   const card=makeButton('','group','deen-path-course-item deen-path-reading-item'+(complete?' is-completed':'')+(locked?' is-locked':''));
+   card.dataset.lessonIndex=String(lesson.index);card.disabled=locked;
+   const title=c[lesson.kind+'Title'];
+   const top=elem('span','deen-path-course-item-top');
+   top.append(elem('span','deen-path-course-number',c.readLesson+' '+(lesson.index-LESSONS.length-PHONIC_LESSONS.length+1)+' · '+title),
+    elem('span','deen-path-course-status',complete?'✓ '+c.done:locked?'🔒 '+(lesson.index===READING.startIndex?c.readLocked:c.locked):c.readReady));
+   const forms=elem('span','deen-path-course-glyphs',lesson.items.map(item=>item.glyph).join('   '));forms.lang='ar';forms.dir='rtl';
+   card.append(top,forms,elem('span','deen-path-course-item-foot',c.free+' · '+title));
+   box.append(card);
+  }
+  if(done===READING_LESSONS.length)box.append(elem('p','deen-path-completed',c.readAllDone+' ✓'));
+  return box;
+ }
  function groupView(){
   const c=t(),items=groupLetters(),box=elem('section','deen-path-arabic-landing');
   box.append(makeButton('←  '+c.arabic,'arabic','deen-path-back'));
-  const phonics=group().kind!=='recognition';
-  box.append(elem('span','deen-path-pill',(phonics?c.vowelLesson:c.lesson)+' '+(phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1)+' / '+(phonics?PHONIC_LESSONS.length:LESSONS.length)+' · '+c.free));
-  box.append(elem('h2','deen-path-inner-title',phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle));
-  box.append(elem('p','deen-path-muted',phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo));
+  const reading=READING_LESSONS.includes(group()),phonics=group().kind!=='recognition'&&!reading;
+  const label=reading?c.readLesson:phonics?c.vowelLesson:c.lesson;
+  const num=reading?state.lessonIndex-READING.startIndex+1:phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1;
+  const size=reading?READING_LESSONS.length:phonics?PHONIC_LESSONS.length:LESSONS.length;
+  const title=reading?c[group().kind+'Title']:phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle;
+  const help=reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo;
+  box.append(elem('span','deen-path-pill',label+' '+num+' / '+size+' · '+c.free));
+  box.append(elem('h2','deen-path-inner-title',title),elem('p','deen-path-muted',help));
   box.append(lettersStrip(items));
-  if(!phonics){
+  if(!reading&&!phonics){
    box.append(elem('h3','deen-path-shape-subtitle',c.shape),shapeAtlas(items));
    if(items.some(item=>!item.joinsNext))box.appendChild(elem('p','deen-path-muted',c.atlasHelp));
   }
-  box.append(elem('p','deen-path-muted deen-path-warning',phonics?c.audioMissing:c.courseInfo));
-  box.append(makeButton(lessonIsDone()?c.redo:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
+  box.append(elem('p','deen-path-muted deen-path-warning',reading?c.readIntro:phonics?c.audioMissing:c.courseInfo));
+  box.append(makeButton(lessonIsDone()?c.redo:reading?c.readCTA:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
   return box;
  }
  function lessonView(){
   const c=t(),items=groupLetters(),box=elem('section','deen-path-lesson');
   box.append(makeButton('←  '+c.arabic,'group','deen-path-back'));
   const item=items[state.question],n=state.question+1;
-  box.append(elem('div','deen-path-kicker',group().kind!=='recognition'?c.vowelHeading:c.lesson+' '+(state.lessonIndex+1)+' · '+c.groupTitle));
+  box.append(elem('div','deen-path-kicker',READING_LESSONS.includes(group())?c.readHeading:group().kind!=='recognition'?c.vowelHeading:c.lesson+' '+(state.lessonIndex+1)+' · '+c.groupTitle));
   box.append(elem('p','deen-path-question-count',c.progress+' '+n+' / '+items.length),elem('h2','deen-path-inner-title',c.question));
   box.append(elem('div','deen-path-prompt',letterLabel(item)));
   const options=elem('div','deen-path-options');
@@ -244,8 +296,8 @@
  function completedView(){
   const c=t(),box=elem('section','deen-path-completion');
   box.append(elem('div','deen-path-complete-star','✦'),elem('h2','deen-path-inner-title',c.completed));
-  box.append(elem('p','deen-path-muted',(group().kind==='recognition'?c.lesson:c.vowelLesson)+' '+(group().kind==='recognition'?state.lessonIndex+1:state.lessonIndex-LESSONS.length+1)+' · '+groupLetters().map(x=>x.glyph).join('  ')));
-  box.append(elem('p','deen-path-muted',group().kind==='recognition'?(completed().length===LESSONS.length?c.courseCompleteDesc:c.completedDesc):c.vowelFinish));
+  box.append(elem('p','deen-path-muted',(READING_LESSONS.includes(group())?c.readLesson:group().kind==='recognition'?c.lesson:c.vowelLesson)+' '+(READING_LESSONS.includes(group())?state.lessonIndex-READING.startIndex+1:group().kind==='recognition'?state.lessonIndex+1:state.lessonIndex-LESSONS.length+1)+' · '+groupLetters().map(x=>x.glyph).join('  ')));
+  box.append(elem('p','deen-path-muted',READING_LESSONS.includes(group())?c.readFinish:group().kind==='recognition'?(completed().length===LESSONS.length?c.courseCompleteDesc:c.completedDesc):c.vowelFinish));
   if(state.lessonIndex<ALL_LESSONS.length-1)box.append(makeButton(c.nextLesson,'nextGroup','deen-path-primary'));
   box.append(makeButton(c.redo,'start','deen-path-primary'),makeButton('←  '+c.arabic,'arabic','deen-path-back'));
   return box;
@@ -335,5 +387,5 @@
   });
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
- window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false}),version:'quran-arabic-paths-phase3'});
+ window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false}),version:'quran-arabic-paths-phase4'});
 })();

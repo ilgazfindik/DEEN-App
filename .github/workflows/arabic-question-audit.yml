@@ -42,6 +42,7 @@ jobs:
           node scripts/test-premium-hub-chrome.cjs
           node scripts/test-quran-arabic-paths-chrome.cjs
           node scripts/test-quran-harakat-chrome.cjs
+          node scripts/test-quran-reading-chrome.cjs
           node scripts/test-global-feedback-chrome.cjs
           node scripts/test-arabic-startup.cjs
           node scripts/test-arabic-interactions.cjs
