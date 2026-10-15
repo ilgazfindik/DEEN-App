@@ -55,7 +55,8 @@
    const folder=new URL('./assets/quran/audio/arabic-learning/',document.baseURI);
    if(url.origin!==location.origin||!url.pathname.startsWith(folder.pathname))return false;
    controller=new AbortController();
-   const response=await fetch(url.href,{credentials:'same-origin',cache:'no-store',signal:controller.signal});
+   const requestController=controller;
+   const response=await fetch(url.href,{credentials:'same-origin',cache:'no-store',signal:requestController.signal});
    if(!response.ok||turn!==seq)return false;
    const data=await response.arrayBuffer();
    if(data.byteLength<128||data.byteLength>2000000||turn!==seq)return false;
@@ -71,7 +72,7 @@
    if(turn!==seq){stop();return false}
    return true;
   }catch(_){if(turn===seq)stop();return false}
-  finally{controller=null}
+  finally{if(turn===seq)controller=null}
  }
  window.DEEN_ARABIC_LISTENING=Object.freeze({
   version:1,startIndex:16,lessonCount:2,lessons,records,
