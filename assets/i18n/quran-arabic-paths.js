@@ -24,7 +24,12 @@
  const MEANING=window.DEEN_ARABIC_MEANING;
  if(!MEANING||MEANING.startIndex!==18||MEANING.lessonCount!==3)throw Error('DEEN_ARABIC_MEANING_MISSING');
  const MEANING_LESSONS=MEANING.lessons;
- const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS]);
+ const PHRASES=window.DEEN_ARABIC_PHRASES;
+ if(!PHRASES||PHRASES.startIndex!==21||PHRASES.lessonCount!==3)throw Error('DEEN_ARABIC_PHRASES_MISSING');
+ const PHRASE_LESSONS=PHRASES.lessons;
+ const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS,...PHRASE_LESSONS]);
+ const PHRASE_STORE='deen_arabic_phrases_v1';
+ const REVIEW_STORE='deen_arabic_written_review_v1';
  const MEANING_STORE='deen_arabic_meaning_v1';
  const LISTENING_STORE='deen_arabic_listening_v1';
  const WORD_STORE='deen_arabic_words_v1';
@@ -89,9 +94,16 @@
   de:{meaningHeading:'Koranwörter verstehen',meaningSub:'Wortbedeutungen, Satzfunktionen und Wortfolge im Vers üben.',meaningLesson:'Bedeutungslektion',meaningProgress:'Fortschritt Sprachverständnis',meaningPrereq:'Zuerst die 16 Leselektionen abschließen',meaningReady:'Bereit',meaningGlossTitle:'Wortbedeutungen',meaningRoleTitle:'Funktion im Satz',meaningOrderTitle:'Verswörter ordnen',meaningGlossDetail:'Vier Wörter aus Al-Ichlās mit ihrer Bedeutung verbinden.',meaningRoleDetail:'Imperativ, Pronomen, Eigenname und ein Wort für Einzigkeit erkennen.',meaningOrderDetail:'Wörter in Koranreihenfolge ordnen; kein vollständiger Grammatikkurs.',meaningIntro:'Kurzglossen ersetzen keine vollständige Übersetzung oder Exegese.',meaningCTA:'Bedeutungsübung starten',meaningGlossPrompt:'Welches arabische Wort hat diese Bedeutung?',meaningRolePrompt:'Welches Wort hat diese Funktion im Vers?',meaningOrderPrompt:'Ordne die Wörter wie im Vers.',meaningCheckReset:'Zurücksetzen',meaningWrongOrder:'Falsche Reihenfolge. Versuche es erneut.',meaningVerse:'Vers',meaningOrderHint:'Bedeutungshinweis',meaningFinish:'Du hast Wortbedeutungen und die Wortfolge im Vers geübt.',meaningDone:'Drei Bedeutungslektionen geschafft!'},
   fr:{meaningHeading:'Comprendre les mots du Coran',meaningSub:'Étudie le sens, les fonctions grammaticales et l’ordre des mots.',meaningLesson:'Leçon de sens',meaningProgress:'Progression en compréhension',meaningPrereq:'Termine d’abord les 16 leçons de lecture',meaningReady:'Prêt',meaningGlossTitle:'Sens des mots',meaningRoleTitle:'Rôle dans la phrase',meaningOrderTitle:'Ordonner les mots du verset',meaningGlossDetail:'Associe quatre mots d’Al-Ikhlâs à leur sens.',meaningRoleDetail:'Repère impératif, pronom, nom propre et nom évoquant l’unicité.',meaningOrderDetail:'Replace les mots dans l’ordre du verset. Ce n’est pas un cours complet de grammaire.',meaningIntro:'Ces gloses sont des aides, pas une traduction ni un tafsir complet.',meaningCTA:'Commencer la compréhension',meaningGlossPrompt:'Quel mot arabe a ce sens ?',meaningRolePrompt:'Quel mot joue ce rôle dans le verset ?',meaningOrderPrompt:'Remets les mots dans l’ordre du verset.',meaningCheckReset:'Recommencer',meaningWrongOrder:'L’ordre est incorrect. Réessaie.',meaningVerse:'Verset',meaningOrderHint:'Indice de traduction',meaningFinish:'Tu as étudié le sens des mots et leur ordre dans les versets.',meaningDone:'Les trois leçons sont terminées !'}
  };
+ const phraseUi={
+  tr:{"phraseHeading":"Kur’an İfadelerini Anla","phraseSub":"Sık kullanılan Kur’an kelimeleri ve kısa ifadelerin yazılı anlamlarını çalış.","phraseLesson":"İfade Dersi","phraseVocabTitle":"Kelime Hazinesi","phraseContextTitle":"Kısa İfadeler","phraseOrderTitle":"Ayet Sırası","phrasePrereq":"Önce üç anlam dersini tamamla","phraseVocabDetail":"Yazılı bir kelimeyi anlamıyla eşleştir.","phraseContextDetail":"Kısa ifadenin anlamını seç.","phraseOrderDetail":"Ayet kelimelerini sırayla yerleştir.","phraseVocabPrompt":"Anlamına uygun Arapça kelimeyi seç.","phraseContextPrompt":"Bu ifadenin anlamı nedir?","phraseOrderPrompt":"Kelimeleri ayet sırasına diz.","phraseCTA":"İfadeleri Çalış","phraseWrongOrder":"Yanlış sıra. Sıfırlayıp tekrar dene.","phraseReset":"Tekrar dene","phraseVerse":"Ayet","phraseNote":"Dil bilgisi ipucu","phraseDone":"Üç ifade dersi tamamlandı!","reviewHeading":"Aralıklı Tekrar","reviewSub":"Yazılı kelimeleri 1, 3, 7, 14 ve 30 gün aralıklarla hatırla.","reviewDue":"Tekrar zamanı gelen","reviewTracked":"Öğrenilen kart","reviewButton":"Tekrara Başla","reviewNone":"Bugün tekrarlanacak kart yok.","reviewPrompt":"Doğru eşleştirmeyi seç.","reviewCorrect":"Doğru! Yeni tekrar planlandı.","reviewWrong":"Bu kart yaklaşık 10 dakika sonra yeniden gelecek.","reviewNext":"Sonraki Kart","reviewComplete":"Tekrar tamamlandı!","reviewBack":"Derslere Dön","reviewSample":"Ses içermeyen yazılı çalışma"},
+  en:{"phraseHeading":"Understand Quran Phrases","phraseSub":"Study contextual Quran words and short written expressions.","phraseLesson":"Phrase Lesson","phraseVocabTitle":"Vocabulary","phraseContextTitle":"Short Phrases","phraseOrderTitle":"Verse Order","phrasePrereq":"Finish the three meaning lessons first","phraseVocabDetail":"Match words with their meanings.","phraseContextDetail":"Choose the meaning of a short expression.","phraseOrderDetail":"Arrange verse words in order.","phraseVocabPrompt":"Select the Arabic word for this meaning.","phraseContextPrompt":"What does this expression mean?","phraseOrderPrompt":"Arrange the words in Quran order.","phraseCTA":"Start Phrase Practice","phraseWrongOrder":"Wrong order. Reset and retry.","phraseReset":"Try Again","phraseVerse":"Verse","phraseNote":"Language hint","phraseDone":"Three phrase lessons completed!","reviewHeading":"Spaced Review","reviewSub":"Recall written cards after 1, 3, 7, 14 and 30 days.","reviewDue":"Cards due","reviewTracked":"Cards learned","reviewButton":"Start Review","reviewNone":"No reviews due today.","reviewPrompt":"Select the correct match.","reviewCorrect":"Correct! The next review is scheduled.","reviewWrong":"This card will return in about 10 minutes.","reviewNext":"Next Card","reviewComplete":"Reviews completed!","reviewBack":"Back to Lessons","reviewSample":"Written recall, no audio"},
+  ar:{"phraseHeading":"افهم العبارات القرآنية","phraseSub":"تعلّم المفردات والتعبيرات المكتوبة في سياق الآيات.","phraseLesson":"درس العبارات","phraseVocabTitle":"المفردات","phraseContextTitle":"عبارات قصيرة","phraseOrderTitle":"ترتيب الآيات","phrasePrereq":"أكمل دروس المعاني الثلاثة أولًا","phraseVocabDetail":"اربط الكلمات بمعانيها.","phraseContextDetail":"اختر معنى العبارة.","phraseOrderDetail":"رتّب كلمات الآية.","phraseVocabPrompt":"اختر الكلمة العربية المناسبة.","phraseContextPrompt":"ما معنى هذه العبارة؟","phraseOrderPrompt":"رتّب كلمات الآية.","phraseCTA":"ابدأ درس العبارات","phraseWrongOrder":"الترتيب غير صحيح، حاول مجددًا.","phraseReset":"إعادة المحاولة","phraseVerse":"الآية","phraseNote":"مساعدة لغوية","phraseDone":"اكتملت دروس العبارات الثلاثة!","reviewHeading":"المراجعة المتباعدة","reviewSub":"تُراجع البطاقات الكتابية بعد 1 و3 و7 و14 و30 يومًا.","reviewDue":"بطاقات مستحقة","reviewTracked":"بطاقات تعلّمتها","reviewButton":"ابدأ المراجعة","reviewNone":"لا توجد مراجعات مستحقة اليوم.","reviewPrompt":"اختر الإجابة الصحيحة.","reviewCorrect":"صحيح! حُدد موعد المراجعة التالية.","reviewWrong":"ستعود البطاقة بعد نحو عشر دقائق.","reviewNext":"البطاقة التالية","reviewComplete":"اكتملت المراجعة!","reviewBack":"العودة إلى الدروس","reviewSample":"مراجعة كتابية بلا صوت"},
+  de:{"phraseHeading":"Koranische Wendungen verstehen","phraseSub":"Wörter und kurze Ausdrücke im Korankontext üben.","phraseLesson":"Wendungslektion","phraseVocabTitle":"Wortschatz","phraseContextTitle":"Kurze Wendungen","phraseOrderTitle":"Versfolge","phrasePrereq":"Erst drei Bedeutungslektionen abschließen","phraseVocabDetail":"Verbinde Wörter und Bedeutungen.","phraseContextDetail":"Wähle die Bedeutung des Ausdrucks.","phraseOrderDetail":"Ordne die Wörter des Verses.","phraseVocabPrompt":"Welches arabische Wort passt dazu?","phraseContextPrompt":"Was bedeutet der Ausdruck?","phraseOrderPrompt":"Ordne die Wörter im Vers.","phraseCTA":"Wendungen üben","phraseWrongOrder":"Falsche Reihenfolge. Erneut versuchen.","phraseReset":"Zurücksetzen","phraseVerse":"Vers","phraseNote":"Sprachlicher Hinweis","phraseDone":"Drei Wendungslektionen geschafft!","reviewHeading":"Verteilte Wiederholung","reviewSub":"Schriftkarten nach 1, 3, 7, 14 und 30 Tagen wiederholen.","reviewDue":"Fällige Karten","reviewTracked":"Gelernte Karten","reviewButton":"Wiederholen","reviewNone":"Keine Wiederholung fällig.","reviewPrompt":"Wähle die richtige Antwort.","reviewCorrect":"Richtig! Nächste Wiederholung geplant.","reviewWrong":"Karte kommt in etwa zehn Minuten zurück.","reviewNext":"Nächste Karte","reviewComplete":"Wiederholung fertig!","reviewBack":"Zurück zu den Lektionen","reviewSample":"Schriftliche Übung ohne Ton"},
+  fr:{"phraseHeading":"Comprendre les expressions coraniques","phraseSub":"Étudie des mots et expressions écrites dans leur contexte.","phraseLesson":"Leçon d’expression","phraseVocabTitle":"Vocabulaire","phraseContextTitle":"Expressions courtes","phraseOrderTitle":"Ordre du verset","phrasePrereq":"Termine d’abord les trois leçons de sens","phraseVocabDetail":"Associe les mots à leurs sens.","phraseContextDetail":"Choisis le sens de l’expression.","phraseOrderDetail":"Replace les mots dans l’ordre.","phraseVocabPrompt":"Quel mot arabe correspond ?","phraseContextPrompt":"Que signifie cette expression ?","phraseOrderPrompt":"Remets les mots dans l’ordre.","phraseCTA":"Commencer","phraseWrongOrder":"Ordre incorrect. Réessaie.","phraseReset":"Recommencer","phraseVerse":"Verset","phraseNote":"Indice linguistique","phraseDone":"Trois leçons terminées !","reviewHeading":"Révision espacée","reviewSub":"Revois les cartes écrites après 1, 3, 7, 14 et 30 jours.","reviewDue":"Cartes dues","reviewTracked":"Cartes apprises","reviewButton":"Réviser","reviewNone":"Aucune révision due.","reviewPrompt":"Retrouve la bonne réponse.","reviewCorrect":"Bravo ! Prochaine révision programmée.","reviewWrong":"Cette carte reviendra dans environ dix minutes.","reviewNext":"Carte suivante","reviewComplete":"Révision terminée !","reviewBack":"Retour aux leçons","reviewSample":"Exercice écrit, sans audio"}
+ };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
- const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()]);
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false};
+ const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()]);
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -133,10 +145,34 @@
    return [...new Set(valid)];
   }catch(_){return []}
  };
+ const phraseCompleted=()=>{
+  try{const raw=JSON.parse(localStorage.getItem(PHRASE_STORE)||'null');
+   return [...new Set(raw&&Array.isArray(raw.completed)?raw.completed.filter(id=>PHRASE_LESSONS.some(x=>x.id===id)):[])];
+  }catch(_){return []}
+ };
+ const reviewRead=()=>{
+  const cards=Object.create(null);
+  try{const raw=JSON.parse(localStorage.getItem(REVIEW_STORE)||'null');
+   if(raw&&raw.cards&&typeof raw.cards==='object')for(const id of PHRASES.cardIds){
+    const r=raw.cards[id];
+    if(r&&Number.isFinite(r.dueAt)&&r.dueAt>=0&&Number.isInteger(r.step)&&r.step>=0&&r.step<=5)cards[id]=r;
+   }
+  }catch(_){}
+  return cards;
+ };
+ const reviewDue=()=>{
+  const cards=reviewRead(),now=Date.now();
+  return PHRASES.reviewCards.filter(item=>cards[item.id]&&cards[item.id].dueAt<=now);
+ };
+ function recordReview(id,correct){
+  if(!PHRASES.cardIds.includes(id))return;
+  const cards=reviewRead();cards[id]=PHRASES.schedule(cards[id],correct);
+  try{localStorage.setItem(REVIEW_STORE,JSON.stringify({schema:1,cards,updatedAt:Date.now()}))}catch(_){}
+ }
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
  const groupLetters=()=>group().letters||group().items;
- const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):LISTENING_LESSONS.includes(g)?listeningCompleted().includes(g.id):MEANING_LESSONS.includes(g)?meaningCompleted().includes(g.id):vowelCompleted().includes(g.id);
+ const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):LISTENING_LESSONS.includes(g)?listeningCompleted().includes(g.id):MEANING_LESSONS.includes(g)?meaningCompleted().includes(g.id):PHRASE_LESSONS.includes(g)?phraseCompleted().includes(g.id):vowelCompleted().includes(g.id);
  const isUnlocked=i=>{
   if(!Number.isInteger(i)||i<0||i>=ALL_LESSONS.length)return false;
   if(i===0)return true;
@@ -152,10 +188,17 @@
   // Semantic learning is an independent fork of the 16 complete written lessons;
   // it must not depend on unavailable recitation licenses.
   if(i===MEANING.startIndex)return wordCompleted().length===WORD_LESSONS.length;
-  return meaningCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i<PHRASES.startIndex)return meaningCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i===PHRASES.startIndex)return meaningCompleted().length===MEANING_LESSONS.length;
+  return phraseCompleted().includes(ALL_LESSONS[i-1].id);
  };
  function saveCompleted(){
   const id=group().id;
+  if(PHRASE_LESSONS.includes(group())){
+   const ids=phraseCompleted();if(!ids.includes(id))ids.push(id);
+   try{localStorage.setItem(PHRASE_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
+   return;
+  }
   if(MEANING_LESSONS.includes(group())){
    const ids=meaningCompleted();if(!ids.includes(id))ids.push(id);
    try{localStorage.setItem(MEANING_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
