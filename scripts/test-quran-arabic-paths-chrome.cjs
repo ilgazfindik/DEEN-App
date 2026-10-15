@@ -61,8 +61,11 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
   }
   assert.equal(await page.locator('.deen-path-completion').count(),1);
   assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().completedLessons),lesson+1);
-  if(lesson<syllabus.length-1)await page.locator('[data-qpath-action="nextGroup"]').click();
-  else await page.locator('[data-qpath-action="arabic"]').click();
+  if(lesson<syllabus.length-1){
+   await page.locator('[data-qpath-action="nextGroup"]').click();
+   assert.equal(await page.locator('.deen-path-letter-card').count(),syllabus[lesson+1].length);
+  }
+  await page.locator('[data-qpath-action="arabic"]').click();
  }
  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().letterCount),28);
  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().completedLessons),7);
