@@ -750,3 +750,67 @@
  #leagueScreenBody .deen-path-weekly-daylabel{font-size:9px}
  #leagueScreenBody .deen-path-weekly-bar{padding:0 2px}
 }
+
+/* Phase 17 — flexible weekly objectives and local non-currency consistency badges */
+#leagueScreenBody .deen-path-week-goals{
+ margin:19px 0;padding:17px 14px;border:1px solid rgba(111,215,191,.43);
+ border-radius:17px;background:linear-gradient(150deg,#173e43,#142f3d)
+}
+#leagueScreenBody .deen-path-week-goals>.deen-path-shape-subtitle{
+ font-size:17px;margin:2px 0 9px;color:#e8f9f0
+}
+#leagueScreenBody .deen-path-week-goals>.deen-path-muted{font-size:12px;line-height:1.65}
+#leagueScreenBody .deen-path-goal-basis{
+ margin:10px 0;color:#f8deaa;font-size:12px;font-weight:740;line-height:1.55
+}
+#leagueScreenBody .deen-path-goal-period{
+ margin:7px 0 13px;color:#cce6e3;font-size:12px;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-goal-list{display:flex;flex-direction:column;gap:12px;margin:15px 0 18px}
+#leagueScreenBody .deen-path-goal-item{
+ padding:12px 11px;border:1px solid rgba(125,211,188,.28);
+ border-radius:12px;background:#20414b
+}
+#leagueScreenBody .deen-path-goal-item-head{
+ display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px
+}
+#leagueScreenBody .deen-path-goal-item-head>strong{font-size:13px;color:#e9f8f0}
+#leagueScreenBody .deen-path-goal-item-head>span{
+ font-size:14px;color:#5bedd0;font-weight:830;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-goal-complete{font-size:14px;color:#6df0ce;font-weight:740;line-height:1.5}
+#leagueScreenBody .deen-path-goal-rewards{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0 20px
+}
+#leagueScreenBody .deen-path-goal-reward{
+ display:flex;min-width:0;min-height:114px;box-sizing:border-box;
+ align-items:center;justify-content:center;text-align:center;
+ flex-direction:column;gap:8px;padding:11px 7px;
+ border:1px solid rgba(169,190,195,.26);border-radius:14px;
+ background:#203b48;color:#b9c9cb;opacity:.78
+}
+#leagueScreenBody .deen-path-goal-reward.is-earned{
+ color:#ffecb7;border-color:#e8c987;opacity:1;
+ background:linear-gradient(160deg,#395249,#334039)
+}
+#leagueScreenBody .deen-path-goal-reward-symbol{font-size:24px;line-height:1}
+#leagueScreenBody .deen-path-goal-reward>strong{font-size:12px;line-height:1.35;overflow-wrap:anywhere}
+#leagueScreenBody .deen-path-goal-reward-progress{
+ font-size:10px;line-height:1.5;color:#dcf4e9;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-goal-archive{
+ margin-top:12px;padding-top:13px;border-top:1px solid rgba(156,203,198,.28)
+}
+#leagueScreenBody .deen-path-goal-archive>.deen-path-shape-subtitle{
+ font-size:14px;color:#dbefe8;margin:0 0 8px
+}
+#leagueScreenBody .deen-path-goal-archive-line{
+ font-size:12px;color:#ecf1e3;line-height:1.6;
+ margin:8px 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-goal-note{margin-top:10px;font-size:12px!important}
+@media(max-width:365px){
+ #leagueScreenBody .deen-path-goal-rewards{gap:5px}
+ #leagueScreenBody .deen-path-goal-reward{padding:9px 4px;min-height:110px}
+ #leagueScreenBody .deen-path-goal-reward>strong{font-size:11px}
+}
