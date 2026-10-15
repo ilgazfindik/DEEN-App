@@ -650,7 +650,10 @@
    const b=e.target.closest?.('[data-qpath-action]');if(!b||!container.contains(b))return;
    const action=b.dataset.qpathAction;
    if(['home','arabic','surah'].includes(action))show(action);
-   else if(action==='group')selectGroup(b.dataset.lessonIndex);
+   else if(action==='group'){
+    if(b.dataset.lessonIndex!==undefined)selectGroup(b.dataset.lessonIndex);
+    else show('group'); // lesson back button: preserve selected lesson
+   }
    else if(action==='nextGroup')selectGroup(state.lessonIndex+1);
    else if(action==='start')start();
    else if(action==='answer')answer(b.dataset.letterId);
