@@ -4,11 +4,66 @@
  if(window.DEEN_PREMIUM_OFFER)return;
  const TRIAL_KEY='deen_premium_trial_v1',SEEN_KEY='deen_premium_offer_seen_v1',TRIAL_MS=72*60*60*1000;
  const translations={
-  tr:{eyebrow:'DEEN PREMIUM',title:'Öğrenme yolculuğunu güçlendir',trial:'İlk 3 gün ücretsiz',used:'Ücretsiz denemen kullanıldı',description:'Daha rahat öğren, dilediğin kadar tekrar et ve gelişimini takip et.',features:['Sınırsız öğrenme enerjisi','Detaylı tekrar geçmişi','Öğrenme ilerleme analizleri'],start:'3 Gün Ücretsiz Başlat',unavailable:'Abonelik yakında',later:'Şimdilik Devam Et',support:'Premium ile DEEN’in gelişmesine ve daha fazla kişiye ulaşmasına destek olursun.',disclosure:'Bu deneme yalnızca bu cihazda geçerlidir. Otomatik ücretlendirme veya abonelik başlatılmaz.',expired:'Deneme süren doldu. Şu anda ücretli abonelik alınmıyor.'},
-  en:{eyebrow:'DEEN PREMIUM',title:'Make more of your learning',trial:'First 3 days free',used:'Free trial already used',description:'Learn with more flexibility, review often and follow your progress.',features:['Unlimited learning energy','Detailed review history','Learning progress insights'],start:'Start 3 Free Days',unavailable:'Subscription coming soon',later:'Continue for now',support:'Premium helps DEEN grow and reach more learners.',disclosure:'This trial is valid only on this device. No automatic payment or subscription is started.',expired:'Your trial has ended. Paid subscriptions are not available yet.'},
-  ar:{eyebrow:'DEEN PREMIUM',title:'ارتقِ برحلتك التعليمية',trial:'أول ٣ أيام مجانًا',used:'استُخدمت التجربة المجانية',description:'تعلّم بمرونة أكبر، وراجع ما تعلّمته وتابع تقدّمك.',features:['طاقة تعلم غير محدودة','سجل مراجعة مفصّل','تحليلات التقدّم في التعلم'],start:'ابدأ ٣ أيام مجانًا',unavailable:'الاشتراك قريبًا',later:'المتابعة الآن',support:'يساعد اشتراك Premium في تطوير DEEN والوصول إلى مزيد من المتعلمين.',disclosure:'هذه التجربة متاحة على هذا الجهاز فقط. لا تُفعّل أي مدفوعات أو اشتراكات تلقائية.',expired:'انتهت تجربتك. الاشتراك المدفوع غير متاح بعد.'},
-  de:{eyebrow:'DEEN PREMIUM',title:'Lerne mit mehr Möglichkeiten',trial:'Die ersten 3 Tage kostenlos',used:'Gratis-Testphase bereits genutzt',description:'Lerne flexibler, wiederhole Inhalte und verfolge deinen Fortschritt.',features:['Unbegrenzte Lernenergie','Detaillierter Wiederholungsverlauf','Einblicke in deinen Lernfortschritt'],start:'3 Gratistage starten',unavailable:'Abo bald verfügbar',later:'Vorerst fortfahren',support:'Mit Premium unterstützt du die Weiterentwicklung von DEEN und erreichst mehr Lernende.',disclosure:'Diese Testphase gilt nur auf diesem Gerät. Es startet weder eine automatische Zahlung noch ein Abo.',expired:'Deine Testphase ist abgelaufen. Kostenpflichtige Abos sind noch nicht verfügbar.'},
-  fr:{eyebrow:'DEEN PREMIUM',title:'Enrichis ton apprentissage',trial:'3 premiers jours gratuits',used:'Essai gratuit déjà utilisé',description:'Apprends plus librement, révise à ton rythme et suis tes progrès.',features:['Énergie d’apprentissage illimitée','Historique détaillé des révisions','Analyses de progression'],start:'Activer 3 jours gratuits',unavailable:'Abonnement bientôt disponible',later:'Continuer pour le moment',support:'Premium contribue au développement de DEEN et permet d’aider plus d’apprenants.',disclosure:'Cet essai est limité à cet appareil. Aucun paiement ni abonnement automatique ne démarre.',expired:'Ton essai est terminé. Les abonnements payants ne sont pas encore disponibles.'}
+  tr:{
+   eyebrow:'DEEN PREMIUM',titleLead:'Öğrenme yolculuğunu',titleAccent:'güçlendir',
+   trial:'İlk 3 gün ücretsiz',used:'Ücretsiz denemen kullanıldı',
+   description:'Daha rahat öğren, dilediğin kadar tekrar et ve gelişimini takip et.',
+   features:[['∞','Sınırsız öğrenme enerjisi'],['▤','Detaylı tekrar geçmişi'],['▥','Öğrenme ilerleme analizleri']],
+   futureTitle:'Yakında DEEN Premium’da',future:['Özel rozetler','Zenginleştirilmiş Kur’an deneyimi'],
+   start:'3 Gün Ücretsiz Başlat',unavailable:'Abonelik yakında',later:'Şimdilik Devam Et',
+   closeLabel:'Premium ekranını kapat',
+   support:'Premium ile DEEN’in gelişmesine ve daha fazla kişiye ulaşmasına destek olursun.',
+   disclosure:'Ücretsiz deneme yalnızca bu cihazda geçerlidir. Otomatik ödeme veya abonelik başlamaz.',
+   expired:'Denemen sona erdi. Ücretli abonelik henüz kullanılamıyor.'
+  },
+  en:{
+   eyebrow:'DEEN PREMIUM',titleLead:'Elevate your',titleAccent:'learning journey',
+   trial:'Your first 3 days are free',used:'Free trial already used',
+   description:'Learn with more freedom, revisit what matters and track your progress.',
+   features:[['∞','Unlimited learning energy'],['▤','Detailed review history'],['▥','Learning progress insights']],
+   futureTitle:'Coming to DEEN Premium',future:['Exclusive badges','Enhanced Quran learning'],
+   start:'Start 3 Free Days',unavailable:'Subscriptions coming soon',later:'Continue for now',
+   closeLabel:'Close premium offer',
+   support:'Premium helps DEEN grow and reach more learners.',
+   disclosure:'The free trial works on this device only. No subscription or automatic payment starts.',
+   expired:'Your trial has ended. Paid subscriptions are not available yet.'
+  },
+  ar:{
+   eyebrow:'DEEN PREMIUM',titleLead:'ارتقِ برحلتك',titleAccent:'التعليمية',
+   trial:'أول ٣ أيام مجانًا',used:'تم استخدام التجربة المجانية',
+   description:'تعلّم بمرونة أكبر، وراجع ما تعلّمته، وتابع تقدّمك.',
+   features:[['∞','طاقة تعلم غير محدودة'],['▤','سجل مراجعة مفصّل'],['▥','تحليلات التقدّم في التعلم']],
+   futureTitle:'قريبًا في DEEN Premium',future:['شارات حصرية','تجربة مطوّرة لتعلّم القرآن'],
+   start:'ابدأ ٣ أيام مجانًا',unavailable:'الاشتراك قريبًا',later:'المتابعة الآن',
+   closeLabel:'إغلاق عرض Premium',
+   support:'يساعد Premium في تطوير DEEN والوصول إلى مزيد من المتعلمين.',
+   disclosure:'التجربة المجانية متاحة على هذا الجهاز فقط، ولن يبدأ اشتراك أو دفع تلقائي.',
+   expired:'انتهت تجربتك. الاشتراك المدفوع غير متاح بعد.'
+  },
+  de:{
+   eyebrow:'DEEN PREMIUM',titleLead:'Entfalte dein',titleAccent:'Lernpotenzial',
+   trial:'Die ersten 3 Tage kostenlos',used:'Gratis-Testphase bereits genutzt',
+   description:'Lerne flexibler, wiederhole Inhalte und behalte deinen Fortschritt im Blick.',
+   features:[['∞','Unbegrenzte Lernenergie'],['▤','Detaillierter Wiederholungsverlauf'],['▥','Einblicke in deinen Lernfortschritt']],
+   futureTitle:'Demnächst bei DEEN Premium',future:['Exklusive Abzeichen','Erweitertes Koran-Lernen'],
+   start:'3 Gratistage starten',unavailable:'Abo bald verfügbar',later:'Vorerst fortfahren',
+   closeLabel:'Premium-Angebot schließen',
+   support:'Mit Premium unterstützt du die Entwicklung von DEEN für mehr Lernende.',
+   disclosure:'Die Gratis-Testphase gilt nur auf diesem Gerät. Kein Abo und keine automatische Zahlung.',
+   expired:'Deine Testphase ist abgelaufen. Bezahl-Abos sind noch nicht verfügbar.'
+  },
+  fr:{
+   eyebrow:'DEEN PREMIUM',titleLead:'Enrichis ton',titleAccent:'apprentissage',
+   trial:'Les 3 premiers jours gratuits',used:'Essai gratuit déjà utilisé',
+   description:'Apprends plus librement, révise à ton rythme et suis tes progrès.',
+   features:[['∞','Énergie d’apprentissage illimitée'],['▤','Historique détaillé des révisions'],['▥','Analyses de progression']],
+   futureTitle:'Bientôt dans DEEN Premium',future:['Badges exclusifs','Apprentissage du Coran enrichi'],
+   start:'Activer 3 jours gratuits',unavailable:'Abonnement bientôt disponible',later:'Continuer pour le moment',
+   closeLabel:'Fermer l’offre Premium',
+   support:'Premium soutient le développement de DEEN pour aider davantage de personnes.',
+   disclosure:'L’essai gratuit est valable sur cet appareil uniquement. Aucun abonnement ni prélèvement automatique.',
+   expired:'Ton essai est terminé. Aucun abonnement payant n’est encore disponible.'
+  }
  };
  const lang=()=>window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';
  const T=()=>translations[lang()]||translations.tr;
@@ -51,10 +106,27 @@
  function mount(){
   if(dialog?.isConnected)return dialog;
   dialog=document.createElement('dialog');dialog.id='deenPremiumOffer';dialog.setAttribute('aria-labelledby','deenPremiumTitle');
-  dialog.innerHTML='<div class="dp-inner"><div class="dp-brand"><span class="dp-star" aria-hidden="true">✦</span><span data-dp="eyebrow"></span></div><h2 id="deenPremiumTitle" data-dp="title"></h2><p class="dp-trial" data-dp="trial"></p><p class="dp-desc" data-dp="description"></p><ul class="dp-features"></ul><button type="button" class="dp-start" data-dp-action="start"></button><button type="button" class="dp-later" data-dp-action="later"></button><p class="dp-support" data-dp="support"></p><p class="dp-disclosure" data-dp="disclosure"></p></div>';
+  dialog.innerHTML=
+   '<div class="dp-shell">'+
+    '<div class="dp-arch" aria-hidden="true"><span>✦</span></div>'+
+    '<button class="dp-close" type="button" data-dp-action="close" aria-label="Close">×</button>'+
+    '<div class="dp-brand"><span class="dp-brand-rule" aria-hidden="true"></span><span data-dp="eyebrow"></span><span class="dp-brand-rule" aria-hidden="true"></span></div>'+
+    '<h2 id="deenPremiumTitle" class="dp-title"><span data-dp="titleLead"></span><span class="dp-title-accent" data-dp="titleAccent"></span></h2>'+
+    '<p class="dp-trial" data-dp="trial"></p>'+
+    '<p class="dp-desc" data-dp="description"></p>'+
+    '<ul class="dp-features"></ul>'+
+    '<div class="dp-future"><span class="dp-future-label" data-dp="futureTitle"></span><div class="dp-future-items"></div></div>'+
+    '<div class="dp-actions"><button type="button" class="dp-start" data-dp-action="start"><span class="dp-start-spark" aria-hidden="true">✦</span><span data-dp="start"></span><span class="dp-action-arrow" aria-hidden="true">→</span></button>'+
+    '<button type="button" class="dp-later" data-dp-action="later"><span data-dp="later"></span></button></div>'+
+    '<div class="dp-divider" aria-hidden="true"><span></span></div>'+
+    '<p class="dp-support" data-dp="support"></p>'+
+    '<p class="dp-disclosure" data-dp="disclosure"></p>'+
+    '<div class="dp-skyline" aria-hidden="true"></div>'+
+   '</div>';
   dialog.addEventListener('cancel',e=>{e.preventDefault();close()});
   dialog.addEventListener('click',e=>{if(e.target===dialog)close()});
   dialog.querySelector('[data-dp-action="later"]').onclick=close;
+  dialog.querySelector('[data-dp-action="close"]').onclick=close;
   dialog.querySelector('[data-dp-action="start"]').onclick=()=>{
    if(record()){dialog.querySelector('[data-dp="disclosure"]').textContent=T().expired;return;}
    const now=Date.now();if(!put(TRIAL_KEY,{used:true,startedAt:now})){dialog.querySelector('[data-dp="disclosure"]').textContent=T().disclosure;return;}
@@ -63,12 +135,32 @@
   document.body.appendChild(dialog);return dialog;
  }
  function render(){
-  const d=mount(),t=T(),used=!!record();d.lang=lang();d.dir=lang()==='ar'?'rtl':'ltr';
-  for(const [key,value] of Object.entries(t)){const target=d.querySelector('[data-dp="'+key+'"]');if(target)target.textContent=value}
+  const d=mount(),t=T(),used=!!record();
+  d.lang=lang();d.dir=lang()==='ar'?'rtl':'ltr';
+  for(const [key,value] of Object.entries(t)){
+   if(typeof value!=='string')continue;
+   const target=d.querySelector('[data-dp="'+key+'"]');
+   if(target)target.textContent=value;
+  }
+  d.querySelector('.dp-close').setAttribute('aria-label',t.closeLabel);
   d.querySelector('[data-dp="trial"]').textContent=used?t.used:t.trial;
   const list=d.querySelector('.dp-features');list.replaceChildren();
-  for(const f of t.features){const li=document.createElement('li'),mark=document.createElement('span');mark.className='dp-check';mark.textContent='✓';mark.setAttribute('aria-hidden','true');li.append(mark,document.createTextNode(f));list.appendChild(li)}
-  const cta=d.querySelector('[data-dp-action="start"]');cta.textContent=used?t.unavailable:t.start;cta.disabled=used;
+  for(const [icon,text] of t.features){
+   const li=document.createElement('li');
+   const mark=document.createElement('span');mark.className='dp-feature-icon';mark.textContent=icon;mark.setAttribute('aria-hidden','true');
+   const label=document.createElement('span');label.className='dp-feature-text';label.textContent=text;
+   const tick=document.createElement('span');tick.className='dp-feature-check';tick.textContent='✓';tick.setAttribute('aria-hidden','true');
+   li.append(mark,label,tick);list.appendChild(li);
+  }
+  const future=d.querySelector('.dp-future-items');future.replaceChildren();
+  for(const text of t.future){
+   const chip=document.createElement('span');chip.className='dp-future-chip';chip.textContent=text;future.appendChild(chip);
+  }
+  const cta=d.querySelector('[data-dp-action="start"]');
+  cta.querySelector('[data-dp="start"]').textContent=used?t.unavailable:t.start;
+  cta.disabled=used;
+  // Keep labels visible even when global DEEN button rules apply (iOS included).
+  d.querySelector('[data-dp="later"]').textContent=t.later;
   d.querySelector('[data-dp="disclosure"]').textContent=used?t.expired:t.disclosure;
   return d;
  }
