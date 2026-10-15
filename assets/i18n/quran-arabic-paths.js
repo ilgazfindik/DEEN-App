@@ -56,7 +56,7 @@
  const groupLetters=()=>group().letters;
  const isUnlocked=i=>i===0||completed().includes(LESSONS[i-1].id);
  function root(){return document.getElementById('leagueScreenBody')}
- const letterLabel=item=>item.labels[lang()]||item.labels.tr;
+ const letterLabel=item=>item.names?.[lang()]||item.names?.tr||item.glyph;
  const elem=(tag,className,text)=>{const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e};
  function makeButton(label,action,className){
   const b=elem('button',className,label);b.type='button';b.dataset.qpathAction=action;return b;
