@@ -90,7 +90,7 @@
   if(!snapshot?.key||!/^\d{4}-\d{2}-\d{2}$/.test(snapshot.key))return awards;
   const achieved=tiers.filter(t=>snapshot.current?.activeDays>=t.days).map(t=>t.id);
   if(!achieved.length)return awards;
-  const weeks={...awards.weeks,[snapshot.key]:unique([...(awards.weeks[snapshot.key]||[]),...achieved])};
+  const weeks={...awards.weeks,[snapshot.key]:{ids:unique([...(awards.weeks[snapshot.key]||[]),...achieved])}};
   return cleanAwards({schema:1,weeks});
  }
  const ui=Object.freeze({
