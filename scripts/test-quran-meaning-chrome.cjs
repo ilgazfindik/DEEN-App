@@ -12,14 +12,14 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.goto('http://127.0.0.1:'+server.address().port);
   await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
-  for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-paths.js'])
+  for(const name of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-paths.js'])
    await page.addScriptTag({path:path.join(root,'assets/i18n',name)});
   const syllabus=await page.evaluate(()=>({
    version:DEEN_QURAN_PATHS.version,
    lessons:DEEN_ARABIC_MEANING.lessons.map(l=>({id:l.id,index:l.index,kind:l.kind,items:l.items.map(x=>({id:x.id,glyph:x.glyph,reference:x.reference,parts:x.parts,gloss:x.gloss,role:x.role,meaning:x.meaning}))})),
    total:DEEN_QURAN_PATHS.status().overallLessonCount
   }));
-  assert.equal(syllabus.version,'quran-arabic-paths-phase10');
+  assert.equal(syllabus.version,'quran-arabic-paths-phase11');
   assert.equal(syllabus.total,27);
   assert.deepEqual(syllabus.lessons.map(l=>l.index),[18,19,20]);
   assert.deepEqual(syllabus.lessons.map(l=>l.items.length),[4,4,3]);
