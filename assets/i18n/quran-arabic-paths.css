@@ -474,3 +474,35 @@
  #leagueScreenBody .deen-path-daily-choices{gap:5px}
  #leagueScreenBody .deen-path-daily-choice{font-size:12px}
 }
+
+/* Phase 12 — targeted, evidence-based written reinforcement */
+#leagueScreenBody .deen-path-adaptive-section{
+ margin:16px 0;padding:17px 13px 14px;border-radius:17px;
+ background:radial-gradient(ellipse at 90% 5%,rgba(230,195,116,.15),transparent 55%),#18363f;
+ border:1px solid rgba(241,207,141,.54)
+}
+#leagueScreenBody .deen-path-adaptive-section>.deen-path-shape-subtitle{
+ font-size:17px;color:#ffe6ae;margin:0 0 8px
+}
+#leagueScreenBody .deen-path-adaptive-section>.deen-path-muted{
+ margin:5px 0 12px;line-height:1.65
+}
+#leagueScreenBody .deen-path-adaptive-metrics{
+ display:flex;flex-wrap:wrap;gap:8px;margin:14px 0
+}
+#leagueScreenBody .deen-path-adaptive-stat{
+ display:inline-block;max-width:100%;
+ border-radius:12px;background:#284954;color:#dffaf4;
+ border:1px solid rgba(154,219,206,.24);
+ padding:7px 10px;font-size:12px;line-height:1.5
+}
+#leagueScreenBody .deen-path-adaptive-section>button{
+ width:100%;min-height:51px;border-radius:14px;
+ padding:11px 12px;margin-top:9px;white-space:normal;
+ font-size:14px;font-weight:760;cursor:pointer
+}
+#leagueScreenBody .deen-path-adaptive-next{
+ color:#092f33;background:#ffe1a2;border:1px solid #ffe1a2
+}
+#leagueScreenBody .deen-path-adaptive-next:focus-visible{outline:3px solid #31efcf;outline-offset:3px}
+#leagueScreenBody .deen-path-adaptive-note{font-size:12px!important;color:#c3d3d1;line-height:1.55}
