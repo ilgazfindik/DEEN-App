@@ -25,6 +25,14 @@
   de:{kicker:'KORAN-LERNZENTRUM',homeTitle:'Deine Koran-Reise',homeSub:'Erkenne Buchstaben, lerne lesen und entdecke Suren.',arabic:'Arabisch lernen',arabicSub:'Starte mit Buchstaben, Vokalzeichen und Lesen.',surah:'Suren lernen und auswendig lernen',surahSub:'Vorhandene Suren, Anhören, Auswendiglernen und Wiederholung.',arabicAction:'Arabisch lernen starten',surahAction:'Suren entdecken',back:'Lernwege',preview:'ERSTE LEKTION',introTitle:'Die ersten drei Buchstaben',introSub:'Erkenne Alif, Bā und Tā und tippe im Quiz auf den richtigen Buchstaben.',firstLesson:'Buchstaben erkennen · 1',lessonStart:'Mini-Lektion starten',completed:'Erste Mini-Lektion geschafft',completedDesc:'Prima! Du erkennst drei Buchstaben. Weitere Buchstaben, Vokalzeichen und Laute folgen.',redo:'Erneut üben',next:'Nächste Frage',finish:'Lektion abschließen',question:'Welcher Buchstabe?',correct:'Richtig erkannt!',wrong:'Versuche es erneut. Vergleiche die Buchstabenformen.',progress:'Frage',free:'KOSTENLOS',future:'Alle 28 Buchstaben und weitere Lektionen folgen. Audio ist in dieser Einführung noch nicht verfügbar.',status:'Erste Lektion verfügbar'},
   fr:{kicker:'CENTRE D’APPRENTISSAGE DU CORAN',homeTitle:'Ton parcours coranique',homeSub:'Reconnais les lettres, apprends à lire et découvre les sourates.',arabic:'Apprendre l’arabe',arabicSub:'Commence par les lettres, les voyelles et la lecture.',surah:'Apprendre et mémoriser les sourates',surahSub:'Sourates actuelles, écoute, mémorisation et révision.',arabicAction:'Commencer l’arabe',surahAction:'Explorer les sourates',back:'Parcours d’apprentissage',preview:'PREMIÈRE LEÇON',introTitle:'Découvre les trois premières lettres',introSub:'Apprends à reconnaître Alif, Bā et Tā, puis touche la bonne lettre.',firstLesson:'Reconnaître les lettres · 1',lessonStart:'Commencer la mini-leçon',completed:'Première mini-leçon terminée',completedDesc:'Bravo ! Tu reconnais trois lettres. Les autres lettres, voyelles et sons arrivent ensuite.',redo:'Recommencer',next:'Question suivante',finish:'Terminer la leçon',question:'Quelle lettre ?',correct:'Bonne réponse !',wrong:'Réessaie en comparant les formes.',progress:'Question',free:'GRATUIT',future:'Les 28 lettres et les autres leçons seront ajoutées progressivement. Cette introduction ne propose pas encore d’audio.',status:'Première leçon prête'}
  };
+ // Curriculum messages override phase-1 placeholders after the full 28-letter release.
+ for(const [code,future,finished] of [
+  ['tr','Harekeler, hece birleştirme ve doğrulanmış harf sesleri sonraki aşamalarda eklenecek.','Bu dersteki harfleri tanıdın. Sıradaki harf grubuna devam edebilirsin.'],
+  ['en','Vowel marks, syllables and verified letter audio will be added in later stages.','You recognized this group of letters. Continue to the next group when ready.'],
+  ['ar','ستُضاف الحركات والمقاطع والأصوات الموثّقة في المراحل القادمة.','تعرّفت على حروف هذا الدرس. يمكنك الانتقال إلى المجموعة التالية.'],
+  ['de','Vokalzeichen, Silben und geprüfte Buchstaben-Audios folgen später.','Du erkennst diese Buchstaben. Weiter geht es mit der nächsten Gruppe.'],
+  ['fr','Les voyelles, les syllabes et les sons vérifiés seront ajoutés par la suite.','Tu reconnais les lettres de ce groupe. Tu peux passer au suivant.']
+ ]){extra[code].future=future;extra[code].completedDesc=finished}
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
  const t=()=>Object.assign({},i18n[lang()],extra[lang()]);
  const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false};
@@ -142,7 +150,7 @@
   const c=t(),items=groupLetters(),box=elem('section','deen-path-arabic-landing');
   box.append(makeButton('←  '+c.arabic,'arabic','deen-path-back'));
   box.append(elem('span','deen-path-pill',c.lesson+' '+(state.lessonIndex+1)+' / '+LESSONS.length+' · '+c.free));
-  box.append(elem('h2','deen-path-inner-title',c.groupTitle),elem('p','deen-path-muted',c.introSub));
+  box.append(elem('h2','deen-path-inner-title',c.groupTitle),elem('p','deen-path-muted',c.courseInfo));
   box.append(lettersStrip(items),elem('h3','deen-path-shape-subtitle',c.shape),shapeAtlas(items));
   if(items.some(item=>!item.joinsNext))box.appendChild(elem('p','deen-path-muted',c.atlasHelp));
   box.append(elem('p','deen-path-muted deen-path-warning',c.courseInfo));
