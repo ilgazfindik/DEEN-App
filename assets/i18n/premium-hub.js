@@ -12,6 +12,21 @@
  };
  const language=()=>window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';
  const t=()=>text[language()]||text.tr;
+ // Prices are display-only USD plan concepts. No payment period, receipts or ad SDK yet.
+ const PLANS=Object.freeze({
+  full:Object.freeze({id:'full',priceUSD:10,adsEnabled:false,unlimitedEnergy:true,advancedHistory:true,progressInsights:true,plannedUnlimitedPotions:true,plannedBadges:true}),
+  supported:Object.freeze({id:'supported',priceUSD:5,adsEnabled:true,unlimitedEnergy:true,advancedHistory:true,progressInsights:true,plannedUnlimitedPotions:true,plannedBadges:true})
+ });
+ const planCopy={
+  tr:{title:'İki Premium seçeneği',sub:'İki pakette de aynı Premium özellikleri var. Tek fark reklam deneyimi.',full:'Tam Paket',supported:'Reklamlı Premium',tag:'REKLAMSIZ',popular:'TAM DENEYİM',shared:['Sınırsız enerji ve öğrenme hakkı','Detaylı tekrar geçmişi','Gelişmiş ilerleme analizleri'],future:'İksir sistemi ve özel rozetler henüz geliştirme aşamasında.',noAds:'Reklam gösterilmez (entegrasyondan sonra)',withAds:'Reklamlar gösterilmeye devam eder (entegrasyondan sonra)',select:'Paketi seç',selected:'Seçildi',selection:'Seçtiğin paket',notCheckout:'Paket tercihin gösteriliyor; henüz satın alma veya ödeme yapılmıyor.',priceFoot:'Fiyatlar USD cinsinden taslaktır. Abonelik dönemi ve gerçek ödeme akışı daha sonra belirlenecek.',trialTitle:'İlk 3 gün ücretsiz dene',trialFoot:'Bu deneme yalnızca cihazda çalışır; bir $5/$10 aboneliği oluşturmaz.'},
+  en:{title:'Choose your Premium plan',sub:'Both plans have the same Premium benefits. Only the advertising experience differs.',full:'Full Plan',supported:'Premium with Ads',tag:'NO ADS',popular:'FULL EXPERIENCE',shared:['Unlimited learning energy','Detailed review history','Advanced progress insights'],future:'Potion features and exclusive badges are still in development.',noAds:'No ads (once integrated)',withAds:'Ads remain visible (once integrated)',select:'Select plan',selected:'Selected',selection:'Selected plan',notCheckout:'This is a plan preference only; no purchase or payment is made.',priceFoot:'Prices are draft USD amounts. Billing period and checkout will be confirmed later.',trialTitle:'Try 3 days free',trialFoot:'The trial works only on this device; it does not start a $5/$10 subscription.'},
+  ar:{title:'اختر خطة Premium',sub:'كلتا الخطتين تتمتعان بالمزايا نفسها؛ الاختلاف الوحيد هو الإعلانات.',full:'الباقة الكاملة',supported:'Premium مع الإعلانات',tag:'بلا إعلانات',popular:'تجربة كاملة',shared:['طاقة تعلم غير محدودة','سجل مراجعة مفصّل','تحليلات متقدمة للتقدّم'],future:'نظام الجرعات والشارات الخاصة قيد التطوير.',noAds:'بدون إعلانات عند تفعيلها',withAds:'ستبقى الإعلانات ظاهرة عند تفعيلها',select:'اختر الباقة',selected:'تم الاختيار',selection:'الباقة المختارة',notCheckout:'هذه مجرد معاينة لاختيار الباقة؛ لا تتم أي عملية شراء أو دفع.',priceFoot:'الأسعار المعروضة بالدولار هي مسودة. ستُحدّد مدة الاشتراك والدفع لاحقًا.',trialTitle:'جرّب ٣ أيام مجانًا',trialFoot:'التجربة متاحة على هذا الجهاز فقط ولا تنشئ اشتراكًا بقيمة ٥ أو ١٠ دولارات.'},
+  de:{title:'Wähle deinen Premium-Tarif',sub:'Beide Tarife bieten dieselben Premium-Vorteile. Nur die Werbung unterscheidet sich.',full:'Komplettpaket',supported:'Premium mit Werbung',tag:'WERBEFREI',popular:'VOLLE ERFAHRUNG',shared:['Unbegrenzte Lernenergie','Detaillierter Wiederholungsverlauf','Erweiterte Fortschrittsanalysen'],future:'Trank-Funktion und besondere Abzeichen sind noch in Entwicklung.',noAds:'Werbefrei (nach Integration)',withAds:'Werbung bleibt sichtbar (nach Integration)',select:'Tarif auswählen',selected:'Ausgewählt',selection:'Gewählter Tarif',notCheckout:'Nur eine Tarifauswahl; es wird nichts gekauft oder bezahlt.',priceFoot:'USD-Preise sind vorläufig. Abrechnungszeitraum und Zahlung folgen später.',trialTitle:'3 Tage kostenlos testen',trialFoot:'Die Testphase gilt nur auf diesem Gerät und startet kein $5/$10-Abo.'},
+  fr:{title:'Choisis ton offre Premium',sub:'Les deux offres ont les mêmes avantages. Seule la publicité change.',full:'Offre complète',supported:'Premium avec publicités',tag:'SANS PUBLICITÉ',popular:'EXPÉRIENCE COMPLÈTE',shared:['Énergie d’apprentissage illimitée','Historique détaillé des révisions','Analyses avancées des progrès'],future:'Le système de potions et les badges spéciaux sont encore en développement.',noAds:'Sans publicité (après intégration)',withAds:'Publicités maintenues (après intégration)',select:'Choisir cette offre',selected:'Sélectionné',selection:'Offre choisie',notCheckout:'Ce choix est un aperçu : aucun achat ni paiement n’est effectué.',priceFoot:'Les prix en USD sont provisoires. La période de facturation et le paiement seront définis ensuite.',trialTitle:'Essayer 3 jours gratuits',trialFoot:'Cet essai ne fonctionne que sur cet appareil et ne crée pas d’abonnement à 5 $ ou 10 $.'}
+ };
+ const pc=()=>planCopy[language()]||planCopy.tr;
+ let selectedPlanId='full';
+
  const session=()=>{try{return typeof state==='object'?state:window.state||null}catch(_){return window.state||null}};
  const trial=()=>!!window.DEEN_PREMIUM_OFFER?.isTrialActive?.();
  const active=()=>!!session()?.premium||trial()||!!window.DEEN_PREMIUM_ENTITLEMENT?.active;
@@ -35,44 +50,47 @@
    '<div class="dh-topline"><span class="dh-crown" aria-hidden="true">✧</span><span class="dh-brand"></span><span class="dh-status"></span></div>'+
    '<h2 class="dh-headline"></h2><p class="dh-summary"></p>'+
    '<p class="dh-perks"></p>'+
-   '<div class="dh-profile-actions"><button type="button" class="dh-main" data-deen-hub-action="start"><span class="dh-main-label"></span><span aria-hidden="true">→</span></button>'+
-   '<button type="button" class="dh-compare" data-deen-hub-action="compare"></button></div>';
+   '<div class="dh-profile-actions"><button type="button" class="dh-main" data-deen-hub-action="compare"><span class="dh-main-label"></span><span aria-hidden="true">→</span></button>'+
+   (!enabled&&!spent?'<button type="button" class="dh-compare" data-deen-hub-action="start"></button>':'')+'</div>';
   card.querySelector('.dh-brand').textContent=c.brand;
   card.querySelector('.dh-status').textContent=badgeContent(enabled);
   card.querySelector('.dh-headline').textContent=enabled?c.activeDesc:c.headline;
   card.querySelector('.dh-summary').textContent=c.summary;
   card.querySelector('.dh-perks').textContent=c.perks;
-  card.querySelector('.dh-main-label').textContent=enabled?c.comparison:spent?c.discover:c.trial;
-  card.querySelector('.dh-compare').textContent=c.comparison;
-  card.querySelector('[data-deen-hub-action="start"]').dataset.deenHubAction=enabled||spent?'compare':'start';
+  card.querySelector('.dh-main-label').textContent=c.comparison;
+  if(!enabled&&!spent)card.querySelector('.dh-compare').textContent=c.trial;
   if(enabled)card.classList.add('dh-is-active');
   root.querySelector('.v5-profilehead').after(card);
   return true;
  }
  function compareMarkup(){
-  const c=t(),enabled=active(),spent=used();
-  const rows=c.rows.map(([name,free,paid])=>
-   '<div class="dh-comp-row"><span class="dh-comp-name">'+name+'</span><span class="dh-comp-free">'+free+'</span><span class="dh-comp-paid">'+paid+'</span></div>'
-  ).join('');
-  return '<div class="deen-hub-compare" lang="'+language()+'" dir="'+(language()==='ar'?'rtl':'ltr')+'">'+
+  const c=t(),p=pc(),enabled=active(),spent=used();
+  const shared=p.shared.map(item=>'<li><span aria-hidden="true">✓</span>'+item+'</li>').join('');
+  function packageCard(plan){
+   const isFull=plan.id==='full',picked=selectedPlanId===plan.id;
+   const name=isFull?p.full:p.supported,ads=isFull?p.noAds:p.withAds;
+   return '<article class="dh-tier '+(isFull?'dh-tier-full':'dh-tier-ads')+(picked?' dh-tier-selected':'')+'" data-tier="'+plan.id+'">'+
+    '<div class="dh-tier-top"><span class="dh-tier-name">'+name+'</span>'+(isFull?'<span class="dh-tier-tag">'+p.popular+'</span>':'')+'</div>'+
+    '<div class="dh-tier-price"><span class="dh-currency">$</span><strong>'+plan.priceUSD+'</strong><span class="dh-usd">USD</span></div>'+
+    '<ul class="dh-tier-features">'+shared+'<li class="'+(isFull?'dh-tier-ad-free':'dh-tier-ad-on')+'"><span aria-hidden="true">'+(isFull?'✦':'◉')+'</span>'+ads+'</li></ul>'+
+    '<button type="button" data-deen-hub-action="select-plan" data-deen-plan="'+plan.id+'" aria-pressed="'+(picked?'true':'false')+'">'+(picked?p.selected:p.select)+'</button>'+
+   '</article>';
+  }
+  return '<div class="deen-hub-compare deen-hub-tiers" lang="'+language()+'" dir="'+(language()==='ar'?'rtl':'ltr')+'">'+
    '<div class="dh-comp-orb" aria-hidden="true">✦</div>'+
-   '<p class="dh-comp-eyebrow">'+c.eyebrow+'</p>'+
-   '<h3 class="dh-comp-title">'+c.compareTitle+'</h3>'+
-   '<p class="dh-comp-desc">'+c.compareDesc+'</p>'+
-   '<div class="dh-comp-table" role="group" aria-label="'+c.comparison+'">'+
-    '<div class="dh-comp-header"><span>'+c.feature+'</span><span>'+c.free+'</span><span>'+c.paid+'</span></div>'+rows+
-   '</div>'+
+   '<p class="dh-comp-eyebrow">'+c.brand+'</p>'+
+   '<h3 class="dh-comp-title">'+p.title+'</h3>'+
+   '<p class="dh-comp-desc">'+p.sub+'</p>'+
+   '<div class="dh-tier-grid">'+packageCard(PLANS.full)+packageCard(PLANS.supported)+'</div>'+
+   '<p class="dh-tier-future">'+p.future+'</p>'+
+   '<p class="dh-tier-choice" role="status">'+p.selection+': <strong data-deen-plan-chosen>'+(selectedPlanId==='full'?p.full:p.supported)+'</strong>. '+p.notCheckout+'</p>'+
+   '<p class="dh-tier-price-note">'+p.priceFoot+'</p>'+
    '<p class="dh-comp-trust">✓ '+c.trust+'</p>'+
    '<div class="dh-comp-actions">'+
-   (enabled
-    ?'<div class="dh-comp-active">'+c.active+'</div>'
-    :spent
-     ?'<div class="dh-comp-unavailable">'+c.coming+'</div>'
-     :'<button type="button" class="dh-comp-primary" data-deen-hub-action="start"><span>✦</span>'+c.trial+'<span aria-hidden="true">→</span></button>')+
+   (enabled?'<div class="dh-comp-active">'+c.active+'</div>':spent?'<div class="dh-comp-unavailable">'+c.coming+'</div>':
+   '<button type="button" class="dh-comp-primary" data-deen-hub-action="start"><span>✦</span>'+p.trialTitle+'<span aria-hidden="true">→</span></button>')+
    '<button type="button" class="dh-comp-dismiss" data-deen-hub-action="dismiss">'+c.later+'</button></div>'+
-   '<div class="dh-comp-line" aria-hidden="true"></div>'+
-   '<p class="dh-comp-support">'+c.support+'</p>'+
-   '<p class="dh-comp-disclaimer">'+c.disclaimer+'</p>'+
+   '<p class="dh-comp-disclaimer">'+p.trialFoot+' '+c.disclaimer+'</p>'+
    '</div>';
  }
  function comparison(){
@@ -96,6 +114,16 @@
   const action=button.dataset.deenHubAction;
   if(action==='compare')comparison();
   else if(action==='start')startTrial();
+  else if(action==='select-plan'){
+   const value=button.dataset.deenPlan;
+   if(!Object.prototype.hasOwnProperty.call(PLANS,value))return;
+   selectedPlanId=value;
+   const root=button.closest('.deen-hub-tiers');
+   if(root){
+    const html=compareMarkup(),fresh=document.createElement('div');fresh.innerHTML=html;
+    root.replaceWith(fresh.firstElementChild);
+   }
+  }
   else if(action==='dismiss')window.closeSheet?.();
  });
  document.addEventListener('deen:profile-rendered',profileCard);
@@ -107,5 +135,5 @@
  window.premiumPanel=comparison;
  try{premiumPanel=comparison}catch(_){}
  if(document.querySelector('#profileScreen.active'))queueMicrotask(profileCard);
- window.DEEN_PREMIUM_HUB=Object.freeze({comparison,renderProfile:profileCard,version:'premium-profile-hub-v1'});
+ window.DEEN_PREMIUM_HUB=Object.freeze({comparison,renderProfile:profileCard,getSelectedPlan:()=>selectedPlanId,plans:PLANS,version:'premium-profile-hub-v2'});
 })();

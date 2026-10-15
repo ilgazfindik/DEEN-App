@@ -104,7 +104,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     await page.locator('#deenAdminPanelV2 .deen-admin-close').click();
     assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),false,'Admin dialog must close');
     // Profile Premium offer is above statistics and is the only profile paywall entry.
-    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_HUB?.version),'premium-profile-hub-v1');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_HUB?.version),'premium-profile-hub-v2');
     await page.evaluate(()=>navigate('profileScreen'));
     await page.locator('#profileScreenBody .deen-hub-profile').waitFor();
     assert.equal(await page.locator('#profileScreenBody .deen-hub-profile').count(),1,'Exactly one premium hero');
@@ -114,11 +114,16 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
       return {aboveMetrics:card&&metrics&&card.compareDocumentPosition(metrics)&Node.DOCUMENT_POSITION_FOLLOWING,afterAvatar:head&&card&&head.compareDocumentPosition(card)&Node.DOCUMENT_POSITION_FOLLOWING};
     });
     assert(pos.aboveMetrics&&pos.afterAvatar,'Premium entry must be directly below profile identity and before stats');
-    assert.equal((await page.locator('#profileScreenBody .dh-main-label').innerText()).trim(),'3 Gün Ücretsiz Başlat');
+    assert.equal((await page.locator('#profileScreenBody .dh-main-label').innerText()).trim(),'Avantajları karşılaştır');
+    assert.equal(await page.locator('#profileScreenBody .dh-compare').innerText(),'3 Gün Ücretsiz Başlat');
     await page.screenshot({path:path.join(out,'chrome-premium-profile-top.png')});
-    await page.locator('#profileScreenBody .dh-compare').click();
+    await page.locator('#profileScreenBody .dh-main').click();
     await page.locator('#v5Sheet[open] .deen-hub-compare').waitFor();
-    assert.equal(await page.locator('#v5Sheet .dh-comp-row').count(),5,'Comparison must show five honest Free/Premium rows');
+    assert.equal(await page.locator('#v5Sheet .dh-tier').count(),2,'Two premium plan options');
+    assert.equal(await page.locator('#v5Sheet .dh-tier-full .dh-tier-price strong').innerText(),'10');
+    assert.equal(await page.locator('#v5Sheet .dh-tier-ads .dh-tier-price strong').innerText(),'5');
+    assert.match(await page.locator('#v5Sheet .dh-tier-ads').innerText(),/Reklamlar gösterilmeye devam eder/);
+    await page.screenshot({path:path.join(out,'chrome-premium-two-plans.png')});
     assert.equal(await page.locator('#v5Sheet [data-deen-hub-action="start"]').count(),1,'Comparison must point to trial, not simulation');
     assert(!/Premium simülasyonunu aç/.test(await page.locator('#v5SheetBody').innerText()),'Obsolete simulation CTA must be gone');
     await page.screenshot({path:path.join(out,'chrome-premium-comparison-new.png')});
