@@ -12,7 +12,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.goto('http://127.0.0.1:'+server.address().port);
   await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
-  for(const file of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-remediation.js','quran-arabic-paths.js'])
+  for(const file of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-remediation.js','quran-arabic-weekly.js','quran-arabic-paths.js'])
    await page.addScriptTag({path:path.join(root,'assets/i18n',file)});
   const pure=await page.evaluate(()=>{
    const a=DEEN_ARABIC_ADAPTIVE,id=DEEN_ARABIC_PHRASES.cardIds[0],id2=DEEN_ARABIC_PATTERNS.cardIds[0];
@@ -29,7 +29,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     invalid:a.clean({lastLesson:'oops',sessions:{'__proto__':{attempts:5}}}).lastLesson
    };
   });
-  assert.equal(pure.version,'quran-arabic-paths-phase15');
+  assert.equal(pure.version,'quran-arabic-paths-phase16');
   assert.equal(pure.overall,27);assert.equal(pure.cardTotal,15);
   assert.equal(pure.one.sessions['arabic-test'].lastMistakes,2);
   assert.deepEqual(pure.one.sessions['arabic-test'].missedCardIds.slice(),[await page.evaluate(()=>DEEN_ARABIC_PHRASES.cardIds[0])]);
