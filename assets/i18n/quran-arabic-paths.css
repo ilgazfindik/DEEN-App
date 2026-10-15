@@ -321,3 +321,31 @@
 @media(max-width:355px){
  #leagueScreenBody .deen-path-phrase-lesson .deen-path-meaning-pieces{grid-template-columns:minmax(0,1fr)}
 }
+
+/* Phase 9 — expanded Quran grammar path and weak-card review */
+#leagueScreenBody .deen-path-pattern-section{
+ margin:18px 0 14px;padding:17px 13px 10px;border-radius:18px;
+ border:1px solid rgba(173,185,246,.49);
+ background:radial-gradient(ellipse at 95% 0,rgba(132,153,242,.16),transparent 58%),linear-gradient(180deg,#173340,#102731)
+}
+#leagueScreenBody .deen-path-pattern-section>.deen-path-shape-subtitle{font-size:18px;color:#dcdfff;margin:0 0 7px}
+#leagueScreenBody .deen-path-pattern-section>.deen-path-muted{margin:0 0 13px}
+#leagueScreenBody .deen-path-pattern-item{margin:0 0 10px;border-color:rgba(173,185,246,.38)!important}
+#leagueScreenBody .deen-path-pattern-item.is-locked{opacity:.54}
+#leagueScreenBody .deen-path-pattern-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;max-width:100%;overflow:hidden;
+ text-overflow:ellipsis;font:650 clamp(24px,6vw,34px)/1.7 "Geeza Pro","Noto Naskh Arabic",serif;color:#f1e8d2
+}
+#leagueScreenBody .deen-path-pattern-lesson .deen-path-phrase-hint{
+ max-width:100%;overflow-wrap:anywhere;line-height:1.75
+}
+#leagueScreenBody .deen-path-pattern-lesson .deen-path-option{
+ white-space:normal;text-align:center;min-height:73px;overflow-wrap:anywhere
+}
+#leagueScreenBody .deen-path-weak-heading{font-size:15px;margin:16px 0 6px;color:#f8deb0}
+#leagueScreenBody .deen-path-spaced-section .deen-path-secondary{
+ width:100%;border-radius:15px;min-height:50px;padding:11px 9px;
+ background:#173e42;color:#f3f9fa;border:1px solid rgba(236,204,147,.55);
+ font-weight:750;cursor:pointer
+}
+#leagueScreenBody .deen-path-spaced-section .deen-path-secondary:focus-visible{outline:3px solid #31efcf;outline-offset:2px}
