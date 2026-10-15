@@ -103,6 +103,30 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),true,'P button must open the existing admin dialog');
     await page.locator('#deenAdminPanelV2 .deen-admin-close').click();
     assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),false,'Admin dialog must close');
+    // Profile Premium offer is above statistics and is the only profile paywall entry.
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_HUB?.version),'premium-profile-hub-v1');
+    await page.evaluate(()=>navigate('profileScreen'));
+    await page.locator('#profileScreenBody .deen-hub-profile').waitFor();
+    assert.equal(await page.locator('#profileScreenBody .deen-hub-profile').count(),1,'Exactly one premium hero');
+    assert.equal(await page.locator('#profileScreenBody .v5-premium').count(),0,'Old footer premium card must be removed');
+    const pos=await page.evaluate(()=>{
+      const card=document.querySelector('#profileScreenBody .deen-hub-profile'),head=document.querySelector('#profileScreenBody .v5-profilehead'),metrics=document.querySelector('#profileScreenBody .v5-profilemetrics');
+      return {aboveMetrics:card&&metrics&&card.compareDocumentPosition(metrics)&Node.DOCUMENT_POSITION_FOLLOWING,afterAvatar:head&&card&&head.compareDocumentPosition(card)&Node.DOCUMENT_POSITION_FOLLOWING};
+    });
+    assert(pos.aboveMetrics&&pos.afterAvatar,'Premium entry must be directly below profile identity and before stats');
+    assert.equal((await page.locator('#profileScreenBody .dh-main-label').innerText()).trim(),'3 Gün Ücretsiz Başlat');
+    await page.screenshot({path:path.join(out,'chrome-premium-profile-top.png')});
+    await page.locator('#profileScreenBody .dh-compare').click();
+    await page.locator('#v5Sheet[open] .deen-hub-compare').waitFor();
+    assert.equal(await page.locator('#v5Sheet .dh-comp-row').count(),5,'Comparison must show five honest Free/Premium rows');
+    assert.equal(await page.locator('#v5Sheet [data-deen-hub-action="start"]').count(),1,'Comparison must point to trial, not simulation');
+    assert(!/Premium simülasyonunu aç/.test(await page.locator('#v5SheetBody').innerText()),'Obsolete simulation CTA must be gone');
+    await page.screenshot({path:path.join(out,'chrome-premium-comparison-new.png')});
+    await page.locator('#v5Sheet [data-deen-hub-action="start"]').click();
+    await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6000});
+    await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+    await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+    await page.evaluate(()=>navigate('learnScreen'));
     assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER?.version),'premium-fade-trial-v1');
     assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.open()),true,'Premium offer must open after game is ready');
     assert.equal(await page.locator('#deenPremiumOffer [data-dp="trial"]').innerText(),'İlk 3 gün ücretsiz');
