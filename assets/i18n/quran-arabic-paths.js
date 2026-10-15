@@ -445,6 +445,12 @@
   state.checkpointFeedback=null;state.checkpointResult=null;
   return show('checkpointQuestion');
  }
+ function checkpointLanding(){
+  const c=t(),box=elem('section','deen-path-checkpoint-landing');
+  box.append(makeButton('←  '+c.examBack,'arabic','deen-path-back'));
+  box.append(checkpointPanel());
+  return box;
+ }
  function checkpointItem(){return state.checkpointQuestions[state.checkpointIndex]||null}
  function checkpointQuestionView(){
   const c=t(),q=checkpointItem(),box=elem('section','deen-path-lesson deen-path-checkpoint-question');
@@ -1405,7 +1411,7 @@
    container.querySelector('#deenQuranPathNav')?.after(returnBar);
   }else{
    const panel=elem('div','deen-path-view');panel.id='deenQuranPathView';
-   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='checkpoint'?checkpointPanel():state.view==='checkpointQuestion'?checkpointQuestionView():state.view==='checkpointResults'?checkpointResultView():state.view==='foundationReview'?foundationReviewView():state.view==='foundationDone'?foundationDoneView():state.view==='daily'?dailyView():state.view==='mastery'?masteryView():state.view==='group'?groupView():state.view==='lesson'?lessonView():state.view==='review'?reviewView():state.view==='reviewDone'?reviewDoneView():completedView());
+   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='checkpoint'?checkpointLanding():state.view==='checkpointQuestion'?checkpointQuestionView():state.view==='checkpointResults'?checkpointResultView():state.view==='foundationReview'?foundationReviewView():state.view==='foundationDone'?foundationDoneView():state.view==='daily'?dailyView():state.view==='mastery'?masteryView():state.view==='group'?groupView():state.view==='lesson'?lessonView():state.view==='review'?reviewView():state.view==='reviewDone'?reviewDoneView():completedView());
    container.querySelector('#deenQuranPathNav')?.after(panel);
   }
  }
