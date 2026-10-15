@@ -33,6 +33,21 @@
  function eligible(){const s=appState();return !!s?.onboarded&&document.documentElement.dataset.deenStartup==='ready'&&window.DEEN_BOOT?.isReady?.()===true&&!active()&&!externalActive()&&!s.premium&&!document.querySelector('#deenLanguageGate,#deenAccountGate,#v998Onboarding,#deenPreparation');}
  function seen(){const r=get(SEEN_KEY);return r&&typeof r==='object'?r:{}}
  let dialog=null,pending=null,closeTimer=null,restoreFocus=null;
+ let celebrationObserver=null;
+ function observeCelebration(){
+  if(celebrationObserver||!window.MutationObserver)return;
+  const phone=document.getElementById('phone');
+  if(!phone)return;
+  // Only the celebration lifecycle class is watched: no expensive subtree scan.
+  celebrationObserver=new MutationObserver(()=>{
+   if(!pending){celebrationObserver.disconnect();celebrationObserver=null;return}
+   setTimeout(attempt,120);
+  });
+  celebrationObserver.observe(phone,{attributes:true,attributeFilter:['class']});
+ }
+ function stopObservingCelebration(){
+  celebrationObserver?.disconnect();celebrationObserver=null;
+ }
  function mount(){
   if(dialog?.isConnected)return dialog;
   dialog=document.createElement('dialog');dialog.id='deenPremiumOffer';dialog.setAttribute('aria-labelledby','deenPremiumTitle');
@@ -73,13 +88,13 @@
  }
  function enqueue(key){
   sync();if(!eligible()||seen()[key])return false;
-  pending=key;return true;
+  pending=key;observeCelebration();return true;
  }
  function attempt(){
-  if(!pending||!eligible()||document.querySelector('#lesson.active,dialog[open],#v5Sheet[open]'))return false;
-  const key=pending;if(seen()[key]){pending=null;return false}
+  if(!pending||!eligible()||document.querySelector('#lesson.active,#phone.gf-celebrating,dialog[open],#v5Sheet[open]'))return false;
+  const key=pending;if(seen()[key]){pending=null;stopObservingCelebration();return false}
   if(!open())return false;
-  pending=null;put(SEEN_KEY,{...seen(),[key]:Date.now()});return true;
+  pending=null;stopObservingCelebration();put(SEEN_KEY,{...seen(),[key]:Date.now()});return true;
  }
  let lessonBefore=null,finalBefore=null;
  const completed=id=>!!appState()?.completed?.includes(id);
@@ -124,7 +139,7 @@
   if(!pending)return;
   // Closing a completed result, reward sheet, or subsequent screen should
   // release the pending offer after the game's own click handlers finish.
-  if(e.target.closest?.('#resultContinueBtn,#v5Sheet button,.navbtn,[data-sheet-close],.v5-close,.dac-close'))setTimeout(attempt,420);
+  if(e.target.closest?.('#resultContinueBtn,#v5Sheet button,.navbtn,[data-sheet-close],.v5-close,.dac-close,#lpCeremonyContinue,.lp-ceremony button,.gf-reward-modal button'))setTimeout(attempt,420);
  },true);
  document.addEventListener('deen:lesson-finished',()=>setTimeout(attempt,320));
  document.addEventListener('deen:lesson-closed',()=>setTimeout(attempt,320));
