@@ -384,6 +384,11 @@
    c.masteryWritten+' · '+mastery.lessonCompleted+' / '+mastery.lessonTotal+'   ·   '+
    c.masteryPracticed+' · '+mastery.practiced+' / '+mastery.total));
   box.append(masteryButton);
+  const daily=dailySnapshot(),dailyButton=makeButton('','daily','deen-path-daily-teaser');
+  dailyButton.append(elem('span','deen-path-daily-teaser-name',c.dailyOpen+' →'),
+   elem('span','deen-path-daily-teaser-sub',c.dailyProgress+' · '+daily.completed+' / '+daily.total+
+   '  ·  '+c.dailyGoal+' · '+daily.minutes+' '+c.dailyMinutes));
+  box.append(dailyButton);
   const list=elem('div','deen-path-course-grid');
   LESSONS.forEach((lesson,i)=>{
    const locked=!isUnlocked(i),done=completed().includes(lesson.id);
@@ -528,6 +533,47 @@
    const glyph=elem('span','deen-path-course-glyphs',lesson.items.map(x=>x.glyph).join('  '));glyph.lang='ar';glyph.dir='rtl';
    btn.append(upper,glyph,elem('span','deen-path-course-item-foot',c.free+' · '+title));box.append(btn);
   }
+  return box;
+ }
+ function dailyView(){
+  const c=t(),plan=dailySnapshot(),box=elem('section','deen-path-daily-screen');
+  box.append(makeButton('←  '+c.dailyBack,'arabic','deen-path-back'),
+   elem('div','deen-path-kicker',c.dailyHeading),
+   elem('h2','deen-path-inner-title',c.dailyHeading),
+   elem('p','deen-path-muted',c.dailyIntro));
+  const selector=elem('section','deen-path-daily-setting');
+  selector.append(elem('h3','deen-path-shape-subtitle',c.dailyPick));
+  const choices=elem('div','deen-path-daily-choices');
+  for(const minutes of DAILY.allowedMinutes){
+   const b=makeButton(minutes+' '+c.dailyMinutes,'dailyMinutes','deen-path-daily-choice'+(plan.minutes===minutes?' is-selected':''));
+   b.dataset.minutes=String(minutes);b.setAttribute('aria-pressed',String(plan.minutes===minutes));choices.append(b);
+  }
+  selector.append(choices,elem('p','deen-path-muted',c.dailyDurationNote));box.append(selector);
+  const progress=elem('section','deen-path-daily-progress');
+  progress.append(elem('h3','deen-path-shape-subtitle',c.dailyProgress));
+  progress.append(elem('p','deen-path-daily-score',plan.completed+' / '+plan.total));
+  const bar=elem('div','deen-path-course-progress'),fill=elem('span');fill.style.width=plan.completionPct+'%';bar.append(fill);
+  progress.append(bar);
+  const breakdown=elem('div','deen-path-daily-breakdown');
+  breakdown.append(elem('span','',c.dailyLesson+' · '+plan.lessonDone+' / '+plan.lessonQuota));
+  breakdown.append(elem('span','',c.dailyReview+' · '+plan.reviewDone+' / '+plan.reviewQuota));
+  progress.append(breakdown);box.append(progress);
+  const tasks=elem('section','deen-path-daily-tasks');
+  tasks.append(elem('h3','deen-path-shape-subtitle',c.dailyGoal));
+  if(plan.nextLesson){
+   const b=makeButton(c.dailyNext+' · '+c.lesson+' '+(plan.nextLesson.index+1),'dailyLesson','deen-path-primary');
+   b.dataset.lessonIndex=String(plan.nextLesson.index);tasks.append(b);
+  }else if(!plan.lessonQuota)tasks.append(elem('p','deen-path-muted',c.dailyNoLesson));
+  else if(!plan.remainingLesson)tasks.append(elem('p','deen-path-daily-check','✓ '+c.dailyLesson+' · '+c.dailyCompleted));
+  if(plan.remainingReviews>0){
+   if(plan.dueCount)tasks.append(makeButton(c.dailyPractice+' ('+plan.dueCount+')','startReview','deen-path-primary'));
+   else if(plan.weakCount)tasks.append(makeButton(c.dailyWeakPractice+' ('+plan.weakCount+')','startWeakReview','deen-path-secondary'));
+   else tasks.append(elem('p','deen-path-muted',c.dailyNoDue));
+  }else if(plan.reviewQuota)tasks.append(elem('p','deen-path-daily-check','✓ '+c.dailyReview+' · '+c.dailyCompleted));
+  if(plan.total===0||plan.completed===plan.total)tasks.append(elem('p','deen-path-daily-done','✓ '+c.dailyDone));
+  box.append(tasks);
+  box.append(elem('p','deen-path-muted deen-path-daily-note',c.dailyLocal),
+   elem('p','deen-path-muted deen-path-daily-note',c.masteryPrivacy));
   return box;
  }
  function masteryView(){
