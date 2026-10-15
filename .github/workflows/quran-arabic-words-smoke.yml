@@ -5,18 +5,22 @@ on:
       - 'assets/i18n/quran-arabic-words.js'
       - 'assets/i18n/quran-arabic-paths.js'
       - 'assets/i18n/quran-arabic-listening.js'
+      - 'assets/i18n/quran-arabic-meaning.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-quran-listening-chrome.cjs'
+      - 'scripts/test-quran-meaning-chrome.cjs'
       - '.github/workflows/quran-arabic-words-smoke.yml'
   pull_request:
     paths:
       - 'assets/i18n/quran-arabic-words.js'
       - 'assets/i18n/quran-arabic-paths.js'
       - 'assets/i18n/quran-arabic-listening.js'
+      - 'assets/i18n/quran-arabic-meaning.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-quran-listening-chrome.cjs'
+      - 'scripts/test-quran-meaning-chrome.cjs'
       - '.github/workflows/quran-arabic-words-smoke.yml'
 jobs:
   word-smoke:
@@ -41,3 +45,4 @@ jobs:
         run: |
           node scripts/test-quran-words-chrome.cjs
           node scripts/test-quran-listening-chrome.cjs
+          node scripts/test-quran-meaning-chrome.cjs
