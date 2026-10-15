@@ -14,7 +14,7 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-letters.js')});
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-paths.js')});
  const syllabus=await page.evaluate(()=>DEEN_ARABIC_LETTERS.lessons.map(x=>x.letterIds));
- assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.version),'quran-arabic-paths-phase2');
+ assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.version),'quran-arabic-paths-phase3');
  assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTERS.count),28);
  assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTERS.lessonCount),7);
  assert.equal(syllabus.flat().length,28,'Seven lessons must cover all 28 letters');
@@ -35,8 +35,8 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  await page.locator('#existingSurahAction').click();
  await page.locator('[data-qpath-action="home"]').click();
  await page.locator('[data-qpath-action="arabic"]').click();
- assert.equal(await page.locator('.deen-path-course-item').count(),7);
- assert.equal(await page.locator('.deen-path-course-item:disabled').count(),6,'Only first lesson unlocked');
+ assert.equal(await page.locator('.deen-path-course-grid .deen-path-course-item').count(),7);
+ assert.equal(await page.locator('.deen-path-course-grid .deen-path-course-item:disabled').count(),6,'Only first letter lesson unlocked');
  assert.match(await page.locator('.deen-path-progress-copy').innerText(),/0 \/ 7/);
  await page.locator('.deen-path-atlas-details summary').click();
  assert.equal(await page.locator('.deen-path-atlas-details .deen-path-shape-entry').count(),28);
@@ -69,7 +69,7 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  }
  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().letterCount),28);
  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().completedLessons),7);
- assert.equal(await page.locator('.deen-path-course-item:disabled').count(),0);
+ assert.equal(await page.locator('.deen-path-course-grid .deen-path-course-item:disabled').count(),0);
  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_intro_v1')).completed),true,'Phase 1 progress compatible');
  const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')));
  assert.equal(stored.schema,2);
@@ -89,7 +89,7 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
   document.documentElement.lang='tr';DEEN_QURAN_PATHS.enterArabic();
  });
  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().completedLessons),1);
- assert.equal(await page.locator('.deen-path-course-item:disabled').count(),5,'Next lesson should be unlocked after phase 1 migration');
+ assert.equal(await page.locator('.deen-path-course-grid .deen-path-course-item:disabled').count(),5,'Next letter lesson should be unlocked after phase 1 migration');
  assert.deepEqual(errors,[],'No browser exceptions');
  await browser.close();server.close();
  console.log('PASS QURAN ARABIC phase 2: 28 letters/7 lessons, shape atlas, nonjoin metadata, progression, preservation, TR/FR/AR');
