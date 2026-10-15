@@ -62,9 +62,9 @@
   const state=clean(raw),complete=new Set(Array.isArray(completedLessons)?completedLessons:[]),max=Math.max(0,Math.min(8,int(limit,8)));
   const items=catalog.filter(x=>complete.has(x.lessonId)&&state.cards[x.id]).map(item=>{
    const r=state.cards[item.id],due=r.dueAt<=now,missed=r.lastMissedAt>0&&r.lastMissedAt>r.lastFocusedAt;
-   return {item,due,missed,mistakes:r.mistakes,step:r.step,score:(missed?100000:0)+(due?10000:0)+r.mistakes*20-r.step};
+   return {item,due,missed,mistakes:r.mistakes,step:r.step,lastMissedAt:r.lastMissedAt,score:(missed?100000:0)+(due?10000:0)+r.mistakes*20-r.step};
   }).filter(x=>x.due||x.missed)
-    .sort((x,y)=>y.score-x.score||catalog.indexOf(x.item)-catalog.indexOf(y.item));
+    .sort((x,y)=>y.score-x.score||y.lastMissedAt-x.lastMissedAt||catalog.indexOf(x.item)-catalog.indexOf(y.item));
   const chosen=items.slice(0,max).map(x=>x.item.id);
   const due=items.filter(x=>x.due).length,weak=items.filter(x=>x.missed).length;
   const byGroup=Object.freeze(groups.map(g=>Object.freeze({
