@@ -506,3 +506,44 @@
 }
 #leagueScreenBody .deen-path-adaptive-next:focus-visible{outline:3px solid #31efcf;outline-offset:3px}
 #leagueScreenBody .deen-path-adaptive-note{font-size:12px!important;color:#c3d3d1;line-height:1.55}
+
+/* Phase 13: reading foundations feedback and short written reinforcement */
+#leagueScreenBody .deen-path-foundation-review-section{
+ margin:15px 0;padding:17px 13px 12px;border:1px solid rgba(94,205,224,.45);
+ border-radius:17px;background:radial-gradient(ellipse at 100% 0,rgba(64,176,209,.15),transparent 60%),#12333f
+}
+#leagueScreenBody .deen-path-foundation-review-section>.deen-path-shape-subtitle{
+ font-size:17px;color:#d5f8ff;margin:0 0 7px
+}
+#leagueScreenBody .deen-path-foundation-review-section>.deen-path-muted{
+ margin:5px 0 12px;line-height:1.6;font-size:12px
+}
+#leagueScreenBody .deen-path-foundation-review-section>.deen-path-progress-copy{font-size:12px;color:#dfefe9}
+#leagueScreenBody .deen-path-foundation-topics{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0
+}
+#leagueScreenBody .deen-path-foundation-topic{
+ min-width:0;border:1px solid rgba(125,205,212,.34);border-radius:11px;
+ background:#20424d;color:#ecf9fa;font-size:12px;line-height:1.5;padding:10px 8px
+}
+#leagueScreenBody .deen-path-foundation-review-section>.deen-path-primary{
+ display:block;width:100%;min-height:49px;border-radius:13px;padding:10px 8px;
+ white-space:normal;font-size:14px;font-weight:780
+}
+#leagueScreenBody .deen-path-foundation-review-view .deen-path-foundation-prompt{
+ min-height:75px;display:flex;justify-content:center;align-items:center;
+ padding:14px 12px;margin:16px 0;border:1px solid rgba(126,224,206,.38);
+ border-radius:15px;background:#183e4b;color:#eefaf3;text-align:center;
+ overflow-wrap:anywhere;font-weight:740;font-size:18px;line-height:1.5
+}
+#leagueScreenBody .deen-path-foundation-review-view .deen-path-option{min-height:67px}
+#leagueScreenBody .deen-path-foundation-review-view .deen-path-word-built{
+ margin:14px 0;min-height:64px;display:flex;align-items:center;justify-content:center;
+ border-radius:15px;border:1px solid rgba(107,217,193,.4);
+ background:#183f44;font-size:32px;line-height:1.7
+}
+#leagueScreenBody .deen-path-foundation-review-view .deen-path-word-pieces{margin:10px 0 15px}
+@media(max-width:350px){
+ #leagueScreenBody .deen-path-foundation-topics{gap:5px}
+ #leagueScreenBody .deen-path-foundation-topic{font-size:11px;padding:7px 6px}
+}
