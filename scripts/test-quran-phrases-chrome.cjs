@@ -103,6 +103,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.evaluate(ids=>{
    const record=JSON.parse(localStorage.getItem('deen_arabic_written_review_v1'));
    for(const id of ids){record.cards[id].dueAt=Date.now()-5000;record.cards[id].lastResult='good'}
+   record.cards[ids[1]].step=1; // Simulate the second learned card reaching its 3-day review
    localStorage.setItem('deen_arabic_written_review_v1',JSON.stringify(record));
    DEEN_QURAN_PATHS.enterArabic();
   },dueIds);
