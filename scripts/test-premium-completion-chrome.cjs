@@ -28,6 +28,18 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
  });
  await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
  assert.equal(await page.locator('#deenPremiumOffer [data-dp="trial"]').innerText(),'İlk 3 gün ücretsiz');
+
+ assert.equal(await page.locator('#deenPremiumOffer .dp-features li').count(),3,'Show only implemented benefits');
+ assert.equal(await page.locator('#deenPremiumOffer .dp-future-chip').count(),2,'Unreleased benefits must be clearly separated');
+ const secondary=page.locator('#deenPremiumOffer button.dp-later');
+ assert.equal((await secondary.innerText()).trim(),'Şimdilik Devam Et','Secondary button must never be blank');
+ const style=await secondary.evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),color:getComputedStyle(el).color,width:el.getBoundingClientRect().width,opacity:getComputedStyle(el).opacity}));
+ assert(style.size>=12&&style.width>=180&&style.opacity!=='0','Secondary CTA must be visually legible');
+ const layout=await page.locator('#deenPremiumOffer').evaluate(el=>({width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height,viewport:innerHeight,scrollHeight:el.scrollHeight,clientHeight:el.clientHeight}));
+ assert(layout.width<=375&&layout.height<=760,'Premium modal must fit mobile viewport');
+ assert.equal(await page.locator('#deenPremiumOffer .dp-title-accent').innerText(),'güçlendir');
+ assert.equal(await page.locator('#deenPremiumOffer button.dp-close').getAttribute('aria-label'),'Premium ekranını kapat');
+
  const seen=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_premium_offer_seen_v1')||'{}'));
  assert(seen['unit:U01'],'First-time U01 completion must enqueue once');
  await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
