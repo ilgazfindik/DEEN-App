@@ -12,7 +12,11 @@
  const PHONICS=window.DEEN_ARABIC_HARAKAT;
  if(!PHONICS||PHONICS.lessonCount!==3)throw Error('DEEN_ARABIC_HARAKAT_MISSING');
  const PHONIC_LESSONS=PHONICS.lessons;
- const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS]);
+ const READING=window.DEEN_ARABIC_READING;
+ if(!READING||READING.lessonCount!==3)throw Error('DEEN_ARABIC_READING_MISSING');
+ const READING_LESSONS=READING.lessons;
+ const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS]);
+ const READING_STORE='deen_arabic_reading_v1';
  const PHONICS_STORE='deen_arabic_harakat_v1';
  const PROGRESS_STORE='deen_arabic_foundations_v2';
  const legacyStore=STORE;
@@ -45,8 +49,15 @@
   de:{vowelHeading:'Vokalzeichen & erste Silben',vowelSubtitle:'Lerne Fatha, Kasra und Damma. Lies dann Silben mit Bā und Tā.',vowelLesson:'Vokal-Lektion',vowelReady:'Buchstaben fertig · Bereit',vowelLocked:'Zuerst alle 7 Buchstabenlektionen abschließen',vowelProgress:'Fortschritt Vokalzeichen',markTitle:'Fatha · Kasra · Damma',syllableTitle:'Silben lesen',vowelStart:'Vokalzeichen üben',syllableStart:'Silben üben',vowelHelp:'Fatha steht für kurzes a, Kasra für i und Damma für u.',syllableHelp:'Finde das richtige Vokalzeichen auf ب oder ت.',audioMissing:'Geprüfte Ausspracheaufnahmen sind noch nicht verfügbar.',vowelComplete:'Alle 3 Vokal- und Silbenlektionen geschafft!',vowelFinish:'Vokalübung abgeschlossen. Weiter geht’s.',phonicsLetters:'Vokale / Silben'},
   fr:{vowelHeading:'Voyelles & premières syllabes',vowelSubtitle:'Découvre fatḥa, kasra et ḍamma, puis lis des syllabes avec Bā et Tā.',vowelLesson:'Leçon de voyelles',vowelReady:'Lettres terminées · Prêt à apprendre',vowelLocked:'Termine d’abord les 7 leçons de lettres',vowelProgress:'Progression des voyelles',markTitle:'Fatḥa · Kasra · Ḍamma',syllableTitle:'Lire les syllabes',vowelStart:'Pratiquer les voyelles',syllableStart:'Pratiquer les syllabes',vowelHelp:'Fatḥa indique un a bref, kasra un i bref et ḍamma un u bref.',syllableHelp:'Reconnais la voyelle sur ب ou ت. Observe le petit signe.',audioMissing:'Les enregistrements de prononciation vérifiés ne sont pas encore disponibles.',vowelComplete:'Les 3 leçons de voyelles et syllabes sont terminées !',vowelFinish:'Exercice terminé. Passe à l’étape suivante.',phonicsLetters:'Voyelles / Syllabes'}
  };
+ const readingUi={
+  tr:{readHeading:'Cezim, Şedde ve Med',readSub:'Üç yeni dersle duraklayan sesi, çift ünsüzü ve uzun ünlüyü ayırt et.',readLesson:'Okuma Dersi',readProgress:'Okuma işaretleri ilerlemen',readLocked:'Önce 3 hareke ve hece dersini bitir',readReady:'Başlamaya hazır',readDone:'3 okuma dersi tamamlandı!',readIntro:'Bu mini dersler işaretleri tanıtır. Doğru telaffuz ve tecvid için doğrulanmış sesli eğitim daha sonra eklenecek.',sukunTitle:'Cezim (Sükûn)',sukunDetail:'Cezim (ْ) harfte kısa ünlü olmadığını gösterir; burada harf adını ve işareti tanıyoruz.',shaddaTitle:'Şedde',shaddaDetail:'Şedde (ّ) ünsüzün çift olduğunu gösterir. Üstün, esre ve ötre ile birleşebilir.',maddTitle:'Med: Uzatma',maddDetail:'Başlangıç örnekleri: بَا = bâ, بِي = bî, بُو = bû. Uzatmanın kuralları daha sonra öğretilecek.',readCTA:'Okuma Alıştırmasına Başla',readFinish:'İşareti ve yazılışını tanıdın. Daha kapsamlı okuma ve doğrulanmış ses eğitimi sonraki aşamada.',readAllDone:'Üç yeni okuma dersini tamamladın!'},
+  en:{readHeading:'Sukūn, Shadda & Madd',readSub:'Three new lessons: no short vowel, doubled consonant and long vowel.',readLesson:'Reading Lesson',readProgress:'Reading mark progress',readLocked:'Complete 3 vowel lessons first',readReady:'Ready to learn',readDone:'3 reading lessons completed!',readIntro:'These mini lessons introduce written signs. Verified pronunciation and fuller tajwid follow later.',sukunTitle:'Sukūn',sukunDetail:'Sukūn (ْ) indicates no short vowel on the consonant. Practice identifying the sign and letter.',shaddaTitle:'Shadda',shaddaDetail:'Shadda (ّ) marks a doubled consonant and may combine with short vowels.',maddTitle:'Madd: Lengthening',maddDetail:'Starter examples: بَا = bā, بِي = bī, بُو = bū. Full lengthening rules come later.',readCTA:'Start Reading Practice',readFinish:'You recognized the written pattern. Verified pronunciation and more reading rules will follow.',readAllDone:'All three reading lessons completed!'},
+  ar:{readHeading:'السكون والشدة والمد',readSub:'ثلاثة دروس جديدة: السكون، والحرف المشدد، والحركات الطويلة.',readLesson:'درس القراءة',readProgress:'تقدّم علامات القراءة',readLocked:'أكمل دروس الحركات الثلاثة أولًا',readReady:'جاهز للتعلّم',readDone:'أكملت دروس القراءة الثلاثة!',readIntro:'هذه مقدمة للعلامات المكتوبة، وليست تعليمًا كاملًا للتجويد. سيُضاف النطق الموثوق لاحقًا.',sukunTitle:'السكون',sukunDetail:'يدل السكون (ْ) على غياب الحركة القصيرة عن الحرف. تدرّب على تمييز العلامة.',shaddaTitle:'الشدة',shaddaDetail:'تدل الشدة (ّ) على تضعيف الحرف، وقد تقترن بالفتحة أو الكسرة أو الضمة.',maddTitle:'المد',maddDetail:'أمثلة أولية: بَا، بِي، بُو. ستأتي قواعد المد التفصيلية لاحقًا.',readCTA:'ابدأ تدريب القراءة',readFinish:'تعرّفت على العلامة المكتوبة. ستُضاف تدريبات صوتية موثوقة لاحقًا.',readAllDone:'أكملت دروس القراءة الثلاثة!'},
+  de:{readHeading:'Sukūn, Schadda & Madd',readSub:'Drei neue Lektionen: kein kurzer Vokal, Doppelkonsonant, langer Vokal.',readLesson:'Leselektion',readProgress:'Fortschritt der Lesezeichen',readLocked:'Erst die 3 Vokallektionen abschließen',readReady:'Bereit',readDone:'3 Leselektionen abgeschlossen!',readIntro:'Diese Übungen zeigen Schriftzeichen. Geprüfte Aussprache und ausführlicher Tadschwīd folgen.',sukunTitle:'Sukūn',sukunDetail:'Sukūn (ْ) zeigt an, dass kein kurzer Vokal folgt. Erkenne das Zeichen.',shaddaTitle:'Schadda',shaddaDetail:'Schadda (ّ) verdoppelt einen Konsonanten und kann mit Vokalzeichen kombiniert werden.',maddTitle:'Madd: Längung',maddDetail:'Erste Beispiele: بَا = bā, بِي = bī, بُو = bū. Weitere Regeln folgen.',readCTA:'Leseübung starten',readFinish:'Du hast das Schriftbild erkannt. Geprüfte Aussprache folgt.',readAllDone:'Alle drei Leselektionen abgeschlossen!'},
+  fr:{readHeading:'Sukūn, Shadda et Madd',readSub:'Trois leçons : absence de voyelle brève, consonne doublée et voyelle longue.',readLesson:'Leçon de lecture',readProgress:'Progression des signes de lecture',readLocked:'Termine d’abord les 3 leçons de voyelles',readReady:'Prêt à commencer',readDone:'3 leçons de lecture terminées !',readIntro:'Ces exercices présentent les signes écrits. Prononciation vérifiée et règles de tajwid suivront.',sukunTitle:'Sukūn',sukunDetail:'Le sukūn (ْ) indique l’absence de voyelle brève sur une consonne.',shaddaTitle:'Shadda',shaddaDetail:'La shadda (ّ) double une consonne et peut accompagner les voyelles brèves.',maddTitle:'Madd : allongement',maddDetail:'Premiers exemples : بَا = bā, بِي = bī, بُو = bū. Les autres règles suivront.',readCTA:'Commencer la lecture',readFinish:'Tu as reconnu le signe écrit. La prononciation vérifiée viendra plus tard.',readAllDone:'Tu as terminé les trois leçons de lecture !'}
+ };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
- const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()]);
+ const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()]);
  const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
@@ -63,28 +74,42 @@
   }catch(_){return {schema:1,completed:[]}}
  };
  const vowelCompleted=()=>vowelStorage().completed;
+ const readingStorage=()=>{
+  try{
+   const raw=JSON.parse(localStorage.getItem(READING_STORE)||'null');
+   const completed=raw&&Array.isArray(raw.completed)?raw.completed.filter(id=>READING_LESSONS.some(l=>l.id===id)):[];
+   return {schema:1,completed:[...new Set(completed)]};
+  }catch(_){return {schema:1,completed:[]}}
+ };
+ const readingCompleted=()=>readingStorage().completed;
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
  const groupLetters=()=>group().letters||group().items;
- const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):vowelCompleted().includes(g.id);
+ const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):vowelCompleted().includes(g.id);
  const isUnlocked=i=>{
+  if(!Number.isInteger(i)||i<0||i>=ALL_LESSONS.length)return false;
   if(i===0)return true;
   if(i<LESSONS.length)return completed().includes(LESSONS[i-1].id);
   if(i===LESSONS.length)return completed().length===LESSONS.length;
-  if(i<ALL_LESSONS.length)return vowelCompleted().includes(ALL_LESSONS[i-1].id);
-  return false;
+  if(i<LESSONS.length+PHONIC_LESSONS.length)return vowelCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i===LESSONS.length+PHONIC_LESSONS.length)return vowelCompleted().length===PHONIC_LESSONS.length;
+  return readingCompleted().includes(ALL_LESSONS[i-1].id);
  };
  function saveCompleted(){
   const id=group().id;
+  if(READING_LESSONS.includes(group())){
+   const ids=readingCompleted();if(!ids.includes(id))ids.push(id);
+   try{localStorage.setItem(READING_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
+   return;
+  }
   if(group().kind!=='recognition'){
-   const ids=vowelCompleted();
-   if(!ids.includes(id))ids.push(id);
+   const ids=vowelCompleted();if(!ids.includes(id))ids.push(id);
    try{localStorage.setItem(PHONICS_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
    return;
   }
-  const ids=completed();
-  if(!ids.includes(id))ids.push(id);
-  try{localStorage.setItem(PROGRESS_STORE,JSON.stringify({schema:2,completed:ids,updatedAt:Date.now()}));
+  const ids=completed();if(!ids.includes(id))ids.push(id);
+  try{
+   localStorage.setItem(PROGRESS_STORE,JSON.stringify({schema:2,completed:ids,updatedAt:Date.now()}));
    if(state.lessonIndex===0)localStorage.setItem(legacyStore,JSON.stringify({completed:true,completedAt:Date.now(),schema:1}));
   }catch(_){}
  }
