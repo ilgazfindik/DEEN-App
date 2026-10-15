@@ -21,7 +21,7 @@
    names:item.names,excerpt:item.excerpt||null,reference:item.reference||null
   }))
  )));
- const catalogMap=Object.freeze(Object.fromEntries(catalog.map(x=>[x.id,x])));
+ const catalogMap=Object.freeze(Object.assign(Object.create(null),Object.fromEntries(catalog.map(x=>[x.id,x]))));
  const cardIds=Object.freeze(catalog.map(x=>x.id));
  if(catalog.length!==55||new Set(cardIds).size!==55)throw Error('DEEN_FOUNDATION_CATALOG_INTEGRITY');
  const int=(v,max)=>Number.isInteger(v)?Math.max(0,Math.min(max,v)):0;
@@ -74,13 +74,18 @@
   return Object.freeze({schema:1,total:catalog.length,learned:Object.keys(state.cards).length,
    eligible:items.length,due,weak,ids:Object.freeze(chosen),groups:byGroup});
  }
- const ui=Object.freeze({
+ const legacyUi=Object.freeze({
   tr:{heading:'Harf ve Okuma Pekiştirmesi',intro:'Zorlandığın harf, hareke, okuma ve kelime kurma sorularını yeniden çalış.',start:'Okuma Tekrarını Başlat',empty:'Önce bir yazılı derste soru çöz. Hatalar ve zamanı gelen tekrarlar burada görünür.',letters:'Harfler',vowels:'Harekeler',reading:'Okuma işaretleri',words:'Kelime kurma',question:'Doğru Arapça biçimi seç.',build:'Parçaları doğru sırayla birleştir.',choose:'Bu ifade hangisi?',progress:'Pekiştirme',reset:'Yeniden dene',wrong:'Henüz doğru değil. Yeniden dene.',correct:'Doğru!',next:'Sonraki Kart',finish:'Okuma tekrarı tamamlandı!',back:'Arapça Derslerine Dön',note:'Bu sadece yazılı tanıma çalışmasıdır; sesli okuma ve tecvid değerlendirmesi değildir.',due:'Zamanı gelen',errors:'Hata yapılan'},
   en:{heading:'Reading Foundations Review',intro:'Revisit difficult letters, vowel signs, reading marks and word building.',start:'Start Reading Review',empty:'Practice a written lesson first. Mistakes and due cards will appear here.',letters:'Letters',vowels:'Vowels',reading:'Reading marks',words:'Build words',question:'Choose the correct Arabic form.',build:'Put the parts in the correct order.',choose:'Which form matches?',progress:'Review',reset:'Try Again',wrong:'Not quite. Try again.',correct:'Correct!',next:'Next Card',finish:'Reading review completed!',back:'Back to Arabic Lessons',note:'Written recognition only; not audio reading or Tajwid assessment.',due:'Due',errors:'Missed'},
   ar:{heading:'مراجعة الحروف والقراءة',intro:'راجع الحروف والحركات وعلامات القراءة وتركيب الكلمات التي صعبت عليك.',start:'ابدأ مراجعة القراءة',empty:'ابدأ بحل درس مكتوب لتظهر هنا الأخطاء والمراجعات المستحقة.',letters:'الحروف',vowels:'الحركات',reading:'علامات القراءة',words:'تركيب الكلمات',question:'اختر الشكل العربي الصحيح.',build:'رتّب الأجزاء ترتيبًا صحيحًا.',choose:'أي شكل يناسب؟',progress:'المراجعة',reset:'حاول مرة أخرى',wrong:'ليس صحيحًا بعد. حاول مجددًا.',correct:'صحيح!',next:'البطاقة التالية',finish:'اكتملت مراجعة القراءة!',back:'العودة إلى دروس العربية',note:'تدريب كتابي فقط، لا يقيس التلاوة أو التجويد.',due:'مستحقة',errors:'أخطاء'},
   de:{heading:'Buchstaben und Lesen üben',intro:'Wiederhole schwierige Buchstaben, Vokalzeichen, Lesemarken und Wortaufbau.',start:'Leseübung starten',empty:'Bearbeite zuerst eine Schriftlektion, dann erscheinen Fehler und fällige Karten.',letters:'Buchstaben',vowels:'Vokale',reading:'Lesemarken',words:'Wortaufbau',question:'Wähle die richtige arabische Form.',build:'Ordne die Teile richtig.',choose:'Welche Form passt?',progress:'Wiederholung',reset:'Erneut versuchen',wrong:'Noch nicht richtig. Versuch es erneut.',correct:'Richtig!',next:'Nächste Karte',finish:'Leseübung beendet!',back:'Zurück zu Arabisch',note:'Nur schriftliche Übung, keine Prüfung der Rezitation oder des Tadschwids.',due:'Fällig',errors:'Fehler'},
   fr:{heading:'Révision des lettres et de la lecture',intro:'Revois les lettres, voyelles, signes et assemblages de mots difficiles.',start:'Réviser la lecture',empty:'Commence par un cours écrit. Les erreurs et cartes dues apparaîtront ici.',letters:'Lettres',vowels:'Voyelles',reading:'Signes de lecture',words:'Assembler des mots',question:'Choisis la bonne forme arabe.',build:'Remets les morceaux dans l’ordre.',choose:'Quelle forme correspond ?',progress:'Révision',reset:'Réessayer',wrong:'Ce n’est pas encore exact. Réessaie.',correct:'Correct !',next:'Carte suivante',finish:'Révision de lecture terminée !',back:'Retour aux leçons',note:'Exercice écrit uniquement, sans évaluation de récitation ou du tajwid.',due:'Dues',errors:'Erreurs'}
  });
+ const ui=Object.freeze(Object.fromEntries(Object.entries(legacyUi).map(([locale,words])=>[
+  locale,Object.freeze(Object.fromEntries(Object.entries(words).map(([key,value])=>[
+   'foundation'+key.charAt(0).toUpperCase()+key.slice(1),value
+  ])))
+ ])));
  window.DEEN_ARABIC_FOUNDATION_REVIEW=Object.freeze({
   version:1,catalog,byId:catalogMap,cardIds,groups,ui,clean,grade,finish,suggest,
   coverage:'28 letters, 9 vowel items, 9 reading items, 9 word items; written only'
