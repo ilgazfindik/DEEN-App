@@ -432,6 +432,145 @@
   }
   return table;
  }
+ function remedyTrendView(){
+  const c=t(),comparison=remedyComparison();
+  if(!comparison)return null;
+  const wrap=elem('section','deen-path-remedy-trend');
+  wrap.append(elem('h3','deen-path-shape-subtitle',c.remedyTrend));
+  const delta=comparison.delta,sign=delta>0?'+':'';
+  const total=elem('p','deen-path-remedy-delta'+(delta>0?' is-up':delta<0?' is-down':''),
+   c.remedyPrevious+' '+comparison.previous+' / 20  →  '+c.remedyCurrent+' '+comparison.current+
+   ' / 20  ·  '+c.remedyChange+' '+sign+delta);
+  wrap.append(total);
+  for(const topic of comparison.topics){
+   const line=elem('div','deen-path-remedy-trend-topic');
+   line.append(elem('span','',checkpointTitle(topic.id)),
+    elem('span','',topic.previous+' / 4 → '+topic.current+' / 4 ('+
+     (topic.delta>0?'+':'')+topic.delta+')'));
+   wrap.append(line);
+  }
+  return wrap;
+ }
+ function remedyPanel(){
+  const c=t(),plan=remedyPlan(),box=elem('section','deen-path-remedy-section');
+  box.append(elem('h3','deen-path-shape-subtitle',c.remedyHeading),
+   elem('p','deen-path-muted',c.remedyIntro));
+  if(!plan.key){
+   box.append(elem('p','deen-path-muted',c.remedyBlocked));return box;
+  }
+  box.append(elem('p','deen-path-remedy-count',c.remedyProgress+' · '+plan.complete+' / '+plan.total));
+  const track=elem('div','deen-path-course-progress'),fill=elem('span');
+  fill.style.width=(plan.total?Math.round(plan.complete/plan.total*100):100)+'%';
+  track.append(fill);box.append(track);
+  for(const topic of plan.topics){
+   const line=elem('div','deen-path-remedy-topic');
+   line.append(elem('strong','',checkpointTitle(topic.id)),
+    elem('span','',topic.done+' / '+topic.total));box.append(line);
+  }
+  if(plan.remaining){
+   box.append(makeButton(plan.complete?c.remedyResume:c.remedyStart,
+    'remedyStart','deen-path-primary'));
+  }else{
+   box.append(elem('p','deen-path-remedy-finished',plan.finished&&plan.total?c.remedyDone:c.remedyEmpty));
+   if(plan.total&&checkpointEligible())box.append(makeButton(c.remedyRetry,'checkpointStart','deen-path-secondary'));
+  }
+  box.append(elem('p','deen-path-muted deen-path-remedy-note',c.remedyNote));
+  return box;
+ }
+ function remedyStart(){
+  const plan=remedyPlan();
+  if(!plan.key||!plan.remaining||!checkpointEligible())return false;
+  const done=new Set(plan.done);
+  state.remedyQuestions=plan.questions.filter(q=>!done.has(q.id));
+  state.remedyIndex=0;state.remedyPieces=[];state.remedyCorrect=false;state.remedyFeedback='';
+  return show('remedyQuestion');
+ }
+ function remedyQuestion(){
+  return state.remedyQuestions[state.remedyIndex]||null;
+ }
+ function remedyQuestionView(){
+  const c=t(),q=remedyQuestion(),box=elem('section','deen-path-lesson deen-path-remedy-question');
+  if(!q)return box;
+  box.append(makeButton('←  '+c.remedyBack,'remedy','deen-path-back'),
+   elem('div','deen-path-kicker',c.remedyHeading),
+   elem('p','deen-path-question-count',c.remedyCard+' '+(state.remedyIndex+1)+' / '+state.remedyQuestions.length),
+   elem('h2','deen-path-inner-title',checkpointTitle(q.domain)),
+   elem('p','deen-path-muted',q.type==='build'?c.remedyBuild:c.remedyQuestion));
+  box.append(elem('div','deen-path-checkpoint-hint',q.label?.[lang()]||q.label?.tr||q.glyph));
+  if(q.type==='build'){
+   const built=elem('div','deen-path-word-built',state.remedyPieces.map(i=>q.parts[i]).join('')||'···');
+   built.lang='ar';built.dir='rtl';box.append(built);
+   const bank=elem('div','deen-path-word-pieces');
+   for(const i of q.parts.map((_,idx)=>idx).reverse()){
+    const btn=makeButton(q.parts[i],'remedyPiece','deen-path-word-piece');
+    btn.dataset.pieceIndex=String(i);btn.disabled=state.remedyCorrect||state.remedyPieces.includes(i);
+    btn.lang='ar';btn.dir='rtl';bank.append(btn);
+   }
+   box.append(bank);
+   const reset=makeButton(c.remedyReset,'remedyReset','deen-path-back deen-path-remedy-reset');
+   reset.disabled=state.remedyCorrect||!state.remedyPieces.length;box.append(reset);
+  }else{
+   const opts=elem('div','deen-path-options');
+   for(const opt of q.options){
+    const btn=makeButton(opt.glyph,'remedyAnswer','deen-path-option');
+    btn.dataset.itemId=opt.id;btn.disabled=state.remedyCorrect;
+    if(state.remedyCorrect&&opt.id===q.id)btn.classList.add('deen-path-option-correct');
+    btn.lang='ar';btn.dir='rtl';opts.append(btn);
+   }
+   box.append(opts);
+  }
+  if(q.reference)box.append(elem('p','deen-path-muted deen-path-word-reference',c.phraseVerse+' · '+q.reference));
+  if(state.remedyFeedback){
+   const feedback=elem('p','deen-path-feedback'+(state.remedyCorrect?' is-correct':' is-wrong'),state.remedyFeedback);
+   feedback.setAttribute('role','status');box.append(feedback);
+  }
+  if(state.remedyCorrect)box.append(makeButton(
+   state.remedyIndex===state.remedyQuestions.length-1?c.remedyDone:c.remedyNext,
+   'remedyNext','deen-path-primary'));
+  return box;
+ }
+ function remedyMark(correct){
+  if(state.view!=='remedyQuestion'||state.remedyCorrect)return false;
+  const q=remedyQuestion();if(!q)return false;
+  if(correct){
+   const plan=remedyPlan();
+   remedyWrite(REMEDY.mark(plan,remedyRead(),q.id,true));
+   state.remedyCorrect=true;state.remedyFeedback=t().remedyCorrect;
+  }else state.remedyFeedback=t().remedyWrong;
+  update();return true;
+ }
+ function remedyAnswer(id){
+  const q=remedyQuestion();
+  if(!q||q.type!=='choice'||!q.options.some(x=>x.id===id))return false;
+  return remedyMark(id===q.id);
+ }
+ function remedyPiece(index){
+  const q=remedyQuestion();index=Number(index);
+  if(state.view!=='remedyQuestion'||!q||q.type!=='build'||state.remedyCorrect||
+   !Number.isInteger(index)||index<0||index>=q.parts.length||state.remedyPieces.includes(index))return;
+  state.remedyPieces.push(index);
+  if(state.remedyPieces.length===q.parts.length)
+   return remedyMark(state.remedyPieces.every((v,i)=>v===i));
+  update();
+ }
+ function remedyNext(){
+  if(state.view!=='remedyQuestion'||!state.remedyCorrect)return false;
+  if(state.remedyIndex+1===state.remedyQuestions.length)return show('remedyDone');
+  state.remedyIndex++;state.remedyPieces=[];state.remedyCorrect=false;state.remedyFeedback='';
+  return show('remedyQuestion');
+ }
+ function remedyView(){
+  const c=t(),box=elem('section','deen-path-remedy-landing');
+  box.append(makeButton('←  '+c.remedyBack,'checkpointResults','deen-path-back'),remedyPanel());
+  const trend=remedyTrendView();if(trend)box.append(trend);
+  return box;
+ }
+ function remedyDoneView(){
+  const c=t(),box=elem('section','deen-path-remedy-finished-screen');
+  box.append(elem('div','deen-path-complete-star','✦'),elem('h2','deen-path-inner-title',c.remedyDone),
+   remedyPanel(),makeButton(c.remedyBack,'checkpointResults','deen-path-back'));
+  return box;
+ }
  function checkpointTitle(id){
   const c=t(),names={letters:c.examLetters,vowels:c.examVowels,reading:c.examReading,
    words:c.examWords,meaning:c.examMeaning};
