@@ -103,6 +103,34 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),true,'P button must open the existing admin dialog');
     await page.locator('#deenAdminPanelV2 .deen-admin-close').click();
     assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),false,'Admin dialog must close');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER?.version),'premium-fade-trial-v1');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.open()),true,'Premium offer must open after game is ready');
+    assert.equal(await page.locator('#deenPremiumOffer [data-dp="trial"]').innerText(),'İlk 3 gün ücretsiz');
+    await page.waitForTimeout(380);
+    assert(Number(await page.locator('#deenPremiumOffer').evaluate(el=>getComputedStyle(el).opacity))>.90,'Premium modal must fade in');
+    await page.screenshot({path:path.join(out,'chrome-premium-offer-fade.png')});
+    await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+    await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialUsed()),false,'Skipping must never activate the trial');
+    await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.open());
+    await page.locator('#deenPremiumOffer [data-dp-action="start"]').click();
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialActive()&&state.premium),true,'72h trial activates locally');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_ENTITLEMENT?.source),'local-device-trial-preview');
+    assert.equal(await page.evaluate(()=>localStorage.getItem('deen_premium_trial_v1')!==null),true);
+    await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialActive()&&state.premium),true,'Trial persists across reload');
+    await page.evaluate(()=>{
+      const record=JSON.parse(localStorage.getItem('deen_premium_trial_v1'));
+      record.startedAt=Date.now()-4*24*60*60*1000;
+      localStorage.setItem('deen_premium_trial_v1',JSON.stringify(record));
+      DEEN_PREMIUM_OFFER.sync();
+    });
+    assert.equal(await page.evaluate(()=>state.premium),false,'Expired device trial must revoke local premium');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialUsed()),true,'Trial must not be usable twice');
+    await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.open());
+    assert.equal(await page.locator('#deenPremiumOffer [data-dp-action="start"]').isDisabled(),true,'No unconfigured billing CTA');
+    await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+    await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
    }
    await page.screenshot({path:path.join(out,'chrome-'+lang+'-home.png')});await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());
    assert.equal(await page.locator('#deenLanguageGate').count(),0);assert.equal(await page.locator('#v998Onboarding').count(),0);
