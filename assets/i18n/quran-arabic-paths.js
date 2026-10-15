@@ -1230,6 +1230,7 @@
    recordReview(groupLetters()[state.question].id,id===groupLetters()[state.question].id);
   if(LISTENING_LESSONS.includes(group())&&!state.listenHeard)return;
   state.correct=id===groupLetters()[state.question].id;
+  foundationGradeInLesson(state.correct);
   if(!state.correct)markLessonMiss();
   state.feedback=state.correct?t().correct:t().wrong;
   update();
@@ -1241,6 +1242,7 @@
   state.pieces.push(index);
   if(state.pieces.length===item.parts.length){
    state.correct=state.pieces.every((part,i)=>part===i);
+   foundationGradeInLesson(state.correct);
    if(!state.correct)markLessonMiss();
     state.feedback=state.correct?t().correct:t().wordWrong;
   }
@@ -1337,5 +1339,5 @@
   });
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
- window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex),phraseCompletedLessons:phraseCompleted().length,phraseTotalLessons:PHRASE_LESSONS.length,phraseAvailable:isUnlocked(PHRASES.startIndex),reviewDue:reviewDue().length,reviewTracked:Object.keys(reviewRead()).length,reviewWeak:reviewWeak().length,adaptive:adaptiveSnapshot(),daily:dailySnapshot(),mastery:((s)=>({total:s.total,practiced:s.practiced,due:s.due,weak:s.weak,levels:s.levels,lessonCompleted:s.lessonCompleted,lessonTotal:s.lessonTotal}))(masterySnapshot()),patternCompletedLessons:patternCompleted().length,patternTotalLessons:PATTERN_LESSONS.length,patternAvailable:isUnlocked(PATTERNS.startIndex)}),version:'quran-arabic-paths-phase12'});
+ window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex),phraseCompletedLessons:phraseCompleted().length,phraseTotalLessons:PHRASE_LESSONS.length,phraseAvailable:isUnlocked(PHRASES.startIndex),reviewDue:reviewDue().length,reviewTracked:Object.keys(reviewRead()).length,reviewWeak:reviewWeak().length,foundation:foundationSnapshot(),adaptive:adaptiveSnapshot(),daily:dailySnapshot(),mastery:((s)=>({total:s.total,practiced:s.practiced,due:s.due,weak:s.weak,levels:s.levels,lessonCompleted:s.lessonCompleted,lessonTotal:s.lessonTotal}))(masterySnapshot()),patternCompletedLessons:patternCompleted().length,patternTotalLessons:PATTERN_LESSONS.length,patternAvailable:isUnlocked(PATTERNS.startIndex)}),version:'quran-arabic-paths-phase13'});
 })();
