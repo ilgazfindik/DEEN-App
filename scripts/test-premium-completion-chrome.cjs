@@ -52,6 +52,38 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
  });
  await page.waitForTimeout(430);
  assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Duplicate unit result must not re-open offer');
+ // Exiting an entered lesson *without completing it* now offers Premium.
+ // Closing an unrelated overlay must not generate an offer.
+ await page.evaluate(()=>{
+  document.dispatchEvent(new CustomEvent('deen:lesson-closed',{detail:{session:null}}));
+  document.dispatchEvent(new CustomEvent('deen:lesson-closed',{detail:{session:{stage:{id:'SMART'},review:true}}}));
+ });
+ await page.waitForTimeout(410);
+ assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'No premium for null/review session');
+
+ await page.evaluate(()=>{
+  const lesson=document.createElement('div');lesson.id='lesson';lesson.className='active';document.body.appendChild(lesson);
+  window.__deenExitFixture={stage:{id:'U03-M02'},macroStage:true,lessonNo:1,lessonTotal:3};
+  document.dispatchEvent(new CustomEvent('deen:lesson-closed',{detail:{session:window.__deenExitFixture}}));
+ });
+ await page.waitForTimeout(450);
+ assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Never interrupt an active lesson');
+ await page.evaluate(()=>{
+  document.querySelector('#lesson').classList.remove('active');
+  document.dispatchEvent(new CustomEvent('deen:navigated',{detail:{id:'learnScreen'}}));
+ });
+ await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
+ assert.equal(await page.locator('#deenPremiumOffer [data-dp="later"]').innerText(),'Şimdilik Devam Et');
+ assert.equal(await page.evaluate(()=>Boolean(JSON.parse(localStorage.getItem('deen_premium_offer_seen_v1')||'{}')['exit:U03-M02'])),false,'Exit offers are transient and do not pollute seen milestones');
+ await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+ await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+ await page.evaluate(()=>document.dispatchEvent(new CustomEvent('deen:lesson-finished',{detail:{session:window.__deenExitFixture}})));
+ await page.waitForTimeout(450);
+ assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'An exit session cannot show twice');
+ await page.evaluate(()=>document.dispatchEvent(new CustomEvent('deen:lesson-finished',{detail:{session:{stage:{id:'U03-M02'},macroStage:true}}})));
+ await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
+ await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+ await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
  // Current DEEN UI uses a 5-chapter Uxx-Mxx map with multiple mini lessons.
  // A 3/3 successful macro lesson must open the offer, even though U02-S07
  // (the old 7-stage unit marker) has not been completed.
@@ -81,11 +113,16 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   const detail={session:{stage:{id:'U02-M02'},macroStage:true,macroDef:def,lessonNo:2,lessonTotal:3}};
   document.dispatchEvent(new CustomEvent('deen:lesson-result-before',{detail}));
   state.macroStageMeta['U02-M02'].completedLessons=2;
+  window.__deenPartialSession=detail.session;
   document.dispatchEvent(new CustomEvent('deen:lesson-result',{detail}));
-  document.dispatchEvent(new CustomEvent('deen:lesson-closed'));
  });
  await page.waitForTimeout(390);
- assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Incomplete 2/3 chapter must not show premium');
+ assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Incomplete 2/3 result must not interrupt the learner');
+ // But leaving that unfinished chapter should open the offer by explicit request.
+ await page.evaluate(()=>document.dispatchEvent(new CustomEvent('deen:lesson-closed',{detail:{session:window.__deenPartialSession}})));
+ await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
+ await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+ await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
  // Legacy stages are also still used in some learning paths.
  await page.evaluate(()=>{
   const detail={session:{stage:{id:'U02-S02'}}};
@@ -115,6 +152,11 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
  await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
  await page.evaluate(()=>{document.documentElement.lang='ar'});
  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_OFFER.open()),false,'Active trial suppresses offers');
+
+ await page.evaluate(()=>document.dispatchEvent(new CustomEvent('deen:lesson-closed',{detail:{session:{stage:{id:'U06-M04'},macroStage:true}}})));
+ await page.waitForTimeout(450);
+ assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Premium trial members must never see an exit offer');
+
  assert.deepEqual(errors,[]);
  console.log('PASS PREMIUM completion lifecycle, deduplication, 72-hour local trial, and dialog fade');
  await browser.close();server.close();
