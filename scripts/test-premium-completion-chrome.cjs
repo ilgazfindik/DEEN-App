@@ -43,6 +43,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
  // Current DEEN UI uses a 5-chapter Uxx-Mxx map with multiple mini lessons.
  // A 3/3 successful macro lesson must open the offer, even though U02-S07
  // (the old 7-stage unit marker) has not been completed.
+ await page.evaluate(()=>{const phone=document.createElement('div');phone.id='phone';phone.className='phone gf-celebrating';document.body.appendChild(phone)});
  await page.evaluate(()=>{
   state.macroStageMeta={'U02-M01':{completedLessons:2,totalLessons:3}};
   const def={id:'U02-M01',unit:'U02',legacyIds:['U02-S01'],lessons:3};
@@ -53,6 +54,9 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   document.dispatchEvent(new CustomEvent('deen:lesson-result',{detail}));
   document.dispatchEvent(new CustomEvent('deen:lesson-closed'));
  });
+ await page.waitForTimeout(450);
+ assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Premium must wait until the award animation is complete');
+ await page.evaluate(()=>document.querySelector('#phone').classList.remove('gf-celebrating'));
  await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
  const seenMacro=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_premium_offer_seen_v1')||'{}'));
  assert(seenMacro['macro:U02-M01'],'U02 macro chapter must offer premium after the final mini lesson');
