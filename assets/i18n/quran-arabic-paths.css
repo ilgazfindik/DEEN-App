@@ -349,3 +349,76 @@
  font-weight:750;cursor:pointer
 }
 #leagueScreenBody .deen-path-spaced-section .deen-path-secondary:focus-visible{outline:3px solid #31efcf;outline-offset:2px}
+
+/* Phase 10: accessible, read-only Arabic mastery dashboard */
+#leagueScreenBody .deen-path-mastery-teaser{
+ display:flex;flex-direction:column;gap:7px;text-align:left;width:100%;box-sizing:border-box;
+ border:1px solid rgba(49,239,207,.56);border-radius:17px;padding:15px 16px;
+ margin:17px 0;background:linear-gradient(130deg,#154b4e,#132e3f);
+ color:#f3fffb;cursor:pointer;min-height:73px
+}
+#leagueScreenBody .deen-path-mastery-teaser-name{font-weight:800;font-size:17px;color:#60f5d5}
+#leagueScreenBody .deen-path-mastery-teaser-sub{font-size:12px;line-height:1.55;color:#d5eae6}
+#leagueScreenBody .deen-path-mastery-teaser:focus-visible,
+#leagueScreenBody .deen-path-mastery-filter:focus-visible{outline:3px solid #31efcf;outline-offset:3px}
+#leagueScreenBody .deen-path-mastery-screen{max-width:670px;margin:0 auto;padding-bottom:24px}
+#leagueScreenBody .deen-path-mastery-screen>.deen-path-muted{line-height:1.6}
+#leagueScreenBody .deen-path-mastery-metrics{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0
+}
+#leagueScreenBody .deen-path-mastery-metric{
+ min-width:0;display:flex;flex-direction:column;gap:5px;border-radius:15px;
+ padding:17px 11px;background:#153642;border:1px solid rgba(133,207,195,.35)
+}
+#leagueScreenBody .deen-path-mastery-number{font-size:clamp(23px,6vw,32px);font-weight:850;color:#39e6c8;font-variant-numeric:tabular-nums}
+#leagueScreenBody .deen-path-mastery-label{font-size:12px;line-height:1.5;color:#dcebe9}
+#leagueScreenBody .deen-path-mastery-levels,
+#leagueScreenBody .deen-path-mastery-topics,
+#leagueScreenBody .deen-path-mastery-catalogue{
+ margin:16px 0;border-radius:16px;border:1px solid rgba(134,186,195,.31);padding:15px 12px;background:#102d39
+}
+#leagueScreenBody .deen-path-mastery-screen .deen-path-shape-subtitle{font-size:17px;color:#f3f6ed;margin:0 0 14px}
+#leagueScreenBody .deen-path-mastery-level-row{display:grid;grid-template-columns:1fr auto;gap:5px 12px;margin:14px 0}
+#leagueScreenBody .deen-path-mastery-level-label{font-size:13px;color:#dbe5e8}
+#leagueScreenBody .deen-path-mastery-level-count{font-size:14px;color:#66eed9;font-weight:750;font-variant-numeric:tabular-nums}
+#leagueScreenBody .deen-path-mastery-level-row>.deen-path-course-progress{grid-column:1/-1}
+#leagueScreenBody .deen-path-mastery-limit{font-size:12px;line-height:1.7;margin:11px 1px;color:#c8d3da}
+#leagueScreenBody .deen-path-mastery-actions{display:grid;gap:10px;margin:18px 0}
+#leagueScreenBody .deen-path-mastery-actions>button{
+ display:block;width:100%;min-height:50px;box-sizing:border-box;border-radius:14px;padding:9px 12px;
+ font-size:14px;font-weight:760;white-space:normal
+}
+#leagueScreenBody .deen-path-mastery-actions>.deen-path-secondary{
+ background:#24424b;border:1px solid rgba(121,219,199,.48);color:#f5fff9
+}
+#leagueScreenBody .deen-path-mastery-topic{margin:12px 0;padding:10px 0;border-bottom:1px solid rgba(146,204,195,.18)}
+#leagueScreenBody .deen-path-mastery-topic-name{font-weight:720;font-size:13px;color:#edf6f0}
+#leagueScreenBody .deen-path-mastery-topic-count{float:right;font-variant-numeric:tabular-nums;font-size:13px;color:#83eada}
+#leagueScreenBody .deen-path-mastery-topic .deen-path-course-progress{clear:both;margin:8px 0}
+#leagueScreenBody .deen-path-mastery-topic>small{display:block;line-height:1.6}
+#leagueScreenBody .deen-path-mastery-filters{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+#leagueScreenBody .deen-path-mastery-filter{
+ background:#24404c;color:#e3eded;border:1px solid rgba(139,182,191,.4);
+ border-radius:999px;padding:8px 11px;min-height:36px;cursor:pointer;font-size:12px
+}
+#leagueScreenBody .deen-path-mastery-filter.is-active{
+ background:#31efcf;color:#092d32;border-color:#31efcf;font-weight:780
+}
+#leagueScreenBody .deen-path-mastery-card{
+ display:grid;grid-template-columns:minmax(80px,34%) 1fr;align-items:start;gap:10px;
+ padding:12px 0;border-bottom:1px solid rgba(121,192,197,.2)
+}
+#leagueScreenBody .deen-path-mastery-word{
+ font:650 clamp(24px,6vw,33px)/1.65 "Geeza Pro","Noto Naskh Arabic",serif;
+ color:#ffeac5;text-align:center;overflow-wrap:anywhere;unicode-bidi:isolate
+}
+#leagueScreenBody .deen-path-mastery-word-copy{min-width:0;display:flex;flex-direction:column;gap:4px}
+#leagueScreenBody .deen-path-mastery-word-copy>strong{font-size:13px;color:#f1fbf8;overflow-wrap:anywhere}
+#leagueScreenBody .deen-path-mastery-word-copy>small{font-size:11px;line-height:1.5}
+#leagueScreenBody .deen-path-mastery-due{color:#ffe19d}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-mastery-metrics{gap:7px}
+ #leagueScreenBody .deen-path-mastery-metric{padding:12px 9px}
+ #leagueScreenBody .deen-path-mastery-card{grid-template-columns:minmax(66px,32%) 1fr;gap:7px}
+ #leagueScreenBody .deen-path-mastery-word{font-size:23px}
+}

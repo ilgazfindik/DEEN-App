@@ -9,12 +9,14 @@ on:
       - 'assets/i18n/quran-arabic-meaning.js'
       - 'assets/i18n/quran-arabic-phrases.js'
       - 'assets/i18n/quran-arabic-patterns.js'
+      - 'assets/i18n/quran-arabic-mastery.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-quran-listening-chrome.cjs'
       - 'scripts/test-quran-meaning-chrome.cjs'
       - 'scripts/test-quran-phrases-chrome.cjs'
       - 'scripts/test-quran-patterns-chrome.cjs'
+      - 'scripts/test-quran-mastery-chrome.cjs'
       - '.github/workflows/quran-arabic-words-smoke.yml'
   pull_request:
     paths:
@@ -25,12 +27,14 @@ on:
       - 'assets/i18n/quran-arabic-meaning.js'
       - 'assets/i18n/quran-arabic-phrases.js'
       - 'assets/i18n/quran-arabic-patterns.js'
+      - 'assets/i18n/quran-arabic-mastery.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-quran-listening-chrome.cjs'
       - 'scripts/test-quran-meaning-chrome.cjs'
       - 'scripts/test-quran-phrases-chrome.cjs'
       - 'scripts/test-quran-patterns-chrome.cjs'
+      - 'scripts/test-quran-mastery-chrome.cjs'
       - '.github/workflows/quran-arabic-words-smoke.yml'
 jobs:
   word-smoke:
@@ -58,3 +62,4 @@ jobs:
           node scripts/test-quran-meaning-chrome.cjs
           node scripts/test-quran-phrases-chrome.cjs
           node scripts/test-quran-patterns-chrome.cjs
+          node scripts/test-quran-mastery-chrome.cjs

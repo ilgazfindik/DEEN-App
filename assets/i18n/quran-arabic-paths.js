@@ -30,6 +30,8 @@
  const PATTERNS=window.DEEN_ARABIC_PATTERNS;
  if(!PATTERNS||PATTERNS.startIndex!==24||PATTERNS.lessonCount!==3)throw Error('DEEN_ARABIC_PATTERNS_MISSING');
  const PATTERN_LESSONS=PATTERNS.lessons;
+ const MASTERY=window.DEEN_ARABIC_MASTERY;
+ if(!MASTERY||MASTERY.version!==1)throw Error('DEEN_ARABIC_MASTERY_MISSING');
  const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS,...PHRASE_LESSONS,...PATTERN_LESSONS]);
  const PATTERN_STORE='deen_arabic_patterns_v1';
  const REVIEW_CARDS=Object.freeze([...PHRASES.reviewCards,...PATTERNS.reviewCards]);
@@ -114,9 +116,16 @@
   de:{"patternHeading":"Koranische Satzmuster","patternSub":"Neue Wörter und einfache Grammatik aus An-Nas und Al-Ichlās.","patternLesson":"Musterlektion","patternVocabTitle":"Neue Wörter","patternContextTitle":"Kurze Wendungen","patternStructureTitle":"Satzstruktur","patternPrereq":"Zuerst die Wendungslektionen abschließen","patternVocabPrompt":"Was bedeutet dieses Wort?","patternContextPrompt":"Was bedeutet dieser Ausdruck?","patternStructurePrompt":"Welche Satzstruktur passt hierzu?","patternFinish":"Du hast neue Wörter und Strukturen geübt.","patternCTA":"Muster lernen","weakHeading":"Schwierige Wörter","weakSub":"Wiederhole schwierige Wörter; fällige Karten erhalten Vorrang.","weakCTA":"Schwierige Karten üben","weakEmpty":"Hier erscheinen Karten, bei denen Fehler auftraten."},
   fr:{"patternHeading":"Structures de phrases coraniques","patternSub":"Mots et grammaire simple des sourates An-Nas et Al-Ikhlâs.","patternLesson":"Leçon de structures","patternVocabTitle":"Nouveaux mots","patternContextTitle":"Expressions courtes","patternStructureTitle":"Structure de phrase","patternPrereq":"Termine d’abord les leçons d’expressions","patternVocabPrompt":"Que signifie ce mot ?","patternContextPrompt":"Que signifie cette expression ?","patternStructurePrompt":"Quelle structure grammaticale correspond ?","patternFinish":"Tu as étudié de nouveaux mots et des structures simples.","patternCTA":"Étudier les structures","weakHeading":"Mots difficiles","weakSub":"Révise les mots difficiles, en donnant priorité aux cartes dues.","weakCTA":"Réviser les cartes difficiles","weakEmpty":"Les cartes avec des erreurs apparaîtront ici."}
  };
+ const masteryUi={
+  tr:{"masteryHeading":"Arapça Ustalık Panelim","masteryIntro":"Yazılı ders ve tekrar kayıtlarına dayalı öğrenme görünümü.","masteryOpen":"Ustalığımı Gör","masteryBack":"Arapça Derslerine Dön","masteryPracticed":"Çalışılan kart","masteryWritten":"Tamamlanan yazılı ders","masteryDue":"Tekrar zamanı gelen","masteryWeak":"Hata yapılan kart","masteryStages":"Tekrar aşaması dağılımı","masteryNotStarted":"Henüz çalışılmadı","masteryNeedsPractice":"Yeniden çalışılmalı","masteryLearning":"Gelişiyor","masteryStrengthening":"Pekiştiriliyor","masteryLevelsNote":"Bu aşamalar tekrar düzenini gösterir; dil yeterliliğini veya doğru telaffuzu ölçmez.","masteryGroupPhraseVocab":"Kelime Hazinesi","masteryGroupPhrases":"Kısa İfadeler","masteryGroupPatternVocab":"Yeni Kelimeler","masteryGroupPatterns":"Kur’an Kalıpları","masteryGroupHeading":"Konulara Göre İlerleme","masteryCardsTitle":"Kelime ve İfade Kartları","masteryFilterAll":"Tümü","masteryFilterDue":"Tekrar Zamanı","masteryFilterWeak":"Zorlandıklarım","masteryFilterNew":"Yeni Kartlar","masteryEmpty":"Bu kategoride henüz kart yok.","masteryAttempts":"Deneme","masteryMistakes":"Hata","masteryNext":"Sonraki tekrar","masteryNextNone":"Planlanmadı","masteryNow":"Şimdi","masteryPracticeDue":"Zamanı Gelenleri Çalış","masteryPracticeWeak":"Zorlandıklarımı Çalış","masteryContinue":"Sıradaki Derse Geç","masteryNotUnlocked":"Yeni derslerin kilidini açmak için önceki dersleri tamamla.","masteryPrivacy":"Bu bir hafıza/çalışma göstergesidir; kıraat, tecvid veya dinî yeterlilik belgesi değildir.","masteryLocalOnly":"Bu cihazdaki kayıtlar kullanılır; hesabına otomatik aktarılmaz."},
+  en:{"masteryHeading":"My Arabic Mastery","masteryIntro":"Learning overview based on written lessons and review history.","masteryOpen":"View My Progress","masteryBack":"Back to Arabic Lessons","masteryPracticed":"Cards practiced","masteryWritten":"Written lessons done","masteryDue":"Reviews due","masteryWeak":"Cards with mistakes","masteryStages":"Review-stage distribution","masteryNotStarted":"Not practiced","masteryNeedsPractice":"Needs practice","masteryLearning":"Developing","masteryStrengthening":"Reinforcing","masteryLevelsNote":"Stages reflect spaced practice, not proof of fluency or pronunciation.","masteryGroupPhraseVocab":"Vocabulary","masteryGroupPhrases":"Short Phrases","masteryGroupPatternVocab":"New Words","masteryGroupPatterns":"Quran Patterns","masteryGroupHeading":"Progress by Topic","masteryCardsTitle":"Word and Phrase Cards","masteryFilterAll":"All","masteryFilterDue":"Due","masteryFilterWeak":"Difficult","masteryFilterNew":"New","masteryEmpty":"No cards match this filter.","masteryAttempts":"Attempts","masteryMistakes":"Mistakes","masteryNext":"Next review","masteryNextNone":"Not scheduled","masteryNow":"Now","masteryPracticeDue":"Practice Due Cards","masteryPracticeWeak":"Practice Difficult Cards","masteryContinue":"Continue Lessons","masteryNotUnlocked":"Complete earlier lessons to unlock the next one.","masteryPrivacy":"Practice indicators do not certify Arabic fluency, recitation or Tajwid.","masteryLocalOnly":"Based on this device only; not automatically synced to an account."},
+  ar:{"masteryHeading":"مستوى تقدمي في العربية","masteryIntro":"ملخص مبني على الدروس الكتابية وسجل المراجعة.","masteryOpen":"اعرض تقدمي","masteryBack":"العودة إلى دروس العربية","masteryPracticed":"بطاقات درستها","masteryWritten":"دروس كتابية مكتملة","masteryDue":"مراجعات مستحقة","masteryWeak":"بطاقات أخطأت فيها","masteryStages":"مراحل المراجعة","masteryNotStarted":"لم تُدرس بعد","masteryNeedsPractice":"تحتاج إلى مراجعة","masteryLearning":"في طور التعلم","masteryStrengthening":"في طور التثبيت","masteryLevelsNote":"هذه المراحل توضح التمرين ولا تقيس الطلاقة أو صحة التلاوة.","masteryGroupPhraseVocab":"المفردات","masteryGroupPhrases":"عبارات قصيرة","masteryGroupPatternVocab":"كلمات جديدة","masteryGroupPatterns":"تراكيب قرآنية","masteryGroupHeading":"التقدم حسب الموضوع","masteryCardsTitle":"بطاقات الكلمات والعبارات","masteryFilterAll":"الكل","masteryFilterDue":"مستحقة","masteryFilterWeak":"صعبة","masteryFilterNew":"جديدة","masteryEmpty":"لا توجد بطاقات في هذا القسم.","masteryAttempts":"محاولات","masteryMistakes":"أخطاء","masteryNext":"المراجعة القادمة","masteryNextNone":"لم تُحدد","masteryNow":"الآن","masteryPracticeDue":"راجع البطاقات المستحقة","masteryPracticeWeak":"راجع البطاقات الصعبة","masteryContinue":"تابع الدروس","masteryNotUnlocked":"أكمل الدروس السابقة لفتح الدرس التالي.","masteryPrivacy":"هذا مؤشر تدريب ولا يُعد شهادة للطلاقة أو التجويد أو التلاوة.","masteryLocalOnly":"البيانات محفوظة على هذا الجهاز وليست مزامنة تلقائيًا مع الحساب."},
+  de:{"masteryHeading":"Mein Arabisch-Lernstand","masteryIntro":"Übersicht aus schriftlichen Lektionen und Wiederholungen.","masteryOpen":"Fortschritt anzeigen","masteryBack":"Zurück zu Arabisch","masteryPracticed":"Geübte Karten","masteryWritten":"Schriftlektionen abgeschlossen","masteryDue":"Fällige Wiederholungen","masteryWeak":"Karten mit Fehlern","masteryStages":"Wiederholungsstufen","masteryNotStarted":"Noch nicht geübt","masteryNeedsPractice":"Braucht Übung","masteryLearning":"Im Aufbau","masteryStrengthening":"Wird gefestigt","masteryLevelsNote":"Die Stufen zeigen Übung, keine zertifizierte Sprach- oder Aussprachekompetenz.","masteryGroupPhraseVocab":"Wortschatz","masteryGroupPhrases":"Kurze Wendungen","masteryGroupPatternVocab":"Neue Wörter","masteryGroupPatterns":"Koranische Muster","masteryGroupHeading":"Fortschritt nach Themen","masteryCardsTitle":"Wort- und Wendungskarten","masteryFilterAll":"Alle","masteryFilterDue":"Fällig","masteryFilterWeak":"Schwierig","masteryFilterNew":"Neu","masteryEmpty":"Keine Karten in dieser Auswahl.","masteryAttempts":"Versuche","masteryMistakes":"Fehler","masteryNext":"Nächste Wiederholung","masteryNextNone":"Noch nicht geplant","masteryNow":"Jetzt","masteryPracticeDue":"Fällige Karten üben","masteryPracticeWeak":"Schwierige Karten üben","masteryContinue":"Lektionen fortsetzen","masteryNotUnlocked":"Zum Freischalten zuerst frühere Lektionen abschließen.","masteryPrivacy":"Diese Anzeige bestätigt keine Rezitations- oder Tadschwid-Kompetenz.","masteryLocalOnly":"Nur Daten dieses Geräts; keine automatische Kontosynchronisierung."},
+  fr:{"masteryHeading":"Ma progression en arabe","masteryIntro":"Vue fondée sur les leçons écrites et les révisions.","masteryOpen":"Voir ma progression","masteryBack":"Retour aux leçons","masteryPracticed":"Cartes étudiées","masteryWritten":"Leçons écrites terminées","masteryDue":"Révisions dues","masteryWeak":"Cartes avec erreurs","masteryStages":"Étapes de révision","masteryNotStarted":"Non étudiées","masteryNeedsPractice":"À retravailler","masteryLearning":"En apprentissage","masteryStrengthening":"En consolidation","masteryLevelsNote":"Les étapes décrivent l’entraînement, pas la maîtrise orale ni la prononciation.","masteryGroupPhraseVocab":"Vocabulaire","masteryGroupPhrases":"Expressions courtes","masteryGroupPatternVocab":"Nouveaux mots","masteryGroupPatterns":"Structures coraniques","masteryGroupHeading":"Progression par sujet","masteryCardsTitle":"Cartes de mots et d’expressions","masteryFilterAll":"Toutes","masteryFilterDue":"À revoir","masteryFilterWeak":"Difficiles","masteryFilterNew":"Nouvelles","masteryEmpty":"Aucune carte dans cette sélection.","masteryAttempts":"Essais","masteryMistakes":"Erreurs","masteryNext":"Prochaine révision","masteryNextNone":"Non programmée","masteryNow":"Maintenant","masteryPracticeDue":"Réviser les cartes dues","masteryPracticeWeak":"Revoir mes difficultés","masteryContinue":"Continuer les leçons","masteryNotUnlocked":"Termine les leçons précédentes pour débloquer la suite.","masteryPrivacy":"Cet indicateur n’atteste ni récitation ni maîtrise du tajwid.","masteryLocalOnly":"Données de cet appareil uniquement, sans synchronisation automatique."}
+ };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
- const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()]);
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0};
+ const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()],masteryUi[lang()]);
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,masteryFilter:'all'};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -195,6 +204,9 @@
   cards[id]={...next,mistakes:Math.min(999,Math.max(0,prev?.mistakes||0)+(correct?0:1)),attempts:Math.min(9999,Math.max(0,prev?.attempts||0)+1)};
   try{localStorage.setItem(REVIEW_STORE,JSON.stringify({schema:1,cards,updatedAt:Date.now()}))}catch(_){}
  }
+ const writtenCompletedCount=()=>completed().length+vowelCompleted().length+readingCompleted().length+
+  wordCompleted().length+meaningCompleted().length+phraseCompleted().length+patternCompleted().length;
+ const masterySnapshot=()=>MASTERY.analyze({cards:reviewRead()},writtenCompletedCount(),ALL_LESSONS.length-LISTENING_LESSONS.length);
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
  const groupLetters=()=>group().letters||group().items;
@@ -335,6 +347,12 @@
   box.append(elem('p','deen-path-progress-copy',c.courseProgress+' · '+done+' / '+LESSONS.length));
   const track=elem('div','deen-path-course-progress'),fill=elem('span','',undefined);
   fill.style.width=Math.round(100*done/LESSONS.length)+'%';track.appendChild(fill);box.appendChild(track);
+  const mastery=masterySnapshot(),masteryButton=makeButton('','mastery','deen-path-mastery-teaser');
+  masteryButton.append(elem('span','deen-path-mastery-teaser-name',c.masteryOpen+' →'));
+  masteryButton.append(elem('span','deen-path-mastery-teaser-sub',
+   c.masteryWritten+' · '+mastery.lessonCompleted+' / '+mastery.lessonTotal+'   ·   '+
+   c.masteryPracticed+' · '+mastery.practiced+' / '+mastery.total));
+  box.append(masteryButton);
   const list=elem('div','deen-path-course-grid');
   LESSONS.forEach((lesson,i)=>{
    const locked=!isUnlocked(i),done=completed().includes(lesson.id);
@@ -479,6 +497,92 @@
    const glyph=elem('span','deen-path-course-glyphs',lesson.items.map(x=>x.glyph).join('  '));glyph.lang='ar';glyph.dir='rtl';
    btn.append(upper,glyph,elem('span','deen-path-course-item-foot',c.free+' · '+title));box.append(btn);
   }
+  return box;
+ }
+ function masteryView(){
+  const c=t(),stats=masterySnapshot(),box=elem('section','deen-path-mastery-screen');
+  box.append(makeButton('←  '+c.masteryBack,'arabic','deen-path-back'),
+   elem('div','deen-path-kicker',c.masteryHeading),
+   elem('h2','deen-path-inner-title',c.masteryHeading),
+   elem('p','deen-path-muted',c.masteryIntro));
+  const metrics=elem('div','deen-path-mastery-metrics');
+  for(const [label,value] of [
+   [c.masteryWritten,stats.lessonCompleted+' / '+stats.lessonTotal],
+   [c.masteryPracticed,stats.practiced+' / '+stats.total],
+   [c.masteryDue,String(stats.due)],
+   [c.masteryWeak,String(stats.weak)]
+  ]){
+   const tile=elem('div','deen-path-mastery-metric');tile.append(elem('span','deen-path-mastery-number',value),
+    elem('span','deen-path-mastery-label',label));metrics.append(tile);
+  }
+  box.append(metrics);
+  const levels=elem('section','deen-path-mastery-levels');
+  levels.append(elem('h3','deen-path-shape-subtitle',c.masteryStages));
+  const pairs=[
+   ['notStarted',c.masteryNotStarted],['needsPractice',c.masteryNeedsPractice],
+   ['learning',c.masteryLearning],['strengthening',c.masteryStrengthening]
+  ];
+  for(const [id,title] of pairs){
+   const row=elem('div','deen-path-mastery-level-row');
+   row.append(elem('span','deen-path-mastery-level-label',title),elem('span','deen-path-mastery-level-count',String(stats.levels[id])));
+   const bar=elem('div','deen-path-course-progress'),fill=elem('span');
+   fill.style.width=Math.round(100*stats.levels[id]/stats.total)+'%';
+   bar.append(fill);row.append(bar);levels.append(row);
+  }
+  levels.append(elem('p','deen-path-muted deen-path-mastery-limit',c.masteryLevelsNote));
+  box.append(levels);
+  const action=elem('div','deen-path-mastery-actions');
+  if(stats.due)action.append(makeButton(c.masteryPracticeDue+' ('+stats.due+')','startReview','deen-path-primary'));
+  if(stats.weak)action.append(makeButton(c.masteryPracticeWeak+' ('+stats.weak+')','startWeakReview','deen-path-secondary'));
+  const first=ALL_LESSONS.find(x=>!LISTENING_LESSONS.includes(x)&&!lessonIsDone(x)&&isUnlocked(x.index));
+  if(first){const b=makeButton(c.masteryContinue,'masteryContinue','deen-path-secondary');b.dataset.lessonIndex=String(first.index);action.append(b)}
+  if(action.childElementCount)box.append(action);
+  const topics=elem('section','deen-path-mastery-topics');
+  topics.append(elem('h3','deen-path-shape-subtitle',c.masteryGroupHeading));
+  for(const group of stats.groupSummary){
+   const line=elem('div','deen-path-mastery-topic');
+   line.append(elem('span','deen-path-mastery-topic-name',c[group.titleKey]),
+    elem('span','deen-path-mastery-topic-count',group.practiced+' / '+group.total));
+   const progress=elem('div','deen-path-course-progress'),fill=elem('span');
+   fill.style.width=Math.round(100*group.practiced/group.total)+'%';progress.append(fill);line.append(progress);
+   const note=elem('small','deen-path-muted',c.masteryDue+' · '+group.due+'   ·   '+c.masteryWeak+' · '+group.weak);
+   line.append(note);topics.append(line);
+  }
+  box.append(topics);
+  const catalogue=elem('section','deen-path-mastery-catalogue');
+  catalogue.append(elem('h3','deen-path-shape-subtitle',c.masteryCardsTitle));
+  const filters=elem('div','deen-path-mastery-filters');
+  for(const [id,label] of [['all',c.masteryFilterAll],['due',c.masteryFilterDue],['weak',c.masteryFilterWeak],['new',c.masteryFilterNew]]){
+   const b=makeButton(label,'masteryFilter','deen-path-mastery-filter'+(state.masteryFilter===id?' is-active':''));
+   b.dataset.filter=id;b.setAttribute('aria-pressed',String(state.masteryFilter===id));filters.append(b);
+  }
+  catalogue.append(filters);
+  const filtered=stats.cards.filter(item=>state.masteryFilter==='due'?item.due:
+   state.masteryFilter==='weak'?item.weak:state.masteryFilter==='new'?item.level==='notStarted':true);
+  if(!filtered.length)catalogue.append(elem('p','deen-path-muted',c.masteryEmpty));
+  else for(const item of filtered){
+   const row=elem('div','deen-path-mastery-card');
+   const title=elem('span','deen-path-mastery-word',item.glyph);title.lang='ar';title.dir='rtl';
+   const copy=elem('div','deen-path-mastery-word-copy');
+   copy.append(elem('strong','',item.gloss[lang()]||item.gloss.tr),
+    elem('small','deen-path-muted',item.reference+' · '+c[['notStarted','needsPractice','learning','strengthening'].includes(item.level)?{
+     notStarted:'masteryNotStarted',needsPractice:'masteryNeedsPractice',learning:'masteryLearning',strengthening:'masteryStrengthening'
+    }[item.level]:'masteryNotStarted']));
+   const footer=elem('small','deen-path-muted',c.masteryAttempts+' · '+item.attempts+
+    '   ·   '+c.masteryMistakes+' · '+item.mistakes);
+   copy.append(footer);
+   if(item.due)copy.append(elem('small','deen-path-mastery-due',c.masteryNext+' · '+c.masteryNow));
+   else if(item.dueAt!==null){
+    let dateText=c.masteryNextNone;
+    try{dateText=new Intl.DateTimeFormat(({tr:'tr-TR',en:'en-US',ar:'ar',de:'de-DE',fr:'fr-FR'})[lang()]||'tr-TR',
+     {year:'numeric',month:'short',day:'numeric'}).format(new Date(item.dueAt))}catch(_){}
+    copy.append(elem('small','deen-path-muted',c.masteryNext+' · '+dateText));
+   }else copy.append(elem('small','deen-path-muted',c.masteryNext+' · '+c.masteryNextNone));
+   row.append(title,copy);catalogue.append(row);
+  }
+  box.append(catalogue);
+  box.append(elem('p','deen-path-muted deen-path-mastery-limit',c.masteryPrivacy),
+   elem('p','deen-path-muted deen-path-mastery-limit',c.masteryLocalOnly));
   return box;
  }
  function spacedReviewDashboard(){
@@ -889,7 +993,7 @@
    container.querySelector('#deenQuranPathNav')?.after(returnBar);
   }else{
    const panel=elem('div','deen-path-view');panel.id='deenQuranPathView';
-   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='group'?groupView():state.view==='lesson'?lessonView():state.view==='review'?reviewView():state.view==='reviewDone'?reviewDoneView():completedView());
+   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='mastery'?masteryView():state.view==='group'?groupView():state.view==='lesson'?lessonView():state.view==='review'?reviewView():state.view==='reviewDone'?reviewDoneView():completedView());
    container.querySelector('#deenQuranPathNav')?.after(panel);
   }
  }
@@ -918,6 +1022,11 @@
     if(b.dataset.lessonIndex!==undefined)selectGroup(b.dataset.lessonIndex);
     else show('group'); // lesson back button: preserve selected lesson
    }
+   else if(action==='mastery'){state.masteryFilter='all';show('mastery')}
+   else if(action==='masteryFilter'){
+    if(['all','due','weak','new'].includes(b.dataset.filter)){state.masteryFilter=b.dataset.filter;update()}
+   }
+   else if(action==='masteryContinue')selectGroup(b.dataset.lessonIndex);
    else if(action==='nextGroup')selectGroup(state.lessonIndex+1);
    else if(action==='start')start();
    else if(action==='answer')answer(b.dataset.letterId);
@@ -948,5 +1057,5 @@
   });
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
- window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex),phraseCompletedLessons:phraseCompleted().length,phraseTotalLessons:PHRASE_LESSONS.length,phraseAvailable:isUnlocked(PHRASES.startIndex),reviewDue:reviewDue().length,reviewTracked:Object.keys(reviewRead()).length,reviewWeak:reviewWeak().length,patternCompletedLessons:patternCompleted().length,patternTotalLessons:PATTERN_LESSONS.length,patternAvailable:isUnlocked(PATTERNS.startIndex)}),version:'quran-arabic-paths-phase9'});
+ window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex),phraseCompletedLessons:phraseCompleted().length,phraseTotalLessons:PHRASE_LESSONS.length,phraseAvailable:isUnlocked(PHRASES.startIndex),reviewDue:reviewDue().length,reviewTracked:Object.keys(reviewRead()).length,reviewWeak:reviewWeak().length,mastery:((s)=>({total:s.total,practiced:s.practiced,due:s.due,weak:s.weak,levels:s.levels,lessonCompleted:s.lessonCompleted,lessonTotal:s.lessonTotal}))(masterySnapshot()),patternCompletedLessons:patternCompleted().length,patternTotalLessons:PATTERN_LESSONS.length,patternAvailable:isUnlocked(PATTERNS.startIndex)}),version:'quran-arabic-paths-phase10'});
 })();
