@@ -28,7 +28,10 @@
    });
   }
   const lastLesson=typeof raw?.lastLesson==='string'&&sessions[raw.lastLesson]?raw.lastLesson:null;
-  return Object.freeze({schema:1,lastLesson,globalCleanStreak:integer(raw?.globalCleanStreak,999),sessions:Object.freeze(sessions)});
+  const focused=Object.create(null),source=raw?.focused&&typeof raw.focused==='object'?raw.focused:{};
+  for(const id of cardIds)if(Number.isFinite(source[id])&&source[id]>=0)focused[id]=source[id];
+  return Object.freeze({schema:1,lastLesson,globalCleanStreak:integer(raw?.globalCleanStreak,999),
+   focused:Object.freeze(focused),sessions:Object.freeze(sessions)});
  };
  const recordLesson=(raw,{lessonId,questions,missedIds=[],at=Date.now()}={})=>{
   const state=clean(raw),id=safeId(lessonId);
@@ -44,8 +47,14 @@
    missedCardIds:Object.freeze(missed.filter(x=>validCard.has(x))),
    updatedAt:Number.isFinite(at)&&at>=0?at:Date.now()
   });
-  return Object.freeze({schema:1,lastLesson:id,globalCleanStreak:cleanRun?Math.min(999,state.globalCleanStreak+1):0,sessions:Object.freeze({...state.sessions,[id]:session})});
+  return Object.freeze({schema:1,lastLesson:id,globalCleanStreak:cleanRun?Math.min(999,state.globalCleanStreak+1):0,focused:state.focused,sessions:Object.freeze({...state.sessions,[id]:session})});
  };
+ function recordFocus(raw,ids=[],at=Date.now()){
+  const state=clean(raw),focused={...state.focused};
+  if(!Array.isArray(ids)||!Number.isFinite(at)||at<0)return state;
+  for(const id of ids)if(validCard.has(id))focused[id]=at;
+  return Object.freeze({...state,focused:Object.freeze(focused)});
+ }
  function suggest({history,reviewCards={},now=Date.now(),limit=3,nextLesson=null}={}){
   const state=clean(history),recent=state.lastLesson?state.sessions[state.lastLesson]:null;
   const selected=new Set(recent?.missedCardIds||[]);
@@ -60,7 +69,14 @@
   }
   for(const c of due)selected.add(c.id);
   for(const c of weak)selected.add(c.id);
-  const ranked=[...selected].filter(x=>validCard.has(x)).map(id=>{
+  const ranked=[...selected].filter(id=>{
+   if(!validCard.has(id))return false;
+   const r=review[id];
+   // Do not loop forever after a completed reinforcement round.
+   // A new miss or a due review makes the same card eligible again.
+   return !(state.focused[id]&&(state.focused[id]>= (recent?.updatedAt||0))&&
+    r&&Number.isFinite(r.dueAt)&&r.dueAt>now);
+  }).map(id=>{
    const record=review[id]||{},mistakes=integer(record.mistakes,999),step=integer(record.step,5);
    const due=Number.isFinite(record.dueAt)&&record.dueAt<=now;
    const recentMiss=!!recent?.missedCardIds.includes(id);
@@ -88,5 +104,5 @@
   de:{heading:'Gezielte Vertiefung',intro:'Kurze schriftliche Wiederholung bei Fehlern und fälligen Karten.',ready:'Vertiefung starten',count:'Empfohlene Karten',noCards:'Derzeit ist keine zusätzliche Wiederholung nötig.',clean:'Fehlerfreie Lektionen in Folge',next:'Bereit für die nächste Lektion',continue:'Zur empfohlenen Lektion',finished:'Vertiefung abgeschlossen!',mistake:'Beim ersten Versuch falsch beantwortete Fragen',noMistake:'Du hast diese Lektion fehlerfrei beendet.',note:'Nur echte Übungsdaten. Aussprache und Tadschwid werden nicht bewertet.',back:'Zurück zu den Lektionen'},
   fr:{heading:'Révision ciblée',intro:'Courte révision écrite selon les erreurs et les cartes dues.',ready:'Commencer la révision ciblée',count:'Cartes conseillées',noCards:'Aucune carte ne nécessite de renforcement maintenant.',clean:'Leçons réussies sans erreur de suite',next:'Prêt pour la prochaine leçon',continue:'Aller à la prochaine leçon',finished:'Révision ciblée terminée !',mistake:'Questions manquées au premier essai',noMistake:'Tu as terminé cette leçon sans erreur.',note:'Fondé sur les exercices réels ; ne mesure ni récitation ni tajwid.',back:'Retour aux leçons'}
  });
- window.DEEN_ARABIC_ADAPTIVE=Object.freeze({version:1,cardIds,clean,recordLesson,suggest,ui});
+ window.DEEN_ARABIC_ADAPTIVE=Object.freeze({version:1,cardIds,clean,recordLesson,recordFocus,suggest,ui});
 })();
