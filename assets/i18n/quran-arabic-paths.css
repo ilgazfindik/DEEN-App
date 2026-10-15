@@ -1,0 +1,100 @@
+/* DEEN Qur'an paths phase 1: scoped navigation + free Arabic starter. */
+#leagueScreenBody[data-deen-learning-path]:not([data-deen-learning-path="surah"]) > .deen-quran-shell{display:none!important}
+#leagueScreenBody[data-deen-learning-path="surah"] > #deenQuranPathNav{display:none!important}
+#leagueScreenBody #deenQuranPathNav,#leagueScreenBody #deenQuranPathView{
+ width:min(100%,680px);margin-inline:auto;
+ color:#eefbf6;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-sizing:border-box
+}
+#leagueScreenBody #deenQuranPathNav * ,#leagueScreenBody #deenQuranPathView *{box-sizing:border-box}
+#leagueScreenBody #deenQuranPathNav{padding:20px 15px 0}
+#leagueScreenBody #deenQuranPathView{padding:14px 15px calc(115px + env(safe-area-inset-bottom))}
+#leagueScreenBody .deen-path-kicker{color:#e9ce91;font-size:10px;letter-spacing:1.8px;font-weight:850;line-height:1.5}
+#leagueScreenBody .deen-path-title{font-family:Georgia,serif;color:#faf7eb;font-size:clamp(27px,8vw,35px);line-height:1.12;margin:10px 0 7px;font-weight:750}
+#leagueScreenBody .deen-path-description{color:#b5ccc7;margin:0;font-size:13px;line-height:1.6}
+#leagueScreenBody .deen-path-home{display:grid;gap:13px}
+#leagueScreenBody button.deen-path-card{
+ width:100%;display:grid;grid-template-columns:75px minmax(0,1fr);align-items:center;gap:12px;
+ padding:20px 17px;min-height:151px;text-align:start;
+ border:1px solid rgba(132,220,194,.38);border-radius:23px;
+ background:radial-gradient(ellipse at 100% 0,rgba(95,221,187,.14),transparent 48%),linear-gradient(143deg,#10363d,#09232e 86%);
+ color:#f4fdf9;-webkit-text-fill-color:initial;box-shadow:0 12px 30px rgba(0,0,0,.13);
+ font:inherit;cursor:pointer;letter-spacing:0;text-transform:none
+}
+#leagueScreenBody button.deen-path-surah{border-color:rgba(238,205,141,.33);background:radial-gradient(ellipse at 100% 0,rgba(244,192,107,.1),transparent 50%),linear-gradient(140deg,#17333a,#0a222f)}
+#leagueScreenBody .deen-path-symbol{
+ grid-row:span 2;display:grid;place-items:center;width:69px;height:75px;border-radius:18px;
+ background:linear-gradient(135deg,rgba(87,211,179,.17),rgba(13,52,62,.55));border:1px solid rgba(156,238,210,.27);
+ color:#e7d6a5;font:750 44px/1 Georgia,serif
+}
+#leagueScreenBody .deen-path-copy{display:grid;gap:7px;min-width:0}
+#leagueScreenBody .deen-path-copy strong{color:#fff6e3;font-size:19px;line-height:1.22;font-weight:820}
+#leagueScreenBody .deen-path-copy small{color:#c0d4d0;font-size:12px;line-height:1.5;font-weight:450}
+#leagueScreenBody .deen-path-link{grid-column:2;align-self:end;color:#a8f3d9;font-size:11px;font-weight:850}
+#leagueScreenBody .deen-path-surah .deen-path-link{color:#ebd19c}
+#leagueScreenBody .deen-path-card:focus-visible,#leagueScreenBody .deen-path-primary:focus-visible,#leagueScreenBody .deen-path-option:focus-visible,#leagueScreenBody .deen-path-back:focus-visible{
+ outline:3px solid #abffe1;outline-offset:3px
+}
+#leagueScreenBody .deen-path-arabic-landing,#leagueScreenBody .deen-path-lesson,#leagueScreenBody .deen-path-completion{
+ padding:19px 16px 21px;border-radius:23px;
+ border:1px solid rgba(134,212,185,.27);
+ background:radial-gradient(ellipse at top right,rgba(136,218,174,.11),transparent 42%),linear-gradient(180deg,#0e2b36,#071d27);
+ box-shadow:0 18px 40px rgba(0,0,0,.17)
+}
+#leagueScreenBody .deen-path-back{
+ display:inline-flex;align-items:center;justify-content:center;gap:6px;
+ min-height:36px;width:auto;padding:6px 12px;margin:0 0 20px;border:1px solid rgba(139,207,193,.31);
+ background:rgba(12,53,58,.65);color:#d6eee7;-webkit-text-fill-color:#d6eee7;
+ border-radius:12px;font:750 12px/1.3 inherit;cursor:pointer;letter-spacing:0;text-transform:none
+}
+#leagueScreenBody .deen-path-pill{
+ display:inline-flex;padding:7px 10px;margin-bottom:10px;border-radius:999px;border:1px solid rgba(242,210,148,.4);
+ background:rgba(242,210,148,.07);color:#f0d49a;font-size:10px;font-weight:820;letter-spacing:.8px
+}
+#leagueScreenBody .deen-path-inner-title{font-size:clamp(23px,6vw,29px);font-weight:850;line-height:1.18;margin:5px 0 11px;color:#f8f9ed}
+#leagueScreenBody .deen-path-muted{font-size:12px;line-height:1.62;color:#bdd3cd;margin:0 0 16px}
+#leagueScreenBody .deen-path-warning{
+ padding:11px;border:1px solid rgba(226,207,155,.19);border-radius:13px;
+ background:rgba(249,205,129,.04);font-size:11px;margin-bottom:15px
+}
+#leagueScreenBody .deen-path-letter-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0 17px}
+#leagueScreenBody .deen-path-letter-card{
+ display:grid;justify-items:center;gap:8px;min-height:110px;padding:10px 6px;border-radius:15px;
+ border:1px solid rgba(145,228,201,.22);background:rgba(10,43,49,.7)
+}
+#leagueScreenBody .deen-path-letter-card .deen-path-glyph{font:750 52px/1.2 "Geeza Pro","Noto Naskh Arabic",serif;color:#fff0ca}
+#leagueScreenBody .deen-path-letter-card small{font-size:12px;font-weight:800;color:#a6e9d4}
+#leagueScreenBody .deen-path-primary{
+ width:100%;min-height:52px;border-radius:15px;border:1px solid rgba(255,230,171,.8);
+ background:linear-gradient(145deg,#9cf0d0,#51d8b6 61%,#26b6aa);
+ color:#052c2e!important;-webkit-text-fill-color:#052c2e!important;
+ font-family:inherit;font-size:13px;font-weight:900;letter-spacing:0;text-transform:none;cursor:pointer;
+ box-shadow:0 11px 24px rgba(38,193,156,.2)
+}
+#leagueScreenBody .deen-path-completed{color:#b9f0d3;font-size:12px;font-weight:760;text-align:center;margin:14px 0 0}
+#leagueScreenBody .deen-path-surah-return{padding:0 0 4px}
+#leagueScreenBody .deen-path-question-count{color:#a8c9bd;font-size:12px;font-weight:780;margin:0 0 16px}
+#leagueScreenBody .deen-path-prompt{
+ display:grid;place-items:center;min-height:91px;margin-bottom:15px;border:1px solid rgba(201,178,132,.27);
+ border-radius:17px;background:rgba(209,188,138,.05);color:#f7dba6;font-size:30px;font-weight:800
+}
+#leagueScreenBody .deen-path-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 15px}
+#leagueScreenBody .deen-path-option{
+ min-height:98px;border:1px solid rgba(132,205,183,.31);border-radius:17px;
+ background:linear-gradient(170deg,#103943,#0b2731);color:#f9ebc3!important;-webkit-text-fill-color:#f9ebc3!important;
+ font:750 53px/1.2 "Geeza Pro","Noto Naskh Arabic",serif;cursor:pointer
+}
+#leagueScreenBody .deen-path-option.deen-path-option-correct{border-color:#92f5cd;background:rgba(53,155,119,.23)}
+#leagueScreenBody .deen-path-feedback{font-size:12px;line-height:1.5;font-weight:730;margin:4px 0 14px}
+#leagueScreenBody .deen-path-feedback.is-correct{color:#9af0c9}
+#leagueScreenBody .deen-path-feedback.is-wrong{color:#f5bf9c}
+#leagueScreenBody .deen-path-complete-star{margin:4px auto 14px;display:grid;place-items:center;width:72px;height:72px;border:1px solid rgba(248,221,156,.6);border-radius:50%;color:#f5dea2;font-size:38px;background:radial-gradient(circle,rgba(232,189,116,.12),transparent)}
+#leagueScreenBody .deen-path-completion{text-align:center}
+#leagueScreenBody .deen-path-completion .deen-path-back{margin:13px auto 0}
+@media(max-width:370px){
+ #leagueScreenBody button.deen-path-card{grid-template-columns:58px minmax(0,1fr);gap:10px;padding:15px 11px}
+ #leagueScreenBody .deen-path-symbol{width:57px;height:64px;font-size:36px}
+ #leagueScreenBody .deen-path-copy strong{font-size:17px}
+}
+@media(prefers-reduced-motion:no-preference){
+ #leagueScreenBody button.deen-path-card:active{transform:scale(.992)}
+}
