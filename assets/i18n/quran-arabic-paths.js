@@ -433,7 +433,7 @@
   box.append(elem('p','deen-path-progress-copy',progress+' / '+CHECKPOINT.requiredWritten));
   if(latest)box.append(elem('p','deen-path-checkpoint-last',c.examLast+' · '+latest.correct+' / '+latest.total));
   if(!checkpointEligible())box.append(elem('p','deen-path-muted',c.examLocked));
-  const b=makeButton(c.examStart,'checkpointOpen','deen-path-primary');
+  const b=makeButton(c.examStart,state.view==='checkpoint'?'checkpointStart':'checkpointOpen','deen-path-primary');
   b.disabled=!checkpointEligible();box.append(b);
   if(latest)box.append(makeButton(c.examResults,'checkpointResults','deen-path-secondary'));
   return box;
