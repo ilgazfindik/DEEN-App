@@ -12,14 +12,14 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.goto('http://127.0.0.1:'+server.address().port);
   await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
-  for(const file of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-paths.js'])
+  for(const file of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-remediation.js','quran-arabic-paths.js'])
    await page.addScriptTag({path:path.join(root,'assets/i18n',file)});
   const curriculum=await page.evaluate(()=>({
    version:DEEN_QURAN_PATHS.version,total:DEEN_QURAN_PATHS.status().overallLessonCount,
    lessons:DEEN_ARABIC_PATTERNS.lessons.map(x=>({id:x.id,index:x.index,kind:x.kind,items:x.items.map(i=>({id:i.id,glyph:i.glyph,reference:i.reference,excerpt:i.excerpt,gloss:i.gloss,role:i.role}))})),
    review:DEEN_ARABIC_PATTERNS.reviewCards.map(x=>x.id)
   }));
-  assert.equal(curriculum.version,'quran-arabic-paths-phase14');
+  assert.equal(curriculum.version,'quran-arabic-paths-phase15');
   assert.equal(curriculum.total,27);
   assert.deepEqual(curriculum.lessons.map(x=>x.index),[24,25,26]);
   assert.deepEqual(curriculum.lessons.map(x=>x.items.length),[4,4,4]);
