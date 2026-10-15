@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'assets/i18n/quran-arabic-words.js'
+      - 'index.html'
       - 'assets/i18n/quran-arabic-paths.js'
       - 'assets/i18n/quran-arabic-listening.js'
       - 'assets/i18n/quran-arabic-meaning.js'
@@ -14,6 +15,7 @@ on:
   pull_request:
     paths:
       - 'assets/i18n/quran-arabic-words.js'
+      - 'index.html'
       - 'assets/i18n/quran-arabic-paths.js'
       - 'assets/i18n/quran-arabic-listening.js'
       - 'assets/i18n/quran-arabic-meaning.js'
