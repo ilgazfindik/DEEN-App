@@ -23,8 +23,9 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-daily.js')});
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-adaptive.js')});
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-foundation-review.js')});
+ await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-checkpoint.js')});
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-paths.js')});
- assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.version),'quran-arabic-paths-phase13');
+ assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.version),'quran-arabic-paths-phase14');
  const data=await page.evaluate(()=>({marks:DEEN_ARABIC_HARAKAT.marks.map(x=>({id:x.id,glyph:x.glyph,mark:x.mark})),lessons:DEEN_ARABIC_HARAKAT.lessons.map(x=>({id:x.id,kind:x.kind,items:x.items.map(y=>({id:y.id,glyph:y.glyph}))})),audio:DEEN_ARABIC_HARAKAT.audioStatus}));
  assert.deepEqual(data.marks.map(x=>x.id),['fatha','kasra','damma']);
  assert.deepEqual(data.marks.map(x=>x.mark),['\u064e','\u0650','\u064f']);
