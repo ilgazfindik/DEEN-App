@@ -587,7 +587,7 @@
   const b=makeButton(c.examStart,state.view==='checkpoint'?'checkpointStart':'checkpointOpen','deen-path-primary');
   b.disabled=!checkpointEligible();box.append(b);
   if(latest)box.append(makeButton(c.examResults,'checkpointResults','deen-path-secondary'));
-  if(latest)box.append(remedyPanel());
+  if(latest&&remedyPlan().total)box.append(makeButton(c.remedyHeading,'remedyOpen','deen-path-secondary'));
   return box;
  }
  function checkpointStart(){
