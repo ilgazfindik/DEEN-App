@@ -146,3 +146,16 @@
 #leagueScreenBody button.deen-path-course-item:focus-visible,#leagueScreenBody .deen-path-atlas-details summary:focus-visible{outline:3px solid #8ff1cf;outline-offset:3px}
 @media(max-width:345px){#leagueScreenBody .deen-path-shape-form{font-size:24px}#leagueScreenBody .deen-path-course-glyphs{font-size:27px}}
 @media(prefers-reduced-motion:reduce){#leagueScreenBody .deen-path-course-progress span{transition:none}}
+
+/* Phase 3: harakat and first syllables */
+#leagueScreenBody .deen-path-vowel-section{margin:20px 0 14px;padding:17px 13px 7px;border:1px solid rgba(231,200,141,.42);border-radius:18px;background:radial-gradient(ellipse at 95% 0,rgba(205,169,104,.12),transparent 50%),linear-gradient(180deg,#102c37,#09222e)}
+#leagueScreenBody .deen-path-vowel-section>.deen-path-shape-subtitle{margin:0 0 6px;font-size:17px;color:#ffe3ad}
+#leagueScreenBody .deen-path-vowel-section>.deen-path-muted{margin:0 0 13px}
+#leagueScreenBody .deen-path-vowel-section .deen-path-course-item{margin-bottom:10px;border-color:rgba(232,205,148,.43)}
+#leagueScreenBody .deen-path-vowel-item .deen-path-course-glyphs{font-size:clamp(31px,9vw,44px);line-height:1.5;white-space:normal;letter-spacing:3px;color:#f9e8ba}
+#leagueScreenBody .deen-path-vowel-item.is-locked{opacity:.54}
+#leagueScreenBody .deen-path-lesson .deen-path-option[data-letter-id^="fatha"],
+#leagueScreenBody .deen-path-lesson .deen-path-option[data-letter-id^="kasra"],
+#leagueScreenBody .deen-path-lesson .deen-path-option[data-letter-id^="damma"]{font-size:clamp(32px,10vw,53px)}
+#leagueScreenBody .deen-path-lesson .deen-path-options button{overflow-wrap:anywhere}
+#leagueScreenBody .deen-path-vowel-section .deen-path-progress-copy{margin:7px 0}
