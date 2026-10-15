@@ -12,7 +12,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.goto('http://127.0.0.1:'+server.address().port);
   await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
-  for(const file of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-remediation.js','quran-arabic-weekly.js','quran-arabic-paths.js'])
+  for(const file of ['quran-arabic-letters.js','quran-arabic-harakat.js','quran-arabic-reading.js','quran-arabic-words.js','quran-arabic-listening.js','quran-arabic-meaning.js','quran-arabic-phrases.js','quran-arabic-patterns.js','quran-arabic-mastery.js','quran-arabic-daily.js','quran-arabic-adaptive.js','quran-arabic-foundation-review.js','quran-arabic-checkpoint.js','quran-arabic-remediation.js','quran-arabic-weekly.js','quran-arabic-weekly-goals.js','quran-arabic-paths.js'])
    await page.addScriptTag({path:path.join(root,'assets/i18n',file)});
   const pure=await page.evaluate(()=>{
    const W=DEEN_ARABIC_WEEKLY,now=new Date(2026,9,16,12),day1=new Date(2026,9,14,12),
@@ -34,7 +34,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     journal,summary,duplicate:dedup.lessonCount,keys:W.weekDays(now),bad:W.clean({schema:1,days:{'2026-02-30':{lessons:['false']},'2026-10-16':{reviews:['real','real']}}}),
     invalid:W.record(journal,'bogus','not-real',now)};
   });
-  assert.equal(pure.version,'quran-arabic-paths-phase16');assert.equal(pure.total,27);
+  assert.equal(pure.version,'quran-arabic-paths-phase17');assert.equal(pure.total,27);
   assert.deepEqual(pure.keys,['2026-10-10','2026-10-11','2026-10-12','2026-10-13','2026-10-14','2026-10-15','2026-10-16']);
   assert.equal(pure.summary.lessonCount,2);assert.equal(pure.summary.reviewCount,3);
   assert.equal(pure.summary.activeDays,4);assert.equal(pure.summary.assessmentCount,2);

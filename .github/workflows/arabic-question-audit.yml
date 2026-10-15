@@ -55,6 +55,7 @@ jobs:
           node scripts/test-quran-checkpoint-chrome.cjs
           node scripts/test-quran-remediation-chrome.cjs
           node scripts/test-quran-weekly-chrome.cjs
+          node scripts/test-quran-weekly-goals-chrome.cjs
           node scripts/test-global-feedback-chrome.cjs
           node scripts/test-arabic-startup.cjs
           node scripts/test-arabic-interactions.cjs
