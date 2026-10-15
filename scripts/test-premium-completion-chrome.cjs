@@ -52,14 +52,15 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
  });
  await page.waitForTimeout(430);
  assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Duplicate unit result must not re-open offer');
- // Exiting an entered lesson *without completing it* now offers Premium.
- // Closing an unrelated overlay must not generate an offer.
- await page.evaluate(()=>{
-  document.dispatchEvent(new CustomEvent('deen:lesson-closed',{detail:{session:null}}));
-  document.dispatchEvent(new CustomEvent('deen:lesson-closed',{detail:{session:{stage:{id:'SMART'},review:true}}}));
- });
+ // Closing an unrelated screen without an active gameplay session is not an exit.
+ await page.evaluate(()=>document.dispatchEvent(new CustomEvent('deen:lesson-closed',{detail:{session:null}})));
  await page.waitForTimeout(410);
- assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'No premium for null/review session');
+ assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'No premium for null session');
+ // A completed review is still a lesson exit and must show the offer.
+ await page.evaluate(()=>document.dispatchEvent(new CustomEvent('deen:lesson-finished',{detail:{session:{stage:{id:'SMART'},review:true}}})));
+ await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
+ await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+ await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
 
  await page.evaluate(()=>{
   const lesson=document.createElement('div');lesson.id='lesson';lesson.className='active';document.body.appendChild(lesson);
@@ -84,6 +85,28 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
  await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
  await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
  await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+ // Replaying an already-completed chapter and leaving should still show Premium.
+ for(const stageId of ['U01-M01','U01-M01','U08-S03']){
+  await page.evaluate(id=>{
+   const s={stage:{id},macroStage:id.includes('-M'),correct:10,questions:Array.from({length:10}),committed:true};
+   document.dispatchEvent(new CustomEvent('deen:lesson-finished',{detail:{session:s,stageId:id}}));
+  },stageId);
+  await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
+  await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+  await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+ }
+ // Section-final sessions, even when already completed, must also prompt.
+ for(const flag of ['final','final2','final3']){
+  await page.evaluate(kind=>{
+   const s={stage:{id:'FINAL'},committed:true,[kind]:true};
+   document.dispatchEvent(new CustomEvent('deen:lesson-finished',{detail:{session:s}}));
+  },flag);
+  await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
+  await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+  await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+ }
+ const repeatSeen=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_premium_offer_seen_v1')||'{}'));
+ assert(!Object.keys(repeatSeen).some(key=>key.startsWith('exit:')),'Repeatable exits never persist to seen ledger');
  // Current DEEN UI uses a 5-chapter Uxx-Mxx map with multiple mini lessons.
  // A 3/3 successful macro lesson must open the offer, even though U02-S07
  // (the old 7-stage unit marker) has not been completed.
