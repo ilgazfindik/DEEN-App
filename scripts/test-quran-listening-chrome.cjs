@@ -25,7 +25,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.deepEqual(status.modules.map(x=>x.kind),['listen-syllable','listen-word']);
   assert.equal(new Set(status.modules.flatMap(x=>x.clips)).size,6);
   assert.equal(status.approved,0);assert.equal(status.required,6);
-  const approvalCheck=await page.evaluate(()=>{
+  const approvalCheck=await page.evaluate(async()=>{
    const a=DEEN_ARABIC_LISTENING,base={
     state:'approved',file:'assets/quran/audio/arabic-learning/reviewed-word.mp3',sha256:'a'.repeat(64),reciter:'Test Speaker',
     rights:{state:'approved',evidence:'audited-license-reference'},
@@ -38,7 +38,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     badPath:a.isRecordApproved({...base,file:'assets/quran/audio/../../other.mp3'}),
     badExternal:a.isRecordApproved({...base,file:'https://external.example/audio.mp3'}),
     badHash:a.isRecordApproved({...base,sha256:'0'.repeat(63)}),
-    playbackBlocked:a.play('word-qul')
+    playbackBlocked:await a.play('word-qul')
    };
   });
   assert.equal(approvalCheck.validShape,true);
