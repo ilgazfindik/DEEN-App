@@ -40,6 +40,53 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
  });
  await page.waitForTimeout(430);
  assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Duplicate unit result must not re-open offer');
+ // Current DEEN UI uses a 5-chapter Uxx-Mxx map with multiple mini lessons.
+ // A 3/3 successful macro lesson must open the offer, even though U02-S07
+ // (the old 7-stage unit marker) has not been completed.
+ await page.evaluate(()=>{const phone=document.createElement('div');phone.id='phone';phone.className='phone gf-celebrating';document.body.appendChild(phone)});
+ await page.evaluate(()=>{
+  state.macroStageMeta={'U02-M01':{completedLessons:2,totalLessons:3}};
+  const def={id:'U02-M01',unit:'U02',legacyIds:['U02-S01'],lessons:3};
+  const detail={session:{stage:{id:'U02-M01'},macroStage:true,macroDef:def,lessonNo:3,lessonTotal:3}};
+  document.dispatchEvent(new CustomEvent('deen:lesson-result-before',{detail}));
+  state.macroStageMeta['U02-M01'].completedLessons=3;
+  state.completed.push('U02-S01');
+  document.dispatchEvent(new CustomEvent('deen:lesson-result',{detail}));
+  document.dispatchEvent(new CustomEvent('deen:lesson-closed'));
+ });
+ await page.waitForTimeout(450);
+ assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Premium must wait until the award animation is complete');
+ await page.evaluate(()=>document.querySelector('#phone').classList.remove('gf-celebrating'));
+ await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
+ const seenMacro=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_premium_offer_seen_v1')||'{}'));
+ assert(seenMacro['macro:U02-M01'],'U02 macro chapter must offer premium after the final mini lesson');
+ await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+ await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+ // A 2/3 mini lesson and replay must NOT trigger an offer.
+ await page.evaluate(()=>{
+  state.macroStageMeta['U02-M02']={completedLessons:1,totalLessons:3};
+  const def={id:'U02-M02',unit:'U02',legacyIds:['U02-S02'],lessons:3};
+  const detail={session:{stage:{id:'U02-M02'},macroStage:true,macroDef:def,lessonNo:2,lessonTotal:3}};
+  document.dispatchEvent(new CustomEvent('deen:lesson-result-before',{detail}));
+  state.macroStageMeta['U02-M02'].completedLessons=2;
+  document.dispatchEvent(new CustomEvent('deen:lesson-result',{detail}));
+  document.dispatchEvent(new CustomEvent('deen:lesson-closed'));
+ });
+ await page.waitForTimeout(390);
+ assert.equal(await page.locator('#deenPremiumOffer').evaluate(el=>el.open),false,'Incomplete 2/3 chapter must not show premium');
+ // Legacy stages are also still used in some learning paths.
+ await page.evaluate(()=>{
+  const detail={session:{stage:{id:'U02-S02'}}};
+  document.dispatchEvent(new CustomEvent('deen:lesson-result-before',{detail}));
+  state.completed.push('U02-S02');
+  document.dispatchEvent(new CustomEvent('deen:lesson-result',{detail}));
+  document.dispatchEvent(new CustomEvent('deen:lesson-closed'));
+ });
+ await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6500});
+ const seenStage=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_premium_offer_seen_v1')||'{}'));
+ assert(seenStage['stage:U02-S02'],'Legacy stage completion remains supported');
+ await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+ await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
  await page.evaluate(()=>{
   const detail={session:{final:true}};
   document.dispatchEvent(new CustomEvent('deen:section-result-before',{detail}));

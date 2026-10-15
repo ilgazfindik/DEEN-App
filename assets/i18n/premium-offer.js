@@ -33,6 +33,21 @@
  function eligible(){const s=appState();return !!s?.onboarded&&document.documentElement.dataset.deenStartup==='ready'&&window.DEEN_BOOT?.isReady?.()===true&&!active()&&!externalActive()&&!s.premium&&!document.querySelector('#deenLanguageGate,#deenAccountGate,#v998Onboarding,#deenPreparation');}
  function seen(){const r=get(SEEN_KEY);return r&&typeof r==='object'?r:{}}
  let dialog=null,pending=null,closeTimer=null,restoreFocus=null;
+ let celebrationObserver=null;
+ function observeCelebration(){
+  if(celebrationObserver||!window.MutationObserver)return;
+  const phone=document.getElementById('phone');
+  if(!phone)return;
+  // Only the celebration lifecycle class is watched: no expensive subtree scan.
+  celebrationObserver=new MutationObserver(()=>{
+   if(!pending){celebrationObserver.disconnect();celebrationObserver=null;return}
+   setTimeout(attempt,120);
+  });
+  celebrationObserver.observe(phone,{attributes:true,attributeFilter:['class']});
+ }
+ function stopObservingCelebration(){
+  celebrationObserver?.disconnect();celebrationObserver=null;
+ }
  function mount(){
   if(dialog?.isConnected)return dialog;
   dialog=document.createElement('dialog');dialog.id='deenPremiumOffer';dialog.setAttribute('aria-labelledby','deenPremiumTitle');
@@ -73,34 +88,62 @@
  }
  function enqueue(key){
   sync();if(!eligible()||seen()[key])return false;
-  pending=key;return true;
+  pending=key;observeCelebration();return true;
  }
  function attempt(){
-  if(!pending||!eligible()||document.querySelector('#lesson.active,dialog[open],#v5Sheet[open]'))return false;
-  const key=pending;if(seen()[key]){pending=null;return false}
+  if(!pending||!eligible()||document.querySelector('#lesson.active,#phone.gf-celebrating,dialog[open],#v5Sheet[open]'))return false;
+  const key=pending;if(seen()[key]){pending=null;stopObservingCelebration();return false}
   if(!open())return false;
-  pending=null;put(SEEN_KEY,{...seen(),[key]:Date.now()});return true;
+  pending=null;stopObservingCelebration();put(SEEN_KEY,{...seen(),[key]:Date.now()});return true;
  }
  let lessonBefore=null,finalBefore=null;
- document.addEventListener('deen:lesson-result-before',e=>{
-  const s=e.detail?.session,id=s?.stage?.id||'';
-  if(!/^U\d{2}-S07$/.test(id)||s?.review||s?.final){lessonBefore=null;return}
-  const unit=id.split('-')[0],s0=appState(),list=(typeof STAGES!=='undefined'&&Array.isArray(STAGES)?STAGES:[]).filter(x=>x.unit===unit);
-  lessonBefore={unit,wasComplete:list.length>=7&&list.every(x=>s0?.completed?.includes(x.id)),ids:list.map(x=>x.id)};
- });
+ const completed=id=>!!appState()?.completed?.includes(id);
+ const macroComplete=(id,ids,total)=>{
+  const meta=appState()?.macroStageMeta?.[id];
+  return !!meta&&Number(total)>0&&Number(meta.completedLessons)>=Number(total)&&ids.length>0&&ids.every(completed);
+ };
+ const unitCompleted=unit=>{
+  const list=typeof STAGES!=='undefined'&&Array.isArray(STAGES)?STAGES.filter(x=>x.unit===unit):[];
+  return list.length>=7&&list.every(x=>completed(x.id));
+ };
+ // The live learning map uses U01-M01..M05, not just the legacy U01-S07.
+ // Capture progress *before* the final result is committed by the game engine.
+ function contextFor(s){
+  if(!s||s.review||s.final||s.final2||s.final3||s.stage?.id==='SMART')return null;
+  const d=s.macroDef;
+  if(s.macroStage&&/^U\d{2}-M\d{2}$/.test(d?.id||'')){
+   const ids=Array.isArray(d.legacyIds)?d.legacyIds.slice():[];
+   return {kind:'macro',id:d.id,unit:d.unit,ids,total:Number(d.lessons)||0,wasComplete:macroComplete(d.id,ids,d.lessons)};
+  }
+  const id=s.stage?.id||'';
+  if(/^U\d{2}-S\d{2}$/.test(id))return {kind:'stage',id,unit:id.slice(0,3),wasComplete:completed(id)};
+  return null;
+ }
+ function contextCompleted(ctx){
+  return ctx.kind==='macro'?macroComplete(ctx.id,ctx.ids,ctx.total):completed(ctx.id);
+ }
+ document.addEventListener('deen:lesson-result-before',e=>{lessonBefore=contextFor(e.detail?.session)});
  document.addEventListener('deen:lesson-result',()=>{
   const ctx=lessonBefore;lessonBefore=null;
-  if(ctx&&!ctx.wasComplete&&ctx.ids.length>=7&&ctx.ids.every(id=>appState()?.completed?.includes(id)))enqueue('unit:'+ctx.unit);
+  if(!ctx||ctx.wasComplete||!contextCompleted(ctx))return;
+  // A completed learning-map chapter should prompt once; failed mini lessons and
+  // repeated lessons do not. Preserve independent unit-final milestones.
+  const key=unitCompleted(ctx.unit)?'unit:'+ctx.unit:ctx.kind+':'+ctx.id;
+  enqueue(key);
  });
  function sectionOf(s){return s?.final3?3:s?.final2?2:s?.final?1:0}
  const finalState=n=>appState()?.[n===1?'sectionFinal':n===2?'section2Final':'section3Final'];
  document.addEventListener('deen:section-result-before',e=>{const n=sectionOf(e.detail?.session);finalBefore=n?{n,wasComplete:!!finalState(n)?.completed}:null});
  document.addEventListener('deen:section-result',()=>{const ctx=finalBefore;finalBefore=null;if(ctx&&!ctx.wasComplete&&finalState(ctx.n)?.completed)enqueue('section:'+ctx.n)});
  document.addEventListener('click',e=>{
-  if(e.target.closest?.('#resultContinueBtn'))setTimeout(attempt,420);
- });
- document.addEventListener('deen:lesson-closed',()=>setTimeout(attempt,300));
- document.addEventListener('deen:navigated',()=>setTimeout(attempt,300));
+  if(!pending)return;
+  // Closing a completed result, reward sheet, or subsequent screen should
+  // release the pending offer after the game's own click handlers finish.
+  if(e.target.closest?.('#resultContinueBtn,#v5Sheet button,.navbtn,[data-sheet-close],.v5-close,.dac-close,#lpCeremonyContinue,.lp-ceremony button,.gf-reward-modal button'))setTimeout(attempt,420);
+ },true);
+ document.addEventListener('deen:lesson-finished',()=>setTimeout(attempt,320));
+ document.addEventListener('deen:lesson-closed',()=>setTimeout(attempt,320));
+ document.addEventListener('deen:navigated',()=>setTimeout(attempt,320));
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)sync()});
  setInterval(sync,60000);
  sync();
