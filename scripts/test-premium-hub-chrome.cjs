@@ -39,12 +39,12 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_HUB.plans.full.adsEnabled),false);
  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_HUB.plans.supported.adsEnabled),true);
  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_HUB.plans.full.unlimitedEnergy && DEEN_PREMIUM_HUB.plans.supported.unlimitedEnergy),true);
- await page.locator('[data-deen-plan="supported"] button[data-deen-hub-action="select-plan"]').click();
+ await page.locator('[data-tier="supported"] button[data-deen-hub-action="select-plan"]').click();
  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_HUB.getSelectedPlan()),'supported');
  assert.equal(await page.locator('.dh-tier-choice strong').innerText(),'Reklamlı Premium');
- assert.equal(await page.locator('[data-deen-plan="supported"] [aria-pressed="true"]').count(),1);
+ assert.equal(await page.locator('[data-tier="supported"] [aria-pressed="true"]').count(),1);
  assert.match(await page.locator('.dh-tier-price-note').innerText(),/USD/);
- await page.locator('[data-deen-plan="full"] button[data-deen-hub-action="select-plan"]').click();
+ await page.locator('[data-tier="full"] button[data-deen-hub-action="select-plan"]').click();
  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_HUB.getSelectedPlan()),'full');
  assert(!/simülasyon/.test(await page.locator('#v5SheetBody').innerText()));
  await page.locator('#v5Sheet [data-deen-hub-action="start"]').click();
