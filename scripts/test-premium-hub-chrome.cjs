@@ -1,0 +1,51 @@
+/* Premium profile hero and comparison panel — isolated Chrome smoke regression. */
+const {chromium}=require('playwright'),http=require('node:http'),path=require('node:path'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..');
+const html='<!doctype html><html lang="tr"><body><div id="profileScreenBody"><div class="v5-row">Your journey</div><div class="v5-profilehead">Avatar</div><div class="v5-profilemetrics">Metrics</div><div class="v5-premium">OLD PREMIUM</div></div><dialog id="v5Sheet"><h2 id="v5SheetTitle"></h2><div id="v5SheetBody"></div></dialog></body></html>';
+const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/html');res.end(html)});
+(async()=>{
+ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+ const browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
+ const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:'+server.address().port);
+ await page.evaluate(()=>{
+  window.state={premium:false,onboarded:true};
+  window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang};
+  window.DEEN_PREMIUM_OFFER={open:()=>{window.opened=(window.opened||0)+1;return true},isTrialActive:()=>false,isTrialUsed:()=>false};
+  window.sheet=(title,body)=>{
+   document.querySelector('#v5SheetTitle').textContent=title;
+   document.querySelector('#v5SheetBody').innerHTML=body;
+   document.querySelector('#v5Sheet').showModal();
+  };
+  window.closeSheet=()=>document.querySelector('#v5Sheet').close();
+ });
+ await page.addStyleTag({path:path.join(root,'assets/i18n/premium-hub.css')});
+ await page.addScriptTag({path:path.join(root,'assets/i18n/premium-hub.js')});
+ assert.equal(await page.evaluate(()=>DEEN_PREMIUM_HUB.version),'premium-profile-hub-v1');
+ await page.evaluate(()=>document.dispatchEvent(new CustomEvent('deen:profile-rendered')));
+ assert.equal(await page.locator('.deen-hub-profile').count(),1);
+ assert.equal(await page.locator('.v5-premium').count(),0);
+ assert.equal(await page.evaluate(()=>document.querySelector('.deen-hub-profile').previousElementSibling.className),'v5-profilehead');
+ assert.equal(await page.locator('.dh-main-label').innerText(),'3 Gün Ücretsiz Başlat');
+ await page.locator('.dh-compare').click();
+ await page.locator('#v5Sheet[open] .deen-hub-compare').waitFor();
+ assert.equal(await page.locator('.dh-comp-row').count(),5);
+ assert(!/simülasyon/.test(await page.locator('#v5SheetBody').innerText()));
+ await page.locator('#v5Sheet [data-deen-hub-action="start"]').click();
+ await page.waitForFunction(()=>window.opened===1);
+ assert.equal(await page.locator('#v5Sheet').evaluate(el=>el.open),false,'Comparison must close before trial offer');
+ await page.evaluate(()=>{document.documentElement.lang='ar';document.dispatchEvent(new CustomEvent('deen:profile-rendered'))});
+ assert.equal(await page.locator('.deen-hub-profile').count(),1,'No duplicate card after rerender');
+ assert.equal(await page.locator('.deen-hub-profile').getAttribute('dir'),'rtl');
+ await page.evaluate(()=>DEEN_PREMIUM_HUB.comparison());
+ assert.equal(await page.locator('.deen-hub-compare').getAttribute('dir'),'rtl');
+ await page.locator('#v5Sheet [data-deen-hub-action="dismiss"]').click();
+ assert.equal(await page.locator('#v5Sheet').evaluate(el=>el.open),false);
+ await page.evaluate(()=>{state.premium=true;document.documentElement.lang='tr';document.dispatchEvent(new CustomEvent('deen:profile-rendered'));DEEN_PREMIUM_HUB.comparison()});
+ assert.equal(await page.locator('.dh-comp-active').count(),1);
+ assert.equal(await page.locator('.dh-comp-primary').count(),0,'Active premium must not prompt another trial');
+ assert.deepEqual(errors,[]);
+ console.log('PASS DEEN PREMIUM PROFILE: hero placement, comparison, CTA, RTL, premium state');
+ await browser.close();server.close();
+})().catch(e=>{console.error(e);server.close();process.exit(1)});
