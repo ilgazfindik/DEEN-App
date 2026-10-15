@@ -261,3 +261,18 @@
 #leagueScreenBody button.deen-path-meaning-piece:disabled{opacity:.32;cursor:default}
 #leagueScreenBody button.deen-path-meaning-piece:focus-visible{outline:3px solid #d8b4fe;outline-offset:2px}
 @media(max-width:345px){#leagueScreenBody .deen-path-meaning-pieces{gap:6px}#leagueScreenBody button.deen-path-meaning-piece{font-size:26px}}
+
+/* Keep long Uthmani words inside their individual touch targets on mobile. */
+#leagueScreenBody .deen-path-meaning-pieces{align-items:stretch}
+#leagueScreenBody button.deen-path-meaning-piece{
+ max-width:100%;width:100%;box-sizing:border-box;overflow:hidden;
+ padding:9px 4px;white-space:nowrap;text-overflow:clip;
+ font-size:clamp(21px,5.8vw,29px);line-height:1.55
+}
+#leagueScreenBody .deen-path-meaning-built{
+ max-width:100%;overflow-wrap:anywhere;white-space:normal
+}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-meaning-pieces{grid-template-columns:minmax(0,1fr)}
+ #leagueScreenBody button.deen-path-meaning-piece{font-size:29px}
+}
