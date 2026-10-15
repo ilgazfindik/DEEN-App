@@ -1,0 +1,37 @@
+name: Quran Arabic Words Fast QA
+on:
+  push:
+    paths:
+      - 'assets/i18n/quran-arabic-words.js'
+      - 'assets/i18n/quran-arabic-paths.js'
+      - 'assets/i18n/quran-arabic-paths.css'
+      - 'scripts/test-quran-words-chrome.cjs'
+      - '.github/workflows/quran-arabic-words-smoke.yml'
+  pull_request:
+    paths:
+      - 'assets/i18n/quran-arabic-words.js'
+      - 'assets/i18n/quran-arabic-paths.js'
+      - 'assets/i18n/quran-arabic-paths.css'
+      - 'scripts/test-quran-words-chrome.cjs'
+      - '.github/workflows/quran-arabic-words-smoke.yml'
+jobs:
+  word-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify scripts and signed boot manifest
+        run: |
+          node scripts/build-release-manifest.mjs --check
+          node scripts/audit-release.mjs
+      - name: Install headless Chrome test runner
+        run: |
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install chrome
+      - name: Exercise phase 5 word building
+        run: node scripts/test-quran-words-chrome.cjs

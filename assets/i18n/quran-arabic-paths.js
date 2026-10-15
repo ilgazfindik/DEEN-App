@@ -15,7 +15,11 @@
  const READING=window.DEEN_ARABIC_READING;
  if(!READING||READING.lessonCount!==3)throw Error('DEEN_ARABIC_READING_MISSING');
  const READING_LESSONS=READING.lessons;
- const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS]);
+ const WORDS=window.DEEN_ARABIC_WORDS;
+ if(!WORDS||WORDS.lessonCount!==3||WORDS.startIndex!==13)throw Error('DEEN_ARABIC_WORDS_MISSING');
+ const WORD_LESSONS=WORDS.lessons;
+ const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS]);
+ const WORD_STORE='deen_arabic_words_v1';
  const READING_STORE='deen_arabic_reading_v1';
  const PHONICS_STORE='deen_arabic_harakat_v1';
  const PROGRESS_STORE='deen_arabic_foundations_v2';
@@ -56,9 +60,16 @@
   de:{readHeading:'Sukūn, Schadda & Madd',readSub:'Drei neue Lektionen: kein kurzer Vokal, Doppelkonsonant, langer Vokal.',readLesson:'Leselektion',readProgress:'Fortschritt der Lesezeichen',readLocked:'Erst die 3 Vokallektionen abschließen',readReady:'Bereit',readDone:'3 Leselektionen abgeschlossen!',readIntro:'Diese Übungen zeigen Schriftzeichen. Geprüfte Aussprache und ausführlicher Tadschwīd folgen.',sukunTitle:'Sukūn',sukunDetail:'Sukūn (ْ) zeigt an, dass kein kurzer Vokal folgt. Erkenne das Zeichen.',shaddaTitle:'Schadda',shaddaDetail:'Schadda (ّ) verdoppelt einen Konsonanten und kann mit Vokalzeichen kombiniert werden.',maddTitle:'Madd: Längung',maddDetail:'Erste Beispiele: بَا = bā, بِي = bī, بُو = bū. Weitere Regeln folgen.',readCTA:'Leseübung starten',readFinish:'Du hast das Schriftbild erkannt. Geprüfte Aussprache folgt.',readAllDone:'Alle drei Leselektionen abgeschlossen!'},
   fr:{readHeading:'Sukūn, Shadda et Madd',readSub:'Trois leçons : absence de voyelle brève, consonne doublée et voyelle longue.',readLesson:'Leçon de lecture',readProgress:'Progression des signes de lecture',readLocked:'Termine d’abord les 3 leçons de voyelles',readReady:'Prêt à commencer',readDone:'3 leçons de lecture terminées !',readIntro:'Ces exercices présentent les signes écrits. Prononciation vérifiée et règles de tajwid suivront.',sukunTitle:'Sukūn',sukunDetail:'Le sukūn (ْ) indique l’absence de voyelle brève sur une consonne.',shaddaTitle:'Shadda',shaddaDetail:'La shadda (ّ) double une consonne et peut accompagner les voyelles brèves.',maddTitle:'Madd : allongement',maddDetail:'Premiers exemples : بَا = bā, بِي = bī, بُو = bū. Les autres règles suivront.',readCTA:'Commencer la lecture',readFinish:'Tu as reconnu le signe écrit. La prononciation vérifiée viendra plus tard.',readAllDone:'Tu as terminé les trois leçons de lecture !'}
  };
+ const wordUi={
+ tr:{wordHeading:'Heceden Kur’an Kelimesine',wordSub:'Heceleri birleştir, kelime kur ve ayetteki kelimeyi tanı.',wordLesson:'Kelime Dersi',wordProgress:'Kelime okuma ilerlemen',wordLocked:'Önce cezim, şedde ve med derslerini tamamla',wordIntro:'Yazılı biçimleri çalışıyoruz. Latin okunuşları ipucudur; sesli kıraat ve tecvid yerine geçmez.',wordSyllablesTitle:'Heceleri Birleştir',wordWordsTitle:'Kelime Oluştur',wordQuranTitle:'Kur’an Kelimesini Bul',wordSyllablesDetail:'Harekeli parçaları doğru sırayla birleştir.',wordWordsDetail:'Cezimli harflerle harekeleri kullanarak kelime kur.',wordQuranDetail:'Ayet parçasındaki kelimenin yazılışını seçeneklerde bul.',wordCTA:'Kelime Alıştırmasına Başla',wordBuildGuide:'Okuma ipucuna göre parçaları sırayla seç.',wordFindGuide:'Ayet parçasındaki kelimeyi seçeneklerden bul.',wordWord:'Kelime',wordPartReset:'Parçaları sıfırla',wordPartial:'Parçalara sırayla dokun',wordReference:'Ayet referansı',wordWrong:'Sıra doğru değil. Parçaları sıfırlayıp yeniden dene.',wordFinish:'Yazılı kelimeleri birleştirdin ve ayet içinde tanıdın. Doğrulanmış ses eğitimi ayrıca eklenecek.',wordAllDone:'Üç kelime dersi tamamlandı!'},
+ en:{wordHeading:'From Syllables to Quran Words',wordSub:'Join pieces, build words and identify them in Quran excerpts.',wordLesson:'Word Lesson',wordProgress:'Word reading progress',wordLocked:'Finish sukūn, shadda and madd lessons first',wordIntro:'Written practice only: romanization is a hint, not verified recitation or tajwid.',wordSyllablesTitle:'Join Syllables',wordWordsTitle:'Build a Word',wordQuranTitle:'Find a Quran Word',wordSyllablesDetail:'Arrange vocalized pieces to form a word.',wordWordsDetail:'Build words with short vowels and sukūn.',wordQuranDetail:'Find the written word in the excerpt.',wordCTA:'Start Word Practice',wordBuildGuide:'Use the reading hint and select pieces in order.',wordFindGuide:'Find this word in the Quran excerpt.',wordWord:'Word',wordPartReset:'Reset pieces',wordPartial:'Tap pieces in order',wordReference:'Verse reference',wordWrong:'The order is wrong. Reset and try again.',wordFinish:'You assembled written words and spotted them in verses. Verified audio will come separately.',wordAllDone:'Three word lessons completed!'},
+ ar:{wordHeading:'من المقاطع إلى كلمات القرآن',wordSub:'ركّب المقاطع وتعرّف على الكلمات في الآيات.',wordLesson:'درس الكلمات',wordProgress:'تقدّم قراءة الكلمات',wordLocked:'أكمل أولًا دروس السكون والشدة والمد',wordIntro:'تمارين كتابية: الكتابة اللاتينية مجرد وسيلة مساعدة وليست تلاوة أو تجويدًا معتمدًا.',wordSyllablesTitle:'ركّب المقاطع',wordWordsTitle:'كوّن كلمة',wordQuranTitle:'تعرّف على كلمة قرآنية',wordSyllablesDetail:'رتّب المقاطع المكتوبة لتكوين كلمة.',wordWordsDetail:'كوّن كلمة بالحروف والحركات والسكون.',wordQuranDetail:'اختر الكلمة المكتوبة في الآية.',wordCTA:'ابدأ تدريب الكلمات',wordBuildGuide:'اختر الأجزاء بالترتيب بحسب المساعدة اللاتينية.',wordFindGuide:'ابحث عن هذه الكلمة في نص الآية.',wordWord:'الكلمة',wordPartReset:'إعادة القطع',wordPartial:'اضغط على القطع بالترتيب',wordReference:'موضع الآية',wordWrong:'الترتيب غير صحيح. أعد القطع وحاول مجددًا.',wordFinish:'ركّبت كلمات مكتوبة وتعرّفت عليها في الآيات. ستُضاف التلاوة الموثوقة لاحقًا.',wordAllDone:'أكملت دروس الكلمات الثلاثة!'},
+ de:{wordHeading:'Von Silben zu Koranwörtern',wordSub:'Teile verbinden und Wörter in Koranversen erkennen.',wordLesson:'Wortlektion',wordProgress:'Fortschritt Wortlesen',wordLocked:'Erst Sukūn, Schadda und Madd abschließen',wordIntro:'Nur Schriftübungen: Umschrift ersetzt weder geprüfte Rezitation noch Tadschwīd.',wordSyllablesTitle:'Silben verbinden',wordWordsTitle:'Wort bilden',wordQuranTitle:'Koranwort finden',wordSyllablesDetail:'Ordne die Silben in der richtigen Reihenfolge.',wordWordsDetail:'Verbinde Buchstaben, Vokale und Sukūn.',wordQuranDetail:'Finde das Wort im Versauszug.',wordCTA:'Wortübung starten',wordBuildGuide:'Wähle die Teile mithilfe der Umschrift in der richtigen Reihenfolge.',wordFindGuide:'Finde dieses Wort im Korantext.',wordWord:'Wort',wordPartReset:'Teile zurücksetzen',wordPartial:'Teile nacheinander antippen',wordReference:'Versreferenz',wordWrong:'Falsche Reihenfolge. Bitte erneut versuchen.',wordFinish:'Du hast Wörter aufgebaut und erkannt. Geprüfte Rezitation folgt separat.',wordAllDone:'Alle drei Wortlektionen geschafft!'},
+ fr:{wordHeading:'Des syllabes aux mots coraniques',wordSub:'Assemble les morceaux et repère des mots dans les versets.',wordLesson:'Leçon de mots',wordProgress:'Progression de lecture',wordLocked:'Termine d’abord sukūn, shadda et madd',wordIntro:'Écriture seulement : la translittération ne remplace ni récitation vérifiée ni tajwid.',wordSyllablesTitle:'Assembler des syllabes',wordWordsTitle:'Former un mot',wordQuranTitle:'Trouver un mot du Coran',wordSyllablesDetail:'Place les morceaux dans le bon ordre.',wordWordsDetail:'Associe consonnes, voyelles et sukūn.',wordQuranDetail:'Repère le mot dans l’extrait coranique.',wordCTA:'Commencer les exercices',wordBuildGuide:'Choisis les morceaux selon la translittération.',wordFindGuide:'Repère ce mot dans le verset.',wordWord:'Mot',wordPartReset:'Recommencer',wordPartial:'Touche les morceaux dans l’ordre',wordReference:'Référence du verset',wordWrong:'Ordre incorrect. Recommence.',wordFinish:'Tu as assemblé et reconnu des mots écrits. La prononciation vérifiée suivra.',wordAllDone:'Les trois leçons sont terminées !'}
+ };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
- const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()]);
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false};
+ const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()]);
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[]};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -82,10 +93,16 @@
   }catch(_){return {schema:1,completed:[]}}
  };
  const readingCompleted=()=>readingStorage().completed;
+ const wordCompleted=()=>{
+  try{const raw=JSON.parse(localStorage.getItem(WORD_STORE)||'null');
+   const valid=raw&&Array.isArray(raw.completed)?raw.completed.filter(id=>WORD_LESSONS.some(x=>x.id===id)):[];
+   return [...new Set(valid)];
+  }catch(_){return []}
+ };
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
  const groupLetters=()=>group().letters||group().items;
- const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):vowelCompleted().includes(g.id);
+ const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):vowelCompleted().includes(g.id);
  const isUnlocked=i=>{
   if(!Number.isInteger(i)||i<0||i>=ALL_LESSONS.length)return false;
   if(i===0)return true;
@@ -93,10 +110,17 @@
   if(i===LESSONS.length)return completed().length===LESSONS.length;
   if(i<LESSONS.length+PHONIC_LESSONS.length)return vowelCompleted().includes(ALL_LESSONS[i-1].id);
   if(i===LESSONS.length+PHONIC_LESSONS.length)return vowelCompleted().length===PHONIC_LESSONS.length;
-  return readingCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i<WORDS.startIndex)return readingCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i===WORDS.startIndex)return readingCompleted().length===READING_LESSONS.length;
+  return wordCompleted().includes(ALL_LESSONS[i-1].id);
  };
  function saveCompleted(){
   const id=group().id;
+  if(WORD_LESSONS.includes(group())){
+   const ids=wordCompleted();if(!ids.includes(id))ids.push(id);
+   try{localStorage.setItem(WORD_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
+   return;
+  }
   if(READING_LESSONS.includes(group())){
    const ids=readingCompleted();if(!ids.includes(id))ids.push(id);
    try{localStorage.setItem(READING_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
@@ -199,6 +223,7 @@
   box.appendChild(list);
   box.appendChild(vowelRoadmap());
   box.appendChild(readingRoadmap());
+  box.appendChild(wordRoadmap());
   if(done===LESSONS.length)box.appendChild(elem('p','deen-path-completed',c.courseComplete+' ✓'));
   const details=elem('details','deen-path-atlas-details');
   const summary=elem('summary','',c.allLetters);details.appendChild(summary);
@@ -250,27 +275,79 @@
   if(done===READING_LESSONS.length)box.append(elem('p','deen-path-completed',c.readAllDone+' ✓'));
   return box;
  }
+ function wordRoadmap(){
+  const c=t(),box=elem('section','deen-path-word-section'),done=wordCompleted().length;
+  box.append(elem('h3','deen-path-shape-subtitle',c.wordHeading),elem('p','deen-path-muted',c.wordSub));
+  box.append(elem('p','deen-path-progress-copy',c.wordProgress+' · '+done+' / '+WORD_LESSONS.length));
+  const bar=elem('div','deen-path-course-progress'),fill=elem('span');fill.style.width=Math.round(done/WORD_LESSONS.length*100)+'%';bar.append(fill);box.append(bar);
+  for(const lesson of WORD_LESSONS){
+   const locked=!isUnlocked(lesson.index),complete=wordCompleted().includes(lesson.id);
+   const card=makeButton('','group','deen-path-course-item deen-path-word-item'+(complete?' is-completed':'')+(locked?' is-locked':''));
+   card.dataset.lessonIndex=String(lesson.index);card.disabled=locked;
+   const title=lesson.kind==='syllable-build'?c.wordSyllablesTitle:lesson.kind==='word-build'?c.wordWordsTitle:c.wordQuranTitle;
+   const top=elem('span','deen-path-course-item-top');
+   top.append(elem('span','deen-path-course-number',c.wordLesson+' '+(lesson.index-WORDS.startIndex+1)+' · '+title),elem('span','deen-path-course-status',complete?'✓ '+c.done:locked?'🔒 '+(lesson.index===WORDS.startIndex?c.wordLocked:c.locked):c.new));
+   const forms=elem('span','deen-path-course-glyphs',lesson.items.map(x=>x.glyph).join('   '));forms.lang='ar';forms.dir='rtl';
+   card.append(top,forms,elem('span','deen-path-course-item-foot',c.free+' · '+title));box.append(card);
+  }
+  if(done===WORD_LESSONS.length)box.append(elem('p','deen-path-completed',c.wordAllDone+' ✓'));
+  return box;
+ }
  function groupView(){
   const c=t(),items=groupLetters(),box=elem('section','deen-path-arabic-landing');
   box.append(makeButton('←  '+c.arabic,'arabic','deen-path-back'));
-  const reading=READING_LESSONS.includes(group()),phonics=group().kind!=='recognition'&&!reading;
-  const label=reading?c.readLesson:phonics?c.vowelLesson:c.lesson;
-  const num=reading?state.lessonIndex-READING.startIndex+1:phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1;
-  const size=reading?READING_LESSONS.length:phonics?PHONIC_LESSONS.length:LESSONS.length;
-  const title=reading?c[group().kind+'Title']:phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle;
-  const help=reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo;
+  const word=WORD_LESSONS.includes(group()),reading=READING_LESSONS.includes(group()),phonics=group().kind!=='recognition'&&!reading&&!word;
+  const label=word?c.wordLesson:reading?c.readLesson:phonics?c.vowelLesson:c.lesson;
+  const num=word?state.lessonIndex-WORDS.startIndex+1:reading?state.lessonIndex-READING.startIndex+1:phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1;
+  const size=word?WORD_LESSONS.length:reading?READING_LESSONS.length:phonics?PHONIC_LESSONS.length:LESSONS.length;
+  const title=word?(group().kind==='syllable-build'?c.wordSyllablesTitle:group().kind==='word-build'?c.wordWordsTitle:c.wordQuranTitle):reading?c[group().kind+'Title']:phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle;
+  const help=word?(group().kind==='syllable-build'?c.wordSyllablesDetail:group().kind==='word-build'?c.wordWordsDetail:c.wordQuranDetail):reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo;
   box.append(elem('span','deen-path-pill',label+' '+num+' / '+size+' · '+c.free));
   box.append(elem('h2','deen-path-inner-title',title),elem('p','deen-path-muted',help));
   box.append(lettersStrip(items));
-  if(!reading&&!phonics){
+  if(!reading&&!phonics&&!word){
    box.append(elem('h3','deen-path-shape-subtitle',c.shape),shapeAtlas(items));
    if(items.some(item=>!item.joinsNext))box.appendChild(elem('p','deen-path-muted',c.atlasHelp));
   }
-  box.append(elem('p','deen-path-muted deen-path-warning',reading?c.readIntro:phonics?c.audioMissing:c.courseInfo));
-  box.append(makeButton(lessonIsDone()?c.redo:reading?c.readCTA:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
+  box.append(elem('p','deen-path-muted deen-path-warning',word?c.wordIntro:reading?c.readIntro:phonics?c.audioMissing:c.courseInfo));
+  box.append(makeButton(lessonIsDone()?c.redo:word?c.wordCTA:reading?c.readCTA:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
+  return box;
+ }
+ function wordLessonView(){
+  const c=t(),lesson=group(),items=groupLetters(),item=items[state.question],box=elem('section','deen-path-lesson deen-path-word-lesson');
+  const building=lesson.kind!=='quran-find';
+  box.append(makeButton('←  '+c.arabic,'group','deen-path-back'));
+  box.append(elem('div','deen-path-kicker',c.wordHeading));
+  box.append(elem('p','deen-path-question-count',c.progress+' '+(state.question+1)+' / '+items.length),elem('h2','deen-path-inner-title',building?c.wordBuildGuide:c.wordFindGuide));
+  box.append(elem('div','deen-path-word-hint',c.wordWord+' · '+letterLabel(item)));
+  if(!building){
+   const verse=elem('div','deen-path-word-excerpt',item.excerpt);verse.lang='ar';verse.dir='rtl';box.append(verse);
+   const choices=elem('div','deen-path-options');
+   const order=[...items.slice((state.question+1)%items.length),...items.slice(0,(state.question+1)%items.length)];
+   for(const candidate of order){
+    const b=makeButton(candidate.glyph,'answer','deen-path-option');b.dataset.letterId=candidate.id;b.lang='ar';b.dir='rtl';
+    if(state.correct&&candidate.id===item.id)b.classList.add('deen-path-option-correct');choices.append(b);
+   }
+   box.append(choices);
+  }else{
+   const preview=elem('div','deen-path-word-built',state.pieces.map(i=>item.parts[i]).join('')||'···');
+   preview.lang='ar';preview.dir='rtl';preview.setAttribute('aria-label',c.wordPartial);box.append(preview);
+   const options=elem('div','deen-path-word-pieces');
+   for(const i of item.parts.map((_,j)=>j).reverse()){
+    const b=makeButton(item.parts[i],'piece','deen-path-word-piece');b.dataset.pieceIndex=String(i);
+    b.lang='ar';b.dir='rtl';b.disabled=state.pieces.includes(i);
+    b.setAttribute('aria-label',c.wordPartial+' '+item.parts[i]);options.append(b);
+   }
+   box.append(options);
+   const clear=makeButton(c.wordPartReset,'resetPieces','deen-path-back deen-path-word-reset');clear.disabled=state.pieces.length===0;box.append(clear);
+  }
+  box.append(elem('p','deen-path-muted deen-path-word-reference',c.wordReference+' · '+item.reference));
+  if(state.feedback){const feedback=elem('p','deen-path-feedback'+(state.correct?' is-correct':' is-wrong'),state.feedback);feedback.setAttribute('role','status');box.append(feedback)}
+  if(state.correct)box.append(makeButton(state.question===items.length-1?c.finish:c.next,'next','deen-path-primary'));
   return box;
  }
  function lessonView(){
+  if(WORD_LESSONS.includes(group()))return wordLessonView();
   const c=t(),items=groupLetters(),box=elem('section','deen-path-lesson');
   box.append(makeButton('←  '+c.arabic,'group','deen-path-back'));
   const item=items[state.question],n=state.question+1;
@@ -296,8 +373,8 @@
  function completedView(){
   const c=t(),box=elem('section','deen-path-completion');
   box.append(elem('div','deen-path-complete-star','✦'),elem('h2','deen-path-inner-title',c.completed));
-  box.append(elem('p','deen-path-muted',(READING_LESSONS.includes(group())?c.readLesson:group().kind==='recognition'?c.lesson:c.vowelLesson)+' '+(READING_LESSONS.includes(group())?state.lessonIndex-READING.startIndex+1:group().kind==='recognition'?state.lessonIndex+1:state.lessonIndex-LESSONS.length+1)+' · '+groupLetters().map(x=>x.glyph).join('  ')));
-  box.append(elem('p','deen-path-muted',READING_LESSONS.includes(group())?c.readFinish:group().kind==='recognition'?(completed().length===LESSONS.length?c.courseCompleteDesc:c.completedDesc):c.vowelFinish));
+  box.append(elem('p','deen-path-muted',(WORD_LESSONS.includes(group())?c.wordLesson:READING_LESSONS.includes(group())?c.readLesson:group().kind==='recognition'?c.lesson:c.vowelLesson)+' '+(WORD_LESSONS.includes(group())?state.lessonIndex-WORDS.startIndex+1:READING_LESSONS.includes(group())?state.lessonIndex-READING.startIndex+1:group().kind==='recognition'?state.lessonIndex+1:state.lessonIndex-LESSONS.length+1)+' · '+groupLetters().map(x=>x.glyph).join('  ')));
+  box.append(elem('p','deen-path-muted',WORD_LESSONS.includes(group())?c.wordFinish:READING_LESSONS.includes(group())?c.readFinish:group().kind==='recognition'?(completed().length===LESSONS.length?c.courseCompleteDesc:c.completedDesc):c.vowelFinish));
   if(state.lessonIndex<ALL_LESSONS.length-1)box.append(makeButton(c.nextLesson,'nextGroup','deen-path-primary'));
   box.append(makeButton(c.redo,'start','deen-path-primary'),makeButton('←  '+c.arabic,'arabic','deen-path-back'));
   return box;
@@ -310,18 +387,18 @@
  function selectGroup(index){
   index=Number(index);
   if(!Number.isInteger(index)||index<0||index>=ALL_LESSONS.length||!isUnlocked(index))return false;
-  state.lessonIndex=index;state.question=0;state.correct=false;state.feedback='';
+  state.lessonIndex=index;state.question=0;state.correct=false;state.feedback='';state.pieces=[];
   return show('group');
  }
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
-  state.question=0;state.correct=false;state.feedback='';state.complete=false;
+  state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.complete=false;
   return show('lesson');
  }
  function next(){
   if(!state.correct)return;
   if(state.question<groupLetters().length-1){
-   state.question++;state.correct=false;state.feedback='';show('lesson');
+   state.question++;state.correct=false;state.feedback='';state.pieces=[];show('lesson');
   }else{
    state.complete=true;saveCompleted();show('complete');
   }
@@ -331,6 +408,21 @@
   state.correct=id===groupLetters()[state.question].id;
   state.feedback=state.correct?t().correct:t().wrong;
   update();
+ }
+ function piece(index){
+  if(state.view!=='lesson'||state.correct||!WORD_LESSONS.includes(group())||group().kind==='quran-find')return;
+  const item=groupLetters()[state.question];index=Number(index);
+  if(!Number.isInteger(index)||index<0||index>=item.parts.length||state.pieces.includes(index)||state.pieces.length>=item.parts.length)return;
+  state.pieces.push(index);
+  if(state.pieces.length===item.parts.length){
+   state.correct=state.pieces.every((part,i)=>part===i);
+   state.feedback=state.correct?t().correct:t().wordWrong;
+  }
+  update();
+ }
+ function resetPieces(){
+  if(state.view!=='lesson'||state.correct||!WORD_LESSONS.includes(group()))return;
+  state.pieces=[];state.feedback='';update();
  }
  function update(){
   const container=root();if(!container)return;
@@ -374,6 +466,8 @@
    else if(action==='nextGroup')selectGroup(state.lessonIndex+1);
    else if(action==='start')start();
    else if(action==='answer')answer(b.dataset.letterId);
+   else if(action==='piece')piece(b.dataset.pieceIndex);
+   else if(action==='resetPieces')resetPieces();
    else if(action==='next')next();
   });
   observer=new MutationObserver(scheduleEnsure);
@@ -387,5 +481,5 @@
   });
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
- window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false}),version:'quran-arabic-paths-phase4'});
+ window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false}),version:'quran-arabic-paths-phase5'});
 })();
