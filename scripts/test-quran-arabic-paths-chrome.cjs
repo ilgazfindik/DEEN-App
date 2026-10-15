@@ -12,6 +12,7 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  await page.evaluate(()=>window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang});
  await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-letters.js')});
+ await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-harakat.js')});
  await page.addScriptTag({path:path.join(root,'assets/i18n/quran-arabic-paths.js')});
  const syllabus=await page.evaluate(()=>DEEN_ARABIC_LETTERS.lessons.map(x=>x.letterIds));
  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.version),'quran-arabic-paths-phase3');
