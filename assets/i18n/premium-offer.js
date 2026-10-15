@@ -87,7 +87,7 @@
  }
  function eligible(){const s=appState();return !!s?.onboarded&&document.documentElement.dataset.deenStartup==='ready'&&window.DEEN_BOOT?.isReady?.()===true&&!active()&&!externalActive()&&!s.premium&&!document.querySelector('#deenLanguageGate,#deenAccountGate,#v998Onboarding,#deenPreparation');}
  function seen(){const r=get(SEEN_KEY);return r&&typeof r==='object'?r:{}}
- let dialog=null,pending=null,closeTimer=null,restoreFocus=null;
+ let dialog=null,pending=null,pendingIsRepeatable=false,closeTimer=null,restoreFocus=null;
  let celebrationObserver=null;
  function observeCelebration(){
   if(celebrationObserver||!window.MutationObserver)return;
@@ -178,15 +178,20 @@
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   closeTimer=setTimeout(()=>{if(dialog?.open&&!dialog.classList.contains('dp-visible'))dialog.close();if(restoreFocus?.isConnected)restoreFocus.focus({preventScroll:true});restoreFocus=null},reduced?0:300);
  }
- function enqueue(key){
-  sync();if(!eligible()||seen()[key])return false;
-  pending=key;observeCelebration();return true;
+ // Completion offers are a one-time milestone. Exit offers are transient: every
+ // actual lesson session may offer again without growing localStorage indefinitely.
+ function enqueue(key,{repeatable=false}={}){
+  sync();if(!eligible()||pending||(!repeatable&&seen()[key]))return false;
+  pending=key;pendingIsRepeatable=repeatable;observeCelebration();return true;
  }
  function attempt(){
   if(!pending||!eligible()||document.querySelector('#lesson.active,#phone.gf-celebrating,dialog[open],#v5Sheet[open]'))return false;
-  const key=pending;if(seen()[key]){pending=null;stopObservingCelebration();return false}
+  const key=pending,repeatable=pendingIsRepeatable;
+  if(!repeatable&&seen()[key]){pending=null;pendingIsRepeatable=false;stopObservingCelebration();return false}
   if(!open())return false;
-  pending=null;stopObservingCelebration();put(SEEN_KEY,{...seen(),[key]:Date.now()});return true;
+  pending=null;pendingIsRepeatable=false;stopObservingCelebration();
+  if(!repeatable)put(SEEN_KEY,{...seen(),[key]:Date.now()});
+  return true;
  }
  let lessonBefore=null,finalBefore=null;
  const completed=id=>!!appState()?.completed?.includes(id);
@@ -233,8 +238,22 @@
   // release the pending offer after the game's own click handlers finish.
   if(e.target.closest?.('#resultContinueBtn,#v5Sheet button,.navbtn,[data-sheet-close],.v5-close,.dac-close,#lpCeremonyContinue,.lp-ceremony button,.gf-reward-modal button'))setTimeout(attempt,420);
  },true);
- document.addEventListener('deen:lesson-finished',()=>setTimeout(attempt,320));
- document.addEventListener('deen:lesson-closed',()=>setTimeout(attempt,320));
+ // Both back/close and "continue to learning path" are actual lesson exits.
+ // A WeakSet prevents two lifecycle events for the same attempt from duplicating
+ // an offer. Merely navigating tabs or opening a chapter preview is not an exit.
+ const exitedSessions=new WeakSet();
+ function afterLessonExit(event){
+  const s=event?.detail?.session;
+  if(!s||typeof s!=='object'||exitedSessions.has(s))return;
+  if(s.review||s.final||s.final2||s.final3||s.stage?.id==='SMART')return;
+  const stageId=String(s.stage?.id||'');
+  if(!/^U\d{2}-(?:M\d{2}|S\d{2})$/.test(stageId))return;
+  exitedSessions.add(s);
+  // Keep a queued chapter-completion/section offer ahead of a generic exit offer.
+  if(!pending)enqueue('exit:'+stageId,{repeatable:true});
+ }
+ document.addEventListener('deen:lesson-finished',e=>{afterLessonExit(e);setTimeout(attempt,320)});
+ document.addEventListener('deen:lesson-closed',e=>{afterLessonExit(e);setTimeout(attempt,320)});
  document.addEventListener('deen:navigated',()=>setTimeout(attempt,320));
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)sync()});
  setInterval(sync,60000);
