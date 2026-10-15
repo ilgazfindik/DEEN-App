@@ -758,7 +758,28 @@
   box.append(elem('p','deen-path-muted',c.reviewSub),makeButton(c.reviewBack,'arabic','deen-path-primary'));
   return box;
  }
+ function patternLessonView(){
+  const c=t(),items=groupLetters(),item=items[state.question],kind=group().kind;
+  const box=elem('section','deen-path-lesson deen-path-pattern-lesson');
+  box.append(makeButton('←  '+c.arabic,'group','deen-path-back'),elem('div','deen-path-kicker',c.patternHeading));
+  box.append(elem('p','deen-path-question-count',c.progress+' '+(state.question+1)+' / '+items.length),
+   elem('h2','deen-path-inner-title',kind==='pattern-vocab'?c.patternVocabPrompt:kind==='pattern-context'?c.patternContextPrompt:c.patternStructurePrompt));
+  const prompt=elem('div','deen-path-phrase-hint deen-path-phrase-arabic',item.glyph);prompt.lang='ar';prompt.dir='rtl';box.append(prompt);
+  const options=elem('div','deen-path-options');
+  for(const candidate of [...items.slice((state.question+1)%items.length),...items.slice(0,(state.question+1)%items.length)]){
+   const label=(kind==='pattern-structure'?candidate.role:candidate.gloss)[lang()];
+   const b=makeButton(label,'answer','deen-path-option deen-path-phrase-option');b.dataset.letterId=candidate.id;
+   if(state.correct&&candidate.id===item.id)b.classList.add('deen-path-option-correct');
+   options.append(b);
+  }
+  box.append(options,elem('p','deen-path-muted deen-path-word-reference',c.phraseVerse+' · '+item.reference));
+  if(state.correct&&kind==='pattern-structure')box.append(elem('p','deen-path-muted deen-path-phrase-note',item.gloss[lang()]));
+  if(state.feedback){const f=elem('p','deen-path-feedback'+(state.correct?' is-correct':' is-wrong'),state.feedback);f.setAttribute('role','status');box.append(f)}
+  if(state.correct)box.append(makeButton(state.question===items.length-1?c.finish:c.next,'next','deen-path-primary'));
+  return box;
+ }
  function lessonView(){
+  if(PATTERN_LESSONS.includes(group()))return patternLessonView();
   if(PHRASE_LESSONS.includes(group()))return phraseLessonView();
   if(MEANING_LESSONS.includes(group()))return meaningLessonView();
   if(LISTENING_LESSONS.includes(group()))return listeningLessonView();
