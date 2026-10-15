@@ -1612,6 +1612,7 @@
    else if(action==='phrasePiece')phrasePiece(b.dataset.pieceIndex);
    else if(action==='resetPhrase')resetPhrase();
    else if(action==='openPhrases')selectGroup(PHRASES.startIndex);
+   else if(action==='remedy')show('remedy');
    else if(action==='remedyOpen')show('remedy');
    else if(action==='remedyStart')remedyStart();
    else if(action==='remedyAnswer')remedyAnswer(b.dataset.itemId);
