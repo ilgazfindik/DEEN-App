@@ -425,6 +425,7 @@
    c.masteryWritten+' · '+mastery.lessonCompleted+' / '+mastery.lessonTotal+'   ·   '+
    c.masteryPracticed+' · '+mastery.practiced+' / '+mastery.total));
   box.append(masteryButton);
+  box.append(foundationPanel());
   const daily=dailySnapshot(),dailyButton=makeButton('','daily','deen-path-daily-teaser');
   dailyButton.append(elem('span','deen-path-daily-teaser-name',c.dailyOpen+' →'),
    elem('span','deen-path-daily-teaser-sub',c.dailyProgress+' · '+daily.completed+' / '+daily.total+
@@ -602,6 +603,116 @@
   state.reviewQueue=queue;state.reviewIndex=0;state.correct=false;state.feedback='';state.reviewMode='adaptive';
   return show('review');
  }
+ function foundationPanel(){
+  const c=t(),s=foundationSnapshot(),box=elem('section','deen-path-foundation-review-section');
+  box.append(elem('h3','deen-path-shape-subtitle',c.heading),elem('p','deen-path-muted',c.intro));
+  const summary=elem('p','deen-path-progress-copy',
+   s.learned+' / '+s.total+'   ·   '+c.due+' · '+s.due+'   ·   '+c.errors+' · '+s.weak);
+  box.append(summary);
+  const list=elem('div','deen-path-foundation-topics');
+  for(const g of s.groups)list.append(elem('span','deen-path-foundation-topic',c[g.kind]+' · '+g.available));
+  box.append(list);
+  if(s.ids.length)box.append(makeButton(c.start+' ('+s.ids.length+')','startFoundation','deen-path-primary'));
+  else box.append(elem('p','deen-path-muted',c.empty));
+  box.append(elem('p','deen-path-muted deen-path-adaptive-note',c.note));
+  return box;
+ }
+ function startFoundation(){
+  const s=foundationSnapshot();
+  const queue=s.ids.map(id=>FOUNDATION.byId[id]).filter(Boolean);
+  if(!queue.length)return false;
+  state.foundationQueue=queue;state.foundationIndex=0;state.foundationPieces=[];
+  state.foundationCorrect=false;state.foundationFeedback='';state.foundationWrong=false;
+  return show('foundationReview');
+ }
+ function foundationItem(){return state.foundationQueue[state.foundationIndex]}
+ function foundationReviewView(){
+  const c=t(),item=foundationItem(),box=elem('section','deen-path-lesson deen-path-foundation-review-view');
+  if(!item)return box;
+  const building=item.kind==='words'&&item.parts.length>0;
+  box.append(makeButton('←  '+c.back,'arabic','deen-path-back'),elem('div','deen-path-kicker',c.heading));
+  box.append(elem('p','deen-path-question-count',c.progress+' '+(state.foundationIndex+1)+' / '+state.foundationQueue.length));
+  box.append(elem('h2','deen-path-inner-title',building?c.build:c.question));
+  const label=elem('div','deen-path-foundation-prompt',item.names?.[lang()]||item.names?.tr||item.glyph);
+  box.append(label);
+  if(building){
+   const preview=elem('div','deen-path-word-built',state.foundationPieces.map(i=>item.parts[i]).join('')||'···');
+   preview.lang='ar';preview.dir='rtl';box.append(preview);
+   const choices=elem('div','deen-path-word-pieces');
+   for(const idx of item.parts.map((_,i)=>i).reverse()){
+    const b=makeButton(item.parts[idx],'foundationPiece','deen-path-word-piece');
+    b.dataset.pieceIndex=String(idx);b.disabled=state.foundationPieces.includes(idx);
+    b.lang='ar';b.dir='rtl';choices.append(b);
+   }
+   box.append(choices);
+   const reset=makeButton(c.reset,'foundationReset','deen-path-back deen-path-word-reset');
+   reset.disabled=!state.foundationPieces.length||state.foundationCorrect;box.append(reset);
+  }else{
+   const lesson=ALL_LESSONS[item.lessonIndex],pool=(lesson.letters||lesson.items);
+   const choices=elem('div','deen-path-options');
+   const start=(state.foundationIndex+1)%pool.length;
+   for(const candidate of [...pool.slice(start),...pool.slice(0,start)]){
+    const b=makeButton(candidate.glyph,'foundationAnswer','deen-path-option');
+    b.dataset.itemId=candidate.id;b.lang='ar';b.dir='rtl';
+    if(state.foundationCorrect&&candidate.id===item.id)b.classList.add('deen-path-option-correct');
+    choices.append(b);
+   }
+   box.append(choices);
+  }
+  if(item.reference)box.append(elem('p','deen-path-muted deen-path-word-reference',c.phraseVerse+' · '+item.reference));
+  if(state.foundationFeedback){
+   const feedback=elem('p','deen-path-feedback'+(state.foundationCorrect?' is-correct':' is-wrong'),state.foundationFeedback);
+   feedback.setAttribute('role','status');box.append(feedback);
+  }
+  if(state.foundationCorrect)box.append(makeButton(
+    state.foundationIndex+1===state.foundationQueue.length?c.finish:c.next,'foundationNext','deen-path-primary'));
+  return box;
+ }
+ function foundationAnswer(id){
+  if(state.view!=='foundationReview'||state.foundationCorrect)return;
+  const item=foundationItem();if(!item||item.parts.length)return;
+  const pool=ALL_LESSONS[item.lessonIndex].letters||ALL_LESSONS[item.lessonIndex].items;
+  if(!pool.some(c=>c.id===id))return;
+  const correct=id===item.id;
+  if(!correct){if(!state.foundationWrong){foundationWrite(FOUNDATION.grade(foundationRead(),item.id,false));state.foundationWrong=true}}
+  else{foundationWrite(FOUNDATION.grade(foundationRead(),item.id,true));state.foundationCorrect=true}
+  state.foundationFeedback=correct?t().correct:t().wrong;update();
+ }
+ function foundationPiece(index){
+  if(state.view!=='foundationReview'||state.foundationCorrect)return;
+  const item=foundationItem();index=Number(index);
+  if(!item||!item.parts.length||!Number.isInteger(index)||index<0||index>=item.parts.length||
+     state.foundationPieces.includes(index))return;
+  state.foundationPieces.push(index);
+  if(state.foundationPieces.length===item.parts.length){
+   const correct=state.foundationPieces.every((part,i)=>part===i);
+   if(!correct){if(!state.foundationWrong){foundationWrite(FOUNDATION.grade(foundationRead(),item.id,false));state.foundationWrong=true}}
+   else{foundationWrite(FOUNDATION.grade(foundationRead(),item.id,true));state.foundationCorrect=true}
+   state.foundationFeedback=correct?t().correct:t().wrong;
+  }
+  update();
+ }
+ function foundationReset(){
+  if(state.view!=='foundationReview'||state.foundationCorrect||!foundationItem()?.parts.length)return;
+  state.foundationPieces=[];state.foundationFeedback='';update();
+ }
+ function foundationNext(){
+  if(state.view!=='foundationReview'||!state.foundationCorrect)return;
+  if(state.foundationIndex+1===state.foundationQueue.length){
+   foundationWrite(FOUNDATION.finish(foundationRead(),state.foundationQueue.map(x=>x.id)));
+   show('foundationDone');return;
+  }
+  state.foundationIndex++;state.foundationPieces=[];state.foundationCorrect=false;
+  state.foundationFeedback='';state.foundationWrong=false;update();
+ }
+ function foundationDoneView(){
+  const c=t(),box=elem('section','deen-path-completion');
+  box.append(elem('div','deen-path-complete-star','✦'),
+   elem('h2','deen-path-inner-title',c.finish),
+   elem('p','deen-path-muted',c.note),
+   makeButton(c.back,'arabic','deen-path-primary'));
+  return box;
+ }
  function dailyView(){
   const c=t(),plan=dailySnapshot(),box=elem('section','deen-path-daily-screen');
   box.append(makeButton('←  '+c.dailyBack,'arabic','deen-path-back'),
@@ -639,6 +750,7 @@
   }else if(plan.reviewQuota)tasks.append(elem('p','deen-path-daily-check','✓ '+c.dailyReview+' · '+c.dailyCompleted));
   if(plan.total===0||plan.completed===plan.total)tasks.append(elem('p','deen-path-daily-done','✓ '+c.dailyDone));
   box.append(tasks);
+  box.append(foundationPanel());
   box.append(adaptivePanel());
   box.append(elem('p','deen-path-muted deen-path-daily-note',c.dailyLocal),
    elem('p','deen-path-muted deen-path-daily-note',c.masteryPrivacy));
@@ -1079,7 +1191,8 @@
    box.append(makeButton(c.phraseCTA,'openPhrases','deen-path-primary'));
   if(state.lessonIndex===PHRASE_LESSONS[PHRASE_LESSONS.length-1].index&&isUnlocked(PATTERNS.startIndex))
    box.append(makeButton(c.patternCTA,'openPatterns','deen-path-primary'));
-  box.append(adaptivePanel());
+  if(state.lessonIndex<16)box.append(foundationPanel());
+  else box.append(adaptivePanel());
   box.append(makeButton(c.redo,'start','deen-path-primary'),makeButton('←  '+c.arabic,'arabic','deen-path-back'));
   return box;
  }
@@ -1150,7 +1263,7 @@
    container.querySelector('#deenQuranPathNav')?.after(returnBar);
   }else{
    const panel=elem('div','deen-path-view');panel.id='deenQuranPathView';
-   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='daily'?dailyView():state.view==='mastery'?masteryView():state.view==='group'?groupView():state.view==='lesson'?lessonView():state.view==='review'?reviewView():state.view==='reviewDone'?reviewDoneView():completedView());
+   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='foundationReview'?foundationReviewView():state.view==='foundationDone'?foundationDoneView():state.view==='daily'?dailyView():state.view==='mastery'?masteryView():state.view==='group'?groupView():state.view==='lesson'?lessonView():state.view==='review'?reviewView():state.view==='reviewDone'?reviewDoneView():completedView());
    container.querySelector('#deenQuranPathNav')?.after(panel);
   }
  }
@@ -1196,6 +1309,11 @@
    else if(action==='phrasePiece')phrasePiece(b.dataset.pieceIndex);
    else if(action==='resetPhrase')resetPhrase();
    else if(action==='openPhrases')selectGroup(PHRASES.startIndex);
+   else if(action==='startFoundation')startFoundation();
+   else if(action==='foundationAnswer')foundationAnswer(b.dataset.itemId);
+   else if(action==='foundationPiece')foundationPiece(b.dataset.pieceIndex);
+   else if(action==='foundationReset')foundationReset();
+   else if(action==='foundationNext')foundationNext();
    else if(action==='startAdaptive')startAdaptive();
    else if(action==='adaptiveNext')selectGroup(b.dataset.lessonIndex);
    else if(action==='startReview')startReview();
