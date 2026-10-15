@@ -115,7 +115,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   const final=await page.evaluate(()=>DEEN_QURAN_PATHS.status().remediation);
   assert.equal(final.comparison.delta,5);
   assert.equal(final.total,0,'New exam with 3/4 per topic has no priority gaps');
-  assert.equal(final.key!==JSON.parse(localStorage.getItem('deen_arabic_remediation_v1')).key,true,'Old remediation progress must not be applied to the new exam');
+  assert.equal(final.key!==await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_remediation_v1')).key),true,'Old remediation progress must not be applied to the new exam');
   assert.equal(await page.locator('.deen-path-remedy-trend-topic').count(),5);
   const historic=await page.evaluate(()=>DEEN_ARABIC_CHECKPOINT.history(JSON.parse(localStorage.getItem('deen_arabic_checkpoint_v1'))).attempts);
   assert.deepEqual(historic.map(x=>x.correct),[10,15]);
