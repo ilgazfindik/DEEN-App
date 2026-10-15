@@ -276,3 +276,48 @@
  #leagueScreenBody .deen-path-meaning-pieces{grid-template-columns:minmax(0,1fr)}
  #leagueScreenBody button.deen-path-meaning-piece{font-size:29px}
 }
+
+/* Phase 8 — Quran contextual phrases and independent spaced review */
+#leagueScreenBody .deen-path-phrase-section,
+#leagueScreenBody .deen-path-spaced-section{
+ margin:18px 0 14px;padding:17px 13px 10px;
+ border-radius:18px;border:1px solid rgba(114,225,199,.42);
+ background:radial-gradient(ellipse at 100% 0,rgba(49,239,207,.13),transparent 55%),linear-gradient(180deg,#123541,#102530);
+}
+#leagueScreenBody .deen-path-spaced-section{
+ border-color:rgba(235,201,138,.4);
+ background:radial-gradient(ellipse at 100% 0,rgba(229,198,132,.12),transparent 58%),linear-gradient(180deg,#17313e,#0e2630)
+}
+#leagueScreenBody .deen-path-phrase-section>.deen-path-shape-subtitle,
+#leagueScreenBody .deen-path-spaced-section>.deen-path-shape-subtitle{
+ font-size:18px;color:#e6fdf1;margin:0 0 7px
+}
+#leagueScreenBody .deen-path-phrase-section>.deen-path-muted,
+#leagueScreenBody .deen-path-spaced-section>.deen-path-muted{margin:0 0 13px}
+#leagueScreenBody .deen-path-phrase-item{margin:0 0 10px}
+#leagueScreenBody .deen-path-phrase-item.is-locked{opacity:.58}
+#leagueScreenBody .deen-path-phrase-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;overflow:hidden;text-overflow:ellipsis;
+ font:650 clamp(23px,6.5vw,33px)/1.6 "Geeza Pro","Noto Naskh Arabic",serif;color:#f6eac9
+}
+#leagueScreenBody .deen-path-phrase-hint{
+ text-align:center;border-radius:16px;padding:17px 12px;margin:12px 0 16px;
+ border:1px solid rgba(113,216,189,.4);background:#103a42;
+ font-size:17px;line-height:1.6;font-weight:750;color:#ecfff7;
+ max-width:100%;overflow-wrap:anywhere
+}
+#leagueScreenBody .deen-path-phrase-arabic{
+ direction:rtl;unicode-bidi:isolate;
+ font:650 clamp(30px,8vw,39px)/1.75 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody button.deen-path-phrase-option:not([lang="ar"]){
+ min-height:72px;text-align:center;white-space:normal;overflow-wrap:anywhere;
+ font-size:14px;line-height:1.5;padding:12px 9px
+}
+#leagueScreenBody .deen-path-phrase-note{
+ border-left:3px solid #31efcf;padding-left:10px;line-height:1.6
+}
+#leagueScreenBody .deen-path-spaced-section .deen-path-primary{margin:12px 0 14px}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-phrase-lesson .deen-path-meaning-pieces{grid-template-columns:minmax(0,1fr)}
+}

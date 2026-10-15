@@ -24,7 +24,12 @@
  const MEANING=window.DEEN_ARABIC_MEANING;
  if(!MEANING||MEANING.startIndex!==18||MEANING.lessonCount!==3)throw Error('DEEN_ARABIC_MEANING_MISSING');
  const MEANING_LESSONS=MEANING.lessons;
- const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS]);
+ const PHRASES=window.DEEN_ARABIC_PHRASES;
+ if(!PHRASES||PHRASES.startIndex!==21||PHRASES.lessonCount!==3)throw Error('DEEN_ARABIC_PHRASES_MISSING');
+ const PHRASE_LESSONS=PHRASES.lessons;
+ const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS,...PHRASE_LESSONS]);
+ const PHRASE_STORE='deen_arabic_phrases_v1';
+ const REVIEW_STORE='deen_arabic_written_review_v1';
  const MEANING_STORE='deen_arabic_meaning_v1';
  const LISTENING_STORE='deen_arabic_listening_v1';
  const WORD_STORE='deen_arabic_words_v1';
@@ -89,9 +94,16 @@
   de:{meaningHeading:'Koranwörter verstehen',meaningSub:'Wortbedeutungen, Satzfunktionen und Wortfolge im Vers üben.',meaningLesson:'Bedeutungslektion',meaningProgress:'Fortschritt Sprachverständnis',meaningPrereq:'Zuerst die 16 Leselektionen abschließen',meaningReady:'Bereit',meaningGlossTitle:'Wortbedeutungen',meaningRoleTitle:'Funktion im Satz',meaningOrderTitle:'Verswörter ordnen',meaningGlossDetail:'Vier Wörter aus Al-Ichlās mit ihrer Bedeutung verbinden.',meaningRoleDetail:'Imperativ, Pronomen, Eigenname und ein Wort für Einzigkeit erkennen.',meaningOrderDetail:'Wörter in Koranreihenfolge ordnen; kein vollständiger Grammatikkurs.',meaningIntro:'Kurzglossen ersetzen keine vollständige Übersetzung oder Exegese.',meaningCTA:'Bedeutungsübung starten',meaningGlossPrompt:'Welches arabische Wort hat diese Bedeutung?',meaningRolePrompt:'Welches Wort hat diese Funktion im Vers?',meaningOrderPrompt:'Ordne die Wörter wie im Vers.',meaningCheckReset:'Zurücksetzen',meaningWrongOrder:'Falsche Reihenfolge. Versuche es erneut.',meaningVerse:'Vers',meaningOrderHint:'Bedeutungshinweis',meaningFinish:'Du hast Wortbedeutungen und die Wortfolge im Vers geübt.',meaningDone:'Drei Bedeutungslektionen geschafft!'},
   fr:{meaningHeading:'Comprendre les mots du Coran',meaningSub:'Étudie le sens, les fonctions grammaticales et l’ordre des mots.',meaningLesson:'Leçon de sens',meaningProgress:'Progression en compréhension',meaningPrereq:'Termine d’abord les 16 leçons de lecture',meaningReady:'Prêt',meaningGlossTitle:'Sens des mots',meaningRoleTitle:'Rôle dans la phrase',meaningOrderTitle:'Ordonner les mots du verset',meaningGlossDetail:'Associe quatre mots d’Al-Ikhlâs à leur sens.',meaningRoleDetail:'Repère impératif, pronom, nom propre et nom évoquant l’unicité.',meaningOrderDetail:'Replace les mots dans l’ordre du verset. Ce n’est pas un cours complet de grammaire.',meaningIntro:'Ces gloses sont des aides, pas une traduction ni un tafsir complet.',meaningCTA:'Commencer la compréhension',meaningGlossPrompt:'Quel mot arabe a ce sens ?',meaningRolePrompt:'Quel mot joue ce rôle dans le verset ?',meaningOrderPrompt:'Remets les mots dans l’ordre du verset.',meaningCheckReset:'Recommencer',meaningWrongOrder:'L’ordre est incorrect. Réessaie.',meaningVerse:'Verset',meaningOrderHint:'Indice de traduction',meaningFinish:'Tu as étudié le sens des mots et leur ordre dans les versets.',meaningDone:'Les trois leçons sont terminées !'}
  };
+ const phraseUi={
+  tr:{"phraseHeading":"Kur’an İfadelerini Anla","phraseSub":"Sık kullanılan Kur’an kelimeleri ve kısa ifadelerin yazılı anlamlarını çalış.","phraseLesson":"İfade Dersi","phraseVocabTitle":"Kelime Hazinesi","phraseContextTitle":"Kısa İfadeler","phraseOrderTitle":"Ayet Sırası","phrasePrereq":"Önce üç anlam dersini tamamla","phraseVocabDetail":"Yazılı bir kelimeyi anlamıyla eşleştir.","phraseContextDetail":"Kısa ifadenin anlamını seç.","phraseOrderDetail":"Ayet kelimelerini sırayla yerleştir.","phraseVocabPrompt":"Anlamına uygun Arapça kelimeyi seç.","phraseContextPrompt":"Bu ifadenin anlamı nedir?","phraseOrderPrompt":"Kelimeleri ayet sırasına diz.","phraseCTA":"İfadeleri Çalış","phraseWrongOrder":"Yanlış sıra. Sıfırlayıp tekrar dene.","phraseReset":"Tekrar dene","phraseVerse":"Ayet","phraseNote":"Dil bilgisi ipucu","phraseDone":"Üç ifade dersi tamamlandı!","reviewHeading":"Aralıklı Tekrar","reviewSub":"Yazılı kelimeleri 1, 3, 7, 14 ve 30 gün aralıklarla hatırla.","reviewDue":"Tekrar zamanı gelen","reviewTracked":"Öğrenilen kart","reviewButton":"Tekrara Başla","reviewNone":"Bugün tekrarlanacak kart yok.","reviewPrompt":"Doğru eşleştirmeyi seç.","reviewCorrect":"Doğru! Yeni tekrar planlandı.","reviewWrong":"Bu kart yaklaşık 10 dakika sonra yeniden gelecek.","reviewNext":"Sonraki Kart","reviewComplete":"Tekrar tamamlandı!","reviewBack":"Derslere Dön","reviewSample":"Ses içermeyen yazılı çalışma"},
+  en:{"phraseHeading":"Understand Quran Phrases","phraseSub":"Study contextual Quran words and short written expressions.","phraseLesson":"Phrase Lesson","phraseVocabTitle":"Vocabulary","phraseContextTitle":"Short Phrases","phraseOrderTitle":"Verse Order","phrasePrereq":"Finish the three meaning lessons first","phraseVocabDetail":"Match words with their meanings.","phraseContextDetail":"Choose the meaning of a short expression.","phraseOrderDetail":"Arrange verse words in order.","phraseVocabPrompt":"Select the Arabic word for this meaning.","phraseContextPrompt":"What does this expression mean?","phraseOrderPrompt":"Arrange the words in Quran order.","phraseCTA":"Start Phrase Practice","phraseWrongOrder":"Wrong order. Reset and retry.","phraseReset":"Try Again","phraseVerse":"Verse","phraseNote":"Language hint","phraseDone":"Three phrase lessons completed!","reviewHeading":"Spaced Review","reviewSub":"Recall written cards after 1, 3, 7, 14 and 30 days.","reviewDue":"Cards due","reviewTracked":"Cards learned","reviewButton":"Start Review","reviewNone":"No reviews due today.","reviewPrompt":"Select the correct match.","reviewCorrect":"Correct! The next review is scheduled.","reviewWrong":"This card will return in about 10 minutes.","reviewNext":"Next Card","reviewComplete":"Reviews completed!","reviewBack":"Back to Lessons","reviewSample":"Written recall, no audio"},
+  ar:{"phraseHeading":"افهم العبارات القرآنية","phraseSub":"تعلّم المفردات والتعبيرات المكتوبة في سياق الآيات.","phraseLesson":"درس العبارات","phraseVocabTitle":"المفردات","phraseContextTitle":"عبارات قصيرة","phraseOrderTitle":"ترتيب الآيات","phrasePrereq":"أكمل دروس المعاني الثلاثة أولًا","phraseVocabDetail":"اربط الكلمات بمعانيها.","phraseContextDetail":"اختر معنى العبارة.","phraseOrderDetail":"رتّب كلمات الآية.","phraseVocabPrompt":"اختر الكلمة العربية المناسبة.","phraseContextPrompt":"ما معنى هذه العبارة؟","phraseOrderPrompt":"رتّب كلمات الآية.","phraseCTA":"ابدأ درس العبارات","phraseWrongOrder":"الترتيب غير صحيح، حاول مجددًا.","phraseReset":"إعادة المحاولة","phraseVerse":"الآية","phraseNote":"مساعدة لغوية","phraseDone":"اكتملت دروس العبارات الثلاثة!","reviewHeading":"المراجعة المتباعدة","reviewSub":"تُراجع البطاقات الكتابية بعد 1 و3 و7 و14 و30 يومًا.","reviewDue":"بطاقات مستحقة","reviewTracked":"بطاقات تعلّمتها","reviewButton":"ابدأ المراجعة","reviewNone":"لا توجد مراجعات مستحقة اليوم.","reviewPrompt":"اختر الإجابة الصحيحة.","reviewCorrect":"صحيح! حُدد موعد المراجعة التالية.","reviewWrong":"ستعود البطاقة بعد نحو عشر دقائق.","reviewNext":"البطاقة التالية","reviewComplete":"اكتملت المراجعة!","reviewBack":"العودة إلى الدروس","reviewSample":"مراجعة كتابية بلا صوت"},
+  de:{"phraseHeading":"Koranische Wendungen verstehen","phraseSub":"Wörter und kurze Ausdrücke im Korankontext üben.","phraseLesson":"Wendungslektion","phraseVocabTitle":"Wortschatz","phraseContextTitle":"Kurze Wendungen","phraseOrderTitle":"Versfolge","phrasePrereq":"Erst drei Bedeutungslektionen abschließen","phraseVocabDetail":"Verbinde Wörter und Bedeutungen.","phraseContextDetail":"Wähle die Bedeutung des Ausdrucks.","phraseOrderDetail":"Ordne die Wörter des Verses.","phraseVocabPrompt":"Welches arabische Wort passt dazu?","phraseContextPrompt":"Was bedeutet der Ausdruck?","phraseOrderPrompt":"Ordne die Wörter im Vers.","phraseCTA":"Wendungen üben","phraseWrongOrder":"Falsche Reihenfolge. Erneut versuchen.","phraseReset":"Zurücksetzen","phraseVerse":"Vers","phraseNote":"Sprachlicher Hinweis","phraseDone":"Drei Wendungslektionen geschafft!","reviewHeading":"Verteilte Wiederholung","reviewSub":"Schriftkarten nach 1, 3, 7, 14 und 30 Tagen wiederholen.","reviewDue":"Fällige Karten","reviewTracked":"Gelernte Karten","reviewButton":"Wiederholen","reviewNone":"Keine Wiederholung fällig.","reviewPrompt":"Wähle die richtige Antwort.","reviewCorrect":"Richtig! Nächste Wiederholung geplant.","reviewWrong":"Karte kommt in etwa zehn Minuten zurück.","reviewNext":"Nächste Karte","reviewComplete":"Wiederholung fertig!","reviewBack":"Zurück zu den Lektionen","reviewSample":"Schriftliche Übung ohne Ton"},
+  fr:{"phraseHeading":"Comprendre les expressions coraniques","phraseSub":"Étudie des mots et expressions écrites dans leur contexte.","phraseLesson":"Leçon d’expression","phraseVocabTitle":"Vocabulaire","phraseContextTitle":"Expressions courtes","phraseOrderTitle":"Ordre du verset","phrasePrereq":"Termine d’abord les trois leçons de sens","phraseVocabDetail":"Associe les mots à leurs sens.","phraseContextDetail":"Choisis le sens de l’expression.","phraseOrderDetail":"Replace les mots dans l’ordre.","phraseVocabPrompt":"Quel mot arabe correspond ?","phraseContextPrompt":"Que signifie cette expression ?","phraseOrderPrompt":"Remets les mots dans l’ordre.","phraseCTA":"Commencer","phraseWrongOrder":"Ordre incorrect. Réessaie.","phraseReset":"Recommencer","phraseVerse":"Verset","phraseNote":"Indice linguistique","phraseDone":"Trois leçons terminées !","reviewHeading":"Révision espacée","reviewSub":"Revois les cartes écrites après 1, 3, 7, 14 et 30 jours.","reviewDue":"Cartes dues","reviewTracked":"Cartes apprises","reviewButton":"Réviser","reviewNone":"Aucune révision due.","reviewPrompt":"Retrouve la bonne réponse.","reviewCorrect":"Bravo ! Prochaine révision programmée.","reviewWrong":"Cette carte reviendra dans environ dix minutes.","reviewNext":"Carte suivante","reviewComplete":"Révision terminée !","reviewBack":"Retour aux leçons","reviewSample":"Exercice écrit, sans audio"}
+ };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
- const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()]);
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false};
+ const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()]);
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -133,10 +145,34 @@
    return [...new Set(valid)];
   }catch(_){return []}
  };
+ const phraseCompleted=()=>{
+  try{const raw=JSON.parse(localStorage.getItem(PHRASE_STORE)||'null');
+   return [...new Set(raw&&Array.isArray(raw.completed)?raw.completed.filter(id=>PHRASE_LESSONS.some(x=>x.id===id)):[])];
+  }catch(_){return []}
+ };
+ const reviewRead=()=>{
+  const cards=Object.create(null);
+  try{const raw=JSON.parse(localStorage.getItem(REVIEW_STORE)||'null');
+   if(raw&&raw.cards&&typeof raw.cards==='object')for(const id of PHRASES.cardIds){
+    const r=raw.cards[id];
+    if(r&&Number.isFinite(r.dueAt)&&r.dueAt>=0&&Number.isInteger(r.step)&&r.step>=0&&r.step<=5)cards[id]=r;
+   }
+  }catch(_){}
+  return cards;
+ };
+ const reviewDue=()=>{
+  const cards=reviewRead(),now=Date.now();
+  return PHRASES.reviewCards.filter(item=>cards[item.id]&&cards[item.id].dueAt<=now);
+ };
+ function recordReview(id,correct){
+  if(!PHRASES.cardIds.includes(id))return;
+  const cards=reviewRead();cards[id]=PHRASES.schedule(cards[id],correct);
+  try{localStorage.setItem(REVIEW_STORE,JSON.stringify({schema:1,cards,updatedAt:Date.now()}))}catch(_){}
+ }
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
  const groupLetters=()=>group().letters||group().items;
- const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):LISTENING_LESSONS.includes(g)?listeningCompleted().includes(g.id):MEANING_LESSONS.includes(g)?meaningCompleted().includes(g.id):vowelCompleted().includes(g.id);
+ const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):LISTENING_LESSONS.includes(g)?listeningCompleted().includes(g.id):MEANING_LESSONS.includes(g)?meaningCompleted().includes(g.id):PHRASE_LESSONS.includes(g)?phraseCompleted().includes(g.id):vowelCompleted().includes(g.id);
  const isUnlocked=i=>{
   if(!Number.isInteger(i)||i<0||i>=ALL_LESSONS.length)return false;
   if(i===0)return true;
@@ -152,10 +188,17 @@
   // Semantic learning is an independent fork of the 16 complete written lessons;
   // it must not depend on unavailable recitation licenses.
   if(i===MEANING.startIndex)return wordCompleted().length===WORD_LESSONS.length;
-  return meaningCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i<PHRASES.startIndex)return meaningCompleted().includes(ALL_LESSONS[i-1].id);
+  if(i===PHRASES.startIndex)return meaningCompleted().length===MEANING_LESSONS.length;
+  return phraseCompleted().includes(ALL_LESSONS[i-1].id);
  };
  function saveCompleted(){
   const id=group().id;
+  if(PHRASE_LESSONS.includes(group())){
+   const ids=phraseCompleted();if(!ids.includes(id))ids.push(id);
+   try{localStorage.setItem(PHRASE_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
+   return;
+  }
   if(MEANING_LESSONS.includes(group())){
    const ids=meaningCompleted();if(!ids.includes(id))ids.push(id);
    try{localStorage.setItem(MEANING_STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}
@@ -276,6 +319,8 @@
   box.appendChild(readingRoadmap());
   box.appendChild(wordRoadmap());
   box.appendChild(meaningRoadmap());
+  box.appendChild(phraseRoadmap());
+  box.appendChild(spacedReviewDashboard());
   box.appendChild(listeningRoadmap());
   if(done===LESSONS.length)box.appendChild(elem('p','deen-path-completed',c.courseComplete+' ✓'));
   const details=elem('details','deen-path-atlas-details');
@@ -365,6 +410,34 @@
   if(done===MEANING_LESSONS.length)box.append(elem('p','deen-path-completed',c.meaningDone+' ✓'));
   return box;
  }
+ function phraseRoadmap(){
+  const c=t(),box=elem('section','deen-path-phrase-section'),done=phraseCompleted().length;
+  box.append(elem('h3','deen-path-shape-subtitle',c.phraseHeading),elem('p','deen-path-muted',c.phraseSub));
+  box.append(elem('p','deen-path-progress-copy',done+' / '+PHRASE_LESSONS.length));
+  const bar=elem('div','deen-path-course-progress'),fill=elem('span');fill.style.width=Math.round(100*done/PHRASE_LESSONS.length)+'%';bar.append(fill);box.append(bar);
+  for(const lesson of PHRASE_LESSONS){
+   const complete=phraseCompleted().includes(lesson.id),locked=!isUnlocked(lesson.index);
+   const title=lesson.kind==='phrase-vocab'?c.phraseVocabTitle:lesson.kind==='phrase-context'?c.phraseContextTitle:c.phraseOrderTitle;
+   const card=makeButton('','group','deen-path-course-item deen-path-phrase-item'+(complete?' is-completed':'')+(locked?' is-locked':''));
+   card.dataset.lessonIndex=String(lesson.index);card.disabled=locked;
+   const top=elem('span','deen-path-course-item-top');
+   top.append(elem('span','deen-path-course-number',c.lesson+' '+(lesson.index+1)+' · '+title),
+    elem('span','deen-path-course-status',complete?'✓ '+c.done:locked?'🔒 '+(lesson.index===PHRASES.startIndex?c.phrasePrereq:c.locked):c.new));
+   const glyph=elem('span','deen-path-course-glyphs',lesson.items.map(x=>x.glyph).join('   '));glyph.lang='ar';glyph.dir='rtl';
+   card.append(top,glyph,elem('span','deen-path-course-item-foot',c.free+' · '+title));box.append(card);
+  }
+  if(done===PHRASE_LESSONS.length)box.append(elem('p','deen-path-completed',c.phraseDone+' ✓'));
+  return box;
+ }
+ function spacedReviewDashboard(){
+  const c=t(),box=elem('section','deen-path-spaced-section'),due=reviewDue(),tracked=Object.keys(reviewRead()).length;
+  box.append(elem('h3','deen-path-shape-subtitle',c.reviewHeading),elem('p','deen-path-muted',c.reviewSub));
+  box.append(elem('p','deen-path-progress-copy',c.reviewTracked+' · '+tracked+' / '+PHRASES.cardIds.length+'   ·   '+c.reviewDue+' · '+due.length));
+  if(due.length){const btn=makeButton(c.reviewButton+' ('+due.length+')','startReview','deen-path-primary');box.append(btn)}
+  else box.append(elem('p','deen-path-muted',c.reviewNone));
+  box.append(elem('p','deen-path-muted',c.reviewSample));
+  return box;
+ }
  function listeningRoadmap(){
   const c=t(),box=elem('section','deen-path-listening-section'),done=listeningCompleted().length;
   box.append(elem('h3','deen-path-shape-subtitle',c.listenHeading),elem('p','deen-path-muted',c.listenSub));
@@ -388,21 +461,21 @@
  function groupView(){
   const c=t(),items=groupLetters(),box=elem('section','deen-path-arabic-landing');
   box.append(makeButton('←  '+c.arabic,'arabic','deen-path-back'));
-  const meaning=MEANING_LESSONS.includes(group()),listening=LISTENING_LESSONS.includes(group()),word=WORD_LESSONS.includes(group()),reading=READING_LESSONS.includes(group()),phonics=group().kind!=='recognition'&&!reading&&!word&&!listening&&!meaning;
-  const label=meaning?c.meaningLesson:listening?c.listenLesson:word?c.wordLesson:reading?c.readLesson:phonics?c.vowelLesson:c.lesson;
-  const num=meaning?state.lessonIndex-MEANING.startIndex+1:listening?state.lessonIndex-LISTENING.startIndex+1:word?state.lessonIndex-WORDS.startIndex+1:reading?state.lessonIndex-READING.startIndex+1:phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1;
-  const size=meaning?MEANING_LESSONS.length:listening?LISTENING_LESSONS.length:word?WORD_LESSONS.length:reading?READING_LESSONS.length:phonics?PHONIC_LESSONS.length:LESSONS.length;
-  const title=meaning?(group().kind==='meaning-gloss'?c.meaningGlossTitle:group().kind==='meaning-role'?c.meaningRoleTitle:c.meaningOrderTitle):listening?(group().kind==='listen-syllable'?c.listenSyllableTitle:c.listenWordTitle):word?(group().kind==='syllable-build'?c.wordSyllablesTitle:group().kind==='word-build'?c.wordWordsTitle:c.wordQuranTitle):reading?c[group().kind+'Title']:phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle;
-  const help=meaning?(group().kind==='meaning-gloss'?c.meaningGlossDetail:group().kind==='meaning-role'?c.meaningRoleDetail:c.meaningOrderDetail):listening?(group().kind==='listen-syllable'?c.listenSyllableDetail:c.listenWordDetail):word?(group().kind==='syllable-build'?c.wordSyllablesDetail:group().kind==='word-build'?c.wordWordsDetail:c.wordQuranDetail):reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo;
+  const phrase=PHRASE_LESSONS.includes(group()),meaning=MEANING_LESSONS.includes(group()),listening=LISTENING_LESSONS.includes(group()),word=WORD_LESSONS.includes(group()),reading=READING_LESSONS.includes(group()),phonics=group().kind!=='recognition'&&!reading&&!word&&!listening&&!meaning&&!phrase;
+  const label=phrase?c.phraseLesson:meaning?c.meaningLesson:listening?c.listenLesson:word?c.wordLesson:reading?c.readLesson:phonics?c.vowelLesson:c.lesson;
+  const num=phrase?state.lessonIndex-PHRASES.startIndex+1:meaning?state.lessonIndex-MEANING.startIndex+1:listening?state.lessonIndex-LISTENING.startIndex+1:word?state.lessonIndex-WORDS.startIndex+1:reading?state.lessonIndex-READING.startIndex+1:phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1;
+  const size=phrase?PHRASE_LESSONS.length:meaning?MEANING_LESSONS.length:listening?LISTENING_LESSONS.length:word?WORD_LESSONS.length:reading?READING_LESSONS.length:phonics?PHONIC_LESSONS.length:LESSONS.length;
+  const title=phrase?(group().kind==='phrase-vocab'?c.phraseVocabTitle:group().kind==='phrase-context'?c.phraseContextTitle:c.phraseOrderTitle):meaning?(group().kind==='meaning-gloss'?c.meaningGlossTitle:group().kind==='meaning-role'?c.meaningRoleTitle:c.meaningOrderTitle):listening?(group().kind==='listen-syllable'?c.listenSyllableTitle:c.listenWordTitle):word?(group().kind==='syllable-build'?c.wordSyllablesTitle:group().kind==='word-build'?c.wordWordsTitle:c.wordQuranTitle):reading?c[group().kind+'Title']:phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle;
+  const help=phrase?(group().kind==='phrase-vocab'?c.phraseVocabDetail:group().kind==='phrase-context'?c.phraseContextDetail:c.phraseOrderDetail):meaning?(group().kind==='meaning-gloss'?c.meaningGlossDetail:group().kind==='meaning-role'?c.meaningRoleDetail:c.meaningOrderDetail):listening?(group().kind==='listen-syllable'?c.listenSyllableDetail:c.listenWordDetail):word?(group().kind==='syllable-build'?c.wordSyllablesDetail:group().kind==='word-build'?c.wordWordsDetail:c.wordQuranDetail):reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo;
   box.append(elem('span','deen-path-pill',label+' '+num+' / '+size+' · '+c.free));
   box.append(elem('h2','deen-path-inner-title',title),elem('p','deen-path-muted',help));
   box.append(lettersStrip(items));
-  if(!reading&&!phonics&&!word&&!listening&&!meaning){
+  if(!reading&&!phonics&&!word&&!listening&&!meaning&&!phrase){
    box.append(elem('h3','deen-path-shape-subtitle',c.shape),shapeAtlas(items));
    if(items.some(item=>!item.joinsNext))box.appendChild(elem('p','deen-path-muted',c.atlasHelp));
   }
-  box.append(elem('p','deen-path-muted deen-path-warning',meaning?c.meaningIntro:listening?c.listenSub:word?c.wordIntro:reading?c.readIntro:phonics?c.audioMissing:c.courseInfo));
-  box.append(makeButton(lessonIsDone()?c.redo:meaning?c.meaningCTA:listening?c.listenPlay:word?c.wordCTA:reading?c.readCTA:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
+  box.append(elem('p','deen-path-muted deen-path-warning',phrase?c.meaningIntro:meaning?c.meaningIntro:listening?c.listenSub:word?c.wordIntro:reading?c.readIntro:phonics?c.audioMissing:c.courseInfo));
+  box.append(makeButton(lessonIsDone()?c.redo:phrase?c.phraseCTA:meaning?c.meaningCTA:listening?c.listenPlay:word?c.wordCTA:reading?c.readCTA:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
   return box;
  }
  function wordLessonView(){
@@ -526,7 +599,112 @@
   if(state.view!=='lesson'||state.correct||group().kind!=='meaning-order')return;
   state.pieces=[];state.feedback='';update();
  }
+ function phraseLessonView(){
+  const c=t(),lesson=group(),items=groupLetters(),item=items[state.question],kind=lesson.kind,ordering=kind==='phrase-order';
+  const box=elem('section','deen-path-lesson deen-path-phrase-lesson');
+  box.append(makeButton('←  '+c.arabic,'group','deen-path-back'),elem('div','deen-path-kicker',c.phraseHeading));
+  box.append(elem('p','deen-path-question-count',c.progress+' '+(state.question+1)+' / '+items.length));
+  box.append(elem('h2','deen-path-inner-title',ordering?c.phraseOrderPrompt:kind==='phrase-vocab'?c.phraseVocabPrompt:c.phraseContextPrompt));
+  if(ordering){
+   box.append(elem('div','deen-path-phrase-hint',item.gloss[lang()]||item.gloss.tr));
+   const built=elem('div','deen-path-meaning-built',state.pieces.map(i=>item.parts[i]).join(' ')||'···');
+   built.lang='ar';built.dir='rtl';box.append(built);
+   const parts=elem('div','deen-path-meaning-pieces');
+   for(const i of item.parts.map((_,j)=>j).reverse()){
+    const b=makeButton(item.parts[i],'phrasePiece','deen-path-meaning-piece');b.dataset.pieceIndex=String(i);
+    b.disabled=state.pieces.includes(i);b.lang='ar';b.dir='rtl';parts.append(b);
+   }
+   box.append(parts);const reset=makeButton(c.phraseReset,'resetPhrase','deen-path-back deen-path-word-reset');
+   reset.disabled=!state.pieces.length;box.append(reset);
+  }else{
+   const hint=elem('div','deen-path-phrase-hint',kind==='phrase-vocab'?item.gloss[lang()]:item.glyph);
+   if(kind==='phrase-context'){hint.lang='ar';hint.dir='rtl';hint.classList.add('deen-path-phrase-arabic')}
+   box.append(hint);
+   if(kind==='phrase-vocab'){const verse=elem('div','deen-path-word-excerpt',item.excerpt);verse.lang='ar';verse.dir='rtl';box.append(verse)}
+   const choices=elem('div','deen-path-options');
+   for(const candidate of [...items.slice((state.question+1)%items.length),...items.slice(0,(state.question+1)%items.length)]){
+    const value=kind==='phrase-vocab'?candidate.glyph:candidate.gloss[lang()];
+    const btn=makeButton(value,'answer','deen-path-option deen-path-phrase-option');btn.dataset.letterId=candidate.id;
+    if(kind==='phrase-vocab'){btn.lang='ar';btn.dir='rtl'}
+    if(state.correct&&candidate.id===item.id)btn.classList.add('deen-path-option-correct');
+    choices.append(btn);
+   }
+   box.append(choices);
+  }
+  box.append(elem('p','deen-path-muted deen-path-word-reference',c.phraseVerse+' · '+item.reference));
+  if(state.correct&&item.note)box.append(elem('p','deen-path-muted deen-path-phrase-note',c.phraseNote+' · '+item.note[lang()]));
+  if(state.feedback){const f=elem('p','deen-path-feedback'+(state.correct?' is-correct':' is-wrong'),state.feedback);f.setAttribute('role','status');box.append(f)}
+  if(state.correct)box.append(makeButton(state.question===items.length-1?c.finish:c.next,'next','deen-path-primary'));
+  return box;
+ }
+ function phrasePiece(index){
+  if(state.view!=='lesson'||state.correct||group().kind!=='phrase-order')return;
+  const item=groupLetters()[state.question];index=Number(index);
+  if(!Number.isInteger(index)||index<0||index>=item.parts.length||state.pieces.includes(index))return;
+  state.pieces.push(index);
+  if(state.pieces.length===item.parts.length){
+   state.correct=state.pieces.every((piece,j)=>piece===j);
+   state.feedback=state.correct?t().correct:t().phraseWrongOrder;
+  }
+  update();
+ }
+ function resetPhrase(){
+  if(state.view!=='lesson'||state.correct||group().kind!=='phrase-order')return;
+  state.pieces=[];state.feedback='';update();
+ }
+ function reviewItem(){return state.reviewQueue[state.reviewIndex]}
+ function startReview(){
+  const due=reviewDue();
+  if(!due.length)return false;
+  state.reviewQueue=due.slice(0,12);state.reviewIndex=0;state.correct=false;state.feedback='';
+  return show('review');
+ }
+ function reviewView(){
+  const c=t(),item=reviewItem(),box=elem('section','deen-path-lesson deen-path-review-lesson');
+  if(!item)return box;
+  const phrase=PHRASE_LESSONS[1].items.some(x=>x.id===item.id),items=PHRASE_LESSONS[phrase?1:0].items;
+  box.append(makeButton('←  '+c.arabic,'arabic','deen-path-back'),elem('div','deen-path-kicker',c.reviewHeading));
+  box.append(elem('p','deen-path-question-count',c.progress+' '+(state.reviewIndex+1)+' / '+state.reviewQueue.length));
+  box.append(elem('h2','deen-path-inner-title',c.reviewPrompt));
+  const prompt=elem('div','deen-path-phrase-hint',phrase?item.glyph:item.gloss[lang()]);
+  if(phrase){prompt.lang='ar';prompt.dir='rtl';prompt.classList.add('deen-path-phrase-arabic')}
+  box.append(prompt);
+  const choices=elem('div','deen-path-options');
+  const order=[...items.slice((state.reviewIndex+1)%items.length),...items.slice(0,(state.reviewIndex+1)%items.length)];
+  for(const candidate of order){
+   const label=phrase?candidate.gloss[lang()]:candidate.glyph;
+   const btn=makeButton(label,'reviewAnswer','deen-path-option deen-path-phrase-option');btn.dataset.letterId=candidate.id;
+   if(!phrase){btn.lang='ar';btn.dir='rtl'}
+   if(state.correct&&candidate.id===item.id)btn.classList.add('deen-path-option-correct');
+   choices.append(btn);
+  }
+  box.append(choices);
+  if(state.feedback){const f=elem('p','deen-path-feedback'+(state.correct?' is-correct':' is-wrong'),state.feedback);f.setAttribute('role','status');box.append(f)}
+  if(state.correct)box.append(makeButton(c.reviewNext,'reviewNext','deen-path-primary'));
+  return box;
+ }
+ function reviewAnswer(id){
+  if(state.view!=='review'||state.correct||!reviewItem())return;
+  const right=id===reviewItem().id;
+  recordReview(reviewItem().id,right);
+  state.correct=right;
+  state.feedback=right?t().reviewCorrect:t().reviewWrong;
+  update();
+ }
+ function reviewNext(){
+  if(state.view!=='review'||!state.correct)return;
+  state.reviewIndex++;state.correct=false;state.feedback='';
+  if(state.reviewIndex>=state.reviewQueue.length)show('reviewDone');
+  else update();
+ }
+ function reviewDoneView(){
+  const c=t(),box=elem('section','deen-path-completion');
+  box.append(elem('div','deen-path-complete-star','✦'),elem('h2','deen-path-inner-title',c.reviewComplete));
+  box.append(elem('p','deen-path-muted',c.reviewSub),makeButton(c.reviewBack,'arabic','deen-path-primary'));
+  return box;
+ }
  function lessonView(){
+  if(PHRASE_LESSONS.includes(group()))return phraseLessonView();
   if(MEANING_LESSONS.includes(group()))return meaningLessonView();
   if(LISTENING_LESSONS.includes(group()))return listeningLessonView();
   if(WORD_LESSONS.includes(group()))return wordLessonView();
@@ -555,12 +733,14 @@
  function completedView(){
   const c=t(),box=elem('section','deen-path-completion');
   box.append(elem('div','deen-path-complete-star','✦'),elem('h2','deen-path-inner-title',c.completed));
-  box.append(elem('p','deen-path-muted',(MEANING_LESSONS.includes(group())?c.meaningLesson:LISTENING_LESSONS.includes(group())?c.listenLesson:WORD_LESSONS.includes(group())?c.wordLesson:READING_LESSONS.includes(group())?c.readLesson:group().kind==='recognition'?c.lesson:c.vowelLesson)+' '+(MEANING_LESSONS.includes(group())?state.lessonIndex-MEANING.startIndex+1:LISTENING_LESSONS.includes(group())?state.lessonIndex-LISTENING.startIndex+1:WORD_LESSONS.includes(group())?state.lessonIndex-WORDS.startIndex+1:READING_LESSONS.includes(group())?state.lessonIndex-READING.startIndex+1:group().kind==='recognition'?state.lessonIndex+1:state.lessonIndex-LESSONS.length+1)+' · '+groupLetters().map(x=>x.glyph).join('  ')));
-  box.append(elem('p','deen-path-muted',MEANING_LESSONS.includes(group())?c.meaningFinish:LISTENING_LESSONS.includes(group())?c.listenFinish:WORD_LESSONS.includes(group())?c.wordFinish:READING_LESSONS.includes(group())?c.readFinish:group().kind==='recognition'?(completed().length===LESSONS.length?c.courseCompleteDesc:c.completedDesc):c.vowelFinish));
+  box.append(elem('p','deen-path-muted',(PHRASE_LESSONS.includes(group())?c.phraseLesson:MEANING_LESSONS.includes(group())?c.meaningLesson:LISTENING_LESSONS.includes(group())?c.listenLesson:WORD_LESSONS.includes(group())?c.wordLesson:READING_LESSONS.includes(group())?c.readLesson:group().kind==='recognition'?c.lesson:c.vowelLesson)+' '+(PHRASE_LESSONS.includes(group())?state.lessonIndex-PHRASES.startIndex+1:MEANING_LESSONS.includes(group())?state.lessonIndex-MEANING.startIndex+1:LISTENING_LESSONS.includes(group())?state.lessonIndex-LISTENING.startIndex+1:WORD_LESSONS.includes(group())?state.lessonIndex-WORDS.startIndex+1:READING_LESSONS.includes(group())?state.lessonIndex-READING.startIndex+1:group().kind==='recognition'?state.lessonIndex+1:state.lessonIndex-LESSONS.length+1)+' · '+groupLetters().map(x=>x.glyph).join('  ')));
+  box.append(elem('p','deen-path-muted',PHRASE_LESSONS.includes(group())?c.phraseDone:MEANING_LESSONS.includes(group())?c.meaningFinish:LISTENING_LESSONS.includes(group())?c.listenFinish:WORD_LESSONS.includes(group())?c.wordFinish:READING_LESSONS.includes(group())?c.readFinish:group().kind==='recognition'?(completed().length===LESSONS.length?c.courseCompleteDesc:c.completedDesc):c.vowelFinish));
   if(state.lessonIndex<ALL_LESSONS.length-1&&isUnlocked(state.lessonIndex+1))box.append(makeButton(c.nextLesson,'nextGroup','deen-path-primary'));
   // Phase 6 audio is locked pending independent review: offer an actual next lesson.
   if(state.lessonIndex===WORD_LESSONS[WORD_LESSONS.length-1].index&&isUnlocked(MEANING.startIndex))
    box.append(makeButton(c.meaningCTA,'openMeaning','deen-path-primary'));
+  if(state.lessonIndex===MEANING_LESSONS[MEANING_LESSONS.length-1].index&&isUnlocked(PHRASES.startIndex))
+   box.append(makeButton(c.phraseCTA,'openPhrases','deen-path-primary'));
   box.append(makeButton(c.redo,'start','deen-path-primary'),makeButton('←  '+c.arabic,'arabic','deen-path-back'));
   return box;
  }
@@ -582,6 +762,7 @@
   return show('lesson');
  }
  function next(){
+  if(state.view==='review')return reviewNext();
   if(!state.correct)return;
   LISTENING.stop();
   if(state.question<groupLetters().length-1){
@@ -592,6 +773,8 @@
  }
  function answer(id){
   if(state.view!=='lesson'||state.correct)return;
+  if(PHRASE_LESSONS.includes(group())&&group().kind!=='phrase-order')
+   recordReview(groupLetters()[state.question].id,id===groupLetters()[state.question].id);
   if(LISTENING_LESSONS.includes(group())&&!state.listenHeard)return;
   state.correct=id===groupLetters()[state.question].id;
   state.feedback=state.correct?t().correct:t().wrong;
@@ -625,7 +808,7 @@
    container.querySelector('#deenQuranPathNav')?.after(returnBar);
   }else{
    const panel=elem('div','deen-path-view');panel.id='deenQuranPathView';
-   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='group'?groupView():state.view==='lesson'?lessonView():completedView());
+   panel.appendChild(state.view==='home'?homeView():state.view==='arabic'?alphabetView():state.view==='group'?groupView():state.view==='lesson'?lessonView():state.view==='review'?reviewView():state.view==='reviewDone'?reviewDoneView():completedView());
    container.querySelector('#deenQuranPathNav')?.after(panel);
   }
  }
@@ -660,6 +843,12 @@
    else if(action==='piece')piece(b.dataset.pieceIndex);
    else if(action==='resetPieces')resetPieces();
    else if(action==='meaningPiece')meaningPiece(b.dataset.pieceIndex);
+   else if(action==='phrasePiece')phrasePiece(b.dataset.pieceIndex);
+   else if(action==='resetPhrase')resetPhrase();
+   else if(action==='openPhrases')selectGroup(PHRASES.startIndex);
+   else if(action==='startReview')startReview();
+   else if(action==='reviewAnswer')reviewAnswer(b.dataset.letterId);
+   else if(action==='reviewNext')reviewNext();
    else if(action==='resetMeaning')resetMeaning();
    else if(action==='openMeaning')selectGroup(MEANING.startIndex);
    else if(action==='listen')playListening();
@@ -676,5 +865,5 @@
   });
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
- window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex)}),version:'quran-arabic-paths-phase7'});
+ window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex),phraseCompletedLessons:phraseCompleted().length,phraseTotalLessons:PHRASE_LESSONS.length,phraseAvailable:isUnlocked(PHRASES.startIndex),reviewDue:reviewDue().length,reviewTracked:Object.keys(reviewRead()).length}),version:'quran-arabic-paths-phase8'});
 })();
