@@ -5,6 +5,7 @@ on:
       - 'assets/i18n/quran-arabic-words.js'
       - 'index.html'
       - 'assets/i18n/quran-arabic-paths.js'
+      - 'assets/i18n/quran-arabic-letter-audio.js'
       - 'assets/i18n/quran-arabic-listening.js'
       - 'assets/i18n/quran-arabic-meaning.js'
       - 'assets/i18n/quran-arabic-phrases.js'
@@ -19,6 +20,7 @@ on:
       - 'assets/i18n/quran-arabic-weekly-goals.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
+      - 'scripts/test-arabic-letter-audio.cjs'
       - 'scripts/test-quran-listening-chrome.cjs'
       - 'scripts/test-quran-meaning-chrome.cjs'
       - 'scripts/test-quran-phrases-chrome.cjs'
@@ -37,6 +39,7 @@ on:
       - 'assets/i18n/quran-arabic-words.js'
       - 'index.html'
       - 'assets/i18n/quran-arabic-paths.js'
+      - 'assets/i18n/quran-arabic-letter-audio.js'
       - 'assets/i18n/quran-arabic-listening.js'
       - 'assets/i18n/quran-arabic-meaning.js'
       - 'assets/i18n/quran-arabic-phrases.js'
@@ -51,6 +54,7 @@ on:
       - 'assets/i18n/quran-arabic-weekly-goals.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
+      - 'scripts/test-arabic-letter-audio.cjs'
       - 'scripts/test-quran-listening-chrome.cjs'
       - 'scripts/test-quran-meaning-chrome.cjs'
       - 'scripts/test-quran-phrases-chrome.cjs'
@@ -77,6 +81,7 @@ jobs:
           node-version: '22'
       - name: Verify scripts and signed boot manifest
         run: |
+          node scripts/test-arabic-letter-audio.cjs
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs
       - name: Install headless Chrome test runner
