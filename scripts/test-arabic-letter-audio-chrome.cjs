@@ -283,7 +283,7 @@ const fileOf=id=>'letter-'+id+'.mp3';
    }
    await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.refresh()});
    await page.locator('[data-qpath-action="tipDismiss"]').click();
-   assert.equal(await page.locator('.deen-path-option').count(),DEEN_ARABIC_LETTERS.lessons[lesson].letterIds.length);
+   assert.equal(await page.locator('.deen-path-option').count(),await page.evaluate(lesson=>DEEN_ARABIC_LETTERS.lessons[lesson].letterIds.length,lesson));
    assert.equal(await page.locator('.deen-path-feedback').count(),0);
    await page.locator('[data-qpath-action="tipOpen"]').click();
    assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'Reopen is always possible');
