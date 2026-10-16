@@ -62,7 +62,6 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
   await target.click();
   assert.equal(await page.locator('.deen-path-letter-card').count(),syllabus[lesson].length);
   assert.equal(await page.locator('.deen-path-shape-entry').count(),syllabus[lesson].length);
-  await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
   await page.locator('[data-qpath-action="start"]').click();
   if(lesson<7){
    assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'Every new letter lesson opens its first-run tip');
