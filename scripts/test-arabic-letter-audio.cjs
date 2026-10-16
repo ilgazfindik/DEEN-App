@@ -31,6 +31,9 @@ for(const [id,glyph] of Object.entries(expected)){
  assert.equal(bytes.length,record.size);
  assert.match(bytes.slice(0,3).toString(),/^ID3$/);
  assert.equal(createHash('sha256').update(bytes).digest('hex'),record.sha256);
+ assert.equal(record.rights,'owner-attested','creator rights declaration must be recorded');
+ assert.equal(record.rightsEvidence,'owner-declaration-2026-10-16');
+ assert.equal(record.pronunciation,'pending-review','audio pronunciation is not yet reviewed');
  assert.equal(audio.approved(id),false,'review must remain pending');
  assert.equal(audio.available(id),true,'preview must be enabled');
  assert.equal(audio.hasClip(id),true);
