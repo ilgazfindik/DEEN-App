@@ -1804,8 +1804,9 @@
   observer.observe(container,{childList:true});
   ensure();
   document.addEventListener('deen:navigated',()=>{
+   // Navigation away from Qur'an must stop letter audio too, not only re-entry.
+   window.DEEN_ARABIC_LETTER_AUDIO?.stop();
    if(document.querySelector('.screen.active')?.id==='leagueScreen'){
-    window.DEEN_ARABIC_LETTER_AUDIO?.stop();
     state.view='home';
     setTimeout(()=>{if(ensure())update()},0);
    }
