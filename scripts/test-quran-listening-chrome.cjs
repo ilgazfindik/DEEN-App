@@ -106,7 +106,8 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   const mockItems=await demo.evaluate(()=>DEEN_ARABIC_LISTENING.lessons.map(x=>x.items.map(i=>i.id)));
   for(let li=0;li<2;li++){
    await demo.locator('.deen-path-listening-item[data-lesson-index="'+(16+li)+'"]').click();
-   await demo.locator('[data-qpath-action="start"]').click();
+   await demo.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
+  await demo.locator('[data-qpath-action="start"]').click();
    for(let q=0;q<3;q++){
     assert.equal(await demo.locator('.deen-path-listening-options button:disabled').count(),3,'Audio must play before answers unlock');
     await demo.locator('[data-qpath-action="listen"]').click();

@@ -35,7 +35,8 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
   for(let li=0;li<3;li++){
    await page.locator('.deen-path-word-item[data-lesson-index="'+(13+li)+'"]').click();
    assert.equal(await page.locator('.deen-path-letter-card').count(),3);
-   await page.locator('[data-qpath-action="start"]').click();
+   await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
+  await page.locator('[data-qpath-action="start"]').click();
    for(let q=0;q<3;q++){
     const item=data.lessons[li].items[q];
     assert.match(await page.locator('.deen-path-question-count').innerText(),new RegExp((q+1)+' / 3'));

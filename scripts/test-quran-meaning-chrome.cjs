@@ -47,7 +47,8 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.selectGroup(19)),false);
   for(let li=0;li<3;li++){
    await page.locator('.deen-path-meaning-item[data-lesson-index="'+(18+li)+'"]').click();
-   await page.locator('[data-qpath-action="start"]').click();
+   await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
+  await page.locator('[data-qpath-action="start"]').click();
    const items=syllabus.lessons[li].items;
    for(let q=0;q<items.length;q++){
     const item=items[q];
@@ -91,7 +92,8 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    await page.evaluate(code=>{document.documentElement.lang=code;DEEN_QURAN_PATHS.enterArabic()},code);
    assert.ok((await page.locator('.deen-path-meaning-section h3').innerText()).length>5);
    await page.locator('.deen-path-meaning-item[data-lesson-index="18"]').click();
-   await page.locator('[data-qpath-action="start"]').click();
+   await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
+  await page.locator('[data-qpath-action="start"]').click();
    assert.ok((await page.locator('.deen-path-meaning-hint').innerText()).length>1);
    await page.locator('[data-qpath-action="group"]').click();
    await page.locator('[data-qpath-action="arabic"]').click();

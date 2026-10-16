@@ -64,6 +64,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.deepEqual([suggested.nextLesson.index,suggested.lessonQuota,suggested.reviewQuota,suggested.completed,suggested.total],[26,1,1,0,2]);
   assert.equal(await page.locator('[data-qpath-action="dailyLesson"]').count(),1);
   await page.locator('[data-qpath-action="dailyLesson"]').click();
+  await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
   await page.locator('[data-qpath-action="start"]').click();
   const items=await page.evaluate(()=>DEEN_ARABIC_PATTERNS.lessons[2].items.map(x=>x.id));
   for(const id of items){

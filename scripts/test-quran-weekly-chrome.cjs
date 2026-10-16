@@ -75,7 +75,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    }}));
    DEEN_QURAN_PATHS.enterArabic();
   });
-  await page.evaluate(()=>{DEEN_QURAN_PATHS.selectGroup(26);DEEN_QURAN_PATHS.start()});
+  await page.evaluate(()=>{DEEN_QURAN_PATHS.selectGroup(26);localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))));DEEN_QURAN_PATHS.start()});
   const ids=await page.evaluate(()=>DEEN_ARABIC_PATTERNS.lessons[2].items.map(x=>x.id));
   for(const id of ids){await page.locator('[data-qpath-action="answer"][data-letter-id="'+id+'"]').click();await page.locator('[data-qpath-action="next"]').click();}
   assert.equal(await page.locator('.deen-path-completion').count(),1);

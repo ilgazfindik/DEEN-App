@@ -58,6 +58,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   });
   const reviewBefore=await page.evaluate(()=>localStorage.getItem('deen_arabic_written_review_v1'));
   await page.locator('.deen-path-pattern-item[data-lesson-index="26"]').click();
+  await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
   await page.locator('[data-qpath-action="start"]').click();
   const ids=await page.evaluate(()=>DEEN_ARABIC_PATTERNS.lessons[2].items.map(x=>x.id));
   await page.locator('[data-qpath-action="answer"][data-letter-id="'+ids[1]+'"]').click();
