@@ -1636,6 +1636,11 @@
   for(const candidate of order){
    const b=makeButton(candidate.glyph,'answer','deen-path-option');
    b.dataset.letterId=candidate.id;b.lang='ar';b.dir='rtl';
+   // Only names with a recorded, available voice show the speaker affordance.
+   if(group().kind==='recognition'&&letterVoice?.available(candidate.id)){
+    b.classList.add('deen-path-option-audio');
+    b.title=letterVoice.label(lang(),true);
+   }
    if(state.correct&&candidate.id===item.id)b.classList.add('deen-path-option-correct');
    options.appendChild(b);
   }
@@ -1696,6 +1701,15 @@
  }
  function answer(id){
   if(state.view!=='lesson'||state.correct)return;
+  if(group().kind==='recognition'&&groupLetters().some(candidate=>candidate.id===id)){
+   // Play the actual option touched, whether it is correct or wrong.
+   // Playback must begin synchronously in the tap/click handler on mobile.
+   const voice=window.DEEN_ARABIC_LETTER_AUDIO;
+   voice?.stop?.();
+   if(voice?.available(id))voice.play(id);
+   // For the other 20 letters there is no recording; never substitute
+   // the correct option's voice or invent a pronunciation.
+  }
   if((PHRASE_LESSONS.includes(group())&&group().kind!=='phrase-order')||
       (PATTERN_LESSONS.includes(group())&&group().kind!=='pattern-structure'))
    recordReview(groupLetters()[state.question].id,id===groupLetters()[state.question].id);
