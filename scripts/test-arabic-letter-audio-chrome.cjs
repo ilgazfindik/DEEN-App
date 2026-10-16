@@ -397,13 +397,14 @@ const fileOf=id=>'letter-'+id+'.mp3';
   assert.equal(await mobile.locator('.deen-path-feedback').count(),0);
   assert.deepEqual(mobileErrors,[]);
   await mobile.close();
+  const progressBeforeReload=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length);
   await page.reload();
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
   for(const name of scriptNames)await page.addScriptTag({path:path.join(root,'assets/i18n',name)});
   await page.evaluate(()=>{window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang};DEEN_QURAN_PATHS.enterArabic();DEEN_QURAN_PATHS.selectGroup(0)});
   await page.locator('[data-qpath-action="start"]').click();
   assert.equal(await page.locator('.deen-path-mini-tip').count(),0,'Dismissed tip persists after reload');
-  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),1,'Old progress retained across reload');
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),progressBeforeReload,'Old progress retained across reload');
   assert.deepEqual(errors,[]);
   console.log('PASS LETTER AUDIO CHROME: 15 real MP3 assets, first/second lesson direct MP3, no TTS required on non-Arabic-voice mobile, 5 locales, mobile taps, background stop, single voice and progress safety');
  }finally{await browser.close();server.close();}
