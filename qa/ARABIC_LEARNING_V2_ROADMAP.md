@@ -1,6 +1,6 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01–03 tamamlandı. PR #104 kapsamlı Chrome/QA denetimi başarılı; main entegrasyonu bu PR ile yapılacak.
+**Durum:** 01–03 tamamlandı. PR #104, başarılı hızlı ve kapsamlı QA sonrasında main'e alındı (merge `9aa0edc3cc20c89d7d684bb059136bed85f460be`).
 **Temel alınan dal:** main (`dbd08b91df288d50622ee86cc20fe50c72decc3c`)
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
