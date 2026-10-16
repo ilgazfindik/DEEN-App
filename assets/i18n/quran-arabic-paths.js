@@ -430,6 +430,15 @@
   for(const item of items){
    const card=elem('div','deen-path-letter-card');
    card.append(elem('span','deen-path-glyph',item.glyph),elem('small','',letterLabel(item)));
+   const voice=window.DEEN_ARABIC_LETTER_AUDIO;
+   if(voice?.hasClip(item.id)){
+    const ready=voice.available(item.id);
+    const play=makeButton('🔊 '+voice.label(lang(),ready),'letterAudio','deen-path-letter-audio');
+    play.dataset.letterId=item.id;
+    play.disabled=!ready;
+    play.title=voice.label(lang(),ready);
+    card.appendChild(play);
+   }
    samples.appendChild(card);
   }
   return samples;
@@ -1634,6 +1643,7 @@
  }
  function show(view){
   if(state.view==='lesson'||view!=='lesson')LISTENING.stop();
+  if(view!=='group'||state.view!=='group')window.DEEN_ARABIC_LETTER_AUDIO?.stop();
   state.view=view;const container=root();if(!container)return false;
   ensure();
   update();return true;
@@ -1641,12 +1651,12 @@
  function selectGroup(index){
   index=Number(index);
   if(!Number.isInteger(index)||index<0||index>=ALL_LESSONS.length||!isUnlocked(index))return false;
-  LISTENING.stop();state.lessonIndex=index;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.listenHeard=false;state.listeningBusy=false;
+  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.lessonIndex=index;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.listenHeard=false;state.listeningBusy=false;
   return show('group');
  }
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
-  LISTENING.stop();state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
+  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
   return show('lesson');
  }
  function next(){
@@ -1781,6 +1791,7 @@
    else if(action==='reviewNext')reviewNext();
    else if(action==='resetMeaning')resetMeaning();
    else if(action==='openMeaning')selectGroup(MEANING.startIndex);
+   else if(action==='letterAudio')window.DEEN_ARABIC_LETTER_AUDIO?.play(b.dataset.letterId);
    else if(action==='listen')playListening();
    else if(action==='next')next();
   });
@@ -1789,6 +1800,7 @@
   ensure();
   document.addEventListener('deen:navigated',()=>{
    if(document.querySelector('.screen.active')?.id==='leagueScreen'){
+    window.DEEN_ARABIC_LETTER_AUDIO?.stop();
     state.view='home';
     setTimeout(()=>{if(ensure())update()},0);
    }
