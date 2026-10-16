@@ -14,7 +14,8 @@ class MockAudio{
  load(){}
 }
 const window={addEventListener(){}};
-const context={window,URL,location:{origin:'https://example.org'},document:{baseURI:'https://example.org/DEEN-App/'},Audio:MockAudio};
+const context={window,URL,location:{origin:'http://127.0.0.1:8765',hostname:'127.0.0.1'},
+ document:{baseURI:'http://127.0.0.1:8765/DEEN-App/'},Audio:MockAudio};
 vm.runInNewContext(fs.readFileSync(path.join(source,'quran-arabic-letters.js'),'utf8'),context);
 vm.runInNewContext(fs.readFileSync(path.join(source,'quran-arabic-letter-audio.js'),'utf8'),context);
 const audio=window.DEEN_ARABIC_LETTER_AUDIO;
@@ -46,4 +47,21 @@ assert.equal(plays,2);
 assert.equal(pauses,1,'previous clip should stop before another starts');
 audio.stop();
 assert.equal(pauses,2);
-console.log('PASS: 8/8 letter files, SHA-256, preview playback and one-voice-at-a-time');
+// Production fail-closed check: no QA preview on a non-loopback hostname.
+const productionWindow={addEventListener(){}};
+const production={
+ window:productionWindow,URL,
+ location:{origin:'https://ilgazfindik.github.io',hostname:'ilgazfindik.github.io'},
+ document:{baseURI:'https://ilgazfindik.github.io/DEEN-App/'},Audio:MockAudio
+};
+vm.runInNewContext(fs.readFileSync(path.join(source,'quran-arabic-letters.js'),'utf8'),production);
+vm.runInNewContext(fs.readFileSync(path.join(source,'quran-arabic-letter-audio.js'),'utf8'),production);
+const prod=productionWindow.DEEN_ARABIC_LETTER_AUDIO;
+assert.equal(prod.previewCount(),0,'Pending recordings must remain inaccessible on deployed hosts');
+assert.equal(prod.pendingCount(),8);
+for(const id of Object.keys(expected)){
+ assert.equal(prod.available(id),false,'No pending playback on production: '+id);
+ assert.equal(prod.play(id),false,'No production playback: '+id);
+}
+assert.equal(plays,2,'Denied production playback must not start audio');
+console.log('PASS: 8/8 files+SHA, local QA preview, single voice, production fail-closed release gate');
