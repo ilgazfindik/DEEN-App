@@ -401,15 +401,21 @@
  const letterLabel=item=>item.names?.[lang()]||item.names?.tr||item.glyph;
  const letterAudioCourseInfo=fallback=>{
   const voice=window.DEEN_ARABIC_LETTER_AUDIO;
-  const count=voice?.previewCount?.()||0;
-  if(!count)return fallback;
-  const missing=CURRICULUM.count-count,pending=voice.pendingCount();
-  const messages={
-   tr:count+' harfin sesli önizlemesi hazır. '+pending+' ses telaffuz incelemesinde; '+missing+' harfin kaydı henüz yok.',
-   en:count+' letter audio previews are ready. '+pending+' await pronunciation review; '+missing+' letters have no recording yet.',
-   ar:'تتوفر معاينة صوتية لـ '+count+' أحرف. هناك '+pending+' تسجيلات بانتظار مراجعة النطق، و'+missing+' حرفًا بلا تسجيل بعد.',
-   de:count+' Buchstaben haben eine Audiovorschau. '+pending+' Aufnahmen warten auf Ausspracheprüfung; '+missing+' Buchstaben haben noch keine Aufnahme.',
-   fr:count+' lettres ont un aperçu audio. '+pending+' sons attendent une vérification de prononciation ; '+missing+' lettres restent sans enregistrement.'
+  const recorded=Object.keys(voice?.records||{}).length;
+  if(!recorded)return fallback;
+  const playable=voice.previewCount(),pending=voice.pendingCount(),missing=CURRICULUM.count-recorded;
+  const messages=playable?{
+   tr:playable+' harfin sesli önizlemesi yalnızca yerel test ortamında açık. '+pending+' kayıt incelemede; '+missing+' harfin sesi henüz yok.',
+   en:playable+' letter previews are available in local QA only. '+pending+' await review; '+missing+' letters are not yet recorded.',
+   ar:'معاينة '+playable+' أحرف متاحة للاختبار المحلي فقط. '+pending+' تسجيلات تنتظر المراجعة و'+missing+' حرفًا بلا تسجيل بعد.',
+   de:playable+' Buchstaben sind nur in der lokalen QA-Vorschau hörbar. '+pending+' Aufnahmen warten auf Prüfung; '+missing+' fehlen noch.',
+   fr:playable+' lettres sont audibles uniquement en test local. '+pending+' sons attendent validation ; '+missing+' lettres restent sans enregistrement.'
+  }:{
+   tr:recorded+' ses kaydı eklendi; telaffuz ve kullanım hakkı onayı tamamlanmadan dinleme açılmayacak. '+missing+' harfin sesi henüz yok.',
+   en:recorded+' recordings are staged. Listening stays disabled until pronunciation and usage rights are approved. '+missing+' letters are unrecorded.',
+   ar:'تم إعداد '+recorded+' تسجيلات، والاستماع متوقف حتى اعتماد النطق وحقوق الاستخدام. لم تُسجّل '+missing+' أحرف بعد.',
+   de:recorded+' Aufnahmen sind vorbereitet. Anhören erst nach Prüfung von Aussprache und Nutzungsrechten. '+missing+' Buchstaben fehlen.',
+   fr:recorded+' enregistrements sont prêts. Lecture bloquée avant validation de la prononciation et des droits. '+missing+' lettres manquent encore.'
   };
   return messages[lang()]||messages.tr;
  };
