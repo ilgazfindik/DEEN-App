@@ -411,11 +411,11 @@
    de:playable+' Buchstaben sind nur in der lokalen QA-Vorschau hörbar. '+pending+' Aufnahmen warten auf Prüfung; '+missing+' fehlen noch.',
    fr:playable+' lettres sont audibles uniquement en test local. '+pending+' sons attendent validation ; '+missing+' lettres restent sans enregistrement.'
   }:{
-   tr:recorded+' ses kaydı eklendi; telaffuz ve kullanım hakkı onayı tamamlanmadan dinleme açılmayacak. '+missing+' harfin sesi henüz yok.',
-   en:recorded+' recordings are staged. Listening stays disabled until pronunciation and usage rights are approved. '+missing+' letters are unrecorded.',
-   ar:'تم إعداد '+recorded+' تسجيلات، والاستماع متوقف حتى اعتماد النطق وحقوق الاستخدام. لم تُسجّل '+missing+' أحرف بعد.',
-   de:recorded+' Aufnahmen sind vorbereitet. Anhören erst nach Prüfung von Aussprache und Nutzungsrechten. '+missing+' Buchstaben fehlen.',
-   fr:recorded+' enregistrements sont prêts. Lecture bloquée avant validation de la prononciation et des droits. '+missing+' lettres manquent encore.'
+   tr:recorded+' ses kaydı eklendi; telaffuz onayı tamamlanmadan dinleme açılmayacak. '+missing+' harfin sesi henüz yok.',
+   en:recorded+' recordings are staged. Listening stays disabled until pronunciation review is approved. '+missing+' letters are unrecorded.',
+   ar:'تم إعداد '+recorded+' تسجيلات، والاستماع متوقف حتى اعتماد النطق. لم تُسجّل '+missing+' أحرف بعد.',
+   de:recorded+' Aufnahmen sind vorbereitet. Anhören erst nach Prüfung der Aussprache. '+missing+' Buchstaben fehlen.',
+   fr:recorded+' enregistrements sont prêts. Lecture bloquée avant validation de la prononciation. '+missing+' lettres manquent encore.'
   };
   return messages[lang()]||messages.tr;
  };
