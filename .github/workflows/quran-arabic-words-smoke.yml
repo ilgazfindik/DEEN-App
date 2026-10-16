@@ -21,6 +21,8 @@ on:
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-arabic-letter-audio.cjs'
+      - 'scripts/test-arabic-letter-audio-chrome.cjs'
+      - 'assets/quran/audio/arabic-learning/**'
       - 'scripts/test-quran-listening-chrome.cjs'
       - 'scripts/test-quran-meaning-chrome.cjs'
       - 'scripts/test-quran-phrases-chrome.cjs'
@@ -55,6 +57,8 @@ on:
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-arabic-letter-audio.cjs'
+      - 'scripts/test-arabic-letter-audio-chrome.cjs'
+      - 'assets/quran/audio/arabic-learning/**'
       - 'scripts/test-quran-listening-chrome.cjs'
       - 'scripts/test-quran-meaning-chrome.cjs'
       - 'scripts/test-quran-phrases-chrome.cjs'
@@ -90,6 +94,7 @@ jobs:
           npx playwright install chrome
       - name: Exercise phase 5 word building
         run: |
+          node scripts/test-arabic-letter-audio-chrome.cjs
           node scripts/test-quran-words-chrome.cjs
           node scripts/test-quran-listening-chrome.cjs
           node scripts/test-quran-meaning-chrome.cjs
