@@ -819,7 +819,7 @@
 #leagueScreenBody .deen-path-letter-audio{
  width:100%;min-height:38px;padding:6px 8px;border:1px solid rgba(99,226,193,.48);
  border-radius:10px;background:rgba(38,139,123,.21);color:#cefff0;
- font:750 11px/1.3 inherit;cursor:pointer;text-align:center;touch-action:manipulation
+ font-family:inherit;font-size:11px;font-weight:750;line-height:1.3;cursor:pointer;text-align:center;touch-action:manipulation
 }
 #leagueScreenBody .deen-path-letter-audio:focus-visible{outline:2px solid #a8ffe0;outline-offset:2px}
 #leagueScreenBody .deen-path-letter-audio:disabled{
