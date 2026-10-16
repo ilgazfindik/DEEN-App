@@ -297,13 +297,25 @@ const fileOf=id=>'letter-'+id+'.mp3';
   for(let lesson=7;lesson<13;lesson++){
    const lessonId=await page.evaluate(index=>{
     const all=[...DEEN_ARABIC_LETTERS.lessons,...DEEN_ARABIC_HARAKAT.lessons,...DEEN_ARABIC_READING.lessons];
-    const completed=all.slice(0,index).map(x=>x.id);
-    localStorage.setItem('deen_arabic_foundations_v2',JSON.stringify({schema:2,completed}));
+    localStorage.setItem('deen_arabic_foundations_v2',JSON.stringify({
+     schema:2,completed:DEEN_ARABIC_LETTERS.lessons.map(x=>x.id)
+    }));
+    localStorage.setItem('deen_arabic_harakat_v1',JSON.stringify({
+     schema:1,completed:DEEN_ARABIC_HARAKAT.lessons.slice(0,Math.max(0,index-7)).map(x=>x.id)
+    }));
+    localStorage.setItem('deen_arabic_reading_v1',JSON.stringify({
+     schema:1,completed:DEEN_ARABIC_READING.lessons.slice(0,Math.max(0,index-10)).map(x=>x.id)
+    }));
     document.documentElement.lang='tr';
     DEEN_QURAN_PATHS.enterArabic();
     if(DEEN_QURAN_PATHS.selectGroup(index)!==true)throw Error('Could not unlock tutorial '+index);
     return all[index].id;
    },lesson);
+   const progressBeforeTip=await page.evaluate(()=>JSON.stringify({
+    letter:JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed,
+    vowel:JSON.parse(localStorage.getItem('deen_arabic_harakat_v1')).completed,
+    reading:JSON.parse(localStorage.getItem('deen_arabic_reading_v1')).completed
+   }));
    await page.locator('[data-qpath-action="start"]').click();
    assert.equal(await page.locator('.deen-path-mini-tip').count(),1,lessonId+' opens a lesson tip');
    assert.equal(await page.locator('.deen-path-mini-tip-example').count(),3);
@@ -328,8 +340,12 @@ const fileOf=id=>'letter-'+id+'.mp3';
    await page.locator('[data-qpath-action="tipOpen"]').click();
    assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'Note can reopen '+lessonId);
    await page.locator('[data-qpath-action="tipDismiss"]').click();
-   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),lesson,
-    'Tips cannot forge progress in '+lessonId);
+   const progressAfterTip=await page.evaluate(()=>JSON.stringify({
+    letter:JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed,
+    vowel:JSON.parse(localStorage.getItem('deen_arabic_harakat_v1')).completed,
+    reading:JSON.parse(localStorage.getItem('deen_arabic_reading_v1')).completed
+   }));
+   assert.equal(progressAfterTip,progressBeforeTip,'Tips cannot forge progress in '+lessonId);
   }
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_lesson_tips_seen_v1')).length),13);
 
