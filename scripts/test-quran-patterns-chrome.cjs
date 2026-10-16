@@ -51,7 +51,8 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().reviewTracked),7);
   for(let li=0;li<3;li++){
    await page.locator('.deen-path-pattern-item[data-lesson-index="'+(24+li)+'"]').click();
-   await page.locator('[data-qpath-action="start"]').click();
+   await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
+  await page.locator('[data-qpath-action="start"]').click();
    const items=curriculum.lessons[li].items;
    for(let q=0;q<items.length;q++){
     assert.match(await page.locator('.deen-path-question-count').innerText(),new RegExp((q+1)+' / 4'));
@@ -118,7 +119,8 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    assert.ok((await page.locator('.deen-path-pattern-section h3').innerText()).length>5);
    assert.ok((await page.locator('.deen-path-spaced-section h3').innerText()).length>5);
    await page.locator('.deen-path-pattern-item[data-lesson-index="26"]').click();
-   await page.locator('[data-qpath-action="start"]').click();
+   await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
+  await page.locator('[data-qpath-action="start"]').click();
    assert.ok((await page.locator('.deen-path-phrase-option').first().innerText()).length>4);
    await page.locator('[data-qpath-action="group"]').click();
    await page.locator('[data-qpath-action="arabic"]').click();

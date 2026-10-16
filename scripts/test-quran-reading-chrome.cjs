@@ -47,6 +47,7 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
   assert.equal(await page.locator('.deen-path-letter-card').count(),3,'All three examples shown on intro');
   assert.equal(await page.locator('.deen-path-shape-atlas').count(),0,'No letter-joining table on reading exercises');
   assert.match(await page.locator('.deen-path-warning').innerText(),/sesli eğitim|telaffuz|tecvid|sesli/i);
+  await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([window.DEEN_ARABIC_LETTERS,window.DEEN_ARABIC_HARAKAT,window.DEEN_ARABIC_READING,window.DEEN_ARABIC_WORDS,window.DEEN_ARABIC_LISTENING,window.DEEN_ARABIC_MEANING,window.DEEN_ARABIC_PHRASES,window.DEEN_ARABIC_PATTERNS].filter(x=>Array.isArray(x?.lessons)).flatMap(x=>x.lessons.map(l=>l.id))))});
   await page.locator('[data-qpath-action="start"]').click();
   for(let q=0;q<3;q++){
    const id=content.data[li].items[q].id;
