@@ -399,6 +399,20 @@
  }
  function root(){return document.getElementById('leagueScreenBody')}
  const letterLabel=item=>item.names?.[lang()]||item.names?.tr||item.glyph;
+ const letterAudioCourseInfo=fallback=>{
+  const voice=window.DEEN_ARABIC_LETTER_AUDIO;
+  const count=voice?.previewCount?.()||0;
+  if(!count)return fallback;
+  const missing=CURRICULUM.count-count,pending=voice.pendingCount();
+  const messages={
+   tr:count+' harfin sesli önizlemesi hazır. '+pending+' ses telaffuz incelemesinde; '+missing+' harfin kaydı henüz yok.',
+   en:count+' letter audio previews are ready. '+pending+' await pronunciation review; '+missing+' letters have no recording yet.',
+   ar:'تتوفر معاينة صوتية لـ '+count+' أحرف. هناك '+pending+' تسجيلات بانتظار مراجعة النطق، و'+missing+' حرفًا بلا تسجيل بعد.',
+   de:count+' Buchstaben haben eine Audiovorschau. '+pending+' Aufnahmen warten auf Ausspracheprüfung; '+missing+' Buchstaben haben noch keine Aufnahme.',
+   fr:count+' lettres ont un aperçu audio. '+pending+' sons attendent une vérification de prononciation ; '+missing+' lettres restent sans enregistrement.'
+  };
+  return messages[lang()]||messages.tr;
+ };
  const elem=(tag,className,text)=>{const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e};
  function makeButton(label,action,className){
   const b=elem('button',className,label);b.type='button';b.dataset.qpathAction=action;return b;
@@ -748,7 +762,7 @@
  function alphabetView(){
   const c=t(),box=elem('section','deen-path-arabic-landing');
   box.append(makeButton('←  '+c.back,'home','deen-path-back'));
-  box.append(elem('span','deen-path-pill',c.free),elem('h2','deen-path-inner-title',c.arabic),elem('p','deen-path-muted',c.courseInfo));
+  box.append(elem('span','deen-path-pill',c.free),elem('h2','deen-path-inner-title',c.arabic),elem('p','deen-path-muted',letterAudioCourseInfo(c.courseInfo)));
   const done=completed().length;
   box.append(elem('p','deen-path-progress-copy',c.courseProgress+' · '+done+' / '+LESSONS.length));
   const track=elem('div','deen-path-course-progress'),fill=elem('span','',undefined);
@@ -1325,7 +1339,7 @@
   const num=pattern?state.lessonIndex-PATTERNS.startIndex+1:phrase?state.lessonIndex-PHRASES.startIndex+1:meaning?state.lessonIndex-MEANING.startIndex+1:listening?state.lessonIndex-LISTENING.startIndex+1:word?state.lessonIndex-WORDS.startIndex+1:reading?state.lessonIndex-READING.startIndex+1:phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1;
   const size=pattern?PATTERN_LESSONS.length:phrase?PHRASE_LESSONS.length:meaning?MEANING_LESSONS.length:listening?LISTENING_LESSONS.length:word?WORD_LESSONS.length:reading?READING_LESSONS.length:phonics?PHONIC_LESSONS.length:LESSONS.length;
   const title=pattern?(group().kind==='pattern-vocab'?c.patternVocabTitle:group().kind==='pattern-context'?c.patternContextTitle:c.patternStructureTitle):phrase?(group().kind==='phrase-vocab'?c.phraseVocabTitle:group().kind==='phrase-context'?c.phraseContextTitle:c.phraseOrderTitle):meaning?(group().kind==='meaning-gloss'?c.meaningGlossTitle:group().kind==='meaning-role'?c.meaningRoleTitle:c.meaningOrderTitle):listening?(group().kind==='listen-syllable'?c.listenSyllableTitle:c.listenWordTitle):word?(group().kind==='syllable-build'?c.wordSyllablesTitle:group().kind==='word-build'?c.wordWordsTitle:c.wordQuranTitle):reading?c[group().kind+'Title']:phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle;
-  const help=pattern?c.patternSub:phrase?(group().kind==='phrase-vocab'?c.phraseVocabDetail:group().kind==='phrase-context'?c.phraseContextDetail:c.phraseOrderDetail):meaning?(group().kind==='meaning-gloss'?c.meaningGlossDetail:group().kind==='meaning-role'?c.meaningRoleDetail:c.meaningOrderDetail):listening?(group().kind==='listen-syllable'?c.listenSyllableDetail:c.listenWordDetail):word?(group().kind==='syllable-build'?c.wordSyllablesDetail:group().kind==='word-build'?c.wordWordsDetail:c.wordQuranDetail):reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo;
+  const help=pattern?c.patternSub:phrase?(group().kind==='phrase-vocab'?c.phraseVocabDetail:group().kind==='phrase-context'?c.phraseContextDetail:c.phraseOrderDetail):meaning?(group().kind==='meaning-gloss'?c.meaningGlossDetail:group().kind==='meaning-role'?c.meaningRoleDetail:c.meaningOrderDetail):listening?(group().kind==='listen-syllable'?c.listenSyllableDetail:c.listenWordDetail):word?(group().kind==='syllable-build'?c.wordSyllablesDetail:group().kind==='word-build'?c.wordWordsDetail:c.wordQuranDetail):reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):letterAudioCourseInfo(c.courseInfo);
   box.append(elem('span','deen-path-pill',label+' '+num+' / '+size+' · '+c.free));
   box.append(elem('h2','deen-path-inner-title',title),elem('p','deen-path-muted',help));
   box.append(lettersStrip(items));
@@ -1333,7 +1347,7 @@
    box.append(elem('h3','deen-path-shape-subtitle',c.shape),shapeAtlas(items));
    if(items.some(item=>!item.joinsNext))box.appendChild(elem('p','deen-path-muted',c.atlasHelp));
   }
-  box.append(elem('p','deen-path-muted deen-path-warning',pattern?c.patternSub:phrase?c.meaningIntro:meaning?c.meaningIntro:listening?c.listenSub:word?c.wordIntro:reading?c.readIntro:phonics?c.audioMissing:c.courseInfo));
+  box.append(elem('p','deen-path-muted deen-path-warning',pattern?c.patternSub:phrase?c.meaningIntro:meaning?c.meaningIntro:listening?c.listenSub:word?c.wordIntro:reading?c.readIntro:phonics?c.audioMissing:letterAudioCourseInfo(c.courseInfo)));
   box.append(makeButton(lessonIsDone()?c.redo:pattern?c.patternCTA:phrase?c.phraseCTA:meaning?c.meaningCTA:listening?c.listenPlay:word?c.wordCTA:reading?c.readCTA:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
   return box;
  }
