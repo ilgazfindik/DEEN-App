@@ -147,7 +147,58 @@
  };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
  const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()],masteryUi[lang()],DAILY.ui[lang()],ADAPTIVE.ui[lang()],FOUNDATION.ui[lang()],CHECKPOINT.ui[lang()],REMEDY.ui[lang()],WEEKLY.ui[lang()],GOALS.ui[lang()]);
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null};
+ const TIP_STORE='deen_arabic_lesson_tips_seen_v1';
+ // Extend this keyed curriculum for subsequent lessons without touching XP or completion.
+ const lessonTips=Object.freeze({"arabic-letters-01":{"id":"arabic-letters-01","reviewFlag":"letter-identification","locale":{"tr":{"title":"İlk üç harf: Elif, Be, Te","oneSentence":"Elif noktasızdır; Be’nin altında bir, Te’nin üstünde iki nokta vardır.","examples":[{"glyph":"ا","caption":"Elif · noktasız","audioRef":"alif"},{"glyph":"ب","caption":"Be · 1 alt nokta","audioRef":"ba"},{"glyph":"ت","caption":"Te · 2 üst nokta","audioRef":"ta"}],"mistakeTip":"Noktanın yeri ve sayısı farklı harfleri ayırt etmeni sağlar."},"en":{"title":"Your first letters: Alif, Bā, Tā","oneSentence":"Alif has no dots, Bā has one below, and Tā has two above.","examples":[{"glyph":"ا","caption":"Alif · no dots","audioRef":"alif"},{"glyph":"ب","caption":"Bā · 1 below","audioRef":"ba"},{"glyph":"ت","caption":"Tā · 2 above","audioRef":"ta"}],"mistakeTip":"Look at the location and number of dots, not just the letter's outline."},"ar":{"title":"الحروف الأولى: الألف والباء والتاء","oneSentence":"الألف بلا نقاط، والباء تحتها نقطة واحدة، والتاء فوقها نقطتان.","examples":[{"glyph":"ا","caption":"ألف · بلا نقاط","audioRef":"alif"},{"glyph":"ب","caption":"باء · نقطة أسفل","audioRef":"ba"},{"glyph":"ت","caption":"تاء · نقطتان أعلى","audioRef":"ta"}],"mistakeTip":"ميّز الحرف بعدد النقاط ومكانها."},"de":{"title":"Die ersten Buchstaben: Alif, Bā, Tā","oneSentence":"Alif hat keine Punkte, Bā einen darunter und Tā zwei darüber.","examples":[{"glyph":"ا","caption":"Alif · keine Punkte","audioRef":"alif"},{"glyph":"ب","caption":"Bā · 1 unten","audioRef":"ba"},{"glyph":"ت","caption":"Tā · 2 oben","audioRef":"ta"}],"mistakeTip":"Achte auf Zahl und Position der Punkte."},"fr":{"title":"Les premières lettres : Alif, Bā, Tā","oneSentence":"Alif n’a aucun point, Bā en a un dessous et Tā en a deux au-dessus.","examples":[{"glyph":"ا","caption":"Alif · sans point","audioRef":"alif"},{"glyph":"ب","caption":"Bā · 1 dessous","audioRef":"ba"},{"glyph":"ت","caption":"Tā · 2 dessus","audioRef":"ta"}],"mistakeTip":"Observe le nombre et la position des points."}}},"arabic-letters-02":{"id":"arabic-letters-02","reviewFlag":"similar-shaped-letters","locale":{"tr":{"title":"Noktalar harfi değiştirir","oneSentence":"Cim, Ha ve Hı benzer şekillidir. Se (ث) ise üstündeki üç noktadan tanınır.","examples":[{"glyph":"ج","caption":"Cim · 1 alt nokta","audioRef":"jim"},{"glyph":"ح","caption":"Ha · noktasız","audioRef":"hha"},{"glyph":"خ","caption":"Hı · 1 üst nokta","audioRef":"kha"}],"mistakeTip":"ث harfinde üç üst nokta bulunur; ج ile خ’yi karıştırma."},"en":{"title":"Dots change the letter","oneSentence":"Jīm, Ḥā and Khā share a shape. Thā (ث) has three dots above.","examples":[{"glyph":"ج","caption":"Jīm · 1 below","audioRef":"jim"},{"glyph":"ح","caption":"Ḥā · no dots","audioRef":"hha"},{"glyph":"خ","caption":"Khā · 1 above","audioRef":"kha"}],"mistakeTip":"Thā (ث) has three dots above; distinguish Jīm from Khā."},"ar":{"title":"النقاط تغيّر الحرف","oneSentence":"تتشابه الجيم والحاء والخاء في الشكل، وللثاء (ث) ثلاث نقاط فوقها.","examples":[{"glyph":"ج","caption":"جيم · نقطة أسفل","audioRef":"jim"},{"glyph":"ح","caption":"حاء · بلا نقاط","audioRef":"hha"},{"glyph":"خ","caption":"خاء · نقطة أعلى","audioRef":"kha"}],"mistakeTip":"للثاء ثلاث نقاط فوقها؛ ولا تخلط بين الجيم والخاء."},"de":{"title":"Punkte ändern den Buchstaben","oneSentence":"Jīm, Ḥā und Khā haben eine ähnliche Form. Thā (ث) hat drei Punkte oben.","examples":[{"glyph":"ج","caption":"Jīm · 1 unten","audioRef":"jim"},{"glyph":"ح","caption":"Ḥā · ohne Punkte","audioRef":"hha"},{"glyph":"خ","caption":"Khā · 1 oben","audioRef":"kha"}],"mistakeTip":"Thā (ث) hat drei Punkte oben. Verwechsle Jīm und Khā nicht."},"fr":{"title":"Les points changent la lettre","oneSentence":"Jīm, Ḥā et Khā ont une forme proche. Thā (ث) a trois points au-dessus.","examples":[{"glyph":"ج","caption":"Jīm · 1 dessous","audioRef":"jim"},{"glyph":"ح","caption":"Ḥā · sans point","audioRef":"hha"},{"glyph":"خ","caption":"Khā · 1 dessus","audioRef":"kha"}],"mistakeTip":"Thā (ث) porte trois points au-dessus ; distingue Jīm de Khā."}}}});
+ const tipUi=Object.freeze({
+  tr:{note:'Ders Notu',understood:'Anladım',hint:'İpucu',listen:'Örneği dinle',noVoice:'Bu örnek için ses henüz hazır değil'},
+  en:{note:'Lesson Note',understood:'Got it',hint:'Tip',listen:'Hear example',noVoice:'No recording for this example yet'},
+  ar:{note:'ملاحظة الدرس',understood:'فهمت',hint:'تلميح',listen:'استمع إلى المثال',noVoice:'لا يوجد تسجيل لهذا المثال بعد'},
+  de:{note:'Lernnotiz',understood:'Verstanden',hint:'Hinweis',listen:'Beispiel anhören',noVoice:'Für dieses Beispiel gibt es noch keine Aufnahme'},
+  fr:{note:'Note de leçon',understood:'Compris',hint:'Astuce',listen:'Écouter l’exemple',noVoice:'Pas encore d’enregistrement pour cet exemple'}
+ });
+ const tipLabels=()=>tipUi[lang()]||tipUi.tr;
+ const currentTip=()=>lessonTips[group()?.id]||null;
+ const tipCopy=()=>currentTip()?.locale[lang()]||currentTip()?.locale.tr||null;
+ const tipSeen=id=>{try{return JSON.parse(localStorage.getItem(TIP_STORE)||'[]').includes(id)}catch(_){return false}};
+ const markTipSeen=id=>{try{
+  const old=JSON.parse(localStorage.getItem(TIP_STORE)||'[]');
+  const seen=Array.isArray(old)?old.filter(key=>typeof key==='string'):[];
+  if(!seen.includes(id))localStorage.setItem(TIP_STORE,JSON.stringify([...seen,id]));
+ }catch(_){}};
+ function miniTipView(){
+  const tip=currentTip(),content=tipCopy(),ui=tipLabels();
+  if(!tip||!content)return null;
+  const card=elem('section','deen-path-mini-tip');
+  card.setAttribute('aria-label',content.title);
+  card.dir=lang()==='ar'?'rtl':'ltr';
+  card.append(elem('span','deen-path-mini-tip-eyebrow',ui.note));
+  card.append(elem('h2','deen-path-mini-tip-title',content.title));
+  card.append(elem('p','deen-path-mini-tip-desc',content.oneSentence));
+  const examples=elem('div','deen-path-mini-tip-examples');
+  for(const example of content.examples){
+   const clip=example.audioRef&&window.DEEN_ARABIC_LETTER_AUDIO?.available(example.audioRef);
+   const item=clip?makeButton('','tipAudio','deen-path-mini-tip-example deen-path-mini-tip-audio'):elem('div','deen-path-mini-tip-example');
+   if(clip){
+    item.dataset.letterId=example.audioRef;
+    item.setAttribute('aria-label',ui.listen+' '+example.caption);
+    item.title=ui.listen;
+   }
+   const glyph=elem('strong','deen-path-mini-tip-glyph',example.glyph);glyph.lang='ar';glyph.dir='rtl';
+   item.append(glyph,elem('small','deen-path-mini-tip-caption',example.caption));
+   if(clip)item.append(elem('span','deen-path-mini-tip-speaker','🔊'));
+   examples.append(item);
+  }
+  card.append(examples,elem('p','deen-path-mini-tip-mistake',ui.hint+' · '+content.mistakeTip));
+  card.append(makeButton(ui.understood,'tipDismiss','deen-path-primary deen-path-mini-tip-done'));
+  return card;
+ }
+ function openTip(){if(!currentTip()||state.view!=='lesson')return;state.tipOpen=true;update()}
+ function dismissTip(){
+  const tip=currentTip();if(!tip||state.view!=='lesson')return;
+  markTipSeen(tip.id);state.tipOpen=false;update();
+ }
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -1672,6 +1723,10 @@
   if(WORD_LESSONS.includes(group()))return wordLessonView();
   const c=t(),items=groupLetters(),box=elem('section','deen-path-lesson');
   box.append(makeButton('←  '+c.arabic,'group','deen-path-back'));
+  if(currentTip()){
+   if(state.tipOpen){box.append(miniTipView());return box}
+   box.append(makeButton(tipLabels().note,'tipOpen','deen-path-mini-tip-reopen'));
+  }
   const item=items[state.question],n=state.question+1;
   box.append(elem('div','deen-path-kicker',READING_LESSONS.includes(group())?c.readHeading:group().kind!=='recognition'?c.vowelHeading:c.lesson+' '+(state.lessonIndex+1)+' · '+c.groupTitle));
   box.append(elem('p','deen-path-question-count',c.progress+' '+n+' / '+items.length),elem('h2','deen-path-inner-title',c.question));
@@ -1744,6 +1799,7 @@
   if(state.view==='lesson'||view!=='lesson')LISTENING.stop();
   if(view!=='group'||state.view!=='group')window.DEEN_ARABIC_LETTER_AUDIO?.stop();
   if(state.view!==view)state.audioPreviewOpen=false;
+  if(view!=='lesson')state.tipOpen=false;
   state.view=view;const container=root();if(!container)return false;
   ensure();
   update();return true;
@@ -1757,6 +1813,7 @@
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.selectedLetterId=null;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
+  state.tipOpen=!!currentTip()&&!tipSeen(group().id);
   return show('lesson');
  }
  function next(){
@@ -1881,6 +1938,9 @@
    else if(action==='masteryContinue')selectGroup(b.dataset.lessonIndex);
    else if(action==='nextGroup')selectGroup(state.lessonIndex+1);
    else if(action==='start')start();
+   else if(action==='tipOpen')openTip();
+   else if(action==='tipDismiss')dismissTip();
+   else if(action==='tipAudio'){if(state.tipOpen)window.DEEN_ARABIC_LETTER_AUDIO?.play(b.dataset.letterId)}
    else if(action==='answer')answer(b.dataset.letterId);
    else if(action==='checkLetterAnswer')checkLetterAnswer();
    else if(action==='piece')piece(b.dataset.pieceIndex);

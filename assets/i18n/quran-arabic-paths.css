@@ -942,3 +942,68 @@
 
 /* Four choices use an even 2x2 grid on narrow phones. */
 #leagueScreenBody .deen-path-options.deen-path-options-four{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* DEEN Arabic Learning V2 — 10-20 second lesson tips.
+   The tip replaces the quiz view on first entry, without touching lesson state. */
+#leagueScreenBody .deen-path-mini-tip{
+ display:flex;flex-direction:column;gap:11px;max-width:100%;width:100%;
+ padding:17px 15px 15px;border-radius:18px;
+ background:linear-gradient(158deg,rgba(18,68,74,.98),rgba(12,39,58,.98));
+ border:1px solid rgba(84,228,191,.45);box-shadow:0 12px 30px rgba(0,11,24,.22);
+ box-sizing:border-box;
+}
+#leagueScreenBody .deen-path-mini-tip-eyebrow{
+ color:#54ebc6;letter-spacing:.06em;text-transform:uppercase;
+ font:750 11px/1.3 system-ui,sans-serif;
+}
+#leagueScreenBody .deen-path-mini-tip-title{
+ color:#effff8;font:750 clamp(19px,5vw,24px)/1.3 system-ui,sans-serif;
+ margin:0;overflow-wrap:anywhere;
+}
+#leagueScreenBody .deen-path-mini-tip-desc{
+ color:#dcefe9;font:500 14px/1.65 system-ui,sans-serif;margin:0;
+}
+#leagueScreenBody .deen-path-mini-tip-examples{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;
+}
+#leagueScreenBody .deen-path-mini-tip-example{
+ display:flex;min-width:0;min-height:110px;padding:8px 4px;
+ flex-direction:column;align-items:center;justify-content:center;gap:5px;
+ border-radius:12px;border:1px solid rgba(128,219,199,.34);
+ background:rgba(13,38,54,.75);color:#f4fff9;
+ box-sizing:border-box;
+}
+#leagueScreenBody button.deen-path-mini-tip-example{
+ cursor:pointer;touch-action:manipulation;
+}
+#leagueScreenBody .deen-path-mini-tip-glyph{
+ color:#fff0c4;font:700 36px/1.25 "Geeza Pro","Noto Naskh Arabic",serif;
+}
+#leagueScreenBody .deen-path-mini-tip-caption{
+ color:#d2e8df;font:600 11px/1.45 system-ui,sans-serif;
+ text-align:center;overflow-wrap:anywhere;max-width:100%;
+}
+#leagueScreenBody .deen-path-mini-tip-speaker{font-size:13px;line-height:1}
+#leagueScreenBody .deen-path-mini-tip-mistake{
+ color:#dff9ee;background:rgba(63,161,141,.14);
+ border-inline-start:3px solid #50dec0;
+ padding:10px 12px;margin:0;border-radius:7px;
+ font:550 12px/1.5 system-ui,sans-serif;
+}
+#leagueScreenBody .deen-path-mini-tip-done{width:100%;min-height:48px;margin-top:5px}
+#leagueScreenBody .deen-path-mini-tip-reopen{
+ display:inline-flex;align-items:center;justify-content:center;
+ padding:8px 13px;margin-bottom:13px;min-height:40px;
+ border:1px solid rgba(95,229,191,.48);border-radius:11px;
+ background:rgba(51,147,124,.16);color:#b6f8dd;
+ font:650 12px/1.25 system-ui,sans-serif;cursor:pointer;
+}
+#leagueScreenBody .deen-path-mini-tip-reopen:focus-visible,
+#leagueScreenBody button.deen-path-mini-tip-example:focus-visible{
+ outline:2px solid #9ffff1;outline-offset:3px;
+}
+@media(max-width:345px){
+ #leagueScreenBody .deen-path-mini-tip{padding:12px 10px}
+ #leagueScreenBody .deen-path-mini-tip-glyph{font-size:31px}
+ #leagueScreenBody .deen-path-mini-tip-caption{font-size:10px}
+}
