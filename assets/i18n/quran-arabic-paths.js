@@ -147,7 +147,7 @@
  };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
  const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()],masteryUi[lang()],DAILY.ui[lang()],ADAPTIVE.ui[lang()],FOUNDATION.ui[lang()],CHECKPOINT.ui[lang()],REMEDY.ui[lang()],WEEKLY.ui[lang()],GOALS.ui[lang()]);
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all'};
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -422,6 +422,44 @@
  const elem=(tag,className,text)=>{const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e};
  function makeButton(label,action,className){
   const b=elem('button',className,label);b.type='button';b.dataset.qpathAction=action;return b;
+ }
+
+ const letterAudioHelp=Object.freeze({
+  tr:{missing:'Bu dersteki harfler için henüz ses kaydı yok. Şıklara basınca ses gelmemesi normal.',open:'🔊 Kayıtlı 8 harfi dinle',close:'Sesleri gizle',heading:'Kayıtlı harf seslerini dene',play:'Dinlemek için bir harfe dokun.',present:'🔊 Ses simgesi olan şıklara dokunduğunda seçtiğin harfin sesi çalar.'},
+  en:{missing:'These letters have no recordings yet. The answer choices are silent.',open:'🔊 Listen to 8 recorded letters',close:'Hide sounds',heading:'Try the recorded letter sounds',play:'Tap a letter to hear it.',present:'🔊 Tap an option with a speaker icon to hear that letter.'},
+  ar:{missing:'لا توجد تسجيلات لهذه الأحرف بعد، لذلك لن تُسمع أصوات الخيارات.',open:'🔊 استمع إلى ٨ أحرف مسجّلة',close:'إخفاء الأصوات',heading:'جرّب أصوات الأحرف المسجّلة',play:'المس حرفًا لسماع صوته.',present:'🔊 اضغط على خيار يحمل رمز الصوت لسماع الحرف المختار.'},
+  de:{missing:'Für diese Buchstaben gibt es noch keine Aufnahmen. Die Antwortfelder bleiben stumm.',open:'🔊 8 aufgenommene Buchstaben anhören',close:'Töne ausblenden',heading:'Aufgenommene Buchstaben testen',play:'Tippe auf einen Buchstaben, um ihn zu hören.',present:'🔊 Tippe auf eine Option mit Lautsprechersymbol, um ihren Ton zu hören.'},
+  fr:{missing:'Ces lettres n’ont pas encore d’enregistrement. Les choix restent silencieux.',open:'🔊 Écouter les 8 lettres enregistrées',close:'Masquer les sons',heading:'Essayer les lettres enregistrées',play:'Touchez une lettre pour l’entendre.',present:'🔊 Touchez un choix avec un symbole de haut-parleur pour l’entendre.'}
+ });
+ const audioHelp=()=>letterAudioHelp[lang()]||letterAudioHelp.tr;
+ function letterAudioPreviewPanel(){
+  const voice=window.DEEN_ARABIC_LETTER_AUDIO;
+  const letters=LETTERS.filter(letter=>voice?.available(letter.id));
+  if(!letters.length)return null;
+  const help=audioHelp(),section=elem('section','deen-path-audio-preview');
+  section.append(elem('h3','deen-path-audio-preview-title',help.heading),elem('p','deen-path-audio-preview-copy',help.play));
+  const grid=elem('div','deen-path-audio-preview-grid');
+  for(const letter of letters){
+   const button=makeButton('','letterAudio','deen-path-audio-preview-choice');
+   button.dataset.letterId=letter.id;
+   button.setAttribute('aria-label',letterLabel(letter)+' · '+help.play);
+   const glyph=elem('span','',letter.glyph);glyph.lang='ar';glyph.dir='rtl';
+   button.append(glyph,elem('small','',letterLabel(letter)));
+   grid.append(button);
+  }
+  section.append(grid);
+  return section;
+ }
+ function appendLetterAudioHelp(box,items){
+  const voice=window.DEEN_ARABIC_LETTER_AUDIO;
+  if(!voice?.previewCount?.())return;
+  const help=audioHelp(),hasChoiceAudio=items.some(letter=>voice.available(letter.id));
+  box.append(elem('p','deen-path-audio-info',hasChoiceAudio?help.present:help.missing));
+  if(hasChoiceAudio)return;
+  const button=makeButton(state.audioPreviewOpen?help.close:help.open,'toggleAudioPreview','deen-path-audio-preview-toggle');
+  button.setAttribute('aria-expanded',String(state.audioPreviewOpen));
+  box.append(button);
+  if(state.audioPreviewOpen){const panel=letterAudioPreviewPanel();if(panel)box.append(panel)}
  }
  function topBar(){
   const c=t(),wrap=elem('section','deen-path-top');wrap.id='deenQuranPathNav';
@@ -1645,6 +1683,7 @@
    options.appendChild(b);
   }
   box.appendChild(options);
+  if(group().kind==='recognition')appendLetterAudioHelp(box,items);
   if(state.feedback){
    const f=elem('p','deen-path-feedback'+(state.correct?' is-correct':' is-wrong'),state.feedback);
    f.setAttribute('role','status');box.appendChild(f);
@@ -1674,6 +1713,7 @@
  function show(view){
   if(state.view==='lesson'||view!=='lesson')LISTENING.stop();
   if(view!=='group'||state.view!=='group')window.DEEN_ARABIC_LETTER_AUDIO?.stop();
+  if(state.view!==view)state.audioPreviewOpen=false;
   state.view=view;const container=root();if(!container)return false;
   ensure();
   update();return true;
@@ -1686,7 +1726,7 @@
  }
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
-  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
+  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
   return show('lesson');
  }
  function next(){
@@ -1831,6 +1871,7 @@
    else if(action==='resetMeaning')resetMeaning();
    else if(action==='openMeaning')selectGroup(MEANING.startIndex);
    else if(action==='letterAudio')window.DEEN_ARABIC_LETTER_AUDIO?.play(b.dataset.letterId);
+   else if(action==='toggleAudioPreview'){state.audioPreviewOpen=!state.audioPreviewOpen;update()}
    else if(action==='listen')playListening();
    else if(action==='next')next();
   });

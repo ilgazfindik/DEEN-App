@@ -136,6 +136,32 @@ const fileOf=id=>'letter-'+id+'.mp3';
     'Navigating to another app tab stops current letter pronunciation');
   const afterProgress=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed);
   assert.equal(afterProgress.length,6,'Preview and lesson clicks never award a completed lesson');
+  // Real user screenshot: lesson 2 has Tha, Jim, Hha and Kha — none of the
+  // eight uploaded clips matches them. Explicitly explain this and make
+  // recorded letter samples accessible without unlocking lessons 6 and 7.
+  await page.evaluate(()=>{
+   document.querySelector('#leagueScreen').classList.add('active');
+   localStorage.setItem('deen_arabic_foundations_v2',JSON.stringify({
+    schema:2,completed:DEEN_ARABIC_LETTERS.lessons.slice(0,1).map(x=>x.id)
+   }));
+   DEEN_QURAN_PATHS.enterArabic();
+  });
+  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.selectGroup(1)),true);
+  await page.locator('[data-qpath-action="start"]').click();
+  assert.equal(await page.locator('.deen-path-option-audio').count(),0,'Lesson 2 has no matching recordings');
+  assert.match(await page.locator('.deen-path-audio-info').innerText(),/henüz ses kaydı yok/);
+  assert.equal(await page.locator('.deen-path-audio-preview-choice').count(),0,'Preview initially collapsed');
+  await page.locator('[data-qpath-action="toggleAudioPreview"]').click();
+  assert.equal(await page.locator('.deen-path-audio-preview-choice').count(),8,'Eight uploaded clips are reachable in early lessons');
+  const qafBefore=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length);
+  await page.locator('.deen-path-audio-preview-choice[data-letter-id="qaf"]').click();
+  await page.waitForFunction(n=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length>n,qafBefore);
+  assert.equal(await page.locator('.deen-path-feedback').count(),0,'Preview must not grade the lesson');
+  const createdBeforeUnrecordedChoice=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length);
+  await page.locator('[data-qpath-action="answer"][data-letter-id="tha"]').click();
+  assert.equal(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length),createdBeforeUnrecordedChoice,'No fake audio for Tha');
+  assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),1,'Early lesson audio does not alter progress');
   assert.equal(await page.locator('#originalSurah').count(),1,'Quran surah subtree still exists');
   assert.deepEqual(errors,[]);
   // Emulate mobile Chrome: touch-only input, 320px viewport and device scale 2.
@@ -201,6 +227,6 @@ const fileOf=id=>'letter-'+id+'.mp3';
   assert.equal(stored,6,'Listening on touchscreens never forges lesson completion');
   assert.deepEqual(mobileErrors,[]);
   await mobile.close();
-  console.log('PASS LETTER AUDIO CHROME: 8 real MP3 decodes, wrong/correct option-specific voices, no-audio fallback, 5 locales, mobile taps, background stop, single voice and progress safety');
+  console.log('PASS LETTER AUDIO CHROME: 8 real MP3 decodes, 2nd-lesson clear missing-voice guidance and instant preview, wrong/correct option-specific voices, no-audio fallback, 5 locales, mobile taps, background stop, single voice and progress safety');
  }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);server.close();process.exit(1)});
