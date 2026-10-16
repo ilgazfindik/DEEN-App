@@ -905,3 +905,9 @@
 #leagueScreenBody .deen-path-audio-preview-choice:active{
  transform:scale(.97);background:rgba(36,130,116,.60);
 }
+
+/* The device TTS source is visibly distinguished from the 8 supplied MP3 files. */
+#leagueScreenBody .deen-path-option.deen-path-option-tts::after{
+ content:"🔉";
+ opacity:.86;
+}
