@@ -40,6 +40,7 @@ jobs:
           node scripts/test-global-locale-chrome.cjs
           node scripts/test-premium-completion-chrome.cjs
           node scripts/test-premium-hub-chrome.cjs
+          node scripts/test-arabic-v2-question-engine-chrome.cjs
           node scripts/test-quran-arabic-paths-chrome.cjs
           node scripts/test-quran-harakat-chrome.cjs
           node scripts/test-quran-reading-chrome.cjs

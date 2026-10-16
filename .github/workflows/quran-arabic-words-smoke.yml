@@ -5,6 +5,8 @@ on:
       - 'assets/i18n/quran-arabic-words.js'
       - 'index.html'
       - 'assets/i18n/quran-arabic-paths.js'
+      - 'assets/i18n/quran-arabic-questions-v2.js'
+      - 'scripts/test-arabic-v2-question-engine-chrome.cjs'
       - 'assets/i18n/quran-arabic-letter-audio.js'
       - 'assets/i18n/quran-arabic-listening.js'
       - 'assets/i18n/quran-arabic-meaning.js'
@@ -43,6 +45,8 @@ on:
       - 'assets/i18n/quran-arabic-words.js'
       - 'index.html'
       - 'assets/i18n/quran-arabic-paths.js'
+      - 'assets/i18n/quran-arabic-questions-v2.js'
+      - 'scripts/test-arabic-v2-question-engine-chrome.cjs'
       - 'assets/i18n/quran-arabic-letter-audio.js'
       - 'assets/i18n/quran-arabic-listening.js'
       - 'assets/i18n/quran-arabic-meaning.js'
@@ -99,6 +103,7 @@ jobs:
       - name: Exercise phase 5 word building
         run: |
           node scripts/test-arabic-letter-audio-chrome.cjs
+          node scripts/test-arabic-v2-question-engine-chrome.cjs
           node scripts/test-quran-words-chrome.cjs
           node scripts/test-arabic-step04-chrome.cjs
           node scripts/test-quran-listening-chrome.cjs

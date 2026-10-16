@@ -1007,3 +1007,16 @@
  #leagueScreenBody .deen-path-mini-tip-glyph{font-size:31px}
  #leagueScreenBody .deen-path-mini-tip-caption{font-size:10px}
 }
+
+/* Question bank V2 — keyboard and touch-safe controls */
+#leagueScreenBody .deen-v2-option[aria-pressed="true"]{
+ border-color:#57edc3;background:rgba(53,192,157,.24);
+ box-shadow:0 0 0 2px rgba(83,237,195,.28);
+}
+#leagueScreenBody .deen-v2-target{font:700 clamp(32px,7vw,44px)/1.4 "Geeza Pro","Noto Naskh Arabic",serif}
+#leagueScreenBody .deen-v2-distractor{
+ font-size:13px;line-height:1.6;color:#dcefe9;
+ margin:4px 0 12px;padding:10px 12px;
+ border-inline-start:3px solid #e3b963;border-radius:8px;background:rgba(210,161,82,.12);
+}
+#leagueScreenBody .deen-v2-option{min-height:52px;touch-action:manipulation}

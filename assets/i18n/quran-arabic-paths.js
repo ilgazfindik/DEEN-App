@@ -54,6 +54,10 @@
  const DAILY_SETTINGS_STORE='deen_arabic_daily_settings_v1';
  const MASTERY=window.DEEN_ARABIC_MASTERY;
  if(!MASTERY||MASTERY.version!==1)throw Error('DEEN_ARABIC_MASTERY_MISSING');
+ const V2=window.DEEN_ARABIC_QUESTIONS_V2||null;
+ const V2_RECENT_STORE='deen_arabic_v2_recent_v1';
+ const v2Recent=stage=>{try{const d=JSON.parse(localStorage.getItem(V2_RECENT_STORE)||'{}');return Array.isArray(d?.[stage])?d[stage].filter(id=>typeof id==='string').slice(-12):[]}catch(_){return []}};
+ function v2RecordRecent(session){try{const d=JSON.parse(localStorage.getItem(V2_RECENT_STORE)||'{}');const obj=d&&typeof d==='object'&&!Array.isArray(d)?d:{};obj[session.stage]=session.ids.slice(-12);localStorage.setItem(V2_RECENT_STORE,JSON.stringify(obj))}catch(_){}}
  const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS,...PHRASE_LESSONS,...PATTERN_LESSONS]);
  const PATTERN_STORE='deen_arabic_patterns_v1';
  const REVIEW_CARDS=Object.freeze([...PHRASES.reviewCards,...PATTERNS.reviewCards]);
@@ -205,7 +209,7 @@
   const tip=currentTip();if(!tip||state.view!=='lesson')return;
   markTipSeen(tip.id);state.tipOpen=false;update();
  }
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false};
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false,v2Session:null,v2Choice:null,v2Wrong:false,v2Checked:false};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -353,7 +357,7 @@
  function saveLessonOutcome(){
   const previous=adaptiveHistory();
   const next=ADAPTIVE.recordLesson(previous,{lessonId:group().id,
-   questions:groupLetters().length,missedIds:state.lessonMissed});
+   questions:state.v2Session?.total||groupLetters().length,missedIds:state.lessonMissed});
   try{localStorage.setItem(ADAPTIVE_STORE,JSON.stringify(next))}catch(_){}
  }
  const foundationRead=()=>{
@@ -388,6 +392,9 @@
  }
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
+ const v2Question=()=>state.v2Session?.questions[state.question]||null;
+ const v2Labels=Object.freeze({tr:{check:'Kontrol Et',tryAgain:'Tekrar dene'},en:{check:'Check',tryAgain:'Try again'},ar:{check:'تحقّق',tryAgain:'حاول مرة أخرى'},de:{check:'Prüfen',tryAgain:'Noch einmal'},fr:{check:'Vérifier',tryAgain:'Réessaie'}});
+ const v2Locale=()=>v2Labels[lang()]||v2Labels.tr;
  const groupLetters=()=>group().letters||group().items;
  const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):LISTENING_LESSONS.includes(g)?listeningCompleted().includes(g.id):MEANING_LESSONS.includes(g)?meaningCompleted().includes(g.id):PHRASE_LESSONS.includes(g)?phraseCompleted().includes(g.id):PATTERN_LESSONS.includes(g)?patternCompleted().includes(g.id):vowelCompleted().includes(g.id);
  const isUnlocked=i=>{
@@ -1729,7 +1736,58 @@
   de:{check:'Prüfen'},fr:{check:'Vérifier'}
  });
  const recognitionText=()=>recognitionLabels[lang()]||recognitionLabels.tr;
+ function v2LessonView(){
+  const q=v2Question(),c=t(),ui=v2Locale(),locale=lang(),box=elem('section','deen-path-lesson deen-path-v2-lesson');
+  box.append(makeButton('←  '+c.arabic,'group','deen-path-back'));
+  if(attachLessonTip(box))return box;
+  box.append(elem('div','deen-path-kicker',c.lesson+' '+(state.lessonIndex+1)));
+  box.append(elem('p','deen-path-question-count',c.progress+' '+(state.question+1)+' / '+state.v2Session.total));
+  box.append(elem('h2','deen-path-inner-title',q.prompt[locale]||q.prompt.tr));
+  const target=elem('div','deen-path-prompt deen-v2-target',q.target);
+  target.lang='ar';target.dir='rtl';box.append(target);
+  const choices=elem('div','deen-path-options deen-v2-options');
+  for(const option of q.choices){
+   const b=makeButton(option.glyph,'v2Choice','deen-path-option deen-v2-option');
+   b.dataset.choiceId=option.id;b.lang='ar';b.dir='rtl';
+   b.setAttribute('aria-pressed',state.v2Choice===option.id?'true':'false');
+   if(state.v2Choice===option.id)b.classList.add('deen-v2-selected');
+   if(state.correct)b.disabled=true;
+   choices.append(b);
+  }
+  box.append(choices);
+  if(!state.correct){
+   const check=makeButton(ui.check,'v2Check','deen-path-primary deen-v2-check');
+   check.disabled=!state.v2Choice;box.append(check);
+  }
+  if(state.v2Checked){
+   const correct=state.correct;
+   const line=elem('p','deen-path-feedback'+(correct?' is-correct':' is-wrong'),
+    (correct?c.correct:ui.tryAgain)+' '+(q.explanation[locale]||q.explanation.tr));
+   line.setAttribute('role','status');box.append(line);
+   if(!correct){
+    const reason=q.distractorRationale?.[state.v2Choice];
+    if(reason)box.append(elem('p','deen-v2-distractor',reason[locale]||reason.tr));
+   }
+  }
+  if(state.correct)box.append(makeButton(state.question===state.v2Session.total-1?c.finish:c.next,'next','deen-path-primary'));
+  return box;
+ }
+ function v2Choose(id){
+  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct)return;
+  const q=v2Question(),candidate=q.choices.find(x=>x.id===id);
+  if(!candidate)return;
+  state.v2Choice=id;state.v2Checked=false;update();
+  if(candidate.audioRef&&window.DEEN_ARABIC_LETTER_AUDIO?.available?.(candidate.audioRef))
+   window.DEEN_ARABIC_LETTER_AUDIO.playChoice(candidate.audioRef);
+ }
+ function v2Check(){
+  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct||!state.v2Choice)return;
+  const q=v2Question();state.correct=state.v2Choice===q.correctAnswer;state.v2Checked=true;
+  if(!state.correct){state.v2Wrong=true;if(!state.lessonMissed.includes(q.id))state.lessonMissed.push(q.id)}
+  update();
+ }
  function lessonView(){
+  if(state.v2Session)return v2LessonView();
   if(PATTERN_LESSONS.includes(group()))return patternLessonView();
   if(PHRASE_LESSONS.includes(group()))return phraseLessonView();
   if(MEANING_LESSONS.includes(group()))return meaningLessonView();
@@ -1818,12 +1876,14 @@
  function selectGroup(index){
   index=Number(index);
   if(!Number.isInteger(index)||index<0||index>=ALL_LESSONS.length||!isUnlocked(index))return false;
-  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.lessonIndex=index;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.listenHeard=false;state.listeningBusy=false;
+  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.v2Session=null;state.lessonIndex=index;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.listenHeard=false;state.listeningBusy=false;
   return show('group');
  }
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.selectedLetterId=null;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
+  state.v2Session=V2?.createSession(group().id,{count:10,recentIds:v2Recent(group().id)})||null;
+  state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;
   state.tipOpen=!!currentTip()&&!tipSeen(group().id);
   return show('lesson');
  }
@@ -1831,6 +1891,11 @@
   if(state.view==='review')return reviewNext();
   if(!state.correct)return;
   LISTENING.stop();
+  if(state.v2Session){
+   if(state.question<state.v2Session.total-1){state.question++;state.correct=false;state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;show('lesson')}
+   else{v2RecordRecent(state.v2Session);state.complete=true;saveCompleted();saveLessonOutcome();dailyMark('lesson',group().id);show('complete')}
+   return;
+  }
   if(state.question<groupLetters().length-1){
    state.question++;state.correct=false;state.feedback='';state.audioStatus='';state.selectedLetterId=null;state.pieces=[];state.listenHeard=false;state.listeningBusy=false;show('lesson');
   }else{
@@ -1949,6 +2014,8 @@
    else if(action==='masteryContinue')selectGroup(b.dataset.lessonIndex);
    else if(action==='nextGroup')selectGroup(state.lessonIndex+1);
    else if(action==='start')start();
+   else if(action==='v2Choice')v2Choose(b.dataset.choiceId);
+   else if(action==='v2Check')v2Check();
    else if(action==='tipOpen')openTip();
    else if(action==='tipDismiss')dismissTip();
    else if(action==='tipAudio'){if(state.tipOpen)window.DEEN_ARABIC_LETTER_AUDIO?.play(b.dataset.letterId)}
