@@ -293,6 +293,46 @@ const fileOf=id=>'letter-'+id+'.mp3';
   }
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_lesson_tips_seen_v1')).length),7);
   assert.equal(await page.locator('.deen-path-mini-tip').count(),0);
+  // Step 03: 8-13 teach short vowels, syllables, sukun, shadda and madd.
+  for(let lesson=7;lesson<13;lesson++){
+   const lessonId=await page.evaluate(index=>{
+    const all=[...DEEN_ARABIC_LETTERS.lessons,...DEEN_ARABIC_HARAKAT.lessons,...DEEN_ARABIC_READING.lessons];
+    const completed=all.slice(0,index).map(x=>x.id);
+    localStorage.setItem('deen_arabic_foundations_v2',JSON.stringify({schema:2,completed}));
+    document.documentElement.lang='tr';
+    DEEN_QURAN_PATHS.enterArabic();
+    if(DEEN_QURAN_PATHS.selectGroup(index)!==true)throw Error('Could not unlock tutorial '+index);
+    return all[index].id;
+   },lesson);
+   await page.locator('[data-qpath-action="start"]').click();
+   assert.equal(await page.locator('.deen-path-mini-tip').count(),1,lessonId+' opens a lesson tip');
+   assert.equal(await page.locator('.deen-path-mini-tip-example').count(),3);
+   assert.equal(await page.locator('.deen-path-mini-tip-audio').count(),0,
+    lessonId+' must never play letter-name recordings for short vowels or reading examples');
+   assert.equal(await page.locator('.deen-path-option').count(),0,
+    'Instruction must precede assessment in '+lessonId);
+   for(const locale of ['tr','en','ar','de','fr']){
+    await page.evaluate(locale=>{document.documentElement.lang=locale;DEEN_QURAN_PATHS.refresh()},locale);
+    const title=await page.locator('.deen-path-mini-tip-title').innerText();
+    const body=await page.locator('.deen-path-mini-tip-desc').innerText();
+    assert.ok(title.trim().length>=9&&body.trim().length>=30,
+     'Missing teacher translation for '+lessonId+'/'+locale);
+    assert.equal(await page.locator('.deen-path-mini-tip').getAttribute('dir'),locale==='ar'?'rtl':'ltr');
+    assert.equal(await page.locator('.deen-path-mini-tip-glyph').count(),3);
+   }
+   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.refresh()});
+   await page.locator('[data-qpath-action="tipDismiss"]').click();
+   assert.equal(await page.locator('.deen-path-mini-tip').count(),0);
+   assert.equal(await page.locator('.deen-path-option').count(),3);
+   assert.equal(await page.locator('.deen-path-feedback').count(),0);
+   await page.locator('[data-qpath-action="tipOpen"]').click();
+   assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'Note can reopen '+lessonId);
+   await page.locator('[data-qpath-action="tipDismiss"]').click();
+   assert.equal(await page.evaluate(index=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length,index),lesson,
+    'Tips cannot forge progress in '+lessonId);
+  }
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_lesson_tips_seen_v1')).length),13);
+
   // Emulate mobile Chrome: touch-only input, 320px viewport and device scale 2.
   // A real user gesture must allow media playback; selectors must stay tappable.
   const mobile=await browser.newPage({
