@@ -20,6 +20,7 @@ on:
       - 'assets/i18n/quran-arabic-weekly-goals.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
+      - 'scripts/test-arabic-step04-chrome.cjs'
       - 'scripts/test-arabic-letter-audio.cjs'
       - 'scripts/test-arabic-letter-audio-chrome.cjs'
       - 'assets/quran/audio/arabic-learning/**'
@@ -56,6 +57,7 @@ on:
       - 'assets/i18n/quran-arabic-weekly-goals.js'
       - 'assets/i18n/quran-arabic-paths.css'
       - 'scripts/test-quran-words-chrome.cjs'
+      - 'scripts/test-arabic-step04-chrome.cjs'
       - 'scripts/test-arabic-letter-audio.cjs'
       - 'scripts/test-arabic-letter-audio-chrome.cjs'
       - 'assets/quran/audio/arabic-learning/**'
@@ -96,6 +98,7 @@ jobs:
         run: |
           node scripts/test-arabic-letter-audio-chrome.cjs
           node scripts/test-quran-words-chrome.cjs
+          node scripts/test-arabic-step04-chrome.cjs
           node scripts/test-quran-listening-chrome.cjs
           node scripts/test-quran-meaning-chrome.cjs
           node scripts/test-quran-phrases-chrome.cjs
