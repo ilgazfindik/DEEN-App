@@ -19,8 +19,8 @@ const context={window,URL,location:{origin:'http://127.0.0.1:8765',hostname:'127
 vm.runInNewContext(fs.readFileSync(path.join(source,'quran-arabic-letters.js'),'utf8'),context);
 vm.runInNewContext(fs.readFileSync(path.join(source,'quran-arabic-letter-audio.js'),'utf8'),context);
 const audio=window.DEEN_ARABIC_LETTER_AUDIO;
-const expected={qaf:'ق',ya:'ي',waw:'و',ha:'ه',nun:'ن',mim:'م',lam:'ل',kaf:'ك'};
-assert.equal(Object.keys(audio.records).length,8);
+const expected={alif:'ا',ba:'ب',ta:'ت',tha:'ث',jim:'ج',hha:'ح',kha:'خ',qaf:'ق',ya:'ي',waw:'و',ha:'ه',nun:'ن',mim:'م',lam:'ل',kaf:'ك'};
+assert.equal(Object.keys(audio.records).length,15);
 for(const [id,glyph] of Object.entries(expected)){
  const record=audio.records[id],file=path.join(base,record.file);
  assert.equal(record.glyph,glyph);
@@ -39,11 +39,11 @@ for(const [id,glyph] of Object.entries(expected)){
  assert.equal(audio.available(id),true,'preview must be enabled');
  assert.equal(audio.hasClip(id),true);
 }
-assert.equal(audio.available('hha'),false);
-assert.equal(audio.hasClip('hha'),false);
-assert.equal(audio.pendingCount(),8,'Independent review must remain pending');
-assert.equal(audio.creatorConfirmedCount(),8);
-assert.equal(audio.previewCount(),8);
+assert.equal(audio.available('dal'),false);
+assert.equal(audio.hasClip('dal'),false);
+assert.equal(audio.pendingCount(),15,'Independent review must remain pending');
+assert.equal(audio.creatorConfirmedCount(),15);
+assert.equal(audio.previewCount(),15);
 assert.equal(audio.play('qaf'),true);
 assert.equal(plays,1);
 assert.ok(sounds[0].src.endsWith('/DEEN-App/assets/quran/audio/arabic-learning/letter-qaf.mp3'));
@@ -62,17 +62,17 @@ const production={
 vm.runInNewContext(fs.readFileSync(path.join(source,'quran-arabic-letters.js'),'utf8'),production);
 vm.runInNewContext(fs.readFileSync(path.join(source,'quran-arabic-letter-audio.js'),'utf8'),production);
 const prod=productionWindow.DEEN_ARABIC_LETTER_AUDIO;
-assert.equal(prod.previewCount(),8,'Creator-confirmed recordings are available on production');
-assert.equal(prod.creatorConfirmedCount(),8);
-assert.equal(prod.pendingCount(),8,'Do not falsely claim independent pronunciation review');
+assert.equal(prod.previewCount(),15,'Creator-confirmed recordings are available on production');
+assert.equal(prod.creatorConfirmedCount(),15);
+assert.equal(prod.pendingCount(),15,'Do not falsely claim independent pronunciation review');
 for(const id of Object.keys(expected)){
  assert.equal(prod.available(id),true,'Creator-confirmed preview should work in production: '+id);
  assert.equal(prod.approved(id),false,'Not independent phonetic approval: '+id);
 }
 assert.equal(prod.play('qaf'),true,'Production should play creator-confirmed qaf');
 assert.equal(prod.play('kaf'),true,'Production should play creator-confirmed kaf');
-assert.equal(prod.available('hha'),false,'No audio exists for ha (ح)');
-assert.equal(prod.play('hha'),false);
+assert.equal(prod.available('dal'),false,'No MP3 exists for dal (د)');
+assert.equal(prod.play('dal'),false);
 assert.equal(plays,4,'Exactly 2 live preview attempts should start');
 prod.stop();
-console.log('PASS: 8/8 MP3+SHA, owner-confirmed production preview, independent review pending, one voice');
+console.log('PASS: 15/15 MP3+SHA, owner-confirmed production previews, independent review pending, one voice');
