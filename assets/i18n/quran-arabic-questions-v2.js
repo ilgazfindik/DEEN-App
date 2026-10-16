@@ -36,6 +36,7 @@
     if(seenGlyphs.has(norm(choice?.glyph)))fail('CHOICE_GLYPH_DUPLICATE');
     seenGlyphs.add(norm(choice?.glyph));
     if(choice?.audioRef&&!approved(choice.audioRef))fail('UNAPPROVED_CHOICE_AUDIO');
+    if(choice?.label!=null&&!translation(choice.label))fail('CHOICE_LABEL_MISSING_LOCALES');
    }
    if(!text(q.correctAnswer)||q.choices.filter(x=>x?.id===q.correctAnswer).length!==1)fail('ONE_CORRECT_ANSWER');
    for(const choice of q.choices){

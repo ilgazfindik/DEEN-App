@@ -1747,8 +1747,9 @@
   target.lang='ar';target.dir='rtl';box.append(target);
   const choices=elem('div','deen-path-options deen-v2-options');
   for(const option of q.choices){
-   const b=makeButton(option.glyph,'v2Choice','deen-path-option deen-v2-option');
-   b.dataset.choiceId=option.id;b.lang='ar';b.dir='rtl';
+   const display=option.label?.[locale]||option.glyph;
+   const b=makeButton(display,'v2Choice','deen-path-option deen-v2-option');
+   b.dataset.choiceId=option.id;b.lang=option.label?locale:'ar';b.dir=option.label&&locale!=='ar'?'ltr':'rtl';
    b.setAttribute('aria-pressed',state.v2Choice===option.id?'true':'false');
    if(state.v2Choice===option.id)b.classList.add('deen-v2-selected');
    if(state.correct)b.disabled=true;
