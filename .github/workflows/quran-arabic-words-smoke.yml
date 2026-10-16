@@ -28,6 +28,7 @@ on:
       - 'scripts/test-quran-meaning-chrome.cjs'
       - 'scripts/test-quran-phrases-chrome.cjs'
       - 'scripts/test-quran-patterns-chrome.cjs'
+      - 'scripts/test-arabic-step05-chrome.cjs'
       - 'scripts/test-quran-mastery-chrome.cjs'
       - 'scripts/test-quran-daily-chrome.cjs'
       - 'scripts/test-quran-adaptive-chrome.cjs'
@@ -65,6 +66,7 @@ on:
       - 'scripts/test-quran-meaning-chrome.cjs'
       - 'scripts/test-quran-phrases-chrome.cjs'
       - 'scripts/test-quran-patterns-chrome.cjs'
+      - 'scripts/test-arabic-step05-chrome.cjs'
       - 'scripts/test-quran-mastery-chrome.cjs'
       - 'scripts/test-quran-daily-chrome.cjs'
       - 'scripts/test-quran-adaptive-chrome.cjs'
@@ -103,6 +105,7 @@ jobs:
           node scripts/test-quran-meaning-chrome.cjs
           node scripts/test-quran-phrases-chrome.cjs
           node scripts/test-quran-patterns-chrome.cjs
+          node scripts/test-arabic-step05-chrome.cjs
           node scripts/test-quran-mastery-chrome.cjs
           node scripts/test-quran-daily-chrome.cjs
           node scripts/test-quran-adaptive-chrome.cjs
