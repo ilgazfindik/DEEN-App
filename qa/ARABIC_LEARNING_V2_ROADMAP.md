@@ -1,6 +1,6 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** Plan onayı / kod aşamaları henüz başlamadı.
+**Durum:** 01 ve 02 tamamlandı. PR #102 hızlı Chrome, MP3, beş dil ve kapsamlı Arapça uygulama denetiminden geçti.
 **Temel alınan dal:** main (`dbd08b91df288d50622ee86cc20fe50c72decc3c`)
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
@@ -22,8 +22,8 @@
 6. Yanıt: "Tamamlanan / Kanıt / Kalan / Sonraki devam" şeklinde kısa, somut; token/aşırı süre riskinde işi küçük PR'lara böl, ilerlemeyi belgeye işle.
 
 ## P0 — Öğretici kutu ve gerçek öğrenme akışı
-- [ ] **01 — Mikro öğretici motoru + ilk 2 pilot ders.** `lessonTip` veri sözleşmesi: title, oneSentence, examples (2–3), optional audioRef, mistakeTip, reviewFlag, locale; 5 dil/RTL, 9:16 erişilebilir kart; ilk girişte göster, "Anladım" kapat, "Ders Notu" ile yeniden aç. Harf 1–2 gerçek ders akışı ve refresh/localStorage eski kayıt QA'sı.
-- [ ] **02 — Harf dersleri 1–7 öğretici içerikleri.** Nokta/şekil ayırt etme, ses adı ve bağlantı sınırları; kısmi kayıt olan harflere yanlış ses atama. Her ders 10–20 sn okumalık en çok bir ana kural, 2–3 örnek. 5 locale.
+- [x] **01 — Mikro öğretici motoru + ilk 2 pilot ders.** `lessonTip` veri sözleşmesi: title, oneSentence, examples (2–3), optional audioRef, mistakeTip, reviewFlag, locale; 5 dil/RTL, 9:16 erişilebilir kart; ilk girişte göster, "Anladım" kapat, "Ders Notu" ile yeniden aç. Harf 1–2 gerçek ders akışı ve refresh/localStorage eski kayıt QA'sı.
+- [x] **02 — Harf dersleri 1–7 öğretici içerikleri.**** Nokta/şekil ayırt etme, ses adı ve bağlantı sınırları; kısmi kayıt olan harflere yanlış ses atama. Her ders 10–20 sn okumalık en çok bir ana kural, 2–3 örnek. 5 locale.
 - [ ] **03 — Hareke + okuma 8–13 öğreticileri.** Üstün/esre/ötre, cezim, şedde, med; kısa ve uzun ses ayrı anlatılmalı. Harf adı ile harekeli ses birbirine karışmamalı. 5 locale.
 - [ ] **04 — Kelime, dinleme ve anlam 14–20 öğreticileri.** Birleştirme, adım adım okuma, anlam bağlamı, desteklenmeyen sesin dürüst gösterimi. 5 locale.
 - [ ] **05 — İfadeler/kalıplar 21–27 öğreticileri.** Kısa örnek, kavram/ayet ayrımı; dinî ve Arapça anlam gözden geçirmesi; 5 locale.
@@ -53,3 +53,8 @@
 
 ## Bir sonraki "devam" komutunun kesin görevi
 **Adım 01 — öğretici motoru + ilk iki pilot ders**: tip verisi, iki gerçek ders kartı, öğrenme→soru→Kontrol Et akışı, ilk giriş/tekrar göster, 5 dil + RTL + Chrome + localStorage koruma. Kodu PR'da doğrula, bu dosyanın işaret kutusunu ancak kanıttan sonra işaretle.
+
+## Son doğrulanmış ilerleme
+- **01:** PR [#101](https://github.com/ilgazfindik/DEEN-App/pull/101), `f07c7d726f0b65103d4135a8c1bb85f134b93c74` main merge; beş dil, RTL, 15 ses, refresh/progress Chrome testi başarılı. Tam uygulama denetimi: [38973328259](https://github.com/ilgazfindik/DEEN-App/actions/runs/38973328259), başarılı.
+- **02:** PR [#102](https://github.com/ilgazfindik/DEEN-App/pull/102) üzerinde 3–7. dersler, beş dilde toplam 25 yeni mikro öğretici çevirisi, her biri üç örnek; uyumlu ses kısmi. Hızlı ses/oynanış QA [38975545869](https://github.com/ilgazfindik/DEEN-App/actions/runs/38975545869) başarılı. Geniş denetim [38975541778](https://github.com/ilgazfindik/DEEN-App/actions/runs/38975541778) **başarılı**; son kaynak değişikliği yalnızca bu kanıtı kaydeden dokümantasyondur.
+- **Kalan:** 03–16. adımlar; 600 yeni soruya henüz başlanmadı. Yeni kayıt gelmedikçe 13 harf için MP3 varmış gibi görünmeyecek.

@@ -65,7 +65,7 @@ const fileOf=id=>'letter-'+id+'.mp3';
   for(const name of scriptNames)await page.addScriptTag({path:path.join(root,'assets/i18n',name)});
   // Legacy audio regression expects the quiz directly; first-run tip behavior
   // is exercised separately below after clearing this independent flag.
-  await page.evaluate(()=>localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify(['arabic-letters-01','arabic-letters-02'])));
+  await page.evaluate(()=>localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify(DEEN_ARABIC_LETTERS.lessons.map(lesson=>lesson.id))));
   assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTER_AUDIO.previewCount()),15);
   assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTER_AUDIO.pendingCount()),15);
   assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTER_AUDIO.approved('qaf')),false);
@@ -254,6 +254,45 @@ const fileOf=id=>'letter-'+id+'.mp3';
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),1);
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_lesson_tips_seen_v1')).length),2);
   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.refresh()});
+  // Arabic Learning V2 step 02: each remaining letter lesson has a genuine
+  // first-run teaching screen, valid examples and truthful audio affordances.
+  const tipSeenBefore=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_lesson_tips_seen_v1')));
+  assert.equal(tipSeenBefore.length,2);
+  for(let lesson=2;lesson<7;lesson++){
+   const lessonId='arabic-letters-'+String(lesson+1).padStart(2,'0');
+   await page.evaluate(lesson=>{
+    const completed=DEEN_ARABIC_LETTERS.lessons.slice(0,lesson).map(x=>x.id);
+    localStorage.setItem('deen_arabic_foundations_v2',JSON.stringify({schema:2,completed}));
+    document.documentElement.lang='tr';
+    DEEN_QURAN_PATHS.enterArabic();DEEN_QURAN_PATHS.selectGroup(lesson);
+   },lesson);
+   await page.locator('[data-qpath-action="start"]').click();
+   assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'New lesson opens tip: '+lessonId);
+   assert.equal(await page.locator('.deen-path-option').count(),0,'No grading controls under lesson tip');
+   assert.equal(await page.locator('.deen-path-mini-tip-example').count(),3,'Three examples per tip');
+   const expectedClips=lesson===5||lesson===6?3:0;
+   assert.equal(await page.locator('.deen-path-mini-tip-audio').count(),expectedClips,
+    'Only authentic MP3-backed letters have audio buttons in '+lessonId);
+   for(const locale of ['tr','en','ar','de','fr']){
+    await page.evaluate(locale=>{document.documentElement.lang=locale;DEEN_QURAN_PATHS.refresh()},locale);
+    const title=(await page.locator('.deen-path-mini-tip-title').innerText()).trim();
+    const explanation=(await page.locator('.deen-path-mini-tip-desc').innerText()).trim();
+    assert.ok(title.length>=12&&explanation.length>=35,lessonId+' '+locale+' not translated');
+    assert.equal(await page.locator('.deen-path-mini-tip-examples').locator('.deen-path-mini-tip-example').count(),3);
+    assert.equal(await page.locator('.deen-path-mini-tip').getAttribute('dir'),locale==='ar'?'rtl':'ltr');
+   }
+   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.refresh()});
+   await page.locator('[data-qpath-action="tipDismiss"]').click();
+   assert.equal(await page.locator('.deen-path-option').count(),await page.evaluate(lesson=>DEEN_ARABIC_LETTERS.lessons[lesson].letterIds.length,lesson));
+   assert.equal(await page.locator('.deen-path-feedback').count(),0);
+   await page.locator('[data-qpath-action="tipOpen"]').click();
+   assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'Reopen is always possible');
+   await page.locator('[data-qpath-action="tipDismiss"]').click();
+   assert.equal(await page.evaluate(lesson=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length,lesson),lesson,
+    'Tip dismissal must not mark a lesson complete');
+  }
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_lesson_tips_seen_v1')).length),7);
+  assert.equal(await page.locator('.deen-path-mini-tip').count(),0);
   // Emulate mobile Chrome: touch-only input, 320px viewport and device scale 2.
   // A real user gesture must allow media playback; selectors must stay tappable.
   const mobile=await browser.newPage({
@@ -301,6 +340,9 @@ const fileOf=id=>'letter-'+id+'.mp3';
   await nun.tap();
   await mobile.waitForFunction(()=>__mobileAudioEvents.plays.some(s=>s.endsWith('/letter-nun.mp3')),{},{timeout:9000});
   await mobile.locator('[data-qpath-action="start"]').tap();
+  assert.equal(await mobile.locator('.deen-path-mini-tip').count(),1,'Mobile lesson 7 first visit shows its tutorial');
+  assert.equal(await mobile.locator('.deen-path-mini-tip').getAttribute('dir'),'rtl');
+  await mobile.locator('[data-qpath-action="tipDismiss"]').tap();
   assert.equal(await mobile.locator('.deen-path-option-audio').count(),5,'All five lesson 7 options have voice clips');
   const mobileNunBefore=await mobile.evaluate(()=>__mobileAudioEvents.plays.filter(s=>s.endsWith('/letter-nun.mp3')).length);
   await mobile.locator('.deen-path-option[data-letter-id="nun"]').tap();
@@ -355,13 +397,14 @@ const fileOf=id=>'letter-'+id+'.mp3';
   assert.equal(await mobile.locator('.deen-path-feedback').count(),0);
   assert.deepEqual(mobileErrors,[]);
   await mobile.close();
+  const progressBeforeReload=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length);
   await page.reload();
   await page.addStyleTag({path:path.join(root,'assets/i18n/quran-arabic-paths.css')});
   for(const name of scriptNames)await page.addScriptTag({path:path.join(root,'assets/i18n',name)});
   await page.evaluate(()=>{window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang};DEEN_QURAN_PATHS.enterArabic();DEEN_QURAN_PATHS.selectGroup(0)});
   await page.locator('[data-qpath-action="start"]').click();
   assert.equal(await page.locator('.deen-path-mini-tip').count(),0,'Dismissed tip persists after reload');
-  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),1,'Old progress retained across reload');
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),progressBeforeReload,'Old progress retained across reload');
   assert.deepEqual(errors,[]);
   console.log('PASS LETTER AUDIO CHROME: 15 real MP3 assets, first/second lesson direct MP3, no TTS required on non-Arabic-voice mobile, 5 locales, mobile taps, background stop, single voice and progress safety');
  }finally{await browser.close();server.close();}
