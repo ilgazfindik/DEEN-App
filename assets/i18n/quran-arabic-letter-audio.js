@@ -56,6 +56,9 @@
    return true;
   }catch(_){stop();return false}
  }
+ // Stop isolated letter previews when a phone locks or the web app backgrounds.
+ // This does not interrupt the independent surah recitation player.
+ document.addEventListener?.('visibilitychange',()=>{if(document.hidden)stop()});
  window.addEventListener?.('pagehide',stop);
  window.DEEN_ARABIC_LETTER_AUDIO=Object.freeze({
   version:2,records,hasClip,available,approved,label,play,stop,
