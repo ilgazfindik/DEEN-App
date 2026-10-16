@@ -911,3 +911,20 @@
  content:"🔉";
  opacity:.86;
 }
+
+/* Playback diagnostics: distinguish 8 genuine MP3 files from device TTS. */
+#leagueScreenBody .deen-path-audio-test{
+ display:block;width:100%;min-height:44px;padding:10px 12px;margin:7px 0 12px;
+ border:1px solid #70d8b8;border-radius:12px;background:rgba(40,141,119,.25);
+ color:#ddffef;font:750 13px/1.35 system-ui,sans-serif;
+ cursor:pointer;touch-action:manipulation;
+}
+#leagueScreenBody .deen-path-audio-test:focus-visible{
+ outline:2px solid #a8ffe0;outline-offset:3px;
+}
+#leagueScreenBody .deen-path-audio-status:not([hidden]){
+ display:block;margin:8px 0 12px;padding:10px 11px;
+ font:650 12px/1.5 system-ui,sans-serif;white-space:normal;
+ border:1px solid rgba(164,209,193,.4);border-radius:10px;
+ color:#e5f9e9;background:rgba(23,65,70,.54);
+}

@@ -57,10 +57,30 @@
  });
  const speechSupported=()=>typeof window.SpeechSynthesisUtterance==='function'&&
   typeof window.speechSynthesis?.speak==='function';
+ const arabicVoices=()=>{
+  if(!speechSupported())return [];
+  try{
+   const list=window.speechSynthesis.getVoices?.();
+   return Array.from(list||[]).filter(v=>/^ar(?:-|$)/i.test(String(v?.lang||'')));
+  }catch(_){return []}
+ };
+ const hasArabicVoice=()=>arabicVoices().length>0;
+ // SpeechSynthesis being defined does NOT mean an Arabic voice is installed.
  const modeFor=id=>available(id)?'recorded':
-  (window.DEEN_ARABIC_LETTERS?.get?.(id)&&spokenNames[id]&&speechSupported())?'device':null;
- let current=null,utterance=null;
+  (window.DEEN_ARABIC_LETTERS?.get?.(id)&&spokenNames[id]&&hasArabicVoice())?'device':null;
+ const emitStatus=(code,id)=>{
+  if(typeof document.dispatchEvent==='function'&&typeof CustomEvent==='function')
+   document.dispatchEvent(new CustomEvent('deen:arabic-letter-audio-status',{detail:{code,id}}));
+ };
+ if(typeof window.speechSynthesis?.addEventListener==='function'){
+  window.speechSynthesis.addEventListener('voiceschanged',()=>{
+   if(typeof document.dispatchEvent==='function'&&typeof Event==='function')
+    document.dispatchEvent(new Event('deen:arabic-letter-voiceschanged'));
+  });
+ }
+ let current=null,utterance=null,speechWatchdog=null;
  function stop(){
+  if(speechWatchdog){clearTimeout(speechWatchdog);speechWatchdog=null}
   if(current){
    const sound=current;current=null;
    try{sound.pause();sound.removeAttribute('src');sound.load()}catch(_){}
@@ -71,22 +91,35 @@
   }
  }
  function speakName(id){
-  if(!window.DEEN_ARABIC_LETTERS?.get?.(id)||!spokenNames[id]||!speechSupported())return false;
+  if(!window.DEEN_ARABIC_LETTERS?.get?.(id)||!spokenNames[id])return false;
+  if(!hasArabicVoice()){emitStatus('no-arabic-voice',id);return false}
   stop();
   try{
    const synth=window.speechSynthesis;
    const speech=new window.SpeechSynthesisUtterance(spokenNames[id]);
    speech.lang='ar-SA';speech.rate=.85;speech.pitch=1;
-   // On iOS and Android the Arabic voices can populate asynchronously;
-   // setting lang explicitly still allows the platform to choose one.
-   const voices=typeof synth.getVoices==='function'?synth.getVoices():[];
-   const arabicVoice=voices.find(v=>/^ar(?:-|$)/i.test(v.lang));
-   if(arabicVoice)speech.voice=arabicVoice;
+   speech.voice=arabicVoices()[0];
    utterance=speech;
-   speech.onend=speech.onerror=()=>{if(utterance===speech)utterance=null};
-   synth.speak(speech); // run in the same user tap/click, not after an await
+   let started=false;
+   speech.onstart=()=>{
+    if(utterance===speech){
+     started=true;
+     if(speechWatchdog){clearTimeout(speechWatchdog);speechWatchdog=null}
+     emitStatus('device-started',id);
+    }
+   };
+   speech.onend=()=>{if(utterance===speech){utterance=null;if(speechWatchdog)clearTimeout(speechWatchdog);speechWatchdog=null}};
+   speech.onerror=()=>{
+    if(utterance===speech){stop();emitStatus('device-error',id)}
+   };
+   synth.speak(speech); // invoke inside the real user gesture
+   // Some browsers silently accept speak() but never start any audio.
+   speechWatchdog=setTimeout(()=>{
+    speechWatchdog=null;
+    if(utterance===speech&&!started){stop();emitStatus('device-error',id)}
+   },4500);
    return true;
-  }catch(_){stop();return false}
+  }catch(_){stop();emitStatus('device-error',id);return false}
  }
  function playChoice(id){
   if(available(id))return play(id)?'recorded':null;
@@ -107,18 +140,19 @@
    const sound=new Audio(url.href);
    sound.preload='auto';sound.volume=1;current=sound;
    sound.addEventListener('ended',()=>{if(current===sound)stop()},{once:true});
-   sound.addEventListener('error',()=>{if(current===sound)stop()},{once:true});
+   sound.addEventListener('playing',()=>emitStatus('mp3-started',id),{once:true});
+   sound.addEventListener('error',()=>{if(current===sound){stop();emitStatus('mp3-error',id)}},{once:true});
    const playing=sound.play();
-   if(playing?.catch)playing.catch(()=>{if(current===sound)stop()});
+   if(playing?.catch)playing.catch(()=>{if(current===sound){stop();emitStatus('mp3-error',id)}});
    return true;
-  }catch(_){stop();return false}
+  }catch(_){stop();emitStatus('mp3-error',id);return false}
  }
  // Stop isolated letter previews when a phone locks or the web app backgrounds.
  // This does not interrupt the independent surah recitation player.
  document.addEventListener?.('visibilitychange',()=>{if(document.hidden)stop()});
  window.addEventListener?.('pagehide',stop);
  window.DEEN_ARABIC_LETTER_AUDIO=Object.freeze({
-  version:3,records,hasClip,available,approved,label,play,stop,playChoice,modeFor,speechSupported,
+  version:4,records,hasClip,available,approved,label,play,stop,playChoice,modeFor,speechSupported,hasArabicVoice,
   pendingCount:()=>Object.keys(records).filter(id=>!approved(id)).length,
   creatorConfirmedCount:()=>Object.keys(records).filter(id=>records[id].pronunciation==='creator-confirmed').length,
   previewCount:()=>Object.keys(records).filter(available).length,
