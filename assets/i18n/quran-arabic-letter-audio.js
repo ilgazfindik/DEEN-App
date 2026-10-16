@@ -1,7 +1,7 @@
 /* DEEN Arabic letter-name audio preview (8 user-provided clips).
    Names are distinct from harakat / syllables / Quran recitation.
    Clips require independent pronunciation review before release to production.
-   The code below allows preview playback only on this unmerged QA branch. */
+   Preview playback is allowed on loopback development hosts only until the\n   rights and pronunciation reviews are independently signed off. */
 (()=>{
  'use strict';
  if(window.DEEN_ARABIC_LETTER_AUDIO)return;
@@ -11,21 +11,29 @@
   id,glyph,file:dir+'letter-'+id+'.mp3',sha256,size,
   origin:'user-provided ElevenLabs export',
   rights:'user-provided',
-  pronunciation:'pending-review'
+  pronunciation:'pending-review',rightsEvidence:null,pronunciationReviewRef:null
  })])));
  const labels=Object.freeze({
-  tr:['Dinle · Önizleme','Ses bulunamadı'],
-  en:['Listen · Preview','Audio unavailable'],
-  ar:['استمع · معاينة','الصوت غير متاح'],
-  de:['Anhören · Vorschau','Audio nicht verfügbar'],
-  fr:['Écouter · Aperçu','Audio indisponible']
+  tr:['Dinle · Önizleme','Telaffuz onayı bekleniyor'],
+  en:['Listen · Preview','Awaiting pronunciation review'],
+  ar:['استمع · معاينة','بانتظار مراجعة النطق'],
+  de:['Anhören · Vorschau','Ausspracheprüfung ausstehend'],
+  fr:['Écouter · Aperçu','Prononciation à vérifier']
  });
  const label=(locale,ready)=>(labels[locale]||labels.tr)[ready?0:1];
  const hasClip=id=>Object.prototype.hasOwnProperty.call(records,id);
- const approved=id=>!!records[id]&&records[id].pronunciation==='approved'&&records[id].rights==='approved';
+ const approved=id=>{
+  const r=records[id];
+  return !!r&&r.pronunciation==='approved'&&r.rights==='approved'&&
+   typeof r.rightsEvidence==='string'&&r.rightsEvidence.trim().length>=12&&
+   typeof r.pronunciationReviewRef==='string'&&r.pronunciationReviewRef.trim().length>=12;
+ };
+ // Preview only on local QA hosts. A deployed GitHub Pages build cannot
+ // play unreviewed audio even if this PR is accidentally merged.
+ const previewHost=['localhost','127.0.0.1','[::1]'].includes(String(location.hostname||'').toLowerCase());
  const available=id=>{
   const r=records[id],letter=window.DEEN_ARABIC_LETTERS?.get?.(id);
-  return !!r&&r.rights==='user-provided'&&r.pronunciation==='pending-review'&&
+  return !!r&&(approved(id)||(previewHost&&r.rights==='user-provided'&&r.pronunciation==='pending-review'))&&
    letter?.glyph===r.glyph&&r.size>512&&r.size<300000&&
    /^[a-f0-9]{64}$/.test(r.sha256)&&/^assets\/quran\/audio\/arabic-learning\/letter-[a-z]+\.mp3$/.test(r.file);
  };
