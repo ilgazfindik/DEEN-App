@@ -63,8 +63,8 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
   assert.equal(await page.locator('.deen-path-letter-card').count(),syllabus[lesson].length);
   assert.equal(await page.locator('.deen-path-shape-entry').count(),syllabus[lesson].length);
   await page.locator('[data-qpath-action="start"]').click();
-  if(lesson<2){
-   assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'A first-time learner sees a lesson tip');
+  if(lesson<7){
+   assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'Every new letter lesson opens its first-run tip');
    await page.locator('[data-qpath-action="tipDismiss"]').click();
   }
   for(let q=0;q<syllabus[lesson].length;q++){
