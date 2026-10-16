@@ -1,6 +1,6 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01 ve 02 tamamlandı. 03 geliştirildi (PR #104), QA/merge sonucu bekleniyor.
+**Durum:** 01–03 tamamlandı. PR #104 kapsamlı Chrome/QA denetimi başarılı; main entegrasyonu bu PR ile yapılacak.
 **Temel alınan dal:** main (`dbd08b91df288d50622ee86cc20fe50c72decc3c`)
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
@@ -24,7 +24,7 @@
 ## P0 — Öğretici kutu ve gerçek öğrenme akışı
 - [x] **01 — Mikro öğretici motoru + ilk 2 pilot ders.** `lessonTip` veri sözleşmesi: title, oneSentence, examples (2–3), optional audioRef, mistakeTip, reviewFlag, locale; 5 dil/RTL, 9:16 erişilebilir kart; ilk girişte göster, "Anladım" kapat, "Ders Notu" ile yeniden aç. Harf 1–2 gerçek ders akışı ve refresh/localStorage eski kayıt QA'sı.
 - [x] **02 — Harf dersleri 1–7 öğretici içerikleri.**** Nokta/şekil ayırt etme, ses adı ve bağlantı sınırları; kısmi kayıt olan harflere yanlış ses atama. Her ders 10–20 sn okumalık en çok bir ana kural, 2–3 örnek. 5 locale.
-- [ ] **03 — Hareke + okuma 8–13 öğreticileri. (Kod PR #104 üzerinde hazır, QA doğrulaması ve merge bekleniyor.)** Üstün/esre/ötre, cezim, şedde, med; kısa ve uzun ses ayrı anlatılmalı. Harf adı ile harekeli ses birbirine karışmamalı. 5 locale.
+- [x] **03 — Hareke + okuma 8–13 öğreticileri.** Üstün/esre/ötre, cezim, şedde, med; kısa ve uzun ses ayrı anlatılmalı. Harf adı ile harekeli ses birbirine karışmamalı. 5 locale.
 - [ ] **04 — Kelime, dinleme ve anlam 14–20 öğreticileri.** Birleştirme, adım adım okuma, anlam bağlamı, desteklenmeyen sesin dürüst gösterimi. 5 locale.
 - [ ] **05 — İfadeler/kalıplar 21–27 öğreticileri.** Kısa örnek, kavram/ayet ayrımı; dinî ve Arapça anlam gözden geçirmesi; 5 locale.
 
@@ -52,10 +52,10 @@
 - Kritik regresyon: 0; yanlış ilerleme sıfırlaması: 0; sessiz sesi "başarılı" gösterme: 0.
 
 ## Bir sonraki "devam" komutunun kesin görevi
-**Adım 03 — harekeler ve okuma 8–13:** PR #104'ün altı kartını, beş dili, RTL, eksik hece sesi durumunu ve mevcut üç ilerleme deposunun korunmasını test et. Başarılıysa [x] yap ve main'e birleştir. Sonraki "devam" ile 04'e geç.
+**Adım 04 — kelime, dinleme ve anlam 14–20:** 7 yeni kısa öğretici oluştur ve gerçek öğrenme akışına bağla. Her ders için 3 doğrulanmış örnek, beş dil/RTL, gerekli yerde sesin bulunmadığını doğru gösterme, ilk açılış + Ders Notu yeniden açma ve ilerleme koruma Chrome QA uygula. Ayrı PR ve doğrulanmış CI ile ilerle.
 
 ## Son doğrulanmış ilerleme
 - **01:** PR [#101](https://github.com/ilgazfindik/DEEN-App/pull/101), `f07c7d726f0b65103d4135a8c1bb85f134b93c74` main merge; beş dil, RTL, 15 ses, refresh/progress Chrome testi başarılı. Tam uygulama denetimi: [38973328259](https://github.com/ilgazfindik/DEEN-App/actions/runs/38973328259), başarılı.
 - **02:** PR [#102](https://github.com/ilgazfindik/DEEN-App/pull/102) üzerinde 3–7. dersler, beş dilde toplam 25 yeni mikro öğretici çevirisi, her biri üç örnek; uyumlu ses kısmi. Hızlı ses/oynanış QA [38975545869](https://github.com/ilgazfindik/DEEN-App/actions/runs/38975545869) başarılı. Geniş denetim [38975541778](https://github.com/ilgazfindik/DEEN-App/actions/runs/38975541778) **başarılı**; son kaynak değişikliği yalnızca bu kanıtı kaydeden dokümantasyondur.
-- **03:** PR [#104](https://github.com/ilgazfindik/DEEN-App/pull/104) ile üstün/esre/ötre, ba/ta heceleri, cezim, şedde ve med için 6 yeni öğretici × 5 dil hazır. Harf adı MP3'ü harekeli hece sesi yerine kullanılmıyor. QA ve merge henüz bekliyor.
-- **Kalan:** 04–16. adımlar; 600 yeni soruya henüz başlanmadı. Yeni kayıt gelmedikçe 13 harf için MP3 varmış gibi görünmeyecek.
+- **03:** PR [#104](https://github.com/ilgazfindik/DEEN-App/pull/104) ile üstün/esre/ötre, ba/ta heceleri, cezim, şedde ve med için 6 yeni öğretici × 5 dil hazır. Harf adı MP3'ü harekeli hece sesi yerine kullanılmıyor. Eski oyun testleri ilk giriş kartlarından ayrıştırıldı; [hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38977946893) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38977942610) başarılı.
+- **Kalan:** 04–16. adımlar; 600 yeni soruya henüz başlanmadı. Bir sonraki devam 14–20 kelime/dinleme/anlam kartlarından başlar. Yeni kayıt gelmedikçe 13 harf için MP3 varmış gibi görünmeyecek.
