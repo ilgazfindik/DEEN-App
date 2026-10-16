@@ -1,7 +1,7 @@
 /* DEEN Arabic letter-name audio preview (8 user-provided clips).
    Names are distinct from harakat / syllables / Quran recitation.
    Clips require independent pronunciation review before release to production.
-   Preview playback is allowed on loopback development hosts only until the\n   rights and pronunciation reviews are independently signed off. */
+   The creator attests to owning these recordings (2026-10-16);\n   pronunciation review is still mandatory for production playback. */
 (()=>{
  'use strict';
  if(window.DEEN_ARABIC_LETTER_AUDIO)return;
@@ -10,8 +10,9 @@
  const records=Object.freeze(Object.fromEntries(raw.map(([id,glyph,sha256,size])=>[id,Object.freeze({
   id,glyph,file:dir+'letter-'+id+'.mp3',sha256,size,
   origin:'user-provided ElevenLabs export',
-  rights:'user-provided',
-  pronunciation:'pending-review',rightsEvidence:null,pronunciationReviewRef:null
+  rights:'owner-attested',
+  pronunciation:'pending-review',
+  rightsEvidence:'owner-declaration-2026-10-16',pronunciationReviewRef:null
  })])));
  const labels=Object.freeze({
   tr:['Dinle · Önizleme','Telaffuz onayı bekleniyor'],
@@ -24,7 +25,7 @@
  const hasClip=id=>Object.prototype.hasOwnProperty.call(records,id);
  const approved=id=>{
   const r=records[id];
-  return !!r&&r.pronunciation==='approved'&&r.rights==='approved'&&
+  return !!r&&r.pronunciation==='approved'&&r.rights==='owner-attested'&&
    typeof r.rightsEvidence==='string'&&r.rightsEvidence.trim().length>=12&&
    typeof r.pronunciationReviewRef==='string'&&r.pronunciationReviewRef.trim().length>=12;
  };
@@ -33,7 +34,7 @@
  const previewHost=['localhost','127.0.0.1','[::1]'].includes(String(location.hostname||'').toLowerCase());
  const available=id=>{
   const r=records[id],letter=window.DEEN_ARABIC_LETTERS?.get?.(id);
-  return !!r&&(approved(id)||(previewHost&&r.rights==='user-provided'&&r.pronunciation==='pending-review'))&&
+  return !!r&&(approved(id)||(previewHost&&r.rights==='owner-attested'&&r.pronunciation==='pending-review'))&&
    letter?.glyph===r.glyph&&r.size>512&&r.size<300000&&
    /^[a-f0-9]{64}$/.test(r.sha256)&&/^assets\/quran\/audio\/arabic-learning\/letter-[a-z]+\.mp3$/.test(r.file);
  };
