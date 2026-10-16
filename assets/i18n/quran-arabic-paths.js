@@ -405,11 +405,11 @@
   if(!recorded)return fallback;
   const playable=voice.previewCount(),pending=voice.pendingCount(),missing=CURRICULUM.count-recorded;
   const messages=playable?{
-   tr:playable+' harfin sesli önizlemesi yalnızca yerel test ortamında açık. '+pending+' kayıt incelemede; '+missing+' harfin sesi henüz yok.',
-   en:playable+' letter previews are available in local QA only. '+pending+' await review; '+missing+' letters are not yet recorded.',
-   ar:'معاينة '+playable+' أحرف متاحة للاختبار المحلي فقط. '+pending+' تسجيلات تنتظر المراجعة و'+missing+' حرفًا بلا تسجيل بعد.',
-   de:playable+' Buchstaben sind nur in der lokalen QA-Vorschau hörbar. '+pending+' Aufnahmen warten auf Prüfung; '+missing+' fehlen noch.',
-   fr:playable+' lettres sont audibles uniquement en test local. '+pending+' sons attendent validation ; '+missing+' lettres restent sans enregistrement.'
+   tr:playable+' harfin sesi dinlenebilir (ses sahibi onaylı önizleme). '+pending+' kayıt bağımsız telaffuz incelemesinden geçmedi; '+missing+' harfin sesi henüz yok.',
+   en:playable+' letter recordings are playable as creator-confirmed previews. '+pending+' await independent pronunciation review; '+missing+' letters are unrecorded.',
+   ar:'يمكن الاستماع إلى '+playable+' تسجيلات أكّدها صاحبها. لم تخضع '+pending+' تسجيلات لمراجعة نطق مستقلة، و'+missing+' حرفًا بلا تسجيل.',
+   de:playable+' Buchstaben sind als vom Urheber bestätigte Vorschau hörbar. '+pending+' warten auf unabhängige Ausspracheprüfung; '+missing+' fehlen.',
+   fr:playable+' lettres sont audibles en aperçu confirmé par leur créateur. '+pending+' attendent une vérification indépendante ; '+missing+' restent sans enregistrement.'
   }:{
    tr:recorded+' ses kaydı eklendi; telaffuz onayı tamamlanmadan dinleme açılmayacak. '+missing+' harfin sesi henüz yok.',
    en:recorded+' recordings are staged. Listening stays disabled until pronunciation review is approved. '+missing+' letters are unrecorded.',
