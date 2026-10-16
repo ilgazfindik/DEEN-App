@@ -265,8 +265,30 @@ const fileOf=id=>'letter-'+id+'.mp3';
   await mobile.locator('.deen-path-option[data-letter-id="ba"]').tap();
   assert.ok(await mobile.evaluate(()=>__mobileTtsEvents.some(e=>e.type==='speak'&&e.text==='بَاء'&&e.lang==='ar-SA')),
    'Direct mobile choice taps must invoke Arabic device speech');
+  // Reproduce the real failure: Web Speech API exists, but NO Arabic voice
+  // is installed. The old code returned success despite audible silence.
+  await mobile.evaluate(()=>{
+   speechSynthesis.getVoices=()=>[{lang:'en-US',name:'Non-Arabic voice'}];
+   DEEN_QURAN_PATHS.enterArabic();
+   DEEN_QURAN_PATHS.selectGroup(0);
+  });
+  await mobile.locator('[data-qpath-action="start"]').tap();
+  assert.equal(await mobile.locator('.deen-path-option').count(),3);
+  assert.equal(await mobile.locator('.deen-path-option-tts').count(),0,
+   'Do not advertise synthetic audio without an actual Arabic voice');
+  assert.equal(await mobile.locator('.deen-path-audio-test').count(),1,
+   'Offer an immediate real-MP3 test rather than leaving the user guessing');
+  const mimBefore=await mobile.evaluate(()=>__mobileAudioEvents.plays.filter(x=>x.endsWith('/letter-mim.mp3')).length);
+  await mobile.locator('.deen-path-audio-test').tap();
+  await mobile.waitForFunction(n=>__mobileAudioEvents.plays.filter(x=>x.endsWith('/letter-mim.mp3')).length>n,mimBefore);
+  const ttsBefore=await mobile.evaluate(()=>__mobileTtsEvents.filter(e=>e.type==='speak').length);
+  await mobile.locator('.deen-path-option[data-letter-id="ba"]').tap();
+  assert.equal(await mobile.evaluate(()=>__mobileTtsEvents.filter(e=>e.type==='speak').length),ttsBefore,
+   'Never try an unavailable Arabic voice on a device lacking that voice');
+  assert.match(await mobile.locator('#deenLetterAudioStatus').innerText(),/عربي|arab/i,
+   'Explain exactly why the option did not produce a recording');
   assert.deepEqual(mobileErrors,[]);
   await mobile.close();
-  console.log('PASS LETTER AUDIO CHROME: 8 real MP3 decodes, 3-choice first lesson and 4-choice second lesson Arabic device TTS, recorded option MP3s, 5 locales, mobile taps, background stop, single voice and progress safety');
+  console.log('PASS LETTER AUDIO CHROME: 8 real MP3 decodes, 3-choice first lesson and 4-choice second lesson Arabic device TTS, recorded option MP3s, Arabic voice absent diagnostics, 5 locales, mobile taps, background stop, single voice and progress safety');
  }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);server.close();process.exit(1)});
