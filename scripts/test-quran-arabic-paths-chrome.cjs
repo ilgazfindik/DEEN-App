@@ -63,14 +63,22 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
   assert.equal(await page.locator('.deen-path-letter-card').count(),syllabus[lesson].length);
   assert.equal(await page.locator('.deen-path-shape-entry').count(),syllabus[lesson].length);
   await page.locator('[data-qpath-action="start"]').click();
+  if(lesson<2){
+   assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'A first-time learner sees a lesson tip');
+   await page.locator('[data-qpath-action="tipDismiss"]').click();
+  }
   for(let q=0;q<syllabus[lesson].length;q++){
    const correct=syllabus[lesson][q];
    assert.match(await page.locator('.deen-path-question-count').innerText(),new RegExp((q+1)+' / '+syllabus[lesson].length));
    if(lesson===0&&q===0){
     await page.locator('[data-qpath-action="answer"][data-letter-id="ba"]').click();
+    assert.equal(await page.locator('.deen-path-feedback').count(),0);
+    await page.locator('[data-qpath-action="checkLetterAnswer"]').click();
     assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
    }
    await page.locator('[data-qpath-action="answer"][data-letter-id="'+correct+'"]').click();
+   assert.equal(await page.locator('.deen-path-feedback').count(),0,'Tap alone must not grade');
+   await page.locator('[data-qpath-action="checkLetterAnswer"]').click();
    assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
    await page.locator('[data-qpath-action="next"]').click();
   }
