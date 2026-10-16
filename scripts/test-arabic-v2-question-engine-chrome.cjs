@@ -60,6 +60,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.equal(await page.locator('.deen-path-question-count').innerText(),'Soru 1 / 10');
   const first=await page.evaluate(()=>DEEN_ARABIC_QUESTIONS_V2.createSession('arabic-letters-01',{seed:99})?.total);
   assert.equal(first,10);
+  const letterIds=await page.evaluate(()=>DEEN_ARABIC_LETTERS.all.map(l=>l.id));
   const seen=[];
   for(let i=0;i<10;i++){
    const ids=await page.locator('.deen-v2-option').evaluateAll(btns=>btns.map(b=>b.dataset.choiceId));
@@ -68,7 +69,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     const view=DEEN_QURAN_PATHS.status();return {index:view.lessonIndex,questionIndex:i};
    },i);
    const v2Text=await page.locator('.deen-path-inner-title').innerText();seen.push(v2Text);
-   const correctId=ids.find(id=>v2Text.endsWith(String(DEEN_ARABIC_LETTERS.all.findIndex(l=>l.id===id)+1)));
+   const correctId=ids.find(id=>v2Text.endsWith(String(letterIds.indexOf(id)+1)));
    assert.ok(correctId,'Correct answer decoded from fixture title: '+v2Text);
    if(i===0){
     const wrong=ids.find(id=>id!==correctId);
