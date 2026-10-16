@@ -69,7 +69,8 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     const view=DEEN_QURAN_PATHS.status();return {index:view.lessonIndex,questionIndex:i};
    },i);
    const v2Text=await page.locator('.deen-path-inner-title').innerText();seen.push(v2Text);
-   const correctId=ids.find(id=>v2Text.endsWith(String(letterIds.indexOf(id)+1)));
+   const askedNumber=Number(v2Text.match(/(\d+)$/)?.[1]);
+   const correctId=letterIds[askedNumber-1];
    assert.ok(correctId,'Correct answer decoded from fixture title: '+v2Text);
    if(i===0){
     const wrong=ids.find(id=>id!==correctId);
