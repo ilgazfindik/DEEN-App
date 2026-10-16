@@ -58,6 +58,14 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.locator('[data-qpath-action="tipDismiss"]').click();
   assert.equal(await page.locator('.deen-path-v2-lesson').count(),1);
   assert.equal(await page.locator('.deen-path-question-count').innerText(),'Soru 1 / 10');
+  for(const locale of ['tr','en','ar','de','fr']){
+   await page.evaluate(locale=>{document.documentElement.lang=locale;DEEN_QURAN_PATHS.refresh()},locale);
+   const title=await page.locator('.deen-path-inner-title').innerText();
+   assert.ok(title.includes(' '+locale+' '),'V2 prompt must switch to '+locale);
+   assert.equal(await page.locator('.deen-v2-target').getAttribute('dir'),'rtl','Arabic target is always RTL');
+   assert.equal(await page.locator('.deen-v2-option').count(),4);
+  }
+  await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.refresh()});
   const first=await page.evaluate(()=>DEEN_ARABIC_QUESTIONS_V2.createSession('arabic-letters-01',{seed:99})?.total);
   assert.equal(first,10);
   const letterIds=await page.evaluate(()=>DEEN_ARABIC_LETTERS.all.map(l=>l.id));
