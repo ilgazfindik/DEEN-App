@@ -98,9 +98,32 @@ const fileOf=id=>'letter-'+id+'.mp3';
   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.selectGroup(5)});
   await page.locator('[data-qpath-action="start"]').click();
   assert.equal(await page.locator('.deen-path-letter-lesson-listen').count(),0,'No audio for unrecorded fa');
+  assert.equal(await page.locator('.deen-path-option-audio').count(),3,'Exactly qaf, kaf, lam have recordings');
+  assert.equal(await page.locator('.deen-path-option-audio[data-letter-id="fa"]').count(),0);
+  // First question: fa is correct but unrecorded. Wrong qaf must play
+  // QAF, never the correct answer's sound.
+  const wrongQafBefore=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length);
+  await page.locator('[data-qpath-action="answer"][data-letter-id="qaf"]').click();
+  await page.waitForFunction(n=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length>n,wrongQafBefore);
+  assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
+  const createdBeforeUnrecorded=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length);
+  const pausesBeforeUnrecorded=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='paused').length);
   await page.locator('[data-qpath-action="answer"][data-letter-id="fa"]').click();
+  assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
+  assert.equal(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length),createdBeforeUnrecorded,'Do not invent a clip for fa');
+  assert.ok(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='paused').length)>pausesBeforeUnrecorded,'An unrecorded option stops the previous audio');
   await page.locator('[data-qpath-action="next"]').click();
   assert.equal(await page.locator('.deen-path-letter-lesson-listen[data-letter-id="qaf"]').count(),1);
+  // Second question: kaf is wrong. Its OWN audio plays, followed by
+  // qaf's OWN audio when the correct answer is tapped.
+  const wrongKafBefore=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-kaf.mp3')).length);
+  await page.locator('[data-qpath-action="answer"][data-letter-id="kaf"]').click();
+  await page.waitForFunction(n=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-kaf.mp3')).length>n,wrongKafBefore);
+  assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
+  const correctQafBefore=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length);
+  await page.locator('[data-qpath-action="answer"][data-letter-id="qaf"]').click();
+  await page.waitForFunction(n=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length>n,correctQafBefore);
+  assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
   const startCount=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length);
   await page.locator('.deen-path-letter-lesson-listen').click();
   await page.waitForFunction(n=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length>n,startCount);
@@ -154,6 +177,16 @@ const fileOf=id=>'letter-'+id+'.mp3';
   assert.ok((await nun.innerText()).includes('استمع'),'Arabic listening action must be translated');
   await nun.tap();
   await mobile.waitForFunction(()=>__mobileAudioEvents.plays.some(s=>s.endsWith('/letter-nun.mp3')),{},{timeout:9000});
+  await mobile.locator('[data-qpath-action="start"]').tap();
+  assert.equal(await mobile.locator('.deen-path-option-audio').count(),5,'All five lesson 7 options have voice clips');
+  const mobileNunBefore=await mobile.evaluate(()=>__mobileAudioEvents.plays.filter(s=>s.endsWith('/letter-nun.mp3')).length);
+  await mobile.locator('.deen-path-option[data-letter-id="nun"]').tap();
+  await mobile.waitForFunction(n=>__mobileAudioEvents.plays.filter(s=>s.endsWith('/letter-nun.mp3')).length>n,mobileNunBefore);
+  assert.equal(await mobile.locator('.deen-path-feedback.is-wrong').count(),1);
+  const mobileMimBefore=await mobile.evaluate(()=>__mobileAudioEvents.plays.filter(s=>s.endsWith('/letter-mim.mp3')).length);
+  await mobile.locator('.deen-path-option[data-letter-id="mim"]').tap();
+  await mobile.waitForFunction(n=>__mobileAudioEvents.plays.filter(s=>s.endsWith('/letter-mim.mp3')).length>n,mobileMimBefore);
+  assert.equal(await mobile.locator('.deen-path-feedback.is-correct').count(),1);
   // Actual document.hidden is read-only; override it inside this isolated
   // test only to exercise the event that iOS/Android fires on app backgrounding.
   const beforeHide=await mobile.evaluate(()=>__mobileAudioEvents.pauses);
@@ -168,6 +201,6 @@ const fileOf=id=>'letter-'+id+'.mp3';
   assert.equal(stored,6,'Listening on touchscreens never forges lesson completion');
   assert.deepEqual(mobileErrors,[]);
   await mobile.close();
-  console.log('PASS LETTER AUDIO CHROME: 8 real MP3 decodes, 5 locales, touch cards, 320px mobile taps, background stop, single voice, lesson replay, progress safety');
+  console.log('PASS LETTER AUDIO CHROME: 8 real MP3 decodes, wrong/correct option-specific voices, no-audio fallback, 5 locales, mobile taps, background stop, single voice and progress safety');
  }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);server.close();process.exit(1)});
