@@ -65,7 +65,7 @@ const fileOf=id=>'letter-'+id+'.mp3';
   for(const name of scriptNames)await page.addScriptTag({path:path.join(root,'assets/i18n',name)});
   // Legacy audio regression expects the quiz directly; first-run tip behavior
   // is exercised separately below after clearing this independent flag.
-  await page.evaluate(()=>localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify(['arabic-letters-01','arabic-letters-02'])));
+  await page.evaluate(()=>localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify(DEEN_ARABIC_LETTERS.lessons.map(lesson=>lesson.id))));
   assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTER_AUDIO.previewCount()),15);
   assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTER_AUDIO.pendingCount()),15);
   assert.equal(await page.evaluate(()=>DEEN_ARABIC_LETTER_AUDIO.approved('qaf')),false);
