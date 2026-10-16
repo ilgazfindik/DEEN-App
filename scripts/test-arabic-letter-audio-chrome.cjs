@@ -328,7 +328,7 @@ const fileOf=id=>'letter-'+id+'.mp3';
    await page.locator('[data-qpath-action="tipOpen"]').click();
    assert.equal(await page.locator('.deen-path-mini-tip').count(),1,'Note can reopen '+lessonId);
    await page.locator('[data-qpath-action="tipDismiss"]').click();
-   assert.equal(await page.evaluate(index=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length,index),lesson,
+   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),lesson,
     'Tips cannot forge progress in '+lessonId);
   }
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_lesson_tips_seen_v1')).length),13);
