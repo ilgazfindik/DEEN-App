@@ -463,19 +463,11 @@
  }
  function appendLetterAudioHelp(box,items){
   const voice=window.DEEN_ARABIC_LETTER_AUDIO;
-  if(!voice?.previewCount?.())return;
-  const help=audioHelp(),modes=items.map(letter=>voice.modeFor(letter.id));
+  const help=audioHelp(),modes=items.map(letter=>voice?.modeFor(letter.id)||null);
+  // Answers are the only playback controls in a recognition quiz.
+  // Do not send learners to a separate, unrelated Mim sample underneath.
   const allAudible=modes.every(Boolean),anyAudible=modes.some(Boolean);
   box.append(elem('p','deen-path-audio-info',allAudible?help.present:anyAudible?help.partial:help.missing));
-  if(!allAudible&&voice.available('mim')){
-   const sample=makeButton((audioDiagnostics[lang()]||audioDiagnostics.tr).test,'letterAudio','deen-path-audio-test');
-   sample.dataset.letterId='mim';box.append(sample);
-  }
-  if(allAudible)return;
-  const button=makeButton(state.audioPreviewOpen?help.close:help.open,'toggleAudioPreview','deen-path-audio-preview-toggle');
-  button.setAttribute('aria-expanded',String(state.audioPreviewOpen));
-  box.append(button);
-  if(state.audioPreviewOpen){const panel=letterAudioPreviewPanel();if(panel)box.append(panel)}
  }
  function topBar(){
   const c=t(),wrap=elem('section','deen-path-top');wrap.id='deenQuranPathNav';
@@ -1680,11 +1672,7 @@
   box.append(elem('p','deen-path-question-count',c.progress+' '+n+' / '+items.length),elem('h2','deen-path-inner-title',c.question));
   box.append(elem('div','deen-path-prompt',letterLabel(item)));
   const letterVoice=window.DEEN_ARABIC_LETTER_AUDIO;
-  if(group().kind==='recognition'&&letterVoice?.hasClip(item.id)){
-   const ready=letterVoice.available(item.id);
-   const hear=makeButton('🔊 '+letterVoice.label(lang(),ready),'letterAudio','deen-path-letter-lesson-listen');
-   hear.dataset.letterId=item.id;hear.disabled=!ready;box.append(hear);
-  }
+  // Playback belongs directly to the answer chips; no extra Listen button.
   const options=elem('div','deen-path-options');
   const order=[...items.slice((state.question+1)%items.length),...items.slice(0,(state.question+1)%items.length)];
   for(const candidate of order){
