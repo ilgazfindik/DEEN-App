@@ -425,11 +425,11 @@
  }
 
  const letterAudioHelp=Object.freeze({
-  tr:{missing:'Bu dersteki harfler için henüz ses kaydı yok. Şıklara basınca ses gelmemesi normal.',open:'🔊 Kayıtlı 8 harfi dinle',close:'Sesleri gizle',heading:'Kayıtlı harf seslerini dene',play:'Dinlemek için bir harfe dokun.',present:'🔊 Ses simgesi olan şıklara dokunduğunda seçtiğin harfin sesi çalar.'},
-  en:{missing:'These letters have no recordings yet. The answer choices are silent.',open:'🔊 Listen to 8 recorded letters',close:'Hide sounds',heading:'Try the recorded letter sounds',play:'Tap a letter to hear it.',present:'🔊 Tap an option with a speaker icon to hear that letter.'},
-  ar:{missing:'لا توجد تسجيلات لهذه الأحرف بعد، لذلك لن تُسمع أصوات الخيارات.',open:'🔊 استمع إلى ٨ أحرف مسجّلة',close:'إخفاء الأصوات',heading:'جرّب أصوات الأحرف المسجّلة',play:'المس حرفًا لسماع صوته.',present:'🔊 اضغط على خيار يحمل رمز الصوت لسماع الحرف المختار.'},
-  de:{missing:'Für diese Buchstaben gibt es noch keine Aufnahmen. Die Antwortfelder bleiben stumm.',open:'🔊 8 aufgenommene Buchstaben anhören',close:'Töne ausblenden',heading:'Aufgenommene Buchstaben testen',play:'Tippe auf einen Buchstaben, um ihn zu hören.',present:'🔊 Tippe auf eine Option mit Lautsprechersymbol, um ihren Ton zu hören.'},
-  fr:{missing:'Ces lettres n’ont pas encore d’enregistrement. Les choix restent silencieux.',open:'🔊 Écouter les 8 lettres enregistrées',close:'Masquer les sons',heading:'Essayer les lettres enregistrées',play:'Touchez une lettre pour l’entendre.',present:'🔊 Touchez un choix avec un symbole de haut-parleur pour l’entendre.'}
+  tr:{missing:'Bu cihaz Arapça sesli okumayı desteklemiyor. Kayıtsız şıklar için Arapça ses paketi gerekir.',partial:'🔊 Sesli şıklara dokun. Diğer harfler için cihazda Arapça seslendirme bulunmalı.',open:'🔊 Kayıtlı 8 harfi dinle',close:'Sesleri gizle',heading:'Kayıtlı harf seslerini dene',play:'Dinlemek için bir harfe dokun.',present:'🔊 Her şık doğrudan okunur: kayıtlı 8 harfte MP3, diğerlerinde cihazın Arapça sesi (telaffuz cihaza göre değişebilir).',device:'Cihazın Arapça sesi'},
+  en:{missing:'This device cannot speak Arabic. Install an Arabic speech voice to hear unrecorded letters.',partial:'🔊 Tap audible answers; other letters require an Arabic voice on your device.',open:'🔊 Listen to 8 recorded letters',close:'Hide sounds',heading:'Try the recorded letter sounds',play:'Tap a letter to hear it.',present:'🔊 Tap any answer to hear its own name: original MP3 or device Arabic voice (pronunciation varies).',device:'Device Arabic voice'},
+  ar:{missing:'هذا الجهاز لا يدعم النطق بالعربية. تحتاج الأحرف غير المسجّلة إلى صوت عربي على الجهاز.',partial:'🔊 المس الخيارات المسموعة؛ تحتاج الأحرف الأخرى إلى صوت عربي على الجهاز.',open:'🔊 استمع إلى ٨ أحرف مسجّلة',close:'إخفاء الأصوات',heading:'جرّب أصوات الأحرف المسجّلة',play:'المس حرفًا لسماع صوته.',present:'🔊 اضغط على أي خيار لسماع اسمه: تسجيل أصلي أو نطق الجهاز العربي (قد يختلف النطق).',device:'النطق العربي للجهاز'},
+  de:{missing:'Dieses Gerät unterstützt keine arabische Sprachausgabe. Für die übrigen Buchstaben ist eine arabische Stimme nötig.',partial:'🔊 Tippe auf hörbare Antworten; andere benötigen eine arabische Stimme.',open:'🔊 8 aufgenommene Buchstaben anhören',close:'Töne ausblenden',heading:'Aufgenommene Buchstaben testen',play:'Tippe auf einen Buchstaben, um ihn zu hören.',present:'🔊 Jede Antwort spricht ihren eigenen Buchstaben: Aufnahme oder arabische Gerätestimme (Aussprache kann variieren).',device:'Arabische Gerätestimme'},
+  fr:{missing:'Cet appareil ne propose pas de synthèse vocale arabe. Une voix arabe est nécessaire pour les autres lettres.',partial:'🔊 Touchez les réponses sonores ; les autres exigent une voix arabe sur cet appareil.',open:'🔊 Écouter les 8 lettres enregistrées',close:'Masquer les sons',heading:'Essayer les lettres enregistrées',play:'Touchez une lettre pour l’entendre.',present:'🔊 Chaque réponse prononce sa lettre : MP3 ou voix arabe de l’appareil (prononciation variable).',device:'Voix arabe de l’appareil'}
  });
  const audioHelp=()=>letterAudioHelp[lang()]||letterAudioHelp.tr;
  function letterAudioPreviewPanel(){
@@ -453,9 +453,10 @@
  function appendLetterAudioHelp(box,items){
   const voice=window.DEEN_ARABIC_LETTER_AUDIO;
   if(!voice?.previewCount?.())return;
-  const help=audioHelp(),hasChoiceAudio=items.some(letter=>voice.available(letter.id));
-  box.append(elem('p','deen-path-audio-info',hasChoiceAudio?help.present:help.missing));
-  if(hasChoiceAudio)return;
+  const help=audioHelp(),modes=items.map(letter=>voice.modeFor(letter.id));
+  const allAudible=modes.every(Boolean),anyAudible=modes.some(Boolean);
+  box.append(elem('p','deen-path-audio-info',allAudible?help.present:anyAudible?help.partial:help.missing));
+  if(allAudible)return;
   const button=makeButton(state.audioPreviewOpen?help.close:help.open,'toggleAudioPreview','deen-path-audio-preview-toggle');
   button.setAttribute('aria-expanded',String(state.audioPreviewOpen));
   box.append(button);
@@ -1675,9 +1676,14 @@
    const b=makeButton(candidate.glyph,'answer','deen-path-option');
    b.dataset.letterId=candidate.id;b.lang='ar';b.dir='rtl';
    // Only names with a recorded, available voice show the speaker affordance.
-   if(group().kind==='recognition'&&letterVoice?.available(candidate.id)){
-    b.classList.add('deen-path-option-audio');
-    b.title=letterVoice.label(lang(),true);
+   if(group().kind==='recognition'){
+    const mode=letterVoice?.modeFor(candidate.id);
+    if(mode){
+     b.classList.add('deen-path-option-audio');
+     if(mode==='device')b.classList.add('deen-path-option-tts');
+     b.title=mode==='device'?audioHelp().device:letterVoice.label(lang(),true);
+     b.setAttribute('aria-label',letterLabel(candidate)+' · '+b.title);
+    }
    }
    if(state.correct&&candidate.id===item.id)b.classList.add('deen-path-option-correct');
    options.appendChild(b);
@@ -1745,10 +1751,9 @@
    // Play the actual option touched, whether it is correct or wrong.
    // Playback must begin synchronously in the tap/click handler on mobile.
    const voice=window.DEEN_ARABIC_LETTER_AUDIO;
-   voice?.stop?.();
-   if(voice?.available(id))voice.play(id);
-   // For the other 20 letters there is no recording; never substitute
-   // the correct option's voice or invent a pronunciation.
+   // Run synchronously during the tap event, before the answer is graded.
+   // MP3 for 8 recorded letters, Arabic device TTS for other 20 letters.
+   voice?.playChoice?.(id);
   }
   if((PHRASE_LESSONS.includes(group())&&group().kind!=='phrase-order')||
       (PATTERN_LESSONS.includes(group())&&group().kind!=='pattern-structure'))
