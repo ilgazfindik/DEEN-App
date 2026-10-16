@@ -857,3 +857,51 @@
  -webkit-text-fill-color:#a4f5d7;
  pointer-events:none;
 }
+
+/* Phase 20: recorded letters can be heard without completing locked lessons.
+   Unrecorded recognition answers remain silent and explicitly explained. */
+#leagueScreenBody .deen-path-audio-info{
+ margin:10px 0 10px;font:600 12px/1.55 system-ui,sans-serif;
+ color:#d8f5e9;background:rgba(37,108,100,.20);
+ border-inline-start:3px solid #67ddbb;border-radius:8px;padding:9px 11px;
+}
+#leagueScreenBody .deen-path-audio-preview-toggle{
+ width:100%;min-height:44px;padding:10px 12px;border-radius:12px;
+ border:1px solid rgba(115,229,191,.65);background:rgba(28,122,112,.26);
+ color:#c5ffe4;font:750 13px/1.3 system-ui,sans-serif;
+ cursor:pointer;touch-action:manipulation;margin:0 0 10px;
+}
+#leagueScreenBody .deen-path-audio-preview-toggle:focus-visible,
+#leagueScreenBody .deen-path-audio-preview-choice:focus-visible{
+ outline:2px solid #a8ffe0;outline-offset:3px;
+}
+#leagueScreenBody .deen-path-audio-preview{
+ margin:0 0 14px;padding:11px;border:1px solid rgba(132,205,183,.28);
+ border-radius:14px;background:rgba(17,68,67,.4);
+}
+#leagueScreenBody .deen-path-audio-preview-title{
+ font:750 14px/1.45 system-ui,sans-serif;color:#effff5;margin:0 0 4px;
+}
+#leagueScreenBody .deen-path-audio-preview-copy{
+ font:500 11px/1.4 system-ui,sans-serif;color:#c5e7e4;margin:0 0 9px;
+}
+#leagueScreenBody .deen-path-audio-preview-grid{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;
+}
+#leagueScreenBody .deen-path-audio-preview-choice{
+ min-width:0;min-height:66px;border:1px solid rgba(132,205,183,.45);
+ border-radius:11px;background:rgba(18,66,65,.65);color:#ffe4b1;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:2px;cursor:pointer;touch-action:manipulation;
+ font-family:inherit;
+}
+#leagueScreenBody .deen-path-audio-preview-choice span{
+ font:700 27px/1.15 "Geeza Pro","Noto Naskh Arabic",serif;
+}
+#leagueScreenBody .deen-path-audio-preview-choice small{
+ color:#e0f9ef;font:650 10px/1.3 system-ui,sans-serif;
+ overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;
+}
+#leagueScreenBody .deen-path-audio-preview-choice:active{
+ transform:scale(.97);background:rgba(36,130,116,.60);
+}
