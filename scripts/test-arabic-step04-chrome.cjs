@@ -9,7 +9,7 @@ assert.ok(begin>30&&end>begin,'tip table is parseable');
 const tips=JSON.parse(p.slice(begin,end));
 const records=['arabic-word-syllables-01','arabic-word-words-01','arabic-word-quran-01','arabic-listen-syllables-01','arabic-listen-words-01','arabic-meaning-gloss-01','arabic-meaning-role-01'];
 const locales=['tr','en','ar','de','fr'];
-assert.equal(Object.keys(tips).length,20,'13 previous and 7 new tips');
+assert.equal(Object.keys(tips).length,27,'All 27 lessons must retain notes');
 for(const id of records){
   const tip=tips[id];assert.ok(tip&&tip.id===id,id);
   for(const lang of locales){

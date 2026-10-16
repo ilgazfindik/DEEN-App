@@ -1,6 +1,6 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01–04 tamamlandı. PR #105, hızlı ve kapsamlı QA başarılı olduktan sonra main'e birleştirildi (merge `ce401c0d639d58e09e2fcfd7dbc7034dccfdc8cd`).
+**Durum:** 01–04 tamamlandı. 05 öğreticileri geliştirildi ve QA/PR merge bekleniyor.
 **Son doğrulanan uygulama kod dalı:** main (`ce401c0d639d58e09e2fcfd7dbc7034dccfdc8cd`, sürüm `9437wordmeaningreadingtips`).
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
@@ -52,11 +52,12 @@
 - Kritik regresyon: 0; yanlış ilerleme sıfırlaması: 0; sessiz sesi "başarılı" gösterme: 0.
 
 ## Bir sonraki "devam" komutunun kesin görevi
-**Adım 05 — anlam sıralaması, ifadeler ve kalıplar 21–27:** 21. ders (anlam/sözcük sırası) ile 22–27. derslerde (ifadeler ve kalıplar) mikro öğretici kartlarını aynı motorla gerçek öğrenme akışına bağla. Beş dil, RTL, ayet/günlük açıklama farkları ve kayıt ilerlemesinin bozulmamasını test et. İlk 20 kartı tekrar üretme. QA + PR ile ilerle.
+**Adım 05 — QA ve main entegrasyonu:** Yedi yeni kart × beş dili, 21–27. derslerin oyun ekranlarını, ilk açılış/Ders Notu/RTL, kayıt koruma ve eski 20 dersin regresyonunu doğrula. CI başarılıysa [x] yapıp merge et. Sonraki devam 06. aşama soru motoru V2.
 
 ## Son doğrulanmış ilerleme
 - **01:** PR [#101](https://github.com/ilgazfindik/DEEN-App/pull/101), `f07c7d726f0b65103d4135a8c1bb85f134b93c74` main merge; beş dil, RTL, 15 ses, refresh/progress Chrome testi başarılı. Tam uygulama denetimi: [38973328259](https://github.com/ilgazfindik/DEEN-App/actions/runs/38973328259), başarılı.
 - **02:** PR [#102](https://github.com/ilgazfindik/DEEN-App/pull/102) üzerinde 3–7. dersler, beş dilde toplam 25 yeni mikro öğretici çevirisi, her biri üç örnek; uyumlu ses kısmi. Hızlı ses/oynanış QA [38975545869](https://github.com/ilgazfindik/DEEN-App/actions/runs/38975545869) başarılı. Geniş denetim [38975541778](https://github.com/ilgazfindik/DEEN-App/actions/runs/38975541778) **başarılı**; son kaynak değişikliği yalnızca bu kanıtı kaydeden dokümantasyondur.
 - **03:** PR [#104](https://github.com/ilgazfindik/DEEN-App/pull/104) ile üstün/esre/ötre, ba/ta heceleri, cezim, şedde ve med için 6 yeni öğretici × 5 dil hazır. Harf adı MP3'ü harekeli hece sesi yerine kullanılmıyor. Eski oyun testleri ilk giriş kartlarından ayrıştırıldı; [hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38977946893) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38977942610) başarılı.
 - **04:** PR [#105](https://github.com/ilgazfindik/DEEN-App/pull/105), 14–20 için yedi kart × 5 dil (35 yerel içerik); 14–16 ve 19–20 derslerinin oynanış ekranı bağlandı. 17–18 için altı bağımsız onaylı ses kaydı bulunmadığından dinleme oyunları kasten kilitli. İlk açılış/Ders Notu, 320px RTL, ilerleme ve reload Chrome kontrolü ile [hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38979882019) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38979882018) başarılı.
-- **Kalan:** 05–16. adımlar; 600 yeni soruya henüz başlanmadı. Yeni kayıt gelmedikçe eksik harf/hece/kelime MP3 dosyaları varmış gibi gösterilmeyecek.
+- **05 (QA/merge bekliyor):** 21–27 için 7 yeni kart × 5 dil, gerçek anlam/ifade/kalıp oyun motorlarına bağlandı, özel Chrome QA eklendi. Önceki 20 kart korunuyor.
+- **Kalan:** 05–16. adımlar; 600 yeni soruya henüz başlanmadı. Eksik kayıtlar varmış gibi gösterilmeyecek.

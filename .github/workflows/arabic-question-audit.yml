@@ -49,6 +49,7 @@ jobs:
           node scripts/test-quran-meaning-chrome.cjs
           node scripts/test-quran-phrases-chrome.cjs
           node scripts/test-quran-patterns-chrome.cjs
+          node scripts/test-arabic-step05-chrome.cjs
           node scripts/test-quran-mastery-chrome.cjs
           node scripts/test-quran-daily-chrome.cjs
           node scripts/test-quran-adaptive-chrome.cjs
