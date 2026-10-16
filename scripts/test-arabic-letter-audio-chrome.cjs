@@ -34,6 +34,13 @@ const fileOf=id=>'letter-'+id+'.mp3';
   await page.evaluate(()=>{
    window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang};
    window.__deenAudioEvents=[];
+   window.__deenTtsEvents=[];
+   window.SpeechSynthesisUtterance=function(text){this.text=text;this.lang='';this.rate=1};
+   Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{
+    getVoices(){return [{name:'Arabic QA voice',lang:'ar-SA'}]},
+    speak(utterance){__deenTtsEvents.push({type:'speak',text:utterance.text,lang:utterance.lang,voice:utterance.voice?.lang})},
+    cancel(){__deenTtsEvents.push({type:'cancel'})}
+   }});
    const RealAudio=window.Audio;
    window.Audio=function(url){
     const audio=new RealAudio(url);
@@ -98,8 +105,9 @@ const fileOf=id=>'letter-'+id+'.mp3';
   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.selectGroup(5)});
   await page.locator('[data-qpath-action="start"]').click();
   assert.equal(await page.locator('.deen-path-letter-lesson-listen').count(),0,'No audio for unrecorded fa');
-  assert.equal(await page.locator('.deen-path-option-audio').count(),3,'Exactly qaf, kaf, lam have recordings');
-  assert.equal(await page.locator('.deen-path-option-audio[data-letter-id="fa"]').count(),0);
+  assert.equal(await page.locator('.deen-path-option-audio').count(),4,'All four choices have a voice source');
+  assert.equal(await page.locator('.deen-path-option-tts[data-letter-id="fa"]').count(),1,'Fa uses the device voice');
+  assert.equal(await page.locator('.deen-path-option-tts[data-letter-id="qaf"]').count(),0,'Recorded Qaf uses MP3');
   // First question: fa is correct but unrecorded. Wrong qaf must play
   // QAF, never the correct answer's sound.
   const wrongQafBefore=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length);
@@ -110,8 +118,10 @@ const fileOf=id=>'letter-'+id+'.mp3';
   const pausesBeforeUnrecorded=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='paused').length);
   await page.locator('[data-qpath-action="answer"][data-letter-id="fa"]').click();
   assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
-  assert.equal(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length),createdBeforeUnrecorded,'Do not invent a clip for fa');
-  assert.ok(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='paused').length)>pausesBeforeUnrecorded,'An unrecorded option stops the previous audio');
+  assert.equal(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length),createdBeforeUnrecorded,'Do not invent an MP3 for Fa');
+  assert.ok(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='paused').length)>pausesBeforeUnrecorded,'Device TTS stops previous MP3');
+  assert.equal(await page.evaluate(()=>__deenTtsEvents.filter(e=>e.type==='speak'&&e.text==='فَاء'&&e.lang==='ar-SA').length),1,
+   'Unrecorded Fa is spoken in Arabic via device TTS');
   await page.locator('[data-qpath-action="next"]').click();
   assert.equal(await page.locator('.deen-path-letter-lesson-listen[data-letter-id="qaf"]').count(),1);
   // Second question: kaf is wrong. Its OWN audio plays, followed by
@@ -136,11 +146,27 @@ const fileOf=id=>'letter-'+id+'.mp3';
     'Navigating to another app tab stops current letter pronunciation');
   const afterProgress=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed);
   assert.equal(afterProgress.length,6,'Preview and lesson clicks never award a completed lesson');
-  // Real user screenshot: lesson 2 has Tha, Jim, Hha and Kha — none of the
-  // eight uploaded clips matches them. Explicitly explain this and make
-  // recorded letter samples accessible without unlocking lessons 6 and 7.
+  // The FIRST lesson contains exactly three options, all without MP3 assets.
+  // Every choice must now speak its own Arabic name on a capable device.
   await page.evaluate(()=>{
    document.querySelector('#leagueScreen').classList.add('active');
+   DEEN_QURAN_PATHS.enterArabic();DEEN_QURAN_PATHS.selectGroup(0);
+  });
+  await page.locator('[data-qpath-action="start"]').click();
+  assert.equal(await page.locator('.deen-path-option').count(),3);
+  assert.equal(await page.locator('.deen-path-option-tts').count(),3,'All three first-lesson choices must be audible');
+  const audioEventsBefore=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length);
+  await page.locator('.deen-path-option[data-letter-id="ba"]').click();
+  assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
+  assert.ok(await page.evaluate(()=>__deenTtsEvents.some(e=>e.type==='speak'&&e.text==='بَاء'&&e.lang==='ar-SA')));
+  await page.locator('.deen-path-option[data-letter-id="alif"]').click();
+  assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
+  assert.ok(await page.evaluate(()=>__deenTtsEvents.some(e=>e.type==='speak'&&e.text==='أَلِف'&&e.lang==='ar-SA')));
+  assert.equal(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length),audioEventsBefore,'First lesson must not use an unrelated MP3');
+
+  // Lesson 2: Tha, Jim, Hha and Kha have no supplied MP3, but should
+  // speak directly on tap without opening the optional preview tray.
+  await page.evaluate(()=>{
    localStorage.setItem('deen_arabic_foundations_v2',JSON.stringify({
     schema:2,completed:DEEN_ARABIC_LETTERS.lessons.slice(0,1).map(x=>x.id)
    }));
@@ -148,20 +174,18 @@ const fileOf=id=>'letter-'+id+'.mp3';
   });
   assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.selectGroup(1)),true);
   await page.locator('[data-qpath-action="start"]').click();
-  assert.equal(await page.locator('.deen-path-option-audio').count(),0,'Lesson 2 has no matching recordings');
-  assert.match(await page.locator('.deen-path-audio-info').innerText(),/henüz ses kaydı yok/);
-  assert.equal(await page.locator('.deen-path-audio-preview-choice').count(),0,'Preview initially collapsed');
-  await page.locator('[data-qpath-action="toggleAudioPreview"]').click();
-  assert.equal(await page.locator('.deen-path-audio-preview-choice').count(),8,'Eight uploaded clips are reachable in early lessons');
-  const qafBefore=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length);
-  await page.locator('.deen-path-audio-preview-choice[data-letter-id="qaf"]').click();
-  await page.waitForFunction(n=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length>n,qafBefore);
-  assert.equal(await page.locator('.deen-path-feedback').count(),0,'Preview must not grade the lesson');
-  const createdBeforeUnrecordedChoice=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length);
+  assert.equal(await page.locator('.deen-path-option-tts').count(),4);
+  assert.match(await page.locator('.deen-path-audio-info').innerText(),/doğrudan okunur/);
+  assert.equal(await page.locator('.deen-path-audio-preview-choice').count(),0,'No tray needed for audible choices');
+  const recordedBeforeTha=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length);
+  await page.locator('[data-qpath-action="answer"][data-letter-id="jim"]').click();
+  assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
+  assert.ok(await page.evaluate(()=>__deenTtsEvents.some(e=>e.type==='speak'&&e.text==='جِيم')));
   await page.locator('[data-qpath-action="answer"][data-letter-id="tha"]').click();
-  assert.equal(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length),createdBeforeUnrecordedChoice,'No fake audio for Tha');
   assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
-  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),1,'Early lesson audio does not alter progress');
+  assert.ok(await page.evaluate(()=>__deenTtsEvents.some(e=>e.type==='speak'&&e.text==='ثَاء')));
+  assert.equal(await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='created').length),recordedBeforeTha,'Never substitute recorded Qaf/Kaf for lesson 2');
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),1,'Speech must not alter stored progress');
   assert.equal(await page.locator('#originalSurah').count(),1,'Quran surah subtree still exists');
   assert.deepEqual(errors,[]);
   // Emulate mobile Chrome: touch-only input, 320px viewport and device scale 2.
@@ -175,6 +199,13 @@ const fileOf=id=>'letter-'+id+'.mp3';
   await mobile.evaluate(()=>{
    window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang};
    window.__mobileAudioEvents={plays:[],pauses:0};
+   window.__mobileTtsEvents=[];
+   window.SpeechSynthesisUtterance=function(text){this.text=text;this.lang=''};
+   Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{
+    getVoices(){return [{lang:'ar-SA',name:'Mobile Arabic QA'}]},
+    speak(utterance){__mobileTtsEvents.push({type:'speak',text:utterance.text,lang:utterance.lang})},
+    cancel(){__mobileTtsEvents.push({type:'cancel'})}
+   }});
    const NativeAudio=window.Audio;
    window.Audio=function(url){
     const a=new NativeAudio(url);
@@ -225,8 +256,17 @@ const fileOf=id=>'letter-'+id+'.mp3';
    'Backgrounding the web app must stop the isolated letter clip');
   const stored=await mobile.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length);
   assert.equal(stored,6,'Listening on touchscreens never forges lesson completion');
+  await mobile.evaluate(()=>{
+   DEEN_QURAN_PATHS.enterArabic();
+   DEEN_QURAN_PATHS.selectGroup(0);
+  });
+  await mobile.locator('[data-qpath-action="start"]').tap();
+  assert.equal(await mobile.locator('.deen-path-option-tts').count(),3);
+  await mobile.locator('.deen-path-option[data-letter-id="ba"]').tap();
+  assert.ok(await mobile.evaluate(()=>__mobileTtsEvents.some(e=>e.type==='speak'&&e.text==='بَاء'&&e.lang==='ar-SA')),
+   'Direct mobile choice taps must invoke Arabic device speech');
   assert.deepEqual(mobileErrors,[]);
   await mobile.close();
-  console.log('PASS LETTER AUDIO CHROME: 8 real MP3 decodes, 2nd-lesson clear missing-voice guidance and instant preview, wrong/correct option-specific voices, no-audio fallback, 5 locales, mobile taps, background stop, single voice and progress safety');
+  console.log('PASS LETTER AUDIO CHROME: 8 real MP3 decodes, 3-choice first lesson and 4-choice second lesson Arabic device TTS, recorded option MP3s, 5 locales, mobile taps, background stop, single voice and progress safety');
  }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);server.close();process.exit(1)});
