@@ -42,10 +42,13 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.evaluate(()=>{DEEN_QURAN_PATHS.selectGroup(0);DEEN_QURAN_PATHS.start()});
   const first=await page.evaluate(()=>DEEN_ARABIC_LETTERS.lessons[0].letters.map(x=>x.id));
   await page.locator('[data-qpath-action="answer"][data-letter-id="'+first[1]+'"]').click();
+  await page.locator('[data-qpath-action="checkLetterAnswer"]').click();
   await page.locator('[data-qpath-action="answer"][data-letter-id="'+first[0]+'"]').click();
+  await page.locator('[data-qpath-action="checkLetterAnswer"]').click();
   await page.locator('[data-qpath-action="next"]').click();
   for(const id of first.slice(1)){
    await page.locator('[data-qpath-action="answer"][data-letter-id="'+id+'"]').click();
+   await page.locator('[data-qpath-action="checkLetterAnswer"]').click();
    await page.locator('[data-qpath-action="next"]').click();
   }
   assert.equal(await page.locator('.deen-path-completion').count(),1);

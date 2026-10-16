@@ -147,7 +147,7 @@
  };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
  const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()],masteryUi[lang()],DAILY.ui[lang()],ADAPTIVE.ui[lang()],FOUNDATION.ui[lang()],CHECKPOINT.ui[lang()],REMEDY.ui[lang()],WEEKLY.ui[lang()],GOALS.ui[lang()]);
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:''};
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -1659,6 +1659,11 @@
   if(state.correct)box.append(makeButton(state.question===items.length-1?c.finish:c.next,'next','deen-path-primary'));
   return box;
  }
+ const recognitionLabels=Object.freeze({
+  tr:{check:'Kontrol Et'},en:{check:'Check'},ar:{check:'تحقق'},
+  de:{check:'Prüfen'},fr:{check:'Vérifier'}
+ });
+ const recognitionText=()=>recognitionLabels[lang()]||recognitionLabels.tr;
  function lessonView(){
   if(PATTERN_LESSONS.includes(group()))return patternLessonView();
   if(PHRASE_LESSONS.includes(group()))return phraseLessonView();
@@ -1674,6 +1679,7 @@
   const letterVoice=window.DEEN_ARABIC_LETTER_AUDIO;
   // Playback belongs directly to the answer chips; no extra Listen button.
   const options=elem('div','deen-path-options');
+  if(group().kind==='recognition'&&items.length===4)options.classList.add('deen-path-options-four');
   const order=[...items.slice((state.question+1)%items.length),...items.slice(0,(state.question+1)%items.length)];
   for(const candidate of order){
    const b=makeButton(candidate.glyph,'answer','deen-path-option');
@@ -1688,6 +1694,11 @@
      b.setAttribute('aria-label',letterLabel(candidate)+' · '+b.title);
     }
    }
+   if(group().kind==='recognition'){
+    const selected=state.selectedLetterId===candidate.id;
+    b.setAttribute('aria-pressed',String(selected));
+    if(selected)b.classList.add('deen-path-option-selected');
+   }
    if(state.correct&&candidate.id===item.id)b.classList.add('deen-path-option-correct');
    options.appendChild(b);
   }
@@ -1701,6 +1712,11 @@
   if(state.feedback){
    const f=elem('p','deen-path-feedback'+(state.correct?' is-correct':' is-wrong'),state.feedback);
    f.setAttribute('role','status');box.appendChild(f);
+  }
+  if(group().kind==='recognition'&&!state.correct){
+   const check=makeButton(recognitionText().check,'checkLetterAnswer','deen-path-primary deen-path-check-letter');
+   check.disabled=!state.selectedLetterId;
+   box.appendChild(check);
   }
   if(state.correct)box.appendChild(makeButton(state.question===items.length-1?c.finish:c.next,'next','deen-path-primary'));
   return box;
@@ -1740,7 +1756,7 @@
  }
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
-  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
+  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.selectedLetterId=null;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
   return show('lesson');
  }
  function next(){
@@ -1748,23 +1764,13 @@
   if(!state.correct)return;
   LISTENING.stop();
   if(state.question<groupLetters().length-1){
-   state.question++;state.correct=false;state.feedback='';state.audioStatus='';state.pieces=[];state.listenHeard=false;state.listeningBusy=false;show('lesson');
+   state.question++;state.correct=false;state.feedback='';state.audioStatus='';state.selectedLetterId=null;state.pieces=[];state.listenHeard=false;state.listeningBusy=false;show('lesson');
   }else{
    state.complete=true;saveCompleted();saveLessonOutcome();dailyMark('lesson',group().id);show('complete');
   }
  }
- function answer(id){
-  if(state.view!=='lesson')return;
-  if(group().kind==='recognition'&&groupLetters().some(candidate=>candidate.id===id)){
-   state.audioStatus='';
-   // Play the actual option touched, whether it is correct or wrong.
-   // Playback must begin synchronously in the tap/click handler on mobile.
-   const voice=window.DEEN_ARABIC_LETTER_AUDIO;
-   // Run synchronously during the tap event, before the answer is graded.
-   // MP3 for 8 recorded letters, Arabic device TTS for other 20 letters.
-   voice?.playChoice?.(id);
-  }
-  if(state.correct)return; // tapping a graded option still replays its name
+ function gradeAnswer(id){
+  if(state.correct)return;
   if((PHRASE_LESSONS.includes(group())&&group().kind!=='phrase-order')||
       (PATTERN_LESSONS.includes(group())&&group().kind!=='pattern-structure'))
    recordReview(groupLetters()[state.question].id,id===groupLetters()[state.question].id);
@@ -1774,6 +1780,27 @@
   if(!state.correct)markLessonMiss();
   state.feedback=state.correct?t().correct:t().wrong;
   update();
+ }
+ function answer(id){
+  if(state.view!=='lesson')return;
+  if(group().kind==='recognition'){
+   if(!groupLetters().some(candidate=>candidate.id===id))return;
+   // Each choice plays its own pronunciation on the originating tap;
+   // only the separate Check action is allowed to grade an answer.
+   state.audioStatus='';
+   window.DEEN_ARABIC_LETTER_AUDIO?.playChoice?.(id);
+   if(!state.correct){
+    state.selectedLetterId=id;
+    state.feedback='';
+    update();
+   }
+   return;
+  }
+  gradeAnswer(id);
+ }
+ function checkLetterAnswer(){
+  if(state.view!=='lesson'||group().kind!=='recognition'||state.correct)return;
+  if(state.selectedLetterId)gradeAnswer(state.selectedLetterId);
  }
  function piece(index){
   if(state.view!=='lesson'||state.correct||!WORD_LESSONS.includes(group())||group().kind==='quran-find')return;
@@ -1855,6 +1882,7 @@
    else if(action==='nextGroup')selectGroup(state.lessonIndex+1);
    else if(action==='start')start();
    else if(action==='answer')answer(b.dataset.letterId);
+   else if(action==='checkLetterAnswer')checkLetterAnswer();
    else if(action==='piece')piece(b.dataset.pieceIndex);
    else if(action==='resetPieces')resetPieces();
    else if(action==='meaningPiece')meaningPiece(b.dataset.pieceIndex);

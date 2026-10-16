@@ -928,3 +928,17 @@
  border:1px solid rgba(164,209,193,.4);border-radius:10px;
  color:#e5f9e9;background:rgba(23,65,70,.54);
 }
+
+/* Selection and confirmation are distinct from pronunciation playback. */
+#leagueScreenBody .deen-path-option.deen-path-option-selected{
+ border:2px solid #62f3c7;
+ background:linear-gradient(160deg,#155b58,#0e3f43);
+ box-shadow:0 0 0 2px rgba(56,221,183,.15),0 9px 21px rgba(8,24,28,.2);
+}
+#leagueScreenBody .deen-path-check-letter:disabled{
+ opacity:.48;cursor:not-allowed;box-shadow:none;
+ filter:saturate(.65);
+}
+
+/* Four choices use an even 2x2 grid on narrow phones. */
+#leagueScreenBody .deen-path-options.deen-path-options-four{grid-template-columns:repeat(2,minmax(0,1fr))}
