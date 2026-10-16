@@ -68,11 +68,11 @@
  const PROGRESS_STORE='deen_arabic_foundations_v2';
  const legacyStore=STORE;
  const extra={
-  tr:{course:'28 Arapça harf · 7 mini ders',lesson:'Ders',openLesson:'Dersi İncele',locked:'Önceki dersi tamamla',done:'Tamamlandı',new:'Başlamaya hazır',allLetters:'28 Harf ve Yazılış Biçimleri',atlasHelp:'Başta, ortada ve sonda harflerin biçimleri değişebilir. Bazı harfler kendilerinden sonraki harfle birleşmez.',alone:'Tek',begin:'Başta',middle:'Ortada',end:'Sonda',noMiddle:'Birleşmez',noJoin:'Sonraki harfle birleşmez',goLesson:'Alıştırmaya Başla',nextLesson:'Sonraki Derse Geç',courseProgress:'Harf öğrenme ilerlemen',courseComplete:'Tüm 7 ders tamamlandı!',courseCompleteDesc:'28 harfin adlarını tanıma alıştırmalarını bitirdin. Sonraki aşamada harekeler ve telaffuz çalışacağız.',groupTitle:'Harfleri tanıma',courseInfo:'Seslendirme henüz eklenmedi. Harflerin adlarını ve yazılışlarını öğreneceğiz.',shape:'Yazılış biçimleri',letters:'harf'},
-  en:{course:'28 Arabic letters · 7 mini lessons',lesson:'Lesson',openLesson:'Explore lesson',locked:'Complete the previous lesson',done:'Completed',new:'Ready to start',allLetters:'28 Letters & Writing Forms',atlasHelp:'Letters can change shape at the beginning, middle and end. Some do not connect to the next letter.',alone:'Isolated',begin:'Initial',middle:'Medial',end:'Final',noMiddle:'Does not join',noJoin:'Does not connect forward',goLesson:'Start Practice',nextLesson:'Next Lesson',courseProgress:'Your letter-learning progress',courseComplete:'All 7 lessons complete!',courseCompleteDesc:'You practiced recognizing all 28 letters. Vowels and verified pronunciation will come next.',groupTitle:'Recognize letters',courseInfo:'Audio is not yet included. Start with names and letter forms.',shape:'Writing forms',letters:'letters'},
-  ar:{course:'٢٨ حرفًا عربيًا · ٧ دروس قصيرة',lesson:'الدرس',openLesson:'استعرض الدرس',locked:'أكمل الدرس السابق',done:'مكتمل',new:'جاهز للبدء',allLetters:'الحروف الـ٢٨ وأشكال كتابتها',atlasHelp:'قد يتغيّر شكل الحرف في أول الكلمة ووسطها وآخرها. بعض الحروف لا تتصل بما بعدها.',alone:'منفصل',begin:'في البداية',middle:'في الوسط',end:'في النهاية',noMiddle:'لا يتصل',noJoin:'لا يتصل بما بعده',goLesson:'ابدأ التدريب',nextLesson:'الدرس التالي',courseProgress:'تقدّمك في تعلّم الحروف',courseComplete:'أكملت الدروس السبعة!',courseCompleteDesc:'تدرّبت على تمييز الحروف الـ٢٨. ستأتي الحركات والنطق الموثّق لاحقًا.',groupTitle:'تمييز الحروف',courseInfo:'لم يُضف الصوت بعد. ابدأ بأسماء الحروف وأشكالها.',shape:'أشكال الكتابة',letters:'حروف'},
-  de:{course:'28 arabische Buchstaben · 7 Mini-Lektionen',lesson:'Lektion',openLesson:'Lektion ansehen',locked:'Vorherige Lektion abschließen',done:'Abgeschlossen',new:'Bereit',allLetters:'28 Buchstaben und Schreibformen',atlasHelp:'Buchstaben können am Anfang, in der Mitte und am Ende anders aussehen. Manche verbinden sich nicht mit dem nächsten Buchstaben.',alone:'Einzeln',begin:'Anfang',middle:'Mitte',end:'Ende',noMiddle:'Keine Verbindung',noJoin:'Verbindet nicht nach links',goLesson:'Übung starten',nextLesson:'Nächste Lektion',courseProgress:'Fortschritt beim Buchstabenlernen',courseComplete:'Alle 7 Lektionen abgeschlossen!',courseCompleteDesc:'Du hast alle 28 Buchstaben geübt. Vokalzeichen und geprüfte Aussprache folgen.',groupTitle:'Buchstaben erkennen',courseInfo:'Audio kommt später. Beginne mit Namen und Schreibformen.',shape:'Schreibformen',letters:'Buchstaben'},
-  fr:{course:'28 lettres arabes · 7 mini-leçons',lesson:'Leçon',openLesson:'Découvrir la leçon',locked:'Termine la leçon précédente',done:'Terminée',new:'Prête',allLetters:'28 lettres et leurs formes',atlasHelp:'Les lettres peuvent changer de forme au début, au milieu et à la fin du mot. Certaines ne se lient pas à la lettre suivante.',alone:'Isolée',begin:'Initiale',middle:'Médiane',end:'Finale',noMiddle:'Pas de liaison',noJoin:'Ne se lie pas à la suivante',goLesson:'Commencer l’exercice',nextLesson:'Leçon suivante',courseProgress:'Ta progression dans les lettres',courseComplete:'Les 7 leçons sont terminées !',courseCompleteDesc:'Tu as appris à reconnaître les 28 lettres. Les voyelles et la prononciation vérifiée viendront ensuite.',groupTitle:'Reconnaître les lettres',courseInfo:'L’audio sera ajouté plus tard. Commence par le nom et la forme des lettres.',shape:'Formes écrites',letters:'lettres'}
+  tr:{course:'28 Arapça harf · 7 mini ders',lesson:'Ders',openLesson:'Dersi İncele',locked:'Önceki dersi tamamla',done:'Tamamlandı',new:'Başlamaya hazır',allLetters:'28 Harf ve Yazılış Biçimleri',atlasHelp:'Başta, ortada ve sonda harflerin biçimleri değişebilir. Bazı harfler kendilerinden sonraki harfle birleşmez.',alone:'Tek',begin:'Başta',middle:'Ortada',end:'Sonda',noMiddle:'Birleşmez',noJoin:'Sonraki harfle birleşmez',goLesson:'Alıştırmaya Başla',nextLesson:'Sonraki Derse Geç',courseProgress:'Harf öğrenme ilerlemen',courseComplete:'Tüm 7 ders tamamlandı!',courseCompleteDesc:'28 harfin adlarını tanıma alıştırmalarını bitirdin. Sonraki aşamada harekeler ve telaffuz çalışacağız.',groupTitle:'Harfleri tanıma',courseInfo:'8 harfte sesli önizleme var. Sesler telaffuz kontrolü bekliyor.',shape:'Yazılış biçimleri',letters:'harf'},
+  en:{course:'28 Arabic letters · 7 mini lessons',lesson:'Lesson',openLesson:'Explore lesson',locked:'Complete the previous lesson',done:'Completed',new:'Ready to start',allLetters:'28 Letters & Writing Forms',atlasHelp:'Letters can change shape at the beginning, middle and end. Some do not connect to the next letter.',alone:'Isolated',begin:'Initial',middle:'Medial',end:'Final',noMiddle:'Does not join',noJoin:'Does not connect forward',goLesson:'Start Practice',nextLesson:'Next Lesson',courseProgress:'Your letter-learning progress',courseComplete:'All 7 lessons complete!',courseCompleteDesc:'You practiced recognizing all 28 letters. Vowels and verified pronunciation will come next.',groupTitle:'Recognize letters',courseInfo:'Audio previews are available for 8 letters; pronunciation review is pending.',shape:'Writing forms',letters:'letters'},
+  ar:{course:'٢٨ حرفًا عربيًا · ٧ دروس قصيرة',lesson:'الدرس',openLesson:'استعرض الدرس',locked:'أكمل الدرس السابق',done:'مكتمل',new:'جاهز للبدء',allLetters:'الحروف الـ٢٨ وأشكال كتابتها',atlasHelp:'قد يتغيّر شكل الحرف في أول الكلمة ووسطها وآخرها. بعض الحروف لا تتصل بما بعدها.',alone:'منفصل',begin:'في البداية',middle:'في الوسط',end:'في النهاية',noMiddle:'لا يتصل',noJoin:'لا يتصل بما بعده',goLesson:'ابدأ التدريب',nextLesson:'الدرس التالي',courseProgress:'تقدّمك في تعلّم الحروف',courseComplete:'أكملت الدروس السبعة!',courseCompleteDesc:'تدرّبت على تمييز الحروف الـ٢٨. ستأتي الحركات والنطق الموثّق لاحقًا.',groupTitle:'تمييز الحروف',courseInfo:'تتوفر معاينة صوتية لثمانية أحرف، والنطق قيد المراجعة.',shape:'أشكال الكتابة',letters:'حروف'},
+  de:{course:'28 arabische Buchstaben · 7 Mini-Lektionen',lesson:'Lektion',openLesson:'Lektion ansehen',locked:'Vorherige Lektion abschließen',done:'Abgeschlossen',new:'Bereit',allLetters:'28 Buchstaben und Schreibformen',atlasHelp:'Buchstaben können am Anfang, in der Mitte und am Ende anders aussehen. Manche verbinden sich nicht mit dem nächsten Buchstaben.',alone:'Einzeln',begin:'Anfang',middle:'Mitte',end:'Ende',noMiddle:'Keine Verbindung',noJoin:'Verbindet nicht nach links',goLesson:'Übung starten',nextLesson:'Nächste Lektion',courseProgress:'Fortschritt beim Buchstabenlernen',courseComplete:'Alle 7 Lektionen abgeschlossen!',courseCompleteDesc:'Du hast alle 28 Buchstaben geübt. Vokalzeichen und geprüfte Aussprache folgen.',groupTitle:'Buchstaben erkennen',courseInfo:'Für 8 Buchstaben gibt es eine Audio-Vorschau; die Aussprache wird noch geprüft.',shape:'Schreibformen',letters:'Buchstaben'},
+  fr:{course:'28 lettres arabes · 7 mini-leçons',lesson:'Leçon',openLesson:'Découvrir la leçon',locked:'Termine la leçon précédente',done:'Terminée',new:'Prête',allLetters:'28 lettres et leurs formes',atlasHelp:'Les lettres peuvent changer de forme au début, au milieu et à la fin du mot. Certaines ne se lient pas à la lettre suivante.',alone:'Isolée',begin:'Initiale',middle:'Médiane',end:'Finale',noMiddle:'Pas de liaison',noJoin:'Ne se lie pas à la suivante',goLesson:'Commencer l’exercice',nextLesson:'Leçon suivante',courseProgress:'Ta progression dans les lettres',courseComplete:'Les 7 leçons sont terminées !',courseCompleteDesc:'Tu as appris à reconnaître les 28 lettres. Les voyelles et la prononciation vérifiée viendront ensuite.',groupTitle:'Reconnaître les lettres',courseInfo:'Un aperçu audio existe pour 8 lettres ; la prononciation reste à vérifier.',shape:'Formes écrites',letters:'lettres'}
  };
  const i18n={
   tr:{kicker:'KUR’AN ÖĞRENME MERKEZİ',homeTitle:'Kur’an yolculuğun',homeSub:'Harfleri tanı, okumayı öğren, sureleri keşfet.',arabic:'Arapça Öğren',arabicSub:'Sıfırdan harfler, harekeler ve okumaya ilk adım.',surah:'Sure Öğren ve Ezberle',surahSub:'Mevcut sureler, ayet dinleme, ezber ve tekrar.',arabicAction:'Arapça Öğrenmeye Başla',surahAction:'Surelere Geç',back:'Öğrenme yolları',preview:'İLK DERS',introTitle:'İlk üç harfi tanıyalım',introSub:'Elif, Be ve Te harflerinin şekillerini öğren. İlk alıştırmada doğru harfe dokun.',firstLesson:'Harfleri Tanı · 1',lessonStart:'Mini Dersi Başlat',completed:'İlk mini ders tamamlandı',completedDesc:'Harika! Üç harfi tanıdın. Sonraki derslerde tüm harfleri, harekeleri ve sesleri öğreneceğiz.',redo:'Yeniden Çalış',next:'Sonraki Soru',finish:'Dersi Tamamla',question:'Hangi harf?',correct:'Doğru! Harfi tanıdın.',wrong:'Bir daha dene. Harfin şeklini karşılaştır.',progress:'Soru',free:'ÜCRETSİZ',future:'28 harf ve diğer dersler adım adım eklenecek. Şimdilik sesli kıraat veya tam bir Arapça kursu sunulmuyor.',status:'İlk ders hazır'},
@@ -399,6 +399,26 @@
  }
  function root(){return document.getElementById('leagueScreenBody')}
  const letterLabel=item=>item.names?.[lang()]||item.names?.tr||item.glyph;
+ const letterAudioCourseInfo=fallback=>{
+  const voice=window.DEEN_ARABIC_LETTER_AUDIO;
+  const recorded=Object.keys(voice?.records||{}).length;
+  if(!recorded)return fallback;
+  const playable=voice.previewCount(),pending=voice.pendingCount(),missing=CURRICULUM.count-recorded;
+  const messages=playable?{
+   tr:playable+' harfin sesli önizlemesi yalnızca yerel test ortamında açık. '+pending+' kayıt incelemede; '+missing+' harfin sesi henüz yok.',
+   en:playable+' letter previews are available in local QA only. '+pending+' await review; '+missing+' letters are not yet recorded.',
+   ar:'معاينة '+playable+' أحرف متاحة للاختبار المحلي فقط. '+pending+' تسجيلات تنتظر المراجعة و'+missing+' حرفًا بلا تسجيل بعد.',
+   de:playable+' Buchstaben sind nur in der lokalen QA-Vorschau hörbar. '+pending+' Aufnahmen warten auf Prüfung; '+missing+' fehlen noch.',
+   fr:playable+' lettres sont audibles uniquement en test local. '+pending+' sons attendent validation ; '+missing+' lettres restent sans enregistrement.'
+  }:{
+   tr:recorded+' ses kaydı eklendi; telaffuz ve kullanım hakkı onayı tamamlanmadan dinleme açılmayacak. '+missing+' harfin sesi henüz yok.',
+   en:recorded+' recordings are staged. Listening stays disabled until pronunciation and usage rights are approved. '+missing+' letters are unrecorded.',
+   ar:'تم إعداد '+recorded+' تسجيلات، والاستماع متوقف حتى اعتماد النطق وحقوق الاستخدام. لم تُسجّل '+missing+' أحرف بعد.',
+   de:recorded+' Aufnahmen sind vorbereitet. Anhören erst nach Prüfung von Aussprache und Nutzungsrechten. '+missing+' Buchstaben fehlen.',
+   fr:recorded+' enregistrements sont prêts. Lecture bloquée avant validation de la prononciation et des droits. '+missing+' lettres manquent encore.'
+  };
+  return messages[lang()]||messages.tr;
+ };
  const elem=(tag,className,text)=>{const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e};
  function makeButton(label,action,className){
   const b=elem('button',className,label);b.type='button';b.dataset.qpathAction=action;return b;
@@ -428,8 +448,16 @@
  function lettersStrip(items){
   const samples=elem('div','deen-path-letter-row');
   for(const item of items){
-   const card=elem('div','deen-path-letter-card');
+   const voice=window.DEEN_ARABIC_LETTER_AUDIO;
+   const hasAudio=!!voice?.hasClip(item.id),ready=hasAudio&&voice.available(item.id);
+   const card=hasAudio?makeButton('','letterAudio','deen-path-letter-card deen-path-letter-card-audio'):elem('div','deen-path-letter-card');
+   if(hasAudio){
+    card.dataset.letterId=item.id;
+    card.disabled=!ready;
+    card.setAttribute('aria-label',letterLabel(item)+'. '+voice.label(lang(),ready));
+   }
    card.append(elem('span','deen-path-glyph',item.glyph),elem('small','',letterLabel(item)));
+   if(hasAudio)card.append(elem('span','deen-path-letter-audio-label','🔊 '+voice.label(lang(),ready)));
    samples.appendChild(card);
   }
   return samples;
@@ -740,7 +768,7 @@
  function alphabetView(){
   const c=t(),box=elem('section','deen-path-arabic-landing');
   box.append(makeButton('←  '+c.back,'home','deen-path-back'));
-  box.append(elem('span','deen-path-pill',c.free),elem('h2','deen-path-inner-title',c.arabic),elem('p','deen-path-muted',c.courseInfo));
+  box.append(elem('span','deen-path-pill',c.free),elem('h2','deen-path-inner-title',c.arabic),elem('p','deen-path-muted',letterAudioCourseInfo(c.courseInfo)));
   const done=completed().length;
   box.append(elem('p','deen-path-progress-copy',c.courseProgress+' · '+done+' / '+LESSONS.length));
   const track=elem('div','deen-path-course-progress'),fill=elem('span','',undefined);
@@ -1317,7 +1345,7 @@
   const num=pattern?state.lessonIndex-PATTERNS.startIndex+1:phrase?state.lessonIndex-PHRASES.startIndex+1:meaning?state.lessonIndex-MEANING.startIndex+1:listening?state.lessonIndex-LISTENING.startIndex+1:word?state.lessonIndex-WORDS.startIndex+1:reading?state.lessonIndex-READING.startIndex+1:phonics?state.lessonIndex-LESSONS.length+1:state.lessonIndex+1;
   const size=pattern?PATTERN_LESSONS.length:phrase?PHRASE_LESSONS.length:meaning?MEANING_LESSONS.length:listening?LISTENING_LESSONS.length:word?WORD_LESSONS.length:reading?READING_LESSONS.length:phonics?PHONIC_LESSONS.length:LESSONS.length;
   const title=pattern?(group().kind==='pattern-vocab'?c.patternVocabTitle:group().kind==='pattern-context'?c.patternContextTitle:c.patternStructureTitle):phrase?(group().kind==='phrase-vocab'?c.phraseVocabTitle:group().kind==='phrase-context'?c.phraseContextTitle:c.phraseOrderTitle):meaning?(group().kind==='meaning-gloss'?c.meaningGlossTitle:group().kind==='meaning-role'?c.meaningRoleTitle:c.meaningOrderTitle):listening?(group().kind==='listen-syllable'?c.listenSyllableTitle:c.listenWordTitle):word?(group().kind==='syllable-build'?c.wordSyllablesTitle:group().kind==='word-build'?c.wordWordsTitle:c.wordQuranTitle):reading?c[group().kind+'Title']:phonics?(group().kind==='harakat'?c.markTitle:c.syllableTitle):c.groupTitle;
-  const help=pattern?c.patternSub:phrase?(group().kind==='phrase-vocab'?c.phraseVocabDetail:group().kind==='phrase-context'?c.phraseContextDetail:c.phraseOrderDetail):meaning?(group().kind==='meaning-gloss'?c.meaningGlossDetail:group().kind==='meaning-role'?c.meaningRoleDetail:c.meaningOrderDetail):listening?(group().kind==='listen-syllable'?c.listenSyllableDetail:c.listenWordDetail):word?(group().kind==='syllable-build'?c.wordSyllablesDetail:group().kind==='word-build'?c.wordWordsDetail:c.wordQuranDetail):reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):c.courseInfo;
+  const help=pattern?c.patternSub:phrase?(group().kind==='phrase-vocab'?c.phraseVocabDetail:group().kind==='phrase-context'?c.phraseContextDetail:c.phraseOrderDetail):meaning?(group().kind==='meaning-gloss'?c.meaningGlossDetail:group().kind==='meaning-role'?c.meaningRoleDetail:c.meaningOrderDetail):listening?(group().kind==='listen-syllable'?c.listenSyllableDetail:c.listenWordDetail):word?(group().kind==='syllable-build'?c.wordSyllablesDetail:group().kind==='word-build'?c.wordWordsDetail:c.wordQuranDetail):reading?c[group().kind+'Detail']:phonics?(group().kind==='harakat'?c.vowelHelp:c.syllableHelp):letterAudioCourseInfo(c.courseInfo);
   box.append(elem('span','deen-path-pill',label+' '+num+' / '+size+' · '+c.free));
   box.append(elem('h2','deen-path-inner-title',title),elem('p','deen-path-muted',help));
   box.append(lettersStrip(items));
@@ -1325,7 +1353,7 @@
    box.append(elem('h3','deen-path-shape-subtitle',c.shape),shapeAtlas(items));
    if(items.some(item=>!item.joinsNext))box.appendChild(elem('p','deen-path-muted',c.atlasHelp));
   }
-  box.append(elem('p','deen-path-muted deen-path-warning',pattern?c.patternSub:phrase?c.meaningIntro:meaning?c.meaningIntro:listening?c.listenSub:word?c.wordIntro:reading?c.readIntro:phonics?c.audioMissing:c.courseInfo));
+  box.append(elem('p','deen-path-muted deen-path-warning',pattern?c.patternSub:phrase?c.meaningIntro:meaning?c.meaningIntro:listening?c.listenSub:word?c.wordIntro:reading?c.readIntro:phonics?c.audioMissing:letterAudioCourseInfo(c.courseInfo)));
   box.append(makeButton(lessonIsDone()?c.redo:pattern?c.patternCTA:phrase?c.phraseCTA:meaning?c.meaningCTA:listening?c.listenPlay:word?c.wordCTA:reading?c.readCTA:phonics?(group().kind==='harakat'?c.vowelStart:c.syllableStart):c.goLesson,'start','deen-path-primary'));
   return box;
  }
@@ -1597,6 +1625,12 @@
   box.append(elem('div','deen-path-kicker',READING_LESSONS.includes(group())?c.readHeading:group().kind!=='recognition'?c.vowelHeading:c.lesson+' '+(state.lessonIndex+1)+' · '+c.groupTitle));
   box.append(elem('p','deen-path-question-count',c.progress+' '+n+' / '+items.length),elem('h2','deen-path-inner-title',c.question));
   box.append(elem('div','deen-path-prompt',letterLabel(item)));
+  const letterVoice=window.DEEN_ARABIC_LETTER_AUDIO;
+  if(group().kind==='recognition'&&letterVoice?.hasClip(item.id)){
+   const ready=letterVoice.available(item.id);
+   const hear=makeButton('🔊 '+letterVoice.label(lang(),ready),'letterAudio','deen-path-letter-lesson-listen');
+   hear.dataset.letterId=item.id;hear.disabled=!ready;box.append(hear);
+  }
   const options=elem('div','deen-path-options');
   const order=[...items.slice((state.question+1)%items.length),...items.slice(0,(state.question+1)%items.length)];
   for(const candidate of order){
@@ -1634,6 +1668,7 @@
  }
  function show(view){
   if(state.view==='lesson'||view!=='lesson')LISTENING.stop();
+  if(view!=='group'||state.view!=='group')window.DEEN_ARABIC_LETTER_AUDIO?.stop();
   state.view=view;const container=root();if(!container)return false;
   ensure();
   update();return true;
@@ -1641,12 +1676,12 @@
  function selectGroup(index){
   index=Number(index);
   if(!Number.isInteger(index)||index<0||index>=ALL_LESSONS.length||!isUnlocked(index))return false;
-  LISTENING.stop();state.lessonIndex=index;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.listenHeard=false;state.listeningBusy=false;
+  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.lessonIndex=index;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.listenHeard=false;state.listeningBusy=false;
   return show('group');
  }
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
-  LISTENING.stop();state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
+  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
   return show('lesson');
  }
  function next(){
@@ -1781,6 +1816,7 @@
    else if(action==='reviewNext')reviewNext();
    else if(action==='resetMeaning')resetMeaning();
    else if(action==='openMeaning')selectGroup(MEANING.startIndex);
+   else if(action==='letterAudio')window.DEEN_ARABIC_LETTER_AUDIO?.play(b.dataset.letterId);
    else if(action==='listen')playListening();
    else if(action==='next')next();
   });
@@ -1788,6 +1824,8 @@
   observer.observe(container,{childList:true});
   ensure();
   document.addEventListener('deen:navigated',()=>{
+   // Navigation away from Qur'an must stop letter audio too, not only re-entry.
+   window.DEEN_ARABIC_LETTER_AUDIO?.stop();
    if(document.querySelector('.screen.active')?.id==='leagueScreen'){
     state.view='home';
     setTimeout(()=>{if(ensure())update()},0);
