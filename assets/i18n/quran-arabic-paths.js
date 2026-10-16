@@ -147,7 +147,7 @@
  };
  const lang=()=>{let x=window.DEEN_APP_LOCALE?.get?.()||document.documentElement.lang||'tr';x=String(x).toLowerCase().split('-')[0];return i18n[x]?x:'tr'};
  const t=()=>Object.assign({},i18n[lang()],extra[lang()],vowelUi[lang()],readingUi[lang()],wordUi[lang()],listeningUi[lang()],meaningUi[lang()],phraseUi[lang()],patternUi[lang()],masteryUi[lang()],DAILY.ui[lang()],ADAPTIVE.ui[lang()],FOUNDATION.ui[lang()],CHECKPOINT.ui[lang()],REMEDY.ui[lang()],WEEKLY.ui[lang()],GOALS.ui[lang()]);
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false};
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:''};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -432,6 +432,17 @@
   fr:{missing:'Cet appareil ne propose pas de synthèse vocale arabe. Une voix arabe est nécessaire pour les autres lettres.',partial:'🔊 Touchez les réponses sonores ; les autres exigent une voix arabe sur cet appareil.',open:'🔊 Écouter les 8 lettres enregistrées',close:'Masquer les sons',heading:'Essayer les lettres enregistrées',play:'Touchez une lettre pour l’entendre.',present:'🔊 Chaque réponse prononce sa lettre : MP3 ou voix arabe de l’appareil (prononciation variable).',device:'Voix arabe de l’appareil'}
  });
  const audioHelp=()=>letterAudioHelp[lang()]||letterAudioHelp.tr;
+ const audioDiagnostics=Object.freeze({
+  tr:{test:'🔊 MP3 ses testi: م (Mim)',noArabic:'Bu cihazda Arapça konuşma sesi bulunamadı. Kayıtlı 8 MP3 çalabilir; kalan harfler için Arapça ses paketi veya yeni MP3 gerekir.',deviceError:'Cihaz Arapça okumayı başlatamadı. Arapça ses paketini ve medya ses düzeyini kontrol et.',mp3Error:'MP3 oynatılamadı. İnternet bağlantısını ve medya sesini kontrol et.',mp3Started:'Kayıt çalıyor. Duymuyorsan medya sesini kontrol et.',deviceStarted:'Cihaz Arapça harf adını okumaya başladı.'},
+  en:{test:'🔊 Test MP3: م (Mim)',noArabic:'No Arabic speaking voice found on this device. Eight MP3 files can play; other letters need an installed Arabic voice or new MP3 recordings.',deviceError:'Device Arabic speech could not start. Check speech voices and media volume.',mp3Error:'MP3 failed to play. Check connection and media volume.',mp3Started:'MP3 playback started. Check media volume if silent.',deviceStarted:'Device speech started.'},
+  ar:{test:'🔊 اختبار MP3: م (ميم)',noArabic:'لم يُعثر على صوت عربي في الجهاز. يمكن تشغيل ثمانية ملفات MP3، وتحتاج باقي الأحرف إلى صوت عربي أو تسجيلات.',deviceError:'تعذّر بدء النطق العربي. تحقق من الأصوات ومستوى الصوت.',mp3Error:'تعذّر تشغيل ملف MP3. تحقق من الاتصال والصوت.',mp3Started:'بدأ تشغيل التسجيل. تحقق من صوت الوسائط إن لم تسمعه.',deviceStarted:'بدأ النطق العربي للجهاز.'},
+  de:{test:'🔊 MP3-Test: م (Mim)',noArabic:'Auf diesem Gerät ist keine arabische Stimme verfügbar. Acht MP3s funktionieren; weitere Buchstaben brauchen eine arabische Stimme oder Aufnahmen.',deviceError:'Arabische Sprachausgabe konnte nicht starten.',mp3Error:'MP3 konnte nicht abgespielt werden.',mp3Started:'MP3-Wiedergabe gestartet. Medienlautstärke prüfen.',deviceStarted:'Gerätesprachausgabe gestartet.'},
+  fr:{test:'🔊 Test MP3 : م (Mim)',noArabic:'Aucune voix arabe trouvée sur cet appareil. Huit MP3 peuvent fonctionner ; les autres lettres nécessitent une voix arabe ou des enregistrements.',deviceError:'La voix arabe de l’appareil n’a pas démarré.',mp3Error:'Lecture MP3 impossible. Vérifiez la connexion et le volume.',mp3Started:'MP3 en cours. Vérifiez le volume multimédia.',deviceStarted:'La voix arabe a démarré.'}
+ });
+ const audioDiagnostic=code=>{
+  const messages=audioDiagnostics[lang()]||audioDiagnostics.tr;
+  return ({'no-arabic-voice':messages.noArabic,'device-error':messages.deviceError,'mp3-error':messages.mp3Error,'mp3-started':messages.mp3Started,'device-started':messages.deviceStarted})[code]||'';
+ };
  function letterAudioPreviewPanel(){
   const voice=window.DEEN_ARABIC_LETTER_AUDIO;
   const letters=LETTERS.filter(letter=>voice?.available(letter.id));
@@ -456,6 +467,10 @@
   const help=audioHelp(),modes=items.map(letter=>voice.modeFor(letter.id));
   const allAudible=modes.every(Boolean),anyAudible=modes.some(Boolean);
   box.append(elem('p','deen-path-audio-info',allAudible?help.present:anyAudible?help.partial:help.missing));
+  if(!allAudible&&voice.available('mim')){
+   const sample=makeButton((audioDiagnostics[lang()]||audioDiagnostics.tr).test,'letterAudio','deen-path-audio-test');
+   sample.dataset.letterId='mim';box.append(sample);
+  }
   if(allAudible)return;
   const button=makeButton(state.audioPreviewOpen?help.close:help.open,'toggleAudioPreview','deen-path-audio-preview-toggle');
   button.setAttribute('aria-expanded',String(state.audioPreviewOpen));
@@ -1689,7 +1704,12 @@
    options.appendChild(b);
   }
   box.appendChild(options);
-  if(group().kind==='recognition')appendLetterAudioHelp(box,items);
+  if(group().kind==='recognition'){
+   appendLetterAudioHelp(box,items);
+   const status=elem('p','deen-path-audio-status',audioDiagnostic(state.audioStatus));
+   status.id='deenLetterAudioStatus';status.setAttribute('role','status');
+   status.hidden=!status.textContent;box.append(status);
+  }
   if(state.feedback){
    const f=elem('p','deen-path-feedback'+(state.correct?' is-correct':' is-wrong'),state.feedback);
    f.setAttribute('role','status');box.appendChild(f);
@@ -1732,7 +1752,7 @@
  }
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
-  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
+  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
   return show('lesson');
  }
  function next(){
@@ -1740,14 +1760,15 @@
   if(!state.correct)return;
   LISTENING.stop();
   if(state.question<groupLetters().length-1){
-   state.question++;state.correct=false;state.feedback='';state.pieces=[];state.listenHeard=false;state.listeningBusy=false;show('lesson');
+   state.question++;state.correct=false;state.feedback='';state.audioStatus='';state.pieces=[];state.listenHeard=false;state.listeningBusy=false;show('lesson');
   }else{
    state.complete=true;saveCompleted();saveLessonOutcome();dailyMark('lesson',group().id);show('complete');
   }
  }
  function answer(id){
-  if(state.view!=='lesson'||state.correct)return;
+  if(state.view!=='lesson')return;
   if(group().kind==='recognition'&&groupLetters().some(candidate=>candidate.id===id)){
+   state.audioStatus='';
    // Play the actual option touched, whether it is correct or wrong.
    // Playback must begin synchronously in the tap/click handler on mobile.
    const voice=window.DEEN_ARABIC_LETTER_AUDIO;
@@ -1755,6 +1776,7 @@
    // MP3 for 8 recorded letters, Arabic device TTS for other 20 letters.
    voice?.playChoice?.(id);
   }
+  if(state.correct)return; // tapping a graded option still replays its name
   if((PHRASE_LESSONS.includes(group())&&group().kind!=='phrase-order')||
       (PATTERN_LESSONS.includes(group())&&group().kind!=='pattern-structure'))
    recordReview(groupLetters()[state.question].id,id===groupLetters()[state.question].id);
@@ -1816,6 +1838,15 @@
  function init(){
   const container=root();if(!container||container.dataset.deenPathsBound==='1')return;
   container.dataset.deenPathsBound='1';
+  document.addEventListener('deen:arabic-letter-audio-status',e=>{
+   if(state.view!=='lesson')return;
+   state.audioStatus=String(e.detail?.code||'');
+   const display=container.querySelector('#deenLetterAudioStatus');
+   if(display){display.textContent=audioDiagnostic(state.audioStatus);display.hidden=!display.textContent}
+  });
+  document.addEventListener('deen:arabic-letter-voiceschanged',()=>{
+   if(state.view==='lesson'&&group().kind==='recognition')update();
+  });
   container.addEventListener('click',e=>{
    const b=e.target.closest?.('[data-qpath-action]');if(!b||!container.contains(b))return;
    const action=b.dataset.qpathAction;
