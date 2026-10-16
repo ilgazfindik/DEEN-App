@@ -41,7 +41,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   // A real letter lesson with a wrong answer then correction.
   // This legacy regression measures answer grading; first-run micro-tips are
   // tested independently in the Arabic Chrome suite.
-  await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([...DEEN_ARABIC_LETTERS.lessons,...DEEN_ARABIC_HARAKAT.lessons,...DEEN_ARABIC_READING.lessons].map(x=>x.id)));DEEN_QURAN_PATHS.selectGroup(0);DEEN_QURAN_PATHS.start()});
+  await page.evaluate(()=>{localStorage.setItem('deen_arabic_lesson_tips_seen_v1',JSON.stringify([...DEEN_ARABIC_LETTERS.lessons,...DEEN_ARABIC_HARAKAT.lessons,...DEEN_ARABIC_READING.lessons,...DEEN_ARABIC_WORDS.lessons,...DEEN_ARABIC_LISTENING.lessons,...DEEN_ARABIC_MEANING.lessons].map(x=>x.id)));DEEN_QURAN_PATHS.selectGroup(0);DEEN_QURAN_PATHS.start()});
   const first=await page.evaluate(()=>DEEN_ARABIC_LETTERS.lessons[0].letters.map(x=>x.id));
   await page.locator('[data-qpath-action="answer"][data-letter-id="'+first[1]+'"]').click();
   await page.locator('[data-qpath-action="checkLetterAnswer"]').click();
