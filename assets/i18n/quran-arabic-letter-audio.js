@@ -1,7 +1,8 @@
 /* DEEN Arabic letter-name audio preview (8 user-provided clips).
    Names are distinct from harakat / syllables / Quran recitation.
-   Clips require independent pronunciation review before release to production.
-   The creator attests to owning these recordings (2026-10-16);\n   pronunciation review is still mandatory for production playback. */
+   The creator declares ownership and confirms the pronunciations (2026-10-16).
+   These recordings are exposed as owner-confirmed previews, NOT independently
+   audited Arabic pronunciation. Harakat and Quran recitation are out of scope. */
 (()=>{
  'use strict';
  if(window.DEEN_ARABIC_LETTER_AUDIO)return;
@@ -11,8 +12,10 @@
   id,glyph,file:dir+'letter-'+id+'.mp3',sha256,size,
   origin:'user-provided ElevenLabs export',
   rights:'owner-attested',
-  pronunciation:'pending-review',
-  rightsEvidence:'owner-declaration-2026-10-16',pronunciationReviewRef:null
+  pronunciation:'creator-confirmed',
+  rightsEvidence:'owner-declaration-2026-10-16',
+  creatorConfirmation:'creator-pronunciation-confirmation-2026-10-16',
+  pronunciationReviewRef:null
  })])));
  const labels=Object.freeze({
   tr:['Dinle · Önizleme','Telaffuz onayı bekleniyor'],
@@ -29,12 +32,16 @@
    typeof r.rightsEvidence==='string'&&r.rightsEvidence.trim().length>=12&&
    typeof r.pronunciationReviewRef==='string'&&r.pronunciationReviewRef.trim().length>=12;
  };
- // Preview only on local QA hosts. A deployed GitHub Pages build cannot
- // play unreviewed audio even if this PR is accidentally merged.
+ // User-authorized previews are permitted in production; this must not
+ // be mistaken for independent phonetic approval. Local QA can additionally
+ // preview as-yet-unreviewed clips, but their state is recorded explicitly.
  const previewHost=['localhost','127.0.0.1','[::1]'].includes(String(location.hostname||'').toLowerCase());
  const available=id=>{
   const r=records[id],letter=window.DEEN_ARABIC_LETTERS?.get?.(id);
-  return !!r&&(approved(id)||(previewHost&&r.rights==='owner-attested'&&r.pronunciation==='pending-review'))&&
+  const creatorPreview=!!r&&r.rights==='owner-attested'&&r.pronunciation==='creator-confirmed'&&
+   r.rightsEvidence==='owner-declaration-2026-10-16'&&
+   r.creatorConfirmation==='creator-pronunciation-confirmation-2026-10-16';
+  return !!r&&(approved(id)||creatorPreview||(previewHost&&r.rights==='owner-attested'&&r.pronunciation==='pending-review'))&&
    letter?.glyph===r.glyph&&r.size>512&&r.size<300000&&
    /^[a-f0-9]{64}$/.test(r.sha256)&&/^assets\/quran\/audio\/arabic-learning\/letter-[a-z]+\.mp3$/.test(r.file);
  };
@@ -72,7 +79,8 @@
  window.DEEN_ARABIC_LETTER_AUDIO=Object.freeze({
   version:2,records,hasClip,available,approved,label,play,stop,
   pendingCount:()=>Object.keys(records).filter(id=>!approved(id)).length,
+  creatorConfirmedCount:()=>Object.keys(records).filter(id=>records[id].pronunciation==='creator-confirmed').length,
   previewCount:()=>Object.keys(records).filter(available).length,
-  releaseStatus:'pending-independent-pronunciation-review'
+  releaseStatus:'owner-confirmed-preview;independent-review-pending'
  });
 })();
