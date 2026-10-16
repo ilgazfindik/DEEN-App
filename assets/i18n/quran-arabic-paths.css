@@ -844,3 +844,16 @@
  min-height:42px;padding:9px 15px;border:1px solid #62d5b6;border-radius:12px;
  background:rgba(35,114,108,.28);color:#b8ffdc;font-weight:800;font-family:inherit;cursor:pointer
 }
+
+/* An audio indicator appears only on selectable Arabic-letter answers
+   that have a real, owner-confirmed pronunciation MP3. */
+#leagueScreenBody .deen-path-option.deen-path-option-audio{
+ position:relative;
+}
+#leagueScreenBody .deen-path-option.deen-path-option-audio::after{
+ content:"🔊";
+ position:absolute;inset-inline-end:9px;bottom:8px;
+ font:500 16px/1 system-ui,sans-serif;
+ -webkit-text-fill-color:#a4f5d7;
+ pointer-events:none;
+}
