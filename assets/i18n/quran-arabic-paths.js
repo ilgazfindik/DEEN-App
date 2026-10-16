@@ -1679,6 +1679,7 @@
   const letterVoice=window.DEEN_ARABIC_LETTER_AUDIO;
   // Playback belongs directly to the answer chips; no extra Listen button.
   const options=elem('div','deen-path-options');
+  if(group().kind==='recognition'&&items.length===4)options.classList.add('deen-path-options-four');
   const order=[...items.slice((state.question+1)%items.length),...items.slice(0,(state.question+1)%items.length)];
   for(const candidate of order){
    const b=makeButton(candidate.glyph,'answer','deen-path-option');
