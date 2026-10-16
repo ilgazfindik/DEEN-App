@@ -101,7 +101,7 @@ const fileOf=id=>'letter-'+id+'.mp3';
    await page.evaluate(locale=>{document.documentElement.lang=locale;DEEN_QURAN_PATHS.refresh()},locale);
    assert.ok((await page.locator('.deen-path-letter-card-audio').first().innerText()).includes(label),locale);
   }
-  // Actual lesson question 2 (qaf) must expose the same audio control.
+  // The audio belongs to the answer choices, not separate listen buttons.
   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.selectGroup(5)});
   await page.locator('[data-qpath-action="start"]').click();
   assert.equal(await page.locator('.deen-path-letter-lesson-listen').count(),0,'No audio for unrecorded fa');
@@ -123,7 +123,7 @@ const fileOf=id=>'letter-'+id+'.mp3';
   assert.equal(await page.evaluate(()=>__deenTtsEvents.filter(e=>e.type==='speak'&&e.text==='فَاء'&&e.lang==='ar-SA').length),1,
    'Unrecorded Fa is spoken in Arabic via device TTS');
   await page.locator('[data-qpath-action="next"]').click();
-  assert.equal(await page.locator('.deen-path-letter-lesson-listen[data-letter-id="qaf"]').count(),1);
+  assert.equal(await page.locator('.deen-path-letter-lesson-listen').count(),0,'No redundant prompt-level listen button');
   // Second question: kaf is wrong. Its OWN audio plays, followed by
   // qaf's OWN audio when the correct answer is tapped.
   const wrongKafBefore=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-kaf.mp3')).length);
@@ -135,8 +135,9 @@ const fileOf=id=>'letter-'+id+'.mp3';
   await page.waitForFunction(n=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length>n,correctQafBefore);
   assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
   const startCount=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length);
-  await page.locator('.deen-path-letter-lesson-listen').click();
+  await page.locator('.deen-path-option[data-letter-id="qaf"]').click();
   await page.waitForFunction(n=>__deenAudioEvents.filter(e=>e.type==='playing'&&e.src.endsWith('letter-qaf.mp3')).length>n,startCount);
+  assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1,'Replay does not change a graded answer');
   const lastPause=await page.evaluate(()=>__deenAudioEvents.filter(e=>e.type==='paused').length);
   await page.evaluate(()=>{
    document.querySelector('#leagueScreen').classList.remove('active');
@@ -276,11 +277,10 @@ const fileOf=id=>'letter-'+id+'.mp3';
   assert.equal(await mobile.locator('.deen-path-option').count(),3);
   assert.equal(await mobile.locator('.deen-path-option-tts').count(),0,
    'Do not advertise synthetic audio without an actual Arabic voice');
-  assert.equal(await mobile.locator('.deen-path-audio-test').count(),1,
-   'Offer an immediate real-MP3 test rather than leaving the user guessing');
-  const mimBefore=await mobile.evaluate(()=>__mobileAudioEvents.plays.filter(x=>x.endsWith('/letter-mim.mp3')).length);
-  await mobile.locator('.deen-path-audio-test').tap();
-  await mobile.waitForFunction(n=>__mobileAudioEvents.plays.filter(x=>x.endsWith('/letter-mim.mp3')).length>n,mimBefore);
+  assert.equal(await mobile.locator('.deen-path-audio-test').count(),0,
+   'Do not ask learners to play an unrelated Mim sound below the three choices');
+  assert.equal(await mobile.locator('.deen-path-audio-preview-toggle').count(),0,
+   'No secondary preview panel in a recognition quiz');
   const ttsBefore=await mobile.evaluate(()=>__mobileTtsEvents.filter(e=>e.type==='speak').length);
   await mobile.locator('.deen-path-option[data-letter-id="ba"]').tap();
   assert.equal(await mobile.evaluate(()=>__mobileTtsEvents.filter(e=>e.type==='speak').length),ttsBefore,
