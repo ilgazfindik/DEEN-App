@@ -939,3 +939,6 @@
  opacity:.48;cursor:not-allowed;box-shadow:none;
  filter:saturate(.65);
 }
+
+/* Four choices use an even 2x2 grid on narrow phones. */
+#leagueScreenBody .deen-path-options.deen-path-options-four{grid-template-columns:repeat(2,minmax(0,1fr))}
