@@ -1,61 +1,66 @@
-/* DEEN Arabic letter-name audio, staging registry.
-   Isolated letter names are distinct from harakat, syllables and Qur'an recitation.
-   A clip stays disabled until usage rights and pronunciation review are approved. */
+/* DEEN Arabic letter-name audio preview (8 user-provided clips).
+   Names are distinct from harakat / syllables / Quran recitation.
+   Clips require independent pronunciation review before release to production.
+   The code below allows preview playback only on this unmerged QA branch. */
 (()=>{
  'use strict';
  if(window.DEEN_ARABIC_LETTER_AUDIO)return;
  const dir='assets/quran/audio/arabic-learning/';
- const source=[
-  ['qaf','ق','f5e323cd23f6c1725de0b694c0d061003c0569b057bf8086efb33dd024d1063e'],
-  ['ya','ي','b98cfe25d3d6ddd3cb525fd1eda06e8a5e5eb06764ece412371e164cc59fb30c'],
-  ['waw','و','47cbf2d10c24ea1c03f55607d592a0e0777dbacd731936fb284ef16984c0aa50'],
-  ['ha','ه','42bbc55bac3a7dce004102ab4368195c4ef6767bdc07818e3985292bb78351c3'],
-  ['nun','ن','38ed887bb98a24b6d9a1e4ae58dee7c4c7c1fc6843cc0423ee8cc72731f83bb3'],
-  ['mim','م','2f3b88ebfd5341a7a8de8024679aa6d9fac0ff8ad2bb89a6b8bf5c774fae9451'],
-  ['lam','ل','3534dc61d69e0fc9fca10866136bcefe0053e2a56b754af80818ab2e77812a17'],
-  ['kaf','ك','da2a7ef224becaaa526bccb8e9f7e56f69ecdff62a143ccba3fda774dc81fc5a']
- ];
- const records=Object.freeze(Object.fromEntries(source.map(([id,glyph,sha256])=>[id,Object.freeze({
-  id,glyph,file:dir+'letter-'+id+'.mp3',sha256,
-  origin:'user-supplied ElevenLabs',rights:'pending',pronunciation:'pending'
+ const raw=[["qaf","ق","33b3a9704a87d7075248f77822fff216b1bb74ee51e6ac80f1587c806385a624",6140],["ya","ي","f4cd5b95fa6207aef0fd73a4cb61e9c3016639d4e6744dcc11b5487b2a59b0d4",6572],["waw","و","cc81783771746bde4a86ba25f8379c1346791c4995bde11c9ee0a399d920977f",6572],["ha","ه","859d7fd8c616a0a7adbd6df4ffd5cea3a15846a74148b9eee4fa9a1a630dd79f",6140],["nun","ن","ffcccfc871f0f34877b7250f2a8ac97724f8aae38d2479d5fade2167c7a47877",5564],["mim","م","9380acdb41fb3e5080fba3aacbfe0ecc6a8c7e92565e23a055dfc61161c24802",6572],["lam","ل","942a2b70d856186b732bea06bcc0a7874eb95b2f09beec947082f0e7f56cceab",6140],["kaf","ك","6c772446c6af3542f7b72dbd03f813eac4c6eaaf9fb6759783a23cff6f036abc",5564]];
+ const records=Object.freeze(Object.fromEntries(raw.map(([id,glyph,sha256,size])=>[id,Object.freeze({
+  id,glyph,file:dir+'letter-'+id+'.mp3',sha256,size,
+  origin:'user-provided ElevenLabs export',
+  rights:'user-provided',
+  pronunciation:'pending-review'
  })])));
  const labels=Object.freeze({
-  tr:['Dinle','Ses doğrulaması bekleniyor'],
-  en:['Listen','Audio awaiting review'],
-  ar:['استمع','الصوت قيد المراجعة'],
-  de:['Anhören','Audio wird geprüft'],
-  fr:['Écouter','Audio en cours de vérification']
+  tr:['Dinle · Önizleme','Ses bulunamadı'],
+  en:['Listen · Preview','Audio unavailable'],
+  ar:['استمع · معاينة','الصوت غير متاح'],
+  de:['Anhören · Vorschau','Audio nicht verfügbar'],
+  fr:['Écouter · Aperçu','Audio indisponible']
  });
  const label=(locale,ready)=>(labels[locale]||labels.tr)[ready?0:1];
  const hasClip=id=>Object.prototype.hasOwnProperty.call(records,id);
+ const approved=id=>!!records[id]&&records[id].pronunciation==='approved'&&records[id].rights==='approved';
  const available=id=>{
   const r=records[id],letter=window.DEEN_ARABIC_LETTERS?.get?.(id);
-  return !!r&&r.rights==='approved'&&r.pronunciation==='approved'&&
-   letter?.glyph===r.glyph&&/^[a-f0-9]{64}$/.test(r.sha256);
+  return !!r&&r.rights==='user-provided'&&r.pronunciation==='pending-review'&&
+   letter?.glyph===r.glyph&&r.size>512&&r.size<300000&&
+   /^[a-f0-9]{64}$/.test(r.sha256)&&/^assets\/quran\/audio\/arabic-learning\/letter-[a-z]+\.mp3$/.test(r.file);
  };
  let current=null;
  function stop(){
   if(!current)return;
-  const a=current;current=null;
-  a.pause();a.removeAttribute('src');a.load();
+  const sound=current;current=null;
+  try{sound.pause();sound.removeAttribute('src');sound.load()}catch(_){}
  }
  function play(id){
   if(!available(id)||typeof Audio!=='function')return false;
+  const record=records[id];
+  let url,folder;
+  try{
+   url=new URL('./'+record.file,document.baseURI);
+   folder=new URL('./'+dir,document.baseURI);
+   if(url.origin!==location.origin||!url.pathname.startsWith(folder.pathname))return false;
+  }catch(_){return false}
   stop();
-  const r=records[id];
-  const url=new URL('./'+r.file,document.baseURI);
-  if(url.origin!==location.origin||!url.pathname.startsWith(new URL('./'+dir,document.baseURI).pathname))return false;
-  const sound=new Audio(url.href);sound.preload='none';sound.volume=1;
-  current=sound;
-  sound.addEventListener('ended',()=>{if(current===sound)stop()},{once:true});
-  sound.addEventListener('error',()=>{if(current===sound)stop()},{once:true});
-  const pending=sound.play();
-  if(pending?.catch)pending.catch(()=>{if(current===sound)stop()});
-  return true;
+  try{
+   // play() runs directly in a user click handler, preserving mobile autoplay permission.
+   const sound=new Audio(url.href);
+   sound.preload='auto';sound.volume=1;current=sound;
+   sound.addEventListener('ended',()=>{if(current===sound)stop()},{once:true});
+   sound.addEventListener('error',()=>{if(current===sound)stop()},{once:true});
+   const playing=sound.play();
+   if(playing?.catch)playing.catch(()=>{if(current===sound)stop()});
+   return true;
+  }catch(_){stop();return false}
  }
  window.addEventListener?.('pagehide',stop);
  window.DEEN_ARABIC_LETTER_AUDIO=Object.freeze({
-  version:1,records,hasClip,available,label,play,stop,
-  pendingCount:()=>Object.keys(records).filter(id=>!available(id)).length
+  version:2,records,hasClip,available,approved,label,play,stop,
+  pendingCount:()=>Object.keys(records).filter(id=>!approved(id)).length,
+  previewCount:()=>Object.keys(records).filter(available).length,
+  releaseStatus:'pending-independent-pronunciation-review'
  });
 })();
