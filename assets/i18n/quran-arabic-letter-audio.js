@@ -45,11 +45,52 @@
    letter?.glyph===r.glyph&&r.size>512&&r.size<300000&&
    /^[a-f0-9]{64}$/.test(r.sha256)&&/^assets\/quran\/audio\/arabic-learning\/letter-[a-z]+\.mp3$/.test(r.file);
  };
- let current=null;
+ // Audio assets are the primary source; missing assets use the device's
+ // Arabic speech engine, never a different recorded letter.
+ const spokenNames=Object.freeze({
+  alif:'أَلِف',ba:'بَاء',ta:'تَاء',tha:'ثَاء',jim:'جِيم',
+  hha:'حَاء',kha:'خَاء',dal:'دَال',dhal:'ذَال',ra:'رَاء',
+  zay:'زَاي',sin:'سِين',shin:'شِين',sad:'صَاد',dad:'ضَاد',
+  tta:'طَاء',zza:'ظَاء',ayn:'عَيْن',ghayn:'غَيْن',fa:'فَاء',
+  qaf:'قَاف',kaf:'كَاف',lam:'لَام',mim:'مِيم',nun:'نُون',
+  ha:'هَاء',waw:'وَاو',ya:'يَاء'
+ });
+ const speechSupported=()=>typeof window.SpeechSynthesisUtterance==='function'&&
+  typeof window.speechSynthesis?.speak==='function';
+ const modeFor=id=>available(id)?'recorded':
+  (window.DEEN_ARABIC_LETTERS?.get?.(id)&&spokenNames[id]&&speechSupported())?'device':null;
+ let current=null,utterance=null;
  function stop(){
-  if(!current)return;
-  const sound=current;current=null;
-  try{sound.pause();sound.removeAttribute('src');sound.load()}catch(_){}
+  if(current){
+   const sound=current;current=null;
+   try{sound.pause();sound.removeAttribute('src');sound.load()}catch(_){}
+  }
+  if(utterance){
+   utterance=null;
+   try{window.speechSynthesis?.cancel?.()}catch(_){}
+  }
+ }
+ function speakName(id){
+  if(!window.DEEN_ARABIC_LETTERS?.get?.(id)||!spokenNames[id]||!speechSupported())return false;
+  stop();
+  try{
+   const synth=window.speechSynthesis;
+   const speech=new window.SpeechSynthesisUtterance(spokenNames[id]);
+   speech.lang='ar-SA';speech.rate=.85;speech.pitch=1;
+   // On iOS and Android the Arabic voices can populate asynchronously;
+   // setting lang explicitly still allows the platform to choose one.
+   const voices=typeof synth.getVoices==='function'?synth.getVoices():[];
+   const arabicVoice=voices.find(v=>/^ar(?:-|$)/i.test(v.lang));
+   if(arabicVoice)speech.voice=arabicVoice;
+   utterance=speech;
+   speech.onend=speech.onerror=()=>{if(utterance===speech)utterance=null};
+   synth.speak(speech); // run in the same user tap/click, not after an await
+   return true;
+  }catch(_){stop();return false}
+ }
+ function playChoice(id){
+  if(available(id))return play(id)?'recorded':null;
+  return speakName(id)?'device':null;
  }
  function play(id){
   if(!available(id)||typeof Audio!=='function')return false;
@@ -77,7 +118,7 @@
  document.addEventListener?.('visibilitychange',()=>{if(document.hidden)stop()});
  window.addEventListener?.('pagehide',stop);
  window.DEEN_ARABIC_LETTER_AUDIO=Object.freeze({
-  version:2,records,hasClip,available,approved,label,play,stop,
+  version:3,records,hasClip,available,approved,label,play,stop,playChoice,modeFor,speechSupported,
   pendingCount:()=>Object.keys(records).filter(id=>!approved(id)).length,
   creatorConfirmedCount:()=>Object.keys(records).filter(id=>records[id].pronunciation==='creator-confirmed').length,
   previewCount:()=>Object.keys(records).filter(available).length,
