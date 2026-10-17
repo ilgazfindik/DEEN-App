@@ -13,7 +13,7 @@ const reasonToCategory=Object.freeze({
  HUMAN_AUDIO_PRONUNCIATION_RIGHTS:'audio-rights-pronunciation'
 });
 const names=[
- 'quran-arabic-questions-v2.js','quran-arabic-questions-pack-a.js',
+ 'quran-arabic-letters.js','quran-arabic-questions-v2.js','quran-arabic-questions-pack-a.js',
  'quran-arabic-questions-pack-b.js','quran-arabic-harakat.js',
  'quran-arabic-questions-pack-c.js','quran-arabic-reading.js',
  'quran-arabic-questions-pack-d.js','quran-arabic-words.js',
