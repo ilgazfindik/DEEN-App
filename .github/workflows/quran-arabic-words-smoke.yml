@@ -4,6 +4,7 @@ on:
     paths:
       - 'assets/i18n/quran-arabic-words.js'
       - 'index.html'
+      - 'sw.js'
       - 'assets/i18n/quran-arabic-paths.js'
       - 'assets/i18n/quran-arabic-questions-v2.js'
       - 'assets/i18n/quran-arabic-questions-pack-a.js'
@@ -66,6 +67,7 @@ on:
     paths:
       - 'assets/i18n/quran-arabic-words.js'
       - 'index.html'
+      - 'sw.js'
       - 'assets/i18n/quran-arabic-paths.js'
       - 'assets/i18n/quran-arabic-questions-v2.js'
       - 'assets/i18n/quran-arabic-questions-pack-a.js'
@@ -146,6 +148,7 @@ jobs:
           node scripts/test-arabic-pack-f.cjs
           node scripts/test-arabic-v2-spaced.cjs
           node scripts/audit-arabic-v2-locale-content.cjs
+          node --check sw.js
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs
       - name: Install headless Chrome test runner
