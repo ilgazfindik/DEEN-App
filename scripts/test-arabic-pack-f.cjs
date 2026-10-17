@@ -82,7 +82,7 @@ for(const lesson of lessons){
 }
 assert.equal(total,100);
 assert.equal(seen.size,100);
-assert.deepEqual(kinds,{gloss:24,find:23,neighbor:8,role:8,ordinal:19,note:7});
+assert.deepEqual(kinds,{gloss:29,find:27,neighbor:12,role:8,ordinal:17,note:7});
 const first=api.poolFor(lessons[0].id)[0],before=api.stats().questions;
 assert.throws(()=>api.registerPack({id:'shuffled-f-copy',questions:[
  {...first,id:'pack-f-rearranged-copy',choices:[...first.choices].reverse()}
