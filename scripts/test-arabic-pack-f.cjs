@@ -46,7 +46,7 @@ for(const lesson of lessons){
   const card=lesson.items.find(x=>q.id.includes('-'+x.id)&&q.source===x.reference+' '+(x.excerpt||x.glyph));
   assert.ok(card,'Item and exact source matched: '+q.id);
   assert.ok(q.source.endsWith(card.excerpt||card.glyph));
-  assert.ok(card.excerpt.includes(card.glyph));
+  assert.ok((card.excerpt||card.glyph).includes(card.glyph));
   const correct=q.choices.find(c=>c.id===q.correctAnswer);
   for(const l of lang){
    assert.ok(q.prompt[l]?.length>=15,q.id+'/'+l+'/prompt');
