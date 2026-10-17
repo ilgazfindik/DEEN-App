@@ -14,6 +14,7 @@ on:
       - 'assets/i18n/quran-arabic-questions-pack-f.js'
       - 'scripts/test-arabic-pack-f.cjs'
       - 'scripts/test-arabic-v2-spaced.cjs'
+      - 'scripts/audit-arabic-v2-locale-content.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-pack-e.cjs'
@@ -74,6 +75,7 @@ on:
       - 'assets/i18n/quran-arabic-questions-pack-f.js'
       - 'scripts/test-arabic-pack-f.cjs'
       - 'scripts/test-arabic-v2-spaced.cjs'
+      - 'scripts/audit-arabic-v2-locale-content.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-pack-e.cjs'
@@ -141,6 +143,7 @@ jobs:
           node scripts/test-arabic-pack-e.cjs
           node scripts/test-arabic-pack-f.cjs
           node scripts/test-arabic-v2-spaced.cjs
+          node scripts/audit-arabic-v2-locale-content.cjs
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs
       - name: Install headless Chrome test runner
