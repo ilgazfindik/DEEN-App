@@ -1,6 +1,6 @@
 # DEEN Arapça Öğren V2 — Aşama 14: Beş Dil, Arapça Yazım ve İçerik Güvencesi
 
-**Durum:** Otomatik kontrol kodlandı, son CI/regresyon doğrulaması sürüyor. **Dinî, fonetik veya kıraat uzmanı onayı verilmedi.**
+**Durum:** Otomatik 600 soru / 5 dil QA başarılı. Son geniş Chrome/CI ve PR entegrasyonu doğrulaması sürüyor. **Dinî, fonetik veya kıraat uzmanı onayı verilmedi.**
 
 ## Kapsam ve kanıt
 
@@ -12,19 +12,20 @@
 
 Çalıştırılabilir kaynak: `scripts/audit-arabic-v2-locale-content.cjs`.
 
-İlk başarılı Node QA sonucu (hızlı QA [39030163129](https://github.com/ilgazfindik/DEEN-App/actions/runs/39030163129)):
+Yapısal Node QA sonuçları (düzeltilmiş hızlı QA [39030322237](https://github.com/ilgazfindik/DEEN-App/actions/runs/39030322237)):
 
 | Ölçüm | İlk sonuç |
 |---|---:|
 | Soru / paket / V2 ders | 600 / 6 / 25 |
 | TR / EN / AR / DE / FR dolu soru+açıklama | 600 / 600 / 600 / 600 / 600 |
 | Yapısal hata | 0 |
+| Güncel otomatik uyarı | 0 |
 | İnsan incelemesi etiketleri | 448 |
 | Ses referansı/telaffuz hakları | 48 |
 | Hareke/fonetik/okuma | 300 |
 | Dinî anlam/gramer bağlamı | 100 |
 
-İlk taramanın 3.856 adet normalizasyon uyarısı Arapça hareke dizilimlerinin Unicode NFC farklarını tekrarlı biçimde sayıyordu; bu uyarılar **yayın hatası olarak kabul edilmedi**. Geliştirilmiş tarayıcı, yalnız gerçek fazladan boşluk/satır sonu uyarısı verir ve aynı şık Arapça metnini her dilde beş kere saymaz. Güncel uyarı sayısı en son CI çıktısıyla kontrol edilmelidir.
+İlk taramanın 3.856 adet normalizasyon uyarısı Arapça hareke dizilimlerinin Unicode NFC farklarını tekrarlı biçimde sayıyordu; bu uyarılar **yayın hatası olarak kabul edilmedi**. Geliştirilmiş tarayıcı, yalnız gerçek fazladan boşluk/satır sonu uyarısı verir ve aynı şık Arapça metnini her dilde beş kere saymaz. Güncel Node çalışmasında **0 otomatik uyarı** ve **0 yapısal hata** doğrulandı. Bu, uzman inceleme kuyruğunun bittiğini göstermez.
 
 ## İnsan onayı gerektiren sınırlar
 
