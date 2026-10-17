@@ -1,6 +1,6 @@
 # DEEN Arapça V2 — 16. aşama: son kapsam ve yayın kapısı
 
-**Durum (2026-10-17):** [PR #117](https://github.com/ilgazfindik/DEEN-App/pull/117) aday. Otomatik kapsam kapısı kodlandı. Yeşil son PR CI + GitHub Pages dağıtımı doğrulanmadan **tamamlandı/yayında** denemez.
+**Durum (2026-10-17):** [PR #117](https://github.com/ilgazfindik/DEEN-App/pull/117) adayında son kapsam doğrulaması ve hızlı Chrome QA **başarılı**. [Kapsamlı Chrome + içerik audit #39037032921](https://github.com/ilgazfindik/DEEN-App/actions/runs/39037032921) başarılı (`f3eb2f26`); sonraki değişiklikler yalnız rapor/ilerleme belgeleri. Son PR commit hızlı QA [#39037172127](https://github.com/ilgazfindik/DEEN-App/actions/runs/39037172127) başarılı (`b78ac28e`). Merge ve Pages sonrası yayın teyidi ayrıca gereklidir.
 
 ## Gerçek kapsam
 
@@ -17,6 +17,13 @@
 2. `Arabic question bank audit`: tam içerik + sürüm imzası + gerçek Chrome regresyonu. `deen-qa/arabic-v2-stage16-gate.json` çıktısı.
 3. `Quran Arabic Words Fast QA`: yeni kapıyla beraber oyun/ses/RTL/yeniden açılış regresyonları.
 4. PR merge sonrasında **aynı main commit** için GitHub Pages deployment success kaydı, hızlı QA ve kapsamlı CI yeniden doğrulanır.
+
+## Test kayıtları
+
+- **Deterministik Stage16 kapısı PASS:** `curriculumLessons=27`, `teachingTips=135`, `playableV2Lessons=25`, `uniqueQuestions=600`, altı paketin her biri 100, 8/10/12 oturum.
+- **Kapsamlı Chrome ve 67 segmentli başlangıç:** [run #39037032921](https://github.com/ilgazfindik/DEEN-App/actions/runs/39037032921) başarılı; [run artefact](https://github.com/ilgazfindik/DEEN-App/actions/runs/39037032921/artifacts/12102792561) içinde JSON kanıtları mevcut.
+- **Son hızlı QA:** [run #39037172127](https://github.com/ilgazfindik/DEEN-App/actions/runs/39037172127) başarılı.
+- Dokümantasyon düzeltmeleri ürün JS/SW paketlerini değiştirmedi. Sonraki yayın SHA ve Pages kontrolü PR merge sonrasında yapılmalıdır.
 
 ## Sınırlar ve blokajlar
 
