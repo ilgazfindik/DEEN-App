@@ -32,6 +32,7 @@ jobs:
           node scripts/test-arabic-pack-e.cjs
           node scripts/test-arabic-pack-f.cjs
           node scripts/audit-arabic-v2-locale-content.cjs --report="${{ runner.temp }}/deen-qa/arabic-v2-stage14-report.json"
+          node scripts/audit-arabic-v2-release-gate.cjs --report="${{ runner.temp }}/deen-qa/arabic-v2-stage16-gate.json"
       - name: Verify release segment hashes and inline scripts
         run: |
           node --check sw.js
