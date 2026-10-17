@@ -99,7 +99,28 @@
   const due=preferred.filter(q=>cards[q.id]?.dueAt>0&&cards[q.id].dueAt<=now)
    .sort((a,b)=>cards[b.id].mistakes-cards[a.id].mistakes||cards[a.id].dueAt-cards[b.id].dueAt||a.id.localeCompare(b.id));
   const selected=due.slice(0,reviewMax),selectedIds=new Set(selected.map(q=>q.id));
-  const chosen=[...selected,...balanced(preferred.filter(q=>!selectedIds.has(q.id))),
+  // Target fresh questions about weak skills and commonly confused answers.
+  // Never inflate the review quota or repeat the immediately previous session.
+  const weakSkills=new Map(),confusedGlyphs=new Map();
+  for(const [id,record] of Object.entries(cards)){
+   if(record.step!==0||record.mistakes<1)continue;
+   const original=byId.get(id);if(!original||original.stage!==stage)continue;
+   weakSkills.set(original.skill,(weakSkills.get(original.skill)||0)+Math.min(5,record.mistakes));
+   for(const [wrong,n] of Object.entries(record.confusions)){
+    const glyph=original.choices.find(x=>x.id===wrong)?.glyph;
+    if(glyph)confusedGlyphs.set(glyph,(confusedGlyphs.get(glyph)||0)+n);
+   }
+  }
+  const weakScore=q=>{
+   const answer=q.choices.find(x=>x.id===q.correctAnswer)?.glyph;
+   return (weakSkills.get(q.skill)||0)*3+(confusedGlyphs.get(answer)||0)*5;
+  };
+  const focused=preferred.filter(q=>!selectedIds.has(q.id)&&
+   !(cards[q.id]?.dueAt>0&&cards[q.id].dueAt<=now)&&weakScore(q)>0)
+   .sort((a,b)=>weakScore(b)-weakScore(a)||a.id.localeCompare(b.id))
+   .slice(0,reviewMax-selected.length);
+  for(const q of focused)selectedIds.add(q.id);
+  const chosen=[...selected,...focused,...balanced(preferred.filter(q=>!selectedIds.has(q.id))),
    ...balanced(fallback)].slice(0,limit);
   return Object.freeze({stage,questions:Object.freeze(chosen),total:chosen.length,ids:Object.freeze(chosen.map(q=>q.id))});
  }
