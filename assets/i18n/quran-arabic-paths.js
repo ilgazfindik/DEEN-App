@@ -56,6 +56,14 @@
  if(!MASTERY||MASTERY.version!==1)throw Error('DEEN_ARABIC_MASTERY_MISSING');
  const V2=window.DEEN_ARABIC_QUESTIONS_V2||null;
  const V2_RECENT_STORE='deen_arabic_v2_recent_v1';
+ const V2_PRACTICE_STORE='deen_arabic_v2_spaced_v1';
+ const v2PracticeRead=()=>{try{return V2?.cleanPractice(JSON.parse(localStorage.getItem(V2_PRACTICE_STORE)||'null'))}
+  catch(_){return V2?.cleanPractice(null)}};
+ function v2SavePractice(){
+  if(!V2||!state.v2Session||!state.v2Answers?.length)return;
+  const next=V2.recordPractice(v2PracticeRead(),{stage:state.v2Session.stage,answers:state.v2Answers});
+  try{localStorage.setItem(V2_PRACTICE_STORE,JSON.stringify(next))}catch(_){}
+ }
  const v2Recent=stage=>{try{const d=JSON.parse(localStorage.getItem(V2_RECENT_STORE)||'{}');return Array.isArray(d?.[stage])?d[stage].filter(id=>typeof id==='string').slice(-12):[]}catch(_){return []}};
  function v2RecordRecent(session){try{const d=JSON.parse(localStorage.getItem(V2_RECENT_STORE)||'{}');const obj=d&&typeof d==='object'&&!Array.isArray(d)?d:{};obj[session.stage]=session.ids.slice(-12);localStorage.setItem(V2_RECENT_STORE,JSON.stringify(obj))}catch(_){}}
  const ALL_LESSONS=Object.freeze([...LESSONS,...PHONIC_LESSONS,...READING_LESSONS,...WORD_LESSONS,...LISTENING_LESSONS,...MEANING_LESSONS,...PHRASE_LESSONS,...PATTERN_LESSONS]);
@@ -209,7 +217,7 @@
   const tip=currentTip();if(!tip||state.view!=='lesson')return;
   markTipSeen(tip.id);state.tipOpen=false;update();
  }
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false,v2Session:null,v2Choice:null,v2Wrong:false,v2Checked:false};
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false,v2Session:null,v2Choice:null,v2Wrong:false,v2Checked:false,v2FirstMiss:null,v2Answers:[]};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -393,7 +401,13 @@
  const savedComplete=()=>completed().includes(LESSONS[0].id);
  const group=()=>ALL_LESSONS[state.lessonIndex];
  const v2Question=()=>state.v2Session?.questions[state.question]||null;
- const v2Labels=Object.freeze({tr:{check:'Kontrol Et',tryAgain:'Tekrar dene'},en:{check:'Check',tryAgain:'Try again'},ar:{check:'تحقّق',tryAgain:'حاول مرة أخرى'},de:{check:'Prüfen',tryAgain:'Noch einmal'},fr:{check:'Vérifier',tryAgain:'Réessaie'}});
+ const v2Labels=Object.freeze({
+  tr:{check:'Kontrol Et',tryAgain:'Tekrar dene',due:'Zamanı gelen yazılı tekrar'},
+  en:{check:'Check',tryAgain:'Try again',due:'Written reviews due'},
+  ar:{check:'تحقّق',tryAgain:'حاول مرة أخرى',due:'مراجعات كتابية مستحقة'},
+  de:{check:'Prüfen',tryAgain:'Noch einmal',due:'Fällige schriftliche Wiederholungen'},
+  fr:{check:'Vérifier',tryAgain:'Réessaie',due:'Révisions écrites à faire'}
+ });
  const v2Locale=()=>v2Labels[lang()]||v2Labels.tr;
  const groupLetters=()=>group().letters||group().items;
  const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):LISTENING_LESSONS.includes(g)?listeningCompleted().includes(g.id):MEANING_LESSONS.includes(g)?meaningCompleted().includes(g.id):PHRASE_LESSONS.includes(g)?phraseCompleted().includes(g.id):PATTERN_LESSONS.includes(g)?patternCompleted().includes(g.id):vowelCompleted().includes(g.id);
@@ -1742,6 +1756,10 @@
   if(attachLessonTip(box))return box;
   box.append(elem('div','deen-path-kicker',c.lesson+' '+(state.lessonIndex+1)));
   box.append(elem('p','deen-path-question-count',c.progress+' '+(state.question+1)+' / '+state.v2Session.total));
+   if(state.question===0){
+    const review=V2.practiceSummary(v2PracticeRead(),{stage:q.stage});
+    if(review.due>0)box.append(elem('p','deen-path-muted deen-v2-due',ui.due+': '+review.due));
+   }
   box.append(elem('h2','deen-path-inner-title',q.prompt[locale]||q.prompt.tr));
   const target=elem('div','deen-path-prompt deen-v2-target',q.target);
   target.lang='ar';target.dir='rtl';box.append(target);
@@ -1784,7 +1802,11 @@
  function v2Check(){
   if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct||!state.v2Choice)return;
   const q=v2Question();state.correct=state.v2Choice===q.correctAnswer;state.v2Checked=true;
-  if(!state.correct){state.v2Wrong=true;if(!state.lessonMissed.includes(q.id))state.lessonMissed.push(q.id)}
+  if(!state.correct){
+    state.v2Wrong=true;
+    if(!state.v2FirstMiss)state.v2FirstMiss=state.v2Choice;
+    if(!state.lessonMissed.includes(q.id))state.lessonMissed.push(q.id);
+   }
   update();
  }
  function lessonView(){
@@ -1883,7 +1905,8 @@
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.selectedLetterId=null;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
-  state.v2Session=V2?.createSession(group().id,{count:10,recentIds:v2Recent(group().id)})||null;
+  state.v2Session=V2?.createSession(group().id,{count:10,recentIds:v2Recent(group().id),practice:v2PracticeRead()})||null;
+  state.v2Answers=[];state.v2FirstMiss=null;
   state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;
   state.tipOpen=!!currentTip()&&!tipSeen(group().id);
   return show('lesson');
@@ -1893,8 +1916,14 @@
   if(!state.correct)return;
   LISTENING.stop();
   if(state.v2Session){
-   if(state.question<state.v2Session.total-1){state.question++;state.correct=false;state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;show('lesson')}
-   else{v2RecordRecent(state.v2Session);state.complete=true;saveCompleted();saveLessonOutcome();dailyMark('lesson',group().id);show('complete')}
+   const q=v2Question();
+   state.v2Answers.push({id:q.id,firstTryCorrect:!state.v2Wrong,wrongChoiceId:state.v2FirstMiss});
+   if(state.question<state.v2Session.total-1){
+    state.question++;state.correct=false;state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;state.v2FirstMiss=null;show('lesson');
+   }else{
+    v2SavePractice();v2RecordRecent(state.v2Session);state.complete=true;
+    saveCompleted();saveLessonOutcome();dailyMark('lesson',group().id);show('complete');
+   }
    return;
   }
   if(state.question<groupLetters().length-1){
