@@ -96,7 +96,7 @@ for(const lesson of lessons){
   }
  }
 }
-assert.deepEqual(unavailable.sort(),window.DEEN_ARABIC_LISTENING.lessons.map(x=>x.id).sort(),
+assert.deepEqual(unavailable.sort(),Array.from(window.DEEN_ARABIC_LISTENING.lessons,x=>x.id).sort(),
  'Only unlicensed independent listening lessons may lack a V2 question bank');
 assert.equal(playable.length,25,'Expected 25 written-practice V2 lessons');
 assert.equal(seen.size,600,'Total unique live questions');
