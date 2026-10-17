@@ -1,6 +1,6 @@
 # DEEN Arapça V2 — 15. aşama: mobil, ağ, çevrimdışı ve kalıcı ilerleme
 
-**Durum:** Gerçek Chrome mobil/çevrimdışı açılış testi başarılı; son kapsamlı CI ve yayın doğrulaması sürüyor.
+**Durum:** 15. aşama tamamlandı; [PR #116](https://github.com/ilgazfindik/DEEN-App/pull/116) `928c8bed968a89e4f749b20fb9613eb11b1101cc` olarak merge edildi ve [GitHub Pages #39036846642](https://github.com/ilgazfindik/DEEN-App/actions/runs/39036846642) başarıyla dağıtıldı.
 
 ## Otomatik test
 `scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs` gerçek, 67 segmentli uygulamayı ayrı Chrome profilinde açar.
@@ -25,7 +25,7 @@
 
 [39031804178 numaralı hızlı Chrome QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39031804178): başarılı. İzole localhost denemesinde hazır olma süresi **5657 ms** (450 ms yapay segment gecikmesiyle); bu **genel cihaz performansı SLA'sı değildir**. 320/375px RTL taşma=0, konsol hatası=0. `offline.freshNavigation=true`, `offline.cacheReady.cachedSegments=67`.
 
-Kapsamlı regresyon ve son PR/Pages doğrulaması yayın önkoşuludur.
+Yayın kapısına ait merge öncesi kapsamlı regresyon [#39034197713](https://github.com/ilgazfindik/DEEN-App/actions/runs/39034197713) ve son hızlı QA [#39034212889](https://github.com/ilgazfindik/DEEN-App/actions/runs/39034212889) başarılıydı. Bu kontrollerin ardından merge edildi; `main` GitHub Pages dağıtımı [#39036846642](https://github.com/ilgazfindik/DEEN-App/actions/runs/39036846642) başarılı tamamlandı. 16. aşama için nihai kapsama dayalı ayrı yayın kapısı [PR #117](https://github.com/ilgazfindik/DEEN-App/pull/117) üzerinde yürütülüyor.
 
 ## Yayın kapısı
 
