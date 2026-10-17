@@ -1,6 +1,6 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01–09 tamamlandı. PR #110 hızlı ve kapsamlı QA sonrası `main` dalına birleştirildi (merge `20301fc75d1cf0bd95a92fc649efd7282244b521`).
+**Durum:** 01–09 tamamlandı. 10 Paket D için 100 cezim, şedde, med ve tenvin sorusu kodlandı; QA ve PR merge bekleniyor.
 **Son doğrulanan uygulama kod dalı:** main (`20301fc75d1cf0bd95a92fc649efd7282244b521`, sürüm `9442arabicharakat100`).
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
@@ -52,7 +52,7 @@
 - Kritik regresyon: 0; yanlış ilerleme sıfırlaması: 0; sessiz sesi "başarılı" gösterme: 0.
 
 ## Bir sonraki "devam" komutunun kesin görevi
-**Adım 10 — Paket D +100 cezim/şedde/med/tenvin:** Arapça yazılış ve dil bilgisi doğruluğunu koruyarak gerçek öğretim içeriğinden 100 benzersiz cezim, şedde, med ve tenvin ayırt etme sorusu üret; hiç olmayan ses kaydını varmış gibi gösterme. 11–13. dersler için >=8 V2 soru, beş dil, RTL, cevap ve distraktör doğrulaması, ilerleme koruma, gerçek Chrome oynanış ve kapsamlı QA. Başarılı CI sonrası PR ve main entegrasyonu; sonrasında 11. aşama.
+**Adım 10 — Paket D QA/main entegrasyonu:** 34 cezim, 33 şedde, 27 med ve 6 tenvin sorusu (100) ile 11–13. derslerin 34/33/33 V2 havuzunu test et. Arapça harekelerin doğru sırası, gerçek tenvin örnekleri, 5 locale, 320px RTL, 8–12 soruluk oturum, önceki ilerleme/kalp, sahte ses engeli, QA ve PR doğrulaması sonrası main merge. Sonraki 'devam' 11 Paket E +100 kelime oluşturma/ayırt etme.
 
 ## Son doğrulanmış ilerleme
 - **01:** PR [#101](https://github.com/ilgazfindik/DEEN-App/pull/101), `f07c7d726f0b65103d4135a8c1bb85f134b93c74` main merge; beş dil, RTL, 15 ses, refresh/progress Chrome testi başarılı. Tam uygulama denetimi: [38973328259](https://github.com/ilgazfindik/DEEN-App/actions/runs/38973328259), başarılı.
@@ -64,4 +64,5 @@
 - **07:** PR [#108](https://github.com/ilgazfindik/DEEN-App/pull/108) ile 100 gerçek V2 sorusu (28 isim→harf, 28 harf→isim, 28 nokta konumu, 16 benzer-gövde) eklendi ve 7/7 harf dersine bağlandı. Her oturum 10 soru. 5/5 locale, doğru cevap, nokta/şekil ailesi, bağımsız 15 MP3 önizleme sınırı ve kayıt bütünlüğü doğrulandı. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38984368900) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38984368935) başarılı.
 - **08:** PR [#109](https://github.com/ilgazfindik/DEEN-App/pull/109), Paket B için 28 ilk + 22 gerçek orta + 28 son + 22 harf bağlantısı: 100 benzersiz V2 soru. Paket A ile toplam 200; 7/7 harf dersi, 5 locale, nokta ve bağlantı kuralı, 6 birleşmeyen harfte sahte orta biçim olmaması, harf-adı MP3'lerini yanlış tekrar kullanmama, mobil RTL/320px, XP-kayıt regresyonu. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38985862212) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38985862224) başarılı.
 - **09:** PR [#110](https://github.com/ilgazfindik/DEEN-App/pull/110) ile 28 kısa-hareke biçimi (Elif'e yanıltıcı kısa hareke takılmadan), 6 hareke karşılaştırma, 33 Be ve 33 Te hecesi: **100 benzersiz soru**. Üç harakat dersine 34/33/33 olarak kaydedildi; beş dil, doğrulanmış doğru cevaplar, yanlış şık gerekçeleri, ses uydurmama, 10 soruluk oturum, mobil RTL ve kayıt bütünlüğü. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39022148454) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39022148533) başarılı.
-- **Kalan:** 10–16. adımlar; 300/600 yeni soru kodlandı ve QA doğrulandı. Sonraki 'devam' 10 Paket D cezim, şedde, med ve tenvin için +100 soru.
+- **10 (QA/merge bekliyor):** `quran-arabic-questions-pack-d.js`: 27 ünsüz cezim biçimi +7 cezim transferi, 27 şeddeli biçim +6 şedde transferi, 9 harf×3 gerçek med örneği, 2 isim×3 doğru tenvin örneği: toplam 100 soru. 11–13. derslere 34/33/33. A+B+C 300 soru korunuyor, ses kaydı uydurulmadı.
+- **Kalan:** 10–16. adımlar; 400/600 soru kodlandı, Paket D henüz QA ve merge onayını bekliyor.
