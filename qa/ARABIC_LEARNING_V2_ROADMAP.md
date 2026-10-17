@@ -1,6 +1,6 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01–10 tamamlandı. PR #111 hızlı ve kapsamlı QA sonrasında main'e birleştirildi (merge `80f4ccfa02491e0d1b4eb4f6a45a6dde3dbd9542`).
+**Durum:** 01–10 tamamlandı. Paket E +100 gerçek kelime sorusu eklendi; hızlı/kapsamlı QA ve PR main entegrasyonu bekleniyor.
 **Son doğrulanan uygulama kod dalı:** main (`80f4ccfa02491e0d1b4eb4f6a45a6dde3dbd9542`, sürüm `9443arabicreading100`).
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
@@ -52,7 +52,7 @@
 - Kritik regresyon: 0; yanlış ilerleme sıfırlaması: 0; sessiz sesi "başarılı" gösterme: 0.
 
 ## Bir sonraki "devam" komutunun kesin görevi
-**Adım 11 — Paket E +100 kelime okuma ve oluşturma:** 14–16. derslerde 100 yeni benzersiz gerçek Arapça kelime/kelime parçası sorusu üret. Her kelimenin yazımını ve mümkünse ayet/ders kaynaklarını doğrula; rastgele harf dizileri veya uydurma meal kullanma. Beş dil, doğru cevap ve yanlış şık gerekçeleri, her kelime dersinde en az sekiz soru, gerçek 8–12 soru V2 oturumu, kayıt ve mevcut seslerin bütünlüğünü koru. QA + PR + kapsamlı CI yeşilse main merge; sonraki 'devam' 12. aşama.
+**Adım 11 — Paket E QA ve main entegrasyonu:** Beş mevcut ayette geçen 20 farklı kelimeden 34 doğru yazılı başlangıç/bitiş parçası, 20 kelime birleştirme, 13 önceki kelime, 20 kelimeyi ayette görme, 13 sonraki kelime sorusunu (100) denetle. 14–16. derslerin 34/33/33 V2 havuzu, doğru kaynağa birebir uyan yazılış, 5 dil, 320px RTL, kayıt koruma, gerçek Chrome ve tam QA geçerse [x] işaretle ve PR merge et. Sonraki 'devam' 12. aşama Paket F +100 kısa ifade/Kur'an kelimesi çözümleme.
 
 ## Son doğrulanmış ilerleme
 - **01:** PR [#101](https://github.com/ilgazfindik/DEEN-App/pull/101), `f07c7d726f0b65103d4135a8c1bb85f134b93c74` main merge; beş dil, RTL, 15 ses, refresh/progress Chrome testi başarılı. Tam uygulama denetimi: [38973328259](https://github.com/ilgazfindik/DEEN-App/actions/runs/38973328259), başarılı.
@@ -65,4 +65,5 @@
 - **08:** PR [#109](https://github.com/ilgazfindik/DEEN-App/pull/109), Paket B için 28 ilk + 22 gerçek orta + 28 son + 22 harf bağlantısı: 100 benzersiz V2 soru. Paket A ile toplam 200; 7/7 harf dersi, 5 locale, nokta ve bağlantı kuralı, 6 birleşmeyen harfte sahte orta biçim olmaması, harf-adı MP3'lerini yanlış tekrar kullanmama, mobil RTL/320px, XP-kayıt regresyonu. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38985862212) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38985862224) başarılı.
 - **09:** PR [#110](https://github.com/ilgazfindik/DEEN-App/pull/110) ile 28 kısa-hareke biçimi (Elif'e yanıltıcı kısa hareke takılmadan), 6 hareke karşılaştırma, 33 Be ve 33 Te hecesi: **100 benzersiz soru**. Üç harakat dersine 34/33/33 olarak kaydedildi; beş dil, doğrulanmış doğru cevaplar, yanlış şık gerekçeleri, ses uydurmama, 10 soruluk oturum, mobil RTL ve kayıt bütünlüğü. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39022148454) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39022148533) başarılı.
 - **10:** PR [#111](https://github.com/ilgazfindik/DEEN-App/pull/111) ile 34 cezim + 33 şedde + 27 med + 6 tenvin = 100 gerçek V2 soru eklendi. 11–13. derslerde 34/33/33 dağılım, 5 dil, yazım/cevap/distraktör doğrulaması, 320px Arapça RTL, 10 soruluk ders, eski kalp/kayıt koruması, onaysız ses eklememe doğrulandı. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39024160434) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39024160506) başarılı.
-- **Kalan:** 11–16. adımlar; 400/600 benzersiz soru yazıldı ve CI doğrulandı. Sonraki 'devam' Paket E +100 kelime okuma/oluşturma.
+- **11 (PR/QA bekliyor):** `quran-arabic-questions-pack-e.js` ile mevcut beş ayette birebir geçen 20 ayrı kelimeyi kaynak alarak 34 yazılı parça başlangıç/son, 20 gerçek kelime oluşturma, 13 önceki kelime, 20 ayette bulma, 13 sonraki kelime sorusu =100. 14–16. derslere 34/33/33. Sahte kelime, uydurma meal ve onaysız ses yok; A–D 400 soru korunuyor.
+- **Kalan:** 11–16. adımlar; 500/600 soru kodlandı, Paket E QA/merge bekliyor.

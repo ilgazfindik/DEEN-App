@@ -28,6 +28,7 @@ jobs:
           node scripts/test-arabic-pack-b.cjs
           node scripts/test-arabic-pack-c.cjs
           node scripts/test-arabic-pack-d.cjs
+          node scripts/test-arabic-pack-e.cjs
       - name: Verify release segment hashes and inline scripts
         run: |
           node scripts/build-release-manifest.mjs --check
@@ -50,6 +51,7 @@ jobs:
           node scripts/test-arabic-pack-b-chrome.cjs
           node scripts/test-arabic-pack-c-chrome.cjs
           node scripts/test-arabic-pack-d-chrome.cjs
+          node scripts/test-arabic-pack-e-chrome.cjs
           node scripts/test-quran-arabic-paths-chrome.cjs
           node scripts/test-quran-harakat-chrome.cjs
           node scripts/test-quran-reading-chrome.cjs
