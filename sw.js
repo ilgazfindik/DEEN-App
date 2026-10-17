@@ -31,6 +31,9 @@ async function prepare(){
  ];
  const optional=[
   './assets/i18n/fr/runtime-ui.js',
+  './assets/i18n/questions/ar/runtime/U01.live.json',
+  './assets/i18n/questions/en/runtime/U01.live.json',
+  './assets/i18n/questions/en/runtime/U01.variants.json',
   ...['ar','en'].flatMap(code=>Array.from({length:15},(_,i)=>'./assets/i18n/questions/'+code+'/units/U'+String(i+1).padStart(2,'0')+'.json'))
  ];
  const cache=await caches.open(cacheName);
