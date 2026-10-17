@@ -104,9 +104,15 @@ const server=http.createServer((req,res)=>{
   report.offline.activeLessonWorks=true;
   const fresh=await context.newPage();
   try{
+   const freshConsole=[],freshNetwork=[];
+   fresh.on('console',msg=>{if(msg.type()==='error'||msg.type()==='warning')freshConsole.push(msg.text())});
+   fresh.on('pageerror',err=>freshConsole.push(err.message));
+   fresh.on('requestfailed',req=>freshNetwork.push({url:req.url(),failure:req.failure()}));
    await fresh.goto(origin+'/',{timeout:6000,waitUntil:'domcontentloaded'});
    await fresh.waitForFunction(()=>window.DEEN_BOOT&&['ready','error'].includes(DEEN_BOOT.status().phase),null,{timeout:45000});
-   assert.equal(await fresh.evaluate(()=>DEEN_BOOT.status().phase),'ready','Offline initial boot must reach ready');
+   const offlineResult=await fresh.evaluate(()=>({boot:DEEN_BOOT.status(),screen:document.body.innerText.slice(0,600),
+    hasV2:!!window.DEEN_ARABIC_QUESTIONS_V2}));
+   assert.equal(offlineResult.boot.phase,'ready','Offline initial boot '+JSON.stringify({offlineResult,freshConsole,freshNetwork}));
    assert.equal(await fresh.evaluate(()=>DEEN_ARABIC_QUESTIONS_V2.stats().questions),600);
    report.offline.freshNavigation=true;
   }catch(e){
