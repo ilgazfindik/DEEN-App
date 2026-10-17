@@ -81,6 +81,19 @@ const server=http.createServer((req,res)=>{
   assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
   assert.equal(await page.evaluate(()=>localStorage.getItem('deen_arabic_v2_spaced_v1')),original.spaced);
   report.state.firstWrongFeedback=true;
+  // Offline launch is ready only after the version-pinned SW has fully installed.
+  await page.waitForFunction(()=>navigator.serviceWorker?.controller!=null,null,{timeout:85000});
+  const offlineCacheReady=await page.evaluate(async()=>{
+   const ctrl=navigator.serviceWorker.controller;
+   const names=await caches.keys(),version=window.__DEEN_DEPLOY_ID__;
+   const cache=await caches.open('deen-offline-shell-'+version);
+   return {controlled:!!ctrl,shell:!!(await cache.match(new URL('./index.html',location.href).href)),
+    cachedSegments:await Promise.all(Array.from({length:67},(_,i)=>cache.match(new URL('./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt',location.href).href))).then(r=>r.filter(Boolean).length)};
+  });
+  assert.equal(offlineCacheReady.controlled,true);
+  assert.equal(offlineCacheReady.shell,true);
+  assert.equal(offlineCacheReady.cachedSegments,67);
+  report.offline.cacheReady=offlineCacheReady;
   await context.setOffline(true);
   const available=await page.evaluate(()=>({
    v2:DEEN_ARABIC_QUESTIONS_V2.stats().questions,
@@ -91,11 +104,14 @@ const server=http.createServer((req,res)=>{
   report.offline.activeLessonWorks=true;
   const fresh=await context.newPage();
   try{
-   await fresh.goto(origin+'/',{timeout:3500,waitUntil:'domcontentloaded'});
+   await fresh.goto(origin+'/',{timeout:6000,waitUntil:'domcontentloaded'});
+   await fresh.waitForFunction(()=>window.DEEN_BOOT&&['ready','error'].includes(DEEN_BOOT.status().phase),null,{timeout:45000});
+   assert.equal(await fresh.evaluate(()=>DEEN_BOOT.status().phase),'ready','Offline initial boot must reach ready');
+   assert.equal(await fresh.evaluate(()=>DEEN_ARABIC_QUESTIONS_V2.stats().questions),600);
    report.offline.freshNavigation=true;
   }catch(e){
    report.offline.freshNavigation=false;
-   report.warnings.push('OFFLINE_FRESH_NAVIGATION_NOT_SUPPORTED');
+   throw Error('Fresh offline boot failed: '+String(e.message));
   }finally{await fresh.close()}
   await context.setOffline(false);
   await page.reload({waitUntil:'domcontentloaded'});
