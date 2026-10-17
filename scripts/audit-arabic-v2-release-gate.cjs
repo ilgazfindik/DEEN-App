@@ -38,7 +38,7 @@ for(const lesson of lessons){
   for(const key of ['title','oneSentence','mistakeTip'])
    assert(typeof t[key]==='string'&&t[key].trim().length>8,lesson.id+'/'+lang+'/'+key);
   assert(Array.isArray(t.examples)&&t.examples.length>=2&&t.examples.length<=3,lesson.id+'/'+lang+'/examples');
-  assert(t.examples.every(row=>typeof row.glyph==='string'&&row.glyph.trim()&&typeof row.caption==='string'&&row.caption.trim()&&(!row.audioRef||(lesson.index<7&&win.DEEN_ARABIC_LETTER_AUDIO.available(row.audioRef)))),
+  assert(t.examples.every(row=>typeof row.glyph==='string'&&row.glyph.trim()&&typeof row.caption==='string'&&row.caption.trim()&&(!row.audioRef||(lesson.index<7&&win.DEEN_ARABIC_LETTERS.all.some(letter=>letter.id===row.audioRef)))),
    'Missing examples or unapproved tip audio '+lesson.id+'/'+lang);
   tipEntries++;
  }
