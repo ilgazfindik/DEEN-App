@@ -50,6 +50,8 @@ on:
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-arabic-step04-chrome.cjs'
       - 'scripts/test-arabic-letter-audio.cjs'
+      - 'scripts/audit-arabic-audio-intake.cjs'
+      - 'scripts/test-arabic-audio-intake.cjs'
       - 'scripts/test-arabic-letter-audio-chrome.cjs'
       - 'assets/quran/audio/arabic-learning/**'
       - 'scripts/test-quran-listening-chrome.cjs'
@@ -116,6 +118,8 @@ on:
       - 'scripts/test-quran-words-chrome.cjs'
       - 'scripts/test-arabic-step04-chrome.cjs'
       - 'scripts/test-arabic-letter-audio.cjs'
+      - 'scripts/audit-arabic-audio-intake.cjs'
+      - 'scripts/test-arabic-audio-intake.cjs'
       - 'scripts/test-arabic-letter-audio-chrome.cjs'
       - 'assets/quran/audio/arabic-learning/**'
       - 'scripts/test-quran-listening-chrome.cjs'
@@ -146,6 +150,8 @@ jobs:
       - name: Verify scripts and signed boot manifest
         run: |
           node scripts/test-arabic-letter-audio.cjs
+          node scripts/test-arabic-audio-intake.cjs
+          node scripts/audit-arabic-audio-intake.cjs
           node scripts/test-arabic-pack-a.cjs
           node scripts/test-arabic-pack-b.cjs
           node scripts/test-arabic-pack-c.cjs
