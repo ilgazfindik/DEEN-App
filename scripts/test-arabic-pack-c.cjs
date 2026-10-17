@@ -16,7 +16,7 @@ assert.equal(api.stats().questions,300);
 assert.equal(api.stats().packs,3);
 assert.equal(api.stats().stages,10);
 assert.deepEqual(JSON.parse(JSON.stringify(pack.bySkill)),{forms:28,matching:6,ba:33,ta:33});
-assert.deepEqual(stages.map(x=>pack.distribution[x.id]),[34,33,33]);
+assert.deepEqual(Array.from(stages,x=>pack.distribution[x.id]),[34,33,33]);
 assert.deepEqual([...api.poolFor(stages[0].id)].map(x=>x.id).filter(id=>id.includes('pack-c-match-')).length,6);
 const seen=new Set(),bySkill={};
 for(const [i,stage] of stages.entries()){
@@ -44,7 +44,7 @@ for(const [i,stage] of stages.entries()){
   const mark=harakat.markById[q.correctAnswer];
   assert.ok(mark);
   assert.ok(correct.glyph.endsWith(mark.mark),'correct vowel mark visual agrees with answer');
-  assert.deepEqual(q.choices.map(x=>x.id).sort(),['fatha','kasra','damma'].sort());
+  assert.deepEqual(Array.from(q.choices,x=>x.id).sort(),['fatha','kasra','damma'].sort());
   const kind=q.id.startsWith('pack-c-form-')?'form':q.id.startsWith('pack-c-match-')?'match':
    q.id.startsWith('pack-c-syllable-ba-')?'ba':'ta';
   bySkill[kind]=(bySkill[kind]||0)+1;
