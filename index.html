@@ -19,7 +19,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9446arabicspacedreview13';
+ const BUILD='9447arabicoffline15';
  // Keep both locales available for safe in-app language changes.
  let SEGMENT_COUNT=67;
  const CONCURRENCY=6;
@@ -392,6 +392,11 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    document.open();
    document.write(html);
    document.close();
+   // Version-isolated offline release cache; do not block first launch or user progress.
+   if('serviceWorker' in navigator){
+     navigator.serviceWorker.register('./sw.js?v='+BUILD,{scope:'./'})
+       .catch(err=>console.warn('DEEN_OFFLINE_PRECACHE_UNAVAILABLE',err));
+   }
  }catch(err){
    showError(err);
  }
