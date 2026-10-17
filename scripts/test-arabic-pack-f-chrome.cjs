@@ -46,8 +46,9 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    },index);
    if(await page.locator('.deen-path-mini-tip').count())await page.locator('[data-qpath-action="tipDismiss"]').click();
    assert.equal(await page.locator('.deen-path-v2-lesson').count(),1,'V2 visible in '+(index+1));
-   assert.ok((await page.locator('.deen-path-question-count').innerText()).includes('1 / 10'));
    const stage=ids[index-18];
+   const questionCount=Math.min(10,await page.evaluate(id=>DEEN_ARABIC_QUESTIONS_V2.poolFor(id).length,stage));
+   assert.ok((await page.locator('.deen-path-question-count').innerText()).includes('1 / '+questionCount),'V2 lesson respects unique 8–12 question pool');
    async function verify(locale){
     const title=(await page.locator('.deen-path-inner-title').innerText()).trim();
     const target=(await page.locator('.deen-v2-target').innerText()).trim();
