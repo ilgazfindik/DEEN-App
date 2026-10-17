@@ -19,6 +19,16 @@ let state=api.recordPractice(null,{stage,answers:[answer(q.id,false,wrong)],at})
 assert.equal(state.cards[q.id].mistakes,1);
 assert.equal(state.cards[q.id].confusions[wrong],1);
 assert.equal(state.cards[q.id].step,0);assert.equal(state.cards[q.id].dueAt,at+DAY);
+const weakSession=api.createSession(stage,{count:10,practice:state,now:at+3600000,seed:97,recentIds:[q.id]});
+assert.equal(weakSession.total,10);
+assert.ok(!weakSession.ids.includes(q.id));
+const peers=pool.filter(x=>x.id!==q.id&&x.skill===q.skill);
+if(peers.length){
+ const first=api.get(weakSession.ids[0]);
+ const confusingGlyph=q.choices.find(x=>x.id===wrong).glyph;
+ const correctGlyph=first.choices.find(x=>x.id===first.correctAnswer).glyph;
+ assert.ok(first.skill===q.skill||correctGlyph===confusingGlyph,'Observed weakness prioritizes a different related item');
+}
 const bad=api.recordPractice(state,{stage,answers:[answer(q.id),answer(q.id)],at:at+DAY});
 assert.equal(bad.cards[q.id].attempts,1);
 for(const [elapsed,expectStep,expectDue] of [[1,1,2],[2,2,5],[5,3,12],[12,4,26]]){
