@@ -79,6 +79,7 @@ jobs:
           node scripts/test-arabic-quran.cjs
           node scripts/test-arabic-regression.cjs
           node scripts/test-arabic-runtime.cjs
+          node scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs
       - name: Upload runtime evidence
         if: always()
         uses: actions/upload-artifact@v4
