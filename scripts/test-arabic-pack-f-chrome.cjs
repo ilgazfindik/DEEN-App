@@ -86,7 +86,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    if(index===18){
     const completed=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_meaning_v1')).completed);
     assert.ok(completed.includes(ids[0]));
-    assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_v2_recent_v1'))[ids[0]].length),10);
+    assert.equal(await page.evaluate(stage=>JSON.parse(localStorage.getItem('deen_arabic_v2_recent_v1'))[stage].length,ids[0]),10);
    }else await page.locator('[data-qpath-action="group"]').click();
   }
   assert.equal(await page.evaluate(()=>localStorage.getItem('deen_hearts_v1')),'37');
