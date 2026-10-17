@@ -1,6 +1,6 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01–07 tamamlandı. PR #108 hızlı ve kapsamlı QA sonrası main'e birleştirildi (merge `c5b478f2d0999b2996a441596dffec379e03a5fc`).
+**Durum:** 01–07 tamamlandı. 08 Paket B 100 sorusu oluşturuldu; QA ve PR merge bekleniyor.
 **Son doğrulanan uygulama kod dalı:** main (`c5b478f2d0999b2996a441596dffec379e03a5fc`, sürüm `9440arabicpacka100`).
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
@@ -52,7 +52,7 @@
 - Kritik regresyon: 0; yanlış ilerleme sıfırlaması: 0; sessiz sesi "başarılı" gösterme: 0.
 
 ## Bir sonraki "devam" komutunun kesin görevi
-**Adım 08 — Paket B +100 harfin kelimedeki biçimleri:** 28 harfi başta/ortada/sonda; birleşmeyen altı harfin doğru gösterimi; gerçek bağlantı örnekleri; 100 benzersiz, beş dilde açıklamalı, oyun motoruna kayıtlı soru. Önce örnek/vaka doğruluğunu, sonra V2 gerçek Chrome oynanışını ve CI'yi denetle. PR ve başarılı ana dal entegrasyonu; sonraki 'devam' 09 hareke ve hece soruları.
+**Adım 08 — QA ve main entegrasyonu:** 28 baş/22 orta/28 son/22 bağlanma sırası örneği (100) için içerik denetimi, 6 birleşmeyen harf, sahte orta biçim yasağı, 5 dil, 200/600 havuz, gerçek 7 ders Chrome oynanışı, kayıt koruma, PR ve CI testleri. Başarılıysa 08 [x] ve main merge. Sonraki 'devam' 09 hareke/hece +100.
 
 ## Son doğrulanmış ilerleme
 - **01:** PR [#101](https://github.com/ilgazfindik/DEEN-App/pull/101), `f07c7d726f0b65103d4135a8c1bb85f134b93c74` main merge; beş dil, RTL, 15 ses, refresh/progress Chrome testi başarılı. Tam uygulama denetimi: [38973328259](https://github.com/ilgazfindik/DEEN-App/actions/runs/38973328259), başarılı.
@@ -62,4 +62,5 @@
 - **05:** PR [#106](https://github.com/ilgazfindik/DEEN-App/pull/106), 21–27 için 7 yeni kart × 5 dil. Anlam sıralaması, ifade ve kalıp oyun ekranlarına bağlandı; toplam 27/27 öğretici. İlk giriş/Ders Notu/RTL/320px ve kayıt koruma Chrome QA, eski 20 öğretici regresyonu başarılı. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38981342819) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38981342925) başarılı.
 - **06:** PR [#107](https://github.com/ilgazfindik/DEEN-App/pull/107), `quran-arabic-questions-v2.js` 5 dil veri şeması, atomik paket/benzer soru engeli, denetlenmemiş sesin reddi, 8–12 soru, yanlış gerekçesi ve kayıt korumalı V2. Yazılı havuzu olmayan eski 27 ders yerinde kalır. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38982988798) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38982988784) başarılı. Otomatik testte 12 test-fikstür sorusu vardır, ürün soru bankasına eklenmemiştir; yeni içerik 0/600.
 - **07:** PR [#108](https://github.com/ilgazfindik/DEEN-App/pull/108) ile 100 gerçek V2 sorusu (28 isim→harf, 28 harf→isim, 28 nokta konumu, 16 benzer-gövde) eklendi ve 7/7 harf dersine bağlandı. Her oturum 10 soru. 5/5 locale, doğru cevap, nokta/şekil ailesi, bağımsız 15 MP3 önizleme sınırı ve kayıt bütünlüğü doğrulandı. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38984368900) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38984368935) başarılı.
-- **Kalan:** 08–16. adımlar; 100/600 yeni soru kodlandı ve bağımsız CI ile doğrulandı. Sonraki 'devam' Paket B: +100 harfin başta/ortada/sonda biçimi. Bir sonraki devam Paket A +100 soruyu gerçek motor üzerinden üretip test edecek. Sıradaki 'devam' ile soru motoru V2/kalite şeması; ses onaysız alıştırmalar açılmayacak.
+- **08 (QA/merge bekliyor):** Paket B için 28 ilk biçim + 22 yalnızca gerçek orta biçim + 28 son biçim + 22 iki harf bağlama sırası. 100 yeni soru; 5 dil, asılsız ses yok; Paket A korunuyor. 7 derse kayıtlı içerik ve gerçek Chrome regresyonu eklenecek.
+- **Kalan:** 08–16. adımlar; 200/600 soru kodlandı, Paket B QA/merge doğrulaması bekliyor. Bir sonraki 'devam' 09 hareke ve hece paketi.
