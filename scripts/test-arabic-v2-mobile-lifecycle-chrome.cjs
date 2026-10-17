@@ -7,7 +7,7 @@ const {chromium}=require('playwright'),http=require('node:http'),fs=require('nod
 const root=path.resolve(__dirname,'..');
 const makeFile=req=>{
  const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
- const file=path.resolve(root,'.'+pathname.replace(/\\/g,'/'));
+ const file=pathname==='/'?path.join(root,'index.html'):path.resolve(root,'.'+pathname.replace(/\\/g,'/'));
  if(!file.startsWith(root+path.sep)&&file!==path.join(root,'index.html'))return null;
  return file;
 };
