@@ -3,7 +3,7 @@
  * Human-review queues remain explicit, including when all automatic tests pass.
  */
 'use strict';
-const {readFileSync}=require('node:fs');
+const {readFileSync,writeFileSync,mkdirSync}=require('node:fs');
 const path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),window={},context={window,console},langs=['tr','en','ar','de','fr'];
 function load(name){
@@ -111,5 +111,12 @@ const out={phase:14,results:{packs:api.stats().packs,questions:all.length,stages
  noHumanApprovalClaim:true,
  humanReviewByReason:Object.fromEntries([...new Set(humanReview.map(r=>r.reason))].map(key=>[key,humanReview.filter(r=>r.reason===key).length]))
  },firstFailures:failures.slice(0,25),firstWarnings:warnings.slice(0,15),reviewExamples:humanReview.slice(0,12)};
+const arg=process.argv.find(x=>x.startsWith('--report='));
+if(arg){
+ const destination=path.resolve(arg.slice('--report='.length));
+ mkdirSync(path.dirname(destination),{recursive:true});
+ writeFileSync(destination,JSON.stringify({...out,warnings,humanReview,failures},null,2)+'\\n','utf8');
+ console.log('DEEN_ARABIC_V2_QA_REPORT_WRITTEN '+destination);
+}
 console.log('DEEN_ARABIC_V2_LOCALE_CONTENT_AUDIT '+JSON.stringify(out,null,2));
 if(failures.length)process.exitCode=1;
