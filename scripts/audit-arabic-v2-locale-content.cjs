@@ -29,7 +29,8 @@ const arabic=/[\u0621-\u064a\u0671-\u06d3]/u;
 const arabicNumbers=/[\u0660-\u0669]/u;
 const placeholder=/(?:\bTODO\b|\bTBD\b|undefined|null|nullish|\[object Object\]|lorem ipsum|translation pending)/i;
 const dangerous=/<\s*(?:script|iframe|object|embed|img)\b/i;
-const normalized=s=>s.normalize('NFC').replace(/\s+/g,' ').trim();
+// Do not canonicalize Qur'an/harakat text: mark sequencing is preserved verbatim.
+const normalized=s=>s.replace(/\s+/g,' ').trim();
 function fail(q,field,reason){failures.push({id:q.id,field,reason})}
 function review(q,reason){humanReview.push({id:q.id,stage:q.stage,reason})}
 function checkString(q,field,value){
@@ -37,7 +38,7 @@ function checkString(q,field,value){
  if(badControl.test(value))fail(q,field,'BIDI_OVERRIDE_OR_ISOLATE');
  if(placeholder.test(value))fail(q,field,'PLACEHOLDER');
  if(dangerous.test(value))fail(q,field,'HTML_EXECUTABLE');
- if(value!==normalized(value))warnings.push({id:q.id,field,reason:'UNNORMALIZED_OR_EXTRA_SPACES'});
+ if(value!==normalized(value))warnings.push({id:q.id,field,reason:'EXTRA_SPACES_OR_LINEBREAKS'});
 }
 assert.deepEqual(api.stats().packs,6);
 assert.equal(api.stats().questions,600);
@@ -75,12 +76,12 @@ for(const stage of courseIds){
   if(q.source)checkString(q,'source',q.source);
   const correct=q.choices.filter(c=>c.id===q.correctAnswer);
   if(correct.length!==1)fail(q,'correctAnswer','ANSWER_NOT_UNIQUE');
+  for(const choice of q.choices)checkString(q,'choices.'+choice.id+'.glyph',choice.glyph);
   for(const locale of langs){
    checkString(q,'prompt.'+locale,q.prompt?.[locale]);
    checkString(q,'explanation.'+locale,q.explanation?.[locale]);
    if(locale==='ar'&&!arabic.test(q.prompt?.[locale]||''))fail(q,'prompt.ar','NO_ARABIC_SCRIPT');
    for(const choice of q.choices){
-    checkString(q,'choices.'+choice.id+'.glyph',choice.glyph);
     if(choice.label){
      checkString(q,'choiceLabel.'+choice.id+'.'+locale,choice.label[locale]);
     }
