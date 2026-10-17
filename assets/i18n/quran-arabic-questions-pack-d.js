@@ -33,7 +33,7 @@
   'C’est la forme '+wrong+' ; il faut '+correct+'.'
  );
  const prompts=(kind,l,mark,extra)=>{
-  const n=l.names;
+  const n=l?.names;
   if(kind==='sukun')return localized(
    n.tr+' harfinin cezimli biçimini seç.',
    'Choose '+n.en+' with sukūn (no short vowel).',
