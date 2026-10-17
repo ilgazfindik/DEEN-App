@@ -4,6 +4,7 @@ on:
     paths:
       - 'assets/i18n/**'
       - 'index.html'
+      - 'sw.js'
       - 'scripts/**'
       - 'release/v9.9.3-direct/**'
       - '.github/workflows/arabic-question-audit.yml'
@@ -33,6 +34,7 @@ jobs:
           node scripts/audit-arabic-v2-locale-content.cjs --report="${{ runner.temp }}/deen-qa/arabic-v2-stage14-report.json"
       - name: Verify release segment hashes and inline scripts
         run: |
+          node --check sw.js
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs
       - name: Install Chromium test runtime
@@ -79,6 +81,7 @@ jobs:
           node scripts/test-arabic-quran.cjs
           node scripts/test-arabic-regression.cjs
           node scripts/test-arabic-runtime.cjs
+          node scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs
       - name: Upload runtime evidence
         if: always()
         uses: actions/upload-artifact@v4
