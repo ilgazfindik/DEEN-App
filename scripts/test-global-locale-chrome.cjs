@@ -146,7 +146,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialActive()&&state.premium),true,'72h trial activates locally');
     assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_ENTITLEMENT?.source),'local-device-trial-preview');
     assert.equal(await page.evaluate(()=>localStorage.getItem('deen_premium_trial_v1')!==null),true);
-    await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());
+    await page.reload();try{await page.waitForFunction(()=>window.DEEN_BOOT?.isReady(),null,{timeout:30000})}catch(err){const diag=await page.evaluate(async()=>({boot:window.DEEN_BOOT?.status?.(),build:window.__DEEN_DEPLOY_ID__,html:document.body?.innerText?.slice(0,650),controller:navigator.serviceWorker?.controller?.scriptURL,caches:await (window.caches?.keys?.()||Promise.resolve([]))}));throw Error('GLOBAL_LOCALE_RELOAD_1 '+lang+': '+JSON.stringify(diag)+' '+err.message)}
     assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialActive()&&state.premium),true,'Trial persists across reload');
     await page.evaluate(()=>{
       const record=JSON.parse(localStorage.getItem('deen_premium_trial_v1'));
@@ -161,7 +161,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
     await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
    }
-   await page.screenshot({path:path.join(out,'chrome-'+lang+'-home.png')});await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());
+   await page.screenshot({path:path.join(out,'chrome-'+lang+'-home.png')});await page.reload();try{await page.waitForFunction(()=>window.DEEN_BOOT?.isReady(),null,{timeout:30000})}catch(err){const diag=await page.evaluate(async()=>({boot:window.DEEN_BOOT?.status?.(),build:window.__DEEN_DEPLOY_ID__,html:document.body?.innerText?.slice(0,650),controller:navigator.serviceWorker?.controller?.scriptURL,caches:await (window.caches?.keys?.()||Promise.resolve([]))}));throw Error('GLOBAL_LOCALE_RELOAD_2 '+lang+': '+JSON.stringify(diag)+' '+err.message)}
    assert.equal(await page.locator('#deenLanguageGate').count(),0);assert.equal(await page.locator('#v998Onboarding').count(),0);
    const after=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));assert.deepEqual(after,before);
    if(lang==='tr'){
