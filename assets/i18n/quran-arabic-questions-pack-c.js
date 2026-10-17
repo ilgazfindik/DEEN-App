@@ -40,19 +40,22 @@
   questions.push(q);byStage[stage]=(byStage[stage]||0)+1;
  };
  const [stageMarks,stageBa,stageTa]=harakat.lessons.map(x=>x.id);
- // Skill 1 (28): find the requested vowel form of each Arabic letter.
- letters.all.forEach((l,i)=>{
-  const mark=marks[i%3],n=l.names;
-  const prompt=localized(
-   n.tr+' harfini '+markName(mark,'tr')+' ile yazan seçeneği bul.',
-   'Choose '+n.en+' written with '+markName(mark,'en')+'.',
-   'اختر حرف '+n.ar+' وعليه '+markName(mark,'ar')+'.',
-   'Wähle '+n.de+' mit '+markName(mark,'de')+'.',
-   'Choisis '+n.fr+' avec '+markName(mark,'fr')+'.'
-  );
-  add('form-'+l.id,'harakat-form',stageMarks,l.glyph,prompt,mark,examples(l.glyph),1,
-   'Short-vowel orthography: '+l.id+'/'+mark.id);
- });
+ // Skill 1: 28 meaningful vowel-form prompts across 27 consonants and Bā review.
+ // The bare alif (ا) is not a standalone consonant to which three
+ // short vowels can simply be attached; avoid misleading spellings اَ اِ اُ.
+ const addForm=(l,m,id)=>{
+  const n=l.names;
+  const p=localized(
+   n.tr+' harfini '+markName(m,'tr')+' ile yazan seçeneği bul.',
+   'Choose '+n.en+' written with '+markName(m,'en')+'.',
+   'اختر حرف '+n.ar+' وعليه '+markName(m,'ar')+'.',
+   'Wähle '+n.de+' mit '+markName(m,'de')+'.',
+   'Choisis '+n.fr+' avec '+markName(m,'fr')+'.');
+  add('form-'+id,'harakat-form',stageMarks,l.glyph,p,m,examples(l.glyph),1,
+   'Short-vowel orthography: '+l.id+'/'+m.id);
+ };
+ letters.all.filter(l=>l.id!=='alif').forEach((l,i)=>addForm(l,marks[i%3],l.id));
+ addForm(letters.get('ba'),marks[1],'ba-kasra-review');
  // Skill 2 (6): identify the same mark across two DIFFERENT letters.
  const comparison=['fa','qaf','lam','mim','nun','ya'];
  comparison.forEach((id,i)=>{

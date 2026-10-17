@@ -49,7 +49,8 @@ for(const [i,stage] of stages.entries()){
    q.id.startsWith('pack-c-syllable-ba-')?'ba':'ta';
   bySkill[kind]=(bySkill[kind]||0)+1;
   if(kind==='form'){
-    const letter=letters.get(q.id.slice('pack-c-form-'.length));
+    const key=q.id.slice('pack-c-form-'.length);
+    const letter=letters.get(key==='ba-kasra-review'?'ba':key);
     assert.ok(letter);
     assert.equal(q.target,letter.glyph);
     assert.equal(correct.glyph,letter.glyph+mark.mark);
@@ -72,6 +73,8 @@ for(const [i,stage] of stages.entries()){
   }
  }
 }
+assert.ok(!seen.has('pack-c-form-alif'),'No misleading alif short vowel');
+assert.ok(seen.has('pack-c-form-ba-kasra-review'));
 assert.equal(seen.size,100);
 assert.deepEqual(bySkill,{form:28,match:6,ba:33,ta:33});
 const sample=api.poolFor(stages[1].id)[0];
