@@ -16,6 +16,7 @@ on:
       - 'scripts/test-arabic-pack-f.cjs'
       - 'scripts/test-arabic-v2-spaced.cjs'
       - 'scripts/audit-arabic-v2-locale-content.cjs'
+      - 'scripts/audit-arabic-v2-release-gate.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
@@ -81,6 +82,7 @@ on:
       - 'scripts/test-arabic-pack-f.cjs'
       - 'scripts/test-arabic-v2-spaced.cjs'
       - 'scripts/audit-arabic-v2-locale-content.cjs'
+      - 'scripts/audit-arabic-v2-release-gate.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
@@ -152,6 +154,7 @@ jobs:
           node scripts/test-arabic-pack-f.cjs
           node scripts/test-arabic-v2-spaced.cjs
           node scripts/audit-arabic-v2-locale-content.cjs
+          node scripts/audit-arabic-v2-release-gate.cjs
           node --check sw.js
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs
