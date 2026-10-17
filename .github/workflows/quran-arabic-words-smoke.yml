@@ -7,6 +7,9 @@ on:
       - 'assets/i18n/quran-arabic-paths.js'
       - 'assets/i18n/quran-arabic-questions-v2.js'
       - 'assets/i18n/quran-arabic-questions-pack-a.js'
+      - 'assets/i18n/quran-arabic-questions-pack-b.js'
+      - 'scripts/test-arabic-pack-b.cjs'
+      - 'scripts/test-arabic-pack-b-chrome.cjs'
       - 'scripts/test-arabic-pack-a.cjs'
       - 'scripts/test-arabic-pack-a-chrome.cjs'
       - 'scripts/test-arabic-v2-question-engine-chrome.cjs'
@@ -50,6 +53,9 @@ on:
       - 'assets/i18n/quran-arabic-paths.js'
       - 'assets/i18n/quran-arabic-questions-v2.js'
       - 'assets/i18n/quran-arabic-questions-pack-a.js'
+      - 'assets/i18n/quran-arabic-questions-pack-b.js'
+      - 'scripts/test-arabic-pack-b.cjs'
+      - 'scripts/test-arabic-pack-b-chrome.cjs'
       - 'scripts/test-arabic-pack-a.cjs'
       - 'scripts/test-arabic-pack-a-chrome.cjs'
       - 'scripts/test-arabic-v2-question-engine-chrome.cjs'
@@ -101,6 +107,7 @@ jobs:
         run: |
           node scripts/test-arabic-letter-audio.cjs
           node scripts/test-arabic-pack-a.cjs
+          node scripts/test-arabic-pack-b.cjs
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs
       - name: Install headless Chrome test runner
@@ -112,6 +119,7 @@ jobs:
           node scripts/test-arabic-letter-audio-chrome.cjs
           node scripts/test-arabic-v2-question-engine-chrome.cjs
           node scripts/test-arabic-pack-a-chrome.cjs
+          node scripts/test-arabic-pack-b-chrome.cjs
           node scripts/test-quran-words-chrome.cjs
           node scripts/test-arabic-step04-chrome.cjs
           node scripts/test-quran-listening-chrome.cjs
