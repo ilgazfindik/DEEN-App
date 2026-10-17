@@ -1,6 +1,6 @@
 # DEEN Arapça V2 — 15. aşama: mobil, ağ, çevrimdışı ve kalıcı ilerleme
 
-**Durum:** Regresyon testi eklendi; CI doğrulaması tamamlanmadan aşama **tamamlandı** sayılmayacak.
+**Durum:** Gerçek Chrome mobil/çevrimdışı açılış testi başarılı; son kapsamlı CI ve yayın doğrulaması sürüyor.
 
 ## Otomatik test
 `scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs` gerçek, 67 segmentli uygulamayı ayrı Chrome profilinde açar.
@@ -14,11 +14,18 @@
 
 İlgili GitHub Actions iş akışları: `Quran Arabic Words Fast QA` ve `Arabic question bank audit`. CI raporu `deen-qa/arabic-v2-stage15-mobile.json` içinde ölçümleri saklar.
 
-## Bilinen ürün boşluğu — offline başlatma
+## Çözülen ürün boşluğu — offline başlatma
 
-Şu an `index.html` sürüm segmentlerini `CacheStorage` içerisine alıyor. Ancak repository kökünde bir `sw.js` görünmüyor ve uygulama çevrimdışı ilk açılış için bir offline gezinme garantisi vermiyor. Önceden açılmış dersin aynı sekmede çevrimdışı etkileşimi, **yeni sekmede internetsiz açılışla aynı şey değildir**.
+İlk gerçek testte önbellekli segmentler olmasına rağmen **offline yeni sekme başarısızdı** (`CONTENT_LOAD_FAILED:ar`). Arapça bankanın ihtiyaç duyduğu `assets/i18n/questions.ar.draft.json` dosyası eski loader listesinde yoktu. PR #116'da çözüldü:
 
-Gerçek browser deneyinde çevrimdışı yeni navigasyon başarısızsa `OFFLINE_FRESH_NAVIGATION_NOT_SUPPORTED` uyarısı kaydedilecek; test bu işlevi varmış gibi sunmayacak. Tam PWA çevrimdışı desteği hedefleniyorsa ayrıca version pinning, tam önbellekleme, sıfır hasarlı geri dönüş (rollback), yeni/eski iki sekme ve beş dil/asset kapsama testleri gerekecek.
+- `sw.js?v=9447arabicoffline15` kurulumdan önce 67 segmentin ve tüm gereken JS/CSS assetlerinin SHA-256 hash'lerini doğrular; yanlış/eksik kaynakta install reddedilir.
+- 15 Arapça ünite JSON'u, Arapça çalışma verisi, İngilizce temel üniteler, Fransızca runtime JS ve küçük görsel atlaslar uygun byte bütünlüğüyle saklanır.
+- Aynı sekmede çevrimdışı ders, **yeni sekmede 600 V2 soruyla tamamen hazır offline boot** ve geri gelen kullanıcıya ait XP/enerji/kalpler başarılı.
+- SW, ses kaydı/telif veya 1.500 soruluk bütün başka dil bankaları için otomatik offline garanti vermez. Cache doluluk/kapasite sınırları cihaz bazında değişir.
+
+[39031804178 numaralı hızlı Chrome QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39031804178): başarılı. İzole localhost denemesinde hazır olma süresi **5657 ms** (450 ms yapay segment gecikmesiyle); bu **genel cihaz performansı SLA'sı değildir**. 320/375px RTL taşma=0, konsol hatası=0. `offline.freshNavigation=true`, `offline.cacheReady.cachedSegments=67`.
+
+Kapsamlı regresyon ve son PR/Pages doğrulaması yayın önkoşuludur.
 
 ## Yayın kapısı
 
