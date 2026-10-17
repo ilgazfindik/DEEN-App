@@ -115,7 +115,7 @@ const arg=process.argv.find(x=>x.startsWith('--report='));
 if(arg){
  const destination=path.resolve(arg.slice('--report='.length));
  mkdirSync(path.dirname(destination),{recursive:true});
- writeFileSync(destination,JSON.stringify({...out,warnings,humanReview,failures},null,2)+'\\n','utf8');
+ writeFileSync(destination,JSON.stringify({...out,warnings,humanReview,failures},null,2),'utf8');
  console.log('DEEN_ARABIC_V2_QA_REPORT_WRITTEN '+destination);
 }
 console.log('DEEN_ARABIC_V2_LOCALE_CONTENT_AUDIT '+JSON.stringify(out,null,2));
