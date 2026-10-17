@@ -1,7 +1,7 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01–08 tamamlandı. Paket B 100/100 soru, hızlı ve kapsamlı QA başarılı; PR #109 main entegrasyonu yapılacak.
-**Son doğrulanan uygulama kod dalı:** main (`c5b478f2d0999b2996a441596dffec379e03a5fc`, sürüm `9440arabicpacka100`).
+**Durum:** 01–08 tamamlandı. PR #109, hızlı ve kapsamlı QA sonrası `main` dalına birleştirildi (merge `e7b17f36304737697436de571fe2f708795f5e03`).
+**Son doğrulanan uygulama kod dalı:** main (`e7b17f36304737697436de571fe2f708795f5e03`, sürüm `9441arabicpackb100`).
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
 ## Mevcut durum ve sınırlar
