@@ -1,7 +1,7 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01–12 tamamlandı. 600/600 V2 soru PR #113 ile main'e alındı; Pages ve dört main CI çalışması başarılı. 13. aşama PR #114 üzerinde kodlandı, son kapsamlı QA tamamlanmadan birleştirilmeyecek.
-**Son doğrulanan canlı kod dalı:** main (`093c6b5ac5f2a9b2a15af75fcd9872926649f1ed`, sürüm `9445arabicmeaning100`). **13. aşama adayı:** [PR #114](https://github.com/ilgazfindik/DEEN-App/pull/114), build `9446arabicspacedreview13` (henüz canlı değil).
+**Durum:** 01–13 tamamlandı. 600/600 V2 soru ve 13. aşama uyarlanabilir tekrar main'e alındı; GitHub Pages dağıtımı doğrulandı. 14. aşama PR #115 üzerinde 5 dil/600 soru otomatik içerik denetimi ve uzman inceleme envanteriyle sürüyor.
+**Son doğrulanan canlı kod dalı:** main (`ec203ebb06e95fd1b9133c957e69875aebf5f686`, sürüm `9446arabicspacedreview13`). GitHub Pages [39030191237](https://github.com/ilgazfindik/DEEN-App/actions/runs/39030191237) başarılı. **14. aşama:** [PR #115](https://github.com/ilgazfindik/DEEN-App/pull/115), test sürümü; henüz canlı değil.
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
 ## Mevcut durum ve sınırlar
@@ -38,7 +38,7 @@
 - [x] **12 — Paket F: +100 kısa ifade/Kur'an kelimesi çözümleme.** Kısa, harekeli örnekler; Arapça özgün kalır, sorular/açıklamalar seçilen dile göre. Ses dosyası yoksa yeni kıraat üretme iddiası yok.
 
 ## P2 — Kalıcılık, kalite ve yayın
-- [ ] **13 — Uyarlanabilir tekrar.** Harf/işaret bazında hata geçmişi, benzer-harf zayıflığı, hatırlama aralıkları; yeni başlayanlara aşırı yük yok. Başarı ölçümü örn. iki farklı günde %80+ (ürün eşiği, test ederek ayarla); eski ilerleme kayıtları korunur.
+- [x] **13 — Uyarlanabilir tekrar.** Harf/işaret bazında hata geçmişi, benzer-harf zayıflığı, hatırlama aralıkları; yeni başlayanlara aşırı yük yok. Başarı ölçümü örn. iki farklı günde %80+ (ürün eşiği, test ederek ayarla); eski ilerleme kayıtları korunur.
 - [ ] **14 — 5 dil + dini/fonetik içerik QA.** Eksik çeviri/Türkçe sızıntısı, Arapça RTL, harf şekli, diakritikler, cevap indeksi, dinî anlam ve ses eşleştirme; uzman kontrolü gerektiren maddeler etiketlenir, onay sahteciliği yok.
 - [ ] **15 — Kullanıcı akışı ve mobil performans QA.** İlk kez/tekrar giriş, yavaş ağ, 320/375px, ses izinleri/MP3, puan-enerji-ilerleme, offline/pwa, yanlış/tekrar dinleme, bölüm geçişi; 600 yeni soruyu en az otomatik örneklem + tümü yapısal/semantik validasyondan geçir.
 - [ ] **16 — Kapsam doğrulaması ve yayın.** 27/27 öğretici, 600/600 yeni benzersiz soru, uygun havuzlardan 8–12 soru, 5 dilde test ve gereken CI kontrolü; başarısızsa deploy etme. Başarılı `main` merge ve GitHub Pages dağıtım kaydını doğrula; sürüm/QA raporu yaz.
@@ -52,7 +52,7 @@
 - Kritik regresyon: 0; yanlış ilerleme sıfırlaması: 0; sessiz sesi "başarılı" gösterme: 0.
 
 ## Bir sonraki "devam" komutunun kesin görevi
-**Adım 13 — Uyarlanabilir tekrar:** 600 V2 sorudaki harf, hareke, kelime ve anlam güçlüklerini çocuğu yormadan takip et. Zayıf becerilerle sık karıştırılan şıkların yakın tekrarını ayır; 1/3/7/14 gün aralıklarını ve son 10 derslik performansı kullan. Mevcut XP/kalp/ders ilerleme anahtarlarını değiştirme. 5 dil, 320px RTL, tekrarın tek oturumda gereksizce çoğalmaması, tüm önceki CI ve canlı tarayıcı QA; önce PR/testler yeşilse main merge.
+**Adım 14 — Beş dil ve dinî/fonetik QA:** PR #115'in 600 soru/5 dil kaynak-hareke-ses denetimini ve geniş Chromium testlerini bitir. Yapısal hata varsa düzelt; dinî anlam, kıraat, telaffuz için insan onayı yoksa uydurma onay verme. Tam raporu CI kanıtlarıyla kaydet ve yalnız başarılı PR'ı birleştir. Ardından 15. adıma geç.
 
 ## Son doğrulanmış ilerleme
 - **01:** PR [#101](https://github.com/ilgazfindik/DEEN-App/pull/101), `f07c7d726f0b65103d4135a8c1bb85f134b93c74` main merge; beş dil, RTL, 15 ses, refresh/progress Chrome testi başarılı. Tam uygulama denetimi: [38973328259](https://github.com/ilgazfindik/DEEN-App/actions/runs/38973328259), başarılı.
@@ -68,4 +68,6 @@
 - **11:** PR [#112](https://github.com/ilgazfindik/DEEN-App/pull/112) ile beş gerçek ayet örneğinden 20 ayrı kelimeye dayanan 100 V2 sorusu eklendi. 34 baş/son parça, 20 kelime birleştirme, 13 önceki kelime, 20 ayette bulma ve 13 sonraki kelime. 14–16. derslerde 34/33/33 V2 havuzu; 5 dil, kaynak ayetle birebir eşleşme, doğru cevap, 320px Arapça RTL, eski XP/kalp/ilerleme, 10 soruluk oynanış ve onaysız ses eklememe doğrulandı. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39025813063) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39025785766) başarılı.
 - **12:** PR [#113](https://github.com/ilgazfindik/DEEN-App/pull/113) ile mevcut anlam, kısa ifade ve kalıp derslerinin kaynaklı gloss/rol/notları, ayette kelime sırası ve anlamla ifadeyi bulma becerileri için 100 soru eklendi. Dokuz V2 dersinde 12/12/10/12/9/9/12/12/12. Altı paketin tamamı 600/600; 5 dil, kaynak metin korunumu, doğru cevap ve yanlış şık gerekçesi, 320px RTL, 9 gerçek Chrome ders testi, kalp/kayıt koruma. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39027499002) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39027499028) başarılı.
 - **13 — Aday:** [PR #114](https://github.com/ilgazfindik/DEEN-App/pull/114). V2 ilk-deneme soru sonuçları, karıştırılan seçenekler, 1/3/7/14 günlük aralıklar, son 10 ders/iki farklı gün %80 ölçütü ve zayıf beceriden farklı soru odaklaması; yeni saklama anahtarı `deen_arabic_v2_spaced_v1`. Kalp/XP/eski ders kayıtları değişmiyor. [Mobil+eski paket hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39029542030) başarılı, [tam regresyon](https://github.com/ilgazfindik/DEEN-App/actions/runs/39029539765) **devam ediyor**; yayın/merge bekliyor.
-- **Kalan:** 13. aşama kapsamlı QA/merge, ardından 14–16. adımlar; 600/600 içerik üretimi tamamlandı. Sonraki 'devam' 13. aşama uyarlanabilir tekrar.
+- **13 — Yayın doğrulandı:** [PR #114](https://github.com/ilgazfindik/DEEN-App/pull/114) main merge `ec203ebb06e95fd1b9133c957e69875aebf5f686`. Tam uygulama QA [39029539765](https://github.com/ilgazfindik/DEEN-App/actions/runs/39029539765), hızlı Chrome [39029868836](https://github.com/ilgazfindik/DEEN-App/actions/runs/39029868836) ve GitHub Pages [39030191237](https://github.com/ilgazfindik/DEEN-App/actions/runs/39030191237) başarılı. Yeni kayıt anahtarı XP/kalp ilerlemesini değiştirmez.
+- **14 — Devam ediyor:** [PR #115](https://github.com/ilgazfindik/DEEN-App/pull/115). 600 V2 soru ve 5 dilde otomatik QA, veri kaynakları, 320px RTL mevcut Chrome regresyonları; dinî/fonetik/MP3 için insan inceleme envanteri. İlk Node QA 600/600, 0 yapısal hata; Unicode diakritik dizi farklarını yanlış alarm saymayan rapor sürümünün CI'si sürüyor.
+- **Kalan:** 14. aşama son QA/merge; ardından 15 ve 16. adımlar. 600/600 içerik üretimi tamamlandı. Sonraki 'devam' 13. aşama uyarlanabilir tekrar.
