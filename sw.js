@@ -31,6 +31,11 @@ async function prepare(){
  ];
  const optional=[
   './assets/i18n/fr/runtime-ui.js',
+  './assets/i18n/questions.ar.draft.json',
+  './assets/companions/manifest.json',
+  './assets/badges/deen-badges-atlas.webp',
+  './assets/combo/companions-sheet.png',
+  './assets/companions/owl/owl_avatar.png',
   './assets/i18n/questions/ar/runtime/U01.live.json',
   './assets/i18n/questions/en/runtime/U01.live.json',
   './assets/i18n/questions/en/runtime/U01.variants.json',
@@ -46,9 +51,14 @@ async function prepare(){
    const item=todo[cursor++],url=base(item.path);
    const res=await fetch(url,{cache:'no-store'});
    if(!res.ok)throw Error('Missing offline resource: '+item.path+' HTTP '+res.status);
-   const body=await res.text();
-   if(item.expected&&await hash(body)!==item.expected)throw Error('Offline asset checksum failed: '+item.path);
-   await cache.put(url,new Response(body,{status:200,headers:{'Content-Type':res.headers.get('Content-Type')||'text/plain; charset=utf-8'}}));
+   if(item.expected){
+    const body=await res.text();
+    if(await hash(body)!==item.expected)throw Error('Offline asset checksum failed: '+item.path);
+    await cache.put(url,new Response(body,{status:200,headers:{'Content-Type':res.headers.get('Content-Type')||'text/plain; charset=utf-8'}}));
+   }else{
+    // Preserve original bytes for optional JSON, images and graphics.
+    await cache.put(url,res.clone());
+   }
   }
  }));
 }
