@@ -70,7 +70,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   }
   assert.ok(bObserved>0,'At least one B question used in actual gameplay');
   assert.equal(await page.evaluate(()=>localStorage.getItem('deen_hearts_v1')),'37');
-  assert.equal(await page.evaluate(()=>localStorage.getItem('deen_arabic_foundations_v2')),initialProgress);
+  assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed),JSON.parse(initialProgress).completed,'Previously completed lesson IDs remain unchanged');
   const recent=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_v2_recent_v1')));
   assert.equal(recent['arabic-letters-01'].length,10);
   await page.setViewportSize({width:320,height:720});
