@@ -30,6 +30,7 @@ jobs:
           node scripts/test-arabic-pack-d.cjs
           node scripts/test-arabic-pack-e.cjs
           node scripts/test-arabic-pack-f.cjs
+          node scripts/audit-arabic-v2-locale-content.cjs
       - name: Verify release segment hashes and inline scripts
         run: |
           node scripts/build-release-manifest.mjs --check
