@@ -20,6 +20,7 @@ on:
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
       - 'scripts/test-global-locale-chrome.cjs'
+      - 'scripts/test-arabic-startup.cjs'
       - 'scripts/test-arabic-pack-e.cjs'
       - 'scripts/test-arabic-pack-e-chrome.cjs'
       - 'scripts/test-arabic-pack-d.cjs'
@@ -84,6 +85,7 @@ on:
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
       - 'scripts/test-global-locale-chrome.cjs'
+      - 'scripts/test-arabic-startup.cjs'
       - 'scripts/test-arabic-pack-e.cjs'
       - 'scripts/test-arabic-pack-e-chrome.cjs'
       - 'scripts/test-arabic-pack-d.cjs'
@@ -170,6 +172,7 @@ jobs:
           node scripts/test-arabic-v2-spaced-chrome.cjs
           node scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs
           node scripts/test-global-locale-chrome.cjs
+          node scripts/test-arabic-startup.cjs
           node scripts/test-quran-words-chrome.cjs
           node scripts/test-arabic-step04-chrome.cjs
           node scripts/test-quran-listening-chrome.cjs
