@@ -13,7 +13,7 @@ assert.equal(a.count,100);assert.equal(b.count,100);
 assert.equal(api.stats().questions,200);assert.equal(api.stats().packs,2);
 assert.equal(api.stats().stages,7);
 assert.equal(letters.all.filter(x=>x.joinsNext).length,22);
-assert.deepEqual(letters.all.filter(x=>!x.joinsNext).map(x=>x.id).sort(),nonJoin.sort());
+assert.deepEqual(JSON.parse(JSON.stringify(letters.all.filter(x=>!x.joinsNext).map(x=>x.id).sort())),nonJoin.sort());
 const dist=JSON.parse(JSON.stringify(b.bySkill));
 assert.deepEqual(dist,{initial:28,medial:22,final:28,joining:22});
 const answers=new Set(),ids=new Set(),kindTotal={initial:0,medial:0,final:0,joining:0};
