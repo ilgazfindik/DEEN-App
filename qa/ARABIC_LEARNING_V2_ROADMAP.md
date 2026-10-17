@@ -1,6 +1,6 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01–10 tamamlandı. Paket E +100 gerçek kelime sorusu eklendi; hızlı/kapsamlı QA ve PR main entegrasyonu bekleniyor.
+**Durum:** 01–11 tamamlandı. Paket E 100/100 sorusu hızlı ve kapsamlı QA'dan geçti; PR #112 ile main entegrasyonu yapılacak.
 **Son doğrulanan uygulama kod dalı:** main (`80f4ccfa02491e0d1b4eb4f6a45a6dde3dbd9542`, sürüm `9443arabicreading100`).
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
@@ -34,7 +34,7 @@
 - [x] **08 — Paket B: +100 harfin kelimedeki biçimleri.** Başta/ortada/sonda, bitişmeyen 6 harf, gerçek bağlantı örnekleri. Aynı harfin döndürülmüş kopyası veya yanlış bitişme önerme.
 - [x] **09 — Paket C: +100 hareke ve hece.** Fetha/kasra/damma ayırma, heceleri çözme, harf adı ≠ okunan hece. Ses gerektiren örnekleri yalnız geçerli yeni ses var ise kullan.
 - [x] **10 — Paket D: +100 cezim/şedde/med/tenvin.** Hatalı olmayan Arapça yazım, kısa/uzun ses farkı, tekrarlı pekiştirme.
-- [ ] **11 — Paket E: +100 kelime okuma ve oluşturma.** Harf→hece→kelime; düşük zorluktan orta düzeye; doğrulanmış yazılış ve anlam. Rastgele anlamsız diziler öğretme.
+- [x] **11 — Paket E: +100 kelime okuma ve oluşturma.** Harf→hece→kelime; düşük zorluktan orta düzeye; doğrulanmış yazılış ve anlam. Rastgele anlamsız diziler öğretme.
 - [ ] **12 — Paket F: +100 kısa ifade/Kur'an kelimesi çözümleme.** Kısa, harekeli örnekler; Arapça özgün kalır, sorular/açıklamalar seçilen dile göre. Ses dosyası yoksa yeni kıraat üretme iddiası yok.
 
 ## P2 — Kalıcılık, kalite ve yayın
@@ -52,7 +52,7 @@
 - Kritik regresyon: 0; yanlış ilerleme sıfırlaması: 0; sessiz sesi "başarılı" gösterme: 0.
 
 ## Bir sonraki "devam" komutunun kesin görevi
-**Adım 11 — Paket E QA ve main entegrasyonu:** Beş mevcut ayette geçen 20 farklı kelimeden 34 doğru yazılı başlangıç/bitiş parçası, 20 kelime birleştirme, 13 önceki kelime, 20 kelimeyi ayette görme, 13 sonraki kelime sorusunu (100) denetle. 14–16. derslerin 34/33/33 V2 havuzu, doğru kaynağa birebir uyan yazılış, 5 dil, 320px RTL, kayıt koruma, gerçek Chrome ve tam QA geçerse [x] işaretle ve PR merge et. Sonraki 'devam' 12. aşama Paket F +100 kısa ifade/Kur'an kelimesi çözümleme.
+**Adım 12 — Paket F +100 kısa ifade ve Kur’an kelimesi çözümleme:** Doğrulanmış yazılı örneklerden 100 benzersiz kelime-anlam eşleştirme, kısa ifade ve dil bilgisi çözümleme sorusu üret. 5 dilde yönerge, açıklama ve yanlış şık gerekçeleri; Arapça metni değiştirme. Geçerli içerikleri 19–21. anlam dersleri ve uygun ifade/kalıp dersleriyle bütünleştir, her etkin derste >=8 V2 soru hedefle. Ses onaysızsa sessiz kullanım; gerçek Chrome, RTL, kayıt bütünlüğü, bağımsız kaynak/cevap QA ve kapsamlı CI yeşilse PR main merge. Sonraki 'devam' 13. aşama.
 
 ## Son doğrulanmış ilerleme
 - **01:** PR [#101](https://github.com/ilgazfindik/DEEN-App/pull/101), `f07c7d726f0b65103d4135a8c1bb85f134b93c74` main merge; beş dil, RTL, 15 ses, refresh/progress Chrome testi başarılı. Tam uygulama denetimi: [38973328259](https://github.com/ilgazfindik/DEEN-App/actions/runs/38973328259), başarılı.
@@ -65,5 +65,5 @@
 - **08:** PR [#109](https://github.com/ilgazfindik/DEEN-App/pull/109), Paket B için 28 ilk + 22 gerçek orta + 28 son + 22 harf bağlantısı: 100 benzersiz V2 soru. Paket A ile toplam 200; 7/7 harf dersi, 5 locale, nokta ve bağlantı kuralı, 6 birleşmeyen harfte sahte orta biçim olmaması, harf-adı MP3'lerini yanlış tekrar kullanmama, mobil RTL/320px, XP-kayıt regresyonu. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38985862212) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38985862224) başarılı.
 - **09:** PR [#110](https://github.com/ilgazfindik/DEEN-App/pull/110) ile 28 kısa-hareke biçimi (Elif'e yanıltıcı kısa hareke takılmadan), 6 hareke karşılaştırma, 33 Be ve 33 Te hecesi: **100 benzersiz soru**. Üç harakat dersine 34/33/33 olarak kaydedildi; beş dil, doğrulanmış doğru cevaplar, yanlış şık gerekçeleri, ses uydurmama, 10 soruluk oturum, mobil RTL ve kayıt bütünlüğü. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39022148454) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39022148533) başarılı.
 - **10:** PR [#111](https://github.com/ilgazfindik/DEEN-App/pull/111) ile 34 cezim + 33 şedde + 27 med + 6 tenvin = 100 gerçek V2 soru eklendi. 11–13. derslerde 34/33/33 dağılım, 5 dil, yazım/cevap/distraktör doğrulaması, 320px Arapça RTL, 10 soruluk ders, eski kalp/kayıt koruması, onaysız ses eklememe doğrulandı. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39024160434) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39024160506) başarılı.
-- **11 (PR/QA bekliyor):** `quran-arabic-questions-pack-e.js` ile mevcut beş ayette birebir geçen 20 ayrı kelimeyi kaynak alarak 34 yazılı parça başlangıç/son, 20 gerçek kelime oluşturma, 13 önceki kelime, 20 ayette bulma, 13 sonraki kelime sorusu =100. 14–16. derslere 34/33/33. Sahte kelime, uydurma meal ve onaysız ses yok; A–D 400 soru korunuyor.
-- **Kalan:** 11–16. adımlar; 500/600 soru kodlandı, Paket E QA/merge bekliyor.
+- **11:** PR [#112](https://github.com/ilgazfindik/DEEN-App/pull/112) ile beş gerçek ayet örneğinden 20 ayrı kelimeye dayanan 100 V2 sorusu eklendi. 34 baş/son parça, 20 kelime birleştirme, 13 önceki kelime, 20 ayette bulma ve 13 sonraki kelime. 14–16. derslerde 34/33/33 V2 havuzu; 5 dil, kaynak ayetle birebir eşleşme, doğru cevap, 320px Arapça RTL, eski XP/kalp/ilerleme, 10 soruluk oynanış ve onaysız ses eklememe doğrulandı. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39025813063) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39025785766) başarılı.
+- **Kalan:** 12–16. adımlar; 500/600 benzersiz soru yazıldı ve CI doğrulandı. Sonraki 'devam' Paket F +100 kısa ifade/anlam çözümleme.
