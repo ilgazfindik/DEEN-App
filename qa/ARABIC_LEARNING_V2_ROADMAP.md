@@ -1,6 +1,6 @@
 # DEEN — Arapça Öğren V2: mini öğreticiler → 600 soru → orta düzey Kur'an okuma
 **Plan tarihi:** 2026-10-17
-**Durum:** 01–08 tamamlandı. 09 Paket C için 100 özgün hareke/hece sorusu kodlandı; QA ve PR entegrasyonu bekleniyor.
+**Durum:** 01–09 tamamlandı. Paket C 100/100 sorusu hızlı ve kapsamlı QA'dan geçti; PR #110 ile main entegrasyonu yapılacak.
 **Son doğrulanan uygulama kod dalı:** main (`e7b17f36304737697436de571fe2f708795f5e03`, sürüm `9441arabicpackb100`).
 **Komut protokolü:** Kullanıcı "devam" yazdığında, aşağıdaki **ilk tamamlanmamış adımdan** ilerle. Aynı adımı gereksiz yere tekrarlama.
 
@@ -32,7 +32,7 @@
 - [x] **06 — Soru motoru V2 ve kalite şeması.** `id, skill, stage, difficulty, prompt, choices, correctAnswer, explanation, locale, audioRef?, source?, distractorRationale`; veri doğrulayıcı, doğru cevap tekliği, Arapça/diakritik, yinelenen soru denetimi. Mevcut soru tipleri ve kayıt anahtarları geriye uyumlu kalacak. Her oturumda havuzdan **8–12 soru**, yanlışlara uygun dönüt; aynı sorunun art arda gelmemesi. Soru sayısını artırınca müfredat ilerlemesini silme.
 - [x] **07 — Paket A: +100 harf tanıma.** 28 harfi ayırt etme, doğru harfi seçme, nokta ve benzer şekiller; ses gerektiren soruları yalnız mevcut 15 MP3 ile sınırla; doğru/yanlış şık kendi sesini oynatır; "Kontrol Et" ile notlandırılır. 100 veri + gerçek oynanış QA.
 - [x] **08 — Paket B: +100 harfin kelimedeki biçimleri.** Başta/ortada/sonda, bitişmeyen 6 harf, gerçek bağlantı örnekleri. Aynı harfin döndürülmüş kopyası veya yanlış bitişme önerme.
-- [ ] **09 — Paket C: +100 hareke ve hece.** Fetha/kasra/damma ayırma, heceleri çözme, harf adı ≠ okunan hece. Ses gerektiren örnekleri yalnız geçerli yeni ses var ise kullan.
+- [x] **09 — Paket C: +100 hareke ve hece.** Fetha/kasra/damma ayırma, heceleri çözme, harf adı ≠ okunan hece. Ses gerektiren örnekleri yalnız geçerli yeni ses var ise kullan.
 - [ ] **10 — Paket D: +100 cezim/şedde/med/tenvin.** Hatalı olmayan Arapça yazım, kısa/uzun ses farkı, tekrarlı pekiştirme.
 - [ ] **11 — Paket E: +100 kelime okuma ve oluşturma.** Harf→hece→kelime; düşük zorluktan orta düzeye; doğrulanmış yazılış ve anlam. Rastgele anlamsız diziler öğretme.
 - [ ] **12 — Paket F: +100 kısa ifade/Kur'an kelimesi çözümleme.** Kısa, harekeli örnekler; Arapça özgün kalır, sorular/açıklamalar seçilen dile göre. Ses dosyası yoksa yeni kıraat üretme iddiası yok.
@@ -52,7 +52,7 @@
 - Kritik regresyon: 0; yanlış ilerleme sıfırlaması: 0; sessiz sesi "başarılı" gösterme: 0.
 
 ## Bir sonraki "devam" komutunun kesin görevi
-**Adım 09 — Paket C QA/main entegrasyonu:** Üstün/esre/ötre için 28 biçim, 6 farklı harf üstünde eşleştirme, Be/Te hecelerinde 33+33 soruyu (34/33/33 =100) bağımsız denetle. 8–10. derslerde >=8 V2 soru ve 5 dil/RTL/ilerleme/kalp güvenliği testleri başarılıysa [x] ve main merge. Cezim/şedde/med/tenvin öğretimi sonraki 10. aşama Paket D'ye aittir.
+**Adım 10 — Paket D +100 cezim/şedde/med/tenvin:** Arapça yazılış ve dil bilgisi doğruluğunu koruyarak gerçek öğretim içeriğinden 100 benzersiz cezim, şedde, med ve tenvin ayırt etme sorusu üret; hiç olmayan ses kaydını varmış gibi gösterme. 11–13. dersler için >=8 V2 soru, beş dil, RTL, cevap ve distraktör doğrulaması, ilerleme koruma, gerçek Chrome oynanış ve kapsamlı QA. Başarılı CI sonrası PR ve main entegrasyonu; sonrasında 11. aşama.
 
 ## Son doğrulanmış ilerleme
 - **01:** PR [#101](https://github.com/ilgazfindik/DEEN-App/pull/101), `f07c7d726f0b65103d4135a8c1bb85f134b93c74` main merge; beş dil, RTL, 15 ses, refresh/progress Chrome testi başarılı. Tam uygulama denetimi: [38973328259](https://github.com/ilgazfindik/DEEN-App/actions/runs/38973328259), başarılı.
@@ -63,5 +63,5 @@
 - **06:** PR [#107](https://github.com/ilgazfindik/DEEN-App/pull/107), `quran-arabic-questions-v2.js` 5 dil veri şeması, atomik paket/benzer soru engeli, denetlenmemiş sesin reddi, 8–12 soru, yanlış gerekçesi ve kayıt korumalı V2. Yazılı havuzu olmayan eski 27 ders yerinde kalır. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38982988798) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38982988784) başarılı. Otomatik testte 12 test-fikstür sorusu vardır, ürün soru bankasına eklenmemiştir; yeni içerik 0/600.
 - **07:** PR [#108](https://github.com/ilgazfindik/DEEN-App/pull/108) ile 100 gerçek V2 sorusu (28 isim→harf, 28 harf→isim, 28 nokta konumu, 16 benzer-gövde) eklendi ve 7/7 harf dersine bağlandı. Her oturum 10 soru. 5/5 locale, doğru cevap, nokta/şekil ailesi, bağımsız 15 MP3 önizleme sınırı ve kayıt bütünlüğü doğrulandı. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38984368900) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38984368935) başarılı.
 - **08:** PR [#109](https://github.com/ilgazfindik/DEEN-App/pull/109), Paket B için 28 ilk + 22 gerçek orta + 28 son + 22 harf bağlantısı: 100 benzersiz V2 soru. Paket A ile toplam 200; 7/7 harf dersi, 5 locale, nokta ve bağlantı kuralı, 6 birleşmeyen harfte sahte orta biçim olmaması, harf-adı MP3'lerini yanlış tekrar kullanmama, mobil RTL/320px, XP-kayıt regresyonu. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38985862212) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/38985862224) başarılı.
-- **09 (PR/QA bekliyor):** 28 özgün kısa-hareke biçimini bulma + 6 harfler arası hareke eşleştirme + 33 Be + 33 Te hece eşleştirme, toplam 100 özgün V2 sorusu. 3 dersin (8,9,10) tamamına kayıtlı, beş dil, yanlış seçenek gerekçesi; onaysız hece sesi yok.
-- **Kalan:** 09–16. adımlar; 300/600 soru kodlandı, Paket C QA/merge bekliyor. 'Devam' 10 Paket D cezim, şedde, med ve tenvin.
+- **09:** PR [#110](https://github.com/ilgazfindik/DEEN-App/pull/110) ile 28 kısa-hareke biçimi (Elif'e yanıltıcı kısa hareke takılmadan), 6 hareke karşılaştırma, 33 Be ve 33 Te hecesi: **100 benzersiz soru**. Üç harakat dersine 34/33/33 olarak kaydedildi; beş dil, doğrulanmış doğru cevaplar, yanlış şık gerekçeleri, ses uydurmama, 10 soruluk oturum, mobil RTL ve kayıt bütünlüğü. [Hızlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39022148454) ve [kapsamlı QA](https://github.com/ilgazfindik/DEEN-App/actions/runs/39022148533) başarılı.
+- **Kalan:** 10–16. adımlar; 300/600 yeni soru kodlandı ve QA doğrulandı. Sonraki 'devam' 10 Paket D cezim, şedde, med ve tenvin için +100 soru.
