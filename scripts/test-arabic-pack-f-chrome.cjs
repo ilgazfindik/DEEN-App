@@ -41,7 +41,11 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   }));
   for(let index=18;index<=26;index++){
    await page.evaluate(index=>{
-    document.documentElement.lang='tr';DEEN_QURAN_PATHS.enterArabic();
+    document.documentElement.lang='tr';
+    if(index>24)localStorage.setItem('deen_arabic_patterns_v1',JSON.stringify({
+     schema:1,completed:DEEN_ARABIC_PATTERNS.lessons.slice(0,index-24).map(x=>x.id)
+    }));
+    DEEN_QURAN_PATHS.enterArabic();
     if(!DEEN_QURAN_PATHS.selectGroup(index)||!DEEN_QURAN_PATHS.start())throw Error('Locked meaning/phrase/pattern lesson '+index);
    },index);
    if(await page.locator('.deen-path-mini-tip').count())await page.locator('[data-qpath-action="tipDismiss"]').click();
