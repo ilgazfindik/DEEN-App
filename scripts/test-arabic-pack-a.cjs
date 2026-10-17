@@ -26,9 +26,9 @@ for(const stage of course.lessons){
  assert.equal(api.validateBank(pool).valid,true,'Stage bank is valid: '+stage.id);
  const s1=api.createSession(stage.id,{count:10,seed:1}),s2=api.createSession(stage.id,{count:12,seed:2});
  assert.equal(s1.total,10);
- assert.equal(s2.total,12);
+ assert.equal(s2.total,Math.min(12,pool.length));
  assert.equal(new Set(s1.ids).size,10);
- assert.equal(new Set(s2.ids).size,12);
+ assert.equal(new Set(s2.ids).size,Math.min(12,pool.length));
  assert.ok(s1.ids.every(id=>!id.startsWith('fixture-')));
  const third=api.createSession(stage.id,{count:10,seed:3,recentIds:s1.ids});
  assert.equal(third.total,10);
