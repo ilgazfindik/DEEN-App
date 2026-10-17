@@ -1,6 +1,6 @@
 # DEEN Arapça V2 — 16. aşama: son kapsam ve yayın kapısı
 
-**Durum (2026-10-17):** [PR #117](https://github.com/ilgazfindik/DEEN-App/pull/117) adayında son kapsam doğrulaması ve hızlı Chrome QA **başarılı**. [Kapsamlı Chrome + içerik audit #39037032921](https://github.com/ilgazfindik/DEEN-App/actions/runs/39037032921) başarılı (`f3eb2f26`); sonraki değişiklikler yalnız rapor/ilerleme belgeleri. Son PR commit hızlı QA [#39037172127](https://github.com/ilgazfindik/DEEN-App/actions/runs/39037172127) başarılı (`b78ac28e`). Merge ve Pages sonrası yayın teyidi ayrıca gereklidir.
+**Durum (2026-10-17):** **16. aşama QA kapısı geçildi ve GitHub Pages yayını doğrulandı.** [PR #117](https://github.com/ilgazfindik/DEEN-App/pull/117) → merge `6fde2aa9d64615c0343a199d904e9427d58cc1f4`; [Pages #39040789016](https://github.com/ilgazfindik/DEEN-App/actions/runs/39040789016) başarılı ve SHA eşleşiyor. [Kapsamlı Chrome + içerik audit #39037032921](https://github.com/ilgazfindik/DEEN-App/actions/runs/39037032921) başarılı (`f3eb2f26`); sonraki değişiklikler yalnız rapor/ilerleme belgeleri. Son PR commit hızlı QA [#39040553331](https://github.com/ilgazfindik/DEEN-App/actions/runs/39040553331) başarılı (`4f319a80`). Merge sonrası yeniden başlayan `main` denetimleri [#39040788955](https://github.com/ilgazfindik/DEEN-App/actions/runs/39040788955) ve [#39040789100](https://github.com/ilgazfindik/DEEN-App/actions/runs/39040789100) başlangıç anında devam ediyordu; nihai durumları ayrıca izlenir.
 
 ## Gerçek kapsam
 
@@ -16,7 +16,7 @@
 1. `node scripts/audit-arabic-v2-release-gate.cjs`: yeni deterministik kapsam kontrolü.
 2. `Arabic question bank audit`: tam içerik + sürüm imzası + gerçek Chrome regresyonu. `deen-qa/arabic-v2-stage16-gate.json` çıktısı.
 3. `Quran Arabic Words Fast QA`: yeni kapıyla beraber oyun/ses/RTL/yeniden açılış regresyonları.
-4. PR merge sonrasında **aynı main commit** için GitHub Pages deployment success kaydı, hızlı QA ve kapsamlı CI yeniden doğrulanır.
+4. PR merge sonrasında **aynı main commit** için GitHub Pages deployment success kaydı [#39040789016](https://github.com/ilgazfindik/DEEN-App/actions/runs/39040789016) ile doğrulandı; aynı SHA üzerindeki hızlı QA ve kapsamlı CI kontrolü ayrı yayımlanır.
 
 ## Test kayıtları
 
