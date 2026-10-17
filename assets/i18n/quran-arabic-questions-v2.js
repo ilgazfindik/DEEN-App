@@ -77,7 +77,7 @@
   for(let i=copy.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}
   return copy;
  }
- function createSession(stage,{count=10,recentIds=[],seed=Date.now()}={}){
+ function createSession(stage,{count=10,recentIds=[],seed=Date.now(),practice=null,now=Date.now()}={}){
   const pool=banks.get(stage)||[];
   if(pool.length<8)return null; // Existing 3–5 question lessons stay entirely legacy.
   const limit=Math.max(8,Math.min(12,Math.trunc(Number(count)||10),pool.length));
@@ -94,12 +94,76 @@
    }
    return out;
   };
-  const chosen=[...balanced(preferred),...balanced(fallback)].slice(0,limit);
+  const cards=cleanPractice(practice).cards;
+  const reviewMax=Math.min(3,Math.floor(limit/3));
+  const due=preferred.filter(q=>cards[q.id]?.dueAt>0&&cards[q.id].dueAt<=now)
+   .sort((a,b)=>cards[b.id].mistakes-cards[a.id].mistakes||cards[a.id].dueAt-cards[b.id].dueAt||a.id.localeCompare(b.id));
+  const selected=due.slice(0,reviewMax),selectedIds=new Set(selected.map(q=>q.id));
+  const chosen=[...selected,...balanced(preferred.filter(q=>!selectedIds.has(q.id))),
+   ...balanced(fallback)].slice(0,limit);
   return Object.freeze({stage,questions:Object.freeze(chosen),total:chosen.length,ids:Object.freeze(chosen.map(q=>q.id))});
+ }
+
+ // New, independent written-practice evidence; never alter old progress or rewards.
+ const DAY=86400000,intervals=Object.freeze([1,3,7,14]);
+ const safe=o=>o&&typeof o==='object'&&!Array.isArray(o)?o:{};
+ const int=(n,max)=>Number.isInteger(n)?Math.max(0,Math.min(max,n)):0;
+ const time=n=>Number.isFinite(n)&&n>=0?Math.trunc(n):0;
+ function cleanPractice(raw){
+  const source=safe(raw),cards=Object.create(null),sessions=[];
+  for(const [id,row] of Object.entries(safe(source.cards)).slice(0,650)){
+   const q=byId.get(id);if(!q||!row||typeof row!=='object'||Array.isArray(row))continue;
+   const confusions=Object.create(null);
+   for(const [choice,n] of Object.entries(safe(row.confusions)).slice(0,8))
+    if(q.choices.some(c=>c.id===choice&&choice!==q.correctAnswer)&&Number.isInteger(n)&&n>0)
+     confusions[choice]=int(n,999);
+   cards[id]=Object.freeze({step:int(row.step,4),attempts:int(row.attempts,9999),
+    correct:int(row.correct,9999),mistakes:int(row.mistakes,9999),lastAt:time(row.lastAt),
+    dueAt:time(row.dueAt),confusions:Object.freeze(confusions)});
+  }
+  for(const s of (Array.isArray(source.sessions)?source.sessions:[]).slice(-10))
+   if(s&&banks.has(s.stage)&&Number.isInteger(s.total)&&s.total>=1&&s.total<=12&&
+      Number.isInteger(s.correct)&&s.correct>=0&&s.correct<=s.total)
+    sessions.push(Object.freeze({stage:s.stage,total:s.total,correct:s.correct,at:time(s.at)}));
+  return Object.freeze({schema:1,cards:Object.freeze(cards),sessions:Object.freeze(sessions)});
+ }
+ function recordPractice(raw,{stage,answers=[],at=Date.now()}={}){
+  const history=cleanPractice(raw),when=time(at),found=new Set(),valid=[];
+  if(!banks.has(stage)||!Array.isArray(answers)||answers.length<1||answers.length>12||!when)return history;
+  for(const a of answers){
+   const q=byId.get(a?.id);
+   if(!q||q.stage!==stage||found.has(q.id)||typeof a.firstTryCorrect!=='boolean')return history;
+   if(!a.firstTryCorrect&&a.wrongChoiceId!=null&&
+    !q.choices.some(c=>c.id===a.wrongChoiceId&&c.id!==q.correctAnswer))return history;
+   found.add(q.id);valid.push(a);
+  }
+  const cards={...history.cards};let correct=0;
+  for(const a of valid){
+   const before=cards[a.id]||{step:0,attempts:0,correct:0,mistakes:0,confusions:{}};
+   const pass=a.firstTryCorrect;if(pass)correct++;
+   const step=pass?Math.min(4,before.step+1):0,confusions={...before.confusions};
+   if(!pass&&a.wrongChoiceId)confusions[a.wrongChoiceId]=Math.min(999,(confusions[a.wrongChoiceId]||0)+1);
+   cards[a.id]=Object.freeze({step,attempts:Math.min(9999,before.attempts+1),
+    correct:Math.min(9999,before.correct+(pass?1:0)),
+    mistakes:Math.min(9999,before.mistakes+(pass?0:1)),
+    lastAt:when,dueAt:when+DAY*intervals[Math.max(0,step-1)],confusions:Object.freeze(confusions)});
+  }
+  return Object.freeze({schema:1,cards:Object.freeze(cards),
+   sessions:Object.freeze([...history.sessions,{stage,total:valid.length,correct,at:when}].slice(-10))});
+ }
+ function practiceSummary(raw,{stage=null,now=Date.now()}={}){
+  const history=cleanPractice(raw),all=Object.entries(history.cards).filter(([id])=>!stage||byId.get(id).stage===stage);
+  const sessions=history.sessions.filter(s=>!stage||s.stage===stage),t=time(now);
+  const attempts=sessions.reduce((n,s)=>n+s.total,0),correct=sessions.reduce((n,s)=>n+s.correct,0);
+  const days=new Set(sessions.map(s=>Math.floor(s.at/DAY))).size;
+  return Object.freeze({tracked:all.length,due:all.filter(([,c])=>c.dueAt>0&&c.dueAt<=t).length,
+   weak:all.filter(([,c])=>c.mistakes>0&&c.step===0).length,lessons:sessions.length,attempts,correct,
+   accuracy:attempts?correct/attempts:null,distinctDays:days,mastery:attempts>=10&&days>=2&&correct/attempts>=.8,
+   intervals});
  }
  const poolFor=stage=>Object.freeze([...(banks.get(stage)||[])]);
  window.DEEN_ARABIC_QUESTIONS_V2=Object.freeze({
-  version:2,locales:languages,validateBank,registerPack,createSession,poolFor,
+  version:2,locales:languages,validateBank,registerPack,createSession,poolFor,cleanPractice,recordPractice,practiceSummary,
   stats:()=>Object.freeze({packs:packs.size,questions:byId.size,stages:banks.size}),
   get:id=>byId.get(id)||null
  });
