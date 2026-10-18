@@ -1962,6 +1962,15 @@
   }
   update();
  }
+
+ const v2TaskCopy={
+  tr:{match:'Dört Arapça harfi doğru isimleriyle eşleştir.',build:'Gösterilen birleşik yazıyı oluşturan iki harfi sırayla seç.',complete:'Dört eşleşmeyi de doğru tamamladın.'},
+  en:{match:'Match all four Arabic letters to their names.',build:'Choose the two letters forming the joined shape, in order.',complete:'You matched all four pairs.'},
+  ar:{match:'طابق الحروف العربية الأربعة مع أسمائها.',build:'اختر الحرفين المكوّنين للشكل المتصل بالترتيب.',complete:'أكملت المطابقات الأربع بشكل صحيح.'},
+  de:{match:'Ordne alle vier arabischen Buchstaben ihren Namen zu.',build:'Wähle die zwei Buchstaben, die die verbundene Form bilden, in der richtigen Reihenfolge.',complete:'Alle vier Paare richtig zugeordnet.'},
+  fr:{match:'Associe les quatre lettres arabes à leur nom.',build:'Choisis dans l’ordre les deux lettres qui forment la graphie liée.',complete:'Les quatre paires sont associées.'}
+ };
+ const v2TaskText=()=>v2TaskCopy[lang()]||v2TaskCopy.tr;
  function v2LessonView(){
   const q=v2Question(),c=t(),ui=v2Locale(),locale=lang(),box=elem('section','deen-path-lesson deen-path-v2-lesson');
   box.append(makeButton('←  '+c.arabic,'group','deen-path-back'));
@@ -1974,9 +1983,14 @@
    }
   const mode=v2Mode(q),copy=v2ModeText();
   box.append(elem('span','deen-v2-mode-label',copy[mode]));
-  box.append(elem('h2','deen-path-inner-title',q.prompt[locale]||q.prompt.tr));
-  const target=elem('div','deen-path-prompt deen-v2-target',q.target);
-  target.lang='ar';target.dir='rtl';box.append(target);
+  const task=v2TaskText();
+  box.append(elem('h2','deen-path-inner-title',mode==='match'?task.match:mode==='build'?task.build:(q.prompt[locale]||q.prompt.tr)));
+  const model=mode==='build'?q.choices.find(x=>x.id===q.correctAnswer)?.glyph:
+   mode==='match'?q.choices.map(x=>window.DEEN_ARABIC_LETTERS.get(x.id).glyph).join(' · '):q.target;
+  const target=elem('div','deen-path-prompt deen-v2-target',model||q.target);
+  target.lang='ar';target.dir='rtl';
+  if(mode==='build')target.classList.add('deen-v2-joined-model');
+  box.append(target);
   if(mode==='choice'){
    const choices=elem('div','deen-path-options deen-v2-options deen-v2-abcd');
    for(const [i,opt] of q.choices.entries()){
@@ -2027,9 +2041,10 @@
    box.append(slots,choices);
    const reset=makeButton(copy.reset,'v2ResetPieces','deen-path-secondary deen-v2-build-reset');
    reset.disabled=state.correct||!state.v2Pieces.length;box.append(reset);
-   if(state.correct){
-    const joined=q.choices.find(x=>x.id===q.correctAnswer)?.glyph;
-    if(joined){const preview=elem('div','deen-v2-joined-answer',joined);preview.lang='ar';preview.dir='rtl';box.append(preview)}
+   if(state.v2Pieces.length===2){
+    const assembled=state.v2Pieces.map(i=>bank[i]).join('');
+    const preview=elem('div','deen-v2-build-preview',assembled);
+    preview.lang='ar';preview.dir='rtl';preview.setAttribute('aria-live','polite');box.append(preview);
    }
   }
   if(state.v2Notice){
@@ -2043,7 +2058,7 @@
   if(state.v2Checked){
    const correct=state.correct;
    const line=elem('p','deen-path-feedback'+(correct?' is-correct':' is-wrong'),
-    (correct?c.correct:ui.tryAgain)+' '+(q.explanation[locale]||q.explanation.tr));
+    (correct?c.correct:ui.tryAgain)+' '+(correct&&mode==='match'?task.complete:(q.explanation[locale]||q.explanation.tr)));
    line.setAttribute('role','status');box.append(line);
    if(!correct){
     const reason=q.distractorRationale?.[state.v2Choice];
