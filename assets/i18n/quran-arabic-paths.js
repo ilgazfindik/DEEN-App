@@ -1899,8 +1899,7 @@
   if(!q)return 'choice';
   if(q.skill==='joining-two-letters'&&q.target.split(/\s*\+\s*/).length===2)return 'build';
   if(q.skill==='letter-glyph-to-name'&&q.choices.length===4&&
-     q.choices.every(c=>c.label&&window.DEEN_ARABIC_LETTERS?.get?.(c.id))&&
-     [...q.id].reduce((n,ch)=>n+ch.charCodeAt(0),0)%4===0)return 'match';
+     q.choices.every(c=>c.label&&window.DEEN_ARABIC_LETTERS?.get?.(c.id)))return 'match';
   return 'choice';
  };
  function v2ResetMode(){
