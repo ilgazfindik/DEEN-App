@@ -19,6 +19,8 @@ on:
       - 'scripts/audit-arabic-v2-release-gate.cjs'
       - 'scripts/export-arabic-v2-human-review.cjs'
       - 'scripts/test-arabic-v2-human-review.cjs'
+      - 'scripts/test-arabic-v2-prepost.cjs'
+      - 'scripts/test-arabic-v2-prepost-chrome.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
@@ -89,6 +91,8 @@ on:
       - 'scripts/audit-arabic-v2-release-gate.cjs'
       - 'scripts/export-arabic-v2-human-review.cjs'
       - 'scripts/test-arabic-v2-human-review.cjs'
+      - 'scripts/test-arabic-v2-prepost.cjs'
+      - 'scripts/test-arabic-v2-prepost-chrome.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
@@ -166,6 +170,7 @@ jobs:
           node scripts/audit-arabic-v2-locale-content.cjs
           node scripts/audit-arabic-v2-release-gate.cjs
           node scripts/test-arabic-v2-human-review.cjs
+          node scripts/test-arabic-v2-prepost.cjs
           node --check sw.js
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs
@@ -202,3 +207,4 @@ jobs:
           node scripts/test-quran-remediation-chrome.cjs
           node scripts/test-quran-weekly-chrome.cjs
           node scripts/test-quran-weekly-goals-chrome.cjs
+          node scripts/test-arabic-v2-prepost-chrome.cjs
