@@ -1988,7 +1988,8 @@
   const model=mode==='build'?q.choices.find(x=>x.id===q.correctAnswer)?.glyph:
    mode==='match'?q.choices.map(x=>window.DEEN_ARABIC_LETTERS.get(x.id).glyph).join(' · '):q.target;
   const target=elem('div','deen-path-prompt deen-v2-target',model||q.target);
-  target.lang='ar';target.dir='rtl';
+  target.lang='ar';target.dir='rtl';target.dataset.questionId=q.id;
+  target.dataset.sourceTarget=q.target;
   if(mode==='build')target.classList.add('deen-v2-joined-model');
   box.append(target);
   if(mode==='choice'){
