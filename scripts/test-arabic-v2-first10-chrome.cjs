@@ -49,10 +49,34 @@ const modules=['quran-arabic-letters.js','quran-arabic-letter-audio.js','quran-a
     return candidates[0].correctAnswer;
    },{prompt,target});
   };
+  const modes=new Set();
   for(let i=0;i<10;i++){
-   const choice=await correctChoice();
-   await page.locator('[data-qpath-action="v2Choice"][data-choice-id="'+choice+'"]').click();
-   await page.locator('[data-qpath-action="v2Check"]').click();
+   const answer=await correctChoice();
+   const isMatching=await page.locator('.deen-v2-match-board').count()===1;
+   const isBuild=await page.locator('.deen-v2-build-bank').count()===1;
+   if(isMatching){
+    modes.add('match');
+    const ids=await page.locator('[data-qpath-action="v2MatchGlyph"]').evaluateAll(nodes=>nodes.map(n=>n.dataset.choiceId));
+    for(const id of ids){
+     await page.locator('[data-qpath-action="v2MatchGlyph"][data-choice-id="'+id+'"]').click();
+     await page.locator('[data-qpath-action="v2MatchName"][data-choice-id="'+id+'"]').click();
+    }
+   }else if(isBuild){
+    modes.add('build');
+    const target=(await page.locator('.deen-v2-target').innerText()).split(/\s*\+\s*/);
+    const bank=await page.locator('[data-qpath-action="v2Piece"]').evaluateAll(nodes=>nodes.map(n=>n.textContent.trim()));
+    for(const glyph of target){
+     const index=bank.findIndex((g,j)=>g===glyph&&j!==-1);
+     assert.ok(index>=0,'letter present in bank: '+glyph);
+     await page.locator('[data-qpath-action="v2Piece"][data-piece-index="'+index+'"]').click();
+    }
+    await page.locator('[data-qpath-action="v2Check"]').click();
+   }else{
+    modes.add('choice');
+    assert.equal(await page.locator('.deen-v2-option').count(),4);
+    await page.locator('[data-qpath-action="v2Choice"][data-choice-id="'+answer+'"]').click();
+    await page.locator('[data-qpath-action="v2Check"]').click();
+   }
    assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
    await page.locator('[data-qpath-action="next"]').click();
   }
