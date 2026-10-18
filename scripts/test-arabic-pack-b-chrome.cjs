@@ -30,6 +30,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    assert.ok((await page.locator('.deen-path-question-count').innerText()).includes('1 / 10'));
    const stage='arabic-letters-'+String(i+1).padStart(2,'0');
    const verify=async(locale)=>{
+    const title=(await page.locator('.deen-path-inner-title').innerText()).trim();
     const questionId=await page.locator('.deen-v2-target').getAttribute('data-question-id');
     const content=await page.locator('.deen-v2-option').allInnerTexts();
     const result=await page.evaluate(({questionId,stage,locale})=>{
