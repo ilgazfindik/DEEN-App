@@ -9,7 +9,7 @@
 - [x] **17 — Eksik 19 ses için teslim ve teknik QA.** [PR #118](https://github.com/ilgazfindik/DEEN-App/pull/118). 13 harf adı ve 6 dinleme klibinin birebir hedef/isim listesini yayınla. SHA-256, dosya formatı, aynı dosyanın kopyalanması, eski 15 sesin korunması ve onaysız içeriğin açılmaması testleri. Yeni gerçek MP3 geldiği iddia edilmeyecek. [Kayıt listesi](ARABIC_V2_STAGE17_AUDIO_INTAKE.md).
 - [ ] **18 — Gerçek ses kaydı kabulü (harici dosyalara bağlı).** Kullanıcı eksik MP3'leri sağladığında ses başına hak ve telaffuz kanıtı topla; bağımsız Arapça öğreticisi kontrolü, gerçek cihaz Chrome oynatması, hash/cache/manifest yayın katmanını doğrula. Gelmeyen sesi atla, dinleme derslerini sahte şekilde açma. Altyapı hazır olsa bile bağımlılık karşılanmadan [x] yapma.
 - [x] **19 — 448 uzman inceleme kalemi.** 14. aşamanın mevcut otomatik sınıflandırmasından insan için çıkarılabilir inceleme envanteri oluştur; dinî/ayet anlam, fonetik ve ses hakları ayrı tablolar; gerekçeli kabul/düzeltme/reddetme alanları. Otomatik geçiş bağımsız dinî onay değildir. [Uzman devri yönergesi](ARABIC_V2_STAGE19_EXPERT_REVIEW.md). [PR #119](https://github.com/ilgazfindik/DEEN-App/pull/119) `34706412b2bbf8d0ee90acb3d5909603013c842e` olarak merge edildi; uzman onayı hâlâ alınmadı.
-- [ ] **20 — Okuma becerisi ölçümü.** Ses dosyası gerektirmeyen bir ön test–son test tasarla; yeni soru üretimine dayanmadan 600 soruluk havuzda saklı tekrar sorularıyla harf, hareke, kelime, ifade becerisini ayrı ölç. XP/kalp/ilerleme kaydını bozmadan yazılı beceri ve tekrar ölçümü; beş dil/RTL/320px ve düşük ağ senaryoları. **PR #120**: sekiz ön test + sekiz farklı son test, dört yazılı beceri, yerel izole kayıt. Son hızlı/kapsamlı CI ve Pages kontrolü bekliyor.
+- [x] **20 — Okuma becerisi ölçümü.** Ses dosyası gerektirmeyen bir ön test–son test tasarla; yeni soru üretimine dayanmadan 600 soruluk havuzda saklı tekrar sorularıyla harf, hareke, kelime, ifade becerisini ayrı ölç. XP/kalp/ilerleme kaydını bozmadan yazılı beceri ve tekrar ölçümü; beş dil/RTL/320px ve düşük ağ senaryoları. [PR #120](https://github.com/ilgazfindik/DEEN-App/pull/120) ile sekiz ön test + sekiz farklı son test, dört yazılı beceri, izole yerel kayıt başarıyla merge edildi; [kapsamlı QA #39147787120](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147787120), [hızlı QA #39147789693](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147789693) ve [GitHub Pages #39148612567](https://github.com/ilgazfindik/DEEN-App/actions/runs/39148612567) başarılı.
 - [ ] **21 — Kullanıcı akışı iyileştirme.** İlk 10 dakika, ilk doğru okuma, öğrenilen beceriler ve terk noktalarını gizliliği koruyan ölçüm planına bağla. Gerçek kullanım verisi gelmeden artış rakamı veya öğrenme verimliliği iddia etme.
 
 ## Son ilerleme
@@ -18,7 +18,7 @@
 - **19 — QA adayı:** 448 mevcut insan inceleme işaretinden üç kategori CSV + tam JSON oluşturuluyor; hiçbiri insan tarafından onaylanmış değildir.
 
 - **19 — Merge ve Pages doğrulandı:** [PR #119](https://github.com/ilgazfindik/DEEN-App/pull/119) → `34706412b2bbf8d0ee90acb3d5909603013c842e` (insan kararları henüz verilmedi).
-- **20 — Yeni QA adayı:** [Ön-son ölçümün teknik tasarımı](ARABIC_V2_STAGE20_PREPOST_QA.md); gerçek Chrome doğrulaması ve PR/merge gate bekliyor.
+- **20 — Yayında:** [PR #120](https://github.com/ilgazfindik/DEEN-App/pull/120) → `cbba42cd83157589ff9a3d2316488e3a202db4fa`. [Hızlı #39147789693](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147789693), [kapsamlı #39147787120](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147787120), [Pages #39148612567](https://github.com/ilgazfindik/DEEN-App/actions/runs/39148612567) başarılı. Ses/kıraat ölçümü veya nedensel kazanım iddia edilmez.
 
 ## Yayın sınırları
 
@@ -26,4 +26,4 @@
 - 17. ve 18. dersin altı bağımsız klibi kayıt/izin/telaffuz incelemesine bağlıdır; hazır değildir.
 - **448 uzman inceleme işareti** uzman tarafından onaylandı demek değildir.
 - Uygulamanın 27 öğretici, 600 canlı soru ve beş dil altyapısı korunur; Kur'an ayetleri özgün Arapça kalır.
-- 17. aşamanın hızlı + kapsamlı CI'si geçmeden main'e merge veya canlı yayın yapma. Yalnızca uzman tarafından sağlanmış örnekler bir sonraki gerçek ses entegrasyonu PR'sına girer.
+- Sonraki aşamada da hızlı + kapsamlı CI geçmeden main'e merge veya canlı yayın yapma. Yalnızca uzman tarafından sağlanmış örnekler bir sonraki gerçek ses entegrasyonu PR'sına girer.
