@@ -7,8 +7,7 @@ assert.equal(engine.stats().questions,600);
 assert.equal(engine.stats().packs,6);
 const mode=q=>{
  if(q.skill==='joining-two-letters'&&q.target.split(/\s*\+\s*/).length===2)return 'build';
- if(q.skill==='letter-glyph-to-name'&&q.choices.length===4&&q.choices.every(c=>c.label)&&
-   [...q.id].reduce((s,c)=>s+c.charCodeAt(0),0)%4===0)return 'match';
+ if(q.skill==='letter-glyph-to-name'&&q.choices.length===4&&q.choices.every(c=>c.label))return 'match';
  return 'choice';
 };
 const shuffle=(items,key)=>{
@@ -37,7 +36,8 @@ for(const stage of stages){
 }
 assert.equal(questions.length,200,'Seven letter lessons use the 200 Pack A+B questions');
 assert.equal(distribution.build,22,'All 22 two-letter joining examples use assembly');
-assert.ok(distribution.match>=4,'Real matching examples present');
+assert.equal(distribution.match,28,'All 28 sourced letter-name examples use real matching');
+assert.ok(Object.values(byStage).every(counts=>counts.match>=3),'Matching available in every letter lesson');
 assert.equal(Object.values(distribution).reduce((s,n)=>s+n,0),200);
 const positions=new Set(),answerAtFirst=new Set();
 for(const q of questions.filter(q=>mode(q)==='build')){
