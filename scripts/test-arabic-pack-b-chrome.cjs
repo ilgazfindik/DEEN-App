@@ -68,6 +68,12 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     seen.add(q.id);
     if(q.id.startsWith('pack-b-'))bObserved++;
     if(await page.locator('.deen-v2-match-board').count()){
+     const aligned=await page.evaluate(()=>{
+      const left=[...document.querySelectorAll('.deen-v2-match-glyph')].map(x=>x.dataset.choiceId);
+      const right=[...document.querySelectorAll('.deen-v2-match-name')].map(x=>x.dataset.choiceId);
+      return left.some((v,i)=>v===right[i]);
+     });
+     assert.equal(aligned,false,'No visible match answers in the same row');
      const ids=await page.locator('[data-qpath-action="v2MatchGlyph"]').evaluateAll(nodes=>nodes.map(n=>n.dataset.choiceId));
      if(i===0&&j===0){
       await page.locator('[data-qpath-action="v2MatchGlyph"][data-choice-id="'+ids[0]+'"]').click();
@@ -81,6 +87,8 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     }else if(await page.locator('.deen-v2-build-bank').count()){
      const target=(await page.locator('.deen-v2-target').getAttribute('data-source-target')).split(/\s*\+\s*/);
      const bank=await page.locator('[data-qpath-action="v2Piece"]').evaluateAll(nodes=>nodes.map(n=>n.textContent.trim()));
+     assert.equal(new Set(bank).size,4,'Four unique Arabic word-bank pieces');
+     assert.equal(target.map(g=>bank.includes(g)).every(Boolean),true,'Both required letters in bank');
      if(i===0&&j===0){
       const wrong=bank.map((glyph,k)=>target.includes(glyph)?-1:k).filter(k=>k>=0);
       assert.equal(wrong.length,2,'exactly two Arabic distractors in four-piece bank');
@@ -118,12 +126,29 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.equal(recent['arabic-letters-01'].length,10);
   await page.setViewportSize({width:320,height:720});
   await page.evaluate(()=>{document.documentElement.lang='ar';DEEN_QURAN_PATHS.enterArabic();DEEN_QURAN_PATHS.selectGroup(6);DEEN_QURAN_PATHS.start()});
+  // Mobile viewport and locale test: no tile outside the lesson on 320, 360 or 390 px.
+  for(const width of [320,360,390]){
+   await page.setViewportSize({width,height:720});
+   for(const locale of ['tr','en','ar','de','fr']){
+    await page.evaluate(l=>{document.documentElement.lang=l;DEEN_QURAN_PATHS.refresh()},locale);
+    const layout=await page.locator('.deen-path-v2-lesson').evaluate(element=>{
+     const lesson=element.getBoundingClientRect();
+     const tiles=[...element.querySelectorAll('.deen-v2-option,.deen-v2-match-tile,.deen-v2-build-piece')];
+     return {viewport:window.innerWidth,left:lesson.left,right:lesson.right,
+      bad:tiles.filter(tile=>{const r=tile.getBoundingClientRect();return r.left<lesson.left-2||
+        r.right>lesson.right+2||r.height<44||r.width<44}).length};
+    });
+    assert.ok(layout.left>=-2&&layout.right<=width+2,'Lesson fits '+width+'/'+locale);
+    assert.equal(layout.bad,0,'Touch targets and labels fit '+width+'/'+locale);
+    assert.equal(await page.locator('.deen-v2-target').getAttribute('dir'),'rtl');
+   }
+  }
   const bb=await page.locator('.deen-path-v2-lesson').boundingBox();
-  assert.ok(bb&&bb.x>=0&&bb.x+bb.width<=322,'320px Arabic RTL');
+  assert.ok(bb&&bb.x>=-2&&bb.x+bb.width<=392,'390px Arabic RTL');
   assert.ok((await page.locator('.deen-v2-option').count()===4)||
    (await page.locator('.deen-v2-match-board').count()===1)||
    (await page.locator('.deen-v2-build-bank').count()===1),'valid choice/match/build question');
   assert.deepEqual(errors,[],'Browser page errors');
-  console.log('PASS ARABIC PACK B CHROME: 200 total questions, 7-stage real gameplay, A+B mixed selection, 5 locales, RTL 320px, completion/retry, unchanged progress and hearts');
+  console.log('PASS ARABIC PACK B CHROME: 200 questions, 7-stage real gameplay, 5 locales, 320/360/390px, RTL, randomized pair alignment, 44px targets, completion/retry and unchanged progress');
  }finally{await browser.close();server.close()}
 })().catch(e=>{console.error(e);server.close();process.exit(1)});
