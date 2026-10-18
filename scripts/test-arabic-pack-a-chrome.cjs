@@ -34,7 +34,10 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     if(!q)throw Error('No visible V2 question for '+locale);
     return q.choices.map(c=>c.label?.[locale]||c.glyph);
    },{title,target,locale});
-   assert.deepEqual(items.map(x=>x.trim()),result);
+   if(await page.locator('.deen-v2-match-board').count()){
+    const labels=await page.locator('.deen-v2-match-name').allInnerTexts();
+    assert.deepEqual(labels.map(x=>x.trim()).sort(),result.slice().sort());
+   }else assert.deepEqual(await page.locator('.deen-v2-label').allInnerTexts().then(a=>a.map(x=>x.trim())),result);
    assert.equal(await page.locator('.deen-v2-target').getAttribute('dir'),'rtl');
   }
   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.refresh()});
@@ -49,15 +52,30 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    },{title,target});
    assert.ok(!answered.has(q.id),'No repeated question ID in session');
    answered.add(q.id);
-   if(i===0){
-    await page.locator('.deen-v2-option[data-choice-id="'+q.wrong+'"]').click();
-    assert.equal(await page.locator('[data-qpath-action="next"]').count(),0,'A selected choice is not graded');
+   if(await page.locator('.deen-v2-match-board').count()){
+    const ids=await page.locator('[data-qpath-action="v2MatchGlyph"]').evaluateAll(nodes=>nodes.map(n=>n.dataset.choiceId));
+    if(i===0){
+     const wrong=ids.find(id=>id!==ids[0]);
+     await page.locator('[data-qpath-action="v2MatchGlyph"][data-choice-id="'+ids[0]+'"]').click();
+     await page.locator('[data-qpath-action="v2MatchName"][data-choice-id="'+wrong+'"]').click();
+     assert.equal(await page.locator('.deen-v2-notice').count(),1);
+     assert.equal(await page.locator('[data-qpath-action="next"]').count(),0);
+    }
+    for(const id of ids){
+     await page.locator('[data-qpath-action="v2MatchGlyph"][data-choice-id="'+id+'"]').click();
+     await page.locator('[data-qpath-action="v2MatchName"][data-choice-id="'+id+'"]').click();
+    }
+   }else{
+    if(i===0){
+     await page.locator('.deen-v2-option[data-choice-id="'+q.wrong+'"]').click();
+     assert.equal(await page.locator('[data-qpath-action="next"]').count(),0,'A selected choice is not graded');
+     await page.locator('[data-qpath-action="v2Check"]').click();
+     assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
+     assert.equal(await page.locator('.deen-v2-distractor').count(),1,'Every distractor has localized feedback');
+    }
+    await page.locator('.deen-v2-option[data-choice-id="'+q.correct+'"]').click();
     await page.locator('[data-qpath-action="v2Check"]').click();
-    assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
-    assert.equal(await page.locator('.deen-v2-distractor').count(),1,'Every distractor has localized feedback');
    }
-   await page.locator('.deen-v2-option[data-choice-id="'+q.correct+'"]').click();
-   await page.locator('[data-qpath-action="v2Check"]').click();
    assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
    await page.locator('[data-qpath-action="next"]').click();
   }
