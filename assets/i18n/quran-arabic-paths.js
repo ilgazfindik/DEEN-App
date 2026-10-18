@@ -1038,7 +1038,7 @@
    c.masteryWritten+' · '+mastery.lessonCompleted+' / '+mastery.lessonTotal+'   ·   '+
    c.masteryPracticed+' · '+mastery.practiced+' / '+mastery.total));
   box.append(masteryButton);
-  box.append(first10Panel());
+  const first10=first10Panel();if(first10)box.append(first10);
   box.append(foundationPanel());
   if(ASSESSMENT)box.append(assessmentPanel());
   box.append(checkpointPanel());
