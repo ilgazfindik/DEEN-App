@@ -95,7 +95,7 @@
   const box=elem('section','deen-path-first10');
   box.append(elem('h3','deen-path-shape-subtitle',c[0]),elem('p','deen-path-muted',c[1]));
   for(const [label,done] of [[c[2],h.at],[c[3],h.lesson],[c[4],h.correct],[c[5],h.finished]])
-   box.append(elem('p','deen-path-progress-copy',(done?'✓ ':'○ ')+label));
+   box.append(elem('p','deen-path-progress-copy deen-path-first10-step',(done?'✓ ':'○ ')+label));
   if(h.exits)box.append(elem('p','deen-path-muted',c[6]+' · '+h.exits));
   if(Date.now()>=h.at+FIRST10_WINDOW)box.append(elem('p','deen-path-muted',c[7]));
   box.append(elem('p','deen-path-muted',c[8]));
