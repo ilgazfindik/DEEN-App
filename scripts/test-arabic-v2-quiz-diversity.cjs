@@ -80,8 +80,18 @@ for(const stage of stages){
  }
 }
 assert.ok(patterns.size>=15,'Session question-mode combinations should vary between real seeds');
+const audit=engine.choicePositionAudit();
+assert.equal(audit.questions,550,'28 matching + 22 joining are excluded from 600 graded choices');
+for(const size of [3,4]){
+ const counts=audit.positions[size],total=counts.reduce((a,b)=>a+b,0);
+ if(total<30)continue;
+ assert.ok(counts.every(n=>n>=Math.floor(total/(size*3))),
+  'No answer letter is effectively absent from '+size+'-option questions: '+JSON.stringify(counts));
+ assert.ok(counts.every(n=>n<=Math.ceil(total*.5)),
+  'One answer position must not dominate '+size+'-option questions: '+JSON.stringify(counts));
+}
 console.log('PASS ARABIC V2 QUIZ DIVERSITY '+JSON.stringify({
  total:engine.stats().questions,letterStageQuestions:questions.length,distribution,
  buildPositions:positions.size,distinctFirstPositions:answerAtFirst.size,
- sessionPatterns:patterns.size,byStage
+ sessionPatterns:patterns.size,byStage,choicePositions:audit.positions
 }));
