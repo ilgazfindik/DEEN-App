@@ -55,7 +55,7 @@
  const MASTERY=window.DEEN_ARABIC_MASTERY;
  if(!MASTERY||MASTERY.version!==1)throw Error('DEEN_ARABIC_MASTERY_MISSING');
  const V2=window.DEEN_ARABIC_QUESTIONS_V2||null;
- const ASSESSMENT=V2?.assessment||null;
+ const ASSESSMENT=V2?.stats?.().questions===600?V2.assessment:null;
  const ASSESSMENT_STORE='deen_arabic_v2_assessment_v1';
  const assessmentRead=()=>{try{return ASSESSMENT?.read(JSON.parse(localStorage.getItem(ASSESSMENT_STORE)||'null'))}
   catch(_){return ASSESSMENT?.read(null)}};
@@ -868,7 +868,7 @@
  function checkpointLanding(){
   const c=t(),box=elem('section','deen-path-checkpoint-landing');
   box.append(makeButton('←  '+c.examBack,'arabic','deen-path-back'));
-  box.append(assessmentPanel());
+  if(ASSESSMENT)box.append(assessmentPanel());
    box.append(checkpointPanel());
   return box;
  }
