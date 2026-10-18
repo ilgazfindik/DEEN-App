@@ -868,8 +868,7 @@
  function checkpointLanding(){
   const c=t(),box=elem('section','deen-path-checkpoint-landing');
   box.append(makeButton('←  '+c.examBack,'arabic','deen-path-back'));
-  if(ASSESSMENT)box.append(assessmentPanel());
-   box.append(checkpointPanel());
+  box.append(checkpointPanel());
   return box;
  }
  function checkpointItem(){return state.checkpointQuestions[state.checkpointIndex]||null}
@@ -993,6 +992,7 @@
    c.masteryPracticed+' · '+mastery.practiced+' / '+mastery.total));
   box.append(masteryButton);
   box.append(foundationPanel());
+  if(ASSESSMENT)box.append(assessmentPanel());
   box.append(checkpointPanel());
   const daily=dailySnapshot(),dailyButton=makeButton('','daily','deen-path-daily-teaser');
   dailyButton.append(elem('span','deen-path-daily-teaser-name',c.dailyOpen+' →'),
