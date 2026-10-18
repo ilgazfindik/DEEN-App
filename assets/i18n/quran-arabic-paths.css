@@ -1107,3 +1107,17 @@
  #leagueScreenBody .deen-v2-letter{width:33px;height:33px}
  #leagueScreenBody button.deen-v2-match-tile{font-size:14px}
 }
+
+/* Interactive Arabic joined-form learning: model and user-composed sample. */
+#leagueScreenBody .deen-path-v2-lesson .deen-v2-joined-model{
+ display:grid;place-items:center;min-height:84px;white-space:normal;unicode-bidi:isolate;
+ border:1px solid rgba(123,228,192,.5);border-radius:15px;
+ background:linear-gradient(150deg,rgba(19,58,67,.95),rgba(21,74,74,.67));
+ color:#ffeabb;font:750 clamp(38px,10vw,54px)/1.6 "Noto Naskh Arabic","Geeza Pro",serif
+}
+#leagueScreenBody .deen-v2-build-preview{
+ display:grid;place-items:center;min-height:66px;margin:12px 0;
+ border:1px dashed rgba(109,235,194,.75);border-radius:14px;
+ background:rgba(45,180,145,.14);color:#f9edc5;
+ font:750 clamp(34px,9vw,46px)/1.55 "Noto Naskh Arabic","Geeza Pro",serif
+}
