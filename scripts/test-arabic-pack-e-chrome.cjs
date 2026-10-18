@@ -55,7 +55,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    const verify=async(locale)=>{
     const title=(await page.locator('.deen-path-inner-title').innerText()).trim();
     const target=(await page.locator('.deen-v2-target').innerText()).trim();
-    const options=(await page.locator('.deen-v2-option').allInnerTexts()).map(x=>x.trim());
+    const options=(await page.locator('.deen-v2-label').allInnerTexts()).map(x=>x.trim());
     const row=await page.evaluate(({title,target,stage,locale})=>{
      const q=DEEN_ARABIC_QUESTIONS_V2.poolFor(stage).find(x=>x.prompt[locale]===title&&x.target===target);
      if(!q)throw Error('Displayed word question not found in bank '+stage+'/'+locale);
