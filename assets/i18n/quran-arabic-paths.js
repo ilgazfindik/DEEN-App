@@ -277,7 +277,7 @@
   const tip=currentTip();if(!tip||state.view!=='lesson')return;
   markTipSeen(tip.id);state.tipOpen=false;update();
  }
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false,v2Session:null,v2Choice:null,v2Wrong:false,v2Checked:false,v2FirstMiss:null,v2Answers:[],assessmentQuestions:[],assessmentIndex:0,assessmentAnswers:[],assessmentMode:null};
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false,v2Session:null,v2Choice:null,v2Wrong:false,v2Checked:false,v2FirstMiss:null,v2Answers:[],v2MatchLeft:null,v2MatchRight:null,v2Matched:[],v2Pieces:[],v2Notice:'',assessmentQuestions:[],assessmentIndex:0,assessmentAnswers:[],assessmentMode:null};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -1886,6 +1886,82 @@
   de:{check:'Prüfen'},fr:{check:'Vérifier'}
  });
  const recognitionText=()=>recognitionLabels[lang()]||recognitionLabels.tr;
+
+ const v2ModeCopy={
+  tr:{choice:'A–B–C–D Seçmeli',match:'Eşleştirme',build:'Birleştirme',matchHint:'Harfleri isimleriyle eşleştir.',buildHint:'İki harfi doğru sırayla yerleştir.',reset:'Temizle',failed:'Eşleşmedi. Tekrar dene.',pairs:'Eşleşen çiftler'},
+  en:{choice:'Multiple choice',match:'Matching',build:'Combine letters',matchHint:'Match letters to their names.',buildHint:'Place two letters in the correct order.',reset:'Clear',failed:'Not a match. Try again.',pairs:'Matched pairs'},
+  ar:{choice:'اختيار من متعدد',match:'المطابقة',build:'تركيب الحروف',matchHint:'طابق الحروف مع أسمائها.',buildHint:'رتّب الحرفين بالترتيب الصحيح.',reset:'امسح',failed:'لا تتطابق. حاول ثانية.',pairs:'الأزواج المتطابقة'},
+  de:{choice:'Auswahl A–D',match:'Zuordnen',build:'Buchstaben verbinden',matchHint:'Ordne jedem Buchstaben seinen Namen zu.',buildHint:'Wähle beide Buchstaben in der richtigen Reihenfolge.',reset:'Löschen',failed:'Nicht zugeordnet. Erneut versuchen.',pairs:'Richtige Paare'},
+  fr:{choice:'Choix A–D',match:'Association',build:'Assembler',matchHint:'Associe chaque lettre à son nom.',buildHint:'Place les deux lettres dans le bon ordre.',reset:'Effacer',failed:'Mauvaise association. Réessaie.',pairs:'Paires correctes'}
+ };
+ const v2ModeText=()=>v2ModeCopy[lang()]||v2ModeCopy.tr;
+ const v2Mode=q=>{
+  if(!q)return 'choice';
+  if(q.skill==='joining-two-letters'&&q.target.split(/\s*\+\s*/).length===2)return 'build';
+  if(q.skill==='letter-glyph-to-name'&&q.choices.length===4&&
+     q.choices.every(c=>c.label&&window.DEEN_ARABIC_LETTERS?.get?.(c.id))&&
+     [...q.id].reduce((n,ch)=>n+ch.charCodeAt(0),0)%4===0)return 'match';
+  return 'choice';
+ };
+ function v2ResetMode(){
+  state.v2MatchLeft=null;state.v2MatchRight=null;state.v2Matched=[];state.v2Pieces=[];state.v2Notice='';
+ }
+ const v2BuildBank=q=>{
+  const target=q.target.split(/\s*\+\s*/);
+  const extras=(window.DEEN_ARABIC_LETTERS?.all||[]).map(x=>x.glyph).filter(x=>!target.includes(x));
+  if(target.length!==2||extras.length<2)return [];
+  const start=[...q.id].reduce((n,ch)=>n+ch.charCodeAt(0),0)%extras.length;
+  return [extras[start],target[0],extras[(start+1)%extras.length],target[1]];
+ };
+ function v2Fail(q,wrongId){
+  state.v2Wrong=true;
+  if(!state.v2FirstMiss)state.v2FirstMiss=wrongId;
+  if(!state.lessonMissed.includes(q.id))state.lessonMissed.push(q.id);
+ }
+ function v2MatchPick(side,id){
+  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct)return;
+  const q=v2Question();
+  if(v2Mode(q)!=='match'||!q.choices.some(x=>x.id===id)||state.v2Matched.includes(id))return;
+  if(side==='glyph')state.v2MatchLeft=id;
+  else if(side==='name')state.v2MatchRight=id;
+  else return;
+  state.v2Notice='';
+  if(state.v2MatchLeft!==null&&state.v2MatchRight!==null){
+   if(state.v2MatchLeft===state.v2MatchRight){
+    state.v2Matched.push(id);
+    if(state.v2Matched.length===q.choices.length){
+     state.correct=true;state.v2Choice=q.correctAnswer;state.v2Checked=true;first10Record('correct');
+    }
+   }else{
+    v2Fail(q,state.v2MatchRight);state.v2Notice=v2ModeText().failed;
+   }
+   state.v2MatchLeft=null;state.v2MatchRight=null;
+  }
+  update();
+ }
+ function v2PickPiece(index){
+  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct||v2Mode(v2Question())!=='build')return;
+  index=Number(index);
+  if(!Number.isInteger(index)||index<0||index>=4||state.v2Pieces.includes(index)||state.v2Pieces.length>=2)return;
+  state.v2Pieces.push(index);state.v2Checked=false;update();
+ }
+ function v2ResetPieces(){
+  if(state.view!=='lesson'||!state.v2Session||state.correct||v2Mode(v2Question())!=='build')return;
+  state.v2Pieces=[];state.v2Checked=false;state.v2Choice=null;state.v2Notice='';update();
+ }
+ function v2CheckBuild(q){
+  if(state.v2Pieces.length!==2)return;
+  const pair=q.target.split(/\s*\+\s*/),bank=v2BuildBank(q);
+  state.correct=state.v2Pieces.every((n,i)=>bank[n]===pair[i]);state.v2Checked=true;
+  if(state.correct){state.v2Choice=q.correctAnswer;first10Record('correct')}
+  else{
+   const reversed=state.v2Pieces.every((n,i)=>bank[n]===pair[1-i]);
+   const incorrect=q.choices.find(x=>x.id===(reversed?'reversed':'different-follower'))||
+    q.choices.find(x=>x.id!==q.correctAnswer);
+   state.v2Choice=incorrect?.id||null;v2Fail(q,state.v2Choice);state.v2Pieces=[];
+  }
+  update();
+ }
  function v2LessonView(){
   const q=v2Question(),c=t(),ui=v2Locale(),locale=lang(),box=elem('section','deen-path-lesson deen-path-v2-lesson');
   box.append(makeButton('←  '+c.arabic,'group','deen-path-back'));
