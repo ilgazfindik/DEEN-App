@@ -182,9 +182,88 @@
    accuracy:attempts?correct/attempts:null,distinctDays:days,mastery:attempts>=10&&days>=2&&correct/attempts>=.8,
    intervals});
  }
+
+ // Stage20: non-rewarded written pre/post assessment from existing audited 600 questions.
+ // Matched stages and difficulties, but distinct IDs; no listening, XP, hearts, or mastery mutation.
+ const assessmentDomains=Object.freeze([
+  Object.freeze({id:'letters',stages:Object.freeze(['arabic-letters-02','arabic-letters-06'])}),
+  Object.freeze({id:'vowels',stages:Object.freeze(['arabic-harakat-01','arabic-harakat-02'])}),
+  Object.freeze({id:'words',stages:Object.freeze(['arabic-word-syllables-01','arabic-word-quran-01'])}),
+  Object.freeze({id:'expressions',stages:Object.freeze(['arabic-phrase-vocab-01','arabic-pattern-vocabulary-01'])})
+ ]);
+ const ASSESSMENT_DAY=86400000;
+ function assessmentQuestions(phase){
+  if(phase!=='pre'&&phase!=='post')return null;
+  const selected=[];
+  for(const group of assessmentDomains)for(let i=0;i<group.stages.length;i++){
+   const stage=group.stages[i],all=banks.get(stage)||[];
+   const candidates=[1,2,3].map(level=>all.filter(q=>q.difficulty===level&&!q.audioRef)
+    .sort((a,b)=>a.id.localeCompare(b.id)));
+   const preferred=candidates[(i+assessmentDomains.indexOf(group))%3];
+   const pairs=[preferred,...candidates].find(x=>x.length>=2);
+   if(!pairs)throw Error('DEEN_ASSESSMENT_POOL_TOO_SMALL:'+stage);
+   selected.push(Object.freeze({domain:group.id,id:(phase==='pre'?pairs[0]:pairs[1]).id,
+    question:phase==='pre'?pairs[0]:pairs[1]}));
+  }
+  if(selected.length!==8||new Set(selected.map(x=>x.id)).size!==8)
+   throw Error('DEEN_ASSESSMENT_DUPLICATE_QUESTION');
+  return Object.freeze(selected);
+ }
+ function assessmentRead(raw){
+  const obj=safe(raw),results={};
+  for(const phase of ['pre','post']){
+   const row=obj[phase],expected=assessmentQuestions(phase);
+   if(!row||!Number.isSafeInteger(row.at)||row.at<=0||
+      !Number.isInteger(row.completedLessons)||row.completedLessons<0||row.completedLessons>25||
+      !Array.isArray(row.answers)||row.answers.length!==8)continue;
+   if(!expected.every((x,i)=>row.answers[i]?.id===x.id&&
+     x.question.choices.some(c=>c.id===row.answers[i]?.choiceId)))continue;
+   const answers=expected.map((x,i)=>Object.freeze({id:x.id,choiceId:row.answers[i].choiceId}));
+   results[phase]=Object.freeze({at:row.at,completedLessons:row.completedLessons,answers:Object.freeze(answers)});
+  }
+  if(results.post&&!results.pre)delete results.post;
+  return Object.freeze({schema:1,pre:results.pre||null,post:results.post||null});
+ }
+ function assessmentCanPost(raw,{at=Date.now(),completedLessons=0}={}){
+  const h=assessmentRead(raw);
+  return !!h.pre&&!h.post&&(completedLessons>h.pre.completedLessons||
+   (Number.isSafeInteger(at)&&at>=h.pre.at+ASSESSMENT_DAY));
+ }
+ function assessmentSave(raw,{phase,answers,at=Date.now(),completedLessons=0}={}){
+  const h=assessmentRead(raw),expected=assessmentQuestions(phase);
+  if(!expected||!Array.isArray(answers)||answers.length!==8||!Number.isSafeInteger(at)||
+   at<=0||!Number.isInteger(completedLessons)||completedLessons<0||completedLessons>25)return h;
+  if(phase==='pre'&&h.pre)return h;
+  if(phase==='post'&&!assessmentCanPost(h,{at,completedLessons}))return h;
+  if(!expected.every((item,i)=>answers[i]?.id===item.id&&
+   item.question.choices.some(c=>c.id===answers[i]?.choiceId)))return h;
+  const result={at,completedLessons,answers:answers.map(({id,choiceId})=>({id,choiceId}))};
+  return assessmentRead({...h,[phase]:result});
+ }
+ function assessmentSummary(raw){
+  const h=assessmentRead(raw);
+  const grade=phase=>{
+   if(!h[phase])return null;
+   const items=assessmentQuestions(phase);
+   const domains=assessmentDomains.map(g=>{
+    const indexes=items.flatMap((x,i)=>x.domain===g.id?[i]:[]);
+    const correct=indexes.filter(i=>h[phase].answers[i].choiceId===items[i].question.correctAnswer).length;
+    return Object.freeze({id:g.id,correct,total:2});
+   });
+   return Object.freeze({at:h[phase].at,total:8,
+    correct:domains.reduce((sum,g)=>sum+g.correct,0),domains:Object.freeze(domains)});
+  };
+  const pre=grade('pre'),post=grade('post');
+  const delta=pre&&post?post.correct-pre.correct:null;
+  return Object.freeze({schema:1,pre,post,delta,
+   disclaimer:'Written recognition only; changes do not establish causal learning gains or recitation ability.'});
+ }
+ const assessment=Object.freeze({version:1,domains:assessmentDomains,questionCount:8,
+  questions:assessmentQuestions,read:assessmentRead,canPost:assessmentCanPost,
+  save:assessmentSave,summary:assessmentSummary});
  const poolFor=stage=>Object.freeze([...(banks.get(stage)||[])]);
  window.DEEN_ARABIC_QUESTIONS_V2=Object.freeze({
-  version:2,locales:languages,validateBank,registerPack,createSession,poolFor,cleanPractice,recordPractice,practiceSummary,
+  version:2,locales:languages,validateBank,registerPack,createSession,poolFor,cleanPractice,recordPractice,practiceSummary,assessment,
   stats:()=>Object.freeze({packs:packs.size,questions:byId.size,stages:banks.size}),
   get:id=>byId.get(id)||null
  });
