@@ -82,8 +82,9 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
      const target=(await page.locator('.deen-v2-target').getAttribute('data-source-target')).split(/\s*\+\s*/);
      const bank=await page.locator('[data-qpath-action="v2Piece"]').evaluateAll(nodes=>nodes.map(n=>n.textContent.trim()));
      if(i===0&&j===0){
-      await page.locator('[data-qpath-action="v2Piece"][data-piece-index="0"]').click();
-      await page.locator('[data-qpath-action="v2Piece"][data-piece-index="2"]').click();
+      const wrong=bank.map((glyph,k)=>target.includes(glyph)?-1:k).filter(k=>k>=0);
+      assert.equal(wrong.length,2,'exactly two Arabic distractors in four-piece bank');
+      for(const index of wrong)await page.locator('[data-qpath-action="v2Piece"][data-piece-index="'+index+'"]').click();
       await page.locator('[data-qpath-action="v2Check"]').click();
       assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
      }
