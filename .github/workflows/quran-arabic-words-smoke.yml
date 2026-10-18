@@ -13,7 +13,9 @@ on:
       - 'assets/i18n/quran-arabic-questions-pack-d.js'
       - 'assets/i18n/quran-arabic-questions-pack-e.js'
       - 'assets/i18n/quran-arabic-questions-pack-f.js'
+      - 'assets/i18n/quran-arabic-questions-pack-g.js'
       - 'scripts/test-arabic-pack-f.cjs'
+      - 'scripts/test-arabic-pack-g.cjs'
       - 'scripts/test-arabic-v2-spaced.cjs'
       - 'scripts/audit-arabic-v2-locale-content.cjs'
       - 'scripts/audit-arabic-v2-release-gate.cjs'
@@ -87,7 +89,9 @@ on:
       - 'assets/i18n/quran-arabic-questions-pack-d.js'
       - 'assets/i18n/quran-arabic-questions-pack-e.js'
       - 'assets/i18n/quran-arabic-questions-pack-f.js'
+      - 'assets/i18n/quran-arabic-questions-pack-g.js'
       - 'scripts/test-arabic-pack-f.cjs'
+      - 'scripts/test-arabic-pack-g.cjs'
       - 'scripts/test-arabic-v2-spaced.cjs'
       - 'scripts/audit-arabic-v2-locale-content.cjs'
       - 'scripts/audit-arabic-v2-release-gate.cjs'
@@ -170,6 +174,7 @@ jobs:
           node scripts/test-arabic-pack-d.cjs
           node scripts/test-arabic-pack-e.cjs
           node scripts/test-arabic-pack-f.cjs
+          node scripts/test-arabic-pack-g.cjs
           node scripts/test-arabic-v2-spaced.cjs
           node scripts/audit-arabic-v2-locale-content.cjs
           node scripts/audit-arabic-v2-release-gate.cjs
