@@ -102,7 +102,7 @@
   return box;
  }
  const V2=window.DEEN_ARABIC_QUESTIONS_V2||null;
- const ASSESSMENT=V2?.stats?.().questions===600?V2.assessment:null;
+ const ASSESSMENT=V2?.stats?.().questions>=600?V2.assessment:null;
  const ASSESSMENT_STORE='deen_arabic_v2_assessment_v1';
  const assessmentRead=()=>{try{return ASSESSMENT?.read(JSON.parse(localStorage.getItem(ASSESSMENT_STORE)||'null'))}
   catch(_){return ASSESSMENT?.read(null)}};

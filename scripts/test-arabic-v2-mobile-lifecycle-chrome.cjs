@@ -45,7 +45,7 @@ const server=http.createServer((req,res)=>{
   report.network.firstReadyMs=Date.now()-start;
   report.network.delayedSegment=delayed;
   assert.equal(boot.phase,'ready',JSON.stringify(boot));
-  assert.equal(await page.evaluate(()=>DEEN_ARABIC_QUESTIONS_V2.stats().questions),600);
+  assert.equal(await page.evaluate(()=>DEEN_ARABIC_QUESTIONS_V2.stats().questions),900);
   report.network.phase=boot.phase;
   const original=await page.evaluate(()=>({state:JSON.parse(localStorage.getItem('deen_v4_1_state')),
    heart:localStorage.getItem('deen_hearts_v1'),
@@ -100,7 +100,7 @@ const server=http.createServer((req,res)=>{
    view:DEEN_QURAN_PATHS.status().view,
    optionCount:document.querySelectorAll('.deen-v2-option').length
   }));
-  assert.equal(available.v2,600);assert.equal(available.view,'lesson');assert(available.optionCount>=3);
+  assert.equal(available.v2,900);assert.equal(available.view,'lesson');assert(available.optionCount>=3);
   report.offline.activeLessonWorks=true;
   const fresh=await context.newPage();
   try{
@@ -113,7 +113,7 @@ const server=http.createServer((req,res)=>{
    const offlineResult=await fresh.evaluate(()=>({boot:DEEN_BOOT.status(),screen:document.body.innerText.slice(0,600),
     hasV2:!!window.DEEN_ARABIC_QUESTIONS_V2}));
    assert.equal(offlineResult.boot.phase,'ready','Offline initial boot '+JSON.stringify({offlineResult,freshConsole,freshNetwork}));
-   assert.equal(await fresh.evaluate(()=>DEEN_ARABIC_QUESTIONS_V2.stats().questions),600);
+   assert.equal(await fresh.evaluate(()=>DEEN_ARABIC_QUESTIONS_V2.stats().questions),900);
    report.offline.freshNavigation=true;
   }catch(e){
    report.offline.freshNavigation=false;
@@ -135,7 +135,7 @@ const server=http.createServer((req,res)=>{
   assert.equal(saved.heart,original.heart);
   assert.equal(saved.curriculum,original.curriculum);
   assert.equal(saved.spaced,original.spaced);
-  assert.equal(saved.questionCount,600);
+  assert.equal(saved.questionCount,900);
   report.state.reloadRetainsLegacyXpEnergyHearts=true;
   report.state.abandonedLessonDidNotForgePractice=true;
   assert.deepEqual(errors,[]);
