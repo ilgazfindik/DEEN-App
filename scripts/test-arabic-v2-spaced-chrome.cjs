@@ -40,8 +40,8 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.equal(await page.evaluate(()=>localStorage.getItem('deen_arabic_v2_spaced_v1')),null);
   for(let i=0;i<10;i++){
    const q=await page.evaluate(()=>{
-    const title=document.querySelector('.deen-path-inner-title').textContent,target=document.querySelector('.deen-v2-target').textContent;
-    const item=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(x=>x.prompt.tr===title&&x.target===target);
+    const questionId=document.querySelector('.deen-v2-target').dataset.questionId;
+    const item=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(x=>x.id===questionId);
     if(!item)throw Error('Question not found');
     return {correct:item.correctAnswer,wrong:item.choices.find(x=>x.id!==item.correctAnswer).id};
    });
