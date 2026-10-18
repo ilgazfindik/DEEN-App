@@ -27,13 +27,13 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   for(const locale of ['tr','en','ar','de','fr']){
    await page.evaluate(locale=>{document.documentElement.lang=locale;DEEN_QURAN_PATHS.refresh()},locale);
    const title=(await page.locator('.deen-path-inner-title').innerText()).trim();
-   const target=(await page.locator('.deen-v2-target').innerText()).trim();
+   const questionId=await page.locator('.deen-v2-target').getAttribute('data-question-id');
    const items=await page.locator('.deen-v2-option').allInnerTexts();
-   const result=await page.evaluate(({title,target,locale})=>{
-    const q=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.prompt[locale]===title&&q.target===target);
+   const result=await page.evaluate(({questionId,locale})=>{
+    const q=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.id===questionId);
     if(!q)throw Error('No visible V2 question for '+locale);
     return q.choices.map(c=>c.label?.[locale]||c.glyph);
-   },{title,target,locale});
+   },{questionId,locale});
    if(await page.locator('.deen-v2-match-board').count()){
     const labels=await page.locator('.deen-v2-match-name').allInnerTexts();
     assert.deepEqual(labels.map(x=>x.trim()).sort(),result.slice().sort());
@@ -44,12 +44,12 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   const answered=new Set();
   for(let i=0;i<10;i++){
    const title=(await page.locator('.deen-path-inner-title').innerText()).trim();
-   const target=(await page.locator('.deen-v2-target').innerText()).trim();
-   const q=await page.evaluate(({title,target})=>{
-    const x=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.prompt.tr===title&&q.target===target);
+   const questionId=await page.locator('.deen-v2-target').getAttribute('data-question-id');
+   const q=await page.evaluate(({questionId})=>{
+    const x=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.id===questionId);
     if(!x)throw Error('Could not find question from live DOM');
     return {id:x.id,correct:x.correctAnswer,wrong:x.choices.find(c=>c.id!==x.correctAnswer).id};
-   },{title,target});
+   },{questionId});
    assert.ok(!answered.has(q.id),'No repeated question ID in session');
    answered.add(q.id);
    if(await page.locator('.deen-v2-match-board').count()){
