@@ -40,8 +40,8 @@ const final=assessment.save(baseline,{phase:'post',answers:wrong,at:when+3000,co
 const report=assessment.summary(final);
 assert.equal(report.pre.correct,8);assert.equal(report.post.correct,0);assert.equal(report.delta,-8);
 assert.equal(report.pre.domains.length,4);assert.equal(report.post.domains.length,4);
-assert.deepEqual(report.pre.domains.map(x=>x.total),[2,2,2,2]);
-assert.deepEqual(report.post.domains.map(x=>x.total),[2,2,2,2]);
+assert.deepEqual(Array.from(report.pre.domains,x=>x.total),[2,2,2,2]);
+assert.deepEqual(Array.from(report.post.domains,x=>x.total),[2,2,2,2]);
 assert.equal(assessment.canPost(final,{completedLessons:25,at:when+86400000}),false);
 assert.equal(assessment.read({...final,post:{...final.post,answers:[{id:'fake',choiceId:'oops'}]}}).post,null);
 const snapshot=JSON.stringify({xp:321,hearts:4,energy:40,completed:['U01-S01']});
