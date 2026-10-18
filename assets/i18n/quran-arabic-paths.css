@@ -1121,3 +1121,38 @@
  background:rgba(45,180,145,.14);color:#f9edc5;
  font:750 clamp(34px,9vw,46px)/1.55 "Noto Naskh Arabic","Geeza Pro",serif
 }
+
+/* Interactive lesson mobile QA: constrained columns, readable RTL and touch targets. */
+#leagueScreenBody .deen-path-v2-lesson{min-width:0;max-width:100%;box-sizing:border-box}
+#leagueScreenBody .deen-v2-session-mix{
+ font:650 12px/1.5 system-ui,sans-serif;margin:0 0 13px;
+ padding:8px 10px;border-radius:10px;background:rgba(36,119,116,.18);
+ overflow-wrap:anywhere
+}
+#leagueScreenBody .deen-v2-match-board,
+#leagueScreenBody .deen-v2-build-bank,
+#leagueScreenBody .deen-v2-build-slots,
+#leagueScreenBody .deen-v2-abcd{
+ width:100%;max-width:100%;min-width:0;box-sizing:border-box
+}
+#leagueScreenBody button.deen-v2-match-tile,
+#leagueScreenBody button.deen-v2-build-piece,
+#leagueScreenBody button.deen-v2-option{
+ box-sizing:border-box;touch-action:manipulation
+}
+#leagueScreenBody button.deen-v2-match-name{
+ min-height:64px;padding-inline:7px;overflow-wrap:anywhere;
+ font-size:clamp(14px,4vw,18px)
+}
+#leagueScreenBody .deen-v2-label{overflow-wrap:anywhere}
+#leagueScreenBody .deen-v2-letter{direction:ltr;unicode-bidi:isolate}
+#leagueScreenBody .deen-v2-build-slot,
+#leagueScreenBody .deen-v2-build-preview,
+#leagueScreenBody .deen-v2-joined-model{max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}
+@media(max-width:345px){
+ #leagueScreenBody .deen-v2-match-board{gap:6px}
+ #leagueScreenBody .deen-v2-match-column{gap:6px}
+ #leagueScreenBody button.deen-v2-match-name{padding-inline:4px;font-size:14px}
+ #leagueScreenBody .deen-v2-build-bank{gap:6px}
+ #leagueScreenBody button.deen-v2-build-piece{min-height:60px}
+}
