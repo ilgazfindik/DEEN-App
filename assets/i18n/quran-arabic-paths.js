@@ -2062,8 +2062,12 @@
    window.DEEN_ARABIC_LETTER_AUDIO.playChoice(candidate.audioRef);
  }
  function v2Check(){
-  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct||!state.v2Choice)return;
-  const q=v2Question();state.correct=state.v2Choice===q.correctAnswer;state.v2Checked=true;
+  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct||
+     (v2Mode(v2Question())==='choice'&&!state.v2Choice))return;
+  const q=v2Question();
+  if(v2Mode(q)==='build'){v2CheckBuild(q);return}
+  if(v2Mode(q)==='match')return;
+  state.correct=state.v2Choice===q.correctAnswer;state.v2Checked=true;
   if(state.correct)first10Record('correct');
   if(!state.correct){
     state.v2Wrong=true;
@@ -2172,7 +2176,7 @@
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.selectedLetterId=null;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
   state.v2Session=V2?.createSession(group().id,{count:10,recentIds:v2Recent(group().id),practice:v2PracticeRead()})||null;
   state.v2Answers=[];state.v2FirstMiss=null;
-  state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;
+  state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;v2ResetMode();
   state.tipOpen=!!currentTip()&&!tipSeen(group().id);
   const started=show('lesson');if(started)first10Record('lesson');return started;
  }
@@ -2184,7 +2188,7 @@
    const q=v2Question();
    state.v2Answers.push({id:q.id,firstTryCorrect:!state.v2Wrong,wrongChoiceId:state.v2FirstMiss});
    if(state.question<state.v2Session.total-1){
-    state.question++;state.correct=false;state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;state.v2FirstMiss=null;show('lesson');
+    state.question++;state.correct=false;state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;state.v2FirstMiss=null;v2ResetMode();show('lesson');
    }else{
     v2SavePractice();v2RecordRecent(state.v2Session);state.complete=true;
     saveCompleted();saveLessonOutcome();dailyMark('lesson',group().id);first10Record('finished');show('complete');
@@ -2312,6 +2316,10 @@
    else if(action==='start')start();
    else if(action==='v2Choice')v2Choose(b.dataset.choiceId);
    else if(action==='v2Check')v2Check();
+   else if(action==='v2MatchGlyph')v2MatchPick('glyph',b.dataset.choiceId);
+   else if(action==='v2MatchName')v2MatchPick('name',b.dataset.choiceId);
+   else if(action==='v2Piece')v2PickPiece(b.dataset.pieceIndex);
+   else if(action==='v2ResetPieces')v2ResetPieces();
    else if(action==='tipOpen')openTip();
    else if(action==='tipDismiss')dismissTip();
    else if(action==='tipAudio'){if(state.tipOpen)window.DEEN_ARABIC_LETTER_AUDIO?.play(b.dataset.letterId)}
