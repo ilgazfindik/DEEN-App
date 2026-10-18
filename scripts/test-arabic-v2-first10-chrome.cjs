@@ -53,14 +53,12 @@ const modules=['quran-arabic-letters.js','quran-arabic-letter-audio.js','quran-a
   assert.ok(record.lesson>=record.at);
   if(await page.locator('.deen-path-mini-tip').count())await page.locator('[data-qpath-action="tipDismiss"]').click();
   const correctChoice=async()=>{
-   const prompt=(await page.locator('.deen-path-v2-lesson .deen-path-inner-title').innerText()).trim();
-   const target=(await page.locator('.deen-path-v2-lesson .deen-v2-target').innerText()).trim();
-   return page.evaluate(({prompt,target})=>{
-    const pool=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01');
-    const candidates=pool.filter(q=>q.prompt.tr===prompt&&q.target===target);
-    if(candidates.length!==1)throw Error('Ambiguous live question lookup: '+prompt+' / '+target+' matches '+candidates.length);
-    return candidates[0].correctAnswer;
-   },{prompt,target});
+   const questionId=await page.locator('.deen-path-v2-lesson .deen-v2-target').getAttribute('data-question-id');
+   return page.evaluate(questionId=>{
+    const q=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.id===questionId);
+    if(!q)throw Error('Question not found: '+questionId);
+    return q.correctAnswer;
+   },questionId);
   };
   const modes=new Set();
   for(let i=0;i<10;i++){
@@ -76,7 +74,7 @@ const modules=['quran-arabic-letters.js','quran-arabic-letter-audio.js','quran-a
     }
    }else if(isBuild){
     modes.add('build');
-    const target=(await page.locator('.deen-v2-target').innerText()).split(/\s*\+\s*/);
+    const target=(await page.locator('.deen-v2-target').getAttribute('data-source-target')).split(/\s*\+\s*/);
     const bank=await page.locator('[data-qpath-action="v2Piece"]').evaluateAll(nodes=>nodes.map(n=>n.textContent.trim()));
     for(const glyph of target){
      const index=bank.findIndex((g,j)=>g===glyph&&j!==-1);
