@@ -54,6 +54,53 @@
  const DAILY_SETTINGS_STORE='deen_arabic_daily_settings_v1';
  const MASTERY=window.DEEN_ARABIC_MASTERY;
  if(!MASTERY||MASTERY.version!==1)throw Error('DEEN_ARABIC_MASTERY_MISSING');
+
+ // Stage21: first-ten-minute written learning milestones, strictly on-device.
+ const FIRST10_KEY='deen_arabic_first10_v1',FIRST10_WINDOW=600000;
+ const first10Copy={
+  tr:['İlk 10 Dakikan','Bu cihazdaki ilk Arapça ziyaretinden itibaren yazılı öğrenme adımları.',
+   'Arapçayı Açtın','İlk Dersi Başlattın','İlk Doğru Yazılı Cevap','İlk Dersi Bitirdin','Erken Ayrılma','Gözlem sona erdi.','Yalnız cihazında tutulur; sesli okuma ölçülmez.'],
+  en:['Your First 10 Minutes','Written milestones from your first Arabic visit on this device.',
+   'Opened Arabic','Started a Lesson','First Correct Written Answer','Finished a Lesson','Early Exits','Observation finished.','Stored on this device only; spoken reading is not assessed.'],
+  ar:['أول عشر دقائق','خطوات التعلم الكتابي من أول زيارة للعربية على هذا الجهاز.',
+   'فتحت العربية','بدأت درسًا','أول إجابة كتابية صحيحة','أكملت درسًا','خروج مبكر','انتهت الملاحظة.','على جهازك فقط؛ لا نقيس القراءة بصوت.'],
+  de:['Deine ersten 10 Minuten','Schriftliche Meilensteine ab dem ersten Arabisch-Besuch auf diesem Gerät.',
+   'Arabisch geöffnet','Lektion gestartet','Erste richtige schriftliche Antwort','Lektion beendet','Frühe Ausstiege','Beobachtung beendet.','Nur auf diesem Gerät; kein mündliches Lesen.'],
+  fr:['Tes 10 premières minutes','Étapes écrites depuis la première visite d’arabe sur cet appareil.',
+   'Arabe ouvert','Leçon commencée','Première bonne réponse écrite','Leçon terminée','Sorties anticipées','Observation terminée.','Sur cet appareil uniquement; lecture orale non évaluée.']
+ };
+ function first10Read(){
+  let v=null;try{v=JSON.parse(localStorage.getItem(FIRST10_KEY)||'null')}catch(_){}
+  const o=v&&typeof v==='object'&&!Array.isArray(v)?v:{};
+  const at=Number.isSafeInteger(o.at)&&o.at>0?o.at:0;
+  const moment=n=>at&&Number.isSafeInteger(n)&&n>=at&&n<=at+FIRST10_WINDOW?n:0;
+  return {schema:1,at,lesson:moment(o.lesson),correct:moment(o.correct),
+   finished:moment(o.finished),exits:Number.isInteger(o.exits)?Math.max(0,Math.min(20,o.exits)):0};
+ }
+ function first10Record(event){
+  const old=first10Read(),now=Date.now(),start=old.at||now;
+  if(!old.at&&event!=='enter'||now<start||now>start+FIRST10_WINDOW)return false;
+  const next={...old,at:start};
+  if(event==='lesson'&&!next.lesson)next.lesson=now;
+  if(event==='correct'&&!next.correct)next.correct=now;
+  if(event==='finished'&&!next.finished)next.finished=now;
+  if(event==='exit')next.exits=Math.min(20,next.exits+1);
+  if(JSON.stringify(old)===JSON.stringify(next))return false;
+  try{localStorage.setItem(FIRST10_KEY,JSON.stringify(next))}catch(_){}
+  return true;
+ }
+ function first10Panel(){
+  const h=first10Read(),c=first10Copy[lang()]||first10Copy.tr;
+  if(!h.at)return null;
+  const box=elem('section','deen-path-checkpoint-section deen-path-first10');
+  box.append(elem('h3','deen-path-shape-subtitle',c[0]),elem('p','deen-path-muted',c[1]));
+  for(const [label,done] of [[c[2],h.at],[c[3],h.lesson],[c[4],h.correct],[c[5],h.finished]])
+   box.append(elem('p','deen-path-progress-copy',(done?'✓ ':'○ ')+label));
+  if(h.exits)box.append(elem('p','deen-path-muted',c[6]+' · '+h.exits));
+  if(Date.now()>=h.at+FIRST10_WINDOW)box.append(elem('p','deen-path-muted',c[7]));
+  box.append(elem('p','deen-path-muted',c[8]));
+  return box;
+ }
  const V2=window.DEEN_ARABIC_QUESTIONS_V2||null;
  const ASSESSMENT=V2?.stats?.().questions===600?V2.assessment:null;
  const ASSESSMENT_STORE='deen_arabic_v2_assessment_v1';
@@ -991,6 +1038,7 @@
    c.masteryWritten+' · '+mastery.lessonCompleted+' / '+mastery.lessonTotal+'   ·   '+
    c.masteryPracticed+' · '+mastery.practiced+' / '+mastery.total));
   box.append(masteryButton);
+  box.append(first10Panel());
   box.append(foundationPanel());
   if(ASSESSMENT)box.append(assessmentPanel());
   box.append(checkpointPanel());
