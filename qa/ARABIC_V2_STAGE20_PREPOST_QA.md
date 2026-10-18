@@ -1,6 +1,6 @@
 # DEEN Arapça V2 — 20. aşama: Yazılı beceri ön test / son test
 
-**Durum:** QA adayı; merge ve Pages sonucu doğrulanmadan yayınlandı denmez.
+**Durum:** **Yayında ve doğrulandı.** [PR #120](https://github.com/ilgazfindik/DEEN-App/pull/120) squash merge `cbba42cd83157589ff9a3d2316488e3a202db4fa`. Son PR hızlı Chrome [#39147789693](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147789693), kapsamlı Chrome [#39147787120](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147787120), merge sonrası Pages [#39148612567](https://github.com/ilgazfindik/DEEN-App/actions/runs/39148612567) başarılı.
 
 ## Ürün kapsamı
 
