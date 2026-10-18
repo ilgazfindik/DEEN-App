@@ -32,12 +32,13 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    const result=await page.evaluate(({questionId,locale})=>{
     const q=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.id===questionId);
     if(!q)throw Error('No visible V2 question for '+locale);
-    return q.choices.map(c=>c.label?.[locale]||c.glyph);
+    return {choices:q.choices.map(c=>c.label?.[locale]||c.glyph),sourcePrompt:q.prompt[locale]};
    },{questionId,locale});
    if(await page.locator('.deen-v2-match-board').count()){
+    assert.notEqual(title,result.sourcePrompt,'Match prompt describes four pairs');
     const labels=await page.locator('.deen-v2-match-name').allInnerTexts();
-    assert.deepEqual(labels.map(x=>x.trim()).sort(),result.slice().sort());
-   }else assert.deepEqual(await page.locator('.deen-v2-label').allInnerTexts().then(a=>a.map(x=>x.trim())),result);
+    assert.deepEqual(labels.map(x=>x.trim()).sort(),result.choices.slice().sort());
+   }else assert.deepEqual(await page.locator('.deen-v2-label').allInnerTexts().then(a=>a.map(x=>x.trim())),result.choices);
    assert.equal(await page.locator('.deen-v2-target').getAttribute('dir'),'rtl');
   }
   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.refresh()});
