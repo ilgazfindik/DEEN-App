@@ -30,13 +30,13 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    assert.ok((await page.locator('.deen-path-question-count').innerText()).includes('1 / 10'));
    const stage='arabic-letters-'+String(i+1).padStart(2,'0');
    const verify=async(locale)=>{
-    const title=(await page.locator('.deen-path-inner-title').innerText()).trim(),target=(await page.locator('.deen-v2-target').innerText()).trim();
+    const questionId=await page.locator('.deen-v2-target').getAttribute('data-question-id');
     const content=await page.locator('.deen-v2-option').allInnerTexts();
-    const result=await page.evaluate(({title,target,stage,locale})=>{
-     const q=DEEN_ARABIC_QUESTIONS_V2.poolFor(stage).find(q=>q.prompt[locale]===title&&q.target===target);
+    const result=await page.evaluate(({questionId,stage,locale})=>{
+     const q=DEEN_ARABIC_QUESTIONS_V2.poolFor(stage).find(q=>q.id===questionId);
      if(!q)throw Error('No question from visible UI: '+stage+'/'+locale);
      return {id:q.id,options:q.choices.map(c=>c.label?.[locale]||c.glyph),correct:q.correctAnswer,wrong:q.choices.find(x=>x.id!==q.correctAnswer).id};
-    },{title,target,stage,locale});
+    },{questionId,stage,locale});
     if(await page.locator('.deen-v2-match-board').count()){
      const names=await page.locator('.deen-v2-match-name').allInnerTexts();
      assert.deepEqual(names.map(x=>x.trim()).sort(),result.options.slice().sort());
@@ -75,7 +75,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
       await page.locator('[data-qpath-action="v2MatchName"][data-choice-id="'+id+'"]').click();
      }
     }else if(await page.locator('.deen-v2-build-bank').count()){
-     const target=(await page.locator('.deen-v2-target').innerText()).split(/\s*\+\s*/);
+     const target=(await page.locator('.deen-v2-target').getAttribute('data-source-target')).split(/\s*\+\s*/);
      const bank=await page.locator('[data-qpath-action="v2Piece"]').evaluateAll(nodes=>nodes.map(n=>n.textContent.trim()));
      if(i===0&&j===0){
       await page.locator('[data-qpath-action="v2Piece"][data-piece-index="0"]').click();
