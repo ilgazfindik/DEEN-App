@@ -27,37 +27,56 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   for(const locale of ['tr','en','ar','de','fr']){
    await page.evaluate(locale=>{document.documentElement.lang=locale;DEEN_QURAN_PATHS.refresh()},locale);
    const title=(await page.locator('.deen-path-inner-title').innerText()).trim();
-   const target=(await page.locator('.deen-v2-target').innerText()).trim();
+   const questionId=await page.locator('.deen-v2-target').getAttribute('data-question-id');
    const items=await page.locator('.deen-v2-option').allInnerTexts();
-   const result=await page.evaluate(({title,target,locale})=>{
-    const q=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.prompt[locale]===title&&q.target===target);
+   const result=await page.evaluate(({questionId,locale})=>{
+    const q=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.id===questionId);
     if(!q)throw Error('No visible V2 question for '+locale);
-    return q.choices.map(c=>c.label?.[locale]||c.glyph);
-   },{title,target,locale});
-   assert.deepEqual(items.map(x=>x.trim()),result);
+    return {choices:q.choices.map(c=>c.label?.[locale]||c.glyph),sourcePrompt:q.prompt[locale]};
+   },{questionId,locale});
+   if(await page.locator('.deen-v2-match-board').count()){
+    assert.notEqual(title,result.sourcePrompt,'Match prompt describes four pairs');
+    const labels=await page.locator('.deen-v2-match-name').allInnerTexts();
+    assert.deepEqual(labels.map(x=>x.trim()).sort(),result.choices.slice().sort());
+   }else assert.deepEqual(await page.locator('.deen-v2-label').allInnerTexts().then(a=>a.map(x=>x.trim())),result.choices);
    assert.equal(await page.locator('.deen-v2-target').getAttribute('dir'),'rtl');
   }
   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.refresh()});
   const answered=new Set();
   for(let i=0;i<10;i++){
    const title=(await page.locator('.deen-path-inner-title').innerText()).trim();
-   const target=(await page.locator('.deen-v2-target').innerText()).trim();
-   const q=await page.evaluate(({title,target})=>{
-    const x=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.prompt.tr===title&&q.target===target);
+   const questionId=await page.locator('.deen-v2-target').getAttribute('data-question-id');
+   const q=await page.evaluate(({questionId})=>{
+    const x=DEEN_ARABIC_QUESTIONS_V2.poolFor('arabic-letters-01').find(q=>q.id===questionId);
     if(!x)throw Error('Could not find question from live DOM');
     return {id:x.id,correct:x.correctAnswer,wrong:x.choices.find(c=>c.id!==x.correctAnswer).id};
-   },{title,target});
+   },{questionId});
    assert.ok(!answered.has(q.id),'No repeated question ID in session');
    answered.add(q.id);
-   if(i===0){
-    await page.locator('.deen-v2-option[data-choice-id="'+q.wrong+'"]').click();
-    assert.equal(await page.locator('[data-qpath-action="next"]').count(),0,'A selected choice is not graded');
+   if(await page.locator('.deen-v2-match-board').count()){
+    const ids=await page.locator('[data-qpath-action="v2MatchGlyph"]').evaluateAll(nodes=>nodes.map(n=>n.dataset.choiceId));
+    if(i===0){
+     const wrong=ids.find(id=>id!==ids[0]);
+     await page.locator('[data-qpath-action="v2MatchGlyph"][data-choice-id="'+ids[0]+'"]').click();
+     await page.locator('[data-qpath-action="v2MatchName"][data-choice-id="'+wrong+'"]').click();
+     assert.equal(await page.locator('.deen-v2-notice').count(),1);
+     assert.equal(await page.locator('[data-qpath-action="next"]').count(),0);
+    }
+    for(const id of ids){
+     await page.locator('[data-qpath-action="v2MatchGlyph"][data-choice-id="'+id+'"]').click();
+     await page.locator('[data-qpath-action="v2MatchName"][data-choice-id="'+id+'"]').click();
+    }
+   }else{
+    if(i===0){
+     await page.locator('.deen-v2-option[data-choice-id="'+q.wrong+'"]').click();
+     assert.equal(await page.locator('[data-qpath-action="next"]').count(),0,'A selected choice is not graded');
+     await page.locator('[data-qpath-action="v2Check"]').click();
+     assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
+     assert.equal(await page.locator('.deen-v2-distractor').count(),1,'Every distractor has localized feedback');
+    }
+    await page.locator('.deen-v2-option[data-choice-id="'+q.correct+'"]').click();
     await page.locator('[data-qpath-action="v2Check"]').click();
-    assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
-    assert.equal(await page.locator('.deen-v2-distractor').count(),1,'Every distractor has localized feedback');
    }
-   await page.locator('.deen-v2-option[data-choice-id="'+q.correct+'"]').click();
-   await page.locator('[data-qpath-action="v2Check"]').click();
    assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
    await page.locator('[data-qpath-action="next"]').click();
   }

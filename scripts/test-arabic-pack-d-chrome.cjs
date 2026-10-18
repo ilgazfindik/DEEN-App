@@ -43,7 +43,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    async function verify(locale){
     const title=(await page.locator('.deen-path-inner-title').innerText()).trim();
     const target=(await page.locator('.deen-v2-target').innerText()).trim();
-    const options=(await page.locator('.deen-v2-option').allInnerTexts()).map(s=>s.trim());
+    const options=(await page.locator('.deen-v2-label').allInnerTexts()).map(s=>s.trim());
     const q=await page.evaluate(({title,target,stage,locale})=>{
      const a=DEEN_ARABIC_QUESTIONS_V2.poolFor(stage).find(x=>x.prompt[locale]===title&&x.target===target);
      if(!a)throw Error('Could not identify real Pack D question: '+stage+'/'+locale);

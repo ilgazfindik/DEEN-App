@@ -56,7 +56,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    async function verify(locale){
     const title=(await page.locator('.deen-path-inner-title').innerText()).trim();
     const target=(await page.locator('.deen-v2-target').innerText()).trim();
-    const options=(await page.locator('.deen-v2-option').allInnerTexts()).map(x=>x.trim());
+    const options=(await page.locator('.deen-v2-label').allInnerTexts()).map(x=>x.trim());
     const q=await page.evaluate(({title,target,stage,locale})=>{
      const found=DEEN_ARABIC_QUESTIONS_V2.poolFor(stage).find(x=>x.prompt[locale]===title&&x.target===target);
      if(!found)throw Error('Missing displayed meaning question '+stage+'/'+locale);

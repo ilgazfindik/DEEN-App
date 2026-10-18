@@ -35,7 +35,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    const stage='arabic-harakat-0'+String(i-6);
    const verify=async(lang)=>{
     const title=(await page.locator('.deen-path-inner-title').innerText()).trim(),target=(await page.locator('.deen-v2-target').innerText()).trim();
-    const options=(await page.locator('.deen-v2-option').allInnerTexts()).map(x=>x.trim());
+    const options=(await page.locator('.deen-v2-label').allInnerTexts()).map(x=>x.trim());
     const row=await page.evaluate(({title,target,stage,lang})=>{
      const q=DEEN_ARABIC_QUESTIONS_V2.poolFor(stage).find(x=>x.prompt[lang]===title&&x.target===target);
      if(!q)throw Error('Question not rendered for '+stage+'/'+lang);

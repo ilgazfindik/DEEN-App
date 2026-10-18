@@ -277,7 +277,7 @@
   const tip=currentTip();if(!tip||state.view!=='lesson')return;
   markTipSeen(tip.id);state.tipOpen=false;update();
  }
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false,v2Session:null,v2Choice:null,v2Wrong:false,v2Checked:false,v2FirstMiss:null,v2Answers:[],assessmentQuestions:[],assessmentIndex:0,assessmentAnswers:[],assessmentMode:null};
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false,v2Session:null,v2Choice:null,v2Wrong:false,v2Checked:false,v2FirstMiss:null,v2Answers:[],v2MatchLeft:null,v2MatchRight:null,v2Matched:[],v2Pieces:[],v2Notice:'',assessmentQuestions:[],assessmentIndex:0,assessmentAnswers:[],assessmentMode:null};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
@@ -1886,6 +1886,91 @@
   de:{check:'Prüfen'},fr:{check:'Vérifier'}
  });
  const recognitionText=()=>recognitionLabels[lang()]||recognitionLabels.tr;
+
+ const v2ModeCopy={
+  tr:{choice:'A–B–C–D Seçmeli',match:'Eşleştirme',build:'Birleştirme',matchHint:'Harfleri isimleriyle eşleştir.',buildHint:'İki harfi doğru sırayla yerleştir.',reset:'Temizle',failed:'Eşleşmedi. Tekrar dene.',pairs:'Eşleşen çiftler'},
+  en:{choice:'Multiple choice',match:'Matching',build:'Combine letters',matchHint:'Match letters to their names.',buildHint:'Place two letters in the correct order.',reset:'Clear',failed:'Not a match. Try again.',pairs:'Matched pairs'},
+  ar:{choice:'اختيار من متعدد',match:'المطابقة',build:'تركيب الحروف',matchHint:'طابق الحروف مع أسمائها.',buildHint:'رتّب الحرفين بالترتيب الصحيح.',reset:'امسح',failed:'لا تتطابق. حاول ثانية.',pairs:'الأزواج المتطابقة'},
+  de:{choice:'Auswahl A–D',match:'Zuordnen',build:'Buchstaben verbinden',matchHint:'Ordne jedem Buchstaben seinen Namen zu.',buildHint:'Wähle beide Buchstaben in der richtigen Reihenfolge.',reset:'Löschen',failed:'Nicht zugeordnet. Erneut versuchen.',pairs:'Richtige Paare'},
+  fr:{choice:'Choix A–D',match:'Association',build:'Assembler',matchHint:'Associe chaque lettre à son nom.',buildHint:'Place les deux lettres dans le bon ordre.',reset:'Effacer',failed:'Mauvaise association. Réessaie.',pairs:'Paires correctes'}
+ };
+ const v2ModeText=()=>v2ModeCopy[lang()]||v2ModeCopy.tr;
+ const v2Mode=q=>{
+  if(!q)return 'choice';
+  if(q.skill==='joining-two-letters'&&q.target.split(/\s*\+\s*/).length===2)return 'build';
+  if(q.skill==='letter-glyph-to-name'&&q.choices.length===4&&
+     q.choices.every(c=>c.label&&window.DEEN_ARABIC_LETTERS?.get?.(c.id))&&
+     [...q.id].reduce((n,ch)=>n+ch.charCodeAt(0),0)%4===0)return 'match';
+  return 'choice';
+ };
+ function v2ResetMode(){
+  state.v2MatchLeft=null;state.v2MatchRight=null;state.v2Matched=[];state.v2Pieces=[];state.v2Notice='';
+ }
+ const v2BuildBank=q=>{
+  const target=q.target.split(/\s*\+\s*/);
+  const extras=(window.DEEN_ARABIC_LETTERS?.all||[]).map(x=>x.glyph).filter(x=>!target.includes(x));
+  if(target.length!==2||extras.length<2)return [];
+  const start=[...q.id].reduce((n,ch)=>n+ch.charCodeAt(0),0)%extras.length;
+  return [extras[start],target[0],extras[(start+1)%extras.length],target[1]];
+ };
+ function v2Fail(q,wrongId){
+  state.v2Wrong=true;
+  if(!state.v2FirstMiss)state.v2FirstMiss=wrongId;
+  if(!state.lessonMissed.includes(q.id))state.lessonMissed.push(q.id);
+ }
+ function v2MatchPick(side,id){
+  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct)return;
+  const q=v2Question();
+  if(v2Mode(q)!=='match'||!q.choices.some(x=>x.id===id)||state.v2Matched.includes(id))return;
+  if(side==='glyph')state.v2MatchLeft=id;
+  else if(side==='name')state.v2MatchRight=id;
+  else return;
+  state.v2Notice='';
+  if(state.v2MatchLeft!==null&&state.v2MatchRight!==null){
+   if(state.v2MatchLeft===state.v2MatchRight){
+    state.v2Matched.push(id);
+    if(state.v2Matched.length===q.choices.length){
+     state.correct=true;state.v2Choice=q.correctAnswer;state.v2Checked=true;first10Record('correct');
+    }
+   }else{
+    v2Fail(q,state.v2MatchRight);state.v2Notice=v2ModeText().failed;
+   }
+   state.v2MatchLeft=null;state.v2MatchRight=null;
+  }
+  update();
+ }
+ function v2PickPiece(index){
+  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct||v2Mode(v2Question())!=='build')return;
+  index=Number(index);
+  if(!Number.isInteger(index)||index<0||index>=4||state.v2Pieces.includes(index)||state.v2Pieces.length>=2)return;
+  state.v2Pieces.push(index);state.v2Checked=false;update();
+ }
+ function v2ResetPieces(){
+  if(state.view!=='lesson'||!state.v2Session||state.correct||v2Mode(v2Question())!=='build')return;
+  state.v2Pieces=[];state.v2Checked=false;state.v2Choice=null;state.v2Notice='';update();
+ }
+ function v2CheckBuild(q){
+  if(state.v2Pieces.length!==2)return;
+  const pair=q.target.split(/\s*\+\s*/),bank=v2BuildBank(q);
+  state.correct=state.v2Pieces.every((n,i)=>bank[n]===pair[i]);state.v2Checked=true;
+  if(state.correct){state.v2Choice=q.correctAnswer;first10Record('correct')}
+  else{
+   const reversed=state.v2Pieces.every((n,i)=>bank[n]===pair[1-i]);
+   const incorrect=q.choices.find(x=>x.id===(reversed?'reversed':'different-follower'))||
+    q.choices.find(x=>x.id!==q.correctAnswer);
+   state.v2Choice=incorrect?.id||null;v2Fail(q,state.v2Choice);state.v2Pieces=[];
+  }
+  update();
+ }
+
+ const v2TaskCopy={
+  tr:{match:'Dört Arapça harfi doğru isimleriyle eşleştir.',build:'Gösterilen birleşik yazıyı oluşturan iki harfi sırayla seç.',complete:'Dört eşleşmeyi de doğru tamamladın.'},
+  en:{match:'Match all four Arabic letters to their names.',build:'Choose the two letters forming the joined shape, in order.',complete:'You matched all four pairs.'},
+  ar:{match:'طابق الحروف العربية الأربعة مع أسمائها.',build:'اختر الحرفين المكوّنين للشكل المتصل بالترتيب.',complete:'أكملت المطابقات الأربع بشكل صحيح.'},
+  de:{match:'Ordne alle vier arabischen Buchstaben ihren Namen zu.',build:'Wähle die zwei Buchstaben, die die verbundene Form bilden, in der richtigen Reihenfolge.',complete:'Alle vier Paare richtig zugeordnet.'},
+  fr:{match:'Associe les quatre lettres arabes à leur nom.',build:'Choisis dans l’ordre les deux lettres qui forment la graphie liée.',complete:'Les quatre paires sont associées.'}
+ };
+ const v2TaskText=()=>v2TaskCopy[lang()]||v2TaskCopy.tr;
  function v2LessonView(){
   const q=v2Question(),c=t(),ui=v2Locale(),locale=lang(),box=elem('section','deen-path-lesson deen-path-v2-lesson');
   box.append(makeButton('←  '+c.arabic,'group','deen-path-back'));
@@ -1896,28 +1981,85 @@
     const review=V2.practiceSummary(v2PracticeRead(),{stage:q.stage});
     if(review.due>0)box.append(elem('p','deen-path-muted deen-v2-due',ui.due+': '+review.due));
    }
-  box.append(elem('h2','deen-path-inner-title',q.prompt[locale]||q.prompt.tr));
-  const target=elem('div','deen-path-prompt deen-v2-target',q.target);
-  target.lang='ar';target.dir='rtl';box.append(target);
-  const choices=elem('div','deen-path-options deen-v2-options');
-  for(const option of q.choices){
-   const display=option.label?.[locale]||option.glyph;
-   const b=makeButton(display,'v2Choice','deen-path-option deen-v2-option');
-   b.dataset.choiceId=option.id;b.lang=option.label?locale:'ar';b.dir=option.label&&locale!=='ar'?'ltr':'rtl';
-   b.setAttribute('aria-pressed',state.v2Choice===option.id?'true':'false');
-   if(state.v2Choice===option.id)b.classList.add('deen-v2-selected');
-   if(state.correct)b.disabled=true;
-   choices.append(b);
+  const mode=v2Mode(q),copy=v2ModeText();
+  box.append(elem('span','deen-v2-mode-label',copy[mode]));
+  const task=v2TaskText();
+  box.append(elem('h2','deen-path-inner-title',mode==='match'?task.match:mode==='build'?task.build:(q.prompt[locale]||q.prompt.tr)));
+  const model=mode==='build'?q.choices.find(x=>x.id===q.correctAnswer)?.glyph:
+   mode==='match'?q.choices.map(x=>window.DEEN_ARABIC_LETTERS.get(x.id).glyph).join(' · '):q.target;
+  const target=elem('div','deen-path-prompt deen-v2-target',model||q.target);
+  target.lang='ar';target.dir='rtl';target.dataset.questionId=q.id;
+  target.dataset.sourceTarget=q.target;
+  if(mode==='build')target.classList.add('deen-v2-joined-model');
+  box.append(target);
+  if(mode==='choice'){
+   const choices=elem('div','deen-path-options deen-v2-options deen-v2-abcd');
+   for(const [i,opt] of q.choices.entries()){
+    const display=opt.label?.[locale]||opt.glyph,letter='ABCD'[i];
+    const btn=makeButton('','v2Choice','deen-path-option deen-v2-option');
+    btn.dataset.choiceId=opt.id;btn.setAttribute('aria-label',letter+'. '+display);
+    btn.setAttribute('aria-pressed',String(state.v2Choice===opt.id));
+    btn.append(elem('span','deen-v2-letter',letter));
+    const label=elem('span','deen-v2-label',display);
+    if(!opt.label){label.lang='ar';label.dir='rtl';label.classList.add('deen-v2-label-ar')}
+    btn.append(label);btn.disabled=state.correct;choices.append(btn);
+   }
+   box.append(choices);
+  }else if(mode==='match'){
+   box.append(elem('p','deen-path-muted deen-v2-mode-hint',copy.matchHint));
+   const board=elem('div','deen-v2-match-board');
+   const left=elem('div','deen-v2-match-column'),right=elem('div','deen-v2-match-column');
+   for(const opt of q.choices){
+    const glyph=window.DEEN_ARABIC_LETTERS.get(opt.id).glyph;
+    const btn=makeButton(glyph,'v2MatchGlyph','deen-v2-match-tile deen-v2-match-glyph');
+    btn.dataset.choiceId=opt.id;btn.lang='ar';btn.dir='rtl';
+    btn.setAttribute('aria-pressed',String(state.v2MatchLeft===opt.id));
+    btn.disabled=state.correct||state.v2Matched.includes(opt.id);
+    if(state.v2Matched.includes(opt.id))btn.classList.add('is-matched');left.append(btn);
+   }
+   for(const opt of [q.choices[2],q.choices[0],q.choices[3],q.choices[1]]){
+    const btn=makeButton(opt.label?.[locale]||opt.glyph,'v2MatchName','deen-v2-match-tile deen-v2-match-name');
+    btn.dataset.choiceId=opt.id;btn.setAttribute('aria-pressed',String(state.v2MatchRight===opt.id));
+    btn.disabled=state.correct||state.v2Matched.includes(opt.id);
+    if(state.v2Matched.includes(opt.id))btn.classList.add('is-matched');right.append(btn);
+   }
+   board.append(left,right);box.append(board);
+   box.append(elem('p','deen-v2-pair-progress',copy.pairs+': '+state.v2Matched.length+' / 4'));
+  }else{
+   box.append(elem('p','deen-path-muted deen-v2-mode-hint',copy.buildHint));
+   const bank=v2BuildBank(q),slots=elem('div','deen-v2-build-slots');slots.dir='rtl';
+   for(let i=0;i<2;i++){
+    const slot=elem('span','deen-v2-build-slot',state.v2Pieces[i]===undefined?'＋':bank[state.v2Pieces[i]]);
+    slot.lang='ar';slot.dir='rtl';if(state.v2Pieces[i]===undefined)slot.classList.add('is-empty');
+    slots.append(slot);
+   }
+   const choices=elem('div','deen-v2-build-bank');
+   for(const [i,glyph] of bank.entries()){
+    const btn=makeButton(glyph,'v2Piece','deen-v2-build-piece');
+    btn.dataset.pieceIndex=String(i);btn.lang='ar';btn.dir='rtl';
+    btn.disabled=state.correct||state.v2Pieces.includes(i);choices.append(btn);
+   }
+   box.append(slots,choices);
+   const reset=makeButton(copy.reset,'v2ResetPieces','deen-path-secondary deen-v2-build-reset');
+   reset.disabled=state.correct||!state.v2Pieces.length;box.append(reset);
+   if(state.v2Pieces.length===2){
+    const assembled=state.v2Pieces.map(i=>bank[i]).join('');
+    const preview=elem('div','deen-v2-build-preview',assembled);
+    preview.lang='ar';preview.dir='rtl';preview.setAttribute('aria-live','polite');box.append(preview);
+   }
   }
-  box.append(choices);
-  if(!state.correct){
+  if(state.v2Notice){
+   const notice=elem('p','deen-path-feedback is-wrong deen-v2-notice',state.v2Notice);
+   notice.setAttribute('role','status');box.append(notice);
+  }
+  if(!state.correct&&mode!=='match'){
    const check=makeButton(ui.check,'v2Check','deen-path-primary deen-v2-check');
-   check.disabled=!state.v2Choice;box.append(check);
+   check.disabled=mode==='build'?state.v2Pieces.length!==2:!state.v2Choice;box.append(check);
   }
   if(state.v2Checked){
    const correct=state.correct;
    const line=elem('p','deen-path-feedback'+(correct?' is-correct':' is-wrong'),
-    (correct?c.correct:ui.tryAgain)+' '+(q.explanation[locale]||q.explanation.tr));
+    (correct?c.correct:ui.tryAgain)+' '+(correct&&mode==='match'?task.complete:(q.explanation[locale]||q.explanation.tr)));
    line.setAttribute('role','status');box.append(line);
    if(!correct){
     const reason=q.distractorRationale?.[state.v2Choice];
@@ -1936,8 +2078,12 @@
    window.DEEN_ARABIC_LETTER_AUDIO.playChoice(candidate.audioRef);
  }
  function v2Check(){
-  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct||!state.v2Choice)return;
-  const q=v2Question();state.correct=state.v2Choice===q.correctAnswer;state.v2Checked=true;
+  if(state.view!=='lesson'||!state.v2Session||state.tipOpen||state.correct||
+     (v2Mode(v2Question())==='choice'&&!state.v2Choice))return;
+  const q=v2Question();
+  if(v2Mode(q)==='build'){v2CheckBuild(q);return}
+  if(v2Mode(q)==='match')return;
+  state.correct=state.v2Choice===q.correctAnswer;state.v2Checked=true;
   if(state.correct)first10Record('correct');
   if(!state.correct){
     state.v2Wrong=true;
@@ -2046,7 +2192,7 @@
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.selectedLetterId=null;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
   state.v2Session=V2?.createSession(group().id,{count:10,recentIds:v2Recent(group().id),practice:v2PracticeRead()})||null;
   state.v2Answers=[];state.v2FirstMiss=null;
-  state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;
+  state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;v2ResetMode();
   state.tipOpen=!!currentTip()&&!tipSeen(group().id);
   const started=show('lesson');if(started)first10Record('lesson');return started;
  }
@@ -2058,7 +2204,7 @@
    const q=v2Question();
    state.v2Answers.push({id:q.id,firstTryCorrect:!state.v2Wrong,wrongChoiceId:state.v2FirstMiss});
    if(state.question<state.v2Session.total-1){
-    state.question++;state.correct=false;state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;state.v2FirstMiss=null;show('lesson');
+    state.question++;state.correct=false;state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;state.v2FirstMiss=null;v2ResetMode();show('lesson');
    }else{
     v2SavePractice();v2RecordRecent(state.v2Session);state.complete=true;
     saveCompleted();saveLessonOutcome();dailyMark('lesson',group().id);first10Record('finished');show('complete');
@@ -2186,6 +2332,10 @@
    else if(action==='start')start();
    else if(action==='v2Choice')v2Choose(b.dataset.choiceId);
    else if(action==='v2Check')v2Check();
+   else if(action==='v2MatchGlyph')v2MatchPick('glyph',b.dataset.choiceId);
+   else if(action==='v2MatchName')v2MatchPick('name',b.dataset.choiceId);
+   else if(action==='v2Piece')v2PickPiece(b.dataset.pieceIndex);
+   else if(action==='v2ResetPieces')v2ResetPieces();
    else if(action==='tipOpen')openTip();
    else if(action==='tipDismiss')dismissTip();
    else if(action==='tipAudio'){if(state.tipOpen)window.DEEN_ARABIC_LETTER_AUDIO?.play(b.dataset.letterId)}
