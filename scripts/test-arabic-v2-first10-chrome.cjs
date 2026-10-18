@@ -35,7 +35,20 @@ const modules=['quran-arabic-letters.js','quran-arabic-letter-audio.js','quran-a
   }
   await page.evaluate(()=>{document.documentElement.lang='tr';DEEN_QURAN_PATHS.refresh()});
   assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.selectGroup(0)),true);
-  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.start()),true);
+  assert.equal(await page.evaluate(()=>{
+   const api=DEEN_ARABIC_QUESTIONS_V2,base=Date.now();
+   let chosen=null;
+   for(let n=0;n<500;n++){
+    const seed=base+n;
+    const session=api.createSession('arabic-letters-01',{count:10,seed});
+    const modes=new Set(session.questions.map(q=>q.skill==='joining-two-letters'?'build':
+      q.id==='pack-a-name-alif'?'match':'choice'));
+    if(['choice','match','build'].every(mode=>modes.has(mode))){chosen=seed;break}
+   }
+   if(chosen===null)throw Error('No balanced test seed across 3 modes');
+   const oldNow=Date.now;Date.now=()=>chosen;
+   try{return DEEN_QURAN_PATHS.start()}finally{Date.now=oldNow}
+  }),true);
   record=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_first10_v1')));
   assert.ok(record.lesson>=record.at);
   if(await page.locator('.deen-path-mini-tip').count())await page.locator('[data-qpath-action="tipDismiss"]').click();
@@ -80,6 +93,7 @@ const modules=['quran-arabic-letters.js','quran-arabic-letter-audio.js','quran-a
    assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
    await page.locator('[data-qpath-action="next"]').click();
   }
+  assert.deepEqual([...modes].sort(),['build','choice','match']);
   record=await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_first10_v1')));
   assert.ok(record.correct>=record.at);assert.ok(record.finished>=record.at);
   assert.equal(record.exits,0);
