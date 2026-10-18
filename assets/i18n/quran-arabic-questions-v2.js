@@ -61,8 +61,22 @@
   const audit=validateBank(pack.questions,new Set(byId.keys()),fingerprints);
   if(!audit.valid){const e=Error('V2_QUESTION_AUDIT_FAILED:'+audit.errors.join(';'));e.issues=audit.errors;throw e}
   // Atomic: no mutations above this line.
+  // Source order can put the correct answer first (notably meaning/grammar).
+  // Shuffle once at registration, keyed by immutable question ID. Option IDs,
+  // grading, feedback and persisted practice records remain unchanged.
+  const orderChoices=(items,key)=>{
+   let hash=2166136261;
+   for(const char of key)hash=Math.imul(hash^char.charCodeAt(0),16777619)>>>0;
+   const out=[...items];
+   for(let i=out.length-1;i>0;i--){
+    hash^=hash<<13;hash^=hash>>>17;hash^=hash<<5;hash>>>=0;
+    const j=hash%(i+1);[out[i],out[j]]=[out[j],out[i]];
+   }
+   return out;
+  };
   for(const input of pack.questions){
-   const q=Object.freeze({...input,choices:Object.freeze(input.choices.map(x=>Object.freeze({...x})))});
+   const q=Object.freeze({...input,choices:Object.freeze(
+    orderChoices(input.choices,input.id+':v2-choice-order').map(x=>Object.freeze({...x})))});
    if(!banks.has(q.stage))banks.set(q.stage,[]);
    banks.get(q.stage).push(q);byId.set(q.id,q);
    const correct=q.choices.find(x=>x.id===q.correctAnswer).glyph;
@@ -264,6 +278,20 @@
  const poolFor=stage=>Object.freeze([...(banks.get(stage)||[])]);
  window.DEEN_ARABIC_QUESTIONS_V2=Object.freeze({
   version:2,locales:languages,validateBank,registerPack,createSession,poolFor,cleanPractice,recordPractice,practiceSummary,assessment,
+  // Only actually displayed A-D / three-way choices contribute to this QA count.
+  choicePositionAudit:()=>{
+   const positions={3:[0,0,0],4:[0,0,0,0]};
+   let count=0;
+   for(const q of byId.values()){
+    if(q.skill==='joining-two-letters'||q.skill==='letter-glyph-to-name')continue;
+    const index=q.choices.findIndex(c=>c.id===q.correctAnswer);
+    if(!positions[q.choices.length]||index<0)continue;
+    positions[q.choices.length][index]++;count++;
+   }
+   return Object.freeze({questions:count,positions:Object.freeze({
+    3:Object.freeze([...positions[3]]),4:Object.freeze([...positions[4]])})});
+  },
+
   stats:()=>Object.freeze({packs:packs.size,questions:byId.size,stages:banks.size}),
   get:id=>byId.get(id)||null
  });
