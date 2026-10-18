@@ -22,6 +22,7 @@ on:
       - 'scripts/test-arabic-v2-prepost.cjs'
       - 'scripts/test-arabic-v2-prepost-chrome.cjs'
       - 'scripts/test-arabic-v2-first10-chrome.cjs'
+      - 'scripts/test-arabic-v2-quiz-diversity.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
@@ -95,6 +96,7 @@ on:
       - 'scripts/test-arabic-v2-prepost.cjs'
       - 'scripts/test-arabic-v2-prepost-chrome.cjs'
       - 'scripts/test-arabic-v2-first10-chrome.cjs'
+      - 'scripts/test-arabic-v2-quiz-diversity.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
@@ -173,6 +175,7 @@ jobs:
           node scripts/audit-arabic-v2-release-gate.cjs
           node scripts/test-arabic-v2-human-review.cjs
           node scripts/test-arabic-v2-prepost.cjs
+          node scripts/test-arabic-v2-quiz-diversity.cjs
           node --check sw.js
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs

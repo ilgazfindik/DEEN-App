@@ -1899,19 +1899,47 @@
   if(!q)return 'choice';
   if(q.skill==='joining-two-letters'&&q.target.split(/\s*\+\s*/).length===2)return 'build';
   if(q.skill==='letter-glyph-to-name'&&q.choices.length===4&&
-     q.choices.every(c=>c.label&&window.DEEN_ARABIC_LETTERS?.get?.(c.id))&&
-     [...q.id].reduce((n,ch)=>n+ch.charCodeAt(0),0)%4===0)return 'match';
+     q.choices.every(c=>c.label&&window.DEEN_ARABIC_LETTERS?.get?.(c.id)))return 'match';
   return 'choice';
  };
  function v2ResetMode(){
   state.v2MatchLeft=null;state.v2MatchRight=null;state.v2Matched=[];state.v2Pieces=[];state.v2Notice='';
+ }
+ // Deterministic per question and session position: selections never shift on rerender.
+ const v2Shuffle=(items,key)=>{
+  let hash=2166136261;
+  for(const char of key)hash=Math.imul(hash^char.charCodeAt(0),16777619)>>>0;
+  const result=[...items];
+  for(let i=result.length-1;i>0;i--){
+   hash^=hash<<13;hash^=hash>>>17;hash^=hash<<5;hash>>>=0;
+   const j=hash%(i+1);[result[i],result[j]]=[result[j],result[i]];
+  }
+  return result;
+ };
+ const v2ModeCounts=questions=>{
+  const counts={choice:0,match:0,build:0};
+  for(const q of questions)counts[v2Mode(q)]++;
+  return Object.freeze(counts);
+ };
+ function v2ArrangeSession(session){
+  if(!session)return null;
+  const ordered=[...session.questions];
+  // Preserve the first three spaced-review priorities, then interleave formats.
+  for(let i=3;i<ordered.length;i++){
+   if(v2Mode(ordered[i])!==v2Mode(ordered[i-1]))continue;
+   const other=ordered.findIndex((q,j)=>j>i&&v2Mode(q)!==v2Mode(ordered[i-1]));
+   if(other>=0)[ordered[i],ordered[other]]=[ordered[other],ordered[i]];
+  }
+  return Object.freeze({...session,questions:Object.freeze(ordered),
+   ids:Object.freeze(ordered.map(q=>q.id)),modeCounts:v2ModeCounts(ordered)});
  }
  const v2BuildBank=q=>{
   const target=q.target.split(/\s*\+\s*/);
   const extras=(window.DEEN_ARABIC_LETTERS?.all||[]).map(x=>x.glyph).filter(x=>!target.includes(x));
   if(target.length!==2||extras.length<2)return [];
   const start=[...q.id].reduce((n,ch)=>n+ch.charCodeAt(0),0)%extras.length;
-  return [extras[start],target[0],extras[(start+1)%extras.length],target[1]];
+  return v2Shuffle([target[0],target[1],extras[start],extras[(start+1)%extras.length]],
+   q.id+':bank:'+state.question);
  };
  function v2Fail(q,wrongId){
   state.v2Wrong=true;
@@ -1933,7 +1961,9 @@
      state.correct=true;state.v2Choice=q.correctAnswer;state.v2Checked=true;first10Record('correct');
     }
    }else{
-    v2Fail(q,state.v2MatchRight);state.v2Notice=v2ModeText().failed;
+    const mistake=q.choices.find(x=>x.id===state.v2MatchRight&&x.id!==q.correctAnswer)?.id||
+     q.choices.find(x=>x.id!==q.correctAnswer)?.id;
+    v2Fail(q,mistake);state.v2Notice=v2ModeText().failed;
    }
    state.v2MatchLeft=null;state.v2MatchRight=null;
   }
@@ -1983,6 +2013,12 @@
    }
   const mode=v2Mode(q),copy=v2ModeText();
   box.append(elem('span','deen-v2-mode-label',copy[mode]));
+  if(state.question===0&&state.v2Session.modeCounts){
+   const counts=state.v2Session.modeCounts;
+   const mix=['choice','match','build'].filter(m=>counts[m]>0)
+    .map(m=>copy[m]+': '+counts[m]).join(' · ');
+   box.append(elem('p','deen-path-muted deen-v2-session-mix',mix));
+  }
   const task=v2TaskText();
   box.append(elem('h2','deen-path-inner-title',mode==='match'?task.match:mode==='build'?task.build:(q.prompt[locale]||q.prompt.tr)));
   const model=mode==='build'?q.choices.find(x=>x.id===q.correctAnswer)?.glyph:
@@ -2009,7 +2045,8 @@
    box.append(elem('p','deen-path-muted deen-v2-mode-hint',copy.matchHint));
    const board=elem('div','deen-v2-match-board');
    const left=elem('div','deen-v2-match-column'),right=elem('div','deen-v2-match-column');
-   for(const opt of q.choices){
+   const glyphs=v2Shuffle(q.choices,q.id+':glyph:'+state.question);
+   for(const opt of glyphs){
     const glyph=window.DEEN_ARABIC_LETTERS.get(opt.id).glyph;
     const btn=makeButton(glyph,'v2MatchGlyph','deen-v2-match-tile deen-v2-match-glyph');
     btn.dataset.choiceId=opt.id;btn.lang='ar';btn.dir='rtl';
@@ -2017,7 +2054,10 @@
     btn.disabled=state.correct||state.v2Matched.includes(opt.id);
     if(state.v2Matched.includes(opt.id))btn.classList.add('is-matched');left.append(btn);
    }
-   for(const opt of [q.choices[2],q.choices[0],q.choices[3],q.choices[1]]){
+   // A non-zero rotation gives a guaranteed different name on every corresponding row.
+   const shift=1+([...q.id].reduce((n,c)=>n+c.charCodeAt(0),0)+state.question)%3;
+   const labels=glyphs.map((_,i)=>glyphs[(i+shift)%glyphs.length]);
+   for(const opt of labels){
     const btn=makeButton(opt.label?.[locale]||opt.glyph,'v2MatchName','deen-v2-match-tile deen-v2-match-name');
     btn.dataset.choiceId=opt.id;btn.setAttribute('aria-pressed',String(state.v2MatchRight===opt.id));
     btn.disabled=state.correct||state.v2Matched.includes(opt.id);
@@ -2190,7 +2230,8 @@
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.selectedLetterId=null;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
-  state.v2Session=V2?.createSession(group().id,{count:10,recentIds:v2Recent(group().id),practice:v2PracticeRead()})||null;
+  const draft=V2?.createSession(group().id,{count:10,recentIds:v2Recent(group().id),practice:v2PracticeRead()})||null;
+  state.v2Session=v2ArrangeSession(draft);
   state.v2Answers=[];state.v2FirstMiss=null;
   state.v2Choice=null;state.v2Wrong=false;state.v2Checked=false;v2ResetMode();
   state.tipOpen=!!currentTip()&&!tipSeen(group().id);
