@@ -92,7 +92,7 @@
  function first10Panel(){
   const h=first10Read(),c=first10Copy[lang()]||first10Copy.tr;
   if(!h.at)return null;
-  const box=elem('section','deen-path-checkpoint-section deen-path-first10');
+  const box=elem('section','deen-path-first10');
   box.append(elem('h3','deen-path-shape-subtitle',c[0]),elem('p','deen-path-muted',c[1]));
   for(const [label,done] of [[c[2],h.at],[c[3],h.lesson],[c[4],h.correct],[c[5],h.finished]])
    box.append(elem('p','deen-path-progress-copy',(done?'✓ ':'○ ')+label));
