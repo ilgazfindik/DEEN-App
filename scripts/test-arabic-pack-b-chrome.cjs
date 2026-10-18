@@ -35,12 +35,15 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     const result=await page.evaluate(({questionId,stage,locale})=>{
      const q=DEEN_ARABIC_QUESTIONS_V2.poolFor(stage).find(q=>q.id===questionId);
      if(!q)throw Error('No question from visible UI: '+stage+'/'+locale);
-     return {id:q.id,options:q.choices.map(c=>c.label?.[locale]||c.glyph),correct:q.correctAnswer,wrong:q.choices.find(x=>x.id!==q.correctAnswer).id};
+     return {id:q.id,sourcePrompt:q.prompt[locale],joined:q.choices.find(x=>x.id===q.correctAnswer).glyph,options:q.choices.map(c=>c.label?.[locale]||c.glyph),correct:q.correctAnswer,wrong:q.choices.find(x=>x.id!==q.correctAnswer).id};
     },{questionId,stage,locale});
     if(await page.locator('.deen-v2-match-board').count()){
      const names=await page.locator('.deen-v2-match-name').allInnerTexts();
      assert.deepEqual(names.map(x=>x.trim()).sort(),result.options.slice().sort());
     }else if(await page.locator('.deen-v2-build-bank').count()){
+     assert.notEqual(title,result.sourcePrompt,'Build uses an actionable instruction instead of legacy prompt');
+     assert.equal(await page.locator('.deen-v2-target').innerText(),result.joined,'Show joined model, not the answer pair');
+     assert.equal(await page.locator('.deen-v2-target').getAttribute('data-source-target').then(x=>x.includes(' + ')),true);
      assert.equal(await page.locator('[data-qpath-action="v2Piece"]').count(),4);
      assert.equal(await page.locator('.deen-v2-build-slot').count(),2);
     }else{
@@ -88,6 +91,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
       assert.ok(ix>=0,'Arabic target fragment present');
       await page.locator('[data-qpath-action="v2Piece"][data-piece-index="'+ix+'"]').click();
      }
+     assert.equal(await page.locator('.deen-v2-build-preview').count(),1,'Composed Arabic preview appears before checking');
      await page.locator('[data-qpath-action="v2Check"]').click();
     }else{
      if(i===0&&j===0){
