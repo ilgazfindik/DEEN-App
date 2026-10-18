@@ -1038,3 +1038,72 @@
  background:rgba(255,255,255,.055);padding:9px 11px;margin:7px 0;
  line-height:1.45;overflow-wrap:anywhere
 }
+
+
+/* Arabic V2 — unified DEEN question format; never inherit giant alphabet chips. */
+#leagueScreenBody .deen-path-v2-lesson .deen-v2-mode-label{
+ display:inline-flex;align-items:center;min-height:27px;margin:4px 0 12px;
+ padding:3px 10px;border-radius:99px;border:1px solid rgba(95,232,202,.45);
+ color:#aff6dd;font:700 12px/1.3 system-ui,sans-serif
+}
+#leagueScreenBody .deen-path-v2-lesson .deen-v2-abcd{
+ display:grid;grid-template-columns:minmax(0,1fr);gap:9px;margin:4px 0 16px
+}
+#leagueScreenBody .deen-path-v2-lesson button.deen-v2-option{
+ display:flex;align-items:center;gap:13px;min-width:0;width:100%;min-height:64px;
+ padding:11px 13px;text-align:start;border-radius:14px;
+ font:650 clamp(17px,4.7vw,21px)/1.35 system-ui,sans-serif;
+ overflow-wrap:normal;word-break:normal;white-space:normal;
+ -webkit-text-fill-color:#f9ebc3
+}
+#leagueScreenBody .deen-v2-letter{
+ flex:none;display:grid;place-items:center;width:37px;height:37px;border-radius:10px;
+ border:1px solid rgba(126,236,208,.35);background:rgba(49,196,159,.14);
+ color:#aaf8dd;font:800 16px/1 system-ui,sans-serif
+}
+#leagueScreenBody .deen-v2-label{display:block;min-width:0;flex:1;overflow-wrap:break-word}
+#leagueScreenBody .deen-v2-label-ar{font:700 clamp(24px,5.5vw,32px)/1.5 "Noto Naskh Arabic","Geeza Pro",serif;text-align:center}
+#leagueScreenBody .deen-v2-option[aria-pressed="true"]{
+ background:rgba(47,204,161,.25);border-color:#64f5ca;box-shadow:0 0 0 2px rgba(94,227,191,.2)
+}
+#leagueScreenBody .deen-v2-mode-hint{font-size:13px;line-height:1.6;margin:4px 0 12px}
+#leagueScreenBody .deen-v2-match-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-bottom:9px}
+#leagueScreenBody .deen-v2-match-column{min-width:0;display:grid;gap:8px}
+#leagueScreenBody button.deen-v2-match-tile{
+ min-width:0;width:100%;min-height:64px;padding:10px 5px;border-radius:12px;
+ border:1px solid rgba(132,205,183,.4);background:#10343e;color:#f9ebc3;
+ font:750 clamp(15px,4.3vw,18px)/1.35 system-ui,sans-serif;
+ overflow-wrap:break-word;cursor:pointer
+}
+#leagueScreenBody button.deen-v2-match-glyph{font:800 34px/1.35 "Geeza Pro","Noto Naskh Arabic",serif}
+#leagueScreenBody button.deen-v2-match-tile[aria-pressed="true"]{border-color:#6af6cd;background:rgba(63,201,165,.25)}
+#leagueScreenBody button.deen-v2-match-tile.is-matched{border-color:#48d6a9;color:#96dfc8;background:rgba(39,137,109,.2);opacity:.65}
+#leagueScreenBody .deen-v2-pair-progress{font:700 13px/1.5 system-ui,sans-serif;color:#a9edd8;margin:8px 0 13px}
+#leagueScreenBody .deen-v2-build-slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:8px 0 14px}
+#leagueScreenBody .deen-v2-build-slot{
+ display:grid;place-items:center;min-width:0;min-height:70px;border-radius:14px;
+ border:1px solid #428b83;background:#153f48;color:#fbe8bb;
+ font:800 clamp(29px,8vw,42px)/1.4 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody .deen-v2-build-slot.is-empty{border-style:dashed;color:#75a99e}
+#leagueScreenBody .deen-v2-build-bank{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+#leagueScreenBody button.deen-v2-build-piece{
+ min-width:0;min-height:64px;border:1px solid #417f79;border-radius:12px;
+ background:#12333e;color:#ffeab9;cursor:pointer;
+ font:800 clamp(26px,7vw,35px)/1.4 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody .deen-v2-build-reset{margin:9px 0 12px;min-height:38px}
+#leagueScreenBody .deen-v2-joined-answer{
+ margin:10px 0;border:1px solid #51d2ab;border-radius:13px;padding:13px;
+ background:rgba(47,198,158,.19);text-align:center;color:#f5e7b9;
+ font:800 38px/1.5 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody button.deen-v2-match-tile:focus-visible,
+#leagueScreenBody button.deen-v2-build-piece:focus-visible,
+#leagueScreenBody button.deen-v2-option:focus-visible{outline:3px solid #aaffed;outline-offset:2px}
+#leagueScreenBody button.deen-v2-build-piece:disabled{opacity:.42}
+@media(max-width:345px){
+ #leagueScreenBody .deen-path-v2-lesson button.deen-v2-option{min-height:60px;padding:9px;gap:10px}
+ #leagueScreenBody .deen-v2-letter{width:33px;height:33px}
+ #leagueScreenBody button.deen-v2-match-tile{font-size:14px}
+}
