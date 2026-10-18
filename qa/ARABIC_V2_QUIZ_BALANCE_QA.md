@@ -5,6 +5,7 @@
 ## Düzeltilen oyun kalitesi
 
 - Arapça iki harfli **birleştirme** sorularında, doğru parçalar artık her soruda sabit 2. ve 4. konumda değildir. Dört benzersiz gerçek Arapça harf karıştırılır. Karıştırma aynı soru ekranı yeniden çizildiğinde ve dil değiştirildiğinde **kararlı** kalır.
+- İlk 7 harf dersindeki **28 kaynaklı harf-adı sorusunun tamamı eşleştirmeye** dönüştürüldü; her derste en az 3 gerçek eşleştirme görevi bulunur. İlk 200 sorunun dağılımı: 150 A–D, 28 eşleştirme, 22 birleştirme. Bunlar yeni soru değil, mevcut doğru cevabı korunmuş farklı etkileşimlerdir.
 - Dört çiftli **eşleştirme** sorularında sol harf sırası soru başına çeşitlenir; sağdaki isimler sıfır olmayan döngüsel kaydırmayla yerleştirilir. Aynı satırda cevap eşleşmesi önceden gösterilmez.
 - Eşleştirmede yanlış seçim, doğru seçenek kimliğiyle yanlışlıkla yazılmamalı: önceki yanlış cevap kimliğinin cevap anahtarındaki doğrula eşit çıkması engellenir. Ustalık ve aralıklı tekrar kanıtı korunur.
 - Oturumun ilk üç sorusunun (özellikle vadesi gelmiş tekrarların) sırası sabit kalır. Sonraki sorular, mevcut seçili soruların **kimliklerini, doğru seçeneklerini ve zorluk sayısını değiştirmeden**, aynı türün art arda gereksiz gelmesini azaltacak şekilde sıraya dizilir.
