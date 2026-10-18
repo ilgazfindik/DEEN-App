@@ -197,7 +197,7 @@
   const selected=[];
   for(const group of assessmentDomains)for(let i=0;i<group.stages.length;i++){
    const stage=group.stages[i],all=banks.get(stage)||[];
-   const candidates=[1,2,3].map(level=>all.filter(q=>q.difficulty===level&&!q.audioRef)
+   const candidates=[1,2,3].map(level=>all.filter(q=>q.difficulty===level)
     .sort((a,b)=>a.id.localeCompare(b.id)));
    const preferred=candidates[(i+assessmentDomains.indexOf(group))%3];
    const pairs=[preferred,...candidates].find(x=>x.length>=2);
