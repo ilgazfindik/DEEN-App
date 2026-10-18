@@ -71,7 +71,7 @@ for(const group of [
   }
   const session=api.createSession(stage.id,{seed:177,count:10});
   assert.ok(session&&session.total===Math.min(10,pool.length));
-  assert.equal(new Set(session.ids).size,10);
+  assert.equal(new Set(session.ids).size,Math.min(10,pool.length));
  }
 }
 assert.equal(checked,300,'All 300 new exercises must be reachable from existing lessons');
