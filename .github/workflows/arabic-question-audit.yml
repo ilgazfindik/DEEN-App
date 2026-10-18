@@ -34,6 +34,7 @@ jobs:
           node scripts/audit-arabic-v2-locale-content.cjs --report="${{ runner.temp }}/deen-qa/arabic-v2-stage14-report.json"
           node scripts/test-arabic-v2-human-review.cjs
           node scripts/test-arabic-v2-prepost.cjs
+          node scripts/test-arabic-v2-quiz-diversity.cjs
           node scripts/export-arabic-v2-human-review.cjs --out-dir="${{ runner.temp }}/deen-qa/arabic-v2-stage19-review"
           node scripts/audit-arabic-v2-release-gate.cjs --report="${{ runner.temp }}/deen-qa/arabic-v2-stage16-gate.json"
           node scripts/test-arabic-audio-intake.cjs
