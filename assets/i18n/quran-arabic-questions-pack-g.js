@@ -123,7 +123,7 @@
   const long=[
    {v:'ā',glyph:fatha+'ا',kind:t('uzun a','long ā','المدّ بالألف','langes ā','ā long')},
    {v:'ī',glyph:kasra+'ي',kind:t('uzun i','long ī','المدّ بالياء','langes ī','ī long')},
-   {v:'ū',glyph:damma+'و',kind:t('uzun u','المدّ بالواو','المدّ بالواو','langes ū','ū long')}
+   {v:'ū',glyph:damma+'و',kind:t('uzun u','long ū','المدّ بالواو','langes ū','ū long')}
   ];
   // Not every consonant + long-vowel combination is a lexical word;
   // these are labelled as *written spelling patterns*, not word readings.
