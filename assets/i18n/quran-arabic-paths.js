@@ -55,6 +55,19 @@
  const MASTERY=window.DEEN_ARABIC_MASTERY;
  if(!MASTERY||MASTERY.version!==1)throw Error('DEEN_ARABIC_MASTERY_MISSING');
  const V2=window.DEEN_ARABIC_QUESTIONS_V2||null;
+ const ASSESSMENT=V2?.assessment||null;
+ const ASSESSMENT_STORE='deen_arabic_v2_assessment_v1';
+ const assessmentRead=()=>{try{return ASSESSMENT?.read(JSON.parse(localStorage.getItem(ASSESSMENT_STORE)||'null'))}
+  catch(_){return ASSESSMENT?.read(null)}};
+ const assessmentSummary=()=>ASSESSMENT?.summary(assessmentRead());
+ const assessmentCopy={
+  tr:['Arapça Öğrenme Ölçümü','Ders öncesi ve sonrası 8 yazılı soru ile harf, hareke, kelime ve ifade becerilerini karşılaştır. Ses, XP ve can kullanılmaz.','Ön Teste Başla','Son Teste Başla','Ön test','Son test','Son test için ön testten sonra bir yazılı dersi bitir veya ertesi gün gel.','Puan farkı','Arapça Derslerine Dön','Sonuçlar yalnız cihazında saklanır; bu bir kıraat veya uzman onayı değildir.','Harfler','Harekeler','Kelimeler','İfadeler'],
+  en:['Arabic Learning Check','Compare letters, vowels, words and expressions with 8 written questions before and after study. No audio, XP or hearts.','Start Pre-Test','Start Post-Test','Pre-test','Post-test','Complete a written lesson after the pre-test or return tomorrow.','Score change','Back to Arabic Lessons','Saved only on your device. Not recitation or expert certification.','Letters','Vowels','Words','Expressions'],
+  ar:['قياس تعلّم العربية','قارن الحروف والحركات والكلمات والتعابير بثمانية أسئلة كتابية قبل الدراسة وبعدها. بلا صوت أو نقاط أو قلوب.','ابدأ الاختبار القبلي','ابدأ الاختبار البعدي','الاختبار القبلي','الاختبار البعدي','أكمل درسًا كتابيًا بعد الاختبار القبلي أو عُد غدًا.','تغيّر النتيجة','العودة إلى دروس العربية','تُحفظ النتائج على جهازك فقط. ليست شهادة تلاوة أو مراجعة خبير.','الحروف','الحركات','الكلمات','التعابير'],
+  de:['Arabisch-Lernmessung','Vergleiche Buchstaben, Vokale, Wörter und Ausdrücke mit acht schriftlichen Fragen. Ohne Audio, XP oder Herzen.','Vortest starten','Nachtest starten','Vortest','Nachtest','Schließe danach eine schriftliche Lektion ab oder komm morgen zurück.','Punktedifferenz','Zurück zu Arabisch','Nur auf deinem Gerät gespeichert. Kein Rezitations- oder Expertenzertifikat.','Buchstaben','Vokale','Wörter','Ausdrücke'],
+  fr:['Mesurer son apprentissage de l’arabe','Compare lettres, voyelles, mots et expressions avec huit questions écrites avant et après. Sans audio, XP ni cœurs.','Commencer le pré-test','Commencer le post-test','Pré-test','Post-test','Termine une leçon écrite après le pré-test ou reviens demain.','Écart de points','Retour aux leçons','Résultats conservés sur cet appareil. Ni certification de récitation ni validation experte.','Lettres','Voyelles','Mots','Expressions']
+ };
+ const assessmentText=()=>assessmentCopy[lang()]||assessmentCopy.tr;
  const V2_RECENT_STORE='deen_arabic_v2_recent_v1';
  const V2_PRACTICE_STORE='deen_arabic_v2_spaced_v1';
  const v2PracticeRead=()=>{try{return V2?.cleanPractice(JSON.parse(localStorage.getItem(V2_PRACTICE_STORE)||'null'))}
@@ -217,7 +230,7 @@
   const tip=currentTip();if(!tip||state.view!=='lesson')return;
   markTipSeen(tip.id);state.tipOpen=false;update();
  }
- const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false,v2Session:null,v2Choice:null,v2Wrong:false,v2Checked:false,v2FirstMiss:null,v2Answers:[]};
+ const state={view:'home',lessonIndex:0,question:0,correct:false,feedback:'',complete:false,pieces:[],listenHeard:false,listeningBusy:false,reviewQueue:[],reviewIndex:0,reviewMode:'normal',lessonMissed:[],foundationQueue:[],foundationIndex:0,foundationPieces:[],foundationCorrect:false,foundationFeedback:'',foundationWrong:false,checkpointQuestions:[],checkpointIndex:0,checkpointPieces:[],checkpointAnswers:[],checkpointFeedback:null,checkpointResult:null,remedyQuestions:[],remedyIndex:0,remedyPieces:[],remedyCorrect:false,remedyFeedback:'',masteryFilter:'all',audioPreviewOpen:false,audioStatus:'',selectedLetterId:null,tipOpen:false,v2Session:null,v2Choice:null,v2Wrong:false,v2Checked:false,v2FirstMiss:null,v2Answers:[],assessmentQuestions:[],assessmentIndex:0,assessmentAnswers:[],assessmentMode:null};
  const storage=()=>{try{
   const v=JSON.parse(localStorage.getItem(PROGRESS_STORE)||'null');
   const completed=(v&&Array.isArray(v.completed))?v.completed.filter(x=>LESSONS.some(y=>y.id===x)):[];
