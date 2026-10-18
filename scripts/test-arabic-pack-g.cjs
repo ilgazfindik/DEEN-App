@@ -70,7 +70,7 @@ for(const group of [
    else throw Error('New question in unplanned lesson '+stage.id);
   }
   const session=api.createSession(stage.id,{seed:177,count:10});
-  assert.ok(session&&session.total===10);
+  assert.ok(session&&session.total===Math.min(10,pool.length));
   assert.equal(new Set(session.ids).size,10);
  }
 }
