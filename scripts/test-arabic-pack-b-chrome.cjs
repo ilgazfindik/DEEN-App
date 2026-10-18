@@ -37,7 +37,16 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
      if(!q)throw Error('No question from visible UI: '+stage+'/'+locale);
      return {id:q.id,options:q.choices.map(c=>c.label?.[locale]||c.glyph),correct:q.correctAnswer,wrong:q.choices.find(x=>x.id!==q.correctAnswer).id};
     },{title,target,stage,locale});
-    assert.deepEqual(content.map(x=>x.trim()),result.options);
+    if(await page.locator('.deen-v2-match-board').count()){
+     const names=await page.locator('.deen-v2-match-name').allInnerTexts();
+     assert.deepEqual(names.map(x=>x.trim()).sort(),result.options.slice().sort());
+    }else if(await page.locator('.deen-v2-build-bank').count()){
+     assert.equal(await page.locator('[data-qpath-action="v2Piece"]').count(),4);
+     assert.equal(await page.locator('.deen-v2-build-slot').count(),2);
+    }else{
+     const labels=await page.locator('.deen-v2-label').allInnerTexts();
+     assert.deepEqual(labels.map(x=>x.trim()),result.options);
+    }
     assert.equal(await page.locator('.deen-v2-target').getAttribute('dir'),'rtl');
     return result;
    };
@@ -54,15 +63,43 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
     assert.ok(!seen.has(q.id),'No question repeats in one session');
     seen.add(q.id);
     if(q.id.startsWith('pack-b-'))bObserved++;
-    if(i===0&&j===0){
-     await page.locator('.deen-v2-option[data-choice-id="'+q.wrong+'"]').click();
-     assert.equal(await page.locator('[data-qpath-action="next"]').count(),0,'Requires explicit grading');
+    if(await page.locator('.deen-v2-match-board').count()){
+     const ids=await page.locator('[data-qpath-action="v2MatchGlyph"]').evaluateAll(nodes=>nodes.map(n=>n.dataset.choiceId));
+     if(i===0&&j===0){
+      await page.locator('[data-qpath-action="v2MatchGlyph"][data-choice-id="'+ids[0]+'"]').click();
+      await page.locator('[data-qpath-action="v2MatchName"][data-choice-id="'+ids[1]+'"]').click();
+      assert.equal(await page.locator('.deen-v2-notice').count(),1);
+     }
+     for(const id of ids){
+      await page.locator('[data-qpath-action="v2MatchGlyph"][data-choice-id="'+id+'"]').click();
+      await page.locator('[data-qpath-action="v2MatchName"][data-choice-id="'+id+'"]').click();
+     }
+    }else if(await page.locator('.deen-v2-build-bank').count()){
+     const target=(await page.locator('.deen-v2-target').innerText()).split(/\s*\+\s*/);
+     const bank=await page.locator('[data-qpath-action="v2Piece"]').evaluateAll(nodes=>nodes.map(n=>n.textContent.trim()));
+     if(i===0&&j===0){
+      await page.locator('[data-qpath-action="v2Piece"][data-piece-index="0"]').click();
+      await page.locator('[data-qpath-action="v2Piece"][data-piece-index="2"]').click();
+      await page.locator('[data-qpath-action="v2Check"]').click();
+      assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
+     }
+     for(const glyph of target){
+      const ix=bank.indexOf(glyph);
+      assert.ok(ix>=0,'Arabic target fragment present');
+      await page.locator('[data-qpath-action="v2Piece"][data-piece-index="'+ix+'"]').click();
+     }
      await page.locator('[data-qpath-action="v2Check"]').click();
-     assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
-     assert.equal(await page.locator('.deen-v2-distractor').count(),1);
+    }else{
+     if(i===0&&j===0){
+      await page.locator('.deen-v2-option[data-choice-id="'+q.wrong+'"]').click();
+      assert.equal(await page.locator('[data-qpath-action="next"]').count(),0,'Requires explicit grading');
+      await page.locator('[data-qpath-action="v2Check"]').click();
+      assert.equal(await page.locator('.deen-path-feedback.is-wrong').count(),1);
+      assert.equal(await page.locator('.deen-v2-distractor').count(),1);
+     }
+     await page.locator('.deen-v2-option[data-choice-id="'+q.correct+'"]').click();
+     await page.locator('[data-qpath-action="v2Check"]').click();
     }
-    await page.locator('.deen-v2-option[data-choice-id="'+q.correct+'"]').click();
-    await page.locator('[data-qpath-action="v2Check"]').click();
     assert.equal(await page.locator('.deen-path-feedback.is-correct').count(),1);
     await page.locator('[data-qpath-action="next"]').click();
    }
@@ -77,7 +114,9 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   await page.evaluate(()=>{document.documentElement.lang='ar';DEEN_QURAN_PATHS.enterArabic();DEEN_QURAN_PATHS.selectGroup(6);DEEN_QURAN_PATHS.start()});
   const bb=await page.locator('.deen-path-v2-lesson').boundingBox();
   assert.ok(bb&&bb.x>=0&&bb.x+bb.width<=322,'320px Arabic RTL');
-  assert.equal(await page.locator('.deen-v2-option').count(),4);
+  assert.ok((await page.locator('.deen-v2-option').count()===4)||
+   (await page.locator('.deen-v2-match-board').count()===1)||
+   (await page.locator('.deen-v2-build-bank').count()===1),'valid choice/match/build question');
   assert.deepEqual(errors,[],'Browser page errors');
   console.log('PASS ARABIC PACK B CHROME: 200 total questions, 7-stage real gameplay, A+B mixed selection, 5 locales, RTL 320px, completion/retry, unchanged progress and hearts');
  }finally{await browser.close();server.close()}
