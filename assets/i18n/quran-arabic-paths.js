@@ -770,6 +770,80 @@
    words:c.examWords,meaning:c.examMeaning};
   return names[id]||id;
  }
+ function assessmentPanel(){
+  if(!ASSESSMENT)return null;
+  const c=assessmentText(),result=assessmentSummary(),box=elem('section','deen-path-checkpoint-section deen-path-assessment-section');
+  box.append(elem('h3','deen-path-shape-subtitle',c[0]),elem('p','deen-path-muted',c[1]));
+  if(result?.pre)box.append(elem('p','deen-path-progress-copy',c[4]+' · '+result.pre.correct+' / 8'));
+  if(result?.post)box.append(elem('p','deen-path-progress-copy',c[5]+' · '+result.post.correct+' / 8'));
+  box.append(makeButton(c[0]+' →','assessment','deen-path-secondary'));
+  return box;
+ }
+ function assessmentLanding(){
+  const c=assessmentText(),h=assessmentRead(),result=assessmentSummary(),box=elem('section','deen-path-lesson deen-path-assessment-landing');
+  box.append(makeButton('←  '+c[8],'arabic','deen-path-back'),elem('h2','deen-path-inner-title',c[0]),elem('p','deen-path-muted',c[1]));
+  if(!h.pre)box.append(makeButton(c[2],'assessmentStart','deen-path-primary'));
+  else{
+   box.append(elem('h3','deen-path-shape-subtitle',c[4]+' · '+result.pre.correct+' / 8'));
+   if(!h.post){
+    const button=makeButton(c[3],'assessmentStart','deen-path-primary');
+    button.disabled=!ASSESSMENT.canPost(h,{completedLessons:writtenCompletedCount()});
+    box.append(button);
+    if(button.disabled)box.append(elem('p','deen-path-muted',c[6]));
+   }else{
+    box.append(elem('h3','deen-path-shape-subtitle',c[5]+' · '+result.post.correct+' / 8'));
+    const difference=elem('p','deen-path-progress-copy',c[7]+' · '+(result.delta>0?'+':'')+result.delta+' / 8');
+    box.append(difference);
+    for(let i=0;i<ASSESSMENT.domains.length;i++){
+     const id=ASSESSMENT.domains[i].id,pre=result.pre.domains.find(x=>x.id===id),post=result.post.domains.find(x=>x.id===id);
+     box.append(elem('p','deen-path-muted',c[10+i]+' · '+pre.correct+' / 2 → '+post.correct+' / 2'));
+    }
+   }
+  }
+  box.append(elem('p','deen-path-muted',c[9]));
+  return box;
+ }
+ function assessmentStart(){
+  if(!ASSESSMENT)return false;
+  const h=assessmentRead(),phase=!h.pre?'pre':ASSESSMENT.canPost(h,{completedLessons:writtenCompletedCount()})?'post':null;
+  if(!phase)return false;
+  state.assessmentMode=phase;state.assessmentQuestions=ASSESSMENT.questions(phase);
+  state.assessmentIndex=0;state.assessmentAnswers=[];
+  return show('assessmentQuestion');
+ }
+ function assessmentQuestionView(){
+  const c=assessmentText(),entry=state.assessmentQuestions[state.assessmentIndex],box=elem('section','deen-path-lesson deen-path-assessment-question');
+  if(!entry)return box;
+  const q=entry.question,locale=lang();
+  box.append(makeButton('←  '+c[8],'assessment','deen-path-back'));
+  box.append(elem('div','deen-path-kicker',state.assessmentMode==='pre'?c[4]:c[5]));
+  box.append(elem('p','deen-path-question-count',t().progress+' '+(state.assessmentIndex+1)+' / 8'));
+  box.append(elem('h2','deen-path-inner-title',q.prompt[locale]||q.prompt.tr));
+  const glyph=elem('div','deen-path-prompt deen-v2-target',q.target);
+  glyph.lang='ar';glyph.dir='rtl';box.append(glyph);
+  const choices=elem('div','deen-path-options deen-v2-options');
+  for(const option of q.choices){
+   const b=makeButton(option.label?.[locale]||option.glyph,'assessmentAnswer','deen-path-option deen-v2-option');
+   b.dataset.choiceId=option.id;b.lang=option.label?locale:'ar';b.dir=option.label&&locale!=='ar'?'ltr':'rtl';
+   choices.append(b);
+  }
+  box.append(choices,elem('p','deen-path-muted',c[9]));
+  return box;
+ }
+ function assessmentAnswer(choiceId){
+  if(state.view!=='assessmentQuestion'||!state.assessmentMode)return false;
+  const item=state.assessmentQuestions[state.assessmentIndex];
+  if(!item?.question.choices.some(c=>c.id===choiceId))return false;
+  state.assessmentAnswers.push({id:item.id,choiceId});
+  if(++state.assessmentIndex===state.assessmentQuestions.length){
+   const history=ASSESSMENT.save(assessmentRead(),{phase:state.assessmentMode,
+    answers:state.assessmentAnswers,completedLessons:writtenCompletedCount()});
+   try{localStorage.setItem(ASSESSMENT_STORE,JSON.stringify(history))}catch(_){}
+   state.assessmentQuestions=[];state.assessmentMode=null;state.assessmentAnswers=[];
+   return show('assessment');
+  }
+  update();return true;
+ }
  function checkpointPanel(){
   const c=t(),box=elem('section','deen-path-checkpoint-section'),latest=checkpointLatest();
   box.append(elem('h3','deen-path-shape-subtitle',c.examHeading),
