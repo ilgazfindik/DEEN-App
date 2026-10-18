@@ -57,7 +57,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
      await page.locator('[data-qpath-action="v2MatchName"][data-choice-id="'+id+'"]').click();
     }
    }else if(await page.locator('.deen-v2-build-bank').count()){
-    const target=(await page.locator('.deen-v2-target').innerText()).split(/\s*\+\s*/);
+    const target=(await page.locator('.deen-v2-target').getAttribute('data-source-target')).split(/\s*\+\s*/);
     const bank=await page.locator('[data-qpath-action="v2Piece"]').evaluateAll(nodes=>nodes.map(n=>n.textContent.trim()));
     if(i===0){
      for(const index of [0,2])await page.locator('[data-qpath-action="v2Piece"][data-piece-index="'+index+'"]').click();
