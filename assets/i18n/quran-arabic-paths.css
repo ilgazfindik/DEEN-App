@@ -1020,3 +1020,21 @@
  border-inline-start:3px solid #e3b963;border-radius:8px;background:rgba(210,161,82,.12);
 }
 #leagueScreenBody .deen-v2-option{min-height:52px;touch-action:manipulation}
+
+/* First-ten-minute written progress is not a checkpoint/exam section. */
+#leagueScreenBody .deen-path-first10{
+ margin:18px 0;padding:18px 15px;border-radius:17px;
+ background:linear-gradient(155deg,#183b43,#112d3c);
+ border:1px solid rgba(241,216,161,.64)
+}
+#leagueScreenBody .deen-path-first10>.deen-path-shape-subtitle{
+ color:#ffe7ae;font-size:18px;margin:0 0 7px
+}
+#leagueScreenBody .deen-path-first10>.deen-path-muted{
+ font-size:13px;line-height:1.55;margin:6px 0 12px
+}
+#leagueScreenBody .deen-path-first10-step{
+ border:1px solid rgba(255,255,255,.16);border-radius:10px;
+ background:rgba(255,255,255,.055);padding:9px 11px;margin:7px 0;
+ line-height:1.45;overflow-wrap:anywhere
+}

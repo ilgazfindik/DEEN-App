@@ -21,6 +21,7 @@ on:
       - 'scripts/test-arabic-v2-human-review.cjs'
       - 'scripts/test-arabic-v2-prepost.cjs'
       - 'scripts/test-arabic-v2-prepost-chrome.cjs'
+      - 'scripts/test-arabic-v2-first10-chrome.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
@@ -93,6 +94,7 @@ on:
       - 'scripts/test-arabic-v2-human-review.cjs'
       - 'scripts/test-arabic-v2-prepost.cjs'
       - 'scripts/test-arabic-v2-prepost-chrome.cjs'
+      - 'scripts/test-arabic-v2-first10-chrome.cjs'
       - 'scripts/test-arabic-pack-f-chrome.cjs'
       - 'scripts/test-arabic-v2-spaced-chrome.cjs'
       - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
@@ -208,3 +210,4 @@ jobs:
           node scripts/test-quran-weekly-chrome.cjs
           node scripts/test-quran-weekly-goals-chrome.cjs
           node scripts/test-arabic-v2-prepost-chrome.cjs
+          node scripts/test-arabic-v2-first10-chrome.cjs
