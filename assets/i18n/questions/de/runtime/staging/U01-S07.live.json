@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U01",
+  "scope": "live_runtime_staging",
+  "stage": "U01-S07",
+  "question_count": 12,
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_commit": "a3ab868b762c4431410057fa8e937d87c73048a9",
+  "translations": {
+    "DEEN-U01-S07-P01": {
+      "source": {
+        "question_tr": "Son tur: İslam’ı tek cümlede nasıl anlatırsın?",
+        "explanation_tr": "Ünite boyunca İslam, yalnızca tek bir davranış alanına indirgenmeyen; inanç, ibadet ve ahlakla ilişkili bütünsel bir din olarak ele alındı.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah'a yönelişi; inanç, kulluk ve güzel davranışlarla birlikte ele alan bir din",
+          "Yalnızca belirli ibadetlerin adını ifade eden bir kavram",
+          "Belirli bir milliyete ait kültürel kimlik",
+          "Sadece tarihsel olaylardan oluşan bir gelenek"
+        ],
+        "correct_answer": "Allah'a yönelişi; inanç, kulluk ve güzel davranışlarla birlikte ele alan bir din",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Letzte Runde: Wie würdest du den Islam in einem Satz beschreiben?",
+        "explanation_tr": "Der Islam wurde hier als umfassende Religion betrachtet, die Glauben, Gottesverehrung und gutes Verhalten verbindet.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Eine Religion, die die Hinwendung zu Allah mit Glauben, Hingabe und gutem Verhalten verbindet",
+          "Ein Begriff, der nur die Namen bestimmter Gottesdienste bezeichnet",
+          "Die kulturelle Identität einer bestimmten Nationalität",
+          "Eine Tradition, die nur aus historischen Ereignissen besteht"
+        ],
+        "correct_answer": "Eine Religion, die die Hinwendung zu Allah mit Glauben, Hingabe und gutem Verhalten verbindet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Islam im Überblick",
+        "teaching_card": {
+          "eyebrow": "1 · RÜCKBLICK",
+          "title": "Die Hinwendung zu Allah betrifft das ganze Leben.",
+          "body": "Glaube, Hingabe und gutes Verhalten bilden den Rahmen dieser Einheit.",
+          "memory": "Merkhilfe: Allah zuwenden · Glauben · Handeln"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P02": {
+      "source": {
+        "question_tr": "Final eşleştirme: iman, ibadet, ahlak ve Kur’an.",
+        "explanation_tr": "Bu dört kavram, İslam'ın inançtan davranışa uzanan yapısını özetler.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İman",
+            "right": "İçsel inanç"
+          },
+          {
+            "left": "İbadet",
+            "right": "Uygulanan kulluk"
+          },
+          {
+            "left": "Ahlak",
+            "right": "Davranışa yansıma"
+          },
+          {
+            "left": "Kur'an",
+            "right": "Temel kaynak"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Abschlusszuordnung: Glaube, Gottesdienst, guter Charakter und Koran.",
+        "explanation_tr": "Diese Begriffe beschreiben wichtige Bereiche von Glauben und Handeln im Islam.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Glaube",
+            "right": "Innerer Glaube"
+          },
+          {
+            "left": "Gottesdienst",
+            "right": "Gelebte Hingabe an Allah"
+          },
+          {
+            "left": "Guter Charakter",
+            "right": "Im Verhalten sichtbar"
+          },
+          {
+            "left": "Koran",
+            "right": "Grundlegende Quelle"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Die wichtigsten Begriffe",
+        "teaching_card": {
+          "eyebrow": "2 · ABSCHLUSSKARTE",
+          "title": "Ordne die wichtigsten Begriffe ein letztes Mal zu.",
+          "body": "Glaube ist innere Zustimmung, Gottesdienst ist Hingabe, guter Charakter zeigt sich im Verhalten und der Koran gibt Orientierung.",
+          "memory": "Merkhilfe: Vier Begriffe, vier Bedeutungen"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P03": {
+      "source": {
+        "question_tr": "İman sadece törenlere katılmak değil, kalben inanmakla da ilgilidir. Doğru mu?",
+        "explanation_tr": "İman, dışsal törenlerden çok, kişinin içsel kabulüyle ilgili bir kavramdır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Glaube bedeutet nicht nur, an Zeremonien teilzunehmen, sondern auch im Herzen zu glauben. Richtig oder falsch?",
+        "explanation_tr": "Iman betrifft die innere Überzeugung eines Menschen und nicht nur äußerlich sichtbare Handlungen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Wesen des Glaubens",
+        "teaching_card": {
+          "eyebrow": "3 · GLAUBE",
+          "title": "Glaube heißt, im Herzen zu glauben.",
+          "body": "Die Teilnahme an Zeremonien allein definiert Glauben nicht; innerer Glaube und Annahme sind entscheidend.",
+          "memory": "Merkhilfe: Im Herzen glauben und annehmen"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P04": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İslam’ın merkezindeki fikir Allah’a ___ ve O’nun rehberliğini benimsemektir.",
+        "explanation_tr": "Bu ünitede İslam'ın merkezinde Allah'a yönelme, teslimiyet ve O'nun rehberliğini benimseme fikri vurgulanır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "teslimiyet",
+          "uzaklık",
+          "kayıtsızlık",
+          "rekabet"
+        ],
+        "correct_answer": "teslimiyet",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Im Mittelpunkt des Islam steht die ______ an Allah und die Annahme seiner Rechtleitung.",
+        "explanation_tr": "Im Mittelpunkt standen die Hinwendung zu Allah, die Hingabe an Ihn und die Annahme Seiner Rechtleitung.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Hingabe",
+          "Distanz",
+          "Gleichgültigkeit",
+          "Wettbewerb"
+        ],
+        "correct_answer": "Hingabe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Einführung in den Islam",
+        "teaching_card": {
+          "eyebrow": "4 · HAUPTGEDANKE",
+          "title": "Hingabe an Allah steht im Mittelpunkt des Islam.",
+          "body": "Mit Hingabe ist hier gemeint, sich Allah zuzuwenden und seine Rechtleitung anzunehmen.",
+          "memory": "Merkhilfe: Allah zuwenden · Seine Rechtleitung annehmen"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P05": {
+      "source": {
+        "question_tr": "Kimse görmese bile dürüst davranmak neyi gösterir?",
+        "explanation_tr": "İslam, kişinin sadece görüldüğünde değil, her zaman dürüst ve ahlaklı davranmasını öğütler.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Ahlakın, insanlar görmese bile önemli olduğu öğretisiyle",
+          "Sadece kanun korkusuyla",
+          "Sadece iş güvencesi kaygısıyla",
+          "Hiçbir öğretiyle ilgisi yok"
+        ],
+        "correct_answer": "Ahlakın, insanlar görmese bile önemli olduğu öğretisiyle",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was zeigt es, wenn jemand ehrlich ist, obwohl niemand zusieht?",
+        "explanation_tr": "Der Islam ermutigt dazu, jederzeit ehrlich und verantwortungsvoll zu handeln, nicht nur unter Beobachtung.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mit der Lehre, dass guter Charakter wichtig ist, auch wenn niemand zusieht",
+          "Nur aus Angst vor Gesetzen",
+          "Nur aus Sorge um den Arbeitsplatz",
+          "Das hat mit keiner Lehre zu tun"
+        ],
+        "correct_answer": "Mit der Lehre, dass guter Charakter wichtig ist, auch wenn niemand zusieht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Ehrlichkeit, auch wenn niemand zusieht",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P06": {
+      "source": {
+        "question_tr": "Üç ifade ünitenin ana fikriyle uyumludur. Hangisi uyumlu değildir?",
+        "explanation_tr": "Ünite bu kavramları farklı fakat ilişkili alanlar olarak ele alır.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İman kalben inanmayla ilgilidir.",
+          "İbadet Allah’a kullukla ilgilidir.",
+          "Ahlak davranışlara yansır.",
+          "İman, ibadet ve ahlak tamamen kopuktur."
+        ],
+        "correct_answer": "İman, ibadet ve ahlak tamamen kopuktur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Drei Aussagen passen zur Hauptaussage der Einheit. Welche nicht?",
+        "explanation_tr": "Die Lektion zeigt, dass diese Begriffe verschieden, aber miteinander verbunden sind.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Glaube bedeutet, im Herzen zu glauben.",
+          "Gottesdienst bedeutet, Allah zu dienen.",
+          "Guter Charakter zeigt sich im Verhalten.",
+          "Glaube, Gottesdienst und guter Charakter sind völlig unverbunden."
+        ],
+        "correct_answer": "Glaube, Gottesdienst und guter Charakter sind völlig unverbunden.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Die drei Bereiche gehören zusammen",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P07": {
+      "source": {
+        "question_tr": "Peygamberin temel rolünü hangisi en iyi anlatıyor?",
+        "explanation_tr": "Peygamber, hem Allah'ın mesajını ileten hem de bu mesajı hayatında örnekleyen bir rehberdir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Allah'ın mesajını ileten ve yaşamıyla örnek olan kişi",
+          "Sadece bir tarihi lider",
+          "Sadece bir yazar",
+          "Sadece bir tüccar"
+        ],
+        "correct_answer": "Allah'ın mesajını ileten ve yaşamıyla örnek olan kişi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt die grundlegende Aufgabe des Propheten am besten?",
+        "explanation_tr": "Der Prophet übermittelt Allahs Botschaft und lebt sie als Vorbild vor.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Eine Person, die Allahs Botschaft überbringt und durch ihr Leben ein Vorbild ist",
+          "Nur ein historischer Anführer",
+          "Nur ein Schriftsteller",
+          "Nur ein Händler"
+        ],
+        "correct_answer": "Eine Person, die Allahs Botschaft überbringt und durch ihr Leben ein Vorbild ist",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Der Prophet als Vorbild",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P08": {
+      "source": {
+        "question_tr": "İslam, Müslüman ve peygamber… Üç doğru eşleşmeyi bul.",
+        "explanation_tr": "Bu üç kavram, dinin kendisinden ona mensup olan kişiye ve örnek rehbere uzanan temel bir çerçeve sunar.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "İslam",
+            "right": "Din"
+          },
+          {
+            "left": "Müslüman",
+            "right": "Bu dine mensup kişi"
+          },
+          {
+            "left": "Peygamber",
+            "right": "Örnek rehber"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Islam, Muslim und Prophet: Finde die drei richtigen Paare.",
+        "explanation_tr": "Diese drei Begriffe unterscheiden die Religion, die ihr angehörenden Menschen und den Propheten als Vorbild.",
+        "activity_type": "matching",
+        "options_tr": null,
+        "correct_answer": null,
+        "pairs": [
+          {
+            "left": "Islam",
+            "right": "Religion"
+          },
+          {
+            "left": "Muslim",
+            "right": "Eine Person, die dieser Religion angehört"
+          },
+          {
+            "left": "Prophet",
+            "right": "Vorbild und Wegweiser"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Grundbegriffe im Überblick",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P09": {
+      "source": {
+        "question_tr": "Kur’an ahlaki konularda da rehberlik eder mi?",
+        "explanation_tr": "Kur'an, inanç ve ibadetin yanı sıra ahlaki ilkelere de rehberlik eden kapsamlı bir kaynaktır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Gibt der Koran auch Orientierung in moralischen Fragen?",
+        "explanation_tr": "Der Koran gibt Muslimen Orientierung in Glaubensfragen, der Gottesverehrung und ethischen Fragen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Der Koran und Moral",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P10": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: İbadetin temel amacı Allah’ın ___ kazanmaktır.",
+        "explanation_tr": "İbadetin özünde Allah'ın rızasını kazanma isteği vardır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "rızasını",
+          "alkışını",
+          "şöhretini",
+          "yarışını"
+        ],
+        "correct_answer": "rızasını",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Das grundlegende Ziel des Gottesdienstes ist es, Allahs ______ zu erlangen.",
+        "explanation_tr": "Gottesverehrung geschieht mit der Absicht, Allahs Wohlgefallen zu suchen.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Wohlgefallen",
+          "Applaus",
+          "Ruhm",
+          "Wettbewerb"
+        ],
+        "correct_answer": "Wohlgefallen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Ziel des Gottesdienstes",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P11": {
+      "source": {
+        "question_tr": "Farklı ülkelerden insanlar aynı camide buluşuyor. Bu, Müslüman kimliği hakkında ne anlatıyor?",
+        "explanation_tr": "Bu sahne, Müslümanlığın evrensel bir inanç kimliği olduğunu ve milliyetle sınırlı olmadığını gösterir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Müslümanlığın milliyet ve dilden bağımsız, inanca dayalı bir kimlik olduğunu",
+          "Sadece belirli bir ülkeye özgü olduğunu",
+          "Sadece belirli bir dile bağlı olduğunu",
+          "Hiçbir şey göstermez"
+        ],
+        "correct_answer": "Müslümanlığın milliyet ve dilden bağımsız, inanca dayalı bir kimlik olduğunu",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Menschen aus verschiedenen Ländern treffen sich in einer Moschee. Was zeigt das über muslimische Identität?",
+        "explanation_tr": "Muslime können aus ganz unterschiedlichen Ländern und Sprachgemeinschaften kommen.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Dass muslimische Identität auf dem Glauben beruht, unabhängig von Nationalität und Sprache",
+          "Dass sie nur zu einem bestimmten Land gehört",
+          "Dass sie nur an eine bestimmte Sprache gebunden ist",
+          "Das zeigt nichts"
+        ],
+        "correct_answer": "Dass muslimische Identität auf dem Glauben beruht, unabhängig von Nationalität und Sprache",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Muslimische Identität weltweit",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S07-P12": {
+      "source": {
+        "question_tr": "Hangisi İslam’ı bu ünitenin anlattığı çerçevede açıklamaz?",
+        "explanation_tr": "İslam belirli bir kültüre indirgenemez; inanç, kulluk ve ahlakı kapsayan evrensel bir din olarak tanıtılır.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Allah’a yönelmeyi öğretir.",
+          "İman, ibadet ve ahlakı birlikte ele alır.",
+          "Kur’an’ı temel rehber kabul eder.",
+          "Yalnızca belli bir kültüre ait gelenektir."
+        ],
+        "correct_answer": "Yalnızca belli bir kültüre ait gelenektir.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage beschreibt den Islam nicht so, wie wir ihn in dieser Einheit kennengelernt haben?",
+        "explanation_tr": "Der Islam lässt sich nicht auf eine bestimmte Kultur reduzieren; er wird als Religion vorgestellt, die Glaube, Hingabe und guten Charakter umfasst.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Er lehrt, sich Allah zuzuwenden.",
+          "Er betrachtet Glauben, Gottesdienst und guten Charakter gemeinsam.",
+          "Er erkennt den Koran als grundlegenden Wegweiser an.",
+          "Er ist nur die Tradition einer bestimmten Kultur."
+        ],
+        "correct_answer": "Er ist nur die Tradition einer bestimmten Kultur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Abschlussprüfung",
+        "topic": "Zusammenfassung der Einheit",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

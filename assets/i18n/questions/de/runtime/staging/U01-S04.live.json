@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U01",
+  "scope": "live_runtime_staging",
+  "stage": "U01-S04",
+  "question_count": 12,
+  "release_ready": false,
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "source_commit": "a3ab868b762c4431410057fa8e937d87c73048a9",
+  "translations": {
+    "DEEN-U01-S04-P01": {
+      "source": {
+        "question_tr": "İslam günlük hayata da dokunur mu?",
+        "explanation_tr": "İslam, hayatın her alanına -aileden iş hayatına- yayılan bütünsel bir yaklaşım sunar.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+          "Sadece camide geçerlidir",
+          "Sadece belirli günlerde uygulanır",
+          "Sadece yetişkinler için geçerlidir"
+        ],
+        "correct_answer": "Sadece ibadetlerle sınırlı değildir, ahlaki davranışları da kapsar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Spielt der Islam auch im Alltag eine Rolle?",
+        "explanation_tr": "Der Islam vermittelt einen ganzheitlichen Ansatz, der unterschiedliche Lebensbereiche umfasst – von der Familie bis zur Arbeitswelt.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Er beschränkt sich nicht auf Gottesdienste, sondern umfasst auch moralisches Handeln",
+          "Er gilt nur in einer Moschee",
+          "Er gilt nur an bestimmten Tagen",
+          "Er gilt nur für Erwachsene"
+        ],
+        "correct_answer": "Er beschränkt sich nicht auf Gottesdienste, sondern umfasst auch moralisches Handeln",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Der Islam im Alltag",
+        "teaching_card": {
+          "eyebrow": "1 · ALLTAG",
+          "title": "Der Islam gibt auch Orientierung im Alltag.",
+          "body": "Glaube bleibt nicht bloß Wissen. Er kann sich in Ehrlichkeit, Respekt und Verantwortung zeigen.",
+          "memory": "Merkhilfe: Setze das Gelernte in die Tat um"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P02": {
+      "source": {
+        "question_tr": "Davranışları öne çıkan değerlerle eşleştir.",
+        "explanation_tr": "Güzel ahlak farklı durumlarda dürüstlük, saygı ve sabır olarak görünür.",
+        "activity_type": "matching",
+        "options_tr": [
+          "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+          "İbadet ve ahlakın tamamen aynı kavram olduğunu",
+          "Ahlakın ibadeti gereksiz yaptığını",
+          "Dürüstlüğün dinle ilgisiz olduğunu"
+        ],
+        "correct_answer": "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+        "pairs": [
+          {
+            "left": "Doğruyu söylemek",
+            "right": "Dürüstlük"
+          },
+          {
+            "left": "Kırmadan konuşmak",
+            "right": "Saygı"
+          },
+          {
+            "left": "Öfkeyi kontrol etmek",
+            "right": "Sabır"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne den Verhaltensweisen die passenden Werte zu.",
+        "explanation_tr": "Guter Charakter zeigt sich in verschiedenen Situationen durch Ehrlichkeit, Respekt und Geduld.",
+        "activity_type": "matching",
+        "options_tr": [
+          "Gottesdienst und guter Charakter können zum Leben eines Menschen gemeinsam gehören",
+          "Gottesdienst und guter Charakter seien genau dasselbe",
+          "Guter Charakter mache den Gottesdienst überflüssig",
+          "Ehrlichkeit habe nichts mit Religion zu tun"
+        ],
+        "correct_answer": "Gottesdienst und guter Charakter können zum Leben eines Menschen gemeinsam gehören",
+        "pairs": [
+          {
+            "left": "Die Wahrheit sagen",
+            "right": "Ehrlichkeit"
+          },
+          {
+            "left": "Rücksichtsvoll sprechen",
+            "right": "Respekt"
+          },
+          {
+            "left": "Ärger beherrschen",
+            "right": "Geduld"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Die drei Bereiche gehören zusammen",
+        "teaching_card": {
+          "eyebrow": "2 · WERTE",
+          "title": "Finde den Wert hinter dem Verhalten.",
+          "body": "Ehrlichkeit, Respekt, Geduld und Verantwortung zeigen sich in verschiedenen Situationen.",
+          "memory": "Merkhilfe: Verhalten → Wert"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P03": {
+      "source": {
+        "question_tr": "Kimse görmediğinde de doğruyu söylemek dürüstlüğün bir parçasıdır.",
+        "explanation_tr": "Dürüstlük, başkalarının görmesine bağlı olmayan ahlaki bir tutumdur.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Auch wenn niemand zusieht, gehört die Wahrheit zu sagen zur Ehrlichkeit.",
+        "explanation_tr": "Ehrlichkeit hängt nicht davon ab, ob andere Menschen zuschauen.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Guter Charakter im Alltag",
+        "teaching_card": {
+          "eyebrow": "3 · OHNE ZUSCHAUER",
+          "title": "Ehrlichkeit braucht kein Publikum.",
+          "body": "Gutes Verhalten ist nicht nur das, was wir zeigen, wenn andere zusehen.",
+          "memory": "Merkhilfe: Handle richtig, auch wenn niemand hinsieht"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P04": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Fazla para üstünü geri vermek ___ değerine örnektir.",
+        "explanation_tr": "Emre'nin davranışı, İslam'ın önem verdiği dürüstlük ve ahlaki sorumluluğun bir yansımasıdır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "dürüstlük",
+          "kabalık",
+          "gösteriş",
+          "rekabet"
+        ],
+        "correct_answer": "dürüstlük",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Zu viel Wechselgeld zurückzugeben, zeigt ______.",
+        "explanation_tr": "Emres Verhalten zeigt Ehrlichkeit und moralische Verantwortung – zwei Werte, die im Islam einen hohen Stellenwert haben.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Ehrlichkeit",
+          "Unhöflichkeit",
+          "Angeberei",
+          "Wettbewerb"
+        ],
+        "correct_answer": "Ehrlichkeit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Guter Charakter im Alltag",
+        "teaching_card": {
+          "eyebrow": "4 · VERTRAUEN",
+          "title": "Zu viel Wechselgeld zurückzugeben ist ehrlich.",
+          "body": "Wer etwas zurückgibt, das ihm nicht gehört, achtet die Rechte anderer Menschen.",
+          "memory": "Merkhilfe: Was dir nicht gehört, gib zurück"
+        }
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P05": {
+      "source": {
+        "question_tr": "Zeynep kopya çekmiyor çünkü Allah’ın her şeyi gördüğünü düşünüyor. Burada hangi iki alan birlikte çalışıyor?",
+        "explanation_tr": "Zeynep'in davranışı, Allah'a olan inancının (iman) doğru davranışa (ahlak) yansımasının bir örneğidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İman ve ahlakın birlikte işlemesi",
+          "Sadece korku duygusu",
+          "Sadece okul kuralları",
+          "Sadece arkadaş baskısı"
+        ],
+        "correct_answer": "İman ve ahlakın birlikte işlemesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Zeynep schummelt nicht, weil sie glaubt, dass Allah alles sieht. Welche beiden Bereiche wirken hier zusammen?",
+        "explanation_tr": "Zeyneps Verhalten ist ein Beispiel dafür, wie sich ihr Glaube an Allah (Iman) in richtigem Handeln und gutem Charakter ausdrückt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Glaube und guter Charakter wirken zusammen",
+          "Nur ein Gefühl der Angst",
+          "Nur Schulregeln",
+          "Nur Gruppendruck"
+        ],
+        "correct_answer": "Glaube und guter Charakter wirken zusammen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Glaube und guter Charakter",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P06": {
+      "source": {
+        "question_tr": "Hangisi ibadet ve ahlak ilişkisine uymaz?",
+        "explanation_tr": "Ünite, kulluk ile güzel davranış arasında bağ kurulabileceğini öğretir.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "İbadet kulluk bilincini güçlendirebilir.",
+          "Güzel davranışlar günlük hayata yansır.",
+          "İnanç ve davranış arasında bağ kurulabilir.",
+          "İnsanlara nasıl davrandığımızın hiçbir önemi yoktur."
+        ],
+        "correct_answer": "İnsanlara nasıl davrandığımızın hiçbir önemi yoktur.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage passt nicht zum Zusammenhang von Gottesdienst und gutem Charakter?",
+        "explanation_tr": "Die Lektion zeigt, dass Hingabe an Allah und gutes Verhalten miteinander verbunden sein können.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Gottesdienst kann das Bewusstsein der Hingabe an Allah stärken.",
+          "Gutes Verhalten zeigt sich im Alltag.",
+          "Zwischen Glauben und Handeln kann ein Zusammenhang bestehen.",
+          "Wie wir andere behandeln, spielt überhaupt keine Rolle."
+        ],
+        "correct_answer": "Wie wir andere behandeln, spielt überhaupt keine Rolle.",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Gottesdienst und guter Charakter",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P07": {
+      "source": {
+        "question_tr": "İbadetlerine önem veren biri aynı zamanda dürüst ve saygılı davranıyor. Bu bize ne gösteriyor?",
+        "explanation_tr": "Bu örnek ibadet ve ahlakın aynı kavram olmadığını, fakat kişinin hayatında birbirini destekleyen biçimde birlikte bulunabileceğini gösterir.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+          "İbadet ve ahlakın tamamen aynı kavram olduğunu",
+          "Ahlakın ibadeti gereksiz yaptığını",
+          "Dürüstlüğün dinle ilgisiz olduğunu"
+        ],
+        "correct_answer": "İbadet ile güzel ahlakın kişinin yaşamında birlikte yer alabileceğini",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Jemand achtet auf den Gottesdienst und handelt zugleich ehrlich und respektvoll. Was zeigt das?",
+        "explanation_tr": "Dieses Beispiel zeigt, dass Gottesdienst und guter Charakter zwar unterschiedliche Begriffe sind, im Leben eines Menschen aber einander unterstützen können.",
+        "activity_type": "card_choice",
+        "options_tr": [
+          "Gottesdienst und guter Charakter können zum Leben eines Menschen gemeinsam gehören",
+          "Gottesdienst und guter Charakter seien genau dasselbe",
+          "Guter Charakter mache den Gottesdienst überflüssig",
+          "Ehrlichkeit habe nichts mit Religion zu tun"
+        ],
+        "correct_answer": "Gottesdienst und guter Charakter können zum Leben eines Menschen gemeinsam gehören",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Die drei Bereiche gehören zusammen",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P08": {
+      "source": {
+        "question_tr": "Durumları doğru davranışlarla eşleştir.",
+        "explanation_tr": "Ahlaki davranış, farklı durumlarda nazik, adil ve dürüst seçimler yapmayı gerektirir.",
+        "activity_type": "matching",
+        "options_tr": [
+          "Saygılı ve nazik iletişim (ahlak)",
+          "Sadece bilgiçlik taslamak",
+          "Sadece tartışmayı kazanmak isteği",
+          "Sadece kendini haklı çıkarma"
+        ],
+        "correct_answer": "Saygılı ve nazik iletişim (ahlak)",
+        "pairs": [
+          {
+            "left": "Yanlış bilgiyi düzeltmek",
+            "right": "Nazikçe konuşmak"
+          },
+          {
+            "left": "Haksız suçlama",
+            "right": "Sakin ve adil açıklamak"
+          },
+          {
+            "left": "Yapılan hata",
+            "right": "Dürüstçe kabul etmek"
+          }
+        ],
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ordne die Situationen dem richtigen Verhalten zu.",
+        "explanation_tr": "Moralisches Handeln bedeutet, in verschiedenen Situationen freundlich, fair und ehrlich zu entscheiden.",
+        "activity_type": "matching",
+        "options_tr": [
+          "Respektvolle und freundliche Kommunikation (guter Charakter)",
+          "Nur besserwisserisch auftreten",
+          "Nur eine Diskussion gewinnen wollen",
+          "Nur sich selbst rechtfertigen"
+        ],
+        "correct_answer": "Respektvolle und freundliche Kommunikation (guter Charakter)",
+        "pairs": [
+          {
+            "left": "Falsche Informationen richtigstellen",
+            "right": "Freundlich sprechen"
+          },
+          {
+            "left": "Ungerechte Anschuldigung",
+            "right": "Ruhig und fair erklären"
+          },
+          {
+            "left": "Ein gemachter Fehler",
+            "right": "Ehrlich eingestehen"
+          }
+        ],
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Guter Charakter im Alltag",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P09": {
+      "source": {
+        "question_tr": "İslam yalnızca ibadetlerden oluşur; günlük davranışlarla ilgisi yoktur.",
+        "explanation_tr": "İslam’ın çerçevesi inanç, ibadet, ahlak ve günlük yaşamı birlikte ele alır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Der Islam besteht nur aus Gottesdiensten und hat mit unserem Verhalten im Alltag nichts zu tun.",
+        "explanation_tr": "Der Islam verbindet Glauben, Gottesdienst, guten Charakter und den Alltag.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Der Islam im Alltag",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P10": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Öfkelendiğinde sakin kalabilmek ___ değerini gösterir.",
+        "explanation_tr": "Burak'ın sakin ve adil tutumu, İslam'ın önemsediği sabır ve güzel ahlak değerlerinin bir yansımasıdır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "sabır",
+          "kabalık",
+          "acelecilik",
+          "gösteriş"
+        ],
+        "correct_answer": "sabır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Auch bei Ärger ruhig zu bleiben, zeigt ______.",
+        "explanation_tr": "Buraks ruhiges und faires Verhalten ist ein Beispiel für Geduld und guten Charakter, die im Islam geschätzt werden.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Geduld",
+          "Unhöflichkeit",
+          "Ungeduld",
+          "Angeberei"
+        ],
+        "correct_answer": "Geduld",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Guter Charakter im Alltag",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P11": {
+      "source": {
+        "question_tr": "Mehmet kaba bir yorum yazacakken vazgeçip daha nazik bir cümle kuruyor. Bu seçim neyi gösteriyor?",
+        "explanation_tr": "Mehmet'in tercihi, ahlaki değerleri günlük iletişimine yansıtmasının bir göstergesidir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Güzel ahlakı günlük davranışa yansıtmak",
+          "Sadece popüler olmak istemek",
+          "Sadece kurallardan korkmak",
+          "Sadece alışkanlık"
+        ],
+        "correct_answer": "Güzel ahlakı günlük davranışa yansıtmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Mehmet möchte einen groben Kommentar schreiben, formuliert dann aber freundlich. Was zeigt diese Entscheidung?",
+        "explanation_tr": "Mehmets Entscheidung zeigt, wie er moralische Werte in seiner alltäglichen Kommunikation umsetzt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Guten Charakter im Alltag zeigen",
+          "Nur beliebt sein wollen",
+          "Nur Angst vor Regeln haben",
+          "Nur eine Gewohnheit"
+        ],
+        "correct_answer": "Guten Charakter im Alltag zeigen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Guter Charakter im Alltag",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U01-S04-P12": {
+      "source": {
+        "question_tr": "Üç davranış ahlaki sorumlulukla uyumludur. Hangisi uyumlu değildir?",
+        "explanation_tr": "Dürüstlük, kimsenin görmediği durumda da doğru davranmayı gerektirir.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Emaneti sahibine vermek",
+          "Kırmadan doğruyu söylemek",
+          "Haksızlık karşısında adil davranmak",
+          "Kimse görmüyorsa yalan söylemek"
+        ],
+        "correct_answer": "Kimse görmüyorsa yalan söylemek",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Drei Verhaltensweisen passen zu moralischer Verantwortung. Welche nicht?",
+        "explanation_tr": "Ehrlichkeit bedeutet, auch dann richtig zu handeln, wenn niemand zusieht.",
+        "activity_type": "odd_one_out",
+        "options_tr": [
+          "Anvertrautes an den Eigentümer zurückgeben",
+          "Die Wahrheit sagen, ohne zu verletzen",
+          "Bei Ungerechtigkeit fair handeln",
+          "Lügen, wenn niemand zusieht"
+        ],
+        "correct_answer": "Lügen, wenn niemand zusieht",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Im Alltag",
+        "topic": "Helfen und Gottesdienst",
+        "teaching_card": null
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

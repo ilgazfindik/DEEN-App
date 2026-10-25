@@ -1,0 +1,89 @@
+/* DEEN design system v1 — tokens and shared components.
+   Loaded last by index.html so screens migrated to it win over the legacy patch layers.
+   Rules: text never below --ds-fs-xs (12px), body text is --ds-fs-md (16px), only the
+   three weights below, only the three radii below, spacing on the 4px scale. */
+:root{
+ /* Color — derived from the existing DEEN palette (--bg, --teal, --gold …). */
+ --ds-bg:#081b25;
+ --ds-surface:#0f2630;
+ --ds-surface-2:#14313b;
+ --ds-surface-3:#1a3a45;
+ --ds-border:#24434d;
+ --ds-border-strong:#33606a;
+ --ds-text:#eef4f3;
+ --ds-text-muted:#b3c6ca;          /* ≥ 7:1 on --ds-surface */
+ --ds-text-faint:#8aa3a8;          /* ≥ 4.5:1 on --ds-surface, for secondary labels only */
+ --ds-primary:#3fd7ad;
+ --ds-primary-strong:#20c59c;
+ --ds-primary-soft:rgba(63,215,173,.14);
+ --ds-on-primary:#04271f;
+ --ds-accent:#dfc58f;
+ --ds-accent-soft:rgba(223,197,143,.14);
+ --ds-danger:#f3a3a6;
+ --ds-success:#8cddc6;
+ --ds-focus:#9ef0d6;
+
+ /* Type scale (6 sizes) and weights (3). */
+ --ds-font:"Nunito Sans","Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+ --ds-font-ar:"Noto Sans Arabic","Noto Sans",Tahoma,Arial,sans-serif;
+ --ds-fs-xs:12px;
+ --ds-fs-sm:14px;
+ --ds-fs-md:16px;
+ --ds-fs-lg:20px;
+ --ds-fs-xl:24px;
+ --ds-fs-2xl:32px;
+ --ds-fw-regular:400;
+ --ds-fw-semibold:600;
+ --ds-fw-bold:800;
+ --ds-lh-tight:1.2;
+ --ds-lh-body:1.45;
+ --ds-tracking-caps:.06em;
+
+ /* Shape, spacing, elevation. */
+ --ds-radius-sm:8px;
+ --ds-radius-md:12px;
+ --ds-radius-lg:20px;
+ --ds-radius-pill:999px;
+ --ds-space-1:4px;
+ --ds-space-2:8px;
+ --ds-space-3:12px;
+ --ds-space-4:16px;
+ --ds-space-5:20px;
+ --ds-space-6:24px;
+ --ds-space-8:32px;
+ --ds-space-10:40px;
+ --ds-tap:44px;
+ --ds-btn-h:52px;
+ --ds-shadow-1:0 1px 0 rgba(255,255,255,.04) inset,0 8px 24px rgba(0,0,0,.22);
+ --ds-shadow-2:0 1px 0 rgba(255,255,255,.05) inset,0 14px 36px rgba(0,0,0,.32);
+ --ds-ease:cubic-bezier(.2,.7,.2,1);
+}
+html[lang="ar"]{--ds-font:var(--ds-font-ar)}
+
+/* Typography helpers. */
+.ds-eyebrow{font:var(--ds-fw-bold) var(--ds-fs-xs)/1.2 var(--ds-font);letter-spacing:var(--ds-tracking-caps);text-transform:uppercase;color:var(--ds-primary)}
+.ds-title{font:var(--ds-fw-bold) var(--ds-fs-xl)/var(--ds-lh-tight) var(--ds-font);color:var(--ds-text);margin:0}
+.ds-heading{font:var(--ds-fw-bold) var(--ds-fs-lg)/var(--ds-lh-tight) var(--ds-font);color:var(--ds-text);margin:0}
+.ds-body{font:var(--ds-fw-regular) var(--ds-fs-md)/var(--ds-lh-body) var(--ds-font);color:var(--ds-text-muted);margin:0}
+.ds-caption{font:var(--ds-fw-semibold) var(--ds-fs-sm)/1.35 var(--ds-font);color:var(--ds-text-muted)}
+
+/* Surfaces. */
+.ds-card{background:var(--ds-surface);border:1px solid var(--ds-border);border-radius:var(--ds-radius-lg);box-shadow:var(--ds-shadow-1);padding:var(--ds-space-4)}
+.ds-card--raised{background:var(--ds-surface-2);box-shadow:var(--ds-shadow-2)}
+
+/* Buttons: one height, three variants. */
+.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--ds-space-2);min-height:var(--ds-btn-h);padding:0 var(--ds-space-5);border-radius:var(--ds-radius-md);border:1px solid transparent;font:var(--ds-fw-bold) var(--ds-fs-md)/1 var(--ds-font);letter-spacing:.01em;cursor:pointer;transition:transform .12s var(--ds-ease),filter .12s var(--ds-ease)}
+.ds-btn:active{transform:translateY(1px)}
+.ds-btn--block{display:flex;width:100%}
+.ds-btn--primary{background:var(--ds-primary);color:var(--ds-on-primary);box-shadow:0 3px 0 var(--ds-primary-strong)}
+.ds-btn--secondary{background:var(--ds-surface-2);color:var(--ds-text);border-color:var(--ds-border-strong)}
+.ds-btn--ghost{background:transparent;color:var(--ds-primary)}
+
+/* Chips and progress. */
+.ds-chip{display:inline-flex;align-items:center;gap:var(--ds-space-1);min-height:32px;padding:0 var(--ds-space-3);border-radius:var(--ds-radius-pill);background:var(--ds-surface-2);border:1px solid var(--ds-border);font:var(--ds-fw-bold) var(--ds-fs-sm)/1 var(--ds-font);color:var(--ds-text)}
+.ds-progress{height:8px;border-radius:var(--ds-radius-pill);background:var(--ds-surface-3);overflow:hidden}
+.ds-progress>i{display:block;height:100%;border-radius:inherit;background:var(--ds-primary)}
+
+/* Accessibility baseline for anything built on the system. */
+.ds-btn:focus-visible,.ds-chip:focus-visible,[data-ds-focus]:focus-visible{outline:3px solid var(--ds-focus);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.ds-btn{transition:none}}

@@ -58,7 +58,12 @@
      for(let i=0;i<packs.length;i++){
       const pack=packs[i];
       if(pack.locale!==lang||pack.schema_version!==1||pack.expert_approved!==false||pack.verified_by_religious_expert!==false||Object.keys(pack.translations||{}).length!==config.parts[i].count)throw Error('CONTENT_SCHEMA:'+config.parts[i].path);
-      for(const [id,entry] of Object.entries(pack.translations)) (questions[id]||(questions[id]=[])).push(entry);
+      for(const [id,entry] of Object.entries(pack.translations)){
+       // German must not admit an invalid stored/legacy variant merely because it
+       // is absent from the initial active-question snapshot.
+       if(lang==='de'&&!validate(entry?.source,entry))throw Error('CONTENT_VARIANT_INVALID:'+id);
+       (questions[id]||(questions[id]=[])).push(entry);
+      }
       window.DEEN_BOOT?.progress?.(i+1,packs.length);
      }
     }else{const pack=await json({path:config.bank});if(pack.locale!==lang||pack.schema_version!==1||pack.expert_approved!==false||!pack.questions)return false;Object.assign(questions,pack.questions);}
@@ -69,12 +74,13 @@
    }catch(error){console.error('[DEEN content]',String(error?.message||error));return false;}finally{loading.delete(lang);}
   })();loading.set(lang,job);return job;
  }
- function qaReady(lang,config){return (lang==='fr'&&config?.gameplay_enabled===true&&config?.scope==='game_questions_and_ui_only')||config?.global_qa==='passed'||lang==='en'&&config?.global_qa==='pending'&&window.__DEEN_LOCALIZATION_QA__===true}
+ function qaReady(lang,config){return ((lang==='fr'||lang==='de')&&config?.gameplay_enabled===true&&config?.scope==='game_questions_and_ui_only')||config?.global_qa==='passed'||lang==='en'&&config?.global_qa==='pending'&&window.__DEEN_LOCALIZATION_QA__===true}
  function available(lang){const config=manifest()?.languages?.[lang];return ['tr','ar'].includes(lang)||config?.question_data==='complete'&&qaReady(lang,config)}
  function translateText(text,lang=window.DEEN_APP_LOCALE.get()){
-  // French uses the same verified per-question adapter, never a free-form glossary.
+  // French and German use the same verified per-question adapter, never a free-form glossary.
   // Production remains protected by manifest release gates in preload().
-  if(lang!=='en'&&lang!=='fr')return text;
+  if(lang!=='en'&&lang!=='fr'&&lang!=='de')return text;
+  const strict=lang==='fr'||lang==='de';
   const sourceText=String(text),tables=loaded.get(lang)?.questions;
   if(!tables)return text;
   let current;try{current=session?.questions?.[session.index]}catch(_){}
@@ -86,17 +92,18 @@
    for(let i=0;i<(s.pairs?.length||0);i++)for(const k of ['left','right'])if(s.pairs[i][k]===sourceText)return d.pairs[i][k];
    return null;
   }
-  // French has no context-free fallback: shared Turkish terms can have different
+  // French and German have no context-free fallback: shared Turkish terms can have different
   // theological or pedagogical meanings across different questions.
-  if(lang==='fr'&&!source)return text;
+  if(strict&&!source)return text;
   const candidates=tables[source?.id]||[];
   for(const e of Array.isArray(candidates)?candidates:[candidates])if(validate(source,e)){const value=lookup(e);if(value)return value;
-   if(lang==='en'){
+   if(lang==='en'||lang==='de'){
    const stripped=String(e.source.question_tr).replace(/^(?:Boşluğu tamamla|Eksik kavramı seç|Kayıp kelime(?:yi bul)?|İpucu olmadan tamamla|Boşluğu doldur):\s*/i,'');
-   if(stripped===sourceText)return e.display.question_tr.replace(/^(?:Complete the sentence|Choose the missing concept|Missing word|Find the missing word|Complete without a hint|Fill in the blank):\s*/i,'');
+   const prefix=lang==='de'?/^(?:Ergänze die Lücke|Ergänze den Satz|Finde das fehlende Wort|Wähle den fehlenden Begriff|Fülle die Lücke aus):\s*/i:/^(?:Complete the sentence|Choose the missing concept|Missing word|Find the missing word|Complete without a hint|Fill in the blank):\s*/i;
+   if(stripped===sourceText)return e.display.question_tr.replace(prefix,'');
    }
   }
-  if(lang==='fr')return text; // Fail closed if this question has no exact source match.
+  if(strict)return text; // Fail closed if this question has no exact source match.
   // Shared hints and labels use the same guarded pack entries, never an independent language bank.
   if(!loaded.get(lang).textMap){const map=new Map();for(const entries of Object.values(tables))for(const e of Array.isArray(entries)?entries:[entries]){const s=e.source,d=e.display;for(const k of ['question_tr','explanation_tr','correct_answer'])if(typeof s[k]==='string'&&!map.has(s[k]))map.set(s[k],d[k]);for(const k of ['options_tr','items','correct_order'])for(let i=0;i<(s[k]?.length||0);i++)if(!map.has(s[k][i]))map.set(s[k][i],d[k][i]);for(let i=0;i<(s.pairs?.length||0);i++)for(const k of ['left','right'])if(!map.has(s.pairs[i][k]))map.set(s.pairs[i][k],d.pairs[i][k]);}loaded.get(lang).textMap=map;}
   return loaded.get(lang).textMap.get(sourceText)||text;

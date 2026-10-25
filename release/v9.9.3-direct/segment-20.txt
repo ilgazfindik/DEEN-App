@@ -619,7 +619,7 @@
   return value(a);
  }
  function haptic(ok){try{navigator.vibrate?.(ok?18:[10,22,10])}catch(_){}}
- function pop(wrap,text,bad=false){wrap.querySelector('.v858-odd-pop')?.remove();const p=document.createElement('div');p.className='v858-odd-pop'+(bad?' bad':'');p.textContent=text;wrap.append(p);setTimeout(()=>p.remove(),650)}
+ function pop(wrap,text,bad=false){wrap.querySelector('.v858-odd-pop')?.remove();const p=document.createElement('div');p.className='v858-odd-pop'+(bad?' bad':'');p.textContent=text;wrap.append(p);setTimeout(()=>p.remove(),bad?1800:650)}
  function currentQuestion(){try{return session?.questions?.[session.index]||null}catch(_){return null}}
  function decorate(){
   clearTimeout(advanceTimer);
@@ -639,7 +639,7 @@
    b.onclick=()=>{
     if(finished||b.disabled||document.getElementById('feedback')?.classList.contains('show'))return;
     const ok=norm(text)===norm(answer);
-    if(!ok){errors++;misses++;haptic(false);b.classList.remove('wrong-pick');void b.offsetWidth;b.classList.add('wrong-pick');pop(wrap,'BU İFADE DOĞRU · DEVAM ET',true);setTimeout(()=>b.classList.remove('wrong-pick'),360);try{document.dispatchEvent(new CustomEvent('deen:odd-one-out:miss',{detail:{version:VERSION,id:q.id||'',errors}}))}catch(_){};return}
+    if(!ok){errors++;misses++;haptic(false);b.classList.add('wrong-pick');b.disabled=true;b.setAttribute('aria-disabled','true');pop(wrap,'BU İFADE DOĞRU · DEVAM ET',true);try{document.dispatchEvent(new CustomEvent('deen:odd-one-out:miss',{detail:{version:VERSION,id:q.id||'',errors}}))}catch(_){};return}
     finished=true;haptic(true);b.classList.add('target');grid.querySelectorAll('.v858-odd-card').forEach(x=>{x.disabled=true;if(x!==b)x.classList.add('dim')});pop(wrap,errors===0?'✓ İLK SEFERDE YAKALADIN':'✓ HEDEFİ BULDUN');
     const clean=errors===0;if(clean)perfect++;
     setTimeout(()=>{

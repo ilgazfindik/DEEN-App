@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "scope": "ui_reference_remediation_staging",
+  "release_ready": false,
+  "global_qa": "blocked",
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "rights_reviewed": false,
+  "status": "translation_draft_requires_native_and_subject_expert_review",
+  "source_reference": "assets/i18n/english-ui.draft.json:translations",
+  "batch": "08",
+  "translation_count": 10,
+  "translations": {
+    "KISIM 1 FİNALİ": "FINALE VON ABSCHNITT 1",
+    "KİLİTLİ · USTALIK SINAVI": "GESPERRT · MEISTERPRÜFUNG",
+    "Temeller Ustalığı": "Meisterprüfung: Grundlagen",
+    "Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler.": "Anerkannte Unterschiede zwischen den islamischen Rechtsschulen werden nicht als falsche Antworten gewertet; alle neuen Inhalte müssen noch fachlich geprüft werden.",
+    "Fâtiha": "Al-Fātiha",
+    "Felak": "Al-Falaq",
+    "Nâs": "An-Nās",
+    "Mâûn": "Al-Māʿūn",
+    "İnşirah": "Asch-Scharh",
+    "Zilzâl": "Az-Zalzala"
+  },
+  "reference_english": {
+    "KISIM 1 FİNALİ": "SECTION 1 FINAL",
+    "KİLİTLİ · USTALIK SINAVI": "LOCKED · MASTERY TEST",
+    "Temeller Ustalığı": "Foundations Mastery",
+    "Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler.": "Valid differences between schools of law are not graded as incorrect; all new content awaits expert review.",
+    "Fâtiha": "Al-Fatihah",
+    "Felak": "Al-Falaq",
+    "Nâs": "An-Nas",
+    "Mâûn": "Al-Ma'un",
+    "İnşirah": "Ash-Sharh",
+    "Zilzâl": "Az-Zalzalah"
+  },
+  "review_required_keys": [
+    "KISIM 1 FİNALİ",
+    "KİLİTLİ · USTALIK SINAVI",
+    "Temeller Ustalığı",
+    "Geçerli mezhep farklılıkları yanlış cevap olarak puanlanmaz; bütün yeni içerikler uzman incelemesi bekler.",
+    "Fâtiha",
+    "Felak",
+    "Nâs",
+    "Mâûn",
+    "İnşirah",
+    "Zilzâl"
+  ],
+  "review_note_tr": "Son 10 Almanca arayüz kaynak anahtarının TASLAK çevirisidir. Mezhepler arası geçerli farklılıklar konusundaki ifade dinî uzman incelemesi; sure başlıklarının Latin harfli adları ise ana dili Almanca olan editör ve dinî uzman incelemesi gerektirir. Surelerin Arapça asıl metni, ayetler ve ses dosyaları değiştirilmez. Onay, yayın, global QA ve telif bayrakları kapalıdır."
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "scope": "actual_lesson_static_ui_staging",
+  "status": "translation_draft_requires_native_and_subject_expert_review",
+  "source_reference": "release/v9.9.3-direct/segment-01.txt#lesson",
+  "release_ready": false,
+  "global_qa": "blocked",
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "rights_reviewed": false,
+  "translation_count": 10,
+  "translations": {
+    "Daha İyi Bir Sen": "Eine bessere Version deiner selbst",
+    "TEMEL BİLGİLER": "GRUNDWISSEN",
+    "Doğru cevabı seçerek yolculuğuna devam et.": "Wähle die richtige Antwort und setze deine Lernreise fort.",
+    "Ders tamamlandı": "Lektion abgeschlossen",
+    "Öğrenme doğruluğu": "Antwortgenauigkeit",
+    "DOĞRU": "RICHTIG",
+    "GÜÇLÜ ALANLAR": "STÄRKEN",
+    "TEKRAR ET": "WIEDERHOLEN",
+    "TEMELLER USTALIĞI": "MEISTERPRÜFUNG: GRUNDLAGEN",
+    "Öğren · Anla · Hatırla": "Lernen · Verstehen · Erinnern"
+  },
+  "review_required_keys": [
+    "DOĞRU",
+    "TEMELLER USTALIĞI"
+  ],
+  "not_translated_contextual": [
+    "Ünite 1 · Aşama 1"
+  ],
+  "context_note_tr": "İlk 9 kaynak anahtarı release segment-01 içindeki ders HTML'siyle eşleşir. 'Öğren · Anla · Hatırla' ifadesi gerçek çalışan ders ekranında Chromium 38290675221 denetiminde gözlenmiş dinamik metindir; kaynak HTML'sinde sabit etiket olduğu iddia edilmez. Ayrı #lessonStreakMini ile sunulan gün Tag/Tage olarak çevrilir. Sorular, şıklar, ayetler, anlamlar ve notlar genel UI çeviri motoruna dahil edilmez.",
+  "browser_observed_keys": [
+    "Öğren · Anla · Hatırla"
+  ],
+  "browser_evidence": "GitHub Actions Chromium real assembled shell run 38290675221, unresolved_real_shell"
+}
