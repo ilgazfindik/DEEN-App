@@ -15,6 +15,9 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   await page.screenshot({path:path.join(out,'chrome-'+lang+'-language.png')});
   await page.locator('.deen-language-continue').click();await page.waitForSelector('#deenAccountGate');
   assert.equal(await page.locator('#deenAccountGate').getAttribute('lang'),lang);
+  const adminShortcut=page.locator('#deenMobileAdminButton');
+  assert.equal(await adminShortcut.getAttribute('aria-label'),{"tr":"Admin panelini aç","ar":"فتح لوحة الإدارة","en":"Open admin panel","de":"Admin-Panel öffnen","fr":"Ouvrir le panneau d’administration"}[lang],'Mobile admin shortcut label must match selected language');
+  assert.equal(await adminShortcut.isVisible(),false,'P shortcut must stay hidden during account selection');
   assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
   assert.equal(await page.locator('#deenAccountGate .da-email').count(),1);
   // All provider buttons carry a real inline SVG, with label visually centered.
@@ -89,10 +92,77 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   await page.locator('#v998Onboarding .v998-primary').click();assert.equal(await page.locator('#v998Onboarding [data-animal]').count(),6);await page.locator('#v998Onboarding [data-animal="cat"]').click();await capture(3);
   await page.locator('#v998Onboarding .v998-primary').click();await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.minutes(15)"]').click();await capture(4);
   await page.locator('#v998Onboarding .v998-primary').click();await capture(5);await page.locator('#v998Onboarding .v998-primary').click();
-  if(['tr','ar','en','fr'].includes(lang)){
+  if(['tr','ar','en','fr','de'].includes(lang)){
    await page.waitForFunction(()=>window.DEEN_BOOT?.isReady()&&state.onboarded);await page.waitForSelector('#v998Onboarding',{state:'detached'});
    const before=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));assert.equal(before.locale,lang);assert.equal(before.profile.companion,'cat');assert.equal(before.minutes,15);
-   await page.screenshot({path:path.join(out,'chrome-'+lang+'-home.png')});await page.reload();await page.waitForFunction(()=>window.DEEN_BOOT?.isReady());
+   if(lang==='tr'){
+    const pButton=page.locator('#deenMobileAdminButton');
+    assert.equal(await pButton.count(),1,'Mobile P shortcut must be mounted');
+    assert(await pButton.isVisible(),'Mobile P shortcut must be visible after game boot');
+    await pButton.click();
+    assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),true,'P button must open the existing admin dialog');
+    await page.locator('#deenAdminPanelV2 .deen-admin-close').click();
+    assert.equal(await page.locator('#deenAdminPanelV2').evaluate(el=>el.open),false,'Admin dialog must close');
+    // Profile Premium offer is above statistics and is the only profile paywall entry.
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_HUB?.version),'premium-profile-hub-v2');
+    await page.evaluate(()=>navigate('profileScreen'));
+    await page.locator('#profileScreenBody .deen-hub-profile').waitFor();
+    assert.equal(await page.locator('#profileScreenBody .deen-hub-profile').count(),1,'Exactly one premium hero');
+    assert.equal(await page.locator('#profileScreenBody .v5-premium').count(),0,'Old footer premium card must be removed');
+    const pos=await page.evaluate(()=>{
+      const card=document.querySelector('#profileScreenBody .deen-hub-profile'),head=document.querySelector('#profileScreenBody .v5-profilehead'),metrics=document.querySelector('#profileScreenBody .v5-profilemetrics');
+      return {aboveMetrics:card&&metrics&&card.compareDocumentPosition(metrics)&Node.DOCUMENT_POSITION_FOLLOWING,afterAvatar:head&&card&&head.compareDocumentPosition(card)&Node.DOCUMENT_POSITION_FOLLOWING};
+    });
+    assert(pos.aboveMetrics&&pos.afterAvatar,'Premium entry must be directly below profile identity and before stats');
+    assert.equal((await page.locator('#profileScreenBody .dh-main-label').innerText()).trim(),'Avantajları karşılaştır');
+    assert.equal(await page.locator('#profileScreenBody .dh-compare').innerText(),'3 Gün Ücretsiz Başlat');
+    await page.screenshot({path:path.join(out,'chrome-premium-profile-top.png')});
+    await page.locator('#profileScreenBody .dh-main').click();
+    await page.locator('#v5Sheet[open] .deen-hub-compare').waitFor();
+    assert.equal(await page.locator('#v5Sheet .dh-tier').count(),2,'Two premium plan options');
+    assert.equal(await page.locator('#v5Sheet .dh-tier-full .dh-tier-price strong').innerText(),'10');
+    assert.equal(await page.locator('#v5Sheet .dh-tier-ads .dh-tier-price strong').innerText(),'5');
+    assert.match(await page.locator('#v5Sheet .dh-tier-ads').innerText(),/Reklamlar gösterilmeye devam eder/);
+    await page.screenshot({path:path.join(out,'chrome-premium-two-plans.png')});
+    assert.equal(await page.locator('#v5Sheet [data-deen-hub-action="start"]').count(),1,'Comparison must point to trial, not simulation');
+    assert(!/Premium simülasyonunu aç/.test(await page.locator('#v5SheetBody').innerText()),'Obsolete simulation CTA must be gone');
+    await page.screenshot({path:path.join(out,'chrome-premium-comparison-new.png')});
+    await page.locator('#v5Sheet [data-deen-hub-action="start"]').click();
+    await page.locator('#deenPremiumOffer.dp-visible').waitFor({timeout:6000});
+    await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+    await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+    await page.evaluate(()=>navigate('learnScreen'));
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER?.version),'premium-fade-trial-v1');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.open()),true,'Premium offer must open after game is ready');
+    assert.equal(await page.locator('#deenPremiumOffer [data-dp="trial"]').innerText(),'İlk 3 gün ücretsiz');
+    await page.waitForTimeout(380);
+    assert(Number(await page.locator('#deenPremiumOffer').evaluate(el=>getComputedStyle(el).opacity))>.90,'Premium modal must fade in');
+    await page.screenshot({path:path.join(out,'chrome-premium-offer-fade.png')});
+    await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+    await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialUsed()),false,'Skipping must never activate the trial');
+    await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.open());
+    await page.locator('#deenPremiumOffer [data-dp-action="start"]').click();
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialActive()&&state.premium),true,'72h trial activates locally');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_ENTITLEMENT?.source),'local-device-trial-preview');
+     console.log('PREMIUM_PRE_RELOAD '+lang+' '+JSON.stringify(await page.evaluate(()=>({count:QUESTIONS.length,base:DEEN_BASE_QUESTIONS.length,tail:QUESTIONS.slice(-50).map(q=>q.id)}))));
+    assert.equal(await page.evaluate(()=>localStorage.getItem('deen_premium_trial_v1')!==null),true);
+    await page.reload();try{await page.waitForFunction(()=>window.DEEN_BOOT?.isReady(),null,{timeout:30000})}catch(err){const diag=await page.evaluate(async()=>({boot:window.DEEN_BOOT?.status?.(),build:window.__DEEN_DEPLOY_ID__,html:document.body?.innerText?.slice(0,320),qCount:typeof QUESTIONS==='undefined'?-1:QUESTIONS.length,qTail:typeof QUESTIONS==='undefined'?[]:QUESTIONS.slice(-55).map(q=>q.id),baseCount:window.DEEN_BASE_QUESTIONS?.length,qOutlier:typeof QUESTIONS==='undefined'?[]:QUESTIONS.filter(q=>!window.DEEN_BASE_QUESTIONS?.some(b=>b.id===q.id)).slice(0,60).map(q=>q.id),controller:navigator.serviceWorker?.controller?.scriptURL,caches:await (window.caches?.keys?.()||Promise.resolve([]))}));throw Error('GLOBAL_LOCALE_RELOAD_1 '+lang+': '+JSON.stringify(diag)+' '+err.message)}
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialActive()&&state.premium),true,'Trial persists across reload');
+    await page.evaluate(()=>{
+      const record=JSON.parse(localStorage.getItem('deen_premium_trial_v1'));
+      record.startedAt=Date.now()-4*24*60*60*1000;
+      localStorage.setItem('deen_premium_trial_v1',JSON.stringify(record));
+      DEEN_PREMIUM_OFFER.sync();
+    });
+    assert.equal(await page.evaluate(()=>state.premium),false,'Expired device trial must revoke local premium');
+    assert.equal(await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.isTrialUsed()),true,'Trial must not be usable twice');
+    await page.evaluate(()=>window.DEEN_PREMIUM_OFFER.open());
+    assert.equal(await page.locator('#deenPremiumOffer [data-dp-action="start"]').isDisabled(),true,'No unconfigured billing CTA');
+    await page.locator('#deenPremiumOffer [data-dp-action="later"]').click();
+    await page.waitForFunction(()=>!document.querySelector('#deenPremiumOffer')?.open);
+   }
+   await page.screenshot({path:path.join(out,'chrome-'+lang+'-home.png')});await page.reload();try{await page.waitForFunction(()=>window.DEEN_BOOT?.isReady(),null,{timeout:30000})}catch(err){const diag=await page.evaluate(async()=>({boot:window.DEEN_BOOT?.status?.(),build:window.__DEEN_DEPLOY_ID__,html:document.body?.innerText?.slice(0,320),qCount:typeof QUESTIONS==='undefined'?-1:QUESTIONS.length,qTail:typeof QUESTIONS==='undefined'?[]:QUESTIONS.slice(-55).map(q=>q.id),baseCount:window.DEEN_BASE_QUESTIONS?.length,qOutlier:typeof QUESTIONS==='undefined'?[]:QUESTIONS.filter(q=>!window.DEEN_BASE_QUESTIONS?.some(b=>b.id===q.id)).slice(0,60).map(q=>q.id),controller:navigator.serviceWorker?.controller?.scriptURL,caches:await (window.caches?.keys?.()||Promise.resolve([]))}));throw Error('GLOBAL_LOCALE_RELOAD_2 '+lang+': '+JSON.stringify(diag)+' '+err.message)}
    assert.equal(await page.locator('#deenLanguageGate').count(),0);assert.equal(await page.locator('#v998Onboarding').count(),0);
    const after=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));assert.deepEqual(after,before);
    if(lang==='tr'){
@@ -142,7 +212,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     assert(!fresh.completed.includes('U01-S01'),'Completed stages must reset');
     assert.equal(fresh.onboarded,false,'Onboarding must restart');
    }
-   report.languages[lang]={entry:'PASS Chrome',onboarding:'PASS Chrome',reload:'PASS Chrome',resources:'PASS validated',globalUI:lang==='en'?'English release CI separately verified':lang==='fr'?'French game-only UI smoke; Quran meanings excluded':'NOT fully certified',adminFullReset:lang==='tr'?'PASS language -> account -> welcome':'NOT RUN',screens,errors};
+   report.languages[lang]={entry:'PASS Chrome',onboarding:'PASS Chrome',reload:'PASS Chrome',resources:'PASS validated',globalUI:lang==='en'?'English release CI separately verified':lang==='fr'?'French game-only UI smoke; Quran meanings excluded':lang==='de'?'German staged game UI smoke; global QA blocked':'NOT fully certified',adminFullReset:lang==='tr'?'PASS language -> account -> welcome':'NOT RUN',screens,errors};
   }else{
    await page.waitForFunction(()=>window.DEEN_BOOT?.status().phase==='blocked');assert.equal(await page.evaluate(()=>state.onboarded),false);assert.equal(await page.locator('html').getAttribute('lang'),lang);
    await page.screenshot({path:path.join(out,'chrome-'+lang+'-blocked.png')});

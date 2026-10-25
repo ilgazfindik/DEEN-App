@@ -4,6 +4,7 @@ on:
     paths:
       - 'assets/i18n/**'
       - 'index.html'
+      - 'sw.js'
       - 'scripts/**'
       - 'release/v9.9.3-direct/**'
       - '.github/workflows/arabic-question-audit.yml'
@@ -22,9 +23,25 @@ jobs:
       - name: Audit all base questions and Arabic translation drafts
         run: node scripts/audit-arabic-questions.mjs
       - name: Audit complete Arabic bank and fail-closed policy
-        run: node scripts/audit-arabic-fullbank.mjs
+        run: |
+          node scripts/audit-arabic-fullbank.mjs
+          node scripts/test-arabic-pack-a.cjs
+          node scripts/test-arabic-pack-b.cjs
+          node scripts/test-arabic-pack-c.cjs
+          node scripts/test-arabic-pack-d.cjs
+          node scripts/test-arabic-pack-e.cjs
+          node scripts/test-arabic-pack-f.cjs
+          node scripts/audit-arabic-v2-locale-content.cjs --report="${{ runner.temp }}/deen-qa/arabic-v2-stage14-report.json"
+          node scripts/test-arabic-v2-human-review.cjs
+          node scripts/test-arabic-v2-prepost.cjs
+          node scripts/test-arabic-v2-quiz-diversity.cjs
+          node scripts/export-arabic-v2-human-review.cjs --out-dir="${{ runner.temp }}/deen-qa/arabic-v2-stage19-review"
+          node scripts/audit-arabic-v2-release-gate.cjs --report="${{ runner.temp }}/deen-qa/arabic-v2-stage16-gate.json"
+          node scripts/test-arabic-audio-intake.cjs
+          node scripts/audit-arabic-audio-intake.cjs --report="${{ runner.temp }}/deen-qa/arabic-audio-stage17-intake.json"
       - name: Verify release segment hashes and inline scripts
         run: |
+          node --check sw.js
           node scripts/build-release-manifest.mjs --check
           node scripts/audit-release.mjs
       - name: Install Chromium test runtime
@@ -38,12 +55,42 @@ jobs:
         run: |
           node scripts/test-global-locale.mjs
           node scripts/test-global-locale-chrome.cjs
+          node scripts/test-premium-completion-chrome.cjs
+          node scripts/test-premium-hub-chrome.cjs
+          node scripts/test-arabic-v2-question-engine-chrome.cjs
+          node scripts/test-arabic-pack-a-chrome.cjs
+          node scripts/test-arabic-pack-b-chrome.cjs
+          node scripts/test-arabic-pack-c-chrome.cjs
+          node scripts/test-arabic-pack-d-chrome.cjs
+          node scripts/test-arabic-pack-e-chrome.cjs
+          node scripts/test-arabic-pack-f-chrome.cjs
+          node scripts/test-quran-arabic-paths-chrome.cjs
+          node scripts/test-quran-harakat-chrome.cjs
+          node scripts/test-quran-reading-chrome.cjs
+          node scripts/test-quran-words-chrome.cjs
+          node scripts/test-arabic-step04-chrome.cjs
+          node scripts/test-quran-listening-chrome.cjs
+          node scripts/test-quran-meaning-chrome.cjs
+          node scripts/test-quran-phrases-chrome.cjs
+          node scripts/test-quran-patterns-chrome.cjs
+          node scripts/test-arabic-step05-chrome.cjs
+          node scripts/test-quran-mastery-chrome.cjs
+          node scripts/test-quran-daily-chrome.cjs
+          node scripts/test-quran-adaptive-chrome.cjs
+          node scripts/test-quran-foundation-review-chrome.cjs
+          node scripts/test-quran-checkpoint-chrome.cjs
+          node scripts/test-quran-remediation-chrome.cjs
+          node scripts/test-quran-weekly-chrome.cjs
+          node scripts/test-quran-weekly-goals-chrome.cjs
           node scripts/test-global-feedback-chrome.cjs
           node scripts/test-arabic-startup.cjs
           node scripts/test-arabic-interactions.cjs
           node scripts/test-arabic-quran.cjs
           node scripts/test-arabic-regression.cjs
           node scripts/test-arabic-runtime.cjs
+          node scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs
+          node scripts/test-arabic-v2-prepost-chrome.cjs
+          node scripts/test-arabic-v2-first10-chrome.cjs
       - name: Upload runtime evidence
         if: always()
         uses: actions/upload-artifact@v4

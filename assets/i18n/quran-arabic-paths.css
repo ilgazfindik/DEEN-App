@@ -1,0 +1,1158 @@
+/* DEEN Qur'an paths phase 1: scoped navigation + free Arabic starter. */
+#leagueScreenBody[data-deen-learning-path]:not([data-deen-learning-path="surah"]) > .deen-quran-shell{display:none!important}
+#leagueScreenBody[data-deen-learning-path="surah"] > #deenQuranPathNav{display:none!important}
+#leagueScreenBody #deenQuranPathNav,#leagueScreenBody #deenQuranPathView{
+ width:min(100%,680px);margin-inline:auto;
+ color:#eefbf6;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;box-sizing:border-box
+}
+#leagueScreenBody #deenQuranPathNav * ,#leagueScreenBody #deenQuranPathView *{box-sizing:border-box}
+#leagueScreenBody #deenQuranPathNav{padding:20px 15px 0}
+#leagueScreenBody #deenQuranPathView{padding:14px 15px calc(115px + env(safe-area-inset-bottom))}
+#leagueScreenBody .deen-path-kicker{color:#e9ce91;font-size:10px;letter-spacing:1.8px;font-weight:850;line-height:1.5}
+#leagueScreenBody .deen-path-title{font-family:Georgia,serif;color:#faf7eb;font-size:clamp(27px,8vw,35px);line-height:1.12;margin:10px 0 7px;font-weight:750}
+#leagueScreenBody .deen-path-description{color:#b5ccc7;margin:0;font-size:13px;line-height:1.6}
+#leagueScreenBody .deen-path-home{display:grid;gap:13px}
+#leagueScreenBody button.deen-path-card{
+ width:100%;display:grid;grid-template-columns:75px minmax(0,1fr);align-items:center;gap:12px;
+ padding:20px 17px;min-height:151px;text-align:start;
+ border:1px solid rgba(132,220,194,.38);border-radius:23px;
+ background:radial-gradient(ellipse at 100% 0,rgba(95,221,187,.14),transparent 48%),linear-gradient(143deg,#10363d,#09232e 86%);
+ color:#f4fdf9;-webkit-text-fill-color:initial;box-shadow:0 12px 30px rgba(0,0,0,.13);
+ font:inherit;cursor:pointer;letter-spacing:0;text-transform:none
+}
+#leagueScreenBody button.deen-path-surah{border-color:rgba(238,205,141,.33);background:radial-gradient(ellipse at 100% 0,rgba(244,192,107,.1),transparent 50%),linear-gradient(140deg,#17333a,#0a222f)}
+#leagueScreenBody .deen-path-symbol{
+ grid-row:span 2;display:grid;place-items:center;width:69px;height:75px;border-radius:18px;
+ background:linear-gradient(135deg,rgba(87,211,179,.17),rgba(13,52,62,.55));border:1px solid rgba(156,238,210,.27);
+ color:#e7d6a5;font:750 44px/1 Georgia,serif
+}
+#leagueScreenBody .deen-path-copy{display:grid;gap:7px;min-width:0}
+#leagueScreenBody .deen-path-copy strong{color:#fff6e3;font-size:19px;line-height:1.22;font-weight:820}
+#leagueScreenBody .deen-path-copy small{color:#c0d4d0;font-size:12px;line-height:1.5;font-weight:450}
+#leagueScreenBody .deen-path-link{grid-column:2;align-self:end;color:#a8f3d9;font-size:11px;font-weight:850}
+#leagueScreenBody .deen-path-surah .deen-path-link{color:#ebd19c}
+#leagueScreenBody .deen-path-card:focus-visible,#leagueScreenBody .deen-path-primary:focus-visible,#leagueScreenBody .deen-path-option:focus-visible,#leagueScreenBody .deen-path-back:focus-visible{
+ outline:3px solid #abffe1;outline-offset:3px
+}
+#leagueScreenBody .deen-path-arabic-landing,#leagueScreenBody .deen-path-lesson,#leagueScreenBody .deen-path-completion{
+ padding:19px 16px 21px;border-radius:23px;
+ border:1px solid rgba(134,212,185,.27);
+ background:radial-gradient(ellipse at top right,rgba(136,218,174,.11),transparent 42%),linear-gradient(180deg,#0e2b36,#071d27);
+ box-shadow:0 18px 40px rgba(0,0,0,.17)
+}
+#leagueScreenBody .deen-path-back{
+ display:inline-flex;align-items:center;justify-content:center;gap:6px;
+ min-height:36px;width:auto;padding:6px 12px;margin:0 0 20px;border:1px solid rgba(139,207,193,.31);
+ background:rgba(12,53,58,.65);color:#d6eee7;-webkit-text-fill-color:#d6eee7;
+ border-radius:12px;font:750 12px/1.3 inherit;cursor:pointer;letter-spacing:0;text-transform:none
+}
+#leagueScreenBody .deen-path-pill{
+ display:inline-flex;padding:7px 10px;margin-bottom:10px;border-radius:999px;border:1px solid rgba(242,210,148,.4);
+ background:rgba(242,210,148,.07);color:#f0d49a;font-size:10px;font-weight:820;letter-spacing:.8px
+}
+#leagueScreenBody .deen-path-inner-title{font-size:clamp(23px,6vw,29px);font-weight:850;line-height:1.18;margin:5px 0 11px;color:#f8f9ed}
+#leagueScreenBody .deen-path-muted{font-size:12px;line-height:1.62;color:#bdd3cd;margin:0 0 16px}
+#leagueScreenBody .deen-path-warning{
+ padding:11px;border:1px solid rgba(226,207,155,.19);border-radius:13px;
+ background:rgba(249,205,129,.04);font-size:11px;margin-bottom:15px
+}
+#leagueScreenBody .deen-path-letter-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0 17px}
+#leagueScreenBody .deen-path-letter-card{
+ display:grid;justify-items:center;gap:8px;min-height:110px;padding:10px 6px;border-radius:15px;
+ border:1px solid rgba(145,228,201,.22);background:rgba(10,43,49,.7)
+}
+#leagueScreenBody .deen-path-letter-card .deen-path-glyph{font:750 52px/1.2 "Geeza Pro","Noto Naskh Arabic",serif;color:#fff0ca}
+#leagueScreenBody .deen-path-letter-card small{font-size:12px;font-weight:800;color:#a6e9d4}
+#leagueScreenBody .deen-path-primary{
+ width:100%;min-height:52px;border-radius:15px;border:1px solid rgba(255,230,171,.8);
+ background:linear-gradient(145deg,#9cf0d0,#51d8b6 61%,#26b6aa);
+ color:#052c2e!important;-webkit-text-fill-color:#052c2e!important;
+ font-family:inherit;font-size:13px;font-weight:900;letter-spacing:0;text-transform:none;cursor:pointer;
+ box-shadow:0 11px 24px rgba(38,193,156,.2)
+}
+#leagueScreenBody .deen-path-completed{color:#b9f0d3;font-size:12px;font-weight:760;text-align:center;margin:14px 0 0}
+#leagueScreenBody .deen-path-surah-return{padding:0 0 4px}
+#leagueScreenBody .deen-path-question-count{color:#a8c9bd;font-size:12px;font-weight:780;margin:0 0 16px}
+#leagueScreenBody .deen-path-prompt{
+ display:grid;place-items:center;min-height:91px;margin-bottom:15px;border:1px solid rgba(201,178,132,.27);
+ border-radius:17px;background:rgba(209,188,138,.05);color:#f7dba6;font-size:30px;font-weight:800
+}
+#leagueScreenBody .deen-path-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 15px}
+#leagueScreenBody .deen-path-option{
+ min-height:98px;border:1px solid rgba(132,205,183,.31);border-radius:17px;
+ background:linear-gradient(170deg,#103943,#0b2731);color:#f9ebc3!important;-webkit-text-fill-color:#f9ebc3!important;
+ font:750 53px/1.2 "Geeza Pro","Noto Naskh Arabic",serif;cursor:pointer
+}
+#leagueScreenBody .deen-path-option.deen-path-option-correct{border-color:#92f5cd;background:rgba(53,155,119,.23)}
+#leagueScreenBody .deen-path-feedback{font-size:12px;line-height:1.5;font-weight:730;margin:4px 0 14px}
+#leagueScreenBody .deen-path-feedback.is-correct{color:#9af0c9}
+#leagueScreenBody .deen-path-feedback.is-wrong{color:#f5bf9c}
+#leagueScreenBody .deen-path-complete-star{margin:4px auto 14px;display:grid;place-items:center;width:72px;height:72px;border:1px solid rgba(248,221,156,.6);border-radius:50%;color:#f5dea2;font-size:38px;background:radial-gradient(circle,rgba(232,189,116,.12),transparent)}
+#leagueScreenBody .deen-path-completion{text-align:center}
+#leagueScreenBody .deen-path-completion .deen-path-back{margin:13px auto 0}
+@media(max-width:370px){
+ #leagueScreenBody button.deen-path-card{grid-template-columns:58px minmax(0,1fr);gap:10px;padding:15px 11px}
+ #leagueScreenBody .deen-path-symbol{width:57px;height:64px;font-size:36px}
+ #leagueScreenBody .deen-path-copy strong{font-size:17px}
+}
+@media(prefers-reduced-motion:no-preference){
+ #leagueScreenBody button.deen-path-card:active{transform:scale(.992)}
+}
+/* Phase 2: progressive letter groups + contextual shapes */
+#leagueScreenBody .deen-path-progress-copy{color:#bde0d4;font-size:12px;font-weight:750;margin:11px 0 7px}
+#leagueScreenBody .deen-path-course-progress{height:7px;border-radius:99px;background:rgba(151,207,193,.17);overflow:hidden;margin:0 0 16px}
+#leagueScreenBody .deen-path-course-progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#3ac6b2,#e3cb92);transition:width .2s}
+#leagueScreenBody .deen-path-course-grid{display:grid;gap:9px;margin-bottom:18px}
+#leagueScreenBody button.deen-path-course-item{
+ width:100%;display:grid;gap:8px;text-align:start;padding:13px 14px;border-radius:15px;
+ background:linear-gradient(145deg,#10353c,#0b252e);
+ border:1px solid rgba(115,218,182,.31);color:#ecf9f3;-webkit-text-fill-color:initial;
+ letter-spacing:0;text-transform:none;font-family:inherit;cursor:pointer;
+}
+#leagueScreenBody .deen-path-course-item-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+#leagueScreenBody .deen-path-course-number{color:#f8dfac;font-size:12px;font-weight:870}
+#leagueScreenBody .deen-path-course-status{font-size:10px;color:#c0d8ce;font-weight:750}
+#leagueScreenBody .deen-path-course-glyphs{font:750 32px/1.3 "Geeza Pro","Noto Naskh Arabic",serif;color:#fff2d0;white-space:normal;unicode-bidi:isolate}
+#leagueScreenBody .deen-path-course-item-foot{color:#c0d7cf;font-size:11px;font-weight:580}
+#leagueScreenBody button.deen-path-course-item.is-completed{border-color:rgba(131,240,187,.57);background:linear-gradient(135deg,#103b3c,#0c292e)}
+#leagueScreenBody button.deen-path-course-item.is-locked{
+ opacity:.62;cursor:not-allowed;filter:saturate(.55);
+ border-color:rgba(151,179,171,.2);background:#102932
+}
+#leagueScreenBody .deen-path-atlas-details{border:1px solid rgba(236,208,148,.35);border-radius:15px;overflow:hidden;background:#0a2730;margin:14px 0 12px}
+#leagueScreenBody .deen-path-atlas-details summary{list-style-position:inside;color:#f6dcac;font-size:13px;font-weight:820;cursor:pointer;padding:15px 13px}
+#leagueScreenBody .deen-path-atlas-details:open{padding-bottom:12px}
+#leagueScreenBody .deen-path-atlas-details>.deen-path-muted{margin:0 12px 14px}
+#leagueScreenBody .deen-path-shape-subtitle{font-size:14px;font-weight:850;color:#f5e3b6;margin:15px 0 10px}
+#leagueScreenBody .deen-path-shape-atlas{display:grid;gap:4px;min-width:0}
+#leagueScreenBody .deen-path-shape-head,#leagueScreenBody .deen-path-shape-entry{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:4px;text-align:center
+}
+#leagueScreenBody .deen-path-shape-head{padding:7px 5px;background:rgba(79,152,133,.15);border-radius:9px;color:#e4d09c;font-size:9px;line-height:1.35;font-weight:850}
+#leagueScreenBody .deen-path-shape-entry{
+ padding:8px 5px 17px;margin:0 0 3px;position:relative;border:1px solid rgba(146,204,181,.12);border-radius:11px;background:rgba(11,40,48,.75)
+}
+#leagueScreenBody .deen-path-shape-form{
+ display:block;min-width:0;font:650 clamp(24px,7vw,34px)/1.5 "Geeza Pro","Noto Naskh Arabic",serif;
+ color:#fff1d1;direction:rtl;unicode-bidi:isolate;text-align:center;
+}
+#leagueScreenBody .deen-path-shape-form.is-unjoined{font:650 21px/1.5 inherit;color:#8ea8a5}
+#leagueScreenBody .deen-path-shape-name{
+ position:absolute;left:0;right:0;bottom:2px;text-align:center;color:#a6d8c6;font-size:9px;font-weight:730;line-height:1.2
+}
+#leagueScreenBody .deen-path-options{grid-template-columns:repeat(auto-fit,minmax(58px,1fr))}
+#leagueScreenBody .deen-path-lesson .deen-path-options{gap:8px}
+#leagueScreenBody .deen-path-lesson .deen-path-option{min-height:80px;font-size:clamp(34px,10vw,49px)}
+#leagueScreenBody button.deen-path-course-item:focus-visible,#leagueScreenBody .deen-path-atlas-details summary:focus-visible{outline:3px solid #8ff1cf;outline-offset:3px}
+@media(max-width:345px){#leagueScreenBody .deen-path-shape-form{font-size:24px}#leagueScreenBody .deen-path-course-glyphs{font-size:27px}}
+@media(prefers-reduced-motion:reduce){#leagueScreenBody .deen-path-course-progress span{transition:none}}
+
+/* Phase 3: harakat and first syllables */
+#leagueScreenBody .deen-path-vowel-section{margin:20px 0 14px;padding:17px 13px 7px;border:1px solid rgba(231,200,141,.42);border-radius:18px;background:radial-gradient(ellipse at 95% 0,rgba(205,169,104,.12),transparent 50%),linear-gradient(180deg,#102c37,#09222e)}
+#leagueScreenBody .deen-path-vowel-section>.deen-path-shape-subtitle{margin:0 0 6px;font-size:17px;color:#ffe3ad}
+#leagueScreenBody .deen-path-vowel-section>.deen-path-muted{margin:0 0 13px}
+#leagueScreenBody .deen-path-vowel-section .deen-path-course-item{margin-bottom:10px;border-color:rgba(232,205,148,.43)}
+#leagueScreenBody .deen-path-vowel-item .deen-path-course-glyphs{font-size:clamp(31px,9vw,44px);line-height:1.5;white-space:normal;letter-spacing:3px;color:#f9e8ba}
+#leagueScreenBody .deen-path-vowel-item.is-locked{opacity:.54}
+#leagueScreenBody .deen-path-lesson .deen-path-option[data-letter-id^="fatha"],
+#leagueScreenBody .deen-path-lesson .deen-path-option[data-letter-id^="kasra"],
+#leagueScreenBody .deen-path-lesson .deen-path-option[data-letter-id^="damma"]{font-size:clamp(32px,10vw,53px)}
+#leagueScreenBody .deen-path-lesson .deen-path-options button{overflow-wrap:anywhere}
+#leagueScreenBody .deen-path-vowel-section .deen-path-progress-copy{margin:7px 0}
+
+/* Phase 4 · sukūn, shadda and basic madd learning cards */
+#leagueScreenBody .deen-path-reading-section{
+ margin:18px 0 14px;padding:17px 13px 9px;border-radius:18px;
+ border:1px solid rgba(151,224,192,.48);
+ background:radial-gradient(ellipse at 95% 0,rgba(79,203,158,.16),transparent 52%),linear-gradient(180deg,#0f3137,#09242d);
+}
+#leagueScreenBody .deen-path-reading-section>.deen-path-shape-subtitle{margin:0 0 7px;font-size:18px;color:#c0f2d8}
+#leagueScreenBody .deen-path-reading-section>.deen-path-muted{margin:0 0 12px}
+#leagueScreenBody .deen-path-reading-item{margin:0 0 10px;border-color:rgba(144,218,187,.45)!important}
+#leagueScreenBody .deen-path-reading-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;color:#f7e4ac;
+ font:600 clamp(33px,11vw,44px)/1.6 "Geeza Pro","Noto Naskh Arabic",serif;
+ letter-spacing:2px;word-spacing:4px;white-space:normal;
+}
+#leagueScreenBody .deen-path-reading-item.is-locked{opacity:.57}
+#leagueScreenBody .deen-path-course-item:focus-visible{outline:3px solid #a8efd0;outline-offset:2px}
+#leagueScreenBody .deen-path-letter-card .deen-path-glyph{direction:rtl;unicode-bidi:isolate}
+#leagueScreenBody .deen-path-lesson .deen-path-prompt{overflow-wrap:anywhere}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-reading-item .deen-path-course-glyphs{font-size:32px}
+}
+
+/* Phase 5: mobile-friendly syllable and Quran word puzzles */
+#leagueScreenBody .deen-path-word-section{margin:18px 0 14px;padding:17px 13px 9px;border-radius:18px;border:1px solid rgba(235,204,151,.48);background:radial-gradient(ellipse at 95% 0,rgba(225,180,115,.15),transparent 54%),linear-gradient(180deg,#103237,#09252d)}
+#leagueScreenBody .deen-path-word-section>.deen-path-shape-subtitle{margin:0 0 7px;font-size:18px;color:#ffe6b4}
+#leagueScreenBody .deen-path-word-section>.deen-path-muted{margin:0 0 12px}
+#leagueScreenBody .deen-path-word-section .deen-path-progress-copy{margin:6px 0 7px}
+#leagueScreenBody .deen-path-word-item{margin-bottom:10px;border-color:rgba(229,201,146,.43)!important}
+#leagueScreenBody .deen-path-word-item .deen-path-course-glyphs{direction:rtl;unicode-bidi:isolate;color:#fff0cc;font:650 clamp(31px,9vw,43px)/1.6 "Geeza Pro","Noto Naskh Arabic",serif}
+#leagueScreenBody .deen-path-word-item.is-locked{opacity:.57}
+#leagueScreenBody .deen-path-word-hint{font-weight:820;color:#c5f5dc;text-align:center;margin:9px 0 15px;font-size:18px}
+#leagueScreenBody .deen-path-word-built,#leagueScreenBody .deen-path-word-excerpt{font:650 clamp(35px,11vw,49px)/1.9 "Geeza Pro","Noto Naskh Arabic",serif;color:#ffedc4;text-align:center;direction:rtl;unicode-bidi:isolate;overflow-wrap:anywhere;border:1px solid rgba(155,220,187,.45);border-radius:18px;padding:12px 9px;background:#0a2830;margin:12px 0 15px;min-height:86px}
+#leagueScreenBody .deen-path-word-excerpt{font-size:clamp(28px,8vw,40px);line-height:2}
+#leagueScreenBody .deen-path-word-pieces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:8px 0 14px}
+#leagueScreenBody button.deen-path-word-piece{min-width:0;min-height:76px;border:1px solid rgba(157,225,196,.5);border-radius:15px;background:#113942;color:#fff0c6;-webkit-text-fill-color:#fff0c6;font:720 clamp(32px,10vw,48px)/1.5 "Geeza Pro","Noto Naskh Arabic",serif;cursor:pointer}
+#leagueScreenBody button.deen-path-word-piece:disabled{opacity:.35;cursor:default}
+#leagueScreenBody button.deen-path-word-piece:focus-visible{outline:3px solid #9df9d8;outline-offset:2px}
+#leagueScreenBody .deen-path-word-reset{margin:0 auto 11px;display:block}
+#leagueScreenBody .deen-path-word-reference{text-align:center;font-size:12px}
+@media(max-width:345px){#leagueScreenBody .deen-path-word-pieces{gap:6px}#leagueScreenBody button.deen-path-word-piece{min-height:66px;font-size:30px}}
+
+/* Phase 6: safety-gated listening lessons, no playback before review */
+#leagueScreenBody .deen-path-listening-section{
+ margin:18px 0 14px;padding:17px 13px 9px;border:1px solid rgba(157,197,234,.48);
+ border-radius:18px;background:radial-gradient(ellipse at 95% 0,rgba(106,163,217,.13),transparent 54%),linear-gradient(180deg,#102d3e,#09242d);
+}
+#leagueScreenBody .deen-path-listening-section>.deen-path-shape-subtitle{
+ margin:0 0 7px;font-size:18px;color:#c8e9ff
+}
+#leagueScreenBody .deen-path-listening-section>.deen-path-muted{margin:0 0 12px}
+#leagueScreenBody .deen-path-listening-count{font-size:12px;color:#d3e4f9;margin:0 0 14px}
+#leagueScreenBody .deen-path-listening-item{
+ margin:0 0 10px;border-color:rgba(147,191,230,.43)!important
+}
+#leagueScreenBody .deen-path-listening-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;color:#fff0cf;
+ font:650 clamp(31px,9vw,43px)/1.6 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody .deen-path-listening-item.is-locked{opacity:.57}
+#leagueScreenBody .deen-path-listen-play{min-height:56px;margin:12px auto 18px}
+#leagueScreenBody .deen-path-listening-options{margin-top:12px}
+#leagueScreenBody .deen-path-listening-options .deen-path-option:disabled{
+ opacity:.4;cursor:not-allowed;filter:saturate(.5)
+}
+#leagueScreenBody .deen-path-listen-play:disabled{opacity:.65;cursor:wait}
+
+/* Phase 7: accessible, independent word meaning comprehension track */
+#leagueScreenBody .deen-path-meaning-section{
+ margin:18px 0 14px;padding:17px 13px 9px;
+ border:1px solid rgba(184,155,243,.47);border-radius:18px;
+ background:radial-gradient(ellipse at 95% 0,rgba(152,111,212,.15),transparent 54%),linear-gradient(180deg,#18303f,#102330)
+}
+#leagueScreenBody .deen-path-meaning-section>.deen-path-shape-subtitle{margin:0 0 8px;color:#edddff;font-size:18px}
+#leagueScreenBody .deen-path-meaning-section>.deen-path-muted{margin:0 0 12px}
+#leagueScreenBody .deen-path-meaning-item{margin:0 0 10px;border-color:rgba(194,168,242,.44)!important}
+#leagueScreenBody .deen-path-meaning-item.is-locked{opacity:.55}
+#leagueScreenBody .deen-path-meaning-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;white-space:normal;word-break:normal;
+ font:650 clamp(26px,7vw,37px)/1.8 "Geeza Pro","Noto Naskh Arabic",serif;color:#f5e9ce
+}
+#leagueScreenBody .deen-path-meaning-hint{
+ text-align:center;border-radius:15px;background:#173643;border:1px solid rgba(194,168,242,.35);
+ margin:13px 0 17px;padding:15px 12px;color:#f6ebff;font-size:17px;line-height:1.55;font-weight:760
+}
+#leagueScreenBody .deen-path-meaning-built{
+ direction:rtl;unicode-bidi:isolate;overflow-wrap:normal;word-break:normal;
+ text-align:center;border-radius:16px;background:#0b2b37;border:1px solid rgba(158,230,205,.35);
+ padding:14px 9px;margin:10px 0 17px;min-height:84px;
+ color:#fff0d2;font:650 clamp(27px,8vw,40px)/1.8 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody .deen-path-meaning-pieces{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:8px 0 15px
+}
+#leagueScreenBody button.deen-path-meaning-piece{
+ min-width:0;min-height:68px;border-radius:14px;border:1px solid rgba(198,170,240,.56);
+ background:#193644;color:#fff1d9;-webkit-text-fill-color:#fff1d9;
+ font:650 clamp(27px,8vw,36px)/1.5 "Geeza Pro","Noto Naskh Arabic",serif;cursor:pointer
+}
+#leagueScreenBody button.deen-path-meaning-piece:disabled{opacity:.32;cursor:default}
+#leagueScreenBody button.deen-path-meaning-piece:focus-visible{outline:3px solid #d8b4fe;outline-offset:2px}
+@media(max-width:345px){#leagueScreenBody .deen-path-meaning-pieces{gap:6px}#leagueScreenBody button.deen-path-meaning-piece{font-size:26px}}
+
+/* Keep long Uthmani words inside their individual touch targets on mobile. */
+#leagueScreenBody .deen-path-meaning-pieces{align-items:stretch}
+#leagueScreenBody button.deen-path-meaning-piece{
+ max-width:100%;width:100%;box-sizing:border-box;overflow:hidden;
+ padding:9px 4px;white-space:nowrap;text-overflow:clip;
+ font-size:clamp(21px,5.8vw,29px);line-height:1.55
+}
+#leagueScreenBody .deen-path-meaning-built{
+ max-width:100%;overflow-wrap:anywhere;white-space:normal
+}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-meaning-pieces{grid-template-columns:minmax(0,1fr)}
+ #leagueScreenBody button.deen-path-meaning-piece{font-size:29px}
+}
+
+/* Phase 8 — Quran contextual phrases and independent spaced review */
+#leagueScreenBody .deen-path-phrase-section,
+#leagueScreenBody .deen-path-spaced-section{
+ margin:18px 0 14px;padding:17px 13px 10px;
+ border-radius:18px;border:1px solid rgba(114,225,199,.42);
+ background:radial-gradient(ellipse at 100% 0,rgba(49,239,207,.13),transparent 55%),linear-gradient(180deg,#123541,#102530);
+}
+#leagueScreenBody .deen-path-spaced-section{
+ border-color:rgba(235,201,138,.4);
+ background:radial-gradient(ellipse at 100% 0,rgba(229,198,132,.12),transparent 58%),linear-gradient(180deg,#17313e,#0e2630)
+}
+#leagueScreenBody .deen-path-phrase-section>.deen-path-shape-subtitle,
+#leagueScreenBody .deen-path-spaced-section>.deen-path-shape-subtitle{
+ font-size:18px;color:#e6fdf1;margin:0 0 7px
+}
+#leagueScreenBody .deen-path-phrase-section>.deen-path-muted,
+#leagueScreenBody .deen-path-spaced-section>.deen-path-muted{margin:0 0 13px}
+#leagueScreenBody .deen-path-phrase-item{margin:0 0 10px}
+#leagueScreenBody .deen-path-phrase-item.is-locked{opacity:.58}
+#leagueScreenBody .deen-path-phrase-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;overflow:hidden;text-overflow:ellipsis;
+ font:650 clamp(23px,6.5vw,33px)/1.6 "Geeza Pro","Noto Naskh Arabic",serif;color:#f6eac9
+}
+#leagueScreenBody .deen-path-phrase-hint{
+ text-align:center;border-radius:16px;padding:17px 12px;margin:12px 0 16px;
+ border:1px solid rgba(113,216,189,.4);background:#103a42;
+ font-size:17px;line-height:1.6;font-weight:750;color:#ecfff7;
+ max-width:100%;overflow-wrap:anywhere
+}
+#leagueScreenBody .deen-path-phrase-arabic{
+ direction:rtl;unicode-bidi:isolate;
+ font:650 clamp(30px,8vw,39px)/1.75 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody button.deen-path-phrase-option:not([lang="ar"]){
+ min-height:72px;text-align:center;white-space:normal;overflow-wrap:anywhere;
+ font-size:14px;line-height:1.5;padding:12px 9px
+}
+#leagueScreenBody .deen-path-phrase-note{
+ border-left:3px solid #31efcf;padding-left:10px;line-height:1.6
+}
+#leagueScreenBody .deen-path-spaced-section .deen-path-primary{margin:12px 0 14px}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-phrase-lesson .deen-path-meaning-pieces{grid-template-columns:minmax(0,1fr)}
+}
+
+/* Phase 9 — expanded Quran grammar path and weak-card review */
+#leagueScreenBody .deen-path-pattern-section{
+ margin:18px 0 14px;padding:17px 13px 10px;border-radius:18px;
+ border:1px solid rgba(173,185,246,.49);
+ background:radial-gradient(ellipse at 95% 0,rgba(132,153,242,.16),transparent 58%),linear-gradient(180deg,#173340,#102731)
+}
+#leagueScreenBody .deen-path-pattern-section>.deen-path-shape-subtitle{font-size:18px;color:#dcdfff;margin:0 0 7px}
+#leagueScreenBody .deen-path-pattern-section>.deen-path-muted{margin:0 0 13px}
+#leagueScreenBody .deen-path-pattern-item{margin:0 0 10px;border-color:rgba(173,185,246,.38)!important}
+#leagueScreenBody .deen-path-pattern-item.is-locked{opacity:.54}
+#leagueScreenBody .deen-path-pattern-item .deen-path-course-glyphs{
+ direction:rtl;unicode-bidi:isolate;max-width:100%;overflow:hidden;
+ text-overflow:ellipsis;font:650 clamp(24px,6vw,34px)/1.7 "Geeza Pro","Noto Naskh Arabic",serif;color:#f1e8d2
+}
+#leagueScreenBody .deen-path-pattern-lesson .deen-path-phrase-hint{
+ max-width:100%;overflow-wrap:anywhere;line-height:1.75
+}
+#leagueScreenBody .deen-path-pattern-lesson .deen-path-option{
+ white-space:normal;text-align:center;min-height:73px;overflow-wrap:anywhere
+}
+#leagueScreenBody .deen-path-weak-heading{font-size:15px;margin:16px 0 6px;color:#f8deb0}
+#leagueScreenBody .deen-path-spaced-section .deen-path-secondary{
+ width:100%;border-radius:15px;min-height:50px;padding:11px 9px;
+ background:#173e42;color:#f3f9fa;border:1px solid rgba(236,204,147,.55);
+ font-weight:750;cursor:pointer
+}
+#leagueScreenBody .deen-path-spaced-section .deen-path-secondary:focus-visible{outline:3px solid #31efcf;outline-offset:2px}
+
+/* Phase 10: accessible, read-only Arabic mastery dashboard */
+#leagueScreenBody .deen-path-mastery-teaser{
+ display:flex;flex-direction:column;gap:7px;text-align:left;width:100%;box-sizing:border-box;
+ border:1px solid rgba(49,239,207,.56);border-radius:17px;padding:15px 16px;
+ margin:17px 0;background:linear-gradient(130deg,#154b4e,#132e3f);
+ color:#f3fffb;cursor:pointer;min-height:73px
+}
+#leagueScreenBody .deen-path-mastery-teaser-name{font-weight:800;font-size:17px;color:#60f5d5}
+#leagueScreenBody .deen-path-mastery-teaser-sub{font-size:12px;line-height:1.55;color:#d5eae6}
+#leagueScreenBody .deen-path-mastery-teaser:focus-visible,
+#leagueScreenBody .deen-path-mastery-filter:focus-visible{outline:3px solid #31efcf;outline-offset:3px}
+#leagueScreenBody .deen-path-mastery-screen{max-width:670px;margin:0 auto;padding-bottom:24px}
+#leagueScreenBody .deen-path-mastery-screen>.deen-path-muted{line-height:1.6}
+#leagueScreenBody .deen-path-mastery-metrics{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0
+}
+#leagueScreenBody .deen-path-mastery-metric{
+ min-width:0;display:flex;flex-direction:column;gap:5px;border-radius:15px;
+ padding:17px 11px;background:#153642;border:1px solid rgba(133,207,195,.35)
+}
+#leagueScreenBody .deen-path-mastery-number{font-size:clamp(23px,6vw,32px);font-weight:850;color:#39e6c8;font-variant-numeric:tabular-nums}
+#leagueScreenBody .deen-path-mastery-label{font-size:12px;line-height:1.5;color:#dcebe9}
+#leagueScreenBody .deen-path-mastery-levels,
+#leagueScreenBody .deen-path-mastery-topics,
+#leagueScreenBody .deen-path-mastery-catalogue{
+ margin:16px 0;border-radius:16px;border:1px solid rgba(134,186,195,.31);padding:15px 12px;background:#102d39
+}
+#leagueScreenBody .deen-path-mastery-screen .deen-path-shape-subtitle{font-size:17px;color:#f3f6ed;margin:0 0 14px}
+#leagueScreenBody .deen-path-mastery-level-row{display:grid;grid-template-columns:1fr auto;gap:5px 12px;margin:14px 0}
+#leagueScreenBody .deen-path-mastery-level-label{font-size:13px;color:#dbe5e8}
+#leagueScreenBody .deen-path-mastery-level-count{font-size:14px;color:#66eed9;font-weight:750;font-variant-numeric:tabular-nums}
+#leagueScreenBody .deen-path-mastery-level-row>.deen-path-course-progress{grid-column:1/-1}
+#leagueScreenBody .deen-path-mastery-limit{font-size:12px;line-height:1.7;margin:11px 1px;color:#c8d3da}
+#leagueScreenBody .deen-path-mastery-actions{display:grid;gap:10px;margin:18px 0}
+#leagueScreenBody .deen-path-mastery-actions>button{
+ display:block;width:100%;min-height:50px;box-sizing:border-box;border-radius:14px;padding:9px 12px;
+ font-size:14px;font-weight:760;white-space:normal
+}
+#leagueScreenBody .deen-path-mastery-actions>.deen-path-secondary{
+ background:#24424b;border:1px solid rgba(121,219,199,.48);color:#f5fff9
+}
+#leagueScreenBody .deen-path-mastery-topic{margin:12px 0;padding:10px 0;border-bottom:1px solid rgba(146,204,195,.18)}
+#leagueScreenBody .deen-path-mastery-topic-name{font-weight:720;font-size:13px;color:#edf6f0}
+#leagueScreenBody .deen-path-mastery-topic-count{float:right;font-variant-numeric:tabular-nums;font-size:13px;color:#83eada}
+#leagueScreenBody .deen-path-mastery-topic .deen-path-course-progress{clear:both;margin:8px 0}
+#leagueScreenBody .deen-path-mastery-topic>small{display:block;line-height:1.6}
+#leagueScreenBody .deen-path-mastery-filters{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+#leagueScreenBody .deen-path-mastery-filter{
+ background:#24404c;color:#e3eded;border:1px solid rgba(139,182,191,.4);
+ border-radius:999px;padding:8px 11px;min-height:36px;cursor:pointer;font-size:12px
+}
+#leagueScreenBody .deen-path-mastery-filter.is-active{
+ background:#31efcf;color:#092d32;border-color:#31efcf;font-weight:780
+}
+#leagueScreenBody .deen-path-mastery-card{
+ display:grid;grid-template-columns:minmax(80px,34%) 1fr;align-items:start;gap:10px;
+ padding:12px 0;border-bottom:1px solid rgba(121,192,197,.2)
+}
+#leagueScreenBody .deen-path-mastery-word{
+ font:650 clamp(24px,6vw,33px)/1.65 "Geeza Pro","Noto Naskh Arabic",serif;
+ color:#ffeac5;text-align:center;overflow-wrap:anywhere;unicode-bidi:isolate
+}
+#leagueScreenBody .deen-path-mastery-word-copy{min-width:0;display:flex;flex-direction:column;gap:4px}
+#leagueScreenBody .deen-path-mastery-word-copy>strong{font-size:13px;color:#f1fbf8;overflow-wrap:anywhere}
+#leagueScreenBody .deen-path-mastery-word-copy>small{font-size:11px;line-height:1.5}
+#leagueScreenBody .deen-path-mastery-due{color:#ffe19d}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-mastery-metrics{gap:7px}
+ #leagueScreenBody .deen-path-mastery-metric{padding:12px 9px}
+ #leagueScreenBody .deen-path-mastery-card{grid-template-columns:minmax(66px,32%) 1fr;gap:7px}
+ #leagueScreenBody .deen-path-mastery-word{font-size:23px}
+}
+
+/* Phase 11 — daily Arabic learning plan */
+#leagueScreenBody .deen-path-daily-teaser{
+ display:flex;flex-direction:column;gap:7px;width:100%;text-align:start;box-sizing:border-box;
+ margin:12px 0 18px;padding:16px;border:1px solid rgba(235,198,119,.63);
+ border-radius:17px;background:linear-gradient(135deg,#244340,#173043);
+ color:#fbfcf8;cursor:pointer
+}
+#leagueScreenBody .deen-path-daily-teaser-name{font-size:17px;font-weight:780;color:#ffdf97}
+#leagueScreenBody .deen-path-daily-teaser-sub{font-size:12px;line-height:1.55;color:#e3efed}
+#leagueScreenBody .deen-path-daily-screen{max-width:670px;margin:0 auto;padding-bottom:32px}
+#leagueScreenBody .deen-path-daily-screen>.deen-path-muted{line-height:1.65}
+#leagueScreenBody .deen-path-daily-setting,
+#leagueScreenBody .deen-path-daily-progress,
+#leagueScreenBody .deen-path-daily-tasks{
+ margin:15px 0;padding:17px 14px;border-radius:17px;
+ border:1px solid rgba(132,214,201,.33);background:#15313e
+}
+#leagueScreenBody .deen-path-daily-screen .deen-path-shape-subtitle{
+ margin:0 0 13px;font-size:17px;color:#eff8f5
+}
+#leagueScreenBody .deen-path-daily-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#leagueScreenBody .deen-path-daily-choice{
+ min-width:0;min-height:46px;border-radius:12px;
+ border:1px solid rgba(172,219,206,.38);background:#203f4d;color:#eafbf6;
+ cursor:pointer;font-size:14px;font-weight:750;padding:7px 5px
+}
+#leagueScreenBody .deen-path-daily-choice.is-selected{
+ background:#31efcf;color:#0c2f35;border-color:#31efcf
+}
+#leagueScreenBody .deen-path-daily-choice:focus-visible,
+#leagueScreenBody .deen-path-daily-teaser:focus-visible{outline:3px solid #ffe3a9;outline-offset:3px}
+#leagueScreenBody .deen-path-daily-setting>.deen-path-muted{margin:12px 0 0;font-size:12px;line-height:1.6}
+#leagueScreenBody .deen-path-daily-score{
+ font-size:34px;font-weight:850;color:#4af3d3;margin:6px 0 15px;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-daily-breakdown{display:flex;flex-wrap:wrap;gap:10px 18px;margin:11px 0 0;font-size:13px;color:#dbe9e6}
+#leagueScreenBody .deen-path-daily-tasks>button{
+ display:block;box-sizing:border-box;width:100%;min-height:52px;
+ margin:10px 0;padding:11px 10px;border-radius:13px;
+ font-size:14px;font-weight:740;white-space:normal;text-align:center
+}
+#leagueScreenBody .deen-path-daily-tasks>.deen-path-secondary{
+ background:#25434b;border:1px solid #b3d3ca;color:#f7fffd
+}
+#leagueScreenBody .deen-path-daily-check{font-size:14px;color:#65eacc;font-weight:730;line-height:1.5}
+#leagueScreenBody .deen-path-daily-done{font-size:15px;color:#ffe3a1;font-weight:810;line-height:1.6}
+#leagueScreenBody .deen-path-daily-note{font-size:12px;line-height:1.65;color:#c6d7d5}
+@media(max-width:345px){
+ #leagueScreenBody .deen-path-daily-choices{gap:5px}
+ #leagueScreenBody .deen-path-daily-choice{font-size:12px}
+}
+
+/* Phase 12 — targeted, evidence-based written reinforcement */
+#leagueScreenBody .deen-path-adaptive-section{
+ margin:16px 0;padding:17px 13px 14px;border-radius:17px;
+ background:radial-gradient(ellipse at 90% 5%,rgba(230,195,116,.15),transparent 55%),#18363f;
+ border:1px solid rgba(241,207,141,.54)
+}
+#leagueScreenBody .deen-path-adaptive-section>.deen-path-shape-subtitle{
+ font-size:17px;color:#ffe6ae;margin:0 0 8px
+}
+#leagueScreenBody .deen-path-adaptive-section>.deen-path-muted{
+ margin:5px 0 12px;line-height:1.65
+}
+#leagueScreenBody .deen-path-adaptive-metrics{
+ display:flex;flex-wrap:wrap;gap:8px;margin:14px 0
+}
+#leagueScreenBody .deen-path-adaptive-stat{
+ display:inline-block;max-width:100%;
+ border-radius:12px;background:#284954;color:#dffaf4;
+ border:1px solid rgba(154,219,206,.24);
+ padding:7px 10px;font-size:12px;line-height:1.5
+}
+#leagueScreenBody .deen-path-adaptive-section>button{
+ width:100%;min-height:51px;border-radius:14px;
+ padding:11px 12px;margin-top:9px;white-space:normal;
+ font-size:14px;font-weight:760;cursor:pointer
+}
+#leagueScreenBody .deen-path-adaptive-next{
+ color:#092f33;background:#ffe1a2;border:1px solid #ffe1a2
+}
+#leagueScreenBody .deen-path-adaptive-next:focus-visible{outline:3px solid #31efcf;outline-offset:3px}
+#leagueScreenBody .deen-path-adaptive-note{font-size:12px!important;color:#c3d3d1;line-height:1.55}
+
+/* Phase 13: reading foundations feedback and short written reinforcement */
+#leagueScreenBody .deen-path-foundation-review-section{
+ margin:15px 0;padding:17px 13px 12px;border:1px solid rgba(94,205,224,.45);
+ border-radius:17px;background:radial-gradient(ellipse at 100% 0,rgba(64,176,209,.15),transparent 60%),#12333f
+}
+#leagueScreenBody .deen-path-foundation-review-section>.deen-path-shape-subtitle{
+ font-size:17px;color:#d5f8ff;margin:0 0 7px
+}
+#leagueScreenBody .deen-path-foundation-review-section>.deen-path-muted{
+ margin:5px 0 12px;line-height:1.6;font-size:12px
+}
+#leagueScreenBody .deen-path-foundation-review-section>.deen-path-progress-copy{font-size:12px;color:#dfefe9}
+#leagueScreenBody .deen-path-foundation-topics{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0
+}
+#leagueScreenBody .deen-path-foundation-topic{
+ min-width:0;border:1px solid rgba(125,205,212,.34);border-radius:11px;
+ background:#20424d;color:#ecf9fa;font-size:12px;line-height:1.5;padding:10px 8px
+}
+#leagueScreenBody .deen-path-foundation-review-section>.deen-path-primary{
+ display:block;width:100%;min-height:49px;border-radius:13px;padding:10px 8px;
+ white-space:normal;font-size:14px;font-weight:780
+}
+#leagueScreenBody .deen-path-foundation-review-view .deen-path-foundation-prompt{
+ min-height:75px;display:flex;justify-content:center;align-items:center;
+ padding:14px 12px;margin:16px 0;border:1px solid rgba(126,224,206,.38);
+ border-radius:15px;background:#183e4b;color:#eefaf3;text-align:center;
+ overflow-wrap:anywhere;font-weight:740;font-size:18px;line-height:1.5
+}
+#leagueScreenBody .deen-path-foundation-review-view .deen-path-option{min-height:67px}
+#leagueScreenBody .deen-path-foundation-review-view .deen-path-word-built{
+ margin:14px 0;min-height:64px;display:flex;align-items:center;justify-content:center;
+ border-radius:15px;border:1px solid rgba(107,217,193,.4);
+ background:#183f44;font-size:32px;line-height:1.7
+}
+#leagueScreenBody .deen-path-foundation-review-view .deen-path-word-pieces{margin:10px 0 15px}
+@media(max-width:350px){
+ #leagueScreenBody .deen-path-foundation-topics{gap:5px}
+ #leagueScreenBody .deen-path-foundation-topic{font-size:11px;padding:7px 6px}
+}
+
+/* Phase 14 — written Arabic checkpoint and domain-level feedback */
+#leagueScreenBody .deen-path-checkpoint-section{
+ margin:18px 0;padding:18px 15px;border-radius:17px;
+ background:linear-gradient(155deg,#183b43,#112d3c);
+ border:1px solid rgba(241,216,161,.64)
+}
+#leagueScreenBody .deen-path-checkpoint-section>.deen-path-shape-subtitle{
+ color:#ffe7ae;font-size:18px;margin:0 0 7px
+}
+#leagueScreenBody .deen-path-checkpoint-section>.deen-path-muted{
+ font-size:13px;line-height:1.55;margin:6px 0 12px
+}
+#leagueScreenBody .deen-path-checkpoint-section>button{
+ width:100%;box-sizing:border-box;min-height:48px;margin:10px 0 0;
+ border-radius:13px;font-size:14px;padding:10px 12px;font-weight:760
+}
+#leagueScreenBody .deen-path-checkpoint-section .deen-path-secondary,
+#leagueScreenBody .deen-path-checkpoint-topic .deen-path-secondary{
+ border:1px solid rgba(181,212,212,.55);background:#24434c;color:#f4fffd
+}
+#leagueScreenBody .deen-path-checkpoint-section button:disabled{opacity:.5;cursor:not-allowed}
+#leagueScreenBody .deen-path-checkpoint-last{
+ font-size:14px;color:#66e8cc;font-weight:740;line-height:1.5
+}
+#leagueScreenBody .deen-path-checkpoint-landing,
+#leagueScreenBody .deen-path-checkpoint-results,
+#leagueScreenBody .deen-path-checkpoint-question{max-width:670px;margin:0 auto;padding-bottom:26px}
+#leagueScreenBody .deen-path-checkpoint-hint{
+ min-height:72px;border:1px solid rgba(126,204,202,.36);border-radius:14px;
+ display:flex;justify-content:center;align-items:center;
+ padding:16px 13px;margin:17px 0;background:#173c48;color:#f7f5e9;
+ text-align:center;font-weight:750;font-size:18px;line-height:1.6;overflow-wrap:anywhere
+}
+#leagueScreenBody .deen-path-checkpoint-question .deen-path-options{margin:16px 0}
+#leagueScreenBody .deen-path-checkpoint-question .deen-path-option{
+ font-size:clamp(24px,6vw,32px);line-height:1.6;min-height:64px
+}
+#leagueScreenBody .deen-path-checkpoint-question .deen-path-word-built{
+ min-height:68px;padding:10px 8px;margin:12px 0;border:1px solid #39867c;
+ border-radius:13px;background:#173d45;font-size:29px;line-height:1.65;text-align:center
+}
+#leagueScreenBody .deen-path-checkpoint-score{
+ font-variant-numeric:tabular-nums;font-weight:850;font-size:clamp(30px,9vw,44px);
+ color:#55ebca;margin:7px 0 23px
+}
+#leagueScreenBody .deen-path-checkpoint-topics{
+ padding:15px 13px;margin:15px 0 20px;border:1px solid rgba(154,202,196,.35);
+ border-radius:15px;background:#14323d
+}
+#leagueScreenBody .deen-path-checkpoint-topic{
+ display:grid;grid-template-columns:1fr auto;gap:9px 14px;
+ padding:12px 0;border-bottom:1px solid rgba(140,196,193,.22);align-items:center
+}
+#leagueScreenBody .deen-path-checkpoint-topic>strong{font-size:13px;color:#ecf6ee;line-height:1.5}
+#leagueScreenBody .deen-path-checkpoint-value{color:#64ebd0;font-weight:770;font-variant-numeric:tabular-nums}
+#leagueScreenBody .deen-path-checkpoint-topic>.deen-path-course-progress{grid-column:1/-1}
+#leagueScreenBody .deen-path-checkpoint-topic>button{grid-column:1/-1;min-height:44px;border-radius:12px;padding:7px 10px}
+#leagueScreenBody .deen-path-checkpoint-results>.deen-path-primary{width:100%;min-height:50px;border-radius:13px}
+#leagueScreenBody .deen-path-checkpoint-note{font-size:12px;line-height:1.75}
+
+/* Phase 15: resumeable missed-question plan and written checkpoint trend */
+#leagueScreenBody .deen-path-remedy-section{
+ margin:15px 0 18px;padding:17px 14px;
+ border:1px solid rgba(232,184,123,.58);border-radius:17px;
+ background:radial-gradient(ellipse at 95% 0,rgba(223,174,95,.13),transparent 60%),#1b3440
+}
+#leagueScreenBody .deen-path-remedy-section>.deen-path-shape-subtitle{
+ color:#ffe4b2;font-size:17px;margin:0 0 8px
+}
+#leagueScreenBody .deen-path-remedy-section>.deen-path-muted{
+ margin:9px 0 12px;line-height:1.65;font-size:12px
+}
+#leagueScreenBody .deen-path-remedy-count{
+ color:#4df1d4;font-size:15px;font-weight:820;margin:15px 0 8px;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-remedy-topic{
+ display:flex;align-items:center;justify-content:space-between;gap:12px;
+ border-bottom:1px solid rgba(185,213,211,.16);padding:11px 0
+}
+#leagueScreenBody .deen-path-remedy-topic>strong{font-size:13px;color:#f7e6c4}
+#leagueScreenBody .deen-path-remedy-topic>span{font-size:13px;color:#65ecca;font-variant-numeric:tabular-nums}
+#leagueScreenBody .deen-path-remedy-section>button{
+ width:100%;box-sizing:border-box;min-height:49px;margin:13px 0 2px;
+ padding:10px 12px;border-radius:14px;font-size:14px;font-weight:760;white-space:normal
+}
+#leagueScreenBody .deen-path-remedy-section>.deen-path-secondary{
+ background:#24464c;color:#f6f5ea;border:1px solid rgba(245,205,150,.52)
+}
+#leagueScreenBody .deen-path-remedy-finished{color:#63edc6;font-size:14px;font-weight:740}
+#leagueScreenBody .deen-path-remedy-landing,
+#leagueScreenBody .deen-path-remedy-question,
+#leagueScreenBody .deen-path-remedy-finished-screen{max-width:670px;margin:0 auto;padding-bottom:28px}
+#leagueScreenBody .deen-path-remedy-question .deen-path-checkpoint-hint{margin:13px 0 18px}
+#leagueScreenBody .deen-path-remedy-question .deen-path-options{margin-bottom:16px}
+#leagueScreenBody .deen-path-remedy-question .deen-path-option{min-height:64px;font-size:clamp(24px,6vw,33px)}
+#leagueScreenBody .deen-path-remedy-question .deen-path-word-built{
+ min-height:65px;padding:12px 8px;border:1px solid #4fb9a5;
+ border-radius:13px;background:#18434a;font-size:30px;text-align:center
+}
+#leagueScreenBody .deen-path-remedy-reset{min-height:44px}
+#leagueScreenBody .deen-path-remedy-trend{
+ border:1px solid rgba(136,206,186,.34);background:#14343c;
+ border-radius:16px;padding:16px 13px;margin:16px 0
+}
+#leagueScreenBody .deen-path-remedy-trend .deen-path-shape-subtitle{font-size:16px}
+#leagueScreenBody .deen-path-remedy-delta{
+ font-size:14px;color:#f3f0e1;font-weight:780;line-height:1.6;
+ overflow-wrap:anywhere;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-remedy-delta.is-up{color:#60eec7}
+#leagueScreenBody .deen-path-remedy-delta.is-down{color:#ffd099}
+#leagueScreenBody .deen-path-remedy-trend-topic{
+ display:flex;justify-content:space-between;gap:8px;
+ border-bottom:1px solid rgba(158,198,193,.2);padding:9px 0;
+ font-size:12px;line-height:1.5;color:#e3e9e6
+}
+#leagueScreenBody .deen-path-remedy-trend-topic>span:last-child{
+ white-space:nowrap;font-variant-numeric:tabular-nums;color:#66e9d2
+}
+
+/* Phase 16 — seven-day Arabic written-learning activity. No fabricated study minutes. */
+#leagueScreenBody .deen-path-weekly-link{
+ display:block;box-sizing:border-box;width:100%;text-align:start;
+ min-height:52px;margin:12px 0 17px;padding:14px 16px;
+ border:1px solid rgba(126,223,208,.54);border-radius:15px;
+ background:linear-gradient(135deg,#214b48,#193e4a);
+ color:#d0fff0;font-size:15px;font-weight:780;line-height:1.5;cursor:pointer
+}
+#leagueScreenBody .deen-path-weekly-link:focus-visible{outline:3px solid #ffe4ad;outline-offset:3px}
+#leagueScreenBody .deen-path-weekly-screen{max-width:670px;margin:0 auto;padding-bottom:35px}
+#leagueScreenBody .deen-path-weekly-screen>.deen-path-muted{line-height:1.65}
+#leagueScreenBody .deen-path-weekly-metrics{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:11px;margin:18px 0
+}
+#leagueScreenBody .deen-path-weekly-stat{
+ min-width:0;min-height:94px;box-sizing:border-box;
+ display:flex;flex-direction:column;justify-content:center;gap:7px;
+ padding:13px;border:1px solid rgba(126,210,200,.35);
+ border-radius:15px;background:linear-gradient(150deg,#214650,#173641)
+}
+#leagueScreenBody .deen-path-weekly-stat>strong{
+ font-variant-numeric:tabular-nums;color:#5ff1d4;font-size:clamp(26px,7vw,34px);font-weight:860
+}
+#leagueScreenBody .deen-path-weekly-stat>span{
+ color:#e3efeb;font-size:12px;line-height:1.5
+}
+#leagueScreenBody .deen-path-weekly-history,
+#leagueScreenBody .deen-path-weekly-exams{
+ padding:17px 12px;margin:17px 0;border:1px solid rgba(124,206,193,.37);
+ border-radius:16px;background:#143540
+}
+#leagueScreenBody .deen-path-weekly-history>.deen-path-shape-subtitle,
+#leagueScreenBody .deen-path-weekly-exams>.deen-path-shape-subtitle{
+ font-size:17px;margin:0 0 13px;color:#f2f7ea
+}
+#leagueScreenBody .deen-path-weekly-days{
+ display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;
+ align-items:end;min-height:176px;padding:4px 0
+}
+#leagueScreenBody .deen-path-weekly-day{
+ min-width:0;display:flex;align-items:center;flex-direction:column;gap:5px;
+ color:#d9ede9
+}
+#leagueScreenBody .deen-path-weekly-count{
+ font-variant-numeric:tabular-nums;font-size:12px;color:#e9f9f3
+}
+#leagueScreenBody .deen-path-weekly-bar{
+ width:100%;max-width:42px;height:104px;box-sizing:border-box;
+ display:flex;align-items:flex-end;justify-content:center;
+ padding:0 3px;border-radius:9px;background:#20444d;overflow:hidden
+}
+#leagueScreenBody .deen-path-weekly-bar-fill{
+ display:block;width:100%;min-height:0;border-radius:6px 6px 0 0;
+ background:linear-gradient(180deg,#72f9df,#32bcac)
+}
+#leagueScreenBody .deen-path-weekly-day.is-today .deen-path-weekly-bar{outline:1px solid #f1d9a1;outline-offset:2px}
+#leagueScreenBody .deen-path-weekly-daylabel{font-size:10px;color:#ecf5ec;white-space:nowrap}
+#leagueScreenBody .deen-path-weekly-daydate{font-size:10px;color:#a4c9bf}
+#leagueScreenBody .deen-path-weekly-history>.deen-path-muted{
+ margin:15px 2px 2px;font-size:12px;line-height:1.6
+}
+#leagueScreenBody .deen-path-weekly-examrow{
+ display:flex;align-items:center;justify-content:space-between;
+ padding:11px 0;border-bottom:1px solid rgba(161,205,193,.24);
+ color:#e9f2ed;font-size:14px;gap:12px
+}
+#leagueScreenBody .deen-path-weekly-examrow>strong{
+ font-variant-numeric:tabular-nums;color:#53f1ce;font-size:17px
+}
+#leagueScreenBody .deen-path-weekly-delta{
+ margin:14px 0 0;font-size:15px;font-weight:780;color:#e8efe9;
+ font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-weekly-delta.is-up{color:#6cf4cf}
+#leagueScreenBody .deen-path-weekly-delta.is-down{color:#ffcf96}
+#leagueScreenBody .deen-path-weekly-note{font-size:12px;line-height:1.65}
+@media(max-width:355px){
+ #leagueScreenBody .deen-path-weekly-days{gap:4px}
+ #leagueScreenBody .deen-path-weekly-daylabel{font-size:9px}
+ #leagueScreenBody .deen-path-weekly-bar{padding:0 2px}
+}
+
+/* Phase 17 — flexible weekly objectives and local non-currency consistency badges */
+#leagueScreenBody .deen-path-week-goals{
+ margin:19px 0;padding:17px 14px;border:1px solid rgba(111,215,191,.43);
+ border-radius:17px;background:linear-gradient(150deg,#173e43,#142f3d)
+}
+#leagueScreenBody .deen-path-week-goals>.deen-path-shape-subtitle{
+ font-size:17px;margin:2px 0 9px;color:#e8f9f0
+}
+#leagueScreenBody .deen-path-week-goals>.deen-path-muted{font-size:12px;line-height:1.65}
+#leagueScreenBody .deen-path-goal-basis{
+ margin:10px 0;color:#f8deaa;font-size:12px;font-weight:740;line-height:1.55
+}
+#leagueScreenBody .deen-path-goal-period{
+ margin:7px 0 13px;color:#cce6e3;font-size:12px;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-goal-list{display:flex;flex-direction:column;gap:12px;margin:15px 0 18px}
+#leagueScreenBody .deen-path-goal-item{
+ padding:12px 11px;border:1px solid rgba(125,211,188,.28);
+ border-radius:12px;background:#20414b
+}
+#leagueScreenBody .deen-path-goal-item-head{
+ display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px
+}
+#leagueScreenBody .deen-path-goal-item-head>strong{font-size:13px;color:#e9f8f0}
+#leagueScreenBody .deen-path-goal-item-head>span{
+ font-size:14px;color:#5bedd0;font-weight:830;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-goal-complete{font-size:14px;color:#6df0ce;font-weight:740;line-height:1.5}
+#leagueScreenBody .deen-path-goal-rewards{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0 20px
+}
+#leagueScreenBody .deen-path-goal-reward{
+ display:flex;min-width:0;min-height:114px;box-sizing:border-box;
+ align-items:center;justify-content:center;text-align:center;
+ flex-direction:column;gap:8px;padding:11px 7px;
+ border:1px solid rgba(169,190,195,.26);border-radius:14px;
+ background:#203b48;color:#b9c9cb;opacity:.78
+}
+#leagueScreenBody .deen-path-goal-reward.is-earned{
+ color:#ffecb7;border-color:#e8c987;opacity:1;
+ background:linear-gradient(160deg,#395249,#334039)
+}
+#leagueScreenBody .deen-path-goal-reward-symbol{font-size:24px;line-height:1}
+#leagueScreenBody .deen-path-goal-reward>strong{font-size:12px;line-height:1.35;overflow-wrap:anywhere}
+#leagueScreenBody .deen-path-goal-reward-progress{
+ font-size:10px;line-height:1.5;color:#dcf4e9;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-goal-archive{
+ margin-top:12px;padding-top:13px;border-top:1px solid rgba(156,203,198,.28)
+}
+#leagueScreenBody .deen-path-goal-archive>.deen-path-shape-subtitle{
+ font-size:14px;color:#dbefe8;margin:0 0 8px
+}
+#leagueScreenBody .deen-path-goal-archive-line{
+ font-size:12px;color:#ecf1e3;line-height:1.6;
+ margin:8px 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums
+}
+#leagueScreenBody .deen-path-goal-note{margin-top:10px;font-size:12px!important}
+@media(max-width:365px){
+ #leagueScreenBody .deen-path-goal-rewards{gap:5px}
+ #leagueScreenBody .deen-path-goal-reward{padding:9px 4px;min-height:110px}
+ #leagueScreenBody .deen-path-goal-reward>strong{font-size:11px}
+}
+
+/* Arabic letter-name audio controls, gated until asset and independent reviews are complete. */
+#leagueScreenBody .deen-path-letter-audio{
+ width:100%;min-height:38px;padding:6px 8px;border:1px solid rgba(99,226,193,.48);
+ border-radius:10px;background:rgba(38,139,123,.21);color:#cefff0;
+ font-family:inherit;font-size:11px;font-weight:750;line-height:1.3;cursor:pointer;text-align:center;touch-action:manipulation
+}
+#leagueScreenBody .deen-path-letter-audio:focus-visible{outline:2px solid #a8ffe0;outline-offset:2px}
+#leagueScreenBody .deen-path-letter-audio:disabled{
+ opacity:.62;cursor:not-allowed;border-color:rgba(170,197,191,.25);background:rgba(62,83,82,.17);
+ font-size:10px
+}
+
+/* Phase 18 — tap the Arabic glyph/card to hear reviewed-after-preview audio. */
+#leagueScreenBody .deen-path-letter-card-audio{
+ appearance:none;-webkit-appearance:none;width:100%;font-family:inherit;
+ text-align:center;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent
+}
+#leagueScreenBody .deen-path-letter-card-audio:active{transform:scale(.985)}
+#leagueScreenBody .deen-path-letter-card-audio:focus-visible,
+#leagueScreenBody .deen-path-letter-lesson-listen:focus-visible{outline:2px solid #a8ffe0;outline-offset:3px}
+#leagueScreenBody .deen-path-letter-audio-label{
+ display:block;font-size:10px;font-weight:750;line-height:1.25;
+ border-radius:8px;padding:7px 5px;color:#b8ffdc;background:rgba(46,127,107,.26)
+}
+#leagueScreenBody .deen-path-letter-lesson-listen{
+ appearance:none;display:block;margin:0 auto 14px;
+ min-height:42px;padding:9px 15px;border:1px solid #62d5b6;border-radius:12px;
+ background:rgba(35,114,108,.28);color:#b8ffdc;font-weight:800;font-family:inherit;cursor:pointer
+}
+
+/* An audio indicator appears only on selectable Arabic-letter answers
+   that have a real, owner-confirmed pronunciation MP3. */
+#leagueScreenBody .deen-path-option.deen-path-option-audio{
+ position:relative;
+}
+#leagueScreenBody .deen-path-option.deen-path-option-audio::after{
+ content:"🔊";
+ position:absolute;inset-inline-end:9px;bottom:8px;
+ font:500 16px/1 system-ui,sans-serif;
+ -webkit-text-fill-color:#a4f5d7;
+ pointer-events:none;
+}
+
+/* Phase 20: recorded letters can be heard without completing locked lessons.
+   Unrecorded recognition answers remain silent and explicitly explained. */
+#leagueScreenBody .deen-path-audio-info{
+ margin:10px 0 10px;font:600 12px/1.55 system-ui,sans-serif;
+ color:#d8f5e9;background:rgba(37,108,100,.20);
+ border-inline-start:3px solid #67ddbb;border-radius:8px;padding:9px 11px;
+}
+#leagueScreenBody .deen-path-audio-preview-toggle{
+ width:100%;min-height:44px;padding:10px 12px;border-radius:12px;
+ border:1px solid rgba(115,229,191,.65);background:rgba(28,122,112,.26);
+ color:#c5ffe4;font:750 13px/1.3 system-ui,sans-serif;
+ cursor:pointer;touch-action:manipulation;margin:0 0 10px;
+}
+#leagueScreenBody .deen-path-audio-preview-toggle:focus-visible,
+#leagueScreenBody .deen-path-audio-preview-choice:focus-visible{
+ outline:2px solid #a8ffe0;outline-offset:3px;
+}
+#leagueScreenBody .deen-path-audio-preview{
+ margin:0 0 14px;padding:11px;border:1px solid rgba(132,205,183,.28);
+ border-radius:14px;background:rgba(17,68,67,.4);
+}
+#leagueScreenBody .deen-path-audio-preview-title{
+ font:750 14px/1.45 system-ui,sans-serif;color:#effff5;margin:0 0 4px;
+}
+#leagueScreenBody .deen-path-audio-preview-copy{
+ font:500 11px/1.4 system-ui,sans-serif;color:#c5e7e4;margin:0 0 9px;
+}
+#leagueScreenBody .deen-path-audio-preview-grid{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;
+}
+#leagueScreenBody .deen-path-audio-preview-choice{
+ min-width:0;min-height:66px;border:1px solid rgba(132,205,183,.45);
+ border-radius:11px;background:rgba(18,66,65,.65);color:#ffe4b1;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:2px;cursor:pointer;touch-action:manipulation;
+ font-family:inherit;
+}
+#leagueScreenBody .deen-path-audio-preview-choice span{
+ font:700 27px/1.15 "Geeza Pro","Noto Naskh Arabic",serif;
+}
+#leagueScreenBody .deen-path-audio-preview-choice small{
+ color:#e0f9ef;font:650 10px/1.3 system-ui,sans-serif;
+ overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;
+}
+#leagueScreenBody .deen-path-audio-preview-choice:active{
+ transform:scale(.97);background:rgba(36,130,116,.60);
+}
+
+/* The device TTS source is visibly distinguished from the 8 supplied MP3 files. */
+#leagueScreenBody .deen-path-option.deen-path-option-tts::after{
+ content:"🔉";
+ opacity:.86;
+}
+
+/* Playback diagnostics: distinguish 8 genuine MP3 files from device TTS. */
+#leagueScreenBody .deen-path-audio-test{
+ display:block;width:100%;min-height:44px;padding:10px 12px;margin:7px 0 12px;
+ border:1px solid #70d8b8;border-radius:12px;background:rgba(40,141,119,.25);
+ color:#ddffef;font:750 13px/1.35 system-ui,sans-serif;
+ cursor:pointer;touch-action:manipulation;
+}
+#leagueScreenBody .deen-path-audio-test:focus-visible{
+ outline:2px solid #a8ffe0;outline-offset:3px;
+}
+#leagueScreenBody .deen-path-audio-status:not([hidden]){
+ display:block;margin:8px 0 12px;padding:10px 11px;
+ font:650 12px/1.5 system-ui,sans-serif;white-space:normal;
+ border:1px solid rgba(164,209,193,.4);border-radius:10px;
+ color:#e5f9e9;background:rgba(23,65,70,.54);
+}
+
+/* Selection and confirmation are distinct from pronunciation playback. */
+#leagueScreenBody .deen-path-option.deen-path-option-selected{
+ border:2px solid #62f3c7;
+ background:linear-gradient(160deg,#155b58,#0e3f43);
+ box-shadow:0 0 0 2px rgba(56,221,183,.15),0 9px 21px rgba(8,24,28,.2);
+}
+#leagueScreenBody .deen-path-check-letter:disabled{
+ opacity:.48;cursor:not-allowed;box-shadow:none;
+ filter:saturate(.65);
+}
+
+/* Four choices use an even 2x2 grid on narrow phones. */
+#leagueScreenBody .deen-path-options.deen-path-options-four{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* DEEN Arabic Learning V2 — 10-20 second lesson tips.
+   The tip replaces the quiz view on first entry, without touching lesson state. */
+#leagueScreenBody .deen-path-mini-tip{
+ display:flex;flex-direction:column;gap:11px;max-width:100%;width:100%;
+ padding:17px 15px 15px;border-radius:18px;
+ background:linear-gradient(158deg,rgba(18,68,74,.98),rgba(12,39,58,.98));
+ border:1px solid rgba(84,228,191,.45);box-shadow:0 12px 30px rgba(0,11,24,.22);
+ box-sizing:border-box;
+}
+#leagueScreenBody .deen-path-mini-tip-eyebrow{
+ color:#54ebc6;letter-spacing:.06em;text-transform:uppercase;
+ font:750 11px/1.3 system-ui,sans-serif;
+}
+#leagueScreenBody .deen-path-mini-tip-title{
+ color:#effff8;font:750 clamp(19px,5vw,24px)/1.3 system-ui,sans-serif;
+ margin:0;overflow-wrap:anywhere;
+}
+#leagueScreenBody .deen-path-mini-tip-desc{
+ color:#dcefe9;font:500 14px/1.65 system-ui,sans-serif;margin:0;
+}
+#leagueScreenBody .deen-path-mini-tip-examples{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;
+}
+#leagueScreenBody .deen-path-mini-tip-example{
+ display:flex;min-width:0;min-height:110px;padding:8px 4px;
+ flex-direction:column;align-items:center;justify-content:center;gap:5px;
+ border-radius:12px;border:1px solid rgba(128,219,199,.34);
+ background:rgba(13,38,54,.75);color:#f4fff9;
+ box-sizing:border-box;
+}
+#leagueScreenBody button.deen-path-mini-tip-example{
+ cursor:pointer;touch-action:manipulation;
+}
+#leagueScreenBody .deen-path-mini-tip-glyph{
+ color:#fff0c4;font:700 36px/1.25 "Geeza Pro","Noto Naskh Arabic",serif;
+}
+#leagueScreenBody .deen-path-mini-tip-caption{
+ color:#d2e8df;font:600 11px/1.45 system-ui,sans-serif;
+ text-align:center;overflow-wrap:anywhere;max-width:100%;
+}
+#leagueScreenBody .deen-path-mini-tip-speaker{font-size:13px;line-height:1}
+#leagueScreenBody .deen-path-mini-tip-mistake{
+ color:#dff9ee;background:rgba(63,161,141,.14);
+ border-inline-start:3px solid #50dec0;
+ padding:10px 12px;margin:0;border-radius:7px;
+ font:550 12px/1.5 system-ui,sans-serif;
+}
+#leagueScreenBody .deen-path-mini-tip-done{width:100%;min-height:48px;margin-top:5px}
+#leagueScreenBody .deen-path-mini-tip-reopen{
+ display:inline-flex;align-items:center;justify-content:center;
+ padding:8px 13px;margin-bottom:13px;min-height:40px;
+ border:1px solid rgba(95,229,191,.48);border-radius:11px;
+ background:rgba(51,147,124,.16);color:#b6f8dd;
+ font:650 12px/1.25 system-ui,sans-serif;cursor:pointer;
+}
+#leagueScreenBody .deen-path-mini-tip-reopen:focus-visible,
+#leagueScreenBody button.deen-path-mini-tip-example:focus-visible{
+ outline:2px solid #9ffff1;outline-offset:3px;
+}
+@media(max-width:345px){
+ #leagueScreenBody .deen-path-mini-tip{padding:12px 10px}
+ #leagueScreenBody .deen-path-mini-tip-glyph{font-size:31px}
+ #leagueScreenBody .deen-path-mini-tip-caption{font-size:10px}
+}
+
+/* Question bank V2 — keyboard and touch-safe controls */
+#leagueScreenBody .deen-v2-option[aria-pressed="true"]{
+ border-color:#57edc3;background:rgba(53,192,157,.24);
+ box-shadow:0 0 0 2px rgba(83,237,195,.28);
+}
+#leagueScreenBody .deen-v2-target{font:700 clamp(32px,7vw,44px)/1.4 "Geeza Pro","Noto Naskh Arabic",serif}
+#leagueScreenBody .deen-v2-distractor{
+ font-size:13px;line-height:1.6;color:#dcefe9;
+ margin:4px 0 12px;padding:10px 12px;
+ border-inline-start:3px solid #e3b963;border-radius:8px;background:rgba(210,161,82,.12);
+}
+#leagueScreenBody .deen-v2-option{min-height:52px;touch-action:manipulation}
+
+/* First-ten-minute written progress is not a checkpoint/exam section. */
+#leagueScreenBody .deen-path-first10{
+ margin:18px 0;padding:18px 15px;border-radius:17px;
+ background:linear-gradient(155deg,#183b43,#112d3c);
+ border:1px solid rgba(241,216,161,.64)
+}
+#leagueScreenBody .deen-path-first10>.deen-path-shape-subtitle{
+ color:#ffe7ae;font-size:18px;margin:0 0 7px
+}
+#leagueScreenBody .deen-path-first10>.deen-path-muted{
+ font-size:13px;line-height:1.55;margin:6px 0 12px
+}
+#leagueScreenBody .deen-path-first10-step{
+ border:1px solid rgba(255,255,255,.16);border-radius:10px;
+ background:rgba(255,255,255,.055);padding:9px 11px;margin:7px 0;
+ line-height:1.45;overflow-wrap:anywhere
+}
+
+
+/* Arabic V2 — unified DEEN question format; never inherit giant alphabet chips. */
+#leagueScreenBody .deen-path-v2-lesson .deen-v2-mode-label{
+ display:inline-flex;align-items:center;min-height:27px;margin:4px 0 12px;
+ padding:3px 10px;border-radius:99px;border:1px solid rgba(95,232,202,.45);
+ color:#aff6dd;font:700 12px/1.3 system-ui,sans-serif
+}
+#leagueScreenBody .deen-path-v2-lesson .deen-v2-abcd{
+ display:grid;grid-template-columns:minmax(0,1fr);gap:9px;margin:4px 0 16px
+}
+#leagueScreenBody .deen-path-v2-lesson button.deen-v2-option{
+ display:flex;align-items:center;gap:13px;min-width:0;width:100%;min-height:64px;
+ padding:11px 13px;text-align:start;border-radius:14px;
+ font:650 clamp(17px,4.7vw,21px)/1.35 system-ui,sans-serif;
+ overflow-wrap:normal;word-break:normal;white-space:normal;
+ -webkit-text-fill-color:#f9ebc3
+}
+#leagueScreenBody .deen-v2-letter{
+ flex:none;display:grid;place-items:center;width:37px;height:37px;border-radius:10px;
+ border:1px solid rgba(126,236,208,.35);background:rgba(49,196,159,.14);
+ color:#aaf8dd;font:800 16px/1 system-ui,sans-serif
+}
+#leagueScreenBody .deen-v2-label{display:block;min-width:0;flex:1;overflow-wrap:break-word}
+#leagueScreenBody .deen-v2-label-ar{font:700 clamp(24px,5.5vw,32px)/1.5 "Noto Naskh Arabic","Geeza Pro",serif;text-align:center}
+#leagueScreenBody .deen-v2-option[aria-pressed="true"]{
+ background:rgba(47,204,161,.25);border-color:#64f5ca;box-shadow:0 0 0 2px rgba(94,227,191,.2)
+}
+#leagueScreenBody .deen-v2-mode-hint{font-size:13px;line-height:1.6;margin:4px 0 12px}
+#leagueScreenBody .deen-v2-match-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-bottom:9px}
+#leagueScreenBody .deen-v2-match-column{min-width:0;display:grid;gap:8px}
+#leagueScreenBody button.deen-v2-match-tile{
+ min-width:0;width:100%;min-height:64px;padding:10px 5px;border-radius:12px;
+ border:1px solid rgba(132,205,183,.4);background:#10343e;color:#f9ebc3;
+ font:750 clamp(15px,4.3vw,18px)/1.35 system-ui,sans-serif;
+ overflow-wrap:break-word;cursor:pointer
+}
+#leagueScreenBody button.deen-v2-match-glyph{font:800 34px/1.35 "Geeza Pro","Noto Naskh Arabic",serif}
+#leagueScreenBody button.deen-v2-match-tile[aria-pressed="true"]{border-color:#6af6cd;background:rgba(63,201,165,.25)}
+#leagueScreenBody button.deen-v2-match-tile.is-matched{border-color:#48d6a9;color:#96dfc8;background:rgba(39,137,109,.2);opacity:.65}
+#leagueScreenBody .deen-v2-pair-progress{font:700 13px/1.5 system-ui,sans-serif;color:#a9edd8;margin:8px 0 13px}
+#leagueScreenBody .deen-v2-build-slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:8px 0 14px}
+#leagueScreenBody .deen-v2-build-slot{
+ display:grid;place-items:center;min-width:0;min-height:70px;border-radius:14px;
+ border:1px solid #428b83;background:#153f48;color:#fbe8bb;
+ font:800 clamp(29px,8vw,42px)/1.4 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody .deen-v2-build-slot.is-empty{border-style:dashed;color:#75a99e}
+#leagueScreenBody .deen-v2-build-bank{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+#leagueScreenBody button.deen-v2-build-piece{
+ min-width:0;min-height:64px;border:1px solid #417f79;border-radius:12px;
+ background:#12333e;color:#ffeab9;cursor:pointer;
+ font:800 clamp(26px,7vw,35px)/1.4 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody .deen-v2-build-reset{margin:9px 0 12px;min-height:38px}
+#leagueScreenBody .deen-v2-joined-answer{
+ margin:10px 0;border:1px solid #51d2ab;border-radius:13px;padding:13px;
+ background:rgba(47,198,158,.19);text-align:center;color:#f5e7b9;
+ font:800 38px/1.5 "Geeza Pro","Noto Naskh Arabic",serif
+}
+#leagueScreenBody button.deen-v2-match-tile:focus-visible,
+#leagueScreenBody button.deen-v2-build-piece:focus-visible,
+#leagueScreenBody button.deen-v2-option:focus-visible{outline:3px solid #aaffed;outline-offset:2px}
+#leagueScreenBody button.deen-v2-build-piece:disabled{opacity:.42}
+@media(max-width:345px){
+ #leagueScreenBody .deen-path-v2-lesson button.deen-v2-option{min-height:60px;padding:9px;gap:10px}
+ #leagueScreenBody .deen-v2-letter{width:33px;height:33px}
+ #leagueScreenBody button.deen-v2-match-tile{font-size:14px}
+}
+
+/* Interactive Arabic joined-form learning: model and user-composed sample. */
+#leagueScreenBody .deen-path-v2-lesson .deen-v2-joined-model{
+ display:grid;place-items:center;min-height:84px;white-space:normal;unicode-bidi:isolate;
+ border:1px solid rgba(123,228,192,.5);border-radius:15px;
+ background:linear-gradient(150deg,rgba(19,58,67,.95),rgba(21,74,74,.67));
+ color:#ffeabb;font:750 clamp(38px,10vw,54px)/1.6 "Noto Naskh Arabic","Geeza Pro",serif
+}
+#leagueScreenBody .deen-v2-build-preview{
+ display:grid;place-items:center;min-height:66px;margin:12px 0;
+ border:1px dashed rgba(109,235,194,.75);border-radius:14px;
+ background:rgba(45,180,145,.14);color:#f9edc5;
+ font:750 clamp(34px,9vw,46px)/1.55 "Noto Naskh Arabic","Geeza Pro",serif
+}
+
+/* Interactive lesson mobile QA: constrained columns, readable RTL and touch targets. */
+#leagueScreenBody .deen-path-v2-lesson{min-width:0;max-width:100%;box-sizing:border-box}
+#leagueScreenBody .deen-v2-session-mix{
+ font:650 12px/1.5 system-ui,sans-serif;margin:0 0 13px;
+ padding:8px 10px;border-radius:10px;background:rgba(36,119,116,.18);
+ overflow-wrap:anywhere
+}
+#leagueScreenBody .deen-v2-match-board,
+#leagueScreenBody .deen-v2-build-bank,
+#leagueScreenBody .deen-v2-build-slots,
+#leagueScreenBody .deen-v2-abcd{
+ width:100%;max-width:100%;min-width:0;box-sizing:border-box
+}
+#leagueScreenBody button.deen-v2-match-tile,
+#leagueScreenBody button.deen-v2-build-piece,
+#leagueScreenBody button.deen-v2-option{
+ box-sizing:border-box;touch-action:manipulation
+}
+#leagueScreenBody button.deen-v2-match-name{
+ min-height:64px;padding-inline:7px;overflow-wrap:anywhere;
+ font-size:clamp(14px,4vw,18px)
+}
+#leagueScreenBody .deen-v2-label{overflow-wrap:anywhere}
+#leagueScreenBody .deen-v2-letter{direction:ltr;unicode-bidi:isolate}
+#leagueScreenBody .deen-v2-build-slot,
+#leagueScreenBody .deen-v2-build-preview,
+#leagueScreenBody .deen-v2-joined-model{max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}
+@media(max-width:345px){
+ #leagueScreenBody .deen-v2-match-board{gap:6px}
+ #leagueScreenBody .deen-v2-match-column{gap:6px}
+ #leagueScreenBody button.deen-v2-match-name{padding-inline:4px;font-size:14px}
+ #leagueScreenBody .deen-v2-build-bank{gap:6px}
+ #leagueScreenBody button.deen-v2-build-piece{min-height:60px}
+}

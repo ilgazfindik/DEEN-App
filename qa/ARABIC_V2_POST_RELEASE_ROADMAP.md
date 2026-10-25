@@ -1,0 +1,29 @@
+# DEEN Arapça V2 — Yayın sonrası kalite planı
+
+**Başlangıç:** 2026-10-17. Önceki [16 aşamalı yol haritası](ARABIC_LEARNING_V2_ROADMAP.md) tamamlandı; bu belge yeni bağımsız takip akışıdır.
+
+**Devam protokolü:** Kullanıcı `devam` dediğinde ilk açık aşamayı al. Ses bulunmayan aşamada ses varmış gibi ilerleme verilmez; o anda tamamlanabilir QA/pedagoji işine geçilir. Her işlem PR, commit, gerçek CI ve yayın kanıtıyla kapatılır.
+
+## Öncelik sırası
+
+- [x] **17 — Eksik 19 ses için teslim ve teknik QA.** [PR #118](https://github.com/ilgazfindik/DEEN-App/pull/118). 13 harf adı ve 6 dinleme klibinin birebir hedef/isim listesini yayınla. SHA-256, dosya formatı, aynı dosyanın kopyalanması, eski 15 sesin korunması ve onaysız içeriğin açılmaması testleri. Yeni gerçek MP3 geldiği iddia edilmeyecek. [Kayıt listesi](ARABIC_V2_STAGE17_AUDIO_INTAKE.md).
+- [ ] **18 — Gerçek ses kaydı kabulü (harici dosyalara bağlı).** Kullanıcı eksik MP3'leri sağladığında ses başına hak ve telaffuz kanıtı topla; bağımsız Arapça öğreticisi kontrolü, gerçek cihaz Chrome oynatması, hash/cache/manifest yayın katmanını doğrula. Gelmeyen sesi atla, dinleme derslerini sahte şekilde açma. Altyapı hazır olsa bile bağımlılık karşılanmadan [x] yapma.
+- [x] **19 — 448 uzman inceleme kalemi.** 14. aşamanın mevcut otomatik sınıflandırmasından insan için çıkarılabilir inceleme envanteri oluştur; dinî/ayet anlam, fonetik ve ses hakları ayrı tablolar; gerekçeli kabul/düzeltme/reddetme alanları. Otomatik geçiş bağımsız dinî onay değildir. [Uzman devri yönergesi](ARABIC_V2_STAGE19_EXPERT_REVIEW.md). [PR #119](https://github.com/ilgazfindik/DEEN-App/pull/119) `34706412b2bbf8d0ee90acb3d5909603013c842e` olarak merge edildi; uzman onayı hâlâ alınmadı.
+- [x] **20 — Okuma becerisi ölçümü.** Ses dosyası gerektirmeyen bir ön test–son test tasarla; yeni soru üretimine dayanmadan 600 soruluk havuzda saklı tekrar sorularıyla harf, hareke, kelime, ifade becerisini ayrı ölç. XP/kalp/ilerleme kaydını bozmadan yazılı beceri ve tekrar ölçümü; beş dil/RTL/320px ve düşük ağ senaryoları. [PR #120](https://github.com/ilgazfindik/DEEN-App/pull/120) ile sekiz ön test + sekiz farklı son test, dört yazılı beceri, izole yerel kayıt başarıyla merge edildi; [kapsamlı QA #39147787120](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147787120), [hızlı QA #39147789693](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147789693) ve [GitHub Pages #39148612567](https://github.com/ilgazfindik/DEEN-App/actions/runs/39148612567) başarılı.
+- [x] **21 — Kullanıcı akışı iyileştirme (ilk 10 dakika, yerel).** [PR #121](https://github.com/ilgazfindik/DEEN-App/pull/121) → `012fbbb64ede8c71137183aa197368866d4982b8`. İlk Arapça oturumu, gerçek ilk ders, doğru yazılı cevap, ders bitişi ve erken çıkışlar beş dilde yalnız yerel cihaz kaydında; [hızlı QA #39149828918](https://github.com/ilgazfindik/DEEN-App/actions/runs/39149828918), [kapsamlı QA #39149828919](https://github.com/ilgazfindik/DEEN-App/actions/runs/39149828919), [Pages #39150539241](https://github.com/ilgazfindik/DEEN-App/actions/runs/39150539241) başarılı. [Aşama 21 QA](ARABIC_V2_STAGE21_FIRST10_QA.md). Sunucuya analitik aktarımı, sesli okuma ölçümü, nedensel kazanım veya gerçek kullanıcı terk oranı iddiası yok.
+
+## Son ilerleme
+
+- **17 — Yayında:** [PR #118](https://github.com/ilgazfindik/DEEN-App/pull/118) → `854ae61963284610bde0b2282415431cfe09b0de`. [GitHub Pages #39043123659](https://github.com/ilgazfindik/DEEN-App/actions/runs/39043123659) başarılı. 19 hedeften 0 kayıt ulaştı, hiçbir otomatik ses onayı verilmedi.
+- **19 — Merge ve Pages doğrulandı:** [PR #119](https://github.com/ilgazfindik/DEEN-App/pull/119) → `34706412b2bbf8d0ee90acb3d5909603013c842e` (insan kararları henüz verilmedi).
+- **20 — Yayında:** [PR #120](https://github.com/ilgazfindik/DEEN-App/pull/120) → `cbba42cd83157589ff9a3d2316488e3a202db4fa`. [Hızlı #39147789693](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147789693), [kapsamlı #39147787120](https://github.com/ilgazfindik/DEEN-App/actions/runs/39147787120), [Pages #39148612567](https://github.com/ilgazfindik/DEEN-App/actions/runs/39148612567) başarılı. Ses/kıraat ölçümü veya nedensel kazanım iddia edilmez.
+
+- **21 — Yayında:** [PR #121](https://github.com/ilgazfindik/DEEN-App/pull/121) → `012fbbb64ede8c71137183aa197368866d4982b8`, build `9449arabicfirst10ux`. Son PR QA [hızlı #39149828918](https://github.com/ilgazfindik/DEEN-App/actions/runs/39149828918) / [kapsamlı #39149828919](https://github.com/ilgazfindik/DEEN-App/actions/runs/39149828919) ve [Pages #39150539241](https://github.com/ilgazfindik/DEEN-App/actions/runs/39150539241) başarılı. **Teknik 17/19/20/21 tamamlandı, 18. aşama gerçek MP3 sağlanmasına bağlı**. 448 içerik inceleme işareti insan uzman tarafından onaylanmış değildir.
+
+## Yayın sınırları
+
+- 28 harften yalnız **15 orijinal harf MP3** mevcut; yaratıcı tarafından onaylanmış önizleme, bağımsız fonetik tasdik değil.
+- 17. ve 18. dersin altı bağımsız klibi kayıt/izin/telaffuz incelemesine bağlıdır; hazır değildir.
+- **448 uzman inceleme işareti** uzman tarafından onaylandı demek değildir.
+- Uygulamanın 27 öğretici, 600 canlı soru ve beş dil altyapısı korunur; Kur'an ayetleri özgün Arapça kalır.
+- Sonraki aşamada da hızlı + kapsamlı CI geçmeden main'e merge veya canlı yayın yapma. Yalnızca uzman tarafından sağlanmış örnekler bir sonraki gerçek ses entegrasyonu PR'sına girer.

@@ -62,3 +62,7 @@ htmlcov/
 *.lzo
 ```.next/
 .next/
+
+# Never commit pending or unreviewed user-provided Arabic audio exports
+/qa/audio-intake/
+/qa/audio-intake-report.json

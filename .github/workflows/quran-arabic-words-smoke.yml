@@ -1,0 +1,216 @@
+name: Quran Arabic Words Fast QA
+on:
+  push:
+    paths:
+      - 'assets/i18n/quran-arabic-words.js'
+      - 'index.html'
+      - 'sw.js'
+      - 'assets/i18n/quran-arabic-paths.js'
+      - 'assets/i18n/quran-arabic-questions-v2.js'
+      - 'assets/i18n/quran-arabic-questions-pack-a.js'
+      - 'assets/i18n/quran-arabic-questions-pack-b.js'
+      - 'assets/i18n/quran-arabic-questions-pack-c.js'
+      - 'assets/i18n/quran-arabic-questions-pack-d.js'
+      - 'assets/i18n/quran-arabic-questions-pack-e.js'
+      - 'assets/i18n/quran-arabic-questions-pack-f.js'
+      - 'scripts/test-arabic-pack-f.cjs'
+      - 'scripts/test-arabic-v2-spaced.cjs'
+      - 'scripts/audit-arabic-v2-locale-content.cjs'
+      - 'scripts/audit-arabic-v2-release-gate.cjs'
+      - 'scripts/export-arabic-v2-human-review.cjs'
+      - 'scripts/test-arabic-v2-human-review.cjs'
+      - 'scripts/test-arabic-v2-prepost.cjs'
+      - 'scripts/test-arabic-v2-prepost-chrome.cjs'
+      - 'scripts/test-arabic-v2-first10-chrome.cjs'
+      - 'scripts/test-arabic-v2-quiz-diversity.cjs'
+      - 'scripts/test-arabic-pack-f-chrome.cjs'
+      - 'scripts/test-arabic-v2-spaced-chrome.cjs'
+      - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
+      - 'scripts/test-global-locale-chrome.cjs'
+      - 'scripts/test-arabic-startup.cjs'
+      - 'scripts/test-arabic-pack-e.cjs'
+      - 'scripts/test-arabic-pack-e-chrome.cjs'
+      - 'scripts/test-arabic-pack-d.cjs'
+      - 'scripts/test-arabic-pack-d-chrome.cjs'
+      - 'scripts/test-arabic-pack-c.cjs'
+      - 'scripts/test-arabic-pack-c-chrome.cjs'
+      - 'scripts/test-arabic-pack-b.cjs'
+      - 'scripts/test-arabic-pack-b-chrome.cjs'
+      - 'scripts/test-arabic-pack-a.cjs'
+      - 'scripts/test-arabic-pack-a-chrome.cjs'
+      - 'scripts/test-arabic-v2-question-engine-chrome.cjs'
+      - 'assets/i18n/quran-arabic-letter-audio.js'
+      - 'assets/i18n/quran-arabic-listening.js'
+      - 'assets/i18n/quran-arabic-meaning.js'
+      - 'assets/i18n/quran-arabic-phrases.js'
+      - 'assets/i18n/quran-arabic-patterns.js'
+      - 'assets/i18n/quran-arabic-mastery.js'
+      - 'assets/i18n/quran-arabic-daily.js'
+      - 'assets/i18n/quran-arabic-adaptive.js'
+      - 'assets/i18n/quran-arabic-foundation-review.js'
+      - 'assets/i18n/quran-arabic-checkpoint.js'
+      - 'assets/i18n/quran-arabic-remediation.js'
+      - 'assets/i18n/quran-arabic-weekly.js'
+      - 'assets/i18n/quran-arabic-weekly-goals.js'
+      - 'assets/i18n/quran-arabic-paths.css'
+      - 'scripts/test-quran-words-chrome.cjs'
+      - 'scripts/test-arabic-step04-chrome.cjs'
+      - 'scripts/test-arabic-letter-audio.cjs'
+      - 'scripts/audit-arabic-audio-intake.cjs'
+      - 'scripts/test-arabic-audio-intake.cjs'
+      - 'scripts/test-arabic-letter-audio-chrome.cjs'
+      - 'assets/quran/audio/arabic-learning/**'
+      - 'scripts/test-quran-listening-chrome.cjs'
+      - 'scripts/test-quran-meaning-chrome.cjs'
+      - 'scripts/test-quran-phrases-chrome.cjs'
+      - 'scripts/test-quran-patterns-chrome.cjs'
+      - 'scripts/test-arabic-step05-chrome.cjs'
+      - 'scripts/test-quran-mastery-chrome.cjs'
+      - 'scripts/test-quran-daily-chrome.cjs'
+      - 'scripts/test-quran-adaptive-chrome.cjs'
+      - 'scripts/test-quran-foundation-review-chrome.cjs'
+      - 'scripts/test-quran-checkpoint-chrome.cjs'
+      - 'scripts/test-quran-remediation-chrome.cjs'
+      - 'scripts/test-quran-weekly-chrome.cjs'
+      - 'scripts/test-quran-weekly-goals-chrome.cjs'
+      - '.github/workflows/quran-arabic-words-smoke.yml'
+  pull_request:
+    paths:
+      - 'assets/i18n/quran-arabic-words.js'
+      - 'index.html'
+      - 'sw.js'
+      - 'assets/i18n/quran-arabic-paths.js'
+      - 'assets/i18n/quran-arabic-questions-v2.js'
+      - 'assets/i18n/quran-arabic-questions-pack-a.js'
+      - 'assets/i18n/quran-arabic-questions-pack-b.js'
+      - 'assets/i18n/quran-arabic-questions-pack-c.js'
+      - 'assets/i18n/quran-arabic-questions-pack-d.js'
+      - 'assets/i18n/quran-arabic-questions-pack-e.js'
+      - 'assets/i18n/quran-arabic-questions-pack-f.js'
+      - 'scripts/test-arabic-pack-f.cjs'
+      - 'scripts/test-arabic-v2-spaced.cjs'
+      - 'scripts/audit-arabic-v2-locale-content.cjs'
+      - 'scripts/audit-arabic-v2-release-gate.cjs'
+      - 'scripts/export-arabic-v2-human-review.cjs'
+      - 'scripts/test-arabic-v2-human-review.cjs'
+      - 'scripts/test-arabic-v2-prepost.cjs'
+      - 'scripts/test-arabic-v2-prepost-chrome.cjs'
+      - 'scripts/test-arabic-v2-first10-chrome.cjs'
+      - 'scripts/test-arabic-v2-quiz-diversity.cjs'
+      - 'scripts/test-arabic-pack-f-chrome.cjs'
+      - 'scripts/test-arabic-v2-spaced-chrome.cjs'
+      - 'scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs'
+      - 'scripts/test-global-locale-chrome.cjs'
+      - 'scripts/test-arabic-startup.cjs'
+      - 'scripts/test-arabic-pack-e.cjs'
+      - 'scripts/test-arabic-pack-e-chrome.cjs'
+      - 'scripts/test-arabic-pack-d.cjs'
+      - 'scripts/test-arabic-pack-d-chrome.cjs'
+      - 'scripts/test-arabic-pack-c.cjs'
+      - 'scripts/test-arabic-pack-c-chrome.cjs'
+      - 'scripts/test-arabic-pack-b.cjs'
+      - 'scripts/test-arabic-pack-b-chrome.cjs'
+      - 'scripts/test-arabic-pack-a.cjs'
+      - 'scripts/test-arabic-pack-a-chrome.cjs'
+      - 'scripts/test-arabic-v2-question-engine-chrome.cjs'
+      - 'assets/i18n/quran-arabic-letter-audio.js'
+      - 'assets/i18n/quran-arabic-listening.js'
+      - 'assets/i18n/quran-arabic-meaning.js'
+      - 'assets/i18n/quran-arabic-phrases.js'
+      - 'assets/i18n/quran-arabic-patterns.js'
+      - 'assets/i18n/quran-arabic-mastery.js'
+      - 'assets/i18n/quran-arabic-daily.js'
+      - 'assets/i18n/quran-arabic-adaptive.js'
+      - 'assets/i18n/quran-arabic-foundation-review.js'
+      - 'assets/i18n/quran-arabic-checkpoint.js'
+      - 'assets/i18n/quran-arabic-remediation.js'
+      - 'assets/i18n/quran-arabic-weekly.js'
+      - 'assets/i18n/quran-arabic-weekly-goals.js'
+      - 'assets/i18n/quran-arabic-paths.css'
+      - 'scripts/test-quran-words-chrome.cjs'
+      - 'scripts/test-arabic-step04-chrome.cjs'
+      - 'scripts/test-arabic-letter-audio.cjs'
+      - 'scripts/audit-arabic-audio-intake.cjs'
+      - 'scripts/test-arabic-audio-intake.cjs'
+      - 'scripts/test-arabic-letter-audio-chrome.cjs'
+      - 'assets/quran/audio/arabic-learning/**'
+      - 'scripts/test-quran-listening-chrome.cjs'
+      - 'scripts/test-quran-meaning-chrome.cjs'
+      - 'scripts/test-quran-phrases-chrome.cjs'
+      - 'scripts/test-quran-patterns-chrome.cjs'
+      - 'scripts/test-arabic-step05-chrome.cjs'
+      - 'scripts/test-quran-mastery-chrome.cjs'
+      - 'scripts/test-quran-daily-chrome.cjs'
+      - 'scripts/test-quran-adaptive-chrome.cjs'
+      - 'scripts/test-quran-foundation-review-chrome.cjs'
+      - 'scripts/test-quran-checkpoint-chrome.cjs'
+      - 'scripts/test-quran-remediation-chrome.cjs'
+      - 'scripts/test-quran-weekly-chrome.cjs'
+      - 'scripts/test-quran-weekly-goals-chrome.cjs'
+      - '.github/workflows/quran-arabic-words-smoke.yml'
+jobs:
+  word-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify scripts and signed boot manifest
+        run: |
+          node scripts/test-arabic-letter-audio.cjs
+          node scripts/test-arabic-audio-intake.cjs
+          node scripts/audit-arabic-audio-intake.cjs
+          node scripts/test-arabic-pack-a.cjs
+          node scripts/test-arabic-pack-b.cjs
+          node scripts/test-arabic-pack-c.cjs
+          node scripts/test-arabic-pack-d.cjs
+          node scripts/test-arabic-pack-e.cjs
+          node scripts/test-arabic-pack-f.cjs
+          node scripts/test-arabic-v2-spaced.cjs
+          node scripts/audit-arabic-v2-locale-content.cjs
+          node scripts/audit-arabic-v2-release-gate.cjs
+          node scripts/test-arabic-v2-human-review.cjs
+          node scripts/test-arabic-v2-prepost.cjs
+          node scripts/test-arabic-v2-quiz-diversity.cjs
+          node --check sw.js
+          node scripts/build-release-manifest.mjs --check
+          node scripts/audit-release.mjs
+      - name: Install headless Chrome test runner
+        run: |
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install chrome
+      - name: Exercise phase 5 word building
+        run: |
+          node scripts/test-arabic-letter-audio-chrome.cjs
+          node scripts/test-arabic-v2-question-engine-chrome.cjs
+          node scripts/test-arabic-pack-a-chrome.cjs
+          node scripts/test-arabic-pack-b-chrome.cjs
+          node scripts/test-arabic-pack-c-chrome.cjs
+          node scripts/test-arabic-pack-d-chrome.cjs
+          node scripts/test-arabic-pack-e-chrome.cjs
+          node scripts/test-arabic-pack-f-chrome.cjs
+          node scripts/test-arabic-v2-spaced-chrome.cjs
+          node scripts/test-arabic-v2-mobile-lifecycle-chrome.cjs
+          node scripts/test-global-locale-chrome.cjs
+          node scripts/test-arabic-startup.cjs
+          node scripts/test-quran-words-chrome.cjs
+          node scripts/test-arabic-step04-chrome.cjs
+          node scripts/test-quran-listening-chrome.cjs
+          node scripts/test-quran-meaning-chrome.cjs
+          node scripts/test-quran-phrases-chrome.cjs
+          node scripts/test-quran-patterns-chrome.cjs
+          node scripts/test-arabic-step05-chrome.cjs
+          node scripts/test-quran-mastery-chrome.cjs
+          node scripts/test-quran-daily-chrome.cjs
+          node scripts/test-quran-adaptive-chrome.cjs
+          node scripts/test-quran-foundation-review-chrome.cjs
+          node scripts/test-quran-checkpoint-chrome.cjs
+          node scripts/test-quran-remediation-chrome.cjs
+          node scripts/test-quran-weekly-chrome.cjs
+          node scripts/test-quran-weekly-goals-chrome.cjs
+          node scripts/test-arabic-v2-prepost-chrome.cjs
+          node scripts/test-arabic-v2-first10-chrome.cjs

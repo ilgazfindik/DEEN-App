@@ -33,6 +33,11 @@
  async function verify(lang){
   if(!window.DEEN_CONTENT_LOCALE?.available(lang))throw Error('CONTENT_PACK_MISSING:'+lang);
   if(!await window.DEEN_CONTENT_LOCALE.preload(lang))throw Error('CONTENT_LOAD_FAILED:'+lang);
+  // Some legacy question variants are finalized over the following UI turns.
+  // Avoid inspecting the transient 1522/1490 count, but keep the exact 1484 guard.
+  const expectedActive=window.__DEEN_CONTENT_MANIFEST__?.required_active_questions||1484;
+  for(let attempt=0;QUESTIONS.length!==expectedActive&&attempt<80;attempt++)
+   await new Promise(resolve=>setTimeout(resolve,40));
   const base=window.DEEN_CONTENT_LOCALE.inspectBank(window.DEEN_BASE_QUESTIONS||[],lang);
   const active=window.DEEN_CONTENT_LOCALE.inspectBank(QUESTIONS,lang);
   if(base.sourceCount!==1500||base.failedIds.length||active.sourceCount!==1484||active.failedIds.length)throw Error('CONTENT_SOURCE_MISMATCH:'+lang+':base='+base.sourceCount+':active='+active.sourceCount+':baseFailed='+base.failedIds.slice(0,8).join(',')+':activeFailed='+active.failedIds.slice(0,8).join(','));
