@@ -54,12 +54,18 @@ for(const lang of ['tr','ar','en','de','fr']){
  w.state.profile.companion='cat';w.DEEN_PREMIUM_ONBOARDING.finish();
  // finish() is intentionally asynchronous; explicitly await the same in-flight validation.
  const ready=await w.DEEN_BOOT.prepare();
- if(['tr','ar','en','fr'].includes(lang)){assert(ready);assert(w.state.onboarded);assert(!w.document.getElementById('v998Onboarding'));assert(!w.document.querySelector('.phone').inert);if(lang==='en'){assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(base,'en').translated,1500);assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(active,'en').translated,1484);assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.en.global_qa,'passed');}
+ if(['tr','ar','en','fr','de'].includes(lang)){assert(ready);assert(w.state.onboarded);assert(!w.document.getElementById('v998Onboarding'));assert(!w.document.querySelector('.phone').inert);if(lang==='en'){assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(base,'en').translated,1500);assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(active,'en').translated,1484);assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.en.global_qa,'passed');}
   if(lang==='fr'){
    assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(base,'fr').translated,1500);
    assert.equal(w.DEEN_CONTENT_LOCALE.inspectBank(active,'fr').translated,1484);
    assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.fr.gameplay_enabled,true);
    assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.fr.global_qa,'blocked');
+  }
+  if(lang==='de'){
+   // German gameplay is staged: playable, but global QA and approvals stay blocked.
+   assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.de.gameplay_enabled,true);
+   assert.equal(w.DEEN_CONTENT_LOCALE.manifest().languages.de.global_qa,'blocked');
+   report.germanTranslated={base:w.DEEN_CONTENT_LOCALE.inspectBank(base,'de').translated,active:w.DEEN_CONTENT_LOCALE.inspectBank(active,'de').translated};
   }}
  else{assert(!ready);assert(!w.state.onboarded);assert.equal(w.DEEN_BOOT.status().phase,'blocked');assert(w.document.getElementById('deenPreparation').textContent.includes(w.DEEN_I18N.t('unavailableTitle')));assert.equal(w.DEEN_CONTENT_LOCALE.translateQuestion(base[0],lang),null);}
  assert.equal(JSON.stringify({xp:w.state.xp,completed:w.state.completed,badges:w.state.badges}),progressBefore);
@@ -88,10 +94,11 @@ for(const key of ['deen_v4_1_state','deen_v57_last_good_state']){
 {
  const d=fixture(),w=d.window;w.DEEN_APP_LOCALE.commit('tr');w.state.onboarded=true;
  w.document.getElementById('lesson').classList.add('active');assert.equal(await w.DEEN_APP_LOCALE.set('ar'),false);assert.equal(w.DEEN_APP_LOCALE.get(),'tr');
- w.document.getElementById('lesson').classList.remove('active');assert.equal(await w.DEEN_APP_LOCALE.set('de'),false);assert.equal(w.DEEN_APP_LOCALE.get(),'tr');
+ w.document.getElementById('lesson').classList.remove('active');assert.equal(await w.DEEN_APP_LOCALE.set('es'),false);assert.equal(w.DEEN_APP_LOCALE.get(),'tr');
+ assert.equal(await w.DEEN_APP_LOCALE.set('de'),true);assert.equal(w.DEEN_APP_LOCALE.get(),'de');
  assert.equal(await w.DEEN_APP_LOCALE.set('ar'),true);assert.equal(w.state.quranJourney.quizLocale,'ar');assert.equal(await w.DEEN_APP_LOCALE.set('tr'),true);assert.equal(w.state.quranJourney.quizLocale,'tr');
  const saved=JSON.parse(w.localStorage.getItem('deen_v4_1_state'));assert.equal(saved.xp,321);assert.deepEqual(saved.completed,['U02-S03']);assert.deepEqual(saved.badges,['retained']);
- report.guards.push('PASS active lesson rejects changes without closing','PASS missing language retains previous locale','PASS ar/tr switch preserves progress and Quran locale');d.window.close();
+ report.guards.push('PASS active lesson rejects changes without closing','PASS unsupported language retains previous locale','PASS staged German switch','PASS ar/tr switch preserves progress and Quran locale');d.window.close();
 }
 {
  const d=fixture(),w=d.window;

@@ -1,0 +1,105 @@
+/* Home (Learn tab) on the DEEN design system — Phase 2.
+   Scoped with two IDs and !important because the legacy patch layers style the same nodes
+   with !important; this file is injected last so equal-weight rules resolve in its favour.
+   Structure is not changed here; home.js only adds state classes (collapsed units, dividers). */
+
+/* ---------- Header: icon + number chips, no labels (aria-labels stay on the buttons) ---------- */
+html body #learnScreen #learnScroll .app-header{padding:var(--ds-space-3) var(--ds-space-4) var(--ds-space-2)!important;gap:var(--ds-space-2)!important;min-height:0!important;align-items:center!important}
+html body #learnScreen #learnScroll .app-header .brand{gap:var(--ds-space-2)!important;flex-shrink:0!important}
+html body #learnScreen #learnScroll .app-header .brand-name{font:var(--ds-fw-bold) var(--ds-fs-md)/1 var(--ds-font)!important;letter-spacing:.18em!important}
+html body #learnScreen #learnScroll .app-header .stats{gap:var(--ds-space-2)!important;flex-wrap:nowrap!important}
+html body #learnScreen #learnScroll .app-header .stat{height:36px!important;min-height:36px!important;min-width:0!important;padding:0 var(--ds-space-3)!important;gap:6px!important;border-radius:var(--ds-radius-pill)!important;background:var(--ds-surface)!important;border:1px solid var(--ds-border)!important;box-shadow:none!important;display:inline-flex!important;align-items:center!important}
+html body #learnScreen #learnScroll .app-header .stat-copy{display:flex!important;align-items:center!important}
+html body #learnScreen #learnScroll .app-header .stat-copy small{display:none!important}
+html body #learnScreen #learnScroll .app-header .stat-copy strong{font:var(--ds-fw-bold) var(--ds-fs-md)/1 var(--ds-font)!important;color:var(--ds-text)!important}
+html body #learnScreen #learnScroll .app-header .stat-icon{width:auto!important;height:auto!important;min-width:0!important;font-size:var(--ds-fs-md)!important;line-height:1!important;background:none!important;box-shadow:none!important;border:0!important}
+
+/* The streak strip duplicates the header chip; the shop stays reachable from Profile. */
+html body #learnScreen #learnScroll #v622StreakPanel{display:none!important}
+html body #learnScreen #learnScroll .v5-footer-note{display:none!important}
+
+/* ---------- "Your next step": one card, one action ---------- */
+/* #learnScroll already provides the 16px side gutter. */
+html body #learnScreen #learnScroll #v5Return{margin:var(--ds-space-2) 0 var(--ds-space-5)!important}
+html body #learnScreen #learnScroll #v5Return .v680-nba{padding:var(--ds-space-5)!important;border-radius:var(--ds-radius-lg)!important;background:linear-gradient(180deg,#123c37 0%,#0c2a2d 100%)!important;border:1px solid rgba(63,215,173,.30)!important;box-shadow:var(--ds-shadow-2)!important}
+html body #learnScreen #learnScroll #v5Return .v680-top{margin:0!important}
+html body #learnScreen #learnScroll #v5Return .v680-kicker{font:var(--ds-fw-bold) var(--ds-fs-xs)/1.2 var(--ds-font)!important;letter-spacing:var(--ds-tracking-caps)!important;color:var(--ds-primary)!important}
+html body #learnScreen #learnScroll #v5Return .v680-badge{font:var(--ds-fw-bold) var(--ds-fs-xs)/1 var(--ds-font)!important;padding:6px 10px!important;border-radius:var(--ds-radius-pill)!important;color:var(--ds-accent)!important;background:var(--ds-accent-soft)!important;border:0!important}
+html body #learnScreen #learnScroll #v5Return h1{font:var(--ds-fw-bold) var(--ds-fs-xl)/var(--ds-lh-tight) var(--ds-font)!important;color:var(--ds-text)!important;margin:var(--ds-space-2) 0 var(--ds-space-1)!important;letter-spacing:0!important}
+html body #learnScreen #learnScroll #v5Return h1+p,html body #learnScreen #learnScroll #v5Return .v680-nba>p{font:var(--ds-fw-semibold) var(--ds-fs-sm)/1.4 var(--ds-font)!important;color:var(--ds-text-muted)!important;margin:0!important}
+html body #learnScreen #learnScroll #v5Return .v711-progress-row{margin:var(--ds-space-4) 0!important;align-items:center!important}
+html body #learnScreen #learnScroll #v5Return .v680-step{font-size:var(--ds-fs-xs)!important}
+html body #learnScreen #learnScroll #v5Return .v711-progress-copy b{font:var(--ds-fw-bold) var(--ds-fs-sm)/1.2 var(--ds-font)!important;color:var(--ds-text)!important}
+html body #learnScreen #learnScroll #v5Return .v711-progress-copy{min-width:0!important;text-align:end!important}
+html body #learnScreen #learnScroll #v5Return .v711-progress-copy small{font:var(--ds-fw-semibold) var(--ds-fs-xs)/1.2 var(--ds-font)!important;color:var(--ds-text-faint)!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
+html body #learnScreen #learnScroll #v5Return .v680-main{height:var(--ds-btn-h)!important;min-height:var(--ds-btn-h)!important;border-radius:var(--ds-radius-md)!important;font:var(--ds-fw-bold) var(--ds-fs-md)/1 var(--ds-font)!important;letter-spacing:.02em!important;background:var(--ds-primary)!important;color:var(--ds-on-primary)!important;box-shadow:0 3px 0 var(--ds-primary-strong)!important;border:0!important}
+/* Task / weekly / review counters live in their own screens; the card keeps one decision. */
+html body #learnScreen #learnScroll #v5Return .v680-meta{display:none!important}
+
+/* ---------- Units: compact sticky header, collapsible ---------- */
+html body #learnScreen #learnScroll #v5Paths{padding:0!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit>.hero::before{display:none!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit{margin:0 0 var(--ds-space-3)!important;height:auto!important;min-height:0!important;overflow:visible!important;padding:0!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit>.hero{position:sticky!important;top:0!important;z-index:20!important;height:auto!important;min-height:0!important;margin:0!important;padding:var(--ds-space-4)!important;padding-inline-end:52px!important;display:block!important;border-radius:var(--ds-radius-lg)!important;background:var(--ds-surface-2)!important;border:1px solid var(--ds-border)!important;box-shadow:var(--ds-shadow-1)!important;overflow:hidden!important;cursor:pointer}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit>.hero:focus-visible{outline:3px solid var(--ds-focus)!important;outline-offset:2px!important}
+html body #learnScreen #learnScroll #v5Paths .hero .arch,html body #learnScreen #learnScroll #v5Paths .hero .crescent,html body #learnScreen #learnScroll #v5Paths .hero .hero-arrow,html body #learnScreen #learnScroll #v5Paths .hero .hero-copy>p{display:none!important}
+html body #learnScreen #learnScroll #v5Paths .hero .hero-copy{position:static!important;width:auto!important;max-width:none!important;padding:0!important;margin:0!important}
+html body #learnScreen #learnScroll #v5Paths .hero .eyebrow{font:var(--ds-fw-bold) var(--ds-fs-xs)/1.2 var(--ds-font)!important;letter-spacing:var(--ds-tracking-caps)!important;color:var(--ds-text-faint)!important;margin:0 0 var(--ds-space-1)!important}
+html body #learnScreen #learnScroll #v5Paths .hero h1{font:var(--ds-fw-bold) var(--ds-fs-lg)/var(--ds-lh-tight) var(--ds-font)!important;color:var(--ds-text)!important;margin:0!important;letter-spacing:0!important}
+html body #learnScreen #learnScroll #v5Paths .hero .hero-footer{position:static!important;display:flex!important;align-items:center!important;gap:var(--ds-space-3)!important;margin:var(--ds-space-3) 0 0!important;padding:0!important;width:auto!important}
+html body #learnScreen #learnScroll #v5Paths .hero .hero-progress{flex:1 1 auto!important;width:auto!important;height:6px!important;border-radius:var(--ds-radius-pill)!important;background:var(--ds-surface-3)!important;border:0!important}
+html body #learnScreen #learnScroll #v5Paths .hero .hero-progress i{border-radius:inherit!important;background:var(--ds-primary)!important}
+html body #learnScreen #learnScroll #v5Paths .hero .hero-count{font:var(--ds-fw-semibold) var(--ds-fs-xs)/1.2 var(--ds-font)!important;color:var(--ds-text-muted)!important;white-space:nowrap!important}
+html body #learnScreen #learnScroll #v5Paths .hero .hero-count b{font:inherit!important;color:var(--ds-text)!important}
+/* Chevron: down when collapsed, up when open. Logical properties keep it correct in RTL. */
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit>.hero::after{content:""!important;position:absolute!important;top:24px!important;inset-inline-end:20px!important;width:9px!important;height:9px!important;border-right:2px solid var(--ds-text-muted)!important;border-bottom:2px solid var(--ds-text-muted)!important;transform:rotate(-135deg)!important;transition:transform .2s var(--ds-ease)!important;background:none!important;opacity:1!important;display:block!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit.ds-collapsed>.hero::after{transform:rotate(45deg)!important;top:20px!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit.ds-collapsed>.lp-path{display:none!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit[data-ds-unit="current"]>.hero{border-color:rgba(63,215,173,.45)!important;background:linear-gradient(180deg,#14403a 0%,#10323a 100%)!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit[data-ds-unit="current"]>.hero .eyebrow{color:var(--ds-primary)!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit[data-ds-unit="upcoming"]>.hero{background:var(--ds-surface)!important;box-shadow:none!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit[data-ds-unit="upcoming"]>.hero h1{color:var(--ds-text-muted)!important}
+html body #learnScreen #learnScroll #v5Paths>section.restored-unit[data-ds-unit="upcoming"]>.hero .hero-footer{display:none!important}
+
+/* ---------- Path: vertical timeline, node + card in normal flow (no overlap, no truncation) ---------- */
+html body #learnScreen #learnScroll #v5Paths .lp-path{position:relative!important;height:auto!important;min-height:0!important;margin:0!important;padding:var(--ds-space-4) 0 var(--ds-space-2)!important;transform:none!important}
+html body #learnScreen #learnScroll #v5Paths .lp-path>svg{display:none!important}
+html body #learnScreen #learnScroll #v5Paths .lp-path::before{content:""!important;position:absolute!important;top:48px!important;bottom:48px!important;inset-inline-start:31px!important;width:2px!important;border-radius:2px!important;background:var(--ds-border)!important;display:block!important}
+html body #learnScreen #learnScroll #v5Paths .lp-stop{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;transform:none!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:var(--ds-space-3)!important;width:auto!important;height:auto!important;min-height:72px!important;margin:0 0 var(--ds-space-3)!important;padding:0!important}
+html body #learnScreen #learnScroll #v5Paths .lp-stop .deen-current-pill,html body #learnScreen #learnScroll #v5Paths .deen-stage-card .v631-next-label{display:none!important}
+html body #learnScreen #learnScroll #v5Paths .lp-stop .lp-node{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;transform:none!important;flex:0 0 64px!important;width:64px!important;height:64px!important;margin:0!important;z-index:2!important}
+html body #learnScreen #learnScroll #v5Paths .lp-stop .deen-stage-card{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;transform:none!important;order:2!important;flex:1 1 auto!important;width:auto!important;min-width:0!important;max-width:none!important;height:auto!important;min-height:64px!important;margin:0!important;padding:var(--ds-space-3) var(--ds-space-4)!important;padding-inline-end:40px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:2px!important;text-align:start!important;border-radius:var(--ds-radius-lg)!important;background:var(--ds-surface)!important;border:1px solid var(--ds-border)!important;box-shadow:none!important;opacity:1!important;filter:none!important;clip-path:none!important}
+html body #learnScreen #learnScroll #v5Paths .lp-stop .deen-stage-card::before,html body #learnScreen #learnScroll #v5Paths .lp-stop .deen-stage-card::after{display:none!important}
+html body #learnScreen #learnScroll #v5Paths .deen-stage-card .v630-macro-role{font:var(--ds-fw-bold) var(--ds-fs-xs)/1.2 var(--ds-font)!important;letter-spacing:var(--ds-tracking-caps)!important;color:var(--ds-primary)!important;margin:0!important}
+html body #learnScreen #learnScroll #v5Paths .deen-stage-card strong{display:block!important;font:var(--ds-fw-bold) var(--ds-fs-md)/1.25 var(--ds-font)!important;color:var(--ds-text)!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;-webkit-line-clamp:unset!important;max-width:none!important;margin:0!important}
+html body #learnScreen #learnScroll #v5Paths .deen-stage-card .v630-progress{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:4px 8px!important;height:auto!important;max-height:none!important;margin:2px 0 0!important;font:var(--ds-fw-semibold) var(--ds-fs-sm)/1.35 var(--ds-font)!important;color:var(--ds-text-muted)!important}
+html body #learnScreen #learnScroll #v5Paths .deen-stage-card .v630-progress b{font:inherit!important;color:inherit!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
+html body #learnScreen #learnScroll #v5Paths .deen-stage-card .chev{position:absolute!important;top:50%!important;inset-inline-end:14px!important;inset-inline-start:auto!important;left:auto;right:auto;width:auto!important;height:auto!important;transform:translateY(-50%)!important;font:var(--ds-fw-bold) var(--ds-fs-lg)/1 var(--ds-font)!important;color:var(--ds-text-faint)!important}
+html[dir="rtl"] body #learnScreen #learnScroll #v5Paths .deen-stage-card .chev{transform:translateY(-50%) scaleX(-1)!important}
+/* States: contrast instead of opacity so locked text stays readable (WCAG AA). */
+html body #learnScreen #learnScroll #v5Paths .lp-stop.locked .deen-stage-card strong{color:var(--ds-text-muted)!important}
+html body #learnScreen #learnScroll #v5Paths .lp-stop.locked .deen-stage-card .v630-macro-role{color:var(--ds-text-faint)!important}
+html body #learnScreen #learnScroll #v5Paths .lp-stop.locked .deen-stage-card .v630-progress{color:var(--ds-text-faint)!important}
+html body #learnScreen #learnScroll #v5Paths .lp-stop.current .deen-stage-card{background:var(--ds-primary-soft)!important;border-color:rgba(63,215,173,.55)!important}
+
+/* ---------- Dividers, section finals, notes ---------- */
+html body #learnScreen #learnScroll #v5Paths .restore-section-divider.ds-unit-divider{display:none!important}
+html body #learnScreen #learnScroll #v5Paths .restore-section-divider{margin:var(--ds-space-6) 0 var(--ds-space-3)!important;font:var(--ds-fw-bold) var(--ds-fs-xs)/1.2 var(--ds-font)!important;letter-spacing:var(--ds-tracking-caps)!important;color:var(--ds-accent)!important}
+html body #learnScreen #learnScroll #v5Paths .section-final-card{margin:0 0 var(--ds-space-3)!important;padding:var(--ds-space-4)!important;padding-inline-start:64px!important;min-height:0!important;height:auto!important;border-radius:var(--ds-radius-lg)!important;background:var(--ds-surface)!important;border:1px solid rgba(223,197,143,.35)!important;box-shadow:none!important;text-align:start!important;position:relative!important}
+html body #learnScreen #learnScroll #v5Paths .section-final-card .final-glow{display:none!important}
+html body #learnScreen #learnScroll #v5Paths .section-final-card .final-orb{position:absolute!important;inset-inline-start:16px!important;top:16px!important;left:auto;width:36px!important;height:36px!important;margin:0!important;font-size:18px!important;display:grid!important;place-items:center!important;border-radius:var(--ds-radius-pill)!important;background:var(--ds-accent-soft)!important;box-shadow:none!important}
+html body #learnScreen #learnScroll #v5Paths .section-final-card .final-eyebrow{font:var(--ds-fw-bold) var(--ds-fs-xs)/1.2 var(--ds-font)!important;letter-spacing:var(--ds-tracking-caps)!important;color:var(--ds-accent)!important;margin:0!important}
+html body #learnScreen #learnScroll #v5Paths .section-final-card .final-title{font:var(--ds-fw-bold) var(--ds-fs-md)/1.25 var(--ds-font)!important;color:var(--ds-text)!important;margin:var(--ds-space-1) 0 0!important}
+html body #learnScreen #learnScroll #v5Paths .section-final-card.locked .final-copy,html body #learnScreen #learnScroll #v5Paths .section-final-card.locked .final-chips,html body #learnScreen #learnScroll #v5Paths .section-final-card.locked .final-best,html body #learnScreen #learnScroll #v5Paths .section-final-card.locked .final-start{display:none!important}
+html body #learnScreen #learnScroll #v5Paths .section-final-card:not(.locked) .final-copy{font:var(--ds-fw-regular) var(--ds-fs-sm)/1.4 var(--ds-font)!important;color:var(--ds-text-muted)!important}
+html body #learnScreen #learnScroll #v5Paths .section-final-card:not(.locked) .final-start{height:var(--ds-btn-h)!important;border-radius:var(--ds-radius-md)!important;font:var(--ds-fw-bold) var(--ds-fs-md)/1 var(--ds-font)!important}
+html body #learnScreen #learnScroll #v5Paths .section3-scope-note{margin:0 0 var(--ds-space-3)!important;padding:var(--ds-space-3) var(--ds-space-4)!important;border-radius:var(--ds-radius-md)!important;background:var(--ds-surface)!important;border:1px solid var(--ds-border)!important;font:var(--ds-fw-regular) var(--ds-fs-sm)/1.4 var(--ds-font)!important;color:var(--ds-text-muted)!important}
+html body #learnScreen #learnScroll #v5Paths .section3-scope-note *{font-size:inherit!important;line-height:inherit!important}
+/* ---------- RTL: the legacy shell forces direction:ltr on .phone; mirror the home sections ---------- */
+html[dir="rtl"] body #learnScreen #learnScroll .app-header,html[dir="rtl"] body #learnScreen #learnScroll #v5Return,html[dir="rtl"] body #learnScreen #learnScroll #v5Paths{direction:rtl!important}
+html[dir="rtl"] body #learnScreen #learnScroll #v5Paths .deen-stage-card,html[dir="rtl"] body #learnScreen #learnScroll #v5Paths .hero,html[dir="rtl"] body #learnScreen #learnScroll #v5Return .v680-nba{text-align:right!important}
+/* Bottom navigation: one-line labels in every language. */
+html body nav.bottomnav .navbtn{padding-inline:2px!important}
+html body nav.bottomnav .navbtn span{font-weight:var(--ds-fw-semibold)!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:100%!important;font-size:var(--ds-fs-xs)!important;line-height:1.2!important}
+
+@media (prefers-reduced-motion:reduce){html body #learnScreen #learnScroll #v5Paths>section.restored-unit>.hero::after{transition:none!important}}

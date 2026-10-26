@@ -221,7 +221,15 @@
   const BEFORE_IMPORT_KEY='deen_v57_before_import';
   const MAX_BACKUP_BYTES=2_000_000;
   const validStageIds=new Set(STAGES.map(s=>s.id));
-  const validQuestionIds=new Set(QUESTIONS.map(q=>q.id));
+  // Question packs (e.g. the U01 pilot) register after this layer and after the boot-time sanitize,
+  // so a snapshot Set would silently wipe their mistakes and spaced-review history on every save.
+  const QUESTION_ID_PATTERN=/^DEEN-U(?:0[1-9]|1[0-5])-S\d{2}-[A-Z0-9-]{1,24}$/;
+  let questionIdCache=null,questionIdCount=-1;
+  const validQuestionIds={has(id){
+    if(QUESTION_ID_PATTERN.test(id))return true;
+    if(questionIdCount!==QUESTIONS.length){questionIdCache=new Set(QUESTIONS.map(q=>q.id));questionIdCount=QUESTIONS.length}
+    return questionIdCache.has(id);
+  }};
 
   function finite(n,fallback=0,min=-Infinity,max=Infinity){
     n=Number(n);return Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback;

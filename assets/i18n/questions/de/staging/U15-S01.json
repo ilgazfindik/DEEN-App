@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U15",
+  "stage": "U15-S01",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U15-S01-001": {
+      "source": {
+        "question_tr": "Temel kavram: sahur hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Bakara 2:187 fecre kadar yeme ve içmenin serbest olduğunu bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Güneş battıktan sonraki iftar anı",
+          "Öğle namazından sonra",
+          "Oruç başlamadan önce fecrden önceki vakit",
+          "İkindi namazından sonra"
+        ],
+        "correct_answer": "Oruç başlamadan önce fecrden önceki vakit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Welche Aussage über die Mahlzeit vor Beginn des Fastens (Suhur) ist richtig?",
+        "explanation_tr": "Al-Baqara 2:187 erlaubt Essen und Trinken bis zum Anbruch der Morgendämmerung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Der Zeitpunkt des Fastenbrechens nach Sonnenuntergang",
+          "Nach dem Mittagsgebet",
+          "Die Zeit vor der Morgendämmerung, bevor das Fasten beginnt",
+          "Nach dem Nachmittagsgebet"
+        ],
+        "correct_answer": "Die Zeit vor der Morgendämmerung, bevor das Fasten beginnt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Suhur – Mahlzeit vor der Morgendämmerung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-002": {
+      "source": {
+        "question_tr": "Oruç hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Diyanet Oruç İlmihali ve Bakara 2:183-187 orucu belirli vakitte imsakla yapılan ibadet olarak açıklar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece daha az uyumak",
+          "Yalnızca sosyal medyadan uzak durmak",
+          "İbadet niyetiyle belirli süre yeme, içme ve cinsel ilişkiden uzak durmak",
+          "Günün herhangi bir saatinde rastgele aç kalmak"
+        ],
+        "correct_answer": "İbadet niyetiyle belirli süre yeme, içme ve cinsel ilişkiden uzak durmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Was bedeutet Fasten (Sawm) im islamischen Sinn?",
+        "explanation_tr": "Das Fastenhandbuch der Diyanet und Al-Baqara 2:183–187 beschreiben das Fasten als Gottesdienst mit einem zeitlich festgelegten Verzicht.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nur weniger schlafen",
+          "Nur auf soziale Medien verzichten",
+          "Aus Gottesdienstabsicht während einer festgelegten Zeit auf Essen, Trinken und Geschlechtsverkehr verzichten",
+          "Zu einer beliebigen Tageszeit ohne Absicht hungern"
+        ],
+        "correct_answer": "Aus Gottesdienstabsicht während einer festgelegten Zeit auf Essen, Trinken und Geschlechtsverkehr verzichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Fasten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-003": {
+      "source": {
+        "question_tr": "Temel kavram: bakara 2:183 orucun amaçlarından hangisine dikkat çeker?",
+        "explanation_tr": "Bakara 2:183 orucun sakınma ve takva bilinci amacıyla farz kılındığını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Sadece kilo vermeye",
+          "Sosyal görünürlüğe",
+          "Takva bilincine",
+          "Uyku süresini artırmaya"
+        ],
+        "correct_answer": "Takva bilincine",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Welches Ziel des Fastens betont Al-Baqara 2:183?",
+        "explanation_tr": "Al-Baqara 2:183 nennt die Stärkung von Gottesbewusstsein (Taqwa) als Ziel des vorgeschriebenen Fastens.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Nur Gewichtsverlust",
+          "Soziale Anerkennung",
+          "Gottesbewusstsein (Taqwa)",
+          "Mehr Schlaf"
+        ],
+        "correct_answer": "Gottesbewusstsein (Taqwa)",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Gottesbewusstsein"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-004": {
+      "source": {
+        "question_tr": "Temel kavram: bilerek yemek konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Yeme içme orucun temel yasaklarındandır bilerek ihlal edilmesi orucu bozar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Orucu güçlendirir",
+          "Hiçbir etkisi olmaz",
+          "Orucu bozar",
+          "Sadece sevabı artırır"
+        ],
+        "correct_answer": "Orucu bozar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Was geschieht, wenn man während des Fastens absichtlich isst?",
+        "explanation_tr": "Der bewusste Verzicht auf Essen und Trinken gehört zum Fasten; absichtliches Essen oder Trinken während der Fastenzeit bricht es.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Es stärkt das Fasten",
+          "Es hat keine Wirkung",
+          "Es bricht das Fasten",
+          "Es erhöht lediglich die Belohnung"
+        ],
+        "correct_answer": "Es bricht das Fasten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Absichtliches Essen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-005": {
+      "source": {
+        "question_tr": "Oruçlu kişi oruç vaktinde hangisinden uzak durur?",
+        "explanation_tr": "Yemekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Uyumaktan",
+          "Konuşmaktan",
+          "Yemekten",
+          "Çalışmaktan"
+        ],
+        "correct_answer": "Yemekten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Worauf verzichtet ein Fastender während der Fastenzeit?",
+        "explanation_tr": "Der Verzicht auf Essen während der festgelegten Fastenzeit gehört zu den Grundlagen des Fastens.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Schlafen",
+          "Sprechen",
+          "Essen",
+          "Arbeiten"
+        ],
+        "correct_answer": "Essen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Essen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-006": {
+      "source": {
+        "question_tr": "Kısa kontrol: temel kavram: sahur hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Bakara 2:187 fecre kadar yeme ve içmenin serbest olduğunu bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Güneş battıktan sonraki iftar anı",
+          "Öğle namazından sonra",
+          "Oruç başlamadan önce fecrden önceki vakit",
+          "İkindi namazından sonra"
+        ],
+        "correct_answer": "Oruç başlamadan önce fecrden önceki vakit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Kurzer Test: Welche Aussage über Suhur ist richtig?",
+        "explanation_tr": "Al-Baqara 2:187 erlaubt Essen und Trinken bis zum Anbruch der Morgendämmerung.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Der Zeitpunkt des Fastenbrechens nach Sonnenuntergang",
+          "Nach dem Mittagsgebet",
+          "Die Zeit vor der Morgendämmerung, bevor das Fasten beginnt",
+          "Nach dem Nachmittagsgebet"
+        ],
+        "correct_answer": "Die Zeit vor der Morgendämmerung, bevor das Fasten beginnt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Suhur – Mahlzeit vor der Morgendämmerung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Oruç, ibadet niyetiyle imsak vaktinden güneş batışına kadar yeme, içme ve cinsel ilişkiden uzak durmaktır.",
+        "explanation_tr": "Diyanet Oruç İlmihali ve Bakara 2:183-187 orucu belirli vakitte imsakla yapılan ibadet olarak açıklar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Fasten bedeutet, aus Gottesdienstabsicht von der Morgendämmerung bis zum Sonnenuntergang auf Essen, Trinken und Geschlechtsverkehr zu verzichten.",
+        "explanation_tr": "Das Fastenhandbuch der Diyanet und Al-Baqara 2:183–187 beschreiben das Fasten als Gottesdienst mit einem zeitlich festgelegten Verzicht.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Fasten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-008": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Bakara 2:183 orucun takva bilinciyle hiçbir ilgisi olmadığını bildirir.",
+        "explanation_tr": "Bakara 2:183 orucun sakınma ve takva bilinci amacıyla farz kılındığını bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Al-Baqara 2:183 stellt keinen Bezug zwischen dem Fasten und Gottesbewusstsein her.",
+        "explanation_tr": "Al-Baqara 2:183 nennt die Stärkung von Gottesbewusstsein (Taqwa) als Ziel des vorgeschriebenen Fastens.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Gottesbewusstsein"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-009": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Oruç vaktinde bilerek yemek orucu bozar.",
+        "explanation_tr": "Yeme içme orucun temel yasaklarındandır bilerek ihlal edilmesi orucu bozar.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Wer während der Fastenzeit absichtlich isst, bricht das Fasten.",
+        "explanation_tr": "Der bewusste Verzicht auf Essen und Trinken gehört zum Fasten; absichtliches Essen oder Trinken während der Fastenzeit bricht es.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Absichtliches Essen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-010": {
+      "source": {
+        "question_tr": "Temel kavram: boşluğu tamamla: Oruçlu kişi oruç vaktinde ___ uzak durur.",
+        "explanation_tr": "Yemekten uzak durmak orucun temel unsurlarındandır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "yemekten",
+          "batıncaya"
+        ],
+        "correct_answer": "yemekten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Während der Fastenzeit verzichtet man auf das ______.",
+        "explanation_tr": "Der Verzicht auf Essen während der festgelegten Fastenzeit gehört zu den Grundlagen des Fastens.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "Essen",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "Essen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Essen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-011": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Sahur ___ önce yapılan yeme içme vaktidir.",
+        "explanation_tr": "Bakara 2:187 fecre kadar yeme ve içmenin serbest olduğunu bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "fecrden",
+          "batıncaya"
+        ],
+        "correct_answer": "fecrden",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Die Suhur-Mahlzeit nimmt man vor der ______ ein.",
+        "explanation_tr": "Al-Baqara 2:187 erlaubt Essen und Trinken bis zum Anbruch der Morgendämmerung.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "Morgendämmerung",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "Morgendämmerung",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Suhur – Mahlzeit vor der Morgendämmerung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-012": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Oruç ibadet niyetiyle yeme içme ve cinsel ilişkiden ___ durmaktır.",
+        "explanation_tr": "Diyanet Oruç İlmihali ve Bakara 2:183-187 orucu belirli vakitte imsakla yapılan ibadet olarak açıklar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "oruç",
+          "batıncaya",
+          "uzak",
+          "yemekten"
+        ],
+        "correct_answer": "uzak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Fasten bedeutet, sich zu bestimmten Zeiten vom Essen, Trinken und Geschlechtsverkehr ______.",
+        "explanation_tr": "Das Fastenhandbuch der Diyanet und Al-Baqara 2:183–187 beschreiben das Fasten als Gottesdienst mit einem zeitlich festgelegten Verzicht.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Fasten",
+          "Sonnenuntergang",
+          "fernzuhalten",
+          "Essen"
+        ],
+        "correct_answer": "fernzuhalten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Fasten"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Oruç ___ bilincini güçlendirmeyi amaçlar.",
+        "explanation_tr": "Bakara 2:183 orucun sakınma ve takva bilinci amacıyla farz kılındığını bildirir.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "takva",
+          "batıncaya"
+        ],
+        "correct_answer": "takva",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wähle den fehlenden Begriff: Fasten soll das ______ stärken.",
+        "explanation_tr": "Al-Baqara 2:183 nennt die Stärkung von Gottesbewusstsein (Taqwa) als Ziel des vorgeschriebenen Fastens.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "Gottesbewusstsein",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "Gottesbewusstsein",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Gottesbewusstsein"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U15-S01-014": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Bilerek yemek orucu ___ .",
+        "explanation_tr": "Yeme içme orucun temel yasaklarındandır bilerek ihlal edilmesi orucu bozar.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "uzak",
+          "oruç",
+          "bozar",
+          "batıncaya"
+        ],
+        "correct_answer": "bozar",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wähle den fehlenden Begriff: Absichtliches Essen während der Fastenzeit macht das Fasten ______.",
+        "explanation_tr": "Der bewusste Verzicht auf Essen und Trinken gehört zum Fasten; absichtliches Essen oder Trinken während der Fastenzeit bricht es.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "fernzuhalten",
+          "Fasten",
+          "ungültig",
+          "Sonnenuntergang"
+        ],
+        "correct_answer": "ungültig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Was bedeutet Fasten?",
+        "topic": "Absichtliches Essen"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U13",
+  "stage": "U13-S01",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U13-S01-001": {
+      "source": {
+        "question_tr": "Temel kavram: necasetten temizlik hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Namaza hazırlıkta necasetten taharet beden elbise ve yer temizliğini kapsar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mümkün olduğunca kirli olmaları",
+          "Sadece renklerinin aynı olması",
+          "Namaza engel necasetten temiz olmaları",
+          "Yalnızca yeni satın alınmış olmaları"
+        ],
+        "correct_answer": "Namaza engel necasetten temiz olmaları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Was bedeutet die Reinigung von körperlichen Verunreinigungen vor dem Gebet?",
+        "explanation_tr": "Zur Reinigung von körperlichen Verunreinigungen vor dem Gebet gehört die Sauberkeit von Körper, Kleidung und Gebetsplatz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Möglichst schmutzig sein",
+          "Nur passende Farben tragen",
+          "Frei von körperlichen Verunreinigungen sein, die das Gebet verhindern",
+          "Nur neu gekaufte Sachen verwenden"
+        ],
+        "correct_answer": "Frei von körperlichen Verunreinigungen sein, die das Gebet verhindern",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-002": {
+      "source": {
+        "question_tr": "Temel kavram: vakit hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Nisâ 4:103 namazın müminler üzerine vakitleri belirlenmiş bir görev olduğunu bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Her farz namaz günün herhangi saatinde aynı şekilde kılınır",
+          "Vakit sadece isteğe bağlı bir ayrıntıdır",
+          "Farz namaz belirlenmiş vakti girdikten sonra kılınır",
+          "Namaz vakitten tamamen bağımsızdır"
+        ],
+        "correct_answer": "Farz namaz belirlenmiş vakti girdikten sonra kılınır",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Welche Aussage zur Gebetszeit ist richtig?",
+        "explanation_tr": "An-Nisa 4:103 erklärt, dass das Gebet für Gläubige zu bestimmten Zeiten vorgeschrieben ist.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Alle Pflichtgebete zu jeder Tageszeit beliebig verrichten",
+          "Die Gebetszeit ist nur eine freiwillige Einzelheit",
+          "Das Pflichtgebet nach Beginn seiner vorgeschriebenen Zeit verrichten",
+          "Das Gebet hat keinen Bezug zur Zeit"
+        ],
+        "correct_answer": "Das Pflichtgebet nach Beginn seiner vorgeschriebenen Zeit verrichten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-003": {
+      "source": {
+        "question_tr": "Temel kavram: yatsı namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde yatsı namazının farzı dört rekâttır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "5 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Wie viele Rakʿa hat das nächtliche Pflichtgebet?",
+        "explanation_tr": "Das Gebetshandbuch der Diyanet nennt vier Rakʿa für das nächtliche Pflichtgebet.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 Rakʿa",
+          "3 Rakʿa",
+          "4 Rakʿa",
+          "5 Rakʿa"
+        ],
+        "correct_answer": "4 Rakʿa",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-004": {
+      "source": {
+        "question_tr": "Temel kavram: ezan konusunda doğru ifade hangisidir?",
+        "explanation_tr": "Ezan namaz vaktini ve topluluğu namaza çağırmayı ifade eder.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazın yerine geçmek",
+          "Abdesti bozmak",
+          "Namaz vaktini ve namaza çağrıyı duyurmak",
+          "Oruç vaktini tek başına belirlemek"
+        ],
+        "correct_answer": "Namaz vaktini ve namaza çağrıyı duyurmak",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Grundbegriff: Welche Aufgabe hat der Gebetsruf (Adhan)?",
+        "explanation_tr": "Der Adhan gibt die Gebetszeit bekannt und ruft die Gemeinschaft zum Gebet.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Das Gebet ersetzen",
+          "Die Gebetswaschung ungültig machen",
+          "Die Gebetszeit bekannt geben und zum Gebet aufrufen",
+          "Allein die Fastenzeit festlegen"
+        ],
+        "correct_answer": "Die Gebetszeit bekannt geben und zum Gebet aufrufen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-005": {
+      "source": {
+        "question_tr": "Öğle namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde öğle namazının farzı dört rekâttır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "5 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie viele Rakʿa hat das Mittags-Pflichtgebet?",
+        "explanation_tr": "Das Gebetshandbuch der Diyanet nennt vier Rakʿa für das Mittags-Pflichtgebet.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 Rakʿa",
+          "3 Rakʿa",
+          "4 Rakʿa",
+          "5 Rakʿa"
+        ],
+        "correct_answer": "4 Rakʿa",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-006": {
+      "source": {
+        "question_tr": "Kısa kontrol: temel kavram: necasetten temizlik hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "explanation_tr": "Namaza hazırlıkta necasetten taharet beden elbise ve yer temizliğini kapsar.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Mümkün olduğunca kirli olmaları",
+          "Sadece renklerinin aynı olması",
+          "Namaza engel necasetten temiz olmaları",
+          "Yalnızca yeni satın alınmış olmaları"
+        ],
+        "correct_answer": "Namaza engel necasetten temiz olmaları",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Schnellkontrolle: Was bedeutet die Reinigung von körperlichen Verunreinigungen vor dem Gebet?",
+        "explanation_tr": "Zur Reinigung von körperlichen Verunreinigungen vor dem Gebet gehört die Sauberkeit von Körper, Kleidung und Gebetsplatz.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Möglichst schmutzig sein",
+          "Nur passende Farben tragen",
+          "Frei von körperlichen Verunreinigungen sein, die das Gebet verhindern",
+          "Nur neu gekaufte Sachen verwenden"
+        ],
+        "correct_answer": "Frei von körperlichen Verunreinigungen sein, die das Gebet verhindern",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-007": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Farz namaz, belirlenmiş vakti girdikten sonra kılınır.",
+        "explanation_tr": "Nisâ 4:103 namazın müminler üzerine vakitleri belirlenmiş bir görev olduğunu bildirir.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Ein Pflichtgebet wird nach Beginn seiner vorgeschriebenen Zeit verrichtet.",
+        "explanation_tr": "An-Nisa 4:103 erklärt, dass das Gebet für Gläubige zu bestimmten Zeiten vorgeschrieben ist.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-008": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Yatsı namazının farzı iki rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde yatsı namazının farzı dört rekâttır.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Yanlış",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Das nächtliche Pflichtgebet hat zwei Rakʿa.",
+        "explanation_tr": "Das Gebetshandbuch der Diyanet nennt vier Rakʿa für das nächtliche Pflichtgebet.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Falsch",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-009": {
+      "source": {
+        "question_tr": "Doğru mu, yanlış mı? Ezan, namaz vaktini ve namaza çağrıyı duyurur.",
+        "explanation_tr": "Ezan namaz vaktini ve topluluğu namaza çağırmayı ifade eder.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Doğru",
+          "Yanlış"
+        ],
+        "correct_answer": "Doğru",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Richtig oder falsch? Der Adhan gibt die Gebetszeit bekannt und ruft zum Gebet.",
+        "explanation_tr": "Der Adhan gibt die Gebetszeit bekannt und ruft die Gemeinschaft zum Gebet.",
+        "activity_type": "true_false",
+        "options_tr": [
+          "Richtig",
+          "Falsch"
+        ],
+        "correct_answer": "Richtig",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-010": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Öğle namazının farzı ___ rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde öğle namazının farzı dört rekâttır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "dört",
+          "iki"
+        ],
+        "correct_answer": "dört",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Das Mittags-Pflichtgebet hat ______ Rakʿa.",
+        "explanation_tr": "Das Gebetshandbuch der Diyanet nennt vier Rakʿa für das Mittags-Pflichtgebet.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Zeit",
+          "fünf",
+          "vier",
+          "zwei"
+        ],
+        "correct_answer": "vier",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-011": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Beden elbise ve namaz yeri namaza engel ___ temizlenir.",
+        "explanation_tr": "Namaza hazırlıkta necasetten taharet beden elbise ve yer temizliğini kapsar.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "necasetten",
+          "iki"
+        ],
+        "correct_answer": "necasetten",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Körper, Kleidung und Gebetsplatz müssen frei von ______ sein, die das Gebet verhindern.",
+        "explanation_tr": "Zur Reinigung von körperlichen Verunreinigungen vor dem Gebet gehört die Sauberkeit von Körper, Kleidung und Gebetsplatz.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Zeit",
+          "fünf",
+          "körperlichen Verunreinigungen",
+          "zwei"
+        ],
+        "correct_answer": "körperlichen Verunreinigungen",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-012": {
+      "source": {
+        "question_tr": "Boşluğu tamamla: Farz namazın belirlenmiş ___ vardır.",
+        "explanation_tr": "Nisâ 4:103 namazın müminler üzerine vakitleri belirlenmiş bir görev olduğunu bildirir.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "beş",
+          "iki",
+          "vakti",
+          "dört"
+        ],
+        "correct_answer": "vakti",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze: Das Pflichtgebet hat eine vorgeschriebene ______.",
+        "explanation_tr": "An-Nisa 4:103 erklärt, dass das Gebet für Gläubige zu bestimmten Zeiten vorgeschrieben ist.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "fünf",
+          "zwei",
+          "Zeit",
+          "vier"
+        ],
+        "correct_answer": "Zeit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-013": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Yatsı namazının farzı ___ rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde yatsı namazının farzı dört rekâttır.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "dört",
+          "iki"
+        ],
+        "correct_answer": "dört",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff fehlt? Das nächtliche Pflichtgebet hat ______ Rakʿa.",
+        "explanation_tr": "Das Gebetshandbuch der Diyanet nennt vier Rakʿa für das nächtliche Pflichtgebet.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Zeit",
+          "fünf",
+          "vier",
+          "zwei"
+        ],
+        "correct_answer": "vier",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S01-014": {
+      "source": {
+        "question_tr": "Eksik kavramı seç: Ezan namaz vaktini ve namaza ___ duyurur.",
+        "explanation_tr": "Ezan namaz vaktini ve topluluğu namaza çağırmayı ifade eder.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "çağrıyı",
+          "iki"
+        ],
+        "correct_answer": "çağrıyı",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Begriff fehlt? Der Adhan kündigt die Gebetszeit an und ist ein ______ zum Gebet.",
+        "explanation_tr": "Der Adhan gibt die Gebetszeit bekannt und ruft die Gemeinschaft zum Gebet.",
+        "activity_type": "missing_item",
+        "options_tr": [
+          "Zeit",
+          "fünf",
+          "Aufruf",
+          "zwei"
+        ],
+        "correct_answer": "Aufruf",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet und Gebetszeiten",
+        "topic": "Das rituelle Gebet"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

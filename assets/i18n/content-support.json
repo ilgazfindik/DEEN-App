@@ -124,10 +124,474 @@
     },
     "de": {
       "entry": "complete",
-      "question_data": "missing",
+      "question_data": "complete",
       "bank": null,
       "global_qa": "blocked",
-      "religious_expert_approved": false
+      "religious_expert_approved": false,
+      "gameplay_enabled": true,
+      "scope": "game_questions_and_ui_only",
+      "base_questions": 1500,
+      "live_u01_questions": 84,
+      "stored_runtime_variants": 20,
+      "native_reviewer_approved": false,
+      "parts": [
+        {
+          "path": "./assets/i18n/questions/de/staging/U01-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U01-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U01-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U01-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U01-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U01-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U01-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U02-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U02-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U02-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U02-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U02-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U02-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U02-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U03-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U03-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U03-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U03-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U03-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U03-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U03-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U04-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U04-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U04-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U04-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U04-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U04-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U04-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U05-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U05-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U05-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U05-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U05-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U05-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U05-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U06-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U06-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U06-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U06-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U06-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U06-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U06-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U07-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U07-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U07-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U07-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U07-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U07-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U07-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U08-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U08-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U08-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U08-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U08-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U08-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U08-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U09-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U09-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U09-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U09-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U09-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U09-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U09-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U10-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U10-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U10-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U10-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U10-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U10-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U10-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U11-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U11-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U11-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U11-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U11-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U11-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U11-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U12-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U12-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U12-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U12-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U12-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U12-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U12-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U13-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U13-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U13-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U13-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U13-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U13-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U13-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U14-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U14-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U14-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U14-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U14-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U14-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U14-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U15-S01.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U15-S02.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U15-S03.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U15-S04.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U15-S05.json",
+          "count": 16
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U15-S06.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/staging/U15-S07.json",
+          "count": 14
+        },
+        {
+          "path": "./assets/i18n/questions/de/runtime/staging/U01-S01.live.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/runtime/staging/U01-S02.live.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/runtime/staging/U01-S03.live.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/runtime/staging/U01-S04.live.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/runtime/staging/U01-S05.live.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/runtime/staging/U01-S06.live.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/runtime/staging/U01-S07.live.json",
+          "count": 12
+        },
+        {
+          "path": "./assets/i18n/questions/de/runtime/staging/U01.variants.json",
+          "count": 20
+        },
+        {
+          "path": "./assets/i18n/questions/de/runtime/staging/U01.legacy-renderer.json",
+          "count": 100
+        }
+      ]
     },
     "es": {
       "entry": "complete",

@@ -92,7 +92,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   await page.locator('#v998Onboarding .v998-primary').click();assert.equal(await page.locator('#v998Onboarding [data-animal]').count(),6);await page.locator('#v998Onboarding [data-animal="cat"]').click();await capture(3);
   await page.locator('#v998Onboarding .v998-primary').click();await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.minutes(15)"]').click();await capture(4);
   await page.locator('#v998Onboarding .v998-primary').click();await capture(5);await page.locator('#v998Onboarding .v998-primary').click();
-  if(['tr','ar','en','fr'].includes(lang)){
+  if(['tr','ar','en','fr','de'].includes(lang)){
    await page.waitForFunction(()=>window.DEEN_BOOT?.isReady()&&state.onboarded);await page.waitForSelector('#v998Onboarding',{state:'detached'});
    const before=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));assert.equal(before.locale,lang);assert.equal(before.profile.companion,'cat');assert.equal(before.minutes,15);
    if(lang==='tr'){
@@ -212,7 +212,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     assert(!fresh.completed.includes('U01-S01'),'Completed stages must reset');
     assert.equal(fresh.onboarded,false,'Onboarding must restart');
    }
-   report.languages[lang]={entry:'PASS Chrome',onboarding:'PASS Chrome',reload:'PASS Chrome',resources:'PASS validated',globalUI:lang==='en'?'English release CI separately verified':lang==='fr'?'French game-only UI smoke; Quran meanings excluded':'NOT fully certified',adminFullReset:lang==='tr'?'PASS language -> account -> welcome':'NOT RUN',screens,errors};
+   report.languages[lang]={entry:'PASS Chrome',onboarding:'PASS Chrome',reload:'PASS Chrome',resources:'PASS validated',globalUI:lang==='en'?'English release CI separately verified':lang==='fr'?'French game-only UI smoke; Quran meanings excluded':lang==='de'?'German staged game UI smoke; global QA blocked':'NOT fully certified',adminFullReset:lang==='tr'?'PASS language -> account -> welcome':'NOT RUN',screens,errors};
   }else{
    await page.waitForFunction(()=>window.DEEN_BOOT?.status().phase==='blocked');assert.equal(await page.evaluate(()=>state.onboarded),false);assert.equal(await page.locator('html').getAttribute('lang'),lang);
    await page.screenshot({path:path.join(out,'chrome-'+lang+'-blocked.png')});

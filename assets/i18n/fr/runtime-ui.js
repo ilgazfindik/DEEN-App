@@ -63,11 +63,18 @@
   const match=/^([1-9]|[12]\d|3[01]) (Oca|Şub|Mar|Nis|May|Haz|Tem|Ağu|Eyl|Eki|Kas|Ara)$/u.exec(source);
   return match?match[1]+' '+dateMonths[match[2]]:null;
  }
+ // Unit titles are also printed in Turkish upper case ("İSLAM NEDİR?"); reuse the reviewed title-case entry.
+ function upperTitle(value){
+  const core=String(value).trim();
+  if(core.length<4||core!==core.toLocaleUpperCase('tr')||!/[A-ZÇĞİÖŞÜ]{3}/.test(core))return null;
+  const title=core.toLocaleLowerCase('tr').replace(/(^|[\s(])(\p{L})/gu,(_,a,b)=>a+b.toLocaleUpperCase('tr'));
+  return state.table.get(title)?.toLocaleUpperCase('fr')??null;
+ }
  function translate(raw,lang=state.locale){
   const source=String(raw);
   if(lang!=='fr'||!state.ready)return source;
   const lead=source.match(/^\s*/u)?.[0]||'',tail=source.match(/\s*$/u)?.[0]||'',key=source.trim();
-  let text=state.table.get(key);
+  let text=state.table.get(key)??upperTitle(key);
   if(text==null)text=translatedTurkishDate(key);
   if(text==null){
    for(const pattern of state.patterns){
@@ -76,9 +83,10 @@
     const values=found.slice(1);let i=0,unknownTopic=false;
     text=pattern.translation.replace(tokenRe,(_,field)=>{
      const value=values[i++];
-     if(field!=='topic')return value;
+     // {unit} values (unit titles, companion names) use the reviewed table when it has them.
+     if(field!=='topic')return field==='unit'?(state.table.get(value)??upperTitle(value)??value):value;
      // Never leave an unreviewed Turkish unit/stage title inside French text.
-     const mapped=state.table.get(value);
+     const mapped=state.table.get(value)??upperTitle(value);
      if(!mapped){unknownTopic=true;return value;}
      return mapped;
     });
@@ -188,6 +196,18 @@
    dynamicPatterns:state.patterns.length,
    gameplayOnly:true,expertReviewed:false};
  }
+ // Late packs (e.g. the 2026-10 leak audit) only fill gaps; reviewed keys and patterns always win.
+ function extend(translations){
+  if(!state.ready)throw Error('FR_PREVIEW_NOT_READY');
+  let added=0;
+  for(const [key,value] of Object.entries(translations)){
+   if(!key.trim()||typeof value!=='string'||!value.trim())continue;
+   const pattern=template(key,value);
+   if(pattern){if(!state.patterns.some(p=>p.source===key)){state.patterns.push(pattern);added++}}
+   else if(!state.table.has(key)){state.table.set(key,value);added++}
+  }
+  return added;
+ }
  function setLocale(lang,root=window.document?.body){
   if(!['tr','fr'].includes(lang))throw Error('FR_PREVIEW_BAD_LOCALE');
   state.locale=lang;return localize(root,lang);
@@ -266,6 +286,8 @@
   init({staticTranslations:table,dynamicTranslations:packs[19],
    runtimeObservedTranslations:packs[20],quranStaticTranslations:packs[21],
    quranDynamicTranslations:packs[22],p10StaticTranslations:packs[23],p10DynamicTranslations:packs[24]});
+  try{extend(await fetchPack('ui.leak-audit-2026-10.staging.json'))}
+  catch(e){console.error('[DEEN French game UI] leak-audit pack',e.message||e)}
   setLocale('fr',document.body);
   let queued=false;
   const observer=new MutationObserver(()=>{

@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "locale": "de",
+  "unit": "U13",
+  "stage": "U13-S05",
+  "source_language": "tr",
+  "status": "staging_not_available_in_runtime",
+  "expert_approved": false,
+  "verified_by_religious_expert": false,
+  "native_reviewer_approved": false,
+  "translations": {
+    "DEEN-U13-S05-001": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: İkindi namazının farzı ___ rekâttır.",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde ikindi namazının farzı dört rekâttır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "dört",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze ohne Hinweis: Das Nachmittags-Pflichtgebet hat ______ Rakʿa.",
+        "explanation_tr": "Das Gebetshandbuch der Diyanet nennt vier Rakʿa für das Nachmittags-Pflichtgebet.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "vier",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-002": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Namazda örtülmesi gereken yerlerin ___ gerekir.",
+        "explanation_tr": "Setr-i avret namazın hazırlık şartlarındandır ayrıntı sınırları fıkıh bağlamında değerlendirilir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "örtülmesi",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze ohne Hinweis: Beim Gebet müssen die vorgeschriebenen Körperteile ______ sein.",
+        "explanation_tr": "Die Bedeckung der vorgeschriebenen Körperteile ist eine Gebetsvoraussetzung; die genauen Grenzen werden im islamischen Recht behandelt.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "bedeckt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-003": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Günlük farz namazlar ___ vakittir.",
+        "explanation_tr": "Namaz ilmihali günlük farz namazları sabah öğle ikindi akşam ve yatsı olarak ele alır.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "beş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze ohne Hinweis: Die täglichen Pflichtgebete werden zu ______ vorgeschriebenen Zeiten verrichtet.",
+        "explanation_tr": "Das Gebetshandbuch nennt Morgen-, Mittags-, Nachmittags-, Abend- und Nachtgebet.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "fünf",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-004": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Namazda ___ yönüne dönülür.",
+        "explanation_tr": "Namazda kıble Mekke'deki Kâbe yönüdür.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kâbe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze ohne Hinweis: Beim Gebet wendet man sich zur ______.",
+        "explanation_tr": "Die Gebetsrichtung (Qibla) zeigt zur Kaaba in Mekka.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Kaaba",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-005": {
+      "source": {
+        "question_tr": "İpucu olmadan tamamla: Su kullanılamadığında namaza hükmî temizlik için ___ yapılabilir.",
+        "explanation_tr": "Kur'an 5:6 ve Diyanet açıklamaları su bulunmadığında veya kullanılamadığında teyemmüm ruhsatını bildirir.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "teyemmüm",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ergänze ohne Hinweis: Wenn Wasser nicht benutzt werden kann, ist für die rituelle Reinigung vor dem Gebet gegebenenfalls ______ erlaubt.",
+        "explanation_tr": "Al-Maida 5:6 und die Diyanet erläutern, dass Tayammum zulässig ist, wenn Wasser nicht verfügbar oder verwendbar ist und seine Bedingungen erfüllt sind.",
+        "activity_type": "progressive_recall",
+        "options_tr": null,
+        "correct_answer": "Tayammum",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-006": {
+      "source": {
+        "question_tr": "İkindi namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde ikindi namazının farzı dört rekâttır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "6 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie viele Rakʿa hat das Nachmittags-Pflichtgebet?",
+        "explanation_tr": "Das Gebetshandbuch der Diyanet nennt vier Rakʿa für das Nachmittags-Pflichtgebet.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "2 Rakʿa",
+          "3 Rakʿa",
+          "4 Rakʿa",
+          "6 Rakʿa"
+        ],
+        "correct_answer": "4 Rakʿa",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-007": {
+      "source": {
+        "question_tr": "Bir öğrenci “Namazda örtünmenin hiçbir şart niteliği yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
+        "explanation_tr": "Setr-i avret namazın hazırlık şartlarındandır ayrıntı sınırları fıkıh bağlamında değerlendirilir.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Örtünmenin namazla ilgisi yoktur",
+          "Bütün mezhepler ayrıntıları tamamen aynı sınıflandırır",
+          "Namazda örtülmesi gereken yerlerin örtülmesi temel şarttır; ayrıntılar mezheplere göre ele alınabilir",
+          "Sadece kıyafet rengi önemlidir"
+        ],
+        "correct_answer": "Namazda örtülmesi gereken yerlerin örtülmesi temel şarttır; ayrıntılar mezheplere göre ele alınabilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Schüler sagt: „Die Bedeckung des Körpers ist keine Gebetsvoraussetzung.“ Was ist richtig?",
+        "explanation_tr": "Die Bedeckung der vorgeschriebenen Körperteile ist eine Gebetsvoraussetzung; die genauen Grenzen werden im islamischen Recht behandelt.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Die Bedeckung hat keinen Bezug zum Gebet",
+          "Alle Rechtsschulen regeln jede Einzelheit genau gleich",
+          "Die vorgeschriebenen Körperteile müssen bedeckt sein; Einzelheiten werden je nach Rechtsschule beurteilt",
+          "Nur die Farbe der Kleidung ist wichtig"
+        ],
+        "correct_answer": "Die vorgeschriebenen Körperteile müssen bedeckt sein; Einzelheiten werden je nach Rechtsschule beurteilt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-008": {
+      "source": {
+        "question_tr": "Beş vakit konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+        "explanation_tr": "Namaz ilmihali günlük farz namazları sabah öğle ikindi akşam ve yatsı olarak ele alır.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "İki vakit",
+          "Üç vakit",
+          "Beş vakit",
+          "Yedi vakit"
+        ],
+        "correct_answer": "Beş vakit",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welcher Grundsatz über die fünf täglichen Gebete ist richtig?",
+        "explanation_tr": "Das Gebetshandbuch nennt Morgen-, Mittags-, Nachmittags-, Abend- und Nachtgebet.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Zwei tägliche Gebete",
+          "Drei tägliche Gebete",
+          "Fünf tägliche Gebete",
+          "Sieben tägliche Gebete"
+        ],
+        "correct_answer": "Fünf tägliche Gebete",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-009": {
+      "source": {
+        "question_tr": "Bir arkadaşın Kıble hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "explanation_tr": "Namazda kıble Mekke'deki Kâbe yönüdür.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Mescid-i Nebevî'nin minaresi",
+          "Herhangi bir dağ",
+          "Kâbe",
+          "Kişinin evi"
+        ],
+        "correct_answer": "Kâbe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Ein Freund fragt nach der Gebetsrichtung. Was sagst du?",
+        "explanation_tr": "Die Gebetsrichtung (Qibla) zeigt zur Kaaba in Mekka.",
+        "activity_type": "scenario",
+        "options_tr": [
+          "Das Minarett der Prophetenmoschee",
+          "Ein beliebiger Berg",
+          "Die Kaaba",
+          "Das eigene Zuhause"
+        ],
+        "correct_answer": "Die Kaaba",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-010": {
+      "source": {
+        "question_tr": "“Su kullanılamadığında namaza hükmî temizlik için hiçbir alternatif yoktur.” ifadesindeki hatayı hangi seçenek düzeltir?",
+        "explanation_tr": "Kur'an 5:6 ve Diyanet açıklamaları su bulunmadığında veya kullanılamadığında teyemmüm ruhsatını bildirir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Namazı her durumda tamamen terk ederek",
+          "Sadece kıyafet değiştirerek",
+          "Şartları varsa teyemmümle",
+          "Rekât sayısını azaltarak"
+        ],
+        "correct_answer": "Şartları varsa teyemmümle",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie korrigierst du: „Ohne verwendbares Wasser gibt es keine Alternative zur rituellen Reinigung vor dem Gebet“?",
+        "explanation_tr": "Al-Maida 5:6 und die Diyanet erläutern, dass Tayammum zulässig ist, wenn Wasser nicht verfügbar oder verwendbar ist und seine Bedingungen erfüllt sind.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "In jedem Fall ganz auf das Gebet verzichten",
+          "Nur die Kleidung wechseln",
+          "Tayammum durchführen, wenn seine Voraussetzungen erfüllt sind",
+          "Die Anzahl der Rakʿa verringern"
+        ],
+        "correct_answer": "Tayammum durchführen, wenn seine Voraussetzungen erfüllt sind",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-011": {
+      "source": {
+        "question_tr": "“İkindi namazının farzı üç rekâttır.” ifadesindeki temel hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde ikindi namazının farzı dört rekâttır.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "6 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie korrigierst du: „Das Nachmittags-Pflichtgebet hat drei Rakʿa“?",
+        "explanation_tr": "Das Gebetshandbuch der Diyanet nennt vier Rakʿa für das Nachmittags-Pflichtgebet.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "2 Rakʿa",
+          "3 Rakʿa",
+          "4 Rakʿa",
+          "6 Rakʿa"
+        ],
+        "correct_answer": "4 Rakʿa",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-012": {
+      "source": {
+        "question_tr": "“Namazda örtünmenin hiçbir şart niteliği yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?",
+        "explanation_tr": "Setr-i avret namazın hazırlık şartlarındandır ayrıntı sınırları fıkıh bağlamında değerlendirilir.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Örtünmenin namazla ilgisi yoktur",
+          "Bütün mezhepler ayrıntıları tamamen aynı sınıflandırır",
+          "Namazda örtülmesi gereken yerlerin örtülmesi temel şarttır; ayrıntılar mezheplere göre ele alınabilir",
+          "Sadece kıyafet rengi önemlidir"
+        ],
+        "correct_answer": "Namazda örtülmesi gereken yerlerin örtülmesi temel şarttır; ayrıntılar mezheplere göre ele alınabilir",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Welche Aussage korrigiert: „Die Bedeckung des Körpers ist keine Gebetsvoraussetzung“?",
+        "explanation_tr": "Die Bedeckung der vorgeschriebenen Körperteile ist eine Gebetsvoraussetzung; die genauen Grenzen werden im islamischen Recht behandelt.",
+        "activity_type": "error_spotting",
+        "options_tr": [
+          "Die Bedeckung hat keinen Bezug zum Gebet",
+          "Alle Rechtsschulen regeln jede Einzelheit genau gleich",
+          "Die vorgeschriebenen Körperteile müssen bedeckt sein; Einzelheiten werden je nach Rechtsschule beurteilt",
+          "Nur die Farbe der Kleidung ist wichtig"
+        ],
+        "correct_answer": "Die vorgeschriebenen Körperteile müssen bedeckt sein; Einzelheiten werden je nach Rechtsschule beurteilt",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-013": {
+      "source": {
+        "question_tr": "Aktif hatırlama: boşluğu tamamla: Günlük farz namazlar ___ vakittir.",
+        "explanation_tr": "Namaz ilmihali günlük farz namazları sabah öğle ikindi akşam ve yatsı olarak ele alır.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "iki",
+          "beş",
+          "dört"
+        ],
+        "correct_answer": "beş",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Aktives Erinnern: Ergänze: Die Pflichtgebete werden zu ______ vorgeschriebenen Zeiten verrichtet.",
+        "explanation_tr": "Das Gebetshandbuch nennt Morgen-, Mittags-, Nachmittags-, Abend- und Nachtgebet.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Zeit",
+          "zwei",
+          "fünf",
+          "vier"
+        ],
+        "correct_answer": "fünf",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-014": {
+      "source": {
+        "question_tr": "Aktif hatırlama: boşluğu tamamla: Namazda ___ yönüne dönülür.",
+        "explanation_tr": "Namazda kıble Mekke'deki Kâbe yönüdür.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "vakti",
+          "beş",
+          "Kâbe",
+          "iki"
+        ],
+        "correct_answer": "Kâbe",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Aktives Erinnern: Ergänze: Beim Gebet wendet man sich zur ______.",
+        "explanation_tr": "Die Gebetsrichtung (Qibla) zeigt zur Kaaba in Mekka.",
+        "activity_type": "fill_blank",
+        "options_tr": [
+          "Zeit",
+          "fünf",
+          "Kaaba",
+          "zwei"
+        ],
+        "correct_answer": "Kaaba",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-015": {
+      "source": {
+        "question_tr": "Su bulunmadığında veya kullanılamadığında namaza hazırlık nasıl sürdürülebilir?",
+        "explanation_tr": "Kur'an 5:6 ve Diyanet açıklamaları su bulunmadığında veya kullanılamadığında teyemmüm ruhsatını bildirir.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "Namazı her durumda tamamen terk ederek",
+          "Sadece kıyafet değiştirerek",
+          "Şartları varsa teyemmümle",
+          "Rekât sayısını azaltarak"
+        ],
+        "correct_answer": "Şartları varsa teyemmümle",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie kann man sich auf das Gebet vorbereiten, wenn Wasser fehlt oder nicht verwendet werden kann?",
+        "explanation_tr": "Al-Maida 5:6 und die Diyanet erläutern, dass Tayammum zulässig ist, wenn Wasser nicht verfügbar oder verwendbar ist und seine Bedingungen erfüllt sind.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "In jedem Fall ganz auf das Gebet verzichten",
+          "Nur die Kleidung wechseln",
+          "Tayammum durchführen, wenn seine Voraussetzungen erfüllt sind",
+          "Die Anzahl der Rakʿa verringern"
+        ],
+        "correct_answer": "Tayammum durchführen, wenn seine Voraussetzungen erfüllt sind",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    },
+    "DEEN-U13-S05-016": {
+      "source": {
+        "question_tr": "İkindi namazının farzı kaç rekâttır?",
+        "explanation_tr": "Diyanet Namaz İlmihali'nde ikindi namazının farzı dört rekâttır.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 rekât",
+          "3 rekât",
+          "4 rekât",
+          "6 rekât"
+        ],
+        "correct_answer": "4 rekât",
+        "pairs": null,
+        "items": null,
+        "correct_order": null
+      },
+      "display": {
+        "question_tr": "Wie viele Rakʿa hat das Nachmittags-Pflichtgebet?",
+        "explanation_tr": "Das Gebetshandbuch der Diyanet nennt vier Rakʿa für das Nachmittags-Pflichtgebet.",
+        "activity_type": "multiple_choice",
+        "options_tr": [
+          "2 Rakʿa",
+          "3 Rakʿa",
+          "4 Rakʿa",
+          "6 Rakʿa"
+        ],
+        "correct_answer": "4 Rakʿa",
+        "pairs": null,
+        "items": null,
+        "correct_order": null,
+        "stage_title": "Gebet: Anwendung und Wiederholung",
+        "topic": "Rakʿa, Qibla und Gebetsvorbereitung"
+      },
+      "expert_approved": false,
+      "native_reviewer_approved": false,
+      "status": "translated_model_reviewed_requires_native_and_religious_review"
+    }
+  }
+}

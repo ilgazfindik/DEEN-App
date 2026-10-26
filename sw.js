@@ -27,10 +27,12 @@ async function prepare(){
  if(!Array.isArray(segments)||segments.length!==67||Object.keys(assets).length<30)throw Error('Offline manifest invalid');
  const core=[
   ...segments.map((expected,i)=>({path:'./release/v9.9.3-direct/segment-'+String(i).padStart(2,'0')+'.txt',expected})),
-  ...Object.entries(assets).map(([name,expected])=>({path:'./assets/i18n/'+name,expected}))
+  // Same path rule as the loader: names with a folder (design/…) live under assets/.
+  ...Object.entries(assets).map(([name,expected])=>({path:'./assets/'+(name.includes('/')?name:'i18n/'+name),expected}))
  ];
  const optional=[
   './assets/i18n/fr/runtime-ui.js',
+  './assets/i18n/de/runtime-ui.js',
   './assets/i18n/questions.ar.draft.json',
   './assets/companions/manifest.json',
   './assets/badges/deen-badges-atlas.webp',

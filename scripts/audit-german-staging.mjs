@@ -29,9 +29,16 @@ const blankCount=s=>(String(s||'').match(/_{2,}|\[\s*\]|\{blank\}/g)||[]).length
 const types={},issues=[],ids=new Set();
 let translated=0;
 assert.equal(source.size,1500);
-assert.equal(manifest.languages.de.question_data,'missing','German must not launch with partial packs');
-assert.equal(manifest.languages.de.global_qa,'blocked','German must remain blocked');
-assert(!manifest.languages.de.bank&&!manifest.languages.de.parts?.length,'No incomplete German parts in manifest');
+// German ships like French: a playable but unapproved draft. Every approval stays false and the
+// manifest must list the complete 114-pack bank (never a partial one).
+const de=manifest.languages.de;
+assert.equal(de.question_data,'complete','German may only launch with the complete pack set');
+assert.equal(de.global_qa,'blocked','German global QA remains blocked');
+assert.equal(de.gameplay_enabled,true,'German gameplay gate must be explicit');
+assert.equal(de.scope,'game_questions_and_ui_only','German scope excludes Quran meanings');
+for(const key of ['religious_expert_approved','native_reviewer_approved'])assert.equal(de[key],false,'German '+key+' must stay false');
+assert(!de.bank&&de.parts?.length===114,'German manifest must list all 114 packs');
+assert.equal(de.parts.reduce((n,p)=>n+p.count,0),1704,'German manifest must cover 1704 question versions');
 for(const {unit,stage,count} of stages){
  const pack=read('assets/i18n/questions/de/staging/'+unit+'-'+stage+'.json');
  for(const [key,expected] of Object.entries({schema_version:1,locale:'de',unit,stage:unit+'-'+stage,status:'staging_not_available_in_runtime',expert_approved:false,verified_by_religious_expert:false,native_reviewer_approved:false}))assert.equal(pack[key],expected,'pack:'+unit+'-'+stage+':'+key);
