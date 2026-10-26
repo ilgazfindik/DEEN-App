@@ -116,11 +116,12 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
   assert.equal(actual.snapshot.rewards[0].earned,false);
   assert.equal(actual.awards,null,'A single day never awards 2-day badge');
   // Populate one other genuine-style dated session within current week, never beyond today.
-  await page.evaluate(()=>{
+  // On a Monday the current week has no earlier day, so only one active day is possible.
+  const hasPrior=await page.evaluate(()=>{
    const W=DEEN_ARABIC_WEEKLY,G=DEEN_ARABIC_WEEKLY_GOALS;
    const range=G.span(),today=W.dayKey();
    const prior=range.days.filter(d=>d<today).at(-1);
-   if(!prior)return;
+   if(!prior){DEEN_QURAN_PATHS.enterArabic();return false}
    const record=JSON.parse(localStorage.getItem('deen_arabic_weekly_activity_v1'));
    const next=W.record(record,'review','older-correct-card',new Date(
     Number(prior.slice(0,4)),Number(prior.slice(5,7))-1,Number(prior.slice(8,10)),12));
@@ -131,11 +132,12 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
    }));
    localStorage.setItem('deen_arabic_weekly_badges_v1',JSON.stringify(earned));
    DEEN_QURAN_PATHS.enterArabic();
+   return true;
   });
   await page.locator('[data-qpath-action="weekly"]').click();
-  assert.equal(await page.locator('.deen-path-goal-reward.is-earned').count(),1);
-  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().weeklyGoals.current.activeDays),2);
-  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().weeklyBadges.weeks[DEEN_ARABIC_WEEKLY_GOALS.span().key].length),1);
+  assert.equal(await page.locator('.deen-path-goal-reward.is-earned').count(),hasPrior?1:0);
+  assert.equal(await page.evaluate(()=>DEEN_QURAN_PATHS.status().weeklyGoals.current.activeDays),hasPrior?2:1);
+  assert.equal(await page.evaluate(()=>(DEEN_QURAN_PATHS.status().weeklyBadges.weeks[DEEN_ARABIC_WEEKLY_GOALS.span().key]||[]).length),hasPrior?1:0);
   const oldKeys=await page.evaluate(()=>Object.fromEntries(
    ['deen_arabic_foundations_v2','deen_arabic_harakat_v1','deen_arabic_patterns_v1',
     'deen_arabic_listening_v1'].map(k=>[k,localStorage.getItem(k)])));
