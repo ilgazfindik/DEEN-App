@@ -1,0 +1,171 @@
+/* Review tab on the design system — phases R1–R6. Everything is scoped under
+   #reviewScreenBody .dsr so the legacy review layers cannot reach it, and it never
+   goes below --ds-fs-xs. Logical properties keep the layout correct in RTL. */
+html body #reviewScreenBody.dsr-host>.v940-spaced-panel{display:none!important}
+html body #reviewScreenBody .dsr{
+ --dsr-gold:#e9cf93;--dsr-gold-2:#d4ad62;--dsr-gold-ink:#2b1f08;
+ --dsr-mint:#3fd7ad;--dsr-sky:#7cc8f2;--dsr-coral:#f39b8f;--dsr-amber:#f2c46b;
+ font-family:var(--ds-font);color:var(--ds-text);display:flex;flex-direction:column;gap:var(--ds-space-4);
+ padding-block-end:var(--ds-space-6);text-align:start;
+}
+html[lang="ar"] body #reviewScreenBody .dsr{font-family:var(--ds-font-ar)}
+html body #reviewScreenBody .dsr *{box-sizing:border-box}
+html body #reviewScreenBody .dsr .dsr-ico{width:20px;height:20px;flex:none}
+html[dir="rtl"] body #reviewScreenBody .dsr .dsr-flip{transform:scaleX(-1)}
+
+/* R1 — hero */
+html body #reviewScreenBody .dsr-hero{position:relative;padding-block:var(--ds-space-2) 0}
+html body #reviewScreenBody .dsr-eyebrow{display:block;text-align:start;font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold);letter-spacing:.18em;color:var(--dsr-gold)}
+html body #reviewScreenBody .dsr-hero h1{margin:var(--ds-space-2) 0 var(--ds-space-2);font-size:28px;line-height:1.15;font-weight:var(--ds-fw-bold);letter-spacing:-.01em;color:var(--ds-text);max-width:22ch}
+html body #reviewScreenBody .dsr-hero h1 em{font-style:normal;background:linear-gradient(90deg,#f6dfa6,#e0b35f);-webkit-background-clip:text;background-clip:text;color:transparent}
+html body #reviewScreenBody .dsr-hero p{margin:0;font-size:var(--ds-fs-sm);line-height:var(--ds-lh-body);color:var(--ds-text-muted);max-width:34ch}
+
+/* The global mobile admin shortcut sits at the top inline-start corner in RTL. */
+html[dir="rtl"] body #reviewScreenBody .dsr-hero .dsr-eyebrow{margin-inline-start:56px}
+
+/* R1 — memory plan card */
+html body #reviewScreenBody .dsr-plan{position:relative;overflow:hidden;border-radius:var(--ds-radius-lg);padding:var(--ds-space-4);
+ background:radial-gradient(120% 80% at 100% 0%,rgba(233,207,147,.12),transparent 55%),linear-gradient(180deg,#12303a,#0d242d);
+ border:1px solid rgba(233,207,147,.32);box-shadow:var(--ds-shadow-2),0 0 0 1px rgba(63,215,173,.05) inset;
+ animation:dsrIn .35s var(--ds-ease) both}
+html body #reviewScreenBody .dsr-plan-head{display:flex;align-items:center;justify-content:space-between;gap:var(--ds-space-2)}
+html body #reviewScreenBody .dsr-plan-eyebrow{display:inline-flex;align-items:center;gap:var(--ds-space-2);font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold);letter-spacing:.14em;color:var(--dsr-gold)}
+html body #reviewScreenBody .dsr-plan-eyebrow .dsr-ico{color:var(--dsr-mint)}
+html body #reviewScreenBody .dsr-live{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--ds-radius-pill);border:1px solid rgba(63,215,173,.45);background:rgba(63,215,173,.1);font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-semibold);color:var(--ds-success)}
+html body #reviewScreenBody .dsr-live i{width:7px;height:7px;border-radius:50%;background:var(--dsr-mint);box-shadow:0 0 0 0 rgba(63,215,173,.6);animation:dsrPulse 2s infinite}
+html body #reviewScreenBody .dsr-plan-main{display:flex;align-items:center;justify-content:space-between;gap:var(--ds-space-3);margin-block:var(--ds-space-3)}
+html body #reviewScreenBody .dsr-plan-main h2{margin:0 0 var(--ds-space-1);font-size:var(--ds-fs-xl);line-height:var(--ds-lh-tight);font-weight:var(--ds-fw-bold);color:var(--ds-text)}
+html body #reviewScreenBody .dsr-plan-main p{margin:0;font-size:var(--ds-fs-sm);line-height:var(--ds-lh-body);color:var(--ds-text-muted)}
+html body #reviewScreenBody .dsr-ring{position:relative;flex:none;width:108px;height:108px;display:grid;place-items:center}
+html body #reviewScreenBody .dsr-ring-svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+html[dir="rtl"] body #reviewScreenBody .dsr-ring-svg{transform:rotate(-90deg) scaleY(-1)}
+html body #reviewScreenBody .dsr-ring-track{fill:rgba(4,22,28,.55);stroke:rgba(255,255,255,.08);stroke-width:7}
+html body #reviewScreenBody .dsr-ring-fill{fill:none;stroke:var(--dsr-mint);stroke-width:7;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(63,215,173,.45));transition:stroke-dashoffset .9s var(--ds-ease)}
+html body #reviewScreenBody .dsr-ring>span{position:relative;display:flex;flex-direction:column;align-items:center;line-height:1}
+html body #reviewScreenBody .dsr-ring b{font-size:30px;font-weight:var(--ds-fw-bold);color:var(--ds-success)}
+html body #reviewScreenBody .dsr-ring small{margin-top:4px;max-width:78px;font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-semibold);letter-spacing:.02em;text-align:center;line-height:1.1;color:var(--ds-text-muted)}
+html body #reviewScreenBody .dsr-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ds-space-2)}
+html body #reviewScreenBody .dsr-stat{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;padding:var(--ds-space-3) var(--ds-space-1);border-radius:var(--ds-radius-md);background:rgba(4,22,28,.45);border:1px solid var(--ds-border);text-align:center}
+html body #reviewScreenBody .dsr-stat b{font-size:var(--ds-fs-lg);font-weight:var(--ds-fw-bold);color:var(--ds-text);line-height:1.1}
+html body #reviewScreenBody .dsr-stat small{font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-semibold);line-height:1.2;color:var(--ds-text-muted);overflow-wrap:anywhere;hyphens:auto}
+html body #reviewScreenBody .dsr-stat .dsr-bar{margin-top:2px;width:70%}
+html body #reviewScreenBody .sky{--tone:var(--dsr-sky)}
+html body #reviewScreenBody .coral{--tone:var(--dsr-coral)}
+html body #reviewScreenBody .amber{--tone:var(--dsr-amber)}
+html body #reviewScreenBody .mint{--tone:var(--dsr-mint)}
+html body #reviewScreenBody .dsr-stat .dsr-ico{color:var(--tone)}
+html body #reviewScreenBody .dsr-bar{display:block;height:5px;border-radius:var(--ds-radius-pill);background:rgba(255,255,255,.08);overflow:hidden}
+html body #reviewScreenBody .dsr-bar i{display:block;height:100%;border-radius:inherit;background:var(--tone,var(--dsr-mint))}
+html body #reviewScreenBody .dsr-bar.weak{--tone:var(--dsr-coral)}
+html body #reviewScreenBody .dsr-bar.developing{--tone:var(--dsr-amber)}
+html body #reviewScreenBody .dsr-bar.steady{--tone:var(--dsr-mint)}
+html body #reviewScreenBody .dsr-chips{display:flex;flex-wrap:wrap;gap:var(--ds-space-2);margin-block-start:var(--ds-space-3)}
+html body #reviewScreenBody .dsr-chip{display:inline-flex;align-items:center;gap:6px;max-width:100%;padding:6px 10px;border-radius:var(--ds-radius-pill);border:1px solid var(--ds-border-strong);background:rgba(4,22,28,.4);font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-semibold);color:var(--ds-text)}
+html body #reviewScreenBody .dsr-chip .dsr-data{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+html body #reviewScreenBody .dsr-chip em{font-style:normal;font-weight:var(--ds-fw-bold);color:var(--dsr-mint)}
+html body #reviewScreenBody .dsr-chip.weak em{color:var(--dsr-coral)}
+html body #reviewScreenBody .dsr-chip.developing em{color:var(--dsr-amber)}
+
+/* R1 — primary call to action */
+html body #reviewScreenBody .dsr-cta{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:var(--ds-space-3);width:100%;min-height:64px;margin-block-start:var(--ds-space-4);padding:var(--ds-space-3) var(--ds-space-4);border-radius:var(--ds-radius-lg);cursor:pointer;
+ background:linear-gradient(180deg,#f7e2ad 0%,var(--dsr-gold) 45%,var(--dsr-gold-2) 100%);color:var(--dsr-gold-ink);
+ box-shadow:0 10px 28px rgba(212,173,98,.28),0 1px 0 rgba(255,255,255,.6) inset,0 -2px 0 rgba(120,80,20,.25) inset;transition:transform .15s var(--ds-ease),box-shadow .15s var(--ds-ease)}
+html body #reviewScreenBody .dsr-cta:hover{box-shadow:0 14px 34px rgba(212,173,98,.38),0 1px 0 rgba(255,255,255,.6) inset,0 -2px 0 rgba(120,80,20,.25) inset}
+html body #reviewScreenBody .dsr-cta:active{transform:translateY(1px) scale(.99)}
+html body #reviewScreenBody .dsr-cta:focus-visible,html body #reviewScreenBody .dsr button:focus-visible{outline:3px solid var(--ds-focus);outline-offset:3px}
+html body #reviewScreenBody .dsr-cta-play{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;background:rgba(43,31,8,.1);border:1.5px solid rgba(43,31,8,.55)}
+html body #reviewScreenBody .dsr-cta-play .dsr-ico{width:18px;height:18px;stroke:none}
+html body #reviewScreenBody .dsr-cta-text{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+html body #reviewScreenBody .dsr-cta-text b{font-size:17px;font-weight:var(--ds-fw-bold);letter-spacing:0;line-height:1.2}
+html body #reviewScreenBody .dsr-cta-text small{display:inline-flex;align-items:center;gap:6px;font-size:var(--ds-fs-sm);font-weight:var(--ds-fw-semibold);opacity:.85}
+html body #reviewScreenBody .dsr-cta-text small .dsr-ico{width:15px;height:15px}
+
+/* R2 — review modes */
+html body #reviewScreenBody .dsr-section{margin:var(--ds-space-2) 0 0;font-size:var(--ds-fs-lg);font-weight:var(--ds-fw-bold);line-height:var(--ds-lh-tight);color:var(--ds-text)}
+html body #reviewScreenBody .dsr-section-row{display:flex;align-items:baseline;justify-content:space-between;gap:var(--ds-space-2);margin-block-start:var(--ds-space-2)}
+html body #reviewScreenBody .dsr-section-row .dsr-section{margin:0}
+html body #reviewScreenBody .dsr-sub{margin:calc(var(--ds-space-2)*-1) 0 0;font-size:var(--ds-fs-sm);color:var(--ds-text-muted)}
+html body #reviewScreenBody .dsr-link{all:unset;cursor:pointer;font-size:var(--ds-fs-sm);font-weight:var(--ds-fw-bold);color:var(--dsr-mint);padding:6px 2px}
+html body #reviewScreenBody .dsr-modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-3)}
+html body #reviewScreenBody .dsr-mode{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:4px;min-width:0;min-height:148px;padding:var(--ds-space-4);border-radius:var(--ds-radius-lg);cursor:pointer;
+ background:linear-gradient(160deg,color-mix(in srgb,var(--tone) 12%,#10282f),#0e242c 70%);border:1px solid color-mix(in srgb,var(--tone) 28%,var(--ds-border));box-shadow:var(--ds-shadow-1);transition:transform .15s var(--ds-ease),border-color .15s var(--ds-ease)}
+html body #reviewScreenBody .dsr-anim .dsr-mode{animation:dsrIn .4s var(--ds-ease) both}
+html body #reviewScreenBody .dsr-mode:nth-child(2){animation-delay:.04s}
+html body #reviewScreenBody .dsr-mode:nth-child(3){animation-delay:.08s}
+html body #reviewScreenBody .dsr-mode:nth-child(4){animation-delay:.12s}
+html body #reviewScreenBody .dsr-mode:hover{border-color:color-mix(in srgb,var(--tone) 55%,var(--ds-border))}
+html body #reviewScreenBody .dsr-mode:active{transform:scale(.98)}
+html body #reviewScreenBody .dsr-mode-top{display:flex;align-items:center;justify-content:space-between;margin-block-end:var(--ds-space-2)}
+html body #reviewScreenBody .dsr-badge{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:color-mix(in srgb,var(--tone,var(--dsr-sky)) 16%,transparent);border:1px solid color-mix(in srgb,var(--tone,var(--dsr-sky)) 45%,transparent);color:var(--tone,var(--dsr-sky));flex:none}
+html body #reviewScreenBody .dsr-chev{width:18px!important;height:18px!important;color:var(--ds-text-faint)}
+html body #reviewScreenBody .dsr-mode b{font-size:var(--ds-fs-md);font-weight:var(--ds-fw-bold);line-height:1.25;color:var(--ds-text)}
+html body #reviewScreenBody .dsr-mode-meta{font-size:var(--ds-fs-sm);font-weight:var(--ds-fw-semibold);color:var(--tone)}
+html body #reviewScreenBody .dsr-mode small{font-size:var(--ds-fs-xs);line-height:1.35;color:var(--ds-text-muted)}
+html body #reviewScreenBody .dsr-mode.is-empty{cursor:default;opacity:.62;filter:saturate(.5);box-shadow:none}
+html body #reviewScreenBody .dsr-mode.is-empty .dsr-mode-meta{color:var(--ds-text-faint)}
+html body #reviewScreenBody .dsr-mode.is-empty .dsr-chev{visibility:hidden}
+
+/* R3 — memory map and units */
+html body #reviewScreenBody .dsr-list{display:flex;flex-direction:column;gap:var(--ds-space-2)}
+html body #reviewScreenBody .dsr-row,html body #reviewScreenBody .dsr-unit{display:flex;flex-direction:column;gap:var(--ds-space-2);padding:var(--ds-space-3) var(--ds-space-4);border-radius:var(--ds-radius-md);background:var(--ds-surface);border:1px solid var(--ds-border)}
+html body #reviewScreenBody .dsr-row-top{display:flex;align-items:baseline;justify-content:space-between;gap:var(--ds-space-3)}
+html body #reviewScreenBody .dsr-row-top b{font-size:var(--ds-fs-md);font-weight:var(--ds-fw-semibold);color:var(--ds-text);min-width:0}
+html body #reviewScreenBody .dsr-row-top strong{font-size:var(--ds-fs-md);font-weight:var(--ds-fw-bold);color:var(--tone,var(--ds-text))}
+html body #reviewScreenBody .dsr-row.weak,html body #reviewScreenBody .dsr-unit .weak{--tone:var(--dsr-coral)}
+html body #reviewScreenBody .dsr-row.developing{--tone:var(--dsr-amber)}
+html body #reviewScreenBody .dsr-row.steady{--tone:var(--dsr-mint)}
+html body #reviewScreenBody .dsr-row small,html body #reviewScreenBody .dsr-unit small{font-size:var(--ds-fs-xs);line-height:1.35;color:var(--ds-text-muted)}
+html body #reviewScreenBody .dsr-unit{all:unset;box-sizing:border-box;display:flex;flex-direction:row;align-items:center;gap:var(--ds-space-3);padding:var(--ds-space-3) var(--ds-space-4);border-radius:var(--ds-radius-md);background:var(--ds-surface);border:1px solid var(--ds-border);cursor:pointer}
+html body #reviewScreenBody .dsr-unit-no{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:50%;background:var(--ds-primary-soft);color:var(--dsr-mint);font-weight:var(--ds-fw-bold);font-size:var(--ds-fs-sm)}
+html body #reviewScreenBody .dsr-unit-body{display:flex;flex-direction:column;gap:var(--ds-space-2);flex:1;min-width:0}
+html body #reviewScreenBody .dsr-unit .dsr-row-top strong{color:var(--dsr-gold)}
+html body #reviewScreenBody .dsr-note{margin:0;padding:var(--ds-space-4);border-radius:var(--ds-radius-md);border:1px dashed var(--ds-border-strong);font-size:var(--ds-fs-sm);line-height:var(--ds-lh-body);color:var(--ds-text-muted)}
+
+/* R4 — spaced review */
+html body #reviewScreenBody .dsr-spaced{--tone:var(--dsr-sky);padding:var(--ds-space-4);border-radius:var(--ds-radius-lg);background:linear-gradient(160deg,rgba(124,200,242,.08),#0e242c 65%);border:1px solid rgba(124,200,242,.25)}
+html body #reviewScreenBody .dsr-spaced-head{display:flex;align-items:flex-start;gap:var(--ds-space-3)}
+html body #reviewScreenBody .dsr-spaced-head>div{flex:1;min-width:0}
+html body #reviewScreenBody .dsr-spaced h2{margin:2px 0 4px;font-size:var(--ds-fs-lg);font-weight:var(--ds-fw-bold);color:var(--ds-text)}
+html body #reviewScreenBody .dsr-spaced p{margin:0;font-size:var(--ds-fs-sm);line-height:var(--ds-lh-body);color:var(--ds-text-muted)}
+html body #reviewScreenBody .dsr-pill{flex:none;padding:4px 10px;border-radius:var(--ds-radius-pill);background:rgba(124,200,242,.14);border:1px solid rgba(124,200,242,.45);font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold);color:var(--dsr-sky)}
+html body #reviewScreenBody .dsr-timeline{display:flex;align-items:center;gap:var(--ds-space-2);margin-block:var(--ds-space-4) var(--ds-space-3)}
+html body #reviewScreenBody .dsr-timeline span{padding:4px 10px;border-radius:var(--ds-radius-pill);background:rgba(255,255,255,.06);font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold);color:var(--ds-text-muted)}
+html body #reviewScreenBody .dsr-timeline span.on{background:rgba(124,200,242,.16);color:var(--dsr-sky)}
+html body #reviewScreenBody .dsr-timeline i{flex:1;height:2px;border-radius:2px;background:repeating-linear-gradient(90deg,rgba(124,200,242,.5) 0 6px,transparent 6px 11px)}
+html body #reviewScreenBody .dsr-sp-list{display:flex;flex-direction:column;gap:var(--ds-space-2)}
+html body #reviewScreenBody .dsr-sp-row{display:flex;align-items:center;gap:var(--ds-space-3);padding:var(--ds-space-2) var(--ds-space-3);border-radius:var(--ds-radius-md);background:rgba(4,22,28,.4)}
+html body #reviewScreenBody .dsr-sp-row b{flex:1;min-width:0;font-size:var(--ds-fs-sm);font-weight:var(--ds-fw-semibold);color:var(--ds-text)}
+html body #reviewScreenBody .dsr-sp-row strong{font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold);color:var(--ds-text-muted)}
+html body #reviewScreenBody .dsr-sp-row.due strong{color:var(--dsr-sky)}
+html body #reviewScreenBody .dsr-sp-day{flex:none;font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold);color:var(--dsr-sky)}
+html body #reviewScreenBody .dsr-secondary{all:unset;box-sizing:border-box;display:block;width:100%;margin-block-start:var(--ds-space-3);padding:14px;border-radius:var(--ds-radius-md);text-align:center;cursor:pointer;background:rgba(124,200,242,.16);border:1px solid rgba(124,200,242,.5);font-size:var(--ds-fs-md);font-weight:var(--ds-fw-bold);letter-spacing:0;color:#d9f0fd}
+html body #reviewScreenBody .dsr-foot{display:block;margin-block-start:var(--ds-space-3);font-size:var(--ds-fs-xs);color:var(--ds-text-faint);text-align:center}
+html body #reviewScreenBody .dsr-disclaimer{margin:var(--ds-space-2) 0 0;font-size:var(--ds-fs-xs);line-height:1.45;color:var(--ds-text-faint)}
+
+/* R5 — first-time state */
+html body #reviewScreenBody .dsr-empty{display:flex;flex-direction:column;align-items:center;text-align:center;padding:var(--ds-space-6) var(--ds-space-4);border-radius:var(--ds-radius-lg);
+ background:radial-gradient(90% 60% at 50% 0%,rgba(233,207,147,.14),transparent 60%),linear-gradient(180deg,#12303a,#0d242d);border:1px solid rgba(233,207,147,.3);box-shadow:var(--ds-shadow-2)}
+html body #reviewScreenBody .dsr-empty-art{position:relative;width:112px;height:112px;margin-block-end:var(--ds-space-3)}
+html body #reviewScreenBody .dsr-empty-glow{position:absolute;inset:8px;border-radius:50%;background:radial-gradient(circle,rgba(63,215,173,.35),transparent 70%);filter:blur(6px)}
+html body #reviewScreenBody .dsr-empty-art img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:50%;border:2px solid rgba(233,207,147,.55)}
+html body #reviewScreenBody .dsr-empty h2{margin:0 0 var(--ds-space-2);font-size:var(--ds-fs-xl);font-weight:var(--ds-fw-bold);line-height:var(--ds-lh-tight);color:var(--ds-text)}
+html body #reviewScreenBody .dsr-empty p{margin:0;font-size:var(--ds-fs-sm);line-height:var(--ds-lh-body);color:var(--ds-text-muted);max-width:32ch}
+html body #reviewScreenBody .dsr-steps{display:flex;justify-content:center;gap:var(--ds-space-2);flex-wrap:wrap;list-style:none;margin:var(--ds-space-4) 0 0;padding:0}
+html body #reviewScreenBody .dsr-steps li{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:var(--ds-radius-pill);background:rgba(4,22,28,.45);border:1px solid var(--ds-border);font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-semibold);color:var(--ds-text)}
+html body #reviewScreenBody .dsr-steps li span{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--dsr-gold);color:var(--dsr-gold-ink);font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold)}
+html body #reviewScreenBody .dsr-empty .dsr-cta{max-width:360px}
+
+/* R6 — small screens and motion */
+@media (max-width:360px){
+ html body #reviewScreenBody .dsr-hero h1{font-size:24px}
+ html body #reviewScreenBody .dsr-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ html body #reviewScreenBody .dsr-ring{width:80px;height:80px}
+ html body #reviewScreenBody .dsr-ring b{font-size:26px}
+ html body #reviewScreenBody .dsr-modes{gap:var(--ds-space-2)}
+ html body #reviewScreenBody .dsr-mode{padding:var(--ds-space-3);min-height:136px}
+}
+@keyframes dsrIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes dsrPulse{0%{box-shadow:0 0 0 0 rgba(63,215,173,.55)}70%{box-shadow:0 0 0 7px rgba(63,215,173,0)}100%{box-shadow:0 0 0 0 rgba(63,215,173,0)}}
+@media (prefers-reduced-motion:reduce){
+ html body #reviewScreenBody .dsr *,html body #reviewScreenBody .dsr{animation:none!important;transition:none!important}
+}

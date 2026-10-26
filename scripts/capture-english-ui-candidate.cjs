@@ -56,9 +56,10 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const reviewScreenText=await page.locator('#reviewScreen').innerText();
  assert(reviewScreenText.includes("Today's memory plan"),"Review header missing");
  assert(/\b\d+ concepts · \d+ energy\b/.test(reviewScreenText),"Review concept/energy card is not fully English");
- assert(/\b\d+ READY\b/.test(reviewScreenText),"Spaced-review ready count must be English");
- assert(/\b\d+ checkpoints? completed\b/.test(reviewScreenText),"Review checkpoints label must be English");
- assert(reviewScreenText.includes('SPACED REVIEW'),"Spaced-review panel missing");
+ // Design-system review (assets/design/review.js): spaced review is a card with a day-1/day-7 timeline.
+ assert(reviewScreenText.includes('Spaced review'),"Spaced-review panel missing");
+ assert(/\bDay 1\b/.test(reviewScreenText)&&/\bDay 7\b/.test(reviewScreenText),"Spaced-review timeline must be English");
+ assert(/\b\d+ ready\b|\bReady\b|\bTomorrow\b|\bIn \d+ days\b|Finish a lesson and your day-1 and day-7 reviews/.test(reviewScreenText),"Spaced-review status must be English");
  assert(!/\b(?:kavram|enerji|HAZIR|tekrar bekliyor)\b/i.test(reviewScreenText)&&!/[ÇĞİÖŞÜçğıöşü]/.test(reviewScreenText),'Turkish review UI residue');
  await page.screenshot({path:path.join(out,'english-review-dashboard.png')});
  const expectedReviewLabels={
