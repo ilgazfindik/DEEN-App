@@ -80,8 +80,10 @@ self.addEventListener('fetch',event=>{
    return await cache.match(base('./index.html'))||
     new Response('Offline assets not ready',{status:503,headers:{'Content-Type':'text/plain'}});
   }
+  // Cache-first only for requests of this exact release; anything else goes to the network
+  // first so a newer loader never receives this release's files.
   const cached=await cache.match(new URL(url.pathname,url.origin).href);
-  if(cached)return cached;
+  if(cached&&url.searchParams.get('v')===version)return cached;
   try{
    const response=await fetch(request);
    if(response.ok&&url.pathname.match(/\.(?:js|css|json|html|txt|svg|png|webp)$/i)){
