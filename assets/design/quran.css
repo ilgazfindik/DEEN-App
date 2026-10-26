@@ -1,0 +1,150 @@
+/* Quran tab on the design system. Restyles the existing views of quran-arabic-paths.js and
+   the surah engine without changing their DOM; on the Arabic path the visual order is set
+   with CSS order (lessons first, practice panels after), so every control stays in place. */
+html body #leagueScreenBody{--dsq-gold:#e9cf93;--dsq-gold-2:#d4ad62;--dsq-mint:#3fd7ad;--dsq-sky:#7cc8f2}
+html body #leagueScreenBody .deen-path-kicker,html body #leagueScreenBody .deen-quran-kicker{font-size:var(--ds-fs-xs)!important;letter-spacing:.18em!important;color:var(--dsq-gold)!important}
+html body #leagueScreenBody .deen-path-top .deen-path-title{font-size:30px!important;line-height:1.15!important;font-weight:var(--ds-fw-bold)!important}
+html body #leagueScreenBody .deen-path-top .deen-path-description{font-size:var(--ds-fs-sm)!important;color:var(--ds-text-muted)!important}
+
+/* Hub — two modern entry cards */
+html body #leagueScreenBody .deen-path-home{display:flex!important;flex-direction:column!important;gap:var(--ds-space-3)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-card{position:relative!important;display:grid!important;grid-template-columns:64px 1fr!important;grid-template-rows:auto auto!important;align-items:center!important;column-gap:var(--ds-space-4)!important;row-gap:var(--ds-space-3)!important;
+ min-height:0!important;padding:var(--ds-space-5) var(--ds-space-4)!important;border-radius:var(--ds-radius-lg)!important;text-align:start!important;box-shadow:var(--ds-shadow-2)!important;overflow:hidden!important;transition:transform .15s var(--ds-ease),border-color .15s var(--ds-ease)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-card:active{transform:scale(.985)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-arabic{background:radial-gradient(120% 90% at 100% 0%,rgba(63,215,173,.2),transparent 55%),linear-gradient(165deg,#123a3f,#0d242c)!important;border:1px solid rgba(63,215,173,.38)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-surah{background:radial-gradient(120% 90% at 100% 0%,rgba(233,207,147,.2),transparent 55%),linear-gradient(165deg,#2d2a1d,#14221f 70%)!important;border:1px solid rgba(233,207,147,.4)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-symbol{grid-row:1/3!important;align-self:start!important;display:grid!important;place-items:center!important;width:64px!important;height:64px!important;border-radius:var(--ds-radius-md)!important;font-size:34px!important;line-height:1!important;background:rgba(4,22,28,.5)!important;border:1px solid rgba(255,255,255,.1)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-arabic .deen-path-symbol{color:var(--dsq-mint)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-surah .deen-path-symbol{color:var(--dsq-gold)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-copy{display:flex!important;flex-direction:column!important;gap:6px!important;padding-inline-end:28px!important;min-width:0!important}
+html body #leagueScreenBody .deen-path-home .deen-path-copy strong{font-size:var(--ds-fs-xl)!important;line-height:1.2!important;font-weight:var(--ds-fw-bold)!important;color:var(--ds-text)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-copy small{font-size:var(--ds-fs-sm)!important;line-height:1.4!important;color:var(--ds-text-muted)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-link{grid-column:2!important;justify-self:start!important;display:inline-flex!important;align-items:center!important;min-height:40px!important;padding:8px 16px!important;border-radius:var(--ds-radius-pill)!important;font-size:var(--ds-fs-sm)!important;font-weight:var(--ds-fw-bold)!important}
+html body #leagueScreenBody .deen-path-home .deen-path-arabic .deen-path-link{background:var(--dsq-mint)!important;color:#04271f!important}
+html body #leagueScreenBody .deen-path-home .deen-path-surah .deen-path-link{background:linear-gradient(180deg,#f7e2ad,var(--dsq-gold-2))!important;color:#2b1f08!important}
+html body #leagueScreenBody .dsq-progress{display:flex;flex-direction:column;gap:6px;margin-block-start:4px}
+html body #leagueScreenBody .dsq-progress-text{font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-semibold);color:var(--ds-text)}
+html body #leagueScreenBody .dsq-bar{display:block;height:6px;border-radius:var(--ds-radius-pill);background:rgba(255,255,255,.1);overflow:hidden}
+html body #leagueScreenBody .dsq-bar i{display:block;height:100%;min-width:4px;border-radius:inherit;background:var(--dsq-mint)}
+html body #leagueScreenBody .dsq-go{position:absolute;inset-block-start:var(--ds-space-4);inset-inline-end:var(--ds-space-4);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);color:var(--ds-text-muted)}
+html body #leagueScreenBody .dsq-go svg{width:18px;height:18px}
+html[dir="rtl"] body #leagueScreenBody .dsq-go svg,html[dir="rtl"] body #leagueScreenBody .dsq-next-cta svg:last-child{transform:scaleX(-1)}
+
+/* Shared path chrome */
+html body #leagueScreenBody .deen-path-view{border-radius:var(--ds-radius-lg)!important}
+html body #leagueScreenBody .deen-path-back{min-height:var(--ds-tap)!important;padding:8px 16px!important;border-radius:var(--ds-radius-pill)!important;font-size:var(--ds-fs-sm)!important;font-weight:var(--ds-fw-bold)!important}
+html body #leagueScreenBody .deen-path-pill{font-size:var(--ds-fs-xs)!important;padding:5px 10px!important}
+html body #leagueScreenBody .deen-path-inner-title{font-size:var(--ds-fs-2xl)!important;line-height:1.15!important;font-weight:var(--ds-fw-bold)!important}
+html body #leagueScreenBody .deen-path-primary{min-height:52px!important;border-radius:var(--ds-radius-lg)!important;font-size:var(--ds-fs-md)!important;font-weight:var(--ds-fw-bold)!important;box-shadow:0 10px 24px rgba(63,215,173,.22)!important}
+html body #leagueScreenBody .deen-path-course-progress{height:8px!important;border-radius:var(--ds-radius-pill)!important}
+html body #leagueScreenBody .deen-path-progress-copy{font-size:var(--ds-fs-sm)!important;font-weight:var(--ds-fw-semibold)!important}
+
+/* Arabic path — order: header, next lesson, plan tiles, lessons, practice panels */
+html body #leagueScreenBody .deen-path-arabic-landing{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:var(--ds-space-3)!important;align-items:start!important}
+html body #leagueScreenBody .deen-path-arabic-landing>*{grid-column:1/-1;order:40;margin:0!important;min-width:0}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-back{order:1;grid-column:1/3;justify-self:start}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-pill{order:1;grid-column:3;justify-self:end;align-self:center}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-inner-title{order:2}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-muted:not(.deen-path-warning){order:3;font-size:var(--ds-fs-sm)!important;line-height:1.45!important;color:var(--ds-text-muted)!important}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-progress-copy{order:4}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-course-progress{order:5;margin-block-start:-6px!important}
+html body #leagueScreenBody .deen-path-arabic-landing>.dsq-next{order:6}
+html body #leagueScreenBody .deen-path-arabic-landing>.dsq-heading-plan{order:7}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-mastery-teaser,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-daily-teaser,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-weekly-link{order:8;grid-column:auto}
+html body #leagueScreenBody .deen-path-arabic-landing>.dsq-heading-lessons{order:9}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-course-grid,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-vowel-section,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-reading-section,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-word-section,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-meaning-section,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-phrase-section,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-pattern-section,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-listening-section{order:10}
+html body #leagueScreenBody .deen-path-arabic-landing>.dsq-heading-practice{order:19}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-first10,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-foundation-review-section,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-checkpoint-section,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-spaced-section{order:20}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-atlas-details{order:30}
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-warning{order:31;font-size:var(--ds-fs-xs)!important}
+html body #leagueScreenBody .dsq-heading{margin:var(--ds-space-3) 0 0!important;font-size:var(--ds-fs-lg);font-weight:var(--ds-fw-bold);line-height:var(--ds-lh-tight);color:var(--ds-text)}
+
+/* Next-lesson card */
+html body #leagueScreenBody .dsq-next{all:unset;grid-column:1/-1;order:6;box-sizing:border-box;display:grid;grid-template-columns:1fr auto;align-items:center;gap:var(--ds-space-2) var(--ds-space-3);padding:var(--ds-space-4);border-radius:var(--ds-radius-lg);cursor:pointer;
+ background:radial-gradient(110% 90% at 100% 0%,rgba(233,207,147,.18),transparent 55%),linear-gradient(170deg,#143a40,#0d242c);border:1px solid rgba(233,207,147,.4);box-shadow:var(--ds-shadow-2)}
+html body #leagueScreenBody .dsq-next:focus-visible{outline:3px solid var(--ds-focus);outline-offset:3px}
+html body #leagueScreenBody .dsq-next-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+html body #leagueScreenBody .dsq-next-eyebrow{font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold);letter-spacing:.16em;color:var(--dsq-gold)}
+html body #leagueScreenBody .dsq-next-title{font-size:var(--ds-fs-xl);font-weight:var(--ds-fw-bold);color:var(--ds-text)}
+html body #leagueScreenBody .dsq-next-foot{font-size:var(--ds-fs-sm);color:var(--ds-text-muted)}
+html body #leagueScreenBody .dsq-next-glyphs{font-family:"Noto Naskh Arabic","Amiri",serif;font-size:36px;line-height:1.2;color:var(--dsq-gold);white-space:nowrap}
+html body #leagueScreenBody .dsq-next-cta{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:var(--ds-space-2);min-height:52px;border-radius:var(--ds-radius-md);font-size:var(--ds-fs-md);font-weight:var(--ds-fw-bold);
+ background:linear-gradient(180deg,#f7e2ad,var(--dsq-gold) 45%,var(--dsq-gold-2));color:#2b1f08;box-shadow:0 8px 22px rgba(212,173,98,.28)}
+html body #leagueScreenBody .dsq-play{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(43,31,8,.55)}
+html body #leagueScreenBody .dsq-play svg{width:14px;height:14px}
+
+/* Plan tiles (mastery, daily, weekly) */
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-mastery-teaser,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-daily-teaser,
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-weekly-link{display:flex!important;flex-direction:column!important;justify-content:center!important;gap:4px!important;min-height:88px!important;height:100%!important;padding:var(--ds-space-3)!important;border-radius:var(--ds-radius-md)!important;text-align:start!important;
+ font-size:var(--ds-fs-sm)!important;font-weight:var(--ds-fw-bold)!important;line-height:1.25!important;color:var(--ds-text)!important;background:linear-gradient(160deg,rgba(124,200,242,.1),#0f262e 70%)!important;border:1px solid rgba(124,200,242,.28)!important;box-shadow:none!important}
+html body #leagueScreenBody .deen-path-mastery-teaser-name,html body #leagueScreenBody .deen-path-daily-teaser-name{font-size:var(--ds-fs-sm)!important;font-weight:var(--ds-fw-bold)!important;color:var(--ds-text)!important}
+html body #leagueScreenBody .deen-path-mastery-teaser-sub,html body #leagueScreenBody .deen-path-daily-teaser-sub{font-size:var(--ds-fs-xs)!important;font-weight:var(--ds-fw-semibold)!important;line-height:1.3!important;color:var(--ds-text-muted)!important}
+
+/* Lessons — two columns, compact cards */
+html body #leagueScreenBody .deen-path-course-grid,
+html body #leagueScreenBody .deen-path-arabic-landing>section[class*="-section"]:not(.deen-path-first10):not(.deen-path-foundation-review-section):not(.deen-path-checkpoint-section):not(.deen-path-spaced-section){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:var(--ds-space-2)!important;padding:var(--ds-space-4)!important;border-radius:var(--ds-radius-lg)!important}
+html body #leagueScreenBody .deen-path-arabic-landing>section[class*="-section"]>:not(.deen-path-course-item){grid-column:1/-1;margin:0!important}
+html body #leagueScreenBody .deen-path-course-grid{padding:0!important;background:none!important;border:0!important}
+html body #leagueScreenBody .deen-path-shape-subtitle{font-size:var(--ds-fs-lg)!important;font-weight:var(--ds-fw-bold)!important;line-height:1.25!important}
+html body #leagueScreenBody .deen-path-course-item{display:flex!important;flex-direction:column!important;gap:6px!important;min-height:0!important;margin:0!important;padding:var(--ds-space-3)!important;border-radius:var(--ds-radius-md)!important;text-align:start!important}
+html body #leagueScreenBody .deen-path-course-item-top{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:4px!important}
+html body #leagueScreenBody .deen-path-course-number{font-size:var(--ds-fs-sm)!important;font-weight:var(--ds-fw-bold)!important;color:var(--ds-text)!important}
+html body #leagueScreenBody .deen-path-course-status{font-size:var(--ds-fs-xs)!important;font-weight:var(--ds-fw-semibold)!important;line-height:1.25!important}
+html body #leagueScreenBody .deen-path-course-glyphs{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;font-size:24px!important;line-height:1.45!important;margin:2px 0!important;align-self:stretch!important;text-align:end!important;white-space:normal!important}
+html body #leagueScreenBody .deen-path-course-item-foot{font-size:var(--ds-fs-xs)!important;line-height:1.3!important;color:var(--ds-text-muted)!important}
+html body #leagueScreenBody .deen-path-course-item:not(.is-locked){border-color:rgba(63,215,173,.45)!important;box-shadow:0 0 0 1px rgba(63,215,173,.12) inset!important}
+html body #leagueScreenBody .deen-path-course-item.is-locked{opacity:.6!important}
+html body #leagueScreenBody .deen-path-course-item.is-locked .deen-path-course-glyphs{color:var(--ds-text-faint)!important}
+
+/* Practice panels */
+html body #leagueScreenBody .deen-path-first10,html body #leagueScreenBody .deen-path-foundation-review-section,html body #leagueScreenBody .deen-path-checkpoint-section,html body #leagueScreenBody .deen-path-spaced-section{padding:var(--ds-space-4)!important;border-radius:var(--ds-radius-lg)!important}
+html body #leagueScreenBody .deen-path-foundation-topics{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:var(--ds-space-2)!important}
+html body #leagueScreenBody .deen-path-foundation-topic{font-size:var(--ds-fs-sm)!important;border-radius:var(--ds-radius-md)!important}
+
+/* Surah area */
+html body #leagueScreenBody .deen-path-surah-return{min-height:0!important;height:auto!important;padding:0 0 var(--ds-space-2)!important;background:none!important;border:0!important;box-shadow:none!important}
+html body #leagueScreenBody .deen-quran-shell{border-radius:var(--ds-radius-lg)!important}
+html body #leagueScreenBody .deen-quran-shell button{min-height:36px}
+
+@media (max-width:360px){
+ html body #leagueScreenBody .deen-path-arabic-landing{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-back{grid-column:1/2}
+ html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-pill{grid-column:2}
+ html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-weekly-link{grid-column:1/-1}
+ html body #leagueScreenBody .deen-path-home .deen-path-card{grid-template-columns:52px 1fr!important}
+ html body #leagueScreenBody .deen-path-home .deen-path-symbol{width:52px!important;height:52px!important;font-size:28px!important}
+}
+@media (prefers-reduced-motion:reduce){html body #leagueScreenBody .deen-path-home .deen-path-card{transition:none!important}}
+
+/* Surah area — same card and button language as the rest of the app */
+html body #leagueScreenBody .deen-quran-shell .deen-quran-title{font-size:30px!important;line-height:1.15!important;font-weight:var(--ds-fw-bold)!important}
+html body #leagueScreenBody .deen-quran-shell h2:not([class]){font-size:var(--ds-fs-lg)!important;font-weight:var(--ds-fw-bold)!important;line-height:1.25!important;color:var(--ds-text)!important}
+html body #leagueScreenBody .deen-qia-nav{gap:var(--ds-space-2)!important;overflow-x:auto!important;scrollbar-width:none!important;padding-block:2px!important}
+html body #leagueScreenBody .deen-qia-nav>button{flex:none!important;min-height:40px!important;padding:8px 12px!important;border-radius:var(--ds-radius-pill)!important;font-size:var(--ds-fs-sm)!important;font-weight:var(--ds-fw-semibold)!important}
+html body #leagueScreenBody .deen-qia-nav>button:is(.active,.is-active,[aria-selected="true"],[aria-current="true"],[aria-pressed="true"]){background:var(--dsq-mint)!important;color:#04271f!important;border-color:transparent!important}
+html body #leagueScreenBody .deen-quran-hero,html body #leagueScreenBody .deen-quran-today-card,html body #leagueScreenBody .deen-qreward-daily,html body #leagueScreenBody .deen-quran-overview{border-radius:var(--ds-radius-lg)!important;box-shadow:var(--ds-shadow-1)!important}
+html body #leagueScreenBody .deen-quran-hero{background:radial-gradient(110% 90% at 100% 0%,rgba(233,207,147,.18),transparent 55%),linear-gradient(170deg,#143a40,#0d242c)!important;border:1px solid rgba(233,207,147,.4)!important}
+html body #leagueScreenBody .deen-quran-primary{min-height:52px!important;border-radius:var(--ds-radius-md)!important;font-size:var(--ds-fs-md)!important;font-weight:var(--ds-fw-bold)!important;letter-spacing:.02em!important;
+ background:linear-gradient(180deg,#f7e2ad,var(--dsq-gold) 45%,var(--dsq-gold-2))!important;color:#2b1f08!important;border:0!important;box-shadow:0 8px 22px rgba(212,173,98,.28)!important}
+html body #leagueScreenBody .deen-quran-review-link{min-height:var(--ds-tap)!important;border-radius:var(--ds-radius-md)!important;font-size:var(--ds-fs-sm)!important;font-weight:var(--ds-fw-bold)!important}
+html body #leagueScreenBody .deen-qia-action,html body #leagueScreenBody .deen-qarena-hub-card,html body #leagueScreenBody .deen-atest-entry{border-radius:var(--ds-radius-lg)!important;padding:var(--ds-space-4)!important;box-shadow:var(--ds-shadow-1)!important}
+html body #leagueScreenBody .deen-qia-action.primary,html body #leagueScreenBody .deen-qarena-hub-card.primary{border-color:rgba(63,215,173,.45)!important}
+/* Long German/French words in the narrow plan tiles. */
+html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-mastery-teaser,html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-daily-teaser,html body #leagueScreenBody .deen-path-arabic-landing>.deen-path-weekly-link,html body #leagueScreenBody .deen-path-course-item{overflow-wrap:anywhere!important;hyphens:auto!important;min-width:0!important}
+html body #leagueScreenBody .deen-path-arabic-landing{overflow-x:clip}
+/* Legacy path styles force LTR on the hub cards and course items; follow the document in RTL. */
+html[dir="rtl"] body #leagueScreenBody .deen-path-home .deen-path-card,html[dir="rtl"] body #leagueScreenBody .deen-path-course-item,html[dir="rtl"] body #leagueScreenBody .dsq-next{direction:rtl!important}
+html[dir="rtl"] body #leagueScreenBody .deen-path-course-glyphs{text-align:start!important}

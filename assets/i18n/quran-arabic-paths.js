@@ -1227,7 +1227,9 @@
    s.learned+' / '+s.total+'   ·   '+c.foundationDue+' · '+s.due+'   ·   '+c.foundationErrors+' · '+s.weak);
   box.append(summary);
   const list=elem('div','deen-path-foundation-topics');
-  for(const g of s.groups)list.append(elem('span','deen-path-foundation-topic',c[g.kind]+' · '+g.available));
+  // Only "letters" has a shared label; the other review kinds are named here for all five locales.
+  const kinds={tr:{vowels:'hareke',reading:'okuma',words:'kelime'},en:{vowels:'vowel marks',reading:'reading',words:'words'},ar:{vowels:'حركات',reading:'قراءة',words:'كلمات'},de:{vowels:'Vokalzeichen',reading:'Lesen',words:'Wörter'},fr:{vowels:'voyelles',reading:'lecture',words:'mots'}}[lang()]||{};
+  for(const g of s.groups)list.append(elem('span','deen-path-foundation-topic',(c[g.kind]||kinds[g.kind]||g.kind)+' · '+g.available));
   box.append(list);
   if(s.ids.length)box.append(makeButton(c.foundationStart+' ('+s.ids.length+')','startFoundation','deen-path-primary'));
   else box.append(elem('p','deen-path-muted',c.foundationEmpty));
