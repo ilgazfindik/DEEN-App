@@ -58,9 +58,49 @@
   const words=text.trim().split(/\s+/),n=words.length>=4?2:1;
   return [words.slice(0,-n).join(' '),words.slice(-n).join(' ')];
  }
+ // Card copy the locale tables miss: the due-review sentence (it carries a count), the section
+ // final details and one button. Everything else on the card is already translated.
+ const NEXT_STEP_COPY={
+  en:{due:n=>n===1?'1 review is due; the short plan picks the most important ones.':n+' reviews are due; the short plan picks the most important ones.',
+   final:(k,q)=>'Section '+k+' final · '+q+' questions',lesson:'CONTINUE WITH THE LESSON'},
+  de:{due:n=>n===1?'1 Wiederholung ist fällig; der kurze Plan wählt die wichtigsten aus.':n+' Wiederholungen sind fällig; der kurze Plan wählt die wichtigsten aus.',
+   final:(k,q)=>'Finale von Teil '+k+' · '+q+' Fragen',lesson:'MIT DER LEKTION WEITER'},
+  fr:{due:n=>n===1?'1 révision à faire ; le plan court choisit les plus importantes.':n+' révisions à faire ; le plan court choisit les plus importantes.',
+   final:(k,q)=>'Finale de la partie '+k+' · '+q+' questions',lesson:'CONTINUER AVEC LA LEÇON'},
+  // Arabic translates the sentence and the question count itself; only these two remain.
+  ar:{part:k=>'نهائي القسم '+k,lesson:'تابع الدرس'}
+ };
+ // The lesson button as the engine writes it, and as the English table half-translates it.
+ const LESSON_BUTTON=new Set(['DERSLE DEVAM ET','DERSLE CONTINUE']);
+ function localeTranslator(code){
+  const api=code==='en'?(window.DEEN_ENGLISH_UI&&{translate:k=>window.DEEN_ENGLISH_UI.t(k)}):code==='de'?window.DEEN_GERMAN_UI:code==='fr'?window.DEEN_FRENCH_UI:null;
+  if(!api?.translate)return()=>null;
+  return key=>{let v=null;try{v=api.translate(key)}catch(_){}return v&&v!==key?v:null};
+ }
+ const TURKISH=/[ğışĞİŞ]|\bsoru\b|finali/;
+ function localizeNextStep(card){
+  let code='';try{code=window.DEEN_APP_LOCALE?.get?.()||''}catch(_){}
+  code=String(code||document.documentElement.lang||'').slice(0,2).toLowerCase();
+  const C=NEXT_STEP_COPY[code];if(!C)return;
+  const tx=localeTranslator(code);
+  const nodes=[card.querySelector(':scope>p'),card.querySelector('.v680-main')].flatMap(el=>el?[...el.childNodes].filter(n=>n.nodeType===3&&n.data.trim()):[]);
+  for(const node of nodes){
+   const text=node.data.trim();
+   if(LESSON_BUTTON.has(text)){node.data=node.data.replace(text,C.lesson);continue}
+   if(!TURKISH.test(text))continue;
+   let out=text;
+   if(C.due)out=out.replace(/^(\d+) tekrar vadesi geldi; kısa plan en önemlileri seçer\.$/,(_,n)=>C.due(Number(n)));
+   if(C.final)out=out.replace(/Kısım (\d+) finali · (\d+) soru/,(_,k,q)=>C.final(k,q));
+   if(C.part)out=out.replace(/Kısım (\d+) finali/,(_,k)=>C.part(k));
+   // Final details arrive as "<final title> · Kısım n finali · m soru"; the title has a table entry.
+   if(TURKISH.test(out))out=out.split(' · ').map(part=>tx(part)||part).join(' · ');
+   if(out!==text)node.data=node.data.replace(text,out);
+  }
+ }
  function decorateNextStep(){
   const card=document.querySelector('#v5Return .v680-nba');if(!card)return;
   setClass(card,'ds-nba',true);
+  localizeNextStep(card);
   if(!card.querySelector(':scope>.ds-nba-art')){
    const art=document.createElement('img');art.className='ds-nba-art';art.src=ART;art.alt='';art.decoding='async';art.setAttribute('aria-hidden','true');
    card.prepend(art);
