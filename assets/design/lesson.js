@@ -78,6 +78,66 @@
   }
  }
 
+ // German and French: the locale layers skip #answerArea so answers keep their content-pack
+ // text, which also leaves the engine's Turkish controls there untranslated. Translate those
+ // controls with the layers' own reviewed tables; answer text itself is never touched.
+ const CHROME={
+  de:{pair:'Gegenstück',concept:'Begriff',target:n=>n+(n===1?' ZIEL':' ZIELE')},
+  fr:{pair:'Correspondance',concept:'Notion',target:n=>n+(n===1?' CIBLE':' CIBLES')}
+ };
+ const ANSWER='.ds-opt,.option,.option-label,.v710-word-chip,.v710-builder-piece,.v1017-card,.v710-clue,.v858-odd-card,.v710-listen-option,.v710-case,.v857-scene-story,#questionText';
+ function translator(code){
+  const api=code==='de'?window.DEEN_GERMAN_UI:code==='fr'?window.DEEN_FRENCH_UI:null;
+  if(!api?.translate)return null;
+  return key=>{let v=null;try{v=api.translate(key)}catch(_){}return v&&v!==key?v:null};
+ }
+ // Write only real changes, so the lesson observer settles after one pass.
+ const setText=(node,value)=>{if(value!=null&&node.data!==value)node.data=value};
+ const setAttr=(el,name,value)=>{if(value!=null&&el.getAttribute(name)!==value)el.setAttribute(name,value)};
+ function localizeChrome(area,code){
+  const C=CHROME[code],tx=C&&translator(code);if(!tx)return;
+  const colon=code==='fr'?' : ':': ';
+  // The matching hero sits in the question frame, outside #answerArea.
+  const roots=[area,document.getElementById('feedback'),document.querySelector('#quizView .v1017-hero')].filter(Boolean);
+  for(const root of roots){
+   const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;
+   while((n=walker.nextNode())){
+    const raw=n.data,key=raw.trim();if(!key)continue;
+    const el=n.parentElement;
+    // Feedback starts with a Turkish lead-in ("Doğru cevap: …", "Kısaca: …") before content text.
+    if(el.closest('.feedback-text,#feedbackText')){
+     const m=raw.match(/^(\s*)(Doğru cevap|Kısaca|Birlikte düşün):\s*/);
+     if(m){const lead=tx(m[2]+':')||(tx(m[2])&&tx(m[2])+colon.trimEnd());if(lead)setText(n,m[1]+lead.trimEnd()+' '+raw.slice(m[0].length))}
+     continue;
+    }
+    if(el.closest(ANSWER))continue;
+    // Matching title: the layer translates "<span>Eşleri</span>" but leaves the Turkish verb.
+    if(key==='bul'&&el.closest('.v1017-title')){setText(n,'');continue}
+    let m=key.match(/^(\d+) \/ (\d+) eşleşme$/);
+    if(m){const w=tx('eşleşme');if(w)setText(n,raw.replace(key,m[1]+' / '+m[2]+' '+w));continue}
+    m=key.match(/^(\d+) HEDEF$/);
+    if(m){setText(n,raw.replace(key,C.target(Number(m[1]))));continue}
+    const v=tx(key);if(v)setText(n,raw.replace(key,v));
+   }
+  }
+  // The child profile prefixes translated questions with a Turkish lead-in ("Birlikte düşün: …").
+  for(const q of document.querySelectorAll('#quizView #questionText,#quizView .deen-character-question-text')){
+   const n=[...q.childNodes].find(c=>c.nodeType===3&&c.data.trim());if(!n)continue;
+   const m=n.data.match(/^(\s*)(Birlikte düşün:|Boşluğu doldur:|Hatırla ve tamamla:|Kavramları doğru açıklamalarla eşleştir:)\s*/);
+   if(m){const lead=tx(m[2]);setText(n,m[1]+(lead?lead.trimEnd()+' ':'')+n.data.slice(m[0].length))}
+  }
+  for(const el of area.querySelectorAll('[placeholder],[aria-label],[title]')){
+   for(const name of ['placeholder','aria-label','title']){
+    const value=el.getAttribute(name);if(!value)continue;
+    // Odd one out and matching name their cards "İfade 2: …", "Eş: …", "Kavram: …".
+    const m=value.match(/^(İfade) (\d+): (.*)$/)||value.match(/^(Eş|Kavram): (.*)$/);
+    if(m){const label=m[1]==='İfade'?tx('İfade'):m[1]==='Eş'?C.pair:C.concept;
+     if(label)setAttr(el,name,m.length===4?label+' '+m[2]+': '+m[3]:label+': '+m[2]);continue}
+    const v=tx(value.trim());if(v)setAttr(el,name,v);
+   }
+  }
+ }
+
  function decorate(){
   const area=document.getElementById('answerArea');if(!area)return;
   const frame=area.closest('.question-frame')||document.querySelector('#quizView .question-frame');
@@ -136,6 +196,7 @@
     }
    }
   }else document.querySelectorAll('#quizView .ds-mc-head').forEach(n=>n.remove());
+  if(code==='de'||code==='fr')localizeChrome(area,code);
   floor();
  }
  // Some lesson chrome (energy, progress, reactions) is added after the question renders.

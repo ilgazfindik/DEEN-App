@@ -85,6 +85,8 @@ html body #lesson #answerArea .v710-builder-zone .v710-builder-piece{border-colo
 html body #lesson #answerArea .ds-order .v710-word-chip:disabled{opacity:.35!important}
 html body #lesson #answerArea .v710-builder-zone:is(.correct,.is-correct) .v710-builder-piece{border-color:#5fe0bb!important;background:linear-gradient(170deg,#11493f,#0b2e29 75%)!important}
 html body #lesson #answerArea .v710-builder-zone:is(.wrong,.is-wrong) .v710-builder-piece{border-color:#f39b8f!important;background:linear-gradient(170deg,#4a2a30,#2a1d22 75%)!important}
+/* The engine draws this hint with CSS; French has no override of its own (German and English do) */
+html[lang="fr"] body #lesson #answerArea .v710-builder-zone.empty::before{content:"Glisse les mots ici ou touche-les"!important}
 html body #lesson #answerArea .v710-builder-hint{margin:var(--ds-space-2) 0 0!important;font-size:var(--ds-fs-xs)!important;color:var(--ds-text-faint)!important;text-align:start!important}
 
 @media (max-width:360px){
