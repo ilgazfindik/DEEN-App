@@ -1,64 +1,73 @@
-/* Lesson multiple choice on the design system: A/B/C/D answer cards with a letter badge,
-   a selection ring and clear picked / correct / wrong states. Scoped to four-option
-   multiple choice (.options.mc-standard) so other question types keep their own layout. */
-html body #answerArea .ds-mc-head{display:flex;flex-direction:column;align-items:flex-start;gap:var(--ds-space-2);margin:var(--ds-space-2) 0 var(--ds-space-3);font-family:var(--ds-font);text-align:start}
-html[lang="ar"] body #answerArea .ds-mc-head{font-family:var(--ds-font-ar)}
-html body #answerArea .ds-mc-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:var(--ds-radius-pill);border:1px solid rgba(63,215,173,.3);background:rgba(4,22,28,.45);font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold);letter-spacing:.14em;color:#e9cf93}
-html body #answerArea .ds-mc-chip svg{width:16px;height:16px;color:#e9cf93}
-html body #answerArea .ds-mc-title{margin:0;font-size:26px;line-height:1.15;font-weight:var(--ds-fw-bold);letter-spacing:-.01em;color:var(--ds-text)}
-html body #answerArea .ds-mc-title em{font-style:normal;background:linear-gradient(90deg,#f6dfa6,#e0b35f);-webkit-background-clip:text;background-clip:text;color:transparent}
-html body #answerArea .ds-mc-rule{display:flex;align-items:center;gap:var(--ds-space-3);width:100%;color:#3fd7ad}
-html body #answerArea .ds-mc-rule i{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(63,215,173,.45),transparent)}
-html body #answerArea .ds-mc-rule b{font-size:14px;line-height:1;font-weight:400}
-html body #answerArea:has(.ds-mc-head) .v859-speed-tag{margin:calc(var(--ds-space-2)*-1) 0 var(--ds-space-3)!important;font-size:var(--ds-fs-xs)!important;letter-spacing:.08em!important;color:var(--ds-text-faint)!important;text-align:start!important}
-html body #answerArea:has(.ds-mc-head) .v859-speed-tag::before,html body #answerArea:has(.ds-mc-head) .v859-speed-tag::after{display:none!important}
+/* Lesson answer choices on the design system: A/B/C/D answer cards with a letter badge,
+   a selection ring and clear picked / correct / wrong states, for every choice-based
+   question type marked by lesson.js (.ds-choice > .ds-opt). Other question types keep
+   their own layout. */
+
+/* Heading: learning-style chip, title with a gold accent, star rule */
+html body #lesson #quizView .ds-mc-head{display:flex;flex-direction:column;align-items:flex-start;gap:var(--ds-space-2);margin:var(--ds-space-2) 0 var(--ds-space-3);font-family:var(--ds-font);text-align:start;width:100%}
+html[lang="ar"] body #lesson #quizView .ds-mc-head{font-family:var(--ds-font-ar)}
+html body #lesson #quizView .ds-mc-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:var(--ds-radius-pill);border:1px solid rgba(63,215,173,.3);background:rgba(4,22,28,.45);font-size:var(--ds-fs-xs);font-weight:var(--ds-fw-bold);letter-spacing:.14em;color:#e9cf93}
+html body #lesson #quizView .ds-mc-chip svg{width:16px;height:16px;color:#e9cf93}
+html body #lesson #quizView .ds-mc-title{margin:0;font-size:28px;line-height:1.15;font-weight:var(--ds-fw-bold);letter-spacing:-.01em;color:var(--ds-text)}
+html body #lesson #quizView .ds-mc-title em{font-style:normal;background:linear-gradient(90deg,#f6dfa6,#e0b35f);-webkit-background-clip:text;background-clip:text;color:transparent}
+html body #lesson #quizView .ds-mc-rule{display:flex;align-items:center;gap:var(--ds-space-3);width:100%;color:#3fd7ad}
+html body #lesson #quizView .ds-mc-rule i{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(63,215,173,.45),transparent)}
+html body #lesson #quizView .ds-mc-rule b{font-size:14px;line-height:1;font-weight:400}
+/* Classic header (no companion bubble): the heading replaces the legacy title and age badge */
+html body #lesson #quizView .question-frame.ds-classic .v9916-task-title,html body #lesson #quizView .question-frame.ds-classic .v950-age-badge{display:none!important}
+html body #lesson #quizView .question-frame.ds-classic #questionText{text-align:start!important;font-size:26px!important;line-height:1.25!important;font-weight:var(--ds-fw-regular)!important;color:var(--ds-text)!important}
+html body #lesson #answerArea .v859-speed-tag{margin:0 0 var(--ds-space-3)!important;font-size:var(--ds-fs-xs)!important;letter-spacing:.08em!important;color:var(--ds-text-faint)!important;text-align:start!important}
+html body #lesson #answerArea .v859-speed-tag::before,html body #lesson #answerArea .v859-speed-tag::after{display:none!important}
 
 /* Card layout */
-html body #answerArea .options.mc-standard[data-ds-layout]{display:grid!important;gap:var(--ds-space-3)!important;grid-template-columns:1fr!important}
-html body #answerArea .options.mc-standard[data-ds-layout="grid"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option{
+html body #lesson #answerArea .ds-choice[data-ds-layout]{display:grid!important;gap:var(--ds-space-3)!important;grid-template-columns:1fr!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout="grid"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt{
  --ds-mc-tone:#3fd7ad;position:relative!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:var(--ds-space-3)!important;
- min-height:0!important;margin:0!important;padding:var(--ds-space-4)!important;border-radius:var(--ds-radius-lg)!important;text-align:start!important;
+ width:auto!important;min-width:0!important;min-height:0!important;margin:0!important;padding:var(--ds-space-4)!important;border-radius:var(--ds-radius-lg)!important;text-align:start!important;
+ font-size:var(--ds-fs-md)!important;line-height:1.4!important;font-weight:var(--ds-fw-semibold)!important;letter-spacing:0!important;text-transform:none!important;white-space:normal!important;overflow-wrap:anywhere!important;
  background:radial-gradient(120% 80% at 100% 100%,rgba(63,215,173,.08),transparent 55%),linear-gradient(170deg,#12323a,#0c2329)!important;
  border:1.5px solid rgba(63,215,173,.28)!important;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 10px 24px rgba(0,0,0,.25)!important;color:var(--ds-text)!important;
- transform:none!important;transition:border-color .15s var(--ds-ease),box-shadow .15s var(--ds-ease),transform .12s var(--ds-ease)!important;animation:none!important}
-html body #answerArea .options.mc-standard[data-ds-layout="grid"] .option{min-height:148px!important}
-html body #answerArea .options.mc-standard[data-ds-layout="list"] .option{flex-direction:row!important;align-items:center!important;padding-inline-end:52px!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option:not(:disabled):hover{border-color:rgba(63,215,173,.55)!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option:not(:disabled):active{transform:scale(.985)!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option:focus-visible{outline:3px solid var(--ds-focus)!important;outline-offset:3px!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .v859-choice-num,html body #answerArea .options.mc-standard[data-ds-layout] .v859-choice-arrow,html body #answerArea .options.mc-standard[data-ds-layout] .option-icon{display:none!important}
+ transform:none!important;transition:border-color .15s var(--ds-ease),box-shadow .15s var(--ds-ease),transform .12s var(--ds-ease)!important;animation:none!important;opacity:1}
+html body #lesson #answerArea .ds-choice[data-ds-layout="grid"] .ds-opt{min-height:148px!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout="list"] .ds-opt{flex-direction:row!important;align-items:center!important;padding-inline-end:56px!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:not(:disabled):hover{border-color:rgba(63,215,173,.55)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:not(:disabled):active{transform:scale(.985)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:focus-visible{outline:3px solid var(--ds-focus)!important;outline-offset:3px!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] :is(.v859-choice-num,.v859-choice-arrow,.v857-choice-num,.v857-choice-arrow,.option-icon){display:none!important}
 
-/* Letter badge */
-html body #answerArea .options.mc-standard[data-ds-layout] .option-badge{position:static!important;display:grid!important;place-items:center!important;flex:none!important;width:40px!important;height:40px!important;margin:0!important;border-radius:50%!important;
- font-size:var(--ds-fs-lg)!important;font-weight:var(--ds-fw-bold)!important;line-height:1!important;color:#eafff8!important;
- background:linear-gradient(180deg,#25917a,#136553)!important;border:1px solid rgba(157,238,214,.45)!important;box-shadow:0 4px 12px rgba(0,0,0,.25)!important;transform:none!important}
+/* Letter badge: the engine's .option-badge where it exists, or the .ds-letter one lesson.js adds where it is missing */
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt .option-badge{
+ position:static!important;display:grid!important;place-items:center!important;flex:none!important;width:40px!important;height:40px!important;margin:0!important;padding:0!important;border-radius:50%!important;inset:auto!important;
+ font-family:var(--ds-font)!important;font-size:var(--ds-fs-lg)!important;font-weight:var(--ds-fw-bold)!important;line-height:1!important;letter-spacing:0!important;color:#eafff8!important;opacity:1!important;
+ background:linear-gradient(180deg,#25917a,#136553)!important;border:1px solid rgba(157,238,214,.45)!important;box-shadow:0 4px 12px rgba(0,0,0,.25)!important;transform:none!important;filter:none!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt::before{display:none!important}
 /* Selection ring (top inline-end corner) */
-html body #answerArea .options.mc-standard[data-ds-layout] .option::after{content:""!important;position:absolute!important;inset-block-start:var(--ds-space-4)!important;inset-inline-end:var(--ds-space-4)!important;inset-inline-start:auto!important;
- display:grid!important;place-items:center!important;width:24px!important;height:24px!important;border-radius:50%!important;border:2px solid rgba(124,200,242,.55)!important;background:transparent!important;
- font-size:13px!important;font-weight:var(--ds-fw-bold)!important;line-height:1!important;box-sizing:border-box!important;opacity:1!important;transform:none!important}
-html body #answerArea .options.mc-standard[data-ds-layout="list"] .option::after{inset-block-start:50%!important;transform:translateY(-50%)!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option-label{display:block!important;margin:0!important;padding:0!important;font-size:var(--ds-fs-md)!important;line-height:1.4!important;font-weight:var(--ds-fw-semibold)!important;color:var(--ds-text)!important;white-space:normal!important;overflow-wrap:anywhere!important;text-align:start!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt::after{content:""!important;position:absolute!important;inset-block-start:var(--ds-space-4)!important;inset-inline-end:var(--ds-space-4)!important;inset-inline-start:auto!important;inset-block-end:auto!important;
+ display:grid!important;place-items:center!important;width:24px!important;height:24px!important;margin:0!important;padding:0!important;border-radius:50%!important;border:2px solid rgba(124,200,242,.55)!important;background:transparent!important;
+ font-family:var(--ds-font)!important;font-size:13px!important;font-weight:var(--ds-fw-bold)!important;line-height:1!important;letter-spacing:0!important;color:transparent!important;box-sizing:border-box!important;opacity:1!important;transform:none!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout="list"] .ds-opt::after{inset-block-start:50%!important;transform:translateY(-50%)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .option-label{display:block!important;margin:0!important;padding:0!important;font-size:var(--ds-fs-md)!important;line-height:1.4!important;font-weight:var(--ds-fw-semibold)!important;color:var(--ds-text)!important;white-space:normal!important;overflow-wrap:anywhere!important;text-align:start!important}
 
-/* Picked (gold), correct (mint), wrong (coral), others muted once answered */
-html body #answerArea .options.mc-standard[data-ds-layout] .option:is(.selected,.v859-picked){border-color:#e9cf93!important;
+/* Picked (gold), correct (mint), wrong (coral), the rest muted once answered */
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.selected,.v859-picked,.v857-picked,.v852-tap,[aria-pressed="true"]){border-color:#e9cf93!important;
  background:radial-gradient(120% 80% at 100% 100%,rgba(233,207,147,.12),transparent 55%),linear-gradient(170deg,#3a3420,#1b2622 75%)!important;box-shadow:0 0 0 1px rgba(233,207,147,.35),0 0 26px rgba(233,207,147,.28),0 10px 24px rgba(0,0,0,.25)!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option:is(.selected,.v859-picked) .option-badge{background:linear-gradient(180deg,#f7e2ad,#d4ad62)!important;color:#2b1f08!important;border-color:rgba(255,240,200,.7)!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option:is(.selected,.v859-picked)::after{border-color:#e9cf93!important;background:radial-gradient(circle,#e9cf93 0 45%,transparent 50%)!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option.correct{border-color:#5fe0bb!important;background:linear-gradient(170deg,#11493f,#0b2e29 75%)!important;box-shadow:0 0 0 1px rgba(95,224,187,.35),0 0 24px rgba(63,215,173,.25)!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option.correct .option-badge{background:linear-gradient(180deg,#5fe0bb,#22b48e)!important;color:#04271f!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option.correct::after{content:"✓"!important;border-color:#5fe0bb!important;background:#5fe0bb!important;color:#04271f!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option.wrong{border-color:#f39b8f!important;background:linear-gradient(170deg,#4a2a30,#2a1d22 75%)!important;box-shadow:0 0 0 1px rgba(243,155,143,.35)!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option.wrong .option-badge{background:linear-gradient(180deg,#f6b2a8,#d9776a)!important;color:#3a0f0a!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option.wrong::after{content:"×"!important;border-color:#f39b8f!important;background:#f39b8f!important;color:#3a0f0a!important;font-size:16px!important}
-html body #answerArea .options.mc-standard[data-ds-layout] .option:disabled:not(.correct):not(.wrong):not(.selected):not(.v859-picked){opacity:.55!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.selected,.v859-picked,.v857-picked,.v852-tap,[aria-pressed="true"]) .option-badge{background:linear-gradient(180deg,#f7e2ad,#d4ad62)!important;color:#2b1f08!important;border-color:rgba(255,240,200,.7)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.selected,.v859-picked,.v857-picked,.v852-tap,[aria-pressed="true"])::after{border-color:#e9cf93!important;background:radial-gradient(circle,#e9cf93 0 45%,transparent 50%)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.correct,.found,.is-correct,.right-pick){border-color:#5fe0bb!important;background:linear-gradient(170deg,#11493f,#0b2e29 75%)!important;box-shadow:0 0 0 1px rgba(95,224,187,.35),0 0 24px rgba(63,215,173,.25)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.correct,.found,.is-correct,.right-pick) .option-badge{background:linear-gradient(180deg,#5fe0bb,#22b48e)!important;color:#04271f!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.correct,.found,.is-correct,.right-pick)::after{content:"✓"!important;border-color:#5fe0bb!important;background:#5fe0bb!important;color:#04271f!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.wrong,.wrong-pick,.is-wrong){border-color:#f39b8f!important;background:linear-gradient(170deg,#4a2a30,#2a1d22 75%)!important;box-shadow:0 0 0 1px rgba(243,155,143,.35)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.wrong,.wrong-pick,.is-wrong) .option-badge{background:linear-gradient(180deg,#f6b2a8,#d9776a)!important;color:#3a0f0a!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.wrong,.wrong-pick,.is-wrong)::after{content:"×"!important;border-color:#f39b8f!important;background:#f39b8f!important;color:#3a0f0a!important;font-size:16px!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:disabled:not(.correct):not(.found):not(.wrong):not(.wrong-pick):not(.selected):not(.v859-picked):not(.v857-picked):not(.v852-tap){opacity:.55!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.correct,.found,.wrong,.wrong-pick,.selected,.v859-picked,.v857-picked,.v852-tap){opacity:1!important;filter:none!important}
 
 @media (max-width:360px){
- html body #answerArea .ds-mc-title{font-size:22px}
- html body #answerArea .options.mc-standard[data-ds-layout="grid"] .option{min-height:132px!important;padding:var(--ds-space-3)!important}
- html body #answerArea .options.mc-standard[data-ds-layout] .option::after{inset-block-start:var(--ds-space-3)!important;inset-inline-end:var(--ds-space-3)!important}
- html body #answerArea .options.mc-standard[data-ds-layout] .option-label{font-size:var(--ds-fs-sm)!important}
+ html body #lesson #quizView .ds-mc-title{font-size:23px}
+ html body #lesson #quizView .question-frame.ds-classic #questionText{font-size:22px!important}
+ html body #lesson #answerArea .ds-choice[data-ds-layout="grid"] .ds-opt{min-height:132px!important;padding:var(--ds-space-3)!important}
+ html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt::after{inset-block-start:var(--ds-space-3)!important;inset-inline-end:var(--ds-space-3)!important}
+ html body #lesson #answerArea .ds-choice[data-ds-layout] :is(.ds-opt,.option-label){font-size:var(--ds-fs-sm)!important}
 }
-@media (prefers-reduced-motion:reduce){html body #answerArea .options.mc-standard[data-ds-layout] .option{transition:none!important}}
-/* Graded answers stay fully visible even though the engine disables every option. */
-html body #answerArea .options.mc-standard[data-ds-layout] .option:is(.correct,.wrong,.selected,.v859-picked){opacity:1!important;filter:none!important}
+@media (prefers-reduced-motion:reduce){html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt{transition:none!important}}
