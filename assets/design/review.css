@@ -80,6 +80,56 @@ html body #reviewScreenBody .dsr-cta-text b{font-size:17px;font-weight:var(--ds-
 html body #reviewScreenBody .dsr-cta-text small{display:inline-flex;align-items:center;gap:6px;font-size:var(--ds-fs-sm);font-weight:var(--ds-fw-semibold);opacity:.85}
 html body #reviewScreenBody .dsr-cta-text small .dsr-ico{width:15px;height:15px}
 
+/* Memory plan card in the reference style: mosque art behind the ring, accented title,
+   a bar under every stat, icon chips and a gold pill with a dark play disc */
+html body #reviewScreenBody .dsr-plan{isolation:isolate;padding:var(--ds-space-5) var(--ds-space-4) var(--ds-space-4);border-radius:24px;
+ background:radial-gradient(70% 45% at 70% 18%,rgba(63,215,173,.16),transparent 70%),linear-gradient(180deg,#0f3434 0%,#0a2629 60%,#09212a 100%);
+ border:1.5px solid rgba(95,224,187,.42);box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 18px 40px rgba(0,0,0,.35)}
+html body #reviewScreenBody .dsr-plan>*{position:relative;z-index:1}
+html body #reviewScreenBody .dsr-plan>.dsr-plan-art{position:absolute;z-index:0;top:44px;inset-inline-end:62px;width:128px;height:auto;aspect-ratio:290/380;object-fit:cover;pointer-events:none;
+ -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 60%,transparent 97%),linear-gradient(90deg,transparent 0,#000 13%,#000 87%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 60%,transparent 97%),linear-gradient(90deg,transparent 0,#000 13%,#000 87%,transparent 100%);mask-composite:intersect;opacity:.95}
+html body #reviewScreenBody .dsr-plan .dsr-plan-eyebrow{font-size:13px;color:#f1e3bd;letter-spacing:.18em}
+html body #reviewScreenBody .dsr-plan .dsr-plan-eyebrow .dsr-ico{width:24px;height:24px;color:#5fe8c4}
+html body #reviewScreenBody .dsr-plan .dsr-live{padding:6px 14px;font-size:14px;border:1.5px solid rgba(95,224,187,.55);background:rgba(4,28,30,.6);color:#eafff8}
+html body #reviewScreenBody .dsr-plan .dsr-plan-main{align-items:flex-start;margin-block:var(--ds-space-4) var(--ds-space-4)}
+html body #reviewScreenBody .dsr-plan .dsr-plan-main>div:first-child{max-width:52%;min-width:0}
+html body #reviewScreenBody .dsr-plan .dsr-plan-main h2{font-size:28px;line-height:1.1;letter-spacing:-.01em;overflow-wrap:break-word;hyphens:auto}
+html body #reviewScreenBody .dsr-plan .dsr-plan-main h2 em{font-style:normal;background:linear-gradient(90deg,#f8e2a6,#e2b75e);-webkit-background-clip:text;background-clip:text;color:transparent}
+html body #reviewScreenBody .dsr-plan .dsr-swoosh{display:block;width:min(140px,90%);height:10px;margin-top:6px;color:#3fd7ad}
+html body #reviewScreenBody .dsr-plan .dsr-plan-main p{margin-top:var(--ds-space-2);font-size:15px;line-height:1.4;color:#d4e2e0}
+html body #reviewScreenBody .dsr-plan .dsr-ring{width:112px;height:112px;margin-top:6px;border-radius:50%;background:radial-gradient(circle,rgba(4,22,28,.92) 58%,transparent 60%);box-shadow:0 0 30px rgba(63,215,173,.35)}
+html body #reviewScreenBody .dsr-plan .dsr-ring-fill{stroke:#46f0c8;stroke-width:8}
+html body #reviewScreenBody .dsr-plan .dsr-ring b{font-size:40px;color:#6ff3d2}
+html body #reviewScreenBody .dsr-plan .dsr-ring small{font-size:14px;color:#eef4f3}
+html body #reviewScreenBody .dsr-plan .dsr-stat{gap:6px;padding:var(--ds-space-3) var(--ds-space-1) 14px;border-radius:18px;background:rgba(5,26,30,.72);border:1.5px solid rgba(95,224,187,.2)}
+html body #reviewScreenBody .dsr-plan .dsr-stat .dsr-ico{width:26px;height:26px}
+html body #reviewScreenBody .dsr-plan .dsr-stat b{font-size:24px}
+html body #reviewScreenBody .dsr-plan .dsr-stat small{font-size:13px;color:#e3eeec}
+html body #reviewScreenBody .dsr-plan .dsr-stat .dsr-bar{width:76%;height:6px;margin-top:4px}
+html body #reviewScreenBody .dsr-plan .dsr-chip{gap:8px;padding:9px 16px;font-size:14px;border:1.5px solid rgba(95,224,187,.38);background:rgba(4,26,30,.6)}
+html body #reviewScreenBody .dsr-plan .dsr-chip .dsr-ico{width:20px;height:20px;flex:none;color:#5fe8c4}
+html body #reviewScreenBody .dsr-plan .dsr-chip em{flex:none;font-size:15px;white-space:nowrap}
+html body #reviewScreenBody .dsr-plan .dsr-cta{min-height:72px;gap:10px;padding:8px 14px 8px 8px;border-radius:var(--ds-radius-pill);border:2px solid rgba(255,240,196,.75);
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%237a5a1c' stroke-opacity='.25' stroke-width='1.2'%3E%3Crect x='9' y='9' width='22' height='22'/%3E%3Crect x='9' y='9' width='22' height='22' transform='rotate(45 20 20)'/%3E%3Ccircle cx='20' cy='20' r='5'/%3E%3C/g%3E%3C/svg%3E") left -26px center/58px no-repeat,
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%237a5a1c' stroke-opacity='.25' stroke-width='1.2'%3E%3Crect x='9' y='9' width='22' height='22'/%3E%3Crect x='9' y='9' width='22' height='22' transform='rotate(45 20 20)'/%3E%3Ccircle cx='20' cy='20' r='5'/%3E%3C/g%3E%3C/svg%3E") right -26px center/58px no-repeat,
+  linear-gradient(180deg,#fbe6b0 0%,#f1cf83 50%,#ddb064 100%);
+ box-shadow:0 0 28px rgba(233,197,110,.45),0 10px 24px rgba(0,0,0,.3),0 1px 0 rgba(255,255,255,.6) inset}
+html body #reviewScreenBody .dsr-plan .dsr-cta-play{width:48px;height:48px;background:#0b3a33;border:3px solid rgba(255,236,184,.9);color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+html body #reviewScreenBody .dsr-plan .dsr-cta-play .dsr-ico{width:24px;height:24px;margin-inline-start:2px}
+html body #reviewScreenBody .dsr-plan .dsr-cta-text{padding-inline-start:var(--ds-space-3);border-inline-start:1.5px solid rgba(43,31,8,.35)}
+html body #reviewScreenBody .dsr-plan .dsr-cta-text b{font-size:16px;letter-spacing:-.01em;color:#1c1406}
+html body #reviewScreenBody .dsr-plan .dsr-cta-text small{font-size:14px;color:#2b2008;opacity:1}
+html body #reviewScreenBody .dsr-plan .dsr-cta-end{width:26px;height:26px;flex:none;stroke-width:2.6;color:#1c1406}
+@media (max-width:360px){
+ html body #reviewScreenBody .dsr-plan>.dsr-plan-art{inset-inline-end:40px;width:104px}
+ /* The title takes all the room beside a smaller ring, so long words still fit a line. */
+ html body #reviewScreenBody .dsr-plan .dsr-plan-main>div:first-child{max-width:none;flex:1}
+ html body #reviewScreenBody .dsr-plan .dsr-plan-main h2{font-size:23px}
+ html body #reviewScreenBody .dsr-plan .dsr-ring{width:84px;height:84px}
+ html body #reviewScreenBody .dsr-plan .dsr-ring b{font-size:28px}
+ html body #reviewScreenBody .dsr-plan .dsr-ring small{font-size:12px}
+}
+
 /* R2 — review modes */
 html body #reviewScreenBody .dsr-section{margin:var(--ds-space-2) 0 0;font-size:var(--ds-fs-lg);font-weight:var(--ds-fw-bold);line-height:var(--ds-lh-tight);color:var(--ds-text)}
 html body #reviewScreenBody .dsr-section-row{display:flex;align-items:baseline;justify-content:space-between;gap:var(--ds-space-2);margin-block-start:var(--ds-space-2)}

@@ -211,12 +211,76 @@
    if(approachOpen)rest.querySelector('.dsp-approach')?.setAttribute('open','');
    // Required order: identity → Premium card (real element) → everything else; legacy stays hidden.
    const hub=body.querySelector(':scope>.deen-hub-profile');
+   if(hub)decoratePremium(hub,code);
    head.after(top);(hub?(top.after(hub),hub):top).after(rest);
    for(const child of body.children){if(child!==top&&child!==rest&&child!==hub)child.classList.add('dsp-hide')}
    body.classList.add('dsp-host');body.scrollTop=keep;
    return true;
   }catch(err){console.warn('DEEN_DS_PROFILE',err);return false}
   finally{busy=false;observer?.takeRecords()}
+ }
+
+ // Premium card in the reference style. DEEN_PREMIUM_HUB renders it (copy, actions, active
+ // state); this only adds art, icons and an accented copy of the headline and perks. The
+ // originals stay in the DOM, visually hidden, so the hub's tests and screen readers see them.
+ const PREMIUM_ACCENT={tr:'zarif yolu.',en:'way to learn.',ar:'براحة أكثر.',de:'mehr Komfort.',fr:'plus sereinement.'};
+ const PICON={
+  crown:'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 8.5 8 12l4-6.5 4 6.5 4.5-3.5-1.8 9.5H5.3L3.5 8.5Z" fill="currentColor"/><rect x="5.3" y="19" width="13.4" height="2.2" rx="1.1" fill="currentColor"/></svg>',
+  infinity:'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7.2 8.2c-2.3 0-4.2 1.7-4.2 3.8s1.9 3.8 4.2 3.8c3.6 0 6-7.6 9.6-7.6 2.3 0 4.2 1.7 4.2 3.8s-1.9 3.8-4.2 3.8c-3.6 0-6-7.6-9.6-7.6Z"/></svg>',
+  refresh:'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8a7.5 7.5 0 0 0-13.3 1"/><path d="M19 4v4h-4"/><path d="M5 16a7.5 7.5 0 0 0 13.3-1"/><path d="M5 20v-4h4"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="13" width="4" height="7" rx="1" fill="currentColor"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor"/><rect x="16.5" y="4.5" width="4" height="15.5" rx="1" fill="currentColor" opacity=".75"/></svg>',
+  gift:'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="4" rx="1"/><path d="M5 13v7.5h14V13M12 9v11.5"/><path d="M12 9c-1.5-3.5-5.5-4.2-5.5-1.8C6.5 8.6 9 9 12 9Zm0 0c1.5-3.5 5.5-4.2 5.5-1.8C17.5 8.6 15 9 12 9Z"/></svg>',
+  chevron:'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>',
+  rays:'<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"><path d="M10 22 8 12"/><path d="M19 20 25 9"/><path d="M24 29 34 25"/></svg>',
+  swoosh:'<svg class="dsp-swoosh" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M3 9.5C55 3.5 120 2 197 5.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M40 10.5C90 7 140 6.5 182 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".55"/></svg>'
+ };
+ const PERK_ICONS=['infinity','refresh','chart'];
+ function decoratePremium(hub,code){
+  hub.classList.add('dsp-prem');
+  if(!hub.querySelector(':scope>.dsp-prem-art')){
+   const art=new Image();art.className='dsp-prem-art';art.alt='';art.decoding='async';art.setAttribute('aria-hidden','true');art.src='assets/design/mosque-arch.webp';
+   hub.prepend(art);
+  }
+  for(const el of hub.querySelectorAll('.dh-crown,.dh-status')){
+   if(!el.querySelector('.dsp-crown'))el.insertAdjacentHTML('afterbegin','<span class="dsp-crown">'+PICON.crown+'</span>');
+  }
+  const headline=hub.querySelector('.dh-headline');
+  if(headline){
+   headline.classList.add('dsp-sr');
+   const text=headline.textContent.trim();let copy=hub.querySelector('.dsp-prem-title');
+   if(copy&&copy.dataset.dspSource!==text){copy.remove();copy=null}
+   if(!copy&&text){
+    const accent=PREMIUM_ACCENT[code],at=accent?text.lastIndexOf(accent):-1;
+    const words=text.split(/\s+/),lead=at>0?text.slice(0,at).trim():words.slice(0,-2).join(' '),tail=at>0?accent:words.slice(-2).join(' ');
+    copy=document.createElement('div');copy.className='dsp-prem-title';copy.dataset.dspSource=text;copy.setAttribute('aria-hidden','true');
+    const em=document.createElement('em');em.textContent=tail;
+    copy.append(document.createTextNode(lead?lead+' ':''),em);
+    copy.insertAdjacentHTML('beforeend','<span class="dsp-rays">'+PICON.rays+'</span>'+PICON.swoosh);
+    headline.after(copy);
+   }
+  }
+  hub.querySelector('.dh-summary')?.classList.add('dsp-sr');
+  const perks=hub.querySelector('.dh-perks');
+  if(perks){
+   perks.classList.add('dsp-sr');
+   const text=perks.textContent.trim();let list=hub.querySelector('.dsp-prem-perks');
+   if(list&&list.dataset.dspSource!==text){list.remove();list=null}
+   if(!list&&text){
+    list=document.createElement('div');list.className='dsp-prem-perks';list.dataset.dspSource=text;list.setAttribute('aria-hidden','true');
+    text.split(/\s*·\s*/).slice(0,3).forEach((label,i)=>{
+     const item=document.createElement('span');item.className='dsp-prem-perk';item.innerHTML=PICON[PERK_ICONS[i]];
+     const b=document.createElement('b');b.textContent=label.charAt(0).toLocaleUpperCase(code)+label.slice(1);item.append(b);list.append(item);
+    });
+    perks.after(list);
+   }
+  }
+  const main=hub.querySelector('.dh-main');
+  if(main&&!main.querySelector('.dsp-prem-disc')){
+   main.insertAdjacentHTML('afterbegin','<span class="dsp-prem-disc" aria-hidden="true">'+PICON.crown+'</span>');
+   main.insertAdjacentHTML('beforeend','<span class="dsp-prem-end" aria-hidden="true">'+PICON.chevron+'</span>');
+  }
+  const trial=hub.querySelector('.dh-compare');
+  if(trial&&!trial.querySelector('.dsp-prem-disc'))trial.insertAdjacentHTML('afterbegin','<span class="dsp-prem-disc" aria-hidden="true">'+PICON.gift+'</span>');
  }
 
  const legacyClick=sel=>document.querySelector('#profileScreenBody>'+sel)?.click();

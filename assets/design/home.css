@@ -36,6 +36,64 @@ html body #learnScreen #learnScroll #v5Return .v680-main{height:var(--ds-btn-h)!
 /* Task / weekly / review counters live in their own screens; the card keeps one decision. */
 html body #learnScreen #learnScroll #v5Return .v680-meta{display:none!important}
 
+/* Reference style (home.js adds .ds-nba, the art, icons and the accented title copy) */
+html body #learnScreen #learnScroll #v5Return .v680-nba.ds-nba{position:relative!important;isolation:isolate;overflow:hidden!important;padding:var(--ds-space-5) var(--ds-space-4) var(--ds-space-4)!important;border-radius:24px!important;
+ background:radial-gradient(90% 55% at 88% 22%,rgba(63,215,173,.18),transparent 70%),linear-gradient(180deg,#0f3836 0%,#0a2628 62%,#09222a 100%)!important;
+ border:1.5px solid rgba(95,224,187,.45)!important;box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 18px 40px rgba(0,0,0,.35)!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba>*{position:relative;z-index:1}
+html body #learnScreen #learnScroll #v5Return .ds-nba>.ds-nba-art{position:absolute!important;z-index:0;top:46px;inset-inline-end:6px;width:40%;max-width:200px;height:auto;aspect-ratio:290/380;object-fit:cover;pointer-events:none;
+ -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 60%,transparent 97%),linear-gradient(90deg,transparent 0,#000 13%,#000 87%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 60%,transparent 97%),linear-gradient(90deg,transparent 0,#000 13%,#000 87%,transparent 100%);mask-composite:intersect;filter:drop-shadow(0 10px 22px rgba(0,0,0,.35))}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-top{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:var(--ds-space-3)!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-kicker{display:inline-flex!important;align-items:center!important;gap:8px!important;font-size:13px!important;letter-spacing:.08em!important;color:#5fe8c4!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .ds-nba-ico{width:22px;height:22px;flex:none;color:#5fe8c4}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-badge{min-width:64px!important;padding:8px 14px!important;font-size:15px!important;color:#f1d58f!important;background:rgba(52,42,16,.55)!important;border:1.5px solid rgba(233,207,147,.7)!important;box-shadow:0 0 14px rgba(233,207,147,.18)!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba>h1.ds-sr{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba-title{max-width:58%;margin:var(--ds-space-4) 0 var(--ds-space-3);font:var(--ds-fw-bold) 28px/1.12 var(--ds-font);letter-spacing:-.01em;color:var(--ds-text);overflow-wrap:break-word;hyphens:auto}
+html body #learnScreen #learnScroll #v5Return .ds-nba-title em{font-style:normal;background:linear-gradient(90deg,#f8e2a6,#e2b75e);-webkit-background-clip:text;background-clip:text;color:transparent}
+html body #learnScreen #learnScroll #v5Return .ds-nba-title .ds-swoosh{display:block;width:min(150px,80%);height:10px;margin-top:6px;color:#3fd7ad}
+html body #learnScreen #learnScroll #v5Return .ds-nba>p{max-width:64%!important;font-size:15px!important;line-height:1.4!important;color:#dce8e6!important;margin:0 0 var(--ds-space-3)!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-why{display:inline-flex!important;align-items:center!important;gap:10px!important;max-width:100%;margin:0 0 var(--ds-space-4)!important;padding:8px 14px 8px 10px!important;border-radius:var(--ds-radius-pill)!important;
+ background:rgba(4,24,28,.72)!important;border:1px solid rgba(95,224,187,.28)!important;font-size:13px!important;color:#c3d6d6!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-why>i{display:none!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-why b{font-size:13px!important;color:#fff!important;padding-inline-end:10px;border-inline-end:1px solid rgba(255,255,255,.18)}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-why span{font-size:13px!important;color:#c3d6d6!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .ds-nba-info{width:20px;height:20px;flex:none;color:#5fe8c4}
+
+/* Steps: numbered cards, the current one glows and carries a laurel */
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-steps{gap:var(--ds-space-2)!important;margin:0 0 var(--ds-space-4)!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step{padding:12px 4px 16px!important;border-radius:16px!important;border:1.5px solid rgba(95,224,187,.22)!important;background:rgba(6,30,34,.7)!important;overflow:visible!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step:after{height:4px!important;left:12%!important;right:12%!important;bottom:6px!important;border-radius:4px!important;background:rgba(255,255,255,.08)!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step span{position:relative;width:30px!important;height:30px!important;margin:0 auto 8px!important;border-radius:50%!important;font-size:14px!important;border:1.5px solid rgba(255,255,255,.28)!important;background:rgba(8,40,44,.9)!important;color:#e7f1ef!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step b{font-size:14px!important;white-space:normal!important;line-height:1.2!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step small{font-size:12px!important;line-height:1.25!important;color:#b9cdcc!important;margin-top:4px!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step.current{border-color:#7ff0d2!important;background:linear-gradient(180deg,rgba(18,74,66,.85),rgba(8,40,42,.9))!important;box-shadow:0 0 0 1px rgba(127,240,210,.25),0 0 22px rgba(63,215,173,.28)!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step.current:after{background:linear-gradient(90deg,#7ff0d2 0 55%,#f0cf6a 55% 100%)!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step.current span{border-radius:10px!important;background:#7ff0d2!important;color:#063029!important;border-color:#c9fff0!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step.current span::before,html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step.current span::after{content:"";position:absolute;top:-3px;width:15px;height:34px;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 34'%3E%3Cpath d='M12 33C4 28 1.5 18 4.5 4' fill='none' stroke='%23e9c46a' stroke-width='1.6' stroke-linecap='round'/%3E%3Cg fill='%23e9c46a'%3E%3Cellipse cx='5.2' cy='6' rx='1.9' ry='3.6' transform='rotate(-18 5.2 6)'/%3E%3Cellipse cx='3.8' cy='12.5' rx='1.9' ry='3.6' transform='rotate(-30 3.8 12.5)'/%3E%3Cellipse cx='4' cy='19' rx='1.9' ry='3.6' transform='rotate(-48 4 19)'/%3E%3Cellipse cx='6.4' cy='25' rx='1.9' ry='3.6' transform='rotate(-62 6.4 25)'/%3E%3Cellipse cx='8.6' cy='10' rx='1.6' ry='3' transform='rotate(28 8.6 10)'/%3E%3Cellipse cx='8.4' cy='17' rx='1.6' ry='3' transform='rotate(18 8.4 17)'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step.current span::before{right:calc(100% + 1px)}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step.current span::after{left:calc(100% + 1px);transform:scaleX(-1)}
+
+/* One action: mint pill with a play disc, a double chevron and geometric ornaments */
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-main{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:var(--ds-space-3)!important;height:64px!important;min-height:64px!important;padding:0 18px 0 12px!important;border-radius:var(--ds-radius-pill)!important;
+ text-transform:uppercase!important;letter-spacing:.02em!important;line-height:1.15!important;text-align:center!important;color:#052624!important;border:2px solid rgba(255,238,184,.75)!important;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23063b33' stroke-opacity='.22' stroke-width='1.2'%3E%3Crect x='9' y='9' width='22' height='22'/%3E%3Crect x='9' y='9' width='22' height='22' transform='rotate(45 20 20)'/%3E%3Ccircle cx='20' cy='20' r='5'/%3E%3C/g%3E%3C/svg%3E") left -24px center/54px no-repeat,
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23063b33' stroke-opacity='.22' stroke-width='1.2'%3E%3Crect x='9' y='9' width='22' height='22'/%3E%3Crect x='9' y='9' width='22' height='22' transform='rotate(45 20 20)'/%3E%3Ccircle cx='20' cy='20' r='5'/%3E%3C/g%3E%3C/svg%3E") right -24px center/54px no-repeat,
+  linear-gradient(180deg,#8ff7de 0%,#47e3c2 45%,#21c6a6 100%)!important;
+ box-shadow:0 0 0 1px rgba(0,0,0,.08) inset,0 0 24px rgba(63,215,173,.42),0 8px 20px rgba(0,0,0,.3)!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .ds-cta-play{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:50%;background:#0a3a34;color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+html body #learnScreen #learnScroll #v5Return .ds-nba .ds-cta-play svg{width:22px;height:22px;margin-inline-start:2px}
+html body #learnScreen #learnScroll #v5Return .ds-nba .ds-cta-end{display:grid;place-items:center;flex:none;color:#053a32}
+html body #learnScreen #learnScroll #v5Return .ds-nba .ds-cta-end svg{width:26px;height:26px}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-soft{display:flex!important;align-items:flex-start!important;gap:8px!important;margin-top:var(--ds-space-3)!important;font-size:12px!important;line-height:1.45!important;color:#a9bfbf!important;text-align:start!important}
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-soft .ds-nba-info-line{width:18px;height:18px;flex:none;margin-top:1px;color:#5fe8c4}
+html[dir="rtl"] body #learnScreen #learnScroll #v5Return .ds-nba .ds-cta-end svg{transform:scaleX(-1)}
+@media (max-width:360px){
+ html body #learnScreen #learnScroll #v5Return .ds-nba-title{font-size:24px}
+ html body #learnScreen #learnScroll #v5Return .ds-nba .v680-kicker{font-size:12px!important}
+ html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step b{font-size:13px!important}
+}
+
 /* ---------- Units: compact sticky header, collapsible ---------- */
 html body #learnScreen #learnScroll #v5Paths{padding:0!important}
 html body #learnScreen #learnScroll #v5Paths>section.restored-unit>.hero::before{display:none!important}

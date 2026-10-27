@@ -19,7 +19,7 @@
   return i<0?0:i;
  }
  function decorate(){
-  const paths=document.getElementById('v5Paths');if(!paths)return;
+  const paths=document.getElementById('v5Paths');if(!paths){decorateNextStep();return}
   const list=units(paths),current=currentIndex(list);
   list.forEach((unit,i)=>{
    const state=i<current?'done':i>current?'upcoming':'current';
@@ -38,7 +38,68 @@
    const betweenUnits=prev?.matches('section.restored-unit')&&next?.matches('section.restored-unit')&&world(prev)===world(next);
    setClass(divider,'ds-unit-divider',!!betweenUnits);
   }
+  decorateNextStep();
  }
+ // "Your next step" card (v680) in the reference style. The engine rebuilds it on every home
+ // render and the locale layers translate its text nodes in place, so everything is added as
+ // decoration around the engine's own nodes: the art, icons, and an accented copy of the
+ // title (the real <h1> stays in the DOM, visually hidden, for screen readers and locale layers).
+ const ICON={
+  layers:'<svg class="ds-nba-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="m12 3 9 4.6-9 4.6-9-4.6L12 3Z"/><path d="m3 12.2 9 4.6 9-4.6"/><path d="m3 16.6 9 4.6 9-4.6"/></svg>',
+  info:'<svg class="ds-nba-info" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M12 10.6v6" stroke="#06302b" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.3" r="1.35" fill="#06302b"/></svg>',
+  infoLine:'<svg class="ds-nba-info-line" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 10.8v5.6"/><path d="M12 7.6h.01" stroke-width="2.6"/></svg>',
+  play:'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6.6v10.8l8.6-5.4L9 6.6Z" fill="currentColor"/></svg>',
+  chevrons:'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 6 6 6-6 6"/><path d="m12 6 6 6-6 6"/></svg>',
+  swoosh:'<svg class="ds-swoosh" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M3 9.5C55 3.5 120 2 197 5.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M40 10.5C90 7 140 6.5 182 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".55"/></svg>'
+ };
+ const ART='assets/design/mosque-arch.webp';
+ // The accent is the closing phrase: the last two words of longer titles, otherwise the last one.
+ function splitAccent(text){
+  const words=text.trim().split(/\s+/),n=words.length>=4?2:1;
+  return [words.slice(0,-n).join(' '),words.slice(-n).join(' ')];
+ }
+ function decorateNextStep(){
+  const card=document.querySelector('#v5Return .v680-nba');if(!card)return;
+  setClass(card,'ds-nba',true);
+  if(!card.querySelector(':scope>.ds-nba-art')){
+   const art=document.createElement('img');art.className='ds-nba-art';art.src=ART;art.alt='';art.decoding='async';art.setAttribute('aria-hidden','true');
+   card.prepend(art);
+  }
+  const kicker=card.querySelector('.v680-kicker');
+  if(kicker&&!kicker.querySelector('.ds-nba-ico'))kicker.insertAdjacentHTML('afterbegin',ICON.layers);
+  const h1=card.querySelector(':scope>h1');
+  if(h1){
+   setClass(h1,'ds-sr',true);
+   const text=h1.textContent.trim();let copy=card.querySelector(':scope>.ds-nba-title');
+   if(copy&&copy.dataset.dsSource!==text){copy.remove();copy=null}
+   if(!copy&&text){
+    const [lead,accent]=splitAccent(text);
+    copy=document.createElement('div');copy.className='ds-nba-title';copy.dataset.dsSource=text;copy.setAttribute('aria-hidden','true');
+    const em=document.createElement('em');em.textContent=accent;
+    copy.append(document.createTextNode(lead?lead+' ':''),em);copy.insertAdjacentHTML('beforeend',ICON.swoosh);
+    h1.after(copy);
+   }
+  }
+  const why=card.querySelector('.v680-why');
+  if(why&&!why.querySelector('.ds-nba-info'))why.insertAdjacentHTML('afterbegin',ICON.info);
+  const cta=card.querySelector('.v680-main');
+  if(cta){
+   if(!cta.querySelector(':scope>.ds-cta-play')){
+    cta.insertAdjacentHTML('afterbegin','<span class="ds-cta-play" aria-hidden="true">'+ICON.play+'</span>');
+    cta.insertAdjacentHTML('beforeend','<span class="ds-cta-end" aria-hidden="true">'+ICON.chevrons+'</span>');
+   }
+   // renderHome() pins a 12.5px label inline; the reference button uses a larger label.
+   if(cta.style.getPropertyValue('font-size')!=='15px')cta.style.setProperty('font-size','15px','important');
+   // The Arabic layer translates only the "5 SORU" part of "5 SORULUK ISINMA" and leaves
+   // "LUK ISINMA" behind; replace that half-translated label with the whole phrase.
+   const label=[...cta.childNodes].find(n=>n.nodeType===3&&n.data.trim());
+   const m=label?.data.trim().match(/^(\d+)\s*أسئلة\s*LUK ISINMA$/);
+   if(m)label.data='إحماء بـ '+m[1]+' أسئلة';
+  }
+  const soft=card.querySelector('.v680-soft');
+  if(soft&&!soft.querySelector('.ds-nba-info-line'))soft.insertAdjacentHTML('afterbegin',ICON.infoLine);
+ }
+
  function toggle(hero){
   const unit=hero.closest('section.restored-unit');if(!unit)return;
   const open=unit.classList.contains('ds-collapsed');
@@ -64,8 +125,9 @@
  function watch(){
   const scroll=document.getElementById('learnScroll');
   if(!scroll){setTimeout(watch,300);return}
-  observer=new MutationObserver(records=>{if(records.some(r=>r.type==='childList'))schedule()});
-  observer.observe(scroll,{childList:true,subtree:true});
+  // Text changes matter too: the locale layers translate the next-step title in place.
+  observer=new MutationObserver(records=>{if(records.some(r=>r.type==='childList'||r.type==='characterData'))schedule()});
+  observer.observe(scroll,{childList:true,subtree:true,characterData:true});
   decorate();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch,{once:true});else watch();

@@ -38,6 +38,7 @@ async function prepare(){
   './assets/badges/deen-badges-atlas.webp',
   './assets/combo/companions-sheet.png',
   './assets/companions/owl/owl_avatar.png',
+  './assets/design/mosque-arch.webp',
   './assets/i18n/questions/ar/runtime/U01.live.json',
   './assets/i18n/questions/en/runtime/U01.live.json',
   './assets/i18n/questions/en/runtime/U01.variants.json',

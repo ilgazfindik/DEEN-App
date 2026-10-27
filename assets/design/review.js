@@ -52,7 +52,7 @@
    emptyTitle:'خطة ذاكرتك تبدأ هنا',emptyText:'أكمل درسك المصغّر الأول، وسيخطّط DEEN لما تراجعه ومتى.',emptyCta:'ابدأ الدرس الأول',steps:['أكمل درسًا','تُبنى الخطة','مراجعة ذكية'],
    pct:n=>n+'%'},
   de:{eyebrow:'ERINNERN · FESTIGEN',title:['Wiederholung, die sich dem ','Vergessen anpasst.'],sub:'Dein Plan passt sich deinen bisherigen Antworten und Wiederholungszeiten an.',
-   planEyebrow:'GEDÄCHTNISPLAN',live:'Live',planTitle:'Dein Gedächtnisplan für heute',planDue:'Fällige Inhalte kommen zuerst.',planBalanced:'Nichts ist fällig; der Plan stärkt ausgewogen deine schwächeren Begriffe.',
+   planEyebrow:'GEDÄCHTNISPLAN',live:'Live',planTitle:'Dein Gedächtnis­plan für heute',planDue:'Fällige Inhalte kommen zuerst.',planBalanced:'Nichts ist fällig; der Plan stärkt ausgewogen deine schwächeren Begriffe.',
    questionsCaps:'FRAGEN',statDue:'Fällig',statMistakes:'Fehler',statWeak:'Schwache Begriffe',statMemory:'Gedächtnisstärke',
    start:'Adaptive Wiederholung starten',startMeta:'{n} Fragen · ~{m} Min.',modes:'Wiederholungsmodi',
    mistakes:'Deine Fehler',mistakesDesc:'Konzentriere dich auf Verpasstes',weak:'Schwächere Begriffe',weakDesc:'Verständnis stärken',quick:'Schnelle Wiederholung',quickDesc:'Kurz und wirksam',due:'Fällige Wiederholungen',dueDesc:'Erinnern, bevor du vergisst',
@@ -93,8 +93,19 @@
   refresh:'<path d="M19 8a7.5 7.5 0 0 0-13.3 1"/><path d="M19 4v4h-4"/><path d="M5 16a7.5 7.5 0 0 0 13.3-1"/><path d="M5 20v-4h4"/>',
   calendar:'<rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 10h16M9 3v4M15 3v4"/>',
   sparkle:'<path d="M12 3c.7 4.3 2.7 6.3 7 7-4.3.7-6.3 2.7-7 7-.7-4.3-2.7-6.3-7-7 4.3-.7 6.3-2.7 7-7Z"/>',
-  layers:'<path d="m12 4 8 4-8 4-8-4 8-4Z"/><path d="m4 12 8 4 8-4M4 16l8 4 8-4"/>'
+  layers:'<path d="m12 4 8 4-8 4-8-4 8-4Z"/><path d="m4 12 8 4 8-4M4 16l8 4 8-4"/>',
+  sprout:'<path d="M12 20v-8"/><path d="M12 12c0-4 3-6.5 7-6.5 0 4-3 6.5-7 6.5Z"/><path d="M12 14.5c0-3.2-2.4-5.2-6-5.2 0 3.2 2.4 5.2 6 5.2Z"/>',
+  chevrons:'<path d="m5 6 6 6-6 6"/><path d="m12 6 6 6-6 6"/>'
  };
+ // Concept chips cycle through these marks, as in the reference card.
+ const CHIP_ICONS=['book','sprout','layers'];
+ const ART='assets/design/mosque-arch.webp';
+ const SWOOSH='<svg class="dsr-swoosh" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M3 9.5C55 3.5 120 2 197 5.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M40 10.5C90 7 140 6.5 182 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".55"/></svg>';
+ // Title with its closing word in the gold accent.
+ function accented(text){
+  const words=String(text).trim().split(/\s+/),last=words.pop();
+  return (words.length?esc(words.join(' '))+' ':'')+'<em>'+esc(last)+'</em>';
+ }
  const svg=(name,cls='')=>'<svg class="dsr-ico '+cls+'" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+ICON[name]+'</svg>';
  const esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
  // Content-bank text (Turkish source) in its own element so the locale layers translate it.
@@ -148,20 +159,24 @@
 
  function planCard(s,T){
   const p=s.plan,minutes=Math.max(1,Math.ceil(p.count*0.65));
-  const chips=s.concepts.slice().sort((a,b)=>a.score-b.score).slice(0,3).map(c=>'<span class="dsr-chip '+band(c.score)+'">'+data(c.topic)+'<em>'+esc(T.pct(c.score))+'</em></span>').join('');
+  const chips=s.concepts.slice().sort((a,b)=>a.score-b.score).slice(0,3).map((c,i)=>'<span class="dsr-chip '+band(c.score)+'">'+svg(CHIP_ICONS[i%CHIP_ICONS.length])+data(c.topic)+'<em>'+esc(T.pct(c.score))+'</em></span>').join('');
   const scheduled=Object.keys(appState().reviewSchedule||{}).length||1;
+  // Every stat carries a bar, as in the reference: mistakes against reviewed items, weak
+  // concepts against all learned concepts.
+  const learned=s.concepts.length||1;
   return '<section class="dsr-plan" aria-labelledby="dsrPlanTitle">'+
+   '<img class="dsr-plan-art" src="'+ART+'" alt="" aria-hidden="true" decoding="async">'+
    '<div class="dsr-plan-head"><span class="dsr-plan-eyebrow">'+svg('brain')+esc(T.planEyebrow)+'</span>'+(p.count?'<span class="dsr-live"><i></i>'+esc(T.live)+'</span>':'')+'</div>'+
-   '<div class="dsr-plan-main"><div><h2 id="dsrPlanTitle">'+esc(T.planTitle)+'</h2><p>'+esc(p.due?T.planDue:T.planBalanced)+'</p></div>'+
+   '<div class="dsr-plan-main"><div><h2 id="dsrPlanTitle">'+accented(T.planTitle)+SWOOSH+'</h2><p>'+esc(p.due?T.planDue:T.planBalanced)+'</p></div>'+
    '<div class="dsr-ring" role="img" aria-label="'+esc(p.count+' '+T.questionsCaps)+'">'+ring(p.count,7)+'<span><b>'+p.count+'</b><small>'+esc(T.questionsCaps)+'</small></span></div></div>'+
    '<div class="dsr-stats">'+
     stat('clock','sky',s.due,T.statDue,Math.round(s.due/scheduled*100))+
-    stat('target','coral',s.mistakes,T.statMistakes,null)+
-    stat('bolt','amber',s.weak.length,T.statWeak,null)+
+    stat('target','coral',s.mistakes,T.statMistakes,Math.round(s.mistakes/scheduled*100))+
+    stat('bolt','amber',s.weak.length,T.statWeak,Math.round(s.weak.length/learned*100))+
     stat('chart','mint',T.pct(clampPct(s.global.score)),T.statMemory,s.global.score)+
    '</div>'+
    (chips?'<div class="dsr-chips">'+chips+'</div>':'')+
-   '<button type="button" class="dsr-cta" data-dsr-start="smart"><span class="dsr-cta-play">'+svg('play')+'</span><span class="dsr-cta-text"><b>'+esc(T.start)+'</b><small>'+svg('clock')+esc(T.startMeta.replace('{n}',p.count).replace('{m}',minutes))+'</small></span>'+svg('chevron','dsr-flip')+'</button>'+
+   '<button type="button" class="dsr-cta" data-dsr-start="smart"><span class="dsr-cta-play">'+svg('play')+'</span><span class="dsr-cta-text"><b>'+esc(T.start)+'</b><small>'+svg('clock')+esc(T.startMeta.replace('{n}',p.count).replace('{m}',minutes))+'</small></span>'+svg('chevrons','dsr-flip dsr-cta-end')+'</button>'+
   '</section>';
  }
 

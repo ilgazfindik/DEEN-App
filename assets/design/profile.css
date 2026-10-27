@@ -64,6 +64,55 @@ html body #profileScreenBody.dsp-host>.deen-hub-profile .dh-perks{margin:0 0 var
 html body #profileScreenBody.dsp-host>.deen-hub-profile .dh-profile-actions{display:flex!important;gap:var(--ds-space-2)!important;flex-wrap:wrap!important}
 html body #profileScreenBody.dsp-host>.deen-hub-profile .dh-profile-actions>button{flex:1 1 140px!important;min-height:var(--ds-tap)!important;margin:0!important;font-size:var(--ds-fs-sm)!important}
 
+/* Premium card in the reference style (profile.js adds .dsp-prem, art, icons, title and perks) */
+html body #profileScreenBody.dsp-host>.deen-hub-profile.dsp-prem{position:relative!important;isolation:isolate;overflow:hidden!important;padding:var(--ds-space-5) var(--ds-space-4) var(--ds-space-4)!important;border-radius:24px!important;
+ background:radial-gradient(70% 50% at 82% 26%,rgba(63,215,173,.17),transparent 70%),linear-gradient(180deg,#0f3434 0%,#0a2629 60%,#09212a 100%)!important;
+ border:1.5px solid rgba(95,224,187,.45)!important;box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 18px 40px rgba(0,0,0,.35)!important}
+html body #profileScreenBody.dsp-host>.dsp-prem>*{position:relative;z-index:1}
+html body #profileScreenBody.dsp-host>.dsp-prem>.dsp-prem-art{position:absolute!important;z-index:0;top:54px;inset-inline-end:4px;width:36%;max-width:170px;height:auto;aspect-ratio:290/380;object-fit:cover;pointer-events:none;
+ -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 60%,transparent 97%),linear-gradient(90deg,transparent 0,#000 13%,#000 87%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 60%,transparent 97%),linear-gradient(90deg,transparent 0,#000 13%,#000 87%,transparent 100%);mask-composite:intersect}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-sr{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important;display:block!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-topline{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:8px!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-crown{display:inline-flex!important;font-size:0!important;color:#f1cf7a!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-crown{display:inline-grid;place-items:center}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-crown .dsp-crown svg{width:26px;height:26px;filter:drop-shadow(0 0 6px rgba(241,207,122,.35))}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-brand{min-width:0;font-size:13px!important;letter-spacing:.16em!important;white-space:nowrap!important;color:#f3dfa8!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-status{display:inline-flex!important;align-items:center!important;gap:6px!important;flex:none!important;margin-inline-start:auto!important;padding:5px 10px!important;border-radius:var(--ds-radius-pill)!important;font-size:12px!important;letter-spacing:.03em!important;white-space:nowrap!important;
+ color:#f3dfa8!important;background:rgba(52,40,14,.55)!important;border:1.5px solid rgba(233,197,110,.75)!important;box-shadow:0 0 14px rgba(233,197,110,.2)!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-status .dsp-crown svg{width:16px;height:16px;color:#f1cf7a}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-title{max-width:62%;margin:var(--ds-space-4) 0 var(--ds-space-4);font:var(--ds-fw-bold) 30px/1.1 var(--ds-font);letter-spacing:-.01em;color:#fff;overflow-wrap:break-word;hyphens:auto}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-title em{font-style:normal;background:linear-gradient(90deg,#f8e2a6,#e2b75e);-webkit-background-clip:text;background-clip:text;color:transparent}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-rays{display:inline-block;width:26px;height:26px;margin-inline-start:4px;vertical-align:top;color:#f1c75a}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-rays svg{width:100%;height:100%}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-swoosh{display:block;width:min(150px,80%);height:10px;margin-top:6px;color:#3fd7ad}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-perks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0 0 var(--ds-space-4)}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-perk{display:flex;align-items:center;gap:8px;min-width:0;padding:2px 8px;border-inline-start:1px solid rgba(255,255,255,.16)}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-perk:first-child{padding-inline-start:0;border-inline-start:0}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-perk svg{width:24px;height:24px;flex:none;color:#4fe6c2}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-perk b{min-width:0;font-size:13px;font-weight:var(--ds-fw-semibold);line-height:1.25;color:#e8f1ef;overflow-wrap:break-word;hyphens:auto}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-profile-actions{flex-direction:column!important;gap:var(--ds-space-3)!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-profile-actions>button{flex:none!important;display:flex!important;align-items:center!important;gap:var(--ds-space-3)!important;width:100%!important;min-height:64px!important;padding:8px 18px 8px 8px!important;border-radius:var(--ds-radius-pill)!important;
+ font:var(--ds-fw-bold) 17px/1.2 var(--ds-font)!important;letter-spacing:0!important;text-transform:none!important;text-align:start!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-main{color:#062b26!important;border:2px solid rgba(190,255,236,.7)!important;background:linear-gradient(180deg,#8ff7de 0%,#47e3c2 50%,#22c8a8 100%)!important;box-shadow:0 0 24px rgba(63,215,173,.45),0 8px 20px rgba(0,0,0,.3)!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-main>span[aria-hidden="true"]:not(.dsp-prem-disc):not(.dsp-prem-end){display:none!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-main-label{flex:1;min-width:0;padding-inline-start:var(--ds-space-3);border-inline-start:1.5px solid rgba(6,43,38,.3)}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-compare{color:#f6e2ae!important;border:2px solid rgba(233,197,110,.85)!important;background:linear-gradient(180deg,#123130,#0b2224)!important;box-shadow:0 0 22px rgba(233,197,110,.28),0 8px 20px rgba(0,0,0,.3)!important}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-disc{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:50%}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-main .dsp-prem-disc{background:rgba(190,255,236,.55);color:#062b26;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+html body #profileScreenBody.dsp-host>.dsp-prem .dh-compare .dsp-prem-disc{margin-inline-end:var(--ds-space-3);background:rgba(4,22,24,.7);color:#f1cf7a;border-inline-end:0;box-shadow:12px 0 0 -11px rgba(233,197,110,.45)}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-disc svg{width:26px;height:26px}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-end{display:grid;place-items:center;flex:none}
+html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-end svg{width:24px;height:24px}
+html[dir="rtl"] body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-end svg{transform:scaleX(-1)}
+@media (max-width:360px){
+ html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-title{font-size:25px}
+ /* No room for the duplicate status pill beside the brand; icons sit above their labels. */
+ html body #profileScreenBody.dsp-host>.dsp-prem .dh-status{display:none!important}
+ html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-perk{flex-direction:column;justify-content:flex-start;gap:6px;padding:2px 4px;text-align:center}
+ html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-perk:first-child{padding-inline-start:4px}
+ html body #profileScreenBody.dsp-host>.dsp-prem .dsp-prem-perk b{font-size:12px}
+}
+
 /* Shared card language */
 html body #profileScreenBody .dsp-section{display:flex;flex-direction:column;gap:var(--ds-space-3)}
 html body #profileScreenBody .dsp-h2{margin:0;font-size:var(--ds-fs-lg);font-weight:var(--ds-fw-bold);line-height:var(--ds-lh-tight);color:var(--ds-text)}
