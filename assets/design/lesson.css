@@ -63,6 +63,30 @@ html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.wrong,.wron
 html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:disabled:not(.correct):not(.found):not(.wrong):not(.wrong-pick):not(.selected):not(.v859-picked):not(.v857-picked):not(.v852-tap){opacity:.55!important}
 html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.correct,.found,.wrong,.wrong-pick,.selected,.v859-picked,.v857-picked,.v852-tap){opacity:1!important;filter:none!important}
 
+html body #lesson #answerArea .ds-choice[data-ds-layout="grid"][data-ds-compact="true"] .ds-opt{min-height:108px!important}
+
+/* True / false: two centred cards, a check and a cross in place of letters */
+html body #lesson #answerArea .ds-choice.ds-tf[data-ds-layout] .ds-opt{align-items:center!important;justify-content:center!important;text-align:center!important;min-height:136px!important;font-size:var(--ds-fs-lg)!important;font-weight:var(--ds-fw-bold)!important}
+html body #lesson #answerArea .ds-choice.ds-tf[data-ds-layout] .ds-opt .option-badge{width:48px!important;height:48px!important;font-size:22px!important}
+html body #lesson #answerArea .v710-rapid{margin:0 0 var(--ds-space-3)!important;padding:var(--ds-space-3) var(--ds-space-4)!important;border-radius:var(--ds-radius-md)!important;border:1px solid rgba(63,215,173,.22)!important;background:rgba(4,22,28,.45)!important;box-shadow:none!important}
+html body #lesson #answerArea .v710-rapid-top{font-size:var(--ds-fs-xs)!important;letter-spacing:.08em!important;color:var(--ds-text-faint)!important}
+html body #lesson #answerArea .v710-rapid-top .v710-timer{color:#e9cf93!important;font-weight:var(--ds-fw-bold)!important}
+html body #lesson #answerArea .v710-timer-bar{background:rgba(255,255,255,.08)!important;border-radius:var(--ds-radius-pill)!important}
+html body #lesson #answerArea .v710-timer-bar i{background:linear-gradient(90deg,#3fd7ad,#e9cf93)!important;border-radius:inherit!important}
+
+/* Sequence building: answer zone and blocks in the card style (no letters, blocks move) */
+html body #lesson #answerArea .v710-builder-zone{min-height:72px!important;margin:0 0 var(--ds-space-3)!important;padding:var(--ds-space-3)!important;display:flex!important;flex-direction:column!important;gap:var(--ds-space-2)!important;
+ border-radius:var(--ds-radius-lg)!important;border:1.5px dashed rgba(233,207,147,.45)!important;background:rgba(4,22,28,.35)!important;box-shadow:none!important}
+html body #lesson #answerArea .ds-order{display:flex!important;flex-direction:column!important;gap:var(--ds-space-2)!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+html body #lesson #answerArea :is(.ds-order .v710-word-chip,.v710-builder-zone .v710-builder-piece){display:block!important;width:100%!important;margin:0!important;padding:var(--ds-space-3) var(--ds-space-4)!important;border-radius:var(--ds-radius-md)!important;text-align:start!important;
+ font-family:var(--ds-font)!important;font-size:var(--ds-fs-md)!important;line-height:1.4!important;font-weight:var(--ds-fw-semibold)!important;letter-spacing:0!important;text-transform:none!important;white-space:normal!important;overflow-wrap:anywhere!important;
+ color:var(--ds-text)!important;background:linear-gradient(170deg,#12323a,#0c2329)!important;border:1.5px solid rgba(63,215,173,.28)!important;box-shadow:0 6px 16px rgba(0,0,0,.22)!important;transform:none!important;animation:none!important}
+html body #lesson #answerArea .v710-builder-zone .v710-builder-piece{border-color:#e9cf93!important;background:linear-gradient(170deg,#3a3420,#1b2622 75%)!important}
+html body #lesson #answerArea .ds-order .v710-word-chip:disabled{opacity:.35!important}
+html body #lesson #answerArea .v710-builder-zone:is(.correct,.is-correct) .v710-builder-piece{border-color:#5fe0bb!important;background:linear-gradient(170deg,#11493f,#0b2e29 75%)!important}
+html body #lesson #answerArea .v710-builder-zone:is(.wrong,.is-wrong) .v710-builder-piece{border-color:#f39b8f!important;background:linear-gradient(170deg,#4a2a30,#2a1d22 75%)!important}
+html body #lesson #answerArea .v710-builder-hint{margin:var(--ds-space-2) 0 0!important;font-size:var(--ds-fs-xs)!important;color:var(--ds-text-faint)!important;text-align:start!important}
+
 @media (max-width:360px){
  html body #lesson #quizView .ds-mc-title{font-size:23px}
  html body #lesson #quizView .question-frame.ds-classic #questionText{font-size:22px!important}

@@ -1,24 +1,30 @@
 /* Lesson answer choices on the design system.
    The lesson engine still renders and grades every question; this layer only adds
    presentation to the choice-based types (multiple choice, card choice, scenario,
-   odd one out, error spotting): A/B/C/D answer cards in a 2×2 grid when every option is
+   odd one out, error spotting, listening, next word, true/false): A/B/C/D answer cards in a 2×2 grid when every option is
    short (a single column otherwise) and a heading in the reference style (learning-style
    chip, title with a gold accent, star rule). Letters come from a data attribute drawn by
-   CSS, so option text, order and state classes stay exactly as the engine set them. */
+   CSS, so option text, order and state classes stay exactly as the engine set them.
+   Sequence building keeps its own tap-to-place flow and only gets the heading and card styling. */
 (()=>{
  'use strict';
  if(window.DEEN_DS_LESSON)return;
  const L={
-  tr:{hidden:n=>n+' HATA SAKLANIYOR',hint:'TEK DOKUNUŞTA CEVAPLA',style:{child:'ÇOCUK ANLATIMI',teen:'GENÇ ANLATIMI',adult:'YETİŞKİN ANLATIMI'},
-   title:{choice:['Doğru ','cevabı',' seç'],odd:['Uymayanı ','bul',''],error:['Hatayı ','bul',''],scenario:['En doğru ','davranışı',' seç']}},
-  en:{hidden:n=>n===1?'1 MISTAKE HIDDEN':n+' MISTAKES HIDDEN',hint:'ANSWER WITH ONE TAP',style:{child:'CHILD LEARNING STYLE',teen:'TEEN LEARNING STYLE',adult:'ADULT LEARNING STYLE'},
-   title:{choice:['Choose the ','correct',' answer'],odd:['Find the one that ','doesn’t fit',''],error:['Spot the ','mistake',''],scenario:['Choose the ','best',' response']}},
-  ar:{hidden:n=>'يوجد '+n+' خطأ مخفي',hint:'أجب بلمسة واحدة',style:{child:'أسلوب الأطفال',teen:'أسلوب الشباب',adult:'أسلوب البالغين'},
-   title:{choice:['اختر الإجابة ','الصحيحة',''],odd:['ابحث عن ','المختلف',''],error:['اكتشف ','الخطأ',''],scenario:['اختر ','التصرّف الأفضل','']}},
-  de:{hidden:n=>n===1?'1 FEHLER VERSTECKT':n+' FEHLER VERSTECKT',hint:'MIT EINEM TIPP ANTWORTEN',style:{child:'LERNSTIL FÜR KINDER',teen:'LERNSTIL FÜR JUGENDLICHE',adult:'LERNSTIL FÜR ERWACHSENE'},
-   title:{choice:['Wähle die ','richtige',' Antwort'],odd:['Finde, was ','nicht passt',''],error:['Finde den ','Fehler',''],scenario:['Wähle die ','beste',' Reaktion']}},
-  fr:{hidden:n=>n===1?'1 ERREUR CACHÉE':n+' ERREURS CACHÉES',hint:'RÉPONDS EN UN GESTE',style:{child:'STYLE ENFANT',teen:'STYLE ADO',adult:'STYLE ADULTE'},
-   title:{choice:['Choisis la ','bonne',' réponse'],odd:['Trouve ce qui ','ne va pas',''],error:['Repère l’','erreur',''],scenario:['Choisis la ','meilleure',' réaction']}}
+  tr:{hidden:n=>n+' HATA SAKLANIYOR',hint:'TEK DOKUNUŞTA CEVAPLA',rapid:'HATIRLA · BASKI YOK',style:{child:'ÇOCUK ANLATIMI',teen:'GENÇ ANLATIMI',adult:'YETİŞKİN ANLATIMI'},
+   title:{choice:['Doğru ','cevabı',' seç'],odd:['Uymayanı ','bul',''],error:['Hatayı ','bul',''],scenario:['En doğru ','davranışı',' seç'],
+    tf:['Doğru mu, ','yanlış',' mı?'],word:['Eksik ','kelimeyi',' seç'],order:['Doğru ','sıraya',' diz'],listen:['Dinle ve ','doğru',' cevabı seç']}},
+  en:{hidden:n=>n===1?'1 MISTAKE HIDDEN':n+' MISTAKES HIDDEN',hint:'ANSWER WITH ONE TAP',rapid:'RECALL · NO PRESSURE',style:{child:'CHILD LEARNING STYLE',teen:'TEEN LEARNING STYLE',adult:'ADULT LEARNING STYLE'},
+   title:{choice:['Choose the ','correct',' answer'],odd:['Find the one that ','doesn’t fit',''],error:['Spot the ','mistake',''],scenario:['Choose the ','best',' response'],
+    tf:['True or ','false','?'],word:['Choose the ','missing',' word'],order:['Put them in the ','right',' order'],listen:['Listen and choose the ','right',' answer']}},
+  ar:{hidden:n=>'يوجد '+n+' خطأ مخفي',hint:'أجب بلمسة واحدة',rapid:'تذكّر · بلا ضغط',style:{child:'أسلوب الأطفال',teen:'أسلوب الشباب',adult:'أسلوب البالغين'},
+   title:{choice:['اختر الإجابة ','الصحيحة',''],odd:['ابحث عن ','المختلف',''],error:['اكتشف ','الخطأ',''],scenario:['اختر ','التصرّف الأفضل',''],
+    tf:['صحيح أم ','خطأ','؟'],word:['اختر الكلمة ','الناقصة',''],order:['رتّبها ','بالترتيب الصحيح',''],listen:['استمع واختر ','الإجابة الصحيحة','']}},
+  de:{hidden:n=>n===1?'1 FEHLER VERSTECKT':n+' FEHLER VERSTECKT',hint:'MIT EINEM TIPP ANTWORTEN',rapid:'ERINNERN · OHNE DRUCK',style:{child:'LERNSTIL FÜR KINDER',teen:'LERNSTIL FÜR JUGENDLICHE',adult:'LERNSTIL FÜR ERWACHSENE'},
+   title:{choice:['Wähle die ','richtige',' Antwort'],odd:['Finde, was ','nicht passt',''],error:['Finde den ','Fehler',''],scenario:['Wähle die ','beste',' Reaktion'],
+    tf:['Richtig oder ','falsch','?'],word:['Wähle das ','fehlende',' Wort'],order:['Bring sie in die ','richtige',' Reihenfolge'],listen:['Hör zu und wähle die ','richtige',' Antwort']}},
+  fr:{hidden:n=>n===1?'1 ERREUR CACHÉE':n+' ERREURS CACHÉES',hint:'RÉPONDS EN UN GESTE',rapid:'MÉMOIRE · SANS PRESSION',style:{child:'STYLE ENFANT',teen:'STYLE ADO',adult:'STYLE ADULTE'},
+   title:{choice:['Choisis la ','bonne',' réponse'],odd:['Trouve ce qui ','ne va pas',''],error:['Repère l’','erreur',''],scenario:['Choisis la ','meilleure',' réaction'],
+    tf:['Vrai ou ','faux',' ?'],word:['Choisis le mot ','manquant',''],order:['Remets-les dans le ','bon',' ordre'],listen:['Écoute et choisis la ','bonne',' réponse']}}
  };
  // [container, option] pairs of the choice-based question types.
  const TYPES=[
@@ -26,10 +32,19 @@
   {kind:'choice',list:'.options.v852-card-grid',opt:'.option'},
   {kind:'scenario',list:'.v857-decisions',opt:'.option'},
   {kind:'odd',list:'.v858-odd-wrap',opt:'.v858-odd-card'},
-  {kind:'error',list:'.v710-clues',opt:'.v710-clue'}
+  {kind:'error',list:'.v710-clues',opt:'.v710-clue'},
+  {kind:'listen',list:'.v710-listen-options',opt:'.v710-listen-option'},
+  {kind:'tf',list:'.v710-binary',opt:'button'},
+  // The word bank is a single pick for "next word" but a tap-to-place sequence when a builder
+  // zone is present; sequences get no letters (blocks move between zones).
+  {kind:'order',list:'.v710-word-bank',opt:null,need:'.v710-builder-zone'},
+  {kind:'word',list:'.v710-word-bank',opt:'.v710-word-chip'}
  ];
+ // True/false shows a check and a cross (engine order: true first) instead of letters.
+ const TF_MARKS=['✓','✕'];
  // Options longer than this (characters) do not fit a half-width card at 320–390px.
  const GRID_MAX=64;
+ const COMPACT_MAX=24;
  const LETTERS='ABCDEFGH';
  const BOOK='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2 2 0 0 1 6 4h5v15H6a2 2 0 0 0-2 1.5v-15Z"/><path d="M20 5.5A2 2 0 0 0 18 4h-5v15h5a2 2 0 0 1 2 1.5v-15Z"/></svg>';
  function lang(){
@@ -38,6 +53,8 @@
   return L[code]?code:'tr';
  }
  const profile=()=>{try{const p=String(state?.learningProfile||'');return /child|kid/.test(p)?'child':/teen|young/.test(p)?'teen':/adult/.test(p)?'adult':''}catch(_){return ''}};
+ // classList.add/toggle report a mutation even when nothing changes; write only real changes.
+ const setClass=(el,c,on=true)=>{if(el.classList.contains(c)!==on)el.classList.toggle(c,on)};
  const visible=el=>!!el&&el.getClientRects().length>0&&getComputedStyle(el).display!=='none'&&getComputedStyle(el).visibility!=='hidden';
 
  function heading(kind,T){
@@ -66,28 +83,33 @@
   const frame=area.closest('.question-frame')||document.querySelector('#quizView .question-frame');
   const code=lang(),T=L[code];
   let type=null,list=null;
-  for(const t of TYPES){const l=area.querySelector(t.list);if(l){type=t;list=l;break}}
-  if(frame)frame.classList.toggle('ds-choice-frame',!!list);
+  for(const t of TYPES){const l=area.querySelector(t.list);if(l&&(!t.need||area.querySelector(t.need))){type=t;list=l;break}}
+  if(frame)setClass(frame,'ds-choice-frame',!!list);
   if(list){
    // Cards sit directly in the list for most types; odd-one-out wraps them one level deeper.
-   const options=[...list.querySelectorAll(type.opt)].filter(o=>!o.parentElement.closest(type.opt));
+   const options=type.opt?[...list.querySelectorAll(type.opt)].filter(o=>!o.parentElement.closest(type.opt)):[];
    // The grid goes on the cards' own parent, so headers inside the list (odd one out) stay above.
    const parent=options[0]?.parentElement;
    if(parent&&options.every(o=>o.parentElement===parent))list=parent;
-   if(options.length>=2){
-    list.classList.add('ds-choice');
+   setClass(list,'ds-order',type.kind==='order');
+   if(options.length>=2||type.kind==='order'){
+    setClass(list,'ds-choice');
     options.forEach((o,i)=>{
-     o.classList.add('ds-opt');if(o.dataset.dsLetter!==LETTERS[i])o.dataset.dsLetter=LETTERS[i];
+     const mark=type.kind==='tf'?TF_MARKS[i]||LETTERS[i]:LETTERS[i];
+     setClass(o,'ds-opt');if(o.dataset.dsLetter!==mark)o.dataset.dsLetter=mark;
      // Types without the engine's letter badge get a real one (no CSS generated text, which the
      // locale audits forbid). Answers are matched by data-value or .option-label, never by the
      // card's full text, so the extra letter does not affect grading.
      const badge=o.querySelector(':scope>.option-badge');
-     if(!badge){const b=document.createElement('span');b.className='option-badge ds-letter';b.setAttribute('aria-hidden','true');b.textContent=LETTERS[i];o.prepend(b)}
-     else if(badge.classList.contains('ds-letter')&&badge.textContent!==LETTERS[i])badge.textContent=LETTERS[i];
+     if(!badge){const b=document.createElement('span');b.className='option-badge ds-letter';b.setAttribute('aria-hidden','true');b.textContent=mark;o.prepend(b)}
+     else if(badge.classList.contains('ds-letter')&&badge.textContent!==mark)badge.textContent=mark;
     });
     const longest=Math.max(...options.map(o=>(o.querySelector('.option-label')?.textContent||o.textContent).trim().length));
-    const layout=options.length===4&&longest<=GRID_MAX?'grid':'list';
-    if(list.dataset.dsLayout!==layout)list.dataset.dsLayout=layout;
+    const layout=(options.length===4||options.length===2)&&longest<=GRID_MAX?'grid':'list';
+    if(options.length&&list.dataset.dsLayout!==layout)list.dataset.dsLayout=layout;
+    // Single words or short phrases get shorter cards, so the check button stays clear of the footer.
+    const compact=String(longest<=COMPACT_MAX);if(options.length&&list.dataset.dsCompact!==compact)list.dataset.dsCompact=compact;
+    setClass(list,'ds-tf',type.kind==='tf');
     // The German layer skips #answerArea (answer text must come from the content packs), so
     // the one-tap hint is localized here for every language.
     const tag=area.querySelector('.v859-speed-tag');if(tag&&tag.textContent!==T.hint)tag.textContent=T.hint;
@@ -97,18 +119,20 @@
     // re-trigger the observer forever.
     const label=m&&m[1]+T.hidden(Number(m[2]));
     if(label&&caseTag.textContent!==label)caseTag.textContent=label;
+    // True/false ships a Turkish "recall, no pressure" label that English only half translates.
+    const rapid=area.querySelector('.v710-rapid-top b');if(rapid&&rapid.textContent!==T.rapid)rapid.textContent=T.rapid;
     // With the classic header (title visible) the heading replaces it above the question;
     // in companion mode (speech bubble) it sits between the question and the options.
     const legacyTitle=frame?.querySelector('.v9916-task-title');
     const classic=frame&&(frame.classList.contains('ds-classic')||visible(legacyTitle));
-    if(frame)frame.classList.toggle('ds-classic',!!classic);
+    if(frame)setClass(frame,'ds-classic',!!classic);
     // One heading per question: rebuild it when the question (or its translation) changes.
     const question=frame?.querySelector('#questionText'),qkey=type.kind+'|'+(question?.textContent||'').trim();
     const existing=document.querySelector('#quizView .ds-mc-head');
     if(existing&&existing.dataset.dsQuestion!==qkey)existing.remove();
     if(!document.querySelector('#quizView .ds-mc-head')){
      const head=heading(type.kind,T);head.dataset.dsQuestion=qkey;
-     if(classic&&question)question.before(head);else list.before(head);
+     if(classic&&question)question.before(head);else (type.kind==='order'&&area.querySelector('.v710-builder-zone')||list).before(head);
     }
    }
   }else document.querySelectorAll('#quizView .ds-mc-head').forEach(n=>n.remove());
