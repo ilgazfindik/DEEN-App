@@ -80,6 +80,35 @@
  }
  const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(sync)}};
 
+ // ---- Combo milestone (3 and 5 in a row) ----
+ const COMBO_SAY={
+  tr:{3:'3 doğru üst üste!',5:'5 doğru! Durdurulamazsın!'},
+  en:{3:'3 in a row!',5:'5 in a row! Unstoppable!'},
+  ar:{3:'3 إجابات صحيحة متتالية!',5:'5 متتالية! لا يمكن إيقافك!'},
+  de:{3:'3 richtig in Folge!',5:'5 in Folge! Nicht zu stoppen!'},
+  fr:{3:'3 bonnes réponses d’affilée !',5:'5 d’affilée ! Inarrêtable !'}
+ };
+ function uiLang(){
+  let code='';try{code=window.DEEN_APP_LOCALE?.get?.()||''}catch(_){}
+  code=String(code||root.lang||'tr').slice(0,2).toLowerCase();return COMBO_SAY[code]?code:'tr';
+ }
+ function sheetHeight(){
+  const f=document.getElementById('feedback');
+  return f?.classList.contains('show')?Math.round(f.getBoundingClientRect().height):0;
+ }
+ function comboMoment(rise){
+  const combo=Number(lessonSession()?.combo)||3,tier=combo>=5?5:3;
+  const frame=rise.parentElement;
+  // The sheet slides up and settles its text a moment after the grade; keep measuring while the
+  // companion is on screen so it always stands on the sheet edge.
+  const place=()=>{const h=sheetHeight();if(h&&frame)frame.style.setProperty('--ds-sheet-h',h+'px')};
+  place();for(const ms of [120,260,420,650,900,1300])setTimeout(place,ms);
+  if(!rise.querySelector('.ds-combo-say')){
+   const say=document.createElement('div');say.className='ds-combo-say';say.textContent=COMBO_SAY[uiLang()][tier];rise.append(say);
+  }
+  const avatar=document.querySelector('#lesson .deen-character-question-avatar');if(avatar){restart(avatar,'ds-hop');setTimeout(()=>avatar.classList.remove('ds-hop'),700)}
+ }
+
  // M2: the next question (or the first one, when a lesson opens) enters with .ds-q-in, kept for the
  // whole entrance because the engine's own -in class is removed after ~190 ms.
  let enterTimer=0;
@@ -96,9 +125,12 @@
     if(t.classList.contains('question-frame')&&(gained(r,'gf520-question-in')||gained(r,'gf-question-in')))enter(t);
     else if(t.id==='lesson'&&gained(r,'active'))setTimeout(()=>enter(document.querySelector('#quizView .question-frame')),scale()?260:0);
    }
-   // The engine's combo-milestone mascot appeared: the question mascot hops with it.
-   if(r.type==='childList')for(const n of r.addedNodes){if(n.nodeType===1&&(n.id==='deenDirectComboRise'||n.querySelector?.('#deenDirectComboRise'))){
-    const avatar=document.querySelector('#lesson .deen-character-question-avatar');if(avatar){restart(avatar,'ds-hop');setTimeout(()=>avatar.classList.remove('ds-hop'),700)}}}
+   // The engine's combo-milestone mascot appeared: it says the streak out loud, stands on the result
+   // sheet, and the question mascot hops with it.
+   if(r.type==='childList')for(const n of r.addedNodes){
+    const rise=n.nodeType===1&&(n.id==='deenDirectComboRise'?n:n.querySelector?.('#deenDirectComboRise'));
+    if(rise)comboMoment(rise);
+   }
    // A check button that just became available pops once. Some engine layers re-sync the button
    // on every input, so only a real disabled → enabled change counts, once per button.
    if(r.type==='attributes'&&r.attributeName==='disabled'&&r.oldValue!==null&&!t.disabled&&t.classList?.contains('template-action')&&!popped.has(t)){popped.add(t);restart(t,'ds-ready')}

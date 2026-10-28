@@ -104,18 +104,37 @@ html body #lesson #gfCombo{padding:6px 10px!important;border-radius:99px!importa
  background:rgba(70,40,8,.7)!important;border:1.5px solid rgba(255,190,90,.6)!important;box-shadow:0 0 14px rgba(255,180,70,.25)!important}
 html body #lesson #gfCombo.gf-combo-pop{animation:dsBump var(--ds-m-base) var(--ds-spring)!important}
 html body #lesson .v859-pop{display:none!important}
-html body #lesson .gf520-combo-milestone{top:84px!important;padding:10px 16px!important;border:0!important;border-radius:99px!important;font:900 16px/1 var(--ds-font)!important;color:#3a2306!important;
- background:linear-gradient(180deg,#ffe2a0,#f4b64e)!important;box-shadow:0 6px 0 #a8661c,0 14px 30px rgba(0,0,0,.4)!important;animation:dsToast calc(1500ms*var(--ds-m-s)) var(--ds-spring) both!important}
+/* The companion's speech bubble announces the streak, so the top milestone toast steps aside */
+html body #lesson .gf520-combo-milestone{display:none!important}
 
 /* ---------- Mascot: calm by default, reacts only at combo milestones and section end ---------- */
 html body #lesson :is(.v9944-reaction-chip,.v9944-particles){display:none!important}
 html body #lesson .deen-character-question-avatar img{transform-origin:50% 100%;animation:dsBreathe calc(2.8s*var(--ds-m-s)) ease-in-out infinite!important}
 html body #lesson .deen-character-question-avatar.ds-hop img{animation:dsHop calc(620ms*var(--ds-m-s)) var(--ds-spring)!important}
 html body #lesson .deen-character-question-avatar[class*="v9944-reaction"]{animation:none!important}
-/* The combo mascot rises from the corner instead of covering the result */
-html body #lesson #deenDirectComboRise{inset:auto 8px 34% auto!important;width:132px!important;height:132px!important;background:none!important;pointer-events:none!important}
-html body #lesson #deenDirectComboRise img{position:static!important;inset:auto!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:contain!important;transform:none;animation:dsRiseIn calc(700ms*var(--ds-m-s)) var(--ds-spring) both!important;filter:drop-shadow(0 12px 18px rgba(0,0,0,.45))!important}
-html[dir="rtl"] body #lesson #deenDirectComboRise{inset:auto auto 34% 8px!important}
+/* 3 and 5 in a row: the learner's own companion (the engine picks its combo art) rises from the
+   bottom edge, stands on the result sheet, hops twice for joy and says so in a bubble, then sinks
+   back when the engine closes it (.closing, ~1.9 s). --ds-sheet-h is the sheet height (motion.js). */
+@keyframes dsComboUp{0%{transform:translateY(115%) scale(.7)}55%{transform:translateY(-8%) scale(1.06)}75%{transform:translateY(2%) scale(.97,1.03)}100%{transform:none}}
+@keyframes dsComboJoy{0%,100%{transform:none}30%{transform:translateY(-16px) rotate(-4deg)}55%{transform:translateY(0) scale(1.04,.96)}75%{transform:translateY(-8px) rotate(3deg)}}
+@keyframes dsComboDown{to{transform:translateY(115%) scale(.8);opacity:0}}
+@keyframes dsComboGlow{0%{transform:scale(.4);opacity:0}40%{opacity:.95}100%{transform:scale(1.25);opacity:0}}
+@keyframes dsBubbleIn{0%{transform:scale(.4) translateY(10px);opacity:0}70%{transform:scale(1.06);opacity:1}100%{transform:none;opacity:1}}
+html body #lesson #deenDirectComboRise{position:absolute!important;inset:0!important;overflow:hidden!important;background:none!important;pointer-events:none!important;z-index:60!important}
+html body #lesson #deenDirectComboRise img{position:absolute!important;top:auto!important;left:auto!important;inset-inline-start:4px!important;bottom:calc(var(--ds-sheet-h,220px) - 22px)!important;
+ width:min(46%,178px)!important;height:auto!important;max-height:none!important;max-width:none!important;object-fit:contain!important;transform-origin:50% 100%!important;
+ animation:dsComboUp calc(620ms*var(--ds-m-s)) var(--ds-spring) both,dsComboJoy calc(700ms*var(--ds-m-s)) ease-in-out calc(640ms*var(--ds-m-s)) 1!important;
+ filter:drop-shadow(0 14px 22px rgba(0,0,0,.45))!important}
+html body #lesson #deenDirectComboRise::before{content:"";position:absolute;inset-inline-start:-20px;bottom:calc(var(--ds-sheet-h,220px) - 40px);width:230px;height:230px;border-radius:50%;
+ background:radial-gradient(circle,rgba(255,214,120,.55),rgba(255,214,120,.14) 45%,transparent 70%);animation:dsComboGlow calc(1100ms*var(--ds-m-s)) var(--ds-out) calc(200ms*var(--ds-m-s)) both}
+html body #lesson #deenDirectComboRise .ds-combo-say{position:absolute;inset-inline-start:min(44%,172px);bottom:calc(var(--ds-sheet-h,220px) + 92px);max-width:min(52%,210px);padding:10px 14px;border-radius:18px;
+ font:900 16px/1.2 var(--ds-font);color:#3a2306;background:linear-gradient(180deg,#ffe8b0,#f6c35c);box-shadow:0 5px 0 #b0711f,0 14px 26px rgba(0,0,0,.35);text-align:start;
+ transform-origin:0 100%;animation:dsBubbleIn calc(420ms*var(--ds-m-s)) var(--ds-spring) calc(380ms*var(--ds-m-s)) both}
+html body #lesson #deenDirectComboRise .ds-combo-say::after{content:"";position:absolute;inset-inline-start:14px;bottom:-8px;width:16px;height:16px;background:#f6c35c;transform:rotate(45deg);border-radius:3px}
+html[dir="rtl"] body #lesson #deenDirectComboRise .ds-combo-say{transform-origin:100% 100%}
+html body #lesson #deenDirectComboRise.closing img{animation:dsComboDown calc(200ms*var(--ds-m-s)) var(--ds-in) both!important}
+html body #lesson #deenDirectComboRise.closing .ds-combo-say{animation:dsFadeOut calc(160ms*var(--ds-m-s)) var(--ds-in) both}
+@keyframes dsFadeOut{to{opacity:0}}
 
 /* ---------- M3 — section end: one celebration that unfolds in order ----------
    The learner's companion celebrates first (always), then the title, the accuracy ring, three
