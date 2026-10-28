@@ -130,5 +130,39 @@ html body #lesson #resultView.show>:nth-child(3){animation-delay:calc(460ms*var(
 html body #lesson #resultView.show>:nth-child(n+4){animation-delay:calc(540ms*var(--ds-m-s))!important}
 html body #lesson .ds-confetti{position:fixed;inset:0;z-index:90;width:100%;height:100%;pointer-events:none}
 
+/* ---------- M2 — in-lesson flow ----------
+   Question to question: the engine adds gf520-/gf-question-out (≈145 ms) before it renders the next
+   question and gf520-/gf-question-in after it. The question slides out to the start side while the
+   result sheet drops; the next one slides in from the end side, its cards arriving one by one.
+   The header strip (exit, progress, energy, learn-practise-recall phase bar) stays still. motion.js keeps .ds-q-in for the whole
+   entrance, because the engine removes its own class after ~190 ms. */
+@keyframes dsQOut{to{transform:translateX(calc(-36px*var(--ds-dir,1)));opacity:0}}
+@keyframes dsQIn{from{transform:translateX(calc(44px*var(--ds-dir,1)));opacity:0}}
+@keyframes dsSheetOut{to{transform:translateY(105%)}}
+@keyframes dsCardIn{from{transform:translateY(18px) scale(.94);opacity:0}}
+@keyframes dsSay{from{transform:scale(.9);opacity:.3}}
+@keyframes dsComboBreak{0%{transform:none;opacity:1}25%{transform:translateX(-6px) rotate(-8deg)}50%{transform:translateX(5px) rotate(6deg)}100%{transform:translateY(16px) scale(.6) rotate(10deg);opacity:0}}
+html[dir="rtl"]{--ds-dir:-1}
+html body #lesson #quizView .question-frame:is(.gf520-question-out,.gf-question-out,.gf520-question-in,.gf-question-in,.ds-q-in){animation:none!important;opacity:1!important;transform:none!important}
+html body #lesson #quizView .question-frame:is(.gf520-question-out,.gf-question-out)>:not(#v9914MiniProgress):not(#v9916MiniEnergy):not(#v9914ExitLesson):not(.v910-phasebar):not(#feedback){animation:dsQOut calc(140ms*var(--ds-m-s)) var(--ds-in) both!important}
+html body #lesson #quizView .question-frame:is(.gf520-question-out,.gf-question-out)>#feedback.show{animation:dsSheetOut calc(150ms*var(--ds-m-s)) var(--ds-in) both!important}
+html body #lesson #quizView .question-frame.ds-q-in>:not(#v9914MiniProgress):not(#v9916MiniEnergy):not(#v9914ExitLesson):not(.v910-phasebar):not(#feedback):not(#answerArea){animation:dsQIn var(--ds-m-sheet) var(--ds-out) both!important}
+html body #lesson #quizView .question-frame.ds-q-in #answerArea{animation:none!important}
+html body #lesson #quizView .question-frame.ds-q-in #answerArea>:not(.ds-choice){animation:dsQIn var(--ds-m-sheet) var(--ds-out) calc(60ms*var(--ds-m-s)) both!important}
+html body #lesson #quizView .question-frame.ds-q-in .ds-choice[data-ds-layout] .ds-opt{animation:dsCardIn var(--ds-m-sheet) var(--ds-spring) both!important}
+html body #lesson #quizView .question-frame.ds-q-in .ds-choice[data-ds-layout] .ds-opt:nth-child(1){animation-delay:calc(90ms*var(--ds-m-s))!important}
+html body #lesson #quizView .question-frame.ds-q-in .ds-choice[data-ds-layout] .ds-opt:nth-child(2){animation-delay:calc(140ms*var(--ds-m-s))!important}
+html body #lesson #quizView .question-frame.ds-q-in .ds-choice[data-ds-layout] .ds-opt:nth-child(3){animation-delay:calc(190ms*var(--ds-m-s))!important}
+html body #lesson #quizView .question-frame.ds-q-in .ds-choice[data-ds-layout] .ds-opt:nth-child(n+4){animation-delay:calc(240ms*var(--ds-m-s))!important}
+html body #lesson #quizView .question-frame.ds-q-in .deen-character-question-text{transform-origin:0 100%;animation:dsSay var(--ds-m-base) var(--ds-spring) calc(120ms*var(--ds-m-s)) both}
+
+/* Combo pill: a flame that grows hotter at 3, 5 and 10 in a row; it shakes and drops when the streak breaks */
+html body #lesson #gfCombo{display:inline-flex!important;align-items:center!important;gap:5px!important}
+html body #lesson #gfCombo::before{content:""!important;flex:none;width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c1 4 5 5.5 5 11a5 5 0 0 1-10 0c0-2.5 1.2-4 2.5-5 .2 2 1.2 3 2.3 3C11 8 11 5 12 2Z' fill='%23ffb347'/%3E%3Cpath d='M12 12c.6 2 2.5 2.6 2.5 4.6a2.5 2.5 0 0 1-5 0c0-1.4.8-2.2 1.5-2.8.2.9.6 1.3 1 1.3-.3-1-.3-2 0-3.1Z' fill='%23ffe38a'/%3E%3C/svg%3E") center/contain no-repeat}
+html body #lesson[data-ds-combo-tier="2"] #gfCombo{color:#ffe0a6!important;background:linear-gradient(180deg,rgba(150,60,10,.85),rgba(90,30,6,.85))!important;border-color:rgba(255,150,60,.85)!important;box-shadow:0 0 18px rgba(255,140,40,.45)!important}
+html body #lesson[data-ds-combo-tier="3"] #gfCombo{color:#fff1c9!important;background:linear-gradient(180deg,#ff8a3d,#d9480f)!important;border-color:#ffd27a!important;box-shadow:0 0 0 2px rgba(255,210,122,.35),0 0 26px rgba(255,120,40,.6)!important}
+html body #lesson[data-ds-combo-tier="2"] #gfCombo::before,html body #lesson[data-ds-combo-tier="3"] #gfCombo::before{width:19px;height:19px;filter:drop-shadow(0 0 4px rgba(255,170,60,.8))}
+html body #lesson #gfCombo.gf-combo-out{animation:dsComboBreak calc(420ms*var(--ds-m-s)) var(--ds-out) both!important;opacity:1}
+
 :root.v5-reduce body #lesson .deen-character-question-avatar img{animation:none!important}
 @media (prefers-reduced-motion:reduce){html body #lesson .deen-character-question-avatar img{animation:none!important}}

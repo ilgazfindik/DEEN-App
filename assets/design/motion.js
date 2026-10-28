@@ -1,4 +1,4 @@
-/* M0 — motion system, M1 — the answer moment (behaviour half; the look is motion.css).
+/* M0 — motion system, M1 — the answer moment, M2 — in-lesson flow (behaviour half; the look is motion.css).
    - No vibration anywhere: the product decision is motion and sound only.
    - Marks the combo level on #lesson so the progress bar turns gold from 3 in a row.
    - Makes the mascot hop only when the engine shows its combo-milestone mascot.
@@ -63,7 +63,10 @@
   queued=false;
   const lesson=document.getElementById('lesson');if(!lesson)return;
   const combo=Number(lessonSession()?.combo)||0;
-  if(combo!==lastCombo){lastCombo=combo;if(combo>=3)lesson.setAttribute('data-ds-combo-hot','');else lesson.removeAttribute('data-ds-combo-hot')}
+  if(combo!==lastCombo){
+   lastCombo=combo;if(combo>=3)lesson.setAttribute('data-ds-combo-hot','');else lesson.removeAttribute('data-ds-combo-hot');
+   lesson.dataset.dsComboTier=String(combo>=10?3:combo>=5?2:combo>=3?1:0);
+  }
   const bar=document.getElementById('v9914MiniProgress'),fill=bar?.firstElementChild;
   if(fill){const w=fill.style.width;if(w!==lastWidth){const grew=parseFloat(w)>parseFloat(lastWidth||'0');lastWidth=w;if(grew)restart(bar,'ds-shine')}}
   // The result sheet is anchored to the frame's bottom edge: keep the frame at the top while it is up.
@@ -77,9 +80,22 @@
  }
  const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(sync)}};
 
+ // M2: the next question (or the first one, when a lesson opens) enters with .ds-q-in, kept for the
+ // whole entrance because the engine's own -in class is removed after ~190 ms.
+ let enterTimer=0;
+ function enter(frame){
+  if(!frame)return;restart(frame,'ds-q-in');clearTimeout(enterTimer);
+  enterTimer=setTimeout(()=>frame.classList.remove('ds-q-in'),scale()?720:0);
+ }
+ const gained=(r,cls)=>r.target.classList?.contains(cls)&&!String(r.oldValue||'').split(/\s+/).includes(cls);
+
  function onMutations(records){
   for(const r of records){
    const t=r.target;
+   if(r.type==='attributes'&&r.attributeName==='class'){
+    if(t.classList.contains('question-frame')&&(gained(r,'gf520-question-in')||gained(r,'gf-question-in')))enter(t);
+    else if(t.id==='lesson'&&gained(r,'active'))setTimeout(()=>enter(document.querySelector('#quizView .question-frame')),scale()?260:0);
+   }
    // The engine's combo-milestone mascot appeared: the question mascot hops with it.
    if(r.type==='childList')for(const n of r.addedNodes){if(n.nodeType===1&&(n.id==='deenDirectComboRise'||n.querySelector?.('#deenDirectComboRise'))){
     const avatar=document.querySelector('#lesson .deen-character-question-avatar');if(avatar){restart(avatar,'ds-hop');setTimeout(()=>avatar.classList.remove('ds-hop'),700)}}}
@@ -96,5 +112,5 @@
   sync();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m1',celebrate,confetti,reduced});
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m2',celebrate,confetti,reduced});
 })();
