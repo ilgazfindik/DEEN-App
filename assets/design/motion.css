@@ -1,0 +1,134 @@
+/* M0 — motion system, M1 — the answer moment.
+   One set of durations and curves for the whole app; --ds-m-s scales every duration so
+   reduced motion (OS setting or the app's own .v5-reduce) collapses movement to instant.
+   The lesson engine keeps every trigger (state classes, #feedback, combo, mascot nodes);
+   this layer only decides how those moments move and removes the effects that competed
+   with each other (two combo banners, a mascot reaction on every single answer). */
+:root{
+ --ds-m-s:1;
+ --ds-m-tap:calc(90ms*var(--ds-m-s));--ds-m-fast:calc(160ms*var(--ds-m-s));--ds-m-base:calc(240ms*var(--ds-m-s));
+ --ds-m-sheet:calc(340ms*var(--ds-m-s));--ds-m-slow:calc(520ms*var(--ds-m-s));--ds-m-hero:calc(1100ms*var(--ds-m-s));
+ --ds-spring:cubic-bezier(.34,1.56,.64,1);--ds-out:cubic-bezier(.2,.8,.2,1);--ds-in:cubic-bezier(.5,0,.75,0)
+}
+:root.v5-reduce{--ds-m-s:.001}
+@media (prefers-reduced-motion:reduce){:root{--ds-m-s:.001}}
+
+@keyframes dsPop{0%{transform:scale(1)}45%{transform:scale(1.05)}75%{transform:scale(.985)}100%{transform:scale(1)}}
+@keyframes dsOk{0%{transform:scale(1)}30%{transform:translateY(-8px) scale(1.06)}60%{transform:translateY(0) scale(.98)}100%{transform:none}}
+@keyframes dsShake{0%,100%{transform:translateX(0)}15%{transform:translateX(-10px) rotate(-1.5deg)}30%{transform:translateX(9px) rotate(1deg)}45%{transform:translateX(-7px)}60%{transform:translateX(5px)}75%{transform:translateX(-2px)}}
+@keyframes dsReveal{50%{box-shadow:0 5px 0 #0b5c48,0 0 0 7px rgba(95,224,187,.2)}}
+@keyframes dsRingIn{0%{transform:scale(0) rotate(-45deg)}70%{transform:scale(1.25)}100%{transform:none}}
+@keyframes dsSheetIn{from{transform:translateY(105%)}to{transform:none}}
+@keyframes dsBurst{0%{transform:scale(0) rotate(-40deg)}70%{transform:scale(1.18) rotate(6deg)}100%{transform:none}}
+@keyframes dsShine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+@keyframes dsBump{0%{transform:scale(1)}40%{transform:scale(1.35) rotate(-6deg)}100%{transform:scale(1)}}
+@keyframes dsToast{0%{transform:translate(-50%,-20px) scale(.6);opacity:0}18%{transform:translate(-50%,0) scale(1.06);opacity:1}28%{transform:translate(-50%,0) scale(1)}82%{transform:translate(-50%,0) scale(1);opacity:1}100%{transform:translate(-50%,-12px) scale(.9);opacity:0}}
+@keyframes dsBreathe{50%{transform:scale(1.025,.985)}}
+@keyframes dsHop{0%{transform:translateY(0) scale(1)}25%{transform:translateY(0) scale(1.08,.9)}55%{transform:translateY(-22px) scale(.96,1.06) rotate(-4deg)}80%{transform:translateY(0) scale(1.05,.95)}100%{transform:none}}
+@keyframes dsRiseIn{0%{transform:translateY(60px) scale(.5);opacity:0}45%{transform:translateY(-14px) scale(1.06) rotate(-5deg);opacity:1}70%{transform:translateY(0) scale(.97,1.03) rotate(2deg)}100%{transform:none;opacity:1}}
+@keyframes dsCelebrate{0%{transform:translateY(40px) scale(.4);opacity:0}35%{transform:translateY(-26px) scale(1.12) rotate(-6deg);opacity:1}55%{transform:translateY(0) scale(.95,1.04) rotate(3deg)}75%{transform:translateY(-10px) rotate(-2deg)}100%{transform:none;opacity:1}}
+@keyframes dsRise{from{transform:translateY(16px);opacity:0}}
+
+/* ---------- Answer cards: a 3D edge that presses in, then pop / bounce / shake ---------- */
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt{--ds-edge:#061a1f;
+ box-shadow:0 5px 0 var(--ds-edge),0 10px 20px rgba(0,0,0,.25)!important;
+ transition:transform var(--ds-m-tap) var(--ds-out),box-shadow var(--ds-m-tap) var(--ds-out),border-color var(--ds-m-fast),background var(--ds-m-fast),opacity var(--ds-m-base)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:not(:disabled):active{transform:translateY(4px)!important;box-shadow:0 1px 0 var(--ds-edge),0 4px 10px rgba(0,0,0,.25)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.selected,.v859-picked,.v857-picked,.v852-tap,[aria-pressed="true"]){--ds-edge:#5b4719;animation:dsPop var(--ds-m-base) var(--ds-spring)!important;
+ box-shadow:0 5px 0 var(--ds-edge),0 0 0 1px rgba(233,207,147,.35),0 0 26px rgba(233,207,147,.28)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.correct,.found,.is-correct,.right-pick){--ds-edge:#0b5c48;animation:dsOk calc(460ms*var(--ds-m-s)) var(--ds-spring)!important;
+ box-shadow:0 5px 0 var(--ds-edge),0 0 0 1px rgba(95,224,187,.35),0 0 24px rgba(63,215,173,.25)!important}
+/* The right answer the learner did not pick pulses so it is easy to find */
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.correct,.found,.is-correct,.right-pick):not(.selected):not(.v859-picked):not(.v857-picked):not(.v852-tap){animation:dsReveal calc(900ms*var(--ds-m-s)) ease-in-out 2!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.wrong,.wrong-pick,.is-wrong){--ds-edge:#5c2620;animation:dsShake calc(440ms*var(--ds-m-s)) var(--ds-out)!important;
+ box-shadow:0 5px 0 var(--ds-edge),0 0 0 1px rgba(243,155,143,.35)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.correct,.found,.is-correct,.right-pick,.wrong,.wrong-pick,.is-wrong)::after{animation:dsRingIn var(--ds-m-base) var(--ds-spring) calc(80ms*var(--ds-m-s)) both}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:is(.correct,.wrong,.selected,.v859-picked) .option-badge{transition:background var(--ds-m-fast),color var(--ds-m-fast)}
+
+/* The answers stay on screen while the result sheet is up (choice questions only) */
+html body #lesson .question-frame.v9945-feedback-mode.ds-choice-frame #answerArea{display:flex!important}
+html body #lesson .question-frame.v9945-feedback-mode.ds-choice-frame #answerArea .template-action{display:none!important}
+html body #lesson .question-frame.v9945-feedback-mode.ds-choice-frame .ds-choice[data-ds-layout="grid"] .ds-opt{min-height:96px!important}
+/* While the sheet is up the heading and repeated prompts step aside so the answers stay above it */
+html body #lesson .question-frame.v9945-feedback-mode.ds-choice-frame :is(.v960-narration-bar,.v859-speed-tag,.ds-mc-head,.v9916-listen-question){display:none!important}
+
+/* Check button: a 3D key that comes alive when an answer is chosen */
+html body #lesson #answerArea .template-action{min-height:56px!important;border:0!important;border-radius:16px!important;font:900 16px/1 var(--ds-font)!important;letter-spacing:.05em!important;text-transform:uppercase!important;
+ color:#6b8689!important;background:#1b3a40!important;box-shadow:0 5px 0 #0f2529!important;transition:transform var(--ds-m-tap) var(--ds-out),box-shadow var(--ds-m-tap) var(--ds-out),background var(--ds-m-fast),color var(--ds-m-fast)!important}
+html body #lesson #answerArea .template-action:not(:disabled){color:#04271f!important;background:linear-gradient(180deg,#7ff0d2,#3fd7ad)!important;box-shadow:0 5px 0 #20b892,0 0 24px rgba(63,215,173,.35)!important}
+html body #lesson #answerArea .template-action.ds-ready{animation:dsPop var(--ds-m-base) var(--ds-spring)}
+html body #lesson #answerArea .template-action:not(:disabled):active{transform:translateY(4px)!important;box-shadow:0 1px 0 #20b892!important}
+
+/* ---------- Result sheet: slides up from the bottom edge of the question ----------
+   Anchored to the frame's bottom edge; motion.js keeps the frame scrolled to the top while the
+   sheet is up (the engine would otherwise scroll it and carry the sheet along). Long
+   explanations scroll inside the sheet so the continue button always stays in view. */
+html body #lesson #quizView .question-frame>#feedback.show{position:absolute!important;left:0!important;right:0!important;top:auto!important;bottom:0!important;z-index:40!important;
+ display:flex!important;flex-direction:column!important;gap:14px!important;width:auto!important;max-height:56%!important;overflow:hidden!important;
+ margin:0!important;
+ padding:20px 18px calc(18px + env(safe-area-inset-bottom,0px))!important;border-radius:26px 26px 0 0!important;
+ background:linear-gradient(180deg,#0f4a40,#0a332e)!important;border:0!important;border-top:2px solid #5fe0bb!important;box-shadow:0 -18px 40px rgba(0,0,0,.4)!important;
+ animation:dsSheetIn var(--ds-m-sheet) var(--ds-spring) both!important}
+html body #lesson #quizView .question-frame>#feedback.show:has(.feedback-box.bad){background:linear-gradient(180deg,#4a2329,#311a1f)!important;border-top-color:#f39b8f!important}
+html body #lesson #feedback.show #feedbackBox{display:grid!important;grid-template-columns:48px minmax(0,1fr) auto!important;align-items:start!important;gap:12px!important;flex:1 1 auto!important;min-height:0!important;height:auto!important;max-height:none!important;overflow-y:auto!important;overscroll-behavior:contain;
+ margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;animation:none!important}
+html body #lesson #feedback.show #feedbackBox::before{content:""!important;display:block!important;position:static!important;width:48px!important;height:48px!important;border-radius:50%!important;opacity:1!important;
+ background:#5fe0bb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2304271f' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/26px no-repeat!important;
+ animation:dsBurst calc(480ms*var(--ds-m-s)) var(--ds-spring) calc(80ms*var(--ds-m-s)) both!important}
+html body #lesson #feedback.show #feedbackBox.bad::before{background:#f39b8f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233a0f0a' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7 7 17'/%3E%3C/svg%3E") center/24px no-repeat!important}
+html body #lesson #feedback.show #feedbackBox::after{display:none!important}
+html body #lesson #feedback.show .feedback-copy{min-width:0!important;margin:0!important;padding:0!important}
+html body #lesson #feedback.show #feedbackTitle{margin:2px 0 4px!important;font:900 22px/1.15 var(--ds-font)!important;letter-spacing:0!important;text-transform:none!important;color:#8ff5d8!important}
+html body #lesson #feedback.show #feedbackBox.bad #feedbackTitle{color:#ffb4a9!important}
+html body #lesson #feedback.show #feedbackText{font:700 14px/1.45 var(--ds-font)!important;color:#d6e8e4!important}
+html body #lesson #feedback.show #feedbackBox.bad #feedbackText{color:#f3d6d1!important}
+html body #lesson #feedback.show .v9945-correct-answer{margin-top:10px!important;padding:10px 12px!important;border-radius:12px!important;background:rgba(0,0,0,.22)!important;border:1px solid rgba(255,255,255,.1)!important}
+html body #lesson #feedback.show .v9945-correct-answer :is(span,strong){font-size:14px!important}
+html body #lesson #feedback.show .v960-feedback-speak{align-self:start!important}
+html body #lesson #feedback.show #continueBtn{flex:none!important;width:100%!important;min-height:56px!important;margin:0!important;border:0!important;border-radius:16px!important;font:900 17px/1 var(--ds-font)!important;letter-spacing:.06em!important;text-transform:uppercase!important;
+ color:#04271f!important;background:linear-gradient(180deg,#7ff0d2,#3fd7ad)!important;box-shadow:0 5px 0 #20b892!important;transition:transform var(--ds-m-tap) var(--ds-out),box-shadow var(--ds-m-tap) var(--ds-out)!important;animation:dsRise var(--ds-m-base) var(--ds-out) calc(140ms*var(--ds-m-s)) both!important}
+html body #lesson #feedback.show:has(.feedback-box.bad) #continueBtn{color:#3a0f0a!important;background:linear-gradient(180deg,#ffc2b8,#f39b8f)!important;box-shadow:0 5px 0 #b4584c!important}
+html body #lesson #feedback.show #continueBtn:active{transform:translateY(4px)!important;box-shadow:0 1px 0 #20b892!important}
+html body #lesson #feedback.show:has(.feedback-box.bad) #continueBtn:active{box-shadow:0 1px 0 #b4584c!important}
+
+/* ---------- Progress bar: springs forward, shines, turns gold on a combo ---------- */
+html body #lesson #v9914MiniProgress{height:14px!important;margin-top:-4.5px!important;border-radius:99px!important;background:rgba(255,255,255,.1)!important;overflow:hidden!important}
+html body #lesson #v9914MiniProgress>i{position:relative!important;display:block!important;height:100%!important;border-radius:inherit!important;overflow:hidden!important;
+ background:linear-gradient(180deg,#7ff0d2,#2fd0ac)!important;transition:width var(--ds-m-slow) var(--ds-spring),background var(--ds-m-base)!important}
+html body #lesson #v9914MiniProgress>i::before{content:"";position:absolute;left:8px;right:8px;top:3px;height:3px;border-radius:9px;background:rgba(255,255,255,.45)}
+html body #lesson #v9914MiniProgress.ds-shine>i::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.65) 50%,transparent 70%);animation:dsShine var(--ds-m-slow) var(--ds-out) both}
+html body #lesson[data-ds-combo-hot] #v9914MiniProgress>i{background:linear-gradient(180deg,#ffd98a,#f0a63a)!important}
+
+/* ---------- Combo: one flame pill and one toast; the duplicate "+SERİ" pop is dropped ---------- */
+html body #lesson #gfCombo{padding:6px 10px!important;border-radius:99px!important;font:900 13px/1 var(--ds-font)!important;letter-spacing:.04em!important;color:#ffd27a!important;
+ background:rgba(70,40,8,.7)!important;border:1.5px solid rgba(255,190,90,.6)!important;box-shadow:0 0 14px rgba(255,180,70,.25)!important}
+html body #lesson #gfCombo.gf-combo-pop{animation:dsBump var(--ds-m-base) var(--ds-spring)!important}
+html body #lesson .v859-pop{display:none!important}
+html body #lesson .gf520-combo-milestone{top:84px!important;padding:10px 16px!important;border:0!important;border-radius:99px!important;font:900 16px/1 var(--ds-font)!important;color:#3a2306!important;
+ background:linear-gradient(180deg,#ffe2a0,#f4b64e)!important;box-shadow:0 6px 0 #a8661c,0 14px 30px rgba(0,0,0,.4)!important;animation:dsToast calc(1500ms*var(--ds-m-s)) var(--ds-spring) both!important}
+
+/* ---------- Mascot: calm by default, reacts only at combo milestones and section end ---------- */
+html body #lesson :is(.v9944-reaction-chip,.v9944-particles){display:none!important}
+html body #lesson .deen-character-question-avatar img{transform-origin:50% 100%;animation:dsBreathe calc(2.8s*var(--ds-m-s)) ease-in-out infinite!important}
+html body #lesson .deen-character-question-avatar.ds-hop img{animation:dsHop calc(620ms*var(--ds-m-s)) var(--ds-spring)!important}
+html body #lesson .deen-character-question-avatar[class*="v9944-reaction"]{animation:none!important}
+/* The combo mascot rises from the corner instead of covering the result */
+html body #lesson #deenDirectComboRise{inset:auto 8px 34% auto!important;width:132px!important;height:132px!important;background:none!important;pointer-events:none!important}
+html body #lesson #deenDirectComboRise img{position:static!important;inset:auto!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:contain!important;transform:none;animation:dsRiseIn calc(700ms*var(--ds-m-s)) var(--ds-spring) both!important;filter:drop-shadow(0 12px 18px rgba(0,0,0,.45))!important}
+html[dir="rtl"] body #lesson #deenDirectComboRise{inset:auto auto 34% 8px!important}
+
+/* ---------- Section end: the learner's companion always celebrates ---------- */
+html body #lesson #resultView.show .ds-end-mascot{display:block;width:150px;height:150px;margin:0 auto -6px;object-fit:contain;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45));animation:dsCelebrate var(--ds-m-hero) var(--ds-spring) both}
+/* In the companion card the mascot replaces the emoji and leads the card */
+html body #lesson #resultView.show #v994ResultCompanion{display:flex!important;align-items:center!important;gap:12px!important;overflow:visible!important;border-color:rgba(255,210,122,.55)!important;box-shadow:0 0 26px rgba(255,200,100,.18)!important}
+html body #lesson #resultView.show #v994ResultCompanion>.animal{display:none!important}
+html body #lesson #resultView.show #v994ResultCompanion>.ds-end-mascot{flex:none;width:104px;height:104px;margin:-22px 0 -8px;animation-delay:calc(300ms*var(--ds-m-s))}
+html body #lesson #resultView.show #v994ResultCompanion b{font-size:17px!important}
+html body #lesson #resultView.show>:not(.ds-end-mascot):not(.ds-confetti){animation:dsRise var(--ds-m-sheet) var(--ds-out) both}
+html body #lesson #resultView.show>:nth-child(2){animation-delay:calc(380ms*var(--ds-m-s))!important}
+html body #lesson #resultView.show>:nth-child(3){animation-delay:calc(460ms*var(--ds-m-s))!important}
+html body #lesson #resultView.show>:nth-child(n+4){animation-delay:calc(540ms*var(--ds-m-s))!important}
+html body #lesson .ds-confetti{position:fixed;inset:0;z-index:90;width:100%;height:100%;pointer-events:none}
+
+:root.v5-reduce body #lesson .deen-character-question-avatar img{animation:none!important}
+@media (prefers-reduced-motion:reduce){html body #lesson .deen-character-question-avatar img{animation:none!important}}
