@@ -106,6 +106,22 @@
    for(const name of ['aria-label','data-idle-label']){const value=b.getAttribute(name);if(value){const v=tx(value.trim());if(v)setAttr(b,name,v)}}
   }
  }
+ // Arabic translates the lesson controls itself, but the matching counter ("0 / 3 eşleşme") and the
+ // odd-one-out target ("1 HEDEF") are redrawn on every tap and can land after its pass. Only those
+ // two counters are handled here; everything else stays with the Arabic layer.
+ function localizeCounters(area){
+  const tx=translator('ar')||(()=>null),pairs=tx('eşleşme')||'تطابقات';
+  for(const root of [area,document.querySelector('#quizView .v1017-hero')].filter(Boolean)){
+   const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;
+   while((n=walker.nextNode())){
+    const key=n.data.trim();if(!key||n.parentElement.closest(ANSWER))continue;
+    let m=key.match(/^(\d+) \/ (\d+) eşleşme$/);
+    if(m){setText(n,n.data.replace(key,m[1]+' / '+m[2]+' '+pairs));continue}
+    m=key.match(/^(\d+) HEDEF$/);
+    if(m)setText(n,n.data.replace(key,m[1]+' هدف'));
+   }
+  }
+ }
  function localizeChrome(area,code){
   const C=CHROME[code],tx=C&&translator(code);if(!tx)return;
   const colon=code==='fr'?' : ':': ';
@@ -209,6 +225,7 @@
    }
   }else document.querySelectorAll('#quizView .ds-mc-head').forEach(n=>n.remove());
   if(code==='de'||code==='fr')localizeChrome(area,code);
+  else if(code==='ar')localizeCounters(area);
   if(code==='de'||code==='fr'||code==='ar')localizeSpeak(code);
   floor();
  }

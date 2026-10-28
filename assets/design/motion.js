@@ -176,5 +176,30 @@
   syncHome();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installHome,{once:true});else installHome();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m4',celebrate,confetti,reduced});
+
+ // ---- M5: tab changes ----
+ // A screen that becomes active slides in from the side of the chosen tab (tab order decides,
+ // mirrored right-to-left) and its tab icon hops. Navigation itself is untouched.
+ const tabOrder=()=>[...document.querySelectorAll('.navbtn[data-screen]')].map(b=>b.dataset.screen);
+ let activeScreen=null,screenTimer=0;
+ function onScreens(records){
+  for(const r of records){
+   const s=r.target;if(!s.classList.contains('screen')||!s.classList.contains('active')||String(r.oldValue||'').split(/\s+/).includes('active'))continue;
+   const order=tabOrder(),from=order.indexOf(activeScreen),to=order.indexOf(s.id);activeScreen=s.id;
+   if(settling()||!scale()||from<0||to<0||from===to)continue;
+   const dir=(to>from?1:-1)*(root.getAttribute('dir')==='rtl'?-1:1);
+   s.style.setProperty('--ds-from',(28*dir)+'px');restart(s,'ds-screen-in');
+   const tab=document.querySelector('.navbtn[data-screen="'+s.id+'"]');if(tab)restart(tab,'ds-nav-hop');
+   clearTimeout(screenTimer);screenTimer=setTimeout(()=>{s.classList.remove('ds-screen-in');tab?.classList.remove('ds-nav-hop')},700);
+  }
+ }
+ function installScreens(){
+  const screens=document.querySelectorAll('.screen');
+  if(!screens.length){setTimeout(installScreens,300);return}
+  activeScreen=document.querySelector('.screen.active')?.id||null;
+  const watch=new MutationObserver(onScreens);
+  for(const s of screens)watch.observe(s,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installScreens,{once:true});else installScreens();
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m5',celebrate,confetti,reduced});
 })();
