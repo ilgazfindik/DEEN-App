@@ -117,17 +117,56 @@ html body #lesson #deenDirectComboRise{inset:auto 8px 34% auto!important;width:1
 html body #lesson #deenDirectComboRise img{position:static!important;inset:auto!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:contain!important;transform:none;animation:dsRiseIn calc(700ms*var(--ds-m-s)) var(--ds-spring) both!important;filter:drop-shadow(0 12px 18px rgba(0,0,0,.45))!important}
 html[dir="rtl"] body #lesson #deenDirectComboRise{inset:auto auto 34% 8px!important}
 
-/* ---------- Section end: the learner's companion always celebrates ---------- */
-html body #lesson #resultView.show .ds-end-mascot{display:block;width:150px;height:150px;margin:0 auto -6px;object-fit:contain;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45));animation:dsCelebrate var(--ds-m-hero) var(--ds-spring) both}
-/* In the companion card the mascot replaces the emoji and leads the card */
-html body #lesson #resultView.show #v994ResultCompanion{display:flex!important;align-items:center!important;gap:12px!important;overflow:visible!important;border-color:rgba(255,210,122,.55)!important;box-shadow:0 0 26px rgba(255,200,100,.18)!important}
+/* ---------- M3 — section end: one celebration that unfolds in order ----------
+   The learner's companion celebrates first (always), then the title, the accuracy ring, three
+   stat tiles timed to the engine's own count-up, the daily progress, the next step and the continue
+   button. Every engine element stays in place for tests and locale layers; only the order is
+   set (flex order) and the two labels that repeat the title are put aside. */
+@keyframes dsTileIn{0%{transform:translateY(24px) scale(.7);opacity:0}60%{transform:translateY(-4px) scale(1.06);opacity:1}100%{transform:none;opacity:1}}
+@keyframes dsGrowX{from{transform:scaleX(0)}}
+@keyframes dsCtaPulse{0%,100%{box-shadow:0 5px 0 #20b892,0 0 0 0 rgba(63,215,173,.5)}50%{box-shadow:0 5px 0 #20b892,0 0 0 12px rgba(63,215,173,0)}}
+html body #lesson #resultView.show{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:14px!important;text-align:center}
+html body #lesson #resultView.show>*{margin-block:0!important;animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(var(--ds-at,1100)*1ms*var(--ds-m-s)) both}
+html body #lesson #resultView.show>:is(.gf520-perfect-label,.v624-result-topline){display:none!important}
+html body #lesson #resultView.show>#v994ResultCompanion{order:-2;--ds-at:0}
+html body #lesson #resultView.show>#resultMedal{order:-1;align-self:center;--ds-at:120;transform-origin:50% 50%}
+html body #lesson #resultView.show>#resultMedal{width:72px!important;height:72px!important}
+html body #lesson #resultView.show>#resultTitle{--ds-at:150;animation-name:dsTileIn;font:900 28px/1.15 var(--ds-font)!important;letter-spacing:.01em!important;
+ background:linear-gradient(90deg,#f8e2a6,#e2b75e);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+html body #lesson #resultView.show>#resultPct{--ds-at:240;animation-name:dsTileIn;align-self:center;flex:none!important}
+html body #lesson #resultView.show>:is(#resultMedal,.result-grid,#resultContinueBtn,#v624SecondaryResult){flex:none!important}
+html body #lesson #resultView.show>#resultSubtitle{--ds-at:280}
+html body #lesson #resultView.show>.result-grid{--ds-at:300;animation:none!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+html body #lesson #resultView.show>.v5-result-extra{--ds-at:800}
+html body #lesson #resultView.show>.v680-result-next{--ds-at:900}
+html body #lesson #resultView.show>#resultContinueBtn{--ds-at:1000}
+html body #lesson #resultView.show>#v624SecondaryResult{--ds-at:1060}
+
+/* The companion card is the hero: a big mascot above its line */
+html body #lesson #resultView.show #v994ResultCompanion{display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;overflow:visible!important;padding:0 14px 14px!important;margin-top:8px!important;
+ background:radial-gradient(70% 70% at 50% 30%,rgba(255,210,122,.16),transparent 70%)!important;border:0!important;box-shadow:none!important;animation:none!important}
 html body #lesson #resultView.show #v994ResultCompanion>.animal{display:none!important}
-html body #lesson #resultView.show #v994ResultCompanion>.ds-end-mascot{flex:none;width:104px;height:104px;margin:-22px 0 -8px;animation-delay:calc(300ms*var(--ds-m-s))}
-html body #lesson #resultView.show #v994ResultCompanion b{font-size:17px!important}
-html body #lesson #resultView.show>:not(.ds-end-mascot):not(.ds-confetti){animation:dsRise var(--ds-m-sheet) var(--ds-out) both}
-html body #lesson #resultView.show>:nth-child(2){animation-delay:calc(380ms*var(--ds-m-s))!important}
-html body #lesson #resultView.show>:nth-child(3){animation-delay:calc(460ms*var(--ds-m-s))!important}
-html body #lesson #resultView.show>:nth-child(n+4){animation-delay:calc(540ms*var(--ds-m-s))!important}
+html body #lesson #resultView.show .ds-end-mascot{display:block;width:150px;height:150px;margin:0 auto -6px;object-fit:contain;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45));animation:dsCelebrate var(--ds-m-hero) var(--ds-spring) both}
+html body #lesson #resultView.show #v994ResultCompanion b{font-size:18px!important;color:#ffe3a3!important}
+html body #lesson #resultView.show #v994ResultCompanion :is(b,small){display:block!important;animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(420ms*var(--ds-m-s)) both}
+
+/* Stat tiles: a coloured frame with a label band, popping in one after another */
+html body #lesson #resultView.show .result-grid>div{--ds-tone:#ffd27a;display:flex!important;flex-direction:column-reverse!important;align-items:stretch!important;gap:0!important;padding:0!important;overflow:hidden!important;border-radius:16px!important;
+ border:2px solid var(--ds-tone)!important;background:rgba(4,22,28,.6)!important;box-shadow:0 4px 0 color-mix(in srgb,var(--ds-tone) 45%,#000)!important;animation:dsTileIn calc(460ms*var(--ds-m-s)) var(--ds-spring) both}
+html body #lesson #resultView.show .result-grid>div:nth-child(1){--ds-tone:#5fe0bb;animation-delay:calc(400ms*var(--ds-m-s))}
+html body #lesson #resultView.show .result-grid>div:nth-child(2){--ds-tone:#ffd27a;animation-delay:calc(300ms*var(--ds-m-s))}
+html body #lesson #resultView.show .result-grid>div:nth-child(3){--ds-tone:#ff9f5a;animation-delay:calc(500ms*var(--ds-m-s))}
+html body #lesson #resultView.show .result-grid>div:nth-child(2){order:-1}
+html body #lesson #resultView.show .result-grid>div>span{display:block!important;padding:6px 4px!important;background:var(--ds-tone)!important;color:#1b1406!important;font:900 12px/1.1 var(--ds-font)!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+html body #lesson #resultView.show .result-grid>div>strong{display:block!important;padding:12px 4px 14px!important;font:900 26px/1 var(--ds-font)!important;font-variant-numeric:tabular-nums!important;color:var(--ds-tone)!important}
+
+/* Daily progress fills from empty; the continue button arrives last and pulses once */
+html body #lesson #resultView.show .v5-bar>i{transform-origin:0 50%;animation:dsGrowX calc(700ms*var(--ds-m-s)) var(--ds-out) calc(900ms*var(--ds-m-s)) both}
+html[dir="rtl"] body #lesson #resultView.show .v5-bar>i{transform-origin:100% 50%}
+html body #lesson #resultView.show>#resultContinueBtn{min-height:58px!important;border-radius:16px!important;font:900 17px/1 var(--ds-font)!important;letter-spacing:.06em!important;text-transform:uppercase!important;
+ color:#04271f!important;background:linear-gradient(180deg,#7ff0d2,#3fd7ad)!important;border:0!important;box-shadow:0 5px 0 #20b892!important;
+ animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(1000ms*var(--ds-m-s)) both,dsCtaPulse calc(1200ms*var(--ds-m-s)) ease-in-out calc(1600ms*var(--ds-m-s)) 2!important}
+html body #lesson #resultView.show>#resultContinueBtn:active{transform:translateY(4px)!important;box-shadow:0 1px 0 #20b892!important}
 html body #lesson .ds-confetti{position:fixed;inset:0;z-index:90;width:100%;height:100%;pointer-events:none}
 
 /* ---------- M2 — in-lesson flow ----------

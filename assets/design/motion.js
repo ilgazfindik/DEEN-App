@@ -112,5 +112,5 @@
   sync();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m2',celebrate,confetti,reduced});
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m3',celebrate,confetti,reduced});
 })();
