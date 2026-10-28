@@ -203,5 +203,24 @@ html body #lesson[data-ds-combo-tier="3"] #gfCombo{color:#fff1c9!important;backg
 html body #lesson[data-ds-combo-tier="2"] #gfCombo::before,html body #lesson[data-ds-combo-tier="3"] #gfCombo::before{width:19px;height:19px;filter:drop-shadow(0 0 4px rgba(255,170,60,.8))}
 html body #lesson #gfCombo.gf-combo-out{animation:dsComboBreak calc(420ms*var(--ds-m-s)) var(--ds-out) both!important;opacity:1}
 
+/* ---------- M4 — path and home ----------
+   When the learner is back on the path after a lesson (motion.js waits until it is visible):
+   the finished stop stamps, the next stop unlocks with a spring and a gold ring wave, and the
+   header counters tick up. The current stop's pill bobs gently all the time. */
+@keyframes dsStopUnlock{0%{transform:scale(.55);filter:grayscale(1) brightness(.7)}45%{transform:scale(1.18);filter:none}70%{transform:scale(.95)}100%{transform:none;filter:none}}
+@keyframes dsRingWave{0%{box-shadow:0 0 0 0 rgba(255,210,122,.85),0 0 0 0 rgba(63,215,173,.6)}100%{box-shadow:0 0 0 30px rgba(255,210,122,0),0 0 0 54px rgba(63,215,173,0)}}
+@keyframes dsDoneStamp{0%{transform:scale(1)}40%{transform:scale(1.16) rotate(-6deg)}70%{transform:scale(.97) rotate(2deg)}100%{transform:none}}
+@keyframes dsPillBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes dsPillDrop{0%{transform:translateY(-18px) scale(.6);opacity:0}60%{transform:translateY(3px) scale(1.06);opacity:1}100%{transform:none;opacity:1}}
+@keyframes dsCountBump{0%{transform:scale(1)}35%{transform:scale(1.4)}100%{transform:none}}
+@keyframes dsCountDip{0%,100%{transform:none}30%{transform:translateY(3px)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}}
+html body #learnScreen #v5Paths .lp-stop.current .deen-current-pill{animation:dsPillBob calc(1.8s*var(--ds-m-s)) ease-in-out infinite}
+html body #learnScreen #v5Paths .lp-stop.ds-stop-unlock .lp-node{animation:dsStopUnlock calc(720ms*var(--ds-m-s)) var(--ds-spring) both,dsRingWave calc(1000ms*var(--ds-m-s)) var(--ds-out) calc(260ms*var(--ds-m-s)) 2!important}
+html body #learnScreen #v5Paths .lp-stop.ds-stop-unlock :is(.deen-current-pill,.deen-stage-card){animation:dsPillDrop calc(520ms*var(--ds-m-s)) var(--ds-spring) calc(420ms*var(--ds-m-s)) both!important}
+html body #learnScreen #v5Paths .lp-stop.ds-stop-done .lp-node{animation:dsDoneStamp calc(560ms*var(--ds-m-s)) var(--ds-spring) both!important}
+html body .app-header .stat.ds-count-up :is(strong,.stat-icon){display:inline-block;animation:dsCountBump calc(420ms*var(--ds-m-s)) var(--ds-spring)}
+html body .app-header .stat.ds-count-up .stat-icon{filter:drop-shadow(0 0 8px rgba(255,200,90,.8))}
+html body .app-header .stat.ds-count-down strong{display:inline-block;animation:dsCountDip calc(420ms*var(--ds-m-s)) var(--ds-out)}
+
 :root.v5-reduce body #lesson .deen-character-question-avatar img{animation:none!important}
 @media (prefers-reduced-motion:reduce){html body #lesson .deen-character-question-avatar img{animation:none!important}}

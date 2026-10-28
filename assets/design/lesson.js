@@ -87,13 +87,25 @@
  };
  const ANSWER='.ds-opt,.option,.option-label,.v710-word-chip,.v710-builder-piece,.v1017-card,.v710-clue,.v858-odd-card,.v710-listen-option,.v710-case,.v857-scene-story,#questionText';
  function translator(code){
-  const api=code==='de'?window.DEEN_GERMAN_UI:code==='fr'?window.DEEN_FRENCH_UI:null;
+  const api=code==='de'?window.DEEN_GERMAN_UI:code==='fr'?window.DEEN_FRENCH_UI:code==='ar'?window.DEEN_ARABIC_UI:null;
   if(!api?.translate)return null;
   return key=>{let v=null;try{v=api.translate(key)}catch(_){}return v&&v!==key?v:null};
  }
  // Write only real changes, so the lesson observer settles after one pass.
  const setText=(node,value)=>{if(value!=null&&node.data!==value)node.data=value};
  const setAttr=(el,name,value)=>{if(value!=null&&el.getAttribute(name)!==value)el.setAttribute(name,value)};
+ // The narration buttons ("Soruyu dinle", "Açıklamayı dinle") are added after the locale layers
+ // have run, so their Turkish label can stay; translate the label, its aria-label and the idle
+ // label the button restores after playback, with the active layer's own table.
+ function localizeSpeak(code){
+  const tx=translator(code);if(!tx)return;
+  for(const b of document.querySelectorAll('#lesson .v960-speak')){
+   const label=b.querySelector('[data-v960-label]')||b.querySelector('span:last-child');
+   const n=label&&[...label.childNodes].find(c=>c.nodeType===3&&c.data.trim());
+   if(n){const v=tx(n.data.trim());if(v)setText(n,v)}
+   for(const name of ['aria-label','data-idle-label']){const value=b.getAttribute(name);if(value){const v=tx(value.trim());if(v)setAttr(b,name,v)}}
+  }
+ }
  function localizeChrome(area,code){
   const C=CHROME[code],tx=C&&translator(code);if(!tx)return;
   const colon=code==='fr'?' : ':': ';
@@ -197,6 +209,7 @@
    }
   }else document.querySelectorAll('#quizView .ds-mc-head').forEach(n=>n.remove());
   if(code==='de'||code==='fr')localizeChrome(area,code);
+  if(code==='de'||code==='fr'||code==='ar')localizeSpeak(code);
   floor();
  }
  // Some lesson chrome (energy, progress, reactions) is added after the question renders.

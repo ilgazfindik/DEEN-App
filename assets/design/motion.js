@@ -112,5 +112,69 @@
   sync();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m3',celebrate,confetti,reduced});
+ // ---- M4: path and header ----
+ // Changes made while a lesson covers the path (new current stop, XP, streak, energy) are kept
+ // and played once the path is on screen.
+ // An offer, streak or reward dialog over the path also hides it.
+ const overlayOpen=()=>[...document.querySelectorAll('dialog[open],[aria-modal="true"]')].some(d=>d.getClientRects().length&&getComputedStyle(d).visibility!=='hidden');
+ const homeVisible=()=>document.getElementById('learnScreen')?.classList.contains('active')&&!document.getElementById('lesson')?.classList.contains('active')&&!overlayOpen();
+ // Boot writes the saved values into the header and path; that is not progress, so the first
+ // seconds only record a baseline.
+ const bootAt=Date.now(),settling=()=>Date.now()-bootAt<2500;
+ let lastStop=null,pendingStop=null,waitTimer=0,visibleSince=0;const pendingCounts=new Map(),lastCounts=new Map(),counting=new Set();
+ function syncHome(){
+  const cur=document.querySelector('#v5Paths .lp-stop.current');
+  if(cur){if(lastStop&&cur.id!==lastStop&&!settling())pendingStop={from:lastStop,to:cur.id};lastStop=cur.id}
+  for(const id of ['xpTop','streakTop','energyTop']){
+   const el=document.getElementById(id);if(!el||counting.has(id))continue;
+   const text=el.textContent.trim();if(!/^\d+$/.test(text))continue;
+   const v=Number(text),prev=lastCounts.get(id);lastCounts.set(id,v);
+   if(prev!=null&&prev!==v&&!settling()){const p=pendingCounts.get(id);pendingCounts.set(id,{from:p?p.from:prev,to:v})}
+  }
+  // Dialogs close outside the observed trees, so a pending moment checks back until it can play.
+  // The path must also have been on screen for a moment: offer or streak dialogs open ~0.5–1 s
+  // after a lesson closes, and the moment should not play underneath them.
+  const pending=pendingStop||pendingCounts.size;
+  if(!homeVisible()){visibleSince=0;if(pending&&!waitTimer)waitTimer=setTimeout(()=>{waitTimer=0;scheduleHome()},400);return}
+  if(pending&&!visibleSince)visibleSince=Date.now();
+  if(pending&&Date.now()-visibleSince<700){if(!waitTimer)waitTimer=setTimeout(()=>{waitTimer=0;scheduleHome()},250);return}
+  if(pendingStop){
+   const {from,to}=pendingStop;pendingStop=null;
+   if(scale()){
+    const done=document.getElementById(from),next=document.getElementById(to);
+    if(done)restart(done,'ds-stop-done');
+    setTimeout(()=>{const n=document.getElementById(to);if(!n)return;restart(n,'ds-stop-unlock');try{n.scrollIntoView({block:'center',behavior:'smooth'})}catch(_){}},320);
+    setTimeout(()=>{document.getElementById(from)?.classList.remove('ds-stop-done');document.getElementById(to)?.classList.remove('ds-stop-unlock')},2400);
+   }
+  }
+  for(const [id,{from,to}] of pendingCounts){pendingCounts.delete(id);tick(id,from,to)}
+ }
+ // Header counters tick from the old to the new value; the final text is the engine's own.
+ function tick(id,from,to){
+  const el=document.getElementById(id),stat=el?.closest('.stat');if(!el||!stat)return;
+  const up=to>from;restart(stat,up?'ds-count-up':'ds-count-down');setTimeout(()=>stat.classList.remove('ds-count-up','ds-count-down'),500);
+  if(!up||!scale()||id==='energyTop')return;
+  const final=el.textContent,dur=Math.min(900,280+(to-from)*12),t0=performance.now();counting.add(id);
+  let written=el.textContent=String(from);
+  const step=now=>{
+   if(!el.isConnected||el.textContent!==written){counting.delete(id);return}
+   const k=Math.min(1,(now-t0)/dur);written=el.textContent=k>=1?final:String(Math.round(from+(to-from)*ease(k)));
+   if(k<1)requestAnimationFrame(step);else counting.delete(id);
+  };
+  requestAnimationFrame(step);
+ }
+ const ease=k=>1-Math.pow(1-k,3);
+ let homeQueued=false;
+ const scheduleHome=()=>{if(!homeQueued){homeQueued=true;requestAnimationFrame(()=>{homeQueued=false;syncHome()})}};
+ function installHome(){
+  const learn=document.getElementById('learnScreen'),stats=document.querySelector('.app-header .stats');
+  if(!learn||!stats){setTimeout(installHome,300);return}
+  const watch=new MutationObserver(scheduleHome);
+  watch.observe(learn,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
+  watch.observe(stats,{childList:true,subtree:true,characterData:true});
+  const lesson=document.getElementById('lesson');if(lesson)watch.observe(lesson,{attributes:true,attributeFilter:['class']});
+  syncHome();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installHome,{once:true});else installHome();
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m4',celebrate,confetti,reduced});
 })();
