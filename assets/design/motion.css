@@ -323,3 +323,37 @@ html body dialog.v670-reward .ds-confetti{position:fixed;inset:0;z-index:5;width
 :root.v5-reduce body :is(dialog.ds-streak .ds-flame,dialog.ds-streak .ds-flame-wrap::before,dialog.v670-reward .v670-chest,dialog.v670-reward .v670-glow,dialog.v670-reward .v670-open){animation-iteration-count:1!important}
 @media (prefers-reduced-motion:reduce){html body :is(dialog.ds-streak .ds-flame,dialog.ds-streak .ds-flame-wrap::before,dialog.v670-reward .v670-chest,dialog.v670-reward .v670-glow,dialog.v670-reward .v670-open){animation-iteration-count:1!important}}
 html body dialog.v670-reward .v670-card.opened .v670-reveal{transition-delay:calc(380ms*var(--ds-m-s))!important}
+
+/* ---------- Matching, sequence and typed answers ----------
+   Matching: a correct pair pops with a ring, the counter bumps, and a finished board waves.
+   Sequence: a block springs into the answer row; its bank slot stays as a ghost.
+   Typing: the field glows while focused, pulses per keystroke, bounces when right, shakes when wrong. */
+@keyframes dsPairPop{0%{transform:scale(1)}35%{transform:scale(1.09)}65%{transform:scale(.97)}100%{transform:scale(1)}}
+@keyframes dsPairRing{0%{box-shadow:0 0 0 0 rgba(63,215,173,.65)}100%{box-shadow:0 0 0 14px rgba(63,215,173,0)}}
+@keyframes dsBoardWave{0%,100%{transform:none}40%{transform:translateY(-7px) scale(1.03)}}
+@keyframes dsPieceIn{0%{transform:translateY(26px) scale(.82);opacity:0}60%{transform:translateY(-4px) scale(1.04);opacity:1}100%{transform:none;opacity:1}}
+@keyframes dsChipBack{0%{transform:scale(.9)}60%{transform:scale(1.06)}100%{transform:none}}
+@keyframes dsKey{0%{transform:scale(1)}40%{transform:scale(1.015)}100%{transform:scale(1)}}
+@keyframes dsTypedOk{0%{transform:scale(1)}35%{transform:scale(1.05) translateY(-3px)}70%{transform:scale(.99)}100%{transform:none}}
+@keyframes dsTickPop{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.35);opacity:1}100%{transform:none}}
+html body #lesson .question-frame.v1017-match-screen #answerArea .v1017-card.matched{animation:dsPairPop calc(460ms*var(--ds-m-s)) var(--ds-spring),dsPairRing calc(620ms*var(--ds-m-s)) var(--ds-out)!important}
+html body #lesson .question-frame.v1017-match-screen #answerArea .v1017-card:active:not(.matched){transform:scale(.97)}
+@keyframes dsMatchCount{0%,100%{transform:none}40%{transform:scale(1.14)}}
+html body #answerArea .v1017-count.ds-bump{animation:dsMatchCount calc(360ms*var(--ds-m-s)) var(--ds-spring);transform-origin:left center}
+html[dir="rtl"] body #answerArea .v1017-count.ds-bump{transform-origin:right center}
+html body #lesson .question-frame.v1017-match-screen #answerArea .v1017-board.ds-all-matched .v1017-card{animation:dsBoardWave calc(520ms*var(--ds-m-s)) var(--ds-spring) both!important}
+html body #lesson .question-frame.v1017-match-screen #answerArea .v1017-board.ds-all-matched .v1017-col .v1017-card:nth-child(2){animation-delay:calc(70ms*var(--ds-m-s))!important}
+html body #lesson .question-frame.v1017-match-screen #answerArea .v1017-board.ds-all-matched .v1017-col .v1017-card:nth-child(3){animation-delay:calc(140ms*var(--ds-m-s))!important}
+html body #lesson .question-frame.v1017-match-screen #answerArea .v1017-board.ds-all-matched .v1017-col .v1017-card:nth-child(4){animation-delay:calc(210ms*var(--ds-m-s))!important}
+html body #lesson .question-frame.v1017-match-screen #answerArea .v1017-board.ds-all-matched .v1017-col .v1017-card:nth-child(5){animation-delay:calc(280ms*var(--ds-m-s))!important}
+html body #lesson .question-frame.v1017-match-screen #answerArea .v1017-board.ds-all-matched .v1017-right .v1017-card{animation-delay:calc(40ms*var(--ds-m-s))}
+html body #lesson #answerArea .v710-builder-zone .v710-builder-piece.ds-piece-in{animation:dsPieceIn calc(420ms*var(--ds-m-s)) var(--ds-spring) both!important}
+html body #answerArea .v710-word-bank.ds-order .v710-word-chip{transition:opacity var(--ds-m-base) var(--ds-out),transform var(--ds-m-base) var(--ds-spring),filter var(--ds-m-base) var(--ds-out)}
+html body #answerArea .v710-word-bank.ds-order .v710-word-chip:disabled{opacity:.32;transform:scale(.94);filter:saturate(.3)}
+html body #lesson #answerArea .v710-word-bank.ds-order .v710-word-chip.ds-chip-back{animation:dsChipBack calc(360ms*var(--ds-m-s)) var(--ds-spring)!important}
+html body #answerArea .fill-input-wrap{transition:box-shadow var(--ds-m-base) var(--ds-out),transform var(--ds-m-base) var(--ds-out);border-radius:16px}
+html body #answerArea .fill-input-wrap:focus-within{box-shadow:0 0 0 3px rgba(63,215,173,.35),0 8px 22px rgba(63,215,173,.12)}
+html body #answerArea .fill-input-wrap.ds-key{animation:dsKey calc(150ms*var(--ds-m-s)) var(--ds-out)}
+html body #answerArea .fill-input-wrap:has(.fill-input:is(.correct-input,.gf-correct)){animation:dsTypedOk calc(480ms*var(--ds-m-s)) var(--ds-spring);box-shadow:0 0 0 3px rgba(63,215,173,.5),0 0 26px rgba(63,215,173,.3)}
+html body #answerArea .fill-input-wrap:has(.fill-input:is(.correct-input,.gf-correct)) .fill-input-status{animation:dsTickPop calc(420ms*var(--ds-m-s)) var(--ds-spring) calc(80ms*var(--ds-m-s)) both}
+html body #answerArea .fill-input-wrap:has(.fill-input:is(.wrong-input,.gf-wrong)){animation:dsShake calc(420ms*var(--ds-m-s)) var(--ds-out)}

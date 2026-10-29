@@ -217,6 +217,45 @@
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installHome,{once:true});else installHome();
 
+ // ---- Matching, sequence and typed answers ----
+ // A finished matching board waves once the last pair has popped; the counter bumps on each pair.
+ // A sequence block springs in only when it is new to the answer row (reordering keeps still),
+ // and a block sent back pops its bank chip. Each keystroke in a typed answer pulses the field.
+ // The engine may redraw the whole row and bank on each tap, so blocks and chips are compared by
+ // their text with the previous state of the same question rather than by element.
+ let seqKey=null,seqPieces=[],seqOff=[];
+ function syncSequence(){
+  const area=document.getElementById('answerArea'),zone=area?.querySelector('.v710-builder-zone'),ss=lessonSession();
+  const key=zone&&ss?ss.index+':'+(ss.questions?.[ss.index]?.id||''):null;
+  const pieces=zone?[...zone.querySelectorAll('.v710-builder-piece')]:[],off=[...(area?.querySelectorAll('.ds-order .v710-word-chip')||[])];
+  const pieceTexts=pieces.map(x=>x.textContent),offTexts=off.filter(x=>x.disabled).map(x=>x.textContent);
+  if(key&&key===seqKey&&scale()){
+   const left=[...seqPieces];for(const piece of pieces){const i=left.indexOf(piece.textContent);if(i>=0)left.splice(i,1);else restart(piece,'ds-piece-in')}
+   const was=[...seqOff];for(const chip of off){const i=was.indexOf(chip.textContent);if(i<0)continue;was.splice(i,1);if(!chip.disabled)restart(chip,'ds-chip-back')}
+  }
+  seqKey=key;seqPieces=pieceTexts;seqOff=offTexts;
+ }
+ let seqQueued=false;
+ function onAnswers(records){
+  for(const r of records){
+   const el=r.target;
+   if(r.type==='characterData'||(r.type==='childList'&&el.classList?.contains('v1017-count'))){
+    const c=el.nodeType===3?el.parentElement:el;if(c?.classList.contains('v1017-count')&&scale())restart(c,'ds-bump');continue}
+   if(!seqQueued&&(r.type==='childList'||r.attributeName==='disabled')&&el.closest?.('#answerArea')){seqQueued=true;requestAnimationFrame(()=>{seqQueued=false;syncSequence()})}
+   if(r.attributeName==='class'&&el.classList.contains('v1017-card')&&el.classList.contains('matched')&&!String(r.oldValue||'').split(/\s+/).includes('matched')){
+    const board=el.closest('.v1017-board');
+    if(board&&!board.querySelector('.v1017-card:not(.matched)')&&!board.classList.contains('ds-all-matched'))setTimeout(()=>{if(board.isConnected&&scale())restart(board,'ds-all-matched')},420);
+   }
+  }
+ }
+ function installAnswers(){
+  const lesson=document.getElementById('lesson');if(!lesson){setTimeout(installAnswers,300);return}
+  new MutationObserver(onAnswers).observe(lesson,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class','disabled'],attributeOldValue:true});
+  lesson.addEventListener('input',e=>{const w=e.target.closest?.('.fill-input-wrap');if(w&&scale())restart(w,'ds-key')});
+  lesson.addEventListener('animationend',e=>{const t=e.target;if(t.classList?.contains('ds-key'))t.classList.remove('ds-key')});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installAnswers,{once:true});else installAnswers();
+
  // ---- Streak and chest moments ----
  const STREAK_SAY={
   tr:{title:n=>n+' günlük seri!',first:'Serin başladı! Yarın da gel, alev büyüsün.',more:'Her gün bir adım. Yarın da gel!',cta:'Devam et',locale:'tr-TR'},
@@ -293,5 +332,5 @@
   for(const s of screens)watch.observe(s,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installScreens,{once:true});else installScreens();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m6',celebrate,confetti,reduced,streakMoment});
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m7',celebrate,confetti,reduced,streakMoment});
 })();

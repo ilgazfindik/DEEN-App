@@ -148,7 +148,7 @@
  // choosing an answer, a matched / mismatched pair, dropping a sequence block, opening a chest.
  const sfx=kind=>{try{window.DEENSound?.play?.(kind)}catch(_){}};
  document.addEventListener('click',e=>{
-  const el=e.target.closest?.('#answerArea .v710-word-chip,#answerArea .v710-decision,#answerArea .v710-clue,#answerArea .v710-listen-option,#answerArea .v710-binary button,#answerArea .fill-choice,#answerArea .option,#answerArea .v858-odd-card');
+  const el=e.target.closest?.('#answerArea .v710-word-chip,#answerArea .v710-decision,#answerArea .v710-clue,#answerArea .v710-listen-option,#answerArea .v710-binary button,#answerArea .fill-choice,#answerArea .option,#answerArea .v858-odd-card,#answerArea .v1017-card:not(.matched)');
   if(el&&!el.disabled)sfx('select');
   const chest=e.target.closest?.('[data-v670-open],.v670-open-btn,.v670-chest-card button,#v670ChestOpen');
   if(chest&&!chest.disabled)sfx('chest');
@@ -156,12 +156,15 @@
  document.addEventListener('drop',e=>{if(e.target.closest?.('.v710-builder-piece,.v710-builder-zone'))sfx('snap')},{capture:true});
  const watchMatches=()=>{
   const lesson=document.getElementById('lesson');if(!lesson){setTimeout(watchMatches,300);return}
+  // The engine rewrites a card's classes more than once per pair; one sound per moment.
+  let heardAt=0;
   new MutationObserver(records=>{
    for(const r of records){
-    const el=r.target;if(!el.classList?.contains('v710-match-card'))continue;
+    if(Date.now()-heardAt<300)break;
+    const el=r.target;if(!el.classList?.contains('v710-match-card')&&!el.classList?.contains('v1017-card'))continue;
     const had=String(r.oldValue||'').split(/\s+/);
-    if(el.classList.contains('matched')&&!had.includes('matched'))sfx('snap');
-    else if(el.classList.contains('error')&&!had.includes('error'))sfx('softWrong');
+    if(el.classList.contains('matched')&&!had.includes('matched')){sfx('snap');heardAt=Date.now()}
+    else if((el.classList.contains('error')&&!had.includes('error'))||(el.classList.contains('wrong')&&!had.includes('wrong'))){sfx('softWrong');heardAt=Date.now()}
    }
   }).observe(lesson,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
  };
