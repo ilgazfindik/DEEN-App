@@ -344,6 +344,68 @@
    sp.style.setProperty('--dx',Math.round(Math.cos(a)*d)+'px');sp.style.setProperty('--dy',Math.round(Math.sin(a)*d)+'px');sp.style.setProperty('--d',(440+k*28)+'ms');stage.append(sp)}
   [closed,open].forEach(i=>i.setAttribute('aria-hidden','true'));
  }
+ // The engine's chest dialog is written in Turkish only; its text is translated in place for the
+ // other app languages (exact lines, then lines with numbers).
+ const CHEST_TEXT={
+  'KÜÇÜK SANDIK':['SMALL CHEST','الصندوق الصغير','KLEINE TRUHE','PETIT COFFRE'],
+  'ORTA SANDIK':['MEDIUM CHEST','الصندوق المتوسط','MITTLERE TRUHE','COFFRE MOYEN'],
+  'Günlük sandık açıldı':['Daily chest opened','تم فتح الصندوق اليومي','Tägliche Truhe geöffnet','Coffre du jour ouvert'],
+  'Günlük sandığın hazır':['Your daily chest is ready','صندوقك اليومي جاهز','Deine tägliche Truhe ist bereit','Ton coffre du jour est prêt'],
+  'Günlük sandık':['Daily chest','الصندوق اليومي','Tägliche Truhe','Coffre du jour'],
+  'Bugünün görev ödülü daha önce toplandı.':['Today’s quest reward has already been collected.','تم جمع مكافأة مهام اليوم مسبقًا.','Die heutige Aufgabenbelohnung wurde bereits abgeholt.','La récompense des quêtes du jour a déjà été récupérée.'],
+  '3 görev mührü ve Bugünkü Yolculuk tamamlandı.':['3 quest seals and Today’s Journey completed.','اكتملت 3 أختام مهام ورحلة اليوم.','3 Aufgabensiegel und die Heutige Lernreise geschafft.','3 sceaux de quête et le Parcours du jour terminés.'],
+  '3 görev mührü + tamamlanmış Bugünkü Yolculuk gerekir.':['Needs 3 quest seals + a completed Today’s Journey.','يتطلب 3 أختام مهام + إكمال رحلة اليوم.','Benötigt 3 Aufgabensiegel + eine abgeschlossene Heutige Lernreise.','Il faut 3 sceaux de quête + le Parcours du jour terminé.'],
+  'Haftalık sandık açıldı':['Weekly chest opened','تم فتح الصندوق الأسبوعي','Wochentruhe geöffnet','Coffre de la semaine ouvert'],
+  'Haftalık ritim ödülü hazır':['Weekly rhythm reward ready','مكافأة الإيقاع الأسبوعي جاهزة','Wochenrhythmus-Belohnung bereit','Récompense du rythme hebdo prête'],
+  'Haftalık ritim sandığı':['Weekly rhythm chest','صندوق الإيقاع الأسبوعي','Wochenrhythmus-Truhe','Coffre du rythme hebdo'],
+  'Bu haftanın ödülü daha önce toplandı.':['This week’s reward has already been collected.','تم جمع مكافأة هذا الأسبوع مسبقًا.','Die Belohnung dieser Woche wurde bereits abgeholt.','La récompense de la semaine a déjà été récupérée.'],
+  '5 farklı günde Daily Journey tamamlandı.':['Today’s Journey completed on 5 different days.','اكتملت رحلة اليوم في 5 أيام مختلفة.','Heutige Lernreise an 5 verschiedenen Tagen geschafft.','Parcours du jour terminé sur 5 jours différents.'],
+  '5 farklı günde Bugünkü Yolculuk tamamla.':['Complete Today’s Journey on 5 different days.','أكمل رحلة اليوم في 5 أيام مختلفة.','Schließe die Heutige Lernreise an 5 verschiedenen Tagen ab.','Termine le Parcours du jour sur 5 jours différents.'],
+  'Görev mühürleri':['Quest seals','أختام المهام','Aufgabensiegel','Sceaux de quête'],
+  'Tamamlanmış günler':['Completed days','الأيام المكتملة','Abgeschlossene Tage','Jours terminés'],
+  'DAHA ÖNCE AÇILDI':['ALREADY OPENED','فُتح مسبقًا','BEREITS GEÖFFNET','DÉJÀ OUVERT'],
+  'SANDIĞI AÇ':['OPEN CHEST','افتح الصندوق','TRUHE ÖFFNEN','OUVRIR LE COFFRE'],
+  'SANDIK HENÜZ KİLİTLİ':['CHEST STILL LOCKED','الصندوق ما زال مقفلًا','TRUHE NOCH GESPERRT','COFFRE ENCORE VERROUILLÉ'],
+  'AÇILIYOR…':['OPENING…','جارٍ الفتح…','WIRD GEÖFFNET…','OUVERTURE…'],
+  'TEKRAR DENE':['TRY AGAIN','حاول مجددًا','ERNEUT VERSUCHEN','RÉESSAYER'],
+  'HAFTALIK SANDIĞA GEÇ':['GO TO WEEKLY CHEST','انتقل إلى الصندوق الأسبوعي','ZUR WOCHENTRUHE','VERS LE COFFRE HEBDO'],
+  'YOLCULUĞA DÖN':['BACK TO THE JOURNEY','العودة إلى الرحلة','ZURÜCK ZUR REISE','RETOUR AU PARCOURS'],
+  'PIRILTI':['SPARKLES','بريق','FUNKEN','ÉTINCELLES'],
+  'BONUS XP':['BONUS XP','نقاط خبرة إضافية','BONUS-XP','XP BONUS'],
+  'SERİ KORUMA':['STREAK PROTECTION','حماية السلسلة','SERIENSCHUTZ','PROTECTION DE SÉRIE'],
+  'Haftalık sandığın hazır':['Your weekly chest is ready','صندوقك الأسبوعي جاهز','Deine Wochentruhe ist bereit','Ton coffre de la semaine est prêt'],
+  '5 günlük ritim tamamlandı. Orta sandığı şimdi açabilirsin.':['Your 5-day rhythm is complete. You can open the medium chest now.','اكتمل إيقاع الأيام الخمسة. يمكنك فتح الصندوق المتوسط الآن.','Dein 5-Tage-Rhythmus ist geschafft. Du kannst jetzt die mittlere Truhe öffnen.','Ton rythme de 5 jours est complet. Tu peux ouvrir le coffre moyen maintenant.'],
+  'Bugünün ödül döngüsü tamam':['Today’s reward cycle is complete','اكتملت دورة مكافآت اليوم','Der heutige Belohnungszyklus ist geschafft','Le cycle de récompenses du jour est terminé'],
+  'Yarın yeni Daily Journey ve yeni görev mühürleri açılacak.':['Tomorrow a new Today’s Journey and new quest seals open.','غدًا تُفتح رحلة يوم جديدة وأختام مهام جديدة.','Morgen öffnen sich eine neue Heutige Lernreise und neue Aufgabensiegel.','Demain, un nouveau Parcours du jour et de nouveaux sceaux de quête s’ouvrent.'],
+  'Haftalık ritim tamamlandı':['Weekly rhythm complete','اكتمل الإيقاع الأسبوعي','Wochenrhythmus geschafft','Rythme hebdo terminé'],
+  'Yeni haftada sayaç yeniden başlar; dini içerik erişimi bu ödül sistemine bağlı değildir.':['The counter restarts next week; access to religious content does not depend on this reward system.','يبدأ العداد من جديد في الأسبوع القادم، ولا يرتبط الوصول إلى المحتوى الديني بنظام المكافآت هذا.','Der Zähler beginnt in der neuen Woche von vorn; der Zugang zu religiösen Inhalten hängt nicht von diesem Belohnungssystem ab.','Le compteur repart la semaine prochaine ; l’accès au contenu religieux ne dépend pas de ce système de récompenses.'],
+  'Ödül öğrenme ve hatırlama davranışına aittir; ibadetin kendisi puanlanmaz. Premium dini içeriği kilitlemez.':['Rewards are for learning and remembering; worship itself is never scored. Premium never locks religious content.','المكافأة على التعلّم والتذكّر، أما العبادة نفسها فلا تُقيَّم بالنقاط. ولا يقفل الاشتراك المميز المحتوى الديني.','Belohnt wird Lernen und Erinnern; die Anbetung selbst wird nie bewertet. Premium sperrt keine religiösen Inhalte.','La récompense porte sur l’apprentissage et la mémorisation ; l’adoration elle-même n’est jamais notée. Premium ne verrouille aucun contenu religieux.'],
+  'Kapat':['Close','إغلاق','Schließen','Fermer']
+ };
+ const CHEST_PATTERNS=[
+  [/^(\d+)\/3 mühür$/,n=>[n+'/3 seals',n+'/3 أختام',n+'/3 Siegel',n+'/3 sceaux']],
+  [/^(\d+)\/5 gün$/,n=>[n+'/5 days',n+'/5 أيام',n+'/5 Tage',n+'/5 jours']],
+  [/^Haftalık ritim · (\d+)\/5$/,n=>['Weekly rhythm · '+n+'/5','الإيقاع الأسبوعي · '+n+'/5','Wochenrhythmus · '+n+'/5','Rythme hebdo · '+n+'/5']],
+  [/^Orta sandığa (\d+) tamamlanmış günlük yolculuk kaldı\.$/,n=>{const one=n==='1';return [n+' more completed '+(one?'Today’s Journey':'Today’s Journeys')+' to the medium chest.','تبقّى '+n+' من رحلات اليوم المكتملة للصندوق المتوسط.','Noch '+n+' abgeschlossene '+(one?'Tagesreise':'Tagesreisen')+' bis zur mittleren Truhe.','Encore '+n+' Parcours du jour '+(one?'terminé':'terminés')+' avant le coffre moyen.']}],
+  [/^Sıradaki seri kilometre taşı · (\d+) gün$/,n=>['Next streak milestone · '+n+(n==='1'?' day':' days'),'المحطة التالية للسلسلة · '+n+' يوم','Nächster Serien-Meilenstein · '+n+(n==='1'?' Tag':' Tage'),'Prochain palier de série · '+n+(n==='1'?' jour':' jours')]],
+  [/^Mevcut seri (\d+) gün\. Öğrenme ritmini kendi temponda sürdür\.$/,n=>['Current streak: '+n+(n==='1'?' day':' days')+'. Keep your learning rhythm at your own pace.','السلسلة الحالية '+n+' يوم. واصل إيقاع تعلّمك بوتيرتك.','Aktuelle Serie: '+n+(n==='1'?' Tag':' Tage')+'. Behalte deinen Lernrhythmus in deinem Tempo bei.','Série actuelle : '+n+(n==='1'?' jour':' jours')+'. Garde ton rythme d’apprentissage à ton propre tempo.']]
+ ];
+ const CHEST_LANGS={en:0,ar:1,de:2,fr:3};
+ function chestLine(text,i){
+  const hit=CHEST_TEXT[text];if(hit)return hit[i];
+  for(const [re,fn] of CHEST_PATTERNS){const m=re.exec(text);if(m)return fn(m[1])[i]}
+  return null;
+ }
+ // Writes only when a line changes, so the dialog's own observer settles at once.
+ function localizeChest(d){
+  const i=CHEST_LANGS[uiLang()];if(i==null)return;
+  const walk=document.createTreeWalker(d,NodeFilter.SHOW_TEXT);
+  for(let n=walk.nextNode();n;n=walk.nextNode()){
+   const raw=n.data,text=raw.trim();if(!text)continue;const to=chestLine(text,i);
+   if(to!=null&&to!==text)n.data=raw.replace(text,to);
+  }
+  for(const el of d.querySelectorAll('[aria-label]')){const to=chestLine(el.getAttribute('aria-label').trim(),i);if(to!=null&&to!==el.getAttribute('aria-label'))el.setAttribute('aria-label',to)}
+ }
  const chestTaps=new WeakMap();let chestPass=false;
  document.addEventListener('click',e=>{
   if(chestPass)return;
@@ -361,7 +423,7 @@
  // A chest that opens bursts into confetti as its loot appears, with the reward sound.
  function onChest(records){
   for(const r of records){
-   if(r.type==='childList'){for(const n of r.addedNodes){const c=n.matches?.('dialog.v670-reward')&&n.querySelector('.v670-card');if(c){dressChest(c);chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}}continue}
+   if(r.type==='childList'){for(const n of r.addedNodes){const c=n.matches?.('dialog.v670-reward')&&n.querySelector('.v670-card');if(c){dressChest(c);localizeChest(n);new MutationObserver(()=>localizeChest(n)).observe(n,{subtree:true,childList:true,characterData:true});chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}}continue}
    const c=r.target;if(!c.classList.contains('opened')||String(r.oldValue||'').split(/\s+/).includes('opened'))continue;
    c.querySelectorAll('.ds-chest-pips i').forEach(p=>p.classList.add('on'));
    const d=c.closest('dialog');setTimeout(()=>{if(!d?.open)return;confetti(d);sfx('reward')},scale()?900:0);
@@ -398,5 +460,5 @@
   for(const s of screens)watch.observe(s,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installScreens,{once:true});else installScreens();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m10',celebrate,confetti,reduced,streakMoment});
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m11',celebrate,confetti,reduced,streakMoment});
 })();

@@ -439,3 +439,4 @@ html body dialog.v670-reward .ds-chest-pips{position:absolute;left:50%;bottom:-1
 html body dialog.v670-reward .ds-chest-pips i{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,214,120,.55);transition:background calc(200ms*var(--ds-m-s)) var(--ds-out)}
 html body dialog.v670-reward .ds-chest-pips i.on{background:linear-gradient(180deg,#ffe39a,#e0a83a);border-color:#ffe9b5;box-shadow:0 0 10px rgba(255,200,90,.6);animation:dsPip calc(340ms*var(--ds-m-s)) var(--ds-spring)}
 html body dialog.v670-reward .v670-card:is(.opened,:not(:has(.v670-open:not(:disabled)))) .ds-chest-pips{display:none}
+html body dialog.v670-reward .v670-card.opened .v670-chest-stage{height:246px!important;padding-top:22px;box-sizing:border-box}
