@@ -401,3 +401,41 @@ html body :is(.dsp-avatar-slot img,.dsr-empty-art img){transform-origin:50% 100%
 html body :is(.dsp-avatar-slot img,.dsr-empty-art img,#lesson .deen-character-question-avatar img,#lesson #resultView.show .ds-end-mascot).ds-alive-tap{animation:dsAliveTap calc(560ms*var(--ds-m-s)) var(--ds-spring)!important}
 :root.v5-reduce body :is(.dsp-avatar-slot img,.dsr-empty-art img,#lesson #resultView.show .ds-end-mascot){animation:none!important}
 @media (prefers-reduced-motion:reduce){html body :is(.dsp-avatar-slot img,.dsr-empty-art img,#lesson #resultView.show .ds-end-mascot){animation:none!important}}
+
+/* ---------- Chest art and the three-tap opening ----------
+   The drawn chest replaces the CSS one. A ready chest asks for three taps (on the chest or its
+   button): each tap shakes it harder and lets more light out; the third opens it — the closed
+   chest squashes away and the open one springs up in a burst of light. */
+@keyframes dsTap1{0%,100%{transform:none}20%{transform:rotate(-5deg) scale(1.03)}45%{transform:rotate(4deg)}70%{transform:rotate(-2deg)}}
+@keyframes dsTap2{0%,100%{transform:none}15%{transform:translateY(-10px) rotate(-8deg) scale(1.06)}35%{transform:translateY(0) rotate(7deg) scale(1.04,.96)}55%{transform:rotate(-6deg)}75%{transform:rotate(3deg)}}
+@keyframes dsTap3{0%,100%{transform:none}10%{transform:translateX(-7px) rotate(-6deg)}20%{transform:translateX(7px) rotate(6deg)}30%{transform:translateX(-7px) rotate(-6deg)}40%{transform:translateX(7px) rotate(6deg)}50%{transform:translateX(-5px) rotate(-4deg)}60%{transform:translateX(5px) rotate(4deg) scale(1.05,.95)}}
+@keyframes dsClosedAway{0%{transform:scale(1);opacity:1}60%{transform:scale(1.12,.82);opacity:1}100%{transform:scale(1.2,.7);opacity:0}}
+@keyframes dsOpenUp{0%{transform:translateY(16px) scale(.72);opacity:0}55%{transform:translateY(-10px) scale(1.12);opacity:1}78%{transform:scale(.96)}100%{transform:none;opacity:1}}
+@keyframes dsBurst{0%{transform:translate(-50%,-50%) scale(.2);opacity:0}30%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.8);opacity:0}}
+@keyframes dsSparkFly{0%{transform:translate(-50%,-50%) translate(0,0) scale(.4);opacity:0}20%{opacity:1}100%{transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) scale(1);opacity:0}}
+@keyframes dsPip{0%{transform:scale(.5)}60%{transform:scale(1.35)}100%{transform:none}}
+html body dialog.v670-reward .v670-chest-stage{height:224px}
+html body dialog.v670-reward .v670-chest.ds-art{width:210px;height:178px;filter:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+html body dialog.v670-reward .v670-chest.ds-art>:is(.v670-chest-lid,.v670-chest-base,.v670-chest-band,.v670-lock){display:none!important}
+html body dialog.v670-reward .ds-chest-img{position:absolute;left:0;bottom:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;pointer-events:none;user-select:none;-webkit-user-drag:none;
+ filter:drop-shadow(0 16px 20px rgba(0,0,0,.42)) drop-shadow(0 0 calc(var(--ds-charge,0)*14px) rgba(255,205,90,calc(var(--ds-charge,0)*.35)));transition:filter calc(300ms*var(--ds-m-s)) var(--ds-out)}
+/* The open art is wider (the lid swings out to the left), so it is drawn larger and shifted to keep the body in place. */
+html body dialog.v670-reward .ds-chest-img.open{width:112%;height:112%;left:-13%;opacity:0}
+html body dialog.v670-reward .v670-card:not(:has(.v670-open:not(:disabled))):not(.opened) .ds-chest-img.closed{filter:drop-shadow(0 16px 20px rgba(0,0,0,.42)) saturate(.55) brightness(.72)}
+html body dialog.v670-reward .v670-card.opened .ds-chest-img.closed{animation:dsClosedAway calc(300ms*var(--ds-m-s)) var(--ds-in) calc(240ms*var(--ds-m-s)) both}
+html body dialog.v670-reward .v670-card.opened .ds-chest-img.open{animation:dsOpenUp calc(620ms*var(--ds-m-s)) var(--ds-spring) calc(420ms*var(--ds-m-s)) both}
+html body dialog.v670-reward .v670-card.opened.claimed .ds-chest-img.closed{opacity:0;animation:none}
+html body dialog.v670-reward .v670-card.opened.claimed .ds-chest-img.open{opacity:1;animation:none}
+html body dialog.v670-reward .v670-card.opened .v670-chest.ds-art{animation:dsTap3 calc(420ms*var(--ds-m-s)) ease-in-out both!important;transform:none!important}
+html body dialog.v670-reward .v670-card.opened.claimed .v670-chest.ds-art{animation:none!important}
+html body dialog.v670-reward .v670-chest.ds-art.ds-tap1{animation:dsTap1 calc(420ms*var(--ds-m-s)) ease-in-out!important}
+html body dialog.v670-reward .v670-chest.ds-art.ds-tap2{animation:dsTap2 calc(520ms*var(--ds-m-s)) var(--ds-spring)!important}
+html body dialog.v670-reward .ds-chest-burst{position:absolute;left:50%;top:52%;width:260px;height:260px;border-radius:50%;pointer-events:none;opacity:0;background:radial-gradient(circle,rgba(255,236,170,.95),rgba(255,196,80,.45) 35%,transparent 68%)}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .ds-chest-burst{animation:dsBurst calc(760ms*var(--ds-m-s)) var(--ds-out) calc(420ms*var(--ds-m-s)) both}
+html body dialog.v670-reward .ds-chest-spark{position:absolute;left:50%;top:50%;width:10px;height:10px;pointer-events:none;opacity:0;background:#ffe39a;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+html body dialog.v670-reward .ds-chest-spark.mint{background:#7ff0d6}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .ds-chest-spark{animation:dsSparkFly calc(900ms*var(--ds-m-s)) var(--ds-out) calc(var(--d,460ms)*var(--ds-m-s)) both}
+html body dialog.v670-reward .ds-chest-pips{position:absolute;left:50%;bottom:-16px;display:flex;gap:8px;transform:translateX(-50%);pointer-events:none}
+html body dialog.v670-reward .ds-chest-pips i{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,214,120,.55);transition:background calc(200ms*var(--ds-m-s)) var(--ds-out)}
+html body dialog.v670-reward .ds-chest-pips i.on{background:linear-gradient(180deg,#ffe39a,#e0a83a);border-color:#ffe9b5;box-shadow:0 0 10px rgba(255,200,90,.6);animation:dsPip calc(340ms*var(--ds-m-s)) var(--ds-spring)}
+html body dialog.v670-reward .v670-card:is(.opened,:not(:has(.v670-open:not(:disabled)))) .ds-chest-pips{display:none}

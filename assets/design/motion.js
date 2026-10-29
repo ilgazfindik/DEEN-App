@@ -327,12 +327,44 @@
   cta.focus({preventScroll:true});sfx('streak');
   if(scale())setTimeout(()=>{if(d.open)sfx('pop')},1400);
  }
+ // The drawn chest replaces the CSS one (the weekly chest is seen from the other side). A ready
+ // chest opens on the third tap, on the chest or its button; the first two shake it harder and
+ // let more light out, and the third lets the engine's own open button run.
+ const CHEST_ART='assets/design/chest/';
+ function dressChest(card){
+  const chest=card.querySelector('.v670-chest');if(!chest||chest.classList.contains('ds-art'))return;
+  chest.classList.add('ds-art');
+  const closed=new Image();closed.className='ds-chest-img closed';closed.alt='';closed.decoding='async';closed.src=CHEST_ART+(card.classList.contains('medium')?'chest-closed-b.webp':'chest-closed.webp');
+  const open=new Image();open.className='ds-chest-img open';open.alt='';open.decoding='async';open.src=CHEST_ART+'chest-open.webp';
+  const burst=document.createElement('span');burst.className='ds-chest-burst';
+  const pips=document.createElement('span');pips.className='ds-chest-pips';pips.setAttribute('aria-hidden','true');pips.append(document.createElement('i'),document.createElement('i'),document.createElement('i'));
+  chest.prepend(closed,open);chest.append(pips);
+  const stage=card.querySelector('.v670-chest-stage')||chest;stage.append(burst);
+  for(let k=0;k<10;k++){const sp=document.createElement('span');sp.className='ds-chest-spark'+(k%3===2?' mint':'');const a=-Math.PI/2+(k-4.5)*.33,d=90+(k%4)*22;
+   sp.style.setProperty('--dx',Math.round(Math.cos(a)*d)+'px');sp.style.setProperty('--dy',Math.round(Math.sin(a)*d)+'px');sp.style.setProperty('--d',(440+k*28)+'ms');stage.append(sp)}
+  [closed,open].forEach(i=>i.setAttribute('aria-hidden','true'));
+ }
+ const chestTaps=new WeakMap();let chestPass=false;
+ document.addEventListener('click',e=>{
+  if(chestPass)return;
+  const card=e.target.closest?.('dialog.v670-reward .v670-card');if(!card||card.classList.contains('opened'))return;
+  const btn=card.querySelector('.v670-open'),onChestArt=e.target.closest('.v670-chest-stage'),onBtn=e.target.closest('.v670-open');
+  if(!btn||btn.disabled||(!onChestArt&&!onBtn))return;
+  const n=(chestTaps.get(card)||0)+1;
+  if(n>=3){chestTaps.set(card,0);if(onChestArt){chestPass=true;try{btn.click()}finally{chestPass=false}}return}
+  chestTaps.set(card,n);if(onBtn){e.preventDefault();e.stopImmediatePropagation()}
+  const chest=card.querySelector('.v670-chest');chest?.style.setProperty('--ds-charge',String(n));
+  card.querySelectorAll('.ds-chest-pips i').forEach((p,i)=>p.classList.toggle('on',i<n));
+  if(chest&&scale()){chest.classList.remove('ds-tap1','ds-tap2');void chest.offsetWidth;chest.classList.add('ds-tap'+n)}
+  sfx('chestTap'+n);
+ },{capture:true});
  // A chest that opens bursts into confetti as its loot appears, with the reward sound.
  function onChest(records){
   for(const r of records){
-   if(r.type==='childList'){for(const n of r.addedNodes){const c=n.matches?.('dialog.v670-reward')&&n.querySelector('.v670-card');if(c)chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}continue}
+   if(r.type==='childList'){for(const n of r.addedNodes){const c=n.matches?.('dialog.v670-reward')&&n.querySelector('.v670-card');if(c){dressChest(c);chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}}continue}
    const c=r.target;if(!c.classList.contains('opened')||String(r.oldValue||'').split(/\s+/).includes('opened'))continue;
-   const d=c.closest('dialog');setTimeout(()=>{if(!d?.open)return;confetti(d);sfx('reward')},scale()?820:0);
+   c.querySelectorAll('.ds-chest-pips i').forEach(p=>p.classList.add('on'));
+   const d=c.closest('dialog');setTimeout(()=>{if(!d?.open)return;confetti(d);sfx('reward')},scale()?900:0);
   }
  }
  const chestWatch=new MutationObserver(onChest);
@@ -366,5 +398,5 @@
   for(const s of screens)watch.observe(s,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installScreens,{once:true});else installScreens();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m9',celebrate,confetti,reduced,streakMoment});
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m10',celebrate,confetti,reduced,streakMoment});
 })();
