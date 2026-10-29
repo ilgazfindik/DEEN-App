@@ -17,6 +17,8 @@
  const lessonSession=()=>{try{return session||null}catch(_){return null}};
  const companion=()=>String(appState().profile?.companion||'owl').replace(/[^a-z]/g,'')||'owl';
  const restart=(el,cls)=>{el.classList.remove(cls);void el.offsetWidth;el.classList.add(cls)};
+ // Sounds go through the engine's DEENSound, so the sound setting and its rules apply (sound.js).
+ const sfx=kind=>{try{window.DEENSound?.play?.(kind)}catch(_){}};
 
  // ---- Confetti (canvas, transform-free) ----
  function confetti(host){
@@ -55,6 +57,8 @@
   view.dataset.dsRun=celebrated=String(Date.now());
   restart(view.querySelector('.ds-end-mascot'),'ds-end-mascot');
   setTimeout(()=>confetti(document.getElementById('lesson')||document.body),420);
+  // One pop per stat tile as it lands (motion.css: XP 300 ms, correct 400 ms, combo 500 ms).
+  [380,480,580].forEach(ms=>setTimeout(()=>sfx('pop'),scale()?ms:0));
  }
 
  // ---- Lesson observer ----
@@ -174,8 +178,8 @@
    const {from,to}=pendingStop;pendingStop=null;
    if(scale()){
     const done=document.getElementById(from),next=document.getElementById(to);
-    if(done)restart(done,'ds-stop-done');
-    setTimeout(()=>{const n=document.getElementById(to);if(!n)return;restart(n,'ds-stop-unlock');try{n.scrollIntoView({block:'center',behavior:'smooth'})}catch(_){}},320);
+    if(done){restart(done,'ds-stop-done');sfx('stamp')}
+    setTimeout(()=>{const n=document.getElementById(to);if(!n)return;restart(n,'ds-stop-unlock');sfx('pathUnlock');try{n.scrollIntoView({block:'center',behavior:'smooth'})}catch(_){}},320);
     setTimeout(()=>{document.getElementById(from)?.classList.remove('ds-stop-done');document.getElementById(to)?.classList.remove('ds-stop-unlock')},2400);
    }
   }
@@ -190,7 +194,8 @@
   let written=el.textContent=String(from);
   const step=now=>{
    if(!el.isConnected||el.textContent!==written){counting.delete(id);return}
-   const k=Math.min(1,(now-t0)/dur);written=el.textContent=k>=1?final:String(Math.round(from+(to-from)*ease(k)));
+   const k=Math.min(1,(now-t0)/dur),before=written;written=el.textContent=k>=1?final:String(Math.round(from+(to-from)*ease(k)));
+   if(written!==before)sfx('tick');
    if(k<1)requestAnimationFrame(step);else counting.delete(id);
   };
   requestAnimationFrame(step);
