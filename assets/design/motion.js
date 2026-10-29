@@ -256,6 +256,32 @@
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installAnswers,{once:true});else installAnswers();
 
+ // ---- Lesson start ----
+ // A tapped path stop presses in; the stage intro's start button sends a wave of light from where
+ // it was tapped, and the lesson zooms in with the start sound. The engine's own flow is untouched.
+ let launchAt=0;
+ function installStart(){
+  const paths=document.getElementById('v5Paths'),lesson=document.getElementById('lesson');
+  if(!paths||!lesson){setTimeout(installStart,300);return}
+  paths.addEventListener('pointerdown',e=>{const n=e.target.closest?.('.lp-stop .lp-node,.lp-stop .deen-stage-card');if(n&&scale())restart(n,'ds-press')});
+  paths.addEventListener('animationend',e=>{if(e.target.classList?.contains('ds-press'))e.target.classList.remove('ds-press')});
+  document.addEventListener('click',e=>{
+   const b=e.target.closest?.('.deen-intro-dialog .deen-stage-intro .v5-primary');if(!b)return;
+   launchAt=Date.now();if(!scale())return;
+   const r=b.getBoundingClientRect(),w=document.createElement('div');w.className='ds-launch';w.setAttribute('aria-hidden','true');
+   w.style.setProperty('--ds-x',Math.round(r.left+r.width/2)+'px');w.style.setProperty('--ds-y',Math.round(r.top+r.height/2)+'px');
+   document.body.append(w);setTimeout(()=>w.remove(),700);
+  },{capture:true});
+  new MutationObserver(records=>{
+   for(const r of records){
+    if(!lesson.classList.contains('active')||String(r.oldValue||'').split(/\s+/).includes('active'))continue;
+    if(Date.now()-launchAt<2000)sfx('start');
+    if(scale()){restart(lesson,'ds-lesson-zoom');setTimeout(()=>lesson.classList.remove('ds-lesson-zoom'),420)}
+   }
+  }).observe(lesson,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installStart,{once:true});else installStart();
+
  // ---- Streak and chest moments ----
  const STREAK_SAY={
   tr:{title:n=>n+' günlük seri!',first:'Serin başladı! Yarın da gel, alev büyüsün.',more:'Her gün bir adım. Yarın da gel!',cta:'Devam et',locale:'tr-TR'},
@@ -332,5 +358,5 @@
   for(const s of screens)watch.observe(s,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installScreens,{once:true});else installScreens();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m7',celebrate,confetti,reduced,streakMoment});
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m8',celebrate,confetti,reduced,streakMoment});
 })();
