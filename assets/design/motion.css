@@ -268,3 +268,58 @@ html body .modalback.show>.sheet{animation:dsSheetUp var(--ds-m-sheet) var(--ds-
 
 :root.v5-reduce body #lesson .deen-character-question-avatar img{animation:none!important}
 @media (prefers-reduced-motion:reduce){html body #lesson .deen-character-question-avatar img{animation:none!important}}
+
+/* ---------- Streak celebration (after the day's first lesson) ----------
+   A full-screen moment motion.js opens once the path is visible: a flickering flame grows, the
+   day count rolls from the old to the new number, this week's days fill and today's day pops. */
+@keyframes dsFlicker{0%,100%{transform:scale(1,1) skewX(0)}25%{transform:scale(1.03,.97) skewX(-2deg)}50%{transform:scale(.98,1.04) skewX(1.5deg)}75%{transform:scale(1.02,.99) skewX(-1deg)}}
+@keyframes dsFlameIn{0%{transform:translateY(40px) scale(.2);opacity:0}60%{transform:translateY(-6px) scale(1.12);opacity:1}100%{transform:none;opacity:1}}
+@keyframes dsRollOut{to{transform:translateY(-110%);opacity:0}}
+@keyframes dsRollIn{from{transform:translateY(110%);opacity:0}}
+@keyframes dsDayFill{0%{transform:scale(.6)}60%{transform:scale(1.25)}100%{transform:none}}
+@keyframes dsGlowPulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.9;transform:scale(1.08)}}
+dialog.ds-streak{inset:0;width:100%;max-width:100%;height:100%;max-height:100%;margin:0;padding:0;border:0;background:rgba(3,13,19,.93);color:var(--ds-text,#eef4f3);overflow:hidden;animation:dsFadeIn var(--ds-m-base) var(--ds-out)}
+dialog.ds-streak::backdrop{background:rgba(2,12,19,.82);animation:dsFadeIn var(--ds-m-base) var(--ds-out)}
+dialog.ds-streak .ds-streak-card{box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;width:min(100%,430px);height:100%;margin:0 auto;
+ padding:max(24px,env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));text-align:center;
+ background:radial-gradient(60% 40% at 50% 34%,rgba(255,150,40,.22),transparent 70%);font-family:var(--ds-font,"Nunito Sans",system-ui,sans-serif)}
+dialog.ds-streak .ds-flame-wrap{position:relative;width:150px;height:170px;animation:dsFlameIn calc(640ms*var(--ds-m-s)) var(--ds-spring) both}
+dialog.ds-streak .ds-flame-wrap::before{content:"";position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(255,170,60,.55),transparent 65%);animation:dsGlowPulse calc(1.8s*var(--ds-m-s)) ease-in-out infinite}
+dialog.ds-streak .ds-flame{position:relative;width:100%;height:100%;transform-origin:50% 90%;animation:dsFlicker calc(1.1s*var(--ds-m-s)) ease-in-out infinite;filter:drop-shadow(0 10px 22px rgba(255,120,30,.5))}
+dialog.ds-streak .ds-count{position:relative;height:84px;overflow:hidden;font:900 76px/84px var(--ds-font);font-variant-numeric:tabular-nums;color:#ffb347;text-shadow:0 4px 0 #a54d0a}
+dialog.ds-streak .ds-count span{display:block}
+dialog.ds-streak .ds-count .old{position:absolute;inset:0;animation:dsRollOut calc(360ms*var(--ds-m-s)) var(--ds-in) calc(700ms*var(--ds-m-s)) both}
+dialog.ds-streak .ds-count .new{animation:dsRollIn calc(460ms*var(--ds-m-s)) var(--ds-spring) calc(760ms*var(--ds-m-s)) both}
+dialog.ds-streak h2{margin:0;font:900 28px/1.15 var(--ds-font);color:#fff3d6;animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(900ms*var(--ds-m-s)) both}
+dialog.ds-streak p{margin:0;max-width:32ch;font:700 15px/1.45 var(--ds-font);color:#d9c9ae;animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(980ms*var(--ds-m-s)) both}
+dialog.ds-streak .ds-week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;width:100%;max-width:360px;padding:14px 12px;border-radius:18px;background:rgba(40,22,8,.55);border:1.5px solid rgba(255,170,80,.35);
+ animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(1050ms*var(--ds-m-s)) both}
+dialog.ds-streak .ds-day{display:flex;flex-direction:column;align-items:center;gap:6px;font:800 12px/1 var(--ds-font);color:#c9b392;text-transform:uppercase}
+dialog.ds-streak .ds-day i{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.14)}
+dialog.ds-streak .ds-day.on i{background:linear-gradient(180deg,#ffc15e,#ff7a1a);border-color:#ffd59a;box-shadow:0 0 12px rgba(255,140,40,.5)}
+dialog.ds-streak .ds-day.on i::after{content:"";width:12px;height:12px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233a1704' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat}
+dialog.ds-streak .ds-day.today{color:#ffd59a}
+dialog.ds-streak .ds-day.today.on i{animation:dsDayFill calc(520ms*var(--ds-m-s)) var(--ds-spring) calc(1350ms*var(--ds-m-s)) both}
+dialog.ds-streak .ds-streak-cta{width:100%;max-width:360px;min-height:58px;margin-top:8px;border:0;border-radius:16px;cursor:pointer;font:900 17px/1 var(--ds-font);letter-spacing:.06em;text-transform:uppercase;
+ color:#3a1704;background:linear-gradient(180deg,#ffd27a,#ff9a3c);box-shadow:0 5px 0 #b5561a;animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(1200ms*var(--ds-m-s)) both;transition:transform var(--ds-m-tap) var(--ds-out),box-shadow var(--ds-m-tap) var(--ds-out)}
+dialog.ds-streak .ds-streak-cta:active{transform:translateY(4px);box-shadow:0 1px 0 #b5561a}
+dialog.ds-streak .ds-streak-cta:focus-visible{outline:3px solid #ffe3a3;outline-offset:3px}
+
+/* ---------- Daily / weekly chest ----------
+   The dialog springs in; a locked chest floats, a ready one wiggles and glows to be tapped; on
+   opening it shakes three times before the engine's lid, rays and loot play (their delays wait). */
+@keyframes dsChestFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes dsChestWiggle{0%,62%,100%{transform:none}68%{transform:rotate(-7deg) scale(1.04)}74%{transform:rotate(6deg) scale(1.04)}80%{transform:rotate(-4deg)}86%{transform:rotate(2deg)}}
+@keyframes dsChestShake{0%,100%{transform:none}15%{transform:translateX(-6px) rotate(-5deg)}30%{transform:translateX(6px) rotate(5deg)}45%{transform:translateX(-5px) rotate(-4deg)}60%{transform:translateX(5px) rotate(4deg)}75%{transform:translateX(-3px) rotate(-2deg)}}
+html body dialog.v670-reward[open] .v670-card{animation:dsCardPop calc(440ms*var(--ds-m-s)) var(--ds-spring)}
+html body dialog.v670-reward .v670-card:not(.opened) .v670-chest{animation:dsChestFloat calc(3s*var(--ds-m-s)) ease-in-out infinite}
+html body dialog.v670-reward .v670-card:not(.opened):has(.v670-open:not(:disabled)) .v670-chest{animation:dsChestWiggle calc(1.7s*var(--ds-m-s)) ease-in-out infinite}
+html body dialog.v670-reward .v670-card:not(.opened):has(.v670-open:not(:disabled)) .v670-glow{animation:dsGlowPulse calc(1.6s*var(--ds-m-s)) ease-in-out infinite}
+html body dialog.v670-reward .v670-card:not(.opened) .v670-open:not(:disabled){animation:dsCtaPulse calc(1.4s*var(--ds-m-s)) ease-in-out infinite}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-chest{animation:dsChestShake calc(380ms*var(--ds-m-s)) ease-in-out,v670ChestPop .52s cubic-bezier(.16,1,.3,1) calc(380ms*var(--ds-m-s))!important}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-chest-lid{transition-delay:calc(380ms*var(--ds-m-s))!important}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) :is(.v670-rays,.v670-sparks,.v670-rings,.v670-glow){transition-delay:calc(380ms*var(--ds-m-s))!important;animation-delay:calc(380ms*var(--ds-m-s))!important}
+html body dialog.v670-reward .ds-confetti{position:fixed;inset:0;z-index:5;width:100%;height:100%;pointer-events:none}
+:root.v5-reduce body :is(dialog.ds-streak .ds-flame,dialog.ds-streak .ds-flame-wrap::before,dialog.v670-reward .v670-chest,dialog.v670-reward .v670-glow,dialog.v670-reward .v670-open){animation-iteration-count:1!important}
+@media (prefers-reduced-motion:reduce){html body :is(dialog.ds-streak .ds-flame,dialog.ds-streak .ds-flame-wrap::before,dialog.v670-reward .v670-chest,dialog.v670-reward .v670-glow,dialog.v670-reward .v670-open){animation-iteration-count:1!important}}
+html body dialog.v670-reward .v670-card.opened .v670-reveal{transition-delay:calc(380ms*var(--ds-m-s))!important}

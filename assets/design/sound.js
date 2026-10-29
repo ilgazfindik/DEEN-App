@@ -3,7 +3,7 @@
    bell / pluck / thud voices with a short room and a compressor, synthesised in the browser (no
    audio files). Kinds the engine plays: click, correct (+2/+3), combo, combo3/5/7, wrong, review,
    complete, perfect, unlock, unit, section, gold, level, reward. Kinds the motion layer adds:
-   select, pop, tick, stamp, pathUnlock. */
+   select, pop, tick, stamp, pathUnlock, streak. Opening a chest plays chest in place of unlock. */
 (()=>{
  'use strict';
  if(window.DEEN_DS_SOUND)return;
@@ -105,6 +105,7 @@
   reward:()=>{bell(N.B5,0,.3,.14);bell(up(N.E6,2),.08,.5,.14);sparkle(.14,5,.045)},
   snap:()=>{pluck(N.E6,0,.07,.13);bell(N.A6,.04,.3,.08)},
   softWrong:()=>thud(277.18,0,.16,.16),
+  streak:()=>{whoosh(0,.5,.08,220,1900);[N.C5,N.G5,N.C6,N.E6].forEach((f,i)=>bell(f,.12+i*.09,.6,.14));sparkle(.48,7,.045)},
   chest:()=>{thud(130.81,0,.26,.3);whoosh(.06,.4,.07,300,2400);[N.C6,N.E6,N.G6,N.C7].forEach((f,i)=>bell(f,.2+i*.06,.45,.1));sparkle(.42,9,.05)},
   level:()=>{[N.C5,N.G5,N.C6,N.E6].forEach((f,i)=>bell(f,i*.1,.6,.15));sparkle(.45,8,.045)},
   unit:()=>{[N.G5,N.B5,N.D6,N.G6].forEach((f,i)=>bell(f,i*.11,.7,.16));[N.G5,N.D6,N.G6].forEach(f=>bell(f,.48,1.5,.09));whoosh(.4,.5,.06);sparkle(.6,10,.045)},
@@ -122,6 +123,8 @@
   if(now-lastAt<65&&(kind==='click'||kind==='tick'||kind===lastKind))return false;
   if(kind==='click'&&now-lastAt<160)return false;
   lastAt=now;lastKind=kind;
+  // The engine plays unlock when a chest opens; the chest's own sound fits it better.
+  if(kind==='unlock'&&document.querySelector('dialog.v670-reward[open] .v670-card.opened'))kind='chest';
   const fn=SOUNDS[kind]||SOUNDS.reward;
   try{const c=ensure();if(!c)return false;
    if(c.state==='suspended'){c.resume().then(()=>{try{fn()}catch(_){}}).catch(()=>{});return true}

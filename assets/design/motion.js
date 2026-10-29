@@ -174,6 +174,9 @@
   if(!homeVisible()){visibleSince=0;if(pending&&!waitTimer)waitTimer=setTimeout(()=>{waitTimer=0;scheduleHome()},400);return}
   if(pending&&!visibleSince)visibleSince=Date.now();
   if(pending&&Date.now()-visibleSince<700){if(!waitTimer)waitTimer=setTimeout(()=>{waitTimer=0;scheduleHome()},250);return}
+  // A longer streak (the day's first lesson) gets its own moment first; the rest waits for it.
+  const streak=pendingCounts.get('streakTop');
+  if(streak&&streak.to>streak.from&&streakShownFor!==streak.to){streakShownFor=streak.to;streakMoment(streak.from,streak.to);return}
   if(pendingStop){
    const {from,to}=pendingStop;pendingStop=null;
    if(scale()){
@@ -214,6 +217,58 @@
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installHome,{once:true});else installHome();
 
+ // ---- Streak and chest moments ----
+ const STREAK_SAY={
+  tr:{title:n=>n+' günlük seri!',first:'Serin başladı! Yarın da gel, alev büyüsün.',more:'Her gün bir adım. Yarın da gel!',cta:'Devam et',locale:'tr-TR'},
+  en:{title:n=>n+'-day streak!',first:'Your streak has started! Come back tomorrow to grow the flame.',more:'One step every day. See you tomorrow!',cta:'Continue',locale:'en-GB'},
+  ar:{title:n=>'سلسلة '+n+' '+(n===1?'يوم':n<=10?'أيام':'يومًا')+'!',first:'بدأت سلسلتك! عد غدًا ليكبر اللهب.',more:'خطوة كل يوم. نراك غدًا!',cta:'متابعة',locale:'ar'},
+  de:{title:n=>n+(n===1?' Tag':' Tage')+' in Folge!',first:'Deine Serie hat begonnen! Komm morgen wieder, damit die Flamme wächst.',more:'Jeden Tag ein Schritt. Bis morgen!',cta:'Weiter',locale:'de-DE'},
+  fr:{title:n=>'Série de '+n+(n===1?' jour':' jours')+' !',first:'Ta série commence ! Reviens demain pour faire grandir la flamme.',more:'Un pas chaque jour. À demain !',cta:'Continuer',locale:'fr-FR'}
+ };
+ let streakShownFor=null;
+ const isoDay=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+ const FLAME='<svg class="ds-flame" viewBox="0 0 120 140" aria-hidden="true"><defs><linearGradient id="dsFlameOut" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff5a1f"/><stop offset=".6" stop-color="#ff9a2e"/><stop offset="1" stop-color="#ffc34d"/></linearGradient><linearGradient id="dsFlameIn" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffd166"/><stop offset="1" stop-color="#fff4c2"/></linearGradient></defs>'
+  +'<path fill="url(#dsFlameOut)" d="M60 4c6 22 30 34 36 62 7 33-12 66-36 70-24-4-43-37-36-70 3-14 11-22 16-32 2 10 6 16 12 20-2-20 2-36 8-50z"/>'
+  +'<path fill="url(#dsFlameIn)" d="M61 60c4 14 18 22 20 40 2 20-9 32-21 34-12-2-23-14-21-34 1-9 6-14 9-20 2 6 4 9 8 11-1-12 1-22 5-31z"/></svg>';
+ function streakMoment(from,to){
+  const say=STREAK_SAY[uiLang()],meta=appState().streakMeta||{},week=meta.weeklyActivity||{};
+  const today=new Date(),first=new Date(today);first.setDate(today.getDate()-(today.getDay()+6)%7);
+  let names=null;try{names=new Intl.DateTimeFormat(say.locale,{weekday:'narrow'})}catch(_){}
+  const d=document.createElement('dialog');d.className='ds-streak';d.setAttribute('aria-labelledby','dsStreakTitle');
+  const card=document.createElement('div');card.className='ds-streak-card';
+  card.innerHTML='<div class="ds-flame-wrap">'+FLAME+'</div><div class="ds-count" aria-hidden="true"><span class="old"></span><span class="new"></span></div><h2 id="dsStreakTitle"></h2><p></p><div class="ds-week"></div><button type="button" class="ds-streak-cta"></button>';
+  card.querySelector('.old').textContent=String(from);card.querySelector('.new').textContent=String(to);
+  card.querySelector('h2').textContent=say.title(to);card.querySelector('p').textContent=to===1?say.first:say.more;
+  const row=card.querySelector('.ds-week');
+  for(let i=0;i<7;i++){
+   const day=new Date(first);day.setDate(first.getDate()+i);const ago=Math.round((today-day)/864e5);
+   const on=ago>=0&&(ago<to||!!week[isoDay(day)]);
+   const cell=document.createElement('span');cell.className='ds-day'+(on?' on':'')+(ago===0?' today':'');
+   const label=document.createElement('b');label.textContent=names?names.format(day):'';cell.append(label,document.createElement('i'));row.append(cell);
+  }
+  const cta=card.querySelector('.ds-streak-cta');cta.textContent=say.cta;
+  d.append(card);(document.getElementById('phone')||document.body).append(d);
+  d.addEventListener('close',()=>{d.remove();scheduleHome()},{once:true});
+  cta.addEventListener('click',()=>d.close());
+  try{d.showModal()}catch(_){d.remove();return}
+  cta.focus({preventScroll:true});sfx('streak');
+  if(scale())setTimeout(()=>{if(d.open)sfx('pop')},1400);
+ }
+ // A chest that opens bursts into confetti as its loot appears, with the reward sound.
+ function onChest(records){
+  for(const r of records){
+   if(r.type==='childList'){for(const n of r.addedNodes){const c=n.matches?.('dialog.v670-reward')&&n.querySelector('.v670-card');if(c)chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}continue}
+   const c=r.target;if(!c.classList.contains('opened')||String(r.oldValue||'').split(/\s+/).includes('opened'))continue;
+   const d=c.closest('dialog');setTimeout(()=>{if(!d?.open)return;confetti(d);sfx('reward')},scale()?820:0);
+  }
+ }
+ const chestWatch=new MutationObserver(onChest);
+ function installChest(){
+  const phone=document.getElementById('phone');if(!phone){setTimeout(installChest,300);return}
+  chestWatch.observe(phone,{childList:true});chestWatch.observe(document.body,{childList:true});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installChest,{once:true});else installChest();
+
  // ---- M5: tab changes ----
  // A screen that becomes active slides in from the side of the chosen tab (tab order decides,
  // mirrored right-to-left) and its tab icon hops. Navigation itself is untouched.
@@ -238,5 +293,5 @@
   for(const s of screens)watch.observe(s,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installScreens,{once:true});else installScreens();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m5',celebrate,confetti,reduced});
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m6',celebrate,confetti,reduced,streakMoment});
 })();
