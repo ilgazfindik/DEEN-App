@@ -109,7 +109,7 @@ html body #lesson .gf520-combo-milestone{display:none!important}
 
 /* ---------- Mascot: calm by default, reacts only at combo milestones and section end ---------- */
 html body #lesson :is(.v9944-reaction-chip,.v9944-particles){display:none!important}
-html body #lesson .deen-character-question-avatar img{transform-origin:50% 100%;animation:dsBreathe calc(2.8s*var(--ds-m-s)) ease-in-out infinite!important}
+html body #lesson .deen-character-question-avatar img{transform-origin:50% 100%;animation:dsAliveBreath calc(2.8s*var(--ds-m-s)) ease-in-out infinite,dsAliveLife calc(8.6s*var(--ds-m-s)) ease-in-out calc(1.4s*var(--ds-m-s)) infinite!important}
 html body #lesson .deen-character-question-avatar.ds-hop img{animation:dsHop calc(620ms*var(--ds-m-s)) var(--ds-spring)!important}
 html body #lesson .deen-character-question-avatar[class*="v9944-reaction"]{animation:none!important}
 /* 3 and 5 in a row: the learner's own companion (the engine picks its combo art) rises from the
@@ -165,7 +165,7 @@ html body #lesson #resultView.show>#v624SecondaryResult{--ds-at:1060}
 html body #lesson #resultView.show #v994ResultCompanion{display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;overflow:visible!important;padding:0 14px 14px!important;margin-top:8px!important;
  background:radial-gradient(70% 70% at 50% 30%,rgba(255,210,122,.16),transparent 70%)!important;border:0!important;box-shadow:none!important;animation:none!important}
 html body #lesson #resultView.show #v994ResultCompanion>.animal{display:none!important}
-html body #lesson #resultView.show .ds-end-mascot{display:block;width:150px;height:150px;margin:0 auto -6px;object-fit:contain;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45));animation:dsCelebrate var(--ds-m-hero) var(--ds-spring) both}
+html body #lesson #resultView.show .ds-end-mascot{display:block;width:150px;height:150px;margin:0 auto -6px;object-fit:contain;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45));transform-origin:50% 100%;animation:dsCelebrate var(--ds-m-hero) var(--ds-spring) both,dsAliveBreath calc(2.6s*var(--ds-m-s)) ease-in-out calc(1.2s*var(--ds-m-s)) infinite,dsAliveLife calc(7.2s*var(--ds-m-s)) ease-in-out calc(2.4s*var(--ds-m-s)) infinite}
 html body #lesson #resultView.show #v994ResultCompanion b{font-size:18px!important;color:#ffe3a3!important}
 html body #lesson #resultView.show #v994ResultCompanion :is(b,small){display:block!important;animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(420ms*var(--ds-m-s)) both}
 
@@ -388,3 +388,16 @@ html body #v5Sheet[open].deen-intro-dialog .deen-intro-spark.two{animation-delay
 html body #lesson.active.ds-lesson-zoom{animation:dsLessonZoom calc(360ms*var(--ds-m-s)) var(--ds-out) both}
 :root.v5-reduce body :is(#v5Sheet .deen-intro-halo,#v5Sheet .deen-intro-spark,#v5Sheet .deen-stage-intro>.v5-primary::after){animation-iteration-count:1!important}
 @media (prefers-reduced-motion:reduce){html body :is(#v5Sheet .deen-intro-halo,#v5Sheet .deen-intro-spark,#v5Sheet .deen-stage-intro>.v5-primary::after){animation-iteration-count:1!important}}
+
+/* ---------- Living companion (until hand-drawn animation frames exist) ----------
+   Breathing moves only `scale` and the idle life only `rotate`/`translate`, so they combine with
+   each other and with any entry animation on `transform`. Most of the cycle is calm; now and then
+   the companion looks around, and later hops and wiggles happily. A tap makes it jump. */
+@keyframes dsAliveBreath{0%,100%{scale:1 1}50%{scale:1.025 .982}}
+@keyframes dsAliveLife{0%,40%,100%{rotate:0deg;translate:0 0}44%{rotate:-6deg}50%{rotate:-6deg}54%{rotate:5deg}58%{rotate:5deg}62%{rotate:0deg}
+ 76%{translate:0 0;rotate:0deg}80%{translate:0 -9px;rotate:-3deg}84%{translate:0 0;rotate:0deg}86%{rotate:7deg}88%{rotate:-7deg}90%{rotate:6deg}92%{rotate:-4deg}94%{rotate:0deg}}
+@keyframes dsAliveTap{0%{transform:none}25%{transform:scale(1.12,.86)}55%{transform:translateY(-18px) scale(.94,1.08) rotate(-6deg)}80%{transform:translateY(0) scale(1.06,.94)}100%{transform:none}}
+html body :is(.dsp-avatar-slot img,.dsr-empty-art img){transform-origin:50% 100%;animation:dsAliveBreath calc(3s*var(--ds-m-s)) ease-in-out infinite,dsAliveLife calc(9.4s*var(--ds-m-s)) ease-in-out calc(.8s*var(--ds-m-s)) infinite}
+html body :is(.dsp-avatar-slot img,.dsr-empty-art img,#lesson .deen-character-question-avatar img,#lesson #resultView.show .ds-end-mascot).ds-alive-tap{animation:dsAliveTap calc(560ms*var(--ds-m-s)) var(--ds-spring)!important}
+:root.v5-reduce body :is(.dsp-avatar-slot img,.dsr-empty-art img,#lesson #resultView.show .ds-end-mascot){animation:none!important}
+@media (prefers-reduced-motion:reduce){html body :is(.dsp-avatar-slot img,.dsr-empty-art img,#lesson #resultView.show .ds-end-mascot){animation:none!important}}

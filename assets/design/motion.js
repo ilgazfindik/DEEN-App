@@ -282,6 +282,14 @@
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installStart,{once:true});else installStart();
 
+ // ---- Living companion ----
+ // Tapping the companion (lesson, result, profile, review) makes it jump with a pop.
+ document.addEventListener('pointerdown',e=>{
+  const img=e.target.closest?.('.dsp-avatar-slot img,.dsr-empty-art img,#lesson .deen-character-question-avatar img,#lesson #resultView.show .ds-end-mascot');
+  if(!img||!scale())return;restart(img,'ds-alive-tap');sfx('pop');
+  setTimeout(()=>img.classList.remove('ds-alive-tap'),600);
+ },{capture:true,passive:true});
+
  // ---- Streak and chest moments ----
  const STREAK_SAY={
   tr:{title:n=>n+' günlük seri!',first:'Serin başladı! Yarın da gel, alev büyüsün.',more:'Her gün bir adım. Yarın da gel!',cta:'Devam et',locale:'tr-TR'},
@@ -358,5 +366,5 @@
   for(const s of screens)watch.observe(s,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installScreens,{once:true});else installScreens();
- window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m8',celebrate,confetti,reduced,streakMoment});
+ window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m9',celebrate,confetti,reduced,streakMoment});
 })();
