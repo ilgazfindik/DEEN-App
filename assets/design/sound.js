@@ -3,7 +3,7 @@
    bell / pluck / thud voices with a short room and a compressor, synthesised in the browser (no
    audio files). Kinds the engine plays: click, correct (+2/+3), combo, combo3/5/7, wrong, review,
    complete, perfect, unlock, unit, section, gold, level, reward. Kinds the motion layer adds:
-   select, pop, tick, stamp, pathUnlock, streak, start, chestTap1/2. Opening a chest plays chest in place of unlock. */
+   select, pop, tick, stamp, pathUnlock, streak, start, chestTap1/2, spend, energyOut. Opening a chest plays chest in place of unlock. */
 (()=>{
  'use strict';
  if(window.DEEN_DS_SOUND)return;
@@ -108,6 +108,8 @@
   start:()=>{whoosh(0,.34,.07,400,2600);bell(N.G5,.06,.35,.12);bell(N.C6,.13,.5,.14);sparkle(.24,4,.035)},
   chestTap1:()=>{thud(146.83,0,.18,.26);pluck(N.E5,.02,.1,.1)},
   chestTap2:()=>{thud(174.61,0,.2,.28);pluck(N.A5,.02,.1,.12);sparkle(.08,3,.03)},
+  spend:()=>{pluck(N.E6,0,.07,.08);pluck(N.B5,.06,.09,.07)},
+  energyOut:()=>{bell(N.G5,.05,.4,.1);bell(N.E5,.2,.45,.1);thud(196,.36,.3,.16)},
   streak:()=>{whoosh(0,.5,.08,220,1900);[N.C5,N.G5,N.C6,N.E6].forEach((f,i)=>bell(f,.12+i*.09,.6,.14));sparkle(.48,7,.045)},
   chest:()=>{thud(130.81,0,.26,.3);whoosh(.06,.4,.07,300,2400);[N.C6,N.E6,N.G6,N.C7].forEach((f,i)=>bell(f,.2+i*.06,.45,.1));sparkle(.42,9,.05)},
   level:()=>{[N.C5,N.G5,N.C6,N.E6].forEach((f,i)=>bell(f,i*.1,.6,.15));sparkle(.45,8,.045)},
@@ -122,6 +124,13 @@
  let lastAt=-Infinity,lastKind='';
  function play(kind='click'){
   if(!enabled())return false;
+  // Starting a lesson without enough energy plays wrong before the energy sheet opens; the sheet
+  // has its own sad cue (energyOut), so the wrong is dropped when the sheet follows.
+  if(kind==='wrong'&&!document.getElementById('lesson')?.classList.contains('active')){
+   setTimeout(()=>{if(!document.getElementById('energyModal')?.classList.contains('show'))voice('wrong')},50);return true}
+  return voice(kind);
+ }
+ function voice(kind){
   const now=Date.now();
   if(now-lastAt<65&&(kind==='click'||kind==='tick'||kind===lastKind))return false;
   if(kind==='click'&&now-lastAt<160)return false;
@@ -153,6 +162,9 @@
  document.addEventListener('click',e=>{
   const el=e.target.closest?.('#answerArea .v710-word-chip,#answerArea .v710-decision,#answerArea .v710-clue,#answerArea .v710-listen-option,#answerArea .v710-binary button,#answerArea .fill-choice,#answerArea .option,#answerArea .v858-odd-card,#answerArea .v1017-card:not(.matched)');
   if(el&&!el.disabled)sfx('select');
+  // Onboarding picks: a language, an age, daily minutes; the companion gets a pop.
+  const pick=e.target.closest?.('#deenLanguageGate [data-locale],#v998Onboarding .v998-choice,#v998Onboarding .v998-animal');
+  if(pick&&!pick.disabled)sfx(pick.classList.contains('v998-animal')?'pop':'select');
   const chest=e.target.closest?.('[data-v670-open],.v670-open-btn,.v670-chest-card button,#v670ChestOpen');
   if(chest&&!chest.disabled)sfx('chest');
  },{capture:true});

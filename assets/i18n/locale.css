@@ -7,3 +7,22 @@ html:lang(ar) #v998Onboarding .v998-copy,html:lang(ar) #v998Onboarding .v998-hel
 #v998Onboarding .v998-copy h1{line-height:1.2!important;overflow-wrap:anywhere}#v998Onboarding .v998-choice b,#v998Onboarding .v998-choice small,#v998Onboarding .v998-summary-row b{overflow-wrap:anywhere}#v998Onboarding .v998-summary-row{grid-template-columns:30px minmax(0,1fr) minmax(0,1fr)}#v998Onboarding .v998-summary-row b{text-align:end}
 #v998Onboarding .deen-guest-note{font-size:12px;line-height:1.6;text-align:center;color:#a5c6bf;margin-top:22px}.deen-prep-actions{display:grid;gap:10px}.deen-prep-actions button{white-space:normal;overflow-wrap:anywhere}.deen-prep-code{font:11px/1.4 ui-monospace,monospace;color:#94a7ab}
 @media(max-height:680px){#deenLanguageGate{padding-top:16px;padding-bottom:16px}.deen-language-symbol{margin:15px auto 12px;width:44px;height:44px}.deen-language-shell p{margin:10px 0 16px}.deen-language-cards button{min-height:67px}.deen-language-continue{margin-top:17px}}
+/* Language screen motion: it arrives piece by piece and a picked language springs. Self-contained
+   (the design tokens load later); reduced motion turns it off. */
+@keyframes dsLgRise{from{transform:translateY(14px);opacity:0}}
+@keyframes dsLgDrop{0%{transform:translateY(-26px) scale(.6) rotate(-8deg);opacity:0}60%{transform:translateY(4px) scale(1.08) rotate(2deg);opacity:1}100%{transform:none;opacity:1}}
+@keyframes dsLgPop{0%{transform:scale(.86);opacity:0}65%{transform:scale(1.04);opacity:1}100%{transform:none;opacity:1}}
+@keyframes dsLgPick{0%{transform:scale(1)}30%{transform:scale(.94)}65%{transform:scale(1.05)}100%{transform:scale(1)}}
+#deenLanguageGate .deen-language-shell>*{animation:dsLgRise .38s cubic-bezier(.2,.8,.2,1) both}
+#deenLanguageGate .deen-language-shell>.deen-language-symbol{animation:dsLgDrop .56s cubic-bezier(.34,1.56,.64,1) .06s both}
+#deenLanguageGate .deen-language-shell>:nth-child(3){animation-delay:.12s}
+#deenLanguageGate .deen-language-shell>:nth-child(4){animation-delay:.17s}
+#deenLanguageGate .deen-language-shell>.deen-language-cards{animation:none}
+#deenLanguageGate .deen-language-cards>button{animation:dsLgPop .38s cubic-bezier(.34,1.56,.64,1) .22s both}
+#deenLanguageGate .deen-language-cards>button:nth-child(2){animation-delay:.26s}
+#deenLanguageGate .deen-language-cards>button:nth-child(3){animation-delay:.3s}
+#deenLanguageGate .deen-language-cards>button:nth-child(4){animation-delay:.34s}
+#deenLanguageGate .deen-language-cards>button:nth-child(5){animation-delay:.38s}
+#deenLanguageGate .deen-language-shell>.deen-language-continue{animation-delay:.42s}
+#deenLanguageGate .deen-language-cards>button[aria-pressed="true"]{animation:dsLgPick .36s cubic-bezier(.34,1.56,.64,1)}
+@media (prefers-reduced-motion:reduce){#deenLanguageGate *{animation:none!important}}

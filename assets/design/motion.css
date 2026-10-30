@@ -366,7 +366,7 @@ html body #answerArea .fill-input-wrap:has(.fill-input:is(.wrong-input,.gf-wrong
 @keyframes dsArtDrop{0%{transform:translateY(-34px) scale(.55) rotate(-8deg);opacity:0}55%{transform:translateY(5px) scale(1.08) rotate(2deg);opacity:1}80%{transform:translateY(-2px) scale(.98)}100%{transform:none;opacity:1}}
 @keyframes dsHaloBreath{0%,100%{opacity:.75}50%{opacity:1}}
 @keyframes dsTwinkle{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
-@keyframes dsLaunchWave{0%{clip-path:circle(0 at var(--ds-x) var(--ds-y));opacity:.95}70%{opacity:.85}100%{clip-path:circle(150% at var(--ds-x) var(--ds-y));opacity:0}}
+@keyframes dsLaunchWave{0%{clip-path:circle(0 at var(--ds-x) var(--ds-y));opacity:.9}35%{opacity:.6}100%{clip-path:circle(150% at var(--ds-x) var(--ds-y));opacity:0}}
 @keyframes dsStartRing{0%{box-shadow:0 0 0 0 rgba(192,75,255,.6)}100%{box-shadow:0 0 0 14px rgba(192,75,255,0)}}
 @keyframes dsLessonZoom{0%{transform:scale(.92);opacity:0}100%{transform:none;opacity:1}}
 html body #v5Paths .lp-stop :is(.lp-node,.deen-stage-card).ds-press{animation:dsNodePress calc(380ms*var(--ds-m-s)) var(--ds-spring)!important}
@@ -384,7 +384,7 @@ html body #v5Sheet[open].deen-intro-dialog .deen-stage-intro>.v5-primary::after{
 html body #v5Sheet[open].deen-intro-dialog .deen-intro-halo{animation:dsHaloBreath calc(2.2s*var(--ds-m-s)) ease-in-out infinite}
 html body #v5Sheet[open].deen-intro-dialog .deen-intro-spark{animation:dsTwinkle calc(1.6s*var(--ds-m-s)) ease-in-out infinite}
 html body #v5Sheet[open].deen-intro-dialog .deen-intro-spark.two{animation-delay:calc(.8s*var(--ds-m-s))}
-.ds-launch{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:radial-gradient(circle at var(--ds-x) var(--ds-y),var(--ds-launch,#c04bff) 0,rgba(49,239,207,.55) 45%,rgba(3,13,19,0) 75%);animation:dsLaunchWave calc(560ms*var(--ds-m-s)) var(--ds-out) both}
+.ds-launch{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:radial-gradient(circle at var(--ds-x) var(--ds-y),var(--ds-launch,#c04bff) 0,rgba(49,239,207,.32) 40%,rgba(3,13,19,0) 70%);animation:dsLaunchWave calc(560ms*var(--ds-m-s)) var(--ds-out) both}
 html body #lesson.active.ds-lesson-zoom{animation:dsLessonZoom calc(360ms*var(--ds-m-s)) var(--ds-out) both}
 :root.v5-reduce body :is(#v5Sheet .deen-intro-halo,#v5Sheet .deen-intro-spark,#v5Sheet .deen-stage-intro>.v5-primary::after){animation-iteration-count:1!important}
 @media (prefers-reduced-motion:reduce){html body :is(#v5Sheet .deen-intro-halo,#v5Sheet .deen-intro-spark,#v5Sheet .deen-stage-intro>.v5-primary::after){animation-iteration-count:1!important}}
@@ -440,3 +440,72 @@ html body dialog.v670-reward .ds-chest-pips i{width:11px;height:11px;border-radi
 html body dialog.v670-reward .ds-chest-pips i.on{background:linear-gradient(180deg,#ffe39a,#e0a83a);border-color:#ffe9b5;box-shadow:0 0 10px rgba(255,200,90,.6);animation:dsPip calc(340ms*var(--ds-m-s)) var(--ds-spring)}
 html body dialog.v670-reward .v670-card:is(.opened,:not(:has(.v670-open:not(:disabled)))) .ds-chest-pips{display:none}
 html body dialog.v670-reward .v670-card.opened .v670-chest-stage{height:246px!important;padding-top:22px;box-sizing:border-box}
+
+/* ---------- Unit / section ceremony chest ----------
+   The ceremony used to hide its whole reward block (and with it the open button) until the
+   chest was open, so it could only be passed with Back. The button now shows while the chest is
+   closed (the loot stays hidden), and the drawn chest opens on the third tap like the others. */
+html body dialog.v623-ceremony .v623-card.v623-closed .v623-reward-body{display:block!important;opacity:1!important;transform:none!important;pointer-events:auto!important}
+html body dialog.v623-ceremony .v623-card.v623-closed .v623-loot{display:none}
+html body dialog.v623-ceremony .v623-chest-wrap{height:196px}
+html body dialog.v623-ceremony .v623-chest.ds-art{width:200px;height:168px;filter:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+html body dialog.v623-ceremony .v623-chest.ds-art>:is(.v623-chest-lid,.v623-chest-base,.v623-lock){display:none!important}
+html body dialog.v623-ceremony .ds-chest-img{position:absolute;left:0;bottom:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;pointer-events:none;user-select:none;-webkit-user-drag:none;
+ filter:drop-shadow(0 16px 20px rgba(0,0,0,.42)) drop-shadow(0 0 calc(var(--ds-charge,0)*14px) rgba(255,205,90,calc(var(--ds-charge,0)*.35)));transition:filter calc(300ms*var(--ds-m-s)) var(--ds-out)}
+html body dialog.v623-ceremony .v623-card.gold .ds-chest-img{filter:drop-shadow(0 16px 20px rgba(0,0,0,.42)) drop-shadow(0 0 calc(10px + var(--ds-charge,0)*14px) rgba(255,214,110,.55))}
+html body dialog.v623-ceremony .ds-chest-img.open{width:112%;height:112%;left:-13%;opacity:0}
+html body dialog.v623-ceremony .v623-card.v623-closed .v623-chest.ds-art{animation:dsChestWiggle calc(1.7s*var(--ds-m-s)) ease-in-out infinite}
+html body dialog.v623-ceremony .v623-chest.ds-art.ds-tap1{animation:dsTap1 calc(420ms*var(--ds-m-s)) ease-in-out!important}
+html body dialog.v623-ceremony .v623-chest.ds-art.ds-tap2{animation:dsTap2 calc(520ms*var(--ds-m-s)) var(--ds-spring)!important}
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-chest.ds-art{animation:dsTap3 calc(420ms*var(--ds-m-s)) ease-in-out both!important;transform:none!important}
+html body dialog.v623-ceremony .v623-card.v623-opened .ds-chest-img.closed{animation:dsClosedAway calc(300ms*var(--ds-m-s)) var(--ds-in) calc(240ms*var(--ds-m-s)) both}
+html body dialog.v623-ceremony .v623-card.v623-opened .ds-chest-img.open{animation:dsOpenUp calc(620ms*var(--ds-m-s)) var(--ds-spring) calc(420ms*var(--ds-m-s)) both}
+html body dialog.v623-ceremony .ds-chest-burst{position:absolute;left:50%;top:52%;width:270px;height:270px;border-radius:50%;pointer-events:none;opacity:0;background:radial-gradient(circle,rgba(255,236,170,.95),rgba(255,196,80,.45) 35%,transparent 68%)}
+html body dialog.v623-ceremony .v623-card.v623-opened .ds-chest-burst{animation:dsBurst calc(760ms*var(--ds-m-s)) var(--ds-out) calc(420ms*var(--ds-m-s)) both}
+html body dialog.v623-ceremony .ds-chest-spark{position:absolute;left:50%;top:50%;width:10px;height:10px;pointer-events:none;opacity:0;background:#ffe39a;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+html body dialog.v623-ceremony .ds-chest-spark.mint{background:#7ff0d6}
+html body dialog.v623-ceremony .v623-card.v623-opened .ds-chest-spark{animation:dsSparkFly calc(900ms*var(--ds-m-s)) var(--ds-out) calc(var(--d,460ms)*var(--ds-m-s)) both}
+html body dialog.v623-ceremony .ds-chest-pips{position:absolute;left:50%;bottom:-14px;display:flex;gap:8px;transform:translateX(-50%);pointer-events:none}
+html body dialog.v623-ceremony .ds-chest-pips i{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,214,120,.55)}
+html body dialog.v623-ceremony .ds-chest-pips i.on{background:linear-gradient(180deg,#ffe39a,#e0a83a);border-color:#ffe9b5;box-shadow:0 0 10px rgba(255,200,90,.6);animation:dsPip calc(340ms*var(--ds-m-s)) var(--ds-spring)}
+html body dialog.v623-ceremony .v623-card.v623-opened .ds-chest-pips{display:none}
+html body dialog.v623-ceremony .ds-confetti{position:fixed;inset:0;z-index:5;width:100%;height:100%;pointer-events:none}
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot{animation:dsCardPop calc(440ms*var(--ds-m-s)) var(--ds-spring) calc(700ms*var(--ds-m-s)) both}
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item{animation:dsCardPop calc(420ms*var(--ds-m-s)) var(--ds-spring) calc(860ms*var(--ds-m-s)) both}
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item:nth-child(2){animation-delay:calc(960ms*var(--ds-m-s))}
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item:nth-child(3){animation-delay:calc(1060ms*var(--ds-m-s))}
+html body dialog.v623-ceremony[open] .v623-card{animation:dsCardPop calc(480ms*var(--ds-m-s)) var(--ds-spring)}
+:root.v5-reduce body dialog.v623-ceremony .v623-chest.ds-art{animation-iteration-count:1!important}
+@media (prefers-reduced-motion:reduce){html body dialog.v623-ceremony .v623-chest.ds-art{animation-iteration-count:1!important}}
+
+/* ---------- Energy ----------
+   Out of energy: the big heart beats twice and fades, the five small hearts drain one by one
+   (right to left), then the numbers and the ways out arrive. Starting a lesson floats the spent
+   energy up from the lesson's energy pill. */
+@keyframes dsHeartOut{0%{transform:scale(.6);filter:none;opacity:0}18%{transform:scale(1.12);opacity:1}30%{transform:scale(.96)}42%{transform:scale(1.16)}56%{transform:scale(1)}76%{transform:translateY(3px) rotate(-6deg) scale(.94)}100%{transform:translateY(2px) rotate(-4deg) scale(.95);filter:saturate(.35) brightness(.8)}}
+@keyframes dsHeartDrain{0%{color:#ff7a8a;opacity:1;transform:scale(1.18);text-shadow:0 0 10px rgba(255,110,130,.7)}60%{transform:scale(.8)}100%{}}
+@keyframes dsSpendFloat{0%{transform:translate(-50%,-6px) scale(.7);opacity:0}20%{transform:translate(-50%,0) scale(1.1);opacity:1}70%{opacity:1}100%{transform:translate(-50%,26px) scale(1);opacity:0}}
+html body #energyModal.show .v624-energy-icon{animation:dsHeartOut calc(1100ms*var(--ds-m-s)) var(--ds-out) calc(120ms*var(--ds-m-s)) both}
+html body #energyModal.show .v624-heart-row span{animation:dsHeartDrain calc(380ms*var(--ds-m-s)) var(--ds-out) both}
+html body #energyModal.show .v624-heart-row span:nth-child(5){animation-delay:calc(700ms*var(--ds-m-s))}
+html body #energyModal.show .v624-heart-row span:nth-child(4){animation-delay:calc(800ms*var(--ds-m-s))}
+html body #energyModal.show .v624-heart-row span:nth-child(3){animation-delay:calc(900ms*var(--ds-m-s))}
+html body #energyModal.show .v624-heart-row span:nth-child(2){animation-delay:calc(1000ms*var(--ds-m-s))}
+html body #energyModal.show .v624-heart-row span:nth-child(1){animation-delay:calc(1100ms*var(--ds-m-s))}
+html body #energyModal.show .v624-energy-stats>div{animation:dsCardPop calc(420ms*var(--ds-m-s)) var(--ds-spring) calc(1150ms*var(--ds-m-s)) both}
+html body #energyModal.show .v624-energy-stats>div:nth-child(2){animation-delay:calc(1230ms*var(--ds-m-s))}
+html body #energyModal.show .v624-energy-stats>div:nth-child(3){animation-delay:calc(1310ms*var(--ds-m-s))}
+html body #energyModal.show .v624-energy-tip{animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(1350ms*var(--ds-m-s)) both}
+html body #energyModal.show .v624-energy-actions>.btn{animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(1420ms*var(--ds-m-s)) both}
+html body #energyModal.show .v624-energy-actions>.btn:nth-child(2){animation-delay:calc(1490ms*var(--ds-m-s))}
+html body #energyModal.show .v624-energy-actions>.btn:nth-child(3){animation-delay:calc(1560ms*var(--ds-m-s))}
+.ds-energy-spend{position:fixed;z-index:2147482000;pointer-events:none;padding:3px 8px;border-radius:999px;font:900 13px/1 var(--ds-font,"Nunito Sans",system-ui,sans-serif);color:#ffd0d6;background:rgba(120,24,40,.82);border:1.5px solid rgba(255,140,155,.6);box-shadow:0 6px 14px rgba(0,0,0,.3);animation:dsSpendFloat calc(1100ms*var(--ds-m-s)) var(--ds-out) both}
+html body #lesson #v9916MiniEnergy.ds-energy-dip{animation:dsCountDip calc(420ms*var(--ds-m-s)) var(--ds-spring)}
+
+/* ---------- Onboarding ----------
+   Any choice (age, minutes, companion) springs when picked, and the picked companion jumps. The
+   step transitions are the engine's; the language screen's motion lives in locale.css, which
+   loads before this file. */
+@keyframes dsChoicePop{0%{transform:scale(1)}30%{transform:scale(.94)}65%{transform:scale(1.05)}100%{transform:scale(1)}}
+html body #v998Onboarding :is(.v998-choice,.v998-animal).selected{animation:dsChoicePop calc(360ms*var(--ds-m-s)) var(--ds-spring)!important}
+html body #v998Onboarding .v998-animal.selected img{animation:dsAliveTap calc(560ms*var(--ds-m-s)) var(--ds-spring) calc(80ms*var(--ds-m-s))}

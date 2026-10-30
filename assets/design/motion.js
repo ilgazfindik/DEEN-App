@@ -259,7 +259,25 @@
  // ---- Lesson start ----
  // A tapped path stop presses in; the stage intro's start button sends a wave of light from where
  // it was tapped, and the lesson zooms in with the start sound. The engine's own flow is untouched.
- let launchAt=0;
+ let launchAt=0,energyMark=NaN;
+ // The spent energy floats up from the lesson's energy pill, which dips.
+ function energySpent(spent){
+  const pill=document.getElementById('v9916MiniEnergy');if(!pill||!pill.getClientRects().length)return;
+  sfx('spend');if(!scale())return;
+  restart(pill,'ds-energy-dip');setTimeout(()=>pill.classList.remove('ds-energy-dip'),450);
+  const r=pill.getBoundingClientRect(),chip=document.createElement('span');chip.className='ds-energy-spend';chip.setAttribute('aria-hidden','true');
+    // Just left of and below the pill: the account button can sit over the pill's right side.
+  chip.textContent='−'+spent;chip.style.left=Math.round(r.left-14)+'px';chip.style.top=Math.round(r.bottom+6)+'px';
+  document.body.append(chip);setTimeout(()=>chip.remove(),1200);
+ }
+ // Running out of energy gets a soft, sad cue as the hearts drain.
+ function installEnergy(){
+  const modal=document.getElementById('energyModal');if(!modal){setTimeout(installEnergy,300);return}
+  new MutationObserver(records=>{
+   for(const r of records)if(modal.classList.contains('show')&&!String(r.oldValue||'').split(/\s+/).includes('show'))setTimeout(()=>{if(modal.classList.contains('show')&&modal.querySelector('.v624-heart-row'))sfx('energyOut')},80);
+  }).observe(modal,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installEnergy,{once:true});else installEnergy();
  function installStart(){
   const paths=document.getElementById('v5Paths'),lesson=document.getElementById('lesson');
   if(!paths||!lesson){setTimeout(installStart,300);return}
@@ -272,9 +290,13 @@
    w.style.setProperty('--ds-x',Math.round(r.left+r.width/2)+'px');w.style.setProperty('--ds-y',Math.round(r.top+r.height/2)+'px');
    document.body.append(w);setTimeout(()=>w.remove(),700);
   },{capture:true});
+  // Energy as it was at the last tap, so a lesson that opens can show what it cost.
+  document.addEventListener('pointerdown',()=>{energyMark=Number(appState().energy)},{capture:true,passive:true});
   new MutationObserver(records=>{
    for(const r of records){
     if(!lesson.classList.contains('active')||String(r.oldValue||'').split(/\s+/).includes('active'))continue;
+    const spent=energyMark-Number(appState().energy);energyMark=NaN;
+    if(spent>0)setTimeout(()=>energySpent(spent),520);
     if(Date.now()-launchAt<2000)sfx('start');
     if(scale()){restart(lesson,'ds-lesson-zoom');setTimeout(()=>lesson.classList.remove('ds-lesson-zoom'),420)}
    }
@@ -330,16 +352,22 @@
  // The drawn chest replaces the CSS one (the weekly chest is seen from the other side). A ready
  // chest opens on the third tap, on the chest or its button; the first two shake it harder and
  // let more light out, and the third lets the engine's own open button run.
+ // The unit / section ceremony carries the same chest and the same three-tap opening.
  const CHEST_ART='assets/design/chest/';
+ const CHEST_KINDS=[
+  {card:'dialog.v670-reward .v670-card',chest:'.v670-chest',stage:'.v670-chest-stage',btn:'.v670-open',opened:'opened',art:card=>card.classList.contains('medium')?'chest-closed-b.webp':'chest-closed.webp',sound:'reward'},
+  {card:'dialog.v623-ceremony .v623-card',chest:'.v623-chest',stage:'.v623-chest-wrap',btn:'#v623Open',opened:'v623-opened',art:()=>'chest-closed.webp',sound:null}
+ ];
+ const chestKind=card=>CHEST_KINDS.find(k=>card.matches(k.card));
  function dressChest(card){
-  const chest=card.querySelector('.v670-chest');if(!chest||chest.classList.contains('ds-art'))return;
+  const kind=chestKind(card),chest=kind&&card.querySelector(kind.chest);if(!chest||chest.classList.contains('ds-art'))return;
   chest.classList.add('ds-art');
-  const closed=new Image();closed.className='ds-chest-img closed';closed.alt='';closed.decoding='async';closed.src=CHEST_ART+(card.classList.contains('medium')?'chest-closed-b.webp':'chest-closed.webp');
+  const closed=new Image();closed.className='ds-chest-img closed';closed.alt='';closed.decoding='async';closed.src=CHEST_ART+kind.art(card);
   const open=new Image();open.className='ds-chest-img open';open.alt='';open.decoding='async';open.src=CHEST_ART+'chest-open.webp';
   const burst=document.createElement('span');burst.className='ds-chest-burst';
   const pips=document.createElement('span');pips.className='ds-chest-pips';pips.setAttribute('aria-hidden','true');pips.append(document.createElement('i'),document.createElement('i'),document.createElement('i'));
   chest.prepend(closed,open);chest.append(pips);
-  const stage=card.querySelector('.v670-chest-stage')||chest;stage.append(burst);
+  const stage=card.querySelector(kind.stage)||chest;stage.append(burst);
   for(let k=0;k<10;k++){const sp=document.createElement('span');sp.className='ds-chest-spark'+(k%3===2?' mint':'');const a=-Math.PI/2+(k-4.5)*.33,d=90+(k%4)*22;
    sp.style.setProperty('--dx',Math.round(Math.cos(a)*d)+'px');sp.style.setProperty('--dy',Math.round(Math.sin(a)*d)+'px');sp.style.setProperty('--d',(440+k*28)+'ms');stage.append(sp)}
   [closed,open].forEach(i=>i.setAttribute('aria-hidden','true'));
@@ -380,7 +408,10 @@
   'Haftalık ritim tamamlandı':['Weekly rhythm complete','اكتمل الإيقاع الأسبوعي','Wochenrhythmus geschafft','Rythme hebdo terminé'],
   'Yeni haftada sayaç yeniden başlar; dini içerik erişimi bu ödül sistemine bağlı değildir.':['The counter restarts next week; access to religious content does not depend on this reward system.','يبدأ العداد من جديد في الأسبوع القادم، ولا يرتبط الوصول إلى المحتوى الديني بنظام المكافآت هذا.','Der Zähler beginnt in der neuen Woche von vorn; der Zugang zu religiösen Inhalten hängt nicht von diesem Belohnungssystem ab.','Le compteur repart la semaine prochaine ; l’accès au contenu religieux ne dépend pas de ce système de récompenses.'],
   'Ödül öğrenme ve hatırlama davranışına aittir; ibadetin kendisi puanlanmaz. Premium dini içeriği kilitlemez.':['Rewards are for learning and remembering; worship itself is never scored. Premium never locks religious content.','المكافأة على التعلّم والتذكّر، أما العبادة نفسها فلا تُقيَّم بالنقاط. ولا يقفل الاشتراك المميز المحتوى الديني.','Belohnt wird Lernen und Erinnern; die Anbetung selbst wird nie bewertet. Premium sperrt keine religiösen Inhalte.','La récompense porte sur l’apprentissage et la mémorisation ; l’adoration elle-même n’est jamais notée. Premium ne verrouille aucun contenu religieux.'],
-  'Kapat':['Close','إغلاق','Schließen','Fermer']
+  'Kapat':['Close','إغلاق','Schließen','Fermer'],
+  // Lines of the unit / section ceremony that the language layers leave in Turkish.
+  'Kısım 2 · İman':['Section 2 · Faith','القسم 2 · الإيمان','Abschnitt 2 · Glaube','Partie 2 · Foi'],
+  'Öğren · Anla · Hatırla · Uygula':['Learn · Understand · Remember · Apply','تعلّم · افهم · تذكّر · طبّق','Lernen · Verstehen · Erinnern · Anwenden','Apprendre · Comprendre · Retenir · Appliquer']
  };
  const CHEST_PATTERNS=[
   [/^(\d+)\/3 mühür$/,n=>[n+'/3 seals',n+'/3 أختام',n+'/3 Siegel',n+'/3 sceaux']],
@@ -409,13 +440,14 @@
  const chestTaps=new WeakMap();let chestPass=false;
  document.addEventListener('click',e=>{
   if(chestPass)return;
-  const card=e.target.closest?.('dialog.v670-reward .v670-card');if(!card||card.classList.contains('opened'))return;
-  const btn=card.querySelector('.v670-open'),onChestArt=e.target.closest('.v670-chest-stage'),onBtn=e.target.closest('.v670-open');
+  const card=e.target.closest?.(CHEST_KINDS.map(k=>k.card).join(','));const kind=card&&chestKind(card);
+  if(!kind||card.classList.contains(kind.opened))return;
+  const btn=card.querySelector(kind.btn),onChestArt=e.target.closest(kind.stage),onBtn=e.target.closest(kind.btn);
   if(!btn||btn.disabled||(!onChestArt&&!onBtn))return;
   const n=(chestTaps.get(card)||0)+1;
   if(n>=3){chestTaps.set(card,0);if(onChestArt){chestPass=true;try{btn.click()}finally{chestPass=false}}return}
   chestTaps.set(card,n);if(onBtn){e.preventDefault();e.stopImmediatePropagation()}
-  const chest=card.querySelector('.v670-chest');chest?.style.setProperty('--ds-charge',String(n));
+  const chest=card.querySelector(kind.chest);chest?.style.setProperty('--ds-charge',String(n));
   card.querySelectorAll('.ds-chest-pips i').forEach((p,i)=>p.classList.toggle('on',i<n));
   if(chest&&scale()){chest.classList.remove('ds-tap1','ds-tap2');void chest.offsetWidth;chest.classList.add('ds-tap'+n)}
   sfx('chestTap'+n);
@@ -423,10 +455,11 @@
  // A chest that opens bursts into confetti as its loot appears, with the reward sound.
  function onChest(records){
   for(const r of records){
-   if(r.type==='childList'){for(const n of r.addedNodes){const c=n.matches?.('dialog.v670-reward')&&n.querySelector('.v670-card');if(c){dressChest(c);localizeChest(n);new MutationObserver(()=>localizeChest(n)).observe(n,{subtree:true,childList:true,characterData:true});chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}}continue}
-   const c=r.target;if(!c.classList.contains('opened')||String(r.oldValue||'').split(/\s+/).includes('opened'))continue;
+   if(r.type==='childList'){for(const n of r.addedNodes){const c=n.matches?.('dialog.v670-reward,dialog.v623-ceremony')&&n.querySelector('.v670-card,.v623-card');if(c){dressChest(c);localizeChest(n);new MutationObserver(()=>localizeChest(n)).observe(n,{subtree:true,childList:true,characterData:true});chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}}continue}
+   const c=r.target,kind=chestKind(c);if(!kind||!c.classList.contains(kind.opened)||String(r.oldValue||'').split(/\s+/).includes(kind.opened))continue;
    c.querySelectorAll('.ds-chest-pips i').forEach(p=>p.classList.add('on'));
-   const d=c.closest('dialog');setTimeout(()=>{if(!d?.open)return;confetti(d);sfx('reward')},scale()?900:0);
+   // The ceremony plays its own unit / section fanfare; the small chests get the reward sound.
+   const d=c.closest('dialog');setTimeout(()=>{if(!d?.open)return;confetti(d);if(kind.sound)sfx(kind.sound)},scale()?900:0);
   }
  }
  const chestWatch=new MutationObserver(onChest);
