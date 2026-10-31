@@ -16,7 +16,9 @@
  const appState=()=>{try{return state||{}}catch(_){return{}}};
  const lessonSession=()=>{try{return session||null}catch(_){return null}};
  const companion=()=>String(appState().profile?.companion||'owl').replace(/[^a-z]/g,'')||'owl';
- const restart=(el,cls)=>{el.classList.remove(cls);void el.offsetWidth;el.classList.add(cls)};
+ // Forcing a layout to replay an animation is costly on slow phones; it is only needed when the
+ // class is already on.
+ const restart=(el,cls)=>{if(!el.classList.contains(cls)){el.classList.add(cls);return}el.classList.remove(cls);void el.offsetWidth;el.classList.add(cls)};
  // Sounds go through the engine's DEENSound, so the sound setting and its rules apply (sound.js).
  const sfx=kind=>{try{window.DEENSound?.play?.(kind)}catch(_){}};
 
@@ -25,13 +27,19 @@
   if(!scale())return;
   const cv=document.createElement('canvas');cv.className='ds-confetti';cv.setAttribute('aria-hidden','true');host.append(cv);
   const r=cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);cv.width=r.width*d;cv.height=r.height*d;
-  const g=cv.getContext('2d');g.scale(d,d);
+  const g=cv.getContext('2d');
+  // Kept light for slow phones: 84 pieces, one transform per piece (no save/restore), and steps
+  // scaled by elapsed time so a slower frame rate does not stretch the burst.
   const colors=['#3fd7ad','#ffd27a','#f39b8f','#7cc8f2','#ffffff','#e9cf93'],parts=[];
-  for(const x of [r.width*.28,r.width*.72])for(let k=0;k<70;k++){const a=-Math.PI/2+(Math.random()-.5)*1.6,v=6+Math.random()*7;
+  for(const x of [r.width*.28,r.width*.72])for(let k=0;k<42;k++){const a=-Math.PI/2+(Math.random()-.5)*1.6,v=6+Math.random()*7;
    parts.push({x,y:r.height*.32,vx:Math.cos(a)*v,vy:Math.sin(a)*v,r:4+Math.random()*4,c:colors[k%colors.length],rot:Math.random()*6,vr:(Math.random()-.5)*.3,life:90+Math.random()*50})}
-  const tick=()=>{g.clearRect(0,0,r.width,r.height);let alive=0;
-   for(const p of parts){if((p.life-=1)<=0)continue;alive++;p.vy+=.22;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;
-    g.save();g.globalAlpha=Math.min(1,p.life/20);g.translate(p.x,p.y);g.rotate(p.rot);g.fillStyle=p.c;g.fillRect(-p.r,-p.r*.5,p.r*2,p.r);g.restore()}
+  let last=0;
+  const tick=t=>{const k=last?Math.min(3,(t-last)/16.7):1;last=t;
+   g.setTransform(1,0,0,1,0,0);g.clearRect(0,0,cv.width,cv.height);let alive=0;
+   if(document.hidden){cv.remove();return}
+   for(const p of parts){if((p.life-=k)<=0)continue;alive++;p.vy+=.22*k;p.x+=p.vx*k;p.y+=p.vy*k;p.rot+=p.vr*k;
+    const c=Math.cos(p.rot)*d,s=Math.sin(p.rot)*d;g.setTransform(c,s,-s,c,p.x*d,p.y*d);
+    g.globalAlpha=Math.min(1,p.life/20);g.fillStyle=p.c;g.fillRect(-p.r,-p.r*.5,p.r*2,p.r)}
    if(alive)requestAnimationFrame(tick);else cv.remove()};
   requestAnimationFrame(tick);
  }

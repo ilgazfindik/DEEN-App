@@ -623,3 +623,19 @@ html body #reviewScreen.ds-screen-in .dsr-mode:nth-child(3){animation-delay:calc
 html body #reviewScreen.ds-screen-in .dsr-mode:nth-child(4){animation-delay:calc(300ms*var(--ds-m-s))}
 :root.v5-reduce body .deen-qchapter,:root.v5-reduce body .deen-qchapter-play.playing::before{animation:none!important}
 @media (prefers-reduced-motion:reduce){html body .deen-qchapter,html body .deen-qchapter-play.playing::before{animation:none!important}}
+
+/* ---------- Low-end phones: keep idle motion on the compositor ----------
+   Looping box-shadow animations repaint every frame on the main thread (the path's current-stop
+   glow alone kept a throttled phone ~80% busy at rest). Each loop now keeps a still shadow and
+   fades or scales a separate ring, which the GPU animates without repainting. */
+@keyframes dsHaloFade{0%,100%{opacity:.2}50%{opacity:1}}
+@keyframes dsStartRing{0%{transform:scale(1);opacity:.75}100%{transform:scale(1.05,1.35);opacity:0}}
+html body .restored-path.deen-old-path .lp-stop:not(.ds-stop-unlock) .lp-node.current{animation:none!important}
+html body .restored-path.deen-old-path .lp-node.current::after{content:"";position:absolute;inset:-3px;border-radius:50%;pointer-events:none;
+ box-shadow:0 0 0 11px rgba(49,239,207,.11),0 0 28px rgba(49,239,207,.46),0 0 52px rgba(49,239,207,.2);opacity:.2;will-change:opacity;animation:dsHaloFade 2.65s ease-in-out infinite}
+html body #v5Sheet[open].deen-intro-dialog .deen-stage-intro>.v5-primary::after{box-shadow:0 0 0 3px rgba(192,75,255,.6);opacity:0;will-change:transform,opacity}
+html body dialog.v670-reward .v670-card:not(.opened) .v670-open:not(:disabled){animation-iteration-count:3}
+html body .deen-qchapter:has(.deen-qchapter-play.playing){animation:none;box-shadow:0 0 0 1px rgba(204,170,83,.45)}
+html body .deen-qchapter:has(.deen-qchapter-play.playing)::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 22px rgba(255,205,90,.28);opacity:.2;will-change:opacity;animation:dsHaloFade calc(2.2s*var(--ds-m-s)) ease-in-out infinite}
+:root.v5-reduce body .restored-path.deen-old-path .lp-node.current::after,:root.v5-reduce body .deen-qchapter::before{animation:none!important;opacity:.6}
+@media (prefers-reduced-motion:reduce){html body .restored-path.deen-old-path .lp-node.current::after,html body .deen-qchapter::before{animation:none!important;opacity:.6}}
