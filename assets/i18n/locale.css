@@ -7,22 +7,46 @@ html:lang(ar) #v998Onboarding .v998-copy,html:lang(ar) #v998Onboarding .v998-hel
 #v998Onboarding .v998-copy h1{line-height:1.2!important;overflow-wrap:anywhere}#v998Onboarding .v998-choice b,#v998Onboarding .v998-choice small,#v998Onboarding .v998-summary-row b{overflow-wrap:anywhere}#v998Onboarding .v998-summary-row{grid-template-columns:30px minmax(0,1fr) minmax(0,1fr)}#v998Onboarding .v998-summary-row b{text-align:end}
 #v998Onboarding .deen-guest-note{font-size:12px;line-height:1.6;text-align:center;color:#a5c6bf;margin-top:22px}.deen-prep-actions{display:grid;gap:10px}.deen-prep-actions button{white-space:normal;overflow-wrap:anywhere}.deen-prep-code{font:11px/1.4 ui-monospace,monospace;color:#94a7ab}
 @media(max-height:680px){#deenLanguageGate{padding-top:16px;padding-bottom:16px}.deen-language-symbol{margin:15px auto 12px;width:44px;height:44px}.deen-language-shell p{margin:10px 0 16px}.deen-language-cards button{min-height:67px}.deen-language-continue{margin-top:17px}}
-/* Language screen motion: it arrives piece by piece and a picked language springs. Self-contained
-   (the design tokens load later); reduced motion turns it off. */
-@keyframes dsLgRise{from{transform:translateY(14px);opacity:0}}
-@keyframes dsLgDrop{0%{transform:translateY(-26px) scale(.6) rotate(-8deg);opacity:0}60%{transform:translateY(4px) scale(1.08) rotate(2deg);opacity:1}100%{transform:none;opacity:1}}
-@keyframes dsLgPop{0%{transform:scale(.86);opacity:0}65%{transform:scale(1.04);opacity:1}100%{transform:none;opacity:1}}
-@keyframes dsLgPick{0%{transform:scale(1)}30%{transform:scale(.94)}65%{transform:scale(1.05)}100%{transform:scale(1)}}
-#deenLanguageGate .deen-language-shell>*{animation:dsLgRise .38s cubic-bezier(.2,.8,.2,1) both}
-#deenLanguageGate .deen-language-shell>.deen-language-symbol{animation:dsLgDrop .56s cubic-bezier(.34,1.56,.64,1) .06s both}
-#deenLanguageGate .deen-language-shell>:nth-child(3){animation-delay:.12s}
-#deenLanguageGate .deen-language-shell>:nth-child(4){animation-delay:.17s}
-#deenLanguageGate .deen-language-shell>.deen-language-cards{animation:none}
-#deenLanguageGate .deen-language-cards>button{animation:dsLgPop .38s cubic-bezier(.34,1.56,.64,1) .22s both}
-#deenLanguageGate .deen-language-cards>button:nth-child(2){animation-delay:.26s}
-#deenLanguageGate .deen-language-cards>button:nth-child(3){animation-delay:.3s}
-#deenLanguageGate .deen-language-cards>button:nth-child(4){animation-delay:.34s}
-#deenLanguageGate .deen-language-cards>button:nth-child(5){animation-delay:.38s}
-#deenLanguageGate .deen-language-shell>.deen-language-continue{animation-delay:.42s}
-#deenLanguageGate .deen-language-cards>button[aria-pressed="true"]{animation:dsLgPick .36s cubic-bezier(.34,1.56,.64,1)}
+/* Welcome screen (the first screen, where the language is chosen): the companions, the wordmark and
+   a one-line promise, then the language pills and the start button. Self-contained: the design tokens
+   load later. Reduced motion turns the movement off. */
+@keyframes dwPetIn{from{transform:translateY(28px) scale(.4);opacity:0}}
+@keyframes dwFloat{50%{translate:0 -6px}}
+@keyframes dwRise{from{transform:translateY(14px);opacity:0}}
+@keyframes dwPick{0%{transform:scale(1)}30%{transform:scale(.94)}65%{transform:scale(1.05)}100%{transform:scale(1)}}
+@keyframes dwRing{from{transform:scale(1);opacity:.75}to{transform:scale(1.05,1.35);opacity:0}}
+#deenLanguageGate::before{content:"";position:absolute;left:50%;top:5%;width:min(78%,300px);aspect-ratio:4/5;transform:translateX(-50%);border:2px solid rgba(236,201,138,.12);border-bottom:0;border-radius:50% 50% 0 0/38% 38% 0 0;box-shadow:inset 0 30px 80px rgba(63,215,173,.06);pointer-events:none;-webkit-mask-image:linear-gradient(#000 55%,transparent 92%);mask-image:linear-gradient(#000 55%,transparent 92%)}
+#deenLanguageGate .dw-welcome{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;max-width:380px;text-align:center}
+#deenLanguageGate .dw-crew{position:relative;width:280px;height:140px;flex:none}
+#deenLanguageGate .dw-pet{position:absolute;width:70px;height:70px;border-radius:50%;overflow:hidden;background:#0f3139;box-shadow:0 0 0 3px rgba(236,201,138,.35),0 12px 24px rgba(0,0,0,.4);animation:dwFloat 3.6s ease-in-out infinite}
+#deenLanguageGate .dw-pet img{display:block;width:100%;height:100%}
+#deenLanguageGate .dw-pet-0{left:3px;top:52px;animation-delay:1s}
+#deenLanguageGate .dw-pet-1{left:54px;top:16px;animation-delay:1.4s}
+#deenLanguageGate .dw-pet-2{left:90px;top:0;width:100px;height:100px;box-shadow:0 0 0 4px #ecc98a,0 0 30px rgba(236,201,138,.45),0 14px 28px rgba(0,0,0,.45);animation-delay:1.8s}
+#deenLanguageGate .dw-pet-3{left:156px;top:16px;animation-delay:2.2s}
+#deenLanguageGate .dw-pet-4{left:207px;top:52px;animation-delay:2.6s}
+#deenLanguageGate[data-dw-enter] .dw-pet{animation:dwPetIn .6s cubic-bezier(.34,1.56,.64,1) both,dwFloat 3.6s ease-in-out 1s infinite}
+#deenLanguageGate[data-dw-enter] .dw-pet-1{animation-delay:.09s,1.4s}
+#deenLanguageGate[data-dw-enter] .dw-pet-2{animation-delay:.18s,1.8s}
+#deenLanguageGate[data-dw-enter] .dw-pet-3{animation-delay:.27s,2.2s}
+#deenLanguageGate[data-dw-enter] .dw-pet-4{animation-delay:.36s,2.6s}
+#deenLanguageGate .dw-welcome .deen-language-brand{margin:4px 0 0;font:400 46px/1 Georgia,"Times New Roman",serif;letter-spacing:.14em;color:#ecc98a}
+#deenLanguageGate .dw-tagline{margin:0;max-width:26ch;font:800 19px/1.35 system-ui,Arial,sans-serif;color:#effff7;text-wrap:balance}
+#deenLanguageGate .dw-tagline small{display:block;margin-top:6px;font:600 14px/1.5 system-ui,Arial,sans-serif;color:#9bb6b3}
+#deenLanguageGate .dw-welcome h1{margin:14px 0 0;font:750 14px/1.4 system-ui,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#9bb6b3}
+#deenLanguageGate .dw-welcome .deen-language-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;direction:inherit}
+#deenLanguageGate .dw-welcome .deen-language-cards button{min-height:46px;padding:10px 18px;border-radius:999px;border:2px solid rgba(170,230,215,.18);background:rgba(255,255,255,.04);font:750 16px/1.2 system-ui,Arial,sans-serif;color:#f6fffa}
+#deenLanguageGate .dw-welcome .deen-language-cards button[aria-pressed=true]{border-color:#3fd7ad;background:rgba(63,215,173,.14);box-shadow:none;animation:dwPick .36s cubic-bezier(.34,1.56,.64,1)}
+#deenLanguageGate .dw-welcome .deen-language-cards i{display:none}
+#deenLanguageGate .dw-welcome .deen-language-continue{position:relative;margin-top:14px;min-height:58px;border-radius:16px;background:linear-gradient(180deg,#6af2cd,#3fd7ad);box-shadow:0 5px 0 #1f9e7d;font:900 17px/1.2 system-ui,Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#052a22;transition:transform .12s,box-shadow .12s}
+#deenLanguageGate .dw-welcome .deen-language-continue:not(:disabled):active{transform:translateY(4px);box-shadow:0 1px 0 #1f9e7d}
+#deenLanguageGate .dw-welcome .deen-language-continue:disabled{box-shadow:none}
+#deenLanguageGate .dw-welcome .deen-language-continue:not(:disabled)::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 3px rgba(63,215,173,.6);animation:dwRing 1.8s ease-out .6s infinite;pointer-events:none}
+#deenLanguageGate .dw-welcome button:focus-visible{outline:3px solid #ecc98a;outline-offset:3px}
+#deenLanguageGate[data-dw-enter] .dw-welcome>:not(.dw-crew){animation:dwRise .6s cubic-bezier(.2,.8,.2,1) both}
+#deenLanguageGate[data-dw-enter] .dw-welcome>.deen-language-brand{animation-delay:.3s}
+#deenLanguageGate[data-dw-enter] .dw-welcome>.dw-tagline{animation-delay:.4s}
+#deenLanguageGate[data-dw-enter] .dw-welcome>h1,#deenLanguageGate[data-dw-enter] .dw-welcome>.deen-language-cards{animation-delay:.5s}
+#deenLanguageGate[data-dw-enter] .dw-welcome>.deen-language-continue{animation-delay:.6s}
+@media(max-height:700px){#deenLanguageGate .dw-crew{transform:scale(.82);margin:-12px 0}#deenLanguageGate .dw-welcome .deen-language-brand{font-size:38px}#deenLanguageGate .dw-welcome h1{margin-top:6px}}
 @media (prefers-reduced-motion:reduce){#deenLanguageGate *{animation:none!important}}

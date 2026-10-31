@@ -37,7 +37,7 @@ for(const lang of ['tr','ar','en','de','fr']){
  w.document.querySelector('[data-locale="'+lang+'"]').click();
  assert.equal(w.document.querySelector('#deenLanguageGate').lang,lang);assert.equal(w.document.querySelector('#deenLanguageGate').dir,lang==='ar'?'rtl':'ltr');
  assert.equal(w.document.querySelector('#deenLanguageGate h1').textContent,w.DEEN_I18N.t('languageTitle',{},lang));
- assert.equal(w.document.querySelector('.deen-language-continue').textContent,w.DEEN_I18N.t('next',{},lang));
+ assert.equal(w.document.querySelector('.deen-language-continue').textContent,w.DEEN_I18N.t('welcomeStart',{},lang));
  w.document.querySelector('.deen-language-continue').click();assert.equal(chosen,lang);
  assert.equal(w.localStorage.getItem('deen_app_language_v1'),lang);assert.equal(w.document.documentElement.lang,lang);
  for(const key of w.DEEN_I18N.keys())assert(w.DEEN_I18N.t(key,{n:2},lang).length>0);

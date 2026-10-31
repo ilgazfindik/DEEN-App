@@ -9,7 +9,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
  const report={browser:'Google Chrome',version:browser.version(),languages:{},fullSupport:false};
  for(const lang of ['tr','ar','en','de','fr']){
   const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(url);await page.waitForSelector('#deenLanguageGate');assert.equal(await page.locator('.phone').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
+  await page.goto(url+'?previewAccount=1');await page.waitForSelector('#deenLanguageGate');assert.equal(await page.locator('.phone').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
   assert.equal(await page.locator('[data-locale]').count(),5);assert.equal(await page.locator('[data-locale="es"]').count(),0);assert(!await page.locator('.deen-language-continue').isEnabled());
   await page.locator('[data-locale="'+lang+'"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),lang);
   await page.screenshot({path:path.join(out,'chrome-'+lang+'-language.png')});
@@ -44,7 +44,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
    await page.locator('#deenAccountGate .da-reset').click();
    assert.equal(await page.locator('#deenAccountGate form input[type="password"]').count(),0);
   }
-  await page.locator('#deenAccountGate .da-guest').click();await page.waitForSelector('#v998Onboarding');
+  await page.locator('#deenAccountGate .da-guest').click();await page.waitForSelector('#v998Onboarding');await page.evaluate(()=>history.replaceState(null,'',location.pathname));
   assert.equal(await page.locator('#deenAccountGate').count(),0);
   assert.equal(await page.locator('#deenLanguageGate').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
   assert.equal(await page.locator('#v998Onboarding').getAttribute('lang'),lang);
@@ -203,10 +203,12 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
     assert.equal(cleared.unrelated,'preserve me','Do not delete unrelated app data');
     await page.locator('[data-locale="tr"]').click();
     await page.locator('.deen-language-continue').click();
-    await page.waitForSelector('#deenAccountGate');
-    assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
-    await page.locator('#deenAccountGate .da-guest').click();
-    await page.waitForSelector('#v998Onboarding[data-step="0"]');
+    await page.waitForSelector('#deenAccountGate .da-guest, #v998Onboarding');
+    if(await page.locator('#deenAccountGate').count()){
+     assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
+     await page.locator('#deenAccountGate .da-guest').click();
+    }
+    await page.waitForSelector('#v998Onboarding');
     const fresh=await page.evaluate(()=>({xp:state.xp,completed:state.completed,onboarded:state.onboarded}));
     assert.notEqual(fresh.xp,789,'XP must reset');
     assert(!fresh.completed.includes('U01-S01'),'Completed stages must reset');

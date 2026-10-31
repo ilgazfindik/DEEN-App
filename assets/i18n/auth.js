@@ -43,6 +43,15 @@
  }
  function close(){root?.remove();root=null;busy=false;const phone=document.querySelector('.phone');if(phone)phone.inert=!!document.getElementById('v998Onboarding');}
  function show(){
+  if(!configured()&&new URLSearchParams(location.search).get('previewAccount')!=='1'){
+   // Accounts are not live yet: no screen of disabled buttons; onboarding starts at the name step
+   // (the welcome screen has already greeted the learner).
+   // The engine may still draw its own welcome step after this; the design layer moves past it once.
+   window.__DEEN_SKIP_ONBOARDING_INTRO__=true;
+   const onboarding=window.DEEN_PREMIUM_ONBOARDING;
+   if(!state.onboarded&&onboarding?.render){document.getElementById('v998Onboarding')?.remove();onboarding.render(1);}
+   return null;
+  }
   close();let mode='choice',completed=false;
   const pane=document.createElement('section');root=pane;
   pane.id='deenAccountGate';pane.setAttribute('role','dialog');pane.setAttribute('aria-modal','true');pane.lang=lang();pane.dir=lang()==='ar'?'rtl':'ltr';pane.setAttribute('aria-label',T(0));

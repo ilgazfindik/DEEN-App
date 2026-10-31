@@ -21,7 +21,7 @@ const server=http.createServer((req,res)=>{
  await page.locator('[data-locale="en"]').click();
  await page.locator('.deen-language-continue').click();
  await page.waitForSelector('#v998Onboarding');
- await page.locator('#v998Onboarding .v998-primary').click();
+ if(await page.locator('#v998Onboarding[data-step="0"]').count())await page.locator('#v998Onboarding .v998-primary').click();
  await page.locator('#v998Name').fill('Normal English User');
  await page.locator('#v998Onboarding .v998-primary').click();
  await page.locator("[onclick=\"DEEN_PREMIUM_ONBOARDING.age(\\'adult\\')\"]").click();

@@ -9,7 +9,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
  for(const profile of ['child','teen','adult']){
   const lang='en';const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),errors=[];page.on('console',m=>{if(m.type()==='error')console.log('BROWSER',m.text())});page.on('pageerror',e=>errors.push(e.message));page.on('dialog',dialog=>dialog.accept());
   await page.addInitScript(()=>{window.__DEEN_LOCALIZATION_QA__=true});await page.goto(url);await page.waitForSelector('#deenLanguageGate');await page.locator('[data-locale="'+lang+'"]').click();await page.locator('.deen-language-continue').click();await page.waitForSelector('#v998Onboarding');
-  await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Name').fill('QA');await page.locator('#v998Onboarding .v998-primary').click();
+  if(await page.locator('#v998Onboarding[data-step="0"]').count())await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Name').fill('QA');await page.locator('#v998Onboarding .v998-primary').click();
   await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.age(\''+profile+'\')"]').click();await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Onboarding [data-animal="cat"]').click();await page.locator('#v998Onboarding .v998-primary').click();
   await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.minutes(15)"]').click();await page.locator('#v998Onboarding .v998-primary').click();await page.locator('#v998Onboarding .v998-primary').click();
   await page.waitForFunction(()=>window.DEEN_BOOT?.isReady()&&state.onboarded);await page.waitForSelector('#v998Onboarding',{state:'detached'});

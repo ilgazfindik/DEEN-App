@@ -12,12 +12,11 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'}),errors=[],report={};page.on('pageerror',e=>errors.push(e.message));
  report.browser={name:'Google Chrome',version:browser.version()};
  await page.goto(url);await page.waitForSelector('#deenLanguageGate');assert.equal(await page.locator('[data-locale]').count(),5);assert.equal(await page.locator('[data-locale="es"]').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
- await page.locator('[data-locale="ar"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),'ar');await page.getByRole('button',{name:'متابعة',exact:true}).click();
- await page.waitForSelector('#deenAccountGate');assert.equal(await page.locator('#deenAccountGate').getAttribute('dir'),'rtl');
- await page.locator('#deenAccountGate .da-guest').click();
+ await page.locator('[data-locale="ar"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),'ar');await page.getByRole('button',{name:'لنبدأ',exact:true}).click();
+ await page.waitForSelector('#deenAccountGate .da-guest, #v998Onboarding');if(await page.locator('#deenAccountGate').count()){assert.equal(await page.locator('#deenAccountGate').getAttribute('dir'),'rtl');await page.locator('#deenAccountGate .da-guest').click();}
  await page.waitForSelector('#v998Onboarding');await page.waitForFunction(()=>window.DEEN_BOOT?.status().phase==='onboarding');
  assert.equal(await page.evaluate(()=>DEEN_APP_LOCALE.get()),'ar');assert.equal(await page.locator('.v9912-authbtn').count(),0);
- await page.locator('[onclick="onboarding(1)"]').click();await page.locator('#v998Name').fill('اختبار');await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.nameNext()"]').click();
+ if(await page.locator('[onclick="onboarding(1)"]').count())await page.locator('[onclick="onboarding(1)"]').click();await page.locator('#v998Name').fill('اختبار');await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.nameNext()"]').click();
  assert.equal(await page.locator('#v998Onboarding h1').innerText(),'اختر أسلوب التعلّم الأنسب لك');
  for(const id of ['child','teen','adult'])await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.age(\''+id+'\')"]').click();
  await page.locator('#v998Onboarding .v998-primary').click();assert.equal(await page.locator('[data-animal]').count(),6);
