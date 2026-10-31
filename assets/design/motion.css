@@ -598,3 +598,28 @@ html body #lesson .question-frame .deen-character-question-avatar[class] .deen-c
 html body #lesson .question-frame .deen-character-question-avatar[class] .deen-companion-runtime-img.ds-pose-sad{animation:dsPoseSad calc(700ms*var(--ds-m-s)) var(--ds-out)!important}
 :root.v5-reduce body dialog.ds-exit .ds-exit-pet{animation:none!important}
 @media (prefers-reduced-motion:reduce){html body dialog.ds-exit .ds-exit-pet{animation:none!important}}
+
+/* ---------- Quran and Review tabs ----------
+   While a surah plays its card breathes gold, the pause button shows a three-bar equaliser and a
+   progress line fills along the card. The Quran hub's cards and the review modes pop in one after
+   another when their tab opens, and press in when tapped. */
+@keyframes dsGoldBreath{0%,100%{box-shadow:0 0 0 1px rgba(204,170,83,.25),0 0 0 rgba(255,205,90,0)}50%{box-shadow:0 0 0 1px rgba(204,170,83,.45),0 0 22px rgba(255,205,90,.22)}}
+@keyframes dsEq{0%,100%{background-size:3px 30%,3px 80%,3px 50%}25%{background-size:3px 85%,3px 35%,3px 70%}50%{background-size:3px 45%,3px 95%,3px 30%}75%{background-size:3px 70%,3px 50%,3px 90%}}
+html body .deen-qchapter{position:relative;overflow:hidden}
+html body .deen-qchapter:has(.deen-qchapter-play.playing){animation:dsGoldBreath calc(2.2s*var(--ds-m-s)) ease-in-out infinite}
+html body .deen-qchapter::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:calc(var(--ds-p,0)*100%);background:linear-gradient(90deg,#3fd7ad,#ffd27a);border-radius:0 3px 3px 0;transition:width .3s linear;pointer-events:none}
+html body .deen-qchapter-play.playing{position:relative;padding-inline-start:26px}
+html body .deen-qchapter-play.playing::before{content:"";position:absolute;inset-inline-start:9px;top:50%;width:13px;height:14px;transform:translateY(-50%);
+ background:linear-gradient(#ead99f,#ead99f) 0 100% no-repeat,linear-gradient(#ead99f,#ead99f) 5px 100% no-repeat,linear-gradient(#ead99f,#ead99f) 10px 100% no-repeat;background-size:3px 30%,3px 80%,3px 50%;animation:dsEq calc(900ms*var(--ds-m-s)) ease-in-out infinite}
+html body .deen-qchapter-play:active,html body #leagueScreen :is(.deen-path-card,.deen-qia-action,.deen-atest-entry):active,html body #reviewScreen .dsr-mode:active{transform:scale(.97);transition:transform var(--ds-m-tap) var(--ds-out)}
+html body #leagueScreen.ds-screen-in :is(.deen-path-card,.deen-qia-action,.deen-atest-entry){animation:dsCardPop calc(400ms*var(--ds-m-s)) var(--ds-spring) both}
+html body #leagueScreen.ds-screen-in .deen-path-card:nth-child(2),html body #leagueScreen.ds-screen-in .deen-qia-action:nth-child(2){animation-delay:calc(60ms*var(--ds-m-s))}
+html body #leagueScreen.ds-screen-in .deen-qia-action:nth-child(3){animation-delay:calc(120ms*var(--ds-m-s))}
+html body #leagueScreen.ds-screen-in .deen-qia-action:nth-child(4){animation-delay:calc(180ms*var(--ds-m-s))}
+html body #leagueScreen.ds-screen-in .deen-atest-entry{animation-delay:calc(220ms*var(--ds-m-s))}
+html body #reviewScreen.ds-screen-in .dsr-mode{animation:dsCardPop calc(400ms*var(--ds-m-s)) var(--ds-spring) calc(120ms*var(--ds-m-s)) both}
+html body #reviewScreen.ds-screen-in .dsr-mode:nth-child(2){animation-delay:calc(180ms*var(--ds-m-s))}
+html body #reviewScreen.ds-screen-in .dsr-mode:nth-child(3){animation-delay:calc(240ms*var(--ds-m-s))}
+html body #reviewScreen.ds-screen-in .dsr-mode:nth-child(4){animation-delay:calc(300ms*var(--ds-m-s))}
+:root.v5-reduce body .deen-qchapter,:root.v5-reduce body .deen-qchapter-play.playing::before{animation:none!important}
+@media (prefers-reduced-motion:reduce){html body .deen-qchapter,html body .deen-qchapter-play.playing::before{animation:none!important}}

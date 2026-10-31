@@ -363,6 +363,20 @@
   d.querySelector('.ds-exit-stay').focus({preventScroll:true});sfx('softWrong');
  },{capture:true});
 
+ // ---- Surah listening ----
+ // The chapter player keeps its audio to itself, so playback is noticed when any media starts
+ // while the surah card is playing; its progress fills a line along the card. Read only.
+ const nativePlay=HTMLMediaElement.prototype.play;
+ const followed=new WeakSet();
+ HTMLMediaElement.prototype.play=function(){
+  try{if(!followed.has(this)&&document.querySelector('.deen-qchapter')){followed.add(this);
+   const media=this,paint=()=>{const card=document.querySelector('.deen-qchapter');if(!card)return;
+    const p=media.duration&&!media.ended?Math.min(1,media.currentTime/media.duration):0;
+    const v=p.toFixed(3);if(card.style.getPropertyValue('--ds-p')!==v)card.style.setProperty('--ds-p',v)};
+   media.addEventListener('timeupdate',paint);media.addEventListener('ended',paint);media.addEventListener('pause',()=>setTimeout(paint,60))}}catch(_){}
+  return nativePlay.apply(this,arguments);
+ };
+
  // ---- Companion poses in the lesson ----
  // The question's companion shows its happy pose on every second correct answer and its
  // "try again" pose on the first wrong one and every second after; the combo figure covers
