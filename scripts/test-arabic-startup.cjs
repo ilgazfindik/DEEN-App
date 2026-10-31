@@ -38,7 +38,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
      for(const name of ['aria-label','title','alt'])if(el.hasAttribute(name))values.push({kind:name,text:el.getAttribute(name)});
      if(!el.children.length&&el.getClientRects().length)values.push({kind:'text',text:el.innerText||''});
    }
-   return values.filter(v=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(v.text.replace(/DEEN|XP/g,'')));
+   return values.filter(v=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(v.text.replace(/DEEN|[Ii]lnura|ILNURA|XP/g,'')));
  });
  assert.deepEqual(report.homeLanguage,[]);
  await page.screenshot({path:path.join(out,'fresh-arabic-home.png')});

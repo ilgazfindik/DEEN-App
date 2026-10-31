@@ -51,7 +51,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
     for(const name of ['aria-label','title','alt'])if(el.hasAttribute(name))values.push(el.getAttribute(name));
     if(!el.children.length&&el.getClientRects().length)values.push(el.innerText||'');
    }
-   return values.filter(t=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(t.replace(/DEEN|XP/g,'')));
+   return values.filter(t=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(t.replace(/DEEN|[Ii]lnura|ILNURA|XP/g,'')));
   });
   if(leaks.length)introductionLeaks.push({id,leaks});report.introductions.push(id);await page.evaluate(()=>closeSheet());
  }

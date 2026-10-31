@@ -16,7 +16,7 @@
  function render(){
   if(!overlay){
    overlay=document.createElement('section');overlay.id='deenPreparation';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');
-   overlay.innerHTML='<div><b class="deen-prep-brand">DEEN</b><h1></h1><p class="deen-prep-status" role="status"></p><progress max="100" value="0"></progress><strong class="deen-prep-percent"></strong><div class="deen-prep-actions"><button type="button" data-retry hidden></button><button type="button" data-language hidden></button></div></div>';
+   overlay.innerHTML='<div><b class="deen-prep-brand">ilnura</b><h1></h1><p class="deen-prep-status" role="status"></p><progress max="100" value="0"></progress><strong class="deen-prep-percent"></strong><div class="deen-prep-actions"><button type="button" data-retry hidden></button><button type="button" data-language hidden></button></div></div>';
    document.body.append(overlay);overlay.querySelector('[data-retry]').onclick=()=>prepare();overlay.querySelector('[data-language]').onclick=chooseLanguage;
   }
   const onboarding=document.getElementById('v998Onboarding');if(onboarding)onboarding.inert=true;
@@ -53,7 +53,7 @@
     if(locale()!==document.documentElement.lang)throw Error('LOCALE_MISMATCH');
     window.DEEN_ENGLISH_UI?.localize?.(document.body);window.DEEN_ARABIC_UI?.localize?.(document.body);window.DEEN_ARABIC_PILOT?.localizeChrome?.(document.body);
     boot.progress=100;boot.ready=true;boot.phase='ready';render();document.documentElement.dataset.deenStartup='ready';
-    document.title='DEEN v9.12.78';window.DEEN_BUILD_ID=build;window.DEEN_RELEASE_VERSION='9.12.78';
+    document.title='Ilnura';window.DEEN_BUILD_ID=build;window.DEEN_RELEASE_VERSION='9.12.78';
     const cb=completion;completion=null;if(cb)cb();
     await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
     removeOverlay();return true;
