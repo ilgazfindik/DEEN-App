@@ -591,8 +591,13 @@ html:lang(ar) .deen-qj2-progress{direction:ltr}
   return String(html).replace(/>([^<]*)</g,(all,v)=>'>'+translate(v)+'<').replace(/(placeholder|aria-label|title)="([^"]*)"/g,(all,k,v)=>k+'="'+translate(v)+'"');
  }
  function excluded(el){return !el||['STYLE','SCRIPT','NOSCRIPT','CODE','TEXTAREA'].includes(el.nodeName)||el.isContentEditable||el.closest?.('.deen-ikhlas-arabic,.deen-mem-arabic,[data-deen-no-translate]')}
+ // Outside Arabic the walk only undoes Arabic shown earlier in this page; until Arabic has been
+ // shown there is nothing to undo, so the (costly) walk is skipped.
+ let arabicShown=false;
  function localize(root){
-  if(!root)return 0;const stack=[root];let count=0;
+  if(!root)return 0;
+  if(active())arabicShown=true;else if(!arabicShown)return 0;
+  const stack=[root];let count=0;
   while(stack.length){
    const n=stack.pop();if(!n)continue;
    if(n.nodeType===3){

@@ -69,10 +69,15 @@
  }
 
  // Legacy lesson chrome goes down to 7px; lift anything below 12px to 12px.
+ // Each element is checked once (again only when its classes change), and without forcing a
+ // layout: the lesson DOM changes constantly and a full rescan was costly on slow phones.
+ const floored=new WeakMap();
  function textFloor(root){
   for(const n of root.querySelectorAll('*')){
-   if(n.closest('svg')||!n.getClientRects().length)continue;
+   const cls=n.getAttribute('class')||'';if(floored.get(n)===cls)continue;
+   if(n.closest('svg')){floored.set(n,cls);continue}
    if(![...n.childNodes].some(c=>c.nodeType===3&&c.data.trim()))continue;
+   floored.set(n,cls);
    const size=parseFloat(getComputedStyle(n).fontSize);
    if(size&&size<12)n.style.setProperty('font-size','12px','important');
   }
