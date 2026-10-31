@@ -161,3 +161,6 @@ html body nav.bottomnav .navbtn{padding-inline:2px!important}
 html body nav.bottomnav .navbtn span{font-weight:var(--ds-fw-semibold)!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:100%!important;font-size:var(--ds-fs-xs)!important;line-height:1.2!important}
 
 @media (prefers-reduced-motion:reduce){html body #learnScreen #learnScroll #v5Paths>section.restored-unit>.hero::after{transition:none!important}}
+
+/* Quieter daily plan: steps sit on a fill; only the current one is outlined. */
+html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step:not(.current){border-color:transparent!important;background:rgba(255,255,255,.04)!important}

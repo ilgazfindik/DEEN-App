@@ -97,3 +97,10 @@ html body #lesson #answerArea .v710-builder-hint{margin:var(--ds-space-2) 0 0!im
  html body #lesson #answerArea .ds-choice[data-ds-layout] :is(.ds-opt,.option-label){font-size:var(--ds-fs-sm)!important}
 }
 @media (prefers-reduced-motion:reduce){html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt{transition:none!important}}
+
+/* Long answers were squeezed: the question frame is fixed to the screen height, so its parts
+   shrank and answer cards clipped their text to ~45px. Parts now keep their natural height and
+   the frame scrolls when they do not fit (it stays pinned while the feedback sheet is open). */
+html body #lesson #quizView .question-frame>*{flex-shrink:0!important}
+html body #lesson #quizView .question-frame:not(.v9945-feedback-mode){overflow-y:auto!important;overscroll-behavior:contain;scrollbar-width:none}
+html body #lesson #quizView .question-frame::-webkit-scrollbar{display:none}

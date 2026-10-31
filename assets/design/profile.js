@@ -241,6 +241,9 @@
    const art=new Image();art.className='dsp-prem-art';art.alt='';art.decoding='async';art.setAttribute('aria-hidden','true');art.src='assets/design/mosque-arch.webp';
    hub.prepend(art);
   }
+  // A status badge that only repeats the brand label next to it is hidden; a real status shows.
+  const brand=hub.querySelector('.dh-brand'),status=hub.querySelector('.dh-status');
+  if(brand&&status){const dup=status.textContent.trim()===brand.textContent.trim();if(status.classList.contains('dsp-dup')!==dup)status.classList.toggle('dsp-dup',dup)}
   for(const el of hub.querySelectorAll('.dh-crown,.dh-status')){
    if(!el.querySelector('.dsp-crown'))el.insertAdjacentHTML('afterbegin','<span class="dsp-crown">'+PICON.crown+'</span>');
   }

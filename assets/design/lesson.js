@@ -43,7 +43,7 @@
  // True/false shows a check and a cross (engine order: true first) instead of letters.
  const TF_MARKS=['✓','✕'];
  // Options longer than this (characters) do not fit a half-width card at 320–390px.
- const GRID_MAX=64;
+ const GRID_MAX=40; // longer answers read better full width than squeezed into half-width cards
  const COMPACT_MAX=24;
  const LETTERS='ABCDEFGH';
  const BOOK='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2 2 0 0 1 6 4h5v15H6a2 2 0 0 0-2 1.5v-15Z"/><path d="M20 5.5A2 2 0 0 0 18 4h-5v15h5a2 2 0 0 1 2 1.5v-15Z"/></svg>';

@@ -1156,3 +1156,7 @@
  #leagueScreenBody .deen-v2-build-bank{gap:6px}
  #leagueScreenBody button.deen-v2-build-piece{min-height:60px}
 }
+
+/* A drawn chevron after "go" labels (it was a typed arrow); mirrored in right-to-left text. */
+.ds-go::after{content:"";display:inline-block;width:.75em;height:.75em;margin-inline-start:.45em;vertical-align:-.04em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 5 7 7-7 7'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 5 7 7-7 7'/%3E%3C/svg%3E") center/contain no-repeat}
+[dir="rtl"] .ds-go::after{transform:scaleX(-1)}

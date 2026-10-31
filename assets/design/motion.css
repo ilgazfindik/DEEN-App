@@ -639,3 +639,6 @@ html body .deen-qchapter:has(.deen-qchapter-play.playing){animation:none;box-sha
 html body .deen-qchapter:has(.deen-qchapter-play.playing)::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 22px rgba(255,205,90,.28);opacity:.2;will-change:opacity;animation:dsHaloFade calc(2.2s*var(--ds-m-s)) ease-in-out infinite}
 :root.v5-reduce body .restored-path.deen-old-path .lp-node.current::after,:root.v5-reduce body .deen-qchapter::before{animation:none!important;opacity:.6}
 @media (prefers-reduced-motion:reduce){html body .restored-path.deen-old-path .lp-node.current::after,html body .deen-qchapter::before{animation:none!important;opacity:.6}}
+
+/* No combo, no chip: its flame icon kept an empty chip visible over the phase caption. */
+html body #lesson #gfCombo:empty{display:none!important}

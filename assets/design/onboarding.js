@@ -5,6 +5,12 @@
  'use strict';
  if(window.DEEN_DS_ONBOARDING)return;
  let lastPct='0%';
+ const LINE='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">';
+ const CHOICE_ICONS={
+  '📚':LINE+'<path d="M4 19V6a1 1 0 0 1 1-1h3v14H5a1 1 0 0 1-1-1z"/><path d="M8 5h3v14H8"/><path d="m13.5 6.2 2.9-.8 3.6 13.1-2.9.8z"/></svg>',
+  '🎓':LINE+'<path d="m2.5 9.5 9.5-4.5 9.5 4.5-9.5 4.5z"/><path d="M6.5 11.5v4.2c1.6 1.4 3.5 2.1 5.5 2.1s3.9-.7 5.5-2.1v-4.2"/><path d="M21.5 9.5v5"/></svg>',
+  '📖':LINE+'<path d="M3.5 5.5c2.9-.9 5.7-.4 8.5 1.6v12c-2.8-2-5.6-2.5-8.5-1.6z"/><path d="M20.5 5.5c-2.9-.9-5.7-.4-8.5 1.6v12c2.8-2 5.6-2.5 8.5-1.6z"/></svg>'
+ };
  function companion(root){
   let pick=root.querySelector('.v998-animal.selected')?.dataset.animal;
   try{pick=pick||state?.profile?.companion}catch(_){}
@@ -24,6 +30,8 @@
    else if(bar.style.getPropertyValue('--p')!==pct)bar.style.setProperty('--p',pct);
    lastPct=pct;
   }
+  // The narration choices used emoji; they get line icons in the app's own style.
+  for(const ico of root.querySelectorAll('.choice-ico')){const svg=CHOICE_ICONS[ico.textContent.trim()];if(svg){ico.innerHTML=svg;ico.classList.add('ds-ob-ico')}}
   const copy=root.querySelector('.v998-copy');
   if(copy&&step>0){
    const pet=companion(root),src='assets/companions/'+pet+'/'+pet+'_avatar.png';

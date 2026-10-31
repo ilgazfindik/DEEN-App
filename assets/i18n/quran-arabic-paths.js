@@ -625,7 +625,7 @@
    const button=makeButton('',tile.kind,'deen-path-card deen-path-'+tile.kind);
    const symbol=elem('span','deen-path-symbol',tile.glyph);symbol.setAttribute('aria-hidden','true');symbol.lang='ar';symbol.dir='rtl';
    const copy=elem('span','deen-path-copy');copy.append(elem('strong','',tile.title),elem('small','',tile.description));
-   const action=elem('span','deen-path-link',tile.button+'  →');
+   const action=elem('span','deen-path-link ds-go',tile.button);
    button.append(symbol,copy,action);view.appendChild(button);
   }
   return view;
@@ -823,7 +823,7 @@
   box.append(elem('h3','deen-path-shape-subtitle',c[0]),elem('p','deen-path-muted',c[1]));
   if(result?.pre)box.append(elem('p','deen-path-progress-copy',c[4]+' · '+result.pre.correct+' / 8'));
   if(result?.post)box.append(elem('p','deen-path-progress-copy',c[5]+' · '+result.post.correct+' / 8'));
-  box.append(makeButton(c[0]+' →','assessment','deen-path-secondary'));
+  box.append(makeButton(c[0],'assessment','deen-path-secondary ds-go'));
   return box;
  }
  function assessmentLanding(){
@@ -1033,7 +1033,7 @@
   const track=elem('div','deen-path-course-progress'),fill=elem('span','',undefined);
   fill.style.width=Math.round(100*done/LESSONS.length)+'%';track.appendChild(fill);box.appendChild(track);
   const mastery=masterySnapshot(),masteryButton=makeButton('','mastery','deen-path-mastery-teaser');
-  masteryButton.append(elem('span','deen-path-mastery-teaser-name',c.masteryOpen+' →'));
+  masteryButton.append(elem('span','deen-path-mastery-teaser-name ds-go',c.masteryOpen));
   masteryButton.append(elem('span','deen-path-mastery-teaser-sub',
    c.masteryWritten+' · '+mastery.lessonCompleted+' / '+mastery.lessonTotal+'   ·   '+
    c.masteryPracticed+' · '+mastery.practiced+' / '+mastery.total));
@@ -1043,11 +1043,11 @@
   if(ASSESSMENT)box.append(assessmentPanel());
   box.append(checkpointPanel());
   const daily=dailySnapshot(),dailyButton=makeButton('','daily','deen-path-daily-teaser');
-  dailyButton.append(elem('span','deen-path-daily-teaser-name',c.dailyOpen+' →'),
+  dailyButton.append(elem('span','deen-path-daily-teaser-name ds-go',c.dailyOpen),
    elem('span','deen-path-daily-teaser-sub',c.dailyProgress+' · '+daily.completed+' / '+daily.total+
    '  ·  '+c.dailyGoal+' · '+daily.minutes+' '+c.dailyMinutes));
   box.append(dailyButton);
-  box.append(makeButton(c.weekOpen+' →','weekly','deen-path-weekly-link'));
+  box.append(makeButton(c.weekOpen,'weekly','deen-path-weekly-link ds-go'));
   const list=elem('div','deen-path-course-grid');
   LESSONS.forEach((lesson,i)=>{
    const locked=!isUnlocked(i),done=completed().includes(lesson.id);
@@ -1473,7 +1473,7 @@
   }else if(plan.reviewQuota)tasks.append(elem('p','deen-path-daily-check','✓ '+c.dailyReview+' · '+c.dailyCompleted));
   if(plan.total===0||plan.completed===plan.total)tasks.append(elem('p','deen-path-daily-done','✓ '+c.dailyDone));
   box.append(tasks);
-  box.append(makeButton(c.weekOpen+' →','weekly','deen-path-weekly-link'));
+  box.append(makeButton(c.weekOpen,'weekly','deen-path-weekly-link ds-go'));
   box.append(checkpointPanel());
   if(remedyPlan().key)box.append(remedyPanel());
   box.append(foundationPanel());

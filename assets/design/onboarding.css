@@ -15,3 +15,4 @@ html body #v998Onboarding .v998-copy:has(.ds-ob-pet) p{grid-column:1/-1;grid-row
 @keyframes dsObPet{from{transform:translateY(12px) scale(.6);opacity:0}}
 @media (prefers-reduced-motion:reduce){html body #v998Onboarding .ds-ob-pet{animation:none}html body #v998Onboarding .ds-ob-bar i{transition:none}}
 html body #v998Onboarding .v998-top:has(.v998-back) .ds-ob-bar{margin-left:58px}
+html body #v998Onboarding .choice-ico.ds-ob-ico svg{width:26px;height:26px;color:#5fe8c4}
