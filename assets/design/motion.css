@@ -556,3 +556,45 @@ dialog.ds-streak.ds-lost .ds-count{color:#c8cfd6;text-shadow:0 4px 0 #4b5560}
 dialog.ds-streak.ds-lost h2{color:#e8ecef}
 :root.v5-reduce body dialog.gf-reward-modal .ds-badge-rays{animation:none!important;opacity:1}
 @media (prefers-reduced-motion:reduce){html body dialog.gf-reward-modal .ds-badge-rays{animation:none!important;opacity:1}}
+
+/* ---------- Lesson extras ----------
+   Leaving: our own sheet with the companion looking sad (it droops in, then sways gently).
+   Teaching cards between phases pop in piece by piece. The review round's banner slides in.
+   The question's companion hops into its happy pose or droops into its "try again" pose. */
+@keyframes dsSadIn{0%{transform:translateY(30px) scale(.6) rotate(8deg);opacity:0}60%{transform:translateY(-4px) scale(1.05) rotate(-3deg);opacity:1}100%{transform:none;opacity:1}}
+@keyframes dsSadSway{0%,100%{rotate:-3deg}50%{rotate:3deg}}
+@keyframes dsMarkSpin{0%{transform:scale(.3) rotate(-180deg);opacity:0}70%{transform:scale(1.15) rotate(10deg);opacity:1}100%{transform:none;opacity:1}}
+@keyframes dsSlideIn{0%{transform:translateX(-24px);opacity:0}100%{transform:none;opacity:1}}
+@keyframes dsPoseJoy{0%{transform:none}25%{transform:scale(1.1,.88)}55%{transform:translateY(-16px) scale(.95,1.07) rotate(-5deg)}80%{transform:scale(1.05,.95)}100%{transform:none}}
+@keyframes dsPoseSad{0%{transform:none}40%{transform:translateY(5px) scale(.96) rotate(-6deg)}70%{transform:translateY(2px) rotate(3deg)}100%{transform:none}}
+dialog.ds-exit{width:100%;max-width:100%;height:100%;max-height:100%;margin:0;padding:0;border:0;background:transparent;overflow:hidden}
+dialog.ds-exit::backdrop{background:rgba(2,12,19,.72);animation:dsFadeIn var(--ds-m-base) var(--ds-out)}
+dialog.ds-exit .ds-exit-card{position:absolute;left:0;right:0;bottom:0;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:12px;max-width:430px;margin:0 auto;
+ padding:22px 20px max(22px,env(safe-area-inset-bottom,0px));border-radius:26px 26px 0 0;border:1.5px solid rgba(255,255,255,.1);border-bottom:0;
+ background:linear-gradient(180deg,#123039,#0b1f26);box-shadow:0 -18px 40px rgba(0,0,0,.4);text-align:center;font-family:var(--ds-font,"Nunito Sans",system-ui,sans-serif);
+ animation:dsSheetUp var(--ds-m-sheet) var(--ds-spring)}
+dialog.ds-exit .ds-exit-pet{width:118px;height:118px;object-fit:contain;margin-top:-62px;transform-origin:50% 100%;filter:drop-shadow(0 12px 18px rgba(0,0,0,.45));
+ animation:dsSadIn calc(560ms*var(--ds-m-s)) var(--ds-spring) calc(120ms*var(--ds-m-s)) both,dsSadSway calc(2.6s*var(--ds-m-s)) ease-in-out calc(900ms*var(--ds-m-s)) infinite}
+dialog.ds-exit h2{margin:0;font:900 22px/1.2 var(--ds-font);color:#f3f7f6}
+dialog.ds-exit p{margin:0 0 6px;max-width:34ch;font:700 14px/1.45 var(--ds-font);color:#a9bdc0}
+dialog.ds-exit button{width:100%;min-height:52px;border-radius:16px;cursor:pointer;font:900 15px/1 var(--ds-font);letter-spacing:.04em;text-transform:uppercase;transition:transform var(--ds-m-tap) var(--ds-out),box-shadow var(--ds-m-tap) var(--ds-out)}
+dialog.ds-exit .ds-exit-stay{border:0;color:#062a24;background:linear-gradient(180deg,#5ef0c9,#25c79e);box-shadow:0 5px 0 #138a6c}
+dialog.ds-exit .ds-exit-stay:active{transform:translateY(4px);box-shadow:0 1px 0 #138a6c}
+dialog.ds-exit .ds-exit-leave{border:1.5px solid rgba(255,120,120,.35);color:#ff9a9a;background:transparent}
+dialog.ds-exit button:focus-visible{outline:3px solid #ffe3a3;outline-offset:3px}
+html body .v910-overlay .v910-card{animation:dsCardPop calc(460ms*var(--ds-m-s)) var(--ds-spring) both}
+html body .v910-overlay .v910-card-mark{animation:dsMarkSpin calc(600ms*var(--ds-m-s)) var(--ds-spring) calc(120ms*var(--ds-m-s)) both}
+html body .v910-overlay .v910-card>:is(.v910-card-eyebrow,h2,p,.v910-memory){animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(220ms*var(--ds-m-s)) both}
+html body .v910-overlay .v910-card>h2{animation-delay:calc(280ms*var(--ds-m-s))}
+html body .v910-overlay .v910-card>p{animation-delay:calc(340ms*var(--ds-m-s))}
+html body .v910-overlay .v910-card>.v910-memory{animation-delay:calc(400ms*var(--ds-m-s))}
+html body .v910-overlay .v910-card>.v910-card-button{animation:dsCardPop calc(420ms*var(--ds-m-s)) var(--ds-spring) calc(480ms*var(--ds-m-s)) both}
+html body .v910-phasebar .v910-phase-steps i.active{animation:dsCardPop calc(420ms*var(--ds-m-s)) var(--ds-spring)}
+html body #lesson .question-frame.v884-review-mode .v884-review-banner{animation:dsSlideIn calc(420ms*var(--ds-m-s)) var(--ds-spring) both}
+html body #lesson .question-frame.v884-review-mode .v884-review-count{animation:dsCountBump calc(420ms*var(--ds-m-s)) var(--ds-spring) calc(300ms*var(--ds-m-s)) both}
+/* The engine reacts on every answer; that reaction is replaced by the calm idle cycle, and only the measured poses move. */
+html body #lesson .question-frame .deen-character-question-avatar[class*="v9944-reaction"] .deen-companion-runtime-img{animation:dsAliveBreath calc(2.8s*var(--ds-m-s)) ease-in-out infinite,dsAliveLife calc(8.6s*var(--ds-m-s)) ease-in-out calc(1.4s*var(--ds-m-s)) infinite!important}
+html body #lesson .question-frame .deen-character-question-avatar[class] .deen-companion-runtime-img.ds-pose-joy{animation:dsPoseJoy calc(620ms*var(--ds-m-s)) var(--ds-spring)!important}
+html body #lesson .question-frame .deen-character-question-avatar[class] .deen-companion-runtime-img.ds-pose-sad{animation:dsPoseSad calc(700ms*var(--ds-m-s)) var(--ds-out)!important}
+:root.v5-reduce body dialog.ds-exit .ds-exit-pet{animation:none!important}
+@media (prefers-reduced-motion:reduce){html body dialog.ds-exit .ds-exit-pet{animation:none!important}}

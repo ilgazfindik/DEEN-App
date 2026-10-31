@@ -326,6 +326,69 @@
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installStart,{once:true});else installStart();
 
+ // ---- Leaving a lesson ----
+ // The exit button used the browser's plain confirm box. Our own sheet asks instead, with the
+ // companion looking sad; the engine's exit still runs (its confirm is answered for it).
+ const EXIT_SAY={
+  tr:{title:'Gerçekten ayrılıyor musun?',body:null,stay:'Öğrenmeye devam et',leave:'Dersi bırak'},
+  en:{title:'Leaving already?',body:'Your answers are saved, but you won’t get the lesson reward. Spent energy isn’t refunded.',stay:'Keep learning',leave:'Quit lesson'},
+  ar:{title:'هل ستغادر الآن؟',body:'ستُحفظ إجاباتك، لكنك لن تحصل على مكافأة الدرس، ولا تُسترد الطاقة المستهلكة.',stay:'واصل التعلّم',leave:'اترك الدرس'},
+  de:{title:'Schon gehen?',body:'Deine Antworten werden gespeichert, aber du bekommst keine Lektionsbelohnung. Verbrauchte Energie wird nicht erstattet.',stay:'Weiterlernen',leave:'Lektion beenden'},
+  fr:{title:'Tu pars déjà ?',body:'Tes réponses sont enregistrées, mais tu ne recevras pas la récompense de la leçon. L’énergie dépensée n’est pas rendue.',stay:'Continuer à apprendre',leave:'Quitter la leçon'}
+ };
+ let exitPass=false;
+ function runExit(btn,answer){
+  const native=window.confirm;let asked=null;
+  window.confirm=m=>{asked=String(m??'');return answer};
+  exitPass=true;try{btn.click()}finally{exitPass=false;window.confirm=native}
+  return asked;
+ }
+ document.addEventListener('click',e=>{
+  const btn=e.target.closest?.('#v9914ExitLesson');if(!btn||exitPass)return;
+  e.preventDefault();e.stopImmediatePropagation();
+  // Ask the engine first with "no": if it wants a confirmation, show ours; if not, it already left.
+  const asked=runExit(btn,false);if(asked==null)return;
+  const say=EXIT_SAY[uiLang()],d=document.createElement('dialog');d.className='ds-exit';d.setAttribute('aria-labelledby','dsExitTitle');
+  d.innerHTML='<div class="ds-exit-card"><img class="ds-exit-pet" alt="" aria-hidden="true" decoding="async"><h2 id="dsExitTitle"></h2><p></p><button type="button" class="ds-exit-stay"></button><button type="button" class="ds-exit-leave"></button></div>';
+  const pet=companion();d.querySelector('img').src='assets/companions/'+pet+'/'+pet+'_try_again.png';
+  d.querySelector('h2').textContent=say.title;// The engine's text opens with the same question the title asks; only its explanation is kept.
+  d.querySelector('p').textContent=say.body||asked.replace(/^[^?]*\?\s*/,'')||asked;
+  d.querySelector('.ds-exit-stay').textContent=say.stay;d.querySelector('.ds-exit-leave').textContent=say.leave;
+  const close=()=>{try{d.close()}catch(_){}d.remove()};
+  d.querySelector('.ds-exit-stay').addEventListener('click',()=>{sfx('pop');close()});
+  d.querySelector('.ds-exit-leave').addEventListener('click',()=>{close();runExit(btn,true)});
+  d.addEventListener('cancel',ev=>{ev.preventDefault();close()});
+  (document.getElementById('phone')||document.body).append(d);
+  try{d.showModal()}catch(_){d.remove();runExit(btn,true);return}
+  d.querySelector('.ds-exit-stay').focus({preventScroll:true});sfx('softWrong');
+ },{capture:true});
+
+ // ---- Companion poses in the lesson ----
+ // The question's companion shows its happy pose on every second correct answer and its
+ // "try again" pose on the first wrong one and every second after; the combo figure covers
+ // 3 and 5 in a row. The next question brings the idle pose back.
+ let poseRights=0,poseWrongs=0,poseSession=null;
+ function poseOn(kind){
+  const img=document.querySelector('#lesson .deen-character-question-avatar img');if(!img)return;
+  const src=img.getAttribute('src')||'';if(!/_lesson_idle\./.test(src))return;
+  img.src=src.replace('_lesson_idle.',kind==='right'?'_correct.':'_try_again.');
+  restart(img,kind==='right'?'ds-pose-joy':'ds-pose-sad');
+ }
+ function onPoseFeedback(){
+  const s=lessonSession();if(!s)return;
+  if(s!==poseSession){poseSession=s;poseRights=0;poseWrongs=0;
+   const pet=companion();for(const p of ['correct','try_again']){const i=new Image();i.src='assets/companions/'+pet+'/'+pet+'_'+p+'.png'}}
+  const bad=document.getElementById('feedbackBox')?.classList.contains('bad');
+  if(bad){poseWrongs++;if(poseWrongs%2===1)poseOn('wrong')}
+  else{poseRights++;const combo=Number(s.combo)||0;if(poseRights%2===0&&combo!==3&&combo!==5)poseOn('right')}
+ }
+ function installPoses(){
+  const fb=document.getElementById('feedback');if(!fb){setTimeout(installPoses,300);return}
+  new MutationObserver(records=>{for(const r of records)if(fb.classList.contains('show')&&!String(r.oldValue||'').split(/\s+/).includes('show'))onPoseFeedback()})
+   .observe(fb,{attributes:true,attributeFilter:['class'],attributeOldValue:true});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installPoses,{once:true});else installPoses();
+
  // ---- Living companion ----
  // Tapping the companion (lesson, result, profile, review) makes it jump with a pop.
  document.addEventListener('pointerdown',e=>{
