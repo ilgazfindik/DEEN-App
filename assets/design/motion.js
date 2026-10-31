@@ -174,9 +174,13 @@
   if(!homeVisible()){visibleSince=0;if(pending&&!waitTimer)waitTimer=setTimeout(()=>{waitTimer=0;scheduleHome()},400);return}
   if(pending&&!visibleSince)visibleSince=Date.now();
   if(pending&&Date.now()-visibleSince<700){if(!waitTimer)waitTimer=setTimeout(()=>{waitTimer=0;scheduleHome()},250);return}
+  if(!streakChecked&&checkStreakOnOpen())return;
   // A longer streak (the day's first lesson) gets its own moment first; the rest waits for it.
+  // A streak that restarted after a lesson gets the gentle "ended" moment instead.
   const streak=pendingCounts.get('streakTop');
-  if(streak&&streak.to>streak.from&&streakShownFor!==streak.to){streakShownFor=streak.to;streakMoment(streak.from,streak.to);return}
+  if(streak&&streakShownFor!==streak.to&&(streak.to>streak.from||(streak.from>=2&&streak.to<=1))){
+   streakShownFor=streak.to;remember.set('ds-streak-last',String(streak.to));
+   streakMoment(streak.from,streak.to,streak.to>streak.from?'up':'lost');return}
   if(pendingStop){
    const {from,to}=pendingStop;pendingStop=null;
    if(scale()){
@@ -186,7 +190,25 @@
     setTimeout(()=>{document.getElementById(from)?.classList.remove('ds-stop-done');document.getElementById(to)?.classList.remove('ds-stop-unlock')},2400);
    }
   }
-  for(const [id,{from,to}] of pendingCounts){pendingCounts.delete(id);tick(id,from,to)}
+  for(const [id,{from,to}] of pendingCounts){
+   pendingCounts.delete(id);
+   if(id==='xpTop'&&to>from&&scale())flyXp(()=>tick(id,from,to));else tick(id,from,to);
+  }
+ }
+ // Earned XP flies to the header counter as a handful of gold stars; the count starts as the
+ // first one lands, and each landing ticks.
+ function flyXp(done){
+  const target=document.getElementById('xpTop')?.closest('.stat')||document.getElementById('xpTop');
+  if(!target){done();return}
+  const t=target.getBoundingClientRect(),tx=t.left+t.width/2,ty=t.top+t.height/2,ox=innerWidth/2,oy=innerHeight*.62;
+  let landed=0;
+  for(let i=0;i<7;i++){
+   const s=document.createElement('span');s.className='ds-xp-orb';s.setAttribute('aria-hidden','true');
+   s.style.left=ox+'px';s.style.top=oy+'px';document.body.append(s);
+   const sx=(i-3)*26,sy=-30-Math.abs(i-3)*8,dx=tx-ox,dy=ty-oy;
+   const a=s.animate([{transform:'translate(-50%,-50%) scale(.3)',opacity:0},{transform:`translate(calc(-50% + ${sx}px),calc(-50% + ${sy}px)) scale(1.1)`,opacity:1,offset:.3},{transform:`translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px)) scale(.55)`,opacity:.9}],{duration:720,delay:i*60,easing:'cubic-bezier(.5,0,.75,.4)',fill:'both'});
+   a.onfinish=()=>{s.remove();landed++;sfx('tick');restart(target,'ds-count-up');if(landed===1)done()};
+  }
  }
  // Header counters tick from the old to the new value; the final text is the engine's own.
  function tick(id,from,to){
@@ -213,7 +235,7 @@
   watch.observe(learn,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
   watch.observe(stats,{childList:true,subtree:true,characterData:true});
   const lesson=document.getElementById('lesson');if(lesson)watch.observe(lesson,{attributes:true,attributeFilter:['class']});
-  syncHome();
+  syncHome();setTimeout(scheduleHome,2700);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installHome,{once:true});else installHome();
 
@@ -320,25 +342,41 @@
   de:{title:n=>n+(n===1?' Tag':' Tage')+' in Folge!',first:'Deine Serie hat begonnen! Komm morgen wieder, damit die Flamme wächst.',more:'Jeden Tag ein Schritt. Bis morgen!',cta:'Weiter',locale:'de-DE'},
   fr:{title:n=>'Série de '+n+(n===1?' jour':' jours')+' !',first:'Ta série commence ! Reviens demain pour faire grandir la flamme.',more:'Un pas chaque jour. À demain !',cta:'Continuer',locale:'fr-FR'}
  };
- let streakShownFor=null;
+ // A milestone day, a streak freeze that saved the streak, and a streak that ended.
+ const STREAK_MORE={
+  tr:{mile:'KİLOMETRE TAŞI',freezeTitle:'Seri koruman devrede!',freeze:n=>'Dün ara verdin ama '+n+' günlük serin korundu. Bugün devam et!',lostTitle:'Serin sona erdi',lostNew:'Sorun değil, yeni serin başladı. Yarın da gel!',lostIdle:'Sorun değil. Bugün bir ders yap, yeni serin başlasın!'},
+  en:{mile:'MILESTONE',freezeTitle:'Streak freeze used!',freeze:n=>'You took yesterday off, but your '+n+'-day streak is safe. Keep going today!',lostTitle:'Your streak ended',lostNew:'No worries, a new streak has started. See you tomorrow!',lostIdle:'No worries. Do a lesson today to start a new streak!'},
+  ar:{mile:'إنجاز جديد',freezeTitle:'حماية السلسلة فعّالة!',freeze:n=>'أخذت استراحة أمس، لكن سلسلتك ('+n+' '+(n===1?'يوم':n<=10?'أيام':'يومًا')+') محفوظة. واصل اليوم!',lostTitle:'انتهت سلسلتك',lostNew:'لا بأس، بدأت سلسلة جديدة. نراك غدًا!',lostIdle:'لا بأس. أكمل درسًا اليوم لتبدأ سلسلة جديدة!'},
+  de:{mile:'MEILENSTEIN',freezeTitle:'Serienschutz eingesetzt!',freeze:n=>'Gestern hast du pausiert, aber deine Serie von '+n+(n===1?' Tag':' Tagen')+' ist sicher. Mach heute weiter!',lostTitle:'Deine Serie ist vorbei',lostNew:'Kein Problem, eine neue Serie hat begonnen. Bis morgen!',lostIdle:'Kein Problem. Mach heute eine Lektion und starte eine neue Serie!'},
+  fr:{mile:'NOUVEAU PALIER',freezeTitle:'Protection de série utilisée !',freeze:n=>'Tu as fait une pause hier, mais ta série de '+n+(n===1?' jour':' jours')+' est protégée. Continue aujourd’hui !',lostTitle:'Ta série est terminée',lostNew:'Pas de souci, une nouvelle série a commencé. À demain !',lostIdle:'Pas de souci. Fais une leçon aujourd’hui pour lancer une nouvelle série !'}
+ };
+ const STREAK_MILESTONES=[3,7,14,30,50,100,150,200,250,300,365,500,1000];
+ let streakShownFor=null,streakMilestoneAt=0;
+ const SNOWFLAKE='<svg class="ds-flame ds-ice" viewBox="0 0 120 140" aria-hidden="true"><g fill="none" stroke="#bfefff" stroke-width="9" stroke-linecap="round"><path d="M60 14v112M12 42l96 56M12 98l96-56"/><path d="M44 22l16 14 16-14M44 118l16-14 16 14M18 60l22-4-8-21M102 80l-22 4 8 21M18 80l22 4-8 21M102 60l-22-4 8-21" stroke-width="7"/></g></svg>';
  const isoDay=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
  const FLAME='<svg class="ds-flame" viewBox="0 0 120 140" aria-hidden="true"><defs><linearGradient id="dsFlameOut" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff5a1f"/><stop offset=".6" stop-color="#ff9a2e"/><stop offset="1" stop-color="#ffc34d"/></linearGradient><linearGradient id="dsFlameIn" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffd166"/><stop offset="1" stop-color="#fff4c2"/></linearGradient></defs>'
   +'<path fill="url(#dsFlameOut)" d="M60 4c6 22 30 34 36 62 7 33-12 66-36 70-24-4-43-37-36-70 3-14 11-22 16-32 2 10 6 16 12 20-2-20 2-36 8-50z"/>'
   +'<path fill="url(#dsFlameIn)" d="M61 60c4 14 18 22 20 40 2 20-9 32-21 34-12-2-23-14-21-34 1-9 6-14 9-20 2 6 4 9 8 11-1-12 1-22 5-31z"/></svg>';
- function streakMoment(from,to){
-  const say=STREAK_SAY[uiLang()],meta=appState().streakMeta||{},week=meta.weeklyActivity||{};
+ // variant: 'up' (a longer streak, bigger on milestone days), 'freeze' (a freeze kept it) or 'lost'.
+ function streakMoment(from,to,variant='up'){
+  const code=uiLang(),say=STREAK_SAY[code],more=STREAK_MORE[code],meta=appState().streakMeta||{},week=meta.weeklyActivity||{};
   const today=new Date(),first=new Date(today);first.setDate(today.getDate()-(today.getDay()+6)%7);
+  const yesterday=new Date(today);yesterday.setDate(today.getDate()-1);const freezeDays=new Set(meta.freezeDates||[]);
+  const mile=variant==='up'&&(STREAK_MILESTONES.includes(to)||Date.now()-streakMilestoneAt<120000);
   let names=null;try{names=new Intl.DateTimeFormat(say.locale,{weekday:'narrow'})}catch(_){}
-  const d=document.createElement('dialog');d.className='ds-streak';d.setAttribute('aria-labelledby','dsStreakTitle');
+  const d=document.createElement('dialog');d.className='ds-streak'+(mile?' ds-milestone':'')+(variant!=='up'?' ds-'+variant:'');d.setAttribute('aria-labelledby','dsStreakTitle');
   const card=document.createElement('div');card.className='ds-streak-card';
-  card.innerHTML='<div class="ds-flame-wrap">'+FLAME+'</div><div class="ds-count" aria-hidden="true"><span class="old"></span><span class="new"></span></div><h2 id="dsStreakTitle"></h2><p></p><div class="ds-week"></div><button type="button" class="ds-streak-cta"></button>';
+  card.innerHTML=(mile?'<div class="ds-ribbon"></div>':'')+'<div class="ds-flame-wrap">'+(variant==='freeze'?SNOWFLAKE:FLAME)+'</div><div class="ds-count" aria-hidden="true"><span class="old"></span><span class="new"></span></div><h2 id="dsStreakTitle"></h2><p></p><div class="ds-week"></div><button type="button" class="ds-streak-cta"></button>';
+  if(mile)card.querySelector('.ds-ribbon').textContent=more.mile;
   card.querySelector('.old').textContent=String(from);card.querySelector('.new').textContent=String(to);
-  card.querySelector('h2').textContent=say.title(to);card.querySelector('p').textContent=to===1?say.first:say.more;
+  card.querySelector('h2').textContent=variant==='freeze'?more.freezeTitle:variant==='lost'?more.lostTitle:say.title(to);
+  card.querySelector('p').textContent=variant==='freeze'?more.freeze(to):variant==='lost'?(to>=1?more.lostNew:more.lostIdle):to===1?say.first:say.more;
   const row=card.querySelector('.ds-week');
   for(let i=0;i<7;i++){
    const day=new Date(first);day.setDate(first.getDate()+i);const ago=Math.round((today-day)/864e5);
-   const on=ago>=0&&(ago<to||!!week[isoDay(day)]);
-   const cell=document.createElement('span');cell.className='ds-day'+(on?' on':'')+(ago===0?' today':'');
+   const ice=ago>0&&freezeDays.has(isoDay(day));
+   const on=!ice&&ago>=0&&((variant==='up'&&ago<to)||!!week[isoDay(day)]);
+   const cell=document.createElement('span');cell.className='ds-day'+(on?' on':'')+(ice?' ice':'')+(ago===0?' today':'');
    const label=document.createElement('b');label.textContent=names?names.format(day):'';cell.append(label,document.createElement('i'));row.append(cell);
   }
   const cta=card.querySelector('.ds-streak-cta');cta.textContent=say.cta;
@@ -346,8 +384,22 @@
   d.addEventListener('close',()=>{d.remove();scheduleHome()},{once:true});
   cta.addEventListener('click',()=>d.close());
   try{d.showModal()}catch(_){d.remove();return}
-  cta.focus({preventScroll:true});sfx('streak');
-  if(scale())setTimeout(()=>{if(d.open)sfx('pop')},1400);
+  cta.focus({preventScroll:true});
+  sfx(variant==='freeze'?'freeze':variant==='lost'?'review':mile?'gold':'streak');
+  if(scale()&&variant==='up')setTimeout(()=>{if(!d.open)return;sfx('pop');if(mile)confetti(d)},1400);
+ }
+ // On opening the app: a streak freeze used yesterday, or a streak that ended since last time.
+ // Each is shown once (remembered in this browser).
+ const remember={get:k=>{try{return localStorage.getItem(k)}catch(_){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(_){}}};
+ var streakChecked=false; // var: the home sync reads it before this part of the file runs
+ function checkStreakOnOpen(){
+  if(streakChecked||settling()||!homeVisible())return false;streakChecked=true;
+  const s=appState(),meta=s.streakMeta||{},cur=Number(s.streak??meta.currentStreak??0)||0;
+  const y=new Date();y.setDate(y.getDate()-1);const yIso=isoDay(y);
+  const last=Number(remember.get('ds-streak-last'));remember.set('ds-streak-last',String(cur));
+  if(cur>=1&&(meta.freezeDates||[]).includes(yIso)&&remember.get('ds-freeze-seen')!==yIso){remember.set('ds-freeze-seen',yIso);streakMoment(cur,cur,'freeze');return true}
+  if(last>=2&&cur<last&&cur<=1){streakMoment(last,cur,'lost');return true}
+  return false;
  }
  // The drawn chest replaces the CSS one (the weekly chest is seen from the other side). A ready
  // chest opens on the third tap, on the chest or its button; the first two shake it harder and
@@ -455,7 +507,7 @@
  // A chest that opens bursts into confetti as its loot appears, with the reward sound.
  function onChest(records){
   for(const r of records){
-   if(r.type==='childList'){for(const n of r.addedNodes){const c=n.matches?.('dialog.v670-reward,dialog.v623-ceremony')&&n.querySelector('.v670-card,.v623-card');if(c){dressChest(c);localizeChest(n);new MutationObserver(()=>localizeChest(n)).observe(n,{subtree:true,childList:true,characterData:true});chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}}continue}
+   if(r.type==='childList'){for(const n of r.addedNodes){if(n.matches?.('.gf-reward-toast,dialog.gf-reward-modal'))dressReward(n);const c=n.matches?.('dialog.v670-reward,dialog.v623-ceremony')&&n.querySelector('.v670-card,.v623-card');if(c){dressChest(c);localizeChest(n);new MutationObserver(()=>localizeChest(n)).observe(n,{subtree:true,childList:true,characterData:true});chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}}continue}
    const c=r.target,kind=chestKind(c);if(!kind||!c.classList.contains(kind.opened)||String(r.oldValue||'').split(/\s+/).includes(kind.opened))continue;
    c.querySelectorAll('.ds-chest-pips i').forEach(p=>p.classList.add('on'));
    // The ceremony plays its own unit / section fanfare; the small chests get the reward sound.
@@ -463,6 +515,46 @@
   }
  }
  const chestWatch=new MutationObserver(onChest);
+
+ // ---- Reward moments: quests, goals, badges, levels ----
+ // The engine shows quests, goals and streak milestones as a small toast and badges / levels as a
+ // modal; which one it is comes from the celebrate() call that queued it. A finished quest stamps
+ // its seal (gold, with confetti, for the day's set, the daily goal and the week); a badge or level
+ // drops in under turning rays with a shine and confetti. The toast for a streak milestone is
+ // hidden when the streak moment covers that day.
+ const rewardQueue=[];
+ const SEAL_KINDS=new Set(['quest_complete','quest_bundle','daily_all','goal_complete','weekly_complete']);
+ const GOLD_SEALS=new Set(['daily_all','goal_complete','weekly_complete']);
+ function watchCelebrate(){
+  const base=window.celebrate;if(typeof base!=='function'){setTimeout(watchCelebrate,300);return}
+  if(base.__dsWatched)return;
+  const watched=function(e){
+   try{if(e&&e.type){rewardQueue.push({type:e.type,title:String(e.title||'')});if(rewardQueue.length>16)rewardQueue.shift();if(e.type==='streak')streakMilestoneAt=Date.now()}}catch(_){}
+   return base.apply(this,arguments);
+  };
+  watched.__dsWatched=true;window.celebrate=watched;
+ }
+ function rewardKind(node){
+  const text=node.querySelector('b')?.textContent.trim()||'';
+  let i=rewardQueue.findIndex(x=>x.title&&text.toLocaleLowerCase('tr').includes(x.title.toLocaleLowerCase('tr')));
+  if(i<0)i=rewardQueue.findIndex(x=>node.matches('dialog')?['achievement','level_up','league_promotion'].includes(x.type):!['achievement','level_up','league_promotion'].includes(x.type));
+  return i<0?'':rewardQueue.splice(i,1)[0].type;
+ }
+ function dressReward(node){
+  const kind=rewardKind(node);node.dataset.dsKind=kind||'other';
+  if(node.matches('.gf-reward-toast')){
+   if(kind==='streak'&&(document.querySelector('dialog.ds-streak')||pendingCounts.has('streakTop'))){node.classList.add('ds-covered');return}
+   if(!SEAL_KINDS.has(kind)&&kind!=='streak')return;
+   node.classList.add('ds-seal');if(GOLD_SEALS.has(kind))node.classList.add('ds-seal-gold');
+   if(scale())setTimeout(()=>{if(!node.isConnected)return;sfx('stamp');if(GOLD_SEALS.has(kind))confetti(document.getElementById('phone')||document.body)},380);
+   return;
+  }
+  node.classList.add('ds-badge');
+  const medal=node.querySelector('.gf-reward-medal');
+  if(medal&&!node.querySelector('.ds-badge-rays')){const rays=document.createElement('span');rays.className='ds-badge-rays';rays.setAttribute('aria-hidden','true');medal.before(rays)}
+  if(scale())setTimeout(()=>{if(!node.open)return;sfx('level');confetti(node)},460);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watchCelebrate,{once:true});else watchCelebrate();
  function installChest(){
   const phone=document.getElementById('phone');if(!phone){setTimeout(installChest,300);return}
   chestWatch.observe(phone,{childList:true});chestWatch.observe(document.body,{childList:true});

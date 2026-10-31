@@ -509,3 +509,50 @@ html body #lesson #v9916MiniEnergy.ds-energy-dip{animation:dsCountDip calc(420ms
 @keyframes dsChoicePop{0%{transform:scale(1)}30%{transform:scale(.94)}65%{transform:scale(1.05)}100%{transform:scale(1)}}
 html body #v998Onboarding :is(.v998-choice,.v998-animal).selected{animation:dsChoicePop calc(360ms*var(--ds-m-s)) var(--ds-spring)!important}
 html body #v998Onboarding .v998-animal.selected img{animation:dsAliveTap calc(560ms*var(--ds-m-s)) var(--ds-spring) calc(80ms*var(--ds-m-s))}
+
+/* ---------- Reward moments ----------
+   Seals: a finished quest's tick slams down like a stamp with a shock ring (gold for the day's set,
+   the daily goal and the week). Badges and levels drop in spinning under turning rays, a shine
+   sweeps across, then the text and button follow. Earned XP flies to the header as gold stars. */
+@keyframes dsStamp{0%{transform:scale(2.6) rotate(-28deg);opacity:0}55%{transform:scale(.86) rotate(4deg);opacity:1}75%{transform:scale(1.08) rotate(-1deg)}100%{transform:none;opacity:1}}
+@keyframes dsShock{0%{box-shadow:0 0 0 0 rgba(63,215,173,.7)}100%{box-shadow:0 0 0 18px rgba(63,215,173,0)}}
+@keyframes dsShockGold{0%{box-shadow:0 0 0 0 rgba(255,205,90,.8)}100%{box-shadow:0 0 0 20px rgba(255,205,90,0)}}
+@keyframes dsBadgeIn{0%{transform:translateY(-40px) scale(.3) rotate(-200deg);opacity:0}60%{transform:translateY(6px) scale(1.12) rotate(10deg);opacity:1}80%{transform:scale(.96) rotate(-3deg)}100%{transform:none;opacity:1}}
+@keyframes dsRaysTurn{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes dsRaysIn{from{opacity:0;scale:.4}to{opacity:1;scale:1}}
+@keyframes dsShine{0%{background-position:-160% 0}100%{background-position:260% 0}}
+html body .gf-reward-toast.ds-seal .gf-reward-medal{border-radius:50%;animation:dsStamp calc(520ms*var(--ds-m-s)) var(--ds-spring) calc(160ms*var(--ds-m-s)) both,dsShock calc(620ms*var(--ds-m-s)) var(--ds-out) calc(440ms*var(--ds-m-s)) both!important}
+html body .gf-reward-toast.ds-seal-gold .gf-reward-medal{background:linear-gradient(180deg,#ffe39a,#e0a83a)!important;color:#4a2a05!important;border-color:#ffe9b5!important;animation:dsStamp calc(520ms*var(--ds-m-s)) var(--ds-spring) calc(160ms*var(--ds-m-s)) both,dsShockGold calc(700ms*var(--ds-m-s)) var(--ds-out) calc(440ms*var(--ds-m-s)) both!important}
+html body .gf-reward-toast.ds-covered{visibility:hidden!important}
+html body dialog.gf-reward-modal.ds-badge{overflow:visible}
+html body dialog.gf-reward-modal.ds-badge .ds-badge-rays{position:absolute;left:50%;top:96px;width:300px;height:300px;border-radius:50%;pointer-events:none;z-index:0;transform:translate(-50%,-50%);
+ background:repeating-conic-gradient(from 0deg,rgba(255,214,120,.22) 0 9deg,transparent 9deg 22deg);-webkit-mask-image:radial-gradient(circle,#000 22%,transparent 66%);mask-image:radial-gradient(circle,#000 22%,transparent 66%);
+ animation:dsRaysIn calc(500ms*var(--ds-m-s)) var(--ds-out) calc(300ms*var(--ds-m-s)) both,dsRaysTurn calc(14s*var(--ds-m-s)) linear infinite}
+html body dialog.gf-reward-modal.ds-badge>:not(.ds-badge-rays){position:relative;z-index:1}
+html body dialog.gf-reward-modal.ds-badge .gf-reward-medal{position:relative;animation:dsBadgeIn calc(700ms*var(--ds-m-s)) var(--ds-spring) calc(80ms*var(--ds-m-s)) both!important}
+html body dialog.gf-reward-modal.ds-badge .gf-reward-medal::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%) no-repeat;background-size:60% 100%;background-position:-160% 0;animation:dsShine calc(900ms*var(--ds-m-s)) var(--ds-out) calc(780ms*var(--ds-m-s)) both}
+html body dialog.gf-reward-modal.ds-badge>div{animation:dsRise var(--ds-m-sheet) var(--ds-out) calc(560ms*var(--ds-m-s)) both}
+html body dialog.gf-reward-modal.ds-badge>.gf-reward-close{animation:dsCardPop calc(420ms*var(--ds-m-s)) var(--ds-spring) calc(720ms*var(--ds-m-s)) both}
+html body dialog.gf-reward-modal.ds-badge .ds-confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.ds-xp-orb{position:fixed;z-index:2147482000;width:16px;height:16px;pointer-events:none;background:linear-gradient(180deg,#fff1b8,#f2b632);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 6px rgba(255,200,80,.8))}
+/* Streak variants: a milestone (gold, with a ribbon and confetti), a freeze (ice) and an ended streak (quiet grey). */
+dialog.ds-streak .ds-ribbon{padding:6px 16px;border-radius:999px;font:900 12px/1 var(--ds-font);letter-spacing:.14em;color:#4a2a05;background:linear-gradient(180deg,#ffe39a,#e0a83a);box-shadow:0 4px 0 #a8701c,0 0 18px rgba(255,200,80,.45);animation:dsCardPop calc(440ms*var(--ds-m-s)) var(--ds-spring) calc(500ms*var(--ds-m-s)) both}
+dialog.ds-streak.ds-milestone .ds-streak-card{background:radial-gradient(60% 40% at 50% 34%,rgba(255,205,90,.3),transparent 70%)}
+dialog.ds-streak.ds-milestone .ds-flame{filter:drop-shadow(0 10px 26px rgba(255,190,60,.75)) saturate(1.25)}
+dialog.ds-streak.ds-milestone .ds-count{color:#ffd65a}
+dialog.ds-streak.ds-freeze .ds-streak-card{background:radial-gradient(60% 40% at 50% 34%,rgba(120,200,255,.22),transparent 70%)}
+dialog.ds-streak.ds-freeze .ds-flame-wrap::before{background:radial-gradient(circle,rgba(140,210,255,.5),transparent 65%)}
+dialog.ds-streak.ds-freeze .ds-flame{animation:none;filter:drop-shadow(0 8px 20px rgba(120,200,255,.6))}
+dialog.ds-streak.ds-freeze .ds-count{color:#bfefff;text-shadow:0 4px 0 #2b6a8f}
+dialog.ds-streak.ds-freeze .ds-count .old{display:none}
+dialog.ds-streak.ds-freeze .ds-count .new{animation-delay:calc(400ms*var(--ds-m-s))}
+dialog.ds-streak.ds-freeze h2{color:#e2f6ff}
+dialog.ds-streak.ds-freeze .ds-streak-cta{background:linear-gradient(180deg,#bfefff,#6cc6f0);color:#08324a;box-shadow:0 5px 0 #2f86b4}
+dialog.ds-streak .ds-day.ice i{background:linear-gradient(180deg,#d8f5ff,#7cc8f2);border-color:#e6f8ff;box-shadow:0 0 12px rgba(124,200,242,.55)}
+dialog.ds-streak.ds-lost .ds-streak-card{background:radial-gradient(60% 40% at 50% 34%,rgba(160,170,180,.14),transparent 70%)}
+dialog.ds-streak.ds-lost .ds-flame{animation:none;filter:grayscale(1) brightness(.6)}
+dialog.ds-streak.ds-lost .ds-flame-wrap::before{opacity:.25;animation:none}
+dialog.ds-streak.ds-lost .ds-count{color:#c8cfd6;text-shadow:0 4px 0 #4b5560}
+dialog.ds-streak.ds-lost h2{color:#e8ecef}
+:root.v5-reduce body dialog.gf-reward-modal .ds-badge-rays{animation:none!important;opacity:1}
+@media (prefers-reduced-motion:reduce){html body dialog.gf-reward-modal .ds-badge-rays{animation:none!important;opacity:1}}

@@ -3,7 +3,7 @@
    bell / pluck / thud voices with a short room and a compressor, synthesised in the browser (no
    audio files). Kinds the engine plays: click, correct (+2/+3), combo, combo3/5/7, wrong, review,
    complete, perfect, unlock, unit, section, gold, level, reward. Kinds the motion layer adds:
-   select, pop, tick, stamp, pathUnlock, streak, start, chestTap1/2, spend, energyOut. Opening a chest plays chest in place of unlock. */
+   select, pop, tick, stamp, pathUnlock, streak, start, chestTap1/2, spend, energyOut, freeze. Opening a chest plays chest in place of unlock. */
 (()=>{
  'use strict';
  if(window.DEEN_DS_SOUND)return;
@@ -110,6 +110,7 @@
   chestTap2:()=>{thud(174.61,0,.2,.28);pluck(N.A5,.02,.1,.12);sparkle(.08,3,.03)},
   spend:()=>{pluck(N.E6,0,.07,.08);pluck(N.B5,.06,.09,.07)},
   energyOut:()=>{bell(N.G5,.05,.4,.1);bell(N.E5,.2,.45,.1);thud(196,.36,.3,.16)},
+  freeze:()=>{[N.E6,N.G6,N.C7].forEach((f,i)=>bell(f,i*.08,.6,.09));sparkle(.2,8,.04)},
   streak:()=>{whoosh(0,.5,.08,220,1900);[N.C5,N.G5,N.C6,N.E6].forEach((f,i)=>bell(f,.12+i*.09,.6,.14));sparkle(.48,7,.045)},
   chest:()=>{thud(130.81,0,.26,.3);whoosh(.06,.4,.07,300,2400);[N.C6,N.E6,N.G6,N.C7].forEach((f,i)=>bell(f,.2+i*.06,.45,.1));sparkle(.42,9,.05)},
   level:()=>{[N.C5,N.G5,N.C6,N.E6].forEach((f,i)=>bell(f,i*.1,.6,.15));sparkle(.45,8,.045)},
