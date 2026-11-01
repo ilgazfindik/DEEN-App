@@ -1,5 +1,5 @@
 /* Telaffuz Atölyesi (pronunciation workshop) — Qur'an > Arabic path.
-   Lesson 1: the tongue-tip letters ث ذ ظ. Lesson 2: the throat letters ح خ ه. A written introduction only: no audio and no synthetic
+   Lesson 1: the tongue-tip letters ث ذ ظ. Lesson 2: the throat letters ح خ ه. Lesson 3: heavy and light pairs ص–س ط–ت ض–د. A written introduction only: no audio and no synthetic
    recitation. The mahraj description follows the common tajwid teaching and still needs review by
    a qualified teacher before it is treated as final.
    Independent of the 27-lesson chain: it has its own store, is not part of ALL_LESSONS and never
@@ -16,8 +16,8 @@
   return LANGS.includes(code)?code:'tr';
  }
 
- const GLYPH={tha:'ث',dhal:'ذ',zza:'ظ',sin:'س',sad:'ص',zay:'ز',hha:'ح',kha:'خ',ha:'ه',kaf:'ك'};
- const FALLBACK_NAME={tha:'Se',dhal:'Zel',zza:'Zı',sin:'Sin',sad:'Sad',zay:'Ze',hha:'Ha',kha:'Hı',ha:'He',kaf:'Kef'};
+ const GLYPH={tha:'ث',dhal:'ذ',zza:'ظ',sin:'س',sad:'ص',zay:'ز',hha:'ح',kha:'خ',ha:'ه',kaf:'ك',tta:'ط',ta:'ت',dad:'ض',dal:'د'};
+ const FALLBACK_NAME={tha:'Se',dhal:'Zel',zza:'Zı',sin:'Sin',sad:'Sad',zay:'Ze',hha:'Ha',kha:'Hı',ha:'He',kaf:'Kef',tta:'Tı',ta:'Te',dad:'Dad',dal:'Dal'};
  function letterName(id,code){
   try{const n=window.DEEN_ARABIC_LETTERS?.get?.(id)?.names?.[code];if(n)return n}catch(_){}
   return FALLBACK_NAME[id];
@@ -209,6 +209,63 @@
    qThick:'Laquelle se prononce lourde ?',qBreath:'Quelle lettre est un souffle léger, le plus proche du « h » ?',qNot:'Laquelle n’est PAS une lettre de la gorge ?',qWord:'Quelle lettre de la gorge est dans ce mot ?',
    wordMeanings:{'hamd':'louange','khalaqa':'il a créé','huwa':'il'}}
  };
+ const THICK={
+  tr:{entry:'Telaffuz Atölyesi',entrySub:'kalın ve ince harfler',title:'Kalın ve ince harfler',
+   lead:'Bazı harflerin kalın ve ince bir ikizi vardır: ص–س, ط–ت, ض–د. Kalın harflerde dilin arkası damağa doğru yükselir ve ağız dolu gibi bir ses çıkar. İnce harflerde dil düz kalır.',
+   tip:'Türkçede ص ط ض gibi kalın ünsüzler yok. Dilin arkasını yukarı kaldırarak oku; “s”, “t”, “d” gibi okuma.',
+   right:'Doğru.',
+   hintPair:'İkisi de aynı yerden çıkar. Fark: kalın harfte dilin arkası yükselir, ince harfte dil düz kalır.',
+   hintDad:'ض dilin yan kenarından, د dil ucundan çıkar. Ayrıca ض kalın, د incedir.',
+   hintOther:'Kalın harflerde dilin arkası yükselir ve ağız dolu gibi bir ses çıkar; ince harflerde dil düz kalır.',
+   hintMatch:'Önce harfin kalın mı ince mi olduğunu düşün, sonra aynı yerden çıkan ince harfi bul: ص←س, ط←ت, ض←د.',
+   hintWord:'Kelimedeki kalın harfi yeniden ara.',
+   qThickPick:'Hangisi kalın okunur?',qThinPick:'Hangisi ince okunur?',qPairSad:'ص harfinin ince karşılığı hangisi?',qPairTta:'ط harfinin ince karşılığı hangisi?',qPairDad:'ض harfinin ince karşılığı hangisi?',qWordThick:'Kelimedeki kalın harf hangisi?',
+   wordMeanings:{'samad':'Samed (herkesin muhtaç olduğu)','ard':'yer, dünya','tur':'Tûr (dağ)'}},
+  en:{entry:'Pronunciation Workshop',entrySub:'heavy and light letters',title:'Heavy and light letters',
+   lead:'Some letters have a heavy and a light twin: ص–س, ط–ت, ض–د. For heavy letters the back of the tongue rises toward the palate and the sound is full. For light letters the tongue stays flat.',
+   tip:'Many languages have no heavy consonants like ص ط ض. Raise the back of the tongue; do not read them as “s”, “t” or “d”.',
+   right:'Correct.',
+   hintPair:'Both come from the same place. Difference: for the heavy letter the back of the tongue rises; for the light one the tongue stays flat.',
+   hintDad:'ض comes from the side of the tongue, د from the tongue tip. Also ض is heavy and د is light.',
+   hintOther:'For heavy letters the back of the tongue rises and the sound is full; for light letters the tongue stays flat.',
+   hintMatch:'First decide whether the letter is heavy or light, then find the light letter from the same place: ص→س, ط→ت, ض→د.',
+   hintWord:'Look again for the heavy letter in the word.',
+   qThickPick:'Which one is read heavy?',qThinPick:'Which one is read light?',qPairSad:'Which is the light counterpart of ص?',qPairTta:'Which is the light counterpart of ط?',qPairDad:'Which is the light counterpart of ض?',qWordThick:'Which heavy letter is in this word?',
+   wordMeanings:{'samad':'As-Samad (the One all depend on)','ard':'earth','tur':'Mount Tur'}},
+  ar:{entry:'ورشة النطق',entrySub:'التفخيم والترقيق',title:'الحروف المفخّمة والمرقّقة',
+   lead:'لبعض الحروف توأم مفخّم وآخر مرقّق: ص–س، ط–ت، ض–د. في المفخّمة يرتفع مؤخر اللسان نحو الحنك ويمتلئ الفم بالصوت، وفي المرقّقة يبقى اللسان منبسطًا.',
+   tip:'لا تنطق ص ط ض كالسين والتاء والدال؛ ارفع مؤخر اللسان.',
+   right:'صحيح.',
+   hintPair:'يخرجان من الموضع نفسه. الفرق: في المفخّم يرتفع مؤخر اللسان، وفي المرقّق يبقى منبسطًا.',
+   hintDad:'الضاد تخرج من حافة اللسان والدال من طرفه. والضاد مفخّمة والدال مرقّقة.',
+   hintOther:'في المفخّمة يرتفع مؤخر اللسان ويمتلئ الفم بالصوت؛ وفي المرقّقة يبقى اللسان منبسطًا.',
+   hintMatch:'حدّد أولاً هل الحرف مفخّم أم مرقّق، ثم ابحث عن المرقّق من الموضع نفسه: ص←س، ط←ت، ض←د.',
+   hintWord:'ابحث مرة أخرى عن الحرف المفخّم في الكلمة.',
+   qThickPick:'أي حرف يُنطق مفخّمًا؟',qThinPick:'أي حرف يُنطق مرقّقًا؟',qPairSad:'ما المقابل المرقّق للصاد (ص)؟',qPairTta:'ما المقابل المرقّق للطاء (ط)؟',qPairDad:'ما المقابل المرقّق للضاد (ض)؟',qWordThick:'أي حرف مفخّم في هذه الكلمة؟',
+   wordMeanings:{'samad':'الصمد','ard':'الأرض','tur':'جبل الطور'}},
+  de:{entry:'Aussprache-Werkstatt',entrySub:'dunkle und helle Buchstaben',title:'Dunkle und helle Buchstaben',
+   lead:'Manche Buchstaben haben einen dunklen und einen hellen Zwilling: ص–س, ط–ت, ض–د. Bei dunklen Buchstaben hebt sich der hintere Zungenteil zum Gaumen, der Klang ist voll. Bei hellen bleibt die Zunge flach.',
+   tip:'Dunkle Konsonanten wie ص ط ض gibt es im Deutschen nicht. Hebe den hinteren Zungenteil; sprich sie nicht wie „s“, „t“ oder „d“.',
+   right:'Richtig.',
+   hintPair:'Beide entstehen an derselben Stelle. Unterschied: beim dunklen Buchstaben hebt sich der hintere Zungenteil, beim hellen bleibt die Zunge flach.',
+   hintDad:'ض entsteht am Zungenrand, د an der Zungenspitze. Außerdem ist ض dunkel und د hell.',
+   hintOther:'Bei dunklen Buchstaben hebt sich der hintere Zungenteil und der Klang ist voll; bei hellen bleibt die Zunge flach.',
+   hintMatch:'Entscheide erst, ob der Buchstabe dunkel oder hell ist, und suche dann den hellen von derselben Stelle: ص→س, ط→ت, ض→د.',
+   hintWord:'Suche den dunklen Buchstaben im Wort noch einmal.',
+   qThickPick:'Welcher wird dunkel gesprochen?',qThinPick:'Welcher wird hell gesprochen?',qPairSad:'Welcher ist das helle Gegenstück von ص?',qPairTta:'Welcher ist das helle Gegenstück von ط?',qPairDad:'Welcher ist das helle Gegenstück von ض?',qWordThick:'Welcher dunkle Buchstabe steckt in diesem Wort?',
+   wordMeanings:{'samad':'As-Samad (auf den alle angewiesen sind)','ard':'Erde','tur':'der Berg Tur'}},
+  fr:{entry:'Atelier de prononciation',entrySub:'lettres lourdes et légères',title:'Lettres lourdes et légères',
+   lead:'Certaines lettres ont un jumeau lourd et un léger : ص–س, ط–ت, ض–د. Pour les lourdes, l’arrière de la langue monte vers le palais et le son est plein. Pour les légères, la langue reste à plat.',
+   tip:'Le français n’a pas de consonnes lourdes comme ص ط ض. Lève l’arrière de la langue ; ne les lis pas comme « s », « t » ou « d ».',
+   right:'Correct.',
+   hintPair:'Les deux sortent du même endroit. Différence : pour la lourde, l’arrière de la langue monte ; pour la légère, la langue reste à plat.',
+   hintDad:'ض sort du côté de la langue, د de la pointe. De plus, ض est lourde et د légère.',
+   hintOther:'Pour les lettres lourdes, l’arrière de la langue monte et le son est plein ; pour les légères, la langue reste à plat.',
+   hintMatch:'Décide d’abord si la lettre est lourde ou légère, puis cherche la légère du même endroit : ص→س, ط→ت, ض→د.',
+   hintWord:'Cherche à nouveau la lettre lourde dans le mot.',
+   qThickPick:'Laquelle se prononce lourde ?',qThinPick:'Laquelle se prononce légère ?',qPairSad:'Quelle est la jumelle légère de ص ?',qPairTta:'Quelle est la jumelle légère de ط ?',qPairDad:'Quelle est la jumelle légère de ض ?',qWordThick:'Quelle lettre lourde est dans ce mot ?',
+   wordMeanings:{'samad':'As-Samad (Celui dont tous dépendent)','ard':'terre','tur':'le mont Tûr'}}
+ };
  const pairKey=(a,b)=>[a,b].sort().join('|');
  const LESSONS=Object.freeze([
   {id:'tongue-tip',glyphs:'ث  ذ  ظ',letters:['tha','dhal','zza'],extra:null,
@@ -247,6 +304,24 @@
     if(q.word)return 'hintWord';
     const k=pairKey(q.answer,chosen);
     return k==='ha|hha'?'hintHaHha':k==='hha|kha'?'hintHhaKha':'hintHaKha';
+   }}
+  ,{id:'thick-thin',glyphs:'ص  ط  ض',letters:['sad','tta','dad','sin','ta','dal'],extra:THICK,
+   tags:{sad:['thick'],tta:['thick'],dad:['thick'],sin:['thin'],ta:['thin'],dal:['thin']},
+   questions:[
+    {id:'k-1',prompt:'qThickPick',options:['sin','sad'],answer:'sad'},
+    {id:'k-2',prompt:'qThinPick',options:['tta','ta'],answer:'ta'},
+    {id:'k-3',prompt:'qThickPick',options:['dal','dad'],answer:'dad'},
+    {id:'k-4',prompt:'qPairSad',pair:true,options:['ta','sin','dal'],answer:'sin'},
+    {id:'k-5',prompt:'qPairTta',pair:true,options:['sin','ta','dal'],answer:'ta'},
+    {id:'k-6',prompt:'qPairDad',pair:true,options:['dal','ta','sin'],answer:'dal'},
+    {id:'w-samad',prompt:'qWordThick',word:'ٱلصَّمَدُ',meaning:'samad',options:['sin','sad','ta'],answer:'sad'},
+    {id:'w-ard',prompt:'qWordThick',word:'ٱلْأَرْضِ',meaning:'ard',options:['dal','dad','sin'],answer:'dad'},
+    {id:'w-tur',prompt:'qWordThick',word:'ٱلطُّورِ',meaning:'tur',options:['ta','tta','sad'],answer:'tta'}],
+   hint(q,chosen){
+    if(q.word)return 'hintWord';
+    if(q.pair)return 'hintMatch';
+    const k=pairKey(q.answer,chosen);
+    return k==='dad|dal'?'hintDad':(k==='sad|sin'||k==='ta|tta')?'hintPair':'hintOther';
    }}
  ]);
  const lessonById=id=>LESSONS.find(l=>l.id===id)||LESSONS[0];
@@ -397,6 +472,6 @@
   decorateLanding();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
- window.DEEN_MAKHARIJ=Object.freeze({version:'makharij-v2',lessons:LESSONS,pass:PASS,strings:C,throat:THROAT,decorate:decorateLanding,open:openLesson,
+ window.DEEN_MAKHARIJ=Object.freeze({version:'makharij-v2',lessons:LESSONS,pass:PASS,strings:C,decorate:decorateLanding,open:openLesson,
   status:()=>({lessons:readStore(),unlocked:LESSONS.map((l,i)=>lockReason(i)===0),active:!!S,lesson:S?S.lesson.id:null,step:S?S.step:null})});
 })();
