@@ -2229,6 +2229,27 @@
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.v2Session=null;state.lessonIndex=index;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.listenHeard=false;state.listeningBusy=false;
   return show('group');
  }
+ // Letter lessons open as a card-first lesson (each new letter is taught, then asked about at once)
+ // when that layer is loaded; the result is saved here exactly like a finished written lesson.
+ function cardLesson(index){
+  index=Number(index);const lesson=ALL_LESSONS[index];
+  if(!window.DEEN_ARABIC_CARDS||!lesson||lesson.kind!=='recognition'||!isUnlocked(index))return false;
+  LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();
+  state.v2Session=null;state.lessonIndex=index;state.lessonMissed=[];state.complete=false;
+  let correctSeen=false;
+  const opened=window.DEEN_ARABIC_CARDS.open({lessonIndex:index,letterIds:lesson.letterIds.slice(),
+   known:LESSONS.slice(0,index).flatMap(x=>x.letterIds),lang:lang(),
+   onAnswer:(_,ok)=>{if(ok&&!correctSeen){correctSeen=true;first10Record('correct')}},
+   onDone:result=>{
+    state.lessonIndex=index;state.v2Session=null;state.lessonMissed=(result.missedIds||[]).slice(0,20);state.complete=true;
+    saveCompleted();saveLessonOutcome();dailyMark('lesson',lesson.id);first10Record('finished');
+   },
+   onClose:()=>show('arabic'),
+   onExit:()=>first10Record('exit')});
+  if(opened)first10Record('lesson');
+  return opened;
+ }
+ const openLesson=index=>cardLesson(index)||selectGroup(index);
  function start(){
   if(!isUnlocked(state.lessonIndex))return false;
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();state.audioPreviewOpen=false;state.audioStatus='';state.selectedLetterId=null;state.question=0;state.correct=false;state.feedback='';state.pieces=[];state.lessonMissed=[];state.complete=false;state.listenHeard=false;state.listeningBusy=false;
@@ -2359,19 +2380,19 @@
    const action=b.dataset.qpathAction;
    if(['home','arabic','surah'].includes(action))show(action);
    else if(action==='group'){
-    if(b.dataset.lessonIndex!==undefined)selectGroup(b.dataset.lessonIndex);
+    if(b.dataset.lessonIndex!==undefined)openLesson(b.dataset.lessonIndex);
     else show('group'); // lesson back button: preserve selected lesson
    }
    else if(action==='weekly')show('weekly');
    else if(action==='daily')show('daily');
    else if(action==='dailyMinutes'){if(setDailyMinutes(b.dataset.minutes))update()}
-   else if(action==='dailyLesson')selectGroup(b.dataset.lessonIndex);
+   else if(action==='dailyLesson')openLesson(b.dataset.lessonIndex);
    else if(action==='mastery'){state.masteryFilter='all';show('mastery')}
    else if(action==='masteryFilter'){
     if(['all','due','weak','new'].includes(b.dataset.filter)){state.masteryFilter=b.dataset.filter;update()}
    }
-   else if(action==='masteryContinue')selectGroup(b.dataset.lessonIndex);
-   else if(action==='nextGroup')selectGroup(state.lessonIndex+1);
+   else if(action==='masteryContinue')openLesson(b.dataset.lessonIndex);
+   else if(action==='nextGroup')openLesson(state.lessonIndex+1);
    else if(action==='start')start();
    else if(action==='v2Choice')v2Choose(b.dataset.choiceId);
    else if(action==='v2Check')v2Check();
@@ -2444,5 +2465,5 @@
   });
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
- window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex),phraseCompletedLessons:phraseCompleted().length,phraseTotalLessons:PHRASE_LESSONS.length,phraseAvailable:isUnlocked(PHRASES.startIndex),assessment:assessmentSummary(),reviewDue:reviewDue().length,reviewTracked:Object.keys(reviewRead()).length,reviewWeak:reviewWeak().length,weekly:weeklySnapshot(),weeklyGoals:weeklyGoalSnapshot(),weeklyBadges:weeklyBadges(),remediation:(p=>({key:p.key,total:p.total,complete:p.complete,remaining:p.remaining,topics:p.topics.map(t=>({id:t.id,total:t.total,done:t.done})),comparison:remedyComparison()}))(remedyPlan()),checkpoint:{eligible:checkpointEligible(),completedWritten:writtenCompletedCount(),last:checkpointLatest(),attemptCount:checkpointRead().attempts.length},foundation:foundationSnapshot(),adaptive:adaptiveSnapshot(),daily:dailySnapshot(),mastery:((s)=>({total:s.total,practiced:s.practiced,due:s.due,weak:s.weak,levels:s.levels,lessonCompleted:s.lessonCompleted,lessonTotal:s.lessonTotal}))(masterySnapshot()),patternCompletedLessons:patternCompleted().length,patternTotalLessons:PATTERN_LESSONS.length,patternAvailable:isUnlocked(PATTERNS.startIndex)}),version:'quran-arabic-paths-phase17'});
+ window.DEEN_QURAN_PATHS=Object.freeze({enterArabic:()=>show('arabic'),openLesson,openSurahs:()=>show('surah'),home:()=>show('home'),selectGroup,start,ensure,refresh:update,status:()=>({view:state.view,lessonIndex:state.lessonIndex,lessonAvailable:true,complete:savedComplete(),completedLessons:completed().length,totalLessons:LESSONS.length,letterCount:LETTERS.length,lessonLetters:groupLetters().map(x=>x.id),vowelCompletedLessons:vowelCompleted().length,vowelTotalLessons:PHONIC_LESSONS.length,phonicsAudioReady:false,readingCompletedLessons:readingCompleted().length,readingTotalLessons:READING_LESSONS.length,readingAudioReady:false,wordCompletedLessons:wordCompleted().length,wordTotalLessons:WORD_LESSONS.length,wordAudioReady:false,listeningCompletedLessons:listeningCompleted().length,listeningTotalLessons:LISTENING_LESSONS.length,listeningApprovedClips:LISTENING.approvedCount(),listeningRequiredClips:LISTENING.requiredCount,overallLessonCount:ALL_LESSONS.length,meaningCompletedLessons:meaningCompleted().length,meaningTotalLessons:MEANING_LESSONS.length,meaningAvailable:isUnlocked(MEANING.startIndex),phraseCompletedLessons:phraseCompleted().length,phraseTotalLessons:PHRASE_LESSONS.length,phraseAvailable:isUnlocked(PHRASES.startIndex),assessment:assessmentSummary(),reviewDue:reviewDue().length,reviewTracked:Object.keys(reviewRead()).length,reviewWeak:reviewWeak().length,weekly:weeklySnapshot(),weeklyGoals:weeklyGoalSnapshot(),weeklyBadges:weeklyBadges(),remediation:(p=>({key:p.key,total:p.total,complete:p.complete,remaining:p.remaining,topics:p.topics.map(t=>({id:t.id,total:t.total,done:t.done})),comparison:remedyComparison()}))(remedyPlan()),checkpoint:{eligible:checkpointEligible(),completedWritten:writtenCompletedCount(),last:checkpointLatest(),attemptCount:checkpointRead().attempts.length},foundation:foundationSnapshot(),adaptive:adaptiveSnapshot(),daily:dailySnapshot(),mastery:((s)=>({total:s.total,practiced:s.practiced,due:s.due,weak:s.weak,levels:s.levels,lessonCompleted:s.lessonCompleted,lessonTotal:s.lessonTotal}))(masterySnapshot()),patternCompletedLessons:patternCompleted().length,patternTotalLessons:PATTERN_LESSONS.length,patternAvailable:isUnlocked(PATTERNS.startIndex)}),version:'quran-arabic-paths-phase17'});
 })();
