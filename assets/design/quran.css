@@ -177,3 +177,71 @@ html body #leagueScreenBody .dsm-option-glyph{font-size:34px;line-height:1.2}
 html body #leagueScreenBody .dsm-option-name{font-size:var(--ds-fs-sm)}
 html body #leagueScreenBody .dsm-option.is-wrong{border-color:#e5876f!important}
 @media (max-width:360px){html body #leagueScreenBody .dsm-letter-glyph{font-size:36px}}
+
+/* Arabic path as one winding path: unit banners and round lesson nodes (the engine's own buttons). */
+html body #leagueScreenBody .dsq-pathed>.deen-path-muted:not(.deen-path-warning),
+html body #leagueScreenBody .dsq-pathed>.deen-path-first10,
+html body #leagueScreenBody .dsq-pathed>.deen-path-warning,
+html body #leagueScreenBody .dsq-pathed>.dsq-heading-lessons{display:none!important}
+html body #leagueScreenBody .dsq-pathed>.dsq-heading-plan{order:50}
+html body #leagueScreenBody .dsq-pathed>.deen-path-mastery-teaser,html body #leagueScreenBody .dsq-pathed>.deen-path-daily-teaser,html body #leagueScreenBody .dsq-pathed>.deen-path-weekly-link{order:51}
+html body #leagueScreenBody .dsq-pathed>.dsq-heading-practice{order:60}
+html body #leagueScreenBody .dsq-pathed>.deen-path-foundation-review-section,html body #leagueScreenBody .dsq-pathed>.deen-path-checkpoint-section,html body #leagueScreenBody .dsq-pathed>.deen-path-spaced-section{order:61}
+html body #leagueScreenBody .dsq-pathed>.dsq-unit{order:10}
+html body #leagueScreenBody .dsq-pathed>.deen-path-course-grid:not(#dsq-x),
+html body #leagueScreenBody .dsq-pathed>section.dsq-unit-section:not(#dsq-x){display:flex!important;flex-direction:column!important;align-items:center!important;gap:30px!important;padding:8px 0 18px!important;background:none!important;border:0!important;box-shadow:none!important}
+html body #leagueScreenBody .dsq-pathed>section.dsq-unit-section:not(#dsq-x)>:not(.dsq-node):not(.dsq-unit){display:none!important}
+html body #leagueScreenBody .dsq-pathed>section.dsq-unit-section:not(#dsq-x)>.dsq-unit{align-self:stretch;margin-bottom:4px!important}
+html body #leagueScreenBody .dsq-pathed .dsq-unit{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-radius:20px;background:linear-gradient(135deg,#127a63,#0d5a52);color:#eaf6f2;box-shadow:0 5px 0 #0a3f39}
+html body #leagueScreenBody .dsq-pathed .dsq-unit.is-locked{background:#0f2a2e;box-shadow:0 5px 0 #0a1d20;border:1px solid rgba(214,255,240,.08)}
+html body #leagueScreenBody .dsq-pathed .dsq-unit-copy{display:grid;gap:2px;min-width:0}
+html body #leagueScreenBody .dsq-pathed .dsq-unit small{font-size:11.5px;font-weight:900;letter-spacing:.12em;opacity:.78}
+html body #leagueScreenBody .dsq-pathed .dsq-unit b{font-size:18px;font-weight:900;line-height:1.25}
+html body #leagueScreenBody .dsq-pathed .dsq-unit-glyphs{font-size:22px;white-space:nowrap;opacity:.9;flex:none}
+html body #leagueScreenBody .dsq-pathed .dsq-unit.is-locked b,html body #leagueScreenBody .dsq-pathed .dsq-unit.is-locked .dsq-unit-glyphs{opacity:.5}
+/* Loose workshop nodes sit directly in the landing grid: centre them like a path column. */
+html body #leagueScreenBody .dsq-pathed>.dsm-entry.dsq-node{order:10;justify-self:center!important;margin-block:4px 14px!important}
+html body #leagueScreenBody .dsq-pathed .dsq-node{all:unset;position:relative;box-sizing:border-box;display:flex!important;flex-direction:column!important;align-items:center!important;gap:10px!important;width:auto!important;min-height:0!important;padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important;opacity:1!important;cursor:pointer;transform:translateX(var(--dsq-dx,0px));-webkit-tap-highlight-color:transparent}
+html[dir="rtl"] body #leagueScreenBody .dsq-pathed .dsq-node{transform:translateX(calc(var(--dsq-dx,0px) * -1))}
+html body #leagueScreenBody .dsq-pathed .dsq-node:disabled{cursor:default}
+html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-item-top{order:2;display:block!important}
+html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-status,
+html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-item-foot,
+html body #leagueScreenBody .dsq-pathed .dsq-node .dsm-entry-sub,
+html body #leagueScreenBody .dsq-pathed .dsq-node .dsm-entry-badge{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}
+html body #leagueScreenBody .dsq-pathed .dsq-node .dsm-entry-copy{order:2;display:block!important}
+html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-number,
+html body #leagueScreenBody .dsq-pathed .dsq-node .dsm-entry-title{display:block;max-width:150px;text-align:center;font-size:12.5px!important;font-weight:800!important;line-height:1.25!important;color:#9bb7b0!important}
+html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-glyphs,
+html body #leagueScreenBody .dsq-pathed .dsq-node .dsm-entry-glyphs{order:1;display:grid!important;place-items:center;width:84px;height:78px;border-radius:50%;padding:0 6px;box-sizing:border-box;overflow:hidden;white-space:nowrap;word-spacing:-4px;font-size:16px!important;line-height:1!important;color:#5d7f79!important;background:#1d3d40;box-shadow:0 7px 0 #102629;transition:transform .12s,box-shadow .12s}
+html body #leagueScreenBody .dsq-pathed .dsq-node:not(:disabled):active .deen-path-course-glyphs,
+html body #leagueScreenBody .dsq-pathed .dsq-node:not(:disabled):active .dsm-entry-glyphs{transform:translateY(5px);box-shadow:0 2px 0 #102629}
+html body #leagueScreenBody .dsq-pathed .dsq-node:not(:disabled):not(.dsq-done) .deen-path-course-glyphs,
+html body #leagueScreenBody .dsq-pathed .dsq-node:not(:disabled):not(.dsq-done) .dsm-entry-glyphs{background:linear-gradient(180deg,#2b6a62,#1f5550);color:#d8f5ec!important;box-shadow:0 7px 0 #133c38}
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-done .deen-path-course-glyphs,
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-done .dsm-entry-glyphs{background:linear-gradient(180deg,#f1d9a0,#d9b66a);color:#4a3810!important;box-shadow:0 7px 0 #a8873f}
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur .deen-path-course-glyphs,
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur .dsm-entry-glyphs{background:linear-gradient(180deg,#52e5bd,#2fc39b);color:#053329!important;box-shadow:0 7px 0 #1b8a6c,0 0 0 8px rgba(82,229,189,.14)}
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur .deen-path-course-number,html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur .dsm-entry-title{color:#eaf6f2!important}
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur::after{content:"";position:absolute;top:-9px;left:50%;width:102px;height:96px;margin-left:-51px;border-radius:50%;border:3px solid rgba(82,229,189,.5);pointer-events:none;animation:dsqRing 1.8s ease-out infinite}
+@keyframes dsqRing{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.16);opacity:0}}
+/* Done and locked nodes carry a small badge (drawn, no text). */
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-done::before,
+html body #leagueScreenBody .dsq-pathed .dsq-node:disabled::before{content:"";position:absolute;top:52px;left:50%;margin-left:22px;width:24px;height:24px;border-radius:50%;z-index:1;background:#0b2427 center/14px no-repeat;border:2px solid #061a1d}
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-done::before{background-color:#e9cf93;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a3810' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
+html body #leagueScreenBody .dsq-pathed .dsq-node:disabled::before{background-color:#1d3d40;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237f9c96'%3E%3Cpath d='M7 10V8a5 5 0 0 1 10 0v2h1a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zm2 0h6V8a3 3 0 0 0-6 0z'/%3E%3C/svg%3E")}
+html body #leagueScreenBody .dsq-pathed .dsq-bubble{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);z-index:2;background:#eaf6f2;color:#0b2a26;font-size:12.5px;font-weight:900;letter-spacing:.06em;padding:7px 13px;border-radius:12px;white-space:nowrap;animation:dsqBob 1.6s ease-in-out infinite;pointer-events:none}
+html body #leagueScreenBody .dsq-pathed .dsq-bubble::after{content:"";position:absolute;top:100%;left:50%;margin-left:-7px;border:7px solid transparent;border-top-color:#eaf6f2}
+@keyframes dsqBob{50%{transform:translate(-50%,-4px)}}
+html body #leagueScreenBody .dsq-pathed .dsq-mascot{position:absolute;top:-4px;width:84px;height:84px;object-fit:contain;pointer-events:none}
+html body #leagueScreenBody .dsq-pathed .dsq-mascot.is-right{left:calc(100% + 26px)}
+html body #leagueScreenBody .dsq-pathed .dsq-mascot.is-left{right:calc(100% + 26px)}
+html[dir="rtl"] body #leagueScreenBody .dsq-pathed .dsq-mascot.is-right{left:auto;right:calc(100% + 26px)}
+html[dir="rtl"] body #leagueScreenBody .dsq-pathed .dsq-mascot.is-left{right:auto;left:calc(100% + 26px)}
+html body #leagueScreenBody .dsq-pathed .dsq-cur{margin-top:34px!important}
+@media (prefers-reduced-motion:reduce){html body #leagueScreenBody .dsq-pathed .dsq-bubble,html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur::after{animation:none}}
+html body #leagueScreenBody .dsq-pathed>.dsm-entry.dsq-node{grid-column:1/-1!important}
+html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-glyphs,html body #leagueScreenBody .dsq-pathed .dsq-node .dsm-entry-glyphs{white-space:nowrap!important;text-align:center!important}
+/* Long phrases: the node shows their first word; the full text stays for screen readers. */
+html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-glyphs.dsq-long,html body #leagueScreenBody .dsq-pathed .dsq-node .dsm-entry-glyphs.dsq-long{font-size:0!important;word-spacing:0}
+html body #leagueScreenBody .dsq-pathed .dsq-node .dsq-long::after{content:attr(data-dsq-short);font-size:22px;line-height:1.2}

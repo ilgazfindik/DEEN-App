@@ -2244,7 +2244,8 @@
     state.lessonIndex=index;state.v2Session=null;state.lessonMissed=(result.missedIds||[]).slice(0,20);state.complete=true;
     saveCompleted();saveLessonOutcome();dailyMark('lesson',lesson.id);first10Record('finished');
    },
-   onClose:()=>show('arabic'),
+   // Back on the path, bring the next lesson into view (the path is redrawn first).
+   onClose:()=>{show('arabic');setTimeout(()=>(root()?.querySelector('.dsq-cur')||root()?.querySelector('.deen-path-course-item:not(:disabled):not(.is-completed)'))?.scrollIntoView({block:'center',behavior:'instant'}),180)},
    onExit:()=>first10Record('exit')});
   if(opened)first10Record('lesson');
   return opened;
