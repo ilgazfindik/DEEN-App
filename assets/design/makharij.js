@@ -1,5 +1,5 @@
 /* Telaffuz Atölyesi (pronunciation workshop) — Qur'an > Arabic path.
-   Lesson 1: the tongue-tip letters ث ذ ظ. Lesson 2: the throat letters ح خ ه. Lesson 3: heavy and light pairs ص–س ط–ت ض–د. A written introduction only: no audio and no synthetic
+   Lesson 1: the tongue-tip letters ث ذ ظ. Lesson 2: the throat letters ح خ ه. Lesson 3: heavy and light pairs ص–س ط–ت ض–د. Lesson 4: ق ك ع غ. A written introduction only: no audio and no synthetic
    recitation. The mahraj description follows the common tajwid teaching and still needs review by
    a qualified teacher before it is treated as final.
    Independent of the 27-lesson chain: it has its own store, is not part of ALL_LESSONS and never
@@ -16,8 +16,8 @@
   return LANGS.includes(code)?code:'tr';
  }
 
- const GLYPH={tha:'ث',dhal:'ذ',zza:'ظ',sin:'س',sad:'ص',zay:'ز',hha:'ح',kha:'خ',ha:'ه',kaf:'ك',tta:'ط',ta:'ت',dad:'ض',dal:'د'};
- const FALLBACK_NAME={tha:'Se',dhal:'Zel',zza:'Zı',sin:'Sin',sad:'Sad',zay:'Ze',hha:'Ha',kha:'Hı',ha:'He',kaf:'Kef',tta:'Tı',ta:'Te',dad:'Dad',dal:'Dal'};
+ const GLYPH={tha:'ث',dhal:'ذ',zza:'ظ',sin:'س',sad:'ص',zay:'ز',hha:'ح',kha:'خ',ha:'ه',kaf:'ك',tta:'ط',ta:'ت',dad:'ض',dal:'د',qaf:'ق',ayn:'ع',ghayn:'غ'};
+ const FALLBACK_NAME={tha:'Se',dhal:'Zel',zza:'Zı',sin:'Sin',sad:'Sad',zay:'Ze',hha:'Ha',kha:'Hı',ha:'He',kaf:'Kef',tta:'Tı',ta:'Te',dad:'Dad',dal:'Dal',qaf:'Kaf (ق)',ayn:'Ayn',ghayn:'Gayn'};
  function letterName(id,code){
   try{const n=window.DEEN_ARABIC_LETTERS?.get?.(id)?.names?.[code];if(n)return n}catch(_){}
   return FALLBACK_NAME[id];
@@ -266,6 +266,63 @@
    qThickPick:'Laquelle se prononce lourde ?',qThinPick:'Laquelle se prononce légère ?',qPairSad:'Quelle est la jumelle légère de ص ?',qPairTta:'Quelle est la jumelle légère de ط ?',qPairDad:'Quelle est la jumelle légère de ض ?',qWordThick:'Quelle lettre lourde est dans ce mot ?',
    wordMeanings:{'samad':'As-Samad (Celui dont tous dépendent)','ard':'terre','tur':'le mont Tûr'}}
  };
+ const BACK={
+  tr:{entry:'Telaffuz Atölyesi',entrySub:'dil arkası ve boğaz',title:'Dil arkası ve boğaz harfleri',
+   posTongueBack:'dilin en arkası',posTongueFront:'dilin arkası',
+   lead:'ق ile ك dilin arkasından çıkar: ق en arkadan ve kalın, ك biraz önden ve ince. ع ile غ boğazdan çıkar: ع ortadan ve ince, غ üst kısımdan ve kalın.',
+   tip:'Türkçede ق “k”, ع “a” ve غ “g” gibi okunmaya meyleder. ق’yı daha arkadan, ع’yi boğazı daraltarak, غ’yi kalın ve hırıltılı bir sesle çıkar.',
+   right:'Doğru.',
+   hintQK:'İkisi de dilin arkasından çıkar. ق en arkadan ve kalın, ك biraz önden ve incedir.',
+   hintAG:'İkisi de boğazdan çıkar. ع ortadan ve ince, غ üst kısımdan ve kalındır.',
+   hintGroup:'ق ve ك dilin arkasından, ع ve غ boğazdan çıkar.',hintWord:'Kelimedeki harfi yeniden ara.',
+   qThickPick:'Hangisi kalın okunur?',qThinPick:'Hangisi ince okunur?',qTongueBack:'Dilin en arkasından çıkan harf hangisi?',
+   qMidThroat:'Boğazın ortasından çıkan ince harf hangisi?',qUpThroat:'Boğazın üst kısmından çıkan kalın harf hangisi?',qThroatPick:'Hangisi boğaz harfidir?',qWordFind:'Bu kelimede hangi harf var?',
+   wordMeanings:{'qul':'de ki','alamin':'âlemler','ghafur':'bağışlayan'}},
+  en:{entry:'Pronunciation Workshop',entrySub:'back of tongue and throat',title:'Back-of-tongue and throat letters',
+   posTongueBack:'very back of tongue',posTongueFront:'rear of tongue',
+   lead:'ق and ك come from the back of the tongue: ق from the very back and heavy, ك slightly forward and light. ع and غ come from the throat: ع from the middle and light, غ from the upper part and heavy.',
+   tip:'Learners tend to read ق as “k”, ع as “a” and غ as “g”. Make ق deeper, ع with a narrowed throat, and غ a heavy, gargling sound.',
+   right:'Correct.',
+   hintQK:'Both come from the back of the tongue. ق is from the very back and heavy; ك is slightly forward and light.',
+   hintAG:'Both come from the throat. ع is from the middle and light; غ is from the upper part and heavy.',
+   hintGroup:'ق and ك come from the back of the tongue; ع and غ come from the throat.',hintWord:'Look again for the letter in the word.',
+   qThickPick:'Which one is read heavy?',qThinPick:'Which one is read light?',qTongueBack:'Which letter comes from the very back of the tongue?',
+   qMidThroat:'Which light letter comes from the middle of the throat?',qUpThroat:'Which heavy letter comes from the upper throat?',qThroatPick:'Which one is a throat letter?',qWordFind:'Which letter is in this word?',
+   wordMeanings:{'qul':'say','alamin':'the worlds','ghafur':'the Forgiving'}},
+  ar:{entry:'ورشة النطق',entrySub:'أقصى اللسان والحلق',title:'حروف أقصى اللسان والحلق',
+   posTongueBack:'أقصى اللسان',posTongueFront:'أدنى من القاف',
+   lead:'القاف والكاف تخرجان من أقصى اللسان: القاف من أقصاه ومفخّمة، والكاف أقرب إلى الفم قليلاً ومرقّقة. والعين والغين تخرجان من الحلق: العين من وسطه ومرقّقة، والغين من أدناه ومفخّمة.',
+   tip:'لا تنطق القاف كافًا عادية؛ اجعلها من أقصى اللسان. والعين بتضييق الحلق، والغين صوت مفخّم يشبه الغرغرة.',
+   right:'صحيح.',
+   hintQK:'كلاهما من اللسان. القاف من أقصاه ومفخّمة، والكاف أقرب قليلاً ومرقّقة.',
+   hintAG:'كلاهما من الحلق. العين من وسطه ومرقّقة، والغين من أدناه ومفخّمة.',
+   hintGroup:'القاف والكاف من اللسان، والعين والغين من الحلق.',hintWord:'ابحث مرة أخرى عن الحرف في الكلمة.',
+   qThickPick:'أي حرف يُنطق مفخّمًا؟',qThinPick:'أي حرف يُنطق مرقّقًا؟',qTongueBack:'أي حرف يخرج من أقصى اللسان؟',
+   qMidThroat:'أي حرف مرقّق يخرج من وسط الحلق؟',qUpThroat:'أي حرف مفخّم يخرج من أدنى الحلق؟',qThroatPick:'أي حرف من حروف الحلق؟',qWordFind:'أي حرف في هذه الكلمة؟',
+   wordMeanings:{'qul':'أمر بالقول','alamin':'جميع الخلق','ghafur':'كثير المغفرة'}},
+  de:{entry:'Aussprache-Werkstatt',entrySub:'Zungenrücken und Rachen',title:'Zungenrücken- und Kehlbuchstaben',
+   posTongueBack:'hinterster Zungenrücken',posTongueFront:'Zungenrücken',
+   lead:'ق und ك entstehen am Zungenrücken: ق ganz hinten und dunkel, ك etwas weiter vorn und hell. ع und غ entstehen im Rachen: ع in der Mitte und hell, غ weiter oben und dunkel.',
+   tip:'Oft wird ق wie „k“, ع wie „a“ und غ wie „g“ gesprochen. Sprich ق tiefer, ع mit verengtem Rachen und غ als dunklen, gurgelnden Laut.',
+   right:'Richtig.',
+   hintQK:'Beide entstehen am Zungenrücken. ق ganz hinten und dunkel; ك etwas weiter vorn und hell.',
+   hintAG:'Beide entstehen im Rachen. ع in der Mitte und hell; غ weiter oben und dunkel.',
+   hintGroup:'ق und ك entstehen am Zungenrücken; ع und غ im Rachen.',hintWord:'Suche den Buchstaben im Wort noch einmal.',
+   qThickPick:'Welcher wird dunkel gesprochen?',qThinPick:'Welcher wird hell gesprochen?',qTongueBack:'Welcher Buchstabe kommt ganz hinten vom Zungenrücken?',
+   qMidThroat:'Welcher helle Buchstabe kommt aus der Mitte des Rachens?',qUpThroat:'Welcher dunkle Buchstabe kommt aus dem oberen Rachen?',qThroatPick:'Welcher ist ein Rachenbuchstabe?',qWordFind:'Welcher Buchstabe steckt in diesem Wort?',
+   wordMeanings:{'qul':'sprich','alamin':'die Welten','ghafur':'der Vergebende'}},
+  fr:{entry:'Atelier de prononciation',entrySub:'arrière de la langue et gorge',title:'Arrière de la langue et gorge',
+   posTongueBack:'fond de la langue',posTongueFront:'arrière de la langue',
+   lead:'ق et ك sortent de l’arrière de la langue : ق tout au fond et lourde, ك un peu plus en avant et légère. ع et غ sortent de la gorge : ع du milieu et légère, غ du haut et lourde.',
+   tip:'On lit souvent ق comme « k », ع comme « a » et غ comme « g ». Prononce ق plus au fond, ع en resserrant la gorge et غ comme un son lourd de gargouillis.',
+   right:'Correct.',
+   hintQK:'Toutes deux sortent de l’arrière de la langue. ق tout au fond et lourde ; ك un peu plus en avant et légère.',
+   hintAG:'Toutes deux sortent de la gorge. ع du milieu et légère ; غ du haut et lourde.',
+   hintGroup:'ق et ك sortent de l’arrière de la langue ; ع et غ de la gorge.',hintWord:'Cherche à nouveau la lettre dans le mot.',
+   qThickPick:'Laquelle se prononce lourde ?',qThinPick:'Laquelle se prononce légère ?',qTongueBack:'Quelle lettre sort tout au fond de la langue ?',
+   qMidThroat:'Quelle lettre légère sort du milieu de la gorge ?',qUpThroat:'Quelle lettre lourde sort du haut de la gorge ?',qThroatPick:'Laquelle est une lettre de la gorge ?',qWordFind:'Quelle lettre est dans ce mot ?',
+   wordMeanings:{'qul':'dis','alamin':'les mondes','ghafur':'le Pardonneur'}}
+ };
  const pairKey=(a,b)=>[a,b].sort().join('|');
  const LESSONS=Object.freeze([
   {id:'tongue-tip',glyphs:'ث  ذ  ظ',letters:['tha','dhal','zza'],extra:null,
@@ -322,6 +379,23 @@
     if(q.pair)return 'hintMatch';
     const k=pairKey(q.answer,chosen);
     return k==='dad|dal'?'hintDad':(k==='sad|sin'||k==='ta|tta')?'hintPair':'hintOther';
+   }}
+  ,{id:'tongue-back-throat',glyphs:'ق  ك  ع  غ',letters:['qaf','kaf','ayn','ghayn'],extra:BACK,
+   tags:{qaf:['posTongueBack','thick'],kaf:['posTongueFront','thin'],ayn:['posMid','thin'],ghayn:['posUp','thick']},
+   questions:[
+    {id:'b-thick',prompt:'qThickPick',options:['kaf','qaf'],answer:'qaf'},
+    {id:'b-thin',prompt:'qThinPick',options:['qaf','kaf'],answer:'kaf'},
+    {id:'b-back',prompt:'qTongueBack',options:['kaf','qaf'],answer:'qaf'},
+    {id:'b-mid',prompt:'qMidThroat',options:['ghayn','ayn'],answer:'ayn'},
+    {id:'b-up',prompt:'qUpThroat',options:['ayn','ghayn'],answer:'ghayn'},
+    {id:'b-throat',prompt:'qThroatPick',options:['qaf','ayn','kaf'],answer:'ayn'},
+    {id:'w-qul',prompt:'qWordFind',word:'قُلْ',meaning:'qul',options:['qaf','kaf','ayn'],answer:'qaf'},
+    {id:'w-alamin',prompt:'qWordFind',word:'ٱلْعَٰلَمِينَ',meaning:'alamin',options:['ayn','ghayn','qaf'],answer:'ayn'},
+    {id:'w-ghafur',prompt:'qWordFind',word:'ٱلْغَفُورُ',meaning:'ghafur',options:['ghayn','ayn','kaf'],answer:'ghayn'}],
+   hint(q,chosen){
+    if(q.word)return 'hintWord';
+    const k=pairKey(q.answer,chosen);
+    return k==='kaf|qaf'?'hintQK':k==='ayn|ghayn'?'hintAG':'hintGroup';
    }}
  ]);
  const lessonById=id=>LESSONS.find(l=>l.id===id)||LESSONS[0];
@@ -400,7 +474,7 @@
   const box=el('section','deen-path-lesson dsm-lesson');
   const back=el('button','deen-path-back','←  '+T.back);back.type='button';back.addEventListener('click',backToPath);
   box.append(back,el('div','deen-path-kicker',T.kicker),el('h2','deen-path-inner-title',T.title),el('p','dsm-lead',T.lead));
-  const row=el('div','dsm-letters');
+  const row=el('div','dsm-letters');if(S.lesson.letters.length===4)row.style.gridTemplateColumns='repeat(2,1fr)';
   for(const id of S.lesson.letters)row.append(letterCard(id,T,code));
   box.append(row,el('p','dsm-tip',T.tip),el('p','deen-path-muted dsm-note',T.note));
   const go=el('button','deen-path-primary',T.start);go.type='button';

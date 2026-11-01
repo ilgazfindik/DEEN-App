@@ -21,15 +21,16 @@ const FILES=['quran-arabic-letters.js', 'quran-arabic-harakat.js', 'quran-arabic
  const card=id=>page.locator('.deen-path-arabic-landing > .dsm-entry[data-lesson="'+id+'"]');
  await page.locator('[data-qpath-action="arabic"]').click();
  await card('tongue-tip').waitFor();
- assert.equal(await page.locator('.deen-path-arabic-landing > .dsm-entry').count(),3);
+ assert.equal(await page.locator('.deen-path-arabic-landing > .dsm-entry').count(),4);
  assert.equal(await card('tongue-tip').isDisabled(),true,'Locked until the 7 letter lessons are done');
- assert.deepEqual(await page.evaluate(()=>DEEN_MAKHARIJ.status().unlocked),[false,false,false]);
+ assert.deepEqual(await page.evaluate(()=>DEEN_MAKHARIJ.status().unlocked),[false,false,false,false]);
  await page.evaluate(()=>localStorage.setItem('deen_arabic_foundations_v2',JSON.stringify({schema:2,completed:DEEN_ARABIC_LETTERS.lessons.map(l=>l.id)})));
  await open();
  await page.waitForFunction(()=>{const e=document.querySelector('.dsm-entry[data-lesson="tongue-tip"]');return e&&!e.disabled});
- assert.deepEqual(await page.evaluate(()=>DEEN_MAKHARIJ.status().unlocked),[true,false,false],'Each lesson waits for the previous one');
+ assert.deepEqual(await page.evaluate(()=>DEEN_MAKHARIJ.status().unlocked),[true,false,false,false],'Each lesson waits for the previous one');
  assert.equal(await card('throat').isDisabled(),true);
  assert.equal(await card('thick-thin').isDisabled(),true);
+ assert.equal(await card('tongue-back-throat').isDisabled(),true);
  await card('throat').scrollIntoViewIfNeeded();await shot('landing');
  // Plays one lesson: every question answered correctly, optionally missing the first ones once.
  const play=async(id,misses,tag)=>{
@@ -70,6 +71,11 @@ const FILES=['quran-arabic-letters.js', 'quran-arabic-harakat.js', 'quran-arabic
  await play('thick-thin',0,'l3');
  st=await page.evaluate(()=>DEEN_MAKHARIJ.status().lessons);
  assert.equal(st['thick-thin'].completed,true);assert.equal(st['thick-thin'].best,9);
+ await page.locator('.deen-path-completion .deen-path-primary').click();
+ assert.equal(await card('tongue-back-throat').isDisabled(),false,'Fourth lesson unlocks after the third');
+ await play('tongue-back-throat',0,'l4');
+ st=await page.evaluate(()=>DEEN_MAKHARIJ.status().lessons);
+ assert.equal(st['tongue-back-throat'].completed,true);assert.equal(st['tongue-back-throat'].best,9);
  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),7,'path progress untouched');
  // failing run: three misses -> 6/9, not completed
  await page.evaluate(()=>localStorage.removeItem('deen_arabic_makharij_v1'));
@@ -88,11 +94,11 @@ const FILES=['quran-arabic-letters.js', 'quran-arabic-harakat.js', 'quran-arabic
    const T={...M.strings[l],...(lesson.extra?lesson.extra[l]:{})};
    if(!T[q.prompt])out.push(lesson.id+' '+l+' prompt '+q.prompt);
    if(q.word&&!T.wordMeanings[q.meaning])out.push(lesson.id+' '+l+' meaning '+q.meaning);
-   for(const o of q.options)if(!(o in {tha:1,dhal:1,zza:1,sin:1,sad:1,zay:1,hha:1,kha:1,ha:1,kaf:1,tta:1,ta:1,dad:1,dal:1}))out.push('glyph '+o);
+   for(const o of q.options)if(!(o in {tha:1,dhal:1,zza:1,sin:1,sad:1,zay:1,hha:1,kha:1,ha:1,kaf:1,tta:1,ta:1,dad:1,dal:1,qaf:1,ayn:1,ghayn:1}))out.push('glyph '+o);
   }
   return out});
  assert.deepEqual(miss,[]);
  await browser.close();server.close();
  if(errors.length)throw Error(errors.join('\n'));
- console.log('PASS: Pronunciation Workshop 3 lessons, locks, 9 questions each, hints, pass/fail, v1 save, locales');
+ console.log('PASS: Pronunciation Workshop 4 lessons, locks, 9 questions each, hints, pass/fail, v1 save, locales');
 })().catch(e=>{console.error(e);process.exit(1)});
