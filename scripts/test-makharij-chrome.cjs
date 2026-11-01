@@ -16,61 +16,77 @@ const FILES=['quran-arabic-letters.js', 'quran-arabic-harakat.js', 'quran-arabic
  for(const css of ['deen-ds.css','quran.css'])await page.addStyleTag({path:path.join(root,'assets/design/'+css)});
  await page.addScriptTag({path:path.join(root,'assets/design/quran.js')});
  await page.addScriptTag({path:path.join(root,'assets/design/makharij.js')});
- const open=async()=>{await page.locator('[data-qpath-action="home"]').first().click().catch(()=>{});await page.locator('[data-qpath-action="arabic"]').first().click()};
+ const open=async()=>{await page.evaluate(()=>{DEEN_QURAN_PATHS.home();DEEN_QURAN_PATHS.enterArabic()})};
+ const shot=async n=>{if(process.env.SHOT_DIR)await page.screenshot({path:process.env.SHOT_DIR+'/'+n+'.png'})};
+ const card=id=>page.locator('.deen-path-arabic-landing > .dsm-entry[data-lesson="'+id+'"]');
  await page.locator('[data-qpath-action="arabic"]').click();
- const entry=page.locator('.deen-path-arabic-landing > .dsm-entry');
- await entry.waitFor();
- assert.equal(await entry.isDisabled(),true,'Locked until the 7 letter lessons are done');
- assert.equal(await page.evaluate(()=>DEEN_MAKHARIJ.status().unlocked),false);
+ await card('tongue-tip').waitFor();
+ assert.equal(await page.locator('.deen-path-arabic-landing > .dsm-entry').count(),2);
+ assert.equal(await card('tongue-tip').isDisabled(),true,'Locked until the 7 letter lessons are done');
+ assert.deepEqual(await page.evaluate(()=>DEEN_MAKHARIJ.status().unlocked),[false,false]);
  await page.evaluate(()=>localStorage.setItem('deen_arabic_foundations_v2',JSON.stringify({schema:2,completed:DEEN_ARABIC_LETTERS.lessons.map(l=>l.id)})));
  await open();
- await page.waitForFunction(()=>{const e=document.querySelector('.dsm-entry');return e&&!e.disabled});
- assert.equal(await page.evaluate(()=>DEEN_MAKHARIJ.status().unlocked),true);
- await page.locator('.dsm-entry').scrollIntoViewIfNeeded();await page.screenshot({path:process.env.SHOT_DIR?process.env.SHOT_DIR+'/landing.png':undefined});
- await page.locator('.dsm-entry').click();
- assert.equal(await page.locator('.dsm-letter').count(),3);
- await page.screenshot({path:process.env.SHOT_DIR?process.env.SHOT_DIR+'/intro.png':undefined});
- await page.locator('.dsm-lesson .deen-path-primary').click();
- const Q=await page.evaluate(()=>DEEN_MAKHARIJ.questions.map(q=>({answer:q.answer,options:q.options})));
- assert.equal(Q.length,9);
- for(let i=0;i<Q.length;i++){
-  const opts=page.locator('.dsm-option');
-  assert.equal(await opts.count(),Q[i].options.length);
-  if(i===0){ // wrong first, then the hint shows and the answer is still retryable
-   await opts.nth(Q[i].options.indexOf('dhal')).click();
-   await page.locator('.deen-path-feedback.is-wrong').waitFor();
-   await page.screenshot({path:process.env.SHOT_DIR?process.env.SHOT_DIR+'/wrong.png':undefined});
+ await page.waitForFunction(()=>{const e=document.querySelector('.dsm-entry[data-lesson="tongue-tip"]');return e&&!e.disabled});
+ assert.deepEqual(await page.evaluate(()=>DEEN_MAKHARIJ.status().unlocked),[true,false],'Second lesson waits for the first');
+ assert.equal(await card('throat').isDisabled(),true);
+ await card('throat').scrollIntoViewIfNeeded();await shot('landing');
+ // Plays one lesson: every question answered correctly, optionally missing the first ones once.
+ const play=async(id,misses,tag)=>{
+  await open();await card(id).waitFor();await card(id).click();
+  const lesson=await page.evaluate(id=>DEEN_MAKHARIJ.lessons.find(l=>l.id===id).questions.map(q=>({answer:q.answer,options:q.options})),id);
+  assert.equal(lesson.length,9);
+  assert.equal(await page.locator('.dsm-letter').count(),3);
+  await shot(tag+'-intro');
+  await page.locator('.dsm-lesson .deen-path-primary').click();
+  for(let i=0;i<lesson.length;i++){
+   const q=lesson[i],opts=page.locator('.dsm-option');
+   assert.equal(await opts.count(),q.options.length);
+   if(i<misses){
+    await opts.nth(q.options.indexOf(q.options.find(o=>o!==q.answer))).click();
+    await page.locator('.deen-path-feedback.is-wrong').waitFor();
+    if(i===0)await shot(tag+'-wrong');
+   }
+   await opts.nth(q.options.indexOf(q.answer)).click();
+   await page.locator('.deen-path-feedback.is-correct').waitFor();
+   if(i===6)await shot(tag+'-word');
+   await page.locator('.dsm-lesson .deen-path-primary').click();
   }
-  await opts.nth(Q[i].options.indexOf(Q[i].answer)).click();
-  await page.locator('.deen-path-feedback.is-correct').waitFor();
-  if(i===6)await page.screenshot({path:process.env.SHOT_DIR?process.env.SHOT_DIR+'/word.png':undefined});
-  await page.locator('.dsm-lesson .deen-path-primary').click();
- }
- // 8 of 9 first-try correct (one miss) still passes
- await page.locator('.deen-path-completion').waitFor();
- await page.screenshot({path:process.env.SHOT_DIR?process.env.SHOT_DIR+'/result.png':undefined});
- const st=await page.evaluate(()=>DEEN_MAKHARIJ.status());
- assert.equal(st.completed,true);assert.equal(st.best,8);
+  await page.locator('.deen-path-completion').waitFor();
+  await shot(tag+'-result');
+ };
+ await play('tongue-tip',1,'l1');                       // one miss: 8/9 still passes
+ let st=await page.evaluate(()=>DEEN_MAKHARIJ.status().lessons);
+ assert.equal(st['tongue-tip'].completed,true);assert.equal(st['tongue-tip'].best,8);
+ assert.equal(st.throat.completed,false);
  await page.locator('.deen-path-completion .deen-path-primary').click();
- await page.locator('.deen-path-arabic-landing > .dsm-entry.is-done').waitFor();
- // saved path progress untouched
- assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),7);
- // fail path: three misses -> not completed
+ await card('tongue-tip').and(page.locator('.is-done')).waitFor();
+ assert.equal(await card('throat').isDisabled(),false,'Second lesson unlocks after the first');
+ await play('throat',0,'l2');
+ st=await page.evaluate(()=>DEEN_MAKHARIJ.status().lessons);
+ assert.equal(st.throat.completed,true);assert.equal(st.throat.best,9);
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('deen_arabic_foundations_v2')).completed.length),7,'path progress untouched');
+ // failing run: three misses -> 6/9, not completed
  await page.evaluate(()=>localStorage.removeItem('deen_arabic_makharij_v1'));
- await page.evaluate(()=>DEEN_MAKHARIJ.open());
- await page.locator('.dsm-lesson .deen-path-primary').click();
- for(let i=0;i<Q.length;i++){
-  const opts=page.locator('.dsm-option');
-  if(i<3){const wrong=Q[i].options.find(o=>o!==Q[i].answer);await opts.nth(Q[i].options.indexOf(wrong)).click()}
-  await opts.nth(Q[i].options.indexOf(Q[i].answer)).click();
-  await page.locator('.dsm-lesson .deen-path-primary').click();
- }
- await page.locator('.deen-path-completion').waitFor();
- assert.equal(await page.evaluate(()=>DEEN_MAKHARIJ.status().completed),false);
- // every locale has every string
- const miss=await page.evaluate(()=>{const S=DEEN_MAKHARIJ.strings,base=Object.keys(S.tr),out=[];for(const l of Object.keys(S))for(const k of base)if(!(k in S[l]))out.push(l+':'+k);return out});
+ await play('tongue-tip',3,'fail');
+ st=await page.evaluate(()=>DEEN_MAKHARIJ.status().lessons);
+ assert.equal(st['tongue-tip'].completed,false);assert.equal(st['tongue-tip'].best,6);
+ // a v1 save (single lesson at top level) still counts for the first lesson
+ await page.evaluate(()=>localStorage.setItem('deen_arabic_makharij_v1',JSON.stringify({schema:1,completed:true,best:8})));
+ st=await page.evaluate(()=>DEEN_MAKHARIJ.status().lessons);
+ assert.equal(st['tongue-tip'].completed,true);assert.equal(st['tongue-tip'].best,8);assert.equal(st.throat.completed,false);
+ // every locale has every string, per lesson
+ const miss=await page.evaluate(()=>{const M=DEEN_MAKHARIJ,out=[];
+  for(const l of Object.keys(M.strings))for(const k of Object.keys(M.strings.tr))if(!(k in M.strings[l]))out.push(l+':'+k);
+  for(const l of Object.keys(M.throat))for(const k of Object.keys(M.throat.tr))if(!(k in M.throat[l]))out.push('throat '+l+':'+k);
+  for(const lesson of M.lessons)for(const q of lesson.questions)for(const l of Object.keys(M.strings)){
+   const T={...M.strings[l],...(lesson.extra?lesson.extra[l]:{})};
+   if(!T[q.prompt])out.push(lesson.id+' '+l+' prompt '+q.prompt);
+   if(q.word&&!T.wordMeanings[q.meaning])out.push(lesson.id+' '+l+' meaning '+q.meaning);
+   for(const o of q.options)if(!(o in {tha:1,dhal:1,zza:1,sin:1,sad:1,zay:1,hha:1,kha:1,ha:1,kaf:1}))out.push('glyph '+o);
+  }
+  return out});
  assert.deepEqual(miss,[]);
  await browser.close();server.close();
  if(errors.length)throw Error(errors.join('\n'));
- console.log('PASS: Pronunciation Workshop locked/unlocked, 9 questions, hint, pass/fail, store, locales');
+ console.log('PASS: Pronunciation Workshop 2 lessons, locks, 9 questions each, hints, pass/fail, v1 save, locales');
 })().catch(e=>{console.error(e);process.exit(1)});
