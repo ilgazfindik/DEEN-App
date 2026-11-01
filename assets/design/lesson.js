@@ -171,7 +171,17 @@
   }
  }
 
+ // Generated question labels ("Kısa kontrol: temel kavram: …") are noise: show only the question.
+ const LABEL=/^(?:(?:Kısa kontrol|Temel kavram|Kavram kontrolü|Challenge|Uygulama|Hızlı tekrar|Quick check|Contrôle rapide|Kurzer Check|فحص سريع)\s*:\s*)+/i;
+ function stripLabel(){
+  const q=document.querySelector('#quizView #questionText');if(!q)return;
+  const n=[...q.childNodes].find(c=>c.nodeType===3&&c.data.trim());
+  if(!n||!LABEL.test(n.data.trim()))return;
+  const rest=n.data.trim().replace(LABEL,'');
+  if(rest)n.data=rest.charAt(0).toLocaleUpperCase(lang()==='tr'?'tr':undefined)+rest.slice(1);
+ }
  function decorate(){
+  stripLabel();
   const area=document.getElementById('answerArea');if(!area)return;
   const frame=area.closest('.question-frame')||document.querySelector('#quizView .question-frame');
   const code=lang(),T=L[code];
