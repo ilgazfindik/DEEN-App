@@ -3205,7 +3205,7 @@ window.DEEN_REWARD_BADGE_ART={
     if(event.defaultPrevented||event.ctrlKey||event.metaKey||event.altKey)return;
     const t=event.target;
     if(t&&(['INPUT','TEXTAREA','SELECT'].includes(t.tagName)||t.isContentEditable))return;
-    if(String(event.key||'').toLowerCase()!=='p'||!window.__DEEN_DEV_MODE__)return; // developer mode only
+    if(String(event.key||'').toLowerCase()!=='p')return;
     event.preventDefault();
     toggle();
   },true);
