@@ -110,3 +110,4 @@ html.dac-open,html.dac-open body{overflow:hidden!important}
 @media (prefers-reduced-motion:reduce){.dac *,.dac{animation:none!important;transition:none!important}}
 /* The floating admin button sits top-right: keep the progress bar clear of it. */
 html:has(#deenMobileAdminButton) .dac-top{padding-right:74px}
+.dac-tip.is-lead{font-size:18px;line-height:1.45;color:#eaf6f2;padding:10px 4px}

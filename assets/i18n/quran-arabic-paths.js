@@ -2231,14 +2231,28 @@
  }
  // Letter lessons open as a card-first lesson (each new letter is taught, then asked about at once)
  // when that layer is loaded; the result is saved here exactly like a finished written lesson.
+ // Vowel and reading-mark lessons use the same layer with their own items, taught from the lesson tip.
+ function cardItems(lesson){
+  const course=PHONIC_LESSONS.includes(lesson)?PHONIC_LESSONS:READING_LESSONS.includes(lesson)?READING_LESSONS:null;
+  if(!course)return null;
+  const code=lang(),tip=lessonTips[lesson.id]?.locale?.[code]||lessonTips[lesson.id]?.locale?.en||null,ex=tip?.examples||[];
+  const toItem=(x,i,own)=>{const e=ex.find(y=>y.glyph===x.glyph)||(own&&lesson.kind==='harakat'?ex[i]:null);
+   return {id:x.id,glyph:x.glyph,name:x.names?.[code]||x.names?.en||x.id,hint:own?(e?.caption||''):'',example:e?.glyph||''}};
+  // Earlier lessons of the same course give distractors (vowel marks alone are not mixed with syllables).
+  const known=course.filter(x=>x.index<lesson.index&&(x.kind==='harakat')===(lesson.kind==='harakat')).flatMap(x=>x.items.map(y=>({id:y.id,glyph:y.glyph,name:y.names?.[code]||y.names?.en||y.id})));
+  return {items:lesson.items.map((x,i)=>toItem(x,i,true)),knownItems:known,
+   tip:tip?{title:tip.title,text:tip.oneSentence,examples:ex.map(e=>({glyph:e.glyph,caption:e.caption})),mistake:tip.mistakeTip}:null};
+ }
  function cardLesson(index){
   index=Number(index);const lesson=ALL_LESSONS[index];
-  if(!window.DEEN_ARABIC_CARDS||!lesson||lesson.kind!=='recognition'||!isUnlocked(index))return false;
+  if(!window.DEEN_ARABIC_CARDS||!lesson||!isUnlocked(index))return false;
+  const items=lesson.kind==='recognition'?null:cardItems(lesson);
+  if(lesson.kind!=='recognition'&&!items)return false;
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();
   state.v2Session=null;state.lessonIndex=index;state.lessonMissed=[];state.complete=false;
   let correctSeen=false;
-  const opened=window.DEEN_ARABIC_CARDS.open({lessonIndex:index,letterIds:lesson.letterIds.slice(),
-   known:LESSONS.slice(0,index).flatMap(x=>x.letterIds),lang:lang(),
+  const opened=window.DEEN_ARABIC_CARDS.open({lessonIndex:index,...(items||{letterIds:lesson.letterIds.slice(),
+   known:LESSONS.slice(0,index).flatMap(x=>x.letterIds)}),lang:lang(),
    onAnswer:(_,ok)=>{if(ok&&!correctSeen){correctSeen=true;first10Record('correct')}},
    onDone:result=>{
     state.lessonIndex=index;state.v2Session=null;state.lessonMissed=(result.missedIds||[]).slice(0,20);state.complete=true;

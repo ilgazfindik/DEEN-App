@@ -18,7 +18,7 @@
   ar:{stroke:'خطّ واحد قائم.',boat:'جسم مسطّح يشبه القارب.',hook:'رأس في الأعلى وتجويف مفتوح في الأسفل.',angle:'شكل صغير بزاوية.',tail:'ذيل قصير ينزل تحت السطر.',teeth:'ثلاث أسنان صغيرة وذيل مستدير.',loop:'عقدة مستطيلة وذيل مستدير.',stick:'عقدة مستطيلة فوقها عصا قائمة.',mouth:'رأس مفتوح في الأعلى وتجويف واسع في الأسفل.',fa:'رأس صغير مستدير على جسم مسطّح.',qaf:'رأس مستدير وتجويف عميق.',kaf:'جسم طويل بداخله علامة صغيرة.',lam:'خطّ طويل ينتهي بتجويف مستدير.',mim:'رأس صغير مستدير وذيل نازل.',nun:'تجويف مستدير عميق.',ring:'حلقة صغيرة مستديرة.',waw:'رأس مستدير وذيل منحنٍ للأسفل.',ya:'جسم منحنٍ وذيل يرتدّ إلى الخلف.'}
  };
  const T={
-  tr:{newLetter:'YENİ HARF',rule:'KURAL',form:'YAZILIŞ',listen:'Dinle',cont:'Devam',check:'Kontrol et',got:'Anladım',which:n=>'Hangisi '+n+'?',whatName:'Bu harf hangisi?',hear:'Duyduğun harfe dokun',match:'Harfleri adlarıyla eşleştir',
+  tr:{learnedItems:'Bu derste öğrendiklerin',newItem:'YENİ',caution:'DİKKAT',whatItem:'Bu hangisi?',matchItems:'Eşleştir',example:'Örnek',newLetter:'YENİ HARF',rule:'KURAL',form:'YAZILIŞ',listen:'Dinle',cont:'Devam',check:'Kontrol et',got:'Anladım',which:n=>'Hangisi '+n+'?',whatName:'Bu harf hangisi?',hear:'Duyduğun harfe dokun',match:'Harfleri adlarıyla eşleştir',
    dotsQ:(c,p)=>c===0?'Hangisinde nokta yok?':'Hangisinin '+(p==='a'?'üstünde ':'altında ')+c+' nokta var?',
    dots:(c,p)=>c===0?'Noktası yok.':(p==='a'?'Üstünde ':'Altında ')+c+' nokta var.',dotsShort:(c,p)=>c===0?'nokta yok':(p==='a'?'üstte ':'altta ')+c+' nokta',
    ruleTitle:'Noktalar harfi değiştirir',ruleSub:'Benzer harfleri noktaların sayısı ve yeri ayırır.',
@@ -26,7 +26,7 @@
    noJoinTitle:'Sonraki harfe bağlanmaz',noJoinSub:'Bu harfler kendilerinden sonra gelen harfle birleşmez; kelimenin başında da aynı yazılır.',noJoinQ:'Hangisi sonraki harfe bağlanmaz?',
    praise:['Harika!','Doğru!','Çok iyi!','Tam isabet!'],matched:'Hepsini eşleştirdin.',streak:n=>n+' doğru üst üste',streakTag:n=>n+' seri',remember:'Hatırla',again:'Bu soru az sonra yeniden gelecek.',retry:'TEKRAR DENE',
    matchHint:'Harfi ve adını birlikte seç.',done:'Ders tamamlandı!',learned:'Bu derste öğrendiklerin',acc:'DOĞRULUK',time:'SÜRE',best:'EN UZUN SERİ',quitTitle:'Dersten çıkılsın mı?',quitSub:'Bu dersteki ilerlemen kaydedilmez.',quitStay:'Derse devam et',quitLeave:'Çık',close:'Dersten çık',progress:'Ders ilerlemesi',replay:'Sesi tekrar çal'},
-  en:{newLetter:'NEW LETTER',rule:'RULE',form:'WRITING',listen:'Listen',cont:'Continue',check:'Check',got:'Got it',which:n=>'Which one is '+n+'?',whatName:'Which letter is this?',hear:'Tap the letter you hear',match:'Match the letters to their names',
+  en:{learnedItems:'What you learned',newItem:'NEW',caution:'WATCH OUT',whatItem:'Which one is this?',matchItems:'Match the pairs',example:'Example',newLetter:'NEW LETTER',rule:'RULE',form:'WRITING',listen:'Listen',cont:'Continue',check:'Check',got:'Got it',which:n=>'Which one is '+n+'?',whatName:'Which letter is this?',hear:'Tap the letter you hear',match:'Match the letters to their names',
    dotsQ:(c,p)=>c===0?'Which one has no dots?':'Which one has '+c+' dot'+(c>1?'s':'')+(p==='a'?' above?':' below?'),
    dots:(c,p)=>c===0?'No dots.':c+' dot'+(c>1?'s':'')+(p==='a'?' above.':' below.'),dotsShort:(c,p)=>c===0?'no dots':c+(p==='a'?' above':' below'),
    ruleTitle:'Dots change the letter',ruleSub:'Similar letters differ only in the number and place of their dots.',
@@ -34,7 +34,7 @@
    noJoinTitle:'Does not join forward',noJoinSub:'These letters never join the letter after them, so they look the same at the start of a word.',noJoinQ:'Which one does not join the next letter?',
    praise:['Great!','Correct!','Well done!','Spot on!'],matched:'All matched.',streak:n=>n+' in a row',streakTag:n=>n+' streak',remember:'Remember',again:'This question comes back in a moment.',retry:'TRY AGAIN',
    matchHint:'Pick a letter and its name together.',done:'Lesson complete!',learned:'Letters from this lesson',acc:'ACCURACY',time:'TIME',best:'BEST STREAK',quitTitle:'Leave the lesson?',quitSub:'Progress in this lesson will not be saved.',quitStay:'Keep learning',quitLeave:'Leave',close:'Leave lesson',progress:'Lesson progress',replay:'Play the sound again'},
-  de:{newLetter:'NEUER BUCHSTABE',rule:'REGEL',form:'SCHREIBWEISE',listen:'Anhören',cont:'Weiter',check:'Prüfen',got:'Verstanden',which:n=>'Welcher ist '+n+'?',whatName:'Welcher Buchstabe ist das?',hear:'Tippe auf den Buchstaben, den du hörst',match:'Ordne die Buchstaben ihren Namen zu',
+  de:{learnedItems:'Das hast du gelernt',newItem:'NEU',caution:'ACHTUNG',whatItem:'Was ist das?',matchItems:'Ordne die Paare zu',example:'Beispiel',newLetter:'NEUER BUCHSTABE',rule:'REGEL',form:'SCHREIBWEISE',listen:'Anhören',cont:'Weiter',check:'Prüfen',got:'Verstanden',which:n=>'Welcher ist '+n+'?',whatName:'Welcher Buchstabe ist das?',hear:'Tippe auf den Buchstaben, den du hörst',match:'Ordne die Buchstaben ihren Namen zu',
    dotsQ:(c,p)=>c===0?'Welcher hat keine Punkte?':'Welcher hat '+c+' Punkt'+(c>1?'e':'')+(p==='a'?' oben?':' unten?'),
    dots:(c,p)=>c===0?'Keine Punkte.':c+' Punkt'+(c>1?'e':'')+(p==='a'?' oben.':' unten.'),dotsShort:(c,p)=>c===0?'keine Punkte':c+(p==='a'?' oben':' unten'),
    ruleTitle:'Punkte ändern den Buchstaben',ruleSub:'Ähnliche Buchstaben unterscheiden sich nur durch Zahl und Lage der Punkte.',
@@ -42,7 +42,7 @@
    noJoinTitle:'Verbindet nicht nach links',noJoinSub:'Diese Buchstaben verbinden sich nie mit dem folgenden Buchstaben und sehen am Wortanfang gleich aus.',noJoinQ:'Welcher verbindet sich nicht mit dem nächsten Buchstaben?',
    praise:['Super!','Richtig!','Sehr gut!','Genau!'],matched:'Alles zugeordnet.',streak:n=>n+' richtig in Folge',streakTag:n=>n+' in Folge',remember:'Merke',again:'Diese Frage kommt gleich noch einmal.',retry:'NOCH EINMAL',
    matchHint:'Wähle einen Buchstaben und seinen Namen.',done:'Lektion geschafft!',learned:'Buchstaben aus dieser Lektion',acc:'GENAUIGKEIT',time:'ZEIT',best:'BESTE SERIE',quitTitle:'Lektion verlassen?',quitSub:'Der Fortschritt dieser Lektion wird nicht gespeichert.',quitStay:'Weiterlernen',quitLeave:'Verlassen',close:'Lektion verlassen',progress:'Lektionsfortschritt',replay:'Ton noch einmal abspielen'},
-  fr:{newLetter:'NOUVELLE LETTRE',rule:'RÈGLE',form:'ÉCRITURE',listen:'Écouter',cont:'Continuer',check:'Vérifier',got:'Compris',which:n=>'Laquelle est '+n+' ?',whatName:'Quelle est cette lettre ?',hear:'Touche la lettre que tu entends',match:'Associe les lettres à leur nom',
+  fr:{learnedItems:'Ce que tu as appris',newItem:'NOUVEAU',caution:'ATTENTION',whatItem:'Qu’est-ce que c’est ?',matchItems:'Associe les paires',example:'Exemple',newLetter:'NOUVELLE LETTRE',rule:'RÈGLE',form:'ÉCRITURE',listen:'Écouter',cont:'Continuer',check:'Vérifier',got:'Compris',which:n=>'Laquelle est '+n+' ?',whatName:'Quelle est cette lettre ?',hear:'Touche la lettre que tu entends',match:'Associe les lettres à leur nom',
    dotsQ:(c,p)=>c===0?'Laquelle n’a aucun point ?':'Laquelle a '+c+' point'+(c>1?'s':'')+(p==='a'?' au-dessus ?':' dessous ?'),
    dots:(c,p)=>c===0?'Aucun point.':c+' point'+(c>1?'s':'')+(p==='a'?' au-dessus.':' dessous.'),dotsShort:(c,p)=>c===0?'aucun point':c+(p==='a'?' dessus':' dessous'),
    ruleTitle:'Les points changent la lettre',ruleSub:'Des lettres semblables ne diffèrent que par le nombre et la place des points.',
@@ -50,7 +50,7 @@
    noJoinTitle:'Ne se lie pas à la suivante',noJoinSub:'Ces lettres ne se lient jamais à la lettre suivante ; en début de mot elles gardent la même forme.',noJoinQ:'Laquelle ne se lie pas à la lettre suivante ?',
    praise:['Bravo !','Correct !','Très bien !','Parfait !'],matched:'Tout est associé.',streak:n=>n+' d’affilée',streakTag:n=>n+' d’affilée',remember:'À retenir',again:'Cette question reviendra dans un instant.',retry:'ENCORE UNE FOIS',
    matchHint:'Choisis une lettre et son nom.',done:'Leçon terminée !',learned:'Lettres de cette leçon',acc:'PRÉCISION',time:'TEMPS',best:'MEILLEURE SÉRIE',quitTitle:'Quitter la leçon ?',quitSub:'Ta progression dans cette leçon ne sera pas enregistrée.',quitStay:'Continuer',quitLeave:'Quitter',close:'Quitter la leçon',progress:'Progression de la leçon',replay:'Rejouer le son'},
-  ar:{newLetter:'حرف جديد',rule:'قاعدة',form:'الكتابة',listen:'استمع',cont:'متابعة',check:'تحقّق',got:'فهمت',which:n=>'أيّها '+n+'؟',whatName:'ما اسم هذا الحرف؟',hear:'المس الحرف الذي تسمعه',match:'صِل كل حرف باسمه',
+  ar:{learnedItems:'ما تعلّمته',newItem:'جديد',caution:'انتبه',whatItem:'ما هذا؟',matchItems:'صِل بين الأزواج',example:'مثال',newLetter:'حرف جديد',rule:'قاعدة',form:'الكتابة',listen:'استمع',cont:'متابعة',check:'تحقّق',got:'فهمت',which:n=>'أيّها '+n+'؟',whatName:'ما اسم هذا الحرف؟',hear:'المس الحرف الذي تسمعه',match:'صِل كل حرف باسمه',
    dotsQ:(c,p)=>c===0?'أيّها بلا نقاط؟':'أيّها '+({1:'فيه نقطة واحدة',2:'فيه نقطتان',3:'فيه ثلاث نقاط'}[c])+(p==='a'?' فوقه؟':' تحته؟'),
    dots:(c,p)=>c===0?'بلا نقاط.':({1:'نقطة واحدة',2:'نقطتان',3:'ثلاث نقاط'}[c])+(p==='a'?' فوقه.':' تحته.'),dotsShort:(c,p)=>c===0?'بلا نقاط':({1:'نقطة',2:'نقطتان',3:'ثلاث نقاط'}[c])+(p==='a'?' فوق':' تحت'),
    ruleTitle:'النقاط تغيّر الحرف',ruleSub:'الحروف المتشابهة يميّزها عدد النقاط ومكانها.',
@@ -111,6 +111,23 @@
   return steps;
  }
 
+ function buildItemSteps(ids,known,tip){
+  const steps=[],taught=[...known];
+  if(tip)steps.push({k:'card',kind:'intro'});
+  ids.forEach((x,i)=>{
+   steps.push({k:'card',kind:'new',id:x});taught.push(x);
+   const pool=taught.filter(id=>id!==x);
+   // This lesson's items first: they are the ones being told apart.
+   const near=shuffle(pool.filter(id=>ids.includes(id))).concat(shuffle(pool.filter(id=>!ids.includes(id))));
+   if(pool.length)steps.push({k:'q',type:'pick',id:x,opts:shuffle([x,...near.slice(0,i===0?1:2)])});
+   if(i>=1)steps.push({k:'q',type:'name',id:x,opts:shuffle([x,...shuffle(ids.slice(0,i)).slice(0,2)])});
+  });
+  if(tip?.mistake)steps.push({k:'card',kind:'tip'});
+  steps.push({k:'q',type:'match',ids:shuffle(ids).slice(0,4)});
+  const x=shuffle(ids)[0];steps.push({k:'q',type:'pick',id:x,opts:shuffle([x,...shuffle(taught.filter(id=>id!==x)).slice(0,2)])});
+  return steps;
+ }
+
  let host=null,run=null;
  function close(){
   window.DEEN_ARABIC_LETTER_AUDIO?.stop?.();
@@ -121,14 +138,17 @@
  function sound(kind){try{window.DEEN_DS_SOUND?.play?.(kind)}catch(_){}}
 
  function open(opts){
-  const C=window.DEEN_ARABIC_LETTERS;if(!C||!opts||!Array.isArray(opts.letterIds)||!opts.letterIds.length)return false;
+  const C=window.DEEN_ARABIC_LETTERS;if(!C||!opts||!(opts.letterIds?.length||opts.items?.length))return false;
   close();
   const lang=T[opts.lang]?opts.lang:'tr',L=T[lang],S=SHAPE[lang];
-  const AUDIO=window.DEEN_ARABIC_LETTER_AUDIO,audioOk=id=>!!AUDIO?.available?.(id);
-  const name=id=>C.get(id)?.names?.[lang]||C.get(id)?.names?.en||id,glyph=id=>C.get(id)?.glyph||'';
+  // Item lessons (vowel marks, syllables, reading marks) bring their own glyphs, names and hints.
+  const ITEMS=opts.items?Object.fromEntries([...(opts.knownItems||[]),...opts.items].map(x=>[x.id,x])):null;
+  const lessonIds=opts.letterIds||opts.items.map(x=>x.id);
+  const AUDIO=window.DEEN_ARABIC_LETTER_AUDIO,audioOk=id=>!ITEMS&&!!AUDIO?.available?.(id);
+  const name=id=>ITEMS?ITEMS[id]?.name||id:C.get(id)?.names?.[lang]||C.get(id)?.names?.en||id,glyph=id=>ITEMS?ITEMS[id]?.glyph||'':C.get(id)?.glyph||'';
   const dotsOf=id=>L.dots(DESC[id]?.[1]||0,DESC[id]?.[2]),dotsShort=id=>L.dotsShort(DESC[id]?.[1]||0,DESC[id]?.[2]);
   const play=id=>{if(audioOk(id))AUDIO.play(id)};
-  const steps=buildSteps(opts.letterIds,(opts.known||[]).filter(id=>C.get(id)),L,audioOk);
+  const steps=ITEMS?buildItemSteps(opts.items.map(x=>x.id),(opts.knownItems||[]).map(x=>x.id),opts.tip):buildSteps(opts.letterIds,(opts.known||[]).filter(id=>C.get(id)),L,audioOk);
   run={opts,queue:steps.map(s=>({s})),total:steps.length,done:0,first:0,asked:0,combo:0,best:0,missed:new Set(),started:Date.now(),cur:null,sel:null,phase:'',matchBad:false};
   const pet=(()=>{let p='owl';try{p=window.state?.profile?.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'})();
   const img=pose=>'assets/companions/'+pet+'/'+pet+'_'+pose+'.png';
@@ -159,18 +179,26 @@
    if(run.cur.retry)box.append(el('span','dac-tag is-rule',L.retry));
    const prompt=el('h2','dac-prompt');box.append(prompt);
    if(s.type==='pick')prompt.textContent=L.which(name(s.id));
-   else if(s.type==='name')prompt.textContent=L.whatName;
+   else if(s.type==='name')prompt.textContent=ITEMS?L.whatItem:L.whatName;
    else if(s.type==='listen')prompt.textContent=L.hear;
-   else if(s.type==='match')prompt.textContent=L.match;
+   else if(s.type==='match')prompt.textContent=ITEMS?L.matchItems:L.match;
    else if(s.type==='dots')prompt.textContent=L.dotsQ(DESC[s.id]?.[1]||0,DESC[s.id]?.[2]);
    else if(s.type==='initial')prompt.textContent=L.initialQ(name(s.id));
    else if(s.type==='nojoin')prompt.textContent=L.noJoinQ;
    if(s.type==='match')renderMatch(s,box);else renderChoices(s,box);
   }
   function renderCard(s,box){
-   box.append(el('span','dac-tag '+(s.kind==='new'?'is-new':'is-rule'),s.kind==='new'?L.newLetter:s.kind==='rule'?L.rule:L.form));
+   box.append(el('span','dac-tag '+(s.kind==='new'?'is-new':'is-rule'),s.kind==='new'?(ITEMS?L.newItem:L.newLetter):s.kind==='rule'||s.kind==='intro'?L.rule:s.kind==='tip'?L.caution:L.form));
    const c=el('div','dac-card');box.append(c);
-   if(s.kind==='new'){
+   if(ITEMS&&s.kind==='new'){
+    const it=ITEMS[s.id];c.append(arText(el('div','dac-big'),it.glyph),el('div','dac-name',it.name));if(it.hint)c.append(el('div','dac-tip',it.hint));
+    if(it.example&&it.example!==it.glyph){const vs=el('div','dac-vs');const d=el('div','');d.append(arText(el('b','is-hi'),it.example),el('span','',L.example));vs.append(d);c.append(vs)}
+   }else if(s.kind==='intro'){
+    const tp=opts.tip;c.append(el('div','dac-name is-sm',tp.title||''));if(tp.text)c.append(el('div','dac-tip',tp.text));
+    const rows=el('div','dac-rows');for(const ex of tp.examples||[]){const r=el('div','');const t=el('span','');t.append(el('strong','',ex.caption||''));r.append(arText(el('b',''),ex.glyph||''),t);rows.append(r)}if(rows.childElementCount)c.append(rows);
+   }else if(s.kind==='tip'){
+    c.append(el('div','dac-tip is-lead',opts.tip.mistake));
+   }else if(s.kind==='new'){
     c.append(arText(el('div','dac-big'),glyph(s.id)),el('div','dac-name',name(s.id)),el('div','dac-tip',S[DESC[s.id][0]]+' '+dotsOf(s.id)));
     if(audioOk(s.id)){const b=el('button','dac-hear');b.type='button';b.innerHTML=ICON.speak;b.append(el('span','',L.listen));b.addEventListener('click',()=>play(s.id));c.append(b);setTimeout(()=>{if(run&&run.cur?.s===s)play(s.id)},350)}
     if(s.vs){const vs=el('div','dac-vs');const side=(id,hi)=>{const d=el('div','');d.append(arText(el('b',hi?'is-hi':''),glyph(id)),el('span','',name(id)));return d};vs.append(side(s.vs,false),el('span','dac-ne','≠'),side(s.id,true));c.append(vs)}
@@ -238,7 +266,7 @@
     run.combo=0;$('.dac-combo').classList.remove('is-on');if(s.id)run.missed.add(s.id);sound('wrong');
     const hintId=s.id||[...run.missed].pop();
     const mini=s.type==='initial'?C.get(hintId).forms.initial:glyph(hintId);
-    const text=s.type==='nojoin'?name(hintId)+': '+L.noJoinTitle+'.':s.type==='initial'?name(hintId)+': '+L.joinTitle+'.':name(hintId)+': '+dotsOf(hintId);
+    const text=ITEMS?name(hintId)+(ITEMS[hintId]?.hint?': '+ITEMS[hintId].hint:'.'):s.type==='nojoin'?name(hintId)+': '+L.noJoinTitle+'.':s.type==='initial'?name(hintId)+': '+L.joinTitle+'.':name(hintId)+': '+dotsOf(hintId);
     feedback('is-bad',L.remember,text+' '+L.again,mini,'try_again');
     cta.classList.add('is-bad');cta.textContent=L.got;
     run.queue.push({s,retry:true});
@@ -255,9 +283,9 @@
    const stats=el('div','dac-stats');
    for(const [cls,label,val] of [['a',L.acc,acc+'%'],['b',L.time,Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0')],['c',L.best,String(run.best)]]){const s=el('div','dac-stat is-'+cls);s.append(el('small','',label),el('span','',val));stats.append(s)}
    const learned=el('div','dac-learned');
-   for(const id of opts.letterIds){const b=el('button','');b.type='button';arText(b,glyph(id));b.setAttribute('aria-label',name(id));b.addEventListener('click',()=>play(id));learned.append(b)}
+   for(const id of lessonIds){const b=el('button','');b.type='button';arText(b,glyph(id));b.setAttribute('aria-label',name(id));b.addEventListener('click',()=>play(id));learned.append(b)}
    const btn=el('button','dac-cta',L.cont);btn.type='button';btn.addEventListener('click',()=>{close();try{opts.onClose?.()}catch(_){}});
-   d.append(party,el('h2','',L.done),el('p','dac-sub',L.learned),learned,stats,btn);
+   d.append(party,el('h2','',L.done),el('p','dac-sub',ITEMS?L.learnedItems:L.learned),learned,stats,btn);
    try{window.DEEN_DS_MOTION?.confetti?.(host)}catch(_){}
    btn.focus({preventScroll:true});
   }
