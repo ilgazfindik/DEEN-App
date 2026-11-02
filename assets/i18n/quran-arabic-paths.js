@@ -2231,16 +2231,26 @@
  }
  // Letter lessons open as a card-first lesson (each new letter is taught, then asked about at once)
  // when that layer is loaded; the result is saved here exactly like a finished written lesson.
- // Vowel and reading-mark lessons use the same layer with their own items, taught from the lesson tip.
+ // Vowel, reading-mark, word, meaning, phrase and pattern lessons use the same layer with their own
+ // items, taught from the lesson tip. Listening lessons keep their own player.
+ const CARD_COURSES=[PHONIC_LESSONS,READING_LESSONS,WORD_LESSONS,MEANING_LESSONS,PHRASE_LESSONS,PATTERN_LESSONS];
  function cardItems(lesson){
-  const course=PHONIC_LESSONS.includes(lesson)?PHONIC_LESSONS:READING_LESSONS.includes(lesson)?READING_LESSONS:null;
+  const course=CARD_COURSES.find(c=>c.includes(lesson));
   if(!course)return null;
   const code=lang(),tip=lessonTips[lesson.id]?.locale?.[code]||lessonTips[lesson.id]?.locale?.en||null,ex=tip?.examples||[];
-  const toItem=(x,i,own)=>{const e=ex.find(y=>y.glyph===x.glyph)||(own&&lesson.kind==='harakat'?ex[i]:null);
-   return {id:x.id,glyph:x.glyph,name:x.names?.[code]||x.names?.en||x.id,hint:own?(e?.caption||''):'',example:e?.glyph||''}};
+  const loc=o=>o?.[code]||o?.en||'';
+  const kind=lesson.kind;
+  // What each kind teaches as the item's "name", and which question asks for it.
+  const ask=/build|find/.test(kind)?'read':/role|structure/.test(kind)?'role':course===PHONIC_LESSONS||course===READING_LESSONS?'name':'mean';
+  const toItem=(x,i,own)=>{
+   const e=ex.find(y=>y.glyph===x.glyph)||(own&&kind==='harakat'?ex[i]:null);
+   const name=ask==='read'||ask==='name'?loc(x.names)||x.id:ask==='role'?loc(x.role)||loc(x.gloss)||x.id:loc(x.gloss)||loc(x.meaning)||x.id;
+   const hint=!own?'':ask==='role'?loc(x.gloss):ask==='mean'?(loc(x.note)||loc(x.role)||''):(e?.caption||'');
+   return {id:x.id,glyph:x.glyph,name,hint,example:course===PHONIC_LESSONS?e?.glyph||'':'',
+    parts:Array.isArray(x.parts)&&x.parts.length>1?x.parts.slice():null,verse:x.excerpt||'',ref:x.reference||''}};
   // Earlier lessons of the same course give distractors (vowel marks alone are not mixed with syllables).
-  const known=course.filter(x=>x.index<lesson.index&&(x.kind==='harakat')===(lesson.kind==='harakat')).flatMap(x=>x.items.map(y=>({id:y.id,glyph:y.glyph,name:y.names?.[code]||y.names?.en||y.id})));
-  return {items:lesson.items.map((x,i)=>toItem(x,i,true)),knownItems:known,
+  const known=course.filter(x=>x.index<lesson.index&&(x.kind==='harakat')===(kind==='harakat')).flatMap(x=>x.items.map((y,i)=>toItem(y,i,false)));
+  return {items:lesson.items.map((x,i)=>toItem(x,i,true)),knownItems:known,ask,mode:kind==='quran-find'?'find':'',
    tip:tip?{title:tip.title,text:tip.oneSentence,examples:ex.map(e=>({glyph:e.glyph,caption:e.caption})),mistake:tip.mistakeTip}:null};
  }
  function cardLesson(index){
@@ -2253,7 +2263,8 @@
   let correctSeen=false;
   const opened=window.DEEN_ARABIC_CARDS.open({lessonIndex:index,...(items||{letterIds:lesson.letterIds.slice(),
    known:LESSONS.slice(0,index).flatMap(x=>x.letterIds)}),lang:lang(),
-   onAnswer:(_,ok)=>{if(ok&&!correctSeen){correctSeen=true;first10Record('correct')}},
+   // Phrase and pattern answers feed their spaced-review cards, as in the classic lesson.
+   onAnswer:(id,ok)=>{if(ok&&!correctSeen){correctSeen=true;first10Record('correct')}if(id&&(PHRASE_LESSONS.includes(lesson)||PATTERN_LESSONS.includes(lesson)))recordReview(id,ok)},
    onDone:result=>{
     state.lessonIndex=index;state.v2Session=null;state.lessonMissed=(result.missedIds||[]).slice(0,20);state.complete=true;
     saveCompleted();saveLessonOutcome();dailyMark('lesson',lesson.id);first10Record('finished');

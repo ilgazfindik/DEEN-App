@@ -111,3 +111,21 @@ html.dac-open,html.dac-open body{overflow:hidden!important}
 /* The floating admin button sits top-right: keep the progress bar clear of it. */
 html:has(#deenMobileAdminButton) .dac-top{padding-right:74px}
 .dac-tip.is-lead{font-size:18px;line-height:1.45;color:#eaf6f2;padding:10px 4px}
+/* Words, phrases and verses: sized glyphs, parts, the verse with the word marked, build and find. */
+.dac-big.is-mid{font-size:76px;line-height:1.5}
+.dac-big.is-long{font-size:38px;line-height:1.8}
+.dac-shown.is-mid{font-size:64px;line-height:1.5}
+.dac-shown.is-long{font-size:34px;line-height:1.8;text-align:center}
+.dac-opts.is-long{grid-template-columns:1fr}
+.dac-opts.is-long:not(.is-text) .dac-opt{font-size:30px;line-height:1.7;min-height:72px}
+.dac-parts{font-family:var(--dac-ar);font-size:30px;color:#7ff0cf;margin:2px 0 4px}
+.dac-verse{width:100%;margin-top:10px;padding-top:14px;border-top:1px dashed rgba(214,255,240,.12);display:grid;gap:4px}
+.dac-verse p{margin:0;font-family:var(--dac-ar);font-size:24px;line-height:1.9;color:#c9ddd8}
+.dac-verse mark{background:rgba(233,207,147,.18);color:#e9cf93;border-radius:8px;padding:0 4px}
+.dac-verse small{font-size:12px;font-weight:800;color:#9bb7b0}
+.dac-meaning{align-self:center;text-align:center;font-size:18px;font-weight:900;color:#e9cf93;margin:-6px 0 14px}
+.dac-slots{min-height:86px;border-bottom:2px solid #24464a;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;padding-bottom:12px;margin-bottom:20px}
+.dac-tiles,.dac-find{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.dac-tile{font-family:var(--dac-ar)!important;font-size:34px!important;font-weight:500!important;line-height:1.5!important;min-width:66px;min-height:72px!important;padding:4px 14px!important}
+.dac-tile.is-used{opacity:.25;pointer-events:none}
+.dac-word{font-family:var(--dac-ar)!important;font-size:28px!important;font-weight:500!important;line-height:1.6!important;min-height:64px!important;padding:4px 14px!important}
