@@ -100,7 +100,8 @@
   const workshops=[...landing.querySelectorAll(':scope>.dsm-entry:not(.dsq-node)')];
   if(workshops.length&&!landing.querySelector(':scope>.dsq-unit-loose'))unitOf(workshops[0],T.workshopsUnit,workshops,true);
   else workshops.forEach(n=>{n.classList.add('dsq-node');if(/\bis-(complete|completed|done)\b/.test(n.className))n.classList.add('dsq-done')});
-  landing.querySelectorAll('.dsq-unit small').forEach((s,i)=>{const t=T.unit(i+1);if(s.textContent!==t)s.textContent=t});
+  // Units are numbered in page order and take turns through five colours.
+  landing.querySelectorAll('.dsq-unit small').forEach((s,i)=>{const t=T.unit(i+1);if(s.textContent!==t)s.textContent=t;const u=s.closest('.dsq-unit'),tone=String(i%5);if(u.dataset.tone!==tone)u.dataset.tone=tone});
  }
  function pathify(landing,T,next){
   landing.classList.add('dsq-pathed');unitCount=0;

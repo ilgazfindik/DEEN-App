@@ -220,8 +220,8 @@ html body #leagueScreenBody .dsq-pathed .dsq-node:not(:disabled):not(.dsq-done) 
 html body #leagueScreenBody .dsq-pathed .dsq-node:not(:disabled):not(.dsq-done) .dsm-entry-glyphs{background:linear-gradient(180deg,#2b6a62,#1f5550);color:#d8f5ec!important;box-shadow:0 7px 0 #133c38}
 html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-done .deen-path-course-glyphs,
 html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-done .dsm-entry-glyphs{background:linear-gradient(180deg,#f1d9a0,#d9b66a);color:#4a3810!important;box-shadow:0 7px 0 #a8873f}
-html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur .deen-path-course-glyphs,
-html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur .dsm-entry-glyphs{background:linear-gradient(180deg,#52e5bd,#2fc39b);color:#053329!important;box-shadow:0 7px 0 #1b8a6c,0 0 0 8px rgba(82,229,189,.14)}
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur.dsq-cur .deen-path-course-glyphs,
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur.dsq-cur .dsm-entry-glyphs{background:linear-gradient(180deg,#52e5bd,#2fc39b);color:#053329!important;box-shadow:0 7px 0 #1b8a6c,0 0 0 8px rgba(82,229,189,.14)}
 html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur .deen-path-course-number,html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur .dsm-entry-title{color:#eaf6f2!important}
 html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur::after{content:"";position:absolute;top:-9px;left:50%;width:102px;height:96px;margin-left:-51px;border-radius:50%;border:3px solid rgba(82,229,189,.5);pointer-events:none;animation:dsqRing 1.8s ease-out infinite}
 @keyframes dsqRing{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.16);opacity:0}}
@@ -245,3 +245,43 @@ html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-glyphs,html 
 /* Long phrases: the node shows their first word; the full text stays for screen readers. */
 html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-glyphs.dsq-long,html body #leagueScreenBody .dsq-pathed .dsq-node .dsm-entry-glyphs.dsq-long{font-size:0!important;word-spacing:0}
 html body #leagueScreenBody .dsq-pathed .dsq-node .dsq-long::after{content:attr(data-dsq-short);font-size:22px;line-height:1.2}
+
+/* Arabic path, full screen: no framed panel, a one-line header (back, title, progress) and colour units. */
+html body #leagueScreenBody:has(.dsq-pathed)>#deenQuranPathNav{display:none!important}
+html body #leagueScreenBody:has(.dsq-pathed)>#deenQuranPathView{padding-top:8px!important}
+html body #leagueScreenBody .deen-path-arabic-landing.dsq-pathed{position:relative!important;border:0!important;background:none!important;box-shadow:none!important;border-radius:0!important;padding:0 0 28px!important;row-gap:14px!important}
+html body #leagueScreenBody .dsq-pathed>.deen-path-back{position:absolute!important;top:0;inset-inline-start:0;z-index:2;width:42px!important;height:42px!important;min-height:0!important;padding:0!important;border-radius:50%!important;font-size:0!important;line-height:0!important;color:#eaf6f2!important;background:rgba(255,255,255,.06)!important;border:1px solid rgba(214,255,240,.12)!important;box-shadow:none!important}
+html body #leagueScreenBody .dsq-pathed>.deen-path-back::before{content:"";position:absolute;inset:0;margin:auto;width:20px;height:20px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 5-7 7 7 7'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 5-7 7 7 7'/%3E%3C/svg%3E") center/contain no-repeat}
+html body #leagueScreenBody .dsq-pathed>.deen-path-back:dir(rtl)::before{transform:scaleX(-1)}
+html body #leagueScreenBody .dsq-pathed>.deen-path-pill,html body #leagueScreenBody .dsq-pathed>.dsq-next{display:none!important}
+html body #leagueScreenBody .dsq-pathed>.deen-path-inner-title{order:1;min-height:42px;display:flex!important;align-items:center;padding-inline-start:56px!important;font-size:26px!important;font-weight:900!important;letter-spacing:-.01em}
+html body #leagueScreenBody .dsq-pathed>.deen-path-progress-copy{order:2;margin-top:-4px!important;font-size:13px!important;font-weight:800!important;color:#9bb7b0!important}
+html body #leagueScreenBody .dsq-pathed>.deen-path-course-progress{order:3;height:10px!important;margin:-8px 0 6px!important;background:#183a3e!important;border:0!important}
+html body #leagueScreenBody .dsq-pathed>.deen-path-course-progress span{background:linear-gradient(90deg,#3fd7ad,#7ff0cf)!important;border-radius:99px!important}
+/* Unit bands: one colour per unit in turn; a locked unit stays dark. */
+html body #leagueScreenBody .dsq-pathed .dsq-unit{position:relative;overflow:hidden;min-height:84px;padding:18px 20px!important;border:0!important;border-radius:22px!important;margin-top:10px!important;--t1:#17a383;--t2:#0e6f63;--ts:#0a4b44;--tx:#f2fffb;background:linear-gradient(135deg,var(--t1),var(--t2))!important;box-shadow:0 6px 0 var(--ts)!important;color:var(--tx)!important}
+html body #leagueScreenBody .dsq-pathed .dsq-unit[data-tone="1"]{--t1:#7a5cf0;--t2:#5a3fc9;--ts:#3d2a8c}
+html body #leagueScreenBody .dsq-pathed .dsq-unit[data-tone="2"]{--t1:#e6bd63;--t2:#c0912f;--ts:#7d5c1c;--tx:#2b1f08}
+html body #leagueScreenBody .dsq-pathed .dsq-unit[data-tone="3"]{--t1:#3fa0e0;--t2:#2575b8;--ts:#184f7d}
+html body #leagueScreenBody .dsq-pathed .dsq-unit[data-tone="4"]{--t1:#ee7d6a;--t2:#c9574a;--ts:#8a3a31}
+html body #leagueScreenBody .dsq-pathed .dsq-unit.is-locked{--t1:#123236;--t2:#0e262a;--ts:#081b1e;--tx:#eaf6f2}
+html body #leagueScreenBody .dsq-pathed .dsq-unit::after{content:"";position:absolute;right:-46px;top:-58px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none}
+html body #leagueScreenBody .dsq-pathed .dsq-unit:dir(rtl)::after{right:auto;left:-46px}
+html body #leagueScreenBody .dsq-pathed .dsq-unit small{font-size:11.5px!important;letter-spacing:.14em!important;opacity:.82}
+html body #leagueScreenBody .dsq-pathed .dsq-unit b{font-size:20px!important;line-height:1.2!important}
+html body #leagueScreenBody .dsq-pathed .dsq-unit-glyphs{position:relative;z-index:1;font-size:24px!important}
+html body #leagueScreenBody .dsq-pathed .dsq-unit.is-locked b,html body #leagueScreenBody .dsq-pathed .dsq-unit.is-locked .dsq-unit-glyphs{opacity:.45}
+html body #leagueScreenBody .dsq-pathed .dsq-unit.is-locked small{opacity:.55}
+/* Nodes: a little larger. */
+html body #leagueScreenBody .dsq-pathed .dsq-node .deen-path-course-glyphs,
+html body #leagueScreenBody .dsq-pathed .dsq-node .dsm-entry-glyphs{width:88px!important;height:82px!important}
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-done::before,html body #leagueScreenBody .dsq-pathed .dsq-node:disabled::before{top:56px;margin-left:24px}
+html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur::after{width:106px;height:100px;margin-left:-53px}
+/* The Quran screen keeps a left-to-right box even in Arabic: mirror the header by hand there. */
+html[dir="rtl"] body #leagueScreenBody .dsq-pathed>.deen-path-back{inset-inline-start:auto!important;left:auto!important;right:0!important}
+html[dir="rtl"] body #leagueScreenBody .dsq-pathed>.deen-path-inner-title{justify-content:flex-end;text-align:right;padding-inline-start:0!important;padding-right:56px!important}
+html[dir="rtl"] body #leagueScreenBody .dsq-pathed>.deen-path-progress-copy{text-align:right}
+html body #leagueScreenBody .dsq-pathed>.deen-path-back{grid-column:1/-1!important;grid-row:1!important}
+/* The floating admin button sits top-right: in Arabic the back button moves inward beside it. */
+html[dir="rtl"]:has(#deenMobileAdminButton) body #leagueScreenBody .dsq-pathed>.deen-path-back{right:58px!important}
+html[dir="rtl"]:has(#deenMobileAdminButton) body #leagueScreenBody .dsq-pathed>.deen-path-inner-title{padding-right:114px!important}
