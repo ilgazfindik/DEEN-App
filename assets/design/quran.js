@@ -8,15 +8,15 @@
  if(window.DEEN_DS_QURAN)return;
 
  const L={
-  tr:{unit:n=>'ÜNİTE '+n,lettersUnit:'28 harf',workshopsUnit:'Telaffuz atölyeleri',go:'BAŞLA',lessons:(a,b)=>a+'/'+b+' ders tamamlandı',surahs:n=>n+' sure · dinle, ezberle, tekrar et',next:'SIRADAKİ DERS',start:'Derse başla',
+  tr:{heroSub:'Harf harf, ayet ayet ilerle.',overall:'Genel ilerleme',unit:n=>'ÜNİTE '+n,lettersUnit:'28 harf',workshopsUnit:'Telaffuz atölyeleri',go:'BAŞLA',lessons:(a,b)=>a+'/'+b+' ders tamamlandı',surahs:n=>n+' sure · dinle, ezberle, tekrar et',next:'SIRADAKİ DERS',start:'Derse başla',
    lessonsHeading:'Dersler',practiceHeading:'Ölçüm ve pekiştirme',planHeading:'Planın'},
-  en:{unit:n=>'UNIT '+n,lettersUnit:'The 28 letters',workshopsUnit:'Pronunciation workshops',go:'START',lessons:(a,b)=>a+' of '+b+' lessons done',surahs:n=>n+' surahs · listen, memorise, review',next:'NEXT LESSON',start:'Start lesson',
+  en:{heroSub:'Letter by letter, verse by verse.',overall:'Overall progress',unit:n=>'UNIT '+n,lettersUnit:'The 28 letters',workshopsUnit:'Pronunciation workshops',go:'START',lessons:(a,b)=>a+' of '+b+' lessons done',surahs:n=>n+' surahs · listen, memorise, review',next:'NEXT LESSON',start:'Start lesson',
    lessonsHeading:'Lessons',practiceHeading:'Practice and progress checks',planHeading:'Your plan'},
-  ar:{unit:n=>'الوحدة '+n,lettersUnit:'الحروف الثمانية والعشرون',workshopsUnit:'ورش النطق',go:'ابدأ',lessons:(a,b)=>'أُنجز '+a+' من '+b+' دروس',surahs:n=>n+' سورة · استمع واحفظ وراجع',next:'الدرس التالي',start:'ابدأ الدرس',
+  ar:{heroSub:'حرفًا حرفًا، وآيةً آية.',overall:'التقدّم العام',unit:n=>'الوحدة '+n,lettersUnit:'الحروف الثمانية والعشرون',workshopsUnit:'ورش النطق',go:'ابدأ',lessons:(a,b)=>'أُنجز '+a+' من '+b+' دروس',surahs:n=>n+' سورة · استمع واحفظ وراجع',next:'الدرس التالي',start:'ابدأ الدرس',
    lessonsHeading:'الدروس',practiceHeading:'التدريب وقياس التقدّم',planHeading:'خطتك'},
-  de:{unit:n=>'EINHEIT '+n,lettersUnit:'Die 28 Buchstaben',workshopsUnit:'Aussprache-Werkstätten',go:'START',lessons:(a,b)=>a+' von '+b+' Lektionen erledigt',surahs:n=>n+' Suren · hören, auswendig lernen, wiederholen',next:'NÄCHSTE LEKTION',start:'Lektion starten',
+  de:{heroSub:'Buchstabe für Buchstabe, Vers für Vers.',overall:'Gesamtfortschritt',unit:n=>'EINHEIT '+n,lettersUnit:'Die 28 Buchstaben',workshopsUnit:'Aussprache-Werkstätten',go:'START',lessons:(a,b)=>a+' von '+b+' Lektionen erledigt',surahs:n=>n+' Suren · hören, auswendig lernen, wiederholen',next:'NÄCHSTE LEKTION',start:'Lektion starten',
    lessonsHeading:'Lektionen',practiceHeading:'Üben und Fortschritt prüfen',planHeading:'Dein Plan'},
-  fr:{unit:n=>'UNITÉ '+n,lettersUnit:'Les 28 lettres',workshopsUnit:'Ateliers de prononciation',go:'COMMENCER',lessons:(a,b)=>a+' leçons sur '+b+' terminées',surahs:n=>n+' sourates · écoute, mémorise, révise',next:'PROCHAINE LEÇON',start:'Commencer la leçon',
+  fr:{heroSub:'Lettre après lettre, verset après verset.',overall:'Progression globale',unit:n=>'UNITÉ '+n,lettersUnit:'Les 28 lettres',workshopsUnit:'Ateliers de prononciation',go:'COMMENCER',lessons:(a,b)=>a+' leçons sur '+b+' terminées',surahs:n=>n+' sourates · écoute, mémorise, révise',next:'PROCHAINE LEÇON',start:'Commencer la leçon',
    lessonsHeading:'Leçons',practiceHeading:'Pratique et suivi des progrès',planHeading:'Ton plan'}
  };
  function lang(){
@@ -75,53 +75,103 @@
   pathify(landing,T,next);
  }
 
- /* The lessons read as one winding path: each course becomes a unit with a banner, each lesson
-    button a round node (the engine's own button, restyled), the next lesson pulses with a
-    start bubble and the companion beside it. */
- const SWAY=[0,-62,-86,-62,0,62,86,62];
+ /* The lessons read as one path: a night hero with the companion, an overall progress card, then
+    each course as a unit card (icon, title, arrow to its next lesson) over a vertical list of round
+    lesson nodes (the engine's own buttons, restyled) joined by a line. The next lesson pulses with a
+    start bubble; done and next-locked lessons say so beside the node. */
+ const UNIT_ICONS={
+  letters:'<path d="M4 19V6.5A1.5 1.5 0 0 1 5.5 5H11v14H5.5A1.5 1.5 0 0 0 4 20.5"/><path d="M20 19V6.5A1.5 1.5 0 0 0 18.5 5H13v14h5.5a1.5 1.5 0 0 1 1.5 1.5"/>',
+  workshops:'<path d="M12 4a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V7a3 3 0 0 1 3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v3"/>',
+  vowel:'<path d="M7 7h10M9 17h6"/><circle cx="12" cy="12" r="2.2"/>',
+  reading:'<path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.6"/>',
+  word:'<rect x="3.5" y="7" width="7" height="10" rx="2"/><rect x="13.5" y="7" width="7" height="10" rx="2"/>',
+  meaning:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
+  phrase:'<path d="M4 5.5h16v10H9l-5 4z"/>',
+  pattern:'<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>',
+  listening:'<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>'
+ };
+ const svg=d=>'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';
  function companion(){let p='owl';try{p=window.state?.profile?.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'}
- let unitCount=0;
- function unitOf(before,title,nodes,loose){
-  const shift=(unitCount++%2)*4;
-  const banner=el('div','dsq-unit'+(nodes.some(n=>!n.disabled)?'':' is-locked')+(loose?' dsq-unit-loose':''));
-  const copy=el('span','dsq-unit-copy');copy.append(el('small',''),el('b','',title));banner.append(copy);
-  const sample=(nodes[0]?.querySelector('.deen-path-course-glyphs,.dsm-entry-glyphs')?.textContent||'').trim();
-  if(sample){const g=el('span','dsq-unit-glyphs',sample);g.lang='ar';g.dir='rtl';banner.append(g)}
+ const isDone=n=>/\bis-(complete|completed|done)\b/.test(n.className);
+ const firstOpen=nodes=>nodes.find(n=>!n.disabled&&!isDone(n))||nodes.find(n=>!n.disabled);
+ function unitOf(before,title,nodes,key,loose){
+  const open=nodes.some(n=>!n.disabled);
+  const banner=el('div','dsq-unit'+(open?'':' is-locked')+(loose?' dsq-unit-loose':''));
+  const icon=el('span','dsq-unit-icon');icon.innerHTML=svg(UNIT_ICONS[key]||UNIT_ICONS.letters);
+  const copy=el('span','dsq-unit-copy');copy.append(el('small',''),el('b','',title));
+  banner.append(icon,copy);
+  if(open){
+   const go=el('button','dsq-unit-go');go.type='button';go.innerHTML=ARROW;go.setAttribute('aria-label',title);
+   go.addEventListener('click',()=>firstOpen(nodes)?.click());banner.append(go);
+  }
   before.parentNode.insertBefore(banner,before);
   nodes.forEach((n,j)=>{
-   n.classList.add('dsq-node');n.style.setProperty('--dsq-dx',SWAY[(j+shift)%SWAY.length]+'px');
+   n.classList.add('dsq-node');
    const g=n.querySelector('.deen-path-course-glyphs,.dsm-entry-glyphs');if(g&&g.textContent.replace(/\s+/g,'').length>7){g.classList.add('dsq-long');g.dataset.dsqShort=g.textContent.trim().split(/\s+/)[0]}
-   if(/\bis-(complete|completed|done)\b/.test(n.className))n.classList.add('dsq-done');
+   if(isDone(n))n.classList.add('dsq-done');
+   if(j<nodes.length-1&&!n.querySelector(':scope>.dsq-line')){const line=el('span','dsq-line');line.setAttribute('aria-hidden','true');n.prepend(line)}
   });
+ }
+ // A short status beside the node, from the engine's own (screen-reader) status text.
+ function statusOf(n,text){
+  if(n.querySelector('.dsq-status'))return;
+  const t=String(text||'').replace(/^[\s\u{1F512}\u2713\u2714]+/u,'').trim();if(!t)return;
+  const s=el('span','dsq-status',t);s.setAttribute('aria-hidden','true');
+  (n.querySelector('.deen-path-course-item-top,.dsm-entry-copy')||n).append(s);
+ }
+ function statuses(landing){
+  const nodes=[...landing.querySelectorAll('.dsq-node')];let nextLocked=false;
+  for(const n of nodes){
+   const raw=n.querySelector('.deen-path-course-status,.dsm-entry-sub')?.textContent||'';
+   if(n.classList.contains('dsq-done')||n.classList.contains('dsq-cur'))statusOf(n,raw);
+   else if(n.disabled&&!nextLocked&&nodes.some(x=>x.classList.contains('dsq-cur'))&&nodes.indexOf(n)>nodes.findIndex(x=>x.classList.contains('dsq-cur'))){nextLocked=true;n.classList.add('dsq-next-lock');statusOf(n,raw)}
+  }
  }
  // The pronunciation workshops are added by their own layer, possibly after this pass: they get
  // their unit whenever they appear, and the unit numbers follow page order.
  function pathLate(landing,T){
   const workshops=[...landing.querySelectorAll(':scope>.dsm-entry:not(.dsq-node)')];
-  if(workshops.length&&!landing.querySelector(':scope>.dsq-unit-loose'))unitOf(workshops[0],T.workshopsUnit,workshops,true);
-  else workshops.forEach(n=>{n.classList.add('dsq-node');if(/\bis-(complete|completed|done)\b/.test(n.className))n.classList.add('dsq-done')});
+  if(workshops.length&&!landing.querySelector(':scope>.dsq-unit-loose'))unitOf(workshops[0],T.workshopsUnit,workshops,'workshops',true);
+  else workshops.forEach(n=>{n.classList.add('dsq-node');if(isDone(n))n.classList.add('dsq-done')});
   // Units are numbered in page order and take turns through five colours.
   landing.querySelectorAll('.dsq-unit small').forEach((s,i)=>{const t=T.unit(i+1);if(s.textContent!==t)s.textContent=t;const u=s.closest('.dsq-unit'),tone=String(i%5);if(u.dataset.tone!==tone)u.dataset.tone=tone});
+  statuses(landing);
+ }
+ function hero(landing,T){
+  if(landing.querySelector(':scope>.dsq-hero'))return;
+  const box=el('div','dsq-hero');
+  const copy=el('div','dsq-hero-copy');
+  const back=landing.querySelector(':scope>.deen-path-back'),title=landing.querySelector(':scope>.deen-path-inner-title');
+  if(back)box.append(back);
+  if(title)copy.append(title);
+  copy.append(el('p','dsq-hero-sub',T.heroSub));box.append(copy);
+  const pet=companion(),img=new Image();img.className='dsq-hero-pet';img.alt='';img.decoding='async';img.setAttribute('aria-hidden','true');
+  img.addEventListener('error',()=>{if(!img.src.includes('/owl/'))img.src='assets/companions/owl/owl_lesson_idle.png'},{once:true});
+  img.src='assets/companions/'+pet+'/'+pet+'_lesson_idle.png';box.append(img);
+  landing.prepend(box);
+  const p=arabicProgress();
+  if(p){
+   const card=el('div','dsq-prog');const row=el('div','dsq-prog-row');row.append(el('span','',T.overall),el('b','',p.done+' / '+p.total));
+   const bar=el('span','dsq-bar');const fill=el('i');fill.style.width=Math.round(p.done/p.total*100)+'%';bar.append(fill);
+   card.append(row,bar);box.after(card);
+  }
  }
  function pathify(landing,T,next){
-  landing.classList.add('dsq-pathed');unitCount=0;
+  landing.classList.add('dsq-pathed');
+  hero(landing,T);
   const grid=landing.querySelector(':scope>.deen-path-course-grid');
-  if(grid)unitOf(grid,T.lettersUnit,[...grid.querySelectorAll('.deen-path-course-item')]);
+  if(grid)unitOf(grid,T.lettersUnit,[...grid.querySelectorAll('.deen-path-course-item')],'letters');
   for(const sec of landing.querySelectorAll(':scope>section')){
    const nodes=[...sec.querySelectorAll(':scope>.deen-path-course-item')];if(!nodes.length)continue;
    sec.classList.add('dsq-unit-section');
-   unitOf(sec.querySelector(':scope>h3')||nodes[0],sec.querySelector(':scope>h3')?.textContent||'',nodes);
+   const key=(String(sec.className).match(/deen-path-(vowel|reading|word|meaning|phrase|pattern|listening)-section/)||[])[1];
+   unitOf(sec.querySelector(':scope>h3')||nodes[0],sec.querySelector(':scope>h3')?.textContent||'',nodes,key);
   }
-  pathLate(landing,T);
   if(next&&next.classList.contains('dsq-node')){
    next.classList.add('dsq-cur');
    const bubble=el('span','dsq-bubble',T.go);bubble.setAttribute('aria-hidden','true');next.prepend(bubble);
-   const dx=parseFloat(next.style.getPropertyValue('--dsq-dx'))||0;
-   const pet=companion(),img=new Image();img.className='dsq-mascot '+(dx>0?'is-left':'is-right');img.alt='';img.decoding='async';img.setAttribute('aria-hidden','true');
-   img.addEventListener('error',()=>{if(!img.src.includes('/owl/'))img.src='assets/companions/owl/owl_lesson_idle.png'},{once:true});
-   img.src='assets/companions/'+pet+'/'+pet+'_lesson_idle.png';
-   next.append(img);
   }
+  pathLate(landing,T);
  }
 
  // Legacy surah and path styles go down to 7px; lift anything below 12px to 12px.
