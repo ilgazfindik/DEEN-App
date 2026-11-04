@@ -137,6 +137,34 @@
   return steps;
  }
 
+ // Unit review: no teaching cards, about ten mixed questions over everything the unit taught.
+ function buildReviewSteps(letters,items,audioOk){
+  const steps=[];
+  if(letters){
+   const C=window.DEEN_ARABIC_LETTERS,fam=id=>DESC[id]?.[0];
+   const near=(x,n)=>{const c=shuffle(letters.filter(id=>id!==x));c.sort((a,b)=>(fam(b)===fam(x))-(fam(a)===fam(x)));return c.slice(0,n)};
+   shuffle(letters).slice(0,10).forEach(x=>{
+    const kinds=['pick','name','pick'];if(audioOk(x))kinds.push('listen');if(C.get(x).joinsNext)kinds.push('initial');
+    const type=kinds[Math.random()*kinds.length|0];
+    const pool=letters.filter(id=>id!==x&&C.get(id).joinsNext);
+    if(type==='initial'&&pool.length)steps.push({k:'q',type,id:x,opts:shuffle([x,...shuffle(pool).slice(0,2)])});
+    else steps.push({k:'q',type:type==='initial'?'pick':type,id:x,opts:shuffle([x,...near(x,2)])});
+   });
+   steps.push({k:'q',type:'match',ids:shuffle(letters).slice(0,4)});
+   return steps;
+  }
+  const ids=Object.keys(items),long=id=>(items[id].glyph||'').length>14;
+  shuffle(ids).slice(0,10).forEach(x=>{
+   const it=items[x],same=ids.filter(id=>id!==x&&items[id].group===it.group);
+   if((it.parts||[]).length>1&&(long(x)||Math.random()<.6)){steps.push({k:'q',type:'build',id:x,parts:it.parts});return}
+   if(same.length&&(long(x)||Math.random()<.5)){steps.push({k:'q',type:'name',id:x,ask:it.ask,opts:shuffle([x,...shuffle(same).slice(0,2)])});return}
+   const pool=ids.filter(id=>id!==x&&!long(id));
+   if(!long(x)&&pool.length)steps.push({k:'q',type:'pick',id:x,ask:it.ask,opts:shuffle([x,...shuffle(pool).slice(0,2)])});
+  });
+  const short=ids.filter(id=>!long(id));if(short.length>=3)steps.push({k:'q',type:'match',ids:shuffle(short).slice(0,4)});
+  return steps;
+ }
+
  let host=null,run=null;
  function close(){
   window.DEEN_ARABIC_LETTER_AUDIO?.stop?.();
@@ -157,7 +185,7 @@
   const name=id=>ITEMS?ITEMS[id]?.name||id:C.get(id)?.names?.[lang]||C.get(id)?.names?.en||id,glyph=id=>ITEMS?ITEMS[id]?.glyph||'':C.get(id)?.glyph||'';
   const dotsOf=id=>L.dots(DESC[id]?.[1]||0,DESC[id]?.[2]),dotsShort=id=>L.dotsShort(DESC[id]?.[1]||0,DESC[id]?.[2]);
   const play=id=>{if(audioOk(id))AUDIO.play(id)};
-  const steps=ITEMS?buildItemSteps(opts.items.map(x=>x.id),(opts.knownItems||[]).map(x=>x.id),opts.tip,ITEMS,opts.mode):buildSteps(opts.letterIds,(opts.known||[]).filter(id=>C.get(id)),L,audioOk);
+  const steps=opts.review?buildReviewSteps(ITEMS?null:opts.letterIds,ITEMS,audioOk):ITEMS?buildItemSteps(opts.items.map(x=>x.id),(opts.knownItems||[]).map(x=>x.id),opts.tip,ITEMS,opts.mode):buildSteps(opts.letterIds,(opts.known||[]).filter(id=>C.get(id)),L,audioOk);
   run={opts,queue:steps.map(s=>({s})),total:steps.length,done:0,first:0,asked:0,combo:0,best:0,missed:new Set(),started:Date.now(),cur:null,sel:null,phase:'',matchBad:false};
   const pet=(()=>{let p='owl';try{p=window.state?.profile?.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'})();
   const img=pose=>'assets/companions/'+pet+'/'+pet+'_'+pose+'.png';
@@ -187,8 +215,9 @@
    run.phase='ask';cta.textContent=L.check;cta.disabled=true;
    if(run.cur.retry)box.append(el('span','dac-tag is-rule',L.retry));
    const prompt=el('h2','dac-prompt');box.append(prompt);
-   if(s.type==='pick')prompt.textContent=opts.ask==='mean'?L.whichMean(name(s.id)):L.which(name(s.id));
-   else if(s.type==='name')prompt.textContent=ITEMS?(opts.ask==='read'?L.howRead:opts.ask==='mean'?L.meanQ:opts.ask==='role'?L.roleQ:L.whatItem):L.whatName;
+   const ask=s.ask||opts.ask;
+   if(s.type==='pick')prompt.textContent=ask==='mean'?L.whichMean(name(s.id)):L.which(name(s.id));
+   else if(s.type==='name')prompt.textContent=ITEMS?(ask==='read'?L.howRead:ask==='mean'?L.meanQ:ask==='role'?L.roleQ:L.whatItem):L.whatName;
    else if(s.type==='build')prompt.textContent=L.build;
    else if(s.type==='find')prompt.textContent=L.findQ(name(s.id));
    else if(s.type==='listen')prompt.textContent=L.hear;
@@ -323,7 +352,7 @@
    const stats=el('div','dac-stats');
    for(const [cls,label,val] of [['a',L.acc,acc+'%'],['b',L.time,Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0')],['c',L.best,String(run.best)]]){const s=el('div','dac-stat is-'+cls);s.append(el('small','',label),el('span','',val));stats.append(s)}
    const learned=el('div','dac-learned');
-   for(const id of lessonIds){const b=el('button','');b.type='button';arText(b,glyph(id));b.setAttribute('aria-label',name(id));b.addEventListener('click',()=>play(id));learned.append(b)}
+   for(const id of lessonIds.slice(0,8)){const b=el('button','');b.type='button';arText(b,glyph(id));b.setAttribute('aria-label',name(id));b.addEventListener('click',()=>play(id));learned.append(b)}
    const btn=el('button','dac-cta',L.cont);btn.type='button';btn.addEventListener('click',()=>{close();try{opts.onClose?.()}catch(_){}});
    d.append(party,el('h2','',L.done),el('p','dac-sub',ITEMS?L.learnedItems:L.learned),learned,stats,btn);
    try{window.DEEN_DS_MOTION?.confetti?.(host)}catch(_){}
@@ -353,7 +382,7 @@
    const chips=el('div','dac-intro-chips');
    lessonIds.slice(0,6).forEach((id,i)=>{const c=arText(el('span','dac-intro-chip'+(glyph(id).length>5?' is-wide':'')),glyph(id).length>12?glyph(id).split(/\s+/)[0]:glyph(id));c.style.setProperty('--i',String(i));chips.append(c)});
    const meta=el('div','dac-intro-meta');
-   for(const [ico,label] of [['cards',L.countCards(cards)],['qs',L.countQs(qs)],['time',L.countMin(mins)]]){const m=el('span','');m.innerHTML=INTRO_ICON[ico];m.append(el('b','',label));meta.append(m)}
+   for(const [ico,label] of [...(cards?[['cards',L.countCards(cards)]]:[]),['qs',L.countQs(qs)],['time',L.countMin(mins)]]){const m=el('span','');m.innerHTML=INTRO_ICON[ico];m.append(el('b','',label));meta.append(m)}
    const go=el('button','dac-cta dac-intro-go',L.startLesson);go.type='button';
    box.append(pet,el('small','dac-intro-eyebrow',L.introEyebrow),el('h2','dac-intro-title',opts.title||''),opts.subtitle?el('p','dac-intro-sub',opts.subtitle):'',chips,meta,go);
    body.append(box);

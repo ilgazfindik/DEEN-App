@@ -104,5 +104,6 @@
   return sec;
  }
  window.DEEN_ARABIC_MARKS=Object.freeze({version:'ds-arabic-marks-1',lessons:LESSONS.map(l=>l.id),section,open,
-  progress:()=>({done:completed().length,total:LESSONS.length}),unlocked,store:STORE});
+  progress:()=>({done:completed().length,total:LESSONS.length}),
+  items:code=>LESSONS.flatMap(l=>itemsOf(l,T[code]?code:lang()).map(x=>({...x,group:l.id,ask:'read'}))),allDone:()=>LESSONS.every(l=>completed().includes(l.id)),unlocked,store:STORE});
 })();

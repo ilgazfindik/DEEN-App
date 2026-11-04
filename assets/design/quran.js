@@ -61,7 +61,9 @@
   // The reading-signs unit (its own layer) sits after the sukūn/shadda/madd unit, before the words.
   const marks=window.DEEN_ARABIC_MARKS?.section?.();
   if(marks){const before=landing.querySelector(':scope>.deen-path-word-section');if(before)landing.insertBefore(marks,before);else landing.append(marks)}
-  const items=[...landing.querySelectorAll('[data-qpath-action="group"],.dsq-marks-item')];
+  // Each unit ends with a review node (its own layer).
+  window.DEEN_ARABIC_REVIEW?.attach?.(landing,T);
+  const items=[...landing.querySelectorAll('[data-qpath-action="group"],.dsq-marks-item,.dsq-review-item')];
   const next=items.find(b=>!b.disabled&&!/\bis-(complete|completed|done)\b/.test(b.className));
   if(next){
    const card=el('button','dsq-next');card.type='button';
@@ -165,9 +167,9 @@
   landing.classList.add('dsq-pathed');
   hero(landing,T);
   const grid=landing.querySelector(':scope>.deen-path-course-grid');
-  if(grid)unitOf(grid,T.lettersUnit,[...grid.querySelectorAll('.deen-path-course-item')],'letters');
+  if(grid)unitOf(grid,T.lettersUnit,[...grid.querySelectorAll('.deen-path-course-item,.dsq-review-item')],'letters');
   for(const sec of landing.querySelectorAll(':scope>section')){
-   const nodes=[...sec.querySelectorAll(':scope>.deen-path-course-item')];if(!nodes.length)continue;
+   const nodes=[...sec.querySelectorAll(':scope>.deen-path-course-item,:scope>.dsq-review-item')];if(!nodes.length)continue;
    sec.classList.add('dsq-unit-section');
    const key=(String(sec.className).match(/deen-path-(vowel|reading|marks|word|meaning|phrase|pattern|listening)-section/)||[])[1];
    unitOf(sec.querySelector(':scope>h3')||nodes[0],sec.querySelector(':scope>h3')?.textContent||'',nodes,key);
