@@ -188,11 +188,20 @@
   }
  }
 
+ // The Arabic path plays its entrance only when arriving from another view (not after a lesson).
+ let lastView='';
+ function entrance(landing){
+  if(landing.dataset.dsqEntered)return;landing.dataset.dsqEntered='1';
+  if(lastView==='arabic'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  [...landing.querySelectorAll('.dsq-unit,.dsq-node')].slice(0,9).forEach((n,i)=>n.style.setProperty('--dsq-k',String(i)));
+  landing.classList.add('dsq-enter');setTimeout(()=>landing.classList.remove('dsq-enter'),1600);
+ }
  function decorate(){
   const body=document.getElementById('leagueScreenBody');if(!body)return;
   const T=L[lang()];
   const home=body.querySelector('#deenQuranPathView .deen-path-home');if(home)decorateHome(home,T);
-  const landing=body.querySelector('#deenQuranPathView .deen-path-arabic-landing');if(landing)decorateArabic(landing,T);
+  const landing=body.querySelector('#deenQuranPathView .deen-path-arabic-landing');if(landing){decorateArabic(landing,T);entrance(landing)}
+  lastView=landing?'arabic':body.dataset.deenLearningPath||'';
   if(document.getElementById('leagueScreen')?.classList.contains('active'))textFloor(body);
  }
 

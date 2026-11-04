@@ -365,3 +365,15 @@ html[dir="rtl"] body #leagueScreenBody .dsq-pathed .dsq-node.dsq-done::before,ht
 html[dir="rtl"] body #leagueScreenBody .dsq-pathed .dsq-node.dsq-cur::after{right:52px!important}
 html[dir="rtl"] body #leagueScreenBody .dsq-pathed .dsq-bubble{right:52px!important}
 html body #leagueScreenBody .dsq-pathed .dsq-node{direction:ltr!important}
+/* Arriving on the Arabic path: the night art settles, the companion hops in, cards and lessons rise in turn. */
+html body #leagueScreenBody .dsq-enter>.dsq-hero{animation:dsqHero .7s cubic-bezier(.2,1,.3,1) both}
+@keyframes dsqHero{from{opacity:0;background-size:auto,118% auto}}
+html body #leagueScreenBody .dsq-enter .dsq-hero-copy{animation:dsqRise .55s cubic-bezier(.2,1.2,.4,1) .12s both}
+html body #leagueScreenBody .dsq-enter .dsq-hero-pet{animation:dsqHop .7s cubic-bezier(.2,1.6,.4,1) .25s both}
+@keyframes dsqHop{from{opacity:0;transform:translate(30px,24px) scale(.6) rotate(8deg)}}
+html body #leagueScreenBody .dsq-enter>.dsq-prog{animation:dsqRise .5s cubic-bezier(.2,1.2,.4,1) .2s both}
+html body #leagueScreenBody .dsq-enter .dsq-unit,html body #leagueScreenBody .dsq-enter .dsq-node{animation:dsqRise .5s cubic-bezier(.2,1.2,.4,1) both;animation-delay:calc(.28s + var(--dsq-k,9) * .06s)}
+@keyframes dsqRise{from{opacity:0;transform:translateY(22px)}}
+html body #leagueScreenBody .dsq-enter .dsq-prog .dsq-bar i{animation:dsqFill .9s cubic-bezier(.3,1,.4,1) .45s both}
+@keyframes dsqFill{from{width:0}}
+@media (prefers-reduced-motion:reduce){html body #leagueScreenBody .dsq-enter *{animation:none!important}}

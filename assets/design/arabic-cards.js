@@ -18,7 +18,7 @@
   ar:{stroke:'خطّ واحد قائم.',boat:'جسم مسطّح يشبه القارب.',hook:'رأس في الأعلى وتجويف مفتوح في الأسفل.',angle:'شكل صغير بزاوية.',tail:'ذيل قصير ينزل تحت السطر.',teeth:'ثلاث أسنان صغيرة وذيل مستدير.',loop:'عقدة مستطيلة وذيل مستدير.',stick:'عقدة مستطيلة فوقها عصا قائمة.',mouth:'رأس مفتوح في الأعلى وتجويف واسع في الأسفل.',fa:'رأس صغير مستدير على جسم مسطّح.',qaf:'رأس مستدير وتجويف عميق.',kaf:'جسم طويل بداخله علامة صغيرة.',lam:'خطّ طويل ينتهي بتجويف مستدير.',mim:'رأس صغير مستدير وذيل نازل.',nun:'تجويف مستدير عميق.',ring:'حلقة صغيرة مستديرة.',waw:'رأس مستدير وذيل منحنٍ للأسفل.',ya:'جسم منحنٍ وذيل يرتدّ إلى الخلف.'}
  };
  const T={
-  tr:{howRead:'Bu nasıl okunur?',meanQ:'Bu ne demek?',roleQ:'Bunun görevi ne?',whichMean:n=>'Hangisi “'+n+'” demek?',build:'Parçaları sırayla diz',buildHint:'Arapça sağdan sola okunur',findQ:n=>'Ayette “'+n+'” kelimesini bul',inQuran:'Kur’an’da',learnedItems:'Bu derste öğrendiklerin',newItem:'YENİ',caution:'DİKKAT',whatItem:'Bu hangisi?',matchItems:'Eşleştir',example:'Örnek',newLetter:'YENİ HARF',rule:'KURAL',form:'YAZILIŞ',listen:'Dinle',cont:'Devam',check:'Kontrol et',got:'Anladım',which:n=>'Hangisi '+n+'?',whatName:'Bu harf hangisi?',hear:'Duyduğun harfe dokun',match:'Harfleri adlarıyla eşleştir',
+  tr:{introEyebrow:'BU DERSTE',startLesson:'Derse başla',countCards:n=>n+' kart',countQs:n=>n+' soru',countMin:n=>'~'+n+' dk',howRead:'Bu nasıl okunur?',meanQ:'Bu ne demek?',roleQ:'Bunun görevi ne?',whichMean:n=>'Hangisi “'+n+'” demek?',build:'Parçaları sırayla diz',buildHint:'Arapça sağdan sola okunur',findQ:n=>'Ayette “'+n+'” kelimesini bul',inQuran:'Kur’an’da',learnedItems:'Bu derste öğrendiklerin',newItem:'YENİ',caution:'DİKKAT',whatItem:'Bu hangisi?',matchItems:'Eşleştir',example:'Örnek',newLetter:'YENİ HARF',rule:'KURAL',form:'YAZILIŞ',listen:'Dinle',cont:'Devam',check:'Kontrol et',got:'Anladım',which:n=>'Hangisi '+n+'?',whatName:'Bu harf hangisi?',hear:'Duyduğun harfe dokun',match:'Harfleri adlarıyla eşleştir',
    dotsQ:(c,p)=>c===0?'Hangisinde nokta yok?':'Hangisinin '+(p==='a'?'üstünde ':'altında ')+c+' nokta var?',
    dots:(c,p)=>c===0?'Noktası yok.':(p==='a'?'Üstünde ':'Altında ')+c+' nokta var.',dotsShort:(c,p)=>c===0?'nokta yok':(p==='a'?'üstte ':'altta ')+c+' nokta',
    ruleTitle:'Noktalar harfi değiştirir',ruleSub:'Benzer harfleri noktaların sayısı ve yeri ayırır.',
@@ -26,7 +26,7 @@
    noJoinTitle:'Sonraki harfe bağlanmaz',noJoinSub:'Bu harfler kendilerinden sonra gelen harfle birleşmez; kelimenin başında da aynı yazılır.',noJoinQ:'Hangisi sonraki harfe bağlanmaz?',
    praise:['Harika!','Doğru!','Çok iyi!','Tam isabet!'],matched:'Hepsini eşleştirdin.',streak:n=>n+' doğru üst üste',streakTag:n=>n+' seri',remember:'Hatırla',again:'Bu soru az sonra yeniden gelecek.',retry:'TEKRAR DENE',
    matchHint:'Harfi ve adını birlikte seç.',done:'Ders tamamlandı!',learned:'Bu derste öğrendiklerin',acc:'DOĞRULUK',time:'SÜRE',best:'EN UZUN SERİ',quitTitle:'Dersten çıkılsın mı?',quitSub:'Bu dersteki ilerlemen kaydedilmez.',quitStay:'Derse devam et',quitLeave:'Çık',close:'Dersten çık',progress:'Ders ilerlemesi',replay:'Sesi tekrar çal'},
-  en:{howRead:'How is this read?',meanQ:'What does this mean?',roleQ:'What is its role?',whichMean:n=>'Which one means “'+n+'”?',build:'Put the parts in order',buildHint:'Arabic reads right to left',findQ:n=>'Find “'+n+'” in the verse',inQuran:'In the Quran',learnedItems:'What you learned',newItem:'NEW',caution:'WATCH OUT',whatItem:'Which one is this?',matchItems:'Match the pairs',example:'Example',newLetter:'NEW LETTER',rule:'RULE',form:'WRITING',listen:'Listen',cont:'Continue',check:'Check',got:'Got it',which:n=>'Which one is '+n+'?',whatName:'Which letter is this?',hear:'Tap the letter you hear',match:'Match the letters to their names',
+  en:{introEyebrow:'IN THIS LESSON',startLesson:'Start lesson',countCards:n=>n+(n===1?' card':' cards'),countQs:n=>n+(n===1?' question':' questions'),countMin:n=>'~'+n+' min',howRead:'How is this read?',meanQ:'What does this mean?',roleQ:'What is its role?',whichMean:n=>'Which one means “'+n+'”?',build:'Put the parts in order',buildHint:'Arabic reads right to left',findQ:n=>'Find “'+n+'” in the verse',inQuran:'In the Quran',learnedItems:'What you learned',newItem:'NEW',caution:'WATCH OUT',whatItem:'Which one is this?',matchItems:'Match the pairs',example:'Example',newLetter:'NEW LETTER',rule:'RULE',form:'WRITING',listen:'Listen',cont:'Continue',check:'Check',got:'Got it',which:n=>'Which one is '+n+'?',whatName:'Which letter is this?',hear:'Tap the letter you hear',match:'Match the letters to their names',
    dotsQ:(c,p)=>c===0?'Which one has no dots?':'Which one has '+c+' dot'+(c>1?'s':'')+(p==='a'?' above?':' below?'),
    dots:(c,p)=>c===0?'No dots.':c+' dot'+(c>1?'s':'')+(p==='a'?' above.':' below.'),dotsShort:(c,p)=>c===0?'no dots':c+(p==='a'?' above':' below'),
    ruleTitle:'Dots change the letter',ruleSub:'Similar letters differ only in the number and place of their dots.',
@@ -34,7 +34,7 @@
    noJoinTitle:'Does not join forward',noJoinSub:'These letters never join the letter after them, so they look the same at the start of a word.',noJoinQ:'Which one does not join the next letter?',
    praise:['Great!','Correct!','Well done!','Spot on!'],matched:'All matched.',streak:n=>n+' in a row',streakTag:n=>n+' streak',remember:'Remember',again:'This question comes back in a moment.',retry:'TRY AGAIN',
    matchHint:'Pick a letter and its name together.',done:'Lesson complete!',learned:'Letters from this lesson',acc:'ACCURACY',time:'TIME',best:'BEST STREAK',quitTitle:'Leave the lesson?',quitSub:'Progress in this lesson will not be saved.',quitStay:'Keep learning',quitLeave:'Leave',close:'Leave lesson',progress:'Lesson progress',replay:'Play the sound again'},
-  de:{howRead:'Wie liest man das?',meanQ:'Was bedeutet das?',roleQ:'Welche Rolle hat es?',whichMean:n=>'Was bedeutet „'+n+'“?',build:'Setze die Teile in die richtige Reihenfolge',buildHint:'Arabisch liest man von rechts nach links',findQ:n=>'Finde „'+n+'“ im Vers',inQuran:'Im Koran',learnedItems:'Das hast du gelernt',newItem:'NEU',caution:'ACHTUNG',whatItem:'Was ist das?',matchItems:'Ordne die Paare zu',example:'Beispiel',newLetter:'NEUER BUCHSTABE',rule:'REGEL',form:'SCHREIBWEISE',listen:'Anhören',cont:'Weiter',check:'Prüfen',got:'Verstanden',which:n=>'Welcher ist '+n+'?',whatName:'Welcher Buchstabe ist das?',hear:'Tippe auf den Buchstaben, den du hörst',match:'Ordne die Buchstaben ihren Namen zu',
+  de:{introEyebrow:'IN DIESER LEKTION',startLesson:'Lektion starten',countCards:n=>n+(n===1?' Karte':' Karten'),countQs:n=>n+(n===1?' Frage':' Fragen'),countMin:n=>'~'+n+' Min.',howRead:'Wie liest man das?',meanQ:'Was bedeutet das?',roleQ:'Welche Rolle hat es?',whichMean:n=>'Was bedeutet „'+n+'“?',build:'Setze die Teile in die richtige Reihenfolge',buildHint:'Arabisch liest man von rechts nach links',findQ:n=>'Finde „'+n+'“ im Vers',inQuran:'Im Koran',learnedItems:'Das hast du gelernt',newItem:'NEU',caution:'ACHTUNG',whatItem:'Was ist das?',matchItems:'Ordne die Paare zu',example:'Beispiel',newLetter:'NEUER BUCHSTABE',rule:'REGEL',form:'SCHREIBWEISE',listen:'Anhören',cont:'Weiter',check:'Prüfen',got:'Verstanden',which:n=>'Welcher ist '+n+'?',whatName:'Welcher Buchstabe ist das?',hear:'Tippe auf den Buchstaben, den du hörst',match:'Ordne die Buchstaben ihren Namen zu',
    dotsQ:(c,p)=>c===0?'Welcher hat keine Punkte?':'Welcher hat '+c+' Punkt'+(c>1?'e':'')+(p==='a'?' oben?':' unten?'),
    dots:(c,p)=>c===0?'Keine Punkte.':c+' Punkt'+(c>1?'e':'')+(p==='a'?' oben.':' unten.'),dotsShort:(c,p)=>c===0?'keine Punkte':c+(p==='a'?' oben':' unten'),
    ruleTitle:'Punkte ändern den Buchstaben',ruleSub:'Ähnliche Buchstaben unterscheiden sich nur durch Zahl und Lage der Punkte.',
@@ -42,7 +42,7 @@
    noJoinTitle:'Verbindet nicht nach links',noJoinSub:'Diese Buchstaben verbinden sich nie mit dem folgenden Buchstaben und sehen am Wortanfang gleich aus.',noJoinQ:'Welcher verbindet sich nicht mit dem nächsten Buchstaben?',
    praise:['Super!','Richtig!','Sehr gut!','Genau!'],matched:'Alles zugeordnet.',streak:n=>n+' richtig in Folge',streakTag:n=>n+' in Folge',remember:'Merke',again:'Diese Frage kommt gleich noch einmal.',retry:'NOCH EINMAL',
    matchHint:'Wähle einen Buchstaben und seinen Namen.',done:'Lektion geschafft!',learned:'Buchstaben aus dieser Lektion',acc:'GENAUIGKEIT',time:'ZEIT',best:'BESTE SERIE',quitTitle:'Lektion verlassen?',quitSub:'Der Fortschritt dieser Lektion wird nicht gespeichert.',quitStay:'Weiterlernen',quitLeave:'Verlassen',close:'Lektion verlassen',progress:'Lektionsfortschritt',replay:'Ton noch einmal abspielen'},
-  fr:{howRead:'Comment se lit ce mot ?',meanQ:'Que signifie ceci ?',roleQ:'Quel est son rôle ?',whichMean:n=>'Lequel signifie « '+n+' » ?',build:'Remets les parties dans l’ordre',buildHint:'L’arabe se lit de droite à gauche',findQ:n=>'Trouve « '+n+' » dans le verset',inQuran:'Dans le Coran',learnedItems:'Ce que tu as appris',newItem:'NOUVEAU',caution:'ATTENTION',whatItem:'Qu’est-ce que c’est ?',matchItems:'Associe les paires',example:'Exemple',newLetter:'NOUVELLE LETTRE',rule:'RÈGLE',form:'ÉCRITURE',listen:'Écouter',cont:'Continuer',check:'Vérifier',got:'Compris',which:n=>'Laquelle est '+n+' ?',whatName:'Quelle est cette lettre ?',hear:'Touche la lettre que tu entends',match:'Associe les lettres à leur nom',
+  fr:{introEyebrow:'DANS CETTE LEÇON',startLesson:'Commencer la leçon',countCards:n=>n+(n===1?' carte':' cartes'),countQs:n=>n+(n===1?' question':' questions'),countMin:n=>'~'+n+' min',howRead:'Comment se lit ce mot ?',meanQ:'Que signifie ceci ?',roleQ:'Quel est son rôle ?',whichMean:n=>'Lequel signifie « '+n+' » ?',build:'Remets les parties dans l’ordre',buildHint:'L’arabe se lit de droite à gauche',findQ:n=>'Trouve « '+n+' » dans le verset',inQuran:'Dans le Coran',learnedItems:'Ce que tu as appris',newItem:'NOUVEAU',caution:'ATTENTION',whatItem:'Qu’est-ce que c’est ?',matchItems:'Associe les paires',example:'Exemple',newLetter:'NOUVELLE LETTRE',rule:'RÈGLE',form:'ÉCRITURE',listen:'Écouter',cont:'Continuer',check:'Vérifier',got:'Compris',which:n=>'Laquelle est '+n+' ?',whatName:'Quelle est cette lettre ?',hear:'Touche la lettre que tu entends',match:'Associe les lettres à leur nom',
    dotsQ:(c,p)=>c===0?'Laquelle n’a aucun point ?':'Laquelle a '+c+' point'+(c>1?'s':'')+(p==='a'?' au-dessus ?':' dessous ?'),
    dots:(c,p)=>c===0?'Aucun point.':c+' point'+(c>1?'s':'')+(p==='a'?' au-dessus.':' dessous.'),dotsShort:(c,p)=>c===0?'aucun point':c+(p==='a'?' dessus':' dessous'),
    ruleTitle:'Les points changent la lettre',ruleSub:'Des lettres semblables ne diffèrent que par le nombre et la place des points.',
@@ -50,7 +50,7 @@
    noJoinTitle:'Ne se lie pas à la suivante',noJoinSub:'Ces lettres ne se lient jamais à la lettre suivante ; en début de mot elles gardent la même forme.',noJoinQ:'Laquelle ne se lie pas à la lettre suivante ?',
    praise:['Bravo !','Correct !','Très bien !','Parfait !'],matched:'Tout est associé.',streak:n=>n+' d’affilée',streakTag:n=>n+' d’affilée',remember:'À retenir',again:'Cette question reviendra dans un instant.',retry:'ENCORE UNE FOIS',
    matchHint:'Choisis une lettre et son nom.',done:'Leçon terminée !',learned:'Lettres de cette leçon',acc:'PRÉCISION',time:'TEMPS',best:'MEILLEURE SÉRIE',quitTitle:'Quitter la leçon ?',quitSub:'Ta progression dans cette leçon ne sera pas enregistrée.',quitStay:'Continuer',quitLeave:'Quitter',close:'Quitter la leçon',progress:'Progression de la leçon',replay:'Rejouer le son'},
-  ar:{howRead:'كيف يُقرأ هذا؟',meanQ:'ما معنى هذا؟',roleQ:'ما وظيفته؟',whichMean:n=>'أيّها يعني «'+n+'»؟',build:'رتّب الأجزاء',buildHint:'تُقرأ العربية من اليمين إلى اليسار',findQ:n=>'ابحث عن «'+n+'» في الآية',inQuran:'في القرآن',learnedItems:'ما تعلّمته',newItem:'جديد',caution:'انتبه',whatItem:'ما هذا؟',matchItems:'صِل بين الأزواج',example:'مثال',newLetter:'حرف جديد',rule:'قاعدة',form:'الكتابة',listen:'استمع',cont:'متابعة',check:'تحقّق',got:'فهمت',which:n=>'أيّها '+n+'؟',whatName:'ما اسم هذا الحرف؟',hear:'المس الحرف الذي تسمعه',match:'صِل كل حرف باسمه',
+  ar:{introEyebrow:'في هذا الدرس',startLesson:'ابدأ الدرس',countCards:n=>n+' بطاقات',countQs:n=>n+' أسئلة',countMin:n=>'~'+n+' د',howRead:'كيف يُقرأ هذا؟',meanQ:'ما معنى هذا؟',roleQ:'ما وظيفته؟',whichMean:n=>'أيّها يعني «'+n+'»؟',build:'رتّب الأجزاء',buildHint:'تُقرأ العربية من اليمين إلى اليسار',findQ:n=>'ابحث عن «'+n+'» في الآية',inQuran:'في القرآن',learnedItems:'ما تعلّمته',newItem:'جديد',caution:'انتبه',whatItem:'ما هذا؟',matchItems:'صِل بين الأزواج',example:'مثال',newLetter:'حرف جديد',rule:'قاعدة',form:'الكتابة',listen:'استمع',cont:'متابعة',check:'تحقّق',got:'فهمت',which:n=>'أيّها '+n+'؟',whatName:'ما اسم هذا الحرف؟',hear:'المس الحرف الذي تسمعه',match:'صِل كل حرف باسمه',
    dotsQ:(c,p)=>c===0?'أيّها بلا نقاط؟':'أيّها '+({1:'فيه نقطة واحدة',2:'فيه نقطتان',3:'فيه ثلاث نقاط'}[c])+(p==='a'?' فوقه؟':' تحته؟'),
    dots:(c,p)=>c===0?'بلا نقاط.':({1:'نقطة واحدة',2:'نقطتان',3:'ثلاث نقاط'}[c])+(p==='a'?' فوقه.':' تحته.'),dotsShort:(c,p)=>c===0?'بلا نقاط':({1:'نقطة',2:'نقطتان',3:'ثلاث نقاط'}[c])+(p==='a'?' فوق':' تحت'),
    ruleTitle:'النقاط تغيّر الحرف',ruleSub:'الحروف المتشابهة يميّزها عدد النقاط ومكانها.',
@@ -62,6 +62,12 @@
  const ICON={
   speak:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>',
   close:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>'
+ };
+
+ const INTRO_ICON={
+  cards:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="12" height="14" rx="2.5"/><path d="M8.5 3.5h9a3 3 0 0 1 3 3v10"/></svg>',
+  qs:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.7M12 17.2h.01"/></svg>',
+  time:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg>'
  };
  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
  const el=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e};
@@ -330,15 +336,38 @@
    if(run.phase==='feedback')next();
   });
   run.ask=()=>{
+   if(host.classList.contains('is-intro')){close();try{opts.onExit?.()}catch(_){}return}
    if(host.querySelector('.dac-quit'))return;
    const q=el('div','dac-quit');q.setAttribute('role','alertdialog');
    const card=el('div','dac-quit-card');const stay=el('button','dac-cta',L.quitStay),leave=el('button','dac-leave',L.quitLeave);stay.type=leave.type='button';
    card.append(el('h3','',L.quitTitle),el('p','',L.quitSub),stay,leave);q.append(card);host.append(q);
    stay.addEventListener('click',()=>q.remove());leave.addEventListener('click',()=>{close();try{opts.onExit?.()}catch(_){}});stay.focus({preventScroll:true});
   };
-  sound('start');next();
+  // Intro: what this lesson teaches, how long it is, then an animated launch into the first step.
+  function intro(){
+   host.classList.add('is-intro');
+   const cards=steps.filter(x=>x.k==='card').length,qs=steps.length-cards,mins=Math.max(1,Math.round(steps.length*14/60));
+   const box=el('div','dac-intro');
+   const pet=el('div','dac-intro-pet');const pi=new Image();pi.alt='';pi.decoding='async';pi.src=img('lesson_idle');
+   pi.addEventListener('error',()=>{if(!pi.src.includes('/owl/'))pi.src='assets/companions/owl/owl_lesson_idle.png'},{once:true});pet.append(pi);
+   const chips=el('div','dac-intro-chips');
+   lessonIds.slice(0,6).forEach((id,i)=>{const c=arText(el('span','dac-intro-chip'+(glyph(id).length>5?' is-wide':'')),glyph(id).length>12?glyph(id).split(/\s+/)[0]:glyph(id));c.style.setProperty('--i',String(i));chips.append(c)});
+   const meta=el('div','dac-intro-meta');
+   for(const [ico,label] of [['cards',L.countCards(cards)],['qs',L.countQs(qs)],['time',L.countMin(mins)]]){const m=el('span','');m.innerHTML=INTRO_ICON[ico];m.append(el('b','',label));meta.append(m)}
+   const go=el('button','dac-cta dac-intro-go',L.startLesson);go.type='button';
+   box.append(pet,el('small','dac-intro-eyebrow',L.introEyebrow),el('h2','dac-intro-title',opts.title||''),opts.subtitle?el('p','dac-intro-sub',opts.subtitle):'',chips,meta,go);
+   body.append(box);
+   go.addEventListener('click',()=>{
+    if(!host.classList.contains('is-intro')||host.classList.contains('is-launch'))return;
+    run.started=Date.now();sound('start');host.classList.add('is-launch');
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(()=>{if(!run)return;host.classList.remove('is-intro','is-launch');host.classList.add('is-enter');box.remove();next();setTimeout(()=>host?.classList.remove('is-enter'),700)},reduce?0:420);
+   });
+   requestAnimationFrame(()=>go.focus({preventScroll:true}));
+  }
+  intro();
   return true;
  }
  function askQuit(){run?.ask?.()}
- window.DEEN_ARABIC_CARDS=Object.freeze({version:'ds-arabic-cards-1',open,close,isOpen:()=>!!host,current:()=>run?.cur?{kind:run.cur.s.k,type:run.cur.s.type||run.cur.s.kind,id:run.cur.s.id||null,retry:!!run.cur.retry,parts:run.cur.s.parts||null}:null,plan:(ids,known,lang)=>buildSteps(ids,known||[],T[lang]||T.tr,()=>false)});
+ window.DEEN_ARABIC_CARDS=Object.freeze({version:'ds-arabic-cards-1',open,close,isOpen:()=>!!host,phase:()=>host?(host.classList.contains('is-intro')?'intro':run?.phase||''):'',current:()=>run?.cur?{kind:run.cur.s.k,type:run.cur.s.type||run.cur.s.kind,id:run.cur.s.id||null,retry:!!run.cur.retry,parts:run.cur.s.parts||null}:null,plan:(ids,known,lang)=>buildSteps(ids,known||[],T[lang]||T.tr,()=>false)});
 })();

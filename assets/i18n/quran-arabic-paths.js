@@ -2261,8 +2261,11 @@
   LISTENING.stop();window.DEEN_ARABIC_LETTER_AUDIO?.stop();
   state.v2Session=null;state.lessonIndex=index;state.lessonMissed=[];state.complete=false;
   let correctSeen=false;
+  // The intro screen names the lesson as the path shows it, with the lesson tip's title below.
+  const shown=root()?.querySelector('[data-qpath-action="group"][data-lesson-index="'+index+'"] .deen-path-course-number')?.textContent||'';
+  const tipTitle=lessonTips[lesson.id]?.locale?.[lang()]?.title||'';
   const opened=window.DEEN_ARABIC_CARDS.open({lessonIndex:index,...(items||{letterIds:lesson.letterIds.slice(),
-   known:LESSONS.slice(0,index).flatMap(x=>x.letterIds)}),lang:lang(),
+   known:LESSONS.slice(0,index).flatMap(x=>x.letterIds)}),lang:lang(),title:shown||tipTitle,subtitle:shown?tipTitle:'',
    // Phrase and pattern answers feed their spaced-review cards, as in the classic lesson.
    onAnswer:(id,ok)=>{if(ok&&!correctSeen){correctSeen=true;first10Record('correct')}if(id&&(PHRASE_LESSONS.includes(lesson)||PATTERN_LESSONS.includes(lesson)))recordReview(id,ok)},
    onDone:result=>{
