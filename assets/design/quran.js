@@ -31,7 +31,8 @@
  function arabicProgress(){
   const s=window.DEEN_QURAN_PATHS?.status?.();if(!s)return null;
   let done=0;for(const [k,v] of Object.entries(s))if(/CompletedLessons$/.test(k)&&typeof v==='number')done+=v;
-  const total=Number(s.overallLessonCount)||0;
+  let total=Number(s.overallLessonCount)||0;
+  const m=window.DEEN_ARABIC_MARKS?.progress?.();if(m&&total){done+=m.done;total+=m.total}
   return total?{done:Math.min(done,total),total}:null;
  }
  function surahCount(){
@@ -57,7 +58,10 @@
 
  function decorateArabic(landing,T){
   if(landing.querySelector(':scope>.dsq-next,:scope>.dsq-heading')){if(landing.classList.contains('dsq-pathed'))pathLate(landing,T);return}
-  const items=[...landing.querySelectorAll('[data-qpath-action="group"]')];
+  // The reading-signs unit (its own layer) sits after the sukūn/shadda/madd unit, before the words.
+  const marks=window.DEEN_ARABIC_MARKS?.section?.();
+  if(marks){const before=landing.querySelector(':scope>.deen-path-word-section');if(before)landing.insertBefore(marks,before);else landing.append(marks)}
+  const items=[...landing.querySelectorAll('[data-qpath-action="group"],.dsq-marks-item')];
   const next=items.find(b=>!b.disabled&&!/\bis-(complete|completed|done)\b/.test(b.className));
   if(next){
    const card=el('button','dsq-next');card.type='button';
@@ -87,6 +91,7 @@
   word:'<rect x="3.5" y="7" width="7" height="10" rx="2"/><rect x="13.5" y="7" width="7" height="10" rx="2"/>',
   meaning:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
   phrase:'<path d="M4 5.5h16v10H9l-5 4z"/>',
+  marks:'<path d="M5 19h14"/><path d="M8 15c0-3 2-4 4-4s4 1 4 4"/><circle cx="9" cy="6" r="1.4"/><circle cx="15" cy="6" r="1.4"/>',
   pattern:'<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>',
   listening:'<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>'
  };
@@ -164,7 +169,7 @@
   for(const sec of landing.querySelectorAll(':scope>section')){
    const nodes=[...sec.querySelectorAll(':scope>.deen-path-course-item')];if(!nodes.length)continue;
    sec.classList.add('dsq-unit-section');
-   const key=(String(sec.className).match(/deen-path-(vowel|reading|word|meaning|phrase|pattern|listening)-section/)||[])[1];
+   const key=(String(sec.className).match(/deen-path-(vowel|reading|marks|word|meaning|phrase|pattern|listening)-section/)||[])[1];
    unitOf(sec.querySelector(':scope>h3')||nodes[0],sec.querySelector(':scope>h3')?.textContent||'',nodes,key);
   }
   if(next&&next.classList.contains('dsq-node')){

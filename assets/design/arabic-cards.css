@@ -173,3 +173,5 @@ html:has(#deenMobileAdminButton) .dac-top{padding-right:74px}
 .dac.is-enter .dac-step{animation:dacRise .55s cubic-bezier(.2,1.2,.4,1) .18s both}
 .dac.is-enter .dac-foot{animation:dacRise .45s ease-out .24s both}
 @media (prefers-reduced-motion:reduce){.dac::after,.dac-intro-pet::before{animation:none!important;display:none}}
+/* Rule-card rows: a word can be wider than a single letter. */
+.dac-rows b{width:auto!important;min-width:48px;font-size:34px!important;white-space:nowrap}

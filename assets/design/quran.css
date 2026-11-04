@@ -377,3 +377,6 @@ html body #leagueScreenBody .dsq-enter .dsq-unit,html body #leagueScreenBody .ds
 html body #leagueScreenBody .dsq-enter .dsq-prog .dsq-bar i{animation:dsqFill .9s cubic-bezier(.3,1,.4,1) .45s both}
 @keyframes dsqFill{from{width:0}}
 @media (prefers-reduced-motion:reduce){html body #leagueScreenBody .dsq-enter *{animation:none!important}}
+
+/* The reading-signs unit sits in the path with the other courses. */
+html body #leagueScreenBody .dsq-pathed>.deen-path-marks-section{order:10}
