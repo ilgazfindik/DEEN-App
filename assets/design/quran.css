@@ -385,3 +385,10 @@ html body #leagueScreenBody .dsq-pathed>.deen-path-marks-section{order:10}
 html body #leagueScreenBody .dsq-pathed .dsq-node .dsq-review-glyph::after{content:"";width:30px;height:30px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17.1 6.4 20l1.1-6.2L2.9 9.4l6.3-.9z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17.1 6.4 20l1.1-6.2L2.9 9.4l6.3-.9z'/%3E%3C/svg%3E") center/contain no-repeat}
 html body #leagueScreenBody .dsq-pathed .dsq-node.dsq-review-item:not(:disabled):not(.dsq-done):not(.dsq-cur) .dsq-review-glyph{background:linear-gradient(180deg,#8f74f5,#6a4fd6)!important;color:#f4efff!important;box-shadow:0 7px 0 #43308f!important}
 html body #leagueScreenBody .dsq-pathed>.deen-path-forms-section{order:10}
+/* Surah area: notes meant for the team and licence lines stay out of the learner's view. */
+html body #leagueScreenBody .deen-quran-note,html body #leagueScreenBody .deen-qia-coverage>span,.deen-qchapter-license{display:none!important}
+html body #leagueScreenBody .deen-qia-coverage{justify-content:center!important}
+
+/* Surah tool cards: line icons in place of typed symbols. */
+html body #leagueScreenBody i.dsq-tool-ico{display:grid!important;place-items:center!important;font-size:0!important;line-height:0!important}
+html body #leagueScreenBody i.dsq-tool-ico svg{width:20px;height:20px}

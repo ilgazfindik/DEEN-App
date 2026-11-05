@@ -60,7 +60,7 @@ function weakRows(){
    const a=s?.ayahs?.[n]||{},wrong=Math.max(0,Number(a.wrongRecalls)||0),correct=Math.max(0,Number(a.correctRecalls)||0);
    const due=Date.parse(a.nextReviewAt||'');const overdue=Number.isFinite(due)&&due<=now?2:0;
    const mem=Math.max(0,Math.min(5,Number(a.memorizationLevel)||0));
-   const attempts=wrong+correct,accuracy=attempts?correct/attempts:1;
+   const attempts=wrong+correct,accuracy=attempts?correct/attempts:1; if(!attempts&&!mem&&!a.completedAt&&!a.nextReviewAt)continue; /* never studied: not weak yet */
    const risk=wrong*3+overdue+(5-mem)*.55+(attempts>=2?(1-accuracy)*5:0);
    if(risk>1.5)rows.push({...r,risk});
   }

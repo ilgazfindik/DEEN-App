@@ -127,7 +127,7 @@ function updateBadges(root){
  set('learn',s.learned+'/90 ayet');
  set('play',s.weak?(''+s.weak+' zayıf ayet'):'Challenge hazır');
  set('memorize',s.strength?('%'+Math.round(s.strength)+' hafıza'):'Ezber araçları');
- set('progress',s.due?(s.due+' tekrar bugün'):('Ustalık %'+s.mastery));
+ set('progress',s.due?(s.due+' tekrar bugün'):(s.learned?('Ustalık %'+s.mastery):'Başlanmadı'));
 }
 function organize(){
  const shell=document.querySelector?.('#leagueScreenBody .deen-quran-dashboard');if(!shell)return false;

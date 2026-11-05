@@ -199,6 +199,43 @@
   }
  }
 
+ // Surah area: the tool cards carried typed symbols (☰ ▶ ★ ↻ …); each becomes a line icon.
+ const TOOL_ICONS={
+  '☰':'<path d="M4 19V6.5A1.5 1.5 0 0 1 5.5 5H11v14H5.5A1.5 1.5 0 0 0 4 20.5"/><path d="M20 19V6.5A1.5 1.5 0 0 0 18.5 5H13v14h5.5a1.5 1.5 0 0 1 1.5 1.5"/>',
+  '▶':'<circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/>',
+  'ك':'<path d="M4 6h16M4 12h10M4 18h7"/><path d="m16 15 2 2 4-4"/>',
+  '30':'<path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>',
+  '◇':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/>',
+  '🔊':'<path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>',
+  '≋':'<path d="M4 7h16M4 12h16M4 17h10"/>',
+  '؟':'<circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.7M12 17.2h.01"/>',
+  '10':'<path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"/>',
+  '★':'<path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/>',
+  '!':'<path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4.5M12 17.2h.01"/>',
+  '◌':'<path d="M7 4h10a1 1 0 0 1 1 1v15l-6-3.5L6 20V5a1 1 0 0 1 1-1z"/>',
+  '∞':'<path d="M7.5 9C5 9 3.5 10.5 3.5 12s1.5 3 4 3c3.5 0 5.5-6 9-6 2.5 0 4 1.5 4 3s-1.5 3-4 3c-3.5 0-5.5-6-9-6"/>',
+  '↻':'<path d="M20 12a8 8 0 1 1-2.4-5.7M20 4v5h-5"/>',
+  '⇅':'<path d="M8 4v16M4.5 7.5 8 4l3.5 3.5M16 20V4M12.5 16.5 16 20l3.5-3.5"/>',
+  '◫':'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+  '✓':'<rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 9.5h16M8.5 3v4M15.5 3v4"/><path d="m9 14.5 2 2 4-4"/>',
+  '✦':'<path d="M12 3c.6 4 2 6.4 6 7-4 .6-5.4 3-6 7-.6-4-2-6.4-6-7 4-.6 5.4-3 6-7z"/>'
+ };
+ function surahIcons(body){
+  for(const i of body.querySelectorAll('.deen-qia-action>i,.deen-qarena-hub-card>i,.deen-quran-shell button>i')){
+   if(i.dataset.dsqIcon)continue;const d=TOOL_ICONS[i.textContent.trim()];if(!d)continue;
+   i.dataset.dsqIcon='1';i.classList.add('dsq-tool-ico');i.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';
+  }
+ }
+ // Turkish only: the engine's "5/5 + Solid" memorisation label reads as plain words. The other
+ // languages translate that source string themselves, so it stays the same underneath.
+ function plainSolid(root){
+  if(lang()!=='tr'||!root?.textContent?.includes('+ Solid'))return;
+  const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let t;
+  while((t=walk.nextNode()))if(t.data.includes('+ Solid')){
+   const next=t.data.replace(/(\d+\s*\/\s*\d+) ayet 5\/5 \+ Solid/g,'$1 ayet ezberlendi').replace(/5\/5 \+ Solid/g,'tam ezber');
+   if(next!==t.data)t.data=next;
+  }
+ }
  // The Arabic path plays its entrance only when arriving from another view (not after a lesson).
  let lastView='';
  function entrance(landing){
@@ -213,6 +250,7 @@
   const home=body.querySelector('#deenQuranPathView .deen-path-home');if(home)decorateHome(home,T);
   const landing=body.querySelector('#deenQuranPathView .deen-path-arabic-landing');if(landing){decorateArabic(landing,T);entrance(landing)}
   lastView=landing?'arabic':body.dataset.deenLearningPath||'';
+  if(body.querySelector('.deen-quran-shell'))surahIcons(body);
   if(document.getElementById('leagueScreen')?.classList.contains('active'))textFloor(body);
  }
 
@@ -224,6 +262,8 @@
   // Views are swapped as direct children of the screen body and inside the surah shell.
   new MutationObserver(rows=>{if(rows.some(r=>r.addedNodes.length))schedule()}).observe(body,{childList:true,subtree:true});
   document.addEventListener('deen:ui-updated',schedule);
+  // Surah sheets open outside the screen body; their labels are fixed as they arrive.
+  new MutationObserver(rows=>{for(const r of rows)for(const n of r.addedNodes)if(n.nodeType===1)plainSolid(n)}).observe(document.body,{childList:true,subtree:true});
   decorate();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
