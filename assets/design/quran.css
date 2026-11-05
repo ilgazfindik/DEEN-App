@@ -392,3 +392,70 @@ html body #leagueScreenBody .deen-qia-coverage{justify-content:center!important}
 /* Surah tool cards: line icons in place of typed symbols. */
 html body #leagueScreenBody i.dsq-tool-ico{display:grid!important;place-items:center!important;font-size:0!important;line-height:0!important}
 html body #leagueScreenBody i.dsq-tool-ico svg{width:20px;height:20px}
+
+/* Surah path: night hero, progress, today, surah units and a vertical lesson list above the practice tools. */
+html body #leagueScreenBody .deen-quran-shell.dsr-on>.deen-quran-head,
+html body #leagueScreenBody .deen-quran-shell.dsr-on [data-qia-nav],
+html body #leagueScreenBody .deen-quran-shell.dsr-on [data-qia-section="today"]{display:none!important}
+html body #leagueScreenBody .dsr-path{display:grid;gap:14px;margin:0 0 8px;color:#eaf6f2}
+html body #leagueScreenBody .dsr-hero{position:relative;margin:-36px -15px 0;padding:16px 15px 26px;min-height:200px;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(180deg,rgba(8,27,37,.1) 0%,rgba(8,27,37,.35) 50%,#081b25 100%),url("assets/design/mosque-arch.webp") center 28%/cover no-repeat}
+html body #leagueScreenBody .dsr-hero-copy{position:relative;z-index:1;max-width:62%;padding-top:96px}
+html body #leagueScreenBody .dsr-hero h2{margin:0;font-size:30px;line-height:1.1;font-weight:900;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+html body #leagueScreenBody .dsr-hero p{margin:6px 0 0;font-size:14px;font-weight:800;color:#d7ece6;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+html body #leagueScreenBody .dsr-pet{position:absolute;right:4px;bottom:18px;width:128px;height:128px;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,0,0,.4))}
+html body #leagueScreenBody .dsr-path[dir="rtl"] .dsr-pet{right:auto;left:4px}
+html body #leagueScreenBody .dsr-path[dir="rtl"] .dsr-hero{justify-content:flex-end;text-align:right}
+html body #leagueScreenBody .dsr-prog{margin-top:-6px;padding:14px 16px;border-radius:18px;background:rgba(13,40,44,.92);border:1px solid rgba(214,255,240,.09);display:grid;gap:10px}
+html body #leagueScreenBody .dsr-prog-row{display:flex;justify-content:space-between;font-size:14px;font-weight:800;color:#d7ece6}
+html body #leagueScreenBody .dsr-prog-row b{color:#fff;font-variant-numeric:tabular-nums}
+html body #leagueScreenBody .dsr-bar{display:block;height:10px;border-radius:99px;background:#183a3e;overflow:hidden}
+html body #leagueScreenBody .dsr-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#3fd7ad,#7ff0cf)}
+html body #leagueScreenBody .dsr-today{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:18px;background:linear-gradient(135deg,rgba(233,207,147,.16),rgba(13,40,44,.9));border:1px solid rgba(233,207,147,.28)}
+html body #leagueScreenBody .dsr-today svg{width:26px;height:26px;color:#e9cf93;flex:none}
+html body #leagueScreenBody .dsr-today b{display:block;font-size:15px;font-weight:900}
+html body #leagueScreenBody .dsr-today small{display:block;font-size:12.5px;font-weight:700;color:#9bb7b0}
+html body #leagueScreenBody .dsr-unit{position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;min-height:88px;padding:16px 18px;margin-top:8px;border-radius:22px;--t1:#17a383;--t2:#0e6f63;--ts:#0a4b44;--tx:#f2fffb;background:linear-gradient(135deg,var(--t1),var(--t2));box-shadow:0 6px 0 var(--ts);color:var(--tx)}
+html body #leagueScreenBody .dsr-unit[data-tone="1"]{--t1:#7a5cf0;--t2:#5a3fc9;--ts:#3d2a8c}
+html body #leagueScreenBody .dsr-unit[data-tone="2"]{--t1:#e6bd63;--t2:#c0912f;--ts:#7d5c1c;--tx:#2b1f08}
+html body #leagueScreenBody .dsr-unit[data-tone="3"]{--t1:#3fa0e0;--t2:#2575b8;--ts:#184f7d}
+html body #leagueScreenBody .dsr-unit[data-tone="4"]{--t1:#ee7d6a;--t2:#c9574a;--ts:#8a3a31}
+html body #leagueScreenBody .dsr-unit.is-locked{--t1:#123236;--t2:#0e262a;--ts:#081b1e;--tx:#eaf6f2}
+html body #leagueScreenBody .dsr-unit::after{content:"";position:absolute;right:-46px;top:-58px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none}
+html body #leagueScreenBody .dsr-unit-ico{position:relative;z-index:1;flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.18);font-size:26px;line-height:1}
+html body #leagueScreenBody .dsr-unit-copy{position:relative;z-index:1;display:grid;gap:2px}
+html body #leagueScreenBody .dsr-unit small{font-size:11.5px;font-weight:900;letter-spacing:.14em;opacity:.8}
+html body #leagueScreenBody .dsr-unit b{font-size:20px;font-weight:900}
+html body #leagueScreenBody .dsr-unit em{font-style:normal;font-size:12.5px;font-weight:700;opacity:.85}
+html body #leagueScreenBody .dsr-unit.is-locked b,html body #leagueScreenBody .dsr-unit.is-locked em,html body #leagueScreenBody .dsr-unit.is-locked .dsr-unit-ico{opacity:.5}
+html body #leagueScreenBody .dsr-path[dir="rtl"] .dsr-unit{flex-direction:row-reverse;text-align:right}
+html body #leagueScreenBody .dsr-lockhint{margin:-4px 4px 0;font-size:12.5px;font-weight:700;color:#7f9c96}
+html body #leagueScreenBody .dsr-list{display:grid;gap:14px;padding:8px 0 6px}
+html body #leagueScreenBody .dsr-node{all:unset;position:relative;box-sizing:border-box;display:flex;align-items:center;gap:16px;padding:0 14px;cursor:pointer;direction:ltr}
+html body #leagueScreenBody .dsr-node:disabled{cursor:default}
+html body #leagueScreenBody .dsr-path[dir="rtl"] .dsr-node{flex-direction:row-reverse;text-align:right}
+html body #leagueScreenBody .dsr-dot{position:relative;z-index:1;flex:none;width:76px;height:72px;border-radius:50%;display:grid;place-items:center;background:#1d3d40;color:#5d7f79;box-shadow:0 7px 0 #102629}
+html body #leagueScreenBody .dsr-dot svg{width:30px;height:30px}
+html body #leagueScreenBody .dsr-node.is-open .dsr-dot{background:linear-gradient(180deg,#2b6a62,#1f5550);color:#d8f5ec;box-shadow:0 7px 0 #133c38}
+html body #leagueScreenBody .dsr-node.is-cur .dsr-dot{background:linear-gradient(180deg,#52e5bd,#2fc39b);color:#053329;box-shadow:0 7px 0 #1b8a6c,0 0 0 8px rgba(82,229,189,.14)}
+html body #leagueScreenBody .dsr-node.is-done .dsr-dot{background:linear-gradient(180deg,#f1d9a0,#d9b66a);color:#4a3810;box-shadow:0 7px 0 #a8873f}
+html body #leagueScreenBody .dsr-node.is-star:not(.is-locked):not(.is-done):not(.is-cur) .dsr-dot{background:linear-gradient(180deg,#8f74f5,#6a4fd6);color:#f4efff;box-shadow:0 7px 0 #43308f}
+html body #leagueScreenBody .dsr-node:not(:disabled):active .dsr-dot{transform:translateY(5px)}
+html body #leagueScreenBody .dsr-line{position:absolute;left:50px;top:36px;width:4px;height:calc(100% + 14px);border-radius:4px;background:rgba(214,255,240,.1);z-index:0}
+html body #leagueScreenBody .dsr-path[dir="rtl"] .dsr-line{left:auto;right:50px}
+html body #leagueScreenBody .dsr-node.is-done .dsr-line{background:rgba(63,215,173,.45)}
+html body #leagueScreenBody .dsr-txt{display:grid;gap:3px;min-width:0}
+html body #leagueScreenBody .dsr-txt b{font-size:16px;font-weight:900;color:#eaf6f2}
+html body #leagueScreenBody .dsr-txt span{font-size:13px;font-weight:800;color:#9bb7b0}
+html body #leagueScreenBody .dsr-node.is-cur .dsr-txt span{color:#e9cf93}
+html body #leagueScreenBody .dsr-node.is-done .dsr-txt span{color:#7ff0cf}
+html body #leagueScreenBody .dsr-node.is-locked .dsr-txt b{color:#8fb0a9}
+html body #leagueScreenBody .dsr-node.is-cur{margin-top:28px}
+html body #leagueScreenBody .dsr-node.is-cur::after{content:"";position:absolute;left:2px;top:-14px;width:100px;height:100px;border-radius:50%;border:3px solid rgba(82,229,189,.5);pointer-events:none;animation:dsqRing 1.8s ease-out infinite}
+html body #leagueScreenBody .dsr-path[dir="rtl"] .dsr-node.is-cur::after{left:auto;right:2px}
+html body #leagueScreenBody .dsr-bubble{position:absolute;left:52px;bottom:calc(100% + 8px);transform:translateX(-50%);z-index:2;background:#eaf6f2;color:#0b2a26;font-size:12.5px;font-weight:900;letter-spacing:.06em;padding:7px 13px;border-radius:12px;white-space:nowrap;pointer-events:none;animation:dsqBob 1.6s ease-in-out infinite}
+html body #leagueScreenBody .dsr-bubble::after{content:"";position:absolute;top:100%;left:50%;margin-left:-7px;border:7px solid transparent;border-top-color:#eaf6f2}
+html body #leagueScreenBody .dsr-path[dir="rtl"] .dsr-bubble{left:auto;right:52px;transform:translateX(50%);animation:none}
+html body #leagueScreenBody .dsr-tools{margin-top:14px}
+html body #leagueScreenBody .dsr-tools h3{margin:0;font-size:20px;font-weight:900;color:#eaf6f2}
+html body #leagueScreenBody .dsr-tools p{margin:4px 0 0;font-size:13px;font-weight:700;color:#9bb7b0}
+@media (prefers-reduced-motion:reduce){html body #leagueScreenBody .dsr-node.is-cur::after,html body #leagueScreenBody .dsr-bubble{animation:none}}

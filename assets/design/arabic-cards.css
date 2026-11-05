@@ -175,3 +175,13 @@ html:has(#deenMobileAdminButton) .dac-top{padding-right:74px}
 @media (prefers-reduced-motion:reduce){.dac::after,.dac-intro-pet::before{animation:none!important;display:none}}
 /* Rule-card rows: a word can be wider than a single letter. */
 .dac-rows b{width:auto!important;min-width:48px;font-size:34px!important;white-space:nowrap}
+
+/* Surah lessons: ayah cards, missing word and ayah order. */
+.dac-num{display:inline-grid;place-items:center;min-width:34px;height:34px;border-radius:50%;border:2px solid rgba(233,207,147,.5);color:#e9cf93;font-weight:900;font-size:14px}
+.dac-ayah{font-family:"Amiri Quran",var(--dac-ar);font-size:32px;line-height:2;color:#e9cf93;margin:0;max-width:100%}
+.dac-meal{font-size:16px;font-weight:800;line-height:1.45;color:#e6f2ef}
+.dac-src{font-size:12px;font-weight:700;color:#9bb7b0}
+.dac-fillshow{font-family:var(--dac-ar);font-size:28px;line-height:2;color:#e9cf93;text-align:center;margin:0 0 16px;padding:12px;border-radius:18px;background:rgba(255,255,255,.03)}
+.dac-blank{display:inline-block;min-width:74px;height:1.2em;border-bottom:3px dashed #3fd7ad;margin:0 6px;vertical-align:middle}
+.dac-slots.is-seq,.dac-tiles.is-seq{flex-direction:column;align-items:stretch}
+.dac-tile.is-ayah{width:100%;font-size:22px!important;line-height:1.9!important;padding:6px 12px!important}

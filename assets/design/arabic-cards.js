@@ -18,7 +18,7 @@
   ar:{stroke:'خطّ واحد قائم.',boat:'جسم مسطّح يشبه القارب.',hook:'رأس في الأعلى وتجويف مفتوح في الأسفل.',angle:'شكل صغير بزاوية.',tail:'ذيل قصير ينزل تحت السطر.',teeth:'ثلاث أسنان صغيرة وذيل مستدير.',loop:'عقدة مستطيلة وذيل مستدير.',stick:'عقدة مستطيلة فوقها عصا قائمة.',mouth:'رأس مفتوح في الأعلى وتجويف واسع في الأسفل.',fa:'رأس صغير مستدير على جسم مسطّح.',qaf:'رأس مستدير وتجويف عميق.',kaf:'جسم طويل بداخله علامة صغيرة.',lam:'خطّ طويل ينتهي بتجويف مستدير.',mim:'رأس صغير مستدير وذيل نازل.',nun:'تجويف مستدير عميق.',ring:'حلقة صغيرة مستديرة.',waw:'رأس مستدير وذيل منحنٍ للأسفل.',ya:'جسم منحنٍ وذيل يرتدّ إلى الخلف.'}
  };
  const T={
-  tr:{introEyebrow:'BU DERSTE',startLesson:'Derse başla',countCards:n=>n+' kart',countQs:n=>n+' soru',countMin:n=>'~'+n+' dk',howRead:'Bu nasıl okunur?',meanQ:'Bu ne demek?',roleQ:'Bunun görevi ne?',whichMean:n=>'Hangisi “'+n+'” demek?',build:'Parçaları sırayla diz',buildHint:'Arapça sağdan sola okunur',findQ:n=>'Ayette “'+n+'” kelimesini bul',inQuran:'Kur’an’da',learnedItems:'Bu derste öğrendiklerin',newItem:'YENİ',caution:'DİKKAT',whatItem:'Bu hangisi?',matchItems:'Eşleştir',example:'Örnek',newLetter:'YENİ HARF',rule:'KURAL',form:'YAZILIŞ',listen:'Dinle',cont:'Devam',check:'Kontrol et',got:'Anladım',which:n=>'Hangisi '+n+'?',whatName:'Bu harf hangisi?',hear:'Duyduğun harfe dokun',match:'Harfleri adlarıyla eşleştir',
+  tr:{whichAyah:n=>n+'. ayet hangisi?',fillQ:'Eksik kelimeyi bul',seqQ:'Ayetleri sırayla diz',buildMem:'Ezberden kur',buildAyah:n=>n+'. ayeti diz',correctWord:'Doğru kelime:',correctOrder:'Doğru sıra:',ayahWord:'Ayet',seqHint:'Önce küçük numaralı ayet gelir',introEyebrow:'BU DERSTE',startLesson:'Derse başla',countCards:n=>n+' kart',countQs:n=>n+' soru',countMin:n=>'~'+n+' dk',howRead:'Bu nasıl okunur?',meanQ:'Bu ne demek?',roleQ:'Bunun görevi ne?',whichMean:n=>'Hangisi “'+n+'” demek?',build:'Parçaları sırayla diz',buildHint:'Arapça sağdan sola okunur',findQ:n=>'Ayette “'+n+'” kelimesini bul',inQuran:'Kur’an’da',learnedItems:'Bu derste öğrendiklerin',newItem:'YENİ',caution:'DİKKAT',whatItem:'Bu hangisi?',matchItems:'Eşleştir',example:'Örnek',newLetter:'YENİ HARF',rule:'KURAL',form:'YAZILIŞ',listen:'Dinle',cont:'Devam',check:'Kontrol et',got:'Anladım',which:n=>'Hangisi '+n+'?',whatName:'Bu harf hangisi?',hear:'Duyduğun harfe dokun',match:'Harfleri adlarıyla eşleştir',
    dotsQ:(c,p)=>c===0?'Hangisinde nokta yok?':'Hangisinin '+(p==='a'?'üstünde ':'altında ')+c+' nokta var?',
    dots:(c,p)=>c===0?'Noktası yok.':(p==='a'?'Üstünde ':'Altında ')+c+' nokta var.',dotsShort:(c,p)=>c===0?'nokta yok':(p==='a'?'üstte ':'altta ')+c+' nokta',
    ruleTitle:'Noktalar harfi değiştirir',ruleSub:'Benzer harfleri noktaların sayısı ve yeri ayırır.',
@@ -26,7 +26,7 @@
    noJoinTitle:'Sonraki harfe bağlanmaz',noJoinSub:'Bu harfler kendilerinden sonra gelen harfle birleşmez; kelimenin başında da aynı yazılır.',noJoinQ:'Hangisi sonraki harfe bağlanmaz?',
    praise:['Harika!','Doğru!','Çok iyi!','Tam isabet!'],matched:'Hepsini eşleştirdin.',streak:n=>n+' doğru üst üste',streakTag:n=>n+' seri',remember:'Hatırla',again:'Bu soru az sonra yeniden gelecek.',retry:'TEKRAR DENE',
    matchHint:'Harfi ve adını birlikte seç.',done:'Ders tamamlandı!',learned:'Bu derste öğrendiklerin',acc:'DOĞRULUK',time:'SÜRE',best:'EN UZUN SERİ',quitTitle:'Dersten çıkılsın mı?',quitSub:'Bu dersteki ilerlemen kaydedilmez.',quitStay:'Derse devam et',quitLeave:'Çık',close:'Dersten çık',progress:'Ders ilerlemesi',replay:'Sesi tekrar çal'},
-  en:{introEyebrow:'IN THIS LESSON',startLesson:'Start lesson',countCards:n=>n+(n===1?' card':' cards'),countQs:n=>n+(n===1?' question':' questions'),countMin:n=>'~'+n+' min',howRead:'How is this read?',meanQ:'What does this mean?',roleQ:'What is its role?',whichMean:n=>'Which one means “'+n+'”?',build:'Put the parts in order',buildHint:'Arabic reads right to left',findQ:n=>'Find “'+n+'” in the verse',inQuran:'In the Quran',learnedItems:'What you learned',newItem:'NEW',caution:'WATCH OUT',whatItem:'Which one is this?',matchItems:'Match the pairs',example:'Example',newLetter:'NEW LETTER',rule:'RULE',form:'WRITING',listen:'Listen',cont:'Continue',check:'Check',got:'Got it',which:n=>'Which one is '+n+'?',whatName:'Which letter is this?',hear:'Tap the letter you hear',match:'Match the letters to their names',
+  en:{whichAyah:n=>'Which one is ayah '+n+'?',fillQ:'Find the missing word',seqQ:'Put the ayahs in order',buildMem:'Build it from memory',buildAyah:n=>'Build ayah '+n,correctWord:'Correct word:',correctOrder:'Correct order:',ayahWord:'Ayah',seqHint:'The lower-numbered ayah comes first',introEyebrow:'IN THIS LESSON',startLesson:'Start lesson',countCards:n=>n+(n===1?' card':' cards'),countQs:n=>n+(n===1?' question':' questions'),countMin:n=>'~'+n+' min',howRead:'How is this read?',meanQ:'What does this mean?',roleQ:'What is its role?',whichMean:n=>'Which one means “'+n+'”?',build:'Put the parts in order',buildHint:'Arabic reads right to left',findQ:n=>'Find “'+n+'” in the verse',inQuran:'In the Quran',learnedItems:'What you learned',newItem:'NEW',caution:'WATCH OUT',whatItem:'Which one is this?',matchItems:'Match the pairs',example:'Example',newLetter:'NEW LETTER',rule:'RULE',form:'WRITING',listen:'Listen',cont:'Continue',check:'Check',got:'Got it',which:n=>'Which one is '+n+'?',whatName:'Which letter is this?',hear:'Tap the letter you hear',match:'Match the letters to their names',
    dotsQ:(c,p)=>c===0?'Which one has no dots?':'Which one has '+c+' dot'+(c>1?'s':'')+(p==='a'?' above?':' below?'),
    dots:(c,p)=>c===0?'No dots.':c+' dot'+(c>1?'s':'')+(p==='a'?' above.':' below.'),dotsShort:(c,p)=>c===0?'no dots':c+(p==='a'?' above':' below'),
    ruleTitle:'Dots change the letter',ruleSub:'Similar letters differ only in the number and place of their dots.',
@@ -34,7 +34,7 @@
    noJoinTitle:'Does not join forward',noJoinSub:'These letters never join the letter after them, so they look the same at the start of a word.',noJoinQ:'Which one does not join the next letter?',
    praise:['Great!','Correct!','Well done!','Spot on!'],matched:'All matched.',streak:n=>n+' in a row',streakTag:n=>n+' streak',remember:'Remember',again:'This question comes back in a moment.',retry:'TRY AGAIN',
    matchHint:'Pick a letter and its name together.',done:'Lesson complete!',learned:'Letters from this lesson',acc:'ACCURACY',time:'TIME',best:'BEST STREAK',quitTitle:'Leave the lesson?',quitSub:'Progress in this lesson will not be saved.',quitStay:'Keep learning',quitLeave:'Leave',close:'Leave lesson',progress:'Lesson progress',replay:'Play the sound again'},
-  de:{introEyebrow:'IN DIESER LEKTION',startLesson:'Lektion starten',countCards:n=>n+(n===1?' Karte':' Karten'),countQs:n=>n+(n===1?' Frage':' Fragen'),countMin:n=>'~'+n+' Min.',howRead:'Wie liest man das?',meanQ:'Was bedeutet das?',roleQ:'Welche Rolle hat es?',whichMean:n=>'Was bedeutet „'+n+'“?',build:'Setze die Teile in die richtige Reihenfolge',buildHint:'Arabisch liest man von rechts nach links',findQ:n=>'Finde „'+n+'“ im Vers',inQuran:'Im Koran',learnedItems:'Das hast du gelernt',newItem:'NEU',caution:'ACHTUNG',whatItem:'Was ist das?',matchItems:'Ordne die Paare zu',example:'Beispiel',newLetter:'NEUER BUCHSTABE',rule:'REGEL',form:'SCHREIBWEISE',listen:'Anhören',cont:'Weiter',check:'Prüfen',got:'Verstanden',which:n=>'Welcher ist '+n+'?',whatName:'Welcher Buchstabe ist das?',hear:'Tippe auf den Buchstaben, den du hörst',match:'Ordne die Buchstaben ihren Namen zu',
+  de:{whichAyah:n=>'Welcher ist Vers '+n+'?',fillQ:'Finde das fehlende Wort',seqQ:'Bringe die Verse in die richtige Reihenfolge',buildMem:'Aus dem Gedächtnis zusammensetzen',buildAyah:n=>'Setze Vers '+n+' zusammen',correctWord:'Richtiges Wort:',correctOrder:'Richtige Reihenfolge:',ayahWord:'Vers',seqHint:'Der Vers mit der kleineren Nummer kommt zuerst',introEyebrow:'IN DIESER LEKTION',startLesson:'Lektion starten',countCards:n=>n+(n===1?' Karte':' Karten'),countQs:n=>n+(n===1?' Frage':' Fragen'),countMin:n=>'~'+n+' Min.',howRead:'Wie liest man das?',meanQ:'Was bedeutet das?',roleQ:'Welche Rolle hat es?',whichMean:n=>'Was bedeutet „'+n+'“?',build:'Setze die Teile in die richtige Reihenfolge',buildHint:'Arabisch liest man von rechts nach links',findQ:n=>'Finde „'+n+'“ im Vers',inQuran:'Im Koran',learnedItems:'Das hast du gelernt',newItem:'NEU',caution:'ACHTUNG',whatItem:'Was ist das?',matchItems:'Ordne die Paare zu',example:'Beispiel',newLetter:'NEUER BUCHSTABE',rule:'REGEL',form:'SCHREIBWEISE',listen:'Anhören',cont:'Weiter',check:'Prüfen',got:'Verstanden',which:n=>'Welcher ist '+n+'?',whatName:'Welcher Buchstabe ist das?',hear:'Tippe auf den Buchstaben, den du hörst',match:'Ordne die Buchstaben ihren Namen zu',
    dotsQ:(c,p)=>c===0?'Welcher hat keine Punkte?':'Welcher hat '+c+' Punkt'+(c>1?'e':'')+(p==='a'?' oben?':' unten?'),
    dots:(c,p)=>c===0?'Keine Punkte.':c+' Punkt'+(c>1?'e':'')+(p==='a'?' oben.':' unten.'),dotsShort:(c,p)=>c===0?'keine Punkte':c+(p==='a'?' oben':' unten'),
    ruleTitle:'Punkte ändern den Buchstaben',ruleSub:'Ähnliche Buchstaben unterscheiden sich nur durch Zahl und Lage der Punkte.',
@@ -42,7 +42,7 @@
    noJoinTitle:'Verbindet nicht nach links',noJoinSub:'Diese Buchstaben verbinden sich nie mit dem folgenden Buchstaben und sehen am Wortanfang gleich aus.',noJoinQ:'Welcher verbindet sich nicht mit dem nächsten Buchstaben?',
    praise:['Super!','Richtig!','Sehr gut!','Genau!'],matched:'Alles zugeordnet.',streak:n=>n+' richtig in Folge',streakTag:n=>n+' in Folge',remember:'Merke',again:'Diese Frage kommt gleich noch einmal.',retry:'NOCH EINMAL',
    matchHint:'Wähle einen Buchstaben und seinen Namen.',done:'Lektion geschafft!',learned:'Buchstaben aus dieser Lektion',acc:'GENAUIGKEIT',time:'ZEIT',best:'BESTE SERIE',quitTitle:'Lektion verlassen?',quitSub:'Der Fortschritt dieser Lektion wird nicht gespeichert.',quitStay:'Weiterlernen',quitLeave:'Verlassen',close:'Lektion verlassen',progress:'Lektionsfortschritt',replay:'Ton noch einmal abspielen'},
-  fr:{introEyebrow:'DANS CETTE LEÇON',startLesson:'Commencer la leçon',countCards:n=>n+(n===1?' carte':' cartes'),countQs:n=>n+(n===1?' question':' questions'),countMin:n=>'~'+n+' min',howRead:'Comment se lit ce mot ?',meanQ:'Que signifie ceci ?',roleQ:'Quel est son rôle ?',whichMean:n=>'Lequel signifie « '+n+' » ?',build:'Remets les parties dans l’ordre',buildHint:'L’arabe se lit de droite à gauche',findQ:n=>'Trouve « '+n+' » dans le verset',inQuran:'Dans le Coran',learnedItems:'Ce que tu as appris',newItem:'NOUVEAU',caution:'ATTENTION',whatItem:'Qu’est-ce que c’est ?',matchItems:'Associe les paires',example:'Exemple',newLetter:'NOUVELLE LETTRE',rule:'RÈGLE',form:'ÉCRITURE',listen:'Écouter',cont:'Continuer',check:'Vérifier',got:'Compris',which:n=>'Laquelle est '+n+' ?',whatName:'Quelle est cette lettre ?',hear:'Touche la lettre que tu entends',match:'Associe les lettres à leur nom',
+  fr:{whichAyah:n=>'Lequel est le verset '+n+' ?',fillQ:'Trouve le mot manquant',seqQ:'Remets les versets dans l’ordre',buildMem:'Reconstitue de mémoire',buildAyah:n=>'Reconstitue le verset '+n,correctWord:'Bon mot :',correctOrder:'Bon ordre :',ayahWord:'Verset',seqHint:'Le verset au plus petit numéro vient d’abord',introEyebrow:'DANS CETTE LEÇON',startLesson:'Commencer la leçon',countCards:n=>n+(n===1?' carte':' cartes'),countQs:n=>n+(n===1?' question':' questions'),countMin:n=>'~'+n+' min',howRead:'Comment se lit ce mot ?',meanQ:'Que signifie ceci ?',roleQ:'Quel est son rôle ?',whichMean:n=>'Lequel signifie « '+n+' » ?',build:'Remets les parties dans l’ordre',buildHint:'L’arabe se lit de droite à gauche',findQ:n=>'Trouve « '+n+' » dans le verset',inQuran:'Dans le Coran',learnedItems:'Ce que tu as appris',newItem:'NOUVEAU',caution:'ATTENTION',whatItem:'Qu’est-ce que c’est ?',matchItems:'Associe les paires',example:'Exemple',newLetter:'NOUVELLE LETTRE',rule:'RÈGLE',form:'ÉCRITURE',listen:'Écouter',cont:'Continuer',check:'Vérifier',got:'Compris',which:n=>'Laquelle est '+n+' ?',whatName:'Quelle est cette lettre ?',hear:'Touche la lettre que tu entends',match:'Associe les lettres à leur nom',
    dotsQ:(c,p)=>c===0?'Laquelle n’a aucun point ?':'Laquelle a '+c+' point'+(c>1?'s':'')+(p==='a'?' au-dessus ?':' dessous ?'),
    dots:(c,p)=>c===0?'Aucun point.':c+' point'+(c>1?'s':'')+(p==='a'?' au-dessus.':' dessous.'),dotsShort:(c,p)=>c===0?'aucun point':c+(p==='a'?' dessus':' dessous'),
    ruleTitle:'Les points changent la lettre',ruleSub:'Des lettres semblables ne diffèrent que par le nombre et la place des points.',
@@ -50,7 +50,7 @@
    noJoinTitle:'Ne se lie pas à la suivante',noJoinSub:'Ces lettres ne se lient jamais à la lettre suivante ; en début de mot elles gardent la même forme.',noJoinQ:'Laquelle ne se lie pas à la lettre suivante ?',
    praise:['Bravo !','Correct !','Très bien !','Parfait !'],matched:'Tout est associé.',streak:n=>n+' d’affilée',streakTag:n=>n+' d’affilée',remember:'À retenir',again:'Cette question reviendra dans un instant.',retry:'ENCORE UNE FOIS',
    matchHint:'Choisis une lettre et son nom.',done:'Leçon terminée !',learned:'Lettres de cette leçon',acc:'PRÉCISION',time:'TEMPS',best:'MEILLEURE SÉRIE',quitTitle:'Quitter la leçon ?',quitSub:'Ta progression dans cette leçon ne sera pas enregistrée.',quitStay:'Continuer',quitLeave:'Quitter',close:'Quitter la leçon',progress:'Progression de la leçon',replay:'Rejouer le son'},
-  ar:{introEyebrow:'في هذا الدرس',startLesson:'ابدأ الدرس',countCards:n=>n+' بطاقات',countQs:n=>n+' أسئلة',countMin:n=>'~'+n+' د',howRead:'كيف يُقرأ هذا؟',meanQ:'ما معنى هذا؟',roleQ:'ما وظيفته؟',whichMean:n=>'أيّها يعني «'+n+'»؟',build:'رتّب الأجزاء',buildHint:'تُقرأ العربية من اليمين إلى اليسار',findQ:n=>'ابحث عن «'+n+'» في الآية',inQuran:'في القرآن',learnedItems:'ما تعلّمته',newItem:'جديد',caution:'انتبه',whatItem:'ما هذا؟',matchItems:'صِل بين الأزواج',example:'مثال',newLetter:'حرف جديد',rule:'قاعدة',form:'الكتابة',listen:'استمع',cont:'متابعة',check:'تحقّق',got:'فهمت',which:n=>'أيّها '+n+'؟',whatName:'ما اسم هذا الحرف؟',hear:'المس الحرف الذي تسمعه',match:'صِل كل حرف باسمه',
+  ar:{whichAyah:n=>'أيّها الآية '+n+'؟',fillQ:'أكمل الكلمة الناقصة',seqQ:'رتّب الآيات',buildMem:'رتّبها من الذاكرة',buildAyah:n=>'رتّب الآية '+n,correctWord:'الكلمة الصحيحة:',correctOrder:'الترتيب الصحيح:',ayahWord:'الآية',seqHint:'تأتي الآية ذات الرقم الأصغر أولًا',introEyebrow:'في هذا الدرس',startLesson:'ابدأ الدرس',countCards:n=>n+' بطاقات',countQs:n=>n+' أسئلة',countMin:n=>'~'+n+' د',howRead:'كيف يُقرأ هذا؟',meanQ:'ما معنى هذا؟',roleQ:'ما وظيفته؟',whichMean:n=>'أيّها يعني «'+n+'»؟',build:'رتّب الأجزاء',buildHint:'تُقرأ العربية من اليمين إلى اليسار',findQ:n=>'ابحث عن «'+n+'» في الآية',inQuran:'في القرآن',learnedItems:'ما تعلّمته',newItem:'جديد',caution:'انتبه',whatItem:'ما هذا؟',matchItems:'صِل بين الأزواج',example:'مثال',newLetter:'حرف جديد',rule:'قاعدة',form:'الكتابة',listen:'استمع',cont:'متابعة',check:'تحقّق',got:'فهمت',which:n=>'أيّها '+n+'؟',whatName:'ما اسم هذا الحرف؟',hear:'المس الحرف الذي تسمعه',match:'صِل كل حرف باسمه',
    dotsQ:(c,p)=>c===0?'أيّها بلا نقاط؟':'أيّها '+({1:'فيه نقطة واحدة',2:'فيه نقطتان',3:'فيه ثلاث نقاط'}[c])+(p==='a'?' فوقه؟':' تحته؟'),
    dots:(c,p)=>c===0?'بلا نقاط.':({1:'نقطة واحدة',2:'نقطتان',3:'ثلاث نقاط'}[c])+(p==='a'?' فوقه.':' تحته.'),dotsShort:(c,p)=>c===0?'بلا نقاط':({1:'نقطة',2:'نقطتان',3:'ثلاث نقاط'}[c])+(p==='a'?' فوق':' تحت'),
    ruleTitle:'النقاط تغيّر الحرف',ruleSub:'الحروف المتشابهة يميّزها عدد النقاط ومكانها.',
@@ -165,7 +165,7 @@
   return steps;
  }
 
- let host=null,run=null;
+ let host=null,run=null,run_glyph=null;
  function close(){
   window.DEEN_ARABIC_LETTER_AUDIO?.stop?.();
   document.removeEventListener('keydown',onKey,true);
@@ -180,13 +180,16 @@
   const lang=T[opts.lang]?opts.lang:'tr',L=T[lang],S=SHAPE[lang];
   // Item lessons (vowel marks, syllables, reading marks) bring their own glyphs, names and hints.
   const ITEMS=opts.items?Object.fromEntries([...(opts.knownItems||[]),...opts.items].map(x=>[x.id,x])):null;
-  const lessonIds=opts.letterIds||opts.items.map(x=>x.id);
+  const lessonIds=opts.lessonIds||opts.letterIds||opts.items.map(x=>x.id);
   const AUDIO=window.DEEN_ARABIC_LETTER_AUDIO,audioOk=id=>!ITEMS&&!!AUDIO?.available?.(id);
   const name=id=>ITEMS?ITEMS[id]?.name||id:C.get(id)?.names?.[lang]||C.get(id)?.names?.en||id,glyph=id=>ITEMS?ITEMS[id]?.glyph||'':C.get(id)?.glyph||'';
   const dotsOf=id=>L.dots(DESC[id]?.[1]||0,DESC[id]?.[2]),dotsShort=id=>L.dotsShort(DESC[id]?.[1]||0,DESC[id]?.[2]);
   const play=id=>{if(audioOk(id))AUDIO.play(id)};
-  const steps=opts.review?buildReviewSteps(ITEMS?null:opts.letterIds,ITEMS,audioOk):ITEMS?buildItemSteps(opts.items.map(x=>x.id),(opts.knownItems||[]).map(x=>x.id),opts.tip,ITEMS,opts.mode):buildSteps(opts.letterIds,(opts.known||[]).filter(id=>C.get(id)),L,audioOk);
-  run={opts,queue:steps.map(s=>({s})),total:steps.length,done:0,first:0,asked:0,combo:0,best:0,missed:new Set(),started:Date.now(),cur:null,sel:null,phase:'',matchBad:false};
+  // Ayahs show their number where a whole verse would not fit (intro chips, the finish list).
+  const shortGlyph=id=>ITEMS?.[id]?.num?String(ITEMS[id].num):glyph(id).length>12?glyph(id).split(/\s+/)[0]:glyph(id);
+  run_glyph=glyph;
+  const steps=Array.isArray(opts.steps)&&opts.steps.length?opts.steps.map(x=>({...x})):opts.review?buildReviewSteps(ITEMS?null:opts.letterIds,ITEMS,audioOk):ITEMS?buildItemSteps(opts.items.map(x=>x.id),(opts.knownItems||[]).map(x=>x.id),opts.tip,ITEMS,opts.mode):buildSteps(opts.letterIds,(opts.known||[]).filter(id=>C.get(id)),L,audioOk);
+  run={glyph:run_glyph,opts,queue:steps.map(s=>({s})),total:steps.length,done:0,first:0,asked:0,combo:0,best:0,missed:new Set(),started:Date.now(),cur:null,sel:null,phase:'',matchBad:false};
   const pet=(()=>{let p='owl';try{p=window.state?.profile?.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'})();
   const img=pose=>'assets/companions/'+pet+'/'+pet+'_'+pose+'.png';
 
@@ -216,23 +219,29 @@
    if(run.cur.retry)box.append(el('span','dac-tag is-rule',L.retry));
    const prompt=el('h2','dac-prompt');box.append(prompt);
    const ask=s.ask||opts.ask;
-   if(s.type==='pick')prompt.textContent=ask==='mean'?L.whichMean(name(s.id)):L.which(name(s.id));
+   if(s.type==='pick'&&ask==='ayah')prompt.textContent=L.whichAyah(ITEMS[s.id]?.num||'');
+   else if(s.type==='pick')prompt.textContent=ask==='mean'?L.whichMean(name(s.id)):L.which(name(s.id));
    else if(s.type==='name')prompt.textContent=ITEMS?(ask==='read'?L.howRead:ask==='mean'?L.meanQ:ask==='role'?L.roleQ:L.whatItem):L.whatName;
-   else if(s.type==='build')prompt.textContent=L.build;
+   else if(s.type==='build')prompt.textContent=s.memory?L.buildMem:ITEMS?.[s.id]?.num?L.buildAyah(ITEMS[s.id].num):L.build;
+   else if(s.type==='fill')prompt.textContent=L.fillQ;
+   else if(s.type==='seq')prompt.textContent=L.seqQ;
    else if(s.type==='find')prompt.textContent=L.findQ(name(s.id));
    else if(s.type==='listen')prompt.textContent=L.hear;
    else if(s.type==='match')prompt.textContent=ITEMS?L.matchItems:L.match;
    else if(s.type==='dots')prompt.textContent=L.dotsQ(DESC[s.id]?.[1]||0,DESC[s.id]?.[2]);
    else if(s.type==='initial')prompt.textContent=L.initialQ(name(s.id));
    else if(s.type==='nojoin')prompt.textContent=L.noJoinQ;
-   if(s.type==='match')renderMatch(s,box);else if(s.type==='build')renderBuild(s,box);else if(s.type==='find')renderFind(s,box);else renderChoices(s,box);
+   if(s.type==='fill')renderFill(s,box);else if(s.type==='seq')renderSeq(s,box);else if(s.type==='match')renderMatch(s,box);else if(s.type==='build')renderBuild(s,box);else if(s.type==='find')renderFind(s,box);else renderChoices(s,box);
   }
   function renderCard(s,box){
    box.append(el('span','dac-tag '+(s.kind==='new'?'is-new':'is-rule'),s.kind==='new'?(ITEMS?L.newItem:L.newLetter):s.kind==='rule'||s.kind==='intro'?L.rule:s.kind==='tip'?L.caution:L.form));
    const c=el('div','dac-card');box.append(c);
    if(ITEMS&&s.kind==='new'){
-    const it=ITEMS[s.id];c.append(arText(el('div','dac-big'+sizeClass(it.glyph)),it.glyph),el('div','dac-name',it.name));if(it.hint)c.append(el('div','dac-tip',it.hint));
-    if((it.parts||[]).length>1)c.append(arText(el('div','dac-parts'),it.parts.join('  +  ')));
+    const it=ITEMS[s.id];
+    if(it.num){c.append(el('span','dac-num',String(it.num)),arText(el('div','dac-ayah'),it.glyph));if(it.name)c.append(el('div','dac-meal',it.name));if(it.hint)c.append(el('div','dac-src',it.hint))}
+    else{c.append(arText(el('div','dac-big'+sizeClass(it.glyph)),it.glyph),el('div','dac-name',it.name));if(it.hint)c.append(el('div','dac-tip',it.hint))}
+    if(it.audio){const b=el('button','dac-hear');b.type='button';b.innerHTML=ICON.speak;b.append(el('span','',L.listen));b.addEventListener('click',()=>playUrl(it.audio));c.append(b)}
+    if(!it.num&&(it.parts||[]).length>1)c.append(arText(el('div','dac-parts'),it.parts.join('  +  ')));
     if(it.verse&&it.verse!==it.glyph){const v=el('div','dac-verse');const t=arText(el('p',''),'');const hi=it.mark||it.glyph,at=it.verse.indexOf(hi);
      if(at>=0){t.append(it.verse.slice(0,at),el('mark','',hi),it.verse.slice(at+hi.length))}else t.textContent=it.verse;
      v.append(t,el('small','',L.inQuran+(it.ref?' · '+it.ref:'')));c.append(v)}
@@ -256,11 +265,35 @@
     c.append(forms,el('div','dac-tip',s.kind==='join'?L.joinSub:L.noJoinSub));
    }
   }
+  let urlAudio=null;
+  function playUrl(src){try{urlAudio?.pause?.();urlAudio=new Audio(src);urlAudio.play()?.catch?.(()=>{})}catch(_){}}
+  // Missing word: the ayah with one word blanked, the words to choose from come from the text itself.
+  function renderFill(s,box){
+   const it=ITEMS[s.id],w=it.parts||String(it.glyph).split(/\s+/),shown=el('div','dac-fillshow');shown.lang='ar';shown.dir='rtl';
+   w.forEach((x,i)=>{if(i===s.hide)shown.append(el('span','dac-blank'));else shown.append(x+' ')});box.append(shown);
+   const g=el('div','dac-opts is-long');box.append(g);
+   for(const word of s.opts){const b=el('button','dac-opt');b.type='button';b.dataset.id=word;arText(b,word);
+    b.addEventListener('click',()=>{if(run.phase!=='ask')return;g.querySelectorAll('.dac-opt').forEach(x=>x.classList.toggle('is-sel',x===b));run.sel=word;cta.disabled=false;sound('select')});g.append(b)}
+  }
+  // Ayah order: whole ayahs as tiles, tapped into reading order.
+  function renderSeq(s,box){
+   const slots=el('div','dac-slots is-seq'),tiles=el('div','dac-tiles is-seq'),picked=[];box.append(slots,tiles,el('p','dac-hint',L.seqHint));
+   let order=shuffle(s.ids);if(order.every((v,i)=>v===s.ids[i])&&order.length>1)order.reverse();
+   const sync=()=>{run.sel=picked.length===s.ids.length?picked.slice():null;cta.disabled=!run.sel};
+   for(const id of order){
+    const b=el('button','dac-opt dac-tile is-ayah');b.type='button';arText(b,glyph(id));
+    b.addEventListener('click',()=>{if(run.phase!=='ask'||b.classList.contains('is-used'))return;b.classList.add('is-used');sound('select');
+     const c=el('button','dac-opt dac-tile is-ayah');c.type='button';arText(c,glyph(id));
+     c.addEventListener('click',()=>{if(run.phase!=='ask')return;picked.splice(picked.indexOf(id),1);c.remove();b.classList.remove('is-used');sync()});
+     slots.append(c);picked.push(id);sync()});
+    tiles.append(b);
+   }
+  }
   function sizeClass(text){const n=String(text||'').length;return n>14?' is-long':n>5?' is-mid':''}
   function renderBuild(s,box){
    const it=ITEMS[s.id],slots=el('div','dac-slots'),tiles=el('div','dac-tiles'),picked=[];
    slots.dir='rtl';box.append(arText(el('div','dac-meaning'),''),slots,tiles,el('p','dac-hint',L.buildHint));
-   box.querySelector('.dac-meaning').textContent=it.name;box.querySelector('.dac-meaning').dir='auto';box.querySelector('.dac-meaning').lang=lang;
+   box.querySelector('.dac-meaning').textContent=s.memory?'':it.name;box.querySelector('.dac-meaning').dir='auto';box.querySelector('.dac-meaning').lang=lang;
    let order=shuffle(it.parts.map((_,i)=>i));if(order.every((v,i)=>v===i)&&order.length>1)order.reverse();
    const sync=()=>{run.sel=picked.length===it.parts.length?picked.map(i=>it.parts[i]):null;cta.disabled=!run.sel};
    for(const i of order){
@@ -319,9 +352,10 @@
    box.append(el('p','dac-hint',L.matchHint));
   }
   function check(){
-   const s=run.cur.s,ok=s.type==='match'?!run.matchBad:s.type==='build'?!!run.sel&&run.sel.join('')===ITEMS[s.id].parts.join(''):run.sel===s.id;
+   const s=run.cur.s,ok=s.type==='fill'?run.sel===s.ans:s.type==='seq'?!!run.sel&&run.sel.join(',')===s.ids.join(','):s.type==='match'?!run.matchBad:s.type==='build'?!!run.sel&&run.sel.join('')===ITEMS[s.id].parts.join(''):run.sel===s.id;
    run.phase='feedback';
-   if(s.type!=='match')body.querySelectorAll('.dac-opt').forEach(b=>{if(b.dataset.id===s.id)b.classList.add('is-right');else if(b.classList.contains('is-sel'))b.classList.add('is-wrong')});
+   const want=s.type==='fill'?s.ans:s.id;
+   if(s.type!=='match'&&s.type!=='seq')body.querySelectorAll('.dac-opt').forEach(b=>{if(b.dataset.id===want)b.classList.add('is-right');else if(b.classList.contains('is-sel'))b.classList.add('is-wrong')});
    if(!run.cur.retry)run.asked++;
    opts.onAnswer?.(s.id||null,ok);
    cta.disabled=false;
@@ -333,9 +367,9 @@
     cta.textContent=L.cont;
    }else{
     run.combo=0;$('.dac-combo').classList.remove('is-on');if(s.id)run.missed.add(s.id);sound('wrong');
-    const hintId=s.id||[...run.missed].pop();
+    const hintId=s.id||s.ids?.[0]||[...run.missed].pop();
     const mini=s.type==='initial'?C.get(hintId).forms.initial:glyph(hintId).length>10?'':glyph(hintId);
-    const text=ITEMS&&s.type==='build'?name(hintId)+': '+ITEMS[hintId].parts.join(' + '):ITEMS?name(hintId)+(ITEMS[hintId]?.hint?': '+ITEMS[hintId].hint:'.'):s.type==='nojoin'?name(hintId)+': '+L.noJoinTitle+'.':s.type==='initial'?name(hintId)+': '+L.joinTitle+'.':name(hintId)+': '+dotsOf(hintId);
+    const text=s.type==='fill'?L.correctWord+' '+s.ans:s.type==='seq'?L.correctOrder+' '+s.ids.map(id=>ITEMS?.[id]?.num||'').join(', '):ITEMS?.[hintId]?.num?L.ayahWord+' '+ITEMS[hintId].num+(ITEMS[hintId].name?': '+ITEMS[hintId].name:''):ITEMS&&s.type==='build'?name(hintId)+': '+ITEMS[hintId].parts.join(' + '):ITEMS?name(hintId)+(ITEMS[hintId]?.hint?': '+ITEMS[hintId].hint:'.'):s.type==='nojoin'?name(hintId)+': '+L.noJoinTitle+'.':s.type==='initial'?name(hintId)+': '+L.joinTitle+'.':name(hintId)+': '+dotsOf(hintId);
     feedback('is-bad',L.remember,text+' '+L.again,mini,'try_again');
     cta.classList.add('is-bad');cta.textContent=L.got;
     run.queue.push({s,retry:true});
@@ -352,7 +386,7 @@
    const stats=el('div','dac-stats');
    for(const [cls,label,val] of [['a',L.acc,acc+'%'],['b',L.time,Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0')],['c',L.best,String(run.best)]]){const s=el('div','dac-stat is-'+cls);s.append(el('small','',label),el('span','',val));stats.append(s)}
    const learned=el('div','dac-learned');
-   for(const id of lessonIds.slice(0,8)){const b=el('button','');b.type='button';arText(b,glyph(id));b.setAttribute('aria-label',name(id));b.addEventListener('click',()=>play(id));learned.append(b)}
+   for(const id of lessonIds.slice(0,8)){const b=el('button','');b.type='button';arText(b,shortGlyph(id));b.setAttribute('aria-label',name(id));b.addEventListener('click',()=>play(id));learned.append(b)}
    const btn=el('button','dac-cta',L.cont);btn.type='button';btn.addEventListener('click',()=>{close();try{opts.onClose?.()}catch(_){}});
    d.append(party,el('h2','',L.done),el('p','dac-sub',ITEMS?L.learnedItems:L.learned),learned,stats,btn);
    try{window.DEEN_DS_MOTION?.confetti?.(host)}catch(_){}
@@ -380,7 +414,7 @@
    const pet=el('div','dac-intro-pet');const pi=new Image();pi.alt='';pi.decoding='async';pi.src=img('lesson_idle');
    pi.addEventListener('error',()=>{if(!pi.src.includes('/owl/'))pi.src='assets/companions/owl/owl_lesson_idle.png'},{once:true});pet.append(pi);
    const chips=el('div','dac-intro-chips');
-   lessonIds.slice(0,6).forEach((id,i)=>{const c=arText(el('span','dac-intro-chip'+(glyph(id).length>5?' is-wide':'')),glyph(id).length>12?glyph(id).split(/\s+/)[0]:glyph(id));c.style.setProperty('--i',String(i));chips.append(c)});
+   lessonIds.slice(0,6).forEach((id,i)=>{const c=arText(el('span','dac-intro-chip'+(shortGlyph(id).length>5?' is-wide':'')),shortGlyph(id));c.style.setProperty('--i',String(i));chips.append(c)});
    const meta=el('div','dac-intro-meta');
    for(const [ico,label] of [...(cards?[['cards',L.countCards(cards)]]:[]),['qs',L.countQs(qs)],['time',L.countMin(mins)]]){const m=el('span','');m.innerHTML=INTRO_ICON[ico];m.append(el('b','',label));meta.append(m)}
    const go=el('button','dac-cta dac-intro-go',L.startLesson);go.type='button';
@@ -398,5 +432,5 @@
   return true;
  }
  function askQuit(){run?.ask?.()}
- window.DEEN_ARABIC_CARDS=Object.freeze({version:'ds-arabic-cards-1',open,close,isOpen:()=>!!host,phase:()=>host?(host.classList.contains('is-intro')?'intro':run?.phase||''):'',current:()=>run?.cur?{kind:run.cur.s.k,type:run.cur.s.type||run.cur.s.kind,id:run.cur.s.id||null,retry:!!run.cur.retry,parts:run.cur.s.parts||null}:null,plan:(ids,known,lang)=>buildSteps(ids,known||[],T[lang]||T.tr,()=>false)});
+ window.DEEN_ARABIC_CARDS=Object.freeze({version:'ds-arabic-cards-1',open,close,isOpen:()=>!!host,phase:()=>host?(host.classList.contains('is-intro')?'intro':run?.phase||''):'',current:()=>run?.cur?{kind:run.cur.s.k,type:run.cur.s.type||run.cur.s.kind,id:run.cur.s.id||null,retry:!!run.cur.retry,parts:run.cur.s.parts||null,ans:run.cur.s.ans||null,seq:run.cur.s.ids&&run.glyph?run.cur.s.ids.map(run.glyph):null}:null,plan:(ids,known,lang)=>buildSteps(ids,known||[],T[lang]||T.tr,()=>false)});
 })();

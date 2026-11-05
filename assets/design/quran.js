@@ -250,7 +250,8 @@
   const home=body.querySelector('#deenQuranPathView .deen-path-home');if(home)decorateHome(home,T);
   const landing=body.querySelector('#deenQuranPathView .deen-path-arabic-landing');if(landing){decorateArabic(landing,T);entrance(landing)}
   lastView=landing?'arabic':body.dataset.deenLearningPath||'';
-  if(body.querySelector('.deen-quran-shell'))surahIcons(body);
+  const shell=body.querySelector('.deen-quran-shell');
+  if(shell){surahIcons(body);if(window.DEEN_QURAN_PATHS?.status?.().view==='surah')window.DEEN_QURAN_PATH?.mount?.(shell)}
   if(document.getElementById('leagueScreen')?.classList.contains('active'))textFloor(body);
  }
 
