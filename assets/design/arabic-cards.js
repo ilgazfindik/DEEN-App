@@ -233,8 +233,8 @@
    if(ITEMS&&s.kind==='new'){
     const it=ITEMS[s.id];c.append(arText(el('div','dac-big'+sizeClass(it.glyph)),it.glyph),el('div','dac-name',it.name));if(it.hint)c.append(el('div','dac-tip',it.hint));
     if((it.parts||[]).length>1)c.append(arText(el('div','dac-parts'),it.parts.join('  +  ')));
-    if(it.verse&&it.verse!==it.glyph){const v=el('div','dac-verse');const t=arText(el('p',''),'');const at=it.verse.indexOf(it.glyph);
-     if(at>=0){t.append(it.verse.slice(0,at),el('mark','',it.glyph),it.verse.slice(at+it.glyph.length))}else t.textContent=it.verse;
+    if(it.verse&&it.verse!==it.glyph){const v=el('div','dac-verse');const t=arText(el('p',''),'');const hi=it.mark||it.glyph,at=it.verse.indexOf(hi);
+     if(at>=0){t.append(it.verse.slice(0,at),el('mark','',hi),it.verse.slice(at+hi.length))}else t.textContent=it.verse;
      v.append(t,el('small','',L.inQuran+(it.ref?' · '+it.ref:'')));c.append(v)}
     if(it.example&&it.example!==it.glyph){const vs=el('div','dac-vs');const d=el('div','');d.append(arText(el('b','is-hi'),it.example),el('span','',L.example));vs.append(d);c.append(vs)}
    }else if(s.kind==='intro'){

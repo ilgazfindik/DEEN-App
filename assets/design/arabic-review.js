@@ -19,6 +19,7 @@
  // Everything a unit taught, as one review payload; repeated words appear once.
  function payload(unit,code){
   if(unit.key==='marks')return {items:window.DEEN_ARABIC_MARKS?.items?.(code)||[]};
+  if(unit.key==='forms')return {items:window.DEEN_ARABIC_FORMS?.items?.(code)||[]};
   const parts=unit.indices.map(i=>window.DEEN_QURAN_PATHS?.unitItems?.(i)).filter(Boolean);
   if(unit.key==='letters')return {letterIds:parts.flatMap(p=>p.letterIds||[])};
   const seen=new Set(),items=[];
@@ -39,7 +40,7 @@
   const grid=landing.querySelector(':scope>.deen-path-course-grid');
   if(grid){const ls=[...grid.querySelectorAll('.deen-path-course-item')];out.push({key:'letters',host:grid,title:strings?.lettersUnit||'',lessons:ls,indices:ls.map(b=>b.dataset.lessonIndex)})}
   for(const sec of landing.querySelectorAll(':scope>section')){
-   const m=String(sec.className).match(/deen-path-(vowel|reading|marks|word|meaning|phrase|pattern)-section/);if(!m)continue;
+   const m=String(sec.className).match(/deen-path-(forms|vowel|reading|marks|word|meaning|phrase|pattern)-section/);if(!m)continue;
    const ls=[...sec.querySelectorAll(':scope>.deen-path-course-item')];if(ls.length<2)continue;
    out.push({key:m[1],host:sec,title:sec.querySelector(':scope>h3')?.textContent||'',lessons:ls,indices:ls.map(b=>b.dataset.lessonIndex).filter(x=>x!=null)});
   }
