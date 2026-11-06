@@ -223,7 +223,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9510moresurahs';
+ const BUILD='9511arenafix';
  // Keep both locales available for safe in-app language changes.
  let SEGMENT_COUNT=67;
  const CONCURRENCY=6;
@@ -280,7 +280,11 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    const path=name.includes('/')?name:'i18n/'+name;
    const local='./assets/'+path+'?v='+BUILD;
    const snapshot='5f2a9e62b572a1484410a9c57ac4d0de3411cd64';
-   const sources=[local,'https://raw.githubusercontent.com/ilgazfindik/DEEN-App/'+snapshot+'/assets/'+path];
+   // The offline worker answers any request carrying this release's ?v= from its own cache. If a file changed
+   // without a new release number, that copy no longer matches its hash; a second try under a throw-away
+   // version number goes to the network.
+   const fresh='./assets/'+path+'?v='+BUILD+'-r'+Date.now();
+   const sources=[local,fresh,'https://raw.githubusercontent.com/ilgazfindik/DEEN-App/'+snapshot+'/assets/'+path];
    for(const source of sources){
      try{
        const text=await fetchText(source,12000),digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
