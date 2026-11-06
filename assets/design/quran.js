@@ -36,7 +36,7 @@
   return total?{done:Math.min(done,total),total}:null;
  }
  function surahCount(){
-  try{const inv=window.DEEN_QURAN_CONTENT?.inventory?.()||[];return new Set(inv.map(x=>x.surah_id)).size}catch(_){return 0}
+  try{const inv=window.DEEN_QURAN_CONTENT?.inventory?.()||[];return new Set(inv.map(x=>x.surah_id)).size+(window.DEEN_SURAH_PACK?.surahs?.length||0)}catch(_){return 0}
  }
 
  function decorateHome(view,T){
