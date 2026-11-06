@@ -36,31 +36,31 @@
    badge:{first:['İlk adım','İlk dersini tamamla'],surah1:['İlk sure','Bir sureyi baştan sona bitir'],surah5:['Beş sure','Beş sureyi bitir'],crown:['Kusursuz','Sure sınavında %95 ve üstü al'],ayah100:['100 ayet','100 ayet öğren']},
    lvlBadge:n=>[n+' seviye','Bu seviyedeki bütün sureleri bitir'],
    reward:{title:'Sure sınavı tamamlandı',acc:'Doğruluk',stars:'Yıldız',crown:'Kusursuz! Taç kazandın.',newBadge:'Yeni rozet',cont:'Devam',again:'%80 ve üstü üçüncü yıldızı getirir. Tekrar deneyebilirsin.'},
-   srcTr:'Ali Özek ve ark. (QuranEnc, sürüm 1.0.0)',srcEn:'Pickthall (1930)'},
+   srcTr:'Ali Özek ve ark. (QuranEnc, sürüm 1.0.0)',srcEn:'Pickthall (1930)',more:'Daha fazla araç',less:'Daha az göster'},
   en:{lvl:['Easy','Medium','Advanced'],levelTag:n=>'LEVEL '+n,levelCount:(a,b)=>a+' / '+b+' surahs',exam:'Surah exam',examSub:'A final test on every ayah. 80% or more earns the third star.',
    stars:['Finish the get-to-know lessons','Finish the memorising lessons','Pass the exam with 80%'],crownTip:'Flawless exam',badgesTitle:'Badges',
    badge:{first:['First step','Complete your first lesson'],surah1:['First surah','Finish a surah from start to end'],surah5:['Five surahs','Finish five surahs'],crown:['Flawless','Score 95% or more in a surah exam'],ayah100:['100 ayahs','Learn 100 ayahs']},
    lvlBadge:n=>[n+' level','Finish every surah of this level'],
    reward:{title:'Surah exam complete',acc:'Accuracy',stars:'Stars',crown:'Flawless! You earned a crown.',newBadge:'New badge',cont:'Continue',again:'80% or more brings the third star. You can try again.'},
-   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)'},
+   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'More tools',less:'Show less'},
   de:{lvl:['Leicht','Mittel','Fortgeschritten'],levelTag:n=>'STUFE '+n,levelCount:(a,b)=>a+' / '+b+' Suren',exam:'Suren-Prüfung',examSub:'Eine Abschlussprüfung zu allen Versen. Ab 80 % gibt es den dritten Stern.',
    stars:['Kennenlern-Lektionen abschließen','Auswendig-Lektionen abschließen','Prüfung mit 80 % bestehen'],crownTip:'Makellose Prüfung',badgesTitle:'Abzeichen',
    badge:{first:['Erster Schritt','Schließe deine erste Lektion ab'],surah1:['Erste Sure','Schließe eine Sure von Anfang bis Ende ab'],surah5:['Fünf Suren','Schließe fünf Suren ab'],crown:['Makellos','Erreiche in einer Suren-Prüfung 95 % oder mehr'],ayah100:['100 Verse','Lerne 100 Verse']},
    lvlBadge:n=>['Stufe '+n,'Schließe alle Suren dieser Stufe ab'],
    reward:{title:'Suren-Prüfung abgeschlossen',acc:'Genauigkeit',stars:'Sterne',crown:'Makellos! Du hast eine Krone verdient.',newBadge:'Neues Abzeichen',cont:'Weiter',again:'Ab 80 % gibt es den dritten Stern. Du kannst es noch einmal versuchen.'},
-   srcTr:'Ali Özek u. a. (QuranEnc, Version 1.0.0)',srcEn:'Pickthall (1930)'},
+   srcTr:'Ali Özek u. a. (QuranEnc, Version 1.0.0)',srcEn:'Pickthall (1930)',more:'Weitere Werkzeuge',less:'Weniger anzeigen'},
   fr:{lvl:['Facile','Moyen','Avancé'],levelTag:n=>'NIVEAU '+n,levelCount:(a,b)=>a+' / '+b+' sourates',exam:'Examen de la sourate',examSub:'Un test final sur tous les versets. 80 % ou plus donne la troisième étoile.',
    stars:['Termine les leçons de découverte','Termine les leçons de mémorisation','Réussis l’examen avec 80 %'],crownTip:'Examen sans faute',badgesTitle:'Badges',
    badge:{first:['Premier pas','Termine ta première leçon'],surah1:['Première sourate','Termine une sourate du début à la fin'],surah5:['Cinq sourates','Termine cinq sourates'],crown:['Sans faute','Obtiens 95 % ou plus à un examen de sourate'],ayah100:['100 versets','Apprends 100 versets']},
    lvlBadge:n=>['Niveau '+n,'Termine toutes les sourates de ce niveau'],
    reward:{title:'Examen de la sourate terminé',acc:'Précision',stars:'Étoiles',crown:'Sans faute ! Tu as gagné une couronne.',newBadge:'Nouveau badge',cont:'Continuer',again:'80 % ou plus donne la troisième étoile. Tu peux réessayer.'},
-   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)'},
+   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'Plus d’outils',less:'Voir moins'},
   ar:{lvl:['سهل','متوسط','متقدّم'],levelTag:n=>'المستوى '+n,levelCount:(a,b)=>a+' / '+b+' سور',exam:'اختبار السورة',examSub:'اختبار نهائي في جميع آيات السورة. تحصل على النجمة الثالثة بنسبة 80٪ أو أكثر.',
    stars:['أكمل دروس التعرّف','أكمل دروس الحفظ','اجتز الاختبار بنسبة 80٪'],crownTip:'اختبار بلا أخطاء',badgesTitle:'الأوسمة',
    badge:{first:['الخطوة الأولى','أكمل درسك الأول'],surah1:['السورة الأولى','أكمل سورة من أولها إلى آخرها'],surah5:['خمس سور','أكمل خمس سور'],crown:['بلا أخطاء','احصل على 95٪ أو أكثر في اختبار سورة'],ayah100:['100 آية','تعلّم 100 آية']},
    lvlBadge:n=>['مستوى '+n,'أكمل جميع سور هذا المستوى'],
    reward:{title:'اكتمل اختبار السورة',acc:'الدقة',stars:'النجوم',crown:'بلا أخطاء! نلت تاجًا.',newBadge:'وسام جديد',cont:'متابعة',again:'تحصل على النجمة الثالثة بنسبة 80٪ أو أكثر. يمكنك المحاولة مرة أخرى.'},
-   srcTr:'Ali Özek وآخرون (QuranEnc، الإصدار 1.0.0)',srcEn:'Pickthall (1930)'}
+   srcTr:'Ali Özek وآخرون (QuranEnc، الإصدار 1.0.0)',srcEn:'Pickthall (1930)',more:'المزيد من الأدوات',less:'عرض أقل'}
  };
  const x=()=>X[lang()]||X.en;
 
@@ -218,6 +218,9 @@
   check:'<path d="m5 12.5 4.5 4.5L19 7.5" stroke-width="3.2"/>',
   crown:'<path d="M4 18h16M5 18 3.5 8l5 4L12 5l3.5 7 5-4L19 18z"/>',
   medal:'<circle cx="12" cy="9" r="5"/><path d="m9 13.5-2 7 5-2.5 5 2.5-2-7"/>',
+  calendar:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>',
+  alert:'<path d="M12 4 3 20h18z"/><path d="M12 10v4M12 17v.5"/>',
+  clip:'<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/>',
   sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'
  };
  const svg=d=>'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';
@@ -274,6 +277,66 @@
   try{window.DEEN_DS_MOTION?.confetti?.(wrap)}catch(_){}
   try{window.DEENSound?.play?.('reward')}catch(_){}
   go.focus({preventScroll:true});
+ }
+ // Practice and tools: six clear cards, the rest behind "More tools". The old tools keep working: every card
+ // reads its title and description from the old tool's own button (already in the learner's language) and passes
+ // the tap on to it. The old list itself is hidden by the stylesheet.
+ const lq=sel=>document.querySelector('#leagueScreenBody '+sel);
+ const qia=(sec,i)=>document.querySelectorAll('#leagueScreenBody [data-qia-section="'+sec+'"] .deen-qia-action')[i]||null;
+ const arena=kind=>lq('.deen-qarena-hub-card[onclick*="\''+kind+'\'"]');
+ const TOOL_MAIN=[
+  {id:'review',icon:'calendar',get:()=>qia('progress',2)},      // review plan: ayahs due today
+  {id:'memorize',get:()=>qia('memorize',0)},    // recall round
+  {id:'weak',icon:'alert',get:()=>qia('memorize',2)},        // weak ayahs
+  {id:'arena',get:()=>arena('mixed')},          // question arena
+  {id:'challenge',get:()=>lq('[data-qchallenge]')},
+  {id:'tests',icon:'clip',get:()=>lq('.deen-atest-entry')}
+ ];
+ const TOOL_MORE=[
+  {id:'game',get:()=>qia('learn',1)},{id:'chain',get:()=>qia('memorize',1)},{id:'order',get:()=>qia('memorize',3)},
+  {id:'words',get:()=>qia('learn',2)},{id:'map',get:()=>qia('learn',3)},
+  {id:'audio',get:()=>arena('audio')},{id:'meal',get:()=>arena('meaning')},{id:'which',get:()=>arena('surah')},
+  {id:'weakch',get:()=>lq('[data-qweak-challenge]')},{id:'mastery',get:()=>lq('[data-qmastery]')},
+  {id:'hub',get:()=>qia('progress',0)},{id:'level',get:()=>qia('progress',1)},{id:'plan',get:()=>qia('progress',3)}
+ ];
+ function toolsPanel(dueCount){
+  const xt=x(),born=Date.now(),wrap=el('div','dsr-toolsbox');
+  const grid=el('div','dsr-tgrid'),more=el('div','dsr-more'),toggle=el('button','dsr-more-toggle');toggle.type='button';
+  const cards=[];
+  const make=(spec,cls)=>{
+   const b=el('button',cls);b.type='button';b.dataset.tool=spec.id;b.hidden=true;
+   const ico=el('span',cls+'-ico'),tx=el('span',cls+'-txt'),ti=el('b'),su=el('small');tx.append(ti,su);b.append(ico,tx);
+   b.addEventListener('click',()=>{const old=spec.get();if(old)old.click()});
+   cards.push({spec,b,ico,ti,su});return b;
+  };
+  for(const spec of TOOL_MAIN)grid.append(make(spec,'dsr-tool'));
+  for(const spec of TOOL_MORE)more.append(make(spec,'dsr-more-row'));
+  more.hidden=true;
+  const setToggle=()=>{toggle.textContent=more.hidden?xt.more:xt.less;toggle.setAttribute('aria-expanded',String(!more.hidden));toggle.classList.toggle('is-open',!more.hidden)};
+  toggle.addEventListener('click',()=>{more.hidden=!more.hidden;setToggle()});setToggle();
+  // Copy title, description and icon from the old buttons; run again whenever the old list changes (it is built late and translated late).
+  const sync=()=>{
+   let any=false;
+   for(const c of cards){
+    const old=c.spec.get();c.b.hidden=!old;if(!old)continue;any=true;
+    const ti=old.querySelector('b')?.textContent?.trim(),su=old.querySelector('small')?.textContent?.trim();
+    if(ti&&c.ti.textContent!==ti)c.ti.textContent=ti;
+    if(c.su.textContent!==(su||''))c.su.textContent=su||'';
+    if(!c.ico.firstChild){if(c.spec.icon)c.ico.innerHTML=svg(ICON[c.spec.icon]);else{const svgOld=old.querySelector('svg');if(svgOld)c.ico.append(svgOld.cloneNode(true))}}
+    if(c.spec.id==='review'){let badge=c.b.querySelector('.dsr-tool-badge');if(dueCount>0){if(!badge){badge=el('em','dsr-tool-badge');c.b.append(badge)}badge.textContent=String(dueCount)}else badge?.remove()}
+   }
+   toggle.hidden=!cards.some(c=>!c.b.hidden&&c.b.classList.contains('dsr-more-row'));
+   return any;
+  };
+  sync();
+  let timer=0;
+  const mo=new MutationObserver(list=>{
+   if(!wrap.isConnected){if(Date.now()-born>3000)mo.disconnect();return}
+   if(list.every(r=>wrap.contains(r.target)))return;
+   clearTimeout(timer);timer=setTimeout(sync,150);
+  });
+  const host=document.getElementById('leagueScreenBody');if(host)mo.observe(host,{childList:true,subtree:true,characterData:true});
+  wrap.append(grid,toggle,more);return wrap;
  }
  function build(){
   const code=lang(),t=T[code],xt=x(),ov=overview(),done=ov.done,list=ov.list;
@@ -334,7 +397,7 @@
    }
    prevKnowDone=open&&lessons.filter(l=>l.kind==='know').every((l,i)=>states[lessons.indexOf(l)]);
   });
-  const head=el('div','dsr-tools');head.append(el('h3','',t.tools),el('p','',t.toolsSub));root.append(head);
+  const head=el('div','dsr-tools');head.append(el('h3','',t.tools),el('p','',t.toolsSub));root.append(head,toolsPanel(dueCount));
   return root;
  }
  const open_=(sid,l)=>open(sid,l);

@@ -513,3 +513,35 @@ html .dsr-reward-go:active{transform:translateY(4px);box-shadow:0 1px 0 #1b8a6d}
 html .dsr-reward-go:focus-visible{outline:3px solid #fff;outline-offset:3px}
 @keyframes dsrPop{0%{transform:scale(.5);opacity:0}100%{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){html .dsr-reward-chest{animation:none}}
+/* Practice and tools on the surah path: six clear cards and a "More tools" list; the old tool list stays in the page, hidden, and the cards pass their taps on to it. */
+html body #leagueScreenBody .deen-quran-shell.dsr-on>[data-qia-root],
+html body #leagueScreenBody .deen-quran-shell.dsr-on>.deen-quran-section-title,
+html body #leagueScreenBody .deen-quran-shell.dsr-on>.deen-quran-quick{display:none!important}
+html body #leagueScreenBody .dsr-toolsbox{display:grid;gap:12px}
+html body #leagueScreenBody .dsr-tgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+html body #leagueScreenBody .dsr-tool{all:unset;box-sizing:border-box;position:relative;display:grid;align-content:start;gap:10px;min-height:128px;padding:14px;border-radius:20px;cursor:pointer;color:#eaf6f2;background:rgba(13,40,44,.92);border:1px solid rgba(214,255,240,.09);box-shadow:0 5px 0 #081b1e;-webkit-tap-highlight-color:transparent}
+html body #leagueScreenBody .dsr-tool[hidden],html body #leagueScreenBody .dsr-more-row[hidden]{display:none}
+html body #leagueScreenBody .dsr-tool:first-child{background:linear-gradient(135deg,rgba(233,207,147,.18),rgba(13,40,44,.92));border-color:rgba(233,207,147,.32)}
+html body #leagueScreenBody .dsr-tool:active{transform:translateY(4px);box-shadow:0 1px 0 #081b1e}
+html body #leagueScreenBody .dsr-tool:focus-visible,html body #leagueScreenBody .dsr-more-row:focus-visible,html body #leagueScreenBody .dsr-more-toggle:focus-visible{outline:3px solid #7ff0cf;outline-offset:2px}
+html body #leagueScreenBody .dsr-tool-ico,html body #leagueScreenBody .dsr-more-row-ico{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:14px;background:linear-gradient(180deg,#2b6a62,#1f5550);color:#d8fff3}
+html body #leagueScreenBody .dsr-tool:first-child .dsr-tool-ico{background:linear-gradient(180deg,#f1d9a0,#d9b66a);color:#4a3810}
+html body #leagueScreenBody .dsr-tool-ico svg,html body #leagueScreenBody .dsr-more-row-ico svg{width:24px;height:24px}
+html body #leagueScreenBody .dsr-more-row-ico{width:38px;height:38px;border-radius:12px}
+html body #leagueScreenBody .dsr-more-row-ico svg{width:20px;height:20px}
+html body #leagueScreenBody .dsr-tool-txt,html body #leagueScreenBody .dsr-more-row-txt{display:grid;gap:3px;min-width:0}
+html body #leagueScreenBody .dsr-tool-txt b{font-size:15px!important;line-height:1.2;font-weight:900;color:#fff}
+html body #leagueScreenBody .dsr-tool-txt small{font-size:12.5px!important;line-height:1.3;font-weight:700;color:#9bb7b0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html body #leagueScreenBody .dsr-tool-badge{position:absolute;top:10px;inset-inline-end:10px;min-width:24px;height:24px;padding:0 7px;box-sizing:border-box;display:grid;place-items:center;border-radius:99px;font-style:normal;font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;background:#ffd978;color:#3d2c08}
+html body #leagueScreenBody .dsr-more-toggle{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:16px;cursor:pointer;text-align:center;font-size:14px;font-weight:900;color:#d7ece6;background:rgba(13,40,44,.92);border:1px solid rgba(214,255,240,.09)}
+html body #leagueScreenBody .dsr-more-toggle[hidden]{display:none}
+html body #leagueScreenBody .dsr-more-toggle::after{content:"";width:8px;height:8px;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+html body #leagueScreenBody .dsr-more-toggle.is-open::after{transform:rotate(-135deg) translateY(-2px)}
+html body #leagueScreenBody .dsr-more{display:grid;gap:8px}
+html body #leagueScreenBody .dsr-more[hidden]{display:none}
+html body #leagueScreenBody .dsr-more-row{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:16px;cursor:pointer;color:#eaf6f2;background:rgba(13,40,44,.78);border:1px solid rgba(214,255,240,.07)}
+html body #leagueScreenBody .dsr-more-row::after{content:"";margin-inline-start:auto;flex:none;width:8px;height:8px;border-right:2.5px solid #6f918b;border-bottom:2.5px solid #6f918b;transform:rotate(-45deg)}
+html body #leagueScreenBody .dsr-path[dir="rtl"] .dsr-more-row::after{transform:rotate(135deg)}
+html body #leagueScreenBody .dsr-more-row:active{background:rgba(23,64,70,.9)}
+html body #leagueScreenBody .dsr-more-row-txt b{font-size:14px!important;font-weight:900;color:#eaf6f2}
+html body #leagueScreenBody .dsr-more-row-txt small{font-size:12px!important;font-weight:700;color:#8fb0a9}
