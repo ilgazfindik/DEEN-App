@@ -326,8 +326,8 @@
  // The progress screen: one place for what used to be four (progress centre, mastery, level and personal plan).
  const PRESETS=[[1,5,3],[3,10,5],[5,20,7]];
  function ringEl(pct,label){
-  const r=44,c=2*Math.PI*r,box=el('div','dsp-ring');
-  box.innerHTML='<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="'+r+'" class="dsp-ring-bg"/><circle cx="50" cy="50" r="'+r+'" class="dsp-ring-fg" stroke-dasharray="'+(c*Math.min(1,pct/100)).toFixed(1)+' '+c.toFixed(1)+'" transform="rotate(-90 50 50)"/></svg>';
+  const r=44,c=2*Math.PI*r,box=el('div','dsn-ring');
+  box.innerHTML='<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="'+r+'" class="dsn-ring-bg"/><circle cx="50" cy="50" r="'+r+'" class="dsn-ring-fg" stroke-dasharray="'+(c*Math.min(1,pct/100)).toFixed(1)+' '+c.toFixed(1)+'" transform="rotate(-90 50 50)"/></svg>';
   box.append(el('b','',Math.round(pct)+'%'));if(label)box.append(el('small','',label));return box;
  }
  function progressSheet(){
@@ -338,49 +338,49 @@
   let due=0,solid=0,starSum=0,completed=0;
   try{const now=Date.now();due=(q.review?.queue||[]).filter(v=>Date.parse(v.dueAt)<=now).length}catch(_){}
   for(const sh of ov.list){const inf=ov.info[sh.id];starSum+=inf.stars;if(inf.complete)completed++;for(let n=1;n<=sh.ayahs;n++)if((progressOf(sh.id,n).memorizationLevel||0)>=4)solid++}
-  const wrap=el('div','dsp');wrap.setAttribute('role','dialog');wrap.setAttribute('aria-modal','true');wrap.setAttribute('aria-label',pr.title);wrap.dir=code==='ar'?'rtl':'ltr';
+  const wrap=el('div','dsn');wrap.setAttribute('role','dialog');wrap.setAttribute('aria-modal','true');wrap.setAttribute('aria-label',pr.title);wrap.dir=code==='ar'?'rtl':'ltr';
   const close=()=>{wrap.remove();document.removeEventListener('keydown',onKey)};
   const onKey=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',onKey);
-  const inner=el('div','dsp-inner');wrap.append(inner);
-  const top=el('div','dsp-top');const cb=el('button','dsp-close','×');cb.type='button';cb.setAttribute('aria-label',pr.close);cb.addEventListener('click',close);top.append(el('span','dsp-kicker','ilnura'),cb);inner.append(top);
+  const inner=el('div','dsn-inner');wrap.append(inner);
+  const top=el('div','dsn-top');const cb=el('button','dsn-close','×');cb.type='button';cb.setAttribute('aria-label',pr.close);cb.addEventListener('click',close);top.append(el('span','dsn-kicker','ilnura'),cb);inner.append(top);
   // Hero: overall ring, level, streak.
-  const pct=ov.total?ov.learned/ov.total*100:0,hero=el('div','dsp-hero');
-  const ht=el('div','dsp-hero-txt');ht.append(el('h2','',pr.title),el('span','dsp-level',pr.level(completed+1)),el('p','',ov.learned+' / '+ov.total+' · '+pr.learned.toLowerCase()));
-  if(streak>0){const sk=el('span','dsp-streak');sk.innerHTML=svg(ICON.sun);sk.append(document.createTextNode(pr.streak(streak)));ht.append(sk)}
+  const pct=ov.total?ov.learned/ov.total*100:0,hero=el('div','dsn-hero');
+  const ht=el('div','dsn-hero-txt');ht.append(el('h2','',pr.title),el('span','dsn-level',pr.level(completed+1)),el('p','',ov.learned+' / '+ov.total+' · '+pr.learned.toLowerCase()));
+  if(streak>0){const sk=el('span','dsn-streak');sk.innerHTML=svg(ICON.sun);sk.append(document.createTextNode(pr.streak(streak)));ht.append(sk)}
   hero.append(ringEl(pct,pr.overall),ht);inner.append(hero);
   // Today's goals and pace.
-  const gc=el('div','dsp-card');gc.append(el('h3','',pr.goals));
-  const bar=(label,val,max)=>{const r=el('div','dsp-goal'),h=el('div','dsp-goal-head');const num=el('b','',Math.min(val,max)+' / '+max);num.dir='ltr';h.append(el('span','',label),num);const b=el('span','dsr-bar'),f=el('i');f.style.width=Math.min(100,max?val/max*100:0)+'%';b.append(f);r.append(h,b);return r};
+  const gc=el('div','dsn-card');gc.append(el('h3','',pr.goals));
+  const bar=(label,val,max)=>{const r=el('div','dsn-goal'),h=el('div','dsn-goal-head');const num=el('b','',Math.min(val,max)+' / '+max);num.dir='ltr';h.append(el('span','',label),num);const b=el('span','dsr-bar'),f=el('i');f.style.width=Math.min(100,max?val/max*100:0)+'%';b.append(f);r.append(h,b);return r};
   gc.append(bar(pr.goalAyahs,daily.ayahs||0,goals.dailyAyahs||1),bar(pr.goalMinutes,Math.round(daily.minutes||0),goals.dailyMinutes||5));
   gc.append(el('h4','',pr.pace));
-  const chips=el('div','dsp-chips');
+  const chips=el('div','dsn-chips');
   PRESETS.forEach(([a,m,d],i)=>{
    const on=goals.dailyAyahs===a&&goals.dailyMinutes===m&&goals.weeklyDays===d;
-   const c=el('button','dsp-chip'+(on?' is-on':''));c.type='button';c.append(el('b','',pr.presets[i]),el('small','',pr.presetSub(a,m,d)));
+   const c=el('button','dsn-chip'+(on?' is-on':''));c.type='button';c.append(el('b','',pr.presets[i]),el('small','',pr.presetSub(a,m,d)));
    c.addEventListener('click',()=>{try{Q().setGoal('dailyAyahs',a);Q().setGoal('dailyMinutes',m);Q().setGoal('weeklyDays',d)}catch(_){}close();progressSheet()});
    chips.append(c);
   });
   gc.append(chips);inner.append(gc);
   // Four numbers.
-  const grid=el('div','dsp-stats');
-  for(const [label,val,tone] of [[pr.learned,ov.learned,'a'],[pr.solid,solid,'b'],[pr.due,due,'c'],[pr.stars,starSum+' / '+ov.list.length*3,'d']]){const t=el('div','dsp-stat is-'+tone);t.append(el('b','',String(val)),el('small','',label));grid.append(t)}
+  const grid=el('div','dsn-stats');
+  for(const [label,val,tone] of [[pr.learned,ov.learned,'a'],[pr.solid,solid,'b'],[pr.due,due,'c'],[pr.stars,starSum+' / '+ov.list.length*3,'d']]){const t=el('div','dsn-stat is-'+tone);t.append(el('b','',String(val)),el('small','',label));grid.append(t)}
   inner.append(grid);
   // Surahs by level; a tap goes to that surah on the path.
-  const sc=el('div','dsp-card');sc.append(el('h3','',pr.surahs));
+  const sc=el('div','dsn-card');sc.append(el('h3','',pr.surahs));
   let lastLv=0;
   for(const sh of ov.list){
-   if(sh.level!==lastLv){lastLv=sh.level;sc.append(el('h4','dsp-lv',xt.lvl[sh.level-1]))}
+   if(sh.level!==lastLv){lastLv=sh.level;sc.append(el('h4','dsn-lv',xt.lvl[sh.level-1]))}
    const inf=ov.info[sh.id];let got=0;for(let n=1;n<=sh.ayahs;n++)if(progressOf(sh.id,n).completedAt)got++;
-   const row=el('button','dsp-row');row.type='button';
-   const nm=el('span','dsp-row-name');nm.append(el('b','',sh.name));const b=el('span','dsr-bar'),f=el('i');f.style.width=Math.round(got/sh.ayahs*100)+'%';b.append(f);nm.append(b);
+   const row=el('button','dsn-row');row.type='button';
+   const nm=el('span','dsn-row-name');nm.append(el('b','',sh.name));const b=el('span','dsr-bar'),f=el('i');f.style.width=Math.round(got/sh.ayahs*100)+'%';b.append(f);nm.append(b);
    row.append(nm,starsEl(inf.stars,inf.crown,xt));
    row.addEventListener('click',()=>{close();document.querySelector('.dsr-unit[data-sid="'+sh.id+'"]')?.scrollIntoView({block:'center',behavior:'smooth'})});
    sc.append(row);
   }
   inner.append(sc);
   // Badges.
-  const bc=el('div','dsp-card');const bh=el('div','dsp-badges-head');bh.append(el('h3','',xt.badgesTitle),el('span','',badges.filter(v=>v.on).length+' / '+badges.length));bc.append(bh);
-  const bg=el('div','dsp-badges');
+  const bc=el('div','dsn-card');const bh=el('div','dsn-badges-head');bh.append(el('h3','',xt.badgesTitle),el('span','',badges.filter(v=>v.on).length+' / '+badges.length));bc.append(bh);
+  const bg=el('div','dsn-badges');
   for(const v of badges){const c=el('div','dsr-badge'+(v.on?' is-on':'')),ic=el('span','dsr-badge-ico');ic.innerHTML=svg(v.on?ICON[v.icon]:ICON.lock);c.append(ic,el('b','',v.name),el('small','',v.desc));bg.append(c)}
   bc.append(bg);inner.append(bc);
   document.body.append(wrap);cb.focus({preventScroll:true});
