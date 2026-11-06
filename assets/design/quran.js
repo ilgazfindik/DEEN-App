@@ -102,7 +102,7 @@
   listening:'<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>'
  };
  const svg=d=>'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';
- function companion(){let p='owl';try{p=window.state?.profile?.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'}
+ function companion(){let p='owl';try{p=state.profile.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'}
  const isDone=n=>/\bis-(complete|completed|done)\b/.test(n.className);
  const firstOpen=nodes=>nodes.find(n=>!n.disabled&&!isDone(n))||nodes.find(n=>!n.disabled);
  function unitOf(before,title,nodes,key,loose){

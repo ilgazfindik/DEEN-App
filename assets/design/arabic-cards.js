@@ -190,7 +190,7 @@
   run_glyph=glyph;
   const steps=Array.isArray(opts.steps)&&opts.steps.length?opts.steps.map(x=>({...x})):opts.review?buildReviewSteps(ITEMS?null:opts.letterIds,ITEMS,audioOk):ITEMS?buildItemSteps(opts.items.map(x=>x.id),(opts.knownItems||[]).map(x=>x.id),opts.tip,ITEMS,opts.mode):buildSteps(opts.letterIds,(opts.known||[]).filter(id=>C.get(id)),L,audioOk);
   run={glyph:run_glyph,opts,queue:steps.map(s=>({s})),total:steps.length,done:0,first:0,asked:0,combo:0,best:0,missed:new Set(),started:Date.now(),cur:null,sel:null,phase:'',matchBad:false};
-  const pet=(()=>{let p='owl';try{p=window.state?.profile?.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'})();
+  const pet=(()=>{let p='owl';try{p=state.profile.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'})();
   const img=pose=>'assets/companions/'+pet+'/'+pet+'_'+pose+'.png';
 
   host=el('div','dac');host.id='dsArabicCards';host.setAttribute('role','dialog');host.setAttribute('aria-modal','true');host.dir=lang==='ar'?'rtl':'ltr';host.lang=lang;
