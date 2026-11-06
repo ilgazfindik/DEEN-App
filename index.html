@@ -133,18 +133,49 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
   for(let i=0;i<26;i++){const el=document.createElement('i'),s=(1+Math.random()*2.2).toFixed(1);
    el.style.cssText='left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*70).toFixed(1)+'%;--s:'+s+'px;--d:'+(Math.random()*2.4).toFixed(2)+'s';box.append(el)}
  }
- function chime(){
-  try{
-   if(!(st.settings?st.settings.sound!==false:true))return;
-   const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
-   const c=new AC();if(c.state!=='running'){c.close&&c.close();return}   // browsers allow sound only after a tap
-   const out=c.createGain();out.gain.value=.5;out.connect(c.destination);
-   [[880,0],[1318.5,.16],[1760,.34]].forEach(([f,d])=>{
-    const o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=f;
-    g.gain.setValueAtTime(0,c.currentTime+d);g.gain.linearRampToValueAtTime(.07,c.currentTime+d+.02);g.gain.exponentialRampToValueAtTime(.0008,c.currentTime+d+1.3);
-    o.connect(g);g.connect(out);o.start(c.currentTime+d);o.stop(c.currentTime+d+1.4)});
-   setTimeout(()=>{try{c.close()}catch(_){}},2200);
-  }catch(_){}
+ // Sound: small synthesised cues on the animation's beats (no audio files). Browsers only start
+ // audio after a tap or for sites the player uses often, so the context is tried straight away and,
+ // if it is blocked, unlocked by the first tap (which is also when the opening cue plays).
+ let ac=null,master=null,played=0;
+ const soundOn=()=>st.settings?st.settings.sound!==false:true;
+ function audio(){
+  if(ac||!soundOn())return ac;
+  try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return null;
+   ac=new AC();master=ac.createGain();master.gain.value=.5;master.connect(ac.destination);
+   if(ac.state==='suspended'&&ac.resume)ac.resume().catch(()=>{});
+  }catch(_){ac=null}
+  return ac;
+ }
+ function tone(f,at,dur,vol,type,f2){
+  const o=ac.createOscillator(),g=ac.createGain(),t=ac.currentTime+at;
+  o.type=type||'sine';o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+dur*.8);
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.02);g.gain.exponentialRampToValueAtTime(.0006,t+dur);
+  o.connect(g);g.connect(master);o.start(t);o.stop(t+dur+.05);
+ }
+ function whoosh(at,dur,vol){
+  const n=Math.floor(ac.sampleRate*dur),buf=ac.createBuffer(1,n,ac.sampleRate),d=buf.getChannelData(0);
+  for(let k=0;k<n;k++)d[k]=Math.random()*2-1;
+  const src=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain(),t=ac.currentTime+at;
+  src.buffer=buf;f.type='bandpass';f.Q.value=.9;f.frequency.setValueAtTime(300,t);f.frequency.exponentialRampToValueAtTime(2600,t+dur);
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+dur*.45);g.gain.linearRampToValueAtTime(0,t+dur);
+  src.connect(f);f.connect(g);g.connect(master);src.start(t);src.stop(t+dur);
+ }
+ const CUES={
+  arch(){tone(330,0,.9,.035,'sine',990)},                                  // the arch draws itself
+  moon(){tone(1760,0,1.2,.05);tone(2637,.07,1,.03)},                       // crescent
+  pet(){tone(380,0,.22,.09,'sine',900);tone(1200,.18,.5,.04)},             // companion hops in
+  greet(){[[880,0],[1318.5,.16],[1760,.34]].forEach(([f,d])=>tone(f,d,1.3,.07))}, // greeting chime
+  open(){whoosh(0,.7,.12);[523.25,659.25,783.99,1046.5].forEach((f,d)=>tone(f,.18+d*.07,1.4,.06))} // doors open
+ };
+ function cue(name){
+  if(!soundOn())return;const c=audio();
+  if(!c||c.state!=='running')return;
+  try{CUES[name]();played++}catch(_){}
+ }
+ function unlock(){
+  const c=audio();if(!c)return;
+  const go=()=>{if(!played&&!leaving)cue('greet')};
+  if(c.state==='running')go();else if(c.resume)c.resume().then(go).catch(()=>{});
  }
  function fill(){
   const l=lang(),t=L[l],h=new Date().getHours();
@@ -169,8 +200,9 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
   if(started||off||failed)return;started=true;t0=Date.now();
   stars();fill();
   requestAnimationFrame(()=>requestAnimationFrame(()=>root.classList.add('go')));
-  setTimeout(chime,900);
-  root.addEventListener('pointerdown',()=>{skipped=true},{once:true});
+  audio();
+  [['arch',200],['moon',700],['pet',1250],['greet',1650]].forEach(([n,ms])=>setTimeout(()=>cue(n),ms));
+  root.addEventListener('pointerdown',()=>{skipped=true;unlock()},{once:true});
  }
  function finish(){
   if(off||!started||failed)return Promise.resolve();
@@ -179,7 +211,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
    // Hold until the minimum play time has passed; a tap shortens it but never below the arch drawing in.
    while(!skipped&&Date.now()-t0<minMs)await sleep(60);
    if(skipped&&Date.now()-t0<900)await sleep(900-(Date.now()-t0));
-   root.classList.add('out');
+   root.classList.add('out');cue('open');
    await sleep(reduce?420:950);
   })();
   return leaving;
@@ -191,7 +223,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9508splash';
+ const BUILD='9509splashsound';
  // Keep both locales available for safe in-app language changes.
  let SEGMENT_COUNT=67;
  const CONCURRENCY=6;
