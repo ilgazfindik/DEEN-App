@@ -63,6 +63,15 @@
    srcTr:'Ali Özek وآخرون (QuranEnc، الإصدار 1.0.0)',srcEn:'Pickthall (1930)',more:'المزيد من الأدوات',less:'عرض أقل',prog:{title:'التقدّم',sub:'الأهداف والنجوم والأوسمة',level:n=>'المستوى '+n,overall:'التقدّم العام',learned:'الآيات المتعلَّمة',goals:'أهداف اليوم',goalAyahs:'آيات',goalMinutes:'دقائق',streak:n=>n+' أيام متتالية',pace:'وتيرة الدراسة',presets:['هادئة','متوازنة','مكثّفة'],presetSub:(a,m,d)=>a+' آيات · '+m+' د · '+d+' أيام أسبوعيًا',solid:'حفظ راسخ',due:'بانتظار المراجعة',stars:'النجوم',surahs:'السور',close:'إغلاق'}}
  };
  const x=()=>X[lang()]||X.en;
+ // Question arena strings.
+ const AX={
+  tr:{title:'Soru Arenası',sub:'Zorluğunu seç, sorulara başla.',lv:[['Kolay','Anlamı bul, doğru ayeti seç'],['Orta','Eksik kelime ve ayet sırası'],['Zor','Kelimeleri diz, sırala, tamamla']],q:n=>n+' soru',best:n=>'En iyi %'+n,scopeLearned:'Öğrendiklerim',scopeAll:'Tüm sureler',pool:n=>n+' ayet havuzda',combo:{3:'3 üst üste!',5:'5 üst üste! Durdurulamaz!'},back:'Geri',few:'Önce birkaç ayet öğren'},
+  en:{title:'Question Arena',sub:'Pick your level and start answering.',lv:[['Easy','Find the meaning, pick the right ayah'],['Medium','Missing words and ayah order'],['Hard','Build the words, order, complete']],q:n=>n+' questions',best:n=>'Best '+n+'%',scopeLearned:'What I learned',scopeAll:'All surahs',pool:n=>n+' ayahs in the pool',combo:{3:'3 in a row!',5:'5 in a row! Unstoppable!'},back:'Back',few:'Learn a few ayahs first'},
+  de:{title:'Fragenarena',sub:'Wähle dein Level und leg los.',lv:[['Leicht','Bedeutung finden, richtigen Vers wählen'],['Mittel','Fehlende Wörter und Versreihenfolge'],['Schwer','Wörter bauen, ordnen, ergänzen']],q:n=>n+' Fragen',best:n=>'Bestwert '+n+' %',scopeLearned:'Was ich gelernt habe',scopeAll:'Alle Suren',pool:n=>n+' Verse im Pool',combo:{3:'3 richtig in Folge!',5:'5 in Folge! Nicht zu stoppen!'},back:'Zurück',few:'Lerne zuerst ein paar Verse'},
+  fr:{title:'Arène des questions',sub:'Choisis ton niveau et lance-toi.',lv:[['Facile','Trouver le sens, choisir le bon verset'],['Moyen','Mots manquants et ordre des versets'],['Difficile','Remettre les mots, ordonner, compléter']],q:n=>n+' questions',best:n=>'Meilleur '+n+' %',scopeLearned:'Ce que j’ai appris',scopeAll:'Toutes les sourates',pool:n=>n+' versets dans la réserve',combo:{3:'3 d’affilée !',5:'5 d’affilée ! Inarrêtable !'},back:'Retour',few:'Apprends d’abord quelques versets'},
+  ar:{title:'ساحة الأسئلة',sub:'اختر مستواك وابدأ الإجابة.',lv:[['سهل','اعثر على المعنى واختر الآية الصحيحة'],['متوسط','الكلمات الناقصة وترتيب الآيات'],['صعب','رتّب الكلمات وأكمل']],q:n=>n+' أسئلة',best:n=>'الأفضل '+n+'٪',scopeLearned:'ما تعلّمته',scopeAll:'كل السور',pool:n=>n+' آية في المجموعة',combo:{3:'٣ متتالية!',5:'٥ متتالية! لا يُوقَف!'},back:'رجوع',few:'تعلّم بعض الآيات أولًا'}
+ };
+ const ax=()=>AX[lang()]||AX.en;
 
  function lang(){let c='';try{c=window.DEEN_APP_LOCALE?.get?.()||''}catch(_){}c=String(c||document.documentElement.lang||'tr').slice(0,2).toLowerCase();return T[c]?c:'tr'}
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
@@ -221,11 +230,12 @@
   calendar:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>',
   alert:'<path d="M12 4 3 20h18z"/><path d="M12 10v4M12 17v.5"/>',
   clip:'<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/>',
+  bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
   chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
   sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'
  };
  const svg=d=>'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';
- function companion(){let p='owl';try{p=window.state?.profile?.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'}
+ function companion(){let p='owl';try{p=state.profile.companion||p}catch(_){}return String(p).replace(/[^a-z]/g,'')||'owl'}
  // Everything the path shows, computed once: lessons and their state per surah, stars, crowns, ayahs learned.
  // Stars build on each other: 1 = get-to-know lessons done, 2 = memorising done too, 3 = exam passed with 80%.
  function overview(){
@@ -285,26 +295,144 @@
  const lq=sel=>document.querySelector('#leagueScreenBody '+sel);
  const qia=(sec,i)=>document.querySelectorAll('#leagueScreenBody [data-qia-section="'+sec+'"] .deen-qia-action')[i]||null;
  const arena=kind=>lq('.deen-qarena-hub-card[onclick*="\''+kind+'\'"]');
+ // ---- Question arena: a full screen of its own. Pick a level, then ten questions in the card layer; at 3 and
+ // 5 right in a row the learner's companion rises from the bottom, as in the lessons. ----
+ const LV_KEYS=['easy','medium','hard'];
+ function arenaPool(scope,code){
+  const all=[];
+  for(const sh of surahs())for(const it of itemsOf(sh.id,code)){if(scope==='all'||progressOf(sh.id,it.num).completedAt)all.push(it)}
+  return all;
+ }
+ function arenaSteps(level,pool,code){
+  const hasMeal=code==='tr'||code==='en',used=new Set(),out=[];
+  const words=[...new Set(pool.flatMap(i=>i.parts))];
+  const withMeal=pool.filter(i=>i.name),short=i=>i.parts.length>=2&&i.parts.length<=7;
+  const take=(n,f)=>{const c=shuffle(pool.filter(i=>!used.has(i.id)&&(!f||f(i)))).slice(0,n);c.forEach(i=>used.add(i.id));return c};
+  const fill=(it,k)=>{const hide=Math.random()*it.parts.length|0,ans=it.parts[hide];return {k:'q',type:'fill',id:it.id,hide,ans,opts:shuffle([ans,...shuffle(words.filter(w=>w!==ans)).slice(0,k-1)])}};
+  const meaning=it=>({k:'q',type:'name',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id)).slice(0,2).map(i=>i.id)])});
+  const byMeaning=it=>({k:'q',type:'pick',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id&&i.glyph.length<=70)).slice(0,2).map(i=>i.id)])});
+  const build=it=>({k:'q',type:'build',id:it.id,parts:it.parts});
+  // A run of consecutive ayahs of one surah, for "put them in order".
+  const run=n=>{
+   const by={};for(const i of pool)(by[i.id.split(':')[0]]||=new Map()).set(i.num,i);
+   const starts=[];for(const [sid,m] of Object.entries(by))for(const a of m.keys()){let ok=true;for(let k=1;k<n;k++)if(!m.has(a+k)){ok=false;break}if(ok)starts.push([sid,a])}
+   if(!starts.length)return null;const [sid,a]=starts[Math.random()*starts.length|0];
+   return {k:'q',type:'seq',ids:Array.from({length:n},(_,k)=>sid+':'+(a+k))};
+  };
+  const add=(n,make)=>{for(let i=0;i<n;i++){const q=make();if(q)out.push(q)}};
+  const rec={
+   easy:()=>{
+    if(hasMeal){add(1,()=>null);take(5,short).forEach(i=>out.push(meaning(i)));take(3,short).forEach(i=>out.push(byMeaning(i)));take(2,short).forEach(i=>out.push(fill(i,3)))}
+    else{take(6,short).forEach(i=>out.push(fill(i,3)));add(2,()=>run(3))}
+   },
+   medium:()=>{
+    take(3,short).forEach(i=>out.push(fill(i,3)));
+    if(hasMeal){take(2,short).forEach(i=>out.push(meaning(i)));take(2,short).forEach(i=>out.push(build(i)));take(1,short).forEach(i=>out.push(byMeaning(i)))}
+    else take(3,short).forEach(i=>out.push(fill(i,3)));
+    add(2,()=>run(3));
+   },
+   hard:()=>{
+    if(hasMeal){take(4,short).forEach(i=>out.push(build(i)));take(1,short).forEach(i=>out.push(byMeaning(i)))}
+    else take(5,short).forEach(i=>out.push(fill(i,4)));
+    take(3,short).forEach(i=>out.push(fill(i,4)));add(2,()=>run(4));
+   }
+  };
+  rec[level]();
+  // Top up with fill-in-the-blank if a kind ran short, then keep ten.
+  for(const i of take(10,short)){if(out.length>=10)break;out.push(fill(i,level==='hard'?4:3))}
+  return shuffle(out).slice(0,10);
+ }
+ function recordArena(level,result){
+  const pct=result?.questions?Math.round(result.firstTryCorrect/result.questions*100):0;
+  writeStore(d=>{d.arena=d.arena&&typeof d.arena==='object'?d.arena:{};const e=d.arena[level]||{};d.arena[level]={best:Math.max(e.best||0,pct),last:pct,plays:(e.plays||0)+1}});
+ }
+ function comboRise(n,host){
+  host.querySelector('.dsa-rise')?.remove();
+  const pet=companion(),rise=el('div','dsa-rise'),img=new Image();rise.dataset.tier=String(n);
+  img.alt='';img.decoding='async';
+  img.addEventListener('error',()=>{if(!img.src.includes('/owl/'))img.src='assets/companions/owl/owl_combo_'+n+'.webp'},{once:true});
+  img.src='assets/companions/'+pet+'/'+pet+'_combo_'+n+'.webp';
+  const say=el('div','dsa-say',ax().combo[n]);rise.append(el('span','dsa-glow'),img,say);host.append(rise);
+  // The result sheet slides up a moment after the answer; keep measuring so the companion stands on its edge.
+  const place=()=>{const f=host.querySelector('.dac-foot');if(f)host.style.setProperty('--dsa-h',Math.round(f.getBoundingClientRect().height)+'px')};
+  place();for(const ms of [120,260,420,650])setTimeout(place,ms);
+  const bye=()=>{if(!rise.isConnected||rise.classList.contains('closing'))return;rise.classList.add('closing');setTimeout(()=>rise.remove(),260)};
+  setTimeout(bye,2300);
+  host.addEventListener('click',e=>{if(e.target.closest?.('.dac-cta'))bye()},{once:true,capture:true});
+ }
+ function startArena(level,scope,screen){
+  const code=lang(),pool=arenaPool(scope,code),steps=arenaSteps(level,pool,code);
+  if(steps.length<4||!window.DEEN_ARABIC_CARDS)return false;
+  let combo=0;
+  const ok=window.DEEN_ARABIC_CARDS.open({lessonIndex:null,items:pool,lessonIds:[],steps,lang:code,ask:'mean',title:ax().title,subtitle:ax().lv[LV_KEYS.indexOf(level)][0],
+   onAnswer:(id,right)=>{if(right){combo++;if(combo===3||combo===5){const h=document.getElementById('dsArabicCards');if(h)comboRise(combo,h)}}else combo=0},
+   onDone:result=>recordArena(level,result),
+   onClose:()=>arenaScreen(),onExit:()=>arenaScreen()});
+  if(!ok)return false;
+  const host=document.getElementById('dsArabicCards');
+  if(host){host.classList.add('dsa-run');host.dataset.level=level;setTimeout(()=>host.querySelector('.dac-intro-go')?.click(),60)}
+  // The level screen stays on top until the first question is ready, then lifts away.
+  if(screen){screen.classList.add('is-leaving');setTimeout(()=>screen.remove(),720)}
+  return true;
+ }
+ function arenaScreen(from){
+  document.querySelector('.dsa')?.remove();
+  const code=lang(),a=ax(),store=readStore().arena||{};
+  const learnedN=arenaPool('learned',code).length,allN=arenaPool('all',code).length;
+  let scope=learnedN>=8?'learned':'all';
+  const wrap=el('div','dsa');wrap.setAttribute('role','dialog');wrap.setAttribute('aria-modal','true');wrap.setAttribute('aria-label',a.title);wrap.dir=code==='ar'?'rtl':'ltr';
+  if(from&&from.x!=null){wrap.style.setProperty('--ox',Math.round(from.x)+'px');wrap.style.setProperty('--oy',Math.round(from.y)+'px');wrap.classList.add('is-reveal')}else wrap.classList.add('is-fade');
+  const close=()=>{wrap.classList.add('is-leaving');setTimeout(()=>wrap.remove(),380);document.removeEventListener('keydown',onKey)};
+  const onKey=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',onKey);
+  const inner=el('div','dsa-inner');wrap.append(inner);
+  const top=el('div','dsa-top'),cb=el('button','dsa-close','×');cb.type='button';cb.setAttribute('aria-label',a.back);cb.addEventListener('click',close);top.append(el('span','dsa-kicker','ilnura'),cb);inner.append(top);
+  const hero=el('div','dsa-hero'),pet=new Image();pet.className='dsa-pet';pet.alt='';pet.decoding='async';
+  pet.addEventListener('error',()=>{if(!pet.src.includes('/owl/'))pet.src='assets/companions/owl/owl_lesson_idle.png'},{once:true});pet.src='assets/companions/'+companion()+'/'+companion()+'_lesson_idle.png';
+  const ht=el('div','dsa-hero-txt');ht.append(el('h2','',a.title),el('p','',a.sub));hero.append(ht,pet);inner.append(hero);
+  const chips=el('div','dsa-scope'),poolTxt=el('span','dsa-pool');
+  const chipL=el('button','dsa-chip',a.scopeLearned),chipA=el('button','dsa-chip',a.scopeAll);chipL.type=chipA.type='button';
+  const paint=()=>{chipL.classList.toggle('is-on',scope==='learned');chipA.classList.toggle('is-on',scope==='all');poolTxt.textContent=a.pool(scope==='learned'?learnedN:allN)};
+  if(learnedN<8){chipL.disabled=true;chipL.title=a.few}
+  chipL.addEventListener('click',()=>{if(!chipL.disabled){scope='learned';paint()}});chipA.addEventListener('click',()=>{scope='all';paint()});
+  chips.append(chipL,chipA);paint();inner.append(chips,poolTxt);
+  const list=el('div','dsa-levels');
+  LV_KEYS.forEach((key,i)=>{
+   const b=el('button','dsa-level');b.type='button';b.dataset.lv=String(i+1);b.style.setProperty('--i',String(i));
+   const ico=el('span','dsa-lv-ico');for(let k=0;k<=i;k++){const st=el('i');st.innerHTML=svg(ICON.star);ico.append(st)}
+   const tx=el('span','dsa-lv-txt');tx.append(el('b','',a.lv[i][0]),el('small','',a.lv[i][1]));
+   const meta=el('span','dsa-lv-meta');meta.append(el('em','',a.q(10)));const best=store[key]?.best;if(best!=null)meta.append(el('i','',a.best(best)));
+   b.append(ico,tx,meta);
+   b.addEventListener('click',()=>{
+    if(wrap.classList.contains('is-picked'))return;wrap.classList.add('is-picked');b.classList.add('is-chosen');
+    try{window.DEENSound?.play?.('start')}catch(_){}
+    setTimeout(()=>{if(!startArena(key,scope,wrap)){wrap.classList.remove('is-picked');b.classList.remove('is-chosen')}},reduceMotion()?0:380);
+   });
+   list.append(b);
+  });
+  inner.append(list);
+  document.body.append(wrap);cb.focus({preventScroll:true});
+ }
+ const reduceMotion=()=>{try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(_){return false}};
  const TOOL_MAIN=[
+  {id:'arena',icon:'bolt',wide:true,own:e=>arenaScreen(e),text:()=>[ax().title,ax().lv.map(v=>v[0]).join(' · ')]},
   {id:'review',icon:'calendar',get:()=>qia('progress',2)},      // review plan: ayahs due today
   {id:'memorize',get:()=>qia('memorize',0)},                    // recall round
-  {id:'arena',get:()=>arena('mixed')},                          // question arena (every question type is a chip inside)
-  {id:'challenge',get:()=>lq('[data-qchallenge]')},             // 10-question challenge
   {id:'weak',icon:'alert',get:()=>lq('[data-qweak-challenge]')},// weak ayahs challenge
-  {id:'progress',icon:'chart',own:true}                         // the progress screen below
+  {id:'progress',icon:'chart',own:()=>progressSheet(),text:()=>[x().prog.title,x().prog.sub]}
  ];
  function toolsPanel(dueCount){
   const xt=x(),born=Date.now(),wrap=el('div','dsr-toolsbox'),grid=el('div','dsr-tgrid'),cards=[];
   for(const spec of TOOL_MAIN){
    const b=el('button','dsr-tool');b.type='button';b.dataset.tool=spec.id;b.hidden=true;
    const ico=el('span','dsr-tool-ico'),tx=el('span','dsr-tool-txt'),ti=el('b'),su=el('small');tx.append(ti,su);b.append(ico,tx);
-   b.addEventListener('click',()=>{if(spec.own)progressSheet();else{const old=spec.get();if(old)old.click()}});
+   if(spec.wide)b.classList.add('is-wide');
+   b.addEventListener('click',e=>{if(spec.own){const r=b.getBoundingClientRect();spec.own({x:e.clientX||r.left+r.width/2,y:e.clientY||r.top+r.height/2})}else{const old=spec.get();if(old)old.click()}});
    grid.append(b);cards.push({spec,b,ico,ti,su});
   }
   // Copy title, description and icon from the old buttons; run again whenever the old list changes (it is built late and translated late).
   const sync=()=>{
    for(const c of cards){
-    if(c.spec.own){c.b.hidden=false;c.ti.textContent=xt.prog.title;c.su.textContent=xt.prog.sub;if(!c.ico.firstChild)c.ico.innerHTML=svg(ICON[c.spec.icon]);continue}
+    if(c.spec.own){const [t1,t2]=c.spec.text();c.b.hidden=false;if(c.ti.textContent!==t1)c.ti.textContent=t1;if(c.su.textContent!==t2)c.su.textContent=t2;if(!c.ico.firstChild)c.ico.innerHTML=svg(ICON[c.spec.icon]);continue}
     const old=c.spec.get();c.b.hidden=!old;if(!old)continue;
     const ti=old.querySelector('b')?.textContent?.trim(),su=old.querySelector('small')?.textContent?.trim();
     if(ti&&c.ti.textContent!==ti)c.ti.textContent=ti;
