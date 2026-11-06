@@ -459,3 +459,57 @@ html body #leagueScreenBody .dsr-tools{margin-top:14px}
 html body #leagueScreenBody .dsr-tools h3{margin:0;font-size:20px;font-weight:900;color:#eaf6f2}
 html body #leagueScreenBody .dsr-tools p{margin:4px 0 0;font-size:13px;font-weight:700;color:#9bb7b0}
 @media (prefers-reduced-motion:reduce){html body #leagueScreenBody .dsr-node.is-cur::after,html body #leagueScreenBody .dsr-bubble{animation:none}}
+/* Levels, stars, crown, badges and the exam reward card on the surah path. */
+html body #leagueScreenBody .dsr-level{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;padding:12px 16px;border-radius:18px;background:rgba(13,40,44,.92);border:1px solid rgba(214,255,240,.09);border-inline-start:5px solid #3fd7ad}
+html body #leagueScreenBody .dsr-level[data-lv="2"]{border-inline-start-color:#e9cf93}
+html body #leagueScreenBody .dsr-level[data-lv="3"]{border-inline-start-color:#8f74f5}
+html body #leagueScreenBody .dsr-level-copy{display:grid;gap:1px}
+html body #leagueScreenBody .dsr-level-copy small{font-size:11px;font-weight:900;letter-spacing:.14em;color:#9bb7b0}
+html body #leagueScreenBody .dsr-level-copy b{font-size:20px;font-weight:900;color:#fff}
+html body #leagueScreenBody .dsr-level-meter{display:grid;gap:6px;min-width:112px;justify-items:end}
+html body #leagueScreenBody .dsr-level-meter em{font-style:normal;font-size:12.5px;font-weight:800;color:#d7ece6}
+html body #leagueScreenBody .dsr-level-meter .dsr-bar{width:112px;height:8px}
+html body #leagueScreenBody .dsr-stars{display:inline-flex;align-items:center;gap:3px;margin-top:4px}
+html body #leagueScreenBody .dsr-star svg{width:19px;height:19px;color:rgba(255,255,255,.3)}
+html body #leagueScreenBody .dsr-star.is-on svg{color:#ffd978;filter:drop-shadow(0 1px 0 rgba(0,0,0,.25))}
+html body #leagueScreenBody .dsr-crown{display:inline-grid;place-items:center;margin-inline-start:6px;padding:2px 6px;border-radius:9px;background:rgba(255,217,120,.22);color:#ffe6a3}
+html body #leagueScreenBody .dsr-crown svg{width:18px;height:18px;fill:currentColor}
+html body #leagueScreenBody .dsr-badges{display:grid;gap:10px}
+html body #leagueScreenBody .dsr-badges-head{display:flex;align-items:baseline;justify-content:space-between}
+html body #leagueScreenBody .dsr-badges-head h3{margin:0;font-size:18px;font-weight:900;color:#eaf6f2}
+html body #leagueScreenBody .dsr-badges-head span{font-size:13px;font-weight:800;color:#9bb7b0;font-variant-numeric:tabular-nums}
+html body #leagueScreenBody .dsr-badges-row{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;margin:0 -2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+html body #leagueScreenBody .dsr-badges-row::-webkit-scrollbar{display:none}
+html body #leagueScreenBody .dsr-badge{flex:none;width:112px;display:grid;justify-items:center;gap:5px;padding:12px 8px;border-radius:16px;text-align:center;background:rgba(13,40,44,.92);border:1px solid rgba(214,255,240,.09);color:#6f918b}
+html body #leagueScreenBody .dsr-badge b{font-size:13px;font-weight:900;color:#8fb0a9}
+html body #leagueScreenBody .dsr-badge small{font-size:11px;font-weight:700;line-height:1.25;color:#6f918b}
+html body #leagueScreenBody .dsr-badge-ico,html .dsr-reward .dsr-badge-ico{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#143238;color:#6f918b}
+html body #leagueScreenBody .dsr-badge-ico svg,html .dsr-reward .dsr-badge-ico svg{width:22px;height:22px}
+html body #leagueScreenBody .dsr-badge.is-on{background:linear-gradient(160deg,rgba(233,207,147,.2),rgba(13,40,44,.92));border-color:rgba(233,207,147,.38)}
+html body #leagueScreenBody .dsr-badge.is-on b{color:#fff}
+html body #leagueScreenBody .dsr-badge.is-on small{color:#d7c9a3}
+html body #leagueScreenBody .dsr-badge.is-on .dsr-badge-ico,html .dsr-reward .dsr-badge-ico{background:linear-gradient(180deg,#f1d9a0,#d9b66a);color:#4a3810}
+html body #leagueScreenBody .dsr-node.is-exam:not(.is-locked):not(.is-done):not(.is-cur) .dsr-dot{background:linear-gradient(180deg,#ffd978,#e0a93a);color:#4a3810;box-shadow:0 7px 0 #a8791f}
+html body #leagueScreenBody .dsr-node.is-exam .dsr-dot svg{fill:currentColor}
+html .dsr-reward{position:fixed;inset:0;z-index:2147482000;display:grid;place-items:center;padding:20px;background:rgba(3,19,27,.82);backdrop-filter:blur(4px);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+html .dsr-reward-card{width:min(92vw,360px);display:grid;justify-items:center;gap:10px;padding:22px 20px 20px;border-radius:26px;text-align:center;color:#eaf6f2;background:linear-gradient(180deg,#143a40,#0b2229);border:1px solid rgba(233,207,147,.35);box-shadow:0 18px 50px rgba(0,0,0,.55)}
+html .dsr-reward-chest{width:112px;height:auto;animation:dsrPop .6s cubic-bezier(.3,1.4,.5,1) both}
+html .dsr-reward-card h3{margin:0;font-size:22px;font-weight:900;color:#fff}
+html .dsr-reward-card .dsr-stars{margin-top:0;gap:6px}
+html .dsr-reward-card .dsr-star svg{width:34px;height:34px;color:rgba(255,255,255,.22)}
+html .dsr-reward-card .dsr-star.is-on svg{color:#ffd978}
+html .dsr-reward-card .dsr-crown{padding:4px 9px;color:#ffe6a3;background:rgba(255,217,120,.22);border-radius:12px}
+html .dsr-reward-card .dsr-crown svg{width:28px;height:28px;fill:currentColor}
+html .dsr-reward-acc{display:grid;gap:2px}
+html .dsr-reward-acc small{font-size:12px;font-weight:900;letter-spacing:.12em;color:#9bb7b0;text-transform:uppercase}
+html .dsr-reward-acc b{font-size:32px;font-weight:900;color:#7ff0cf;font-variant-numeric:tabular-nums}
+html .dsr-reward-note{margin:0;min-height:1em;font-size:13.5px;font-weight:800;color:#e9cf93}
+html .dsr-reward-badge{display:flex;align-items:center;gap:12px;width:100%;box-sizing:border-box;padding:10px 12px;border-radius:16px;text-align:start;background:rgba(233,207,147,.14);border:1px solid rgba(233,207,147,.32)}
+html .dsr-reward-badge small{display:block;font-size:11px;font-weight:900;letter-spacing:.12em;color:#e9cf93;text-transform:uppercase}
+html .dsr-reward-badge b{display:block;font-size:16px;font-weight:900;color:#fff}
+html .dsr-reward-badge em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:#c9d9d4}
+html .dsr-reward-go{all:unset;box-sizing:border-box;width:100%;margin-top:4px;padding:14px 16px;border-radius:16px;text-align:center;cursor:pointer;font-size:15px;font-weight:900;letter-spacing:.04em;background:linear-gradient(180deg,#52e5bd,#2fc39b);color:#053328;box-shadow:0 5px 0 #1b8a6d}
+html .dsr-reward-go:active{transform:translateY(4px);box-shadow:0 1px 0 #1b8a6d}
+html .dsr-reward-go:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@keyframes dsrPop{0%{transform:scale(.5);opacity:0}100%{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){html .dsr-reward-chest{animation:none}}
