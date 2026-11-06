@@ -36,31 +36,31 @@
    badge:{first:['İlk adım','İlk dersini tamamla'],surah1:['İlk sure','Bir sureyi baştan sona bitir'],surah5:['Beş sure','Beş sureyi bitir'],crown:['Kusursuz','Sure sınavında %95 ve üstü al'],ayah100:['100 ayet','100 ayet öğren']},
    lvlBadge:n=>[n+' seviye','Bu seviyedeki bütün sureleri bitir'],
    reward:{title:'Sure sınavı tamamlandı',acc:'Doğruluk',stars:'Yıldız',crown:'Kusursuz! Taç kazandın.',newBadge:'Yeni rozet',cont:'Devam',again:'%80 ve üstü üçüncü yıldızı getirir. Tekrar deneyebilirsin.'},
-   srcTr:'Ali Özek ve ark. (QuranEnc, sürüm 1.0.0)',srcEn:'Pickthall (1930)',more:'Daha fazla araç',less:'Daha az göster'},
+   srcTr:'Ali Özek ve ark. (QuranEnc, sürüm 1.0.0)',srcEn:'Pickthall (1930)',more:'Daha fazla araç',less:'Daha az göster',prog:{title:'İlerleme',sub:'Hedefler, yıldızlar ve rozetler',level:n=>'Seviye '+n,overall:'Genel ilerleme',learned:'Öğrenilen ayet',goals:'Bugünkü hedefler',goalAyahs:'Ayet',goalMinutes:'Dakika',streak:n=>n+' gün seri',pace:'Çalışma temposu',presets:['Sakin','Dengeli','Yoğun'],presetSub:(a,m,d)=>a+' ayet · '+m+' dk · haftada '+d+' gün',solid:'Sağlam ezber',due:'Tekrar bekliyor',stars:'Yıldız',surahs:'Sureler',close:'Kapat'}},
   en:{lvl:['Easy','Medium','Advanced'],levelTag:n=>'LEVEL '+n,levelCount:(a,b)=>a+' / '+b+' surahs',exam:'Surah exam',examSub:'A final test on every ayah. 80% or more earns the third star.',
    stars:['Finish the get-to-know lessons','Finish the memorising lessons','Pass the exam with 80%'],crownTip:'Flawless exam',badgesTitle:'Badges',
    badge:{first:['First step','Complete your first lesson'],surah1:['First surah','Finish a surah from start to end'],surah5:['Five surahs','Finish five surahs'],crown:['Flawless','Score 95% or more in a surah exam'],ayah100:['100 ayahs','Learn 100 ayahs']},
    lvlBadge:n=>[n+' level','Finish every surah of this level'],
    reward:{title:'Surah exam complete',acc:'Accuracy',stars:'Stars',crown:'Flawless! You earned a crown.',newBadge:'New badge',cont:'Continue',again:'80% or more brings the third star. You can try again.'},
-   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'More tools',less:'Show less'},
+   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'More tools',less:'Show less',prog:{title:'Progress',sub:'Goals, stars and badges',level:n=>'Level '+n,overall:'Overall progress',learned:'Ayahs learned',goals:'Today’s goals',goalAyahs:'Ayahs',goalMinutes:'Minutes',streak:n=>n+'-day streak',pace:'Study pace',presets:['Relaxed','Balanced','Intense'],presetSub:(a,m,d)=>a+' ayahs · '+m+' min · '+d+' days a week',solid:'Solid memory',due:'Due for review',stars:'Stars',surahs:'Surahs',close:'Close'}},
   de:{lvl:['Leicht','Mittel','Fortgeschritten'],levelTag:n=>'STUFE '+n,levelCount:(a,b)=>a+' / '+b+' Suren',exam:'Suren-Prüfung',examSub:'Eine Abschlussprüfung zu allen Versen. Ab 80 % gibt es den dritten Stern.',
    stars:['Kennenlern-Lektionen abschließen','Auswendig-Lektionen abschließen','Prüfung mit 80 % bestehen'],crownTip:'Makellose Prüfung',badgesTitle:'Abzeichen',
    badge:{first:['Erster Schritt','Schließe deine erste Lektion ab'],surah1:['Erste Sure','Schließe eine Sure von Anfang bis Ende ab'],surah5:['Fünf Suren','Schließe fünf Suren ab'],crown:['Makellos','Erreiche in einer Suren-Prüfung 95 % oder mehr'],ayah100:['100 Verse','Lerne 100 Verse']},
    lvlBadge:n=>['Stufe '+n,'Schließe alle Suren dieser Stufe ab'],
    reward:{title:'Suren-Prüfung abgeschlossen',acc:'Genauigkeit',stars:'Sterne',crown:'Makellos! Du hast eine Krone verdient.',newBadge:'Neues Abzeichen',cont:'Weiter',again:'Ab 80 % gibt es den dritten Stern. Du kannst es noch einmal versuchen.'},
-   srcTr:'Ali Özek u. a. (QuranEnc, Version 1.0.0)',srcEn:'Pickthall (1930)',more:'Weitere Werkzeuge',less:'Weniger anzeigen'},
+   srcTr:'Ali Özek u. a. (QuranEnc, Version 1.0.0)',srcEn:'Pickthall (1930)',more:'Weitere Werkzeuge',less:'Weniger anzeigen',prog:{title:'Fortschritt',sub:'Ziele, Sterne und Abzeichen',level:n=>'Stufe '+n,overall:'Gesamtfortschritt',learned:'Gelernte Verse',goals:'Ziele für heute',goalAyahs:'Verse',goalMinutes:'Minuten',streak:n=>n+' Tage in Folge',pace:'Lerntempo',presets:['Ruhig','Ausgewogen','Intensiv'],presetSub:(a,m,d)=>a+' Verse · '+m+' Min. · '+d+' Tage pro Woche',solid:'Sicher auswendig',due:'Zur Wiederholung fällig',stars:'Sterne',surahs:'Suren',close:'Schließen'}},
   fr:{lvl:['Facile','Moyen','Avancé'],levelTag:n=>'NIVEAU '+n,levelCount:(a,b)=>a+' / '+b+' sourates',exam:'Examen de la sourate',examSub:'Un test final sur tous les versets. 80 % ou plus donne la troisième étoile.',
    stars:['Termine les leçons de découverte','Termine les leçons de mémorisation','Réussis l’examen avec 80 %'],crownTip:'Examen sans faute',badgesTitle:'Badges',
    badge:{first:['Premier pas','Termine ta première leçon'],surah1:['Première sourate','Termine une sourate du début à la fin'],surah5:['Cinq sourates','Termine cinq sourates'],crown:['Sans faute','Obtiens 95 % ou plus à un examen de sourate'],ayah100:['100 versets','Apprends 100 versets']},
    lvlBadge:n=>['Niveau '+n,'Termine toutes les sourates de ce niveau'],
    reward:{title:'Examen de la sourate terminé',acc:'Précision',stars:'Étoiles',crown:'Sans faute ! Tu as gagné une couronne.',newBadge:'Nouveau badge',cont:'Continuer',again:'80 % ou plus donne la troisième étoile. Tu peux réessayer.'},
-   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'Plus d’outils',less:'Voir moins'},
+   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'Plus d’outils',less:'Voir moins',prog:{title:'Progression',sub:'Objectifs, étoiles et badges',level:n=>'Niveau '+n,overall:'Progression globale',learned:'Versets appris',goals:'Objectifs du jour',goalAyahs:'Versets',goalMinutes:'Minutes',streak:n=>n+' jours d’affilée',pace:'Rythme d’étude',presets:['Tranquille','Équilibré','Intense'],presetSub:(a,m,d)=>a+' versets · '+m+' min · '+d+' jours par semaine',solid:'Mémorisé solidement',due:'À réviser',stars:'Étoiles',surahs:'Sourates',close:'Fermer'}},
   ar:{lvl:['سهل','متوسط','متقدّم'],levelTag:n=>'المستوى '+n,levelCount:(a,b)=>a+' / '+b+' سور',exam:'اختبار السورة',examSub:'اختبار نهائي في جميع آيات السورة. تحصل على النجمة الثالثة بنسبة 80٪ أو أكثر.',
    stars:['أكمل دروس التعرّف','أكمل دروس الحفظ','اجتز الاختبار بنسبة 80٪'],crownTip:'اختبار بلا أخطاء',badgesTitle:'الأوسمة',
    badge:{first:['الخطوة الأولى','أكمل درسك الأول'],surah1:['السورة الأولى','أكمل سورة من أولها إلى آخرها'],surah5:['خمس سور','أكمل خمس سور'],crown:['بلا أخطاء','احصل على 95٪ أو أكثر في اختبار سورة'],ayah100:['100 آية','تعلّم 100 آية']},
    lvlBadge:n=>['مستوى '+n,'أكمل جميع سور هذا المستوى'],
    reward:{title:'اكتمل اختبار السورة',acc:'الدقة',stars:'النجوم',crown:'بلا أخطاء! نلت تاجًا.',newBadge:'وسام جديد',cont:'متابعة',again:'تحصل على النجمة الثالثة بنسبة 80٪ أو أكثر. يمكنك المحاولة مرة أخرى.'},
-   srcTr:'Ali Özek وآخرون (QuranEnc، الإصدار 1.0.0)',srcEn:'Pickthall (1930)',more:'المزيد من الأدوات',less:'عرض أقل'}
+   srcTr:'Ali Özek وآخرون (QuranEnc، الإصدار 1.0.0)',srcEn:'Pickthall (1930)',more:'المزيد من الأدوات',less:'عرض أقل',prog:{title:'التقدّم',sub:'الأهداف والنجوم والأوسمة',level:n=>'المستوى '+n,overall:'التقدّم العام',learned:'الآيات المتعلَّمة',goals:'أهداف اليوم',goalAyahs:'آيات',goalMinutes:'دقائق',streak:n=>n+' أيام متتالية',pace:'وتيرة الدراسة',presets:['هادئة','متوازنة','مكثّفة'],presetSub:(a,m,d)=>a+' آيات · '+m+' د · '+d+' أيام أسبوعيًا',solid:'حفظ راسخ',due:'بانتظار المراجعة',stars:'النجوم',surahs:'السور',close:'إغلاق'}}
  };
  const x=()=>X[lang()]||X.en;
 
@@ -221,6 +221,7 @@
   calendar:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>',
   alert:'<path d="M12 4 3 20h18z"/><path d="M12 10v4M12 17v.5"/>',
   clip:'<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/>',
+  chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
   sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'
  };
  const svg=d=>'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';
@@ -286,47 +287,31 @@
  const arena=kind=>lq('.deen-qarena-hub-card[onclick*="\''+kind+'\'"]');
  const TOOL_MAIN=[
   {id:'review',icon:'calendar',get:()=>qia('progress',2)},      // review plan: ayahs due today
-  {id:'memorize',get:()=>qia('memorize',0)},    // recall round
-  {id:'weak',icon:'alert',get:()=>qia('memorize',2)},        // weak ayahs
-  {id:'arena',get:()=>arena('mixed')},          // question arena
-  {id:'challenge',get:()=>lq('[data-qchallenge]')},
-  {id:'tests',icon:'clip',get:()=>lq('.deen-atest-entry')}
- ];
- const TOOL_MORE=[
-  {id:'game',get:()=>qia('learn',1)},{id:'chain',get:()=>qia('memorize',1)},{id:'order',get:()=>qia('memorize',3)},
-  {id:'words',get:()=>qia('learn',2)},{id:'map',get:()=>qia('learn',3)},
-  {id:'audio',get:()=>arena('audio')},{id:'meal',get:()=>arena('meaning')},{id:'which',get:()=>arena('surah')},
-  {id:'weakch',get:()=>lq('[data-qweak-challenge]')},{id:'mastery',get:()=>lq('[data-qmastery]')},
-  {id:'hub',get:()=>qia('progress',0)},{id:'level',get:()=>qia('progress',1)},{id:'plan',get:()=>qia('progress',3)}
+  {id:'memorize',get:()=>qia('memorize',0)},                    // recall round
+  {id:'arena',get:()=>arena('mixed')},                          // question arena (every question type is a chip inside)
+  {id:'challenge',get:()=>lq('[data-qchallenge]')},             // 10-question challenge
+  {id:'weak',icon:'alert',get:()=>lq('[data-qweak-challenge]')},// weak ayahs challenge
+  {id:'progress',icon:'chart',own:true}                         // the progress screen below
  ];
  function toolsPanel(dueCount){
-  const xt=x(),born=Date.now(),wrap=el('div','dsr-toolsbox');
-  const grid=el('div','dsr-tgrid'),more=el('div','dsr-more'),toggle=el('button','dsr-more-toggle');toggle.type='button';
-  const cards=[];
-  const make=(spec,cls)=>{
-   const b=el('button',cls);b.type='button';b.dataset.tool=spec.id;b.hidden=true;
-   const ico=el('span',cls+'-ico'),tx=el('span',cls+'-txt'),ti=el('b'),su=el('small');tx.append(ti,su);b.append(ico,tx);
-   b.addEventListener('click',()=>{const old=spec.get();if(old)old.click()});
-   cards.push({spec,b,ico,ti,su});return b;
-  };
-  for(const spec of TOOL_MAIN)grid.append(make(spec,'dsr-tool'));
-  for(const spec of TOOL_MORE)more.append(make(spec,'dsr-more-row'));
-  more.hidden=true;
-  const setToggle=()=>{toggle.textContent=more.hidden?xt.more:xt.less;toggle.setAttribute('aria-expanded',String(!more.hidden));toggle.classList.toggle('is-open',!more.hidden)};
-  toggle.addEventListener('click',()=>{more.hidden=!more.hidden;setToggle()});setToggle();
+  const xt=x(),born=Date.now(),wrap=el('div','dsr-toolsbox'),grid=el('div','dsr-tgrid'),cards=[];
+  for(const spec of TOOL_MAIN){
+   const b=el('button','dsr-tool');b.type='button';b.dataset.tool=spec.id;b.hidden=true;
+   const ico=el('span','dsr-tool-ico'),tx=el('span','dsr-tool-txt'),ti=el('b'),su=el('small');tx.append(ti,su);b.append(ico,tx);
+   b.addEventListener('click',()=>{if(spec.own)progressSheet();else{const old=spec.get();if(old)old.click()}});
+   grid.append(b);cards.push({spec,b,ico,ti,su});
+  }
   // Copy title, description and icon from the old buttons; run again whenever the old list changes (it is built late and translated late).
   const sync=()=>{
-   let any=false;
    for(const c of cards){
-    const old=c.spec.get();c.b.hidden=!old;if(!old)continue;any=true;
+    if(c.spec.own){c.b.hidden=false;c.ti.textContent=xt.prog.title;c.su.textContent=xt.prog.sub;if(!c.ico.firstChild)c.ico.innerHTML=svg(ICON[c.spec.icon]);continue}
+    const old=c.spec.get();c.b.hidden=!old;if(!old)continue;
     const ti=old.querySelector('b')?.textContent?.trim(),su=old.querySelector('small')?.textContent?.trim();
     if(ti&&c.ti.textContent!==ti)c.ti.textContent=ti;
     if(c.su.textContent!==(su||''))c.su.textContent=su||'';
     if(!c.ico.firstChild){if(c.spec.icon)c.ico.innerHTML=svg(ICON[c.spec.icon]);else{const svgOld=old.querySelector('svg');if(svgOld)c.ico.append(svgOld.cloneNode(true))}}
     if(c.spec.id==='review'){let badge=c.b.querySelector('.dsr-tool-badge');if(dueCount>0){if(!badge){badge=el('em','dsr-tool-badge');c.b.append(badge)}badge.textContent=String(dueCount)}else badge?.remove()}
    }
-   toggle.hidden=!cards.some(c=>!c.b.hidden&&c.b.classList.contains('dsr-more-row'));
-   return any;
   };
   sync();
   let timer=0;
@@ -336,7 +321,69 @@
    clearTimeout(timer);timer=setTimeout(sync,150);
   });
   const host=document.getElementById('leagueScreenBody');if(host)mo.observe(host,{childList:true,subtree:true,characterData:true});
-  wrap.append(grid,toggle,more);return wrap;
+  wrap.append(grid);return wrap;
+ }
+ // The progress screen: one place for what used to be four (progress centre, mastery, level and personal plan).
+ const PRESETS=[[1,5,3],[3,10,5],[5,20,7]];
+ function ringEl(pct,label){
+  const r=44,c=2*Math.PI*r,box=el('div','dsp-ring');
+  box.innerHTML='<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="'+r+'" class="dsp-ring-bg"/><circle cx="50" cy="50" r="'+r+'" class="dsp-ring-fg" stroke-dasharray="'+(c*Math.min(1,pct/100)).toFixed(1)+' '+c.toFixed(1)+'" transform="rotate(-90 50 50)"/></svg>';
+  box.append(el('b','',Math.round(pct)+'%'));if(label)box.append(el('small','',label));return box;
+ }
+ function progressSheet(){
+  const code=lang(),xt=x(),pr=xt.prog,ov=overview(),badges=badgeList(ov);
+  let q={};try{q=Q().state()}catch(_){}
+  const goals=q.goals||{dailyAyahs:1,dailyMinutes:5,weeklyDays:3},daily=q.daily||{ayahs:0,minutes:0};
+  let streak=0;try{streak=Number(state.streak)||0}catch(_){}
+  let due=0,solid=0,starSum=0,completed=0;
+  try{const now=Date.now();due=(q.review?.queue||[]).filter(v=>Date.parse(v.dueAt)<=now).length}catch(_){}
+  for(const sh of ov.list){const inf=ov.info[sh.id];starSum+=inf.stars;if(inf.complete)completed++;for(let n=1;n<=sh.ayahs;n++)if((progressOf(sh.id,n).memorizationLevel||0)>=4)solid++}
+  const wrap=el('div','dsp');wrap.setAttribute('role','dialog');wrap.setAttribute('aria-modal','true');wrap.setAttribute('aria-label',pr.title);wrap.dir=code==='ar'?'rtl':'ltr';
+  const close=()=>{wrap.remove();document.removeEventListener('keydown',onKey)};
+  const onKey=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',onKey);
+  const inner=el('div','dsp-inner');wrap.append(inner);
+  const top=el('div','dsp-top');const cb=el('button','dsp-close','×');cb.type='button';cb.setAttribute('aria-label',pr.close);cb.addEventListener('click',close);top.append(el('span','dsp-kicker','ilnura'),cb);inner.append(top);
+  // Hero: overall ring, level, streak.
+  const pct=ov.total?ov.learned/ov.total*100:0,hero=el('div','dsp-hero');
+  const ht=el('div','dsp-hero-txt');ht.append(el('h2','',pr.title),el('span','dsp-level',pr.level(completed+1)),el('p','',ov.learned+' / '+ov.total+' · '+pr.learned.toLowerCase()));
+  if(streak>0){const sk=el('span','dsp-streak');sk.innerHTML=svg(ICON.sun);sk.append(document.createTextNode(pr.streak(streak)));ht.append(sk)}
+  hero.append(ringEl(pct,pr.overall),ht);inner.append(hero);
+  // Today's goals and pace.
+  const gc=el('div','dsp-card');gc.append(el('h3','',pr.goals));
+  const bar=(label,val,max)=>{const r=el('div','dsp-goal'),h=el('div','dsp-goal-head');const num=el('b','',Math.min(val,max)+' / '+max);num.dir='ltr';h.append(el('span','',label),num);const b=el('span','dsr-bar'),f=el('i');f.style.width=Math.min(100,max?val/max*100:0)+'%';b.append(f);r.append(h,b);return r};
+  gc.append(bar(pr.goalAyahs,daily.ayahs||0,goals.dailyAyahs||1),bar(pr.goalMinutes,Math.round(daily.minutes||0),goals.dailyMinutes||5));
+  gc.append(el('h4','',pr.pace));
+  const chips=el('div','dsp-chips');
+  PRESETS.forEach(([a,m,d],i)=>{
+   const on=goals.dailyAyahs===a&&goals.dailyMinutes===m&&goals.weeklyDays===d;
+   const c=el('button','dsp-chip'+(on?' is-on':''));c.type='button';c.append(el('b','',pr.presets[i]),el('small','',pr.presetSub(a,m,d)));
+   c.addEventListener('click',()=>{try{Q().setGoal('dailyAyahs',a);Q().setGoal('dailyMinutes',m);Q().setGoal('weeklyDays',d)}catch(_){}close();progressSheet()});
+   chips.append(c);
+  });
+  gc.append(chips);inner.append(gc);
+  // Four numbers.
+  const grid=el('div','dsp-stats');
+  for(const [label,val,tone] of [[pr.learned,ov.learned,'a'],[pr.solid,solid,'b'],[pr.due,due,'c'],[pr.stars,starSum+' / '+ov.list.length*3,'d']]){const t=el('div','dsp-stat is-'+tone);t.append(el('b','',String(val)),el('small','',label));grid.append(t)}
+  inner.append(grid);
+  // Surahs by level; a tap goes to that surah on the path.
+  const sc=el('div','dsp-card');sc.append(el('h3','',pr.surahs));
+  let lastLv=0;
+  for(const sh of ov.list){
+   if(sh.level!==lastLv){lastLv=sh.level;sc.append(el('h4','dsp-lv',xt.lvl[sh.level-1]))}
+   const inf=ov.info[sh.id];let got=0;for(let n=1;n<=sh.ayahs;n++)if(progressOf(sh.id,n).completedAt)got++;
+   const row=el('button','dsp-row');row.type='button';
+   const nm=el('span','dsp-row-name');nm.append(el('b','',sh.name));const b=el('span','dsr-bar'),f=el('i');f.style.width=Math.round(got/sh.ayahs*100)+'%';b.append(f);nm.append(b);
+   row.append(nm,starsEl(inf.stars,inf.crown,xt));
+   row.addEventListener('click',()=>{close();document.querySelector('.dsr-unit[data-sid="'+sh.id+'"]')?.scrollIntoView({block:'center',behavior:'smooth'})});
+   sc.append(row);
+  }
+  inner.append(sc);
+  // Badges.
+  const bc=el('div','dsp-card');const bh=el('div','dsp-badges-head');bh.append(el('h3','',xt.badgesTitle),el('span','',badges.filter(v=>v.on).length+' / '+badges.length));bc.append(bh);
+  const bg=el('div','dsp-badges');
+  for(const v of badges){const c=el('div','dsr-badge'+(v.on?' is-on':'')),ic=el('span','dsr-badge-ico');ic.innerHTML=svg(v.on?ICON[v.icon]:ICON.lock);c.append(ic,el('b','',v.name),el('small','',v.desc));bg.append(c)}
+  bc.append(bg);inner.append(bc);
+  document.body.append(wrap);cb.focus({preventScroll:true});
  }
  function build(){
   const code=lang(),t=T[code],xt=x(),ov=overview(),done=ov.done,list=ov.list;
@@ -370,7 +417,7 @@
     lh.append(lc,lm);root.append(lh);
    }
    const inf=ov.info[s.id],lessons=inf.lessons,states=inf.states,open=si===0||prevKnowDone;
-   const unit=el('div','dsr-unit'+(open?'':' is-locked'));unit.dataset.tone=String(si%5);
+   const unit=el('div','dsr-unit'+(open?'':' is-locked'));unit.dataset.tone=String(si%5);unit.dataset.sid=s.id;
    const first=(itemsOf(s.id,code)[0]?.glyph||'').match(ARABIC)?.[0]||'';
    const ico=el('span','dsr-unit-ico',first);ico.lang='ar';
    const uc=el('span','dsr-unit-copy');uc.append(el('small','',t.surah+' '+(si+1)),el('b','',s.name),el('em','',t.ayahs(s.ayahs)));
