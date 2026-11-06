@@ -9,17 +9,189 @@
 <title>Ilnura</title>
 <style>
 html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
-.logo{font-size:27px;font-weight:900;letter-spacing:5px;color:#91e2ca}
-.sub{margin-top:12px;color:#9db4b8;font-size:13px}.err{color:#f1b0b4}
+
+#ilnura-splash{position:fixed;inset:0;z-index:2147483000;overflow:hidden;background:#03131b;color:#eef7f4;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.sp-sky{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 38%,#17504c 0,rgba(23,80,76,0) 62%),linear-gradient(180deg,#072933,#03131b);opacity:0;transition:opacity .7s ease}
+.sp-stars{position:absolute;inset:0}
+.sp-stars i{position:absolute;width:var(--s);height:var(--s);border-radius:50%;background:#fff3c4;opacity:0}
+.sp-stage{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 24px;max-width:100%;box-sizing:border-box;transform-origin:50% 40%}
+.sp-hero{position:relative;width:min(58vw,236px);aspect-ratio:200/304;margin-bottom:20px}
+.sp-arch{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sp-line{fill:none;stroke:url(#spG);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 6px rgba(240,200,110,.55))}
+.sp-door{fill:#0a3340;opacity:0}
+.sp-seam{stroke:#d9aa4b;stroke-width:1.4;opacity:0}
+.sp-light{opacity:0}
+.sp-moon{fill:#ffe29a;opacity:0}
+.sp-pet{position:absolute;left:50%;bottom:4px;width:62%;height:auto;margin-left:-31%;opacity:0;transform-origin:50% 100%;filter:drop-shadow(0 8px 12px rgba(0,0,0,.45))}
+.sp-word{display:flex;gap:2px;font-size:30px;font-weight:900;letter-spacing:6px;color:#91e2ca;direction:ltr;min-height:36px}
+.sp-word span{display:inline-block;opacity:0}
+.sp-hi{margin-top:12px;font-size:21px;font-weight:800;color:#fff3d1;opacity:0;min-height:26px;max-width:86vw;overflow-wrap:anywhere}
+.sp-sub{margin-top:6px;font-size:14px;color:#a9c4c4;opacity:0;min-height:20px}
+.sp-foot{position:absolute;left:0;right:0;bottom:max(18px,env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 24px;z-index:2}
+.sp-foot .sub{margin:0;color:#9db4b8;font-size:12px}.err{color:#f1b0b4}
+.sp-bar{width:min(52vw,180px);height:3px;border-radius:3px;background:rgba(145,226,202,.14);overflow:hidden}
+.sp-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#91e2ca,#f2cf7c);transition:width .35s ease}
+.sp-skip{font-size:11px;color:#6f8d92;opacity:0;transition:opacity .5s ease}
+#ilnura-splash.go .sp-sky{opacity:1}
+#ilnura-splash.go .sp-stars i{animation:spStar 2.4s ease-in-out var(--d) infinite both}
+#ilnura-splash.go .sp-line{animation:spDraw .95s cubic-bezier(.4,0,.2,1) .1s forwards}
+#ilnura-splash.go .sp-door{animation:spFade .6s ease .55s forwards}
+#ilnura-splash.go .sp-seam{animation:spFade .6s ease .8s forwards}
+#ilnura-splash.go .sp-light{animation:spFade .01s linear 1s forwards}
+#ilnura-splash.go .sp-moon{animation:spMoon .8s cubic-bezier(.2,.9,.3,1.2) .6s forwards}
+#ilnura-splash.go .sp-word span{animation:spLetter .5s cubic-bezier(.2,.9,.3,1) calc(.7s + var(--i)*.08s) forwards}
+#ilnura-splash.go .sp-pet{animation:spPet .9s cubic-bezier(.3,1.3,.5,1) 1.15s forwards}
+#ilnura-splash.go .sp-hi{animation:spRise .6s ease 1.5s forwards}
+#ilnura-splash.go .sp-sub{animation:spRise .6s ease 1.8s forwards}
+#ilnura-splash.go .sp-skip{opacity:1;transition-delay:1.2s}
+#ilnura-splash.out .sp-dl{animation:spDl .6s cubic-bezier(.6,0,.3,1) forwards}
+#ilnura-splash.out .sp-dr{animation:spDr .6s cubic-bezier(.6,0,.3,1) forwards}
+#ilnura-splash.out .sp-seam{animation:spFadeOut .2s ease forwards}
+#ilnura-splash.out .sp-light{animation:spLight .6s ease forwards}
+#ilnura-splash.out .sp-stage,#ilnura-splash.out .sp-sky{animation:spLeave .5s ease .4s forwards}
+#ilnura-splash.out .sp-foot{opacity:0;transition:opacity .3s}
+#ilnura-splash.rm.go .sp-line{animation:none;stroke-dashoffset:0}
+#ilnura-splash.rm.go .sp-door,#ilnura-splash.rm.go .sp-seam,#ilnura-splash.rm.go .sp-moon,#ilnura-splash.rm.go .sp-pet,#ilnura-splash.rm.go .sp-hi,#ilnura-splash.rm.go .sp-sub,#ilnura-splash.rm.go .sp-word span{animation:spFade .45s ease .1s forwards}
+#ilnura-splash.rm.go .sp-stars i{animation:none;opacity:.5}
+#ilnura-splash.rm.out .sp-dl,#ilnura-splash.rm.out .sp-dr,#ilnura-splash.rm.out .sp-light,#ilnura-splash.rm.out .sp-seam{animation:none}
+#ilnura-splash.rm.out .sp-stage,#ilnura-splash.rm.out .sp-sky{animation:spFadeOut .4s ease forwards}
+#ilnura-splash.off .sp-sky,#ilnura-splash.off .sp-hero,#ilnura-splash.off .sp-hi,#ilnura-splash.off .sp-sub,#ilnura-splash.off .sp-skip{display:none}
+#ilnura-splash.off .sp-word span{opacity:1}
+#ilnura-splash.fail .sp-hero,#ilnura-splash.fail .sp-hi,#ilnura-splash.fail .sp-sub,#ilnura-splash.fail .sp-skip{display:none}
+#ilnura-splash.fail .sp-word span{opacity:1;animation:none}
+#ilnura-splash.fail .sp-foot{position:static;margin-top:14px}
+@keyframes spDraw{to{stroke-dashoffset:0}}
+@keyframes spFade{to{opacity:1}}
+@keyframes spFadeOut{to{opacity:0}}
+@keyframes spMoon{0%{opacity:0}100%{opacity:1}}
+@keyframes spLetter{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
+@keyframes spPet{0%{opacity:0;transform:translateY(46px) scale(.6)}55%{opacity:1;transform:translateY(-16px) scale(1.04)}78%{transform:translateY(4px)}100%{opacity:1;transform:none}}
+@keyframes spRise{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
+@keyframes spStar{0%,100%{opacity:.08}50%{opacity:.9}}
+@keyframes spDl{to{transform:translateX(-101%);opacity:1}}
+@keyframes spDr{to{transform:translateX(101%);opacity:1}}
+@keyframes spLight{from{opacity:0}to{opacity:1}}
+@keyframes spLeave{to{opacity:0;transform:scale(1.35)}}
 </style>
 </head>
 <body>
-<div class="boot"><div><div class="logo">ilnura</div><div class="sub" id="status">Ilnura yükleniyor…</div></div></div>
+<div id="ilnura-splash" role="status" aria-live="polite" aria-label="Ilnura">
+ <div class="sp-sky"><div class="sp-stars" id="sp-stars"></div></div>
+ <div class="sp-stage" id="sp-stage">
+  <div class="sp-hero">
+   <svg class="sp-arch" viewBox="0 -44 200 304" aria-hidden="true">
+    <defs>
+     <linearGradient id="spG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffeaa8"/><stop offset="1" stop-color="#c8922e"/></linearGradient>
+     <radialGradient id="spL" cx="50%" cy="72%" r="75%"><stop offset="0" stop-color="#fff3c4"/><stop offset=".55" stop-color="#e8b955" stop-opacity=".9"/><stop offset="1" stop-color="#14525a"/></radialGradient>
+     <clipPath id="spC"><path d="M24 260V112C24 70 64 40 100 4C136 40 176 70 176 112V260Z"/></clipPath>
+    </defs>
+    <g clip-path="url(#spC)">
+     <rect class="sp-light" x="0" y="-44" width="200" height="304" fill="url(#spL)"/>
+     <rect class="sp-door sp-dl" x="0" y="-44" width="100.5" height="304"/>
+     <rect class="sp-door sp-dr" x="99.5" y="-44" width="100.5" height="304"/>
+     <path class="sp-seam" d="M100 4V260"/>
+    </g>
+    <path class="sp-line" pathLength="1" d="M24 260V112C24 70 64 40 100 4C136 40 176 70 176 112V260"/>
+    <path class="sp-moon" d="M108 -36.86A16 16 0 1 0 108 -9.14A14.5 14.5 0 1 1 108 -36.86Z"/>
+   </svg>
+   <img class="sp-pet" id="sp-pet" alt="" width="160" height="160" decoding="async">
+  </div>
+  <div class="sp-word" id="sp-word" aria-hidden="true"><span style="--i:0">i</span><span style="--i:1">l</span><span style="--i:2">n</span><span style="--i:3">u</span><span style="--i:4">r</span><span style="--i:5">a</span></div>
+  <div class="sp-hi" id="sp-hi"></div>
+  <div class="sp-sub" id="sp-sub"></div>
+ </div>
+ <div class="sp-foot"><div class="sub" id="status">Ilnura yükleniyor…</div><div class="sp-bar"><i id="deen-boot-progress-fill"></i></div><div class="sp-skip" id="sp-skip"></div></div>
+</div>
+<script>
+/* Welcome animation. Plays while the app downloads: an arch draws itself, the wordmark appears,
+   the player's companion hops in and greets them (first launch, or time of day + name + streak).
+   A tap skips it; reduced-motion users get a plain fade; ?splash=0 or localStorage ilnura_splash=off
+   turns it off. The loader awaits finish() before it swaps in the app, so the animation is never
+   cut short by a fast load and never delays a slow one. */
+(()=>{
+ 'use strict';
+ const $=id=>document.getElementById(id);
+ const root=$('ilnura-splash');if(!root){window.__ILNURA_SPLASH__={start(){},finish:()=>Promise.resolve(),fail(){}};return}
+ let off=false,first=true,st={};
+ try{off=new URLSearchParams(location.search).get('splash')==='0'||localStorage.getItem('ilnura_splash')==='off'}catch(_){}
+ try{const raw=localStorage.getItem('deen_v4_1_state');if(raw){first=false;st=JSON.parse(raw)||{}}}catch(_){}
+ const reduce=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+ if(off)root.classList.add('off');
+ if(reduce)root.classList.add('rm');
+ const L={
+  tr:{am:'Günaydın',pm:'Merhaba',eve:'İyi akşamlar',back:'Tekrar hoş geldin',salam:'Selamün aleyküm',welcome:'Ilnura’ya hoş geldin',streak:n=>n+' gün üst üste',skip:'Geçmek için dokun'},
+  en:{am:'Good morning',pm:'Hello',eve:'Good evening',back:'Welcome back',salam:'Salamun alaykum',welcome:'Welcome to Ilnura',streak:n=>n+'-day streak',skip:'Tap to skip'},
+  de:{am:'Guten Morgen',pm:'Hallo',eve:'Guten Abend',back:'Willkommen zurück',salam:'Salamun alaikum',welcome:'Willkommen bei Ilnura',streak:n=>n+' Tage in Folge',skip:'Zum Überspringen tippen'},
+  fr:{am:'Bonjour',pm:'Bon après-midi',eve:'Bonsoir',back:'Bon retour',salam:'Salam aleykoum',welcome:'Bienvenue sur Ilnura',streak:n=>n+' jours d’affilée',skip:'Touchez pour passer'},
+  ar:{am:'صباح الخير',pm:'مرحبًا',eve:'مساء الخير',back:'أهلًا بعودتك',salam:'السلام عليكم',welcome:'مرحبًا بك في Ilnura',streak:n=>n+' أيام متتالية',skip:'المس للتخطي'}
+ };
+ const lang=()=>{let l='tr';try{l=(window.DEEN_APP_LOCALE&&DEEN_APP_LOCALE.get())||document.documentElement.lang||'tr'}catch(_){}l=String(l).slice(0,2).toLowerCase();return L[l]?l:'en'};
+ let started=false,skipped=false,t0=0,minMs=reduce?1500:2700,leaving=null,failed=false;
+ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+ function stars(){
+  const box=$('sp-stars');if(!box||reduce&&0)return;
+  for(let i=0;i<26;i++){const el=document.createElement('i'),s=(1+Math.random()*2.2).toFixed(1);
+   el.style.cssText='left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*70).toFixed(1)+'%;--s:'+s+'px;--d:'+(Math.random()*2.4).toFixed(2)+'s';box.append(el)}
+ }
+ function chime(){
+  try{
+   if(!(st.settings?st.settings.sound!==false:true))return;
+   const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+   const c=new AC();if(c.state!=='running'){c.close&&c.close();return}   // browsers allow sound only after a tap
+   const out=c.createGain();out.gain.value=.5;out.connect(c.destination);
+   [[880,0],[1318.5,.16],[1760,.34]].forEach(([f,d])=>{
+    const o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=f;
+    g.gain.setValueAtTime(0,c.currentTime+d);g.gain.linearRampToValueAtTime(.07,c.currentTime+d+.02);g.gain.exponentialRampToValueAtTime(.0008,c.currentTime+d+1.3);
+    o.connect(g);g.connect(out);o.start(c.currentTime+d);o.stop(c.currentTime+d+1.4)});
+   setTimeout(()=>{try{c.close()}catch(_){}},2200);
+  }catch(_){}
+ }
+ function fill(){
+  const l=lang(),t=L[l],h=new Date().getHours();
+  const hi=$('sp-hi'),sub=$('sp-sub'),pet=$('sp-pet');
+  let a,b='';
+  if(first){a=t.salam;b=t.welcome}
+  else{
+   a=h>=5&&h<12?t.am:h>=12&&h<18?t.pm:t.eve;
+   const nm=String(st.profile&&st.profile.name||'').trim();
+   if(nm&&nm!=='Yolcu')a+=(l==='ar'?'، ':', ')+nm.slice(0,24);
+   const n=Number(st.streak)||0;
+   b=n>=1?t.streak(n):t.back;
+  }
+  hi.textContent=a;sub.textContent=b;
+  const dir=l==='ar'?'rtl':'ltr';hi.dir=dir;sub.dir=dir;
+  const skip=$('sp-skip');if(skip)skip.textContent=t.skip;
+  let c=String(first?'owl':(st.profile&&st.profile.companion)||'owl').replace(/[^a-z]/g,'')||'owl';
+  pet.onerror=()=>{if(c!=='owl'){c='owl';pet.src='./assets/companions/owl/owl_avatar.png'}else pet.style.display='none'};
+  pet.src='./assets/companions/'+c+'/'+c+'_avatar.png';
+ }
+ function start(){
+  if(started||off||failed)return;started=true;t0=Date.now();
+  stars();fill();
+  requestAnimationFrame(()=>requestAnimationFrame(()=>root.classList.add('go')));
+  setTimeout(chime,900);
+  root.addEventListener('pointerdown',()=>{skipped=true},{once:true});
+ }
+ function finish(){
+  if(off||!started||failed)return Promise.resolve();
+  if(leaving)return leaving;
+  leaving=(async()=>{
+   // Hold until the minimum play time has passed; a tap shortens it but never below the arch drawing in.
+   while(!skipped&&Date.now()-t0<minMs)await sleep(60);
+   if(skipped&&Date.now()-t0<900)await sleep(900-(Date.now()-t0));
+   root.classList.add('out');
+   await sleep(reduce?420:950);
+  })();
+  return leaving;
+ }
+ function fail(){failed=true;root.classList.add('fail');root.classList.remove('go','out')}
+ window.__ILNURA_SPLASH__={start,finish,fail};
+})();
+</script>
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9507surahpath';
+ const BUILD='9508splash';
  // Keep both locales available for safe in-app language changes.
  let SEGMENT_COUNT=67;
  const CONCURRENCY=6;
@@ -347,6 +519,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 
  function showError(err){
    console.error(err);
+   try{window.__ILNURA_SPLASH__.fail()}catch(_){}
    status.className='sub err';
    status.textContent=window.DEEN_I18N?DEEN_I18N.t('loadError'):'DEEN açılamadı. Lütfen yeniden dene.';
 
@@ -372,6 +545,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
      if(DEEN_I18N.hasPreference()&&!preview){window.__DEEN_BOOT_SELECTED_LANGUAGE__=DEEN_APP_LOCALE.get();DEEN_APP_LOCALE.persist();resolve();return;}
      DEEN_I18N.showGate(lang=>{DEEN_APP_LOCALE.commit(lang);window.__DEEN_BOOT_SELECTED_LANGUAGE__=lang;resolve();});
    });
+   window.__ILNURA_SPLASH__.start();
    status.textContent=DEEN_I18N.t('loading');
    await cleanupOldCaches();
    const cache=await cacheOpen();
@@ -418,6 +592,10 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
      }
    }catch(_){}
 
+   await window.__ILNURA_SPLASH__.finish();
+   // The app opens behind a veil in the splash's last colour that fades away, so the swap is not a flash.
+   const veilCss='#ilnura-veil{position:fixed;inset:0;z-index:2147483647;background:#03131b;pointer-events:none;opacity:1;transition:opacity .55s ease}#ilnura-veil.gone{opacity:0}';
+   html=html.replace('<head>','<head><style id="ilnura-veil-style">'+veilCss+'</style><script id="ilnura-veil-script">(function(){var v=document.createElement("div");v.id="ilnura-veil";document.documentElement.appendChild(v);var go=function(){requestAnimationFrame(function(){requestAnimationFrame(function(){v.className="gone";setTimeout(function(){v.remove()},700)})})};if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go,{once:true});setTimeout(function(){if(v.parentNode&&v.className!=="gone")go()},1500)})();<\/script>');
    window.__DEEN_DEPLOY_ID__=BUILD;
    document.open();
    document.write(html);
