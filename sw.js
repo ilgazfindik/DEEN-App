@@ -39,6 +39,7 @@ async function prepare(){
   './assets/combo/companions-sheet.png',
   './assets/companions/owl/owl_avatar.png',
   './assets/design/mosque-arch.webp',
+  './assets/fonts/AmiriQuran-Regular.woff2',
   './assets/design/chest/chest-closed.webp',
   './assets/design/chest/chest-closed-b.webp',
   './assets/design/chest/chest-open.webp',

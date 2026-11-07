@@ -2,6 +2,9 @@
    Loaded last by index.html so screens migrated to it win over the legacy patch layers.
    Rules: text never below --ds-fs-xs (12px), body text is --ds-fs-md (16px), only the
    three weights below, only the three radii below, spacing on the 4px scale. */
+/* Quran text: Amiri Quran (SIL Open Font License, assets/fonts/AmiriQuran-OFL.txt), subset to Arabic. Devices without a
+   Quranic font showed empty boxes for some marks (small high rounded zero, small high meem, ...). */
+@font-face{font-family:"Amiri Quran";src:url("./assets/fonts/AmiriQuran-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 :root{
  /* Color — derived from the existing DEEN palette (--bg, --teal, --gold …). */
  --ds-bg:#081b25;

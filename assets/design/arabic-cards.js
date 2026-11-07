@@ -4,7 +4,7 @@
 (()=>{
  'use strict';
  if(window.DEEN_ARABIC_CARDS)return;
- const AR_FONT='"Noto Naskh Arabic","Geeza Pro","Arabic Typesetting","Traditional Arabic",serif';
+ const AR_FONT='"Amiri Quran","Noto Naskh Arabic","Geeza Pro","Arabic Typesetting","Traditional Arabic",serif';
  // Shape family and dots for every letter: [family, dot count, 'a'bove/'b'elow].
  const DESC={alif:['stroke',0],ba:['boat',1,'b'],ta:['boat',2,'a'],tha:['boat',3,'a'],jim:['hook',1,'b'],hha:['hook',0],kha:['hook',1,'a'],
   dal:['angle',0],dhal:['angle',1,'a'],ra:['tail',0],zay:['tail',1,'a'],sin:['teeth',0],shin:['teeth',3,'a'],sad:['loop',0],dad:['loop',1,'a'],
