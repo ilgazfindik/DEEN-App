@@ -36,31 +36,31 @@
    badge:{first:['İlk adım','İlk dersini tamamla'],surah1:['İlk sure','Bir sureyi baştan sona bitir'],surah5:['Beş sure','Beş sureyi bitir'],crown:['Kusursuz','Sure sınavında %95 ve üstü al'],ayah100:['100 ayet','100 ayet öğren']},
    lvlBadge:n=>[n+' seviye','Bu seviyedeki bütün sureleri bitir'],
    reward:{title:'Sure sınavı tamamlandı',acc:'Doğruluk',stars:'Yıldız',crown:'Kusursuz! Taç kazandın.',newBadge:'Yeni rozet',cont:'Devam',again:'%80 ve üstü üçüncü yıldızı getirir. Tekrar deneyebilirsin.'},
-   srcTr:'Ali Özek ve ark. (QuranEnc, sürüm 1.0.0)',srcEn:'Pickthall (1930)',more:'Daha fazla araç',less:'Daha az göster',prog:{title:'İlerleme',sub:'Hedefler, yıldızlar ve rozetler',level:n=>'Seviye '+n,overall:'Genel ilerleme',learned:'Öğrenilen ayet',goals:'Bugünkü hedefler',goalAyahs:'Ayet',goalMinutes:'Dakika',streak:n=>n+' gün seri',pace:'Çalışma temposu',presets:['Sakin','Dengeli','Yoğun'],presetSub:(a,m,d)=>a+' ayet · '+m+' dk · haftada '+d+' gün',solid:'Sağlam ezber',due:'Tekrar bekliyor',stars:'Yıldız',surahs:'Sureler',close:'Kapat'}},
+   srcTr:'Ali Özek ve ark. (QuranEnc, sürüm 1.0.0)',srcEn:'Pickthall (1930)',more:'Daha fazla araç',less:'Daha az göster',prog:{title:'İlerleme',sub:'Hedefler, yıldızlar ve rozetler',level:n=>'Seviye '+n,overall:'Genel ilerleme',learned:'Öğrenilen ayet',goals:'Bugünkü hedefler',goalAyahs:'Ayet',goalMinutes:'Dakika',streak:n=>n+' gün seri',pace:'Çalışma temposu',presets:['Sakin','Dengeli','Yoğun'],presetSub:(a,m,d)=>a+' ayet · '+m+' dk · haftada '+d+' gün',solid:'Sağlam ezber',due:'Tekrar bekliyor',stars:'Yıldız',surahs:'Sureler',close:'Kapat'},rev:{title:'Tekrar',empty:'Bugün için tekrar kalmadı',emptySub:'Yeni ayetler öğrendikçe tekrar zamanları burada belirir.',arena:'Soru Arenası',close:'Kapat'}},
   en:{lvl:['Easy','Medium','Advanced'],levelTag:n=>'LEVEL '+n,levelCount:(a,b)=>a+' / '+b+' surahs',exam:'Surah exam',examSub:'A final test on every ayah. 80% or more earns the third star.',
    stars:['Finish the get-to-know lessons','Finish the memorising lessons','Pass the exam with 80%'],crownTip:'Flawless exam',badgesTitle:'Badges',
    badge:{first:['First step','Complete your first lesson'],surah1:['First surah','Finish a surah from start to end'],surah5:['Five surahs','Finish five surahs'],crown:['Flawless','Score 95% or more in a surah exam'],ayah100:['100 ayahs','Learn 100 ayahs']},
    lvlBadge:n=>[n+' level','Finish every surah of this level'],
    reward:{title:'Surah exam complete',acc:'Accuracy',stars:'Stars',crown:'Flawless! You earned a crown.',newBadge:'New badge',cont:'Continue',again:'80% or more brings the third star. You can try again.'},
-   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'More tools',less:'Show less',prog:{title:'Progress',sub:'Goals, stars and badges',level:n=>'Level '+n,overall:'Overall progress',learned:'Ayahs learned',goals:'Today’s goals',goalAyahs:'Ayahs',goalMinutes:'Minutes',streak:n=>n+'-day streak',pace:'Study pace',presets:['Relaxed','Balanced','Intense'],presetSub:(a,m,d)=>a+' ayahs · '+m+' min · '+d+' days a week',solid:'Solid memory',due:'Due for review',stars:'Stars',surahs:'Surahs',close:'Close'}},
+   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'More tools',less:'Show less',prog:{title:'Progress',sub:'Goals, stars and badges',level:n=>'Level '+n,overall:'Overall progress',learned:'Ayahs learned',goals:'Today’s goals',goalAyahs:'Ayahs',goalMinutes:'Minutes',streak:n=>n+'-day streak',pace:'Study pace',presets:['Relaxed','Balanced','Intense'],presetSub:(a,m,d)=>a+' ayahs · '+m+' min · '+d+' days a week',solid:'Solid memory',due:'Due for review',stars:'Stars',surahs:'Surahs',close:'Close'},rev:{title:'Review',empty:'Nothing to review today',emptySub:'As you learn new ayahs, their review times show up here.',arena:'Question Arena',close:'Close'}},
   de:{lvl:['Leicht','Mittel','Fortgeschritten'],levelTag:n=>'STUFE '+n,levelCount:(a,b)=>a+' / '+b+' Suren',exam:'Suren-Prüfung',examSub:'Eine Abschlussprüfung zu allen Versen. Ab 80 % gibt es den dritten Stern.',
    stars:['Kennenlern-Lektionen abschließen','Auswendig-Lektionen abschließen','Prüfung mit 80 % bestehen'],crownTip:'Makellose Prüfung',badgesTitle:'Abzeichen',
    badge:{first:['Erster Schritt','Schließe deine erste Lektion ab'],surah1:['Erste Sure','Schließe eine Sure von Anfang bis Ende ab'],surah5:['Fünf Suren','Schließe fünf Suren ab'],crown:['Makellos','Erreiche in einer Suren-Prüfung 95 % oder mehr'],ayah100:['100 Verse','Lerne 100 Verse']},
    lvlBadge:n=>['Stufe '+n,'Schließe alle Suren dieser Stufe ab'],
    reward:{title:'Suren-Prüfung abgeschlossen',acc:'Genauigkeit',stars:'Sterne',crown:'Makellos! Du hast eine Krone verdient.',newBadge:'Neues Abzeichen',cont:'Weiter',again:'Ab 80 % gibt es den dritten Stern. Du kannst es noch einmal versuchen.'},
-   srcTr:'Ali Özek u. a. (QuranEnc, Version 1.0.0)',srcEn:'Pickthall (1930)',more:'Weitere Werkzeuge',less:'Weniger anzeigen',prog:{title:'Fortschritt',sub:'Ziele, Sterne und Abzeichen',level:n=>'Stufe '+n,overall:'Gesamtfortschritt',learned:'Gelernte Verse',goals:'Ziele für heute',goalAyahs:'Verse',goalMinutes:'Minuten',streak:n=>n+' Tage in Folge',pace:'Lerntempo',presets:['Ruhig','Ausgewogen','Intensiv'],presetSub:(a,m,d)=>a+' Verse · '+m+' Min. · '+d+' Tage pro Woche',solid:'Sicher auswendig',due:'Zur Wiederholung fällig',stars:'Sterne',surahs:'Suren',close:'Schließen'}},
+   srcTr:'Ali Özek u. a. (QuranEnc, Version 1.0.0)',srcEn:'Pickthall (1930)',more:'Weitere Werkzeuge',less:'Weniger anzeigen',prog:{title:'Fortschritt',sub:'Ziele, Sterne und Abzeichen',level:n=>'Stufe '+n,overall:'Gesamtfortschritt',learned:'Gelernte Verse',goals:'Ziele für heute',goalAyahs:'Verse',goalMinutes:'Minuten',streak:n=>n+' Tage in Folge',pace:'Lerntempo',presets:['Ruhig','Ausgewogen','Intensiv'],presetSub:(a,m,d)=>a+' Verse · '+m+' Min. · '+d+' Tage pro Woche',solid:'Sicher auswendig',due:'Zur Wiederholung fällig',stars:'Sterne',surahs:'Suren',close:'Schließen'},rev:{title:'Wiederholung',empty:'Heute ist nichts zu wiederholen',emptySub:'Sobald du neue Verse lernst, erscheinen ihre Wiederholungen hier.',arena:'Fragenarena',close:'Schließen'}},
   fr:{lvl:['Facile','Moyen','Avancé'],levelTag:n=>'NIVEAU '+n,levelCount:(a,b)=>a+' / '+b+' sourates',exam:'Examen de la sourate',examSub:'Un test final sur tous les versets. 80 % ou plus donne la troisième étoile.',
    stars:['Termine les leçons de découverte','Termine les leçons de mémorisation','Réussis l’examen avec 80 %'],crownTip:'Examen sans faute',badgesTitle:'Badges',
    badge:{first:['Premier pas','Termine ta première leçon'],surah1:['Première sourate','Termine une sourate du début à la fin'],surah5:['Cinq sourates','Termine cinq sourates'],crown:['Sans faute','Obtiens 95 % ou plus à un examen de sourate'],ayah100:['100 versets','Apprends 100 versets']},
    lvlBadge:n=>['Niveau '+n,'Termine toutes les sourates de ce niveau'],
    reward:{title:'Examen de la sourate terminé',acc:'Précision',stars:'Étoiles',crown:'Sans faute ! Tu as gagné une couronne.',newBadge:'Nouveau badge',cont:'Continuer',again:'80 % ou plus donne la troisième étoile. Tu peux réessayer.'},
-   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'Plus d’outils',less:'Voir moins',prog:{title:'Progression',sub:'Objectifs, étoiles et badges',level:n=>'Niveau '+n,overall:'Progression globale',learned:'Versets appris',goals:'Objectifs du jour',goalAyahs:'Versets',goalMinutes:'Minutes',streak:n=>n+' jours d’affilée',pace:'Rythme d’étude',presets:['Tranquille','Équilibré','Intense'],presetSub:(a,m,d)=>a+' versets · '+m+' min · '+d+' jours par semaine',solid:'Mémorisé solidement',due:'À réviser',stars:'Étoiles',surahs:'Sourates',close:'Fermer'}},
+   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'Plus d’outils',less:'Voir moins',prog:{title:'Progression',sub:'Objectifs, étoiles et badges',level:n=>'Niveau '+n,overall:'Progression globale',learned:'Versets appris',goals:'Objectifs du jour',goalAyahs:'Versets',goalMinutes:'Minutes',streak:n=>n+' jours d’affilée',pace:'Rythme d’étude',presets:['Tranquille','Équilibré','Intense'],presetSub:(a,m,d)=>a+' versets · '+m+' min · '+d+' jours par semaine',solid:'Mémorisé solidement',due:'À réviser',stars:'Étoiles',surahs:'Sourates',close:'Fermer'},rev:{title:'Révision',empty:'Rien à réviser aujourd’hui',emptySub:'Au fil des nouveaux versets, leurs révisions apparaîtront ici.',arena:'Arène des questions',close:'Fermer'}},
   ar:{lvl:['سهل','متوسط','متقدّم'],levelTag:n=>'المستوى '+n,levelCount:(a,b)=>a+' / '+b+' سور',exam:'اختبار السورة',examSub:'اختبار نهائي في جميع آيات السورة. تحصل على النجمة الثالثة بنسبة 80٪ أو أكثر.',
    stars:['أكمل دروس التعرّف','أكمل دروس الحفظ','اجتز الاختبار بنسبة 80٪'],crownTip:'اختبار بلا أخطاء',badgesTitle:'الأوسمة',
    badge:{first:['الخطوة الأولى','أكمل درسك الأول'],surah1:['السورة الأولى','أكمل سورة من أولها إلى آخرها'],surah5:['خمس سور','أكمل خمس سور'],crown:['بلا أخطاء','احصل على 95٪ أو أكثر في اختبار سورة'],ayah100:['100 آية','تعلّم 100 آية']},
    lvlBadge:n=>['مستوى '+n,'أكمل جميع سور هذا المستوى'],
    reward:{title:'اكتمل اختبار السورة',acc:'الدقة',stars:'النجوم',crown:'بلا أخطاء! نلت تاجًا.',newBadge:'وسام جديد',cont:'متابعة',again:'تحصل على النجمة الثالثة بنسبة 80٪ أو أكثر. يمكنك المحاولة مرة أخرى.'},
-   srcTr:'Ali Özek وآخرون (QuranEnc، الإصدار 1.0.0)',srcEn:'Pickthall (1930)',more:'المزيد من الأدوات',less:'عرض أقل',prog:{title:'التقدّم',sub:'الأهداف والنجوم والأوسمة',level:n=>'المستوى '+n,overall:'التقدّم العام',learned:'الآيات المتعلَّمة',goals:'أهداف اليوم',goalAyahs:'آيات',goalMinutes:'دقائق',streak:n=>n+' أيام متتالية',pace:'وتيرة الدراسة',presets:['هادئة','متوازنة','مكثّفة'],presetSub:(a,m,d)=>a+' آيات · '+m+' د · '+d+' أيام أسبوعيًا',solid:'حفظ راسخ',due:'بانتظار المراجعة',stars:'النجوم',surahs:'السور',close:'إغلاق'}}
+   srcTr:'Ali Özek وآخرون (QuranEnc، الإصدار 1.0.0)',srcEn:'Pickthall (1930)',more:'المزيد من الأدوات',less:'عرض أقل',prog:{title:'التقدّم',sub:'الأهداف والنجوم والأوسمة',level:n=>'المستوى '+n,overall:'التقدّم العام',learned:'الآيات المتعلَّمة',goals:'أهداف اليوم',goalAyahs:'آيات',goalMinutes:'دقائق',streak:n=>n+' أيام متتالية',pace:'وتيرة الدراسة',presets:['هادئة','متوازنة','مكثّفة'],presetSub:(a,m,d)=>a+' آيات · '+m+' د · '+d+' أيام أسبوعيًا',solid:'حفظ راسخ',due:'بانتظار المراجعة',stars:'النجوم',surahs:'السور',close:'إغلاق'},rev:{title:'المراجعة',empty:'لا شيء للمراجعة اليوم',emptySub:'كلما تعلّمت آيات جديدة ظهرت مراجعتها هنا.',arena:'ساحة الأسئلة',close:'إغلاق'}}
  };
  const x=()=>X[lang()]||X.en;
  // Question arena strings.
@@ -92,10 +92,15 @@
  const packSurah=sid=>PACK()?.surahs?.find(s=>s.id===sid)||null;
  // Level by length: up to 8 ayahs easy, up to 15 medium, longer advanced. The extra surahs carry their own level.
  const levelOf=s=>s.level||(s.ayahs<=8?1:s.ayahs<=15?2:3);
- const surahs=()=>[
-  ...(Q()?.surahs||[]).filter(s=>s&&s.id&&s.ayahs).map(s=>({...s,level:levelOf(s)})),
-  ...(PACK()?.surahs||[]).map(s=>({id:s.id,name:(lang()==='ar'&&s.nameAr)||s.name,ayahs:s.ayahs.length,ext:true,level:levelOf(s)}))
- ];
+ // Easy to hard: by level, then by length (Fatiha stays first), ties keep the engine's own order.
+ const surahs=()=>{
+  const list=[
+   ...(Q()?.surahs||[]).filter(s=>s&&s.id&&s.ayahs).map(s=>({...s,level:levelOf(s)})),
+   ...(PACK()?.surahs||[]).map(s=>({id:s.id,name:(lang()==='ar'&&s.nameAr)||s.name,ayahs:s.ayahs.length,ext:true,level:levelOf(s)}))
+  ];
+  const at=new Map(list.map((s,i)=>[s.id,i]));
+  return list.sort((a,b)=>a.level-b.level||(a.id==='fatiha'?-1:b.id==='fatiha'?1:0)||a.ayahs-b.ayahs||at.get(a.id)-at.get(b.id));
+ };
  // The extra surahs are not in the old surah engine, so their ayah progress lives in this path's own store.
  const progressOf=(sid,n)=>{
   if(packSurah(sid))return readStore().ayah?.[sid+':'+n]||{};
@@ -177,7 +182,16 @@
   return out;
  }
  // Results go into the surah engine: learned, memorisation level, recall counts and next review.
+ // Today's goal counters: ayahs learned for the first time and minutes spent, from every path lesson.
+ function bumpDaily(fresh,seconds){
+  try{const q=Q().ensureState(),d=q.daily;d.ayahs=(d.ayahs||0)+fresh;d.minutes=Math.round(((d.minutes||0)+(seconds||0)/60)*100)/100;Q().persistState()}catch(_){}
+ }
  function record(sid,l,result){
+  const gain=(l.kind==='know'||l.kind==='meaning'||l.kind==='mem')?l.ayahs.filter(n=>!progressOf(sid,n).completedAt).length:0;
+  recordCore(sid,l,result);
+  bumpDaily(gain,result?.seconds);
+ }
+ function recordCore(sid,l,result){
   const now=Date.now(),iso=new Date(now).toISOString();
   const missed=new Set((result?.missedIds||[]).map(v=>Number(String(v).split(':')[1])).filter(Boolean));
   // The exam keeps its best score; a flawless one (95% or more) earns the crown.
@@ -191,6 +205,7 @@
     if(l.kind==='know'||l.kind==='meaning')patch.completedAt=a.completedAt||iso;
     if(l.kind==='mem'){patch.memorizationLevel=Math.min(5,(a.memorizationLevel||0)+(wrong?1:2));patch.completedAt=a.completedAt||iso}
     if((l.kind==='review'||l.kind==='order')&&(a.memorizationLevel||0)>=3&&!wrong)patch.memorizationLevel=Math.min(5,(a.memorizationLevel||0)+1);
+    if(l.kind==='mem'||l.kind==='review'){const ivl=wrong?1:(l.kind==='review'?3:1);d.ivl=d.ivl||{};d.ivl[k]=ivl;patch.nextReviewAt=new Date(now+ivl*864e5).toISOString()}
     d.ayah[k]={...a,...patch};
    }});
    return;
@@ -303,11 +318,10 @@
   for(const sh of surahs())for(const it of itemsOf(sh.id,code)){if(scope==='all'||progressOf(sh.id,it.num).completedAt)all.push(it)}
   return all;
  }
- function arenaSteps(level,pool,code){
-  const hasMeal=code==='tr'||code==='en',used=new Set(),out=[];
+ // Question makers over a pool of ayah items; used by the arena and by the review.
+ function qKit(pool){
   const words=[...new Set(pool.flatMap(i=>i.parts))];
   const withMeal=pool.filter(i=>i.name),short=i=>i.parts.length>=2&&i.parts.length<=7;
-  const take=(n,f)=>{const c=shuffle(pool.filter(i=>!used.has(i.id)&&(!f||f(i)))).slice(0,n);c.forEach(i=>used.add(i.id));return c};
   const fill=(it,k)=>{const hide=Math.random()*it.parts.length|0,ans=it.parts[hide];return {k:'q',type:'fill',id:it.id,hide,ans,opts:shuffle([ans,...shuffle(words.filter(w=>w!==ans)).slice(0,k-1)])}};
   const meaning=it=>({k:'q',type:'name',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id)).slice(0,2).map(i=>i.id)])});
   const byMeaning=it=>({k:'q',type:'pick',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id&&i.glyph.length<=70)).slice(0,2).map(i=>i.id)])});
@@ -319,6 +333,12 @@
    if(!starts.length)return null;const [sid,a]=starts[Math.random()*starts.length|0];
    return {k:'q',type:'seq',ids:Array.from({length:n},(_,k)=>sid+':'+(a+k))};
   };
+  return {words,withMeal,short,fill,meaning,byMeaning,build,run};
+ }
+ function arenaSteps(level,pool,code){
+  const hasMeal=code==='tr'||code==='en',used=new Set(),out=[];
+  const take=(n,f)=>{const c=shuffle(pool.filter(i=>!used.has(i.id)&&(!f||f(i)))).slice(0,n);c.forEach(i=>used.add(i.id));return c};
+  const {words,withMeal,short,fill,meaning,byMeaning,build,run}=qKit(pool);
   const add=(n,make)=>{for(let i=0;i<n;i++){const q=make();if(q)out.push(q)}};
   const rec={
    easy:()=>{
@@ -341,6 +361,72 @@
   // Top up with fill-in-the-blank if a kind ran short, then keep ten.
   for(const i of take(10,short)){if(out.length>=10)break;out.push(fill(i,level==='hard'?4:3))}
   return shuffle(out).slice(0,10);
+ }
+ // ---- Review: every ayah that is due, from the old surahs (their engine's queue) and the new ones (this path's store). ----
+ function dueList(){
+  const now=Date.now(),out=[];
+  try{for(const v of Q().state().review?.queue||[])if(v.surahId&&v.ayah&&Date.parse(v.dueAt)<=now)out.push({sid:v.surahId,n:v.ayah})}catch(_){}
+  for(const [k,a] of Object.entries(readStore().ayah||{})){
+   if(!a.nextReviewAt||Date.parse(a.nextReviewAt)>now)continue;
+   const [sid,n]=k.split(':');if(packSurah(sid))out.push({sid,n:Number(n)});
+  }
+  return out;
+ }
+ const LADDER=[1,3,7,14,30];
+ function reviewDone(asked,result,seconds){
+  const missed=new Set((result?.missedIds||[]).map(String)),now=Date.now(),iso=new Date(now).toISOString();
+  const plan=asked.map(it=>{const [sid,n]=it.id.split(':'),k=it.id,wrong=missed.has(k);return {sid,n:Number(n),k,wrong}});
+  writeStore(d=>{
+   d.ivl=d.ivl||{};
+   for(const r of plan){
+    const at=LADDER.indexOf(d.ivl[r.k]||1),ivl=r.wrong?1:LADDER[Math.min(LADDER.length-1,Math.max(0,at)+1)];
+    d.ivl[r.k]=ivl;
+    if(packSurah(r.sid)){const a=d.ayah[r.k]||{};d.ayah[r.k]={...a,repetitions:(a.repetitions||0)+1,correctRecalls:(a.correctRecalls||0)+(r.wrong?0:1),wrongRecalls:(a.wrongRecalls||0)+(r.wrong?1:0),lastStudiedAt:iso,nextReviewAt:new Date(now+ivl*864e5).toISOString()}}
+   }
+  });
+  // The old surahs keep their schedule in their own engine.
+  const Qe=Q();
+  for(const r of plan){
+   if(packSurah(r.sid)||!Qe?.updateAyah)continue;
+   const a=progressOf(r.sid,r.n),ivl=(readStore().ivl||{})[r.k]||1;
+   try{Qe.updateAyah(r.sid,r.n,{repetitions:(a.repetitions||0)+1,correctRecalls:(a.correctRecalls||0)+(r.wrong?0:1),wrongRecalls:(a.wrongRecalls||0)+(r.wrong?1:0),lastStudiedAt:iso})}catch(_){}
+   try{Qe.scheduleReview?.(r.sid,r.n,new Date(now+ivl*864e5).toISOString(),'surah-path')}catch(_){}
+  }
+  bumpDaily(0,seconds);
+ }
+ function reviewStart(){
+  const code=lang(),hasMeal=code==='tr'||code==='en',pool=arenaPool('all',code),byId=Object.fromEntries(pool.map(i=>[i.id,i]));
+  const kit=qKit(pool),asked=[],steps=[];
+  const kinds=hasMeal?['meaning','fill','byMeaning','build']:['fill'];
+  for(const d of shuffle(dueList())){
+   if(asked.length>=10)break;
+   const it=byId[d.sid+':'+d.n];if(!it)continue;
+   const k=kinds[asked.length%kinds.length];
+   if(k==='meaning'&&it.name)steps.push(kit.meaning(it));
+   else if(k==='byMeaning'&&it.name)steps.push(kit.byMeaning(it));
+   else if(k==='build'&&it.name&&kit.short(it))steps.push(kit.build(it));
+   else if(it.parts.length>=2)steps.push(kit.fill(it,3));
+   else if(it.name)steps.push(kit.meaning(it));
+   else continue;
+   asked.push(it);
+  }
+  if(!steps.length||!window.DEEN_ARABIC_CARDS)return reviewEmpty();
+  const t=x().rev;
+  const ok=window.DEEN_ARABIC_CARDS.open({lessonIndex:null,items:pool,lessonIds:[],steps,lang:code,ask:'mean',title:t.title,subtitle:'',
+   onAnswer:()=>{},onDone:result=>reviewDone(asked,result,result?.seconds),onClose:()=>{remount()},onExit:()=>{remount()}});
+  const host=document.getElementById('dsArabicCards');
+  if(ok&&host){host.classList.add('dsa-run');host.dataset.level='easy';setTimeout(()=>host.querySelector('.dac-intro-go')?.click(),60)}
+  return ok;
+ }
+ function reviewEmpty(){
+  const t=x().rev,wrap=el('div','dsr-reward');wrap.setAttribute('role','dialog');wrap.setAttribute('aria-modal','true');wrap.dir=lang()==='ar'?'rtl':'ltr';
+  const card=el('div','dsr-reward-card'),pet=new Image();pet.className='dsr-reward-chest';pet.alt='';pet.decoding='async';
+  pet.addEventListener('error',()=>{if(!pet.src.includes('/owl/'))pet.src='assets/companions/owl/owl_celebrate.png'},{once:true});
+  pet.src='assets/companions/'+companion()+'/'+companion()+'_avatar.png';
+  card.append(pet,el('h3','',t.empty),el('p','dsr-reward-note',t.emptySub));
+  const go=el('button','dsr-reward-go',t.arena);go.type='button';go.addEventListener('click',()=>{wrap.remove();arenaScreen()});
+  const no=el('button','dsr-reward-no',t.close);no.type='button';no.addEventListener('click',()=>wrap.remove());
+  card.append(go,no);wrap.append(card);document.body.append(wrap);go.focus({preventScroll:true});
  }
  function recordArena(level,result){
   const pct=result?.questions?Math.round(result.firstTryCorrect/result.questions*100):0;
@@ -415,7 +501,7 @@
  const reduceMotion=()=>{try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(_){return false}};
  const TOOL_MAIN=[
   {id:'arena',icon:'bolt',wide:true,own:e=>arenaScreen(e),text:()=>[ax().title,ax().lv.map(v=>v[0]).join(' · ')]},
-  {id:'review',icon:'calendar',get:()=>qia('progress',2)},      // review plan: ayahs due today
+  {id:'review',icon:'calendar',own:()=>reviewStart(),get:()=>qia('progress',2)},      // review plan: ayahs due today
   {id:'memorize',get:()=>qia('memorize',0)},                    // recall round
   {id:'weak',icon:'alert',get:()=>lq('[data-qweak-challenge]')},// weak ayahs challenge
   {id:'progress',icon:'chart',own:()=>progressSheet(),text:()=>[x().prog.title,x().prog.sub]}
@@ -432,7 +518,7 @@
   // Copy title, description and icon from the old buttons; run again whenever the old list changes (it is built late and translated late).
   const sync=()=>{
    for(const c of cards){
-    if(c.spec.own){const [t1,t2]=c.spec.text();c.b.hidden=false;if(c.ti.textContent!==t1)c.ti.textContent=t1;if(c.su.textContent!==t2)c.su.textContent=t2;if(!c.ico.firstChild)c.ico.innerHTML=svg(ICON[c.spec.icon]);continue}
+    if(c.spec.own&&c.spec.text){const [t1,t2]=c.spec.text();c.b.hidden=false;if(c.ti.textContent!==t1)c.ti.textContent=t1;if(c.su.textContent!==t2)c.su.textContent=t2;if(!c.ico.firstChild)c.ico.innerHTML=svg(ICON[c.spec.icon]);continue}
     const old=c.spec.get();c.b.hidden=!old;if(!old)continue;
     const ti=old.querySelector('b')?.textContent?.trim(),su=old.querySelector('small')?.textContent?.trim();
     if(ti&&c.ti.textContent!==ti)c.ti.textContent=ti;
@@ -464,7 +550,7 @@
   const goals=q.goals||{dailyAyahs:1,dailyMinutes:5,weeklyDays:3},daily=q.daily||{ayahs:0,minutes:0};
   let streak=0;try{streak=Number(state.streak)||0}catch(_){}
   let due=0,solid=0,starSum=0,completed=0;
-  try{const now=Date.now();due=(q.review?.queue||[]).filter(v=>Date.parse(v.dueAt)<=now).length}catch(_){}
+  due=dueList().length;
   for(const sh of ov.list){const inf=ov.info[sh.id];starSum+=inf.stars;if(inf.complete)completed++;for(let n=1;n<=sh.ayahs;n++)if((progressOf(sh.id,n).memorizationLevel||0)>=4)solid++}
   const wrap=el('div','dsn');wrap.setAttribute('role','dialog');wrap.setAttribute('aria-modal','true');wrap.setAttribute('aria-label',pr.title);wrap.dir=code==='ar'?'rtl':'ltr';
   const close=()=>{wrap.remove();document.removeEventListener('keydown',onKey)};
@@ -524,7 +610,7 @@
   const prog=el('div','dsr-prog');const row=el('div','dsr-prog-row');row.append(el('span','',t.learned),el('b','',learned+' / '+total));
   const bar=el('span','dsr-bar');const fill=el('i');fill.style.width=(total?Math.round(learned/total*100):0)+'%';bar.append(fill);prog.append(row,bar);root.append(prog);
   // Today: reviews due, or where to continue.
-  let dueCount=0,current='';try{const st=Q().state(),now=Date.now();dueCount=(st.review?.queue||[]).filter(q=>Date.parse(q.dueAt)<=now).length;current=list.find(sh=>sh.id===st.profile?.currentSurah)?.name||list[0]?.name||''}catch(_){}
+  let current='';const dueCount=dueList().length;try{const st=Q().state();current=list.find(sh=>sh.id===st.profile?.currentSurah)?.name||list[0]?.name||''}catch(_){}
   const today=el('div','dsr-today');today.innerHTML=svg(ICON.sun);const tc=el('div','');// The surah name sits in its own element so the app’s translation layer can render it per language.
   const sm=el('small','',dueCount?t.due(dueCount):t.cont);if(!dueCount)sm.append(el('span','',current));tc.append(el('b','',t.today),sm);today.append(tc);root.append(today);
   // Badges: earned ones in colour, the rest dimmed with what they ask for.
@@ -544,7 +630,7 @@
     const lm=el('span','dsr-level-meter');lm.append(el('em','',xt.levelCount(doneLv,inLv.length)));const lb=el('span','dsr-bar'),lf=el('i');lf.style.width=Math.round(doneLv/inLv.length*100)+'%';lb.append(lf);lm.append(lb);
     lh.append(lc,lm);root.append(lh);
    }
-   const inf=ov.info[s.id],lessons=inf.lessons,states=inf.states,open=si===0||prevKnowDone;
+   const inf=ov.info[s.id],lessons=inf.lessons,states=inf.states,open=si===0||prevKnowDone||states.some(Boolean);
    const unit=el('div','dsr-unit'+(open?'':' is-locked'));unit.dataset.tone=String(si%5);unit.dataset.sid=s.id;
    const first=(itemsOf(s.id,code)[0]?.glyph||'').match(ARABIC)?.[0]||'';
    const ico=el('span','dsr-unit-ico',first);ico.lang='ar';

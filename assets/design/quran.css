@@ -689,3 +689,6 @@ html body .dac .dsa-rise.closing .dsa-say,html body .dac .dsa-rise.closing .dsa-
 @keyframes dsaGlow{0%{transform:scale(.4);opacity:0}40%{opacity:.95}100%{transform:scale(1.25);opacity:0}}
 @keyframes dsaBubble{0%{transform:scale(.4) translateY(10px);opacity:0}70%{transform:scale(1.06);opacity:1}100%{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){html .dsa,html .dsa *,html body .dac .dsa-rise *{animation:none!important;transition:none!important}html .dsa-level,html .dsa-hero-txt,html .dsa-pet,html .dsa-scope,html .dsa-pool{opacity:1!important}}
+html .dsr-reward-no{all:unset;box-sizing:border-box;width:100%;padding:10px 16px;border-radius:14px;text-align:center;cursor:pointer;font-size:14px;font-weight:900;color:#9bb7b0}
+html .dsr-reward-no:focus-visible{outline:3px solid #7ff0cf;outline-offset:2px}
+html .dsr-reward-chest[src*="_avatar"]{width:120px;height:120px;object-fit:contain}
