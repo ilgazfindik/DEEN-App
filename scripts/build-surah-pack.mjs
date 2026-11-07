@@ -5,7 +5,7 @@
 //   Turkish  Ali Özek ve ark., QuranEnc turkish_shahin v1.0.0 (re-publication with credit and version number)
 //   English  Pickthall, The Meaning of the Glorious Koran, 1930 (public domain)
 // The files' checksums are written into the pack so a later rebuild can be compared with this one.
-import {readFileSync,writeFileSync} from 'node:fs';
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 
@@ -46,13 +46,24 @@ function stripBismillah(text){
  return words.slice(4).join(' ');
 }
 
+// Recitations: a whole-surah file for each surah, played straight from Wikimedia Commons (as for the first sixteen surahs; not copied
+// into the app). Reciter Atcovi; CC0 or CC BY-SA 4.0, credited from new-surahs-credits.json. Per-ayah files are used only for a
+// surah whose every ayah has one under assets/quran/audio/<id>/ (none yet: the recordings have no ayah timings).
+const credits=JSON.parse(readFileSync(root+'assets/quran/audio/new-surahs-credits.json','utf8'));
+const commons=file=>'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(file).replace(/'/g,'%27');
+const audioOf=(id,count)=>{
+ const c=credits[id];if(!c)return null;
+ const files=Array.from({length:count},(_,i)=>'assets/quran/audio/'+id+'/'+id+'_'+(i+1)+'.mp3');
+ return {chapter:commons(c.file),ayahs:files.every(f=>existsSync(root+f))?files:null,credit:{reciter:c.author,license:c.license,licenseUrl:c.licenseUrl,source:c.source}};
+};
 const out=SURAHS.map(s=>{
  const ar=arabic[s.number],tr=turkish[s.number],en=english[s.number];
  const count=chapterInfo[s.number].total_verses;
  if(ar.length!==count||tr.length!==count||en.length!==count)throw new Error(s.id+': ayah counts differ between sources');
- return {...s,nameAr:chapterInfo[s.number].name,ayahs:ar.map((a,i)=>{
+ const audio=audioOf(s.id,count);
+ return {...s,nameAr:chapterInfo[s.number].name,...(audio?{audio:{chapter:audio.chapter,credit:audio.credit}}:{}),ayahs:ar.map((a,i)=>{
   if(a.verse!==i+1||tr[i].verse!==i+1||en[i].verse!==i+1)throw new Error(s.id+': verse numbering differs at '+(i+1));
-  return {n:i+1,ar:(i===0?stripBismillah(a.text):a.text).trim(),tr:tr[i].text.trim(),en:en[i].text.trim()};
+  return {n:i+1,ar:(i===0?stripBismillah(a.text):a.text).trim(),tr:tr[i].text.trim(),en:en[i].text.trim(),...(audio?.ayahs?{audio:audio.ayahs[i]}:{})};
  })};
 });
 
