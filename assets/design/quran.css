@@ -692,3 +692,6 @@ html body .dac .dsa-rise.closing .dsa-say,html body .dac .dsa-rise.closing .dsa-
 html .dsr-reward-no{all:unset;box-sizing:border-box;width:100%;padding:10px 16px;border-radius:14px;text-align:center;cursor:pointer;font-size:14px;font-weight:900;color:#9bb7b0}
 html .dsr-reward-no:focus-visible{outline:3px solid #7ff0cf;outline-offset:2px}
 html .dsr-reward-chest[src*="_avatar"]{width:120px;height:120px;object-fit:contain}
+html body #leagueScreenBody .dsr-unit-ico{font-family:"Amiri Quran","Noto Naskh Arabic","Geeza Pro","Arabic Typesetting",serif}
+/* The old tool screens (recall round, weak ayahs) draw Arabic with their own font lists; give them the Quran font too. */
+html body dialog#v5Sheet [lang="ar"],html body dialog#v5Sheet [class*="arabic"],html body #leagueScreenBody [class*="arabic"]:not(.dsr-path *){font-family:"Amiri Quran","Noto Naskh Arabic","Geeza Pro","Arabic Typesetting","Traditional Arabic",serif}
