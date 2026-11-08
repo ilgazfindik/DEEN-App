@@ -702,4 +702,4 @@ html body #leagueScreenBody .dsr-listen.is-playing{background:#ffd978;color:#3d2
 html body #leagueScreenBody .dsr-listen:active{transform:scale(.94)}
 html body #leagueScreenBody .dsr-listen:focus-visible{outline:3px solid #fff;outline-offset:3px}
 html body #leagueScreenBody .dsr-unit-credit{margin-top:2px;font-size:11px!important;font-weight:800!important;letter-spacing:.02em!important;opacity:.78}
-html body #leagueScreenBody .dsr-listen.is-error{background:rgba(255,120,100,.3);border-color:rgba(255,160,140,.7)}
+html body #leagueScreenBody .dsr-listen.is-error{background:#fff;color:#c62828;border-color:#c62828;box-shadow:0 0 0 5px rgba(198,40,40,.28)}
