@@ -608,7 +608,7 @@
   for(const b of document.querySelectorAll('.dsr-listen')){
    const on=b.dataset.sid===chId&&!!chPlayer&&!chPlayer.paused&&!chPlayer.ended&&!chPlayer.error;
    const bad=b.dataset.sid===chErr&&!on;
-   b.classList.toggle('is-playing',on);b.classList.toggle('is-error',bad);b.innerHTML=svg(on?ICON.pause:ICON.play);b.setAttribute('aria-label',bad?x().audio.fail:on?x().audio.pause:x().audio.listen);if(bad)b.title=x().audio.fail;
+   b.classList.toggle('is-playing',on);b.classList.toggle('is-error',bad);b.innerHTML=svg(on?ICON.pause:bad?ICON.alert:ICON.play);b.setAttribute('aria-label',bad?x().audio.fail:on?x().audio.pause:x().audio.listen);if(bad)b.title=x().audio.fail;
   }
  }
  function chStop(){try{chPlayer?.pause()}catch(_){}chPaint()}
