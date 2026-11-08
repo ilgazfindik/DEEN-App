@@ -695,3 +695,11 @@ html .dsr-reward-chest[src*="_avatar"]{width:120px;height:120px;object-fit:conta
 html body #leagueScreenBody .dsr-unit-ico{font-family:"Amiri Quran","Noto Naskh Arabic","Geeza Pro","Arabic Typesetting",serif}
 /* The old tool screens (recall round, weak ayahs) draw Arabic with their own font lists; give them the Quran font too. */
 html body dialog#v5Sheet [lang="ar"],html body dialog#v5Sheet [class*="arabic"],html body #leagueScreenBody [class*="arabic"]:not(.dsr-path *){font-family:"Amiri Quran","Noto Naskh Arabic","Geeza Pro","Arabic Typesetting","Traditional Arabic",serif}
+/* Whole-surah recitation: a round play button on the unit and the credit line under its name. */
+html body #leagueScreenBody .dsr-listen{all:unset;box-sizing:border-box;position:absolute;z-index:2;inset-inline-end:16px;top:50%;margin-top:-23px;width:46px;height:46px;display:grid;place-items:center;border-radius:50%;cursor:pointer;color:var(--tx,#f2fffb);background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);-webkit-tap-highlight-color:transparent}
+html body #leagueScreenBody .dsr-listen svg{width:22px;height:22px}
+html body #leagueScreenBody .dsr-listen.is-playing{background:#ffd978;color:#3d2c08;border-color:transparent;box-shadow:0 0 0 6px rgba(255,217,120,.25)}
+html body #leagueScreenBody .dsr-listen:active{transform:scale(.94)}
+html body #leagueScreenBody .dsr-listen:focus-visible{outline:3px solid #fff;outline-offset:3px}
+html body #leagueScreenBody .dsr-unit-credit{margin-top:2px;font-size:11px!important;font-weight:800!important;letter-spacing:.02em!important;opacity:.78}
+html body #leagueScreenBody .dsr-listen.is-error{background:rgba(255,120,100,.3);border-color:rgba(255,160,140,.7)}
