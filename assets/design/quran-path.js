@@ -640,6 +640,7 @@
   for(const b of badges){const c=el('div','dsr-badge'+(b.on?' is-on':'')),ic=el('span','dsr-badge-ico');ic.innerHTML=svg(b.on?ICON[b.icon]:ICON.lock);c.append(ic,el('b','',b.name),el('small','',b.desc));c.title=b.desc;strip.append(c)}
   bw.append(bh,strip);root.append(bw);
   // Units, grouped by level. A surah opens once the previous surah's "get to know" lessons are done.
+  const adm=!!window.DEEN_ADMIN_UNLOCK?.();   // admin test mode: every surah and lesson is open
   let prevKnowDone=true,curMarked=false,lastLevel=0;
   list.forEach((s,si)=>{
    if(s.level!==lastLevel){
@@ -650,7 +651,7 @@
     const lm=el('span','dsr-level-meter');lm.append(el('em','',xt.levelCount(doneLv,inLv.length)));const lb=el('span','dsr-bar'),lf=el('i');lf.style.width=Math.round(doneLv/inLv.length*100)+'%';lb.append(lf);lm.append(lb);
     lh.append(lc,lm);root.append(lh);
    }
-   const inf=ov.info[s.id],lessons=inf.lessons,states=inf.states,open=si===0||prevKnowDone||states.some(Boolean);
+   const inf=ov.info[s.id],lessons=inf.lessons,states=inf.states,open=si===0||prevKnowDone||states.some(Boolean)||adm;
    const unit=el('div','dsr-unit'+(open?'':' is-locked'));unit.dataset.tone=String(si%5);unit.dataset.sid=s.id;
    const first=(itemsOf(s.id,code)[0]?.glyph||'').match(ARABIC)?.[0]||'';
    const ico=el('span','dsr-unit-ico',first);ico.lang='ar';
@@ -665,7 +666,7 @@
     const box=el('div','dsr-list');root.append(box);
     let shownLock=false;
     lessons.forEach((l,i)=>{
-     const isDone=states[i],avail=isDone||i===0||states[i-1];
+     const isDone=states[i],avail=isDone||i===0||states[i-1]||adm;
      const b=el('button','dsr-node');b.type='button';
      const isCur=avail&&!isDone&&!curMarked;if(isCur)curMarked=true;
      b.classList.add(isDone?'is-done':isCur?'is-cur':avail?'is-open':'is-locked');if(l.kind==='review')b.classList.add('is-star','is-exam');
@@ -693,5 +694,5 @@
   shell.classList.add('dsr-on');shell.prepend(build());
  }
  function remount(){const shell=document.querySelector('#leagueScreenBody .deen-quran-shell');if(!shell)return;shell.querySelector(':scope>.dsr-path')?.remove();mount(shell)}
- window.DEEN_QURAN_PATH=Object.freeze({version:'ds-quran-path-1',mount,remount,plan,open:(sid,lessonId)=>{const s=surahs().find(x=>x.id===sid);const l=s&&plan(sid,s.ayahs,lang()).find(x=>x.id===lessonId);return l?open(sid,l):false},store:STORE});
+ window.DEEN_QURAN_PATH=Object.freeze({version:'ds-quran-path-1',mount,remount,plan,arena:()=>arenaScreen(),review:()=>reviewStart(),progress:()=>progressSheet(),open:(sid,lessonId)=>{const s=surahs().find(x=>x.id===sid);const l=s&&plan(sid,s.ayahs,lang()).find(x=>x.id===lessonId);return l?open(sid,l):false},store:STORE});
 })();
