@@ -33,6 +33,7 @@
 #deenAccountGate .da-submit{background:#9beed4;color:#06252a;border:0}
 #deenAccountGate button:disabled{opacity:.62;cursor:wait}
 #deenAccountGate .da-note{font-size:11px;color:#a8bdc0;margin-top:18px;margin-bottom:0}
+#deenAccountGate .da-note a{color:#65f6da;text-decoration:underline;text-underline-offset:2px}
 #deenAccountGate .da-status{min-height:18px;font-size:12px;color:#ffdba4;margin:10px 0 0;word-break:break-word}
 #deenAccountGate .da-back{min-height:36px;background:none;border:none;color:#9bead4;text-align:start;margin-bottom:10px;font-size:13px}
 @media(prefers-reduced-motion:no-preference){#deenAccountGate .da-panel{animation:deenAccountAppear .3s ease-out both}@keyframes deenAccountAppear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}

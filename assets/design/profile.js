@@ -181,6 +181,7 @@
   rows.push(row('goal','target','mint',esc(T.goal),rhythm?data(rhythm.value):esc(T.goalValue(Number(st.dailyGoal)||0))));
   if(d.store)rows.push(row('store','gem','gold',esc(T.store),esc(d.store.value)));
   rows.push(row('settings','gear','muted',esc(T.settings),''));
+  rows.push(row('legal','info','muted',esc(window.DEEN_LEGAL?.label?.()||T.settings),''));
   const facts=d.summary.slice(1);
   const approach=facts.length?'<details class="dsp-approach"><summary>'+svg('compass')+'<span class="dsp-grow">'+esc(T.approach)+'</span>'+svg('chevron','dsp-chev dsp-rot')+'</summary><dl>'+
    facts.map(s=>'<div><dt>'+data(s.label)+'</dt><dd>'+data(s.value)+'</dd></div>').join('')+'</dl></details>':'';
@@ -292,6 +293,7 @@
   const k=el.dataset.dsp;event.preventDefault();
   const call=fn=>{try{window[fn]?.()}catch(err){console.warn('DEEN_DS_PROFILE_ACTION',fn,err)}};
   if(k==='settings')call('settingsPanel');
+  else if(k==='legal')window.DEEN_LEGAL?.open?.();
   else if(k==='edit')call('editProfile');
   else if(k==='avatar'){const a=document.querySelector('#profileScreenBody>.v5-profilehead .v5-avatar');a?a.click():call('editProfile')}
   else if(k==='calendar')call('streakPanel');
