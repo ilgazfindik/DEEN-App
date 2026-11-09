@@ -535,6 +535,17 @@
   {id:'weak',icon:'alert',get:()=>lq('[data-qweak-challenge]')},// weak ayahs challenge
   {id:'progress',icon:'chart',own:()=>progressSheet(),text:()=>[x().prog.title,x().prog.sub]}
  ];
+ // The weak-ayah card copies its subtitle from the old hub, where it is Turkish only; say it in the language of the app.
+ const WEAK={
+  tr:[n=>n+' riskli ayetten kişisel tur','Performansına göre otomatik açılır'],
+  en:[n=>'A personal round from '+n+' at-risk ayahs','Unlocks automatically based on your performance'],
+  de:[n=>'Persönliche Runde aus '+n+' gefährdeten Versen','Wird je nach Leistung automatisch freigeschaltet'],
+  fr:[n=>'Un tour personnel sur '+n+' versets fragiles','S’ouvre automatiquement selon tes résultats'],
+  ar:[n=>'جولة شخصية من '+n+' آيات تحتاج إلى مراجعة','يُفتح تلقائيًا بحسب أدائك']
+ };
+ function weakNote(){
+  try{const n=(window.DEEN_QURAN_QUESTION_ARENA?.weakRows?.()||[]).length,w=WEAK[lang()]||WEAK.en;return n>=2?w[0](n):w[1]}catch(_){return ''}
+ }
  function toolsPanel(dueCount){
   const xt=x(),born=Date.now(),wrap=el('div','dsr-toolsbox'),grid=el('div','dsr-tgrid'),cards=[];
   for(const spec of TOOL_MAIN){
@@ -549,7 +560,8 @@
    for(const c of cards){
     if(c.spec.own&&c.spec.text){const [t1,t2]=c.spec.text();c.b.hidden=false;if(c.ti.textContent!==t1)c.ti.textContent=t1;if(c.su.textContent!==t2)c.su.textContent=t2;if(!c.ico.firstChild)c.ico.innerHTML=svg(ICON[c.spec.icon]);continue}
     const old=c.spec.get();c.b.hidden=!old;if(!old)continue;
-    const ti=old.querySelector('b')?.textContent?.trim(),su=old.querySelector('small')?.textContent?.trim();
+    const ti=old.querySelector('b')?.textContent?.trim();let su=old.querySelector('small')?.textContent?.trim();
+    if(c.spec.id==='weak')su=weakNote()||su;
     if(ti&&c.ti.textContent!==ti)c.ti.textContent=ti;
     if(c.su.textContent!==(su||''))c.su.textContent=su||'';
     if(!c.ico.firstChild){if(c.spec.icon)c.ico.innerHTML=svg(ICON[c.spec.icon]);else{const svgOld=old.querySelector('svg');if(svgOld)c.ico.append(svgOld.cloneNode(true))}}

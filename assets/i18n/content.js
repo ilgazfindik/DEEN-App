@@ -30,6 +30,8 @@
   let source=raw(question);if(lang==='tr')return source;
   if(lang==='ar')return window.DEEN_ARABIC_PILOT?.translateQuestion?.(source)||null;
   const candidates=loaded.get(lang)?.questions?.[source?.id];const entries=Array.isArray(candidates)?candidates:[candidates];let entry=entries.find(e=>validate(source,e));
+  // Extra Learn-path questions carry their translations in a separate, hash-checked file (assets/learn/extra-questions.<lang>.json).
+  if(!entry){const x=window.DEEN_EXTRA_I18N?.[lang]?.[source?.id];if(x)entry=(Array.isArray(x)?x:[x]).find(e=>validate(source,e))}
   if(!entry&&lang==='en'&&source?.playful_pilot===true&&source.playful_version==='7.3.0'&&typeof source.legacy_question_tr==='string'){const canonical={...source,question_tr:source.legacy_question_tr};entry=entries.find(e=>validate(canonical,e));if(entry)source=canonical;}
   if(!entry)return null;
   return {...source,...entry.display,__deenContentLocale:lang,__deenSourceQuestion:source};
@@ -68,6 +70,7 @@
      }
     }else{const pack=await json({path:config.bank});if(pack.locale!==lang||pack.schema_version!==1||pack.expert_approved!==false||!pack.questions)return false;Object.assign(questions,pack.questions);}
     loaded.set(lang,{questions});
+    try{await window.DEEN_EXTRA_I18N_LOAD?.(lang)}catch(_){}
     const base=inspectBank(window.DEEN_BASE_QUESTIONS||[],lang),active=inspectBank(QUESTIONS,lang);
     if(base.sourceCount!==manifest().required_base_questions||active.sourceCount!==manifest().required_active_questions||base.failedIds.length||active.failedIds.length){console.error('[DEEN content source]',JSON.stringify({locale:lang,base:base.sourceCount,active:active.sourceCount,baseFailed:base.failedIds.slice(0,8),activeFailed:active.failedIds.slice(0,8)}));loaded.delete(lang);return false;}
     return true;
@@ -95,7 +98,7 @@
   // French and German have no context-free fallback: shared Turkish terms can have different
   // theological or pedagogical meanings across different questions.
   if(strict&&!source)return text;
-  const candidates=tables[source?.id]||[];
+  const candidates=tables[source?.id]||window.DEEN_EXTRA_I18N?.[lang]?.[source?.id]||[];
   for(const e of Array.isArray(candidates)?candidates:[candidates])if(validate(source,e)){const value=lookup(e);if(value)return value;
    if(lang==='en'||lang==='de'){
    const stripped=String(e.source.question_tr).replace(/^(?:Boşluğu tamamla|Eksik kavramı seç|Kayıp kelime(?:yi bul)?|İpucu olmadan tamamla|Boşluğu doldur):\s*/i,'');

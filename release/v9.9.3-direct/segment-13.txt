@@ -244,8 +244,23 @@
   function defById(id){return window.DEEN_FIVE_STAGE?.all?.().find(d=>d.id===id)||null}
   function stageNo(id){const m=String(id||'').match(/-S(\d{2})$/);return m?Number(m[1]):99}
   function stageMax(d){return Math.max(...d.legacyIds.map(stageNo))}
-  function allUnitQuestions(u){return QUESTIONS.filter(q=>q.stage_id?.startsWith(u+'-'))}
-  function stageQuestions(d){const ids=new Set(d.legacyIds);return QUESTIONS.filter(q=>ids.has(q.stage_id))}
+  // Extra Turkish-only questions (assets/learn/extra-questions.js) for the units whose bank asks fewer distinct facts than a unit
+  // has places. The other languages keep their translated banks and never see them (a language change reloads the page).
+  function extras(){
+    try{
+      const all=window.DEEN_EXTRA_QUESTIONS||[],lang=window.DEEN_APP_LOCALE?.get?.()||'tr';
+      if(lang==='tr')return all;
+      // Another language offers an extra question only once its (hash-checked) translation is there.
+      const t=window.DEEN_EXTRA_I18N?.[lang];
+      if(!t){try{window.DEEN_EXTRA_I18N_LOAD?.(lang)}catch(_){}return []}
+      return all.filter(q=>t[q.id]);
+    }catch(_){return []}
+  }
+  let extraIdx=null;
+  function extraById(id){if(!extraIdx){extraIdx=new Map();for(const q of window.DEEN_EXTRA_QUESTIONS||[])extraIdx.set(q.id,q)}return extraIdx.get(id)}
+  function qById(id){return QMAP?.get?.(id)||QUESTIONS.find(q=>q.id===id)||extraById(id)}
+  function allUnitQuestions(u){return QUESTIONS.filter(q=>q.stage_id?.startsWith(u+'-')).concat(extras().filter(q=>q.stage_id?.startsWith(u+'-')))}
+  function stageQuestions(d){const ids=new Set(d.legacyIds);return QUESTIONS.filter(q=>ids.has(q.stage_id)).concat(extras().filter(q=>ids.has(q.stage_id)))}
   function safe(q){return !!q && !(typeof audioBlocked==='function'&&audioBlocked(q))}
   function safeStageQuestions(d){return stageQuestions(d).filter(safe)}
   function safeUnitQuestions(u){return allUnitQuestions(u).filter(safe)}
@@ -280,7 +295,7 @@
       const raw=s.unitPedagogyMeta[u]&&typeof s.unitPedagogyMeta[u]==='object'?s.unitPedagogyMeta[u]:{};
       raw.firstPassTarget=UNIT_FIRST_PASS_TARGET;
       raw.firstPassSeenIds=Array.isArray(raw.firstPassSeenIds)?raw.firstPassSeenIds:[];
-      raw.firstPassSeenIds=[...new Set(raw.firstPassSeenIds.filter(id=>QMAP?.has?.(id)||QUESTIONS.some(q=>q.id===id)))];
+      raw.firstPassSeenIds=[...new Set(raw.firstPassSeenIds.filter(id=>QMAP?.has?.(id)||QUESTIONS.some(q=>q.id===id)||!!extraById(id)))];
       raw.firstPassStartedAt=Number(raw.firstPassStartedAt)||0;
       raw.firstPassCompletedAt=Number(raw.firstPassCompletedAt)||0;
       raw.version='6.3.3';
@@ -346,7 +361,7 @@
   }
   function assignmentQuestions(d,no){
     const ids=macroMeta(d).lessonQuestionIds?.[String(no)];if(!Array.isArray(ids)||!ids.length)return null;
-    const qs=ids.map(id=>QMAP?.get?.(id)||QUESTIONS.find(q=>q.id===id)).filter(Boolean);
+    const qs=ids.map(qById).filter(Boolean);
     if(qs.length!==ids.length||qs.some(q=>!safe(q)))return null;
     return qs;
   }
@@ -364,7 +379,7 @@
     const unlocked=(d.kind==='audio'||d.role==='DİNLE')?base:safeUnitQuestions(d.unit).filter(q=>stageNo(q.stage_id)<=maxStage);
     const target=Math.min(p.target||5,Math.max(base.length,p.target||5));
     const used=new Set(),concepts=new Set(),chosen=[];
-    const firstSeen=new Set(um.firstPassSeenIds),macroFirstUsed=new Set(um.firstPassSeenIds.filter(id=>{const q=QMAP?.get?.(id)||QUESTIONS.find(x=>x.id===id);return q&&d.legacyIds.includes(q.stage_id)}));
+    const firstSeen=new Set(um.firstPassSeenIds),macroFirstUsed=new Set(um.firstPassSeenIds.filter(id=>{const q=qById(id);return q&&d.legacyIds.includes(q.stage_id)}));
     let newSlots=0;
     if(progression){
       newSlots=Math.min(lessonNewQuota(d,no),Math.max(0,uniqueCap(d)-macroFirstUsed.size),Math.max(0,UNIT_FIRST_PASS_TARGET-firstSeen.size));
@@ -377,7 +392,7 @@
     const unseenBase=unlocked.filter(q=>!firstSeen.has(q.id));
     // A question that asks the same fact as one already met (same words, same answer) counts as seen too: such questions
     // are only used when nothing else is left.
-    const metFps=progression?[...firstSeen].map(id=>QMAP?.get?.(id)||QUESTIONS.find(x=>x.id===id)).filter(Boolean).map(factPrint):[];
+    const metFps=progression?[...firstSeen].map(qById).filter(Boolean).map(factPrint):[];
     const asked=q=>{if(!metFps.length)return false;const f=factPrint(q);return metFps.some(g=>factSame(f,g))};
     const fresh=unseenBase.filter(q=>!asked(q)),echoes=unseenBase.filter(asked);
     chosen.push(...pickDiverse(fresh,newSlots,p,used,concepts,false));
