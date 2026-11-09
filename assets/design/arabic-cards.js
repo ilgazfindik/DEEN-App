@@ -165,9 +165,21 @@
   return steps;
  }
 
- let host=null,run=null,run_glyph=null;
+ let host=null,run=null,run_glyph=null,urlAudio=null,urlBtn=null;
+ // A recording tied to a card (an ayah's own file, or the whole surah): one at a time, tap again to pause, stops with the lesson.
+ function hearState(btn,on){if(!btn)return;btn.classList.toggle('is-playing',on);const l=btn.querySelector('span');if(l)l.textContent=(on&&btn.dataset.pause)||btn.dataset.label||l.textContent}
+ function stopUrl(){try{urlAudio?.pause?.()}catch(_){}hearState(urlBtn,false);urlAudio=null;urlBtn=null}
+ function playUrl(src,btn){
+  try{
+   if(urlAudio&&urlAudio.__src===src&&btn===urlBtn&&!urlAudio.paused){stopUrl();return}
+   stopUrl();
+   const a=new Audio(src);a.__src=src;urlAudio=a;urlBtn=btn||null;hearState(urlBtn,true);
+   a.addEventListener('ended',()=>{if(urlAudio===a)stopUrl()});a.addEventListener('error',()=>{if(urlAudio===a)stopUrl()});
+   a.play()?.catch?.(()=>{if(urlAudio===a)stopUrl()});
+  }catch(_){}
+ }
  function close(){
-  window.DEEN_ARABIC_LETTER_AUDIO?.stop?.();
+  window.DEEN_ARABIC_LETTER_AUDIO?.stop?.();stopUrl();
   document.removeEventListener('keydown',onKey,true);
   host?.remove();host=null;run=null;document.documentElement.classList.remove('dac-open');
  }
@@ -240,7 +252,7 @@
     const it=ITEMS[s.id];
     if(it.num){c.append(el('span','dac-num',String(it.num)),arText(el('div','dac-ayah'),it.glyph));if(it.name)c.append(el('div','dac-meal',it.name));if(it.hint)c.append(el('div','dac-src',it.hint))}
     else{c.append(arText(el('div','dac-big'+sizeClass(it.glyph)),it.glyph),el('div','dac-name',it.name));if(it.hint)c.append(el('div','dac-tip',it.hint))}
-    if(it.audio){const b=el('button','dac-hear');b.type='button';b.innerHTML=ICON.speak;b.append(el('span','',L.listen));b.addEventListener('click',()=>playUrl(it.audio));c.append(b)}
+    if(it.audio){const b=el('button','dac-hear');b.type='button';b.innerHTML=ICON.speak;b.dataset.label=it.audioLabel||L.listen;if(it.audioPause)b.dataset.pause=it.audioPause;b.append(el('span','',b.dataset.label));b.addEventListener('click',()=>playUrl(it.audio,b));c.append(b);if(it.audioCredit)c.append(el('div','dac-src',it.audioCredit))}
     if(!it.num&&(it.parts||[]).length>1)c.append(arText(el('div','dac-parts'),it.parts.join('  +  ')));
     if(it.verse&&it.verse!==it.glyph){const v=el('div','dac-verse');const t=arText(el('p',''),'');const hi=it.mark||it.glyph,at=it.verse.indexOf(hi);
      if(at>=0){t.append(it.verse.slice(0,at),el('mark','',hi),it.verse.slice(at+hi.length))}else t.textContent=it.verse;
@@ -265,8 +277,6 @@
     c.append(forms,el('div','dac-tip',s.kind==='join'?L.joinSub:L.noJoinSub));
    }
   }
-  let urlAudio=null;
-  function playUrl(src){try{urlAudio?.pause?.();urlAudio=new Audio(src);urlAudio.play()?.catch?.(()=>{})}catch(_){}}
   // Missing word: the ayah with one word blanked, the words to choose from come from the text itself.
   function renderFill(s,box){
    const it=ITEMS[s.id],w=it.parts||String(it.glyph).split(/\s+/),shown=el('div','dac-fillshow');shown.lang='ar';shown.dir='rtl';
