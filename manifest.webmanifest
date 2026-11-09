@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "Ilnura",
+  "short_name": "Ilnura",
+  "description": "İslam’ın temelini ve Kur’an okumayı oyunlaştırılmış derslerle öğren. Learn the basics of Islam and Quran reading with short games.",
+  "lang": "tr",
+  "dir": "auto",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#03131b",
+  "theme_color": "#03131b",
+  "categories": ["education", "lifestyle"],
+  "icons": [
+    {"src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
