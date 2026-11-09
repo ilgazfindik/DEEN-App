@@ -350,6 +350,11 @@
     if(qs.length!==ids.length||qs.some(q=>!safe(q)))return null;
     return qs;
   }
+  // What a question is about: its own words plus its answer (true/false answers carry no information).
+  const FACT_STOP=new Set('bir ve ile için de da mi mı mu mü ise bu şu o ne hangi hangisi daha en çok gibi olan olarak kişi kimse tarafından doğru yanlış boşluğu tamamla kayıp kelime aşağıdaki aşağıdakilerden değildir midir mıdır mudur müdür'.split(' '));
+  const factWords=t=>String(t||'').toLocaleLowerCase('tr').replace(/[^\p{L}\p{N}\s]+/gu,' ').split(/\s+/).filter(w=>w.length>3&&!FACT_STOP.has(w)).map(w=>w.slice(0,5));
+  function factPrint(q){const a=typeof q.correct_answer==='string'?q.correct_answer.toLocaleLowerCase('tr').trim():'';return new Set([...factWords(q.question_tr),...(a&&!['doğru','yanlış','true','false'].includes(a)&&a.length<80?factWords(a):[])])}
+  function factSame(a,b){if(!a.size||!b.size)return false;let n=0;for(const w of a)if(b.has(w))n++;return n/(a.size+b.size-n)>=.45}
   function compose(d,no,{persist=false,forceReplay=false,ignoreAssignment=false}={}){
     ensureState();const p=profile(d,no),m=macroMeta(d),um=unitMeta(d.unit),existing=!ignoreAssignment?assignmentQuestions(d,no):null;
     const progression=!forceReplay && m.completedLessons<no;
@@ -370,21 +375,31 @@
     // New first-pass material may come from any technical pool already unlocked in this unit.
     // This lets mini lessons honor their pedagogical identity without leaking future-stage content.
     const unseenBase=unlocked.filter(q=>!firstSeen.has(q.id));
-    chosen.push(...pickDiverse(unseenBase,newSlots,p,used,concepts,false));
+    // A question that asks the same fact as one already met (same words, same answer) counts as seen too: such questions
+    // are only used when nothing else is left.
+    const metFps=progression?[...firstSeen].map(id=>QMAP?.get?.(id)||QUESTIONS.find(x=>x.id===id)).filter(Boolean).map(factPrint):[];
+    const asked=q=>{if(!metFps.length)return false;const f=factPrint(q);return metFps.some(g=>factSame(f,g))};
+    const fresh=unseenBase.filter(q=>!asked(q)),echoes=unseenBase.filter(asked);
+    chosen.push(...pickDiverse(fresh,newSlots,p,used,concepts,false));
     // The unlocked part of the bank can be a few questions short of the lesson (a stage has 12-16 questions for 15-20 places).
     // Rather than repeat a question the player has already met, take unseen ones from the next stage, text questions only.
     if(progression&&chosen.length<Math.min(newSlots,target)&&d.kind!=='audio'&&d.kind!=='challenge'){
-      const ahead=safeUnitQuestions(d.unit).filter(q=>!firstSeen.has(q.id)&&!used.has(q.id)&&stageNo(q.stage_id)===maxStage+1&&!q.asset_requirement&&!/listen|audio/.test(String(q.activity_type||'')));
+      const ahead=safeUnitQuestions(d.unit).filter(q=>!firstSeen.has(q.id)&&!used.has(q.id)&&!asked(q)&&stageNo(q.stage_id)===maxStage+1&&!q.asset_requirement&&!/listen|audio/.test(String(q.activity_type||'')));
       chosen.push(...pickDiverse(ahead,Math.min(newSlots,target)-chosen.length,p,used,concepts,false));
     }
+    if(chosen.length<Math.min(newSlots,target))chosen.push(...pickDiverse(echoes,Math.min(newSlots,target)-chosen.length,p,used,concepts,false));
+    // Still short and nothing unseen is left to use: a shorter lesson is better than showing questions again
+    // (review and challenge stages are meant to revisit, so they keep their repeats).
+    let need=target-chosen.length;
+    if(progression&&need>0&&chosen.length>=3&&d.kind!=='review'&&d.kind!=='challenge')need=0;
 
     let repeatPool=safeUnitQuestions(d.unit).filter(q=>firstSeen.has(q.id));
     if(!p.challenge && progression)repeatPool=repeatPool.filter(q=>stageNo(q.stage_id)<=maxStage);
     if(p.challenge)repeatPool.sort((a,b)=>weakness(b)-weakness(a));
-    chosen.push(...pickDiverse(repeatPool,target-chosen.length,p,used,concepts,true));
+    chosen.push(...pickDiverse(repeatPool,need,p,used,concepts,true));
 
     // If a user replays before enough history exists, use reserved stage material rather than shorten the lesson.
-    if(chosen.length<target){
+    if(need>0&&chosen.length<target){
       const fallback=unlocked.filter(q=>!used.has(q.id));
       chosen.push(...pickDiverse(fallback,target-chosen.length,p,used,concepts,false));
     }
