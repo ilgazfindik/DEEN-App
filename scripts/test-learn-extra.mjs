@@ -25,4 +25,37 @@ for(const q of Q){
  }
 }
 const per={};for(const q of Q){const u=q.id.slice(5,8);per[u]=(per[u]||0)+1}
+// Translations (en, de, fr, ar): every extra question has one in every language, shaped like the existing packs.
+import {createHash} from 'node:crypto';
+const byId=new Map(Q.map(q=>[q.id,q]));
+const same=(a,b)=>JSON.stringify(a??null)===JSON.stringify(b??null);
+const blanks=s=>(String(s||'').match(/_{2,}/g)||[]).length;
+const hashes=JSON.parse(readFileSync('assets/learn/extra-questions.js','utf8').match(/const HASHES=(\{[^}]*\})/)[1]);
+for(const lang of ['en','de','fr','ar']){
+ const raw=readFileSync('assets/learn/extra-questions.'+lang+'.json');
+ assert.equal(createHash('sha256').update(raw).digest('hex'),hashes[lang],'hash of the '+lang+' file matches extra-questions.js');
+ const pack=JSON.parse(raw.toString('utf8'));
+ assert(pack.locale===lang&&pack.expert_approved===false&&pack.verified_by_religious_expert===false,'pack flags '+lang);
+ assert.equal(Object.keys(pack.translations).length,Q.length,'every extra question is translated into '+lang);
+ for(const [id,e] of Object.entries(pack.translations)){
+  const q=byId.get(id);assert(q,'known id '+id);
+  if(lang==='ar'){
+   assert(e.expert_approved===false&&e.source_question_tr===q.question_tr&&same(e.source_options_tr,q.options_tr)&&same(e.source_pairs_tr,q.pairs)&&e.source_correct_answer_tr===q.correct_answer,'ar source '+id);
+   assert(e.question_ar&&e.explanation_ar&&e.topic_ar&&e.activity_type===q.activity_type,'ar fields '+id);
+   const shown=[e.question_ar,e.explanation_ar,e.topic_ar,e.correct_answer_ar,...(e.options_ar||[]),...(e.pairs_ar||[]).flatMap(p=>[p.left,p.right])].filter(Boolean);
+   assert(!shown.some(v=>/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(v)),'no Latin or Turkish letters in the Arabic of '+id);
+   assert.equal(blanks(q.question_tr),blanks(e.question_ar),'blanks '+id);
+   if(q.options_tr){assert.equal(e.options_ar.length,q.options_tr.length,'ar options '+id);assert.equal(e.options_ar.indexOf(e.correct_answer_ar),q.options_tr.indexOf(q.correct_answer),'ar correct position '+id);assert.equal(e.options_ar.filter(o=>o===e.correct_answer_ar).length,1,'ar one correct '+id)}
+   if(q.pairs)assert(e.pairs_ar.length===q.pairs.length&&new Set(e.pairs_ar.map(p=>p.right)).size===q.pairs.length,'ar pairs '+id);
+  }else{
+   assert(Array.isArray(e)&&e.length===1,'entry '+id);const {source,display:d}=e[0];
+   for(const f of ['question_tr','explanation_tr','activity_type','options_tr','correct_answer','pairs'])assert(same(source[f],q[f]),'source '+f+' '+id);
+   assert(d.question_tr.trim()&&d.explanation_tr.trim()&&d.topic.trim(),'display text '+id);
+   assert.equal(blanks(q.question_tr),blanks(d.question_tr),'blanks '+id);
+   if(q.options_tr){assert.equal(d.options_tr.length,q.options_tr.length,'options '+id);assert.equal(d.options_tr.indexOf(d.correct_answer),q.options_tr.indexOf(q.correct_answer),'correct position '+id);assert.equal(d.options_tr.filter(o=>o===d.correct_answer).length,1,'one correct '+id)}
+   if(q.pairs)assert(d.pairs.length===q.pairs.length&&new Set(d.pairs.map(p=>p.right)).size===q.pairs.length,'pairs '+id);
+   assert(!/[ğşıİĞŞ]/.test(JSON.stringify(d)),'no Turkish letters in '+lang+' '+id);
+  }
+ }
+}
 console.log('Extra Learn-path questions ok:',Q.length,JSON.stringify(per));

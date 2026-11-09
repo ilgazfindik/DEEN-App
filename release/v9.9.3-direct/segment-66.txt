@@ -456,8 +456,8 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
   const live=pilot.live_translations[base.id];
   const variant=pilot.runtime_variants[base.id];
   if(base.__deenArabicFullBank)return base;
-  for(const [entry,runtime] of [[live,true],[variant,true],[pilot.translations[base.id],false]]){
-   const result=asDisplayQuestion(base,entry,runtime);if(result)return result;
+  for(const [entry,runtime] of [[live,true],[variant,true],[pilot.translations[base.id],false],[window.DEEN_EXTRA_I18N?.ar?.[base.id],false]]){
+   const result=asDisplayQuestion(base,entry,runtime);if(result){if(entry?.topic_ar&&!runtime)result.topic=entry.topic_ar;return result}
   }
   return null;
  };
@@ -573,6 +573,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
    pilot.runtime_variants=variants;
    pilot.live_translations=live;
    pilot.ready=true;window.DEEN_BOOT?.progress?.(18,18);
+   try{await window.DEEN_EXTRA_I18N_LOAD?.('ar')}catch(_){}
   }catch(e){
    pilot.failure=String(e?.message||e);
    pilot.ready=false;

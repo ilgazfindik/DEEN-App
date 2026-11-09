@@ -246,7 +246,16 @@
   function stageMax(d){return Math.max(...d.legacyIds.map(stageNo))}
   // Extra Turkish-only questions (assets/learn/extra-questions.js) for the units whose bank asks fewer distinct facts than a unit
   // has places. The other languages keep their translated banks and never see them (a language change reloads the page).
-  function extras(){try{return (window.DEEN_APP_LOCALE?.get?.()||'tr')==='tr'?(window.DEEN_EXTRA_QUESTIONS||[]):[]}catch(_){return []}}
+  function extras(){
+    try{
+      const all=window.DEEN_EXTRA_QUESTIONS||[],lang=window.DEEN_APP_LOCALE?.get?.()||'tr';
+      if(lang==='tr')return all;
+      // Another language offers an extra question only once its (hash-checked) translation is there.
+      const t=window.DEEN_EXTRA_I18N?.[lang];
+      if(!t){try{window.DEEN_EXTRA_I18N_LOAD?.(lang)}catch(_){}return []}
+      return all.filter(q=>t[q.id]);
+    }catch(_){return []}
+  }
   let extraIdx=null;
   function extraById(id){if(!extraIdx){extraIdx=new Map();for(const q of window.DEEN_EXTRA_QUESTIONS||[])extraIdx.set(q.id,q)}return extraIdx.get(id)}
   function qById(id){return QMAP?.get?.(id)||QUESTIONS.find(q=>q.id===id)||extraById(id)}
